@@ -1,124 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=141.14.17.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170231;
-	b=T60Yxto+x+9+l+F7cOqYO0eit/fFn/1+rN0vLwcgNkPqd00gwlgpzGu3pKC0JvY/affD
-	 Fzr0LVDhZgVr+VP6jj/BXtP7ZMCaRhMvynuwcfOMn3MOXIh+Xd/2USWx/Dg97F8nWoyoS
-	 8nGMlOd4z9IaYAyf53Njb6OLuIKES1GYOe3bMbrV1bNdHWQsYdvW0qEdwTPuz2V59K2fE
-	 +BtGZ4ihJTKWMwMdY6xs9weAuX3MhHzFHUpkXmO/fOFhPWRecNBZZXdV/CNNVTkN0flms
-	 augzUJ4ZgI3dhxpaTq/gveFb67PQP+oAvs/bDJ/opLHJUmWLK55PgMwb0NBLlXXsVzg==
+	t=1795170243;
+	b=Wc19nw09I1XroQz/dL+0S2og42/8nlxaDm29aDGb5qf2xxqk4fpWxlhNjTftq1UL+JRf
+	 8TNjxiaWrcNIhOYGnteE+YIFo7/ixj4wejEDM76r6SgTnrob8gQcT8EuMdTHqqpkdY757
+	 WKIpgkoU6BW+3VG3Dop3DdSRU8Fa8AiDZWTf48OnU39rcj9LvfUn0Jgoq5QRBbMu92fxQ
+	 v2R6SY1G20lROn7iUl+j6l7s2TDCU+TyW8Vi0J4I2PcHpQ7NLrABUYD2u8MJO6xLoGR0O
+	 40Xrrhnk5vMhjLDUkYGkU9JGQJKnQ5zSgU+nBcNgGnbXDLKgKrf0NErLpxS1NyU3DsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170231;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=8TcUmke74uRIjwI8jkOaFTKaZBFJu17S8g+x0u6+YBA=;
-	b=WaB+zmksT/i4A2OrBNe2n2prFKsDlJIRhmP0ahiHU+jeiHfHlOqNi297xTyUC9CqQ+IH
-	 2FkMONSsuIrW443BHzy6cxZ0c3nB+9aW6Ih1ykFzi9XG2EpihC4WL8xEbb9QQrwdHp5Ag
-	 GOSkdZ9zPlOG28NFTVHJosbiO3Mwp10gaftBDy9M65oDtciqhXfMBmFTT7rOD7ZZ5h/kH
-	 c9+G4Kf7HrfqaMAfkeWF/pCeJKaUSF+Z3v4O/HubWjS/iVKQXsXMeLCePjnNAhGb2/PWF
-	 5fGAeLfUUJrdCU/Qqlw+fH5eGFD4907OimxbXDGgeinHQKE1OiZ8bUkSsYdWE+ezkIQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795170243;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:DKIM-Signature;
+	bh=cVfqNllX9psHaNp12DgFISsct/0PG6DEg+CaJsd/m3A=;
+	b=yy+ZcJ5OmfAEydUNbqPklADYhwjdvsaWCt9Q0sasLJnWZvwtgYwF/SUsaMkSJBtmZTZO
+	 A9Cy3UaNhcMvgu7fBg2Xf9lxaorlyC+T4UinKX/DZdKU5CpzVP/4PzmDi3MY0/FqSUjNa
+	 IGPlWpDP3gYVPBO1nTm5Y5b9o5uD/MsYI2XFxStYlKTh40kVkSr6TmRli7kEvrbMgRnMX
+	 FopS0HmYY2kJzBkeTlOarZIBqWwCiOKXXK0v82iZLnyLt4HcOkHZZe6f7l2/hIAMl5lnd
+	 hGKxmtwRXlJIhy/3Ou7IhVM9lzCRSRsthIzqS/aD2zEGw2XNalo6w1qHhA43HA9n+5g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fUjJhogu;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=DvAiTvQQ;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dmarc=pass header.from=molgen.mpg.de;
+	spf=pass smtp.mailfrom=molgen.mpg.de;
+	dkim=pass header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b=E9D0948W;
+	arc=none smtp.remote-ip=141.14.17.11
+Received: from mx3.molgen.mpg.de (mx3.molgen.mpg.de [141.14.17.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ADE1606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:23:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1ADE1606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A75F606A325;
+	Fri, 20 Nov 2026 10:24:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A75F606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=molgen.mpg.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=molgen.mpg.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fUjJhogu;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=DvAiTvQQ
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7f4Or1742148
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:23:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=8TcUmke74uRIjwI8jkOaFTKa
-	ZBFJu17S8g+x0u6+YBA=; b=fUjJhogutELs2uVD7hnzyFBThyKIi0WEy+eTSFcR
-	cX811Sw3p+NmQjf3221rW1b1mqT/vLupUqlV1+tZNiXSDv+nOEZm7lTfeCz1vvnt
-	Moc586UGO2NbfG+Yc+bHNnrmL6HjIrhVH45lqGATN1zNQ9/3ug8j/N/ID+nLlTnc
-	oUcI2EKojh+n/X36HL+8MenRFmhRxsI6nhWW9926PIrcJeh90s0N0VYzNrTQuvnO
-	5r3yrJLN8CBdWxBmyJQI0IwGho5cqXZkbRKazYaQN/tGdx4i022WxwZll4KFh0rM
-	wDNl+Y1doBoMLQpJysXkYpU6mp5E8PiafBGlLYQtImgHVg==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2f4yhdn6-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:23:49 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-93f37c94ceeso346841985a.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:23:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795170229; x=1795775029; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=8TcUmke74uRIjwI8jkOaFTKaZBFJu17S8g+x0u6+YBA=;
-        b=DvAiTvQQ8Rck6OpoqHVsHQKyFrZsIDOaG0lE6t1v9pYEoRg7g3CsYLWbBOqvgX1Iqn
-         HvDDtJAiCbXSQFzk+IzAA7PNArtqs/oVz8ftMo7vebwnpLTOXvKtX/72fianSv+P2uyQ
-         hxD26mPz7aWu/fEN4Tdq1Wfpvo5Ze4iXPeBFxDBEPARX0GqmsqIbYFHPJw0J/Jed254z
-         cVr3oKBQeC82FmjnL4GITmvPQREM5lcWDuSIYr/IITUDhW++mMEVLi5HDZ+RFgsle9sg
-         QCDrH7sYx/PiqaNslADuR07sXI1tFE0KAFNnFqzYJKm5qH6zmSkCg8/mVEs2IU6YMDpM
-         xbJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795170229; x=1795775029;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8TcUmke74uRIjwI8jkOaFTKaZBFJu17S8g+x0u6+YBA=;
-        b=Lw7W3CRTqpzxYKm8hnsFUuvmzK6doM+YsQXOQDA0bYfrujeaj8B75eqD1b3RJu6P85
-         Mj1UbXeMRJNFJI3FVlTRbQHooUXuGvRN4sHwF08xwp8TcP4R7Z16fTztt9/WZVz3zDmL
-         W5CeLc+Q9DG3B9040HGd8Ry0Zzx124D3WDuAiEXlbYugvWL9v1YhXoTXr3CabOqNSzeU
-         qJq1vpuZQMfOwytVJ7/b/C7lqSdGgdMY1kI/YOhY2xmIM7/w92KtxVXCOHzSNFKQu+Zj
-         E3ZdZtFCqXxm4IjB1ao5fbqhdlBTm35wBRLz7VC3Fxclhc7+12kkA4VuVF7itsxdfTts
-         9T3Q==
-X-Forwarded-Encrypted: i=1; AL+hErEPMEmIzh2FUjhVglf1kfZrBnwBHHvhHaXaBGm0lkZ3akfx4+vXscRuXzJARIWZcXnPmIB1Efr3cY17xnw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Vlu/uLOlqE9gi92Dz/gqOTXXOcd5hS2ldiN2vdRRvLZzbxhAX
-	V05eAB+O/nr9b1g301pVKP9qPR3gUoJRfMKYjjKzPYk0o26EBOTiZrmfR0EHkRZAQlhtaBCQFMY
-	0huzbEyhTDfVc2dHw9o1Ijn81yQsDGwxTv4sMQtA4wQZWXAgy3Uwfz7fuZbfhaSNysI4=
-X-Gm-Gg: AYBFou3LcFGqzLWXz9KnK2nMrSCxX0xN5s1UakgRpaYTTmW8JXj8/w93Lsd4oML7kpW
-	dGRIBC1GT5hNKQ2FL2sva3dfQdPRfw3oippJqbTtpsUSL7WOQkB0+vBu/PNSAwd05PGyu3P/e3e
-	d4Y9w0mhMn8rHnYID5aQc1RPU9BuRKK3rixQbdlN1v8FvC9nUJf6oIdBLPKmHHoLIYrKLTC+J+g
-	4qgTTs4C48Pj7OU4XOy1RTxeeRTWrY8UeO80bNUBsXzhfSnPvmY7MEHmAGAEjblbQpzV1Nb5iNI
-	qgR845zpnrhiyyTJwakMU6PmPRNOud5Pb9H5MqcRv2WplxyA7gICeqBEIZ8OwYCRQz01kYLrSKe
-	/xjZXBNJ1+dXB/nnY0sUfNpM2DblMY0e8OJnvBuSLdby+lN+OIZMt3sxV09Ca4liy
-X-Received: by 2002:a05:620a:4085:b0:93c:d209:4ea1 with SMTP id af79cd13be357-949b35cf4ccmr548458785a.24.1795170229033;
-        Fri, 20 Nov 2026 02:23:49 -0800 (PST)
-X-Received: by 2002:a05:620a:4085:b0:93c:d209:4ea1 with SMTP id af79cd13be357-949b35cf4ccmr548456785a.24.1795170228426;
-        Fri, 20 Nov 2026 02:23:48 -0800 (PST)
-Received: from oss.qualcomm.com ([188.27.161.77])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm4698002f8f.3.2026.11.20.02.23.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 02:23:47 -0800 (PST)
-Date: Fri, 20 Nov 2026 12:23:46 +0200
-From: Abel Vesa <abel.vesa@oss.qualcomm.com>
-To: Taniya Das <taniya.das@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
-        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
-        Jerome Brunet <jbrunet+clk@baylibre.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] clk: qcom: gcc-shikra: add PWM XO512 source clock
-Message-ID: <dtjei3tsuc37fzaxokznqtxxmkbuk3h6dn3yxnqcru7hggkuuu@igwaugqrjxfd>
-References: <20261116-pwm_clocks_shikra-v1-0-55fc11501821@oss.qualcomm.com>
- <20261116-pwm_clocks_shikra-v1-2-55fc11501821@oss.qualcomm.com>
+	dkim=pass (2048-bit key, unprotected) header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b=E9D0948W
+Received: from abreu.molgen.mpg.de (g42.guest.molgen.mpg.de [141.14.220.42])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: pmenzel)
+	by mx.molgen.mpg.de (Postfix) with ESMTPSA id BD7564C2F3FFBD;
+	Fri, 20 Nov 2026 11:23:16 +0100 (CET)
+From: Paul Menzel <pmenzel@molgen.mpg.de>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Kees Cook <kees@kernel.org>,
+	Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Diogo Ivo <diogo.ivo@siemens.com>
+Cc: Paul Menzel <pmenzel@molgen.mpg.de>,
+	linux-watchdog@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] watchdog: intel_oc_wdt: Stop the watchdog during system sleep
+Date: Fri, 20 Nov 2026 11:23:09 +0100
+Message-ID: <20261120102311.621074-1-pmenzel@molgen.mpg.de>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,42 +62,160 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116-pwm_clocks_shikra-v1-2-55fc11501821@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=Zs54uN7G c=1 sm=1 tr=0 ts=6b001fb5 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=asF+/XNaGoxFafzDDLC1GQ==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=EUspDBNiAAAA:8 a=qo5-9WyrHJ9SuE11QxkA:9 a=CjuIK1q_8ugA:10
- a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA0MSBTYWx0ZWRfX79Y3I+zVSx0u
- FHbalxjfS9XnNMnqz9+pXQaItpNNcIm72qQRD7IzDUJC1lWdzVLcU2viODKtNYqgHpNwhTJdnGW
- ba+wytRc2u48ZgAYS/Up/Lc3BbDaFcYgm1COnToLLdqAKX/J8OqF00GxV84zM5B1q2l6wOgtvmR
- rqbvBc4AgrQdQR3wIzPHyUlBV5rUYkDa43i1EHHHL8N9w4Y4TLYhcZPE4QIUOJKXejnt1K1pUbh
- YQR21nJ9XTFOdt/CDGx+BuiqxRz4jxVoLSs/8cXCZ4IULRLjORj543QNK0nHyOSJx4SzKr7IJ/m
- DJpmJj0eEBO18fkwCXwtv5CEqWSNMUJUA8Xz7Gs8p/u2nYp21X17MyiwgPJ96EbuFkvEq2fc2jQ
- gmUIai5CyHj7df9kDQ5VHCSQuCOzFQtxgFg5NQ1R2+0JM8S/rST6kj6L8+7WoJnGOn10jhGpUb/
- m0rHsrvBFjsS+QmkxVw==
-X-Proofpoint-GUID: 19N6pAIJgy3Yk18QxiQQJUHIA3Vj_m0e
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA0MSBTYWx0ZWRfX6/SJ/eEhI+EN
- 5IIEbb6VTmgQXVeNlhp7vSHxkJAYdG9jyFxfhk5KhwF6gchKh4VNRYkMlLlqR6kVpXAtGzzYQjC
- ukY2hL+o6b1je8zqplvT9+Pu99/tgLA=
-X-Proofpoint-ORIG-GUID: 19N6pAIJgy3Yk18QxiQQJUHIA3Vj_m0e
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_03,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 adultscore=0 clxscore=1015 priorityscore=1501
- impostorscore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200041
+Content-Transfer-Encoding: 8bit
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=molgen.mpg.de; s=20260906; 
+	t=1795170197; 
+	h=from:from:subject:date:message-id:mime-version:content-type:content-transfer-encoding; 
+	bh=cVfqNllX9psHaNp12DgFISsct/0PG6DEg+CaJsd/m3A=; 
+	b=E9D0948WYT4XQGSDlwqClbYwSMsgu4Z7IOCCeUZrEaXk4Xmivxu9lutVdODzUjX/JGyF7XUSEDWu
+	27e7IHwkFSDbJ6Fd/5qeKoxJuIKs7QJzcsmWZjHmElbOQS17KVDBTRGSeyn90eWvB5kiNJAd9vcmvj
+	Tf6ONk/mSwr8RKTtwZTuwOtt4cvWqGbYb1yTIAnlH+RtqibXY00wIZCV27OVtMB2ZQZu2RzcZf4K3y
+	YkMjUD4FfKUn5VQ1X9CpinLrLNl5ZPNXWuEhT9RqVilhv1PepTdq7zfBfpNXc8FN1IzhL9WurCb9Dy
+	XOhiz+Se8uDKX0G4rmSN/Jjyx2iEy1oA==
 
-On 26-11-16 10:57:45, Taniya Das wrote:
-> Add the programmable PWM XO512 divider sourced from bi_tcxo and make
-> GCC_PWM0_XO512_CLK its child. This permits PWM consumers to select their
-> PWM core rate through the common clock framework.
-> 
-> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+The driver has no system sleep callbacks, so a running watchdog keeps
+counting in suspend-to-idle. Suspend-to-idle stops the tick, so neither
+user space nor the watchdog core can ping it, and the watchdog resets
+the machine once the timeout expires.
 
-Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+On a Dell XPS 13 9310 (Tiger Lake, BIOS 3.17.0, no ACPI S3) with systemd
+`RuntimeWatchdogSec=30s` on /dev/watchdog-oc, both `rtcwake -m freeze -s
+900` and `rtcwake -m freeze -s 60` resulted in a reset about 30 s after
+entering suspend, without any message in the journal or in pstore. With
+the systemd runtime watchdog disabled, the system stayed in
+suspend-to-idle for 900 s and resumed normally.
+
+Stop the watchdog in the noirq suspend phase and restart it, with a
+reload, in the noirq resume phase, as iTCO_wdt does. Check the enable
+bit in hardware rather than watchdog_active(), so a watchdog started by
+the firmware, which only the watchdog core pings, is covered too. If the
+control register is locked, the watchdog cannot be stopped, so leave it
+alone.
+
+Also program the timeout again on resume, whether or not the watchdog
+was running: the platform firmware may reset the control register, and
+when resuming from hibernation, it holds the timeout the boot kernel
+set. intel_oc_wdt_start() only sets the enable bit, so a timeout set
+with WDIOC_SETTIMEOUT would otherwise be lost.
+
+Unlike iTCO_wdt, do this for all sleep states and not only for
+suspend-to-idle, as it is not documented whether the platform firmware
+stops the OC watchdog in ACPI S3 or S4. Hangs in the device suspend and
+resume callbacks outside the noirq phases are still caught.
+
+Tested on a Dell XPS 13 9310 (BIOS 3.17.0) with the module built for
+7.4.0-rc1 and systemd RuntimeWatchdogSec=30s:
+
+- rtcwake -m freeze -s 120 resumes normally; the stock module reset the
+  machine in 2 of 2 attempts.
+- TOV restore: with the watchdog armed, overwrite TOV with 0x3b (60 s) via
+  outl, as the firmware might, then rtcwake -m freeze -s 60. v1: register
+  0x0080603b after resume (TOV 60 s kept). v2: 0x0080601d (TOV 30 s
+  restored, EN set), watchdog still running 40 s later.
+
+Fixes: 535d1784d8a9 ("watchdog: Add driver for Intel OC WDT")
+Signed-off-by: Paul Menzel <pmenzel@molgen.mpg.de>
+---
+
+Notes:
+    Changes in v2:
+    - Program the timeout (TOV) again on resume, also when the watchdog was
+      not running, as the firmware or, after hibernation, the boot kernel may
+      have changed it (Sashiko review of v1)
+    
+    v1: https://lore.kernel.org/all/20261119210358.610521-1-pmenzel@molgen.mpg.de/
+    
+    Tool use: Claude Code (claude-opus-5-5) found the reset while measuring
+    s2idle power, wrote the change and the commit message; compile-tested with
+    W=1 (CONFIG_PM_SLEEP=y/n), checkpatch-clean.
+
+ drivers/watchdog/intel_oc_wdt.c | 52 +++++++++++++++++++++++++++++++++
+ 1 file changed, 52 insertions(+)
+
+diff --git a/drivers/watchdog/intel_oc_wdt.c b/drivers/watchdog/intel_oc_wdt.c
+index 0b012aeb18e15..4400a2a8811c9 100644
+--- a/drivers/watchdog/intel_oc_wdt.c
++++ b/drivers/watchdog/intel_oc_wdt.c
+@@ -44,6 +44,7 @@ struct intel_oc_wdt {
+ 	struct resource *ctrl_res;
+ 	struct watchdog_info info;
+ 	bool locked;
++	bool suspended;
+ };
+ 
+ static int heartbeat;
+@@ -204,6 +205,7 @@ static int intel_oc_wdt_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
++	platform_set_drvdata(pdev, oc_wdt);
+ 	watchdog_set_drvdata(wdd, oc_wdt);
+ 	watchdog_set_nowayout(wdd, nowayout);
+ 	watchdog_stop_on_reboot(wdd);
+@@ -212,6 +214,55 @@ static int intel_oc_wdt_probe(struct platform_device *pdev)
+ 	return devm_watchdog_register_device(dev, wdd);
+ }
+ 
++/*
++ * Neither user space nor the watchdog core can ping the watchdog while the
++ * system sleeps, and in suspend-to-idle the counter keeps running, so stop the
++ * watchdog late in suspend and restart it early in resume. Check the hardware
++ * enable bit, as the watchdog may also have been started by the firmware.
++ */
++static int intel_oc_wdt_suspend_noirq(struct device *dev)
++{
++	struct intel_oc_wdt *oc_wdt = dev_get_drvdata(dev);
++
++	oc_wdt->suspended = false;
++
++	if (oc_wdt->locked ||
++	    !(inl(INTEL_OC_WDT_CTRL_REG(oc_wdt)) & INTEL_OC_WDT_EN))
++		return 0;
++
++	intel_oc_wdt_stop(&oc_wdt->wdd);
++	oc_wdt->suspended = true;
++
++	return 0;
++}
++
++static int intel_oc_wdt_resume_noirq(struct device *dev)
++{
++	struct intel_oc_wdt *oc_wdt = dev_get_drvdata(dev);
++
++	if (oc_wdt->locked)
++		return 0;
++
++	/*
++	 * The timeout in hardware may have been reset by the platform firmware
++	 * or, when resuming from hibernation, set by the boot kernel, and
++	 * intel_oc_wdt_start() does not program it.
++	 */
++	intel_oc_wdt_set_timeout(&oc_wdt->wdd, oc_wdt->wdd.timeout);
++
++	if (!oc_wdt->suspended)
++		return 0;
++
++	intel_oc_wdt_start(&oc_wdt->wdd);
++	intel_oc_wdt_ping(&oc_wdt->wdd);
++	oc_wdt->suspended = false;
++
++	return 0;
++}
++
++static DEFINE_NOIRQ_DEV_PM_OPS(intel_oc_wdt_pm_ops, intel_oc_wdt_suspend_noirq,
++			       intel_oc_wdt_resume_noirq);
++
+ static const struct acpi_device_id intel_oc_wdt_match[] = {
+ 	{ "INT3F0D" },
+ 	{ "INTC1099" },
+@@ -223,6 +274,7 @@ static struct platform_driver intel_oc_wdt_platform_driver = {
+ 	.driver = {
+ 		.name = DRV_NAME,
+ 		.acpi_match_table = intel_oc_wdt_match,
++		.pm = pm_sleep_ptr(&intel_oc_wdt_pm_ops),
+ 	},
+ 	.probe = intel_oc_wdt_probe,
+ };
+-- 
+2.54.0
+
