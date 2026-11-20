@@ -1,62 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795156912;
-	b=TBOHztlC0KWgmNLYhD3wVk4U5IBluyX7RHvZm8umo0uRT1nPXYVssovzIIGtsKIOZj/I
-	 dpQ2+xoEL0PeV74I8lQcZw5sfVYVypDPruBAIEDleXX0OEokx/72NWFauxG17NrjvWhdF
-	 Do01E2lL3BZcikcPSGjuQ6i481M8atBEZgYOCxkEs6rfJyRQaAqTKhg8DEo0v/CH7DZJT
-	 vz+3dznoTH/UjXRTRNWnphnIdKoeGTyL2lmwM1QUXDH2xbWouMKwkZxdJMeJNx8W5lLjm
-	 E4O6g5tTHuXAyA3ESIE94/4wmj7nYzBFEjBqArAqSDfsvYePyP8yeeV/ztE9mYU2Kbg==
+	t=1795156930;
+	b=EqRCoveFZnh1yD2vQKSIebcBwMEelpZi5Mb0EXuZeF8JC28ISm5g3/q2MslHlzwPwIf6
+	 aZ0IdaY/Oct+O6NtMHoAXDhtb6N+uFXmEjXFYVZhuoGOLtmAZfnl2+z6Al3829kYKpWcE
+	 sltdzn4GWB5q7/3jBNuUW5NtH0LwpoOHmz5iWFzyZ9xdv6Fu8gqAHoiqW/wXukEKKAXBC
+	 XrXuuwtJJuCL5eqlGWyFrGxWv33oBuzQJNLISg8wUgridEYDSllbt+3JCCCGLUcE3ajcw
+	 M6jjfrEP5NxA8MpMpqs+4sbdqTW0zMUTqVGgrR/X93gRe2gQqJrkZC6/mxg9brZS28w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795156912;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Mgw3XWwCWgtLNqGSpBZksw7IgPVhXJGfoOp08HyVngA=;
-	b=XjEWjY0PdoKturETkobFXYPxirHL67qomUPLnFl9Oxc/l2tzeHvsGnbS5zvajEMcy1oy
-	 H9sQcDHcGKk75fbVtDN0VZXAE1kKjvEaXjrr1JbZSt6czUVH+rsdNUVATu71LvbExgtlc
-	 Ui8Cr05m6ZoUIeDocW3CJmwrAKWMvfn6WoCQQPMLhZQPB1KnalF3EFoUiQiuVWrPSq9DI
-	 D9xIiECow8culwFO3TmBiDHSYH+iUwHOOnQPYopRI+TyyJILgpF4ve7BLD/D3ZTlDEMQs
-	 UR3ModWICtaNxzagdkqHWixjWD9ckxDiaJhYXE5h1HqAqq0xoZvwXSIepwugCmYPm9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795156930;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=Z04Zgh/4uhXTKGuLDOYJatyR674dYRllSpwpdbHQSzQ=;
+	b=4qYwzThkGkFiQ1cy6tJCXxQ2KLvqxdBjIGrL0ztYqMwUeD599LmDPN9ag0vbmnUEmPz4
+	 inBarW3gmsTjYeCcUf2U9FWq2rcFdIwVQHFoPqSQnOnLb+CVoXmOFIstWsv8QRSPN+w8m
+	 izZbtGm82XrT9hVGaoCNAx9OlHDuj0aMsAXjtJ/dKgPgu1AaH0duTtQnFiGLmFY9Smkae
+	 CNh+SpOXW6zNb9HfL3rIIV2wa20bRt7pfLGCTeCFLajwd8H7afGL0JqmRU7GHmXXgDan6
+	 y5/CJj2USsy4w7Hen+umm3yh5N1omEidb7mUmGvz9ZI+JkMEqub36+Xr9EhTwWv/oZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XtBnsxK6;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ELCm7CSA;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=UUNMFQSw;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B14660A2607;
-	Fri, 20 Nov 2026 06:41:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D332606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:42:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D332606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XtBnsxK6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4BEC1F000C4;
-	Fri, 20 Nov 2026 06:41:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795156911;
-	bh=Mgw3XWwCWgtLNqGSpBZksw7IgPVhXJGfoOp08HyVngA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=XtBnsxK6HMOE3b3Xlla7URoLK6E2FCScr1ttMwqYI5yBAltelAiqZt1kEYLiikXsx
-	 CghSyBu0Fao5GFjHd95qWNMigi2Z8C5c3h90jRwShqgWnuGEhbJyvxoexmldoIJCry
-	 sKXS8Qg0Syp9aWsjKTYfv6ODQOJQKqzpQ538hbP0iNYr/qenoVe5lJsTQQHz/MUm5x
-	 ez2tdYmxj/776MGBmduwZ5q1M6YkuJ0nQoCjJ1gXhYcZkUYvNCoGshl9OoeNKIz6t/
-	 ETQdBA7ofQXO+uM4Y3yeuqD7zj+rnf2kiZubYFdxe/MQEfnmyFIQFlQlHqiW71VkW5
-	 CV/lzfxnksuog==
-Subject: Re: [PATCH net v5 06/14] net: pse-pd: check the PI state under the
- lock when setting a power limit
-From: netdev-bot+sashiko@kernel.org
-To: github@szelinsky.de
-Cc: o.rempel@pengutronix.de, kory.maincent@bootlin.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, broonie@kernel.org, lgirdwood@gmail.com,
- maxime.chevallier@bootlin.com, kyle.swenson@est.tech, ross@r-sc.ca,
- netdev-bot+sashiko@kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Fri, 20 Nov 2026 06:41:50 +0000
-Message-ID: <179515691045.3136.13671979747174463292@kernel.org>
-In-Reply-To: <20261118183957.2031311-7-github@szelinsky.de>
-References: <20261118183957.2031311-7-github@szelinsky.de>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ELCm7CSA;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=UUNMFQSw
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK6JHEi3393026
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:42:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Z04Zgh/4uhXTKGuLDOYJatyR674dYRllSpwpdbHQSzQ=; b=ELCm7CSAXr8TgCGi
+	8ZMvThZeoeM2fX7FKd/PpSYl/M+69+mJLFzfD7xJ1I/nypIv5+3Wb/1ZP11yN8vp
+	sgZkNhg8YFyxzG6fppr/hrMnkK2WdsBlzNZ1eSrqTMV8iHZ27tAPbjcwO+1qe6kL
+	3m4ncvaz3K4JPJCPQq6CAynCMnBvD5uO18RozYMyWUiskCtSNkWdtIT7FQIUfgAz
+	+N0kVdKf4J2rW0ZOV5326jX0T3bND1Q+BcakBn+PjhoJwK8exWOkfKvPn+kbHQmO
+	V/vO2EiurYVl63XaxrkIeB+S6ULSKC910iMlE7WGSCiPNXPI+3I7tXqVizC9Z6Zx
+	KYXW/w==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2gu8035a-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:42:09 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2eb5375cd68so6561825ad.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:42:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795156929; x=1795761729; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Z04Zgh/4uhXTKGuLDOYJatyR674dYRllSpwpdbHQSzQ=;
+        b=UUNMFQSwc4obBsowlwlEt21XxSADSHaxBo5iLCn2seSW/SSvBe+hG3bGuN2x3JO0hl
+         MmkpI1MG7vxiu0NOZKOw3i6tjDCP2cEMyCqR6jiiKhbSvwJvCpfMDLHz8l+S/7FbTslq
+         +eNtnYDkNs+9POIwdYFmVMxaGLaO1tog2OJoLaZ29cXd/5RtVURkCzZyNrz2DiJKlMzj
+         Krak8oxgkgpuy6fOG/J15cjj06dUHPhncZra2/6slGL4xGNby5UG2bX2x1yty/1P44Ie
+         5HskdRox2UPw3ywjuorbboe7gINxaDlA+M1P1U1c6ZXuBNzgLBJeAm2/TT1x36gzczAc
+         WMvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795156929; x=1795761729;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Z04Zgh/4uhXTKGuLDOYJatyR674dYRllSpwpdbHQSzQ=;
+        b=jfCqwU/lE+tHFO/G1Hsd1vyW7KimQ++1JR0GqiFEQ3ANvN8Fde0MdvTp5MAfk2XlBt
+         GdGqIbVJCWPd/sznA/rUiyG9l5/te8yRDI9zYYlM/zNthsTrXQWbaQasmRYcSd48BzKl
+         ttVsfBmHfGEhCwIJN0MLBvK//qj5K7/e1fhRGCEF2nYzAKOPM5y12Rkw6Xn0Y0P0oUun
+         GATEHC6CqenQFP1o2DA102QnqahpFQQeC5u1zapsG4rQrISPm6cR5Vk+cyWzDc8iyUeJ
+         020VCj4qsTDc9zoS4f+B0puiyULnbW+UmSFamJikTYdEyvY8meCZjgk0w29Daf0CK2Gt
+         5zOQ==
+X-Forwarded-Encrypted: i=1; AL+hErGWfMds+zc0WZmLtSGppDpKdev0tP65IbaCc1YmCiPOiqkz0nWldy/u3Ph8CEgdVkh36EniaTiSIdUh0XQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8DIK9nfvf74dy0uUagUMKyASGwNbOOL9oPsUUkj7u650y5FeVD
+	i5oDMfrYvTkDECqr9774fxpdc4PDxfJcA/eE5s/6cy0ERu0uIOcmxhbKbNgBGDofrGKEUtwYN/R
+	RnYSrdZlIv77Po2yjDL//cDdles2AXrUyUzfF9iBGbR+KLln9nJakOK1nmJjhertIdcg=
+X-Gm-Gg: AZFdTZd30+Ggl9H619hhRrlo86RAYZikyisOk3K8yDevYuiJhmGlW1riCI1ZG4U2dKt
+	dxukjeEWJRZRnfwchjFd2P6xxr3yRdfRnMiUw0xtiboQe1rvba0xgkHaDs0LxOjRk2lf3WjPNqe
+	cnXgCg0TFU8p+OtPfhzRG5zQZXbfm8lSa48DJkincUFg5J4FcZwFSrhNEmW3S9OIun2IY9GxFyk
+	SfDzLeD9ws4CjMt5TC6JXXQnltCy9Iqj1llyk+7lQiU/XdihraSapDmUji3T5nvM+T20eQGw14q
+	9Fs5cC37EYR5SvhektV8pWfxTd/EEGTmaASz2vB4FezJWGxVsZ4ioTcpJFYMH43WqBhJoON2Z6j
+	aykBeJCvj54tWouzneUtGxByRIs93Tf3NknUKTT1ChtHa/7Eg9uhSNy6xVcQPKJa+tL/TgnQqje
+	ENfdWTqIHk+eBsreMD/BNozvTB2FDBRootDJXz2pY=
+X-Received: by 2002:a17:903:298c:b0:2ed:42d5:e682 with SMTP id d9443c01a7336-2f03f21d8f7mr20044225ad.41.1795156928526;
+        Thu, 19 Nov 2026 22:42:08 -0800 (PST)
+X-Received: by 2002:a17:903:298c:b0:2ed:42d5:e682 with SMTP id d9443c01a7336-2f03f21d8f7mr20044055ad.41.1795156927955;
+        Thu, 19 Nov 2026 22:42:07 -0800 (PST)
+Received: from [10.133.33.8] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1a69sm9484255ad.18.2026.11.19.22.42.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 22:42:07 -0800 (PST)
+Message-ID: <fd5cf760-b750-4c97-bc32-93bd4451664e@oss.qualcomm.com>
+Date: Fri, 20 Nov 2026 14:42:04 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,139 +116,254 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH ath-next v3 01/10] wifi: ath10k: fix SDIO aux workqueue
+ starvation in recovery detection
+To: Loic Poulain <loic.poulain@oss.qualcomm.com>
+Cc: Jeff Johnson <jjohnson@kernel.org>,
+        Baochen Qiang <baochen.qiang@oss.qualcomm.com>,
+        Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
+        linux-wireless@vger.kernel.org, ath10k@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+References: <20261112-10k-sdio-crash-v3-0-24f03f300bb2@oss.qualcomm.com>
+ <20261112-10k-sdio-crash-v3-1-24f03f300bb2@oss.qualcomm.com>
+ <CAFEp6-12bAc5YoP7BaP-GENQsNAifXVxehpdPUu2pi-X8hfC=Q@mail.gmail.com>
+Content-Language: en-US
+From: Kang Yang <kang.yang@oss.qualcomm.com>
+In-Reply-To: <CAFEp6-12bAc5YoP7BaP-GENQsNAifXVxehpdPUu2pi-X8hfC=Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAyNiBTYWx0ZWRfXxeL4MyMFULMt
+ Rlb7NdfKfhGX1mh/bkqG5xaEvz4I6mVvaCxMDnReUviudV6aadzWquDszmF7DI8snXwb9EBvvhJ
+ NTW3JgFSulhZG3EIIaqhmOTtKMa1YHXkfW0IAg5kSMbC+HrbiMVoo8b+2OsGc4Kd2w6rModLaIw
+ glQs3wsiawEYNzFBt+I4tQRK3SVl77QZ5HPfY0cjehdDWYIyfPN7tQ0H/LThclqaDQJIl6fSyFW
+ OTQDGrQhK/o7bzh5KE89KVS9Jgc2BpWMyHv6ErpRivbBDgR2jHRK6+qZZHWI4JOzmsAEex/DcND
+ GJOcxPT/KsU02QihiUTBBOPPo+5ijhegUjJyVgcadixRRYH404r7f0imxfORBEQeuk/tqC5AL7B
+ gzxceQfFoMdTINDPYY9HpVNrYjF9iobtteHbop/9ZGWfOSN9Y60jeuSfGlr2NCvRcy4GwAnedEP
+ eMQ6Ad0Y48Y9jSATamw==
+X-Authority-Analysis: v=2.4 cv=bLeDs/+Z c=1 sm=1 tr=0 ts=6affebc1 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=QQEwzqQhIAFD7pLbQSoA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-ORIG-GUID: 83dE_TTQE6NwohY_0ebHp6S9mQgOm-CV
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAyNiBTYWx0ZWRfX5bNHKma9iyX/
+ YH7KaocJaSLxovZQx/tMJ47H/a2J/tj3t7AFw4s8io6V8FPrt26LtcNWnx+Md1+bOctwlVjPYum
+ f9zzynoHy358FxYnT6Rhp18ShLQEcx4=
+X-Proofpoint-GUID: 83dE_TTQE6NwohY_0ebHp6S9mQgOm-CV
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_02,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 phishscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0
+ malwarescore=0 adultscore=0 clxscore=1015 suspectscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200026
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+On 11/13/2026 5:24 PM, Loic Poulain wrote:
+> On Thu, Nov 12, 2026 at 12:26 PM Kang Yang<kang.yang@oss.qualcomm.com> wrote:
+>> Recovery monitoring runs on workqueue_aux, which is also
+>> used by SDIO RX dispatch and WMI SERVICE_READY handling.
+>>
+>> A single firmware crash may generate multiple recovery
+>> triggers. Recovery detection currently handles each one by
+>> waiting for recovery completion on workqueue_aux. On SDIO,
+>> this blocks the same workqueue needed to deliver recovery
+>> traffic, preventing recovery from completing.
+>>
+>> As a result, otherwise recoverable firmware crashes fail
+>> with:
+>>    ctl_resp never came in (-110)
+>>
+>> Treat duplicate triggers as part of the same recovery attempt. Use an
+>> atomic compare-and-exchange on pending_recovery so only the first
+>> trigger starts restart_work.
+>>
+>> Convert the recovery monitor to self-rearming delayed work. While
+>> recovery remains pending, the monitor periodically checks its state
+>> without blocking workqueue_aux. Cancel the monitor when recovery
+>> succeeds or the device is stopped.
+>>
+>> Tested-on: QCA6174 hw3.2 PCI WLAN.RM.4.4.1-00288-QCARMSWPZ-1
+>> Tested-on: QCA6174 hw3.2 SDIO WLAN.RMH.4.4.1-00189
+>>
+>> Fixes: f35a07a4842a ("wifi: ath10k: move recovery check logic into a new work")
+>> Signed-off-by: Kang Yang<kang.yang@oss.qualcomm.com>
+>> ---
+>>   drivers/net/wireless/ath/ath10k/core.c | 71 +++++++++++++++++++---------------
+>>   drivers/net/wireless/ath/ath10k/core.h |  2 +-
+>>   drivers/net/wireless/ath/ath10k/mac.c  | 13 ++++++-
+>>   3 files changed, 53 insertions(+), 33 deletions(-)
+>>
+>> diff --git a/drivers/net/wireless/ath/ath10k/core.c b/drivers/net/wireless/ath/ath10k/core.c
+>> index 7c2939cbde5f..82bb0bb72dc7 100644
+>> --- a/drivers/net/wireless/ath/ath10k/core.c
+>> +++ b/drivers/net/wireless/ath/ath10k/core.c
+>> @@ -2493,48 +2493,54 @@ static int ath10k_init_hw_params(struct ath10k *ar)
+>>
+>>   static void ath10k_core_recovery_check_work(struct work_struct *work)
+>>   {
+>> -       struct ath10k *ar = container_of(work, struct ath10k, recovery_check_work);
+>> -       long time_left;
+>> +       struct ath10k *ar = container_of(work, struct ath10k,
+>> +                                        recovery_check_work.work);
+>> +       int fail_count;
+>>
+>> -       /* Sometimes the recovery will fail and then the next all recovery fail,
+>> -        * so avoid infinite recovery.
+>> -        */
+>> -       if (atomic_read(&ar->fail_cont_count) >= ATH10K_RECOVERY_MAX_FAIL_COUNT) {
+>> -               ath10k_err(ar, "consecutive fail %d times, will shutdown driver!",
+>> -                          atomic_read(&ar->fail_cont_count));
+>> -               ar->state = ATH10K_STATE_WEDGED;
+>> +       if (ar->state == ATH10K_STATE_WEDGED)
+>>                  return;
+>> -       }
+>> -
+>> -       ath10k_dbg(ar, ATH10K_DBG_BOOT, "total recovery count: %d", ++ar->recovery_count);
+>>
+>> -       if (atomic_read(&ar->pending_recovery)) {
+>> -               /* Sometimes it happened another recovery work before the previous one
+>> -                * completed, then the second recovery work will destroy the previous
+>> -                * one, thus below is to avoid that.
+>> -                */
+>> -               time_left = wait_for_completion_timeout(&ar->driver_recovery,
+>> -                                                       ATH10K_RECOVERY_TIMEOUT_HZ);
+>> -               if (time_left) {
+>> -                       ath10k_warn(ar, "previous recovery succeeded, skip this!\n");
+>> -                       return;
+>> -               }
+>> +       /*
+>> +        * Pure monitor: only ath10k_core_start_recovery() starts a fresh
+>> +        * cycle. Bail if there is nothing in flight.
+>> +        */
+>> +       if (!atomic_read(&ar->pending_recovery))
+>> +               return;
+>>
+>> -               /* Record the continuous recovery fail count when recovery failed. */
+>> -               atomic_inc(&ar->fail_cont_count);
+>> +       /* Record the continuous recovery fail count when recovery is late. */
+>> +       fail_count = atomic_inc_return(&ar->fail_cont_count);
+> I don't understand why we need so much complication and the need to
+> count and restart this work again, why not simply scheduling the work
+> or a timer at the final expected timeout instead, then if we reach the
+> timeout the device is simply marked as wedged.
 
-- [High] The patch moves the PI-state check into
-  pse_pi_update_pw_budget(), under pcdev->lock, but the predicate is…
+Yeah, you are right. Early this patch-set will re-queue restart work so 
+we have the fail_cont_count. Now only one restart work will be executed 
+at one time, so we can delete the fail_cont_count and related code.
 
---
 
-net: pse-pd: check the PI state under the lock when setting a power limit
 
-This patch moves the "PI is enabled and has a PD detected" check from
-pse_ethtool_set_pw_limit() into pse_pi_update_pw_budget(), so it runs
-under pcdev->lock. It also adds an updated flag, so the rollback after a
-failed regulator_set_current_limit() only runs when the budget was
-actually changed.
+> 
+> 
+>> -               /* Avoid having multiple recoveries at the same time. */
+>> +       if (fail_count >= ATH10K_RECOVERY_MAX_FAIL_COUNT) {
+>> +               ath10k_err(ar, "consecutive fail %d times, will shutdown driver!",
+>> +                          fail_count);
+>> +               ar->state = ATH10K_STATE_WEDGED;
+>>                  return;
+>>          }
+>>
+>> -       atomic_inc(&ar->pending_recovery);
+>> -       queue_work(ar->workqueue, &ar->restart_work);
+>> +       /* Recovery still in flight; check again later. */
+>> +       queue_delayed_work(ar->workqueue_aux, &ar->recovery_check_work,
+>> +                          ATH10K_RECOVERY_TIMEOUT_HZ);
+>>   }
+>>
+>>   void ath10k_core_start_recovery(struct ath10k *ar)
+>>   {
+>> -       /* Use workqueue_aux to avoid blocking recovery tracking */
+>> -       queue_work(ar->workqueue_aux, &ar->recovery_check_work);
+>> +       if (ar->state == ATH10K_STATE_WEDGED)
+>> +               return;
+>> +
+>> +       /*
+>> +        * SDIO raises several triggers within microseconds of one crash;
+>> +        * only the first winner starts a fresh cycle. Losers do nothing
+>> +        * while the owner runs recovery.
+>> +        */
+>> +       if (atomic_cmpxchg(&ar->pending_recovery, 0, 1) != 0)
+>> +               return;
+>> +       ath10k_dbg(ar, ATH10K_DBG_BOOT, "total recovery count: %d",
+>> +                  ++ar->recovery_count);
+>> +       /* Start a fresh failure budget; the last cycle may not have completed. */
+>> +       atomic_set(&ar->fail_cont_count, 0);
+>> +       queue_work(ar->workqueue, &ar->restart_work);
+>> +       queue_delayed_work(ar->workqueue_aux, &ar->recovery_check_work,
+>> +                          ATH10K_RECOVERY_TIMEOUT_HZ);
+>>   }
+>>   EXPORT_SYMBOL(ath10k_core_start_recovery);
+>>
+>> @@ -3727,7 +3733,7 @@ struct ath10k *ath10k_core_create(size_t priv_size, struct device *dev,
+>>
+>>          INIT_WORK(&ar->register_work, ath10k_core_register_work);
+>>          INIT_WORK(&ar->restart_work, ath10k_core_restart);
+>> -       INIT_WORK(&ar->recovery_check_work, ath10k_core_recovery_check_work);
+>> +       INIT_DELAYED_WORK(&ar->recovery_check_work, ath10k_core_recovery_check_work);
+>>          INIT_WORK(&ar->set_coverage_class_work,
+>>                    ath10k_core_set_coverage_class_work);
+>>
+>> @@ -3764,6 +3770,9 @@ EXPORT_SYMBOL(ath10k_core_create);
+>>
+>>   void ath10k_core_destroy(struct ath10k *ar)
+>>   {
+>> +       cancel_work_sync(&ar->restart_work);
+>> +       cancel_delayed_work_sync(&ar->recovery_check_work);
+>> +
+>>          destroy_workqueue(ar->workqueue);
+>>
+>>          destroy_workqueue(ar->workqueue_aux);
+>> diff --git a/drivers/net/wireless/ath/ath10k/core.h b/drivers/net/wireless/ath/ath10k/core.h
+>> index dfee432615eb..e8fcbef38ca6 100644
+>> --- a/drivers/net/wireless/ath/ath10k/core.h
+>> +++ b/drivers/net/wireless/ath/ath10k/core.h
+>> @@ -1207,7 +1207,7 @@ struct ath10k {
+>>
+>>          struct work_struct register_work;
+>>          struct work_struct restart_work;
+>> -       struct work_struct recovery_check_work;
+>> +       struct delayed_work recovery_check_work;
+>>          struct work_struct bundle_tx_work;
+>>          struct work_struct tx_complete_work;
+>>
+>> diff --git a/drivers/net/wireless/ath/ath10k/mac.c b/drivers/net/wireless/ath/ath10k/mac.c
+>> index 8e604697d6c2..3c45e5483b60 100644
+>> --- a/drivers/net/wireless/ath/ath10k/mac.c
+>> +++ b/drivers/net/wireless/ath/ath10k/mac.c
+>> @@ -5427,7 +5427,15 @@ static void ath10k_stop(struct ieee80211_hw *hw, bool suspend)
+>>          cancel_work_sync(&ar->set_coverage_class_work);
+>>          cancel_delayed_work_sync(&ar->scan.timeout);
+>>          cancel_work_sync(&ar->restart_work);
+>> -       cancel_work_sync(&ar->recovery_check_work);
+>> +       cancel_delayed_work_sync(&ar->recovery_check_work);
+>> +
+>> +       /* ath10k_stop() can race with an in-flight recovery. Clear the
+>> +        * recovery state after the works are cancelled so a later
+>> +        * ath10k_start() can start a fresh cycle instead of being blocked
+>> +        * by a stale pending_recovery that nothing will clear.
+>> +        */
+>> +       atomic_set(&ar->fail_cont_count, 0);
+>> +       atomic_set(&ar->pending_recovery, 0);
+>>   }
+>>
+>>   static int ath10k_config_ps(struct ath10k *ar)
+>> @@ -8170,6 +8178,9 @@ static void ath10k_reconfig_complete(struct ieee80211_hw *hw,
+>>                  ar->state = ATH10K_STATE_ON;
+>>                  ieee80211_wake_queues(ar->hw);
+>>
+>> +               /* Cancel the monitor first so it cannot bump the count after reset. */
+>> +               cancel_delayed_work_sync(&ar->recovery_check_work);
+>> +
+>>                  /* Clear recovery state. */
+>>                  complete(&ar->driver_recovery);
+>>                  atomic_set(&ar->fail_cont_count, 0);
+>>
+>> --
+>> 2.34.1
+>>
 
-> diff --git a/drivers/net/pse-pd/pse_core.c b/drivers/net/pse-pd/pse_core.c
-> index b8cba6f86a7fd..342fb27e38319 100644
-> --- a/drivers/net/pse-pd/pse_core.c
-> +++ b/drivers/net/pse-pd/pse_core.c
-
-[ ... ]
-
->  	/* We don't want pw_allocated_mW value change in the middle of an
->  	 * power budget update
->  	 */
->  	mutex_lock(&pcdev->lock);
-> +	/* Only a PI under software power control that is enabled and has a
-> +	 * PD detected gets a budget. Check this here, as pse_isr() changes
-> +	 * it under the same lock.
-> +	 */
-> +	if (!pse_pw_d_is_sw_pw_control(pcdev, pi->pw_d) ||
-> +	    !pi->admin_state_enabled || !pi->isr_pd_detected)
-> +		goto out;
-> +
-
-[Severity: High]
-
-The check now runs under the lock. Is admin_state_enabled &&
-isr_pd_detected enough to show that the PI is powered and has a budget?
-
-pse_pi_is_admin_enable_pending() describes a state where both flags are
-set but the PI is off in hardware and pw_allocated_mW is 0:
-
-pse_pi_is_admin_enable_pending() {
-	if (!pcdev->pi[id].admin_state_enabled ||
-	    !pcdev->pi[id].isr_pd_detected)
-		return false;
-
-	ret = pse_pi_is_hw_enabled(pcdev, id);
-	if (ret == 1)
-		return false;
-
-	return true;
-}
-
-It looks like this state can be reached without any race:
-
-- On classification, pse_set_config_isr() sets isr_pd_detected = true.
-  If the static allocation then fails, it turns -ERANGE into 0.
-  pse_pi_enable() also sets admin_state_enabled = 1 on -ERANGE.
-
-- pse_disable_pi_pol()->_pse_pi_disable() sheds a lower priority PI and
-  frees its budget, but leaves both flags set.
-
-- If ops->pi_enable() fails after the budget was allocated, the budget
-  is freed but the flags stay set.
-
-In that state, pse_ethtool_set_pw_limit()->pse_pi_update_pw_budget()
-passes the new check. pw_diff = pw_limit - 0 is positive, so
-regulator_request_power_budget() is called and pi->pw_allocated_mW =
-pw_limit is recorded for a port that is not powered.
-
-The voltage == 0 early return in pse_ethtool_set_pw_limit() doesn't
-seem to stop this on tps23881, because tps23881_pi_get_voltage() reads
-the controller input voltage.
-
-Later, pse_ethtool_set_prio() calls pse_pw_d_retry_power_delivery(), as
-does the disable or disconnect of another PI in the same domain. That
-function picks exactly these admin enable pending PIs:
-
-pse_pw_d_retry_power_delivery()
-  _pse_pi_delivery_power_sw_pw_ctrl()
-    pse_pi_allocate_pw_budget_static_prio()
-
-pse_pi_allocate_pw_budget_static_prio() then requests pw_req again and
-does:
-
-	pi->pw_allocated_mW = pw_req;
-	return 0;
-
-It does not free the reservation made by set_pw_limit first. Doesn't
-this leak the power budget on the supply until the controller is bound
-again? That is the same leak the commit message describes.
-
-Until that retry runs, shedding can't reclaim the reservation either:
-pse_disable_pi_prio() skips PIs where pse_pi_is_hw_enabled() <= 0. As a
-result, powered ports could be shed or refused power.
-
-The later patches in the series, such as "use each PI's own supply
-handle for the power budget", only change the supply handle in these
-functions. The predicate and the overwrite still appear to be there at
-the end of the series.
-
-Would it work to check under the lock that the PI is actually powered
-or budgeted, for example pse_pi_is_hw_enabled(pcdev, id) == 1 or
-pw_allocated_mW != 0? Another option is for
-pse_pi_allocate_pw_budget_static_prio() to free an existing
-pw_allocated_mW before overwriting it.
-
->  	previous_pw_allocated = pi->pw_allocated_mW;
->  	pw_diff = pw_req - previous_pw_allocated;
->  	if (!pw_diff) {
-
-[ ... ]
-
-> @@ -1846,6 +1859,7 @@ static int pse_pi_update_pw_budget(struct pse_controller_dev *pcdev, int id,
->  		regulator_free_power_budget(pi->pw_d->supply, -pw_diff);
->  	}
->  	pi->pw_allocated_mW = pw_req;
-> +	*updated = true;
->  	ret = previous_pw_allocated;
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118183957.2031311-1-github%40szelinsky.de
