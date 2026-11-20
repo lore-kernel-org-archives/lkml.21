@@ -1,70 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795163152;
-	b=L+w6ylUwx6XWDDUok+LlWl8Jxz1n+fPOVB6QUN90wE8AYIVJffES3GayPFBENDDK9CYt
-	 A4wXN0Fh0ua751IMbWLp7N3X+U84FK9nPeFx0CbDcbTqBXDlDXvYtHdwis7YnUJF+bOon
-	 dLimN3UcwX41M/UtBNfJD6rGdG5Aif5EeuMuEiFNjzr4panchxvckZLOCfekas6OTFS82
-	 S+L2KJGUwtV6E/OJ/CfH8nBl+w3nDm0D5wCM0V5hlDDdfuGKSqMg8JuByW3bWRtrx4BnN
-	 1yVZ86k2bm4OcjYhK3sj6YCM+i23N7POBRU3ykQwi6tmQsyGESPPfKT4sb+MtcVLbRw==
+	t=1795163207;
+	b=M1DKVRTGMAGw7GyxjOt1DJjZIMTWFICJillr+OZJ6auMJEoVo0nHB/IwOGtVw3v13XxI
+	 H8dzwlyOpIVlIDDPSNwBKad5BqH//SMD3EB0OCJyORPua/HXxJi3vHHN/oNHCenh+SXMM
+	 CXvFMKsDNF9XaEC6F8qpo1kUtLyOM1SAKncWFZr/X7EMqbE/7v+7tlg1R9RKRdSME5quo
+	 KnINHJ6CO81kroTNOz87NjUaFS+FRHW4XjkVZlIiEqF6FZau6ZUauRl7LbS50OWF+QxWV
+	 FWwT7c2IRz7Y6qlJfy5FRiy4GpcYGhZmV9gXVV7tnQcQooE1a0z/ei7DNrSuYiIirvQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795163152;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:X-Last-TLS-Session-Version;
-	bh=IC9XMH+T2hnZHNkyr7/NV6aB8tE9x3aA982mVIUmLFI=;
-	b=NbCzzO0M3xtQKJB8Wp0XfaUFz2zeagqFmBcBugz5ufHSqSsqUmzMv7cXkKIoowQAlM/b
-	 v9vrFr9bbe1Y9Wac4iqUQOGsXFaHIxz91T4Kf0JZ36HoB9/3Nvax6v5pEKjGmuykhbs3K
-	 CjknYmHt7NPlERu8spjp2uktMOXQamqo2k6iYrjzpRUb3KWjnp66c8wJmsYP5UANj/iFL
-	 zuhkS5ZvC0XNKbjMvhUJ8mMaBKBRpP7lz8QutWxBeIkXWu9myaBXy95h9NZxBcu6Q0Fey
-	 ynfN9WuCfilojyicTXDqZi3QDZaYIQuJTcZp+BPmTzZ/z6UD/NSRTEbCbeQdjzStFHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795163207;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=aV8jtS66Tt+1KtEPhn6QzwtWLg4RKOLbiueDjLgm9B8=;
+	b=MZI/kJ/9r6deA+Tpn95X/UZDoRZCWFurlC8pnVGpCmCxJWhsmgzFP/NHQEyMLznbKqaQ
+	 BOgXHAM6X5anDRyy/kFPyKzbV8TcdMW2ElkRwPuek1yGT8hLW11TW44bKFd+O9XgjOBPk
+	 ZN8ncr4mhDz9thdeogtDfUBOPdB+FGCogyXFyDxL/xPqwhqzgPcYylTlFqqFfrB4rts8f
+	 JPw3DEcQe037To395Qn+t9OfcS8GYJeCFfFzz3MijQgAOjxig0iVePUFm0oaifbpG/97p
+	 xbOfb/LOx4C+ijBXgPDG+dmkfwSOfxqEOVb9ELU+exgjpGYPv2n/ZK5Wo9Uu+ANvShw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=C+KX3P+q;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GKo+RNWT;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D176F606A325;
-	Fri, 20 Nov 2026 08:25:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D176F606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BE80606A320;
+	Fri, 20 Nov 2026 08:26:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=C+KX3P+q
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 4F0894E41684;
-	Fri, 20 Nov 2026 08:25:50 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1CE5D6017D;
-	Fri, 20 Nov 2026 08:25:50 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5631211BC10CA;
-	Fri, 20 Nov 2026 09:25:46 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795163149; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=IC9XMH+T2hnZHNkyr7/NV6aB8tE9x3aA982mVIUmLFI=;
-	b=C+KX3P+qdxZTebUJj5kTuArH0nr5DdVrMljfMShhv4ZQkkvQmh8XFoOYYT5Gt3LPhZiM9o
-	vfkuLqmx66pngGFQQ4mPDgEn/YZ0KIlBd3apXmSY9sUpob/KXXqw9iff4uyhA27B/GD1Px
-	IRrJ1lorLU+nwb22GKCylXJqvlqrFjNp23cXFT7QZW2umiHhcZTyVVjbUMsuCRq9zStyZU
-	EpydEMxuNuKXRXskHkHeRLlEPNx9S30Zej/SHsg+4rnTV16LodVJa/J2j2D2u/B6ghCUgp
-	JqIojmp7TyudUYI7SBRJ9eBAd2qKZtximNx6LHx5zcYka9Xxlk9m3CCxIY7gHg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Andrey Misiurov <amisiurov@cloudlinux.com>
-Cc: Alexander Aring <alex.aring@gmail.com>,  Stefan Schmidt
- <stefan@datenfreihafen.org>,  linux-wpan@vger.kernel.org,
-  netdev@vger.kernel.org,  "David S . Miller" <davem@davemloft.net>,  Eric
- Dumazet <edumazet@kernel.org>,  Jakub Kicinski <kuba@kernel.org>,  Paolo
- Abeni <pabeni@redhat.com>,  Simon Horman <horms@kernel.org>,
-  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] ieee802154: keep the original error after a
- netns rollback
-In-Reply-To: <20261120065750.3274661-1-amisiurov@cloudlinux.com> (Andrey
-	Misiurov's message of "Fri, 20 Nov 2026 07:57:49 +0100")
-References: <20261120065750.3274661-1-amisiurov@cloudlinux.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Fri, 20 Nov 2026 09:25:45 +0100
-Message-ID: <87tslbc3jq.fsf@bootlin.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GKo+RNWT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 091C61F000C6;
+	Fri, 20 Nov 2026 08:26:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795163207;
+	bh=aV8jtS66Tt+1KtEPhn6QzwtWLg4RKOLbiueDjLgm9B8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GKo+RNWTBbECnl7ztHjJyXNwuCG7vyB8iV2U3YYG7U+do5cDoPmPsdnGuttViBrDE
+	 8vvLJNEObbOgOFUoLma2I/pHKteMokeQRLjYMjIKoBl/cMq7wS2xzv9hc1BKEp65Pi
+	 UePeSHjxMFqGcBjrq7TFkwPhjjalKwChgjJ1euFTM4nDv31QHdcYa9l0Z5BeL/uyFw
+	 0v531AMxmI3PmIJjalsKkNJYninErCi3AbFEVAYDaW5wgZ64sW1jCMv4x2Y7ZNK2qM
+	 We+efUDFUQPi5D/Hx2uAAIO1OVqe9Sa9ZrcBOUAoP9wR/FC4qUdUvr+kB+S1Ur0Mm0
+	 1cZlQJ89zFA5g==
+Date: Fri, 20 Nov 2026 10:26:41 +0200
+From: "westeri@kernel.org" <westeri@kernel.org>
+To: Chunfeng Yun =?utf-8?B?KOS6keaYpeWzsCk=?= <Chunfeng.Yun@mediatek.com>
+Cc: "mika.westerberg@linux.intel.com" <mika.westerberg@linux.intel.com>,
+	"konrad.dybcio@oss.qualcomm.com" <konrad.dybcio@oss.qualcomm.com>,
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"YehezkelShB@gmail.com" <YehezkelShB@gmail.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"sven@kernel.org" <sven@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"andreas.noever@gmail.com" <andreas.noever@gmail.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH v2 4/7] thunderbolt: add platform NHI driver
+Message-ID: <20261120082641.GB833643@thinkpad>
+References: <20261110114925.722014-1-chunfeng.yun@mediatek.com>
+ <20261110114925.722014-5-chunfeng.yun@mediatek.com>
+ <20261110143758.GC259790@black.igk.intel.com>
+ <2807832e631dca98846d201b571f623210820268.camel@mediatek.com>
+ <20261117125241.GA259790@black.igk.intel.com>
+ <39fed6e12d60f439e0f07f3012d675f1c85d2b84.camel@mediatek.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,24 +72,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <39fed6e12d60f439e0f07f3012d675f1c85d2b84.camel@mediatek.com>
 
-On 20/11/2026 at 07:57:49 +01, Andrey Misiurov <amisiurov@cloudlinux.com> wrote:
+Hi,
 
-> cfg802154_switch_netns() moves all of a phy's netdevs into a new netns. If
-> one move fails, it jumps to the errout label and moves the already-moved
-> netdevs back to the old netns.
->
-> That rollback loop overwrites the same 'err' variable with the result of
-> each move-back. The move-backs succeed, so 'err' ends up 0 and the function
-> returns 0 -- success -- even though nothing moved and the phy stayed in the
-> old netns. nl802154_wpan_phy_netns() then tells userspace the move worked.
->
-> Give the rollback loop its own 'err' so the original error survives and is
-> returned.
->
-> Fixes: 66e5c2672cd1 ("ieee802154: add netns support")
-> Signed-off-by: Andrey Misiurov <amisiurov@cloudlinux.com>
+On Fri, Nov 20, 2026 at 08:16:27AM +0000, Chunfeng Yun (云春峰) wrote:
+> > > +	device_set_wakeup_capable(nhi->dev, true);
+> > > +	device_enable_async_suspend(nhi->dev);
+> > > 
+> > > these two line can be put at the end of probe.
+> > 
+> > I meant device_enable_async_suspend() it's not stricly required and
+> > we
+> > don't do it elsewhere so I would leave it out now and then add it
+> > everywhere later.
+> 
+> I look at the PCI core code, seems it already enables async suspend for
+> every PCI device during device enumeration by default.
+> 
+>  see: pci_pm_init() (drivers/pci/pci.c)
+> 
+> Unlike the PCI bus, the platform bus does not automatically enable it
+> for platform devices, but for usb devices, usually enable it because
+> the standardized tree topology with well-defined dependencies.
+> 
+> Due to we explicitly create dev-link with xHCI/PCIe controller devices,
+> it is safe to enable it, then keep the same way as thunderbolt/pci.c
+> does.
 
-Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Okay works for me then.
