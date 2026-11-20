@@ -1,58 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795182576;
-	b=SqFzma0rwLODtrwE8YxOcSxUOkMQo3gCHASfgQfoikpqcwuUMmzH7tBUyFU+aXL3kUsd
-	 etNEuedsxW8V3/kFGhhCWLG5eyn14Ty4TU2SYTLRVfv6FsRRbGDPToyyUdsLxi9on7sJa
-	 YIxDOklGeT1fVzmnwHCrRT5xE4jIWlly93kDl8dqd3MDCItXk1zwBZfaw26ehKo2mLOQn
-	 ktLvNEF/IACdBrA2oTLsy2IOyZku3XVyMdGFqYpiITG2WKylNlgzQhyPB/O3CK0jjXPem
-	 aUuwDQdu37nc8Bz2W+aoCoz6FkkMnKs4j0ddw+X5iA2H3zbOT8qeUzFJwGJLjXhBhGA==
+	t=1795182584;
+	b=mFhmU3D7bpHzf9QHYZLsD3Jl/APQaRjJ/2Cr4rRD/8lzfoqTv/tSlpiRs44c4tR01Ux8
+	 0BL4qGkEqi0WvMFKD2X7FKsQ3VkxoFE7y4fl6AAhQUCQB+z7rNVIS+FEH3lQoZCOwDU3G
+	 JtptCjYIAdDAbth4qpUdbIOgKUPX2ctTYCM0WaH4txXlhLKUKYiIUmOMA/9D7RXZuBTDK
+	 S2KIzXXgkKiCovO6B6AlFK4SaV4BLIt0GxILiYStw0XOrT7pVY3MZPffMTtu/MzThI/In
+	 vpHAOkF+B4NNAwAchL7op4n7zS1Gygcp40nqHw5VXe3BbSRzbxtjW+CrDAx+fNRo/GQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795182576;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=eHjmk/z8Jdt2IsImeZwOgMNJKLupv390gnEU6+SCCOlkQQ9h6eq3b1BJj/aMI3r+z12m
-	 Ex118yJ7V8NLw1RXlwwbfWCE9/jldReeT997riOmOW2qk4tB+7FfShRkqlizClbccPzn4
-	 C9SviBQCMRk5EwzsfCCTLSbEZ4ZW4rtMkl64iaKFFV9FOGHDygFp8/dTlHpnRE/h9v6pz
-	 6pAcaUJe6Fd79FVyiLx+jsaqp0HfZS57+AeOb+4r+9DpxgEI3oFbb5lsWDHykeymzTFg7
-	 qXS5cALXbfAm11TYwjn0FYxWJoyojAEGRh2Kri4t0Hn9CbUhvOgSthGXVOyFg/conNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795182584;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=J65sboDxGHB+ZFpro2zBW6UtybYQ6p08zkXhKEDH0Uo=;
+	b=igGBMuSUttA23iTN8DjXeSB/WUrMq8xSKIBTc2Q7b5XUjGD9dwYuflWz2cbwj5BRppEb
+	 lUoU5xZk5V5SLpnGxmj8Th31iy1q0nOr8OVxn26Dy40IzQ89ebMt/bh0CqiEKolEjqHz9
+	 H+dyAZUTVhGqEDn6s2kWBMSLSffvxec321bgerfdxI1iuD7tdfOdBa72Dsl1u6BNtJRnR
+	 acgHZlJj6GzIFBKUD3dVZx1+bMRAIpXgc9Tnnuf9BbsRSrEYxnGyGfU1vQMneuz3otURJ
+	 GEXTe25l3cI5uMts9jJK7VKZZPikyalvhCyA7xn0IXLIiZA4djFJOTp+TBBYzMzWNcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QN9BTj8N;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lr2UNs0J;
+	arc=none smtp.remote-ip=198.175.65.11
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FC0A60A260A;
-	Fri, 20 Nov 2026 13:49:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C663B606A333;
+	Fri, 20 Nov 2026 13:49:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C663B606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QN9BTj8N
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87FD91F000C6;
-	Fri, 20 Nov 2026 13:49:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795182575;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=QN9BTj8NdXJjCmckYL5lmbjNpfr2kJoT2AvvWtsiI89R5JzJM+zyM05EOsiHQ8Xdc
-	 4Qe2i1xxUjdQIr1jyNQaNjSgOnceAD40jyuMbXYr54CZzIeI8kGQxLQgmJePvS2+sk
-	 2+OYPnnLQCPNdQn1oD9ZolX+WXdbuSixOOPcumEuWSjsjTGJw8DxGF79Qft4tZGc6d
-	 N4D+bVNtAsiWb7iy2SRdftc2V6yeQfwDiqoq+lM11lyGW29JtYe7lxh14Hk5KeczaU
-	 n4Mme3EgVy26V65sYVdeN/ghdkx1kj+Muo9U9jjqvxhGe/tAbt45DcMPR1j6nap0+S
-	 KdLoGL9XLcW+w==
-From: netdev-bot+sinfo@kernel.org
-To: mdshahid03@gmail.com
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: 
- Re: [PATCH] rtnetlink: fix NULL pointer dereference in rtnl_get_link()
-Date: Fri, 20 Nov 2026 13:49:35 +0000
-Message-ID: <179518257506.3291.15373002688577259730@kernel.org>
-In-Reply-To: <20261120134548.214126-1-mdshahid03@gmail.com>
-References: <20261120134548.214126-1-mdshahid03@gmail.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lr2UNs0J
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795182584; x=1826718584;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=t9G1Z10mmZe4W5gDXqqRwVxtfEFNyswpPldl+jV5IYI=;
+  b=lr2UNs0JlOn9vrJzHCADOKs7s6prOByaROfsAusDfwZ9O9XO3Qvxo3fV
+   7XREa/AsBoK7d0zTygwcUHWtztsoZBHnQXl1+7wvWGIR8YSka0r/BoDzA
+   vuHWWyb+SE/8LPxX0ltolHY7BqtLbPAjjJn6WiveZT3PqTJDMnIGwvq1c
+   oSeLHGtIQhnbTxV6TN3o4ByYAzwLf0P0vVZZrftLaTGLzOqKAMGQ5hHar
+   FeEc683Mx7KIRRgWNlUCP/nnGB95gt3QI4b8rqa6T8XPvscxIUgwaADex
+   HJWYQ3gp5mKpVmRP4HuOwscp4IC0CP9fU82GNQUN11sRSv0zc91U0OlBu
+   A==;
+X-CSE-ConnectionGUID: Sh74gdEcQ2OV0kgmu5eQXg==
+X-CSE-MsgGUID: ObauvOZMRE6cgt9X1ln8kQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3955265"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="3955265"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 05:49:44 -0800
+X-CSE-ConnectionGUID: TrOSf16cRWG81fgfdhb18w==
+X-CSE-MsgGUID: R0AovMn3RXilmIPIZeoQPQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="10971558"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.16])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 05:49:40 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+To: linux-pci@vger.kernel.org,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	"Rafael J. Wysocki (Intel)" <rafael@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	linux-kernel@vger.kernel.org
+Cc: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Subject: [PATCH v2 14/16] PCI: ftpci100: Convert to pci_assign_unassigned_bus_resources()
+Date: Fri, 20 Nov 2026 15:47:09 +0200
+Message-ID: <20261120134716.3027-15-ilpo.jarvinen@linux.intel.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261120134716.3027-1-ilpo.jarvinen@linux.intel.com>
+References: <20261120134716.3027-1-ilpo.jarvinen@linux.intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,26 +88,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Hi!
+The ftpci100 driver attempts to assign bus resources using
+pci_bus_assign_resources(). That function makes bridge window sizing
+disjoint from the assignment phase and is going to be removed.
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Convert pci_bus_assign_resources() to
+pci_assign_unassigned_bus_resources(). If no other bridges are involved,
+the extra sizing should be a no-op.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+Signed-off-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
+---
+ drivers/pci/controller/pci-ftpci100.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
+diff --git a/drivers/pci/controller/pci-ftpci100.c b/drivers/pci/controller/pci-ftpci100.c
+index 28e43831c0f1..96b3deb70f57 100644
+--- a/drivers/pci/controller/pci-ftpci100.c
++++ b/drivers/pci/controller/pci-ftpci100.c
+@@ -509,7 +509,7 @@ static int faraday_pci_probe(struct platform_device *pdev)
+ 	p->bus->max_bus_speed = max_bus_speed;
+ 	p->bus->cur_bus_speed = cur_bus_speed;
+ 
+-	pci_bus_assign_resources(p->bus);
++	pci_assign_unassigned_bus_resources(p->bus);
+ 	pci_bus_add_devices(p->bus);
+ 
+ 	return 0;
 -- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+2.47.3
+
