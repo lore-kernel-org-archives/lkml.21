@@ -1,66 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795190777;
-	b=XCAdGoCLZSi+o6tRQS/KFNiGgq8kCkDUBItq3MUPwbTZ0/voHMihLeVDmh6BQOcmt0ch
-	 Mft1pwWjdu/GX6vgeu44RUArtmMJxOC+Yk0BNUNygA1t5ULpoXt3ixFkDxrY+w75nq+8u
-	 twX3kR+ahlaHpZm0ieBESxpR9uqqtUMOEK9U4SI3uiqeqKIgcdMta1e/aeRzUP3BnJ0Ap
-	 YCwLmSp2lkFNfYZPy/TD8Wpod5MOQB8TE3GrQJl99h4d2uQxmsN1bM7iI88/T9j6szoWn
-	 1RkaUu4XgXXI6Ndgg5x0nJ/37f2m9YZZyU2X1mRvSjo3IRilNjipSppXKUF9neoC62Q==
+	t=1795190783;
+	b=1lLwyy1v+BMEjseq3sPLuQ84Ccvih8auxUljJy47d3RVc/uN+QTHhfwJd+PxfYIdz1jk
+	 0fI7xikdHW34QyvLnKd99oxaXXFpCPr064Ms+gYt+MrFWkLUGmUQspavgWpBzUYJfTI9A
+	 qdElzS50FZH1jWonBgDxVpBR71e7U9yoMM9c9ukXsm3XRf+fuWFUt54nYVW8lsirTImhs
+	 hcmbLczDWdgG+VaOinRBkZvEFWo0RIiJFrA7aysdCHivOx511edGqwAjQfzAsKoLOGO9c
+	 b4MgQKYi6qI8+Ff0yqWTlY7EpUbwcMZroB+gqCDfWDajtoC/gKl6TUKnIfinMk3Nycw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795190777;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-SRS-Rewrite;
-	bh=/ihHdUU+jVviFggXvCzCtgwm16AszawpC1LIVwl/qQE=;
-	b=M933Fq3k4VXDvN49FVDh1BRXO6ye4rV6iF2ZUBKaKKrmuq+xVAqXX6pu2nPSG+Jz0nT0
-	 0+fm/uW+InwSaFCgatKb4oYRu9nkbUkSZpHWsFo1eUjXEZ2qh+DsBVyEXJEqP0ZRIFPuR
-	 nFcTyUXGunEQV2sFwElla4u9NkM04iQDwllUu0QszzFP4uXG+sxFk2D9CcilBcltWJrEy
-	 QXzlx+dOZB3z/hYpaE+ZfpxZPjy5wqsfswcCPWfdWEST1tBDjG3/lggaQvcNAbOCqoGrn
-	 CbAlTgmc6V0JgQVe0US81tMa2gcld74UGo+3BRpULcSJZtEukbR/pH+FIKVWmhv61EQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795190783;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=h4TonTW3SJY0/uQ/u5HES6hwQIEse7VmKPSjv012IRs=;
+	b=DJ6MgDWoHbaSlGD5AMw33tjbqmNXV0F5SkdddtUJkYVvkN9Efv7XVFMj473uE6MB6mBW
+	 25jCAKYRVbHYeMYfcaKRtfVdFB4ugjUF24dKboYjA7w8x1nRAwshHZcblFUcBnUpLxKpt
+	 uZbW9/lmK5acBG+ALSOvUqRJU7xSoJmj39qej0KE+lAvKo/9WU/JMwHjHrUB8I1cntBDS
+	 Q1YTn9ZIfmLkbQrx0qRMrSuYFvUZqEZzq8lSCz5SYSTQWIYkmTfyOPNeduTumNUsba5/e
+	 oxCnlLb6HJdiZ+DaRAN8bV6E16LLzu8DJ2IEGMy9g07qlSSyKrgPOHaHQF2MFJ4ngbQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=none smtp.mailfrom=bombadil.srs.infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b="ZB+h/5GB";
-	arc=none smtp.remote-ip=198.137.202.133
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=BjinrI0b;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABB03606A32A;
-	Fri, 20 Nov 2026 16:06:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABB03606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=bombadil.srs.infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE07560A2600;
+	Fri, 20 Nov 2026 16:06:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZB+h/5GB
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
-	:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=/ihHdUU+jVviFggXvCzCtgwm16AszawpC1LIVwl/qQE=; b=ZB+h/5GBbqvAkJ54ekxLjvGA9O
-	D9LNJkH8aKH9mziEUcEVeeNVW2eYGGN+jTB+vaoKK2DQgefgBdVSUC0euwaul76MaXXzFGDda38w+
-	CV0HQYku2mlycBmx7xX50bcgh02e8WB6duHoVw6iN5E4vh+UiiLohZ0W4TpcgZ4sOV99I5tvJit2c
-	68reAYpL8/lyYbw3n35mPFLIMmbRicjxfdsTw5KiOvU8QL/I+AfqCK8T2Ep/sGYTxHxleNyUs6cJ9
-	Fyt0bfHGbyQV6TfKt92/kvpu1GtQWsEPV/dyOSyL9dPgWZDp2vTpqx/50Qk3hkzlOf+tFUU/u/Sb/
-	2OzNA4UA==;
-Received: from hch by bombadil.infradead.org with local (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUR7u-0000000FVv0-3ZjW;
-	Fri, 20 Nov 2026 16:06:14 +0000
-Date: Fri, 20 Nov 2026 08:06:14 -0800
-From: Christoph Hellwig <hch@infradead.org>
-To: "Michael S. Tsirkin" <mst@redhat.com>
-Cc: linux-kernel@vger.kernel.org, Khan Zhao <zhaoguohan@kylinos.cn>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Jason Wang <jasowang@redhat.com>,
-	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
-	kvm@vger.kernel.org, virtualization@lists.linux.dev,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH RFC] vhost: set dirty log bits without pinning pages on
- x86
-Message-ID: <awBv9nN-ZkyKi3vT@infradead.org>
-References: <af7f05bf637337d35fdd10f3e0dbb5e39d7780e7.1794480795.git.mst@redhat.com>
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=BjinrI0b
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 948401F000D8;
+	Fri, 20 Nov 2026 16:06:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795190783;
+	bh=h4TonTW3SJY0/uQ/u5HES6hwQIEse7VmKPSjv012IRs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BjinrI0by6eZVj37FZ2g4Dt9J+Ade8Tq7XJEvaaKAL49dO+fNY0FXlnceSmuyIx68
+	 aP7hAJB2HSouZDcriO+6Q55jeHlLRax+QR25cOTLAUSX6hDwltBWKgmSYnM7dC+WLI
+	 6WgDfYhv7I9zET5fc8I2ItOi26BLhfgSqM0Eph9I=
+Date: Fri, 20 Nov 2026 17:06:20 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+Cc: Lixu Zhang <lixu.zhang@intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, Bin Yu <byu@xidian.edu.cn>,
+	Cheng Wen <wencheng@xidian.edu.cn>
+Subject: Re: [PATCH] usb: ljca: fix NULL pointer dereference on events for
+ callback-less clients
+Message-ID: <2026112045-napping-suitcase-26b0@gregkh>
+References: <20261120150143.2591-1-25031212351@stu.xidian.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,41 +59,39 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <af7f05bf637337d35fdd10f3e0dbb5e39d7780e7.1794480795.git.mst@redhat.com>
-X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by bombadil.infradead.org. See http://www.infradead.org/rpr.html
+In-Reply-To: <20261120150143.2591-1-25031212351@stu.xidian.edu.cn>
 
-On Thu, Nov 12, 2026 at 05:53:47AM -0500, Michael S. Tsirkin wrote:
-> vhost had a TODO to replace page pinning with a version
-> of set_bit that works on userspace memory, since forever.
+On Fri, Nov 20, 2026 at 11:01:43PM +0800, YuanZhe Liu wrote:
+> ljca_handle_event() dispatches an incoming event message to the first
+> client whose type matches the message type and calls that client's event
+> callback without checking that a callback is registered.  Only the GPIO
+> client calls ljca_register_event_cb(); the I2C and SPI clients never do,
+> so their event_cb stays NULL for as long as the adapter is bound, while
+> they are present in adap->client_list.
 > 
-> It is really best to avoid GUP on fast path entirely.
-> Implement set_user_bit and use it in vhost, to do just that.
-> 
-> Should not be too hard for non-x86 too.
-> 
-> Reported-by: Khan Zhao <zhaoguohan@kylinos.cn>
-> Link: https://lore.kernel.org/all/20261112085631.128819-1-zhaoguohan@kylinos.cn/
-> Signed-off-by: Michael S. Tsirkin <mst@redhat.com>
-> ---
-> 
-> 
-> lightly tested. pls test and resubmit with your tool.
-> 
->  arch/x86/include/asm/uaccess.h | 18 ++++++++++++++++++
->  drivers/vhost/vhost.c          |  7 +++++++
->  2 files changed, 25 insertions(+)
-> 
-> diff --git a/arch/x86/include/asm/uaccess.h b/arch/x86/include/asm/uaccess.h
-> index 3a0dd3c2b233e..ba1e7c3f83c8e 100644
-> --- a/arch/x86/include/asm/uaccess.h
-> +++ b/arch/x86/include/asm/uaccess.h
-> @@ -594,6 +594,24 @@ _label:									\
->  	__ret;								\
->  							})
->  
-> +/* set_bit() on a byte of user memory; returns -EFAULT on fault. */
-> +#define set_bit_user(nr, addr)					\
+> A device that sends a message without LJCA_ACK_FLAG and with the type of
+> such a client therefore makes the driver call a NULL function pointer
+> from the URB completion handler:
 
-Please make this an inline that actually has proper __user annotations
-for sparse type checking.
+What device does that?  How?
 
+> 
+>   BUG: kernel NULL pointer dereference, address: 0000000000000000
+>   #PF: supervisor instruction fetch in kernel mode
+>   RIP: 0010:0x0
+>   Call Trace:
+>    ljca_handle_event drivers/usb/misc/usb-ljca.c:217 [inline]
+>    ljca_recv+0x651/0x850 drivers/usb/misc/usb-ljca.c:295
+>    __usb_hcd_giveback_urb+0x238/0x550 drivers/usb/core/hcd.c:1657
+> 
+> Check event_cb under client->event_cb_lock and skip the call when no
+> callback is registered.  The same lock is taken by
+> ljca_register_event_cb() and ljca_unregister_event_cb(), so the check
+> cannot be invalidated before the call.
+
+How was this tested, shouldn't the driver be fixed up not to do that
+instead of this workaround?
+
+thanks,
+
+greg k-h
