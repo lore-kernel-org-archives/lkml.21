@@ -1,48 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.76
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795165361;
-	b=gKRDCP0+RxXP1QUbXJG3bh+fv7c3u45YGmEYgjf97W0qOWXWXvmg/gywPvVB6yNlBgU/
-	 Yr3wXEIwzSzb2IRIblOSdHoTGdtouEmi4cVAGkCvHDAIDnzx39aUuoFd2+973LNrOxVQB
-	 yrVYgxFh2f/786L0Mp7gYgAOtUZKZFyAGbx+TdJ0jeKpm4hFpBXUKPUd3xygHDJwiiTs6
-	 uHiaSoPWN7ougxmHTs9Cv5ncGxmOhtiKQ+ySwj0lUBtYb6R6Ue1EQcSPo1GBqsWe/Bg8V
-	 eX8R8gw16jB/56xvJgA8uMV1DgXnXgkpZFhTkvhDVmUElGSSsDR58b5XCmecieY+Idw==
+	t=1795165466;
+	b=spTTcThfND+1u7zihCAy84Eubb6UonU76zOvZrz0FNw3yBoV6j0nQEfH/eMQpaiZQaOE
+	 MUPnVp5c/MakKTQAWaBLW6NwKSjrF1BIo2MPw3nr/KOPio0CR+0QPPEe3cuHv7MZHW+WU
+	 76XnryTXOVv/EvVonDCcEHhgHJFJs15MFFHBv6cXuyV/YcaIxpPNx07saq77ndoQ6Z0qb
+	 gT695yZHWqrdF7qU3bOlpm6gDY27eOtyEA6w/UGgwvmoP3dtf8zA7fuFu8RxQIpEU/EEz
+	 i/4hUGAAx9tUXKm/c/ONjJVNCQZBA4nukyZxqQfbLNj7JI4jQcOehP0QoY4cJDjNP4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795165361;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer;
-	bh=r0MrQSsfFF+8NFuoWmPZr5CuzJzWwIyM3EAzHjJs0u0=;
-	b=KIR/rjK3PCjvuWwR73tkHA3M8r2lJtb5eOknSNqOcbQWbE4wugk01BYeCQYWIbtL6eGK
-	 0Smk7sxG2KSv1s7myNiXLssVwzenezoP9NvgEaKXvYjT95A0f5anTQgTjcjQ37p4f7iRx
-	 JtUyV66lpyjFV/bZpLvCSqxfxI7jGJwnCvi7Zjyo8K1M2bGpzVVlvXhVkalkRB6ysDDoz
-	 eXJczZsyDQOCwcbMNCYqffsl/3ps7YNAkRiDrsf7auqsWqy1za0r32HuwtRGntN/dFB4x
-	 IzlCevQuZcAbzkQ6QWhFAtisc0VXFbK/WfRNU4p5jDyTwF1ohf74o6hRZue4rHOhDeA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795165466;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
+	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
+	 To:X-Mailer;
+	bh=/4RZB7pvKMGNXZ0e7P/ml5wdFAEeCdJqj2hE14qekyY=;
+	b=fq4RyCUd3oKjTz/ypgqeYlxZ70o2HKUB4o0v9wU+wcue6hy/sQ73H2HncXsaeb8uhV7C
+	 RHIiK/3mJnlWiPpLDfAc+V3/elEQluwYdXr9tdaQcf5jqvIazUNvJDjkUWHoXrntMi/9C
+	 MyUNeMknMaUTQCuSRuDN9H02nRN2bPZ8toJ5Md+Xe2ug1jTCGBYszfhI2j2dmIsedCODJ
+	 xhb+oYWeLiK/MIf3/ul6IB4FJmEnnW183wBent3CxMpczbiilFZFxl9a9WLopaUcDdwp3
+	 1ExVCY1h6Iczzg8dz6/xNHjQdeu6d9oMruL4LcHmVBKjg4AXzuH0RCQT9PNXMyJWEMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TsTPgFpf;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HdOnQ+9U;
+	arc=none smtp.remote-ip=95.215.58.76
+Received: from mta1.migadu.com (out-76.mta1.migadu.com [95.215.58.76])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9ABC60A2606;
-	Fri, 20 Nov 2026 09:02:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94424606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:04:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94424606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TsTPgFpf
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA29F1F000C6;
-	Fri, 20 Nov 2026 09:02:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795165361;
-	bh=r0MrQSsfFF+8NFuoWmPZr5CuzJzWwIyM3EAzHjJs0u0=;
-	h=From:Date:Subject:To:Cc;
-	b=TsTPgFpfhMWHP34oPirrzHQNRxHR35WOs4Gp1pb4TIVWmEQ6oI6qvxe58n39bxj9Z
-	 +AHfW5nHT0fbeSiBzdCPpWAru8YoQWyArWlH5Qwbj7PNcT0blB3xI6ml1KWOsj0v99
-	 LLknuYxzp8u9S+RQiDLqD+9CTtwGr3HDe88totRLN7TOmTlvZFJ2reBORmmuO+Nje0
-	 PnaZhuJ7PkzvvLefzV1nm1p5oci727F+s9V/gCxjzzoDS2kgywzguntN9zaEmzDrsF
-	 g2/F/D50BC36w5hBvqQc1FAOXp7a+U7m46e/M+QscK8IQu1Z0t3bGeR/gMhimqRAhq
-	 59oKwvpVRCYXg==
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 20 Nov 2026 10:02:38 +0100
-Subject: [PATCH] clk: ux500: Power the AB8500 ULP PLL from VintCore12
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HdOnQ+9U
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=/4RZB7pvKMGNXZ0e7P/ml5wdFAEeCdJqj2hE14qekyY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795165463; v=1; x=1795770263;
+ b=HdOnQ+9UYsKLuCXbzJub0XnPdyqdfFG2A1IAy5FsDFWZj8lPVRo9W4ckjPQ1BHcE3pWFOMO9
+ hHH5AJfH3vxXR+ZtrXYjdTGDXKLhOsc3WObAzBixY48M5Zg83bs0cP75PELSdffYhdquax9jCZy
+ bHfTT799Ng79w/kxjeaOPAAM=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id a5ee9e0ab9ccd638;
+	Fri, 20 Nov 2026 09:04:23 +0000
+X-Mizu-Trace-ID: a5ee9e0ab9ccd638
+X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain;
+	charset=us-ascii
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,262 +57,77 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-ux500-clk-power-upll-v1-1-431041f317ba@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/x3MSwqEMBAFwKs0b21DEoyLXGWYRdCO00zQkOAHx
- LsL1gHqQpOq0hDoQpVdm64LAtmOMP7iMgvrhEBwxg3WOsPb6Y3hMf+5rIdU3krOPEzJiu99H2N
- CRyhVkp5v+/ne9wOMT+8dZgAAAA==
-X-Change-ID: 20261120-ux500-clk-power-upll-6df1e5454aaf
-To: Ulf Hansson <ulfh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Mike Turquette <mturquette@linaro.org>
-Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Linus Walleij <linusw@kernel.org>
-X-Mailer: b4 0.16.0
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
+Subject: Re: [PATCH] mm: hugetlb: allocate larger early CMA pages first
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <20261120074701.48298-1-qi.zheng@linux.dev>
+Date: Fri, 20 Nov 2026 17:04:06 +0800
+Cc: osalvador@suse.de,
+ david@kernel.org,
+ akpm@linux-foundation.org,
+ fvdl@google.com,
+ linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org,
+ Qi Zheng <zhengqi.arch@bytedance.com>,
+ stable@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <447E288B-0ED0-454B-8390-EE39C1CA83C7@linux.dev>
+References: <20261120074701.48298-1-qi.zheng@linux.dev>
+To: Qi Zheng <qi.zheng@linux.dev>
+X-Mailer: Apple Mail (2.3901.200.71.1.16)
 
-The AB8500 ULP PLL draws power from VintCore12.
 
-Enable the supply before requesting ULPCLK and release it only after
-clearing the request. This keeps the rail on for every ULPCLK consumer
-without forcing it on when the PLL is idle.
 
-The AB8505 does not have this requirement, the change only affects
-the AB8500.
+> On Nov 20, 2026, at 15:47, Qi Zheng <qi.zheng@linux.dev> wrote:
+>=20
+> From: Qi Zheng <zhengqi.arch@bytedance.com>
+>=20
+> With hugetlb_cma_only=3D1, early HugeTLB CMA allocations follow hstate
+> registration order, which can depend on the order of hugepagesz=3D and
+> default_hugepagesz=3D parameters. cma_reserve_early() advances =
+early_pfn by
+> the requested size without aligning the start of each allocation.
+>=20
+> On arm64 with 4 KiB base pages, 32 MiB and 1 GiB pages share a CMA =
+pool
+> aligned to 1 GiB. In a 2 GiB CMA range starting at 4 GiB, allocating a
+> 32 MiB page followed by a 1 GiB page places the latter at 4 GiB + 32 =
+MiB,
+> violating its required 1 GiB physical alignment.
+>=20
+> Simply rounding early_pfn up before the 1 GiB allocation would leave a
+> 992 MiB gap and advance the cursor to 6 GiB. cma_activate_area() marks =
+the
+> entire prefix below early_pfn as allocated and only frees pageblocks =
+after
+> it. The gap would remain reserved with its bitmap bits set, and =
+releasing
+> the two HugeTLB folios would not reclaim it, permanently losing 992 =
+MiB
+> of usable CMA capacity. An alignment-only fix would therefore also =
+need
+> to track and reclaim such gaps.
+>=20
+> The same alignment issue can affect non-LPAR PowerPC64 hash MMU =
+systems
+> supporting 16 MiB and 16 GiB pages, with 64 KiB base pages and
+> CONFIG_ARCH_FORCE_MAX_ORDER=3D7. The 16 MiB size then has order 8 and =
+is
+> also gigantic, sharing the 16 GiB-aligned CMA pool.
+>=20
+> Allocate early CMA hstates in descending order. Each range starts =
+aligned
+> to the largest supported size, so this preserves alignment for =
+subsequent
+> smaller allocations without creating gaps.
+>=20
+> Fixes: d2d786714080 ("mm/hugetlb: enable bootmem allocation from CMA =
+areas")
+> Cc: stable@vger.kernel.org
+> Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
+> Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
 
-Fixes: 312f0f0b9a4e ("clk: ux500: abx500: Define clock tree for ab850x")
-Signed-off-by: Linus Walleij <linusw@kernel.org>
----
-The corresponding bindings change hits the MFD subsystem, see:
-https://lore.kernel.org/mfd/20261120-ux500-mfd-ulp-pll-supply-binding-v1-1-2740b61bd839@kernel.org/
----
- drivers/clk/ux500/abx500-clk.c  | 20 +++++++++------
- drivers/clk/ux500/clk-sysctrl.c | 54 ++++++++++++++++++++++++++++++++++-------
- drivers/clk/ux500/clk.h         |  4 ++-
- 3 files changed, 60 insertions(+), 18 deletions(-)
+Acked-by: Muchun Song (ByteDance) <muchun.song@linux.dev>
 
-diff --git a/drivers/clk/ux500/abx500-clk.c b/drivers/clk/ux500/abx500-clk.c
-index b2ddbf08fca4..1cf94d0ebcda 100644
---- a/drivers/clk/ux500/abx500-clk.c
-+++ b/drivers/clk/ux500/abx500-clk.c
-@@ -11,6 +11,7 @@
- #include <linux/device.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
-+#include <linux/regulator/consumer.h>
- #include <linux/mfd/abx500/ab8500.h>
- #include <linux/mfd/abx500/ab8500-sysctrl.h>
- #include <linux/clkdev.h>
-@@ -24,7 +25,7 @@ static struct clk *ab8500_clks[AB8500_NUM_CLKS];
- static struct clk_onecell_data ab8500_clk_data;
- 
- /* Clock definitions for ab8500 */
--static int ab8500_reg_clks(struct device *dev)
-+static int ab8500_reg_clks(struct device *dev, struct regulator *vintcore)
- {
- 	int ret;
- 	struct clk *clk;
-@@ -64,7 +65,7 @@ static int ab8500_reg_clks(struct device *dev)
- 	clk = clk_reg_sysctrl_gate_fixed_rate(dev, "ulpclk", NULL,
- 		AB8500_SYSULPCLKCTRL1, AB8500_SYSULPCLKCTRL1_ULPCLKREQ,
- 		AB8500_SYSULPCLKCTRL1_ULPCLKREQ,
--		38400000, 9000, 0);
-+		38400000, 9000, 0, vintcore);
- 	ab8500_clks[AB8500_SYSCLK_ULP] = clk;
- 
- 	/* ab8500_intclk */
-@@ -90,16 +91,19 @@ static int ab8500_reg_clks(struct device *dev)
- static int abx500_clk_probe(struct platform_device *pdev)
- {
- 	struct ab8500 *parent = dev_get_drvdata(pdev->dev.parent);
--	int ret;
--
--	if (is_ab8500(parent) || is_ab8505(parent)) {
--		ret = ab8500_reg_clks(&pdev->dev);
--	} else {
-+	struct regulator *vintcore = NULL;
-+
-+	if (is_ab8500(parent)) {
-+		vintcore = devm_regulator_get(&pdev->dev, "vintcore");
-+		if (IS_ERR(vintcore))
-+			return dev_err_probe(&pdev->dev, PTR_ERR(vintcore),
-+					     "failed to get ULP PLL supply\n");
-+	} else if (!is_ab8505(parent)) {
- 		dev_err(&pdev->dev, "non supported plf id\n");
- 		return -ENODEV;
- 	}
- 
--	return ret;
-+	return ab8500_reg_clks(&pdev->dev, vintcore);
- }
- 
- static const struct of_device_id abx500_clk_match[] = {
-diff --git a/drivers/clk/ux500/clk-sysctrl.c b/drivers/clk/ux500/clk-sysctrl.c
-index 2127a949e56c..aaa7278e5d38 100644
---- a/drivers/clk/ux500/clk-sysctrl.c
-+++ b/drivers/clk/ux500/clk-sysctrl.c
-@@ -8,6 +8,7 @@
- 
- #include <linux/clk-provider.h>
- #include <linux/mfd/abx500/ab8500-sysctrl.h>
-+#include <linux/regulator/consumer.h>
- #include <linux/device.h>
- #include <linux/slab.h>
- #include <linux/delay.h>
-@@ -22,6 +23,9 @@
- struct clk_sysctrl {
- 	struct clk_hw hw;
- 	struct device *dev;
-+	struct regulator *supply;
-+	/* A failed unprepare can leave our regulator enable reference held. */
-+	bool supply_ref_held;
- 	u8 parent_index;
- 	u16 reg_sel[SYSCTRL_MAX_NUM_PARENTS];
- 	u8 reg_mask[SYSCTRL_MAX_NUM_PARENTS];
-@@ -32,27 +36,56 @@ struct clk_sysctrl {
- 
- /* Sysctrl clock operations. */
- 
-+static void clk_sysctrl_disable_supply(struct clk_sysctrl *clk)
-+{
-+	if (!clk->supply_ref_held)
-+		return;
-+
-+	if (regulator_disable(clk->supply))
-+		dev_err(clk->dev, "failed to disable supply for %s\n",
-+			clk_hw_get_name(&clk->hw));
-+	else
-+		clk->supply_ref_held = false;
-+}
-+
- static int clk_sysctrl_prepare(struct clk_hw *hw)
- {
--	int ret;
- 	struct clk_sysctrl *clk = to_clk_sysctrl(hw);
-+	bool take_supply_ref = clk->supply && !clk->supply_ref_held;
-+	int ret;
-+
-+	if (take_supply_ref) {
-+		ret = regulator_enable(clk->supply);
-+		if (ret)
-+			return ret;
-+		clk->supply_ref_held = true;
-+	}
- 
- 	ret = ab8500_sysctrl_write(clk->reg_sel[0], clk->reg_mask[0],
- 				clk->reg_bits[0]);
-+	if (ret) {
-+		if (take_supply_ref)
-+			clk_sysctrl_disable_supply(clk);
-+		return ret;
-+	}
- 
--	if (!ret && clk->enable_delay_us)
-+	if (clk->enable_delay_us)
- 		usleep_range(clk->enable_delay_us, clk->enable_delay_us +
- 			     (clk->enable_delay_us >> 2));
- 
--	return ret;
-+	return 0;
- }
- 
- static void clk_sysctrl_unprepare(struct clk_hw *hw)
- {
- 	struct clk_sysctrl *clk = to_clk_sysctrl(hw);
--	if (ab8500_sysctrl_clear(clk->reg_sel[0], clk->reg_mask[0]))
-+
-+	if (ab8500_sysctrl_clear(clk->reg_sel[0], clk->reg_mask[0])) {
- 		dev_err(clk->dev, "clk_sysctrl: %s fail to clear %s.\n",
- 			__func__, clk_hw_get_name(hw));
-+		return;
-+	}
-+	clk_sysctrl_disable_supply(clk);
- }
- 
- static unsigned long clk_sysctrl_recalc_rate(struct clk_hw *hw,
-@@ -125,7 +158,8 @@ static struct clk *clk_reg_sysctrl(struct device *dev,
- 				unsigned long rate,
- 				unsigned long enable_delay_us,
- 				unsigned long flags,
--				const struct clk_ops *clk_sysctrl_ops)
-+				const struct clk_ops *clk_sysctrl_ops,
-+				struct regulator *supply)
- {
- 	struct clk_init_data clk_sysctrl_init = {};
- 	struct clk_sysctrl *clk;
-@@ -160,6 +194,7 @@ static struct clk *clk_reg_sysctrl(struct device *dev,
- 	clk->rate = rate;
- 	clk->enable_delay_us = enable_delay_us;
- 	clk->dev = dev;
-+	clk->supply = supply;
- 
- 	clk_sysctrl_init.name = name;
- 	clk_sysctrl_init.ops = clk_sysctrl_ops;
-@@ -189,7 +224,7 @@ struct clk *clk_reg_sysctrl_gate(struct device *dev,
- 
- 	return clk_reg_sysctrl(dev, name, parent_names, num_parents,
- 			&reg_sel, &reg_mask, &reg_bits, 0, enable_delay_us,
--			flags, &clk_sysctrl_gate_ops);
-+			flags, &clk_sysctrl_gate_ops, NULL);
- }
- 
- struct clk *clk_reg_sysctrl_gate_fixed_rate(struct device *dev,
-@@ -200,7 +235,8 @@ struct clk *clk_reg_sysctrl_gate_fixed_rate(struct device *dev,
- 					u8 reg_bits,
- 					unsigned long rate,
- 					unsigned long enable_delay_us,
--					unsigned long flags)
-+					unsigned long flags,
-+					struct regulator *supply)
- {
- 	const char **parent_names = (parent_name ? &parent_name : NULL);
- 	u8 num_parents = (parent_name ? 1 : 0);
-@@ -208,7 +244,7 @@ struct clk *clk_reg_sysctrl_gate_fixed_rate(struct device *dev,
- 	return clk_reg_sysctrl(dev, name, parent_names, num_parents,
- 			&reg_sel, &reg_mask, &reg_bits,
- 			rate, enable_delay_us, flags,
--			&clk_sysctrl_gate_fixed_rate_ops);
-+			&clk_sysctrl_gate_fixed_rate_ops, supply);
- }
- 
- struct clk *clk_reg_sysctrl_set_parent(struct device *dev,
-@@ -222,5 +258,5 @@ struct clk *clk_reg_sysctrl_set_parent(struct device *dev,
- {
- 	return clk_reg_sysctrl(dev, name, parent_names, num_parents,
- 			reg_sel, reg_mask, reg_bits, 0, 0, flags,
--			&clk_sysctrl_set_parent_ops);
-+			&clk_sysctrl_set_parent_ops, NULL);
- }
-diff --git a/drivers/clk/ux500/clk.h b/drivers/clk/ux500/clk.h
-index 91003cf8003c..08ba094322b0 100644
---- a/drivers/clk/ux500/clk.h
-+++ b/drivers/clk/ux500/clk.h
-@@ -14,6 +14,7 @@
- 
- struct clk;
- struct clk_hw;
-+struct regulator;
- 
- struct clk *clk_reg_prcc_pclk(const char *name,
- 			      const char *parent_name,
-@@ -82,7 +83,8 @@ struct clk *clk_reg_sysctrl_gate_fixed_rate(struct device *dev,
- 					    u8 reg_bits,
- 					    unsigned long rate,
- 					    unsigned long enable_delay_us,
--					    unsigned long flags);
-+					    unsigned long flags,
-+					    struct regulator *supply);
- 
- struct clk *clk_reg_sysctrl_set_parent(struct device *dev,
- 				       const char *name,
-
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261120-ux500-clk-power-upll-6df1e5454aaf
-
-Best regards,
---  
-Linus Walleij <linusw@kernel.org>
+Thanks.
 
