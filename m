@@ -1,82 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.223
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795149431;
-	b=YbNE8qgmcSl5q+KidTshdefhG2nF2OrJSeBCI40IdKgtpEju5o+NV5ORxM2akdelPadN
-	 gimjxzjDlbZCAAgxjPexEwABx6oKVmqT7LjNWXYwMIhHbx06nm5mXb8wtQbmZE/aBlgkF
-	 OZan/FKwkfC0LUIkX3XgMpausFP00BtTFP10OKoRVBD0+6Yvon60VKn7C0o99WiScsGSW
-	 LGjDE2D4TVGsYthMBngm/6R836R3rvAdvq4F2Y+h5MxizgCSVTNRfg82K1I7fbh5MfpLJ
-	 2K/Wp2cTabJeyHiIKfjYSzjzwQQk4/WBSrz9lOidq4rBf5z9h6rNn6ppT77Y4sYtjVA==
+	t=1795149438;
+	b=X65sUzUI54vx+bd6oTHCd34CEhAzDUBrVfYGuKcDhKWrwkOwJdaXdLSwno0vjJZiHvLo
+	 CUNMd5W5OQIH1Hxzz053nWl3jFX9C1PuMrp9NOgC+xkkT3OMVuzBer0a6AmGbzSjqJPoa
+	 1wzRFTqn/wC1fhDueCVbF4m5S7l5azoyvs2yTfXjGfKUW2grrAAhhxy6h+ocGt5eE9Lxs
+	 MjAs4+GO9mVPylLm/ALwUjp1ONiGflF4DqAFVj1Lm45WdzU9X/vHc6R3fdVmjCR4spD8u
+	 kU8fdD/9xa9NZcgcqU/cBrYMYw+vzsRbcULZMXst3rwFa3ycqeHfkFXZBU2C2v5XHNw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795149431;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=kmfn6Jpbn2u+si0e53LG1Wq3zSw1RBKGHEshvmQ2JGo=;
-	b=B56hZH3psjKVaQ4XCVsi3Q0ZLYh1I6NgDFlxUdKnSukchICds7fTL1x8laWw+08O79wx
-	 p7dsRFhZ2E9aCI9uwfnSI9m0MbUYTNYbE/LoyFQ+OlNP6zioeIaNcP20FyavDAMZfwtPU
-	 WdZfexUr6K8YnQIQc/RHVSl4+5uPhrDCC2b8gPOVKByDuvTLPBMwaolB3DE0n2BvPb/Ez
-	 rApUGHoh0W/0VZ0bqkfgt8JkCj2QhO7FtDonZIG7zqYTTXa7b6NKnUU9RtUkV13Pa0YIj
-	 doHmpyyj5hU2mFrcHrbMhqzxRs0IR9/WKJDxf/1gkpjIsWd5qI/YNlvmizTyJiez9og==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795149438;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:MIME-Version:Date:Content-Type:
+	 Content-Transfer-Encoding:From:Message-ID:TLS-Required:Subject:To:Cc:
+	 In-Reply-To:References;
+	bh=wC9eJUz4DKLJpJ6vBDEqFE43JAvCeQg51GGXML5L67M=;
+	b=ezj4itxBnS+zE+msk+CRRLFM6VQ25scV/aMDYbLSsCuUjOrx0jhFOb1Sl136AqpYSmkh
+	 IR3WrosmQTv4miZ3q/4OG/6ihNj9joBomDav1Lxbi4GY9RTSgCJxV4lsFy1hbwrflKYXi
+	 2cvGdCG+Inj75UX1cbNg4q9QxkENaIt0P3ZVcIPro26QVM1Aw1BxjUvzudq2V8wCoY2pA
+	 qNBWkunlQO7cFCmFc5henAmSL/vHOKxA00W3YXRgOrzCaA0KH8/rvmCe6EQOTRGA1GEkT
+	 iUCAt3lsJy0A+wt9XR0BJbBennkqaW85cBw9f61aNW+FF4wjmEieNz0K+nGiCJ/pfdA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=ccf9VyTp;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="m/FcdppI";
+	arc=none smtp.remote-ip=91.218.175.223
+Received: from mta0.migadu.com (out-223.mta0.migadu.com [91.218.175.223])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50C69606A320;
-	Fri, 20 Nov 2026 04:37:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50C69606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B000606A337
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:37:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B000606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=ccf9VyTp
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK3ufwH1965793;
-	Fri, 20 Nov 2026 04:36:42 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=kmfn6J
-	pbn2u+si0e53LG1Wq3zSw1RBKGHEshvmQ2JGo=; b=ccf9VyTpA74TJeMYOQuq1i
-	oqKDob6Urz0+swI4vMwtXu0E4WThQobIS48Zp/XWlFoOcze3RwwVtkFIKWppJ4UW
-	3ayC5OrrMHssnPKyncYsGcoy647z6Kole9UWovQnXGi7coYIHAM4bJZBXjGF5VAb
-	udpzv7kld4k85FmkFHENHWzVc8nfMBoRlGyZAWKrF3h4L9VcOUw99HSb8lrz48WG
-	DtGL1QsM+AOgjm5q8N2kfUVv+6OwTrC6IfjII60mnQoSzzHrFfU3YOvFkudcMdMa
-	V898IBDqLl9NOF1r8c6pvAyd3mLrHEeQYMVsnLKHB6uiXdo8WAbhmlC65CNBsdHA
-	==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105x5sfu-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 04:36:41 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK3YsKG3627107;
-	Fri, 20 Nov 2026 04:36:40 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j1v9xe1r3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 04:36:40 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AK4abma36700622
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 20 Nov 2026 04:36:37 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E514520040;
-	Fri, 20 Nov 2026 04:36:36 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id AE37A20043;
-	Fri, 20 Nov 2026 04:36:33 +0000 (GMT)
-Received: from [9.124.218.70] (unknown [9.124.218.70])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 20 Nov 2026 04:36:33 +0000 (GMT)
-Message-ID: <b4f81254-26e7-436d-9688-8b9d457436eb@linux.ibm.com>
-Date: Fri, 20 Nov 2026 10:06:32 +0530
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=m/FcdppI
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=zcFjEBIqj6cBYiwCe459AugAgTcvIrqKO3mRoQbcdtQ=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795149436; v=1; x=1795754236;
+ b=m/FcdppIgHJYfuLm3Jz15SS48v1ECsydPsIwzykwvxsv7uWMy2hNOLPu29xj4bQ7ffnTZgw4
+ UBEFF6PBVpWC50sOXx3+vAEXgueh73gIGzUqHz6KmFuqFB/R6826ht7kMXpbyK0v/h4WgY3rGV+
+ YvflVYmruXWy+w3ZAXB+u2co=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id eddd8fd8e6334fde;
+	Fri, 20 Nov 2026 04:37:16 +0000
+X-Mizu-Trace-ID: eddd8fd8e6334fde
+X-Migadu-Flow: FLOW_OUT
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,285 +56,205 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/5] powerpc/rtas: Handle ibm,open-errinjct return
- format
-To: Sourabh Jain <sourabhjain@linux.ibm.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        "Oliver O'Halloran" <oohall@gmail.com>,
-        Timothy Pearson <tpearson@raptorengineering.com>,
-        Alex Williamson <alex@shazbot.org>
-Cc: Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin
- <npiggin@gmail.com>,
-        Christophe Leroy <chleroy@kernel.org>,
-        Ritesh Harjani <ritesh.list@gmail.com>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
-        linux-kernel@vger.kernel.org, kvm@vger.kernel.org, sbhat@linux.ibm.com,
-        harshpb@linux.ibm.com
-References: <20261023073642.59657-1-nnmlinux@linux.ibm.com>
- <20261023073642.59657-2-nnmlinux@linux.ibm.com>
- <67d2b322-9a6b-41d5-9920-33acb36cb76a@linux.ibm.com>
-Content-Language: en-US
-From: Narayana Murty N <nnmlinux@linux.ibm.com>
-In-Reply-To: <67d2b322-9a6b-41d5-9920-33acb36cb76a@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: JnzMgZrHY0X2MHbBhEnfMmWcD7ChQ37L
-X-Proofpoint-GUID: zSLf6-HV1q9QayUWhMrzOE3mONuEx4JA
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAxNyBTYWx0ZWRfX+OnRGDWC+N4b
- xNuSlqZSkb2WScGNVX47An9dQknV16Yh3vvnEWQSWjGmgCQiwYWqPPDSqAkcIzjPOl34NVyeXIX
- CceipFAnwsnvKTUdb7qep/dguD76WPGzAIvJdZl3UwxzRA5YKMh9qhIQ1mRqRnm4mZc7VobuljV
- r+F5TACTDJVR1QMhqzY1Dzqa3c/SnkntpmMP+feAJvBgvpWsMAXNbDrvYrjdd0hmcncWYssgoSK
- /MeBc0lfKWonBXQAd1zVyUDbSztvN4OWkVVedwLtg47C2hZg7P3GoqZEGTjjD6x+IA4p8NkNhFc
- 3b5v5ag4MEE4b37aU9ahh95+65xiaFLglC8NL94HGf8rWE6jR7HG9qkj+iwAu1cIEofX+hvLMBY
- wfhICnxYRDEipCY6P7/pWpt7p6KOMf+5QLgerhmbFDK72mdwfLwEAEMgFCjCsQKn1VoJ0/M89gM
- a/wtignIDVt567HhG/A==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAxNyBTYWx0ZWRfXw4MIUloQ9GV6
- hSR/L2h6wgbym8VxB5fEzHyPzhZl54K714qAdjK2PriKTpb/FE0o0pAVlue7EK67m/LyYSxXvLQ
- wvLD0RFVCidYFoueevowLIrf8qMmBFM=
-X-Authority-Analysis: v=2.4 cv=K+m3jCWI c=1 sm=1 tr=0 ts=6affce59 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=1mVJ_uiqAAAA:8
- a=VnNF1IyMAAAA:8 a=FTTUi5KaBWCru4Fr2KsA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=h67g7WpEjx8dfGT80pje:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_02,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 clxscore=1015 adultscore=0 spamscore=0
- priorityscore=1501 impostorscore=0 phishscore=0 lowpriorityscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611200017
+Date: Fri, 20 Nov 2026 04:37:15 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+From: "Kunwu Chan" <kunwu.chan@linux.dev>
+Message-ID: <c766c294502b5df1cf14e5941f79080a61f17bcf@linux.dev>
+TLS-Required: No
+Subject: Re: [RFC PATCH v4 13/18] mm/swap: drop swap active plist
+To: "Lian Wang" <lianux.mm@gmail.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, "Andrew Morton"
+ <akpm@linux-foundation.org>, "Chris Li" <chrisl@kernel.org>, "Nhat Pham"
+ <nphamcs@gmail.com>, "Baoquan He" <baoquan.he@linux.dev>, "Barry Song"
+ <baohua@kernel.org>, "Youngjun Park" <youngjun.park@lge.com>, "Kemeng
+ Shi" <shikemeng@huaweicloud.com>, "Kairui Song" <kasong@tencent.com>,
+ "Jihan LIN" <linjh22s@gmail.com>, "Kees Cook" <kees@kernel.org>, "Gustavo
+ A. R. Silva" <gustavoars@kernel.org>, "Thomas Gleixner"
+ <tglx@kernel.org>, linux-hardening@vger.kernel.org
+In-Reply-To: <9ccd81f6f036eb1c3e50d396b44b5e43cff77d2a.1794666741.git.lianux.mm@gmail.com>
+References: <cover.1794666741.git.lianux.mm@gmail.com>
+ <9ccd81f6f036eb1c3e50d396b44b5e43cff77d2a.1794666741.git.lianux.mm@gmail.com>
 
-Hi Sourabh,
-thank you reviewing the patch series.
+Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
 
-On 18/11/26 4:43 PM, Sourabh Jain wrote:
-> 
-> 
-> On 23/10/26 13:06, Narayana Murty N wrote:
->> ibm,open-errinjct uses a non-standard RTAS return layout:
->>
->>    rets[0] = session token  (output parameter)
->>    rets[1] = status code
->>
->> Unlike all other RTAS functions which use:
->>
->>    rets[0] = status code
->>    rets[1..] = output parameters
->>
->> Add rtas_token_is_open_errinjct() to identify this call, and
->> rtas_status_from_args() to extract status from the correct position.
->>
->> Add an early guard in rtas_call() that rejects ibm,open-errinjct
->> invocations where nret < 2, since reading rets[1] would be out of
->> bounds.  This is a kernel-side call-convention error, so -EINVAL is
->> returned rather than an RTAS firmware status code:
->>
->>    if (rtas_token_is_open_errinjct(token) && nret < 2) {
->>            WARN_ON_ONCE(1);
->>            return -EINVAL;
->>    }
->>
->> Adjust the output-copy loop so that for ibm,open-errinjct:
->>
->>    return value = rets[1]   (status)
->>    outputs[0]   = rets[0]   (session token)
->>
->> For all other functions the existing convention is preserved:
->>
->>    return value = rets[0]   (status)
->>    outputs[0..] = rets[1..] (non-status outputs)
->>
->> Move the "/* A -1 return code... */" comment immediately before the
->> ret == -1 check so it documents the check it guards.
-> 
-> Nit: I think we should not documenting a minor comment movement
-> in the commit message.
-> 
-Agree, I will remove.
->> Also fix sys_rtas() last-error status detection: add the same early
->> nret < 2 validation at the syscall boundary (returning -EINVAL) to
->> avoid entering RTAS with an invalid ibm,open-errinjct return layout.
->> After that guard, use rtas_status_from_args() to obtain the RTAS
->> status for last-error handling.
->> The prominent user librtas already passes nret = 2 for this function
->> as required by PAPR, so well-formed callers are unaffected.
->>
->> Reference: OpenPOWER PAPR documentation
->>             https://files.openpower.foundation/s/XFgfMaqLMD5Bcm8
->> Signed-off-by: Narayana Murty N <nnmlinux@linux.ibm.com>
->> ---
->>   arch/powerpc/kernel/rtas.c | 78 +++++++++++++++++++++++++++++++++-----
->>   1 file changed, 69 insertions(+), 9 deletions(-)
->>
->> diff --git a/arch/powerpc/kernel/rtas.c b/arch/powerpc/kernel/rtas.c
->> index 8d81c1e7a8db..38f3d08d4228 100644
->> --- a/arch/powerpc/kernel/rtas.c
->> +++ b/arch/powerpc/kernel/rtas.c
->> @@ -1117,6 +1117,28 @@ static bool token_is_restricted_errinjct(s32 
->> token)
->>              token == rtas_function_token(RTAS_FN_IBM_ERRINJCT);
->>   }
->> +/*
->> + * ibm,open-errinjct uses a non-standard return layout:
->> + *   rets[0] = session token  (output parameter)
->> + *   rets[1] = status code
->> + *
->> + * All other RTAS functions use the standard layout:
->> + *   rets[0] = status code
->> + *   rets[1..] = output parameters
->> + */
-> 
-> Nit: this comment describes rtas_status_from_args(), not 
-> rtas_token_is_open_errinjct().
-> Please move it down.
-> 
-Agreed. I'll move the comment above rtas_status_from_args().
->> +static inline bool rtas_token_is_open_errinjct(int token)
->> +{
->> +    return token == rtas_function_token(RTAS_FN_IBM_OPEN_ERRINJCT);
->> +}
->> +
->> +static int rtas_status_from_args(int token, struct rtas_args *args, 
->> int nret)
->> +{
->> +    if (rtas_token_is_open_errinjct(token))
->> +        return be32_to_cpu(args->rets[1]);
->> +
->> +    return nret > 0 ? be32_to_cpu(args->rets[0]) : 0;
->> +}
->> +
->>   /**
->>    * rtas_call() - Invoke an RTAS firmware function.
->>    * @token: Identifies the function being invoked.
->> @@ -1198,6 +1220,16 @@ int rtas_call(int token, int nargs, int nret, 
->> int *outputs, ...)
->>               return -1;
->>       }
->> +    /*
->> +     * ibm,open-errinjct returns rets[0]=session_token, rets[1]=status.
->> +     * We need nret >= 2 to read status from rets[1].  Reject early if
->> +     * the caller forgot to account for the extra return cell.
->> +     */
->> +    if (rtas_token_is_open_errinjct(token) && nret < 2) {
->> +        WARN_ON_ONCE(1);
-> 
-> Nit: please switch WARN_ON_ONCE(1) to a WARN_ONCE() with a message, so 
-> the log
-> says what the caller got wrong. For example:
-> 
-> WARN_ONCE(1, "rtas: ibm,open-errinjct needs nret >= 2 (got %d)\n", nret);
-> 
-Makes sense. I'll use WARN_ONCE() with the suggested message.
->> +        return -EINVAL;
->> +    }
->> +
->>       if ((mfmsr() & (MSR_IR|MSR_DR)) != (MSR_IR|MSR_DR)) {
->>           WARN_ON_ONCE(1);
->>           return -1;
->> @@ -1213,15 +1245,33 @@ int rtas_call(int token, int nargs, int nret, 
->> int *outputs, ...)
->>       va_rtas_call_unlocked(args, token, nargs, nret, list);
->>       va_end(list);
->> +    ret = rtas_status_from_args(token, args, nret);
->> +
->>       /* A -1 return code indicates that the last command couldn't
->> -       be completed due to a hardware error. */
->> -    if (be32_to_cpu(args->rets[0]) == -1)
->> +     * be completed due to a hardware error.
->> +     */
->> +    if (ret == -1)
->>           buff_copy = __fetch_rtas_last_error(NULL);
-> [...]
->> -    if (nret > 1 && outputs != NULL)
->> -        for (i = 0; i < nret-1; ++i)
->> -            outputs[i] = be32_to_cpu(args->rets[i + 1]);
->> -    ret = (nret > 0) ? be32_to_cpu(args->rets[0]) : 0;
->> +    /*
->> +     * Copy non-status outputs to the caller's buffer.
->> +     *
->> +     * For ibm,open-errinjct the layout is:
->> +     *   rets[0] = session token  -> outputs[0]
->> +     *   rets[1] = status         (returned, not copied)
->> +     *
->> +     * For all other RTAS functions:
->> +     *   rets[0] = status         (returned, not copied)
->> +     *   rets[1..nret-1] -> outputs[0..nret-2]
->> +     */
->> +    if (outputs) {
->> +        if (rtas_token_is_open_errinjct(token)) {
->> +            outputs[0] = be32_to_cpu(args->rets[0]);
->> +        } else if (nret > 1) {
->> +            for (i = 0; i < nret - 1; ++i)
->> +                outputs[i] = be32_to_cpu(args->rets[i + 1]);
->> +        }
->> +    }
-> 
-> Just wondering, what is the need to copy the outputs when RTAS returns 
-> -1 (hardware error)?
-> 
-> However, since it has always been this way, I have no concerns regarding 
-> this aspect of the patch.
-> 
-Yes, the intention here is to preserve the existing behavior of
-rtas_call() while handling the non-standard return layout of
-ibm,open-errinjct.
->>       lockdep_unpin_lock(&rtas_lock, cookie);
->>       raw_spin_unlock_irqrestore(&rtas_lock, flags);
->> @@ -1896,6 +1946,14 @@ SYSCALL_DEFINE1(rtas, struct rtas_args __user 
->> *, uargs)
->>       if (block_rtas_call(func, nargs, &args))
->>           return -EINVAL;
->> +    /*
->> +     * ibm,open-errinjct places status at rets[1]; reject calls with
->> +     * fewer than 2 return cells before entering RTAS, since reading
->> +     * rets[1] for the -1 sentinel would be out of bounds.
->> +     */
->> +    if (rtas_token_is_open_errinjct(token) && nret < 2)
->> +        return -EINVAL;
->> +
-> 
-> I think it makes sense to perform this check after the security lockdown 
-> check.
-> 
-> Otherwise, it would look confusing if the kernel first reports that the 
-> argument is
-> less than expected, and then, when the user passes the correct argument, 
-> kernel
-> reports that the operation cannot be executed because it is blocked by 
-> lockdown.
-> 
-> So, let's move this check below the security lockdown check.
-> 
-Agreed. I'll move the nret validation below the security lockdown
-check.
-> 
-> - Sourabh Jain
-> 
-> 
 Thanks,
-Narayana Murty.
->>       if (token_is_restricted_errinjct(token)) {
->>           int err;
->> @@ -1942,9 +2000,11 @@ SYSCALL_DEFINE1(rtas, struct rtas_args __user 
->> *, uargs)
->>       do_enter_rtas(&rtas_args);
->>       args = rtas_args;
->> -    /* A -1 return code indicates that the last command couldn't
->> -       be completed due to a hardware error. */
->> -    if (be32_to_cpu(args.rets[0]) == -1)
->> +    /*
->> +     * A -1 return code indicates that the last command couldn't
->> +     * be completed due to a hardware error.
->> +     */
->> +    if (rtas_status_from_args(token, &args, nret) == -1)
->>           errbuf = __fetch_rtas_last_error(buff_copy);
->>       lockdep_unpin_lock(&rtas_lock, cookie);
-> 
+Kunwu
 
+>=20
+>=20From: Kairui Song <kasong@tencent.com>
+>=20
+>=20Remove swap_active_head and the associated plist_node. Device identit=
+y
+> lookups can use the writable swap_info iterator without ordering.
+>=20
+>=20Keep priority ordering for the block-cgroup swap throttle target by
+> walking the priority queue under the topology reader. Choose the first
+> unmasked, writable, non-offlist device with a backing block device.
+> Check OFFLIST as well as the pointer tag because full transitions can
+> temporarily leave an unmasked entry, and keep the explicit WRITEOK
+> check. The disable transition already publishes its mask before
+> releasing the topology writer.
+>=20
+>=20This read-only lookup does not consume per-CPU allocation quotas or
+> change retry cursors. It avoids making the throttle disk depend on
+> swapon's swap-type assignment order when devices have different
+> priorities.
+>=20
+>=20Signed-off-by: Kairui Song <kasong@tencent.com>
+> Signed-off-by: Lian Wang <lianux.mm@gmail.com>
+> ---
+>  include/linux/swap.h | 1 -
+>  mm/swapfile.c | 60 +++++++++++++++++++++++---------------------
+>  2 files changed, 32 insertions(+), 29 deletions(-)
+>=20
+>=20diff --git a/include/linux/swap.h b/include/linux/swap.h
+> index d31f3f023d36..ce8a800751ca 100644
+> --- a/include/linux/swap.h
+> +++ b/include/linux/swap.h
+> @@ -263,7 +263,6 @@ struct swap_info_struct {
+>  struct percpu_ref users; /* indicate and keep swap device valid. */
+>  unsigned long flags; /* SWP_USED etc: see above */
+>  signed short prio; /* swap priority of this type */
+> - struct plist_node list; /* entry in swap_active_head */
+>  signed char type; /* strange name for an index */
+>  unsigned int max; /* size of this swap device */
+>  struct swap_cluster_info *cluster_info; /* array, one entry per cluste=
+r */
+> diff --git a/mm/swapfile.c b/mm/swapfile.c
+> index 6b2dbaf33cb6..bd098114ee4b 100644
+> --- a/mm/swapfile.c
+> +++ b/mm/swapfile.c
+> @@ -42,7 +42,6 @@
+>  #include <linux/completion.h>
+>  #include <linux/suspend.h>
+>  #include <linux/zswap.h>
+> -#include <linux/plist.h>
+>=20=20
+>=20 #include <asm/tlbflush.h>
+>  #include <linux/leafops.h>
+> @@ -91,12 +90,6 @@ bool swap_migration_ad_supported;
+>  static const char Bad_file[] =3D "Bad swap file entry ";
+>  static const char Bad_offset[] =3D "Bad swap offset entry ";
+>=20=20
+>=20-/*
+> - * all active swap_info_structs
+> - * protected with swapon_rwsem, and ordered by priority.
+> - */
+> -static PLIST_HEAD(swap_active_head);
+> -
+>  static inline struct swap_info_struct *__swap_iter(int *i, unsigned lo=
+ng flag)
+>  {
+>  lockdep_assert_held(&swapon_rwsem);
+> @@ -3535,7 +3528,6 @@ static void __swap_device_enable(struct swap_info=
+_struct *si)
+>  spin_unlock(&si->lock);
+>  atomic_long_add(si->pages, &nr_swap_pages);
+>  total_swap_pages +=3D si->pages;
+> - plist_add(&si->list, &swap_active_head);
+>  add_to_avail_list(si);
+>  }
+>=20=20
+>=20@@ -3555,9 +3547,8 @@ static int swap_device_disable(struct address_s=
+pace *mapping,
+>  int err =3D -EINVAL;
+>=20=20
+>=20 percpu_down_write(&swapon_rwsem);
+> - plist_for_each_entry(si, &swap_active_head, list) {
+> - if ((si->flags & SWP_WRITEOK) &&
+> - si->swap_file->f_mapping =3D=3D mapping) {
+> + for_each_avail_swap(si) {
+> + if (si->swap_file->f_mapping =3D=3D mapping) {
+>  err =3D 0;
+>  break;
+>  }
+> @@ -3583,8 +3574,6 @@ static int swap_device_disable(struct address_spa=
+ce *mapping,
+>  spin_lock(&si->lock);
+>  del_from_avail_list(si, true);
+>  spin_unlock(&si->lock);
+> -
+> - plist_del(&si->list, &swap_active_head);
+>  total_swap_pages -=3D si->pages;
+>  atomic_long_sub(si->pages, &nr_swap_pages);
+>=20=20
+>=20@@ -3913,7 +3902,6 @@ static struct swap_info_struct *alloc_swap_info=
+(void)
+>  */
+>  }
+>  p->swap_extent_root =3D RB_ROOT;
+> - plist_node_init(&p->list, 0);
+>  p->flags =3D SWP_USED;
+>  percpu_up_write(&swapon_rwsem);
+>  if (defer) {
+> @@ -4323,12 +4311,7 @@ SYSCALL_DEFINE2(swapon, const char __user *, spe=
+cialfile, int, swap_flags)
+>  if (swap_flags & SWAP_FLAG_PREFER)
+>  prio =3D swap_flags & SWAP_FLAG_PRIO_MASK;
+>=20=20
+>=20- /*
+> - * The plist prio is negated because plist ordering is
+> - * low-to-high, while swap ordering is high-to-low
+> - */
+>  si->prio =3D prio;
+> - si->list.prio =3D -si->prio;
+>=20=20
+>=20 /*
+>  * Publish swap_file before making the percpu ref live, then add the de=
+vice
+> @@ -4454,7 +4437,33 @@ int swap_dup_entry_direct(swp_entry_t entry)
+>  #if defined(CONFIG_MEMCG) && defined(CONFIG_BLK_CGROUP)
+>  static bool __has_usable_swap(void)
+>  {
+> - return !plist_head_empty(&swap_active_head);
+> + return READ_ONCE(total_swap_pages) > 0;
+> +}
+> +
+> +static struct swap_info_struct *swap_queue_first_usable_bdev(void)
+> +{
+> + struct swap_prio_ring *ring;
+> + struct swap_info_struct *si;
+> + unsigned int ring_idx, dev_idx;
+> +
+> + lockdep_assert_held(&swapon_rwsem);
+> + for (ring_idx =3D 0; ring_idx < swap_queue_len; ring_idx++) {
+> + ring =3D swap_queue[ring_idx];
+> + for (dev_idx =3D 0; dev_idx < ring->size; dev_idx++) {
+> + si =3D READ_ONCE(ring->dev[dev_idx]);
+> + if (swap_device_masked(si))
+> + continue;
+> + si =3D swap_device_unmask_ptr(si);
+> + if (!(READ_ONCE(si->flags) & SWP_WRITEOK))
+> + continue;
+> + if (atomic_long_read(&si->inuse_pages) &
+> + SWAP_USAGE_OFFLIST_BIT)
+> + continue;
+> + if (si->bdev)
+> + return si;
+> + }
+> + }
+> + return NULL;
+>  }
+>=20=20
+>=20 void __folio_throttle_swaprate(struct folio *folio, gfp_t gfp)
+> @@ -4478,14 +4487,9 @@ void __folio_throttle_swaprate(struct folio *fol=
+io, gfp_t gfp)
+>  return;
+>=20=20
+>=20 percpu_down_read(&swapon_rwsem);
+> - plist_for_each_entry(si, &swap_active_head, list) {
+> - if ((si->flags & SWP_WRITEOK) &&
+> - !(atomic_long_read(&si->inuse_pages) &
+> - SWAP_USAGE_OFFLIST_BIT) && si->bdev) {
+> - blkcg_schedule_throttle(si->bdev->bd_disk, true);
+> - break;
+> - }
+> - }
+> + si =3D swap_queue_first_usable_bdev();
+> + if (si)
+> + blkcg_schedule_throttle(si->bdev->bd_disk, true);
+>  percpu_up_read(&swapon_rwsem);
+>  }
+>  #endif
+>
