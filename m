@@ -1,63 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.142.180.65
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795133154;
-	b=S8ELle/Fqqa0+TUHS0gjTmZWF9sgHK7VQozLWsvpY/tL0IoOoBfiW5dhZa9wFDUNr7Gc
-	 ZBVWCZN3S1BHpXPTFI6W+Qh3nmdjj5uydZrGb3xsJ8r0BiauoZVJOBjwDER2U200UeevS
-	 jKh5feX3+BD0AAEG7x+4fVCUPX4p1Pm1W9Q3e2pqazmX45QsoJV01oEjS5CnIuWu5fUr+
-	 JMpCqnqFTwTUhZlCgOamH8L/IM/Tp4SdXz7Gm1zcLfsQusrNZfndgEKGdhUo5K4J31wAf
-	 OXtIC/hRE9hP/dfFhS47Ml08sW+k3wLdN/9sMpDZrByhneLeIZXxSnlFuBaMUiy632g==
+	b=MXYdrSmAr70JITlwEL4pgdfFJbIZIeDf9v98K0DvAnAPm9TAyBbGLVjlAzTns2+ZotKG
+	 iXiIE4B44+mibaigZ9mGLv1pi/tDvIpEUyiNcLiVC7hG9ayLAcgRbeX1ycAStqo+xcL/z
+	 d1efNnJuTpaPOHWrvFs23u7Z6j6n2cmCvlgaZxzeTh+v/cng+AOjg7t31MpXaVfEMvuN0
+	 LlBIzzkX33lPmzC72+7I8CfrH7SJw37X5vjwC3NVrEh5PHpFJ0Z4Wl2kJKy4cwrQ2GcmU
+	 3ndI0YIQVerQJGhs/cMHA+VG1hJnZuJpQMnwrcgWz4CINH6iOEznntGtyBY2mIqO3KA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795133154;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=qBVG13Mpx4DFdTgkmaXvNBnKNRWVMbS+//9o5rWebUU=;
-	b=bJ0uECGkd3hJHba5NTCdIjxGPhtC7GFApAEjCaTHiEPCLOy3OmPpPdEr/DnQW2XjA8ub
-	 QSln5qxC0agXxy5peI05ASWXelgkfUDgxOCVBkInmjPcpOkiZWm566nlo3zoYtx9ypyEo
-	 3j+Qh46CLGN+DNNX44vjFumkfbOywDyLDXE3Yjlpbhs45EVD0K3Z0Sfx/1NafI64NCMWo
-	 FfipHmY20piGhfUfn1dvPm80CBT5KBNA4nTdx8WR2awf600r+1oPbrv3WaxsF2a/sGrIG
-	 sGJ5Ae0FdkrjG41vSrVI6+Y2Cwf3ImsTVlWHQS2UCKVm+/cdqWyrFp+QhDWHcTaKBtg==
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=aPMvV6uAMyUnxRWvODLxRgeAeThvvI3YGxLfT12eNJ4=;
+	b=4iGiUjtSYdzxJb83ClZ4XSHcLdgGsTyViZHcekj+v/OVpGiulOHqyxuJrbzcWMhuk+fd
+	 8vhegnuV02TkBgRdPXIc5GgZAJG1TI3ph9FBzSy7/3IKE9CJmvdbsi6bebwRmvA3HLZkd
+	 qLqNmjZ3H+tNQi6b7sSNutGFMq/V89ogyKaInYmunuqE49KLWwga7ORKrqlSlrc9WGA64
+	 K+JETC1URryEOYv/BkC34aOTQ0mslyRi6r8Nw3cZWx+9QJhSpSTX1Z/5MX9PmNGUWOz5D
+	 rS0HGSwsQRhEN4Ssa6ffG7Ru1iq6PXBvEC2fteb7DN9x1YyL3AY5pw674xSjX/eem7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=makrotopia.org;
-	spf=pass smtp.mailfrom=makrotopia.org;
-	arc=none smtp.remote-ip=185.142.180.65
-Received: from pidgin.makrotopia.org (pidgin.makrotopia.org [185.142.180.65])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zo6RDrTH;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 255FB60A2605
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:05:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 255FB60A2605
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=makrotopia.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=makrotopia.org
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
-	 (Exim 4.100.1)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1xUC8N-000000002Dl-3zDT;
-	Fri, 20 Nov 2026 00:05:44 +0000
-Date: Fri, 20 Nov 2026 00:05:34 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Dmitry Baryshkov <lumag@kernel.org>, Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Hermes Wu <hermes.wu@ite.com.tw>,
-	Pin-yen Lin <treapking@chromium.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>, Jiaxin Yu <jiaxin.yu@mediatek.com>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v9 12/14] drm/bridge: it6505: don't write an error code back
- to the reset register
-Message-ID: <ace14b08414f700933469607299801f0c10f455a.1795132452.git.daniel@makrotopia.org>
-References: <cover.1795132452.git.daniel@makrotopia.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D39060A260C;
+	Fri, 20 Nov 2026 00:05:54 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zo6RDrTH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 725A61F000C6;
+	Fri, 20 Nov 2026 00:05:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795133154;
+	bh=aPMvV6uAMyUnxRWvODLxRgeAeThvvI3YGxLfT12eNJ4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Zo6RDrTHjY6al3VoeDmjDNSMCEZL/DL0AE39Hi6ZO2FvCCzWFtyPdYkGQLH4oAh/m
+	 BbVgYDQvNI8/q9/WJ7pU/wq6pyZAQ9Ds8IfqMifGTUeAmoNt4im7fEIVPHsF2ZwouF
+	 DzIwYlkdTOuo48OOr/mNwBKzFc653k7d+qknd9W+G5PIm7K+/03IY8rV30/R23vvhL
+	 7ZWpBIaQhlCs7UNmMYw4QhvSENWMVYqiXivFhLUxIJ7VE2DzxdqbJBnonf8ATdJjVj
+	 ov0rXmWw6HlhvN/iyvkW70GrjAxAT3bY+heZ9xKz6Y/Sq1xaRjqN/nlcY0YPtTgKgV
+	 fQ6cN4FzhkYBQ==
+Date: Thu, 19 Nov 2026 16:05:52 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Sunil V L <sunilvl@oss.qualcomm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Atish Patra <atish.patra@linux.dev>,
+	Anup Patel <anup.patel@oss.qualcomm.com>,
+	Chen Pei <cp0613@linux.alibaba.com>,
+	yunhui cui <cuiyunhui@bytedance.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Radim =?utf-8?B?S3LEjW3DocWZ?= <radim.krcmar@oss.qualcomm.com>,
+	Zeng Heng <zengheng@picoheart.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>,
+	Tony Luck <tony.luck@intel.com>,
+	Adrien Ricciardi <aricciardi@baylibre.com>,
+	Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>,
+	Gong Shuai <gong.shuai@sanechips.com.cn>,
+	Gong Shuai <gsh517@gmail.com>, Weiwei Li <liwei1518@gmail.com>,
+	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
+	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
+	Samuel Holland <samuel.holland@sifive.com>, guo.wenjia23@zte.com.cn,
+	liu.qingtao2@zte.com.cn, Dave Martin <Dave.Martin@arm.com>,
+	Babu Moger <babu.moger@amd.com>, Fenghua Yu <fenghuay@nvidia.com>,
+	Peter Newman <peternewman@google.com>,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-acpi@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] riscv_cbqri: Bind to RQSC platform devices
+Message-ID: <av-O4EoModkN73WK@thelio>
+References: <20261117-acpi-rqsc-v1-0-381ce645751e@kernel.org>
+ <20261117-acpi-rqsc-v1-3-381ce645751e@kernel.org>
+ <20261118234904.0f6a0f17@jic23-hlaptop>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,46 +87,45 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cover.1795132452.git.daniel@makrotopia.org>
+In-Reply-To: <20261118234904.0f6a0f17@jic23-hlaptop>
 
-it6505_audio_input() saves REG_RESET_CTRL, pulses AUDIO_RESET and
-writes the saved value back. it6505_read() returns a negative errno on
-i2c failure, which regmap truncates to eight bits on the way out:
--EIO turns into 0xfb, holding video, audio, AUX and HDCP in reset. A
-failed REG_AUDIO_INPUT_FREQ read is just as wrong, as any negative
-value passes the != 0xFF test and reports an audio clock that was
-never sampled. Bail out before touching the register and only report
-audio input for a usable readback.
+On Wed, Nov 18, 2026 at 11:49:04PM +0000, Jonathan Cameron wrote:
+> On Tue, 17 Nov 2026 14:11:29 -0800
+> "Drew Fustini (Tenstorrent)" <fustini@kernel.org> wrote:
+> 
+> > Let the capacity controller driver probe the "cbqri-capacity" platform
+> > devices created from the RQSC table. The cache is named by its PPTT
+> > Cache ID and the PPTT gives its level. Select ACPI_RQSC so the table is
+> > parsed and drop the OF dependency.
+> > 
+> > No change for device tree systems.
+> > 
+> > Signed-off-by: Drew Fustini (Tenstorrent) <fustini@kernel.org>
+> 
+> Has the DT support landed? If not feels like a few tweaks in that
+> would make this less noisy.
+>
+> If not, see below for one tidy up I'd make here if you can't push
+> it back to that series.
 
-Fixes: b5c84a9edcd4 ("drm/bridge: add it6505 driver")
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> # Steelix Chromebook
----
- drivers/gpu/drm/bridge/ite-it6505.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+Sure, I will roll the changes around cbqri_capacity_of_cache() into a
+v13 and leave that out of this patch.
 
-diff --git a/drivers/gpu/drm/bridge/ite-it6505.c b/drivers/gpu/drm/bridge/ite-it6505.c
-index 7737e6ecc4bda..2da58d94127c3 100644
---- a/drivers/gpu/drm/bridge/ite-it6505.c
-+++ b/drivers/gpu/drm/bridge/ite-it6505.c
-@@ -1518,12 +1518,15 @@ static bool it6505_audio_input(struct it6505 *it6505)
- 	int reg05, regbe;
- 
- 	reg05 = it6505_read(it6505, REG_RESET_CTRL);
-+	if (reg05 < 0)
-+		return false;
-+
- 	it6505_set_bits(it6505, REG_RESET_CTRL, AUDIO_RESET, 0x00);
- 	usleep_range(3000, 4000);
- 	regbe = it6505_read(it6505, REG_AUDIO_INPUT_FREQ);
- 	it6505_write(it6505, REG_RESET_CTRL, reg05);
- 
--	return regbe != 0xFF;
-+	return regbe > 0 && regbe != 0xFF;
- }
- 
- static void it6505_setup_audio_channel_status(struct it6505 *it6505)
--- 
-2.56.1
+> You almost never want to do manual device_node puts these days!
+> 
+> It's one of the nicest places to use the cleanup.h magic.
+
+Good idea, I will use it for device_node.
+
+> >  	cache_np = of_parse_phandle(dev->of_node, "riscv,cbqri-cache", 0);
+> Whilst you are here.
+> 	struct device_node *cache_np __free(device_node) =
+> 		of_parse_phandle();
+> and drop all the gotos. I haven't checked but if there is
+> a path where you want to hang on to it, no_free_ptr() that.
+
+Will do. There should not be a need for no_free_ptr() for this one.
+
+Thanks,
+Drew
 
