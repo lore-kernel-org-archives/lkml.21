@@ -1,64 +1,64 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=85.214.127.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795163596;
-	b=zL5r//pHywg+3m3F5wrtF8tVPJCssjAnNRnMTuu5TsRf5qmFyPAim3mfYpHtxh7vIZWv
-	 20p6eRL91XFyiBF/7gPZhFXZm5R1JeehwTiRINp3bApkCFSk5yhfjUdrbmxhHEwlI08s9
-	 45u90B91ocoK2Rfk0dzg01VVUMEQhYMRWSsA4mzlYsP1LZwkSMR/6jjoqgprp9IDVQl88
-	 FU8u5wpxdxxpYTefQyFVxN/ibMx5UQz5WKk4cwEi1hvL+Smcmmlp7y/6UI14KZ/CIbzKb
-	 WuhWPPYfoAsUiB6HTn4bmcIbi8MJ32pK2x7fugUsauA3/e5ju8IuhY6Vt1kbkh0U7zw==
+	b=ObddTt8xQi5l/ALT9+VxDf0lRfot6X2e7akp5C82VkEM5xwaLXH44RqGfvUKjbuhfQqA
+	 P3FvR846tBzxYvZxwIxsHEyKzWcnHkDDyRX0co3SkHykEwdBZlgzphkJGcY8ildt4R45e
+	 wL4OaEIajOtvCv2QuOz9ocEo+YgMxdtG1WpYLtgK5eWxwJxZPU2DqMEpg3ZHRdJIQJGAw
+	 ExPLUxICAEUnNHyxSx7Dln9U0885wsEUupAU4C4lzbBGtehMYdlvnMeCrbIVUMtQ2mVtx
+	 Nww1uc/NEi+ljINMQmuowpTNf87j+i6+BKW9rsr85+B/BihpqnxE80K+MJnSOoIt5jQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795163596;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
 	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
 	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=R/IZobLWFQkrNx+ZQixYWoLu9nQMnwZwCLvon4yTjxM=;
-	b=JpAPd5nA1Wjc/OuRPF7OvdYqu+Bw9oqtSLjDpIlsXO6Q6Aw6HP5YnRPcKy08cJ0LH4OW
-	 pFbi1Myruy4gmq7yfhMwqmx9YjMj1mXh+09yY/E6acOAjfM37YSwaVOz/Ov1JSFGO4i84
-	 XXI+lPkyJs/hunI/CAnA+DXkYiNTCyaRzgDS+ow/f5QYPuhTlXRz7WSfvEg46kkjyGG6G
-	 8QyDAMF9wLrY8LZsy5wD26Q/U8BrB0DFm/VpMy8WTq0MTGjUljsCjktfBdc6EvhOYJXcX
-	 PcmKMwlF8xwSoS05C8/OHVWVo3GxeQAQSc5Xe/SbTZ/Cx4rvr+6EksJM2Y7R0sjxgGw==
+	bh=67HAICSTbO8an1ZEL6M9ZC5fTvGl+DW6mNLPTBI0ZqU=;
+	b=lQCzE/Y2AEx4vCw49/IhuJMZ5LhsxbQHpFa8h1v8WPQwJHb48qt6ti0JejU/u6V/PG9v
+	 eUC5ADVenGg2AVlJqqCBk6YfnVikCzLCJx2lG0AjyQ1Dw3sPixg96gcpx/xyQ1sgCI2S2
+	 P8ESS5kzhKz50Si31fR86wbKv09xpawco9G2tQOz2lB9H+4q53ux0mYPDrV6//tn5TIqN
+	 Mmg31AXOlZta7woVLMuXzgZZGYTNRJL7QL/rp5pgr899xy+mJRkjrXfXSS/wdhu83uvzL
+	 PFgPu8h7ELaf60XwutpJDXm03Jio1BUdCiv/z+KTWDKMEbNYqwumMvhUc85qxPNcr7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=szelinsky.de;
 	spf=pass smtp.mailfrom=szelinsky.de;
-	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b="MQUEzkn/";
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=AsVb+BLx;
 	arc=none smtp.remote-ip=85.214.127.56
 Received: from szelinsky.de (szelinsky.de [85.214.127.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB769606A325;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB7DA606A326;
 	Fri, 20 Nov 2026 08:33:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB769606A325
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB7DA606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=szelinsky.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=szelinsky.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=MQUEzkn/
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=AsVb+BLx
 Received: from localhost (localhost [127.0.0.1])
-	by szelinsky.de (Postfix) with ESMTP id 09671E838D6;
-	Fri, 20 Nov 2026 09:33:08 +0100 (CET)
+	by szelinsky.de (Postfix) with ESMTP id 006BFE838D7;
+	Fri, 20 Nov 2026 09:33:14 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=szelinsky.de;
-	s=mail; t=1795163588;
+	s=mail; t=1795163594;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=R/IZobLWFQkrNx+ZQixYWoLu9nQMnwZwCLvon4yTjxM=;
-	b=MQUEzkn/hQKYKBTZUCflHO1rhUyVEnUaaaubD80RYosr97kWTA8/iJDF8lzKO92L5/VbvM
-	b1piLGOR5ZwRgeJRUTRA0I+PtgoBw+cxFt29VIZztSkYox3ixo24S3fA6959rMawfpxroG
-	3roMPVIMqptyU3p0wbI6o/tyTzxpaNKY25QcTIQs4O5A5V5TcMQVocfCgsNHZuk15cF21U
-	7hRLoKtn1p0O6NBGIrPha6QuMAlv4gTW6zlz2Gl1KMmr1fvl6J7OB7LVUxw3QGqvySzwlp
-	tPCuQLoaIsZpGvbk6yidFvvoPKRx/PztM2Cy2fHN6fb4/qFgOqhHqhBpD1ycYA==
+	bh=67HAICSTbO8an1ZEL6M9ZC5fTvGl+DW6mNLPTBI0ZqU=;
+	b=AsVb+BLxGcmkdm1ECDml9fl6nEWpYEd5mxwKKuzjnHeiuJFlkPhKe2exWuTfygz15bd+WC
+	mNRKqb2ydTCZ6BUBMR41m/VMg9u8DgwK+KM9C1lW4nC6GlthP2AC+fUtw2EODUEsg33XJU
+	/K+fq9sAInRcE8uIN0WbljDapHkvU16YiVI64Zc5PuDuH/ge2zWiv2mAuqQhMkXa2skYGJ
+	JVvNIZdb/hcThVEm98Lr4LY1TCzoE7WxBqBDXn1TeFILU0MvYYipcjtjIajOozpyzv2QxL
+	Beoju7PtB/mX+67ij6tQ43BQqrNjw0yI0RVW8KZZHQ2otqAZSeHCRyK16d5rEA==
 X-Virus-Scanned: Debian amavis at szelinsky.de
 Received: from szelinsky.de ([127.0.0.1])
  by localhost (szelinsky.de [127.0.0.1]) (amavis, port 10025) with ESMTP
- id rhIuAj5TM0V7; Fri, 20 Nov 2026 09:33:07 +0100 (CET)
+ id cjDY1A2HVzy2; Fri, 20 Nov 2026 09:33:13 +0100 (CET)
 Received: from p14sgen5.. (86-103-67-101.ip.tng.de [86.103.67.101])
 	by szelinsky.de (Postfix) with ESMTPSA;
-	Fri, 20 Nov 2026 09:33:07 +0100 (CET)
+	Fri, 20 Nov 2026 09:33:13 +0100 (CET)
 From: Carlo Szelinsky <github@szelinsky.de>
-To: netdev-bot+sashiko@kernel.org
-Cc: Kory Maincent <kory.maincent@bootlin.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
+To: netdev-bot+sashiko@kernel.org,
+	Kory Maincent <kory.maincent@bootlin.com>
+Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
@@ -72,12 +72,12 @@ Cc: Kory Maincent <kory.maincent@bootlin.com>,
 	Ross Cawston <ross@r-sc.ca>,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v5 04/14] net: pse-pd: do not keep a failed IRQ in pcdev->irq
-Date: Fri, 20 Nov 2026 09:32:56 +0100
-Message-ID: <20261120083256.2324378-1-github@szelinsky.de>
+Subject: Re: [PATCH net v5 06/14] net: pse-pd: check the PI state under the lock when setting a power limit
+Date: Fri, 20 Nov 2026 09:33:12 +0100
+Message-ID: <20261120083312.2324522-1-github@szelinsky.de>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <179515690732.3136.5656168477825917127@kernel.org>
-References: <179515690732.3136.5656168477825917127@kernel.org>
+In-Reply-To: <179515691045.3136.13671979747174463292@kernel.org>
+References: <179515691045.3136.13671979747174463292@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,12 +89,17 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On Fri, 20 Nov 2026 06:41:47 +0000, netdev-bot+sashiko@kernel.org wrote:
-> This covers the failed request. Can pcdev->irq still go stale on a normal
-> unbind?
+On Fri, 20 Nov 2026 06:41:50 +0000, netdev-bot+sashiko@kernel.org wrote:
+> The check now runs under the lock. Is admin_state_enabled &&
+> isr_pd_detected enough to show that the PI is powered and has a budget?
 
-Yes, but this problem is older than the patch. The patch only fixes
-the failed request. The cover letter lists the unbind case, and I
-will fix it in a follow-up.
+No. This is the same point as on v3 and v4. The patch only moves the
+old check under the lock. Kory agreed to leave it for a follow-up [1].
+
+Kory, one question: we are at v5 now, and most new findings are older
+problems outside this series. What do you suggest to get it merged
+faster? I am happy to fix the older problems in follow-ups.
+
+[1] https://lore.kernel.org/netdev/2b82341c-be67-43ef-9a0c-0bf0394b627a@bootlin.com/
 
 Carlo
