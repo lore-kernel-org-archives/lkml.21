@@ -1,97 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=74.125.230.72
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795172371;
-	b=4oKHZ+ZcIHW165FqZS20sAF59t9VhfiN3WCKjno+TowAsOy6VtSQlww1lQC6SwXnZazt
-	 j0WXLeYAy2oRaWmFS0ErIJdGQ4AXA/mrV5kdK8yA11Ahbz0kqOJjSoZjnNkHmXHkE6ldY
-	 OIL+B6DMy/fb4POYWopFcrAbgYT4+f5dg7Pra6lJKbXElLparRQhZZ5N9FszHSPpZ0618
-	 JAW5Uy7jh3hzNqw/MuvXvhWip9URA4MU+0WJojasivpIbhTAR01iMaO5EMOAvF8rc3quI
-	 lN01FlXHj1eF5edT7uFxmdGIX5Web/lAu60QBa0LX+So9mS7TCweeuR778OAvCCKQzw==
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795172379;
+	b=YAJTX6L3s9E57rywyw2TciFys3/Yt52flMLj/swZBecWRt0enVtM51mm4CUBpiTIYhYQ
+	 s2jp6stL7Np1iGyjBNQx2W3qXR++4DADSgWHs/fhsa7VorpG+PVOoujoXRknYmjbYI4kj
+	 uCfeC/YHpB5H8e/g2tit4b1y5t5732BdEFu/FqPvBulEI+68J0sxdNkfJaQ4sAeX97CsR
+	 +fd6VxSm0pw10WTrf/HNYTSKQy6bN2ZsFXRaSfRh7fC+o+QCs87GUAWSFVApMvACG4byt
+	 DpnGZIT2soq0oO+j6Y3zaCJkLW9raDiagJSHpksIKW0ANmYT5FKabbka9LsslfUq+5w==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795172371;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type;
-	bh=lsuDl5Mn3UwB19cNkcSJlYu8KKq2fYppJdpOiWNy9qk=;
-	b=ihgqPc4QqTVXV/+ZpVj7C5bY9/17/Vnj40VAbErlUANhS9CkhppR3JtHRR9wnwa7ToJ4
-	 kXcl3xUkQM7e4ko5VrNoDK4i0QdmjGVIxGTXD4K081JhC+x4pxkfXlHwm+tDwwLuZNR8R
-	 imzS1UqdH8tMc8iDhdW1Mih0PCo9Jq7XaUL/RIQJGDyCEf2XCl+Z6s5RDVxgFJOyNCjhV
-	 +ibY6htaZYgLItdYdL9Pzz4wsb780HkMHwS+iDEzp/BqTmwbAEcwjy41wWInmrLD0djK2
-	 Ua5LqrmUlnb5U6wsrQ9BEdhY2+nEPC+i1RYVevBQ/lVNYBMT4tWVFpa5YaBDptFi7UQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795172379;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=N9GJoWP9KWGANWBclMN/x/7grGRAitsXcFOYvWp45p8=;
+	b=VCbxb8mxLZnMFbtFstLNgrubfAKP9HsqOPI/MDKvv/oYo6YzevkQKEmhBmf6eAsB+Uum
+	 LFMG2jhV5Rb16TeCE3aSrrEm/vTifoisY3PekB6hn2+pHM34AkMVmM10fIXvS2OjsqLIm
+	 QCVAvGofuYbuGn/1ThXyKBPz9sPzADcZO31Vw6vvDba2B1bTgioYJ0hWiTjRGaA7LS/cN
+	 cIrCdHNNOdqQdKzCgrAP9O5ADUtm+d9D2k2rhbWdsnsV10UPGhbC6i7/uRZKYpmuRN2b0
+	 hVvQBIwgBcTapp4K8N+TFtSJ4KWrk+2zPXxr9zBtl0zYqwdf5JRTEb1HvWioHRUkcHg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hjZVtA5I;
-	arc=fail smtp.remote-ip=74.125.230.72
-Received: from mail-lr2-f8.google.com (mail-lr2-f8.google.com [74.125.230.72])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tg+wGCAW;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89D5A60A2600;
+	Fri, 20 Nov 2026 10:59:39 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tg+wGCAW
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795172379;
+	b=3OXDbaMMpzQ4cLykjXsDEaHhqVAD0Kn+RYbqeqGB/jfKQLI63YcVJr2BWS59EaTYqbtH
+	 iimis6ItokhyyDWlMgWEvd7nFcj3Bi7HZfvtczn7Ipj0MuF3pveRjmS7AzkrGZeQ96UdP
+	 rX7PSbdIPBT8wh3/X8pOmlfKyjINTpdK90t0jtFCg30fGDnsQyaMcdixEvfi2R1dWA/Zt
+	 B0r67+aK7t3iMNMwtyaR2Ts6E7xUTCdmXKBpnej+mszjw45tP+iBl9KpnH92bz73H/OPO
+	 bLY31VrevDhFWNOqTa5QA5YlwBLmugNxSRY9LQziOzm6L+STbOSc2bfVWpMZ1uYMBUQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795172379;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=N9GJoWP9KWGANWBclMN/x/7grGRAitsXcFOYvWp45p8=;
+	b=PmJdtqexSORjpkVpBvOBNqgwVcqvqsSW3zjnjMwLj6zYEKm3teCefcNBbj7bz0BjXoek
+	 W2oZWrveASshqIEccEra2ZDEqIid3aNOhwndJE0KYHb6tUgT7TepKlq+4kpgfz5jdZuD1
+	 62cncmb0MWENEpB0v97OslgbvgTBKJaRRfwyUZLY1sS9WVWEJs8s23XF496iHZYQp2Kqa
+	 EVsEZJLwMCYXHP0JQ+dKfrjy6wRbpHabIFUAvpbKLD/AflippwIehUTkZhg1CbCrzcUuH
+	 ayUYeU7empDo8tfBB2JQHyxWZG6+0Puk7dD083DxssKxGF0rcyFWADLfRuj6N9WzIFg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75138606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:59:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75138606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hjZVtA5I
-Received: by mail-lr2-f8.google.com with SMTP id 38308e7fff4ca-3adf2030cdbso2672131fa.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:59:31 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795172370; cv=none;
-        d=google.com; s=arc-20260327;
-        b=NV34GKW9oCUvpv4UKXR0rDBhzQ/HTz20IaJtu2v2voLic9PJ8+hE1H/yvrDaVBNt7K
-         egHggoijYsCu+WJept+0+ugyK6D7jTLVrpPqKmCPm9HTT1prvfvN0hXjTUpwvqljHNnS
-         bsIbpCp3o++WTv/Zs83P3BL89TzqdszNnl3MFqrUufmp1paaPDNMTHGrOcoqd5LzDPrx
-         cBacrDKzqg0h6Sh27VxpYvZiVXH5rgAhm3asYpyK5lqys/KZgQpmeSe3JM6HfqanKtOe
-         tCZIKqiY4NQu6EXyT/WEhl7diRevyXfO1sokKClZYtIRel4nydDYcUoZjvHqpS32JTYl
-         HayA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=lsuDl5Mn3UwB19cNkcSJlYu8KKq2fYppJdpOiWNy9qk=;
-        fh=s2oUvdUkxyzETTho9QitXWLJIP0UpnkM3fBZk+kdFhI=;
-        b=ViRct05gPHKxJZFpL8Vwh6bRiA+ADhRLo11hJsTMh1uNcWN0lku+PNqCVLP61RM7VD
-         Lpc6brA8GTmxz6ErivIazc2dGAEtytDbO2qMsFBLwRglr9hdnhlBhHJIVhWsxvvxMLVR
-         I5/gsKLF0cpRpVvDoNcsOaKIJSrX27YMLmlDEH/H9lCzx3ZzbJbjJAn5yqR9FfyHL7Ji
-         iu2v3GbbLaJwXvTAVngmrNJG3QmAqzqCb3zR+d0RFfs2by0z3JmAcIIiK7bbnLSPxm/O
-         3hFuw/2skugpscum5vFn9OdIeGosBReksRJBXF562Hr9kGr/e/48D1g1fJseyKVh6EgR
-         PWSA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795172370; x=1795777170; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=lsuDl5Mn3UwB19cNkcSJlYu8KKq2fYppJdpOiWNy9qk=;
-        b=hjZVtA5I3GOQ3OgGiXpAh4D/yiWo9n387+63YqmnJU8rK6mUkJsQCbGY/Ryfmj4PG7
-         POiFVQfTW9uzhfKwvXmSKNLW1YkN/zO0PKc1tZpAIn2ZN71ygI5F6MJf5mRq2YhUApRw
-         Jn5mUuk0f5jRbWdBzrP3tKCsIy61XMt6s5r8o4wSy9g2mZ0HqlnCZyybpySMbUvfRxXW
-         KBLGqSBia5V1CZuzax3w6ZDBX/34Va8R6FA9ERAKaCf16ELD+klxRjhxpXofsKocJE62
-         LOManfqKvXTvs49MVsXib5bhQoDtiYdcfP/1xv/XAEjlMM09sx+Y90rZ1rMs/DRA6Jh+
-         FO2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795172370; x=1795777170;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=lsuDl5Mn3UwB19cNkcSJlYu8KKq2fYppJdpOiWNy9qk=;
-        b=RATPfdX2DUFtbSqQD4zLLG00uc+KzN63CPDUorR9SfrOy2IQYS5Q7aNB+f3RPTpkEv
-         v0znydpPGEVIayPCDDna9gOiPrCn7LpdglNUhuSjlQhUPp2QqqhJ0DSKzo10RviQMjrF
-         lCiSYJ/M+fQvPmNrgRIbhxt8utyOCrzWY0ciDtNaknPdPh/inMTZdi23pCbjnZnFfG8D
-         Xo5Wn++s0xGfosRtXMLO21MW6+KdZmAG9a0toJa4Nsc1REaKDdG6P4qQUhD8Dzte+13I
-         ddqtUA/4IrXP1+rFukhjZ4e2XP8HYHbC83wuMMjgd3L6mzcKdYyE/7Az9KTrEX4qgD/d
-         ta2Q==
-X-Forwarded-Encrypted: i=1; AL+hErGB51QvJNVYM5AqVgnfuI1/92A1j1kn7n1k9vKjJYwm3XRoyub70Li78jAI1AGXxsRkAUQQkybtU7Km/dQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9KAaNV4p7VtT1DUTV0luczzqtoaC5xDX1YgLr0G0Jk/Qsn7lto
-	20ue5++5cQoOMk++mVOMQwy85ixKUcGZCQSNyWwW96Tj8nZwlwE3iStHyxiY+YsX5j7r9XJabRT
-	KqxB1BrFpgDD2CmXXque2kZ9m+tZVDMo=
-X-Gm-Gg: AZFdTZfn4xBpiPfQJSD6djU1Nz7M4Osn0X7NDL88tpc0LDona61xejYwhfKH0yoKgUb
-	yaYvia18EcDMCDnBz7NPvH7btreBLBSPs9XmbbLGKL/cGmO2Cdh8Qt0Q18tYwS5SYJeSxoZos2j
-	7X3Pa+QJlIUFJMhoVyRhBjZJW2jbMu95qxe+ivs5/8/+PhNMOss7ZiMPMSLw5ZANmAzM8paDYw+
-	dmY1Dt3TPpbWSruVXvkV1ibpfD3CkK0iLMzPmhYKdfc3Ds6CT1DorlqGIVnkcW8wi2bnOe4c3zU
-	F74MqAqWkSvIjKovBVyBYYvIoUEqzHHV1XzNXqW+wA7A3mWeiVL6s4iewbRt4Xswk1KliHzI3fh
-	VXVPFWbGeB3g1cW2jdRK7sLK3DKtASGfqNltDUGT2QsXipxIhbGWeRViaHTmz30fm16IZ
-X-Received: by 2002:a05:6512:3187:b0:5c1:9752:4a4a with SMTP id
- 2adb3069b0e04-5c1bc85a157mr752168e87.65.1795172369334; Fri, 20 Nov 2026
- 02:59:29 -0800 (PST)
+	by smtp.kernel.org (Postfix) with ESMTPS id 5F05C1F000D0;
+	Fri, 20 Nov 2026 10:59:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795172379;
+	bh=N9GJoWP9KWGANWBclMN/x/7grGRAitsXcFOYvWp45p8=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=Tg+wGCAW4zpukb+x1lwkG7mWcbdnZSiVTg4hGAhEYkgJqSBYWW0hfmFcyfnUeRmP4
+	 Lz1VqpEMQyQGdCeB/qIcEgQYQeEqF2Dcv61p4ZWh8K+rthJLDiyrhg6dqnwslZAzS1
+	 RtIm1tdinEPPY/Bu9jS2G2nhTlHT64/wtwRePx/0ENhKU8QCyEYg9hBU9qWXSMdJxD
+	 RPBxHpVZGdPFKOoarLizZiLQnLAyZ9qMoSgXmIcU0qBvsfjJ2klLq7VzbA0AOilxJQ
+	 HogP1V17DOS6S/TdeZgpWOB0jaB/pFhZdX5JPNpvpjcAvtDLDG54Lvx9Nu9VdlTXQF
+	 rxydHzl3JlErw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D186B49822;
+	Fri, 20 Nov 2026 10:59:24 +0000 (UTC)
+From: Mike Bazov via B4 Relay <devnull+mike.bazov.gmail.com@kernel.org>
+Subject: [PATCH bpf-next v3 0/3] bpf: Use an on-stack pt_regs in the raw
+ tracepoint helpers
+Date: Fri, 20 Nov 2026 12:59:10 +0200
+Message-Id: <20261120-bpf-raw-tp-regs-preempt-v3-0-ec109009a5d2@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,164 +84,133 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Zheng Zheng <fengaojigui88@gmail.com>
-Date: Fri, 20 Nov 2026 18:59:15 +0800
-X-Gm-Features: Aa3M54rmQkwWBhrijL1QXQXHklkFcgZIvs5-RQmIqvid1q9B1KJKQjJZfoZUeyk
-Message-ID: <CAO-4RZ2pjEOpTBzqca5UxZHtaFS2Dj9zmNj1BtjvKm1yFE7_Jg@mail.gmail.com>
-Subject: [BUG] INFO: task hung in nilfs_transaction_begin (fs/nilfs2/segment.c:221,
- v7.4-rc3)
-To: konishi.ryusuke@gmail.com
-Cc: slava@dubeyko.com, linux-nilfs@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAP8nAGsC/4XNQQ6CMBAF0KuQWTuGKRGoK+9hXBQ6QBOBpm0qh
+ nB3Kys2xuWfn/9mBc/OsIdrtoLjaLyZpxSKUwbtoKae0eiUQeSiJKISG9uhUy8MFh33Hq1jHm1
+ A6qqcpKylaiSkdbp3ZtnlO3xHEy8BHqkZjA+ze+8vI+39Xz0SEuqcmlLr+lIV7a0flXme23ncz
+ SiOjvztiOQwMTUyT44uj862bR/iVWwyEAEAAA==
+To: Song Liu <song@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
+ Ihor Solodrai <ihor.solodrai@linux.dev>, 
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+ Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
+ Martin KaFai Lau <martin.lau@linux.dev>, 
+ Yonghong Song <yonghong.song@linux.dev>, 
+ Emil Tsalapatis <emil@etsalapatis.com>, KP Singh <kpsingh@kernel.org>, 
+ Matt Bobrowski <matt@bobrowski.net>, Steven Rostedt <rostedt@goodmis.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-trace-kernel@vger.kernel.org, Mike Bazov <mike.bazov@gmail.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795172363; l=4481;
+ i=mike.bazov@gmail.com; s=gmail-20261116; h=from:subject:message-id;
+ bh=4aGQ30fVGQcDktz+c2aNUCUwsz1tlkmURfv5+dT5M+Q=;
+ b=Br8yFWWxoQSuqlWMGIXaNofyvpYJBZw/pOHE4k/eXeU9vSibz9Je439VzXK+bUFun4kq4wd3B
+ uwmLjp4+fnAAwiorDfpWyDqkMjypn0a3NRNE4spCWtXCt3+lzo0sbyU
+X-Developer-Key: i=mike.bazov@gmail.com; a=ed25519;
+ pk=Rr9fagn0pNA+bs8tgc6DXZpRAhl/maU6BeqkttIR7DA=
+X-Endpoint-Received: by B4 Relay for mike.bazov@gmail.com/gmail-20261116
+ with auth_id=1544
+X-Original-From: Mike Bazov <mike.bazov@gmail.com>
+Reply-To: mike.bazov@gmail.com
 
-Hi Ryusuke, Viacheslav,
+bpf_perf_event_output(), bpf_get_stackid() and bpf_get_stack() of raw
+tracepoint and tracing programs share three per-CPU pt_regs slots,
+picked by a nest counter. These programs can be preempted, and tasks
+then leave the slots out of order, so a sample or stack trace of one
+task gets the registers of another. Patch 3 fills in a pt_regs on the
+stack of each helper instead and removes the slots.
 
-We found a reproducible NILFS2 hang on v7.4-rc3 with syzkaller.  The
-supplied recipe reproduced on independent fresh VMs.
+The slots also limited how deep these helpers nest. Two things need a
+limit of their own without them, and both can already be hit today
+without raw tracepoint programs:
 
-Note: This hang may share the same underlying root cause as the
-previously reported nilfs_segctor_thread hang (issue #182):
-https://github.com/nilfs-dev/nilfs2/issues/182
+- bpf_perf_event_output() WARNs when entered a fourth time on a CPU.
 
-Repository and reproducer:
+- Build ID collection in bpf_get_stack()/bpf_get_stackid() and
+  bpf_find_vma() take mmap_read_trylock(), which fires the mmap_lock
+  tracepoints. Programs on them that call these helpers nest into each
+  other as deep as there are programs. Patch 2 limits it to three
+  levels.
 
-  https://github.com/Zheng-zheng-codes/nilfs2-transaction-begin-hang
-  commit f1065fd59515bd55bbb5141b45e979bc0b3c9993
+Results on bpf-next 0fb18ce8a2e9, x86-64, debug config, CONFIG_PREEMPT=y,
+preempt=full. "base" is that tree, "v2" adds only patch 3, "v3" all
+three.
 
-Hung-task report
-----------------
+The slot race, 5 runs of 10s each. Two raw tracepoint programs on
+sys_enter call the helper, two threads make syscalls on CPU 0 and a
+SCHED_FIFO thread preempts them every 20us. For bpf_perf_event_output()
+the reproducer reads the return address of each program's helper call
+from its JIT image and checks the IP of every sample; bpf_get_stack()
+and bpf_get_stackid() get an empty kernel stack instead, because the
+unwinder looks for the other task's sp on the current stack:
 
-  INFO: task syz.7.24:13081 blocked for more than 142 seconds.
-  task:syz.7.24        state:D stack:23176 pid:13081 tgid:13075 ppid:10344
-  Call Trace:
-   rwsem_down_read_slowpath
-   __down_read
-   down_read
-   nilfs_transaction_begin+0x323/0xa00 fs/nilfs2/segment.c:221
-   nilfs_write_begin+0x78/0x1b0 fs/nilfs2/inode.c:228
-   generic_perform_write
-   vfs_write
-   ksys_write
+                                     base        v3
+  bpf_perf_event_output, wrong IP    7-18        0      per program
+  bpf_get_stack, empty stacks        362-535     0
+  bpf_get_stackid, empty stacks      168-364     0
 
-A second thread of the same process (PID 13109) is blocked on the
-f_pos_lock held by PID 13081.
+The bpf_get_stackid() case with bpftrace, whose kstack calls it; @a[]
+and @b[] count the empty stacks:
 
-An NMI backtrace of the semaphore holder (PID 13190) shows that it is
-executing the NILFS2 segment-constructor path through
-nilfs_clean_segments(), including btree/bmap propagation:
+  bpftrace -e '
+  rawtracepoint:sys_enter /comm == "dd"/ { @a[kstack(1)] = count(); }
+  rawtracepoint:sys_enter /comm == "dd"/ { @b[kstack(1)] = count(); }' &
+  taskset -c 0 dd if=/dev/zero of=/dev/null bs=1 &
+  taskset -c 0 dd if=/dev/zero of=/dev/null bs=1 &
+  taskset -c 0 chrt -f 1 perl -e 'select(undef, undef, undef, 2e-5) while 1' &
 
-  nilfs_segctor_apply_buffers fs/nilfs2/segment.c:1010
-  nilfs_collect_file_data fs/nilfs2/segment.c:589
-  nilfs_bmap_propagate fs/nilfs2/bmap.c:329
-  nilfs_btree_propagate fs/nilfs2/btree.c:2128
+Nesting. For the WARN, a raw tracepoint or kprobe program calls
+bpf_perf_event_output(), and three fentry programs on
+perf_event_output() call it too. For mmap_read_trylock(), six programs
+on mmap_lock_acquire_returned call bpf_get_stack() with build IDs, or
+bpf_find_vma(), while the process does 1000 mmap()/munmap():
 
-The lock dump identifies the semaphore holder:
+                                         base     v2       v3
+  WARN, started from raw tracepoint      no       yes      no
+  WARN, started from kprobe              yes      -        no
+  bpf_get_stack, build IDs: depth        4        6        4
+                            calls        1.5M     5.9M     1.5M
+  bpf_find_vma: depth                    6        6        4
+                calls                    5.9M     5.9M     1.5M
 
-  locks held by syz.7.24/13190: 3:
-   #0: (sb_writers#17)                at: nilfs_ioctl_clean_segments
-                                          fs/nilfs2/ioctl.c:869
-   #1: (&nilfs->ns_segctor_sem) WRITE at: nilfs_transaction_lock
-                                          fs/nilfs2/segment.c:357
-   #2: (&bmap->b_sem)                 at: nilfs_bmap_assign
-                                          fs/nilfs2/bmap.c:373
+Depth counts the programs on the stack; at 4, the last one gets -EBUSY
+or the fallback to IPs. The kprobe case wasn't run on v2, which doesn't
+change that path.
 
-So a NILFS_IOCTL_CLEAN_SEGMENTS task is inside the segment-constructor
-path, holding ns_segctor_sem for writing while doing bmap assignment,
-and normal writers cannot acquire the semaphore for reading.  In this
-report the segctord thread itself is not among the blocked tasks.
+---
+Changes in v3:
+- New patch 1: don't WARN when bpf_perf_event_output() nests too deep
+  (reported by the BPF CI bot).
+- New patch 2: limit nesting of mmap_read_trylock() in BPF helpers
+  (per Alexei's suggestion).
+- Patch 3: correct the commit message, bpf_perf_event_output() keeps
+  its own nesting limit.
+- Link to v2: https://lore.kernel.org/r/20261119-bpf-raw-tp-regs-preempt-v2-1-e1e1b90857d6@gmail.com
 
-Relation to the earlier nilfs_segctor_thread hang
--------------------------------------------------
+Changes in v2:
+- Use a pt_regs on the stack of each helper and remove the per-CPU
+  slots, instead of disabling preemption while a slot is in use
+  (per Andrii's suggestion).
+- Link to v1: https://lore.kernel.org/r/20261116-bpf-raw-tp-regs-preempt-v1-1-d01b6dd8573c@gmail.com
 
-We previously reported a related NILFS2 hang:
+---
+Mike Bazov (3):
+      bpf: Don't WARN when bpf_perf_event_output() nests too deep
+      bpf: Limit nesting of mmap_read_trylock() in BPF helpers
+      bpf: Use an on-stack pt_regs in the raw tracepoint helpers
 
-  INFO: task hung in nilfs_segctor_thread (fs/nilfs2/segment.c:357, v7.4-rc3)
-  https://github.com/nilfs-dev/nilfs2/issues/182
-  https://github.com/Zheng-zheng-codes/nilfs2-segctor-thread-hang
+ kernel/bpf/mmap_unlock_work.h | 16 +++++++--
+ kernel/trace/bpf_trace.c      | 80 +++++++------------------------------------
+ 2 files changed, 26 insertions(+), 70 deletions(-)
+---
+base-commit: 8835113107b2cf75df33a71e265cdeec5d5d13e0
+change-id: 20261116-bpf-raw-tp-regs-preempt-1f7019989ab9
 
-Its hung-task report showed the constructor thread blocked acquiring
-the same semaphore for writing:
+Best regards,
+-- 
+Mike Bazov <mike.bazov@gmail.com>
 
-  INFO: task segctord:35823 blocked for more than 183 seconds.
-  task:segctord state:D
-  Call Trace:
-   rwsem_down_write_slowpath
-   __down_write
-   down_write
-   nilfs_transaction_lock+0x25d/0x410 fs/nilfs2/segment.c:357
-   nilfs_segctor_thread_construct fs/nilfs2/segment.c:2601 [inline]
-   nilfs_segctor_thread+0x600/0xa60 fs/nilfs2/segment.c:2716
-   kthread
 
-The two reports involve different blocked tasks:
-
-- In the earlier report, the segctord kernel thread waits
-  for ns_segctor_sem in write mode in nilfs_transaction_lock().
-
-- In this report, a normal file writer waits for the same
-  semaphore in read mode in nilfs_transaction_begin().
-
-In both reports, the lock dump identifies a task executing
-NILFS_IOCTL_CLEAN_SEGMENTS as the semaphore holder.
-
-The new external verification logs also repeatedly report:
-
-  NILFS (loop0): error -28 cleaning segments
-
-This resembles the repeated -ENOSPC errors observed in the
-earlier report.
-
-We suspect that both hangs may be manifestations of the same
-GC error-handling problem, but the root cause has not yet
-been established.
-
-We would appreciate your analysis of this additional
-reproduction alongside issue #182.
-
-Reproduction
-------------
-
-  git clone https://github.com/Zheng-zheng-codes/nilfs2-transaction-begin-hang
-  cd nilfs2-transaction-begin-hang
-
-  # boot v7.4-rc3 with the supplied kernel config
-  # using a Debian trixie x86_64 guest
-
-  # in the guest, as root:
-  syz-execprog -procs=1 -threaded -repeat=1 \
-      -executor ./syz-executor \
-      reproducer/repro.kernsight.prog
-
-The recipe requires sequential execution with -procs=1.
-Using -procs=8 did not reproduce the hang under our tests.
-
-The recipe is a state-reconstruction sequence (72 replay programs plus
-one model-selected priming program, followed by the crashing testcase).
-The crash depends on the kernel state built by the recipe; the testcase
-alone is not sufficient.
-
-Verification:
-
-- reproduction run: two attempts verified (confirmed=true,
-  status=verified), 2026-11-20T07:17:00Z and 2026-11-20T08:05:31Z
-- independent fresh-VM verification inside that run: 2/2 target hits
-  (2026-11-20T07:46:46Z and 07:50:15Z)
-- stability on fresh VMs: 5/5 reproductions, 187-194 s to the
-  hung-task dump in every run (2026-11-20, external-verify/)
-- evidence: reproducer/repro.outcomes.jsonl, external-verify/,
-  logs/external-manager-session.log
-- C reproducer: not generated; the syzkaller recipe is the primary
-  reproducer
-
-Kernel/guest details:
-
-  kernel: v7.4-rc3, bzImage sha256
-    0c16409f8aec508ac44a63e631c2bd352536401f3fd0856df1d839fb953a1882
-  guest: Debian trixie x86_64, 6 GiB RAM, 4 vCPU, QEMU/KVM
-  boot: oops=panic panic_on_warn=1 hung_task_panic=0
-  config: CONFIG_KASAN=y, CONFIG_PROVE_LOCKING=y, CONFIG_NILFS2_FS=y
-
-Thanks,
-Zheng
