@@ -1,49 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795192821;
-	b=EHSiXSWpgRsYQHj/0ebvkNipZPaGKugwZqVxfPzWfF1Q0MsqFg079ZV8UxP98uqcRry3
-	 j/ezYKF1xMH+/7spR2LFnH3TvUX8fiewMdI+LFAnDLLmHGOHsd+HlcKX1dKrxv7uwgljb
-	 tV7UZfdztUCFr2ndGVWWW1oQKo6LsX5yrgBZVnVWYXsS0OTk8IsW7DBp7hCYp5WAmYfJY
-	 ybqU/RzfYEtqvlP+MOvGr+u5WJ1MelVuvej6hK8utcg1x2huIVReOXiamkkswDqctkYDg
-	 fp/nUD+5FNqVbyi1cBqsy3SCbxPolYfzGcTrpg4Wywv1s3DmjARIUeegq1PeJFn9bkA==
+	t=1795192825;
+	b=uzDrf6zzQXRQWCI4Hn02d4BIzFy/TjwbZ7dUjJQUTkJ0A0d/bdcTGGEGhxFITArRv/YD
+	 YOrIhdqlOHzqYOd2GN+Mb5ZwdSABAVxQOZO13vZX8Ac90pzlg0OlHYZyNJo7mwgt69NqB
+	 U1CrRscKguK5v5cfMztxaKsA4i+cF30n7sN2v4PaDN7weowoY6UOJ4iutNYvKexDAN0hP
+	 eYqMyhYVLo0A52eXRW3+t1CDZDP43vwA+GUFJg5AC5AxTpBsEY5NToDr8ZvY3kcKG8yCi
+	 VJ1ABOWHkLgG6NBebFB8ZL37iPcEgbj2MefjZroY9agUZ/lD6vzPlTqbrMHxD5IYZ7Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795192821;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795192825;
 	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=x1dlnoX0+h8+R3Kb687G7S5xu2gU9ZrsFrBIDwfUWws=;
-	b=uet65xnkqVReZ2CDez6PoH2NmbSB7wQBGB4ZPzIn3ECZZKkhCT4foiGY5K/xBVvjmpN/
-	 ZnZdUUPZJhCYURoNNjY2B0iyJ9Rq3ZrAz/JpQCbgphEhXsRC93QAw/7aQVeFZpTXAkvcw
-	 diFvy+UxXTZ9w8gU6flE98lZVhs1Xxv8BN+Gvhd++EjU/ZPQyF3g5IO0nCRSpvXfGZ+rf
-	 qS/Kh3X/9e/d5tyrETjqgdzwIDli/sc+uZ1tdMIoaUTJ7wcYmkockKGMPz4w+ZBKF/m88
-	 qNLGG6rcFDGE9G1t5b/e//+l7rQwfRPCk2MmZxgmrg7FLGm5O36rnCYwVSlQYLME3nA==
+	bh=BSs8jfP0DlfjlBVbU3FabL4gQ2HsAONbzT0SQxcndIQ=;
+	b=AJhS7w+wT1vAV2G8Fl1WPzUQVXmYUC44ubwx5Nzr10IRRz9VZVAGlAM6yvgk+X8QPN5Q
+	 f8vouXDQS0TnAOk+6J/+gZHK5J5SUM7w5XLaFCQ6X9BIfevex/e+XsZfvIhrKZ6Tq8cPC
+	 lfyiLNWa4MSXJN9bByKYuRldPwaMBgRAjnD/r/supl+bftJD+GYdCJc7zZThyvVRCzrJz
+	 bAthCRQaYJ+BAK4rAmFtpSAW7wiUtTf4TxiMnjAQmg6BqqQ556NwC1ikgX1jJVEuzLuJm
+	 Ok7f63IlDzK7KhgHJ/dKlOMX2ZUBEOnR1cLau/IMvvbeLY5Jr3Z0E9mRJpcbrtidaMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gTtc8Qlx;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XwYR0Ks7;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92E1660A2602;
-	Fri, 20 Nov 2026 16:40:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EF7260A2633;
+	Fri, 20 Nov 2026 16:40:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gTtc8Qlx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8783B1F000C0;
-	Fri, 20 Nov 2026 16:40:20 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XwYR0Ks7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADE9E1F000D1;
+	Fri, 20 Nov 2026 16:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795192820;
-	bh=x1dlnoX0+h8+R3Kb687G7S5xu2gU9ZrsFrBIDwfUWws=;
+	s=k20260515; t=1795192825;
+	bh=BSs8jfP0DlfjlBVbU3FabL4gQ2HsAONbzT0SQxcndIQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=gTtc8QlxZ6A0S5M854ufd3VRdCqx8rqXMLQ1v3B2HlL3yWcxmEVB7Vtn+2ecZudCW
-	 4+zPmXUsIoOVrzhcmqdhf5Xhyz0dvie5ZEHWvG7o5ChKn9cxVVBSEX1W5Yy1+/z18T
-	 7ULKfs0pjAKFJJmxJ1j3KewCSCtdG7XfDEwdyEOg1/dzHaqiKLEHyymlVyeM9dN+SG
-	 Pdom+jbfERuWZXkVzm+QaMlDQ8Vogr3w6CXqgrHnxl0LUffZktonf4sh1h58RddCuc
-	 YSK8UILxjhqNQ1DBbLOPm85NHttjTMWDXdjB1KNVgGQ6z4n4K1uvV9HjZJLEkclmaj
-	 xzqtEe9w03S8A==
+	b=XwYR0Ks7kp9TrJzPVujP5kpZolNx1Ieqrt7cNemvKlMgxmetCsRVNxXkr19iuxR4G
+	 wq3z11RYPysRGEJ72MtoWnz5H8XTWz1ycszscSmBmjevIFJOD8qyJGHamB0w7eDjfy
+	 gQARZdiqfmrAj0EgEjWUW4qUMDwKQOMVCmpjSVIruKQNORlaL86XDHpKmXfUL7ryR1
+	 o1Vs07Vrjh0mbLiUH9e599AXCuPiCWJ+q13U9do42vNG1uFj8ULiuQHZ/DEKN/plIr
+	 gP1g7NgW1kHLL4FYyTePyzbJjIqThkKdjn4F2aSDKUIXG5Z5l3Q2L6g+LVS0Sg3QZz
+	 g4m0YvUxKp0bQ==
 From: Jeff Layton <jlayton@kernel.org>
-Date: Fri, 20 Nov 2026 08:40:08 -0800
-Subject: [PATCH 02/11] nfsd: take freeze protection before updating
- delegation timestamps
+Date: Fri, 20 Nov 2026 08:40:13 -0800
+Subject: [PATCH 07/11] nfsd: recall when a CB_GETATTR reply omits the size
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,7 +54,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-delegts-fixes-v1-2-c89b37d2d462@kernel.org>
+Message-Id: <20261120-delegts-fixes-v1-7-c89b37d2d462@kernel.org>
 References: <20261120-delegts-fixes-v1-0-c89b37d2d462@kernel.org>
 In-Reply-To: <20261120-delegts-fixes-v1-0-c89b37d2d462@kernel.org>
 To: Chuck Lever <cel@kernel.org>, NeilBrown <neil@brown.name>, 
@@ -64,161 +63,98 @@ To: Chuck Lever <cel@kernel.org>, NeilBrown <neil@brown.name>,
 Cc: linux-nfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Jeff Layton <jlayton@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5376; i=jlayton@kernel.org;
- h=from:subject:message-id; bh=ekCSUC6pGw2VndhtGf0sTzsAN60DohvMTN7Ku8bXbrQ=;
- b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBrAHfwd9lPiX9lktP3LDC08LKq0JKWKkVgqxnlU
- eZIOazsWAiJAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCawB38AAKCRAADmhBGVaC
- FWOCD/4o9ucgMwJjnMe1ukhIixxcnbiLGVJGydPcm4uwo9O4Q54knE64GNyIutvxcQzPh/pPE2h
- skV3OiYwzoLE7sabGqccg1UxMIELWWGk5VXOrqINAot4xKM3EBnx6T9jC3LsqbxxBBZUQI5y5Uf
- W+62nHp3rDfrY1b6a63u9j2VooA1WMLsPE83zGVFGxPGcjpwK8UojOrm02w1J9kvZIrafPdLlAv
- la91xByYS98q+0RT/t8gsoo26JAWnTxrtQCgLFR80URuIVZhDfpux6369MdK0lF0ORlXGJ0OpR9
- PdR8eIDr4ofp5AgmmX/TghZOC2bGsLzwwuRftBUQlK4mcncLGkXZcL7j3zBi1TfvvqFhdcPyorU
- qckyRjldnJIHiCocK9mtgyaFZwFsBoBGx6BPXIEWOYM/JQRlpthp2Y/6430C+DeEdbvrMfHZq9h
- dQ6Ul1yFORUruSLIEt4vj5ZCyEPqkop+MsmwVxFeYae9Qx0Exr+oKMEt3FgUqqRs/UE/0TgHYzu
- ANZuJ235XEZ8qPz0GLMyv8v3Y355HNyswB+ZDLEPQfldDZXXAuU0iftkg8IB5XQaq047CcmkQ3Q
- kZIeRVG7kadR79x5ktFjZyFdTPql8P7RM0s0CXaqZg7GFiE+Oc9S4CxlzmF1hptg8ETPNKPHT2c
- Ilk94wN4pMuB1nQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3053; i=jlayton@kernel.org;
+ h=from:subject:message-id; bh=Lj+msMu1o5iZ+PBvOXpflq4rJO91q0T23b2z09LwA6c=;
+ b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBrAHfyla1c+MVr6h82gGwyCNShPsWB5WYxIsXAt
+ qH7rw3Ht1mJAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCawB38gAKCRAADmhBGVaC
+ FQW4EADUJtiB1GFmWW+f2S/0sfXYS0jg3gjH+wQrWRSqiGIPE0saMsN8fzLzLgx00suup0e1OM9
+ ODu5BdQyGTJwNJ8ytu3KCF4MYIaz2T9E8MIjk6354fXG+bA4S/TsVUy1K3fVZlfgy2WsiYGhVhn
+ 6mMAf2FEWYpZPqhHpkxavirT34RVbW/cZhQUvGXuCTRZi/PLKgaWLTGRlPcQ2+ggAB+cZHXQVSs
+ 4GfU3ISJjv+hoHsre4osQMDZIxOnvHJqtDjSGEieEeW/mAPjcGyTOE0OMYGDzpTNVdVE+m+cQO7
+ Ji8JilJjFWOwNVL+xAsdFORyds+nsYJjbECMxpVBEbQMAxmmC9GaLB0S5KVh+FJvrMQaeFKqeuv
+ fBOWArrWwAOd69wyJBI6sRGy2JL+TDDRos1I21z59TAyA0H/Z1ECDrpgOk3f66tXUdOGtOMZWik
+ 6/PW9MNGrXGmb+VoV2WIdfaVsMXcFgPuqucKJi+s9b/UURcqtNiF49HAonk9I5etxMpSCokNIut
+ AbVPAJzMg/8aSqcX0zQ2AHgPZ8AqdZ2qxJtUvIWgslx1J0PsHijoc+zbPAmL730nXrgRp562geE
+ SlEg93WSdpLnjzJFk/DfCfb/VFDITFOUzLFZZOUm49MoReDmd3B4c+p74BjMpB5nCfbKVbTrzdT
+ Xa6OjyeJYL7K6dw==
 X-Developer-Key: i=jlayton@kernel.org; a=openpgp;
  fpr=4BC0D7B24471B2A184EAF5D3000E684119568215
 
-cb_getattr_update_times(), nfsd_update_cmtime_attr() and
-nfsd4_finalize_deleg_timestamps() call notify_change() under
-inode_lock(), but nothing holds freeze protection for the export. They
-modify a frozen filesystem: on ext4, a foreign GETATTR whose CB_GETATTR
-finds the holder modified the file trips the WARN_ON() in
-ext4_journal_check_start(), and the inode's mtime and ctime change while
-it is frozen.
+decode_cb_fattr4() zeroes ncf_cb_fsize and fills it in only if the
+reply's bitmap includes SIZE. nfsd4_deleg_getattr_conflict() doesn't
+look at that bitmap. For a reply without SIZE, a non-empty file's size
+doesn't match zero, so the waiter marks the file modified, sets
+ncf_cur_fsize to zero, and GETATTR reports the file as empty to
+everyone but the delegation holder.
 
-The delegation's file and COPY's or CLONE's destination are open for
-write, so the mount's write access is held. Only the superblock's
-freeze protection is missing, and it goes outside inode_lock.
+The server always requests SIZE, and a holder may have changed it.
+Keep word 0 of the reply's bitmap, cleared when the callback is issued,
+and in nfsd4_cb_getattr_done() treat a reply without SIZE as failed.
+The waiter then recalls the delegation, as it does for any other
+CB_GETATTR failure.
 
-- cb_getattr_update_times() runs in an nfsd thread answering GETATTR.
-  Rather than hold the thread until the thaw, it tries for freeze
-  protection and returns NFS4ERR_DELAY, which has the client retry.
-- nfsd_update_cmtime_attr(), from COPY and CLONE, waits for the thaw,
-  as the data change that made the update necessary did.
-- nfsd4_finalize_deleg_timestamps() runs when a delegation's lease is
-  released, which includes the laundromat and nfsd shutdown. Those
-  must not wait for a thaw, so it tries for freeze protection and
-  leaves the times alone, with a notice, if the filesystem is frozen.
+A reply that omits CHANGE is left alone: the zero change attribute
+mismatches, so the file is treated as modified, which is the safe
+answer.
 
-Reported-by: Christian Brauner <brauner@kernel.org>
-Closes: https://lore.kernel.org/linux-nfs/20261114-abdrehen-mahnwache-farbpalette-9c31774145cc@brauner/
-Fixes: 7e8ae8486e44 ("fs/nfsd: fix update of inode attrs in CB_GETATTR")
-Fixes: e5e9b24ab8fa ("nfsd: freeze c/mtime updates with outstanding WRITE_ATTRS delegation")
-Fixes: 2863bac7f49c ("nfsd: update mtime/ctime on CLONE in presense of delegated attributes")
-Fixes: 4183cf383b6f ("nfsd: update mtime/ctime on COPY in presence of delegated attributes")
+Fixes: c5967721e106 ("NFSD: handle GETATTR conflict with write delegation")
 Signed-off-by: Jeff Layton <jlayton@kernel.org>
 ---
- fs/nfsd/nfs4state.c | 65 +++++++++++++++++++++++++++++++++++++++--------------
- 1 file changed, 48 insertions(+), 17 deletions(-)
+ fs/nfsd/nfs4callback.c | 1 +
+ fs/nfsd/nfs4state.c    | 8 ++++++++
+ fs/nfsd/state.h        | 1 +
+ 3 files changed, 10 insertions(+)
 
+diff --git a/fs/nfsd/nfs4callback.c b/fs/nfsd/nfs4callback.c
+index 70ab4fd32195..ac65ba4c4b7d 100644
+--- a/fs/nfsd/nfs4callback.c
++++ b/fs/nfsd/nfs4callback.c
+@@ -737,6 +737,7 @@ static int nfs4_xdr_dec_cb_getattr(struct rpc_rqst *rqstp,
+ 		return status;
+ 	if (xdr_stream_decode_uint32_array(xdr, bitmap, 3) < 0)
+ 		return -EIO;
++	ncf->ncf_cb_bitmap0 = bitmap[0];
+ 	if (xdr_stream_decode_u32(xdr, &attrlen) < 0)
+ 		return -EIO;
+ 	maxlen = sizeof(ncf->ncf_cb_change) + sizeof(ncf->ncf_cb_fsize);
 diff --git a/fs/nfsd/nfs4state.c b/fs/nfsd/nfs4state.c
-index 048b2616d783..f6a01ab0602a 100644
+index 0cd139ee0048..eead615aac0a 100644
 --- a/fs/nfsd/nfs4state.c
 +++ b/fs/nfsd/nfs4state.c
-@@ -1453,6 +1453,30 @@ static void put_deleg_file(struct nfs4_file *fp)
- 	}
- }
+@@ -3876,6 +3876,13 @@ nfsd4_cb_getattr_done(struct nfsd4_callback *cb, struct rpc_task *task)
  
-+static void nfsd_cmtime_notice(struct inode *inode, int err)
-+{
-+	pr_notice_ratelimited("nfsd: Unable to update timestamps on inode %02x:%02x:%llu: %d\n",
-+			      MAJOR(inode->i_sb->s_dev),
-+			      MINOR(inode->i_sb->s_dev),
-+			      inode->i_ino, err);
-+}
-+
-+/* Caller holds freeze protection for @f's filesystem */
-+static void __nfsd_update_cmtime_attr(struct file *f, unsigned int flags)
-+{
-+	struct inode *inode = file_inode(f);
-+	struct iattr attr = {
-+		.ia_valid = ATTR_CTIME | ATTR_MTIME | ATTR_DELEG | flags,
-+	};
-+	int ret;
-+
-+	inode_lock(inode);
-+	ret = notify_change(&nop_mnt_idmap, f->f_path.dentry, &attr, NULL);
-+	inode_unlock(inode);
-+	if (ret)
-+		nfsd_cmtime_notice(inode, ret);
-+}
-+
- static void nfsd4_finalize_deleg_timestamps(struct nfs4_delegation *dp, struct file *f)
- {
- 	/* don't do anything if FMODE_NOCMTIME isn't set */
-@@ -1471,8 +1495,18 @@ static void nfsd4_finalize_deleg_timestamps(struct nfs4_delegation *dp, struct f
- 	if (dp->dl_setattr)
- 		return;
- 
+ 	trace_nfsd_cb_getattr_done(&dp->dl_stid.sc_stateid, task);
+ 	ncf->ncf_cb_status = task->tk_status;
 +	/*
-+	 * This runs from the laundromat and from nfsd shutdown too, which
-+	 * must not wait for a frozen filesystem to thaw. Leave the times
-+	 * alone then.
++	 * A reply without SIZE leaves ncf_cb_fsize at zero, which the
++	 * waiter would report as the file's size. Fail it, so the waiter
++	 * recalls the delegation instead.
 +	 */
-+	if (!file_start_write_trylock(f)) {
-+		nfsd_cmtime_notice(file_inode(f), -EBUSY);
-+		return;
-+	}
- 	/* Stamp everything to "now" */
--	nfsd_update_cmtime_attr(f, ATTR_ATIME);
-+	__nfsd_update_cmtime_attr(f, ATTR_ATIME);
-+	file_end_write(f);
- }
++	if (!task->tk_status && !(ncf->ncf_cb_bitmap0 & FATTR4_WORD0_SIZE))
++		ncf->ncf_cb_status = NFS4ERR_IO;
+ 	switch (task->tk_status) {
+ 	case -NFS4ERR_DELAY:
+ 		rpc_delay(task, 2 * HZ);
+@@ -4123,6 +4130,7 @@ static void nfs4_cb_getattr(struct nfs4_cb_fattr *ncf)
  
- static void nfs4_unlock_deleg_lease(struct nfs4_delegation *dp)
-@@ -10780,10 +10814,18 @@ static int cb_getattr_update_times(struct dentry *dentry, struct nfs4_delegation
- 	if (!attrs.ia_valid)
- 		return 0;
+ 	/* set to proper status when nfsd4_cb_getattr_done runs */
+ 	ncf->ncf_cb_status = NFS4ERR_IO;
++	ncf->ncf_cb_bitmap0 = 0;
  
-+	/*
-+	 * The delegation's file is open for write, so only freeze
-+	 * protection is missing. Don't hold an nfsd thread until a frozen
-+	 * filesystem thaws: NFS4ERR_DELAY has the client retry.
-+	 */
-+	if (!sb_start_write_trylock(inode->i_sb))
-+		return -EAGAIN;
- 	attrs.ia_valid |= ATTR_DELEG;
- 	inode_lock(inode);
- 	ret = notify_change(&nop_mnt_idmap, dentry, &attrs, NULL);
- 	inode_unlock(inode);
-+	sb_end_write(inode->i_sb);
- 	return ret;
- }
+ 	/* ensure that wake_bit is done when RUNNING is cleared */
+ 	set_bit(NFSD4_CALLBACK_WAKE, &ncf->ncf_getattr.cb_flags);
+diff --git a/fs/nfsd/state.h b/fs/nfsd/state.h
+index f80abcc278f6..c5f607049aaf 100644
+--- a/fs/nfsd/state.h
++++ b/fs/nfsd/state.h
+@@ -205,6 +205,7 @@ struct nfs4_cb_fattr {
+ 	u32 ncf_cb_status;
  
-@@ -11052,25 +11094,14 @@ nfsd_get_dir_deleg(struct nfsd4_compound_state *cstate,
-  * @flags: any additional flags that should be updated
-  *
-  * Given upon opening a file delegated attributes were issues, update
-- * @f attributes to current times.
-+ * @f attributes to current times. Waits for a frozen filesystem to thaw,
-+ * like the data change that makes this necessary.
-  */
- void nfsd_update_cmtime_attr(struct file *f, unsigned int flags)
- {
--	int ret;
--	struct inode *inode = file_inode(f);
--	struct iattr attr = {
--		.ia_valid = ATTR_CTIME | ATTR_MTIME | ATTR_DELEG | flags,
--	};
--
--	inode_lock(inode);
--	ret = notify_change(&nop_mnt_idmap, f->f_path.dentry, &attr, NULL);
--	inode_unlock(inode);
--	if (ret)
--		pr_notice_ratelimited("nfsd: Unable to update timestamps on "
--				      "inode %02x:%02x:%llu: %d\n",
--				      MAJOR(inode->i_sb->s_dev),
--				      MINOR(inode->i_sb->s_dev),
--				      inode->i_ino, ret);
-+	file_start_write(f);
-+	__nfsd_update_cmtime_attr(f, flags);
-+	file_end_write(f);
- }
- 
- static void
+ 	/* from CB_GETATTR reply */
++	u32 ncf_cb_bitmap0;		/* word 0 of the returned bitmap */
+ 	u64 ncf_cb_change;
+ 	u64 ncf_cb_fsize;
+ 	struct timespec64 ncf_cb_mtime;
 
 -- 
 2.56.1
