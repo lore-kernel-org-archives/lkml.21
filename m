@@ -1,100 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795140659;
-	b=3ziWC2dy6SGymjR4wgo19axP9ebpPqqs9j0UBtJV5ybFg38G7Y9Zj/SkBMq6Tu6wuY9F
-	 v4nVo6jYC7oDebsqxSAz1yQDzL4+N4QxtBXk5ayW3XAixJo1//CE0OAtzdoJiuXbhO87k
-	 4UWmmqV8fpQOGi3ZDVktWU3HHh0my4WPKSex+y6u010CDdUNE9y66wF8Ed8SDkpe9aQOW
-	 6y0AFw9lr/EvPOTxdDP/AUDyOKo0459TvNgpL+T0wJpPdauLIrS3WcAgPQHlIpaILwTCm
-	 KdE6SXhjCL6bLaWYho1ZLyMtJ4DM8Z1cv7br7UNDgVKIVXAL1vZfgjN4i81WfE/k61w==
+	t=1795140796;
+	b=qXVnY/KjgDDaFY5Adcit/Qi6ZAJyFBr/67zmAuoltrzY4BDi1zlLRyyfjFRDbGTzx58M
+	 Tzl6G5H6AiyzLfrOWPa2FqPDih/ObzSZOi2uA7/Roeh6vU91WNCGYFpMDxJCE9743pWnc
+	 nBtLsix22YQ9DBoKCqcC2pKRST8sbC+7lC5QLKek+0CJuh5Ir47G3ugFiEfVWFXSEAy+T
+	 0kx5qy6kDhDdEEkOxVh0VhwCzGeuAq6k68HN0LtOFwPfJdKC71+ZKOo29AwpTaGWSdQRK
+	 IV5O7LSm/XcCAfDbGduUnPlhtzqipkLIzlnLY9d9YWfPRJWQ/gctAONBCRCsLSxL0YQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795140659;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=BMxfy08tBRB54t7CG6GTXuPZbHw83JnbCHGykFB+1VA=;
-	b=Ag/MAiQGJM1156BmB4rHlJOIZuqo/DY12axJ6MLgy+R9Xobhk9mbdhR6heC/DfdVLi+9
-	 9HxDtGMMft8sa0HIwytvegDDHObQc+0d2OhhEUcR0WGailO0HLnPi3CgDKHGI5+xgB/Dd
-	 OZvG/cw3CwfiUoxPAeTa/LT4vLw8kd6GOl3B0XBCUIHIcoUmzVg622u6sIE2hteM7yV74
-	 ZRUUsE5AIuMfST3uZoQYLOrXXI/R+XWTWKU564qEeFIOfiwX13IOerSr4CjpWDA2w7h2v
-	 a0nXB2bRmx8PBBPllY2SUU6FShI9t4MJEr5g8xMKwB2BrIEDcRXhv54aDqBStnmOWJQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795140796;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=ws6BnD7DvrtX7tpZzVtK4JHO3eme1zv2JhnGB9HbSQY=;
+	b=RZafpf9GI1W0gXsT8HH5uD8VbNL/BixqgBS1mCrh+uEUxQX1CT693IQkhEynY/4oTBbH
+	 fslVcglPjJ3cw44pTevPmMKm5IUa4WkosvBFvgUAwlXVqh1KzNfh6UfTkeLFFtVkDfHrc
+	 RG2thuqQK/P8QFRfKxQPpjkDRnWvv2DDHrfAw33HGXoNiAyW0ehROlIky2NJUY8NNSJIr
+	 BIlEso5ClO9OiRTMTsYCHcmGWeFfEvnwFs5pHWgnJZxdXtKEuFdbzukPHgd67yHXPbprf
+	 fnKuLJRzHtVPXdF8/kQuCJOsHGtOaoEiE8SfX5jdm8jmerLpKcHIqLgWFoQZJtRbT6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=reflexrobotics.com;
-	spf=pass smtp.mailfrom=reflexrobotics.com;
-	dkim=pass header.d=reflexrobotics-com.20260707.gappssmtp.com header.i=@reflexrobotics-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Wu94qisN;
-	arc=none smtp.remote-ip=74.125.82.51
-Received: from mail-dl1-f51.google.com (mail-dl1-f51.google.com [74.125.82.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SL55XnNI;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46DCB606A337
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:10:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46DCB606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=reflexrobotics.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=reflexrobotics.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B74D606A326;
+	Fri, 20 Nov 2026 02:13:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=reflexrobotics-com.20260707.gappssmtp.com header.i=@reflexrobotics-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Wu94qisN
-Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-1b3b4944a0eso378356c88.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:10:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=reflexrobotics-com.20260707.gappssmtp.com; s=20260707; t=1795140657; x=1795745457; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=BMxfy08tBRB54t7CG6GTXuPZbHw83JnbCHGykFB+1VA=;
-        b=Wu94qisNlhaw02+tYIAnaGuz0WE/tnd05VOlJmPWp851mZWzfubxkusuExlwOOFYLk
-         Vwz1EnLY1iKOjrJIHs7cUfQc5Ce4RaBgRCFvQM9J1uNtC/Jumj1YNOg4HU9pHRBJ+Lk0
-         8rTp87CmKoYXfXHGebRyZthHKBZkwLWPKDG+zlNiW9GwYWna++HUi9fpYcU+WRgKdRE4
-         r+d1V2D9ng1YtB9/EhX0+v+JzORFvQiPLU3OmpaUFK0RLlDkJxB3orObaoHCSuSACe72
-         RQKeeaJTlhY/uuTOlXPf6fWWbo9THLtrf6YAbReoQupFFCaF3bMfDXeBZx6/C1PGky2W
-         rEbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795140657; x=1795745457;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BMxfy08tBRB54t7CG6GTXuPZbHw83JnbCHGykFB+1VA=;
-        b=oJI8LyV0JVsF94/oAHzeeCJ/2UkhoWn63yx50Dc0i5BCTlRRAG/Finllfl0guAtoe5
-         r3clC2vfKsZzaRx9kZlMFX2o4wkJzbQ+FbfJu5i4nT5k5nhd2/j1n0tCi8k4V2jUE8sd
-         t9oLmoq5W9DyuyZA2o9mic9qp3xvP/5n9M0RyGZ9s9NMNlEMnWQFMYOChlUVPaxhSzUB
-         vIszHREtsvvteyguDT6PsCKcbT6cpyqELOybs2hyn1YGerzg0mudA6UC1aVoOEDuO4s/
-         WJc/BXKGGNVtc3hGCH89IEMvE2VCP8GRaKfGI2hlOBz7S63A54qLJc7/sUka6Wjg804i
-         0yCA==
-X-Forwarded-Encrypted: i=1; AL+hErHn3XCFWem2HlRlBizzZsDyxoerSmkKavasQfQUlAeGyBlpk5deD/K1W6fddH2KdGKfWWO6aNkhIqTqwEI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ZqToNkiZG1FOrp7QtHEhuBMHBTf/94tUV6U9WHwusjXZg/mIb
-	nQ3qB2XJXXfhY42dC2OTdWbXUtXmPrkGf1xLOKYp7766gZWUWkqTbalPHPgJPpnrjK8=
-X-Gm-Gg: AYBFou3NtlndPCg99e/7nf7HUFX8FSNKeqU1TGQ1aEDwjS5j9++T9+30jsTOPxx6zIQ
-	wDsFUZdHOyHH2UXO63AyM/zzPhatM1lJ9e77OUg2KnorjzqNYy4mPLnnZ8hKFieMNufagdO3dfa
-	6aANxdFf01WZOESoUbSqJ41wwWaypd6uMLlek57qLVKnfFVMVbCSWlfQDdarsH1tp0DbiW07hKo
-	lxo7+v//IMhmxp7uCLSP3d+O/BEFdnqA0iGJR7/LsgzMH0bPI4qTW1+18UuBAD/E4CsQ/SATnaC
-	rnOf2QXQMWMLEukW5dj8b58ZDr76pu5VS2OB6VCO1W5F7Z0/uS2G/3fw/tH1cL+sc47pWy5UR3A
-	JvK3bqXG303DNzZs0P95U3dYWv7ZHI3QYdLkPzkYmAEXNwOzEOY5rFh+BeL61itcYiIb98j0VuG
-	ZIZlLZ+k0HWJncMpLJxTBTaoGOPMoxlTvrRvHN/brmQLDBIqhWyRnUn72/6F4HxHx3tuRVXE37c
-	cgCemMW5BLgAL4teqTImFauhHDr3zCK03B9RvhR97eO/Gqbn2XhtM5+IeQXUxQJqjh2oP4/6ir2
-	TXG3mGQvPgcgSwYVnB/zraGtdUb6QkUB33te3adxdU1OSxiuJpiabMQBLDkPw81Oh1Gy0sIt2QY
-	oHS9TkYP7Oktr3JjvR+hUNuw=
-X-Received: by 2002:a05:7022:f516:b0:143:26cf:8615 with SMTP id a92af1059eb24-1b5568ded03mr1243863c88.25.1795140657357;
-        Thu, 19 Nov 2026 18:10:57 -0800 (PST)
-Received: from localhost ([76.51.7.19])
-        by smtp.gmail.com with UTF8SMTPSA id a92af1059eb24-1b556831d45sm3572198c88.11.2026.11.19.18.10.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 18:10:56 -0800 (PST)
-From: Joe LeVeque <joe.l@reflexrobotics.com>
-To: jean-baptiste.maneyrol@tdk.com,
-	jic23@kernel.org
-Cc: dlechner@baylibre.com,
-	nuno.sa@analog.com,
-	andy@kernel.org,
-	linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Joe LeVeque <joe.l@reflexrobotics.com>
-Subject: [PATCH 2/2] iio: imu: inv_icm42600: remove temperature sensor enable/disable
-Date: Thu, 19 Nov 2026 18:08:50 -0800
-Message-Id: <20261120020850.24318-3-joe.l@reflexrobotics.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261120020850.24318-1-joe.l@reflexrobotics.com>
-References: <20261120020850.24318-1-joe.l@reflexrobotics.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SL55XnNI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D2991F000C4;
+	Fri, 20 Nov 2026 02:13:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795140795;
+	bh=ws6BnD7DvrtX7tpZzVtK4JHO3eme1zv2JhnGB9HbSQY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=SL55XnNIR1wy0o5ZKorhvb8MyeWJhn7wF+uTS1ukf6zCbZ2lMRbVz8390mfnAe7fv
+	 rs2RYHdeH++oDr9ry6K3PhiZubVnDrMgD81Ox9bLWfe3Gi2aLaVbud2mp+p5ihR4Yk
+	 zW1FeObElDiOdXQrEdxXyIHorJ5y/2E2z5af7BnplJDYYjXTS7Tqrb+IkAI/zw5jYT
+	 JZygLDIbKC4JJ2xeg6sjnObF7oMcBAIUrinfSqs95Of1IXKWsV2WYs86dGJ/VXJDpq
+	 CAa6k2iuWHQVBf0qMIE364UzHAO261lTtl1wraAtTs0qNCr3neTFpfC/+aZ9KojbI1
+	 MG1KqMg6eNKgg==
+Message-ID: <677402dc-c023-4c41-b437-f29083ab2a35@kernel.org>
+Date: Thu, 19 Nov 2026 19:13:14 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,357 +51,229 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 2/3] ipv6: add ip6_dst_lookup_flow_cookie
+To: Ralf Lici <ralf@mandelbit.com>, netdev@vger.kernel.org
+Cc: Ido Schimmel <idosch@nvidia.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Neal Cardwell <ncardwell@google.com>,
+ Kuniyuki Iwashima <kuniyu@google.com>,
+ Steffen Klassert <steffen.klassert@secunet.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>, Florian Westphal <fw@strlen.de>,
+ Sabrina Dubroca <sd@queasysnail.net>,
+ Antonio Quartulli <antonio@mandelbit.com>, linux-kernel@vger.kernel.org
+References: <cover.1794906743.git.ralf@mandelbit.com>
+ <7af19082325ce83699c5fd82de4925e52ed7dff2.1794906743.git.ralf@mandelbit.com>
+Content-Language: en-US
+From: David Ahern <dsahern@kernel.org>
+In-Reply-To: <7af19082325ce83699c5fd82de4925e52ed7dff2.1794906743.git.ralf@mandelbit.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 
-The driver turns the temperature sensor off (PWR_MGMT0.TEMP_DIS) whenever
-nothing has requested temperature data. With the temperature sensor
-disabled, gyro data is not temperature compensated internally. On an
-ICM-42688-P this shows up as a large, stable gyro offset at rest: about
--139, 379 and -229 LSB at +-2000 dps (8 to 23 dps), instead of under
-0.5 dps once the temperature sensor is enabled by a temperature read or
-a buffer with the temperature channel.
+On 11/17/26 2:21 AM, Ralf Lici wrote:
+> Persistent dst caches read the validation cookie with rt6_get_cookie
+> after route lookup has returned. For routes without their own sernum,
+> this reads the current fn_sernum of the associated node. A concurrent
+> FIB change or xfrm policy insertion can therefore pair an old dst with a
+> new serial, allowing subsequent dst_check calls to accept the stale
+> result until another relevant change.
+> 
+> Add ip6_dst_lookup_flow_cookie to return the dst together with its
+> validation cookie. Sample the cookie between two reads of the IPv6
+> generation and return cookie 0 if the generation changed. This lets the
+> route dst serve the current packet while preventing its subsequent reuse
+> through cache validation. xfrm bundles retain their existing validation
+> through their own route and path cookies.
+> 
+> For nexthop-object dsts, return the pre-lookup generation and require
+> the supplied cookie to match rt->sernum in ip6_dst_check. This also
+> rejects a dst allocated with a newer serial after route selection.
+> Existing callers passing rt6_get_cookie retain their validation
+> behavior.
+> 
+> The generation checks require writers to publish routing changes before
+> advancing the serial. Move the serial updates in fib6_ifup and
+> fib6_ifdown after rt6_multipath_rebalance, preserving their existing
+> invalidation scope. Otherwise, a lookup can observe the new serial while
+> selecting a nexthop using the old ECMP bounds, without detecting a
+> generation change.
+> 
+> This establishes the API and writer ordering needed to address late
+> cookie sampling. The following patch converts selected socket cache
+> users while other persistent caches are left for follow-up conversions.
+> 
+> Signed-off-by: Ralf Lici <ralf@mandelbit.com>
+> ---
+> Changes since v2 https://lore.kernel.org/all/e48cac0cdf9f3adcedecbbfff4a314a98bc22d01.1794384146.git.ralf@mandelbit.com/
+> - Move the serial update after rt6_multipath_rebalance in fib6_ifup and
+>   fib6_ifdown. (Sashiko)
+> - Clarify that this introduces the new API while the following patch
+>   converts *some* users to it while leaving the rest as follow-up.
+> 
+> Changes since v1 https://lore.kernel.org/netdev/e40f48e925a0950eac99a3f084e485e82cabe88f.1793806941.git.ralf@mandelbit.com/
+> - Fix kdoc return statement in ip6_dst_lookup_flow and
+>   ip6_dst_lookup_flow_cookie. (NIPA)
+> 
+>  include/net/ipv6.h    | 13 +++++++++++
+>  net/ipv6/ip6_output.c | 51 +++++++++++++++++++++++++++++++++++++++++--
+>  net/ipv6/route.c      |  8 +++----
+>  3 files changed, 66 insertions(+), 6 deletions(-)
+> 
+> diff --git a/include/net/ipv6.h b/include/net/ipv6.h
+> index 579df1516d25..5a6c66504056 100644
+> --- a/include/net/ipv6.h
+> +++ b/include/net/ipv6.h
+> @@ -1062,6 +1062,11 @@ int ip6_dst_lookup(struct net *net, struct sock *sk, struct dst_entry **dst,
+>  #if IS_ENABLED(CONFIG_IPV6)
+>  struct dst_entry *ip6_dst_lookup_flow(struct net *net, const struct sock *sk, struct flowi6 *fl6,
+>  				      const struct in6_addr *final_dst);
+> +struct dst_entry *ip6_dst_lookup_flow_cookie(struct net *net,
+> +					     const struct sock *sk,
+> +					     struct flowi6 *fl6,
+> +					     const struct in6_addr *final_dst,
+> +					     u32 *cookie);
+>  #else
+>  static inline struct dst_entry *ip6_dst_lookup_flow(struct net *net, const struct sock *sk,
+>  						    struct flowi6 *fl6,
+> @@ -1069,6 +1074,14 @@ static inline struct dst_entry *ip6_dst_lookup_flow(struct net *net, const struc
+>  {
+>  	return ERR_PTR(-EAFNOSUPPORT);
+>  }
+> +
+> +static inline struct dst_entry *
+> +ip6_dst_lookup_flow_cookie(struct net *net, const struct sock *sk,
+> +			   struct flowi6 *fl6, const struct in6_addr *final_dst,
+> +			   u32 *cookie)
+> +{
+> +	return ERR_PTR(-EAFNOSUPPORT);
+> +}
+>  #endif
+>  
+>  struct dst_entry *ip6_sk_dst_lookup_flow(struct sock *sk, struct flowi6 *fl6,
+> diff --git a/net/ipv6/ip6_output.c b/net/ipv6/ip6_output.c
+> index 3cc911f6618e..b87ccb5586cf 100644
+> --- a/net/ipv6/ip6_output.c
+> +++ b/net/ipv6/ip6_output.c
+> @@ -1279,8 +1279,7 @@ EXPORT_SYMBOL_GPL(ip6_dst_lookup);
+>   *
+>   *	This function performs a route lookup on the given flow.
+>   *
+> - *	It returns a valid dst pointer on success, or a pointer encoded
+> - *	error code.
+> + *	Return: a valid dst pointer on success or a pointer encoded error code.
+>   */
+>  struct dst_entry *ip6_dst_lookup_flow(struct net *net, const struct sock *sk, struct flowi6 *fl6,
+>  				      const struct in6_addr *final_dst)
+> @@ -1300,6 +1299,54 @@ struct dst_entry *ip6_dst_lookup_flow(struct net *net, const struct sock *sk, st
+>  }
+>  EXPORT_SYMBOL_GPL(ip6_dst_lookup_flow);
+>  
+> +/**
+> + *	ip6_dst_lookup_flow_cookie - perform route lookup on flow with ipsec
 
-There is no benefit in disabling the temperature sensor, so remove the
-enable/disable handling and keep it always on: drop temp_en from the
-sensor configuration and the suspend state, the temp argument and
-TEMP_DIS handling from inv_icm42600_set_pwr_mgmt0(), the temperature
-startup delay, and inv_icm42600_set_temp_conf() with its callers. The
-temperature sensor now starts with the gyro or accel, whose startup
-delays are longer.
+what makes this an ipsec lookup?
 
-Temperature reporting in the FIFO is still enabled and disabled with
-the buffer's temperature channel.
+> + *				     and return the matching dst cookie
+> + *	@net: Network namespace to perform lookup in
+> + *	@sk: socket which provides route info
+> + *	@fl6: flow to lookup
+> + *	@final_dst: final destination address for ipsec lookup
+> + *	@cookie: where to store the cookie for the returned dst
+> + *
+> + *	Same as ip6_dst_lookup_flow, but also returns the cookie describing
+> + *	the routing state the dst was obtained from. A caller caching the dst
+> + *	should use this cookie when validating it with dst_check. If the
+> + *	IPv6 FIB changed during the lookup, a route dst no longer validates
+> + *	with it. An xfrm bundle is validated by xfrm and ignores the cookie.
+> + *
+> + *	Return: a valid dst pointer on success or a pointer encoded error code.
+> + */
+> +struct dst_entry *ip6_dst_lookup_flow_cookie(struct net *net,
+> +					     const struct sock *sk,
+> +					     struct flowi6 *fl6,
+> +					     const struct in6_addr *final_dst,
+> +					     u32 *cookie)
+> +{
+> +	const struct rt6_info *rt;
+> +	struct dst_entry *dst;
+> +	int gen0, gen1;
+> +
+> +	gen0 = rt_genid_ipv6(net);
+> +	/* read the generation before looking at the FIB or xfrm policies */
+> +	smp_rmb();
+> +
+> +	dst = ip6_dst_lookup_flow(net, sk, fl6, final_dst);
+> +	if (IS_ERR(dst))
+> +		return dst;
+> +
+> +	rt = dst_rt6_info(dst);
+> +	*cookie = rt->sernum ? gen0 : rt6_get_cookie(rt);
+> +
+> +	/* keep the FIB and cookie reads before the final generation read */
+> +	smp_rmb();
+> +	gen1 = rt_genid_ipv6(net);
+> +	if (unlikely(gen0 != gen1))
+> +		*cookie = 0;
+> +
+> +	return dst;
+> +}
+> +EXPORT_SYMBOL_GPL(ip6_dst_lookup_flow_cookie);
 
-Fixes: 31c24c1e93c3 ("iio: imu: inv_icm42600: add core of new inv_icm42600 driver")
-Suggested-by: Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>
-Signed-off-by: Joe LeVeque <joe.l@reflexrobotics.com>
----
- drivers/iio/imu/inv_icm42600/inv_icm42600.h   |  6 ---
- .../iio/imu/inv_icm42600/inv_icm42600_accel.c | 16 ++------
- .../imu/inv_icm42600/inv_icm42600_buffer.c    | 14 ++-----
- .../iio/imu/inv_icm42600/inv_icm42600_core.c  | 37 ++++---------------
- .../iio/imu/inv_icm42600/inv_icm42600_gyro.c  | 16 ++------
- .../iio/imu/inv_icm42600/inv_icm42600_temp.c  |  4 --
- 6 files changed, 18 insertions(+), 75 deletions(-)
+I think this can be a standalone patch introducing a new API
 
-diff --git a/drivers/iio/imu/inv_icm42600/inv_icm42600.h b/drivers/iio/imu/inv_icm42600/inv_icm42600.h
-index 3737e79dbcc1..e2b51f76198a 100644
---- a/drivers/iio/imu/inv_icm42600/inv_icm42600.h
-+++ b/drivers/iio/imu/inv_icm42600/inv_icm42600.h
-@@ -128,13 +128,11 @@ struct inv_icm42600_sensor_conf {
- struct inv_icm42600_conf {
- 	struct inv_icm42600_sensor_conf gyro;
- 	struct inv_icm42600_sensor_conf accel;
--	bool temp_en;
- };
- 
- struct inv_icm42600_suspended {
- 	enum inv_icm42600_sensor_mode gyro;
- 	enum inv_icm42600_sensor_mode accel;
--	bool temp;
- };
- 
- struct inv_icm42600_apex {
-@@ -441,7 +439,6 @@ struct inv_icm42600_sensor_state {
- #define INV_ICM42600_ACCEL_STARTUP_TIME_MS	20
- #define INV_ICM42600_GYRO_STARTUP_TIME_MS	60
- #define INV_ICM42600_GYRO_STOP_TIME_MS		150
--#define INV_ICM42600_TEMP_STARTUP_TIME_MS	14
- #define INV_ICM42600_SUSPEND_DELAY_MS		2000
- 
- typedef int (*inv_icm42600_bus_setup)(struct inv_icm42600_state *);
-@@ -464,9 +461,6 @@ int inv_icm42600_set_gyro_conf(struct inv_icm42600_state *st,
- 			       struct inv_icm42600_sensor_conf *conf,
- 			       unsigned int *sleep_ms);
- 
--int inv_icm42600_set_temp_conf(struct inv_icm42600_state *st, bool enable,
--			       unsigned int *sleep_ms);
--
- int inv_icm42600_enable_wom(struct inv_icm42600_state *st);
- int inv_icm42600_disable_wom(struct inv_icm42600_state *st);
- 
-diff --git a/drivers/iio/imu/inv_icm42600/inv_icm42600_accel.c b/drivers/iio/imu/inv_icm42600/inv_icm42600_accel.c
-index cc8c074777c9..71ec968ab8fe 100644
---- a/drivers/iio/imu/inv_icm42600/inv_icm42600_accel.c
-+++ b/drivers/iio/imu/inv_icm42600/inv_icm42600_accel.c
-@@ -229,37 +229,29 @@ static int inv_icm42600_accel_update_scan_mode(struct iio_dev *indio_dev,
- 	struct inv_icm42600_sensor_state *accel_st = iio_priv(indio_dev);
- 	struct inv_icm42600_sensor_conf conf = INV_ICM42600_SENSOR_CONF_INIT;
- 	unsigned int fifo_en = 0;
--	unsigned int sleep_temp = 0;
--	unsigned int sleep_accel = 0;
--	unsigned int sleep;
-+	unsigned int sleep = 0;
- 	int ret;
- 
- 	mutex_lock(&st->lock);
- 
--	if (*scan_mask & INV_ICM42600_SCAN_MASK_TEMP) {
--		/* enable temp sensor */
--		ret = inv_icm42600_set_temp_conf(st, true, &sleep_temp);
--		if (ret)
--			goto out_unlock;
-+	if (*scan_mask & INV_ICM42600_SCAN_MASK_TEMP)
- 		fifo_en |= INV_ICM42600_SENSOR_TEMP;
--	}
- 
- 	if (*scan_mask & INV_ICM42600_SCAN_MASK_ACCEL_3AXIS) {
- 		/* enable accel sensor */
- 		conf.mode = accel_st->power_mode;
- 		conf.filter = accel_st->filter;
--		ret = inv_icm42600_set_accel_conf(st, &conf, &sleep_accel);
-+		ret = inv_icm42600_set_accel_conf(st, &conf, &sleep);
- 		if (ret)
- 			goto out_unlock;
- 		fifo_en |= INV_ICM42600_SENSOR_ACCEL;
- 	}
- 
- 	/*
--	 * Sleep maximum stabilization time before enabling data in FIFO.
-+	 * Sleep stabilization time before enabling data in FIFO.
- 	 * We need to release the driver lock to not block gyro data processing.
- 	 * There is no possible race here since we are under IIO mutex locked.
- 	 */
--	sleep = max(sleep_accel, sleep_temp);
- 	if (sleep) {
- 		mutex_unlock(&st->lock);
- 		msleep(sleep);
-diff --git a/drivers/iio/imu/inv_icm42600/inv_icm42600_buffer.c b/drivers/iio/imu/inv_icm42600/inv_icm42600_buffer.c
-index 7ecd7257921c..c946045c762f 100644
---- a/drivers/iio/imu/inv_icm42600/inv_icm42600_buffer.c
-+++ b/drivers/iio/imu/inv_icm42600/inv_icm42600_buffer.c
-@@ -366,9 +366,7 @@ static int inv_icm42600_buffer_postdisable(struct iio_dev *indio_dev)
- 	unsigned int sensor;
- 	unsigned int *watermark;
- 	struct inv_icm42600_sensor_conf conf = INV_ICM42600_SENSOR_CONF_INIT;
--	unsigned int sleep_temp = 0;
--	unsigned int sleep_sensor = 0;
--	unsigned int sleep;
-+	unsigned int sleep = 0;
- 	int ret;
- 
- 	if (indio_dev == st->indio_gyro) {
-@@ -398,21 +396,15 @@ static int inv_icm42600_buffer_postdisable(struct iio_dev *indio_dev)
- 
- 	conf.mode = INV_ICM42600_SENSOR_MODE_OFF;
- 	if (sensor == INV_ICM42600_SENSOR_GYRO)
--		ret = inv_icm42600_set_gyro_conf(st, &conf, &sleep_sensor);
-+		ret = inv_icm42600_set_gyro_conf(st, &conf, &sleep);
- 	else if (!st->apex.on)
--		ret = inv_icm42600_set_accel_conf(st, &conf, &sleep_sensor);
-+		ret = inv_icm42600_set_accel_conf(st, &conf, &sleep);
- 	if (ret)
- 		goto out_unlock;
- 
--	/* if FIFO is off, turn temperature off */
--	if (!st->fifo.on)
--		ret = inv_icm42600_set_temp_conf(st, false, &sleep_temp);
--
- out_unlock:
- 	mutex_unlock(&st->lock);
- 
--	/* sleep maximum required time */
--	sleep = max(sleep_sensor, sleep_temp);
- 	if (sleep)
- 		msleep(sleep);
- 
-diff --git a/drivers/iio/imu/inv_icm42600/inv_icm42600_core.c b/drivers/iio/imu/inv_icm42600/inv_icm42600_core.c
-index ccaf8ec468f9..5fa6bd2bcea6 100644
---- a/drivers/iio/imu/inv_icm42600/inv_icm42600_core.c
-+++ b/drivers/iio/imu/inv_icm42600/inv_icm42600_core.c
-@@ -123,7 +123,6 @@ static const struct inv_icm42600_conf inv_icm42600_default_conf = {
- 		.odr = INV_ICM42600_ODR_50HZ,
- 		.filter = INV_ICM42600_FILTER_BW_ODR_DIV_2,
- 	},
--	.temp_en = false,
- };
- 
- static const struct inv_icm42600_conf inv_icm42686_default_conf = {
-@@ -139,7 +138,6 @@ static const struct inv_icm42600_conf inv_icm42686_default_conf = {
- 		.odr = INV_ICM42600_ODR_50HZ,
- 		.filter = INV_ICM42600_FILTER_BW_ODR_DIV_2,
- 	},
--	.temp_en = false,
- };
- 
- static const struct inv_icm42600_hw inv_icm42600_hw[INV_CHIP_NB] = {
-@@ -228,38 +226,29 @@ u32 inv_icm42600_odr_to_period(enum inv_icm42600_odr odr)
- static int inv_icm42600_set_pwr_mgmt0(struct inv_icm42600_state *st,
- 				      enum inv_icm42600_sensor_mode gyro,
- 				      enum inv_icm42600_sensor_mode accel,
--				      bool temp, unsigned int *sleep_ms)
-+				      unsigned int *sleep_ms)
- {
- 	enum inv_icm42600_sensor_mode oldgyro = st->conf.gyro.mode;
- 	enum inv_icm42600_sensor_mode oldaccel = st->conf.accel.mode;
--	bool oldtemp = st->conf.temp_en;
- 	unsigned int sleepval;
- 	unsigned int val;
- 	int ret;
- 
- 	/* if nothing changed, exit */
--	if (gyro == oldgyro && accel == oldaccel && temp == oldtemp)
-+	if (gyro == oldgyro && accel == oldaccel)
- 		return 0;
- 
- 	val = INV_ICM42600_PWR_MGMT0_GYRO(gyro) |
- 	      INV_ICM42600_PWR_MGMT0_ACCEL(accel);
--	if (!temp)
--		val |= INV_ICM42600_PWR_MGMT0_TEMP_DIS;
- 	ret = regmap_write(st->map, INV_ICM42600_REG_PWR_MGMT0, val);
- 	if (ret)
- 		return ret;
- 
- 	st->conf.gyro.mode = gyro;
- 	st->conf.accel.mode = accel;
--	st->conf.temp_en = temp;
- 
- 	/* compute required wait time for sensors to stabilize */
- 	sleepval = 0;
--	/* temperature stabilization time */
--	if (temp && !oldtemp) {
--		if (sleepval < INV_ICM42600_TEMP_STARTUP_TIME_MS)
--			sleepval = INV_ICM42600_TEMP_STARTUP_TIME_MS;
--	}
- 	/* accel startup time */
- 	if (accel != oldaccel && oldaccel == INV_ICM42600_SENSOR_MODE_OFF) {
- 		/* block any register write for at least 200 µs */
-@@ -357,7 +346,7 @@ int inv_icm42600_set_accel_conf(struct inv_icm42600_state *st,
- 
- 	/* set PWR_MGMT0 register (accel sensor mode) */
- 	return inv_icm42600_set_pwr_mgmt0(st, st->conf.gyro.mode, conf->mode,
--					  st->conf.temp_en, sleep_ms);
-+					  sleep_ms);
- }
- 
- int inv_icm42600_set_gyro_conf(struct inv_icm42600_state *st,
-@@ -401,19 +390,11 @@ int inv_icm42600_set_gyro_conf(struct inv_icm42600_state *st,
- 
- 	/* set PWR_MGMT0 register (gyro sensor mode) */
- 	return inv_icm42600_set_pwr_mgmt0(st, conf->mode, st->conf.accel.mode,
--					  st->conf.temp_en, sleep_ms);
-+					  sleep_ms);
- 
- 	return 0;
- }
- 
--int inv_icm42600_set_temp_conf(struct inv_icm42600_state *st, bool enable,
--			       unsigned int *sleep_ms)
--{
--	return inv_icm42600_set_pwr_mgmt0(st, st->conf.gyro.mode,
--					  st->conf.accel.mode, enable,
--					  sleep_ms);
--}
--
- int inv_icm42600_enable_wom(struct inv_icm42600_state *st)
- {
- 	int ret;
-@@ -467,8 +448,6 @@ static int inv_icm42600_set_conf(struct inv_icm42600_state *st,
- 	/* set PWR_MGMT0 register (gyro & accel sensor mode, temp enabled) */
- 	val = INV_ICM42600_PWR_MGMT0_GYRO(conf->gyro.mode) |
- 	      INV_ICM42600_PWR_MGMT0_ACCEL(conf->accel.mode);
--	if (!conf->temp_en)
--		val |= INV_ICM42600_PWR_MGMT0_TEMP_DIS;
- 	ret = regmap_write(st->map, INV_ICM42600_REG_PWR_MGMT0, val);
- 	if (ret)
- 		return ret;
-@@ -841,7 +820,6 @@ static int inv_icm42600_suspend(struct device *dev)
- 
- 	st->suspended.gyro = st->conf.gyro.mode;
- 	st->suspended.accel = st->conf.accel.mode;
--	st->suspended.temp = st->conf.temp_en;
- 	if (pm_runtime_suspended(dev))
- 		return 0;
- 
-@@ -872,7 +850,7 @@ static int inv_icm42600_suspend(struct device *dev)
- 	}
- 
- 	ret = inv_icm42600_set_pwr_mgmt0(st, INV_ICM42600_SENSOR_MODE_OFF,
--					 accel_conf, false, NULL);
-+					 accel_conf, NULL);
- 	if (ret)
- 		return ret;
- 
-@@ -917,7 +895,7 @@ static int inv_icm42600_resume(struct device *dev)
- 	/* restore sensors state */
- 	ret = inv_icm42600_set_pwr_mgmt0(st, st->suspended.gyro,
- 					 st->suspended.accel,
--					 st->suspended.temp, NULL);
-+					 NULL);
- 	if (ret)
- 		return ret;
- 
-@@ -949,8 +927,7 @@ static int inv_icm42600_runtime_suspend(struct device *dev)
- 
- 	/* disable all sensors */
- 	ret = inv_icm42600_set_pwr_mgmt0(st, INV_ICM42600_SENSOR_MODE_OFF,
--					 INV_ICM42600_SENSOR_MODE_OFF, false,
--					 NULL);
-+					 INV_ICM42600_SENSOR_MODE_OFF, NULL);
- 	if (ret)
- 		return ret;
- 
-diff --git a/drivers/iio/imu/inv_icm42600/inv_icm42600_gyro.c b/drivers/iio/imu/inv_icm42600/inv_icm42600_gyro.c
-index 4e20d61d897b..eaa13013ba4b 100644
---- a/drivers/iio/imu/inv_icm42600/inv_icm42600_gyro.c
-+++ b/drivers/iio/imu/inv_icm42600/inv_icm42600_gyro.c
-@@ -102,36 +102,28 @@ static int inv_icm42600_gyro_update_scan_mode(struct iio_dev *indio_dev,
- 	struct inv_icm42600_state *st = iio_device_get_drvdata(indio_dev);
- 	struct inv_icm42600_sensor_conf conf = INV_ICM42600_SENSOR_CONF_INIT;
- 	unsigned int fifo_en = 0;
--	unsigned int sleep_gyro = 0;
--	unsigned int sleep_temp = 0;
--	unsigned int sleep;
-+	unsigned int sleep = 0;
- 	int ret;
- 
- 	mutex_lock(&st->lock);
- 
--	if (*scan_mask & INV_ICM42600_SCAN_MASK_TEMP) {
--		/* enable temp sensor */
--		ret = inv_icm42600_set_temp_conf(st, true, &sleep_temp);
--		if (ret)
--			goto out_unlock;
-+	if (*scan_mask & INV_ICM42600_SCAN_MASK_TEMP)
- 		fifo_en |= INV_ICM42600_SENSOR_TEMP;
--	}
- 
- 	if (*scan_mask & INV_ICM42600_SCAN_MASK_GYRO_3AXIS) {
- 		/* enable gyro sensor */
- 		conf.mode = INV_ICM42600_SENSOR_MODE_LOW_NOISE;
--		ret = inv_icm42600_set_gyro_conf(st, &conf, &sleep_gyro);
-+		ret = inv_icm42600_set_gyro_conf(st, &conf, &sleep);
- 		if (ret)
- 			goto out_unlock;
- 		fifo_en |= INV_ICM42600_SENSOR_GYRO;
- 	}
- 
- 	/*
--	 * Sleep maximum stabilization time before enabling data in FIFO.
-+	 * Sleep stabilization time before enabling data in FIFO.
- 	 * We need to release the driver lock to not block accel data processing.
- 	 * There is no possible race here since we are under IIO mutex locked.
- 	 */
--	sleep = max(sleep_gyro, sleep_temp);
- 	if (sleep) {
- 		mutex_unlock(&st->lock);
- 		msleep(sleep);
-diff --git a/drivers/iio/imu/inv_icm42600/inv_icm42600_temp.c b/drivers/iio/imu/inv_icm42600/inv_icm42600_temp.c
-index b35706bb1c8f..d76459d048d7 100644
---- a/drivers/iio/imu/inv_icm42600/inv_icm42600_temp.c
-+++ b/drivers/iio/imu/inv_icm42600/inv_icm42600_temp.c
-@@ -33,10 +33,6 @@ static int inv_icm42600_temp_read(struct inv_icm42600_state *st, s16 *temp)
- 		goto exit;
- 	}
- 
--	ret = inv_icm42600_set_temp_conf(st, true, NULL);
--	if (ret)
--		goto exit;
--
- 	raw = (__be16 *)&st->buffer[0];
- 	ret = regmap_bulk_read(st->map, INV_ICM42600_REG_TEMP_DATA, raw, sizeof(*raw));
- 	if (ret)
--- 
-2.34.1
+> +
+>  /**
+>   *	ip6_sk_dst_lookup_flow - perform socket cached route lookup on flow
+>   *	@sk: socket which provides the dst cache and route info
+> diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+> index cc505817399b..c54844b83828 100644
+> --- a/net/ipv6/route.c
+> +++ b/net/ipv6/route.c
+> @@ -2817,7 +2817,7 @@ INDIRECT_CALLABLE_SCOPE struct dst_entry *ip6_dst_check(struct dst_entry *dst,
+>  	rt = dst_rt6_info(dst);
+>  
+>  	if (rt->sernum)
+> -		return rt6_is_valid(rt) ? dst : NULL;
+> +		return (rt6_is_valid(rt) && cookie == rt->sernum) ? dst : NULL;
+
+unrelated change to both the new API and the ordering changes below. It
+deserves to be a separate patch with its own clear explanation of why.
+
+>  
+>  	rcu_read_lock();
+>  
+> @@ -4911,8 +4911,8 @@ static int fib6_ifup(struct fib6_info *rt, void *p_arg)
+>  	if (rt != net->ipv6.fib6_null_entry && !rt->nh &&
+>  	    rt->fib6_nh->fib_nh_dev == arg->dev) {
+>  		rt->fib6_nh->fib_nh_flags &= ~arg->nh_flags;
+> -		fib6_update_sernum_upto_root(net, rt);
+>  		rt6_multipath_rebalance(rt);
+> +		fib6_update_sernum_upto_root(net, rt);
+>  	}
+>  
+>  	return 0;
+> @@ -5015,8 +5015,8 @@ static int fib6_ifdown(struct fib6_info *rt, void *p_arg)
+>  			}
+>  			rt6_multipath_nh_flags_set(rt, dev, RTNH_F_DEAD |
+>  						   RTNH_F_LINKDOWN);
+> -			fib6_update_sernum(net, rt);
+>  			rt6_multipath_rebalance(rt);
+> +			fib6_update_sernum(net, rt);
+>  		}
+>  		return -2;
+>  	case NETDEV_CHANGE:
+> @@ -5024,8 +5024,8 @@ static int fib6_ifdown(struct fib6_info *rt, void *p_arg)
+>  		    rt->fib6_flags & (RTF_LOCAL | RTF_ANYCAST))
+>  			break;
+>  		rt->fib6_nh->fib_nh_flags |= RTNH_F_LINKDOWN;
+> -		fib6_update_sernum(net, rt);
+>  		rt6_multipath_rebalance(rt);
+> +		fib6_update_sernum(net, rt);
+>  		break;
+>  	}
+>  
+
+And then these ordering changes need to be separate patch with an
+explanation.
 
