@@ -1,97 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795148367;
-	b=gxKLGovqtIw/qifgBQMfwvdGanOjexEpuYIN2iuziGTpXcCrWCfRTc19ay1j5qApxJf2
-	 vNT+h7JPZ3/0gLLY42USTIOb8QLL0XqkdXG/oZzo6MZu180o1/+BDwZB7LamgHMclZCZL
-	 GACncsZ3D3gSn0zbceQKuLVZDwRaGQFxRrEUciV339o76KFOEsUr6g0QoJIWxT+KlgNre
-	 rAmhkohOX2QsJqXdu85bFOzvyO2Ht+AhOW/EMgfcmUxBHr9kNy3Ewu0SHNYCskMATEq/h
-	 gm5gBoQW+kp8fb4wUh1DaAjSxDCvnttU2GXHtgmH+vhd4hR2aZSm62Lz3FbYUDH9gvQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795148367;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.173
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795148488;
+	b=O+BtMOGkebFN5/y39nGZt4eH4jFl/3W7JAuVBng3eBxSv0endcv5MqbdmPTSeemgKK3V
+	 I3bAtGyF1agggirYM3abm115UZn8gY8veEp7eIMUO3BUJVu0Om6NENDl6pg0DW3CUyjv+
+	 ZWLmXL9xu+iY+vI3KGGHGiccdWsrkLSw6l4o5e+9aSoiXffByWLEWX7k6Q5Ke9M2HCTEB
+	 fVeXpRfodB3fcHklZ829AaDTMWjMtxqV4m2iCCNZFSW4IseoIMe5utWYSRk9fPRBqKysi
+	 cXaEMx8asa9MoxkfwYx6J0ydiwVRFrJDn/CtdnFwI4Zz6YBJYm18YssxmJiSR7Pd73Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795148488;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=MU5DDe8WPNLGbF0itjuTQ81vCKFzjS+1XQz059WZL8I=;
-	b=Zm+8RHOixa16KSVny1S3i0EL7Uy9SltXL6itJHl5/qp5tfRPEbM3IDm5E0to6MeB3Tpx
-	 M2SywbVN1JEIqkcu/BtEk2EM3Qd1OdtGJ5KKvUl2JpKVZ9uLNhVKKar3aT5UD5oh7TUVf
-	 JhDGkMxTp7PZG08gkuS0zCDAe0LYVqlUEGetLcgXEm81NPrTYCiohQijKIL/nr/e9X9Nq
-	 fNojNBRzpJK82E3jM3dPYYA7tyX9ONiI6vEtOBEzGx3Y3dGZ200CobpDxD7640owfF8QQ
-	 5r8sXkQMRemaXPH7tzOFCG+a208RTR3BCMJjmDVAHe3v0WjUr+e0ZlevmPn5z2XUxJw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=furiosa.ai;
-	spf=none smtp.mailfrom=furiosa.ai;
-	dkim=pass header.d=furiosa.ai header.i=@furiosa.ai header.a=rsa-sha256 header.s=google header.b=aZXTfAqU;
-	arc=none smtp.remote-ip=74.125.82.169
-Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=MZofWyob445pWeNhb7OktaRwpuZ/DPW8FberUsxg9WQ=;
+	b=eqqxWpOjUL57pLO3DxvwjYmr31Tu9PEeKViH4OShmYMx/T/NsUYQnIzC9gOm+ICVS5l/
+	 6S9lyb8va3yJmPD/z03v1e2xUwyCfbmdMXF9npGEe9MeLdiH3ZWm71m/eGf7FeReSc9OO
+	 1v12Tz8x7DVGwAOnjr0dv+ML6qWEpueTy53hiWeM4yg+SOvD/YDuKcDIAROruhqJd+eUX
+	 DN/+mpKXtVF0K6HLeUxB9hTPx3anU0YfgHTLOyaB06nQ9hMFMMgBmX5rEOKGGKV5GCDND
+	 ol8n4hiScfR3k2cCgA+7rSQCR4nXmyO/10TleIK4xdbLiZJ5FX9xyCCt1m/3Df8ToGg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="m7KbAn/Q";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.173
+Received: from mail-yw1-f173.google.com (mail-yw1-f173.google.com [209.85.128.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C709060A2600
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:19:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C709060A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=furiosa.ai
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=furiosa.ai
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EBAE606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:21:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2EBAE606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=furiosa.ai header.i=@furiosa.ai header.a=rsa-sha256 header.s=google header.b=aZXTfAqU
-Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-36dbde64409so682382eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:19:26 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=m7KbAn/Q
+Received: by mail-yw1-f173.google.com with SMTP id 00721157ae682-8b4ea3c5afaso3625877b3.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:21:27 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795148487; cv=none;
+        d=google.com; s=arc-20260327;
+        b=QB2vCjyxttne/914OIjkNf2j4mJXdVay7iDhnoD1H8gLArazeaSU/gqbOk9Uwgqm5/
+         LTJCXEJpKRUmlBQLSfhXC8FUVF6rfopiroXkoQaj9x8uD8R9u54ae85VpPcF2rW4CfIp
+         fxkWTC4pGN9lmzSF4hCZ89cceAmp6k35jyBvKfc1WaVBKN5sJzrbMgmh6B/bvrVTHjKh
+         OV3tjANrAPz5Ssb+0ay8wLwivTkKi0gmmSUJOMSicP+JKjIfkpyfbtZry0TOzZgDpf79
+         Do4jnmwObyKTYlsrYjfFzuxhnbcqeRDw6zLxzEMRez3ZorevySZpQQzDlTeZa2vAUYNf
+         zZnA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=MZofWyob445pWeNhb7OktaRwpuZ/DPW8FberUsxg9WQ=;
+        fh=NdHEFSi/zQG6OpAXMChDH7VM5ODoaykJlfsafyl6S6s=;
+        b=T/6We9e1sHfhJwTb6DG+fXA63/TqmD5Ng76ah+RyzGj/fLY555GZQ0nW/wuubabq2H
+         JRtJGDddaisnevc5jqpb+sIB1HTiakwqB99m0Q9hmk5NmdAQAcz9lnL4tP/yVWMpqWJA
+         2IJ/j6mnOdaCM4Tbd6FHsZGcT2PcDJiFJQL0RXuLYS9VVWswf9NvsN1q3Ga2vJt1D8WR
+         ZXROtDGSlvnghxOWX6XBPfr0HaXU/GyWh/+6TpWwop4XJTisLxZC0hEo+pvERv6o2Q8m
+         6a5VLlI5v23cq8Kb58Ne0UACp/8B8sjKhLh8L8byfrB0ryIkotdbb4fW0r/wwVMS/PG4
+         PjjQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=furiosa.ai; s=google; t=1795148366; x=1795753166; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MU5DDe8WPNLGbF0itjuTQ81vCKFzjS+1XQz059WZL8I=;
-        b=aZXTfAqU0L8p0w00l2jFW19n66QNVhWySfhA0SY7bf3a6UZRLlN68vzHGzolYo95cG
-         HLIvYxsN8du7bkAAMWKrlwb/eYZ1IRjHQ8laCDLtwacn3CBOaTA5ahJP1q+Yv6UVeKQA
-         rrtYcUHLXdSlhG+5v2fzUxjfXZjQ5GU1ceCQQ=
+        d=gmail.com; s=20260707; t=1795148487; x=1795753287; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=MZofWyob445pWeNhb7OktaRwpuZ/DPW8FberUsxg9WQ=;
+        b=m7KbAn/QahZZpXv6AsQstBYyezUuRZ0MMUpSvJx8jKA/AnfmAcZ18/NUS/gOVxkGQA
+         2gFO0/HHTpffY4/Uz5lm7bv2PcQs0frk0CFN9tdoU9gcGqPZkNBD4yTqOF6tPkyoiwVL
+         TBE33zXViz3FMnYrcdLOJ6bcqXgt756cd56KonJsW9TbR0WTFz0D96JzAcmK7he4oXB5
+         vgi5V8AFBGt7rfe2UkbN2T/EUOVfW9eX833iHKFuipK1O6R4oW7BDCjP/jriMxuQqUiG
+         c+Yr5+sESgJHp7qj3rvwPA97+Wz6VAOP1T/LTKF6FBMEUjVH8D6aja3scYZrAZYpaTaH
+         K/mQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795148366; x=1795753166;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=MU5DDe8WPNLGbF0itjuTQ81vCKFzjS+1XQz059WZL8I=;
-        b=VRV5WK/68kmNFWW4l4AmGLImTQoZTo4ckcWMyHBUCg2BMK7pSJuz0ugzWNwrRS07iQ
-         9GmDBPLOmVZ2dauzpZPcNKRjhDVw9eBjoxHui6v8zLYPkfu5Y08BE6EqxLIUxrPKCqig
-         NwuPIqDCHjpuZoHep9OoRVbXyZehYAJpNiFfRnsDQfY6EhqlZMJxQB143/MfFYEHw5PR
-         n5GGUdU3D7tlyby2yp+FUeeRHoAWpbXcQmK4NeKijbvKCNENPWm0FkNWkDLzhCR9q1We
-         4vb5Nbz82jwwQoug7SMLGKigG61RIKSB0x/ik9Cl1+D7W8ATeOF5dKIbTx2+WQZwFDLl
-         /sfg==
-X-Forwarded-Encrypted: i=1; AL+hErHROPJzqzSGqEw0Wc22uo4M4o4kqOoMDiqBlxcKGLxJJFyWqbdwsIRxZ8WkiOS99RbbkLBmaMgVROsYhTY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9yNdkYKZxIHyHD/aL8cv/eN//1v+hmG1V0crksSxqY3IjAk3Iz
-	qwaF0jf8cU4BFDYpiihbCdLSzeioV53hl/wOThbhUt1S66EJU1vC429dykedOVziepk=
-X-Gm-Gg: AZFdTZdsS4BrsYojKu/sZngsUdRssgbVJ5Rs4YCnagK8+vchWPNoF0Wd3dQ6r26DWZL
-	4lyignpOIQV2qtRmRQy/ITUBo9E3dNd9fFNVnwmtL/VA9bzKcMBXHbsOoaPB6so0CIJYfIcOslw
-	9jCGOCCtDuJESmJ/YuYNWrNj4OLKCgiduSGnIFnxZnhpT63yWdYz9cSb0g36DKjYhKcLROdeu3w
-	BC6HUcyifzY+wA49v5x+x+XJYkIWeYCbzZkyqePhIgbbiJB/j+VXJDACDQ7ke1Q/j4x9JRR9yR2
-	41qslzkOITEDUhty7PmxWIfmOVRVyzAw02TobmzIF15yTZTzVyB8RZZX9+gJ8XZdC6+Bu3Fv9Nv
-	hYjl0W9Eyet5y9GdKJ2xZUoHL5SrxEy65cuEaf0MZUrew6znvdWqdSvZGUzhA/7zhKi57Db5CeP
-	BUY8AfFSMH5eGweCKy4VPXu+bqxO2GAhSSz16I0bi8yrSSDhhZYkFUksD/kubF7CwBr0nZ+Os+/
-	Jnmxh8uMCDhorni+M1G3+wP6tQCE4nPg/aTNZ67YXqUPvjc0jukWPAh2t+LNiIesNasVq4A1UrI
-	jyzlDgLd5H0vcRSSpDNn1xkhfJ9om2+xy1/ne8ZHX/m9T5A8epe/1RYoJNKEg4VCCEOSvrYfcoi
-	2uYgNhpq4kSEe
-X-Received: by 2002:a05:7300:50fa:b0:384:6487:b155 with SMTP id 5a478bee46e88-38570c359d3mr1744166eec.29.1795148365941;
-        Thu, 19 Nov 2026 20:19:25 -0800 (PST)
-Received: from rock-5b-plus ([61.83.209.48])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm4107967eec.5.2026.11.19.20.19.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 20:19:25 -0800 (PST)
-Date: Fri, 20 Nov 2026 13:19:07 +0900
-From: Sidong Yang <sidong.yang@furiosa.ai>
-To: =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>
-Cc: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Oded Gabbay <ogabbay@kernel.org>, 
-	Philipp Stanner <phasta@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
-	Matthew Brost <matthew.brost@intel.com>, 
-	Christian =?utf-8?B?S8O2bmln?= <ckoenig.leichtzumerken@gmail.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
-	Heiko Stuebner <heiko@sntech.de>, Gyeyoung Baek <gye976@gmail.com>, 
-	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/2] accel/rocket: Report NPU usage through fdinfo
-Message-ID: <av_KNIsnvL4GXCGu@rock-5b-plus>
-References: <20261112171144.3151554-1-sidong.yang@furiosa.ai>
- <20261112171144.3151554-3-sidong.yang@furiosa.ai>
- <3c5f7694-e6fe-477d-bfeb-a130c363f431@igalia.com>
+        d=1e100.net; s=20260707; t=1795148487; x=1795753287;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MZofWyob445pWeNhb7OktaRwpuZ/DPW8FberUsxg9WQ=;
+        b=X9p5s5dnzPoitDaym62Anz6tTgBVOsaQbaRSW+DiTxymQW0MNVAWr/v+jcrrFyvdyF
+         8Df3l0QK6LkcfhJCOSNgo8TQoF71TNhOL4kNKamDHIt6fhbwwK+DeyCbBfA0/eJ+VpnW
+         hdnFopObpqgvdn+J4uC9J2aJyYzvYWpe8I8FBUDBr44UdWKrr4oEZCwNxZ95eCBu2ZJ7
+         O59mK16Xb7OuHsNopEL1dq+agaD1k+ToW/JYMgRS6Iel2S/8BW7nMcm38Eb+ARrCkoO+
+         VTRQKks4ogo3likr7IuykaKKXflo9HZEqrVp/hPvyU4tUhULDAoxrvTc4nikr/XGwi1k
+         mzuQ==
+X-Forwarded-Encrypted: i=1; AL+hErHxLgIpIOZmx6u4BIe+jf6r/CA3Y0JCNJtIcmCofck+buptCAocg5ERMeCTHUQ0HNFQDRrm5n7I/24oFJM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/UB0tLYjamkOjQXCrFPuZ0aiVarDim6D14hXZYPC10V+o2kqSa
+	PySgxXClsgrqTyzooNKY7ZdIxc0A9sRTTjBT63oQwzh2f51jH2PQRVgdSwME0WUqEN17ZbmVWew
+	oumuLAlNUdnz9E8LInt7bWqkjD+hjqWI=
+X-Gm-Gg: AZFdTZfXWjzzsWg8DP34t4Lc+VM3mS2cvXcuMMm8qmDoVAo2R9xMKtuNpd6Mi41G+os
+	0DD3QfCE+A/sv6YOgAe9sfdmo+lRYIzXxMCaqITZrbFMKsR44gZt35Pa/bl4V/M5oXPqQFaWqcZ
+	ueZUUtmoN97oPijrCd57mWZjgc1sWeQPI97dSbBkcbaWG+uQDtI/pHpHTRp1Tl8G6lT4R90Ft7w
+	JzBK03weudLLI9h6IaAie7JUfhPPEEjfphNMgUZ7yHf5lsvDD0qBWTQSQrfePQgMRkke9aeg/fV
+	d50IL9gB37zQRIv2N9m6AA9DiSFO91fnnszyNXwgvmkGk72oP6nzBuYzlbTfEh8q9Tjuj+IHaI+
+	Rlc6M0Ystf3SGZh9AVf76JajXuAUmLVzE1vemJP8HjXQ6oM4e8Nhnk2NIzieycnWEE1BvxUB7YM
+	T8mhApP7WzNKM5U09dErBmpEwH
+X-Received: by 2002:a05:690c:3603:b0:8b4:d8c6:4d9a with SMTP id
+ 00721157ae682-8b52049684amr7423927b3.48.1795148487000; Thu, 19 Nov 2026
+ 20:21:27 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,19 +105,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <3c5f7694-e6fe-477d-bfeb-a130c363f431@igalia.com>
+References: <20261119180015.933433-1-thnkslprpt@gmail.com> <av88TW3GQRvXJDwA@gremlin>
+ <CA+jvY9E3XD5mJZ7V-+6HFxEkY1FHNGom42F-nxMZNGtOy9POqA@mail.gmail.com> <8e56f690-7031-4a57-abdd-a02c1c94782a@kernel.org>
+In-Reply-To: <8e56f690-7031-4a57-abdd-a02c1c94782a@kernel.org>
+From: Avi <thnkslprpt@gmail.com>
+Date: Fri, 20 Nov 2026 06:20:49 +0200
+X-Gm-Features: AclHuK_Fg9tRjIVo2CnJsvvToGmImP00awTc_YDWrnuAnE7j5TJSQHgt_xSP3vg
+Message-ID: <CA+jvY9HQp6iDPGDTuVqrQNnw0ENDDq46_AwZqzcjXNcyFWqPsA@mail.gmail.com>
+Subject: Re: [PATCH] mm: skip temporary folio allocation for anonymous UFFD
+ missing faults
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, akpm@linux-foundation.org, rppt@kernel.org, 
+	peterx@redhat.com, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	liam@infradead.org, mhocko@suse.com, surenb@google.com, vbabka@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 19, 2026 at 09:31:54AM -0300, Maíra Canal wrote:
-> > + drm_printf(p, "drm-engine-capacity-npu:\t%u\n", rdev->max_cores);
+Hi David - the real motivation is very simple - avoiding the wasted
+allocation (if possible).
+That's it.
+
+On Fri, Nov 20, 2026 at 12:35=E2=80=AFAM David Hildenbrand (Arm)
+<david@kernel.org> wrote:
 >
-> Does it make sense to expose the capacity of a core that it's not
-> actually initialized and in use?
-
-Thanks, you're right. I'll report rdev->num_cores, the cores that are
-actually bound, in v6.
-
-Thanks,
-Sidong
+> On 11/19/26 20:31, Avi wrote:
+> > Hi Lorenzo - I don't think you are in charge of all of Linux and can
+> > decide who can and cannot submit contributions.
+> > This is a legitimate improvement in my opinion - if you disagree that's=
+ fine.
+>
+> May I ask which workloads you are running (for customers? etc) where you =
+would
+> care about this improvements? IOW, the real motivation.
+>
+> --
+> Cheers,
+>
+> David
