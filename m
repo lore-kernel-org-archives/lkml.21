@@ -1,72 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795189504;
-	b=EbhBlmPqvIdYwYj6C+6Ii/07MUGAU/rTKmupdiYKX4iMF/yw0zhr/JqHMccOTSE23wTg
-	 8IvxxUStBKAjGqo9Ya8xozAUo3rSwpCodgws2lM+EVBTnOFiKHWpm6A5Wpt7N+kCNWid1
-	 1XxtbfJDtTVQK4TkL64epnvVXThhfC1qelMosEmpVaNoj27LgtELi/2qKMglbrBa6VSY0
-	 8TyiCrXpDq82GZ3jV0K9CPvwFPzu9cNQjthJy+gwzDynenrZRBdUBpb2DomSgW9Kavu3v
-	 im8o2zAq2+yIsgU7cNP49CQH3pUAGstnE1uM8h+MZQDjMRIBsZKS3Ak3PBt9c7Z395Q==
+	t=1795189514;
+	b=dRDzoY641U93NZmKO+t/0Igai/wmS3U7kTwlVEX/sWK+u5RfIpFkf/MSu/CszfzHuurq
+	 B1KluW3CjjViG4kGzedZPG2d6pjRJpxUeOIOx5pRyr5fRHb3V6I0nMUDBzL92eNx0ZnWV
+	 ervE8NtdZAVxLor4ZerJE8NgSK8Zi4IEBfcd3wOyDOLcsLTMGusBZ5nsRvlI9miqP85Jf
+	 v5cI+hu9jw3hQl1FmDYizbZZFbpJ5Factm2KrzDXtsDGFwvUyOmPVuH21p3HEh06W2dIy
+	 CIc1dA+HrufU9bkvDXfFlalZ3fPDqJO3MnNiAWr182aN12hV0VIbfRmlKSYud4PJswg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795189504;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=6QLG5/YNSyunp66wi2G54jlWRh4d2MdsiZoJ8fG1Qag=;
-	b=FVQZD3mZYvKApoLxuTSq5UQ8o50xKmfxlGBG3Guljg+cxYhmCmbYqUaK2r5xypv0rQ9J
-	 A0r+e1QsHMKw7PqR4Sk0pemv68MIMJtYOcYjsBUm+sWM6v214FcZ3TIHY08NNBlQrtRiI
-	 ESDmFHraPt2E8ffrYIkr8Wa3jkgmwdxOXrZGegEWVPfqzlvLSkA2MI7sjBELk1KHQd6Xl
-	 +DQkgSU5DQFQxm8OmmhJ1XsJb4OAApXLpp0HVhU9qNMWKYua/RMk/3jN+g1PhTsqN2OFm
-	 t8ZG/X8hqU6EotqoARCMOSwhFZ1keNw4ub+NiOn4yh1RIRbRvPaXpiRTGqgY3ICn78g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795189514;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=9CxTExrzL3kATeAM6ygWp3ufG5hvlr8xzSC5e3ulCyQ=;
+	b=Ip8KChlya3MVouAOoIOXpMKrXRA8qP8JAldDf1egEP4zCrf2zKbhC4rh3aR+BNrrhEfm
+	 xaYcGX5ZPpcVz+JganoykWa7IJSHDgEeW99nXhsWgSv4KxU5bIFyvqdBD4zpjHSFb5k7Y
+	 81Zr//R7fLy9cVnem3Xjywl1fYIwc3Zn2EonMETz01uoMKdAJYrZ69qDjqY8HYu9VzRid
+	 7/K0RUHbUBMNRItxqMU2+HcDNS7dez5WqUfB/qiLmzKcACTqL481yU3VuXfh28SNhXoNT
+	 mpK/O9aYAea+jB59/zAzA1j1Wn7QEQlC6avvGU54wGquIjLyxYIK7tSl7+5A2UJYeaw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=F6Af7a+B;
-	arc=none smtp.remote-ip=90.155.50.34
-Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NYfkIXaQ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEF1B606A32C;
-	Fri, 20 Nov 2026 15:45:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CEF1B606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 7C959606A32A;
+	Fri, 20 Nov 2026 15:45:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=F6Af7a+B
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=6QLG5/YNSyunp66wi2G54jlWRh4d2MdsiZoJ8fG1Qag=; b=F6Af7a+BYs0BDmmODuoYtBR346
-	yNguJtJ3FNvUxAMSuQsz4UxvtwlzqbSiXQ2ZgO00CyBHD+Yo+pBk5LkMsFn9m+Je/boSHzF/ZIORM
-	VVoorovm+UbGa46YQYE/KGudPyp6GtJkS7rd/IUqrbSHNdzD5BdK2llbMcSvydLpyQI+oUy6GUJEx
-	zODNr4VTXVDMSQTpl4Tfz+G395R972l3N7vIX5KRFCdcuqTLRgZc7XPImItDrsyj04msNAMzxopYC
-	mmheqGmKe5ov3+LQzba3KcDrDK5TqV8wC1Y3OY2FjHvTTd06NMA5F28nubs1cnqkHeVsD5HqoD8V+
-	WCB6N9YQ==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUQnK-00000007Bhw-1oBi;
-	Fri, 20 Nov 2026 15:44:58 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 74CEC3008D6; Fri, 20 Nov 2026 16:44:57 +0100 (CET)
-Date: Fri, 20 Nov 2026 16:44:57 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Tengda Wu <wutengda@huaweicloud.com>
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 1/2] perf/core: Prevent duplicate sigtrap task work
- enqueue
-Message-ID: <20261120154457.GZ2668564@noisy.programming.kicks-ass.net>
-References: <cover.1795053619.git.wutengda@huaweicloud.com>
- <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NYfkIXaQ
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 72EE61F000C4;
+	Fri, 20 Nov 2026 15:45:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795189514;
+	bh=9CxTExrzL3kATeAM6ygWp3ufG5hvlr8xzSC5e3ulCyQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NYfkIXaQ7K9996vy7S3LxJCGXvh73w6a9/xv+XlVLTSOdlQecNdrelyJKMG5PRRMv
+	 71/tC33C4YOxotc56Y4VJW7L6PpRh50mCRXHdakmnrMsk/IrBqEcf4/LHPMu2lopC+
+	 iXqDhydmRiLH+7Jsz4R5wSeeOPcw5DeCP47Yhc28ddzKwzTao7gvDzPxbGLk+/ouUP
+	 CRXcSDjkYnGyWqFh2+r2v/IXFwMLHRQzXyLMfnAwrsRTLWybrNEZuY8lSnvTt5OVqB
+	 Uu0Fze9Bw4DsF0ii36eXHZdjT5EAuJ394EASPmZSjfUvEi64Cup2AMZDYySlYq+rPg
+	 s6y439xcJK5+A==
+Date: Fri, 20 Nov 2026 16:45:11 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Chi-Wen Weng <cwweng.linux@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, cwweng@nuvoton.com
+Subject: Re: [PATCH v6 2/2] pwm: Add Nuvoton MA35D1 PWM controller support
+Message-ID: <awBfa9jMlhCTR5xV@monoceros>
+References: <20260914110739.203479-1-cwweng.linux@gmail.com>
+ <20260914110739.203479-3-cwweng.linux@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,33 +58,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ghj4wwdna3eordl2"
 Content-Disposition: inline
-In-Reply-To: <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
+In-Reply-To: <20260914110739.203479-3-cwweng.linux@gmail.com>
 
-On Thu, Nov 19, 2026 at 09:51:00AM +0000, Tengda Wu wrote:
-> The sigtrap handling in __perf_event_overflow() checks
-> event->pending_work before calling task_work_add(), but only sets
-> pending_work after the task work has been queued.
-> 
-> This leaves a window where an NMI can interrupt task_work_add()
-> and re-enter __perf_event_overflow() for the same event. Since
-> pending_work is still zero, the nested invocation can enqueue
-> the same pending_task again.
-> 
-> The re-entrant call path looks like this:
-> 
->   __perf_event_overflow()
->     task_work_add()
->       kasan_record_aux_stack()
->         <NMI>
->           __perf_event_overflow()
->             task_work_add()
 
-How? If an event is NMI driven, it will only ever cause an overflow from
-NMI context.
+--ghj4wwdna3eordl2
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH v6 2/2] pwm: Add Nuvoton MA35D1 PWM controller support
+MIME-Version: 1.0
 
-If it is not, then the same event will not trigger from NMI.
+Hello,
 
-Some key ingredient is missing here. Is this some software event that is
-missing recursion checks?
+just some nitpicking left ...
+
+On Mon, Sep 14, 2026 at 07:07:39PM +0800, Chi-Wen Weng wrote:
+> +#include <linux/bits.h>
+> +#include <linux/clk.h>
+> +#include <linux/err.h>
+> +#include <linux/errno.h>
+> +#include <linux/io.h>
+> +#include <linux/math64.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pwm.h>
+> +
+> +#define MA35D1_REG_PWM_CTL0			0x00
+
+The manual calls this EPWM_CTL0, so I suggest to name this:
+
+	MA35D1_REG_EPWM_CTL0
+
+> +#define MA35D1_REG_PWM_CTL1			0x04
+> +#define MA35D1_REG_PWM_CLKPSC(ch)		(0x14 + 4 * ((ch) / 2))
+> +#define MA35D1_REG_PWM_CNTEN			0x20
+> +#define MA35D1_REG_PWM_PERIOD(ch)		(0x30 + 4 * (ch))
+> +#define MA35D1_REG_PWM_CMPDAT(ch)		(0x50 + 4 * (ch))
+> +#define MA35D1_REG_PWM_WGCTL0			0xb0
+> +#define MA35D1_REG_PWM_WGCTL1			0xb4
+> +#define MA35D1_REG_PWM_POLCTL			0xd4
+> +#define MA35D1_REG_PWM_POEN			0xd8
+> +
+> +#define MA35D1_PWM_CTL0_CTRLD(ch)		BIT(ch)
+
+I like it if the register this bit field is defined for is a proper
+prefix of the name, so please rename to MA35D1_REG_EPWM_CTL0_CTRLD().
+
+> +#define MA35D1_PWM_CTL0_WINLDEN(ch)		BIT(8 + (ch))
+> +#define MA35D1_PWM_CTL0_IMMLDEN(ch)		BIT(16 + (ch))
+> +
+> +#define MA35D1_PWM_CTL1_CNTTYPE_MASK(ch)	(0x3 << (2 * (ch)))
+
+The reference manual calls this CNTTYPEx, so please rename to
+
+	MA35D1_EPWM_CTL1_CNTTYPE(ch)
+
+> [...]
+> +static int nuvoton_pwm_config_channel(struct nuvoton_pwm *nvtpwm,
+> +				      unsigned int ch)
+> +{
+> [...]
+> +	nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_CTL0, ctl0_mask, 0);
+> +	nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_CTL1, ctl1_mask, 0);
+> +	nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_WGCTL0,
+> +			wgctl0_mask, wgctl0_val);
+> +	nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_WGCTL1,
+> +			wgctl1_mask, wgctl1_val);
+
+I think these lines are short enough to not break them.
+
+> +	return 0;
+> +}
+
+Best regards
+Uwe
+
+--ghj4wwdna3eordl2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsAawMACgkQj4D7WH0S
+/k5Bogf+I9+wjvPp6RamXalq4J4R7DZ5hp2Jlexu1TfyjL9nyTVT/kY6M1IuN9IB
+LfLIYkgHk/eW9wWejLQVdbh1zyMonOnaGfRsL7eK81qeX2HjBxNnbnzd7y6qy7lI
+9n/uuaaJ+fVw/5jGmhuhgmrIwd8wiCD2N02u9fm2Yv6c4TlFVfn1nn4oRNQ7UQ1M
+40tHBzcYV+Le7+SgIMU4BvtsZAD+vbaNFx6HY488zG8PuKOptKrGQhOGvTvXQ4Na
+C/AdG7SR03mlxLKf/i+2B13lNSFFY2vudsTpzhkKYQ55cIrk+0BMCv0oaK4qwJ7H
+T/D0VdOZl7XQ+G91htlMluNddWRuJw==
+=qdzv
+-----END PGP SIGNATURE-----
+
+--ghj4wwdna3eordl2--
