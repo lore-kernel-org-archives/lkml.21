@@ -1,80 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795210291;
-	b=ejlpe4JjmCptKHOqbsoc8nkD1SXda155pAP/+Wk6P3XKIJeIRwstIh+B0lOQmeG3yOLS
-	 Jh9uWOx3wtDbcnw7ZRcOKcYPI4hVXZTJU9SFZMm1AgKPAkI9Uqcj5ybUr16PaNMGMxYuZ
-	 hdR94MsG66CKTXH7akLAJ+trO8YK3gP80FEBnMqrgIYrGQDC/6tjFJbkGEaDN+QsJ8TqY
-	 loaTjnu+hyjtLxhkQpiLhuDyqcdbs21qLicuI+oS8F3m1oIVYtmwT6+tvkU0Yhyzr5vfq
-	 jyR3g+8DKYWFq5BtXVrPTWXY5xyHkQQXS5dkdJMPtLDBGWIyC8tBIqC558ILw1hc1ww==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795210291;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=Hre9/kYvnxV6FE+cSP1phJsMVFoDyXzQDpFxO2GUIh4=;
-	b=Z3zHXFFT3XTIEqp3LRaabBfBp2H30mCXcJh4C5UnoAU5Q1IIR/9/RSyT2ISFOZ53fmnC
-	 8QHjT6CV6Y0LO//yMVxXTieZIHVsmPzCZcP7TQ1tW9lfJDqrpwgaGRvd2HDtn4bhhnPpc
-	 M2wY1LDYL5TuYh0vPQizTaC45sacAvucJ231R82e8g0dN/mNkX9qLbNkTmGEC0ijAi2Xj
-	 yoHzv3yWn1C9jIKxC8ownSMqzXpyxJ+7NBghjfIwQ93mBof55ESixMaz/UnILNWrj4OJ/
-	 8q5lOm8sxG/F7BCkAmxHysQ8aR0gLtQd767Z8kyNU6NdLmY7Y/u5AIkWm9TEVLDRH8w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ideasonboard.com;
-	spf=pass smtp.mailfrom=ideasonboard.com;
-	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=Y7+pEitH;
-	arc=none smtp.remote-ip=213.167.242.64
-Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.179
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795210300;
+	b=i4GsqSI3SYPyf3BPwYUmZsVikK0iVTe9tG5D3XP7Cia7tcDUbS4Vp+YLvHUZYAGoI8kl
+	 HO1oSVEEN8INu5X/5fifIGS1rIX5nDe67a8PEKRsxQyw/O+QgiTuAqPG00+QxprEIKMGR
+	 FKGKdbB9F2njxleYUJLxbgVlsSt6fuBvIywZzE8/xLLWdQlWElafOtlT5eeZ1JeVb3Cpa
+	 vnAhNFXjXLGQSJ+2VsQ2fnlLsb2kpvbB8zWt/NHLd7EaFgjS/exQ3hg9dd+bsSvM6IQJg
+	 6TpO69+UrBVEyvVTRZKhl1a4vhhMicdeeVa0tGx5McP3ealTJPyp33V/KYVxNh8QkhQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795210300;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=26y+of0VW/d3qa/IzkivZULa62OBHde+4TVDHu/Ebbs=;
+	b=VtDim646SV03bJFQrx+btEGqfaC8i31owx/WwqGpjwagyHqDmKdNFMogtDuwVrTArfWF
+	 Tg7KCif5iU6F3G66q2zfPfF1i79EE2/9fe8jQkWVAo8PftUpbWX7Id+qh41GauKNpiHS2
+	 lfuoTqSxMWqHVCt6tuAYcebAbAAKDOItp7IF21JaxbO0KTSPai07voyI1zgsoWXFo6ICk
+	 sh9i+aQOTEf5ZlvmdQeafrc3EEn4AwsPZfGIqbs3Znk39FEVoNmxKrmL8vjisi0HvIwN+
+	 myWE5zDYE2VOhVNVP3/XZqgKU6tTG7QtxBS8HQpPasxe/B2iMfe+xsdoSZVOzEqe0JQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=owhm7wLl;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.179
+Received: from mail-lj1-f179.google.com (mail-lj1-f179.google.com [209.85.208.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FE82606A69B;
-	Fri, 20 Nov 2026 21:31:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FE82606A69B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A794B606A682
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:31:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A794B606A682
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=Y7+pEitH
-Received: from killaraus.ideasonboard.com (2001-14ba-7086-3000--a06.rev.dnainternet.fi [IPv6:2001:14ba:7086:3000::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 6FA714E6;
-	Fri, 20 Nov 2026 22:28:47 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1795210127;
-	bh=M7Qcq8V3Jr2gLoOzs+ayK8dikX5kJkrE/bo1yp+s4tA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Y7+pEitHa7rz0OLH9JT3Q9uw0F6+sdkuHT9Va5Ttw9M7zug6ogtix7wCXpSlsVxCG
-	 NHanSRRXOK5a+B19zRjoYv+jA1z9LQvpvNAX6SSyN9Yzpd/EtJGvqYv9+kyTipz/Ck
-	 xjilVepncVyQs3BTnJRFx+9YYuNn0i87hLlfnmmw=
-Date: Fri, 20 Nov 2026 23:31:16 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Svyatoslav Ryhel <clamor95@gmail.com>
-Cc: Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Sowjanya Komatineni <skomatineni@nvidia.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Mikko Perttunen <mperttunen@nvidia.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Cong Nguyen <congnt264@gmail.com>,
-	Faisal Mukhtar <mukhtarfaisal03@gmail.com>,
-	Dan Carpenter <error27@gmail.com>,
-	Hungyu Lin <dennylin0707@gmail.com>,
-	Hao-Qun Huang <alvinhuang0603@gmail.com>,
-	Yury Norov <ynorov@nvidia.com>,
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	linux-media@vger.kernel.org, linux-tegra@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev
-Subject: Re: [PATCH v1 01/10] staging: media: tegra-video: Move driver to
- media/platform/nvidia
-Message-ID: <20261120213116.GB2472094@killaraus.ideasonboard.com>
-References: <20261113161819.36847-1-clamor95@gmail.com>
- <20261113161819.36847-2-clamor95@gmail.com>
- <20261120143147.GA2466366@killaraus.ideasonboard.com>
- <CAPVz0n3u3oe1+H_w9jE2afb9PQT0VLtYVqfHeVNc3D+tLN6NDQ@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=owhm7wLl
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-3adfb744fa6so1226471fa.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:31:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795210297; cv=none;
+        d=google.com; s=arc-20260327;
+        b=qXTWOeEYvZ02sCRtH7bUgoRQXwm4VX1PAtYuWI9WPKIHYZU+bZRFM6YQ0RaCmDWU8I
+         NkTyTBy6TFZvU37e9An2gOSHvsNQpOudiXuOa/yD0GQiunKaZI5DI31fTt3+WIvlwdlO
+         N5C0iRO4vy6UzxVK9mnJ9/xRMJmoreX6ysE6FAhfjQx+xpUxmmq81gsn8jtmvyJNqXYq
+         jDC9IfHzrfsYZRap3RNpvAyYlfYOjkQCJDqszNN69hSbmWfU0dhXDEAM32lh8Q4iA9is
+         Ht30TK930mabpeUX+veUOpZNB7sLs11dJ8nrXxfMSo4kUfab9IsOL81Jz3nzt5N0zpU5
+         pirw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=26y+of0VW/d3qa/IzkivZULa62OBHde+4TVDHu/Ebbs=;
+        fh=geomNODHlyBqQBVBpJVro+UN485yZ/jUTk58liQOJHU=;
+        b=LOHaqdu/QHNKyFxQ+1ACaQIhPeOiXii+kRbVlhJdWdOfwg1EFOtlXbDeYABDUlHDpB
+         bYteWdLzsV1dZhE02jSb+zoj8ndXHy9fOus+uafHwaeWLEgxzrl6AAnRgQxo+Shlh34K
+         2CYJj1zA0G8PQdFfE8jlGtdFLRXyAjPlm1FMGkaCNOZPZk0tGFu8eD2bInfX9eeQBRcu
+         2pmtA570d5Gu/1mBw6i4dc6kuSMsax61YTSLKsQhOIJXKIdJsev0TeolD+tfZ03cMOR+
+         UNki+ZZf369KOKKtiv4ZZf2s74N70f59gkm26Br3DcpngaD49f6T6iqEKR3jxlppjzll
+         4wVQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795210297; x=1795815097; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=26y+of0VW/d3qa/IzkivZULa62OBHde+4TVDHu/Ebbs=;
+        b=owhm7wLllg3l9s3Ng9CV1HrjwLj04k4mew4+Il/Z8w5k0GXizWUecYujWL4XpHDtMa
+         eS9MRCtEBZwwC8OdUWFwKPDTIlDgdFLHLZUfue/yq/USkW8/TiW1ko9/CoxPtSxP1A9D
+         D8MSFcWmlq6iHfxe/N4v0YRGxj23N85NQtLSVROCDnIzR4Uv318mpVWcVMo7jrrlABYt
+         YjadBn6OUuNuIFRnWiaLZ5X/eKMo7W3sxO+bCCWoKuFkljemHmv/yxy6hv/IR4N1kz5O
+         L3UPxcjApzNrfzj6wR8qTA9djgxz/M4AodemmINAcWB3TwhsliP53LE71qSquskMkxGi
+         21ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795210297; x=1795815097;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=26y+of0VW/d3qa/IzkivZULa62OBHde+4TVDHu/Ebbs=;
+        b=uqD4EH3GjpNO+/C5AzPWTLLz5D6mPsCR7baO2RikezLJyrgX/wTfObesmly5y4FWu3
+         7NcxlwgKZ/fp0KOBHBteknVePKnODywvLdIRiJujtoSuB6Z1xf08KcukEgvT7WMh/tw5
+         zpw33nsiQA/izol/1yABQr6gFFaxlm5J46lEl2Uy/vuZ+xRH1On9TEW2OWJoRdNIbe+K
+         Ex4jfHLkjiZRKrCIDdrU/gjxUgXdxj7l42GsEyblSxLTGEb31QPIFQLUbojeccWDf81r
+         urmZb2FIEudTLFTPFle0slBd22m0SlqZhPB4/DeiieTcl/0R87KTEOmLe7VoEgdji1/+
+         ZwwA==
+X-Forwarded-Encrypted: i=1; AL+hErHOkjcInfsVJP+7ukBeHvb+IX1qgPvqhfz2Y7Ge7kjOjpb0IHVebz2HyAMHspo3OMs9H7Dbqt4C9lsSd/E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Qfw8HJxfTJcKLmMQ7eJO5v8M4nNdIZO6xzW7oqGfx9+qwvWl5
+	hrUaRPjDWcAPHVp2u8Pl//vyJ5jW79KYsx0i/z8v+HnEzI44HYc2feVrD7gwLNrCv7hlxzX/aQB
+	VaRH7Xdxm4m37DQZk2QcuZrFbAOCCw5g=
+X-Gm-Gg: AZFdTZd7qNfBsu0RtJlcG/jbDB6RBngww0u+Gt4DCDvvsvu+sSjdW+WB0fEK0xQu+/O
+	gg6qs8ROtavAkTZJ2xPTBEBj7sCaz7m3YBM6wLrKcOjQ08RzdYwaJj32GduKS10ughLc0ViJWQh
+	CDvF23S74wwu2m9ki9BboA19kjXwa6cEfYNNiqL0JUUgrgyId/wXfLhu0sklnqRqUUeVPW7/Lrw
+	3R8LfaDlA1IuqPLLcgFQgvfsWGjUJa9QEbGPCkbnmLjIQ3jCpE8P+FXUiFCq5XVhXbh18jMUPBV
+	AoNdQJuAq3TIiqEOd81wAt8IHvaWja2l0fBw1DlPkcdzdzOkW2seGA8ZspfTTkyp73f895fl0S4
+	VDEf7+VGX7PEyJHzbDuIwfZI5yqoPB9y5qqszV0a5qccdsnLKlMh3EkxLsy3zrigKBf+d4FmiNK
+	P/gH+E22YW4XmpOoTGEQyBUl5WGaBrejDy5BvWAe3ZKRPJJX7bIohKSH/0hiziR4A5d7ynoQdGG
+	m7D8PSmHxBQmnLu4r38fhz5+50b6cF65dx+GyJyYOS0pPoYRNmvzDCnEOVQBuHF6hr79bZt
+X-Received: by 2002:a05:6512:1320:b0:5bf:cf6d:ef1 with SMTP id
+ 2adb3069b0e04-5c1bc5767fdmr1687437e87.0.1795210296624; Fri, 20 Nov 2026
+ 13:31:36 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,89 +106,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAPVz0n3u3oe1+H_w9jE2afb9PQT0VLtYVqfHeVNc3D+tLN6NDQ@mail.gmail.com>
+References: <20261013-clk-type-state-v6-0-a5e9977b3509@collabora.com>
+ <1a1cb87df11.2c57f9fa237371.844135553238709982@collabora.com> <179519331840.3795820.8047048832159165355.b4-reply@b4>
+In-Reply-To: <179519331840.3795820.8047048832159165355.b4-reply@b4>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Fri, 20 Nov 2026 22:31:25 +0100
+X-Gm-Features: Aa3M54o4i_zALBjbkgtOxZes0dCWZ4jiHPCTwn8GOTMZ7mrp5N06gIycRXOv0PA
+Message-ID: <CANiq72nOKrAtct_eb7tjc9JFFpOQrN0=5bOyOZo1p4C+4U5bsw@mail.gmail.com>
+Subject: Re: [PATCH v6 0/7] Clk improvements
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Daniel Almeida <daniel.almeida@collabora.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Viresh Kumar <viresh.kumar@linaro.org>, Danilo Krummrich <dakr@kernel.org>, 
+	Alice Ryhl <aliceryhl@google.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Michal Wilczynski <m.wilczynski@samsung.com>, 
+	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+	Jerome Brunet <jbrunet+clk@baylibre.com>, Miguel Ojeda <ojeda@kernel.org>, 
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Trevor Gross <tmgross@umich.edu>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>, linux-pm <linux-pm@vger.kernel.org>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, dri-devel <dri-devel@lists.freedesktop.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, linux-pwm <linux-pwm@vger.kernel.org>, 
+	linux-clk <linux-clk@vger.kernel.org>, rust-for-linux <rust-for-linux@vger.kernel.org>, 
+	Boris Brezillon <boris.brezillon@collabora.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+	Maurice Hieronymus <mhi@mailbox.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, Nov 20, 2026 at 05:31:17PM +0200, Svyatoslav Ryhel wrote:
-> пт, 20 лист. 2026 р. о 16:31 Laurent Pinchart пише:
-> > On Fri, Nov 13, 2026 at 06:18:10PM +0200, Svyatoslav Ryhel wrote:
-> > > The Tegra Video Input drivers are mature and developed enough to be moved
-> > > from staging into the media subsystem. No other changes are introduced.
-> >
-> > The driver should at least be converted to be MC-centric before being
-> > moved out of staging. I haven't checked if other changes would also be
-> > needed.
-> 
-> Does the media subsystem deny video-centric devices from even being
-> moved into it? I have not seen this restriction imposed; could you
-> please point me to where this is stated in the media subsystem
-> documentation?
+On Fri, Nov 20, 2026 at 5:49=E2=80=AFPM Jerome Brunet <jbrunet@baylibre.com=
+> wrote:
+>
+> I was wondering how the rust folks expect these changes to be handled sin=
+ce they
+> touch the rust/ dir. Should the clock changes go through the clock tree o=
+r the
+> rust one ? it is fine with me either way.
 
-There's a consensus that devices that require control of camera sensors
-(i.e. "MIPI" cameras) must be MC-centric. That's not documented, we
-should probably fix that.
+The clock tree would be ideal, i.e. a lot of subfolders of `rust/`
+belong to different subsystems (the file is already under "COMMON CLK
+FRAMEWORK" in `MAINTAINERS`). The "treewide" Rust tree can act as a
+fallback tree for files tracked elsewhere if needed, but it is meant
+to be exceptional.
 
-> I would like to convert this device, but that may take quite some time
-> and may case regressions if not done carefully. This patchset apart
-> from moving to media is mostly fixes to work correctly with mt9m114
-> and tegra114 bring-up which is quite simple and straight forward
-> change.
+(The files will be able to move to e.g. `drivers/clk/` eventually,
+when we lift the limitations of the build system regarding that.)
 
-Converting to the MC API will require some changes in userspace. That's
-why it's important to make this change before destaging the driver.
+I hope that clarifies!
 
-> BTW, may you ack mt9m114 get_fwnode_pad change[1]. I have updated it
-> to your liking, Sakari seems to ignore it.
-> 
-> [1] - https://lore.kernel.org/lkml/20261006153619.304520-1-clamor95@gmail.com/
-
-In the review of v1, I wrote in my last message
-(https://lore.kernel.org/linux-media/20260721103845.GJ50424@killaraus.ideasonboard.com/)
-that the issue seems to come from a bug in the VI driver. Let's continue
-the discussion there.
-
-> > > Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
-> > > ---
-> > >  drivers/media/platform/nvidia/Kconfig                           | 2 ++
-> > >  drivers/media/platform/nvidia/Makefile                          | 1 +
-> > >  .../media => media/platform/nvidia}/tegra-video/Kconfig         | 0
-> > >  .../media => media/platform/nvidia}/tegra-video/Makefile        | 0
-> > >  .../{staging/media => media/platform/nvidia}/tegra-video/TODO   | 0
-> > >  .../{staging/media => media/platform/nvidia}/tegra-video/csi.c  | 0
-> > >  .../{staging/media => media/platform/nvidia}/tegra-video/csi.h  | 0
-> > >  .../media => media/platform/nvidia}/tegra-video/tegra20.c       | 0
-> > >  .../media => media/platform/nvidia}/tegra-video/tegra210.c      | 0
-> > >  .../{staging/media => media/platform/nvidia}/tegra-video/vi.c   | 0
-> > >  .../{staging/media => media/platform/nvidia}/tegra-video/vi.h   | 0
-> > >  .../media => media/platform/nvidia}/tegra-video/video.c         | 0
-> > >  .../media => media/platform/nvidia}/tegra-video/video.h         | 0
-> > >  .../{staging/media => media/platform/nvidia}/tegra-video/vip.c  | 0
-> > >  .../{staging/media => media/platform/nvidia}/tegra-video/vip.h  | 0
-> > >  drivers/staging/media/Kconfig                                   | 2 --
-> > >  drivers/staging/media/Makefile                                  | 1 -
-> > >  17 files changed, 3 insertions(+), 3 deletions(-)
-> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/Kconfig (100%)
-> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/Makefile (100%)
-> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/TODO (100%)
-> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/csi.c (100%)
-> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/csi.h (100%)
-> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/tegra20.c (100%)
-> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/tegra210.c (100%)
-> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/vi.c (100%)
-> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/vi.h (100%)
-> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/video.c (100%)
-> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/video.h (100%)
-> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/vip.c (100%)
-> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/vip.h (100%)
-> >
-> > --
-> > Regards,
-> >
-> > Laurent Pinchart
-
--- 
-Regards,
-
-Laurent Pinchart
+Cheers,
+Miguel
