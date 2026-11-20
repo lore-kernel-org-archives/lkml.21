@@ -1,60 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=160.30.148.35
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795157484;
-	b=oNS1TFAA33tDzcbjlOTZVP/mYSbqvkRXmZllUp3uJ0v/stR9bCsCN66M4ElUl6QVz8o8
-	 2hcYLnetZ9Yk24wC7LRpf4ectGOd5wWaMir1oPl5xLGdxAk3WPMVvBUub6kJlvLAGsAal
-	 0/lBPAOGBRMXKXPDQPvcFVhD3hRdqBBP5IDADeS2jNMIGcqEd5criNmi6bj9jsinrhb8n
-	 X0eV/UU4psHahAxcfcU1QYzvo7Omk89FlN20xqTwI1kNqAoW3nCzOjUCGDjHzSaiFbgGP
-	 8FnvKXMdW81xkxrB7Af5W0hS1d8tGS0aYNrEBVaZ2w6BIovGyJe/Rf4VkfEFZKSP51w==
+	t=1795157499;
+	b=FS6HVFtnreOaIxPrr+LidWSyhpME+dL0qnY6OAluTmLJlhbEPqAkO5KRBANp37XMb+r4
+	 Olg+7wQYzhEB+XoXtwkCvUHOq4cEiDXyEdZk4PV+ANX4bQJH4ZBTDvBlujM0N9bt4tVdO
+	 +pmQ43nvEg4ea3omw+20rP96w1QqYdSw+E8Dxlrcayqb6P4mhL342BONR7DnMpXUZ20/A
+	 HutqY7ufbf9J6ZZy/dgU3VzWxxLlZKHvtYd8H37GKTuWgD2v5hFjEN/D38Yb0cKp61Aap
+	 /+s75jGWrPNhLldArZc99TROKVjXcA3ufBa6TTdht44xmdkbRIlevr/HP727obl2C6A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795157484;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=gS7xDRLG+cEqZ7xpUktoOrALv5wJ/YwgxA6f594Sw9I=;
-	b=QAeqLs7sk6aNwlI/fgqRoYISTZ7ebqE5ZW8JbRjEvm9YTQpac0l05w7aQfqXGl/vOZOI
-	 dp21OtBc+QB9mBjASjujJMU/kVb5XEScS4e/YdM02rSP1SU0qj9xNQ0Mn0cWvKc7v68IN
-	 VOAL/jeBIbjgvaMXT5g895ss9KqUs66h1jsNUN7P+i+8K65192JQjOPHjHLFvk8Z52w+q
-	 rY5xlLLzZL2KtboyxExs+DJrfa4Jvixv1iHETxPj5pPN4/VxcAacu2H7LGknAkr4NVuwV
-	 71HtDgevDSj9m9hPT5zMGWbf6hMUQ6VNI5r7lX1qkMYQbhJEH4FDv8aPnD5OxNV+eqw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795157499;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 X-Zmail-TransId:X-Mailer:Message-ID:Date:Mime-Version:From:To:Cc:
+	 Subject:Content-Type:X-MAIL:X-TLS:X-ENVELOPE-SENDER:X-SOURCE-IP:
+	 X-CLEAN:X-Fangmail-Anti-Spam-Filtered:X-Fangmail-MID-QID;
+	bh=QkOjyUxFD4iGN3foebl1PNBKbCZy9TF70hJl4VipDQk=;
+	b=XPq9/AgC4wNVuqoYZW15k1u1qPIrNtGFCCX1A2JbGBTJ1yuGHkT2Kp4HXJAyLN59J7dg
+	 UM3B/6jdr0pIx1vYJkvIkXIWsCKguxnE/t30iit6ik5anxEyRBBdwy95bNX3r3X/vwvzG
+	 kZzhUbZKAg+YMSiEsFM5XPzI5SdAr/2H3BflMLefyiZgZUS9Ka1Hg81981ko9zjBPxgEb
+	 Zw5CcW+tv4i7MYkxEPpGtqdUZua8++Xh4H8DdzYvdd1WYdSQfFA6iHHEkX29WGdLVT3sU
+	 LJgiTK7odLcR2sWZVuaV0X5+xbTb2ImWArWeTDpqQKFhrr66QvFmRpew4TkqAwIJkuw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b1WZWdto;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=zte.com.cn;
+	spf=pass smtp.mailfrom=zte.com.cn;
+	dkim=pass header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b=R91yIs3w;
+	arc=none smtp.remote-ip=160.30.148.35
+Received: from mxhk.zte.com.cn (mxhk.zte.com.cn [160.30.148.35])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 225B2606A325;
-	Fri, 20 Nov 2026 06:51:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EF14606A325;
+	Fri, 20 Nov 2026 06:51:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2EF14606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=zte.com.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zte.com.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b1WZWdto
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B6031F000C4;
-	Fri, 20 Nov 2026 06:51:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795157483;
-	bh=gS7xDRLG+cEqZ7xpUktoOrALv5wJ/YwgxA6f594Sw9I=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=b1WZWdto4zy/TyUUlzLT5GHq3aICSa7Gu/QVWUwct4iOlJAEhQq/GfLz/+OhvzcqA
-	 JTSl5JkkoIEY1j3zWrPYxrrzOwOO4jr9FL1CE3ba26jPeZ3txxZnnmGpUTUYM2ph0A
-	 D1QSsF57PQcZv632haMQJ+qvNDTB34oJ16rqACPJUizgoBk1Qt1XoGL4lFppMZibJD
-	 v9EZ6TIeM2ItuYzb0KZfmfdfAOrpMv6nHE1bl8Q56auuW79ImyWqHJaYniKWH1vm5b
-	 e94zFLhBW+yp9YqQkxOVJcjz2uT4eSv8mN4Pi4gEB8mYJaPhZOBBiVJk1bL4tGtfP+
-	 668QtSr3b9OzQ==
-Subject:
- Re: [PATCH net-next v3 1/2] netdevsim: add TLS device offload emulation
-From: netdev-bot+sashiko@kernel.org
-To: jiayuan.chen@linux.dev
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- john.fastabend@gmail.com, sd@queasysnail.net, shuah@kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Date: Fri, 20 Nov 2026 06:51:22 +0000
-Message-ID: <179515748266.3136.5201206680474625164@kernel.org>
-In-Reply-To: <20261119064902.242502-2-jiayuan.chen@linux.dev>
-References: <20261119064902.242502-2-jiayuan.chen@linux.dev>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b=R91yIs3w
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4jW5bW5m47z8Xrrr;
+	Fri, 20 Nov 2026 14:51:35 +0800 (CST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=zte.com.cn;
+	s=z202610; t=1795157495;
+	bh=ssuXCnFeWlBYZvoeFd26ywYVrzitiYp5r2Sm+PSkqho=;
+	h=Date:From:To:Cc:Subject;
+	b=R91yIs3wUrOQJNN4W42KJkOZ7fwm5dhbhL33EM6gIn+1D7qpB+AVRZCDAb1F7uLM1
+	 OXuWx73GsgywOagWgNFtDrHWNIjLQjxDB5z6mws7SNAZ5SZsCPDzQq/bQIOkZPFxA3
+	 SJQE8doNGlVALgGmc/h0yCpTclycAP33ThWCREpbQh4vJXsMk+eo065/NLYOwS2xTt
+	 3+IplabHhpe/h/OhwOSC3l5T08ezSxhV51NStZN2OISicQq+XLh1ISV2fn6C6ZWwG7
+	 vv0ggeUNCbDdChrAji1B94JN5Q+SLz0u453/FGwK5quN5/5TgV3byOgzBc2+CzgiiE
+	 Js2MxV6P5cBHQ==
+Received: from szxl2zmapp07.zte.com.cn ([10.1.32.52])
+	by mse-fl1.zte.com.cn with SMTP id 6AK6pFAx086097;
+	Fri, 20 Nov 2026 14:51:15 +0800 (+08)
+	(envelope-from lv.yating@zte.com.cn)
+Received: from mapi (szxl2zmapp05[null])
+	by mapi (Zmail) with MAPI id mid16;
+	Fri, 20 Nov 2026 14:51:17 +0800 (CST)
+X-Zmail-TransId: 2b076affede5677-0a5aa
+X-Mailer: Zmail v1.0
+Message-ID: <20261120145117988UPrFJYA461pgTds3xOCwH@zte.com.cn>
+Date: Fri, 20 Nov 2026 14:51:17 +0800 (CST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,222 +69,97 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+From: <lv.yating@zte.com.cn>
+To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+        <alex@ghiti.fr>, <corbet@lwn.net>, <skhan@linuxfoundation.org>,
+        <rdunlap@infradead.org>
+Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <liu.qingtao2@zte.com.cn>, <he.yilin@zte.com.cn>,
+        <ye.zhihao1@zte.com.cn>, <zhang.cheng35@zte.com.cn>,
+        <hu.shengming@zte.com.cn>, <lv.yating@zte.com.cn>,
+        <linux-doc@vger.kernel.org>
+Subject: =?UTF-8?B?W1BBVENIIHYyIDAvMl0gcmlzY3Y6IEFkZCBCZWlqaW5nIExlYXBSaXNlIFRlY2hub2xvZ3kgdmVuZG9yIElEIGFuZCB2ZW5kb3IgZXh0ZW5zaW9uIGZyYW1ld29yaw==?=
+Content-Type: text/plain;
+	charset="UTF-8"
+X-MAIL:mse-fl1.zte.com.cn 6AK6pFAx086097
+X-TLS: YES
+X-ENVELOPE-SENDER: lv.yating@zte.com.cn
+X-SOURCE-IP: 10.5.228.132 unknown Fri, 20 Nov 2026 14:51:35 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6AFFEDF7.001/4jW5bW5m47z8Xrrr
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+From: Lv Yating <lv.yating@zte.com.cn>
 
-Low priority / nit picks for your consideration:
+Hi,
 
-- [Low] The new NETDEVSIM dependency `depends on TLS || TLS=n` in
-  drivers/net/Kconfig is broader than the link requirement.
-- [Low] The new TLS byte counters in drivers/net/netdevsim/tls.c add
-  skb->len, which is the whole L2 frame including Ethernet/IP/TCP…
-- [Low] nsim_do_tls() comments "Leave what nsim_do_psp() has handled
-  alone", but the check it uses is the generic skb->encapsulation bit.
-- [Low] nsim_tls_tx() (drivers/net/netdevsim/tls.c) checks again at
-  ndo_start_xmit time whether an skb is one of its own plaintext…
+Beijing LeapRise Technology has been assigned a JEDEC manufacturer
+identity, encoded as 0x966 in the mvendorid CSR per the JEP106
+scheme (bank 0x12, final byte 0x66).
 
---
+This series lays the kernel groundwork for LeapRise RISC-V cores:
 
-netdevsim: add TLS device offload emulation
+Patch 1 adds the vendor ID constant (LEAPRISE_VENDOR_ID) to the
+RISC-V vendor list.
 
-This patch implements tlsdev_ops in netdevsim and advertises
-NETIF_F_HW_TLS_TX/RX, so kTLS sockets over netdevsim take the device
-offload path. No crypto is done: TX puts plaintext records on the wire
-with the tag placeholder zeroed, and RX offload is emulated by matching
-the tuple installed at tls_dev_add() time. A Kconfig dependency on TLS is
-added because the new code calls tls_get_record().
+Patch 2 adds the vendor extension framework support: hwprobe key
+recognition (RISCV_HWPROBE_KEY_VENDOR_EXT_LEAPRISE_0) and an empty
+extension probe list hooked into the common probing path. The key
+reports an empty bitmask for now, allowing userspace to distinguish
+it from unknown keys (reported as -1), so LeapRise userspace
+libraries can be prepared ahead of the first hardware shipping
+vendor extensions. The key is documented in
+Documentation/arch/riscv/hwprobe.rst.
 
-> diff --git a/drivers/net/Kconfig b/drivers/net/Kconfig
-> index ff79c466712df..cb4d4bb87afc2 100644
-> --- a/drivers/net/Kconfig
-> +++ b/drivers/net/Kconfig
-> @@ -607,6 +607,7 @@ config NETDEVSIM
->  	depends on INET
->  	depends on PSAMPLE || PSAMPLE=n
->  	depends on PTP_1588_CLOCK_MOCK || PTP_1588_CLOCK_MOCK=n
-> +	depends on TLS || TLS=n
+Follow-up patches will register extensions as their specifications
+are finalized.
 
-[Severity: Low]
-Is this dependency broader than needed? tls.o is only built when
-CONFIG_TLS_DEVICE is set (see the Makefile hunk below). With TLS_DEVICE=n,
-netdevsim.h supplies empty inline stubs for nsim_tls_init(),
-nsim_tls_teardown() and nsim_do_tls(), so nothing in netdevsim links
-against the tls module.
+---
+Changelog:
 
-With TLS=m and TLS_DEVICE=n, NETDEVSIM is still capped at m. An existing
-NETDEVSIM=y config would then be silently demoted to m.
+v2:
+- Bumped RISCV_HWPROBE_MAX_KEY to 17 so the new key is valid for
+  userspace and in the vDSO data.
+- Registered LeapRise in the vendor extension framework: added the entry
+  to riscv_isa_vendor_ext_list[], the LEAPRISE_VENDOR_ID switch case,
+  riscv_isa_vendor_ext_list_leaprise in leaprise.c, and
+  RISCV_ISA_VENDOR_EXT_MAX_LEAPRISE.
+- Fixed the build failure in vendor_extensions.c and the wrong
+  MIPS_VENDOR_ID case label.
+- Fixed the Kconfig.vendor syntax error.
+- Unified SPDX on GPL-2.0-only and cleaned up the new files.
 
-The commit message says:
+v1:
+-https://lore.kernel.org/all/202611160811.6AG8B8QM046993@mse-db.zte.com.cn/
+-https://lore.kernel.org/all/202611160824.6AG8OXL4051238@mse-db.zte.com.cn/
 
-  "NETDEVSIM can't be built in with TLS as a module since it calls
-  tls_get_record()."
+best regards,
+Lv Yating
 
-That only holds when TLS_DEVICE=y. TLS_DEVICE is a bool that depends on
-TLS, so would something like this express the actual requirement?
+Lv Yating (2):
+  riscv: Add LeapRise Technology to the vendor list
+  riscv: hwprobe: Add LeapRise vendor extension framework support
 
-	depends on TLS || !TLS_DEVICE
-
->  	select NET_DEVLINK
->  	select PAGE_POOL
->  	select NET_SHAPER
-> diff --git a/drivers/net/netdevsim/Makefile b/drivers/net/netdevsim/Makefile
-> index 87718204fb4de..c7f7621323b2b 100644
-> --- a/drivers/net/netdevsim/Makefile
-> +++ b/drivers/net/netdevsim/Makefile
-> @@ -25,3 +25,7 @@ endif
->  ifneq ($(CONFIG_MACSEC),)
->  netdevsim-objs += macsec.o
->  endif
-> +
-> +ifneq ($(CONFIG_TLS_DEVICE),)
-> +netdevsim-objs += tls.o
-> +endif
-
-[ ... ]
-
-> diff --git a/drivers/net/netdevsim/tls.c b/drivers/net/netdevsim/tls.c
-> new file mode 100644
-> index 0000000000000..16c5508245d3a
-> --- /dev/null
-> +++ b/drivers/net/netdevsim/tls.c
-> @@ -0,0 +1,453 @@
-
-[ ... ]
-
-> +static bool nsim_tls_tx(struct netdevsim *ns, struct sk_buff *skb)
-> +{
-> +	/* Not ours: the software fallback has already encrypted it.  Clear
-> +	 * the decrypted mark the sending stack left so the peer's stack
-> +	 * decrypts it.
-> +	 */
-> +	if (!skb->decrypted || !tls_is_skb_tx_device_offloaded(skb) ||
-> +	    rcu_dereference_bh(tls_get_ctx(skb->sk)->netdev) != ns->netdev) {
-> +		skb->decrypted = 0;
-> +		return false;
-> +	}
-
-[Severity: Low]
-Can this re-check race with tls_device_down()? The core has already
-classified this skb as a device-offloaded plaintext record in
-validate_xmit_skb()->tls_validate_xmit_skb(). But tls_device_down()
-flips both fields read here before it waits for in-flight transmits:
-
-net/tls/tls_device.c:tls_device_down() {
-    ...
-		WRITE_ONCE(ctx->sk->sk_validate_xmit_skb, tls_validate_xmit_skb_sw);
-    ...
-		rcu_assign_pointer(ctx->netdev, NULL);
-    ...
-		synchronize_net();
-    ...
-}
-
-Suppose a record that tls_validate_xmit_skb() already passed reaches
-nsim_tls_tx() after the flip. It would take the "not ours" branch, which
-clears skb->decrypted and skips nsim_tls_tx_zero_tags().
-
-The peer would then get plaintext marked as not decrypted, carrying the
-stale tag placeholder bytes. A peer socket with RX offloaded would fall
-back to software decrypt and fail the connection with -EBADMSG, rather
-than carrying on with the software fallback as tls_device_down() intends.
-
-With netdevsim's default qdisc, dev_deactivate_many() calls
-synchronize_net() before NETDEV_DOWN, and that closes the window. With a
-noqueue root qdisc, sync_needed stays false:
-
-net/sched/sch_generic.c:dev_deactivate_many() {
-    ...
-	/* Wait for outstanding qdisc enqueuing calls. */
-	if (sync_needed)
-		synchronize_net();
-    ...
-}
-
-So a qdisc-less __dev_queue_xmit() that has already passed
-validate_xmit_skb() could still be running when tls_device_down() flips
-the state.
-
-Real drivers such as mlx5 have the same window by core design. The
-tls_device_down() comment says unencrypted packets may be in flight until
-synchronize_net(). With real crypto, though, the connection would not be
-lost here.
-
-> +
-> +	nsim_tls_tx_zero_tags(skb);
-> +	atomic64_inc(&ns->tls.tx_packets);
-> +	atomic64_add(skb->len, &ns->tls.tx_bytes);
-
-[Severity: Low]
-Should tx_bytes count TLS payload bytes rather than skb->len? skb->len
-here is the whole frame, including the Ethernet, IP and TCP headers.
-netdevsim also advertises NETIF_F_TSO, so tx_packets counts TSO
-super-skbs rather than wire packets. The same applies to rx_packets and
-rx_bytes in nsim_tls_rx().
-
-Documentation/networking/tls-offload.rst defines tx_tls_encrypted_bytes
-and rx_tls_decrypted_bytes as "number of TLS payload bytes". The PSP
-emulation in the same driver counts payload only:
-
-drivers/net/netdevsim/psp.c:nsim_do_psp() {
-    ...
-	psp_len = skb->len - skb_inner_transport_offset(skb);
-	atomic64_inc(&ns->psp.tx_packets);
-	atomic64_add(psp_len, &ns->psp.tx_bytes);
-    ...
-}
-
-These counters are only exposed through the debugfs "tls" file, and
-nothing in the tree reads them yet.
-
-> +
-> +	return true;
-> +}
-
-[ ... ]
-
-> +void nsim_do_tls(struct sk_buff *skb, struct netdevsim *ns,
-> +		 struct netdevsim *peer_ns)
-> +{
-> +	/* Leave what nsim_do_psp() has handled alone. */
-> +	if (skb->encapsulation)
-> +		return;
-
-[Severity: Low]
-The comment mentions nsim_do_psp(), but skb->encapsulation is a generic
-bit. psp_dev_encapsulate() sets it, and so do tunnel drivers that use
-iptunnel_handle_offloads() (VXLAN, GENEVE, GRE). Doesn't that mean any
-encapsulated skb also skips the "not ours" path in nsim_tls_tx() that
-clears skb->decrypted?
-
-This matters for software fallback output. complete_skb() in
-net/tls/tls_device_fallback.c builds the ciphertext skb with
-skb_copy_header(), so it still carries decrypted=1.
-
-Consider a socket offloaded on netdevsim whose route later moves to a
-tunnel on top of netdevsim:
-
-- the tunnel device runs the software fallback;
-- at netdevsim, tls_validate_xmit_skb() passes the skb because
-  dev == ctx->netdev;
-- nsim_do_tls() returns early here;
-- the peer receives decapsulated ciphertext still marked decrypted.
-
-A peer whose RX context is also offloaded on netdevsim would accept that
-ciphertext as plaintext. A peer with software RX ignores the bit and
-decrypts correctly.
-
-The setup is contrived, but should this check be limited to PSP-handled
-skbs, or should the comment say that all encapsulated traffic is skipped?
-
-> +
-> +	if (!nsim_tls_tx(ns, skb))
-> +		return;
-> +
-> +	nsim_tls_rx(peer_ns, skb);
-> +}
+ Documentation/arch/riscv/hwprobe.rst          |  4 ++++
+ arch/riscv/Kconfig.vendor                     | 14 +++++++++++++
+ arch/riscv/include/asm/hwprobe.h              |  3 ++-
+ .../include/asm/vendor_extensions/leaprise.h  | 17 ++++++++++++++++
+ .../asm/vendor_extensions/leaprise_hwprobe.h  | 20 +++++++++++++++++++
+ arch/riscv/include/asm/vendorid_list.h        |  1 +
+ arch/riscv/include/uapi/asm/hwprobe.h         |  1 +
+ arch/riscv/include/uapi/asm/vendor/leaprise.h |  3 +++
+ arch/riscv/kernel/sys_hwprobe.c               |  4 ++++
+ arch/riscv/kernel/vendor_extensions.c         | 10 ++++++++++
+ arch/riscv/kernel/vendor_extensions/Makefile  |  2 ++
+ .../riscv/kernel/vendor_extensions/leaprise.c | 12 +++++++++++
+ .../vendor_extensions/leaprise_hwprobe.c      | 19 ++++++++++++++++++
+ 13 files changed, 109 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/vendor_extensions/leaprise.h
+ create mode 100644 arch/riscv/include/asm/vendor_extensions/leaprise_hwprobe.h
+ create mode 100644 arch/riscv/include/uapi/asm/vendor/leaprise.h
+ create mode 100644 arch/riscv/kernel/vendor_extensions/leaprise.c
+ create mode 100644 arch/riscv/kernel/vendor_extensions/leaprise_hwprobe.c
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119064902.242502-1-jiayuan.chen%40linux.dev
+2.27.0
