@@ -1,100 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.47
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795195356;
-	b=GM5t//LYsHIdkg4yTdEv0yqGCIliOVELi+uGLYy03eomBXnNKfiAEdHFUjGZ6jv6y8hh
-	 3hB5NhIXVJUW+JAB0RacZWKG08n53VZ5T/4xIeDcdlcFfL6eE/3CtBNaxMHFPOZeLax52
-	 rsefdh9tjSNYyXDYclKuz5a2lZ2g3EMB34SGbB2QN1vu5crtOl4+kB6VT+AMEEZ+fso7m
-	 La9DkbVn7SlbGVLoFNfJ373j1YJzJ+VcXN0uKSNssvySsfQl4BkISFb8KSHpMkIHRs0Jl
-	 Aa3bNBI9W4PISWRL799Z8swY29lEB7xsbcmzTkBqrfx3oZSg1iZHwMBb2ezNKOElYQQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195356;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=t258KzXmDOE/aDuZ4ulmzyH3SBaKcKbKKylim9qbfIQ=;
-	b=fdHmsa7JQ17FaCWfF0mjmDaNKAjmY+geGIxKJVRCb+A1F84VstK7chfjpHemfCYngTxO
-	 9/GEX6SAaNd1FNO3RWuQfcaeU83W83WgmIrDiAfrm8KL8Y9QmtzXfmOwxJNEbawqKPXMU
-	 hJHR9PCg7jVHKMLrXoB6RPyLuwghxpiPSGBTjqF/CnyJHeonhrHi7VLysfip9GFEbnqOg
-	 WlZ3fd27hKKtInuE0K8/ZJat8esyTInrubG7J3Bl9JZGSnWUh5IswALvF7pXl0xmf68R5
-	 rC2Zq6ueg1CtgZgHx5X3PfHrQFp5A8tXIYgVk+UISN8hfuL+vfDsv3dT5tyQav1LQgg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=foss.st.com;
-	spf=pass smtp.mailfrom=foss.st.com;
-	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=UPjsOXYY;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.47
-Received: from DU2PR03CU002.outbound.protection.outlook.com (mail-northeuropeazon11011047.outbound.protection.outlook.com [52.101.65.47])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.63.66.53
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795195362;
+	b=FlCiBjKuSEdlbrK6+4DURAF9UBDDCIW+SteYEL5At+uwIL8C3dW1ABX4oktTqH5ZcJUg
+	 rcfETe2groLP0wLJois/C1A4zBAqUB540PbvYP1RGty6208CH0dNChOxcl2pJq6jYVt//
+	 F9x4fulzTMo50sNu3XnqZcSJ8GcqSrAKXr0x6D1Lqgj/vhn1+NirKr61tutE9Ajzm98OT
+	 7XRU4s+49+i2UEqSHxChb4Rr2hVRCW3qGtWwe2k+Eso91bN93AUgWYC48v4IdHqvDs6rI
+	 Pj/AthAR/Pm2BS6fdK1TnFdgKKUEtGMFCnKncsNpF+Z73rQR1rybqrWvLY1BOqUYVmg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195362;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=hcGbtErC4qaWDNGFYvrl/+JTn+WF9z7rUZdodFxsCVM=;
+	b=Qm9J4FOfkbcylzPc/aBQundRY8sQaGXkY3TjCq/wdnvHF3ZJrkp0d7d3cLGP3I/HTVra
+	 uNzh5VWdLmaSS+/y4clgNRu63AG3nUJyQ7Im6D0tz2iQnjqtzpAFjw2YvGcmSGlnUxTCl
+	 Fdc2ogyPMUgr0jIGfH6QHpqO4o0Sh4SqoNA0cVCMbezDjWaQgrRYBfiRYEBcwX/suPdza
+	 +ORxr9x0Scjf9h5CdzbUd/X0FS4WtJUnk2vU/JW82eYd4YcIcz5dInaTeiPlYQAr6TnDy
+	 TapjGGmHvCLiBvDpOyy7sSd3UMFS+UxmnZyYD7GeP42x5jy1GwvprxS9pBdpERIVAQA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=hallyn.com;
+	spf=pass smtp.mailfrom=hallyn.com;
+	dkim=pass header.d=hallyn.com header.i=@hallyn.com header.a=rsa-sha256 header.s=mail header.b=LqhvxPrT;
+	arc=none smtp.remote-ip=178.63.66.53
+Received: from mail.hallyn.com (mail.hallyn.com [178.63.66.53])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93054606A767;
-	Fri, 20 Nov 2026 17:22:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93054606A767
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B93D60A2619;
+	Fri, 20 Nov 2026 17:22:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B93D60A2619
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=hallyn.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hallyn.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=UPjsOXYY
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RnFPEWknPph7mFTJR8jNrn/j6PCEkZ67h4Zt7LBM499uR5wiWKJDonsrWM9QABdEoQCGPcKfFw7Z2BxyjHIIrh/Fuu+7Zdjr2iEhs0JXpbl84/BdtP/guc0XQefyMjNhG6qx2sdOsJW8HrMv6AkhIZaO2bZo/aGUwxT0+/T65vvsEDZ1z7GoVvkQbhXtPUQM/QkqItB6EC1gL+d/O5jsJ16OrBoasL3mwJZvoCVIvGigQkwR90M8cQgxNQE0AGeylAEX3YF3TnN7MF6B/yTsW52ru/f70k+70bUU9ME4+jtOC2cjKlQGsUkVA7oL5nGYVPlxkaHoZoYwnSgsem0y5w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=t258KzXmDOE/aDuZ4ulmzyH3SBaKcKbKKylim9qbfIQ=;
- b=HNzOYJlA+kArRgvZEKJgCRHeIBi9NwnWQ/b6u4WOvDtsiFoxvJm1T4ywhdpU3Y/pj8Wxpfj0jfSbN/sOsRpEwwX9tyx7lAFP4tCFfC+OWzv6F0vBGWbAuF4MvA3bGbAsihczZPb7aTuCdWzlOddbLMAeUBvZedUJlA9IiIhA61Sdh+BPSejnxmZKxZIW2/LeqUeNpzVqUutcLp0S28gVuZTJ+gVDkOWWjubHXdrWIeRm5BwSERCV88Ry6W1/H+AKGwbNzeslG0zu/NcuwbQQ9iG/HxFWqcAP4djU7jlttmezD+RN9ZPTOJHOfog3wx0UyJSKaJQhJzH1BRcjQ/MR3A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=intel.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=t258KzXmDOE/aDuZ4ulmzyH3SBaKcKbKKylim9qbfIQ=;
- b=UPjsOXYYSisGrwDEoQc3NemtkP7JOf5mn14WARwiv6Qot3khlCiXQgQ38jzYMnU/29si4mvO08D/V722NuXVJ6W5hlRAPa9arTBEvSPYGa9BHhrn/DhOw6VbYF35IV4ZLeED/7klaAOvSAaXNu0cdtPbtrHR7T2M3ADTmjvt1FCdvEkJX58bnf+/ih21wY7juzfj2GeWTzb8q7kOkrQQZ3NDlskN8shl7vIBpk8up6u/9mO+kBR+2uvNI2vxWoMPHC5VpdAeE3wyjPb3xB74BDP4q7QpYWx39MBFFTw6aMWLc4k4RODT5hfYsFK5tDdbFNDOVwTe82jhEpPYpKfEWw==
-Received: from DUZP191CA0014.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4f9::18)
- by GV1PR10MB9090.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:1cc::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.2; Fri, 20 Nov
- 2026 17:22:29 +0000
-Received: from DB1PEPF000509F5.eurprd02.prod.outlook.com
- (2603:10a6:10:4f9:cafe::56) by DUZP191CA0014.outlook.office365.com
- (2603:10a6:10:4f9::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
- 20 Nov 2026 17:22:28 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DB1PEPF000509F5.mail.protection.outlook.com (10.167.242.151) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 17:22:28 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Fri, 20 Nov
- 2026 18:23:30 +0100
-Received: from [10.48.86.251] (10.48.86.251) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 20 Nov
- 2026 18:22:26 +0100
-Message-ID: <11aa41f5-da69-40b0-9b8b-6c5abfbec5f9@foss.st.com>
-Date: Fri, 20 Nov 2026 18:22:26 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=hallyn.com header.i=@hallyn.com header.a=rsa-sha256 header.s=mail header.b=LqhvxPrT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=hallyn.com; s=mail;
+	t=1795195357; bh=1fh0CEGBoECp97YFqm5pPCrctH/nil1jed3l8kKD+p0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LqhvxPrTKBJRH/hn++zaICZ1golLi7TTdlWnszMGpsoqMCBEwbHxIQSexLWHm1enV
+	 8EmpIgA8gRng05B9xRm80i8BdFVuePF4zHJ4SjIhNeKGEGtJ219y6t+CKK3F4GK1f+
+	 iYbPd6g4qOKWLXeJjqMVVJJaGrajZ7P7YLsDJitDMi1EFRST0PJagyYC1+AAzRyPiq
+	 s9JF02kse2bpj+dP5rvrRYzxG4cvveZmJIEkHRYG8bVqRYI5i5/9qeFtUZChUK38Bt
+	 YTrGfQmKyu35a+kzxDXN4yZUmHnQ9vNorj1AcQCHJY9T1aUud4gy9U3Jc3n1jmz54k
+	 s6MHz3FwHKDHQ==
+Received: by mail.hallyn.com (Postfix, from userid 1001)
+	id C661928C; Fri, 20 Nov 2026 11:22:37 -0600 (CST)
+Date: Fri, 20 Nov 2026 11:22:37 -0600
+From: "Serge E. Hallyn" <serge@hallyn.com>
+To: Josef Bacik <josef@toxicpanda.com>
+Cc: Paul Moore <paul@paul-moore.com>,
+	Christian Brauner <brauner@kernel.org>,
+	James Morris <jmorris@namei.org>,
+	David Howells <dhowells@redhat.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>,
+	"Andrew G. Morgan" <morgan@kernel.org>,
+	Serge Hallyn <sergeh@kernel.org>,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	keyrings@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org,
+	Bradley Morgan <brads@mainlining.org>
+Subject: Re: [PATCH v11 1/3] userns: don't let setns() lend CAP_SETFCAP
+Message-ID: <awCB3UkCPzLGRBTk@hallyn.com>
+References: <20261117-b4-setfcap-userns-v11-0-2be11a2c32f4@toxicpanda.com>
+ <20261117-b4-setfcap-userns-v11-1-2be11a2c32f4@toxicpanda.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,91 +71,178 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 04/10] iio: adc: stm32-adc: Validate channel index before
- writing chan_name
-To: Andy Shevchenko <andriy.shevchenko@intel.com>, Lee Jones <lee@kernel.org>
-CC: Jonathan Cameron <jic23@kernel.org>, David Lechner
-	<dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
- Shevchenko" <andy@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Olivier Moysan
-	<olivier.moysan@foss.st.com>, <linux-iio@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<stable@vger.kernel.org>
-References: <20261119153151.1397003-1-lee@kernel.org>
- <20261119153151.1397003-5-lee@kernel.org>
- <av8wzmfrU7zLzGmU@ashevche-desk.local>
-Content-Language: en-US
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-In-Reply-To: <av8wzmfrU7zLzGmU@ashevche-desk.local>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509F5:EE_|GV1PR10MB9090:EE_
-X-MS-Office365-Filtering-Correlation-Id: 41156dac-ae5f-4e95-0d38-08df472ada33
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|1800799024|82310400026|376014|7416014|23010399003|18002099003|22082099003|261009223027099003|56012099006|10067099003|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info:
-	MJHpMPQWOe026Mvyfxp+hwQXq1iM3NLrx/L3DXVFlKlu9FIfL1MC/nRcbVDeYgfVAcPRZ7Wx2tLqpTXUdiJiSZsoThi+u/zkk/+y/TgLDEYVgnTPy+eJihWGXWsWdmRGoT69Z/ldD18udGJ0BXgwy0aDgMnPDzl2Jlkyg5+LqWEkiNj6qXJ2WNSzadjTOlczc5ove7MRv1tPtmJ1Nsf7EiSCGlaOwsNQYEY6ZXquZ9bdJu/9A52Tje/PhyYY/5h3OUU1d1XvvDqq4tc/m6y0AJgHxX8tf0mA918tcbIM+miGFdVb8i38uLz8FAdPV9W7x5QsITYz6s5sioXeueBuG0WQci5eiP3H5ikeZ/0BT2xmxY5ESS6s+yGQHhphKPIamepfxKJ9DZQSS5M4sjWxLr+4k/ABV8imM6qwG1oIqJwVnMqNbp1SAXddE17nGE5YVYXijcGLGMl5lb2gLAWs03BPsuLCJ35rMhNqWhG9mhoC2OBT5mqFFkKcDtLvcBYjayISXDPxFTl1wdeoUGK/Oqh25uh2DNAB+TBcNmIEAZ4B4JMqj66nH9rWmGpSbJ9sJiMFyEFkk4L9gptLBViQ/FOtS0IgiCjKg1ZYvhqG9ZjNwQdxSb+jJpY9e0CsipXap9KM9XrnTljiYhA7T6ycwqkmNP7avD1fibntnIlgIBAPW8hRJwyjgu2QiOJVbp4c7v4jNsqZ/4oRfP25fh8iBQ==
-X-Forefront-Antispam-Report:
-	CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(376014)(7416014)(23010399003)(18002099003)(22082099003)(261009223027099003)(56012099006)(10067099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	KsOWybU6NDr3mzId13qQ+BOxe3HH2kpe85Tz2W9r3c4sqHZu2yt58DPIV/1xZkcXvd0knJMtFY5JQafnV8NBSHov2oxe580evsFGhvh7Q+MO6uCAGat7s+H7DRRrsPTn5oubW9BjgNOaXk03a1RXuS6OzAZIlYCZ7kPjr4avkAS5sYAF4VgTfFoTKn2ga/6EJSkLR6fcEDD2HRKFy5UAhVmr9h1iTbC69MQnEc/c92Zr9fvGm1WYDuWamjSZDRNzEfcFxiQwBaeVjEjZBeM8x9XU++1T7nKJiv46DxF7AcsFfN0Kb6D+4/sbXeXOWB9zOSQrqfD4SIzfWaxgFLY9EMNujC71Dv5O+qqjvN3Q8o10hKYRTHvBarul8epVUtmPfYJU5xf5dKle8jp40/vbREbsPG3CL5IPVr4/T+3/Iht6G7DDz0vUmcA0h3kXqyXL
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 17:22:28.2268
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 41156dac-ae5f-4e95-0d38-08df472ada33
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	DB1PEPF000509F5.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR10MB9090
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117-b4-setfcap-userns-v11-1-2be11a2c32f4@toxicpanda.com>
 
-On 11/19/26 18:24, Andy Shevchenko wrote:
-> On Thu, Nov 19, 2026 at 03:30:37PM +0000, Lee Jones wrote:
->> stm32_adc_generic_chan_init() reads the child node's reg property into a
->> signed int and, when the optional label property is present, writes into
->> adc->chan_name[val] and calls stm32_adc_populate_int_ch() before
->> checking whether val exceeds adc_info->max_channels.  Because val is
->> signed, values with the top bit set also become negative and bypass the
->> upper-bound check altogether.
->>
->> Store val as a u32, matching fwnode_property_read_u32(), and move the
->> max_channels bounds check immediately after reading reg.
+On Tue, Nov 17, 2026 at 07:54:24PM +0000, Josef Bacik wrote:
+> A uid 0 task that gave up CAP_SETFCAP can get it back by joining a user
+> namespace that another root task created.  Commit db2e718a4798
+> ("capabilities: require CAP_SETFCAP to map uid 0") keeps such a task
+> from mapping uid 0 into a namespace it creates itself, because tasks in
+> that namespace could then write file capabilities for its root user.
+> setns() gives a joiner a full capability set in the namespace too, so
+> it can do the same there:
 > 
-> ...
+>   task A: uid 0, full caps          task B: uid 0, no CAP_SETFCAP
+>   unshare(CLONE_NEWUSER)
+>                                     setns(A's user ns)
+>                                       allowed, euid == ns->owner
+>                                     write "0 0 1" to /proc/self/uid_map
+>                                       A had CAP_SETFCAP -> allowed
 > 
->> +		if (val >= adc_info->max_channels)
->> +			return dev_err_probe(dev, -EINVAL,
+> If A's namespace already maps host uid 0, at any uid, B can set
+> security.capability on a file right away.  Either way uid 1000 can then
+
+"Either way" here means whether it already maps host uid 0, or whether
+it has no mappings yet?  I'd just drop 'Either way'.
+
+> run that file with CAP_SYS_ADMIN, which the selftest at the end of this
+> series shows on an unmodified kernel.
 > 
-> -ECHRNG
+> The check doesn't look at the joiner's uids, which it can change while
+
+From here until the 'Fix by', it is confusing whether any given statement
+refers to the pre-patch or post-patch state.
+
+> keeping its other capabilities, and CAP_SYS_PTRACE doesn't stand in for
+
+Is this a reference to the next patch?  But that's a completely different
+commit.
+
+> CAP_SETFCAP.  What gets refused is a task without CAP_SETFCAP that has
+> CAP_SYS_ADMIN over a namespace that maps the joiner's root user, or that
+> has no uid_map yet while its parent maps that root user, so that it can
+> still be mapped.  If that is uid 0 of the parent and the creator of the
+> namespace didn't have CAP_SETFCAP, the join is let through: only a
+> writer with CAP_SETFCAP in the parent could map it then.  Containers
+> that don't map the joiner's root user, tasks with CAP_SETFCAP and
+> unprivileged users are not affected.
 > 
-> However it seems in the original code like this.
-
-Hi Lee, Andy
-
-I've no strong opinion on this remark, whether to change the error code here, and if it belongs to
-this fix ?
-
-In all case,
-
-Acked-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-
-Best Regards,
-Thanks,
-Fabrice
+> Like verify_root_map(), the check is about uid 0 of the joiner's own
+> namespace.  The root user of an ancestor that it maps at another uid,
+> and a root user stored through an idmapped mount, are left to whoever
+> set up that map or mount.
 > 
->> +					     "Invalid channel %u\n", val);
->> +
->>  		ret = fwnode_property_read_string(child, "label", &name);
+> Fix by refusing setns() when the joiner doesn't have CAP_SETFCAP and
+> tasks in the namespace can write file capabilities for the root user of
+> the joiner's namespace.
 > 
+> Suggested-by: Serge Hallyn <serge@hallyn.com>
+> Link: https://lore.kernel.org/all/fd159e68-c613-4c7d-bfba-8af0a3f3a96e@hallyn.com/
+> Fixes: db2e718a4798 ("capabilities: require CAP_SETFCAP to map uid 0")
+> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
 
+The code looks good to me,
+
+Reviewed-by: Serge Hallyn <serge@hallyn.com>
+
+If you don't mind making the commit message and comments shorter and
+clearer, I think that would help.  In the words of the reverend
+Maclean, "Half as long".  If you feel like I"m being unreasonable or
+misguided, or would prefer I rewrite them, please let me know, but imo
+it'd be good to keep this entirely yours :)
+
+> ---
+>  include/linux/capability.h |  3 +++
+>  kernel/user_namespace.c    |  4 ++++
+>  security/commoncap.c       | 49 ++++++++++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 56 insertions(+)
+> 
+> diff --git a/include/linux/capability.h b/include/linux/capability.h
+> index 622137f66f09..9ebcdab56937 100644
+> --- a/include/linux/capability.h
+> +++ b/include/linux/capability.h
+> @@ -34,6 +34,7 @@ struct cpu_vfs_cap_data {
+>  #define _USER_CAP_HEADER_SIZE  (sizeof(struct __user_cap_header_struct))
+>  #define _KERNEL_CAP_T_SIZE     (sizeof(kernel_cap_t))
+>  
+> +struct cred;
+>  struct file;
+>  struct inode;
+>  struct dentry;
+> @@ -222,4 +223,6 @@ int get_vfs_caps_from_disk(const struct mnt_idmap *idmap,
+>  int cap_convert_nscap(const struct mnt_idmap *idmap, struct dentry *dentry,
+>  		      const void **ivalue, size_t size);
+>  
+> +bool cred_borrows_setfcap(const struct cred *cred, struct user_namespace *ns);
+> +
+>  #endif /* !_LINUX_CAPABILITY_H */
+> diff --git a/kernel/user_namespace.c b/kernel/user_namespace.c
+> index 50c374ed4687..34becacaccd6 100644
+> --- a/kernel/user_namespace.c
+> +++ b/kernel/user_namespace.c
+> @@ -1390,6 +1390,10 @@ static int userns_install(struct nsset *nsset, struct ns_common *ns)
+>  	if (!ns_capable(user_ns, CAP_SYS_ADMIN))
+>  		return -EPERM;
+>  
+> +	/* Don't hand back CAP_SETFCAP to a root task that gave it up. */
+> +	if (cred_borrows_setfcap(current_cred(), user_ns))
+> +		return -EPERM;
+> +
+>  	cred = nsset_cred(nsset);
+>  	if (!cred)
+>  		return -EINVAL;
+> diff --git a/security/commoncap.c b/security/commoncap.c
+> index d47ab3022343..96ac039fddad 100644
+> --- a/security/commoncap.c
+> +++ b/security/commoncap.c
+> @@ -131,6 +131,55 @@ int cap_capable(const struct cred *cred, struct user_namespace *target_ns,
+>  	return ret;
+>  }
+>  
+> +/*
+> + * @ns has no uid_map yet.  Could @caller_root_kuid still be mapped into it,
+> + * so that tasks in @ns get CAP_SETFCAP over it?  A writer in the parent can
+> + * map any uid that the parent maps.  If that is uid 0 of the parent, a task
+> + * in @ns can only map it if the creator of @ns had CAP_SETFCAP, a writer in
+> + * the parent only if it has CAP_SETFCAP there, see verify_root_map().
+> + */
+> +static inline bool userns_may_map_root(struct user_namespace *ns,
+> +				       kuid_t caller_root_kuid)
+> +{
+> +	uid_t caller_root_in_parent = from_kuid(ns->parent, caller_root_kuid);
+> +
+> +	if (caller_root_in_parent == (uid_t)-1)
+> +		return false;
+> +	return caller_root_in_parent != 0 || ns->parent_could_setfcap;
+> +}
+> +
+> +/**
+> + * cred_borrows_setfcap - Check whether a userns gives back CAP_SETFCAP
+> + * @cred: The credentials of a task that joins @ns or traces a task in it
+> + * @ns: The user namespace
+> + *
+> + * A task without CAP_SETFCAP can't map uid 0 of its namespace into a user
+> + * namespace it creates, see verify_root_map(), as tasks there could then
+> + * write file capabilities that are honoured for that root user.  Tasks in
+> + * @ns can do that if @ns maps it, at any uid, or if it can still be mapped
+> + * into @ns, see userns_may_map_root().
+> + *
+> + * Like verify_root_map(), this only looks at uid 0 of @cred's namespace, not
+> + * at the root users of ancestors that it maps at another uid, and a root
+> + * user stored through an idmapped mount is up to whoever sets up the mount.
+> + *
+> + * Return: true if @cred doesn't have CAP_SETFCAP and tasks in @ns can write
+> + * file capabilities for the root user of @cred's namespace.
+> + */
+> +bool cred_borrows_setfcap(const struct cred *cred, struct user_namespace *ns)
+> +{
+> +	kuid_t caller_root_kuid = make_kuid(cred->user_ns, 0);
+> +
+> +	if (!uid_valid(caller_root_kuid) ||
+> +	    cap_raised(cred->cap_permitted, CAP_SETFCAP))
+> +		return false;
+> +
+> +	if (READ_ONCE(ns->uid_map.nr_extents))
+> +		return kuid_has_mapping(ns, caller_root_kuid);
+> +
+> +	return userns_may_map_root(ns, caller_root_kuid);
+> +}
+> +
+>  /**
+>   * cap_settime - Determine whether the current process may set the system clock
+>   * @ts: The time to set
+> 
+> -- 
+> 2.55.0
