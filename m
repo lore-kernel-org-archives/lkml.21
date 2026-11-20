@@ -1,52 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795149101;
-	b=or08t8FSgxBAqbiWpfZ+exgmEFQ9KgNPhZgHzwE7ZuR9qllONYpnNe/MfSxao5BYo+8x
-	 EdMIZADo/w6QsG6TfKjfoRLo8Pm14Vx7dD0BO+BzRB4UyJ/w3Mcy5zp7X5JH/sR1cRYo1
-	 WvJ/eb1p2RMfJtgunnSGKNLJD4NvmSbu+faCX196hmjSdF5QwbfG2Zv9YShpv+L1FwG5x
-	 DvPWVXpAhgCLbWHG944nlLFLmSVoLc63Va7aHF0aWo8GvBuRB9JKZL8hxqitsRX7qDAzr
-	 FwRQqKHR/4WtBlYsPs6A9sUucny7zADXZwz1oWYk/N9bJcys3GCP8t7CuxcypKT21AA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795149101;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:MIME-Version:Date:Content-Type:
-	 Content-Transfer-Encoding:From:Message-ID:TLS-Required:Subject:To:Cc:
-	 In-Reply-To:References;
-	bh=n2iV8ZgTwYQrd03h4K8/zYSLB89pwsCsAcFgWAxm3fg=;
-	b=kDSpydF89kIafeQ8Kp0O5bAypBEtdrmsA0eA8gNctB5iK2RkzUyppg/r27bj5e1mGMBy
-	 bXEWSqvrIOQqexHbiA7lGLq6zmdigr1VDVybmEHkh8ErpiBNZ0Drrzjm+IYQR6eqDST48
-	 /7EsNhg7shcyJrhECB/E+2T9z2QYTKYYi4og+P2FXy6qVSswLZ/tGARqvqT6N3wMNJhi2
-	 yLGSyHRO5gcDg7FW3rx04YG0ZQwh9jlb1f8YicvBr64eOoQOJcOGAhNN+NsWCbFG3XmY3
-	 Ry4LoPEJlfgmOVgpeZ7FzkhMhBIjvTpdAZ+SKIko3GIMzM1BWrpNs8Q+7Xq+3na2ObA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=gtNrT3EC;
-	arc=none smtp.remote-ip=91.218.175.172
-Received: from mta0.migadu.com (out-172.mta0.migadu.com [91.218.175.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795149138;
+	b=fh7F4RWHpDJTysUQgr6X0Rnc6OwGnAlQFDRWaYH9neB9AkxBk+WKwjdeY+tna0iqdLNI
+	 oxfrd/wWtOGS9OylLPUM6XDUXlT+OdkPaeueAV2/JI/146wYPl4rQJgr/sPcSAugEgRa9
+	 6VQwDJv380bvHGlV13hzVxXGpNqmqxbW3rgIGZgakLwdeMI18jdtHssG5vmFSJo+PQUEe
+	 eKEU8CQY9pFstx8g2ErEW4Y2tEZ3MhfN+7kZRC3gRWHpevFYMzH3MHqVV1RJb54ltX7qC
+	 T8cZ4x5MUpeSOXfPlz0pU/Fl2WLP7b2lQE+Roff17Teh+YJDf6hcmUur1lycdfkX2fA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795149138;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=wzwrxIVSw5IoaAj9lmQZu1cZ1sojsnfK33zwI9FyuSU=;
+	b=3sGjTynMhg7/ft/fXrbb9B65bt+fHBGdjwBnBISx+CsgNGRMP+AGsX1+BpD9FXfiDU8Y
+	 9Vvmm+0P3Ptp6khezTjOBIznwZmY2lXBJS7y08wQK7wFgj/OhgjYLVlL6X/7R5l5PL8Od
+	 MkzlPTGtp3/H19iJPtkVrbwHpgcJ1eEpIGc84ahD/w0BsYDvodsOKn5C95ZQyBP0/bNeM
+	 wqoqNh365D6djv3Yfe8r2PTCkckzMdGU6mutszmui9LB+4uMM+QL7PTtvAH86zWRR5TWz
+	 oCJ9WbiudLMkueXgq1X3xCXyzzG2Uun2r/PtPL5VvsbjIT9oTnTvSlateGxfINV7Z2A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EtT5g9gM;
+	arc=fail smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3A6E606A325;
+	Fri, 20 Nov 2026 04:32:18 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EtT5g9gM
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795149138;
+	b=vwcXIlY0AfzrZjQwoIgb9B8jSizWriNp/AVKZfcXQ2YN/6z4If9hRlKqepcDhdiuAObr
+	 fuZ8dJ8X1XzBZZKqbxdzN6vK7defTnn/YnLHEIdU1/ew/A9TzoSK/TLwTJpiG5kDGoFgr
+	 bWEHC2rvhezlbTtMhJAr0kwQKGqEs4Z4SrqUG4TwY0r+FNUsiqjBKh8B+7o/ZEQMU6zUz
+	 p3UrTNZlJQUJxjmtWmf83fSHgnnVf+IoiRo4yIdogyfB1qY7z3pZKPvQ0LvCN+bFUmXJA
+	 EAo5HjdCUj+q96Wht1lesKbAEfmuSZPESvtcSgDjtm40woZaDB9hXt/OS/RaQIe5hnA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795149138;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=wzwrxIVSw5IoaAj9lmQZu1cZ1sojsnfK33zwI9FyuSU=;
+	b=Cdd0iDI0h3mYk08zMSGmzgQRzlxxRm12H5THlm76yX9Eq8+UED7iTkFASLgbJpPfCh3L
+	 DxQIeg45wVoozn0xfyrbO4WpUSvQyA5hxkwTcQKEnogf2LspI6lSnEA+guEJ63vhlty/R
+	 FIYTnNylZS6ZjkVoAJfOCqBSe6nmKaQhGwwSTWdNSq+7td5zJAeWSFv4VAQ5aVkGyu837
+	 ZHDEsr5XpZ7CMiX4i8ui+2GrOB17K0833CXTgjX006PFPqXaObtwWnwaNi/FuLcW/TDct
+	 dOjvQOOFkmpO8NtTIhe4NWx03x4AXMgMeoZ+Q9CaE3nMj9nCNsQVskAbFIsOYZmR9aQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 008C8606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:31:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 008C8606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=gtNrT3EC
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=1NiiVip/IU0AhZJGu+tv3Ejl1IrHJ+s9jKpO+x/649s=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795149098; v=1; x=1795753898;
- b=gtNrT3ECKcBVjHQc7VpSjj3d/h9Bbr9V5CepW3aAlYM5lSsm/b7d2yI1zNWPPttRTq/2NYZU
- 9QDuMlOOIc4wW+cINVpqPzvfZLhv9k+QxsZw4aMHhOVGFsohyY6EsyJDBZQ6AX83axPq7QBwp8G
- 2dkc7nszuOwckvi2efsXZEW4=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id f904e1aeb506fb66;
-	Fri, 20 Nov 2026 04:31:38 +0000
-X-Mizu-Trace-ID: f904e1aeb506fb66
-X-Migadu-Flow: FLOW_OUT
+	by smtp.kernel.org (Postfix) with ESMTPS id 954B01F000CF;
+	Fri, 20 Nov 2026 04:32:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795149138;
+	bh=wzwrxIVSw5IoaAj9lmQZu1cZ1sojsnfK33zwI9FyuSU=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=EtT5g9gMoiwnMziOAkgR30Sh2e+B4hPGtqj1fNhBINwSekxJ/csMYayBiKrk8vvI2
+	 EI6/1U+454uSqY6/VSIPCIddoYlyQySzdr1Hp9vkXeR1iOElGoSPCj6RPc33RiDj35
+	 zkRR4Yajlf7fWfnZPu1p3Dcy+puA13nx3Jkkr8MIWO9jXK0PyB/gfNuoBKlgpiCiPI
+	 bR8SHncgk5rcTTo3dHoArnTi1P9dobqeRt90j+mascbN2cmkmTtSz4Vtp1Ky2IZt5s
+	 euOqJzD1RXwnMhtMku3+tXHnaADk+46jzfJ3xdAcQvI/nyExEyTM3Q2b04sl3P34Xm
+	 fjUFk25qO0ibg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 17C8C495AD;
+	Fri, 20 Nov 2026 04:32:17 +0000 (UTC)
+From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Subject: [PATCH v2 0/2] i2c: slave-eeprom: DT binding and OF match table
+ for module autoload
+Date: Fri, 20 Nov 2026 04:32:16 +0000
+Message-Id: <20261120-i2c-slave-eeprom-of-match-v2-0-0444790a0b76@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,123 +84,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Fri, 20 Nov 2026 04:31:33 +0000
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-From: "Kunwu Chan" <kunwu.chan@linux.dev>
-Message-ID: <b4a389b8d71b5e0fd9eb56af50f4bf6dce245532@linux.dev>
-TLS-Required: No
-Subject: Re: [RFC PATCH v4 09/18] mm/swap: avoid direct reclaim when
- populating swap cluster metadata
-To: "Lian Wang" <lianux.mm@gmail.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, "Andrew Morton"
- <akpm@linux-foundation.org>, "Chris Li" <chrisl@kernel.org>, "Nhat Pham"
- <nphamcs@gmail.com>, "Baoquan He" <baoquan.he@linux.dev>, "Barry Song"
- <baohua@kernel.org>, "Youngjun Park" <youngjun.park@lge.com>, "Kemeng
- Shi" <shikemeng@huaweicloud.com>, "Kairui Song" <kasong@tencent.com>,
- "Jihan LIN" <linjh22s@gmail.com>, "Kees Cook" <kees@kernel.org>, "Gustavo
- A. R. Silva" <gustavoars@kernel.org>, "Thomas Gleixner"
- <tglx@kernel.org>, linux-hardening@vger.kernel.org
-In-Reply-To: <88057ceeb0228fd33f42637a3c9647eea74d5d95.1794666741.git.lianux.mm@gmail.com>
-References: <cover.1794666741.git.lianux.mm@gmail.com>
- <88057ceeb0228fd33f42637a3c9647eea74d5d95.1794666741.git.lianux.mm@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42NQQ6CMBBFr0K6dkxbY0FX3MOwaMsUxlBKWmw0h
+ LsLeAGXL3n//YUljISJ3YuFRcyUKIwbyFPBbK/HDoHajZnkUgkhOJC0kAadERCnGDwEB17Ptge
+ jb641qtTVhbNtP0V09D7aj+bH6WWeaOc9uBs9pTnEz3Gexe7985MFCKhcqaRxXEl+rTuvaTjb4
+ FmzrusXf+tkpdQAAAA=
+X-Change-ID: 20261110-i2c-slave-eeprom-of-match-ba9fdb67a830
+To: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+ =?utf-8?q?Bj=C3=B6rn_Ard=C3=B6?= <bjorn.ardo@axis.com>, 
+ linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Arun Iyengar <aiyengar1990@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795149136; l=2176;
+ i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
+ bh=dzUxAQssdho4tD6qq5wNbGkHdJxPJCqUmcPON/OFUEo=;
+ b=6i2g3LrFYRFOlSq5jd163SHJqTJxlY6Znko6UPXGWr1OE+LtpUFSiPn4wYW0AuQ2tsTahBHW7
+ s9SvzyKe+JTC7RHJ9W7+spOTH4frNPAKO+VSbknes4rXvCm6Q7fYlNR
+X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
+ pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
+X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
+ auth_id=1480
+X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
+Reply-To: aiyengar1990@gmail.com
 
-Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
+A slave EEPROM backend described in the device tree binds only when the
+driver is built in: the client announces an of: modalias and the module
+has only i2c: aliases. Patch 2 adds the OF table.
 
-Thanks,
-Kunwu
+Patch 1 documents the compatibles. Wolfram Sang asked for a YAML file
+when Björn Ardö sent a patch for the same problem in 2021 [1], and on v1
+he asked why compatibles without a binding should be added.
 
->=20
->=20Swap cluster population is entered from swap allocation and may itsel=
-f
-> need memory for slot metadata. Its fallback drops the device and cluste=
-r
-> locks before allocating with GFP_KERNEL, which can reenter swap
-> allocation through direct reclaim.
->=20
->=20Make this allocation boundary explicitly non-reclaiming so callers ca=
-n
-> retain outer synchronization without a recursive swap allocation.
-> Clear __GFP_DIRECT_RECLAIM from the fallback request while retaining
-> __GFP_HIGH and __GFP_NOMEMALLOC. The retry can still wake kswapd, but
-> fails without direct reclaim when memory is unavailable.
->=20
->=20This can make metadata allocation fail earlier under memory pressure.
-> Keep the existing isolated-cluster rollback and restrict this request
-> without adding a task-wide PF_MEMALLOC scope.
->=20
->=20Signed-off-by: Lian Wang <lianux.mm@gmail.com>
-> ---
->  mm/swapfile.c | 23 +++++++++++++----------
->  1 file changed, 13 insertions(+), 10 deletions(-)
->=20
->=20diff --git a/mm/swapfile.c b/mm/swapfile.c
-> index c46b43414bf4..fae862fc873c 100644
-> --- a/mm/swapfile.c
-> +++ b/mm/swapfile.c
-> @@ -586,13 +586,14 @@ static void swap_cluster_assert_empty(struct swap=
-_cluster_info *ci,
->  }
->=20=20
->=20 /*
-> - * Allocate swap table for one cluster. Attempt an atomic allocation f=
-irst,
-> - * then fallback to sleeping allocation.
-> + * Allocate swap table for one cluster. Attempt allocation under the l=
-ocks
-> + * first, then retry with the locks dropped without entering direct re=
-claim.
->  */
->  static struct swap_cluster_info *
->  swap_cluster_populate(struct swap_info_struct *si,
->  struct swap_cluster_info *ci)
->  {
-> + gfp_t gfp;
->  int ret;
->=20=20
->=20 /*
-> @@ -610,9 +611,11 @@ swap_cluster_populate(struct swap_info_struct *si,
->  return ci;
->=20=20
->=20 /*
-> - * Try a sleep allocation. Each isolated free cluster may cause
-> - * a sleep allocation, but there is a limited number of them, so
-> - * the potential recursive allocation is limited.
-> + * Drop the device and cluster locks before retrying. Metadata allocat=
-ion
-> + * must not recurse into swap allocation through direct reclaim: calle=
-rs
-> + * can retain outer synchronization across cluster population. Restric=
-t
-> + * this request instead of granting the task PF_MEMALLOC, which could
-> + * give allocator hooks and failure cleanup reserve access.
->  */
->  spin_unlock(&ci->lock);
->  if (si->flags & SWP_SOLIDSTATE)
-> @@ -620,8 +623,9 @@ swap_cluster_populate(struct swap_info_struct *si,
->  else
->  spin_unlock(&si->global_cluster->lock);
->=20=20
->=20- ret =3D swap_cluster_alloc_table(si, ci, __GFP_HIGH | __GFP_NOMEMAL=
-LOC |
-> - GFP_KERNEL, false);
-> + gfp =3D (GFP_KERNEL | __GFP_HIGH | __GFP_NOMEMALLOC) &
-> + ~__GFP_DIRECT_RECLAIM;
-> + ret =3D swap_cluster_alloc_table(si, ci, gfp, false);
->=20=20
->=20 /*
->  * Back to atomic context. We might have migrated to a new CPU with a
-> @@ -3160,9 +3164,8 @@ static int swap_device_disable(struct address_spa=
-ce *mapping,
->  return err;
->=20=20
->=20 /*
-> - * The swap allocator doesn't take swapon_rwsem. Looping through every
-> - * cluster lock after clearing SWP_WRITEOK ensures that allocators see
-> - * the updated flag and that no allocation remains in flight.
-> + * Drain cluster-lock users after clearing SWP_WRITEOK, so swapoff
-> + * does not race with operations that started before the transition.
->  */
->  for (offset =3D 0; offset < end; offset +=3D SWAPFILE_CLUSTER) {
->  ci =3D swap_cluster_lock(si, offset);
->
+The binding keeps the driver's names, without a vendor prefix. Björn's
+patch and the old DesignWare binding example (removed in 2020) used
+"linux,slave-24c02"; that form binds too, because the I2C core strips
+the prefix, but would not autoload with this table. I can switch to it
+or list both if preferred.
+
+This series was developed with Claude (Anthropic) as a coding assistant:
+it investigated the problem, wrote the code, the binding and the commit
+messages. I reviewed it, and it was tested on an Orange Pi Zero2 (H616)
+as described in patch 2.
+
+[1] https://lore.kernel.org/r/20210504135209.4757-1-bjorn.ardo@axis.com
+
+Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+---
+Changes in v2:
+- New patch 1: DT binding for the compatibles (Wolfram Sang).
+- Drop the <linux/mod_devicetable.h> include: <linux/i2c.h> already
+  provides of_device_id (Uwe Kleine-König).
+- Fix a NULL dereference in v1: a node that matches through a fallback
+  compatible has no i2c id. Take the size and flags from
+  i2c_get_match_data() and give the OF entries that data.
+- Rebase onto i2c/i2c-next, new test results.
+- Link to v1: https://patch.msgid.link/20261110-i2c-slave-eeprom-of-match-v1-1-8f762bf06205@gmail.com
+
+---
+Arun Iyengar (2):
+      dt-bindings: i2c: Add the slave EEPROM backend
+      i2c: slave-eeprom: Add an OF match table for module autoload
+
+ .../devicetree/bindings/i2c/slave-eeprom.yaml      | 59 ++++++++++++++++++++++
+ drivers/i2c/i2c-slave-eeprom.c                     | 34 +++++++++++--
+ 2 files changed, 89 insertions(+), 4 deletions(-)
+---
+base-commit: 9c19b1c078541841f6b68f815bb4ba5201ab2b65
+change-id: 20261110-i2c-slave-eeprom-of-match-ba9fdb67a830
+
+Best regards,
+--  
+Arun Iyengar <aiyengar1990@gmail.com>
+
+
