@@ -1,62 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795217673;
-	b=BjJRIAOobuG8ADdc+HlKWk0ycVR2l0vwCBENZvBD9PImVpFRbsn9PlnklSqIeOQhn+ro
-	 CivpbQYKAo/sQ3Acuf00IcjIM7qUIKxUNaqKOxqS8Npwcno54sbu7/tjItK8z+Eh/b61t
-	 SjqMRznB1Si5nnSnxWN2hfgczXLTPx/lGlK+ZfX84gtlAhusN2TMBs4jh+63ylvaTqSqi
-	 BbqlB2ZzWO4bjk/yxEe2r8Zj7g034ttjf2YRrjqDCkoFZxhxTiKjR+VXwKTGnmwkvGrgx
-	 6Qr9YH9lPOcB5Yj/Uzu/7Bmv2LQbPy9HhrT3sURDEtzAe+gQUq13qGWyGQXjsFKVqTw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795217673;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=jSVkms071gBFhS0ZEXeIERho5bLbtUl4WQoLD2P05l8=;
-	b=2u1PsT6BaCos5OYtpFyvIfnKVt0Gi+PZ1b1kM1AKhl2KCmgNwcnhTfy9qImZ6592y2AX
-	 yheHG6UDZT9Ueun7R6cotdUNrR/ob0IeOWCJmEEXeFh+G3uSAdud2+VnQFXWsH69uQa+U
-	 OgyLoNE07dZCquj8oHuo0K91fMGKUK1nLBNlCc/kplmqVeCGGnf0L79+EpAH2Zy3ZDZTZ
-	 7cBPUzBHklAQXrfPAaX0T5S7FAsd87BpVa3QfNV13OUeB3o+rsZaUTcG4GFg/V/U28G5+
-	 Gj9uhnoR07tgosw/aSyvEMr3R0tNLfxTAisNJMpBt2A6hdkSn76eJUHViq0NxJn8PZw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="VgPZKB/F";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.42
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795217701;
+	b=dH1AMA8xiM/9G+D8MpmTF11DWTRSGOMzM2o4UAyfQgbWkNIsYtIJrguXAQUl1KaOb692
+	 DArffdny7c9lF/7d7M8XQE9Y/fdgGiwm3MiSlRHFy4qwuOq4YWxdfhxj9gJUw92zBp5LA
+	 Uw6soXqTNpr14XZfktj4L3Tpn7PM64NACBnQ22QBE9gFAWbX5/tR/58nrL9Hdzt3s84ay
+	 UaFCPiHtJTTeP0uLXde3XswDz/+BDS4pmB04yUnc9SGww0RA8oJutjkn10VGVm/RpO97K
+	 Pmt+3Y96dxjaATNbx+3yxEOp6yZMdI3kHJFPGxd3ehe2d95MKegBqxUCAfJf2wHajiQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795217701;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=mSfM7+e0DG9yL9CSNMx7Lr0IjIg30n3lOiJCXJuSizc=;
+	b=jtJF0Osl1I3Rgt1pHyt4iu9vzC5kfzV/aXU1Us3xMogEex1Aymnu8TvVS8FNU7oo6k7V
+	 o/eaksgcmWsv5yaecRPIzbnSnSTngQUpUk27uBDQjJ6WfQG0ZpbktYG8XhAjtqrfWjecb
+	 y/LBlM9xXIi7vRrdnZBlQ1iRFwNFSFxMvLGwAep+3ub4bmTNnCy+UcqY3L9Oer93D4duI
+	 ZFkXnQRcMmpv9OWUQIBAf0haN/1Dh4rpcRVYR6d9WadEECyOldyib49pxm5AY7xY7QkjB
+	 pJsE1YBrrric/zBlEmP2egl3ZfKlXfEMg6CugwwQdXLXNQD9U4VH3pRi30pYeXyRvHg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ejqJ3ecJ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.42
+Received: from mail-ot1-f42.google.com (mail-ot1-f42.google.com [209.85.210.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04D96606A33C;
-	Fri, 20 Nov 2026 23:34:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C38E2606A332
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:34:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C38E2606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VgPZKB/F
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FA221F000D4;
-	Fri, 20 Nov 2026 23:34:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795217672;
-	bh=jSVkms071gBFhS0ZEXeIERho5bLbtUl4WQoLD2P05l8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VgPZKB/FSgIyhPRU6BJYdxGdGWMbuTB1hYp8WeiDLcp7OqO7xtBLeAWRf0yiArqL1
-	 yRmCt4VQ9hNrcQ8cJGcmDLApMT56qKBGzgV3HSE/ALZvkJfpYxQpNtlGG66lU0gHf0
-	 T/DnImfPtOY+vW0qgVOARu43s01XRcGkLKL/pjWFzC9nEaWsFA2KZv0OftdLoMhkOu
-	 kG2HsjJqwxPkE4/6X5hb2juou9TKL67jsUTjTxpPiM5lQhdKtc0ZcrUySuhuQdFk7M
-	 R/mRtk9CmTlXzLmuT/FLb0jDiAPtT1RG+uw1ygFAH1Ph9cXS+fDVECujNZA2jzukGu
-	 0aVQC8o8vSyGg==
-Date: Fri, 20 Nov 2026 15:34:30 -0800
-From: Drew Fustini <fustini@kernel.org>
-To: Thomas Gerner <thomas.gerner@muenchen-mail.de>
-Cc: Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] riscv: dts: thead: Enable bluetooth on
- BeagleV-Ahead
-Message-ID: <awDZBiX1VoSkO6F3@x1>
-References: <20261020132604.90708-1-thomas.gerner@muenchen-mail.de>
- <20261020132604.90708-3-thomas.gerner@muenchen-mail.de>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ejqJ3ecJ
+Received: by mail-ot1-f42.google.com with SMTP id 46e09a7af769-85c1135c286so1092092a34.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:34:56 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795217696; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Ee7YKMW3Gmtdf//CsY+ZGkVT+UtXqNG5dv0yJi++PKWo7lq3noge1MjKVLo0brzq/T
+         YwwWXFioPJVyWBeQSA1d7V/b3l/R+L4LvUD4FZc3aAfGoX03Y7wcn617Kyd2KmvAp84O
+         bqxBQRE5sRA+iWvAioRaqogfOOzYLTtFQ344RqZIJS1c7d45cK7G3mMTVlypQaC/FWRz
+         OTtoSvvUAMHBjj/3danRmjiCF6AuW7fl7Q4EC5LZtSd+ATYJeg9K+lO5Q2Co1cRXncia
+         0zxmKvCzkczJOvTyiNDOlThf//EJm+iOIxY5bVnV6Ya8tb5009g8t4nU8PH+KaCwh/c5
+         IOrQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=mSfM7+e0DG9yL9CSNMx7Lr0IjIg30n3lOiJCXJuSizc=;
+        fh=3vg2FdYW1WjYWYYu9Vkw2D0MFYW573KDeQdOyWHXAAg=;
+        b=Xelv8sDHSsI4JXZap1xUKaXSyag2FkF2C5Q4081BVbXn90z54TKiDAVtdLuRFBNZk6
+         qJ3mtxomQ+2PiDCK4OrI0RhZ/38xVvHw+YpGEA5QZfTJIaX4rVPzKxhYYxhFxpc+lT34
+         XwPiaiAd6I4Vi03X0UhthoHNYO1bZnvY3SodTodUdhCgp4DtSLxG+adc152HmAzTMPSm
+         lswKHVEXorAwCOu4k4nq6TkwN+q99OC7wCj2/8hc7CipxDZ40dOs4M2EYIaPawiobQMq
+         FlQ1HBfOn8WhKOIeq/moHQioXnpcY2PZu/ir5JDXhhHOspCGfc3CUMxts+Os6XSq/ntp
+         ls7g==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795217696; x=1795822496; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mSfM7+e0DG9yL9CSNMx7Lr0IjIg30n3lOiJCXJuSizc=;
+        b=ejqJ3ecJO6ZrT9TCWzPbDFwR8dbB3A2UxHw6fRGLCkVUeoHedvoardZkr9yOAYOczv
+         Kr8ZlFabZ9M0TlaN9SnmPdoYPGhklrlt0D0Kr9OjGC2XvEYXH4jIsblwY/XbDoyY/33k
+         f34CuHl1I2O7Cu7l8wb0jzYJE68dC6Er1dV2LTB9tx8txH2k2r2RsNAIBf/XDbmnJUHI
+         3p/GRhxJovSHdEMeq54c7TDrdeGfEdedR+8f/oYSAOJaoMc1N7odNo6zZtIVS68BDoI+
+         oNYcgiODqK6TnzHjyzckxQvRfpNjzUFh4HgpFgYaNle/mc1Xpz8zUV4AQxxy6MXaeBCt
+         CwMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795217696; x=1795822496;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mSfM7+e0DG9yL9CSNMx7Lr0IjIg30n3lOiJCXJuSizc=;
+        b=F6tznzhPfdJcmIRGd0vbM1DCs5CyIy8zRfVjAOewzSXXhvG5SrDXXPmRKran2bmqIX
+         gdE7Bf/2pJIHyTpwZw9outNYix7GaU1MozET4GRYrclpOnTsXsrYQcH8mQE/Hs/54arz
+         6wLmf4jMFjjRpXj3yOwrRMyd34nnn2SQSSOXWHCCsP06Djl9MXQC1JHRFKswJklqJ9LQ
+         xvfkf+EnOKosQ2tJ5rnWu6wOSI+fZKmP56kTplVauUGdPybQDcviD/Qs64tBZ55FPmtR
+         FJWBV9jx3MCta9G2WiS1TOFNvLwMfPyCC11/FI+UW2l0yCvbNegr2CTcYkL+f74PfCWL
+         GjCQ==
+X-Forwarded-Encrypted: i=1; AL+hErGqaDp8bPZtlxDyxD7q46N+eYCCqaY0TprZU8YH8A2hWA6lWjk/4yHYRUu9KJXIGae+hrgAvbf89URMpi0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+dzjoG3A9W/9iR3lAWa6ADaB3QGIeWW7xFbg/0vmDSGd7lXmOg
+	7V26Ma0hCH9slURkx7O7XSumTzXs1zdIdxzhNLyYPZ5duELJhbHjXjHfiPg+N3G87+3m0wHGGMv
+	ooPxz2y3kbvD7NKiyvtanLMWoCdWd8XiSNnjMpSQ=
+X-Gm-Gg: AYBFou0gOV6siSmAV9NdNfyp5JrPPIslO+HOVIfkGt/iErvxFP/wDVIgoKNdi/2+WEq
+	AIU32OdAedyDynN8PD60oCbHKCM1YD5ucGpMHe6eRuqUiN2teuMeX5QWuzvvdQnpOIky+ZcBRhB
+	JEe0usQtX60LuFiH5gw967u/LoMIbFbTb7f5SLSu2v0XoeePVK2O1vJEN3rg6NwAw4ImGGE7rrb
+	e/4vANNBMsfCPDV0O6paZk3ZecXjmt8qmK5367YpKD7DeTI7NCLj/GRY+M20xszfjO4Utoi2wVH
+	QN7j6JT6JVlAAML9TcKRWPizk4YMSzXUUJa5/Jf46hHh0lPq3akbAU2lOmZc9QkEsBNTDuxQsDW
+	qMWfleH0hJWdOG9TA/b9xMC6t/mmL6ziGPnw=
+X-Received: by 2002:a05:6830:314c:b0:862:a48e:24dd with SMTP id
+ 46e09a7af769-86315646cd2mr6660418a34.8.1795217695683; Fri, 20 Nov 2026
+ 15:34:55 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,158 +104,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261020132604.90708-3-thomas.gerner@muenchen-mail.de>
+References: <20261117112640.1435-1-danjwade95@gmail.com>
+In-Reply-To: <20261117112640.1435-1-danjwade95@gmail.com>
+From: Andrei Vagin <avagin@gmail.com>
+Date: Fri, 20 Nov 2026 15:34:43 -0800
+X-Gm-Features: AclHuK913w91YzROhxoNVPzwkczJvOrCw75Efl5My4uNVFRKEM8UnOUNaw7Azo8
+Message-ID: <CANaxB-zWf3BkCM8hsd0pXTULHi2ZmpRnLgpp2BFzT=_XwMdRrw@mail.gmail.com>
+Subject: Re: [PATCH] x86/fpu: Put non-enabled dynamic features into init state
+ on sigreturn
+To: Daniel Wade <danjwade95@gmail.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H . Peter Anvin" <hpa@zytor.com>, "Chang S . Bae" <chang.seok.bae@intel.com>, 
+	Andrei Vagin <avagin@google.com>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Oct 20, 2026 at 03:26:04PM +0200, Thomas Gerner wrote:
-> On the BeagleV-Ahead the bluetooth module of the Ampak AP6203BM is
-> identified by the btbcm driver as BCM4362A2. The module is connected by
-> UART4, several gpio pins and an I2S interface. The I2S is currently not
-> used as there is currently no driver.
-> 
-> Signed-off-by: Thomas Gerner <thomas.gerner@muenchen-mail.de>
-> ---
-> Changes in v2:
-> 	- use default pinctrl definition for bluetooth in and out pins
+On Tue, Nov 17, 2026 at 3:27=E2=80=AFAM Daniel Wade <danjwade95@gmail.com> =
+wrote:
+>
+> On sigreturn restore_fpregs_from_user() restores the features the signal
+> frame carries and inits the rest, but both masks are limited to
+> fpstate::user_xfeatures. If the task lost the registers earlier in the
+> syscall, a dynamic feature it has not enabled yet -- XTILE_DATA before
+> its first AMX use -- still holds the previous task state, and
+> fpregs_mark_activate() makes the registers current's. The first AMX
+> instruction then raises #NM and fpstate_realloc() clears XFD without
+> reloading, so the task reads another task's tile data, including that of
+> a KVM vCPU thread whose guest used AMX.
+>
+> Init the user features that are not enabled for current as well, as
+> restore_fpregs_from_fpstate() documents and fpu__clear_user_states()
+> already does on every signal delivery.
+>
 
-Thanks for sending v2. Sorry for the delay in review.
+I think you can add this step sequence to demonstrate how the issue
+can be triggered:
 
-> 	
->  .../boot/dts/thead/th1520-beaglev-ahead.dts   | 85 +++++++++++++++++++
->  1 file changed, 85 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> index e16484a47653..7161a9d4c61f 100644
-> --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> @@ -76,6 +76,23 @@ led-5 {
->  		};
->  	};
->  
-> +	reg_vbat_1v8: regulator-vbat-1v8 {
-> +		compatible = "regulator-fixed";
-> +		regulator-boot-on;
-> +		regulator-max-microvolt = <1800000>;
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-name = "vbat-1v8";
-> +	};
-> +
-> +	reg_vbat_3v3: regulator-vbat-3v3 {
-> +		compatible = "regulator-fixed";
-> +		enable-active-high;
+A: rt_sigreturn()             AMX permitted, XTILE_DATA not enabled
+     sleeps / is preempted    A's state saved, TIF_NEED_FPU_LOAD set
+B: runs, uses AMX             B's tile data is now in the registers
+A: back in rt_sigreturn()
+     restore_fpregs_from_user()
+       xfd_update_state()     XFD[18] set: B's tiles hidden, not cleared
+       XRSTOR(frame)          XTILE_DATA in neither mask: left untouched
+       fpregs_mark_activate() registers now marked as A's
+A: exit to user space         no reload, B's tile data still there
+A: AMX instruction -> #NM
+     fpstate_realloc()        XFD cleared, registers not touched
+A: instruction restarts       e.g. TILESTORED reads B's tile data
 
-enable-active-high has no effect without a gpio.
+> Fixes: 5509cc78080d ("x86/fpu/signal: Use fpstate for size and features")
+> Signed-off-by: Daniel Wade <danjwade95@gmail.com>
+> Cc: stable@vger.kernel.org
 
-> +		regulator-boot-on;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-name = "vbat-3v3";
-> +	};
+The change looks good to me. You can consider to cherry-pick the
+selftest from here:
+https://github.com/avagin/linux-task-diag/commits/wip/fpu-sigreturn-init-xt=
+iledata/
 
-Nothing can switch these two rails so regulator-always-on describes them
-better than regulator-boot-on.
-
-> +
->  	hdmi-connector {
->  		compatible = "hdmi-connector";
->  		type = "d";
-> @@ -152,6 +169,28 @@ led-pins {
->  };
->  
->  &padctrl0_apsys {
-> +	bluetooth_pins: bluetooth-0 {
-> +		in-pins {
-> +			bias-disable;
-> +			drive-strength = <1>;
-> +			function = "gpio";
-> +			input-enable;
-> +			input-schmitt-enable;
-> +			pins = "GPIO2_30";
-> +			slew-rate = <0>;
-> +		};
-> +
-> +		out-pins {
-> +			bias-disable;
-> +			drive-strength = <3>;
-> +			input-disable;
-> +			input-schmitt-disable;
-> +			pins = "SDIO1_DETN",	/* GPIO2_29 */
-> +			       "SDIO1_WPRTN";	/* GPIO2_28 */
-> +			slew-rate = <0>;
-> +		};
-> +	};
-> +
->  	gmac0_pins: gmac0-0 {
->  		tx-pins {
->  			pins = "GMAC0_TX_CLK",
-> @@ -268,6 +307,30 @@ reg-on-pins {
->  	};
->  };
->  
-> +&padctrl1_apsys {
-> +	uart4_pins: uart4-0 {
-> +		rx-pins {
-> +			bias-disable;
-> +			drive-strength = <1>;
-> +			function = "uart";
-> +			input-enable;
-> +			pins = "UART4_RXD", "UART4_CTSN";
-> +			input-schmitt-enable;
-> +			slew-rate = <0>;
-> +		};
-> +
-> +		tx-pins {
-> +			bias-disable;
-> +			drive-strength = <3>;
-> +			function = "uart";
-> +			input-disable;
-> +			pins = "UART4_TXD", "UART4_RTSN";
-> +			input-schmitt-disable;
-> +			slew-rate = <0>;
-> +		};
-> +	};
-> +};
-> +
->  &sdio0 {
->  	bus-width = <4>;
->  	max-frequency = <198000000>;
-> @@ -314,3 +377,25 @@ &uart0 {
->  	pinctrl-0 = <&uart0_pins>;
->  	status = "okay";
->  };
-> +
-> +&uart4 {
-> +	pinctrl-0 = <&uart4_pins>;
-> +	pinctrl-names = "default";
-> +	uart-has-rtscts;
-> +
-> +	status = "okay";
-> +
-> +	bluetooth {
-> +		compatible = "brcm,bcm4329-bt";
-> +		device-wakeup-gpios = <&gpio2 29 GPIO_ACTIVE_HIGH>;
-> +		interrupt-parent = <&gpio2>;
-> +		interrupts = <30 IRQ_TYPE_EDGE_RISING>;
-> +		interrupt-names = "host-wakeup";
-> +		max-speed = <921600>;
-> +		pinctrl-0 = <&bluetooth_pins>;
-> +		pinctrl-names = "default";
-> +		shutdown-gpios = <&gpio2 28 GPIO_ACTIVE_HIGH>; 	/* BT-REG-ON */
-
-This triggers checkpatch:
-
-WARNING: please, no space before tabs
-#230: FILE: arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts:397:
-+^I^Ishutdown-gpios = <&gpio2 28 GPIO_ACTIVE_HIGH>; ^I/* BT-REG-ON */$
-
-> +		vbat-supply = <&reg_vbat_3v3>;
-> +		vddio-supply = <&reg_vbat_1v8>;
-> +	};
-> +};
-> -- 
-> 2.53.0
-> 
+Reviewed-by: Andrei Vagin <avagin@gmail.com>
+Tested-by: Andrei Vagin <avagin@gmail.com>
 
 Thanks,
-Drew
+Andrei
