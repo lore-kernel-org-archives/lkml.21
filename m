@@ -1,142 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795151077;
-	b=AUfQTn+sHQ915JIrbcdDrbH6ArY1PquPY96Z1VWnUq2OF3Exawd3cMBG2j8SIQHms2wg
-	 1tiQLKh4lw31iB15VFfqI2QrXDJFCxGF9cnAvWji8RfUBje+x+39u/yJDgljQg3Qf3tsW
-	 byYVz9S8sgdExLStvVtDue7scbJNGo66hMZAVMs3ib4/gxSZGwF5ZNMAubmal8jMJUmBb
-	 M3fgGx8Z4TCiYRQ0k1S4UeoucFRLtngWAifm/Rg/WDsIiAn6kdMyoBc/wsevxq8JOna26
-	 7ASLSSZ/QmWUCs/dkYVFDlNAep2BJOLnoTGC2hBb+h/ZR5rxG5zNiT72m26GHt20LIw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795151077;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
-	 Content-Language:From:To:CC:Subject:Content-Type:
-	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=j6qs+8UkEjXUKxseSD4KcKrQp3Z/EptTdoME9NS1Ppo=;
-	b=D0AyrCfjJuhPkvNUS5tsbbhSfUp7m+9NGRhvuPQ4HTfGuD7P3An4ur74dJA1i6IMHpCY
-	 gO2nkx2GkjzYF6Vfq865sIBerQuG/9IXqHo75i0AhVS2REIUHupbHmPro6GpyBD2zoz0T
-	 Tg1GLA5CZtNRVg9r+oXny1Exvx7gzasn0qEQz9yoSOJu3PJTSJzEKgCcdW2P4WeAYKUOq
-	 WuqXS0Zee7+om3B+jYDGoGLOW3ZCOM5Vh3/9t0ivUaTJHEtlSmxWGncbnJqhcpo4C1pJd
-	 5uUDwBkiNpbwbmFqefJJspO/ZfWAkz66jPo49zbih3G8RtWqQpU18/T7ceq6NEttnww==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jxbBCE+L;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=isQHIa6b;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.13
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795151238;
+	b=IxbVwi4RTO5uXs08ZAAt05Wcl6Y0iDTbJJQi3gd1P8KmBi4ecDcDKaQpNeSTMR25ZCG3
+	 kUIoDbrN00I1FUhlMPCpgsCT69uFphQcwcc8HWlbKWqsthnDvfqLemyL24o255/+szIHh
+	 qoAXXgyavGhtoVxWk5hCbI96dv4QfgDO1wBDAFCA+8p5k6a9GKVClyihIcjmH+SYBbWAP
+	 t97nEwCLJZWZJE2CUCYWdgrRYfHF4ZpV+RlFZyTGZL02ds4IlX1IIYgNP077Ps+JOZxsz
+	 oRjmUr55MXzV9QaJuF8c1FhJGQuD3+j6N7pFJFiSWDdxiMCPk3N1T8AL42CQvnrvQQA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795151238;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=r7ro0o9mchZpsV5Fg9CWlcyIAXb1X25O0eU4eBlOp58=;
+	b=eKWNLWHNUHS2iHMrKvWPqSqC8Djhqt+IHDtc/RywEN0lyjWLTOV+Dw1Z/7vdrcHWvRSO
+	 HZyBSvbjt/9veKELXMgM/246DL7Lzc03jb8vcRSBWuqLJm361sDs+lJ3bWym1OJrkowN6
+	 qOaC2aIMUt7nOXwaHfZwN0AtKumTEc/Vzidm0TQY8wamtgH310H/fQf7rwC74gntPDw7K
+	 ziB3NIFiMARglFVcdAMVOBzel/3BdJnLm3LDK6j46bhjw2yndKoKhtRWvJZNvZDXqKu+P
+	 udcpIDkhBl5AGTr2cab0ff7LtBbAkiq92bXBSQm4DHTX/fyKagcgNg4S2RYiyLqeH/A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hz3ufiub;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6184C606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:04:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6184C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A54A5606A320;
+	Fri, 20 Nov 2026 05:07:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jxbBCE+L;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=isQHIa6b
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795151075; x=1826687075;
-  h=message-id:date:from:to:cc:subject:
-   content-transfer-encoding:mime-version;
-  bh=gYGzWlI6qpefHQrbjSqkCr/knpZSQWLrt3IYmqoIACc=;
-  b=jxbBCE+LSdrhO+p58dBCQ3hA9JtUnzAAbvsiJ9CxdrPK4KT4efb5Y2KH
-   oKNu8YRZlzUbYtMb15A6zqKKiOfN2QiguZKQhRmmpuW86/CphyUn80e4t
-   JR+w9eLQF2I3tcr78clStbhV6BXC4CA8jatSWHxyPz2yVP6u4Vi5Qs1qi
-   qgR0WkK/wf588/11oq8aG4Lchejw6IlqG4aSWdtbE9Jt3YrG8zNPgAtcb
-   ZsMabxImBdQM77q3ykYsFqr80+pCW96ceOP3nOKlHH7R3rAzoQuItmmjs
-   wpMJYmylOGKlr0clRFIQEHomL2IEUB2rBq3miSVai28RDULypGauKZPha
-   g==;
-X-CSE-ConnectionGUID: uu/BONQyQteLD1eMXsXfSA==
-X-CSE-MsgGUID: m2PNTPORSsGdbK3z8wd0lQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4016890"
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="4016890"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 21:04:35 -0800
-X-CSE-ConnectionGUID: Qz4rqQ6kQf2h2AKf59Kr/g==
-X-CSE-MsgGUID: f8tttxuvT/WafvwmGuvWUw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="10550778"
-Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
-  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 21:04:34 -0800
-Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
- fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 21:04:32 -0800
-Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
- FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56 via Frontend Transport; Thu, 19 Nov 2026 21:04:32 -0800
-Received: from MW6PR02CU001.outbound.protection.outlook.com (52.101.48.61) by
- edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 21:04:33 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tQ3eCbAbS9Rvi+O9oFHtuZnp3j6fUJoZlOKLJjVa2/PVkiiosYHAoOPi7zhFCWO58ePpq15Y75eC2s5dNyFXhlR2aYfGEmG/RmqoPhlu6t5WfLV9cSAwSixAMJYP4CfweO7nBgi0TiKKW21ac7WWeNYIBDc2rOtETL53scPnao3wrRYOeftkaWEUkR5pyn61sZ6viLMsuWuusQoAIHN3RC/w8Ur86Vu+JkK1kNGzUIF6QtfVRsOVezFyz2Ev+Gqdz302djKy5yy5XTpvn0pc8x8tsS6ZyieyzCxt99bF3r0/x6fVHL4pOxgGWR2yBnU6lvnjMprjZbiQ2eVJQnSXaw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=j6qs+8UkEjXUKxseSD4KcKrQp3Z/EptTdoME9NS1Ppo=;
- b=yewPzV7nz8Z6Atl6UnNoRyynMPad2E1KYTUCZcgDgq5f5Zlb70xR+LyzdEvFdAWX0xrvl4WntXTGGXQdmgewQacY+95jGEERkjODWixHTXZ8rRdkO8EOok8tE3gQMQEd91uRqEx5neMwozqR6QBy79SzUH6w0cSg0uWVa1QGoVo/2fZ+m8OxHprOCyDYDT7UOos9NPaRBetkTC5WKyyuePOEMDJSBTIFhrctRjU2puzHRLE55oWBYFTPID2siRZwCL3N4KhDUKUhy8+x2s/huWB34SKK/6Ari91WZ6sB3LBbFMvp+Cwt8MPEZnZ06byXWLpJDDbtxTfl3ZL1qsMtew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=j6qs+8UkEjXUKxseSD4KcKrQp3Z/EptTdoME9NS1Ppo=;
- b=isQHIa6btjPqGvlnnZiE+GqGCRJ6mvyYiSZhtIcJLnFot9mSFwlcyFJmPrBxjwGV7oMzjJq1NS/TTNuphD0wUXdv24NUclxCwiFUBHKQTCzZHIpgbugd67mpvyJpJ4wzjCVeHzGcvtq67I1/vHe0WQaBrKdQnPnG2q5rlx6g3U8=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
- by SJ5PPF50B3E12BC.namprd11.prod.outlook.com (2603:10b6:a0f:fc02::828) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 05:04:28 +0000
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc%5]) with mapi id 15.21.0615.009; Fri, 20 Nov 2026
- 05:04:28 +0000
-Message-ID: <b06e1fc2-87f1-4004-8102-c8cc8928345c@intel.com>
-Date: Thu, 19 Nov 2026 21:04:26 -0800
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-From: Reinette Chatre <reinette.chatre@intel.com>
-To: Tony Luck <tony.luck@intel.com>, Ben Horgan <ben.horgan@arm.com>, "James
- Morse" <james.morse@arm.com>, Dave Martin <Dave.Martin@arm.com>, Babu Moger
-	<babu.moger@amd.com>, Drew Fustini <fustini@kernel.org>, Fenghua Yu
-	<fenghuay@nvidia.com>, Chen Yu <yu.c.chen@intel.com>, Jinjie Ruan
-	<ruanjinjie@huawei.com>
-CC: Borislav Petkov <bp@alien8.de>, Thomas Gleixner <tglx@linutronix.de>,
-	"Dave Hansen" <dave.hansen@linux.intel.com>, Peter Newman
-	<peternewman@google.com>, "x86@kernel.org" <x86@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	<reinette.chatre@intel.com>
-Subject: [RFC v3] arm,x86,fs/resctrl: Generic schema description Proof of
- Concept
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR03CA0346.namprd03.prod.outlook.com
- (2603:10b6:303:dc::21) To SJ2PR11MB8370.namprd11.prod.outlook.com
- (2603:10b6:a03:540::20)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hz3ufiub
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97F941F000C6;
+	Fri, 20 Nov 2026 05:07:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795151238;
+	bh=r7ro0o9mchZpsV5Fg9CWlcyIAXb1X25O0eU4eBlOp58=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=hz3ufiubOrS1q/kA51l0Rl9gPb0zk2h5llOQKiAfAWQtAZHFy3dVtiydjEa2BtJU8
+	 +j3WzyfXryfvdmq3pGpZaImD9KPw1K/RbVp7KoWgGuZ3boBd09Zerqm5zumOkK/w5w
+	 H2DIMSOfZKfITJXNVEJf5pWy1YVIjwGJWd1RcQgzZ9Qsqbmr/xzywhy0LO1ZybcIsc
+	 CtES14qCSHSSbhZDUTUaP/NMRcArFyRzJ80DUPQGEwwZLV+vNrV9GrJsj9GT4/e11R
+	 0T0OUeahnqPoz0r6Qa8GwVp9uW6numOljQ1G0nYC0WE0TnBY5a8yABU7UilVXv20fN
+	 Wcn/W5gxcdKeA==
+Subject:
+ Re: [PATCH net] bnxt_en: Fix auxiliary device leak on early probe failures
+From: netdev-bot+sashiko@kernel.org
+To: lcy8047@gmail.com
+Cc: michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, vikas.gupta@broadcom.com,
+ andrew.gospodarek@broadcom.com, jacob.e.keller@intel.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Fri, 20 Nov 2026 05:07:17 +0000
+Message-ID: <179515123717.3136.1891710789877841672@kernel.org>
+In-Reply-To: <20261118050716.3873167-1-lcy8047@gmail.com>
+References: <20261118050716.3873167-1-lcy8047@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -146,158 +65,135 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|SJ5PPF50B3E12BC:EE_
-X-MS-Office365-Filtering-Correlation-Id: e327381c-dd27-4f93-25f4-08df46c3c0ff
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|7416014|376014|18002099003|6133799003|261009223027099003|3023799007|11063799006|56012099006|260925022911599003|260925021911599003|260925021311599003|261102123227099003|261028144727099003|261026121527099003|261026140227099003|261021121427099003|261022105027099003|261022075727099003|10067099003;
-X-Microsoft-Antispam-Message-Info: qM39ZR4vtH1ZJL8sML/l3xp56ro9IUaHOBsDSgJhqpOX8n3vE2MG0f3iJb7Quw1DqsJqZXaW/rGUaaLax1HjsNCyVr3Gq0g3QSJNgnuOx+JL1aXGDKkjKBcPFjKfDKCSNQS/oJYLOpDnP/7Cv+yvFPGlfrFeUunFjY/yttMCpE/yOSj1gcBsin5oVlMbMyWTD/sy4ZviBk498A15K+Di9kqz2RjnjfRpIkxMkHN5tmpgNN9t9hAZTJNzVbgbvnu5NJNDmfVhW1KMIYJY9HBBrDFYo3LqE1TUo/MtweGLkwbnacD8Vo5NGFcsUbYpwn/0+89hB7qyDGqhtkGhaPmi+itKXg5/pKTfxUBrejb0E8RHKMFn4OIEIvIX5AwFCcP3+A9h+7Dj4IWZFdMkNlOmpZbDpEYmZjtekNTD5ja4nguOlMLIrZQkvU+K2DnZrfbLFr8e0NJtWiA2KcyLu6gQBrjaL6v6+mkhfviZfGTRaYLFPsjbMnZyJvQZSxTK8pcPx6Y5OqhEsvXgZZvinxJiKVTyvmW9502zlTsfj849wHYSt9E6AeqnLZtES2oi8kFW83WMxyjj4WfC/ysaYK9F/oqdPYayQf/+/DGBUu2t8a+CBsZ/s0Asdx1enY9fTaVP
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(7416014)(376014)(18002099003)(6133799003)(261009223027099003)(3023799007)(11063799006)(56012099006)(260925022911599003)(260925021911599003)(260925021311599003)(261102123227099003)(261028144727099003)(261026121527099003)(261026140227099003)(261021121427099003)(261022105027099003)(261022075727099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bHdhc21UMEF6RkpFaVBlVkJoMVlMMUVOYUxsY2xpL1FNekNDU3JRcE52b0d6?=
- =?utf-8?B?VFlQT2FOMlpXUXZVTFBOejVOOHE4N3R3NmNYa1Y3MDdyNlBvaGpRWjhlclpE?=
- =?utf-8?B?eEpyTVdwZGYxVm1zQXQzeDFTTHhrUVd3Y1FmOGxBaGxINzN5T0NZZlJyZlJ2?=
- =?utf-8?B?SHUzTmZRRm1vbFgzSjl0WGZhTmtCMXBpcU9jZUhqWlhoM2VjY2tQeGVDdVNP?=
- =?utf-8?B?T0wxVWxqQ2JqbGxBdll0VG1wYjVrb2hFeXFwdWs4WGtnNjh1cExwb3REazg4?=
- =?utf-8?B?NXhMWHRUeGpBSFlOY1k0YVlBbDlyL0gvTjFLaDBVdDFXM0JFRzJISDkvbUdH?=
- =?utf-8?B?dTBuNjgvZzNuY2I3ejlJT2g5cDM5T1IwNGlxUGlya0dNVFNiOUQ1L0VXMGlu?=
- =?utf-8?B?QnlySmJncnlMS1dkOFNaS1d4RkNVUmNIRzk2ZnZiOGI5THdGMTU3TzRaUm9M?=
- =?utf-8?B?VVVhUjUvWm9QV3NjWGVQY0xnd3hycGhXZWRTL2RVRDdaazBlZnNvaGtQRUlX?=
- =?utf-8?B?cFdieVBHVC9qQzRqUXlRZTVBWjQ0cFM0MGdWTGxLb0lPWXpVUGpwL0hFWFAz?=
- =?utf-8?B?emdFUXIrK3BlVm9GbTVHWUdsUnJ4bmpsUUY4OTk4VkprNXVPQmJoWFdWdEhG?=
- =?utf-8?B?cmpKTjlpRGVmU0tMUGlXWEs5dzByTjl4OFdoV0Rvb1ZsS1ExWnZRY2ZJQ0tB?=
- =?utf-8?B?RS8wcFJKOE1pK2NidlVkQnNiaFRLR0pxOVNxZFFpUGpIWEgxRy9yZEdSR0N0?=
- =?utf-8?B?T3JuWmw2VU0wZnM0bFJ0VWowUW5CbFB0UnhRUzE2QUkzZXpXaUdBK3JqZFZw?=
- =?utf-8?B?emloV2ZxOUp4MExjRit2UVBDc2NLU0hVY0diZHROazc3dTVDZll2YkdUckJG?=
- =?utf-8?B?SWt3VTV3NkJMczVVcis0VEZsN0QxQytoYysvUTNPQkd2WHRmMlBrbDJwcVgv?=
- =?utf-8?B?QXY3OTJNVFBqeWFEVU5oOEplYUpYd08wRk9CbGl5UmlyUWZKT1pmT21SWWFY?=
- =?utf-8?B?TGd4d0FtbWhhdXFCc1I4bkd3U1FzMmdpRnVnMFdXY3lnWmM4L1R1M3JLc085?=
- =?utf-8?B?MVYxMmE0SnZiZnNYUnhhaXdOUDVVcEJpTS9SZWZlMDl2UUhjYzM2eVZ1Q09y?=
- =?utf-8?B?cnVnMjU4MVRPNXkvdHJEcjBtVERUTzRjRGV4eUZTdGxoQTBjemRHMjYyNUNI?=
- =?utf-8?B?MTBOSkk2ZzlrN0wvMjhqNEY0OVNLcTI0NFI5WEkyODRYaHo3YTBLc2d0UWUr?=
- =?utf-8?B?MlcwamFDV0JSeWlDOHM4T3JKZFdPSDZUMm9YMHJBTjBlME0zcE11R0tSOUJR?=
- =?utf-8?B?OVhNa3NZMU9vZ0VCZy92QzJ4cGJPd29uR3VuNXE0QUY0dEZPTDZpOTNLQWl0?=
- =?utf-8?B?alNlaFp1OTdXcGhBOGpjSFJqRlR2L2FFWWFlRTdvM2cwSDMxUEtBNlVQSTlm?=
- =?utf-8?B?ZTJockZwT3o4aW8wTlpPaHdhNlR3UFdrSkN6OGMydGwxNGNyTVY1UmI5K040?=
- =?utf-8?B?RG1RdGhGblordkhnaWlxOHdyajRwNnRDVG1LVkRMenZGQ1VOY2V1ZWl0SkpS?=
- =?utf-8?B?cE9xaW5yZzBGbmhneDhxU21uTC9ESnhkSlhWRDMvdjVRWVY1R29DdnowVVJt?=
- =?utf-8?B?UXR1L0g5YnBJM3R6ck9oTGNSS3pseEQ2TTFEN2M1WG5NdXhXUlczR2NlQXBj?=
- =?utf-8?B?Qm9VMXV6Q1BVMXFmaUNobmR2MzB6UDhKTzVJU2UvejhkdWpnbjB4M2sxSWdS?=
- =?utf-8?B?b25LSUk5TUU0aGFhSHdHNFZBUDVRYkxyc2VwZlVDSUdXVnFyU0podi9aRGYr?=
- =?utf-8?B?QXJOSWxJeThxNzlUaEswa0VaL3IvdTY0RlAwN1FhU25QTW4wVUFPRVd6L3Zw?=
- =?utf-8?B?SytzVnhrNXJURU9SZWdUMXBQKzkrSWtDQXJoTm9HYVIvb213dHE0a01PejhM?=
- =?utf-8?B?c2JRN1pXR2lUcUsyNnc4bGg1dGZRd0dSazRLL1kyR3h5M2xOdVpxUTl3dHp5?=
- =?utf-8?B?U1BCSEl2YnJ0SHpLNWFMcWhqUGpheElKYlVsMnZ6VGtkTlJpZ2NZZzdXQWZj?=
- =?utf-8?B?UlI1L0VtRTczLzZ0bmVoUFJtbGZwcUh6RDlEbHdyK2VxdFdKd3UyUnVlb1k0?=
- =?utf-8?B?NE51OWJNbXJGTjFQWDRNVUcvc0ptbWpkVUQ4UVVDY3gwTEl4aHBzMHZrZEFI?=
- =?utf-8?B?VE9yclNSaXlXSllMNnB5dzVaTnQvYzlXNjRwcVZ2ZnQ0dGpYcTJDSlhsVTZt?=
- =?utf-8?B?bStBTm04ZVNvSU5kTjV2bStoVFlXSHRrdkJaekcySnN4ZVVKSzkxTTIwM2Qz?=
- =?utf-8?B?OUI4RzV4aDE1ZHVkcmZQeHdqbEEzZXVjWVgvSFlFWWFQUG9kZitWRURSbEIy?=
- =?utf-8?Q?137ZnH4bC6hZud50=3D?=
-X-Exchange-RoutingPolicyChecked: AIBhK3OpDGKcYsQj8wQlQY1acQGnPhoNF0aOx0iKnq2ipWvdnhRqcy2YEaZ7EnrVHu5N9K56W+hZTrTjkKMzeV064ru1ubRaWnCoKV4N42uW6gnlwJtviGMPmxScaLP2/69QNHVt0x51AkSDNHlpMn1kpSw/UGCSIZHnvFGRJbZgzuWZJI7uDbRoipi8s036iH1VEVIoFF47yYlQ9Nj4DAjk8/havVHnFWw6hHvs2A5IUqiSzMQbObiLqeZnecgIzoNdHzqSFH41BemfdkoWoJZfaBIDyvm/KYVQMrF1KAv9+OKstfkVGoqpIwbaO5NJICGobSlEk+j7sa1Jx/fPTg==
-X-MS-Exchange-CrossTenant-Network-Message-Id: e327381c-dd27-4f93-25f4-08df46c3c0ff
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 05:04:28.3894
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 08k5BybGayhYMpwC2cL0hIRmlvvEX6vvmXYnhEGGAO8rI2nblsLk1GZXvlMr29c9vCKa/IKsWjyX+6ZQdwv5Jq1/RByDe+1r6jBii7KUimk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPF50B3E12BC
-X-OriginatorOrg: intel.com
 
-Hi Everybody,
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-I believe that discussions around resctrl's upcoming support for multiple
-controls are starting to settle. This RFC aims to capture all the remaining
-items in implementation as well as documentation. Please point out to me if
-there is anything I missed.
+Critical: 0 · High: 0 · Medium: 2 · Low: 1
 
-RFC v3 of this PoC can be found at:
-git://git.kernel.org/pub/scm/linux/kernel/git/reinette/linux.git branch resctrl/controls_rfc_v3
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Please refer to the documentation patch for an overview of the planned interface
-changes as well as user space contracts/expectations:
+- [Medium] In bnxt_init_one()
+  (drivers/net/ethernet/broadcom/bnxt/bnxt.c), a bnxt_pf_wq allocation…
+- [Medium] bnxt_en: skipped bnxt_clear_int_mode() on bnxt_pf_wq error in
+  bnxt_init_one()
+- [Low] The commit message lists the leaking failure points as
+  bnxt_set_dflt_rings(), bnxt_init_int_mode() and the bnxt_pf_wq…
 
-https://git.kernel.org/pub/scm/linux/kernel/git/reinette/linux.git/commit/?h=resctrl/controls_rfc_v3&id=95ff9ff7430095cb7264946c944c750315db73d9
+--
 
-Remaining opens:
----------------
-- Ben: I do have a question about the formula used to determine the size of
-  a scalar cache control. Please see patch changelog of:
-  https://git.kernel.org/pub/scm/linux/kernel/git/reinette/linux.git/commit/?h=resctrl/controls_rfc_v3&id=8695aab0997d5aa60e104374fae9701f51156c18
-- MPAM only compile tested.
-- The same x86 "SAMPLE" code as RFC v2 to demonstrate emulated controls.
-- Add relationships between controls. For example, cannot set "MIN" control
-  value to be larger than "MAX. Unclear how to do this in resctrl fs when
-  considering that the relationship may span between emulated and backing
-  controls. This is potentially something that needs to be managed by architecture
-  and thus potentially without a consistent failure to user space.
+bnxt_en: Fix auxiliary device leak on early probe failures
 
-Changes since RFC v2:
---------------------
-RFC v2: https://lore.kernel.org/lkml/d258a32f-12d5-464d-abe9-4720fb3e44b3@intel.com/
-        git://git.kernel.org/pub/scm/linux/kernel/git/reinette/linux.git branch resctrl/controls_rfc_v2
+This patch adds an init_err_auxdev label to bnxt_init_one(). Failures
+after bnxt_aux_devices_init() now uninitialize the auxiliary devices and
+free the auxdev ID. The bnxt_set_dflt_rings(), bnxt_init_int_mode() and
+bnxt_pf_wq failure paths jump to the new label. On the register_netdev()
+failure path, the aux cleanup now runs after bnxt_clear_int_mode().
 
-User visible changes:
-- Make scope a property of the control again, now in addition to a separate
-  allocation scope of the resource. Expose the control scope via a new
-  per-control "scope" file (L2, L3, or NODE) that tells user space what a
-  domain ID in the schemata file represents. Needed to support AMD's GLBE
-  and CPU-less memory bandwidth allocation. (Ben and Babu)
-- Name controls according to the scheme agreed during RFC v2 discussions:
-  <resource>_<resource_scope><control_scope>_<control>, with the control
-  scope dropped when it matches the resource scope. MB and SMBA carry their
-  L3 scope only implicitly, so their new controls show it explicitly, for
-  example MB_L3_MAX, or MB_L3NODE for a default control at NODE scope.
-  https://lore.kernel.org/all/bccb1249-e722-451a-9c75-8aa846713045@intel.com/
-- Report "max" per domain in preparation for systems with resource
-  instances of different capacity. A bitmap's "max" no longer has a "0x"
-  prefix. (Drew and Tony)
-- Drop the "min_bits" file. The "min" file of a bitmap control now reports
-  the minimum number of consecutive bits.
-- Only offer, and only allow switching to, "native" control mode when the
-  resource has emulated controls. (Ben)
-- Only allow cache pseudo-locking via the default cache control.
-- Display the "size" of scalar cache controls. (Ben)
-- Stop reporting scalar control parsing errors as being about "MB". (Ben)
-- Document the control naming, the "scope" file, that control values may be
-  reset on a control mode switch, that legacy info files return no content
-  in "native" mode, and that non-legacy resources need not have a default
-  control.
+> bnxt_init_one() allocates the auxiliary device ID and initializes the
+> auxiliary devices before bnxt_set_dflt_rings(). If that call,
+> bnxt_init_int_mode() or the bnxt_pf_wq allocation fails, probe jumps to
+> init_err_pci_clean, which does not uninitialize the devices or free the
+> ID. Only init_err_cleanup does.
 
-Other changes:
-- Require a control and the controls it is emulated by to have the same
-  scope.
-- Require only legacy resources to start in legacy control mode.
-- Generate control schema suffix once during initialization.
-- Fix initialization of the list of emulating controls (Ben), clearing of
-  staged configurations of backing controls (Chenyu), and Haswell control
-  initialization (Chenyu).
-- Reword changelogs about CDP, allocation size and the bitmap control so
-  they no longer suggest resctrl will only ever support one cache control.
-- Fix checkpatch.pl issues, subject prefixes and changelog typos.
+[Severity: Low]
 
-Series structure:
-- Rebase on:
-  - x86/cache branch of tip that is based on v7.4-rc1 with the queued
-    resctrl cleanups
-  - MPAM domain separation that was extracted from RFC v2 and submitted
-    separately:
-    https://lore.kernel.org/lkml/cover.1794283825.git.reinette.chatre@intel.com/
-- Squash four patches into the patches they support:
-  - "fs/resctrl: Provide control to cache allocation"
-  - "x86,fs/rectrl: Provide control when requesting arch to update a single
-    domain", which also keeps MPAM building at every patch in the series.
-  - "fs/resctrl: Expose bitmap properties via new files in schemata folder"
-  - "fs/resctrl: Include emulated controls when determining control field
-    width"
-- New patch from Ben: "fs/resctrl: Display size for scalar cache controls".
-- Move IO allocation control selection, and the helpers that display the
-  new control properties, earlier in the series.
+This list leaves out one path whose behaviour the patch also changes:
+the bnxt_dl_register() failure that jumps to init_err_dl.
 
-Any feedback is appreciated.
+Before the patch, init_err_dl ran bnxt_shutdown_tc() and
+bnxt_clear_int_mode() and then fell straight into init_err_pci_clean.
+That skipped bnxt_aux_devices_uninit() and bnxt_auxdev_id_free(), so
+aux_priv, edev, ulp_tbl and the bnxt_aux_dev_ids entry leaked on that
+path too.
 
-Reinette
+Now init_err_dl falls through into init_err_auxdev, so that path gets the
+aux cleanup. The code change is fine. Could the commit message name this
+path as well, so the scope is clear to backporters?
+
+> diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> index e78cf7ad3cbc8..ba0e458a467f5 100644
+> --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+
+[ ... ]
+
+> @@ -17449,7 +17449,7 @@ static int bnxt_init_one(struct pci_dev *pdev, const struct pci_device_id *ent)
+>  			if (!bnxt_pf_wq) {
+>  				dev_err(&pdev->dev, "Unable to create workqueue.\n");
+>  				rc = -ENOMEM;
+> -				goto init_err_pci_clean;
+> +				goto init_err_auxdev;
+
+[Severity: Medium]
+Does this path still leak the MSI-X vectors and bp->irq_tbl?
+
+By the time create_singlethread_workqueue() runs, bnxt_init_int_mode()
+has already succeeded. It has allocated the MSI-X vectors with
+pci_alloc_irq_vectors() and allocated bp->irq_tbl. The new
+init_err_auxdev label sits below bnxt_clear_int_mode() under
+init_err_dl, so jumping to it skips the only call that releases them.
+Nothing under init_err_pci_clean or init_err_free calls
+pci_free_irq_vectors() or frees the table either. bnxt_cleanup_pci()
+only unmaps the BARs, releases the regions and disables the device.
+
+This can happen on the first PF probe, while bnxt_pf_wq is still NULL,
+if the workqueue allocation fails. Once free_netdev() frees bp, the
+irq_tbl pointer is lost. The vectors also stay allocated on bp->pdev
+with msix_enabled still set. A later probe of the same function would
+then trip the msix_enabled WARN_ON_ONCE() in __pci_enable_msix_range()
+and fail to set up interrupts.
+
+The old init_err_pci_clean target had the same gap. The commit message
+says the unwind now follows the reverse order of setup, so should this
+goto jump to init_err_dl instead?
+
+At that point bp->tc_info is still NULL, so bnxt_shutdown_tc() returns
+early. bnxt_clear_int_mode() then frees the vectors and irq_tbl, and
+execution falls through into the new aux cleanup.
+
+[Severity: Medium]
+
+Does this path still leak the MSI-X vectors and bp->irq_tbl?
+
+By this point bnxt_init_int_mode() has already succeeded. It has called
+pci_alloc_irq_vectors() and allocated bp->irq_tbl. The new label sits
+below bnxt_clear_int_mode():
+
+init_err_dl:
+	bnxt_shutdown_tc(bp);
+	bnxt_clear_int_mode(bp);
+init_err_auxdev:
+	bnxt_aux_devices_uninit(bp);
+	bnxt_auxdev_id_free(bp, bp->auxdev_id);
+
+Nothing under init_err_pci_clean frees the vectors or the table either.
+bnxt_cleanup_pci() only disables PTM, unmaps the BARs, releases the
+regions and disables the device.
+
+This can happen on the first PF probe, while bnxt_pf_wq is still NULL, if
+create_singlethread_workqueue() fails. After free_netdev() the irq_tbl
+pointer is lost and pdev->msix_enabled stays set.
+msi_device_data_release() would then hit its WARN_ON_ONCE(!xa_empty(...))
+on devres release. A later probe of the same function would also fail in
+__pci_enable_msix_range():
+
+	if (WARN_ON_ONCE(dev->msix_enabled))
+		return -EINVAL;
+
+The old init_err_pci_clean target had the same gap. Since this goto is
+being rewritten to unwind in reverse order of setup, should it jump to
+init_err_dl instead?
+
+At that point bnxt_shutdown_tc() is a no-op because bp->tc_info is still
+NULL. bnxt_clear_int_mode() would release the vectors and irq_tbl, and
+execution would then fall through into the new aux cleanup.
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118050716.3873167-1-lcy8047%40gmail.com
