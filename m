@@ -1,55 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170165;
-	b=sbok+e2qkk0q3SVGwY5lZtf1QvVinECpbatl6TFm4k4ua/kQ/tXRMb/p7shuUYFOXXBb
-	 O75qvtP9QUpGh69ea3tWlFUFk+yGkFHrzFq72MSEMWjpHr0Wmn3midiU2MEuI6dStt/N8
-	 gJ425zq8ruSbg0pxh3wiqikEtP8roySYdhp6ErjA5FCADKTnAbmYxIITkQjFyp3uyDqST
-	 9EEJQXICgleK7xTEnKwjjpSS0sAeWD0cphr4LPQKEaolgKoqwCV0Jan0/89yVbBWuWr9n
-	 NI2Bd9X1f5rBhWdGIduIEa8rxL4xL4vczMtra5fyq2GbP71W+OCJZawphBLvjrJN7mg==
+	t=1795170168;
+	b=gfGtgPZspNfligWmqSFBc8t7LZyqppCfy0iTGtZgJUd6DJkiFW0hBcL/+bC2lL86v1qf
+	 3YP+t2gQNO15ZO68wZQ0CBG0m3kD9d4RQ/avwYGKNpyX3Z+EBOSSmD0mJ8guu0QkDLES9
+	 Dn0TrN0ea+a+GcW0ueVgkEG+XhJWoG+wPjvDUAzhuDB4GPWuCst4SusTbDiltURlhRQqt
+	 rTIzWI0q4Q1P4I4XUoBMkX/KqyUG4gHb+KxgRPz668KeQ6D8djrZap3aJt0VcKpmp2dg6
+	 o1CW5R+9gZFv0yrDvW2qcmO4YKcr9UBAEaZAw/6Slptl+pdkYhsNTaYS68F39TfutqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170165;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=E8EpAwpZYGj+7UCRgA7yP/4KDRZY1BSkeeABUDn2plU=;
-	b=W+U9a/d2ObdpCwh3ZNFtEEE9eil3+G47JF+ShuCSZvjD4g7E+q8S6QEOll6TRT+T/AhU
-	 6diOyqxn8fjQdRtdtV9Qvixmhu9vRTA0ti04mj5rk5uFQu85zWfkv0g9b+vY6t80CBBxV
-	 7nHbCMLd9sjcGmYEdKyjdKam9zCRGVTxC5Qpt5rvV6tAysLcsNUJ1KY2dfcYQUmvu/7UP
-	 eJv1B9dT6gTu87rl+mlUCt3IGptYG5hd+ZtvGx8f5yvgePpk0Va9V1l4Jn06IcDG6uQyb
-	 z2MrYAZYZ8tbUVPZEdccr0GyN3USfAsqjLEIZeHX3fOwmhqxs3NAP8w0C0VjbnfVmPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795170168;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=VajH4hmmm3l/s5njp3ywy3EhTP1RvSBqpJgoUnAALQc=;
+	b=nfNNHfnBwYIJwnAdNN4x+RjiWUlEHrgaYV9kJ6Vwh4WeBjrJ2kmj1YQVPRT04AcfSc5h
+	 Yatmq/X2yUxdFA7QnbGqu6bsnRgT7FtkeXfd8KlxV6pVLTR2UUgTB17imCBi5Z/JFU11W
+	 4k+qqAf9rzPyNhzgAQoZGkYp5fM/NcHy16GtJWCtL/opR57zoSz3hHun5K8ZUv+nWlRKs
+	 +cCX3c4u+UDT1V/MPhBP33DT+D+DW/z8mDzXdoM6EBZoouOR/822j6tHhwQP2zhLBp2E0
+	 9NoAYmF+htZGIJ8fQp3ZIYFeTr7+T/JVL2javXus1I9yCSGre1NdFhrrxlsRolbHVYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MNhkhKa0;
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=EYjTJVzC;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D7B1606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:22:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 103AB606A326;
+	Fri, 20 Nov 2026 10:22:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MNhkhKa0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D5A11F000C4
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:22:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795170165;
-	bh=E8EpAwpZYGj+7UCRgA7yP/4KDRZY1BSkeeABUDn2plU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=MNhkhKa0HsFSZXmcOxmWejOqFoQUmhIzCs31quLsBUgZrIWPWoqoaoUQ5Y6AmKSlT
-	 HGyuWZciDHf1IxQYcLEgnCbUOBX7V/IpYWPwVCupqAnVpAGTdYJL1VOxuBhAqUOa2p
-	 aP2UwZlnuhmnfpkHUMp8OVvlGlOtY+jlb/Gg7w+9b8PJwz94E/jOKpWNuaEbP2TX9T
-	 8VK2T/PrR5LfFlmcCaaHmUaNepQKIpXJ0WqHkN3NDvye5ImlQRqM7JvL4/cyqfIIIN
-	 hE4FpGjZ33/XK6xp2mfWxXSEh6gih+dZiZRIJ7xbIlWwfEuxtjvow3Gmeh3m7wW2/t
-	 wET7WXOkv3vYg==
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c505b2e1cb9so118293166b.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:22:44 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEFFgI4qB46Qgkj0FuPA42/AOnHuqijx18aCh4t/SVwVi+Lm+AqE1A+6LQxKvjDQ/ip2n/NANSHl7VlfAw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8fbJtXTZff6ZYdpCqJ/vthq8OhGPZHSEWwfnOJQt3xmDRk/X4W
-	3kc6UCaX+l2eUsfo+u4WZex2ubOTUcQy+gYF+fj0lboKYDi10jJXaxY9X2Loqs+VutkvEESgXbn
-	MfFBvpkKUDcS/xVEswHHfVUAD6BhTpXE=
-X-Received: by 2002:a17:906:694f:b0:c50:ff1c:22be with SMTP id
- a640c23a62f3a-c513aace676mr189356766b.16.1795170163723; Fri, 20 Nov 2026
- 02:22:43 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=EYjTJVzC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16AE31F000C0;
+	Fri, 20 Nov 2026 10:22:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795170167;
+	bh=VajH4hmmm3l/s5njp3ywy3EhTP1RvSBqpJgoUnAALQc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=EYjTJVzCHrpKNkeOYU6m51VaY+lGSn6aQnTIiC5KjghAJAxLAoO1LK/0zHAww7Frw
+	 6hRYv0RH7Fb9Mhsc+rgo3csGgPitjVw80R0dNY55Wpsz2xbL6hOzKkO6/zemGXL0Ch
+	 hN9ZMEffhKYRi08FRdl6vy50q4anK6osBtth0viI=
+Date: Fri, 20 Nov 2026 11:22:45 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Victor-Marian Albu <albu.victor.m@gmail.com>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>, christian.gromm@microchip.com,
+	linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev,
+	parthiban.veerasooran@microchip.com
+Subject: Re: [PATCH v2] staging: most: dim2: add missing Return: documentation
+Message-ID: <2026112035-persuader-jackknife-1586@gregkh>
+References: <20261104205108.1041666-1-albu.victor.m@gmail.com>
+ <20261105202110.1081296-1-albu.victor.m@gmail.com>
+ <2026112048-dimmer-ravine-ae33@gregkh>
+ <CAE5KA-NS5-yJXAHUofgmyCmWyjbjPSNdoQZi5+iPwZKabVbbyQ@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,38 +57,14 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119192007.198258-1-icb@fastmail.org>
-In-Reply-To: <20261119192007.198258-1-icb@fastmail.org>
-From: Namjae Jeon <linkinjeon@kernel.org>
-Date: Fri, 20 Nov 2026 19:22:31 +0900
-X-Gmail-Original-Message-ID: <CAKYAXd9sviaSnbKv1Fw_rGikGmd+KDDSVYvK3TLvAobOEamWsA@mail.gmail.com>
-X-Gm-Features: Aa3M54qv7yG6VtpuGjo2-6Y4wZRz8JNdIfGNAaVL_Qd3C1dh9sJ8xtOrdZUCBbI
-Message-ID: <CAKYAXd9sviaSnbKv1Fw_rGikGmd+KDDSVYvK3TLvAobOEamWsA@mail.gmail.com>
-Subject: Re: [PATCH] ksmbd: count the ACL header when bounding the DACL size
-To: Ian Bridges <icb@fastmail.org>
-Cc: senozhatsky@chromium.org, tom@talpey.com, chenxiaosong@chenxiaosong.com, 
-	linux-cifs@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	tristan@talencesecurity.com, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAE5KA-NS5-yJXAHUofgmyCmWyjbjPSNdoQZi5+iPwZKabVbbyQ@mail.gmail.com>
 
-On Fri, Nov 20, 2026 at 4:20=E2=80=AFAM Ian Bridges <icb@fastmail.org> wrot=
-e:
->
-> set_posix_acl_entries_dacl() and set_ntacl_dacl() stop adding ACEs when
-> their total size would no longer fit in 16 bits. The 8-byte ACL header
-> is added to that total afterwards, so when the ACEs take 65528 to 65535
-> bytes, the DACL size wraps to a value below 8. A POSIX ACL with about
-> 1800 entries is enough, and tmpfs and XFS can hold one. The security
-> descriptor built for a new file is then stored cut off before its DACL,
-> and a query returns DACL_PRESENT with no DACL, which reads as a NULL
-> DACL.
->
-> Leave room for the header when bounding the ACEs.
->
-> Fixes: 299f962c0b02 ("ksmbd: use check_add_overflow() to prevent u16 DACL=
- size overflow")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Ian Bridges <icb@fastmail.org>
-Applied it to #ksmbd-for-next.
-Thanks!
+On Fri, Nov 20, 2026 at 12:18:09PM +0200, Victor-Marian Albu wrote:
+> A few had no Return: at all so I added one, the others already had the
+> sentence and I moved it into a Return: section, because kernel-doc
+> -Wall only looks for that. Nothing needs this, drop it if it's not
+> useful.
+
+I have no context here at all, sorry.
