@@ -1,96 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.47
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795188037;
-	b=xfnK2s5h/CkG0BGf6xNHiHl1bLx9gI6ElQ6ZUrRfjY5S8xl5TYFWt6bW6yI6W2WeiDbf
-	 DUzZx2DHjA36Y24rZN/ozlTrf6cWQf0rboikG8xkELnUge0k4y9zAGECGdg6/ewraALF8
-	 o4da4po3+rQM2b/s6IljzgZTMdu1mvyLmuxvqndFhKtt92dpRP4pCYczNISnw0lUhp76S
-	 x9C0ctsN9YS5BBzMJ29YU9LRsO2H5pvk/l7qeELV4nC4gMaMjWiOgHs9Rk/894pRMC+QR
-	 F+3ZOoDLBSKVahQinHTjLbowmuIcQwd40I9Q4e8b1XQDMhDAEMD7NjK1VSN+iTV7gqg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795188037;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.45
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795188083;
+	b=vCG+gJsAEwgSI7By/OJx51022+cwZaXYHMh9fOmszNelxU2U5VVGT6VXdWCA05kXoMeP
+	 BeyimfEvcTIe+Gie2vmAKbgo4ItrbCgFDoQLSBoegIrST21F9O9zTnfn/vCc4u8XyZAW3
+	 8SufszgLg7uBDy2u9epo9wMFpnHZOGK1s/phtX4T4BMrYAP/pUmjaP6g4qbISUB1ZfzmS
+	 UkOVwK6y99j9H9nMsTUNJF2crCF6N94vsBQ1p9r9PUeUP8WJ+hN6XYkiR39QLPRUJEKKk
+	 L/lOFn8KgExpVQdwyC6uxC3BCBgvS2Xmu5PnJZ2uzkRzmW2igxWU8OqZkKUWr4sTASg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795188083;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=XAPGvEQrLB1HXvB/eqEUppDavW95bHQ7K6tJw/flOAo=;
-	b=CzrDFqd/jZ4tQ8Puxn9BLNu9c/JzqIhx0E2QJDrX5HQ8YeGnihMQn/wP1UycdtBvTFGH
-	 GIse5xOOB3dACgHGynWpzFTNVStEM7L3awZMvdqI6GytPcjPVqRAH6rIwR0Dbhtdtcb+O
-	 YK7KrIAoZ67i5R3qURcyTn9ic0rSg0Aq1hCC8jZyRRMP4wuFM9UGCHfkNYahqY22T+3eN
-	 7B7Rjmlhcpbo5h7plZ7eJAfRx8GK3pQSIMNRs46VVaK5cClv+jqUxsFYaEqjJ5rT2wGGa
-	 Bvm0cxPuHU6ONI+ZZogTDSBTWKPYH4bdHmBDRZNwdDTaVuyBC/RzVT3IBfAFpnT0ttg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=KrCLE9f0;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.47
-Received: from mail-ed1-f47.google.com (mail-ed1-f47.google.com [209.85.208.47])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Type:Date:Message-Id:Cc:Subject:From:To:X-Mailer:
+	 References:In-Reply-To;
+	bh=EOuNUplOgjccByi+i7DuzKPwQryobm9GZBpfnMCMmUY=;
+	b=e3HO04Vxw1c8mMij7SL8ml9TOnadYmKr8M34728Nbc/Om9muDVof/9wbVCIHVBTei7f2
+	 U3s5YwUTqj8yizgXMzcmvS53deo5kA3urte6BGw3kl+koVZcQqB/VeOwku9omqxyP12Bk
+	 2ZdcHh9jvUBnnthiVVqLFZn2HGu1+k68uYFJKaqp4EJwyO5kC2YA4VdwcPFK1Oz526vTb
+	 QWa4cCdcE2kE4+WEQxI7K5bki5EITqWiUOUXl/vFs3rnZj6K7NdvPufn9mEQmO+qVtt5o
+	 Hn7AL/eh2g5NcTpuXd0qM6x2/R7+DU8uWowy34+7AwG/554n+D6cW58qZUx2aOYKN9w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NS4+0sJS;
+	arc=none smtp.remote-ip=209.85.218.45
+Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB8B1606A331
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:20:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB8B1606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9729606A332
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:21:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9729606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=KrCLE9f0
-Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-6b2237b596cso2154451a12.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:20:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795188035; cv=none;
-        d=google.com; s=arc-20260327;
-        b=AWS72Rxk8aQQDvlE2TLoAYFy4FDCnR4ZnJG0N7Fus/EqDUrrxu0OPxuqydL1W9zpwj
-         ZCJDrFDgaSnuaZq+2gOOvqODxnUkqePM4/38cI4AFkhJc/2swxVWJeYvDqnWNoBXRD8T
-         2Bu1nIWhGlL9bwIkOrZHZwTLfb4GVEBgCznYmADvFAvrMiB5vZvT5G9kUUvuoTjLGO30
-         OfRRdOnBw5u38v880ET3V7naQ5SgenhD5xupo3SIZ1d/cXrml0XEG/c8t5U919zq/zLB
-         uAeesDW83RXODso7R6u+QpYzngH8E6KBjUxblxFQofaZwXbyykmN60d6EuymmWZGkxeT
-         QCNw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=XAPGvEQrLB1HXvB/eqEUppDavW95bHQ7K6tJw/flOAo=;
-        fh=wzSsMKsCGs/OuPQsTM1yAaR8pFrZSOkrO6Qn84so0Bs=;
-        b=LrKj6Ue/K8uC+j6MjrQbKyOrvAl9Tq6h4yHYUnKzodsTkoaT5p1I/rMj4PO+hePK3R
-         MRFv5AcI2ddN7uX0uLn66kNeMi7Z9gCtBDRbKKkHKWgBtLvHJpV4NxszYsuQ2j5s3hi6
-         oiPOc2bAMqxzqWzOZ1VbLuogGIYqsSh9q785NRqfdiky4d1KEcPuGFm46tk5WlkUArc+
-         qNS6TZe2RhyHXDtf8ujHCNy9r2ARzWHWPEkBpC3aZiWHEyD0K9i749NA1IlJ1TfEX5l2
-         b+kbmXZiD+Pzk56IVbUZNp/QRhOXEtxSGF1Sbdjsr6VEkh0Sg/lE/1cmgZvhD5qaJPk5
-         Q3gQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NS4+0sJS
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c4d427836e9so163537666b.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:21:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795188035; x=1795792835; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=XAPGvEQrLB1HXvB/eqEUppDavW95bHQ7K6tJw/flOAo=;
-        b=KrCLE9f0l5kQICrTLb1eNF7JtQCvVuF5pqZmRGYh90Wdtxtc2EQ/byEDmslVTkS6G+
-         Y//VKMfmofLsmNk/ui+8AMa7DPRNVJn7RU1PKbE37nSs9wL/SASUgwkuODsBC0fu0Dc7
-         spKgJLyXh2jcWB4ScKLkSdjpaI9+qpIG0aZnw=
+        d=gmail.com; s=20260707; t=1795188081; x=1795792881; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=EOuNUplOgjccByi+i7DuzKPwQryobm9GZBpfnMCMmUY=;
+        b=NS4+0sJSs9ZY/390/dC7VLJUTfAcS54lqeieQtRl8eH5yHWeiW5ytJUQmodv4DKhEJ
+         Piyk+uvIFd6cA17v/LQ32rQmteQ4JvXR1QZozak/uFldjGBchuAxoES2PNfUGoBgDTv2
+         RbPBJZsdPY1/23IPeY0lzOgNMKQtBhaW79XKJ+OjgBo5KzxR2zORITcFzh48Lc61B/4G
+         IpmH+hgmspro/l5uz2hxwnp5j764NrCPcIIHRgzCs3xPLWQwu9A3hyD4S+1gyNKuURVe
+         ByXWj6Mlvb+BbN3iPRxqpawWP9jlY2TCk6M4RWxqsGJ9tZX/mW7dUMoA+Kuqk7L/DFfH
+         KAPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795188035; x=1795792835;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20260707; t=1795188081; x=1795792881;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=XAPGvEQrLB1HXvB/eqEUppDavW95bHQ7K6tJw/flOAo=;
-        b=oidjHtb8EjQiVhbIttCQCrHWjz3tUFfDGHYWIxNSN+0fEtiu61fC4LVi5/gGS9wn9e
-         TwGqfo7K4EM7nk+1lAG9Y66CdJBBPSZBB2bMnFyBXN4hXWAB9glq5GiSs54Dcu8hX8Uv
-         nrt9MrATr75GfLOQe7o5xucLRe2CqkPfnLVTFp/L4fDM0oKLh98y6dw3asM2ngX0Pk1u
-         9ad3Zcfkler7+2dQP/BUnZVO8rtEfr3znA58Qr0WLGMshFXtctCuVclkGpepK/hBQF6M
-         voz9efxekIpVTAyrxnKmWrWy3Xv04sVVhJRkcLzRDTbnl+46rWnwFY/lYMsOeX4AL97s
-         q2jQ==
-X-Forwarded-Encrypted: i=1; AL+hErEkhAG14mK6+fB/TvEDgs22jfgPjd9lMYZaA5waPeedXHIHvfe52yZ7alEvI+6qp39SmjHxJNk2BTRgEiM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Uj0lRahNMgXOD4Sw9+sgwpIZvvxEum7Ut4sDIWbbLn1KmV5h/
-	XCGGfT2IDBKbyKNQQ7la8+3LqhWGoBZy+bEeVkdE0YTMLcbMztvC++6Ua5JXjfGLVd+MOYJZMfI
-	jG/IrFDIuk6FzNQUp/au+oRm2x6VVbZaYKG2cm29J
-X-Gm-Gg: AZFdTZdcD+kIWRPxS4wL3Dy6G1V/8COeUhE4AExmWGC8WkaEX9MzbPckZcRg3N6e9qK
-	0+OXeFZRVfICCMxczkJmFvpzUGbjEZMVMEEs5iI52A8OiAwG75r6ql/mpT/LAGb/xfa4YwgZGnE
-	SqhCxWQ/flXSAdFf+x8NJPYX3qo2gt5EzHd0l3JqBfZCPve0ZJVTCDr5W5jweEVn65BclbkKbT3
-	Exm+0IeL3BkmD16NqqnrFNZnEVl7AgUujdWqdYCo/VNEm6ViacGqNJdEzHHL5XM55v/scnrwvX/
-	tFkRy5eVMzI5wbW6HDFOtEvesArVUM/cLrsOTkvV9loPW4d2CO3c2+y7D1Gcti8zY99X9ConIb4
-	XIn1VIhr8E6+kxXPUD2JPljHSrpGOR9IZjAluin1NKuGE1KVuJXt0Pg8X
-X-Received: by 2002:aa7:c249:0:b0:6b7:d0c7:4aad with SMTP id
- 4fb4d7f45d1cf-6ba37c75ef9mr2328640a12.6.1795188034912; Fri, 20 Nov 2026
- 07:20:34 -0800 (PST)
+        bh=EOuNUplOgjccByi+i7DuzKPwQryobm9GZBpfnMCMmUY=;
+        b=YLvFGJlKxc+ju6R5nDGBlFu7XK15FX+ARuurn0rfC4ogI9BgOjnHTmAO9Ho2U5O/A7
+         YkYU6U0w3AuJ2Rww1nI/NS2pX4J6pFJ+Cua2+FeopGjqDA8yFp6ELQvOtm6dG2s5DB5s
+         CF628pbtudLzQliRFfkhx4dOrZYqCsluxVWJ7fU/KYeMmnBDXxlGJ5OoPQ3xX2q8L6vw
+         CkzpIXMWZe1gqSZR6K0+EWd2RJLRtqcUiCapTQLccgf5vzQ39miPBLlbG/Ogxe0yjpqi
+         4YTpXwQ2OCADjggMn+ScY4gCaegyOivssZfOm4foO+EUmFVDJfAx9Xt1Aml0jqhG9xlL
+         vYqw==
+X-Forwarded-Encrypted: i=1; AL+hErH5xYNoB78mfl9d9LOHJNG3Q7UocU/OhsX2vIhrtJ5iW3QiPbXP6yeOoan71ejYE7omEqS+opieshLbzDY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8tVgZjH8MyakPGwVIIF2CQ2EQY9uLh992x+4kOC5bRXnGcEbJ4
+	WaCuKjf9u3Sl9wWQUeMvIOZGY61NhONE/Fye2hyvA5RAnSU5/7Y5/R7S
+X-Gm-Gg: AZFdTZefsUNgnDA1d75gqKT6uXXG11s3NsMsjRPjSHT2J4DkA6t5/JS7UAAELPSOguP
+	y+eSTVcV3reDrkNbVaF6DUHCRai7ByjdvDIpzgMjETwSk/zZiZ6ujHbd0BxTZp+z5e2zRBGFg3U
+	jGjoIXg/tmnz44pYFWQA4o0zIuPmumVqUBQ0Pdd+TKOsUlUrjRKaqTdjwW1tnfjm1i6MEenojYF
+	e+dzB7+Ts/LPYfWlETSOjBT040T9SKxI1FYoAwhJkosn0f/mMkFn6Uj9KGWCHjm4Sigkx3kbmem
+	geJU6aTfwXCenV4Z20yXxAEdsPlKB1GJl5oAag+j98Zumde7xRThwoCAUi6cqhJlItf5OlollII
+	fC36Rm2CH0EkrfIDyauiWiZErRP1MN4ugSPOqKhLxydCQ1yMmOvOYsBHTBp4UjuijQ05911PehC
+	DmBm1A1zkSclJRz4AZ39nZi3pXeU6zpqCsD/FJmrWsuufi0nTM84RHliSegjJMzxaUl5HCW9/kG
+	TnVqIAG0ykFjPwxboDKZiJJTI+h59nVQF7lE+1VVX3MdgnowkwFNWvlHSaH7ukPhr7GKATMGZOU
+	DM6skW92FFnlkSlJUkqKMFgPkYWLCzrvgYfMZPn0erMbdIC/
+X-Received: by 2002:a17:907:9903:b0:c49:cdc8:10cf with SMTP id a640c23a62f3a-c513ac754cbmr269557266b.40.1795188080773;
+        Fri, 20 Nov 2026 07:21:20 -0800 (PST)
+Received: from localhost ([130.192.98.149])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c340df4sm7100009f8f.55.2026.11.20.07.21.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 07:21:19 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,55 +86,128 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261116205320.1621386-1-dianders@chromium.org> <20261116205320.1621386-8-dianders@chromium.org>
-In-Reply-To: <20261116205320.1621386-8-dianders@chromium.org>
-From: Simon Glass <sjg@chromium.org>
-Date: Fri, 20 Nov 2026 08:20:23 -0700
-X-Gm-Features: Aa3M54psUBrQPUKXYteeAD9WgtZ-YuEDe8s7JLMYNK5VihZIqFHf2DJoFUBm_As
-Message-ID: <CAFLszThHKUSDbiDqbmhSd7SDpMOvpeGcU_NdizYb1azYhejrow@mail.gmail.com>
-Subject: Re: [PATCH v4 07/14] libpydt: Add DeviceTree live tree representation
-To: dianders@chromium.org
-Cc: Devicetree-compiler@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Devicetree@vger.kernel.org, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Chen-Yu Tsai <wenst@chromium.org>, 
-	Saravana Kannan <saravanak@kernel.org>, David Gibson <david@gibson.dropbear.id.au>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Simon Glass <sjg@chromium.org>, linux-kernel@vger.kernel.org, 
-	Brian Norris <briannorris@chromium.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	Julius Werner <jwerner@chromium.org>
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=f7e29ba536d1e92db179b4c7b2dcf417c13b9e676632060f29334f2a5d8b;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Fri, 20 Nov 2026 16:21:11 +0100
+Message-Id: <DN0526U5C1RT.3AQRIHXPB86NS@gmail.com>
+Cc: "David Sterba" <dsterba@suse.com>, "Namjae Jeon"
+ <linkinjeon@kernel.org>, "Sungjong Seo" <sj1557.seo@samsung.com>,
+ "Alexander Viro" <viro@zeniv.linux.org.uk>, "Christian Brauner"
+ <brauner@kernel.org>, "Trond Myklebust" <trondmy@kernel.org>, "Anna
+ Schumaker" <anna@kernel.org>, "Chuck Lever" <cel@kernel.org>, "Jeff Layton"
+ <jlayton@kernel.org>, "Konstantin Komarov"
+ <almaz.alexandrovich@paragon-software.com>, "Paulo Alcantara"
+ <pc@manguebit.org>, "Chris Mason" <mason@kernel.org>, "Yuezhang Mo"
+ <yuezhang.mo@sony.com>, "Jan Kara" <jack@suse.cz>, "NeilBrown"
+ <neil@brown.name>, "Olga Kornievskaia" <okorniev@redhat.com>, "Dai Ngo"
+ <Dai.Ngo@oracle.com>, "Tom Talpey" <tom@talpey.com>, "Ronnie Sahlberg"
+ <ronniesahlberg@gmail.com>, "Shyam Prasad N" <sprasad@microsoft.com>,
+ "Bharath SM" <bharathsm@microsoft.com>, "Sergey Senozhatsky"
+ <senozhatsky@chromium.org>, "ChenXiaoSong" <chenxiaosong@chenxiaosong.com>,
+ "Darrick J . Wong" <djwong@kernel.org>, "Sean Smith"
+ <defendthedisabled@gmail.com>, "Andrey Albershteyn" <aalbersh@kernel.org>,
+ "Pedro Falcato" <pfalcato@suse.de>, =?utf-8?q?Pali_Roh=C3=A1r?=
+ <pali@kernel.org>, <linux-btrfs@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+ <exfat@lists.linux.dev>, <ntfs3@lists.linux.dev>,
+ <linux-cifs@vger.kernel.org>, <linux-nfs@vger.kernel.org>,
+ <linux-api@vger.kernel.org>, "Theodore Tso" <tytso@mit.edu>
+Subject: Re: [RFC PATCH v4 08/10] nfs: add provenance time (ptime) via
+ FATTR4_TIME_CREATE
+From: "koraynilay" <koray.fra@gmail.com>
+To: "Amir Goldstein" <amir73il@gmail.com>, "koraynilay"
+ <koray.fra@gmail.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261115180343.576773-1-koray.fra@gmail.com>
+ <20261115180343.576773-9-koray.fra@gmail.com>
+ <CAOQ4uxgoNsOH82FyrCxc+qSoid_CFmbmpL0qgWFw-e8E689fFA@mail.gmail.com>
+ <DMZJ4PL1JVA4.2YEB7EPYJR5Q7@gmail.com>
+ <CAOQ4uxi6h9BBP7pf4sR+gc2+4XtkEgbxXZha45iZzdB_wGFVgQ@mail.gmail.com>
+ <DN02S2XNGRZD.1KNOZJ0GGDJNG@gmail.com>
+ <CAOQ4uxh+d-wNC0aWLEexPFz7zj=TZjLyu61kaEmwBx9_hKn2gg@mail.gmail.com>
+In-Reply-To: <CAOQ4uxh+d-wNC0aWLEexPFz7zj=TZjLyu61kaEmwBx9_hKn2gg@mail.gmail.com>
 
-On 2026-11-16T20:52:57, Douglas Anderson <dianders@chromium.org> wrote:
-> libpydt: Add DeviceTree live tree representation
->
-> `pylibfdt`'s `Fdt` and `FdtRo` classes operate directly on flattened
-> device tree blobs, where inserting or deleting nodes and properties
-> shifts subsequent node offsets. That works well for in-place queries and
-> localized edits, but makes multi-tree comparison, structural diffing,
-> and bottom-up tree construction (as needed by the upcoming `fdtfactor`
-> tool) awkward and error-prone.
->
-> Add `pylibfdt/libpydt.py` providing `DeviceTree`, an in-memory live tree
-> representation where each node holds `props` (a dict mapping property
-> name to `libfdt.Property`) and `children` (a dict mapping child node
-> name to child `DeviceTree`), along with `unflatten()` and `flatten()` to
-> convert between `FdtRo`/`Fdt` blobs and live trees, and helpers for path
-> lookup, node creation, and pre-order traversal.
->
-> Add unit tests in `tests/libpydt_tests.py` covering `DeviceTree`
-> round-tripping, subtree unflattening, duplicate-name and corrupt-tree
-> rejection, and navigation helpers.
->
-> Assisted-by: Gemini:gemini-pro-prerelease
-> Signed-off-by: Douglas Anderson <dianders@chromium.org>
->
->  pylibfdt/libpydt.py    | 184 +++++++++++++++++++++++++++++++++++++++++++++++++
->  pylibfdt/meson.build   |   2 +
->  tests/libpydt_tests.py | 106 ++++++++++++++++++++++++++++
->  tests/meson.build      |   2 +-
->  tests/run_tests.sh     |  13 ++--
->  5 files changed, 302 insertions(+), 5 deletions(-)
+--f7e29ba536d1e92db179b4c7b2dcf417c13b9e676632060f29334f2a5d8b
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Reviewed-by: Simon Glass <sjg@chromium.org>
+On Fri Nov 20, 2026 at 3:55 PM CET, Amir Goldstein wrote:
+> On Fri, Nov 20, 2026 at 2:34=E2=80=AFPM koraynilay <koray.fra@gmail.com> =
+wrote:
+>>
+>> On Fri Nov 20, 2026 at 7:45 AM CET, Amir Goldstein wrote:
+>> > On Thu, Nov 19, 2026 at 11:10=E2=80=AFPM koraynilay <koray.fra@gmail.c=
+om> wrote:
+>
+>> >> >                    fa->fsx_xflags |=3D FS_XFLAG_CASENONPRESERVING;
+>> >> > +                 fa->fsx_xflags_mask |=3D FS_XFLAG_CASENONPRESERVI=
+NG;
+>> >> > +                 fa->fsx_xflags_ro_mask |=3D FS_XFLAG_CASENONPRESE=
+RVING;
+>> >> Uhm, why both in _mask and _ro_mask? If it's a RDONLY flag shouldn't
+>> >> it *only* be in _ro_mask? (same for CASEFOLD)
+>> >>
+>> >
+>> > Good question. Maybe
+>> > I guess if you want to follow some percent
+>> > FS_FL_USER_MODIFIABLE is a subset of FS_FL_USER_VISIBLE
+>> > but I think that exporting ro_mask and _mask is going to be easier and
+>> > cleaner than rw_mask but not sure.
+>>
+>> Hmm I asked that also because you said in the xfs shared extent thread:
+>>
+>> > The advantage being that it makes the interface symmetric.
+>> > User can alway setattr() with the buffer they got from getattr()
+>> > and instead of randomly ignoring flags in set, the fsx_ro_mask
+>> > along with fsx_mask defines the behavior exactly.
+>>
+>> But by putting the ro flags in _mask too, a user would have to clean
+>> them out or vfs will reject the call with -EINVAL/something else, since
+>> in that case the vfs would see the user say "I want to change this [ro]
+>> flag".
+>>
+>
+> That's just a matter of interpretation.
+>
+> You could say that if flag FS_XFLAG_CASENONPRESERVING
+> is in ro_mask then its value may not be modified and fs needs to
+> fail the set
+
+Yes, that's what I was thinking.
+
+> if the user given value is not a match to the current
+> kernel's value.
+
+Since this is a new API, I think it's fine to -EINVAL if it's in _mask
+anyway, even if the value is the same, no?
+
+> Could be used for an "atomic flag set" operation, but I think
+> this is taking this too far.
+>
+> I am fine with xflags_ro_mask and xflags_rw_mask I guess this
+> is the less ambiguous option.
+
+Yeah I think this is the better approach here, I'll work using that.
+
+Thanks,
+koraynilay
+
+> Thanks,
+> Amir.
+
+
+
+--f7e29ba536d1e92db179b4c7b2dcf417c13b9e676632060f29334f2a5d8b
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRJ2XvJtXGwULYEerQ0bnTtJTDoOAUCawBlZwAKCRA0bnTtJTDo
+ODe1AQCh/kbA9HU+8r+s0ju3A1YAvNO0gdrrV7t8u43sPfGVSwD5AdqpmBpPOV/5
+L+Tc9hTqkeeZYhiO4l4Sy3W9VwznRwk=
+=IwFj
+-----END PGP SIGNATURE-----
+
+--f7e29ba536d1e92db179b4c7b2dcf417c13b9e676632060f29334f2a5d8b--
