@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795147427;
-	b=tWYWEuLCeimsgXL79fjFuEQye548c0z3JbLF7/8yfw0jYY7un5S9Lt3ZQTAxqwQUDjDQ
-	 jjv6l6Oy2pKbKqQkPXD2uQiPN+5LsVxKaHLlG8xiBUtQK3ZyS9SKpDq9x30UkcGsM0Gwg
-	 qx2Xmsux0j2bH7WwMnx8qXfELlNdKcSrgYg/QMJ4rObK+idBAqFvhUG1MYTmUl19cZgPo
-	 tAhOv6v/bD4kiwGJ8u2YYNdIeNwikxtj11Ewp0yQKjcnCUbdBp7rXCPRBECJJu/scOKSp
-	 pCqlGitokA4j0z68V3SrztPLRklvEYjKJbxMcMeVvRzNqzKVxH9mS5pgAxWgTvTmung==
+	t=1795147431;
+	b=POeq/9EeJPTnFUcomXGa/Wf7XYjXfG2AyaeRfsPCERKcMiqO0TLmH9VNTcq7Fh9KBmU0
+	 Xtbnkn0Y0mThrYADTftIUF9tuP4Xe183rokgpN03/kgyEEOro4rqzC09hQTUU4FnZwAgV
+	 Hql+EiVZDnF2fGzddn8aEhLx7SlZgVyHFQDEdN4TzwyUF7zkydDPZeaxvMbs5cUqqP3kb
+	 0ywtIJirOsL6I92xTcQ3vNfo1IrHij2nBLoUKYttuunW9a9bm+k8Ddy+BpDMcvkLW/56Z
+	 yRqSStpo8zfqr1BmnY9jJb2SGD8K9OCTgYwx4EN9MM+fZA2oOfdFNOqJ25oxSHjn8wQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795147427;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795147431;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=KZ81FuIDGfauj5HCBbvp9ZRfo5q4ugi5e4DfyuSEILU=;
-	b=dt/uGyQuyDI1lI/MOGsMUaAheCSGIEKoGafUu3ThAWkxnVMtDyqxFX4k4XFtFfrbyMLA
-	 TU2mXRx8dd/LC+fv5Pu9EoI7KKpbv5WXjjjvMlVPlXr6BmfNI/3LTg28eLhGHo1hT47zT
-	 JO+LodHwE4P0tnLHIpUk6v92faR63ATyYpYDNcXjmvq2w8BsAKxtMjzQQdgiQVDl6ZtMo
-	 iueKa1X8dU/e813Fcqoe+yEzrFdtpDQjO7i8bT5tekHfa9ozYGoAzMFurbcE9xFYm8XLk
-	 B1uae8vSC+L0ZYeG7Eshs2oFaUZyw5NDi95Q6QPS5jSMvxfPWXAHHMsxxhLlD+JK8sQ==
+	bh=zePSK3NYQ9Uq2qwAbmJwQ8LjQR2v+Q7ZVPo8eNiOxkM=;
+	b=mIw9eXnTZf8QGqJs6D0qJIOeVXShhT5BCZrm1waqUmvcuK2iXQ0vFkyBOxQvDutnw0j1
+	 MaYApmCcfg/lGQ5sxTBOgo4Ai87hF5KdTbB5vpqsQ96h3CdzqQ1Rmf32ql0f5HruM33LB
+	 bAuxZCbriWsfRBjMTcgdXt/QCPgalLv9WgTm862PQiT7P8tC2z3UiJdlfvuJR/N++ynL9
+	 DbalPcn3C9D3bJ3JQNHQWPeleFojjOoV+znEpFzWvDYKVC0Xdgej+KLBIHhlnOJQ3C7gL
+	 ZVifVfMT32Ulht+aKjnIj3ZIODdm3l1anvktWvZgItE6zO+/v8aL5Xdxkfmyd2p0rAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vndrVIpC;
-	arc=none smtp.remote-ip=74.125.82.178
-Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZTn2V4zh;
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 686ED606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:03:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 686ED606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 756DD606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:03:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 756DD606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vndrVIpC
-Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-372bdb942dbso581578eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:03:47 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZTn2V4zh
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-38431138772so541578eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:03:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795147426; x=1795752226; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795147431; x=1795752231; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=KZ81FuIDGfauj5HCBbvp9ZRfo5q4ugi5e4DfyuSEILU=;
-        b=vndrVIpCsuT7a2d1qhduZK4+MPZq4hqIwq9iqdd0kKZzaOPRDkqHqMT43k9LyvMAi8
-         zZEtEk+SWPX6p+GgrPuv2svTblYwhl1Npzua4uNT2xGduVeavSEyBW98Yw3LYfwxhZQK
-         AYR/QTTZuHVNUBHp1pqvRJnr9clUrKSALLhJJzxDXgdKPGrFK7c0XwWxQlVz0v8Nw8Np
-         4y/l9E8PlVV/e2jDWwEJBMSriGLyWUY+0WTxiPcsD7bvfLx7zjvNoRsRtvNzVw8y6BW4
-         Ozde+wUd2dKvvmMfKwm8rHhyuAyiJq2SJwTQs6AUIpdCYCOWM/PtnwcLTrDdmoGM1Dkp
-         3cOg==
+        bh=zePSK3NYQ9Uq2qwAbmJwQ8LjQR2v+Q7ZVPo8eNiOxkM=;
+        b=ZTn2V4zhkqpYSqWthpIsCR6D9kHAVOel5gx+/bF0Pa7LpaMbourpUODFY7ScmVbkTe
+         Nrt1ZwRwC6LqoDaD9i6dqxm12v5qFKtevpbhkmJqNq/sJ9w8UKJY0musbXEtVjq6ML1e
+         kjPRwvWamI/muRXW40E3+TIh9g9W0A11RfePcFUTjCEb+Nbn7HQrug20OqvHwvlSSvhN
+         bwFDrNGqGrzzjF0zyvT1rX8KJ9iBIdkYesUljLzQIClv/gVxD7jZNhO0b4bpGYQ/azvX
+         /NYwOlfKz694YkrFrKuVkssI+YCgHcnQ6pQrOcXzN0W5P+mehxDAKhgGi74zAam8/ehb
+         tUVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795147426; x=1795752226;
+        d=1e100.net; s=20260707; t=1795147431; x=1795752231;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=KZ81FuIDGfauj5HCBbvp9ZRfo5q4ugi5e4DfyuSEILU=;
-        b=IiD8YKVjXm0P5gF1MxbeR5FzfGfyViC/ddJO+ARCu34aOKQiFNvVtV3RMR09ZeQGlY
-         ES5/WSFU3PUtNWiSVQ4spjlmpC881b5fkUl9fWuEgQ8LPEj4jLx1xBXbMlOGZ8mDr8sa
-         bCzQA0766w5xWnQXuwQDsoohCHz9dXAmqnbsLCY0fXkFiMvdGiATXr83Impg0nFrwphW
-         K0JsY1rhAYICKTp1gaWqSIMPq4IG57Tva0rNkYqLLsH/pCgh89PBvRoOAsibRetXTSVV
-         D/hbnCmSEdN4S83K726hFvGtJd2US2uGjf4Ss2XZ1v8Dq/WYAvn3wLxkwEWx2u5uAmER
-         1Fng==
-X-Forwarded-Encrypted: i=1; AL+hErHFsokpKWCRBfpBVdTEQqboSS9v5ozPjQHNW8tGqUD+mR+bj0ODiqzvFKbmZyzPO+4+6w8KF+urhOnjUmg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9dd/ong5yeuxl7SFvhDC7wfSptmxIHGwPmYDKfnmoDLxjPikKD
-	41UpVHO+Eezo7BySe0XVmzpnWp4At1k99MfTOEjjw0KdUqZs2trDPfBy
-X-Gm-Gg: AZFdTZeg9uwZICg1AVNAkIBD5GtriVGoEzwG1DXWntAU/rgvjuUv2E8JOwFMgBZB6Ik
-	OhTqojLXGuvK3eDXehEwWXDtd5qIj5KakVO18zbFVXqP9/3svZ0jCHyhVHdz3WXwinBNV8KPpmr
-	Wxwgil4Xlq0MN8hJZ2IuQfo+/Ipc6xVX0jdNLBcPPU92pqTY6o/SnDL5a0p0zTkOi/gicaFg2bA
-	9KB0Qlq961DLPmOEHWlJg5KIY6jrOGJJNc27Al4BTb/nrc9ACyBkQKlOnyshL/iYIWhY8QHvKR5
-	MoA1koIpkAaayL1PauVLWLnNam9nkXlf8nhibNbsvs4kT5AhLuMUDzJNNUD66cWbSPziT1cA6lA
-	w25qCMBFBJXn8COhJgEz+zOUU8+mzpVhNeW/1n2CjtJeTEZwIXlpm8YUUz+pmYWvR7+ENe859ge
-	APb59aBPuWRDgBZ8B/EvnzEiEji6iO3LVVEvKgQ2g0UBrZT225Mhwg61Fsf6hxjkjh/QS+mUjhh
-	jjwcSrmRpZ7y8WgptpzhJA2sMUsyRWU6zl1m4hblvarbCraW4LTcqC+3QmwY5CCaJPol3xTBED+
-	VV83ziSzQCRf25+tDOx8Sae00LRfavUsLg==
-X-Received: by 2002:a05:693c:83ce:20b0:369:f961:ccf8 with SMTP id 5a478bee46e88-3856f65e0a0mr1698374eec.19.1795147426535;
-        Thu, 19 Nov 2026 20:03:46 -0800 (PST)
+        bh=zePSK3NYQ9Uq2qwAbmJwQ8LjQR2v+Q7ZVPo8eNiOxkM=;
+        b=rZRJmUR/8bl7j4cV9iFXJGdeeSk3igEyRw/5wZvtDbrcu10msUFPD/PszOuY6dDGof
+         LNhguIDMtyjpDen293Jy4+UdoqnGRi1GFHjNlkpwcUu4bjw4y8WyohAyTw73G7ZzpGXW
+         Tl7POgh2Zlu/ND79Fu+dW64qYzLyOxPNkVUw2PrmIZqFVL4zKbHDxohgwKCHwPugoNRk
+         P7b0QliyKhnzNswzArno2G6T1rMnsX9aFyl69hhUR+zjIM+o6f0CA6M4Nd2cF4IJGuED
+         Sqgbt5esaq77dzfB7cni8a9q6flPGSH8NnPkYkPrWUIA4/9bTJP7uGQGiVPUptsLsOVE
+         92iA==
+X-Forwarded-Encrypted: i=1; AL+hErGkry7vCnJfJCNdnlofErJhGTam8JxVOFMVIaoyyKQ3u/lLriwnZpm90JLTPVOyoqYG112anJuquvTtngE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9utDRiSIkq/VlEQ+x6zCwfdpMeQIyEncx6fUMGQPkBOE9a79t8
+	ljzGLBbZN/8PeEDN/TLNUI9CmTxHh0Cc1TcdZXbqyxzJqBaYZ9SSrj1C
+X-Gm-Gg: AZFdTZcn8kDexqMe+73T0iI0abZUa/Jh79ux8uWczHXpAYoMUHJuGVvXwl0rEiVeacs
+	ZbuVNT4Imph/MfeFo27Tq2NBkkOcWFl6e2sj2QW3nyJOdKJRxRuCwSMcL/mbHZC9fonhSqjWk1S
+	sfvzyiZ5B5ktw9HT080xGTx5J78GDZcigPdM5MzD+U/iLZKfzK+1pw42LG9eG+FwdgexoSOciw4
+	mYUi7nXPfz/PF7JoahEhkAfHK7+6ufFrkHHnEiZBxB8EqGUueYQ1pbw+0WwVZftu4T87SqxTzAa
+	JxOXCJqB/hiZo74gy/zurF4TLOE1FyG6J8vZLL6YLo6q7JNfM0cWtESagkv+Lx6yCXpP78jWnO5
+	SNn8SBK5R0JyK8OskIGPpqk1gzpxushUJo7SxY+eoZBA8Olgryof3FJ1MHN0mUcBhzPNj+daAMY
+	rbX/DDKbTwL+6Z9dSWL223u6TrpPcndbLjJvDkOD0tzkclEg6xx/7/WG9ka7KzqXlGUIKbTgT9o
+	wAyI2hzRGLKbJBkK5DBkE1J35VRPCzATuX4Z/fy2L6vbLdRGHQY2ojpyNjAHydqh5B1CZhu2+DN
+	7l1c2EBoFlH9e8vudKAtzjol2J56sfFGpg==
+X-Received: by 2002:a05:7300:ac82:b0:385:4b9:18f2 with SMTP id 5a478bee46e88-3857093f077mr2141216eec.21.1795147430620;
+        Thu, 19 Nov 2026 20:03:50 -0800 (PST)
 Received: from pve-server.rlab ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm3246104eec.6.2026.11.19.20.03.42
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm3246104eec.6.2026.11.19.20.03.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 20:03:45 -0800 (PST)
+        Thu, 19 Nov 2026 20:03:49 -0800 (PST)
 From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
 To: linuxppc-dev@lists.ozlabs.org
 Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
@@ -88,9 +88,9 @@ Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
 	Nicholas Piggin <npiggin@gmail.com>,
 	Shrikanth Hegde <sshegde@linux.ibm.com>,
 	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-Subject: [PATCHv3 04/19] powerpc/mm/book3s64: Rework native_flush_hash_range() to remove conditional locking
-Date: Fri, 20 Nov 2026 09:33:03 +0530
-Message-Id: <d485e7b2a344ea9005f69072086c3c1f214f7695.1795147055.git.ritesh.list@gmail.com>
+Subject: [PATCHv3 05/19] powerpc/mm/book3s64: Annotate the subpage-protection PTE lock
+Date: Fri, 20 Nov 2026 09:33:04 +0530
+Message-Id: <2f7b796319697323ba44241bef7d5a979213b79d.1795147055.git.ritesh.list@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <cover.1795147055.git.ritesh.list@gmail.com>
 References: <cover.1795147055.git.ritesh.list@gmail.com>
@@ -106,128 +106,36 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
 Clang's context analysis reports:
- hash_native.c:851:2: error: raw_spinlock 'native_tlbie_lock' is not held on every path through here [-Werror,-Wthread-safety-analysis]
- hash_native.c:868:3: error: releasing raw_spinlock 'native_tlbie_lock' that was not held [-Werror,-Wthread-safety-analysis]
+  subpage_prot.c:83:2: error: releasing spinlock 'ptl' that was not held [-Werror,-Wthread-safety-analysis]
 
-This patch reworks the native_flush_hash_range() function to remove the
-conditional locking. It fixes the clang context analysis reported
-errors. However, this also simplifies the code in native_flush_hash_range()
-due to various if conditions.
+pte_offset_map_lock() holds ptl when it returns a PTE and
+pte_unmap_unlock() drops it. However since the lock is taken inside the
+helper, which is not annotated, so the unlock in hpte_flush_range()
+looks unheld.
 
-No functional change intended.
+This patch fixes it in hpte_flush_range() by adding the needed
+annotation here. IMO, should ideally be added to pte_offset_map_lock(),
+once that happens (since it might need larger enablement), we can remove
+it from here.
 
 Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
 ---
- arch/powerpc/mm/book3s64/hash_native.c | 88 ++++++++++++++++----------
- 1 file changed, 54 insertions(+), 34 deletions(-)
+ arch/powerpc/mm/book3s64/subpage_prot.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/powerpc/mm/book3s64/hash_native.c b/arch/powerpc/mm/book3s64/hash_native.c
-index 6bad0545b57a..2a852dd5049f 100644
---- a/arch/powerpc/mm/book3s64/hash_native.c
-+++ b/arch/powerpc/mm/book3s64/hash_native.c
-@@ -792,6 +792,54 @@ static notrace void native_hpte_clear(void)
- 	asm volatile("eieio; tlbsync; ptesync":::"memory");
- }
- 
-+static void native_flush_hash_range_tlbiel(struct ppc64_tlb_batch *batch,
-+					   unsigned long number)
-+{
-+	unsigned long vpn = 0, index, shift;
-+	real_pte_t pte;
-+	unsigned long psize = batch->psize;
-+	int ssize = batch->ssize;
-+	int i;
-+
-+	asm volatile("ptesync":::"memory");
-+	for (i = 0; i < number; i++) {
-+		vpn = batch->vpn[i];
-+		pte = batch->pte[i];
-+
-+		pte_iterate_hashed_subpages(pte, psize,
-+					    vpn, index, shift) {
-+			__tlbiel(vpn, psize, psize, ssize);
-+		} pte_iterate_hashed_end();
-+	}
-+	ppc_after_tlbiel_barrier();
-+}
-+
-+static void native_flush_hash_range_tlbie(struct ppc64_tlb_batch *batch,
-+					  unsigned long number)
-+{
-+	unsigned long vpn = 0, index, shift;
-+	real_pte_t pte;
-+	unsigned long psize = batch->psize;
-+	int ssize = batch->ssize;
-+	int i;
-+
-+	asm volatile("ptesync":::"memory");
-+	for (i = 0; i < number; i++) {
-+		vpn = batch->vpn[i];
-+		pte = batch->pte[i];
-+
-+		pte_iterate_hashed_subpages(pte, psize,
-+					    vpn, index, shift) {
-+			__tlbie(vpn, psize, psize, ssize);
-+		} pte_iterate_hashed_end();
-+	}
-+	/*
-+	 * Just do one more with the last used values.
-+	 */
-+	fixup_tlbie_vpn(vpn, psize, psize, ssize);
-+	asm volatile("eieio; tlbsync; ptesync":::"memory");
-+}
-+
- /*
-  * Batched hash table flush, we batch the tlbie's to avoid taking/releasing
-  * the lock all the time
-@@ -845,41 +893,13 @@ static void native_flush_hash_range(unsigned long number, int local)
- 
- 	if (mmu_has_feature(MMU_FTR_TLBIEL) &&
- 	    mmu_psize_defs[psize].tlbiel && local) {
--		asm volatile("ptesync":::"memory");
--		for (i = 0; i < number; i++) {
--			vpn = batch->vpn[i];
--			pte = batch->pte[i];
--
--			pte_iterate_hashed_subpages(pte, psize,
--						    vpn, index, shift) {
--				__tlbiel(vpn, psize, psize, ssize);
--			} pte_iterate_hashed_end();
--		}
--		ppc_after_tlbiel_barrier();
-+		native_flush_hash_range_tlbiel(batch, number);
-+	} else if (!mmu_has_feature(MMU_FTR_LOCKLESS_TLBIE)) {
-+		raw_spin_lock(&native_tlbie_lock);
-+		native_flush_hash_range_tlbie(batch, number);
-+		raw_spin_unlock(&native_tlbie_lock);
- 	} else {
--		int lock_tlbie = !mmu_has_feature(MMU_FTR_LOCKLESS_TLBIE);
--
--		if (lock_tlbie)
--			raw_spin_lock(&native_tlbie_lock);
--
--		asm volatile("ptesync":::"memory");
--		for (i = 0; i < number; i++) {
--			vpn = batch->vpn[i];
--			pte = batch->pte[i];
--
--			pte_iterate_hashed_subpages(pte, psize,
--						    vpn, index, shift) {
--				__tlbie(vpn, psize, psize, ssize);
--			} pte_iterate_hashed_end();
--		}
--		/*
--		 * Just do one more with the last used values.
--		 */
--		fixup_tlbie_vpn(vpn, psize, psize, ssize);
--		asm volatile("eieio; tlbsync; ptesync":::"memory");
--
--		if (lock_tlbie)
--			raw_spin_unlock(&native_tlbie_lock);
-+		native_flush_hash_range_tlbie(batch, number);
- 	}
- 
- 	local_irq_restore(flags);
+diff --git a/arch/powerpc/mm/book3s64/subpage_prot.c b/arch/powerpc/mm/book3s64/subpage_prot.c
+index 37d47282c368..d641c35c408d 100644
+--- a/arch/powerpc/mm/book3s64/subpage_prot.c
++++ b/arch/powerpc/mm/book3s64/subpage_prot.c
+@@ -73,6 +73,8 @@ static void hpte_flush_range(struct mm_struct *mm, unsigned long addr,
+ 	pte = pte_offset_map_lock(mm, pmd, addr, &ptl);
+ 	if (!pte)
+ 		return;
++	/* pte_offset_map_lock on success returns with ptl lock held */
++	__acquire(ptl);
+ 	lazy_mmu_mode_enable();
+ 	for (; npages > 0; --npages) {
+ 		pte_update(mm, addr, pte, 0, 0, 0);
 -- 
 2.39.5
 
