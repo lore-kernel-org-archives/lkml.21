@@ -1,100 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.169
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795195897;
-	b=q6BxDdw0+gESzrGZl6Mb6mNHMBLbsDhqZnlopkit9jMSTKW26kiynWGy77ZXO8t8pX54
-	 N0MnKp5tJjtNAcIw0tDArHYG3AEvV0fKwGXheXfT03DPmWiCy8CNXuWdy781vBuZ50c50
-	 rDq9qIq8sPYK1ERuBeH2W2h+2aRNy+pd+BNVYhHbhkWxUcv2CnzzfTctpMnD/aEESUvoT
-	 jAYonB18AonoM16mEBmR2HivbnLPMb069gGoRwKggxw0IRA7K021ufQ/tNUYfF8AfumxC
-	 +ZJ8+RI4E4Y4kZD6MrYv6fUBDe2ZzrwPg6b1WYRZmS1Lo8Ry8GaDqi7wTescCUQdabA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195897;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=TI7DZVXU6YK/vkfYgR8KztTLGwad0zi129B1pm8/11Q=;
-	b=bMpUsnYPdQBporA3pNs8+uecd6PZW1kileLLuEPN4l6SMbdTHZiQixeu7/7CNdi7KZee
-	 yYF2TxG6BXq+eD32Movcpu9KbaOfCFh0gihBCiqCXE7N+xKXnxOWMVE5kcDKGALiyHqgB
-	 +iqm69IUFUWK06E5+/ExFiYkRCFlil9hdt3/zzLf2+gJZtILBsjJfJ2WG8CQUfOyHGpxk
-	 IocmeDfedNfAVg+AvMw4PeD+9SoirNH3oHqXGukTyzsWS/7n+3PGqt1wB5u2+rVIxuCT6
-	 6jpANGhJuclvepN6knKkQHyEvlBJ+RWsKI19ee221auG1po/BNyhtKpGOsHP0SIeK1g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Ak2bScaW;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.169
-Received: from mail-qt1-f169.google.com (mail-qt1-f169.google.com [209.85.160.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.63.66.53
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795195893;
+	b=ja8UYysfHN2jaj+4a+tOoydfZV2uEoLWWR8jKzTQYgoIVcNBrOAHLd7Xl1VwovezHDpU
+	 yUNxv72U1tTBl1n4O4Ua+m1NHOFCYeIDsKCKinvdwpHvNoNOa1ai0ZFlQXciUAOkfC52v
+	 qmedVVepq+gC6K3dTgIBna+PwO/AotEj/YYE5ntJaNmWJcYkntv10ST7llNp7EjR9+QQH
+	 3Jc6StHgM8nAqWI4FtVdvQxObFdK36QR8UFgoiG9T4t19n8OaLfLAB2RZZ8e6VFHcRY+P
+	 7YDhZQ6jOWa5xH2xmni+I/0eZgupRpdZph7lHzcvC9a5vSeQxHsmbMxiM5jh8r+ouzg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195893;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=RmXXL6prA+gj0EqPX17yTWiJ+j3T7ElTxOwOyMvMOIA=;
+	b=1PgTnK3P4hRk2XrJ0C+p9MF8OWH3PHlfnGB9NhYkP4eV1gqYvz2hlLiU3bITn0BTM6Fr
+	 5jHcfDa17dnbSwsqfRYdOD0a+fNd1OVHdZVJ9Yn9ZzzY+H4PmlYCkEpWNwf/jTimAgJAp
+	 Y0wnbu9Ahz/0J3TH9PCAjBqyaFhe8TRw/1r8SSpV7qFLpT0HlC4G+5WqhNSme7XlDOwr+
+	 cUcIVHOZuTOx/ZyN/jWEgol4Tt9N8b4d8JePh6LkHH3GciLu+GNt6/oHjyYSoofm6uEkJ
+	 2/VZm+YCL95yWja8Ncr74407S/AiWUM2LsagVDbyZ461pEzfix6sxVZUe8bMcd2vKEA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=hallyn.com;
+	spf=pass smtp.mailfrom=hallyn.com;
+	dkim=pass header.d=hallyn.com header.i=@hallyn.com header.a=rsa-sha256 header.s=mail header.b=BmLBlAGK;
+	arc=none smtp.remote-ip=178.63.66.53
+Received: from mail.hallyn.com (mail.hallyn.com [178.63.66.53])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5DAE606A334
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:31:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5DAE606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4FDB60A261A;
+	Fri, 20 Nov 2026 17:31:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4FDB60A261A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=hallyn.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hallyn.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Ak2bScaW
-Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-55be673e029so306881cf.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:31:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795195896; cv=none;
-        d=google.com; s=arc-20260327;
-        b=P7ZAzCtsm+2MALlZxkxcDI+P9NIdPsHxnPRBbLTYaq7Olgxpt09B+tk4sVRdLTnwPW
-         Qwr1lYfOAtK/akUM1PcFKw3sbDkomOfrjIuVV8Ft3zSrXOLOMR6JQAIWRIpGIQm7e57r
-         nWVW46t19tfagdF6fBNORUf+6wta5NabPld6ciTq4XWT1/7n5vk5YuTxR/3lHITu8vpv
-         xbWenhJb3/saLfnuY1r5YF2fOo7c0WRwKVxFvUdZil7GiM8u9o6LDe0JqtNQ3ihZUxJA
-         xz6Z3OX7EKTlxInqcQeUY3TW5eh9c6BadE1v90KzM9IWv8bCiGuJQPB24aH3YvuVz1PP
-         q1ug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=TI7DZVXU6YK/vkfYgR8KztTLGwad0zi129B1pm8/11Q=;
-        fh=1kLi2YkpEEjjjs3Tp2YYJFOhtDlrpy2/CAS+bNXM/F4=;
-        b=MUanhSJQ4w6s2x45Dyio/KlaEfliACjeGPRK1szRIOITpasKVfZjsiy5L0x2tJDreE
-         eXzxdPSDqgv9PNdW6mVcvfzgErhjKHxAOvjcmlYgL5Usvs04pC4tukBXrkjcaNqErmJw
-         D5aEVSQOBL22/ZJDJUA55R8AlNfC3JZxIpofZDTTpwpjr9pvLPTjNaAvLTNty6LgXpKp
-         3SVRxQ6TV6l/FhRnWpf4fjJ6GaluRyB9iJx1uJWcrRhLFKatlp7uPtptTP2Mm+FLOGea
-         VHSTDA82VQer4QzR5RfN2wAg8YR6aCYfwt/Q6idYShWiFeGGd40X9635VQXd608Gd93W
-         PChw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795195896; x=1795800696; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=TI7DZVXU6YK/vkfYgR8KztTLGwad0zi129B1pm8/11Q=;
-        b=Ak2bScaW6vSX2LPooTF9xOJxipWuDqeJY+5z6Fm3/XnGHm+hcCcUn1ya0lMqJ8eZNO
-         2Sy/BqBLyjk2loT5tU+RCsvAD6UOSKuYV8+GbvmPMYbxq+hqiOncqq2q62Cz1dND6FVk
-         lz3g0G40G9MdjrGAsY96eeRz0jZeIgcz66Rxa4TYjOfRk3dPsTWDuPJyk3GvNDkRgqXJ
-         hcKk+CDLGQSb6AEmlCKSfhjt1RhxNkq5kvoFqVUIZdU3MxN7Un+w56Vz/M/LthMzryLH
-         SzbRr24Go5EuaX+h9ao03wgr0CdFr/pfTjNtUdLsZWJj/tp4VICYKd0Atx8vf8piQra0
-         4iog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795195896; x=1795800696;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TI7DZVXU6YK/vkfYgR8KztTLGwad0zi129B1pm8/11Q=;
-        b=Z7egOckvBIZcLAND+nHRFSSD+5Of+anIqZFKsbImvKrK+tJWjO+/VJXxLCt3pAs7+X
-         mk6wzViHVzdtJxZj93zgpW5yE6/F7A8RFIJIHZ7wNn/47ihQvR3EmC2YFKYNCLAFtiSB
-         kMpE/4A6VyaaHR9KX/WmC8TdjN2YpixPINE4B30pvV9OSAI6IZAdPbxRFlbt2E5aSept
-         gf4D4LYjEIyFbsI9xRtCMWiMBvODl7RxqwsmapQw4xR+St4ZNbRXg2UP+Wd6CFH7tIi8
-         peonqFehWVbTMDsn5gf+0iBSGk4+DBCIyCIWrnrkTYJVfqYFvF1c1Qr7HwmDQ/L2KHRZ
-         IfbA==
-X-Forwarded-Encrypted: i=1; AL+hErFZmk7qhHY0QviUQD8vnB6UyU/C8P4+xQCxOU5/AwueC/IXYWzCNGMd9cII4RfAsAzUcdCiGLqRDB2IAQQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9hrzlaywRP3Vzgnso8rplIuz7eEYWT2//uWNniUz3Xj6jd1vU5
-	GRE01qA42HTkWhSEjwh4og3NgB9kLYDUjJoHq00U+Sa6eLhik5LyQgsURvIxFY9qYfQXR4OwOr5
-	5o1zAAIRrR93S//l4D5JOprObsxdl7knVKM31qchv
-X-Gm-Gg: AZFdTZeHqlZatPNkdQJZWjkHP/f6+y+aJcBFcxtIRNWfpQVtQObQNlXYs/SL447Uans
-	xdGZV4BUulJg31qNtCQpCKJkWKxD+3iUD3ddgcYEpe4wEvQziZSqWvVB5CXAdJv/5Fhco1GCwuf
-	RttkZLEqEXNJ2b4m6DDK0TGIbL6S2pfqHLJAMG1hKM4ynt0I8REPjyMkCEM9Chy8ZKWSkOaOoKS
-	waMaKEYd5FnpfkVCYXVCjjx19sL+/9N96c1HSv09qxK50pmDMfru7GNZXRz1CgBcsw3tJBwN6uf
-	FhyeIMBPpbwsKfYfwM3nZYsAeuoEcGpXACv9eM4fY0SrTQnHv2IQ/rtRV0/ov0siIU+8TdRF0V2
-	UOEJe+US+dbqRECuz3TZ1O6qmFcabJG9B+oeT
-X-Received: by 2002:ac8:6102:0:b0:546:92f2:7830 with SMTP id
- d75a77b69052e-55d7914f377mr24289241cf.6.1795195895205; Fri, 20 Nov 2026
- 09:31:35 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=hallyn.com header.i=@hallyn.com header.a=rsa-sha256 header.s=mail header.b=BmLBlAGK
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=hallyn.com; s=mail;
+	t=1795195890; bh=U3tolJxSPQb1OFSMmSa2W8e93k/5HR19c97fCZrytt4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BmLBlAGKb09/DhuPXciK/c1Ip7DjEmhmCF11jxqWfU3HU3iuEDw7C687Gyp2PnQSc
+	 fTbiOUAkMOlB0LC/AyREO4wB5+P7ZOhkaO2Sr6tzuAJMUCmP4gndguO7ZS6ri3guGr
+	 6PO/K2loed+atiSZF8sNoKEHAKnSrCo+6CmxnuvMtdsS75He5qKA+vk0LxACYqCc+i
+	 mrBSMVtRoM86Eae48aWpmJdydRaWK34Z7FYSJq+xC3cAT01pmeV854+rqon43zZiTu
+	 Ii5CnwFJsOoUwfdCSIDM6ra69zMdNtIf47Pn168o1PjKihntdA649SeC0ccdB48AxG
+	 Th8i79YuYvZSw==
+Received: by mail.hallyn.com (Postfix, from userid 1001)
+	id 1066F28C; Fri, 20 Nov 2026 11:31:30 -0600 (CST)
+Date: Fri, 20 Nov 2026 11:31:30 -0600
+From: "Serge E. Hallyn" <serge@hallyn.com>
+To: Josef Bacik <josef@toxicpanda.com>
+Cc: Paul Moore <paul@paul-moore.com>,
+	Christian Brauner <brauner@kernel.org>,
+	James Morris <jmorris@namei.org>,
+	David Howells <dhowells@redhat.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>,
+	"Andrew G. Morgan" <morgan@kernel.org>,
+	Serge Hallyn <sergeh@kernel.org>,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	keyrings@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org,
+	Bradley Morgan <brads@mainlining.org>
+Subject: Re: [PATCH v11 2/3] capabilities: don't let ptrace borrow CAP_SETFCAP
+Message-ID: <awCD8l6XoAeUMF+n@hallyn.com>
+References: <20261117-b4-setfcap-userns-v11-0-2be11a2c32f4@toxicpanda.com>
+ <20261117-b4-setfcap-userns-v11-2-2be11a2c32f4@toxicpanda.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,76 +71,142 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <cover.1795106955.git.irogers@google.com> <6fcb1e5c7545f8bcfee9ac9a3abd296c475aa1b7.1795106955.git.irogers@google.com>
- <dc491d12-68f0-4297-acda-f122fec00288@amd.com>
-In-Reply-To: <dc491d12-68f0-4297-acda-f122fec00288@amd.com>
-From: Ian Rogers <irogers@google.com>
-Date: Fri, 20 Nov 2026 09:31:24 -0800
-X-Gm-Features: Aa3M54pYUkUhv-1L_RAm3wzkZJVptY38X_B1tSpjk2kKiiLF52OLhk9KXrZQJlk
-Message-ID: <CAP-5=fWN3zHAtixPSbaNwXn9WWTcxd1+XJO6uUb-S-FgNzrUtg@mail.gmail.com>
-Subject: Re: [PATCH 2/2] drm/amdgpu: initialize r in amdgpu_ttm_clear_buffer()
-To: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
-Cc: Alex Deucher <alexander.deucher@amd.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, amd-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117-b4-setfcap-userns-v11-2-2be11a2c32f4@toxicpanda.com>
 
-On Fri, Nov 20, 2026 at 4:12=E2=80=AFAM Christian K=C3=B6nig
-<christian.koenig@amd.com> wrote:
->
->
->
-> On 11/19/26 18:07, Ian Rogers wrote:
-> > In amdgpu_ttm_clear_buffer(), 'r' is declared uninitialized. When
-> > consider_clear_status is true (such as AMDGPU_GEM_CREATE_VRAM_CLEARED
-> > allocations) and all backing buddy blocks already have DRM_BUDDY_CLEARE=
-D
-> > set, every iteration of the cursor loop hits 'continue' without assigni=
-ng
-> > 'r', returning uninitialized stack memory to amdgpu_bo_create().
-> >
-> > Initialize 'r' to 0.
-> >
-> > Found via an x86_64 LLVM=3D1 (Clang 21.1.8) allyesconfig audit with
-> > -Wconditional-uninitialized enabled; fix and changelog drafted with an =
-AI
-> > coding assistant. Build-tested under LLVM=3D1 W=3D1 (-Werror) and
-> > -Wconditional-uninitialized; not runtime-tested on AMD GPU hardware.
-> >
-> > Fixes: 23bd7e67961e ("drm/amdgpu: get rid of amdgpu_ttm_clear_buffer")
-> > Signed-off-by: Ian Rogers <irogers@google.com>
-> > ---
-> >  drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c b/drivers/gpu/drm/=
-amd/amdgpu/amdgpu_ttm.c
-> > index 0f86777250fc..280fcdfb9cca 100644
-> > --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c
-> > +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c
-> > @@ -2675,7 +2675,7 @@ int amdgpu_ttm_clear_buffer(struct amdgpu_ttm_buf=
-fer_entity *entity,
-> >       struct dma_fence *fence =3D NULL;
-> >       struct amdgpu_res_cursor dst;
-> >       bool vm_needs_flush =3D false;
-> > -     int r;
-> > +     int r =3D 0;
->
-> Please initialize r directly before the error label, apart from that look=
-s good to me.
+On Tue, Nov 17, 2026 at 07:54:25PM +0000, Josef Bacik wrote:
+> A uid 0 task that gave up CAP_SETFCAP and CAP_SYS_PTRACE can still
+> attach to a task in a user namespace that another root task created,
+> and have it write file capabilities for its root user.  For a target in
+> a child namespace cap_ptrace_access_check() asks for CAP_SYS_PTRACE over
+> that namespace, and cap_capable() grants every capability there to a
+> task whose euid owns it, whatever it gave up:
+> 
+>   task A: uid 0, full caps          task B: uid 0, no CAP_SETFCAP,
+>   unshare(CLONE_NEWUSER)              no CAP_SYS_PTRACE
+>                                     ptrace(PTRACE_ATTACH, A)
+>                                       euid == ns->owner -> allowed
+>                                     make A write "0 0 1" to its uid_map,
+>                                     or set file capabilities
+> 
+> The same goes for /proc/<pid>/mem, process_vm_writev() and
+> pidfd_getfd().  setns() refuses B now, so ptrace is the way left into
+> the namespace.
+> 
+> The target's own capabilities are no guide.  A target that gave up
+> CAP_SETFCAP can still get it back from its inheritable set on execve(),
+> take it from another task of its namespace if it kept CAP_SYS_PTRACE, or
+> write "0 0 1" to its namespace's uid_map while there is none yet.
+> 
+> Every PTRACE_MODE_ATTACH check is refused, so reading /proc/<pid>/mem,
+> /proc/<pid>/stack and process_vm_readv() of such a target go too.
+> PTRACE_MODE_READ, a tracer and target in the same namespace, and targets
+> in namespaces that setns() lets the tracer into are not affected.
+> Within one namespace the usual rules apply, as for every other
+> capability.  A tracer with CAP_SYS_PTRACE but not CAP_SETFCAP is refused
+> as well: whether CAP_SYS_PTRACE lets it take CAP_SETFCAP from a task of
+> its own namespace depends on LSMs such as Yama.
+> 
+> Fix by refusing PTRACE_MODE_ATTACH and PTRACE_TRACEME across user
+> namespaces when the tracer doesn't have CAP_SETFCAP and setns() would
+> refuse it the target's namespace.
+> 
+> Suggested-by: Serge Hallyn <serge@hallyn.com>
+> Link: https://lore.kernel.org/all/fd159e68-c613-4c7d-bfba-8af0a3f3a96e@hallyn.com/
+> Fixes: db2e718a4798 ("capabilities: require CAP_SETFCAP to map uid 0")
+> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
 
-Will do - I'll move 'r =3D 0;' to right after the while loop directly
-before the 'error:' label in v2.
+Thanks!
 
-Thanks,
-Ian
+Reviewed-by: Serge Hallyn <serge@hallyn.com>
 
-> Regards,
-> Christian.
->
-> >
-> >       if (!entity)
-> >               return -EINVAL;
->
+> ---
+>  security/commoncap.c | 34 ++++++++++++++++++++++++++++++----
+>  1 file changed, 30 insertions(+), 4 deletions(-)
+> 
+> diff --git a/security/commoncap.c b/security/commoncap.c
+> index 96ac039fddad..4a78939d149b 100644
+> --- a/security/commoncap.c
+> +++ b/security/commoncap.c
+> @@ -195,14 +195,31 @@ int cap_settime(const struct timespec64 *ts, const struct timezone *tz)
+>  	return 0;
+>  }
+>  
+> +/*
+> + * A tracer that setns() keeps out of a namespace mustn't take control of a
+> + * task there either, whatever that task holds itself: it can get CAP_SETFCAP
+> + * back on execve(), from another task of its namespace it traces, or by
+> + * writing the uid_map of a namespace that doesn't have one yet.  Within one
+> + * namespace the usual rules apply, as for every other capability.
+> + */
+> +static bool cap_ptrace_borrows_setfcap(const struct cred *cred,
+> +				       const struct cred *child_cred)
+> +{
+> +	return cred->user_ns != child_cred->user_ns &&
+> +	       cred_borrows_setfcap(cred, child_cred->user_ns);
+> +}
+> +
+>  /**
+>   * cap_ptrace_access_check - Determine whether the current process may access
+>   *			   another
+>   * @child: The process to be accessed
+>   * @mode: The mode of attachment.
+>   *
+> - * If we are in the same or an ancestor user_ns and have all the target
+> - * task's capabilities, then ptrace access is allowed.
+> + * For PTRACE_MODE_ATTACH, if we don't have CAP_SETFCAP and the target task
+> + * is in another user_ns that setns() would keep us out of, then ptrace
+> + * access is denied.
+> + * Otherwise, if we are in the same or an ancestor user_ns and have all the
+> + * target task's capabilities, then ptrace access is allowed.
+>   * If we have the ptrace capability to the target user_ns, then ptrace
+>   * access is allowed.
+>   * Else denied.
+> @@ -223,11 +240,15 @@ int cap_ptrace_access_check(struct task_struct *child, unsigned int mode)
+>  		caller_caps = &cred->cap_effective;
+>  	else
+>  		caller_caps = &cred->cap_permitted;
+> +	if ((mode & PTRACE_MODE_ATTACH) &&
+> +	    cap_ptrace_borrows_setfcap(cred, child_cred))
+> +		goto deny;
+>  	if (cred->user_ns == child_cred->user_ns &&
+>  	    cap_issubset(child_cred->cap_permitted, *caller_caps))
+>  		goto out;
+>  	if (ns_capable(child_cred->user_ns, CAP_SYS_PTRACE))
+>  		goto out;
+> +deny:
+>  	ret = -EPERM;
+>  out:
+>  	rcu_read_unlock();
+> @@ -238,8 +259,10 @@ int cap_ptrace_access_check(struct task_struct *child, unsigned int mode)
+>   * cap_ptrace_traceme - Determine whether another process may trace the current
+>   * @parent: The task proposed to be the tracer
+>   *
+> - * If parent is in the same or an ancestor user_ns and has all current's
+> - * capabilities, then ptrace access is allowed.
+> + * If parent doesn't have CAP_SETFCAP and current is in another user_ns
+> + * that setns() would keep parent out of, then ptrace access is denied.
+> + * Otherwise, if parent is in the same or an ancestor user_ns and has all
+> + * current's capabilities, then ptrace access is allowed.
+>   * If parent has the ptrace capability to current's user_ns, then ptrace
+>   * access is allowed.
+>   * Else denied.
+> @@ -255,11 +278,14 @@ int cap_ptrace_traceme(struct task_struct *parent)
+>  	rcu_read_lock();
+>  	cred = __task_cred(parent);
+>  	child_cred = current_cred();
+> +	if (cap_ptrace_borrows_setfcap(cred, child_cred))
+> +		goto deny;
+>  	if (cred->user_ns == child_cred->user_ns &&
+>  	    cap_issubset(child_cred->cap_permitted, cred->cap_permitted))
+>  		goto out;
+>  	if (has_ns_capability(parent, child_cred->user_ns, CAP_SYS_PTRACE))
+>  		goto out;
+> +deny:
+>  	ret = -EPERM;
+>  out:
+>  	rcu_read_unlock();
+> 
+> -- 
+> 2.55.0
