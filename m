@@ -1,92 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795181770;
-	b=ZbYCXg8wInIcp3oaFRPscOFfxtS6bn7eSP40yKrGQD8hYd7uizVS/Svmvta7ovdUuclB
-	 dm7MwCxBXPKQnqAwGW0HB4+atmUAzkbXk+M044MroySsqccybOSxXkiiE6Zrn90xjqrcX
-	 rH7Rbx76Diu7WPzzEz788sfHsmXoIHe+3RUOTt6mY7XgS9ItIxV0CnqCvzMMoVCYbTca4
-	 Pk7zgl++UA9+onFYC222anKzXLyDDoUR9gDNcs20qrojIYNgo3zLtypolIym/F0dBouPG
-	 37gsyNwbGMgG0t+qVxNYGcCZ1RSoBQc/1Zj6PsdR+TzeQXBccLMTnw6ShoUh7tyU3Sw==
+	t=1795181772;
+	b=WzF05E+OsVfB7OBNTJiJ03kNro3MUI1tHdG8SLz1tueah4bpLOeImUBNDcQe9z9iVeeY
+	 dOXn9JKnde8Ez5sw0TsdCKYB+kEKiNrlpAkOJkMafvqjUpfrgj+tcG4KMS+fRw8i9mwYz
+	 ZewaTKewoM88Tpd0QeW2LC11QttKCyMB+5E+h9Y2RTOKXZOH2sYVi3n60+c5dT3n2EG67
+	 tmqaMRIuNCJ90jQBFqfv+/E/qOxzSc8VimyWXcfBnvzJOJjnHhGNT1iSqLrv2XMySQCtC
+	 E1t3uDI1sUdb+FuxEpxIR5XQMFUlCsTrUstAFI5lIX8O/QonFcBBa3g/dif5/MelmIA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795181770;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795181772;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=/vILFpTBKVy7hMrZddb0IwK/uJclDAZCWjwJQwnPh2M=;
-	b=dV96nq3M9c2/L5Kjdj4S8iCD4E3IJUSiQQgQNUWW6PdKqLW8WyHQQfck3wtTvaECrw+S
-	 D154/HQHFCzg1h0JDgm8ob92LCZX0TopGzBeMK5xCLn+Zfb2UxTeq99NDkgp/+kz9EACM
-	 12uTcRhENjF3e+9ssof2AOsHlQzDXMlgJa5OuNVFzTHRFJ4De5FdXBLgNPAfIPhF9dzdS
-	 H6jgU2HMzBViJlZRl3sZaMGqLGW7jlcmFqdSK5A1p7vhZAFUJ55gar0txjv6w5YJcrQ7G
-	 bp+TFuYg7UExw7o1Lk9jfzDLq1EbMDvO8h3bQgTqxY6szf/aXT9bj3BKlN1oY4ClTBw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=buQIV0vkdXGXpQqdQz4ZB0pqcKMsGECCL78uKqu8k0I=;
+	b=zcepNV4HLpkvuaS+B6gZJnGFjB1+/sdwythfT//Rtgdhecsx6sOjlTEgTjmuY2ubtVNB
+	 8hmQ1SNK86Q84UyWrcIA3dsSVIDQwETr5WX+ey2o9DwU2WwpMj2RvmiDFHbz6aodiClFt
+	 3aJ5o3jlTKq/r+p49dvYu4MI2Q+Wgz8eU7EV51Mq2n7PBGCmDzw5HDryaLeFG6fgRwvbg
+	 Joiy73WMu2RaZDTi7aH7lbq9wO7OADtrByKHEFh1MR4A8xZyVIoJiYvoRbtUFxGyuG+Pf
+	 2XTA5kdPo+Y1ITL6B+d5+VXSsqyuoPAM8SbIlI7KXyFu8LVA7+m5ng0v9FDAqjOoXCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rqD2brcK;
-	arc=none smtp.remote-ip=209.85.215.169
-Received: from mail-pg1-f169.google.com (mail-pg1-f169.google.com [209.85.215.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NJCf37oa;
+	arc=none smtp.remote-ip=209.85.216.44
+Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B65F606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:36:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5B65F606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9619460A2600
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:36:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9619460A2600
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rqD2brcK
-Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-cdd9d0c9bbdso514152a12.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:36:10 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NJCf37oa
+Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-3b3d4d3bba3so515246a91.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:36:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795181770; x=1795786570; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/vILFpTBKVy7hMrZddb0IwK/uJclDAZCWjwJQwnPh2M=;
-        b=rqD2brcKpq+QbkzaX7aG3WpNJUL8fYl4ejHYirlAC7PRiN6CrdvcI28LAGmbeOwc/Q
-         z3sEQUIcCiqsbmLHZab82gKslwp7lJIHgRgckWkZUg64PhcSlZb8qWTVteiXjsUZ475c
-         kT6uKp8KSzVcatL+BCoQhQ+CFFu/opAWIfqcWE9gdlidDSoU8Xcoe3ocQw4fruOvznzO
-         tSr6vdjHOeNjJpEiO0/7Jmsmkh49bMgrP1oQncGlob1BGHVDtHBU6hvA5/ZXWG5VU4RZ
-         kZUlF3Gq/X1EITDJhIPx9ugiY0kEda1Rdd8wuryECc8P3PEhLH2Y1ltzFyO7Ot/FOvgR
-         q6QA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795181770; x=1795786570;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795181772; x=1795786572; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=/vILFpTBKVy7hMrZddb0IwK/uJclDAZCWjwJQwnPh2M=;
-        b=xRYOXU/zdRV7jhuE3B2n4wcFStGNnHjuomOVk5hDr/jFjRo7q0iNhTfMb+5TkDskJs
-         6OvCgMwF42ZD5wrBW01lbTL2mcDACoq4VECpjQLIQUK/RXsVL3Q2VMrbYXBheBezMw62
-         xaOBCnQanwMAPB+tVCmZiT0W4F6BIa2CGF1ngJfdhGtb4FntHUx2nv8boJMhj0ZBE4fj
-         Vj/2KbxjJ4wYHKuWlu4SkaeDxWzITEuJS5ZSOk8Pt2o9L96zTlKMMbYnAnZjHMYL5sAR
-         /MesiGQu32SuZwzDuCm85qzpdiRul7CFh3WkxNLAB3h2YDUhdumHH65faFAvOUb4/6xC
-         V3qA==
-X-Forwarded-Encrypted: i=1; AL+hErF4QJCP8+zufdrL4af3LoRSoPVhbvm00SBkVLyqhSd67BqAR9iSB7tXnhwh0cG9042WF0S81STxUEN6818=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8wBUFS8odJ/zz7YS6l2EzXKrueA8C6on33dDizvYo8k13UVlAz
-	yMqAhAdyPatBQwXQo5lF+J9qBbjqDufA/3dNvYahtQhyJqEdMCQJKxTFSMFpRg==
-X-Gm-Gg: AZFdTZeEXz7PdOz3IcIMRBf0eWocpmNbHA6HAiYIK6qroOkwONbe5+u4RzqNsCPEqxp
-	x8L00LRipJotTZSSEGX1UplehcqU39eYBUAq2DX2/PrzHY39KUXE1Jdbm9zKT35hxsiVELIR9C2
-	3cdycWAX+Zmh2Jb19gieTJypqy+MPEBtyeEE2sRgQHsRmaZSF4hGs9DWAz2dvqPdawAHzFXHIme
-	0flx4goDXRFRRQ/Y4+gP9SuyREhyuF6uNZ8RX1P23IvJ9nRCEJVWqOw79PXMLo0hBYRNRXcN8nW
-	Kj7FxkZdMm886+5ARRfCk6Rb8fVbZd8V7WukNvnJGW/FNasGikNQgS2qHSd73OCmdj0Tad5JKa9
-	SVp/Fx07qLss5H5JvT9aSrqT1MBdsRXFxsSf01I0KjM9/1fQ3+ojVYFBmcdh2Y8LIA6owxDwA0T
-	RkSTohcmlOKcK2KkJyps/PJ79r73BtMjGbyZ4SWRgkLyceoE8LLJlE8LsuCUK/uJ+y8sJbzfpeI
-	ByQJBntRoa9GNyY2HjosShoUjeCPnj+1UuAJdchshM7oYbjDOa32c70/8GRQYFkBYPaLdLn4yjz
-	qncLbYOVhx39PdQKzOS2IHHJoWl6MIRaHkjL1209cRbPMA==
-X-Received: by 2002:a17:90b:2688:b0:3ac:ffb8:183b with SMTP id 98e67ed59e1d1-3b41c97ab4emr2678585a91.51.1795181769634;
-        Fri, 20 Nov 2026 05:36:09 -0800 (PST)
+        bh=buQIV0vkdXGXpQqdQz4ZB0pqcKMsGECCL78uKqu8k0I=;
+        b=NJCf37oa3Vu2kSYXoj0jctv4LzonJfIcZ3ltwyjlxMqZG+ZogqcYpjIxSV6xKG0See
+         RmHewxvqzhC42W1rNkX/84g3bRswwXYT3WyfSsk9Kzikg+Sq/NwbCrWsEgSX3Wr0twMR
+         yJmW4GAdhWxqAOicxM4U6eI1Ea90Hmpl/KUja2CmxWAt0NJ9dVyIw3NsatYBk9hlBOhn
+         SONi3hpY5+hnG9JRGA8RmyHh7NwP7ZnjHeCfKyTmJVgoJfya2+reuwPjhizzjRFF8A0a
+         NN1P1EYlCs6OFmmeFDFrKJOFo0yhb6r26Z5X8eG7DzFDZd0mDVFyhdofLeJ1eUn7HpKu
+         yCBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795181772; x=1795786572;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=buQIV0vkdXGXpQqdQz4ZB0pqcKMsGECCL78uKqu8k0I=;
+        b=YC902o5V5LZAzyILHh3T0/8tSYQWnKEODGDa2AnNK2Qfd5rBBNKZjKrOIwti9X0LP9
+         cNuGHqtFK6qqzDDrnlajjfCCE83lu3cidhpx/7Hksxba7rD03HCDzFbLUWvxl1KrhF8o
+         yDIXOLrOPyiq12V9fZ7bixTpos0KNfxfmAJp2vXXsyCQLgWrdwQpCfiAv2Z1zrsLx3/8
+         zYwFO7psIXv6b5yIYPyLE93mDkrv0gS0OyT3n2lpHaRQQvZyNUur/9J1WoYmgmDGGPp3
+         isEduC7g+yMYZeSRP8Pj9z4xnaY3PG4ZKpI6XPSOEobOdVBz1zIvEO+bJ5hF4Cz5D52n
+         K7hw==
+X-Forwarded-Encrypted: i=1; AL+hErHRxYoYo6vVl11tPm8LulrkxyhNmRYMq8NlgglnFoeE+A8lx8hBm7wkamkeIfpHeEOWMwYOEDtG3Oa1J10=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8rDpDOdiYOCAweBVDKNZw0zsmbf85kE9y6T5avpx8HDTv730NG
+	jDnGG6KPB3AnCsS5us/5+KE+lPz6GyDDWjD9fhuQo5RXqZ3Pfj1s2a0C
+X-Gm-Gg: AZFdTZcoxGE9+ptH8zenVBqSKubxHXlnxSjM/MdezwA7AlWmQdWXibJ9gW2mYSBLcud
+	6mp1L+9ssUUepsVUwdCRbTMi0Rhb/uTAQkodvZjmUFFuBJMXx79FLSucbThg5h0T5rsMuiuUlPz
+	4UQBPgurOI58O2b4/4qXE89PCP6tvmYrNTjqjnpwJg9g5SmoF+XYfqyi3T3yYF1EV9f1QGueU3F
+	2YJU12ZYLJLBpLktBVyMf1Hi2s5RRdnjezwqek1ozlAOhl79ho8Bmlt/Vg0xLs51datK1dg/xtO
+	m6XYXKIJdrLpDc6WpJ9m1DVlH3vrU1/sTOwm6tCGXX7MSjuSY8kfLo2z99sUfbCRkF+5qyrtH0U
+	1W5v3Dyd4uOtp+u7KVJ+y7QpGtZkPGU96TYVLgTB4HJHUUkDMcR37dNUv5V7CRFb7Js0bBDSU4t
+	rn2eLmptgSTIP0yKvxs2zxPuhYCO6jidcV8NhRntPQuFHn/+422VcWHQhIc2p1/UtwfVyecALBa
+	kroZYYfNyv8O2BJasHI/5H2j4BAAxXJ5IJjirJ0S3gnWChUCbyFUwSqcS6FImcGZXG0dinRJkuO
+	UOT1GY8IfKPeRD41LQRBe2kaXHnei30bcW7lqYtGbPkAY/v4U8jGrdVNlCgDw5rf3KI=
+X-Received: by 2002:a17:90a:e70c:b0:3b3:a9a4:a60e with SMTP id 98e67ed59e1d1-3b41c92643amr2783153a91.25.1795181771890;
+        Fri, 20 Nov 2026 05:36:11 -0800 (PST)
 Received: from osman.mioffice.cn ([43.224.245.178])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ec698dsm7557362a91.14.2026.11.20.05.36.07
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ec698dsm7557362a91.14.2026.11.20.05.36.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 05:36:09 -0800 (PST)
+        Fri, 20 Nov 2026 05:36:11 -0800 (PST)
 From: Zhan Xusheng <zhanxusheng1024@gmail.com>
 To: almaz.alexandrovich@paragon-software.com
 Cc: ntfs3@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org,
 	zhanxusheng@xiaomi.com
-Subject: [PATCH 1/2] fs/ntfs3: allocate only the written range of a hole on writeback
-Date: Fri, 20 Nov 2026 21:36:03 +0800
-Message-ID: <20261120133604.427285-1-zhanxusheng1024@gmail.com>
+Subject: [PATCH 2/2] fs/ntfs3: zero new clusters that a write only partly covers
+Date: Fri, 20 Nov 2026 21:36:04 +0800
+Message-ID: <20261120133604.427285-2-zhanxusheng1024@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261120133604.427285-1-zhanxusheng1024@gmail.com>
+References: <20261120133604.427285-1-zhanxusheng1024@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,55 +103,49 @@ Content-Transfer-Encoding: 8bit
 
 From: Zhan Xusheng <zhanxusheng@xiaomi.com>
 
-ntfs_writeback_range() maps from the folio to the end of the file with
-one ntfs_iomap_begin() call, and for a sparse file that call allocates
-the holes it maps.  A page stored through a shared mapping reaches
-writeback without a delayed allocation, so writing it back allocates
-every cluster from that page to the end of the file.  Only the page is
-written, and ntfs_filemap_close() later raises the valid size over the
-rest.
+When ntfs_iomap_begin() allocates clusters in a hole, the part of a new
+cluster that the request does not write keeps the old disk contents,
+and reads below the valid size return it.  The iomap conversion asked
+attr_data_get_block() to zero such clusters only for writes through the
+page cache, and commit 10d7c95af043 ("fs/ntfs3: add delayed-allocation
+(delalloc) support") stopped asking for it at all.  Only the delalloc
+path still zeroes them.
 
-On a volume with 4K clusters, map a 4096-byte sparse file MAP_SHARED for
-100 MiB, grow it to 100 MiB with ftruncate() and store 8 bytes at 4096:
-97876 KiB are allocated instead of 8 KiB.  With a 4 MiB file and the
-store at 2M, the 2093056 bytes from 2M + 4K to the end of the file read
-back what their clusters held before.
+On a volume with 64K clusters, write 4K at 0 and at 960K into a sparse
+file, then 4K at 512K: 61440 bytes of the file read back old disk
+contents, both with O_DIRECT and with a buffered write on a volume
+mounted without delalloc.
 
-Map only the range being written back for a sparse file.
+Zero the new clusters when the request does not cover them.
 
 Fixes: 099ef9ab9203 ("fs/ntfs3: implement iomap-based file operations")
+Fixes: 10d7c95af043 ("fs/ntfs3: add delayed-allocation (delalloc) support")
 Cc: stable@vger.kernel.org
 Signed-off-by: Zhan Xusheng <zhanxusheng@xiaomi.com>
 ---
-Tested in a VM on 7.4-rc3 (20eef29b7c84), 4K and 64K clusters, with and
-without delalloc, with the free space filled with a known pattern first.
-The numbers in both changelogs are from 7.4-rc3 without the series.
+With 4K clusters a page covers a whole cluster, so only 64K clusters
+show it in these tests.  With both patches, fsx with mmap on 4K and 64K
+cluster volumes and on sparse and compressed files gives the same
+results as before.
 
-For a sparse file, writeback now calls ntfs_iomap_begin() for each
-dirty range instead of once per extent.
-
- fs/ntfs3/inode.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ fs/ntfs3/inode.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/fs/ntfs3/inode.c b/fs/ntfs3/inode.c
-index 45f894d182dd..535a2b0804af 100644
+index 535a2b0804af..9c2ded9567f7 100644
 --- a/fs/ntfs3/inode.c
 +++ b/fs/ntfs3/inode.c
-@@ -1181,7 +1181,11 @@ static ssize_t ntfs_writeback_range(struct iomap_writepage_ctx *wpc,
- 		struct ntfs_inode *ni = ntfs_i(inode);
- 		struct ntfs_sb_info *sbi = ntfs_sb(inode->i_sb);
- 		loff_t i_size_up = ntfs_up_cluster(sbi, inode->i_size);
--		loff_t len_max = i_size_up - offset;
-+		/*
-+		 * Map up to EOF in one go, except across the holes of a sparse
-+		 * file: iomap_begin() allocates what it maps there.
-+		 */
-+		loff_t len_max = is_sparsed(ni) ? len : i_size_up - offset;
+@@ -982,6 +982,10 @@ static int ntfs_iomap_begin(struct inode *inode, loff_t offset, loff_t length,
+ 	 */
+ 	no_da = flags == (IOMAP_DIRECT | IOMAP_WRITE) || srcmap == WB_NO_DA;
  
- 		err = ni->file.run_da.count ? ni_allocate_da_blocks(ni) : 0;
++	/* The request does not write all of a new cluster: zero it first. */
++	if (rw && ((offset | endbyte) & sbi->cluster_mask))
++		zero = true;
++
+ 	err = attr_data_get_block(ni, vcn, clen_max, &lcn, &clen,
+ 				  rw ? &new_clst : NULL, zero, &res, no_da);
  
-
-base-commit: 20eef29b7c8465ac98d7dd6d6f2ac07a8d8056ca
 -- 
 2.43.0
 
