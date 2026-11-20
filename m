@@ -1,65 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=136.175.108.97
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795143157;
-	b=ZQtbSxlzgou6S2SL7EDaCIvLTRykI/uZ1DZtQFKTQJiTNQbAgrFabFWsP7mtMYwJeEfL
-	 c3V1DcBnfKChgfmRmhc1c67+uljegSnHCjO5tR/EuRQK3kbrnWGwR4ADWV4h1crlqbV1x
-	 ZlONXa7CDc109XXJKzB/tu/7Mqpxh+tPu2CieXKBTLB2423aEb4HnU7Yoy4MjjKpb0KAb
-	 o4GKrD06tswNIrTyDZhTQqDfyNP3BwvkRHOKL5UtapMM/vv6qDZNbyNl83qzAcuUVtPVJ
-	 9rp9svBRDhIZSxjlrJyfKZF5XvnMLWl02tu/k3+xade0FdolpsckR3OD3jAfehr1QEw==
+	t=1795143179;
+	b=S06VsZtEeg79+juX5zPrYxu5cxD5pBSuVm/vatpgEgx2qxWLOyN/+Oc3o7yWmpM6iQdz
+	 j+GklNX1XEZjFyRDu2304sYzpymrGrAXIkzESmRVdR9at2C6VoAuPToL/b/mY+PGRWXff
+	 p7z9YMl+eRsEYxbX7ZekiUHy85RRMJMeZ45v1GPzWQEgYQc/SHC4RAhVxbAyrl0IPkmUo
+	 iGsb+7uuE15uYLiwhylP4lBdDl128TVPV4cwj7pi1ZLVXPn9EAmwqiPuHESYmLdR0ld4q
+	 Uj3nTDqZ7WviCRW5zyBn4nmXiW4txb2yxE0LgZJL9utimVE9hjhTsTUEAwWIJYePfdA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795143157;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=R0byDOCbMpV3cQA2Ji1YPCftT8TMg7Mfe6FkmiCQqg8=;
-	b=2mu/yK+gbdnDEaXqldN3EU0q3hos6V9vfVY4vzM9MVbjMNXJYuykwE7U1sYnXewqC7YJ
-	 N63oB5isEFB9i2K96u3puHetCi23v4N/xQOJsP2KQeQU8IsJJYwPVHIZZBJkH3GBOHDrC
-	 vbEZgfcCjvUTrUhCRb4QfN2wzvF16s4WQX8Mk/CcxC1OJAQPRbMuVhygyNr+ypeE/lnrS
-	 5LBXoo8UFi+q+Ohqlet4v0MwutV5CmSAyhX9StetonT6w//SRJZRP+rFlFjMnSEQY2Eb/
-	 khCrDdYJXiQg+1LbApgYSdGFn2oUzBTvmxntK5yE9lod2uA7b0oauyg7aRGAr0wDCdQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795143179;
+	h=DMARC-Filter:Received:X-Zone-Loop:X-Originating-IP:DKIM-Signature:
+	 Message-ID:Date:MIME-Version:User-Agent:To:Cc:References:Subject:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Authenticated-Id;
+	bh=msYeIQlcLBBah1ScNLjcrzC4Z7h2py1hSnX94ae5ztU=;
+	b=4p4h3brvqpL91BkO61Jtbc3XL96PXtOARpCs4+j5Jta8YYhIulI206EW+OYLCsYdiJs4
+	 lWmnLXBhLX5MEjj37rgA0VmgHWERoMJjZi37UiuFUsQoibOQayJ45QLThcKGlLA932fF2
+	 kIg1FH75CO118j1Jft80uBVzvTO/mSIsSJSdaSZvT6dQGpxWvE1hpNj/4ZNxd8O2G5DMy
+	 qP6NVYTeQBP2r7d6Gt+oaiWRFqzLMZgQwegC0XEY7/dHwTQRKYr58jOnopmO9Qx5GUCQP
+	 O1hRCnle2JGGJGOkmSz3w3L5P4gLe2ktxaDM+A+jIKn1E1eLnDmTXvwVDnf52S56PrA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OplKmHka;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=tylorstech.com;
+	spf=pass smtp.mailfrom=tylorstech.com;
+	dkim=pass header.d=tylorstech.com header.i=@tylorstech.com header.a=rsa-sha256 header.s=x header.b=1fih5ECV;
+	arc=none smtp.remote-ip=136.175.108.97
+Received: from mail-108-mta97.mxroute.com (mail-108-mta97.mxroute.com [136.175.108.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1446606A320;
-	Fri, 20 Nov 2026 02:52:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9BB7606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:52:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9BB7606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tylorstech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tylorstech.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OplKmHka
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B33F51F000C4;
-	Fri, 20 Nov 2026 02:52:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795143157;
-	bh=R0byDOCbMpV3cQA2Ji1YPCftT8TMg7Mfe6FkmiCQqg8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=OplKmHkaXP0+9LAR+1s78FFbADek7xjUP8lCFnHJAHEe2AR+mmsU2BLpfjlyO4cSG
-	 DIsark2S4lCPmElRHghfXIizkXzkWND7304LIEeP+qwEqY+UegBkgtmIdDWQTYC433
-	 MenIYqM9E1ATX9aASYkGrP+vpouC/gjvlqu1P05E2QBhwh1FwAoqHzqwW14lrttXVG
-	 tERf2wrrxivL42/IFQVBUtoPG9SCW+XYF7qpYgTA5h6D7PiMqBd7tm0MlgkrFq6VpY
-	 Lj8ftVfZaOZYJ1kMc1IznkJVlkJvRFA4b0jwE42eRzRqlN8huoOta+NVrQaBcx679O
-	 B1I+tomvnEhxQ==
-Date: Thu, 19 Nov 2026 18:52:36 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Sahil Chandna <sahilchandna@linux.microsoft.com>
-Cc: linux-hyperv@vger.kernel.org, netdev@vger.kernel.org, Haiyang Zhang
- <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, Dexuan Cui
- <decui@microsoft.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Wei Hu <weh@microsoft.com>, Konstantin Taranov
- <kotaranov@microsoft.com>, Simon Horman <horms@kernel.org>, Erni Sri Satya
- Vennela <ernis@linux.microsoft.com>, Aditya Garg
- <gargaditya@linux.microsoft.com>, Manish Awasthi
- <mawasthi@linux.microsoft.com>, Breno Leitao <leitao@debian.org>,
- linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org,
- paulros@microsoft.com, stable@vger.kernel.org
-Subject: Re: [PATCH net] net: mana: Set 1 usec / 1 comp as default and
- minimum interrupt moderation
-Message-ID: <20261119185236.09603dbd@kernel.org>
-In-Reply-To: <cc705453-0794-494f-adb9-b6fb71254ba7@linux.microsoft.com>
-References: <20261113204427.1922848-1-haiyangz@linux.microsoft.com>
-	<cc705453-0794-494f-adb9-b6fb71254ba7@linux.microsoft.com>
+	dkim=pass (2048-bit key, unprotected) header.d=tylorstech.com header.i=@tylorstech.com header.a=rsa-sha256 header.s=x header.b=1fih5ECV
+Received: from filter006.mxroute.com ([136.175.111.3] filter006.mxroute.com)
+ (Authenticated sender: mN4UYu2MZsgR)
+ by mail-108-mta97.mxroute.com (ZoneMTA) with ESMTPSA id 1a1f6def3f1000d084.005
+ for <linux-kernel@vger.kernel.org>
+ (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+ Fri, 20 Nov 2026 02:52:49 +0000
+X-Zone-Loop: 70343a7895a823a07324f90f6484f35ff64e976cedfc
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=tylorstech.com; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+	From:Subject:References:Cc:To:MIME-Version:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID; bh=msYeIQlcLBBah1ScNLjcrzC4Z7h2py1hSnX94ae5ztU=; b=1fih5E
+	CVYF0iI3fiNq76L3wCq5alYWwCu9aEv7YdZr2Gbwn1WDQXDXZm5S5ieHT27fSt8c7QplB/Et39Vfr
+	Pbv+j3n8EEHDinI5kme6ZB2TEFtKzdr4bCI9OIXRpTVvldQ0qKS1mUrKrW38xO59pE0bjS6yoaz0M
+	KSDHmBHSK0MbUJMFGiunmYYGs35mUvRilNjleH0je3GNbNiut2/Tjlgfq4JIf1tlRSAkSavxCvqQy
+	aEgEa0S+fkUMBkG8BtIggUt5evk1FzIcj0EX5Iltj/r1BHhfxl8nvtafzbgJqt7zLZuaoZ955APou
+	pJOIwaLDEBEWsCpkMxVqCrvn/l8g==;
+Message-ID: <088fad53-fb61-4513-80da-d0067da5c217@tylorstech.com>
+Date: Thu, 19 Nov 2026 20:52:39 -0600
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,11 +62,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+To: regressions@leemhuis.info
+Cc: alexander-zorn@gmx.net, amd-gfx@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, regressions@lists.linux.dev
+References: <3b5586d0-b973-4984-9fbc-43c9ab960d76@leemhuis.info>
+Subject: Re: [REGRESSION] Black screen after splash with Linux 7.0 on MSI
+ Creator A16 AI+ (AMD Strix Point + NVIDIA)
+Content-Language: en-US
+From: Tylor Pater <tylor@tylorstech.com>
+In-Reply-To: <3b5586d0-b973-4984-9fbc-43c9ab960d76@leemhuis.info>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Authenticated-Id: tylor@tylorstech.com
 
-On Thu, 19 Nov 2026 15:52:40 +0530 Sahil Chandna wrote:
-> LGTM, Reviewed-by: Sahil Chandna <sahilchandna@linux.microsoft.com>
+Hi,
 
-The tag needs to start at the start of the line, otherwise tools wont
-pick it up.
+I'm seeing what looks like the same issue on an ASUS ProArt P16 (Strix 
+Point 890M + RTX 5060, Samsung ATNA60HR07-0 OLED eDP panel). Panel 
+frozen on the boot splash on every boot with 7.3.4/7.3.5; 6.18.60 works. 
+System is otherwise up (SSH, compositor running)...
+
+On the failing kernel eDP-1 replay_state is 48 and psr_state is 0; on 
+6.18 replay_state is 0 and psr_state is 6. Booting 7.3.5 with 
+amdgpu.dcdebugmask=0x400 (disable Panel Replay only) fixes it and the 
+driver falls back to PSR. DMCUB firmware is 0x09005700 on both.
+
+Might be worth trying amdgpu.dcdebugmask=0x400 on the MSI to see if it's 
+the same Replay issue?
+
+Full details, logs and dtn_log dumps: 
+https://gitlab.freedesktop.org/drm/amd/-/work_items/6174
+
+And I saw this issue across multiple distros as well.
+
+Thanks,
+Tylor Pater
+
