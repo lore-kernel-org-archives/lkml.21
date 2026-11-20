@@ -1,98 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.48
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795192704;
-	b=j5FVdX8gvtrZNTw6fV+hAxd81X5EHVeijl7M40h5Zqrm7PonAaDK7Gh9kOvbZjje5ALQ
-	 btmL5HWP10nBjSBJfs8mpdiqJvkfRN2L8AArsPZMaGL2WoINtLU07q2GPfo9wh/RyM4Dx
-	 Nwbxc8dt4EPwdyVvjcGC0x6CgJt7U1I1v/4F9KNngFOR0H7Hn7f+HGfndmEPBD/43v8uG
-	 HAqmLo5/XWDs+nuJaqKErboiLApqMMhG69UCrywdWMOgtnzD0+ARkz9O/XwO/Y51+0hIo
-	 /WbpPkY0DbIexvsY8HAUzCWe3y1GSuqVpRNkqBfDhOGxvoItQR4vHFDUAkCcHUIKeDA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795192704;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=TQThoXxAY++q6uUlTk7Vtho7VATde3AuFTpdxXg8pEM=;
-	b=PeGkY2b0606zxoyr8EObmUWXzH0lEWHoKpyZuQSMlLAbJYfy0YMwKUnOwezRf5TMoBe8
-	 nUbY87SeX7L4XuL0/twp6oGOwnec+TsZw9Ijw4ujMVQui0ImeoPSS02AiUNow+NGQk3tY
-	 UnQSxymLaBwFRzMXFGXoJTtzeZbuZR7RD0iFzmFCOPNmEzCEdUimo+uW63vD2goJM3ZFe
-	 vHyY5TTjRldIX7qsbtFrcH1UY3XWPKioh86D0ZVkpqLfQL8hL8rWkt+BalzJ46gqiPcg9
-	 K+PO1NEDW6UUH/o6Zv20uomVTldQhBQ5fNQw6Q9KQEmwcWiNqt67DhpBhUQAU3UiW2g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=UobcoGKy;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.48
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010048.outbound.protection.outlook.com [52.101.201.48])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795192748;
+	b=IxTfvOfoiZn/KwSd+eMZMvW6Uv8T1NYwCOJsTu9ueUfb2vRROpc15yVsPf80xKt39VDV
+	 DxC+901mRjPsPyre8lSkrg6UiqwNLXGxGU9wkP8ZxmlvDAsSDoiARpBhfdpFCBnRU3hIm
+	 cq7j1RDbSMrPPLBhELdW/nhy9sQSWW6CsFJqc38nEy3NLWQ4WIAC5Qp+rbFC+CTVLncC3
+	 bBsgSpA5iPcbnPElaQR/zCmHfPoYRH1oiCBqszYEY4tlELDRKcreQIwJrMb0TpAfjEraJ
+	 1ZSotAbmws1kiFrsZJHeOBRD9L4sOnpjxGgPtksLqjH3HfF0/1SoxrRiYpZuqocbKVA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795192748;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=hxrnWO291rbp3oK4P2YdjfL0zd/TWehnXuJj3zqAaGA=;
+	b=Oj7tE5k1FPeNqWqQ0UJM0oDNouozRU7ArCzmbV/nnOV3rnblqGTeuk6OOmLtQCa4tZN1
+	 qdOL1iqjU/Du+9STD34hi2Ok1pv41895cfsauGfSCJZZX8xj/2WsZKPhPaY/Z/QDtoUs2
+	 reFtyes1aA/CvfxRnyV7D8EPeSy8BDwdcF6827Vj4H4LW/iQ0+oRjPHuvlflCjmpLo/tD
+	 jSNPBS1Dy1WwwXBPyhDGzQVSJqajzdYoW1jOAqhY/l7Jh5+1+QhuT/DS0NzahB68yZkU5
+	 +5W6jv2D1e+H7YqFfVz7krVwHfWnM4qhmV+u9gSYiuh70cwil5ewqzJoCKSXqfsNfig==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=fail header.from=isslab.korea.ac.kr;
+	spf=none smtp.mailfrom=isslab.korea.ac.kr;
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="N9oDCr+/";
+	arc=none smtp.remote-ip=209.85.215.182
+Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6128606A33A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:38:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6128606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02E60606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:39:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02E60606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=UobcoGKy
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nuGzcdglFJ1SKtI90b/fXKHXdsAChvvEsLUOVRpKJE7wOgpRDzSgCV4mUy8/ICTK8WcCCretVexLxP5FNCICHCWKKr4vPu2jEl11oOeHF2FX+S7Md7FwDslraQ7SW7ZafGHdJRTcL3l6YNDT8JxuFUzVNISZnOVSex/uLV06341wDSlPqYbEImS4tnW68eolGHSbpiOAYZjzsfplmqa4EFVJZbUffVFSds17mAiSztowZabN1OjprjvR9vxYsKX6Pj+PjSfpxHIwXvtfK2E1+EtfGN9WJu9PCX+qIHpj4SkW0wWFmRN4yqlfLOZyY5naPhsn44NgrYFnQorb0z8gHw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TQThoXxAY++q6uUlTk7Vtho7VATde3AuFTpdxXg8pEM=;
- b=XOZKBxhr4mT4NwnVosOLoAgQa8+sUTxBG8DI8H28aA0meUn4cP8rnDX69b1SM2gdIZFNaG9hk2w9++lSsC8p4tmnvvLaf+g+hfz2zyYWlnybThlY2IT8x08x7mUNF2+fBuMo08sJViI5bEVoywHY2SKLWSuwkl1DkkEobHQExVhBmQD7ivgDRodBlbDDQmZ57fNKmM5jsB6sqDq0xgRWIMRndNT6ehvd4FIU6UJqAlAuFHjxWZfe0QgDjBuS+815mxiooCbwtGAwR5YihNJM31nKXXA3xXPWjZNTGooJZ/AkT1+MtrYdtLkKqycYvhVEjIltNzhUJAENh5KV3a08cA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TQThoXxAY++q6uUlTk7Vtho7VATde3AuFTpdxXg8pEM=;
- b=UobcoGKyo6JjnZl56E+P0kOB7oQO0vr6cueYzy8MRxdtyXwr6ycZBXdr7qqZg0iH+l+vSRXvoOgHrXzdch2xq+75/XZA+4v9IJ2R066YDw6bT1XTJNSec6DEEPpqq3BsHLQoUkHE6GqMwUjydS5G8eQRZZHE69zkhk8zzh3F6q0=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from BL4PR12MB9505.namprd12.prod.outlook.com (2603:10b6:208:591::16)
- by PH7PR12MB8795.namprd12.prod.outlook.com (2603:10b6:510:275::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
- 2026 16:38:18 +0000
-Received: from BL4PR12MB9505.namprd12.prod.outlook.com
- ([fe80::73aa:eb8c:a86b:5a83]) by BL4PR12MB9505.namprd12.prod.outlook.com
- ([fe80::73aa:eb8c:a86b:5a83%5]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
- 16:38:18 +0000
-Message-ID: <47b7530d-85c7-4e85-a90f-3a100008b8fa@amd.com>
-Date: Fri, 20 Nov 2026 22:08:10 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] iommu/amd: Drop unused global exclusion range
- fields and init
-To: Sairaj Kodilkar <sarunkod@amd.com>, "Joerg Roedel (AMD)"
- <joro@8bytes.org>, Adrian Huang <ahuang12@lenovo.com>,
- Joerg Roedel <jroedel@suse.de>, Robin Murphy <robin.murphy@arm.com>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Will Deacon <will@kernel.org>, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Cc: Akshay Jindal <Akshay.Jindal@amd.com>
-References: <20261117070654.3699-1-sarunkod@amd.com>
- <20261117070654.3699-2-sarunkod@amd.com>
-Content-Language: en-US
-From: Vasant Hegde <vasant.hegde@amd.com>
-In-Reply-To: <20261117070654.3699-2-sarunkod@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA5P287CA0249.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1ae::15) To BL4PR12MB9505.namprd12.prod.outlook.com
- (2603:10b6:208:591::16)
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=N9oDCr+/
+Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-cddee4abc57so347473a12.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:39:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795192746; x=1795797546; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hxrnWO291rbp3oK4P2YdjfL0zd/TWehnXuJj3zqAaGA=;
+        b=N9oDCr+/x+MJfsvToLmZOf8VoKVval1/G3xoYXG+WjJzEf8VoC/beasr6Q4MvhMmZU
+         iUZCLLfyAP1p+2U+vS1UufezWokEDgjDsys5YvG9Kr6Qq/g2E5wHGkEVB1SAMNmNcb8d
+         +KNfeeBbZtGyw1RH2xhr1Y7ty/98zGG3rJf14JcqqW5h6N1SbpxSH4tVkq/PkZIu2Z5V
+         6DOI8KnoVANULKmEhsSUlRbXY7b+PVCoz+CNFCiJLUp1tDFhGAS6LFo6ok9bz6HJD7yH
+         CZs3iR2ICf2r2E5zrm71vVkP37dXymsMEjqoFn/8YxJCNTom46fnWESsakj7rI4vWuKn
+         LQ1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795192746; x=1795797546;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hxrnWO291rbp3oK4P2YdjfL0zd/TWehnXuJj3zqAaGA=;
+        b=ZNEAF2o3WaGQXC8pFJ5M1pkvX/sjaPhvpcvdjnAUmEktW/9BkxnAPRPXN2Cu0+2aMW
+         Wwpu7qahHXp0TxunxA1P6map6+XqKpbzF4WOsOvSqLJcp09Vsq1J8aERjMaGWb281f2J
+         quvyMFrfeUY/ke9KHzp/IAMypWSLOTB4WhXJCjTcsyzeB6Z/2WxNtVXPai8O8R7Mvowu
+         j3gx1hUNEccxI9c+TXC6l8Nz1zd6iLXChmEM0ovPpIQ6n4gAy5d6ueOJoH0Q5EXXqzLd
+         McX83giLT/jaGd1absUBlBvJXEWbv9EpbxaRcBQ6LnRNysZZbB8SEYQRnNCCY9DJ0OuN
+         v1Cg==
+X-Forwarded-Encrypted: i=1; AL+hErGe2X2OJzAXYpqE9hK/7qoBrd16gbeX6i9vxXBE9XwsAuSSBP+C4ReF7U4OWZ3XF5Q2xqlUyXvOKDpEC+o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8qzG51ZnU/T7bpwoyJd62Gr5+Lir5/uZn60FANUTi0rv2s/PSd
+	+FQ+ab3CBFWDZJ7LWt8pef3ythJxuTY16X/t8A3A7QRm0ndL8ulZpPEpR6uISt51c6k=
+X-Gm-Gg: AYBFou16bcqR0066+qt3+UsTtekVnlO/OaxThpr0JfOER/0h/IXm0DPDjzRHbtMDGBO
+	DjGYCKEbwlTBWhvBv99JTtAigUwvpMFpJCQKJnusLW6o8X013udrBjrgCE9idnXHCRXg0nLpIAf
+	oFsFlSRluZu59wm1Adr6nqhr2k60RH0TYvGv9iZr1IvpRw5bMg+3bXUCZY1mAkbQMDS+HfRrNtq
+	zU3eOzmx/eyMP4oD4bhvXR6bDdSR4FeoQOp9eHiMj675MiSzdO7sZ3o7v7+gQtqfWQChFWWOw8n
+	boEbgjEjXRcNQdQuoRFtZsFItlhdXxJ9ahitzhJoD4AwmN+4macjJH/Nf3ObNnFhQ8aqKTZ+0KX
+	xwBOToddpkrjE8P2Cs8S2SZWQ9s4ID08gqTgJ9hzqpDCGFMMt5u8IwiOagbHUrxq5jkcA5XbaVy
+	CAi/1jKMsLcv9lEMTCNbp6c6zN4/H9anrdUMQJknH0VGk2oFaq3552Hbexxn1nCRI+lTpOF+ul0
+	hpfezQXs70ooFPazItYSpEUyNgWF3PdEw8SESM/phG3USUY7l2s1F44c1NQG25ia8WWMaNQnpIe
+	+O0YotVCfR5JIOhldnrkSLelscRAdE8GBmflmK+cDUy+LQbTv6INdE8DBFzwwM/zSTEbjfdMwSu
+	9C3WbLJXRoMBQASSRreiSWDkdzkTsZR5bz9SVrg==
+X-Received: by 2002:a05:6a20:7489:b0:3dd:d729:c62c with SMTP id adf61e73a8af0-4014df5e9b9mr4040163637.54.1795192746190;
+        Fri, 20 Nov 2026 08:39:06 -0800 (PST)
+Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfec090sm1628696a12.14.2026.11.20.08.39.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 08:39:05 -0800 (PST)
+From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+To: Lee Duncan <lduncan@suse.com>,
+	Chris Leech <cleech@redhat.com>,
+	Mike Christie <michael.christie@oracle.com>,
+	"Martin K . Petersen" <mkp@kernel.org>,
+	"James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>
+Cc: linux-scsi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] scsi: libiscsi_tcp: hold back_lock across the copy of a Data-In
+Date: Sat, 21 Nov 2026 01:38:57 +0900
+Message-ID: <20261120163857.3238489-1-yhlee@isslab.korea.ac.kr>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,142 +99,384 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL4PR12MB9505:EE_|PH7PR12MB8795:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9dfa5ed0-26ad-4df7-5800-08df4724ae84
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|366016|23010399003|18002099003|22082099003|261009223027099003|261022075727099003|261026130827099003|261021123027099003|261022115727099003|261026135527099003|261021130227099003|261028144727099003|261021133027099003|261026140227099003|261021135927099003|261026121527099003|261022105027099003|261022113327099003|261021121427099003|11063799006|56012099006|10067099003|4143699003|261102123227099003;
-X-Microsoft-Antispam-Message-Info:
-	TcIsxWGI4Ls8bqjM4m2g+Qh/2AakZ+FnnqKe/Moep3eBtXTVOMsoAUac7CdebIQ88j0EOvhM6PcbxlNFQvWAyT8zCoUqcF+/kMj1JZ8MMn7xKq56kFzEgioLLAx6C+b7r1IOoyYDIn0B7Xo0hOiBrzkO7FJ6eFCzv8pnHWQupCnD2Sb6QtWqNEE8iUTw+dE/BL1OqSZkmyQ5d7vxKumKfGLKNPoC4qOQhk7KWXUSZ+q4seFAY0AJKeRkgf/er8WAij9PgkJ1ODJEwG7FSB209RWt0xypopfH9nxmTzKJTK+D5CkpW/PFdelZ5Uje3dHsj6g5P5CWGb814H8UeIhA8vZzvcIt9Nm5ZxeR71qVU5LoRTpekf9Rxfow5RhJDb8r+l+xYOVjy9huajdYF7qsY5ipiTJU+l2r5UGWS8BBrdU9x5BUjNPcZ3F+dvIyWcl9nAyy9hWdNAnlODt8yt+VH23gMOUXgdHh9VJCmjOGb6AwnqqbbcZ2M8za/CCQB20tCWcy7F+m9m6vklZWl8F7mljvfpKO7NqrFe2E+c9o+rJshU/CVHN5/ss1B32g7+eC0COUOTnfuTiMiMsK3ohzuh4JpOuz6sACdtkygvhs5ZuTlwdS7dbbslRzYY9PLs0Jlb52/y3ABw7W9zfNC5pEHXv7sdn3V6RXrnUNAcXEbWQ=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL4PR12MB9505.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(23010399003)(18002099003)(22082099003)(261009223027099003)(261022075727099003)(261026130827099003)(261021123027099003)(261022115727099003)(261026135527099003)(261021130227099003)(261028144727099003)(261021133027099003)(261026140227099003)(261021135927099003)(261026121527099003)(261022105027099003)(261022113327099003)(261021121427099003)(11063799006)(56012099006)(10067099003)(4143699003)(261102123227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?UlF0TnN5d3ZaUVNzbktGdENTNDZ0Y2xhUk1oOG10eXd6bldtd01UTDM4MUZZ?=
- =?utf-8?B?OHRFSkhjRnNJZnVKa01lNGh5ZTJuWjNtdE0wMWxvWE40ZjQrTjlza1pzZ09s?=
- =?utf-8?B?QllRbU11dGNSa2RnaXB0SDZzUW82WGd1VXNQdGlRcnhrb2V2SzErMTNDbktU?=
- =?utf-8?B?NkJEdktHaXZWY250Y0Z6LzdGbkdXYVJaVVEwelkrSFNQZS9DL2pMVHBRVmt1?=
- =?utf-8?B?NURNNEYyanhGZFB3WTRkNkNIT0Q3V3d4VHV2WnZQaWxwWTZORjlKYVEvc3Jv?=
- =?utf-8?B?SXNmNmpVWlVaZS9DbFdzRGhVRFNBYnBtWlJ1ZEtXRXNZOUdiMmJXVDdhNGNV?=
- =?utf-8?B?bzRDcDB3RWp4dm1OaTdTYVpMMFFUejVGcGxKWVJTcXVQTkVwR1BaUlE2NWFq?=
- =?utf-8?B?YlptYUcybkZER2wrMWZJMXM3QURvV01IRnBjenpyUGlGWEtXQmkvdmFGSUEz?=
- =?utf-8?B?Qk9aY2JQSnhqVjNrbE9JdkhCR21WRWtMMittbm80NGx4Ny96eWJNWkFRcVJk?=
- =?utf-8?B?WU92VGZldjZYbnJsS0JlWkYzNlJLNkkwY3NKTGZhTVBJZlJzanpCVzZ5ME5t?=
- =?utf-8?B?REl2aWVkbHpRbkxPWXVKR2NUNkRNd3ZqWVhVdEJvUmNnbkYvcWp4ekNoSW4x?=
- =?utf-8?B?a3piS1hRdzc3eDk0cHRWbys3RHI0MzFrTS9kczc2VDUvaFFCcko4bGVhMXhX?=
- =?utf-8?B?MjVkdmMzTldkeXJ6L3NPeWZIZnpjc2JlMXBKUzFRaWhQUEtYbWZMZUl3MmQ5?=
- =?utf-8?B?TFcxMGJ5TGNZRWozUXVCejJzdUdvcWNCUUFvcDFsYlJHcjE1MDgxTXVpWFM5?=
- =?utf-8?B?VmFMRTBzSGVERFNCaGlnQ2JseThwSnpQNlQyU080VlRLZFhKZVNWSWkvVCtD?=
- =?utf-8?B?ZnY2eEVUZGtpL3FqU1oxQjY4dG9MTzB2bFhCUVY1RVN0RW1qb3g2d1VhalZn?=
- =?utf-8?B?T2VnOGNsdTQyUWpYcTI0ZklZUTd1WkJmcU5NT2Z5Q3U0N3ZlL0dJZG5pUUd5?=
- =?utf-8?B?VWtUcnB4QmhMS21RcnVSdXJsUjJHdFZOVmkwYmQyZS9WK3hQYzc1Ym05SEQ0?=
- =?utf-8?B?ZmtPUDZlQUNpZWxSMUJmQkZpVmRYdGJCdC9jK0lyUEZKWXNGMzRBOUF6ZGV5?=
- =?utf-8?B?Z2s2aGlRMXg3ZFgyS3B2S1F0eG41M3JVYWpOckwvRlduMll1ZEo2cnBBV2Vl?=
- =?utf-8?B?MHJSQ0djVzBqYkxLMktKSVA1dkp2UVpCNjR6SWJzMkRVN0I3M3JKeS9qaU1R?=
- =?utf-8?B?Rk5sbW5RdHMwWnVkcis1M1l1VzVCblpjZDR5b0hUOEVIbXZ6dVhlRnB6NjBJ?=
- =?utf-8?B?K1VIM0RCMXE3L0JpSFlOTmdwLzIxanBHT0o0QkFwUnBrc2xaeG9uNGtibEd6?=
- =?utf-8?B?L3Z5VzNjdkhCVkpJcWhRcjI5MzVvckJhaGR0aHN0Q3l6RTVCeWJRT3lHT2JZ?=
- =?utf-8?B?VFE0Q2NCY3hmYmlJaFowZ0ZwNHlJemFYaWM5WFNpNHFpaGlZWFFndTROTjR3?=
- =?utf-8?B?amUrY0owZ1Bhc1RIV3ZSV092ZVo4WGtrRk5McXhSQUp0V0l2M04xVlB5VkZP?=
- =?utf-8?B?NW1IN3NHTXNyUHdCSmg3UHpCSWFIYkFoaVBzMUdoblVjODNvMjljQXB0UnBN?=
- =?utf-8?B?WlhqbEJIaEtYQXVrUzBZdENNOVVzaG1LY1hYTlhHOHNjRmljbTNYcm40U3Vh?=
- =?utf-8?B?UVVCQmdwSnpVc1k3bWgzR25zSmMxcXNNamNPc2lGd1psTDZON0lnbTc3OXlk?=
- =?utf-8?B?czM4b1lmaUhKSUtreTlZbTNBMWd2ZkFIUVZrdTdBbVJ2N3Q2TklLaks3TlFR?=
- =?utf-8?B?ZFR0NE1UUnlwcHJFaUI4NUl3NENha3hVMVF5eWpkWndSLzg2TUo1ZGFvYjJj?=
- =?utf-8?B?MjJhVWlCSER5ZVAxbkxjN3krVWZJbUpQNWVEbHdKcWtuS3RicmZ1bDNlc2NO?=
- =?utf-8?B?OTV3Z2xhR0F1bmM2YS9PY0h0YzBrUERKZFJCS3R3YmxWTHpTUHh5SElpN1Ro?=
- =?utf-8?B?S2VDUzQrSzJmOTVBUldwVHZUNGFEVlZ4KzJHQTh2WitFdFZITjFNelVDdFEy?=
- =?utf-8?B?WUZLQUFSZ3FCc3IwNjJ3eHBrdnhXR1QrMXRMNlp3YjBxMU4yNE9nRHRqZUNl?=
- =?utf-8?B?b1ZoL29sRE00Y0s4Q25XVU1xVjRGbzZYa2RlTG5TUkg3dE4rbDdzdmkxVWZ3?=
- =?utf-8?B?MlhKcUZUVElDeGNZY0lwL1hQWW5BcU53MDlTNFc0NWpQUnAwMjdCRWp3WGFE?=
- =?utf-8?B?eHRjeklJeHArOVRWdkREZ3ZHRkZLMzlRN1hIa0dEU1U2N2tHRTR4VGdLVEhY?=
- =?utf-8?B?bW9zSnJGc2J2K2VTT1BXU2ZYZU1zWVFjcktEQUs2V1FtS0l4dXhvUT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9dfa5ed0-26ad-4df7-5800-08df4724ae84
-X-MS-Exchange-CrossTenant-AuthSource: BL4PR12MB9505.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 16:38:18.4793
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 57RZCg0EmGGycOoDELavrmP/DgPq8Idw6V65QolSgmOrO3cWPahqm1SXA0hd4yf5dhHTJNvEgMpQbX3j9u08fw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8795
+Content-Transfer-Encoding: 8bit
 
+iscsi_tcp_hdr_dissect() aims the receive segment at a command's
+scatterlist and drops back_lock, and the copy itself then runs once per
+skb in iscsi_tcp_recv_skb() with nothing held:
 
+	rc = iscsi_segment_seek_sg(&tcp_conn->in.segment, sdb->table.sgl,
+				   sdb->table.nents, ...);
+	spin_unlock(&session->back_lock);
 
-On 11/17/2026 12:36 PM, Sairaj Kodilkar wrote:
-> From: Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>
-> 
-> Remove unused struct amd_iommu.exclusion_start/exclusion_length, the
-> MMIO_EXCL_* flag masks, and iommu_set_exclusion_range(). These struct
-> amd_iommu fields were never assigned, so early_enable_iommu() never
-> programmed the hardware exclusion registers through this path.
-> 
-> Please note that the exclusion range registers have been repurposed
-> to SNP completion-wait store base / limit registers. So, rename
-> MMIO_EXCL_BASE/LIMIT via to MMIO_COMPL_STORE_BASE/LIMIT instead.
+The SCSI error handler finishes a task while such a copy is pending, and
+it leaves the receive side running on purpose while it does.
+iscsi_eh_abort() says so itself:
 
-Patch subject/description doesn't match the code. Can you please update the
-description?
+	/*
+	 * we do not stop the recv side because targets have been
+	 * good and have never sent us a successful tmf response
+	 * then sent more data for the cmd.
+	 */
 
--Vasant
+iscsi_eh_device_reset() and iscsi_eh_target_reset() do the same, calling
+iscsi_suspend_tx() and not iscsi_suspend_rx() before they fail the tasks.
+fail_scsi_task() and fail_scsi_tasks() complete the task the receive path
+is copying into, iscsi_free_task() hands the command back with
+scsi_done(), and its scatterlist returns to the sg mempool while
+tcp_conn->in.segment still points into it.
 
+Looking the command up again before each round of copying would not help.
+The error handler can fail the task between the lookup and the copy, and
+a lookup cannot tell the command apart from its successor either:
+task->itt is the index of a preallocated slot and is fixed for the life
+of the session, so the next command to take that slot carries the same
+ITT and the same session age, and iscsi_itt_to_ctask() returns it as
+running while segment->sg still points into the freed scatterlist.
 
-> 
-> Signed-off-by: Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>
-> Signed-off-by: Sairaj Kodilkar <sarunkod@amd.com>
-> Reviewed-by: Akshay Jindal <Akshay.Jindal@amd.com>
-> ---
->  drivers/iommu/amd/amd_iommu_types.h | 4 ++--
->  drivers/iommu/amd/init.c            | 6 +++---
->  2 files changed, 5 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/iommu/amd/amd_iommu_types.h b/drivers/iommu/amd/amd_iommu_types.h
-> index 8241ef922519..678ceddd711c 100644
-> --- a/drivers/iommu/amd/amd_iommu_types.h
-> +++ b/drivers/iommu/amd/amd_iommu_types.h
-> @@ -44,8 +44,8 @@
->  #define MMIO_CMD_BUF_OFFSET     0x0008
->  #define MMIO_EVT_BUF_OFFSET     0x0010
->  #define MMIO_CONTROL_OFFSET     0x0018
-> -#define MMIO_EXCL_BASE_OFFSET   0x0020
-> -#define MMIO_EXCL_LIMIT_OFFSET  0x0028
-> +#define MMIO_COMPL_STORE_BASE_OFFSET   0x0020
-> +#define MMIO_COMPL_STORE_LIMIT_OFFSET  0x0028
->  #define MMIO_EXT_FEATURES	0x0030
->  #define MMIO_PPR_LOG_OFFSET	0x0038
->  #define MMIO_GA_LOG_BASE_OFFSET	0x00e0
-> diff --git a/drivers/iommu/amd/init.c b/drivers/iommu/amd/init.c
-> index 8a410d4aa370..13c96feed64f 100644
-> --- a/drivers/iommu/amd/init.c
-> +++ b/drivers/iommu/amd/init.c
-> @@ -370,14 +370,14 @@ static void iommu_set_cwwb_range(struct amd_iommu *iommu)
->  	 * Re-purpose Exclusion base/limit registers for Completion wait
->  	 * write-back base/limit.
->  	 */
-> -	memcpy_toio(iommu->mmio_base + MMIO_EXCL_BASE_OFFSET,
-> +	memcpy_toio(iommu->mmio_base + MMIO_COMPL_STORE_BASE_OFFSET,
->  		    &entry, sizeof(entry));
->  
->  	/* Note:
->  	 * Default to 4 Kbytes, which can be specified by setting base
->  	 * address equal to the limit address.
->  	 */
-> -	memcpy_toio(iommu->mmio_base + MMIO_EXCL_LIMIT_OFFSET,
-> +	memcpy_toio(iommu->mmio_base + MMIO_COMPL_STORE_LIMIT_OFFSET,
->  		    &entry, sizeof(entry));
->  }
->  
-> @@ -1022,7 +1022,7 @@ static int __init remap_or_alloc_cwwb_sem(struct amd_iommu *iommu)
->  		 * completion wait buffer (CWB) address. Read and re-use it.
->  		 */
->  		pr_info_once("Re-using CWB buffers from the previous kernel\n");
-> -		paddr = readq(iommu->mmio_base + MMIO_EXCL_BASE_OFFSET) & PM_ADDR_MASK;
-> +		paddr = readq(iommu->mmio_base + MMIO_COMPL_STORE_BASE_OFFSET) & PM_ADDR_MASK;
->  		iommu->cmd_sem = iommu_memremap(paddr, PAGE_SIZE);
->  		if (!iommu->cmd_sem)
->  			return -ENOMEM;
+So let the lock that releases a command also guard the copy into it.
+iscsi_tcp_cleanup_task() already runs from iscsi_free_task() with
+back_lock held, immediately before the command is handed back, so
+remember which command a Data-In is being copied into and drop that
+pointer there.  iscsi_tcp_recv_skb() then holds back_lock for the whole
+of the copy and refuses the rest of the PDU with ISCSI_ERR_BAD_ITT if the
+pointer is gone, as it does one step earlier.  Cleanup and copy now
+exclude each other, and a slot cannot be reused before the cleanup that
+invalidated the pointer has run.  Only a Data-In pays for this: it is the
+only receive segment aimed at a scatterlist, every other one is a linear
+buffer that belongs to the connection.
+
+The lock is dropped again before segment->done(), which for a Data-In is
+iscsi_tcp_process_data_in() and takes back_lock itself.  Holding it over
+the copy is bounded by one skb and adds no sleeping call; the copy maps
+its pages with kmap_atomic().  It is taken with _bh because the receive
+path is not only a softirq: iscsi_sw_tcp_recv_data_work() runs it from a
+work item with softirqs enabled when iscsi_recv_from_iscsi_q is set, and
+every process context that takes back_lock in libiscsi takes it that way.
+
+A target that holds part of a Data-In until the command's LUN has been
+reset, and then sends the rest, gets the copy to run through the freed
+scatterlist and KASAN to report it:
+
+  BUG: KASAN: slab-use-after-free in iscsi_tcp_segment_done+0xe4b/0x1490
+  Read of size 4 at addr ffff88800d44cc8c by task swapper/0/0
+
+  CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Tainted: G    B               7.4.0-rc2-00478-ga189f19ef663 #10 PREEMPT(lazy)
+  Tainted: [B]=BAD_PAGE
+  Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
+  Call Trace:
+   <IRQ>
+   dump_stack_lvl+0x53/0x70
+   print_report+0xd0/0x630
+   kasan_report+0xce/0x100
+   iscsi_tcp_segment_done+0xe4b/0x1490
+   iscsi_tcp_recv_skb+0x924/0x15f0
+   iscsi_sw_tcp_recv+0x12f/0x390
+   __tcp_read_sock+0x1ab/0x810
+   iscsi_sw_tcp_data_ready+0x18b/0x510
+   tcp_data_queue+0x1f2d/0x4b70
+   tcp_rcv_established+0x8a8/0x3990
+   tcp_v4_do_rcv+0x45b/0x970
+   tcp_v4_rcv+0x223d/0x3b90
+   ip_protocol_deliver_rcu+0x61/0x2e0
+   ip_local_deliver_finish+0x329/0x4b0
+   ip_local_deliver+0x18f/0x2d0
+   ip_sublist_rcv_finish+0x138/0x1b0
+   ip_sublist_rcv+0x3ae/0x670
+   ip_list_rcv+0x266/0x380
+   __netif_receive_skb_list_core+0x5c3/0x860
+   netif_receive_skb_list_internal+0x553/0xbb0
+   gro_complete.constprop.0+0x3ed/0x5c0
+   dev_gro_receive+0xa31/0x23c0
+   gro_receive_skb+0x279/0x960
+   e1000_clean_rx_irq+0x602/0x1160
+   e1000_clean+0x7eb/0x25a0
+   __napi_poll+0x9c/0x520
+   net_rx_action+0x8f1/0xfb0
+   handle_softirqs+0x1b3/0x600
+   __irq_exit_rcu+0xfc/0x160
+   common_interrupt+0x7f/0x90
+   </IRQ>
+
+  Allocated by task 75:
+   kasan_save_stack+0x33/0x60
+   kasan_save_track+0x14/0x30
+   __kasan_slab_alloc+0x6e/0x70
+   kmem_cache_alloc_noprof+0x10e/0x340
+   mempool_alloc_noprof+0xcd/0x180
+   __sg_alloc_table+0x23e/0x410
+   sg_alloc_table_chained+0x47/0x180
+   scsi_alloc_sgtables+0x17f/0xc50
+   sd_init_command+0x20e/0x2e70
+   scsi_queue_rq+0x1070/0x2f60
+   blk_mq_dispatch_rq_list+0x390/0x2100
+   __blk_mq_sched_dispatch_requests+0xa7a/0x1550
+   blk_mq_sched_dispatch_requests+0xa7/0x140
+   blk_mq_run_work_fn+0x105/0x150
+   process_one_work+0x697/0x1060
+   worker_thread+0x45b/0xd10
+   kthread+0x2c8/0x3b0
+   ret_from_fork+0x36e/0x5a0
+   ret_from_fork_asm+0x1a/0x30
+
+  Freed by task 130:
+   kasan_save_stack+0x33/0x60
+   kasan_save_track+0x14/0x30
+   kasan_save_free_info+0x3b/0x60
+   __kasan_slab_free+0x43/0x70
+   kmem_cache_free+0xba/0x3a0
+   mempool_free+0xbd/0x110
+   __sg_free_table+0xa8/0x170
+   scsi_end_request+0x329/0x5d0
+   scsi_io_completion+0x4b0/0xda0
+   blk_complete_reqs+0xa4/0xe0
+   handle_softirqs+0x1b3/0x600
+   do_softirq+0x3d/0x60
+   __local_bh_enable_ip+0x6a/0x70
+   iscsi_eh_device_reset+0x7f1/0xa10
+   scsi_ioctl_reset+0x3a8/0x5b0
+   scsi_ioctl+0x7ac/0x1360
+   blkdev_ioctl+0x385/0x520
+   __x64_sys_ioctl+0x134/0x1c0
+   do_syscall_64+0xdf/0x4c0
+   entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+  The buggy address belongs to the object at ffff88800d44cc80
+   which belongs to the cache sgpool-16 of size 512
+  The buggy address is located 12 bytes inside of
+   freed 512-byte region [ffff88800d44cc80, ffff88800d44ce80)
+
+Fixes: da32dd681f7a ("[SCSI] iscsi_tcp: rewrite recv path")
+Cc: stable@vger.kernel.org
+Signed-off-by: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+---
+v2: move the copy into a helper so back_lock is taken and released on the
+same path (Sashiko, clang context analysis).  checkpatch flags the two
+BUG_ON()s that moved into the helper; those are the existing lines,
+unchanged.
+v1: https://lore.kernel.org/r/20261120145243.3124991-1-yhlee@isslab.korea.ac.kr
+
+Reproduced against a userspace target reached through a proxy that holds
+a 64 KiB read's whole Data-In, lets a LUN reset through, and then sends
+the header with the first 2048 bytes and the remaining 63488 bytes after
+a gap.  A test-only delay parks the receive path for 20 ms once it has
+reached the copy, and the reset path waits for that park before it fails
+the tasks, so that the command is given back inside the window.  The
+receive softirq is kept on one cpu and the reader and the reset on
+others.  Every boot is a fresh one, under KASAN.
+
+Measured on top of the series named below.  Without this patch all 3
+boots report, 51 reports each, of which 4 name the freed scatterlist and
+the rest are the copy writing through it and into the freed data pages.
+With it none of 3 do: the reset waits on back_lock until the copy has
+finished, the 63488 bytes land in the command's own buffer, and the reset
+then fails the command as it asked to.  A 64 KiB read through the same
+proxy with the injection turned off is unaffected in both arms.  Ten
+32 MiB direct reads, on kernels built without the test delays and without
+KASAN, take 1.23 to 1.39 s without the patch and 1.23 to 1.34 s with v1,
+three boots of three measurements each per arm.
+
+The report above is the first one that names the scatterlist.  The boot's
+first report is the same copy writing into a freed data page, which is
+also what set the taint.
+
+This is a follow-up to "scsi: libiscsi_tcp: do not accept a Data-In for a
+finished command", which refused a Data-In whose command had already gone
+but argued that while a copy is pending only the receive path can finish
+the task.  The error handler does too, which is what this patch answers.
+
+  https://lore.kernel.org/r/20261117101500.1894608-5-yhlee@isslab.korea.ac.kr
+
+Sashiko raised the same case on that patch:
+
+  https://lore.kernel.org/all/sashiko-outbox-218654@kernel.org/
+
+Applies on its own, and on top of that series, to mkp-scsi/for-next
+(08fec21faae4), origin/master (65e4fd942f72) and next/master
+(adcad7f4e6332c).
+
+ drivers/scsi/libiscsi_tcp.c | 113 ++++++++++++++++++++++++++----------
+ include/scsi/libiscsi_tcp.h |   7 +++
+ 2 files changed, 90 insertions(+), 30 deletions(-)
+
+diff --git a/drivers/scsi/libiscsi_tcp.c b/drivers/scsi/libiscsi_tcp.c
+index eeb853c6b66d49..c84355978e3272 100644
+--- a/drivers/scsi/libiscsi_tcp.c
++++ b/drivers/scsi/libiscsi_tcp.c
+@@ -442,9 +442,17 @@ iscsi_tcp_data_recv_prep(struct iscsi_tcp_conn *tcp_conn)
+  */
+ void iscsi_tcp_cleanup_task(struct iscsi_task *task)
+ {
++	struct iscsi_tcp_conn *tcp_conn = task->conn->dd_data;
+ 	struct iscsi_tcp_task *tcp_task = task->dd_data;
+ 	struct iscsi_r2t_info *r2t;
+ 
++	/*
++	 * Runs under back_lock just before the command is given back, and
++	 * the receive path copies into its scatterlist under the same lock.
++	 */
++	if (tcp_conn->in.datain_task == task)
++		tcp_conn->in.datain_task = NULL;
++
+ 	/* nothing to do for mgmt */
+ 	if (!task->sc)
+ 		return;
+@@ -745,6 +753,7 @@ iscsi_tcp_hdr_dissect(struct iscsi_conn *conn, struct iscsi_hdr *hdr)
+ 				      tcp_task->data_offset,
+ 				      tcp_conn->in.datalen);
+ 			task->last_xfer = jiffies;
++			tcp_conn->in.datain_task = task;
+ 			rc = iscsi_segment_seek_sg(&tcp_conn->in.segment,
+ 						   sdb->table.sgl,
+ 						   sdb->table.nents,
+@@ -892,6 +901,51 @@ inline int iscsi_tcp_recv_segment_is_hdr(struct iscsi_tcp_conn *tcp_conn)
+ }
+ EXPORT_SYMBOL_GPL(iscsi_tcp_recv_segment_is_hdr);
+ 
++/* Copy one skb into the receive segment.  *done is set if it completed it. */
++static unsigned int iscsi_tcp_copy_skb(struct iscsi_conn *conn,
++				       struct sk_buff *skb, unsigned int offset,
++				       bool offloaded, bool *done)
++{
++	struct iscsi_tcp_conn *tcp_conn = conn->dd_data;
++	struct iscsi_segment *segment = &tcp_conn->in.segment;
++	struct skb_seq_state seq;
++	unsigned int consumed = 0;
++	int rc;
++
++	*done = true;
++
++	if (offloaded) {
++		segment->total_copied = segment->total_size;
++		return 0;
++	}
++
++	skb_prepare_seq_read(skb, offset, skb->len, &seq);
++	while (1) {
++		unsigned int avail;
++		const u8 *ptr;
++
++		avail = skb_seq_read(consumed, &ptr, &seq);
++		if (avail == 0) {
++			ISCSI_DBG_TCP(conn, "no more data avail. Consumed %d\n",
++				      consumed);
++			*done = false;
++			return consumed;
++		}
++		BUG_ON(segment->copied >= segment->size);
++
++		ISCSI_DBG_TCP(conn, "skb %p ptr=%p avail=%u\n", skb, ptr,
++			      avail);
++		rc = iscsi_tcp_segment_recv(tcp_conn, segment, ptr, avail);
++		BUG_ON(rc == 0);
++		consumed += rc;
++
++		if (segment->total_copied >= segment->total_size) {
++			skb_abort_seq_read(&seq);
++			return consumed;
++		}
++	}
++}
++
+ /**
+  * iscsi_tcp_recv_skb - Process skb
+  * @conn: iscsi connection
+@@ -908,9 +962,10 @@ int iscsi_tcp_recv_skb(struct iscsi_conn *conn, struct sk_buff *skb,
+ {
+ 	struct iscsi_tcp_conn *tcp_conn = conn->dd_data;
+ 	struct iscsi_segment *segment = &tcp_conn->in.segment;
+-	struct skb_seq_state seq;
+-	unsigned int consumed = 0;
+-	int rc = 0;
++	struct iscsi_session *session = conn->session;
++	unsigned int consumed;
++	bool segment_done;
++	int rc;
+ 
+ 	ISCSI_DBG_TCP(conn, "in %d bytes\n", skb->len - offset);
+ 	/*
+@@ -926,38 +981,36 @@ int iscsi_tcp_recv_skb(struct iscsi_conn *conn, struct sk_buff *skb,
+ 		return 0;
+ 	}
+ 
+-	if (offloaded) {
+-		segment->total_copied = segment->total_size;
+-		goto segment_done;
+-	}
+-
+-	skb_prepare_seq_read(skb, offset, skb->len, &seq);
+-	while (1) {
+-		unsigned int avail;
+-		const u8 *ptr;
++	/*
++	 * Hold back_lock across a Data-In copy so the command cannot be
++	 * given back while it runs.  _bh: this also runs from a work item.
++	 */
++	if (segment->sg) {
++		struct iscsi_task *task;
+ 
+-		avail = skb_seq_read(consumed, &ptr, &seq);
+-		if (avail == 0) {
+-			ISCSI_DBG_TCP(conn, "no more data avail. Consumed %d\n",
+-				      consumed);
+-			*status = ISCSI_TCP_SKB_DONE;
+-			goto skb_done;
++		spin_lock_bh(&session->back_lock);
++		task = tcp_conn->in.datain_task;
++		if (!task || task->state != ISCSI_TASK_RUNNING) {
++			spin_unlock_bh(&session->back_lock);
++			iscsi_conn_printk(KERN_ERR, conn,
++					  "Data-In for a command that is gone\n");
++			*status = ISCSI_TCP_CONN_ERR;
++			iscsi_conn_failure(conn, ISCSI_ERR_BAD_ITT);
++			return 0;
+ 		}
+-		BUG_ON(segment->copied >= segment->size);
+-
+-		ISCSI_DBG_TCP(conn, "skb %p ptr=%p avail=%u\n", skb, ptr,
+-			      avail);
+-		rc = iscsi_tcp_segment_recv(tcp_conn, segment, ptr, avail);
+-		BUG_ON(rc == 0);
+-		consumed += rc;
++		consumed = iscsi_tcp_copy_skb(conn, skb, offset, offloaded,
++					      &segment_done);
++		spin_unlock_bh(&session->back_lock);
++	} else {
++		consumed = iscsi_tcp_copy_skb(conn, skb, offset, offloaded,
++					      &segment_done);
++	}
+ 
+-		if (segment->total_copied >= segment->total_size) {
+-			skb_abort_seq_read(&seq);
+-			goto segment_done;
+-		}
++	if (!segment_done) {
++		*status = ISCSI_TCP_SKB_DONE;
++		goto skb_done;
+ 	}
+ 
+-segment_done:
+ 	*status = ISCSI_TCP_SEGMENT_DONE;
+ 	ISCSI_DBG_TCP(conn, "segment done\n");
+ 	rc = segment->done(tcp_conn, segment);
+diff --git a/include/scsi/libiscsi_tcp.h b/include/scsi/libiscsi_tcp.h
+index ef53d4bea28a07..70967bd936e0bd 100644
+--- a/include/scsi/libiscsi_tcp.h
++++ b/include/scsi/libiscsi_tcp.h
+@@ -45,6 +45,13 @@ struct iscsi_tcp_recv {
+ 	struct iscsi_hdr	*hdr;
+ 	struct iscsi_segment	segment;
+ 
++	/*
++	 * The command a Data-In is being copied into.  Set when the segment
++	 * is aimed at its scatterlist and cleared when it is given back, both
++	 * with the session back_lock held.
++	 */
++	struct iscsi_task	*datain_task;
++
+ 	/* Allocate buffer for BHS + AHS */
+ 	uint32_t		hdr_buf[64];
+ 
+-- 
+2.43.0
 
