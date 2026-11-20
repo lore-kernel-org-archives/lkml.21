@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.24
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.230
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795195800;
-	b=CN7w3ciaQEnVgOai5hBNCXN4t3/aag/Hk4O6YRH5H8XnyvX2y3jbPAq0oMPJaTT9ccHK
-	 5eQ+PJaf6Odv0EIFGnt2rF7GcSo38WnMai6hje+AjBLZ2y4GjujWAHropb8CorfI8ipOM
-	 NrEzcNMHXru8DKMVRXNs3P0SV6CxvFlnCTR9DKEN0/cG9NvHbJKavm3qFhc32zgbHM6n1
-	 VxH8FWpsfPUFFMbxyD39nDhNQsxxUXXFnHfhVSADRy0dqu0x6kwvSmnOHD6EzbY6fv+7c
-	 4VOTr+/pdDgHDbGRoglCbkxmfUF/sMfd10qALt4Unx6GZjH+Aa0VJdH4YC6ILUhmEIA==
+	t=1795195801;
+	b=IDkKXnUP3iOCZPtHKa7Ee0UdIfeUiEzy531HjiYp2SzuAgpR2yTV0yPq5lJFvzHaRT2u
+	 DbBLXJA10BrP9Q5hSU70HUoT2iE02E/s7zEirBRsnLajH+8opmGn+pb8XrHfZ1ZaPjMbu
+	 behUn5C/cuVZUe0tpYNuhqGXbXr6CTGATHU09pB4KJqo0UnvKjFdeU8KCbHBRa4x2qdJ2
+	 xm466pZng6MmFtWk9SC3ORomO9iVETVj8I268LE2osAOzYw0qwC9+R3PTFdOy0TvGd2gu
+	 C1lCACI+ipG3vHYqsZuPrOf6kJy4igiUTWjsjC1motGscdOj7r8CnjXGL1W1auCLdTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195800;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195801;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=HT6eDbX+kfVSe10X1m7URXsOzCt0sFsz621mBMnptKM=;
-	b=s4eyio/T3ZH1hop4vtxC5VjCnVfblsnx/cF3k/fTaMM0L9RsO1OUTZRHzAEe3d37oHG/
-	 hSmlUrIa5ytrPthmdKEz7QwGjI1deGdVIVC864bV6p1X3D473pv2gRCqPJC6YaKNIV+vj
-	 0C+UsLZbwFB+mnwpMS2BUk43ilhMEpNGqFoc1AAvxewQBnpBgrYSoiZNRSN5bD/zTNpv/
-	 ZtC7+ZkVbVdSUiXDV9JEyUsqjKTukXTpFzlXWeuRiTnikNffZzDDzEgXTJWIk87xYOqXH
-	 6UUG0FNICDRMftYalxM3DePAYFi8ayV2w7Vsm+vGttv8gnqKWfu01Al36kdsO8IGNfQ==
+	bh=UufVZfwgbCp92kFZnwng07BVnO7E58HSMy79wKEDlQs=;
+	b=TBrYBOTyEvl7k/qWNmLK/t5MVcpPofaHkWg9hwcnUZCVsBXOVw9eYbbsX2qDCbrL2KiE
+	 RXavhp7vVE/+tVvxPh/E+yB7PV9hOwaRJY+tu0e4MZtaeoThi5gO95jS1019qQet1TG+3
+	 YT7udrym7aJzS+uke6TyTG498TDgnqb+fsmf5irVC7xaAB3RRpyANgUsaIDeDTZTgtxJu
+	 9E2uNwc5oJZI6pw36uVgD1aCAbqcWDcBb15pQv720/aHD6Z7lbmTRWxbGWu+VKDxT4Dx6
+	 AGkfPeD4QMHwSaEiANNDxQcNkfqhxteh7dbXKzWtJgjKZDgVILIoZPwdeLzWnwD4w/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xQsqFIgL;
-	arc=none smtp.remote-ip=95.215.58.24
-Received: from mta1.migadu.com (out-24.mta1.migadu.com [95.215.58.24])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XaH2XKGU;
+	arc=none smtp.remote-ip=91.218.175.230
+Received: from mta0.migadu.com (out-230.mta0.migadu.com [91.218.175.230])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CE1A60A2639
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:29:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CE1A60A2639
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB56860A3803
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:30:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB56860A3803
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xQsqFIgL
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XaH2XKGU
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Ng2Ry2bda//spl0pXqaswz3X8TtF9snH5kUnqXCKZSI=;
+DKIM-Signature: a=rsa-sha256; bh=nCbmDgNV7wby3LpZePh1npWx21ru0gynBSaNnpEAK/w=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795195796; v=1; x=1795800596;
- b=xQsqFIgLfWC9ep70ennh+xgFHEjIDoEudqB0LpE8938za97UTmLDdUBy35EwLgQptiAiaEbk
- XbrNy3T5s3B4a9V7OJCZtzRfZ6WCCJEIKpYq4suWi69FNRUtd3Gg8vjXI1yfuIclpOwv+0x/GOY
- F3mpqrg6vo8WzJwdMBpOuoF8=
+ t=1795195798; v=1; x=1795800598;
+ b=XaH2XKGUfbfslLCrh/VW4GNjswwMdzZlfBaS8casedBelYBruue+ZxhTqBTPvwoSZv++t6lK
+ 5rx/0kd1PqeAjf0MhoIQw0XuV5DL3y2yKeWUS3lTW5aq/PNznVmUC8riS/ub0sMpvztwsuqWX7u
+ AsJSfGUn9FWlMu8DixMobTwE=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id 078465ba8668cede;
-	Fri, 20 Nov 2026 17:29:56 +0000
-X-Mizu-Trace-ID: 078465ba8668cede
+Received: by mta10.migadu.com with ESMTPS id cd7cd70153efb88e;
+	Fri, 20 Nov 2026 17:29:58 +0000
+X-Mizu-Trace-ID: cd7cd70153efb88e
 X-Migadu-Flow: FLOW_OUT
 From: Bradley Morgan <bradley.morgan@linux.dev>
 To: Madhavan Srinivasan <maddy@linux.ibm.com>,
@@ -58,9 +58,9 @@ Cc: Ritesh Harjani <ritesh.list@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org,
 	Bradley Morgan <bradley.morgan@linux.dev>
-Subject: [PATCH 1/2] powerpc/64e: Pass entry point in r4 to book3e_start_thread()
-Date: Fri, 20 Nov 2026 17:29:48 +0000
-Message-ID: <20261120172949.3494131-2-bradley.morgan@linux.dev>
+Subject: [PATCH 2/2] powerpc/64: Set r3 to physical CPU ID before kexec_wait on !SMP
+Date: Fri, 20 Nov 2026 17:29:49 +0000
+Message-ID: <20261120172949.3494131-3-bradley.morgan@linux.dev>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261120172949.3494131-1-bradley.morgan@linux.dev>
 References: <20261120172949.3494131-1-bradley.morgan@linux.dev>
@@ -75,39 +75,38 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-In generic_secondary_smp_init(), when switching to the target
-hardware thread on Book3E, the entry point for the secondary
-thread was loaded into r5 instead of r4.
+In generic_secondary_common_init(), secondary processors on
+non SMP kernels branch directly to kexec_wait without copying
+their physical CPU ID from r24 into r3.
 
-book3e_start_thread() expects the entry point in r4 and
-immediately wipes r5 with MSR_KERNEL, which left r4 pointing
-to booting_thread_hwid. This is bad because the started thread
-jumps straight into data and traps on an invalid opcode,
-hanging the core.
+kexec_wait() assumes r3 contains the physical CPU ID and
+passes it along to __secondary_hold at 0x60 once the next
+kernel starts. This is bad because secondary processors end up
+acknowledging the next kernel with garbage, which can hang
+the boot or report the wrong CPU number.
 
-To fix this, load DOTSYM(fsl_secondary_thread_init) into r4
-so the secondary thread starts at the real entry point.
+To fix this, copy r24 into r3 before branching to kexec_wait,
+matching what the PACA lookup failure path already does.
 
-Fixes: 2dc0bc1138ee ("powerpc/64e: Fix secondary thread bringup for ELFv2 kernels")
-Cc: stable@vger.kernel.org # v6.6+
+Fixes: 768d18ad6d5e ("powerpc: Don't search for paca in freed memory")
+Cc: stable@vger.kernel.org
 Signed-off-by: Bradley Morgan <bradley.morgan@linux.dev>
 ---
- arch/powerpc/kernel/head_64.S | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/powerpc/kernel/head_64.S | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/arch/powerpc/kernel/head_64.S b/arch/powerpc/kernel/head_64.S
-index a54f6f9791731..0077ce148a5a6 100644
+index 0077ce148a5a6..6219f474d00bd 100644
 --- a/arch/powerpc/kernel/head_64.S
 +++ b/arch/powerpc/kernel/head_64.S
-@@ -374,7 +374,7 @@ _GLOBAL(generic_secondary_smp_init)
- 	beq	20f
- 
- 	/* start the specified thread */
--	LOAD_REG_ADDR(r5, DOTSYM(fsl_secondary_thread_init))
-+	LOAD_REG_ADDR(r4, DOTSYM(fsl_secondary_thread_init))
- 	bl	book3e_start_thread
- 
- 	/* stop the current thread */
+@@ -401,6 +401,7 @@ generic_secondary_common_init:
+ 	 * which logical id maps to our physical one.
+ 	 */
+ #ifndef CONFIG_SMP
++	mr	r3,r24
+ 	b	kexec_wait		/* wait for next kernel if !SMP	 */
+ #else
+ 	LOAD_REG_ADDR(r8, paca_ptrs)	/* Load paca_ptrs pointe	 */
 -- 
 2.53.0
 
