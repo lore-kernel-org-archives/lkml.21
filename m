@@ -1,102 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.217.46
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795197220;
-	b=fKiT0MziW+6XA8wP8gU5HT+JLtb/TlWLTW5eME25xpZEgKDsSNnIA8pzScR0lOpe2Umg
-	 KVPNShXGRIKeZ1O5NIqhagGyEXYj/9f+HrpqS22vMd2iestqT2CINbOzA/owlc/jJELng
-	 iM2PziHEmtcVM9vKmSwgY/TsdPcsUL3CzNHvZElPppQ4Su88icZjo51eccZm5HW/LCF6H
-	 xJJiSYmXCi2birXtTY+4HsqGytRvnIoccCMrx8PTwM6Q/FZM3c+Z7suCLmbJ20AOofulY
-	 Mm0AS3NrF7xLsMuZNKaapT9oeXA9F3JR8j6OUP5IvlGK0ueTbaaTNobnipAyTj2nbXg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795197220;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=bYNDc5z2QkdyV1anAJ9Pub/lfkPevQWizYys7b38fWU=;
-	b=bhwkWugAbItZncrW3iSEydZ8kb8yEnuvMclfCo12s1eyVD4tmfp2xr8ONS6iWKCeYSHC
-	 /7eVJPXJTcEVO7fTYpM9tmIpcX2tTvttcWQFNvPn+gP5uGp8EiVf62ZlNdZN0JsEGjwBB
-	 HL8INda+rsxz0hI6+EnVudIGxa7C5TjEYZVhENxWvzuEPOaF9QFt6bIA7+LXS1qjX+xI0
-	 5JJszkIyfDkk0rNCjkZqRsbJDFyl/3wORR1XRfwwkSxATnHVI87YEDpG+MlJFRj1rB5dq
-	 6KzZzjQBTJMQQNTz1jW21HvhgCgORSL+NeDbNsW6LHaIJYNa8K92KjVoN0EDkFnZpSQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qRQh76RI;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.217.46
-Received: from mail-vs1-f46.google.com (mail-vs1-f46.google.com [209.85.217.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.16
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795197264;
+	b=E+W+2skO7Ec17riWQGCrZQJ/SPW36LkSzm67Xkq74olpPRUg0gRRX4AkvNsRxC4MAP5k
+	 o8Px7xKqlq7FYKIFT34qVlMGO2ZiuHbymN2B51WYcMLznctCo7x35f8p7gnkq9zJhYHju
+	 PpN31PPIxVD8cFLnOdwASrrXvlDKTqooWspzKuhWZneCj+X7c4R516i8nYdO8ypP9do3Z
+	 qGZgGFnHJ+EECutXRdH0pfzXDkoNa8MYt5w/Q/tSlRihWR26gO5qxqMG/GuRhiQgjAy0V
+	 kPw4eJEg5bv75/waXi7pPOfDigGgrlRkTAaWJG3zQ7jCvn3olUzFM7zzPLNQHMtB/pQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795197264;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=4xkWQTw+xMoY6GhpNwmgqDOHwtKjVnG6Rp0fvPI6sLk=;
+	b=eUiQso4m2FNs+mWFEvpRR9klVpZicW6wypTQMJNLMQcX+/GJjiyXYodzHwhGy7MDG3AK
+	 hnMR+DtxX4D1HqT7aIdp9sCY5yjQIwQoNtWWiP53R2VUe4RyJKq0pikdsRrSwNG3k9XEn
+	 a0fvosRFbleWZgN1il7WKNWL3pUC9ZdLFIO/4NZnIIdtKkZOxQjJgwsvInLNDOnAm2AP6
+	 aMsEz4W+mWMg2pUlz+u4wNTySiIyZ32hhWjlsVtHSaIaH5PUEfvNqUZ/0WApsjnS9TKeQ
+	 BIzrbdIwXEOLnuuvN09NrZksnzoBe9ygJ1VA8IG9Fwtku6qqy3XZZ2k8sUkZVzKRuXg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YHqB592E;
+	arc=none smtp.remote-ip=192.198.163.16
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.16])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B49B6606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:53:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B49B6606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E6A960A261A;
+	Fri, 20 Nov 2026 17:54:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E6A960A261A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qRQh76RI
-Received: by mail-vs1-f46.google.com with SMTP id ada2fe7eead31-7d6a6776719so634874137.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:53:39 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795197218; cv=none;
-        d=google.com; s=arc-20260327;
-        b=rANcmtHh1Mxw6A73UeRQDJ+JeYrPNxF8rqUGw7jE8Y3X2wFinOybRV6HLeKkKI8z51
-         C+OdCTYwbO96bCrYQpI21YiDvaKBRRKx45mnnzYJ3lbHQdKJBNHGi/aJhECvI8HklCM0
-         ++enmKkn/4BykEjymxCWIyrQPW2JRJHlOAGYrK5Ue0Ddq1DF6Qkj6vEcJzJiX11aqWIH
-         D8iuLQKliwZOTWognV3tQkjm3j9j35+yaPJ4xl2v51Xb/CHujyNrf7rPXthjhJbzjdJk
-         ZSToFNjG84eSc58h8U7t3uo8LzlCVKOpnkFQtSBmi05KAxI68nKPaf6S2ivbh7IkDdoL
-         1UAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=bYNDc5z2QkdyV1anAJ9Pub/lfkPevQWizYys7b38fWU=;
-        fh=vfdMiV8o+fwygtbElqbzcQD33KY8VVTWiOjMGajck+0=;
-        b=S8SQzMwJiR1D1aDd61sPd67SrYSqxlHcZSvXXoQG3c0ywlsfvup8sgfdj0n9DUdxC2
-         JtXdF1jdoBUsPz+7iaLFCnO8puxkZXkmLe/RGw6C2WMNVlOY0EPw1/QrWc/jHoN8aogC
-         WjxMGPWzwfXwN6dSF/obhEraBKaXNoVnnSWVG+JaGRy7kN7YTohUwZ/oDY4Ki1Kvkfba
-         npRw+M22SL2Cig9ktFrvo6Clzqerropli+4Xn8laF6LTMxORyUhFIB5c14ojzLuxP57I
-         /iU15KH5NWRtKd8BZYl53Fi9k8olYjT8vBezMvDNOg5Tdyx+MDg7fJViYIwh5m+pNmcR
-         ciWA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795197218; x=1795802018; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bYNDc5z2QkdyV1anAJ9Pub/lfkPevQWizYys7b38fWU=;
-        b=qRQh76RILQwRmEFSs3rWHw8IHTQJXPqoY/9s2sT4TOMlYgSWlLLKcMOQE6eeYWrhdM
-         eJ4B/L+hLyirBm/XZCny3wCATWD1n6YnwVqeGghIcIFcFXI82VCnv4Rc1Azan29Foi+T
-         EMeKIn9Dul26cw63ckPaK5em12z0dlUynEC5ucy56ye2i0vP6BdOQl2bSHZ3PTa2CmvE
-         sMDKYwOWCpgZmOh50DWrOUITA/FMlYEKsNuzdlla2IwPQb9MnCWLcRUSSvs/LqZd6Zn5
-         h8oQ/xsQCtzOFC06qETJPwUsoHhOShyhE1zbVCnu98psanR6v5OaQBB5qEVjNTIm5ady
-         b63Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795197218; x=1795802018;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bYNDc5z2QkdyV1anAJ9Pub/lfkPevQWizYys7b38fWU=;
-        b=aAneqjeFPO5mwEfb1MyVJF20Z2xR7LBBAZktoJDxIh2QDizeD44nxGs8uA+Lw6Xphk
-         FaEbQCqRMgO7vgBh0mIysN4Ssy1rVyH1cZInhCzrMxaPgdtxysrYAigB3UQcYpKTJ4zb
-         dB9w3BEaeXwOJ4oYlOWrz7u1ambpICm+teIKpnvdW0ujKEftzg2FYi3yl1b3whRW87da
-         gE1FEFDR0oQCUTMQzfQ9ABAS/M/FvS4D6Bc6sT0Slib8ZBY3RF9ncEJ26I9wkpDY3t/3
-         m+RNlEK7HLXSJQCMP6PDgGgAr0Mk7OXOhg0HH5nFZQ0fc2gYng9xBd2FUPbP/j8E2PL9
-         YeXg==
-X-Forwarded-Encrypted: i=1; AL+hErECN/f4QhpEwiHgkrI6C2LZ4Y3LeJdDjoBfYL3iABJXtsV+zkpagzWbRvd095JPnSDL5TO/8anAZsWh+7Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+jQdCbpP2pt5qNlCR/W7N+aEzxtFSeefsAwNXsP2pzhX3wumxD
-	AS4+vsXdTRyw61ASGKZTvvExh85+H6QTLrQhZOrrBZPf3ywq9c4orzIMtEycF/DikVQ679WtG0f
-	+oXGo3V/jeuqfCnJ/81PhglP5hG748MU=
-X-Gm-Gg: AZFdTZdIZuqiboTCbi/rIDvQOAUGH7jNOPXjZYFuXe1zmrS89zM7CXTK+IaQ2EttEvM
-	jgW/YC8yRcBE8NleSaD2JR/U73o2tf6vqpiAgoPQL+Z+1ZfD1oK8BHVpQHYEN6n1o+lya/d0Fn7
-	u1LGlqnkWnPdTBKvP+rhggxsASIKAXlBke/YGAqXFNJz4shPLjKHFKKOxeW7bPMCU3DoYFziuDd
-	PZ8ffcvR0uLEPxVoRk9JFtdHEsFe8OiDmQwWpvcxllITS1LHX/LncKQVoeOg53m2SWGvFOV94w4
-	q/QODeTQS3t7jMjqdEoTe7ORsDRYST2L4AbYaREprUaHkGcXzZVCP3VOQQ+VXR0FCLqMNOEs0L6
-	Cz4jOqlif8mSo5jLJHGloTOS84MchUziJO0E8bB0WuFHekNP9f6yRupkt6RdqvQ6486DRicSGMY
-	SlwkoKk23bz7repoVxYlXF3n5pfFFKaH9FHPoOes8MnJM/ourVFq0i0OFSiY3cNHzuCqopd1IVq
-	0lvYxHFzxlpXADDym/bZUkqGaGkCA==
-X-Received: by 2002:a05:6102:a4d:b0:7cb:fd69:4155 with SMTP id
- ada2fe7eead31-7d72b3582d9mr2198831137.5.1795197218598; Fri, 20 Nov 2026
- 09:53:38 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YHqB592E
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795197262; x=1826733262;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=4Ja7WxlHqtakyGb/EQZBOk98DS3+1ZmUWHSc2CtuaPc=;
+  b=YHqB592EGE7b/riEh57fj3C0tziVoH2d3BsPRyeWT6fVuz9A88J7I28a
+   ivNaJKmIes3xVvym6lI75AemfJkhy2sSogXDDC39BO2kJWUq8Hh2JKJ6b
+   JDIrD5yhfmDmC2+H8zR8pEI2NyTooAo4pIy9fdTtD8ei7b7KwnDwZGSA9
+   u12u8hjVr6e8M7xSQALsdMBAAfd2BS+GyDP6SPEIL2bm3RdqaE6G5Aea9
+   BxnReUJf1zyKquolMPNfb0xL96Hcca4geZJHEupPOMpCoghLcJX7jEabs
+   lSzFWrbKa2RFWIA1n5nBFKvOOQxZK9dy6tL0f0zos8f/EQ+SM1FX+H8mm
+   A==;
+X-CSE-ConnectionGUID: 7NeuorAkRT2AkyJVGLeaZw==
+X-CSE-MsgGUID: EWSult38Ssy0G39xYrpXfQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4108869"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="4108869"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:54:20 -0800
+X-CSE-ConnectionGUID: 7MLhmsNZSYWsDtCosYR54Q==
+X-CSE-MsgGUID: mLxeC95sRZK9qVdJhkLs6A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="11171016"
+Received: from jf.intel.com (HELO jf.intel.com.jf.intel.com) ([10.165.154.102])
+  by fmviesa001.fm.intel.com with ESMTP; 20 Nov 2026 09:54:20 -0800
+From: Ehab Ababneh <ehab.ababneh@intel.com>
+To: ilpo.jarvinen@linux.intel.com,
+	hansg@kernel.org,
+	tony.luck@intel.com
+Cc: ashok.raj.linux@gmail.com,
+	platform-driver-x86@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	tglx@kernel.org,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	hpa@zytor.com,
+	rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com,
+	linux-trace-kernel@vger.kernel.org,
+	peterz@infradead.org,
+	sathyanarayanan.kuppuswamy@linux.intel.com
+Subject: [PATCH v3 00/17] platform/x86/intel/ifs: Support group-based In-Field Scan and Diamond Rapids
+Date: Fri, 20 Nov 2026 10:56:41 -0700
+Message-ID: <20261120175658.1147030-1-ehab.ababneh@intel.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,213 +93,173 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117-submit-stmmac-rx-checksum-capability-v1-v2-1-059f9499c386@gmail.com>
- <179511723446.3136.5381192433185500992@kernel.org>
-In-Reply-To: <179511723446.3136.5381192433185500992@kernel.org>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Fri, 20 Nov 2026 10:53:27 -0700
-X-Gm-Features: Aa3M54r9Ol27mWG1eqxOv22iaYVvbksTWo4-8sJ4NYAR7dV76pguE_MCDRLUKI0
-Message-ID: <CADvTj4qRtmZPS6N_0tM5WuFNbm8BRpE3NjxiODNMTaNBytuUag@mail.gmail.com>
-Subject: Re: [PATCH net v2] net: stmmac: preserve RX checksum capability when
- offload is disabled
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, maxime.chevallier@bootlin.com, 
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
-	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com, 
-	alexandre.torgue@foss.st.com, peppe.cavallaro@st.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 19, 2026 at 12:40=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wr=
-ote:
->
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 1 (1)
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] After this patch, stmmac_hw_setup()
->   (drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:3725-3729) checks=E2=
-=80=A6
-> - [Low] The struct stmmac_ops comment for rx_ipc
->   (drivers/net/ethernet/stmicro/stmmac/hwif.h:322) still says "Enable=E2=
-=80=A6
->
-> Pre-existing issues:
-> - [Low] This problem wasn't introduced by this patch, but
->   sun8i_dwmac_rx_ipc_enable()=E2=80=A6
->
-> --
->
-> net: stmmac: preserve RX checksum capability when offload is disabled
->
-> This patch changes stmmac_hw_setup() so that a zero return from
-> stmmac_rx_ipc() clears plat->rx_coe only when RX checksum offload was
-> requested, meaning hw->rx_csum is non-zero. Before this, the RX COE
-> capability was lost when the interface was reopened after RX checksum
-> offload had been turned off with ethtool.
->
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/driver=
-s/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > index 25894771e9e9f..e162976be2e6d 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > @@ -3723,7 +3723,7 @@ static int stmmac_hw_setup(struct net_device *dev=
-)
-> >       stmmac_safety_feat_configuration(priv);
-> >
-> >       ret =3D stmmac_rx_ipc(priv, priv->hw);
-> > -     if (!ret) {
-> > +     if (priv->hw->rx_csum && !ret) {
->
-> [Severity: Medium]
-> Can plat->rx_coe now stay unverified when RX checksum offload is off at
-> every stmmac_hw_setup() since probe?
+Some Intel Xeon processors, starting with Diamond Rapids (DMR), share
+one SCAN test engine between multiple CPU cores in a module (Dual-Core
+Module, DCM), instead of only between the threads of a single core. All
+logical processors that share an engine must start the In-Field Scan
+(IFS) test at the same time. The current driver assumes the sharing
+domain is cpu_smt_mask(), which does not hold on these systems. Also,
+although the cores in a module are tested together, each core gets its
+own result: on a DCM, one core can pass while the other fails.
 
-Yes. On GMAC, GMAC4 and XGMAC, zero is the expected readback when
-offload is disabled. Clearing plat->rx_coe on that basis is what makes
-a working feature disappear after the interface is reopened.
+This series:
 
-What v2 misses is the later live enable. stmmac_set_features() sets
-hw->rx_csum from plat->rx_coe and ignores the readback. If the enable
-bit stays clear, the RX path can mark an unchecked packet as
-CHECKSUM_UNNECESSARY. I haven't seen the bit fail to latch on hardware,
-but the driver should check it when enabling offload and leave software
-checksum reporting off if the enable fails. The rx_ipc comment should
-also say that these callbacks return whether the checker is enabled,
-not whether the hardware supports it.
+ - Patch 1 removes the SBAF test, which is not planned for any CPU and
+   whose test images were never published.
 
->
-> For example, if "ethtool -K ethX rx off" runs before the first
-> "ip link set up", the readback is never checked. plat->rx_coe then keeps
-> whatever value the HW feature register or platform data reported.
->
-> If RX checksum is later enabled while the interface is up,
-> stmmac_fix_features() keeps NETIF_F_RXCSUM because rx_coe is not
-> STMMAC_RX_COE_NONE. stmmac_set_features() then ignores the rx_ipc result:
->
-> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_set_features() {
->         if (features & NETIF_F_RXCSUM)
->                 priv->hw->rx_csum =3D priv->plat->rx_coe;
->         else
->                 priv->hw->rx_csum =3D 0;
->         /* No check needed because rx_coe has been set before and it will=
- be
->          * fixed in case of issue.
->          */
->         stmmac_rx_ipc(priv, priv->hw);
->         ...
-> }
->
-> That comment assumes the stmmac_hw_setup() check has already run, and
-> after this patch that is not guaranteed. Before this patch, any open
-> with a zero readback cleared rx_coe. So once the interface had been
-> opened, offload could not be enabled at runtime without a check.
->
-> Some hardware may advertise RX COE while its IPC bit does not latch. On
-> such hardware, hw->rx_csum would be non-zero while the MAC is not
-> validating checksums. stmmac_rx() and stmmac_construct_skb_zc() would
-> then mark IP frames CHECKSUM_UNNECESSARY based on hw->rx_csum:
->
-> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_construct_skb_zc=
-() {
->         ...
->         if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb))
->                 skb_checksum_none_assert(skb);
->         else
->                 skb->ip_summed =3D CHECKSUM_UNNECESSARY;
->         ...
-> }
->
-> The zero-copy path does not look at descriptor status at all. Split
-> header is also enabled from rx_csum > 0.
->
-> This would last until the next stmmac_hw_setup() with a non-zero
-> rx_csum, for example after down/up, resume or an MTU change.
->
-> I could not find a specific part where the IPC bit fails to latch, so
-> this depends on the hardware case that the stmmac_hw_setup() check
-> exists for.
->
-> Would it make sense to check the stmmac_rx_ipc() return in
-> stmmac_set_features() when offload is enabled? Another option is to
-> verify the capability once, whatever state was requested.
->
-> [Severity: Low]
-> This isn't a bug, but should the rx_ipc comment in struct stmmac_ops be
-> updated to match the contract this check now depends on?
->
-> drivers/net/ethernet/stmicro/stmmac/hwif.h:
->         /* Enable and verify that the IPC module is supported */
->         int (*rx_ipc)(struct mac_device_info *hw);
->
-> The commit message says the callbacks program the state requested in
-> hw->rx_csum and return whether IPC is enabled afterwards.
-> dwmac1000_rx_ipc_enable(), dwmac4_rx_ipc_enable() and dwxgmac2_rx_ipc()
-> behave that way. The hwif.h comment still reads as if a zero return
-> means the IPC module is unsupported.
->
-> sun8i_dwmac_rx_ipc_enable() already uses the other reading ("caution
-> this function must return non 0 to work") and ignores hw->rx_csum.
->
-> >               netdev_warn(priv->dev, "RX IPC Checksum Offload disabled\=
-n");
-> >               priv->plat->rx_coe =3D STMMAC_RX_COE_NONE;
-> >               priv->hw->rx_csum =3D 0;
->
-> [Severity: Low]
-> This is a pre-existing issue, not one introduced by this patch, but the
-> commit message says:
->
->   Keep calling rx_ipc when offload is disabled so that the hardware
->   is still programmed with the requested state.
->
-> Does that hold for the sun8i EMAC used on H616? The commit message
-> limits this claim to the GMAC, GMAC4 and XGMAC callbacks.
-> sun8i_dwmac_rx_ipc_enable() ignores hw->rx_csum and never clears
-> EMAC_RX_DO_CRC:
+ - Patches 2-6 are cleanups and preparatory refactoring (comment fixes,
+   clearer MSR bit names, u64 MSR bitfields, early return on image
+   errors, a generic Array BIST parameter struct). Patches 2-4 have no
+   functional change.
 
-That's correct. The sun8i callback always returns 1, so it doesn't
-trigger the capability loss fixed here. The separate sun8i patch [0]
-keeps the hardware checker enabled in both modes and lets packets
-whose only error is a bad IP or transport checksum reach the stack as
-CHECKSUM_NONE. On that MAC, ethtool rx off controls whether the driver
-reports a checksum as verified, not whether the MAC checks it.
+ - Patch 7 adds stop_cluster_cpuslocked(), the cluster-level counterpart
+   of stop_core_cpuslocked(), so that all threads of a cluster can
+   rendezvous and issue WRMSR at the same time.
 
-[0] https://lore.kernel.org/r/20261120-submit-sun8i-rx-features-v1-v1-1-505=
-8fecba6b3@gmail.com/
+ - Patches 8-10 enumerate ALL_LP_JOIN_NEEDED, select the CPUs to test
+   together from topology_cluster_cpumask(), and warn when a group test
+   does not pass while some of the logical processors sharing the scan
+   engine (per TID_BIT_SHIFT) were not in the group.
 
-pw-bot: cr
+ - Patches 11-13 record per-CPU results for group tests and expose them
+   through new sysfs files (status_list, details_list, cpus_ran_list,
+   addnl_details_list). The existing status and details files remain
+   and report the result of the whole group: status is "pass" only if
+   every CPU in the group passed.
 
->
-> drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c:sun8i_dwmac_rx_ipc_enab=
-le() {
->         ...
->         v =3D readl(ioaddr + EMAC_RX_CTL0);
->         v |=3D EMAC_RX_DO_CRC;
->         writel(v, ioaddr + EMAC_RX_CTL0);
->
->         return 1;
-> }
->
-> So on sun8i, "ethtool -K ethX rx off" leaves the EMAC checksum engine
-> on.
->
-> stmmac_rx() still treats these frames as CHECKSUM_NONE because coe is
-> 0, so I could not find any frames being marked with the wrong checksum
-> state. The problem is that the register state does not match the
-> requested state.
->
-> --
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20261117-submit-stmmac-rx-checksum-capability-v1-v2-1-059f9499c386%40gm=
-ail.com
+ - Patch 14 adds Diamond Rapids to the CPU match table.
+
+ - Patch 15 removes the 256 limit on the batch file number.
+
+ - Patches 16-17 update the IFS documentation and ABI document.
+
+Most of this series was developed by Jithu Joseph and Qiuxu Zhuo, who
+have both since left Intel. I have taken over upstreaming it, so please
+send questions and review comments to me. The patches keep their
+original authorship and Signed-off-by tags, except patch 10, which I
+rewrote for v2 (Qiuxu is credited as co-developer). I have added my
+Signed-off-by to every patch.
+
+Thanks to Ilpo Järvinen for taking the time to review v2.
+
+Changes in v3:
+- Patch 11: the status and details files now report the result of the
+  whole group instead of only the CPU written to run_test: status is
+  "pass" only if all CPUs in the group passed, otherwise "fail" if any
+  CPU failed or "untested" if any CPU was not fully tested, and details
+  are those of the first such CPU. Patches 12, 16 and 17 describe this.
+- Patch 11: when a group test times out or stops making progress, a
+  CPU that completed all chunks is now reported as passed instead of
+  untested; details now always match the per-CPU result (Sashiko).
+
+From Ilpo's review:
+- Patches 8, 9, 12, 13, 14, 15: dropped the "[ Qiuxu: ... ]" notes.
+  Qiuxu reworded those commit messages while carrying the patches
+  internally.
+- Patch 7: rewrote the first paragraph of the commit message so that it
+  stands on its own and names Diamond Rapids; dropped the extra ':' in
+  the stop_cluster_cpuslocked() kernel-doc.
+- Patch 9: add an ifs_stop_cpus() helper that picks
+  stop_cluster_cpuslocked() or stop_core_cpuslocked(); passive voice in
+  the commit message; reference [2] moved to a Link: tag.
+- Patch 10: use BIT(); include <linux/bits.h> and <linux/processor.h>;
+  braces around the multi-line if.
+- Patch 11: trailing comma in the ifs_devices[] initializer; local
+  pointer and sizeof(*ptr) in the memset() loops; get_scan_status() is
+  now a static function; a for_each_group_scan_status() iterator
+  replaces the repeated per-CPU loops. Added my Co-developed-by.
+- Patch 12: cpus_ran_list_show() returns sysfs_emit() directly.
+- Patches 15, 16, 17: wrap documentation and ABI text to 80 columns.
+
+v2: https://lore.kernel.org/all/20261118193259.519568-1-ehab.ababneh@intel.com/
+
+Changes in v2:
+- Rebased onto v7.4-rc1.
+- Tested on Emerald Rapids, Granite Rapids, Clearwater Forest and
+  Diamond Rapids (Tested-by: Yi Lai on all patches).
+- Patch 9: build the CPU group mask only after the CPU online and image
+  loaded checks pass, so a rejected run_test write no longer changes
+  the group reported by the *_list files (Sashiko).
+- Patch 10: reworked, with a new title (was "Validate TID_BIT_SHIFT
+  matches topology_cluster_cpumask()"). The check at driver init is
+  gone: it failed driver load on Sapphire Rapids and Emerald Rapids,
+  which don't enumerate TID_BIT_SHIFT, when a CPU in the group was
+  offline, and on parts that expose only one core per module. Now
+  TID_BIT_SHIFT is read at init and, if a test does not pass, the
+  driver warns when not all logical processors in the TID_BIT_SHIFT
+  range were in the group. The test always runs (Sashiko, suggested by
+  Tony Luck). Author changed to me, with Qiuxu as Co-developed-by.
+- Patch 11:
+  - clear the per-CPU results of the group at the start of each test,
+    and clear them in ifs_init() before the devices are registered
+    (Sashiko);
+  - restart an interrupted test from the lowest chunk reached by any
+    CPU in the group (Sashiko);
+  - don't overwrite error codes reported by the hardware with the
+    driver's timeout or partial-completion code; report a CPU that
+    stopped early without an error code as partially completed
+    (Sashiko);
+  - the patch 10 warning checks the results of all CPUs in the group;
+  - commit message: explain that cores in a group can report
+    different results.
+- Patches 12, 13: read the CPU group mask only once in the *_list show
+  functions (Sashiko).
+- Patch 16: fix typos; say "group" instead of "core"; use the real
+  attribute name addnl_details in the commit message; describe what
+  happens with offline CPUs instead of requiring all CPUs in a group
+  to be online (Sashiko).
+
+v1: https://lore.kernel.org/all/20261026183820.129459-1-ehab.ababneh@intel.com/
+
+Ehab Ababneh (1):
+  platform/x86/intel/ifs: Warn if a group test fails with CPUs missing
+
+Jithu Joseph (7):
+  platform/x86/intel/ifs: Refactor Array BIST function interface
+  platform/x86/intel/ifs: Enumerate the bit to determine if CPUs need to
+    join for IFS tests
+  platform/x86/intel/ifs: Select CPUs from topology_cluster_cpumask()
+    for simultaneous IFS tests
+  platform/x86/intel/ifs: Track and report scan results on a per-CPU
+    basis
+  platform/x86/intel/ifs: Add new sysfs interfaces {status, details,
+    cpus_ran}_list
+  platform/x86/intel/ifs: Add additional details sysfs interface
+  platform/x86/intel/ifs: Add Intel Diamond Rapids server support
+
+Qiuxu Zhuo (8):
+  platform/x86/intel/ifs: Revert SBAF feature
+  platform/x86/intel/ifs: Fix IFS sysfs interfaces in the comments
+  platform/x86/intel/ifs: Clarify In-Field Scan MSR bit macro
+    definitions
+  platform/x86/intel/ifs: Use u64 to define the bits of IFS MSR
+    registers
+  platform/x86/intel/ifs: Early return on the IFS image hash/chunk error
+  stop_machine: Add stop_cluster_cpuslocked() for per-cluster operations
+  platform/x86/intel/ifs: Update IFS documentation
+  Documentation/ABI: Update IFS ABI doc
+
+Tony Luck (1):
+  platform/x86/intel/ifs: Remove limit on number of batch files
+
+ .../ABI/testing/sysfs-platform-intel-ifs      |  44 +-
+ arch/x86/include/asm/msr-index.h              |  17 +-
+ drivers/platform/x86/intel/ifs/core.c         |  62 ++-
+ drivers/platform/x86/intel/ifs/ifs.h          | 236 ++++-----
+ drivers/platform/x86/intel/ifs/load.c         |  52 +-
+ drivers/platform/x86/intel/ifs/runtest.c      | 479 ++++++++----------
+ drivers/platform/x86/intel/ifs/sysfs.c        | 107 +++-
+ include/linux/stop_machine.h                  |  15 +
+ include/trace/events/intel_ifs.h              |  27 -
+ kernel/stop_machine.c                         |  35 +-
+ tools/arch/x86/include/asm/msr-index.h        |  14 +-
+ 11 files changed, 557 insertions(+), 531 deletions(-)
+
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+-- 
+2.43.0
+
