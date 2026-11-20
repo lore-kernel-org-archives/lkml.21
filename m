@@ -1,98 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795179822;
-	b=hSkqsD5JwUYJ2TQyrqyMyeq7gfou+NtbX1cDRQdOTxZFjv6GWLdPWpMCXgl3PMI+0B5R
-	 SgkaKTTcew5Uk9AQZHfYPqii22EfMRXk0nl5yrXTJYdfRYyFr7p6y8EEFN7pP0x6tAbPp
-	 ti4BlPBRZueO7ojfg7ls5k94AMSd99KADgo8N2dUZvcjb2Ai5JH415tQl2z/HXp2hrv4C
-	 iQwrh6W4i7ZesBOcjkoUZ1WrQk/CKw/wTY16qa36RJ/yMfbwS9cH+MIScYuK6hCxusk0S
-	 0yRXEotaEqc+mWpqawXXMt4B2VJD7gYza/TQppCt4NlrYYgYxMKrUSqrK4UlcnaI/Dw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795179822;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type;
-	bh=n0ISsvavZIs94+cwCUE6Hl8OOGqoCs4DO2ZqytVibgo=;
-	b=0Hzse8yJQsDOEvNPRg+9MEzRhOZIwEinosY0Rme95+kO5uBEpptpu5KJvyXAxbJncht4
-	 oI5plfgJ26SQwfQrEfJz9v2yGkOh3vHprIxcpW7Q1CrtLIQ4XnbpROnbR/zpUuKdqYAxI
-	 428cCeCOjONo0B6AyCqf2JiVV7gDZ1NTjScA4iY/dkOQpSIk32a9PxuMuAvjDhwz7go2P
-	 r+WRVgok/5++okrTS5+foNpFHCHRowhAgf56gtJdx5vgPi6ZGwYufxx1ObRsP1bKR3/+l
-	 Wx+dOXQXL5CB11a+ZUigzYSuR2+Ltz8mnmwFNWP2Ckjb0O8mua3rJKeadzsCqw9BI5Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PsPpXf3A;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.44
-Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795179820;
+	b=a7rySFJhnmddizDwXWs1tkqdzRFoT+3GCylC+JXms2yKXQ/T7zuamxBsoFt16kDmE6+j
+	 WxkV77MPkhWrOB3s/FzO8Pu6W+m0TUTHHlaAH91XIo5a8WnDHJkJrtWLIgVnplE4CGtBB
+	 Pg/wVuaE46kN9oZaHnmD1AqEOdk5mHVB8aFLSHoO1EZNgIiUjae3RjcMvpQ75ECKHigSB
+	 w1QuQjNJ99vOZiPUcCqdXiYT3kU5+92/jC5Q8ffVgCgZxzaImAty0ZlvrEOmEn7xV7Zlr
+	 sUqxSGPDsR/H04Ibm3+JQfqlgvhDyR27USkT5txAajHHESeyNvXinI7RZcpIwbUh8hw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795179820;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=smQxb2mwKCwsuVuIPq/uxgN1HgzI96lehFm8ztfcx1I=;
+	b=Y8CU0imz0UVW2DRvgRXcAugRQ+iEJxKiOtGpJK/Au0J2PWWVTEFi72X3nH4bTKywGDhB
+	 uTRy20SHpPwnSAnzBKZqlnVfwbKQrZ/yuGkNxJtm3yHwRulU9E4G/B4w9gkgDDj9qT4aW
+	 Zf4uhX9YpzDd90dBq2aan5h7KOZrIC9IU1Xq+kt4PAsMmTKswgOm/Ob/fFBlyoNKn36mW
+	 DSVrgJkA5McKGqLuWzXZl63y5ApsOhFxR6h6dmMGtcErDHOg4DykIrgApNN9MLgrVdXNY
+	 MjI6W8jZiuhFRa1Ord+6Z3sSWoW2Mj3Q0Gr1TggL2HDUXqAmfBDy37/Pp09haWvfVAA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=tv2tRS34;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B5ED606A333
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:03:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B5ED606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8724606A320;
+	Fri, 20 Nov 2026 13:03:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PsPpXf3A
-Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-4acb44dcd7bso421284f8f.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:03:41 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795179820; cv=none;
-        d=google.com; s=arc-20260327;
-        b=bA2eWbpNzd5sKusocFdqFGI9F1cGMyiAOMMG9bkQ+rBjsQl2uqUfgaEljNaVTKvibG
-         zNakyqwNv9lIKCmsFxwZ+tCAzgsLJz7qcbtM3pbSmPysSGir4IbT4PRCK8aDcRk348Jf
-         zdBJQ4vxnd/s4mWa346f8S92zutd1W7QddbNJfoJVVSdQA3UE8RLsh0c0p28IFkZ1msu
-         WETiH1XckNY9HHCTt9Gh2/xaOrQmBxINOwk38aqlN1wtIE87dASVP8pyYnEDjBCtsL2Y
-         wkii6oHB0Vg0WEfLc1EvO1Z32qOKOZYyL/8JG41ZZ1HvPv+WUX6UrmJ0PFrGmFvQ9nQh
-         QkIw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=n0ISsvavZIs94+cwCUE6Hl8OOGqoCs4DO2ZqytVibgo=;
-        fh=kkD5+LteImBC1ZBdAZ5ftQjVc8YolxrIVbiQEIYYbFg=;
-        b=LNeUWQOR/yRMiRcIkh8obC94EEtpuiKOncepkcocxQdL76K5FW9zkD3PeAuz6a+IVd
-         hgUNZ9DPRB0vn7D1/WMGG6qIycZ3v5cere8j3lt4qjNiJsc4sARkXOeHckMLF0G1Ol3o
-         x4C/IIl4DlxlYQn844SEsN+KFyN6KKHlEDnQZFH3vzxjz3wCP5hrFMn4WiacrfuUHbzz
-         IakN4YGPYCLqfcJJdbs/RpcWQp7Ep2roz0/037TbFLcXonsdanfrxjhamrKwN9K+HZ9o
-         EQ47ksXhrR9xqMPkBUjwNGSLy0h8OFSRd8J0ISUajKykdDvgI7YOUhETU2M3wJFPGM/L
-         c0hQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795179820; x=1795784620; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=n0ISsvavZIs94+cwCUE6Hl8OOGqoCs4DO2ZqytVibgo=;
-        b=PsPpXf3AAmIVKkD46P0LhsoUBI3Fj75//V1R2+K2pEnYXK81nji4S0oE4cJ1Zyciti
-         FpYJLB6Zmlt0vKPXnAra6ZArejGnwMukT1iVidcPas/tGmfPcaN89Xe+WR5ksyf6BVoB
-         AzAp6oAzoJhdOylbf0EuSNr+lRUEoehvUX5KqwoJFhPj3qdgc4qdddiCOyxrPDtLDgDZ
-         MJ/7t3i+jJ1nUEi0Ok+TFMs81Fjzui6ubGrSQiLwaX+CX0TrN3ekFEKP/Iuui4JWpiDT
-         ckcquOTNzmvVJ1tSjvdTxhJ5LjQ/nl2E+jsICVyW/Cw/ybdRq1uhpcCqGWBGftQ9KT2E
-         vlqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795179820; x=1795784620;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=n0ISsvavZIs94+cwCUE6Hl8OOGqoCs4DO2ZqytVibgo=;
-        b=Z0jxUJhIHKVBdAP/jcZsjbcNLu7CetZl0c/N/uhTxdvguUzWYaEFK+pYay4E1rcZTe
-         uV1PxTkX+p4I0I1UQvygAhS94KJm64q6OhnUwx+HGYrgdJJdq7iwVpLsMeVoPcsqKl3I
-         xCAB8SgzK1komwScu/AGJCeINc/jUFBnkFPyA1Jds5zkksPQbnzuc6ScjxnPtGBbFUTb
-         Er3aFkvRDPQ+51zBTD90y/55bp2A1lqC3w+FLDUGWDfKAmSbmup4dTBYIfbYvfoDj85Q
-         sU9rN9+tQTuVSpJvCVeqluzTFesO+q4DNxvcar26iZLpkJrirwLiHWUNVivPzTVWGATw
-         dcyw==
-X-Forwarded-Encrypted: i=1; AL+hErEJolmeyDez/jGkwwuawv80gvFgBQOH+NqMt7XffLGVX9GWGLtHIU+aBBN+ZGDxzZmYAEni243Dh9QSDfE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9YYzClCge0k6l351b9WhPoj03JrOlDc0BRSXMejUYKZ3aUdBag
-	IhZfo4knGKlK0LmmkYvwW5czx1QpPILHK68mYLEdQHqR6ocObwzxI3UQp+ANzraAK+uY9kmFs4e
-	gutvKSTnHl4qQ9hnuCzsdJZxvC+XHXdQ=
-X-Gm-Gg: AZFdTZfnlaiQ6LnQgxZnUJaAxkazVVDkaAvuVRsKGw8foM/lxAVCiRYW6ig3V8fNlpN
-	C7T7DGAdjOIRkXhtckRfbfbLWG1VqY+MHbXwfqEB9JJXIDNUJZg7V6/XtEgKrCh5AA/gII4Esq0
-	M1cCKYlytZFsSGcXEWESgS0IjfceTpAVpPyWsJoNSvmHSuFf+gHf/vR++FAmQtzaKT7bSrFx7c3
-	trEipFaumrSqg+5VJMTlIvSObgSmXHf1MN9h+XyVkHv8D7rcFjNQKw0NpD9HfWCUWScfnQpfczI
-	gSIQSbR/OPeoVHZcXK8kXZklGG+dlLx5lSkmpaatIonuwJ0ix5yLEZVinxoTwlqSo0evzEfLHw1
-	4rw1qZ7/5Ljopj+v2uvl4v/IEPskUl5dUASeNfcoAJCQ+4c94p/GDGo+pWAD3eSBc+wBwuPW1tw
-	xu3J22X6XPA2IpuxMzILvD8H3YdNrlempeekpd2jiawc9wVDmtNWhiH1NqQSw=
-X-Received: by 2002:a5d:5f93:0:b0:4a5:33ad:871a with SMTP id
- ffacd0b85a97d-4aba56f470cmr6596088f8f.0.1795179819733; Fri, 20 Nov 2026
- 05:03:39 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=tv2tRS34
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26DAD1F000C0;
+	Fri, 20 Nov 2026 13:03:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795179819;
+	bh=smQxb2mwKCwsuVuIPq/uxgN1HgzI96lehFm8ztfcx1I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=tv2tRS34tLhDBUeubUVIb7VUyCGvZaDqc33iXpr/5+TwgmLTfoDEqmTD4cqpVy0v3
+	 0cuvYTukYpknpf4HwWx93+72JaXHjfEQ7sNF4M6eVa/AtAGim6Rk49JomBwTuWYQ2G
+	 B+yLNcxTJ7vOPQvGCp7FwrEUhg+TeK+NcQKvT2ME=
+Date: Fri, 20 Nov 2026 14:03:36 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Drif Abdelmalek Mohamed Said <drifabdelmalekmohamedsaid@gmail.com>
+Cc: Andrey Konovalov <andreyknvl@gmail.com>, Kees Cook <kees@kernel.org>,
+	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+	syzbot+596b59aea1a9deaaab67@syzkaller.appspotmail.com,
+	syzkaller-bugs@googlegroups.com
+Subject: Re: [PATCH v2] usb: raw-gadget: fix UAF in raw_process_ep_io
+Message-ID: <2026112024-doorframe-tapering-1508@gregkh>
+References: <20260926113213.1469-1-drifabdelmalekmohamedsaid@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,45 +55,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Fri, 20 Nov 2026 13:03:13 +0000
-X-Gm-Features: Aa3M54r7eri6nG80Ox8qtxZ_YF9Vy7EOukLgs2cDYx6GnB44mJ7ZTcxn3ACOd0U
-Message-ID: <CA+V-a8tunjWx9j47pZybGjBwiHzQzsxXWzrc0+3E4h+APGFk8w@mail.gmail.com>
-Subject: Re: [PATCH] sched/fair: Avoid transient double accounting for delayed tasks
-To: kprateek.nayak@amd.com
-Cc: bsegall@google.com, dietmar.eggemann@arm.com, juri.lelli@redhat.com, 
-	LKML <linux-kernel@vger.kernel.org>, mgorman <mgorman@suse.de>, 
-	Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, rostedt@goodmis.org, 
-	vincent.guittot@linaro.org, vschneid@redhat.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260926113213.1469-1-drifabdelmalekmohamedsaid@gmail.com>
 
-Hi all,
+On Sat, Sep 26, 2026 at 12:32:12PM +0100, Drif Abdelmalek Mohamed Said wrote:
+> syzbot reported
+> 
+> BUG: KASAN: slab-use-after-free in string_nocheck lib/vsprintf.c:648 [inline]
+> BUG: KASAN: slab-use-after-free in string+0x471/0x4d0 lib/vsprintf.c:730
+> Read of size 1 at addr ffff88802c217340 by task syz-executor384/5947
+> 
+> CPU: 1 UID: 0 PID: 5947 Comm: syz-executor384 Not tainted syzkaller #0 PREEMPT(full)
+> Hardware name: Google Compute Engine/Google Compute Engine, BIOS Google 07/16/2026
+> Call Trace:
+> <TASK>
+> __dump_stack lib/dump_stack.c:94 [inline]
+> dump_stack_lvl+0x100/0x190 lib/dump_stack.c:120
+> print_address_description mm/kasan/report.c:378 [inline]
+> print_report+0x13d/0x4b0 mm/kasan/report.c:482
+> kasan_report+0xdf/0x1c0 mm/kasan/report.c:595
+> string_nocheck lib/vsprintf.c:648 [inline]
+> string+0x471/0x4d0 lib/vsprintf.c:730
+> vsnprintf+0x422/0x1300 lib/vsprintf.c:2945
+> snprintf+0xc7/0x100 lib/vsprintf.c:3043
+> set_dev_info drivers/base/core.c:4984 [inline]
+> dev_vprintk_emit+0x375/0x3e0 drivers/base/core.c:4994
+> dev_printk_emit+0xd2/0x10d drivers/base/core.c:5007
+> __dev_printk+0xcb/0x100 drivers/base/core.c:5019
+> _dev_err+0xef/0x127 drivers/base/core.c:5062
+> raw_process_ep_io.cold+0x43/0x83 drivers/usb/gadget/legacy/raw_gadget.c:1116
+> raw_ioctl_ep_write drivers/usb/gadget/legacy/raw_gadget.c:1153 [inline]
+> raw_ioctl+0x25a/0x2b80 drivers/usb/gadget/legacy/raw_gadget.c:1325
+> vfs_ioctl fs/ioctl.c:51 [inline]
+> __do_sys_ioctl fs/ioctl.c:597 [inline]
+> __se_sys_ioctl fs/ioctl.c:583 [inline]
+> __x64_sys_ioctl+0x18e/0x210 fs/ioctl.c:583
+> do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+> do_syscall_64+0x115/0x870 arch/x86/entry/syscall_64.c:94
+> entry_SYSCALL_64_after_hwframe+0x77/0x7f
+> RIP: 0033:0x7fc86effa5eb
+> Code: 00 48 89 44 24 18 31 c0 48 8d 44 24 60 c7 04 24 10 00 00 00 48
+> Code: 89 44 24 08 48 8d 44 24 20 48 89 44 24 10 b8 10 00 00 00 0f 05
+> Code: <89> c2 3d 00 f0 ff ff 77 1c 48 8b 44 24 18 64 48 2b 04 25 28 00
+> RSP: 002b:00007ffcab99fea0 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+> RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007fc86effa5eb
+> RDX: 00007ffcab99ff14 RSI: 0000000040085507 RDI: 0000000000000003
+> RBP: 0000000000000004 R08: 0000000000000000 R09: 0000000000000000
+> R10: 00007ffcab99fec0 R11: 0000000000000246 R12: 0000000000000003
+> R13: 00007ffcab99ff08 R14: 00007fc86f07dcc0 R15: 0000000000000002
+> </TASK>
+> 
+> Allocated by task 1:
+> kasan_save_stack+0x30/0x50 mm/kasan/common.c:57
+> kasan_save_track+0x14/0x30 mm/kasan/common.c:78
+> poison_kmalloc_redzone mm/kasan/common.c:398 [inline]
+> __kasan_kmalloc+0xaa/0xb0 mm/kasan/common.c:415
+> kasan_kmalloc include/linux/kasan.h:263 [inline]
+> __do_kmalloc_node mm/slub.c:5334 [inline]
+> __kmalloc_node_track_caller_noprof+0x331/0x830 mm/slub.c:5471
+> kvasprintf+0xbc/0x150 lib/kasprintf.c:25
+> kvasprintf_const+0x66/0x1a0 lib/kasprintf.c:49
+> kobject_set_name_vargs+0x5a/0x140 lib/kobject.c:274
+> dev_set_name+0xc7/0x100 drivers/base/core.c:3560
+> usb_add_gadget+0x520/0x920 drivers/usb/gadget/udc/core.c:1459
+> usb_add_gadget_udc_release drivers/usb/gadget/udc/core.c:1517 [inline]
+> usb_add_gadget_udc+0x26/0x70 drivers/usb/gadget/udc/core.c:1564
+> dummy_udc_probe+0x69e/0x960 drivers/usb/gadget/udc/dummy_hcd.c:1121
+> platform_probe+0x106/0x1d0 drivers/base/platform.c:1439
+> call_driver_probe drivers/base/dd.c:628 [inline]
+> really_probe+0x241/0xa60 drivers/base/dd.c:706
+> __driver_probe_device+0x20e/0x450 drivers/base/dd.c:868
+> driver_probe_device+0x4a/0x140 drivers/base/dd.c:898
+> __device_attach_driver+0x1df/0x320 drivers/base/dd.c:1026
+> bus_for_each_drv+0x159/0x1e0 drivers/base/bus.c:500
+> __device_attach+0x1e4/0x4d0 drivers/base/dd.c:1098
+> device_initial_probe+0xaf/0xd0 drivers/base/dd.c:1153
+> bus_probe_device+0x64/0x160 drivers/base/bus.c:620
+> device_add+0x121d/0x1970 drivers/base/core.c:3772
+> platform_device_add+0x35a/0x800 drivers/base/platform.c:762
+> dummy_hcd_init+0x803/xc00 drivers/usb/gadget/udc/dummy_hcd.c:2894
+> do_one_initcall+0x11d/0x700 init/main.c:1347
+> do_initcall_level init/main.c:1409 [inline]
+> do_initcalls init/main.c:1425 [inline]
+> do_basic_setup init/main.c:1445 [inline]
+> kernel_init_freeable+0x6ea/0x7b0 init/main.c:1658
+> kernel_init+0x1f/0x1e0 init/main.c:1548
+> ret_from_fork+0x72b/0xd50 arch/x86/kernel/process.c:158
+> ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+> 
+> Freed by task 5947:
+> kasan_save_stack+0x30/0x50 mm/kasan/common.c:57
+> kasan_save_track+0x14/0x30 mm/kasan/common.c:78
+> kasan_save_free_info+0x3b/0x70 mm/kasan/generic.c:584
+> poison_slab_object mm/kasan/common.c:253 [inline]
+> __kasan_slab_free+0x5f/0x80 mm/kasan/common.c:285
+> kasan_slab_free include/linux/kasan.h:235 [inline]
+> slab_free_hook mm/slub.c:2677 [inline]
+> slab_free mm/slub.c:6377 [inline]
+> kfree+0x22b/0x6c0 mm/slub.c:6692
+> kfree_const+0x5a/0x70 mm/util.c:46
+> kobject_cleanup lib/kobject.c:695 [inline]
+> kobject_release lib/kobject.c:720 [inline]
+> kref_put include/linux/kref.h:65 [inline]
+> kobject_put+0x218/0x640 lib/kobject.c:737
+> put_device+0x1f/0x30 drivers/base/core.c:3880
+> platform_remove+0x5f/0x80 drivers/base/platform.c:1456
+> device_remove+0xcb/0x180 drivers/base/dd.c:616
+> __device_release_driver drivers/base/dd.c:1349 [inline]
+> device_release_driver_internal+0x44e/0x620 drivers/base/dd.c:1372
+> unbind_store+0xf8/0x110 drivers/base/bus.c:244
+> drv_attr_store+0x74/0xb0 drivers/base/bus.c:125
+> sysfs_kf_write+0xf2/0x150 fs/sysfs/file.c:145
+> kernfs_fop_write_iter+0x3e0/0x5f0 fs/kernfs/file.c:345
+> new_sync_write fs/read_write.c:595 [inline]
+> vfs_write+0x6ac/0x1050 fs/read_write.c:687
+> ksys_write+0x12a/0x250 fs/read_write.c:739
+> do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+> do_syscall_64+0x115/0x870 arch/x86/entry/syscall_64.c:94
+> entry_SYSCALL_64_after_hwframe+0x77/0x7f
 
-Sorry for top posting.
-
-The original commit [0] in dequeue_hierarchy() set `h_nr_runnable =
-1;` where as this seems to be missed in the merge [1] which is now
-commit 486c3d06b90240860e99686d29ed9f15637dc314 in next. Due to this,
-I'm seeing performance drops while running tests on Renesas SoCs.
-
-[0] https://lore.kernel.org/all/20261112083447.25603-1-kprateek.nayak@amd.com/
-[1] https://lore.kernel.org/all/179500916013.3191731.3149125419718630663.tip-bot2@tip-bot2/
-
-diff from original commit:
----------------------------------
-@@ -8317,16 +8307,15 @@ enqueue_task_fair(struct rq *rq, struct
-task_struct *p, int flags)
- static void dequeue_hierarchy(struct task_struct *p, int flags)
- {
-  struct sched_entity *se = &p->se;
-- bool task_sleep = flags & DEQUEUE_SLEEP;
-- bool task_delayed = flags & DEQUEUE_DELAYED;
-  bool task_throttled = flags & DEQUEUE_THROTTLE;
-  int h_nr_idle = task_has_idle_policy(p);
-- int h_nr_runnable = 0;
-+ int h_nr_runnable = 1;
-  struct cfs_rq *cfs_rq;
-  bool dequeue = true;
-
-Cheers,
-Prabhakar
+All of that doesn't need to be here :(
