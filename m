@@ -1,51 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795182965;
-	b=bncFL39+hURfiVMhjSgygPdYiRx9y4RCspMGE4FuoDPteDkiC2AST2WtKXXhQODV093t
-	 U3EaVTS9qXS8tDzT4/PLL99jxvu8byg9xGlfrtRcpTeJJbO6AuVPUfyp5nJJFp2icRF0i
-	 xBbzvJpNIFi4/0n6xW6GkPOU+PA/gK2KdYvsEJWIBHCUd2vu4nbd6juheVDuzlwem2L2s
-	 +4PTDPnHPSTrfZZ8j1/tFcPnr3sn+TGgoa/gvtazU6UKisOAuNdQV8GxiHqqMt0bnMvt0
-	 dnaiajY/u7K6PDk8eROauPXj9YFGkagOdiA4SsgvsVrFlymM7tlYe2HFLGHH9SMjY2Q==
+	t=1795182967;
+	b=ZhoA2ch+1JWIa6jJIECg4c9WrA7J1W/OMfNkh9nD28MITh4ioyM9c+Vu5ZmA8LlPObqU
+	 f1DM2ABvB9R5TunWTe3GAleN0YgB8aQIsV0/t11irErhHU7e7lWh7k4o+u4hudw7q4Txw
+	 0a8VGm2G0zlG9xWZkczIc8qdl/ZTVZdAxeEF81bsYr1zC8JjwMq+6d6k1tkvhRxZTBDTg
+	 L8fQyOaWAFR4fcHYt4cpKMb3akt7p8LNvp6g6a9wjbeQCj+dpv8lOpVR2HA56buTP8qk3
+	 oJffXEBnDWrvwVtLKjRYzx1/JVJksVYHd/UCXIrWhn1tA66yc2zLxhiOmUpSGFQE53Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795182965;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795182967;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=1UzTk+3x6j8TYG0C1wN3jImATgJjaPluQtErUxNs3YQ=;
-	b=CffH1Ir+WmR4/EgXbUpVwmXisL6evHnKDn41SdLkEwptgTD3Tm6dvGxhPtPBRT/x7blf
-	 SOZjfZGzEP4pXsSUEYC3B0o3Xo2CmJvOnCuJ2Yl0aVJNLVqr2F7jWpjGGwKlNMPmAIZgA
-	 yOCb9FX814p08iGx5chjR8YOBZ1rQJOmB1u/MEDwr5w5zL7+e5vtKD+IHJmVOA69pvW30
-	 j4xZPTyhXXOg3O3IyT1hd4LkaGx9tMJi0RY4Tx0c75AzYAcPqGiVZz2GOs075vf0LRoy1
-	 NPeoRcLX81bBrrdxUQ/CPIlase7d82Y1zywpggQHOxy5/khq1ZSM2B2J4V5RHKAVeKg==
+	bh=rj/AxSKTPtUTOnpYzaLxxrsPZzOnjC5rzR8rF3myYCo=;
+	b=NxC6MSnJZTQ1Rt0o/zMP2aJb49e9/8dhZtxInl4fGata+1FoU5dkCTccJpxCoxAEOEiY
+	 OJFeR0qbgt48JldVtqwsPo8OVYd/4+Agl03OWbYVxa174wUiWVGF7tz8smUe8X6XQKbz5
+	 JXwM94Zu2eek7PQnqoDfgkPW8w+oDBlLEBPgqaxtoYuOtOmj2iocHTXKIIh9VxJBpck3p
+	 ItsA2UTtnizXdH4lEvqYk0JmJEj+PGWI1NHgFpTYZkxeJ9iw82FtGT1jFm3N+6N0FnJ/f
+	 zcjXP490WNVFRAO9spv2cQNInXgr9OpKRg6AsHTNDlLJKtNVlhA9CoAqNLelOC9uacA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=efficios.com;
 	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=HG4L5NlV;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=QkCDQPXV;
 	arc=none smtp.remote-ip=158.69.130.18
 Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEDE660A5BD2;
-	Fri, 20 Nov 2026 13:56:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EEDE660A5BD2
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C5E8606B98B;
+	Fri, 20 Nov 2026 13:56:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C5E8606B98B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=HG4L5NlV
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=QkCDQPXV
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795182962;
-	bh=1UzTk+3x6j8TYG0C1wN3jImATgJjaPluQtErUxNs3YQ=;
+	s=smtpout1; t=1795182963;
+	bh=rj/AxSKTPtUTOnpYzaLxxrsPZzOnjC5rzR8rF3myYCo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HG4L5NlVN5y4HMt9dXmwhbf65SRpvTIPlqdQ15jT0GsqDX8pQKvxuk71GC7+KALMJ
-	 kFn6GK3IvwJVZlM1WVKmd08m9QamPXjXaKdhfQ17re8Kh+IzqpyjfwpNmuRMTCeEn1
-	 uRt8mdyRkpzGLA3c6BO6g4mQMkqJMRyG7lMeMb/wol/ZbtiX6NTdLGcs/cs2xtLY12
-	 c+JPyxm1KDP+rcjRCB9VjFa3Zxwjrc5pyVEIMw4owG9cJSCp+1/CrsmtP5tFxjrcAq
-	 TrsuwoQm9LtDn/WBZgzPX+py7V3QCUGkfrUO+d9RMgedamjEYZO3tltrWEYF2n4xFa
-	 t7t2K+PtPRQbg==
+	b=QkCDQPXVuRPjJfxY+Jup5arPp7aClVxWuG3i5aYKGDdpNjJTlHuBhbaE1p4mRg7EZ
+	 UpaxTZ7vTqva3W63uHOu7E58QBRMXBh4ItfJzmYoIpjHq3lZz5Q36SsnhCBF3IBxJD
+	 +7gSTh9/aIyC85yk9eCPNYfkg7f5a3bmAIF1iC42HLnoDhoQ9XRIiBZHRs5UIs0elk
+	 c6ESRb4I/6epmmq0pxTsytCY368b8I3jBq74Q6oR8F9s7xmBBUPLaYY6xt1IOLNZHo
+	 KUU2eqcM8dI59JllcDfrjvBILC0RyITz3mnNW6eG7NK0oGBQWAdSHJUft2bUEIeePA
+	 7Xttg+7IWHmzQ==
 Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jWH1F6TlbzS5J;
-	Fri, 20 Nov 2026 08:56:01 -0500 (EST)
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jWH1H2VBbzV23;
+	Fri, 20 Nov 2026 08:56:03 -0500 (EST)
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 To: juri.lelli@redhat.com,
 	peterz@infradead.org,
@@ -80,9 +80,9 @@ Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
 	linux-kselftest@vger.kernel.org,
 	linux-rt-devel@lists.linux.dev,
 	stable@vger.kernel.org
-Subject: [PATCH v9 15/33] sched/deadline: Keep a task in the root domain that counts its bandwidth
-Date: Fri, 20 Nov 2026 08:55:38 -0500
-Message-Id: <26529637dd1398d1bce1398efa83d9b71802777f.1795181240.git.mathieu.desnoyers@efficios.com>
+Subject: [PATCH v9 23/33] sched/deadline: Reset the donor's runtime at a deboost in the class
+Date: Fri, 20 Nov 2026 08:55:46 -0500
+Message-Id: <79cfb321d7f0474a8a4193efe1935a20858d9e6e.1795181240.git.mathieu.desnoyers@efficios.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <cover.1795181240.git.mathieu.desnoyers@efficios.com>
 References: <cover.1795181240.git.mathieu.desnoyers@efficios.com>
@@ -97,678 +97,254 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The root domain that admits a deadline task counts its bandwidth. The
-mask of the task can hold CPUs of another root domain. With
-isolcpus="domain", the isolated CPUs are in the default root domain. A
-cpuset that is not a partition root can hold isolated and housekeeping
-CPUs.
+A task boosted by a deadline waiter, its donor, runs on the donor's
+reservation. Commit 2d3d891d3344 ("sched/deadline: Add SCHED_DEADLINE
+inheritance logic") uses the waiter's parameters "during the whole
+period it holds the pi-lock".
 
-The code that picks a CPU for a task does not look at the root domain
-that counts it:
+A boosted task that runs out of runtime is not throttled.
+replenish_dl_entity() refills it from the waiter's parameters: it adds
+the waiter's runtime, and moves the deadline by the waiter's period.
+From then on, the runtime and the deadline of the task are not those of
+its own reservation.
 
- - select_fallback_rq() and dl_task_offline_migration() pick a CPU when
-   the CPU of the task goes offline.
- - __set_cpus_allowed_ptr_locked() picks one when the mask changes.
- - select_task_rq_dl() can leave a task on the CPU it slept on, which
-   can be in the other root domain.
- - dl_task_rebuild_cpu() picks the CPU that a rebuild counts a task
-   with. It prefers the CPU the task is on, then a housekeeping CPU.
+A task that leaves the class at its deboost does not keep them.
+"sched/deadline: Reset the deadline and the runtime with the parameters"
+resets them for a task with no parameters. For a task with parameters,
+they are cleared with the parameters at its 0-lag time.
 
-Each can take the task, or its bandwidth, to the other root domain
-while its own root domain still has a CPU for it. The bandwidth then
-moves with no admission test, and the root domain it arrives in can
-exceed its limit.
+But the boosted task can be a SCHED_DEADLINE task itself, when the
+waiter has an earlier deadline. It stays in the class at its deboost.
+rt_mutex_setprio() only resets dl.pi_se. enqueue_dl_entity() keeps a
+deadline that is ahead. So a task that was refilled keeps the waiter's
+runtime and deadline after the unlock. A task that sched_setattr() makes
+SCHED_DEADLINE while boosted ends its boost the same way.
 
-Add dl_task_bw_span(), which returns the CPUs of the root domain that
-counts a task. Make each of these places try one of those CPUs first.
-After a rebuild the root domains are new, and the CPU recorded with the
-bandwidth can be offline. So dl_task_rebuild_cpu() cannot use the root
-domain of that CPU. Record with the task whether the default root
-domain counted it. dl_task_rebuild_cpu() then prefers a CPU of the mask
-on the same side: in the default root domain or not. The CPUs isolated
-at boot do not give that side. A CPU of an isolated partition is in the
-default root domain too.
+In one period, the task can run what the waiter left on top of its own
+runtime. Other deadline tasks can miss deadlines.
 
-The CPU recorded can be the one going offline. Its root domain still
-counts the task until the rebuild attaches that CPU to the default root
-domain. So dl_task_bw_span() still returns that root domain until then.
-This covers the common case: a task that runs on the CPU when it goes
-offline, which balance_push() moves.
+Fix this by recording that refill in a new flag, dl_donor_refill. If
+the boost ends in the class with the flag set, start a new period at
+the deboost. The next enqueue is too late for a task blocked on another
+rt_mutex: the chain walk copies its deadline into its waiter first.
 
-select_fallback_rq() can also widen the mask of the task. It first gives
-the task the CPUs of its cpuset, then the housekeeping CPUs. At an
-offline, this happens before the cpuset update. The wider mask can then
-hold no active CPU of the root domain that counts the task. The task
-then leaves that root domain, and its bandwidth moves with no admission
-test. It stays out after the cpuset update. In testing without the rule
-below, a deadline task with a period of 2ms spun on the CPU going
-offline. It left this way in every run. So when the wider mask has no
-active CPU of that root domain, allow the CPUs of the root domain
-instead. The cpuset update that comes next sets the real mask. The task
-gets a copy of the span, made where no rebuild of the sched domains
-changes it. If no CPU of the span is allowed, select_fallback_rq() still
-tries its fallback mask.
+The task can still hold a lock that another deadline task waits on. The
+new deadline can be later than that waiter's. rt_mutex_setprio() then
+boosts the task again.
 
-dl_task_bw_span() returns NULL while the sched domains are rebuilt. The
-CPUs then change root domains one by one. A housekeeping CPU passes
-through the default root domain, which holds the isolated CPUs. Its
-span would send a housekeeping task to an isolated CPU. So inside a
-rebuild, the CPU is picked as it was before this patch. If that CPU is
-in the other root domain, the next wakeup brings the task back.
-dl_task_offline_migration() moves no bandwidth then either, nor
-before the walk that follows counts the task. The walk counts it on
-the side of the CPU recorded.
+A task that was not refilled keeps its runtime and its deadline. They
+are those of its own reservation. A new period there would give it a
+full runtime at every contended unlock.
 
-A known limit remains. A wakeup can pick its CPU inside a rebuild,
-before the walk of the task list that follows reaches the task. If it
-is queued after the walk counted the task, its bandwidth can still
-move to the other root domain, with no admission test. This was found
-by reading, not reproduced.
+The Sashiko AI review of this series found the sched_setattr() case.
+Four cases of deadline_bw_test test this fix:
+deboost_blocked_keeps_order, deboost_keeps_own_runtime, and two added
+later in this series, deboost_in_class_resets_period and
+deboost_after_donor_refill.
 
-A task with no CPU left in its root domain still moves, and its
-bandwidth with it. The next two patches refuse the changes that lead
-to that.
+In deboost_after_donor_refill, an owner of 5ms every 100ms runs 8ms with
+the lock. Its donor is a task of 2ms every 10ms. A deboost that tests
+the runtime against dl_runtime, in place of the flag, misses this
+refill: it leaves less than dl_runtime. The owner then held less than
+1ms after the unlock, in 3 guests of 3. With the flag, it holds its own
+5ms.
 
-The case hotplug_keeps_root_domain, added to deadline_bw_test later in
-this series, tests this. A cpuset holds two isolated CPUs and two
-housekeeping CPUs, H and K. A deadline task counted in the housekeeping
-root domain sleeps on H. Then H goes offline. The task must wake up on
-K. Without this patch it woke up on an isolated CPU: CPU 0, in a guest
-with isolcpus=domain,0,1.
-
-These cases test the other paths:
- - hotplug_spinner_keeps: a running task whose CPU goes offline;
- - hotplug_fallback_running: the same, when the cpuset of the task has
-   no CPU left;
- - hotplug_waking_keeps: a task that wakes up often, at the offline;
- - hotplug_isolated_keeps: the same, for a task counted on the isolated
-   side;
- - rebuild_waking_keeps: a wakeup inside a rebuild. It fails in most
-   runs if dl_task_bw_span() does not return NULL there. That needs
-   isolcpus=domain,0,1.
- - hotplug_isolated_partition_falls_back: a task counted on the CPU of
-   an isolated partition, which goes offline. Classed by the CPUs
-   isolated at boot, the rebuild moved the bandwidth to the housekeeping
-   root domain. The case failed so in each of 4 guests with
-   isolcpus=domain.
-
-Fixes: 332ac17ef5bf ("sched/deadline: Add bandwidth management for SCHED_DEADLINE tasks")
+Fixes: 2d3d891d3344 ("sched/deadline: Add SCHED_DEADLINE inheritance logic")
 Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 Cc: stable@vger.kernel.org
 ---
- include/linux/sched.h   |   7 ++
- kernel/sched/core.c     |  70 +++++++++++
- kernel/sched/deadline.c | 263 ++++++++++++++++++++++++++++++++++------
- kernel/sched/sched.h    |   3 +
- 4 files changed, 306 insertions(+), 37 deletions(-)
+ include/linux/sched.h   |  6 ++++++
+ kernel/sched/core.c     | 16 ++++++++++++---
+ kernel/sched/deadline.c | 43 +++++++++++++++++++++++++++++++++++++++++
+ kernel/sched/sched.h    | 10 ++++++++++
+ kernel/sched/syscalls.c |  2 +-
+ 5 files changed, 73 insertions(+), 4 deletions(-)
 
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index e934e2225986..0c89263b1db9 100644
+index 0c89263b1db9..cbd387993607 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
-@@ -762,6 +762,12 @@ struct sched_dl_entity {
- 	 * in progress reserved room for the bandwidth, or -1.
- 	 * cpuset_can_attach() sets it, and cpuset_attach() moves the
- 	 * bandwidth there.
+@@ -683,6 +683,11 @@ struct sched_dl_entity {
+ 	 * @dl_overrun tells if the task asked to be informed about runtime
+ 	 * overruns.
+ 	 *
++	 * @dl_donor_refill tells if a boosted task had its runtime refilled
++	 * from the parameters of its donor. Its runtime and deadline are
++	 * then not those of its own reservation. The end of the boost
++	 * clears it.
 +	 *
-+	 * @dl_bw_def is true if def_root_domain counted the bandwidth when
-+	 * @dl_bw_cpu was recorded. A rebuild changes the root domains, and
-+	 * the CPU recorded can go offline. A rebuild then keeps the
-+	 * bandwidth on that side: in def_root_domain or not. It is the last
-+	 * member, so that no hole is left.
- 	 */
- 	struct list_head		dl_departed_node;
- 	int				dl_bw_cpu;
-@@ -786,6 +792,7 @@ struct sched_dl_entity {
- 	 */
- 	struct sched_dl_entity *pi_se;
- #endif
-+	bool				dl_bw_def;
- };
- 
- #ifdef CONFIG_UCLAMP_TASK
+ 	 * @dl_server tells if this is a server entity.
+ 	 *
+ 	 * @dl_server_active tells if the dlserver is active(started).
+@@ -715,6 +720,7 @@ struct sched_dl_entity {
+ 	unsigned int			dl_yielded        : 1;
+ 	unsigned int			dl_non_contending : 1;
+ 	unsigned int			dl_overrun	  : 1;
++	unsigned int			dl_donor_refill   : 1;
+ 	unsigned int			dl_server         : 1;
+ 	unsigned int			dl_server_active  : 1;
+ 	unsigned int			dl_defer	  : 1;
 diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 7615ba02d52b..3dd42581cc17 100644
+index 3dd42581cc17..d3a9b590f608 100644
 --- a/kernel/sched/core.c
 +++ b/kernel/sched/core.c
-@@ -3264,6 +3264,27 @@ static int __set_cpus_allowed_ptr_locked(struct task_struct *p,
- 			dest_cpu = ctx->dl_bw_cpu;
- 		if (!task_on_rq_queued(p))
- 			p->wake_cpu = dest_cpu;
-+	} else {
-+		const struct cpumask *span = dl_task_bw_span(p);
-+		unsigned int cpu = nr_cpu_ids;
-+
-+		/*
-+		 * No room was made for @p in another root domain. Keep @p
-+		 * in the root domain that counts its bandwidth, if the new
-+		 * mask holds one of its CPUs. Also wake a sleeping @p up
-+		 * there. A wakeup during a rebuild of the sched domains has
-+		 * no span to prefer.
-+		 */
-+		if (span && cpumask_test_cpu(dest_cpu, span))
-+			cpu = dest_cpu;
-+		else if (span)
-+			cpu = cpumask_first_and_and(cpu_valid_mask,
-+						    ctx->new_mask, span);
-+		if (cpu < nr_cpu_ids) {
-+			dest_cpu = cpu;
-+			if (!task_on_rq_queued(p))
-+				p->wake_cpu = dest_cpu;
-+		}
- 	}
- 
- 	do_set_cpus_allowed(p, ctx);
-@@ -3668,8 +3689,22 @@ static int select_fallback_rq(int cpu, struct task_struct *p)
- 	int nid = cpu_to_node(cpu);
- 	const struct cpumask *nodemask = NULL;
- 	enum { cpuset, possible, fail } state = cpuset;
-+	const struct cpumask *span;
-+	bool span_forced = false;
- 	int dest_cpu;
- 
-+	/*
-+	 * Keep a deadline task in the root domain that counts its
-+	 * bandwidth, if one of its CPUs is allowed and online.
-+	 */
-+	span = dl_task_bw_span(p);
-+	if (span) {
-+		for_each_cpu_and(dest_cpu, span, p->cpus_ptr) {
-+			if (is_cpu_allowed(p, dest_cpu))
-+				return dest_cpu;
-+		}
-+	}
-+
- 	/*
- 	 * If the node that the CPU is on has been offlined, cpu_to_node()
- 	 * will return -1. There is no CPU on the node, and we should
-@@ -3686,6 +3721,32 @@ static int select_fallback_rq(int cpu, struct task_struct *p)
- 	}
- 
- 	for (;;) {
-+		/* The mask is wider now: look again in that root domain. */
-+		if (span && state != cpuset) {
-+			for_each_cpu_and(dest_cpu, span, p->cpus_ptr) {
-+				if (is_cpu_allowed(p, dest_cpu))
-+					goto out;
-+			}
-+			/*
-+			 * The wider mask has no active CPU in that root
-+			 * domain. Allow the CPUs of the root domain instead.
-+			 * At an offline, the cpuset update comes next and sets
-+			 * the real mask. Give @p a copy of the span: a rebuild
-+			 * can change the span itself.
-+			 */
-+			if (!span_forced) {
-+				struct cpumask *msk = dl_fallback_mask();
-+
-+				span_forced = true;
-+				if (dl_task_bw_span_copy(p, msk) &&
-+				    cpumask_intersects(msk, cpu_active_mask) &&
-+				    cpumask_subset(msk, task_cpu_possible_mask(p))) {
-+					set_cpus_allowed_force(p, msk);
-+					continue;
+@@ -7972,16 +7972,26 @@ void rt_mutex_setprio(struct task_struct *p, struct task_struct *pi_task)
+ 				p->dl.pi_se = pi_task->dl.pi_se;
+ 				scope->flags |= ENQUEUE_REPLENISH;
+ 			} else {
+-				p->dl.pi_se = &p->dl;
++				dl_deboost(&p->dl);
++				/*
++				 * dl_deboost() can start a new period. Its
++				 * deadline can then be after the top waiter's.
++				 * Boost the task again then.
++				 */
++				if (pi_task && dl_prio(pi_task->prio) &&
++				    dl_entity_preempt(&pi_task->dl, &p->dl)) {
++					p->dl.pi_se = pi_task->dl.pi_se;
++					scope->flags |= ENQUEUE_REPLENISH;
 +				}
-+			}
-+		}
-+
- 		/* Any allowed, online CPU? */
- 		for_each_cpu(dest_cpu, p->cpus_ptr) {
- 			if (!is_cpu_allowed(p, dest_cpu))
-@@ -3707,6 +3768,15 @@ static int select_fallback_rq(int cpu, struct task_struct *p)
- 			state = fail;
- 			break;
- 		case fail:
-+			/*
-+			 * The span replaced the fallback mask, and has no
-+			 * allowed CPU. Try the fallback mask before giving up.
-+			 */
-+			if (span_forced && span) {
-+				span = NULL;
-+				set_cpus_allowed_force(p, task_cpu_fallback_mask(p));
-+				break;
-+			}
- 			BUG();
- 			break;
+ 			}
+ 		} else if (rt_prio(prio)) {
+ 			if (dl_prio(oldprio))
+-				p->dl.pi_se = &p->dl;
++				dl_drop_boost(&p->dl);
+ 			if (oldprio < prio)
+ 				scope->flags |= ENQUEUE_HEAD;
+ 		} else {
+ 			if (dl_prio(oldprio))
+-				p->dl.pi_se = &p->dl;
++				dl_drop_boost(&p->dl);
+ 			if (rt_prio(oldprio))
+ 				p->rt.timeout = 0;
  		}
 diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-index 3942464be30b..d84c403cc822 100644
+index 2e1b78d8f2db..4c55a4570a92 100644
 --- a/kernel/sched/deadline.c
 +++ b/kernel/sched/deadline.c
-@@ -277,8 +277,8 @@ static unsigned int dl_bw_gen;
-  * where its bandwidth is counted. The new root domains count no task
-  * yet.
-  *
-- * Changed under dl_departed_lock. dl_task_bw_elsewhere() reads it
-- * without the lock.
-+ * Changed under dl_departed_lock. dl_task_bw_span() and
-+ * dl_task_bw_elsewhere() read it without the lock.
-  */
- static unsigned int dl_bw_rebuild_seq;
- 
-@@ -316,6 +316,23 @@ static inline bool dl_bw_move_blocked(struct task_struct *p)
- 	       READ_ONCE(p->dl.dl_bw_skip_gen) != READ_ONCE(dl_bw_gen);
+@@ -93,12 +93,48 @@ static inline bool is_dl_boosted(struct sched_dl_entity *dl_se)
+ {
+ 	return pi_of(dl_se) != dl_se;
  }
- 
-+/* Return true if @cpu is in def_root_domain. */
-+static inline bool dl_cpu_in_def(int cpu)
++
++/*
++ * Record that @dl_se had its runtime refilled from the parameters of its
++ * donor, if it is boosted.
++ */
++static inline void dl_note_donor_refill(struct sched_dl_entity *dl_se)
 +{
-+	return cpu_rq(cpu)->rd == &def_root_domain;
++	if (is_dl_boosted(dl_se))
++		dl_se->dl_donor_refill = 1;
 +}
 +
 +/*
-+ * Record @cpu with @dl_se: the root domain of @cpu counts its bandwidth.
-+ * Call it outside a rebuild of the sched domains, when that root domain
-+ * is final.
++ * End the boost of @dl_se, whose task stays in the class. If the boost
++ * refilled its runtime from the donor's parameters, start a new period
++ * now. The next enqueue is too late for a task blocked on another
++ * rt_mutex: the chain walk copies its deadline into its waiter node
++ * first. Without a refill, the task keeps the runtime and the deadline
++ * of its own reservation.
++ *
++ * The caller holds the rq lock and the pi_lock of the task, and has
++ * updated the rq clock.
 + */
-+static inline void dl_record_bw_cpu(struct sched_dl_entity *dl_se, int cpu)
++void dl_deboost(struct sched_dl_entity *dl_se)
 +{
-+	WRITE_ONCE(dl_se->dl_bw_cpu, cpu);
-+	WRITE_ONCE(dl_se->dl_bw_def, dl_cpu_in_def(cpu));
-+}
++	struct rq *rq = rq_of_dl_se(dl_se);
 +
- /*
-  * Start a rebuild of the sched domains. Call it before the first CPU
-  * leaves its root domain. dl_clear_root_domains() ends the rebuild.
-@@ -325,6 +342,8 @@ void dl_bw_rebuild_begin(void)
- 	lockdep_assert_held(&sched_domains_mutex);
- 	guard(raw_spinlock_irqsave)(&dl_departed_lock);
- 	WRITE_ONCE(dl_bw_rebuild_seq, dl_bw_rebuild_seq + 1);
-+	/* Before the first write of rq->rd: see dl_task_bw_span(). */
-+	smp_wmb();
- }
- 
- /* End the walk of the task list that dl_clear_root_domains() started. */
-@@ -372,9 +391,9 @@ static void dl_task_depart(struct task_struct *p)
- 	 * departs from instead, if it is active and the same root domain
- 	 * counts the bandwidth.
- 	 */
--	if (dl_se->dl_bw_gen == dl_bw_gen && cpu_active(cpu) &&
-+	if (dl_se->dl_bw_gen == dl_bw_gen && !dl_bw_rebuilding() && cpu_active(cpu) &&
- 	    cpu_rq(cpu)->rd == cpu_rq(dl_se->dl_bw_cpu)->rd)
--		dl_se->dl_bw_cpu = cpu;
-+		dl_record_bw_cpu(dl_se, cpu);
- 	list_add(&dl_se->dl_departed_node, &dl_departed_list);
- }
- 
-@@ -956,18 +975,36 @@ static struct rq *find_lock_later_rq(struct task_struct *task, struct rq *rq);
- 
- static struct rq *dl_task_offline_migration(struct rq *rq, struct task_struct *p)
- {
-+	const struct cpumask *span;
- 	struct rq *later_rq = NULL;
- 	struct dl_bw *dl_b;
- 
- 	later_rq = find_lock_later_rq(p, rq);
-+	/*
-+	 * find_lock_later_rq() looks in the root domain of @rq. Once @rq is
-+	 * offline, a rebuild attaches it to def_root_domain. That root domain
-+	 * may not count @p. Do not take @p out of the root domain that counts
-+	 * it while @p has an active CPU there.
-+	 */
-+	span = dl_task_bw_span(p);
-+	if (later_rq && span && !cpumask_test_cpu(later_rq->cpu, span) &&
-+	    cpumask_first_and_and(cpu_active_mask, p->cpus_ptr, span) < nr_cpu_ids) {
-+		double_unlock_balance(rq, later_rq);
-+		later_rq = NULL;
++	if (dl_se->dl_donor_refill) {
++		dl_se->deadline = rq_clock(rq) + dl_se->dl_deadline;
++		dl_se->runtime = dl_se->dl_runtime;
 +	}
- 	if (!later_rq) {
- 		int cpu;
- 
- 		/*
- 		 * If we cannot preempt any rq, fall back to pick any
--		 * online CPU:
-+		 * online CPU. Try the root domain that counts @p first.
- 		 */
--		cpu = cpumask_any_and(cpu_active_mask, p->cpus_ptr);
-+		cpu = nr_cpu_ids;
-+		if (span)
-+			cpu = cpumask_first_and_and(cpu_active_mask,
-+						    p->cpus_ptr, span);
-+		if (cpu >= nr_cpu_ids)
-+			cpu = cpumask_any_and(cpu_active_mask, p->cpus_ptr);
- 		if (cpu >= nr_cpu_ids) {
- 			/*
- 			 * Failed to find any suitable CPU.
-@@ -1010,8 +1047,15 @@ static struct rq *dl_task_offline_migration(struct rq *rq, struct task_struct *p
- 	 * moved to another cpuset while it was not running. If a rebuild
- 	 * dropped the bandwidth, there is nothing to move: the next rebuild
- 	 * counts it.
-+	 *
-+	 * Move nothing while the sched domains are rebuilt, or before the
-+	 * walk that follows has counted @p, as dl_task_move_bw() does. The
-+	 * CPU picked above then had no span to prefer. The walk counts @p
-+	 * on the side of the CPU recorded.
- 	 */
- 	scoped_guard (raw_spinlock, &dl_departed_lock) {
-+		if (dl_bw_move_blocked(p))
-+			break;
- 		if (p->dl.dl_bw_gen == dl_bw_gen) {
- 			struct rq *src_rq = cpu_rq(dl_task_root_domain_cpu(p));
- 
-@@ -1032,7 +1076,7 @@ static struct rq *dl_task_offline_migration(struct rq *rq, struct task_struct *p
- 		__dl_add(dl_b, p->dl.dl_bw,
- 			 cpumask_weight(later_rq->rd->span));
- 		raw_spin_unlock(&dl_b->lock);
--		p->dl.dl_bw_cpu = later_rq->cpu;
-+		dl_record_bw_cpu(&p->dl, later_rq->cpu);
- 		p->dl.dl_bw_gen = dl_bw_gen;
- 	}
- 
-@@ -2969,6 +3013,7 @@ static int
- select_task_rq_dl(struct task_struct *p, int cpu, int flags)
++	dl_drop_boost(dl_se);
++}
+ #else /* !CONFIG_RT_MUTEXES: */
+ static inline struct sched_dl_entity *pi_of(struct sched_dl_entity *dl_se)
  {
- 	struct task_struct *curr, *donor;
-+	const struct cpumask *span;
- 	bool select_rq;
- 	struct rq *rq;
- 
-@@ -3009,6 +3054,20 @@ select_task_rq_dl(struct task_struct *p, int cpu, int flags)
- 		    dl_task_is_earliest_deadline(p, cpu_rq(target)))
- 			cpu = target;
- 	}
-+
-+	/*
-+	 * Keep @p in the root domain that counts its bandwidth. Its mask
-+	 * can hold CPUs of another root domain, with isolcpus="domain",
-+	 * and @p can sleep on one of them.
-+	 */
-+	span = dl_task_bw_span(p);
-+	if (span && !cpumask_test_cpu(cpu, span)) {
-+		unsigned int in_span;
-+
-+		in_span = cpumask_first_and_and(span, p->cpus_ptr, cpu_active_mask);
-+		if (in_span < nr_cpu_ids)
-+			cpu = in_span;
-+	}
- 	rcu_read_unlock();
- 
- 	return cpu;
-@@ -3077,7 +3136,7 @@ static void dl_task_move_bw(struct task_struct *p, int new_cpu)
- 	raw_spin_lock(&dl_b->lock);
- 	__dl_add(dl_b, p->dl.dl_bw, dl_bw_cpus(new_cpu));
- 	raw_spin_unlock(&dl_b->lock);
--	p->dl.dl_bw_cpu = new_cpu;
-+	dl_record_bw_cpu(&p->dl, new_cpu);
- 	p->dl.dl_bw_gen = dl_bw_gen;
+ 	return dl_se;
  }
  
-@@ -3375,6 +3434,13 @@ static struct task_struct *pick_earliest_pushable_dl_task(struct rq *rq, int cpu
- 
- /* Access rule: must be called on local CPU with preemption disabled */
- static DEFINE_PER_CPU(cpumask_var_t, local_cpu_mask_dl);
-+static DEFINE_PER_CPU(cpumask_var_t, dl_fallback_mask_pcpu);
-+
-+/* Return a mask for select_fallback_rq() alone. Interrupts are off. */
-+struct cpumask *dl_fallback_mask(void)
++static inline void dl_note_donor_refill(struct sched_dl_entity *dl_se)
 +{
-+	return this_cpu_cpumask_var_ptr(dl_fallback_mask_pcpu);
 +}
- 
- static int find_later_rq(struct task_struct *task)
++
+ static inline bool is_dl_boosted(struct sched_dl_entity *dl_se)
  {
-@@ -3806,6 +3872,100 @@ static unsigned int dl_task_admit_cpu(struct task_struct *p)
- 	return task_cpu(p);
- }
+ 	return false;
+@@ -1098,6 +1134,7 @@ static inline void replenish_dl_new_period(struct sched_dl_entity *dl_se,
+ 	/* for non-boosted task, pi_of(dl_se) == dl_se */
+ 	dl_se->deadline = rq_clock(rq) + pi_of(dl_se)->dl_deadline;
+ 	dl_se->runtime = pi_of(dl_se)->dl_runtime;
++	dl_note_donor_refill(dl_se);
  
-+/*
-+ * Return the root domain that counts the bandwidth of @p, or NULL if none
-+ * does. Set *@seq to the value of dl_bw_rebuild_seq it was found under.
-+ * The mask of @p can hold CPUs of another root domain, with
-+ * isolcpus="domain". Where a CPU is picked for @p, a CPU of this root
-+ * domain comes first: no other root domain admitted @p.
-+ *
-+ * Return NULL while the sched domains are rebuilt. The CPU recorded can
-+ * then sit in def_root_domain on its way to a new root domain. The span
-+ * of def_root_domain holds the isolated CPUs, and no longer the
-+ * housekeeping CPUs that already left it. A caller would send a
-+ * housekeeping task to an isolated CPU.
-+ *
-+ * Return NULL also for a task that the walk of the task list after the
-+ * rebuild has not reached yet. Its dl_bw_gen is not current.
-+ *
-+ * The caller holds the pi_lock or the rq lock of @p. With interrupts
-+ * off, the root domain is not freed.
-+ */
-+static struct root_domain *dl_task_bw_rd(struct task_struct *p, unsigned int *seq)
-+{
-+	struct root_domain *rd;
-+	int cpu;
-+
-+	/* Pairs with the release in dl_clear_root_domains(). */
-+	*seq = smp_load_acquire(&dl_bw_rebuild_seq);
-+	if (!task_has_dl_policy(p) || dl_entity_is_special(&p->dl) ||
-+	    !p->dl.dl_bw || (*seq & 1))
-+		return NULL;
-+	cpu = READ_ONCE(p->dl.dl_bw_cpu);
-+	if (cpu < 0 || READ_ONCE(p->dl.dl_bw_gen) != READ_ONCE(dl_bw_gen))
-+		return NULL;
-+	/*
-+	 * The CPU recorded can be going offline. It keeps its root domain
-+	 * until the rebuild attaches it to def_root_domain. The rebuild then
-+	 * records an active CPU with @p, or leaves @p out. Until then, the
-+	 * root domain of the CPU recorded still counts @p.
-+	 *
-+	 * The CPUs that isolcpus="domain" isolates are in def_root_domain.
-+	 * So are the CPUs of an isolated partition. def_root_domain then
-+	 * counts @p. A CPU that is not active, and in def_root_domain while
-+	 * @p was counted elsewhere, was attached there by the rebuild.
-+	 * def_root_domain does not count @p then.
-+	 */
-+	rd = READ_ONCE(cpu_rq(cpu)->rd);
-+	if (!cpu_active(cpu) && rd == &def_root_domain && !READ_ONCE(p->dl.dl_bw_def))
-+		return NULL;
-+	return rd;
-+}
-+
-+/*
-+ * Return true if a rebuild of the sched domains started since @seq was
-+ * read. A rebuild writes rq->rd, and the spans, after it makes
-+ * dl_bw_rebuild_seq odd.
-+ */
-+static inline bool dl_bw_rebuild_since(unsigned int seq)
-+{
-+	/* Pairs with the smp_wmb() in dl_bw_rebuild_begin(). */
-+	smp_rmb();
-+	return READ_ONCE(dl_bw_rebuild_seq) != seq;
-+}
-+
-+/*
-+ * Return the CPUs of the root domain that counts the bandwidth of @p, or
-+ * NULL: see dl_task_bw_rd(). The mask is that of the root domain. A
-+ * rebuild that starts after the return can change it. Test bits of it
-+ * only. To give the mask to @p, use dl_task_bw_span_copy().
-+ */
-+const struct cpumask *dl_task_bw_span(struct task_struct *p)
-+{
-+	unsigned int seq;
-+	struct root_domain *rd = dl_task_bw_rd(p, &seq);
-+
-+	if (!rd || dl_bw_rebuild_since(seq))
-+		return NULL;
-+	return rd->span;
-+}
-+
-+/*
-+ * Copy into @dst the CPUs of the root domain that counts the bandwidth of
-+ * @p: see dl_task_bw_rd(). Return false if none does, or if a rebuild of
-+ * the sched domains changed the span during the copy.
-+ */
-+bool dl_task_bw_span_copy(struct task_struct *p, struct cpumask *dst)
-+{
-+	unsigned int seq;
-+	struct root_domain *rd = dl_task_bw_rd(p, &seq);
-+
-+	if (!rd)
-+		return false;
-+	cpumask_copy(dst, rd->span);
-+	return !dl_bw_rebuild_since(seq);
-+}
-+
- static void set_cpus_allowed_dl(struct task_struct *p,
- 				struct affinity_context *ctx)
- {
-@@ -3860,7 +4020,7 @@ static void set_cpus_allowed_dl(struct task_struct *p,
- 			}
- 
- 			/* Record the CPU the caller made room on. */
--			p->dl.dl_bw_cpu = ctx->dl_bw_cpu;
-+			dl_record_bw_cpu(&p->dl, ctx->dl_bw_cpu);
- 			p->dl.dl_bw_gen = dl_bw_gen;
- 			ctx->dl_bw_moved = p->dl.dl_bw;
- 		}
-@@ -3977,9 +4137,12 @@ void __init init_sched_dl_class(void)
- {
- 	unsigned int i;
- 
--	for_each_possible_cpu(i)
-+	for_each_possible_cpu(i) {
- 		zalloc_cpumask_var_node(&per_cpu(local_cpu_mask_dl, i),
- 					GFP_KERNEL, cpu_to_node(i));
-+		zalloc_cpumask_var_node(&per_cpu(dl_fallback_mask_pcpu, i),
-+					GFP_KERNEL, cpu_to_node(i));
-+	}
- }
- 
- /*
-@@ -4021,24 +4184,25 @@ static void dl_get_task_effective_cpus(struct task_struct *p, struct cpumask *cp
-  * Return a CPU of the root domain where a rebuild of the accounting should
-  * count the bandwidth of @p, or nr_cpu_ids if there is none.
-  *
-- * Prefer the CPU @p is on, if it is active and in the mask of @p. The
-- * task runs, or most often wakes up, in the root domain of that CPU. A
-- * mask can hold CPUs of two root domains: housekeeping CPUs and CPUs
-- * isolated by isolcpus="domain". When every CPU of a mask goes offline,
-- * select_fallback_rq() can widen it to both. A task that then runs in
-- * the other root domain takes its bandwidth along.
-- * Prefer that CPU also if @p is queued there, out of its mask, and the
-- * CPU is the one recorded. Without admission control,
-- * dl_task_offline_migration() can put a throttled task and its bandwidth
-- * on any active CPU. The task runs there until it blocks.
-+ * A mask can hold CPUs of two root domains: housekeeping CPUs and CPUs
-+ * isolated by isolcpus="domain". Keep the bandwidth on the side of the
-+ * CPU recorded with it. That CPU is in the root domain that admitted the
-+ * bandwidth, or that its last move put it in. Take the CPU @p is on if it
-+ * is active, in the mask of @p and on that side. Else take the CPU
-+ * recorded, if it is active and in the mask. Else take a CPU of the mask
-+ * on that side.
-  *
-- * Else prefer the CPU recorded with the bandwidth, if it is active and in
-- * the mask. It is in the root domain that admitted the bandwidth, or that
-- * its last move put it in. A task moved asleep is still on a CPU of the
-- * root domain it left, out of its mask. Else take the first active CPU of
-- * the mask, a housekeeping one if there is one. If no CPU of the mask is
-- * active, use the CPUs of the cpuset instead of the mask. A task on
-- * isolated CPUs that all went offline can have no active CPU at all.
-+ * With no CPU on that side, or no CPU recorded, prefer the CPU @p is on.
-+ * Else take the first active CPU of the mask, a housekeeping one if there
-+ * is one. A task on isolated CPUs that all went offline can have no
-+ * active CPU at all.
-+ *
-+ * One case comes before all of these. Take the CPU @p is on if @p is
-+ * queued there, and the CPU is the one recorded or out of the mask of @p.
-+ * Without admission control, dl_task_offline_migration() can put a
-+ * throttled task and its bandwidth on any active CPU. The task runs there
-+ * until it blocks. Inside a rebuild, that move leaves the record on the
-+ * CPU that went offline.
-  */
- static unsigned int dl_task_rebuild_cpu(struct task_struct *p)
- {
-@@ -4053,21 +4217,42 @@ static unsigned int dl_task_rebuild_cpu(struct task_struct *p)
  	/*
- 	 * Look at the mask of the task first. A change of the cpusets sets
- 	 * the mask of each task before its rebuild. If no CPU of the mask
--	 * is active, ask the cpuset. The task wakes up on one of its CPUs.
--	 * Take the CPU recorded only if it is one of them: a partition root
--	 * can have taken it since it was recorded.
-+	 * is active, ask the cpuset. The CPU recorded is taken below only if
-+	 * the cpuset holds it: a partition root can have taken it since it
-+	 * was recorded.
- 	 */
- 	cpumask_and(msk, &p->cpus_mask, cpu_active_mask);
- 	cpu = task_cpu(p);
--	if (cpumask_test_cpu(cpu, msk) ||
--	    (cpu == recorded && cpu_active(cpu) && task_on_rq_queued(p)))
-+	if (cpu_active(cpu) && task_on_rq_queued(p) &&
-+	    (cpu == recorded || !cpumask_test_cpu(cpu, &p->cpus_mask)))
- 		return cpu;
- 	if (cpumask_empty(msk)) {
- 		dl_get_task_effective_cpus(p, msk);
- 		cpumask_and(msk, msk, cpu_active_mask);
- 	}
--	if (recorded >= 0 && cpumask_test_cpu(recorded, msk))
--		return recorded;
-+	/*
-+	 * Keep the bandwidth where it was counted: in def_root_domain or
-+	 * not. The root domains are new, and the CPU recorded can be offline
-+	 * or in another root domain now. So prefer a CPU of the mask on the
-+	 * side recorded with @p. Do not use the CPUs that isolcpus="domain"
-+	 * isolates for this: a CPU of an isolated partition is in
-+	 * def_root_domain too.
-+	 */
-+	if (recorded >= 0) {
-+		bool def = READ_ONCE(p->dl.dl_bw_def);
-+		unsigned int same;
-+
-+		if (cpumask_test_cpu(cpu, msk) && dl_cpu_in_def(cpu) == def)
-+			return cpu;
-+		if (cpumask_test_cpu(recorded, msk) && dl_cpu_in_def(recorded) == def)
-+			return recorded;
-+		for_each_cpu(same, msk) {
-+			if (dl_cpu_in_def(same) == def)
-+				return same;
-+		}
-+	}
-+	if (cpumask_test_cpu(cpu, msk))
-+		return cpu;
- 	cpu = cpumask_first_and(msk, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT));
- 	if (cpu < nr_cpu_ids)
- 		return cpu;
-@@ -4155,7 +4340,7 @@ void dl_add_task_root_domain(struct task_struct *p)
- 	raw_spin_lock(&dl_b->lock);
- 	__dl_add(dl_b, p->dl.dl_bw, cpumask_weight(rq->rd->span));
- 	raw_spin_unlock(&dl_b->lock);
--	p->dl.dl_bw_cpu = cpu;
-+	dl_record_bw_cpu(&p->dl, cpu);
- 	p->dl.dl_bw_gen = dl_bw_gen;
- unlock:
- 	raw_spin_unlock(&dl_departed_lock);
-@@ -4311,7 +4496,11 @@ void dl_clear_root_domains(void)
- 	 * has not reached still waits for it: see dl_bw_move_blocked().
- 	 */
- 	WARN_ON_ONCE(!(dl_bw_rebuild_seq & 1));
--	WRITE_ONCE(dl_bw_rebuild_seq, dl_bw_rebuild_seq + 1);
-+	/*
-+	 * After the writes of rq->rd and of dl_bw_gen: pairs with the
-+	 * acquire in dl_task_bw_rd().
-+	 */
-+	smp_store_release(&dl_bw_rebuild_seq, dl_bw_rebuild_seq + 1);
- 	WRITE_ONCE(dl_bw_walking, true);
- 	for_each_possible_cpu(cpu) {
- 		if (!dl_bw_visited(cpu, cookie))
-@@ -4731,7 +4920,7 @@ int sched_dl_overflow(struct task_struct *p, int policy,
- 			if (p->dl.dl_bw_cpu >= 0)
- 				dl_task_release_bw(p);
+ 	 * If it is a deferred reservation, and the server
+@@ -1196,6 +1233,7 @@ static void replenish_dl_entity(struct sched_dl_entity *dl_se)
+ 		if (!dl_se->dl_deadline) {
+ 			dl_se->deadline = rq_clock(rq);
+ 			dl_se->runtime = 0;
++			dl_note_donor_refill(dl_se);
  		}
--		p->dl.dl_bw_cpu = cpu;
-+		dl_record_bw_cpu(&p->dl, cpu);
- 		p->dl.dl_bw_gen = dl_bw_gen;
+ 		if (dl_se->runtime < 0 || dl_se->dl_yielded)
+ 			dl_se->runtime = 0;
+@@ -1218,11 +1256,15 @@ static void replenish_dl_entity(struct sched_dl_entity *dl_se)
+ 	    (dl_se->dl_defer_armed && dl_entity_overflow(dl_se, rq_clock(rq)))) {
+ 		dl_se->deadline = rq_clock(rq) + deadline;
+ 		dl_se->runtime = runtime;
++		dl_note_donor_refill(dl_se);
  	}
  
+ 	if (dl_se->dl_yielded && dl_se->runtime > 0)
+ 		dl_se->runtime = 0;
+ 
++	if (dl_se->runtime <= 0)
++		dl_note_donor_refill(dl_se);
++
+ 	/*
+ 	 * We keep moving the deadline away until we get some
+ 	 * available runtime for the entity. This ensures correct
+@@ -5056,6 +5098,7 @@ static void __dl_clear_params(struct sched_dl_entity *dl_se)
+ 	dl_se->dl_yielded		= 0;
+ 	dl_se->dl_non_contending	= 0;
+ 	dl_se->dl_overrun		= 0;
++	dl_se->dl_donor_refill		= 0;
+ 	dl_se->dl_server		= 0;
+ 	dl_se->dl_defer			= 0;
+ 	dl_se->dl_defer_running		= 0;
 diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index a719b62dc114..e2bb192f1ee6 100644
+index e2bb192f1ee6..7b9762b06d9f 100644
 --- a/kernel/sched/sched.h
 +++ b/kernel/sched/sched.h
-@@ -361,6 +361,9 @@ extern bool __checkparam_dl(const struct sched_attr *attr);
+@@ -356,6 +356,16 @@ extern int  sched_dl_global_validate(void);
+ extern void sched_dl_do_global(void);
+ extern int  sched_dl_overflow(struct task_struct *p, int policy, const struct sched_attr *attr);
+ extern void __setparam_dl(struct task_struct *p, const struct sched_attr *attr);
++#ifdef CONFIG_RT_MUTEXES
++extern void dl_deboost(struct sched_dl_entity *dl_se);
++
++/* End the boost of @dl_se. The caller holds the rq lock of its task. */
++static inline void dl_drop_boost(struct sched_dl_entity *dl_se)
++{
++	dl_se->pi_se = dl_se;
++	dl_se->dl_donor_refill = 0;
++}
++#endif
+ extern void __getparam_dl(struct task_struct *p, struct sched_attr *attr, unsigned int flags);
+ extern bool __checkparam_dl(const struct sched_attr *attr);
  extern bool dl_param_changed(struct task_struct *p, const struct sched_attr *attr);
- extern int  dl_cpuset_cpumask_can_shrink(const struct cpumask *cur, const struct cpumask *trial);
- extern int  dl_bw_deactivate(int cpu);
-+extern const struct cpumask *dl_task_bw_span(struct task_struct *p);
-+extern bool dl_task_bw_span_copy(struct task_struct *p, struct cpumask *dst);
-+extern struct cpumask *dl_fallback_mask(void);
- extern s64 dl_scaled_delta_exec(struct rq *rq, struct sched_dl_entity *dl_se, s64 delta_exec);
- /*
-  * SCHED_DEADLINE supports servers (nested scheduling) with the following
+diff --git a/kernel/sched/syscalls.c b/kernel/sched/syscalls.c
+index 2032c37d15e9..96f0459b5609 100644
+--- a/kernel/sched/syscalls.c
++++ b/kernel/sched/syscalls.c
+@@ -310,7 +310,7 @@ static inline void __setscheduler_dl_pi(int newprio, int policy,
+ 	 * the class. Drop its boost then, as rt_mutex_setprio() does.
+ 	 */
+ 	if (!dl_prio(newprio))
+-		p->dl.pi_se = &p->dl;
++		dl_drop_boost(&p->dl);
+ }
+ #else /* !CONFIG_RT_MUTEXES */
+ static inline void __setscheduler_dl_pi(int newprio, int policy,
 -- 
 2.47.3
 
