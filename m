@@ -1,81 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.10
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.182.83.82
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795205512;
-	b=FkyNzuNKoU1RQG0lHrXsH8d5+4VerOYeaQBVenGytjoJB8z8rQTqtFoVGEg6o9SAAnpC
-	 LoEw2l7iBPFpJuogTzvyPQovwP9UHLrbzUyZ6wipfO7CxExzhX+A186exe1VyL797G+l+
-	 E+M3eWs8VQOSO8ZXgKaW6QXT825YQ4sXH/IuZcLy0cNQoh9ETKYiK7rhac9O+6yOa1iwf
-	 qUZEWztAJAhDWcmTIg9s/YQTwccdwOFw5csrxYjjEhcyBu/fDxCRXIrGfHRypLmNaEGH5
-	 M+GwyZYEx9ARIDsF6Z2sAFtKadEenbytr6ZEJaE0RxJ/wagL80M/EuuWbuPrW3KEktg==
+	t=1795205518;
+	b=dl00FwrvqVi7ZUvR37XkGvP30m32PnVOPhkm0BJ6vZZxm5U6KwaU9wXb/sUxPzjSPu+O
+	 wMohQe0h2r48rFN9HAYP8CL9nafyJksf1lezgRjMlAbgDgil6bZ7Yj0MaK33FZhrYSpjX
+	 LxXfvMuBWgVbaZuLjjtprQTjglIeCgVSd7uNLdrQowMc5Q7BfShMSa6JH2lXaR4jOH9cw
+	 bnj6ruiay7E7DDEx6OwHyJpCNrMzXWFWpqQfjvS3KxwjjgOPIxPBO7k+5klrPgBPzhqg8
+	 kggRNAJM2/rTwUMl0Ptb5URFetgKBkt8uzmEDAyZOrB7Dhn9sWFvwMGxOEjvOTbO5oA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795205512;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=syyZAgghFB2yjz7QtPWEK++I+aqJL7nnvgK0Mbb84ng=;
-	b=dVDl0MxnR06HxStshlMsuOEYCucd4xVPPrFTjxlF/EfjaXdqfa+jmAQI4fRRIlyrVIvv
-	 ij+Q0uApUAyvvlhSYykHkb8t/u6dZMd2iVGQWQTRKwyvC22XYQLyKHK+n8Pwd/Kw3f5UG
-	 e2FczglFNy/6vn97qM02otNZz4NgMi+DtsT/B06c5bYKllT/k9dHZIkjxqi3m2f4d/N7e
-	 1uvo5sGm4gH/wKa9woiIJzFE+z7IK8uyf2LXopgJmxHWuh5gyU8zs7EYo0YmQBZTHzo4c
-	 Nm8cnku3bSe+dcxWp+cSpOrFXPdEExqvVxNX+c20yBipVr842NIGVnKHBL7RtcqCsrg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795205518;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=T7df/NbA/pH4uMZH2+dJUdzElRmyueibNg5Chc0lZjc=;
+	b=XJ3loqkXf6gzKh0gRlt7fIooB1MMIWZjRQTVUTKCXixjqImJBWapTHCe4EECwysQhzHP
+	 8ycSdmqOKMN90bW1Z48iB02RcEmZS5xzib9Ol3moxRPdhIfZ2g4sLRxWSaW/VXxV8Ic6M
+	 rlJLxlI+IWuCKRBNSB5tQU/uodD07f6YXS0PVMxqobIhgOw85gfdL3u2SYjirclan2iE+
+	 MRFd0zIFwDsa/Q2UDn3NpSi4kktNLmwZa3m7q3QDEguTxAET4Tq79/tCLZJFE+JIXAE4p
+	 v88zxMJOWPOeHIOuLizxmSw2WomDF6Ga7bftpAZyziXOQvxGNAXjIAjewpPbiSysV9Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bq2och5C;
-	arc=none smtp.remote-ip=192.198.163.10
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=zary.sk;
+	spf=pass smtp.mailfrom=zary.sk;
+	dkim=pass header.d=zary.sk header.i=@zary.sk header.a=rsa-sha256 header.s=key1 header.b=mHMgp+aH;
+	arc=none smtp.remote-ip=194.182.83.82
+Received: from mail.zary.sk (mail.zary.sk [194.182.83.82])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE28F60A2619
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:11:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE28F60A2619
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34AE560A2627;
+	Fri, 20 Nov 2026 20:11:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34AE560A2627
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=zary.sk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zary.sk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bq2och5C
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795205511; x=1826741511;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=lRCQ9KCfOnRrOzZOd8tvpwzEbJUwz8+OaC9XkgymjfQ=;
-  b=bq2och5CbOt5tJkZblQQO7beFY/CobrsDFllopZZraur8ipX3xtiop3z
-   If06HnpeUgQ0Lf7q1ksbaSlw7UU2sY/tCiyn27TdX5VX9iZ1lVbWIRqOn
-   mHIS3Bi/qTPFn14ZZxgCMNttWMgfKfXHiXEOtwBkEbqRZlajTgG4jz1QC
-   WUszg1P7WOD8JYrMFRPXqOaRlkgdB1Ysql2N3JGksvv0eOABVBB8+VMy2
-   Q8WLTt4W7iW6Xwm3q9rPJxWv9FYq/4wKrpDuM99VXpv40Lv/aWkBF3i5P
-   D/QsXgBnD+o/QVHhF8Pv88bMl7yq9AB8z5xXnvZFdnlw1sOFozEX/RFSA
-   Q==;
-X-CSE-ConnectionGUID: gMqAWTxTQ2iHDWiGyty3WA==
-X-CSE-MsgGUID: noYaYcNTQdmDgb3AM/ssXg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3974427"
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="3974427"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 12:11:50 -0800
-X-CSE-ConnectionGUID: /kkF4C2URWe94BSTH3GAQw==
-X-CSE-MsgGUID: FsYu6pzwR4i9zVs7DyEr0Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="11042550"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa008.fm.intel.com with ESMTP; 20 Nov 2026 12:11:47 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xUUxU-00000001ISg-2ph0;
-	Fri, 20 Nov 2026 20:11:44 +0000
-Date: Sat, 21 Nov 2026 04:11:20 +0800
-From: kernel test robot <lkp@intel.com>
-To: Hannes Reinecke <hare@kernel.org>, Keith Busch <kbusch@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>, Hannes Reinecke <hare@suse.de>,
-	Chaitanya Kulkarni <kch@nvidia.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/9] nvme-keyring: add 'dhchap' key type
-Message-ID: <202611210348.KYpQPgoE-lkp@intel.com>
-References: <20261120-dhchap-keyring-v4-v4-2-5f8c7d9926ee@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=zary.sk header.i=@zary.sk header.a=rsa-sha256 header.s=key1 header.b=mHMgp+aH
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=zary.sk; s=key1;
+	t=1795205505; bh=quc9PquDmEXJG37zWwsHHi8epgIjmjgG5PFHJHx9RO4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=mHMgp+aHxjYYCafEheb5c9hXR4pzHp95LugkHhc3BxWkITx7nkV/IJrQYveHN4oTX
+	 Sl3aLJU9Su35Xn/SqrWBNqgogNU0cRiKiO3pu10MdUBLzZJqRiYzu8Dz0doVWe/j/1
+	 mVR47CzVl2KROi49c6su3F1lFMyMWog2v/BM/jKjh2ODZFv2S8Ua9IyB4B9lTFYV2y
+	 h+Vl1xeQCBVCzcS37HXnmMvPXeqsMK6iXH2mkmUogBB01VRObv9TJ38LkNaBEdtn/D
+	 wG4G9oMqomclOGABxRQjWRGNd8XGtw1VCyMhaZMw4f4qMoJTtzYjU5tWCkwULIdsgL
+	 cilwPe2wkO7Rg==
+Received: from gweb1.ggedos.sk (off-7.infotel.telecom.sk [212.5.213.7])
+	by mail.zary.sk (Postfix) with ESMTPSA id C0B0EBEDE0;
+	Fri, 20 Nov 2026 21:11:45 +0100 (CET)
+From: Ondrej Zary <linux@zary.sk>
+To: Hans de Goede <hansg@kernel.org>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: platform-driver-x86@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] Introduce Synology NAS x86 platform driver
+Date: Fri, 20 Nov 2026 21:11:38 +0100
+Message-ID: <20261120201139.4148644-1-linux@zary.sk>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,122 +62,192 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120-dhchap-keyring-v4-v4-2-5f8c7d9926ee@kernel.org>
+Content-Transfer-Encoding: 8bit
 
-Hi Hannes,
+Add platform driver for Synology x86-based NAS devices to support HDD LEDs
+controller by ICH9 GPIO pins.
 
-kernel test robot noticed the following build warnings:
+Only DS411+II is supported for now (DS411+ should be the same except CPU).
 
-[auto build test WARNING on 68099cf27253a8c89d703a282d3d811446d9453b]
+Buttons and other LEDs are not supported by this driver because they're
+controlled by a PIC MCU (connected through serial port).
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Hannes-Reinecke/nvme-auth-modify-nvme_auth_transform_key-to-return-status/20261120-121400
-base:   68099cf27253a8c89d703a282d3d811446d9453b
-patch link:    https://lore.kernel.org/r/20261120-dhchap-keyring-v4-v4-2-5f8c7d9926ee%40kernel.org
-patch subject: [PATCH v4 2/9] nvme-keyring: add 'dhchap' key type
-config: s390-defconfig (https://download.01.org/0day-ci/archive/20261121/202611210348.KYpQPgoE-lkp@intel.com/config)
-compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261121/202611210348.KYpQPgoE-lkp@intel.com/reproduce)
+Signed-off-by: Ondrej Zary <linux@zary.sk>
+---
+ drivers/platform/x86/Kconfig        |  14 ++++
+ drivers/platform/x86/Makefile       |   3 +
+ drivers/platform/x86/synology-x86.c | 126 ++++++++++++++++++++++++++++
+ 3 files changed, 143 insertions(+)
+ create mode 100644 drivers/platform/x86/synology-x86.c
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611210348.KYpQPgoE-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/nvme/common/keyring.c:348:19: warning: variable 'keylen' is uninitialized when used here [-Wuninitialized]
-     348 |         prep->quotalen = keylen;
-         |                          ^~~~~~
-   drivers/nvme/common/keyring.c:310:40: note: initialize the variable 'keylen' to silence this warning
-     310 |         size_t datalen = prep->datalen, keylen;
-         |                                               ^
-         |                                                = 0
-   1 warning generated.
-
-
-vim +/keylen +348 drivers/nvme/common/keyring.c
-
-   293	
-   294	/**
-   295	 * nvme_dhchap_psk_preparse - prepare DH-HMAC-CHAP key data
-   296	 * @prep: preparsed payload of the key data
-   297	 *
-   298	 * Decode the DH-HMAC-CHAP key data passed in @prep and
-   299	 * store the resulting binary data. The binary data includes
-   300	 * space for the CRC, the version, and the hmac identifier,
-   301	 * but the data length is just the key data without the CRC.
-   302	 * This allows the user to read the key data via the
-   303	 * 'user_read()' function. The additional 'version' ahd 'hmac'
-   304	 * data is used in the ->read() callback to generate the
-   305	 * base64 encoded key.
-   306	 */
-   307	static int nvme_dhchap_psk_preparse(struct key_preparsed_payload *prep)
-   308	{
-   309		struct user_key_payload *upayload;
-   310		size_t datalen = prep->datalen, keylen;
-   311		int ret;
-   312		u32 crc;
-   313		u8 version, hmac;
-   314	
-   315		if (!prep->data) {
-   316			pr_debug("%s: Empty data", __func__);
-   317			prep->payload.data[0] = NULL;
-   318			prep->quotalen = 0;
-   319			return -EINVAL;
-   320		}
-   321	
-   322		if (sscanf(prep->data, "DHHC-%01hhu:%02hhu:%*s",
-   323			   &version, &hmac) != 2) {
-   324			pr_debug("%s: invalid key data '%s'\n", __func__,
-   325				 (char *)prep->data);
-   326			prep->payload.data[0] = NULL;
-   327			prep->quotalen = 0;
-   328			return -EINVAL;
-   329		}
-   330	
-   331		/* skip header and final ':' character */
-   332		datalen -= 11;
-   333	
-   334		/*
-   335		 * payload is < key | version | hmac >
-   336		 * base64 decode will always return less data
-   337		 * than the encoded data, so allocating the size
-   338		 * of the encoded data will be large enough.
-   339		 */
-   340		upayload = kzalloc(sizeof(*upayload) + datalen, GFP_KERNEL);
-   341		if (!upayload) {
-   342			prep->payload.data[0] = NULL;
-   343			prep->quotalen = 0;
-   344			return -ENOMEM;
-   345		}
-   346	
-   347		/* decode the data */
- > 348		prep->quotalen = keylen;
-   349		prep->payload.data[0] = upayload;
-   350		ret = base64_decode(prep->data + 10, datalen, upayload->data,
-   351				    true, BASE64_STD);
-   352		if (ret < 0) {
-   353			pr_debug("%s: Failed to decode key %s\n",
-   354				 __func__, (char *)prep->data + 10);
-   355			return ret;
-   356		}
-   357		ret -= 4;
-   358		crc = ~crc32(~0, upayload->data, ret);
-   359		if (get_unaligned_le32(upayload->data + ret) != crc) {
-   360			pr_debug("%s: CRC mismatch for key\n", __func__);
-   361			/* CRC mismatch */
-   362			return -EKEYREJECTED;
-   363		}
-   364		/* append version and hmac to the payload */
-   365		upayload->data[ret + 4] = version;
-   366		upayload->data[ret + 5] = hmac;
-   367		upayload->datalen = ret;
-   368		return 0;
-   369	}
-   370	
-
+diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
+index 9ce384e0475e..04f6452b5a32 100644
+--- a/drivers/platform/x86/Kconfig
++++ b/drivers/platform/x86/Kconfig
+@@ -1059,6 +1059,20 @@ config OXP_EC
+ 
+ source "drivers/platform/x86/tuxedo/Kconfig"
+ 
++config SYNOLOGY_X86
++	tristate "Synology x86 NAS Platform Driver"
++	depends on GPIOLIB
++	depends on LPC_ICH
++	depends on GPIO_ICH
++	depends on LEDS_CLASS
++	select LEDS_GPIO
++	help
++	  This driver provides support for the HDD LEDs on Synology x86 NAS
++	  devices.
++
++	  To compile this driver as a module, choose M here: the module
++	  will be called synology-x86.
++
+ endif # X86_PLATFORM_DEVICES
+ 
+ config P2SB
+diff --git a/drivers/platform/x86/Makefile b/drivers/platform/x86/Makefile
+index 229057234d00..a1806eb0efc9 100644
+--- a/drivers/platform/x86/Makefile
++++ b/drivers/platform/x86/Makefile
+@@ -166,3 +166,6 @@ obj-$(CONFIG_SEL3350_PLATFORM)		+= sel3350-platform.o
+ 
+ # OneXPlayer
+ obj-$(CONFIG_OXP_EC)			+= oxpec.o
++
++# Synology
++obj-$(CONFIG_SYNOLOGY_X86)		+= synology-x86.o
+diff --git a/drivers/platform/x86/synology-x86.c b/drivers/platform/x86/synology-x86.c
+new file mode 100644
+index 000000000000..2fcf735ba3be
+--- /dev/null
++++ b/drivers/platform/x86/synology-x86.c
+@@ -0,0 +1,126 @@
++// SPDX-License-Identifier: GPL-2.0+
++
++/*
++ * Synology x86 NAS platform driver
++ *
++ * Inspired by platform/x86/meraki-mx100.c
++ *
++ * Copyright (C) 2026 Ondrej Zary <linux@zary.sk>
++ */
++
++#include <linux/dmi.h>
++#include <linux/pci.h>
++#include <linux/err.h>
++#include <linux/gpio/machine.h>
++#include <linux/kernel.h>
++#include <linux/leds.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++
++static const struct gpio_led synology_leds[] = {
++	{ .name = "synology:green:hdd1"	},
++	{ .name = "synology:amber:hdd1" },
++	{ .name = "synology:green:hdd2" },
++	{ .name = "synology:amber:hdd2"	},
++	{ .name = "synology:green:hdd3" },
++	{ .name = "synology:amber:hdd3"	},
++	{ .name = "synology:green:hdd4" },
++	{ .name = "synology:amber:hdd4" },
++};
++
++static const struct gpio_led_platform_data synology_leds_pdata = {
++	.num_leds	= ARRAY_SIZE(synology_leds),
++	.leds		= synology_leds,
++};
++
++#define GPIO_ICH_DRIVER_NAME "gpio_ich"
++
++static struct gpiod_lookup_table synology_leds_table = {
++	.dev_id = "leds-gpio",
++	.table = {
++		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 16, NULL, 0, GPIO_ACTIVE_HIGH),
++		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 18, NULL, 1, GPIO_ACTIVE_HIGH),
++		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 20, NULL, 2, GPIO_ACTIVE_HIGH),
++		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 32, NULL, 3, GPIO_ACTIVE_HIGH),
++		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 33, NULL, 4, GPIO_ACTIVE_HIGH),
++		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 34, NULL, 5, GPIO_ACTIVE_HIGH),
++		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 49, NULL, 6, GPIO_ACTIVE_HIGH),
++		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 55, NULL, 7, GPIO_ACTIVE_HIGH),
++		{}
++	}
++};
++
++static const struct dmi_system_id synology_systems[] __initconst = {
++	{
++		.ident = "DS411+",	/* DS411+II is the same with faster CPU */
++		.matches = {
++			/* Synology did not put anything in DMI strings */
++			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "To Be Filled By O.E.M."),
++			DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "To Be Filled By O.E.M."),
++			DMI_EXACT_MATCH(DMI_BOARD_NAME, "To be filled by O.E.M."),
++			DMI_EXACT_MATCH(DMI_BIOS_DATE, "05/21/2012"),
++		},
++	},
++	{}
++};
++MODULE_DEVICE_TABLE(dmi, synology_systems);
++
++static struct platform_device *synology_leds_pdev;
++
++static int __init synology_init(void)
++{
++	int ret;
++
++	static const struct pci_device_id pci_sii3531[] = {
++		{ PCI_DEVICE_SUB(PCI_VENDOR_ID_CMD, 0x3531, PCI_VENDOR_ID_CMD, 0x3531) },
++		{ }
++	};
++
++	static const struct pci_device_id pci_i82574l[] = {
++		{ PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0x10d3, PCI_VENDOR_ID_INTEL, 0x0000) },
++		{ }
++	};
++
++	const struct dmi_system_id *dmi = dmi_first_match(synology_systems);
++
++	if (!dmi)
++		return -ENODEV;
++
++	/* DS411+ DMI match is too generic, confirm by onboard PCI devices */
++	if (!strcmp(dmi->ident, "DS411+")) {
++		if (!pci_dev_present(pci_sii3531)
++		 || !pci_dev_present(pci_i82574l))
++			return -ENODEV;
++	}
++
++	pr_info("Detected Synology NAS %s\n", dmi->ident);
++
++	gpiod_add_lookup_table(&synology_leds_table);
++
++	synology_leds_pdev = platform_device_register_data(NULL,
++		"leds-gpio", PLATFORM_DEVID_NONE, &synology_leds_pdata,
++		sizeof(synology_leds_pdata));
++	if (IS_ERR(synology_leds_pdev)) {
++		pr_err("error registering platform device: %ld\n", PTR_ERR(synology_leds_pdev));
++		ret = PTR_ERR(synology_leds_pdev);
++		goto err;
++	}
++
++	return 0;
++
++err:
++	gpiod_remove_lookup_table(&synology_leds_table);
++	return ret;
++}
++module_init(synology_init);
++
++static void __exit synology_exit(void)
++{
++	platform_device_unregister(synology_leds_pdev);
++	gpiod_remove_lookup_table(&synology_leds_table);
++}
++module_exit(synology_exit);
++
++MODULE_AUTHOR("Ondrej Zary <linux@zary.sk>");
++MODULE_DESCRIPTION("Synology x86 NAS Platform Driver");
++MODULE_LICENSE("GPL");
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Ondrej Zary
+
