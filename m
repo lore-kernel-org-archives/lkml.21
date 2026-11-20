@@ -1,92 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.47
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795169692;
-	b=XFh73K9msTANHat0vElABbnU9Tz8PvwtGMh7Baz8d5PgufM14xLf1aJHR4fR0DHbhYd+
-	 gHT2+hFiPPpXq6Ox25+Wl8meemPrvRdqZFDE1w5b/r/YljcaLE4CR1f+eBNTgh4wbCxMQ
-	 xFURdVQx+XafEzRljR9hghKnG9UL5b6jSnnH7mpcJMF0sHLmyryGOIg/IEDH023MXUAgE
-	 XvGe5LN+2TOU/QesfOk0hropSYydagqGDMZkux4fWdZPpTphX9o74KkV+sClT3BJ8bout
-	 w80iijyR1VoZnXQXXsQ32jBBxrWNEwiz2Cb+rtxUW/RZAySKIZtoyKsmasZXZwEnjMQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795169692;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=05m77ewUjEQjR11x4Lg0Xbn6thLHoASqxgS4p5L+QZo=;
-	b=XTtQxTSd1Xj55oE2RRgKSP6sait2s6/5mOTNbThoF1pnm/vJLW/y8FEAA5favC2RW+tY
-	 W/x7arSNKvj+lCZxnEp/RxjYtxABhjqYf1/yjoechOaND7dmG4LX1Rem8VH3r7X9qf8Em
-	 cSzJ7Q4rjW3Ec/qQERuEG5Hdlri/9TG6IgUlja+L3wuxUKeLj4EBFtlujT9hZ9AeTEQWr
-	 5/jQvB0oRwNDEdvBKrHb42oFjNAQGG4cI36f//2FVdg9hRjuqsRF9R2uVQJ7WSnCtMwWD
-	 LwqH22ns95AjDXMCL679Rjo3dF3ZHw2Y7JhIk9sxv/Zry/sIBRlyv4EsszG/npkAwbg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h3tqFuje;
-	arc=none smtp.remote-ip=74.125.82.47
-Received: from mail-dl1-f47.google.com (mail-dl1-f47.google.com [74.125.82.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795169701;
+	b=tYASi1CiO1axMjFDOPwQdAbZWC+LDJ+373gfD/m8KFrhiUEiytfwzMXYc+w6EL4VFFCY
+	 nu166EuYVvvDLnoE6bWzfxFrXHRLNd4ESwxDl3z7UDc5hyA9RGe4GhAYYAvQ56EfWWKEH
+	 37JlLgda8TUefQP4YibPlIUPcdpn94mwjLPnjXAtruQMd+yW5TyrHl6ZitJz5zgSmX3eh
+	 NSqv0dudhyENtQtZrh/vj9T6LjaX03XBwnNBKM0fCXI1YbFlBmoWDULfQOPqp6RPSX5tB
+	 pLHfRaPoxY6l4oB/1lPs5hQ9nM/3PheoeRNZTgueG9WZla2nn/ir03eRVbvMVYBszyQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795169701;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:
+	 References:Date:Message-ID:MIME-Version:Content-Type;
+	bh=8DcVPoMTyDMFeCgP2Bb4hOxIVd8Rzj+Mk/EOJbdxMC4=;
+	b=daRQGCWjffYTN6DIYeew2I/NghEdUv5MdSBTW+6oFnjB5aD4Pfa3lW9Vf6e9kbgOIQDD
+	 bMHUkO5cOncWTad5fRyn08NMzYNmZJIsSiruknvlFW5pxQZBt+fg3tBOGpb1A5IybuHT5
+	 T/lr1fpeugyTZLZGP0FNjiaH5mDBQCVl6nP6RrBVgWuKAgJ9OWo7FUjHMiIwUA6egwU6F
+	 PUrBYqlqmjvn+3tx4JDkVG1Mvjjr5pyX8pGErj+FoM9WgahJ30ApEC/Y7HLPH0GWxvbBX
+	 WiHP/J/JYGsYDgwp9rZSvAv9p2BBQadVJX5PNuGF01RTuwE3wTApfli7KpnbDcTReYA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=drWCvDpV;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99C28606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:14:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99C28606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F6CA606A325;
+	Fri, 20 Nov 2026 10:15:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F6CA606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h3tqFuje
-Received: by mail-dl1-f47.google.com with SMTP id a92af1059eb24-1b3b4944abeso627372c88.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:14:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795169691; x=1795774491; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=05m77ewUjEQjR11x4Lg0Xbn6thLHoASqxgS4p5L+QZo=;
-        b=h3tqFuje04oFX7f0+T8DrcMYgFj86bbaVCl9gp3swMf/wTKU8ocuPim5wTVz/33+4w
-         MAsOcRIFDz8u6GUQ1xPjomKE5D615nqnjQ8t+ff943Zx1+DHIwHEpUlwRWScttq/JQC4
-         g+5fECVfe5X8xd2vYqnrHWM0hQzqpCHyYg1fBIFZbOflQ+vZNiFiHw4eWZuZvO+ktHqY
-         1XQivpIWhDm8J3gk1ndGfDN0GzYFGMUruEYDITygbzIfIvg+9mAfUAhCK84allsHxqQe
-         Tp1PSq7o3wuvB+MKpv45wYK58MSa1idAR2QY1rqovexR0OUnCs4MmVsXsynW0gzCrkDd
-         AWCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795169691; x=1795774491;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=05m77ewUjEQjR11x4Lg0Xbn6thLHoASqxgS4p5L+QZo=;
-        b=JMp+ZJtasTHMeGIzQytmLE1fuihWSPVB1RLK0Q1QMaJI2kDE+u5tqo4n0ZYrrRpwc9
-         yKmNvX6TVwH98yM7zuhEEgr5nZIBfyDq5jRph02VxrzkQ+50MnHVkFg6RyTE+I6JqDNW
-         jCyZMNRwYEP2u0ij4KECuem+P7pCbgQqF/k6D5hzKpZ4KDm7bx2nSBEaFyCVkyKFwxFz
-         X/bCzMpd9r359TFhIs96LRFfMFJJxtXcLBuOJNWmZWrVbraxWzZsRGWEOZv0ogNsCvCJ
-         pEsclWovqDx0OBipJclBrAj/FKkFWJR9QqzBtLwEjM8dw9HStWPVBIW5tW8PRTgbXRZK
-         9xsw==
-X-Forwarded-Encrypted: i=1; AL+hErET8sMk/nMdpCmN9KvVTQ/h5n2Ul0GGHsj9LhqPah2SEM/0NfIe3+Zq0z6V4lxL5hxZlwDdWT5ZVNs3g/g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/2NlD0liuLbJMgv1p5/ZB0S2uDc2MfHBg683fo3OGGbsJgPs+V
-	Cicq2wfiSgVcg0MuB1kNTb3fROE+MCWBz3gr1+50Rq9rmrbPXEgVKOgv
-X-Gm-Gg: AYBFou1XfTtVNhoZrIhHGJqfcmUXp/nAYX7XLm6tI8mtgF+O30Wq00VLf4+v/Og070Z
-	2LAPaxW2f+fLiYHUFXHDD3uXJE7lmUeOIOEDysDWn8VQJnNfc46Xngh68C9lPoCe2xr3X/pWykC
-	z2gOrK9gGZujjqDPIvoZhQAHWCj+qsNNUg/V0JH/iRVkn4uM+R5sXjQIx+hq1Tu8RduK/gDOTTT
-	bcIcWP5IARcXGY+M/dYkcqxkdGN7FWLwN/VoWeR/m1DkVfji3DDXiEwYBHhcucDNMmqYR94qA9L
-	zBKEcKEeZwvcwS2Ra40uhheOQe7+7b3zp0s22MSDE0LBNDmaLkaTmOVAFO566yNNSeFNkxPzZ+G
-	bH/8s+hEYEwUjaNKIO1YHnM5HRPHX+9TQmbYEkgO7yTokiBoeh7VNP3tWvKsgdcmjPZHaDDT1Vv
-	FfatTAU2dMxDGo83K2Y3wy44T+54QVKBU36B7VXINwyCbq0+Fh+2qb7Ls+YtCgDUx+4nQNTRn4D
-	l/x0O4de7EOHZlqhiSbHFqxTvDOMpF/LCnVasDmLgiSoV7mFQYIVVU8QlbOVLIAPhQVHdw3w+B+
-	BaWVW56eghSHfo7paa2Ae/WPPMTsQqQfpNECsoC4py6Bn6iJP2dp0NvdWVMbcYFkujSVT3py2ES
-	n+HWpaQJdE7TwQaMIWOGLSQ0qmLWn3rqRh+t3WYrOHsMBi0HpkePGVJe4H+s=
-X-Received: by 2002:a05:701b:450d:20b0:185:fd0c:4585 with SMTP id a92af1059eb24-1b558384c12mr1780334c88.33.1795169690678;
-        Fri, 20 Nov 2026 02:14:50 -0800 (PST)
-Received: from localhost.localdomain ([98.148.34.5])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ff27bsm5989567c88.6.2026.11.20.02.14.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 02:14:50 -0800 (PST)
-From: Hungyu Lin <dennylin0707@gmail.com>
-To: giometti@enneenne.com
-Cc: akpm@linux-foundation.org,
-	linux-kernel@vger.kernel.org,
-	dennylin0707@gmail.com
-Subject: [PATCH v3] pps: reject N_PPS on pseudo-terminals
-Date: Fri, 20 Nov 2026 10:14:39 +0000
-Message-ID: <20261120101439.45490-1-dennylin0707@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=drWCvDpV
+Received: from localhost (unknown [IPv6:2a0a:edc0:0:701:a74f:3cb8:3e85:d062])
+	(Authenticated sender: fdi@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id A6D24202284;
+	Fri, 20 Nov 2026 11:14:58 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795169698;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8DcVPoMTyDMFeCgP2Bb4hOxIVd8Rzj+Mk/EOJbdxMC4=;
+	b=drWCvDpVxl3m+V11lVhD+cxvKZzjF5JYPItdT5AwcG2WxjmEFdgPhydL/7j7QSmmpkljLI
+	vPydlOrSZdKUlUdGlJrtp3ARYuerT3nfEUNtqzJQCkLlz6ore7JBwew97RIxbNsVWl8DK6
+	1f71iXdwz7RHtEmpax1c2J9zwwKzom/9DxZmjhwhXsyzp7fgbj+q+T9tmeRCCpNca60ETZ
+	/McBIPVeAdkP7dqUd/zCAuJPG4ZHGbu+RsgXMtoZVt4kHh/OQoWtIcP4wBmf8LGZ18m22k
+	kggPiq1DSpOP5YoRjkGtPxFrOcJZR24RxYs1ffWNm5ZGtosBGNLFwb8Y9WzCUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795169698;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8DcVPoMTyDMFeCgP2Bb4hOxIVd8Rzj+Mk/EOJbdxMC4=;
+	b=DNd5fSNZhUpQn0k5AbNKBXhpi4j9kHx4lhWHnLJhIp0oi/fTS8CixBSEucWRF0CTYKi+nd
+	PaUeTkYD4XAWPtdStIuOG+DsKlJ6pW+7L5JBxC1yXRGc7ScXvzBZazqfITDQiO9sHdh8By
+	kJHZW5yup+AyQTWpt6XMmFZBmctvqiNgEwyJk2trPLuDP1QtF8efzB/u9TSAP4RyUt2epa
+	Y/14BT7k0ZH+K0JHXsU0u8VV/UCIqUI4JATpPyr09ZyHChxuh0agcIuqSDzTyd2azyyiUI
+	lD8HlHboM4Ys4qeWWnFT4GU7P1Fv6mB7DuRZLOv7CzkA92fQc5PAMVOSS0OnyQ==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795169698; a=rsa-sha256;
+	cv=none;
+	b=ViijXAsPeeH+CZynw+5unPSy6CID0wgx0YHSs6qxRgUG4fqbnjoWI0bvPbp7Dy/KbRr6fr
+	EKiCeqOw41Lo40Ll52vXNTy5ttjIT5oqGXC6jjOLzNA1xTtV9KjO2cvq7ZgSZGyPX6HqQF
+	40bU/nbNVOQWQwo5aeFOGPhFiEb/+u2dYL5Y/5qdrj/54eS8OOAM0oagdGNtbvGNIzMRSx
+	wzjWnPZKU3BIGXqzMYOLLCN6m5OQDcTgm9wjvLx1K+gKRMhSQq0RLG2n0fphHJW8Z9b8no
+	P0wmApUgdYg2AI16dBojrTHHxxPjZYAoCRUaj5vvrvnt136IKPeZdZOLck6oag==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=fdi@pengutronix.de smtp.mailfrom=f.diener@pengutronix.de
+From: Freimut Diener <f.diener@pengutronix.de>
+To: "Joseph Guo (OSS)" <qijian.guo@oss.nxp.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "kernel@pengutronix.de"
+ <kernel@pengutronix.de>
+Subject: RE: [PATCH 3/5] arm64: dts: freescale: imx93-11x11-frdm: use 8-bit
+ eMMC bus
+In-Reply-To: <MRWPR04MB12117CE93FD323459E370D08F94782@MRWPR04MB12117.eurprd04.prod.outlook.com>
+References: <20261120-imx93-frdm-fixes-v1-0-78dde22a56fe@pengutronix.de>
+ <20261120-imx93-frdm-fixes-v1-3-78dde22a56fe@pengutronix.de>
+ <MRWPR04MB12117CE93FD323459E370D08F94782@MRWPR04MB12117.eurprd04.prod.outlook.com>
+Date: Fri, 20 Nov 2026 11:14:58 +0100
+Message-ID: <87fqwvbyhp.fsf@theta.mail-host-address-is-not-set>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,42 +97,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 
-Attaching N_PPS to a PTY registers a PPS source even though PTYs do not
-report DCD changes. An unprivileged user can exhaust the PPS source IDs
-this way, causing registration of a real PPS source to fail with
--EBUSY.
+"Joseph Guo (OSS)" <qijian.guo@oss.nxp.com> writes:
 
-Reject N_PPS on PTYs before allocating a source.
+> The usdhc3 connect to SDIO wifi module not eMMC. Are you sure you test it with exactly patch?
 
-Fixes: a0880df0ccde ("pps: serial clients support")
-Suggested-by: Rodolfo Giometti <giometti@enneenne.com>
-Acked-by: Rodolfo Giometti <giometti@enneenne.com>
-Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
----
-Changes in v3:
-- Add Rodolfo Giometti's Acked-by.
+Yes, you (and Sashiko) are right in that usdhc3 is not the eMMC. It
+actually is the M.2 slot connected to the wifi module and it has 4 data
+lines.
 
-v2: https://lore.kernel.org/r/20261111132709.5959-1-dennylin0707@gmail.com
-v1: https://lore.kernel.org/r/20261107211753.75932-1-dennylin0707@gmail.com
+The fix proposed by Sashiko is appropriate in my opinion (adding the
+no-sd and no-mmc properties to usdhc3) to properly describe the hardware
+and also remove the warning.
 
- drivers/pps/clients/pps-ldisc.c | 3 +++
- 1 file changed, 3 insertions(+)
+I tested that in the frdm-imx93 and will update the patch accordingly.
 
-diff --git a/drivers/pps/clients/pps-ldisc.c b/drivers/pps/clients/pps-ldisc.c
-index fa5660f3c4b7..83f4caced0c9 100644
---- a/drivers/pps/clients/pps-ldisc.c
-+++ b/drivers/pps/clients/pps-ldisc.c
-@@ -46,6 +46,9 @@ static int pps_tty_open(struct tty_struct *tty)
- 	struct pps_device *pps;
- 	int ret;
- 
-+	if (drv->type == TTY_DRIVER_TYPE_PTY)
-+		return -EINVAL;
-+
- 	info.owner = THIS_MODULE;
- 	info.dev = NULL;
- 	snprintf(info.name, PPS_MAX_NAME_LEN, "%s%d", drv->driver_name, index);
--- 
-2.50.1 (Apple Git-155)
+Best,
+Freimut
