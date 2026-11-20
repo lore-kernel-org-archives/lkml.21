@@ -1,55 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795187096;
-	b=e0GvM38UX2ftsKI4qJYOgf8QrIeeFBiPL6i5auczwsc9M6P4qkl3E3NsitMBXhaCMBEO
-	 3Ps5MfxTXW/d+i7PJYm1LFUjHfMk7GsEExQv33slFQAoYclHBFnDm+R/LelG0OA1J6XKI
-	 EkDOYpMVwv4Smkvgx2rGCY5QEN8c/ixXMVfwCwXpk9AUz3bioaOyZSBWiVLRnMa22S2rC
-	 nuWiIBGOVv8R210C5vAbE5/tIxtpKhz4d3+lCA5y/95rdfFII2lVrf3rXPevVViDWh94t
-	 F47q2oSBaUTnzfPyQg8swTUbT/De/lDWsHtXzXj3j+5MC8IhRShi+RXksqPh2lthDLA==
+	t=1795187102;
+	b=bwHeNpmK2+QMjrAv6vPTCj/fbz6LyT97hTblw8Y331zEHruzZEYQ4q6m56iz4iAIH2pr
+	 i3DXdZG4ovgJsQQBTHmBoqcIr7LlIap2ffGa451V3JhAhfLbCi3PVCOqUYMbpviXAcw+2
+	 prwgqsVuktLe9w7Skz+ky4msa5mmNCYOsefT69pNOZXjHFUr+k4ybU+hTJiO/tY5suiNi
+	 gyIYk8shFIguVm4AGah0j3HDEvknVPU+P8+oWepfJjBuUi3PhGCoTsr7sR4ODf/SqUPIn
+	 dPckb4J6aMGTkn/Kwk/aXl/GoNMDqH20M3SZAHPRBwa0T4+bTV23CjNLu+EnpONdjYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795187096;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=+xeHuRCftx4ZqUh8vLtYimSwGzxkTWRbyp2mv2pwGBk=;
-	b=FhU7P8H2I+u2K9HDhn+SjbzKk5JxA0yqn/0ez9ACC9sr6l8L5zPYaO+58T1RKnZOkysE
-	 IjT+d57lcq7qFc/ZQN1ROi9TSt2vwGe4E2oINK5qiZZWte18YjBycHqtO3Bo8qme8wUTD
-	 0lheysKNNBrfSnLyvLAWOIxaVItKVjzm8uGxceSVdd+TJ6RZKuzlha4ZtsJefCbXjauEz
-	 ENedD8VhVF99XTPigiEYIawQ4nLIdd3+88DYur+WYL2b1BVQDZEc7SLxVBTiGllh2LLA2
-	 MYvNXgut81MBlxhOKZr8bS5IHv+7LhlFfbmnD1SpoTHy2+0nHjOWn9KBx2vLqzj3zQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795187102;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=l7uEAm+QOmGAfuAmZyD3+ggDCi5vQfxbP4w0OjIGnQY=;
+	b=e0c5Iyf+8TiOGibE/8hYnFZHae4W2o1L9vc4VOkctLGRfGlUwdUyATlP1aEqAET/WaOz
+	 xOTJOk/4UH61GEUYK8I0o/3QWhuByr5yvppGCaJ5Q3Ix6j6fXLZ0/eLJG3B1Qv4sj9QPy
+	 4BcCAFceBXNqQi/WoU5FGHxtABhqFRQOm4yxGBcG1RmxM+kR6x39lZKVi6bLlHRjPBZzQ
+	 ncxi8GM2w/CA5VHZ52pJ/+LTNnX/Iw/LFhHT9eH6hyNZqUOxGXX85ikLYisN3dNBRw8Cq
+	 j8mYVnYMxYGqVtbQZdwHU1xiX7U9S/+FEI6D0rnXrf/op+ocCMO8uOf4iAVPNWdeCVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="khqRf/IC";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=TSGKfYVU;
+	arc=none smtp.remote-ip=90.155.92.199
+Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C09FC606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:04:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9524606A326;
+	Fri, 20 Nov 2026 15:05:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9524606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=khqRf/IC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77D061F000F0
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:04:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795187096;
-	bh=+xeHuRCftx4ZqUh8vLtYimSwGzxkTWRbyp2mv2pwGBk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=khqRf/ICQunDRvVU6qeYJc1UU3F/N/8PQ+UTWx5wvdFLiRxKn0VRVaguocBqZ1noq
-	 CwJIrPnscWSdqK6K/XvrHkbYilR3DSFZzftIDNdD3h0glLsvRWJDfqjKqdLGJ/nlUX
-	 JJNznybk6Wabs+S5SxoyMHEw5yLTT3pEJhYwq1+yJfG+wEDBTcZE8Q1dhFsLXN8ZFQ
-	 1qRLTdJ/KzMG2y9K/83MPPFAlkIMg4kMdxYLx3ZoQKw2PSuf37NX5XGViFNN/PE5pa
-	 iRQKojJkGFpFhBoZMz9zfkc93OQkBcfmPlDm6v8nqfvE4GnhBFKtOTY8L5IZD9KTo3
-	 vI6sQcPRMjjwA==
-Received: by mail-vk1-f182.google.com with SMTP id 71dfb90a1353d-5ee3e658c72so533406e0c.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:04:56 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFge6M8g0jrG0dk8zmtN1Oy4zYvbg2PkPmqWcmDM0Va3vsdVDKWFYJiH3OI3/tclhkzN9dTMjkfs3bDMDs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/g4z+2b2/wXuhZFfhAxxVJ3EN86sBPUw4LnhY/srKg/lajy5sF
-	F7WYxvPuXuDZ/Vviqg9rJVN3nWu7sRGUHnacDo1mN/2ItflOJBoTEsBG3S+iJG4StbVw9p4cquD
-	Y9Ph0eOq7HkboMY4Z04XB24UrOW382Ok=
-X-Received: by 2002:a05:6123:110:b0:5ea:c3bc:c567 with SMTP id
- 71dfb90a1353d-5ee8aefbd39mr1836664e0c.9.1795187095559; Fri, 20 Nov 2026
- 07:04:55 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=TSGKfYVU
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=l7uEAm+QOmGAfuAmZyD3+ggDCi5vQfxbP4w0OjIGnQY=; b=TSGKfYVUvkSowdMgG2pwQ267dm
+	BV2HE7ZqiJD48z762M1YfRl300gHELBGgNfKnxZ4QTCEEXUmfM/aOXKIMsReY1UfR2imWAS7qIblj
+	u0E0XONWxwVLhGP3Amtki4TCFnYI8yjcpSKYO8y2E48U65m0eIvL2OSeKPLdXoLLT5ZS2JPOLkGDU
+	tSU6x5cIDfeA4rT5wyr5Nmm3W2Bg5tv02sgjqP7pi+wFiVm0o8CnVWTCaYx7M+dsogEnCvB0fBS7W
+	FSOfPJBk9F1WZZLF9Sn3FL8ZG06xYOkjMVzl2Z7TdcqfBuv6tWaMX24HCuG2ny+ZNolNm0xVO0rkl
+	Yn7UsWng==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xUQAY-00000000t7a-06W1;
+	Fri, 20 Nov 2026 15:04:53 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 2F4BD3008D6; Fri, 20 Nov 2026 16:04:52 +0100 (CET)
+Date: Fri, 20 Nov 2026 16:04:52 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Tengda Wu <wutengda@huaweicloud.com>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/2] perf/core: Prevent duplicate sigtrap task work
+ enqueue
+Message-ID: <20261120150452.GU2668564@noisy.programming.kicks-ass.net>
+References: <cover.1795053619.git.wutengda@huaweicloud.com>
+ <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
+ <20261120121436.GT2668564@noisy.programming.kicks-ass.net>
+ <20261120141606.zcwyHZ3P@linutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,210 +77,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117-my-btrfs-patch-v1-1-4b934a7ff69a@shangen.org>
- <CAL3q7H6zzrx-oHoiXqMA6U=GoS8rZpWE7gjtZDkrA-87UycM-Q@mail.gmail.com> <YhW6lq8O4pm3D9oM5F5YIVpBGvPxrzy3vpbS@shangen.org>
-In-Reply-To: <YhW6lq8O4pm3D9oM5F5YIVpBGvPxrzy3vpbS@shangen.org>
-From: Filipe Manana <fdmanana@kernel.org>
-Date: Fri, 20 Nov 2026 15:04:19 +0000
-X-Gmail-Original-Message-ID: <CAL3q7H788fCFQdLG2_uCC1HRK5-5ujAH8-1Ff+sdSRtv3izWpA@mail.gmail.com>
-X-Gm-Features: Aa3M54rwH8iAhUQu4HM3rCLG4FZhX4YksDYJ-zcG07gaSJKwQs6y3mS9A6yVzlI
-Message-ID: <CAL3q7H788fCFQdLG2_uCC1HRK5-5ujAH8-1Ff+sdSRtv3izWpA@mail.gmail.com>
-Subject: Re: [PATCH] btrfs: pin folios before dropping the last extent buffer reference
-To: Shang En Sim <sim@shangen.org>
-Cc: David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>, Boris Burkov <boris@bur.io>, 
-	Daniel Vacek <neelx@suse.com>, Filipe Manana <fdmanana@suse.com>, linux-btrfs@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120141606.zcwyHZ3P@linutronix.de>
 
-On Fri, Nov 20, 2026 at 12:48=E2=80=AFAM Shang En Sim <sim@shangen.org> wro=
-te:
->
-> On Thu Nov 19, 2026 at 11:24 AM CST, Filipe Manana wrote:
-> > On Wed, Nov 18, 2026 at 12:20 AM Shang En Sim <sim@shangen.org> wrote:
-> >>
-> >> release_extent_buffer() drops the last reference to a mapped extent
-> >> buffer (eb) before detaching its folios.
-> >
-> > To mapped and unmapped extent buffers, so remove the "mapped" part.
->
-> I will remove "mapped" in v2.
->
-> >>   task A                         task B                    task C
-> >>   release_extent_buffer(eb)
-> >>    refs: 1 -> 0
-> >>    remove eb from buffer_tree
-> >>                                  alloc_extent_buffer()
-> >>                                   attach_eb_folio_to_filemap()
-> >>                                    grab_extent_buffer()
-> >>                                     refs is 0, take over
-> >>                                     the folios
-> >>                                  ... new eb released ...
-> >
-> > It's not "new eb released", it's the new folio that is released and we
-> > take the existing folio into the new eb.
->
-> My bad, that diagram was misleading.
->
-> Inside attach_eb_folio_to_filemap(), task B drops its newly allocated
-> folio and reuses the existing folio for the new eb (eb2), attaching eb2
-> as folio->private after grab_extent_buffer() detaches eb1. After
-> alloc_extent_buffer() completes, task B finishes using eb2 and calls
-> free_extent_buffer(eb2), dropping eb2->refs from 2 to 1 (leaving only
-> EXTENT_BUFFER_TREE_REF).
+On Fri, Nov 20, 2026 at 03:16:06PM +0100, Sebastian Andrzej Siewior wrote:
+> On 2026-11-20 13:14:36 [+0100], Peter Zijlstra wrote:
+> > > Also use smp_load_acquire() when checking pending_work in
+> > > the exclude_kernel warning path to ensure the read is properly
+> > > ordered.
+> > 
+> > I am confused by the use of smp_*() and cmpxchg() here. Where is the
+> > multi-cpu scenario?
+> 
+> The same event is used in process context and NMI
+> |        perf-tc1-7647    [001] d..6.   114.513688: __perf_event_overflow: ffff888100d68540
+> |        perf-tc1-7647    [001] d.Z2.   114.513703: __perf_event_overflow: ffff888100d68540
+> 
+> I don't see how to deal with this without cmpxchg. And the same event is
+> also used by other task
 
-Ok, now I see it. Those are all important details for the changelog.
-To make it clear, avoid using eb1 and eb2, just call them new_eb and
-existing_eb (the later matches the name we use in
-attach_eb_folio_to_filemap(), which make it clearer).
+You can do CMPXCHG (without the LOCK) prefix; the helper is called
+cmpxchg_local().
 
+> |        perf-tc1-7657    [001] d.Z2.   114.598356: __perf_event_overflow: ffff888100d68540
+> 
+> which makes me thing that it could be pinned to another CPU (unless
+> there is something that impossible and it is strictly per-CPU).
+> 
+> The smp load/store macros is my fault as it looked better to do this
+> than plain stores (given that we have the cmpxchg already).
 
->
-> >>                                                            drop_caches
-> >>                                                             folio->map=
-ping
-> >>                                                             =3D NULL
-> >
-> > And where does this happens?
-> > Please be detailed, add the call chain triggered by drop_caches that
-> > results in setting the folio's mapping to NULL.
-> >
-> > I don't see how that is happening, because when we end up in
-> > try_release_extent_buffer(), eb->refs is 0 and that
-> > makes us return immediately with 0:
-> >
-> > spin_lock(&eb->refs_lock);
-> > if (refcount_read(&eb->refs) !=3D 1 || extent_buffer_under_io(eb)) {
-> >         spin_unlock(&eb->refs_lock);
-> >         spin_unlock(&folio->mapping->i_private_lock);
-> >         return 0;
-> > }
-> > spin_unlock(&folio->mapping->i_private_lock);
->
-> When task C enters try_release_extent_buffer(), folio->private no longer
-> points to task A's eb (eb1, with refs =3D=3D 0). Task B's
-> grab_extent_buffer() detached eb1 and attach_extent_buffer_folio()
-> attached eb2 to folio->private. Once task B drops its caller reference
-> on eb2, eb2->refs is 1 (with EXTENT_BUFFER_TREE_REF set), so
-> try_release_extent_buffer() inspects eb2, clears EXTENT_BUFFER_TREE_REF,
-> releases eb2 (detaching folio->private), and returns 1.
-> mapping_evict_folio() then calls remove_mapping() ->
-> __remove_mapping_unfreeze() -> __remove_mapping() ->
-> __filemap_remove_folio() -> page_cache_delete(), which sets
-> folio->mapping =3D NULL.
->
-> (If eb2 was already fully freed and detached before task C runs, e.g.
-> via free_extent_buffer_stale(), try_release_extent_buffer() sees
-> !folio_test_private(folio) and returns 1 immediately.)
->
-> Here is the full sequence, starting with a 0-order folio F in
-> btree_inode->i_mapping with F->private =3D=3D eb1, F refcount =3D=3D 2 (1=
- for
-> the page cache, 1 for F->private), and eb1->refs =3D=3D 1:
->
-> 1) Task A drops the last reference to eb1:
->
->      release_extent_buffer(eb1)
->       refcount_dec_and_test()         # eb1->refs: 1 -> 0
->       spin_unlock(&eb1->refs_lock)
->       xa_cmpxchg_irq()                # removes eb1 from buffer_tree
->       <window before btrfs_release_extent_buffer_folios(eb1)>
->
-> 2) Task B allocates eb2 for the same bytenr, takes over folio F, and
->    drops its caller reference:
->
->      alloc_extent_buffer()
->       find_extent_buffer()            # NULL (eb1 removed from tree)
->       btrfs_init_eb_prealloc()        # allocates eb2 and new folios
->       init_extent_buffer()            # eb2->refs =3D 1
->       attach_eb_folio_to_filemap()
->        filemap_add_folio() -> -EEXIST
->        filemap_lock_folio() -> F      # locks F; F refcnt: 2 -> 3
->        grab_extent_buffer(F)
->         folio_get_private(F) -> eb1
->         refcount_inc_not_zero(&eb1->refs) -> false (eb1->refs =3D=3D 0)
->         folio_detach_private(F)       # F->private =3D NULL; refcnt: 3->2
->        folio_put(eb2->folios[i])      # drops eb2's unused new folio
->        eb2->folios[i] =3D F             # reuses existing folio F
->        attach_extent_buffer_folio(eb2, F)
->         folio_attach_private(F, eb2)  # F->private =3D eb2; refcnt: 2->3
->       __xa_cmpxchg()                  # inserts eb2 into buffer_tree
->       check_buffer_tree_ref(eb2)      # sets TREE_REF; eb2->refs: 1 -> 2
->       folio_unlock(F)
->       folio_put(F)                    # drops lock ref; F refcnt: 3 -> 2
->      free_extent_buffer(eb2)
->       free_extent_buffer_clear_reading(eb2, false)
->        release_extent_buffer(eb2)
->         refcount_dec_and_test()       # eb2->refs: 2 -> 1 (TREE_REF)
->
-> 3) Task C runs drop_caches, releases eb2, and evicts folio F:
->
->      drop_caches_sysctl_handler()
->       iterate_supers()
->        __iterate_supers()
->         drop_pagecache_sb()
->          invalidate_mapping_pages()
->           mapping_try_invalidate()
->            find_lock_entries()        # locks F, fbatch ref: F refcnt 2->=
-3
->            mapping_evict_folio(mapping, F)
->             folio_ref_count check     # 3 <=3D 1 + 1 + 1 (passes)
->             filemap_release_folio(F, 0)
->              btree_release_folio(F, 0)
->               try_release_extent_buffer(F)
->                folio_get_private(F) -> eb2
->                eb2->refs =3D=3D 1         # check passes
->                test_and_clear_bit(EXTENT_BUFFER_TREE_REF) -> true
->                release_extent_buffer(eb2)
->                 refcount_dec_and_test()  # eb2->refs: 1 -> 0
->                 spin_unlock(&eb2->refs_lock)
->                 xa_cmpxchg_irq()         # removes eb2 from buffer_tree
->                 btrfs_release_extent_buffer_folios(eb2)
->                  detach_extent_buffer_folio(eb2, F)
->                   folio_detach_private(F) # F->private=3DNULL; refcnt 3->=
-2
->                 returns 1
->             remove_mapping(mapping, F)
->              __remove_mapping_unfreeze()
->               __remove_mapping()
->                folio_ref_freeze(F, 2) # F refcnt: 2 -> 0 (eb1 holds no re=
-f)
->                __filemap_remove_folio(F, NULL)
->                 page_cache_delete()
->                  xas_store(NULL)      # removes F from i_pages
->                  F->mapping =3D NULL
->                returns 1
->               folio_ref_unfreeze(F, 1) # drops page cache ref; refcnt 0->=
-1
->            folio_unlock(F)
->            folio_batch_release()      # drops fbatch ref; refcnt 1->0, fr=
-ee
->
-> 4) Task A resumes and detaches eb1's folios:
->
->      btrfs_release_extent_buffer_folios(eb1)
->       detach_extent_buffer_folio(eb1, F)
->        mapping =3D F->mapping           # NULL (F refcnt is 0, freed/reus=
-ed)
->        spin_lock(&mapping->i_private_lock)  # NULL dereference
-
-This detailed breakdown removes any potential confusion and should be
-in the changelog.
-
->
-> I validated this exact sequence with bpftrace probes during the
-> reproducer run and observed try_release_extent_buffer() seeing
-> folio->private =3D=3D eb2 with refs =3D=3D 1, returning 1,
-> __filemap_remove_folio() running from drop_caches_sysctl_handler(), and
-> task A subsequently entering detach_extent_buffer_folio(eb1, F) with
-> F->mapping =3D=3D NULL and refcount =3D=3D 0.
->
-> I will replace the diagram with this fuller breakdown (and remove
-> "mapped") in v2 once you have had a chance to look at the rest of the
-> patch.
-
-The code part of the change looks good, thanks!
-
->
-> Thanks,
-> Shang En Sim
+It is confusing as all heck. This is all task-local, and a task can only
+ever run on one CPU at the time.
