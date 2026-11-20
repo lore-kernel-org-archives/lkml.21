@@ -1,75 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795134198;
-	b=aidrGgq5BoAQT3lP5yzahj1JVGURTlZ+vIHQkwS/5rnlh5FPWSwy+4ab+HYojAu3Zy2H
-	 ltJ7f2IHbJzh4+EKE2WnVNQmHCX1TQWXo45tqcVb8OiRXVat24eWK0s2USaUE73rX/Sdf
-	 HmqFlgv5Z4sjB1kjwT+vQacuI+BuZQBaiIlQ86uwqiDJE4dV9UgYW+8bwmR6QpqyGNNSt
-	 IYS63DRVGbkCOeuP4wQrmSr+dAgNImnfOJJbvOV+Lh/XfegZrv032c+zlBo8RLFRNxjEg
-	 qznYb0EyMivYwr9Lw6QzBDtcAWPin8gZyrDdWvHJhEmFG6FNhm33vUpAoKRHjWsqp2A==
+	t=1795134356;
+	b=Is/y5tFvNoZQqVXP1/9k6CmQhOwmFOFFuTF3PV3wpS10e7tMF6wfnJA4nzPtfRlHEtUF
+	 +xLaONNmEU4cnu5Lp+D1kkEmUwoaZxCPkbeuEYR7GjCCuRqYrQbnUP398d88bbO/1sXvx
+	 GXtBpCuOI05vAuUPX3Ds8yR6CC/mlpGXMiWbXsjF50vE2aOTVk8u3/m4H5XCpe6YBHKYu
+	 PNW1YysihXvSvz9zvkfStpwPJtDstRDqiqR8MOSBdu7bBvaLIHVwkn2w/9UV+OwjUdU9G
+	 1d4zpEebmE1XBugb9JXN51s3782etEM0Djnzhyrz28CR4CgDI8vmY0hCvtmSfWWOV/w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795134198;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=RhGQm/UF9vMhWbFcBfDkOgWYLiWfHuOG+Gc7mXjwfx8=;
-	b=NTESxf9fkJFzj9FY8FTX+5Z7ccqm07EovDfZVATGiho4Uh/lrueeDPcD/7tObDJpaYZl
-	 LpjmlvtATUTVys9m1CodnLG4mYiqoR4Vy6jaL7rNmzaxaS1MmUlODOZ+QKwD9P/7TEW/z
-	 M/3Ixy7W8pTuk2E3GaM9V9Ioww/tFkPiPO9c4ATD3yR+JGOUxb8L+koc/AgYcWwzsfG59
-	 mriVvysnIN5mqnyTyIqyV45WCRusT7uEHt3kn9LIQ1X0vCZFRViSRMpGM/uhNmVzHRVb0
-	 LvNTi3PijIrb6I4g/YmXmANJL9e8vpmr5wyslqYo+GubxiLBp7usAHZKtpBSV9oILbQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795134356;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
+	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=NsW97/IlB1IOW5S7Wa+ieZcfi4CJA0bmEDqACMcwX3A=;
+	b=i8J5o4Yt17yMP0mCMx3Ctp8iCV8XF1Mca4l70zXRx1jZGZTTcpnnaYbiycUU4h7/Dk5S
+	 HXSeO4p7yhYiQffhpBU/mbmt29Qzx8MO/ZylbgHP1o9zAN7RE3iNkDlIel4ZAzmgP7DZo
+	 uyrO6UYRMNHtVTxVeN0i053Rdy4W9PmEK7KphtvzqD2K6SqtystLdSB8pQt+KZIdu+w36
+	 6ZmvXt/QZfWKB6Tfq8WdpJDJYDT9czynEneGmdrJhQcahyxfQyFPHxqgVVI/VXfsArEgd
+	 VOlDR6+kg1dE2NKvuXKmP9mhywCKEtTKHutPuMs8hZFILTyFJrv/jh6Gl8/K1q4K5Gw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--digonzal.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DbtLXRIu;
-	arc=none smtp.remote-ip=74.125.82.71
-Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b="b/b2fkdM";
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDE6960A2608
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:23:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDE6960A2608
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--digonzal.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99644606A320;
+	Fri, 20 Nov 2026 00:25:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99644606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DbtLXRIu
-Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1b25d977b91so435930c88.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:23:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795134197; x=1795738997; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RhGQm/UF9vMhWbFcBfDkOgWYLiWfHuOG+Gc7mXjwfx8=;
-        b=DbtLXRIu3Ph7iF1hmZe9jA96DPyHZoPR+YhpvVw3xa+eD/ELZEQXa6OlMROdfLVYAl
-         958lXS/RAoR2dvUudKiJXL9rZC6dPK9LJjkz1bWNepr2Zn+92eGvhoyxP5Zzwno+WwTF
-         TYw1OHFqKxCGFv8ceDX805r/xQO/S1LKxQW9yDM4z9dr+gXW/ySabtQf8tyMc6IK+kLG
-         jsqh+CY5tSPIGoAgA+XFkqXIIgmUlQtiddsiInw/0OQaKLnR2ewXQF1rjI3gODM8QZPg
-         gbXIho5pfiLxbt8HglRkksHMt8vi0KaN1Eiift41OEZndaLm2VtS7Vq+kYe1DG6pRSjZ
-         5tIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795134197; x=1795738997;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RhGQm/UF9vMhWbFcBfDkOgWYLiWfHuOG+Gc7mXjwfx8=;
-        b=h3YblRAwnEZLDpR1M7v5D7tuydZbOyyZeYFyQSu+5uUqhOmRECSugFPltZhZsbykuT
-         lcnkzfBGaSKte7lxJMrU++4//k+GQoszNEYREV7qevQoo4NXxoDXF0m5v0p2ZaN4gQJ8
-         rTPZ48gezva0N4SOf8Dvaij6YoJO8nIvwIyvrik6++4zZ/cfWhc1idaTp7caILCDKl2W
-         USzL8oTvqzA6WZo0oAtFCWZofgyaNRpruEXRcYByGwckcb5HzpHTJ9IxGlREcMtaZOk8
-         eCs0yiPYbWF0Phq4Yn1u7NhFw/UtWIQvQz8XgfNoSfCO7zH02s139cRZRTrGpnK5yKXK
-         62qg==
-X-Forwarded-Encrypted: i=1; AL+hErHadrKwulxNU75N3FvrbHb8NNv0xfcNXX/sGfEqray+qQGbbJ1CTvHm3EPFn1nFRz9djf8k/LTGpKVvEQM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z//F5NJ0YJgrhv/MZBz95AqVg/YdEMg+a1pn2k2Lt+Re/JwP8s0
-	fuhZvJftGpO2nfs7mHKe5P8LIP4VHxS+GJmdOhMgjpDVCcGS1A7epc8Y5TGG468+LvuK2WC/CH2
-	Bx7vtsP2x/lrffQ==
-X-Received: from dlbrf24.prod.google.com ([2002:a05:7022:f218:b0:196:1ea7:17b6])
- (user=digonzal job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:7022:220d:b0:1ab:fe29:5055 with SMTP id a92af1059eb24-1b556865255mr1475296c88.9.1795134196559;
- Thu, 19 Nov 2026 16:23:16 -0800 (PST)
-Date: Fri, 20 Nov 2026 00:23:11 +0000
-In-Reply-To: <20261120002311.394649-1-digonzal@google.com>
+	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=b/b2fkdM
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AK0Po2622984876, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1795134350; bh=NsW97/IlB1IOW5S7Wa+ieZcfi4CJA0bmEDqACMcwX3A=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=b/b2fkdMgugFugycT1dsFzM0euAvz+Edeq8un0WZ+r/5igqUaCjxqjXIrt2Hil6VM
+	 dufGfc5C9BOD955jOoJceyKNzRiLXN/4UVwg65nSjzI4W8NErHUErhxXGIIwtLAQnS
+	 kAx6pdS/lPHScEF7KDV3Dx5Ah7O4kUV0bH7orKs4dp635UsV02clZ+RZTiHBZdNh77
+	 t4zqISFCOui00ZXzl0Cf6agJBvbZNieezgqp/CVjNtc79R5Z1yWX9UqApRnq2SXH1C
+	 aZVTQtfpPE5YQgIVuMNDtwtyu7ZlLHJyzSByyXZQMHrYqHGlFXt/SYbIc+72R24VjA
+	 j5xewGklmEpmw==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AK0Po2622984876
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 20 Nov 2026 08:25:50 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 20 Nov 2026 08:25:51 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 20 Nov 2026 08:25:50 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
+ 15.02.2562.056; Fri, 20 Nov 2026 08:25:50 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: Abhishek Tamboli <abhishektamboli9@gmail.com>
+CC: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] wifi: rtw89: 8852au: Add support for Mercusys MA72XH
+Thread-Topic: [PATCH] wifi: rtw89: 8852au: Add support for Mercusys MA72XH
+Thread-Index: AQHdEBhgIKLF4XCqRUOEqFLTRQ13TLZpIRHAgAUzM4CAxrmugIAAnW/QgAA9vICAAQH68A==
+Date: Fri, 20 Nov 2026 00:25:50 +0000
+Message-ID: <9fef5595013847e8b8a1681846f7adff@realtek.com>
+References: <20260710030055.57438-1-abhishektamboli9@gmail.com>
+ <9bfdb983981d4bb98a4692ac6f1711f6@realtek.com>
+ <8fb9ced500144618b7f43e54c12a25ff@realtek.com> <av5ztQNkWSsLE4NA@embed-PC>
+ <9a88c5da71314ce7ad7100d1c3e94a03@realtek.com> <av8rj6mBU8i5vA5A@embed-PC>
+In-Reply-To: <av8rj6mBU8i5vA5A@embed-PC>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,94 +86,17 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261120002311.394649-1-digonzal@google.com>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261120002311.394649-3-digonzal@google.com>
-Subject: [PATCH v3 2/2] PCI/ATS: Disable ATS when ACS TB is set upstream
-From: Danny Gonzalez <digonzal@google.com>
-To: Bjorn Helgaas <bhelgaas@google.com>, Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>, 
-	Nicolin Chen <nicolinc@nvidia.com>, Lu Baolu <baolu.lu@linux.intel.com>, 
-	Kevin Tian <kevin.tian@intel.com>, decot@google.com, praan@google.com, 
-	sheenamo@google.com, linux-pci@vger.kernel.org, iommu@lists.linux.dev, 
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Danny Gonzalez <digonzal@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
 
-Enabling ATS allows an endpoint to cache translations and initiate DMA
-requests with Translated addresses, which an upstream bridge with ACS
-Translation Blocking (PCI_ACS_TB) set will block as ACS Violations.
-Because pci_enable_acs() preserves existing PCI_ACS_CTRL bits (e.g., from
-firmware, a kexec kernel, or "pci=config_acs=") without relaxing them,
-PCI_ACS_TB may remain set on upstream bridges.
+Abhishek Tamboli <abhishektamboli9@gmail.com> wrote:
+> On Thu, Nov 19, 2026 at 05:22:09AM +0000, Ping-Ke Shih wrote:
+> > Abhishek Tamboli <abhishektamboli9@gmail.com> wrote:
+> > > > > >
+> > > > > > Link: https://bugzilla.kernel.org/show_bug.cgi?id=3D221738
+> >
+> > So you think I can merge this patch, right?
+> Yes, I think it's fine to merge.
 
-Update pci_ats_supported() to walk upstream bridges and return false if
-any bridge has PCI_ACS_TB set, leaving the endpoint to use Untranslated
-addresses. Ignore bridges whose config read fails or returns an error
-response (PCI_POSSIBLE_ERROR()) so inaccessible bridges are not treated
-as having PCI_ACS_TB set.
+OK. I'll do it soon.=20
 
-Tested by booting a machine with an endpoint advertising the ATS Capability
-behind a Root Port with PCI_ACS_TB set; verified ATS is disabled and the
-system boots cleanly.
-
-Signed-off-by: Danny Gonzalez <digonzal@google.com>
----
-
-v3:
- - Move the upstream ACS TB check back into pci_ats_supported(),
-   dropping pci_ats_check_acs() and changes to pci-driver.c and pci.h
- - Read PCI_ACS_CTRL directly and check the return value and
-   PCI_POSSIBLE_ERROR() so inaccessible bridges are not treated as
-   having PCI_ACS_TB set
- - Remove the pci_warn_once() logging and separate helper function
-
-v2 (based on sashiko review):
- - Move the upstream ACS TB check from pci_ats_supported() into
-   pci_ats_check_acs() called after pci_enable_acs()
- - Use pci_acs_enabled() instead of reading PCI_ACS_CTRL directly
-
- drivers/pci/ats.c | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
-
-diff --git a/drivers/pci/ats.c b/drivers/pci/ats.c
-index 9cb23780093d..e3c78a575800 100644
---- a/drivers/pci/ats.c
-+++ b/drivers/pci/ats.c
-@@ -40,12 +40,31 @@ void pci_ats_init(struct pci_dev *dev)
-  */
- bool pci_ats_supported(struct pci_dev *dev)
- {
-+	struct pci_dev *bridge;
-+
- 	if (!dev->ats_cap || dev->untrusted)
- 		return false;
- 
- 	if (dev->is_virtfn)
- 		return pci_ats_supported(pci_physfn(dev));
- 
-+	/* Do not allow ATS if any upstream bridge blocks translation */
-+	for (bridge = pci_upstream_bridge(dev); bridge;
-+	     bridge = pci_upstream_bridge(bridge)) {
-+		u16 ctrl;
-+		int ret;
-+
-+		if (!bridge->acs_cap)
-+			continue;
-+		ret = pci_read_config_word(bridge,
-+					   bridge->acs_cap + PCI_ACS_CTRL,
-+					   &ctrl);
-+		if (ret || PCI_POSSIBLE_ERROR(ctrl))
-+			continue;
-+		if (ctrl & PCI_ACS_TB)
-+			return false;
-+	}
-+
- 	return true;
- }
- EXPORT_SYMBOL_GPL(pci_ats_supported);
--- 
-2.56.1.708.g77570a6a1d-goog
 
