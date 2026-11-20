@@ -1,78 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795198207;
-	b=bNINwCLL4vJuk6uUe60vHp7qFhAUCh0S3qQwyKeo+gffuTqGJijZrd3WSwtEzGVW1cFc
-	 bOCwOMuiCuHTWoK/sigKgTZius3eRNAYZb/0gLD+5Y50v2OHtrUIoAdvEnNbxPzzkPc8i
-	 cnaXgSPPIGzkU+6c6W5BX8Cy6uEVERcE0uhcTBz4UXHo9gJn4r1mB5gBUMyrW9fJeSCjY
-	 3SmHr/tTL+MqFyPJi4wEHigTRc/RuelpkIeX8fiA8zdg8E5+IGOyvTjjdPLgYQdd+7m0/
-	 qsL9SWxO/UeTxuc8PZwiAjQ4zfddbeJp+BwZDPcRbG98JpPk/1oB5GZiesEhkk35f8A==
+	t=1795198203;
+	b=nSa1lHEZvltOSt//X/YiEA8MUv8p3O2aZl15FRIfumlO1rNah87JjYH6EJB5Nj7YukZw
+	 r+xhxU8FxSSfjqyXEw5P/aD3cE/7d8yUTHKzYk5i/cB2Tn1wG7FBjlAr6rLVVgaAADMKD
+	 Qyp6W3d0MM8xh6NGR1mZ+urJauHGEXpe0eY4wsPk70JEHFsbQhd+oPgwnq9hwWLq24va1
+	 66xKNSgyUnBhi1mFYmhupVsLSw0u5yWRk9SW+awLeT0OmrLVDN5dkM1zTk/lHCfHhe6aI
+	 FCYrmAAdRn5r6dxQeR/kgJxeqDzzlsvhkCd3//9r3C3klrY0Ct9Jwn8qkB5obJXBDuQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795198207;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795198203;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=CKVNPICIuJeHboZhs5//ylGkrISPeWolkQPQ1hYsQP0=;
-	b=BvyPaHYsNVF4wTzPQFaNU+OC94l0XoCXhH+a+C4qvYqys0XNQD4FcvplXL0FwMwqtB+q
-	 GntcfiVvLbpqbkzTzWLcKY1OJLjpO4FmvwVjD+Ib9AeDG4HhzjidIlyqYxB8d2Jr1GGaW
-	 MjawybaL3jpZeS5a8BQxz0OVw32r8a1sn6KGB0k67QFh45GVOBCshlPlEwrsW6zgQLd5Z
-	 LCsfgOHTUG9sZ3d1EVxOS0sUcHrIeRhSS6IpRkpSohTZrr1NxvpB+FqLTGFiXonDFE8To
-	 NKnHBiEXVz1sfs9xbNwllS2MsM/dsgbGyB5c9UDjA9MFbKwvnPvMBPwMisCuXqQonig==
+	bh=gr73u4IkiOa9BCictU2VtS3g9h9o19ZGrPCxtMBrlkU=;
+	b=1M8Ouc2ydTwVgpI3Hg1CD+z3FZBvIthvpTgU1LyklXxtY5JKtxWG3R0F4vdG3jjs33iK
+	 lz6uLUOzTpyAWJ6+YhLAkHUVjCS3C5RFUNEgy8iw6qYvntzs5t524zrl2ZfIuUJL+5rdS
+	 1KQjZyBe5T6TAX3HwPF1TwJMzyd7aSEUs6Um23KJkSdRN2rPEw3QHUdwGHj7AKn+mjDkF
+	 YkURr3+MaX093dVwENL8+PaHeL2sXQi48tUyB5Oxdxb7uK9Z5QjCrCuLhNIvSiobeWIhk
+	 bbOuk0eOP9usnQY4ATWNEl5xLcgC298XBkJkbq/862OlOGRV33+sA+jVI1PGhiQ1O1w==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="cR/1sFjW";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V9t4NOrO;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 598ED606B23A;
-	Fri, 20 Nov 2026 18:10:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A945860A3821;
+	Fri, 20 Nov 2026 18:10:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cR/1sFjW
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V9t4NOrO
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795198206;
-	b=PXFjBgJbPQ59KvbrHakjrZO/KVVv4kvBPmHZSDpFnCjCW1HwoG0w1QXY/LL+Zvk8ixgN
-	 MU5qiMFHa6aAp7LIxUq9XmJCPkGHy37bfNA0vubcWnicho4mEYBUcticVGqTDX2p/J+l+
-	 c9gikjU56IwXhFbdFo/JOV8xgtnkm7pV2n/0ZdXS21qaIhOliSFD9GjHqnZm6Dt8f0E48
-	 BQyGsm1y2lqx7lVpFEnkbHnGx4Y0iukEplTKuzAmpHDueOLaroVO4Qrt7UjtYj7ng34UH
-	 ma9TacAbdPENZbbd4B0vYHZ/ZPVLmQ1gxn/rV8kFKzenfvC48dd1+grOuHcuUaTMEfg==
+	t=1795198203;
+	b=pcy6TrsYtbxPT00FFvMrWxXBm1BvXD+RrBzPHwHerYQDTPFtwJdJA5XJahkQbNBc7WEM
+	 Xk4NtW0MD97lz3yaShzWH0hsHZJO1bXAi6bIPkAYFlE0muF+FzoMmjTumU089+1I8/4cN
+	 AsBxLJPh3iq4HfPCa+aBy23vRBvIAhPTKZ/EymnD5J31jkL3hG1krzuvsZZQI4TZpFKTM
+	 BXJ/YnzVx0bO7hQDknSc4mzgD4gOjP5ySipbZzLAVUv61qBGWiUXDtRiw8rkIADu7RVaQ
+	 mEUwG8wQ7ju1Fiqeb/8ni7qI4ZBaFa53CfEkyew7/oHGUTL+2GiBQf9T2lAyCroM0pA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795198206;
+	c=relaxed/relaxed; t=1795198203;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=CKVNPICIuJeHboZhs5//ylGkrISPeWolkQPQ1hYsQP0=;
-	b=E43F0BiI/E+cHNjtkb5MjPjCvJMVS+bgjhtxTEXzqUNjbwA3NdTaPniYRb77ZbOp+eo4
-	 BJdpBkzdzgkM7nlWwSYGPBGJOtztQrO4jee7Il8aKpn00KBlATuYsiV3nOJZOkxNJdrqZ
-	 Zez0SEc7ofK0ueh9fGYf0y1evssy8ww+arvbOyp78Rt657XhzM/n01tIrv2y8aMRltXLi
-	 IQevjGOg4HwQu7XGjvVoSnFIhejFF7CiWpj5H44SO7NBo+rGxg/Ji2pKxQKi7PBTNi9nT
-	 3nWNVOnnLA2Hgf86PbSPNCAN+cB1T+yGW+/Boat7eS6cxZBJzfOyAfHKMpzuWwHp0OQ==
+	bh=gr73u4IkiOa9BCictU2VtS3g9h9o19ZGrPCxtMBrlkU=;
+	b=WeZWO+IwlNudUoUdh0s8YJ1GUqI/4tDzw28u5/J47P4X2QCV9Kmkk33gEWEomstNd8mh
+	 uuBdTc0Q1WNObr9UE6wuBXRqvl9bKovJDeNznB+Ic4Fda/Ek7hgK/j//R4Dm+oJS1WSmJ
+	 1UKpysKz0bU+UmHPEBBb6rY1+qqF2w17hBtG7jUNFc+pZyd04ZGv2tP7AH+82umL8EMt2
+	 3ZgyNnBQrkS5OgvlGV4FoBCmjfcGKGekMRaqnXsFYD2q+ez+SlwRdNGc83IJjNgsPTvyY
+	 GySuD+lK7F4qUcAzygYX1oJMBDX/czQz5ak/mzYLWr9thA9B+TIWBPbX00rA1ph3DFg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 88B6C1F00AD4;
-	Fri, 20 Nov 2026 18:09:42 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 33BA51F000C6;
+	Fri, 20 Nov 2026 18:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795198206;
-	bh=CKVNPICIuJeHboZhs5//ylGkrISPeWolkQPQ1hYsQP0=;
+	s=k20260515; t=1795198202;
+	bh=gr73u4IkiOa9BCictU2VtS3g9h9o19ZGrPCxtMBrlkU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=cR/1sFjW36AnBN3zX3d6d2DvEj0Mp9J99K3GB8Ws6owxduh/lPO45ilo3iPAa+CGh
-	 fL0oVlroNF4EYIn5fx8Le2hz66d77tydI/BWzKIFEowZXDpV0HmlZYgM6ZlBjNicRE
-	 KJnyRHWJlyNjgqhRmXm43TQCf31nNm4JgHzko46cAeZ0ZmBDwPWALZmaTBhVjrZCEb
-	 1g/y4l46t7Ncl6T1c9nILoN09/Y4t4SiA7A7V6dzRgTFrwgoBLMMFvrP1Cp0/LB7pb
-	 /aushC40WlmU5T+0JFJ2Lw/eJj5275amr6FrN1BqODixH1xTigpWI8pKU6Clbsr4Vu
-	 oa8pC8sH8F5Sw==
+	b=V9t4NOrOpwKjlJTSqfVNs2ckW7HzMjb+nEVmUZZ0v3HqmXVn89EzNv+FjnJYR5YuV
+	 zw6H5C4aBVGOHHOqJGAn/47aPFcQDb4Pa/ak15Cp1iHMt3KQR4ZEdmfcT6ECFWQQM8
+	 eQLAAHScIUH2Z8ICdKMb2wf8mECAjDzACzUDhDtefxHi2yXlXZ9ImxnFF+5KR1vS1L
+	 WcP2At4FYuKxScI4u15+PpVeFK/h8ayZTeVYSlkTvYYP5OY805Mi7gm0HKFfpy/V27
+	 fPtrbFu/UIGXO5OM+Ji5+fr0PsV9r+3CJMEVLpn4g4Wohi7q4PP2+I3lnePq2OPgUn
+	 1mK1l/3GDIGrg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 6A6794B8F1;
+	by lkml.kernel.org (Postfix) with ESMTP id 175F44B8E5;
 	Fri, 20 Nov 2026 18:09:18 +0000 (UTC)
 From: Gregory Price via B4 Relay <devnull+gourry.gourry.net@kernel.org>
-Date: Fri, 20 Nov 2026 13:09:03 -0500
-Subject: [PATCH 12/60] mm/vmscan: restrict reclaim to common memory
+Date: Fri, 20 Nov 2026 13:09:00 -0500
+Subject: [PATCH 09/60] mm/damon: reject migration destinations outside
+ common memory
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-private_nodes_v6-v1-12-74f5f9a115c2@gourry.net>
+Message-Id: <20261120-private_nodes_v6-v1-9-74f5f9a115c2@gourry.net>
 References: <20261120-private_nodes_v6-v1-0-74f5f9a115c2@gourry.net>
 In-Reply-To: <20261120-private_nodes_v6-v1-0-74f5f9a115c2@gourry.net>
 To: Yury Norov <yury.norov@gmail.com>, 
@@ -140,11 +141,11 @@ Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
  cgroups@vger.kernel.org, nvdimm@lists.linux.dev, 
  linux-kselftest@vger.kernel.org, "Gregory Price (Meta)" <gourry@gourry.net>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795198152; l=2825;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795198152; l=912;
  i=gourry@gourry.net; s=20261120; h=from:subject:message-id;
- bh=FtLUhP0wFF5GfqO7k4obSm/pRyOe/gBL2Z3quyWtR6I=;
- b=zwlm1U/LcEdr9egylwJhEu7nOZaUODHcksIlsiJlCATY4Fbl78/BXLfyNjSKWv3UDT+qsBfSZ
- piPbYWcP1rrCCLgsKDDw4afKb7rTwG3CyQeRdlVm7Foh4LeK1/sZgiM
+ bh=PHs1dwZV5jWDY/oD9jV+dBublSOMfq9XyD2sA1X67ls=;
+ b=EHjtqMd7/8EaTbdZ+vJ1PCa8apdnUFyPwhm5wisIAr5smnjEwxj+N6vWTCoyNXJw98hRk2en0
+ +blI33RHe8NCH5zVJHV0l2+J4bHQKjBy4yR6u86Gh0NgqVYPfJ4g5b/
 X-Developer-Key: i=gourry@gourry.net; a=ed25519;
  pk=BZWDlx4htkR5KcvGjGtSDfx1tM0E5dlyBR43FEhjWVc=
 X-Endpoint-Received: by B4 Relay for gourry@gourry.net/20261120 with
@@ -155,93 +156,30 @@ Content-Transfer-Encoding: 7bit
 
 From: "Gregory Price (Meta)" <gourry@gourry.net>
 
-Reclaim serves the ordinary allocation domain.
+DAMOS migration actions move folios to a node the user picks. As with
+move_pages(2), the destination should be general purpose memory.
 
-Restrict it to N_MEMORY_COMMON:
-  - start kswapd only on common nodes, at boot or hotplug.
-  - walk common nodes when MGLRU's debugfs interface iterates or
-    validates nodes, using first_node_state() and next_node_state() in
-    place of first_memory_node and next_memory_node.
-
-Direct reclaim serves an allocation from its own zonelist, so it is left
-alone.
+Reject a destination outside N_MEMORY_COMMON, exactly the same as a
+node without memory is rejected today.
 
 Signed-off-by: Gregory Price (Meta) <gourry@gourry.net>
 ---
- mm/memory_hotplug.c |  3 ++-
- mm/vmscan.c         | 12 ++++++------
- 2 files changed, 8 insertions(+), 7 deletions(-)
+ mm/damon/ops-common.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/mm/memory_hotplug.c b/mm/memory_hotplug.c
-index 1d3d1792074c..a599fcad65d3 100644
---- a/mm/memory_hotplug.c
-+++ b/mm/memory_hotplug.c
-@@ -1222,7 +1222,8 @@ int online_pages(unsigned long pfn, unsigned long nr_pages,
- 	/* reinitialise watermarks and update pcp limits */
- 	init_per_zone_wmark_min();
+diff --git a/mm/damon/ops-common.c b/mm/damon/ops-common.c
+index 2216a0023154..15cabc79613b 100644
+--- a/mm/damon/ops-common.c
++++ b/mm/damon/ops-common.c
+@@ -498,7 +498,7 @@ unsigned long damon_migrate_pages(struct list_head *folio_list, int target_nid)
+ 		return nr_migrated;
  
--	kswapd_run(nid);
-+	if (node_state(nid, N_MEMORY_COMMON))
-+		kswapd_run(nid);
- 	kcompactd_run(nid);
- 
- 	if (node_arg.nid >= 0)
-diff --git a/mm/vmscan.c b/mm/vmscan.c
-index bc7579d47f9b..5b53e0391d80 100644
---- a/mm/vmscan.c
-+++ b/mm/vmscan.c
-@@ -5729,7 +5729,7 @@ static void *lru_gen_seq_start(struct seq_file *m, loff_t *pos)
- 	do {
- 		int nid;
- 
--		for_each_node_state(nid, N_MEMORY) {
-+		for_each_node_state(nid, N_MEMORY_COMMON) {
- 			if (!nr_to_skip--)
- 				return mem_cgroup_lruvec(memcg, NODE_DATA(nid));
- 		}
-@@ -5754,13 +5754,13 @@ static void *lru_gen_seq_next(struct seq_file *m, void *v, loff_t *pos)
- 
- 	++*pos;
- 
--	nid = next_memory_node(nid);
-+	nid = next_node_state(nid, N_MEMORY_COMMON);
- 	if (nid == MAX_NUMNODES) {
- 		memcg = mem_cgroup_iter(NULL, memcg, NULL);
- 		if (!memcg)
- 			return NULL;
- 
--		nid = first_memory_node;
-+		nid = first_node_state(N_MEMORY_COMMON);
+ 	if (target_nid < 0 || target_nid >= MAX_NUMNODES ||
+-			!node_state(target_nid, N_MEMORY)) {
++			!node_state(target_nid, N_MEMORY_COMMON)) {
+ 		damon_putback_folio_list(folio_list);
+ 		return nr_migrated;
  	}
- 
- 	return mem_cgroup_lruvec(memcg, NODE_DATA(nid));
-@@ -5832,7 +5832,7 @@ static int lru_gen_seq_show(struct seq_file *m, void *v)
- 	DEFINE_MAX_SEQ(lruvec);
- 	DEFINE_MIN_SEQ(lruvec);
- 
--	if (nid == first_memory_node) {
-+	if (nid == first_node_state(N_MEMORY_COMMON)) {
- 		const char *path = memcg ? m->private : "";
- 
- #ifdef CONFIG_MEMCG
-@@ -5935,7 +5935,7 @@ static int run_cmd(char cmd, u64 memcg_id, int nid, unsigned long seq,
- 	int err = -EINVAL;
- 	struct mem_cgroup *memcg = NULL;
- 
--	if (nid < 0 || nid >= MAX_NUMNODES || !node_state(nid, N_MEMORY))
-+	if (nid < 0 || nid >= MAX_NUMNODES || !node_state(nid, N_MEMORY_COMMON))
- 		return -EINVAL;
- 
- 	if (!mem_cgroup_disabled()) {
-@@ -7907,7 +7907,7 @@ static int __init kswapd_init(void)
- {
- 	int nid;
- 
--	for_each_node_state(nid, N_MEMORY)
-+	for_each_node_state(nid, N_MEMORY_COMMON)
-  		kswapd_run(nid);
- 	register_sysctl_init("vm", vmscan_sysctl_table);
- 	return 0;
 
 -- 
 2.56.1
