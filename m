@@ -1,54 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.21.23.139
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=84.42.129.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795186047;
-	b=DxGtT9F8jYfvBKql8pxxKVkSe4cexljzWQw24kU8h6nTigohYj3qz5OTBOGrmLauYhE2
-	 CJqv6NLd5A3zIRy51OUEp7WKz0KpZdt8honhz/z2UDNhEXUN71gFsFHBpWq9H7Nj63Pol
-	 3Xoux+PmkBQvmtj6N10M3AaN9OlArdsBkPbTU6MuhE1XykK57hU1O0zs7VkkcT4EF+Y5X
-	 5i3DOeE4O0oW/kY0hzXhsnpSkHo8j6uuqkvJdNGfb4Piq2e32lAaTqnwP7JxPquYpBQMY
-	 KjV58X54pUyyS5krif2Mk3ZRf0DTabWNdkJpiBx8OtUJCKhkHCf8DZl8o7L6hEaJ9oA==
+	t=1795186080;
+	b=R4WO8rBZST0/GApK74iGE8z1fzVWOQGSmGWUYRFTPC24l8LeIKV+FuxhyoRWRmcs7Jn0
+	 2BIYZuPz53Ff1allAxQ8QAXKxAEifmvpPHZHHp3YUyv0rKneTDAp8A6c1ixSQu/W3HQB4
+	 kkMALUyCKox9rgdiGbxuqaIZRqqT5fMqASQKVz3NwbWyaWLtdpL8x0AJu9FebMF4k/Pcc
+	 jVuA/cHuP/xlqS+FvREQ3bZCo/M6f34qXFPl2Aqe8DXQkq7ekTp4lLQZDVOsnMKEbaLeO
+	 1HInc7gT5amxC1YToeGTPumG4Nki3wLQxGR/gcOlapqjxy0DVdibruJwTjtIYYSnJHA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186047;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
-	 MIME-Version:Date:From:To:Cc:Subject:In-Reply-To:References:
-	 Message-ID:X-Sender:Content-Type:Content-Transfer-Encoding;
-	bh=7lDtZ3hGN9b/G+u+R6RW+gOmPSbNNpP4+cp9diJUF44=;
-	b=0ggHSgtUhqHL8gSfZu/K7g6J21rEZZC+pOLacxjYUuImkmlUMzZiwVx7z/QmaoECn9/L
-	 wmCKqXa4ELHD/n6AqtpNWilYZA9E/n0gYIEf0L3ApTXuyhwG6+Z3Jp0TuDT8PmsZcoDH6
-	 O2VQWZMJVl/a7d00GpB4lwfcFEZx6Ikh6Dzxz2mo8fzK8YHVR56wX2xoL2WpStqDcWdqz
-	 iH61PZ/v6JXbtgOAx1p7YeZKOc+LAZwRnWkipq4pOVHWrqX31LSRSZJEoklVoFOs1UrRH
-	 j+zsnHP0lliVecSxWIKksN1MBkdfU12ns29FEOyYAJbRomIAPiLredkqL4CRa+6/JOA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186080;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=ajQHVPUlwHQJNrn8ibr6uDUislX3tx7P9n70504rO8w=;
+	b=vE8jpvX/WwQDChZEO6cdsydcyuhBWIN2v9g8I1pW/4FoGjwC5upflkNU7R6zg8cd1t5V
+	 rbt7pcA2Xr0HMvjZ97GfW+O88ptZlk28ySAKMgaDijM59aiCjmL6gZsVIligI/pd5zpyd
+	 9zCiu2UUgs5oIR2gYFZWIWXShPG3a8stetJwUZgYwZ/i0cgWY8NRc46TmeeIOdobgWuX6
+	 AoCkFQYVOwLQ0NCxPJYjDYYfCZbuCLmNKjG9R4/Skw7fCvBzVd55D7VcDCOVaVteMwaQD
+	 sWGmDEkXMBIJ27oznXi9xVXF01h1AvKHxOMASLQRIbdNO4UpDInHMoFyG/Si3EHw1Aw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=disroot.org;
-	spf=pass smtp.mailfrom=disroot.org;
-	dkim=pass header.d=disroot.org header.i=@disroot.org header.a=rsa-sha256 header.s=mail header.b=WMddph2n;
-	arc=none smtp.remote-ip=178.21.23.139
-Received: from layka.disroot.org (layka.disroot.org [178.21.23.139])
+	dmarc=pass header.from=ixit.cz;
+	spf=pass smtp.mailfrom=ixit.cz;
+	dkim=pass header.d=ixit.cz header.i=@ixit.cz header.a=rsa-sha256 header.s=dkim header.b=Jp5YHK9N;
+	arc=none smtp.remote-ip=84.42.129.46
+Received: from ixit.cz (ixit.cz [84.42.129.46])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C4C3606A326;
-	Fri, 20 Nov 2026 14:47:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C4C3606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=disroot.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=disroot.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58C16606A333;
+	Fri, 20 Nov 2026 14:47:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58C16606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ixit.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ixit.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=disroot.org header.i=@disroot.org header.a=rsa-sha256 header.s=mail header.b=WMddph2n
-Received: from mail01.layka.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id CE9A180489;
-	Fri, 20 Nov 2026 15:47:25 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 73qYHBJgtuIa; Fri, 20 Nov 2026 15:47:25 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1795186044; bh=p4wlwrOxllXj04UsD2WxdhJIRf9fiYXFmoCz4Fpl6a0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=WMddph2nrb2s3I/T0hD9n7ZhDlnuEToadvNgL85j7KrwFAUhPO/091e4b1EJa0YGd
-	 FEoN6b7rlnA/gIIKD5K2L5IvxqgXBRr/iIVGL2NU2p2+sar7/1n1uwUkcBaRGVOH/h
-	 21yY9N9EEBO24tOdkMn7pQO9adKKMIKnHfGZK2zmvS1MJhfxtvCjoWfRHDWJ7nUvc3
-	 hJzDtbjDdutcZUJhiOeSV/54L02rDQKsfO6BQ8f5m+ON5o3S4XXdZgohFLhNyYed41
-	 Qq4XJ88GjLGhtnC3DSfvemg/SoUQagoOdtddepkuYQbUKp10z8tkKZxoX35Sf0K8md
-	 B0+iepISaYzPQ==
+	dkim=pass (1024-bit key, unprotected) header.d=ixit.cz header.i=@ixit.cz header.a=rsa-sha256 header.s=dkim header.b=Jp5YHK9N
+Received: from [192.168.42.97] (nat2.prg.suse.com [195.250.132.146])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by ixit.cz (Postfix) with ESMTPSA id 1914B5340330;
+	Fri, 20 Nov 2026 15:47:49 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
+	t=1795186069;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=ajQHVPUlwHQJNrn8ibr6uDUislX3tx7P9n70504rO8w=;
+	b=Jp5YHK9NUKKl4cH7UcHex285hOmyYKUs9qzhdA5oWpVdDucxm15y4TYfHWydvzg6ir8OoC
+	0T3QAf0OgcIgZ5gpzfR4KKe1WR30aQSUVjlJbfZIYe4MNeKLEO7hwjWjo+bxF7s6R6bvbB
+	j1Va8kjmm9Y8qPCc3KZg74IPkQv51F0=
+Message-ID: <787950f1-ff2f-4b49-b164-61da3c9971c6@ixit.cz>
+Date: Fri, 20 Nov 2026 15:47:48 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,100 +60,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Fri, 20 Nov 2026 14:47:24 +0000
-From: Rustam Adilov <adilov@disroot.org>
-To: =?UTF-8?Q?Alvin_=C5=A0ipraga?= <alvin.sipraga@analog.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon
- Horman <horms@kernel.org>, Linus Walleij <linusw@kernel.org>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Taiga Ogawa
- <zectaiga@gmail.com>
-Subject: Re: [PATCH net-next] net: dsa: tag_rtl8_4: add support for RTL9607C
- tag variant
-In-Reply-To: <awA2z07l0ZvzcWtc@analog.com>
-References: <20261119165129.26693-1-adilov@disroot.org>
- <awA2z07l0ZvzcWtc@analog.com>
-Message-ID: <b1cd757ad411aa74cb2934ccea0924e0@disroot.org>
-X-Sender: adilov@disroot.org
-Content-Type: text/plain; charset=UTF-8
+User-Agent: Mozilla Thunderbird
+Subject: Re: [DONOTAPPLY RFC PATCH v2 0/4] WiFi support for
+ samsung,coreprimevelte
+To: Karel Balej <balejk@matfyz.cz>, Brian Norris <briannorris@chromium.org>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ Johannes Berg <johannes.berg@intel.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, =?UTF-8?Q?Duje_Mihanovi=C4=87?=
+ <duje@dujemihanovic.xyz>, Andrew Lunn <andrew@lunn.ch>,
+ Gregory Clement <gregory.clement@bootlin.com>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Frank Li <Frank.Li@nxp.com>,
+ linux-wireless@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mmc@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht,
+ phone-devel@vger.kernel.org, Jeff Chen <jeff.chen_1@nxp.com>,
+ Peng Fan <peng.fan@nxp.com>
+References: <20251026182602.26464-1-balejk@matfyz.cz>
+ <DEJL1ATTQMVE.120JV9YW59I27@matfyz.cz>
+ <aSnWYS2g5slVFaSk@gaggiata.pivistrello.it>
+ <DI5L100Q1RKO.1A68EJIPWYSRC@matfyz.cz> <afI8y70U7wFT_07h@google.com>
+ <DLQ9LXDE2P29.248MPYCJMT0DL@matfyz.cz>
+Content-Language: en-US, cs-CZ
+From: David Heidelberg <david@ixit.cz>
+Autocrypt: addr=david@ixit.cz; keydata=
+ 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
+In-Reply-To: <DLQ9LXDE2P29.248MPYCJMT0DL@matfyz.cz>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-Hello!
-On 2026-11-20 12:09, Alvin Šipraga wrote:
-> On Thu, Nov 19, 2026 at 09:50:51PM +0500, Rustam Adilov wrote:
->> The RTL9607C family of SoCs have an embdedded switch that utilizes
->> the same Realtek CPU Tag protocol 4 with 8 bytes in size but have
->> a bit different of a layout. And that layout is also different for
->> TX versus RX sides and introduces new fields not seen by RTL8_4.
->> 
->> Add basic necessities for this cpu tag variant to function.
->> 
->> Tested-by: Taiga Ogawa <zectaiga@gmail.com>
->> Signed-off-by: Rustam Adilov <adilov@disroot.org>
->> ---
->> Tested on OpenWrt with 6.18 kernel version [1].
+On 27/09/2026 19:12, Karel Balej wrote:
+> Brian,
 > 
-> Mainline doesn't have the requisite DSA driver to make use of this
-> protocol. Andrew, is it normal to accept tag protocol drivers without
-> the corresponding DSA driver?
+> Brian Norris, 2026-04-29T10:15:55-07:00:
+>>> Brian, what are the options here now? Would it be possible to make an
+>>> exception and accept the patches without the firmware being in
+>>> linux-firmware? This is an old device with no mainstream audience so I
+>>> expect everyone who will want to use it will be able to supply the
+>>> firmware themselves
+> [...]
+>> I suppose I'll leave it up to Johannes on this part, and may be willing
+>> to retract my NAK [1].
+> 
+> I have not been able to get a response from Johannes for these last five
+> months, despite pinging twice – is there any chance you might be able to
+> help with that in any way, please?
 
-I suppose that is fair. I guess that also means i need to hold on to
-the PHY support patches until then too?
+Hello Johannes,
 
-> I can see that the OpenWRT kernel has a DSA driver using it. Why not
-> submit that together with this? Otherwise it is kind of dead code IMO.
+any chance to share your opinion here? Would be very helpful if could move 
+forward here :)
 
-Yeah but right now it is not upstream ready yet. Ideally i would like it to
-merge with rtl8365mb dsa driver cause by all accounts the embedded switch in
-RTL9607C is very much like rtl8365mb but connected over MMIO. So that is my
-overall plan.
+Thanks
+David
 
-I am already working on making the downstream dsa driver follow the rtl8365mb
-in every case, mdio [1], irq [2], mdb plus vlan [3] but it is kinda messy as
-VLAN side is very much like family D which is still being worked so nothing
-concrete yet... and the table part is currently being provided by downstream
-otto-table driver but we could just as well copy rtl8365mb_table in process.
-
-After then introduce something like realtek-mmio (similar to realtek-mdio
-and realtek-smi) and bam, we can straight up share the rtl83xx code :)
-
-But maybe i should really jump straight to it and not slowly converting
-the downstream dsa first (which wouldn't really be relevant anyway?).
-If it turns that i do need DSA for this be also accepted then maybe.
-
-> As a side note, it's unfortunate that Realtek recycles
-> EtherType/protocol ID values for seemingly different formats. At first I
-> thought this should be its own file/module, but I can see why you put it
-> here. My one concern would be whether the semantics for the common
-> fields are actually the same for both protocols? If not then maybe it's
-> better to separate them after all to avoid confusion.
-
-They do share the same semantics except reason part as its numbering seems
-to be a bit different, 80 is reserved, 0 is normal forward. More documented
-by the RTL9607C CPU NIC Application Note at [4] and the hwnat driver [5]
-
-Anyways, thanks for review! I partially also wanted to announce our presence
-to rtl8365mb folks by this patch as we may share the space soon :)
-
-[1] https://github.com/openwrt/openwrt/pull/26779
-[2] https://github.com/openwrt/openwrt/pull/26593
-[3] https://github.com/openwrt/openwrt/pull/26415
-[4] https://github.com/jameywine/realtek-doc/blob/main/datasheets/RTL9607C%20CPU%20NIC%20Application%20Note.pdf
-[5] https://github.com/jameywine/GPL-for-GP3000/blob/main/linux-5.10.x/drivers/net/ethernet/realtek/rtl86900/FleetConntrackDriver/include/rtk_fc_mgrTRx.h#L540
-
->> The RTL8_4AP name was mostly chosen because Realtek gave the RTL9607C
->> family of SoCs a codename "ApolloPro" in their SDK, hence "AP" part.
->> Originally it was named RTL8_4_RTL9607C but that feels weird.
->> 
->> [1] https://github.com/openwrt/openwrt/pull/26496
->> ---
->>  include/net/dsa.h    |   2 +
->>  net/dsa/tag_rtl8_4.c | 193 ++++++++++++++++++++++++++++++++++++++++++-
->>  2 files changed, 194 insertions(+), 1 deletion(-)
 > 
 > Kind regards,
-> Alvin
+> Karel
 
-Best,
-Rustam
