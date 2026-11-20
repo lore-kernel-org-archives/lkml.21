@@ -1,72 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.162
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180239;
-	b=AfCauleZ6eW1GAHKkdYCKxmbsC2Xp8/+4U0ZWt9Ty8OsLm5TpWaAJbvt5RWEH4zAcqKe
-	 E2MjlrcNqAlOBSSm7B4nTM7+7kw02L+q5yky5vC1Oh9y5RiGnaqd1SfrXwGtvoGDkuD06
-	 92BQQrZKnMb+C99jKOIhTq4JvaKaKa5XR4rsnyMC0ZM5KItZsjLrc6FP1Zk9Ulq/enJZ/
-	 /A1k9n+E6II8NtEEFT8d0GauzWb+jzBn3UGXyAVZW6dmss7tlLNN63Vcd46+G1fvVGoda
-	 Ak35jubHdPd82uo/qgP8EUq1KJxxI++HdhsuuEukAxRCf7MmgU4NB3xtNabiVGFtfJQ==
+	t=1795180241;
+	b=BLie7mLLbMXPjz+GrzYMjnM40ecWWTH5+tcNieKdRkNq/VRb1TXblUHCzBoQmx6shICA
+	 NHojDXIBnB05fRwBKkf/rO/FzzanHTW764G6QM3lLpgBi/WTkN7Hem7Zmtn9+mrE3/m6Q
+	 Fy9TAOblfTsSC7TroFYknTZRR4SjNW9dWlKdlEeJel1CFMypgbwI/AkBWUwJja/eVP9We
+	 uffu9jkMNPIWdSPQ4lCk8VBZkINkFERz2R1WNxVobKv0TBY4E+LqRMadkAUyGVorMK/n/
+	 tT2RB7eGv1GQ+mHjo8Dx4KKIdv1C/CXKMXtNv4B4HVlvoC5+EKC+HLQm6Rc9h4PQIvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180239;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=10xBO6BM5jC2VmfBalPyz94xHQa83JqJS3DZ37b5vUc=;
-	b=PHy9Nugh1RY9sOdTBGFal+4dg4DRyERcFFtHMyx52MDPPoHcIFq56ojBxAWOVweXD40C
-	 AUCTEVRHtzpXmRrviskUWJCemBhHkPH9J20Z2SGEaQJXYbMWp/iCp9o3et/c/uLNc3PID
-	 /t21YkxqXpRHxf+sU8EzJ3jOrvjd2x2ABDPoQd0VaCPdI4f49+72rM34CO0WmTxK6SfqH
-	 i57+a58IJ6OPU1XPnyP8PWcNaTGicjV1c+nAcLW4TOK84OYNFkue2tgP+zghG1iKvMiWW
-	 yEmoo7ydglPTkM1TJ4Deb/M8em1XQXR8xDu+7qGUJeQeZsDh/gpyimMmSiyzdvDxUGg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180241;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=U+hegRIy/xY+dpQTnd+QgneMyrjorR6EiSVKHDOG3Sw=;
+	b=dmCuiL8pZd0rCUO4msiQIwUT64dVPeLaY7E1ZCLblxG3OoECmOtcIak7Y7FlMNYgltNy
+	 hlKvnEwDuD8wxtW3cJP5EY7ixMDACvfrjHP1IVuzeDyRjQb8IgFWQ1VJEmVXXokAE/SET
+	 1SBSbCZRcN1WXEHSalFBF8T4yxm6cIvhl95rTeuRIIOY0dnZ8biTaSEdkt+nTuZ8q1EQD
+	 k6ngVIUJK2hk5H0ELcInovPiAJufR1o4lPo1wqi8OWhrFROWgbyrrfsO7wWI9H3Cp1f10
+	 OhOBJ2GAqkt48Woulb5YmOShnfnvXfDc4fncePeSOyASFDDdETsE9M2Nsk+ugQWzYbQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LBgYHFor;
-	arc=none smtp.remote-ip=91.218.175.162
-Received: from mta0.migadu.com (out-162.mta0.migadu.com [91.218.175.162])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hbyVScs2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07CB060A2600
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:10:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07CB060A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B852A606A33F
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:10:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LBgYHFor
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Gv0BXU35raU044WaCVsEvA9rHw/hM7oxsFEnRZDuxAc=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795180237; v=1; x=1795785037;
- b=LBgYHForlr+filyEb04K+4N/Uu6PbzoR5S1nuUFYFRJMFe7J8uIMBrlNagZ46Bc1rG0Lo8sX
- oxkTTLi6s9BSLBTprkzHfwfjhMQWfI90F6wDGpT16adoGMJuZAexia69WectS2HE6aB6fBKxhcY
- R4zM5l4XeMIESmGj+A8L6vzA=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 06dd85436cc8512a;
-	Fri, 20 Nov 2026 13:10:31 +0000
-X-Mizu-Trace-ID: 06dd85436cc8512a
-X-Migadu-Flow: FLOW_OUT
-From: Luka Gejak <luka.gejak@linux.dev>
-To: Mehmet Fide <mehmet.fide@gmail.com>,
-	Ping-Ke Shih <pkshih@realtek.com>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
-	Zong-Zhe Yang <kevin_yang@realtek.com>,
-	Tzu-En Huang <tehuang@realtek.com>,
-	Yan-Hsuan Chuang <yhchuang@realtek.com>,
-	Kalle Valo <kvalo@kernel.org>,
-	Stanislaw Gruszka <sgruszka@redhat.com>,
-	Brian Norris <briannorris@chromium.org>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mehmet.fide@screeningeagle.com
-Subject: Re: [PATCH rtw-next v3 3/5] wifi: rtw88: do not drop stations when collecting them for an iteration
-Date: Fri, 20 Nov 2026 14:09:18 +0100
-Message-ID: <20261120131000.33858-3-luka.gejak@linux.dev>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261117171003.1840491-4-mehmet.fide@gmail.com>
-References: <20261117171003.1840491-1-mehmet.fide@gmail.com> <20261117171003.1840491-4-mehmet.fide@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hbyVScs2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C79E01F00AD4;
+	Fri, 20 Nov 2026 13:10:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795180241;
+	bh=U+hegRIy/xY+dpQTnd+QgneMyrjorR6EiSVKHDOG3Sw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=hbyVScs29A+7Wv27mCUvHVh/8Q1lUXNtyP3A94pepSYMtvVPQJlrCp1XvwGJETkSf
+	 L7ie4beIvmjwG2Jwi3fxKd8rKYZSVhKhvqA5XIGJfaFgP+k/0co1k1TRNTYbkkpMuj
+	 WacsjXxGmsdTlKRn6LwYBR5jNefUyHnPAMBC/rIUri0gzjBv8EH3XfyzQKMr/pywE3
+	 hTKyy/gKDzCWGP7jUDfU3pxDiXYVCiNIf9YGE2aPjXm6+Meh2hZCL9Ct9JuNvxD1tO
+	 bPpbmPmaodMIi+rjy7eeOOd7bHH7lf8jUbuWeWZRpUJ6V20ixYZpAkJi/YQasPG62/
+	 y0VcwzTc9xq3g==
+From: Maxime Ripard <mripard@kernel.org>
+Date: Fri, 20 Nov 2026 14:10:14 +0100
+Subject: [PATCH v12 7/9] drm/msm/dpu1: Carry the mixers over to created
+ CRTC states
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,44 +53,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-drm-reset-state-flag-v12-7-42d63d7417fc@kernel.org>
+References: <20261120-drm-reset-state-flag-v12-0-42d63d7417fc@kernel.org>
+In-Reply-To: <20261120-drm-reset-state-flag-v12-0-42d63d7417fc@kernel.org>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Melissa Wen <melissa.srw@gmail.com>
+Cc: Daniel Stone <daniels@collabora.com>, 
+ Harry Wentland <harry.wentland@amd.com>, 
+ Jocelyn Falempe <jfalempe@redhat.com>, 
+ =?utf-8?q?Jonas_=C3=85dahl?= <jadahl@redhat.com>, 
+ =?utf-8?q?Michel_D=C3=A4nzer?= <mdaenzer@redhat.com>, 
+ Pekka Paalanen <pekka.paalanen@collabora.com>, 
+ Sebastian Wick <sebastian.wick@redhat.com>, Simon Ser <contact@emersion.fr>, 
+ Victoria Brekenfeld <victoria@system76.com>, 
+ Xaver Hugl <xaver.hugl@kde.org>, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, Maxime Ripard <mripard@kernel.org>, 
+ Rob Clark <robin.clark@oss.qualcomm.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>, 
+ Abhinav Kumar <abhinav.kumar@linux.dev>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, freedreno@lists.freedesktop.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3090; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=VOsWcDdoQhmil64ZECFvPndZo8/WP7wCswM7Ex/ZBaE=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDNkMblsnBOiL2Ov87X+jr/yr68IsuTW+N/8/Efy9sCxkl
+ mqvyh6PjqksDMKcDLJiiixPZMJOL29fXOVgv/IHzBxWJpAhDFycAjCR4gTGGu6y30/XbDO35HDR
+ VLPVab315sVf1T8zO37vnWWgnjehdk3bhorQDcvb7+2QkN59/GzZXcb6gkUMXv9n1SSeUvik817
+ VdNHUiTbz3rzRdt5isqHXX/aL0zoR91jWvbc2ykUWTH6pv8QJAA==
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 
-Hi Mehmet,
+drm_atomic_commit_fill_with_defaults() builds its commits out of
+states created through atomic_create_state() instead of duplicating
+the current state. A created CRTC state comes with no mixers, while a
+duplicated state carries the ones currently assigned, since the
+duplication copies the whole state.
 
-Thanks for taking care of the allocation failure. One comment below.
+dpu_crtc_atomic_check() only goes through dpu_crtc_assign_resources()
+when the mode, the connectors or the color management properties
+changed, so a CRTC that keeps its configuration with a created state
+runs with no mixers at all.
 
-On November 17, 2026 6:10:01 PM GMT+01:00, Mehmet Fide
-<mehmet.fide@gmail.com> wrote:
+Copy the mixers of the current state over when the new state has
+none, like a duplicated state would have carried them. This is a
+no-op for duplicated states, which already have them.
 
->  static void rtw_collect_sta_iter(void *data, struct ieee80211_sta *sta)
->  {
->  	struct rtw_iter_stas_data *iter_stas = data;
-> -	struct rtw_stas_entry *stas_entry;
-> +	struct rtw_sta_info *si = (struct rtw_sta_info *)sta->drv_priv;
->
-> -	stas_entry = kmalloc_obj(*stas_entry, GFP_ATOMIC);
-> -	if (!stas_entry)
-> -		return;
-> -
-> -	stas_entry->sta = sta;
-> -	list_add_tail(&stas_entry->list, &iter_stas->list);
-> +	list_add_tail(&si->iter_list, &iter_stas->list);
->  }
+Only do so for a CRTC that stays enabled. dpu_crtc_assign_resources()
+returns right after dpu_rm_release() for a disabled one, leaving the
+mixers it just released behind in the state it was given, and those
+must not be handed over to a new state where the consumers that don't
+check the CRTC enablement could reach hardware reassigned since.
 
-Does the driver mutex still pin a client that has already gone back
-from ASSOC to AUTH? In AP mode mac80211 can do that when userspace
-clears ASSOCIATED. drv_sta_state() calls rtw_ops_sta_remove() then, but
-leaves sta->uploaded set, so the watchdog can still collect the client.
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
+---
 
-If userspace deletes that client after the collection drops RCU,
-mac80211 can free it without calling rtw_ops_sta_remove() again. The
-temporary list now has a node in the freed station. list_del_init()
-can write to that node before the callback runs. The old code already
-kept the station pointer too long, and this adds the list operations
-on it.
+To: Rob Clark <robin.clark@oss.qualcomm.com>
+To: Dmitry Baryshkov <lumag@kernel.org>
+Cc: Abhinav Kumar <abhinav.kumar@linux.dev>
+Cc: Jessica Zhang <jesszhan0024@gmail.com>
+Cc: freedreno@lists.freedesktop.org
+---
+ drivers/gpu/drm/msm/disp/dpu1/dpu_crtc.c | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-Could we skip stations with no si->vif while collecting them? As far as
-I can see, rtw_sta_remove() clears it under the same mutex.
+diff --git a/drivers/gpu/drm/msm/disp/dpu1/dpu_crtc.c b/drivers/gpu/drm/msm/disp/dpu1/dpu_crtc.c
+index 77a2d1f6700d..a99f6761035f 100644
+--- a/drivers/gpu/drm/msm/disp/dpu1/dpu_crtc.c
++++ b/drivers/gpu/drm/msm/disp/dpu1/dpu_crtc.c
+@@ -1538,10 +1538,33 @@ static int dpu_crtc_atomic_check(struct drm_crtc *crtc,
+ 	if (crtc_state->mode_changed || crtc_state->connectors_changed ||
+ 	    crtc_state->color_mgmt_changed) {
+ 		rc = dpu_crtc_assign_resources(crtc, crtc_state);
+ 		if (rc < 0)
+ 			return rc;
++	} else if (crtc_state->enable && !cstate->num_mixers) {
++		struct dpu_crtc_state *old_cstate =
++			to_dpu_crtc_state(drm_atomic_get_old_crtc_state(state,
++									crtc));
++
++		/*
++		 * A CRTC that keeps its configuration keeps its mixers.
++		 * A duplicated state carries them over, but a state
++		 * created through atomic_create_state() comes with
++		 * none, so copy them from the current state like a
++		 * duplicated state would, to make sure the checks and
++		 * the commit see the mixers in use.
++		 *
++		 * Only do so for a CRTC that stays enabled:
++		 * dpu_crtc_assign_resources() returns right after
++		 * dpu_rm_release() for a disabled one, leaving the mixers
++		 * it just released behind in the state it was given.
++		 */
++		if (old_cstate->num_mixers) {
++			cstate->num_mixers = old_cstate->num_mixers;
++			memcpy(cstate->mixers, old_cstate->mixers,
++			       sizeof(cstate->mixers));
++		}
+ 	}
+ 
+ 	if (crtc_state->planes_changed || crtc_state->zpos_changed) {
+ 		if (dpu_use_virtual_planes)
+ 			rc = dpu_crtc_reassign_planes(crtc, crtc_state);
 
-Best regards,
-Luka Gejak
+-- 
+2.56.1
+
