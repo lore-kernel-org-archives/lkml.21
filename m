@@ -1,49 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.69.121
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795139702;
-	b=Fmf05dJTVwsC2Tjt9Qq9ULA2IO7MTlqvZ9AlLOSvxYzQzNmNdxzJ0KXConnKOOzO3jDS
-	 qAZCJGRdak9a37CcUlfYj1RPgHDTp+O12aVLojOXZwNAUFYGVAEdJyT2GfTF1g0g62fxs
-	 G8C69aRUYakGrujAzlJqfgb6iREFZywEgrvGDUXgpQqo8YRLw2TKXQRHt+jDtANpdUbkl
-	 7u4OPPtws8SSbJoQpCZGoK9Tw+PASWFM7fSXrRjjYHaZIcOPNycUtbUcnmjg9qxBEv7fX
-	 DWEW9pxbmsGfi+BM3FjTJnBzZNsGcHzl+ikavdAKd+fwNNiZnvHgnFVQNcTckKbBsZg==
+	t=1795139767;
+	b=yamWFgw8hnUgnUhkejpUWyq7X+X4BEqF4XqmN004lWymayrGv5TawtqRuHkQnwS+BJ+P
+	 pqax8C7IiwYFH5XEiSE1P+c3EG6Q2ubkMmvi7+vJYN4+j92+1KkGloSMFSyYyk1ORaTwv
+	 z3dDEWunUCq9JObXWpG2VP74eGrCt7GhE7F0sZdA+XVZPRdxIHINqcaFiVuKh5JtU358C
+	 wLBJlaCveLxgOfSrQml7KThdtCGrcWxWxQv1qTTyULTkKrDKuMV7b9FPDnk3a74I2D+Nn
+	 qyfyXOkE+nVHbmVCL4amCrYB0/nf8qbK6LJWQbWZl47xF54Z6akY2dIAQLnzB2fRutQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795139702;
-	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:
-	 mail-alias-created-date:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:From:Subject:To:Cc:References:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Authority-Info-Out:X-JNJ;
-	bh=3nJFyXbIWx/MRH904ZczxefA6Hie3BnVb96ab2XxJ0g=;
-	b=pXZaA9WMaJdEICQqSCN842C+NNWx68q7co20JdXKnyrH6JL4LJgZ98mx5wDXpbh1pS6z
-	 eqfR5NXVXRWfqWvHgySzPW41t2b/+AtB0WibaXk1CXtKOyuSNECBmAlVViY4uB55qtcbi
-	 Qf4UcdAkcPy7UssYNem39+jUPM+BHzMfOEdL0ZAwoLR7HJgS9K/ZKcd0doR9OJTPz9KOr
-	 Rf2GFpFZPJwr6jVy+AZUMNQFG7K73DzV5n74se5mXNtJGDP8BUQ3qUBSZwTzpEdjFJlEV
-	 U8BpL71L//QS+9amL4hfLJEdXeIAAnnPyDzKUk0RYxzK6ZlFbccd0JjbNnSbPqfO9ow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795139767;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=a5CIrYxU9SqcPHH8M4w7TQAs5jKgmz9DB+3XKG13HNM=;
+	b=dt5DLLqraj+V1A8AOGQlY9g1H0A6VngGnnKJ+3Eu0BQ3dnXh5fDbpKpL8AHSFpVlaDuO
+	 RF+VvxdhjLCwykXKTP98Obx00WY2YD/9uw2P6vd1/09Z7MPpYB0U5M1MTkgmjs/rU7D5d
+	 lp4eJ20T+mB553w5SlpjjuVbG7Ws/v23OjdTIFIzFXYSISqOLqozoSVb6IXzLgBdZ0VTJ
+	 NcI1EqDRzl+a7lV1pqHV7cjBkfPK6SLmmQNK/hkvb79FoFVVlmC9gkSLmtrDWl5sRDVmo
+	 W+vgjT2N7BUU28U6fycHAVH6U8G0HYrRhURI5NBQEeYp32Unsfn4QlCdZ6o4x2wcqpQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=shuye.dev;
-	spf=pass smtp.mailfrom=shuye.dev;
-	arc=none smtp.remote-ip=57.103.69.121
-Received: from outbound.mr.icloud.com (mr-2003b-snip4-8.eps.apple.com [57.103.69.121])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NfDteQ9m;
+	arc=none smtp.remote-ip=209.85.215.175
+Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06333606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:54:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06333606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=shuye.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=shuye.dev
-Received: from outbound.mr.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-west-2a-60-percent-2 (Postfix) with ESMTPS id 1989F1800244;
-	Fri, 20 Nov 2026 01:54:52 +0000 (UTC)
-X-ICL-RepId: 01a1f6a9-e9dd-7848-8fac-c9304d982ede
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shuye.dev; s=sig1; t=1795139696; x=1826675696; bh=3nJFyXbIWx/MRH904ZczxefA6Hie3BnVb96ab2XxJ0g=; h=Message-ID:Date:MIME-Version:From:Subject:To:Content-Type:x-icloud-hme; b=iHc7JFDz5oLF2OsthbKzZft7BLNi+KCZqswCIDF7IHYllDLb0LXqAa75Ew09mfLoV0Z/nkKN+KYwtRniu1qHRfU8oyvQ3Zi02HJ2uY76W/KLDuNhbBR+sYij7aenT/tdNPWvO9EBEw25ZwI+XwklfKTpf1h/F0pNUQNfLzimUQLohqQUwKUHHzpebm4yEgs+ZdV4PpR0a4YmgVL7K8OMjfVb5K8mfRYm11kie8Tqtk5INX+JjvNoQQ84ZuW4FWjR9EUXrqdYiH7Jb5Urkgz740ZTw+W7UgsvsKqPegGWguIzIC3QWCJML+JFIAvaWOv8pNMz4t6guZvdcI/a/cPGaA==
-mail-alias-created-date: 1658105457252
-Received: from [192.168.1.237] (unknown [17.156.200.36])
-	by p00-icloudmta-asmtp-us-west-2a-60-percent-2 (Postfix) with ESMTPSA id F09611801FA4;
-	Fri, 20 Nov 2026 01:54:51 +0000 (UTC)
-Message-ID: <c4801ff7-7ff6-457e-b0a5-c2e633d35c59@shuye.dev>
-Date: Thu, 19 Nov 2026 17:54:50 -0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AEEC606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:56:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9AEEC606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NfDteQ9m
+Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cdab938dc83so173826a12.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:56:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795139766; x=1795744566; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=a5CIrYxU9SqcPHH8M4w7TQAs5jKgmz9DB+3XKG13HNM=;
+        b=NfDteQ9mRoQOrVaEw6xG5NFS2S+VMbFp6z5vKMlojmwMkljHofsFySihNNjII/zd2L
+         75uRbI7Nk/HAuFlW6kiCEZ5LgSLKX/aqfMoX0n4buoee3cccgUHBy0CS46YgnA8o0fwT
+         ityPVvO2iXs4kznNNKqlbW+/B2ijcb28J6H6AVnwsPNMsO4bwLGhD6Dt5wGjBkWxEJcw
+         /zHVdVSxTH/Iny8tLNL0bXnQNk/3snWscZIYIP0J+L+oeYU46d4kYX8EPkAvG7oyiJ2b
+         r45MsS0EwXZYJVyB+5rYLBcGMWJBZQdpJN2CSL+hOBx2VAtJorTdBh0LUK0ulsJZXnhY
+         e6iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795139766; x=1795744566;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=a5CIrYxU9SqcPHH8M4w7TQAs5jKgmz9DB+3XKG13HNM=;
+        b=lPWausouKwYknqTYiHBjo/1+qSF2W6I7qAwxBTOSOaJNbh9YyyuvMPBY4D/pw+pS+k
+         7ffCBc7SgPzE7Z8lIWaN8fs+xR7QHGPIkD2gtWeYR9Wq7zuQGIE8ltQReVq5uz9V2w6d
+         1v8uSp3BToKsuDduIdel1UfBsqxtMVQUjpLI68UnoMS6ow6uB1qr2e3gQVm5cjms5NLA
+         kAQmRFFDPfUMNGLN85kR21KOIxYxKhuiRSkI1ivtZKInYQcE3+UixVaMGHMP2CJnZdYL
+         o7T8l/GWT6CpNeCcDGCW9eZUHCR5teSIpTaXlh5Nk+COYQIvh7gCnOkdryCzBNWcyoYG
+         jj3g==
+X-Forwarded-Encrypted: i=1; AL+hErFUaQ9/F1Q1xOYEk7BUIoq0VHQznJAlIlaSk+RbceJ1UWePJjz3t74rauLZxOeHWEJYAzQHj33hI/wOY7A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z98CUpmu7BWqX0RgT/9qs8va1p/jacosL2QUNe4WSyAFT2pnqtw
+	PL3xPVI0D2iAaLkPkWcneGC8ZYpMtyJDLoHzqsbXg6BnXytywRgoCowZ
+X-Gm-Gg: AZFdTZf93qFmZdUGHWuIZUa8lRi90pijfQQVbb3TbaSnI2XvDdIxrQuqFw2bzjaL59K
+	DoEM9pwfppxG34Ej+BfcyWMBbdgClPla4BPMhogShP4oGV9FsxvQ7fqlnBGWXETTIFGIypo6L+1
+	vuLzauhhR14DZbgU06v5rKDiabAtGPWZD+RoxHuRrh+REs6PmZysh2TVVbjCZIcj7HzhltTlPCG
+	UTkKgeit6DC090f5+fvYH1SgkrVJKYCjLkzKbO/iWATnOG1hkOYp3l9EPtluYdxIHwNJlh8eErx
+	/dYH+nm3EQSgkkFiiWA6WfNcVJSwwyCh40zMCAbNUv3RtpBbWJXWOwY9IQ8fcoQReh95eK+dBuB
+	+S056FJNQGZ5/bNYLHRqMV41Wee5CLXT+DYrvjuSw3R0smYg+5FZT90EJF0HuOjgMuxOh+lWO4G
+	FLJuL92rvc37M7iFJo3N7XjS8mgCeu2sDPS3rcE2w9FXEsZ7OJLI0jvLTg4OPUtGyhOg2CAubUl
+	Jgt7C3ACzUSqBzHmg/X6YARENR3P06jcjWGqTgBfqt5ccyz5HGOxoid7QKTvBoB7kl3ezl7wdK2
+	6CkR+POcC8OXEj+rBlTJzTAR4mFeNHRVmINZFgVD1ZQTp7qgBNA=
+X-Received: by 2002:a17:90b:2701:b0:3ac:bfa7:b079 with SMTP id 98e67ed59e1d1-3b41c7abfc0mr1202961a91.7.1795139765759;
+        Thu, 19 Nov 2026 17:56:05 -0800 (PST)
+Received: from u.. (61-222-64-201.hinet-ip.hinet.net. [61.222.64.201])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d63728sm5355957a91.8.2026.11.19.17.56.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 17:56:05 -0800 (PST)
+From: Tim JH Chen <tim770802@gmail.com>
+To: netdev@vger.kernel.org
+Cc: chandrashekar.devegowda@intel.com,
+	haijun.liu@mediatek.com,
+	ricardo.martinez@linux.intel.com,
+	loic.poulain@oss.qualcomm.com,
+	ryazanov.s.a@gmail.com,
+	johannes@sipsolutions.net,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	ilpo.jarvinen@linux.intel.com,
+	sreehari.kancharla@linux.intel.com,
+	m.chetan.kumar@linux.intel.com,
+	horms@kernel.org,
+	linux-kernel@vger.kernel.org,
+	tim.jh.chen@wnc.com.tw,
+	Chih.Hung.Huang@wnc.com.tw,
+	Tim JH Chen <tim770802@gmail.com>
+Subject: [PATCH net v7 0/6] net: wwan: t7xx: fix TX push kthread soft lockup on suspend and RX stop issues
+Date: Fri, 20 Nov 2026 09:55:50 +0800
+Message-ID: <20261120015556.131547-1-tim770802@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,127 +111,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Ye Shu <hello@shuye.dev>
-Subject: Re: [PATCH] e1000e: add Dell Pro 5 Micro P5M1260 to disable K1 list
-To: "Chia-Lin Kao (AceLan)" <acelan.kao@canonical.com>,
- Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Dima Ruinskiy <dima.ruinskiy@intel.com>,
- Vitaly Lifshits <vitaly.lifshits@intel.com>,
- intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261119001818.513503-1-acelan.kao@canonical.com>
-Content-Language: en-US
-In-Reply-To: <20261119001818.513503-1-acelan.kao@canonical.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: jbCAZH3vfCWXGgbCSZPZ2sPzq8vDHWeS
-X-Proofpoint-ORIG-GUID: jbCAZH3vfCWXGgbCSZPZ2sPzq8vDHWeS
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAwNyBTYWx0ZWRfX4XfM9aHe0pPZ
- Bp5wfaJ/TPln9eAHtewduefqFrReBXw8om4+5+IfeKFMEZBnQSxwHm/3Pz7ljLfxg3qSYnJIZiK
- 8jD9rqScaSN1yDl04O274rCnNv80HMb+qfyuZx9lvrhcSg0BOiGtL3iVlFRKjC4U+Sc5BG6QQb0
- a8egKeL4Lk+n/FXjcwK0+5YvjTIq99m04MlnPYxuVFnJuUbRaasvvwpKc3tZLxYMPFrSTwLZ9xm
- K4bbHg9p8jSM6ZelRf6/Nj908FR0DsyOFVHJM+P38cuYbjyfBSHcwSFs5jVl2qDszjBLQxE+MFU
- qpTxvnRvEbPp34/kKTM2J8kMQXz8WEE7TCwwI+yjyN2lxkkVtRBO3T6bGNTapE=
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAwNyBTYWx0ZWRfXy2+SmrgO6jwn
- Y3ZkLdZrT6+OPAoApIy+SzoRt28ayc9l6FglV42FmTM9dN6rHnjixwZUvlobuTLvEYvjne+qzNi
- HP6qb53xfgnGCwPrUd9HpuBPcz/+PmQ=
-X-Authority-Info-Out: v=2.4 cv=fISsTpae c=1 sm=1 tr=0 ts=6affa86e
- cx=c_apl:c_pps:t_out a=9mRn2PO/+PIrVdEbaIuMPg==:117
- a=9mRn2PO/+PIrVdEbaIuMPg==:17 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=AZoGnDOZhPiq548KR6q9:22 a=6pjilUagrR-x8BKHJBT4:22
- a=_HOHq80dBbJJRk_yJP8A:9 a=QEXdDO2ut3YA:10
-X-JNJ: AAAAAAABpKVf7VYpJFRYNM4Inx1hXJ26BM7s7NjMFejxFGsnpGru/1oChIUijPP5g/Kcz8
- FRIb6pMnYREpzQujFLkSqZ45NESBRr8SEjWH5wOTiVBuTHRgQQ5Li/sywoOZOvQRfU34uB
- QusfTqcmY4JNQ13ckq3zVGvxBPimYgmp1BylzA27fgeFw0g2rIR1hFMm7G9SUX6Er6hn5t
- /wcjReEY0uKff+pwEEMlhfghyHlpDUgqNmURtFxCeg3LKXfpW5Z4hxs3OmVDiEEW/XSmrI
- +lyyQWFwhDFW36KF3IICeyjoR+RGK9mVc9wRZh48vvlCEuhYdn4mT/lCCDJ65w2sevSylG
- cZT3tR1XzB/ItiJheMV4wE01YAi/ihR92wqvu2bbG7ZYQXYmqfqVQgpvqS+sfdl1MJ6KpE
- UD/u8wiotqqcxlSgI99da79WBIV1ndQmxMylbXSsQQCuZLp/Jrh87WJzOb1ewrkQgZF88V
- 0pyY+B4zdooBUO/PwLfKxC6ZTikhyjiA7RNoi11nniVtY1yWMsuZ2/MvMPX9k+t6s4gthj
- B9K7ujTzU4wDulxPiZH0o7cy4VKkKvsir6NQAaupqd/BeB+lYu+YLpLiARiJiuzhjf/Lo/
- bgvCNkQCyznkUnp7MyvPgHhR51TuybztP0rKdW0HygtpwG0QRaHb2pVE8r8vD+D0QKvxbo
- 7G3N1DhhkjQpr4zCSYeRHDVeC3h+MpThkjr4l8fK02p/wvMsNY6bdvwNoU9l6gaZwk0kMp
- 8UB9/hS9KRT7JB1Q6tPKQuWpv6J9g9RmnAIhnK6sfNZzr+m/BIZaLpVNDikETMxHsAYhyV
- C6Beyn/oYH38Zmrxzh80NDslLJzX652lKK40CPyEON77rSEugLmxYEs+ZxAXhxE2t04dgT
- ITEEiSftpufMcV1tTyrzfg36LiAJW1i0UdHG4TSGW1KNsEBcXpYIhttuBRLt5RO0nvTQPZ
- kgbiaK0IrKUApMqmNrhjEpJqZj+O23X07XY9flYhi0EfAHcmxXbBPX+6wGiUTV8gw5vpdD
- nn+Pqdpm9KuYmqH/P9yPxS5zM+kc/nfZOTZrzE34Avh+ye7qqf0no/8j0G/d79SnGM1QkZ
- FoedGGatTP6TUdj7sYMo8wxdwv7WiD2Kzk89TSyJi1c8YJ3KoSuoo14DYijHjugu+znY8k
- qS7szBDeY9s/tYN2RM9MhhJwjKAOgS+cDRnmETCOtYRxXUay25L6qFVPXBVC7oUYb5Y2yV
- snR83+cLc5O6Zrko0tKvcRPFznFIdNkF61Fiyg38XnfZMAW2xvHr2gOv8kYyZbJfb0g7JE
- C3scbTAo6G3kHrjBr6Wrk9pApWDxbx8Uz7a6NZ2RKlE02wsbIK8M95sDZCsZeB2WGGC/4P
- FHFaG9QHjEOMjjn5s9GERniAV/YLRYMRe5KPftTkSFjIuzEdZQ==
+Content-Transfer-Encoding: 8bit
 
-Hi Chia-Lin and others,
+net: wwan: t7xx: fix NAPI completion and rx_stop ordering
 
-On 11/18/26 4:18 PM, Chia-Lin Kao (AceLan) wrote:
-> K1 was re-enabled on MTL and later platforms by
-> commit 578294b8b60d ("e1000e: Reconfigure PLL clock gate timeout and re-enable K1 on Meteor Lake").
-> Since then, the Dell Pro 5 Micro P5M1260 (Panther Lake, I219
-> [8086:57b3]) no longer enters S0ix during s2idle. 
+Two fixes in t7xx_hif_dpmaif_rx.c.
 
-I have independently reproduced a similar S0ix issue on a different
-machine, an HP ZBook 8 G2i 14 (also Panther Lake, with Intel I219 NIC
-[8086:57b3] using the e1000e driver).
+Patch 1 completes the NAPI on the not-started early return in
+t7xx_dpmaif_napi_rx_poll().
 
-Machine tested:
-- Model: HP ZBook 8 G2i 14
-- DMI system vendor: HP
-- DMI product name: HP ZBook 8 G2i 14 inch Mobile Workstation PC
-- DMI base board product name: 8ED9
-- NIC: Intel I219-LM [8086:57b3], subsystem Hewlett-Packard Company
-  Device [103c:8ed9], driver e1000e
-- Distribution: Fedora 45
-- Kernel: 7.3.4-300.fc45.x86_64
-- BIOS: Y70 Ver. 01.01.07
+Patch 2 fixes the memory ordering between t7xx_dpmaif_rx_stop() and
+t7xx_dpmaif_napi_rx_poll().
 
-With K1 enabled by default (disable-k1: off), S0ix entry is
-intermittent. Some suspend go into S0ix while others do not, even with
-CPU reaching Package C10.
+v7:
+ - Drop v6 patches 1-3. They need rework based on the review and will be
+   sent separately.
+ - Patch 1 (v6 4/4): change Fixes: to 5545b7b9f294; remove the code
+   comment.
+ - Patch 2: new.
 
-> Every suspend ends with:
-> 
->    intel_pmc_core INT33A1:00: CPU did not enter SLP_S0!!! (S0ix cnt=0)
+v6: https://lore.kernel.org/netdev/20261002014638.47981-1-tim770802@gmail.com/
 
-Failed suspend produces the same message:
-   intel_pmc_core INT33A1:00: CPU did not enter SLP_S0!!!
+v6 -> v7:
+  - Patch 1 (was 3/4): drop the explicit quiesce added to
+    t7xx_dpmaif_suspend() in v6 (interrupt mask reorder,
+    cancel_work_sync() of the TX-done workers and of bat_release_work,
+    hardware stop moved last). The review found it incomplete without
+    synchronize_irq(), losing the UL-DONE unmask and able to deadlock
+    runtime suspend. Also drop the freezer: the kthread now skips the
+    push and waits on tx_wq when it finds the TX queue stopped after
+    the runtime PM resume, which also covers a resume that does not
+    restart the queues (modem exception, shutdown), where the freezer
+    does not apply. Commit message rewritten around the mechanism
+    visible in the captured soft lockup; subject changed accordingly.
+  - Patch 2 (was 1/4): use pm_runtime_get_noresume() +
+    pm_runtime_resume() at every site instead of per-site flags, which
+    also covers t7xx_dpmaif_irq_rx_done()/t7xx_dpmaif_napi_rx_poll().
+    State when -EACCES is reachable.
+  - Patch 3 (new): t7xx_cldma_send_skb() returned -EACCES for a
+    successful send, so the caller freed an skb that was already on
+    the ring; same reference handling as patch 2.
+  - Patch 4 (was 2/4): retry every second with the first failure of a
+    streak logged, instead of every 20 ms; Reported-by/Closes for the
+    field report on the v6 thread.
+  - Patch 5 (was 4/4): Fixes: changed to 5545b7b9f294 ("net: wwan:
+    t7xx: Add NAPI support"); code comment removed; user-visible
+    impact added to the commit message.
+  - Patch 6 (new): fix the memory ordering between
+    t7xx_dpmaif_rx_stop() and t7xx_dpmaif_napi_rx_poll(), found by the
+    v6 review, and keep the pending PIT release count of a poll that
+    is in flight when the queue is stopped.
+  - v6: https://lore.kernel.org/netdev/20261002014638.47981-1-tim770802@gmail.com/
+v5 -> v6:
+  - Drop the "freezer as a global quiesce" direction: remove every
+    WQ_FREEZABLE annotation added in v4/v5. Marking the data-plane
+    workqueues freezable can deadlock the suspend, because a
+    flush_work()/cancel_work_sync() issued from a context the freezer
+    does not freeze (the FSM kthread, or an unbind holding device_lock)
+    blocks until thaw_workqueues(). (Reported on v5 review.)
+  - Instead quiesce the DPMAIF data plane explicitly in the system
+    suspend callback: mask interrupts, cancel_work_sync() the TX-done
+    workers, call t7xx_dpmaif_rx_stop() to drain the in-flight NAPI RX
+    poll (the freezer cannot park a softirq), then cancel
+    bat_release_work and stop the hardware last.
+  - Keep the PM freezer only for the lone TX push kthread, and use
+    kthread_freezable_should_stop() instead of try_to_freeze().
+  - Fold in the pre-existing fixes previously deferred to a separate
+    series: the -EACCES runtime PM usage-count underflow (patch 1), the
+    TX push kthread self-exit use-after-free (patch 2), and a NAPI that
+    is never completed on the not-started RX poll early return (patch
+    4). This revision is therefore a 4-patch series.
+  - Do not touch t7xx_hif_cldma.c. Restrict the commit messages to the
+    DPMAIF data path; the CLDMA control path uses a different mechanism
+    and is called out as out of scope.
+v4 -> v5:
+  - Fix freeze deadlock in t7xx_do_tx_hw_push(): when the TX-done
+    workqueue (WQ_FREEZABLE) is frozen first it stops draining the DRB
+    ring; the kthread then loops indefinitely in the ring-full retry
+    branch and never reaches try_to_freeze(), causing a freezer timeout
+    and suspend abort. (Simon Horman)
+  - Extend WQ_FREEZABLE to the BAT-release and CLDMA TX/RX workqueues.
+    (Simon Horman) [reverted in v6, see above]
+  - Note the -EACCES underflow and the stale kthread pointer as
+    pre-existing issues to be addressed separately. [done in v6, patches 1-2]
+v3 -> v4:
+  - Drop the tx_pm_lock / state-snapshot approach entirely and use the PM
+    freezer instead. The previous approach deadlocked through the runtime
+    PM wait queue and opened ISR windows by writing dpmaif_ctrl->state in
+    suspend/resume.
+v2 -> v3: process fixes (Fixes tag, changelog placement).
+v1 -> v2: save/restore pre-suspend state; wrap pm_runtime with a mutex.
 
-> The PMC low power mode status dump shows the GbE IP is never power
-> gated (GBE_PGD0_PG_STS, GBE_D3_STS and GBE_VNN_REQ_STS all 0), while
-> the CPU itself reaches C10.
+Tim JH Chen (6):
+  net: wwan: t7xx: fix TX push kthread soft lockup on system suspend
+  net: wwan: t7xx: fix runtime PM usage count underflow on -EACCES
+  net: wwan: t7xx: fix skb double free when CLDMA send sees -EACCES
+  net: wwan: t7xx: do not exit the TX push kthread on resume failure
+  net: wwan: t7xx: complete NAPI on the not-started RX poll early return
+  net: wwan: t7xx: fix memory ordering in t7xx_dpmaif_rx_stop()
 
-The PMC dump shows the following:
-   CPU_C10_REQ_STS     1
-   GBE_PGD0_PG_STS     0
-   GBE_D3_STS          1
-   GBE_VNN_REQ_STS     0
+ drivers/net/wwan/t7xx/t7xx_hif_cldma.c     | 12 +++++-
+ drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c | 35 ++++++++++-----
+ drivers/net/wwan/t7xx/t7xx_hif_dpmaif_tx.c | 50 ++++++++++++++++++----
+ 3 files changed, 75 insertions(+), 22 deletions(-)
 
-> Disabling K1 at runtime restores S0ix on the same unit, kernel and
-> BIOS:
-> 
->    # ethtool --set-priv-flags enp0s31f6 disable-k1 on
+-- 
+2.43.0
 
-Disabling K1 using the same command appears to resolve the problem. I
-performed the following A/B/A test within a single boot, using 120
-second rtcwake -m mem cycles and measuring slp_s0_residency_usec before
-and after each cycle:
-
-disable-k1 on:   6/6 successful (~116-119 s in S0ix)
-disable-k1 off:  1/4 successful (118, 0, 0, 0 s in S0ix)
-disable-k1 on:   4/4 successful (~115-119 s in S0ix)
-
-Since this issue also reproduces on a different machine with the same
-PCI device ID for NIC, would you prefer adding another HP-specific DMI
-entry to disable_k1_list, or do you think that disabling K1 for all NICs
-with PCI ID [8086:57b3] would be more appropriate?
-
-I'm happy to submit a separate disable_k1_list patch or test any
-proposed changes.
-
-Thank you!
-Ye
