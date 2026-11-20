@@ -1,103 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795147205;
-	b=w17RroNOuajY2H2i1QwsmqnyTKZS9CDW3DVJiMcbzTUSWt9KJjTwhI57Caln0rSjY3eE
-	 t47SeRElAxts8HvvNQdan+3PG0nGEa9lormJ7kIoO2rz0c9P2yLP0F46VoCuO/aarCY2s
-	 8RIL+cnIEUGPoQfoF9SIcplZwcqreiFKe41VjwE0Sk3eGxo2Ww4l557BJza1vG93mLVYK
-	 nfa8sYMOxJKu66FgFbOlfUzUxAiky7whHnrx2xA34kjRVsWPyA4kocDbyMS/EOFEu5oiu
-	 8nE5pDAPWBJ96tNFlmtdlPVGNcmdmFZ/ct38dPYuIKyktJMZilT+jak9rIWP1WqHJdQ==
+	t=1795147224;
+	b=I2pF2o4RTvapw5V+tmc66bC9v64HKxxG3wXwEgwo2tiPjbEKqZcBNI85CEnF2TkSePl+
+	 Wl9qJTerUzPOxp1QAYEjj8+3ea6doNNHqIFnMhHKiObVvPr7HTlHL7udRCcz7Ece3/VJV
+	 mWC8t/XV2jqOjAyV3MYFexNtf+OSX+YnX1L+XBxwNRgclw7ko/oNEnD1+sYOiKT00TccP
+	 D6+95RAbvfws+zRQOXfanpuKhSM4vnhqDyUvjTLwQo9XqMThDtA4Ymkivizu8OVsteUOF
+	 pi3dOJHRIin7mIvaNSgAt4DMLvqgMcU8WyKfD70QYgydnOuk5/9gaVBa6E79+50na/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795147205;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795147224;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=3o8lIoxd/J68fTCxNjKUOwU7KIWlfdsl4McX0KjPG74=;
-	b=sAZZ3P1wEMSc+VLYcRvdJR0VAwsnjgpJRKWO8vxyYZKi8HTtI7WPpHMHJ6E8H12Kx67M
-	 XX8qDYVD8v0jb+oXRU7K/1ixZ5WB0OPFhA0lCtj/GH6YoDZ5V46fCDHXoLvPYt0wOL7Or
-	 z30dqpX1gjZ/VUdrsv9+ILtNsL+/8JmambCOv/1DvxVNE+OY3PykGuX/ZK9hmd3+artdf
-	 lkM68AUMI2VNbKpKeFwuT3HszrSB3KZXEYSxqvHfIqbmQuJtyFhDcz6W8otf62mmj0ZKL
-	 94dAfxCsoLm0XeD+StQ52ofTwfwuW1D9FwR833pcoM0ji/0tyxkaXkWSsdcJQbiC4Pw==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=K98FROqv30LP4AMm6nG2V0NGt/4i9m8U/QmIKGR/nHA=;
+	b=HKbwDSn5KwQ85YdnBPIht1ZA9uivpycXtBNaSvTgyCIkLFVYbNP0jnIBRmyDfEGQ5QgX
+	 sKCvCTEy8wZps7t2vvkJ1TEPHblZJRNL+QtDp+ME0S7sB8d9DpRaL8r+gwqz01O+tBOAE
+	 GCBwrrcLmjXyVO8Ri5EKOsUIV6b3EKhKQc24qRjUmuVClnqE3oqDufru2P5iJOKLcyy5W
+	 ePL8v42AAwob3FKx3UIBX+s8NrEA/d3DemKcSTBTrUuSWVPxqRfPtj1PrmQljhSo/8tnL
+	 sw4PmL1JMakAPjr/nhcLr+t8lqTuE+B3joWg33IkKf2S6q1krR6c89LvMOB1q+XM+BA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MIk7AYxl;
-	arc=none smtp.remote-ip=209.85.214.182
-Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--tarunsahu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=B5criCdm;
+	arc=none smtp.remote-ip=209.85.218.72
+Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com [209.85.218.72])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1DB9606A338
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:00:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1DB9606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F54F606A331
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:00:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F54F606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--tarunsahu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MIk7AYxl
-Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2efd7259872so2668595ad.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:00:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=B5criCdm
+Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-c505ee610feso35810666b.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:00:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795147204; x=1795752004; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3o8lIoxd/J68fTCxNjKUOwU7KIWlfdsl4McX0KjPG74=;
-        b=MIk7AYxlubAGO5iF6xq1gJSK8bb6mnscfLO44jNUU+Pphz1Xnz/cCtER7nlvxICf/J
-         4sCMYbD7Qh5UgNzCoryZYhxnpCzBmo/w+HNg+LAGmsdfFTPj+Jyn0DjVQnx9RYEvorOa
-         vUEdGPUURLAcQqngaNteUwcy4L/i2i7IdLaW64hcPhIVG0rR1Dy4M3Nbl6ZnLUSyeDBw
-         /mcdjp/4ow8cJr0aHRyuQ9qY+kpCFQOC88V0n180NhH/+gEEd/wkpikG3G3UmoCMOZ6m
-         apAcSttUCPPmTH+64TmEh/THTTPya2LtUs/8xDxIEVF1j0DEeCl3ictl37Vq1+dInU6m
-         8bvA==
+        d=google.com; s=20260707; t=1795147223; x=1795752023; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=K98FROqv30LP4AMm6nG2V0NGt/4i9m8U/QmIKGR/nHA=;
+        b=B5criCdmTHpf648AOYOoTrsp7d3NtGQaXhm0wMw1FXI3k3qw+457SKF80eC5qUcEr9
+         R5Jarg3tinhS/KE9BrIkFy3cbmSnVIChYpPMlyDW9+lZKO0ID9Z2fsL+JRhl6dfnl5wS
+         u/0lzw3QyLg0SUhXq9kg7PJNK37zkAVLcXZFEgnPtuPAnpD+fadgjVq1GtCPSrfhUFiY
+         BIgOo1wmzaloGacQItCbAPgBfbEoVgkdAr0aWujuWDehTSM49+mnRV62CDO+hXm9kMUQ
+         YSTirgHtY4c5Xa8FG4gJ7p1jPWSue5VrdAxaaoO89BsEeROyX55jHwuC8zlqUq2NyrgT
+         HlWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795147204; x=1795752004;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3o8lIoxd/J68fTCxNjKUOwU7KIWlfdsl4McX0KjPG74=;
-        b=LfXPMAc7RbjuVoNNMIwkc2nqWazl9LTNd5WH21or0d7aC8V+JptZcbHEqxfeOZVa7u
-         gorIQE4fCaILTMixSoUgh3RiPYEPTzeXdDPtMjRkjPmsauMJ83Zpdwu6k2tr/76B0uQd
-         k+9a+jhELJanGvpq/N7yMYnQl+PkRhZDGbWvPP9KutHQ+OyxqtzGebxO7tuTx4PJwMQs
-         mjypUCs86oP0RqSxPel1lVYb0gg19rpslOfRuf2J3SeIm4a0rydaJZfajAlvhQQDnLzJ
-         9M9xuhHEMMHH/vg1gQYxorW0UT4OXpymkWYCPVtWC/tN+WVMX61tqLmxwabhH7xOgT8g
-         GCZw==
-X-Forwarded-Encrypted: i=1; AL+hErHo4QW3jZlhJEAuRMo53lQTApb1vRmqqnRZChJATxiXk7uhX+jP+EWqkAPmhkSo/CbUCckrRNvoGJCi5+M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z98SSfGyLkPfwjbEla/mHR7w0LU++pclg8nErBHzaCmdnxk0Pvb
-	0i9DvIl+7yeOl7uFIFQx9gVn5EkWaJzUtSue1+eUVL8YeBD7KZJX7pFR
-X-Gm-Gg: AZFdTZfzf522FUCuUUh9NKtZLvF2FNXbH0eVtFY7SeuLFI/7l+JZGWkrMgO7twcysEA
-	NtnC5Qe+BO/28nrZLpWjNAxCIDI/k1kiOMkdZQOY67JaV2kFQpC5p5O69hRMC2Bruy31iPRkToi
-	vU0zluhGHxMYrPdl914VGI1NpLqQ94QSsCDVJIGErM81p8Cz0VX7F4DsLJOrzNMJCj50cGo+G9I
-	JT2TG8q1QKXClYcudrqwcD+ZdwlmgSaHaGmDC4FNjQJdcbS5XzRm49MOFZXfn5QMGaFdO+fNc3/
-	lIlv9Crx/OjFCSED4RA9PtVH8EehvHisFnwGpLBBc5d3P4FoXfrigaGZUgIOJGXAoSQn7mGAUFq
-	RJIeND7kzwiRWEHYajouZcJl92nTeIzh64cc3j/B00VjubSASLj/BbLNW4jhh5IUOY0lYb0rq0D
-	1itKxjQZx2dF9h95RAzwjAkIMpDv0RR778ZNAGSt8IN9Hev2WJQwEDN8SkvW/f+t/J5OCY+F/Bt
-	vmdzo0QXp+2nrQfPb2biPOfh5RE7rvLBwEEc+pm9PqPL8/IE92oDBhnN2pSctknAYsytdd6aHrU
-	pPYWMMUKdyCjJVQGD2pCv7vSTSSAofzbjQk9VjRkQ+qTsAQs5GaaJPlM6hU7Il+rOeIOEW5XX9M
-	Lnnpa3T9jThuHGX4tKl26dEs/lcKVNl8n10vDNLQd+lgW
-X-Received: by 2002:a17:903:22c8:b0:2ef:dc24:c71f with SMTP id d9443c01a7336-2f03f2980f4mr21004545ad.56.1795147204267;
-        Thu, 19 Nov 2026 20:00:04 -0800 (PST)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1215e2sm7801115ad.63.2026.11.19.20.00.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 20:00:03 -0800 (PST)
-From: phucduc.bui@gmail.com
-To: Mark Brown <broonie@kernel.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrei Simion <andrei.simion@microchip.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [RFC PATCH 2/2] ASoC: atmel: mchp-spdifrx: Preserve MR defaults in hw_params
-Date: Fri, 20 Nov 2026 10:59:39 +0700
-Message-ID: <20261120035939.12774-3-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261120035939.12774-1-phucduc.bui@gmail.com>
-References: <20261120035939.12774-1-phucduc.bui@gmail.com>
+        d=1e100.net; s=20260707; t=1795147223; x=1795752023;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=K98FROqv30LP4AMm6nG2V0NGt/4i9m8U/QmIKGR/nHA=;
+        b=Y6SNKswHlJj0k6WyOGT5ciB5Awn2oHTRqQuTmYfaSkjNSSAjN+diKJ5bpungAJy+yR
+         sIDT3fXI5HhYwDrasrtNhRdoejp8SPBA1f+6CIPqO7aay+L0gA0pdJegsezQJokQ03WY
+         gNXo1JxiI9lb7aZoJIGWGmsYTV/UK/0v7KFDBoDM1D+Hzq/gmqFcoQjclwrcVTGZlS0y
+         no75dJQcL2S7CC1galEjnZvyxS/VyTyge6dP/M/jN/P0lLOBo8tJA8WzIc6Qh0dggVJ5
+         APKVw/nfhCXjg4t6yl3Yo3oqxGmS07IyDEAvnlYjydsmEByEau44Zrnqvsn23+MVlAJE
+         H7LQ==
+X-Forwarded-Encrypted: i=1; AL+hErHLgTlI7Dw5Ouk060/U+CEpS9kYR3D0yRFgpqv+mi2jBP3GoqsexMs2NTWJhqgbIwXZWfkz3kRUvtuhjNo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8a+9+oaJR7BgFq/OU/ggKjC6RtJDcTkoZqvvOR20/BmNfZCWNQ
+	3Xp1kvh3Ih04vOfH59J+MoatacjIhVvI0jyyj0Cs2c5j/zZ6fFOEDmBn/K75vMojuV+YH0gqP0v
+	jC6ezWp5/hzXQmydgrg==
+X-Received: from edeg3.prod.google.com ([2002:a05:6402:5643:b0:6b8:a08a:8bad])
+ (user=tarunsahu job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6402:501c:b0:6b8:afbd:64e6 with SMTP id 4fb4d7f45d1cf-6ba37edaf1cmr1021371a12.42.1795147222675;
+ Thu, 19 Nov 2026 20:00:22 -0800 (PST)
+Date: Fri, 20 Nov 2026 04:00:21 +0000
+In-Reply-To: <20261115203421.38c206b35f5b12e6@chrisdown.name>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,44 +77,54 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+References: <20261110050202.529473-1-tarunsahu@google.com> <20261110050202.529473-6-tarunsahu@google.com>
+ <DMRMLZSZ0LAZ.D4P70QWX0IHB@soleen.com> <9huz5wy4tufo.fsf@tarunix.c.googlers.com>
+ <20261115203421.38c206b35f5b12e6@chrisdown.name>
+Message-ID: <9huzmrr4f8yy.fsf@tarunix.c.googlers.com>
+Subject: Re: [PATCH v4 05/19] kho: Add feature header for fine-grained ABI compatibility
+From: tarunsahu@google.com
+To: Chris Down <chris@chrisdown.name>
+Cc: Pasha Tatashin <pasha.tatashin@soleen.com>, Mike Rapoport <rppt@kernel.org>, robin.murphy@arm.com, 
+	maz@kernel.org, will@kernel.org, David Matlack <dmatlack@google.com>, 
+	Alexander Graf <graf@amazon.com>, seanjc@google.com, jgg@nvidia.com, loganodell@google.com, 
+	arnd@arndb.de, dwmw2@infradead.org, baolu.lu@linux.intel.com, 
+	Bjorn Helgaas <bhelgaas@google.com>, oupton@kernel.org, alex@shazbot.org, 
+	gle.com@google.com, pbonzini@redhat.com, 
+	Andrew Morton <akpm@linux-foundation.org>, kevin.tian@intel.com, joro@8bytes.org, 
+	kvmarm@lists.linux.dev, linux-pci@vger.kernel.org, 
+	Pratyush Yadav <pratyush@kernel.org>, kexec@lists.infradead.org, kvm@vger.kernel.org, 
+	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	skhawaja@google.com, sagis@google.com, linux-arch@vger.kernel.org, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+Chris Down <chris@chrisdown.name> writes:
 
-hw_params() overwrites the entire MR register, clearing the
-VBMODE and SBMODE bits configured in dai_probe().
+> Hi Tarun,
+>
+> tarunsahu@google.com writes:
+>>Techinically this is just for readability.
+>>
+>>WDYT?
+>
+> It doesn't help readability in the generated docs, though. kernel-doc
+> splits the parameter list on the comma inside the macro, so
+> kho_preserve_vmalloc() comes out as
+>
+>      int kho_preserve_vmalloc (void *ptr, DECLARE_KHO_SER_HDR(kho_vmalloc# *fhdr))
+>
+> and the struct memfd_luo_ser and struct luo_session_ser definitions in the
+> ABI docs end up with a member like
+>
+>      DECLARE_KHO_SER_HDR(kho_vmalloc folios_fhdr;
+>
+> I'd go with Pasha's suggestion and use struct kho_ser_hdr directly. The
+> pointer can then say which payload follows it with a comment.
 
-Use regmap_update_bits() to update only the ENDIAN and DATAWIDTH
-fields, preserving the other MR bits.
+Okay that works. Thanks Chris, I will update it.
 
-Fixes: fa09fa60385a ("ASoC: mchp-spdifrx: fix controls which rely on rsr register")
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
+~Tarun
 
-Note: 
-Hardware testing on SAMA7G5 is needed to verify this change.
-If the current full-register write is intentional, the issue
-may instead be in the default MR configuration in dai_probe().
-
- sound/soc/atmel/mchp-spdifrx.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/sound/soc/atmel/mchp-spdifrx.c b/sound/soc/atmel/mchp-spdifrx.c
-index 06a2a5a90a63..e37470165717 100644
---- a/sound/soc/atmel/mchp-spdifrx.c
-+++ b/sound/soc/atmel/mchp-spdifrx.c
-@@ -502,7 +502,9 @@ static int mchp_spdifrx_hw_params(struct snd_pcm_substream *substream,
- 	dev_dbg(dev->dev, "GCLK range min set to %d\n",
- 		params_rate(params) * SPDIFRX_GCLK_RATIO_MIN + 1);
- 
--	ret = regmap_write(dev->regmap, SPDIFRX_MR, mr);
-+	ret = regmap_update_bits(dev->regmap, SPDIFRX_MR,
-+				 SPDIFRX_MR_ENDIAN_MASK | SPDIFRX_MR_DATAWIDTH_MASK,
-+				 mr);
- 
- unlock:
- 	mutex_unlock(&dev->mlock);
--- 
-2.43.0
-
+>
+> Chris
