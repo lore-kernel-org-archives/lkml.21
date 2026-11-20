@@ -1,102 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.100
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.99
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795151708;
-	b=vYzFRUE41uNoq9ORyjzMAV0GzLP/q7gtoOAa/XDGoq65z+y7SU9ojNHk/YJNDZtSB352
-	 E/S00/9VNvn7kYVu7IErebOtkl09T+urcQhscjcNPL/pI4owlO3dZjVrTlNrFFZ23ekMz
-	 oiwPb34803lFA/6+qYxhK0Mf1pPCODcsnBMfqJ1Jg48EkQJsBVZrBXOMbRVwsSPjzqOk2
-	 4NGtZmgnxjz9Bl0MLBv7EzVZiUjhdzb+iRGyoeNPtsusN2Wp9i9Tzr/JK0+81o25xYId6
-	 DCdNg/7nzCse96tDuO1k1izoqM29fDEbRSsK95EdyUADyITPcha8xDTa7IsnC1o5aww==
+	t=1795151746;
+	b=UlTH9NXy0lG7/IiEGmxIp3S1u5xOxsWV4w5Zs7mY80pD0luW55O435JdeWNlRC55K5lk
+	 /k8PPatyKo2Yc8X4g2GXUq1CLvQh165Wa1yoJ4CuTr5TakGqGZvgo1u506bM8iT/RkYN6
+	 tV8Sk9895R9Mjr6d6XMg8yctdb/j/HIZYAY82EqupPHTJEDer0PsJkisEbXm1Uhwz35H1
+	 K+yRZ7u/AjBiI89lVwabI1k8w2fUvMgac69gRoLmZhbnpyT0gJsQ+CbX1bvRjtOAcclU9
+	 QhNPZEPWEzuVwPAIF2m5msaRhzS10hXN6dv6yblyy+l1jwdjN+IG+E1a3tO1EDFjIuQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795151708;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795151746;
 	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
 	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=bFE3Eo2DvuaZ1wTJc8DxEMPAXv4+iklEyrldQBupXXA=;
-	b=5twGhD4aViYJDuYYbGKVchzeVsbSKzvhGsVMvFoUkQ8eX2v9AAPnj75wzvMCb8jMvC0Y
-	 DKzHVk/fgL5Tiw28Rtd+z+DziSmFAsA2GLdbhiD0zYBXIYQOdjOBiBWsZyeChadUzlpCb
-	 rbvzxBeeXfCOPA5z/K/qO17iRfJMfFUONcixiYCfFjqepWGNwCBhRla3L+7UHiO3qKmpo
-	 6FBzw3hn26gXd+NOqtDueCnJj2iivD8Co9G8umNFRPl/xMHvs6AhA+s+7BqXgVQ2IEErH
-	 0dC8abCdLOP2cn8JCDI5nyFlO5rZHIDkVmLGEd55CYwGxk3GSNQ/MVPnicSXXjujOLg==
+	 X-Received:X-Received:MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:X-DetectorID-Processed:
+	 Content-Type;
+	bh=gYdIWLyYY6JyRPJwl3YtKXF/wOl1h22qa82PdJJNavk=;
+	b=Esynn3LvveK6OJk0DxsdeXp6OWFkJlrKFvjuSUbSQydxOU/n5+YcWEk5LuYbdha+fnaC
+	 bngUe6sEO5srbCXH88lMdEzgtgndBkm9qzv3JHfmaJThP5kq8LbYKoLZS6L/7PnQ77ygK
+	 oSRbu7sESihm6lK2xLMStVwOTC8WPcM+zOUXDKT1Fnnlq4ehU1u03EtH7U6GpiKj7+s1h
+	 ndr6g3kXHyhG6npk/dt7FufanuutRxq+sanE+6B8Bhjj7CmsnpoYpBYki4ArT6XhAPBzb
+	 Aom1vl++1G9DdA2+yPFzM7TDc6N2cIb2Rk0xrV8WXJX2JkHhhJPwW8sgr2qbzfXoF/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=broadcom.com;
 	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=WGvGFChH;
-	arc=none smtp.remote-ip=209.85.216.100
-Received: from mail-pj1-f100.google.com (mail-pj1-f100.google.com [209.85.216.100])
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=Nc2VVdwI;
+	arc=none smtp.remote-ip=209.85.216.99
+Received: from mail-pj1-f99.google.com (mail-pj1-f99.google.com [209.85.216.99])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9045A60A2600
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:15:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9045A60A2600
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60BC5606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:15:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60BC5606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=WGvGFChH
-Received: by mail-pj1-f100.google.com with SMTP id 98e67ed59e1d1-3b0ae87069dso250124a91.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:15:07 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=Nc2VVdwI
+Received: by mail-pj1-f99.google.com with SMTP id 98e67ed59e1d1-3b0e0e65adbso276044a91.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:15:45 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795151707; x=1795756507;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=bFE3Eo2DvuaZ1wTJc8DxEMPAXv4+iklEyrldQBupXXA=;
-        b=ZaZ099mT0y6ybpZlS1Om5Vga7vyba/1kR0qh196jTtiTxo8NBWn5rTEifY+zivPkan
-         BpXO5Rfxi7TUyG7+7Rh1OTuPhg3RiaAm7GeLB4NQmuppye9wk8mCeeQa7Dkmy7mQ7KKG
-         pYPg7KbiDyYpoYWljKNamqtzmrtB5MUXPWHxhLn0ZLe7XNxB2hRwNSUMELKGIiwMQgPV
-         6pLjKv39QX1we732NUkkO+Xf2KBrtVio1c9OeCqBGO5k9QCFxYygDZPCVCoh1Sxt1X04
-         wD9nMMpD7lHGrpod3KK3/a244jLmMlzMrpJYuLjGFZFHfecgtvMcRVg/AOtOktrtl/1o
-         Kqiw==
-X-Forwarded-Encrypted: i=1; AL+hErETgFQCPqMbtnbtlFOy29/7nDWyeA4Y2fpTD3KghygI7MbPzDKwbwN8UdJf5Oe3RM44tQ1IQA2va3owun8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+UR0Ktvu3OGuqSugZE5RYtQK047heQDDhJy90co++FZMa274Ku
-	xFzFSecbjk9UK4zDO/mWBOsTxYa8HnaGBX1xJhQtpUbpM2ttiFm01zKDfbTNinXUOVDRbP6jYGa
-	BB7U2Z2ueySezoyLwlPFGpsFxECsKOKddS/oT+ao7HdJEOukCNbNRnU7Kp2mZBpAWrNUAyLvKdK
-	n28bVdBzHd+/RWVtNjOik4vN3z9vZ2gKE3CkOBIGyoatAPvVBPbO5//E+fu6Yu8OWIoXl7AW9Z8
-	z+qw5+5O8X8BuO+bCWNsG3Q
-X-Gm-Gg: AZFdTZekcJoESnW2zHcWd0BKjVbmf1vATVRMB7uT0aJ7QTkVImEk8SUg7eNhQm9ZKFE
-	0mQQPHnKsPCuXl51020lNyO6mevD96/++PfSh2y0o3JTP2QkQ5dgdg88MqM41P9OeGDg+Jot4lE
-	yDX/myM6F9Mj9MMUbH9T+K4kH1n8EvmBbtgsF+Ke+lBm2O4Jb6BG3w1BhLHLFPh1btCMtXmDmai
-	feoG0s53EeuDOCGuzWBZUzOQkJ55v2EvTlPsGDfei33/8twmypS//d7r/ipnVIBF6BzmeQX0p/X
-	Wx1a46rCRYJ9GMddbe2G1FJpdslcRtpiJR1/X4vh0ZAKIdg7SJjDYdCrLVefg7K3RDFx9M4NsEp
-	zNGjXn5F+N2Pagv1N9tl+BEdIpljfwCtV10ngdvvrT8lTymcsT8uwV7tRWylBEf1Uf9DtKlCYcR
-	9kgAlPCXY422YVZUzlLcTMJQYe1aNTIf8trqweSYwh
-X-Received: by 2002:a17:90b:3d4d:b0:3b3:b636:763c with SMTP id 98e67ed59e1d1-3b41c8fe33bmr1776619a91.22.1795151706721;
-        Thu, 19 Nov 2026 21:15:06 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b4062a77f5sm2445498a91.6.2026.11.19.21.15.06
+        d=1e100.net; s=20260707; t=1795151745; x=1795756545;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:dkim-signature:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=gYdIWLyYY6JyRPJwl3YtKXF/wOl1h22qa82PdJJNavk=;
+        b=mayGnz1MSf254G7HYbQaTYQNljG0kxmjK03wDOVC6YYV63Kjnltzd2nFqubnPwq2bD
+         MfxK2QCLKZ3uVFwz+vqmlV88Ri0OJsy7OAPajZBQEnulUspQQ5LW+gpPs4b3y5Z+pBt1
+         orjx+xJ2wFucVqo+pRdTxQZrzlGswAKiW80CV0ynmrMxArKTMxQVNLIf/ID7BaV0JcEO
+         73dzfwxURRL3UMGS0qrIT7jMqec12clXn8gTUnIjUL2yC3oStIW2/0eikfswqQIPu5xT
+         2B6aeivVHqg24rvo0QPwnDPH9xSVsMpLySXmgwem6M9hH7p5a2fEz+ilFdM4MZ4Zo9Lh
+         crPA==
+X-Forwarded-Encrypted: i=1; AL+hErEeED1+GwX9kZ47B/0VwDHXjyqXRmZPSZxNFN31kDCVcTIeilzMoVXGcJLCTbQHuwwLi4MwKS5fonUC770=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8lmUVm4ELo781UbJG5QJUQ0cMCxZK0jUGtep28KVQzNtiqEoqJ
+	8eU4yzdFLaJ4JuMq6e0QvbQz7pMN8GpfkUfkHyaSI4CS1Erb8As+YTFJDu/I+Q/QC8pi9KlcMJd
+	TNlLFIHVlFvS7/qLcyr13ouJ3kuvNulQsl0NG3qtpEav5iIfA1IIH6nhKu+UXKK6C27/0NknLHW
+	wuxLnU4201qIBWzrR+qJJfB/EN/dWdOrzjy0Ihsul7UXFSR+aLBu8W2bQy0VJVvFrwEsT9tC6U/
+	RodiCLbgnfGxEOyhw==
+X-Gm-Gg: AZFdTZf0m9e0x7j6RBF9xIKNV4VvF8zl2o6utk2uEyH1VHwu+2OM+0c74Q3QGPpUg7D
+	y8TBNRfklZCq95yD2IXyKcq91KfLHm6tCV6fxi30cxY1qscH0ztYXCtHVQKIU4gQ7kCsB63cpPS
+	YzrZYNgexFSN+tE1xYoKOmyRS2r8Q3HIKelNmXnFoYRZRIPfB5NtBY5yejOYAlVaZUkkB9FMQ54
+	WOAcjYzwp8AZqEXMh+hqYh4XrncOesa4F2yRwUwD1XBC6BIRnTcZDk31QLOHQF6qtLHdrFjXk7S
+	riKYBtq5Oz31I2B3m0JTGWvRPoUmtKp9ELblkglA2dheJl7/6kY8OALtofjQG32P9ETg4dUADTL
+	t9Y3iNC9w1ftLcDqytPl61b0evRKyycMwhS0CNnKwrd9+kAqkOLgIOQVZQDziCChix/ubCqf68s
+	HwFFqOGr81Nu2BMd7Yxf/JPj9lNgS2GxbsRytm
+X-Received: by 2002:a17:90b:4c4c:b0:3b3:ab74:cc9a with SMTP id 98e67ed59e1d1-3b41c55a3f1mr1778181a91.0.1795151744622;
+        Thu, 19 Nov 2026 21:15:44 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b411775fa6sm1968540a91.1.2026.11.19.21.15.44
         for <linux-kernel@vger.kernel.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Nov 2026 21:15:06 -0800 (PST)
+        Thu, 19 Nov 2026 21:15:44 -0800 (PST)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-383f2d05c73so1536469eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:15:05 -0800 (PST)
+Received: by mail-vs1-f70.google.com with SMTP id ada2fe7eead31-7d2d7d7608dso334152137.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:15:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795151705; x=1795756505; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+        d=broadcom.com; s=google; t=1795151743; x=1795756543; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=bFE3Eo2DvuaZ1wTJc8DxEMPAXv4+iklEyrldQBupXXA=;
-        b=WGvGFChHssk/0ReJvDMeZ9M2Zgtp9hJr0PnLvYSvuEViftF46fgkaUTNe7EA65lzhZ
-         sLXpZUHqu33xfCVFZPYqyTlVE1DqLFt+cH6DAMUSKuGkev9/6svQx3/JDn/Lay5DR1qj
-         /Rl9RwKxEFfAooI9wLnuXz2+yunQ2NfGMbblA=
-X-Forwarded-Encrypted: i=1; AL+hErGOtiZSBlvP3A8ebMtuUSO70eojoFkFikWPPitQkzD4duLn5fESPiGzEaJYt3WLHaDp6DbEmbAEbrT4RAQ=@vger.kernel.org
-X-Received: by 2002:a05:7300:f68e:b0:369:f291:49da with SMTP id 5a478bee46e88-38571814b1dmr1599335eec.40.1795151704735;
-        Thu, 19 Nov 2026 21:15:04 -0800 (PST)
-X-Received: by 2002:a05:7300:f68e:b0:369:f291:49da with SMTP id 5a478bee46e88-38571814b1dmr1599298eec.40.1795151703967;
-        Thu, 19 Nov 2026 21:15:03 -0800 (PST)
-Received: from [192.168.10.3] (ip70-187-214-22.oc.oc.cox.net. [70.187.214.22])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385d2b93dd9sm2235717eec.24.2026.11.19.21.15.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 21:15:03 -0800 (PST)
-Message-ID: <700b62af-5d33-49aa-844b-53d63aa2e52f@broadcom.com>
-Date: Thu, 19 Nov 2026 21:15:02 -0800
+        bh=gYdIWLyYY6JyRPJwl3YtKXF/wOl1h22qa82PdJJNavk=;
+        b=Nc2VVdwIHA9uEEd1ovJO+hkgOjCUukT1bEeMvCGq+9+JPOu6VrlE1vf+Dp2pQmPpdo
+         /NcfVDtGrfHdyjTTupq/G93D1AAAkNGz66ECutcomKM+j+zCaZ+DmjHoMgtQkl7GmR7W
+         XkPwJsXX+YDeSvP3Z6bmtPdc7w7j5nTIJj258=
+X-Forwarded-Encrypted: i=1; AL+hErFe4IumwdhrDhVWbWnsvR3F67gsHsFETl6gBUmwKunpuf+bRHU49darcB7sFuH1IteHtAeCRfd724qpoMU=@vger.kernel.org
+X-Received: by 2002:a05:6102:3709:b0:7cc:1274:aba3 with SMTP id ada2fe7eead31-7d739444ee1mr761385137.22.1795151743525;
+        Thu, 19 Nov 2026 21:15:43 -0800 (PST)
+X-Received: by 2002:a05:6102:3709:b0:7cc:1274:aba3 with SMTP id
+ ada2fe7eead31-7d739444ee1mr761377137.22.1795151743035; Thu, 19 Nov 2026
+ 21:15:43 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,228 +98,507 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 4/4] net: mdio: mdio-bcm-unimac: Add Clause 45
- support
+References: <20261116140653.1685797-10-vikas.gupta@broadcom.com> <179510815141.3136.11040952527486167006@kernel.org>
+In-Reply-To: <179510815141.3136.11040952527486167006@kernel.org>
+From: Vikas Gupta <vikas.gupta@broadcom.com>
+Date: Fri, 20 Nov 2026 10:45:31 +0530
+X-Gm-Features: Aa3M54rWV5ls16aXkicUneQcVSOneiFDT8rdL_g9nOJB1HFQNT_EPOiYzVO3iFQ
+Message-ID: <CAHLZf_vtPWxpB1nKdrtyxgnR-_hF-b0n_GYVXa+YKtxvNt=vbw@mail.gmail.com>
+Subject: Re: [PATCH net-next v8 09/10] bnge: add aRFS flow steering ndo support
 To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, nb@tipi-net.de, opendmb@gmail.com,
- bcm-kernel-feedback-list@broadcom.com, andrew@lunn.ch, hkallweit1@gmail.com,
- linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, linux-kernel@vger.kernel.org,
- kudzo51@gmail.com
-References: <20261117233149.1693881-5-florian.fainelli@broadcom.com>
- <179514208239.3136.3516165434506848044@kernel.org>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <179514208239.3136.3516165434506848044@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org, 
+	pabeni@redhat.com, andrew+netdev@lunn.ch, horms@kernel.org, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	bhargava.marreddy@broadcom.com, rahul-rg.gupta@broadcom.com, 
+	vsrama-krishna.nemani@broadcom.com, rajashekar.hudumula@broadcom.com, 
+	dharmender.garg@broadcom.com, ajit.khaparde@broadcom.com
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
+	boundary="0000000000000378e40660ae5691"
 
+--0000000000000378e40660ae5691
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
+We see a couple of valid comments and will send v9.
 
-On 11/19/2026 6:34 PM, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
+Thanks,
+Vikas
+
+On Thu, Nov 19, 2026 at 10:39=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wr=
+ote:
+>
+> Thank you for your contribution! Sashiko AI review found 6 potential
 > issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 1
-> 
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 5
+>
 > If you believe none of the issues are legitimate, please reply to each
 > issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
 > (one such reply per series is enough).
-> 
-> - [Medium] In drivers/net/mdio/mdio-bcm-unimac.c, the patch's own comment
->    in unimac_mdio_addr_c45() says some wait_func implementations…
-> - [Low] The commit message does not mention the change to
->    unimac_mdio_resume() in drivers/net/mdio/mdio-bcm-unimac.c.
-> 
+>
+> - [Medium] bnge_rx_flow_steer() lets network traffic create dynamic aRFS
+>   NTUPLE filters.
+> - [Low] The commit message's closing note does not match the code.
+> - [Low] In the expire loop of bnge_cfg_ntp_filters()
+>   (bnge_filter.c:834-835), the return value of=E2=80=A6
+> - [Low] The locked expire re-check in bnge_cfg_ntp_filters() does not
+>   cover a bnge_rx_flow_steer() hit on an existing filter for the same=E2=
+=80=A6
+> - [Low] bnge_cfg_one_usr_fltr() (bnge_filter.c:660-664) now writes
+>   ntp_fltr->l2_key and l2_filter_id under=E2=80=A6
+> - [Low] On a queue change, bnge_ntp_fltr_retarget() (bnge_netdev.c:3248)
+>   commits the new queue with WRITE_ONCE(fltr->base.rxq, rxq_index) and=E2=
+=80=A6
+>
 > --
-> 
-> net: mdio: mdio-bcm-unimac: Add Clause 45 support
-> 
-> This adds Clause 45 read and write callbacks to the UniMAC MDIO driver.
-> Each access does an ADDR cycle followed by a READ or WRITE cycle, and
-> MDIO_CFG is switched between C22 and C45 mode as needed. It also skips the
-> BMSR workaround read for children compatible with
-> "ethernet-phy-ieee802.3-c45".
-> 
->> diff --git a/drivers/net/mdio/mdio-bcm-unimac.c b/drivers/net/mdio/mdio-bcm-unimac.c
->> index df267bb826966..ec0f2e8070eeb 100644
->> --- a/drivers/net/mdio/mdio-bcm-unimac.c
->> +++ b/drivers/net/mdio/mdio-bcm-unimac.c
-> 
-> [ ... ]
-> 
->> @@ -96,7 +102,53 @@ static int unimac_mdio_poll(void *wait_func_data)
-> 
-> [ ... ]
-> 
->> +	/* Some wait_func implementations (e.g.: bcmgenet_mii_wait()) return 0
->> +	 * even when they timed out with the controller still busy. The data
->> +	 * cycle must not be started before the ADDR cycle has completed, so
->> +	 * make sure the controller is idle.
->> +	 */
->> +	return unimac_mdio_poll(priv);
->> +}
-> 
-> [ ... ]
-> 
->> @@ -107,8 +159,19 @@ static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
->>   		return ret;
->>   
->>   	/* Prepare the read operation */
->> -	cmd = MDIO_RD_C22 | (phy_id << MDIO_PMD_SHIFT) |
->> -		(reg << MDIO_REG_SHIFT);
->> +	unimac_mdio_set_clause(priv, is_c45);
->> +	if (is_c45) {
->> +		ret = unimac_mdio_addr_c45(priv, phy_id, devad, reg);
->> +		if (ret)
->> +			goto out;
->> +
->> +		cmd = MDIO_RD_C45 | (phy_id << MDIO_PMD_SHIFT) |
->> +			unimac_mdio_c45_devad(devad) |
->> +			(reg & MDIO_C45_REG_MASK);
-> 
-> [Severity: Medium]
-> The comment in unimac_mdio_addr_c45() says bcmgenet_mii_wait() can return
-> 0 while MDIO_START_BUSY is still set. The extra unimac_mdio_poll() runs
-> only after the ADDR cycle. Can the same early return happen on the C45
-> READ data cycle?
-> 
-> bcmgenet_mii_wait() returns 0 every time:
-> 
-> drivers/net/ethernet/broadcom/genet/bcmmii.c:bcmgenet_mii_wait() {
-> 	wait_event_timeout(priv->wq,
-> 			   !(bcmgenet_umac_readl(priv, UMAC_MDIO_CMD)
-> 			   & MDIO_START_BUSY),
-> 			   HZ / 100);
-> 	return 0;
-> }
-> 
-> At probe time, the GENET ISR that calls wake_up(&priv->wq) is not
-> installed yet, because request_irq() happens later in bcmgenet_open().
-> On v1/v2, UMAC_IRQ_MDIO_EVENT is not enabled at all. In both cases these
-> waits depend only on the timeout. With HZ=100 the timeout is one jiffy,
-> which can expire at the next tick.
-> 
-> The RD_C45 command places reg in MDIO_CMD[15:0]. After wait_func(),
-> unimac_mdio_do_read() does this without checking MDIO_START_BUSY:
-> 
-> 	cmd = unimac_mdio_readl(priv, MDIO_CMD);
-> 	...
-> 	ret = cmd & 0xffff;
-> 
-> If MDIO_CMD[15:0] still holds reg until the hardware writes the read
-> data, could an early return give the caller reg as the PHY data? This
-> would also happen before MDIO_READ_FAIL is latched. For example, a read
-> of MDIO_DEVS2 would return 6 and a read of MDIO_DEVS1 would return 5.
-> get_phy_c45_devs_in_pkg() could accept that as a plausible devs_in_pkg.
-> 
-> read_c45 is now set, and the non-DT GENET path leaves bus->phy_mask at 0.
-> So __mdiobus_register()->mdiobus_scan_bus_c45() issues these reads on
-> every address that has no C22 device. Could get_phy_c45_ids() then
-> register a bogus C45 PHY?
-> 
-> The write side looks similar. unimac_mdio_do_write() returns 0 after
-> wait_func() even if the C45 WRITE is still in flight. Could the next
-> access's unimac_mdio_set_clause() then flip the MDIO_C22 bit in MDIO_CFG,
-> or write its ADDR command to MDIO_CMD, while the previous frame is still
-> going out?
-> 
-> The C22 data cycle already returned early in the same way before this
-> patch. The reg-as-data result and the MDIO_CFG switch mid-frame are new,
-> though.
-> 
-> Would it make sense to have bcmgenet_mii_wait() return -ETIMEDOUT on
-> timeout, or to run the idle poll after every cycle and not only between
-> ADDR and DATA?
-> 
-> [ ... ]
-> 
->> @@ -336,8 +437,16 @@ static void unimac_mdio_remove(struct platform_device *pdev)
->>   static int __maybe_unused unimac_mdio_resume(struct device *d)
->>   {
->>   	struct unimac_mdio_priv *priv = dev_get_drvdata(d);
->> +	int ret;
->> +
->> +	/* MDIO_CFG is also modified by the MDIO accessors to switch between
->> +	 * Clause 22 and Clause 45, which run under the bus lock.
->> +	 */
->> +	mutex_lock(&priv->mii_bus->mdio_lock);
->> +	ret = unimac_mdio_clk_set(priv);
->> +	mutex_unlock(&priv->mii_bus->mdio_lock);
-> 
+>
+> bnge: add aRFS flow steering ndo support
+>
+> This adds an ndo_rx_flow_steer implementation for bnge. It creates aRFS
+> NTUPLE filters from incoming flows and inserts them into the shared NTUPL=
+E
+> hash table. Firmware programming and aging through rps_may_expire_flow()
+> are deferred to sp_task, which the periodic timer queues with the new
+> BNGE_RX_NTP_FLTR_SP_EVENT.
+>
+> > Note that, if the L2 filter is freed before sp_task programs the rule,
+> > the captured firmware id is stale. The NTUPLE alloc either fails (id
+> > gone) or binds to a recycled id for a different filter. The rule is
+> > then dropped, or it stays until it ages out.
+>
 > [Severity: Low]
-> This isn't a bug, but the commit message doesn't mention this change to
-> unimac_mdio_resume(). The resume callback now holds
-> priv->mii_bus->mdio_lock around unimac_mdio_clk_set(), because
-> unimac_mdio_set_clause() does a read-modify-write of MDIO_CFG, the same
-> register that holds the clock divider.
-> 
-> The message covers the C45 accessors, the BMSR workaround skip and the
-> C45 scan. Could it also describe this locking change in the resume path?
-> 
->>   
->> -	return unimac_mdio_clk_set(priv);
->> +	return ret;
->>   }
-> 
-
-On the Medium: this one is valid, thanks. wait_func() implementations 
-such as bcmgenet_mii_wait() can return 0 with MDIO_START_BUSY still set, 
-and v3 only guarded the ADDR -> DATA transition. A C45 READ that 
-returned early would hand back MDIO_CMD[15:0] (the register address) as 
-read data, and the next access could switch MDIO_CFG or rewrite MDIO_CMD 
-while the previous frame was still in flight.
-
-v4 adds unimac_mdio_wait(), which calls wait_func() and then polls for 
-the controller to go idle. It is used after the ADDR, READ and WRITE 
-cycles, so the idle check no longer depends on the wait_func() 
-implementation. I kept the fix in the unimac driver rather than changing
-bcmgenet_mii_wait() to return -ETIMEDOUT.
-
-Side effect, now spelled out in the commit message: C22 accesses use the
-same helper, so a C22 cycle that times out on a busy controller now 
-returns -ETIMEDOUT instead of silently returning stale data.
-
-On the Low: the commit message now describes the locking added to 
-unimac_mdio_resume().
+> Is this note still accurate? bnge_cfg_ntp_filters() never programs the id
+> captured in bnge_rx_flow_steer(). Before every install it looks the id up
+> again from the stored key:
+>
+>         l2_id =3D bnge_lookup_l2_filter_from_key(bn, &fltr->l2_key);
+>         if (l2_id =3D=3D BNGE_FLTR_ID_INVALID) {
+>                 bnge_del_ntp_filter_rcu(bn, fltr);
+>                 continue;
+>         }
+>         fltr->l2_filter_id =3D l2_id;
+>
+> L2 filters are only freed under netdev_lock. That covers bnge_set_rx_mode=
+()
+> through ndo_set_rx_mode_async, close/teardown, and the ethtool delete pat=
+h.
+> sp_task also holds netdev_lock, so the "binds to a recycled id for a
+> different filter" case doesn't look reachable. The note seems to describe
+> an earlier version of the patch.
+>
+> The message also leaves out several behaviour changes to the existing
+> ethtool n-tuple path:
+>
+>   - bnge_fltr_match() now compares l2_key instead of l2_filter_id
+>   - bnge_cfg_one_usr_fltr() now refreshes l2_key under ntp_fltr_lock
+>   - bnge_get_all_fltr_ids_rcu() and bnge_get_one_fltr_rcu() now filter on
+>     bnge_is_usr_fltr() instead of fltr->flags
+>   - bnge_del_ntp_filter_rcu() now uses hlist_del_init_rcu()
+>
+> Could the commit message be updated to match the code and mention these
+> changes?
+>
+> > diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_filter.c b/drivers=
+/net/ethernet/broadcom/bnge/bnge_filter.c
+> > index e2dc3a34cad33..a0a8aebad20b6 100644
+> > --- a/drivers/net/ethernet/broadcom/bnge/bnge_filter.c
+> > +++ b/drivers/net/ethernet/broadcom/bnge/bnge_filter.c
+>
+> [ ... ]
+>
+> > @@ -642,7 +657,11 @@ static void bnge_cfg_one_usr_fltr(struct bnge_net =
+*bn,
+> >       if (fltr->type =3D=3D BNGE_FLTR_TYPE_NTUPLE) {
+> >               ntp_fltr =3D container_of(fltr, struct bnge_ntuple_filter=
+, base);
+> >               l2_fltr =3D bn->vnic_info[BNGE_VNIC_DEFAULT].l2_filters[0=
+];
+> > +             /* bnge_rx_flow_steer() can already run and match this ru=
+le */
+> > +             spin_lock_bh(&bn->ntp_fltr_lock);
+> >               ntp_fltr->l2_filter_id =3D l2_fltr->base.filter_id;
+> > +             ntp_fltr->l2_key =3D l2_fltr->l2_key;
+> > +             spin_unlock_bh(&bn->ntp_fltr_lock);
+>
+> [Severity: Low]
+> Does ntp_fltr_lock actually serialize this write against
+> bnge_rx_flow_steer()?
+>
+> The first match in bnge_rx_flow_steer() goes through
+> bnge_lookup_ntp_filter_from_idx(). That function walks the bucket under
+> rcu_read_lock() only:
+>
+>         hlist_for_each_entry_rcu(f, head, base.hlist) {
+>                 if (bnge_fltr_match(f, fltr))
+>                         return f;
+>         }
+>
+> With this patch, bnge_fltr_match() reads l2_key.dst_mac_addr and
+> l2_key.vlan with plain loads.
+>
+> bnge_open_core() sets BNGE_STATE_OPEN and enables interrupts before it
+> calls bnge_cfg_usr_fltrs(). An RX softirq on another CPU can therefore ru=
+n
+> set_rps_cpu()->bnge_rx_flow_steer()->bnge_fltr_match() while this code
+> writes l2_key, and the two paths share no lock.
+>
+> The lock here only orders the write against the match loop in
+> bnge_insert_ntp_filter(). Would KCSAN flag this as a data race? On a MAC
+> change across close/open, can the reader see a torn key and return a user
+> filter's sw_id to the RPS core? If the lock is only meant to cover
+> bnge_insert_ntp_filter(), could the comment say so?
+>
+> [ ... ]
+>
+> > @@ -715,3 +734,105 @@ void bnge_clear_usr_fltrs(struct bnge_net *bn)
+> >               }
+> >       }
+> >  }
+> > +
+> > +void bnge_cfg_ntp_filters(struct bnge_net *bn)
+> > +{
+>
+> [ ... ]
+>
+> > +     /* Free the old HW rule; reinstall it below on the new queue. */
+> > +     list_for_each_entry_safe(fltr, tmp, &update_list, base.list_node)=
+ {
+> > +             list_del_init(&fltr->base.list_node);
+> > +             /* If the free fails the rule stays on the old queue. It =
+is not
+> > +              * retried, so a firmware that keeps failing is not hit o=
+n every
+> > +              * tick.
+> > +              */
+> > +             if (bnge_hwrm_cfa_ntuple_filter_free(bn->bd, fltr))
+> > +                     continue;
+>
+> [Severity: Low]
+> What happens to the software state when this free fails?
+>
+> bnge_ntp_fltr_retarget() has already committed the new queue before
+> firmware is touched:
+>
+>         WRITE_ONCE(fltr->base.rxq, rxq_index);
+>         WRITE_ONCE(fltr->flow_id, flow_id);
+>         smp_mb__before_atomic();
+>         set_bit(BNGE_FLTR_RXQ_UPDATE, &fltr->base.state);
+>
+> bnge_hwrm_cfa_ntuple_filter_free() also sets BNGE_FLTR_FW_DELETED before =
+it
+> sends the HWRM request.
+>
+> If HWRM_CFA_NTUPLE_FILTER_FREE fails, the firmware rule still steers to t=
+he
+> old rfs_ring_tbl_idx. But fltr->base.rxq now holds the new queue, and
+> FW_DELETED is set even though the rule is still live.
+>
+> >From then on, bnge_rx_flow_steer() calls for this flow and target hit th=
+e
+> READ_ONCE(fltr->base.rxq) =3D=3D rxq_index check in bnge_ntp_fltr_retarge=
+t()
+> and never queue a reprogram. rps_may_expire_flow() is also evaluated
+> against the new queue's flow table, not the ring the hardware is using.
+>
+> The comment accepts that the rule stays on the old queue. Should the old
+> rxq be restored and FW_DELETED cleared on failure, so that software still
+> matches what firmware has programmed?
+>
+> > +             clear_bit(BNGE_FLTR_FW_DELETED, &fltr->base.state);
+> > +             list_add(&fltr->base.list_node, &install_list);
+> > +     }
+>
+> [ ... ]
+>
+> > +     list_for_each_entry_safe(fltr, tmp, &expire_list, base.list_node)=
+ {
+> > +             list_del_init(&fltr->base.list_node);
+> > +             /* Decide again under ntp_fltr_lock: the scan ran without=
+ it and
+> > +              * the firmware calls above can take long. Use the rxq an=
+d
+> > +              * flow_id that bnge_rx_flow_steer() writes under it. Unl=
+ink
+> > +              * here too, so a flow cannot be retargeted onto a filter=
+ that
+> > +              * is about to be freed. The firmware free comes after th=
+e
+> > +              * unlock.
+> > +              */
+> > +             spin_lock_bh(&bn->ntp_fltr_lock);
+> > +             if (test_bit(BNGE_FLTR_RXQ_UPDATE, &fltr->base.state) ||
+> > +                 !rps_may_expire_flow(bn->netdev, fltr->base.rxq,
+> > +                                      fltr->flow_id, fltr->base.sw_id)=
+) {
+> > +                     spin_unlock_bh(&bn->ntp_fltr_lock);
+> > +                     continue;
+> > +             }
+>
+> [Severity: Low]
+> Does this re-check cover a bnge_rx_flow_steer() hit on this filter for th=
+e
+> same rxq?
+>
+> In that case bnge_ntp_fltr_retarget() returns early and writes no state:
+>
+>         if ((fltr->base.flags & BNGE_ACT_NO_AGING) ||
+>             READ_ONCE(fltr->base.rxq) =3D=3D rxq_index)
+>                 return false;
+>
+> bnge_rx_flow_steer() then drops ntp_fltr_lock and returns
+> fltr->base.sw_id. set_rps_cpu() in net/core/dev.c records that id only
+> after the ndo returns, outside ntp_fltr_lock:
+>
+>         rc =3D dev->netdev_ops->ndo_rx_flow_steer(dev, skb, rxq_index, fl=
+ow_id);
+>         ...
+>         WRITE_ONCE(rflow->filter, rc);
+>
+> Suppose this re-check runs inside that window. RXQ_UPDATE is clear and
+> rps_may_expire_flow() still sees the old rflow state. The filter is
+> unlinked and freed in firmware, and its sw_id bit is released. The core
+> then stores a dead sw_id in rflow->filter.
+>
+> The rflow then looks active, so set_rps_cpu() skips the ndo. The flow run=
+s
+> without a hardware rule until the slot goes stale, and the dead sw_id can
+> alias a reused id.
+>
+> Hitting this needs a packet of the flow to arrive on a queue other than
+> the one the rule targets. One example is after the failed retarget free
+> described above.
+>
+> The comment above says the locked re-check keeps a flow from being
+> retargeted onto a filter that is about to be freed. Doesn't that only
+> hold when the rxq changes and RXQ_UPDATE is set?
+>
+> > +             hlist_del_init_rcu(&fltr->base.hlist);
+> > +             spin_unlock_bh(&bn->ntp_fltr_lock);
+> > +
+> > +             bnge_hwrm_cfa_ntuple_filter_free(bn->bd, fltr);
+> > +             bnge_del_ntp_filter_rcu(bn, fltr);
+>
+> [Severity: Low]
+> Can this leak the firmware ntuple filter? The return value of
+> bnge_hwrm_cfa_ntuple_filter_free() is ignored. bnge_del_ntp_filter_rcu()
+> then clears the sw_id bit, decrements ntp_fltr_count and kfree_rcu()s the
+> object anyway.
+>
+> bnge_hwrm_cfa_ntuple_filter_free() resets base.filter_id only when the
+> send succeeds:
+>
+>         rc =3D bnge_hwrm_req_send(bd, req);
+>         if (!rc)
+>                 fltr->base.filter_id =3D BNGE_FLTR_ID_INVALID;
+>         return rc;
+>
+> If HWRM_CFA_NTUPLE_FILTER_FREE fails, the rule stays programmed in
+> firmware, but the only copy of its handle is freed. Nothing can free the
+> rule until the VNIC/L2 contexts are torn down. Meanwhile the orphaned rul=
+e
+> keeps steering the old flow, and the released sw_id can be handed to a ne=
+w
+> filter.
+>
+> The update loop above checks the same call and keeps the rule on failure.
+> Should the expire path handle failure the same way? bnxt_en has the same
+> pattern.
+>
+> > +     }
+> > +#endif
+> > +}
+>
+> [ ... ]
+>
+> > diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c b/drivers=
+/net/ethernet/broadcom/bnge/bnge_netdev.c
+> > index b71e427d3ba10..0e7c506af402c 100644
+> > --- a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
+> > +++ b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
+>
+> [ ... ]
+>
+> > @@ -3226,6 +3235,146 @@ static int bnge_set_features(struct net_device =
+*dev, netdev_features_t features)
+>
+> [ ... ]
+>
+> > +static int bnge_rx_flow_steer(struct net_device *dev, const struct sk_=
+buff *skb,
+> > +                           u16 rxq_index, u32 flow_id)
+> > +{
+>
+> [ ... ]
+>
+> > +     new_fltr->flow_id =3D flow_id;
+> > +     new_fltr->base.rxq =3D rxq_index;
+> > +     rc =3D bnge_insert_ntp_filter(bn, new_fltr, idx);
+> > +     if (!rc) {
+> > +             bnge_queue_sp_work(bn, BNGE_RX_NTP_FLTR_SP_EVENT);
+> > +             return new_fltr->base.sw_id;
+> > +     }
+>
+> [Severity: Medium]
+> Can remote traffic fill the ntuple table that ethtool rules rely on?
+>
+> The aRFS filters created here share bn->ntp_fltr_bmap and the hash table
+> with administrator ethtool rules. The bitmap is sized bd->max_fltr
+> (BNGE_MAX_NTUPLE_FLTRS), and no slots are reserved for BNGE_ACT_NO_AGING
+> rules.
+>
+> A remote peer can open many TCP connections to a local listener that read=
+s
+> from them. With RFS enabled, each socket's flow reaches this function
+> through set_rps_cpu(). Unconnected UDP does not record rxhash, so this
+> needs TCP or connected sockets.
+>
+> Once the bitmap is full, bnge_add_ntuple_cls_rule()->
+> bnge_insert_ntp_filter() fails:
+>
+>         bit_id =3D bitmap_find_free_region(bn->ntp_fltr_bmap,
+>                                          bn->bd->max_fltr, 0);
+>         if (bit_id < 0) {
+>                 spin_unlock_bh(&bn->ntp_fltr_lock);
+>                 return -ENOMEM;
+>         }
+>
+> There is a second failure mode. bnge_fltr_match() ignores the filter type=
+,
+> and the bnge_toeplitz() index matches the hardware RSS hash. A live aRFS
+> entry for a full-mask 5-tuple therefore makes bnge_add_ntuple_cls_rule()
+> fail with -EEXIST for that exact flow, including a drop rule meant to sto=
+p
+> it:
+>
+>         fltr =3D bnge_lookup_ntp_filter_from_idx(bn, new_fltr, idx);
+>         if (fltr) {
+>                 rcu_read_unlock();
+>                 rc =3D -EEXIST;
+>                 goto err_free_fltr;
+>         }
+>
+> Each new flow also costs a GFP_ATOMIC allocation in softirq and an HWRM
+> call in sp_task under netdev_lock.
+>
+> bnxt_en uses the same shared bitmap design, but this patch is the first t=
+o
+> let traffic insert into the bnge table. Should the number of aRFS filters
+> be capped below max_fltr, or part of the table be reserved for user rules=
+?
+>
+> [ ... ]
+>
+> --
+> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
+set/20261116140653.1685797-1-vikas.gupta%40broadcom.com
 
 pw-bot: cr
--- 
-Florian
 
+--0000000000000378e40660ae5691
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Description: S/MIME Cryptographic Signature
+
+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
+ZKzsTDzWEhPsCM5DcbMg/B7eD9n+rBWHxsk+yKJKdkLpkpTKdxxTd1Y5Ln+k5KCTjxlCUQQ7Q2Zz
+qYU8bfRq5ZMwUVJD3NZCqEKbEIgSX2vXFS61zdPwnLyHyaC/erAWmgHLu4kzpk/V10NcnUjX9FYK
+f/Ggi9MeMNG20gEIUbCg3RgYf89YLXUJDOuoz/Yajw/VuiVlwS81wF44DmJhAVcGzrI00uydpksG
+oQY2qVlhYsvNTqU2V/uaBrKQnyM0PkU140cCAwEAAaOCAdwwggHYMA4GA1UdDwEB/wQEAwIFoDAM
+BgNVHRMBAf8EAjAAMIGTBggrBgEFBQcBAQSBhjCBgzBGBggrBgEFBQcwAoY6aHR0cDovL3NlY3Vy
+ZS5nbG9iYWxzaWduLmNvbS9jYWNlcnQvZ3NnY2NyNnNtaW1lY2EyMDIzLmNydDA5BggrBgEFBQcw
+AYYtaHR0cDovL29jc3AuZ2xvYmFsc2lnbi5jb20vZ3NnY2NyNnNtaW1lY2EyMDIzMGUGA1UdIARe
+MFwwCQYHZ4EMAQUDAzALBgkrBgEEAaAyASgwQgYKKwYBBAGgMgoDAjA0MDIGCCsGAQUFBwIBFiZo
+dHRwczovL3d3dy5nbG9iYWxzaWduLmNvbS9yZXBvc2l0b3J5LzBBBgNVHR8EOjA4MDagNKAyhjBo
+dHRwOi8vY3JsLmdsb2JhbHNpZ24uY29tL2dzZ2NjcjZzbWltZWNhMjAyMy5jcmwwIwYDVR0RBBww
+GoEYdmlrYXMuZ3VwdGFAYnJvYWRjb20uY29tMBMGA1UdJQQMMAoGCCsGAQUFBwMEMB8GA1UdIwQY
+MBaAFAApNp5ceroPry1QLdugI4UYsKCSMB0GA1UdDgQWBBQI6pBWVwIN47wGrC1m7lYfqN94QjAN
+BgkqhkiG9w0BAQsFAAOCAgEAOdSnSEyuTvTtsnmEilB0JfgRKx1MM7kNdv0pfWcINJhssfHD8Fc5
+wm+JzenYR9yJAkntX0Lr9yv+OG0Jqhvy7u9gKljfI4jXO4qxZ2jf1YvI+fDK29/NV3JAQuipT3Vs
+IxBI73CQO11VwMePOTsUNM1s+9cWT5zLuqOEEu+95jRo5KEtH1/4nahrToLU1Y+flylsBaAUhB72
+KoBBzdewa+psa32lY8X23AWDoczIlUBmPt0hmApBvHOUCYszSiBu4/VhVDuq2iMBtnYAj2j9Q7Ct
+pZHPj6fQv247S9dTDDym05r8arHAsUw7B29KvPfxeaqexL4gwQQjIsfdZeh88XYLXA+mvEej6OlO
+YO3546G7bczFxIjO6V9RrvYEeAb+n7udXYymuIm02XtxIkr/Uk0gRuFoOpG2Dw1OH8xsOUER1+16
+qGb2QKMgaKL/IIM3gXAuCxNVBOT+Fj/wh5hw7MFvTTXPFA8IKusoHZYpxdrr9xjoJ/wt6j4/E6K4
+IO/WuSc4nM6kshiwIu5c6r97213ZtJFOrjoITiBIYFP0WQsTsEbWvaBX/7daT5IVr9rvCOCk2JA8
+bOWwP4OYXCKJY5nZOntb0ECSI7RM0kGelGY4MAD42+OBWHxKU1Qvt5WK4kIXdKpdFp9Drv17PyCU
+dR4AvAJyWnkqZyi5QuRg/hMxggJXMIICUwIBATBiMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBH
+bG9iYWxTaWduIG52LXNhMSgwJgYDVQQDEx9HbG9iYWxTaWduIEdDQyBSNiBTTUlNRSBDQSAyMDIz
+Agxt8eaxmNwH4eu5pUowDQYJYIZIAWUDBAIBBQCggccwLwYJKoZIhvcNAQkEMSIEIHbKzcen9JNu
+FUeHvOvZ7kNfAGFxlUbFKQh1qWEXt0CPMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZI
+hvcNAQkFMQ8XDTI2MTEyMDA1MTU0M1owXAYJKoZIhvcNAQkPMU8wTTALBglghkgBZQMEASowCwYJ
+YIZIAWUDBAEWMAsGCWCGSAFlAwQBAjAKBggqhkiG9w0DBzALBgkqhkiG9w0BAQcwCwYJYIZIAWUD
+BAIBMA0GCSqGSIb3DQEBAQUABIIBAA4t63jfkBRG6A24IbgLgZs5w40+wgy2vJHBvWeghyeI8tTX
+BcAt2lZMBlLFgz8+9AtW1/YqCQ+K6wZY63xav4qfAzIod4nfgK8R+VgIj7HFZahtWNR6Ev9v6yL3
+76sOpa7yCtfOdV6ZSOG6Czbp/HVz/VCIYIzEJwoa1sVA+JN0xFk3Ij57UoSD3jeYcAhXFxUQT5lI
++Fp8MhvaAlH7oym6aUG7ZwrV4Re9PliavvwoLAb/3mcrNBng8WnNsRKluuqpfFxy6J2gO8tVsyEB
+RSG32S4Ebvi/qYQL7hlKy1cz6dBKN39Qfl7A6RFuFZ+imzL7BxEmZK1I1tOgtvke0A4=
+--0000000000000378e40660ae5691--
