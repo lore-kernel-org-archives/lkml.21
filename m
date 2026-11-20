@@ -1,96 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795167995;
-	b=uB0uwCEFHDg2Cp5YTE48soPCiGScMM5LM+JiHDwxULiQdtku3FSekKRUg5cE+0zS04YN
-	 y8DqmBFHKuCFFTi2AIq1bCBxJJuiVcHdR1lkV9ShvRWKnYfdY4vGdP9NdQEjVYbQDxAsQ
-	 sQ7mxUKD4OceSxs0rYVStylQpgJEIkHGqa3lrtqNQtIsMteYACMyM/r96dd9Xzq2EaqN9
-	 DnOAwSnVJNK53r71qRgdK6lFM9VyQTwWjWnKa+Bv1RrXaA4CxI0V1qfKgI6o/dghr8wAV
-	 K4GdgVSpPl2ebWg+m0e8oNmpR17l47fOqCaNoPdeDItvmuVzm8MQN2Ct5Fa9xSWyjpw==
+	t=1795168034;
+	b=toqhg3PNSrfFE19W5cMjlz4qjl0Oh8hoEjTn0DJq09EQgAzcs07Ak3J8BmP0xVqxz5V8
+	 3HdNxLdQoK7ieOCJZvz2y9twxjlMTl869rKsR8qygWGXc8vkxUKtQUVxzzt5pszc+dfhf
+	 aTBUEV4DCyCysn2NPoje5tvJ/cTou6QXTG63ygtDnMSt1KtV0nDMRnZHMUHzg7uhQogA3
+	 opyo3UTce7BahoB3Q/GRmjC2b8PsvPp2bAcg6GXQ+9ijK38xV2dplO/QUauFlp+dwEzUl
+	 etbNuBPHmUfoycRWiAO+gLhyY8ALkwd7O65NZ/kh9U9c0jHpzbVWubRCaxEvTReWTPA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795167995;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=GcjNI9PrNL1HjMpwoI+gV5DtiJeXajBxIpVqEj/uHtE=;
-	b=Ffd0yUtc+CIuOIW5ULHLzsUZP+ioRM6y4j8CQ+WoNy5bhHm6NA4eRM+AU1RyUIoWieYq
-	 vAv+EgWvSI45OINhYG2ufaxYvY5m0wOWXj2PWiL3jw7krRgx+Xk5te0uS7uX2iBDI/vHE
-	 7+yGSNjtWbXKYNKEiJD6ZUEOLYYCTlC2k5p7M2XXHo4RBRr49Bx/SWw102HXDeoJAkIKT
-	 TTRVaReK82dST0Ufwc0i8ElToaw3C0vqXja+h/J+Infb5nyUjWtgRpKRR7RyopmTS9QVN
-	 BHUBrTjvlqvcJHbAkpKb6vBS2aKNhfOLgET6Q/Do1FcD9XtHT+FJzB1y0RoHWKj92kw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168034;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=hNTyL9d5D046W9Uho5nbeG7PrmHuixoNuV1srGZZBx8=;
+	b=IkUAbweSPhOJ3OBYAKyAjU0XJCocXIRMOgBhS71k3g4o5zb9FQB/Fj0jN1aftz821PgP
+	 mufSnqgCFkyEYkGxyc5OA72fLCmf8FfRDLJXC6Il6UHU0kNc79nV0nC6YXED/OJ/ruLjx
+	 wenRhzMLZGKvugUpx8geWoXiKtnivcTmUHLJn2r9ECderb8Z/zoWvXf3IiyevKP1TBFQL
+	 jFzKcX6srXPxy45VHFT9pF7OBTkQeli5vwdV6FocDiigdiIWwWBRfp8rJ6aGPo12PsOTf
+	 zQHGICa51xAX50YBYewbZt3ApMZS6PN7sUBcimuZdu2WF860hOu4CUva4VdPKiKmznQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="LBRy/uaz";
-	arc=none smtp.remote-ip=209.85.221.41
-Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=X5u3r1Tr;
+	arc=none smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AD81606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:46:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2AD81606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22A1A606A320;
+	Fri, 20 Nov 2026 09:47:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22A1A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LBRy/uaz
-Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-49a92144733so308108f8f.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:46:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795167993; x=1795772793; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=GcjNI9PrNL1HjMpwoI+gV5DtiJeXajBxIpVqEj/uHtE=;
-        b=LBRy/uaz9mbmJhIx0EYumM8ld+NtVsEO2eRS/sKVugx1eyxecKXEvUNjzzWGC2NkA9
-         MLAIvCBghed8pMQfkOrRY/bPIU+kqNvVWMSYnIv+rP06o1lBKbhd2TbY15szSY/ogT93
-         balH8PGnHSWozYYn5itxtpf+Pa8SZIQl1FSNCUnshR/xUdGZ4NdBlLrLlKWou8M9Ifg5
-         Ol89LktOsaGfAfEecLfy3DZZV7f4CbIGk2KLrOyUcBrebqim10zib0Lfk67kIGJikXM2
-         K2lpFbYkeOs900nnMnXNjcxlDfRIAjO7zVhkxx5xEV5cl/Q3K/xjto/o8AeVmmBvpXDr
-         dtig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795167993; x=1795772793;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GcjNI9PrNL1HjMpwoI+gV5DtiJeXajBxIpVqEj/uHtE=;
-        b=q09qs4JxU2zyfBbAVa3PjGXFJo30IGoMHPETyacw2E0MEJwc1NenNZUIRaLeFm9HZ7
-         QOaJmWWmgbi62s1KVBoxa3m07wYay6benTfKbe9L582fIhBV8AfrEzOGA8qiVQV25yRF
-         0/4SpUgYTBBSzTbBrugQTDNd4AbbM4Zk4HLgQtbfty/dgpN89lDuMlHNmgse+gEfJpkb
-         gRfVvSOYQvtZk3jhbgr+f+8SaaSV6k7GOZnd266T5+Ng9u8ydQfYUeGfe3EUrOwcl6Bz
-         ypI+XNbGoHYT+WpTJ6qupaCmNf+d838GyC8pxDQLwPNlO6dWB2E3lXImpwAmRyC+sGED
-         Vo3w==
-X-Forwarded-Encrypted: i=1; AL+hErFfj9d01bGVVQFWliB20QpWShwLf4vDToyC78b9F8PuvIA2WfCghoFsmnvbu+4X0HZLxpNuzhT10mb5Qi0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+9qM2Zdg577v6WuG0A9swvO5nhEquxKpkGmrwdsAq8cXi7KE0G
-	rgvuHMEale1AahsekCA7BRJKO0qA6KxIW0F4h4ZoNvOdyFh0YPHrGtRV
-X-Gm-Gg: AZFdTZfaGi993eR2Y9/HIAVezV1Z5pdyvevctQzHfoeUGowIQEHKXLL70HlkVzQrVD/
-	PKVFj4YH8y3YxhR4nWbYIcnpqkZTK6NMuwZzLDuUjjq9Le2tYknPi0tg7o5aDUKCi1CIcqyhxzD
-	cAEiWqIc5s8k+OArwDEoRQRCOEyhk/+Ccxqi+EnjK4alFQVXCHB/ymXFTxeay3d2PYzn8FBF8Ob
-	3a7u9DmeU9xqY1jXbP0+b/zkTOxmNIIM7JaAJBiopvz3S2gaFOnXupz+AmTQr8TuJIT5kELFdCl
-	eHd/iOLwVYP4mmNMjkjWaBs/4iTnAoQ6XNv/GbZlIvmYTd72nmKOsbEtnZUnBTTXkir++1Sc69k
-	sO4aDqpld+BYsz7mjHU9g+UYggDQm3Zz+J7lD47bHHHVZ3jEZLW+AN9rkjX7/YMTWALOqaKxH6x
-	itnwPCcgxPKNMIpN/EtwiqSIAz2UcBtxIDs6+H8dull0BsUDB+5UrFD8nDAmHQpR18h7PwhOWBD
-	3LE2tYEyQz19++/uJ7NGlizslO6xTv9u0WU6ocm/L2hwFDU74rjjUpbOT7fUrrV1j3ZtUvxjoFz
-	QNLfdEZqLezxSXM/Iq3a+dfv2WZDVzs+SXMcPydtnRphPz5tyvoyzjXC1OEwYkiagg==
-X-Received: by 2002:a05:6000:2c10:b0:4a8:a1fe:ea94 with SMTP id ffacd0b85a97d-4abacfea54fmr4924872f8f.3.1795167993308;
-        Fri, 20 Nov 2026 01:46:33 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a68048esm4551779f8f.29.2026.11.20.01.46.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 01:46:33 -0800 (PST)
-Date: Fri, 20 Nov 2026 09:46:27 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Tina Zhang <zhang_wei@open-hieco.net>
-Cc: x86@kernel.org, puwen@hygon.cn, tglx@linutronix.de, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
- linux-kernel@vger.kernel.org, yangzhen@hygon.cn, dengqiming@hygon.cn,
- stable@vger.kernel.org
-Subject: Re: [PATCH] x86/cpu/hygon: Work around XSAVES Erratum 1386
-Message-ID: <20261120094627.513b216e@pumpkin>
-In-Reply-To: <20261028235712.383977-1-zhang_wei@open-hieco.net>
-References: <20261028235712.383977-1-zhang_wei@open-hieco.net>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=X5u3r1Tr
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795168035; x=1826704035;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=cGtQIbQY0xSeQNRQi2tA6DmXq6v/2YbbkJ7U6WpvmTw=;
+  b=X5u3r1TrAYcg1GsUSuK65UONtxql1o3BFtPp6n5AvYZ1gOQZJ7RS9AOh
+   yYQHRutAHC7IPpFoR/RfZzlMCWU758kOiUurJV1HKWON1XRTL88MKRhU9
+   U9Nddbpo1rIHFYROWKeGN+W6XOiMoU74gFszRVk9wzbXJz53+SWpsvnIC
+   SUKwFcO6DfwMljVrJ3MCkl2rrmHBdshsBVUVO2lAc2kqUgk+ff/OGhlVc
+   8EbHlik1dUoYdDtxDJVkn7HIq5Yx5eVg3u5+Sa/Qc5Bq/3s817xU/VSis
+   u1EKYOi0Ka26awhbvLiKKWL0mgj9+Lc1I0uJwzYcnhz046ww9/7/bNIm9
+   g==;
+X-CSE-ConnectionGUID: WKo2HA8QQNG+QbSCNjgBmw==
+X-CSE-MsgGUID: nvyu8ZEiTKC1Yc0wHrtmlg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3927147"
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="3927147"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 01:47:14 -0800
+X-CSE-ConnectionGUID: Fq3QEnPAQLypwoCqdEYFGg==
+X-CSE-MsgGUID: doqsl1/vSSqHMlvopfUXyA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="12504486"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.218])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 01:47:12 -0800
+Date: Fri, 20 Nov 2026 11:47:09 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Zhu Jun <zhujun2@cmss.chinamobile.com>
+Cc: brgl@kernel.org, warthog618@gmail.com, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] tools: gpio-watch: Preserve line event read errors
+Message-ID: <awAXHXfe8Lc09f3X@ashevche-desk.local>
+References: <20261120061836.98108-1-zhujun2@cmss.chinamobile.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,47 +78,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120061836.98108-1-zhujun2@cmss.chinamobile.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Thu, 29 Oct 2026 07:57:12 +0800
-Tina Zhang <zhang_wei@open-hieco.net> wrote:
+On Fri, Nov 20, 2026 at 02:18:36PM +0800, Zhu Jun wrote:
+> The short-read check sets errno to EIO even when read() returns -1,
+> hiding errors such as EINTR. Set EIO only for a nonnegative short
+> read and keep the original errno for a failed read.
 
-> The XSAVES malfunction described in AMD Erratum 1386 also affects
-> certain Hygon Family 18h processors. Under specific conditions, XSAVES
-> may fail to save XMM register state, allowing stale register values to
-> reappear after the state is restored.
-> 
-> None of the affected processors enumerate supervisor XSAVE state
-> components. XSAVEC is therefore equivalent for their enabled state
-> components and is not affected by the erratum.
+Isn't somebody sent similar change a week ago?
+Before sending something like this, always check mailing list archive.
 
-Would it just make sense to use XSAVES unless there are bits set in XSS
-MSR that the kernel might need to request be saved?
+-- 
+With Best Regards,
+Andy Shevchenko
 
-That is 'use XSAVES unless you need to use XSAVEC'.
-Then you don't have to worry about cpu models and microcode versions.
 
-David
-
-> 
-> Family 18h models 00h through 06h and model 10h are affected. Other
-> Family 18h models contain the fix in hardware.
-> 
-> For the following model and stepping combinations, the minimum
-> microcode revisions containing the fix are:
-> 
->   Model  Stepping  Microcode
->   04h    0         0x9040000f
->   04h    1         0x9041000f
->   06h    0         0x9060000f
->   06h    1         0x9061000f
->   10h    0         0x91000004
-> 
-> These are the only known steppings for those models.
-> 
-> Disable XSAVES on affected processors unless a matching model and
-> stepping entry identifies a sufficiently recent microcode revision
-> containing the fix. This allows the x86 FPU code to use XSAVEC
-> instead.
-...
