@@ -1,69 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795190052;
-	b=QASWAvChb3L5E/I+53zQbC2MVUUKdISKiMAqBAF9KOEg32D7NQ7AQeK50fAowqOVPg8Q
-	 /ObwDF5EVnwsvCzjoXEyr0IA6VRdqx7utJkbW3CckTz4BksLDzCA7YI2He48+1We1gv6E
-	 m+B8BMEBoAo4G0ZekwhSrzhX/kpI4xvL5zVkI4mVc6cfW3ujmJ3/4ojHkbWGpJUHsmI9a
-	 QDTMo7wa/Bt7RorV6jNg6SZ1q9hdRbwlXJAq1jNgFk+KkC0PXGITNAqrZC1NU2p+0PECS
-	 zEJIxGjujz5dP17gsD+mrCOPTwGvH2x1sKOre9wqooi5JbzhE8FkjrMgjWfG6MvF2cg==
+	t=1795190094;
+	b=LIL5FARzmEMzBjfIu+GC3So8ZSaQBUd/k/uM7ZMDUq32RlhL594e0iayV6VXAE7SQDox
+	 49SAMF3AXQkG3MqKfFZXW2it7MV5W8GroHRcDU0YZqswnuQVNC7XNwA8ZFiQjK8ZTB3sy
+	 xcWbe4IsC343UBy2eP1ywX56TdZl/lQl11L20Zo4cxV99z3iEbOPSRPHa9iwdTPoTM9tA
+	 QhZQGot8ey3c3ODvrdFrJJSGyBV6+GQN99JUfNEASiBEftBUADLqgd6onI9bEqiT5mhjI
+	 3yfQc8uFrwvwVLs7ZKR1sEYhCXWfEoGFkK/p+w1JXwXBBNHGp7g4SpmcburKpFiF2vA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795190052;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795190094;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=UIOQApZtZBbgSobiES2wbQiAGoBH53tmoz3L/LgD7cM=;
-	b=C0qbmRSMLCIOplCdjT+XeliDVXBZtg1kr11U9ouU/6epuKpDEUIkUgZhlCLf+4T7WIn5
-	 JftYxD/uKjUdPZMgh+tZ5sEjQkfcwzuAcMMtYk351DKLF1L0J/bSFABT+wqGhN2NksMVo
-	 Vt8yi4qt/ob4ZKl9wpvA1g+BdTbu41mpJuIpACsY4X9fueAwe1AAoAzJGl5gchHF7z/uo
-	 URAwemdPIMTVoKZEl9eoi7HgEmteMMzEbiotoashBcLqFQd3XdRdLE559TrXkqcxCou5B
-	 awxRn8xYhl4QEJoun/GzTGtqVJ8Ov+f2W91e0VtO8LP2FNPkKulZo+1qqmljNhx94dg==
+	bh=3+aCHgVYgy4GxhOiFEAFYeoXQcQ3nMSgt2tm+XSQojA=;
+	b=VaF8fMcgeCw7tZYE5E9ufFATb+BYp0vmOM++7dj60qB+SrFECQW5fQxedJXOm1gCORJF
+	 kOgK8VaYsQsLMWWd6noJeHh6p1oDyKWQaDS9IWExQjPcvpqPuAmpDyTIEAApShGTHMdRP
+	 ydLuIzgXYb2SsIvRMotXMj3eA1izy/4FFcM35xh/T8athD3eGib54eVuVzWFoTMBnNDt4
+	 oitK0QvFPRXr1p2Xs1J0eYrAcZU4vmFSNEDoaZLlGGzoDmxieUL/RKc1K9bwetrEo2lPO
+	 4R8luoW2Re08rKXs4qzszwfykrBL0wr51duaDZD9gl28tYWcT1d3Y+LVGmWTNLoA6+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=JU4cFTGd;
-	arc=none smtp.remote-ip=198.175.65.15
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="RD5/lCtn";
+	arc=none smtp.remote-ip=209.85.128.44
+Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46C67606A33D;
-	Fri, 20 Nov 2026 15:54:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46C67606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E13B8606A330
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:54:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E13B8606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=JU4cFTGd
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795190053; x=1826726053;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=W9JNv3iAQbDubd4BLxP4EWicmyirTQYLM5jgKAy7I6g=;
-  b=JU4cFTGdqHVosVpGZibzJKM8lThq7aMR6gOCxtoxfJsO8WjDxOzSVTiJ
-   ndzSWKZVtIFijdV8dNjFpVl9NsGrpgjEuM5ZgOUdO+Y1tlzRm1zHM0JSq
-   PCRi/M8vodQEkuo3y7YKuAzugUQqg64Ang7SyA1oHsNoj1dA/7IzY0OKu
-   C+dxNzmBkcqmQjKBLP1asUNYggfXolTKpag2LGZo6cJzxaRZtpdDXbGTq
-   071mNPyR4lW/ZshvhkCED7FjCLzMN2GANe0sP4+98Z6EY3TSG3Ej+yrpu
-   Y3mTVCpY6hVPvyCjGyISSvysJp5k+GKPqAnuA9uZfzhscErKKmcvYvRic
-   w==;
-X-CSE-ConnectionGUID: pS57MQadQtWq2+hiP79BDg==
-X-CSE-MsgGUID: 2Zg0Xv/IQg6SI8sjipRQzg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4074587"
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="4074587"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 07:54:12 -0800
-X-CSE-ConnectionGUID: lRoThJb3QreygemonYlmZg==
-X-CSE-MsgGUID: Xi+UAFxRTLq2wCXF4J0oVA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="10848653"
-Received: from ssimmeri-mobl2.amr.corp.intel.com (HELO [10.125.109.123]) ([10.125.109.123])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 07:54:10 -0800
-Message-ID: <46d14366-dd1f-45f4-abc3-4d9dd8c32e7b@intel.com>
-Date: Fri, 20 Nov 2026 07:54:06 -0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RD5/lCtn
+Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4bb666304fdso20107255e9.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:54:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795190092; x=1795794892; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3+aCHgVYgy4GxhOiFEAFYeoXQcQ3nMSgt2tm+XSQojA=;
+        b=RD5/lCtnOo+RVTTI7oVZaKgd9Q6AkBDr/99U8FJkjIF5smpOcyVCzuMQxHGfar6mJP
+         37JcniEPoUaZpTyUdt7yOTWPLtrvvu8AzDXr/L34n/+/Nc9nXYOPlfV4w2V781MMQM8G
+         53Na36tf6jUaKgxhT0zm5Wm3KIMtVpSTLF9W5oh/1KR1iwQmFF+qHaWV8PVJ+kHJX1iX
+         RPoDVVb4F+Eh7tSV8FPxMIWWzu8Zhcdj03O6TponxyFSrrZ9YPmtJdT7HnrqNxKkFDQf
+         7ojn0P8k9fkZxWsWkHoFIirgqk+ylgTPwXP7F3bPNM7Qc/OO+JHnYCtfr3DUp3YIo8zH
+         gQig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795190092; x=1795794892;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3+aCHgVYgy4GxhOiFEAFYeoXQcQ3nMSgt2tm+XSQojA=;
+        b=r9MlTsm8R211/rUMyM1bRrf4o9Ps8CR3eh78sJZBxbUETDgdzbHwfQhUtNXEAqUWT1
+         Qqyxe50NF5gqfLZ5xaNR7gT0ppYLrFl6mDvAqrWwT9RZohrD9JfpsFEQKHkD36tig98f
+         psfhBHWiilGDhDeOM2gH5CkKgkhN/4sEYuLZQCmwiAJA/8XwmO74K6ZUGMh0H0mmt5a2
+         +pdICwPhRmRqsMAX2SztMYGjwCNIdMSgaCgxK0n1uXI6stcYoi8WdIyiHxNRIThT783r
+         mmd93y0aw5NJ9vFnALXSrjGqrDh927VSxZ280lzQ7ExIN6TLyIt2TQ5RivmA13Kbihoa
+         EdCw==
+X-Forwarded-Encrypted: i=1; AL+hErEv76uS0SIKuYg2PUD0GwnO6qq0oeGvQbpPfuVKpQCqyHagNw8gFk3YBuPV3zJjgBGbOGI78WKANQ01rl0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/jfxo5Bu/jrCcKLlMElYlLem8fJSrItKW8UtZjZZ+P/zTQP0F+
+	dzz7kNkqXmkB19WN8R9uq4xWcH/tuLLKzmq5/a6Uh0+M9SwskcJePB3u
+X-Gm-Gg: AYBFou3y7kz0RXBkH8Nfr4pZuUVJef9lcs8tUYC8GyIx0e6tCdyN4M8+HsXz+ube9af
+	KCmtlGtlq9jGquidLHZAjUMycno/lC3whFuz7C6d2PVj63ZcgHQUjX7Q9AmjCiRl3hQxlnxUFgz
+	Xw5M2jT5rkmcmF5icXo5ls4fC4+g4HX2kjEim2OGWB3myTQxN5Y8bwN2ZOXNuu16JTC2bGl1BS7
+	1exBztuKOD1Kt/UOo6opEUG8z48QNxAh6peNuRIanlw0Yo+PLr8NPDl5M326//5RY/VxvDB1waa
+	vhot/8Zz0mVztvioBJMUJFaucgkPardfgC3EAS7cKfbn77mxCwtL29hH+wMatmJCnZwyZlIR02L
+	VINpYQdo3Kx3lBYrlMvBNRBuwSvFmU4ytB1DzYDcWycY8wjrgAKAUAzdaUVvDpqTSvQ3cOoyC8m
+	YwKjRkJr3++iVVs8VDcfFT+CtNrV/xFd6PXfGRAfuW1QMC1Zyq9i+hYqTyiz04EIAEUB3PXaX0N
+	8nYmVMDC3NLrPuq4v3iScNtD3pTh2UEnpkAHEtVHkjgxd51ZtX0U8jD/wSTpayMzmc7dO0Xk0vA
+	8+XtSLP1PvcwoSCQFORaEu94I7Am0TCa+/UIOZs2RyHzQSm+2bhhQXTpLyuOwFRS2w59Z/jjhxv
+	OT8Oh3KLJlvVHJ9O9Ciu9
+X-Received: by 2002:a05:600c:4504:b0:4b4:a551:681a with SMTP id 5b1f17b1804b1-4bb887fc396mr78640565e9.3.1795190092017;
+        Fri, 20 Nov 2026 07:54:52 -0800 (PST)
+Received: from DESKTOP-BJ3EVC4.lan (178-164-182-185.pool.digikabel.hu. [178.164.182.185])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a15absm83982635e9.9.2026.11.20.07.54.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 07:54:51 -0800 (PST)
+From: Abdur Rofik <rofikcoga@gmail.com>
+To: linux-arm-msm@vger.kernel.org
+Cc: devicetree@vger.kernel.org,
+	phone-devel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-input@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Abdur Rofik <rofikcoga@gmail.com>
+Subject: [PATCH v5 00/10] arm64: dts: qcom: add LG V60 ThinQ 5G (timelm) support
+Date: Fri, 20 Nov 2026 16:54:39 +0100
+Message-Id: <20261120155450.7719-1-rofikcoga@gmail.com>
+X-Mailer: git-send-email 2.39.5
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,77 +106,150 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] x86/cpu/hygon: Work around XSAVES Erratum 1386
-To: Andrew Cooper <andrew.cooper3@citrix.com>, zhang_wei@open-hieco.net,
- yangzhen@hygon.cn
-Cc: bp@alien8.de, dave.hansen@linux.intel.com, david.laight.linux@gmail.com,
- dengqiming@hygon.cn, hpa@zytor.com, linux-kernel@vger.kernel.org,
- mingo@redhat.com, puwen@hygon.cn, stable@vger.kernel.org,
- tglx@linutronix.de, x86@kernel.org
-References: <b04950ad-d655-4ca2-8cbd-59360509d25b@intel.com>
- <89a5aef2-ea88-43d7-adcc-3f6b7374932f@citrix.com>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <89a5aef2-ea88-43d7-adcc-3f6b7374932f@citrix.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-On 11/20/26 07:29, Andrew Cooper wrote:
->> Third, even if we could move to XSAVEC, I'm not sure it buys us much. I
->> certainly don't want to add the complexity to our already horrid XSAVE
->> mess. The right fix is in the microcode. Let's not give our dear
->> hardware vendors to mitigate even fewer issues than they do already.
-> Linux already has a mitigation for #1386.  The mitigation *is* to
-> pretend that XSAVES doesn't exist, which causes Linux to fall back to
-> using XSAVEC.
-> 
-> See fix_erratum_1386() in amd.c.
-> 
-> Hygon should extend the microcode list and call that function, rather
-> than opencoding it differently.
+This series adds initial mainline device tree and driver support for the
+Qualcomm SM8250-based LG V60 ThinQ 5G (timelm / LM-V600) smartphone.
 
-Hah, silly me. Sounds good to me.
+Hardware features supported in this stage:
+- Base board devicetree (sm8250-lg-timelm.dts)
+- PM8150, PM8150B, PM8150L, and PM8009 PMICs and regulators
+- UFS 3.0 storage and MicroSD card slot
+- GPIO keys (Volume Down, Assistant) and PON keys (Power, Volume Up)
+- Simple framebuffer (continuous splash handed off from bootloader)
+- Adreno 650 GPU with GMU and zap shader
+- LG SW43103 1080x2460 DSI command mode AMOLED panel with DSC
+- Silicon Works SW42902 I2C touchscreen controller
+- PM8150B USB Type-C controller in sink mode with USB-PD and
+  orientation switch
+- QCA6390 Bluetooth HCI controller on UART6
+
+Changes in v5:
+- Touchscreen binding & DTS:
+  - Replace separate interrupt-parent and interrupts properties with
+    interrupts-extended in the lg,sw42902 binding example and the
+    touchscreen@48 DTS node.
+
+Changes in v4:
+- Base Device Tree (arch/arm64/boot/dts/qcom/sm8250-lg-timelm.dts):
+  - Drop vendor brand prefix "Google" from the assistant key description
+    per review feedback: rename google-assist-state to assist-state,
+    google_assist_state to assist_state, and update label to "Assistant".
+
+Changes in v3:
+- Base Device Tree (arch/arm64/boot/dts/qcom/sm8250-lg-timelm.dts):
+  - Model PM8150L SMPS6 as top-level fixed regulator smpc6-regulator
+    (0.88V) rather than in regulators-1, because PM8150L SMPS6 is an ARC
+    level resource (ebi.lvl) and querying it via VRM causes
+    rpmh_regulator_probe() to fail with -ENODEV.
+  - Drop conflicting memory-region reference from framebuffer@9c000000 to
+    prevent simple-framebuffer/simpledrm driver warning and mapping size
+    mismatch with reserved memory.
+  - Add board-specific firmware paths for CDSP
+    (qcom/sm8250/LG/timelm/cdsp.mbn) and GPU ZAP shader
+    (qcom/sm8250/LG/timelm/a650_zap.mbn).
+  - Drop duplicate sdc2_sleep_state pin configuration from &tlmm (already
+    defined in sm8250.dtsi) and redundant &pon { status = "okay"; }.
+  - Adjust ramoops pmsg-size to 0x100000 (1MB, power-of-two) to prevent
+    kernel round-down.
+  - Drop unused <dt-bindings/phy/phy.h> header.
+- Touchscreen driver (drivers/input/touchscreen/sw42902.c):
+  - Fix potential unbalanced regulator disable in error and unbind paths
+    by registering devm_add_action_or_reset() after sw42902_power_on()
+    succeeds.
+  - Guard sw42902_power_off() when suspended to avoid calling
+    regulator_bulk_disable() while supplies are already turned off.
+
+Changes in v2:
+- General / DCO & Identity:
+  - Replaced account handle "rofikkerneldev" with real name
+    "Abdur Rofik <rofikcoga@gmail.com>" across all commit authors,
+    Signed-off-by trailers, MAINTAINERS entries, and copyright headers
+    per Documentation/process/submitting-patches.rst.
+  - Replaced un-documented "lge" vendor prefix with documented "lg"
+    prefix across devicetree bindings, compatible strings, and dts files.
+- Devicetree bindings:
+  - Added lg,timelm compatible in arm/qcom.yaml.
+  - Added lg,sw43103 panel binding with enable-gpios and
+    vddi/vpnl supplies.
+  - Added lg,sw42902 touchscreen binding with vcl-supply and
+    vdd-supply.
+- Device Tree (arch/arm64/boot/dts/qcom/sm8250-lg-timelm.dts):
+  - Renamed file to sm8250-lg-timelm.dts matching vendor prefix.
+  - Reserved memory: folded cont_splash_mem and log regions into base dts;
+    sorted all nodes by ascending unit-address.
+  - Ramoops: adjusted size allocations ensuring panic dump space is kept.
+  - Regulators: dropped unused LDO4 from PM8009 regulators-2 node,
+    resolving the invalid 1.05V constraint failure.
+  - USB QMP PHY: corrected swapped supplies (vdda-phy to 0.9V l18a_0p9,
+    vdda-pll to 1.2V l9a_1p2).
+  - GPU: enabled &gmu alongside &gpu to ensure MSM DRM component
+    binding succeeds without -ENODEV in a6xx_gmu_init().
+  - SDHC: added complete pinctrl states (sdc2_default_state,
+    sdc2_sleep_state, sdc2_card_det_n) to &sdhc_2.
+  - UFS: added regulator-allow-set-load and regulator-allowed-modes for
+    dynamic load scaling.
+  - Panel: added enable-gpios to panel@0 node; sorted display nodes
+    alphabetically.
+  - Touchscreen: used fixed regulators reg_ts_vcl and reg_ts_vdd for
+    power supplies instead of raw GPIO toggles.
+  - USB Type-C: replaced PDO_BATT with PDO_VAR(5000, 9000, 3000) to
+    ensure valid 9V/3A PD sink requests without clamping to 600mA;
+    added OF graph ports connecting DWC3 HS and SuperSpeed QMP PHY
+    orientation switch.
+  - Bluetooth: corrected QCA6390 PMU voltages by setting smps6 (0.95V)
+    and smps8 (1.35V) constraints.
+  - Cleaned up unused dt-bindings headers and enforced strict alphabetical
+    ordering of all referenced label nodes.
+- Panel driver (drivers/gpu/drm/panel/panel-lg-sw43103.c):
+  - Removed redundant manual unprepare call in sw43103_remove().
+  - Guarded sw43103_backlight_update_status() against execution when
+    unprepared, avoiding unsynchronized DSI DCS writes.
+  - Removed hardcoded full brightness writes in sw43103_enable().
+  - Expanded Kconfig help paragraph to 4 lines.
+- Touchscreen driver (drivers/input/touchscreen/sw42902.c):
+  - Converted GPIO power controls to standard regulator bulk supplies
+    (vcl and vdd).
+  - Pre-scanned for palm touch reports before queueing MT slots.
+  - Used named initializer in struct i2c_device_id table.
+  - Followed input subsystem error naming conventions.
+- MAINTAINERS:
+  - Added entries for LG V60 ThinQ 5G, LG SW43103 panel driver, and
+    Silicon Works SW42902 touchscreen driver in strict alphabetical
+    order.
+
+---
+
+Abdur Rofik (10):
+  dt-bindings: arm: qcom: add LG V60 ThinQ 5G (timelm)
+  arm64: dts: qcom: add LG V60 ThinQ 5G (timelm) support
+  dt-bindings: display: panel: add LG SW43103
+  drm/panel: add LG SW43103 panel driver
+  dt-bindings: input: touchscreen: add Silicon Works SW42902
+  Input: touchscreen: add Silicon Works SW42902 support
+  arm64: dts: qcom: sm8250-lg-timelm: enable SW43103 panel
+  arm64: dts: qcom: sm8250-lg-timelm: add SW42902 touchscreen
+  arm64: dts: qcom: sm8250-lg-timelm: enable USB Type-C
+  arm64: dts: qcom: sm8250-lg-timelm: add QCA6390 Bluetooth
+
+ .../devicetree/bindings/arm/qcom.yaml         |   1 +
+ .../bindings/display/panel/lg,sw43103.yaml    |  69 ++
+ .../input/touchscreen/lg,sw42902.yaml         |  72 ++
+ MAINTAINERS                                   |  19 +
+ arch/arm64/boot/dts/qcom/Makefile             |   1 +
+ arch/arm64/boot/dts/qcom/sm8250-lg-timelm.dts | 814 ++++++++++++++++++
+ drivers/gpu/drm/panel/Kconfig                 |  13 +
+ drivers/gpu/drm/panel/Makefile                |   1 +
+ drivers/gpu/drm/panel/panel-lg-sw43103.c      | 587 +++++++++++++
+ drivers/input/touchscreen/Kconfig             |  13 +
+ drivers/input/touchscreen/Makefile            |   1 +
+ drivers/input/touchscreen/sw42902.c           | 360 ++++++++
+ 12 files changed, 1951 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/panel/lg,sw43103.yaml
+ create mode 100644 Documentation/devicetree/bindings/input/touchscreen/lg,sw42902.yaml
+ create mode 100644 arch/arm64/boot/dts/qcom/sm8250-lg-timelm.dts
+ create mode 100644 drivers/gpu/drm/panel/panel-lg-sw43103.c
+ create mode 100644 drivers/input/touchscreen/sw42902.c
+
+-- 
+2.39.5
