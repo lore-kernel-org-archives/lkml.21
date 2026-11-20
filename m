@@ -1,51 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=207.46.229.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795158426;
-	b=evN82B2Pgu2GLuE9xW1JYN7v4xWeU3XDbpsA2WXgcRfcQOT0ibFnxkKfeVusU5JxJ/C4
-	 7A8ZaI+3DBhDMR63g4JEgXxPeFEJPMcJFSSVYsBZgMnnFft77AlO1/mU5iNkPV8Yo4rNL
-	 UWMS8BBrT2G26D8rDoel7/3l+/N3cFdVibKZ8WMvvMtJhT1tvjDL+hKmZoSuEsVGyWcGf
-	 jic1ZROSBmjjBR3TLOfDdhS6/d791jpdU56C5e0DTCE2QXTXqyRWNRGHm1pHV1z1eF8AF
-	 k93bAiTjxLQR1nx58q6pNMtQ7WibFpXE1cBHsuL2ghByFqsCPgZR7gat56wYB6RCZNA==
+	t=1795158558;
+	b=B349QglrvgF2O3XcU3ohs3aGMKrghVtwPtepW7IgzUq3Uw60aqB5jZ59zkirS/c53r/d
+	 uTgu0N5gOd/FyJ126g1O2NBPR1lit752iKi7JoJKRRI5G2Ln8F8EQVV/YS1YLWNxpqv3y
+	 W/eBNVnAFAt6n2l1fowVOtI3gwoIksPligrVTmUQx6UX6bOgOp7gl0g6lfcLsoOntn2o8
+	 24QiZo/pC/lIHh+o8Ub0cKmakxmTwvMlZeAh9Vf24mGveoYrEJTKBywIZ8OaRvGqElY2Q
+	 QS/irwMTfNIQrRmBVIamjS28bcSWGrzCgkopW1C25bPXks2wOWELJpYLsZm5mGoVRmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795158426;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=jCqtAw/DPiVwOqfXQNFMLkFqF75XZNdIseDnEZBGtk4=;
-	b=OjzQgmFi3rlz5bQ+fxPgTCTnVjxJuo0bA6hT65zzkCyyg2lMwlvmXqB5sLBAO58c/w55
-	 jqo8ovRl87eVPynkIyRkMyZYD7Id71LOAuYZoiBn6uaPix91APl1Rr3L6Vk8Rg16p2xXT
-	 i2eC0VovuvpzEyG+UVztMG2G0eM7R4Qyrn8BqCbGnpXD0k00vN5vVi3QqeRG+2uY7oNr/
-	 7BecjDL10CBMy3BLTy2t2qjWllZPjoRVMFtZmgavEifVb0rrhp7bBZLezXhpZNns08+4h
-	 +8hnrGKC9kf+M5meC5hvrjpf8D/7xIF4rDZNIchBfXqD4+L59XyVAMSFAs+Stx693gw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795158558;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=1g00Z6gc0jKWEBH3y928a6aryx0kBD5/KzHExqvR7e8=;
+	b=d0n7N1J7+NS5o6H1U1+wf1RnjSFLKYdWjw534TJrpqgG4wGHliPGXRkQD9JhqOXjhVhL
+	 yBLPWjiP0FMxYoiVd70XI1T6SV7GAoNS6fo/iekb4cT2wKZDYARGF4vqjZYqmJ0iAZTPA
+	 4BM4pG2WX+LS4R6ETvJetC4IqBfzRaIhvF6orC4Z8IteqdRifkVFZieGjbC/YE3J8yy3u
+	 gnGhP9hqvuBE75ttb3imSweQ9IFhd/wLEJ36m892eZ09cBRyH84QctSSjDwO86+gu6rAr
+	 REp4zXDpa7URRKFIGY7S1ShEErpG4asvF9txElRE9n1zgP6AKAsd67/nUjgptmtd7UQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=OnC1WPmy;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D019606A325;
-	Fri, 20 Nov 2026 07:07:06 +0000 (UTC)
+	dmarc=pass header.from=eswincomputing.com;
+	spf=pass smtp.mailfrom=eswincomputing.com;
+	dkim=pass header.d=eswincomputing.com header.i=@eswincomputing.com header.a=rsa-sha256 header.s=dkim header.b=NH4yi1OH;
+	arc=none smtp.remote-ip=207.46.229.174
+Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [207.46.229.174])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5F5CC606A325;
+	Fri, 20 Nov 2026 07:09:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F5CC606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=eswincomputing.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=eswincomputing.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=OnC1WPmy
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7E3F1F000C4;
-	Fri, 20 Nov 2026 07:07:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795158426;
-	bh=jCqtAw/DPiVwOqfXQNFMLkFqF75XZNdIseDnEZBGtk4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OnC1WPmyGFYjbP3cAWJ+C/VzIMi5umFlt/zctM++iYRxjGq5bbf+WAGb91/c2PTmY
-	 VDMFOURIsr7uwDcS+xZ5pQG8m667qPvZu2jdta1bD1we0kA6ehk3R1P/D8j1NDmy+u
-	 zjvu51uod8BfvWreF+/YfbyB5ijCBHRf1207rDDE=
-Date: Fri, 20 Nov 2026 08:07:03 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Platon Miller <platon.ksenzenkokk@gmail.com>
-Cc: rmfrfs@gmail.com, johan@kernel.org, elder@kernel.org,
-	greybus-dev@lists.linaro.org, linux-staging@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] staging: greybus: light: Use sysfs_emit() instead of
- sprintf()
-Message-ID: <2026112049-scouring-dimness-9d1d@gregkh>
-References: <20261109230059.24572-1-platon.ksenzenkokk@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=eswincomputing.com header.i=@eswincomputing.com header.a=rsa-sha256 header.s=dkim header.b=NH4yi1OH
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=eswincomputing.com; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=1g00Z6gc0j
+	KWEBH3y928a6aryx0kBD5/KzHExqvR7e8=; b=NH4yi1OHYvolZYXR9tvk8yyp1b
+	fh6TxNUWWBjeuZJiYLr2snd3whPmec+THRo7kr6LiZvKlRWA06zh6WWV2mZQbfyG
+	FdhyVZmmymOD+d9+lKnaA8x5cBRyD8MYy99ik07UZa4xcntz6U8Wc1Hw+C48BSl/
+	NO9EUD3L4L2LYIltI=
+Received: from E0002472LT.eswin.cn (unknown [10.64.96.163])
+	by app1 (Coremail) with SMTP id TAJkCgCXhuUB8v9q1FQAAA--.2533S2;
+	Fri, 20 Nov 2026 15:08:51 +0800 (CST)
+From: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH v3] riscv: kprobes: free insn slot in arch_remove_kprobe() to avoid memory leak
+Date: Fri, 20 Nov 2026 15:08:49 +0800
+Message-Id: <20261120070849.1239-1-yuanxiaofeng@eswincomputing.com>
+X-Mailer: git-send-email 2.31.1.windows.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,43 +63,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261109230059.24572-1-platon.ksenzenkokk@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:TAJkCgCXhuUB8v9q1FQAAA--.2533S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Aw4UXr4DXry3AF1rCFWruFg_yoW8WF4fpF
+	s8uwn8G3yrXa1fG347Aw4kW34FyayrW3y2grW8A343Xw15Jr15Xw4Ig3yUXrn8Kr98Kr1a
+	vF90vFWFqrW7Aa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUv0b7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
+	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JMxkF7I0En4kS14v26r1q6r43
+	MxkIecxEwVCm-wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c
+	02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_
+	GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7
+	CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v2
+	6r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU5
+	6yI5UUUUU==
+X-CM-SenderInfo: h1xd05xldrwv1qj6v25zlqu0xpsx3x1qjou0bp/1tbiAgERE2r-JS8i1gAAsq
 
-On Tue, Nov 10, 2026 at 12:00:59AM +0100, Platon Miller wrote:
-> Use sysfs_emit() instead of sprintf() in sysfs show attributes
-> (fade_##__dir##_show and color_show). sysfs_emit() is specifically
-> designed for sysfs attributes, is PAGE_SIZE-aware, and avoids potential
-> buffer overflows.
-> 
-> Signed-off-by: Platon Miller <platon.ksenzenkokk@gmail.com>
-> ---
->  drivers/staging/greybus/light.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/staging/greybus/light.c b/drivers/staging/greybus/light.c
-> index cab02b5da..2689f9a75 100644
-> --- a/drivers/staging/greybus/light.c
-> +++ b/drivers/staging/greybus/light.c
-> @@ -173,7 +173,7 @@ static ssize_t fade_##__dir##_show(struct device *dev,			\
->  	struct led_classdev *cdev = dev_get_drvdata(dev);		\
->  	struct gb_channel *channel = get_channel_from_cdev(cdev);	\
->  									\
-> -	return sprintf(buf, "%u\n", channel->fade_##__dir);		\
-> +	return sysfs_emit(buf, "%u\n", channel->fade_##__dir);		\
->  }									\
->  									\
->  static ssize_t fade_##__dir##_store(struct device *dev,			\
-> @@ -220,7 +220,7 @@ static ssize_t color_show(struct device *dev, struct device_attribute *attr,
->  	struct led_classdev *cdev = dev_get_drvdata(dev);
->  	struct gb_channel *channel = get_channel_from_cdev(cdev);
->  
-> -	return sprintf(buf, "0x%08x\n", channel->color);
-> +	return sysfs_emit(buf, "0x%08x\n", channel->color);
+When a kprobe is removed, arch_remove_kprobe() does not free the
+instruction slot allocated by arch_prepare_kprobe(). This causes
+a memory leak every time a kprobe is unregistered.
 
-sprintf() is just fine to use here.
+Other architectures such as arm64, x86, and powerpc all free the
+slot in their arch_remove_kprobe() implementations. Add the
+missing free_insn_slot() call for RISC-V.
 
-thanks,
+Registered and unregistered a kprobe on kernel_clone in a loop
+inside a QEMU (RISC-V virt) guest: before the fix the number of
+kprobe_insn_page entries in /proc/kallsyms grew by one every 512
+iterations (each insn-slot page holds 512 eight-byte slots), and
+after the fix it stays at 1.
 
-greg k-h
+Fixes: c22b0bcb1dd0 ("riscv: Add kprobes supported")
+Cc: stable@vger.kernel.org
+Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Signed-off-by: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
+---
+Changes in v3:
+ - Add Fixes tag and Cc stable (Masami Hiramatsu).
+ - Add Reviewed-by from Masami Hiramatsu. No code change.
+
+ arch/riscv/kernel/probes/kprobes.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+index 9e2afabf9..a76eab297 100644
+--- a/arch/riscv/kernel/probes/kprobes.c
++++ b/arch/riscv/kernel/probes/kprobes.c
+@@ -128,6 +128,10 @@ void __kprobes arch_disarm_kprobe(struct kprobe *p)
+ 
+ void __kprobes arch_remove_kprobe(struct kprobe *p)
+ {
++	if (p->ainsn.api.insn) {
++		free_insn_slot(p->ainsn.api.insn, 0);
++		p->ainsn.api.insn = NULL;
++	}
+ }
+ 
+ static void __kprobes save_previous_kprobe(struct kprobe_ctlblk *kcb)
+-- 
+2.34.1
+
