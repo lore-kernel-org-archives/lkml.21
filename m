@@ -1,53 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795142813;
-	b=Im0qrEg7j1WVjg85/e7pU+3oqzZ/YOU3C2/cwFrUa1y4nwuhLdGzZNwQxYD52aif52k0
-	 ajKMF3TLmxkOjk5BZyx42fq4nywxYDh8thTKIuoad3XPXBaSezSkeRxEaIytB3DGJiN4K
-	 4HqbTs0NkFTwXXqTfMklOsZ3KjgjzhS46D1qD/dn5eOrfH2eD0GabtJXyJSR5ytfe/4JX
-	 jznXP9qwUCFA5q3VYAL1UzUqFLmKdJxp+c8ucmpQ4GKjJEjwZLIjXtdsjXt96x6UYLZ8i
-	 sdOXTm2SgDcv9ahCJYdyLxPaD/WtwHIiN1+iHwOLk71SENMZiTh36hLwZbZonypJ3mQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795142813;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=ZFuIn7eF+7IrMuyJSWuYqvoJgRL9RzuWtqR/N7Allwo=;
-	b=uBGWz/Bk4YWVbn5aOt1Mv0br/FM99tAm2nDCvX7sMLqOXlHClE/X4oCz/z98Une5IkzJ
-	 ttKSuFD0irUZ+LJjulmyHyxi9uTNYm9FolUMZEeDaa/lhsvccTkD/sNFdr6H7ov3sOLU+
-	 j9SyYlhGStjVNVrh7zV3wc3GEYjHkqZTCHrJWV8Mub8RP6H0cNf6XAq/ShNR7mrCubJ5m
-	 poMw8I4ektnRm6SW8XTDamxtcDT4YKR3rorR31Tp43nrkPMy357wpci4pGQsM0lYlbxK5
-	 2tTcCjBiLZziF5ia/fYwW4zOpSSDJuw6zTyzOgcc7o1CH9IeayyRnO7jySF+ZQW5vBg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=stu.xidian.edu.cn;
-	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 29DEC606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:46:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29DEC606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.174
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795142810;
+	b=o8jxqlo+OF1EhilVsHnFaiua1ENNg8CWwYfNO7q+GBZC30yq7jlPzggEIwdJZjqtNKoJ
+	 Xn7VbCrWmick9jvfOaNeP8uMJY2iagy0w7v/xUmozY1fYWOWj7IkZvTZ+PH+TpLZDFr+u
+	 gJkLFZqWwT0+CNyzPiRzsco4XPSXXL8TlXSLYbn8lvZOF4VCvKX9gY0aGUVl3REqVn3K6
+	 mlKAgOe59TiyrBIazqQL4sm5wOHl6OuWLHPXHtH1atqH1KrB5Vq+B/Qy/icJ8EIFTdTGK
+	 jruaSFRAAd1eppi56TvfwkU7VeewRhfntv7G3N2cgxiGHCFNkYepjfknr7G/t3RvN6A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795142810;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=yr/uKPUgfAaxf6T6HbuD487OUhPehvlRV062kb2O/9g=;
+	b=TMy5oJappIH3SDSzkfPdYgewte7/F9aphik3pWC9VeDp5AUtDRTH8kdjZCZfyH8Ii3oz
+	 3yTIYAySKKLqvA7BXkgkCAPOHoSN3KmQ7XWvXvtgWU1ruvIiiglTCgCtGZFDRN7eklGt/
+	 HlK4VAk0XwZ8P2yaq4naWm2mcISL4T0CPbH5eLqpKV99Zp/Hhj+pGBeRihBqQpgtVQG/G
+	 4RiO6h/o0LwswCE3bgpFIZymQOyF0X/pikehLwh45uQ4sS7WKrxb8z6Nh8K+30wJq9uQS
+	 uKmxkZDMwsYJzlL9H4aJocTbmr+7ml5SH+lZgJh7pk6FW6Ycsv7ChxElyscrNkU4P0Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eEqvGS8N;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.174
+Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BCCB606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:46:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4BCCB606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eEqvGS8N
+Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-372bdb942dbso514837eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:46:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795142809; cv=none;
+        d=google.com; s=arc-20260327;
+        b=mzBOITqfW3f9AeG8EnGnlXTV06Qpe9vOIMGslqUODC8shhM1fa/bXEE1YDu9R+rXro
+         dc7wAy1MQmyEFlQJTFDKyVmKQR+sxTEovB55uTpVEwyifu3sCJlthdTeDVyURTnb733W
+         3NczEwacieDCrjhJQsAgJFaOFPhBkLjDTas109nn2gyJFy3E7hKxL9mRyMkw5y1uTKW1
+         ArAgXWv2EsUwy+X5NAoHofIXz31Ny4D8CADdIPQyk7DbMzUqYTWcstiNTbmffKm2mNVM
+         gyHWNtkSHyvqvyrnYL1vYGZESEpzF38datcUweJxZHmOeUpyYkw6wtbbQb3sZCvdc26V
+         zN4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=yr/uKPUgfAaxf6T6HbuD487OUhPehvlRV062kb2O/9g=;
+        fh=8Tdtcu8dvWQnMX7YavfLRVlGNOWeCapzrYDuFy0YkBU=;
+        b=qcUFEsL7kU1wsWQAH4zdBbnGsXL/JAtapvWhEuVkY0AqSD4oBKBw6XoyDi666WUwTN
+         ms/OUJm+rmO++akqN4o7TvNZMFqcU9jEoWJGZNFZalJGW2lBUJECIlbuSd/LRC3fjYNp
+         LQE0s+AtCazHjVdMExNMaZZlrl2bawrut+E2PpDL2dt4sJFtByOBP9nl6v74PtQlhuhH
+         +gKNqZrSWd7e4402+sc4u4H8ri/fBIhQXpz0EzX3nG0mNfTunttyhmNXRFWiR5T8eDOB
+         1DsRXp7RlnC+v28mGHwgiIoJ5dv6T6doWQ2IWnnFfn0qhIH803L4UpOr8aUV8GXN53Ig
+         iVPw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-Id:In-Reply-To:References:MIME-Version:Content-Type:
-	Content-Transfer-Encoding; bh=ZFuIn7eF+7IrMuyJSWuYqvoJgRL9RzuWtq
-	R/N7Allwo=; b=rx07YghE7p9a9fDk4Y64F0VlQoYnhjtoj5nyPztn/v6acQPWXM
-	eh/7nWwHrKlmXBdOMQAWDjnCkZpyf91N8GVb/J0VI4b7aZ/D0iBiYX+EciWGupyL
-	8ifsxErBYQRC1WXXBJPlUODT3eWA+8RJfLbp58rvWZQWkF2IEq9u6ukkc=
-Received: from LAPTOP-FRMFRHCN.localdomain (unknown [2408:8670:ae1:0:bbb2:6215:5dc7:c1f8])
-	by hzbj-edu-front-3.icoremail.net (Coremail) with UTF8SMTPA id BbQMCkCmrgGItP9qCYbrAQ--.30261S2;
-	Fri, 20 Nov 2026 10:46:32 +0800 (CST)
-From: Haoli Zhang <26031212468@stu.xidian.edu.cn>
-To: frederic@kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Haoli Zhang <26031212468@stu.xidian.edu.cn>
-Subject: Re: [PATCH] posix-clock: initialize cdev state before publishing
-Date: Fri, 20 Nov 2026 10:46:29 +0800
-Message-Id: <20261120024629.1145047-1-26031212468@stu.xidian.edu.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <av8j0vUFpUg2aZyf@localhost.localdomain>
-References: <20261116032853.825-1-26031212468@stu.xidian.edu.cn> <av8j0vUFpUg2aZyf@localhost.localdomain>
+        d=gmail.com; s=20260707; t=1795142809; x=1795747609; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yr/uKPUgfAaxf6T6HbuD487OUhPehvlRV062kb2O/9g=;
+        b=eEqvGS8NSjDv/lk1dVAeRWGEh8TiPEgsovxYo2LanZz/ysbPTA0KZq1Irb7hcRkPPH
+         dZSKM5hJ+MP81SnZ+0YwGi9bkP1Nj4+OFZ0Lt6OVh0NqD+8zwd2jHvx8mYlUazKKsh1m
+         HPrp5gdyujUqmXeYT/G/nBelGP45z8ik/RKgIuPi3Zckw5IrXLdeVO03dmF0pTH2nmhS
+         hsnbTKRCYVDZ/qt55BKdfe/Wx9Yu584hJ9b2q2mT6yR/WDdR/Qx4DXrvOm1j343IutY4
+         Y47ubAtcOvI/QjaVZ/IOKNUxRBxkEueTGnwBZYTX/g37Y+CT7SGJLGI1cLuhEF7b8+Eq
+         NeFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795142809; x=1795747609;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=yr/uKPUgfAaxf6T6HbuD487OUhPehvlRV062kb2O/9g=;
+        b=Yba/2brXERIoIOz/cn/0wPjgIkFa2JL21cEZUPIZHGm76yFjHoRsEEMhU8GrZvuxY3
+         TWcDm/WLuEOFJwbuBoILl6vOclZvIcKJXzHDzwt3sTgurFZbzY7k5kogVXjeBrBYh4ae
+         ZyRB6TwFiuDGe2WjblkNdPj1TvV5qOyQEfM011Raba7V2PNDWgpCEQhmN2GQFVxrVlPI
+         OPsbB+tR2JhvpIiJWso2b+AEZ1aQiRUrty0sV+7+Yt7oNA5Btl4a1JyPnixD1cT1m1RD
+         DIJY3VPZRNSqc3tbfxE0sOUPbWmYR/jixXy0VZupN22vy7vxcnZXQrgVU9d/7Fh11R7O
+         TFwQ==
+X-Forwarded-Encrypted: i=1; AL+hErGGWnCAf0NuGnknGxhD+ZwYyl/PnVGjPkoQBbdGfrQJzHv8cL8l7bYgSAmL7bEEYMHQbQHf+A2WIwUYkV8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9qYvBVjKgzGu/Lq3MO923HOxrTxzPn5DXD17tsS1nZ7blqZQGX
+	xdxM3bzDlEBMTIGaia+WsmC7FgLRtEBl6T9X2GkgFk3H48ojpXi/8ifOqrT6fs3hBOmOlYqNHLV
+	XEMrSppHAMIzlL488805/hO6kkphlhd8=
+X-Gm-Gg: AZFdTZfzNaypKzj3BhO1Swqw1BQ3M9ikpeXvvvF6ckMd36RzEkRna5snXUEMyHCdxr7
+	lcQbBV0jT8lMAxYcjMOBqcuXHrHvMmsyeaSlhyCSaKZFau4ks+5FJtUG77E9F/rt8AsUM7mrKx7
+	sArQw9BH8+eept0krvw5VcCh01XsF8be9eISBLLeG1I7VK2anioXZy2JwDsKoyw8RfTwvf5jCI/
+	ebP96wbDFFU7u1OsCr/KT0E0NiR7tq9YLsl/glsIzw6mdNwAOTiInaCy61EPGj8Wqlhuxq9IFIq
+	iwg02Nv28791+TbBGkyMpq3ztkVjGZVHgQeyV6MTblZJOUNI7ttq/VHOlxVZKu57f9R0eQiBpyx
+	5qLsZACLESbjGTwPfb/CEYp71tjUf/3eMoo47//it6PtLggcNrLuWqAySai9+4so/TvJ2z4hJjN
+	MK7ouoAEYU9OGdObin
+X-Received: by 2002:a05:7300:e9cd:20b0:36f:f3b7:6dee with SMTP id
+ 5a478bee46e88-3856f148099mr1509811eec.7.1795142809415; Thu, 19 Nov 2026
+ 18:46:49 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,39 +104,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-CM-TRANSID:BbQMCkCmrgGItP9qCYbrAQ--.30261S2
-X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYs7AC8VAFwI0_Jr0_Gr1l1xkIjI8I6I8E
-	6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28Cjx
-	kF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8I
-	cVCY1x0267AKxVWUJVW8JwA2z4x0Y4vEx4A2jsIE14v26F4j6r4UJwA2z4x0Y4vEx4A2js
-	IEc7CjxVAFwI0_Gr0_Gr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvE
-	ncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I
-	8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I2
-	1c0EjII2zVCS5cI20VAGYxC7MxkIecxEwVA20wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4
-	IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1r
-	MI8E67AF67kF1VAFwI0_Jrv_JF1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJV
-	WUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
-	6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcS
-	sGvfC2KfnxnUUI43ZEXa7VUj5ku3UUUUU==
-X-CM-SenderInfo: yswqjiasrskluy6v33wo0lvxldqovvfxof0/1tbiAQUDEWr-ENiBogAAso
+References: <20261118051247.3885308-1-lcy8047@gmail.com> <96a5ce67-89c8-4010-bfc4-4553e1aefe87@nvidia.com>
+In-Reply-To: <96a5ce67-89c8-4010-bfc4-4553e1aefe87@nvidia.com>
+From: Changyul Lee <lcy8047@gmail.com>
+Date: Thu, 19 Nov 2026 21:46:38 -0500
+X-Gm-Features: AclHuK_LbjhS7-Db8Zoq1dtarOebPOZsaYeLwUIwTxAs3oDtr1MYrA09Uyk3gnY
+Message-ID: <CAKefsHu6P6FJAz6hV6+Fzm_PgXcTCn54WjD5pH0ThLC1A-DOFA@mail.gmail.com>
+Subject: Re: [PATCH net] net/mlx5e: IPsec, Fix RX mapped ID leak when adding a
+ rule fails
+To: Jianbo Liu <jianbol@nvidia.com>
+Cc: Saeed Mahameed <saeedm@nvidia.com>, Leon Romanovsky <leon@kernel.org>, Tariq Toukan <tariqt@nvidia.com>, 
+	Mark Bloch <mbloch@nvidia.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org, 
+	linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Frederic,=0D
-=0D
-Yes. cdev_device_add() calls cdev_add() before device_add(). By =E2=80=9Cex=
-pose=0D
-the cdev=E2=80=9D, I mean that the cdev is registered in cdev_map and its f=
-ile=0D
-operations may be invoked before device_add() starts. I do not mean=0D
-that device_add() has already registered the struct device or created=0D
-a devtmpfs node.=0D
-=0D
-The cdev_device_add() documentation requires callers to assume that=0D
-userspace may open the cdev and call its file operations even if the=0D
-helper later fails.=0D
-=0D
-Thanks,=0D
-Haoli=
+Thank you for the review. I will update the patch as you suggested
+and send a v2.
 
+Best,
+Changyul
