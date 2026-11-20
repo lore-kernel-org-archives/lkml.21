@@ -1,95 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795143373;
-	b=44ZAOfuPmxprmJbU28m7hV6/FLy0PO43ngjuIsi1pXsw95KWMNtc8GtdxVl2QT/ZXuYS
-	 DNzADR8Y5NoleUanTpkVnuGqYtBqfXk8xL7XvsUjPYTggb56WroiWFJRQ/k7RrZ5hJgJY
-	 Nbnou3vxuXFNT1BxcT5BnE+/Fcl1pSyMPI+3SWAhh7jywqrT7WsNHb3SciZgHEDsSAmwT
-	 r/posa6N7xw7qy7psthwH1C1xwKObDbc9wN/ZJwItHFeIQJwweOHNvjUno0B+hNNz/Mil
-	 Rm4uSMLG8fk76DG59/luIaoRxk+yd9vs9SuWCc5CtB/VxQHRIIIx3MJ8zrGouwLBmSQ==
+	t=1795143380;
+	b=QOuQrwmvMwrMoZeIprOFg4Nd/xCiMfruHSpCd+TkK9JQ1HeMKFhHY3g41iMsL5f6Sru5
+	 kHOmxhsLMPe1iwB+Z73NPue0qZH5RqZslwwEY2qR0FPEeqQpIYlkc5T1qXzS8nsdOEo1J
+	 8FeDBf8vrbwLlbRBsuur4ZjuEhGo8HUN7fWiPCq+al7Xlb4xkO2P2PKcMHAN5/PabD6Op
+	 2kYbn5lyxb/JVX9LLh5B/JV03LYYMDXI1hyXdRh/s/WwblVcYkklD/sgfQm3ObxxIgalW
+	 GWwFsl39HGFZLe3fct5T2OqIPbfRVWsRmiCFMh0exvrTYOgigwVu6ieLxEW9aZCjN7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795143373;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795143380;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=2UPt9p34nIxWIkNf9Ri70NscQqBECXpPB2+yVfs1gWE=;
-	b=y8/rqxCkEhiwLrTQwteJoqoX/GYAgRPBYSQVekLCLtYzaNPbiFqyOJ3kR/3fcLv3r4Es
-	 5EsuDOr2goP1Wlr76cajl2gMuQJQacxarEPcG+e6xNttgtlZkbIw5LpCtoLwMXMf/9Vbs
-	 cG8LFm82kMVIaUM6iBpSPAZjaCNagtA5oVpW8JmCk3hMiB4W/bZnR3lsDmNdmbtfWP9/t
-	 VngJRlRo4v9Gv1K9w8QjNTk1C7QiATLKbFi50CUyEcoaFx6gxk/WqPrFNRX1NDVSEtxWb
-	 F2Ljr/D1/rkwJzCDhjNNlKLba8Ztd6DYaxJWQe3y6AH5nluXCNMj3W8Vo39N4MgP15Q==
+	bh=m0665dM5wdxWb5+F+h/RK/x+cnUT7B3ca11RjcWX5hs=;
+	b=SHRFaPGDw2bDZUD+IJtnfL+G8WwwdhpPIMGInRfMl8nlXezuUfalEhJzzCVNQA8qUE6v
+	 uskQYC+7jQpSDESyAPEKMOpD0Hti5TkW0LhpdmJ7e4p7/ZEm/f4xU0HIevVtiQyJJwimf
+	 IcY2NVtgGnfEl9M9lKnIbsqzMC71ew3AvPe9I98c/gCV8UwsUOJmGqJA15kyCgZNMaWZJ
+	 YWsT/XHBdPKQp3lSYwjXin7fSAB3BfL5U+Ak5f3Ad9HSA2968QZBNF0s/8RHRERB+8EuQ
+	 WfS40H3W6rQWfNZM9ZsyZFQkEHr+4vp+OpvpsPgVS02xxDQWekpP7dGdox9dCzMQFMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=smartx.com;
 	spf=pass smtp.mailfrom=smartx.com;
-	dkim=pass header.d=smartx-com.20260707.gappssmtp.com header.i=@smartx-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=QJCXi2S8;
-	arc=none smtp.remote-ip=209.85.214.169
-Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
+	dkim=pass header.d=smartx-com.20260707.gappssmtp.com header.i=@smartx-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=mXsc1Ips;
+	arc=none smtp.remote-ip=209.85.215.178
+Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com [209.85.215.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 973D0606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:56:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 973D0606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFFBB60A2611
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:56:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFFBB60A2611
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=smartx.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=smartx.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=smartx-com.20260707.gappssmtp.com header.i=@smartx-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=QJCXi2S8
-Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2f02ee04378so3267005ad.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:56:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=smartx-com.20260707.gappssmtp.com header.i=@smartx-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=mXsc1Ips
+Received: by mail-pg1-f178.google.com with SMTP id 41be03b00d2f7-cde4b4e936fso852482a12.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:56:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=smartx-com.20260707.gappssmtp.com; s=20260707; t=1795143371; x=1795748171; darn=vger.kernel.org;
+        d=smartx-com.20260707.gappssmtp.com; s=20260707; t=1795143379; x=1795748179; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=2UPt9p34nIxWIkNf9Ri70NscQqBECXpPB2+yVfs1gWE=;
-        b=QJCXi2S8pIOkLuyWzYBnJy3xA9Dbsn/ZiL1TRrB1V2x24lfN8a6gQZmfx82Vg4m4dz
-         lfmlFnQomOFd0u/partG6wzlMwF5hKQEtYupveIOAF343i2WDqG+SYQEREGeVw3GeBJq
-         0UZJslLBjJNCWEbHUiFrWI+Z7NnaKKJ8/XpSxuO/WS7gUisuB6f1o4zfFLy/33Wm1nyS
-         i49PX0BL+n4sEOQucjgyTXUmIx2254ST23gBCgBo4LjyWnfLqgk4TbkraNa3aqCoXmy4
-         FbtMZPy3yBJO7gaV9ds4N2z9chNn9F/cdh3VI89toDN06Ng+5nJIkiLkXC7gW241Lkbg
-         1F+A==
+        bh=m0665dM5wdxWb5+F+h/RK/x+cnUT7B3ca11RjcWX5hs=;
+        b=mXsc1Ipsc271cFgv+5H5jLsxt+xovQR8Orl9yL7q4tGbpMf8yDTxNrwFz8NTy8TSw5
+         31mrr+nMNhpJoO5vCm+/duya12pFsX7rfk7F2uT+hiR1XfagyBEZkT6GlUXco7iplWtz
+         CXFazb/8AbwJwWj/zmwQUPpWswMkxH1R9b3hwNvsnTd6aGwePoSYEZvkOCyA7Jaa1+3u
+         ygDf7kzpv0iFxwnTHGaO37/Ha6HdZ0UDgVkiQAzsDhRl+1dTL4O1wwVh/0DdZHW686DN
+         /s718p8Zxv2WCT3ojqVSk/gOjsTEVlNs79CeQn4oCqj+c9J6EMz/r7SnWmnuDszEFsc/
+         TOPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795143371; x=1795748171;
+        d=1e100.net; s=20260707; t=1795143379; x=1795748179;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2UPt9p34nIxWIkNf9Ri70NscQqBECXpPB2+yVfs1gWE=;
-        b=QwDEOodMl2PxgiytnbUH0wvHs3Fx2p0fNzOaC9ITUMlDkReqnBlvWNBhYoSCWczuam
-         2nPEkYkhjfVx8Kt0VZ4L1W4euQT4dbP7dJ2OvxL3OCWLHsAteXsWksYyJbPZvjpbrMUC
-         4HG5w4VozbH9wMQgupd5zxjGczazfyrv83ISxC5vf9s/+9H6136O0PIeqsXZE/xD/XL5
-         +0N/2CLw9tJVI3xNIonjopyGzPZmDFrWhcPhFaHdbZBNOMW0CpUB0yXArV9yOj47mA7p
-         7ydgMlAbNUa8xbE+y0c72m0G/zK9sUEXndYOMAzYSI5n8sAzWcYbR95JREF8bGxopf4l
-         rSFQ==
-X-Forwarded-Encrypted: i=1; AL+hErELwq6qieDnEnIYDkiPwglTPiV1BtjNNCQaR3Tyk7ckSlQhyARAWqnDug/sKpkp/GUJbuZ+O7ZLwsjEq/g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9V30kuUhzgJJUkxgf53Odvvlz1kXkK5EekixlAIyTOBeucezKi
-	JZbmNyFTieHJ8io+c5C1qY9X5j97FeLhezt2l5Yg4jrlgP9+X3/p+gwY8rP5xBXBzpWoC1VvCeA
-	7ZFAG1Hu5C+nmpiWhekbC5IyHCDjwwiQ39n4DTYdEJLMlFBo2Fc1Yl1IsGhA=
-X-Gm-Gg: AZFdTZf8xW2tEbrurWZ/fMYHh5WhSdsvGk97V5zYQSTQ1Y3iCzGtvorCLIpQynfj8Kn
-	ue+UpElzR+nL+aT6IZmyEIqxdizCPZO9+TwlFtffGkwMsQAELKVfbEokdj5sDDfXoGcpv9JiU2s
-	gXOOx7tI963n8LBSzx3Mfk51pfijvhagegns9yiuh3XbeWRbCT8kbOEajuY1eMLKuqNXXUR1Leu
-	B/x0TyXHB6lRni+tHXA2Xs7MjPkd+bQYCDClx5PXyUnjxBofxcoMLFDbxSdfYlTSL6CtwGJvvEb
-	XqfuEN4ZJ4u+CAnWi2JzMgpwFTbnWZNEZz/tCqmFfNQ5JQnMBKi9pMUCltblg2KHMOuDQZ1CYqi
-	Zvuh7/aOI0/pDSK8JgHApWW5mXMLmLASNIzUHd6gaiMdeVH8pxuPhK9UC6Oy44xRRVelAT2FAKV
-	RSH6IG9AEG6cP3nq2tMv3kbwfWbTIbEItAAJsG1dEAfbJdN2EFgUvt1VG8pwiANALnSJKqgg8ic
-	23zLREC0eRpGASYrzYD8lkxGv53JeOfgQvGq1uaGHpD7mE85RlvgTu8/TqN+dmWgUfJc6Qmkkuu
-	zxVh29aIOY9Qu1tIocxqjZun+wrxjEbZb4ArIZ+KiJMzBFCWIV4pBrbDF0g=
-X-Received: by 2002:a17:90b:2688:b0:3b3:cde6:d8c8 with SMTP id 98e67ed59e1d1-3b41c955b9dmr1262506a91.46.1795143370698;
-        Thu, 19 Nov 2026 18:56:10 -0800 (PST)
+        bh=m0665dM5wdxWb5+F+h/RK/x+cnUT7B3ca11RjcWX5hs=;
+        b=Gbg2oW69agfcKpn8Wk/JgiJ0NO/KDe2JNrSYog0CsI0UEKdbOWENdq1y4zY2f/MLS+
+         hcUdR+gl7D9o5mqnQUGWdF7sCBk5BOFGYRUQ8c5LwH58RYUGehSPIZuJ3EMeZdarse7h
+         q5gFkRYPjD1ZKT5WxITpmcKJ0dyPWXWLg5TwibwqE606SluZrtl03qRolUB0nb6nx/pn
+         c5TUj5ixdOn7lvly+MY4ocEMOKwe1Nj/xntCS2rbUbrf08AynP4RVTXoRCkVS/rc0cFn
+         AoYF0W9JWKF/UgBJ7rk25RimkWGZxFFqD0ods/5a0Hx92/iuZV7cP5j5Pw2NqLDvW1pO
+         w4aw==
+X-Forwarded-Encrypted: i=1; AL+hErE7lMwjRmA00GfFWMP2Jdx3mPE4gLfpNsvooRX3Uw4gCaV9YM2Fb6DDkHr5KtLLy29f3Ro5u2Cnse7BxpM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Sua7m42aFq5mtmi2PZ9M2vs9FnJ0oMwPVYkmN1i0lIPRWd6Mu
+	/SbmexqVoEQSSfYHebfHGRqQ0AzkJlQ+ujEfOfzWUvBcZx7+CYVaPF0c/jsDhwxFXrlcx7tdeJD
+	LWkWBw7Z8tADwuI0oU0Yr605x0Jcz2bdo6NZKp71FiSUL53UJUjgITcn2OJ0=
+X-Gm-Gg: AZFdTZcDSb/oO5Okqw9L04ixU0zCgszs7+K+meOZSr8EIWe8ZO+ZHATyvjScthNSLUg
+	+JKig5nzn4XwuJe/psV6mWzlkBWd/1sIG6ej53/42NLLUXi2X7/zFPN/st/5yKlU4HpGj8Ug79q
+	p48xzB/m9VmULnAlYxMK1o0qojqbij+BL/7GTS9ndV9/BNW8715hGJ7pYZWdKMtmWKGZgna4Fxg
+	++9oMeSmSoB09I9uA+6wNICkey6EZAD65xNmRq4le4/rRB5HOO8LaIOS3CM11hkr2irOoNFf+Ds
+	72XBiGR08OyJNlMnodlqnQyfTeojpB6OT14J1vYOMecL3bz8dCqBK5jqVQ98FxCozUmmnnHuyDw
+	ZVbGhCEIXN/yz9UwnsHjy8AKBCpyHhxpW4eiMGuwDeJ1T87YqryFrn/i6/i905cc1fzRfhBK+PA
+	hFvEu8cDA7dosfKCoIIJqdj0UreJxERdNpHVqHGWNlOH72Yr5O5fAoAiowyAp6u5ZybPPgAYdoJ
+	ZlHS+geN6vqGbkREQzBZ7vvlXLwQTWcKEUgLbx682fLxnCzmvmJF+OHpW+mtGnMnvy9HsxZTE/w
+	71OnLw2xgdrLYZPx/qeUoeJkI4Ea+EBthTgw+UuTh6NmH/JlfMyPC9Q692w=
+X-Received: by 2002:a17:90b:4490:b0:3b0:a7b5:c044 with SMTP id 98e67ed59e1d1-3b41c7bbef0mr876896a91.1.1795143379124;
+        Thu, 19 Nov 2026 18:56:19 -0800 (PST)
 Received: from localhost.localdomain ([103.26.8.217])
-        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-3b405d63728sm5546461a91.8.2026.11.19.18.56.08
+        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-3b405d63728sm5546461a91.8.2026.11.19.18.56.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 18:56:10 -0800 (PST)
+        Thu, 19 Nov 2026 18:56:18 -0800 (PST)
 From: Lei Chen <lei.chen@smartx.com>
 To: Jens Axboe <axboe@kernel.dk>
 Cc: linux-block@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Lei Chen <lei.chen@smartx.com>
-Subject: [PATCH v2 0/5] Expose blk-mq tag sets through debugfs
-Date: Fri, 20 Nov 2026 10:55:59 +0800
-Message-ID: <cover.1795143228.git.lei.chen@smartx.com>
+Subject: [PATCH v2 3/5] block: add helpers to link tag set debugfs to controllers
+Date: Fri, 20 Nov 2026 10:56:02 +0800
+Message-ID: <d943e20493c4fd50fee90575645a1f18a81450f4.1795143228.git.lei.chen@smartx.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261009030111.57784-1-lei.chen@smartx.com>
-References: <20261009030111.57784-1-lei.chen@smartx.com>
+In-Reply-To: <cover.1795143228.git.lei.chen@smartx.com>
+References: <20261009030111.57784-1-lei.chen@smartx.com> <cover.1795143228.git.lei.chen@smartx.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,38 +101,127 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The block debugfs hierarchy currently exposes request queues and hardware
-contexts, but not the tag sets they share. This series adds a tag-set view
-for configuration, CPU mappings and driver tags, links request queues to
-their tag set, and links SCSI tag sets to their controller debugfs data.
+A tag set's debugfs directory identifies its attached request queues,
+but does not identify the controller that owns it. Drivers with an
+existing controller debugfs directory can expose this relationship
+without duplicating the controller's debug information.
 
-Compared with v1:
-  - Reworked tag allocation and reclamation so the debugfs objects have a
-    safe lifetime across queue initialization and hardware queue updates.
-  - Added controller links for megaraid_sas and mpt3sas, including helpers
-    that build relative debugfs targets and serialize link updates.
-  - Folded the stale CPU mapping comment cleanup into the tag-set changes.
+Add blk_mq_tagset_debugfs_link_controller() and
+blk_mq_tagset_debugfs_unlink_controller() for drivers to manage a
+controller symlink in the tag set directory. Build a relative target
+from the controller dentry so the link stays within debugfs and does
+not depend on the mount point.
 
-The series is based on Linux v7.3-rc2. The tag-set debugfs implementation
-was exercised with concurrent queue resizing, shared tag sets, device
-teardown and old file descriptors, allocation fault injection, and KASAN
-and lockdep enabled. No KASAN or lockdep reports were observed.
+Serialize link updates with tag set debugfs registration and removal,
+and use the existing NOIO scope for allocations. Callers must keep both
+objects alive and remove the link before deleting the controller
+directory. Provide stubs when CONFIG_BLK_DEBUG_FS is disabled.
 
-Lei Chen (5):
-  block: expose blk-mq tag sets through debugfs
-  block: link request queue debugfs directories to tag sets
-  block: add helpers to link tag set debugfs to controllers
-  scsi: megaraid_sas: Link tag set debugfs to the controller
-  scsi: mpt3sas: Link tag set debugfs to the controller
+Signed-off-by: Lei Chen <lei.chen@smartx.com>
+---
+ block/blk-mq-debugfs.c | 54 ++++++++++++++++++++++++++++++++++++++++++
+ include/linux/blk-mq.h | 16 +++++++++++++
+ 2 files changed, 70 insertions(+)
 
- block/blk-mq-debugfs.c                       | 378 +++++++++++++++++++
- block/blk-mq-debugfs.h                       |  22 ++
- block/blk-mq.c                               |   8 +
- drivers/scsi/megaraid/megaraid_sas_debugfs.c |   3 +
- drivers/scsi/mpt3sas/mpt3sas_debugfs.c       |   4 +-
- include/linux/blk-mq.h                       |  24 ++
- 6 files changed, 438 insertions(+), 1 deletion(-)
-
+diff --git a/block/blk-mq-debugfs.c b/block/blk-mq-debugfs.c
+index 72634277e088..1a1364a34c0a 100644
+--- a/block/blk-mq-debugfs.c
++++ b/block/blk-mq-debugfs.c
+@@ -7,6 +7,7 @@
+ #include <linux/blkdev.h>
+ #include <linux/build_bug.h>
+ #include <linux/debugfs.h>
++#include <linux/dcache.h>
+ #include <linux/idr.h>
+ 
+ #include "blk.h"
+@@ -860,6 +861,59 @@ static void blk_mq_tagset_debugfs_unlock(unsigned int memflags)
+ 	memalloc_noio_restore(memflags);
+ }
+ 
++/**
++ * blk_mq_tagset_debugfs_link_controller - link a tag set to its controller
++ * @set: allocated tag set
++ * @controller: controller debugfs directory
++ *
++ * The caller must keep both objects alive during this call and remove the
++ * link before deleting the controller directory. No dentry reference is kept.
++ */
++void blk_mq_tagset_debugfs_link_controller(struct blk_mq_tag_set *set,
++						struct dentry *controller)
++{
++	unsigned int memflags;
++	char *buf, *path, *target;
++
++	if (IS_ERR(controller))
++		return;
++
++	memflags = blk_mq_tagset_debugfs_lock();
++	if (IS_ERR_OR_NULL(set->debugfs_dir))
++		goto out_unlock;
++
++	buf = kmalloc(PATH_MAX, GFP_KERNEL);
++	if (!buf)
++		goto out_unlock;
++	path = dentry_path_raw(controller, buf, PATH_MAX);
++	if (IS_ERR(path))
++		goto out_free;
++
++	/* The tag set lives two levels below the debugfs root. */
++	target = kasprintf(GFP_KERNEL, "../..%s", path);
++	if (!target)
++		goto out_free;
++	debugfs_lookup_and_remove("controller", set->debugfs_dir);
++	debugfs_create_symlink("controller", set->debugfs_dir, target);
++	kfree(target);
++out_free:
++	kfree(buf);
++out_unlock:
++	blk_mq_tagset_debugfs_unlock(memflags);
++}
++EXPORT_SYMBOL_GPL(blk_mq_tagset_debugfs_link_controller);
++
++void blk_mq_tagset_debugfs_unlink_controller(struct blk_mq_tag_set *set)
++{
++	unsigned int memflags;
++
++	memflags = blk_mq_tagset_debugfs_lock();
++	if (!IS_ERR_OR_NULL(set->debugfs_dir))
++		debugfs_lookup_and_remove("controller", set->debugfs_dir);
++	blk_mq_tagset_debugfs_unlock(memflags);
++}
++EXPORT_SYMBOL_GPL(blk_mq_tagset_debugfs_unlink_controller);
++
+ #define BLK_MQ_F_NAME(name) [ilog2(BLK_MQ_F_##name)] = #name
+ static const char *const tagset_flag_name[] = {
+ 	BLK_MQ_F_NAME(TAG_QUEUE_SHARED),
+diff --git a/include/linux/blk-mq.h b/include/linux/blk-mq.h
+index 882ed11e7c2b..d98ec1dc1130 100644
+--- a/include/linux/blk-mq.h
++++ b/include/linux/blk-mq.h
+@@ -564,6 +564,22 @@ struct blk_mq_tag_set {
+ #endif
+ };
+ 
++#ifdef CONFIG_BLK_DEBUG_FS
++void blk_mq_tagset_debugfs_link_controller(struct blk_mq_tag_set *set,
++						struct dentry *controller);
++void blk_mq_tagset_debugfs_unlink_controller(struct blk_mq_tag_set *set);
++#else
++static inline void blk_mq_tagset_debugfs_link_controller(
++		struct blk_mq_tag_set *set, struct dentry *controller)
++{
++}
++
++static inline void
++blk_mq_tagset_debugfs_unlink_controller(struct blk_mq_tag_set *set)
++{
++}
++#endif
++
+ /**
+  * struct blk_mq_queue_data - Data about a request inserted in a queue
+  *
 -- 
 2.43.0
 
