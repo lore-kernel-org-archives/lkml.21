@@ -1,66 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795155533;
-	b=0NayApISTWMv0bnMAjGNP2lY5VxJs/hQ/rJSPF5H1ovncYSXGPDtjrpjszFs8OQvNE2U
-	 mTwhQPtCfjjxD4lmG57ykEGbbNz7tWqtNXocvnptTJZk5O44Gy5MAbCJJVMmUlM4HyNkF
-	 CgUWypDEVF/Q71CpsTxU6sQoaNY8Za2FhFE6NzApZAPGy+IbpgZaHmhJYSPh9T8FF9lzf
-	 qfSM9dNfM8h53lBKLhdWCVmmFrH8Ox3t7eC3BiIXQA13FwBF0g2Bh8RhxQWlYC8c9h5B6
-	 ookTSMyhA/ea00DXme8YyBYwmylKKP68jV6IlTx6AcUCfinQ+y+saMBG/c10412I3Sw==
+	t=1795155551;
+	b=2aVrnzVmsq5izGH6h+rkxEsiC9bJ8V9vn2FHCZhZq1N3VaF8Svi3/Vlocu9DvSbjWClW
+	 fx+O7WV7SBJhYDSwPnmqvfkxT2FZGAXlXvU6uAwmakYUDrH12kRmijfQJN4a8iPFZqiJ6
+	 CQUiLalqYjKqtWTZXmw7g/cCp9vuNPc+KosGmc/ojHv4T+bujDsppHsO34pfWrkagRpbW
+	 4Jr747LB6AKtmhH9N4C/wncHEoWnYkyyD77xYIDhIJPZwEBb0nXmsy/7wqLbnwxFlPDQL
+	 kteHQZDdTiCD5HaZm4Y3yETtLmZDXzXiEx89hFgQuzEBiVYBSFobRpau+m3NtEYMOhA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795155533;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795155551;
 	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
 	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
 	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Wvd/leJVVRMYb9xXPFoawniofrkc24UrTssl3gcACC0=;
-	b=VmSFrssPYBP8As7VRknNhZaM38KUJE7JsKyK2VSkrfjo250RveSj80/bQWWpNwrre6me
-	 +H0PHM6a+UgE6bhttStQHyNiV82QyZVDZvsotDI64/OWId8GWroeooBqZrXdE0Ue3jyOK
-	 EJNpZmFB9PlNlUXTOaqEf8y8N/g5pga7sAcvXjpVG5NMw2FUYDCw5vNNLfeeLzQFRY3KM
-	 Mb9dKFMRfLe3HLxYuTD8wGnCALYymwxjVOb+GpWWUiotmRfEM4s0D2VNxAjNCvEiWyYsl
-	 GcSy9wXz2aBm3jOSdCc5+5av38VJkw0pFJSsiLq+590lUZneim8VkfYLI9qMKhRRZ2Q==
+	bh=oKPLq7uuL4FriEgm+iR7fJpIAnOpwk8KT+SLNP73Hps=;
+	b=ddnNE8eQYKso3rvHv3HrpW89FROA/Hn2WyZppCZwH7tgAOeHF8Zo5OKGy3WFDeo8S+8b
+	 45N7R5ZPwupqXs3b5O7DDNcQ+6uK4ITcyyFMP4juTYZEBMgftYS5LowOLq7ZukEOoofNT
+	 laJlkRT8FOXjdfV0JnUuukluFs7Zj9ul3fe3OlmLMq0U6ljKz9YtX3wkcl88x/AtCH6Pa
+	 u5hdS3BZXgRb1UxVJoWsrBVVsTxlobVXp7gIkVjbI2s/1+2AkRmb9+t97h97tWKnnpo7x
+	 BJMrnGaZN0aaFIFfFDulBZZ4l4yj02bp0UKFGwfMqGBketHz0fCcey21ApErQlCJzjw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=cmss.chinamobile.com;
 	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=WFkopXIF;
-	arc=none smtp.remote-ip=111.22.67.151
-Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 1726D606A50A;
-	Fri, 20 Nov 2026 06:18:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1726D606A50A
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=I9M8PZrM;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 23B7A606A338;
+	Fri, 20 Nov 2026 06:19:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23B7A606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=WFkopXIF
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=I9M8PZrM
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=cmss.chinamobile.com; s=default; l=0;
 	h=from:subject:message-id:to:cc:mime-version;
 	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=WFkopXIFkI7a5n3+pL//jGF5cwbfBHB3OEEvZXkGpXAFXE0wXTXMZYfNVnIIrY3UAQ0UOiFC+yWav
-	 8kgHbPicEple5TenCNa/7ZAxKZf7fP1TH0WuLzRueFPrj53YlHnd2V70GXsQ7c0ErvMWLTVFUMgRGf
-	 1vnJhjPwMIWkIh18=
+	b=I9M8PZrMLA0TffLoabszwNZWiYSayOtrdri2VnHgKM39XtzzKxVz+sVqvqW/SJaJjyT0rB3TB7Kh3
+	 MPUmbxveXjnnPga+3xX84+ljcaONU4EIe2lrIAmQ0Oq0pEZCZa7rJO14+2/iKuUrdwbdh8wXY7Md+x
+	 Nl8vUje3T8nHx+B4=
 X-RM-TagInfo: emlType=0                                       
 X-RM-SPAM-FLAG:00000000
 Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app02-12002 (RichMail) with SMTP id 2ee26affe641949-60f71;
-	Fri, 20 Nov 2026 14:18:41 +0800 (CST)
-X-RM-TRANSID:2ee26affe641949-60f71
+	by rmmx-syy-dmz-app09-12009 (RichMail) with SMTP id 2ee96affe658b2f-2a56d;
+	Fri, 20 Nov 2026 14:19:05 +0800 (CST)
+X-RM-TRANSID:2ee96affe658b2f-2a56d
 X-RM-TagInfo: emlType=0                                       
 X-RM-SPAM-FLAG:00000000
 Received:from devin-VMware-Virtual-Platform.localdomain (unknown[10.55.1.71])
-	by rmsmtp-syy-appsvr02-12002 (RichMail) with SMTP id 2ee26affe6407cc-1864f;
-	Fri, 20 Nov 2026 14:18:41 +0800 (CST)
-X-RM-TRANSID:2ee26affe6407cc-1864f
+	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86affe65716e-80c93;
+	Fri, 20 Nov 2026 14:19:04 +0800 (CST)
+X-RM-TRANSID:2ee86affe65716e-80c93
 From: Zhu Jun <zhujun2@cmss.chinamobile.com>
-To: lee@kernel.org
-Cc: pavel@kernel.org,
-	griffin@kroah.com,
-	jacek.anaszewski@gmail.com,
-	linux-leds@vger.kernel.org,
+To: jic23@kernel.org
+Cc: dlechner@baylibre.com,
+	nuno.sa@analog.com,
+	andy@kernel.org,
+	linux-iio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Zhu Jun <zhujun2@cmss.chinamobile.com>
-Subject: [PATCH] tools/leds: Build the full hardware brightness path
-Date: Fri, 20 Nov 2026 14:18:40 +0800
-Message-ID: <20261120061840.98122-1-zhujun2@cmss.chinamobile.com>
+Subject: [PATCH] tools: iio: Keep the buffer index separate from the acquired fd
+Date: Fri, 20 Nov 2026 14:19:03 +0800
+Message-ID: <20261120061903.98141-1-zhujun2@cmss.chinamobile.com>
 X-Mailer: git-send-email 2.51.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -73,57 +73,54 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The path includes both the LED class directory and the attribute
-name, but snprintf() limits the entire result to the LED name size.
-This truncates valid paths and causes open() to fail. Allow room
-for the whole path and check for truncation before opening it.
+IIO_BUFFER_GET_FD_IOCTL takes the buffer index as input and replaces
+it with a file descriptor on success. On failure, cleanup can mistake
+the unchanged index for an open fd and close a different file. Only
+assign the returned descriptor to buf_fd after successful acquisition.
 
-Fixes: ae3473231e77 ("tools/leds: Add led_hw_brightness_mon program")
+Fixes: 8827faab2c8b ("tools: iio: convert iio_generic_buffer to use new IIO buffer API")
 Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
 ---
- tools/leds/led_hw_brightness_mon.c | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
+ tools/iio/iio_generic_buffer.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
 
-diff --git a/tools/leds/led_hw_brightness_mon.c b/tools/leds/led_hw_brightness_mon.c
-index eb65ae988839..c26be496a00d 100644
---- a/tools/leds/led_hw_brightness_mon.c
-+++ b/tools/leds/led_hw_brightness_mon.c
-@@ -14,6 +14,7 @@
+diff --git a/tools/iio/iio_generic_buffer.c b/tools/iio/iio_generic_buffer.c
+index 000193612aad..fd955cf444ad 100644
+--- a/tools/iio/iio_generic_buffer.c
++++ b/tools/iio/iio_generic_buffer.c
+@@ -404,7 +404,7 @@ int main(int argc, char **argv)
+ 	int ret, c;
+ 	struct stat st;
+ 	int fd = -1;
+-	int buf_fd = -1;
++	int buf_fd = -1, requested_fd;
  
- #include <errno.h>
- #include <fcntl.h>
-+#include <limits.h>
- #include <poll.h>
- #include <stdio.h>
- #include <stdlib.h>
-@@ -21,12 +22,10 @@
- #include <time.h>
- #include <unistd.h>
- 
--#include <linux/uleds.h>
--
- int main(int argc, char const *argv[])
- {
- 	int fd, ret;
--	char brightness_file_path[LED_MAX_NAME_SIZE + 11];
-+	char brightness_file_path[PATH_MAX];
- 	struct pollfd pollfd;
- 	struct timespec ts;
- 	char buf[11];
-@@ -36,8 +35,12 @@ int main(int argc, char const *argv[])
- 		return 1;
+ 	int num_channels = 0;
+ 	char *trigger_name = NULL, *device_name = NULL;
+@@ -714,11 +714,11 @@ int main(int argc, char **argv)
  	}
  
--	snprintf(brightness_file_path, LED_MAX_NAME_SIZE,
--		 "/sys/class/leds/%s/brightness_hw_changed", argv[1]);
-+	ret = snprintf(brightness_file_path, sizeof(brightness_file_path),
-+		       "/sys/class/leds/%s/brightness_hw_changed", argv[1]);
-+	if (ret < 0 || (size_t)ret >= sizeof(brightness_file_path)) {
-+		fprintf(stderr, "Invalid LED brightness path\n");
-+		return 1;
-+	}
+ 	/* specify for which buffer index we want an FD */
+-	buf_fd = buffer_idx;
++	requested_fd = buffer_idx;
  
- 	fd = open(brightness_file_path, O_RDONLY);
- 	if (fd == -1) {
+-	ret = ioctl(fd, IIO_BUFFER_GET_FD_IOCTL, &buf_fd);
+-	if (ret == -1 || buf_fd == -1) {
+-		ret = -errno;
++	ret = ioctl(fd, IIO_BUFFER_GET_FD_IOCTL, &requested_fd);
++	if (ret < 0 || requested_fd < 0) {
++		ret = ret < 0 ? -errno : -EIO;
+ 		if (ret == -ENODEV || ret == -EINVAL)
+ 			fprintf(stderr,
+ 				"Device does not have this many buffers\n");
+@@ -728,6 +728,8 @@ int main(int argc, char **argv)
+ 		goto error;
+ 	}
+ 
++	buf_fd = requested_fd;
++
+ 	/* Setup ring buffer parameters */
+ 	ret = write_sysfs_int("length", buf_dir_name, buf_len);
+ 	if (ret < 0)
 
 
