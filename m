@@ -1,88 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795142095;
-	b=n1rb+0GNfbG+rbeGi/i1BQFFEf48OZiJu2zHuRJTXWZ76+XNK8MUytLWA65V95UTSDrJ
-	 Uls8usWjzzjqMeEKl2RHMsjxZehFINNdJ5euhbgEDgUeftjNpek4+O4g04U67f0jIHlIf
-	 qhKQNZ02C0uub41QDeS7mKoIGOZAe0RtFPbL/TPOo8K0CmH68xKBcgztJtfEPg+aN78dm
-	 svLh8M7tMNUbj46zHlTO2cZnYs82S1Y5hUjywSd3vpD4iYg7ej3JAEHS7Ix21m5mTVc1T
-	 V/v6hVYrIKtRdSRNTmAIDlPwE1iwGnP2tdx75VfZ/P1daqv5MZA7HFQkqJfCPYsCUTg==
+	t=1795142111;
+	b=mvf24rJJ1MrZHipgPl6udxIVb8jb/ig6dm6vOFG/YU/5VfkK08B8Fb8uLUhYDKQbkJgq
+	 /48QcsfU4IFtW4jXbFBqfkEOwjzFbVIl2PNebBnqwAEnhn7rWf+qtpgDmaQc9thqkOjDS
+	 iwHljPPwJ45ro6FeVgNw+7H8txV2rW3xKY12oq1MVdhObMV6sgmkRl/SCc218Sp9wWGUB
+	 q7qNEtr19lK48wzeCbuNq0WeATdNr8HTeCi9MxRB7iHWNO/E0j4TqOhkVO1B068jWZ3cT
+	 ml2znxhNVTtm0QVzmmPZl46sB5Bdlwuy+tRu5GuIrna6w2wmot0xng7FPCEvvNHrxwg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795142095;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795142111;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=0V9CXOY6Hd0cNFJGkaNeeNKN0eook5Wz71BB41Yzhac=;
-	b=lJeBKp8YOQGUUjYysBX+TdxWrSMb+IZpzIB+zTLynQQIUW1FWUYiA47fn8qCBBfveC0V
-	 bpRijTKpqdndgmKT5KwYPIMEo0nUEuCEOhOI0vQYy+PuPsYXRjdyrGmjf5QusE8BOksnu
-	 /NY2lO0fK3zjT8JODVJrk/wjBxtpg1zucmBToPMkxrzfIsu855lKbLeZaKIsbGF9w4r+w
-	 LSnxhg9puJ5W6jaFSrSphuci5iaDb7YykXLa/IIPkucLWgiqfA9JyU9ls0ALtSzxD3J2h
-	 dBt/o0NJQ881qiVvG9Bh/k8j3mjXpOXh8eJf8ZCjraQ6sG54/yBH7BZexQ9EPe958QA==
+	bh=8D8ZB5yQxIaNRwlGKjqxBBOd9kO26aIExfLd52uqAFU=;
+	b=AMM7Kq4wLGLXx7bMOpeWYh0oOtXUYzIWsN41jZTfA9Bl0NTZEUSeATbUZaJs2Y2s9myM
+	 +Msjru/GxwRUUNLIw7+XbocDzgCP/5/oyI+JGTAMVLhp8GWA72pwpqBbYwwhVsziqko4i
+	 ZjmjXtFmT0yeCefqA2TQBKOgUX6zey14mgl017XVnXpQZLKyYYXaPWW6DXMPMY6ctVND8
+	 h7clUQyIwJUKLW5QClBZzZ4lak2STadzv0cDDwwAPG6BXDSd8WaAJpq74AoNEBU9hP5Ka
+	 s+zPg6ieaVTPqDksHxKj1DHXFw5aP/YUUardvfx09yVPU21YvVaE8FieGdu9veOMW3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=riscstar.com;
-	spf=pass smtp.mailfrom=riscstar.com;
-	dkim=pass header.d=riscstar.com header.i=@riscstar.com header.a=rsa-sha256 header.s=google header.b="NZnp+S/m";
-	arc=none smtp.remote-ip=209.85.210.51
-Received: from mail-ot1-f51.google.com (mail-ot1-f51.google.com [209.85.210.51])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=U1rrXvrW;
+	arc=none smtp.remote-ip=209.85.216.44
+Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3A7F606A331
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:34:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3A7F606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=riscstar.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=riscstar.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26AD7606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:35:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26AD7606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=riscstar.com header.i=@riscstar.com header.a=rsa-sha256 header.s=google header.b=NZnp+S/m
-Received: by mail-ot1-f51.google.com with SMTP id 46e09a7af769-8629c7cc36eso286855a34.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:34:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=U1rrXvrW
+Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-3b41e627cadso215975a91.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:35:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar.com; s=google; t=1795142093; x=1795746893; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0V9CXOY6Hd0cNFJGkaNeeNKN0eook5Wz71BB41Yzhac=;
-        b=NZnp+S/meNOaBGWdtK7a/pkoDLtbtjidskkoHwg7/OAlScQbdib9NL6f75SQ2eHi06
-         woMTSCn3X8t2Mtyi9CuiA60jrgdGB6YDZ8k/oJXrgL263dFg+2SPiCddNIxntayjveIO
-         CtIPbRDOLI1icnVVLJE6x5YyOYsXGOD7MbzwOLXTnoQcnGuB4zuju+qRlVtuYXN0Sq+2
-         YhrjuLDRElEtmcnZPDPNDzsDdNBaUMNJl5RynX9LDSVHL7m8zHC4XOzMy3q83ZHe1Qn9
-         Wxve7HLztqi2j4r6c0WgkpT6G41M5ZDB/TI6qjkqlW7l2TZXtjG7eJA1EHoaincAIRAr
-         rlaw==
+        d=gmail.com; s=20260707; t=1795142110; x=1795746910; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8D8ZB5yQxIaNRwlGKjqxBBOd9kO26aIExfLd52uqAFU=;
+        b=U1rrXvrWYcMZX7BB9EoyzILEd6R3asTGPlYVU2Yvi/IZzFpilV9gd4lbD4j2Duvlry
+         fZHy7U9kp4jls1y3kq8s0jjGv+YeaUeJvfr/whjRFcJ8qihf2/UWkE7C5qi4PqejDG03
+         Vw9b+qlDl/9hy3o33sc5FrdkcnSZ+ZbtwCmxCILKH2apHXZik3wsXC+hjuQUblU2ZAAZ
+         DSIdvT1sm6HYGLWG9jbE+Uq6AMaN1GOSJ6PWCTGH7umcgnQbI3g6jn0G9aR5k9oXMpsi
+         uIIFf1wC4gkiDN0Amd9qmL80y0fXCZvHHwcvWLN82iVnGmt03U61lcgwcOKPYJEMwsKt
+         /lYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795142093; x=1795746893;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795142110; x=1795746910;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=0V9CXOY6Hd0cNFJGkaNeeNKN0eook5Wz71BB41Yzhac=;
-        b=f0mXo5eX3Zalq9zQhC0Ex0R44v1AZD3Uf3LtidBfmSMxnRMWqOeu6UVWCdy+9qIirW
-         v1c4I6ykKKzrRkIIemwcPmITwNHgWrr2RW7P1JmunXS/aRFniVfojddwiax9h3Ja+LUc
-         VdEWymsFLxpY+PUtDwTT0jF9nhEbpKyfoXUGJ6DWDa7emhycP/ieLFV7hd2+lChvmo9F
-         eE8zkq+jDS07URBjCUhxay1JjrO1n86jop/FjNdQubA4j+e+7zyJgth/b3wm4hxdhZwj
-         NDH1OcBarcO9VZlQmFrP44+0PwpZY40IW3dU/BrSAnv6AzY/gzMZ7DpcuPfM+J4KFvB5
-         Ca6g==
-X-Forwarded-Encrypted: i=1; AL+hErG3HZh0rE6SX/w3OeGSxgxsUb/ZofiiBIb81N1YLC5ovAqJOT5XX+me+yLQReokKS62mU5tEjCDAIKju/Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Llt9VLo4t6BaxOPvKhFIgDyUpkyXJFMwjYZYWSxvgIHpoe6/i
-	wiRTFG8mcPxeG5v2XywUDqinIe0InCerA3ZOs3IbjpbHGNoWaJD1WmI8bzr0yL303tc=
-X-Gm-Gg: AYBFou0gHn1A/xfMp/pz5PEZjZZqx/7//YqMUsJujmuGFQQVbwq4eTQ/7S+jUem5LhC
-	09CvIZkq2ADjzk926+M6H+oPaNPWDaJl23098IgMvRbCIMtcvKLj4ocWenlS11ZupPSGeh2jEfq
-	S9f4/kUnyd5wuPr5LUgk0lxaU9+Qz5efjlcknSvtoyY7+vkr4eVzbSEOSuPrewureFem34cyFjO
-	3328rlkkrVrGZ7Mgt4TjwMZc3Up4/u1eU956TAu3VEY/TvwC67aDTPjFKV++LWPRenpw88U83HM
-	leDAvPwEn25rQqVLviLKAzgiKQ7RxeWYHtfPbjn2eyVp/AK3ClbNdlk3She82mrcTTGKJLX7Ewj
-	Tllji9sXRlocXSJ26cbLM6qqCn7DtGAWMpzz+MgcNFAnOPQn2WRJol17ODyrdtw+KUe1yrGJ+lA
-	Z15Cj3tn3LgaE3zbfM32ZHkso4DxFJtQ3eigAU/VtobpFjXJH7pdUg+Qmj2BWasCwHLZBsceTxQ
-	WquF9R2gGsOVqGk/G0yKhiA+yh677BoYsNcC/zjpXoT/oqsmMiiJFLirWplBJ/cB5KdnBZsH2A+
-	aN6kU9eStwdogsoBEoneiKi3vfV49w==
-X-Received: by 2002:a05:6808:178e:b0:4f5:1cd4:d2be with SMTP id 5614622812f47-57a035c3e91mr2546223b6e.0.1795142093323;
-        Thu, 19 Nov 2026 18:34:53 -0800 (PST)
-Received: from [172.22.22.28] ([73.62.185.64])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a2eb50d63sm1145363b6e.0.2026.11.19.18.34.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 18:34:53 -0800 (PST)
-Message-ID: <14556676-77ea-48d9-b135-2d77c615f3cd@riscstar.com>
-Date: Thu, 19 Nov 2026 20:34:52 -0600
+        bh=8D8ZB5yQxIaNRwlGKjqxBBOd9kO26aIExfLd52uqAFU=;
+        b=frmZTp/hsc+RdRCpqZqQ/TV9K0hmLX99ygSSbpMTgpOx/lm96MfatuwjJXcN9XzAqO
+         vvL4DHqiIdAanEx0K2XVCesm4X3G6AZW8I57QBN++XAbCrHUXROC2ZWUDOQfWjFv4aSw
+         Q8FjrV21flOPFhUOGdjyG4ngzLpJut05KNncl4wV8tZ5kB5+MdTqm0lBgTdJuuhuz2Hf
+         U5FINljY3tZ0Huv3/wANCKDKsrPGxbiIPRCI/fsrIbPOGkWHtWrUvggRmzD7sgSxL1ko
+         2Y1QKrg8Zs8MTi69+RueHT83gGmQ+/FeQ6PQ38Q3mY9PvgoNcWqGYqDm4kK9i5QqvuSu
+         iGUg==
+X-Forwarded-Encrypted: i=1; AL+hErF1dEMAxf3wi/m80OMusNJcMIdbJUcPkUz896u7MkHhYxIELckFqaTvtWXFHnun00OUl2+rmP5aSAR2xpo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+3IMyTo4SpVOH+XOCrL0t6SxLVvK0hcwrsLHr0qm9kVjij5Hy7
+	DdSvVkOzOKjCsUBSFi1ZmwLq/Razf6DCeQ8B51vC9rml82zN/Mt+PMRywWiP2Q==
+X-Gm-Gg: AZFdTZeytJh8/d0KunE/qZfh/29WIKXVr0XOCg+QqFI9wBo+wg39JnbLVd0OzBZvbXM
+	uKRBiEZHitT4n/60sjCXj8yxuy5BS4oc6I8N4Ip47/bKBBQHSHGrKT1HM3u/CrEzN5x0Qt8KJLu
+	AKfDwp7mEvpzJays3swybr4DSCEBxTAs94XnEG58HNIdqwCL3WZyeuvXUQogPe9jGwnI5mo8gDO
+	i6BbhU/6IBKIYQbNbACGgsMNl5EDJUAJYw6CCcqpSKO9CHF/EL1Oj/UuLnvAW5C/Imn2T0IJ+2B
+	nB6p2c2CsPBcaX3OD9ZWB6ZEekbGIDOwF+B4bTQZAnX40dAVK/J6tKNRr/eZJiICt8r+dp2sfYG
+	UwQZIeOTVOGSmeZLZXUuqxXGJWsz404UDyReZxJ/FNDW4DtssJyKJia1xEup4zfyxlA1iQ6EMq0
+	FMvwnC8Rny3rclRLyQcaPOXNWqbjYBK56Cbz1Js4PQLo0H70cvKd/r7bJRTDeo29j9vFe73mohc
+	dZ1gqNIUis3/c4IjDm1rN7kn9N2g8r07W9xfpziW6AYsp/5uDZXJ3XityW1FaBDCfiV1m8hCKMt
+	7vjfdpVkxIlJXk/L1y+kVd+1ho6VnoIVI5S6yyUTrVyjmw==
+X-Received: by 2002:a17:90b:2f8f:b0:3ac:9f24:44be with SMTP id 98e67ed59e1d1-3b41c92a3dbmr1353098a91.29.1795142110314;
+        Thu, 19 Nov 2026 18:35:10 -0800 (PST)
+Received: from osman.mioffice.cn ([43.224.245.178])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41cfbaf2bsm736019a91.2.2026.11.19.18.35.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 18:35:09 -0800 (PST)
+From: Zhan Xusheng <zhanxusheng1024@gmail.com>
+To: linkinjeon@kernel.org,
+	hyc.lee@gmail.com
+Cc: liubaolin12138@163.com,
+	ntfs@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	zhanxusheng@xiaomi.com
+Subject: [PATCH v8] ntfs: trim the sizes after a short write
+Date: Fri, 20 Nov 2026 10:35:04 +0800
+Message-ID: <20261120023504.4134966-1-zhanxusheng1024@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,458 +98,357 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] clk: toshiba: introduce a TC9564 SoC clock driver
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: sboyd@kernel.org, bmasney+clk@redhat.com, jbrunet+clk@baylibre.com,
- p.zabel@pengutronix.de, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, daniel@riscstar.com, mohd.anwar@oss.qualcomm.com,
- lorenzo.bianconi@oss.qualcomm.com, fabrice.gasnier@foss.st.com,
- alexandre.torgue@foss.st.com, marex@nabladev.com,
- changhuang.liang@starfivetech.com, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261104004332.2141282-1-elder@riscstar.com>
- <20261104004332.2141282-4-elder@riscstar.com>
- <179459694822.2573818.15451444985369018378.b4-review@b4>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <179459694822.2573818.15451444985369018378.b4-review@b4>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/13/26 1:09 PM, Jerome Brunet wrote:
->> Define a new platform driver that manages clocks implemented by the
->> Toshiba TC9564 SoC.  There are 21 gate clocks that can be enabled
->> and disabled, but currently only the clocks that are (or will soon
->> be) used are defined to be controllable.
->>
->> Two registers manage the state of the clocks.  The registers are
->> accessed via a regmap supplied by a system controller.  Access to
->> the memory region is provided via a BAR on a PCIe endpoint function
->> embedded in the TC9564 SoC.
->>
->> Co-developed-by: Daniel Thompson <daniel@riscstar.com>
->> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
->> Signed-off-by: Alex Elder <elder@riscstar.com>
+From: Zhan Xusheng <zhanxusheng@xiaomi.com>
 
-Sorry for the delayed response.
+ntfs_file_write_iter() moves the data size and, for a non-resident
+uncompressed file, the initialized size to pos + count before the copy.
+__ntfs_extend_initialized_size() only zeroes [old initialized size, pos),
+so the range [pos, pos + count) is initialized only by the copy itself.
+When iomap_file_buffered_write() copies less than count, it returns a
+positive short count and the error rollback at out: does not run.  The
+file keeps the size pos + count, and [pos + ret, pos + count) reads back
+whatever the freed clusters held before, also after a remount.  A local
+user can read the old contents of freed clusters this way.
 
->> ---
->>   MAINTAINERS              |   7 +
->>   drivers/clk/Kconfig      |  12 ++
->>   drivers/clk/Makefile     |   1 +
->>   drivers/clk/clk-tc9564.c | 288 +++++++++++++++++++++++++++++++++++++++
->>   4 files changed, 308 insertions(+)
->>   create mode 100644 drivers/clk/clk-tc9564.c
->>
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index c25ee6e0f1c6..ee01aed56508 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -28332,6 +28332,13 @@ F:	Documentation/devicetree/bindings/media/i2c/toshiba,tc358743.yaml
->>   F:	drivers/media/i2c/tc358743*
->>   F:	include/media/i2c/tc358743.h
->>   
->> +TOSHIBA TC9564 CLOCK DRIVER
->> +M:	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
->> +M:	Alex Elder <elder@kernel.org>
->> +M:	Daniel Thompson <danielt@kernel.org>
->> +S:	Maintained
->> +F:	drivers/clk/clk-tc9564.c
->> +
->>   TOSHIBA TC9564 PCI DRIVER
->>   M:	Alex Elder <elder@kernel.org>
->>   M:	Daniel Thompson <danielt@kernel.org>
->> diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
->> index 37a8e35d4178..0d186150d0c7 100644
->> --- a/drivers/clk/Kconfig
->> +++ b/drivers/clk/Kconfig
->> @@ -293,6 +293,18 @@ config COMMON_CLK_S2MPS11
->>   	  clock. These multi-function devices have two (S2MPS14) or three
->>   	  (S2MPS11, S5M8767) fixed-rate oscillators, clocked at 32KHz each.
->>   
->> +config COMMON_CLK_TC9564
->> +	tristate "Toshiba TC9564 clock support"
->> +	depends on SOC_TOSHIBA_TC9564_SYSCON
-> 
-> You agreed to add COMPILE_TEST on v3 but it is still missing now.
+Run the existing rollback for a short write as well, and roll the data
+size back to the end of what was written, keeping the clusters that were
+allocated on disk before the write, such as space reserved with
+FALLOC_FL_KEEP_SIZE.  Keep the initialized size, as a page fault through
+a shared mapping may rely on it while the write is stalled on its
+source, and zero what the write did not reach, up to the end of the
+block holding pos + count.  Only if that fails, take the initialized
+size back to where the zeroing started, if it is above that.
 
-Yes I did agree to that, and I'm sorry I didn't mention that it
-had not been done yet.  I have now done some additional testing
-with cross-compiling a few other architectures and have more
-confidence "COMPILE_TEST" will work correctly.  This will be
-included in the next version of this code.  (Really!)
+Fixes: b041ca562526 ("ntfs: update iomap and address space operations")
+Cc: stable@vger.kernel.org
+Signed-off-by: Zhan Xusheng <zhanxusheng@xiaomi.com>
+---
+v8: when taking the data size back without truncating, mark the file
+name dirty as ntfs_non_resident_attr_shrink() does.  If the inode was
+written while the write waited on its source, the size in the directory
+index otherwise stays at the extended value (Baolin).
+v7: when taking the data size back, keep the clusters allocated on disk
+before the write instead of truncating, which freed space reserved
+with FALLOC_FL_KEEP_SIZE; a failed write already did so before this
+patch (Hyunchul).  Holes and delayed allocations past the data size,
+such as the preallocation of an earlier extending write, are freed as
+before.  Baolin's Reviewed-by on v6 is not carried over, as this
+changes the data size rollback he reviewed.
+v6: cap that fallback at the current initialized size, which a failed
+extension before the write can leave below pos (Baolin).
+v5 (Baolin):
+- start the zeroing at pos, not at the old initialized size, which
+  overwrote data stored through a shared mapping below pos
+- do the same for a direct write, instead of truncating the page cache
+  and taking the initialized size back
+- if the zeroing fails, take the initialized size back to where it
+  started, instead of skipping both rollbacks
+v4: for a buffered write, zero the unwritten range instead of
+truncating the page cache and taking the initialized size back, which
+dropped data stored through a shared mapping during the copy (Baolin).
+v3: clear the cache up to EOF, not up to the extended initialized
+size, which left the rest of the block holding pos + count (Baolin).
+v2: also clear the cached tail of the last block, which v1 left in
+place when the write stayed inside the old data size (Baolin).
 
-> If have a good reason to ignore or disregard something we agreed on,
-> it should be clearly flagged.
-> 
->> +	select MFD_SYSCON
->> +	default SOC_TOSHIBA_TC9564_SYSCON
->> +	help
->> +	  This enables support for the clock controller embedded in the
->> +	  Toshiba TC9564 SoC.  The state of each clock is controlled via
->> +	  MMIO to a region managed by a system controller; this ensures
->> +	  access to the region is coordinated between this and the reset
->> +	  and XGMAC (stmmac) drivers.
-> 
-> As Philipp said, the 2nd part of description is not appropriate as a config
-> description.
+v7: https://lore.kernel.org/all/20261119022715.3636699-1-zhanxusheng1024@gmail.com/
+v6: https://lore.kernel.org/all/20261117082021.2947603-1-zhanxusheng1024@gmail.com/
+v5: https://lore.kernel.org/all/20261116091121.2547497-1-zhanxusheng1024@gmail.com/
+v4: https://lore.kernel.org/all/20261113050148.1466682-1-zhanxusheng1024@gmail.com/
+v3: https://lore.kernel.org/all/20261112093233.1118469-1-zhanxusheng1024@gmail.com/
+v2: https://lore.kernel.org/all/20261112030815.982026-1-zhanxusheng1024@gmail.com/
+v1: https://lore.kernel.org/all/20261111093459.660484-1-zhanxusheng1024@gmail.com/
 
-I will simplify this help text.
+Tested in a VM on ntfs-next 4862a81576e3, with all free space filled
+with a known pattern first.  Short buffered writes of 4M, old data
+readable after drop_caches and after remount, 3 runs each:
 
-> 
->> +
->>   config CLK_TWL
->>   	tristate "Clock driver for the TWL PMIC family"
->>   	depends on TWL4030_CORE
->> diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
->> index 52d138d4ffc8..a11a8326d79c 100644
->> --- a/drivers/clk/Makefile
->> +++ b/drivers/clk/Makefile
->> @@ -111,6 +111,7 @@ obj-$(CONFIG_COMMON_CLK_SI570)		+= clk-si570.o
->>   obj-$(CONFIG_COMMON_CLK_SP7021)		+= clk-sp7021.o
->>   obj-$(CONFIG_COMMON_CLK_STM32F)		+= clk-stm32f4.o
->>   obj-$(CONFIG_COMMON_CLK_STM32H7)	+= clk-stm32h7.o
->> +obj-$(CONFIG_COMMON_CLK_TC9564)		+= clk-tc9564.o
->>   obj-$(CONFIG_COMMON_CLK_TPS68470)      += clk-tps68470.o
->>   obj-$(CONFIG_CLK_TWL6040)		+= clk-twl6040.o
->>   obj-$(CONFIG_CLK_TWL)			+= clk-twl.o
->> diff --git a/drivers/clk/clk-tc9564.c b/drivers/clk/clk-tc9564.c
->> new file mode 100644
->> index 000000000000..8eeba8591970
->> --- /dev/null
->> +++ b/drivers/clk/clk-tc9564.c
->> @@ -0,0 +1,288 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +
->> +/*
->> + * Copyright (C) 2026 by RISCstar Solutions Corporation.  All rights reserved.
->> + */
->> +
->> +#include <linux/bits.h>
->> +#include <linux/clk.h>
-> 
-> Not needed, this driver does not use the consumer API.
+                                    unfixed    v8
+  fallocated, ends block-aligned    3137536    0
+  fallocated, ends inside a block   3141332    0
+  fallocated, unaligned start       3137536    0
+  same, pos + count in that page    -          0
+  append                            3137536    0
 
-OK.
+Marker stored through a shared mapping at 64K while pwritev() is
+stalled on a userfaultfd source page, state after remount, with and
+without fallocate():
 
-> 
->> +#include <linux/clk-provider.h>
->> +#include <linux/mfd/syscon.h>
->> +#include <linux/module.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/regmap.h>
->> +
->> +#include <dt-bindings/soc/toshiba,tc9564.h>
->> +
->> +/*
->> + * The full name of every clock has a prefix "tc9564" followed by a single
->> + * character ('a', 'b', etc.) that differs for each chip/device number.
->> + * Each clock's "name" defines the unique portion of the clock's full name.
->> + */
->> +#define FULL_NAME_SIZE	24	/* Enough for formatted full name */
->> +#define NAME_SIZE	12	/* Unique portion of the clock name */
->> +#define FORMAT_FULL_NAME(_full_name, _id, _name)		\
->> +	snprintf(_full_name, FULL_NAME_SIZE, "tc9564%c_%.*s",	\
->> +		'a' + (_id), NAME_SIZE, _name)
-> 
-> dev->id will always be zero coming from a platform driver and this code is a lot of churn
-> hidden in a macro. If you must factorize this (I don't think you do) make it a function
+                                          unfixed  v8
+  buffered 4K at 128K, EFAULT             lost     kept
+  O_DIRECT 12K at 0, EFAULT               lost     kept
+  buffered 12K at 0, short 8192           kept     kept
 
-Sashiko also pointed out the dev->id being always 0.
+1M reserved with FALLOC_FL_KEEP_SIZE, then a 12K write at 0, 512-byte
+blocks after remount:
 
-> something like snprintf(name, sizeof(name), "%s-%s", dev_name(dev), init->name)
-> should be enough. use kasprintf if you can't predict the size.
+                                          unfixed  v8
+  short, 8192 written                     2048     2048
+  failed, EFAULT                          0        2048
 
-That's a lot simpler and almost certainly won't fail.  I'll do
-what you suggest.
+A short write past 8K reserved this way frees what it allocated beyond
+the 8K and keeps the 8K.  A store into [pos + ret, pos + count) itself
+during the write is zeroed, as that range belongs to the write.  With
+iomap_zero_range() failing (injected -ENOMEM), a 32K write to a 16K
+file that returns 12288 leaves the size at 28K with no old data, also
+after remount.
 
->> +
->> +/* Two registers control whether gate clocks are enabled */
->> +#define CLK_CTRL0_OFFSET	0x1004	/* Common and MAC0 gate clocks */
->> +#define CLK_CTRL1_OFFSET	0x100c	/* MAC1 gate clocks */
->> +
->> +enum clock_type { PLL, FIXED, GATE };
->> +
->> +struct tc9564_clock {
->> +	struct regmap *regmap;
->> +	struct clk_hw_onecell_data *clk_data;
->> +};
->> +
->> +struct gate_clock {
->> +	struct clk_hw hw;
->> +	const struct clock_init *init;
->> +};
->> +
->> +struct clock_init {
->> +	const char name[NAME_SIZE];
-> 
-> just const char *name ... you are asking for trouble with this.
+In the 8192 case above, with syncfs() while the write waits on its
+source, the data size in the directory index after remount is 12288
+with v7 and 8192 with v8.
 
-Right, this can happen once using kasprintf() for the name.
+fsx (buffered, no-mmap, O_DIRECT and mixed), compressed files,
+fallocate, insert/collapse range and punch hole give the same results
+with v8 as with v7.
+---
+ fs/ntfs/attrib.c |  37 +++++++++++++++
+ fs/ntfs/attrib.h |   1 +
+ fs/ntfs/file.c   | 121 +++++++++++++++++++++++++++++++++++++++++++----
+ 3 files changed, 151 insertions(+), 8 deletions(-)
 
-> 
->> +	enum clock_type type;
->> +	union {
->> +		u32 mult;	/* PLL rate multiplier */
->> +
->> +		u32 div;	/* Fixed rate clock divider */
->> +
->> +		struct {	/* Gate clock */
->> +			u16 parent;	/* Parent clock ID, e.g. CLOCK_50M */
->> +			u16 offset;	/* CLK_CTRL0_OFFSET/CLK_CTRL1_OFFSET */
->> +			u32 mask;
->> +		};
->> +	};
->> +};
->> +
->> +/* There is only one PLL */
->> +#define PLL_INIT(_name, _mult)				\
->> +	[CLOCK_##_name] = {				\
->> +		.name = #_name,				\
->> +		.type = PLL,				\
->> +		.mult = (_mult),			\
->> +	}
->> +
->> +/* The PLL is the parent of all the fixed rate clocks */
->> +#define FIXED_INIT(_name, _div)				\
->> +	[CLOCK_##_name] = {				\
->> +		.name = #_name,				\
->> +		.type = FIXED,				\
->> +		.div = (_div),				\
->> +	}
->> +
->> +#define GATE_INIT0(_name, _bit, _pname)	__GATE_INIT(_name, 0, _bit, _pname)
->> +#define GATE_INIT1(_name, _bit, _pname)	__GATE_INIT(_name, 1, _bit, _pname)
-> 
-> So you are writing the param in the name  ? what is the point of that ?
+diff --git a/fs/ntfs/attrib.c b/fs/ntfs/attrib.c
+index 29eae1eb3d02..ccaeb484aaa0 100644
+--- a/fs/ntfs/attrib.c
++++ b/fs/ntfs/attrib.c
+@@ -2456,6 +2456,43 @@ int ntfs_attr_set_initialized_size(struct ntfs_inode *ni, loff_t new_size)
+ 	return err;
+ }
+ 
++/*
++ * ntfs_attr_set_data_size - set the data size of a non-resident attribute
++ * without changing its allocation
++ *
++ * The caller holds mrec_lock.  @new_size must not be below the initialized
++ * size or above the allocated size.
++ */
++int ntfs_attr_set_data_size(struct ntfs_inode *ni, loff_t new_size)
++{
++	struct ntfs_attr_search_ctx *ctx;
++	struct ntfs_inode *base_ni = ntfs_base_inode(ni);
++	int err = 0;
++
++	if (!NInoNonResident(ni) || new_size < ni->initialized_size ||
++	    new_size > ni->allocated_size)
++		return -EINVAL;
++
++	ctx = ntfs_attr_get_search_ctx(base_ni, NULL);
++	if (!ctx)
++		return -ENOMEM;
++
++	err = ntfs_attr_lookup(ni->type, ni->name, ni->name_len,
++			       CASE_SENSITIVE, 0, NULL, 0, ctx);
++	if (err)
++		goto out_ctx;
++
++	ctx->attr->data.non_resident.data_size = cpu_to_le64(new_size);
++	ni->data_size = new_size;
++	/* Update data size in the index. */
++	if (ni->type == AT_DATA && ni->name == AT_UNNAMED)
++		NInoSetFileNameDirty(ni);
++	mark_mft_record_dirty(ctx->ntfs_ino);
++out_ctx:
++	ntfs_attr_put_search_ctx(ctx);
++	return err;
++}
++
+ /*
+  * ntfs_make_room_for_attr - make room for an attribute inside an mft record
+  * @m:		mft record
+diff --git a/fs/ntfs/attrib.h b/fs/ntfs/attrib.h
+index bee91c9f6f81..edb62826a6ab 100644
+--- a/fs/ntfs/attrib.h
++++ b/fs/ntfs/attrib.h
+@@ -102,6 +102,7 @@ int ntfs_attr_make_non_resident(struct ntfs_inode *ni, const u32 data_size);
+ int ntfs_attr_set(struct ntfs_inode *ni, const s64 ofs, const s64 cnt,
+ 		const u8 val);
+ int ntfs_attr_set_initialized_size(struct ntfs_inode *ni, loff_t new_size);
++int ntfs_attr_set_data_size(struct ntfs_inode *ni, loff_t new_size);
+ int ntfs_attr_open(struct ntfs_inode *ni, const __le32 type,
+ 		__le16 *name, u32 name_len);
+ void ntfs_attr_close(struct ntfs_inode *n);
+diff --git a/fs/ntfs/file.c b/fs/ntfs/file.c
+index a52483d16c6e..25034735d249 100644
+--- a/fs/ntfs/file.c
++++ b/fs/ntfs/file.c
+@@ -843,6 +843,34 @@ static int ntfs_expand_for_write(struct ntfs_inode *ni, loff_t end)
+ 	return err;
+ }
+ 
++/*
++ * End of the last run of clusters allocated on disk.  Holes and delayed
++ * allocations past it, such as the preallocation of an extending write,
++ * do not count.  Falls back to the allocated size if the runlist is not
++ * fully mapped.
++ */
++static loff_t ntfs_allocated_end_on_disk(struct ntfs_inode *ni)
++{
++	loff_t end = ni->allocated_size;
++	ssize_t i;
++
++	down_read(&ni->runlist.lock);
++	if (NInoFullyMapped(ni) && ni->runlist.rl) {
++		end = 0;
++		for (i = ni->runlist.count - 1; i >= 0; i--) {
++			struct runlist_element *rl = &ni->runlist.rl[i];
++
++			if (rl->length && rl->lcn >= 0) {
++				end = ntfs_cluster_to_bytes(ni->vol,
++						rl->vcn + rl->length);
++				break;
++			}
++		}
++	}
++	up_read(&ni->runlist.lock);
++	return end;
++}
++
+ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+ {
+ 	struct file *file = iocb->ki_filp;
+@@ -853,7 +881,7 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+ 	ssize_t count;
+ 	loff_t pos, end;
+ 	int err;
+-	loff_t old_data_size, old_init_size;
++	loff_t old_data_size, old_init_size, old_alloc_size;
+ 
+ 	if (NVolShutdown(vol))
+ 		return -EIO;
+@@ -901,6 +929,10 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+ 
+ 	old_data_size = ni->data_size;
+ 	old_init_size = ni->initialized_size;
++	old_alloc_size = ni->allocated_size;
++	if (NInoNonResident(ni) && !NInoCompressed(ni) &&
++	    old_alloc_size > round_up(old_data_size, vol->cluster_size))
++		old_alloc_size = ntfs_allocated_end_on_disk(ni);
+ 
+ 	if (end > old_data_size) {
+ 		ret = ntfs_expand_for_write(ni, end);
+@@ -928,10 +960,21 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+ 		ret = iomap_file_buffered_write(iocb, from, ntfs_write_iomap_next,
+ 				&ntfs_iomap_folio_ops, NULL);
+ out:
+-	if (ret < 0 && ret != -EIOCBQUEUED) {
++	/*
++	 * Both sizes were moved to end before the copy, so a short write,
++	 * like a failed one, must take back what it did not write.
++	 */
++	if (ret < count && ret != -EIOCBQUEUED) {
++		loff_t new_init_size = old_init_size;
++		loff_t new_data_size = old_data_size;
+ 		int init_err = 0;
+ 		int data_err = 0;
+ 
++		if (ret > 0) {
++			new_init_size = max(old_init_size, pos + ret);
++			new_data_size = max(old_data_size, pos + ret);
++		}
++
+ 		/*
+ 		 * Like ntfs_setattr_size(): __ntfs_attr_truncate_vfs()
+ 		 * expects the invalidate lock held across the size
+@@ -939,14 +982,59 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+ 		 */
+ 		filemap_invalidate_lock(vi->i_mapping);
+ 
++		/*
++		 * A page fault through a shared mapping may have used the
++		 * extended initialized size while the write was stalled on
++		 * its source, so keep that size and zero what the write did
++		 * not reach instead.  [old_init_size, pos) was zeroed before
++		 * the write.  Past end, zero the rest of the block that a
++		 * buffered copy may have read from disk, unless such a fault
++		 * already moved the initialized size past end and zeroed it.
++		 */
++		if (NInoNonResident(ni) && !NInoCompressed(ni) &&
++		    ni->initialized_size > new_init_size) {
++			loff_t zstart = max(pos, new_init_size);
++			loff_t zend = ni->initialized_size > end ? end :
++				      round_up(end, i_blocksize(vi));
++			int err = 0;
++
++			zend = min(zend, new_data_size);
++			if (zend > zstart) {
++				err = iomap_zero_range(vi, zstart,
++						zend - zstart, NULL,
++						ntfs_seek_iomap_next,
++						&ntfs_iomap_folio_ops, NULL);
++				/* A direct read must not see the old blocks. */
++				if (!err && iocb->ki_flags & IOCB_DIRECT)
++					err = filemap_write_and_wait_range(
++						vi->i_mapping, zstart, zend - 1);
++			}
++			if (!err)
++				new_init_size = min(ni->initialized_size,
++						    new_data_size);
++			else
++				new_init_size = min3(ni->initialized_size,
++						     zstart, new_data_size);
++		}
++
+ 		/* ntfs_attr_set_initialized_size() rejects a resident one. */
+-		if (ni->initialized_size != old_init_size &&
++		if (ni->initialized_size != new_init_size &&
+ 		    NInoNonResident(ni)) {
+ 			struct ntfs_inode *mrec_ni = ntfs_base_inode(ni);
+ 
++			/*
++			 * Only reached when the zeroing above failed or did
++			 * not apply.  Drop what was cached past the new
++			 * initialized size, as __ntfs_extend_initialized_size()
++			 * does.
++			 */
++			if (ni->initialized_size > new_init_size)
++				truncate_pagecache_range(vi, new_init_size,
++						max_t(loff_t, i_size_read(vi),
++						      ni->initialized_size) - 1);
+ 			mutex_lock(&mrec_ni->mrec_lock);
+ 			init_err = ntfs_attr_set_initialized_size(ni,
+-					old_init_size);
++					new_init_size);
+ 			mutex_unlock(&mrec_ni->mrec_lock);
+ 		}
+ 		/*
+@@ -955,13 +1043,30 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+ 		 * the uninitialized tail, so skip it unless the rollback
+ 		 * above restored that size.
+ 		 */
+-		if (ni->data_size != old_data_size && !init_err) {
++		if (ni->data_size != new_data_size && !init_err) {
+ 			struct ntfs_inode *mrec_ni = ntfs_base_inode(ni);
+ 
+-			truncate_setsize(vi, old_data_size);
++			truncate_setsize(vi, new_data_size);
+ 			mutex_lock(&mrec_ni->mrec_lock);
+-			data_err = __ntfs_attr_truncate_vfs(ni, old_data_size,
+-					old_data_size);
++			if (NInoNonResident(ni) && !NInoCompressed(ni)) {
++				/*
++				 * Only free what the write allocated, not
++				 * clusters that were there before, such as
++				 * space reserved with FALLOC_FL_KEEP_SIZE.
++				 */
++				loff_t keep = max(new_data_size,
++						  old_alloc_size);
++
++				if (ni->allocated_size > keep)
++					data_err = __ntfs_attr_truncate_vfs(ni,
++							keep, keep);
++				if (!data_err && ni->data_size != new_data_size)
++					data_err = ntfs_attr_set_data_size(ni,
++							new_data_size);
++			} else {
++				data_err = __ntfs_attr_truncate_vfs(ni,
++						new_data_size, new_data_size);
++			}
+ 			mutex_unlock(&mrec_ni->mrec_lock);
+ 			/* Like ntfs_setattr_size(): stay on the durable size. */
+ 			if (data_err)
 
-I'm not sure I understand this, but my next response below might
-address it.
-
-> 
->> +#define __GATE_INIT(_name, _reg, _bit, _pname)		\
->> +	[CLOCK_##_name] = {				\
->> +		.name = #_name,				\
->> +		.type = GATE,				\
->> +		.parent = CLOCK_##_pname,		\
->> +		.offset = CLK_CTRL ## _reg ## _OFFSET,	\
->> +		.mask = BIT(_bit),			\
->> +	}
->> +
->> +/*
->> + * Clocks are initialized and registered in the order of their IDs.
->> + * Parent clocks must be registered before their children.
->> + */
->> +static const struct clock_init clock_init[] = {
->> +	PLL_INIT(PLL, 50),
->> +
->> +	FIXED_INIT(62_5M, 20),
-> 
-> Just pass literals here, and show it the table. you can then pass real name, not 125M which is very
-> much tied to your ids.
-
-Well, the IDs are fixed and named meaningfully.  But I *think*
-you are suggesting not to use macros in initialization (and to
-not make the formatted name depend on the symbolic name).
-I think that's pretty reasonable, so that's what I will do.
-
-> 
->> +	FIXED_INIT(125M, 10),
->> +	FIXED_INIT(250M, 5),
->> +	FIXED_INIT(312_5M, 4),
->> +
->> +	GATE_INIT0(MSIGEN, 18, 62_5M),
->> +
->> +	GATE_INIT0(MAC0_TX, 7, 250M),
->> +	GATE_INIT0(MAC0_RX, 14, 250M),
->> +	GATE_INIT0(MAC0_125M, 29, 125M),
->> +	GATE_INIT0(MAC0_312_5M, 30, 312_5M),
->> +	GATE_INIT0(MAC0_ALL, 31, 250M),
->> +
->> +	GATE_INIT1(MAC1_TX, 7, 250M),
->> +	GATE_INIT1(MAC1_RX, 14, 250M),
->> +	GATE_INIT1(MAC1_125M, 29, 125M),
->> +	GATE_INIT1(MAC1_312_5M, 30, 312_5M),
->> +	GATE_INIT1(MAC1_ALL, 31, 250M),
->> +	GATE_INIT1(MAC1_RMII, 15, 125M),
->> +};
-> 
-> Could you explain why clock PCIe and I2C that where critical
-> in the previous version have been left out ? they are not critical anymore ?
-
-I pulled out support for all clocks whose ID was never
-used in software, including these two.  They're never
-actually used in practice, which means they never got
-modified (and therefore never disabled).
-
-That said, I don't mind adding these two back again
-and marking them CLK_IS_CRITICAL as you suggested.
-(Unfortunately I haven't found a comparable flag
-for resets.)
-
-I said this elsewhere, but I do not have a real clock
-tree that explains what rates some of these even use.
-For those that aren't referenced in code, it might
-not matter anyway, but regardless, I'm trying to just
-avoid claiming anything about the unused clocks, so
-I'd rather leave them out.
-
-So again, I'll plan to define and support the PCIe and
-I2C clocks in the next version, but the others I plan
-to just leave out until we get better information.
-
->> +#define CLOCK_COUNT	ARRAY_SIZE(clock_init)
->> +
->> +/* Parent is the input oscillator running at 25 MHz; PLL runs at 1250 MHz */
->> +static struct clk_hw *pll_register(struct device *dev,
->> +				   const struct clock_init *init)
->> +{
->> +	char full_name[FULL_NAME_SIZE];
->> +
->> +	FORMAT_FULL_NAME(full_name, dev->id, init->name);
->> +
->> +	return devm_clk_hw_register_fixed_factor_index(dev, full_name, 0, 0,
->> +						       init->mult, 1);
->> +}
->> +
->> +/* The PLL is the parent of all fixed clocks */
->> +static struct clk_hw *fixed_register(struct device *dev,
->> +				     const struct clock_init *init)
->> +{
->> +	struct tc9564_clock *tc9564_clock = dev_get_drvdata(dev);
->> +	char full_name[FULL_NAME_SIZE];
->> +	struct clk_hw *pll_hw;
->> +
->> +	FORMAT_FULL_NAME(full_name, dev->id, init->name);
->> +
->> +	pll_hw = tc9564_clock->clk_data->hws[CLOCK_PLL];
->> +
->> +	return devm_clk_hw_register_fixed_factor_parent_hw(dev, full_name,
->> +							   pll_hw, 0,
->> +							   1, init->div);
->> +}
->> +
->> +static const struct gate_clock *hw_to_gate_clock(struct clk_hw *hw)
->> +{
->> +	return container_of_const(hw, struct gate_clock, hw);
->> +}
->> +
->> +static void gate_clk_manage(struct clk_hw *hw, bool enable)
->> +{
->> +	struct tc9564_clock *tc9564_clock = dev_get_drvdata(clk_hw_get_dev(hw));
->> +	const struct gate_clock *clock = hw_to_gate_clock(hw);
->> +	u32 mask = clock->init->mask;
->> +
->> +	regmap_update_bits(tc9564_clock->regmap, clock->init->offset, mask,
->> +			   enable ? mask : 0);
-> 
-> how about returning the error if any ?
-
-I'll no longer be using a regmap in the next version, but I think
-I understand your point (gate_clk_enable() below can return what
-this returns) and will implement it that way.
-
-> 
->> +}
->> +
->> +static int gate_clk_enable(struct clk_hw *hw)
->> +{
->> +	gate_clk_manage(hw, true);
->> +
->> +	return 0;
->> +}
->> +
->> +static void gate_clk_disable(struct clk_hw *hw)
->> +{
->> +	gate_clk_manage(hw, false);
->> +}
->> +
->> +static int gate_clk_is_enabled(struct clk_hw *hw)
->> +{
->> +	struct tc9564_clock *tc9564_clock = dev_get_drvdata(clk_hw_get_dev(hw));
->> +	const struct gate_clock *clock = hw_to_gate_clock(hw);
->> +	u32 val;
->> +
->> +	regmap_read(tc9564_clock->regmap, clock->init->offset, &val);
-> 
-> here too
-> 
->> +
->> +	return val & clock->init->mask ? 1 : 0;
-> 
-> you might be using val uninitialised here.
-
-The next version will not be using regmap (it will use readl()
-here), so this is moot.
-
->> +}
->> +
->> +static const struct clk_ops gate_clk_ops = {
->> +	.enable = gate_clk_enable,
->> +	.disable = gate_clk_disable,
->> +	.is_enabled = gate_clk_is_enabled,
->> +};
->> +
->> +static struct clk_hw *gate_register(struct device *dev,
->> +				    const struct clock_init *init)
->> +{
->> +	struct tc9564_clock *tc9564_clock = dev_get_drvdata(dev);
->> +	struct clk_init_data clk_init = { };
->> +	const struct clk_hw *parent_hw;
->> +	char full_name[FULL_NAME_SIZE];
->> +	struct gate_clock *clock;
->> +	int ret;
->> +
->> +	clock = devm_kzalloc_obj(dev, *clock);
->> +	if (!clock)
->> +		return ERR_PTR(-ENOMEM);
->> +
->> +	FORMAT_FULL_NAME(full_name, dev->id, init->name);
->> +
->> +	parent_hw = tc9564_clock->clk_data->hws[init->parent];
->> +
->> +	clk_init.name = full_name;
->> +	clk_init.ops = &gate_clk_ops;
->> +	clk_init.parent_hws = &parent_hw;
->> +	clk_init.num_parents = 1;
->> +
->> +	clock->hw.init = &clk_init;
->> +	clock->init = init;
->> +
->> +	ret = devm_clk_hw_register(dev, &clock->hw);
->> +	if (ret)
->> +		return ERR_PTR(ret);
->> +
->> +	return &clock->hw;
->> +}
->> +
->> +static int tc9564_clk_probe(struct platform_device *pdev)
->> +{
->> +	struct clk_hw_onecell_data *clk_data;
->> +	struct tc9564_clock *tc9564_clock;
->> +	struct device *dev = &pdev->dev;
->> +	struct device_node *parent_np;
->> +	int ret;
->> +
->> +	parent_np = dev_of_node(dev->parent);
->> +	if (!parent_np)
->> +		return dev_err_probe(dev, -EINVAL, "no devicetree node\n");
->> +
->> +	tc9564_clock = devm_kzalloc_obj(dev, *tc9564_clock);
->> +	if (!tc9564_clock)
->> +		return -ENOMEM;
->> +
->> +	/* Note: MMIO regmap (no error checking needed when used) */
->> +	tc9564_clock->regmap = device_node_to_regmap(parent_np);
->> +	if (IS_ERR(tc9564_clock->regmap))
->> +		return dev_err_probe(dev, PTR_ERR(tc9564_clock->regmap),
->> +				     "failed to get config regmap\n");
-> 
-> If the parent registers the regmap you can get it with dev_get_regmap(dev->parent, NULL)
-> with no syscon dep.
-
-Thank you very much for your review.
-
-					-Alex
+base-commit: 4862a81576e3b20ba40cb94a38c5df0450047ffe
+-- 
+2.43.0
 
