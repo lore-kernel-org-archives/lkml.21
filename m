@@ -1,67 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795160658;
-	b=5c11ttDu6dNcPq6lC6WFpnDk1M8/BH7Yn84duMqjdOBr+WvLlJtTJbuKmROkCLXhXEIe
-	 jZoRxX0T1t03hgPT+9Iy7szeNR/XUh+Kg3DXhX0MharSLF8NCfyD5lNmc4kCe4+A6/T4u
-	 oe5lLhbljSeqkHd9cslZMVpmsCh207FFKsm8/G26sdixo/KDvLX5cFOWEVdVYBLpHJVkT
-	 0p2e4wQe/PMj1eDLTsdKB7bPIgCHMPniZjdj/UXZul1+EU2L3KiEPxzwIWaIv1VfBf6sY
-	 yM/pq0UZi2L1gPLoWKKeBwjVJydSIPMAdi+RA9AGgknQy0cNC5SgxbVUBQvJQD647QQ==
+	t=1795160660;
+	b=oWCyDXP6iT/5Rf6SDIiRo21+FlBEesQRlUw0w27T6AcuL80bzRauyc/g/r31KwtAHEDd
+	 bHHQaWuBi1lcLfbn368Bg708+2zqJBwzC74w6AUn+LXz34sFW8Dz8XluiujT2tsXkVMhq
+	 SjPEkHXAVqKjbJwxaZuJqHDC93VyqcgLcxjz54mm/YdEO0HNUcwT+yOTiNDPsjJjAYRgh
+	 tnBGFb89PmOIXyWY4xFnKHebEMuBGHh0n8Mgs7BRiACh96rwaRvPP80nZZdqtXa2HJsZ/
+	 jsmLAasElDdKCz0e4Q9csrxLFQyYDm+HlETM4b+PhpB48vW946Cx8GYrb3XNKVFMCrA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795160658;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=wS8YTXUEYmlpow8QFrpCI11WZWGA6i9kEdPiCMgtarw=;
-	b=MVHVhExa/uNZiiym9lFC19D7WDRkhpyH5AKCqv8qnBzR/EHAqQZmKxJSb8jBDVkJb699
-	 jDPBzv/OD4u1pOyL7EdL47wEMwGWIyGQEF1rXzmHnfaO+MktoI+YbJFmIPiIEWp476Q0R
-	 Wn2eUUQBJk4suIRUZOAVzOW8zAiR5DwoRKi/7C4dMY6+hzuet5mE0bbwHs+v3biy64kqm
-	 gijJL41Hh9jIIxWesZwSiMocCT5qEbvCAHEZqEJ7Q2nol5StjDcKsz/ivENMEn0GU6UQ+
-	 88sTJv1DEaRpEDsEsnejafTsrIVaQU4b7uma5lMsX+SL1+o9yXeOUNptymqZ+wIZhfA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795160660;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=YhIr5RkufI76Hp177M5SL/nPXC4WeO/bah0MoOu9yac=;
+	b=KlVphce/v4Lt7bDLULQdnkZYS9VOyb7UAre0N8AVbAug0bh3ozPqcHxQWMWlE0Ge8RgC
+	 cy0+TPym6VjOd6oHzTEr54R+jGe0GjIq9B5XoEBfpbAYvjjYgMT/lc6JjrLBPOuF1OCwz
+	 pxo8sZKSjX0q4aeliEquZAkbulZh0VA383ebV2v8AkFx513njpRnPrpq1hlOLWvAvWMYU
+	 Uu6CGLIh/h5Dtoj78u3oG1HiHPRVUqc/4bKglbI/iw+zMNAHchzG2Hf/JmScDrOPN0FVI
+	 0lDmPgpJizuVSz4kvpySjOp35SCP8KAU49dAvAgAY8blpk4BCSUtvEintzTC605/xqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XimPrw1i;
-	arc=none smtp.remote-ip=95.215.58.176
-Received: from mta1.migadu.com (out-176.mta1.migadu.com [95.215.58.176])
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=MVdH0dbZ;
+	arc=none smtp.remote-ip=74.125.82.54
+Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E16F7606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:44:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E16F7606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B337B606A337
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:44:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B337B606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XimPrw1i
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=l4lLHnbLURw2R0LQLtIWt2VlgrpY8/rwx1HMfQXWaYo=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795160654; v=1; x=1795765454;
- b=XimPrw1izPqOXLRwj5kSrM6oXjcvnKTSQ+yZ0EO4uAbJm/qjOWED6fwZehQBFTx20/PQycmk
- 5tILXP6BnV1Fis3mcokiwhIF4aWVRx8NjPN52gaDDfKZ6exH3tqn/YW+XnUqOhmnxK2SClX1tFM
- a6sytOEoGgkxB7G5FQBwnHMI=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id 6334611df7694553;
-	Fri, 20 Nov 2026 07:44:14 +0000
-X-Mizu-Trace-ID: 6334611df7694553
-X-Migadu-Flow: FLOW_OUT
-From: "Xu Xin (vivo)" <xu.xin@linux.dev>
-To: xu.xin@linux.dev
-Cc: akpm@linux-foundation.org,
-	chengming.zhou@linux.dev,
-	david@kernel.org,
-	donettom@linux.ibm.com,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	stable@vger.kernel.org
-Subject: [PATCH v2 1/3] mm/ksm: do not inherit ksm_zero_pages counter or PTE markers on fork
-Date: Fri, 20 Nov 2026 15:43:59 +0800
-Message-Id: <20261120074359.41019-1-xu.xin@linux.dev>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261120074230.40269-1-xu.xin@linux.dev>
-References: <20261120074230.40269-1-xu.xin@linux.dev>
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=MVdH0dbZ
+Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-1a3c08d6928so876769c88.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:44:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795160659; x=1795765459; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YhIr5RkufI76Hp177M5SL/nPXC4WeO/bah0MoOu9yac=;
+        b=MVdH0dbZECMyRVts4clMgTTtsiSNkQYMFVjvvp2uQ0gO+y1c1szeDBPX/F8uygQrj2
+         SbfdAavURbpFr4fbi+sgpKV6Tddic53/AVIVaKgT8cps3fcivdrokWALa1iMft0nh9GS
+         zybLQByYLe3b/CeAFZsS3ekpM+tsWIDsSuXTz0AcHjctFr1lue+uApIkOIU/GqeNqyXg
+         cfYoslTPciTg5C51zrlXYz+BpV2r9fJPjsQOQ0Av/l6rCUmF1q0SqtRXDkV4d16oFXof
+         WGYfZ2nyv126pilNMGwRY66ySZPAo6Dfw/gMG2s5Jfdgiwkeo+j3ZGp70xpYpx4KNoK5
+         sP4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795160659; x=1795765459;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YhIr5RkufI76Hp177M5SL/nPXC4WeO/bah0MoOu9yac=;
+        b=qI8jqVn5FTmUaOMMJmwrmq/61DPMwnSglZlqT3qQ1kygkAANPpEuobt/7NZ7gWkawR
+         YAEG4bQa0sBT1zx7DoC7xidHyY8B5HZ1wPqKKrMhq6hLGLwOoZ10hrfQLf/mcGU3EaIq
+         9bYaTakT76xTLqqCoQxOYLkoWEVL+dtmkXzjKmB1kDmeq7Hw83fE0E3KKP6r3ZjG9oA1
+         nBARyTeguNW3CgNb7ZQdL6vl8ugenTEv2VF9LJUI7jQlutWrBDRM9wv8Oc+UZp1C6tDN
+         dV4ll14rh24ar8hCGNBU6ARTB3SLhpB123L89HQnTGiKXuP862G+YLG1x3SCCgenZUCF
+         zh2A==
+X-Forwarded-Encrypted: i=1; AL+hErG40uO6CiS8gH5mD7ydSq57A63/dCHO71/bmDguWEfZ8Uk1Et8raFr96RYllreaQw0G/u/xxIgC1kL6dEA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8mK7qDPPjXXpJVVILmQwg69PX76aBXvwnyHiYGXJ+mTPJm+rpn
+	NO6YpPl0sZmk3K3wvb+XOZCAAKlCHfgpqQa9us7fPGC6laCbFQ4hBpDttjOONKKQkyw=
+X-Gm-Gg: AYBFou0QOwoOGgbz62uTpAA7JaPvJJ+KId1Zk5YmrriF3XuA3J1iWYTxUOqoTHZRiYm
+	3a59HimiGLufNmJ+8XvFxYgF8x+TdH2BnKe2gniq/N7Ar0MWaWDorOvl4OAqv6mEQxBcWR7hQtp
+	gLzJzlzdKShpAAxbXWyHmEtu8KPuBza6dDhF/JcxzTwLI75bFtQ91yt+CAfqfZhdb5+ns8wmlZB
+	cMqJKt7ZuPsCjsjwOl0EwSZRg30CLXqP3jqoIszmdFhnoUJ2ecSSJiVXv31XcmYJ8z7nrbC6HMa
+	1/4lSRcr1y+rX6CDaDvnR3kKzTopq5j+bB5W+p01Zc0HuEW5xDNX/6XEcxIo/XjUeDzHiC3wMaB
+	psnsOH51z0TaSbu5T1T/ejNZg8PXWGKALq+FhUnluDCw5zWbaQqIEv8JPOUWXfp9v5W98SqlC5T
+	5QumWyKMezWE/68vEjcckLCB9ndOjj8I5KdcQOUrXlludSBi0VNWv211DHA1DP7dYm1CSxM82RS
+	KXieXV/8peMo3doqabK0DuRMLXEjFBJDe7eRXJpWOpmP0Ri4aGSUmj3H57LNooiH9IsuA/cJLUD
+	yb8eDX2T7hMcoOSIsQRH+xcO6xQmMQ==
+X-Received: by 2002:a05:7022:f50f:b0:1ac:1022:b60c with SMTP id a92af1059eb24-1b5567b2091mr1764911c88.1.1795160658571;
+        Thu, 19 Nov 2026 23:44:18 -0800 (PST)
+Received: from localhost ([122.172.83.36])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556831d45sm6769427c88.11.2026.11.19.23.44.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 23:44:17 -0800 (PST)
+Date: Fri, 20 Nov 2026 13:14:15 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Sumit Gupta <sumitg@nvidia.com>
+Cc: rafael@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	zhongqiu.han@oss.qualcomm.com, conor+dt@kernel.org,
+	treding@nvidia.com, jonathanh@nvidia.com, linux-pm@vger.kernel.org,
+	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, bbasu@nvidia.com
+Subject: Re: [PATCH v3 0/9] cpufreq: tegra194: add Tegra264 support
+Message-ID: <av_6T3bqEygaKK3q@vireshk-B250M-D3H>
+References: <20261119111217.902071-1-sumitg@nvidia.com>
+ <av_R-8aMX7lL83ln@vireshk-B250M-D3H>
+ <61d207b2-3155-4613-bc9e-588c68f276fd@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,117 +101,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <61d207b2-3155-4613-bc9e-588c68f276fd@nvidia.com>
 
-As documented in Documentation/admin-guide/mm/ksm.rst, ksm_zero_pages
-accounts only for zero pages actually placed by KSM.  However, the
-current implementation wrongly accounts for forked zero-page PTEs as
-KSM's contribution, inflating both the child's per-mm counter and the
-global ksm_zero_pages counter.
+On 20-11-26, 13:06, Sumit Gupta wrote:
+> v3 was on linux-next, which has commit 4dd10fbbeb9c ("treewide: Convert
+> devm_kmalloc() family to the devm_kmalloc_obj() family") from v7.4-rc2.
+> 
+> Your branch seems to be on v7.4-rc1, so v4 on it would conflict with
+> that commit in mainline. Should I send v4 on your branch, or would you
+> prefer to move it to v7.4-rc2 or later first?
 
-Originally, commit e2942062e01d ("ksm: count all zero pages placed by
-KSM") marked KSM-placed zero-page PTEs with the dirty bit for unmap
-accounting, but forgot to clear this marker during fork().  Later, to
-prevent ksm_might_unmap_zero_page() from underflowing the counters on
-child exit[1], commit 4d6fc29f3634 ("mm/ksm: fix incorrect KSM counter
-handling in mm_struct during fork") kept the child's inherited per-mm
-counter and added it to the global counter.
+I moved to rc2.
 
-Instead of inflating the counters, fix the root cause by resetting the
-child's mm->ksm_zero_pages to 0 in ksm_fork() and clearing the KSM
-zero-page marker via might_clear_ksm_zero_pte() when copying present
-PTEs in __copy_present_ptes(). With the marker cleared,
-ksm_might_unmap_zero_page() will not decrement the counters on child
-exit, MADV_UNMERGEABLE in the child will not unnecessarily unshare
-inherited zero pages, and the global counter remains untouched.
+Applied. Thanks.
 
-[1] https://lore.kernel.org/all/53a7bf3d-843d-4e19-b0a3-cc6852fe72c1@redhat.com/
-
-Fixes: 4d6fc29f3634 ("mm/ksm: fix incorrect KSM counter handling in mm_struct during fork")
-Cc: stable@vger.kernel.org
-Signed-off-by: Xu Xin (vivo) <xu.xin@linux.dev>
----
- Documentation/admin-guide/mm/ksm.rst |  7 ++++++-
- include/linux/ksm.h                  | 18 +++++++++++++++---
- mm/memory.c                          |  2 ++
- 3 files changed, 23 insertions(+), 4 deletions(-)
-
-diff --git a/Documentation/admin-guide/mm/ksm.rst b/Documentation/admin-guide/mm/ksm.rst
-index c329ca747b8c..8968ae3f55c0 100644
---- a/Documentation/admin-guide/mm/ksm.rst
-+++ b/Documentation/admin-guide/mm/ksm.rst
-@@ -214,7 +214,12 @@ stable_node_dups
-         number of duplicated KSM pages
- ksm_zero_pages
-         how many zero pages that are still mapped into processes were mapped by
--        KSM when deduplicating.
-+        KSM when deduplicating. Note: on fork(), the child process does not
-+        inherit the ``ksm_zero_pages`` counter, and any inherited KSM-placed
-+        zero-page mappings are converted into ordinary shared zero-page
-+        mappings. Consequently, these mappings are neither accounted for in
-+        the child's counter nor unshared when ``MADV_UNMERGEABLE`` is called
-+        in the child.
- 
- When ``use_zero_pages`` is/was enabled, the sum of ``pages_sharing`` +
- ``ksm_zero_pages`` represents the actual number of pages saved by KSM.
-diff --git a/include/linux/ksm.h b/include/linux/ksm.h
-index 596c04ca7326..62fa8ca803ed 100644
---- a/include/linux/ksm.h
-+++ b/include/linux/ksm.h
-@@ -32,6 +32,15 @@ void __ksm_exit(struct mm_struct *mm);
-  */
- #define is_ksm_zero_pte(pte)	(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte))
- 
-+/* Clear KSM's marker on zero-page PTEs (e.g., on fork). */
-+static inline pte_t might_clear_ksm_zero_pte(pte_t pte)
-+{
-+	if (is_ksm_zero_pte(pte))
-+		return pte_mkclean(pte);
-+
-+	return pte;
-+}
-+
- extern atomic_long_t ksm_zero_pages;
- 
- static inline void ksm_map_zero_page(struct mm_struct *mm)
-@@ -57,11 +66,9 @@ static inline void ksm_fork(struct mm_struct *mm, struct mm_struct *oldmm)
- {
- 	/* Adding mm to ksm is best effort on fork. */
- 	if (mm_flags_test(MMF_VM_MERGEABLE, oldmm)) {
--		long nr_ksm_zero_pages = atomic_long_read(&mm->ksm_zero_pages);
--
- 		mm->ksm_merging_pages = 0;
- 		mm->ksm_rmap_items = 0;
--		atomic_long_add(nr_ksm_zero_pages, &ksm_zero_pages);
-+		atomic_long_set(&mm->ksm_zero_pages, 0);
- 		__ksm_enter(mm);
- 	}
- }
-@@ -114,6 +121,11 @@ static inline void ksm_exit(struct mm_struct *mm)
- {
- }
- 
-+static inline pte_t might_clear_ksm_zero_pte(pte_t pte)
-+{
-+	return pte;
-+}
-+
- static inline void ksm_might_unmap_zero_page(struct mm_struct *mm, pte_t pte)
- {
- }
-diff --git a/mm/memory.c b/mm/memory.c
-index d2f48d78b0d7..79ebaa1e3368 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -1160,6 +1160,8 @@ static __always_inline void __copy_present_ptes(struct vm_area_struct *dst_vma,
- 		pte = pte_mkclean(pte);
- 	pte = pte_mkold(pte);
- 
-+	pte = might_clear_ksm_zero_pte(pte);
-+
- 	set_ptes(dst_vma->vm_mm, addr, dst_pte, pte, nr);
- }
- 
 -- 
-2.34.1
-
+viresh
