@@ -1,107 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795136921;
-	b=EY/vf7rRozYW0jQWQczXhYt0itxbXzWk3MDxmiwO1qUXbVAMz6bpd2Mg3Rk/klFttEaV
-	 GbPyX3v1Z0NltrDaIr9SZQMoqyn+CVnBPU74imuLUAUSUU/eV+qdKZ/0MnKbSjz5DvmcC
-	 tjHOxYI+Nn/JWCDiPrPBIisvB7B0JzlOrzaOitevDabL8uEDG2uenlC9ljlete84eIVb+
-	 fumF3EcInSrtsFPVz+S/VY/Joanx3mHtQC2eRDLiZ88jqFAJk1T5EQSe5eNlT7wHBp3kr
-	 5p7+NLb8wa+qjln3pt9aAi6/tXYvMKzm/YY0S3M9TlH6n2seyXWXLC2NzjLDN6o4fNQ==
+	t=1795136967;
+	b=W2udh1nO5cSLrbWwpuB3I0DrJkQ5yfPAxURT2iR/qJfo+PaeGKTlH+Uo6Kb87WmmWIVH
+	 YiFwZ3ObFfV0DsTTtKDFgKW+2t7aAizOppTJC+5PGjZ7GiucTC5ztOkq5pZtDyOETIxQG
+	 WKfnCudlOX5y75PYgagWZA84o8HXrb0HDqgObkufoz2TEuw2NMlR20O4RAe//TcULcHZD
+	 QhJeaJazZca7OyvMLnaeb5Bik2Ax6n4Ambeav9nYMXyb33UJJxbKCnW68YQPMKG6qzDV1
+	 A4hjZ1IWoHJ+t1NCf23yaY1/UgFNmXAuIq38Q5ta/DnCDSICdxgQsoyITs1Vs8dGbew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795136921;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:Cc:Subject:From:To:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=eretBnITB6vR9c+pjlNoT5wot4ipeaWEYdkoD9FXiOY=;
-	b=BU7k2yztRZ7FDb0DmYBTaIzmp1UTTHjFDqC9faoix/GofF+a4VxNCHLDiuxMFH0zyiq6
-	 +7U0qMUkF+5lHqtnVY+j2YUPv9tSy+Na01Z8RSOxW5MJL5BdKnNaBtqDf7Tpu2TvlExBi
-	 L4Ad48UCFxvc3gLCM4EqIW/uBaN8F3LALgsO4ekgYqsOtgeo2OnIW3Qjv/3j6dZ7jNZTL
-	 KxQrDLyPOIma1Lf9A9zTx8Ko4vf/LPegchR1mdnbLEcXU6+nlfN516hCc3Pzh0EyplJhN
-	 jKFrIJK6hRT/9CbroUFzTYO0OLNmc/JXaIzsnHjfAXEUJYuw2vHhZvSXSio0QiM35DA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795136967;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=OvedSYQ7lUHjwd1/LqNlamBagWFIGuwSNrorzUM1QBg=;
+	b=Cr4K5kesRkt86K70cxqOYwu0jTY2QyIf0P8ZumMHlUyjGXLkVTiBZN8Qo1BpD+dD8tDg
+	 0hT3GHkJKQ29UU1xRjIFKe9gBqmPZMRBLQwqOg2+2D6JV2vvQlDStwZItXEJ2XU/0bLg8
+	 I8MoL0p/2pNtcGJ1DJLM277Yiv2abOUTadqLSm+3K5NTlSOwsY0Z/tnJMgEzmZY+l6skB
+	 DzA4f95kO8620u+WasPoVBZdygyUD7iAaAycbs5e+F6I13lllonvvqXMYuVKQdb0q9uoe
+	 UfcTNIJ2Nc/5X7UX8iUecC4036GJh5/6ZccS1Zcqg9tDnhdkFHiBo7o7xX6ln6aseCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zv2tPubG;
-	arc=none smtp.remote-ip=209.85.214.171
-Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 918E7606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:08:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 918E7606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b="KaQ/tSGF";
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 25436606A326;
+	Fri, 20 Nov 2026 01:09:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25436606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zv2tPubG
-Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2efe591a1f6so1205585ad.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:08:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795136920; x=1795741720; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=eretBnITB6vR9c+pjlNoT5wot4ipeaWEYdkoD9FXiOY=;
-        b=zv2tPubGZQUVZlU14gcYvRYJFSgkeZOX5Ccg9jvkxVA+wHGnL5K9L6LPNWGK3z31aj
-         MkaN8o1K1Vwu+xxlxTX9MQjCYrrHhLE+kicoZ9ZBU6ecc9JZTetAryyshiDIVD4MAlaM
-         t9vPKuEaPoTkKDrzYobbWP634m61ZuUXCMHJJTeBqIYQJ1Aek8/eyPayQsqcCSCPs+GA
-         BxIC072hizkK9xT75+USvmVvNcddyJXFy2wkfgtT/uxfef1enXRunV4N+tgd8psd0B9h
-         Ot1W1bFzhuqs4RjSaQ5aDcxBBWzsstK/A6wDjmBCGlN98NS9XmD5+4IGdxtsdgHqIgMC
-         odug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795136920; x=1795741720;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=eretBnITB6vR9c+pjlNoT5wot4ipeaWEYdkoD9FXiOY=;
-        b=w4TcSXrQwyvqCVyk0EgpHcJQuGTPEqXiA2q/VlCiRXLR8xU4l7C2Gj+xZMIKzgmIjN
-         xCt7kSG5gCVYKOVqlFz0735WVQYurr5zaKjPrBCaDMDKc/PhDh5+/LuP2GgEq0JkrL0t
-         YzkB+OOpyylJaD1TqdrafcRCRd1DaEVV4Bn8CP+H2baAykwqJcPSbofJ8vn6TKR9Wt/k
-         uXN+apqu19vVz+Tm38UqWu/gZni889UiYyLeqEFuOsp4Gmkc43gMEgqjJy4suk4jnpLo
-         wKceLJ2N6K9oePHOgnOb+MHAq3yFOzKcIe+dIPUFqrwdFu8UnOpbnNFjAn21pbPN32yt
-         GbLQ==
-X-Forwarded-Encrypted: i=1; AL+hErFJUBCQxZTugXSfhXUAU+Hu9PRuwrLchWOh/ovKaZTusjv/DFJ9MVrzAHpvh4e0xkD5HOlTGI8ZA+LRtws=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/xA5ssy1ND/jpDvJ+v/fGagbOkMXCkfLcvl08GMq/BGxrUg/rW
-	ai83nA5TtBH9Ai+CULVsL4z+69HK+vZLlXdTL/yiLK3pZVtpRpHCNE8z
-X-Gm-Gg: AZFdTZfnGVuxBHZzfZ4/LozSDt3JX2oRYTm9jK7RLlQdq85DxTPBhXvUVvPsjNWWugL
-	Bd8AeJci20q9gZc7pK2C7UTWK2fJIjgJf3KEt/U90lqHsr1gfZC8AEoGkDgqJw+uC7AtDWTwsNV
-	4Uwtzh/Aaw3IRVUKkDJvRko5ca1tBQX6IQ4v+8zkdI0UAdqv+ZmV3bZJXo4qTrVox01ZlxyUDFQ
-	o9VDh6AjcdbKNEMqJkedBvqyPYOhMh4NuL5Z17IfbQ/nHkiGDB5WsPnHfiSlQt1mteh6nZku6YU
-	YpmthZ3NVBST9/6WeRb0avGT1sInEjLSIcz5ZoUUNf/v4abFTlLddtRWPRboxTB/yDwKMCwjIx2
-	d8yFaC4z6MB7HLTrCHjkxX95HSjvMIOZ0lfofHk/65PK4ZLmwGco4ggEJQtYFbNA123LkrgcNGZ
-	DTKYe5mNPZvk++NZ21Mm4BhYtvuVd7QNcvq3EVWRZIe18EpHp0lzXNMQ1e7KYEgivTXQ1ngwaE5
-	3CN6mlpsDvreubuLApNuNIEyBgfy0tkTf+kabQqf26YGRGBESQfKalWhFQaRazpa1Wvrj1Ar09Z
-	GtXPIfpls7vsv0GLw206qLF2XhDJAmLKHO6/iRNYAeTP2YsUcElchVMhFrkavecezA0yispgOBJ
-	gk3Vv3XicV9JJXYquXA70zRp8wpVN7sR1tQ==
-X-Received: by 2002:a17:903:2441:b0:2f0:3d6d:a089 with SMTP id d9443c01a7336-2f03ef870d3mr15115475ad.1.1795136919620;
-        Thu, 19 Nov 2026 17:08:39 -0800 (PST)
-Received: from localhost ([153.61.198.246])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0ea6a8sm6302305ad.36.2026.11.19.17.08.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 17:08:39 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 20 Nov 2026 01:08:38 +0000
-Message-Id: <DMZMXFOOKT03.2D4M33BG6WTRP@gmail.com>
-Cc: <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-trace-kernel@vger.kernel.org>
-Subject: Re: [PATCH bpf-next v2] bpf: Use an on-stack pt_regs in the raw
- tracepoint helpers
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: <mike.bazov@gmail.com>, "Mike Bazov via B4 Relay"
- <devnull+mike.bazov.gmail.com@kernel.org>, "Song Liu" <song@kernel.org>,
- "Jiri Olsa" <jolsa@kernel.org>, "Ihor Solodrai" <ihor.solodrai@linux.dev>,
- "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Eduard Zingerman" <eddyz87@gmail.com>, "Kumar
- Kartikeya Dwivedi" <memxor@gmail.com>, "Martin KaFai Lau"
- <martin.lau@linux.dev>, "Yonghong Song" <yonghong.song@linux.dev>, "Emil
- Tsalapatis" <emil@etsalapatis.com>, "KP Singh" <kpsingh@kernel.org>, "Matt
- Bobrowski" <matt@bobrowski.net>, "Steven Rostedt" <rostedt@goodmis.org>,
- "Masami Hiramatsu" <mhiramat@kernel.org>, "Mathieu Desnoyers"
- <mathieu.desnoyers@efficios.com>
-In-Reply-To: <20261119-bpf-raw-tp-regs-preempt-v2-1-e1e1b90857d6@gmail.com>
-References: <20261119-bpf-raw-tp-regs-preempt-v2-1-e1e1b90857d6@gmail.com>
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=KaQ/tSGF
+Received: by linux.microsoft.com (Postfix, from userid 1249)
+	id 2666320B7169; Thu, 19 Nov 2026 17:09:25 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 2666320B7169
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1795136965;
+	bh=OvedSYQ7lUHjwd1/LqNlamBagWFIGuwSNrorzUM1QBg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=KaQ/tSGFLnzknvAj4BW7+tLEN7ujzTsER1Ilgha19lAuv5uFf7KPGwhfVAuCmAHP7
+	 7SpbPN7gpsopQrelU0wIjGtsCEoK4FqKHJ05XVnUmlqZXnkNhLrGt/sUOiOaAvqgc/
+	 MUsiNylKsZ1avhRYxthQNbpM1PFNoGGGAeeVVNwg=
+From: Snehal Sanghvi <snsanghvi@linux.microsoft.com>
+To: kotaranov@microsoft.com,
+	snsanghvi@microsoft.com,
+	jgg@ziepe.ca,
+	leon@kernel.org
+Cc: linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH rdma-next] RDMA/mana_ib: support enhanced connection establishment
+Date: Thu, 19 Nov 2026 17:08:51 -0800
+Message-ID: <20261120010851.616472-1-snsanghvi@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.7
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,82 +59,275 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 19, 2026 at 02:37 AM Mike Bazov via B4 Relay <devnull+mike.bazov.gmail.com@kernel.org> wrote:
-> Each caller then has its own registers, however it nests or gets
-> preempted, and the helpers no longer fail with -EBUSY when nested more
-> than three deep.
+From: Snehal Sanghvi <snsanghvi@microsoft.com>
 
-bpf-ci is correct.
-let's remove that warn_on as part of the series.
+Expose ECE when the firmware supports it. Return the firmware ECE offer
+for RC and UC QPs, and use the RNIC set-state V4 layout for every modify
+so that user ECE options reach the firmware and its current options are
+returned; 0 means no update, and option bits are interpreted by the
+firmware. Without firmware support, requests keep their legacy layout.
 
-we have another hole:
+Reviewed-by: Konstantin Taranov <kotaranov@microsoft.com>
+Signed-off-by: Snehal Sanghvi <snsanghvi@microsoft.com>
+---
+Matching rdma-core userspace implementation:
+https://github.com/linux-rdma/rdma-core/pull/1866
 
-  prog 1 on mmap_lock_acquire_returned
-    bpf_get_stack(BPF_F_USER_STACK | BPF_F_USER_BUILD_ID)
-      mmap_read_trylock()
-        prog 2 on mmap_lock_acquire_returned
+ drivers/infiniband/hw/mana/main.c    | 12 +++++++--
+ drivers/infiniband/hw/mana/mana_ib.h | 20 ++++++++++++---
+ drivers/infiniband/hw/mana/qp.c      | 38 ++++++++++++++++++++--------
+ include/uapi/rdma/mana-abi.h         | 15 +++++++++--
+ 4 files changed, 67 insertions(+), 18 deletions(-)
 
-stack colection with build_id's will disappear.
-
-Let's fix all together with somethign like:
-
-diff --git a/kernel/bpf/mmap_unlock_work.h b/kernel/bpf/mmap_unlock_work.h
-index 1834db2..65673d1 100644
---- a/kernel/bpf/mmap_unlock_work.h
-+++ b/kernel/bpf/mmap_unlock_work.h
-@@ -13,6 +13,7 @@ struct mmap_unlock_irq_work {
- 	struct irq_work irq_work;
- 	struct mm_struct *mm;
- 	atomic_t active;
-+	int nest_level;
- };
- 
- DECLARE_PER_CPU(struct mmap_unlock_irq_work, mmap_unlock_work);
-@@ -28,8 +29,13 @@ static inline struct mmap_unlock_irq_work *bpf_mmap_unlock_guard_get(void)
- {
- 	struct mmap_unlock_irq_work *work;
- 
--	if (!irqs_disabled())
--		return NULL;
-+	if (!irqs_disabled()) {
-+		/* progs on mmap_lock tracepoints can get here again */
-+		if (this_cpu_inc_return(mmap_unlock_work.nest_level) <= 3)
-+			return NULL;
-+		this_cpu_dec(mmap_unlock_work.nest_level);
-+		return ERR_PTR(-EBUSY);
-+	}
- 
- 	/*
- 	 * PREEMPT_RT does not allow to trylock mmap sem in interrupt
-@@ -51,12 +57,15 @@ bpf_mmap_unlock_guard_put(struct mmap_unlock_irq_work *work)
- {
- 	if (work)
- 		atomic_set_release(&work->active, 0);
-+	else
-+		this_cpu_dec(mmap_unlock_work.nest_level);
+diff --git a/drivers/infiniband/hw/mana/main.c b/drivers/infiniband/hw/mana/main.c
+index 8181b0cecd..75403e6bdf 100644
+--- a/drivers/infiniband/hw/mana/main.c
++++ b/drivers/infiniband/hw/mana/main.c
+@@ -250,6 +250,8 @@ int mana_ib_alloc_ucontext(struct ib_ucontext *ibcontext,
+ 	ucmd_resp.comp_mask |= MANA_IB_UCNTX_RC_EXT_SUPPORT;
+ 	if (mdev->adapter_caps.feature_flags & MANA_IB_FEATURE_RC_QP_SQ_POW2_SUPPORT)
+ 		ucmd_resp.comp_mask |= MANA_IB_UCNTX_RC_SQ_POW2_SUPPORT;
++	if (mana_ib_ece_supported(mdev))
++		ucmd_resp.comp_mask |= MANA_IB_UCNTX_ECE_SUPPORT;
+ 	ret = ib_respond_udata(udata, ucmd_resp);
+ 	if (ret)
+ 		return ret;
+@@ -1054,7 +1056,8 @@ int mana_ib_gd_destroy_cq(struct mana_ib_dev *mdev, struct mana_ib_cq *cq)
  }
  
- static inline void bpf_mmap_unlock_mm(struct mmap_unlock_irq_work *work, struct mm_struct *mm)
+ int mana_ib_gd_create_rc_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp,
+-			    struct ib_qp_init_attr *attr, u32 doorbell, u64 flags)
++			    struct ib_qp_init_attr *attr, u32 doorbell, u64 flags,
++			    u32 *ece_options)
  {
- 	if (!work) {
- 		mmap_read_unlock(mm);
-+		bpf_mmap_unlock_guard_put(NULL);
- 	} else {
- 		work->mm = mm;
- 
-diff --git a/kernel/trace/bpf_trace.c b/kernel/trace/bpf_trace.c
-index 3f1901a..5c49c13 100644
---- a/kernel/trace/bpf_trace.c
-+++ b/kernel/trace/bpf_trace.c
-@@ -702,7 +702,7 @@ BPF_CALL_5(bpf_perf_event_output, struct pt_regs *, regs, struct bpf_map *, map,
- 	sds = this_cpu_ptr(&bpf_trace_sds);
- 	nest_level = this_cpu_inc_return(bpf_trace_nest_level);
- 
--	if (WARN_ON_ONCE(nest_level > ARRAY_SIZE(sds->sds))) {
-+	if (nest_level > ARRAY_SIZE(sds->sds)) {
- 		err = -EBUSY;
- 		goto out;
+ 	struct mana_ib_cq *send_cq = container_of(qp->ibqp.send_cq, struct mana_ib_cq, ibcq);
+ 	struct mana_ib_cq *recv_cq = container_of(qp->ibqp.recv_cq, struct mana_ib_cq, ibcq);
+@@ -1092,11 +1095,14 @@ int mana_ib_gd_create_rc_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp,
+ 		/* The GDMA regions are now owned by the RNIC QP handle */
+ 		qp->rc_qp.queues[i].gdma_region = GDMA_INVALID_DMA_REGION;
  	}
++	if (ece_options && mana_ib_ece_supported(mdev))
++		*ece_options = resp.ece_options;
+ 	return 0;
+ }
+ 
+ int mana_ib_gd_create_uc_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp,
+-			    struct ib_qp_init_attr *attr, u32 doorbell, u64 flags)
++			    struct ib_qp_init_attr *attr, u32 doorbell, u64 flags,
++			    u32 *ece_options)
+ {
+ 	struct mana_ib_cq *send_cq = container_of(qp->ibqp.send_cq, struct mana_ib_cq, ibcq);
+ 	struct mana_ib_cq *recv_cq = container_of(qp->ibqp.recv_cq, struct mana_ib_cq, ibcq);
+@@ -1131,6 +1137,8 @@ int mana_ib_gd_create_uc_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp,
+ 		/* The GDMA regions are now owned by the RNIC QP handle */
+ 		qp->uc_qp.queues[i].gdma_region = GDMA_INVALID_DMA_REGION;
+ 	}
++	if (mana_ib_ece_supported(mdev))
++		*ece_options = resp.ece_options;
+ 	return 0;
+ }
+ 
+diff --git a/drivers/infiniband/hw/mana/mana_ib.h b/drivers/infiniband/hw/mana/mana_ib.h
+index b7079af5d1..90e767d323 100644
+--- a/drivers/infiniband/hw/mana/mana_ib.h
++++ b/drivers/infiniband/hw/mana/mana_ib.h
+@@ -339,6 +339,7 @@ enum mana_ib_adapter_features {
+ 	MANA_IB_FEATURE_EXTENDED_WQE_FORMAT = BIT(9),
+ 	MANA_IB_FEATURE_RC_QP_SQ_POW2_SUPPORT = BIT(14),
+ 	MANA_IB_FEATURE_MULTI_PORT_GSI_SUPPORT = BIT(15),
++	MANA_IB_FEATURE_ECE_SUPPORT = BIT(19),
+ };
+ 
+ struct mana_ib_query_adapter_caps_resp {
+@@ -476,7 +477,7 @@ struct mana_rnic_create_qp_resp {
+ 	struct gdma_resp_hdr hdr;
+ 	mana_handle_t rc_qp_handle;
+ 	u32 queue_ids[MANA_RC_QUEUE_TYPE_MAX];
+-	u32 reserved;
++	u32 ece_options;
+ }; /* HW Data*/
+ 
+ struct mana_rnic_destroy_rnic_qp_req {
+@@ -509,7 +510,7 @@ struct mana_rnic_create_uc_qp_resp {
+ 	struct gdma_resp_hdr hdr;
+ 	mana_handle_t qp_handle;
+ 	u32 queue_ids[MANA_UC_QUEUE_TYPE_MAX];
+-	u32 reserved;
++	u32 ece_options;
+ }; /* HW Data*/
+ 
+ struct mana_rnic_create_udqp_req {
+@@ -585,11 +586,15 @@ struct mana_rnic_set_qp_state_req {
+ 	u8 local_ack_timeout;
+ 	u8 max_rd_atomic;
+ 	u16 reserved2;
++	u32 mana_attr_mask;
++	u32 ece_options;
+ 	u32 reserved3;
+ }; /* HW Data */
+ 
+ struct mana_rnic_set_qp_state_resp {
+ 	struct gdma_resp_hdr hdr;
++	u32 ece_options;
++	u32 reserved;
+ }; /* HW Data */
+ 
+ enum WQE_OPCODE_TYPES {
+@@ -913,6 +918,11 @@ static inline bool mana_ib_is_rnic(struct mana_ib_dev *mdev)
+ 	return mdev->gdma_dev->dev_id.type == GDMA_DEVICE_MANA_IB;
+ }
+ 
++static inline bool mana_ib_ece_supported(struct mana_ib_dev *mdev)
++{
++	return mdev->adapter_caps.feature_flags & MANA_IB_FEATURE_ECE_SUPPORT;
++}
++
+ static inline struct net_device *mana_ib_get_netdev(struct ib_device *ibdev, u32 port)
+ {
+ 	struct mana_ib_dev *mdev = container_of(ibdev, struct mana_ib_dev, ib_dev);
+@@ -1046,10 +1056,12 @@ int mana_ib_gd_create_cq(struct mana_ib_dev *mdev, struct mana_ib_cq *cq, u32 do
+ int mana_ib_gd_destroy_cq(struct mana_ib_dev *mdev, struct mana_ib_cq *cq);
+ 
+ int mana_ib_gd_create_rc_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp,
+-			    struct ib_qp_init_attr *attr, u32 doorbell, u64 flags);
++			    struct ib_qp_init_attr *attr, u32 doorbell, u64 flags,
++			    u32 *ece_options);
+ int mana_ib_gd_destroy_rnic_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp);
+ int mana_ib_gd_create_uc_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp,
+-			    struct ib_qp_init_attr *attr, u32 doorbell, u64 flags);
++			    struct ib_qp_init_attr *attr, u32 doorbell, u64 flags,
++			    u32 *ece_options);
+ int mana_ib_gd_create_ud_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp,
+ 			    struct ib_qp_init_attr *attr, u32 doorbell, u32 type);
+ int mana_ib_gd_destroy_ud_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp);
+diff --git a/drivers/infiniband/hw/mana/qp.c b/drivers/infiniband/hw/mana/qp.c
+index 62980e0762..dec4a84f5c 100644
+--- a/drivers/infiniband/hw/mana/qp.c
++++ b/drivers/infiniband/hw/mana/qp.c
+@@ -656,7 +656,7 @@ static int mana_ib_create_rc_qp(struct ib_qp *ibqp, struct ib_pd *ibpd,
+ 		qp->rc_qp.wqe_size_in_bu = wqe_size / GDMA_WQE_BU_SIZE;
+ 	}
+ 
+-	err = mana_ib_gd_create_rc_qp(mdev, qp, attr, doorbell, flags);
++	err = mana_ib_gd_create_rc_qp(mdev, qp, attr, doorbell, flags, &resp.ece_options);
+ 	if (err) {
+ 		ibdev_err(&mdev->ib_dev, "Failed to create rc qp  %d\n", err);
+ 		goto destroy_queues;
+@@ -720,7 +720,7 @@ static int mana_ib_create_uc_qp(struct ib_qp *ibqp, struct ib_pd *ibpd,
+ 			goto destroy_queues;
+ 	}
+ 
+-	err = mana_ib_gd_create_uc_qp(mdev, qp, attr, doorbell, flags);
++	err = mana_ib_gd_create_uc_qp(mdev, qp, attr, doorbell, flags, &resp.ece_options);
+ 	if (err)
+ 		goto destroy_queues;
+ 
+@@ -920,7 +920,7 @@ static int mana_ib_create_rc_qp_kernel(struct ib_qp *ibqp, struct ib_pd *ibpd,
+ 	if (err)
+ 		goto destroy_queues;
+ 
+-	err = mana_ib_gd_create_rc_qp(mdev, qp, attr, doorbell, flags);
++	err = mana_ib_gd_create_rc_qp(mdev, qp, attr, doorbell, flags, NULL);
+ 	if (err)
+ 		goto deinit_queues;
+ 
+@@ -996,18 +996,33 @@ static int mana_ib_gd_modify_qp(struct ib_qp *ibqp, struct ib_qp_attr *attr,
+ 	struct mana_ib_qp *qp = container_of(ibqp, struct mana_ib_qp, ibqp);
+ 	struct mana_rnic_set_qp_state_resp resp = {};
+ 	struct mana_rnic_set_qp_state_req req = {};
++	struct mana_ib_modify_qp_resp uresp = {};
++	struct mana_ib_modify_qp ucmd = {};
+ 	struct gdma_context *gc = mdev_to_gc(mdev);
+ 	struct mana_port_context *mpc;
+ 	struct net_device *ndev;
++	bool ece = mana_ib_ece_supported(mdev);
+ 	int err;
+ 
+-	err = ib_no_udata_io(udata);
+-	if (err)
+-		return err;
++	if (udata && udata->inlen) {
++		err = ib_copy_validate_udata_in_cm(udata, ucmd, ece_options, 0);
++		if (err)
++			return err;
++	} else {
++		err = ib_no_udata_io(udata);
++		if (err)
++			return err;
++	}
+ 
+-	mana_gd_init_req_hdr(&req.hdr, MANA_IB_SET_QP_STATE, sizeof(req), sizeof(resp));
++	/* ece_options 0 means no ECE update; only firmware with ECE gets V4. */
++	req.ece_options = ucmd.ece_options;
++	mana_gd_init_req_hdr(&req.hdr, MANA_IB_SET_QP_STATE,
++			     ece ? sizeof(req) : offsetofend(typeof(req), mana_attr_mask),
++			     ece ? sizeof(resp) : sizeof(resp.hdr));
+ 
+-	req.hdr.req.msg_version = GDMA_MESSAGE_V3;
++	req.hdr.req.msg_version = ece ? GDMA_MESSAGE_V4 : GDMA_MESSAGE_V3;
++	if (ece)
++		req.hdr.resp.msg_version = GDMA_MESSAGE_V2;
+ 	req.hdr.dev_id = mdev->gdma_dev->dev_id;
+ 	req.adapter = mdev->adapter_handle;
+ 	req.qp_handle = qp->qp_handle;
+@@ -1056,11 +1071,14 @@ static int mana_ib_gd_modify_qp(struct ib_qp *ibqp, struct ib_qp_attr *attr,
+ 		req.ah_attr.flow_label = attr->ah_attr.grh.flow_label;
+ 	}
+ 
+-	err = mana_gd_send_request(gc, sizeof(req), &req, sizeof(resp), &resp);
++	err = mana_gd_send_request(gc, req.hdr.req.msg_size, &req, req.hdr.resp.msg_size, &resp);
+ 	if (err)
+ 		return err;
+ 
+-	return 0;
++	if (!udata || !udata->inlen)
++		return 0;
++	uresp.ece_options = resp.ece_options;
++	return ib_respond_udata(udata, uresp);
+ }
+ 
+ static bool mana_ib_modify_qp_state(struct ib_qp *ibqp, struct ib_qp_attr *attr,
+diff --git a/include/uapi/rdma/mana-abi.h b/include/uapi/rdma/mana-abi.h
+index ebc9a655b8..5149bd45ba 100644
+--- a/include/uapi/rdma/mana-abi.h
++++ b/include/uapi/rdma/mana-abi.h
+@@ -64,7 +64,17 @@ struct mana_ib_create_rc_qp {
+ struct mana_ib_create_rc_qp_resp {
+ 	__u32 queue_id[4];
+ 	__u32 mmq_id;
+-	__u32 reserved;
++	__u32 ece_options;
++};
++
++struct mana_ib_modify_qp {
++	__u32 comp_mask;
++	__u32 ece_options;
++};
++
++struct mana_ib_modify_qp_resp {
++	__u32 comp_mask;
++	__u32 ece_options;
+ };
+ 
+ struct mana_ib_create_uc_qp {
+@@ -75,7 +85,7 @@ struct mana_ib_create_uc_qp {
+ 
+ struct mana_ib_create_uc_qp_resp {
+ 	__u32 queue_id[3];
+-	__u32 reserved;
++	__u32 ece_options;
+ };
+ 
+ struct mana_ib_create_wq {
+@@ -112,6 +122,7 @@ enum mana_ib_ucontext_support {
+ 	MANA_IB_UCNTX_ALLOC_PDN_SUPPORT = 1 << 0,
+ 	MANA_IB_UCNTX_RC_EXT_SUPPORT = 1 << 1,
+ 	MANA_IB_UCNTX_RC_SQ_POW2_SUPPORT = 1 << 2,
++	MANA_IB_UCNTX_ECE_SUPPORT = 1 << 3,
+ };
+ 
+ struct mana_ib_alloc_ucontext_resp {
 
-pw-bot: cr
+base-commit: 7404c82cbf1246e0e84e2ec21834d23c26f9a8ed
