@@ -1,82 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.61.82.184
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795159170;
-	b=AHkQMXQRGJaPLEhzczA7JXO2288GRHfHKA78EwEh+N4ylW7W2xCnmym/OdQvfsz69S7g
-	 Ow9eU5q5TmBvZRKiT1SHjQKmDSsP5h7kFqPpUep8UOWKBpzjlsiHr9eKYQjfzawbIGUve
-	 HZHad7trj6myoFyBmnrj1dRZ67XCYQ7HPxQccKhJLDTVOKORlIFDJ1sN5xIR3pAnnjax7
-	 Fn0uMzZMwUOlHN+qUaMF6cx4YFwcJbJhi2HOw+vogP3XycpVYiXPv61mkA877A1+WUcPO
-	 1mOzrM9kX8edn4SREMGMqVmqqpQBMhbuWwXp76lW4nPzPUE6tKqgvw0sVZmi/zL+zbA==
+	t=1795159175;
+	b=ReeAQpjnn6wcttTGK5TBQkXiulSSGxAEoTI/stncGLKO8VFgXznAOEUj1QJikiJcTpA5
+	 IrqjVKR7Gp18xd0JJ5WwaxcrEM3xgRNNc0YkQHRIYoVjBs0oLN48yg4FlXOJuEnV8i/YO
+	 06moeEQC0GiXrok3RrZNRnDyVlEbbh7JiHEBCOPmUp6RsKsR/nP+dLvPvKsIA2sYaVkEE
+	 QiDVKocEk+4kZ6OVv1d6KYjuGna49kRlbRepnUM1jgdrT5CgIs7xum/Q4BkOF26aaePOC
+	 HsqCGwJs/Kdh4Yvr0fA+iUL6gw06kUnH80UutvsuMU3/sPGrMFZW3nwXwUYBlMobz9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795159170;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=UCkJVInVpe45tTPUC1N8YCSud4itWnhph5HOVXhfzDc=;
-	b=ytvln8dA9YoNP7Ot7BUizTEdJw8F1/p6l09afI8ImAq/neSQaLbBTq2wzd9WHzhsgpN8
-	 Rwf4gVPoZDCiMoCkyAQapRlL58/0yvdl5JPp/6xPBCN2jxoAhFZpgnrzsyhXlpmmP9+yW
-	 ISUpiyplC7jEd6yciMoIY8suitiKE4mqtUZuvZnqRab+rnXO1CKRcL2ivYTPMRiPrMuZT
-	 N5dk+rP8/U+eJKRUzP97GOQeXoxTEdlJ9u7W1cyt8B19NlRlTF6lDNaflb3vTgUdsdTSy
-	 9AvZfyDtII9b6R7UHqeMzZDAXDi9v9AYKCd/dzeGC/6K4q/gt1m9adTqObAkm/QFHrQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795159175;
+	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-CACHE:X-CID-P-RULE:
+	 X-CID-O-INFO:X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:
+	 X-UUID:Received:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-MTK;
+	bh=bjcBK2Jp+j7uKnBDu+KecoXiIuvzpZoiWmlv9+9ycts=;
+	b=L50sEFW4cRq+aFlYq+ddsHBhguUo86zjEiLi0BjE6HrbIkdwVoWBmDpFx3fKYYXi5yOr
+	 iKax0U+Q95T4owSPQpDFCkhYD73V/Siei3dxIJxTkZa2B1UksR4rKRQ0I0XGq3f+uvrCt
+	 +QRY/bhWrBeBLZIqxVLXDnQZ2iaPnfswgXkJIVwdPcbl/rHpbehbCaoOo/1mluGViiHjW
+	 iiMFdzubvd/+m3/EdJKXUrbbqw6s/BpgTNEOET7OTswls92MTPjaqNO7bPgTdxPayYx0E
+	 CQW+uG1feMdOLK/OPpZbXFKjj3HdIvvsMIIXThct+RuZVm7Lsao2XfLuNy1Bb4B/VYw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=TulpEHln;
-	arc=none smtp.remote-ip=192.198.163.18
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=airoha.com;
+	spf=pass smtp.mailfrom=airoha.com;
+	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=olkXP7aR;
+	arc=none smtp.remote-ip=210.61.82.184
+Received: from mailgw02.mediatek.com (unknown [210.61.82.184])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C531606A325;
-	Fri, 20 Nov 2026 07:19:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C531606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A1AE606A325;
+	Fri, 20 Nov 2026 07:19:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A1AE606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=airoha.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=airoha.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=TulpEHln
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795159170; x=1826695170;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=pukM0lbVTsObyCpMsg2GVxDX11Bwhn6NE596KFaKpts=;
-  b=TulpEHln4sJpyN4zXJABHLTsyJlCaU69qgztsfq2AF8PGCIUti+KC0d+
-   XULog541WM2atSAjRbmwiTvAXhGDfneHoZ7PYphEl95AiBIACa3jPPpgZ
-   xGQXrqvloxiPjYmeTJzWBl7L48TqEzCvTBwJGLyHj9ufYtsCt/BTWQoLM
-   efxouErEtF2BHYnoSz0f6ddZpr3limipRZMHgVXObnVK/M5HCPtwNKK2d
-   OIeV1GUWqu5Cbvm4hQfp16BEgEuuUC/q6EZrDoA5q7gqluzJBYi5dQcrl
-   taQ27o1DpWHiovkZ3BYw5yvsumsFHhSxblc9xSZyQKCVE+w/LJ03kz7Lo
-   g==;
-X-CSE-ConnectionGUID: UBM5oMpVSVGVtQYmxszYKw==
-X-CSE-MsgGUID: FG+u3SIIRrOgdAu98OBXDw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4065613"
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="4065613"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 23:19:29 -0800
-X-CSE-ConnectionGUID: EwKkfr+qRTmS5uNY0L8ULw==
-X-CSE-MsgGUID: 19Ch2pzcQA6XqOrjY5dy/w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="10633239"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by orviesa006.jf.intel.com with ESMTP; 19 Nov 2026 23:19:26 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1001)
-	id F24FD99; Fri, 20 Nov 2026 08:19:24 +0100 (CET)
-Date: Fri, 20 Nov 2026 08:19:24 +0100
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Paul Menzel <pmenzel@molgen.mpg.de>
-Cc: Mika Westerberg <westeri@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	"fangzhong.zhou" <myth5@myth5.com>,
-	Hans de Goede <johannes.goede@oss.qualcomm.com>,
-	Dell.Client.Kernel@dell.com, linux-i2c@vger.kernel.org,
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] i2c: acpi: Limit DLL0945 100 kHz quirk to Dell Precision
- 5560 and XPS 15 9510
-Message-ID: <20261120071924.GI229695@black.igk.intel.com>
-References: <20261119143218.586632-2-pmenzel@molgen.mpg.de>
+	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=olkXP7aR
+X-UUID: b921e870e4b211f18dc8c9802ae25ab1-20261120
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:CC:To:From:Date; bh=bjcBK2Jp+j7uKnBDu+KecoXiIuvzpZoiWmlv9+9ycts=;
+	b=olkXP7aRi6nhiVi343QgDDSd5rZDx4hE7yvhpFNHZfVTlC5gIc0mBrzYvJm5/l8bfrrenT/X+hg6jMDv11QlQMkdHtVqAuiBQwoFDIj5gYbbQ+K95VKLR9X9ilrgvzMaO6p4LWFuCT87r1tOe97Ir7/ZlBW6ey/fI1Fvjgv3xo4=;
+X-CID-CACHE: Type:Local,Time:202611201519+08,HitQuantity:1
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:b7826b25-de42-483c-90f3-55af6eb006be,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0318ac,CLOUDID:08c2d419-ae4c-4a2b-b1c4-72e411efd0c9,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|83|102|136|836|865|888|898,TC:-5,Content
+	:0|15|50|99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil
+	,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: b921e870e4b211f18dc8c9802ae25ab1-20261120
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
+	(envelope-from <zhengping.zhang@airoha.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1536349714; Fri, 20 Nov 2026 15:19:28 +0800
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.53; Fri, 20 Nov 2026 15:19:27 +0800
+Received: from mediatek.com (172.18.153.129) by mtkmbs13n1.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.2.2562.29 via Frontend
+ Transport; Fri, 20 Nov 2026 15:19:27 +0800
+Date: Fri, 20 Nov 2026 15:19:27 +0800
+From: Zhengping Zhang <zhengping.zhang@airoha.com>
+To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+CC: <linusw@kernel.org>, <lorenzo@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <brgl@kernel.org>,
+	<naseefkm@gmail.com>, <benjamin.larsson@genexis.eu>,
+	<linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
+	<lei.dong@airoha.com>, <ansuelsmth@gmail.com>
+Subject: Re: [PATCH 05/12] pinctrl: airoha: an7581: select force GPIO mode on
+ GPIO requests
+Message-ID: <av_0f3bRXyWTSUYy@mediatek.com>
+References: <20261110094339.749110-1-zhengping.zhang@airoha.com>
+ <20261110094339.749110-6-zhengping.zhang@airoha.com>
+ <80e72b60-3128-4594-a4bf-bb184ffc754b@iopsys.eu>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,64 +88,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset="utf-8"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261119143218.586632-2-pmenzel@molgen.mpg.de>
+In-Reply-To: <80e72b60-3128-4594-a4bf-bb184ffc754b@iopsys.eu>
+X-MTK: N
 
-Hi,
+Hi Mikhail,
 
-On Thu, Nov 19, 2026 at 03:32:16PM +0100, Paul Menzel wrote:
-> Commit 0b7c9528facd ("i2c: Force DLL0945 touchpad i2c freq to 100khz")
-> forces the I2C bus to 100 kHz for all devices with the ACPI ID DLL0945 to
-> work around a sluggish cursor on the Dell Precision 5560. But DLL0945 does
-> not identify a touchpad model. Dell uses it for touchpads from different
-> vendors:
-> 
->     System                Touchpad
->     Dell Precision 5560   ELAN 04F3:311C
->     Dell XPS 15 9510      ELAN 04F3:311C (bugzilla #214597)
->     Dell XPS 13 9310      Synaptics 06CB:CDE6
-> 
-> The ELAN touchpads are the ones known to need 100 kHz, but the Synaptics
-> touchpad of the Dell XPS 13 9310 is slowed down without need. Its DSDT
-> specifies 400 kHz, and Linux logs:
-> 
->     i2c_designware i2c_designware.0: [Firmware Bug]: DSDT uses known not-working I2C bus speed 400000, forcing it to 100000
-> 
-> The touchpad scans every 7.1 ms (scan time field in the input report), and
-> i2c-hid reads wMaxInputLength (64 bytes) for each report. Tracing the I2C
-> transfers for 30 seconds of moving a finger on the touchpad shows:
-> 
->                              100 kHz   400 kHz
->     read time (median)        7.3 ms    2.5 ms
->     bus busy                   87 %      36 %
->     reports per second          111       140
->     frames lost                18.6 %     0 %
-> 
-> At 100 kHz the host cannot keep up with the touchpad, and every fifth frame
-> is lost. At 400 kHz all frames arrive, and no sluggish cursor was noticed.
-> 
-> So, only apply the DLL0945 entry on the Dell Precision 5560 and XPS 15 9510
-> by pointing the entry's driver_data to a DMI table, which can be used to
-> restrict other entries in the same way.
+Thanks for the suggestion. I agree that selecting GPIO mode by disabling
+the relevant functions would be preferable to use the FORCE_GPIO
+registers.
 
-Yeah, we should really figure out how this works in Windows. I'm sure they
-don't have such a quirk list so maybe it's up to the vendor specific
-drivers to "tune" the bus to their needs whereas in Linux we obey the ACPI
-description.
+I plan to change the implementation as follows:
 
-> Tested on the Dell XPS 13 9310.
-> 
-> - The `[Firmware Bug] … forcing it to 100000` line is gone from dmesg.
-> - Re-probed the touchpad’s I²C controller with debug output on, and it
->   reports `Bus speed: Fast Mode (400 kHz)`. The touchpad came back up
->   under hid-multitouch.
-> 
-> Fixes: 0b7c9528facd ("i2c: Force DLL0945 touchpad i2c freq to 100khz")
-> Link: https://bugzilla.kernel.org/show_bug.cgi?id=214597
-> Cc: Hans de Goede <johannes.goede@oss.qualcomm.com>
-> Cc: Dell.Client.Kernel@dell.com
-> Signed-off-by: Paul Menzel <pmenzel@molgen.mpg.de>
+- Select GPIO mode by disabling the relevant alternate functions,
+  without setting FORCE_GPIO. Reject requests that conflict with
+  existing users.
 
-Acked-by: Mika Westerberg (Intel) <westeri@kernel.org>
+- When selecting a peripheral function, clear FORCE_GPIO overrides
+  where needed so that the peripheral can control the pad.
+
+Would this approach address your concern? If it looks reasonable, I will
+adopt it in v2 and validate.
+
+Best Regards,
+Zhengping
+
+On Sun, Nov 15, 2026 at 05:21:15PM +0300, Mikhail Kshevetskiy wrote:
+> I think it's better does not play with force gpio registers and just
+> disable (if no conflicts) functions that put selected pin to non-gpio mode.
