@@ -1,60 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795189475;
-	b=sb9hHsLnKacuchD28SCo6Fz2pF70T7dtmebC63hq5EEsWtUwKmXyazJKPl7gAPCtrLne
-	 rOF7oiDnQz8x/h0fAE/YrLNe/AKID7wfCDEr3+0h9XjMH1FcByiDS9+YtQwzsDPvpupSv
-	 XZxa0DLmnCaFtJydFqPQ00TjWhJyv4FJ1ScXP0NWxYre0Ay9IvRwp2aaAOmAlwrZcFxmb
-	 8E0jrS4owpWmVFQXfv6aW4ypFI5GUotSx0lnMtv6AJ315cIXSrbtAohbf9BKCX3p4/OX8
-	 ux90ojd0jOloyxa+yyEfWa+bDTftr75Fd31XHxVoHG1ajcz2MZ78aDGYGwSj0L/NjNg==
+	t=1795189504;
+	b=EbhBlmPqvIdYwYj6C+6Ii/07MUGAU/rTKmupdiYKX4iMF/yw0zhr/JqHMccOTSE23wTg
+	 8IvxxUStBKAjGqo9Ya8xozAUo3rSwpCodgws2lM+EVBTnOFiKHWpm6A5Wpt7N+kCNWid1
+	 1XxtbfJDtTVQK4TkL64epnvVXThhfC1qelMosEmpVaNoj27LgtELi/2qKMglbrBa6VSY0
+	 8TyiCrXpDq82GZ3jV0K9CPvwFPzu9cNQjthJy+gwzDynenrZRBdUBpb2DomSgW9Kavu3v
+	 im8o2zAq2+yIsgU7cNP49CQH3pUAGstnE1uM8h+MZQDjMRIBsZKS3Ak3PBt9c7Z395Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795189475;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:User-Agent:MIME-Version:Content-Type;
-	bh=NGj0qVuLIFFATf6LyggXZB3De6ZTU5Fq7s/WOWKevVw=;
-	b=YOz2w8eRjqgxNJjmeA/h4VHib/bVugHG/tEZI6vCpVsQxgRpJVWI/c1EigQU6h9bC2SJ
-	 cH612WI7XL/lVzaDxtkT8XZUBW1x60ZcyIK0ubd+/w1lqKwieBJZT4Fkzdp62P3wL6ia5
-	 UEbfW4EDCmNX+AnV24q4GIEKOrPZduSVC53cbe0Bdhw+FYQPwOfLtVPIVF3YsoaKt5N9E
-	 mCcFj/RTPLiW9tAaYMm67V1fDRIpl1QV+rVUA9Oni4mIMQ46tZeRZyLKNGGWhEIf0HFoU
-	 kO98Q/YaTeKfLsTlYxmvCf7fwZ9UVxlRNiGE2l7WCc586kC6Q2ULEhxosqjADItvyCg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795189504;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=6QLG5/YNSyunp66wi2G54jlWRh4d2MdsiZoJ8fG1Qag=;
+	b=FVQZD3mZYvKApoLxuTSq5UQ8o50xKmfxlGBG3Guljg+cxYhmCmbYqUaK2r5xypv0rQ9J
+	 A0r+e1QsHMKw7PqR4Sk0pemv68MIMJtYOcYjsBUm+sWM6v214FcZ3TIHY08NNBlQrtRiI
+	 ESDmFHraPt2E8ffrYIkr8Wa3jkgmwdxOXrZGegEWVPfqzlvLSkA2MI7sjBELk1KHQd6Xl
+	 +DQkgSU5DQFQxm8OmmhJ1XsJb4OAApXLpp0HVhU9qNMWKYua/RMk/3jN+g1PhTsqN2OFm
+	 t8ZG/X8hqU6EotqoARCMOSwhFZ1keNw4ub+NiOn4yh1RIRbRvPaXpiRTGqgY3ICn78g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mmeJ271N;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=F6Af7a+B;
+	arc=none smtp.remote-ip=90.155.50.34
+Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8911606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:44:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEF1B606A32C;
+	Fri, 20 Nov 2026 15:45:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CEF1B606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mmeJ271N
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62B4D1F000CF;
-	Fri, 20 Nov 2026 15:44:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795189475;
-	bh=NGj0qVuLIFFATf6LyggXZB3De6ZTU5Fq7s/WOWKevVw=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=mmeJ271N5f02C0B1RJgXSd6hkgBzr5xSxlMsyenlDXMd0wCPGTa7FRYam0L+pK+Nd
-	 2nDwSnDOv012h1FYqMdYNMO6bs1iHUSB9PaeWSr6tD3E999ON/i1nZJrZlbyopx/zH
-	 1WOxAslRKxAb9EIJj4yAqjf8N6R6HgMZS6aqktcvJIpdXVTkB3T81w8/pracVLAw5I
-	 wSJIVpaYPJpzClqE6eNqFKYfrkrqP4tYZGjR6OqUAdtKVVC5HgrjgK71tSO2C0h5E2
-	 +yEM8XVc3jF9BMQI6AHMNt7a5VhqmQ68piHOjE1DJhS6l88PoRjNwWQFZutTDw4942
-	 yHBaa6mbzgwGw==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: Chris Down <chris@chrisdown.name>
-Cc: Pratyush Yadav <pratyush@kernel.org>,  Pasha Tatashin
- <pasha.tatashin@soleen.com>,  Mike Rapoport <rppt@kernel.org>,  Andrew
- Morton <akpm@linux-foundation.org>,  Samiullah Khawaja
- <skhawaja@google.com>,  kexec@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  linux-mm@kvack.org
-Subject: Re: [PATCH v2 2/2] mm/memfd_luo: keep memfd frozen until finish
-In-Reply-To: <20261114220528.f7d9874a014dbb5d@chrisdown.name> (Chris Down's
-	message of "Sat, 14 Nov 2026 22:05:28 -0800")
-References: <20261110175855.2437084-1-pratyush@kernel.org>
-	<20261110175855.2437084-3-pratyush@kernel.org>
-	<20261114220528.f7d9874a014dbb5d@chrisdown.name>
-Date: Fri, 20 Nov 2026 15:44:31 +0000
-Message-ID: <2vxzcxrz1p9c.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=F6Af7a+B
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=6QLG5/YNSyunp66wi2G54jlWRh4d2MdsiZoJ8fG1Qag=; b=F6Af7a+BYs0BDmmODuoYtBR346
+	yNguJtJ3FNvUxAMSuQsz4UxvtwlzqbSiXQ2ZgO00CyBHD+Yo+pBk5LkMsFn9m+Je/boSHzF/ZIORM
+	VVoorovm+UbGa46YQYE/KGudPyp6GtJkS7rd/IUqrbSHNdzD5BdK2llbMcSvydLpyQI+oUy6GUJEx
+	zODNr4VTXVDMSQTpl4Tfz+G395R972l3N7vIX5KRFCdcuqTLRgZc7XPImItDrsyj04msNAMzxopYC
+	mmheqGmKe5ov3+LQzba3KcDrDK5TqV8wC1Y3OY2FjHvTTd06NMA5F28nubs1cnqkHeVsD5HqoD8V+
+	WCB6N9YQ==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xUQnK-00000007Bhw-1oBi;
+	Fri, 20 Nov 2026 15:44:58 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 74CEC3008D6; Fri, 20 Nov 2026 16:44:57 +0100 (CET)
+Date: Fri, 20 Nov 2026 16:44:57 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Tengda Wu <wutengda@huaweicloud.com>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/2] perf/core: Prevent duplicate sigtrap task work
+ enqueue
+Message-ID: <20261120154457.GZ2668564@noisy.programming.kicks-ass.net>
+References: <cover.1795053619.git.wutengda@huaweicloud.com>
+ <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,43 +76,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
 
-On Sat, Nov 14 2026, Chris Down wrote:
+On Thu, Nov 19, 2026 at 09:51:00AM +0000, Tengda Wu wrote:
+> The sigtrap handling in __perf_event_overflow() checks
+> event->pending_work before calling task_work_add(), but only sets
+> pending_work after the task work has been queued.
+> 
+> This leaves a window where an NMI can interrupt task_work_add()
+> and re-enter __perf_event_overflow() for the same event. Since
+> pending_work is still zero, the nested invocation can enqueue
+> the same pending_task again.
+> 
+> The re-entrant call path looks like this:
+> 
+>   __perf_event_overflow()
+>     task_work_add()
+>       kasan_record_aux_stack()
+>         <NMI>
+>           __perf_event_overflow()
+>             task_work_add()
 
-> Hi Pratyush,
->
-> Pratyush Yadav writes:
->>+ * Restrictions
->>+ * ============
->>+ *
->>+ * While a memfd is preserved, and after it is retrieved until the session is
->>+ * finished, its size can't be changed and holes can't be punched in it.
->>+ * Operations that would do so (``ftruncate()``, ``fallocate()``, writes past
->>+ * the end of the file) fail.
->
-> Not a big deal, but there's one more thing that fails in this window and
-> isn't listed here. Adding F_SEAL_WRITE to a retrieved memfd before finish
-> now waits about 150ms and then fails with EBUSY. That's because
-> memfd_wait_for_pins() sees the reference kept from kho_restore_folio() as
-> an extra reference on every folio. Once the session is finished it
-> succeeds straight away. The same already happens while the memfd is
-> preserved in the old kernel, so maybe it's worth mentioning here for both?
->
-> Also, fallocate() fails with EPERM in every mode while the file is frozen.
-> That includes FALLOC_FL_KEEP_SIZE inside i_size, which neither changes the
-> size nor punches a hole. "Operations that would do so" makes it sound like
-> only some fallocate() calls fail.
->
-> Otherwise I've tested this across a kexec and it works well.
->
-> Once those are fixed, please feel free to add:
->
-> Reviewed-by: Chris Down <chris@chrisdown.name>
-> Tested-by: Chris Down <chris@chrisdown.name>
+How? If an event is NMI driven, it will only ever cause an overflow from
+NMI context.
 
-Thanks! I'll fixup the two documentation things and send out a v3.
+If it is not, then the same event will not trigger from NMI.
 
--- 
-Regards,
-Pratyush Yadav
+Some key ingredient is missing here. Is this some software event that is
+missing recursion checks?
