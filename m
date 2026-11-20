@@ -1,91 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795195136;
-	b=eRIPVTfdHgebN3eOiQvdLQobqbCIniQuBVoyg42mle6sqvd63+uEMu5UjdOYX8zQ67Qz
-	 M4X2LJOWa9L/ouYBcTuwLawDp61Y0C9bd4BEUgLkC/mC+csbhmlIzlJTPO/y4SxtqTe2x
-	 y0/c8bGToQob7JL0en++fC9rAlHiB/2ZimP0IWbEdR2HOGA0ETR3unxybxU1nMJwaiXe2
-	 hH6ThWFPGAceNEgbvoIIa4Dm9T+e0jOCnmoIVvWFVqunkFl0a8IN2sF3Pqv6crF8ppi25
-	 NauNBEEPhCMLWn1WaoVJlAXFChDxeDHge33x5up1O3qKsDmLA2pdxEuhuPEzKMRSEfA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195136;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=QIQEjm3d2yUWI7XJ5oSFB+PNWsrkD9quGMx3NyrE8X0=;
-	b=hePHtb2c27fXD3Ay5ACu+dQNqWglkkscQ4D0NxzI/hUa650n52luU1GramVLWdep7RxF
-	 BIiTX6kLzESt16Wq/cBs01EhkRBKfsph6O8Wml5PnvHNOBg42PEwAL6iRlINvn7AGojYk
-	 7qyQLxrdFEqguTUtzoUMD1M21u0YdsBduPSvM4Y1IjNcXZhOJfcthCQ0SUPrInvSDANyA
-	 /2ec+oDy/jShrFUyVefuCvmdavdRqgASp4VipMBrxjfAU5NnmbFabgaljg7fwphH1uyFT
-	 i3vhUh5zkXMb5mT6DDpHiaYwgLlS1DnPmNrmx3X9mbtR6uHajl3KQQ5h2zexVRvQ2Ew==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YqgJxxyi;
-	arc=none smtp.remote-ip=198.175.65.15
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795195137;
+	b=Pw39XqBve0jmX4PwobK5g2cqpjDNTcqxv++pc/mGPrnH3tZvmLxicL24UnHKLp6ZvjEu
+	 mtaIXIVwJsoAX1bvh4s9m71Z/8aJ951Bu9gQGB3sMnPNyJ/C460JOCNd2HKwELH0wGDKA
+	 5aM1b3L3zq2lFjTm70fmnb3qVvve8kLcgpWQPQ2xoHo9K7gpx4bi3i74sjnK/2GgD6PAc
+	 F80TD0rxzpPVplaLaycCeEi69K5Sy9dDoetTIFsoSY4sxBkfAfv5EudIms+no3mQNBxuf
+	 zK31oMzvsQP3auJJPYmAE84poc7DVRrqmKPq80H8WUVSmMtnvuTcNsBzMhYHCyLfcQg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195137;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=j5aeOlXPwsIGKiT8rzKAsAdFcc8q5YgjF0Yn6AZf5ME=;
+	b=nOwhR43CVmRh+rJ9tp9qTWUnX9nek3Rm/C4MMObN/+CKWXCCM8TuMGRr9o93yZL4C+ii
+	 qOOZdOEGZbd/F0gkQz68Tosr8U4ZaZyRA1ZXjtaM5j9I2KtqXzwlq/smN8p3ZxpRUmv+W
+	 q6ul/A1kWpIkMpWOXWbBtJUnWVhwWOo7QnLlQ4UPmEPR2Eb8bmL1vrC/CT/9+0q61Ts/B
+	 Kfm+FjIn4+mjiePvtf4t7S86XmBWDU5COJxQyj6YsAimkWgxzbxvrd3ciAsWqQ6CS3lrY
+	 HOyIS7mdCcXLYtXhOj5grOtcngDzeTiV3soaFcUtYmMWv6CzNYYNvc/C2u8oiI6q0Yw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eXfA6lNZ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C739260A2606;
-	Fri, 20 Nov 2026 17:18:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C739260A2606
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40F1E60A260F
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:18:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YqgJxxyi
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795195136; x=1826731136;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=/1HtlNbVvYtajBQoreiIL3kcVHwbMdxKszmOsBzjyRE=;
-  b=YqgJxxyiF1DKWBJtN96WEQXM1JfB6zK1nb5/NdbN1o42o5kG5NqAc3ik
-   e5/3zbIyjb1vl0mqyCW45hrULWGK4jNalyvkP5BRHL0d+fEQUPy3GHLIX
-   ZZSyNFTu8YU8v9iPWbhKKUe8iOy1jq/R9c2Swlx8QzfVPyaBVs3DpWCBQ
-   F2hN7jGOdjUUQHHjuXjaoEd0Ow94ys8pgWU0jN0yknvuBHM4oUkKbaMc3
-   avpqRiziy6JFDwEgOCQ4zhF9I1gAuFyphBDq/tVOIcbwT+6TvveyqvCc5
-   xpTnH2Uefh9Ib9bWOrOoja+bJ7+OsFpNhf9gFt+xOJ/k5Xfg1g5CbKuWO
-   Q==;
-X-CSE-ConnectionGUID: sfLUKNGPQRS3ebbLp1FIlA==
-X-CSE-MsgGUID: 1h9svnKCQ6m4korz1+y1pw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4083507"
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="4083507"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:18:55 -0800
-X-CSE-ConnectionGUID: XjeTSy/9S3a+dpzJiY3r5w==
-X-CSE-MsgGUID: CovpluibRWqPAawUn0BefQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="11092229"
-Received: from hrotuna-mobl2.ger.corp.intel.com (HELO wieczorr-mobl1.intel.com) ([10.245.245.215])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:18:49 -0800
-From: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
-To: catalin.marinas@arm.com,
-	pawel.chmielewski@intel.com,
-	kyle.d.pelton@intel.com,
-	lenb@kernel.org,
-	guohanjun@huawei.com,
-	maobibo@loongson.cn,
-	lpieralisi@kernel.org,
-	will@kernel.org,
-	sudeep.holla@kernel.org,
-	erik.kaneda@intel.com,
-	rafael@kernel.org,
-	robert.moore@intel.com,
-	void0red@gmail.com,
-	maciej.wieczor-retman@intel.com,
-	superm1@kernel.org,
-	chenhuacai@kernel.org
-Cc: acpica-devel@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	loongarch@lists.linux.dev
-Subject: [PATCH v2 00/42] ACPICA: ACPICA 20260930 with follow-up fixes
-Date: Fri, 20 Nov 2026 18:17:24 +0100
-Message-ID: <cover.1795194329.git.maciej.wieczor-retman@intel.com>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eXfA6lNZ
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795195136;
+	b=atzpBexBIAINow/6DsY4HM5oUjPA6ofzy8giGa9ZN7Smgp7w1i/w4brAOOdFVIv88gKf
+	 7k7RB7L1voYKxwZXM5Zzi0nCQVweiJBeWtTrDEYCRVtvMgTmbLdvp84hiwRTHVKm+0WLg
+	 rK+SN/OsPckZye/i1kXqd/z9FuUsCba9sMjmkM8IdxF5Onth4LOJ9niJMeKkbrVY/POQ3
+	 pScAtHjtHGR1Bf/FMPjNZPWI6Hzr+F1Xt4r1rUc4oVUkuS0bFhSc4XWAVbOYkI8P3Vpyx
+	 E00WgHWywcAMJcscMvQ0ED+HicBRlC3RKMJECAiErmsTsRxLpvt5tPNI0Ug+1u74F5A==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795195136;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=j5aeOlXPwsIGKiT8rzKAsAdFcc8q5YgjF0Yn6AZf5ME=;
+	b=OlB138q9jCIkCUUaY0zFL6pAfxSJer0sRd6t+4hJkifyuYqyYBAZ/iBLV3n0eZNHxvL5
+	 OT+WFQ1pCxR31/anZFOa+QqycDfuKoCRQnc0uPG2OY0weufP/nWUx5+5IBC9J2XWq/ZAx
+	 dpxD/UAjjY2uElwSK0iOpvx/rA0KXQzKSKBra7mSFySK6SDwcvDA9teuz73Z2Wqys+3JQ
+	 LLIW8ANcWb/0yamj/yozJ90tbClOqZTRf/tYtr2wLFXB4FiKurwWzfAjAr+vdZnP8aWKN
+	 KlVt/k9+wvK5hBExdZPBtg2crnh9zaJ/uWg/pENCo5Ps7qK0Mea0sLHROGx5ydXFZkw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id B03CF1F000EC;
+	Fri, 20 Nov 2026 17:18:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795195136;
+	bh=j5aeOlXPwsIGKiT8rzKAsAdFcc8q5YgjF0Yn6AZf5ME=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=eXfA6lNZZtYJM0dI5pFb2p+6a3IcHb26UqY1Vee3RA0z4TwfHbtjuq1p9XvzjvQrz
+	 Qu1GvcTxkjX2/SooM8sdLz9vJaDhwqbap+J8truluGxC+HYXR3sU+q9QGukqsPmsoX
+	 YQY4kgQAbXjP833s6ngKT7Q4CxRQHj2NyJp3I8b7ZebvpLw3UzFtOYt8ZUt1HqgW/J
+	 WJG7rKbT7vBrG0auTwy0Iq5FAziej+6EXX4USZBQWbhvAjHp6QG2/qW06Y1pwrW64o
+	 +t5TkETDPiSoy5PuxwWUMEODJUcBqAxh0FBDLfEl7DjdLwdmPFYD12HTywOwrowIWM
+	 hidqj7o/z1fBQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 0DB004B871;
+	Fri, 20 Nov 2026 17:18:46 +0000 (UTC)
+From: Jim Cromie via B4 Relay <devnull+jim.cromie.gmail.com@kernel.org>
+Subject: [PATCH v2 0/5] drm/print,dyndbg: __drm_debug __read_mostly, uint
+ shrink, build fixes
+Date: Fri, 20 Nov 2026 10:18:27 -0700
+Message-Id: <20261120-rd-mostly-v2-0-88056ede02a8@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,216 +84,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/03MSwrDIBAA0KvIrGPRoTWtq96jZGH9JAMxFg3SE
+ Lx7aaDQ7Vu8HYrP5AtotkP2lQqlBTTDjoGdzDJ6Tg40AxSoxA0vPDseU1nnjSuDwQrrVHAKOga
+ v7AO9j+sxdAwmKmvK21FX+dXfov6WKrngeH32rpdn79Dex2hoPtkUYWitfQD7VkXjogAAAA==
+X-Change-ID: 20260925-rd-mostly-6a2fc0cd6fd6
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Jason Baron <jbaron@akamai.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ Jim Cromie <jim.cromie@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795195125; l=2782;
+ i=jim.cromie@gmail.com; s=20260203; h=from:subject:message-id;
+ bh=xnRH0qB/GwHqK1xzuiISEJFJ6H/0x3SoHlEN19+4id0=;
+ b=ZVbV5T5CdTJSA9L2enICkZVUo5maRNjASt3co0FrgQPrH6ymN3NTcqDsl0ZT5yL1axpG0Nk/l
+ Zt59NE/PumvAGV24WCPaSGeLwxbz0XVkfFC7tZIwFtVfskxxrzOoTMA
+X-Developer-Key: i=jim.cromie@gmail.com; a=ed25519;
+ pk=C6E5ODlPQo7ZBynATXH9wg7K6HxP0pIXyf4s38Qw0XE=
+X-Endpoint-Received: by B4 Relay for jim.cromie@gmail.com/20260203 with
+ auth_id=958
+X-Original-From: Jim Cromie <jim.cromie@gmail.com>
+Reply-To: jim.cromie@gmail.com
 
-The following patches are ported from upstream ACPICA and contain the 20260930
-release and some follow up fixes (so generally everything after the 20260408
-release). Only source files relevant to the Linux kernel are being ported.
+This series improves __drm_debug placement/sizing and fixes two build
+issues exposed when CONFIG_DRM_USE_DYNAMIC_DEBUG=y is enabled:        
 
-Changes since v1:
-v1 [1] contained only commits between the 20260408 and 20260930 releases.
-However sashiko.dev [2] raised some issues that needed to be either applied or
-rejected. Most issues were valid and were resolved in patches that follow the
-20260930 release. Things that were rejected were the whole patch [3] due to not
-being a full solution to a very unlikely, debug only problem. Also the sashiko
-comment related to ACPI_GPE_AUTO_ENABLED in patch [4] wasn't applied due to
-not being realistically possible to happen and consequences were only an odd
-looking log entry.
+1. Mark __drm_debug as __read_mostly to move it out of the cacheline
+it currently shares with frequently written locks and structures.  In
+a 12-vkcube test, its read rate is ~83 kHz.
+    
+2. Fix CFLAGS- -> ccflags- spelling error in drivers/gpu/drm/Makefile
+to add -DDYNAMIC_DEBUG_MODULE when CONFIG_DYNAMIC_DEBUG_CORE=y without
+CONFIG_DYNAMIC_DEBUG=y.  Also add subdir-ccflags- so DRM subdirs
+(drivers and helpers) get the -Dflag too.
 
-There are non-ACPICA changes related to constants/variable name changes
-in these patches:
-- ACPICA: actbl2: MPAM: adapt to MPAM ACPI spec v3.1
-- ACPICA: acpica: Fix typo in the IOVT_IOMMU table definitions
+3. Drop the unused `category` local in __drm_printfn_dbg() when
+CONFIG_DRM_USE_DYNAMIC_DEBUG=y expands __drm_debug_enabled() to true.
 
-The base for this patches is upstream kernel v7.4-rc3 and it consists of
-the following material:
+4. Shrink __drm_debug and struct ddebug_class_param.bits from unsigned
+long back to unsigned int, updating lib/dynamic_debug.c and        
+lib/test_dynamic_debug.c callers accordingly.               
 
-Andre Przywara (1):
-      ACPICA: actbl2: MPAM: adapt to MPAM ACPI spec v3.1
+NOTES:
 
-Colin Ian King (2):
-      ACPICA: components: Fix typo "Supress" -> "Suppress"
-      ACPICA: components: Fix typo: "numer" -> "number"
+drm and dyndbg are coupled on __drm_debug's size and type, so changing
+the size requires coordination between DRM and core.  The coupling
+allows dyndbg to use the var to keep 'state', and allows drm to
+continue using it in a few cases where drm_*dbg doesnt quite fit.
 
-Dave Jiang (2):
-      ACPICA: CEDT: RDPAS: Add missing reserved field in RDPAS structure
-      ACPICA: CEDT: RDPAS: Fix incorrect field positions for RDPAS
+Because DRM_USE_DYNAMIC_DEBUG still depends on BROKEN, patches 2-4
+were build-tested with that dependency locally removed. That un-BROKEN
+patch is intentionally excluded here, as modular DRM probe-time
+drm.debug support (and external users like drivers/accel/) still
+need the separate/pending classmap fixup series.
 
-Hanjun Guo (1):
-      ACPICA: add UBRT (UnifiedBus Root Table) definitions
+Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
+---
+Changes in v2:
+- Add subdir-ccflags- propagation in drivers/gpu/drm/Makefile (patch 2).
+- Add unused `category` warning fix under CONFIG_DRM_USE_DYNAMIC_DEBUG=y
+(patch 3). 
+- Add __drm_debug and ddebug_class_param.bits shrink to unsigned int
+(patch 4).
+- Link to v1: https://lore.kernel.org/r/20260926-rd-mostly-v1-0-28b7d714ed2c@gmail.com
 
-Himanshu Chauhan (1):
-      ACPICA: Introduce a new HEST notification type for RISC-V SSE events
+---
+Jim Cromie (5):
+      drm/print: Mark __drm_debug as __read_mostly
+      drm: Fix incorrect CFLAGS-y spelling inside Makefile
+      drm: fix config dependent unused variable warning.
+      drm/print,dyndbg: restore __drm_debug to uint from ulong
+      drm-dyndbg: drop BROKEN on DRM_USE_DYNAMIC_DEBUG for testing (DONT_APPLY)
 
-Iurii Trukhin (1):
-      ACPICA: parser: Fix parse tree memory leak on AML execution error unwind
+ drivers/gpu/drm/Kconfig.debug | 1 -
+ drivers/gpu/drm/Makefile      | 3 ++-
+ drivers/gpu/drm/drm_print.c   | 7 +++----
+ include/drm/drm_print.h       | 2 +-
+ include/linux/dynamic_debug.h | 2 +-
+ lib/dynamic_debug.c           | 8 +++++---
+ lib/test_dynamic_debug.c      | 2 +-
+ 7 files changed, 13 insertions(+), 12 deletions(-)
+---
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+change-id: 20260925-rd-mostly-6a2fc0cd6fd6
 
-Leonard Lausen (1):
-      ACPICA: Executer: Resolve package index references used as integer operands
-
-Maciej Strozek (1):
-      ACPICA: Utilities: Fix for AcpiUtVerifyChecksum warning display
-
-Maciej Wieczor-Retman (17):
-      ACPICA: executer: Fix NULL pointer dereference in AcpiExStoreObjectToIndex()
-      ACPICA: compiler: Add _Ixx GPE object
-      ACPICA: namespace: Fix possible underflow and NULL pointer dereference
-      ACPICA: iASL: Fix the truncated count of external control methods
-      ACPICA: release: Update version to 20260930
-      ACPICA: events: Add missing event mutex to AcpiEvClearGpeDispatchByOwner()
-      ACPICA: events: Remove redundant code
-      ACPICA: events: Fix AcpiEvClearGpeDispatchByOwner handler type processing
-      ACPICA: events: Fix GPE cleanup return after changing program state
-      ACPICA: events: Handle GPEs' Notify dispatch type
-      ACPICA: tables: Fix wrong table unload and notify call order
-      ACPICA: tables: Fix global table read missing mutex
-      ACPICA: executer: Fix copying PCC source buffer data
-      ACPICA: dispatcher: Fix zero size non-NULL PCC buffer pointer
-      ACPICA: utilities: Clear NextObject so the outer loop doesn't read it
-      ACPICA: namespace: Fix memory leak around compiler alias flag
-      ACPICA: acpica: Fix typo in the IOVT_IOMMU table definitions
-
-Mario Limonciello (AMD) (1):
-      ACPICA: Add ACPI_MSG_DEBUG to set KERN_DEBUG for debug output
-
-Pawel Chmielewski (3):
-      ACPICA: ACPI 6.5 Add support for the MISC table
-      ACPICA: iASL: Complete KEYP support
-      ACPICA: tables: Fix table buffer leak when Load fails verification
-
-Rong Zhang (1):
-      ACPICA: parser: Set AML length for bytelist
-
-Vidya Sagar (1):
-      ACPICA: IORT: Add Root Complex PASID Flags field
-
-ikaros (8):
-      ACPICA: Events: Clear GPE dispatch by owner during table unload
-      ACPICA: executer: Add bounds checking for PCC field read access
-      ACPICA: Validate 4-char field names before namespace lookup
-      ACPICA: Improve error handling in table loading process
-      ACPICA: executer: Add bounds checking for PCC field write access
-      ACPICA: tables: Fix heap-buffer-overflow in AcpiTbFindTable
-      ACPICA: Fix object reference update to skip non-local notify types
-      ACPICA: namespace: Recognize alias node types in detach
-
-purofle (1):
-      ACPICA: fix: build error with gcc 16: unused-but-set-variable
-
-[1] https://lore.kernel.org/all/20261020141051.2194123-1-pawel.chmielewski@intel.com/
-[2] https://sashiko.dev/#/patchset/20261020141051.2194123-1-pawel.chmielewski%40intel.com
-[3] https://sashiko.dev/#/message/20261020141051.2194123-9-pawel.chmielewski%40intel.com
-[4] https://sashiko.dev/#/patchset/20261020141051.2194123-1-pawel.chmielewski%40intel.com?part=7
-
-Andre Przywara (1):
-  ACPICA: actbl2: MPAM: adapt to MPAM ACPI spec v3.1
-
-Colin Ian King (2):
-  ACPICA: components: Fix typo "Supress" -> "Suppress"
-  ACPICA: components: Fix typo: "numer" -> "number"
-
-Dave Jiang (2):
-  ACPICA: CEDT: RDPAS: Add missing reserved field in RDPAS structure
-  ACPICA: CEDT: RDPAS: Fix incorrect field positions for RDPAS
-
-Hanjun Guo (1):
-  ACPICA: add UBRT (UnifiedBus Root Table) definitions
-
-Himanshu Chauhan (1):
-  ACPICA: Introduce a new HEST notification type for RISC-V SSE events
-
-Iurii Trukhin (1):
-  ACPICA: parser: Fix parse tree memory leak on AML execution error
-    unwind
-
-Leonard Lausen (1):
-  ACPICA: Executer: Resolve package index references used as integer
-    operands
-
-Maciej Strozek (1):
-  ACPICA: Utilities: Fix for AcpiUtVerifyChecksum warning display
-
-Maciej Wieczor-Retman (17):
-  ACPICA: executer: Fix NULL pointer dereference in
-    AcpiExStoreObjectToIndex()
-  ACPICA: compiler: Add _Ixx GPE object
-  ACPICA: namespace: Fix possible underflow and NULL pointer dereference
-  ACPICA: iASL: Fix the truncated count of external control methods
-  ACPICA: release: Update version to 20260930
-  ACPICA: events: Add missing event mutex to
-    AcpiEvClearGpeDispatchByOwner()
-  ACPICA: events: Remove redundant code
-  ACPICA: events: Fix AcpiEvClearGpeDispatchByOwner handler type
-    processing
-  ACPICA: events: Fix GPE cleanup return after changing program state
-  ACPICA: events: Handle GPEs' Notify dispatch type
-  ACPICA: tables: Fix wrong table unload and notify call order
-  ACPICA: tables: Fix global table read missing mutex
-  ACPICA: executer: Fix copying PCC source buffer data
-  ACPICA: dispatcher: Fix zero size non-NULL PCC buffer pointer
-  ACPICA: utilities: Clear NextObject so the outer loop doesn't read it
-  ACPICA: namespace: Fix memory leak around compiler alias flag
-  ACPICA: acpica: Fix typo in the IOVT_IOMMU table definitions
-
-Mario Limonciello (AMD) (1):
-  ACPICA: Add ACPI_MSG_DEBUG to set KERN_DEBUG for debug output
-
-Pawel Chmielewski (3):
-  ACPICA: ACPI 6.5 Add support for the MISC table
-  ACPICA: iASL: Complete KEYP support
-  ACPICA: tables: Fix table buffer leak when Load fails verification
-
-Rong Zhang (1):
-  ACPICA: parser: Set AML length for bytelist
-
-Vidya Sagar (1):
-  ACPICA: IORT: Add Root Complex PASID Flags field
-
-ikaros (8):
-  ACPICA: Events: Clear GPE dispatch by owner during table unload
-  ACPICA: executer: Add bounds checking for PCC field read access
-  ACPICA: Validate 4-char field names before namespace lookup
-  ACPICA: Improve error handling in table loading process
-  ACPICA: executer: Add bounds checking for PCC field write access
-  ACPICA: tables: Fix heap-buffer-overflow in AcpiTbFindTable
-  ACPICA: Fix object reference update to skip non-local notify types
-  ACPICA: namespace: Recognize alias node types in detach
-
-purofle (1):
-  ACPICA: fix: build error with gcc 16: unused-but-set-variable
-
- drivers/acpi/acpica/acevents.h  |   4 +
- drivers/acpi/acpica/acglobal.h  |   2 +-
- drivers/acpi/acpica/acpredef.h  |   1 +
- drivers/acpi/acpica/acutils.h   |   3 +
- drivers/acpi/acpica/dsfield.c   |  24 +++
- drivers/acpi/acpica/evgpe.c     | 355 ++++++++++++++++++++++++++++++++
- drivers/acpi/acpica/exconfig.c  |   3 +-
- drivers/acpi/acpica/exconvrt.c  |   4 +-
- drivers/acpi/acpica/exfield.c   | 105 +++++++---
- drivers/acpi/acpica/exresop.c   |  26 +++
- drivers/acpi/acpica/exstore.c   |  20 +-
- drivers/acpi/acpica/extrace.c   |   2 +-
- drivers/acpi/acpica/nsaccess.c  |   2 +-
- drivers/acpi/acpica/nsobject.c  |   7 +-
- drivers/acpi/acpica/nsxfname.c  |   8 +
- drivers/acpi/acpica/psargs.c    |   8 +-
- drivers/acpi/acpica/psloop.c    |   5 +-
- drivers/acpi/acpica/psobject.c  |   1 -
- drivers/acpi/acpica/psparse.c   |  16 +-
- drivers/acpi/acpica/tbdata.c    |  32 ++-
- drivers/acpi/acpica/tbfind.c    |  16 +-
- drivers/acpi/acpica/utcksum.c   |   3 +-
- drivers/acpi/acpica/utdebug.c   |   9 +-
- drivers/acpi/acpica/utdelete.c  |   5 +
- drivers/acpi/arm64/mpam.c       |   6 +-
- drivers/acpi/loongarch/iovt.c   |   6 +-
- include/acpi/acpixf.h           |   2 +-
- include/acpi/actbl1.h           |   6 +-
- include/acpi/actbl2.h           | 200 +++++++++++++++++-
- include/acpi/platform/aclinux.h |   1 +
- 30 files changed, 811 insertions(+), 71 deletions(-)
-
+Best regards,
 -- 
-2.56.0
+Jim Cromie <jim.cromie@gmail.com>
+
 
