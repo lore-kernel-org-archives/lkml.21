@@ -1,54 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.251.229.89
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795172959;
-	b=zEu/dSkrBln+RkspLso0MrCSUQFmbIYrzydNrfc5lUQVesKMYvjJkvw37sF1CPb5g8mH
-	 bR81/iIqTqtNu2pYstr1rRYMY2q28tXX99Kv5pxvjC/6bnJtT5qkk+oe6EMEY1ML9uvDj
-	 hlUbZS2QiwWqDTTyo6ECfVKtr2o6SEqYFah39mCp7iLzI8piDlmG9Xiu5eXRxTEbQ8uK/
-	 a2LZNyXTCk3uxTdoFtr40rklK6VJOGuCFnL5SCzfbwLw9lWUC8jpJu3LwiN8+DKv6Vhgn
-	 Mf9WP+fLiCPpTsMA6+7K7s14EK59IJcHUNTcAFRVtddq+shachqU3fJvonSTQo2yQYA==
+	t=1795172963;
+	b=v76+hdnU1RFktpzu8pN1hxySXMHWXd0BH1KKe/7YWe4YkMP3U+olYWfpVzndgHzLcR5B
+	 llmkaG4fRSF+pPH5Wl1u5M/MY03aZ+V53pz7lY0n4CZUXR1oDH/d4vPXkX9JPZw1EkHma
+	 Gx8tW8O508LsUwd1KKIy84znvp8/UzjHTxscl/g7F1arYWuRD/MntZCyfRC+AnHgmmEuE
+	 0yIJHKFOJcJ7xLgegi4tA6VvzbilB41amIRDBDtVdU1lde+ym4S7Oi0X4WrUqQ80CyFmI
+	 MtTul1G2BRT7F3Uql8vOdHYMZ4Rz87rsdh0NnizIpujZ0FTrIVt2LLBFUPYbWUAFrBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795172959;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Cc:Content-Type;
-	bh=tMp47NzqReywlgYM5u2EyNEpsZnozcgtiE9STnzc4H4=;
-	b=KwJ3kihHiykaAJcIAPuQAnuGyUTQXT2qCOp/e+zfmDJepkVNhXYiwSyrl752v8QtCe9S
-	 MbDcSDzBnaW3AizpBLFA2+GjaNG2khfafTMBd96ldvLJYwZ888TFx2zYhpRr1lVhx8FwM
-	 985JfNAtW2GMdxVBexOc4riIpJCfsvvTHxuB1+nn9v0OA3NFVWRfA87VH5At1K3tsX99x
-	 ncvY981yfJVW/6N9WfwULZK2Ai53JBeJN81l0limDZAHNCeEIPdiAfWzVoJAnzAaU+zSj
-	 ODGQYKKVuFu2oZJYXQ6+u9QJvNHCYnJ3ZY76DSWOxx89mVNX1ErsrhTc8akH0EZ/63Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795172963;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Last-TLS-Session-Version;
+	bh=WC5BXVHskQrd/cZEjgDgnsY3tu9geBYXj3pSkofB/nc=;
+	b=zhUrmQ+hJfKSk2lagfGtNDzxX4wBYgp2ZUELR2xj6I7uiLLsjkSGxzRoEkONHVqxkRvs
+	 bcdeq8ieTxU4CWjiLv1bBXXHF5k6Zm3KA1pwRykvoan+gFucK7FBYZBPTrcyv/gzzLtaR
+	 F01mxF+0jqwQLcIu0GpWOV3MjFH7ZmBV/guoXP4jhN8ZEnfKb2iiHJj8x6GyGES93/a7G
+	 Pimrt0tVweWGAJsqRBp4f2DHFuG4Kb4j0P31TTz2oODfj5H/mYJeJ4zjJrMRbgAGCVXCO
+	 KvZnoqljFYH9wOtW6nv0BuyeeIt7Q6LenAkueSzASNTGxi2Za5bcU9v2jJuo9ajFNOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.197
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=nabladev.com;
+	spf=pass smtp.mailfrom=nabladev.com;
+	dkim=pass header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=jckqfYdV;
+	arc=none smtp.remote-ip=178.251.229.89
+Received: from mx.nabladev.com (mx.nabladev.com [178.251.229.89])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BB7560A2601
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:09:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1BB7560A2601
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-4e778acdbc6so1163621b6e.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:09:17 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795172957; x=1795777757;
-        h=content-type:cc:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=tMp47NzqReywlgYM5u2EyNEpsZnozcgtiE9STnzc4H4=;
-        b=cKDn+e1jQavV6wajv+8XeRClAeUDcrxI1/JgESTHfzL+m+PKYup5VRotQgkjF9hh0K
-         n8oQPrBiXtVteZKZDBayUuZvL3k6LcZZwPzCWGSgY0jb7tek6UE5KgfsAemUKXcalFsm
-         5hAnYDxwFQZrb4yJIHa2yWqkeFNWwFnOMho2FZcUJDEoa1PrDjY0mBsciXpScNZHqODi
-         7BhDVAY7S/gZCiTq5DCurv/l132K9b+BOiSiDDEw0RfzpOB7dgRZIdSM9SFjEUx5shw1
-         hmlp3PM6JtymIohOEt859VUvXg9h7LZ3jtUBunJ05Q20YRP23P6xN7ibS4DYU5Joxoo4
-         IdNw==
-X-Forwarded-Encrypted: i=1; AL+hErGh/XywjxZF/E522O258nbmgtPl/1MWvIYi8CzZSYvbksvkpoD4mj+z7jnBgBYS7SicnVSn9Ah2I2xEsqM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+6BFUh2v2qjxm9exXMXoXEsesyqIBMcb5cyjy7xWNWpyvtso/6
-	d9cCTfM4RMn4yNYa8YlGUeCkJ3ZQRoGP7PRlJVenc5UUO6WlTHqo/RDaZPCAljcXeK34bHBF8ly
-	Tr/1w4RqXVvhKlTxfO5k38kes3f26ev9SIPLxH9sAuWRI21rKcMhoOxI/G90=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B7B1606AA38;
+	Fri, 20 Nov 2026 11:09:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B7B1606AA38
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nabladev.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nabladev.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=jckqfYdV
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 759AF10E482;
+	Fri, 20 Nov 2026 12:09:07 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1795172950;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=WC5BXVHskQrd/cZEjgDgnsY3tu9geBYXj3pSkofB/nc=;
+	b=jckqfYdVw0szIG41xYqB4Ro1aJyZEOLhR07JfNfhBpN5SOC/78yvQ7gbSVLQBqcSQCABUu
+	eC36abgQo/9KfhT/A/ogsNYGfZUBViao88K6sS1aCinOrM9WOFKxy6Py4aMu2qy/vqOQEM
+	4N7e1TEyMKx1Wh5Mxh6SinU7K3kX5BkCZqi2DmkcNSY9+imSpDAESmRjw8GEWLNEstKD8b
+	/3OSUebqJ+RXpp9+vxKinbvPhGzmXw+ypo6/qlFesVzHml2Ul0vEfhptcEy0W7YcVxIHkK
+	xou4YXFBzUt+ZBd1/Bq18MJbZWP8QoYenUahTHMhLeE2nxiYByAQmykwExsHEw==
+Date: Fri, 20 Nov 2026 12:09:05 +0100
+From: Pavel Machek <pavel@nabladev.com>
+To: Sasha Levin <sashal@kernel.org>
+Cc: Pavel Machek <pavel@nabladev.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	stable@vger.kernel.org, patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
+	patches@kernelci.org, lkft-triage@lists.linaro.org,
+	jonathanh@nvidia.com, f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+	sr@sladewatkins.com
+Subject: Re: [PATCH 5.10 0000/1848] 5.10.275-rc1 review
+Message-ID: <awAqUdjqspPSlb9g@duo.ucw.cz>
+References: <20261118145911.150052362@linuxfoundation.org>
+ <av3a38u7mlLN6yJL@duo.ucw.cz>
+ <20261120020908.2320910-3-sashal@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,85 +71,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:1393:b0:573:399d:d487 with SMTP id
- 5614622812f47-57a0d0e2d03mr3179763b6e.65.1795172957190; Fri, 20 Nov 2026
- 03:09:17 -0800 (PST)
-Date: Fri, 20 Nov 2026 03:09:17 -0800
-In-Reply-To: <4f254948-29d5-4011-8865-c60a699d9bac@kernel.org>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b002a5d.6ea51c61.12eec.0010.GAE@google.com>
-Subject: Re: [PATCH] HID: sensor-hub: Avoid holding spinlock across child iteration
-From: syzbot <syzbot+fb951970a334aaff00ba@syzkaller.appspotmail.com>
-To: crofts@kernel.org
-Cc: bentiss@kernel.org, crofts@kernel.org, jic23@kernel.org, jikos@kernel.org, 
-	linux-iio@vger.kernel.org, linux-input@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, srinivas.pandruvada@linux.intel.com, 
-	viennaoffh@gmail.com, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="UQupFZjTLHTtcclT"
+Content-Disposition: inline
+In-Reply-To: <20261120020908.2320910-3-sashal@kernel.org>
+X-Last-TLS-Session-Version: TLSv1.3
 
->
->
-> On 20/11/2026 11:50, Joshua Crofts wrote:
->> On 20/11/2026 08:56, Zheng Shuhao wrote:
->>> syzbot reports a SOFTIRQ-safe -> SOFTIRQ-unsafe lock order warning during
->>> sensor hub removal.
->>> 
->>> sensor_hub_remove() currently holds sensor_data->lock while calling
->>> device_for_each_child(). The child iteration enters the device core and may
->>> acquire the klist lock. Since sensor_data->lock is also acquired with
->>> interrupts disabled by sensor_hub_raw_event(), lockdep reports a possible
->>> lock-order inversion.
->>> 
->>> The callback only needs sensor_data->lock while checking pending.status and
->>> completing pending.ready. Pass sensor_data to the callback and take the lock
->>> only around that short critical section instead of holding it across
->>> device_for_each_child().
->>> 
->>> This preserves synchronization of pending.status while avoiding the lock-order
->>> dependency between sensor_data->lock and the device core's klist lock.
->>> 
->>> The syzbot report is available at:
->>> https://syzkaller.appspot.com/bug?id=c7c429f6851638ece81338f90c5b29ac9c0dea1f
->>> 
->>> Testing:
->>> - Reproduced the target lockdep warning with the unmodified kernel in 3/3
->>>   two-CPU QEMU runs.
->>> - The warning was absent with this patch in 3/3 equivalent runs.
->>> - Ran the HID selftests against both baseline and patched kernels:
->>>   hid_bpf: 45 passed, 1 skipped, 0 failed
->>>   hidraw: 27 passed, 0 failed
->>>   hid-core, hid-apple, hid-gamepad, hid-ite, hid-keyboard, hid-mouse,
->>>   hid-multitouch, hid-sony, and hid-tablet all passed in both runs.
->>> - hid-usb_crash.sh and hid-wacom.sh produced TAP 1..0 / rc=2 in both
->>>   kernels because no executable test cases were collected in this minimal
->>>   QEMU environment.
->>> - No KASAN report, use-after-free, Oops, BUG, panic, or general protection
->>>   fault was observed.
->>> - checkpatch.pl --strict --no-signoff reports 0 errors and 0 warnings.
->>> 
->>> Reported-by: syzbot+c7c429f6851638ece81338f90c5b29ac9c0dea1f@syzkaller.appspotmail.com
->>> Closes: https://syzkaller.appspot.com/bug?id=c7c429f6851638ece81338f90c5b29ac9c0dea1f
->>> Signed-off-by: Zheng Shuhao <viennaoffh@gmail.com>
->>> Tested-by: Zheng Shuhao <viennaoffh@gmail.com>
->> You cannot add a Tested-by tag with your name.  This is reserved for when
->> someone independent of you tests your patch. Looking at the syzbot report
->> there is a reproducer, so syzbot should test it. You can make syzbot test
->> a patch by sending the following (note, this will trigger a test):
->
-> Ah, did some digging and the syzbot email is incorrect, it should be:
->
-> syzbot+fb951970a334aaff00ba@syzkaller.appspotmail.com
->
-> Cc'd the right syzbot and triggering the test.
->
-> #syz test
 
-Patch testing via #syz test is temporarily disabled.
-See https://github.com/google/syzkaller/issues/8122 for details.
+--UQupFZjTLHTtcclT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->
-> -- 
-> Kind regards,
-> Joshua Crofts
->
+Hi!
+
+> > We get build failures here:
+>=20
+> Dropped the whole queued ste_dma40 series from the 5.10, 5.15 and 6.1
+> queues.
+>=20
+> 6.6 and newer keep the series.
+
+Thank you, I see -rc2's are out, and I no longer see build failures.
+
+Best regards,
+								Pavel
+
+--UQupFZjTLHTtcclT
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCawAqUQAKCRAw5/Bqldv6
+8tXuAJkB+vaoBfSY7WtrhOzLIABOJJr8PwCfeb8r85ZbQyW+Gqs46myalO70okw=
+=bhun
+-----END PGP SIGNATURE-----
+
+--UQupFZjTLHTtcclT--
