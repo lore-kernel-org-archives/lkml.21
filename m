@@ -1,102 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795200360;
-	b=VTT3hqKRksiFTN5ITCmRugeIwf19DDwv/FN4w3ZK8YPkKM//VHK+yJzIJiLaOudcU7yz
-	 3gcr3ucJ6hHDhuAff16/6f0aBSIytms6s5R6lV67g3Oyh6T4HgPccoSeHDdhLlf6fdjDC
-	 y4QIepTy75FVvxRCZ0O6EHqLeKDXv21/JievFNK6lsN792mE53BQFBRLx42EJACLz/8ek
-	 Kz6TI2dW3QylwyATOMYHVf+ai/EWUrpljVBSrOYN7xbJ/YWbBWaOWEoG+dCgXo01NdhRn
-	 F9DlEisgebKHZtLGbxgMtuzgYhuM5KMNwgw69PAbSD9nDR0LjG5RVe8Bl80JL5gwsEQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795200360;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=ab2WKF3CNXfTZyz9NKW9q3y1iw74bqSwUakeNqE+vmY=;
-	b=mpS5bKVmlBq8n2Wthz7mapx6/i2zBKZshnORyy7T8IN2XjAbCctWvNGynq0Bux8i5IYk
-	 AbdwqmMa33gymQN4XwrI1xGVCrabd7L1kn5u0v9H7OKAE4u+df/lQeumu5qK2aEFrldob
-	 TNDGbn7qhMQ4ayyqr+tzuzOgc9MqI3n7IMwP+oPaPaiYXiqakZwczS++obzeLKTa9N8mR
-	 xE2KYlSnXtG/Jr0cPfAUSxAbowUg0NrRaALipaonIC8K2unj2O0AA6UchM862SBu9tG8U
-	 tswOp1TJf4/dlRwrccE1XCw3zYlDcpOGKAlssei/+7+04Px2/+23dp8cLRmiPv0lW7w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SdteQVP1;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.54
-Received: from mail-lf1-f54.google.com (mail-lf1-f54.google.com [209.85.167.54])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.234
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795200365;
+	b=V7A2DQneQnR1OPhUd8AJabJN6tOYnOHMPo3iSIULBDJxTHbUbKoDgKlynsbgAVRvPMiA
+	 Z3Uwjx+BwUDToLaiENfThWas0LXz6z5S/j2YYKOwxupIVh984VKjtDDP7UpRcNLooneix
+	 jmjfMb0je704Ei2DnznIyGpj6yYgM6zZqx4UpulAfk1Fnl4OpzgG9n1TRQoB/5P+qmAyt
+	 MTIH30/K+tn03Yza+yfc5l/pSOpENuGdxoon7cUULV/Yn5ErrBQaSev3SLCRURcXvYGHr
+	 EXgyj6jggbsNSIGTDMQqK6tK9QR4DOdHmx9vwJG/SDs3v8shQr9AKSD2qKoPUOob6HA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795200365;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=SkASd/qNBkxxFs06CQ7eeDuHU5EZJ14PhndgF/1gZLk=;
+	b=yYTUjb92f/X5iZsiObuLcZ6ZcrqpRYWWQ+ha1PLK7ll8B2eaSlAB2GMpWxo7WPzuxT2d
+	 4E4y2rfI0sMtmo2G9TYoDyYLctsdg4UT4RwFiFDcu3SIyUCLqz01nprkuFWLB/8wgoesD
+	 H2WiPEn6kd3M4QBf3epC6G1/56ked61ADWyc6KybYfqKDBvjX9RYu8P6Z9knTMEfiZ4gz
+	 42Rh+1NN38lan9OVVwrv1NT9GLgFjNvH6tpI1yi6cQS/GR2t+3mUlo7W+WP5ScgIYGZz8
+	 YP4E2Wj6cDGeZBMEeoIw1DVGpf/lKAnMwo0xAGinl5/5zDeQKUkPBdlSPuKvR62rPjg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xteX8paw;
+	arc=none smtp.remote-ip=95.215.58.234
+Received: from mta1.migadu.com (out-234.mta1.migadu.com [95.215.58.234])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C0B060A2618
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:45:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C0B060A2618
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9849A606A331
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:46:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9849A606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SdteQVP1
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5c09e2ed679so88231e87.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:45:59 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795200358; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Ym88GEpV1f3A0SIEHu8k67DZdeVgpNVWh1TV2VT3ADMqR2CQnXGYymMSYLXV2/i5wv
-         HXFvnJQ+Hnfr/eWQTBNaTC6SPGNRTayOBVva3lFjiFkaokpoTWaczJfcntCMa4SM0X+z
-         24O1sa3RZu2FK/S21/eCXvRyRAPd+VBXyOgfJ7ueIg0sGCat1ksXF9mII50HCcsM6M3T
-         XftSGAz8bHplXCU9S35CbUzQkq+nyKD9SqVXIzj0mPGzH4z9cFglkXHCIExrknh6/VcM
-         cxyUxBTQvDQOKyXMHLRJhO+1tprkID+SdIPYbKUANQE6PRplId0j+/Gwb5fTlJRWXad4
-         5ncw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ab2WKF3CNXfTZyz9NKW9q3y1iw74bqSwUakeNqE+vmY=;
-        fh=3bT+05UwivSsqcrWKMbtVb7HVixQ2oUt+v+lwKJ8fJw=;
-        b=ATGohR6ldLHCExg7g1mFrQwjbD43rVCuGocaJu1SeSri8+tj1LTVG7EFy78CHDyum8
-         fYFjcVIGz1D3XCJOqE5lICtO7GngHTUE1UkbPRunMLbXf+QxZ35mJeE/Ku7qABh0wVSE
-         GhG5bWtJ6/hrKsItHORiqFoV10H2Vk+3h/y5MPGhLRojhhMS+d+a5gpB/Zf3Q7i+NH2p
-         GxjKHlGz9/VHLzWGVXVDfUoSC81jQrFq+0tVMCStnRcJAf0xeqObNutD/BSwHOGV8Ud0
-         K7FJyLAqOoOfydHslRERnCEX019st8QR94aps1DkQ1YyzcmGilMyAoKQms630NOGCBDr
-         azlQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795200358; x=1795805158; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ab2WKF3CNXfTZyz9NKW9q3y1iw74bqSwUakeNqE+vmY=;
-        b=SdteQVP1wc2aLcSPJpfhAs2JNsXpmBQ9M/W0fC6nfx4jAi3L/wN5a1DQoAgTrBmUWO
-         YjwLD50NzGAjhzpLi49S1SRUPhWLsyFFzC7H7dNTa+hcrx11MLyHD+pBvcjQNu4vnD6o
-         xuf4VmcE6Dokv4P1ilTOYNLqY7EnNSeYiiFtYWeYJWiDoZ7Uq+kWdDQZDczzkSqd1JoK
-         knz+e5UbF0T4zMegfyUXCb8LdiIVYViGseG3afbyJntiun5eGJKtCjLs8J4QPUznZDFt
-         5MTP6WzTyOdgaH59YcicLtjwBWhkCxAy/AcdbzL+Ks4kMxSsb08uzA2F59pr3B6Qm9MX
-         LkiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795200358; x=1795805158;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ab2WKF3CNXfTZyz9NKW9q3y1iw74bqSwUakeNqE+vmY=;
-        b=miJvflVkrdvuBJj2x6qfi9BRuLuQv5ry1RElU6yozQGEwhjsLLmW489M/MfUflPh3v
-         27tEtf++xVPvzwEJiKuhQc3JJZdxHFxmZymeZhtkNfwWTCSJoSNW8HhxEH91GjCLZZOV
-         Hhd2MkK6IsJnZMsx662ZgDGFMUcz+lHRFs9tQwwglUopyhSs41iuXVG0nLPXQEXlYGMS
-         gQ+LetmTmdj4ykYH+USJiCp23+OGFdT93YstOLKAPsrNSnUJZp6B2rjAiCryFk+HKeH6
-         Ym51Xo1CAyyAfUhC8TT1m+GGn+uhco8Cz+ymBG+y1BK0RNx/9Xe+VhbPMczySsuEIbQ/
-         1mFw==
-X-Forwarded-Encrypted: i=1; AL+hErHz0XTMzHIEmOWxtINIrSyOW8rjJpYQftkj7T4GFHQ6GWlrWuPT90uL86sCpJix/fiNv3S7E400Vemt9kE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+HUy/hdqRVxcigjiyGrLqTduXKRUoBK9GXcjz/o0YubX8U2wum
-	htru8+81918JZVDC8VQ2qIDPcM5KJ2vzAHr9GiDbjqMZ2i2EGFtCg6NAMZOTcYjKKSzZib88KKN
-	kQZ02GCLfHvP6LxqcfX7iStjZM6ccJGQ=
-X-Gm-Gg: AZFdTZcVPNc+3SvgxFxkwn4/oceIYMs9MwcoPTlj8yM29EEPqvP4teDSd55Y4FgCdEl
-	2ZU3M2ifVeDp+Nz0x6RaJD5uJslrSl2e6DZ3noxwSu8hJ/EIVEwLEs4bqkOj+/CKpSKxaCMAgE4
-	OlLLjOyQB71oaVuhMghnVR6xqBVnn5qCS2N1YjCWBtIgdh6uuGLf69gZGbsYA6siCxrtmUqrsPf
-	pJPaAZQsPHtjNGnaCxEJf0hrKHb2wdfCzWWYEnisOk2AUy1aVNH3LdJmqAELyvV6+Et88gmfMKj
-	ICc4G8JqPCTryNONuHTri+rqPMZT0k2WzKSnjCxvYeFZzTR4wgA5JfdUG3CZlq5R5WdzHyUtzEo
-	joeklMEKea0ymcUcT/TzbYooSEf1CTimGHT+hqp1VdsIRKzjc28AV2rjwWrUmIEtUXRT9AS1895
-	+i48gjTA1rqZhGClYt4NqygyeZ3BFs/Yw0KWcuzuv7dcgKTFyWH31QimD074VJzsLOmX7PEGs/q
-	ag1Gh8NLokTFdi/ojPUT3v1sEmVrXrRFxHlngH9vYPF8m44f7CfCStNtwQ5bKI9y3m6xNzb
-X-Received: by 2002:a05:6512:1394:b0:5c0:da9:407b with SMTP id
- 2adb3069b0e04-5c1bc8722ffmr1605187e87.5.1795200357287; Fri, 20 Nov 2026
- 10:45:57 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xteX8paw
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=EIH8iRjUa5W8iIljbsoNc3X3NMc7UBZb7RaLAO5PA7Q=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795200362; v=1; x=1795805162;
+ b=xteX8paw+ARfkgWbet8X09Evv26cs5EIroZncU8VebEyko21SLXFuqQopFNDRI5Rp+9Y7q9z
+ F9jFhP9hDVF8R1Q9uz5oqd927vDR9LrwdIgO8jyir3PqpAce6rlxYOHq6Y7ypz8mfwr7pX6Qj5v
+ 5KLtbjsco4dPS5i71wM2IhIA=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 23cfc07e8818ea36;
+	Fri, 20 Nov 2026 18:46:02 +0000
+X-Mizu-Trace-ID: 23cfc07e8818ea36
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <97e94491-ce19-45a1-8737-b30b49e997e8@linux.dev>
+Date: Fri, 20 Nov 2026 18:46:01 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,37 +58,184 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118-dev-project-vis-v1-0-2a5f433bb516@garyguo.net>
- <20261118-dev-project-vis-v1-1-2a5f433bb516@garyguo.net> <CANiq72nNX41q_ZLOUUbyPmPownON1uxCLh=RXsVGBjFmoWhSBg@mail.gmail.com>
- <DN05W9TA9SKZ.172IM0Q6N4DDW@garyguo.net>
-In-Reply-To: <DN05W9TA9SKZ.172IM0Q6N4DDW@garyguo.net>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Fri, 20 Nov 2026 19:45:45 +0100
-X-Gm-Features: Aa3M54pg1aTmmRQX6L9Zt-MrnOUgIeFO2A5VFJcAoQAyNOHHDn1bRTNs_uU1yMQ
-Message-ID: <CANiq72nAyQjoEuGiqHdtrOBLHvZTN8S1Ae8O-EAUQ9qghFaPeA@mail.gmail.com>
-Subject: Re: [PATCH 1/3] rust: pin-init: internal: allow `clippy::large_unopt_stack_frames`
-To: Gary Guo <gary@garyguo.net>
-Cc: Gary Guo <gary@kernel.org>, Benno Lossin <lossin@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
-	Boqun Feng <boqun@kernel.org>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
-	Alexandre Courbot <acourbot@nvidia.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
-	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] x86/kstack_erase: Use REP STOSQ for large stack fills
+To: David Laight <david.laight.linux@gmail.com>,
+ Nick Desaulniers <ndesaulniers@google.com>
+Cc: tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, x86@kernel.org, kees@kernel.org, hpa@zytor.com,
+ gustavoars@kernel.org, ardb@kernel.org, hca@linux.ibm.com,
+ nathan@kernel.org, morbo@google.com, justinstitt@google.com,
+ linux-hardening@vger.kernel.org, llvm@lists.linux.dev,
+ linux-kernel@vger.kernel.org, riel@surriel.com, shakeel.butt@linux.dev,
+ kernel-team@meta.com, rkeilty@meta.com, atish.patra@linux.dev,
+ dgreid@meta.com
+References: <20261119213147.1094488-1-usama.arif@linux.dev>
+ <20261119213147.1094488-3-usama.arif@linux.dev>
+ <CAKwvOdnzNU_xtLeb4vXSFe3DLN9QmdNSSReUmQahsLX+1pZxCw@mail.gmail.com>
+ <20261120113825.234bee1c@pumpkin> <20261120124252.14ff8a74@pumpkin>
+Content-Language: en-US
+From: Usama Arif <usama.arif@linux.dev>
+In-Reply-To: <20261120124252.14ff8a74@pumpkin>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 20, 2026 at 7:34=E2=80=AFPM Gary Guo <gary@garyguo.net> wrote:
->
-> Do you think this is worth taking through rust-fixes, or are you okay wit=
-h this
-> landing via pin-init-next?
 
-It is nightly-only unless I am missing something, so pin-init-next is
-good (and given Linus doesn't want less important fixes nowadays
-during -rcs, probably it would be best to avoid it there anyway).
 
-Thanks!
+On 20/11/2026 04:42, David Laight wrote:
+> On Fri, 20 Nov 2026 11:38:25 +0000
+> David Laight <david.laight.linux@gmail.com> wrote:
+> 
+>> On Thu, 19 Nov 2026 14:28:04 -0800
+>> Nick Desaulniers <ndesaulniers@google.com> wrote:
+>>
+>>> On Thu, Nov 19, 2026 at 1:32 PM Usama Arif <usama.arif@linux.dev> wrote:  
+>>>>
+>>>> With KSTACK_ERASE, every return to user space poisons the part of the
+>>>> task stack that was used since the previous return. The generic
+>>>> __stackleak_poison() does that one word per loop iteration, so a syscall
+>>>> that went 1-2 KiB deep pays for 128-256 separate stores. On Meta hosts
+>>>> running many small VMs, stackleak_erase() accounts for about 1.5% of
+>>>> non-idle host kernel cycles.
+>>>>
+>>>> Override __stackleak_poison() on x86-64, as s390 already does, through
+>>>> the hook added by commit 491a78663e03 ("stackleak: allow to specify arch
+>>>> specific stackleak poison function"). Fill spans larger than 512 bytes
+>>>> with REP STOSQ and keep the word loop for shorter ones, where the fixed
+>>>> startup cost of REP STOSQ does not pay off. REP STOSQ starts to win at
+>>>> about 300-400 bytes on Zen 5c and Cooper Lake, so on both no span gets
+>>>> slower.
+>>>>
+>>>> The fill is inline asm, so the noinstr function still makes no calls.
+>>>> memset64() would be the same instruction, but it is only static inline,
+>>>> and with KMSAN it is an out-of-line function.
+>>>>
+>>>> In a Zen 5c KVM guest, stackleak_erase() got about 35% cheaper per return
+>>>> to user space (71 ns to 46 ns, scan included) over a futex, epoll, procfs
+>>>> and Unix socket syscall mix. Same-vCPU futex wake/wait and Unix socket
+>>>> sendmsg()/recvmsg() ping-pong round trips got 5-8% faster.
+>>>>
+>>>> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+>>>> ---
+>>>>  arch/x86/include/asm/processor.h | 25 +++++++++++++++++++++++++
+>>>>  1 file changed, 25 insertions(+)
+>>>>
+>>>> diff --git a/arch/x86/include/asm/processor.h b/arch/x86/include/asm/processor.h
+>>>> index 77488ff5eb8c7c..049231d484ad0e 100644
+>>>> --- a/arch/x86/include/asm/processor.h
+>>>> +++ b/arch/x86/include/asm/processor.h
+>>>> @@ -580,6 +580,31 @@ static __always_inline bool on_thread_stack(void)
+>>>>                                current_stack_pointer) < THREAD_SIZE;
+>>>>  }
+>>>>
+>>>> +#ifdef CONFIG_X86_64
+>>>> +#define __stackleak_poison __stackleak_poison
+>>>> +static __always_inline void __stackleak_poison(unsigned long erase_low,
+>>>> +                                              unsigned long erase_high,
+>>>> +                                              unsigned long poison)
+>>>> +{
+>>>> +       unsigned long count;
+>>>> +
+>>>> +       /* Short spans do not amortize the startup cost of REP STOSQ. */
+>>>> +       if (erase_high <= erase_low + 512) {
+>>>> +               while (erase_low < erase_high) {
+>>>> +                       *(unsigned long *)erase_low = poison;
+>>>> +                       erase_low += sizeof(unsigned long);
+>>>> +               }
+>>>> +               return;  
+>>
+>> gcc 13 onwards makes a meal of that - https://godbolt.org/z/KPP4h8xz6
+>> It does manage to unroll the loop once - which is good because the intel
+>> cpu (I've got) won't execute a 'one clock loop' (the zen5 will); but the
+>> setup code is horrid.
+>> But I also think some of the more recent cpu can execute more than
+>> one write per clock.
+>> If you unroll the loop 4 times it may run a lot faster.
+>> Perhaps:
+>> 	long count = (erase_high - erase_low) / sizeof(unsigned long);
+>> 	if (count <= 64) {
+>> 		while ((count -= 4) >= 0) {
+>> 			*(unsigned long *)erase_low = poison;
+>> 			*(unsigned long *)(erase_low + 8) = poison;
+> 
+> The add (probably) needs to be in the middle...
+>  			erase_low += 32;
+>> 			*(unsigned long *)(erase_low - 32 + 16) = poison;
+>> 			*(unsigned long *)(erase_low - 32 + 24) = poison;
+>> 		}
+>> 		if (count & 2) {
+>> 			*(unsigned long *)erase_low = poison;
+>> 			*(unsigned long *)(erase_low + 8) = poison;
+>> 			erase_low += 16;
+>> 		}
+>> 		if (count & 1)
+>> 			*(unsigned long *)erase_low = poison;
+>> 	} else {
+>> 		...
+>> 	}
+>>
+>> Except that gcc makes a mess of it again.
+>> I don't think the 'erase_low += 32' is going to execute at the
+>> same time as the last (two probably) writes so costs a clock.
+>> So it may need to be asm.
+> 
+> I threw in enough OPTIMIZER_HIDE_VAR() to stop the optimiser breaking
+> the code. https://godbolt.org/z/nx477T4M1
+> gcc then generates:
+>         movq    %rdx, (%rdi)
+>         movq    %rdx, 8(%rdi)
+>         addq    $32, %rdi
+>         movq    %rdx, -16(%rdi)
+>         movq    %rdx, -8(%rdi)
+> .L32:
+>         subq    $4, %rcx
+>         jns     .L22
+> for the code loop (clang is a bit worse - but should be ok).
+> I think that will be a 'two clock loop' on cpu that can do
+> two writes/clock; zen3 and ice lake).
+> For 'stack splatting' rounding up to a multiple of 32 bytes
+> will save all the 'remainder' code.
 
-Cheers,
-Miguel
+
+The range can't be rounded: erase_low is wherever the poison search
+stopped, and erase_high is the stack pointer or the bottom of pt_regs
+(168 bytes, so only 8-byte aligned). Rounding up writes live stack,
+rounding down can write STACK_END_MAGIC when the stack was used to the
+end.
+
+
+> 
+> David
+> 
+>>
+>>>> +       }
+>>>> +
+>>>> +       count = (erase_high - erase_low) / sizeof(unsigned long);
+>>>> +       asm volatile("rep stosq"
+>>>> +                    : "+D" (erase_low), "+c" (count)
+>>>> +                    : "a" (poison)
+>>>> +                    : "memory");    
+>>>
+>>> Surely this isn't the only place using `rep stosq` in the tree, right?
+>>> It's not, see memset64 in arch/x86/include/asm/string_64.h.  
+>>
+>> Which seems to have very few users.
+>> memset_p() and memset_l() have almost no users.
+>>
+>> David
+>>
+>>>   
+>>>> +}
+>>>> +#endif
+>>>> +
+>>>>  #ifdef CONFIG_PARAVIRT_XXL
+>>>>  #include <asm/paravirt.h>
+>>>>  #else
+>>>> --
+>>>> 2.53.1-Meta
+>>>>    
+>>>
+>>>   
+>>
+> 
+
