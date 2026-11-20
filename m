@@ -1,54 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795164015;
-	b=SYe4MKIQQc+rnYfxiRyCuc2IL0hI+qT4ldT4co2xFTNU3261uohtGm90ngUCC1Wy+hK7
-	 S5ip6QU7BD025IRiCY98oGXbFZjBackSnM0zg8Rf+limf2D9e39rr3MaImuvS7vlcZPwT
-	 flTLanSELZx/SkPG54A4FqBrtyeuD4RFral4AiBGTOIrqhbcQ09/S8pnhSA8JZebs/G8G
-	 c9EryWoHi0OTGmVtYUdrI+0/k4KxsZYNzheDtjuoAcTqL5RSuVmBGxfnYxNbG0mQySCz4
-	 agiFqLq+D6UqsjYI9ApuJYWKeFl7TSow4tpYngJEP2xZxvy+PfIYo4Vo+0+jcjYZkig==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795164015;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=eW1JNjFM3eTKQOg6DQphrxNHZt2sHfAlDWTCDXa7uhE=;
-	b=w6jPDDxBiPSwRJNnriN00HhcxxphEEJXZHeoLFZWDEY9wFOWIB73MnHtbCOVle33ynYf
-	 yCSgyFPS4fsABSF6G0Aa09xl+/0+x7qZOVyZpjhJv/iGMK+GbNjwclOdMvOpME0hm+VkO
-	 /bQZVoWC3bL5ncY2MO4kCe2cRwKUxFlJLCyCqaGsNY36wgthBtkqxwsXlSz4Yc34Pn8v2
-	 /Z/69pmC+roryQCAmVm8TpeLWkiFzpvt5sl+vKb+jVKkemtBIkVS16G0Awr9ceEVn5A4Y
-	 dFbIIGikdGKNwP7bzYEsfYcT0libK1pF8Tsr7KcRloswy2QzJQDtd6qVYbJaqjPinkQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=L5rWiymU;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795164046;
+	b=YqpYCoGLab8jFRyaacG4/xRw2koeAa3HTo1g+QaJHySoM2o4vLwpuzwBmbA5VEHtapkc
+	 +NJY2uag/N5YxAmBWZpxMKXjugtpLyOMjB+TwxfY1JIH3kde1K3Dttp9fKnurmuMvEokI
+	 o/ZAGV/+EW+ZCQRK64CbdB+srv0NTrFW0l839lJXHbmC/f9WQt53s77jon5pPj9Rl7PdY
+	 YhLr04vnaWIJv5fsKaS2bDDWc+L+ks400G7+KqbMISdH5nPFkqu66JjSEZjzdHkB0RBuB
+	 TJHjzGTFvrjLYR4U8qdf7iDOd7jnvUGGKtOKoTCezAHoo+JLZ4XSK69aA9NJbFI9/ng==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164046;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=G7/+dGXKwxvm7pBwkPBiroDwyoNH1aExmeBxownU6dw=;
+	b=Rxs/yJ8NfKfl1iSfogSevatudiKFpJiX5MXD/cDYvrLxh4wtTJTjpqs75NB+Iv2LuPzu
+	 BgAJTec0Dhv0UhDOmHIERUapZaqxg4hMft24H9Sry1MBc7qkeNBQZgl60fEPJbx+If26+
+	 tdXyyUnB81Fw5+vHIh5FB3zP2UFc6xpiedwYH+jYkzlARmtRK7qvQDxvXn6LuksdQyka7
+	 ao24QfiMAc70GPNnHtnApzvrUkkv+o/7xuERoJtFW42X6VUaflPtddi6sxB6jYVuhFxf/
+	 K6vrL2EeG2td7JTjIQr74Tn/pgUq7fHY2TDOUVG5URhZK29l2sV7p9Wt9eZsS+hOPmQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=M2IAcv3I;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B71F606A326;
-	Fri, 20 Nov 2026 08:40:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B82C606A320;
+	Fri, 20 Nov 2026 08:40:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B82C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=L5rWiymU
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D7C01F000C4;
-	Fri, 20 Nov 2026 08:40:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795164014;
-	bh=eW1JNjFM3eTKQOg6DQphrxNHZt2sHfAlDWTCDXa7uhE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=L5rWiymUu26RBF7b32HRuTXeEwhNwn6g12gK4ouHtDeb6SXUkt1rcDW0I3HgTo/1Z
-	 0W+sEUSkeVqJcOID3xe/HzMbKGPw6vzhAGfZ/ZLVFw4Os0dmWTaNsVxMNbS/k9ZyCU
-	 m+y7aVn9b9WPfd+HKoyTbWEmrjGdHmegPN8p3g5o=
-Date: Fri, 20 Nov 2026 09:40:11 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: syzbot <syzbot@kernel.org>
-Cc: syzkaller-bugs@googlegroups.com, Aleksandr Nogikh <nogikh@google.com>,
-	linux-usb@vger.kernel.org,
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, Frank.Li@nxp.com,
-	hhhuuu@google.com, kees@kernel.org, linux-kernel@vger.kernel.org,
-	meatuni001@gmail.com, panjunzhong@linux.spacemit.com,
-	syzbot@lists.linux.dev, xu.yang_2@nxp.com
-Subject: Re: [PATCH] usb: gadget: uvc: check endpoint enabled state in
- uvcg_video_enable()
-Message-ID: <2026112056-smite-glowing-bed5@gregkh>
-References: <8fff0312-bd04-44e4-8df3-b60d3bc849bf@mail.kernel.org>
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=M2IAcv3I
+Received: from pengutronix.de (ptz.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::77])
+	(Authenticated sender: mkl@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 51464200EDB;
+	Fri, 20 Nov 2026 09:40:43 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795164043;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=G7/+dGXKwxvm7pBwkPBiroDwyoNH1aExmeBxownU6dw=;
+	b=M2IAcv3IpuDfrtikPy85aXva05WT/WH2l4cmpvqo773VNtLObicj2+no9WFrOOqRFTu9Hu
+	ne/uqyFj0oYO7GH3wgpz7ekNcWa6p5aZR1s27/CxhYrOTITEcNnIFV5PEEY96xPaVTfzEo
+	n/XkHJqw86s6wO3M7MVtaMDaQAOwOlu/W+F5NqXG29WR/2+eWNFlBzUBSrJzYXptMpLOIY
+	H9FVeASwGsGWfOXJtSM89ZSePf+9BRKGvA59So4sCHXR+z/Rf6LfYHfRXofRGEWnh+LcA7
+	/0G2Y52rXpGi7lpMxNDLhgXGzMcPzqJXkUV9uv1oZH0S1XyZODiRLRKaUJTE4Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795164043;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=G7/+dGXKwxvm7pBwkPBiroDwyoNH1aExmeBxownU6dw=;
+	b=BbAeXrs/KuMdUGU1d4FDIY08+wqouL0AbfAPie3JfzGkD9lpRY6epTg98KYpbce3N4dzRf
+	+BV3Lk32Mu/JDEZsu2Tqo0C+4d0Tu1EqHyK34ml8Sx04N29Hy6ej/CtB+7ydUDyZI9t1po
+	RfqTG7GgfMLXTbljqTtZqvcSITM0DENXZV79zPYh4ommnXro0CRKFNN8U266XmhPKidYzH
+	y0DhyWm6dD55a/OQvQwDQzw+2+LGZ4nkQAastY6Pm3f7cJOr70EMWAAyfpPSrRTKFO97dt
+	9bfjVVu4ErU8WN2TRDZ21UjjspBh89T2np3BpckTtZnypeqz4oMVArw3oJusHQ==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795164043; a=rsa-sha256;
+	cv=none;
+	b=K6jKO5GhZrnSpLLluIb2ZGgb1vR5o050DKauUlziUFm7+q+HsL84pOstb564awBMmx8q9J
+	4s329jeeTGlifXizLE5MaTcdjOhg2GuqdJ5INm0EJbXzML3JSuDtOf3Kwrc5Bo5lH281eL
+	TW7tfr3ITkxeMBj6KIKOzwOdGDJiY4r7A+PTbANlaM+yYnl8b7zXS3M/I0FFl+kgVDy562
+	iFPXJQVacKOnkIIb8RtHzkzYddM/NFGSqqSjf7d06nuSZ80Hptu5eRM+J7D1bwTS0XQv/e
+	WGcqmxy52bnlX25Rokh2UQesEGD9bOY2yx7GAzZ+lKTK0nz6ZYX9GKBpUfukVQ==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=mkl@pengutronix.de smtp.mailfrom=mkl@pengutronix.de
+Date: Fri, 20 Nov 2026 09:40:43 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: zelong dong <zelong.dong@amlogic.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Rob Herring <robh@kernel.org>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Vincent Mailhol <mailhol@kernel.org>, linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-can@vger.kernel.org
+Subject: Re: [PATCH 0/3] can: amlogic: add support for Amlogic A9 CAN-FD
+ controller
+Message-ID: <20261120-axiomatic-foamy-bull-1684b6-mkl@pengutronix.de>
+References: <20261120080820.3340646-1-zelong.dong@amlogic.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,106 +90,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ykqib6zwogi4cpur"
 Content-Disposition: inline
-In-Reply-To: <8fff0312-bd04-44e4-8df3-b60d3bc849bf@mail.kernel.org>
+In-Reply-To: <20261120080820.3340646-1-zelong.dong@amlogic.com>
 
-On Fri, Aug 14, 2026 at 12:00:44PM +0000, syzbot wrote:
-> From: Aleksandr Nogikh <nogikh@google.com>
-> 
-> A NULL pointer dereference can occur in uvc_video_prep_requests() if
-> userspace issues a VIDIOC_STREAMON ioctl before the USB host has fully
-> configured the streaming endpoint.
-> 
-> When userspace calls VIDIOC_STREAMON, the driver handles it in
-> uvc_v4l2_streamon(), which in turn calls uvcg_video_enable(). Currently,
-> uvcg_video_enable() only checks if the endpoint pointer is allocated
-> (video->ep == NULL), but it fails to check if the endpoint is actually
-> enabled (video->ep->enabled).
-> 
-> The endpoint descriptor (video->ep->desc) is only assigned when the USB
-> host explicitly selects the streaming alternate setting via a SET_INTERFACE
-> control request. If userspace prematurely calls VIDIOC_STREAMON before the
-> host has selected the streaming alternate setting, video->ep->desc will
-> still be NULL.
-> 
-> Because uvcg_video_enable() does not verify the endpoint's enabled state,
-> it proceeds to call uvc_video_alloc_requests() and then
-> uvc_video_prep_requests(). Inside uvc_video_prep_requests(), the code
-> unconditionally dereferences video->ep->desc, resulting in a KASAN
-> null-ptr-deref / general protection fault:
-> 
-> Oops: general protection fault, probably for non-canonical address
-> 0xdffffc0000000000: 0000 [#1] SMP KASAN NOPTI
-> KASAN: null-ptr-deref in range [0x0000000000000000-0x0000000000000007]
-> RIP: 0010:usb_endpoint_xfer_isoc include/uapi/linux/usb/ch9.h:571 [inline]
-> RIP: 0010:uvc_video_prep_requests
-> drivers/usb/gadget/function/uvc_video.c:508 [inline]
-> RIP: 0010:uvc_video_alloc_requests
-> drivers/usb/gadget/function/uvc_video.c:559 [inline]
-> RIP: 0010:uvcg_video_enable+0x142/0xe70
-> drivers/usb/gadget/function/uvc_video.c:784
-> Call Trace:
->  <TASK>
->  uvc_v4l2_streamon+0x7e/0x110 drivers/usb/gadget/function/uvc_v4l2.c:531
->  __video_do_ioctl+0x8af/0xc70 drivers/media/v4l2-core/v4l2-ioctl.c:3133
->  video_usercopy+0x860/0x1430 drivers/media/v4l2-core/v4l2-ioctl.c:3475
->  v4l2_ioctl+0x18d/0x1e0 drivers/media/v4l2-core/v4l2-dev.c:366
->  vfs_ioctl fs/ioctl.c:51 [inline]
->  __do_sys_ioctl fs/ioctl.c:597 [inline]
->  __se_sys_ioctl+0xfc/0x170 fs/ioctl.c:583
 
-Please don't wrap oops messages.
+--ykqib6zwogi4cpur
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 0/3] can: amlogic: add support for Amlogic A9 CAN-FD
+ controller
+MIME-Version: 1.0
 
-> To fix this, update uvcg_video_enable() to also verify that the endpoint is
-> enabled (!video->ep->enabled). This ensures that if userspace prematurely
-> calls VIDIOC_STREAMON, the driver will safely reject the request with
-> -ENODEV instead of crashing the kernel.
-> 
-> Fixes: 48dbe731171e ("usb: gadget: uvc: set req_size and n_requests based on the frame interval")
-> Assisted-by: Gemini:gemini-3.6-flash Gemini:gemini-3.1-pro-preview syzbot
-> Reported-by: syzbot+44835f0858f11e3e923c@syzkaller.appspotmail.com
-> Closes: https://syzkaller.appspot.com/bug?extid=44835f0858f11e3e923c
-> Link: https://syzkaller.appspot.com/ai_job?id=6bcd0cc3-0532-4cbc-81bd-e487719ff9a3
-> Signed-off-by: Aleksandr Nogikh <nogikh@google.com>
-> 
-> ---
-> diff --git a/drivers/usb/gadget/function/uvc_v4l2.c b/drivers/usb/gadget/function/uvc_v4l2.c
-> index dfa0521a2..da857c2c5 100644
-> --- a/drivers/usb/gadget/function/uvc_v4l2.c
-> +++ b/drivers/usb/gadget/function/uvc_v4l2.c
-> @@ -527,6 +527,12 @@ uvc_v4l2_streamon(struct file *file, void *fh, enum v4l2_buf_type type)
->  	if (type != video->queue.queue.type)
->  		return -EINVAL;
->  
-> +	if (uvc->state == UVC_STATE_STREAMING)
-> +		return 0;
-> +
-> +	if (uvc->state != UVC_STATE_CONNECTED)
-> +		return -ENODEV;
+On 20.11.2026 16:08:17, zelong dong wrote:
+> From: Zelong Dong <zelong.dong@amlogic.com>
+>
+> This series adds support for the CAN-FD controller found on the
+> Amlogic A9 SoC family.
+>
+> The controller supports classic CAN and CAN-FD. The
+> driver uses the generic RX offload infrastructure with hardware
+> timestamps, reports bus errors through the CAN berr counter, and
+> implements suspend/resume support.
 
-What prevents the state from changing right after you check it?
+Please base your driver on current net-next/main.
 
-> +
->  	/* Enable UVC video. */
->  	ret = uvcg_video_enable(video);
->  	if (ret < 0)
-> diff --git a/drivers/usb/gadget/function/uvc_video.c b/drivers/usb/gadget/function/uvc_video.c
-> index 2f9700b3f..d4aeedacc 100644
-> --- a/drivers/usb/gadget/function/uvc_video.c
-> +++ b/drivers/usb/gadget/function/uvc_video.c
-> @@ -764,7 +764,7 @@ int uvcg_video_enable(struct uvc_video *video)
->  {
->  	int ret;
->  
-> -	if (video->ep == NULL) {
-> +	if (video->ep == NULL || !video->ep->enabled) {
->  		uvcg_info(&video->uvc->func,
->  			  "Video enable failed, device is uninitialized.\n");
+regards,
+Marc
 
-So if it's already enabled, you return an error saying it is
-uninitialized?  Are you sure that is correct?
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
 
-thanks,
+--ykqib6zwogi4cpur
+Content-Type: application/pgp-signature; name="signature.asc"
 
-greg k-h
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCawAHiAAKCRDMOmT6rpmt
+0hXwAP4zJqk4wGxBgVH4cMhr3pYMTQuYMY2xDeJZLBZfXu1yAAD9GPkpGaY5WQTS
+IB5FYNdxEh/e3sY5WcLMgvSFudZ62gE=
+=yGhO
+-----END PGP SIGNATURE-----
+
+--ykqib6zwogi4cpur--
