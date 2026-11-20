@@ -1,62 +1,44 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795179670;
-	b=DBL/sqLuoIMN5ZkgcZ60PRek2E2naAodeLcdMOljpcDU33nVC+wbWENwR4Ku+Fs87vae
-	 aNd0Lv6bNvGbWUYk2JIBYnMVmIB/uJholZyRdJf+uAyXuSW/hrd5MG9rpsaaUGzk/Fr8o
-	 wiEoRQG6SE2NVPexLYaloB4TNRsAy5UK7yLV+KezWAfIAZKLGv+tURLD3u+5QugddRndn
-	 2XZbZvTCdVvRcwXYcB6qyuF8qpochrtyyt1miFLsistAKkGXKurrWUtM5zCpWdFA7Kt7J
-	 Xlzicl0EHQ0we8ISbc5MpDE3Z0PjgvmF26Jc3RGbIPteqO5jl46TWTWoQZLzK4/BkAw==
+	t=1795179709;
+	b=3Afd2Pe2lVn4l6378ROCVxL47kdWKIO/cbwB1m3+7Um5p9K847WloMopxAfhWVZj7yG2
+	 dzB9fFKudo9QI7bVi97GUkXAJYhYYPM+a7GDLCT3HvCS9Xlk/FdQAwICbIPhSWfd0GC55
+	 oiAXosdRFxaiUiNcYTN33erErYCsRehkHWxWbARdFa07c9S1GIsej7yF3dgnzqv1GpxlQ
+	 Xdr+VLsg3RZWBqg04FE+L5ptyoztzCdkbRCNUX3sHSwoIDRd4+LwSMsVshYN7DNp0qmSB
+	 HfTzj7UxXWs/ly65EnHbXWrqDXWGZcm4PPuXhb7NyqYLo2A3q9eCcknU9ow0WN6SdRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795179670;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=GRDyBWMO0iFPzHQxYTxXh7iJWh7mjq8TmKnnHRVSqRk=;
-	b=OAyj4cWju8FlFn4e0j4WIs98Rz0YV7mMzZa7nEOBKjnwQyTPvIfsu5UhXDzZi7dPkT4i
-	 laTJ90nDtxpEWgsTMy/jIcaW/7Ww2alc65xW0v0o36j8O0KJyM2l/H3jB2/IhPuBsLRaZ
-	 O3D5vX+x9WNvyWNwdIRFdc0e+mKG7NnVrJ7GDvwMfPZwi5gGwAE1dcPNq/N2XMtySCezc
-	 WtLywCb/ZlLQ5dEVEqcyK7Y2rrwb4dBF3gandid6X4ZMUbUpjA0jQ7jlGy4QLmcYFYN6S
-	 yGazaM8NQYms9lJrSKAoTMKVqN4WKQET3V6XFgiqJ0qypqDEKQspwl75mUF4x5CqSiQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795179709;
+	h=Received:DKIM-Signature:Mime-Version:Content-Type:Date:Message-Id:
+	 Subject:Cc:From:To:X-Mailer:References:In-Reply-To;
+	bh=jq9pSyaHWv4Kw1kTqN25StxuWddRltV8xaspOL8DIDE=;
+	b=z4xSLxLXQX+HWmahBdsR2qzb5ydpPnLplfYB2YKJVFdNOHCrQ75laYT10MtHUNUqWvSs
+	 w8wGky6OgxsKZ5DVN+KyBifu1C1QCh9WDMLGch7YzbHnwxUeHRNAIH3PIZSBPygzY1aVa
+	 TSP0VfBt9S0G8JIB93udUH9jfpnfXjM0hdxlFHHHhVCssRrrKTHly8wWkUKNvMFVYpUSd
+	 mIYGJQL+PPmeBPrvfeV18nKZQ1yElKbTAa46rogDBnWbGsqsJQsZrwSddLooETSGzfJ9U
+	 7uX7/Je9F9/mP5g606z6y2MVlZ+i0xQ7fIvvjAmNcKmB+uMa33/JiGBrvHdO5XVZNQg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=DN0EmNg0;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IHosfg7+;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85242606A320;
-	Fri, 20 Nov 2026 13:01:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85242606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 7FC4E606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:01:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=DN0EmNg0
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=GRDyBWMO0iFPzHQxYTxXh7iJWh7mjq8TmKnnHRVSqRk=; b=DN0EmNg0hi241pGeZIUEwC3chZ
-	d9xqtqp4XFdt/lRY88xO//glMrtum3jcnQlHqcMNufLNFIfZd7x5n5ACAgRqgGX/SojAcXki+QOKH
-	h08EDwpke6xdotZVeKPfz16RTGLpfVUTFqmWLl1vVJqFh62sDnCOrGfEXRtk563HI3rc=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xUOEb-000IFT-BI; Fri, 20 Nov 2026 14:00:57 +0100
-Date: Fri, 20 Nov 2026 14:00:57 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Andrew Gaylard <ag@ffroot.co.za>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Daniel Machon <daniel.machon@microchip.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2] net: sunplus: also fix the byte order of
- 1c:50:1e MAC addresses
-Message-ID: <41c7251f-f201-474a-9a8f-1e366fd64c77@lunn.ch>
-References: <20261120073901.21656-1-ag@ffroot.co.za>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IHosfg7+
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 3B14B1F000CF;
+	Fri, 20 Nov 2026 13:01:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795179708;
+	bh=jq9pSyaHWv4Kw1kTqN25StxuWddRltV8xaspOL8DIDE=;
+	h=Date:Subject:Cc:From:To:References:In-Reply-To;
+	b=IHosfg7+6ijOk2GwdsFMmLJ1yBRba7t1SKiEEdiEm01ZHolStTd2Iqghhq6HPaTsm
+	 xSqi18IYvqZ1dGxJr/ZuXdixJbetPmHLrLIEzmF5PpIAUt8tNp61r+xpxQM4fJ5C7U
+	 MlghUPc3xbIqXf3pouEmMZyXe+amw6T7LpJ9gk/UAJRE9esBLJ4Zj2byQnTHQ5czQw
+	 rhZgCB59rHy23KZGi+AcWbi6zYaYP6rjhCqF1pMs53rw51E7/WMVw5WHLpFo/pU33c
+	 KuKn6Uh9YllPfr7wpouLI7quSFB7bI+pCG+/8OBTHotlQ+Q4uGjMv8k8YgvIpIGW+4
+	 MlAHqXxNZqHLw==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,29 +47,53 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120073901.21656-1-ag@ffroot.co.za>
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=b5160585304d341154d80d171af328992a125d9bc978c8ccad6ae73a7f56;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Fri, 20 Nov 2026 14:01:44 +0100
+Message-Id: <DN023FDVIQ73.3GZDRYY1ZVBAB@kernel.org>
+Subject: Re: [PATCH] mtd: spi-nor: winbond: W25Q512NW-Q/N/M: Fill locking
+ information
+Cc: <linux-mtd@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Archit More" <architmore303@gmail.com>, "Pratyush Yadav"
+ <pratyush@kernel.org>
+X-Mailer: aerc 0.20.0
+References: <20261108192518.46803-1-architmore303@gmail.com>
+In-Reply-To: <20261108192518.46803-1-architmore303@gmail.com>
 
-On Fri, Nov 20, 2026 at 09:39:01AM +0200, Andrew Gaylard wrote:
-> The driver reverses a MAC address from the OTP when it finds the
-> Sunplus OUI fc:4b:bc at the wrong end. Newer SP7021 chips have
-> a different Sunplus OUI (1c:50:1e), possibly stored in the same
-> reversed order, which the driver does not recognise. If the reversed
-> address has the multicast bit set, the driver rejects it and uses a
-> random address; otherwise it uses the reversed address as it is.
-> 
-> Handle both these OUIs. An address that already starts with either OUI
-> is left as is.  On chips that used the reversed address, the interface
-> now gets the correct address, so configuration tied to the old address
-> (DHCP reservations, udev or networkd rules) will need updating.
-> 
-> Tested on chips that needed each of these OUIs to be reversed.
-> 
-> Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
-> Signed-off-by: Andrew Gaylard <ag@ffroot.co.za>
+--b5160585304d341154d80d171af328992a125d9bc978c8ccad6ae73a7f56
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Hi,
 
-    Andrew
+On Sun Nov 8, 2026 at 8:25 PM CET, Archit More wrote:
+> The W25Q512NW chips support standard Block Protection (BP0-BP3),
+> Top/Bottom selection (TB in Status Register 1 bit 6), and Complement
+> protection (CMP in Status Register 2 bit 6), matching the layout of
+> other NW-family parts (such as W25Q01NW and W25H512NW).
+>
+> Add the missing flags so that software write protection and complement
+> features are properly enabled.
+
+Did you test this? We have a requirement for that, see [1].
+
+-michael
+
+[1] https://docs.kernel.org/driver-api/mtd/spi-nor.html
+
+--b5160585304d341154d80d171af328992a125d9bc978c8ccad6ae73a7f56
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCawBEuRIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/jsbgGAvgIgrGvnmz97qRwriGfJXgnP/ORGtOJd
+qmLagh2CEtWqj68dzFnEno5+RNY41+trAX9LyBl+/txrVGm6NRmI9Q+ILkMTviX9
+GrCnbf0V7Ce4NC13w10CQDIMYHB5vHxUL/c=
+=7+uI
+-----END PGP SIGNATURE-----
+
+--b5160585304d341154d80d171af328992a125d9bc978c8ccad6ae73a7f56--
