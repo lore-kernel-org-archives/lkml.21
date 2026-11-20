@@ -1,100 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.51
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795175086;
-	b=aowM2/FykZf7YgF6DaRJEzbgE18kGvWcXx6e2k8GX/FnaHJxIKWyQaBJGz5beOTuqzWf
-	 3zdoO1lYNQf45TIPAUvq+5v0gl8Ij56fZ7Zj40sV6HUheMg3THxkDkZhqSr1yBBqkW8dk
-	 //KXwIOk31KaftGBp57VN5hdyJUXUaXr3dLbFPWpr8a6fNe40MR3JUjHju06URQCHrCLr
-	 oxhTVP8P+158/xdeeHzlXaMVuX/jcUQrC+UaTV6IV/umEQwV6GDuClLUFRrGdFoM3pdi8
-	 BstRtW9Qu0y499IJKi3IQlfzt1s0rJ9kbw7RoqHqkt2mZg8zV/6/sGfq2y3sWJVFi8A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795175086;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=JC8Bc6cC/0zXiuAQ2eEDZMlg3ki7dHtSWqsSjDIl7fk=;
-	b=dtyoqI+oJW5oNeAGqW3tEwnxbG4KU2N2XqHsoETVjwtJrY7gaYBP8x6CyhSmJw8QaM6B
-	 ztLPWmzYzX1UlZNvUhOdO52H6nv5OcP1r9aw49mDqZAgofwj+B32TitfkyXaSvSDyLeb6
-	 McH7R7xcx6eDq290/rhmgnjrlXGxWYpqmS6bkR/1Zab0Ulo0tfYvYxWUwk7nUtxzPjYvW
-	 xHkzMFlVujq8lD4T8qUxLlf0EiuwOhf5znuT0W3tNcR2jNT4EHd5rVVsNg8+0SIxYcCMJ
-	 do5Ail9DdXnyV23b47XeflzM8dJxVK3OeKbBLuU1tzbq/DDIprAffj9wrTTKYZTx9JQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o8qr+BV4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.51
-Received: from mail-yx1-f51.google.com (mail-yx1-f51.google.com [74.125.224.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795175076;
+	b=MntlkXX1AIogHbnt47VZNT6shB+rfJVdxroNNKZppBQCfUHj6DpsHY+9Tu3zfIlsCFKi
+	 BG4ZEANI4vlw5kinTD53ZTlXORgHnutt5cGzlgV3+qY1slwJMM4eE1AinUDyf/OdU4sGU
+	 MY8E7x9FQCbbkgCcAnh2S2pc+l49OG0NeiA9C4fxc9wJuabIW/KiYUHx37wsMje0L9A6f
+	 r4lbY0F8VyVPflmeEHSXgyOT19TToDHm1Jt0nsp0JLduFwyTf2Ke2WAlYoEAOTrh4+bh/
+	 O9SLIxRYFbPDEoNjKXth4VmnYt1FhacLZIviF/2tnJCndYwY4NWf10PHJ5tSveFdIAg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795175076;
+	h=Received:DKIM-Signature:Mime-Version:Content-Transfer-Encoding:
+	 Content-Type:Date:Message-Id:Cc:To:From:Subject:References:
+	 In-Reply-To;
+	bh=5L7qqB5WaMtNMY9uDK4imR6R5lduwPZOBAPzSNwaOt8=;
+	b=TPLLasjHdufODF0y/4yCUkKh9QUjG0qcb3L+J/kf4k2GOrdjWh/aTYBPYC4C7CxF8NW1
+	 AxJkfaDFiJlNvJeSpHIb//BVWDxI26PyCFvXHDJaIpA+eB14PgyWCLXvgRlphrR0aFw9M
+	 wy+CS12wDGql6dpfykPAt7qefZs67hrFlRqrOKyA3zdgwEmdCa8skenKBPXEh5xIDz2dg
+	 +a26bMArZMoud1rzMz+DinPfm7Z/sCqnGnW12a5LIooY7z+CPq6xrEVhOygm+6ev1+yIa
+	 smjd4zD51NxoUjzJHyKBnDOC48vFC6SZjwegFDR0Y0pXAM3+UOHBpQOrBzMnOZ0pONg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MK02NyNG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B90E160A2608
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:44:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B90E160A2608
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8249960A5BE6;
+	Fri, 20 Nov 2026 11:44:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o8qr+BV4
-Received: by mail-yx1-f51.google.com with SMTP id 956f58d0204a3-67da564d9f2so1313731d50.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:44:45 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795175085; cv=none;
-        d=google.com; s=arc-20260327;
-        b=g9O/701p+y5Nd+RRZB9af2VoHd5yr1ohvlGk4S4q7wiuP2vYa2fzFixATfWqvnfUlQ
-         +/0l7XqsvJKFt7CF7326anF0RL9ejdIOfTVCcJu8UdIeh6Z3WNMmpE5bmfbaPvQ4EaTd
-         MohSgaUjrXxufe/LLqF+xazAfGVZ6B+5jF9HJ6WA8CB8C5WlV+YKyTr6kKpOT7GYJEPM
-         jm5PHxferTzDScg2ZE/PzITk9S9G3Oib/ylBf2JR51Y+5YgMYU2eW5qeOvYyVGrZqt1w
-         fv/Yl7IR1mGS5EOldTRCVEb54Az0VHQ9LnmsvsYCPjLXM08ObaOL0vi9ZcICa/IEhy8J
-         SXtw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=JC8Bc6cC/0zXiuAQ2eEDZMlg3ki7dHtSWqsSjDIl7fk=;
-        fh=SVDa5r4CR96yQiMhiLyhwB+621HOCdqOrbLRURsDfWQ=;
-        b=OhMeESakf3cP2LwnUFAPgAeVzhFy/tBbH7FV7CgbGMwl+3s3QA9XesZeeMFfqviTis
-         bnwDqzz6to7swVtJc4SSYjrpqhNZzPuRdgdQbhA/h0qdEUENzSASZy91boZs8lIk2EeC
-         gP6PLU9+7eTnoNdHviLSkgub50LVn45eiFKwZ33rIYjGMboiJhmXosUBdnISouFGS6j3
-         FA+Qcaf0CYk1N+iBPhKcCnbonECmm03WFFL516WITBMoK9iuveT/S4XIJIpXtasbBRI4
-         G/evEtwaa8jbciNq7eRZ31neyRTwSJ1sf0kb595e8x5ymdp/oPO+zTYEjLwu/UgM18p9
-         mN8Q==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795175085; x=1795779885; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=JC8Bc6cC/0zXiuAQ2eEDZMlg3ki7dHtSWqsSjDIl7fk=;
-        b=o8qr+BV4Q8p+au5ZaFC2VAJMb/RDXvGx2fKS6AjBwU5Gya+PALbAa9dtL5AZ3lsSl6
-         7gaIO1bFU2/bmGUPxhBsi48FKTpEEmT6ohsNf61sJC4iLdKZEmEUGW6cnhJStMtE/yLp
-         I5lgEnTdIuwpgrEaJfACMhaT0bZmZ1izzIFaM0btZShadap7lq6gurVfIc1V4SH/4nvM
-         VP3tr26W98u1jOvA/34WYR3PC+MxZ8aLO94XM9hBlug3CJcKPrJ3jPAvuFGKP9j2PNKL
-         WzW46RHYqM8O7uy/PUUBUTD0I7Vy8agX4a0zoffBSh4AZAb397o2E3GHOOJZ9fmqRqIx
-         gu7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795175085; x=1795779885;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JC8Bc6cC/0zXiuAQ2eEDZMlg3ki7dHtSWqsSjDIl7fk=;
-        b=YHLZ9jttTE0c1N7KDJqmjfYowOW79irD8ARXxl5hNFB/i8xwJGFZOY75O32ImZTZm8
-         Gl3SuX7HqfGS6upNhyQPr7kSWJCMEo+/iPOTM1eBLb4Tfy4FEPq2cQDmDznYFpWSp+YY
-         nSLYdKM3Y4XtJa4RmGO1KME1/XFRDI/4Uwfda8acCW/qZEppTnGDM5NAJDtKnlFGuWNZ
-         CcfU2O+s+2qNtza1stSsKcxfMzzs5muvSHUWUJ1EnwSTvRHf7FORzHqeG8f5lEQe3wY8
-         AcIvj8ufnbsoGSUYGY6RbM0jg4mZGV527819WMGb4KwLiHxmybFMHKbKwDacTBEsToQq
-         zEpA==
-X-Forwarded-Encrypted: i=1; AL+hErFKiKwQty6LPumLW55P3JqYa9LvPDMd6zxu4/CbSp2NnLSB3ud13ieyM+WZqRyN03P9dqxsO4pJ9mEpxO4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+R2RYMWkfE/Yd+GAZ2NQ8K33nlb6hft5Z4gto27dod+4Zqq2e0
-	7OjlRsS2FCVqOvGxw1/tF4gjYLRkvtTOSYSqnCJJLby9+sMG9SAnF1QMofSE9D+vTA97oUhmFYG
-	M5C9kJH/UmudjLe3g+zwOncpy737xqo8=
-X-Gm-Gg: AZFdTZdVOjum6LSWUGo6aw+uVvSvw6phcL30NOEycInJKlu2N156hdbeE9YyF9lSyQ8
-	Eqe6zY8Vf9DJ7GoRC+hCSvi53IvobjpiOLwTc0D1TsV112bPwhVJ8L9u3hmx1P/WFL54O5PcfDv
-	ZlIHru74DV28kv7o6jZRKrkAlpWpEJSwQFA7c74I3NJnEBwxhoe7frRz33qulM12S5g5w6h71dB
-	T39Ta8nnzcqzGvWo42ej6fZjgETGzeHq2xxh2IbpXH2jUcC9kupNtY+9asn3EuhzD9zAtDtdd97
-	FcMsxEuUr+QD6RYcsLUG1X6qtVd0MeUfyxbOW4ZS1fq+2LLcpsMSe6P4jnW7u1pUdhc+sWjemb0
-	8qlb3Ib+VjfXdhg8HP1WMhjROF2fiHPf+wzI=
-X-Received: by 2002:a05:690e:4881:20b0:67c:1e14:4fbc with SMTP id
- 956f58d0204a3-67df42d0721mr858402d50.11.1795175084774; Fri, 20 Nov 2026
- 03:44:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MK02NyNG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CB791F000EB;
+	Fri, 20 Nov 2026 11:44:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795175076;
+	bh=5L7qqB5WaMtNMY9uDK4imR6R5lduwPZOBAPzSNwaOt8=;
+	h=Date:Cc:To:From:Subject:References:In-Reply-To;
+	b=MK02NyNGVt3ebGIuf7j8ititOe/z/miWKxC/cxRWpaUwoqWbdiGhRQvU8OaMCnYwS
+	 j90977RhLU5XEfTut81+FJClZVIn6vGa5AdoBLBiocBd87c89OiQPzCwDmssryaBWy
+	 jaOwv8Ws2Pvbr0/Jqe12F3wSyeJ7/lxSoBcG0C6LMvt46SOWFWgWL7iApA3ZTBxIJQ
+	 r8vv8oHlRieseBk+vxJ0jfn3VoA4zcPO0VuTJ6LhfNzmP2W3B6ufNf/6OJ3ifZDSb3
+	 4NJ14njem1N4mzF1c2R/lShdOdWSJbTlYuq/igCsgM317wLi0DTSRuKHTmukFsh8p7
+	 J5TfXh/NYL1+g==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,43 +48,173 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261104205108.1041666-1-albu.victor.m@gmail.com>
- <20261105202110.1081296-1-albu.victor.m@gmail.com> <2026112048-dimmer-ravine-ae33@gregkh>
-In-Reply-To: <2026112048-dimmer-ravine-ae33@gregkh>
-From: Victor-Marian Albu <albu.victor.m@gmail.com>
-Date: Fri, 20 Nov 2026 13:44:28 +0200
-X-Gm-Features: AclHuK_tQvLq8m0AECgKZuYHhvtIB-hn-yFwix8vwPvtNzJv1iLXLnWfdq7ZoBc
-Message-ID: <CAE5KA-PZzGXhkqwx27LdEFxHv0gHN83p0k4gC1NW0TQqNRyTHg@mail.gmail.com>
-Subject: Re: [PATCH v2] staging: most: dim2: add missing Return: documentation
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>, christian.gromm@microchip.com, 
-	linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev, 
-	parthiban.veerasooran@microchip.com
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 20 Nov 2026 12:44:31 +0100
+Message-Id: <DN00GAPAAQTY.1T9M9U7UAFYC0@kernel.org>
+Cc: <phasta@kernel.org>, "Sumit Semwal" <sumit.semwal@linaro.org>, "Alice
+ Ryhl" <aliceryhl@google.com>, "Miguel Ojeda" <ojeda@kernel.org>, "Boqun
+ Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Trevor
+ Gross" <tmgross@umich.edu>, "Daniel Almeida"
+ <daniel.almeida@collabora.com>, "Tamir Duberstein" <tamird@kernel.org>,
+ "Alexandre Courbot" <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?=
+ <work@onurozkan.dev>, <linux-media@vger.kernel.org>,
+ <dri-devel@lists.freedesktop.org>, <rust-for-linux@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+To: =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+Subject: Re: [PATCH] rust: DamFence: Remove warning about unsignaled drop
+References: <20261112101015.528127-2-phasta@kernel.org>
+ <5d466f7c-2e70-4011-be04-9ffdf877b915@amd.com>
+ <49298d3a328c1695ea27993f714c20b8a1c05f32.camel@mailbox.org>
+ <e2ec8a39-56c3-4274-91ce-60c273904877@amd.com>
+ <ab99758408df682c68a3792cc3014b77d6e1c8ab.camel@mailbox.org>
+ <c2dd46ea-94d8-4720-af37-897c91809338@amd.com>
+ <DMXJ8TBSZJJ4.3HG0OJDI9URTT@kernel.org>
+ <8da4a8c0-1740-450c-9cf1-1a7b21d12997@amd.com>
+ <DMXMSIQONGUW.1RRNS7I6LACD6@kernel.org>
+ <a7f9e0f3-b299-4d40-9230-106003725dc2@amd.com>
+ <202dd0c3d515ddfa77a8ec8751badadd31b8a7b0.camel@mailbox.org>
+ <141892f8-180c-4157-8c59-6e69057334f2@amd.com>
+ <DMZAQ0G6LTTB.1CRPNXSYB4QHG@kernel.org>
+ <c18fc55a-717f-42a0-b37f-4ed81efd29d1@amd.com>
+In-Reply-To: <c18fc55a-717f-42a0-b37f-4ed81efd29d1@amd.com>
 
-I added a Return: section to every function that kernel-doc -Wall
-flagged. For some of them the comment already described the return
-value in a sentence, so the information was there, but kernel-doc only
-counts a Return: section, which is why I added it. Nothing needs this.
-Let me know if you=E2=80=99d like it changed.
+On Fri Nov 20, 2026 at 10:15 AM CET, Christian K=C3=B6nig wrote:
+> On 11/19/26 16:34, Danilo Krummrich wrote:
+>> On Thu Nov 19, 2026 at 11:47 AM CET, Christian K=C3=B6nig wrote:
+>>> A dma_fence should *NEVER* signal because you waited for something. Ins=
+tead
+>>> the dma_fence is what is waited on.
+>>=20
+>> In the end, despite doing it on behalf of the hardware, the driver is th=
+e
+>> producer of the fence. And there are cases where it can't wait on its ow=
+n fence,
+>> because no one is going to signal it other than the driver itself.
+>>=20
+>> Assume you have an execution context that is torn down, and also assume =
+the
+>> hardware supports preemption. Then some of the jobs in the queue might s=
+till
+>> signal, but some jobs are not processed anymore and hence are not signal=
+ed.
+>>=20
+>> For those jobs that did not execute anymore, the fence still has to be s=
+ignaled.
+>> So the driver has to signal them after it waited on the preemption and e=
+xecution
+>> context teardown is complete and no more operations are in flight.
+>
+> Oh well that comment made me smile because it confirmed what I wrote :)
 
-Patch: https://lore.kernel.org/linux-staging/20261104205108.1041666-1-albu.=
-victor.m@gmail.com/
+No, it just seems that way because you ignore everything I write and instea=
+d
+repeat "wait for the DMA fence".
 
-thanks,
-Albu Victor-Marian
+Again, how can a driver wait for its own fence to be signaled (e.g. through=
+ an
+interrupt) when the hardware (or firmware) queue is dead?
 
-On FRI, NOV 20, 2026 la 09:16, Greg KH <gregkh@linuxfoundation.org> wrote:
+> How do you wait for the "preemption and execution context teardown is com=
+plete
+> and no more operations are in flight" ?
+
+I think the generic answer is exactly the same way as if an individual job
+completes, the driver signals the fence for otherwise.
+
+> That waiting for DMA context teardown must be done through a dma-fence. T=
+hat
+> is the whole concept of dma-fences in the first place.
+
+Again, how can this be done if the hardware or firmware queue is dead?
+
+> I wish I could enforce that in C somehow but we missed that opportunity w=
+hen
+> we originally designed the dma-fence and now it is to late because of the
+> fallout and complexity required for such a change.
 >
-> On Thu, Nov 05, 2026 at 10:21:10PM +0200, Albu Victor-Marian wrote:
-> > Add missing Return: descriptions to functions in dim2.c.
-> >
+> See the discussion here as well https://lists.freedesktop.org/archives/dr=
+i-devel/2025-August/520640.html
+
+You ask about whether dma_fence_work_commit_imm() in i915 should exist in t=
+he
+first place. I can't find any subsequent discussion and the function exists=
+ in
+i915 till today. What did you intend me to extract from this?
+
+> I think we are at the point where I need to make clear that practices lik=
+e
+> signaling fences from a destructor or other IOCTL initiated teardown is a=
+ NAK
+> from my side as DMA-buf maintainer.
 >
-> No, the descriptions are there, you just moved them around a bit.  And
-> why?  What needs this?
->
-> thanks,
->
-> greg k-h
+> When you want to push forward with this anyway I think we need to raise t=
+his
+> with Dave/Linus to get an answer if such an approach is ok or not.
+
+There's many indicators in this discussion that show me that you probably d=
+on't
+understand Rust enough, or didn't engage with the arguments enough to make =
+such
+a call (mixing up Rust destructors and IOCTL context above is one of them).
+
+At this point, none of this needs an authoritative answer.
+
+That said, maybe it helps to find some similar examples in C. I tried to fi=
+nd
+amdgpu ones. Xe code is probably a better fit as it has firmware queues as =
+well,
+but let's try this first.
+
+amdgpu signales fences in a way that is a destructor too.
+
+[1] was introduced in commit 97ff19462539 ("drm/amdgpu: Implement a new
+userqueue fence driver"), explicitly suggested and reviewed by yourself.
+
+(To me it seems that this signaling loop is unnecessary though, so maybe fa=
+ir
+enough.)
+
+Another example is amdgpu_fence_driver_force_completion() [2], which is cal=
+led
+in many places. One of them has the following callchain:
+
+	amdgpu_pci_remove()
+	  drm_dev_unplug()
+	  amdgpu_driver_unload_kms()
+	    amdgpu_device_fini_hw()
+	      amdgpu_fence_driver_hw_fini()
+	        amdgpu_fence_driver_force_completion()
+	          amdgpu_fence_process()
+	            dma_fence_signal()
+=09
+
+The comment in [3] explicitly says "You can't wait for HW to signal if it's
+gone", which is exactly my point.
+
+The same is true for when a firmware ring is gone (or dead) and the firmwar=
+e
+guarantees that there are no more outstanding transfers.
+
+And then there's of course the case where jobs didn't hit a hardware or fir=
+mware
+queue in the first palce, e.g. in drm_sched_entity_kill().
+
+All of those examples are all destructors.
+
+[1] https://elixir.bootlin.com/linux/v7.3.1/source/drivers/gpu/drm/amd/amdg=
+pu/amdgpu_userq_fence.c#L183
+[2] https://elixir.bootlin.com/linux/v7.3.1/source/drivers/gpu/drm/amd/amdg=
+pu/amdgpu_fence.c#L668
+[3] https://elixir.bootlin.com/linux/v7.3.1/source/drivers/gpu/drm/amd/amdg=
+pu/amdgpu_fence.c#L543
+[4] https://elixir.bootlin.com/linux/v7.3.1/source/drivers/gpu/drm/schedule=
+r/sched_entity.c#L305
+
+>> The same is true for job fences that are in a software queue and never h=
+it the
+>> queue of the hardware execution context.
