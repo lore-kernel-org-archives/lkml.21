@@ -1,100 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795209904;
-	b=Ldw38CFJyT2l+lXGV+dfdUoWtQmVivQzEE/19caEFod0rLo20BgWQgtP+ycQmKU4DVUd
-	 Vh2FbxiT5VrUI1fGheE5KL57SHC6zF2KVVdtiwY/j6/jJRQMh7hD+osKpIRgW/QfDiiC9
-	 5Mfi+vU2BlXyRGrGfiZLWjcWABKC1HEtrNE7dpeC+eZhBa/cJhaHbdCarL8PluIklqTm8
-	 PyR8NW+NdLDo/OeteLXQchepWKPcnMFiGgANmfV4eLPP6eDSNXR7W/PqrINuiZBz88eTw
-	 0XTKfIrnqSZIQz3oRgTtVFS79iEe0HVcGcFAM5ejR8Z+VZ8etqTOpIcGUd8Tz1WpcAA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795209904;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=bITuzVEfmK2u8ql0xrA72ELRr2YY5Eit7w0sg9Y24hY=;
-	b=Vz9D6ozUV5wIAWorHAxeI0Yukt71HCrFC/Uke3jMzHNeLRcjkQS2olQSAA0+SYMawjhJ
-	 HJIToJEC2ITtUy4r9Y+lz3+Zkt6BxbHIlGVxNMZEYWNhswrqJmXGHxwVNNHoN6ApDwE+i
-	 +BLpDOHoHetJ99OYsOcXhxJCE0KWONoCsZ1Cq63NiCGWkXpPxGUiiWOy5OwEAhOyGgEmi
-	 2ItbiNEqml459MovnEsbULl8gu6jmVH0Z4kZepIR7pMwt3ndcxkBuw5baVjFi1xtwpiSP
-	 ldjdozVQ1N516h5xw9BIgl3tS6MAMQgO0Deo/tN2g1NVh5naHAPPOBdX2xgDsBCa9nA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="E/40exfq";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.44
-Received: from mail-ua1-f44.google.com (mail-ua1-f44.google.com [209.85.222.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.20
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795209910;
+	b=XWLpVMWfnL1/R6m0WujW4jKpamqCw/12Djh+279hyZnVmrGxOwQrohNUcJqLuzev/kZk
+	 AOWTEC89ZiApF/NlOuE0bXzhEL2J9atnbkcijZ/fe3sQ+S1GcXoZncafst2DYVTfJVrne
+	 r8MbaBbkQZ+IpdxVbvtJPzGJu/QDUHLwTWDJdNWUTXr0vB2ofoGtBUIWoG+JuHUGj6xCl
+	 ZqVUVfXGA8bGlqwfCNuWM9xgV86y3nTE3SXd2PfDjblwsqD/Q9hCvcs5/oWDf6oFRUDt/
+	 ReyJPI5k22X9CMqndHv6Dr8tUJjdlSWTNeC6Bt+gWlhGsWoPCoxMERnnz9YNAToVnkw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795209910;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
+	bh=FwdJjzqq42M/cPurbBvKsg2cu6LzpoePJSnBK7Qtwvs=;
+	b=YnzunugMoyb/2t4I39OgZW1y3tSiZ6POTZ1rwt5M5DYDip3VFoU0nK1kDFcjpgP5dAS4
+	 UmIbxoxVwbeMHrvyTaqCd8hJqfM1oCNafsgsHFo4Ik/YXvfBDjY4LeCDMbJxGhp16E+Yj
+	 +i4O/BI6nrGh9QfkkCDQ1g33zPaCrkstkZlywwwTebaLv3Lh5i19LODPukwTTfJ45E+PP
+	 1V2O45GvFAXJCyyDIOaF+CCKVf4SWNdI88uULtRXHdJlT7hnJiscor5ke6mPKUXrPGs74
+	 W+FFBOzP5LdWzdq5u2T9+Y8B7+5bpnNxWKZLPxp2aZHdn9OEydwh0ZoGxKi3rAjRcKw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmx.de;
+	spf=pass smtp.mailfrom=gmx.de;
+	dkim=pass header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=rlZMCEP0;
+	arc=none smtp.remote-ip=212.227.17.20
+Received: from mout.gmx.net (mout.gmx.net [212.227.17.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF5D7606A6B9
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:24:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF5D7606A6B9
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 467D860A260A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:24:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 467D860A260A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=E/40exfq
-Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-9906870a9baso731276241.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:24:54 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795209893; cv=none;
-        d=google.com; s=arc-20260327;
-        b=fIx3GMjuzflIcyj1kISNj2ZFVHwOI/B/F9oQgqY8nw8dLTw+K7+9RL/S0+tAsFnUkr
-         fxt8xJoaZVjhcJ6C0qQDl7MKAR2e8/q/o5uKePFfe1XiJl6LS6K7YXKHzZAB41Dy5sSO
-         SbG93lP/J7xaeEkj9Rw2yo5YuK+uS7A2kFpSWlvhq5zz+ER7z2EewCk9l+sSZh2NKiMr
-         2Jg77mzSGY/Rqebx6eFxO+QhrXnY5MLl2OtExU9HGyFz3U/WuG3SJprB49eW+e3xQbzv
-         GlSgbIM2bdeIp5xHW3Rz3cG+vu7DRkSnDDu/0+NrubWuv7soolsX0EDZTLjI2LMyX/vT
-         bupQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=bITuzVEfmK2u8ql0xrA72ELRr2YY5Eit7w0sg9Y24hY=;
-        fh=fvFcrCoVpSBW0Fpg2zjM3Ps11AJmcG/+g586zv5jBdc=;
-        b=LcMJK01+2oWwpXcp0KZD3f9Q8WjGRDUH21LPOIDfCeDHMViNNkycqkjj5zFjWH9oZt
-         HuJKtQ7jyd8RgU9xQvKnfrW3N75bmCacD8sa90r4lpWNQNgQpe/n+c2ILJaLij5LhK27
-         2YhPn4nAZ48R6P7BmnzVpfl+ENEjZr9Y+AONvqOlSfBV7pVAN9DslOtcJ9YmL0qY1jmK
-         0icRvMOwK++1A7zavRw0yyleG9V85p/URsbJy/pF2ATBRI+KNe8BN+NOrXTeODV65cI6
-         y8mnh8w0DH4E6TEZVQjgP/q97kI/I8nDl/GZWzV25k1PnBx7r2RKh47gfv+IpQkveiBk
-         SdGA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795209893; x=1795814693; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bITuzVEfmK2u8ql0xrA72ELRr2YY5Eit7w0sg9Y24hY=;
-        b=E/40exfqtM+dThAPB+qlxLIEYF/AnZPRFWd69sTeq2lJPxrBNUTo4c7rAMf/88sbrN
-         2iTp5bZeyfHqIoUL3+dh091zwJqekWGZQfKRNS8APaO61TMZ8lWZn73rFe3cEprFMTuJ
-         ko5lkrBW2jQf1Ulqmq5ZyS99zm5berzXY/i6q9+2I1GBpvtlntnQdbIpKYlIa6E2PSAZ
-         6cjcXHoG4Bf3MLgnFTzl8HkWXW+c9Tt2PniOHS+qkE97/f/mBtMPIx1DClV/6F0Gy9Hr
-         aKd5TBXFk/UlY/cxPRKThJIX7IO8pOWeLrumn2vnZL+FwmttEEEVskWDD2FOfwEDDZXb
-         1nmg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795209893; x=1795814693;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bITuzVEfmK2u8ql0xrA72ELRr2YY5Eit7w0sg9Y24hY=;
-        b=NY11zd3GNL/Mv3OSzCLaRMf2kg6I/QXFZjQLAjOFxio3DKxbWAmxrHJYPwaPNMO1XT
-         1PKF9C8YEI65HnxXdTgroApr8TBIIyLr74xDmtGsYOBQCT47k9TqUrXAWoJ7RK59Sdlw
-         9qqsttXnFa+md14LjZ+ubXvsLjA383OXzGOUrLPfeR6jUx1pWEUpsjKvi9l0ute5qZGO
-         cwj8/kTqPdgPg7zrLYknbXnKz1wmmQz/yNQvEElwQPwyXYwFjrqqeeHb5GEApoJfBlEI
-         e6T3+J5iSXJI4GuO/SySFlXpHqBGhOAe21PRvKa/4lp0bGqgPd8Xe4xJ0u8tfZGsk2HG
-         2tIg==
-X-Forwarded-Encrypted: i=1; AL+hErFiWLAKusm5BZKroWxI0+ybwAIx2bo/POvCLjrmG5S9eJXhcH1B8EF48OEnR8oxmuTWCChMbaEhllAschU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z88g4qeCmG3FqehMXT5QuIUMGL/pCBFRSJ7Ye38cy1DOQr5UFyj
-	qebizQFnJ2Q2xNkIxIjM6QILCTnmtNjWCsCDx5xjG2qQqkOr1ZxWra6XvSP2a4/7YNkyrCzC22q
-	/lYHVO0g4/k5vMvuo2VjNe2FajAj3JznN36VQSVpA
-X-Gm-Gg: AZFdTZeW3iLOGHAOjDxttnNheKFtVMrg2UszQtuH/EDttEpVXJKVAvkskrvcA2QGswq
-	Do2AueHk4/6+MGxpVA46L4M9X3apDbxRzUpmgIPcoVuJuzpCjRtgXHU9hPcoDdxjkrze3/zyhWz
-	R9lGMmhZ0vzoF/dsDeUDRWuvlxme+pMOKh1us9FXGHMG0DG+kXlHIskww4vIQMEeCBMYNYgTL2w
-	DU7UDid9Ipg0hIbyl1Cly73SNb5JydMadF8ilqc+37NrfOnudRYUhKiSQ6g+8kST1tRQIloPFdq
-	+a6BoKrlY99xEHQAkoQAlnzC6pc+SBJvPnJPV94H1ASl9KhiDAY8bIkB/zh5emWEBzfxIAMg7XT
-	GIUP9r2y9ktVbfvmtOznHoivbJbHcKSuKoYa3
-X-Received: by 2002:a05:6102:374c:b0:7d2:8dd6:e2c2 with SMTP id
- ada2fe7eead31-7d73963c573mr2445359137.29.1795209892946; Fri, 20 Nov 2026
- 13:24:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=rlZMCEP0
+DKIM2-Signature:  i=1; m=1; t=1795209897;
+ mf=PFdfQXJtaW5AZ214LmRlPg==;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=gmx.de;
+ s=s31663417:rsa-sha256:aAv2+qrzWMt7D/x0hoQ/ZQScTEKR
+   V0ObrUkeyv+rvIJuqjGg+02fSSZmPr/ikPY2GvF3enJEOqqi7e2+8GJ5Mqr9xoBBIj2FzPJ3Vuv
+   JWstKP9gtdIepTlgjUwvoUjwvQcRTrnZOfitY3DlJzqFORBHFAnT2AOpruvVdtmIzw7vQmg3OZM
+   hxzqS+XmMWLSBVhZSQkk0dyrjWla8WDtyvLXsDVVR2Eq7uGn3/Y/eOa8XFx/q5tNr9ypJ9HAPqn
+   wHL8BxonKZgBPkkfE1EDnURPTx08zQ2szXkPWW+Fle/BQbhP7+FoC7MNZivUwZXTj7zpddm6fNK
+   p3ymPAG6afLxVA==;
+Message-Instance:  m=1;
+ h=sha256:
+   eZdxRgh2obzRj+VckpMN3zKf4+Qf/i+yUcMDIcGiFug=:
+   VEgo1Co1lModFckcW0bCGHjCNbpM81bm9laig2rLt6o=,
+  sha512:
+   IxWKCIzZ85897ymRoG7gKKSBHs3ChAy7xUEmDZrHO4q2xWuHwjMaKVrzk+mo2rQDTr4AcpQl2xhCXsJ7I88lLQ==:
+   VY6PvLymUYLsVAP1yzouToojpSDwVWE54e9xBsIRtHDskSaLN04fGj+5wzP6AmGxq/2ZTRXh+Lgu6P9BACpNCA==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
+	s=s31663417; t=1795209877; x=1795814677; i=w_armin@gmx.de;
+	bh=FwdJjzqq42M/cPurbBvKsg2cu6LzpoePJSnBK7Qtwvs=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=rlZMCEP0YULCAUtu5B2+3QfRLyE55UmsAKVS5KHK2zTdfhRdUC+0m/x+5LpcggBa
+	 KPBV7HeNmQ7Xq5CTMKUYaSB/K3zzHOfX38hVH48/jwFJ0wCCKI/V5gVO24+YfiX/L
+	 uPhUQVOnTta4OzxhWqbIAQaKkREWPINdMzI5E70DDYs88f2tFQLJiZiYEc8+cfpLo
+	 gIvUA0a+FoSQdeSrvX4Lfg2T5EXckZ3MHohed897D/0MHleE24FuE1bX9FFlPPwav
+	 4qAho5dIAyCFVxXPJ0Kn0eL9CLgC+exaop/Zg91UuVMYvGqCYJ8xu74n5hDKb86Vp
+	 d9VjUJZrrT8LPxUHWw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MKsj7-1xpkwS1g6v-00K1zB; Fri, 20
+ Nov 2026 22:24:37 +0100
+From: Armin Wolf <W_Armin@gmx.de>
+To: lee@kernel.org,
+	pavel@kernel.org
+Cc: linux-leds@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	i@rong.moe
+Subject: [PATCH v3 01/11] leds: class: Constify sysfs attributes
+Date: Fri, 20 Nov 2026 22:22:18 +0100
+Message-ID: <20261120212431.152081-2-W_Armin@gmx.de>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261120212431.152081-1-W_Armin@gmx.de>
+References: <20261120212431.152081-1-W_Armin@gmx.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,433 +89,210 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <cover.1786230311.git.jpoimboe@kernel.org> <73024f3fce343bd6fba3d08fa366a61b4e2c0fa1.1786230311.git.jpoimboe@kernel.org>
-In-Reply-To: <73024f3fce343bd6fba3d08fa366a61b4e2c0fa1.1786230311.git.jpoimboe@kernel.org>
-From: Dylan Hatch <dylanbhatch@google.com>
-Date: Fri, 20 Nov 2026 13:24:42 -0800
-X-Gm-Features: Aa3M54q00e7eFLXrWdso2Zy4lofaH4uwGilO3mLmdcGkjW-Fq6HTshHMHcZHXiQ
-Message-ID: <CADBMgpx9TZ6P5KVWc=emKbT5zfv6psB-woLW6dnwh2XcwPDg5g@mail.gmail.com>
-Subject: Re: [PATCH v4 20/22] objtool/klp: Introduce objtool for arm64
-To: Josh Poimboeuf <jpoimboe@kernel.org>
-Cc: x86@kernel.org, linux-kernel@vger.kernel.org, 
-	live-patching@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, 
-	Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>, 
-	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
-	Herbert Xu <herbert@gondor.apana.org.au>, Miroslav Benes <mbenes@suse.cz>, 
-	Petr Mladek <pmladek@suse.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:uxULmmXI8fHy7GvUIzJVEuRn2e51atvS/HdRagI1+lOsVRhwQEw
+ MlUDRqgQ4eakyHzKcKY5172DmZ+amMTrklRWH52RUeINQYMpfy7l0m0IfEZS+BllXLbP/Dj
+ Hmhk0cuYds2SqMQcUWRalDnVedMy7THQ9IPCOWrOHSm+ny3AqpxmQB3+PzGyLxeRSts3on1
+ LLmFP5OIr+79sYDwGqjbg==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:ZGNIZBiULOI=;zAUlb63KchfTRHHSuFwoYqEr+g2
+ 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
 
-Hi Josh,
+Mark all sysfs attributes as const to ensure that they are placed
+in readonly memory to prevent accidental/malicious modification.
 
-On Sat, Aug 8, 2026 at 4:21=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.org>=
- wrote:
->
-> Add basic support for arm64 on objtool.  Only "objtool klp" subcommands
-> are currently supported.
->
-> Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
-> ---
->  arch/arm64/Kconfig                            |   2 +
->  tools/objtool/Makefile                        |   4 +
->  tools/objtool/arch/arm64/Build                |   2 +
->  tools/objtool/arch/arm64/decode.c             | 177 ++++++++++++++++++
->  .../arch/arm64/include/arch/cfi_regs.h        |  11 ++
->  tools/objtool/arch/arm64/include/arch/elf.h   |  15 ++
->  .../objtool/arch/arm64/include/arch/special.h |  21 +++
->  tools/objtool/arch/arm64/special.c            |  30 +++
->  8 files changed, 262 insertions(+)
->  create mode 100644 tools/objtool/arch/arm64/Build
->  create mode 100644 tools/objtool/arch/arm64/decode.c
->  create mode 100644 tools/objtool/arch/arm64/include/arch/cfi_regs.h
->  create mode 100644 tools/objtool/arch/arm64/include/arch/elf.h
->  create mode 100644 tools/objtool/arch/arm64/include/arch/special.h
->  create mode 100644 tools/objtool/arch/arm64/special.c
->
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 11e733b6a3cf3..06b30924509ac 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -209,9 +209,11 @@ config ARM64
->         select HAVE_HW_BREAKPOINT if PERF_EVENTS
->         select HAVE_IOREMAP_PROT
->         select HAVE_IRQ_TIME_ACCOUNTING
-> +       select HAVE_KLP_BUILD
->         select HAVE_LIVEPATCH
->         select HAVE_MOD_ARCH_SPECIFIC
->         select HAVE_NMI
-> +       select HAVE_OBJTOOL
->         select HAVE_PERF_EVENTS
->         select HAVE_PERF_EVENTS_NMI if ARM64_PSEUDO_NMI
->         select HAVE_PERF_REGS
-> diff --git a/tools/objtool/Makefile b/tools/objtool/Makefile
-> index a4484fd22a96d..94aabeee97367 100644
-> --- a/tools/objtool/Makefile
-> +++ b/tools/objtool/Makefile
-> @@ -11,6 +11,10 @@ ifeq ($(SRCARCH),loongarch)
->         BUILD_ORC          :=3D y
->  endif
->
-> +ifeq ($(SRCARCH),arm64)
-> +       ARCH_HAS_KLP :=3D y
-> +endif
-> +
->  ifeq ($(ARCH_HAS_KLP),y)
->         HAVE_XXHASH =3D $(shell printf "$(pound)include <xxhash.h>\nXXH3_=
-state_t *state;int main() {}" | \
->                       $(HOSTCC) $(HOSTCFLAGS) -xc - -o /dev/null -lxxhash=
- 2> /dev/null && echo y || echo n)
-> diff --git a/tools/objtool/arch/arm64/Build b/tools/objtool/arch/arm64/Bu=
-ild
-> new file mode 100644
-> index 0000000000000..d24d5636a5b84
-> --- /dev/null
-> +++ b/tools/objtool/arch/arm64/Build
-> @@ -0,0 +1,2 @@
-> +objtool-y +=3D decode.o
-> +objtool-y +=3D special.o
-> diff --git a/tools/objtool/arch/arm64/decode.c b/tools/objtool/arch/arm64=
-/decode.c
-> new file mode 100644
-> index 0000000000000..47658c76e1af0
-> --- /dev/null
-> +++ b/tools/objtool/arch/arm64/decode.c
-> @@ -0,0 +1,177 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +
-> +#include <stdio.h>
-> +#include <stdlib.h>
-> +#include <objtool/check.h>
-> +#include <objtool/disas.h>
-> +#include <objtool/elf.h>
-> +#include <objtool/arch.h>
-> +#include <objtool/warn.h>
-> +#include <objtool/builtin.h>
-> +
-> +const char *arch_reg_name[CFI_NUM_REGS] =3D {};
-> +
-> +int arch_ftrace_match(const char *name)
-> +{
-> +       return 0;
-> +}
-> +
-> +s64 arch_insn_adjusted_addend(struct instruction *insn, struct reloc *re=
-loc)
-> +{
-> +       return reloc_addend(reloc);
-> +}
-> +
-> +bool arch_callee_saved_reg(unsigned char reg)
-> +{
-> +       return false;
-> +}
-> +
-> +int arch_decode_hint_reg(u8 sp_reg, int *base)
-> +{
-> +       exit(-1);
-> +}
-> +
-> +const char *arch_nop_insn(int len)
-> +{
-> +       exit(-1);
-> +}
-> +
-> +const char *arch_ret_insn(int len)
-> +{
-> +       exit(-1);
-> +}
-> +
-> +int arch_decode_instruction(struct objtool_file *file, const struct sect=
-ion *sec,
-> +                           unsigned long offset, unsigned int maxlen,
-> +                           struct instruction *insn)
-> +{
-> +       u32 ins;
-> +
-> +       if (maxlen < 4) {
-> +               ERROR_INSN(insn, "can't decode instruction");
-> +               return -1;
-> +       }
-> +
-> +       /* arm64 instructions are always LE, thus no bswap_if_needed() */
-> +       ins =3D le32toh(*(u32 *)(sec->data->d_buf + offset));
-> +
-> +       /*
-> +        * These are the bare minimum needed for static branch detection =
-and
-> +        * checksum calculations.
-> +        */
-> +       if (ins =3D=3D 0xd503201f) {
-> +               /* NOP: static branch */
-> +               insn->type =3D INSN_NOP;
-> +       } else if ((ins & 0xfc000000) =3D=3D 0x14000000) {
-> +               /* B: static branch, intra-TU sibling call */
-> +               insn->type =3D INSN_JUMP_UNCONDITIONAL;
-> +               insn->immediate =3D sign_extend64(ins & 0x03ffffff, 25);
-> +       } else if ((ins & 0xfc000000) =3D=3D 0x94000000) {
-> +               /* BL: intra-TU call */
-> +               insn->type =3D INSN_CALL;
-> +               insn->immediate =3D sign_extend64(ins & 0x03ffffff, 25);
-> +       } else if ((ins & 0xff000000) =3D=3D 0x54000000) {
-> +               /* B.cond: intra-TU sibling call */
-> +               insn->type =3D INSN_JUMP_CONDITIONAL;
-> +               insn->immediate =3D sign_extend64((ins >> 5) & 0x7ffff, 1=
-8);
-> +       } else if ((ins & 0x7e000000) =3D=3D 0x34000000) {
-> +               /* CBZ/CBNZ: intra-TU sibling call */
-> +               insn->type =3D INSN_JUMP_CONDITIONAL;
-> +               insn->immediate =3D sign_extend64((ins >> 5) & 0x7ffff, 1=
-8);
-> +       } else if ((ins & 0x7e000000) =3D=3D 0x36000000) {
-> +               /* TBZ/TBNZ: intra-TU sibling call */
-> +               insn->type =3D INSN_JUMP_CONDITIONAL;
-> +               insn->immediate =3D sign_extend64((ins >> 5) & 0x3fff, 13=
-);
-> +       } else {
-> +               insn->type =3D INSN_OTHER;
-> +       }
-> +
-> +       insn->len =3D 4;
-> +       return 0;
-> +}
-> +
-> +size_t arch_jump_opcode_bytes(struct objtool_file *file, struct instruct=
-ion *insn,
-> +                             unsigned char *buf)
-> +{
-> +       u32 ins;
-> +
-> +       ins =3D le32toh(*(u32 *)(insn->sec->data->d_buf + insn->offset));
-> +
-> +       switch (insn->type) {
-> +       case INSN_JUMP_UNCONDITIONAL:
-> +       case INSN_CALL:
-> +               ins &=3D ~0x03ffffff;
-> +               break;
-> +       case INSN_JUMP_CONDITIONAL:
-> +               if ((ins & 0xff000000) =3D=3D 0x54000000)
-> +                       ins &=3D ~0x00ffffe0;                /* B.cond */
-> +               else if ((ins & 0x7e000000) =3D=3D 0x34000000)
-> +                       ins &=3D ~0x00ffffe0;                /* CBZ/CBNZ =
-*/
-> +               else
-> +                       ins &=3D ~0x0007ffe0;                /* TBZ/TBNZ =
-*/
-> +               break;
-> +       default:
-> +               break;
-> +       }
-> +
-> +       ins =3D htole32(ins);
-> +       memcpy(buf, &ins, 4);
-> +       return 4;
-> +}
-> +
-> +u64 arch_adjusted_addend(struct reloc *reloc)
-> +{
-> +       return reloc_addend(reloc);
-> +}
-> +
-> +unsigned long arch_jump_destination(struct instruction *insn)
-> +{
-> +       return insn->offset + (insn->immediate << 2);
-> +}
-> +
-> +bool arch_pc_relative_reloc(struct reloc *reloc)
-> +{
-> +       switch (reloc_type(reloc)) {
-> +       case R_AARCH64_PREL64:
-> +       case R_AARCH64_PREL32:
-> +       case R_AARCH64_PREL16:
-> +       case R_AARCH64_LD_PREL_LO19:
-> +       case R_AARCH64_ADR_PREL_LO21:
-> +       case R_AARCH64_ADR_PREL_PG_HI21:
-> +       case R_AARCH64_ADR_PREL_PG_HI21_NC:
-> +       case R_AARCH64_JUMP26:
-> +       case R_AARCH64_CALL26:
-> +       case R_AARCH64_CONDBR19:
-> +       case R_AARCH64_TSTBR14:
-> +               return true;
-> +       default:
-> +               return false;
-> +       }
-> +}
-> +
-> +void arch_initial_func_cfi_state(struct cfi_init_state *state)
-> +{
-> +       state->cfa.base =3D CFI_UNDEFINED;
-> +}
-> +
-> +unsigned int arch_reloc_size(struct reloc *reloc)
-> +{
-> +       switch (reloc_type(reloc)) {
-> +       case R_AARCH64_ABS64:
-> +       case R_AARCH64_PREL64:
-> +               return 8;
-> +       case R_AARCH64_PREL16:
-> +               return 2;
-> +       default:
-> +               return 4;
-> +       }
-> +}
-> +
-> +#ifdef DISAS
-> +int arch_disas_info_init(struct disassemble_info *dinfo)
-> +{
-> +       return disas_info_init(dinfo, bfd_arch_aarch64,
-> +                              bfd_mach_arm_unknown, bfd_mach_aarch64,
-> +                              NULL);
-> +}
-> +#endif /* DISAS */
-> diff --git a/tools/objtool/arch/arm64/include/arch/cfi_regs.h b/tools/obj=
-tool/arch/arm64/include/arch/cfi_regs.h
-> new file mode 100644
-> index 0000000000000..49c81cbb6646d
-> --- /dev/null
-> +++ b/tools/objtool/arch/arm64/include/arch/cfi_regs.h
-> @@ -0,0 +1,11 @@
-> +/* SPDX-License-Identifier: GPL-2.0-or-later */
-> +#ifndef _OBJTOOL_ARCH_CFI_REGS_H
-> +#define _OBJTOOL_ARCH_CFI_REGS_H
-> +
-> +/* These aren't actually used for arm64 */
-> +#define CFI_BP 0
-> +#define CFI_SP 0
-> +#define CFI_RA 0
-> +#define CFI_NUM_REGS 2
-> +
-> +#endif /* _OBJTOOL_ARCH_CFI_REGS_H */
-> diff --git a/tools/objtool/arch/arm64/include/arch/elf.h b/tools/objtool/=
-arch/arm64/include/arch/elf.h
-> new file mode 100644
-> index 0000000000000..418b90885c501
-> --- /dev/null
-> +++ b/tools/objtool/arch/arm64/include/arch/elf.h
-> @@ -0,0 +1,15 @@
-> +/* SPDX-License-Identifier: GPL-2.0-or-later */
-> +#ifndef _OBJTOOL_ARCH_ELF_H
-> +#define _OBJTOOL_ARCH_ELF_H
-> +
-> +#define R_NONE         R_AARCH64_NONE
-> +#define R_ABS64                R_AARCH64_ABS64
-> +#define R_ABS32                R_AARCH64_ABS32
-> +#define R_DATA32       R_AARCH64_PREL32
-> +#define R_DATA64       R_AARCH64_PREL64
-> +#define R_TEXT32       R_AARCH64_PREL32
-> +#define R_TEXT64       R_AARCH64_PREL64
-> +
-> +#define ARCH_HAS_INLINE_ALTS 1
-> +
-> +#endif /* _OBJTOOL_ARCH_ELF_H */
-> diff --git a/tools/objtool/arch/arm64/include/arch/special.h b/tools/objt=
-ool/arch/arm64/include/arch/special.h
-> new file mode 100644
-> index 0000000000000..8ae804a83ea49
-> --- /dev/null
-> +++ b/tools/objtool/arch/arm64/include/arch/special.h
-> @@ -0,0 +1,21 @@
-> +/* SPDX-License-Identifier: GPL-2.0-or-later */
-> +#ifndef _OBJTOOL_ARCH_SPECIAL_H
-> +#define _OBJTOOL_ARCH_SPECIAL_H
-> +
-> +#define EX_ENTRY_SIZE 12
-> +#define EX_ORIG_OFFSET 0
-> +#define EX_NEW_OFFSET 4
-> +
-> +#define JUMP_ENTRY_SIZE 16
-> +#define JUMP_ORIG_OFFSET 0
-> +#define JUMP_NEW_OFFSET 4
-> +#define JUMP_KEY_OFFSET 8
-> +
-> +#define ALT_ENTRY_SIZE 12
-> +#define ALT_ORIG_OFFSET 0
-> +#define ALT_NEW_OFFSET 4
-> +#define ALT_FEATURE_OFFSET 8
-> +#define ALT_ORIG_LEN_OFFSET 10
-> +#define ALT_NEW_LEN_OFFSET 11
-> +
-> +#endif /* _OBJTOOL_ARCH_SPECIAL_H */
-> diff --git a/tools/objtool/arch/arm64/special.c b/tools/objtool/arch/arm6=
-4/special.c
-> new file mode 100644
-> index 0000000000000..5a6424a59e1c5
-> --- /dev/null
-> +++ b/tools/objtool/arch/arm64/special.c
-> @@ -0,0 +1,30 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +#include <objtool/special.h>
-> +
-> +/*
-> + * On arm64 a zero-length replacement means the alternative has a callba=
-ck,
-> + * whose address is stored in the replacement offset.  It must be preser=
-ved.
-> + */
-> +bool arch_alt_ignore_new_reloc(struct section *sec, unsigned long offset=
-)
-> +{
-> +       return false;
-> +}
-> +
-> +bool arch_support_alt_relocation(struct special_alt *special_alt,
-> +                                struct instruction *insn,
-> +                                struct reloc *reloc)
-> +{
-> +       return true;
-> +}
-> +
-> +struct reloc *arch_find_switch_table(struct objtool_file *file,
-> +                                    struct instruction *insn,
-> +                                    unsigned long *table_size)
-> +{
-> +       return NULL;
-> +}
-> +
-> +const char *arch_cpu_feature_name(int feature_number)
-> +{
-> +       return NULL;
-> +}
-> --
-> 2.54.0
->
->
+Signed-off-by: Armin Wolf <W_Armin@gmx.de>
+=2D--
+ drivers/leds/led-class.c | 29 +++++++++++++++--------------
+ 1 file changed, 15 insertions(+), 14 deletions(-)
 
-Flagging an issue I'm seeing, in case you haven't encountered it yet:
-applying this patch to v7.4-rc3 (with the new objtool klp unit tests)
-I'm getting a failure building with LLVM:
+diff --git a/drivers/leds/led-class.c b/drivers/leds/led-class.c
+index c8529003dbe1..135905dba47e 100644
+=2D-- a/drivers/leds/led-class.c
++++ b/drivers/leds/led-class.c
+@@ -27,8 +27,7 @@ static LIST_HEAD(leds_lookup_list);
+=20
+ static struct workqueue_struct *leds_wq;
+=20
+-static ssize_t brightness_show(struct device *dev,
+-		struct device_attribute *attr, char *buf)
++static ssize_t brightness_show(struct device *dev, const struct device_at=
+tribute *attr, char *buf)
+ {
+ 	struct led_classdev *led_cdev =3D dev_get_drvdata(dev);
+ 	unsigned int brightness;
+@@ -44,8 +43,8 @@ static ssize_t brightness_show(struct device *dev,
+ 	return sysfs_emit(buf, "%u\n", brightness);
+ }
+=20
+-static ssize_t brightness_store(struct device *dev,
+-		struct device_attribute *attr, const char *buf, size_t size)
++static ssize_t brightness_store(struct device *dev, const struct device_a=
+ttribute *attr,
++				const char *buf, size_t size)
+ {
+ 	struct led_classdev *led_cdev =3D dev_get_drvdata(dev);
+ 	unsigned long state;
+@@ -74,10 +73,11 @@ static ssize_t brightness_store(struct device *dev,
+ 	mutex_unlock(&led_cdev->led_access);
+ 	return ret;
+ }
+-static DEVICE_ATTR_RW(brightness);
+=20
+-static ssize_t max_brightness_show(struct device *dev,
+-		struct device_attribute *attr, char *buf)
++static const DEVICE_ATTR_RW(brightness);
++
++static ssize_t max_brightness_show(struct device *dev, const struct devic=
+e_attribute *attr,
++				   char *buf)
+ {
+ 	struct led_classdev *led_cdev =3D dev_get_drvdata(dev);
+ 	unsigned int max_brightness;
+@@ -88,19 +88,20 @@ static ssize_t max_brightness_show(struct device *dev,
+=20
+ 	return sysfs_emit(buf, "%u\n", max_brightness);
+ }
+-static DEVICE_ATTR_RO(max_brightness);
+=20
+-static struct attribute *led_class_attrs[] =3D {
++static const DEVICE_ATTR_RO(max_brightness);
++
++static const struct attribute *const led_class_attrs[] =3D {
+ 	&dev_attr_brightness.attr,
+ 	&dev_attr_max_brightness.attr,
+ 	NULL,
+ };
+=20
+ static const struct attribute_group led_group =3D {
+-	.attrs =3D led_class_attrs,
++	.attrs_const =3D led_class_attrs,
+ };
+=20
+-static const struct attribute_group *led_groups[] =3D {
++static const struct attribute_group *const led_groups[] =3D {
+ 	&led_group,
+ #ifdef CONFIG_LEDS_TRIGGERS
+ 	&led_trigger_group,
+@@ -109,8 +110,8 @@ static const struct attribute_group *led_groups[] =3D =
+{
+ };
+=20
+ #ifdef CONFIG_LEDS_BRIGHTNESS_HW_CHANGED
+-static ssize_t brightness_hw_changed_show(struct device *dev,
+-		struct device_attribute *attr, char *buf)
++static ssize_t brightness_hw_changed_show(struct device *dev, const struc=
+t device_attribute *attr,
++					  char *buf)
+ {
+ 	struct led_classdev *led_cdev =3D dev_get_drvdata(dev);
+=20
+@@ -120,7 +121,7 @@ static ssize_t brightness_hw_changed_show(struct devic=
+e *dev,
+ 	return sysfs_emit(buf, "%u\n", led_cdev->brightness_hw_changed);
+ }
+=20
+-static DEVICE_ATTR_RO(brightness_hw_changed);
++static const DEVICE_ATTR_RO(brightness_hw_changed);
+=20
+ static int led_add_brightness_hw_changed(struct led_classdev *led_cdev)
+ {
+=2D-=20
+2.56.1
 
-$ make -C tools/objtool ARCH=3Darm64 CROSS_COMPILE=3Daarch64-linux-gnu- LLV=
-M=3D1 tests
-make: Entering directory
-'/usr/local/google/home/dylanbhatch/worktrees/arm64-clang/tools/objtool'
-make[1]: Entering directory
-'/usr/local/google/home/dylanbhatch/worktrees/arm64-clang/tools/lib/subcmd'
-make[1]: Leaving directory
-'/usr/local/google/home/dylanbhatch/worktrees/arm64-clang/tools/lib/subcmd'
-make[1]: Entering directory
-'/usr/local/google/home/dylanbhatch/worktrees/arm64-clang/tools/objtool'
-make[1]: Leaving directory
-'/usr/local/google/home/dylanbhatch/worktrees/arm64-clang/tools/objtool'
-TAP version 13
-# preflight
-#   objtool   /usr/local/google/home/dylanbhatch/worktrees/arm64-clang/tool=
-s/objtool/objtool
-(klp: yes)
-#   compiler  Debian clang version 21.1.8 (3)
-#   arch      arm64  (host x86, cross)
-#   tmpdir    /tmp  (each test builds in a fresh directory here)
-# not run: 6 tests in x86/ (this run is arm64)
-1..46
-                                                            not ok -
-test-abs-and-addressable: abs_and_addressable.c does not build: 1
-error generated.
-...
-
-I haven't been able to dig into it too closely, but my AI tool is
-suggesting adding -mcmodel=3Dlarge for llvm, or putting '.set abs_sym,
-0x1234' in a separate object and using partial_link.
-
-Thanks,
-Dyaln
