@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795147481;
-	b=rhEkY6EP+Ij5H65kWlmzCqCzQoQYa0a3QR59XaQaygjuT+g4qL75Is9y6jL6W+IRm0+a
-	 rlXOnWE8YLHKcVG6wszqBoczZcxLAniiayFfuqZkSUB4ulxyrMpDNONS37CbH1To0Zfc4
-	 0vuJFOYAiTKUEPbvMJOAa/X60IdqcOfnLiZMd6pqX5SsqYX1Wo3DRs2taIjy7po0baLUt
-	 LnkJaFlR2bzTg+gRsGLYhXXgS3Urzqk5D5LY5lhnnb+Th294tpk7r6IFP+fGpwyH0wFZu
-	 BnmYyVX9ohhyBjMiRGy8rPXe67gZJRQbBO5nfcKbZsRjSalci2r0x6vozjukpO4OdOw==
+	t=1795147485;
+	b=zeETT5ulmZ28xROZnvWic7uY1wKhp8LEmx/hvSfXLe+N7E3Wy82R+8OJi1BXegSBA81f
+	 Suz11rGD7YXruUHmP+gkoNLDuKltXJkcFB9P76MjG8DfDka3EibBotL93IHaY4jl4v3CW
+	 cKw34YbsNleH904FTpGXheQjdXks+rTZSpl0VFWfWWdBFD4KjJixiytUoC5Iys/L3aUUT
+	 GZ4AcMfRj4y02WCRoOphtAE/sMSbQRtX+pnF5QW5Yio+lYSYPCPKFW+LdonejwRxw65LE
+	 Vkic2QlTQDwpZbprWAFxHH1HyU+I0vFb2Kwq7DsiWQh6tT9ns3/BL6UsnsHNkmr4usg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795147481;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795147485;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=aMXueYzEMSkafhBw0cZtNBrJpZvkeyJZqfF9NmIV6eo=;
-	b=dJrCqDNU2o9Y2QC4cXf/wg8v7LMcHUM7eI5MxSvZxdc6cApUZeg5lb5+A+oIusQytxor
-	 hMHdMA4g95xxmVAxSi++uMa2OgNttmqwWY2AY5AyTSt6SJOzCS9SSRr7MUG/M0cVjvXw/
-	 f4EZp2iDXhbHkPMhDN/mljH6D+t7ooQGGkP+ZJ2JE2x0/FXMtHwN1aUNr9PNbmVc8ZCO9
-	 P4m+L/AY0/eKNfZngF6kIVXTxamfPAmSP3+BuASvhxYCP0riXQSOrLVLW7DmawDAi/679
-	 8Uvvw1loCBPUwWibreFpO7aF0Vpc5I3nJU19qBAoQ9QIQljUk/YtGAZEmafVHgpYGFQ==
+	bh=A0MBPJOKvnLE5rP9NIQzyUeRKGazCi9hDA+IfnK6LUo=;
+	b=qGL4Qji7ihLxv1qupPc+Jcx0ak1fgnlmWkoDrqx+/PfqKjFil77hyArnZu/9ABn+FrRB
+	 3FdQa4vAM9AfinpoOfW4XqwI/XkmXFE7GINPA60KDbjyMtYCj8P+1xtcE0bHzNSE61fYP
+	 TPrISa2VjYaiVEVJ5Vt12sYMzCfuUchMrEoXvxoi8t8pzf903PF26oqNmbPhJj/O2spOl
+	 iq+FY7X2S4mWOQK9cLDDsRhpgdvlMG3f/F4s+2YYLXC72+65w16E5XHS7MCZM07rIFppT
+	 bOcxN2ASuPE9qBszsPNLR4W9hGxosGkTvduE9SAyczeQiJnBJtU057BDtd4p/GK+dGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mAXWFxNX;
-	arc=none smtp.remote-ip=74.125.82.178
-Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jhbZT64i;
+	arc=none smtp.remote-ip=74.125.82.48
+Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF352606A330
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:04:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF352606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F079606A330
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:04:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F079606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mAXWFxNX
-Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-3282db206d3so1193121eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:04:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jhbZT64i
+Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-1b3b4944abeso428747c88.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:04:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795147480; x=1795752280; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795147484; x=1795752284; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=aMXueYzEMSkafhBw0cZtNBrJpZvkeyJZqfF9NmIV6eo=;
-        b=mAXWFxNXEPtUyLa141EFyXRWs8YPeBkT0lol1Y6NqLPrlL1EOtIX297VegZFlkrzbM
-         ADNOywzsyYxPaxEUul9LkLfaEEtjyDGjJ2jCNaOZY8974N/ChFbcQg0KObOQp9YhF4M0
-         UW13Z9lL+zyVKVaaiTmU4RVvxz+TCcoNKgtHz8QP9J29cUJQDKg1Sb5S00NESMJ7egbt
-         vRj2+YvPKOEq0XGrCJiBJOCX9CdU9/q1LMXUpIDgc+d78me1S73vAPeexwQmxjJUKcY9
-         js8Fq2BsyUTxR0aLu3y+lOjDoNRswuMkxT52rG2kdkNWpv23HK6qCHxjU+4pUoSp4bwK
-         eTSg==
+        bh=A0MBPJOKvnLE5rP9NIQzyUeRKGazCi9hDA+IfnK6LUo=;
+        b=jhbZT64iVoeVdQg8TchoerlntHS1udZnNbDG+Ov0wynleMU/V3beiw4CtcHrCZv/QM
+         FstXM2/dMMpZ0Efz8uYTZisZtysrOM4u9Oszs47t3BgRkXbXQ+sgwU7+QsAFSpfGfa7w
+         eQKmzjF4KD0CHsovp992+kJZ/PJZ0jRhmzUt0RF5d6f2EPURY1GkfO0drs+GiyW4CGfR
+         JUPEU+VLDKFHwhqE6RyxFeJs0qXeiftEZCSwwMCKWfKO5Fzlg4N2BOyLVIkMy1+MlGtC
+         gPFs/6ZlidVEsIB+TqQaoQDQAoTHlqEhudcWdkaRgoUdPq6H9iRLbRPEeBfQRAMGMowW
+         Y7dw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795147480; x=1795752280;
+        d=1e100.net; s=20260707; t=1795147484; x=1795752284;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aMXueYzEMSkafhBw0cZtNBrJpZvkeyJZqfF9NmIV6eo=;
-        b=xNeX/48y7ducCG8tEcheL/5hxAFi18cPd1F4IQMfOPhh2ER+H0wlvaz4nlKYFG7YRm
-         qOCLrEZwMl/ivTRnKt+/kvx0a9VdB27Z3VR572E01zHm+x4Gi4sJAs+3+bWJLhpBE/Tw
-         YKM+CQZt2cY8Z6DZru/Tijt+YqcZ7t68IauaFfqlVUdzk+ghcIwYu1kGi543JZx2TbZA
-         027jewOnhCDMQMTY5XCYWNYYhX2yu6+emaMmDab+7XqVAq2VeylfkxHcWAEsqTWsNDVH
-         jqtc+eirpopn8Tjy2AyCMl0lgCL/GKi19Cd83noNxbUxyxI7kM9KwIrs2koYJUkXBIUG
-         RObg==
-X-Forwarded-Encrypted: i=1; AL+hErGglWus5S1W80F9A6XqNygjUFF6Zjlpp3IeUpZ4ix/N4mQZ56LC/9LFtmfQGk/a+ezYcYuCqD2jyuwief0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/SsfuhoURZ+aBv8piwDDOVgDLVu67zWeBYvSc6X/WbwjSQrTHA
-	KoJoa/Cu/ER1lBpLLSMQe8okZDOskLx3U7KXchWb9Kzg481ngZSX8Usn
-X-Gm-Gg: AYBFou0ea3PUPN8fMM0YzSrhUdU9lQBJ8PE+UtbtSLxH8n901kUruRo68G76kar7LCl
-	BigA2apLlTXiHgQZgE1BeI1+vS2IOuK4/zi21Lqi+8M/9rMkq74shuo0nJhwHKL/gl8tH8aVwxT
-	uACnHaizTus1TnFod/kko9AD5Y6xifEbDpI4M/CVVOLfxjM+3MlIS6XJz8v88MEsU+Fz3OaYJDP
-	BHJQUW59J6BnzV/ENggse4JU0lkmD+rpjs0vZih6Ofy/uLJO+5RKMMF3s5M7pt5QFBtAPbdiCc9
-	vHcADsc4tc4NwfDHyJNIpBnvc5YK1t/WxPV/TNz0C5G+WqCjtdSSFnByt+P1w5jCT3O0xE1XL7F
-	eEuHg7ZW5L3k8y2ffH7D3ChPfHtIFaOaml7s2wg0bbaLTSfPlep44bo7T1SE0fcdNlknsSelabl
-	6zFtcK/MmBkiAJXLO/qgeRJ7halw0/XwYbRv8IZtP/2974Hi/eRqOj8elNWRYinTsckqJ2vG4zM
-	F/1zQj1S1hQOWU2MvSwEkgP0HiwgVS4l3tFVkn919XShbxJgJSQXeyaxXi7eAlY8LzSwv1i1FeU
-	v/1bT0N1X4yX66GotTJH4j57bseGfbo89A==
-X-Received: by 2002:a05:7301:4617:b0:36a:1e0c:e28d with SMTP id 5a478bee46e88-3856c2c506fmr1462609eec.4.1795147480140;
-        Thu, 19 Nov 2026 20:04:40 -0800 (PST)
+        bh=A0MBPJOKvnLE5rP9NIQzyUeRKGazCi9hDA+IfnK6LUo=;
+        b=rjTK+J5WdEN+j4rKKEraTIearRtRwiXRYdTGn3Go9KdVk6yvuwTuwORg7Uj7DqNPJK
+         b+HN0OH2b+e7/YOGjHP01byU875IkrIB5+5vY7jGiYlp6YO3uFb3UdD8PqZNMWQURwiH
+         gwic1ecZGKAX4Cbs9oa+iei0u1h+mONLnjY9SwrfdccD4EHEQGEAjMIg7N+YfUoQ/VM2
+         0/DKtmyzM57OXaccSc7SM+3w5I2CNXYIGq8YBRvsouF9E7WASB2w1/O9iSLoGnemc6L6
+         xpDspf4bGfNeY9A2kpZqZwXXikRNX78dcDbKgxVIXwOOrvlalcDexYY2md8NtDLTdAPl
+         mqMw==
+X-Forwarded-Encrypted: i=1; AL+hErGCmcgJnKFtZblWp0xMfOdzZ4n/cH0uXn5rAvk7aZwfPBi0nT7tx7bMP/Y4PPk8Asj1Xd/q9zO4OaGPklY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Sph6UwMXKP9q5LEi3OCDL0m6BH7UdFfoKuHtBVTNvuibgBm9C
+	p8c/6zmCB0gWghlwWhlugxp4VT85CWIrmQttnRrUeCVcoYBr8sQneuoV
+X-Gm-Gg: AZFdTZe9sk/sPwLqrbVWjjN0WaU9XKpqNCARZqS5WPpprix3oujC5LAR7ixY4MCgf3u
+	qNYDBD+egWtU7upKCMvyMk1zQJ9mXapwbItNUkFU9QQpUSsTX6I6PAIe3wcyDZ3/vdxkP8+8wAF
+	ydNCMh+ef9Nbp2JWoi7KPscvgTXq2PkVebXLHtKsRZhVs6CUrgEO6wkgxIuN4T8E69/R+zzvZMo
+	tI5m3df2ZRHd8yd+P7hj451KVUmMQulk3D6ssjmP877rhOJta0eP9DFh860USxrc0KNHmdCOa0p
+	BJHH8Dcq1OKRZgjWwy0J7+L5yamKn1OkLIqS+i+eRwpPKWvzIEXhQj0J2E2UNyCa1ScmGSmvp0k
+	Fx1yaSkvYb1LASS5inKLaOez8XYxucL7dfflYvi/602PmG/Hc91C4FK900hOeg8KGymgr6pUtuf
+	jPYZO4CEzOoJG3YVFVA+AHo1HiGwwSthcVFbevh+pPjFNwpbzbR+LtsngqWVAY3aidTA5RVVWfJ
+	N4jU13Ip3Bn5S4X5pAEVsV6Mw2j1oTuZo0LPbyAEXqqAKOMi/vbNEUvkgZs1D8YzHEk01puBuso
+	QFjtZJAHpLm/yzVevwA7Eq+5L84LCzZzbDk=
+X-Received: by 2002:a05:7301:a0d:b0:369:fa21:ba0b with SMTP id 5a478bee46e88-38570847a85mr1610871eec.33.1795147484154;
+        Thu, 19 Nov 2026 20:04:44 -0800 (PST)
 Received: from pve-server.rlab ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm3246104eec.6.2026.11.19.20.04.36
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm3246104eec.6.2026.11.19.20.04.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 20:04:39 -0800 (PST)
+        Thu, 19 Nov 2026 20:04:43 -0800 (PST)
 From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
 To: linuxppc-dev@lists.ozlabs.org
 Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
@@ -88,9 +88,9 @@ Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
 	Nicholas Piggin <npiggin@gmail.com>,
 	Shrikanth Hegde <sshegde@linux.ibm.com>,
 	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-Subject: [PATCHv3 17/19] powerpc/pseries: Enable context analysis
-Date: Fri, 20 Nov 2026 09:33:16 +0530
-Message-Id: <778a4d18674535c24b406f6134f327d7af34fcbb.1795147055.git.ritesh.list@gmail.com>
+Subject: [PATCHv3 18/19] powerpc/powernv: Rework OPAL console write to remove conditional locking
+Date: Fri, 20 Nov 2026 09:33:17 +0530
+Message-Id: <2dc60ffe2b5c0d7e6dba3216b4c040ec9788e6c2.1795147055.git.ritesh.list@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <cover.1795147055.git.ritesh.list@gmail.com>
 References: <cover.1795147055.git.ritesh.list@gmail.com>
@@ -105,28 +105,75 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-pseries objects now build with Clang context analysis enabled.
-Turn it on for the directory.
+Clang's context analysis reports:
+  opal.c:454:7: error: spinlock 'opal_write_lock' is not held on every path through here [-Werror,-Wthread-safety-analysis]
+  opal.c:493:3: error: releasing spinlock 'opal_write_lock' that was not held [-Werror,-Wthread-safety-analysis]
 
-This checks that each lock taken in this code is dropped on every path.
+This patch rework the OPAL console write function to remove this
+conditional locking to fix the reported build errors while enabling
+Clang context analysis. We could have marked __context_unsafe(),
+but this anyways simplifies the locking a bit.
 
 Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
 ---
- arch/powerpc/platforms/pseries/Makefile | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/powerpc/platforms/powernv/opal.c | 30 ++++++++++++++++++---------
+ 1 file changed, 20 insertions(+), 10 deletions(-)
 
-diff --git a/arch/powerpc/platforms/pseries/Makefile b/arch/powerpc/platforms/pseries/Makefile
-index 3ced289a675b..d5f9beec33cc 100644
---- a/arch/powerpc/platforms/pseries/Makefile
-+++ b/arch/powerpc/platforms/pseries/Makefile
-@@ -1,4 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
-+
-+CONTEXT_ANALYSIS			:= y
-+
- ccflags-$(CONFIG_PPC_PSERIES_DEBUG)	+= -DDEBUG
+diff --git a/arch/powerpc/platforms/powernv/opal.c b/arch/powerpc/platforms/powernv/opal.c
+index 1946dbdc9fa1..aea83c4be76d 100644
+--- a/arch/powerpc/platforms/powernv/opal.c
++++ b/arch/powerpc/platforms/powernv/opal.c
+@@ -438,19 +438,13 @@ ssize_t opal_get_chars(uint32_t vtermno, u8 *buf, size_t count)
+ 	return 0;
+ }
  
- obj-y			:= lpar.o hvCall.o nvram.o reconfig.o \
+-static ssize_t __opal_put_chars(uint32_t vtermno, const u8 *data,
+-				size_t total_len, bool atomic)
++static ssize_t __opal_put_chars_unlocked(uint32_t vtermno, const u8 *data,
++					 size_t total_len, bool atomic)
+ {
+-	unsigned long flags = 0 /* shut up gcc */;
+ 	ssize_t written;
+ 	__be64 olen;
+ 	s64 rc;
+ 
+-	if (!opal.entry)
+-		return -ENODEV;
+-
+-	if (atomic)
+-		spin_lock_irqsave(&opal_write_lock, flags);
+ 	rc = opal_console_write_buffer_space(vtermno, &olen);
+ 	if (rc || be64_to_cpu(olen) < total_len) {
+ 		/* Closed -> drop characters */
+@@ -489,10 +483,26 @@ static ssize_t __opal_put_chars(uint32_t vtermno, const u8 *data,
+ 	}
+ 
+ out:
+-	if (atomic)
++	return written;
++}
++
++static ssize_t __opal_put_chars(uint32_t vtermno, const u8 *data,
++				size_t total_len, bool atomic)
++{
++	unsigned long flags = 0;
++	ssize_t written;
++
++	if (!opal.entry)
++		return -ENODEV;
++
++	if (atomic) {
++		spin_lock_irqsave(&opal_write_lock, flags);
++		written = __opal_put_chars_unlocked(vtermno, data, total_len, true);
+ 		spin_unlock_irqrestore(&opal_write_lock, flags);
++		return written;
++	}
+ 
+-	return written;
++	return __opal_put_chars_unlocked(vtermno, data, total_len, false);
+ }
+ 
+ ssize_t opal_put_chars(uint32_t vtermno, const u8 *data, size_t total_len)
 -- 
 2.39.5
 
