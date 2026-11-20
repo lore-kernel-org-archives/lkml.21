@@ -1,68 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.97.179.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795193340;
-	b=vgOg8qQl2O/4X02OwwvutOpb7hQVaWR7pLhcAdjYZc+3cP5HDDvuWKAKq7RPRsJoTSq4
-	 A7VKLLPM1KSI7gsydNVipJ7WmAlYiPRhqZxaVY/FlIErqlgiBk+GI8NOh1mPOCN7P57+Q
-	 bh0j01D83Qom4x7gPvWEd1E1OnRJh4J/iVDn18+FmSFVLzKB1BR/VXANh1Fm5Mc0F8MJB
-	 VwYgksCfUczbeLawWU4QKdg0USWcumbw78zet/ztAwgReCIBFWegODvi48zkgjE6ExJwq
-	 YirgKPnLAHRNGhrOm57WvaG4FlzufeymW14mxap8Q5b3j89FKzdkMXL+sSHwV9hiE7g==
+	t=1795193376;
+	b=MOSICR3e9Vu+z1wi8iBKrqsqWj5GB6R0C1EoIYKyMcSoWPr2cUmRUTGrkMVPRUUUujs2
+	 fvtBx+4tYHgYEi4wW0bx/EhA9ofjz0rAafDHuqyd2uZjnmCFhLQSiBpnmkKOTs7IvS/Ff
+	 p33juWuAZeElMMV6eSnjz/hVlhyo0MPwa+bJQmAmVLvLU3/Ojqu35R+frsaStKmUfHKNx
+	 Mt0wIt3H7Gu6OGTPmvnUjJnAAKQWIsqZuWy2u2V81flzkmXH9rna9J6VCipR2AXtVV8kk
+	 dy1ublwhYAZwPj7tkKf02XQ2qIbjtRtTMozsFiVK70DGcluTM5umx6dEoZdP1GqYTcw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795193340;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=dWlboDYBd5BGl+p3WRU/hoNuEIs3lMzUvVPPx0RwBac=;
-	b=sPpctbyNIw4jhoQRQRZU0/uUcYkrST7d3TTIbUxeVbLpVomfxVNEGHF+bBgwQ1gbGbVK
-	 f4H8XaZmuLFpJN4cEPcRxKLfD+P+EBk5WwhOFhvt5Zm+JkNo8aHQiEfBxRvPxRl7CVTFP
-	 TpyI9VCNyu20zLre6xorESpr55e6w/Q9peo6TEIy4HKUidnpLfd9XnlCcEeOKmaOFhW73
-	 uhPJWx3w6URCY6P6ODxMEcQnS5tGV9i0/hB8rnwLAUqF4de+d2u/rxluKkmyNkdhdF6JU
-	 OIhH05sc9Sn2BOihem6jieL40VBEb1REejwKEumiMabUyOAjesLCNydQEWE1TuGbKeg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795193376;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=mn5he0+K8znliFOyTTFpEswHVtosrnYpIk2OlL8JzzI=;
+	b=GtQf4cM4dEC7t/uG+AW5kdQaf3IpBcjd5F6A+QYFSiTSa7Od01I6IZoM8WnDFwTwlALy
+	 tBKNdxwBJDykfRlA7BLyBU6Y3Q13QFOgw8/YWAAKrOF5CjjDG9dNl1EZWOPWljixectul
+	 y5sVWZGkE7i3Yyn5wzsAMVo5ugdP5ATDYjVz1DqmdKNOD9NHwF8q5GBiYSUwaBHxc/gp3
+	 3khg2uV9T+TUroDXQsUBJnyTBgcTSgP4kkmTtqQsUqV9t6VUVABpaH85ZkvuY27gvYLSD
+	 iXHsGaaBtBdFhb2xXieeWKJ9Y7RfVhPiM5KaHjQtw5UdJMdifLOXzt9GTrFksEcKBOg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=BLUp4lYO;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id EA9D2606A330;
-	Fri, 20 Nov 2026 16:48:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA9D2606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=igalia.com;
+	spf=pass smtp.mailfrom=igalia.com;
+	dkim=pass header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=ql6WNg2N;
+	arc=none smtp.remote-ip=213.97.179.56
+Received: from fanzine2.igalia.com (fanzine2.igalia.com [213.97.179.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4562606A32C;
+	Fri, 20 Nov 2026 16:49:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4562606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=igalia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=igalia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=BLUp4lYO
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7EEFB1575;
-	Fri, 20 Nov 2026 08:48:50 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D22FB3F882;
-	Fri, 20 Nov 2026 08:48:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795193333; bh=wE0tnPT5bhRkJ3p9KFR14+0FV3MqcU0Hq6gMMmUBPHw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BLUp4lYO5xM+mHKj+9mRsDBnlTM0X4YPScwuiUjDcgvaqV4OlDJQUIgd7+5xtyTJI
-	 kdqcMXaofKElkdLmL/c1hVIMwzg1cBTo3LXReHLkjUqYuKleU5s9QQE62owlL6LQfk
-	 hWmvZ4XkibssNAhaQIYwIkWoBhGc+yd7AYV1OuRY=
-Date: Fri, 20 Nov 2026 16:48:44 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Muhammad Usama Anjum <usama.anjum@arm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Zi Yan <ziy@nvidia.com>, Alexander Gordeev <agordeev@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Peter Xu <peterx@redhat.com>, linux-mm@kvack.org,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/9] mm: distinguish HW PTE pointers from SW PTE value
- pointers
-Message-ID: <awB57BlYzicAJzqr@arm.com>
-References: <20260922-pte0-v3-0-5670b8cb9059@arm.com>
- <avtAQCkvRr1xkxMF@arm.com>
- <959a843d-f579-4aa7-8299-c6e9c5d03812@arm.com>
+	dkim=pass (2048-bit key) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=ql6WNg2N
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:From:Reply-To;
+	bh=mn5he0+K8znliFOyTTFpEswHVtosrnYpIk2OlL8JzzI=; t=1795193375; x=2110553375; 
+	b=ql6WNg2Nu8sFlS3EIMSQyAIkckrq4/+slNOOEu0vGVMVyTF78qqTACSRwRnEjTfhMgC7Pswh+DT
+	7oq2Oam8IeVTW9o01SuI+sK5vCSNDlOiet//jU/BLRaLVe9QkB+UVkY4FEWVxPF0Jid0YgeMqsyVU
+	z844AVS3mUegD95RnMzqi2di0fpzL4DMppsBeTGDDNfpRyquAhfRomp+Il78tCA0ze9E60ZuHJN7P
+	DenGiy3+kFOwnMRZ4IzTG4rapHKzliHaa/ETA04XmkNXOwalFV2FFPMlyAFxSA65Yfbr4LgyyF52d
+	Vv0EJEwM9ChwKOGyrz5ik97RK0NAnQlj3Jbw==;
+Received: from [179.105.94.163] (helo=[192.168.0.4])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1xURni-00000001wrv-1TkD;
+	Fri, 20 Nov 2026 17:49:26 +0100
+Message-ID: <3f029973-1a52-4118-acd5-4a433fb49710@igalia.com>
+Date: Fri, 20 Nov 2026 13:49:19 -0300
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,126 +58,164 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] drm/v3d: Fix double free of query arrays on parse
+ failure
+To: Xiaolei Wang <wangxiaolei01@kaihong.com>, mwen@igalia.com,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, tvrtko.ursulin@igalia.com
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, Iago Toral Quiroga <itoral@igalia.com>
+References: <20261120022828.2612091-1-wangxiaolei01@kaihong.com>
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Content-Language: en-US
+Autocrypt: addr=mcanal@igalia.com; keydata=
+ xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
+ /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
+ gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
+ SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
+ G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
+ AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
+ dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
+ P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
+ O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
+ GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
+ 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
+ FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
+ TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
+ Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
+ 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
+ LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
+ T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
+ wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
+ zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
+ it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
+ Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
+ uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
+ raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
+In-Reply-To: <20261120022828.2612091-1-wangxiaolei01@kaihong.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <959a843d-f579-4aa7-8299-c6e9c5d03812@arm.com>
 
-On Wed, Nov 18, 2026 at 09:41:41PM +0000, Muhammad Usama Anjum wrote:
-> On 16/11/2026 5:41 pm, Catalin Marinas wrote:
-> > On Tue, Sep 22, 2026 at 06:12:28PM +0100, Muhammad Usama Anjum wrote:
-> >> PMD, PUD, P4D and PGD storage are deliberately out of scope. They can be
-> >> converted in later series after the PTE boundary is agreed, avoiding the
-> >> PMD-specific cases that made an all-level conversion difficult to
-> >> review.
+Hi Xiaolei,
+
+On 19/11/26 23:28, Xiaolei Wang wrote:
+> v3d_get_cpu_timestamp_query_params(), v3d_get_cpu_reset_timestamp_params(),
+> v3d_get_cpu_copy_query_results_params() and v3d_copy_query_info() -- the
+> latter shared by the reset and copy performance parsers -- free the query
+> array on their error paths through v3d_timestamp_query_info_free() and
+> v3d_performance_query_info_free().
+> 
+> The same job is then released by v3d_submit_cpu_ioctl()'s failure path
+> (v3d_submit_cleanup_jobs() -> v3d_job_cleanup() -> v3d_job_put() ->
+> v3d_cpu_job_free()), which calls the same helpers on the same query_info.
+> On these error paths query_info->count was never assigned -- it was only
+> written after the parse loop completed -- so the syncobj loop ran zero
+> times and no syncobj was put twice, but the "if (query_info->queries)" test
+> still succeeded and the dangling pointer was handed to kvfree() a second
+> time.
+> 
+
+====
+> Every failure inside the parse loop takes this path: -ENOENT from
+> drm_syncobj_find(), -EFAULT from get_user(), or -ENOMEM from
+> kvmalloc_array() in v3d_copy_query_info().
+====
+
+Needless paragraph.
+
+> 
+> Fix the ownership instead of the symptom: the query array, and the per
+> query kperfmon_ids, belong to the job and are freed exactly once, by
+> v3d_cpu_job_free().  The parsers no longer free anything; they only fill
+> the array in and record how far they got:
+> 
+>    - query_info->count is set before the parse loop, so the helpers know how
+>      many entries were touched when parsing fails halfway;
+> 
+>    - the arrays are allocated with kvzalloc_objs(), so entries that were
+>      never reached carry a NULL syncobj and a NULL kperfmon_ids;
+> 
+>    - the helpers walk the full count but test every entry, so they put
+>      exactly the syncobj references that were taken, keeping
+>      put-count == find-count on all failure paths;
+> 
+>    - the inline kvfree() of kperfmon_ids in v3d_copy_query_info() is dropped
+>      for the same reason;
+> 
+>    - the count argument of v3d_timestamp_query_info_free() and
+>      v3d_performance_query_info_free() goes away, as the count now lives in
+>      query_info itself.
+
+You don't need to describe every single detail of the code in the commit
+message.
+
+Please, make your commit message for human-readable.
 
 [...]
 
-> > First, I'd like to see all such on-stack p*d pointers addressed as a
-> > prerequisite (e.g. fix pmd_populate() in __split_huge_zero_page_pmd()).
-> > If for some reason we deem pmd not fixable, I don't like half (or
-> > quarter) baked solutions just addressing the pte.
-> 
-> Only pmd pointers conversions may require careful review and some discussion.
-> Other remaining p*d would be straight forward again. I think if I convert
-> everything, we'll have 30-35 patches for generic side only. It would a little
-> time consuming to rebase that again and again.
-> 
-> I think, a simpler plan can be to post the pmd pointer conversion series
-> as well  in the open to get better acceptance of this overall effort.
+> diff --git a/drivers/gpu/drm/v3d/v3d_sched.c b/drivers/gpu/drm/v3d/v3d_sched.c
+> index 1924e3440dc9..6ee64fbacae9 100644
+> --- a/drivers/gpu/drm/v3d/v3d_sched.c
+> +++ b/drivers/gpu/drm/v3d/v3d_sched.c
+> @@ -95,34 +95,44 @@ v3d_sched_job_free(struct drm_sched_job *sched_job)
+>   	v3d_job_cleanup(job);
+>   }
+>   
+> +/*
+> + * The query arrays are owned by the job: they are allocated by the extension
+> + * parsers in v3d_submit.c (which also publish ->count before they start
+> + * filling the entries) and they are released only here, from
+> + * v3d_cpu_job_free().  The arrays are zero allocated, so on a parsing failure
+> + * the entries past the last one set up are all zero and get skipped.
+> + */
 
-I didn't ask for the full pmdp conversion but only to see if we can
-remove the on-stack uses first. At a quick grep, there are only a few:
-pmd_populate() on a local pmd_t in __split_huge_zero_page_pmd(),
-__split_huge_pmd_locked() and vmemmap_split_pmd().
+This comment is superfluous. Please, delete it.
 
-> > Second, we could add a run-time page table check, at least for pmd/pte.
-> > Something like below, gated by CONFIG_PAGE_TABLE_CHECK or
-> > CONFIG_DEBUG_VM (untested and not entirely sure about using
-> > PageTable()):
-> > 
-> > static inline void pgtable_ptr_check(struct mm_struct *mm, const void *p)
-> > {
-> > 	if (object_is_on_stack(p)) {
-> > 		WARN_ON_ONCE(1);
-> > 		return;
-> > 	}
-> > 	if (mm != &init_mm && virt_addr_valid(p))
-> > 		WARN_ON_ONCE(!PageTable(virt_to_page(p)));
-> > }
-> 
-> s390 already has CONFIG_STRICT_MM_TYPECHECKS, but that only provides type
-> checking for page-table values. It cannot distinguish a pointer to
-> page-table storage from a pointer to a copied value. Consequently, direct
-> dereferences still appear in generic code and can bypass s390’s
-> architecture-specific handling. They have been trying to fix [1] differently.
-> 
-> RISC-V has independently encountered the same problem. Some RISC-V
-> platforms must transform page-table entries whenever they are read from
-> or written to hardware page tables, so generic code must consistently
-> use the architecture accessors. They were trying to fix it [2].
+>   void
+> -v3d_timestamp_query_info_free(struct v3d_timestamp_query_info *query_info,
+> -			      unsigned int count)
+> +v3d_timestamp_query_info_free(struct v3d_timestamp_query_info *query_info)
+>   {
+> -	if (query_info->queries) {
+> -		unsigned int i;
+> +	unsigned int i;
+>   
+> -		for (i = 0; i < count; i++)
+> -			drm_syncobj_put(query_info->queries[i].syncobj);
+> +	if (!query_info->queries)
+> +		return;
+>   
+> -		kvfree(query_info->queries);
+> +	for (i = 0; i < query_info->count; i++) {
 
-I thought these were about direct dereference of the pointer to pte. We
-could use some sparse annotations like __ptent (already proposed). The
-run-time check is about valid pointer accesses but when the PTE is on
-stack.
+Stop the loop at the first NULL syncobj.
 
-> > You already have some coccinelle patches to make the conversion. Could
-> > we turn them into a coccicheck to detect new uses? With LLM reviews like
-> > Sashiko, we can probably catch new uses violating the requirement (we
-> > need to document it).
-> 
-> Coccinelle can identify common syntax, but cannot reliably distinguish the     
-> meaning of two pointers when both are pte_t *.
+if (!query_info->queries[i].syncobj)
+     break;
 
-No, that's what we'd use a runtime check for. The incomplete types probably
-help, though you can't fully prevent explicit casting.
+> +		if (query_info->queries[i].syncobj)
+> +			drm_syncobj_put(query_info->queries[i].syncobj);
+>   	}
+> +
+> +	kvfree(query_info->queries);
+>   }
+>   
 
-> > LLMs and coccicheck won't catch all abuses nor does this series prevent
-> > one from declaring hw_pte_t on the stack.
-> 
-> By using Coccinelle and LLMs we can still get regressions which arch-es
-> have been doing over the year.
-> 
-> hw_pte_t * makes accidental violations compilation errors in every build.
-> Deliberately declaring hw_pte_t on the stack remains possible, but is explicit
-> and reviewable. (RFC of this series has info on why we aren't using opaque
-> objects.)
+[...]
 
-I'm not sure what the conclusion was on opaque hw_pte_t. IIRC Lorenzo
-also proposed a non-opaque type that Ryan agreed to some time ago. IIUC,
-if we take that route, we'd need to go again through all type changes in
-this series. On arm64, some of the functions proposed like hw_pte_val(),
-__pte_from_hw() would need converting again.
+> @@ -915,7 +885,8 @@ v3d_copy_query_info(struct v3d_performance_query_info *query_info,
+>   		    struct drm_file *file_priv)
+>   {
+>   	unsigned int i, j;
+> -	int err;
+> +
+> +	query_info->count = count;
 
-IOW, I'm trying to understand the road to get there, like ptep_advance()
-instead of ptep++ and so on. Once we are clear, maybe without a full
-patchset, we can go ahead in steps but at the moment it's not clear to
-me you won't post another conversion like this soon after.
+Leave this in the functions that call v3d_copy_query_info() and remove
+count from v3d_copy_query_info()'s parameters.
 
-Anyway, that's not my code, so if the mm folk are happy, please go ahead
-with the generic series. I may wait enabling it on arm64 until the
-opaque pte type discussion is settled.
+Best regards,
+- Maíra
 
-> > Once the above are in place, I'd look again at these patches and see
-> > whether they improve code clarity and are worth the churn.
-> > 
-> > Maybe an argument in favour of these patchsets is future dynamic support
-> > for FEAT_D128, we'd need to separate the software representation of a
-> > pte from the hardware one but we've done this before (arm32 non-LPAE has
-> > different representations).
-> 
-> Yes, that's also the big motivation of this work. We don't want to depend on
-> the config options to turn on/off features. Arch should be able to turn on/off
-> code based on the cpu features.
 
-It's a lot more work than the pte size here. PTRS_PER_* have different
-values, ptep_advance() would be more dynamic. It's doable but it's a lot
-more involved and I think the types are the least of our problems. I'm
-also waiting to see how many CPUs implement D128 before committing to
-supporting it upstream (it doesn't buy us much anyway).
-
-Thanks.
-
--- 
-Catalin
