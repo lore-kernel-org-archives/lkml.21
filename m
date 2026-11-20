@@ -1,55 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795177639;
-	b=z7X8wsaNSkEvSuVrx67inmXCIzasU2I8wRT/uyPPZ/BCYfVp/J5KPTXWBhQm6sJ7g4Lr
-	 vGfC7mTgIODXF+Q/pH+LMrlPsaXd8Qvf1tDhrFf5lBUoG+Qiq4hlBmzs9n6qHWaMBVCq3
-	 +K+crcFiRS7XUwdyM03jvU7zfIuB6EGFDtf9u0bWBaVK3rhQrvb8LmMDa/+FCMH9hW2hp
-	 pnr6w4KEUEU88lxhCkuxwZHYmy1o+yOUohhCrDeEBJ/jN7tWmUT6hiEq5o7iIf5dzB84a
-	 zS0GmQhX7NBZxF/4BdHSotcQrmoX8kkF6egsK97MoCBRmvzo95SxJ7w06rWqnerz1ug==
+	t=1795177643;
+	b=AfWGPqU9xP5yAoRJYxmJ0f+4RR0pg5wCNBSqL+qkR7Ykr8sCemAo6bzG0SHsAm7EhMpc
+	 9qKdG5n/Gu6PLyr2W2234S9om2NIp73phmr4qxIpQS/Hiz+o/uhAKhAdpKJbvEmNndPpV
+	 +p21GKRGAnDFBi9Smq3XeUhhUyoTQ269mSqKYtFx2PH0WO+MJ9DjAFO7pPgqXBVTsmoae
+	 FLlDxtBOUBRQ5SHrq4H+oLisSN7254BFHX1ane0mSw9Rg4/j9sddURPoXRuGLQKEhPBE1
+	 Y2T9QrhMnuSaGKBWJuacdBAR8gTqYh+LgbZRu79NB1nyfeNwQF0/5SDiOJElabTZqJQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795177639;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=AcAKXow4k7nAsz4NvTf98ZQKCNLbRCZ9q0bbUe/mxCg=;
-	b=ZAUz1aSbnhJR34+oM9hcgg+PSQz3IqH6UrYGWFX5q+r/SwRzv3LhgK6NlnC/wJ5lSrqS
-	 fRL6xODQpnBo7ezdpbeWUxk4ls5lOAsP9RKi3oDw8S3a0UNcH7iXrDdPYeiy9yB3NAFly
-	 o6+OcQ5KiCpBlUmPDNwk363N0gJlPY13gGo/D7jLZase0C/VL2gdtROBFffRlzPPkaxah
-	 Y1zmjzKFNDibGRCNo7ZUZIkrK0xUh1vh1mX5UNKfqeXBkRqe0Mg6uu0zxjYj8gEHp/fME
-	 IjKQxU2cYHO8B3O4HpbFDfdnfIhit9zePKyfhIDlTuXNkcOVpVymjzg+0D7jPzXXXLw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795177643;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=WeFdTE4PR68OQCnZa7+zxRrhnvY3a7YtcGXshXCKTgo=;
+	b=f7Viy+3PxOzolWEaz8+j0ghLnIhQRdFOpsStgTGjsIuStlwFujA2Lyx6piBduHVkGazO
+	 aDSOpK94LM6UsFP/REVmAg9nUYwD6jkGXmCpUC18/NFEJk605xXTSn9FqiCK8noIgi3/8
+	 qNhNd00iUDZzM7QPKAYm0R3PHdTcbAEUs+x3ahHi+UHuKU4TvdUaNu1Ji69+yTTCfsr55
+	 /KEnGcljN5YdnsrE4t0aKfYNLvGBofJsUBf7Q+0r1o7m9ypEJAJRR0AfpgWOnLLoFaUwa
+	 /pDs2fxCVIpvYM5accfiUXtM8PGXBZcvielGMyDXufba9S+pph5WmniSrXg8Zr9IOrA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b="a+l/+NdJ";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kLbMn2xB;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ED17606A32A;
-	Fri, 20 Nov 2026 12:27:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C35F606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:27:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=a+l/+NdJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 174611F000C4;
-	Fri, 20 Nov 2026 12:27:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795177638;
-	bh=AcAKXow4k7nAsz4NvTf98ZQKCNLbRCZ9q0bbUe/mxCg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=a+l/+NdJlosvbvrFz8skxFt+7lH/BYqPvJI/SIcdwvR35/YhtHI7xEaNR9/SQwDck
-	 OoIenHKHOWWbZUzANxx/C2LIM3aPEhDag+j8O3HOCKVuRuQ5ofCbLJQGgQsjZzwR+r
-	 ooAKISbCoLcv8rQ3xxP8xWsrEuXt8CeRSaJKKObE=
-Date: Fri, 20 Nov 2026 13:27:16 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Fangwen Deng <fangwen.deng@mediatek.com>
-Cc: Chunfeng Yun <chunfeng.yun@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
-	jarried.lin@mediatek.com, vince-wl.liu@mediatek.com,
-	justin.yeh@mediatek.com
-Subject: Re: [PATCH] usb: mtu3: cancel EP0 requests to prevent use-after-free
-Message-ID: <2026112053-curtain-astound-bf4e@gregkh>
-References: <20261106080140.342107-1-fangwen.deng@mediatek.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kLbMn2xB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F1F01F000E1;
+	Fri, 20 Nov 2026 12:27:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795177642;
+	bh=WeFdTE4PR68OQCnZa7+zxRrhnvY3a7YtcGXshXCKTgo=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=kLbMn2xBkz95rHft/v4+ZMDSvSxBYWNlZDLIhB6PVLI4VtASoCQJ/dnAvVS6PZvDc
+	 0N0sOxY/8fWX0z8fi3SbwvjHIkiLqX3Qt9SesXVtORAXSWYh1sIuSeuFRhPlCLnZNb
+	 KsxYvYWlYBpoiINnrEjEb71oEw0J4Sz53YiHJOqdtNyrIO0pND3R/ozy2j845BY2oP
+	 h467FfPfq5TpapIMMiK9OZEJOjsz9nqXKxcKVFUkmgANhwvUM+ETv5H1BMx6QYLAjQ
+	 5x/MIwyDIReeF94wsHu5b/Qm2U1xy/RbjMbL4vEZnEaCODy51ay+wEVgEGsY/KbCUK
+	 4a3/gcNZZ/G6Q==
+From: Michael Walle <mwalle@kernel.org>
+To: Pratyush Yadav <pratyush@kernel.org>, 
+ Bart Van Assche <bvanassche@acm.org>
+Cc: Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <1b755e40b80fded4b4b4c1f1c81f0d171012a1de.1793999093.git.bvanassche@acm.org>
+References: <1b755e40b80fded4b4b4c1f1c81f0d171012a1de.1793999093.git.bvanassche@acm.org>
+Subject: Re: [PATCH] mtd: spi-nor: Reschedule in spi_nor_wait_till_ready()
+Message-Id: <179517764105.1011003.7250063376346500539.b4-ty@b4>
+Date: Fri, 20 Nov 2026 13:27:21 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,79 +61,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261106080140.342107-1-fangwen.deng@mediatek.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16.0
 
-On Fri, Nov 06, 2026 at 04:00:58PM +0800, Fangwen Deng wrote:
-> mtu3_ep0_dequeue() always returns -EINVAL and leaves the request on
-> mep->req_list without unlinking or completing it, so an EP0 request
-> can never be cancelled.
-> 
-> FunctionFS assigns its temporary read buffer to ep0req and waits in
-> __ffs_ep0_queue_wait(). When that wait is interrupted by a signal it
-> calls usb_ep_dequeue(), does not check the return value, and its
-> caller ffs_ep0_read() frees the buffer on every exit path. With
-> -EINVAL returned the request stays queued and MTU3 still owns it.
-> When the host then sends the OUT data stage, ep0_rx_state() writes
-> the received bytes through the stale req->buf, giving the host a
-> content-controlled write into freed kernel memory. That corrupts
-> whichever object reuses the slab and can panic the kernel.
-> 
-> Implement mtu3_ep0_dequeue() following mtu3_gadget_dequeue() but
-> without QMU flush/start since EP0 uses PIO: validate the request
-> under mtu->lock, unlink it once and give it back with -ECONNRESET,
-> so ownership of the buffer returns to FunctionFS before it is freed.
-> 
-> Cancelling the request that backed the data stage also leaves the
-> transfer unable to finish, so retire the aborted transaction with a
-> protocol stall. That returns ep0_state to SETUP and stops a later
-> ep0_queue() from reading this transaction's leftover FIFO data into
-> the next request's buffer. The stall is skipped when the controller
-> is already powered down or no data stage is in flight.
-> 
-> The same stub is why functionfs_unbind() cannot cancel a pending EP0
-> request, which deadlocks against the FunctionFS thread holding
-> ffs->mutex.
-> 
-> Fixes: df2069acb005 ("usb: Add MediaTek USB3 DRD driver")
-> Signed-off-by: Fangwen Deng <fangwen.deng@mediatek.com>
-> ---
->  drivers/usb/mtu3/mtu3_gadget_ep0.c | 55 ++++++++++++++++++++++++++++--
->  1 file changed, 53 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/usb/mtu3/mtu3_gadget_ep0.c b/drivers/usb/mtu3/mtu3_gadget_ep0.c
-> index e4fd1bb14a55..73a1af8b6c65 100644
-> --- a/drivers/usb/mtu3/mtu3_gadget_ep0.c
-> +++ b/drivers/usb/mtu3/mtu3_gadget_ep0.c
-> @@ -857,8 +857,59 @@ static int mtu3_ep0_queue(struct usb_ep *ep,
->  
->  static int mtu3_ep0_dequeue(struct usb_ep *ep, struct usb_request *req)
->  {
-> -	/* we just won't support this */
-> -	return -EINVAL;
-> +	struct mtu3_ep *mep;
-> +	struct mtu3_request *mreq = NULL;
-> +	struct mtu3_request *r = NULL;
-> +	struct mtu3 *mtu;
-> +	unsigned long flags;
-> +	int ret = 0;
-> +
-> +	if (!ep || !req)
-> +		return -EINVAL;
-> +
-> +	mep = to_mtu3_ep(ep);
-> +	mtu = mep->mtu;
-> +
-> +	spin_lock_irqsave(&mtu->lock, flags);
-> +
-> +	mreq = to_mtu3_request(req);
-> +
-> +	dev_dbg(mtu->dev, "%s : req=%p\n", __func__, req);
 
-Don't add "trace" calls like this.  And __func__ is NEVER needed for a
-dev_dbg() call.
+On Fri, 06 Nov 2026 13:04:53 -0800, Bart Van Assche wrote:
+> In spi_nor_wait_till_ready_with_timeout(), cond_resched() is only
+> called after spi_nor_ready() returns 0. If the flash is already ready on
+> the first status check, the function returns before reaching
+> cond_resched(). This happens e.g. under QEMU, where SPI NOR page
+> programs and sector erases complete synchronously during the MMIO write,
+> combined with a controller driver that polls without sleeping.
+> Consequently, multi-sector erases in spi_nor_erase() and multi-page
+> writes in spi_nor_write() may iterate over thousands of sectors or pages
+> without ever yielding the CPU on kernels built without
+> CONFIG_PREEMPTION, e.g. ARM32 kernels with CONFIG_PREEMPT_VOLUNTARY=y.
+> This triggers soft lockup and RCU stall reports.
+> 
+> [...]
 
-thanks,
+Applied, thanks!
 
-greg k-h
+[1/1] mtd: spi-nor: Reschedule in spi_nor_wait_till_ready()
+      commit: bcfbc784fce431f0f2b0a25c238b61feda2b710a
+
+Best regards,
+-- 
+Michael Walle <mwalle@kernel.org>
+
