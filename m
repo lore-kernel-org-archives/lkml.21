@@ -1,54 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795175543;
-	b=liOknKXjkdv6ibTxeW20CWJs0h6B2U0yv/wpQxzsi9evhP80tBNtkFNwPeZaJIS3CGMg
-	 mGJ3Fk6lTdFnYkPAmQiMLWAwppynpaqJOXpfBT5ONH0cAA2W3pD7Igy2dEwBGmsy4OK09
-	 BKn50LN4BWkFwXr5iPqIx5ngWt7jxIo5dXl+0C/7RJrMjNQnz7PkyHcIu5gAS0R1TCsXu
-	 xi1zoj3+1eVe0YkHC8bfzlTz9BPEpRBYfGlLAPQMDsPqv2d35T3wvt6ve8hKs5pKF+RKe
-	 wNrNVXN1zXtym86xsNjHMr0EwCLUDsfRUL9t1lb/Ove0JvMz1Z7krfrHfUGPuMX7Ttw==
+	t=1795175732;
+	b=VjGlIq9m7tc/eAAzYki8JNyyu68tgoTvVPcfaeeTDNdhkWhXKc0bvoMthSUmailXp2bI
+	 2Sx/rr1FOtLqoAl3Pq8i0R+K439/AqDoomm2LwDXuYd8KwUG5SA6krkNeWpZxKyykuncr
+	 PTlJNjQ+uuivEPGWxelR2mHIzbLok5P8CY6e7SIVhiFAilWe3h3Ycnd0aejnPaB/mBxk5
+	 t0jW/yYg7mQ0uB1U/oSWMHFKj5+kaTxRgJcovvlwFiiO5K/stuuFvb5PfiLk0EgaH2Eiv
+	 RO16Dsb9A4uKk3YVz0sBETcxsQrv9/nNlyTvVZ+eotG6SmPmLCAREntxdMPz2m/1X9w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795175543;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=qeDa6/dGBO7PkG4MthALQtdi8l3BzeWkfWxZJ7VMsS8=;
-	b=ljz7Nid6fgF4Ov/+F4V+EPDAQCNJm1Optjzqkf2mK8d39aZtrmhgX0cRE6OxjVpTLpUW
-	 tV2gZt8aAIXG4UlOcKIdJMO6Xru5ObvEZZ/hWAf2YUHW/GOrGXBzhJxuQfw5Lq28pZK6n
-	 lNZEFTiuYUVpC9Hflfwfwm1EF0ZRmJc2aR62DIu5Dpqiu4YGjgSMPZtoyenRG+AuLW6iz
-	 9kbQl3ArD73rfJMpeR1k1MfW7ImjA8snE24nEjexzPG2Hpzsit/ArGZepiTg5+elay1g2
-	 +0OXUHWWfGbHEpvHJglSF2qESsGyT4HugwDkxHvHew/+VoKaWl7SwC1Nmp/Aq/zWiZA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795175732;
+	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=gXZGtUUKJlB0JAEvQjueae9grBIYVg16MV9B05CzPJI=;
+	b=wOlQxEX4X1f2eisUcEgc1vfcNPeqfgMZGVesTKuFPboL0wPutyaiBdNcsbykB/Zdyt55
+	 ekgxm+4+7gku410ifbXNB0XaorWyc1E6ScHZu8p1P53upM7t2vwsnuA1SutwNbKLQVFh6
+	 Itm4kHPhNa2rhq4OvHoqXTSjhn6cc/Q0kiiBhWT7nxFk9tyynSEzX7D6mCA6UX5OIAkLd
+	 usZbk2Qvk5EPS362O+p1rdcMlSnM+NmIyf7w5iCed9jMkuGTW9u2r7tpRa7PRA+IK5cq6
+	 9qig7WrcMYUwwBP3tHC9o9KPuWALTnGl3AN7bpwT6ewV23T8L1VnaN+BSro72xyeV9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=mtioLA+f;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fDTnja3x;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA6B3606A320;
-	Fri, 20 Nov 2026 11:52:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9D08606A326;
+	Fri, 20 Nov 2026 11:55:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=mtioLA+f
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DD9B1F000C6;
-	Fri, 20 Nov 2026 11:52:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795175543;
-	bh=qeDa6/dGBO7PkG4MthALQtdi8l3BzeWkfWxZJ7VMsS8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mtioLA+fPf8QEg8Z8KDN+5CO5YVh1+6umoWhv0U1e7XIP8zpRkhK6bSGX9Gw1nFDv
-	 YMijEQMFw8ySLKjxwUtSeqP0EAofUR6HXq2theWz+G3NfrH++yNDtNxh6RENeuIQVl
-	 9Bp0H04YV0h8DyEkubCnDuuD/HtfFy9tuvM1wpaQ=
-Date: Fri, 20 Nov 2026 12:52:20 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Keisuke Tsukuda <catnyaaan@outlook.com>
-Cc: Alan Stern <stern@rowland.harvard.edu>,
-	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"syzbot+a83a5a1ba9ff57935171@syzkaller.appspotmail.com" <syzbot+a83a5a1ba9ff57935171@syzkaller.appspotmail.com>,
-	"syzbot+d31109047baed8f3b590@syzkaller.appspotmail.com" <syzbot+d31109047baed8f3b590@syzkaller.appspotmail.com>
-Subject: Re: [PATCH v2 1/2] usb: gadget: composite: avoid warning on aborted
- delayed status
-Message-ID: <2026112008-hungry-scorer-f2b0@gregkh>
-References: <20260908203348.95825-1-tkdkei@outlook.jp>
- <20260908203348.95825-2-tkdkei@outlook.jp>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fDTnja3x
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC63C1F000C6;
+	Fri, 20 Nov 2026 11:55:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795175732;
+	bh=gXZGtUUKJlB0JAEvQjueae9grBIYVg16MV9B05CzPJI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=fDTnja3xaysTL7sjgCdcE04GjF+K6DYVz/01WtDrfaXMpW1L2MtviUern5vw9RHhn
+	 cFyFl2qswrSfsj8qgZ69JsSdEx7Ecv4XQZL4Pu4owytw0CZ28BfkUTjBqPv1WWqa3G
+	 WO48Ze3W8KBpTYXSl79Zg2khrMASjuhq4u7JvIjDVJ7Hi2amH0Sq1O50jbDj6FriUG
+	 F9vxn2Wy1CTg3f5GQz8xRtYX//HKR9ryfK2huhfvOFSzEt/h3g7UO00ND5zePQK2R8
+	 2NIbckPUnN+VWRLPu0iA3cwo1PPVaukNVr02c8Jzt4J+VQ/H9zTFbmRO/csK/27s/l
+	 me50+TD3yzlsg==
+Date: Fri, 20 Nov 2026 01:55:31 -1000
+Message-ID: <6fef47e08a37079c08806b3c57994778@kernel.org>
+From: Tejun Heo <tj@kernel.org>
+To: luca abeni <luca.abeni@santannapisa.it>
+Cc: Yuri Andriaccio <yurand2000@gmail.com>, bsegall@google.com, cgroups@vger.kernel.org, dietmar.eggemann@arm.com, hannes@cmpxchg.org, juri.lelli@redhat.com, kprateek.nayak@amd.com, linux-kernel@vger.kernel.org, mgorman@suse.de, mingo@redhat.com, mkoutny@suse.com, peterz@infradead.org, rostedt@goodmis.org, vincent.guittot@linaro.org, vschneid@redhat.com, yuri.andriaccio@santannapisa.it
+Subject: Re: [RFC PATCH v7 00/29] Hierarchical Constant Bandwidth Server
+In-Reply-To: <20261120120659.2e902463@linux.fritz.box>
+References: <20261109163616.195264-1-yurand2000@gmail.com> <212c244d534ee1fdb0538a980789e16c@kernel.org> <20261111175657.250354-1-yurand2000@gmail.com> <58cb2cbaf82c0f671213eaca46465cd5@kernel.org> <20261119151416.33f90a64@linux.fritz.box> <471bf8d446becabfca00041fb2a78067@kernel.org> <20261120120659.2e902463@linux.fritz.box>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,45 +58,48 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260908203348.95825-2-tkdkei@outlook.jp>
+Content-Transfer-Encoding: 7bit
 
-On Tue, Sep 08, 2026 at 08:33:53PM +0000, Keisuke Tsukuda wrote:
-> A SET_CONFIGURATION request that disables the current configuration, or a
-> disconnect, can abort a control transfer whose status stage was delayed by
-> a function driver. The asynchronous function work can nevertheless finish
-> later and call usb_composite_setup_continue() after reset_config() has
-> cleared delayed_status.
-> 
-> This is an expected consequence of aborting the old control transfer, and
-> does not require a kernel warning. Keep the diagnostic available under
-> dynamic debug and ignore the obsolete completion as before.
-> 
-> Fixes: 2bac51a1827a ("usb: gadget: composite: reset delayed_status on reset_config")
-> Reported-by: syzbot+a83a5a1ba9ff57935171@syzkaller.appspotmail.com
-> Closes: https://syzkaller.appspot.com/bug?extid=a83a5a1ba9ff57935171
-> Signed-off-by: Keisuke Tsukuda <tkdkei@outlook.jp>
-> ---
->  drivers/usb/gadget/composite.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/usb/gadget/composite.c b/drivers/usb/gadget/composite.c
-> index df39e34..1b22381 100644
-> --- a/drivers/usb/gadget/composite.c
-> +++ b/drivers/usb/gadget/composite.c
-> @@ -2740,7 +2740,7 @@ void usb_composite_setup_continue(struct usb_composite_dev *cdev)
->  	spin_lock_irqsave(&cdev->lock, flags);
->  
->  	if (cdev->delayed_status == 0) {
-> -		WARN(cdev, "%s: Unexpected call\n", __func__);
-> +		DBG(cdev, "%s: Ignoring obsolete call\n", __func__);
->  
->  	} else if (--cdev->delayed_status == 0) {
->  		DBG(cdev, "%s: Completing delayed status\n", __func__);
-> -- 
-> 2.50.1 (Apple Git-155)
-> 
+Hello, Luca.
 
-Please use Linux to send this, it's corrupted as-is for some reason.
+On Fri, Nov 20, 2026 at 12:06:59PM +0100, luca abeni wrote:
+> In other words, if tasks can migrate between cores, performance
+> guarantees should be "per-cgroup", not per-CPU, which makes it
+> difficult to mix "(runtime, period)" and "max" in the same cgroup.
 
-greg k-h
+Thanks for the example. I can see that the mixed config is difficult
+to analyze. What I don't follow is why the kernel has to enforce it.
+Again, this is purely from the interface POV, but wouldn't it be
+enough for the kernel to provide the mechanism and leave what gets
+built on top of it to the users?
+
+> I do not know much about IO device and io.max, sorry... But maybe the
+> difference is that tasks do not "migrate" between different devices?
+
+Yeah, that's different, so the analogy isn't perfect. The allocation
+side isn't different tho. One can construct an analogous, if
+contorted, case with block devices. e.g. Imagine multiple disks
+serving an identical read-only data set, with io.max used for
+bandwidth and performance isolation. A workload which moves across
+the disks would be essentially the same model as threads moving
+across CPUs.
+
+> I also fear this kind of solution can increase the probability of
+> misconfiguring the system (ending up with the feature not being used).
+
+I'm not sure baking the constraint into the interface would make
+people use it more.
+
+> Yes, I think this is OK. It means that hierarchical scheduling is
+> disabled by default, and the administrator has to write something in
+> the root cgroup to enable it.
+
+That's not what I meant. With the root at "max", nothing has to be
+written to the root. A cgroup can be given a budget right away and
+the budget is admitted against the DL bandwidth directly. An entry on
+the root is only needed to set aside bandwidth for cgroups up front.
+
+Thanks.
+
+--
+tejun
