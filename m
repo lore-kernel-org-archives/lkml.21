@@ -1,47 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795186254;
-	b=Fs958Xe8rbERJD1C3Aoy3f/qAUqVsu9hv+fg7F4KgTUwJ9OBSqajwJ49HNVwwetH67Va
-	 kYQ1ocABXvICyDBtjEnuaTb9Ow6odarTxzMzfapOvgFN019AwZjK/tJE/3KmRsHr/CpML
-	 VJ/kBf4d3f1xhRWBYhfz2QwCQiQhtwg6aucBmqYJVY5GsfDTp7kru8/xsDtLd1rVd4GUP
-	 ISW2VJ4hF7yjI54ns3upv8Xxn+WhuopcCPDarTHU51NCmmxY+QDiUJL18gZUnRq+OKMM5
-	 vEgAfCdbWv6Q2+6OyEleKborH2siAAXT7fSTwGry5AgTvxmRwyYZEArc/mKrXnI5oCQ==
+	t=1795186287;
+	b=WWf5SnE+S9JBFQoKfBFy4109crx5PZC5G7hRW/k16sQlzudCk+ZLBva3ZExiDJ24iyjD
+	 i4qORWH0qC3+ftZaCdqW+nQ2HsHCwfK76xbhP0t9DEkh3COAk2Y4hJJH78P0pYtotKPP4
+	 GZ+MOqh5yXpFKIW61RG3aSFF7RQuDRLnEInLUB60N02AtXkq+LigrI6AemerRakVDZK7h
+	 GtchSbd5RmuqAhuiTKnLBLWaooUbemyxeAcZMH3vwRqCZRZRETmHw5AVTMALOIP4oNuaq
+	 PNRN2DbdGktvIVjJX2PCAHyd2yxK4VOcJcU6InaNZpDAYXj1G6+uDb9l5XbmmXo+g7A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186254;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=xq95c6hIWcCI3WqchLYfnMuxNwOv/S9CL+ROrCSXBhM=;
-	b=HBsZtT5TTviof3q5h4X5E3EWz6nAmCRbt/qZtT1qWVa02v0tJVbZF4neeJosuyW+p6Q8
-	 rEG2tZyBakIIHk8lZ+nPyAl2UIkKdAYZmqoLCp53/O1UXOtElkg3ZXYeSIv0KwX8zumSC
-	 ijjnH1H7kqoNqxtBAjmeyct4ichTVGf31yDZnVxiANvqMNVcmWY6s7YZZ3QDQAL9Bq+gR
-	 VqnSIcskxmsPQiYuoFaB/J0+S44J+sJpqNlExyFKXvltmeJjGJqg/5DJjjzhfN4SV94A0
-	 5KMyVm/P6bZ4t/SgzPThFxIdKbUYjaGpTXJlQjDGdulHtnaxCmhDxfOTS3n/xxsY+6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186287;
+	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=LN+cDEaomPyKe7WgLyTQLLYOCDn8ku5XfaFlouP7r8A=;
+	b=xNW7Kh3lgYzAFktnUgT4th66dWK4Rjvg61MqHb0DY/I89kJ56aSATqS7nMPV0I1BOGBQ
+	 vblqfNHVnZiujVRkZjUeDzNuLQodaK1ANGGyaBYkOUkSqamK+Lc31O5pAR0VGFbJKdkLL
+	 veLEZxLACo2IKO1wll/3AGxW9BksR4CzqrCE6SG80nRrL0wAYzHNGh1o8GCf2UUmxnQz7
+	 F5YEAP61CsRQMEqLSWPDiYoXZ1lHrzGd2krnCHBQUGVS301tMP6pzxMRA0mXkTk1pispS
+	 pDBcOpzOYbeh8BwDyTjqbsO0YZiNmUJp34kjAqmrHJg9WyRSHQcmrLKQtA0omMWbavw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UDJERDe8;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SjRbev6m;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7DC960A2602;
-	Fri, 20 Nov 2026 14:50:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDCBE606A325;
+	Fri, 20 Nov 2026 14:51:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UDJERDe8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA28C1F000C4;
-	Fri, 20 Nov 2026 14:50:51 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SjRbev6m
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0610D1F000C4;
+	Fri, 20 Nov 2026 14:51:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795186254;
-	bh=xq95c6hIWcCI3WqchLYfnMuxNwOv/S9CL+ROrCSXBhM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=UDJERDe8PnZB1vOH24dOpCbmainn8Hh0UD2lEFg/YrTup19QRCBPDL/nCUh/y3eyE
-	 ddVze9nrfVeMYdqTJMKCQ/tQqNvYZF/lw9zgCNDAWw42uN0za3Xgfdaxs7piMesz9q
-	 L+q7zo9uRfCL1wiw8DpfJCDDafB/W5MWhF4c6DZS4sf1KY4M2YjiVE3PWP/6NC/Au+
-	 Ao1QBDJ2O7twRSqcPxaOenXtuz80qVMoI5EnyjWsmItikCYDxcL+YJC1LeDTJz5aC9
-	 7TafH6IpaYo974AB3F3RenjehzX6ViQB8Me6uzTYS1p2uzeRpVsH5t5sJYfCtrwQ26
-	 7pcMaI0ksFWPw==
-Message-ID: <be78bd95-cb61-4e50-9452-93e567d174a8@kernel.org>
-Date: Fri, 20 Nov 2026 15:50:48 +0100
+	s=k20260515; t=1795186287;
+	bh=LN+cDEaomPyKe7WgLyTQLLYOCDn8ku5XfaFlouP7r8A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=SjRbev6meg4jt1PvBwlSQAj/RQPl2G7zVhThlJnei+8mOmcvXUpeumFwpO7b+oqOm
+	 db+6HvS52T10XGSMX+q8V2GwM4TM0tareIRf97f/qAF+eT8Lj8DYY8pufBb5QaKR4v
+	 3LWjocRKcycnsmZ2fSRgmYroHigZSKh1tytQc2mcl19r6z4ob4mpTezgMjB02Pva4E
+	 XmWEPXNmfNbcD2uuCWs5YAF+jnKoQPBtDGXzlExEPxZoNGdUrLSsDJ0PtpIBMoSO/8
+	 NKV4IK2QrzBV7MhJl4jF7Ip+IB9Uzkt92VP82sIChUzOJWMfMXXLhAfxevScqRm5Bn
+	 ye5Dqb/jIJjWw==
+Received: from johan by xi.lan with local (Exim 4.100.1)
+	(envelope-from <johan@kernel.org>)
+	id 1xUPxU-000000067vm-27jI;
+	Fri, 20 Nov 2026 15:51:24 +0100
+Date: Fri, 20 Nov 2026 15:51:24 +0100
+From: Johan Hovold <johan@kernel.org>
+To: Joshua Crofts <crofts@kernel.org>
+Cc: Bin Liu <b-liu@ti.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	Felipe Balbi <balbi@ti.com>, linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] usb: musb: fix use-after-free in musb_remove()
+Message-ID: <awBebBuAg2w6ZitD@hovoldconsulting.com>
+References: <20261120-usb-uaf-fix-v2-1-cc3cb2a38ad5@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,95 +63,19 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH net 2/2] selftests: net: check UDP tunnel GRO virtio
- offsets
-Content-Language: fr
-To: Bryon Fryer <bryon@fryer.io>
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- horms@kernel.org, jasowangio@gmail.com, kuba@kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- pabeni@redhat.com, shuah@kernel.org
-References: <20261112030708.1915665-1-bryon@fryer.io>
- <20261112030708.1915665-3-bryon@fryer.io>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <20261112030708.1915665-3-bryon@fryer.io>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120-usb-uaf-fix-v2-1-cc3cb2a38ad5@kernel.org>
 
-Hello,
+On Fri, Nov 20, 2026 at 03:23:14PM +0100, Joshua Crofts wrote:
+> Currently in musb_remove(), musb_platform_exit() drops the PHY refcount
+> before usb_phy_shutdown() is called, causing a use-after-free bug.
 
-On 12/11/2026 04:07, Bryon Fryer wrote:
-> Feed ordinary Geneve/TCP packets through a NAPI TAP and bridge into a
-> virtio-header TAP. Require a multi-segment GRO aggregate and compare its
-> exported transport and checksum offsets with parsed wire headers. Include
-> a GRO-off packet-integrity control. No output or no merge is not a pass.
+This is too strongly worded. There is a potential for a use-after-free
+here but it's extremely unlikely to ever be an issue in practice as the
+phy driver would need to be unloaded by root while they are already
+unbinding the host controller.
 
-I *think* this series is causing the veth.sh selftest to flake:
+Why would root want to do that to themselves?
 
-
-https://netdev.bots.linux.dev/contest.html?executor=vmksft-net-dbg&test=veth-sh
-
-Logs:
-
-
-https://netdev-ctrl.bots.linux.dev/logs/vmksft/net/results/918887/55-veth-sh/
-
-https://netdev-ctrl.bots.linux.dev/logs/vmksft/net/results/918887/55-veth-sh-retry/
-
-Maybe because the new tun_vnet_gro test leaves a tunnel socket behind?
-
-Could you please check the whole net selftests on your side? (or your
-new test, then veth.sh)
-
-I suggest dropping the series for the moment to see if it improves the
-situation on the CI side, there are some comments on the patches anyway.
-
-pw-bot: cr
-
-Cheers,
-Matt
+Johan
