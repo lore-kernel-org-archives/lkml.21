@@ -1,126 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795169448;
-	b=pdG+XpP68a5DAkgbvq3GMY5LhgPAWgO0GEcgTHByaPFBBFZQVNa4VEiIlYXV2GrRoi3o
-	 pTggopVzMUVZ90cy3Af8GtoqQVtvT8eE1fo5VbFZUD0zRmjdwqypGydx/PgrdUDSaSwpY
-	 Tx4FXahTYFMsxC+V8CG0KcTPiVacSwRIfWDhSfGBv0OFAFHiUtK0ljgDaXmDYTAYQMy/z
-	 TAPGjHmgQ60qEiLLlYg+5K43hrtM6Xt/wmKSKr/51gvGfF7qk/o30PjwCsDeMSn055O0z
-	 gsPyBcqvwm1CLlqu3UE3Nn010z1/L9E40DfVn47fECBTIto15UavDn9Ns98M9ML6MYg==
+	t=1795169463;
+	b=vuyBN/tQpSDVf4mN273S0BVJrpylp+qBIpczAUrIRiLzv1ic9uLZiC9WYrqmW2ZKIOd2
+	 gVgJw2QTDm32AuuBpmkGSkUvapPp9Pn4FgtzfvDJA441Ws16DDCl3/V4duyshmNm3VnWt
+	 UkcYVH81nxkDW9hDogyqJWoCt7a9xCZQURvfPbEkXf7Y5GhOi9AF2RSgiGi1QiBpGMmwV
+	 zu2VF7JSuEcc4LnLtagkHfpG1JkBEp5Op8muXjC8qVCZCCBP0mpds8KjXflZLIo/oZwUd
+	 XcUszB8vGins5PoMqsmkrm6JFyJCmefOrw7YKjstsAk6qXASh38V1gTlyABfy7BF/qw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795169448;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=1Kw4d8+8FfNGzuUvFVQgRzSXtdZBgru3fPHEEea4jN0=;
-	b=e3FFuWaL8B+VFfH2yazkIjxXwn2B2i3QoI7yIELvAw/6ylIg8HQSJbQuUjlgeYOczTuL
-	 zfrQXj86EAQnTFlH43LjgyiEBNjUKLkFfVpC5jaqJidf7GBMJ9nSpZRn43HJOHlE7IP8o
-	 tO3dYU+0po4meGJNl2m2G3xshI6d1NZBCO9i4tqxD3tnMP/Xr+qUS8vzW8eZADXRn7ioO
-	 Gr+ztxt5s5xebnRJMeEBk0I/fCATwFUU57x+Xm4/2OLGpJMfBXncsJpelNjHOrHD7YO57
-	 LS/OL2WEPalx6PIf8P4g+OFbjggcKLf7ZicB87d/hK/lcQofZT4FPYMu//cfIry2hcQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795169463;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=+X2P66M1lXCjV9DI3ActaGpKyPOmtotCNbn7tD4AhLo=;
+	b=HR+7dal9erZk1TN5CjO/7+6JGbA83AJikzMYVAs5KCsPgGW1IhBlJ4E+W/UrOLyO6mMy
+	 L5CPYtmPdzYz0qR2P/BxVkI3DntwHu8Bao4e+NllKi4PEx0h45KS6y1+UzewzVutgXysS
+	 RWv69WNv7HGI3MMthmM6TjapircXTpzC/mS1eC1FNBF3ga9WMNFsElQ9qUhltWgL25ftq
+	 GhUNGXhfawKsrvMUfakJ7AO8xelVW/P+CbknYTrFN4rMVX7HBUO6azxNecYMz2aQf1WG3
+	 S10o63PHxwzT0PfaLK7hdLGe8+fbVSp8Y9tU6jItgXPUCbZ5FxBKhLiBVYagJkpnJJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VLToh1Ti;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=rB43Fbn+;
+	arc=none smtp.remote-ip=209.85.221.47
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 326E9606A334;
-	Fri, 20 Nov 2026 10:10:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D98A7606A338
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:11:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D98A7606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VLToh1Ti
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 4C75D1F000C4;
-	Fri, 20 Nov 2026 10:10:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795169448;
-	bh=1Kw4d8+8FfNGzuUvFVQgRzSXtdZBgru3fPHEEea4jN0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VLToh1Tir6uts0SeGlRBl//X3cQJoCaOibbyKUftV/xZRya+3eHAXARr/zlGfQJG1
-	 96+YnolWtf79XnmuP/cEtT2oo4SB6P1X8t4EEPYW/euBeUEbDAFZcbJIh1TqNDq/E7
-	 XcD/RZlWcRQ+s8UD4RoJRfLJuNJ2LNXNXRKDUGekphW3p0+myAouyeQaDDnSaVACkf
-	 GG6y3TV9D/MpwaM84YeVA1DLAF6Epea0TMvALLytGBEWt86XWG9tzdo7walppFaVvg
-	 iKO0zvpb2DjakRigJ9ylC4EshMVPUB2SSGdHaXfJUVSXeS1Q2CADCy2eAy5FZVtLCk
-	 swVQMahF+CrKg==
-Date: Fri, 20 Nov 2026 12:10:44 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: linux-fsdevel@vger.kernel.org
-Cc: linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
-	linux-security-module@vger.kernel.org,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@amacapital.net>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anna-Maria Behnsen <anna-maria@linutronix.de>,
-	Arnd Bergmann <arnd@arndb.de>, Ben Segall <bsegall@google.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Casey Schaufler <casey@schaufler-ca.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Christian Brauner <brauner@kernel.org>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Chris Zankel <chris@zankel.net>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	David Howells <dhowells@redhat.com>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	"Hallgrimur H. Gunnarsson" <halg@google.com>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	"H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Jan Kara <jack@suse.cz>,
-	John Johansen <john.johansen@canonical.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Josef Bacik <josef@toxicpanda.com>,
-	Juri Lelli <juri.lelli@redhat.com>, Kees Cook <kees@kernel.org>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Manfred Spraul <manfred@colorfullife.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Mel Gorman <mgorman@suse.de>, Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Hocko <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>,
-	Mike Rapoport <rppt@kernel.org>, Neal Gompa <neal@gompa.dev>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Moore <paul@paul-moore.com>, Paul Walmsley <pjw@kernel.org>,
-	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Rich Felker <dalias@libc.org>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Serge Hallyn <sergeh@kernel.org>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Valentin Schneider <vschneid@redhat.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
-Subject: Re: [RFC PATCH v4 00/14] Namespace for namespace roots
-Message-ID: <awAcpPQtM4hYHP-D@kernel.org>
-References: <20261119224312.1037966-1-jarkko@kernel.org>
- <av_hbgzwo-1FcAPZ@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=rB43Fbn+
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-49412eb1474so380946f8f.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:11:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795169461; x=1795774261; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=+X2P66M1lXCjV9DI3ActaGpKyPOmtotCNbn7tD4AhLo=;
+        b=rB43Fbn+qwmU1ELgHG0hARagsN5peq998DdnJflLGLIMYogt8npO4/0Dsut1FPhHG4
+         CcCTnM3Z9AWehcuiTvv2Gj2Np3jXRh7ar1uUMut2IBlplPKe6oKlkf82qR+IjO1zQJU4
+         uQjRwAtu6bgUtbcGuhV6FdB6WFclgNLl6Nw7VWzuflSc8Hu4qy7PO+w/kpK8yqqLoBfY
+         Ses3vx/IOlbss30hl53LVqar9O2pmjBp6b9t8YZgIr4pMIMA7KiCXsJdEjLylc9T+JBs
+         tyCrs9Xj9mRnvOTToo91qQvMsTEVtkuvT3tgD7kKTZCXK3IHXL3bGElircoXGc5MSGjC
+         nwuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795169461; x=1795774261;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=+X2P66M1lXCjV9DI3ActaGpKyPOmtotCNbn7tD4AhLo=;
+        b=YywPIkQbYF8aqrn0wGmq3zizVUxoO+NMvqXGlmgVCUZvzbK+UTme/4Z4NzW6mncaEi
+         Y/fdS0agxcTJLww0FyP0HXzBtRP+VrTrsRN3NANTQXdiSo3gmCLregEtCnunSOz68/Aj
+         1UtVYU82B5PGG7E6KJ0HBNozwKDWNx0NEHZMZiD8JQ58XhYWRxEmP5zPoy4JfBhMg+Oe
+         IXL+L7v9ZpW1hf600bNL15iMMzsLVLH9aMcHTmwNM/rxN2QE9FKButi6J5ZdNE6klLAq
+         +B0BQkI4LgWwptVh5jOpHkOAVDVvCrhOQ0FElRmmz8LRSRUCgv6TPeANzE+ixwkZZh+r
+         5XTQ==
+X-Forwarded-Encrypted: i=1; AL+hErHGr8JNDwMIgYp8xKwu/r5zc+6DaBLcbXCBO9M8Uy4DADTG2G0aaJqXkp3Sir5A6RT8VZpy6ujqZABIEvw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/b4bnjWsM0OMn9OBw5r0E+WOrQN8thDbnTm0LObvy3E/IY+ztU
+	DoLo/uCaY/4IT8T3R6KA0d9CJ1VSw9s1FNBzQ+/yy+YW2kL+8OTI6Svmt8WBKOGUv2U=
+X-Gm-Gg: AZFdTZfJpYA6AsbuQdfpW3rL8bwkPiMvdbsEUVcLGkIsI1jmTMifcWrPU7X6/1JUnX0
+	Ju40skxomU2pHSjZ/5aMFphRjJ3tu3tPz0SmzgjqFr7iYmyKigHIT3RkCRTGx8YE4lsuw+SsRNS
+	5SFxUTcwIEs8jDZzPs2tE5DR033U314YU9QyKKpB1GYECaF9ppCBCTP+91CKrenBDjyJlLD1++H
+	IXO/YfFaMahB7qspzVVtmBSXDuR2OU0bJU/1uOd85W4OP44uRF+APaeGQ9/sMr373A9RI0XPHph
+	moXDcsOd3ZQCgbZnyaE/s2v2g3x2ZNolPbKVwz+rKRsBXCQb6OdI8N9rWT8V9LS8Bxelvitj8ee
+	ayy8DG57NQPvsg4F+y1uCVZvPx6MLh8zUke7Vzx9+rCFUoGuNFSaGPUmwUQwnzzRwC4/ZYLS0cC
+	8hlZZCn9+ShD5VTpNLHMjV/d2uo0GutI/+Vx7rHiAqMwUTsRD65nbyqdbHlbO+VKIH0E30K8dEa
+	IUS46wEJZzBT0mDmhPbyKjW740MT+4ym1M9R4RPovnYmjjIS3cAlzpmaaDBfnHvaYkluSljZFbh
+	zUyWRvfNd1dlgbgAGtwi/SYtgCPyM2fm25fLMnOZbzoWznSbQ9s=
+X-Received: by 2002:a05:6000:470c:b0:4a6:ad0e:6cd4 with SMTP id ffacd0b85a97d-4abb759dd4dmr4599736f8f.48.1795169461013;
+        Fri, 20 Nov 2026 02:11:01 -0800 (PST)
+Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:8261:5fff:fe11:bdda])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bc8ce06sm4674937f8f.47.2026.11.20.02.11.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 02:11:00 -0800 (PST)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: [PATCH 0/2] regulator: qcom_usb_vbus: support PM8550B
+Date: Fri, 20 Nov 2026 11:10:57 +0100
+Message-Id: <20261120-topic-sm8x50-pm8550b-usb-vbus-v1-0-bbda7b708359@linaro.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -130,52 +92,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <av_hbgzwo-1FcAPZ@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALEcAGsC/yXMwQrCMAwA0F8ZORtoyyrVXxEPTc00wrbSrGMw9
+ u9WPb7L20G5CCtcux0Kr6IyTw321EF6xenJKI9mcMadrXUGlzlLQh3D5g3mMXhvCKsSrlQVbU9
+ xcBfLgSK0IxceZPv9t/vfWunNafmmcBwflZrqz4EAAAA=
+X-Change-ID: 20261120-topic-sm8x50-pm8550b-usb-vbus-14baf291e8ba
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Wesley Cheng <quic_wcheng@quicinc.com>
+Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, Neil Armstrong <neil.armstrong@linaro.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=786;
+ i=neil.armstrong@linaro.org; h=from:subject:message-id;
+ bh=dCoXljQk0vCwBnBceIsu+9Qc7k0ECyYukQk/bODbAII=;
+ b=owEBbQKS/ZANAwAKAXfc29rIyEnRAcsmYgBrAByz/VqqfDxo0w+8gq9XP5KjuBclG2X/c2x/5ir9
+ 2g5hGhqJAjMEAAEKAB0WIQQ9U8YmyFYF/h30LIt33NvayMhJ0QUCawAcswAKCRB33NvayMhJ0fOYEA
+ CF6kEIoP/fB7P/5O94hVj2It3YLHcH0SkctguuSe6zXULjqzwfle3WkOUI2jvTSUtmLFPbhT2+h81y
+ OTozs30JQt6YqRUGUouq/mBpZsqUYBJEwwyJPk5wKIfFM2OMloiyFvYDu3Kzx8z6sQvEV97zE1tOgo
+ 4q/5TEqcfFqqS3AHyk3pHav77LKZNgxScjWU7aWVZrlPQlOowwqCb/mBGh7QUjDRk9AxO2vvGUYp08
+ 3GQ0sBSZwnY3/9bGXQvLMebc+u1YmeCD6aqA0Rzajhny2YFzxiAMoERtD04mg3/xKHmYGdqPiK5ua6
+ 8LGI7EN87DwtWII2Ah5PIWfsq2taGY0jDEQN+ot7ihXNKih1PmpPhF2EoU5lNTXRuluIoQkDhgY5sw
+ 8S4MAqSERLGzskl5muZJY9nrUoH7226VyovbgbvLQCSdhcA0wlUDtgNPgd3hbSoCcT4QMclsSIzFt4
+ bQtR1QZwkW99OKuxQRSAYAGRxeO3ygsbjCYmLbmoP2Y3Gduq2Q7v10MD5kCPweSnBNvwGEdC+WAr/3
+ Rhwc72IaCyzyv3T9ZFGUMCbj4Um/VVO4MQLpVk+BsDMREn1ih4HKRx7Mx4yLK3tKn1IIbavg9PSQi6
+ F0+HrmAj2mpA0+d7n26x6+jhQ+i7EdZ1hVup0MEkwojXIjn+/v2iFgH4NzLQ==
+X-Developer-Key: i=neil.armstrong@linaro.org; a=openpgp;
+ fpr=89EC3D058446217450F22848169AB7B1A4CFF8AE
 
-On Fri, Nov 20, 2026 at 07:58:10AM +0200, Jarkko Sakkinen wrote:
-> I've now re-sliced these into a bit more sane pieces:
-> 
-> $ git log --oneline master..
-> d8e24a6bc14e (HEAD -> rootns, origin/rootns) MAINTAINERS: Add entry for ROOT NAMESPACE
-> f2569e56a267 selftests/rootns: Add root namespace test suite
-> bea05e758f8e docs: Document root namespace uAPI
-> dd05a49aff77 arch: Wire up rootns() system call
-> 2dee7a5fddec bpf: Register rootns LSM hooks
-> 73c51e02b830 security: Add rootns LSM hooks
-> 3cfd6576a037 mount: Support MOVE_MOUNT_T_MNTNS in move_mount()
-> 9ed7387038ea ipc/mqueue: Implement ->set_rootns() fs_context operation
-> 624f0ed9c1c7 proc: Implement ->set_rootns() fs_context operation
-> 1085e6ae2eb3 fs: Support FSCONFIG_SET_ROOTNS in fsconfig()
-> d2898dbdc39b fork: Support CLONE_INTO_ROOTNS in clone3()
-> 42dbccb5890e rootns: Add ROOTNS_KILL ioctl
-> 14cbda3e5bca rootns: Add ROOTNS_WAIT ioctl
-> b2cc82539b75 rootns: Add rootns() system call
-> d29215aa7f0f rootns: Track init lifecycle via copy_process() and pid_namespace
-> 0f9ce7febb49 rootns: Add core infrastructure for root namespaces
-> 7a0e8f969fc7 mount: Enforce mount_too_revealing() for foreign mntns
-> 8c61aee3afbf mount: Add mnt_ns_get_root()
-> 07d239d0287c userns: Factor out install_user_ns_cred()
-> bf74588e706d nsfs: Add nsproxy_open_namespace()
-> 645d31a1c516 nsproxy: Pass nsproxy to create_new_namespaces()
+Document and add support for the PM8550B OTG boost with a different
+register layout, supporting a current limit encoding from 1 A to
+1.75 A in 250 mA steps, then 2 A to 10 3.5 A in 500 mA steps.
 
-A "small" fact correction: rootns itself is not actually a namespace. It
-was at some point during the course of doing something over alonger time
-span :-)
+Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
+---
+Neil Armstrong (2):
+      dt-bindings: regulator: qcom,usb-vbus-regulator: document PM8550B
+      regulator: qcom_usb_vbus: add PM8550B support
 
-I'll adjust the language and documentation.
+ .../regulator/qcom,usb-vbus-regulator.yaml         |  6 ++++++
+ drivers/regulator/qcom_usb_vbus-regulator.c        | 22 ++++++++++++++++++++++
+ 2 files changed, 28 insertions(+)
+---
+base-commit: adcad7f4e6332cff3d6d7165f41584899f598534
+change-id: 20261120-topic-sm8x50-pm8550b-usb-vbus-14baf291e8ba
 
-It's like SGX enclave i.e., an isolated and opaque object with *nothing*
-at Epoch. Similarly as enclaves there's a build phase for building the
-memory environment, and a live phase that follows.
+Best regards,
+--  
+Neil Armstrong <neil.armstrong@linaro.org>
 
-Those are the glasses that I've looked at the topic all the time; not
-so much with namespace glasses, as it's not my main beef and actually
-doing this has very little to do with namespaces and so much more on how
-you manage and control the threads and memory.
-
-This is more like cross-cutting feature with no obvious subsystem
-ownership more than anything else.
-
-Br, Jarkko
