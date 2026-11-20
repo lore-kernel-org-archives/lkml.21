@@ -1,89 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795164080;
-	b=OVECWxTnNeB+3/G6NOa39qTMNJ05UmB93B646vhsmtlHVkVGmMDBhDAdRL8K95c6Rd8x
-	 3tblRPNzQHSdb5RBqTO57jHB/Wyx+Q2CpdDPpj9r6WyiakiN+DAxUlARVJLOg5riVD/XC
-	 OpnNjEKSvAFV66pEZxenjj2oBR7IZTzCxaoeBX9YKYOekua/9QX22gQz4IJHk3rFhJlvq
-	 Izpoxs0rTrpZ1vhXkh3ECb9sK9bALiXW5wfWH1NppDGod3yDm/YEJpvdZaQ5H5Z2h/7uO
-	 JF5XxxrnWYgwX/GMoWFW1AmPL/Fxrcfd0nqkFOuySop/GMf1+av06Glrz/Fl7g3cwmA==
+	t=1795164101;
+	b=eEuHvlrqIDqIwmdgFKlY9Q1nT4/STmIHtJd+a5QF7Y4Ybns3reZzXNkEUXNw6bkl4hWD
+	 5G5xZyaFjedM71i6+TzEuwZFoqJikwPyyXKFJEGOoHNzVa5iBGRoTJyPv4RVSxW6Dfr11
+	 XzbnXqQPjFKKrn4mhnGDyvjjfapG6PxoY2HGLS9o7fpV4sT49xdxas/43QVgrkKL8yIfF
+	 3MFERGfPVNl8P4dPNnDJHccDTkKalW3jw2Qx/UHZVYDzG3yLIWH7Vkq9YkXLpuSZeM7Nr
+	 EhSS4exQL5jnfL0vyiPtAfoMgwc8jgEzkfR7YmkMMBMwfjhagittup2P3l7TOrQxlew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795164080;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=B3S7G7b9bye8TH3pDQ6FGxRtNzK8TEwIHow/DDgOdOU=;
-	b=3FxftaAvScGhwHuKPyfFOEktr24gbzfDBZ/ERGBpxNOYnvpBzLZx6IYsNBYbDJGXZX2D
-	 cPyJzp/ESlO3kbT8aDPl5Z/6SdWupnNAE8cgppmrBmcLdY4r8IuA1GgGxd7PVF+EBJ3xr
-	 BVuqnpdZx6WDIN1mjSXa8aHwJRB6sZNRFgWRCcxn/zfhWiFDtVGz8Dg6yDlFrlyR2azHl
-	 GlTqyWvBZeY+864ZsbSEeA1ywCFvfp2rInBmT7Y0L+tX7pwrzOaesWyDyrKRjk8jPFWLR
-	 2uSZWQ95iMWUMwK7IDvgDE0VXPUCaRIcyOJNOCX5t/Q0EQyTnyXuVmDaW6SI6hq9n+g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164101;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer;
+	bh=8tzH+3GXLoxcfluPUxGtHTdK4vrEejEuYEXvhaD3clE=;
+	b=vbYKsnYn1YiAmpdj5vnnG3GJl3Se+/5guoBAc3Y9XGgts7vSBdwvrb27Ca44ISnn/bFo
+	 17/QzR26zqIZYxXNk+W/6tSEWzd1jNc2nvLZz+nk3CWU0tySHDOgpLLg+YGR8a14IZNFG
+	 V8sLIDZSurniMMxs0zOVir/Zwhr5BVx4oV61nuoDw9O95IjbVbQKuqRc+9j6O+yOmlJ/X
+	 MQDM150fAtNIomKfT2NWN4f+rK2i2syago1TvDQr4oY8URcYvIwG9XSBFsqa/FuAahl7P
+	 RpmmuyUk8CM8kHbqBfjA/whSwRRymbZlA9FSzhtaDZlcdY9/Q+n6egvvsRTuPrr0Tow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=okn6srFl;
-	arc=none smtp.remote-ip=74.125.82.176
-Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nC7JDWc0;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B23BB60A2628
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:41:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B23BB60A2628
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2136606A320;
+	Fri, 20 Nov 2026 08:41:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=okn6srFl
-Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-38587f3de36so709808eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:41:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795164079; x=1795768879; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=B3S7G7b9bye8TH3pDQ6FGxRtNzK8TEwIHow/DDgOdOU=;
-        b=okn6srFlkBXzTrb8uFg8Vx6Xl4YtwxPNpldaWNYmjndNTscTMmdlFfzchYc7kU5ms4
-         DgGqbDtgYS+D3Wvp8sYZ088ENqY1DRJ8ummDicwi5+SQQlVUQYwqZA3dcRnHNAfi21iF
-         X0Dtd3kwKZHPltw2BZlD+sOoHR5Mpo8EfhK45EWoYxRzxR9/YCdpR4ZrEaeQKQhOKuxC
-         4j4gH/37z6fo5eConjfUkbMa4W37bjUwmjc3wLlSmmtq8/7hpZ/+Vfe9ICBg8o0XOwbp
-         TqHfiS1X/oIM5hZpV4eYW7g+6D9NMIfYqIYNdr6iQ+LZbCGqWST18TGjIslO48oKTzpl
-         d9/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795164079; x=1795768879;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=B3S7G7b9bye8TH3pDQ6FGxRtNzK8TEwIHow/DDgOdOU=;
-        b=bYbPGd1afT3QrzGQupjyFmiEDwjf6fCZMquikVbrXKZL3PW1K8VzqOxpA9JLgEzQ9j
-         BfPdwGBhTohIXNy9SlDfrCdYXCA7gx5AB5oCqNL7nhKa992qlK8vnMaRiZBeyCgdZSOs
-         bmh9TCIprUP4e2FtwhimPYvLWMO/wxY8L0ayrKyGmDnxNRpOU2gy6MiNWwoduSCVvH9U
-         zj9nuPMpr3MfAKwzQ1Waa+Ed/b8zQpIiu2jaaTlChECd33XmY95OeLYzbxCsIK6Jix+W
-         aQvX1rSL7H3CYFFBY9WppwkWNvSQJ0NuFE0G5dy2AJdvOScx9EMnvFaL1Di55EAWAHFw
-         BsSg==
-X-Forwarded-Encrypted: i=1; AL+hErHAAHiVrqgDbO76MinC77KlLcn9ffxB8bekW4kK0wfsjTlKjoSQNDOpTK1fm5o/l3cm4pixEQDIDY2ZxCk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z99uF03x/HAGEsrL3DIhYVpyCa54ei/5dPGUi9TM2vtnQkr7OUv
-	l7xZUZ14wtOe5K+dg27BVesf5nGGzxkbyABPEaWgWGbfOsdKvE/MiT4B
-X-Gm-Gg: AZFdTZdED/xqP4yPhnavPWW9XqD79eY/497DT9DMa3h/cNgJXooxYXhgbDiZJ1ByQEP
-	AFjrgwfXcbJF4oqoTVXPkgCGyfzu2MgxrHsIJSzEuyTviGfFmbPgaG7r0Jp4Q3LRYOPVXYrSdji
-	2ryaPXXSbU/cup5k32W2ZzV+uZtagckrUaL4gcysJuGnDarRCSmnXj3kvuK5xoj/eDWPhP1KeQ9
-	DsfwhVPW/+0ZKDkcSpNzBKvTMeJtFMjKB3jFfupxOtF1H2YaxEQKy+aaAZCR+yHuTsf+SKTdgjC
-	zI+LKhhYlYjEpmfPPVqrGX/Bhs8/oYRjVdn15O3waJKeKkYfluTrLjOzz1Nw+moBM/xOnh7CE6K
-	r5Ew0bbPjrTgurrOjKpMxGVYaNLEq8yaBPjYhUgS8CiEDFY5Eh8Ci3r1v3MG3G8JS5EJg00RuKW
-	w27K4sjNWwdR1fbcBQ4haT+rY+2YNl+yeWQcAwllNYwyDQMFfoP6zBSNPdz0jaNtnHtNKTpdXyY
-	ZIsfnVQ86DXWQe5QMPJYit0ctvLF7Jg+5AaC7q7rDpSCVZZUyc+SREmZlPfkOGi3A8RvdbSb/PM
-	/ES4zCfM01y7B7aqGnsBNck6U7Ak4taTQg5mncU52lLXoDlpRK82+5M9ho08cvWma2EB5MgNQbN
-	e1I/vz8hBlaYpW6nKAw==
-X-Received: by 2002:a05:7301:6285:b0:369:f182:8e99 with SMTP id 5a478bee46e88-38570554684mr2335097eec.35.1795164078916;
-        Fri, 20 Nov 2026 00:41:18 -0800 (PST)
-Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:ea97:e47d:2ebc:210c])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c371esm5793181eec.23.2026.11.20.00.41.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 00:41:18 -0800 (PST)
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Date: Fri, 20 Nov 2026 00:41:02 -0800
-Subject: [PATCH v3 14/14] HID: logitech-hidpp: expose charge_type property
- for battery voltage feature
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nC7JDWc0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28FEC1F000C4;
+	Fri, 20 Nov 2026 08:41:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795164100;
+	bh=8tzH+3GXLoxcfluPUxGtHTdK4vrEejEuYEXvhaD3clE=;
+	h=From:Date:Subject:To:Cc;
+	b=nC7JDWc0fSmwH5P3xerrGc86HVhZgNRP7QS8r2dQjidliMwi6nk6zJiw4Tf4SwT37
+	 yF+sI8fwfqKICc3Fo3Qk3cR5SaMryvX/ghSHaRIMwm1XSVJ2Vk2y9z75VBiOU98VV1
+	 aehqo3Us+eBpulTX/JSll2jfmyTSksW2PFPbsoW3rXZTalqK6aZNey7IR6cFkClx4b
+	 SdxDoropJywsWVC08M3/vKnoBNisk9mcAA25PxO72ls1R4MGeXkgSAr0AFMl6qH0Xl
+	 Y6xP0ZK35fjRYCdynRwmJCLrgwyTVUVCUl+Mh3OTL9rMnil5mFvX4uclU3UPrRQ17m
+	 DCjNWnd32d7xw==
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 20 Nov 2026 09:41:37 +0100
+Subject: [PATCH] ASoC: ab8500: Add AB8505 handsfree output gain
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,129 +54,127 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-hid-logitech-hidpp-v3-14-cfe2caa1d0eb@gmail.com>
-References: <20261120-hid-logitech-hidpp-v3-0-cfe2caa1d0eb@gmail.com>
-In-Reply-To: <20261120-hid-logitech-hidpp-v3-0-cfe2caa1d0eb@gmail.com>
-To: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
- Gideon Heinz <gideonheinz02@gmail.com>
-Cc: =?utf-8?q?Filipe_La=C3=ADns?= <lains@riseup.net>, 
- Bastien Nocera <hadess@hadess.net>, Hans de Goede <hansg@kernel.org>, 
- Edwin Velds <e.velds@gmail.com>, 
- Stuart Hayhurst <stuart.a.hayhurst@gmail.com>, 
- Andrey Smirnov <andrew.smirnov@gmail.com>, linux-input@vger.kernel.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-X-Mailer: b4 0.17-dev-6b8b8
+Message-Id: <20261120-ux500-asoc-handsfree-gain-v1-1-56379df0a6d3@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/x3MQQqEMAwAwK+EnA2kWdZDv7J4iDXVXOrSoAji3
+ xd2HjA3hnW3wAw3djs9fG+YIQ2AZdO2GvmCGVBYxpSE6bjezKSxF9q0LVG7Ga3qjXSWUkRfdTT
+ GAfDbrfr1vz/T8/wARlACBmsAAAA=
+X-Change-ID: 20261120-ux500-asoc-handsfree-gain-ab2cc2a3f6e0
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Linus Walleij <linusw@kernel.org>
+X-Mailer: b4 0.16.0
 
-Commit be281368f297 ("hid-logitech-hidpp: read battery voltage from
-newer devices") added support for the 0x1001 battery voltage feature,
-populated battery->charge_type, and handled POWER_SUPPLY_PROP_CHARGE_TYPE
-in hidpp_battery_get_property(). However, it did not add a placeholder
-slot in hidpp_battery_props[] or register POWER_SUPPLY_PROP_CHARGE_TYPE
-in hidpp_initialize_battery() when HIDPP_CAPABILITY_BATTERY_VOLTAGE is
-set. Consequently, the charge_type attribute was never exposed via
-sysfs. Furthermore, hidpp20_battery_voltage_event() only checked
-whether voltage or status changed before updating cached battery values
-and notifying user space, ignoring changes in level and charge_type.
+The AB8505 has a final gain stage in the handsfree speaker paths. On
+revision 2 and later, its HFLGainCtrl and HFRGainCtrl registers reset to
+0x1f, which is the no-signal setting. The existing controls only reach
+the preceding DA3 and DA4 gain stage, so userspace cannot unmute the
+speaker outputs.
 
-Additionally, hidpp20_battery_map_status_voltage() unconditionally set
-charge_type to standard (or fast/trickle) charging even when the device
-was discharging, full, not charging, or in an unknown status, and
-hidpp_connect_event() left charge_type stale on wireless disconnect.
+Expose the handsfree output gain as an ALSA control. Select the combined
+revision 1 register or the separate revision 2 and later registers
+according to the detected chip revision.
 
-Add a placeholder slot to hidpp_battery_props[], update the fixed
-property count in hidpp_initialize_battery(), append
-POWER_SUPPLY_PROP_CHARGE_TYPE when HIDPP_CAPABILITY_BATTERY_VOLTAGE is
-set, and include level and charge_type in the change detection condition
-in hidpp20_battery_voltage_event(). In
-hidpp20_battery_map_status_voltage(), map charge_type to unknown when
-status is unknown, to none when discharging, full, or not charging, and
-to standard, fast, or trickle only when charging. Reset charge_type to
-unknown on wireless disconnect in hidpp_connect_event().
-
-Fixes: be281368f297 ("hid-logitech-hidpp: read battery voltage from newer devices")
-Cc: stable@vger.kernel.org
-Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- drivers/hid/hid-logitech-hidpp.c | 30 ++++++++++++++++++++++--------
- 1 file changed, 22 insertions(+), 8 deletions(-)
+ sound/soc/codecs/ab8500-codec.c | 30 ++++++++++++++++++++++++++++++
+ sound/soc/codecs/ab8500-codec.h | 15 +++++++++++++++
+ 2 files changed, 45 insertions(+)
 
-diff --git a/drivers/hid/hid-logitech-hidpp.c b/drivers/hid/hid-logitech-hidpp.c
-index dbf8f15f5a5b..966c5932528d 100644
---- a/drivers/hid/hid-logitech-hidpp.c
-+++ b/drivers/hid/hid-logitech-hidpp.c
-@@ -1428,12 +1428,17 @@ static int hidpp20_battery_map_status_voltage(u8 data[3], int *voltage,
- 	else
- 		status = POWER_SUPPLY_STATUS_DISCHARGING;
+diff --git a/sound/soc/codecs/ab8500-codec.c b/sound/soc/codecs/ab8500-codec.c
+index 3e3ff9bfe00d..8b0cd01d2a27 100644
+--- a/sound/soc/codecs/ab8500-codec.c
++++ b/sound/soc/codecs/ab8500-codec.c
+@@ -955,6 +955,12 @@ static DECLARE_TLV_DB_SCALE(dax_dig_gain_tlv, -6300, 100, 1);
+ static DECLARE_TLV_DB_SCALE(hs_ear_dig_gain_tlv, -100, 100, 1);
+ /* -1dB = Mute */
  
--	*charge_type = POWER_SUPPLY_CHARGE_TYPE_STANDARD;
--	if (test_bit(3, &flags)) {
--		*charge_type = POWER_SUPPLY_CHARGE_TYPE_FAST;
--	}
--	if (test_bit(4, &flags)) {
--		*charge_type = POWER_SUPPLY_CHARGE_TYPE_TRICKLE;
-+	if (status == POWER_SUPPLY_STATUS_CHARGING) {
-+		if (test_bit(4, &flags))
-+			*charge_type = POWER_SUPPLY_CHARGE_TYPE_TRICKLE;
-+		else if (test_bit(3, &flags))
-+			*charge_type = POWER_SUPPLY_CHARGE_TYPE_FAST;
-+		else
-+			*charge_type = POWER_SUPPLY_CHARGE_TYPE_STANDARD;
-+	} else if (status == POWER_SUPPLY_STATUS_UNKNOWN) {
-+		*charge_type = POWER_SUPPLY_CHARGE_TYPE_UNKNOWN;
-+	} else {
-+		*charge_type = POWER_SUPPLY_CHARGE_TYPE_NONE;
- 	}
- 	if (test_bit(5, &flags)) {
- 		*level = POWER_SUPPLY_CAPACITY_LEVEL_CRITICAL;
-@@ -1553,7 +1558,10 @@ static int hidpp20_battery_voltage_event(struct hidpp_device *hidpp,
- 
- 	hidpp->battery.online = status != POWER_SUPPLY_STATUS_NOT_CHARGING;
- 
--	if (voltage != hidpp->battery.voltage || status != hidpp->battery.status) {
-+	if (voltage != hidpp->battery.voltage ||
-+	    status != hidpp->battery.status ||
-+	    level != hidpp->battery.level ||
-+	    charge_type != hidpp->battery.charge_type) {
- 		hidpp->battery.voltage = voltage;
- 		hidpp->battery.capacity = hidpp20_map_battery_capacity(hidpp->hid_dev,
- 								       voltage);
-@@ -1795,6 +1803,7 @@ static enum power_supply_property hidpp_battery_props[] = {
- 	0, /* placeholder for POWER_SUPPLY_PROP_CAPACITY, */
- 	0, /* placeholder for POWER_SUPPLY_PROP_CAPACITY_LEVEL, */
- 	0, /* placeholder for POWER_SUPPLY_PROP_VOLTAGE_NOW, */
-+	0, /* placeholder for POWER_SUPPLY_PROP_CHARGE_TYPE, */
++/* AB8505 v1 handsfree output gain: -3 dB to 12 dB in 1 dB steps. */
++static DECLARE_TLV_DB_SCALE(ab8505_hf_v1_gain_tlv, -300, 100, 0);
++
++/* AB8505 v2 handsfree output gain: mute, then -3 dB to 20 dB. */
++static DECLARE_TLV_DB_SCALE(ab8505_hf_v2_gain_tlv, -400, 100, 1);
++
+ static const DECLARE_TLV_DB_RANGE(hs_gain_tlv,
+ 	0, 3, TLV_DB_SCALE_ITEM(-3200, 400, 0),
+ 	4, 15, TLV_DB_SCALE_ITEM(-1800, 200, 0)
+@@ -1519,6 +1525,18 @@ static struct snd_kcontrol_new ab8500_ctrls[] = {
+ 		AB8500_SIDFIRADR, AB8500_SIDFIRADR_FIRSIDSET, 0),
  };
  
- static int hidpp_battery_get_property(struct power_supply *psy,
-@@ -4398,7 +4407,7 @@ static int hidpp_initialize_battery(struct hidpp_device *hidpp)
- 	if (!battery_props)
- 		return -ENOMEM;
- 
--	num_battery_props = ARRAY_SIZE(hidpp_battery_props) - 3;
-+	num_battery_props = ARRAY_SIZE(hidpp_battery_props) - 4;
- 
- 	if (hidpp->capabilities & HIDPP_CAPABILITY_BATTERY_MILEAGE ||
- 	    hidpp->capabilities & HIDPP_CAPABILITY_BATTERY_PERCENTAGE ||
-@@ -4416,6 +4425,10 @@ static int hidpp_initialize_battery(struct hidpp_device *hidpp)
- 		battery_props[num_battery_props++] =
- 			POWER_SUPPLY_PROP_VOLTAGE_NOW;
- 
-+	if (hidpp->capabilities & HIDPP_CAPABILITY_BATTERY_VOLTAGE)
-+		battery_props[num_battery_props++] =
-+				POWER_SUPPLY_PROP_CHARGE_TYPE;
++static const struct snd_kcontrol_new ab8505_v1_ctrls[] = {
++	SOC_DOUBLE_TLV("HF Digital Volume", AB8505_HFGAINCTRL_V1,
++		       AB8505_HFGAINCTRL_V1_HFL, AB8505_HFGAINCTRL_V1_HFR,
++		       AB8505_HFGAINCTRL_V1_MAX, 1, ab8505_hf_v1_gain_tlv),
++};
 +
- 	battery = &hidpp->battery;
++static const struct snd_kcontrol_new ab8505_v2_ctrls[] = {
++	SOC_DOUBLE_R_TLV("HF Digital Volume",
++			 AB8505_HFLGAINCTRL_V2, AB8505_HFRGAINCTRL_V2,
++			 0, AB8505_HFGAINCTRL_V2_MAX, 1, ab8505_hf_v2_gain_tlv),
++};
++
+ /*
+  * Extended interface for codec-driver
+  */
+@@ -2081,6 +2099,18 @@ static int ab8500_codec_probe(struct snd_soc_component *component)
+ 						 ARRAY_SIZE(ab8500_dmic_dapm_routes));
+ 		if (status)
+ 			return status;
++	} else if (is_ab8505_1p0_or_earlier(ab8500)) {
++		status = snd_soc_add_component_controls(component,
++							ab8505_v1_ctrls,
++							ARRAY_SIZE(ab8505_v1_ctrls));
++		if (status)
++			return status;
++	} else if (is_ab8505(ab8500)) {
++		status = snd_soc_add_component_controls(component,
++							ab8505_v2_ctrls,
++							ARRAY_SIZE(ab8505_v2_ctrls));
++		if (status)
++			return status;
+ 	}
  
- 	n = atomic_inc_return(&battery_no) - 1;
-@@ -4511,6 +4524,7 @@ static void hidpp_connect_event(struct work_struct *work)
- 			hidpp->battery.online = false;
- 			hidpp->battery.status = POWER_SUPPLY_STATUS_UNKNOWN;
- 			hidpp->battery.level = POWER_SUPPLY_CAPACITY_LEVEL_UNKNOWN;
-+			hidpp->battery.charge_type = POWER_SUPPLY_CHARGE_TYPE_UNKNOWN;
- 			power_supply_changed(hidpp->battery.ps);
- 		}
- 		return;
+ 	status = ab8500_audio_init_audioblock(component);
+diff --git a/sound/soc/codecs/ab8500-codec.h b/sound/soc/codecs/ab8500-codec.h
+index 2a6f6409f1f8..9ffcb50a991d 100644
+--- a/sound/soc/codecs/ab8500-codec.h
++++ b/sound/soc/codecs/ab8500-codec.h
+@@ -142,6 +142,13 @@
+ #define AB8500_FIFOCONF6			0x6E
+ #define AB8500_AUDREV				0x6F
+ 
++/* AB8505 v1 audio bank registers */
++#define AB8505_HFGAINCTRL_V1			0x78
++
++/* AB8505 v2 and later audio bank registers */
++#define AB8505_HFLGAINCTRL_V2			0x80
++#define AB8505_HFRGAINCTRL_V2			0x81
++
+ #define AB8500_FIRST_REG			AB8500_POWERUP
+ #define AB8500_LAST_REG				AB8500_AUDREV
+ #define AB8500_CACHEREGNUM			(AB8500_LAST_REG + 1)
+@@ -150,6 +157,14 @@
+ #define AB8500_MASK_SLOT(slot)			((slot & 1) ? 0xF0 : 0x0F)
+ #define AB8500_MASK_NONE			0x00
+ 
++/* AB8505_HFGAINCTRL_V1 */
++#define AB8505_HFGAINCTRL_V1_HFL		4
++#define AB8505_HFGAINCTRL_V1_HFR		0
++#define AB8505_HFGAINCTRL_V1_MAX		0x0F
++
++/* AB8505_HFLGAINCTRL_V2, AB8505_HFRGAINCTRL_V2 */
++#define AB8505_HFGAINCTRL_V2_MAX		0x18
++
+ /* AB8500_POWERUP */
+ #define AB8500_POWERUP_POWERUP			7
+ #define AB8500_POWERUP_ENANA			3
 
--- 
-2.56.1.750.gf70dc682cf-goog
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261120-ux500-asoc-handsfree-gain-ab2cc2a3f6e0
+
+Best regards,
+--  
+Linus Walleij <linusw@kernel.org>
 
