@@ -1,103 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795189191;
-	b=xsHd0lDzn6XfwPGpadrrAUc5nR7PQso3mLGKSGE0onb5mLlKpNHUpdL16UdR/gA24gHK
-	 sIUAb7Y+wx9/r2VcOFY9eu0RgxQ0R4yh9dADJ9geq2mAzWBnaJFyLcZlEI8/RGm2SjnIq
-	 hUch4EDkIX/OzEd3W/mLgOyvm4uVopSx9hT5PIiMJkcRCi6I3QmJaWVJhBJ1SoEsZgq3y
-	 1/Z36ULM1cHO7pn1K/MI2nHMSWIKzs4C3u1826o19g+XOAqgvsUn0ZuiIZpLeRdSWT9Xx
-	 OocR1uQLfDG/WMmutC7HSyMLYhvl3X6iVHudqzYfup1uoH0ArET3iQD6+gViZrpehYQ==
+	t=1795189197;
+	b=VJw5EPoq0gpqxDC/Y4R0YIGWdqS2IGsWy9DwUnw3yWkv9Ox30EqLHvMA0GPFnNkiHssV
+	 dGRhtvYV280CN8EW3jLHxKt85ykjHc/XYns1oLSMLUs/44PgOkvOEADwdu96zutYZKOtf
+	 3iPp/ypeyV6lbpjWrixBBeH5F/rkstB8ZIgOy2kGrMFp2Qv18gKQOzQRYU3TJfsHUMVpb
+	 a5+nHBvKJBkpYPAo1L0KsPunvDYuxTQ7lB4aiZsnhOD2JIdv4+M9fjOZPckJLzmbKczEM
+	 KKM0gZViFpHz+gqKPRThs6pPnXry5J8KSYW8qSk7l5uQghDm9FVqhSZ1eHL8EnmCyKg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795189191;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=jn+/Prnek8JqUOnxYbtVgNU+Atd7uT15342oBo1hEcs=;
-	b=k3YgJ/cQaV8u33t3Txp7MkslIteqjNoiW4L6TRfLnXYGSQqCjK5wsXeYteBtu5o6BS1z
-	 wcddfW4tpGlrtZbDr/znCRqoVKOAzBV3Iv+1gPWStt5ixf77eVeFpdzllSuW90CeyBhGv
-	 xgfvxcuZChUSrp3CMIt4wftVqrhgT00goJMEBRhot6kiPMYc148C9fjJDExkQWQIRPCgz
-	 pxsjY8kbHkK9DXzMC6C4jLuqqaix3mnsp9G6NkiBSenBanzVfyDHxNE0ITnJhncbwPlrz
-	 aJavkKXdm71GyAewVmdzI6vDAy2s5QATI+rR3Ib5k5I4OmUyQe3JxFdf4LBDu2XNT2w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795189197;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=vmYG2CzA56D42MyndsHp83p6siaKz1u7RqN4C013/tY=;
+	b=oe17D3Jw/AysM/SWFnVwUFbVz4QAbPs2hFJ1cPFGfL+/aJ22T/MWZMjWLl6FEFkigXal
+	 HuAkxPyMfVIdJcQeeavkFJPkGi17gDUnk/wSpEh2GXvjxoXxwEaESxROnTXay04sBYpzv
+	 qiIN+TuNdol1ljnkNBZXHxY0dZqNEa9uSm+c4QkVXb8xyaN8aLfBerPWtiq9ni7YC10gO
+	 HDqokBjC1RxVDJHjqOFLBCOhl9Gd8/nESLHo7oX+fiIEtoAPQthN4iqEIgWJ7GHBSNbJZ
+	 1qqedCnSq5B4eU4ejmv1PN1F64PqqOGvZb6hHt/M6wF+HHSJku6irOwHcLBG09nxEQQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Bx687rB1;
-	arc=none smtp.remote-ip=74.125.231.138
-Received: from mail-oo2-f10.google.com (mail-oo2-f10.google.com [74.125.231.138])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=nVOlxK41;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D84E3606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:39:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D84E3606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42649606A32A;
+	Fri, 20 Nov 2026 15:39:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42649606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Bx687rB1
-Received: by mail-oo2-f10.google.com with SMTP id 006d021491bc7-716d85c01f6so339019eaf.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:39:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795189190; x=1795793990; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jn+/Prnek8JqUOnxYbtVgNU+Atd7uT15342oBo1hEcs=;
-        b=Bx687rB12yGEl1N7bKZ0d2BpxUpChnr56saZNNmjNyJ6Yhb2Ff3oHO4n1ObwWJwRJo
-         0pwsXCN8T0gNuVHW1v8LzGehH0brcqX1h8x/cUbE5/zxq1eA+/Vd/jllr+90jk2ZDYOU
-         6tl5q+rvrc6sI62Ho4xRBNpPoQLgdDBSJDdqV88+FrupfpttK0jNBWY+eafEIHtbAihr
-         GtRvZ26mJxnSsoLcxfp9XyausfXJF9U3gYjWu8A2axIUjwS97bBQaOkeHNx6YtptEki6
-         0uEa5KWJLrOUcRgCL5cA2d+D1xHBp2EP0lJF69eXy/dXAGWcaYRmk2HavCf6OV1xYGAL
-         0rPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795189190; x=1795793990;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=jn+/Prnek8JqUOnxYbtVgNU+Atd7uT15342oBo1hEcs=;
-        b=t9y1ClOsEmcY884OoUd6oZt/X7w2r8yZh4eHqMMgjvqAwX6k25ox6oNHgM/s81fpjf
-         Jb+OxWzlpNoE77L4I0l047gNHlHWsgALrxb/InvRjiUhvmCwO6lSLPsYRkreUqrXUU58
-         BoSCjN4YbmquqYB3jzEQtcXak2NlEJrByC0/Vd8Xn8BZTj5g23rXZhfhyWrov0bwdvgb
-         ph5eXRbKE9wa2lPPiD2E2eE0QwuZg4FYUW5K6lmhRUcORi/kaPMEMaUme2QgDnVjIs/G
-         49QDfgP3YvhK6K3TlkXK3JpgpR5w/G3v3w3ptJobBreHSEjrSqfNN7hrxiI2klrW+dI8
-         wWoQ==
-X-Forwarded-Encrypted: i=1; AL+hErGGoTRc6DBCL3zmtDB6RD8nJgLd/NxBVD4J7XPpz631Zq9BAs6g9pI/0wEdRKEVvOotHZSvJqH4MnsJ1jE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/fZfAALoQoMBg+fTmin8ErwPu5WQrUM2RxHnscQg7nFQG67GCL
-	ppCMB3VgOXdUrW/n1zyeOmuvIubO3eCokIrR53bG47ITl0mBKfboYYed
-X-Gm-Gg: AYBFou3so45+EWS4l/+cmmv0nDqNVpl6umDWcX012tlrFjqdI/Lkh63uvGhxbI+QXjL
-	rW6bVA/IJQ5yfouGeZP8COjxe+g6vm3svNeKdg4fUVBFdncwiUr0OC3DTSmPSrYRg84+gfQ5uwz
-	PGf7/iYAQl1So+C9o5ZLr1pZ0UcI5tK3f/yGfuD29y1/izt+/VSDHyyr/omrFtS4WXK97kQ0wRT
-	Cb+jTs6juE3iSb+SmfiD2ExUwgiYDRnDA0likrHJxIedJwclyzYXY+7s6z7mmjPa+QrMOGLGuto
-	WcBED57wLCqAio+53I9VDQGdhWOAi5BBvQ+zesTiZ0wUmHBirAUj+OLZwemkcDlzMBHrYRDp6V8
-	b2ucXDBgY/f54eyF9cGjPBjsPLDXbtqOrVtF0usF3wXToN+EUVWJbaz8xMKEu7ZbQHTJjloELkR
-	mGzgsjqcH34A3QQa1zTpOrdsF1eJDpqKY5707+VhmSRankXaJhzRJWp5HfYRXGGjBkgRIfaX7rH
-	XKZ4IhBCZHrhrxOE4ge9ZhAIJcLcZ0YmNtgs5QN2ZtFNFS2K/cPAA8hH0yEYZdPiCpXGeAkkLj3
-	ihERtlIhWNmIkYJJ5fr4MrhvelERt7YelQcTIS+WSJ0xNt+IgeQWDzUI8U7cUQ0GzE53dFtTxsG
-	iKo4VuRAqEUmR07F6tTys3WywEwe9VBCObYAqMg==
-X-Received: by 2002:a05:6820:c5d1:20b0:71b:c46:3ac9 with SMTP id 006d021491bc7-71b39401a4emr1770546eaf.25.1795189189676;
-        Fri, 20 Nov 2026 07:39:49 -0800 (PST)
-Received: from localhost.localdomain ([98.148.34.5])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b38058102sm1950557eaf.6.2026.11.20.07.39.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 07:39:49 -0800 (PST)
-From: Hungyu Lin <dennylin0707@gmail.com>
-To: axboe@kernel.dk
-Cc: tj@kernel.org,
-	hannes@cmpxchg.org,
-	mkoutny@suse.com,
-	josef@toxicpanda.com,
-	bvanassche@acm.org,
-	cuitao@kylinos.cn,
-	corbet@lwn.net,
-	skhan@linuxfoundation.org,
-	rdunlap@infradead.org,
-	cgroups@vger.kernel.org,
-	linux-block@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	dennylin0707@gmail.com
-Subject: [PATCH v3] blk-ioprio: check capabilities before promoting a cgroup to RT
-Date: Fri, 20 Nov 2026 15:39:39 +0000
-Message-ID: <20261120153939.81178-1-dennylin0707@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=nVOlxK41
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKEuWlh3423804;
+	Fri, 20 Nov 2026 15:39:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=vmYG2C
+	zA56D42MyndsHp83p6siaKz1u7RqN4C013/tY=; b=nVOlxK4104buOQHMGgDEQT
+	+CS8pim7LGlwSOMkHe4CJro/72TxbBfSjy0gBO7OXxBrn6h3xKo0qdnRwREDrvCe
+	Ij33Dfr2noKC2ah5OJg6R5ZyRwxFohMM52EKyIqJmhFplCWDrLdprWdrVyAlzJ9X
+	hkh9Soe1Z/ge1JqRifFVUp/PRu0CUHs8nAgLEu4v2RCV4h0Engq1MQTQFEFelCzn
+	p5UkmA8td1bZWPSqVL2HEfJEpK7yvR6IXLVypCYMQY5L4fYMKJ5tmbrbS/2Tlvda
+	CDwyYiqejG9U9ahhj9j3OpWd2yxznk2dlllML9E4Lbc1CBHh+HeN5qoTALynRGwA
+	==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105w1428-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 15:39:29 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKEnuK22445442;
+	Fri, 20 Nov 2026 15:39:28 GMT
+Received: from smtprelay02.wdc07v.mail.ibm.com ([172.16.1.69])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j1m3j2xac-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 15:39:28 +0000 (GMT)
+Received: from smtpav03.wdc07v.mail.ibm.com (smtpav03.wdc07v.mail.ibm.com [10.39.53.230])
+	by smtprelay02.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AKFdSiD26280638
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 20 Nov 2026 15:39:28 GMT
+Received: from smtpav03.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4F51E5805A;
+	Fri, 20 Nov 2026 15:39:28 +0000 (GMT)
+Received: from smtpav03.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7CF9758054;
+	Fri, 20 Nov 2026 15:39:27 +0000 (GMT)
+Received: from [9.61.14.72] (unknown [9.61.14.72])
+	by smtpav03.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 20 Nov 2026 15:39:27 +0000 (GMT)
+Message-ID: <84bb623a-151e-4f6d-ba6a-a303838f4aa7@linux.ibm.com>
+Date: Fri, 20 Nov 2026 09:39:27 -0600
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,96 +85,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] fsi: aspeed: drop GPIOD_FLAGS_BIT_NONEXCLUSIVE
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        Ninad Palsule <ninad@linux.ibm.com>, Joel Stanley <joel@jms.id.au>,
+        Andrew Jeffery <andrew@codeconstruct.com.au>,
+        Ryan Chen <ryan_chen@aspeedtech.com>,
+        Billy Tsai
+ <billy_tsai@aspeedtech.com>,
+        Linus Walleij <linusw@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-fsi@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+        linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+        linux-gpio@vger.kernel.org
+References: <20261103-fsi-aspeed-gpio-nonexclusive-v1-1-1fb040c59386@oss.qualcomm.com>
+Content-Language: en-US
+From: Eddie James <eajames@linux.ibm.com>
+In-Reply-To: <20261103-fsi-aspeed-gpio-nonexclusive-v1-1-1fb040c59386@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: EWHHhtBzh0nmcbaMz1EfwNJyLAH-95S_
+X-Authority-Analysis: v=2.4 cv=HL9WhYtv c=1 sm=1 tr=0 ts=6b0069b1 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8
+ a=EUspDBNiAAAA:8 a=zmo_udYM6pYQbqL80pAA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: EWHHhtBzh0nmcbaMz1EfwNJyLAH-95S_
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA2MSBTYWx0ZWRfX60wzkTj5rCZJ
+ Axp/ATwXoOVTf231ZzOlUdUiZUAlIBZdfQMOAmGfXQ2dvcsy/YBaJUqo0K8t9mOl5+JrO33w1w8
+ Y9ZCfqsKSN7Bj877H0NzJ53ypLiU5RqWwIrfY1v/tbJR41icFDyGWQy2Gektlxz/v8rlX3mb4Gt
+ fdRVL3dhNMKnB8DmOuOVDRAN4YAk7HqhhPrDDMFi0XTZ5eAB/2Ela0EmGRZ88Z3zQ/IZJEC4D9D
+ Mn3/9qR9vEzdHuqEfB4yqzRlFBXWLSfYR1CRpdlHzfujRynLiR5//oRn9mS4Y11dRs4MFM/cXDJ
+ JG76PmEvIt1C0AcJ6LCf2MYFifVvu6ZA4FKm0vOeMkrUvU7PwyeHNerinxPq2aNYTcKpGCBa2O5
+ Eh2XKt3yh8lvYSNwmRaTQ6SwxiNCbxv/HRl1NRdYpx270DCbBAOXKMf+Hk3K2JQMUSC+njqOJDG
+ Pzm52nkbQ0wkQ2zMEug==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA2MSBTYWx0ZWRfX9eGEl6ytv4s7
+ wRpaigFbRZJwJrVgeVPYOcNynpR7TXt1RMCqBZsHVJeMNhIOPpy+SZcgBlLayV1NIs4pWoaEBLw
+ fj0J252ZWU7AYhsJue5whGe9rcUf3tA=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_05,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 malwarescore=0 spamscore=0 priorityscore=1501 impostorscore=0
+ adultscore=0 clxscore=1011 lowpriorityscore=0 bulkscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200061
 
-ioprio_set() and the per-request I/O priority of aio and io_uring only
-hand out IOPRIO_CLASS_RT to tasks that have CAP_SYS_ADMIN or
-CAP_SYS_NICE. The io.prio.class cgroup attribute has no such check.
-Writing "promote-to-rt", or its alias "none-to-rt", to it changes the
-requests of the cgroup to the RT class.
 
-The attribute exists in every cgroup that has the io controller enabled
-and it is not hierarchical. A user that got a cgroup delegated owns the
-files of the child cgroups it creates there, so it can create a child
-cgroup, move into it and write "promote-to-rt" to its io.prio.class.
-Its requests are then issued with IOPRIO_CLASS_RT although ioprio_set()
-fails with -EPERM for the same task, and mq-deadline dispatches them
-before the best-effort requests of everybody else.
+On 11/3/26 7:20 AM, Bartosz Golaszewski wrote:
+> There are no users that share fsi-routing-gpios in any of the upstream
+> DT sources. Even if there were, the right thing to do would be enable
+> HAVE_SHARED_GPIOS for the aspeed platform as this is the preferred way
+> of sharing GPIO pins. Don't request the GPIO as non-exclusive as this
+> flag is now deprecated and will be removed.
 
-The delegation model in Documentation/admin-guide/cgroup-v2.rst expects
-the settings of all resource controllers to be hierarchical, so that a
-delegatee can only distribute further what it received from its parent.
-This attribute lets it raise the priority class of its own requests
-instead.
 
-Require CAP_SYS_ADMIN or CAP_SYS_NICE for the two policies that raise
-the priority class, like ioprio_check_cap() does. Check the credentials
-of the task that opened the file, like cgroup_release_agent_write()
-does, so that the check cannot be bypassed by passing the file
-descriptor to a privileged program. The other policies are left alone.
+Thanks!
 
-Fixes: 556910e39249 ("block: Introduce the ioprio rq-qos policy")
-Cc: stable@vger.kernel.org
-Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
-Reviewed-by: Bart Van Assche <bvanassche@acm.org>
----
-Changes in v3:
-- Include <linux/user_namespace.h> instead of <linux/cred.h> for
-  init_user_ns (Bart).
-- Add the Reviewed-by tag from Bart.
+Reviewed-by: Eddie James <eajames@linux.ibm.com>
 
-Changes in v2:
-- Check the credentials of the task that opened the file with
-  file_ns_capable() instead of the credentials of the writer (Bart).
-- Document the requirement in cgroup-v2.rst (Bart).
 
-v2: https://lore.kernel.org/all/20261117111157.2968-1-dennylin0707@gmail.com/
-v1: https://lore.kernel.org/all/20261116090529.69650-1-dennylin0707@gmail.com/
-
- Documentation/admin-guide/cgroup-v2.rst | 3 +++
- block/blk-ioprio.c                      | 6 ++++++
- 2 files changed, 9 insertions(+)
-
-diff --git a/Documentation/admin-guide/cgroup-v2.rst b/Documentation/admin-guide/cgroup-v2.rst
-index 9e3c67b02ae2..4424f9cf583e 100644
---- a/Documentation/admin-guide/cgroup-v2.rst
-+++ b/Documentation/admin-guide/cgroup-v2.rst
-@@ -2409,6 +2409,9 @@ that attribute:
-   none-to-rt
- 	Deprecated. Just an alias for promote-to-rt.
- 
-+Selecting promote-to-rt or none-to-rt requires CAP_SYS_ADMIN or CAP_SYS_NICE
-+in the initial user namespace.
-+
- The following numerical values are associated with the I/O priority policies:
- 
- +----------------+---+
-diff --git a/block/blk-ioprio.c b/block/blk-ioprio.c
-index 8fa8bca35062..7fabac24dbfa 100644
---- a/block/blk-ioprio.c
-+++ b/block/blk-ioprio.c
-@@ -14,8 +14,10 @@
- 
- #include <linux/blk-mq.h>
- #include <linux/blk_types.h>
-+#include <linux/capability.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
-+#include <linux/user_namespace.h>
- #include "blk-cgroup.h"
- #include "blk-ioprio.h"
- #include "blk-rq-qos.h"
-@@ -91,6 +93,10 @@ static ssize_t ioprio_set_prio_policy(struct kernfs_open_file *of, char *buf,
- 	ret = sysfs_match_string(policy_name, buf);
- 	if (ret < 0)
- 		return ret;
-+	if ((ret == POLICY_PROMOTE_TO_RT || ret == POLICY_NONE_TO_RT) &&
-+	    !file_ns_capable(of->file, &init_user_ns, CAP_SYS_ADMIN) &&
-+	    !file_ns_capable(of->file, &init_user_ns, CAP_SYS_NICE))
-+		return -EPERM;
- 	blkcg->prio_policy = ret;
- 	return nbytes;
- }
--- 
-2.43.0
-
+>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> ---
+>   drivers/fsi/fsi-master-aspeed.c | 3 +--
+>   1 file changed, 1 insertion(+), 2 deletions(-)
+>
+> diff --git a/drivers/fsi/fsi-master-aspeed.c b/drivers/fsi/fsi-master-aspeed.c
+> index aa1380cdff338dfef7caa8d516322e6bf90371cd..88a3a90abef9cd22cae03f5666936ef7eced8a7d 100644
+> --- a/drivers/fsi/fsi-master-aspeed.c
+> +++ b/drivers/fsi/fsi-master-aspeed.c
+> @@ -496,8 +496,7 @@ static int tacoma_cabled_fsi_fixup(struct device *dev)
+>   	 * The routing GPIO is a jumper indicating we should mux for the
+>   	 * externally connected FSI cable.
+>   	 */
+> -	routing_gpio = devm_gpiod_get_optional(dev, "fsi-routing",
+> -			GPIOD_IN | GPIOD_FLAGS_BIT_NONEXCLUSIVE);
+> +	routing_gpio = devm_gpiod_get_optional(dev, "fsi-routing", GPIOD_IN);
+>   	if (IS_ERR(routing_gpio))
+>   		return PTR_ERR(routing_gpio);
+>   	if (!routing_gpio)
+>
+> ---
+> base-commit: 2637bdec0535a2044cd830eba9a79363651d9043
+> change-id: 20261103-fsi-aspeed-gpio-nonexclusive-3dda6d175968
+>
+> Best regards,
