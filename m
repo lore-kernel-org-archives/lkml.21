@@ -1,68 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795175751;
-	b=pEOmJR6apk0JrvmzLnxYheT4XnREM8T7PPK7VD9DGWnRsTHnjShFBSlDxmGsIsyoMIrG
-	 PqL/6VECQwNc6jlttFzvHytDvZ09AJcS9RdjlKyysxL1jo9S5itjqkSXUoT1fvrbXcMm9
-	 WVfCLtxXEZSlZRtwOquTtNk4XiNh1p+jD/NliZXMSDeB9z7nFdq59KNkK5zilcc2YfCwz
-	 rm7TM6apFWf1PSizerz1iD4ZZz0wCWeUDCP5iJoWcg38PfztGKZXkQ7IVlcapYb4tmq6w
-	 QlAJMbnzFPOf8t5VlYVdGIEkPx+kOejGhSvJsSPRBWKGjpmQAQO/yt4U9ILzOj+Y/4w==
+	t=1795175811;
+	b=4yctFv9I0St+6BN2j3v2vJ8p/v1WJRpVD/6OrG5yhppCl0a1AF3VhXDN603Ahev8G/TH
+	 dPSqChLu8jbNCrhrOmkifoyrfmKOjaQiPz7UBq0wF1A+XL0SBQ2gBSictRm+1IJoC45if
+	 eFwiNjWBReNRvr3zONE41a4dMKkZWoJCfCJ4eICIWNSJULQYZr9Kx7LyhZ2las6aEywHI
+	 /XdYuOa2ilxtGc+6s8C0gVzqwl0dQKOLgYd7vhV2aVI2lF+jRNnm2swKHwsaUeA7grDmN
+	 4b5jUUCmJrv35bRlrjUkjha/o058Ibb4ka70NW/GpEz3iF9TBYk/eHEkxR50dRUxXrA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795175751;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:User-Agent:MIME-Version:Content-Type;
-	bh=P3gyj12NGt5BrOAVOnJOGDgKEsVMdz42lpXGv/yZrc4=;
-	b=rz51vlDvPqLKhJODWJnoEcUxgk0H6FZ2+YaX/ac7h2mnSaNvpOd+EBHcsEayyQjn8F7y
-	 T2fY4DuUIpd7XzC4FvTQQ6rOEkbjuqhNaoS3+8seKk+llPRtQ7qB2gann+N64i5yBuOu8
-	 ycZY95oU7uWEjG4WRVKFuIBqS4rtmvjRbRyCXkMVtq2Ml8gwsXM60TAwuXIoplKl0gkgu
-	 WlMfDPHxR9W3tnXFXiXPRzCY7SmZ8jZH0CqUjM18P0U33ZzlFDsfRH3G/806psYhdV1Qe
-	 l1yAUUrL0gICFA136kVCy0XA0JvJH+bn6xpD6x9sm989bPeC+EVzFT1xEMxzlddIpjQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795175811;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=aWntWikItZoiax5YFuZGg4RDFm2k6IkT2ctGq5qxDFY=;
+	b=EE06ozcn0FY+rWEuoLGsJaygLOtC7YERTymVOZgO75t6i95vXWus8Ezt+7gQBMZE7CKe
+	 HN8IPblOaxV3ivxNfBaW+1mHD9wBSjy/R/j4A5DZTzrYGoVtHp1OFTOC2m80KI6uif4R3
+	 9DEPXPEmu67MwibcQBsHUowF/+H3/OVQf36uKmXhKjAtF2PqybYlsY/OZhb9uptKndxJP
+	 A2oKHZOf5yIDf5p/h8p6ZyH7by5GWE1Eg/n9WdA6evCfJiSifLR8Pwn2oZnwCnYZVwmzX
+	 y1c6SbnLD0bY0qa2BfCXpsJa/HvDqGc+bBT38qmhbaGwk00AuH38TMOqmIWTakUWxlQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XRmupP+O;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nkOJWF1y;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 884CE606A325;
-	Fri, 20 Nov 2026 11:55:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A468E606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:56:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XRmupP+O
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DF9F1F000C4;
-	Fri, 20 Nov 2026 11:55:46 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nkOJWF1y
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EC791F000D8
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795175750;
-	bh=P3gyj12NGt5BrOAVOnJOGDgKEsVMdz42lpXGv/yZrc4=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=XRmupP+OLijrmAtsyFzXXifwkuMS8W6gNVR4LOQJPmUXO7GcnqLiZxj7w2peSSlsu
-	 QMq1FxF6ebx+N5vGd+gPCfWv/hQdtBeT2ynxnVrf00EB2x6ercEW9SIcOTFr6/Gg+0
-	 +0VZoq0mBHSiGpSUMlOovIy33ZXnen4fS+2fARU6pJbnmbFK3EAr2ic61lpeGjOwQf
-	 iFH9PTAknNIhVdp95GGo75mLA233YHUQfa4N6a6X+dOkSuSfPvhInvrsgbZRJm5kOG
-	 X4YITabmy70LoUjGg+Mx9siucKp0Y9fW03PE1MjQGJywW/z58DOrX5l+Ovs5sBRMsQ
-	 9qqDxMCNtyI/Q==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: David Matlack <dmatlack@google.com>
-Cc: kexec@lists.infradead.org,  linux-doc@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-kselftest@vger.kernel.org,
-  linux-mm@kvack.org,  Alexander Graf <graf@amazon.com>,  Andrew Morton
- <akpm@linux-foundation.org>,  Baolin Wang <baolin.wang@linux.alibaba.com>,
-  Christian Brauner <brauner@kernel.org>,  David Hildenbrand
- <david@kernel.org>,  Hugh Dickins <hughd@google.com>,  Jonathan Corbet
- <corbet@lwn.net>,  "Liam R. Howlett" <liam@infradead.org>,  Lorenzo
- Stoakes <ljs@kernel.org>,  Michal Hocko <mhocko@suse.com>,  Mike Rapoport
- <rppt@kernel.org>,  Pasha Tatashin <pasha.tatashin@soleen.com>,  Pratyush
- Yadav <pratyush@kernel.org>,  Randy Dunlap <rdunlap@infradead.org>,
-  Samiullah Khawaja <skhawaja@google.com>,  Shuah Khan
- <skhan@linuxfoundation.org>,  Suren Baghdasaryan <surenb@google.com>,
-  Vlastimil Babka <vbabka@kernel.org>
-Subject: Re: [PATCH v4 09/19] mm/shmem_luo: Leave freeing the preserved
- state to finish()
-In-Reply-To: <20261111002358.1842967-10-dmatlack@google.com> (David Matlack's
-	message of "Wed, 11 Nov 2026 00:23:47 +0000")
-References: <20261111002358.1842967-1-dmatlack@google.com>
-	<20261111002358.1842967-10-dmatlack@google.com>
-Date: Fri, 20 Nov 2026 11:55:44 +0000
-Message-ID: <2vxz33sv3ef3.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	s=k20260515; t=1795175811;
+	bh=aWntWikItZoiax5YFuZGg4RDFm2k6IkT2ctGq5qxDFY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=nkOJWF1y/Mto67qbV+wrOthRlIrHzBPCxrdX4b4CMMmfDXmripfZGfzbiUpI0OLoo
+	 X2C3xp7Y2PGYuOsJWwj6v3Lw19moWs37ZYTmufjMUdpzCuRTV8XJJFpvo4yWwonY5k
+	 RIwHaBqb8aQ4rO9BD6+Fx70i/Fzrxy+0yFMxn9CYkk3BiZ2q5GwRhhjgRKyiw/nxeM
+	 JIVcZPYrjicHmynj0oOB/Rvz8pMLfy1tSKlOr0YQIO3K9nZYIsstmfg2xF4LH0HLG5
+	 E66QhqfwvyfpqEGa7O2628xWd8FTbI1vqDlfniqErWBJbjFc4kP6Hems/T4oAJEwyH
+	 W0rENIHW1tJSQ==
+Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c4203bbb1e9so140096466b.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:56:51 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHOfHez4AzXu5dMmW3VUQHa3zPIBpAUN3thCHzF0JGTz14R+KX0j+WhTbhQJNXu10hfEyzunRCKfxnfkJY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+wciu8bjtq60oc9jIxTyFHFpLm7UcGngkBvUcriC2DvCHl4YNJ
+	1FAFUvUs44Oozoa5TppX56utfhMVBsM010Tw9Jte9ZkbUe7v+WuCeeTmHtqLU9yl0soyEC6KPkx
+	Zx7V2+xR9vrUl0Le1h9JgOfWlZqcYxcQ=
+X-Received: by 2002:a17:906:da0b:b0:c42:2d07:4c38 with SMTP id
+ a640c23a62f3a-c513a85f70amr217159366b.26.1795175809833; Fri, 20 Nov 2026
+ 03:56:49 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,42 +59,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20261120092015.2469284-1-dand_wu@163.com>
+In-Reply-To: <20261120092015.2469284-1-dand_wu@163.com>
+From: Namjae Jeon <linkinjeon@kernel.org>
+Date: Fri, 20 Nov 2026 20:56:36 +0900
+X-Gmail-Original-Message-ID: <CAKYAXd8F7Y3cMuhoGJJgm+8Ewo_XZ183rgXg5Vk3NQC=J0c+SA@mail.gmail.com>
+X-Gm-Features: Aa3M54oQnxMJ1oWDgwk1mBOzYVu-CO7PbPdSutfa-lMkK3wVhWCxHB3qXdcTY1o
+Message-ID: <CAKYAXd8F7Y3cMuhoGJJgm+8Ewo_XZ183rgXg5Vk3NQC=J0c+SA@mail.gmail.com>
+Subject: Re: [PATCH v1] ntfs: use kvfree when ascending an index tree
+To: Dandan Wu <dand_wu@163.com>
+Cc: hyc.lee@gmail.com, liubaolin12138@163.com, ntfs@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Dandan Wu <wudandan@kylinos.cn>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 11 2026, David Matlack wrote:
-
-> Don't free the serialized state in shmem_luo_retrieve(), whether the
-> retrieve succeeds or fails, and let finish() free whatever is left of
-> the preserved state of every file. Once retrieve() has restored the
-> folios, it sets nr_folios in the serialized state to 0, so that
-> finish() only frees the rest.
+On Fri, Nov 20, 2026 at 6:20=E2=80=AFPM Dandan Wu <dand_wu@163.com> wrote:
 >
-> This fixes leaking the preserved folios when the retrieve fails before
-> it restores them, e.g. because the file has seals that this kernel
-> doesn't support, or because memfd_alloc_file() fails. The retrieve freed
-> the serialized state but not the folios, and finish() then skipped the
-> file because its retrieve had failed, so the folios were never freed.
+> From: Dandan Wu <wudandan@kylinos.cn>
 >
-> Preserved folios may also be in use until the session is finished, e.g.
-> by a device that was preserved with DMA mappings of them, so they must
-> not be freed before finish().
+> ntfs_index_walk_down() allocates the index block with kvzalloc(), which
+> may return vmalloc memory. When traversal ascends back to the root,
+> ntfs_index_walk_up() passes that block to kfree(), which cannot free a
+> vmalloc allocation.
 >
-> Fixes: f85b1c6af5bc ("liveupdate: luo_file: remember retrieve() status")
-> Signed-off-by: David Matlack <dmatlack@google.com>
-
-I think some of this is already fixed by [0]. It holds the folios until
-finish, but only in the success case. On failure to parse seals for
-example, it leaks them. Except, as Sashiko also points out, in
-memfd_luo_retrieve_folios() the folios are freed.
-
-I don't think this is strictly related to your series so can you please
-send something on top of [0] to fix these bugs, and perhaps drop this
-patch?
-
-[0] https://lore.kernel.org/kexec/20261110175855.2437084-3-pratyush@kernel.org/
-
-[...]
-
--- 
-Regards,
-Pratyush Yadav
+> Use kvfree(), as the index context cleanup already does, to handle both
+> allocation types.
+>
+> Fixes: 0a8ac0c1fa0b ("ntfs: update directory operations")
+> Signed-off-by: Dandan Wu <wudandan@kylinos.cn>
+Applied it to #ntfs-next.
+Thanks!
