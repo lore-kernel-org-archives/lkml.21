@@ -1,11 +1,11 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.178.238
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795160132;
-	b=2pDbq6jXF7dBPlFaMKTVCRPEDmyUILetzdt2ZSjiyWRzu6UfJwzgH6ufwHL+IXCn0kXk
-	 cL57X1xU9T+LaXairU/OHfI6W2nrYMpKSzpeVySv3fWJhPt7mVcL6xC3Hwg3BqYXVINP1
-	 0OcdgKg+owz0o5DhOk4OP6pGQCAzHe/F55kWz8JmI7sRvGaXautxZy7L8ol9sP02qfBTB
-	 k7K7eFrPPT7EZEX6uTNVek4CdAs8OJXyiHtpXXrXNCkQp0NUNLZRfVAdF/uzaDTtd5S1j
-	 EzuYtQC3G2hPAo8NdGZcAK8dth/dSg1WV4Y0qOd0hbM7fmElBVDZ2JrRdg7fexU2J4g==
+	b=23s97G/8jzRQkQk0Ac9O7cwNQ6UpsDpDMeQkwLPFKfdK6voWDxiOhLFxRhYKLrQaITlW
+	 /CP61P8LDmAm4KhdwJzhAqtODdQMALP63Tncxeaji6XYnfnls0ZJliBe3H/0opRIaeWwb
+	 czu97nUjpqgPs+ZrEkVda8tV2Oi7DhNxGIT0DqpE6IowU5H+HRsDeW6HSRdXTgT6kOaMM
+	 AJcxkmmba8nrGo2xjN2EamvVmfIZf9J3tvWI94JSH/xhIGLOmKljV8DBTqCjQM6FLR3/V
+	 s4xJ6KtnkVW+x7rHlXtbGPii8v1iClAhOw2gknMFf6XhsVfZcFN5VzDrDKvnFT8Klew==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795160132;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:From:
@@ -24,78 +24,78 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
 	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=Zya3GB5IX4kX97UMprzbAM0YjNq5L4VfQllR62Y5UXM=;
-	b=15jlKwvzP6QS1d/S5Nexcsn9ObIDLJd0BTJuGzzcymN9/ipcq5rgnzkndmOEP9Holp+A
-	 obxrWdd6wLxRiO+OczvAlWDsNu0SwHN3ateFGl7tHzmALqmld1NNjNLMYjnSlACrnpQC5
-	 +pvTr4rejKAwzGWOPa79Bxu1JbNT9dvP8rubLBs1+AODR8rjEAYNQA81TBUh5KLZgcNua
-	 iZnyAAEWI+tJcdej7mshD66/g1OxtwMU9ypuzlvSzuRKbZopuzJd3E5ZvWsOhhwjhLhgF
-	 dEVQ0nA/YzHpj7Ky33on7r+l1uMDerYM11XqUiM4dNigBSjEr/WWjYRpZY9Go2AwlXQ==
+	bh=g5ePqUW5jhsGNNHtBv7PBGffzo65nNI2LxVOFcMYxY4=;
+	b=dfGJRSdL16PrHXH0gMoYMWm53af+9P0RtavvCwl1mMCZM0XDwsoobPksCuBTgS76Lla/
+	 jYtodW9GfoOVkPTArjzUMDhhcb5qn0SHOQnaESyDSthUMRNkesohw7RzOjZWgVe9dWtCi
+	 0VEj5eHRYMbOlV4DdH7Dvq3Gd1WyU/WzNOfIxk0tCB29JaOtzoHH4e/I3IKaBn3fdA1ks
+	 +68p9/gsFG/mWb5viwjRIGqzfpoU8XQP2h8/RC0jfKx1FmjlaU+mkUeQIgEsK+1GmQeNs
+	 BJAeV32/s9IHNqXe2ZSvNQwW6UOwkGcMuNxDfU2wKjOBypgoKRcDLHzrqnXODwccG3A==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=windriver.com;
 	spf=pass smtp.mailfrom=windriver.com;
-	dkim=pass header.d=windriver.com header.i=@windriver.com header.a=rsa-sha256 header.s=PPS06212021 header.b=ZHJbffbk;
+	dkim=pass header.d=windriver.com header.i=@windriver.com header.a=rsa-sha256 header.s=PPS06212021 header.b=fQDNXPPw;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.178.238
 Received: from mx0b-0064b401.pphosted.com (mx0b-0064b401.pphosted.com [205.220.178.238])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2BAA606A337;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB352606A338;
 	Fri, 20 Nov 2026 07:35:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2BAA606A337
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB352606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=windriver.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=windriver.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=windriver.com header.i=@windriver.com header.a=rsa-sha256 header.s=PPS06212021 header.b=ZHJbffbk
-Received: from pps.filterd (m0250812.ppops.net [127.0.0.1])
-	by mx0a-0064b401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK3TRQe245230;
-	Fri, 20 Nov 2026 07:35:04 GMT
+	dkim=pass (2048-bit key) header.d=windriver.com header.i=@windriver.com header.a=rsa-sha256 header.s=PPS06212021 header.b=fQDNXPPw
+Received: from pps.filterd (m0250811.ppops.net [127.0.0.1])
+	by mx0a-0064b401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK3Tk6H3550304;
+	Fri, 20 Nov 2026 07:35:09 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=windriver.com;
 	 h=cc:content-transfer-encoding:content-type:date:from
 	:in-reply-to:message-id:mime-version:references:subject:to; s=
-	PPS06212021; bh=Zya3GB5IX4kX97UMprzbAM0YjNq5L4VfQllR62Y5UXM=; b=
-	ZHJbffbk5ZLx391RtY51OiD9cdTmptjmIkIJs9UsNSlr8YgG6CNcGBrUH8tKczlD
-	S88oWA9ngPPAJ0tboPbxqcpqdJes6IVfgKQv6ObcgVtQtJc3H96DoqtSjkQb2P5n
-	a+Y2UyjqCJ+XsZMuj6wZHpq0xKW0UKeSOwqFe+93XP5bYhXLuiHOppNc0i1+N2Xc
-	Sbrda50MGTTV4wmG0u+DWkRlEuE6ZvfDy2ZIyWtds8szs8tT8RcLyuXk9Lqp0pEb
-	DN3Wh907bvxMevhC5TN+WYhI3RdmVXBrPbd7gV4PXTgpYrj7TFls2VlyqsKXJ2T4
-	he4RphStVWdpXHfDxiKsXg==
-Received: from bl0pr03cu003.outbound.protection.outlook.com (mail-eastusazon11022131.outbound.protection.outlook.com [52.101.53.131])
-	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 4j0yvh8b27-1
+	PPS06212021; bh=g5ePqUW5jhsGNNHtBv7PBGffzo65nNI2LxVOFcMYxY4=; b=
+	fQDNXPPwaWM/DyXAEB0q3iSv3eP+oD/bUhCgNpIGUQ2We2+wb5ARSA1O2/NJpe1F
+	VYvZjmvw8sZ2OLI3PG53GG5h0UTxTjaRSCErPCpO5/u5ih1ymg6SgYhXdmkaG1M8
+	6AxqSvUekMTku0WGLBFZ2B1qVIAt8AbAEethyDEaMynSWXJkW81PFyz4esK6HnJA
+	lqzi5VYeZ/f+r7kxvRw46N60ZV/YWm7Rz0zW06D7M/Jt1+jVwcucS3j5x+2WteF5
+	ui9piVmZW8ZreEnYYII3Yc5cNR3HMs7jD3naGgyGbjb/XUOUogx3JB0U3RJklcC3
+	LvZKo0p0pPDYj70NeqMx1w==
+Received: from ph0pr06cu001.outbound.protection.outlook.com (mail-westus3azon11021143.outbound.protection.outlook.com [40.107.208.143])
+	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 4j0yvkg737-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 07:35:04 +0000 (GMT)
+	Fri, 20 Nov 2026 07:35:09 +0000 (GMT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=D9ESJdLHMYLzMoqWb7pMbInUe+sjMTBa9oZY1ZaRIEkOVq7otXh3m77nfSL2X5P6CJBQ/c0y5iBgkiq6gk6lZbEkrJ8/ywIVdLWs6pCHqanbrrB7Cm1uMdJ48WunESGSIWuzCX1SAUyy6RfzWqiAeoklzEpP0ulPEWiI2ATagP21X2IeUjkdq7D5pr7Mkr11UoUFjFuhdL/p/gajXKmp2ZdwYC1pcy2rFOioMq/z7vGB1icGpkJil1O/6moL/v82JBEGIij5BMjBlaa2NEad0JH0mr7B3MhO0D6B09UtIavplB6iu8kZJeq4LjyZ6b5BJFdLBxke2xBT1JiP7I6H+g==
+ b=EPSTE4D7tznv6EPG+i2FeUnmiwW77ZYQgYWOAE9Z6/PPrGm99Y7IX2HcpkDWNRQ2TULkRi4SbGKLVRd+Njq41WHhbLOiK8YbsMW0+TguqZoRJegoOdTwbTHVhdM+w9XzdGtCrmYSTQ1v1rF+XUlBD9/mru6pIYsaASON52EyCOQyfcHpeN+HPh+OdhYCo1c69KPnLs92deJmjelBWR1OVVZuHRDxJNXtnfwQ5BuDd9kT7LRY+OTGt9YK0ykQWmCLzXciSwFzO1CMToTfJ2vMd2wz4+Laa3tWvDAPs8HAC2iXJoIxN8lb2Singgqp02DutEq4WtdNn8gHwEwOGUsw9w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Zya3GB5IX4kX97UMprzbAM0YjNq5L4VfQllR62Y5UXM=;
- b=qZySsl6faeOyQyfSa/39tM0Smr8aWAb0DDiDTl81Q1gs31mDk+kYO4t1W3SPYY0g3daphNl2SI8mQi4JpkdoWrIbecMos+FMvWJDzF4azHQqKnQXyoEnWhSEO6llyl213JzwOm5AAQniGKCu2ME7dEezMZ6eVGW+0nobJUJkMn5k9Hpncv+4h7yXakohQRon4YUE057kG4ypKXVYgn8T/R71Q8epPDB5VR0adzQbM88Sq5cG9lR7+wr9i26jxaTB80kkaQPzrnMenxfb1DQGhyXJhzpU6vVj4zCL0uT1RhJo45+3/s1nTH7VxkKTysYtmDXDeCbaG4hIgxXZdYPyOQ==
+ bh=g5ePqUW5jhsGNNHtBv7PBGffzo65nNI2LxVOFcMYxY4=;
+ b=sV+gvCu/kzDWBh+17xFIMqiZrxGhNWpj9xuBiuYuPxYtxh/nUcnJsgl9jZpJrWFZRx4SpbGjjMnxqtWaHc86jqNeiC1MYSSAf8/2U2zlBKHOJHn1y+SijlruB4n+CeYthbmJU5KeWwTa27JXskb1sHToHKCzAYQG9CRrmCi2zFau3ORi885GJqdZXEETM+IrC/+fGPXhWQXjdEQiS0R9snqS70VNJjSTHWu3YE8AEK7+fBO/DOH9tZ7kJjshCUm9zVc9BK/qD+ybTqIWw2aMdPivyxG5PCCucrCuEajy8z5RkzNuamb3VNl/aubF/wysd8B2CoA1SOWI+gEqpZpzfw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=windriver.com; dmarc=pass action=none
  header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=windriver.com;
 Received: from SJ2PR11MB7546.namprd11.prod.outlook.com (2603:10b6:a03:4cc::8)
- by DSWPR11MB9821.namprd11.prod.outlook.com (2603:10b6:8:4e1::19) with
+ by PH0PR11MB5176.namprd11.prod.outlook.com (2603:10b6:510:3f::5) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 07:35:02 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
+ 2026 07:34:57 +0000
 Received: from SJ2PR11MB7546.namprd11.prod.outlook.com
  ([fe80::ca9b:dcf:8881:bced]) by SJ2PR11MB7546.namprd11.prod.outlook.com
  ([fe80::ca9b:dcf:8881:bced%4]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
- 07:35:01 +0000
+ 07:34:57 +0000
 From: Ionut Nechita <ionut.nechita@windriver.com>
 To: ceph-devel@vger.kernel.org
 Cc: Ilya Dryomov <idryomov@gmail.com>, Alex Markuze <amarkuze@redhat.com>,
         Viacheslav Dubeyko <slava@dubeyko.com>, Xiubo Li <xiubo.li@clyso.com>,
         linux-kernel@vger.kernel.org
-Subject: [PATCH v2 4/7] ceph: bound the safe-completion wait in ceph_lock_wait_for_completion()
-Date: Fri, 20 Nov 2026 09:34:20 +0200
-Message-ID: <20261120073431.53636-5-ionut.nechita@windriver.com>
+Subject: [PATCH v2 2/7] ceph: bound the ceph_mdsc_sync() wait by mount_timeout
+Date: Fri, 20 Nov 2026 09:34:18 +0200
+Message-ID: <20261120073431.53636-3-ionut.nechita@windriver.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261120073431.53636-1-ionut.nechita@windriver.com>
 References: <20261120073431.53636-1-ionut.nechita@windriver.com>
@@ -114,148 +114,304 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB7546:EE_|DSWPR11MB9821:EE_
-X-MS-Office365-Filtering-Correlation-Id: e245543d-7c52-446f-889b-08df46d8c951
+X-MS-TrafficTypeDiagnostic: SJ2PR11MB7546:EE_|PH0PR11MB5176:EE_
+X-MS-Office365-Filtering-Correlation-Id: 37b6029e-9699-4a53-8ad1-08df46d8c6db
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|376014|10070799003|52116014|366016|1800799024|261022105027099003|10067099003|11063799006|56012099006|261009223027099003|261021123027099003|261102123227099003|261021121427099003|261028144727099003|261026140227099003|261026121527099003|18002099003|22082099003;
+	BCL:0;ARA:13230040|23010399003|10070799003|376014|52116014|366016|1800799024|6133799003|18002099003|22082099003|11063799006|56012099006|261022105027099003|261026140227099003|261026121527099003|5023799004|261022075727099003|261028144727099003|261102123227099003|261021121427099003|261021123027099003|261009223027099003|10067099003;
 X-Microsoft-Antispam-Message-Info:
-	TQl+XVf4Ch/e/77QUwDpjYy0DhSFwoZvG41PfxIc5RfpdaviPmmgVdNKKiIfY5P7vCdJyBa1Ii0nY/STOilgLE3cYdAY1nWlWtwDbz5eY6EPLEdeMlwsF87c97xjLrExKXCtxgNIQR34ThpY2R9+scrXHul+Q5Eodf6VBvAyURZudjbBDmh87u6f7YJtBU0+PpZLTjNe9fkaukV+cNRjWkvqEZmmQjTviE7kFQX1yXjNWnPVjA0o75Zw0aWQsM5uhmxuFzKrIesO4Ic6iJ5p6L1E+j/QS4nReAHpgxPU8Hab8cl4ONrHU7s12jf6dMjFXdvZEHF4Jrgv/gxQsZ92J4D2HgmmvfJ/jHmyQZ1+M0cmUQ29zCZ77h3qsBQJRbL8uTBlury9u4QJeRiMnGFTiWDOZpGf1mbvsIpTBZmiP2G0anB0MK5fhOGbSd9OdnXkKwTNaHSYGNtrUhi9GeQ28h6ylC0U8wOoefUupQFiqwXcwtor3dqXvzjK+eWb9xLjWi5oP3WV0NIcfohF+R4JFHGX5sf10Rv0lHp90+2jvK7ivDdhyUtIQ3/YkGghBzlNEfJpxEOoXSXxFSFYZBPjw//lHY9MZjIBY5GMOpL/8d0M7C38cRQxQ7mUmao+K8Y6HS2U/YjnmzUP+13zzg212MBR/IlJOvrQmMN88JxsZH8=
+	OnqhMiV2MJUc+F/0lFfC21Xtdb9nIRFM2xv+BYQmGOYoQrgoyjzBouhMPlnhIdyE0ac/Gu3MIFQkiT/AuULbyDycxowCNY0ZWcM3YXuPJHx2/buB0eOk6428VshP4t9AfwxUsEFErJGBE+rpySULT4OBWAyGa7RKqPojVC5OUpYAFnL3VNJwgOpp6ne6odX20opSVGcC17o/JLvLwoiqZaUT8J9nObUkYgArj6saXdsUy/EqcgSvgl9qkc4zLCQg1IdHMRTthFKCH3z09qTcgJzb/Ro51cgfI5n6Ct6QFiEtU9EVHAVhYpwFVThU4vYox1W5P71sYvTnbU+TG/6I0xaMtFrY3a/+aVigcIr/N+TTlYqZU1yKYLZMkt6fFMYUkr2qVjjNqtZzqVEpOlB4RVQ67p3J0GMgy8Illb0u72C2MPM7TNirLYFJjQ0gbWdqgj2frnxrltavXDEUfa1QHtZ+vbqv6ARw7YEbl3vzb0g/FB7qVYC1TKhHfw6Vd1ITEF0ncHZeKte/2eV9oxZC7+mOpBPAHfQynbZBoHq30R/t0MyW27W9deMqWkJ2WHrbfhmCyPkl6DMgR75bFYT1mFApfEmi/ksw1KJesoaCLeNcCctK37XmuaKqG26FJnPjDwtIQoWGddCmT9Q8iTGjKsVWqJ8DNXILPiO+MhEnXbs=
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB7546.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(10070799003)(52116014)(366016)(1800799024)(261022105027099003)(10067099003)(11063799006)(56012099006)(261009223027099003)(261021123027099003)(261102123227099003)(261021121427099003)(261028144727099003)(261026140227099003)(261026121527099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB7546.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(10070799003)(376014)(52116014)(366016)(1800799024)(6133799003)(18002099003)(22082099003)(11063799006)(56012099006)(261022105027099003)(261026140227099003)(261026121527099003)(5023799004)(261022075727099003)(261028144727099003)(261102123227099003)(261021121427099003)(261021123027099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?QZquiepn7KowD0+c9/6y4Wd1gXUtoyb/9c8s3jdYK0yjdEloDqniQHYod5t6?=
- =?us-ascii?Q?Ui8IpjDa1gD2AG0DAj2hzRIbLa07WZcufF7SXVP4fBg/vKZ/hyLOl0u+aK6N?=
- =?us-ascii?Q?5Mgz2CkOZop01I4my0RMIwfcq2YJVD1q/MYKBGjxD6czWB+EvNtFKscmURfg?=
- =?us-ascii?Q?iPlHdPgfO0X2id5O+Aw5skB5HaPi6gRzRk0dBjxqQgOY+QhkJrk2pO3wxlyP?=
- =?us-ascii?Q?jzzSTnF9bk5q8eDznKn1BNg+nYEIUkXKS5wqsfukG/l+GI1pIMpxgJlaWC4K?=
- =?us-ascii?Q?bhwsVR+WYssztxuu35q83qZiA10foxnEFLG0peYdqqFiHzC253Mtpi1pAq6I?=
- =?us-ascii?Q?J24yryTu7xMNkhT0kzQp56V76RTiycoIscj9NzmZV1vJF1AFjwniibZQ7fsg?=
- =?us-ascii?Q?2OwIblxIDL5D62E0ZCLeJhyMPayMEvFBXlSn2+9+1w9V98OVKj8ML+uW5whw?=
- =?us-ascii?Q?AmuwZU7kJqhGtagNyi61Cbpcduaeia3oIFS8ZUSBel2KiBFof0YHsJo2AYC8?=
- =?us-ascii?Q?bcNdztzF8DNWeHrzeNtMinIanH8Met3+y4xwGKj21ZV5j6ZTMNjcTrg8GJKu?=
- =?us-ascii?Q?NlNkWV4SrS123Dhxg6kE+wJRetKpjTusYoFlDYxT+MVcb3TOLZ3Lc/Y6W9/+?=
- =?us-ascii?Q?4HuPku6/E11Pb4mRCuwYTYogeO9EotZoml82YjPA9gK+0s8EzD77e5knrc+c?=
- =?us-ascii?Q?pKj2Fz4JiDtoE52m9mUGrd9EROcEAvCVf440OUgBNcGLtzZGyUtrx23MMkzH?=
- =?us-ascii?Q?jFBtMpgYO+P4BMfYWo5bXIAeRmXsu/XKoa2T1MrzYPN5SAe0+fCqLLsWqP5V?=
- =?us-ascii?Q?d7hRxjRzbXY5p1beSCqtZtADHYzKw8fmdocEaVL32EIAKP1UtdI79AvitLdA?=
- =?us-ascii?Q?47h47r5o0qxxSrey9RYwXKfw8SXFhVIrk2nRFt4orwGC6hjBDFJ3LGwILKRc?=
- =?us-ascii?Q?jgm03RIjy8bMtWmv73yUTbDN3Gjx6NXWqqPeAxdCIpfDyI9Y2TFCofSvCjDg?=
- =?us-ascii?Q?sCb7CM8zc1XYU/oPRYn3Et+iPhMrf8WxfFAfNPrmxIkpKpZU5n7ydSsyUBCd?=
- =?us-ascii?Q?dwegOOuP6KPrkm3Gu4vY7TJ8srXoz9ut+ZDHlFqkxVNIUQVzTiXR0jdt3dwJ?=
- =?us-ascii?Q?R18WOr4bmgWrmFHUa/aqZUcy/Q46odlYQkXYmEvxYlGzweROA2BEGO9F8HE7?=
- =?us-ascii?Q?2dowsCC97KoeGRXfxKGd9R2SYARXDSBwmyBfqmH6PKMtYIUNqLSJD0hYCHDJ?=
- =?us-ascii?Q?Y1UOvHrZu/ncDnBoL+TlwISc4uWMHH8rOwRUKByOaPjm0wHwBckBjWewaMX6?=
- =?us-ascii?Q?s7aZjXLq4sCfnD74n8OyC0YKWeKf4NbHeO+XYinr+UcSnGL/5agb8S0XRfgh?=
- =?us-ascii?Q?5V0r7WfuLmSWaGeNFQAPdA7/oe+PYDQCD+XGIo9TdYLv/Iq2yIFlaL+DJf/6?=
- =?us-ascii?Q?kUXC6AiM5P+Yjytt1VukvKCMpuyxynnqyWZIxYApzwyTEuswCs9jC6j/XwbG?=
- =?us-ascii?Q?VZEPcgUVvlZ1yAjcD7USRHuGa1GW1n58t7COUc9BAUxYfFWukzV7ux3Qec5u?=
- =?us-ascii?Q?qHwH1F/USmQhXWr2gb/W67rhgfQk+CD6J5UqX6PPWr1MlYC2DcUyrcRbwJ4D?=
- =?us-ascii?Q?jPTvhKPeWj4soP1INlnTzQSHnSvEVmOSDSucTl/BZctpjLlnaTIlt4WGr7A0?=
- =?us-ascii?Q?1g3HEKCkMcE7vI7ZpCXhB2X6wXn394RLbscf9hsdIfcT6c6/+lVPgpA5al5Y?=
- =?us-ascii?Q?issiQ/kJblyyU7JES3q/Db86/xJ17ww9vOWkF4F/Wn7pUD5Jte+qegDptYNL?=
-X-MS-Exchange-AntiSpam-MessageData-1: YIZG05ZQbc3Q/iXxLy3rt5HeKHqWmqFysy8=
+	=?us-ascii?Q?m0PPSJUTUFbMeoZLK+/7cJJkZuXEURHzxd6gs32rgebHRJXr06WGKw9TF/BK?=
+ =?us-ascii?Q?xkwbN9aUCBpAIZHFSmlTICE7B3Sd21a15G/+zXUULlh0EERDVWiDLdPeAFqW?=
+ =?us-ascii?Q?67yZgV2HNQL54AOBqockYSsrVfqS2U07uIoZNRdCLQi1D6r2d+MoyZL0QvPi?=
+ =?us-ascii?Q?v68TjfYRzSIX4X3INwKk1QL+0oCEfJY41YjkExxrh8mG7lBLK7+Z5BMKtSPM?=
+ =?us-ascii?Q?apY+AwTx4dU3zuJeTb3v1MSCFiAZMdKDSxsO4vEtLumlpcoPcAERg98rTvsB?=
+ =?us-ascii?Q?HEEOrKNoibv3g1hBSW2uHK4jVGbY8pZlyhcizWOvn3dRkRm0/E4f+DBbMHpE?=
+ =?us-ascii?Q?MobId3tJOzYDyG4B15NTjN8dh0fiS4r+0NrDTW2SvcgaerbC7PFGM7YNMzVy?=
+ =?us-ascii?Q?IbLdiPxs5DC4IsB3VGY4DdI1fzpMOs/6Eh01n/XioGjjrZW2w+fSYseaCX4t?=
+ =?us-ascii?Q?1nn/ddwnkfcdXeLGZjBFJnvaypJXwLnnvG8LxxgCc9xG8JsR94AcUgogjSVw?=
+ =?us-ascii?Q?3r1QDrqD7HSC6+XrqCDbZkGn7doygipfhj3D9oDT1r0SIpgH6AEZCO9ux5qK?=
+ =?us-ascii?Q?oLVw3xgg7IODly7Wo/gnRff8590Thp6c14qeT+rbOyvDmjmbt33fKb5Lw0WG?=
+ =?us-ascii?Q?ZkoR9nZodR0h6DGgkVkVVY77X7THrtNLkN7HEqJdP0XyZQXdy3qFIlpfilrx?=
+ =?us-ascii?Q?sgLsldQ+W0LmgF4iH3Qd2xfF27By6UAIbnVFKT6n55RTc/dyJjTz3j4PBSQP?=
+ =?us-ascii?Q?fFQ+kApnPgxHQEuynEZU9/y2LXIdwgPj1Avbcgfr7VFGXcwVknDYZkzQlTb0?=
+ =?us-ascii?Q?niG40rAQF6B9X5tVfI6QW2k1Gn3i7DXef/ARGmnTR23qCTsn2gJ4qX956V82?=
+ =?us-ascii?Q?dRd1XCUVSoswJzSsmGG/V1xP1g6nlXQeObyz8mdyqtxABL+rcLNlIbtVostL?=
+ =?us-ascii?Q?M2i1JiGC8u4YwYFgWHrmnb97VkskcVAqsuH5ifHp3S4K88hLIf/qdwpBDCFa?=
+ =?us-ascii?Q?GTtTDLiApaajpPd+PvmW3BrO0aI3oSatdMbYIRkTtSiRREo+T3Hf8eFiNvlx?=
+ =?us-ascii?Q?HXEIDAuQqE5gcc0h5MLLjWKS9jjLqm9uOOMRal/vYjtFlklhazP2U2h1V1Tv?=
+ =?us-ascii?Q?bJGYr++HB41WA4vSKT4VlDKVJUpu+uqf93WIpQ4LujvZGbWofDUpz8OxiWrU?=
+ =?us-ascii?Q?J5QdZqrtaL8urbsZTO1Ck42hmG0K08zkFjnG+SkC1xJjOLm2DPbJbagqvPH+?=
+ =?us-ascii?Q?ZESZXxYFi1DDOXdD2zHrqmL/EzUE91j0OZA2OiJX5MiSunqj+eeiDQ+Tm053?=
+ =?us-ascii?Q?TvsoP6rbHnq1eXBrwx1SJO0Z0UfsTyyjgZ4Ooztx2MoSGUx6VPfJ+Zs60cIU?=
+ =?us-ascii?Q?wpYVRMv/fgGNq9u8EWX89k+s161GnoU1kQuIuN9GnZSzNU2c6ZVSYgkXl3Xa?=
+ =?us-ascii?Q?VaopKBEpaTd937/YIq94huKWRmxNr3fZ5b0puZvFDsIIB2RtPI1uk+T/s2XF?=
+ =?us-ascii?Q?9GVSg6Gir6y/uHEnnoc4183HznaYeMhB4thVKQWMLtPBHAupU5EUKjC7g683?=
+ =?us-ascii?Q?kQer2YlPIdv+f4KJK0bV5E32pYQdk9tB0htDtqbiqxIoV43J6NXKxcEfWJmB?=
+ =?us-ascii?Q?oXg2vWgMEEHEFFjQJZ1HHGoUb6ybuoQbNFyxFYqqMfIGMaoD1d+nlA4qDVtS?=
+ =?us-ascii?Q?sckrwP/w2Iee9m+OZQLOf/N0PrqdF287RbkDLG1w0ZL5UEcti1VeNnIWfJvT?=
+ =?us-ascii?Q?iq7yXbxrRdsMa3YQyEKzvLxVYdqg12yZDZERrzfYNxXH47Ls+tWsxCSBJWHM?=
+X-MS-Exchange-AntiSpam-MessageData-1: ccuGWea1wHYkHsTMAbYrnVSwJJvS4dUfvvA=
 X-Exchange-RoutingPolicyChecked:
-	DxAV8uBgU7h7zDN1fA9D7COGDDIqLkRJzfFSX/kMRcYpwp11mAM7C2IBvCrLFF3NgaH+mPXjxy9RWUVfKHqKvwFVoLEK3FqmYrAlUN28mRDPQzAXdMnuO81G2ixs7bD3cnQt0/K3UMxhgWKdvCHnFIsWU5NrquGJdAS9JjJaOIX58UdOeqmv7FT6hpaKiSiF1qVdSAWf8yjG0F0CbDcxoj2pe8FXrZiviGLa8P0fxHc34jt0swe7XKcOFAgnP934W0+DEuUJ12+gozmOJvnKPAv4TxbQ7dP9vJZHAeuFIf4/1L2OFMqODTe05HdSbzy+p0GfFAZxnINlGR+60N/5OQ==
+	xlhWHzyy9t03gbeHH7e47oAAg+TPBumSXc4V1SgAghJftlnpjiuHDYSpdx5fOJIsVBBfbMlOk5Ox07HR06NRjROOjTZ3+cJj/pN2rr8I1KWXMKMMuTunk6m1/Ckc7zQGK3149dnSt091ZPI0NTYlOCXl7vDR+Nxg9sJ6/paWf65y5LaudhC4hAFgKjyBpSmKWpiur6E/Tvw38ZEgNE0YTQ/VKt8RB1cLISNXsJ2qQ9QP4Phgd7BKkyuDao7IvnkJ+pvtImEg/wJlq8IfFgaKfQ5lHCm2Go4lgsO5Mbjmla0PJSJ2FicZ0lD+CJVrhR3SCMBSIQJ7JdzUrssxwTfTng==
 X-OriginatorOrg: windriver.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e245543d-7c52-446f-889b-08df46d8c951
+X-MS-Exchange-CrossTenant-Network-Message-Id: 37b6029e-9699-4a53-8ad1-08df46d8c6db
 X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB7546.namprd11.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 07:35:01.7439
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 07:34:57.4213
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZwXu0RFHbDPT0qBoakBnT9u7KRqU5ugHPueLlARCxjfbwJ3QBGXttonN8Ocl8mkcdqz1eJJ39b7Tl2RHPUJyrWi5jl7CPd9ck6fWRHD+cZI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSWPR11MB9821
-X-Proofpoint-GUID: aGKucz7-GXqfzIYY0yUoWNffo7U-i4H1
-X-Proofpoint-ORIG-GUID: aGKucz7-GXqfzIYY0yUoWNffo7U-i4H1
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAyOSBTYWx0ZWRfX/Y0zzvMzUwyx
- +aWWR2hhgFhrDWyYZv+PAkHsiPBJbGfQaW5KIPYj5c7xeVDuWiuy+GCWC6ovbJu7xmqkjogZZQA
- HE9EyJSb1SvOQ+fxerxPW3jq1hUoQGERamN05Vu6TLQN1X5M3SljG5zWWDrE4X6t+E+fS/KTePS
- g7WO9CgAa/PtpSSi91kwcutu9Nvc2kot8MClUnQCHifOE6jmEmobNhXn/5upCEsyYpboT/WP0I2
- 4vLUkGfkVCoaqWzYhe9AtRBmTwj1rqHN7/EdufY8FzSohFjbn971Cw654YbslX+G/WBetwSra0s
- iswQ7dUvXR9DsZwfPIGrAD6IUEnI54xzWzoixjsgBPiSNSZOlYWjb8aqP61cFkF3dP5mg7zZz8E
- REJeGalF/SVxgqzzv2/EmrNcMUWc9HyEUbKCZ1CtHdQvGyLgPcAcPf/pgGfmL9VgJ2Yt9RU+r4r
- D9YbsstMfr40q9OhO+g==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAyOSBTYWx0ZWRfX7/vRaiPb/VR7
- E/7kvmfVtJwaTn8yPucdw+FAWO6DZNo5nGTpkMi8lXKBGg6xIkZl8t45kLqo2nHRtP6nRZKq76C
- Dmh2gTHgWLUB9LcKO9/gtIv8GteM4cmdtjayASnadFW9yr/umzpw
-X-Authority-Analysis: v=2.4 cv=GNCdgeNK c=1 sm=1 tr=0 ts=6afff828 cx=c_pps
- a=6tOaaN1fXmJE/LdyR88bKQ==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
+X-MS-Exchange-CrossTenant-UserPrincipalName: JXJ68wp8AdxaNqLyNQq++SILK0Uc36P8hIvElUMdr6+cvKFfMr9ZbnxXNkcTwEdxb7lA2jHT9GuOk2scspKRnEYn7GHsOG4heQimNaC/sik=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB5176
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAyOSBTYWx0ZWRfXxcgtNtkyXZWC
+ lfo2HzNdvQ8oCLvTGf8FhjgTukz/U4P2cvLdrEpjqTqxapJJZeM3pVXnkT7kjOMLH6zhpVbYvZx
+ ILPLbb9dCon4e/rfW8fhPVlO+w1lVjrhdEm+ImlpX4OM7AS/pGcD
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAyOSBTYWx0ZWRfX9vvkMoPbIm6W
+ 6t5R28SpEsle2C/Tri7/qLSCkjok7vs1ooPmxT9JRZ9J9Bf7O5oUInYXgG8h/br7rUDusWMR5ew
+ lkOFJuq6rsJxxSGYnc2MLA4k7ImB6DE5jk8ybSa/hmcZnRmTZZ/sVT9ZABy1c21pX4kj+NPqhvr
+ 6fBCh6X0Wl4+dww1pZZuTynZmAn7PRveb1sOWQxT7BQnOTkj5mwB9P2ekY5DXb7fkxPMjZIwKgF
+ hX26HmjIq5dnZO9PUN7g8V2j8cdhZ9OxO7Q81hGgfnClnNKGN9JefgkQE8Pj/lhrVXAujqc6BXi
+ /wIxfSAgnu2dJGnpDXOATeRpwMwxxfZwNFfgyFeZtPdr2CT+gGYUk18E252hcUTK/YgFu1L4nUA
+ Ory3/9HNo+54x8e43Udk3IExBurYdS3W253J8qYX8vEgtKFGqC98NEsN5g9cZLTgOZT8cGiL7j7
+ D4rWa4Ig+nOutnVQInw==
+X-Authority-Analysis: v=2.4 cv=OdYNnRTY c=1 sm=1 tr=0 ts=6afff82d cx=c_pps
+ a=QMhPzt4RVFymwNJSNtbcTg==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
  a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
  a=xqWC_Br6kY4A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=bi6dqmuHe4P4UrxVR6um:22 a=fTW__CHxibyLmBMfj2wP:22 a=t7CeM3EgAAAA:8
- a=kiiYn__vwDNCVcd8uBgA:9 a=FdTzh2GWekK77mhwV6Dw:22
+ a=bi6dqmuHe4P4UrxVR6um:22 a=klDOsUkWDRETUCZYPvoE:22 a=t7CeM3EgAAAA:8
+ a=JNaU-UHPnqVTaEsBh4oA:9 a=FdTzh2GWekK77mhwV6Dw:22
+X-Proofpoint-ORIG-GUID: sUO40_hJbBg06e6cDDp4WS3uNBZKcIO9
+X-Proofpoint-GUID: sUO40_hJbBg06e6cDDp4WS3uNBZKcIO9
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-20_02,2026-11-19_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 adultscore=0 spamscore=0 clxscore=1015 suspectscore=0
- lowpriorityscore=0 phishscore=0 impostorscore=0 bulkscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611200029
+ malwarescore=0 priorityscore=1501 spamscore=0 bulkscore=0 phishscore=0
+ impostorscore=0 adultscore=0 clxscore=1015 lowpriorityscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200029
 
-When a blocking lock request is interrupted,
-ceph_lock_wait_for_completion() sends an unlock request to cancel it
-and then waits for the original request's r_safe_completion with no
-bound.  If the MDS goes away at
-that point the task hangs in D state:
+When the MDS is unreachable, sync(2) and syncfs(2) block forever in
+ceph_mdsc_sync(): flush_mdlog_and_wait_mdsc_unsafe_requests() waits
+for r_safe_completion and wait_caps_flush() waits for the cap flushes
+without any bound.  The diagnostic loop added to wait_caps_flush()
+makes the stall visible, but the task still can't make progress and
+keeps tripping the hung task detector:
 
-  INFO: task flock:12345 blocked for more than 122 seconds.
+  INFO: task sync:514917 blocked for more than 983 seconds.
   Call Trace:
-   wait_for_completion_killable
-   ceph_lock_wait_for_completion
-   ceph_flock
+   ceph_mdsc_sync+0x4d6/0x5a0 [ceph]
+   ceph_sync_fs+0x31/0x130 [ceph]
+   iterate_supers+0x97/0x100
+   ksys_sync+0x32/0xb0
 
-Bound the wait by mount_timeout and return -ETIMEDOUT; the original
-request has already been marked CEPH_MDS_R_ABORTED at this point.
-mount_timeout=0 keeps waiting forever.
+Bound both waits by a single mount_timeout deadline, like
+wait_requests() and ceph_mdsc_close_sessions() already do, and
+return -ETIMEDOUT from ceph_sync_fs().  Nothing is discarded: unsafe
+requests and dirty caps stay queued and are flushed once the MDS is
+reachable again.  mount_timeout=0 keeps the current wait-forever
+behaviour.
 
 Signed-off-by: Ionut Nechita <ionut.nechita@windriver.com>
 ---
- fs/ceph/locks.c | 15 +++++++++++----
- 1 file changed, 11 insertions(+), 4 deletions(-)
+ fs/ceph/mds_client.c | 84 +++++++++++++++++++++++++++++++++-----------
+ fs/ceph/mds_client.h |  2 +-
+ fs/ceph/super.c      |  5 +--
+ 3 files changed, 67 insertions(+), 24 deletions(-)
 
-diff --git a/fs/ceph/locks.c b/fs/ceph/locks.c
-index 677221bd64e01..b4faf112b3f84 100644
---- a/fs/ceph/locks.c
-+++ b/fs/ceph/locks.c
-@@ -158,9 +158,11 @@ static int ceph_lock_wait_for_completion(struct ceph_mds_client *mdsc,
-                                          struct ceph_mds_request *req)
- {
- 	struct ceph_client *cl = mdsc->fsc->client;
-+	unsigned long timeout = ceph_timeout_jiffies(cl->options->mount_timeout);
- 	struct ceph_mds_request *intr_req;
- 	struct inode *inode = req->r_inode;
- 	int err, lock_type;
-+	long left;
- 
- 	BUG_ON(req->r_op != CEPH_MDS_OP_SETFILELOCK);
- 	if (req->r_args.filelock_change.rule == CEPH_LOCK_FCNTL)
-@@ -219,10 +221,15 @@ static int ceph_lock_wait_for_completion(struct ceph_mds_client *mdsc,
- 	if (err && err != -ERESTARTSYS)
- 		return err;
- 
--	err = wait_for_completion_killable(&req->r_safe_completion);
--	if (err)
--		return err;
--
-+	left = wait_for_completion_killable_timeout(&req->r_safe_completion,
-+						    timeout);
-+	if (left < 0) {
-+		return left;
-+	} else if (left == 0) {
-+		doutc(cl, "request %llu safe completion timed out\n",
-+		      req->r_tid);
-+		return -ETIMEDOUT;
-+	}
- 	return 0;
+diff --git a/fs/ceph/mds_client.c b/fs/ceph/mds_client.c
+index 3791fc627714c..d02fe1e34527b 100644
+--- a/fs/ceph/mds_client.c
++++ b/fs/ceph/mds_client.c
+@@ -2520,11 +2520,24 @@ static void dump_cap_flushes(struct ceph_mds_client *mdsc, u64 want_tid)
  }
  
+ /*
+- * Wait for all cap flushes through @want_flush_tid to complete.
+- * Periodically dumps pending cap flush state for diagnostics.
++ * Time left until the sync deadline, or MAX_SCHEDULE_TIMEOUT if
++ * mount_timeout=0 (wait forever).
+  */
+-static void wait_caps_flush(struct ceph_mds_client *mdsc,
+-			    u64 want_flush_tid)
++static unsigned long sync_time_left(struct ceph_mds_client *mdsc,
++				    unsigned long deadline)
++{
++	if (!mdsc->fsc->client->options->mount_timeout)
++		return MAX_SCHEDULE_TIMEOUT;
++	return time_before(jiffies, deadline) ? deadline - jiffies : 0;
++}
++
++/*
++ * Wait for all cap flushes through @want_flush_tid to complete or for
++ * @deadline to pass.  Periodically dumps pending cap flush state for
++ * diagnostics.
++ */
++static int wait_caps_flush(struct ceph_mds_client *mdsc,
++			   u64 want_flush_tid, unsigned long deadline)
+ {
+ 	struct ceph_client *cl = mdsc->fsc->client;
+ 	int i = 0;
+@@ -2532,22 +2545,31 @@ static void wait_caps_flush(struct ceph_mds_client *mdsc,
+ 
+ 	doutc(cl, "want %llu\n", want_flush_tid);
+ 
+-	do {
++	while (true) {
+ 		/* 60 * HZ fits in a long on all supported architectures. */
+ 		ret = wait_event_timeout(mdsc->cap_flushing_wq,
+ 			   check_caps_flush(mdsc, want_flush_tid),
+-			   CEPH_CAP_FLUSH_WAIT_TIMEOUT_SEC * HZ);
+-		if (ret == 0) {
+-			if (i < CEPH_CAP_FLUSH_MAX_DUMP_ITERS)
+-				dump_cap_flushes(mdsc, want_flush_tid);
+-			else if (i == CEPH_CAP_FLUSH_MAX_DUMP_ITERS)
+-				pr_info_client(cl,
+-					       "still waiting for cap flushes; suppressing further dumps\n");
+-			i++;
++			   min_t(unsigned long, sync_time_left(mdsc, deadline),
++				 CEPH_CAP_FLUSH_WAIT_TIMEOUT_SEC * HZ));
++		if (ret)
++			break;
++
++		if (i < CEPH_CAP_FLUSH_MAX_DUMP_ITERS)
++			dump_cap_flushes(mdsc, want_flush_tid);
++		else if (i == CEPH_CAP_FLUSH_MAX_DUMP_ITERS)
++			pr_info_client(cl,
++				       "still waiting for cap flushes; suppressing further dumps\n");
++		i++;
++
++		if (!sync_time_left(mdsc, deadline)) {
++			doutc(cl, "timed out waiting for flush tid %llu\n",
++			      want_flush_tid);
++			return -ETIMEDOUT;
+ 		}
+-	} while (ret == 0);
++	}
+ 
+ 	doutc(cl, "ok, flushed thru %llu\n", want_flush_tid);
++	return 0;
+ }
+ 
+ /*
+@@ -6737,13 +6759,15 @@ void ceph_mdsc_pre_umount(struct ceph_mds_client *mdsc)
+ /*
+  * flush the mdlog and wait for all write mds requests to flush.
+  */
+-static void flush_mdlog_and_wait_mdsc_unsafe_requests(struct ceph_mds_client *mdsc,
+-						 u64 want_tid)
++static int flush_mdlog_and_wait_mdsc_unsafe_requests(struct ceph_mds_client *mdsc,
++						      u64 want_tid,
++						      unsigned long deadline)
+ {
+ 	struct ceph_client *cl = mdsc->fsc->client;
+ 	struct ceph_mds_request *req = NULL, *nextreq;
+ 	struct ceph_mds_session *last_session = NULL;
+ 	struct rb_node *n;
++	unsigned long left;
+ 
+ 	mutex_lock(&mdsc->mutex);
+ 	doutc(cl, "want %lld\n", want_tid);
+@@ -6782,7 +6806,18 @@ static void flush_mdlog_and_wait_mdsc_unsafe_requests(struct ceph_mds_client *md
+ 			}
+ 			doutc(cl, "wait on %llu (want %llu)\n",
+ 			      req->r_tid, want_tid);
+-			wait_for_completion(&req->r_safe_completion);
++			left = sync_time_left(mdsc, deadline);
++			left = wait_for_completion_timeout(&req->r_safe_completion,
++							   left);
++			if (!left) {
++				doutc(cl, "timed out waiting for tid %llu\n",
++				      req->r_tid);
++				ceph_mdsc_put_request(req);
++				if (nextreq)
++					ceph_mdsc_put_request(nextreq);
++				ceph_put_mds_session(last_session);
++				return -ETIMEDOUT;
++			}
+ 
+ 			mutex_lock(&mdsc->mutex);
+ 			ceph_mdsc_put_request(req);
+@@ -6800,15 +6835,18 @@ static void flush_mdlog_and_wait_mdsc_unsafe_requests(struct ceph_mds_client *md
+ 	mutex_unlock(&mdsc->mutex);
+ 	ceph_put_mds_session(last_session);
+ 	doutc(cl, "done\n");
++	return 0;
+ }
+ 
+-void ceph_mdsc_sync(struct ceph_mds_client *mdsc)
++int ceph_mdsc_sync(struct ceph_mds_client *mdsc)
+ {
+ 	struct ceph_client *cl = mdsc->fsc->client;
++	unsigned long deadline = jiffies + cl->options->mount_timeout;
+ 	u64 want_tid, want_flush;
++	int ret;
+ 
+ 	if (READ_ONCE(mdsc->fsc->mount_state) >= CEPH_MOUNT_SHUTDOWN)
+-		return;
++		return 0;
+ 
+ 	doutc(cl, "sync\n");
+ 	mutex_lock(&mdsc->mutex);
+@@ -6829,8 +6867,12 @@ void ceph_mdsc_sync(struct ceph_mds_client *mdsc)
+ 
+ 	doutc(cl, "sync want tid %lld flush_seq %lld\n", want_tid, want_flush);
+ 
+-	flush_mdlog_and_wait_mdsc_unsafe_requests(mdsc, want_tid);
+-	wait_caps_flush(mdsc, want_flush);
++	ret = flush_mdlog_and_wait_mdsc_unsafe_requests(mdsc, want_tid,
++							deadline);
++	if (ret)
++		return ret;
++
++	return wait_caps_flush(mdsc, want_flush, deadline);
+ }
+ 
+ /*
+diff --git a/fs/ceph/mds_client.h b/fs/ceph/mds_client.h
+index 4749438d94e1f..31abbb3b3bdb3 100644
+--- a/fs/ceph/mds_client.h
++++ b/fs/ceph/mds_client.h
+@@ -635,7 +635,7 @@ extern void ceph_mdsc_close_sessions(struct ceph_mds_client *mdsc);
+ extern void ceph_mdsc_force_umount(struct ceph_mds_client *mdsc);
+ extern void ceph_mdsc_destroy(struct ceph_fs_client *fsc);
+ 
+-extern void ceph_mdsc_sync(struct ceph_mds_client *mdsc);
++extern int ceph_mdsc_sync(struct ceph_mds_client *mdsc);
+ 
+ extern void ceph_invalidate_dir_request(struct ceph_mds_request *req);
+ extern int ceph_alloc_readdir_reply_buffer(struct ceph_mds_request *req,
+diff --git a/fs/ceph/super.c b/fs/ceph/super.c
+index 7b5ef76e430d7..7936b76aa3cc0 100644
+--- a/fs/ceph/super.c
++++ b/fs/ceph/super.c
+@@ -126,6 +126,7 @@ static int ceph_sync_fs(struct super_block *sb, int wait)
+ {
+ 	struct ceph_fs_client *fsc = ceph_sb_to_fs_client(sb);
+ 	struct ceph_client *cl = fsc->client;
++	int ret;
+ 
+ 	if (!wait) {
+ 		doutc(cl, "(non-blocking)\n");
+@@ -137,9 +138,9 @@ static int ceph_sync_fs(struct super_block *sb, int wait)
+ 
+ 	doutc(cl, "(blocking)\n");
+ 	ceph_osdc_sync(&fsc->client->osdc);
+-	ceph_mdsc_sync(fsc->mdsc);
++	ret = ceph_mdsc_sync(fsc->mdsc);
+ 	doutc(cl, "(blocking) done\n");
+-	return 0;
++	return ret;
+ }
+ 
+ /*
 -- 
 2.56.0
 
