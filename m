@@ -1,62 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795132965;
-	b=uDUckAT2BdvFXSXUvZcS5KxHr1/nnPWURb1mIQ2jnUitWoQVCtfkzAHKAU0ATwvBKrsq
-	 yfVkCsE7bTW0jqPK0LRIcMVYP6eS7kD6Puq9GM9BVtxLIar8sLJYMM5fP4JfGCydKOQNX
-	 Bwe+o8yNNBiMLSIaTGNwMC+qWSgB/FHte7hTp/6qp6wBRVvvfQ3Kg5qRdBnkexfcDdwdH
-	 oLUd7iTVCCqf3BiApCRbi/5LCIGwXHMrJD2VBKRBOnHLCYLkSO5QZzB5HHhjXJlhq2uTB
-	 B16z7h1sbAfYmjZ1eT2Qls6kXPwb5lvvEtXAy2UztwDvABhWL/u+pTcz+fFZIJU1QTQ==
+	t=1795132970;
+	b=viRW2/3/sLC5JfMpBJ6SDoGHJmUNBBrkOCF7t6QsdK61Pr77UBhQ/0BrkdIFG6LycZdu
+	 5n9b8CuLxqhQh+vKzW3MlPiwk06XzbHvBcl750tbM8EeOGoUutl/KkTqiwWnb9aMwj1CU
+	 wyJBw3D89tRHtu+FsF5g583zrL/JP+hS+fIGf+LhE4+dXZ2x9uMSoHEH8b5xy3VUVVV0S
+	 xY23VO3Yw692vS5G7yUk10qnS0K7OMHSfXp2EBlhcNdRHv0OruE+zCV9igNE10rzuAVpa
+	 LPksov0tTpCaT4Rpu4lz6buAdUripC2KPbp9fGCFI8P8bCRrfym4ug0ALVL5MeIe1Fw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795132965;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=K7IiTNCHGCrw9b2iJV2J2quXWphsfMGnJj+bjDSU5j0=;
-	b=QhL0hcHvGM9eCMX5Ed8qT3PysnROHeieZcIZ9CEYMos4f9zkXtErABjNN5JK+mqIgKnV
-	 H+nivcFSlSz1uwwMXvAZetyp4+tw7EcSLoBq2P72Kh2jo5QXit7Vd9+vTyEZt3DKDnp4j
-	 CWRurbZMlZ5l9ZgSX2ZGqV160JbMfU7IF/qenvVtuPLxlg3T9rIKkorIxK9HJoUoNuVMY
-	 hVaMMmfjzXGtteIiaoO89JQPHXb56CdyFumwdqnSoe1JfCGRsRxFKIAX22gOq6DK2r/F+
-	 RsQ30qflMGJPv93XGwCVIZTzyiwKoJj1+8d5MHxOqxWT4KdOfwEipTVhW23IDn+t0fg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795132970;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=Qn17H3IOSSvH2IrLgkvHMH5GTctM6BtdG2wuJf630Zg=;
+	b=cjIX3dj9vIbB8NVzl6itB2ZbCSroucDifVhPs+2a4dtLdTazTH9beIbi61jKJjB4FCFQ
+	 D3Hvp/0932NagLybY+YXaa46zNJaafNmBqgImKiZKJjkxs3Sy2iHbJGZbPWc+bDTZUkld
+	 diuzKzPTvv00e/93zPhf4kayifH2Sm1/baKTZJCHWOwB+ppZc2vOT8rw5AANGNFIR0h+Q
+	 1cokZftJLcVhMjp6avUo9ZuQWozc3+gwHTheI3Slr5mMvvVOeILup31WORBsSSuSV4vh5
+	 NUv9t7rmiaKuHX+SNAv9aUrlX9dyyyohxOjL5uaE+350TDibzGjEog0Mjy3XWZrs9IA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GOCj4taG;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kjYYCOS3;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FB06606A325;
-	Fri, 20 Nov 2026 00:02:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2B2C606A339;
+	Fri, 20 Nov 2026 00:02:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GOCj4taG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 478021F000C4;
-	Fri, 20 Nov 2026 00:02:44 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kjYYCOS3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 941221F000C4;
+	Fri, 20 Nov 2026 00:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795132965;
-	bh=K7IiTNCHGCrw9b2iJV2J2quXWphsfMGnJj+bjDSU5j0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=GOCj4taGw3irkEV7/TSd8yJmXclYrgwCNm1gVtRtPncKp/9tBdrrJbPMO21hHX05D
-	 gQjoH+qG5i6JBWDPMRAy2Qmk00XtmbcvZtSg1QLO9OvRcanRAqRmxV7+i9fBOnRluZ
-	 IKX4R7e/eSupBmeU43Qu9wesZa/XZoPHNRS++RuR51KYfm5XEThwLq2/CrFJC2AAQm
-	 /GpaudBUHATU/OxyJdP0ioNlnrleZXcgvcNrZi+wd0HXobLqYTW6HC8Hm9BqVuHRyS
-	 B3O5DNY2qmU5H8Rz+XJNmyoWiPobc+4wcnB1+uQeAT4Dl7itBqcUP93k345tu2nFUq
-	 NCd/T8tMThWbw==
-Subject: Re: [PATCH v5 2/2] usb: gadget: u_ether: fix out-of-bounds read in
- get_ether_addr
-From: netdev-bot+sashiko@kernel.org
-To: liuc63@xiaopeng.com
-Cc: gregkh@linuxfoundation.org, akpm@linux-foundation.org,
- andriy.shevchenko@intel.com, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, khtsai@google.com,
- fangxy@xiaopeng.com, rdunlap@infradead.org, dbrownell@users.sourceforge.net,
- linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org
-Date: Fri, 20 Nov 2026 00:02:43 +0000
-Message-ID: <179513296378.3136.18205287276015126683@kernel.org>
-In-Reply-To: <20261117090110.3263592-3-liuc63@xiaopeng.com>
-References: <20261117090110.3263592-3-liuc63@xiaopeng.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795132970;
+	bh=Qn17H3IOSSvH2IrLgkvHMH5GTctM6BtdG2wuJf630Zg=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=kjYYCOS3oV+wZvwdPucNHyX1gAV2Er8PDCfK7NQ8WmThGtrdfqr+bYOAJwn+6BA2B
+	 OycZAUQS0aeMUisdEep8zp/rpk4c7RDEA4C+pDyepkIAwfd1jAGPvk5czD04L5dATw
+	 Q2v6ZTZbj34VvXFnpgPWLVxu2WPktLX1Idan+AwaspKEMxVle0Oqp62xmkgOdkVTx1
+	 6s9mOROpx9O0IQ0CHKyeR2vf5lvlHhfYlbZFV+ovfFu+n0Q3P6rFwAPRF7Y8BPf+YU
+	 x50aY3VE03wmhhDNpsQbJQogXe0SQmIV9XGlftMlHIelv3McyaePpv/shPC0KRwlD/
+	 kexxczAo3k0VA==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,134 +49,192 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v13 3/5] clk: en7523: protect concurrent access to
+ reset and PCI register
+From: Brian Masney <masneyb@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Felix Fietkau <nbd@nbd.name>, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Brian Masney <masneyb@kernel.org>
+In-Reply-To: <20261117182444.103123-4-ansuelsmth@gmail.com>
+References: <20261117182444.103123-1-ansuelsmth@gmail.com>
+ <20261117182444.103123-4-ansuelsmth@gmail.com>
+Date: Thu, 19 Nov 2026 19:02:30 -0500
+Message-Id: <179513295003.301584.12707579619184180658.b4-review@b4>
+X-Mailer: b4 0.17-dev-8145e
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5332; i=masneyb@kernel.org;
+ s=20250903; h=from:subject:message-id;
+ bh=elDJihZr8Sn8KuTsCcqxv3H8PrekDh20MCAmc0hzyog=;
+ b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLL+9yk+na5t8unf/gv73oWv+eZhdeLZZ81SLdWtnT/dT
+ oWqF8263lHKwiDGxSArpsiyJNeoICJ1le29O5osMHNYmUCGMHBxCsBE+P4yMnzYGePr+ezS45pr
+ T+ffPNu0lOmw6XmNJQftwubu6eIVmuXP8D9M5mPD+k79nKfugVM/5osXzFY/ssRmzvtKuco711/
+ UT+cBAA==
+X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
+ fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Hi Christian,
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+> Use spinlock for concurrent access to reset and PCI register to catch case
+> when clock is enabled/disabled while a reset is also operated at the same
+> time. This is needed as register are shared for both clock and reset
+> operation and rmw operation require protection against writing inconsistent
+> data.
+> 
+> Some minor rework was needed for PCI unprepare case to permit calling it
+> before clk_hw_register and reference the global spinlock.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+This should be split out into it's own patch.
 
-- [Medium] The commit message is wrong about how the legacy module
-  parameters report a rejected address.
-- [Low] The ABI text this patch adds to configfs-usb-
-  gadget-{ecm,eem,ncm,rndis,subset} says host_addr/dev_addr accept only…
-
---
-
-usb: gadget: u_ether: fix out-of-bounds read in get_ether_addr
-
-This replaces the open coded MAC address loop in get_ether_addr() with
-parse_mac_pton() for the delimited notations and hex2bin() for the raw
-twelve digit notation. This fixes an out-of-bounds read on short strings
-and stops non-hex characters from being silently accepted. It also selects
-GENERIC_NET_UTILS and documents the accepted formats in the configfs ABI
-files for the ECM, EEM, NCM, RNDIS and subset functions.
-
-Link: https://lore.kernel.org/all/20261106030605.576584-3-liuc63@xiaopeng.com/
-
-> How a rejected address is reported depends on the caller.  The legacy
-> module parameters go through gether_setup_name(), which keeps the random
-> address that get_ether_addr() falls back to and only logs a warning.
-
-[Severity: Medium]
-Is this description of the legacy path accurate?
-
-Nothing in the tree seems to call gether_setup_name(). Its only wrapper,
-the inline gether_setup() in u_ether.h, has no callers either.
-
-The legacy gadgets (legacy/ether.c, cdc2.c, ncm.c, multi.c and g_ffs.c)
-pass the dev_addr= and host_addr= parameters through
-gether_set_dev_addr() and gether_set_host_addr(). The KASAN trace earlier
-in this commit message shows the same path
-(eth_bind()->gether_set_dev_addr()->get_ether_addr()):
-
-drivers/usb/gadget/legacy/ether.c:eth_bind() {
-    ...
-	if (!gether_set_host_addr(net, host_addr))
-		pr_info("using host ethernet address: %s", host_addr);
-	if (!gether_set_dev_addr(net, dev_addr))
-		pr_info("using self ethernet address: %s", dev_addr);
-    ...
-}
-
-gether_set_dev_addr() parses into a local new_addr[] and returns -EINVAL
-when get_ether_addr() fails. The random fallback is thrown away:
-
-drivers/usb/gadget/function/u_ether.c:gether_set_dev_addr() {
-    ...
-	if (get_ether_addr(dev_addr, new_addr))
-		return -EINVAL;
-    ...
-}
-
-The netdev then keeps the dev_mac/host_mac that
-gether_setup_name_default() picked earlier with eth_random_addr(). Since
-eth_bind() has no else branch, nothing is logged.
-
-With this patch, "insmod g_ether.ko dev_addr=aabb.ccdd.eeff" no longer
-gives a stable aa:bb:cc:dd:ee:ff. parse_mac_pton() fails the length check
-and hex2bin() fails at the first '.'. Would such a user now get a
-different random MAC on every load, with no message explaining why?
-
-Could the commit message be corrected to describe the
-gether_set_dev_addr() path that the legacy parameters actually take?
-
-> diff --git a/Documentation/ABI/testing/configfs-usb-gadget-ecm b/Documentation/ABI/testing/configfs-usb-gadget-ecm
-> index 732101ca9d0bb..076567aacf162 100644
-> --- a/Documentation/ABI/testing/configfs-usb-gadget-ecm
-> +++ b/Documentation/ABI/testing/configfs-usb-gadget-ecm
-> @@ -17,4 +17,9 @@ Description:
->  			      - MAC address of device's end of this
->  				Ethernet over USB link
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+>  drivers/clk/clk-en7523.c | 74 +++++++++++++++++++++++++++++++++++++---
+>  1 file changed, 69 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
+> index d1d8935f0a1a..886858345cf0 100644
+> --- a/drivers/clk/clk-en7523.c
+> +++ b/drivers/clk/clk-en7523.c
+> @@ -150,6 +150,7 @@ struct en_clk_soc_data {
+>  	const struct clk_ops pcie_ops;
+>  	int (*hw_init)(struct platform_device *pdev,
+>  		       struct clk_hw_onecell_data *clk_data);
+> +	void (*pci_unprepare)(struct device *dev, struct en_clk_gate *cg);
+>  };
 >  
-> -
-> +		host_addr and dev_addr accept a MAC address as six byte
-> +		pairs separated by ':' or '.', in any mixture
-> +		(aa:bb:cc:dd:ee:ff, aa.bb.cc.dd.ee.ff), or as twelve
-> +		hexadecimal digits with no separator (aabbccddeeff).  Any
-> +		other format is rejected: the write fails with EINVAL and
-> +		the attribute keeps its previous value.
+>  static const u32 gsw_base[] = { 400000000, 500000000 };
+> @@ -584,51 +585,95 @@ static int en7523_pci_is_enabled(struct clk_hw *hw)
+>  static int en7523_pci_prepare(struct clk_hw *hw)
+>  {
+>  	struct en_clk_gate *cg = container_of(hw, struct en_clk_gate, hw);
+> +	struct device *dev = clk_hw_get_dev(hw);
+>  	void __iomem *np_base = cg->base;
+> +	struct en_clk_priv *priv;
+> +	unsigned long flags;
+>  	u32 val, mask;
+>  
+> +	priv = dev_get_drvdata(dev);
+> +
+>  	/* Need to pull device low before reset */
+> +	spin_lock_irqsave(&priv->lock, flags);
 
-[Severity: Low]
-Does this text match what the new get_ether_addr() accepts?
+You can use:
 
-parse_mac_pton() only checks a minimum length and the first
-MAC_ADDR_STR_LEN characters:
-
-lib/net_utils.c:parse_mac_pton() {
-    ...
-	if (strnlen(s, MAC_ADDR_STR_LEN) < MAC_ADDR_STR_LEN)
-		return false;
-    ...
+scoped_guard(spinlock_irqsave, &priv->lock) {
+	...
 }
 
-Its own kernel-doc says "anything after them is ignored". So writing
-"aa:bb:cc:dd:ee:ff:00" or "aa:bb:cc:dd:ee:ffXYZ" to dev_addr succeeds and
-sets aa:bb:cc:dd:ee:ff.
+>  	val = readl(np_base + REG_PCI_CONTROL);
+>  	val &= ~(REG_PCI_CONTROL_PERSTOUT1 | REG_PCI_CONTROL_PERSTOUT);
+>  	writel(val, np_base + REG_PCI_CONTROL);
+> +	spin_unlock_irqrestore(&priv->lock, flags);
+> +
+>  	usleep_range(1000, 2000);
+>  
+>  	/* Enable PCIe port 1 */
+> +	spin_lock_irqsave(&priv->lock, flags);
+> +	val = readl(np_base + REG_PCI_CONTROL);
+>  	val |= REG_PCI_CONTROL_REFCLK_EN1;
+>  	writel(val, np_base + REG_PCI_CONTROL);
+> +	spin_unlock_irqrestore(&priv->lock, flags);
+> +
+>  	usleep_range(1000, 2000);
+>  
+>  	/* Reset to default */
+> +	spin_lock_irqsave(&priv->lock, flags);
+>  	val = readl(np_base + REG_RESET_CONTROL1);
+>  	mask = REG_RESET_CONTROL_PCIE1 | REG_RESET_CONTROL_PCIE2 |
+>  	       REG_RESET_CONTROL_PCIEHB;
+>  	writel(val & ~mask, np_base + REG_RESET_CONTROL1);
+> +	spin_unlock_irqrestore(&priv->lock, flags);
+> +
+>  	usleep_range(1000, 2000);
+> +
+> +	spin_lock_irqsave(&priv->lock, flags);
+> +	val = readl(np_base + REG_RESET_CONTROL1);
+>  	writel(val | mask, np_base + REG_RESET_CONTROL1);
+> +	spin_unlock_irqrestore(&priv->lock, flags);
+> +
+>  	msleep(100);
+> +
+> +	spin_lock_irqsave(&priv->lock, flags);
+> +	val = readl(np_base + REG_RESET_CONTROL1);
+>  	writel(val & ~mask, np_base + REG_RESET_CONTROL1);
+> +	spin_unlock_irqrestore(&priv->lock, flags);
+> +
+>  	usleep_range(5000, 10000);
+>  
+>  	/* Release device */
+> -	mask = REG_PCI_CONTROL_PERSTOUT1 | REG_PCI_CONTROL_PERSTOUT;
+> +	spin_lock_irqsave(&priv->lock, flags);
+>  	val = readl(np_base + REG_PCI_CONTROL);
+> +	mask = REG_PCI_CONTROL_PERSTOUT1 | REG_PCI_CONTROL_PERSTOUT;
+>  	writel(val & ~mask, np_base + REG_PCI_CONTROL);
+> +	spin_unlock_irqrestore(&priv->lock, flags);
+> +
+>  	usleep_range(1000, 2000);
+> +
+> +	spin_lock_irqsave(&priv->lock, flags);
+> +	val = readl(np_base + REG_PCI_CONTROL);
+>  	writel(val | mask, np_base + REG_PCI_CONTROL);
+> +	spin_unlock_irqrestore(&priv->lock, flags);
+> +
+>  	msleep(250);
+>  
+>  	return 0;
+>  }
+>  
+> -static void en7523_pci_unprepare(struct clk_hw *hw)
+> +static void __en7523_pci_unprepare(struct device *dev, struct en_clk_gate *cg)
+>  {
+> -	struct en_clk_gate *cg = container_of(hw, struct en_clk_gate, hw);
+> +	struct en_clk_priv *priv = dev_get_drvdata(dev);
+>  	void __iomem *np_base = cg->base;
+> +	unsigned long flags;
+>  	u32 val;
+>  
+> +	spin_lock_irqsave(&priv->lock, flags);
+>  	val = readl(np_base + REG_PCI_CONTROL);
+>  	val &= ~REG_PCI_CONTROL_REFCLK_EN1;
+>  	writel(val, np_base + REG_PCI_CONTROL);
+> +	spin_unlock_irqrestore(&priv->lock, flags);
+> +}
+> +
+> +static void en7523_pci_unprepare(struct clk_hw *hw)
+> +{
+> +	struct en_clk_gate *cg = container_of(hw, struct en_clk_gate, hw);
+> +	struct device *dev = clk_hw_get_dev(hw);
+> +
+> +	__en7523_pci_unprepare(dev, cg);
+>  }
+>  
+>  static struct clk_hw *en7523_register_pcie_clk(struct device *dev,
+> @@ -648,8 +693,8 @@ static struct clk_hw *en7523_register_pcie_clk(struct device *dev,
+>  	cg->base = np_base;
+>  	cg->hw.init = &init;
+>  
+> -	if (init.ops->unprepare)
+> -		init.ops->unprepare(&cg->hw);
+> +	if (soc_data->pci_unprepare)
+> +		soc_data->pci_unprepare(dev, cg);
+>  
+>  	if (devm_clk_hw_register(dev, &cg->hw))
+>  		return NULL;
+> @@ -663,6 +708,7 @@ static int en7581_pci_is_enabled(struct clk_hw *hw)
+>  	u32 val, mask;
+>  
+>  	mask = REG_PCI_CONTROL_REFCLK_EN0 | REG_PCI_CONTROL_REFCLK_EN1;
+> +
 
-The hex2bin(dev_addr, str, ETH_ALEN) fallback reads exactly 12 characters
-and never looks at str[12]. "aabbccddeeff.zz" and "aabbccddeeff0011" are
-accepted as well.
+Extra newline can be dropped.
 
-The reverse case is also missing from the text. Both paths in
-get_ether_addr() also require is_valid_ether_addr(). A correctly
-formatted multicast or all-zero address such as 01:00:5e:00:00:01 or
-00:00:00:00:00:00 fails with EINVAL, and the new text doesn't mention
-this.
-
-Trailing characters do have to be tolerated, because a configfs write
-from echo ends in a newline. Could the text say that anything after the
-address is ignored, and that the address must be unicast and non-zero,
-instead of saying that every other format is rejected?
-
-The eem, ncm, rndis and subset ABI files get the same text.
-
-[ ... ]
+Brian
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117090110.3263592-1-liuc63%40xiaopeng.com
+Brian Masney <masneyb@kernel.org>
