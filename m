@@ -1,55 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795189333;
-	b=vjMCPqU+i8A4lv9kdlRTd61CXTWMU3opr7kTKZ211WkO/+Hv6/lIrQ1KwPX9w1vl/OGe
-	 qoQFuWI2gsBH/Eap/s/HRGKY1M3r53HfXW02ZS3nOw53Z/DbmUu0vacS6s90ulIRVbwnb
-	 F0wbMvT8etvMDiUu1pvfdZ0oFmnDC1XUj+6rYzAbVwiLwGBeAJhlyMvC87jvrfU8e9kCm
-	 qblT49EEM9/6kHPmsBI3IhFqV90twRQGM19LnJ2SPNNcNbF7MDQE1Y1WjuNYMwLzN46kK
-	 gsdk3vIxaI8m+QHLmIWdEHZPMnZqqRzlnA38w/32tG1hHtJ7Rkayhxb7BSBKorGqpbw==
+	t=1795189395;
+	b=FVXfhQuVYo3TaAq+UnYij/7ex173kAKEnuc4YwEsaqYn3MzsQYdbuwd2mHe5oIlGx+kx
+	 rdLeq7yp2cIOJ0eUpvfoZnw6OSKs9hCkABPmmnYtxFdCxzhCsGlJs0UQw8AvF3JP4g2lK
+	 wfEkCtmGRddm3wmHmddjklWh1WDo0BojZ3iGVoeqBSs4EVD9/9W0klXoeIzYE3V74TYBz
+	 ZBatNtE2vjHVK6BkittQ9P9gjj8MKX2NAQMHFCzqSR62h72NgA3fV7OsAmwraAHtnVX6k
+	 i92zs+FtWMxc7Gh8s+2TIyWfb02orMe7aqHoDYk4stVBy8lLX5jd1fE9sWF05H34NeQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795189333;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:From:To:Cc:
-	 Subject:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
-	bh=rfoD35vTZZX0sigBsALdIqocioomDzHuR9WZvMkdGO4=;
-	b=DPHn4lb9hPmLC9nSzWqbhXLtLYa8ZBG9vEEuw+gEFWjNHy9Bd6J39Y6IhUeHMQ9gh6Nf
-	 hCiKRAYBcw2c2iVy/e4fMEUWoGaRYTNwO4GuFYSXCqJnUUufexKICQbEEqWEmWgd9B9nN
-	 KyPd7ae6ORtax0Fi/ziPP7uCyL1E08Zvn38P4TfjpDrfNsOdX5p0SjHpaabuX8rFbh3A2
-	 Yey4TiEzk4pHl7KB7+GdfxW4CjH7lC50uofwfQfR+Y65j9XN6MjJGC2v5IEdXYeayEIYi
-	 xm2eh0ZkWcbCPLjFfAN7+7tcEYOQGkFSOJxkFYQndcnozOhC04c1hQmBUYe6pak+Tbw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795189395;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=ZEN1RjVeah5bf6s6B3kHtNiItihaG3NYeroyXdt03ho=;
+	b=xg0qNxB4yW09mfu07bVI7Xmg/D8yyAer9D8HRMF0Nxh7vCghSmkqrKNapXdIQ/xyGV5+
+	 3bd0haLbiFl3t44TospFXQQy2nHvQhdGxqziIFuPuamnR6SzbaEIG9vn6TEp86e12ajvS
+	 DjUX2FwKz4pbXi4kRc28tKf34BqtXI7Ndmb0lKeNGZjSJ0vRl66sqwnQpm0Ak6tLBe+Jb
+	 phLcCJLM+00eaFS275+i/WUp7+CjtVOLAdUMBr2SFDpsYEuL7ljyC8D/ciTQMvb1tz1o/
+	 uJa5XkpNfGvB3XxhImHUSLRImB1APj/IP7auPEptaHjO1uX3ihhP41rvEmiJKoF1p9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=utSS9xUN;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d9C2wMA7;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B722606A325;
-	Fri, 20 Nov 2026 15:42:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B722606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CE7F606A339;
+	Fri, 20 Nov 2026 15:43:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=utSS9xUN
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 34E56C6221F;
-	Fri, 20 Nov 2026 15:42:17 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 74FF6601B9;
-	Fri, 20 Nov 2026 15:42:11 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 320AF11BC03EE;
-	Fri, 20 Nov 2026 16:42:03 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795189329; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=rfoD35vTZZX0sigBsALdIqocioomDzHuR9WZvMkdGO4=;
-	b=utSS9xUNWsQ5vzBs/Jr/W9SrHIOlyJPtGKIBTth+/cvrATnVF+d8yE7TT0imniMhyDvtK3
-	sLCKlEr56EjJ7kvHOnqSI4UDUCCvHLV7ElQ4gAsIEyxw/Ee0Yk1dZ53EkZ0eObd/bbWbqV
-	faihchOxJsNyH5623O12GDDsd4wXnSfXge3O24qe33NaLm/kqjJZTKWCYyKXa7uxTZVsRy
-	fegXnZZlO6ksEVzI0vfCivKp3YJykzqlsFscbTF6jB9mmTaHA3wJUMx/5Qd5OZJtR/wqqY
-	g4xM89hS8ygmrLx/lfxLtsMqy10r/pSsFJ+BzEBmuazrb1L0K7h6bbFLyMQkOQ==
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d9C2wMA7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A65D1F000C6;
+	Fri, 20 Nov 2026 15:43:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795189394;
+	bh=ZEN1RjVeah5bf6s6B3kHtNiItihaG3NYeroyXdt03ho=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=d9C2wMA7eQRGwrD3Nqb4fsp/BRvb3GbdR01xpJ4hmIul8G5a9l8X5SY9dtcCL/LLO
+	 InTebZZ9cObO3FIO/PCyVyLD7T2bl1I25s7gQUx0DlTF5JtTgntu2Ne6WOv49Fr05N
+	 P+oHQhYjh9PfG5bnL311/h4mZMXnxmE+vo0m3nWC55+g5noA75PoLGZcFKxRkeYCz+
+	 afCA5vrTrRp4Omp0mmuVEV8hi3SiDVMI3rUrDB7Us0m5PZg03oU6PetuzN6rjACSB1
+	 DTfv34Ju9LrRVYotlQj4J0bVA0vTZTg7qDzpatR1HqTeBt3mGxuP2M2ZIhoaelgGr5
+	 DrS/tDZllfoFQ==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
+Cc: rostedt@goodmis.org, linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] tools/bootconfig: Preserve structured histogram filter strings
+Date: Sat, 21 Nov 2026 00:43:11 +0900
+Message-ID: <undine-1795189391477787363-17dbbdcc692ec995@undined.local>
+X-Mailer: UndineD 0.1
+In-Reply-To: <1218ce4d98a4c6ab6df6279c34d973b9d033755e.1795042969.git.edumucelli@gmail.com>
+References: <1218ce4d98a4c6ab6df6279c34d973b9d033755e.1795042969.git.edumucelli@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,111 +57,73 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 20 Nov 2026 16:42:03 +0100
-Message-Id: <DN05I5YO7GJP.2JUFMLWXFSOG7@bootlin.com>
-From: "Paul Louvel" <paul.louvel@bootlin.com>
-To: "Wolfram Sang" <wsa+renesas@sang-engineering.com>, "Paul Louvel"
- <paul.louvel@bootlin.com>
-Cc: "Borislav Petkov" <bp@alien8.de>, "Tony Luck" <tony.luck@intel.com>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Geert
- Uytterhoeven" <geert+renesas@glider.be>, "Magnus Damm"
- <magnus.damm@gmail.com>, <linux-kernel@vger.kernel.org>,
- <linux-renesas-soc@vger.kernel.org>, <linux-edac@vger.kernel.org>,
- <devicetree@vger.kernel.org>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, "Miquel Raynal"
- <miquel.raynal@bootlin.com>, "Herve Codina" <herve.codina@bootlin.com>
-Subject: Re: [PATCH v8 2/3] EDAC/cadence: Add Cadence DDR EDAC driver
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261118-paul-v7-3-rc1-edac-v8-0-ed791084cc19@bootlin.com>
- <20261118-paul-v7-3-rc1-edac-v8-2-ed791084cc19@bootlin.com>
- <awAs386mgR23nmJ2@ninjato>
-In-Reply-To: <awAs386mgR23nmJ2@ninjato>
-X-Last-TLS-Session-Version: TLSv1.3
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-Hi Wolfram,
+On Thu, 19 Nov 2026 00:02:52 +0100, Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com> wrote:
+> print_one_histogram() expands the hist.filter value through an unquoted
+> command substitution. Field splitting collapses repeated whitespace in
+> quoted filter strings, and pathname expansion replaces literal wildcard
+> characters with filenames. The generated command is already incorrect
+> before run_cmd() evaluates it.
+>
+> Print the filter with printf and a quoted command substitution so that
+> structured histogram filters reach the generated command unchanged.
+>
+> Fixes: f134ebb28126 ("tools/bootconfig: Add histogram syntax support to bconf2ftrace.sh")
+> Signed-off-by: Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
 
-On Fri Nov 20, 2026 at 12:19 PM CET, Wolfram Sang wrote:
->> Thank you for your contribution! Sashiko AI review found 2 potential
->> issues to consider:
->> - [Medium] EDAC/cadence: cdns_setup_mc() reports SECDED mode when ECC is
->>   disabled
->> - [Medium] EDAC/cadence: missing memory base PFN offset in
->>   cdns_mc_err_handler()
->> --
->> [Severity: Medium]
->> Does passing err_addr >> PAGE_SHIFT directly to edac_mc_handle_error()
->> miss the physical memory base offset?
->>=20
->> On Renesas RZ/N1 (r9a06g032), system DDR starts at physical address
->> 0x80000000, while the Cadence/Denali controller logs 0-based DRAM offset=
-s
->> in CDNS_ECC_U_ERR_ADDR and CDNS_ECC_C_ERR_ADDR.  cdns_setup_mc() fetches
->> the /memory resource into res and enables SCRUB_SW_SRC, but discards
->> res.start and leaves mci->ctl_page_to_phys unset.  Without adding
->> PHYS_PFN(res.start), edac_mc_handle_error() reports a 0-based PFN and
->> edac_mc_scrub_block() fails pfn_valid(), silently skipping software ECC
->> scrubbing.
+OK, looks good to me. Let me pick it.
 
-This is correct.
+Thanks!
 
-The datasheet says: "Address of correctable / uncorrectable ECC event" for =
-these
-registers, but DRAM is mapped at 0x80000000.
+> ---
+> Hi Masami,
+>
+> Thanks for picking up the run_cmd() quoting fix. I had this small
+> follow-up ready in case that patch went in.
+>
+> Here's the thread for that patch.
+> https://lore.kernel.org/all/97454eceb5d56bf956740b8998972767bcfe6c70.1793216183.git.edumucelli@gmail.com/
+>
+> This uses the structured hist.filter option documented here:
+> https://docs.kernel.org/trace/boottime-trace.html#ftrace-histogram-options
+>
+> I tested numbered and unnumbered histograms in a temporary tracefs
+> instance on my Ubuntu machine, running kernel 7.0.0-38-generic. Repeated
+> spaces and tabs were collapsed, and a wildcard expanded to filenames.
+> With the fix, the generated and installed filters matched the input.
+>
+> The run_cmd() quoting fix was present in both versions of this test.
+> This additional change fixes the string while the histogram command is
+> being generated, before it reaches run_cmd().
+>
+> Feedback is welcome.
+>
+> Thanks,
+> Eduardo
+>
+>  tools/bootconfig/scripts/bconf2ftrace.sh | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+>
+> base-commit: 0ad31c3252d4c626a93ae6251340ef86b18342d0
+>
+> diff --git a/tools/bootconfig/scripts/bconf2ftrace.sh b/tools/bootconfig/scripts/bconf2ftrace.sh
+> index 6a3535a2c..0992e54c6 100755
+> --- a/tools/bootconfig/scripts/bconf2ftrace.sh
+> +++ b/tools/bootconfig/scripts/bconf2ftrace.sh
+> @@ -163,7 +163,7 @@ print_one_histogram() { # prefix
+>  	print_hist_actions ${1} "onmatch" "event"
+>  
+>  	if xbc_has_key "${1}.filter"; then
+> -		echo -n " if "`xbc_get_val ${1}.filter`
+> +		printf ' if %s' "$(xbc_get_val ${1}.filter)"
+>  	fi
+>  }
+>  
+>
 
->> [Severity: Medium]
->> Should cdns_setup_mc() set dimm->edac_mode to EDAC_SECDED and continue
->> probing when CDNS_ECC_STAT_IS_ENABLED(reg) is false?
->>=20
->> When the bootloader has not enabled ECC, mci->edac_cap is set to
->> EDAC_FLAG_NONE, but dimm->edac_mode is still hardcoded to EDAC_SECDED.
->> Because EDAC sysfs exposes dimm->edac_mode via dimm_edac_mode, userspace
->> monitoring tools will see SECDED reported as active while the driver als=
-o
->> requests the ECC interrupt, unmasks CDNS_ECC_INT_EDAC, and exposes debug=
-fs
->> error injection on a controller with ECC disabled.  Failing probe with
->> -ENODEV (as documented in Kconfig that ECC must be configured by the
->> bootloader) or setting dimm->edac_mode =3D EDAC_NONE would avoid reporti=
-ng
->> active ECC.
-
-Good point. dimm->edac_mode should be set to EDAC_NONE when ECC is disabled=
-. So
-that when ECC is disabled:
-
-# cat /sys/bus/edac/devices/mc/mc0/rank0/dimm_*
-0
-x16
-None
-Channel#0_DIMM#0
-csrow 0 channel 0=20
-Unbuffered-DDR3
-0
-
-Instead of:
-
-0
-x16
-SECDED
-Channel#0_DIMM#0
-csrow 0 channel 0=20
-Unbuffered-DDR3
-0
-
-I don't think failing the probe is a good idea, but it should not expose de=
-bugfs
-error injection for sure.
-
-These issues will be fixed.
-
-Thanks.
-Best regards,
---=20
-Paul Louvel, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
