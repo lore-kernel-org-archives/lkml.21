@@ -1,103 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.119
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795185733;
-	b=L3OaIrrk7hWVfZjO3JVyKYzLhnqmhIf9tBlo1C2V++jWss1El3zJhm6kpz9/AadlNdRk
-	 41JSVlbvvUQgMVnRpSMbgBoIDTqU+VLqiP4wHFkWmdF/YJeakIRmObPr3XYstt03V12ME
-	 fe6ZhSwmJmBQRJjuKSKUqqTXENuCdinb3s8HBSjo5BxMh0EkfM3qvwD1zrbDMnskQE6nY
-	 xYkhqle3Nf/CZ1H8Q7slALyaMSAYgmfrlZUlh2F5EWMesKqcbVamuN7P+7QelCf4K6RWa
-	 87GFNXLJ/OPMXXyCDR2wsIEcIUEHtdNXKa60CCA3kv7WrPFNFTf2dLV+WuxUrYmu0Pw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795185733;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=AF0bWb9jav2RleGGBmJMqnsL/EYfHcUe8tIfTHZyoBQ=;
-	b=jJ8+sJR1B55pyEA68bFo7grvKVHIsNCAIrCExI6DJs74R08RbQOIy0j58stYdc3gfWSC
-	 Fdn58PLQPiGGjlkRVkeHRqtxcmnYZ2jz/ZkeAhNo2ynib8VSscAZ/DkiL4xojcflNbO0Z
-	 tuHAxe8cWEAN9Q5WWFVMisj5fE/bxeaTzyyh/4uc1nWt3FXzhHBj/cpNNglgXYCrC+W/q
-	 wO23GWtzPcT3Z1Gl9dcTJ93YciX7O/IOVZaQAQ4DBW+AWlzQCGrkUJKai3SdGU7j6r+oi
-	 Aa4mSvyheGuFIR3dIq7EqE2AkX7fXI0YSWQWMRGlY6d8OmPA8LK0NO/y4DyO+3QNxCQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=phytec.de;
-	spf=pass smtp.mailfrom=phytec.de;
-	dkim=pass header.d=phytec.de header.i=@phytec.de header.a=rsa-sha256 header.s=selector2 header.b=XEo0Q+Rh;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.119
-Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazon11023119.outbound.protection.outlook.com [40.107.159.119])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.41
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795185738;
+	b=guH0JCw/C74NXB0gv6jk8r2GXOoWL/y4NuCUvk8Y4LGNwAdlJeuOGPXGXZENLLg0FJFO
+	 Onb9eN5QMoLl5gmm3W9u4o3/htSFMJuXfSnsc0fLAKXunyvzSZK69de+K6YHh5zGzafzx
+	 SAqN8mjixchG7W/L2IDX2IzSnVnK7Dkn+W2yxAE7A3jBPdkM+8FaDWd57qlbPEQv1D+hM
+	 EKsVaYwcLjoJs1t72B+jztSHnof1CHrYSGPm4OyLuizckZdf57L4U6pkkJZIRHyv2Dflv
+	 kOfluoMBeO2efOmyu/wLes9Cgycappu7dOxU9l+rzdu1HqE/w0YlpJcfhdaW9Uo5Akg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795185738;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=HT3eyIKbaAFdJAsBCyUUl9qOeHC7n7o5AOxtBcK4VMc=;
+	b=XTdi4z6SEYnvofz75nATiA0Nt74MKH1MibIW7/vd2ULb9dLagzu/yyLe0yNGg4R50q46
+	 +uuh4Am2v3TPIeP0VYd3WzDzCAZv5NRiHRHiCG1Y/zrRnM8cpdn8mX/pf8EbWm+PqWdMZ
+	 rCH5s44ljyYafkkunU6JpPjMNxF1a94Jq/VZDwa+PqN5FGjbSWHB9L1wwql942cu/UbYH
+	 aNyYqUpckL3LFQvzadMAT1eq+m1h0tZGt6SHc9NjcfWByzJu8SBEsdaG75SubaxVlNXcR
+	 EWGy/LfM4InHpDMhui4s+cxN8taOtGOGFEUv89Bw5c+oZQvK1TG8XX/NuApZxsQDOsQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Wb33keXY;
+	arc=none smtp.remote-ip=209.85.216.41
+Received: from mail-pj1-f41.google.com (mail-pj1-f41.google.com [209.85.216.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B49E1606A331
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:42:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B49E1606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=phytec.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=phytec.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DEF5606A335
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:42:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0DEF5606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=phytec.de header.i=@phytec.de header.a=rsa-sha256 header.s=selector2 header.b=XEo0Q+Rh
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KMYlWAo+xRh2bmYhE7Z7Q+fn9rhKzK4CiechDYrg4lFCdKq1GhOBxnR7QO6XRRp9z7zkyxiihjY4+GIinZTYqSurXQoKS9ol9SL22zk0Qx50xtGQFl+TPnl8h2HAaFP44XGIFXubmReUGlcKEHlgvGqVoYsIALPsNDH4AQvNswpxbNjeK+53wLFxpVvTTFOP0Kjd1kdQBnsM0/Ux1WJNfGhjCDlhzKbFO7B+Dwyju6v/zA+7JcO+qGEm0V9H0H4yfTFOmG/2t7ULcNNtOEt/oKXQnIgp3j3lgK5A1jRnsML+/u+zJKUsQhVnGFSZ6VaNyTT8hMQGtIm72+UgvPirSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AF0bWb9jav2RleGGBmJMqnsL/EYfHcUe8tIfTHZyoBQ=;
- b=ASAE8WOxsTqh9gvUiSALwOcmTlU85fLe9vnZXxCwh0kQlJ+DRumaHIoRrwkwgCjal/0j7699KYdHpFIMEOSTACXYcisga1J5deygrbG6M8TCl56SlmXn8hzkw7Xx8pta33veIKPiYv2oUyQnkLo6VDk5lo7HdEV6xuzrrgBj/4/kGAZE9VhLDAAg3VYtHaKpruiFRt+Qkph9CjyC+6W54P14hi7PAXgluYlILoviNwNsVI75AAs1Jf4JR10CUfM/3g5GJLuYYx/AlY/dgNUZHXfBY9sG0q5/1FmyB5lAk3GJ1TsjO8IP+hPgWFBSpowp6uKKWs19C9FP1jjLOYJZLg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
- dkim=pass header.d=phytec.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AF0bWb9jav2RleGGBmJMqnsL/EYfHcUe8tIfTHZyoBQ=;
- b=XEo0Q+RhHw3MmdIReEtFXBqmDXPzGMM7R1FPDCr4YXkOb50CqmLWviKm878g6UnWcjKP1ToQ8r7LZzVc/nTbvMHK3hsuPywmi0hOWj/iqvwX6dvYXZT5baLeHGpHllfwIn1KT45QlLPakM2LCdzexnzK0/mHUSH7HCU3Ph5IvLIX1iz946FhXhnpwQ9q6pZ0mrfoul+McOlCOPrdHeJXh4fqJoIiR/KEMkKSf01DTgmdX/d3fJaTQHwcoOwVB/hBjQYOXZyJ9MujqfcFoPOr6IWn2uRAy4iObIIZH1ZeR1popumQLvCcHRQjiSURHw5mWXkAwntwB489VLxj1wGmhg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.de;
-Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:4b3::21)
- by AMCP195MB976615.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:783::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 14:42:08 +0000
-Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- ([fe80::295f:9a59:b66a:621a]) by AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- ([fe80::295f:9a59:b66a:621a%5]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
- 14:42:08 +0000
-Message-ID: <53d50a7c-4318-4705-ae21-780b04628742@phytec.de>
-Date: Fri, 20 Nov 2026 16:42:05 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: configs: defconfig: Convert TISCI to modules
-To: Nishanth Menon <nm@ti.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Siddharth Vadapalli <s-vadapalli@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>, Krzysztof Kozlowski
- <krzk@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Bjorn Andersson <andersson@kernel.org>, alexander.sverdlin@siemens.com,
- jan.kiszka@siemens.com, ayush@beagleboard.org, robertcnelson@gmail.com,
- upstream@lists.phytec.de, francesco.dolcini@toradex.com,
- leonardo.costa@toradex.com, matthias.schiffer@ew.tq-group.com,
- stefano.r@variscite.com, eblanc@baylibre.com, msp@baylibre.com,
- thomas.richard@bootlin.com, miquel.raynal@bootlin.com, mwalle@kernel.org
-References: <20260910134409.1713610-1-nm@ti.com>
-From: Wadim Egorov <w.egorov@phytec.de>
-Content-Language: en-US
-In-Reply-To: <20260910134409.1713610-1-nm@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR2P281CA0184.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:9f::16) To AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:4b3::21)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Wb33keXY
+Received: by mail-pj1-f41.google.com with SMTP id 98e67ed59e1d1-3b09a83d12aso767840a91.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:42:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795185736; x=1795790536; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HT3eyIKbaAFdJAsBCyUUl9qOeHC7n7o5AOxtBcK4VMc=;
+        b=Wb33keXYKx7jHvDMOVfzOa1MjjfK3te3Tm5oMERAvMHZsJLvB8e/WZWzSP3sOwARxD
+         HD+M34bOlaEG4qHNcyDpGYeyq1U76fJt/+l3KUH+iSqJNmo3lylDvpiAxGJFgbHBUB3g
+         ZPPO6tb02p9YHPkjAMUKmxWFFgCh6eW70enqqn+agvVnmvK029VjXnoOrb3NrXNEd+Fc
+         z7FwLu0MWUFKm+yDidOqtfAY6mENmBl32KCyTVVI7ACSqD14QRNI5HfNvmhR0v5A4ctA
+         Ysv7jUuv0uDS38bnwaAjL0VmqGVSLfAMgI1NHKGpiofwDiBxLo80MnUVzsfAKMevqiHT
+         rnRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795185736; x=1795790536;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HT3eyIKbaAFdJAsBCyUUl9qOeHC7n7o5AOxtBcK4VMc=;
+        b=kXaOLT6ceYl+AkOkBxyg4mOGfwvp//kxMh1pnnfBtCsx3Wg56bvGuekb28P0qowbfp
+         lLjXa6hn5kiQ4rUB4zuREb8+QtQczH3gr8pCwaVFTVK7wPCjqc/KrAXKNOCezNfy8olS
+         336O2EvZvXx6tVbvY8Raum8ZSGyhxav7akkIHz8tVZ5zpHKpIKT7fpCmUeuiFnYEhZNC
+         jCv7gEKOuPeIbjq5sxdAhcBO+vYaU27HKQWZgEUc+nRc5EPqGGUN9Y3ssVSbu0L8Jweh
+         GkyvOWr5mKQsITQ2m/pH3ICnXs4/GMBi1XfmJC7n6Kx1ETGfTSaw5wQ/tYo25kd2Qvko
+         zrkA==
+X-Forwarded-Encrypted: i=1; AL+hErG5bPyo7EOd3/h7N0O9z8xWbhcoy1bc1wNeKsPNFyJnSPCeeMnSpZg3CKVvxVrrGG64ntI5EGsJSLpcflU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9nubexJhNwJe/rm+uNEmz+jSA0CQHjJgzu3M779xxAv25oQuDN
+	L71vM2QwDTa+xk/THFaMfutD0PR/1fedn57gvswFxUjp/SY4+XQrR+r2
+X-Gm-Gg: AZFdTZfsSKrTbJ2aB360Rir4I6er6BZTAcq8iMqNRuZfioCf6Kpf1PNbIVkqwZjd56e
+	VyzYqQgIBSS+WzHAD2VL6XXLcz6ot2omtpBnmhyoXlQgV4Ovk2niP48qmMzkP9k1gqYyjmLmoi+
+	GdJ/lXfd4AkVim/+IRBOczREaeWg/j8CLsnuQZlqaptNsPD4+2gTs4PQyYYJlc1R/KR+yKwtN/L
+	rS0Uq2EemQ7vI6PiLe3dicKbxrKYuZ5kRd21IqZj5O8JclPJynXnuE3hd3MwFUCCN3UbSWnFzrJ
+	j+zvLx5R/JIYOGHssuHC93KtL+zG0yhdjzlHIPpPCsuhz+KWBsx7luKBsxovnlt1NZ3ubRKPySv
+	zpYWv28p5mSso/bCaJ7DvvpZsq2PcCuHJ0pN5BO9UZnGvsXRoRkhtcKmLqQ5BRI9E3VHEdr1XAc
+	q28qmjhAhEhxI5X1G/sw7GTIaySGdPh2Xw7yScjzYmpwDbYS1x9rrK4UrCOxUXfdTn86GtLBFOm
+	kaUo8uZ+PlOrqYv9d87ZN3kR+xpTGkjJpTBipw0X7ncxoV2fju+qcA6+VsuU3b5dgB4Oj7xNAeS
+	Yc7GUZh4gO/JpjI3q/kAPXk7n0JIbAOsFXCrjS0JbMvK3ZndEYOGDt8VwSo=
+X-Received: by 2002:a17:90b:4ad2:b0:3a4:7730:33dd with SMTP id 98e67ed59e1d1-3b41c99525fmr3214938a91.58.1795185736231;
+        Fri, 20 Nov 2026 06:42:16 -0800 (PST)
+Received: from [10.98.15.223] ([2a09:bac1:6500::19b:170])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee848c1sm15346435ad.10.2026.11.20.06.42.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 06:42:15 -0800 (PST)
+From: Chuanhong Guo <gch981213@gmail.com>
+Date: Fri, 20 Nov 2026 22:41:45 +0800
+Subject: [PATCH v2 2/3] dt-bindings: clock: mediatek: mt7629: add RTC clock
+ IDs
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,192 +92,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4P195MB1456:EE_|AMCP195MB976615:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9ff9bd51-2f06-4a85-4b9f-08df4714743b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|10070799003|23010399003|1800799024|376014|7416014|366016|261028144727099003|261026140227099003|261021121427099003|261026121527099003|261021123027099003|261022105027099003|261022075727099003|261102123227099003|11063799006|56012099006|10067099003|261009223027099003|22082099003|18002099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	MihGZb4kqtj8J+m5mM6SjLrleZzqy09rLtNH1a544YG13Y3H6D1nWnjvHQvUWX9tf4gpwLW0l8/9EoYIT3oqSQ4qUcVqdINVjcypB68d8JwnIpJ+xsKliR6w7Q3hbDyTtR1ZrzQlQfu9ZIk2FJmr4yQpQFJpkBPuAuB2e8Ccl+Wy2xfDStdYSOAE1nNBc4hy8kewC87F9ERZ6nN81Og7suvT/UZ8/7/JLmma1vZYDB/HVlSnW7WcgCqLc7BYJMPbN0ic+tsN/p1faIp3UopMPt6vFCskj9pssf19xO9+7cmsx1s/X0UZJf5/RSS5pcBUIketk/Ic29SxjRMKnRx7KvNXZm0yuPVOuNhCUnVMhFnDH8ovb21eelyr6QrOEGClEPoD/VhKaHEcBiiVCnRuV5xI4FLSQIwJ8xrRHk6sBLrSw+qKKslchvv5McK5acGPswQ62TllRRiHeZw1YQ1JnhQlWt6w/DOqIsvscqTOYd4L4FmAMVUibvIEsUDxDpq1IoIR16HYQACc6F3hejf4e3YCGh892T5kn9KVFNAQNQ80C/rVY+c6tZVvZuwwm+kpu6k/0qx9XOqArg82Mxc1d0Y3eiNFPDMWr3Hz+pydk2GY4Ka6qOLQe73TUvSL8NIX
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4P195MB1456.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(23010399003)(1800799024)(376014)(7416014)(366016)(261028144727099003)(261026140227099003)(261021121427099003)(261026121527099003)(261021123027099003)(261022105027099003)(261022075727099003)(261102123227099003)(11063799006)(56012099006)(10067099003)(261009223027099003)(22082099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?aTg1dHNaV2RLYWljMkFiUFlhSjFyQ2FSeitGRks2Q082TThlT0dobkN6YTBj?=
- =?utf-8?B?ZHpXWXNYamp4a0xXV3JRV2dsbFhGalpjcWJzK2Q0elMyVHNXZ1diNHJrWFl3?=
- =?utf-8?B?Y3Q3V2x4bndIQ2dkbVF1UHF1OHJHaFowV3EvZkhuRnlJd21nbkY5R2prUWxS?=
- =?utf-8?B?RTJ2dmJ4SFN0cUNPaitlTVJQc2FFM09xS0g3Y3FUNDFVM2ZQWDZCR1o5ckQw?=
- =?utf-8?B?UVV3QjNPOHk5NXRnbk1wV0tQSW0zY054cFRlMlJyaEFSODdYaVFscU12UnIv?=
- =?utf-8?B?elJGTkpJcU9ObHZncTNtVkN4dGFZaDZ2TEN0ek13QWVIYk1PbmFFRW5JS0N2?=
- =?utf-8?B?WlY1cU5kME80YnJHN1dqTWhlKzh1MkxHZmk4eU4yMXlRcWZLVm82SE52Qzhw?=
- =?utf-8?B?bWJDQ2YvWnRGR2VNYlB4dnJncUdMZWR2VE5GVW45TGJkZTBLY0FWYlBPY0VH?=
- =?utf-8?B?c2JlMUFJM2FPTmZqajk2QnJsRlp2Z2Nsc0xkV2IvTy9YRFg4VGJHWU9DZVVr?=
- =?utf-8?B?dkRkNHFRUzkyNUNvZjFaSG52KzlUQ0hySGFaM2FuM3ptSmF5U3U5eTZYYzVL?=
- =?utf-8?B?V2FSTkJSaDY4aVhrNnhuWHFCTTdpNHQ2cllaM2R4Q3V4dXVHUG9vYWhEMzMr?=
- =?utf-8?B?VzFRN1ZROXNUa0tMT0M0K1RYTzFka1ZHaWNyUzE1WWJrS3hCaEIxYStLaCsz?=
- =?utf-8?B?dVFNNVFnWWdaTjkxejVXK0I0bVJUWk9PazFuMmxCSjJTQTA1ZU1mTDh0SkR4?=
- =?utf-8?B?R1hMRXFWSkthZDhscEU0bDlNcCsyOVc1Y2tMeFYzc1oxZVRKVnVDTjdBWE12?=
- =?utf-8?B?NXhaKy9hTHkwQzdacUkyZWtRbG81M1dITysvejlIbEtMcXA3WlpnNHFjdlRl?=
- =?utf-8?B?bEczZTQ4cnl3RVVzdnZYbTVUb0tIbzF3YlBESERLemhnTnFJdldhd0tCVzFW?=
- =?utf-8?B?K01OM1RZRklpSThzUTRVWUl5SHBscml4VEFWOHh2VWpzRFpKZTVsZ05rc3cv?=
- =?utf-8?B?cjZYYnI3YXQxUXF2a1Jaa2dnekhmS2pqeUZRTTV3dTE4c2lMbDdaaU9qaTRp?=
- =?utf-8?B?UHYxYWRUdi93dDNjemFUeWdLdDRUbVRIQ3ExS3RtZE43alVQZmIyeWpjVWhk?=
- =?utf-8?B?ZUpVOVZVQmZnRWV6MkZYdG9OcDJVdnVaN1h6U1QwNTdVb2tvc2VBMXFaellU?=
- =?utf-8?B?aXEwYjJZUVFxRytSaXRPK2ZlWDFTZXNnU2RlMFpzTUR6bURtMkIwUGZNTlFF?=
- =?utf-8?B?WEQrQ3hOM0h2c3ppQnNXSEN3NXV1MENtaW5MbnhHL3hNMzlTa0VUb0ZFeFN0?=
- =?utf-8?B?c3kwT2dwcTFXRVJvK2ZJUTF2VGtCeTVoVU45S3UyQjlYUzM0RWhyQ2pJQXR0?=
- =?utf-8?B?UzdEQnZrWWR0ckRCd1FjNjQ5TGZvWW96WVhPdDVkYUFEOXBpRUhWdjlmL05L?=
- =?utf-8?B?YlZCVFhJZ21IMEMwRXJVOWl4bVJ0elk5U1JnakkxUVdMR04xeWxNOURDUmVU?=
- =?utf-8?B?Y3JRamtOcWkyYkdhcFNxUk02SGFJaDZNMkpJcTBKUGdSTUkxbGZPZkNkNXd6?=
- =?utf-8?B?bVpvWWt5TXpybGQ2UU9NbGEwN2J5aVdkYnNVVzZDcXkvMC9wOFNNZEcxOXR3?=
- =?utf-8?B?Tms1bnRTYlZaejVjUWJZWGxQMzhKSWt0S1RMeTJUTm1NOWZDcEtibFhXMGxj?=
- =?utf-8?B?ZWFYc2J6TUtnaUUvaXh0RldHK2tUNXhhVy9ENUNXblFiMHFuUTdhNm1YZEM4?=
- =?utf-8?B?V1ByMHU4WE5NQkI4QnIydmRhU2UwVU1kcUpkc2dxZ0VwamtOcjVDTWk3THFl?=
- =?utf-8?B?aERra0dyQ0ZqWlpISTdnbk9SYTFJQ0JFbGc3RUlKRHhTdytueXhWdlh1M28z?=
- =?utf-8?B?R2dLeXFvaDN6UGsybzBUSUgxd3FCRkdDR3p0Z1dGTU9peTlKUFA4engzZjQw?=
- =?utf-8?B?MWxvRjBRU1dzMi95dGRueXpxMmk2LzAvL2lmOGJrY2JjbGYweExpMnBuRGFs?=
- =?utf-8?B?NGlnYTVFSnZQTVJsL05mV0dnc3Q0SnpuWkFPTVdJY1BuMCtVeXlLeWhhcG9O?=
- =?utf-8?B?b0JtU1ZRZEx4a01VMDJuYUdGVDhoZExyWitWSExOVE94ZVc1WWRiKzRoRjcx?=
- =?utf-8?B?SnRQRkQxbzZuNW55OU1KYXlCOVRFKzJhaUtZdmtENHp3RDdGcXlhTm1EaS9u?=
- =?utf-8?B?TnlIVFVEVUtOVk9xQnlLaEZZcVJWdXVLVytrakxQdEpaOVBGSDN0TllKa0hl?=
- =?utf-8?B?NjljaDFaRElsWGExMW0wY2Y4Wm42b1hQeHBDTldMajdxZFFjblBwVTF6aTV4?=
- =?utf-8?B?bzB3RTBhNlQvQThGN1ZpNGl2bXA5SHNJSHR2OWVrWDBDTERLZitVQ2h0NUNt?=
- =?utf-8?Q?7CKhXLb3Es5DKlPxXN9426nARoxVAceroOr4n6zARzLL0?=
-X-MS-Exchange-AntiSpam-MessageData-1: ilyqhKlFwPsUFQ==
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9ff9bd51-2f06-4a85-4b9f-08df4714743b
-X-MS-Exchange-CrossTenant-AuthSource: AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 14:42:08.5978
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RmszvhwsCm+D3hZ0nOcwO80TyK9ZqjSVUjjVZGS8GnJTq7VW6r6yScYxPxjnbLk8k8OvNVCe2qNeMdbet+WnVQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMCP195MB976615
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-b4-mt7629-rtc-v2-2-cd877cd496ae@gmail.com>
+References: <20261120-b4-mt7629-rtc-v2-0-cd877cd496ae@gmail.com>
+In-Reply-To: <20261120-b4-mt7629-rtc-v2-0-cd877cd496ae@gmail.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-clk@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Chuanhong Guo <gch981213@gmail.com>
+X-Mailer: b4 0.14.3
 
+Expose the 40 MHz / 1221 RTC source and the RTC clock mux. Keep the
+existing CLK_TOP_RTC ID for the 40 MHz / 1024 source.
 
+Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
+---
+ include/dt-bindings/clock/mt7629-clk.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-On 9/10/26 4:44 PM, Nishanth Menon wrote:
-> Now that all relevant drivers have are ready, convert the
-> TISCI drivers to modules. This impacts all K3 platforms for
-> boot, recommendation (based on empirical evidence) is to use
-> deferred_probe_timeout=60 in kernel command line to allow for driver
-> probes to complete successfully based on the initrd used.
-> 
-> NET Savings: (Ubuntu Clang 23.0.0)
-> ./scripts/bloat-o-meter vmlinux_previous vmlinux
-> add/remove: 4/380 grow/shrink: 0/5 up/down: 32/-143248 (-143216)
-> 
-> Signed-off-by: Nishanth Menon <nm@ti.com>
-> ---
-> 
-> NOTE:
-> a) This patch is based off v7.3-rc1 and will create a merge conflict
->   in linux-next (next-20260909), but the resolution is trivial (vs
->   bd94bea7165be450903c6d64bbcb4862e36798f9).
-> b) Emperical experiments that Siddharth Vadapalli did,
->   it seems like some driver probes might be taking much
->   longer than the default deferred_probe_timeout of 10
->   seconds that is used when CONFIG_MODULES=y. Testing log[1]
->   a deferred_probe_timeout=60 seems to have worked fine.
-> c) Full bloatometer report is available in [1] as well.
-> d) related lore discussions[2]
-> 
-> [1] https://gist.github.com/nmenon/5f1587b373e6ca27170593010188d968
-> [2] https://lore.kernel.org/all/20260429-defconfig-v2-5-e4ed4186028b@oss.qualcomm.com/
->     See headsup I gave on #linux-ti irc channel https://libera.catirclogs.org/linux-ti/2026-05-20
->     https://lore.kernel.org/linux-arm-kernel/20240821110054.35u5ubgaogzjv6c4@rover/
->     (original thread that triggered various changes)
+diff --git a/include/dt-bindings/clock/mt7629-clk.h b/include/dt-bindings/clock/mt7629-clk.h
+index cff9a02e8302..ca325c21b9bb 100644
+--- a/include/dt-bindings/clock/mt7629-clk.h
++++ b/include/dt-bindings/clock/mt7629-clk.h
+@@ -115,6 +115,8 @@
+ #define CLK_TOP_CRYPTO_SEL		105
+ #define CLK_TOP_SGMII_REF_1_SEL		106
+ #define CLK_TOP_10M_SEL			107
++#define CLK_TOP_RTC_32K			108
++#define CLK_TOP_RTC_SEL			109
+ 
+ /* INFRACFG */
+ #define CLK_INFRA_MUX1_SEL		0
 
-I can't boot our boards anymore using the default defconfig. Is this forcing us to switch to an initramfs?
-
-
-> 
-> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
-> Cc: Vignesh Raghavendra <vigneshr@ti.com>
-> Cc: Krzysztof Kozlowski <krzk@kernel.org>
-> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Bjorn Andersson <andersson@kernel.org>
-> Cc: alexander.sverdlin@siemens.com
-> Cc: jan.kiszka@siemens.com
-> Cc: ayush@beagleboard.org
-> Cc: robertcnelson@gmail.com
-> Cc: upstream@lists.phytec.de
-> Cc: francesco.dolcini@toradex.com
-> Cc: leonardo.costa@toradex.com
-> Cc: matthias.schiffer@ew.tq-group.com
-> Cc: stefano.r@variscite.com
-> Cc: eblanc@baylibre.com
-> Cc: msp@baylibre.com
-> Cc: thomas.richard@bootlin.com
-> Cc: miquel.raynal@bootlin.com
-> Cc: mwalle@kernel.org
-> 
->  arch/arm64/configs/defconfig | 15 ++++++++-------
->  1 file changed, 8 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index 6ec8d3a69c98..ed5aebf96080 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -267,6 +267,7 @@ CONFIG_RASPBERRYPI_FIRMWARE=y
->  CONFIG_INTEL_STRATIX10_SERVICE=y
->  CONFIG_INTEL_STRATIX10_RSU=m
->  CONFIG_MTK_ADSP_IPC=m
-> +CONFIG_TI_SCI_PROTOCOL=m
->  CONFIG_GOOGLE_FIRMWARE=y
->  CONFIG_GOOGLE_CBMEM=m
->  CONFIG_GOOGLE_COREBOOT_TABLE=m
-> @@ -1403,8 +1404,8 @@ CONFIG_DW_EDMA=m
->  CONFIG_RCAR_DMAC=y
->  CONFIG_RENESAS_USB_DMAC=m
->  CONFIG_RZ_DMAC=y
-> -CONFIG_TI_K3_UDMA=y
-> -CONFIG_TI_K3_UDMA_GLUE_LAYER=y
-> +CONFIG_TI_K3_UDMA=m
-> +CONFIG_TI_K3_UDMA_GLUE_LAYER=m
->  CONFIG_STM32_DMA3=m
->  CONFIG_DMABUF_HEAPS=y
->  CONFIG_DMABUF_HEAPS_SYSTEM=m
-> @@ -1456,7 +1457,7 @@ CONFIG_CLK_IMX8QXP=y
->  CONFIG_CLK_IMX8ULP=y
->  CONFIG_CLK_IMX93=y
->  CONFIG_CLK_IMX95_BLK_CTL=y
-> -CONFIG_TI_SCI_CLK=y
-> +CONFIG_TI_SCI_CLK=m
->  CONFIG_COMMON_CLK_MT8192_AUDSYS=y
->  CONFIG_COMMON_CLK_MT8192_CAMSYS=y
->  CONFIG_COMMON_CLK_MT8192_IMGSYS=y
-> @@ -1678,7 +1679,7 @@ CONFIG_QCOM_CPR=y
->  CONFIG_QCOM_RPMHPD=y
->  CONFIG_QCOM_RPMPD=y
->  CONFIG_ROCKCHIP_PM_DOMAINS=y
-> -CONFIG_TI_SCI_PM_DOMAINS=y
-> +CONFIG_TI_SCI_PM_DOMAINS=m
->  CONFIG_ARM_IMX_BUS_DEVFREQ=y
->  CONFIG_ARM_IMX8M_DDRC_DEVFREQ=m
->  CONFIG_ARM_MEDIATEK_CCI_DEVFREQ=m
-> @@ -1745,15 +1746,15 @@ CONFIG_SL28CPLD_INTC=y
->  CONFIG_XILINX_INTC=y
->  CONFIG_QCOM_PDC=y
->  CONFIG_QCOM_MPM=y
-> -CONFIG_TI_SCI_INTR_IRQCHIP=y
-> -CONFIG_TI_SCI_INTA_IRQCHIP=y
-> +CONFIG_TI_SCI_INTR_IRQCHIP=m
-> +CONFIG_TI_SCI_INTA_IRQCHIP=m
->  CONFIG_RESET_GPIO=m
->  CONFIG_RESET_IMX7=y
->  CONFIG_RESET_QCOM_AOSS=y
->  CONFIG_RESET_QCOM_PDC=m
->  CONFIG_RESET_RZG2L_USBPHY_CTRL=y
->  CONFIG_RESET_RZV2H_USB2PHY=m
-> -CONFIG_RESET_TI_SCI=y
-> +CONFIG_RESET_TI_SCI=m
->  CONFIG_PHY_CAN_TRANSCEIVER=m
->  CONFIG_PHY_NXP_PTN3222=m
->  CONFIG_PHY_SNPS_EUSB2=m
+-- 
+2.56.1
 
