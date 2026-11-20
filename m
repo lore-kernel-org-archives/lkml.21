@@ -1,61 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795153113;
-	b=iy7SnhfCdEJbE+Fcvm5z+kZWkbjGzZklOeR0EUhwTrvuaaEtO6rU/FGqeH641hSiW9Px
-	 9yot5R9h6OuOjYNYSVb/1oVOKsmzV1E5aJNVW+z0z/Vnoc/ZbKake+8/NyBuu3APVC8Lw
-	 RUXjjSatRy1AsNTYV1v6IdtVrc/6stnPJ16vSdaSZILcioBozaY8ZsW+/rvXMG21NFX0s
-	 QX360V1d6lDsT8QCd+2vCOMUEpML+/mI4YVLKU8p86UftkN2plCWCyfkNwWJGXr31lwOE
-	 JN0uvAow3j98YP1fzVQY4b8uWVj4Eyq1PDVqYmdYhXzLYq9E1yQkIjm18mpem0q1hSQ==
+	t=1795153327;
+	b=yn+dJb1KpMvotaxvEm7fGiQJtsx4B2g/Ousu4eJc1/KA/ud+xB1A32Gq8eW8o95mWf4O
+	 hyowRS1RDgl2n5/8ockmlMLnrQxGawlfKWE6X/Fw3Ka7R6LaysSbr4D5OfiNLjqhjImaR
+	 Lx4GiYFTefzjrYlqcVHjX9jkxNtLvERXG45zOGWoIIIN92U2e5CKwVgUsWQwUmlpxezjt
+	 zLJkZtBQ3jCWPNw529YDElVklq4SVNZ39XZQRw+qIezBNyF7s4jd8mogtXYJMNFDe1Cgu
+	 msRtukuCfKwt8MdYijJXknQxa6AdenSi/DK/hoCGyAkL+zRpiLz4MfENN4ftZrXgqzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795153113;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=z9MsZ5nDP02yY+mmqpSAWXCIWO2n34RgSYNzEUczHcs=;
-	b=UEKh58hxgsI5InsS/WpnYgAfPr4lhGmkq+P8XT0GJ/D+JzgddGrRd7IMYerP8tUye5Of
-	 Ox8S/znc3OFaqjTXOqAsVNe15VT+LJmq+sZo11CWJteZKnIMKKCAKyCr+nsvh9T4Gfi8s
-	 0CcN9DNLWRSiz7Xajxa16a2o0EbZI56BlUIVLbn2rGA+hxVBmVexDmTssTHI3OoBb6N2f
-	 ToY/91Oo4zDMjzjo5JAliSvDlRof5ie0G/dEohvh+CNHcWzvdGnT4L8ZGlQVaz7x+RoRH
-	 UCG3jrbAQfSe05J+J6EQfLdcrOrOEkJtD5q9NAUWvwDhwfn3SpEzQ5cM9oYc95gJaxg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795153327;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=qg66As88L7D+ejFnkRW364NrY+XWuQ72Fp7ONjEgBVs=;
+	b=t6fPxk0Wpwrr+I+VvQro860PR5YPfGZABmA5/yV9mGlpyS0fun6eTKXeFSm/ywGFVfIX
+	 VFYY1/51EVfNP9nPwrladfKwrEfvJwapHWgqWPWKkQjAMJS3TYoMA93eRJ5ncoQpSQGp2
+	 JEqSbym1rkWgEt+BI5wxQw8GndiSm8gaeIZWofx6P4W5lTbHXo+176Q09XmmyscxIB7+V
+	 X1WC27EwwY35ZTJ9J5Y09Y28YIYsLjnOjW9BDQznuGOt7QQYlv2wk/GXEXtHK/JrIMOhb
+	 b+Z+WIvyRIrqzrK+1SCeXV3x5fheG6A0j5CWL3/pqhIeFc72+C0sT21ZOaLca+xkCIg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hCFudF5M;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ObKmv8K6;
+	arc=none smtp.remote-ip=74.125.82.54
+Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7473606A339;
-	Fri, 20 Nov 2026 05:38:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34BA1606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:42:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34BA1606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hCFudF5M
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3B8B1F000C6;
-	Fri, 20 Nov 2026 05:38:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795153112;
-	bh=z9MsZ5nDP02yY+mmqpSAWXCIWO2n34RgSYNzEUczHcs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=hCFudF5MdI8naOC9gQNYl/HfcgR/WNHxlFAM4dZ/SyAOmPwS3w4hnaN3ex+hC4ad/
-	 okIRstQpMW7MrA2I/OKCTQKpvsv5G4BAznTBKPxlA+mxMYvyUcMltsQpiIkaEhx8IQ
-	 za0JF/MS0yD7yXcBLTitkQfHRenzSei2TqzKD1/Ek+3NOutT7tExsRpPrXNY9i7LQ9
-	 uuXtgzuMWX8ds0Qu3bAxECpq6KfSyhR4zwKKzerA3Na6pPfGf2fQcDHOCoJLBZN20A
-	 V1X6eiPxazKiyFO1FQxmmFEcRUtYWp45LDDOQMcR9AWGr9HjjzRdBjc9baOcnmWpJU
-	 XWhoQDOnpqUOg==
-Subject:
- Re: [PATCH net-next v4 4/4] net: mdio: mdio-bcm-unimac: Add Clause 45 support
-From: netdev-bot+sashiko@kernel.org
-To: florian.fainelli@broadcom.com
-Cc: netdev@vger.kernel.org, opendmb@gmail.com, nb@tipi-net.de,
- bcm-kernel-feedback-list@broadcom.com, andrew@lunn.ch, hkallweit1@gmail.com,
- linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, linux-kernel@vger.kernel.org,
- kudzo51@gmail.com
-Date: Fri, 20 Nov 2026 05:38:31 +0000
-Message-ID: <179515311151.3136.11984816802162340674@kernel.org>
-In-Reply-To: <20261119005943.999981-5-florian.fainelli@broadcom.com>
-References: <20261119005943.999981-5-florian.fainelli@broadcom.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ObKmv8K6
+Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-1b244fb7fffso524482c88.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:42:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795153326; x=1795758126; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qg66As88L7D+ejFnkRW364NrY+XWuQ72Fp7ONjEgBVs=;
+        b=ObKmv8K6gmkJWtEjdBAWb7j3COSE/CtSWyImikDHfSRx6vXrDTPFVmbUCL/gGX4vEB
+         As0xISIpu88Wguo+NW3O37lxEtFNFUrHCOxgHv+Eix7dvEHbkkns3BAExvgyae7eRlyS
+         UW7t0igdOI9Yr6m7KRryj21LejRBhU3re+etHV16nXBm5q8rTzDjsO0Ko7jAbuB4sgrK
+         d8lU11s+qVEtIs9BJBOBsdRBIgeaDvR41kKufznc8bEbXBbiWR/cq9E+zSHJdSlY8An5
+         p4sgYh87KugFa59YHNXeUsf03VlBZGxmeKY+yPda97a103nL5ZJBAv4ZaG8mZyTQeWMm
+         70QQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795153326; x=1795758126;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qg66As88L7D+ejFnkRW364NrY+XWuQ72Fp7ONjEgBVs=;
+        b=ZGsBxVVDIyYNQ7hEIQcx4yvQQ1hlw2bAX0mmkWjhK04ZkD3vn8zC7zLKBVwOpMTpZH
+         fFdt/v0PCZK38h61srMGEg1d47zYyGqj5ArbAB7J2x3udTtvFZVMXywqBC/hZicWc77Z
+         lyVH4QsMNo4EQiFwAw43dwbaqdFrOfMbXggGB42B+g5KBF8Ruwye/cgkKuMg+QUMj+Mc
+         YFtYR1lP3g3H7OX4dbJUBuxXlfwILJIKNtrRv0K33yihnVub08KOtJwHdEM8Ba+Zdela
+         IFEaCpaJkcSKgCk3+Q4igV+5XYoSixzuA8OY8c1S6yqZ9GZbjGu+TtOIDwabRQslS3Vi
+         +BJg==
+X-Forwarded-Encrypted: i=1; AL+hErG5kwKRE4VGLVNKlIDeIbB8GolOO6s+m0Ja6MowL5ouuvJZ7Wq3esAOoBp46LHPlJX8/S9Teby5yoLfqbI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9OngU85qvmdToSoMwdi8ERzCduuFL0/PGpfaT/E+hGjZ4GI6eh
+	eHQeEc/pDpsc+VKBXFmJiw++t/SxS9sATnlER+81eZyeNO0to4CvOLYu
+X-Gm-Gg: AYBFou0mL7MtlW71zYek4epS9iShodvUNu4qmztcGry26pLOMSTU9fwlbzHo4eU8hJb
+	v5DsDdjFXx/eNCCyVjCzSyzB/JAupdtx9c0LzxVd7FyHU0UxN+pybgVdQefWW4I4xW23cKvMoVq
+	UG7itBWePVN+1Cvi/M+EcP8Tg+lSmlMPhYipHhNHDd8UOQA6uZloQnmX7Kje+DIKvKDCdKUlNQu
+	4DdrWksNA8AN+P+7s0a6mudDHQfNiG1SiIyfS0wz1wbdythiKrofJVpdfok/pG9/W/IVx+XYvuq
+	hBI2j6nmBmcaAi0twUGgG509gKBEyHdVc7YQGbjh/fLF9n1kW/b9lsTjq9+5i7cuZvNlt/5YQxG
+	1rnz3Hqgu4wu2Dv80R4QmO1dhXRNq0VVdSHGsPFSrPJhPHzduWSDeVyMhtXIQcKQNcTfxbLyT/P
+	Em90sa4tHaLHEYuWBnD7HSFxjmgZhRoltEVdUK7YYk2vCCRjG4Lcy4VKhGRDlmHLQUHjgqu/7X+
+	7nak7MmJXxhrw0N4oicOhOrlxjCEjis4V8ILDVuXICoH1oELVGQcrNFCmERNixf02OwtsFRF/rh
+	HMbG8uRbnfEGkfZvrPV1Ll32DGjr
+X-Received: by 2002:a05:701b:4510:20b0:1b5:595f:4236 with SMTP id a92af1059eb24-1b5595f4800mr728992c88.35.1795153325979;
+        Thu, 19 Nov 2026 21:42:05 -0800 (PST)
+Received: from ubuntu.. ([2405:201:8026:213e:2c81:3ed2:5653:bdbd])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55681301asm3807956c88.8.2026.11.19.21.42.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 21:42:05 -0800 (PST)
+From: mdshahid03@gmail.com
+To: Andi Shyti <andi.shyti@kernel.org>
+Cc: linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Mohammad Shahid <mdshahid03@gmail.com>
+Subject: [PATCH] i2c: scmi: fix memory leak on invalid block length
+Date: Fri, 20 Nov 2026 11:11:38 +0530
+Message-ID: <20261120054138.194076-1-mdshahid03@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,189 +95,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+From: Mohammad Shahid <mdshahid03@gmail.com>
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
+When the returned block length is invalid,the function returns
+-EPROTO directly without freeing the ACPI response buffer.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Use goto out instead, so the allocated buffer is freed before
+returning the error.
 
-- [Medium] unimac_mdio_probe() now sets bus->read_c45/bus->write_c45 for
-  every instance, including the one GENET creates from platform data.
-- [Medium] The patch's own comment in unimac_mdio_addr_c45() says
-  bcmgenet_mii_wait() can return 0 after timing out with MDIO_START_BUSY…
-- [Low] unimac_mdio_resume() now takes priv->mii_bus->mdio_lock around
-  unimac_mdio_clk_set(), so system resume now serializes against, and…
+Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
+---
+ drivers/i2c/busses/i2c-scmi.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
---
-
-net: mdio: mdio-bcm-unimac: Add Clause 45 support
-
-This commit adds Clause 45 read/write callbacks to the UniMAC MDIO
-driver. Each access does an ADDR cycle followed by a data cycle, and
-MDIO_CFG is switched between C22 and C45 mode when needed. It also skips
-the BMSR workaround for "ethernet-phy-ieee802.3-c45" children and takes
-mdio_lock around unimac_mdio_clk_set() in resume.
-
-> diff --git a/drivers/net/mdio/mdio-bcm-unimac.c b/drivers/net/mdio/mdio-bcm-unimac.c
-> index f8e5c1811d96b..a79830566abb0 100644
-> --- a/drivers/net/mdio/mdio-bcm-unimac.c
-> +++ b/drivers/net/mdio/mdio-bcm-unimac.c
-
-[ ... ]
-
-> @@ -108,8 +160,19 @@ static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
->  		return ret;
->  
->  	/* Prepare the read operation */
-> -	cmd = MDIO_RD_C22 | (phy_id << MDIO_PMD_SHIFT) |
-> -		(reg << MDIO_REG_SHIFT);
-> +	unimac_mdio_set_clause(priv, is_c45);
-> +	if (is_c45) {
-> +		ret = unimac_mdio_addr_c45(priv, phy_id, devad, reg);
-> +		if (ret)
-> +			goto out;
-> +
-> +		cmd = MDIO_RD_C45 | (phy_id << MDIO_PMD_SHIFT) |
-> +			unimac_mdio_c45_devad(devad) |
-> +			(reg & MDIO_C45_REG_MASK);
-> +	} else {
-> +		cmd = MDIO_RD_C22 | (phy_id << MDIO_PMD_SHIFT) |
-> +			(reg << MDIO_REG_SHIFT);
-> +	}
->  	unimac_mdio_writel(priv, cmd, MDIO_CMD);
->  
->  	/* Start MDIO transaction */
-
-[Severity: Medium]
-
-The comment in unimac_mdio_addr_c45() says bcmgenet_mii_wait() can
-return 0 after timing out with MDIO_START_BUSY still set. To handle that,
-an unimac_mdio_poll() is added after the ADDR frame. Does the RD_C45 data
-frame need the same check?
-
-After the data cycle, unimac_mdio_do_read() does:
-
-	ret = priv->wait_func(priv->wait_func_data);
-	if (ret)
-		goto out;
-
-	cmd = unimac_mdio_readl(priv, MDIO_CMD);
-	...
-	ret = cmd & 0xffff;
-
-If wait_func returned early, MDIO_READ_FAIL is not latched yet. Bits 15:0
-of MDIO_CMD still hold the reg & MDIO_C45_REG_MASK value written for the
-command. Could the caller then get the MMD register number back instead
-of the PHY's data?
-
-bcmgenet_mii_wait() always returns 0:
-
-	wait_event_timeout(priv->wq,
-			   !(bcmgenet_umac_readl(priv, UMAC_MDIO_CMD)
-			   & MDIO_START_BUSY),
-			   HZ / 100);
-	return 0;
-
-With HZ=100 this is a one jiffy timeout, which can expire well before a
-25-33us frame completes. On GENET v1/v2, and during probe before any ISR
-is registered, the timer decides every wait.
-
-unimac_mdio_do_write() has the same gap. The WR_C45 frame is reported as
-complete and the bus lock is dropped while the frame may still be on the
-wire.
-
-The next access then calls unimac_mdio_set_clause(), which can rewrite
-MDIO_C22 in MDIO_CFG without checking MDIO_START_BUSY:
-
-	if (new_cfg != cfg)
-		unimac_mdio_writel(priv, new_cfg, MDIO_CFG);
-
-Can this change the frame format in the middle of a frame when C22 and
-C45 accesses are interleaved? That happens with the C22 scan followed by
-the C45 scan, or on a bus with mixed PHYs.
-
-The C22 path already has the same early-read weakness. The C45 data cycle
-and the MDIO_CFG switching are new code, though. Would calling
-unimac_mdio_poll() after the data cycle wait_func(), or at least before
-touching MDIO_CFG, close the gap?
-
-[ ... ]
-
-> @@ -302,6 +401,8 @@ static int unimac_mdio_probe(struct platform_device *pdev)
->  	bus->parent = &pdev->dev;
->  	bus->read = unimac_mdio_read;
->  	bus->write = unimac_mdio_write;
-> +	bus->read_c45 = unimac_mdio_read_c45;
-> +	bus->write_c45 = unimac_mdio_write_c45;
-
-[Severity: Medium]
-
-These callbacks are set for every instance, including the one GENET
-creates from platform data. How long does the new C45 scan take on the
-GENET non-DT (ACPI) path?
-
-In the non-DT case, bcmgenet_mii_register() does:
-
-	else
-		ppd.phy_mask = ~0;
-
-so bus->phy_mask ends up as 0 and no address is masked. With np == NULL,
-of_mdiobus_register() goes straight to __mdiobus_register(). That runs the
-C22 scan and then mdiobus_scan_bus_c45().
-
-For each empty address, get_phy_c45_ids() does two C45 reads (MMD1 DEVS2,
-then MMD0 DEVS2), and both fail. Each C45 read calls wait_func twice:
-once for the ADDR frame in unimac_mdio_addr_c45() and once for the data
-frame.
-
-bcmgenet_mii_wait() is a wait_event_timeout(..., HZ / 100). Its only
-waker is bcmgenet_isr0(), and irq0 is only requested in bcmgenet_open().
-The bus is registered earlier, in
-bcmgenet_probe()->bcmgenet_mii_init(), so each wait sleeps for the full
-timeout.
-
-That comes to about 31 x 2 x 2 = 124 extra sleeps of 4-10ms each, or
-roughly 1s of extra probe time on systems like a Raspberry Pi 4 booting
-with UEFI/ACPI. This is on top of the ~64 sleeps the BMSR workaround and
-C22 scan already cost, and nothing is gained when there is no C45 PHY.
-
-The commit message notes that the scan now runs on this device:
-
-  This includes the platform device that GENET instantiates when it is probed
-  without a Device Tree node (e.g.: ACPI), which does not mask any address.
-
-It doesn't mention the cost, though. Could the scan be masked, the C45
-callbacks be left unset for pdata users with an IRQ-driven wait_func, or
-the driver poll during probe?
-
-[ ... ]
-
-> @@ -337,8 +438,16 @@ static void unimac_mdio_remove(struct platform_device *pdev)
->  static int __maybe_unused unimac_mdio_resume(struct device *d)
->  {
->  	struct unimac_mdio_priv *priv = dev_get_drvdata(d);
-> +	int ret;
-> +
-> +	/* MDIO_CFG is also modified by the MDIO accessors to switch between
-> +	 * Clause 22 and Clause 45, which run under the bus lock.
-> +	 */
-> +	mutex_lock(&priv->mii_bus->mdio_lock);
-> +	ret = unimac_mdio_clk_set(priv);
-> +	mutex_unlock(&priv->mii_bus->mdio_lock);
-
-[Severity: Low]
-
-This isn't a bug, but the commit message doesn't mention that
-unimac_mdio_resume() now takes mdio_lock. As a result, system resume now
-serializes against, and can block on, any in-flight MDIO access. The
-locking itself looks fine. Could the commit message mention this change
-to the resume path?
-
+diff --git a/drivers/i2c/busses/i2c-scmi.c b/drivers/i2c/busses/i2c-scmi.c
+index 37442c9ee222..b65771d31a28 100644
+--- a/drivers/i2c/busses/i2c-scmi.c
++++ b/drivers/i2c/busses/i2c-scmi.c
+@@ -248,8 +248,10 @@ acpi_smbus_cmi_access(struct i2c_adapter *adap, u16 addr, unsigned short flags,
+ 			result = -EIO;
+ 			goto out;
+ 		}
+-		if (len == 0 || len > I2C_SMBUS_BLOCK_MAX)
+-			return -EPROTO;
++		if (len == 0 || len > I2C_SMBUS_BLOCK_MAX) {
++			result = -EPROTO;
++			goto out;
++		}
+ 		data->block[0] = len;
+ 		memcpy(data->block + 1, obj->buffer.pointer, len);
+ 		break;
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119005943.999981-1-florian.fainelli%40broadcom.com
+2.43.0
+
