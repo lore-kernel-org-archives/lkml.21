@@ -1,82 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795167970;
-	b=boSTvaBgiY9kr5VCZ/lgE8v7fsNP8rNupndmUABH6MV4rkXvBzdGtb8YPcbGQmMNVRdh
-	 k/aSDSBEslfM+6E2+eQG4Z5qHcV2S22rQn5boW1dlbkjwJ+4a+VmEKfG/n2TieuwgdCwO
-	 rKGJxPI7RWLYWwr0ny7t6oI3YhCxLwJk69iwKjWg4NXLNC6Gu5JQl8mzJOQvRlJEbX6VL
-	 usZtFlow+yIK/p/bLFVg2HLUjs/NR7APOpeH0sISJEtYi1Xn6ZSjvwqzM4Bb0hqKUDfy0
-	 V2p6gLjbD0BOU1a7RW4E6FbcB0aMvU9VNc7QKTVobHNzXk4zfPCPGvTe/waJEP69J6g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795167970;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Mailer;
-	bh=LyMGAaInYYZKD2EbDC92SHBmRPfFEzQvFWfFO59Ilto=;
-	b=pdqt+WF99b9Zl77hAtR+akWtjePgYd2qxgnmaVZE3IICgsWk5uvd6LAlO4xtS/MI68o9
-	 wsAGKb8sJD36Vmk6rnpdJIoDeugu3F+lz7VU3NKcavpqDgPRZKUaIJrRPnLKzvhoupt32
-	 PlYyzEFEW7KXv/ZlLCBGNI0P+bzdL8tQpyS6Uuts2j47nNOgt5CujCQmWiIzi1pXlTzV8
-	 PNOVmDNkSdJzQn+FwgxrfPOsQ2/2O/XCY0TvvsEgYwM6JDvNDmlI6HgchM4jRYl2BHQxt
-	 Pup3FYEDGkAD6mTyWLwyZG/B5d5E0SCpIVC4XO8JgnbKrpKRg4SO/C7yWcsPtx1lUVg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=DPbguDKv;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.67
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795167980;
+	b=z/9HWezkQ8JszdMQPqqnJOFxUT9Jz/TzT0VxToCL8q0m2237TOC5iU8ZS266a5z6Avwd
+	 oXnhypHs0PkVnf90KUufrLvSRf3JHZRtI0KKh7IRuqzFX6J1i+94EKmG8Y80xVgbEoaow
+	 87On2dwSYwvGzRm4ljHYfZuT1dIQng/waH+bf8QoTF4F64EEReIBssrRd9yZmUdpEtflu
+	 kRWWEov/+tMvcPj6+jpVmxv4Jo83KeMPnAn4qMMG+13evVVT947USHjX3FtEv6kW1zblr
+	 VjX8kAK66Z4ghWnNH2+gSw4xse77X0MkxEcmeNnnunfdPuWfKNXrv1KEOxOK/UXsNhg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795167980;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=fYKQuselP0oJEFJdmNo7nvi44b9E+BV7pZCm6PPHzwE=;
+	b=Pmzs3mAuZN94yRMOFy2DdK0TUACRe/sBgDqLyzum9+MTzvsDpMPOStzwCocoO/zvvL31
+	 3MerAZ3zEBkaYMSMUUigoUyD0HjpYU5Efv+asyVoq6DU5ifsPyu/I9oGlL42FC8ChWpic
+	 QOTX8mNi40bWUBqCRaNlQGBbchdJ1MOAezP+tIXKZZoDwiYYwIoG4C+4rS1vcYRbmMI2t
+	 FMnhs7aoXbuPOge6xcM2Hv9v/OOsh2EPkizmA1/y8E/jfA/kBsIDQytqd50w1YrWIWyxz
+	 rYGgqJkNcMNlUBGTdoWE/5AbCE8lUs2Bchep01n8ivi5Wwl+2jHFn1x5mRuRG9Gocbw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QrOQnYPn;
+	arc=none smtp.remote-ip=95.215.58.67
+Received: from mta1.migadu.com (out-67.mta1.migadu.com [95.215.58.67])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5453A606A330;
-	Fri, 20 Nov 2026 09:46:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5453A606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F93760A3833
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:46:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F93760A3833
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=DPbguDKv
-Received: from dude04.red.stw.pengutronix.de (dude04.red.stw.pengutronix.de [IPv6:2a0a:edc0:0:1101:1d::ac])
-	(Authenticated sender: relay-from-dude04.red.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 61101202284;
-	Fri, 20 Nov 2026 10:46:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795167962;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LyMGAaInYYZKD2EbDC92SHBmRPfFEzQvFWfFO59Ilto=;
-	b=DPbguDKvunMEOfZLgYieA/RNCoNt15TZ6y9DxFv9Lxa9RaXor9ZMLHgXAKJfy+PV+Sg4XT
-	m6zsYDsa1WWYMxOqUVHOkD07fkEpr4KoqfsjAhkQPCEzR20G1YMwhNtR8/dMFtlV5Gfrr7
-	+HIDO2yTxS1OFLbi7ixCBAKdNKewaUIgHbNNbVLOigjzE7bVsDJilo4uUkb9f0ykHSYJx+
-	PHyUExqB5JwUM88HS5WV7P3cXzCtiE33JuRCfhnG/JGMWZdfvNacZmB7XlJ5o5G4Ww4IXf
-	wfXvW1mf8ezE38rGAmekBMfcqOy2p4XPQvLhPsj0aTFKN3FzaHtq25HW9Eur6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795167962;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LyMGAaInYYZKD2EbDC92SHBmRPfFEzQvFWfFO59Ilto=;
-	b=ScOOTdKlO/bWMfUaFIv6rfmPPwMuGuDoCQ3sXxyhhLjqSohAJNpbJQKxL7l6Bcc1Ai3Uax
-	YoiZo1F6gqQaw5kuQGyq/VMGBScb9HTAWwzvBbtu8JN8xUEQz7USi03lrY94c9p+A88Frp
-	FrIbgA4o1t5QCj8Df6DJOf6VZw7L9jwfBrLp52XqRPbQt97ZRkmqbTZht5/V1jk6gi1lBn
-	Q8ppfNF81nzdtNuAjN5t3UhNJXeyIU+ukQ9BO0CaUhBxGSZURqis3ueAlWbM/elYbFz8eH
-	ERh9EctbYvB4yp2MujvDgfIUU+43Ps8E3AjQcBHL2vcNibXqou1ToCNWo5Ohyg==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795167962; a=rsa-sha256;
-	cv=none;
-	b=U3uOlUuz3ZVQ0Ivbut6n8G2vt72m++XIGBY4D+kspf3aD0HXiENHTIWzJD6+M+XhLunlT+
-	lySMhRQSH0agOdRE1Gi5yPeKQzdFqSTNJz7rasGBRFXWRy883M7N4oO7fnXNqERADArsnv
-	DOxmLcGBJBlxJg0EdoaG9UTQm4L1fp/3Jbc89RgMuFAy/8Qu0JVw7KboEDJz4ZyvMgR88Y
-	AImpa9/dnedeuba3T5Ex62yWL1nlSfoSY48wKAXpV93nGYF5cJFYT4WI7ufeTypiSq9bLC
-	abaEm95EzibTxTQrBfQ+9ff3rp0XBxrEgaCVN5MF79iTp3/q7ZnEjwKCZSiqAg==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=relay-from-dude04.red.stw.pengutronix.de smtp.mailfrom=ore@pengutronix.de
-Received: by dude04.red.stw.pengutronix.de (Postfix, from userid 1058)
-	id 4692E380A04; Fri, 20 Nov 2026 10:46:02 +0100 (CET)
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-Date: Fri, 20 Nov 2026 10:45:56 +0100
-Subject: [PATCH can-next v5 1/9] selftests: can: install net/lib.sh with
- the CAN tests
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QrOQnYPn
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=+/3e1eU4flllBS5rjftBbAf9n/zBesoBn8Ux0dXFa5M=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795167978; v=1; x=1795772778;
+ b=QrOQnYPnUYWDlf+aWnWONjX7zdkULekT4w2902eogD8XDkM/dL42Y+fq1dUgChC50xG367/3
+ IJ4x8bL61UEcDJ2t7dFJIhmV8dhEJaiE3i45MRyYh4yd/NYy2Lw0C/xddHe2TVQbQ9pHAEmz//+
+ 9TN6BEK/XIB4hg39bW9WFXVk=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 998279c357709f93;
+	Fri, 20 Nov 2026 09:46:18 +0000
+X-Mizu-Trace-ID: 998279c357709f93
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: netdev@vger.kernel.org
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Neal Cardwell <ncardwell@google.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Soheil Hassas Yeganeh <soheil@google.com>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Wei Wang <weiwan@google.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v2] tcp: fix negative sk_forward_alloc after MSG_ZEROCOPY append
+Date: Fri, 20 Nov 2026 17:46:04 +0800
+Message-ID: <20261120094605.46063-1-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,67 +73,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-j1939-selftests-v5-1-fdf4c242a37e@pengutronix.de>
-References: <20261120-j1939-selftests-v5-0-fdf4c242a37e@pengutronix.de>
-In-Reply-To: <20261120-j1939-selftests-v5-0-fdf4c242a37e@pengutronix.de>
-To: Robin van der Gracht <robin@protonic.nl>, 
- Oliver Hartkopp <socketcan@hartkopp.net>, 
- Marc Kleine-Budde <mkl@pengutronix.de>, Shuah Khan <shuah@kernel.org>
-Cc: kernel@pengutronix.de, linux-can@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Felix Maurer <fmaurer@redhat.com>, Vincent Mailhol <mailhol@kernel.org>, 
- =?utf-8?q?Alexander_H=C3=B6lzl?= <alexander.hoelzl@gmx.net>, 
- Chaosheng Qu <quchaosheng000406@163.com>, 
- Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>, 
- Oleksij Rempel <o.rempel@pengutronix.de>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
 
-Add ../lib.sh and ../lib/sh/*.sh to TEST_INCLUDES. net/lib.sh sources
-lib/sh/defer.sh. The install needs lib.sh and the lib/sh scripts.
+Our local syzbot reported the following warning:
 
-test_raw_filter.sh sources ../lib.sh, but the Makefile does not install
-lib.sh. A full selftest install works, because the net tests install
-lib.sh. An install of only net/can does not work. The installed
-test_raw_filter.sh cannot find lib.sh.
+  WARNING: ./include/linux/ucopysize.h:57 at tcp_sendmsg_locked+0x1e13/0x1f20
+  Modules linked in:
+  CPU: 3 UID: 0 PID: 377 Comm: syz.2.2248 Not tainted 7.4.0-rc2+ #398 PREEMPT
+  RIP: 0010:tcp_sendmsg_locked+0x1e13/0x1f20
+  Call Trace:
+   <TASK>
+   tcp_sendmsg+0x2c/0x50
+   inet_sendmsg+0x62/0xb0
+   __sys_sendto+0x2fe/0x350
+   __x64_sys_sendto+0x7f/0xb0
+   x64_sys_call+0x1375/0x27e0
+   do_syscall_64+0xe4/0x470
+   entry_SYSCALL_64_after_hwframe+0x76/0x7e
+   </TASK>
 
-Found by installing the tests with "make TARGETS=net/can install". With
-this change the installed test_raw_filter.sh runs.
+The problem is here:
 
-Fixes: 77442ffa83e8 ("selftests: can: Import tst-filter from can-tests")
-Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
+  if (!skb_zcopy_pure(skb)) {
+          copy = tcp_wmem_schedule(sk, copy);
+          if (!copy)
+                  goto wait_for_space;
+  }
+
+When MSG_ZEROCOPY data is appended to a skb that already holds copied
+data, only the user length is scheduled, but the pinned pages are then
+charged by their truesize:
+
+ skb_zerocopy_iter_stream
+   __zerocopy_sg_from_iter
+    zerocopy_fill_skb_from_iter  //truesize += PAGE_ALIGN(copied + start)
+    sk_mem_charge(sk, truesize)  //sk_forward_alloc goes negative
+
+For example, sending 8 iovecs of 1 byte each schedules 8 bytes and
+charges 32768 with 4K pages.
+
+On a later sendmsg() without MSG_ZEROCOPY, if sk_wmem_schedule() fails
+(e.g. tcp_mem hard limit is reached), tcp_wmem_schedule() returns
+min(copy, sk->sk_forward_alloc), which is negative. The negative copy
+is passed to skb_copy_to_page_nocache() and triggers the warning, and
+sendmsg() fails with -EFAULT.
+
+A few options were considered:
+
+1) Schedule the truesize up front. It is not known before the pages
+   are pinned, it depends on the iovec layout.
+2) Do not append zerocopy data to a non pure skb. This splits a small
+   header and its zerocopy payload into two skbs.
+3) Schedule the missing part right after the pages are charged. They
+   are already in the skb at this point, so this can not fail.
+
+Go with 3).
+
+Fixes: 849b425cd091 ("tcp: fix possible freeze in tx path under memory pressure")
+Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
 ---
-Changes in v5:
-- No changes.
-
-Changes in v4:
-- No changes.
-
-Changes in v3:
-- No changes.
+v1: https://lore.kernel.org/netdev/20261119090828.343748-1-jiayuan.chen@linux.dev/
 
 Changes in v2:
-- New in v2. An install of net/can on its own left out net/lib.sh
-  (sashiko).
+- Only call sk_forced_mem_schedule() for non pure zerocopy skbs (Eric)
 ---
- tools/testing/selftests/net/can/Makefile | 2 ++
+ net/ipv4/tcp.c | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/tools/testing/selftests/net/can/Makefile b/tools/testing/selftests/net/can/Makefile
-index 5b82e60a03e75ace2cae949ceeab09a497c96074..3adaa13dcbfa303c4be2bb6a9b5dbdac76d68260 100644
---- a/tools/testing/selftests/net/can/Makefile
-+++ b/tools/testing/selftests/net/can/Makefile
-@@ -6,6 +6,8 @@ CFLAGS += -Wall -Wl,--no-as-needed -O2 -g -I$(top_srcdir)/usr/include $(KHDR_INC
- 
- TEST_PROGS := test_raw_filter.sh
- 
-+TEST_INCLUDES := ../lib.sh $(wildcard ../lib/sh/*.sh)
-+
- TEST_GEN_FILES := test_raw_filter
- 
- include ../../lib.mk
-
+diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
+index d510e982dcea..343f6d61b408 100644
+--- a/net/ipv4/tcp.c
++++ b/net/ipv4/tcp.c
+@@ -1359,6 +1359,8 @@ int tcp_sendmsg_locked(struct sock *sk, struct msghdr *msg, size_t size)
+ 			if (err < 0)
+ 				goto do_error;
+ 			copy = err;
++			if (!skb_zcopy_pure(skb))
++				sk_forced_mem_schedule(sk, 0);
+ 		} else if (zc == MSG_SPLICE_PAGES) {
+ 			/* Splice in data if we can; copy if we can't. */
+ 			if (tcp_downgrade_zcopy_pure(sk, skb))
 -- 
-2.47.3
+2.43.0
 
