@@ -1,113 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.135.74
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795200143;
-	b=1Gs8xXp9NyPUp9yd32oMOQ3KDwGeU7Wayzp4+jM6oI7K/4Q8YP93EM4YoJxQgVVvwxjN
-	 yTb3O2H0CpiswuYYmQHgk5ep15CxQ8LzZk5yif4uNlbOkWkDbAmdunAE1hAX1FJ57sWB/
-	 FKqI0CziJd7tFtKncXbqY3SmE+seTzsgfZwkND5h0C6lIAGp0pfw0fCzGcAO8jxISYqX6
-	 U1wZyPhDUwfv3dNe+cgd5bStDDjJaHECyYAK8oTPg/EkcNAPzuH5ht+zvP1BHfhve2Uic
-	 ma6PxmGER1tbvi4FuCIduCDDqUJ32Uc0s9o9vJIIClRoz7TQ2JwubDaczRYv8LBuBuQ==
+	t=1795200151;
+	b=cmgXmNHaXb0NUlPt5KUseTMcN4tDEDf7uXloR0xNX+oX4urw//oADKPBS43jpX20mp4Z
+	 bQk5a18sD9EJ4NUN/c6drwLDaSXTR20G7K3xnQ/KxB7pyAbvdgHrtgDk/lz+CkVorevda
+	 uv8yZsvrvNiP2N+CYHX+s1nO2wIaAP3+h4BpIRWXTSkDvfTqM/rhr5NNk34xI5iQxssxd
+	 EhjvR4JiyGe4EIri2yyvCxvMVW9K4rqdn8Paonn12LG/3s2DiHG8Mi2iY/HSuAVWQWw0M
+	 bGNHOuHhDDITCdGTjYHNUd9IbKo9m4HB9gHl+C44ZYtLcpHanabVSyBSvQB8Bv4Ikjw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795200143;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=uB6Wtxz06vMdMNj6Z6jJ4VbMDyZslEE2FTR0Qhz4yDQ=;
-	b=PJmyBPDqRMtLGQRY7Rc8o0/hJkmcQBUdx+mNOW9eUkRCz6rvmv0jTIGsiUVPe0xfroC8
-	 6wpvaVlMcqU+hEJncMlboEsuZsu2sS1lMB1z82VMl4b29hbwgduzJaBBHJEJRbYlR2m4z
-	 0PAsPrKLEZS9Elo7gz1UJmpFiI/g2G8r51o/cLl5BczTX2KreEIF1BiJX7hfqdXGVWrH5
-	 jHcjHsPS6Ss/uo3hdyP6kwhUYdJUrv3u0yUXZiUK/HIgrhNlUsdxHSIu4Ol6+dndeHhgy
-	 k9O9krWVWPXEpPnW/hcRdjTAuSQTXP3ZXp/N66TMcoIxqgEuPQ7QG0GeBFG/F3FBf9Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795200151;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=qDrA3QEHMeKIHW3bOyblcdVywBJ7RCRY1bQxafinoto=;
+	b=ueVSjVs9Aap4uTcFIPb2d/eCPE/f9U4Q6iI/HKyptmW3fgiKhprzYchnrM7VLmdbVxJ7
+	 uf/WmUFfvaFZ1qfQEWVsMQA1z4RsQVAFpLcXu0hGlSvCQgwjCT7mXgZJSwpRZRX0BRm0t
+	 oI+tdp1CDQgds1mB2TD4mr+Myu9EqAlIDbuTDBeq5uAcIaVVdIaIbS263ZXBrrWNW6m1Z
+	 ORxoy3mhPs5trhq2bFqJrhtro1arNNn7FIQTaBpyf7Icfyt8qiZnP8euln//3g9zJzz1r
+	 n/TlFBEjYAZMgwlJdxGFFWN71fGoRLqmyMKsZahQSv7WZEmxcYR4ZKSPYLb0H5uwqEA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=columbia.edu;
-	spf=pass smtp.mailfrom=columbia.edu;
-	dkim=pass header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=vUxleCYI;
-	dkim=pass header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=exTF7Gov;
-	arc=none smtp.remote-ip=148.163.135.74
-Received: from mx0a-00364e01.pphosted.com (mx0a-00364e01.pphosted.com [148.163.135.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jxPXU45+;
+	arc=none smtp.remote-ip=209.85.128.50
+Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DF2F60A2634
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:42:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DF2F60A2634
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=columbia.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=columbia.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA57360A261C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:42:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA57360A261C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=vUxleCYI;
-	dkim=pass (2048-bit key) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=exTF7Gov
-Received: from pps.filterd (m0167070.ppops.net [127.0.0.1])
-	by mx0a-00364e01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKHYTr12543084
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:42:18 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=columbia.edu; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pps01; bh=uB6W
-	txz06vMdMNj6Z6jJ4VbMDyZslEE2FTR0Qhz4yDQ=; b=vUxleCYIa7LQ5WfLMCpE
-	+neRa0dQfNehF0u+/2F4sX+OCCXRhrMzVKgzDksDPaIqb6cyYEYHHDzl+e1Rd2uI
-	CY10lXg071r8+mP8m5p1WUCtxDsmKsetQi4wBxcXR6BsckyIZkqEW34NJYq5O3zY
-	8pYtgPYQV/6vjuVJkHD82wKe6hMdJoeccdJ24rxQgRG4bG7bXuvrB4PBlL2GhLQ/
-	9ctIFMowxEh4Pb6k6QXpmB+IgmZpk/2/MEjwZKfnBNPjtHQJ8Dv5gH7qBJcFhs1s
-	suHgTG8G2Sct66g6Msg5T/rPNhfYJcu95ZSNGBapcqGziRVrJx14qJAYaoh+pLSY
-	+A==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-00364e01.pphosted.com (PPS) with ESMTPS id 4j2ser9d80-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:42:17 -0500 (EST)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-55c644cea0bso26180471cf.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:42:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jxPXU45+
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb666304fdso21773325e9.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:42:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=columbia.edu; s=lionmail; t=1795200136; x=1795804936; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=uB6Wtxz06vMdMNj6Z6jJ4VbMDyZslEE2FTR0Qhz4yDQ=;
-        b=exTF7GovnplLOIOz797vkSLSr3QxOrxlYPV3JToF8dNr42dl/rPm+EvSSv+YM7gbPQ
-         8dpjWSR1EO+ijoek+Q6SfCl+B/iaOj+DsGLA+Rgo9fYic7xuxUt7PV7+SAtIlOBryvHW
-         QDDGhnbud9IuA0GW+jeXMZzIiv+hihRHB3SThBkUpEdu6SMnu3TV8K4mOE0G/cFI8By3
-         2fIHM65FFXdEPl/iZH365ZNQb7nrIjWe9Z/RO8qusaQR75Yu5EZ7yAfSGgu6u3oZq7F+
-         WllOa93jsEv6mVscTYrSS/+Vzo4cP1RBtObpPtMXXtym8VoXgQ8kjyTnGfzBi1kyD0Un
-         Trjg==
+        d=gmail.com; s=20260707; t=1795200148; x=1795804948; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qDrA3QEHMeKIHW3bOyblcdVywBJ7RCRY1bQxafinoto=;
+        b=jxPXU45+x0qqCZq7FjT2jEA8QQsyOrGK3smXcH1RPjxo+sFn3+DWykT19QxHd8OIkL
+         OJEZ8KIJVOsL3WXz9IkQ9EHsP6AAR1u//k1O8XkWfWpxl0eiExYA3/SXfKSm2Ki0Tci5
+         MYYktGoZDOdHcq7kTRuLRFHRIL2IlR9DPYFzKDRXky3vVXk014RWh96R76vvoql19lU4
+         vcnu8IVikP/Qq9XiSc4Kf0GDYdtLpiVRlgDE8lGT1/Z0t/P9H33yc2MvZfs3QqAv1sMt
+         hohPmssLRGbHC1BLxMaPF6VoDNAcE2FsnW6ofCHbs+uvjezNbafA1HjgQzJS94JRttpJ
+         PjeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795200136; x=1795804936;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uB6Wtxz06vMdMNj6Z6jJ4VbMDyZslEE2FTR0Qhz4yDQ=;
-        b=aPCWzvKG2Ex9TfiSsudWuAGqLw9ojF+wwCyeEKUm7r3kDOgpaYyuwyfpSyNsOIMK49
-         UQynfld2EOvyCw8sA7mf15BPWQnLc0JyZbCuvjMIsoDdQp95JzSwOF4Y8jIts9BcGJPW
-         L8u7EuUobTBPBZpucwzg6ATxY1YWmqBq0qXLph6/js0AoxivVVP3ocl9+0EUFHjAMQJU
-         rEiOEzoNDovWb0kdVIBUB/k4WPiIcPr3Nl8HCrY3xEVt3otLiH9UdYmRCRiJ1p5xTujc
-         isL2IOkLnXinXqUeBM2fzq37HceB4u3DOr3XP5SWvNPXplGoyeW5uNzSYxhrXxYb+7sX
-         h/Yw==
-X-Forwarded-Encrypted: i=1; AL+hErG3Y8o6dDjKYB/mkrMs8wr2zTTdd3BgbFeCfhzcyU7ilSHVEeMWb2ljUkAtIDf8TY1wAoLGtRxtvMChH7U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z81wEVU6b5n4XnyiAwuFsBfKqPDoyC73wBmh9aNGWaYoy6ToT+q
-	VtxVyqZT1Zvh/FqVy62jx35Irnb/tJyX9APDZOkbRiW23dEiESivSL8r1RoApAhslq8TNztILA9
-	syfxLxlbIvSyBOpKyNZ46a2Fc/uVGAxl5BHTyTwmrqL0uJAT6VWp2kkA6Tgta1w==
-X-Gm-Gg: AYBFou3GaRUNtRnRrhj68YkmXiDc5QC1G5m8DE8yrKke6cfewWzo4WDcHOrWkLCU6YF
-	P/uyFwq50/jG5kdwgHridXPWjak75MlBLkezuQiPbx9a839DD8kIs6NjKlp1MkcDz+7w3rsJg3x
-	E0Z0dRXorBQY7flsdMCJxgbQfFBOOHosO7d87WcOGJTMpCMMAMbecUGpO8ixD35xUUjHElImmo3
-	AiYcPpYGpwy8Ps/qrDMbXN0Lo1qkqppMfQQmJEig78ByrQLIGq3atHr1RxKMZrBf0o3EUh0B7wf
-	twxRTGKldJgZhNfxli9kL7toXOV+xau66snuO680+yZ/gFK639QHoX78+h+VGTiKfT8zXKW82rt
-	WAT9xBUQl/A/1hnYn0YGQbfRTS7DzONbGXZ/TUPT34JDDSoAOU5da05StQpNN6GlWXTtPY8ZQpo
-	XL5Do4ql7b8LFPdoQzmQLJ
-X-Received: by 2002:a05:622a:5ce:b0:536:b7a:2ce8 with SMTP id d75a77b69052e-55d76a88b06mr74193131cf.51.1795200136570;
-        Fri, 20 Nov 2026 10:42:16 -0800 (PST)
-X-Received: by 2002:a05:622a:5ce:b0:536:b7a:2ce8 with SMTP id d75a77b69052e-55d76a88b06mr74192821cf.51.1795200136180;
-        Fri, 20 Nov 2026 10:42:16 -0800 (PST)
-Received: from [127.0.1.1] (nat-128-59-178-217.net.columbia.edu. [128.59.178.217])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d788ae02fsm28895301cf.29.2026.11.20.10.42.15
+        d=1e100.net; s=20260707; t=1795200148; x=1795804948;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qDrA3QEHMeKIHW3bOyblcdVywBJ7RCRY1bQxafinoto=;
+        b=vPBoWUY5kGy5GX6aH3pc032arPtb2Y8Sny028O+NJvP1HTjIRFjPan9eNhgp1va660
+         vnZE2wpmwyk4tgulljddyFsB8qwgjCbETDkCHM0M8OE68STmaNheN+GP3Y7u7LVWf3oU
+         jd6aKHhsNLDlmRz0Bm6cIe2DYifXdtE9eJbbX8DEn3iWhrsOVmuYBc911rOas9wTSajc
+         QTtyGAAqfRbW+7XCf8/Zf7AtUO5m2aIOh6fn+ATGcJkbW5BbPlMZmHgC3MBdEw51vxSq
+         9oewY2MW3UZpAQDjBZNN2KL2vljbdBiooAX78q/hX7RYMbM4lZI9C6xcn7UYVnXHecle
+         ekfg==
+X-Forwarded-Encrypted: i=1; AL+hErFoqn2NMXFruhavdkEvqEa8QhJBGTude7TxT0n8YnGu6mvD5gWX5GnRzMp6T+h8+VwJN8yPPYIBTk/htjg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8NP8xBVjHuQ1SkRnhGZd3Pus6tMVRaW3tA6LZwCvJkVCGk4zvb
+	Du3BgtVNOviXz459b/0UPb5iwC0ZJFiY+xPcIMyrI/qwKeKJb1vLZPmtSCjsSCYr
+X-Gm-Gg: AYBFou2xTZIJePhqMkCGmcRtAnEjM7x0NsOIwNloqboBKDNRACZjLI138R2F+AwaAB3
+	Fw5ENgj2uzoVK+ZwS/PnlVwPnZUpZJBWbdOoiUzvHY2tb+p59f6h8zDPmizkP7gZclNlhUQw/zZ
+	6dnHfabFuHZ1Mjg+/qx2BG+lqrjppJjdCTVBVN4tmfabGQUMItA/xmyrRT/VDXDdTc82hHallQQ
+	aW+AIxwfMEGfO9pNzEMHgXyvCVQNzx9tVx3gs0G4lVOK4jW/NBWryY2eZpVe5kk0ehTfjC89QWo
+	n8MNjggxoVOvlusQfeh0kPF6rPGiYqsDTlQbdFXXkFPm4rwiqZ4zQTxLB1drR6+zsVhcyGy1la3
+	ZlvsOm1P+ouPN2sOTIP/Q3QEQoWfT5JYmWBpR7lEDp9tyYiDJndcNkBH/+uzlLJX8MBZcs4GYVK
+	lj6CrgfdgQG2ZDrPlC1MZwQUmHMqWqZ6cxLzVnyJMx4fGyN8AYpcxfchUTA4wjbSios90rIcmU9
+	XEL37I2GTk5jrcTtHuRYUJdxH1g6gsG60eDW2BbLeSYOtKoUpNLbNA3BsBz+E6DUsjesC0UBSlv
+	VAQ9rktWGWnxgbKdHk7+U9M8acGsIF31aV5RZh4z3zpp
+X-Received: by 2002:a05:600c:6749:b0:4bb:5d38:259f with SMTP id 5b1f17b1804b1-4bb8881099cmr90234605e9.12.1795200148016;
+        Fri, 20 Nov 2026 10:42:28 -0800 (PST)
+Received: from asahi.teknoraver.net ([195.182.211.216])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884865a2sm109943825e9.3.2026.11.20.10.42.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 10:42:15 -0800 (PST)
-From: Tal Zussman <tz2294@columbia.edu>
-Date: Fri, 20 Nov 2026 13:42:07 -0500
-Subject: [PATCH 2/2] md: free the superblock and bad block pages with
- __free_page()
+        Fri, 20 Nov 2026 10:42:27 -0800 (PST)
+From: Matteo Croce <technoboy85@gmail.com>
+To: linux-fsdevel@vger.kernel.org,
+	Christian Brauner <brauner@kernel.org>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Ding Feng <dingf3ng@gmail.com>
+Cc: Paul Eggert <eggert@cs.ucla.edu>,
+	LKML <linux-kernel@vger.kernel.org>
+Subject: [PATCH] fs: shorten I/O that would extend past the maximum file offset
+Date: Fri, 20 Nov 2026 19:42:25 +0100
+Message-ID: <20261120184225.257554-1-technoboy85@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,99 +97,315 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-md-sb-page-cleanup-v1-2-117d8d686737@columbia.edu>
-References: <20261120-md-sb-page-cleanup-v1-0-117d8d686737@columbia.edu>
-In-Reply-To: <20261120-md-sb-page-cleanup-v1-0-117d8d686737@columbia.edu>
-To: Song Liu <song@kernel.org>, Yu Kuai <yukuai@fygo.io>,
-        Li Nan <magiclinan@didiglobal.com>, Xiao Ni <xiao@kernel.org>
-Cc: linux-raid@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Tal Zussman <tz2294@columbia.edu>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795200133; l=1612;
- i=tz2294@columbia.edu; s=20250528; h=from:subject:message-id;
- bh=2QvXtn1wYHVVOm/IWc20/yG/3xx5860mWyf6um1peOw=;
- b=6qAU+WjRmhTUxSVMLKxIty9y06V3VGx222XrYCEdRYsLHX70B+D5APINxDKfItl6NDyntUfVw
- GoQDnfd/iEDCHwXmQr2n2xf2K7EIHjiu6CDxIeCrArm4fn98x3DHjHG
-X-Developer-Key: i=tz2294@columbia.edu; a=ed25519;
- pk=BIj5KdACscEOyAC0oIkeZqLB3L94fzBnDccEooxeM5Y=
-X-Authority-Analysis: v=2.4 cv=Tr9zFzXh c=1 sm=1 tr=0 ts=6b009489 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=lnglQuR7XRqnmjDHco/WZg==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=x7bEGLp0ZPQA:10 a=A0y_DWxS2BwA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Da8U98TiO7q1upZEImrf:22 a=svvvyxlR1OQQkelhaPoB:22
- a=UiJXAB5W49XqtTlGKSQA:9 a=QEXdDO2ut3YA:10 a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA3NCBTYWx0ZWRfX0CVv2OfZi40B
- Xwqksz0jHqQeHzrweYkg3yQbTl/vb26GZcKTU2Bt76711onSXOXwMbQi1vK/pYhhVMXZRgBp+RK
- 0sS97E4NMgjMM1L0jIElfQH1wU9642EVij1j70JC+LfpCMEw4g+w
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA3NCBTYWx0ZWRfX3MmcCYc4IWmg
- 1gGn/vrkFP/dnSm5WKsJzhlxAIJj87m6yS6JDqFXTDOngI1r1ZiN0nZohVL6Ab6Y6n81pXj8jLP
- 2hDtyCntPlW1vemqhqNpWi6ZoKoiSX1fJ+KzE46XtUyYfFNY71FP87zH/RSCmXxbumT64RNG9q4
- 8qid6QTpMTe+khFar0wfJ9HNWqPWsM/zbkEdESSiC2vayKARSqSXaiB0c8SUWRETmuj4lSKQ36l
- ZUoIR0Eef9CDm8Pnvwr9vtZb8qbWZAtfJtiqVuVEhktnO2+pyz5xoZ23EOb+fmk6L7IAykI2auo
- 1s1A8Zs8jj7+HEDd/A5OFPsemWdYSDe0lah4Vfgt53nCcvnmtmuUrFJcoq4OTD+UxW1lTir+kED
- lR/iJA/K3r4i0PUrq10bTFIEgruoDEz48ZMb4+3hweoWtIHkvTArQ4McR1+YzSY6eaTlRb85zon
- SF8vSoefli9RXHXKfyg==
-X-Proofpoint-GUID: Dj0P1mQFdbjkag7VvsJCUHaZXgw9qfB1
-X-Proofpoint-ORIG-GUID: Dj0P1mQFdbjkag7VvsJCUHaZXgw9qfB1
-X-Proofpoint-Virus-Version: vendor=nai engine=6900 definitions=11972
- signatures=596817
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=10 clxscore=1015 malwarescore=0 phishscore=0 priorityscore=1501
- impostorscore=10 adultscore=0 lowpriorityscore=10 spamscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200074
+Content-Transfer-Encoding: 8bit
 
-rdev->sb_page and rdev->bb_page come from alloc_page(), and md never
-takes another reference on them, so put_page() only ever frees them.
-put_page() treats the page as a folio, which these buffers are not. Use
-__free_page() instead.
+rw_verify_area() fails with -EINVAL any read or write where
+pos + count would exceed LLONG_MAX, even when pos itself is valid.
+Such a request should not fail: a read should return the bytes that
+are there up to the maximum offset, or 0 at end of file, and a write
+should write what fits and return a short count.
 
-Signed-off-by: Tal Zussman <tz2294@columbia.edu>
+This breaks ordinary programs that pass a large count, such as
+coreutils, which uses SSIZE_MAX as the count for copy_file_range() and
+falls back to read() at the end. For example, both of these fail with
+EINVAL:
+
+  $ truncate -s $((2**63 - 1)) hugefile
+  $ dd if=hugefile bs=1M skip=$((2**43 - 2))
+  dd: error reading 'hugefile': Invalid argument
+
+  $ dd if=hugefile bs=1 skip=$((2**63 - 1)) | cat
+  cat: -: Invalid argument
+
+and on a 100-byte file:
+
+  preadv2(fd, 200 bytes, pos = LLONG_MAX - 50) = -1 EINVAL
+  preadv2(fd,  50 bytes, pos = LLONG_MAX - 50) = 0
+
+splice(), sendfile(), aio and io_uring fail in the same way.
+
+Add rw_clamp_count(), which shortens the count so that the range ends
+at LLONG_MAX, and call it before rw_verify_area() in the read and write
+paths of the VFS, splice, aio and io_uring. Where the I/O is described
+by an iov_iter, truncate the iterator. This is what filemap_read()
+already does for s_maxbytes. In io_uring, also save the iterator state
+again after truncating it, so that the short read retry loop does not
+restore the full length.
+
+rw_verify_area() keeps its check, so callers that are not converted
+behave as before. rw_clamp_count() leaves alone negative positions,
+counts above SSIZE_MAX, files with FOP_UNSIGNED_OFFSET and writes that
+start at LLONG_MAX, so these still fail in rw_verify_area().
+copy_file_range() already clamps the range in generic_copy_file_checks()
+and is not changed.
+
+Reported-by: Ding Feng <dingf3ng@gmail.com>
+Closes: https://lore.kernel.org/linux-fsdevel/20261120051457.47753-1-dingf3ng@gmail.com/
+Suggested-by: Paul Eggert <eggert@cs.ucla.edu>
+Link: https://lists.gnu.org/archive/html/coreutils/2025-12/msg00097.html
+Link: https://lore.kernel.org/linux-fsdevel/20251219125250.65245-1-teknoraver@meta.com/
+Signed-off-by: Matteo Croce <technoboy85@gmail.com>
 ---
- drivers/md/md.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ fs/aio.c           |  4 ++++
+ fs/read_write.c    | 18 ++++++++++++++++++
+ fs/splice.c        |  3 +++
+ include/linux/fs.h | 38 ++++++++++++++++++++++++++++++++++++++
+ io_uring/rw.c      | 16 ++++++++++++++++
+ 5 files changed, 79 insertions(+)
 
-diff --git a/drivers/md/md.c b/drivers/md/md.c
-index c5a7f0697f7d..ef4a1141d8be 100644
---- a/drivers/md/md.c
-+++ b/drivers/md/md.c
-@@ -1089,14 +1089,14 @@ static int alloc_disk_sb(struct md_rdev *rdev)
- void md_rdev_clear(struct md_rdev *rdev)
+diff --git a/fs/aio.c b/fs/aio.c
+index d78acc69f487..abd17f75faaa 100644
+--- a/fs/aio.c
++++ b/fs/aio.c
+@@ -1651,6 +1651,8 @@ static int aio_read(struct kiocb *req, const struct iocb *iocb,
+ 	ret = aio_setup_rw(ITER_DEST, iocb, &iovec, vectored, compat, &iter);
+ 	if (ret < 0)
+ 		return ret;
++	iov_iter_truncate(&iter, rw_clamp_count(READ, file, &req->ki_pos,
++						iov_iter_count(&iter)));
+ 	ret = rw_verify_area(READ, file, &req->ki_pos, iov_iter_count(&iter));
+ 	if (!ret)
+ 		aio_rw_done(req, file->f_op->read_iter(req, &iter));
+@@ -1679,6 +1681,8 @@ static int aio_write(struct kiocb *req, const struct iocb *iocb,
+ 	ret = aio_setup_rw(ITER_SOURCE, iocb, &iovec, vectored, compat, &iter);
+ 	if (ret < 0)
+ 		return ret;
++	iov_iter_truncate(&iter, rw_clamp_count(WRITE, file, &req->ki_pos,
++						iov_iter_count(&iter)));
+ 	ret = rw_verify_area(WRITE, file, &req->ki_pos, iov_iter_count(&iter));
+ 	if (!ret) {
+ 		if (S_ISREG(file_inode(file)->i_mode))
+diff --git a/fs/read_write.c b/fs/read_write.c
+index e8c14e2760b2..0a6cf9b5b02e 100644
+--- a/fs/read_write.c
++++ b/fs/read_write.c
+@@ -544,6 +544,7 @@ ssize_t kernel_read(struct file *file, void *buf, size_t count, loff_t *pos)
  {
- 	if (rdev->sb_page) {
--		put_page(rdev->sb_page);
-+		__free_page(rdev->sb_page);
- 		rdev->sb_loaded = 0;
- 		rdev->sb_page = NULL;
- 		rdev->sb_start = 0;
- 		rdev->sectors = 0;
- 	}
- 	if (rdev->bb_page) {
--		put_page(rdev->bb_page);
-+		__free_page(rdev->bb_page);
- 		rdev->bb_page = NULL;
- 	}
- 	badblocks_exit(&rdev->badblocks);
-@@ -10961,7 +10961,7 @@ static int read_rdev(struct mddev *mddev, struct md_rdev *rdev)
- 		pr_warn("%s: %d Could not reload rdev(%d) err: %d. Restoring old values\n",
- 				__func__, __LINE__, rdev->desc_nr, err);
- 		if (rdev->sb_page)
--			put_page(rdev->sb_page);
-+			__free_page(rdev->sb_page);
- 		rdev->sb_page = swapout;
- 		rdev->sb_loaded = 1;
- 		return err;
-@@ -10983,7 +10983,7 @@ static int read_rdev(struct mddev *mddev, struct md_rdev *rdev)
- 	    mddev->pers->spare_active(mddev))
- 		sysfs_notify_dirent_safe(mddev->sysfs_degraded);
+ 	ssize_t ret;
  
--	put_page(swapout);
-+	__free_page(swapout);
- 	return 0;
- }
++	count = rw_clamp_count(READ, file, pos, count);
+ 	ret = rw_verify_area(READ, file, pos, count);
+ 	if (ret)
+ 		return ret;
+@@ -562,6 +563,7 @@ ssize_t vfs_read(struct file *file, char __user *buf, size_t count, loff_t *pos)
+ 	if (unlikely(!access_ok(buf, count)))
+ 		return -EFAULT;
  
-
++	count = rw_clamp_count(READ, file, pos, count);
+ 	ret = rw_verify_area(READ, file, pos, count);
+ 	if (ret)
+ 		return ret;
+@@ -653,6 +655,7 @@ ssize_t kernel_write(struct file *file, const void *buf, size_t count,
+ {
+ 	ssize_t ret;
+ 
++	count = rw_clamp_count(WRITE, file, pos, count);
+ 	ret = rw_verify_area(WRITE, file, pos, count);
+ 	if (ret)
+ 		return ret;
+@@ -675,6 +678,7 @@ ssize_t vfs_write(struct file *file, const char __user *buf, size_t count, loff_
+ 	if (unlikely(!access_ok(buf, count)))
+ 		return -EFAULT;
+ 
++	count = rw_clamp_count(WRITE, file, pos, count);
+ 	ret = rw_verify_area(WRITE, file, pos, count);
+ 	if (ret)
+ 		return ret;
+@@ -879,6 +883,8 @@ ssize_t vfs_iocb_iter_read(struct file *file, struct kiocb *iocb,
+ 	if (!(file->f_mode & FMODE_CAN_READ))
+ 		return -EINVAL;
+ 
++	iov_iter_truncate(iter, rw_clamp_count(READ, file, &iocb->ki_pos,
++					       iov_iter_count(iter)));
+ 	tot_len = iov_iter_count(iter);
+ 	if (!tot_len)
+ 		goto out;
+@@ -907,6 +913,8 @@ ssize_t vfs_iter_read(struct file *file, struct iov_iter *iter, loff_t *ppos,
+ 	if (!(file->f_mode & FMODE_CAN_READ))
+ 		return -EINVAL;
+ 
++	iov_iter_truncate(iter, rw_clamp_count(READ, file, ppos,
++					       iov_iter_count(iter)));
+ 	tot_len = iov_iter_count(iter);
+ 	if (!tot_len)
+ 		goto out;
+@@ -939,6 +947,8 @@ ssize_t vfs_iocb_iter_write(struct file *file, struct kiocb *iocb,
+ 	if (!(file->f_mode & FMODE_CAN_WRITE))
+ 		return -EINVAL;
+ 
++	iov_iter_truncate(iter, rw_clamp_count(WRITE, file, &iocb->ki_pos,
++					       iov_iter_count(iter)));
+ 	tot_len = iov_iter_count(iter);
+ 	if (!tot_len)
+ 		return 0;
+@@ -970,6 +980,8 @@ ssize_t vfs_iter_write(struct file *file, struct iov_iter *iter, loff_t *ppos,
+ 	if (!file->f_op->write_iter)
+ 		return -EINVAL;
+ 
++	iov_iter_truncate(iter, rw_clamp_count(WRITE, file, ppos,
++					       iov_iter_count(iter)));
+ 	tot_len = iov_iter_count(iter);
+ 	if (!tot_len)
+ 		return 0;
+@@ -1007,6 +1019,8 @@ static ssize_t vfs_readv(struct file *file, const struct iovec __user *vec,
+ 	if (ret < 0)
+ 		return ret;
+ 
++	iov_iter_truncate(&iter, rw_clamp_count(READ, file, pos,
++						iov_iter_count(&iter)));
+ 	tot_len = iov_iter_count(&iter);
+ 	if (!tot_len)
+ 		goto out;
+@@ -1045,6 +1059,8 @@ static ssize_t vfs_writev(struct file *file, const struct iovec __user *vec,
+ 	if (ret < 0)
+ 		return ret;
+ 
++	iov_iter_truncate(&iter, rw_clamp_count(WRITE, file, pos,
++						iov_iter_count(&iter)));
+ 	tot_len = iov_iter_count(&iter);
+ 	if (!tot_len)
+ 		goto out;
+@@ -1325,6 +1341,7 @@ static ssize_t do_sendfile(int out_fd, int in_fd, loff_t *ppos,
+ 		if (!(fd_file(in)->f_mode & FMODE_PREAD))
+ 			return -ESPIPE;
+ 	}
++	count = rw_clamp_count(READ, fd_file(in), &pos, count);
+ 	retval = rw_verify_area(READ, fd_file(in), &pos, count);
+ 	if (retval < 0)
+ 		return retval;
+@@ -1365,6 +1382,7 @@ static ssize_t do_sendfile(int out_fd, int in_fd, loff_t *ppos,
+ #endif
+ 	opipe = get_pipe_info(fd_file(out), true);
+ 	if (!opipe) {
++		count = rw_clamp_count(WRITE, fd_file(out), &out_pos, count);
+ 		retval = rw_verify_area(WRITE, fd_file(out), &out_pos, count);
+ 		if (retval < 0)
+ 			return retval;
+diff --git a/fs/splice.c b/fs/splice.c
+index 9d8f63e2fd1a..7a889274f9d6 100644
+--- a/fs/splice.c
++++ b/fs/splice.c
+@@ -1001,6 +1001,7 @@ ssize_t vfs_splice_read(struct file *in, loff_t *ppos,
+ {
+ 	ssize_t ret;
+ 
++	len = rw_clamp_count(READ, in, ppos, len);
+ 	ret = rw_verify_area(READ, in, ppos, len);
+ 	if (unlikely(ret < 0))
+ 		return ret;
+@@ -1338,6 +1339,7 @@ ssize_t do_splice(struct file *in, loff_t *off_in, struct file *out,
+ 		if (unlikely(out->f_flags & O_APPEND))
+ 			return -EINVAL;
+ 
++		len = rw_clamp_count(WRITE, out, &offset, len);
+ 		ret = rw_verify_area(WRITE, out, &offset, len);
+ 		if (unlikely(ret < 0))
+ 			return ret;
+@@ -1364,6 +1366,7 @@ ssize_t do_splice(struct file *in, loff_t *off_in, struct file *out,
+ 			offset = in->f_pos;
+ 		}
+ 
++		len = rw_clamp_count(READ, in, &offset, len);
+ 		ret = rw_verify_area(READ, in, &offset, len);
+ 		if (unlikely(ret < 0))
+ 			return ret;
+diff --git a/include/linux/fs.h b/include/linux/fs.h
+index deb411e86661..990d8fa0b2bb 100644
+--- a/include/linux/fs.h
++++ b/include/linux/fs.h
+@@ -3128,6 +3128,44 @@ extern loff_t fixed_size_llseek(struct file *file, loff_t offset,
+ extern loff_t no_seek_end_llseek_size(struct file *, loff_t, int, loff_t);
+ extern loff_t no_seek_end_llseek(struct file *, loff_t, int);
+ int rw_verify_area(int, struct file *, const loff_t *, size_t);
++
++/**
++ * rw_clamp_count - shorten an I/O so it does not extend past LLONG_MAX
++ * @read_write:	READ or WRITE
++ * @file:	file the I/O is done on
++ * @ppos:	file position of the I/O, or NULL for stream files
++ * @count:	number of bytes requested
++ *
++ * A read or write that starts at a valid file position but would end past
++ * the maximum file offset should transfer the bytes up to that offset and
++ * return a short count, rather than fail.  rw_verify_area() rejects such a
++ * range, so callers clamp @count with this helper before verifying it.
++ *
++ * Out-of-range positions and counts are left alone so that
++ * rw_verify_area() still rejects them.  So is a write starting at
++ * LLONG_MAX, which cannot transfer anything.  A read starting there is
++ * clamped to zero bytes and reports end of file.
++ *
++ * Return: the possibly shortened count.
++ */
++static inline size_t rw_clamp_count(int read_write, struct file *file,
++				    const loff_t *ppos, size_t count)
++{
++	loff_t pos;
++
++	if (!ppos)
++		return count;
++
++	pos = *ppos;
++	if (likely(pos < 0 || (ssize_t)count < 0 || count <= LLONG_MAX - pos))
++		return count;
++	if (file->f_op->fop_flags & FOP_UNSIGNED_OFFSET)
++		return count;
++	if (read_write == WRITE && pos == LLONG_MAX)
++		return count;
++
++	return LLONG_MAX - pos;
++}
+ extern int generic_file_open(struct inode * inode, struct file * filp);
+ extern int nonseekable_open(struct inode * inode, struct file * filp);
+ extern int stream_open(struct inode * inode, struct file * filp);
+diff --git a/io_uring/rw.c b/io_uring/rw.c
+index 432820f86251..6c01290aa2fb 100644
+--- a/io_uring/rw.c
++++ b/io_uring/rw.c
+@@ -918,6 +918,7 @@ static int __io_read(struct io_kiocb *req, struct io_br_sel *sel,
+ 	struct io_async_rw *io = req->async_data;
+ 	struct kiocb *kiocb = &rw->kiocb;
+ 	ssize_t ret;
++	size_t count;
+ 	loff_t *ppos;
+ 
+ 	if (req->flags & REQ_F_IMPORT_BUFFER) {
+@@ -946,6 +947,13 @@ static int __io_read(struct io_kiocb *req, struct io_br_sel *sel,
+ 
+ 	ppos = io_kiocb_update_pos(req);
+ 
++	count = rw_clamp_count(READ, req->file, ppos, req->cqe.res);
++	if (unlikely(count != req->cqe.res)) {
++		iov_iter_truncate(&io->iter, count);
++		iov_iter_save_state(&io->iter, &io->iter_state);
++		req->cqe.res = count;
++	}
++
+ 	ret = rw_verify_area(READ, req->file, ppos, req->cqe.res);
+ 	if (unlikely(ret))
+ 		return ret;
+@@ -1134,6 +1142,7 @@ int io_write(struct io_kiocb *req, unsigned int issue_flags)
+ 	struct io_async_rw *io = req->async_data;
+ 	struct kiocb *kiocb = &rw->kiocb;
+ 	ssize_t ret, ret2;
++	size_t count;
+ 	loff_t *ppos;
+ 
+ 	if (req->flags & REQ_F_IMPORT_BUFFER) {
+@@ -1166,6 +1175,13 @@ int io_write(struct io_kiocb *req, unsigned int issue_flags)
+ 
+ 	ppos = io_kiocb_update_pos(req);
+ 
++	count = rw_clamp_count(WRITE, req->file, ppos, req->cqe.res);
++	if (unlikely(count != req->cqe.res)) {
++		iov_iter_truncate(&io->iter, count);
++		iov_iter_save_state(&io->iter, &io->iter_state);
++		req->cqe.res = count;
++	}
++
+ 	ret = rw_verify_area(WRITE, req->file, ppos, req->cqe.res);
+ 	if (unlikely(ret))
+ 		return ret;
 -- 
-2.39.5
+2.56.1
 
