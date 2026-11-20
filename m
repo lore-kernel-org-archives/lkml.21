@@ -1,62 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795187713;
-	b=N2nGkwQ+y2n4SFaY3JT5Gf8hTnqoTLp/hz2R8yYmKzXYweVrD2h8p9bptp7qbT4pGYyi
-	 hGHahRmwn9nUHjJ+A1OEdyEN62d1Vcy4HkzXFfY9RjRj76iZ9SdI2n1SNu/FrIcT76hQQ
-	 zQgqKWLSLb26Q2WFVXlyMGgHG1mUxsDomDO7CZOcvIqskiPMzAwLIH72jKMg3W+Tebx90
-	 QAau31Q6DXVqEbirN6lGxYsn8cwaG92ef1EYVWVCN/62urfTErtXBQ6k9PcYds9ikXMwp
-	 AWbB/nUwVecyvLTvrQqPMtoEPvYfCZp0Y7ZwbblC0dCYw5FjRFmaOda9ojlC5+3tHEA==
+	t=1795187745;
+	b=PqYTvSbWS7T+LmX6f8LYcRiA5Ashp1GSFzwCDpaq6uCFreBQS2i0aA/BcbZAll432WOq
+	 f97nGA+CRMHuidOUQIx/+TBQgJ5nInEpJ7E2FeIXaM96Q2dhV5hFvZN3/P7eZWX9Ax8Gu
+	 ANO1s4ASuDqeWg4TNzyXe1B1Qm13LtKgXiFZBZVV94I5yfs58G07ht6am/zXnpsYzyqmG
+	 sYEhkhhVVjedIGeK6LJFd8djWvPnL20euYyDEg+jGdP+xPGS0fziIdRWKXMUTqNPjAqkx
+	 c0aSMbcwpskcgtmP3+V889vy/h9szgrD0OgKQo2kOuj2hoM2TpYmaUYnZzQVrNUMpKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795187713;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=ctb1Jv59qIphIUTiA76EUOJsYvs5jg8Gp4OuvrA3/o8=;
-	b=GeDm4G+5Pz5PWwoL7MFfpHLsHv3+03qvLCL2fTkeKVIpLO4Igb0YzsxClwSzHhdb7Xx4
-	 csqvzxwo2I7llKSKnh7cSXXp7kjUS0WSQCuJc6YKaGy1JpO3Qbqk44fL8JElyFkFJYHTb
-	 OKPv8naN/RdIVgNYjWtYSi+aWyrRWOKk7JMJ1SXUDhBqqebFHltFdVyoz5u2S2XBp5MoB
-	 vIQty1Gu28dV6ZM+Bv3F9s6efIIOB1gf2r4GuAxFdbtfqF8zuKBhnLigBTHrI4Y0hVFSf
-	 i0oGDWSNZMUu4rfXRxgWTlqO7wipW/ZbGbiBuZtxhA5UTYClods2aQhOXUz3vokYnVw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795187745;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=5PvVbdw1H4TaeeEEy3gzS8gsdBLbvbj7MYrxcM3C5gE=;
+	b=Da/QyhTdWwDw0w3fxqN3ijiV6zoOde9JCGtaN7yeMlBfb73QIVHCWKKGl9GSn9QRcJ7l
+	 sUm1f1vIS+8Fe0dnF5iO13oMvwX8+5P/DCUr9oJvYUeMyKbzfEEuSE90/DBrgmyrTqtV3
+	 ekZCJlmYBN1xK44KkY8CNrQR3NLZgERcFyeIb7pYmkuVlf333NrQny/7hyfQX3IDTJsqb
+	 l4/VNsouuRmY57YutmAxmCNZKoQNmmO+059EqlgGAXYlPxzlXiyCDfIBtdIVtN3hcktrm
+	 sl+WIOkyfBVjdT8Hg5bFrDjhHI5+AklOFGhBlFZLtU3RaNZuIVQx0g5T3u2kebxcMwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TiQD9vMR;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MNPz6git;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 261BA606A320;
-	Fri, 20 Nov 2026 15:15:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F0F7606A32A;
+	Fri, 20 Nov 2026 15:15:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TiQD9vMR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8E891F000D2;
-	Fri, 20 Nov 2026 15:15:09 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MNPz6git
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 010C01F000C0;
+	Fri, 20 Nov 2026 15:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795187712;
-	bh=ctb1Jv59qIphIUTiA76EUOJsYvs5jg8Gp4OuvrA3/o8=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=TiQD9vMReX7MxulOHgIp4t1lAlYcg8Q6bEZe2CoRbS8R/9mIteUeSkYgPKmeIEDQu
-	 rmmr0JvsyJFDo4K8WhriZ2eAgcX2x+2HbWes+mTXJ7ECFc4KZKBSyb4TZ5aYXQfSso
-	 +2A7M7kU14nBIGXo/z5RWUlO1G7u3u5DNR+QTWGQn+zuIYWA1ioG7ps1S0Lyi0Spqj
-	 VMG6VEc9iyxEzN/WEdLtb15EIXEpYgQno86Ng57cKsxBCmBEhxNjNQZbpgxALBFmdm
-	 aYmFI2Y80W+Y3y2zo2G2fYmqwX47DW9+Px0tEnhudym+rZa5egtVn5MQrtmIl0anKv
-	 4iVPicHcNNm+g==
-From: Mark Brown <broonie@kernel.org>
-To: Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, 
- Liam Girdwood <lgirdwood@gmail.com>, Konrad Dybcio <konradybcio@kernel.org>, 
- Demeter Barna <me@fromdisposition.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-sound@vger.kernel.org
-In-Reply-To: <20261104-b4-sm8350-sound-v1-0-4c872df294fa@fromdisposition.org>
-References: <20261104-b4-sm8350-sound-v1-0-4c872df294fa@fromdisposition.org>
-Subject: Re: (subset) [PATCH 0/7] arm64: dts: qcom: sm8350: Add SoundWire
- and LPASS
-Message-Id: <179518673827.6016.6677815995841367128.b4-ty@b4>
-Date: Fri, 20 Nov 2026 14:58:58 +0000
+	s=k20260515; t=1795187745;
+	bh=5PvVbdw1H4TaeeEEy3gzS8gsdBLbvbj7MYrxcM3C5gE=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=MNPz6gitvITlFlI/IrUP0B85yEFWhKJAQbcUfuOqS+hoeqD3PQUgEum1j2RzFD66r
+	 +EJEqSk5fXaiXFwqNXfQEfiYm40Efp3iofToYc7VKbTbrNeDnkJBhG6vd58pHyNwiz
+	 d/2d0nQ20nfQwOnAE4acaJHXaAkplcRGuHhjw6jSnw2eOSiIyARNjcImOavyoKL5re
+	 M9BBY1ymEmMNN4bOPLb8lpdswRp8A34lZYJsjBxxoRXD+mGx39JTPJK0RKnEsuIjT+
+	 /Zyia5oFWZVJRY7fi04TiSvQxCyEMJQ0XtIDQir7WBWFX/HRdDZVnfJpUTp1IsYq0N
+	 YG5hUARYDorEw==
+Message-ID: <sashiko-outbox-225444@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v5] ARM, ARM64, LONGARCH, XTENSA: Delay HW BP
+ notification to task_work()
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Sebastian Andrzej Siewior" <bigeasy@linutronix.de>, linux-rt-devel@lists.linux.dev, linux-perf-users@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+In-Reply-To: <20261120144553.TjgAd_G6@linutronix.de>
+References: <20261120144553.TjgAd_G6@linutronix.de>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 20 Nov 2026 15:15:44 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,60 +59,87 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1803; i=broonie@kernel.org;
- h=from:subject:message-id; bh=YgJBtkWW8iWQG2laY8hnj1dOGRj0c+aLITIppNNt1Gk=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLIZkv+wHWdj3HBx+6w8lwubg9ZsPNvQ1SHz2O3ESb/VM
- hd5zv1501HKwiDGxSArpsgSl8X9sr7k9Rq+gwvbYOawMoEMYeDiFICJTJ3K8L/6OhP3l9CT6zqP
- HbdefX+V5gXRBfPeu5fxpT88uYzbsHQuI8OXFqfDx16+sXByvVOVxtpnw7Lyqzen7j8f3qodaxs
- n/OMHAA==
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-On Wed, 04 Nov 2026 18:07:08 +0000, Demeter Barna wrote:
-> arm64: dts: qcom: sm8350: Add SoundWire and LPASS
-> 
-> SM8350 has the ADSP audio services in its dtsi but none of the LPASS
-> codec macros or SoundWire controllers, so boards can't describe their
-> codecs and DMICs yet. This series adds the RX, TX and VA macros with
-> their SoundWire controllers, and the SM8350 sound card compatible.
-> 
-> [...]
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue to consider:
+- [High] loongarch: ptrace: do_watch() forces SIGTRAP before
+  perf_arch_hwbp_send_sig()
+--
 
-Applied to
+commit e42e3194215f3def1d0ba2e055fc294e66e5d8ac
+Author: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
+ARM, ARM64, LONGARCH, XTENSA: Delay HW BP notification to task_work()
 
-Thanks!
+This commit defers ptrace hardware breakpoint signal notifications on ARM,
+ARM64, LoongArch, and Xtensa to task_work via perf_hwbp_notify() so that
+sighand->siglock is not acquired with interrupts disabled on PREEMPT_RT.
 
-[3/7] ASoC: dt-bindings: qcom,lpass-rx-macro: Add SM8350 LPASS RX
-      https://git.kernel.org/broonie/sound/c/bc7f78224043
-[4/7] ASoC: dt-bindings: qcom,lpass-tx-macro: Add SM8350 LPASS TX
-      https://git.kernel.org/broonie/sound/c/f1184077e11d
-[5/7] ASoC: dt-bindings: qcom,lpass-va-macro: Add SM8350 LPASS VA
-      https://git.kernel.org/broonie/sound/c/991a76f7064a
-[7/7] ASoC: dt-bindings: qcom,sm8250: Add SM8350 sound card
-      https://git.kernel.org/broonie/sound/c/a5b5d062b40c
+> diff --git a/arch/loongarch/kernel/ptrace.c b/arch/loongarch/kernel/ptrac=
+e.c
+> index be38430f7e280..27e7e64591592 100644
+> --- a/arch/loongarch/kernel/ptrace.c
+> +++ b/arch/loongarch/kernel/ptrace.c
+> @@ -384,9 +384,7 @@ static int lbt_set(struct task_struct *target,
+>  /*
+>   * Handle hitting a HW-breakpoint.
+>   */
+> -static void ptrace_hbptriggered(struct perf_event *bp,
+> -				struct perf_sample_data *data,
+> -				struct pt_regs *regs)
+> +void perf_arch_hwbp_send_sig(struct perf_event *bp)
+>  {
+>  	int i;
+>  	struct arch_hw_breakpoint *bkpt =3D counter_arch_bp(bp);
+> @@ -479,7 +477,7 @@ static struct perf_event *ptrace_hbp_create(unsigned =
+int note_type,
+>  	attr.bp_type	=3D type;
+>  	attr.disabled	=3D 1;
+> =20
+> -	bp =3D register_user_hw_breakpoint(&attr, ptrace_hbptriggered, NULL, ts=
+k);
+> +	bp =3D register_user_hw_breakpoint(&attr, perf_hwbp_notify, NULL, tsk);
+>  	if (IS_ERR(bp))
+>  		return bp;
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+[Severity: High]
+Does deferring force_sig_ptrace_errno_trap() to task_work cause do_watch()
+to queue a generic SI_KERNEL SIGTRAP first and drop the TRAP_HWBKPT
+siginfo?
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+On LoongArch, do_watch() runs with interrupts disabled and forces SIGTRAP
+before returning through irqentry_exit():
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+arch/loongarch/kernel/traps.c:do_watch() {
+	...
+	bool need_sigtrap =3D !!current->ptrace;
+	...
+	if (test_tsk_thread_flag(current, TIF_SINGLESTEP)) {
+		...
+	} else {
+		need_sigtrap |=3D breakpoint_handler(regs);
+		need_sigtrap |=3D watchpoint_handler(regs);
+	}
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+	if (need_sigtrap)
+		force_sig(SIGTRAP);
+out:
+#endif
+	irqentry_exit(regs, state);
+}
 
-Thanks,
-Mark
+Previously, breakpoint_handler() and watchpoint_handler() ran
+ptrace_hbptriggered() synchronously, queueing SIGTRAP with TRAP_HWBKPT, the
+slot index in si_errno, and the breakpoint address in si_addr before
+do_watch() reached force_sig(SIGTRAP), which __send_signal_locked() then
+ignored via legacy_queue().
 
+With perf_arch_hwbp_send_sig() deferred to TWA_RESUME, force_sig(SIGTRAP)
+in do_watch() now runs first while interrupts are still disabled.  That
+queues a generic SI_KERNEL SIGTRAP, causing __send_signal_locked() to drop
+the subsequent TRAP_HWBKPT siginfo from perf_arch_hwbp_send_sig(), and
+still acquires sighand->siglock in atomic context on PREEMPT_RT.
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20261120144553.TjgA=
+d_G6@linutronix.de?part=3D1
