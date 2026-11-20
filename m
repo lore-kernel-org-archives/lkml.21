@@ -1,89 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795137146;
-	b=Y9uKBuzmt9bjh/lY6j+j4OKZSvem/WwrcMNVE9deg2p5a6Cz3yS4+CBvL6NwyrETuOsW
-	 IFMsfifGqOZvM2Pdd8+p8+De0Ukx4mRqHSyz6NzDzfrQJ6HGCqwyjNG/+gmIwUZlAq/+M
-	 8tM1hhfLxhvFTMcRTQXX3v5M9BB6WQpsquqhnQtMDj+VmR04u1FNSZ6fk39v8yX02DUbh
-	 autGDx/6Ybvg653uZmIomIdBy7NwfwFDxTJynmikYteTK3kYIqaIPDAVZobglZG6LoyyD
-	 luPpf6dXXDclpXqg6/rbid9K6Pak5tNSXHWn5USylc/BPFvQg4R8RsvwnkD4Ku73nWw==
+	t=1795137165;
+	b=AKnp7//XvDfzj3mwqDC46Y4IR0z/4FdBqwzuEeAQU0fG8dIsJHz7c660BlahtWDQx+Sq
+	 jBVaAN8ps148cHcfFBS5PqHsRnqZmwTFWUB0z8HArqNoVORfIOvTy0asFBbU+kHligf1B
+	 ozqUl/HivhqlGNYovwurVIkLGPWctwCov9SPyHWxnaf40oXFUJKA6XpS7tlG1V8bA3ZMH
+	 jbM8SZlxfmrdxb7bLsLXKuAfuSTtA0DZaUrxAmKowHFhnmnsno7oTHVnVaPe35JyUfMcK
+	 RHCR7hd/l00EIZlioRbRMQR54rice59Zb2tX7QR6mbegM5ZEOJcpOWPnwV7yd5Fx8VA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795137146;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795137165;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=PjzNoj806C+rvUXpCLkwOoZeurc6cZlqNpY4AXcwYQo=;
-	b=hG1/ne0I+A8XkE8UG+Wd9G+a6irvfNuwGpjGVUPfoKwSE1DfX8imC44iocwQ8+V2vsIV
-	 wgUQZiFWqVVR73ZA41DawuckEu8IMymfFkL8zc/q3g9TlNwEZ4+WMBu/dwV1+0lCr3g0V
-	 Zk7UyagDoYxTLA6siqMLTyHVsjpWlmJYBe8A4xOGE3fQdzvbu6j/hAIH16wHMX/S/n/mH
-	 EW3WOdsVnIKaswqwTUS1yJI2Tr9+TxGmp2ISTTR1NPga0LI8Jg4HRatUVYb/kVcFW5/BC
-	 2b94YgsDEVKst6kYnuD4Ji+ZZAfHripUtYJltM0ARiD6CnAnGzEWgeCDIvW1e1+sUrA==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=s6SOaYq0WwPayBGOQDMxeAlx2ejhwMGEim74amxhGOU=;
+	b=kWEKxwmcplODATmqO1Rw+gANPhw31paMDb6IgMowzyKwlnDElKIDPjDSkKqt0Y/mrkdn
+	 hGinSEallCJSFMpGdGzBs0oJufabtJMrKZ4bhPd/DQUnR5Rg/qgsvTa3RFyy6rimEVLzn
+	 2+lCg38wuc4Xu5Rn356SKDck2E4Fc2Zqw78Y6epAFDCKG0OjpiQm2WcYT5gKsDU4cHoDY
+	 hNQSUagDTpaMiyCyLsZAih//VVM2rMwEM2UtX8cuaQ7gX/IgkrOeHbFfW59z/T8j5wGS6
+	 DDLlLLLaPUFv+zsvADgk6zCPuqD1VFpfrlQKMujnQD1dAxCeNOoAmZOKfEr6V/UEnrQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="vX6Ne/6b";
-	arc=none smtp.remote-ip=74.125.227.137
-Received: from mail-pj2-f9.google.com (mail-pj2-f9.google.com [74.125.227.137])
+	dmarc=none header.from=dubeyko.com;
+	spf=pass smtp.mailfrom=dubeyko.com;
+	dkim=pass header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=l7wvJqpP;
+	arc=none smtp.remote-ip=209.85.128.175
+Received: from mail-yw1-f175.google.com (mail-yw1-f175.google.com [209.85.128.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8529606A5C5
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:12:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8529606A5C5
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54A1B606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:12:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54A1B606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dubeyko.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dubeyko.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vX6Ne/6b
-Received: by mail-pj2-f9.google.com with SMTP id 98e67ed59e1d1-3b196fefa1fso191314a91.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:12:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=l7wvJqpP
+Received: by mail-yw1-f175.google.com with SMTP id 00721157ae682-8b30ff12f84so2624207b3.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:12:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795137145; x=1795741945; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=PjzNoj806C+rvUXpCLkwOoZeurc6cZlqNpY4AXcwYQo=;
-        b=vX6Ne/6bQ/4UZ8sumxqYuz35G1OsJVZY8r6kEm96WGyPZSYmlUYcIc+eAQvfyKgirI
-         mqalQRpE0Y0mQuFiAxiIyr+TY91KeyHfpdhPFxbZvurra6CH5R2YAwScJap5KnLDt+Oj
-         dLNw3RJQx4AQ6SnbVdc8EnT+A3oY09bzx4UvyF76QRjWWt0DN48I6p9vYIwwJ7K5mLrt
-         0KS3UjI7IGldSuPP3nXAqmMs8KePOZES75jHhNIKbT52kSy5tLUTyfLwTkK1UoSq+vNM
-         TSqFcELV17FzYq0FwMERFqr5Ln4dDWJbpyH7Bn8rg80HyYDec7kPtBESGsPnGbuIyILl
-         jAeA==
+        d=dubeyko-com.20260707.gappssmtp.com; s=20260707; t=1795137163; x=1795741963; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=s6SOaYq0WwPayBGOQDMxeAlx2ejhwMGEim74amxhGOU=;
+        b=l7wvJqpPn4BbLP4AEMApAVF6ZO9qLL5B6SsufSntxbjTEhax6MBBTlnR8psXnJfcsV
+         e8n4qW63t9LXfbEEoHmFpGU7KqJbv6mPgn1P53Jerc7s/SVv1VWr5GvyoVQD11Vo8+yy
+         IRqxcRBYiUZwEZfrUtcl/LGklFOhqtFkfQSYSwHi7V6T6OltHUGrqg6boyVeYwswywbD
+         DuIkg21uPnFUHfMhmpCup0CBWw4pX16A6FsvqLuSuPmfpDZ8wOizJErJZtwsbQqzSMl1
+         8dpWI3ubitsmd+4F7hi0JO0C4cC28E4BaABJVQATYQMJS4F2zAiuEbkP/bkbr1wI/axu
+         wl6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795137145; x=1795741945;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PjzNoj806C+rvUXpCLkwOoZeurc6cZlqNpY4AXcwYQo=;
-        b=MUi6n3oRuxo8pL4smXYpZYQDzEDrKCsSfZtQmId6NmMKGc8zVioW04GmPchPGoSpi/
-         CifHZNDcKXpC8TbVopeOiU5mc3ghMEL7iqBypM2anp1qUCF/xW5QJI/2erh/NNrAvzgZ
-         NnokCijfgHcUQpEyjuj5pGtf3gKr7xEc7MFxb1gMSLn52ZhfFL2+h+2XrzNgAUNWSAQN
-         hXZwkGR07rihUdvkXJkM7M0jiTv9usGxmJHbg8v4DQLaRfIPxn+HyVpI84AI6/JmcR+O
-         e9MRTkTMUHYacP/y46ub/2qUTtmn6m9ttQWjgQlZSH7iswjzJxDi3oBYTBwS8PqEvSbk
-         IX9g==
-X-Forwarded-Encrypted: i=1; AL+hErEHp9qB4u7wbds3CVwXI/PYY0vZPODljBhlu3LRLXwVGSml7mS9B3NrNEJbAqx27RvAzJxPAPk8XRZQI2Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/En4h9heECXUYYAVdoDD8f+JNe7obdWnNVfKiPFjR1mGQ+SXSC
-	J0dsb3XkEiCMEm1d6uXF/KLMBv58fcmLhnc2BEv8ey974LnEi1e2dnma
-X-Gm-Gg: AZFdTZd6gXZAbWRhEpBOX5ll5t9AJwynWX3A0CShNSLDHtTjn+yt6t26s2wv91iHMX5
-	JewSjkAMY17+L0yD0oXQ+ZIp2tOAPcJBXp0EfwgyJrdDUxmzwr3d15IF4nKQ9+IEmZzd0HFqfYb
-	29y5px/bYsLhkak56jkHLU/1KkY8czkFV6OlaiB7sy8CJDVwJfrl5xXqUC/xwAGG6VPO3EteNP4
-	EjQ1MrVCaa3tAFBDByj22KdlRoTz9qKX0txrnqXa5Dry5BocS9nDvxy5QDIeczEa0N7ZD6dhegW
-	fvPKv9RCdgm3WZLidTpZ1dJHPv9uhYooR0DEbSDZjFHXNrNuWa5Dcj5xPdGl0h2Mak9aFECjmyr
-	LAgim9E8Q1sObQ5mrjIepnKr632XVDV9Zf/wRCaKOC3GFI6ackxTw4EfTuWaG9fGmbU670S+1KE
-	9W5zRY0sYuvNVnJsLKCML9PWoW5SrTLLRhNJa69/58gwQqztM/An3T8gqNx8idxp07kknj+nNsN
-	2AZhdtUXrsI7Vd9EPSJ3LYpB3SDD8+yrI/8eJ7j32r8zG033cpFjIfJaKi6bdzPzcXMnzMblbLA
-	tZHc5kEJVU++xtfQ8TNtbcs3E2pZXe3TDPyqEha5q124ilkED++AerQDp6VaedoMi6vTcECAWHd
-	iTkoGxwKYUac+
-X-Received: by 2002:a17:90b:268f:b0:3b0:d0c5:c110 with SMTP id 98e67ed59e1d1-3b41c95ce7fmr1046872a91.56.1795137145051;
-        Thu, 19 Nov 2026 17:12:25 -0800 (PST)
-Received: from localhost ([50.7.253.42])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41d243eb1sm622215a91.3.2026.11.19.17.12.15
+        d=1e100.net; s=20260707; t=1795137163; x=1795741963;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=s6SOaYq0WwPayBGOQDMxeAlx2ejhwMGEim74amxhGOU=;
+        b=FXhSlaRhMGAo35LvwF0egaXtvFbMXPikug8JPrZi5R72FbAxDQz7PwPWBD17MR5k6F
+         aAf4n1LDgvUtlclxmOobfZY9z0gOa6yxPGXm5DA31yNv4CkQmH4oBuwJIW7oUqJdtEOx
+         srK3ZuuusKoR2M0ADR97qSVcwhdY0XmwNSPW+rXih2AZgic4Kj4uX8JSp8VWYe428PCo
+         V6npt5fcH6Fy+pj5NFGif2cmxjGU/OTMu1mdCTmlBOi7MbrDjkPtkC2SXcNTYg8yuo2B
+         vYl8xNe5RsPKDjcyQ0foVLouKQx6bIAt6emTrV6xUKdLT6GBAam6q2EI8FwPb+8O+dHT
+         opgw==
+X-Forwarded-Encrypted: i=1; AL+hErFs7H5ZGLJWMQmzccIcSXzacACBVKyYJAwphWw2pOf821HkEisPgYD7Pp6svuldNf9JDpHnWnM1+ylsDtU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+14b5S5wY9s2uaZNTznPaUJqn2Lp0cI6q2bQ7qXN/tbV4r9zZw
+	YYarTU9RO20XoBOVfyaFiYSYqnm3vbPZ6BMfQt5DWZApgF4QteahO64hsboWoR0H+mI=
+X-Gm-Gg: AZFdTZcG/8ZwVXJdafIm5zps8Qu1h+bX22vaYJyWoROWpef1oBYD5fDrCW6VCTf2rMw
+	w5UO7rzcLtdPIs/prBMdVjnjYony9trzgYEh0+G25gqK+1EPiEkNaE5lnbBDOyyWhaZ32YOQtQB
+	22BUFt6USa+YuDtsvrcrlg60NfYKzlPiORyaSdSoNqoP9yOs9fzrWq8fvyaFzDISAf2SuWsM+UN
+	9NMlPIXzmQ+/UiBTO/Kp7a48eel64SE7oDV5CrYW+Qlq5fh2l/98oGb8HEz9NtUXwvlkmjZJs5D
+	IJh4I/3Qrs9siyfdF8M/eMVeQdeOuyPTYWFkFEXB8cJOGdYYnuLGeVjBKfHb1OphrB7W6+QVgy/
+	p8jZpki5HxvlCX02T6h5r+CkVhtwFVvys9CTia5eBE0O5ay9y4eKDnlXcQbqq1ST6W5CDe6zR1+
+	K1QCx/1Oo+c2RMg3av2FX/kXp/RixTjerAkl4unU7K7Z+SEAGfnf+ZvZ2ThMFQKdRYkQKaBj4oi
+	zW0Bi9lWifV9jHJAR/PRivDvUUWFVtVYfLyX6qnoTnm1ZvuPrxWB5Sbx/s/eYVebjJilNP96IrF
+	BsAR1d3TObKMEcILlgbX8DEnnBcNHZUU2p3HsEf/pQCMlAiE0O4WptBL/ndGOJtt79gHGNW2Sdx
+	iyR2SmGXozwNGDNxzWy0YTLtadMdJAeVMmbxAgo9xriAccqR9KNYcLoW7vwIPA6Au1bNi
+X-Received: by 2002:a05:690c:6512:b0:8b5:1232:645 with SMTP id 00721157ae682-8b5204dd623mr10895137b3.31.1795137163280;
+        Thu, 19 Nov 2026 17:12:43 -0800 (PST)
+Received: from system76-laptop.attlocal.net ([2600:1700:6476:1430:a9a8:c05:b82:7f12])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5202fb08csm7461207b3.24.2026.11.19.17.12.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 17:12:24 -0800 (PST)
-From: Aveline Noir <jm5905938@gmail.com>
-Date: Fri, 20 Nov 2026 12:05:48 +1100
-Subject: [PATCH RESEND v2 2/2] HID: picolcd: Avoid framebuffer last-close
- deadlock
+        Thu, 19 Nov 2026 17:12:42 -0800 (PST)
+From: Viacheslav Dubeyko <slava@dubeyko.com>
+To: glaubitz@physik.fu-berlin.de,
+	frank.li@vivo.com
+Cc: linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	vdubeyko@coreweave.com,
+	Viacheslav Dubeyko <slava@dubeyko.com>
+Subject: [PATCH v4 0/3] hfsplus: fix timestamp wrapping and support timestamps after 2040
+Date: Thu, 19 Nov 2026 17:12:34 -0800
+Message-ID: <20261120011238.789758-1-slava@dubeyko.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,160 +98,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <20261120-mail-picolcd-v2-resend-20261120-v2-2-d7531fa8061b@gmail.com>
-References: <20261120-mail-picolcd-v2-resend-20261120-v2-0-d7531fa8061b@gmail.com>
-In-Reply-To: <20261120-mail-picolcd-v2-resend-20261120-v2-0-d7531fa8061b@gmail.com>
-To: Benjamin Tissoires <bentiss@kernel.org>, Jiri Kosina <jikos@kernel.org>
-Cc: linux-fbdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Mika Westerberg <mika.westerberg@linux.intel.com>, deller@gmx.de, 
- Thomas Zimmermann <tzimmermann@suse.de>, dri-devel@lists.freedesktop.org, 
- =?utf-8?q?Bruno_Pr=C3=A9mont?= <bonbons@linux-vserver.org>, 
- Clark Williams <clrkwllms@kernel.org>, bigeasy@linutronix.de, 
- linux-input@vger.kernel.org, Steven Rostedt <rostedt@goodmis.org>, 
- Takashi Iwai <tiwai@suse.de>, 
- syzbot+912222e4cb82423535fa@syzkaller.appspotmail.com, 
- linux-rt-devel@lists.linux.dev, simona@ffwll.ch, 
- Patrik Jakobsson <patrik.r.jakobsson@gmail.com>
-X-Mailer: b4 0.16.0
+Content-Transfer-Encoding: 8bit
 
-Closing the last framebuffer descriptor can deadlock against PicoLCD's
-deferred update worker. fb_release() holds info->lock while waiting for
-deferred work, and picolcd_fb_update() takes the same lock. Lockdep
-reports the cycle through deferred-work completion and fbdefio_state->lock.
-Repeated framebuffer open/write/close with concurrent device destruction
-reproduces the hang in a PREEMPT_RT QEMU guest.
+HFS+ keeps timestamps in 32-bit unsigned on-disk fields as the number
+of seconds since January 1, 1904. Such field can represent the time
+range from January 1, 1904 till February 6, 2040.
 
-Use a private update mutex in the deferred worker instead of info->lock.
-Take it in picolcd_set_par() as well to preserve serialization of pixel
-format conversion and framebuffer updates. Initialize it before exposing
-the framebuffer.
+The current HFS+ driver treats any on-disk timestamp under
+HFSPLUS_UTC_OFFSET (January 1, 1970) as a time between 2040 and 2106.
+Also, it calculates the on-disk value by means of adding the time
+offset to the lower 32 bits of the timestamp. As a result, any
+timestamp before January 1, 1970 is converted completely wrong and
+xfstests' generic/258 fails.
 
-The test with the preceding output-request fix hung in the first round
-and reported a circular locking dependency. With this change, all five
-rounds completed, including 29 successful framebuffer write cycles and
-concurrent LCD, backlight, two LED and UHID destroy operations, without
-BUG/WARNING. The original syzkaller reproducer and persistent-open
-framebuffer tests also passed again. These are bounded virtual-device
-tests; physical hardware and suspend/resume remain untested.
+This patchset fixes the timestamp wrapping issue and extends
+the supported time range beyond February 2040.
 
-Fixes: 3efc61d95259 ("fbdev: Fix invalid page access after closing deferred=
- I/O devices")
-Signed-off-by: Aveline Noir <jm5905938@gmail.com>
----
- drivers/hid/hid-picolcd.h    |  2 ++
- drivers/hid/hid-picolcd_fb.c | 33 ++++++++++++++++++++++-----------
- 2 files changed, 24 insertions(+), 11 deletions(-)
+The first patch corrects the logic of __hfsp_mt2ut() and
+__hfsp_ut2mt(). The on-disk timestamp is interpreted as unsigned
+number of seconds since January 1, 1904. HFS_UTC_OFFSET,
+HFS_MIN_TIMESTAMP_SECS and HFS_MAX_TIMESTAMP_SECS are defined in
+include/linux/hfs_common.h, and hfsplus_fill_super() sets
+sb->s_time_min, sb->s_time_max and sb->s_time_gran. This patch fixes
+generic/258 but it restricts the supported time range by
+February 6, 2040.
 
-diff --git a/drivers/hid/hid-picolcd.h b/drivers/hid/hid-picolcd.h
-index 846a8ceb95..33e6654ca0 100644
---- a/drivers/hid/hid-picolcd.h
-+++ b/drivers/hid/hid-picolcd.h
-@@ -115,6 +115,8 @@ struct picolcd_data {
- struct picolcd_fb_data {
- 	/* Framebuffer stuff */
- 	spinlock_t lock;
-+	/* Deferred I/O runs while fbdefio_state->lock is held. */
-+	struct mutex update_lock;
- 	struct picolcd_data *picolcd;
- 	u8 update_rate;
- 	u8 bpp;
-diff --git a/drivers/hid/hid-picolcd_fb.c b/drivers/hid/hid-picolcd_fb.c
-index c17104fd60..258c7c4fa2 100644
---- a/drivers/hid/hid-picolcd_fb.c
-+++ b/drivers/hid/hid-picolcd_fb.c
-@@ -231,7 +231,8 @@ static void picolcd_fb_update(struct fb_info *info)
- 	struct picolcd_fb_data *fbdata =3D info->par;
- 	struct picolcd_data *data;
-=20
--	mutex_lock(&info->lock);
-+	/* fb_release() flushes this work while holding info->lock. */
-+	mutex_lock(&fbdata->update_lock);
-=20
- 	spin_lock_irqsave(&fbdata->lock, flags);
- 	data =3D !fbdata->ready ? fbdata->picolcd : NULL;
-@@ -258,11 +259,11 @@ static void picolcd_fb_update(struct fb_info *info)
- 				spin_lock_irqsave(&fbdata->lock, flags);
- 				data =3D fbdata->picolcd;
- 				spin_unlock_irqrestore(&fbdata->lock, flags);
--				mutex_unlock(&info->lock);
-+				mutex_unlock(&fbdata->update_lock);
- 				if (!data)
- 					return;
- 				hid_hw_wait(data->hdev);
--				mutex_lock(&info->lock);
-+				mutex_lock(&fbdata->update_lock);
- 				n =3D 0;
- 			}
- 			spin_lock_irqsave(&fbdata->lock, flags);
-@@ -277,13 +278,13 @@ static void picolcd_fb_update(struct fb_info *info)
- 		spin_lock_irqsave(&fbdata->lock, flags);
- 		data =3D fbdata->picolcd;
- 		spin_unlock_irqrestore(&fbdata->lock, flags);
--		mutex_unlock(&info->lock);
-+		mutex_unlock(&fbdata->update_lock);
- 		if (data)
- 			hid_hw_wait(data->hdev);
- 		return;
- 	}
- out:
--	mutex_unlock(&info->lock);
-+	mutex_unlock(&fbdata->update_lock);
- }
-=20
- static int picolcd_fb_blank(int blank, struct fb_info *info)
-@@ -332,17 +333,24 @@ static int picolcd_set_par(struct fb_info *info)
- {
- 	struct picolcd_fb_data *fbdata =3D info->par;
- 	u8 *tmp_fb, *o_fb;
-+	int ret =3D 0;
-+
-+	mutex_lock(&fbdata->update_lock);
- 	if (info->var.bits_per_pixel =3D=3D fbdata->bpp)
--		return 0;
-+		goto out;
- 	/* switch between 1/8 bit depths */
--	if (info->var.bits_per_pixel !=3D 1 && info->var.bits_per_pixel !=3D 8)
--		return -EINVAL;
-+	if (info->var.bits_per_pixel !=3D 1 && info->var.bits_per_pixel !=3D 8) {
-+		ret =3D -EINVAL;
-+		goto out;
-+	}
-=20
- 	o_fb   =3D fbdata->bitmap;
- 	tmp_fb =3D kmalloc_array(PICOLCDFB_SIZE, info->var.bits_per_pixel,
- 			       GFP_KERNEL);
--	if (!tmp_fb)
--		return -ENOMEM;
-+	if (!tmp_fb) {
-+		ret =3D -ENOMEM;
-+		goto out;
-+	}
-=20
- 	/* translate FB content to new bits-per-pixel */
- 	if (info->var.bits_per_pixel =3D=3D 1) {
-@@ -369,7 +377,9 @@ static int picolcd_set_par(struct fb_info *info)
-=20
- 	kfree(tmp_fb);
- 	fbdata->bpp =3D info->var.bits_per_pixel;
--	return 0;
-+out:
-+	mutex_unlock(&fbdata->update_lock);
-+	return ret;
- }
-=20
- static void picolcdfb_ops_damage_range(struct fb_info *info, off_t off, si=
-ze_t len)
-@@ -506,6 +516,7 @@ int picolcd_init_framebuffer(struct picolcd_data *data)
-=20
- 	fbdata =3D info->par;
- 	spin_lock_init(&fbdata->lock);
-+	mutex_init(&fbdata->update_lock);
- 	fbdata->picolcd =3D data;
- 	fbdata->update_rate =3D PICOLCDFB_UPDATE_RATE_DEFAULT;
- 	fbdata->bpp     =3D picolcdfb_var.bits_per_pixel;
+The second patch stores the timestamps after February 2040 into
+internal extended attributes and raises sb->s_time_max to
+HFSPLUS_MAX_TIMESTAMP_SECS. Such timestamp is stored as the maximal
+on-disk value (0xFFFFFFFF) in the catalog record and the real value
+is kept in the xattr as big-endian 64-bit number of seconds since
+January 1, 1970:
 
---=20
-2.56.1
+linux_hfs.create_date_u64
+linux_hfs.content_mod_date_u64
+linux_hfs.attribute_mod_date_u64
+linux_hfs.access_date_u64
+
+It is Linux specific extension of HFS+ on-disk layout. However,
+it is backward compatible: Mac OS X sees the clamped timestamp
+(February 6, 2040) and an extended attribute. If the xattr is absent
+(for example, the record has been created by Mac OS X), then
+the driver reads the maximal on-disk value as February 6, 2040.
+The internal xattrs are hidden from listxattr() and they cannot be
+changed by user. The creation date is supported by the same logic,
+including the hard link records. Also, the second patch fixes
+the issue when the Attributes File, created in the middle of sync
+operation, is not recorded into the volume header.
+
+The third patch adds the hfsplus_time KUnit test suite that checks
+the date/time conversion logic and the extended timestamp support.
+
+v4
+- Rebased on the current hfs tree. The creation of catalog records
+  has been reworked meanwhile (__hfsplus_create_cat() is shared by
+  hfsplus_create_cat() and hfsplus_create_cat_uni()), so the creation
+  date xattr is now saved in __hfsplus_create_cat().
+- Set sb->s_time_max to HFSPLUS_MAX_TIMESTAMP_SECS in the second
+  patch. v3 kept HFS_MAX_TIMESTAMP_SECS, so VFS clamped every
+  timestamp to February 6, 2040 before it reached the driver.
+- Mark is_create_date_identical() as noinline_for_stack. Both of its
+  calls were inlined into hfsplus_lookup(), whose frame exceeded
+  1024 bytes with KASAN (-Wframe-larger-than=).
+- Tested on a KASAN and lockdep kernel: mtime, atime and creation
+  dates of files, directories and hard links (1950, February 6, 2040
+  and one second later, 2050, 2106, 2200) are preserved across
+  remount and fsck.hfsplus reports the volume as OK; the hfsplus_time
+  and hfsplus_unicode KUnit suites pass; xfstests generic/001, 002,
+  013, 020, 075, 112, 236 and 258 pass.
+
+v3
+File time_test.c has been renamed into hfsplus_time_test.c
+and file unicode_test.c has been renamed into hfsplus_unicode_test.c
+with the goal to exclude modules name conflict.
+https://lore.kernel.org/all/20261014003731.369728-1-slava@dubeyko.com/
+
+Viacheslav Dubeyko (3):
+  hfsplus: fix timestamp wrapped issue
+  hfsplus: store timestamps after February 2040 in xattrs
+  hfsplus: add KUnit tests for date/time conversion
+
+ fs/hfs/hfs_fs.h                               |  13 -
+ fs/hfsplus/Makefile                           |   2 +-
+ fs/hfsplus/attributes.c                       |  85 ++++-
+ fs/hfsplus/catalog.c                          | 108 +++++-
+ fs/hfsplus/dir.c                              |  50 ++-
+ fs/hfsplus/hfsplus_fs.h                       |  52 ++-
+ fs/hfsplus/hfsplus_time_test.c                | 354 ++++++++++++++++++
+ ...{unicode_test.c => hfsplus_unicode_test.c} |   0
+ fs/hfsplus/inode.c                            | 299 ++++++++++++++-
+ fs/hfsplus/super.c                            |   8 +
+ fs/hfsplus/xattr.c                            | 202 ++++++++--
+ fs/hfsplus/xattr.h                            |  32 +-
+ include/linux/hfs_common.h                    |  13 +
+ 13 files changed, 1118 insertions(+), 100 deletions(-)
+ create mode 100644 fs/hfsplus/hfsplus_time_test.c
+ rename fs/hfsplus/{unicode_test.c => hfsplus_unicode_test.c} (100%)
+
+
+base-commit: d4558e30b83d14f59e9cac85d9e83d662491de51
+-- 
+2.53.0
 
