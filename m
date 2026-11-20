@@ -1,89 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795179929;
-	b=ljry9W2rNvwkND8ilOv7RM6BNVr/Y+t3ZHHs+pDq/P5CAsr3rqFdxUr07cqORLCc2ZeU
-	 JEnUELo8cHSEz4rp0Iimk0tXJBj5yymf81xBZj3fr63pgd6PJR/q+RaG5KDYk9Ff0Afh3
-	 GhRuYxkU2oeR6rGFanxLDznADDs8dn8MqjUdcqcxaZuHI3sHRhFrJkGY7yYzX54ywM4pP
-	 7qmXerWU/tBur8jiB6izcYMw57iQ/r1V4qdg3e/Vq7ACIk+J6f1TZmrwkzoJbNbbOgHUQ
-	 EqpEzwFnL8zoRd+mh2vh5itHp/NibVjbeHGRYV3aSBTeMfrldfFq2JH7OwScroJJnCw==
+	t=1795179931;
+	b=rOk0HRahA1yvsctkklehT9JQHFQa6YJ8/R3P36e0SNlqfJNd26ggMiRl0300vMp1sIYG
+	 Wr7wl2hMOF4KMF5JLn8Eapxdex7tpBtF+qg4ReGnj01tM9PQzWq5zZ0uFaGPNjEd3Oows
+	 owga8tksfpzhx1iJxDWXCisbJH5DNWi19HgkiF1G8wtR+6k/SWgONl3jaCF6l6iGQDDaQ
+	 My93qJFrsSii4H65Mp+8uPyTihlqRxUSLl3KS8quz4ZIStg67bTvfdV40PoC4Sfybv9Ae
+	 RkQc1lBdiERnlfIju/egLnRFcGxEXYB0OMNBlMTUyQeCPEjUzHg74n+84HFZB88f1YQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795179929;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795179931;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References;
-	bh=UJX8oFhF5HZjXzqG8lPPc0a1XOloJ0ueW0EWuNS+9t8=;
-	b=vr52DwfV1CWSi2rwaZi3FC/So6njnERAlFyvTaWmGbP2Zr45VtoYeHYp/CbmUfOOxcP7
-	 cV82wkqdSjLInSM/Qm43bRTJecNWR3dHHFvqMllFyas1AIDiEtl6MTSaRtyerYE8f3xaJ
-	 hU1A/0q/TUBzD0qUnfRnfXdaBKHUiBd/oShm17SpH+6bhnnnIagVzCXbQGvgHbKshbWP4
-	 iIRZV8225MRPHNp26IvluU3b32D+NR9ZuYZCPeaWiE7ycHgAmruAG1nE5Wx5uwKQa4v6E
-	 O0RZ0vXrL2raG0rxMWAc2BNR4YJcSD5FQva4yvNZEEP+VkXRM6wTw4Ll+o53Kke/Hgw==
+	bh=rCB+s55Po2tHL5svU/nj91CfBpSKiuaIQvna8uFP8to=;
+	b=kXV4dXxlBRcb+/kW2C/ejroatawar+lFzWhG53X8gL+vrR/jG4BBrocY4Z+l2x3Hmhr/
+	 rpwJQXArBq+wxY6BZfE5VSTTt1b3X0lzHheNPhb485soFrvEEWR3aOCnWjRmbRB6WiN46
+	 RYDScYMu989wednv4GyGuwGffWiRI49uVlsFwAM8Ggg+PD8V6E00OYH3a4AeBoZ5nwi0q
+	 Qb/Vy+3AJj8KoQ/+Tsp3UAWFYC1eeAcbCQXiTjXWB++hsCTdCPxJSmzn+d2oLGe79EL5O
+	 CiQjzzpFlI6dlbS0Ilywvlj9/gJ6Zrp+LueM0Szlee4N74LrKDi45JpQ7bR9drcQc5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nZFbM3V2;
-	arc=none smtp.remote-ip=209.85.218.49
-Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IlolX6Z9;
+	arc=none smtp.remote-ip=209.85.208.46
+Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com [209.85.208.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 216CD60A260E
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:05:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 216CD60A260E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4EDE60A2619
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:05:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4EDE60A2619
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nZFbM3V2
-Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c4cac7a7d3cso132688466b.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:05:28 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IlolX6Z9
+Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-6b47c1a3c74so1106690a12.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:05:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795179927; x=1795784727; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795179929; x=1795784729; darn=vger.kernel.org;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=UJX8oFhF5HZjXzqG8lPPc0a1XOloJ0ueW0EWuNS+9t8=;
-        b=nZFbM3V2Ub5Cb3QfaQ6oTUEzvVEaKV5fWXBPi5bv3owPL4oFCLC3WSHPOSzfKhtqJk
-         Ce8QisYnv9GG80ozJPQbAk4kBE9d4B8gHO2D29z3pkPNUdCLgyHpJG1zbEpAtj6EIolk
-         GeoFRxgM4oaYETTnqgX/w8XDodXWG7O3ZONEI639mHJgTombUdnedg6CWLvC1nJqCtF0
-         9DKjAjYQsuP+aJC5KIYCE2V2dbwCXyMLQMj79hNxSISPVFPNZPiAYxqsyt4d26wqNWwx
-         A4fO5SZ9IT7QXvu/3qUe/X6fcGoVLmNhQaB/hhtD+JqSfQqtB0E2Nqf7uFhGbJFc2DBn
-         Wqjw==
+        bh=rCB+s55Po2tHL5svU/nj91CfBpSKiuaIQvna8uFP8to=;
+        b=IlolX6Z9ECeblTdHn5NowxErQTnvA3RrkjMUwD0+dbSD+vTGues+aYrg+BDdGnPmQS
+         baOQaVxdDL9kXb3+5mBTjvj9UVTl751yWC1g2nddywTDHJCC9US7Ovi3X+xTueWpPr44
+         GDIP9TA0CjZG5z8Rb/IuDUP1nuZ70jtAcRdraPRfqNB/qjvvhIhDUR8YMoQMRn9eSfHn
+         7TFtwpQYhZ+3Ws5aBBFUguTJWiWp6v5cuMXh+X3oXEnrA22HqGZpUbtdEd7ZRcwh+jrh
+         v6nU0WAwmGOBhBwJ9xPMkHRqJIEuPZ7HKCNSjE482y6pm6hl0qfCDF5gaZCzqefvnAJU
+         kztg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795179927; x=1795784727;
+        d=1e100.net; s=20260707; t=1795179929; x=1795784729;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=UJX8oFhF5HZjXzqG8lPPc0a1XOloJ0ueW0EWuNS+9t8=;
-        b=vbOODaqORD6hnU0DHHDzdAqz1TqM4EbT6oGT0dVHjYChlbZsdCojXLAuY8lIGRwHNP
-         gwHcmPWWM7KVyJGPpLVHO3MdMqz16Gp5GN+kWz4o2FML9b5Vqj5/zRLEAcK7ReZL0Epg
-         AAc7ekc+XwaCqEUc5oqLvdu1XTF42s53BRkPcBb83c4Wu9gC8oCnmWYT8lyKFHG0hLK0
-         R7Y4vkhPvGeCuunCFRwckQTrGwDdzmYrd0W1knvyCWWY9SMLmsRiTv+skNohZvhxR6QI
-         HEJDVc9YYswXEn+RZW1s5Pd5uWHOaRBSi3xc1VIam7sjeubg8MhONuwWaVWY5+3U0cd4
-         dcfA==
-X-Forwarded-Encrypted: i=1; AL+hErG/ivd4fDb5aoTVS/Ekj15KWrEJg9N4dYJQgzP9eIhaURl1iXWguHiKIfiEhYwIDvlLX203/LGXyb7Anfc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ze+1+i+qoBRhqSkFItCtgNsR+KoQ+xRoAD2L9u4HyEKdwH5qR
-	Gih7iiSU8NUNLj4wuzLla0NqaEskkViI/1krAOJ4T1w7snF7ZXw6ejGz
-X-Gm-Gg: AZFdTZf3k/FBd9hOG9+MU9qjWZAuL/FFtqmD/j1z7HPPjgrDPGxsy6oRIP/G6NbAPft
-	QVJm+thu1M95RZg0dZB9u+b91zVdAaz9PEhCRfbb6oW8arKj+76iIc/1fowZaHDXRGFhQ83Z6a+
-	xscT+zHmrDzzFbEkH8deAv7vF1pH0Gt4McCQtpTiCD3iXySeSEpivGw3E+7Q6JlwxZdoJ7BxMgF
-	Os91ISnQIdNF2yABYl0/R7/kVVidV/2hEQiMMVfcejegkTA9sQcWXl2Nb4ncVWlEymOki6UzulX
-	w/zSYJ4yXRGnmYIawEu6Z1JJdW5MyKaYJ3D8EfcboknSu3L1+ZDPYACFy6rmo/JYcfd/Lo1HuD5
-	tCscUy8VVh5DbOUH2SCG/SAe3maV+Lj+ukKA1h8ARthgPQKUKZGHHUQ1osBnOTGCjFEZ6jATHXZ
-	5+YHtdznCBEec/Wwo9k65OeB1JSqzKiweqoYAtvpEyJVoZuZRJN7SRWN54YIe8fUkDnnYiibIYH
-	FCOnUy6K+jzU3ojhVw8ze5LTVS1BXCB2DMQJhMbfPMgObQGcmrgxKR1slC0djNN+PtAZ9Sn7VBA
-	xnuz7EiXnunJCfbjNXjVVzO0IDTA125WEMuYXIAsqAMsvffLRTbA4cnZ
-X-Received: by 2002:a17:907:6091:b0:c50:c04d:cbb3 with SMTP id a640c23a62f3a-c513a1dd710mr320288266b.0.1795179927367;
-        Fri, 20 Nov 2026 05:05:27 -0800 (PST)
+        bh=rCB+s55Po2tHL5svU/nj91CfBpSKiuaIQvna8uFP8to=;
+        b=1I1Qp7ntkXf0/fS64YbBF/UvUUeC60+mus1FMyvGuXXxeMMDBIkN5yO+TgYPi0934K
+         hXe1UifwcpLa40Lnogb7pW/toViGOyuVuqvimyODcLNrbW60Jgk1EyEipRhcvvh0QsaW
+         QBdUIX/N5XETUCtSHZKS/cw10NZ/iS73Vv6slrniqmRNtkyfP+j15rfhriDnbX46x0LA
+         G6UpanajVdvnCwb6cWTRb7xFygldK5ei3IAJETB2DdHmDqtTo3mcm5jB4oz3MOXhgTvY
+         HpvLwBmTPotC8oZao7ESQAGWi4NgWkmQBpA7LRgRVHCBImZu8LGAszCVOGPOzEoPMI5/
+         gUrA==
+X-Forwarded-Encrypted: i=1; AL+hErHzsaQOe4HHSALOYwFMwCY9JERA9jrFXmfmveYCIXqLG+fD3tQPLJcgWVYzXbAKu2grlnih4XtQ8FptDk0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+kwqV6IFA26cImYTwlUPigQ7bkIFTw3m12IHf9zYn37d8ioeDS
+	OGQGmdiAxK08IDnqB3XWSZC3PR+2PqE55ADEq88fPgQdjFGWvSzUNqQR
+X-Gm-Gg: AZFdTZeYdgbwVCnDDP7WxzhT8Fv6Jq/A3j3q0BYb8s9wAXkF66hCFJfj42SJN7e0KY8
+	BQ1nX6O+y2JPIDkH4XOliZWCR7EKe5yxpsEYfi2T2q+whlUSSdqrUDUCdL3OrUBrWOOheCcuPsO
+	DF+ayUaFdd32tytZD8FY+o1qaC5SWpxayi5zfigcWidsNc7wAECux7UCsqwS9isiPyhqwwH0fbV
+	VJYu+HVBvXbp0aFV+rjCT3nN8HaI7e9F0QODePxW8DtEFKcRpnaC+f40axkE41Fm0JjnADtcdDi
+	FCy1xHg8uPLRH1fyEokkENxHZmPYbmfnWSnznu0KgedFpDbtsqQX96U+Y/nVw0DIpNv1pChKmhz
+	VWTpttm7REui8r4uT18A0sQciRUaSaYHTTIob+PxoFSl2NnBFxk5CXlexjF/oVkiZYYmmQft33r
+	zFgrBwtZNKJCcWSJh/GNd+wokYXnGcmoAHVnxpW72By1nTVA27wMl1yI7GBD051JqiL4wiqg3dr
+	2FidoQQMQG0CCel3MEZj9t2naeITklM4ZZ1dRpVZwJHwlO7oMfkEpSrChYV1UqbJ3U8+xdP03Cs
+	OdyfGq9FT6xlIxX/FBWktTVG/MziwntMWe6ChAxKvMSsH/d/f4EhmOngxg==
+X-Received: by 2002:a05:6402:210a:b0:6ba:4bf3:4a7 with SMTP id 4fb4d7f45d1cf-6ba4bf3066fmr1209219a12.23.1795179929103;
+        Fri, 20 Nov 2026 05:05:29 -0800 (PST)
 Received: from localhost (c-85-228-45-68.bbcust.telenor.se. [85.228.45.68])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc42easm92176166b.60.2026.11.20.05.05.26
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370cb764sm1139846a12.12.2026.11.20.05.05.28
         (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Fri, 20 Nov 2026 05:05:26 -0800 (PST)
+        Fri, 20 Nov 2026 05:05:28 -0800 (PST)
 From: Eli Billauer <eli.billauer@gmail.com>
 To: gregkh@linuxfoundation.org
 Cc: arnd@arndb.de,
 	linux-kernel@vger.kernel.org,
 	Eli Billauer <eli.billauer@gmail.com>
-Subject: [PATCH v3 1/8] char: xillybus: Improve sanity check
-Date: Fri, 20 Nov 2026 14:04:55 +0100
-Message-Id: <20261120130502.17056-2-eli.billauer@gmail.com>
+Subject: [PATCH v3 2/8] char: xillybus: Safer access of unaligned pointers
+Date: Fri, 20 Nov 2026 14:04:56 +0100
+Message-Id: <20261120130502.17056-3-eli.billauer@gmail.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20261120130502.17056-1-eli.billauer@gmail.com>
 References: <20261120130502.17056-1-eli.billauer@gmail.com>
@@ -96,16 +96,12 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 
-The sanity check in fifo_init() added in commit 1ce74f6f2216 ("char:
-xillybus: Add defensive sanity checks") is unnecessarily complicated
-and may not work as expected due to the incorrect assumption that
-1 << n == 0 when n>31 due to overflow. Replace it with a single
-check at the function's invocation. This check also eliminates any
-possibility for overflow in this function's left-shift operations.
+Use get_unaligned_le16() rather than dereferencing unaligned pointers
+directly for portability.
 
-Fixes: 1ce74f6f2216 ("char: xillybus: Add defensive sanity checks")
+Fixes: a53d1202aef1 ("char: xillybus: Add driver for XillyUSB (Xillybus variant for USB)")
 Assisted-by: Sashiko-0.2.5:gemini-3.1-pro-preview
-Link: https://sashiko.dev/#/patchset/20261109112800.48663-1-eli.billauer@gmail.com
+Link: https://sashiko.dev/#/patchset/20260805093436.59740-1-eli.billauer%40gmail.com
 Signed-off-by: Eli Billauer <eli.billauer@gmail.com>
 ---
 
@@ -114,42 +110,43 @@ Notes:
     - No changes.
     
     Changes in v2:
-    - New patch, replacing v1's "char: xillybus: Use unsigned int
-      literal". Following Sashiko's review, reject log2_size >
-      ilog2(SZ_1G) before the left-shift operations, instead of relying
-      on the overflow check, which a shift by 32 bits or more could
-      bypass.
+    - Added Fixes: tag.
 
- drivers/char/xillybus/xillyusb.c | 9 +++------
- 1 file changed, 3 insertions(+), 6 deletions(-)
+ drivers/char/xillybus/xillyusb.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/char/xillybus/xillyusb.c b/drivers/char/xillybus/xillyusb.c
-index bd3babd39f35..c4ddde221f0b 100644
+index c4ddde221f0b..16d6101d9269 100644
 --- a/drivers/char/xillybus/xillyusb.c
 +++ b/drivers/char/xillybus/xillyusb.c
-@@ -374,6 +374,9 @@ static int fifo_init(struct xillyfifo *fifo,
+@@ -17,6 +17,7 @@
+ #include <linux/device.h>
+ #include <linux/module.h>
+ #include <asm/byteorder.h>
++#include <linux/unaligned.h>
+ #include <linux/io.h>
+ #include <linux/interrupt.h>
+ #include <linux/sched.h>
+@@ -1957,8 +1958,8 @@ static int setup_channels(struct xillyusb_dev *xdev,
+ 	new_channels = chan;
  
- 	unsigned int log2_fifo_buf_size;
+ 	for (i = 0; i < num_channels; i++, chan++) {
+-		unsigned int in_desc = le16_to_cpu(*chandesc++);
+-		unsigned int out_desc = le16_to_cpu(*chandesc++);
++		unsigned int in_desc = get_unaligned_le16(chandesc++);
++		unsigned int out_desc = get_unaligned_le16(chandesc++);
  
-+	if (log2_size > ilog2(SZ_1G))
-+		return -ENOMEM; /* Reported as greed for memory */
-+
- 	mutex_lock(&fifo_buf_order_mutex);
+ 		chan->xdev = xdev;
+ 		mutex_init(&chan->in_mutex);
+@@ -2105,7 +2106,7 @@ static int xillyusb_discovery(struct usb_interface *interface)
  
- retry:
-@@ -390,12 +393,6 @@ static int fifo_init(struct xillyfifo *fifo,
- 	fifo->bufnum = 1 << log2_bufnum;
- 	fifo->size = fifo->bufnum * fifo->bufsize;
+ 	/* Phase II: Set up the streams as defined in IDT */
  
--	if (!fifo->size || /* Unsigned integer overflow */
--	    fifo->size > SZ_1G) { /* Avoid signed int issues */
--		mutex_unlock(&fifo_buf_order_mutex);
--		return -ENOMEM; /* Reported as greed for memory */
--	}
--
- 	fifo->mem = kmalloc_array(fifo->bufnum, sizeof(void *), GFP_KERNEL);
+-	num_channels = le16_to_cpu(*((__le16 *)(idt + 1)));
++	num_channels = get_unaligned_le16(idt + 1);
+ 	names_offset = 3 + num_channels * 4;
+ 	idt_len -= 4; /* Exclude CRC */
  
- 	if (!fifo->mem) {
 -- 
 2.17.1
 
