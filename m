@@ -1,62 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=180.181.231.80
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168863;
-	b=oYEvyDkbagu5/J/t3nDVuAUN8LyqbbPtxCImqJQxetym3Mk0kSIdV5CwSu/jPlkKy9LG
-	 w/M10MhQrSEafvz64USnjW2vyByqQsCL1dJFgkYakcQB3dBZbr4K7pjI2Itms5tV0bD/Y
-	 Pug2HjyVe4RORNxdYkyPbjXBcSvOALzy7TeEhH+e4VWKzq0YksYSrza7KMEbHSr87uGad
-	 OyvOB6RNSlFBB8VdTsVvNzRfqMeTfPrUodpJunbaJ5bpTw8OZywzTIN2dz85WK0/o/BVH
-	 /uFsu9whDaN7WDnHaDdiLhgQX8pD7Yd/v5jdtMtFPPvLqLL8W1hESBb8bO3DZOcspfg==
+	t=1795168866;
+	b=GgHL126j1HgHeS18IQHuctfOjfBx2CuOTB3On8q8T6eGlAR6i+SNsZbK+bpK0RUe13GG
+	 OT7us1525ZE6/uk5n7ozZb78I99RDBi01GoTTTrTUupyOZBsBeWi2pGsaqHx5FHuz20kA
+	 xlHPqYWilocQmDmSnS5QjGyjYhftvkyMXjxTccOntaTwIYi2nqsTqNuiWHYLqwvS3bsyR
+	 nviGjm5HMR2XCSRBcMqdOXjs0PULpbaR+7vfAGnhzHipi4ZS1mZTWbTA85DmQfZK3xjbr
+	 K/VHq5U9+BI7XGxYBWgGnPFfjb4MEyPfZ/3c3vMCFS6Ugs3urvaTcdz62mV0WXGO3PQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168863;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=1U7Hy2sMhArBZCxu2GDyjmJzGlD4GYMvvTvb31K5AEo=;
-	b=jUwWWlti5GX5jrCfeAZNbl3n2R+E4/ST1295W9sATO1r++xLZi9+jeXcNetMyewayeHK
-	 Ew/3Sz9qWdkSzwO3CsvGnYvDx26CH68ujmJcrzicuZ8qw7ovgLfH3qYUUkwVFylPVu/rw
-	 mQH6IbXOZndvJKBCRdGBz47+DTsjAzko1PzCRkfU6mRKxGp3tl2rbfz53MRFOuMDRJOLG
-	 m+sL8hNYa6kxVhlgJ3J6YgZLyttrgsZGSOYx3c3AhRy0QM/7rwsyO1DtzR1eOKgIJSyP3
-	 mcbbr8a0dTQ/vML6kU1vo3QC5Oo0U1DSsBW3hGlUyCD3pprGf2h7nhNg1ZBxbLZI36A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168866;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=TEM/lwyfYjFDZGkgKWhS1fxpehScreTDFbg06MSARgw=;
+	b=VuSw6bgoUiaZEDFsMJlgD0MQBpmWlTYStlAfSa6iGM31zf6GjBWG+OupO8wicJHnUtAp
+	 vA/JcN7Y7SnTNF2dJr4cyTBDLpdAYdbdrEwFXrutapgwCCYs3N+6h21kITgaKXvMf3hS4
+	 1eYZYBL+86OICDRI2mRjHCeHM8R4Xi3lgdBS33hMiUZCDhrMaQioyhXF91DxNhZn/FenD
+	 vQWNOGu4JmRCyBNU+OtkOeWMBQLKpC0Wv1Ck+e5KfrDGohS6kmL0L7MICwwbwIqEFcfht
+	 Q/iby0K7CiNA81DC6FEMcRZUpJKLb0+Atpw5wJtlHGeDcY7E/7wxN+TAyauJ0hABxDw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gondor.apana.org.au;
-	spf=pass smtp.mailfrom=gondor.apana.org.au;
-	dkim=pass header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=oVD8bui9;
-	arc=none smtp.remote-ip=180.181.231.80
-Received: from abb.hmeau.com (abb.hmeau.com [180.181.231.80])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eTyJ47H8;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A5C160A2600;
-	Fri, 20 Nov 2026 10:01:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A5C160A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gondor.apana.org.au
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gondor.apana.org.au
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0196A606A336;
+	Fri, 20 Nov 2026 10:01:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=oVD8bui9
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=1U7Hy2sMhArBZCxu2GDyjmJzGlD4GYMvvTvb31K5AEo=; 
-	b=oVD8bui9cOYU8Q/+DzeLXlCvZ/ZII2UZLIEquGhoNyM5Du29Dx1ksoxcAohJ4ftH0zd+NEEnBy+
-	AzCKyFf2G2xKEqteH9ps/1vbZV1aRM4vUll6+TN3zr9DhpG2Eo7uLyIo0gUrU2menCaCTZh5fKU14
-	tSDIIY/QdW5/UMX3AhUldwJS8u3hUjue9r/nNJtuL0QGEhg8h0qJ4kt+B2WGFKxWGuxP8aJ7f6JYK
-	iptZLClLJWBzFBNrNQMMr8LIT+/4SzPq4ZkI/oTnv/VRLUFsSVs6bQAh37PTK+BJrMv2KXZk2kyQs
-	PZnOMATag4DRbrHxC+z24wgpkjccqACDojFQ==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
-	id 1xULQR-0000000HYvw-3bIW;
-	Fri, 20 Nov 2026 18:01:00 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 20 Nov 2026 18:00:59 +0800
-Date: Fri, 20 Nov 2026 18:00:59 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Thomas Huth <thuth@redhat.com>
-Cc: Giovanni Cabiddu <giovanni.cabiddu@intel.com>,
-	"David S. Miller" <davem@davemloft.net>, qat-linux@intel.com,
-	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] crypto: qat - Don't use -EFAULT as error code during
- setkey()
-Message-ID: <awAaW4PhJxllUutD@gondor.apana.org.au>
-References: <20260824122403.630026-1-thuth@redhat.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eTyJ47H8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52D711F000ED;
+	Fri, 20 Nov 2026 10:01:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795168865;
+	bh=TEM/lwyfYjFDZGkgKWhS1fxpehScreTDFbg06MSARgw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=eTyJ47H88RxfllOMLe3j4uRy4TDGOMXxDlsrUGB0NkCv7mdelT+iDZz5Vp/AUpsWP
+	 kcvxInSd5A+0y4JrnK4CQI+F0FAbylJTG0m7e+zscGOY8Ja5Vel8UByfPJZBR/whBl
+	 8soi7Ep2obpUTllFowND+1ZQzUKvhGRzdwwKu5l52oU2BQf7XySa7s4ZLeDgC7udPy
+	 6F23xDG69QwDOR3mXqvhUU7Vvbl17b4AXYTHjbQo1g0X9Ycw5zt1gW5+nWecXidYBI
+	 C59zpSStvY8G2eIKL32g3Y7iVSjITDnVrlu1vV6iN2atR26u1BN4jPUpLt7prrdiWL
+	 lUfQk6f5FwomQ==
+From: Vinod Koul <vkoul@kernel.org>
+To: Vinicius Costa Gomes <vinicius.gomes@intel.com>, 
+ Dave Jiang <dave.jiang@intel.com>, Frank Li <Frank.Li@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
+ Kees Cook <kees@kernel.org>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20260918141622.3022876-1-peng.fan@oss.nxp.com>
+References: <20260918141622.3022876-1-peng.fan@oss.nxp.com>
+Subject: Re: [PATCH] dmaengine: use assign_bit() where applicable
+Message-Id: <179516886198.45276.2354167655096140791.b4-ty@kernel.org>
+Date: Fri, 20 Nov 2026 15:31:01 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,38 +63,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260824122403.630026-1-thuth@redhat.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 
-On Mon, Aug 24, 2026 at 02:24:02PM +0200, Thomas Huth wrote:
-> EFAULT means "Bad Address", it's the error code that is meant to
-> be returned when userspace provided the kerknel with a pointer to
-> memory that is not part of its address space. However, the QAT driver
-> abuses this error code during its setkey() function to signal that
-> there was something wrong with the selected algorithm, which is just
-> confusing.
-> 
-> The best choice for an error code would likely have been EINVAL here,
-> but qat_alg_aead_init_sessions() seems to make an effort to use this
-> for another error case already, so there is likely the desire to
-> distinguish the different errors here. Thus use EOPNOTSUPP as a
-> replacement now, so qat_alg_aead_init_sessions() continues to return
-> two different error codes depending on what went wrong.
-> 
-> Anyway, instead of hard-coding the error codes in the function
-> qat_alg_aead_init_sessions() again, let's also simply rather pass
-> the error code from the called functions up to the caller instead,
-> this way we can also get rid of the need to call memzero_explicit()
-> here three times.
-> 
-> Signed-off-by: Thomas Huth <thuth@redhat.com>
-> ---
->  .../crypto/intel/qat/qat_common/qat_algs.c    | 31 +++++++++----------
->  1 file changed, 14 insertions(+), 17 deletions(-)
 
-Patch applied.  Thanks.
+On Fri, 18 Sep 2026 22:16:17 +0800, Peng Fan (OSS) wrote:
+> Convert open-coded if/else with set_bit/clear_bit and their
+> non-atomic __set_bit/__clear_bit variants to the assign_bit/__assign_bit
+> API.
+> 
+> Done with Coccinelle semantic patch.
+> 
+> 
+> [...]
+
+Applied, thanks!
+
+[1/1] dmaengine: use assign_bit() where applicable
+      commit: 15e06365b056e9e73723295a1de9205159e28f1f
+
+Best regards,
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+~Vinod
+
+
