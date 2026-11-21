@@ -1,78 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795304669;
-	b=tD1pTruU991RZJQmGTF6/vW5jMZB6hTSLso2uNMEuac+A4jTUc+qxT4agQNICJdC1eLG
-	 WOD009OseTuC47IrpbNBQ5U2q56GNF7WmAXe6pASFxvQY3EZyBIE+B8dmFQGNNLjcUiLL
-	 ePuIpt2DITEhC1WwhsTVot3rXCH3OWp3xP52uUHEP+TV2dayQhp+/cQxAcgbBM4YAVzNn
-	 GvkdmrpO/+PksoXfVhhAk5QjCZYqvu+RAgzkEvePPgPr8+DgH/ddHNZsqx++HnFqOlbHz
-	 Ho7hRERf+9lQ002TcXQdugl/rXXz/WpMplUrN1fc+cTitgZWJLcW3/icpuroxOOXUxQ==
+	t=1795304665;
+	b=lcv8GaBP2JVOQ6MYpBG6X+s/bQezHgIgo9NS9pMFJeG0lWALvBNh2QO+a8SwFrFNENZh
+	 85Z2+JpZVmSl3SJJz8mwG4F2qii1e0pa/CaIfHHwnT4qB9zT0lEmexXq5UelML7zuFZtQ
+	 V7n1EEb1Bg9NRnWWz1JoIsT3fDc0Aygpn2IvAnEBAC6D0b0mzxUU7L4+AyuBb50MMTJ4n
+	 xFbCFj1yXB6PfVk3sRbqOAEGhUasQLhd6UXkI7A86092VPlcttpBOUoxjGk6dnhhuspgN
+	 XoMZgU5JSJxT6hswMEPlK8C7laGYnRdW/A78gnqx/tRRIEl/oUZRPIN7faK/Pxl4orw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795304669;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=FQsmtXBpj9g7Vc2MnK1s/XKa2XQ1wGnZHAswBU4OXjc=;
-	b=roNuGvibFSI2WaxVgVKqRWBtQY2i5lMecC3FafLZQe2tsqSQ6iwaV+y4nXubUaIQB2Gz
-	 qe3NQtn2/C6bQ7BxfU+xBbyY5x/nJTC0OFIShkAPLWoleWdnP9lQsU1V0vDzoP+YYZbvA
-	 eNenSpsaDjyJoFqXWy+3ydUJZq8ktlks1g+huir3+sd8ye1uBzYmbtRSh9VZqpQ4/bvgi
-	 b8UOdChyGDd1UAq5Eh7/r8BosiYKuyHOROFwOfZAQ2OT19j7meq6YnmDb70x3oWn5PWYV
-	 kl7usJcrLS19NlUJlhZgs9bngZDIdB2mUQqfYzKoii/zXFsH6p/BciBL9T41A5gt7Bw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795304665;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=sRkY7zM0xKaJxy4mzyL5E+209WLLZ6mGzirmGXa5UsA=;
+	b=raFdB9q7lAyms2FuGsNHAuwCsquLCDmK0tDO0SPSQcY6b+pBWwawAzt/IpDpHyQ5FH/8
+	 HRzNsuuahIpPDc+cjKa826GzCoQ8VZdMFMGwNChkzWOF0FaREJbKOjqza/XOYlws7mdKu
+	 PW6u4cN/CQVcfTIM4g/IqwDMTKciifYP6ee5JR9w8KHf0nAN/mldOKcC3uCxXIsMKugqO
+	 stjy6HdXT7DC+ojR/tj3Jl4s3/+ue6Mg0fdqA1knvrdFORlDGfUT6Fw18rha6ub10Fpnc
+	 1Fv1qGmEi2LgK27r78ZvPM7hl2Oi8k92pXG/MBBLZEJfVeHYb//kzHD3TCvKdxk5QZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Zfrhk0pu;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5D728606A682;
-	Sat, 21 Nov 2026 23:44:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D728606A682
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OCsPkCy5;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA712606A335;
+	Sat, 21 Nov 2026 23:44:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Zfrhk0pu
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA2EB16F2;
-	Sat, 21 Nov 2026 15:44:25 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E228F3FA21;
-	Sat, 21 Nov 2026 15:44:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795304668; bh=6NA3IHW0zaPrOvgsZWpIC6A/H3nptBWjkmO2buyDTig=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Zfrhk0pu+AFEzqdKfXWiEcyAkAqlSitR35SyWsNIGGSd+X7mozDWyFKwyxEO8nsgr
-	 cYvjuJ0cI64LYolBOp+v5gO4P/DUh8VVJoy4DRM+FRrNKLE3bFHbFosCFqw+RsJUgz
-	 S6NRqPhPY6NwitB9Wba6PoH9bit6Eby+3xbmV+0E=
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Cc: sudeep.holla@kernel.org,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	d-gole@ti.com,
-	jonathan.cameron@oss.qualcomm.com,
-	elif.topuz@arm.com,
-	lukasz.luba@arm.com,
-	philip.radford@arm.com,
-	david@kernel.org,
-	souvik.chakravarty@arm.com,
-	leitao@kernel.org,
-	kas@kernel.org,
-	puranjay@kernel.org,
-	usama.arif@linux.dev,
-	kernel-team@meta.com,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v16 20/31] firmware: arm_scmi: Add Telemetry boot-on support
-Date: Sat, 21 Nov 2026 23:39:54 +0000
-Message-ID: <20261121234005.1525419-21-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261121234005.1525419-1-cristian.marussi@arm.com>
-References: <20261121234005.1525419-1-cristian.marussi@arm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OCsPkCy5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8053B1F000CF;
+	Sat, 21 Nov 2026 23:44:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795304664;
+	bh=sRkY7zM0xKaJxy4mzyL5E+209WLLZ6mGzirmGXa5UsA=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=OCsPkCy5lB1nuG/GMENesGHpAm0+U044by7TZVn9nnFcS7qFuyG1kE554qObTnSLv
+	 SB1HX+zJrCDI+5Cs4sDk6NjBWGCcDFKcenq8DlMqo2XY4b888UbAi2a35JMHxgJh8/
+	 1vnB6BBwbKXGVTsLQ+8RoWUS8YXC6Dr5c6eR+kwwteMXU2E24y39UOLgSySsW8hiio
+	 AKDE0IWotxi/xOYG8T0xkJAknLTI7s5ZOBF24vKCvfpngcTCrVPkix3g8pfcliL0Z+
+	 xECnMLg49uPb1nDcGep67lKLccKfiVSs8cwrkD0J5s6/InWmBPS8Y9LD6m7L5N4tfk
+	 Cm1Y+LLX5UVdA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7743E391B08F;
+	Sat, 21 Nov 2026 23:44:24 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,431 +54,47 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v8] kcm: reject TLS on attached TCP sockets
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179530466302.1212208.15645522376520311508.git-patchwork-notify@kernel.org>
+Date: Sat, 21 Nov 2026 23:44:23 +0000
+References: <20261116190111.3317976-1-rjethwani@purestorage.com>
+In-Reply-To: <20261116190111.3317976-1-rjethwani@purestorage.com>
+To: Rishikesh Jethwani <rjethwani@purestorage.com>
+Cc: netdev@vger.kernel.org, jiayuan.chen@linux.dev, stable@vger.kernel.org,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, corbet@lwn.net, skhan@linuxfoundation.org,
+ rdunlap@infradead.org, ncardwell@google.com, kuniyu@google.com,
+ john.fastabend@gmail.com, sd@queasysnail.net, davejwatson@fb.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
 
-Add the initialization and discovery logic needed to detect when the
-platform SCMI server is configured with telemetry enabled at boot and
-perform all the needed resource enumerations to keep the kernel telemetry
-subsystem state aligned with the platform boot-on configurations.
+Hello:
 
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
----
-v15 --> 16
- - removed group support at boot-on
- - discard DE/FC at enumeration time that were found in SHMTI at boot
- -  align DE local/global TS state after enumeration
-v14 --> v15
- - use IS_TDE_TS_ macro
- - retrieve collection_mode at boot-on and force ignore groups
- - count only successfully initialized groups at boot-on
-v13 --> v14
- - moved some definitions from earlier split patch
- - renamed some fields to more strictly adhere to spec nomenclature
-v12 --> v13
- - greb tde->mtx on DE_ENABLED_LIST
-v11 --> v12
- - fixed TS_RATE determination at boot-on
-v10 --> v11
- - fix non-conformancy on CONFIG_GET when groups NON configurable
- - use SCAN_UPDATE also on BOOT-ON initial scan (NO discovery)
- - avoid 'naked' ti->rinfo accesses
-v8 -- > v9
- - remove useless initial state lookup after RESET
- - properly set de->tstamp_support on DE_ENABLED_LIST
-v5 --> v6
- - reporte properly an error on scmi_telemetry_config_lookup() failure
-   (Sashiko)
-v4 --> v5
- - use renamed grp_id instead of old id in group descriptors
- - fixes sparse warnings
-v3 --> v4
- - bail-out FW_BUG errors
- - fix typos in comments
- - track boot-on Telemetry DE states
-v2 --> v3
- - split from monolithic telemetry protocol patch
- - swap logic in scmi_telemetry_initial_state_lookup
----
- drivers/firmware/arm_scmi/telemetry.c | 283 +++++++++++++++++++++++++-
- 1 file changed, 277 insertions(+), 6 deletions(-)
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
-index 21fbd6a4578d..b74371bc41d5 100644
---- a/drivers/firmware/arm_scmi/telemetry.c
-+++ b/drivers/firmware/arm_scmi/telemetry.c
-@@ -133,6 +133,21 @@ struct scmi_msg_resp_telemetry_update_intervals {
- 	__le32 intervals[];
- };
- 
-+struct scmi_msg_telemetry_de_enabled_list {
-+	__le32 index;
-+	__le32 flags;
-+};
-+
-+struct scmi_enabled_de_desc {
-+	__le32 id;
-+	__le32 mode;
-+};
-+
-+struct scmi_msg_resp_telemetry_de_enabled_list {
-+	__le32 flags;
-+	struct scmi_enabled_de_desc array[];
-+};
-+
- struct scmi_msg_telemetry_de_configure {
- 	__le32 identifier;
- 	__le32 flags;
-@@ -181,6 +196,20 @@ struct scmi_msg_resp_telemetry_reading_complete {
- 	__le32 array[] __counted_by_le(num_dwords);
- };
- 
-+struct scmi_msg_telemetry_config_get {
-+	__le32 group_identifier;
-+	__le32 flags;
-+#define TELEMETRY_GET_SELECTOR(x)	(FIELD_PREP(GENMASK(3, 0), (x)))
-+#define	TELEMETRY_GET_SELECTOR_ORPHANS	TELEMETRY_GET_SELECTOR(TLM_ORPHANS)
-+#define	TELEMETRY_GET_SELECTOR_GROUP	TELEMETRY_GET_SELECTOR(TLM_GROUP)
-+#define	TELEMETRY_GET_SELECTOR_ALL	TELEMETRY_GET_SELECTOR(TLM_ALL)
-+};
-+
-+struct scmi_msg_resp_telemetry_config_get {
-+	__le32 control;
-+	__le32 sampling_rate;
-+};
-+
- /* TDCF */
- 
- #define _I(__a)		(ioread32((void __iomem *)(__a)))
-@@ -509,6 +538,8 @@ static inline bool scmi_tde_has_tstamp(struct telemetry_de *t)
- 	return t->de.tstamp_support && t->de.tstamp_enabled;
- }
- 
-+#define DE_ENABLED_WITH_TSTAMP	2
-+
- enum de_state {
- 	ENA_STATE,
- 	ENA_TSTAMP,
-@@ -911,6 +942,7 @@ static int scmi_telemetry_de_descriptor_parse(struct telemetry_info *ti,
- {
- 	const struct scmi_de_desc *desc = *next;
- 	size_t payld_sz = sizeof(*desc);
-+	bool fc_support;
- 
- 	lockdep_assert_held(&tde->mtx);
- 
-@@ -929,7 +961,7 @@ static int scmi_telemetry_de_descriptor_parse(struct telemetry_info *ti,
- 	tde->de.info->persistent = IS_PERSISTENT(desc);
- 	tde->ts_type = TSTAMP_SUPPORT(desc);
- 	tde->de.tstamp_support = !!tde->ts_type;
--	tde->de.fc_support = IS_FC_SUPPORTED(desc);
-+	fc_support = IS_FC_SUPPORTED(desc);
- 	tde->de.name_support = IS_NAME_SUPPORTED(desc);
- 	/* Update DE_DESCRIPTOR size for the next iteration */
- 	*next += sizeof(*desc);
-@@ -938,6 +970,10 @@ static int scmi_telemetry_de_descriptor_parse(struct telemetry_info *ti,
- 	if (*rx_len < payld_sz)
- 		return -ENOSPC;
- 
-+	/* Was already discovered as a SHMTI-based DE ? */
-+	if (fc_support && tde->base)
-+		return -EPROTO;
-+
- 	if (IS_TDE_TS_LINE(tde)) {
- 		__le32 *line_ts_rate = *next;
- 
-@@ -946,15 +982,20 @@ static int scmi_telemetry_de_descriptor_parse(struct telemetry_info *ti,
- 		/* Variably sized depending on TS support */
- 		*next += sizeof(*line_ts_rate);
- 	} else if (IS_TDE_TS_BLK(tde)) {
--		/* Setup default BLK TS value at first */
--		tde->de.info->ts_rate = ti->default_blk_ts_rate;
-+		/*
-+		 * Setup default BLK TS rate value at first, if it has NOT
-+		 * already been picked from the BLK_TS line by the boot-on
-+		 * SCAN_UPDATE.
-+		 */
-+		if (!tde->de.info->ts_rate)
-+			tde->de.info->ts_rate = ti->default_blk_ts_rate;
- 	} else if (!IS_TDE_TS_NONE(tde)) {
- 		dev_warn(ti->ph->dev,
- 			 "Unknown TDE timestamp type %u\n", tde->ts_type);
- 		return -EPROTO;
- 	}
- 
--	if (tde->de.fc_support) {
-+	if (fc_support) {
- 		struct de_desc_fastchannel *dfc;
- 		phys_addr_t phys_addr;
- 		void __iomem *addr;
-@@ -985,6 +1026,7 @@ static int scmi_telemetry_de_descriptor_parse(struct telemetry_info *ti,
- 		tde->base = addr;
- 		tde->offset = 0;
- 		tde->fc_size = size;
-+		tde->de.fc_support = fc_support;
- 
- 		/* Variably sized depending on FC support */
- 		*next += sizeof(*dfc);
-@@ -1067,6 +1109,11 @@ static int iter_de_descr_process_response(const struct scmi_protocol_handle *ph,
- 		}
- 	}
- 
-+	/* TS is NOT supported clear any enabled state possibly at boot-on */
-+	if (!tde->de.tstamp_support)
-+		scmi_telemetry_de_state_update(ti, ENA_TSTAMP,
-+					       &tde->de.tstamp_enabled, false);
-+
- 	/* Count timestamped DEs */
- 	ti->num_des_tstamp += !!tde->de.tstamp_support;
- 
-@@ -1079,6 +1126,216 @@ static int iter_de_descr_process_response(const struct scmi_protocol_handle *ph,
- 	return 0;
- }
- 
-+static int scmi_telemetry_config_lookup(struct telemetry_info *ti,
-+					unsigned int grp_id, bool *enabled,
-+					unsigned int *active_update_interval,
-+					enum scmi_telemetry_collection *mode,
-+					bool ignore_groups)
-+{
-+	const struct scmi_protocol_handle *ph = ti->ph;
-+	struct scmi_msg_telemetry_config_get *msg;
-+	struct scmi_msg_resp_telemetry_config_get *resp;
-+	bool is_group = grp_id != SCMI_TLM_GRP_INVALID;
-+	struct scmi_xfer *t;
-+	u32 flags;
-+	int ret;
-+
-+	ret = ph->xops->xfer_get_init(ph, TELEMETRY_CONFIG_GET,
-+				      sizeof(*msg), sizeof(*resp), &t);
-+	if (ret)
-+		return ret;
-+
-+	msg = t->tx.buf;
-+	msg->group_identifier = cpu_to_le32(grp_id);
-+
-+	/* Spec mandates the ALL selector when per-group config not available */
-+	if (!ti->info.per_group_config_support || ignore_groups)
-+		flags = TELEMETRY_GET_SELECTOR_ALL;
-+	else
-+		flags = !is_group ? TELEMETRY_GET_SELECTOR_ORPHANS :
-+			TELEMETRY_GET_SELECTOR_GROUP;
-+
-+	msg->flags = cpu_to_le32(flags);
-+
-+	resp = t->rx.buf;
-+	ret = ph->xops->do_xfer(ph, t);
-+	if (!ret) {
-+		*enabled = le32_get_bits(resp->control, TELEMETRY_ENABLE);
-+		*mode = le32_get_bits(resp->control, TELEMETRY_MODE);
-+		if (!is_group)
-+			ti->streaming_mode = *mode == SCMI_TLM_NOTIFICATION;
-+		*active_update_interval =
-+			SCMI_TLM_GET_UPDATE_INTERVAL(le32_to_cpu(resp->sampling_rate));
-+	}
-+
-+	ph->xops->xfer_put(ph, t);
-+
-+	return ret;
-+}
-+
-+static void iter_enabled_list_prepare_message(void *message,
-+					      unsigned int desc_index,
-+					      const void *priv)
-+{
-+	struct scmi_msg_telemetry_de_enabled_list *msg = message;
-+
-+	msg->index = cpu_to_le32(desc_index);
-+	msg->flags = 0;
-+}
-+
-+static int iter_enabled_list_update_state(struct scmi_iterator_state *st,
-+					  const void *response, void *priv)
-+{
-+	const struct scmi_msg_resp_telemetry_de_enabled_list *r = response;
-+
-+	st->num_returned = le32_get_bits(r->flags, GENMASK(15, 0));
-+	st->num_remaining = le32_get_bits(r->flags, GENMASK(31, 16));
-+
-+	if (st->rx_len < (sizeof(*r) + sizeof(r->array[0]) * st->num_returned))
-+		return -EINVAL;
-+
-+	/*
-+	 * total enabled is not declared previously anywhere so we
-+	 * assume it's returned+remaining on first call.
-+	 */
-+	if (!st->max_resources)
-+		st->max_resources = st->num_returned + st->num_remaining;
-+
-+	return 0;
-+}
-+
-+static int
-+iter_enabled_list_process_response(const struct scmi_protocol_handle *ph,
-+				   const void *response,
-+				   struct scmi_iterator_state *st, void *priv)
-+{
-+	const struct scmi_msg_resp_telemetry_de_enabled_list *r = response;
-+	const struct scmi_enabled_de_desc *desc;
-+	struct telemetry_info *ti = priv;
-+	struct telemetry_de *tde;
-+	u32 de_id;
-+	int ret;
-+
-+	desc = &r->array[st->loop_idx];
-+	de_id = le32_to_cpu(desc->id);
-+	if (scmi_telemetry_tde_lookup(ti, de_id)) {
-+		dev_err(ph->dev,
-+			"Found INVALID DE with DUPLICATED ID:0x%08X\n", de_id);
-+		return -EINVAL;
-+	}
-+
-+	tde = scmi_telemetry_tde_get(ti, de_id);
-+	if (IS_ERR(tde))
-+		return PTR_ERR(tde);
-+
-+	guard(mutex)(&tde->mtx);
-+	tde->de.info->id = de_id;
-+	tde->de.enabled = true;
-+	tde->de.tstamp_enabled = le32_to_cpu(desc->mode) == DE_ENABLED_WITH_TSTAMP;
-+	/*
-+	 * Guessing that, if a DE is reported as enabled with timestamp, it has
-+	 * to support timestamp: NOTE THAT the timestamp type (tde->ts_type) can
-+	 * ONLY be discovered later by  DE_DESCRIPTION.
-+	 */
-+	tde->de.tstamp_support = tde->de.tstamp_enabled;
-+
-+	ret = scmi_telemetry_tde_register(ti, tde);
-+	if (ret) {
-+		scmi_telemetry_free_tde_put(ti, tde);
-+		return ret;
-+	}
-+
-+	scmi_telemetry_de_state_update(ti, ENA_STATE, NULL, true);
-+	if (tde->de.tstamp_enabled)
-+		scmi_telemetry_de_state_update(ti, ENA_TSTAMP, NULL, true);
-+
-+	dev_dbg(ph->dev, "Registered new ENABLED DE with ID:0x%08X\n",
-+		tde->de.info->id);
-+
-+	return 0;
-+}
-+
-+static int scmi_telemetry_enumerate_des_enabled_list(struct telemetry_info *ti)
-+{
-+	const struct scmi_protocol_handle *ph = ti->ph;
-+	struct scmi_telemetry_res_info *rinfo;
-+	struct scmi_iterator_ops ops = {
-+		.prepare_message = iter_enabled_list_prepare_message,
-+		.update_state = iter_enabled_list_update_state,
-+		.process_response = iter_enabled_list_process_response,
-+	};
-+	void *iter;
-+	int ret;
-+
-+	iter = ph->hops->iter_response_init(ph, &ops, 0,
-+					    TELEMETRY_DE_ENABLED_LIST,
-+					    sizeof(u32) * 2, ti);
-+	if (IS_ERR(iter))
-+		return PTR_ERR(iter);
-+
-+	ret = ph->hops->iter_response_run(iter);
-+	if (ret)
-+		return ret;
-+
-+	/* Get rinfo as it is...without triggering an enumeration */
-+	rinfo = __scmi_telemetry_resources_get(ti);
-+
-+	dev_info(ti->ph->dev, "Found %u enabled DEs.\n", rinfo->num_des);
-+
-+	return 0;
-+}
-+
-+static int scmi_telemetry_initial_state_lookup(struct telemetry_info *ti)
-+{
-+	struct device *dev = ti->ph->dev;
-+	int ret;
-+
-+	/* Discover the initial state ONLY for DEs, ignoring groups */
-+	ret = scmi_telemetry_config_lookup(ti, SCMI_TLM_GRP_INVALID,
-+					   &ti->info.enabled,
-+					   &ti->info.active_update_interval,
-+					   &ti->info.current_mode, true);
-+	if (ret)
-+		return ret;
-+
-+	if (!ti->info.enabled)
-+		return 0;
-+
-+	/*
-+	 * When Telemetry is found already enabled on the platform, proceed with
-+	 * passive discovery using DE_ENABLED_LIST and TDCF scanning: note that
-+	 * this CAN only discover DEs exposed via SHMTIs.
-+	 * FastChannel DEs need a proper DE_DESCRIPTION enumeration, while, even
-+	 * though incoming Notifications could be used for passive discovery too,
-+	 * it would carry a considerable risk of assimilating trash as DEs.
-+	 */
-+	dev_info(dev,
-+		 "Telemetry found enabled with update interval %lux10^%d mode:%u\n",
-+		 SCMI_TLM_GET_UPDATE_INTERVAL_SECS(ti->info.active_update_interval),
-+		 SCMI_TLM_GET_UPDATE_INTERVAL_EXP(ti->info.active_update_interval),
-+		 ti->info.current_mode);
-+	/*
-+	 * Query enabled DEs list: collect states. It will include DEs from any
-+	 * interface. Enabled groups still NOT enumerated.
-+	 */
-+	ret = scmi_telemetry_enumerate_des_enabled_list(ti);
-+	if (ret) {
-+		dev_err(dev, FW_BUG "Cannot query enabled DE list. Abort.\n");
-+		return ret;
-+	}
-+
-+	/* Discover DEs on SHMTis: collect states/offsets/values */
-+	for (int id = 0; id < ti->num_shmti; id++) {
-+		ret = scmi_telemetry_shmti_scan(ti, id, SCAN_UPDATE);
-+		if (ret)
-+			dev_warn(dev,
-+				 "Failed discovery-scan of SHMTI ID:%d - ret:%d\n",
-+				 id, ret);
-+	}
-+
-+	return 0;
-+}
-+
- static void scmi_telemetry_tdes_cleanup(void *arg)
- {
- 	struct telemetry_info *ti = arg;
-@@ -2217,9 +2474,17 @@ static void scmi_telemetry_tdcf_data_parse(struct telemetry_info *ti,
- 
- 		trace_scmi_tlm_access(de_id, "DE_LOCATION_UPDATED", 0, 0);
- 
-+		/* Just in case it was passively discovered boot-on */
-+		if (IS_TDE_TS_NONE(tde)) {
-+			if (use_blk_ts)
-+				tde->ts_type = TSTAMP_BLK;
-+			else if (LINE_TS_VALID_RAW(meta))
-+				tde->ts_type = TSTAMP_LINE;
-+		}
-+
- 		dev_dbg(ti->ph->dev,
--			"TDCF-updated DE_ID:0x%08X - shmti:%pK  offset:%u\n",
--			tde->de.info->id, tde->base, tde->offset);
-+			"TDCF-updated DE_ID:0x%08X - shmti:%pK  offset:%u  ts_type:%d\n",
-+			tde->de.info->id, tde->base, tde->offset, tde->ts_type);
- 	}
- 
- 	/*
-@@ -3918,6 +4183,12 @@ static int scmi_telemetry_protocol_init(const struct scmi_protocol_handle *ph)
- 		return ret;
- 	}
- 
-+	ret = scmi_telemetry_initial_state_lookup(ti);
-+	if (ret) {
-+		dev_err(dev, FW_BUG "Cannot retrieve initial state. Abort.\n");
-+		return ret;
-+	}
-+
- 	ti->info.base.version = ph->version;
- 
- 	return ph->set_priv(ph, ti);
+On Mon, 16 Nov 2026 12:01:08 -0700 you wrote:
+> Neither kcm_attach() nor tls_init() rejects the other, so KCM and kTLS RX
+> can be stacked on the same TCP socket in either order. This breaks in
+> several ways:
+> 
+> - KCM calls read_sock() from its receive callback in atomic context.
+>   With kTLS RX this reaches tls_sw_read_sock(), which can sleep.
+> - Before tls_sw_read_sock() existed, read_sock was tcp_read_sock(), so
+>   KCM consumed raw ciphertext from the receive queue that TLS parses.
+> - Both install socket callbacks. kcm_unattach() restores the pre-KCM
+>   sk_data_ready over tls_data_ready, so TLS RX stops getting notified.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net,v8] kcm: reject TLS on attached TCP sockets
+    https://git.kernel.org/netdev/net/c/746dbdc5fa60
+
+You are awesome, thank you!
 -- 
-2.54.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
