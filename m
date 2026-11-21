@@ -1,88 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795231072;
-	b=s0y3iAffcmGGUeOYMvD0jbO+NiRmLMQFDyEKZWDQrQAipPFUkgwJZXj8RWpfFIQnOQpg
-	 tNr5cEOuwsIjmtbZqfrL6mLTrHki0hi7VmQrknX+n4BxhqTauYUMG2gIdSr0ugEtShJio
-	 zacSplho9iYZ4vPSEhAvtWdtUQvZfXWI7BDTA1lGvAuXhdTF5+dlj8HiVYyo0tVL2R5KU
-	 Hmf1OzMiik2+4zg91Zztv4RmTYdebAdf+M1FgmNOCzxdlCt12VQ8xSPTs986a1ds8TRVQ
-	 z4BDl8CyM8R+XGNUuRRIqDJuP7/EY32bL4eowFgF6pvYoWnqI39C8VHZkeKeZXMBlcg==
+	t=1795231262;
+	b=vk5n+kDhmxF2PcZxDP2spYv3n1gtuBcG+4TbUYYPEsA+kl3sq1M/kdq+SkkzzGH+bbgc
+	 +kMMzq64ykOlk8x3EGu9QDJdh+7bKzD6FiIzC3ipoACCRMuen3sRYfsDyPjKXbq1mfLyX
+	 aPweskFn6fkBRpscyW4wHzbWpsywqCW0RwSGvzmN13xsZY30Pkmkiv+S7s+HP75lwGe9b
+	 3yfdZiHvmnxsr+/dajwtJNsK31h1dmPbzkYdAl19NSriBdSgmeVnxuwfQwkAHR74Id/oG
+	 G/Ye+5aGqclGnM64lijO5LERyaJpLeEDX7jGnn14fU5R4Q8vyq7EEyOepsZwlD2RJvg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795231072;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
-	 Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=ARUUOXphysUaIVQ+Q3NSspxOkVH0D/WM7AIA+6teiM8=;
-	b=gg6iuyLHZx7aDWzO2FrvlITrHuiQOoP0bYfV14F5lQI/0R3d80KOo0lGD+1WC21rhvl5
-	 D8kR6H5ZzmQog1mst2ZfSGmjmPmIlHh6wzV175vcIvSYMjZ2A/eDgbnFKhHrUgtUGB+sV
-	 WEJt0K0Gyq/p9dhHvVHGlkyysydpTgaTy9MsW9Hml542lWZZEJmuKrMf9jowGzKxhLT+b
-	 iU14of7ypeVToIOR7MZalrinZV4n14t6VTJl3uVAbmmTmpIIGn2+l6+sHMIQTZhoyzY1i
-	 wXTztyZ9RFM10NKH10AJwwVcvJcqUED4Ykrk2mDCH+rkDUCtKDDUPSRlT7OnzLAefag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795231262;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=i6IPMIh4jNQ2qo/4xiiXkBRhOxqHMZd268yZ8IOQ/AY=;
+	b=x7kMXhjZCX8wDcQsLGWlBWwWMgprzF02xFE8ONR7ANSWCHX23nv73yvDr0SpXPcGoaMD
+	 j/QX7OJyy7jpLYR3lZIz9OV1IWXBd7u0qC8ov+I7dgF7Plv/CvE2Q016M5Y1Uw011k2Av
+	 y8j5Uy/nLtcwAG6O+R111nAwvlDfb4KxckiVGsWHkJeFkKcEzaVn1s3Pxg148CPbzGIwT
+	 UEv8K2iaxthA/96JJiAXDbRtoIsUC1g3HQbVsxPF480JxQCkGwLCdpwbBV1sVAFJQ/EWY
+	 Y2+dzMgvAA2O1ZaAO3asNCAzHV/A6ygRnwjXAMN2uPS0thVCvyYsBf2PSzRHLY1EJgQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=googlemail.com;
-	spf=pass smtp.mailfrom=googlemail.com;
-	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=C9qEfKwD;
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DOqPX68Z;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F09E606A6BC
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:17:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F09E606A6BC
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AB29606A325;
+	Sat, 21 Nov 2026 03:21:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=C9qEfKwD
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4a1fbd52ab6so11031275e9.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:17:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20260707; t=1795231067; x=1795835867; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ARUUOXphysUaIVQ+Q3NSspxOkVH0D/WM7AIA+6teiM8=;
-        b=C9qEfKwD4HVCc/5D/CQqSCvz+J9O+o6fTN0LnPGGh+iT/rtv/+vYjMLMCLT5iXpsDL
-         LpuB13BnVJl1VHDdUoiGKm/iHTb/iH5lbEBGnI/4ChFArRxr5XFjR/zkCuOGJlk9TBEy
-         2zLqJrEppt85m8VK5KHzEr9QTzaY6DTLzAMUaWKkVtTXlQPPi4KhE9sRfc+lVGth5Ch0
-         pZMxhflbbAlrWy3Bjov2Zt7SFNEWwjszNG0hfROaB2SYXYLzX4t4tKk0T9zzWea+NnR7
-         YDmwukKXLQvVfE9aKuXK0HTjtZqKwI4V/s7fvXC5UqOUSHfjvOvPnWxPNtAT5ojjKodM
-         X37Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795231067; x=1795835867;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ARUUOXphysUaIVQ+Q3NSspxOkVH0D/WM7AIA+6teiM8=;
-        b=Rm+7gaIdHnzn4a76MYeDrC1LjrabzZmh1o+Opsc1IJ1J0DuUz6cPZsB0+cjGMeIC68
-         Sz1UO9//8bC/i4C5jVMCpXAVGbZc+XtqK0JGMQndFXlQQs1wp5w4wdEzsEPQBr1SQd0d
-         YpYYbgVF0jQcdiUp31ovJHkIooyAl6Lg+oslXsJvWyWCzD/YpJJs9b44L4Uwb1/bjWp1
-         8EW/66OGk5alBQDpyMw9HhqG7XuP0yIpz3iYvUPG2VTWYdRKH2sk7uMt5c2VT69GoRl7
-         gSAcX+KOAYtxzmtx7S2YjSkL9mI9qSC9TtUQDlZXB6GJKcbMaxpFEanLCDjbis1Aj2Vt
-         gkgg==
-X-Forwarded-Encrypted: i=1; AL+hErHSag5EwwuVgZJmlXleOVo4lMw64zoz+tRWlSEr30ZxF+baBSPrF/OPxv8TYyX+THjadC7xAsUPn4a45+I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9E6R4SsrkK03fwWt7DKKLl1W5654vYHEx59smhLDDKt04CeXw/
-	sGs+zCkZHfcg0MBKPCBpNeFG07irQnDjUrZpTvu6RMyNGFAM5iYH0qM=
-X-Gm-Gg: AZFdTZc8GbSkNY+FtCEpV97yQROpQjZg5KXjcNo4EJyEK58B8nOXQkfnEQQoni5Y0E8
-	VdchoPX7r4vEHTqVrW6zz4lDhXL7wAaSFr2EgxOscJpViLVA0GNuykx3N0CGy8t9M5UPEHmlxsj
-	zohIeAEmFtd738aVtoYVQkm8XknuKXbTZ0qe/vA7t6BMqEZs7GyNvOFQaUWwIcyl0xdxPfzudyI
-	xY6eXgJ6aU3R1d0H/VjQGq3MB4rmliqVFV21sOJOoS4EHu8SYltL1tSy6Ms/4eY2HT6cDp5T1qE
-	IINLk44U2moZqfPM/6n15uZ1wOZYDOljpQIWcYDhVNBM3mLp/hRoaRZV7gfSp7+j2z7ntRcuCYn
-	dcW5ICAvgVlDRU7xSgghnv1UzXLEo7ZXc4hXy3neB1iLD8uMicvJ3btc/Cs3m6E4lqxo5hOwEg/
-	cNBVHnWtZXowHNUMbt5qfFMh0kTEPOqWxIvfz+no4WOcgQXHTKdJF3oaznzFxBgsnQZYDHwhOMY
-	jxiEW2jWugg42jKH1O5Y8XJJeIMo/roCR1Trqx9RofN3bNF9XvsB3L84Q8flUGwjJYaLdeMa9vb
-	cZGWxMd5gPI3wgVQrkwpIcI77jKTQunoQMio3/2RV7iMsuteqX1ufgZRIejJYCcNxDupapCMA4T
-	LWTY1prBS29NX05uue4OM9R4Rvw==
-X-Received: by 2002:a05:600c:a08e:b0:4a1:fae5:f2e2 with SMTP id 5b1f17b1804b1-4bb887e0682mr116990495e9.4.1795231066634;
-        Fri, 20 Nov 2026 19:17:46 -0800 (PST)
-Received: from [192.168.1.3] (p5b2ac65d.dip0.t-ipconnect.de. [91.42.198.93])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88442995sm143683365e9.2.2026.11.20.19.17.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 19:17:46 -0800 (PST)
-Message-ID: <72361086-b932-4fbc-b9d3-eca7df52af82@googlemail.com>
-Date: Sat, 21 Nov 2026 04:17:45 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DOqPX68Z
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D52A1F000C4;
+	Sat, 21 Nov 2026 03:20:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795231262;
+	bh=i6IPMIh4jNQ2qo/4xiiXkBRhOxqHMZd268yZ8IOQ/AY=;
+	h=From:To:Cc:Subject:Date;
+	b=DOqPX68ZKuNArYRd0R2OvUimUF5ybLD3+N175knbl2VIu21pVYdqIjWkUkJ8LM6rN
+	 Z1cYV8YqF91M4w3K13OAVeLHp0xmvKG0WA5pRwET+WXyXx8eUJA+e5woMs/Qnv+LrE
+	 6J7tbSepYbKufJDWB1PMxZgZ7Q7WCOXVfq5nV2Xbpq3C5ElWyC+NSDgoIAh3zM3GbY
+	 Ubiw2nXbzXV8eH4d9UOLZ8RWqRNQOy7P6Se4aPxSKD7nMN9yTxVS70jzDygXMESXEY
+	 WXILxKrCbwFE8Z1SzBCChFDvJyE8Tt4iwtkbwwZqxi/Z9D4W5Y5QjWzV+fU4+a6iYT
+	 BCfTzYdQm0+tA==
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: Ingo Molnar <mingo@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	James Clark <james.clark@linaro.org>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Clark Williams <williams@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	Arnaldo Carvalho de Melo <acme@redhat.com>
+Subject: [PATCH v10 00/16] perf coverage: A harness for perf, and the fixes it found
+Date: Sat, 21 Nov 2026 00:20:36 -0300
+Message-ID: <20261121032052.1392234-1-acme@kernel.org>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,43 +64,133 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH 6.12 0000/1736] 6.12.119-rc2 review
-Content-Language: de-DE
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com
-References: <20261120054951.366579794@linuxfoundation.org>
-From: Peter Schneider <pschneider1968@googlemail.com>
-In-Reply-To: <20261120054951.366579794@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-Am 20.11.2026 um 06:57 schrieb Greg Kroah-Hartman:
-> This is the start of the stable review cycle for the 6.12.119 release.
-> There are 1736 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+From: Arnaldo Carvalho de Melo <acme@redhat.com>
 
-Builds, boots and works on my 2-socket Ivy Bridge Xeon E5-2697v2 server. No dmesg oddities or regressions found.
+Hi,
 
-Tested-by: Peter Schneider <pschneider1968@googlemail.com>
+Nothing measured how much of perf the test suite reaches.  Patches 15-16
+add coverage.sh, which builds perf with clang source based coverage, runs
+the full test suite and reports line and function coverage, and
+coverage-table.sh, which renders the biggest uncovered gaps over the
+whole tree, not only the files the tests already touch.
 
+Patches 1-6 are the fixes the first runs found, 7-14 their tests and the
+test fixes.  1 is a build fix for the GTK UI, which the coverage build
+needs; 5 is a parser change, not a regression fix.
 
-Beste Grüße,
-Peter Schneider
+  - The GTK UI was not linked with EXTRA_CFLAGS, so the coverage build
+    never saw its counters (1).
+  - Absolute addressing was missing from the data type resolver (2);
+    movabs was not parsed (5).
+  - --insn-stat was printed before the samples were accounted (3).
+  - FEATURE-DUMP didn't record features checked outside FEATURE_TESTS
+    (4).
+  - The flexible array member row showed 0.00% while the member said
+    100.00% (6).
 
+  - Tests for the x86 operand parser (7), DW_OP_addrx globals (8, test
+    only: fixed upstream by c3991e42f58a3650), the flexible array path
+    (9), a struct pointer kept in a register at -O2 (10) and the
+    annotate stats (11).
+  - Intel PT virtual LBR, dlfilter zeroed IP and LBR inline unwinding
+    test fixes (12-14).
+
+clang DWARF 4, full test suite as root on this AMD host with the v10
+plus cs-etm tree: 112250 of 232853 lines (48.21%), 86661 of 173942 in
+tools/perf/ (49.82%), 170 passed, one failure (21.2, the known
+Tracepoint event kernel regression).  The total includes libbpf and the
+dlfilters, so it is not comparable with the v6 total.
+
+The harness and the tests were developed with an AI coding assistant
+(OpenCode), which drafted the script and the tests and helped debug the
+failures; I reviewed every change and reproduced each failure.
+
+What changed from v9:
+
+  - Split into fixes, tests and infrastructure; the fixes no longer
+    carry their tests.
+  - The harness is 15 and the table is split out of it as 16.
+  - The libbfd probe (v9 9) is dropped, the base checks it via
+    Makefile.feature (5aa34144027f); the movabs change (5) is new.
+  - 8 and 10: diagnostic greps use || true, so they no longer fire the
+    EXIT trap.
+
+Best regards,
+
+- Arnaldo
+
+Arnaldo Carvalho de Melo (16):
+  perf build: Link the GTK UI with EXTRA_CFLAGS
+  perf annotate: Handle absolute addressing in data type profiling
+  perf annotate: Print the stats after the annotations
+  perf build: Record the features checked outside FEATURE_TESTS
+  perf annotate-x86: Parse movabs like a mov
+  perf annotate-data: Count flexible array accesses for the whole struct
+  perf tests: Exercise the x86 operand parser
+  perf tests: Exercise DW_OP_addrx global variables
+  perf tests: Exercise the flexible array member path
+  perf tests: Exercise data type resolution from a register
+  perf tests: Exercise the annotate stats output
+  perf tests: Fix the Intel PT virtual LBR check
+  perf test: Drop samples without an IP in the dlfilter test
+  perf test: Skip the LBR inline unwinding check when unsupported
+  perf scripts: Add a coverage harness for perf
+  perf scripts: Add a coverage table
+
+ tools/perf/.gitignore                         |   1 +
+ tools/perf/Documentation/perf-annotate.txt    |   2 +-
+ tools/perf/Makefile                           |  15 +-
+ tools/perf/Makefile.config                    |   7 +
+ tools/perf/Makefile.perf                      |   8 +-
+ tools/perf/builtin-annotate.c                 |  19 +-
+ tools/perf/scripts/coverage-table.sh          | 310 +++++++++++++
+ tools/perf/scripts/coverage.sh                | 434 ++++++++++++++++++
+ tools/perf/tests/Build                        |   1 +
+ tools/perf/tests/annotate-ops.c               | 127 +++++
+ tools/perf/tests/builtin-test.c               |   4 +
+ tools/perf/tests/shell/addr2line_inlines.sh   |  20 +-
+ tools/perf/tests/shell/annotate_stats.sh      |  69 +++
+ .../perf/tests/shell/data_type_flex_array.sh  | 111 +++++
+ tools/perf/tests/shell/data_type_global.sh    |  73 +++
+ tools/perf/tests/shell/data_type_register.sh  |  63 +++
+ tools/perf/tests/shell/script_dlfilter.sh     |   2 +-
+ tools/perf/tests/shell/test_intel_pt.sh       |  10 +-
+ tools/perf/tests/tests.h                      |   4 +
+ tools/perf/tests/workloads/Build              |   6 +
+ tools/perf/tests/workloads/flex_array.c       |  55 +++
+ tools/perf/tests/workloads/global_data.c      |  57 +++
+ tools/perf/tests/workloads/regptr.c           |  60 +++
+ tools/perf/ui/browsers/annotate-data.c        |   7 +-
+ tools/perf/util/annotate-arch/annotate-x86.c  |  45 +-
+ tools/perf/util/annotate-data.c               |  25 +-
+ tools/perf/util/annotate-data.h               |   8 +
+ tools/perf/util/annotate.c                    |  27 +-
+ tools/perf/util/annotate.h                    |   7 +
+ 29 files changed, 1548 insertions(+), 29 deletions(-)
+ create mode 100755 tools/perf/scripts/coverage-table.sh
+ create mode 100755 tools/perf/scripts/coverage.sh
+ create mode 100644 tools/perf/tests/annotate-ops.c
+ create mode 100755 tools/perf/tests/shell/annotate_stats.sh
+ create mode 100755 tools/perf/tests/shell/data_type_flex_array.sh
+ create mode 100755 tools/perf/tests/shell/data_type_global.sh
+ create mode 100755 tools/perf/tests/shell/data_type_register.sh
+ create mode 100644 tools/perf/tests/workloads/flex_array.c
+ create mode 100644 tools/perf/tests/workloads/global_data.c
+ create mode 100644 tools/perf/tests/workloads/regptr.c
+
+base-commit: bb27ddbaee56536fb8df0a24f07b526766dfe131
+v1-head: 3f5465bea8f5a97a
+v2-head: 9706c488afffeb6d
+v3-head: f2daf1586528671a
+v4-head: b9e240a1b80ecd2a
+v5-head: a21454e3d055c93b
+v6-head: e1315408a335617d
+v7-head: 7f8dc594d77ed495
+v8-head: 67fde34aeab98a91
+v9-head: b1765115908ede31
+v10-head: 83b30d979fb2d96d
 -- 
-Climb the mountain not to plant your flag, but to embrace the challenge,
-enjoy the air and behold the view. Climb it so you can see the world,
-not so the world can see you.                    -- David McCullough Jr.
+2.56.0
 
-OpenPGP:  0xA3828BD796CCE11A8CADE8866E3A92C92C3FF244
-Download: https://www.peters-netzplatz.de/download/pschneider1968_pub.asc
-https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@googlemail.com
-https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@gmail.com
