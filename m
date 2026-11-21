@@ -1,58 +1,74 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795225985;
-	b=T2gp1g+M5ktUdMGxBZFjXpU0R0Hu6a98yLygAY3tXRqsSTAuTFX4W5fKh6rITewjBrwJ
-	 0956pdSQAlgsLYleaLSJtJwQ9DiLnmkSIewfNFYwS+82+cfD9kuFG40+5EUEMmdeq+RVo
-	 /8i8tEyd+Otz2CrBi2ROAqnCXfmw7qAZtT2i26zfIDZWDQHIKAs/BwvHSOZXsW89fhZwB
-	 ASENw1WnPS4Alb4Gfk5FS2bWqRzeJ5vxFSSMFm9L05XRCqN57qLiDVCV9BD/B20/IDqw6
-	 YJtWU4exLcNYHGmzS2+anF7oa7npTuYtBK0kxoKLBdRm6eKxyp4HWDDHRBdSRcUkIvg==
+	t=1795226035;
+	b=1yKcxEtqqb+WrmD/p0bnGGAhE+BpcwUM3rfjmICdY22MD+p4vinWC7V6dwmWO3YFn2K0
+	 ZuFJK8Uwug2AVseoMmVFxrIWNn3GW6bhZIPC262Vr2r54dhrtjD7L3yT2m+Fv6QAu2nca
+	 ucLxm99sp63buM7gBa4FcVpcINZzMrJ/ZmnhFY//MTQMCY6AkempICUuuC+SvRTlJfiqS
+	 j4QFoWrhG7kaqg+TYNUZpBg3kYIRd8kB+fDuwPmCLQ6nrUyKLebF7wdXi37j+HKqc9B0j
+	 UGa6byglHwguH0P1MpbaVnUCabE7kr4JBFSB0WkDDWBugmCNQn4qxNZ+1uH0qAps9+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795225985;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=JXLZS1jRb+VGZO0HqZNhzJ4SDAnRA+oeBuGIPlVEtKw=;
-	b=QN9vrIIQrLaesBKrXscMcWVXF/lKz4pQ1eCE7h4iQMuHwEioRCMcpRvsOvtogkX9r5LK
-	 SGhyIKbYC78FkOYkdu2DqqthmvjLvrA6CARf8dDgBp5K+kxj99uScDaIsOAZxd/gWRTiu
-	 iWuJOULsreWTRPL1rCdFaUWO893loJ0RA628IkJqDtyGkKfosY2qTa26jV4X2yY2MJIo4
-	 LVHy0sCpo9xdNfE2TyqcqX1BgAayWXV74wPUN0QtEFEGxZFQUlQWzTI5lIXrRsJYbO739
-	 zG/xYDiXedoeUpumt4/4ZjdctZ4Mofs3HUfjoK/9Kqd0qoNeuwH+35OsmI7qUthQPQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795226035;
+	h=Received:DKIM-Signature:To:Cc:Subject:From:In-Reply-To:Message-ID:
+	 References:Date:MIME-Version:Content-Type;
+	bh=bAEwXufd1aGDXQpyMZqUXHHvNXg6L4UcF55OuXC5FcA=;
+	b=agTTBEs4IUrgzHlaszNman+gviJJLeomj930JmgodZBxaeffzGcL36Fe6xcL3vhG6h7D
+	 434kT11icprU4VoFcw0znkgksk2/1NFYsQD0RmK2psBQMNQxU1JKp03bCY++2y8Eovmc7
+	 uo9794NJKJKS+4lWEKCwtbGDq117nJCdceofk/exnF/vDaLzNFH8RtmEoD1jm6IxaZE24
+	 IAdtxj7wy9ewKg/12VESbioJxemRYLpvIBmqy4ySgkyAOeaKIAeTPV8NeI75lQgrfE+FO
+	 O7jV8yYf9R/CwZJ5cy1dX+ShYdh0m5KwibLirwE7V032MnLt5KLB1n0ie0FXEmE17gQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f4PK6551;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=opGg8+ns;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51C61606A69A;
-	Sat, 21 Nov 2026 01:53:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02D52606A6A5;
+	Sat, 21 Nov 2026 01:53:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f4PK6551
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39BAF1F000C6;
-	Sat, 21 Nov 2026 01:53:04 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=opGg8+ns
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 355461F000CA;
+	Sat, 21 Nov 2026 01:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795225985;
-	bh=JXLZS1jRb+VGZO0HqZNhzJ4SDAnRA+oeBuGIPlVEtKw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=f4PK6551sGtj9oI3CP1QnHgia9OKI8oldjkPOzWlxqt1JTg4GAvRtxmrj6DjFfXJS
-	 u+XNRPSTLBarFr5Fejq3AALQb/RgPpHDBaqliZlO+DL+hSv8b2OJAkIPHuQ28bYL1E
-	 8BHPgHaVLfy2s5/Svdb7362khi/VaPETmq0U4jubS7CXm1G01mzWlOvcPNDJjG1gBr
-	 waVLrm8HSlKmny/C4E7TA6NHaX+ixv9cCZX6cayIRYiREhnUPBn809d8pS29en5Yz1
-	 tNL4TEjnQ3531RaHRima3Ss5bk2gsab/zXsAqpasdUo8aNWh8mkGxSOMzbd0jt6LT+
-	 FslcXywEMx//w==
-Date: Sat, 21 Nov 2026 01:52:58 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Rodrigo Alencar via B4 Relay
- <devnull+rodrigo.alencar.analog.com@kernel.org>
-Cc: rodrigo.alencar@analog.com, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, David Lechner <dlechner@baylibre.com>, Andy
- Shevchenko <andy@kernel.org>
-Subject: Re: [PATCH RFC 4/5] iio: buffer: add struct iio_buffer_attr
-Message-ID: <20261121015258.568572b1@jic23-hlaptop>
-In-Reply-To: <20261120-iio-core-attr-review-v1-4-05b41f8133c2@analog.com>
-References: <20261120-iio-core-attr-review-v1-0-05b41f8133c2@analog.com>
-	<20261120-iio-core-attr-review-v1-4-05b41f8133c2@analog.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1795226034;
+	bh=bAEwXufd1aGDXQpyMZqUXHHvNXg6L4UcF55OuXC5FcA=;
+	h=To:Cc:Subject:From:In-Reply-To:References:Date;
+	b=opGg8+nsP0elsmYvahbz6usW7HjsQqa3GSu6KnGpiohCy0PS8KdET/lScPkT7qAJr
+	 F546mCR7J9WDqoMR+653GPF6weueRkSSRqmpDcIjCstgxi9ZA9/xqpQ0at6s1oSaeQ
+	 LSMCPoudX3ER8CXSzgTqzugMMjTw7uVnU1k7/SXN48J0hEBGGgxxj+7dRBAwANfyXy
+	 UCVsRkYNLWj+DeqrHRgz576m1vba5Pm1nF+kDCA4+7241ffwOgHTI1i6ZZ0X+Ch+RW
+	 8WJ/3OONN4PAzYMJeo+nijM+KiY3Ps9Bw1mfPwqDRv3hRMKFTFMR1JOCimNNDYJHvs
+	 nRrj7Q5UF9iLg==
+To: =?utf-8?Q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?=
+ <u.kleine-koenig@baylibre.com>
+Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,  "Martin
+ K. Petersen" <martin.petersen@oracle.com>,  Adam Radford
+ <aradford@gmail.com>,  Adaptec OEM Raid Solutions <aacraid@microsemi.com>,
+  Matthew Wilcox <willy@infradead.org>,  Hannes Reinecke <hare@suse.com>,
+  Finn Thain <fthain@linux-m68k.org>,  Michael Schmitz
+ <schmitzmic@gmail.com>,  Ram Vegesna <ram.vegesna@broadcom.com>,  Don
+ Brace <don.brace@microchip.com>,  HighPoint Linux Team
+ <linux@highpoint-tech.com>,  Brian King <brking@us.ibm.com>,  Kashyap
+ Desai <kashyap.desai@broadcom.com>,  Sumit Saxena
+ <sumit.saxena@broadcom.com>,  Shivasharan S
+ <shivasharan.srikanteshwara@broadcom.com>,  Chandrakanth patil
+ <chandrakanth.patil@broadcom.com>,  Jack Wang
+ <jinpu.wang@cloud.ionos.com>,  Junrui Luo <moonafterrain@outlook.com>,
+  Kees Cook <kees@kernel.org>,  Dave Jiang <dave.jiang@intel.com>,
+  Giovanni Cabiddu <giovanni.cabiddu@intel.com>,  Bjorn Helgaas
+ <bhelgaas@google.com>,  Lukas Wunner <lukas@wunner.de>,  Sebastian Andrzej
+ Siewior <bigeasy@linutronix.de>,  Thomas Gleixner <tglx@kernel.org>,
+  Duoming Zhou <duoming@zju.edu.cn>,  linux-scsi@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  target-devel@vger.kernel.org,
+  storagedev@microchip.com,  megaraidlinux.pdl@broadcom.com,  Markus
+ Schneider-Pargmann <msp@baylibre.com>
+Subject: Re: [PATCH RESEND] scsi: Consistently define pci_device_ids using
+ named initializers
+From: "Martin K. Petersen" <mkp@kernel.org>
+In-Reply-To: <20261111183844.1906794-2-u.kleine-koenig@baylibre.com>
+Message-ID: <yq1fqwvosps.fsf@mail.kernel.org>
+References: <20261111183844.1906794-2-u.kleine-koenig@baylibre.com>
+Date: Fri, 20 Nov 2026 20:53:53 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,81 +78,19 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 
-On Fri, 20 Nov 2026 18:04:00 +0000
-Rodrigo Alencar via B4 Relay <devnull+rodrigo.alencar.analog.com@kernel.org> wrote:
 
-> From: Rodrigo Alencar <rodrigo.alencar@analog.com>
-> 
-> Buffer attributes find their buffer through the buffer field of
-> struct iio_dev_attr, which is unused by every other attribute.
-> 
-> Add struct iio_buffer_attr, extending struct iio_chan_attr with the
-> buffer the attribute belongs to, and use it both for the scan element
-> attributes and for the buffer attributes wrapped by the buffer core.
-> iio_attr_to_buffer() now resolves the buffer through it.
-> 
-> Signed-off-by: Rodrigo Alencar <rodrigo.alencar@analog.com>
-> ---
->  drivers/iio/industrialio-buffer.c | 63 +++++++++++++++++++++++++--------------
->  1 file changed, 40 insertions(+), 23 deletions(-)
-> 
-> diff --git a/drivers/iio/industrialio-buffer.c b/drivers/iio/industrialio-buffer.c
-> index 48fdaed6d703..af5c9ecd1b3f 100644
-> --- a/drivers/iio/industrialio-buffer.c
-> +++ b/drivers/iio/industrialio-buffer.c
-> @@ -69,6 +69,22 @@ static const char * const iio_endian_prefix[] = {
->  	[IIO_LE] = "le",
->  };
->  
-> +/**
-> + * struct iio_buffer_attr - IIO buffer attribute
-> + * @chan_attr:	underlying IIO channel attribute (channel is NULL for buffer
-> + *		wide attributes)
-> + * @buffer:	the IIO buffer to which this attribute belongs to
-> + */
-> +struct iio_buffer_attr {
-> +	struct iio_chan_attr chan_attr;
-> +	struct iio_buffer *buffer;
-> +};
+Uwe,
 
-> @@ -1526,25 +1543,25 @@ static struct attribute *iio_buffer_wrap_attr(struct iio_buffer *buffer,
->  					      struct attribute *attr)
->  {
->  	struct device_attribute *dattr = to_dev_attr(attr);
-> -	struct iio_chan_attr *chan_attr;
-> +	struct iio_buffer_attr *buf_attr;
->  	struct iio_dev_attr *iio_attr;
->  
-> -	chan_attr = kzalloc_obj(*chan_attr);
-> -	if (!chan_attr)
-> +	buf_attr = kzalloc_obj(*buf_attr);
+> ... and PCI device helpers.
+>
+> The various struct pci_device_id arrays were initialized mostly by one
+> of the PCI_DEVICE macros and then list expressions. The latter isn't
+> easily readable if you're not into PCI. Using named initializers is
+> more explicit and thus easier to parse.
 
-Maybe some free magic is appropriate here.
+Applied to 7.5/scsi-staging, thanks!
 
-> +	if (!buf_attr)
->  		return NULL;
->  
-> -	iio_attr = &chan_attr->iio_attr;
-> -	iio_attr->buffer = buffer;
-> +	buf_attr->buffer = buffer;
-> +	iio_attr = &buf_attr->chan_attr.iio_attr;
->  	memcpy(&iio_attr->dev_attr, dattr, sizeof(iio_attr->dev_attr));
->  	iio_attr->dev_attr.attr.name = kstrdup_const(attr->name, GFP_KERNEL);
->  	if (!iio_attr->dev_attr.attr.name) {
-> -		kfree(chan_attr);
-> +		kfree(buf_attr);
->  		return NULL;
->  	}
->  
->  	sysfs_attr_init(&iio_attr->dev_attr.attr);
->  
-> -	list_add(&chan_attr->l, &buffer->buffer_attr_list);
-> +	list_add(&buf_attr->chan_attr.l, &buffer->buffer_attr_list);
->  
->  	return &iio_attr->dev_attr.attr;
->  }
-> 
-
+-- 
+Martin K. Petersen
