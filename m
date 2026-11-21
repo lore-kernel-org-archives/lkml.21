@@ -1,73 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.106
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795263916;
-	b=sEECod7Z3RmKuAxwqjncdSKZeStqFQ+vwdjLMYq1VXgrdX2uOQcorD74rK29snoAn+jl
-	 VundhVuDPTsNYHD5SKFs2T0xK6oeJ80maVB8Q0fzTAkom43diQhEGKHXXebDla6J6f+LI
-	 A6fxn+TzkBFM/d8XBEF1Oy2WtM5T5ziB/q8ucs1AlVPxpKV5VQWx8Byg/4BRasIYE+acT
-	 sO09WmgVyJxWDMwnf1Tti2egTPS7kAU+ukkmDdCIaHkb3cxgMFccHya29RoD4WrQ1kRwh
-	 s9rjqfSXDMVdnnkANSPYd8rlaoTZMM7Vzx5Ugf3+zdVHBDbIZ7FNDhpcU0piBTj9Emw==
+	t=1795263944;
+	b=DWClXwEwcbIfI3Y+ZHqHb2lmAFd3oA9QlEWJXcYCr6CeNkTjqMI67hRGgiGqTVUYTZ8T
+	 toSC/Rn/BkWasTGK+4UD7QErkVjXkVTOnU3s4IMSUjGgUodzqyD+uOlIR8LLqZarVQbL+
+	 y9VAHokejiwRPy615TNy1VnUdNcfHmA+8mNKmb7Q+U3ryCq+VNEKFFiMQXUjhegfIX0Xw
+	 0lT5AH3Y/Uzp3A256X0RYEbsKJFEYumBabm/faQSAzJ91TBlsE2m1+8grL8vkuyh5VH2V
+	 0u/zQgSbw08Il2nHXr0l4docgs78zPBqrepLa2jWMl8cuNiJxiogYIU50C4ZIEMGnqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795263916;
-	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=OMJUqx2DQ3BhmM2pBkud0YM/8aXiQ465Qxorf67Y66o=;
-	b=NjrSWOWaWWDC/TPS8S3PvqJhOmw5meLd+KO2UyAcnJSXudFoVuAahyBJ1za2XXY74vea
-	 ivzAlYPRjkaO3vDBFzbD0brWJNnK3cEC80iGvcyC8+XqCnDMd6w3Rp5VO0HJpmwSAYoQz
-	 oXIdF71ytt4xRpLTbohybbP3NJdNnz/6lDUjMl8ZZZEsB+O5VwtSK9lBapuDOZt0+7q84
-	 BhxYR/uPblFUYivZEoM3JVHaSEeoa7DudFBCtrCZEGO7E7/EAsUYJbFNg96n+Ivy7Uz7B
-	 Z5OpDfpRL/uLkk5PVMEYRn3nCt4/F8SJQwv8/Fv/AmL5LSVnnFuSpRqQOr4fZ7HnkuQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795263944;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=2xTIHmgzq00zeTm+KYjdeLWR3+4wv51SMkHMEHilZEk=;
+	b=miUz5uDjc4Ju26t1LEFC2vTQ57SGRGlR8Zuq44d1kyDlwKPWtN3SKxllMMkuCtCDFvDz
+	 t1cC3sGAc4zPU1BwNgnk3FeCGSR/wrsPeU9Xpf/rXGuo47sMi+bOjWXNA5D96aPopQEWV
+	 iF2CCLxTzS6ZlTrRF2HFjYob41fs/5DhUAOOlapE+M1WJ/O0LOFHPAII7kD4p3Sr664+m
+	 /i08HxrSsPbL0TA/c9MACZamJtbM+7PY/CVgNesBZnfZkQWdKliu6io5mwtwQDzr4AhWh
+	 keD9Mj8liVG3nfN8o3YbK5oNCd15bN4d/iy8jvgIUot6M5GY8KHHiuS+js2754smgNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=onurozkan.dev;
-	spf=pass smtp.mailfrom=onurozkan.dev;
-	dkim=pass header.d=onurozkan.dev header.i=@onurozkan.dev header.a=rsa-sha256 header.s=protonmail2 header.b=NlD+OZHp;
-	arc=none smtp.remote-ip=109.224.244.106
-Received: from mail-244106.protonmail.ch (mail-244106.protonmail.ch [109.224.244.106])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Sa0jDgdg;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AD74606A32C;
-	Sat, 21 Nov 2026 12:25:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AD74606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=onurozkan.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=onurozkan.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F72B606A330;
+	Sat, 21 Nov 2026 12:25:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=onurozkan.dev header.i=@onurozkan.dev header.a=rsa-sha256 header.s=protonmail2 header.b=NlD+OZHp
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=onurozkan.dev;
-	s=protonmail2; t=1795263912; x=1795523112;
-	bh=OMJUqx2DQ3BhmM2pBkud0YM/8aXiQ465Qxorf67Y66o=;
-	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:From:To:
-	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=NlD+OZHpJ0nC5UIQ/VqY+yPMhtgzft/2SpP6Mtl7A1Kp4wsy5uXZZQ166yubGSebY
-	 m6tFz8Q9FUdYdGjJWaZpt/MzSTb0+4s6js6DuS1nAADnJSR0eR7ot5ET17tp8GoHC5
-	 Hy5GoQQYbFPet7Zj8lGMt4h7g2QCKfQi0g31d03hnfTjd5dg0gJmERPSfnIpmeTY4Z
-	 JWsM/MhQl1Wo44tSnSNqdacW+gWqJ391AYCzuoKumME3BjPUDa0irZmznXR8uQ/u/Y
-	 4tOOGeFhS8TL9QWY7SdNLfK15rTN5exXSp1LRPO4eAOC4FAPJ7YT8ODV9+47T933dy
-	 S8U1e02kT5ftg==
-X-Pm-Submission-Id: 4jWrxx4yJtz1DFSv
-From: =?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>
-To: Daniel Almeida <daniel.almeida@collabora.com>
-Cc: Alice Ryhl <aliceryhl@google.com>,
-	linux-kernel@vger.kernel.org,
-	rust-for-linux@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	dakr@kernel.org,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	ojeda@kernel.org,
-	boqun@kernel.org,
-	gary@garyguo.net,
-	bjorn3_gh@protonmail.com,
-	lossin@kernel.org,
-	a.hindborg@kernel.org,
-	tmgross@umich.edu,
-	boris.brezillon@collabora.com
-Subject: Re: [PATCH v8 1/3] drm/tyr: clear stale IRQ state before soft reset
-Date: Sat, 21 Nov 2026 15:25:06 +0300
-Message-ID: <20261121122508.20705-1-work@onurozkan.dev>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <B56A0B7A-A0DC-4BCC-8556-F7BC105B991F@collabora.com>
-References: <20261113-tyr-reset-impl-v8-0-2ee298ac9808@onurozkan.dev> <20261113-tyr-reset-impl-v8-1-2ee298ac9808@onurozkan.dev> <av2U1FflKT1mEotg@google.com> <B56A0B7A-A0DC-4BCC-8556-F7BC105B991F@collabora.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Sa0jDgdg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 090011F000CA;
+	Sat, 21 Nov 2026 12:25:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795263943;
+	bh=2xTIHmgzq00zeTm+KYjdeLWR3+4wv51SMkHMEHilZEk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Sa0jDgdglw59933Wovra2XPKfLyVfGYnAwW23yHMLQtVhCMgeTtBux+xufDx0loOG
+	 9kPO3efUkV8E8cERpa022RyyarkmqPSHgCjI4W2VNVbIcNfK/+m2PkHD828N09d7Bl
+	 k6/1crogHBRzZElaAE2DYsL5AFaAWakw6oNdwWc0CZDtmSh3sP56+5zrhVam8NoDvL
+	 DMeLvowx11mlyrp/+KxvAGnCBZA58HA4g4p6jjxU8mdia/V7k5+iH+NPDa+tGQrnA4
+	 Wleh//mNJsy4UO9q6nJtR95zH05EudZYFeO8FWhJ0EvSLqjdUouxtcIwqZT/Lcu3iz
+	 JAnD8YSychHOQ==
+Date: Sat, 21 Nov 2026 13:25:40 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Roman Vivchar <rva333@protonmail.com>
+Cc: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>, 
+	Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>, 
+	dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] dt-bindings: leds: backlight: add Kinetic KTD3137
+Message-ID: <20261121-sticky-firefly-of-innovation-c4aaaa@quoll>
+References: <20261117-6768-ktd3137-v3-0-b4fd957e3b00@protonmail.com>
+ <20261117-6768-ktd3137-v3-1-b4fd957e3b00@protonmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,38 +60,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261117-6768-ktd3137-v3-1-b4fd957e3b00@protonmail.com>
 
-On Wed, 18 Nov 2026 10:07:49 -0300=0D
-Daniel Almeida <daniel.almeida@collabora.com> wrote:=0D
-=0D
-> =0D
-> =0D
-> > On 18 Nov 2026, at 09:06, Alice Ryhl <aliceryhl@google.com> wrote:=0D
-> > =0D
-> > On Fri, Nov 13, 2026 at 05:32:26PM +0300, Onur =C3=96zkan wrote:=0D
-> >> Previous reset may leave the reset completed IRQ set which can make th=
-e=0D
-> >> poll return too early.=0D
-> >> =0D
-> >> Clear the IRQ first so the driver waits for the current reset to=0D
-> >> complete.=0D
-> >> =0D
-> >> Reviewed-by: Daniel Almeida <daniel.almeida@collabora.com>=0D
-> >> Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>=0D
-> >> Signed-off-by: Onur =C3=96zkan <work@onurozkan.dev>=0D
-> > =0D
-> > Do you want me to merge this now, without waiting for the other patches=
-?=0D
-> > =0D
-> > Reviewed-by: Alice Ryhl <aliceryhl@google.com>=0D
-> =0D
-> If Onur is fine with this, I think we should merge what we can.=0D
-=0D
-Sure, I am fine with that.=0D
-=0D
-Thanks=0D
-=0D
-> =0D
-> =E2=80=94 Daniel=0D
+On Tue, Nov 17, 2026 at 07:40:58PM +0200, Roman Vivchar wrote:
+> Kinetic KTD3137 is an LED IC, used in various mobile devices for the
+> display backlight. Add devicetree bindings documentation for this chip.
+> 
+> Datasheet: https://www.kinet-ic.com/uploads/KTD3137-04a.pdf
+> 
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> ---
+>  .../bindings/leds/backlight/kinetic,ktd3137.yaml   | 64 ++++++++++++++++++++++
+>  MAINTAINERS                                        |  5 ++
+>  2 files changed, 69 insertions(+)
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Best regards,
+Krzysztof
+
