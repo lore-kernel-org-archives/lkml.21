@@ -1,95 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795285029;
-	b=FmVEuMIe93XxMmgF2ZHXqkx3IFNx6s/YeW7vEiFhMz6uQdARHpZ7Ls0q90EHIoly05ed
-	 yWNQ6sIbt9VR5ht7gkV7D9iQzB8rxU5e+caRO8oeAStE6Yg5mgaPX11Nt2G9t3eMh9+1F
-	 opom7PnJkP1ueX5v1huMAKrxFrqlC/692dmGq6+Noei5nndbjvwI7KfbZtOJLfvlHvEXx
-	 XYEJv54mnQFSmH1pNKW79t9wiFyRhO3oSV5lo3qOAXEXqAO6GSo6u/q7qS/JuvSrZsl77
-	 JAl5WkPyYkSz8V5uogsUfFPlqr0xv+kXV80/ugcVChUMON1famcQghhxqKGXWwq0mHw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795285029;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=UhzIB9kDRA/O8B0wyP5frsqnTbd8pw1jKQ9ECYnxkeE=;
-	b=sdef0WuplS+YpHPnz9hfJgZh7jXVHd9PEen1cR47F4F8upu+tzDzbSdEpIY53obr7P3j
-	 8MeWzPDNUR7v8jIHXhkVOqlTGSk1ygapQx67bis7JOw/Ae/PQjDNW1qrX0XofvCPzw+iI
-	 CIMa8kH4wKDzNkxQ+DdNixJPi1UKgQ+0/07Y7HX/ddnJvPe0RqUumU5oLUSaDPhk0x/nS
-	 WxN3OvQyELLPxpdDMsTyuenNxRyTdhgB//DnbzHFfpJOujQ5a81ZcGMTlec293Ke8ONU9
-	 HUTG4ksA6d4B+v62y+Ng45YOU4z1dNKOf+smWq+463xuCDF4CAV785H3tZd0dfruFEw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DiLOvKEx;
-	arc=none smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795285101;
+	b=EFH+p98iv9/tbtvKTj22Jj3MCI8h+Nrdd8oYJACaf6es/DKaxDcAlTXsYPg6/Uo6fHUA
+	 UozlGV2NEWLogQBoit6Y+lgfanhP2hlAZNgfry2+ZsVvNg/itb66gMbASrmIb3l/7D7S4
+	 ShBdwP4U0d1wfueZUrseDn9y9LRK4cPTr3yZj0kkYMiCDujkSWxj+Zb6gXBGFc7ANW++J
+	 6f3Bh/JyWaK/HKAZaRk6Ka7/oxfbpGnrlW1Y3g9+diPnzG2cFMWLLRB0wFWA+oxhlHjNY
+	 8tZUrtVz5GGdPlFec0s5NppIWG+f70Cz1JkCM6lFJpCbpu0kl3bSamHMK8IwCE168gQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795285101;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=ncDTKvJKW3D6IFjX5rtEEcYzOp1fkxCmtnJZ4T79BVA=;
+	b=oHKTE9xaPH+Hm370FthVlc323Gpti6u6K4UEC2usyPxtRi0Wbz2wqk/nDw/Fhk7ZKVUh
+	 y9xaSfvNTZi8TKhLzB72zlsBgIu8ezWWx8nN0kXGAo4ynKV7Gf8h7zTsqIDI22bH8q6ZK
+	 2xfi+xGi9sQLImrW/inrbbRguVRg3NPd4f0qEuoLYk3KZpSMKuGG38/6Y6CBUuLvbQXmc
+	 41K8jw2+xGc22Wao/VwPtfRqSo15ZUVe8aoMmaQRld5fJBlyACCCoCR8gEG6FF0Izoeas
+	 t9NdnhoufoBN3PrTME5vwp6ERJM7Z61r4iNzZtnH6bYEirtfCxuxShsm8Sg/zt0u/0g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PYwOjRhA;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 359DC606A320;
+	Sat, 21 Nov 2026 18:18:21 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PYwOjRhA
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795285101;
+	b=iavaaP5Qp1Ge75RGryZ/zzC/gpFHvlKUxS+lJBLdjrHRxcojgIFlsiApi7Qp/lKt49h+
+	 0lEerxxwrMSUH0+sULlMvcO8ozu5kl5ohhvCKUrQyMeaGF6umeZlc0cqWT4yM/rs9cmmD
+	 1T64wxIP6q+2pxYfQNtg00OmezTPaXx7PIWg3GNo5nDOQqclLIPphkR4+R8nLUiiVzhPg
+	 XAY1iH1DI62P5PnK/hSSF8n9a8cKFuhQVODueL2NEKqeSBhnUhJ1dh0fjMcFIbJ2gsu3G
+	 MR+FQt28HKNuB3SHCIo28D012KCvQji6SOo4IvVewBzw3GRDub83xrfCf3LuNUBAHuA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795285101;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=ncDTKvJKW3D6IFjX5rtEEcYzOp1fkxCmtnJZ4T79BVA=;
+	b=vjyFHM58lRN2brs6SG4MYPOsXEeV+Nm68QXpUPUgWzXtrSfzPaa1QBA9G+EKbLzgTgf0
+	 OzK8Fs0nk/xw9ZpQIzB98eZXi8avUac/qmdjMgrH2f1n2kROrIrMGyy+COzmWqsoNEBQ4
+	 sDwdPxPwj0tS0MNnhwJP14biMafyFLNffuS5RzEOFPpKnDbAYskVyXM7t4L14CVk9Qd8+
+	 r6VctYr8UknZmb2cL8GtGhDDZIYPnKSvRVYozgB1/jQGiuAVkll2yhYh+WHGP0IUAl9nK
+	 wTIjep7A1CvZN8A2t0pR5voex05S/u1pp0Zvamnd+DPEjpcMpEWlUnkbNG1VCNXdDYQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BA4A606A333
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:17:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4BA4A606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DiLOvKEx
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a3517554f7so19168275e9.2
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:17:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795285027; x=1795889827; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=UhzIB9kDRA/O8B0wyP5frsqnTbd8pw1jKQ9ECYnxkeE=;
-        b=DiLOvKExvnJJabRvpakLyt8W+tMc4HkiXeq0BcKxPBX5QuRH8LhmvoqfCEApUKuzml
-         SlxdL30qETTWMhy8wjpGveKsKvquE4kMAG2Pfh2hPPC6tf3hYuIHwHUdxfH8uYelVo7b
-         n9SmpzAKedC6QTJwNTofa4A6LIl8cuDPqxEwrdk+bR9iCHRhn0BZD2Frvd5gCd1kdGgk
-         cE3FpraODjDzSzMj2arwRw9Ck+FqAxAN87BEDxxAagdYntckh/YwKvCcvs8JzXzdHBej
-         KyuMJmwVbBpWxIEmzOqy6my0Cy2LrEhSctI06IFTG35Z8nqq93vLlCEj6nDQD69h/5KW
-         axqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795285027; x=1795889827;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=UhzIB9kDRA/O8B0wyP5frsqnTbd8pw1jKQ9ECYnxkeE=;
-        b=g9N9KcDwtEeeA+DKEOR/KSnDoiwEQLjnnze8s/0rc+jpDx0fO8A55m03mJQ+nwqdSq
-         x4IJqB9t4Z0bTFjrsLBvOCnTDQUJFOQ3G4EEEXlWY9C2L/nBzY9gHkgkSFKTmnOHWAcD
-         zsOtBLWfSTDh5/xbS+BPEU7btX7smDfPw0sooda+CP0AczIXj+sfvx4MHx+hFji1TJgR
-         /AoRHmmYbdUeRr+WWDUYsD3SiKkIYzcJbHTsaXfDF7rNmCBkhp+9enr1iRbak/6hyugL
-         MZhMTk/x7W+ApsFe6XAhHcyPNsC8Z4QVxCQ0uSSiS5UGSk44zDB6VelsJO1F6HQqIKOq
-         YbmQ==
-X-Forwarded-Encrypted: i=1; AL+hErH/iln8YwogQlFgzPF2xWOVpeLVGX71QJkWDl0xz68s9/tqFIaeDY2+6FlnznpGKScP7BBcuDiTtV36UJA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z96Hueoa0lQxZxijvjMud7duZe1Axr5gnFLG/rYKy6cEX6xeJuZ
-	NIPQub8OmKPypAoelMSZRQQidgy5/oLSv0boKEy9if45H4cLYZbYKs32
-X-Gm-Gg: AZFdTZc0VqR7va+dSg1hm2Hxj+eEmTOb4n5cV5RbAGRdpWmEPYdaMm9uKIIn/owzcVa
-	HYHrzBJrSxYIp6SZl4o4N+6A4CHu/8YwSShlPw0VXYT8Rxq4+ejkXYfQW3spiCSio+gVPwuDOPj
-	JCeMnS/Ao9byAOEJkD3d297s8IPNw5/gyM++oVJSDXuuds5xpSxHvy3gO9nLf6gcr8s+eqA7ogI
-	/dk82w2zLQWZP5/k4L7u3IfN4SMS5soMAA4MEtiP+CoJR3fSHt2ztvjrnvYFEhaUx00We9EkTz9
-	xRSbmuvGS98naeZYtXZTX2qs2CQ4QZqaMAPaTfQ2/brZywl7TfoXxPkBVWRam6tkCXL1P3Dm3HN
-	5G/J/RvK7nvq+qLNW/SO+p+nl4+L4K420YEF4ecSBCCtiAn9f6jJcmJ3xxVEr99JSJJwEFDsQ+R
-	ycCQdEHY9Qz90gbIobSKBnz6uGhm84r087i/dKUQBqTE8TKsup3av562/wJigHfEW5lQCyNO8zy
-	Pd5vlRBQtNIHpGKDHWZRP4j0nQ5Z0WPXrWAzgcxupbPisQGymsRkq8w5lXWIhMnZ3hHvpOwsoTf
-	VH4vNLVmpZtIP+y5MfZH7DsN3rMNclBTbV5j/+glJcviZstFUFvZpc1NJK39CAM/wlWjdRMy
-X-Received: by 2002:a05:600d:82c5:b0:4a3:5aee:2c25 with SMTP id 5b1f17b1804b1-4bb88822642mr168886035e9.31.1795285027487;
-        Sat, 21 Nov 2026 10:17:07 -0800 (PST)
-Received: from localhost-live.home.vlan10 (053da81f.dynamic.tele-ag.de. [5.61.168.31])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88402ce9sm152782155e9.0.2026.11.21.10.17.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 10:17:07 -0800 (PST)
-From: Joshua Covington <joshuacov@gmail.com>
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	linux-clk@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joshua Covington <joshuacov@gmail.com>
-Subject: [PATCH v2] clk: rp1: allow the clock provider to be probed again
-Date: Sat, 21 Nov 2026 18:16:50 +0000
-Message-ID: <20261121181650.143474-1-joshuacov@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	by smtp.kernel.org (Postfix) with ESMTPS id 7AA051F000C6;
+	Sat, 21 Nov 2026 18:18:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795285101;
+	bh=ncDTKvJKW3D6IFjX5rtEEcYzOp1fkxCmtnJZ4T79BVA=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=PYwOjRhAmlC7m7EdHMGijlL4hwflhtO6Mux3eDuzIhcKjzsQ3WIVOxHwy/qgY55Ht
+	 z7LLXbZ1/ja07cBgZsbkvJfuKAnpwtJc56TJpcjN19MtF8aW9GtjZbXIrsfznZpuTO
+	 rNKnGvgegfj4QemmwkRLQq53DoRdU3OlMR0RPz91xuLLVYDDpfxe7wa5FdbDbSHbtQ
+	 H8fOQQADKF8207ZHgUaXLjAMUTggdjkwwoyJPj1tflqPDgGNp3pI1Js+15a3swX+5k
+	 ja3K4JjdHluT2PGCN9NCiAI9GHOfNjQEoGneevMxz3noNCbYKOpEroqTDJC2tVmrcv
+	 JFf5jREWmfR+Q==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D585F4BD38;
+	Sat, 21 Nov 2026 18:18:19 +0000 (UTC)
+From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
+Subject: [PATCH v2 0/2] clk: sophgo: sg2042: Keep gates used by firmware
+ enabled
+Date: Sun, 22 Nov 2026 02:18:03 +0800
+Message-Id: <20261122-b4-sg2042-efi-rtc-v2-0-6d087e03e4e8@iscas.ac.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,70 +84,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NwQ6CMBBEf4Xs2SV0LQqe/A/DoZQV1gOYbiUaw
+ r9b8O7xZWbeLKAchBUu2QKBZ1GZxgR0yMAPbuwZpUsMVNDJGDLYWtSeCkvId8EQPbLtSiIqzdE
+ xpN0zpOS9O2/Nj/XVPtjHTbQ1BtE4hc9+Oput988/GyzQ1FVdtZXrbH2+inqnufO5H6FZ1/ULo
+ QssGcYAAAA=
+X-Change-ID: 20261121-b4-sg2042-efi-rtc-e4d5222513ae
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen Wang <chen.wang@linux.dev>, 
+ Inochi Amaoto <inochiama@gmail.com>, Yao Zi <me@ziyao.cc>
+Cc: Chen Wang <unicorn_wang@outlook.com>, Han Gao <rabenda.cn@gmail.com>, 
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Han Gao <gaohan@iscas.ac.cn>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795285099; l=2101;
+ i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
+ bh=JKiIHEduS5hiyWa/DdSePRqv7K8ib23Oio2mSrLYzzE=;
+ b=XWWBF8jXOUX1HUf4l5WASPoIi5NGWrSK+caiEitu8JsDdG/2CvTfkI2bnU89QdZszlgeJapa8
+ IJlfO1uGxpxBmw3X+sg0e100TBClDGnH9+QrWivGNSMX6UySEyjD9ab
+X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
+ pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
+X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
+ auth_id=1262
+X-Original-From: Han Gao <gaohan@iscas.ac.cn>
+Reply-To: gaohan@iscas.ac.cn
 
-The clock descriptors are static. The clock core clears hw.init when a
-clock is registered. When RP1 is unbound and bound again, the second
-probe registers the clocks without init data and oopses:
+On Milk-V Pioneer, firmware uses I2C0 for the EFI RTC and the serial
+flash for its own image and EFI variables. Both sit behind clock gates
+shared with devices Linux drives, so runtime PM on the Linux side can
+turn them off under the firmware, and GetTime() returns EFI_NOT_READY.
 
-  pc : __clk_register+0x5c/0x9dc
-  Call trace:
-   __clk_register+0x5c/0x9dc (P)
-   devm_clk_hw_register+0x5c/0xe0
-   rp1_register_pll+0x24/0x40
-   rp1_clk_probe+0xc0/0x168
+Let firmware list such gates in protected-clocks on the clkgen node,
+and keep them enabled.
 
-The clock core also leaves hw.core pointing to the freed clk_core on
-unregister. Some clocks refer to a parent that is registered after
-them, e.g. clk_mipi0_dpi to clksrc_mipi0_dsi_byteclk. On the second
-probe, their parent lookup can use the stale clk_core.
+qcom, the only current user of protected-clocks, does not register such
+clocks at all. That would break the I2C controllers Linux uses, as the
+DesignWare driver needs the clock rate, so here they stay registered and
+are only kept on. I'm not sure this fits the intended use; suggestions
+welcome.
 
-Restore hw.init and clear the stale state of all descriptors before
-registering them.
+Tested on Milk-V Pioneer.
 
-Fixes: 6486341721a2 ("clk: rp1: Add support for clocks provided by RP1")
-Signed-off-by: Joshua Covington <joshuacov@gmail.com>
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
-v2:
-- Also clear hw.core, div.hw.core and cached_rate of all descriptors
-  before registering them (Sashiko review)
+Changes in v2:
+- Drop the EFI MMIO patch, Ard is taking it through the EFI tree
+- Use protected-clocks instead of scanning reserved nodes under /soc
+  (Krzysztof)
+- Document protected-clocks in the binding
+- Link to v1: https://patch.msgid.link/20261121-b4-sg2042-efi-rtc-v1-0-19898b8ad497@iscas.ac.cn
 
-v1: https://lore.kernel.org/all/20261121163915.86681-1-joshuacov@gmail.com/
+To: Stephen Boyd <sboyd@kernel.org>
+To: Brian Masney <bmasney+clk@redhat.com>
+To: Jerome Brunet <jbrunet+clk@baylibre.com>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Chen Wang <chen.wang@linux.dev>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Chen Wang <unicorn_wang@outlook.com>
+Cc: linux-clk@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: sophgo@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org
 
- drivers/clk/clk-rp1.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+---
+Han Gao (2):
+      dt-bindings: clock: sophgo: Allow protected gate clocks on SG2042
+      clk: sophgo: Keep SG2042 gates listed in protected-clocks enabled
 
-diff --git a/drivers/clk/clk-rp1.c b/drivers/clk/clk-rp1.c
-index 1dd276dd2b..c261306dcd 100644
---- a/drivers/clk/clk-rp1.c
-+++ b/drivers/clk/clk-rp1.c
-@@ -363,6 +363,7 @@ struct rp1_clk_desc {
- 				       struct rp1_clk_desc *desc);
- 	const void *data;
- 	struct clk_hw hw;
-+	const struct clk_init_data *init;
- 	struct rp1_clockman *clockman;
- 	unsigned long cached_rate;
- 	struct clk_divider div;
-@@ -2416,6 +2417,18 @@ static int rp1_clk_probe(struct platform_device *pdev)
- 	clockman->onecell.num = asize;
- 	hws = clockman->onecell.hws;
- 
-+	for (i = 0; i < asize; i++) {
-+		desc = clk_desc_array[i];
-+		if (!desc)
-+			continue;
-+		if (!desc->init)
-+			desc->init = desc->hw.init;
-+		desc->hw.init = desc->init;
-+		desc->hw.core = NULL;
-+		desc->div.hw.core = NULL;
-+		desc->cached_rate = 0;
-+	}
-+
- 	for (i = 0; i < asize; i++) {
- 		desc = clk_desc_array[i];
- 		if (desc && desc->clk_register && desc->data)
--- 
-2.56.0
+ .../devicetree/bindings/clock/sophgo,sg2042-clkgen.yaml  |  2 ++
+ drivers/clk/sophgo/clk-sg2042-clkgen.c                   | 16 ++++++++++++++--
+ 2 files changed, 16 insertions(+), 2 deletions(-)
+---
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+change-id: 20261121-b4-sg2042-efi-rtc-e4d5222513ae
+
+Best regards,
+--  
+Han Gao <gaohan@iscas.ac.cn>
+
 
