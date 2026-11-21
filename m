@@ -1,60 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795253360;
-	b=lkgZmqw2/xglcczc/c93Ved/Gw50PzYTyr4h1Oa3hgWv3dF+I8OACEt+gnx0AANPfLWX
-	 JdKeWzGqWY9erT5JBGnoWwslUSZFbvacpqVA27HbxcHvvI+Ufi3dYGbtMf6UpoqvoY8hE
-	 vycyJiwZ86/e8Y19qeE5SNpgzhLxcKQ2UhotPK5rLkdNRLN8nG/glhNrJruHShfb0Vwj1
-	 MmgyunjP/xmCZx1A5gCEPfvZ3e/qAgd62GT+CD8Xr2FhGHJxlh2SyO9WM87MoJ0YNeBcG
-	 l6rmicBax5tALxQEKNIhHCc5StFyXfpHWuKNGdgS7BLiBZfq3winICtjWU/rAF9tDRA==
+	t=1795253384;
+	b=YRsa2JuGHThpiXinYGuE6mLX4fEjtVDpemrOgw2NjhfVm6YJgbkWUa/NK3p5EWriWqdS
+	 PrIziYU8gHegnDybu4GqB9JzddkEtA4AuHvzw0t6mzVJMtyv2GNFxZMcrqjg/jwDoxpjY
+	 Kfelx1xDKfITTPkAf7Z65kCwnSFcmsXJL/nfTtbUOXVR7NMJJHYLYAWzB8OBQ3V1/QBUa
+	 Mbrel8JxZAGx1bGP5vG9NUFEpNGCLlSRCwKecSDzmHjfOVeZ6YiSIJ2HKEkthoEbTcKRw
+	 NSanoZyJkJ/eoISX3/WcpWp2NIYk/hVpEIBYnIDJu1b8mBmDkCPy/OhVRI1winClthQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795253360;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=GI8ZyhomkX9SOeGQbwiQtxurzIX+mIK3iMVEipRdsds=;
-	b=ceLG+l3Ok+TEQJBGkPVZP9HKSSEAS45H9HHI/WThgRERbbAMvWczpk922hoKo5Czy3IT
-	 +QeA+RS/fvv9bFcCjeKRgDArn4uOzdRxgFopsU/tiHAeW31c+mZoQQz4JZE6E4QBtMj3f
-	 hKVeHcpADFEMMvereMwPST/KHfp4kIDu0H/R8efUA2J2cTFBpRL23A62vS6zwIXUJkcPQ
-	 Sv8mJFaEdNvE4UgofjfQ7m/s3u3V5N+/RwYl/xJtuOxERW3YnkQpDc25mECfhRDOzAgvJ
-	 hgpqBI1J8zhloa1DWpe38/X1mgTUpbIcyTh77+olOtLjVHrTMWE1zJ1CTcx6XZ1mGaw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795253384;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Debian-User;
+	bh=XEMLomkRYjVFAGSgdBsQ30iuJaHeuFjw8UOUtIs9VfM=;
+	b=dJPV2QfjxSGO5xUdlUn5vL1UYwftRgADw7GflJTUMX8Hn2BZg6+EIs9UTH71J7ZFWc6K
+	 0aJWyJEL47/QgJQWw9ZZ2BeCQGEdk3HxP8PfVuBLJQUPFmLeL6kAG/x15xzJjzvziDvi6
+	 GFkVWkJIHlcFLQ3Obx/SOCzGk/y/nk3TZWofjZ0lv7XDOlSrgEmEbXyTzkjF+PbayEWZ8
+	 1Yk2MVlm+zzXHcDm3fEUjjhEwZ2phhLUkPYo/CVoLjLCIjjZSEUuXhxPe7tl9bQH/+dxG
+	 Gz6FYSg0OPLlVYMqBj8PF2UdWJ6wu2W7m9Dbtoouf8NGLjTKm9jTmBW4NBXdZSASF4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N6zhZg3Z;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=debian.org;
+	spf=pass smtp.mailfrom=debian.org;
+	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=sbpfsdIC;
+	arc=none smtp.remote-ip=82.195.75.108
+Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37C47606A320;
-	Sat, 21 Nov 2026 09:29:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB7E9606A320;
+	Sat, 21 Nov 2026 09:29:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB7E9606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N6zhZg3Z
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5E011F000C0;
-	Sat, 21 Nov 2026 09:29:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795253359;
-	bh=GI8ZyhomkX9SOeGQbwiQtxurzIX+mIK3iMVEipRdsds=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=N6zhZg3Z2HWGOKpGsfXYQ3AdVCWwWieaTg7I2IIlvKKafxXeP51oZm/FMzZbRzuMk
-	 +OM63TlpcsZF2DbNpL7nKdAAxKmQoWJ1FfYmIxku1p9fWlaplhAfaG4jKp+iP8VPiw
-	 B/p5G6KAIKEPSmL/AcEmbkEj+MbIc3G/GpbOmuuDIu4m42DyhrWAOaVdznxnm69zf8
-	 JFg1T3PCB4AJ/3gCYuw62i6cjJakLBM+51q1FJXYE/tRqqe8Nti87f4zfzKNHKxmLq
-	 EViOzfcDqjXitpY4DCzzF49pK+KblL25aSlfoFqKQ/XaPgmoxL33wjVamimVPv+3Xd
-	 kkUGa8F48oFYA==
-Date: Sat, 21 Nov 2026 10:29:15 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Komal Bajaj <komal.bajaj@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Kumar Patro <bibek.patro@oss.qualcomm.com>, 
-	Jingyi Wang <jingyi.wang@oss.qualcomm.com>, Luca Weiss <luca.weiss@fairphone.com>, 
-	Shawn Guo <shengchao.guo@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-remoteproc@vger.kernel.org
-Subject: Re: [PATCH v7 3/5] dt-bindings: remoteproc: qcom,sm8550-pas: Allow 6
- iommus for SM8750 ADSP
-Message-ID: <20261121-berserk-likable-chowchow-e29c9a@quoll>
-References: <20261120-shikra-el2-v7-0-9d9000eb50d4@oss.qualcomm.com>
- <20261120-shikra-el2-v7-3-9d9000eb50d4@oss.qualcomm.com>
+	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=sbpfsdIC
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=XEMLomkRYjVFAGSgdBsQ30iuJaHeuFjw8UOUtIs9VfM=; b=sbpfsdIClPshry40ab8H01ZWrB
+	HmLz+H9qUJasDwjVRZ1YyQxMkcSg7fKcuh6kPfRBkW4JUAYBfCRkbfF3VXhIJR3bDl7+TsMjZTwgM
+	i7dpt5rVrOdL+/RVx2vHddNidLp4AYY7RXrcugaO7c3WyRlyCH2bW9fUcJAt9RwlNXi1g8SY4KDhS
+	fvGzWghHp39spopHKOwQufBfnP7YAYuY7JsoHv2ZAUPSpptA+C9DFYsU+gGe3uUjxiAxM+yEnfMoS
+	O/EtdOBWIBiKVtpKs8KVAkn79P80oolTcr33mcVqS4SmGK/EDmGOprc6WAxGjw5Z6qbK8HhEkymMq
+	+AFLEMRA==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <bage@debian.org>)
+	id 1xUhPd-003Y7V-09;
+	Sat, 21 Nov 2026 09:29:37 +0000
+From: Bastian Germann <bage@debian.org>
+To: andrew@lunn.ch
+Cc: hkallweit1@gmail.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	linux@armlinux.org.uk,
+	olteanv@gmail.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Bastian Germann <bage@debian.org>
+Subject: [PATCH net-next v2] net: mdio: handle broken-turn-around for non-PHY MDIO devices
+Date: Sat, 21 Nov 2026 10:29:33 +0100
+Message-ID: <20261121092933.186731-1-bage@debian.org>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,27 +74,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261120-shikra-el2-v7-3-9d9000eb50d4@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
+X-Debian-User: bage
 
-On Fri, Nov 20, 2026 at 06:50:51PM +0530, Komal Bajaj wrote:
-> Remote processors behind an IOMMU may use multiple firmware streams. On
-> SM8750, ADSP uses six IOMMU streams, which exceeds the single entry
-> currently allowed by the binding. CDSP uses a single stream, while MPSS
-> does not require any.
-> 
-> Allow up to six iommus entries in the binding. Require six entries for
-> qcom,sm8750-adsp-pas, disallow the property for qcom,sm8750-mpss-pas,
-> and retain the single-entry limit for the other compatibles.
-> 
-> Signed-off-by: Komal Bajaj <komal.bajaj@oss.qualcomm.com>
-> ---
->  .../bindings/remoteproc/qcom,sm8550-pas.yaml       | 26 +++++++++++++++++++++-
->  1 file changed, 25 insertions(+), 1 deletion(-)
+The "broken-turn-around" property is documented in mdio.yaml for any
+MDIO device, but the MDIO core currently parses it only for PHY devices
+in fwnode_mdiobus_phy_device_register(). Non-PHY devices, such as DSA
+switches, are registered through of_mdiobus_register_device(), where the
+property is ignored, so MDIO bus drivers that rely on phy_ignore_ta_mask
+still treat the turn-around/read failure as an error.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Parse the property in of_mdiobus_register_phy() and
+of_mdiobus_register_device() instead, so it is handled in one place for
+both PHYs and other MDIO devices, and drop it from
+fwnode_mdiobus_phy_device_register().
 
-Best regards,
-Krzysztof
+Signed-off-by: Bastian Germann <bage@debian.org>
+---
+ drivers/net/mdio/fwnode_mdio.c | 3 ---
+ drivers/net/mdio/of_mdio.c     | 6 ++++++
+ 2 files changed, 6 insertions(+), 3 deletions(-)
 
+diff --git a/drivers/net/mdio/fwnode_mdio.c b/drivers/net/mdio/fwnode_mdio.c
+index ba7091518265..129481e8a910 100644
+--- a/drivers/net/mdio/fwnode_mdio.c
++++ b/drivers/net/mdio/fwnode_mdio.c
+@@ -89,9 +89,6 @@ int fwnode_mdiobus_phy_device_register(struct mii_bus *mdio,
+ 		phy->irq = mdio->irq[addr];
+ 	}
+ 
+-	if (fwnode_property_read_bool(child, "broken-turn-around"))
+-		mdio->phy_ignore_ta_mask |= 1 << addr;
+-
+ 	/* Associate the fwnode with the device structure so it
+ 	 * can be looked up later
+ 	 */
+diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
+index b8d298c04d3f..c03fcf34b3a6 100644
+--- a/drivers/net/mdio/of_mdio.c
++++ b/drivers/net/mdio/of_mdio.c
+@@ -46,6 +46,9 @@ EXPORT_SYMBOL(of_mdiobus_phy_device_register);
+ static int of_mdiobus_register_phy(struct mii_bus *mdio,
+ 				    struct device_node *child, u32 addr)
+ {
++	if (of_property_read_bool(child, "broken-turn-around"))
++		mdio->phy_ignore_ta_mask |= BIT(addr);
++
+ 	return fwnode_mdiobus_register_phy(mdio, of_fwnode_handle(child), addr);
+ }
+ 
+@@ -56,6 +59,9 @@ static int of_mdiobus_register_device(struct mii_bus *mdio,
+ 	struct mdio_device *mdiodev;
+ 	int rc;
+ 
++	if (fwnode_property_read_bool(fwnode, "broken-turn-around"))
++		mdio->phy_ignore_ta_mask |= BIT(addr);
++
+ 	mdiodev = mdio_device_create(mdio, addr);
+ 	if (IS_ERR(mdiodev))
+ 		return PTR_ERR(mdiodev);
