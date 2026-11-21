@@ -1,97 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795281835;
-	b=m+avuwb6G7QKpnVesfhb3yYQqvtflMdnt7aT1EagltqDuElxUlUi0uNDq3GZ4jPvRAh5
-	 J1YAWoGSLiBP/6tKSgyxD81fcnEKw9WPkUG21aKQciIT3a2PW29X425Wbr8gkgP0i8ldt
-	 66tY/PEuF54aFkLy/7Av/+j137g/HetNWtVxdBdvMFXqADcevZU8tm2Guuzp6p5Y6qZhh
-	 G3/x0juqGwijtWdr6lbhep6AJ8+W9i4p/sJG2JIUUlBiEy+3zitiY6lvpQy3Q8ANO0gzO
-	 M0Eogv4IkPQBsVwMR2PS+PJF7gzp7SYqk9nPZdWtGK0rXQTNQPiPhUEGjkr0KMwNLhg==
+	t=1795281878;
+	b=CmfHcCm29MY1Qxu7nh82whxbmVjjF4s+dT2NYnpTU+7QUJIeEQ/lUZQ40df8Yvdul14/
+	 /IyoQ19a3PRulzuI+QuBuBVDpii5q1hf+XY8dnkoDmB2GdTsTJB22AymZM3e0y0pGPNFZ
+	 f3Cdm+wrB8TuQdZZZIJqAF1eg86L/QzoOE7RFNIRatqypa6Y+wTGny8OQ5pP8MeUCC34B
+	 1AP5KcU1rWbbgTZrXz0KxJRAh1PpfNajdvT32HOHSVb2GXO4ehz2rm9lK/h19sLcimqPT
+	 s/iAyglIg7yYFJwuQtfo7sCLGT/epHWByIaFMpwg0h6qQacZoKVZEXBiHpdnzyBiQAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795281835;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795281878;
+	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=DoN+jG5Rec1QoyXW9HZrwy95eguN461fzv/CVFtCCEg=;
-	b=HBRfPZ+8lvqqhNyNi8DzOCtjKGTFGC+7sGTiqqGVUdgUzJ6lQwKC3UxWG+loI2GwwI3H
-	 K1pjExAc30Gr7cU4HtD/LWQ6I+NSZiwqLAcWEHNC8iVXoLHUkZbQ2/hYyWb5W9fjNNwTW
-	 nlfis5N+wVglQ+aiGENoS8G+kU11Vj8yOVMYOOfhMzDgVyMvOKeIee+GUhiTh8hwQIJwR
-	 Fx0IOdDyW7GcOyF/KwlUpBVhq09UzSWUvF1IMpTLb2a2lulowMQiVqrxbvO7z3zexI/KW
-	 4Aph7k21emixDvgmXze0CCwEar2S9cBykWPbOPQrLLFJzafMLIMD/zQkV++35d3+qew==
+	bh=4TbwPYYnIM96JizHRnjnmQ2Ra7swQJ2dSto8I1+ORqc=;
+	b=oKrTdJEG6eiHPVuvJGrqPkRydG0GwCWTl6x7jgBcDPKxnWs6T2/fiWx8dOFedfhzVSXz
+	 6v+cfl0XceHTnrYPHA4j/Y+dsP4JRI8jRb300/KOrjvIXiusJFbNNeivw6T0qK1uJu/Vm
+	 jodAABu6vCJsxHCGCDG7yyeIcmyYKTxPpamMv4/FAiK+OLkDrrRJbWvM/414xN4u6Lyfp
+	 Sjx80eK76Cx+I1PTshsAPnl74HQJj9tMk4ht/9puZ9uLc64AGOqbd5+MxOm/jbiZMkfyk
+	 FGWk76MenvtvQ8xqIaOzKEdLGln43idMhsOTtdufA07FkdVJV1CUX7brGzi+F0v0InA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=F3gb6nun;
-	arc=none smtp.remote-ip=209.85.128.44
-Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n+W1TA7g;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DEC1606A32C
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 17:23:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DEC1606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C673606A332;
+	Sat, 21 Nov 2026 17:24:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=F3gb6nun
-Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4bb61185057so12746605e9.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 09:23:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795281834; x=1795886634; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DoN+jG5Rec1QoyXW9HZrwy95eguN461fzv/CVFtCCEg=;
-        b=F3gb6nunfOxohpA7FVOv6KfnszdYpDb9WP82vTw19QrSAAmnQG3pE0GqjqKbDi9k0H
-         jUZFucmuBDSwmrthhIWCCjB7a+zhwww4n4cZ5w95TW7bwOeUAjNNHywm1DZE//YGUaCm
-         d8GX9lZ2n39RKAlgNP81zHrRvwc62Ywo41UBMAHgZ3JG5xkSsZFCjxJP+7BLC5hQaiA/
-         35GR6GwEKWOc2+UOM1HikHRfMwohnsH6GNNtycB1iyGXr2L12nerQIeDyU/0mnvQ7Iz0
-         q1BHqsxkxOzpeIARsvVKxc2GIFQp7HJHwGxgkrDfloOQ1t/kt1zrQEhnwHySTm1wOW6j
-         RUhw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795281834; x=1795886634;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=DoN+jG5Rec1QoyXW9HZrwy95eguN461fzv/CVFtCCEg=;
-        b=h2Ejckeq6JXje5C6WyDuKoUEGjvofTFEjuLxVeX2NpsdRABr4yM8eNxGU/4AT9ebjY
-         QZ9HNpvixns8Hkft33O8h+Blf7DAEsjddOggH9QyctWC4T13MFDpwIBpW36TsPwHDfZv
-         HyDluVoTcYs4SHfpY9VsoXBsV+eRB3BFX4UfcHdi1q4/KZurbY+D2xcY+NEIb6AuAXjo
-         jeazb3kT1C/qjVgnkty6Nu1YIOb8hYPvMuNPjetxW1DMEwjGRpJdaeeeVNmUzHrzDTk3
-         amQuPXH3RH1jS2N0SKH2OGtVT2uNBcxmad9VkavgV3a35/a1MhNve2/RILTcM0vjk91q
-         GqKA==
-X-Forwarded-Encrypted: i=1; AL+hErEC4Qth1LWZLJqgHf+lasyXsXLru3t5Bfo3nyaC95800GfwR8Q+H91iN49Gs4DVPIlK7F1GNXE0Pxc30VU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ePMY8j/MoS2fjrI/3Lr9C3jnVkjepmJC9VvpXdLE9RAU0LdzD
-	V3iJ54A3WH1eDFqNA6h7niWXQmXFe5ia1RyCNOdtf8tbpl9Wy5g2SPlx
-X-Gm-Gg: AZFdTZfd9UNnQaYsy65PmkegQU9np1cSAsXvrpIxGMaS5+kCbU+zrVpqeUTT8PejV08
-	tZJmjb/L4NTDCCebXN0qP7TsvN7rMlMCpiV8P5p9cG72JwPly1Tne/II9fqRdK9VXcjVoDDKefG
-	uhazAE4Jv27uIv0qZ1tIsg3YnYVKMRqw5w8m8KQQmmGfTSA+0fIvN8oFcDH/3nKrwFKJXcQ0TT9
-	Rb40wsIiaOgUhgy4icpnclPs34sfUi4RpYzmudZ5HObNuOT6DmOIElh8kdqbhUE8T0p7xtSGwKg
-	c1yV/tO/2PpSddsPZQjvOzTXjuBawrE9mfvnEzuIXUmOGUOgfih+VpmXDEAfDhqLMXpCN0qwtGd
-	cLJ9WHuwpqoAWPb/Q/Uag34FWbnhKed7RHLHgY/mdiyKJ7i3qFs4sB5TJxHgiAR1at4zbIj1T/H
-	f6eJPghprBb83dBG3AwEm2HNbQSGPEMDr1E2ld+vetnX8fzEWVnKNSlfHpYwHdImwzfgKha4Ojo
-	eHfzR9IFf0fjYG01bsfSvaoahCy0Ms68DlaeNbSY5Gn4lX/FYLHEKOTfbQOxsyOBAQ2D5d+5Cf6
-	PvUGHYKx0p0ikdyCSvKPwcRxS7hzqV9LsviL9tMX1xkY1NPSwv1bT6xeEdMMzy/WnPumKJSd+Ey
-	g
-X-Received: by 2002:a05:600c:8b5c:b0:4bb:741d:ea0 with SMTP id 5b1f17b1804b1-4bb8880f621mr154274825e9.17.1795281833492;
-        Sat, 21 Nov 2026 09:23:53 -0800 (PST)
-Received: from DESKTOP-V28CTA4.localdomain ([37.111.157.16])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b2c5sm207307265e9.5.2026.11.21.09.23.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 09:23:53 -0800 (PST)
-From: Arbab Haider <arbabhaider649@gmail.com>
-To: Alan Stern <stern@rowland.harvard.edu>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Shichao Lai <shichaorai@gmail.com>,
-	linux-usb@vger.kernel.org,
-	usb-storage@lists.one-eyed-alien.net,
-	linux-kernel@vger.kernel.org,
-	syzbot+dc208a8cf8d37cf3e5ac@syzkaller.appspotmail.com,
-	stable@vger.kernel.org,
-	Arbab Haider <arbabhaider649@gmail.com>
-Subject: [PATCH] usb-storage: alauda: track media_initialized per port
-Date: Sat, 21 Nov 2026 22:19:56 +0500
-Message-ID: <20261121171956.1455-1-arbabhaider649@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n+W1TA7g
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 747D01F000C0;
+	Sat, 21 Nov 2026 17:24:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795281877;
+	bh=4TbwPYYnIM96JizHRnjnmQ2Ra7swQJ2dSto8I1+ORqc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=n+W1TA7gMPD5eX9EJijj3A8N6IGWH/FAK0dC9v+Cw7y0B8h1p6b/vXByDSerMKoEN
+	 BnwV1Lh/5j7qrpSF1/ERAVM3mjxQnicd83Ma3w0/yKRqj1QMpQypzf74JmVWBObE3j
+	 rQsIerlp6xAB5Pn5vMWwq8T2Lmaapyiib60nrKZC1sx7gqhJj5GHs2Qwox/HxPwMhd
+	 m1DbbbbIgymUS+xDOmZYAyn9hOd4m0QJZA7qJalLnMb6jPU0/57EKUvPjgGchKTAOU
+	 WnyWuZL1n9J3Y4zfDeaHAi3ZhwWhL6G2Tztj3gfWnploGw1KEkxgVmpkEWA0AvMG1c
+	 BwK5T2SL/Mb2A==
+Date: Sat, 21 Nov 2026 07:24:36 -1000
+Message-ID: <06f4c157677f99fc5386dba4c9d68cd2@kernel.org>
+From: Tejun Heo <tj@kernel.org>
+To: luca abeni <luca.abeni@santannapisa.it>
+Cc: Yuri Andriaccio <yurand2000@gmail.com>, bsegall@google.com, cgroups@vger.kernel.org, dietmar.eggemann@arm.com, hannes@cmpxchg.org, juri.lelli@redhat.com, kprateek.nayak@amd.com, linux-kernel@vger.kernel.org, mgorman@suse.de, mingo@redhat.com, mkoutny@suse.com, peterz@infradead.org, rostedt@goodmis.org, vincent.guittot@linaro.org, vschneid@redhat.com, yuri.andriaccio@santannapisa.it
+Subject: Re: [RFC PATCH v7 00/29] Hierarchical Constant Bandwidth Server
+In-Reply-To: <20261120212418.10221f2e@linux.fritz.box>
+References: <20261109163616.195264-1-yurand2000@gmail.com> <212c244d534ee1fdb0538a980789e16c@kernel.org> <20261111175657.250354-1-yurand2000@gmail.com> <58cb2cbaf82c0f671213eaca46465cd5@kernel.org> <20261119151416.33f90a64@linux.fritz.box> <471bf8d446becabfca00041fb2a78067@kernel.org> <20261120120659.2e902463@linux.fritz.box> <6fef47e08a37079c08806b3c57994778@kernel.org> <20261120212418.10221f2e@linux.fritz.box>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,86 +57,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 
-Commit 16637fea001a ("usb-storage: alauda: Check whether the media is
-initialized") added a media_initialized flag to struct alauda_info to
-prevent divide-by-zero errors when alauda_init_media() has not succeeded.
+Hello, Luca.
 
-However, Alauda devices expose two LUNs (us->max_lun = 1) backed by
-info->port[0] (xD) and info->port[1] (SmartMedia). Storing
-media_initialized in struct alauda_info shares it across both ports: once
-port 0 initializes, media_initialized becomes true, allowing port 1 to
-skip alauda_init_media() when its media-change bit is clear and divide by
-port[1].uzonesize == 0 in alauda_read_data() or alauda_write_lba():
+On Fri, Nov 20, 2026 at 09:24:18PM +0100, luca abeni wrote:
+> But the deadline entities serving the real-time tasks in a cgroup are
+> pinned to cores (one dl entity serves the cgroup's RT rq for a core).
+> So, they cannot just be added to the sum mentioned above (which works
+> for dl entities which are free to migrate).
+> This issue was solved by reserving a fraction of the CPU time (and the
+> root cgroup parameters indicated this fraction) to RT cgropus, so that
+> the SCHED_DEADLINE admission control is still the same (we just decrease
+> "limit" by the fraction reserved to RT cgroups).
 
-  Oops: divide error: 0000 [#1] SMP KASAN NOPTI
-  RIP: 0010:alauda_read_data drivers/usb/storage/alauda.c:953 [inline]
-  RIP: 0010:alauda_transport+0xe5a/0x35c0 drivers/usb/storage/alauda.c:1187
+I see. Can the fraction be the maximum across the CPUs then? With the
+root at "max", the kernel knows how much the cgroup servers have
+reserved on each CPU. If "limit" is decreased by the largest of those
+on all CPUs, every CPU has at least what its servers need set aside
+and the admission control for tasks stays the same.
 
-Additionally, alauda_check_media() never cleared media_initialized when
-media was removed or before re-initializing on media change, leaving it
-true if a subsequent re-initialization failed.
+I'm not familiar with the admission test, so I may be missing
+something.
 
-Move media_initialized into struct alauda_media_info so each port tracks
-its own initialization state, and clear it when media is absent or before
-re-initializing on media change.
+Thanks.
 
-Reported-by: syzbot+dc208a8cf8d37cf3e5ac@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=dc208a8cf8d37cf3e5ac
-Fixes: 16637fea001a ("usb-storage: alauda: Check whether the media is initialized")
-Cc: stable@vger.kernel.org
-Signed-off-by: Arbab Haider <arbabhaider649@gmail.com>
----
- drivers/usb/storage/alauda.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/usb/storage/alauda.c b/drivers/usb/storage/alauda.c
-index 5e7f99ba8..5493f25a7 100644
---- a/drivers/usb/storage/alauda.c
-+++ b/drivers/usb/storage/alauda.c
-@@ -96,6 +96,8 @@ struct alauda_media_info {
- 
- 	u16 **lba_to_pba;		/* logical to physical block map */
- 	u16 **pba_to_lba;		/* physical to logical block map */
-+
-+	bool media_initialized;
- };
- 
- struct alauda_info {
-@@ -105,8 +107,6 @@ struct alauda_info {
- 	unsigned char sense_key;
- 	unsigned long sense_asc;	/* additional sense code */
- 	unsigned long sense_ascq;	/* additional sense code qualifier */
--
--	bool media_initialized;
- };
- 
- #define short_pack(lsb,msb) ( ((u16)(lsb)) | ( ((u16)(msb))<<8 ) )
-@@ -471,6 +471,7 @@ static int alauda_check_media(struct us_data *us)
- 		|| ((status[1] & 0x01) == 0)) {
- 		usb_stor_dbg(us, "No media, or door open\n");
- 		alauda_free_maps(&MEDIA_INFO(us));
-+		MEDIA_INFO(us).media_initialized = false;
- 		info->sense_key = 0x02;
- 		info->sense_asc = 0x3A;
- 		info->sense_ascq = 0x00;
-@@ -478,12 +479,13 @@ static int alauda_check_media(struct us_data *us)
- 	}
- 
- 	/* Check for media change */
--	if (status[0] & 0x08 || !info->media_initialized) {
-+	if (status[0] & 0x08 || !MEDIA_INFO(us).media_initialized) {
- 		usb_stor_dbg(us, "Media change detected\n");
- 		alauda_free_maps(&MEDIA_INFO(us));
-+		MEDIA_INFO(us).media_initialized = false;
- 		rc = alauda_init_media(us);
- 		if (rc == USB_STOR_TRANSPORT_GOOD)
--			info->media_initialized = true;
-+			MEDIA_INFO(us).media_initialized = true;
- 		info->sense_key = UNIT_ATTENTION;
- 		info->sense_asc = 0x28;
- 		info->sense_ascq = 0x00;
--- 
-2.53.0
-
+--
+tejun
