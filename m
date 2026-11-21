@@ -1,67 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795304383;
-	b=ZqJNXpBabE7TvjP5kuCp1k5O5CtwLyqQCjDm1QPBZcvSHz+pjT5XYhEmDUZAAThElztR
-	 5PRIK/XYy/zqgBu8WlEkcg9mMyEpDdGnUdJDY4NhV0CbPYhJIBoH/zbT9TNuQ4xD9ZZLY
-	 a+9VSayqhWnCYCVSxrnzeQ2e/4E00cL+1iXW9RfBDfom8JM/vVFH//oVL1CMKK4lxu4QX
-	 pEXfNEg0rv13nnCfsWan8zb4+lI66FJvTO+zscGElGYiuNufCK+3fvst309tPOBRLanBi
-	 Cpnf2Efk7RaC0M2T4csIMmNJN9eUMwCJSDh9d65pVd85izc3bW5bNGzA7FniuJMYALA==
+	t=1795304398;
+	b=DrKRPylXQ78l0CdVKbPjq9AIwVDMRkPDVZpkGTNzxtT6Sp4Fphe6Aw6mmpxm6yJL/89Z
+	 pnIOcjqqsjedhIr7qIVRRbbXLRxVyTlL89OPbEgUGVJQQ6vrGIeF2W+aLCbVHapFkO1o+
+	 4eGyEcHVyngwHWt4dkGdpezhwpYaX0MccPj7kFZJOL26lsUc4djPsULmBzJQ/qgZ1Yexm
+	 hgiZBxZ4jeJ17ia4iq+Foul0dPhBzSXaaYJaYrphusONQ9rQZ/F8WjUP9LHeWWGefEHPi
+	 ZZcIbES5Q/RZoKf0wW7/TRJerP41UiqwckHCJcnirTj2L8lMSWZ+VEpkugNmmZIiyvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795304383;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=XEFK/pjiR6gOPvEjnxDrrcBsl3NrlY/OOSjgIgIAcps=;
-	b=dnxME+yb36AlITljdUuNtkXQMsN4wN0hBti5o5IxuoTLOt062L1jEkfOPLlqH6HcMCoe
-	 Sdxx1x+9J0ZQ8ErShJ6HRgql79waRsx5a9nJjos9o1aqjp0BZkPHkBfgPgW6Jnc/nouW+
-	 raqtnpXtbKoqxKqYjJkP4zAiboQqygGD1YIWmW6U+AM774Masi1scCiklqsaSK3Dqk2NR
-	 2kCCwumDKn4Wk1Nkdg+yzSaAHfYx2I3Bb02yY6oj2MECvLYEsuEiVp2/IGOd1+AqlHdRa
-	 +C+/pUD7ebK7YSvbjzLo/55H8p9tYFzXWLKYlIJDn17W21fqW0S/29SGvUfJlUY+SKw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795304398;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:In-Reply-To:References:Organization:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=6G+qoyuS+XfWQYbP6gY4xhAOdcI4aLBFdUBf8L1UOt8=;
+	b=wxEwSNFMjAQGMVPw7vEJJ9XhUHYYQ8+opdNDfiRh1ZWnuobg/Eic9vOh5hKXGBWYU+5o
+	 MgMJD3xxQH42rlYkv8vceUmYGpIa6o1C8zk4uJH/1N8sIWYNqS43ldrZx0wprf5PBGaOu
+	 k0ZgzMfbbzExZtyulnbbLPrZeWqJ7alWFwuUnn5Mt7iH/vDp2S2eYTNEpBnZiPGGAN0PG
+	 4rYuw84EYBZgie69IZD1mLUWhbaOF3cl4BwQC0GFX8Hhgs3YG2jKWnWsCFLrp+ap9lV5r
+	 /MXEYmQKpAVMIfZ8uCxZf6TNoaw2UYdf+2pqY+3xSh6Oo84ClK2ciWgg8xchlUQjEbA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LW1PpeA2;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB7B4606A332;
-	Sat, 21 Nov 2026 23:39:43 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=FzyB8Xwe;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 28A99606A320;
+	Sat, 21 Nov 2026 23:39:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28A99606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LW1PpeA2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B1091F000C4;
-	Sat, 21 Nov 2026 23:39:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795304383;
-	bh=XEFK/pjiR6gOPvEjnxDrrcBsl3NrlY/OOSjgIgIAcps=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LW1PpeA2AV1GUBBWdwfHlHqOqQqoWiinIHIdpxFQz3+auAdvrFg52v239gGKZD/FM
-	 fWK49J0Imr7u3HJC99IJP6yXJRB9+poJ4qa7lprQugH0QznGZB9yIWazK7BOB3gvAc
-	 A9DGRl7CNvkSPtGsmtaMWWz/67hEu8iZaY0K21JLLCqtzg+qDhRWpRwV4FslrevYm2
-	 YsMRgzlzXFBoQ1C6ZgV/0eSTty5NOTaOyZJ83pFVyYVKrkvzUJxDBU6Iu/UMPjzK3G
-	 gYucaNuVWNPfn66lcEFXabMv+uZPfZggNYMRx7fibLXB672flAz+DdgCQqO8TNhGJ2
-	 CEf+O5JAMhZSA==
-Date: Sat, 21 Nov 2026 16:39:36 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: =?utf-8?B?0J3QuNC60LjRgtCwINCi0LXRgNC10L3RgtGM0LXQsg==?= <svet58585@mail.ru>
-Cc: Nico Weber <thakis@chromium.org>, aaron.ballman@intel.com,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Nicolas Schier <nsc@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittoteggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <kprateek.nayak@amd.com>, llvm@lists.linux.dev,
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Yunseong Kim <yunseong.kim@est.tech>
-Subject: Re: v7.4-rc2 kernel build failure when using the upstream LLVM 24
- with -Wunsequenced-volatile
-Message-ID: <20261121233936.GA2627970@ax162>
-References: <624efab4-f1e3-4bd1-8ddc-60bba4b5d798@est.tech>
- <CADZ1XiZG1y=rC05L4K3_5E3FdRR3Et+V3f8gBs9tih5rPCCv_g@mail.gmail.com>
- <1795284838.9252953@f702.i.mail.ru>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=FzyB8Xwe
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BDDE71575;
+	Sat, 21 Nov 2026 15:39:45 -0800 (PST)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 123EE3F632;
+	Sat, 21 Nov 2026 15:39:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795304388; bh=uIGjGTNYItK1fO2IWuO0oXrmBCGSoTMgNCNIlJE47d0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=FzyB8Xwe09oftNAYS2TqWMzCF6d8+cKG5wNCbM2p+cvgq62XAySRC43E5kSp0T2/z
+	 cuUYkLRLSY42Wof1QN7x72KFLitCD2aDUSUt5xarAS9ktgI2YEOp/tb7oWXk1Zgx0b
+	 jbw+eieLEUGiR173VOekc1YOWrP8kQZjMcDrSnww=
+Date: Sun, 22 Nov 2026 00:39:32 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Enzo Adriano <enzo.adriano.code@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, Maxime
+ Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>, Jerome
+ Brunet <jbrunet@baylibre.com>, Pablo Mazzini <pmazzini@gmail.com>, Vinicius
+ Pedrosa <vinicius.eduardo.pedrosa@gmail.com>, Alexander Sverdlin
+ <alex@sverdlin.org>, Jun Yan <jerrysteve1101@gmail.com>, Lukas Schmid
+ <lukas.schmid@netcube.li>
+Subject: Re: [PATCH v4 3/3] arm64: dts: allwinner: add Radxa Cubie A7S board
+Message-ID: <20261122003932.568c099c@ryzen.lan>
+In-Reply-To: <448e7551a6f560d8b8ede245ccfbc74101c76ef4.1795034153.git.enzo.adriano.code@gmail.com>
+References: <cover.1795034153.git.enzo.adriano.code@gmail.com>
+ <448e7551a6f560d8b8ede245ccfbc74101c76ef4.1795034153.git.enzo.adriano.code@gmail.com>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,62 +70,491 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <1795284838.9252953@f702.i.mail.ru>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 21, 2026 at 09:13:58PM +0300, Никита Терентьев wrote:
-> By standard UB occur for unsequenced order, not unspecified.
+On Thu, 19 Nov 2026 13:09:26 -0500
+Enzo Adriano <enzo.adriano.code@gmail.com> wrote:
 
-Ah fair, I had conflated those.
+Hi Enzo,
 
-> But despite the fact that this is not UB - fields a and b really may
-> be different, moreover, according to the standard there is no
-> guarantee that a less than is equal to b, and this is most likely not
-> the expected result. So I would say that this is incorrect wording
-> but this is a correctly issued warning.
+> Enable the Cubie A7S serial console, PMIC and microSD slot to provide
+> an initial usable board configuration. Supply the 26 MHz crystal and
+> 32768 Hz RTC input, enable UART0 and the AXP318W on R-I2C0, and describe
+> the PMIC input/output and CPU supply connections from the Radxa Cubie
+> A7S schematic v1.10. Preserve firmware settings on rails whose working
+> voltage is not established. BLDO2 has no programmed voltage constraint:
+> its software 3.3 V selector does not establish its physical output with
+> the schematic's nominal 2.4 V input.
+> 
+> Describe the card's SWOUT2 supply and PF6 active-high detect with an
+> internal pull-down. Enable MMC0 at up to 50 MHz using 3.3 V signaling
+> only. Its high-voltage path uses VCCIO; CLDO5 also feeds PC and the PF
+> 1.8 V input and must not be raised for SD signaling. Firmware must
+> select the 3.3 V PF path; dynamic voltage switching is not provided.
+> Keep other storage off.
+> 
+> Connect the documented bank supplies. PL's self-supply phandle is
+> omitted to avoid the PMIC/I2C/pinctrl bootstrap cycle, as on the
+> upstream Cubie A5E; ALDO1 is retained always-on. The separate pinctrl
+> voltage-mode fix is required for these bank-supply connections.
+> 
+> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
+> ---
+> 
+> The November 18 v4 RAM boot on Cubie A7S with vendor firmware exercised
+> UART0, PMIC probe and MMC0 read-only transfers. PMIC/NMI interrupt
+> delivery, card writes, physical hotplug, 1.8 V signaling and physical
+> BLDO2 voltage were not tested.
+> 
+>  arch/arm64/boot/dts/allwinner/Makefile        |   1 +
+>  .../dts/allwinner/sun60i-a733-cubie-a7s.dts   | 287 ++++++++++++++++++
+>  2 files changed, 288 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts
+> 
+> diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
+> index da39f02252d4..9d1e740ff19e 100644
+> --- a/arch/arm64/boot/dts/allwinner/Makefile
+> +++ b/arch/arm64/boot/dts/allwinner/Makefile
+> @@ -69,3 +69,4 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun55i-a527-cubie-a5e.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) += sun55i-h728-x96qpro+.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-avaota-a1.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-orangepi-4a.dtb
+> +dtb-$(CONFIG_ARCH_SUNXI) += sun60i-a733-cubie-a7s.dtb
+> diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts b/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts
+> new file mode 100644
+> index 000000000000..9af9a68950d8
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts
+> @@ -0,0 +1,287 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+> +/dts-v1/;
+> +
+> +#include "sun60i-a733.dtsi"
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +
+> +/ {
+> +	model = "Radxa Cubie A7S";
+> +	compatible = "radxa,cubie-a7s", "allwinner,sun60i-a733";
+> +
+> +	aliases {
+> +		mmc0 = &mmc0;
 
-Yeah, I think it is definitely ambiguous what someone might be expecting
-there: are they expecting the same value or are they okay with the two
-separate accesses being different values? It is not always obvious if
-the variable is marked as volatile or not.
+We don't do mmc aliases. Long discussion, I understand it seems useful,
+but relying on Linux device numbering is not a good idea. So please
+drop this line. U-Boot will give it back to you if you use the U-Boot
+devicetree ($fdtcontroladdr).
 
-> I'm not sure whether it's worth changing the wording or turning off
-> the warning in this case still.
 
-Maybe a note could be attached to the warning explaining the accesses
-may result in different values and offering a small hint how to silence
-it?
+> +		serial0 = &uart0;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +
+> +	osc32k: osc32k-clk {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <32768>;
+> +	};
+> +
 
-I do think this is a good warning and I would love to avoid turning it
-off, even temporarily. I sent 11 patches for the instances that appeared
-in the kernel tree.
+> +	reg_ldo_input: regulator-ldo-input {
 
-Five have been merged into mainline:
+I think the node name alone is slightly misleading: it's indeed
+supplying some LDO input rails on the PMIC, but the chip itself is a
+DC/DC step down converter. Please add a comment here like this:
+	/* discrete ETA3521 DC/DC step-down regulator */
+And maybe use "regulator-2v4" as the node name (to match the binding
+requirement), the regulator name can then carry the usage meaning.
 
-  https://git.kernel.org/linus/c3f98ff6309a29979e1867bc3c9d4172755ca122 ("rcu/nocb: Avoid unsequenced accesses to jiffies in show_rcu_nocb_state()")
-  https://git.kernel.org/linus/728a2abd15a767f662a44030931ea7b2959b4e88 ("mptcp: Avoid unsequenced accesses to jiffies in mptcp_reset_tout_timer()")
-  https://git.kernel.org/linus/5ec918f8d66a0311c52cc767ade67e7019beb176 ("net: microchip: encx24j600: Avoid unsequenced accesses to jiffies in encx24j600_tx()")
-  https://git.kernel.org/linus/695d0824cb6b27ff1a1cdeabb2d5138f00b15251 ("qca_spi: Avoid unsequenced accesses to jiffies in qcaspi_netdev_tx_timeout()")
-  https://git.kernel.org/linus/9ea01307e6c824eb0b8934d95d52bbacae17887d ("powerpc/xmon: Avoid unsequenced accesses to tsk in show_task()")
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "ldo-input";
+> +		/* ETA3521: 0.6 V * (1 + RP298 / RP299), 30k / 10k. */
+> +		regulator-min-microvolt = <2400000>;
+> +		regulator-max-microvolt = <2400000>;
+> +		regulator-always-on;
+> +		vin-supply = <&reg_ps>;
+> +	};
+> +
+> +	reg_ps: regulator-system-power {
 
-Two are pending in maintainers trees:
+Please add a comment here, saying: 
+	/* board wide 5V supply from the USB-C connector */
+And then change the node name to "regulator-5v".
+Also please move this whole node first, as this is the root of the
+whole power tree.
 
-  https://git.kernel.org/axboe/c/ae1171f38098098e88c13c38e462d27babb50038 ("blk-throttle: Avoid unsequenced accesses to jiffies in throtl_schedule_pending_timer()")
-  https://github.com/evdenis/linux-floppy/commit/c1a8feb71ba8613108b212c705a48e0e136d8c3a ("floppy: Avoid unsequenced accesses to jiffies in show_floppy()")
 
-Four are pending on the mailing list:
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "ps";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		regulator-always-on;
+> +	};
 
-  https://lore.kernel.org/20261116-topology-wunsequenced-v2-1-54611119172b@kernel.org/ ("sched/topology: Avoid unsequenced accesses to jiffies in sd_init()")
-  https://lore.kernel.org/20261114-lkdtm-bugs-wunsequenced-v1-1-b24f15ce1328@kernel.org/ ("lkdtm/bugs: Remove volatile from element_count")
-  https://lore.kernel.org/20261114-lkdtm-usercopy-wunsequenced-v1-1-d9f288701932@kernel.org/ ("lkdtm/usercopy: Avoid unsequenced accesses to cache_size in lkdtm_usercopy_init()")
-  https://lore.kernel.org/20261115-ceph-wunsequenced-v1-1-6910c560ba9b@kernel.org/ ("libceph: Avoid unsequenced accesses to jiffies in dump_linger_request()")
+There are two LEDs on the last page of the schematic, controlled by
+PJ26 and PM2. Please add them here. Check other (Allwinner) DTs for how
+to do that.
 
-If the four linger for too long, we can consider moving the warning to
-W=1 but it will still bother a decent number of people, so it would be
-better to just get them fixed quickly.
+> +};
+> +
+> +&cpu0 {
+> +	cpu-supply = <&reg_dcdc5>;
+> +};
+> +
+> +&cpu1 {
+> +	cpu-supply = <&reg_dcdc5>;
+> +};
+> +
+> +&cpu2 {
+> +	cpu-supply = <&reg_dcdc5>;
+> +};
+> +
+> +&cpu3 {
+> +	cpu-supply = <&reg_dcdc5>;
+> +};
+> +
+> +&cpu4 {
+> +	cpu-supply = <&reg_dcdc5>;
+> +};
+> +
+> +&cpu5 {
+> +	cpu-supply = <&reg_dcdc5>;
+> +};
+> +
+> +&cpu6 {
+> +	cpu-supply = <&reg_dcdc3>;
+> +};
+> +
+> +&cpu7 {
+> +	cpu-supply = <&reg_dcdc3>;
+> +};
+> +
 
--- 
+The schematic shows an EEPROM on I2C0. There is a binding for that chip
+already, check rk3576-rock-4d.dts.
+Please add that chip.
+
+> +&mmc0 {
+> +	bus-width = <4>;
+> +	cap-sd-highspeed;
+
+I think we want the other two standard capabilities as well:
+	cap-mmc-highspeed;
+	cap-sdio-irq;
+
+> +	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+> +	disable-wp;
+> +	max-frequency = <50000000>;
+
+Where does this limit come from? As it stands right now, at 3.3V you
+won't get faster anyway, so it's moot. Please remove if you agree.
+
+> +	no-1-8-v;
+> +	vmmc-supply = <&reg_swout2>;
+> +	/* The 3.3 V path uses VCC-IO; no Port F voltage switching yet. */
+> +	vqmmc-supply = <&reg_swout2>;
+
+Just leave that out (for now), the default is to revert to vmmc-supply,
+if vqmmc is not given anyway.
+
+> +
+> +	status = "okay";
+> +};
+> +
+> +&osc {
+> +	clock-frequency = <26000000>;
+> +};
+> +
+> +&pio {
+> +	vcc-pb-supply = <&reg_swout2>;
+
+Please add a comment that this comes via VCC-IO, see the A527/T527
+boards.
+
+> +	vcc-pc-supply = <&reg_cldo5>;
+> +	vcc-pd-supply = <&reg_swout1>;
+> +	vcc-pe-supply = <&reg_bldo1>;
+> +	vcc-pf-supply = <&reg_cldo5>;
+
+Same here, comment about this being VCC-IO, at least for now.
+
+> +	vcc-pg-supply = <&reg_aldo1>;
+> +	vcc-ph-supply = <&reg_swout2>;
+> +	vcc-pj-supply = <&reg_swout1>;
+> +	vcc-pk-supply = <&reg_bldo1>;
+> +};
+> +
+> +&r_i2c0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&r_i2c0_pl_pins>;
+> +
+> +	status = "okay";
+> +
+> +	axp318w: pmic@36 {
+> +		compatible = "x-powers,axp318w";
+> +		reg = <0x36>;
+> +		interrupt-parent = <&nmi_intc>;
+> +		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-controller;
+> +		#interrupt-cells = <1>;
+> +
+> +		aldo156in-supply = <&reg_ps>;
+> +		aldo234in-supply = <&reg_aldo1>;
+> +		bldoin-supply = <&reg_ldo_input>;
+> +		cldoin-supply = <&reg_ldo_input>;
+> +		dldoin-supply = <&reg_ps>;
+> +		eldoin-supply = <&reg_dcdc9>;
+> +		ips-supply = <&reg_ps>;
+> +		vin19-supply = <&reg_ps>;
+> +		vin23-supply = <&reg_ps>;
+> +		vin45-supply = <&reg_ps>;
+> +		vin678-supply = <&reg_ps>;
+> +
+> +		regulators {
+> +			reg_dcdc1: dcdc1 {
+> +				regulator-name = "vcc-3v3";
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-always-on;
+
+Please add a comment or use a speaking regulator name to justify that
+this regulator must be always on. "regulator-always-on" should be the
+exception, not the rule. This applies to all the nodes below, I will
+comment with some hints below again.
+
+> +			};
+> +
+> +			reg_dcdc2: dcdc2 {
+> +				regulator-name = "vdd-sys";
+> +				regulator-always-on;
+
+We should have a voltage or a range for every regulator. Here it should
+be 0.8V.
+
+> +			};
+> +
+> +			reg_dcdc3: dcdc3 {
+> +				regulator-name = "vdd-cpub";
+
+Do we have some OPPs for the cores? The range should reflect the
+min/max used voltages in there. 
+
+> +				regulator-always-on;
+> +			};
+> +
+> +			reg_dcdc4: dcdc4 {
+> +				regulator-name = "vdd-gpu";
+> +				regulator-always-on;
+
+Why is this always on? If I see this correctly, that's just supplying
+the GPU, which will have its own supply property.
+Voltages should be in the same range as for the CPUs.
+
+> +			};
+> +
+> +			reg_dcdc5: dcdc5 {
+> +				regulator-name = "vdd-cpul";
+> +				regulator-always-on;
+> +			};
+> +
+> +			reg_dcdc6: dcdc6 {
+> +				regulator-name = "vcc-draml";
+> +				regulator-always-on;
+
+0.6/0.5V I guess.
+
+> +			};
+> +
+> +			reg_dcdc7: dcdc7 {
+> +				regulator-name = "vcc-dram";
+> +				regulator-always-on;
+
+Probably 1.1V.
+
+> +			};
+> +
+> +			reg_dcdc8: dcdc8 {
+> +				regulator-name = "vcc-ufs-io";
+> +				regulator-always-on;
+> +			};
+
+But there is no UFS on this board, right? All the UFS signals seem to
+be not-connected, so this power supply will be going nowhere. And DCDC8
+seems to be used exclusively for UFS, so I would just leave this whole
+node out. 
+
+> +
+> +			reg_dcdc9: dcdc9 {
+> +				regulator-name = "eldo-input";
+> +				regulator-always-on;
+
+Again, why the always-on? This is referenced by eldoin-supply, so the
+kernel should keep this on.
+As for the voltage, the schematic doesn't seem to give a clue, so maybe
+you can look this up on a running BSP kernel.
+
+> +			};
+> +
+> +			reg_swout1: swout1 {
+> +				regulator-name = "vcc33-lcd";
+> +				regulator-always-on;
+> +			};
+
+Why always-on? Should be referenced by the pinctrl device.
+
+> +
+> +			reg_swout2: swout2 {
+> +				regulator-name = "vcc-io-card";
+> +				regulator-always-on;
+> +			};
+> +
+> +			reg_aldo1: aldo1 {
+> +				regulator-name = "vcc-pl";
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-always-on;
+> +			};
+> +
+> +			reg_bldo1: bldo1 {
+> +				regulator-name = "vcc-pe-pk-mcsi";
+
+Does this intentionally miss the voltage setting?
+The datasheets suggests that VCC-MCSI must be 1.8V. 
+
+> +			};
+> +
+> +			reg_bldo2: bldo2 {
+> +				regulator-name = "vcc-lvds0";
+> +				regulator-always-on;
+
+Should not be needed.
+And again, the voltage is missing. Per the datasheet, VCC_LVDS0 must be
+1.8V, and the VCC18-LCD label connected to BLDO2 supports this.
+
+> +			};
+> +
+> +			reg_bldo4: bldo4 {
+> +				regulator-name = "vcc18-codec";
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +			};
+
+Do we need this at all? I don't see this (VCC18-CODEC) connected
+anywhere?
+
+> +
+> +			reg_cldo1: cldo1 {
+> +				regulator-name = "vcc33-18-usb";
+
+That's not the right name. The connection between VCC33-18-USB and CLDO1
+is "NC" in the schematic, so this is a red herring.
+However this also connects to VDD18-LPDDR, which would justify the
+always-on.
+
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +				regulator-always-on;
+> +			};
+> +
+> +			reg_cldo2: cldo2 {
+> +				regulator-name = "vcc18-hdmi";
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +			};
+> +
+> +			reg_cldo3: cldo3 {
+> +				regulator-name = "vcc-pll-dram";
+
+This is a correct example, btw: it's always on, but the regulator name
+makes it almost obvious why.
+
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +				regulator-always-on;
+> +			};
+> +
+> +			reg_cldo5: cldo5 {
+> +				regulator-name = "vcc18-pf-pc";
+
+VCC18-PF is confusing, please remove that from the name.
+
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +				regulator-always-on;
+
+Should not be needed.
+Voltage is missing, should be 1.8V, I think.
+Please try to double check on a system running with the BSP kernel.
+
+> +			};
+> +
+> +			reg_dldo1: dldo1 {
+> +				regulator-name = "vcc-efuse";
+> +				regulator-always-on;
+
+Voltage is missing, should be 1.8V, I think.
+Please try to double check on a system running with the BSP kernel.
+
+> +			};
+> +
+> +			reg_dldo6: dldo6 {
+> +				regulator-name = "vcc-ufs";
+> +				regulator-always-on;
+
+Apparently UFS is not supported on that board, so please remove that
+node.
+
+> +			};
+> +
+> +			reg_eldo1: eldo1 {
+> +				regulator-name = "vcc09-vdd2l";
+> +				regulator-always-on;
+
+Voltage should be 0.9V.
+
+> +			};
+> +
+> +			reg_eldo6: eldo6 {
+> +				regulator-name = "vdd-cpus";
+> +				regulator-always-on;
+
+Schematics suggest 0.8V.
+
 Cheers,
-Nathan
+Andre
+
+> +			};
+> +
+> +			reg_rtc_ldo: rtc-ldo {
+> +				regulator-name = "vcc-rtc";
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +				regulator-always-on;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&r_pio {
+> +	/* PL powers the PMIC bus itself; firmware must keep ALDO1 enabled. */
+> +	vcc-pm-supply = <&reg_aldo1>;
+> +};
+> +
+> +&rtc {
+> +	clocks = <&r_ccu CLK_BUS_R_RTC>, <&osc>, <&r_ccu CLK_R_AHB>,
+> +		 <&osc32k>;
+> +	clock-names = "bus", "hosc", "ahb", "ext-osc32k";
+> +};
+> +
+> +&uart0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&uart0_pb_pins>;
+> +
+> +	status = "okay";
+> +};
+> 
+
