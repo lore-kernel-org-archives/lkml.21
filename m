@@ -1,79 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.236
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795261280;
-	b=ll92/QqMuKtOPWuWJh0wUuaVS75kG5CswopOUSf3x/wOdu+GSii0nblEu7L1UlwG7HSc
-	 Xl1ht0A5wTSjxsQEKyBkEkppj8T3G/gX/KEa09kJIBFgIJ7Iu+xAfxjbAkZDOvCcunK4b
-	 UoTnwzHM3BhaEYIVS5OTKlTim78o6UAsGxQM1Ob3a+q4n8OOXoKusY9tYw4I6Wn9ZuXe8
-	 rWBUR0L03gUNA6UkRIjelt5/3PHkxF0BxqVvgOxFW69SiboDefrfNvn8895x01xt4zrir
-	 6h/zL6PMZ+H4+unibqkHuTzCjzuC3geeC3VHUReZbBhEeiCyas+T1MLnBP9HzNIZF2g==
+	t=1795261320;
+	b=b+7BIMoVLqo3+aTr0vXRluEB8VkTVz4sTrGxvv52QAYminsoJ5tZBeleKD19zmVGzSq0
+	 j/0xUmDj7HBAHahwrPBHK1CAapHn+Kt7S0idOUlRPFKsCBvyln2IRPg7hjeiyVdOwjO+y
+	 K1wMZp4EoLD6dOhbY7/Rtrh8EqcqCHokOzp+JoI3BnQq1ilse/5IsCrfCmOqKLc3N6A8l
+	 Xxjj61ma6kfhdwK2Z0El74qz9OuzZVV0CenFf07PAWYjtJvKso/nvFSqJ30nOCkfJVxlJ
+	 aILCjunQf76Czv1vbVTosv3zqjb1RSPWjpoFS0CwGs8kQ13/Vd6RAfK0TXnVHPa+t0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795261280;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=H0POKlXJyl1potWBMogKNasbJD7Qe/EdMAgMjh/RQek=;
-	b=o/uhE2NywPjO9wSupS9Pa/I0CtEsClEZSVlfhm7ftg7dU28kaA6Pf/roGHhJ/MppH0zi
-	 lxaKFPUHc8i+7DbFsVUOoh501TybD/l4dU5E942RnoxzX/QSes3HL6zejyeCNjTjn7rdM
-	 ouCa87v9MSKvPZB6eD0pOzQJjfLydIMv/6CA08GVhC3CldmGu34Yi+my3Y7dfFxvGHvkx
-	 ZaUeavGbJjDnRJuupk1NVp0uEMXASMB5VWgdAArO7/f8HNcGna+J2U08JYwyloABwxNG5
-	 S7EljBV/DtanNP92177v+wizmarAUxv+Sn9oTiYV0wxyyYHuESQi0xvLHUz1ZgKqFyw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795261320;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-MBO-RS-ID:X-MBO-RS-META;
+	bh=aTSdgsW/If8AvBAp0QS47BaE9NNJMAYxI9k/KdCbIRM=;
+	b=Gsi4KHUf5GW4qC6f5xXyrzdFz1SdqYCsgRvu6N+onErO88vo15oviJJbtHal0G8/EpZa
+	 s4aDH4uxFpUnqeYUGC93rsFZXWv8/rKBXosWMRrg+xf2QQKA/eOX093vjW47xQ+EwMfzL
+	 jSbS8AtzzsLCD2I5w77OsAtHzqFeudvpZd8Tm6F6rSMWziAM6SRG10+PGP9QU2TdUl01s
+	 tKeyv2agOE23k3Bi0rdXXTp4WtESvYFRNQB5TknOpIWhZddY9k0ug5iRiq/miRLUaIAki
+	 aWsM5xdQ+v45fQ/7uds5cGaVVf8T5wJziv5v4zfMoD9JFiL6KcPoM1BCkt3p4fJgzIw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=UADWpVae;
-	arc=none smtp.remote-ip=203.205.221.236
-Received: from out203-205-221-236.mail.qq.com (out203-205-221-236.mail.qq.com [203.205.221.236])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=mailbox.org;
+	spf=pass smtp.mailfrom=mailbox.org;
+	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=yOf8hpyX;
+	arc=none smtp.remote-ip=80.241.56.172
+Received: from mout-p-202.mailbox.org (mout-p-202.mailbox.org [80.241.56.172])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01031606A32A;
-	Sat, 21 Nov 2026 11:41:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01031606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9491606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:41:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9491606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=UADWpVae
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795261270; bh=H0POKlXJyl1potWBMogKNasbJD7Qe/EdMAgMjh/RQek=;
-	h=From:To:Cc:Subject:Date;
-	b=UADWpVaeOCWWc5JGFF1Dkfd+q0CAOwAIAfalLg+BBuOrhvfeYUKj+OyOahQuIIqxa
-	 45E/P8HdlHt1cENeXlqpyk0JvcwowtejB59PBAwLHeps2hvpklxaQTC8PwZw0rrAyD
-	 7UaOk9tHEPVAU7dQiVPVMrNN+qt8ZkNZE8guEcps=
-Received: from jerry-PC.lan ([2408:8249:5f:7101:71a:8713:56b4:5043])
-	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
-	id A483CACC; Sat, 21 Nov 2026 19:41:08 +0800
-X-QQ-mid: xmsmtpt1795261268tij57gi7q
-Message-ID: <tencent_9138CD6157C88BC2D52FE6394AF83E560208@qq.com>
-X-QQ-XMAILINFO: MMvVzQSdFuTpJIeV8/5hjtQfotwkZ+jtKyfjhICSDMZIDHT1X/DYkcbH/Lia1j
-	 XzXeCAPaRAu+mSZgb7XWYaWJ4aEZkHb3OGQKRr5VE13m7VPNP24J5vbBAWyRJvyaJ7bu/lTKOTyc
-	 5U1neCYdoSrqPoiI4FLGrGUfhVfzXyZ/aH0laYFJ38Wx9RWIZMI9n9y9vvtWFAP0j6g/aTM191xf
-	 bA6tWzdJK/yJunxXgLqTi/DF/5/D1kC+9mhQl17MIzNjkdxEU0pmELe05j1///XzD4iGUcEqg1nU
-	 2ShEWEjwQQ7zWM5FBemnfpXWCn3a3yjz4NXFfWoddtgY8jBlpymIB+EirySYqXEu0j/PU3gC3qn4
-	 2L2t/Y207YshOdI0SSUjVMQ4UzGDNfPf0zktGGM8vE0KvlgIqHr500j6wZSeMHUHSUI5YBpkEqLh
-	 8hSBlIiZDuEBRbtMbn2Q4u/3VhwyS1wiRTp+qp+ZAKp5K31uec3cPs50VDhFzu8dkLRQkjM+nc7O
-	 2PP0PdS+XqL7bXk34rye5nYJzEHXeIyeFn4V91eDFgna9Ao65Xi6ktbGr4ddRdOmgLq85Ji5O84k
-	 AEdncFZHbJ/dTwuI1srplAWPy5in07fMLejYV14KxZMKXldi2Q5h0m9vYAdtYdc05AIRG0UTLIXk
-	 XVPN6NWcFQ1Y5IuqFQ6UPswh/QzJry9LF3z0nmP5DMR4tIdiqMMpi7I/0tBAncU+kaGvHJWp36rs
-	 Yvj8cCJzQqdJZpZQCMKfnBWmJGuxYFlYplciUPPRUpKWp1FfhbsKevW6nm7Sa2Ew2EoT7Yg4Y7nQ
-	 S4yPD9ipjb277N0KxNT5dOdVvyRLcxYEcVFW3UmLoi6MP2EUvGl+3ZNkRMNDC6Gt/JBOw/D2/FxU
-	 VWjb2N0QFbtq2XrLNi2H2kcH+S9XZ6JytvhonJoGtOnIISj/+cl1V6FuQ/ygiqXtpkwKb+xSClVc
-	 LUZ39jg3zvhE52KJynxzHQ0GH3RmzBxZJGlX8Db2EhOxOY3SvjLOKS2dz5bySvKfW7Z9w0+y2/b/
-	 iTjzddXsotbsoiVJ+E2mMjYA+ISe9CkTp8ixrHmfB9UE6oerdHByOstz7quGpbE5/Lb0JuIEL6eD
-	 JCQlW6e1n33ePa1d8K97hBp3TwZA==
-X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
-From: ZhuXiangyu <1194781887@qq.com>
-To: Stephen Boyd <sboyd@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	ZhuXiangyu <1194781887@qq.com>
-Subject: [PATCH 1/2] dt-bindings: clock: rockchip,rk3506-cru: add SAI MCLK output IDs
-Date: Sat, 21 Nov 2026 19:41:05 +0800
-X-OQ-MSGID: <20261121114106.1464639-1-1194781887@qq.com>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=yOf8hpyX
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4jWr031dshzMltp;
+	Sat, 21 Nov 2026 12:41:55 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1795261315;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=aTSdgsW/If8AvBAp0QS47BaE9NNJMAYxI9k/KdCbIRM=;
+	b=yOf8hpyX+tb/aLi477Fz6ev+zrCj5FDs/13EqjF4PXOWzjVDcRkra6kobstNG/QE8thwpo
+	Y1afUv7UYr2C4IbLbI05b6MQ/Dsdy2wgI5jhSgPenkOv9A2kTLLWYVSjv992AICqpCAkK6
+	CZIyl84sPi1uVb96guTb2xt0drjuxNA2V0hevKNt1cpWO+YkxCc3htcZWI9orr+TJgQuJc
+	Wo0ocMUJG6IHPra628M7XU/EZIG3QHHDIu8yQxGCPrgtGg4ogkWmingbk7e6kvuiyzbUQb
+	yh31TJTuhtNofaPHRTxUW5QqgUGeqIxvjNDhU9USlgPm3PfF+tvcIpPLIg40eA==
+From: Manuel Ebner <manuelebnerli@mailbox.org>
+To: Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Manuel Ebner <manuelebnerli@mailbox.org>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] sched/fair: add ')' to comment
+Date: Sat, 21 Nov 2026 12:41:29 +0100
+Message-ID: <20261121114129.1443346-2-manuelebnerli@mailbox.org>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,29 +77,29 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: 555838a9946ae005197
+X-MBO-RS-META: s4j3ubgywsfps79epfa5yxrwy1s8b36e
 
-Add clock IDs for the SAI MCLK output gates in the RK3506 PMU and
-system GRFs so they can be registered by the CRU driver.
+Add missing ')' to formula in comment.
 
-Signed-off-by: ZhuXiangyu <1194781887@qq.com>
+Signed-off-by: Manuel Ebner <manuelebnerli@mailbox.org>
 ---
- include/dt-bindings/clock/rockchip,rk3506-cru.h | 4 ++++
- 1 file changed, 4 insertions(+)
+ kernel/sched/fair.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/include/dt-bindings/clock/rockchip,rk3506-cru.h b/include/dt-bindings/clock/rockchip,rk3506-cru.h
-index 71d7dda2..708502db 100644
---- a/include/dt-bindings/clock/rockchip,rk3506-cru.h
-+++ b/include/dt-bindings/clock/rockchip,rk3506-cru.h
-@@ -281,5 +281,9 @@
- #define CLK_V0PLL_REF			268
- #define CLK_V1PLL_REF			269
- #define CLK_32K_FRAC_MUX		270
-+#define MCLK_OUT_SAI0_TO_IO		271
-+#define MCLK_OUT_SAI1_TO_IO		272
-+#define MCLK_OUT_SAI2_TO_IO		273
-+#define MCLK_OUT_SAI3_TO_IO		274
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index d78467ec6ee1..d10670b22921 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -67,7 +67,7 @@
+  *   SCHED_TUNABLESCALING_LOG - scaled logarithmically, *1+ilog(ncpus)
+  *   SCHED_TUNABLESCALING_LINEAR - scaled linear, *ncpus
+  *
+- * (default SCHED_TUNABLESCALING_LOG = *(1+ilog(ncpus))
++ * (default SCHED_TUNABLESCALING_LOG = *(1+ilog(ncpus)))
+  */
+ unsigned int sysctl_sched_tunable_scaling = SCHED_TUNABLESCALING_LOG;
  
- #endif
 -- 
-2.47.3
+2.54.0
 
