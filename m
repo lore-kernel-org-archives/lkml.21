@@ -1,55 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.227
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795265086;
-	b=vavl9/PgqlV9CHvSbA3ArFDHWPVGDZaskWsjJDnCGzhklLYE1ISob0LutdKY6F6Yzo+O
-	 rLrRW5zaTlxt40HBKS5MsLaKjURLLVkBfrbJsh5yfE0X8t80tCJtYAEwVCGbqEe8HGdsq
-	 AIfimzJnTfBnXOyFyCnEkSHDcYSlX3CY6Rt3mBA9NQlOFaO1jwWxxboEP1oXwuE/1CS0g
-	 dPh7tYf6yYtGOqBbEwbV4hAFiCyfIyUKBfvsIZRDRJha27ZXt+C8MW8ozFS34qUVGDPIr
-	 R2+KDoayoFqA8LSfzmKYvKmGAALpz7j9oiAbXapwbEmuqQ66/uZ3ATnOEHNJuu1165Q==
+	t=1795265451;
+	b=PHlPNJKOKmImCTJSUZK/haqr4OBf2wYlssKGJPx9VMytEg2F1xTfCvX9zn8ATmh+CqTV
+	 Kxp0pzie6Tn9RxweFcxbxErc6VWXVUF+N/5rFEs8ESDLm4b9cWHkCpgu0zzYWT+9icXGP
+	 SONfTx/HkGIQiPtJRSxIe8Yt9Dfl3YmFv+CTvwwSNvKsVjjEcadqfXhom7Xi9ryAtAy5k
+	 r62b/M4QzQoRCQ8KRhPufpdX0IqTFTXIrrvNrAsR9z1wTB9ZZuxn8kCR0WXIJ8p4gZJKZ
+	 txq6Is8IjRO65hMcRHeBQo4rHRpNuTkwWMj41QoRTeB0TsB79Y+4Y4VcUjEi/uN8QZw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795265086;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer;
-	bh=Ju2BXwccP9syBqQMdgnQHqvrtqMLj05bAyauqWyrjrc=;
-	b=FDiWUqf98+ZdrrlaKY5+CLh0yxtdCVBz3fn0LSewrgVGsY7InmSd5xdkfP6QxIBVmeHv
-	 d/I/5cyP9YMlv5IkbKyQhICa21PEIVSs/euo/cj3Np1NPyAL7onuy+WrLB0VFLjg9oatJ
-	 D7ijrq+iWUphaauMPIxXc7PUoeyhV874RDjwNQR1wluElaRgtbZsa1t1eg6XFR3QJXiUq
-	 WvodTIB8ei0JFWHhoZePmZGKysIRhRtz8jPKFHaJ+gLb0M0rTxtReBqTnaIK+kTrjXJXd
-	 XTpXUG3IxibISGDidZ4RCAdj8cO1asVSZn8X/2EiPEgpwY46ultjOi8TUbcDg4ir0PA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795265451;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=a+JvEByhjl3Q0eRtUPeklA/fZjCl5bKRc9fdhPzK8Ac=;
+	b=Qt8wUJdsvdAbiWgptPUHwoVdN7bTd3xY3Lb38LQBQGutgyGtpRUGb0UopDv60pwZ1gx9
+	 A+TwZlUq2RvxwttrmQ4swHO9uhHPdllWz0cI3Ug7+seyUpd/Tte+HJ9XFPVm3BbRQ80UH
+	 Otprg/xxxJlxzHjXcdhiDeOm7XdavBWoQ0boYVIV6bwg/5VqKVwDzQ0ZbB+CCyS+/6eb4
+	 TQz6jLxGXYIz+I03rF0y8BTAfBS3g1GVfXj2E070+CgL1r4unLiorY4Q88v/hJ3ZAxlsP
+	 R14WJLn34hw+RZq2FsVjMamWCRCc4B54XfFrfpG5dy6I8Vt1DbltGt+J7xJtcW9kcyw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bU9wLUB4;
-	arc=none smtp.remote-ip=91.218.175.227
-Received: from mta0.migadu.com (out-227.mta0.migadu.com [91.218.175.227])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Imsir6fH;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 680B0606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 12:44:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 680B0606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE9FD606A32C
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 12:50:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE9FD606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bU9wLUB4
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=DQrheEy5+ObfvndJOk4fyT/8v3NAxQkFe2IZ7mZ0vQ4=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795265083; v=1; x=1795869883;
- b=bU9wLUB48UjABpzJwphWFt04QX1xerkjX9r39BavEiwJ0CQzy46xkEBDagVxLy0Zr5ZV8iCs
- xi4I9bA0kswkN30rfGRJ9YjGONTBoFWdiQv7Te42yiceHeW6O2TuLnk50P1vnbWVylIwx1OOqUL
- 9e7+zN8iTQLx1+52285+J3Zw=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id dcbc891ec8d23f4e;
-	Sat, 21 Nov 2026 12:44:43 +0000
-X-Mizu-Trace-ID: dcbc891ec8d23f4e
-X-Migadu-Flow: FLOW_OUT
-From: Peng Fan <peng.fan@linux.dev>
-Date: Sat, 21 Nov 2026 20:44:21 +0800
-Subject: [PATCH 3/3] regmap: kunit: add test for regmap_bus::init_limits
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Imsir6fH
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a207b02a2cso12809795e9.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 04:50:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795265449; x=1795870249; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=a+JvEByhjl3Q0eRtUPeklA/fZjCl5bKRc9fdhPzK8Ac=;
+        b=Imsir6fH8V7hOExu52NV554HH3pwtbhoLh70BMUw8H1FaFiWt7W9gMtzLxzyAWqEK7
+         PDd4FwlbIR16ulmMWV/RrrEnkjme74mNISBwO15zVGJctYBCbuEexnAVhvDw7EChJweE
+         CNJLlHu9Ia5dmdb8RBOiBLwhc4OjapiV+Cd5c2mU4ujK3opQq7DLiS0fxDOUOEmQUNcn
+         Oc/JxNmuUt/GSKQYXe7LuWKLqWlVmLBpBDpHOHXdMcuoVtBhj0Cs7C48GQHHVRpGJLnx
+         57FfYipZk9L0sk23f1CityQxeUziuI/F0K8U0AB14i0DdHS5Ft9RaNWxa8xeiGMaq5aa
+         bU8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795265449; x=1795870249;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=a+JvEByhjl3Q0eRtUPeklA/fZjCl5bKRc9fdhPzK8Ac=;
+        b=nMQJTkpQ8p4zL/qh/sWAXutVyHrUdzcLsE524i44UDqe0W1rGp4o9EMChpTK14TuGa
+         W0gHwyW/eitMvS7mIYmmdgmi9qbBETulxFGWS5uqXCICKvD5jwF8CggAjskkZ05l25WB
+         aDlGrDKcd1Q6EdsTgMpiufmP0N9/cLcclqr7jb0dPObz3aO1Afe/VU0rs5ZPzPUsjkHF
+         3ABUUoInZxtWk1bfx9VuhBiCzX7t/65FJt3vVY0xbSqQn0kwrNUbf6f5hx1AXVeSI6B3
+         Vo4AFsAB7IT1fF8+GfHIwfRpfgfMLubuDfinOsw94YuAro0Y/SRoTxDDDrnyWcD+2Mp6
+         mWPw==
+X-Forwarded-Encrypted: i=1; AL+hErES02enpuQvyA9prXLs9ml2STO7uOH/dRPEHs8yEFuYQDnItcxsHHZsH7cQKL1RsqUKzUAzZUKVCENV22E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/z5SS+BUvGWbjBSKDtMjgg2Vzf3HvbWSOuk98H5H1uEB0yRjXu
+	61fTTnDvHjYqhoaTEjlh3PjbDLycUVpdsAyjQIh5WMCQ+tFJajAR3rcXt/To
+X-Gm-Gg: AZFdTZevsxdISrbHSgglfvLkR7/PxAZ7R8Fo4pZkDJ96BFHUYtrfQXQcriB6TzOBm7K
+	GtJFOjMsS+doItzGjVcEWcixM7/5DYWDQzMT6G9/a7dl4NqqajtknD2oTpHcmI8CBmX3mcnjwat
+	EiaSi15W2NRijrMAqSKHXr0elWlMUN+C1rtfpKMF13Na0wpFaNOLMU6P5QbN/AueOI3yLmZcagr
+	gY3h2wCWpAew42iP/99I52EDRhzzCqiwYmuUc2qGH1tGKsoE1HjRVOMCBhoFeebE/c9c0Gk3tN+
+	cq4GYZOZ4Dvn5KWHPi7EjXdFh9g06Jl8IA7Jme0WHwYLEl9ZrruVyy0D3POLG82R2pAYfy1is3P
+	DGweOW1HFSfcNAqFKW+tXUCf0PIhCIWexhfvuygOQZ+FSaBEO9thixZeNCeVifqfnjxPBxXaet+
+	PMoGm67UyFdMX6+SnqM9yWHaTHmIGa3R8l6BLozEWWaeIUsMIq1dHGiuJIuLIhk7c+NGkSsQEMs
+	y0dQuiv9JSYw8ecNPv+ZhCB7BIJmgMCGujBgCKvQ+SrQGkIDzHh8wbAmlxoM3cJOv1aTTJ9qhkT
+	g+BeRPHK+rLWsWxN4u1iJYd5vC745c31iBeQ
+X-Received: by 2002:a05:600c:820d:b0:4bb:6cef:d14b with SMTP id 5b1f17b1804b1-4bb887c34f1mr145440935e9.2.1795265448967;
+        Sat, 21 Nov 2026 04:50:48 -0800 (PST)
+Received: from localhost.localdomain ([2001:41d0:303:db6b::])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf685asm10803003f8f.20.2026.11.21.04.50.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 04:50:48 -0800 (PST)
+From: Tristan Madani <tristmd@gmail.com>
+To: David Howells <dhowells@redhat.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>
+Cc: Paul Moore <paul@paul-moore.com>,
+	James Morris <jmorris@namei.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>,
+	keyrings@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Tristan Madani <tristan@talencesecurity.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] KEYS: protect construct_key type dereference with key semaphore
+Date: Sat, 21 Nov 2026 12:50:39 +0000
+Message-ID: <20261121125039.2532663-1-tristmd@gmail.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,143 +101,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261121-regmap-improve-2nd-v1-3-6b5fd59451ed@nxp.com>
-References: <20261121-regmap-improve-2nd-v1-0-6b5fd59451ed@nxp.com>
-In-Reply-To: <20261121-regmap-improve-2nd-v1-0-6b5fd59451ed@nxp.com>
-To: Mark Brown <broonie@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
- Johan Hovold <johan@kernel.org>
-Cc: linux-kernel@vger.kernel.org, driver-core@lists.linux.dev, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.3
+Content-Transfer-Encoding: 8bit
 
-From: Peng Fan <peng.fan@nxp.com>
+From: Tristan Madani <tristan@talencesecurity.com>
 
-Add coverage for the optional regmap_bus::init_limits() callback. The
-test bus lowers the raw I/O limits and relies on raw register defaults so
-that regcache_hw_init() reads from the device during map initialization.
-The readback must be split according to the limits set by the callback,
-which also verifies that __regmap_init() invokes the callback before
-regcache_init().
+construct_key() reads key->type->request_key without holding key->sem,
+then calls the resulting actor function pointer.  While the
+sys_request_key() syscall path holds key_types_sem for reading (via
+key_type_lookup()), which prevents concurrent type removal, in-kernel
+request_key() callers pass struct key_type directly without holding
+key_types_sem.  If unregister_key_type() races with such a caller,
+key_garbage_collector() can retype the key to key_type_dead and the
+module text backing the original request_key method can be freed before
+the actor call executes.
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Take key->sem for reading around both the key->type->request_key lookup
+and the actor() call, consistent with the approach used by 925c84e3cc21
+("KEYS: Protect the read method check against type removal"),
+51bcd09b9ffc ("KEYS: Protect the update method check against type
+removal") and bab48a104447 ("KEYS: Protect the pkey method checks
+against type removal") which protect analogous method dereferences in
+the keyctl paths.
+
+Fixes: b5f545c880a2 ("[PATCH] keys: Permit running process to instantiate keys")
+Cc: stable@vger.kernel.org
+Signed-off-by: Tristan Madani <tristan@talencesecurity.com>
 ---
- drivers/base/regmap/regmap-kunit.c | 91 ++++++++++++++++++++++++++++++++++++++
- 1 file changed, 91 insertions(+)
+Changes in v2:
+- Hold key->sem across the actor() call, not just the type pointer read,
+  matching the established pattern from the three prior fixes (Sashiko)
+- Clarify that in-kernel request_key() callers do not hold key_types_sem
+  so the race is reachable outside the syscall path (Sashiko)
 
-diff --git a/drivers/base/regmap/regmap-kunit.c b/drivers/base/regmap/regmap-kunit.c
-index c948219f46a3..75c251132c89 100644
---- a/drivers/base/regmap/regmap-kunit.c
-+++ b/drivers/base/regmap/regmap-kunit.c
-@@ -2247,6 +2247,96 @@ static void raw_ranges(struct kunit *test)
- 	}
- }
- 
-+#define TEST_INIT_LIMITS_REGS 16
-+#define TEST_INIT_LIMITS_MAX_RAW 4
-+
-+struct test_init_limits_data {
-+	int num_reads;
-+	size_t read_sizes[TEST_INIT_LIMITS_REGS];
-+};
-+
-+static void test_init_limits_bus_init_limits(void *context,
-+					     const struct regmap_config *config,
-+					     size_t *max_raw_read,
-+					     size_t *max_raw_write)
-+{
-+	*max_raw_read = TEST_INIT_LIMITS_MAX_RAW;
-+	*max_raw_write = TEST_INIT_LIMITS_MAX_RAW;
-+}
-+
-+static int test_init_limits_bus_read(void *context, const void *reg_buf,
-+				     size_t reg_size, void *val_buf,
-+				     size_t val_size)
-+{
-+	struct test_init_limits_data *data = context;
-+
-+	if (data->num_reads < ARRAY_SIZE(data->read_sizes))
-+		data->read_sizes[data->num_reads] = val_size;
-+	data->num_reads++;
-+
-+	memset(val_buf, 0, val_size);
-+
-+	return 0;
-+}
-+
-+static int test_init_limits_bus_write(void *context, const void *data,
-+				      size_t count)
-+{
-+	return 0;
-+}
-+
-+static const struct regmap_bus test_init_limits_bus = {
-+	.read = test_init_limits_bus_read,
-+	.write = test_init_limits_bus_write,
-+	.init_limits = test_init_limits_bus_init_limits,
-+};
-+
-+static const struct regmap_config test_init_limits_config = {
-+	.reg_bits = 8,
-+	.val_bits = 8,
-+	.max_register = TEST_INIT_LIMITS_REGS - 1,
-+	.cache_type = REGCACHE_FLAT,
-+	.num_reg_defaults_raw = TEST_INIT_LIMITS_REGS,
-+};
-+
-+static void test_init_limits(struct kunit *test)
-+{
-+	struct regmap_test_priv *priv = test->priv;
-+	struct test_init_limits_data *data;
-+	struct regmap *map;
-+	int i, ret;
-+
-+	data = kunit_kzalloc(test, sizeof(*data), GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_NULL(test, data);
-+
-+	map = regmap_init(priv->dev, &test_init_limits_bus, data,
-+			  &test_init_limits_config);
-+	KUNIT_ASSERT_FALSE(test, IS_ERR(map));
-+	if (IS_ERR(map))
-+		return;
-+
-+	ret = kunit_add_action_or_reset(test, regmap_exit_action, map);
-+	KUNIT_ASSERT_EQ(test, 0, ret);
-+	if (ret)
-+		return;
-+
-+	KUNIT_EXPECT_EQ(test, (size_t)TEST_INIT_LIMITS_MAX_RAW,
-+			regmap_get_raw_read_max(map));
-+	KUNIT_EXPECT_EQ(test, (size_t)TEST_INIT_LIMITS_MAX_RAW,
-+			regmap_get_raw_write_max(map));
-+
-+	/*
-+	 * regcache_hw_init() reads raw defaults during map initialization,
-+	 * so the callback must already have set the limit which chunks the
-+	 * readback.
-+	 */
-+	KUNIT_ASSERT_EQ(test, TEST_INIT_LIMITS_REGS / TEST_INIT_LIMITS_MAX_RAW,
-+			data->num_reads);
-+	for (i = 0; i < data->num_reads; i++)
-+		KUNIT_EXPECT_EQ(test, (size_t)TEST_INIT_LIMITS_MAX_RAW,
-+				data->read_sizes[i]);
-+}
-+
- static struct kunit_case regmap_test_cases[] = {
- 	KUNIT_CASE_PARAM(basic_read_write, regcache_types_gen_params),
- 	KUNIT_CASE_PARAM(read_bypassed, real_cache_types_gen_params),
-@@ -2290,6 +2380,7 @@ static struct kunit_case regmap_test_cases[] = {
- 	KUNIT_CASE_PARAM(raw_noinc_write, raw_test_types_gen_params),
- 	KUNIT_CASE_PARAM(raw_sync, raw_test_cache_types_gen_params),
- 	KUNIT_CASE_PARAM(raw_ranges, raw_test_cache_types_gen_params),
-+	KUNIT_CASE(test_init_limits),
- 	{}
- };
- 
+ security/keys/request_key.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
+diff --git a/security/keys/request_key.c b/security/keys/request_key.c
+index 22cd66a44da56..60a8cb5924e11 100644
+--- a/security/keys/request_key.c
++++ b/security/keys/request_key.c
+@@ -241,10 +241,12 @@ static int construct_key(struct key *key, const void *callout_info,
+ 
+ 	/* Make the call */
+ 	actor = call_sbin_request_key;
++	down_read(&key->sem);
+ 	if (key->type->request_key)
+ 		actor = key->type->request_key;
+ 
+ 	ret = actor(authkey, aux);
++	up_read(&key->sem);
+ 
+ 	/* check that the actor called complete_request_key() prior to
+ 	 * returning an error */
 -- 
-2.56.0
+2.47.3
 
