@@ -1,60 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795258772;
-	b=ZN3N73DntRZ8p2B4d1lXdxyJ6An0jc9eZJGlGxRY/khfe0GcQ5Z4VinBdlz3vqM8DGI2
-	 08ECXqMfIvcosozJT1xMIw/R+7D1gc8MqRy/9k9yQQfg71Ftc4XB2qHLKlGMu0RUWLdHp
-	 W8CCf47mFhDk0eyBUBO4U1yyzTeqSdRL14GKUppJ8L57zBwCaMxwPVf9+4EYCcb4w6xNK
-	 OW33IRR9xQoVJ255vvYZclkiDXN2jj7bQ+IBLfLJpXkQed9MqwgsQTeBDQEwGVBPNvlsT
-	 3uh2FN1VzBVYhdkKyECXedggHmLqnEy7VIM4tuSpNS/mOr9w8v5Lr7/CW7uWgpkkXDw==
+	t=1795258915;
+	b=wQPXE5v4FI/0uTftG1CxqNmEKz5JuEmIIH/TTj0ApWMk3Z6lvVJ+4slurT+UQwcsEpaY
+	 ehJXMsqCxaBYQpPX+qrwvvSw8r6tuQ5i6OabgnCfpwHZ8qP9E/52r+kPZ7SyGcpjl2QkZ
+	 Ff62hAyG5y5nC9OUgmw46+en3gjKu7+C6nCSMa+/CAutKCGJlt19tS9/zTs06H8kk/w0/
+	 h1BoK/6CTM321kXBo1mPlITh0Lzy796xg859EF2Ys7hPwB1nMDpV/I2pO0U5oypc5sJGj
+	 ltX+24E5jjoF4LXnpWD5eeaOiPa9iI7BpDZEwNM+wG1gBgp6PXNw9KOn1oDM0TatLvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795258772;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=qY2Rg3otMYSq9Uq3AvnnixdrXC9ooPIQhGOKyhwLA9Y=;
-	b=aq9YNAqKVhnhsIQkaatsZ29rybyn5a3JZZVReeRH16LI3HDeI7RcsYkODynF25ngRKND
-	 ugKqv6tB6xRTsYSEGpShQ7vxTmK2+IdI7uVLZS5YoGoBBDZY5FK6NjPed7xvebTECddTY
-	 lkO3rYv6v+I5KBPT3JLrsLxSGCJ2vlw5/vgJFqCjLT5HU7WqZN9+3kHMgCmycvsP8XPgg
-	 Tw3LSqkYTPs4Pz/baFgbaQkYcznYHyJeRr8bFApgKYM8TEa8domM7KXRrZOPH5LvbWOSb
-	 8DOdvqplx55VpSwfLiM5zzXVITUcsCiUIJmUgUpxh3QPgk3kMmyaZrsk3eMOU4pJicQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795258915;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=TWf+jlBIQBGwk4QT4KRo+cGa7wFWGG2xF2hmkjUB8u0=;
+	b=DSAPAyNCi+GsU3aG11K1zNX+2Reo7+W1kG50RB37Jr/bx39d+7jugMZ+FemQpXpJbd6+
+	 eD4DqMbJMzQSu8tnU8uIexhUaGT6QJD22SS4XEkdtwgL6gqEwcJHQObfy7+yCyaLEhHft
+	 8XHKTpkU4yRFDiK1CtU25iqmBrGd3psNGtqj4c177aRxbFBxjMYAbcP3GJ/L9SMpeFKUA
+	 mcQTXLQm1e6SU8xp+48GOdBR9/9XcwTSIBVxmdWXPBQr+ehhmvR0aErPwWscZ/ZTryVjJ
+	 1MgicW7DyIFZGQ7m167LYc5Wjdrsxzy/8SWj3uKx+mVywKun/nfkH1kWyp4zLHQbf1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fO9z974C;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32D65606A320;
-	Sat, 21 Nov 2026 10:59:31 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=m+MLl17U;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id A2370606A320;
+	Sat, 21 Nov 2026 11:01:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2370606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fO9z974C
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07B191F000C4;
-	Sat, 21 Nov 2026 10:59:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795258771;
-	bh=qY2Rg3otMYSq9Uq3AvnnixdrXC9ooPIQhGOKyhwLA9Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fO9z974ChRoMI7+DQ0aYKZReN3YFJydIrKPj77+nuOOTgV9bQVea80pJLx/vL37Eo
-	 rQ+HRcE6u7Sk/AbholYmlukSFrriwgzdG3audpmXPOlC3+XUqbWidc/hgEopu9Shg9
-	 OHcV8cQZWVcdbFku8+t7EanSbfaD78UljRkyeL4tumnw9/WC9TgoVNvB+bMfKYJ1iT
-	 kf4qXDg3+TxlzhTYVAukkh5H8WnfwBHlUTbJ/sGniMf7nqwg5BtJd8UkTSMyljaPGg
-	 CoWtKrc28xZ2z2jODios272MIjkp9itUYMdFbbAzFefJ+JznWYSR99vrfoeCXqHhJV
-	 HWUiPOlEyGckw==
-Date: Sat, 21 Nov 2026 11:59:28 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Karunika Choo <karunika.choo@arm.com>
-Cc: dri-devel@lists.freedesktop.org, nd@arm.com, 
-	Boris Brezillon <boris.brezillon@collabora.com>, Steven Price <steven.price@arm.com>, 
-	Liviu Dudau <liviu.dudau@arm.com>, linux-kernel@vger.kernel.org, Akash Goel <akash.goel@arm.com>, 
-	Lukas Zapolskas <lukas.zapolskas@arm.com>, Chris Diamand <chris.diamand@arm.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 8/9] dt-bindings: gpu: mali-gen5-am: Add Mali 5th-Gen
- AM schema
-Message-ID: <20261121-polar-mutant-degu-2acd65@quoll>
-References: <20261119154604.2519184-1-karunika.choo@arm.com>
- <20261119154604.2519184-9-karunika.choo@arm.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=m+MLl17U
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B29761575;
+	Sat, 21 Nov 2026 03:01:50 -0800 (PST)
+Received: from [10.57.93.173] (unknown [10.57.93.173])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A85D23F673;
+	Sat, 21 Nov 2026 03:01:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795258913; bh=b606/LbDulrarsbGOfDsZnPHYpPyDvJEr5RossCWTCI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=m+MLl17UBpYuoJHPoix2uCTLkZOTjwAdDBLO2DuGlFrb/3ap/qbaoRqkWqHw5FDPJ
+	 rYPl8cGGuPCr3y3My2HROvuBYmb8cU5lAsrv89CKDDSQ+Linu+MNsLN6Pb5ivVmjW3
+	 OFeIq2rlrbSU+itEgTGbAVIriMtbruJm30MnGltQ=
+Message-ID: <6782b5ee-3dfe-4076-a79c-fbeb2c2ac7da@arm.com>
+Date: Sat, 21 Nov 2026 11:01:49 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,129 +53,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261119154604.2519184-9-karunika.choo@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: mm: Don't defer the barriers when installing a
+ fixmap entry
+To: Fuad Tabba <fuad.tabba@linux.dev>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Yang Shi <yang@os.amperecomputing.com>, Kevin Brodsky
+ <kevin.brodsky@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Fuad Tabba <tabba@google.com>, stable@vger.kernel.org
+References: <20261120121638.194154-1-fuad.tabba@linux.dev>
+ <20261120121638.194154-4-fuad.tabba@linux.dev>
+From: Ryan Roberts <ryan.roberts@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20261120121638.194154-4-fuad.tabba@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 19, 2026 at 03:45:58PM +0000, Karunika Choo wrote:
-> Add a separate device-tree schema for Mali 5th-Gen AM GPUs.
+On 20/11/2026 12:16, Fuad Tabba wrote:
+> In lazy MMU mode, __set_pte(), which __set_fixmap() uses, only queues
+> its DSB and ISB, but a caller can dereference the slot as soon as
+> __set_fixmap() returns. On a CPU with BBML3, runtime changes to the
+> linear map are made in lazy MMU mode. With 4K pages and 39-bit VAs, for
+> example, such a change can update a top-level entry, which
+> set_swapper_pgd() writes through FIX_PGD. That store can fault, and the
+> kernel then warns about a spurious translation fault. When kgdb stops a
+> CPU in lazy MMU mode, its breakpoint writes through FIX_TEXT_POKE0 can
+> fault the same way, and fail.
 > 
-> AM_GOVERNOR controls GPU frequency. The GPU node does not accept OPP,
-> cooling or GPU supply properties.
+> Emit the barriers directly in __set_fixmap().
 > 
-> Acked-by: Boris Brezillon <boris.brezillon@collabora.com>
-> Signed-off-by: Karunika Choo <karunika.choo@arm.com>
-> ---
-> v4:
-> - Pick up Ack from Boris
-> v3:
-> - Drop the $nodename constraint from the AM GPU binding.
-> - Require the arm,zena-css-mali integration compatible followed by
->   the arm,mali-gen5-am fallback.
-> - Update the binding example to use the new compatible, three-cell
->   interrupt specifiers, and a single GPU clock.
-> v2:
-> - Move arm,mali-gen5-am support from arm,mali-valhall-csf.yaml to a
->   separate arm,mali-gen5-am.yaml schema.
-> - Move the AM GPU example to the new schema and add the interrupt
->   binding headers.
-> - Add the new schema to the Panthor MAINTAINERS entry.
+> Fixes: 5fdd05efa1cd3 ("arm64/mm: Batch barriers when updating kernel mappings")
+
+My memory might be betraying me, but I think this change went in before BBML3
+(BBML2_NOABORT)? In which case, the bug is only exposed by the latter series?
+
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> --->  arch/arm64/mm/fixmap.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 > 
->  .../bindings/gpu/arm,mali-gen5-am.yaml        | 89 +++++++++++++++++++
->  MAINTAINERS                                   |  1 +
->  2 files changed, 90 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/gpu/arm,mali-gen5-am.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-gen5-am.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-gen5-am.yaml
-> new file mode 100644
-> index 0000000000000..af758daec2aeb
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-gen5-am.yaml
-> @@ -0,0 +1,89 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/gpu/arm,mali-gen5-am.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ARM Mali 5th Gen AM GPU
-> +
-> +maintainers:
-> +  - Liviu Dudau <liviu.dudau@arm.com>
-> +  - Boris Brezillon <boris.brezillon@collabora.com>
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - arm,zena-css-mali
-> +      - const: arm,mali-gen5-am
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    items:
-> +      - description: Job interrupt
-> +      - description: MMU interrupt
-> +      - description: GPU interrupt
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: job
-> +      - const: mmu
-> +      - const: gpu
-> +
-> +  clocks:
-> +    minItems: 1
-> +    maxItems: 3
-> +
-> +  clock-names:
-> +    minItems: 1
-> +    items:
-> +      - const: core
-> +      - enum:
-> +          - coregroup
-> +          - stacks
+> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+> index f66a0016dd02d..951004ad700c3 100644
+> --- a/arch/arm64/mm/fixmap.c
+> +++ b/arch/arm64/mm/fixmap.c
+> @@ -127,7 +127,9 @@ void __set_fixmap(enum fixed_addresses idx,
+>  	ptep = fixmap_pte(addr);
+>  
+>  	if (pgprot_val(flags)) {
+> -		__set_pte(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
+> +		/* The slot must be usable on return, even in lazy MMU mode. */
+> +		__set_pte_nosync(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
+> +		emit_pte_barriers();
 
-- enum: [ coregroup, stacks ]
+I wonder if it would be clearer to wrap __set_ptes():
 
-> +      - const: stacks
-> +
-> +  nvmem-cells:
-> +    items:
-> +      - description: bitmask of functional shader cores
-> +
-> +  nvmem-cell-names:
-> +    items:
-> +      - const: shader-present
-> +
-> +  power-domains:
-> +    minItems: 1
-> +    maxItems: 5
-> +
-> +  power-domain-names:
-> +    minItems: 1
-> +    maxItems: 5
+lazy_mmu_mode_pause()
+__set_ptes()
+lazy_mmu_mode_resume()
 
-You need to list the names
+I notice that ptep_try_set() is also using emit_pte_barriers() directly, but
+that feels like a layering violation to me.
 
-> +
-> +  dma-coherent: true
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - interrupt-names
-> +  - clocks
-> +
-
-And all the flexible properties should be constrained. Since you have
-only one device, I see little benefit in having wide constraints which
-are not used. Each integration will add them when needed.
+Thanks,
+Ryan
 
 
-Best regards,
-Krzysztof
+>  	} else {
+>  		__pte_clear(&init_mm, addr, ptep);
+>  		flush_tlb_kernel_range(addr, addr+PAGE_SIZE);
 
