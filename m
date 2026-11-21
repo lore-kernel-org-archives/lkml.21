@@ -1,60 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.158
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795230684;
-	b=Vdy5zTxkhfFa1Gn5gEXY6gszVJCBDISTaNd93labMUQlLsTRGgFZcL9pLc6ljt5Hjoa/
-	 lieJO5InvRAEMOLfIT4RgwN2SUVwgvrYckKg6hE0yJy4T3EXJnLeTPlbJZWSrz1qQeQ05
-	 3NG/UZFlVwdTQzZ9bSpXpv4B+8Ph2vpeqnXjRoaKxXiFb16ckr0yrW5qeqA2yUuqkHYyl
-	 6VIZL7gxeLlwLZve1LkKykdt612JJie/22mb6mLN1gRf2EtsvCJ8R8R14lKfpQzbjn1xr
-	 b/Y6plvFoDnZCM9qcL3I+eajoZPakF8ZEVOGJdJdhCpLxK38kDjE3fkxJJdqMPL0RDw==
+	b=T188TIdeKW2a/geUY1jcA/zEFU0/2GH7NkIe01m7bBdAUpqnCnZz67yCy5H78lYPxjKV
+	 u/pgMLwBZ0qBd+QMOg4i1NCkyyATm6AnaoZVoGR4+Z+MQbhK7O3aXRaJ7F+3UVqG81CiQ
+	 1sYGQzlli81qkWRb0p4JnZ3MnzigudeFVp03Fgvzt4ESVfHlhTJLW9mepX/SZF4acpWt0
+	 2/G2sqGoAkyI0wLdZgvZNfSBfUyF+pU1oYYPoqT4KrPSch7RtXIRKkrLqYHH59nwWYagc
+	 /zFrT7nNrWioOO0Dt/RQlWECEngWwLcd1sCXBGJgalePthSN9peAOet67ArigaFVxKg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795230684;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-Id:
-	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=r1VxHdvjTAQqwIi48lBUjfmQrAuXiHwG2H/BM8QNl/s=;
-	b=ftWeFuLES/7ijOvTt2Za0qGNV0oWJm7btZ1tpX3P3usgah0Sj2E5VeZHmaLJ5O+JIJdQ
-	 gdsgKuZIOmgIa9vBWM98Q1xdpTDsM/M+sjXjlKjaDjpcqCpWpyB5Uu3ubszBgaYpvvjEi
-	 nsO6Jdjq24H61Hw2XdqFdmOi1oq4/lJCCIK6h2YUD65cOTPLJe5ArXsPvy+2LDR1rGOlM
-	 +qs8/C7zmQWd8NFIuLKpOQYSzmy7jTwvWHsH97PCpJLI7pprWVz8LGDNBGP9xKjlFfTsb
-	 wfXrgy0N0GPWZpgG4xS/x1UhsOCmNIJLLlwRgCS7enGTo7XpHZ5Qtt16rvEFkZcysaw==
+	bh=R8xhVddauQYCNhO1z3ZGmw22iFacrhkUe2K9cVCZ8Xc=;
+	b=TpfCX04AcC4zGc+tl5JRvcoyxX4BhVBPzmkn4NFGp3ONf74uq3DWlQ/nev0LrCLC3X5J
+	 d92bcctV4ZyztT66O+Rd3HemUk9LwSDoc+i21Bqtk+mbwvLfzW3dHOcZDgD0jJVkRUzEE
+	 tnIKPbyS/a1tphikdvcB74G4T/j7stBXM7vEB+R17zKflQc40LwaDCYYnlAdkS8p8FrS2
+	 NNMj1jqlYng2RVD1jjYwtMkzsbThimKGoZxuFNrqEnXrB6MHn+z1FXxekZqHFjL1cnX2g
+	 I5ky/XVG+T6bY82v13QYFetHZatwavmv6k5yyLYj7Fu5WEwG2uiZuVXVo7eRlshXJrA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b="BS/bHeTg";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=pobox.com;
+	spf=pass smtp.mailfrom=pobox.com;
+	dkim=pass header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=iW8IY+Dr;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=urHHX4ed;
+	arc=none smtp.remote-ip=202.12.124.158
+Received: from fhigh-b7-smtp.messagingengine.com (fhigh-b7-smtp.messagingengine.com [202.12.124.158])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E854606A69F;
-	Sat, 21 Nov 2026 03:11:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25DE6606A6B4
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:11:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25DE6606A6B4
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=pobox.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pobox.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=BS/bHeTg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 367791F000D3;
-	Sat, 21 Nov 2026 03:11:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1795230683;
-	bh=r1VxHdvjTAQqwIi48lBUjfmQrAuXiHwG2H/BM8QNl/s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=BS/bHeTg3i9yU0iRDPP1R3YfsQF2x6YPJyg+rvwjV5aN7f+0+yUx8P8u9mlS80Oo3
-	 BPCIXLXGgacppWIdgofzZFrDrkTqR4JQQFDYA5YxFgLRH4arI9Fwo+StBe/bXn2zuW
-	 l+TWeOp7WX0bejBF9sukOBw4cN+yK2Evl673poBs=
-Date: Fri, 20 Nov 2026 19:11:22 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Qinyun Tan <qinyuntan@linux.alibaba.com>
-Cc: hannes@cmpxchg.org, mhocko@kernel.org, roman.gushchin@linux.dev,
- shakeel.butt@linux.dev, muchun.song@linux.dev, mkoutny@suse.com,
- david@kernel.org, ziy@nvidia.com, baolin.wang@linux.alibaba.com,
- usama.arif@linux.dev, david@fromorbit.com, qi.zheng@linux.dev,
- yosry@kernel.org, nphamcs@gmail.com, chengming.zhou@linux.dev,
- xlpang@linux.alibaba.com, ryncsn@gmail.com, gourry@gourry.net,
- cgroups@vger.kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 RESEND 0/5] mm: restore per-memcg reclaim for NONSLAB
- shrinkers under nokmem
-Message-Id: <20261120191122.f31167fc1c987196e5a0b86b@linux-foundation.org>
-In-Reply-To: <565e4075-2788-4310-8309-7739b9ee94ed@linux.alibaba.com>
-References: <20261105092233.3558950-1-qinyuntan@linux.alibaba.com>
-	<20261109215053.85df5685da951ab47ef858f1@linux-foundation.org>
-	<565e4075-2788-4310-8309-7739b9ee94ed@linux.alibaba.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key, unprotected) header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=iW8IY+Dr;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=urHHX4ed
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 95AE97A0435
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:11:20 -0500 (EST)
+Received: from phl-frontend-02 ([10.202.2.161])
+  by phl-compute-05.internal (MEProxy); Fri, 20 Nov 2026 22:11:20 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pobox.com; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795230680;
+	 x=1795317080; bh=R8xhVddauQYCNhO1z3ZGmw22iFacrhkUe2K9cVCZ8Xc=; b=
+	iW8IY+Dr7HZjD7BysCBRzxseyllsHHI3VtylsFq8BjBfGuG/xgCYp7vnc/MEiHi8
+	ORLDWydjogAclx2ZB77K6cP4dScpIHCrPvT3YWcOhbkrqTmf+KIEK+3HpsvFiURy
+	PybByQ5zjDX2ZQ6myVmuw3jfrxNyFWhQq7fI87TAI6TC+6i7QgGm7kpfvdbYD+Vu
+	0FI+C7R6jBHjRZefP5t1G/yZH/C0iv/1b5UbO18S6pbs9spTo08r+Q6JB0oD9hu6
+	jUignUJhjMp6DPQEe1TeZyTOzcFbLe0BIO4T5dYxzbg8G01/0niMZBXYpkLVsNC+
+	8TTIPeHnZv7dVViCiGmE4Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795230680; x=
+	1795317080; bh=R8xhVddauQYCNhO1z3ZGmw22iFacrhkUe2K9cVCZ8Xc=; b=u
+	rHHX4ed5gaFqZHjb4zPYrTY/tjYHlL7+KqAKOzMwpsEYrSmUl+5YJ7BOxE9Pwbns
+	pEUZY3uK9Cvq7GLkpV7LFlGBUe+FMyO+zk/oOsQifv2NkbB2URLRCEynQYRqnM9d
+	0urLgw96nkLxas3r45aYtZGY7MmhbmhD7WDupxu2K1YAeeimxQX1xg36/kxaK+pf
+	mPVQElndnJpfcK92+ewJtBfFd4h37/dVE/YcohFXY6M+/BL/FRx5gfJ7yzNS1xqy
+	iIDo5BbczAGYm7kQ7mrq3nMZcPUNkFP+r6q16S9Vk5au5bVJ79h96IuWmbYhzFTe
+	5Tj1susAmJ8t4cW2pcsXw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=pobox.com a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795230680; d=pobox.com;
+	mf=PGJhcnJ5bkBwb2JveC5jb20+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:EQShQMyAEtEDROn9ocsy4nc6hfTZobg/RAq65SRbjp4lzpV
+	d6MbcoBpHJMNVTPQ8VEky63dFM6COA+D29SURih/aqyKwGvY9uYO8q4KL/cYezAj
+	1XJ8XVbjapngrvLXDqFlhLW0V6m9gmWQv/4p3HIhWXRLGx89pKj1H4+PCBKm+MD+
+	cEC/8oBR+m8/6xqqwXhlGrcjCt8WgMCntMKcTxgOvvgAF3RQKObdMDXZ2uXYjvpm
+	lva2GAvi6zfKN69VoZEFcVeLzP8jXGwDXIPyQnQ/Sj5nNfR3pzK1bOqAfr+8Hifn
+	x4RUXRweRFimSQucT9kR4KL4NL9qU7BfAQqo+Pg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=14;
+	hn=cc,content-language,content-transfer-encoding,content-type,
+	date,feedback-id,from,in-reply-to,message-id,mime-version,
+	references,subject,to,user-agent;
+Message-Instance: m=1; h=sha256:Jwq6Ga0aWchymV9EQFFGRjdrMrtwwjxRHJuVwYW9e38=:UwHhF0XR/gykUXEqs5hr6zVsM95RsZ54NeguETZHNhs=;
+X-ME-Sender: <xms:1wsBay0O1pZDI31hg8y7n85t5RRj2qeIhW2zDPCKFDcufHB-e3l1hQ>
+    <xme:1wsBaw_GX31tnO9I1bh_37RtRLqm3jrbF6AnMu98AzeM3XmwkV0V9HGSM0oKBGIU6
+    bvb8QpYHtBYA62LeWKhQuuqc9FIrtB-sUYb8nhncjdhD3EmruEKC8ZT>
+X-ME-Received: <xmr:1wsBa2a1oA7fK4Wg_uR0KfHySNNIK85R6J_PrsxQU18O172aNHotjJ-LIgFn2XMWCeASOU8ZzOgEPlV3g8_Vfwc9O5pnbOLS>
+X-ME-Proxy-Cause: dmFkZTGf4PqXj0leBYzwi7h6paOeUgcxnGsUESJqkMcnzwRNO40gtGVOPqm1qJZXpVRrOq
+    wZY18N3/OXRFehtjymQ9Uhef22D9t2uu+yfrErjnJzcKzQLyLYwmgGEDVLJ8skRlnjdMHe
+    P2vraea/4yKISih/uwD3VLZtuK3Pw9t+nCXAZfCu2GkKZf656il5D+mGelW/3vd1b2lxnt
+    q+c0MSPYli5UDqwt+NuP6MEDASEw+hTfbpCt4he19kz+EQpl3UnWChyI7O7OHFcb2jTN14
+    hoLAMtSa5CYnZLwdzc8qPleMXWiOZqBYjtLsJcDUnf0+jae23BydsaHpuUy8j0uH84xCQS
+    fpQMZ1ZIE1mCpw6oRzT1CiCaCAY+ZyRFg9Geg3hHCvPtG1Vnu32k3boH8EJRPyjDGeBT5m
+    olVVdzNAoPXUE+kmWusLvERTyrkSvVYl2C8JwmVN9DViBhfDoU4jBcarOUImgmsrk0Zfmk
+    6QLiOM+A3rc9BMulJjdFxRYRikxtY7bVX8Gorpna2OxPpxs9VGunhChqxJmE36ngA3PzxO
+    VpgVBCIcEndE7lrIVR3b+3jAxz6VNYxxba6I+94YUfz44wz2gLdVjbv1x0OcWRvK43U4xE
+    hhNv86p1Yyz4KsR4rcwwGlGWCuxBNrAL4cLKmdEoDIfUno3ccjurbQs6dmfg
+X-ME-Proxy: <xmx:1wsBa3zK4Z51Ak_0jBeqET3w6u3Ig3tWABhxyT3IeimP5_Mq8fNWPA>
+    <xmx:1wsBa89Xyi-VuSRRby-UCAGXQwHS_NJyGZXnfPw3vR6UizoeHP2Tpw>
+    <xmx:1wsBa7zzOlnWY_CWouWU1zYj0Sl7RpIkw9OzTb3CiAbJzPGGNj2I6Q>
+    <xmx:1wsBa5vQLri8G51TJZmEMi7WVkf5kqzvjCmvGAr3-rG0fx-hvlHjuQ>
+    <xmx:2AsBa_bAoMdg9ll0ZuylAYhJklX5vxJTJgGwFfhXs9XH_2TSDl-LYqTv>
+Feedback-ID: i6289494f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 20 Nov 2026 22:11:17 -0500 (EST)
+Message-ID: <25582513-f75a-4ef2-8659-7b28d444e962@pobox.com>
+Date: Fri, 20 Nov 2026 19:11:16 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,60 +118,47 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6.12 0000/1736] 6.12.119-rc2 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
+ conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ achill@achill.org, sr@sladewatkins.com
+References: <20261120054951.366579794@linuxfoundation.org>
+Content-Language: en-US
+From: "Barry K. Nathan" <barryn@pobox.com>
+In-Reply-To: <20261120054951.366579794@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-On Fri, 20 Nov 2026 15:04:37 +0800 Qinyun Tan <qinyuntan@linux.alibaba.com> wrote:
+On 11/19/26 9:57 PM, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 6.12.119 release.
+> There are 1736 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+> 
+> Responses should be made by Sun, 22 Nov 2026 05:44:39 +0000.
+> Anything received after that time might be too late.
+> 
+> The whole patch series can be found in one patch at:
+> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.12.119-rc2.gz
+> or in the git tree and branch at:
+> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.12.y
+> and the diffstat can be found below.
+> 
+> thanks,
+> 
+> greg k-h
 
-> 
-> >> objects of all cgroups share one list per node: the per-memcg
-> >> shrinker bit is only set for whichever memcg happens to repopulate
-> >> the empty list, so pressure in other cgroups may not even trigger
-> >> the scan, and when it does, the scan walks everyone's objects.
-> > 
-> > Thanks.  Sashiko still has significant-sounding things to say:
-> > 
-> > 	https://sashiko.dev/#/patchset/20261105092233.3558950-1-qinyuntan@linux.alibaba.com
-> > 
-> > It also says "failed" for reasons I don't understand and it doesn't
-> > seem to have emailed anyone.  Please check it out?
-> 
-> 
-> Hi Andrew,
-> 
-> Sorry it's taken me this long to get back to you. I've had a very busy
-> couple of weeks.
-> 
-> Thanks for pointing me to the report. I looked into the two issues
-> Sashiko flagged in patch 2/5.
-> 
-> Sashiko pointed out that mem_cgroup_id() identifies the cgroup
-> directory. We reproduced the ID collision on v4: after disabling and
-> re-enabling the memory controller on the same cgroup, the old and new
-> memcgs had the same mem_cgroup_id(). Once the new memcg has its own
-> LRU list, a lookup for the old memcg can therefore find the new list.
-> 
-> I think memcg->css.id would be a better fit for the list_lru index.
-> Each per-memcg list belongs to a particular memory CSS, and its ID can
-> only be reused after the last reference to that CSS is dropped and an
-> RCU grace period has elapsed. That keeps the indices distinct for as
-> long as the old CSS can still be accessed.
+Tested on an amd64 laptop (Lenovo ThinkPad T14 Gen 1). Working well,
+no regressions observed.
 
-Yes, it sounds like ->css.id better matches the lifetime needs.  And
-the root memcg list_lru retains index=0?
+Tested-by: Barry K. Nathan <barryn@pobox.com>
 
-> The second finding is the same race that Shakeel's patch [1] addresses.
-> It predates this series: a folio can move to the root memcg between
-> the two lookups in folio_memcg_list_lru_alloc(). Shakeel's patch
-> rechecks whether allocation is needed after taking the memcg reference.
-> That also prevents the unnecessary allocation at index 0 that Sashiko
-> flagged in v4.
-> 
-> Does using the CSS ID for the list_lru index sound reasonable? I'd be
-> happy to incorporate any suggestions and send a v5.
-
-Shakeel has a couple of related fixes in mm-usable ("mm: list_lru: fix
-NULL deref when a folio moves to the root memcg" and "mm: list_lru:
-don't use a new memcg's lists for an offline memcg") so please base on
-that.
+-- 
+-Barry K. Nathan  <barryn@pobox.com>
