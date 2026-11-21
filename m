@@ -1,73 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795284970;
-	b=MmNKLTqq7vTE94QXel7aCS4WxB9qUFYc3Sr06/XHPSgi3YV9Y1jPWygk55NVrR0q6or+
-	 WvF3FbErTNSdbhEHCKdj/v83dSTuZt5i6aP4AKvkEfYoSx6T9AHuo8yZCgvMMb2Id1atC
-	 J5LSwQ8OYlaq9mhRGfvTqY/hqkDdG+T04bCY2r0oJimm3ZAZuh3YAhylc8YqiJ1Dl9FKk
-	 aSybCH9H9gTOoWHoh/jZXK7yUIwmeBhIaXiKR85uG4sgnman+v1Z7G/kAUQTtnwb95cfA
-	 zQKz4HiuU4lp5Add1ZD2wirMaSVbwm0ykfY24rNSZ/zyJtQcRUKbs2OCgw4HNVjY+rQ==
+	t=1795285029;
+	b=FmVEuMIe93XxMmgF2ZHXqkx3IFNx6s/YeW7vEiFhMz6uQdARHpZ7Ls0q90EHIoly05ed
+	 yWNQ6sIbt9VR5ht7gkV7D9iQzB8rxU5e+caRO8oeAStE6Yg5mgaPX11Nt2G9t3eMh9+1F
+	 opom7PnJkP1ueX5v1huMAKrxFrqlC/692dmGq6+Noei5nndbjvwI7KfbZtOJLfvlHvEXx
+	 XYEJv54mnQFSmH1pNKW79t9wiFyRhO3oSV5lo3qOAXEXqAO6GSo6u/q7qS/JuvSrZsl77
+	 JAl5WkPyYkSz8V5uogsUfFPlqr0xv+kXV80/ugcVChUMON1famcQghhxqKGXWwq0mHw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795284970;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
-	 Subject:Content-Type:Content-Transfer-Encoding;
-	bh=1X5j7YQdcz6iEhlSddIVL1ix+zetO1vVrxlepqlUlLI=;
-	b=xWJOal1ouV4PmUsyfKWDXN63UwJkBieRGk4W3yQzEgrWmFUKhXVd6Cz4kGb0ToSiMeYs
-	 McnujS9IFC2Qo2LmuWDfYvg45o2cuNDkePrCEzbnojQ0Mies0n6dknaf06vBnEfYtniF3
-	 G9keemaVNBH8aFQsSrgJIs4t07b0aEA0tFDe12NTh7iwQ2Goa6EYmMwmwy/4wF0ZNecbE
-	 TS0z4SAgad8uSMI34/Z8fZXIu8qDLZpOh04QCCKZ9JTAeZ00sDQd151AJN4vf0lLyoYy2
-	 Rn274hrYuj2D3m5m7M1GDMncltZ3jBoMw7TI2BIPeHjiB46DGB2v/MxGEjurIWOPwmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795285029;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=UhzIB9kDRA/O8B0wyP5frsqnTbd8pw1jKQ9ECYnxkeE=;
+	b=sdef0WuplS+YpHPnz9hfJgZh7jXVHd9PEen1cR47F4F8upu+tzDzbSdEpIY53obr7P3j
+	 8MeWzPDNUR7v8jIHXhkVOqlTGSk1ygapQx67bis7JOw/Ae/PQjDNW1qrX0XofvCPzw+iI
+	 CIMa8kH4wKDzNkxQ+DdNixJPi1UKgQ+0/07Y7HX/ddnJvPe0RqUumU5oLUSaDPhk0x/nS
+	 WxN3OvQyELLPxpdDMsTyuenNxRyTdhgB//DnbzHFfpJOujQ5a81ZcGMTlec293Ke8ONU9
+	 HUTG4ksA6d4B+v62y+Ng45YOU4z1dNKOf+smWq+463xuCDF4CAV785H3tZd0dfruFEw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="OKi/CDxg";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DiLOvKEx;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49802606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:16:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BA4A606A333
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:17:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4BA4A606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OKi/CDxg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24CBD1F000C6;
-	Sat, 21 Nov 2026 18:16:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795284969;
-	bh=1X5j7YQdcz6iEhlSddIVL1ix+zetO1vVrxlepqlUlLI=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=OKi/CDxghY1dqryAz4GUSP2DyKhjM/BKsCRf8IGiH5+r7CjEwEAXZnZel6KrM9ys7
-	 Juw3/sshAmYwBIyxRwd4pxzBr+FVOFEQFcaKZ7lUoNXV9Qr33hywKKY059ZZAOgEN9
-	 YKMtcKXfd5iCzHSD3w6EmkLW1AfJZhwDvxBDs+OmeluWryu61WQmMCS/duOqgWSNhe
-	 pnfBS8rZlNy/6+dnLtb3wOliz2YyVTnyC0xvl4wYEj6jKKKE/153ogOkVv+KOV4Eit
-	 c8gIhHXZci4mOwJ1y1pS+nW2p+EKTPox1+pQQ1SDlMHKwJkrXYe/kDSjUkUe1HKCTw
-	 cF88jC797CQ5A==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 3FACA198003A;
-	Sat, 21 Nov 2026 13:16:07 -0500 (EST)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Sat, 21 Nov 2026 13:16:07 -0500
-X-ME-Sender: <xms:498Ba5oRqe_6IRddTVKiT6LhTlnB8Y8L53p9D0szvXvP81pP2L5AYA>
-    <xme:498Ba2euU5ISwHA9xnw0ZCN5WNbnbT1FAIwjlRsBbAQqx1yvFtcdB0OVy1okW02AN
-    iRGMCtRP9YDLF7QprqrV-RRmYxMtUi8v2HJdwm0g5PHYT6urSoJZ2EO>
-X-ME-Proxy-Cause: dmFkZTEtnHGhzDjhdINsG+KI0AoS/50TK6i0wx1kQ//6c35E2ONVRFcccFQwcKMKtHY8mi
-    bpKgiKFvgyr5dJzeZ3i9+Wpo9GY7dsrP0B5Q7pRmFO8jNvkYwxDvX72jCnQhaXF/lbhLU7
-    cuhmg/0yG+L1AOBY58lznHtSzbcbrz8Tt5TrAGIrXp8x7mTuSDCEy8ZLJ7pQHLmHkCxoN4
-    9DNUcTVGGis4QgolqvOmcUwB0NDvIAxwlHDkhKpfEBJuN4KIk2oefdaWg4cVlCAsVFojwu
-    6elGZvjbiLHilZ+ggJVlCnal4RSLjOe34UQkgEPyiOQ/osegaaaVWWoJYnVLI5A4H0PPTE
-    tNyotbzbZ4WhPf9sGuZUNl3qfvmWh8Mht94TIVZWmom+eLXngnpGxMjmbNIGjC4JMC9Jwh
-    HhtxIJ4PxPMGTye2eEOCAqZL7aUeUKPr1nMmlPpxHPnTDiwbXyqcHDI8W+TH5ekEOfBs8h
-    tAjM52b23mFqW01Uj3K1WOIm525O/G1o5cbTxA9hwSPiU5Dv8MegKypFQUFCF/EUeyZ4xr
-    nOLSiNWkgfTq+Q+atQEShXQdnWnPStC57ECGtQZkhGgtUHCB4uf7XaKcwm81cxHRHOMUUT
-    VB5gf9jp2LMf99oh3KXve7qkvCCxRamQ6pvLQadt4w9adP7M/Cwf46VUXZQw
-X-ME-Proxy: <xmx:598Ba3oL8wJA71R9Zd8aIE4BGHiYeNHyJbs7NH7qBaM1Q78WegXW9w>
-    <xmx:598Baw63-SL2kR2AhznfEySyxH01iOH7gHwj0xlDswYKK5FqEej_3w>
-    <xmx:598Ba3B5ED4oSbUHDnx2vPMOjl_TLjH81RAGTI2SNZCbf1ThuNay3Q>
-    <xmx:598BayYsMMoatGidertwgS_KZQcP0M5yXhWLDSlWR_HcXVm0l-bnig>
-    <xmx:598Ba7I4gThabSsAzvM1bknYm5nzofGQadLXacyxdXTKmUfVLXMscH19>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 2505FF8008E; Sat, 21 Nov 2026 13:16:03 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DiLOvKEx
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a3517554f7so19168275e9.2
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:17:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795285027; x=1795889827; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=UhzIB9kDRA/O8B0wyP5frsqnTbd8pw1jKQ9ECYnxkeE=;
+        b=DiLOvKExvnJJabRvpakLyt8W+tMc4HkiXeq0BcKxPBX5QuRH8LhmvoqfCEApUKuzml
+         SlxdL30qETTWMhy8wjpGveKsKvquE4kMAG2Pfh2hPPC6tf3hYuIHwHUdxfH8uYelVo7b
+         n9SmpzAKedC6QTJwNTofa4A6LIl8cuDPqxEwrdk+bR9iCHRhn0BZD2Frvd5gCd1kdGgk
+         cE3FpraODjDzSzMj2arwRw9Ck+FqAxAN87BEDxxAagdYntckh/YwKvCcvs8JzXzdHBej
+         KyuMJmwVbBpWxIEmzOqy6my0Cy2LrEhSctI06IFTG35Z8nqq93vLlCEj6nDQD69h/5KW
+         axqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795285027; x=1795889827;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=UhzIB9kDRA/O8B0wyP5frsqnTbd8pw1jKQ9ECYnxkeE=;
+        b=g9N9KcDwtEeeA+DKEOR/KSnDoiwEQLjnnze8s/0rc+jpDx0fO8A55m03mJQ+nwqdSq
+         x4IJqB9t4Z0bTFjrsLBvOCnTDQUJFOQ3G4EEEXlWY9C2L/nBzY9gHkgkSFKTmnOHWAcD
+         zsOtBLWfSTDh5/xbS+BPEU7btX7smDfPw0sooda+CP0AczIXj+sfvx4MHx+hFji1TJgR
+         /AoRHmmYbdUeRr+WWDUYsD3SiKkIYzcJbHTsaXfDF7rNmCBkhp+9enr1iRbak/6hyugL
+         MZhMTk/x7W+ApsFe6XAhHcyPNsC8Z4QVxCQ0uSSiS5UGSk44zDB6VelsJO1F6HQqIKOq
+         YbmQ==
+X-Forwarded-Encrypted: i=1; AL+hErH/iln8YwogQlFgzPF2xWOVpeLVGX71QJkWDl0xz68s9/tqFIaeDY2+6FlnznpGKScP7BBcuDiTtV36UJA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z96Hueoa0lQxZxijvjMud7duZe1Axr5gnFLG/rYKy6cEX6xeJuZ
+	NIPQub8OmKPypAoelMSZRQQidgy5/oLSv0boKEy9if45H4cLYZbYKs32
+X-Gm-Gg: AZFdTZc0VqR7va+dSg1hm2Hxj+eEmTOb4n5cV5RbAGRdpWmEPYdaMm9uKIIn/owzcVa
+	HYHrzBJrSxYIp6SZl4o4N+6A4CHu/8YwSShlPw0VXYT8Rxq4+ejkXYfQW3spiCSio+gVPwuDOPj
+	JCeMnS/Ao9byAOEJkD3d297s8IPNw5/gyM++oVJSDXuuds5xpSxHvy3gO9nLf6gcr8s+eqA7ogI
+	/dk82w2zLQWZP5/k4L7u3IfN4SMS5soMAA4MEtiP+CoJR3fSHt2ztvjrnvYFEhaUx00We9EkTz9
+	xRSbmuvGS98naeZYtXZTX2qs2CQ4QZqaMAPaTfQ2/brZywl7TfoXxPkBVWRam6tkCXL1P3Dm3HN
+	5G/J/RvK7nvq+qLNW/SO+p+nl4+L4K420YEF4ecSBCCtiAn9f6jJcmJ3xxVEr99JSJJwEFDsQ+R
+	ycCQdEHY9Qz90gbIobSKBnz6uGhm84r087i/dKUQBqTE8TKsup3av562/wJigHfEW5lQCyNO8zy
+	Pd5vlRBQtNIHpGKDHWZRP4j0nQ5Z0WPXrWAzgcxupbPisQGymsRkq8w5lXWIhMnZ3hHvpOwsoTf
+	VH4vNLVmpZtIP+y5MfZH7DsN3rMNclBTbV5j/+glJcviZstFUFvZpc1NJK39CAM/wlWjdRMy
+X-Received: by 2002:a05:600d:82c5:b0:4a3:5aee:2c25 with SMTP id 5b1f17b1804b1-4bb88822642mr168886035e9.31.1795285027487;
+        Sat, 21 Nov 2026 10:17:07 -0800 (PST)
+Received: from localhost-live.home.vlan10 (053da81f.dynamic.tele-ag.de. [5.61.168.31])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88402ce9sm152782155e9.0.2026.11.21.10.17.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 10:17:07 -0800 (PST)
+From: Joshua Covington <joshuacov@gmail.com>
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	linux-clk@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joshua Covington <joshuacov@gmail.com>
+Subject: [PATCH v2] clk: rp1: allow the clock provider to be probed again
+Date: Sat, 21 Nov 2026 18:16:50 +0000
+Message-ID: <20261121181650.143474-1-joshuacov@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,60 +99,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Sat, 21 Nov 2026 19:15:42 +0100
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Han Gao" <rabenda.cn@gmail.com>
-Cc: gaohan@iscas.ac.cn, "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
- "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
- "Atish Patra" <atish.patra@linux.dev>, "Stephen Boyd" <sboyd@kernel.org>,
- "Brian Masney" <bmasney+clk@redhat.com>,
- "Jerome Brunet" <jbrunet+clk@baylibre.com>,
- "Chen Wang" <chen.wang@linux.dev>, "Inochi Amaoto" <inochiama@gmail.com>,
- linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- sophgo@lists.linux.dev
-Message-Id: <9a94e434-13b8-4a45-bf3a-78f99a2435d9@app.fastmail.com>
-In-Reply-To: <20261121144848.1277368-1-rabenda.cn@gmail.com>
-References: <20261121144848.1277368-1-rabenda.cn@gmail.com>
-Subject: Re: [PATCH 1/2] riscv: efi: Map runtime MMIO with device attributes
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
+The clock descriptors are static. The clock core clears hw.init when a
+clock is registered. When RP1 is unbound and bound again, the second
+probe registers the clocks without init data and oopses:
 
+  pc : __clk_register+0x5c/0x9dc
+  Call trace:
+   __clk_register+0x5c/0x9dc (P)
+   devm_clk_hw_register+0x5c/0xe0
+   rp1_register_pll+0x24/0x40
+   rp1_clk_probe+0xc0/0x168
 
-On Sat, 21 Nov 2026, at 15:48, Han Gao wrote:
-> On Sat, 21 Nov 2026 13:42:20 +0100 "Ard Biesheuvel" <ardb@kernel.org> wrote:
->
->> 
->> 
->> On Sat, 21 Nov 2026, at 11:38, Han Gao via B4 Relay wrote:
->> > From: Han Gao <gaohan@iscas.ac.cn>
->> >
->> > EFI_MEMORY_MAPPED_IO regions are mapped with PAGE_KERNEL, so device
->> > registers end up mapped as normal memory.
->> >
->> > On Milk-V Pioneer, GetTime() reads the clock controller registers and
->> > faults:
->> >
->> >   Oops - load access fault [#1]
->> >   Workqueue: efi_runtime efi_call_rts
->> >   status: 0000000200000120 badaddr: 0000007030012000 cause: 0000000000000005
->> >
->> > Use PAGE_KERNEL_IO for these regions.
->> >
->> > Fixes: b91540d52a08 ("RISC-V: Add EFI runtime services")
->> > Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
->> > ---
->> >  arch/riscv/kernel/efi.c | 2 +-
->> >  1 file changed, 1 insertion(+), 1 deletion(-)
->> >
->> 
->> Acked-by: Ard Biesheuvel <ardb@kernel.org>
->> 
->> I can take this as a fix via the EFI tree if you like.
->
-> Yes, please take it through the EFI tree. Thanks!
->
+The clock core also leaves hw.core pointing to the freed clk_core on
+unregister. Some clocks refer to a parent that is registered after
+them, e.g. clk_mipi0_dpi to clksrc_mipi0_dsi_byteclk. On the second
+probe, their parent lookup can use the stale clk_core.
 
-OK, I've queued up patch #1
+Restore hw.init and clear the stale state of all descriptors before
+registering them.
+
+Fixes: 6486341721a2 ("clk: rp1: Add support for clocks provided by RP1")
+Signed-off-by: Joshua Covington <joshuacov@gmail.com>
+---
+v2:
+- Also clear hw.core, div.hw.core and cached_rate of all descriptors
+  before registering them (Sashiko review)
+
+v1: https://lore.kernel.org/all/20261121163915.86681-1-joshuacov@gmail.com/
+
+ drivers/clk/clk-rp1.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/drivers/clk/clk-rp1.c b/drivers/clk/clk-rp1.c
+index 1dd276dd2b..c261306dcd 100644
+--- a/drivers/clk/clk-rp1.c
++++ b/drivers/clk/clk-rp1.c
+@@ -363,6 +363,7 @@ struct rp1_clk_desc {
+ 				       struct rp1_clk_desc *desc);
+ 	const void *data;
+ 	struct clk_hw hw;
++	const struct clk_init_data *init;
+ 	struct rp1_clockman *clockman;
+ 	unsigned long cached_rate;
+ 	struct clk_divider div;
+@@ -2416,6 +2417,18 @@ static int rp1_clk_probe(struct platform_device *pdev)
+ 	clockman->onecell.num = asize;
+ 	hws = clockman->onecell.hws;
+ 
++	for (i = 0; i < asize; i++) {
++		desc = clk_desc_array[i];
++		if (!desc)
++			continue;
++		if (!desc->init)
++			desc->init = desc->hw.init;
++		desc->hw.init = desc->init;
++		desc->hw.core = NULL;
++		desc->div.hw.core = NULL;
++		desc->cached_rate = 0;
++	}
++
+ 	for (i = 0; i < asize; i++) {
+ 		desc = clk_desc_array[i];
+ 		if (desc && desc->clk_register && desc->data)
+-- 
+2.56.0
+
