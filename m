@@ -1,45 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.91
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795260407;
-	b=xFniz3AB5djE2uZhzi7EcyV2tLqGSxfwv02OKFu+3+GSjIYqv0QT6OuAqvx4gCKCng9U
-	 0fnZ0Sx3wClpy/l7QqzZ4qpy/ai/JT88bvoAGcF2TcbIN5s/E0zngILgQhxg+m4zorrPm
-	 V1D59m9AU3pxpRjNFt1BaYI36vUTYTdoFdgEVYLe/JjT3AsuaLWCDcdH9vtFtNi2D7Syj
-	 12ZU1SYL1hM0ie1RgpKvrsQSL/VD53UlzRkH9o8N/r+8NbZtz8F73mdddUURToXmTrmie
-	 nRTWdyBr+XJp1RHCSD1pZJI93vE1PaSX9kk8NUj60CQreaS2689IGDXwSK3b9LatKug==
+	t=1795260471;
+	b=NWEchMO+Pgu7ljTlBEPTZF106E48gN9QvWoLV1Rs66K/QFmsDi3l7mVfJ+4ngwzRnz+G
+	 BagoPAfZuKCjxqv2FHo7nSQ9hSJt3IA9Frv9c3X5ZuLxT5Kh3TeTtkfmhWgREje0ZalZb
+	 HiXMSxVHF0gvTW3zbV7eiKSKYtCYXTBrOsGt9jEk8woAC8YRLw8BWuOl9Fg+3Ts5rkB0e
+	 1vmraVsqVPmRDmaksg6AtLIWmX2d/AFHPkjCB0Sba/4ym782qtyULDqN8DAS1hIihmCj4
+	 +rPRaD7cxDheMZQbOAdgx4hZoHyWEh3qW2a4Yv5KTyu98vr2FkwXjGF93/XO4FZJ5fg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795260407;
-	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
-	 In-Reply-To:References:Subject:From:To:Cc:Date;
-	bh=FrGjP9CCTYgOXpRUiemGqSrgJibrcjFXKaApUNiODHQ=;
-	b=pTLgOVrRbCdcylWv0YmFczLOD9r7D3Q89OkCySLHaUMprVjEjSvFr0DbYQM3YcjdOScU
-	 xsWb/Q4bCTA67zMtXJiLHfyms1hvIAqSWG8i5Vn4YPM7Z4x5Ufd69R/z2AAP7uN+TFbCy
-	 JQfVlHYfeOd5NUqdlyp7RkFjDBTC2Er7VMMyRe4IMiXO4I/17+1SbDHZFNNQap4tVjbVp
-	 Z6f9V4I8gPBr7jFxDb9fWsagct/jQw2fhxvt+/Yi1Dajzlh8izzQfn6axoQtzXoC2xWRm
-	 3bGnbVypxq5i2GNGoJa2CrtFjIkv/a63/ZUH1d+8n58Sh0raoWH1GZGqdwr7ED8ttTQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795260471;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=zWbeHAaU9PSKfsLTHzffi5B4XV2cAowGCcU8h7Q3pis=;
+	b=nQ2YdZWxALjM2t1JXAwNt79oZyzBgTrecAG8EbhJJhl/HVGalafUKfulDVidJffwFXUn
+	 1ELT/Usr3AbYmT3+/w8ll/ZZXEcoc5sHMBKATuImJTCz5wO4RDwpR679v+C1anQaqCb1q
+	 HO3Nsq/Kd4rnaWWltu+BbRmyya3S8hQjVGm94peEOBc76wQ/ye+OPkxdRQrxR2nIJ2c8T
+	 jo+pRG/bVSysqbLFxDujsWC14iN0Wcf6ROCZcfOMT9FT1hMrR3M01mAV4kmkc2mxdafke
+	 o+hu4SiCSikZ8WAdPajzyuBgZk4tXWAkHb9G9srJLMFYv2L6M5ZxGEbKt7/zgm6dtLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gMDXXOAj;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eA6XC8N7;
+	arc=none smtp.remote-ip=95.215.58.91
+Received: from mta1.migadu.com (out-91.mta1.migadu.com [95.215.58.91])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C868B606A325;
-	Sat, 21 Nov 2026 11:26:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F35C606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:27:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F35C606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gMDXXOAj
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 360BF1F000CF;
-	Sat, 21 Nov 2026 11:26:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795260407;
-	bh=FrGjP9CCTYgOXpRUiemGqSrgJibrcjFXKaApUNiODHQ=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=gMDXXOAjxCaaP5G3hvFWa2q0njpLV+o3qhdGk9Chs+ioL6XCp6a9orRr0fr7c64j5
-	 eOHAjyp4FrBpJw9ZF8noHy70zjKpYyFbfld5lXDDzt2ERa1sW7eB2IGu6jtK/fyBaA
-	 Yu3S4KxKAkyvmsqhdK1EW00mfqtHvs8tsWpWfRb5hrgLXrwF0R3vZmiLxOmD9BHV/6
-	 cdVyac7Uemy0dWSK13jXUmetvx3AoDF91VqxANJqqSr0hbfFVCdeXuV4RTSDTT+pFd
-	 N1aPwRkvI3tP5RGzbbNVDXxumctlkvwdzINHq+56u7V+/70lzSqQIc29/LLpnObMGj
-	 BsR15UbcP7Z+Q==
-Content-Type: multipart/mixed; boundary="===============5521530718953864705=="
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eA6XC8N7
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=fvBF6/+ij8xwF+iLXx8bSG1XL2OxGVsMqLATzmvR4MI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795260468; v=1; x=1795865268;
+ b=eA6XC8N7w8n6rG3EcyNd6SeDscaN4tXzB/yTtsTLbhPKM1eqn+9R6rt2FpQ3TtkCc7LKVfLt
+ WMPPvctvB8FXvxPR+imly3gdB19SIJrkreqQlDRDyDk6dzOgHunr4uzJrZg0ArOi+0nL75Ox/aa
+ fQjXeTP1KHHwETXhFIjICcww=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 99df8f76e236daff;
+	Sat, 21 Nov 2026 11:27:48 +0000
+X-Mizu-Trace-ID: 99df8f76e236daff
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <edb8249a-7bc3-430e-bbb7-243e1881a0b8@linux.dev>
+Date: Sat, 21 Nov 2026 12:27:47 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,130 +58,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-Id: <ab092342eebeb1a7b9330adb3ee4643fcb025c330a45c80872dcc29ea6874cb6@mail.kernel.org>
-In-Reply-To: <20261121103222.88209-4-jiayuan.chen@linux.dev>
-References: <20261121103222.88209-4-jiayuan.chen@linux.dev>
-Subject: Re: [PATCH bpf 03/11] bpf, sockmap: Fix strparser reinit after the parser link is removed
-From: bot+bpf-ci@kernel.org
-To: jiayuan.chen@linux.dev,bpf@vger.kernel.org,ast@kernel.org
-Cc: jiayuan.chen@linux.dev,john.fastabend@gmail.com,jakub@cloudflare.com,davem@davemloft.net,edumazet@kernel.org,kuba@kernel.org,pabeni@redhat.com,horms@kernel.org,kuniyu@google.com,willemb@google.com,ncardwell@google.com,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,shuah@kernel.org,rhkrqnwk98@gmail.com,mhal@rbox.co,mattia.meleleo@coralogix.com,linux-kernel@vger.kernel.org,netdev@vger.kernel.org,linux-kselftest@vger.kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Sat, 21 Nov 2026 11:26:44 +0000 (UTC)
-
---===============5521530718953864705==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v4 0/3] block: delay support for error injection
+To: Christoph Hellwig <hch@lst.de>, Jens Axboe <axboe@kernel.dk>
+Cc: linux-block@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Keith Busch <kbusch@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ linux-doc@vger.kernel.org
+References: <20261111215838.103356-1-haris.iqbal@linux.dev>
+ <179501806989.17649.3138860274842922761.b4-ty@b4>
+ <20261120164416.GA32719@lst.de>
+Content-Language: en-US
+From: Haris Iqbal <haris.iqbal@linux.dev>
+In-Reply-To: <20261120164416.GA32719@lst.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-> bpf, sockmap: Fix strparser reinit after the parser link is removed
-
-TL;DR:
-- Behaviour regression possible: re-adding a socket to a parser map after
-  removing its only parser link may now fail with -EBUSY (also kcm/TLS setup)
-- Misleading comment in sk_psock_destroy() and commit message for single-link
-  case
-
-> diff --git a/net/core/skmsg.c b/net/core/skmsg.c
-> --- a/net/core/skmsg.c
-> +++ b/net/core/skmsg.c
-
-[ ... ]
-
-> @@ -879,6 +879,18 @@ static void sk_psock_destroy(struct work_struct *work)
->  {
->  	struct sk_psock *psock = container_of(to_rcu_work(work),
->  					      struct sk_psock, rwork);
-> +
-> +	if (sk_psock_test_state(psock, SK_PSOCK_STRP_DONE_PENDING)) {
-> +		/* Parser link gone, other links keep the psock alive */
-
-This comment doesn't hold when the removed link was the psock's only
-link.  In that case only the reference taken in sk_psock_queue_strp_done()
-keeps the psock alive.
-
-> +		sk_psock_done_strp(psock);
-
-[ ... ]
-
-> diff --git a/net/core/sock_map.c b/net/core/sock_map.c
-> --- a/net/core/sock_map.c
-> +++ b/net/core/sock_map.c
-
-[ ... ]
-
-> @@ -169,8 +196,10 @@ static void sock_map_del_link(struct sock *sk,
->
->  	write_lock_bh(&sk->sk_callback_lock);
->  	if (psock->saved_data_ready) {
-> -		if (strp_stop)
-> +		if (strp_stop) {
->  			sk_psock_stop_strp(sk, psock);
-> +			sk_psock_queue_strp_done(psock);
-> +		}
->  		if (verdict_stop)
->  			sk_psock_stop_verdict(sk, psock);
-
-[ ... ]
-
-> @@ -297,6 +326,13 @@ static int sock_map_link(struct bpf_map *map, struct sock *sk)
->  	}
->
->  	write_lock_bh(&sk->sk_callback_lock);
-> +	if (stream_parser &&
-> +	    sk_psock_test_state(psock, SK_PSOCK_RX_STRP_ENABLED)) {
-> +		write_unlock_bh(&sk->sk_callback_lock);
-> +		sk_psock_put(sk, psock);
-> +		ret = -EBUSY;
-> +		goto out_progs;
-> +	}
-
-Can this make a previously working sequence fail when the removed parser
-link was the only link on the psock?
-
-Before this patch, removing the last link ended in
-sock_map_unref() -> sk_psock_put() -> refcnt 0 -> sk_psock_drop(), which
-cleared sk_user_data and restored sk_prot synchronously.  A following add
-of the same socket to a parser map found no psock in
-sock_map_psock_get_checked() and sk_psock_init() created a fresh psock.
-
-With this patch, sock_map_del_link() calls sk_psock_queue_strp_done(),
-which does:
-
-	refcount_inc(&psock->refcnt);
-	INIT_WORK(&psock->rwork.work, sk_psock_destroy);
-	schedule_work(&psock->rwork.work);
-
-so the old psock stays attached until the work runs.
-sock_map_psock_get_checked() then returns that psock, and the new check
-above sees SK_PSOCK_RX_STRP_ENABLED and returns -EBUSY.
-
-sock_map_update_elem_sys() waits via sock_map_strp_done_wait(), but
-sock_map_update_elem() as the map op and bpf_sock_map_update() /
-bpf_sock_hash_update() cannot wait.  A sockops or iterator program that
-deletes a socket from its only parser map and adds it to a parser map now
-fails with -EBUSY whenever the update comes before the work completes.  If
-the program runs with the socket lock owned, the work cannot finish in
-between at all, since strp_done() takes lock_sock().
-
-The lingering psock also seems to make kcm_attach() fail:
-
-	if (csk->sk_user_data) ... err = -EALREADY
-
-and TLS setup fail in that window, where both would have succeeded on the
-psock-less socket before.
-
-The commit message says "Before this change the same sequence
-reinitialized a live strparser, so this is the better outcome."  Does that
-premise only hold when another link keeps the psock alive?  In the
-single-link case the old code returned success.
-
-Could the deferred strp_done be limited to psocks that survive the unlink?
-Or could the commit message at least describe the single-link behavior
-change?
 
 
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+On 11/20/26 17:44, Christoph Hellwig wrote:
+> On Wed, Nov 18, 2026 at 09:07:49AM -0700, Jens Axboe wrote:
+>>
+>> On Wed, 11 Nov 2026 22:58:35 +0100, Md Haris Iqbal wrote:
+>>> Error injection can only fail a bio today.  This adds a delay_us option so
+>>> that a rule can hold a bio back first, to model a slow device.  The delay
+>>> happens above the driver, so it tests the code waiting above the block
+>>> layer, not the blk-mq timeout handler.
+>>>
+>>> A delayed bio is marked with a new BIO_ERROR_INJECTED flag so the rules
+>>> are not applied to it again, even after a split.  Christoph asked on v2
+>>> to avoid the flag by allowing a delay only together with an error.  I kept
+>>> delay-only rules, as a slow device that succeeds is the more useful case,
+>>> so the flag question is still open.
+>>>
+>>> [...]
+>>
+>> Applied, thanks!
+>>
+> 
+> Hmm.  This still has rela issues as pointed out by Sashiko.  I'd very
+> much expect a resend to address them.
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/44896626218
---===============5521530718953864705==--
+I can resend with the fix, or send just the fix to be patched above 
+this, since these are already picked. Let me know whats preferable.
+
