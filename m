@@ -1,80 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795276041;
-	b=nGwOgCugUy+Zo08NSQLobb5EyBV82rKYZUKT7/f0Bfy/r787lzD9OMq88N36ANITrjvV
-	 s23eMAUepeGWTHy55rZF4Hfvos+s7cNpQOiuX71oTAZnJcwY3KKjZiZeWjJR3NmiPijZm
-	 TRDHo6kPV6JEUDnaIu+DBQi1JFvj41v3MbtuI8PFzEkxRXiNd7rHtjkJLoPj9nGqJNcyE
-	 4DXArJHEzBMILCsNbbEsRKtSll+Uyodj85P2wxqOYQ59MO6bFjD605pdubl+fcDbiobwW
-	 jix2NHsVwRKNcNzqfqHo6I0zndIwF2vXCTaLAEP5zfaKQYuj6Yn5bSmpFmpDg5Ozgqw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795276041;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=F5E/ZlPs4yzG3otHcOe3FnBTkOLh6I3GMMSmncibKPo=;
-	b=Yrmu88Cv3coYV+qYZDYSMUm5IgJh1ujv7JU7Ifo9a82VXUADjuCFeIJCBFm4Sj2FFmC4
-	 M3KFOB9TUKulslwZbRyYlULlZuk+j4nD/MYPskJ59+XEw0CMzMcZ4L1fgN3Y7L8VOEqA1
-	 WrP8i9cs1PY2mA67caW79l5GBSPi++CusVCQi3WP3NongC+wSNinVu5my9mYSagmthcc5
-	 uxSuql6e1RwFwPVPa50bL6UR28YifcudjLHsqaK0Ebbpnov41EkZunATjDGs4hg55+BqO
-	 NNaTXtz6ls93nLK0ZOw6iJG69rF/1GeT/SrNUNk8UMLg+FPuM79OETS8kjgNpEdeXBQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jSEPksMF;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F363606A32C
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 15:47:21 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jSEPksMF
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795276041;
-	b=ujrvoqDJ73TbdnKTNyOecNAb9t/0iRF5fOmwts9bAhkLFjIfHfBaxmhWeNGaSZ+CrCBo
-	 yOyyWzHC7fdFQi3COfA3qMrv1s8vNhn97v5dn5R9vm8FztBy00RnEEe0zMjI8n+hWU0Ek
-	 DwRSpRC+RGsUfi4BPpL1goQkBkou6h+lZuMG4X6Gbw+BWeWiqWq1Xfaio6mGZ9Gg56HPt
-	 Gp8lt4RdSxlt6nfaFGFOuaidEeCG09PmuzuSYe4zO3v+6g4EFkw0ryh0kH550mpK83hPe
-	 cNRfFEUAIb0qenG0rLc/WvvcynPcQM9jHpN26rxExB+OQpTGV9fISW255KnE4SeRNkQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795276041;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=F5E/ZlPs4yzG3otHcOe3FnBTkOLh6I3GMMSmncibKPo=;
-	b=ZsVG3DWgcomAEMzaErzPAZ8PyY/JuCk6xfI4Eu7w447C+4YMHpMaH1meak9fEYS4YE/9
-	 nCz+HqgVSOrhHfEsLZUGMM8QRp5Cf0kz1jE5F/E3NRimDd6u5zLGeVqIlrQYi+0lirt5L
-	 ghkD09HeLwSW7lfHJu3oJbcdBaBy9lOBcPo38RjBtz4kNsa0+gykxSOmkGciWI8SC3Yzb
-	 S8WwaqXt36ljxOOxxLthoHdJfiFNzKtt8VwAj8OpgwvBScfAOFsn+D0geA9vZ8TB1+xXS
-	 O7FNgg3C3CjT59y03V5L5jLs/U9Qbj/2PGbLgUFao9KnLb2RWqM1p96PRF1FPWcQzXw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.215
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795276171;
+	b=el8lWxxEYr8xKP0ZVChtQyY1SYfb9B+QhPcapMQDizCMRO5rPsz6WT4W8z3ZKlKAC6Ew
+	 sCPk+mrPLf8vK8DuqYGLMONIfH8uI42yFkIdeZOHW7jTl4EcHF4hJym/it75N9z5iYat5
+	 znfEYLmMq0jSi1JgG0y7URl8exoaedjUOuzdggtaMrsJ+TNHWczsxIgu28gBXKOJVQg/7
+	 eEuY7+Iy37T89hzfTbp4XWREl/a1ai7+uC4wkj+6mOTJcGvtZRPRdd71TsC+aCCZnY22J
+	 FxWGPiYFR3C+G8Tj+gpPkOo936rUo/gN7v6p+Xcg37QWUQkLtIRJ7IjHxFQ02L4YCcA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795276171;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=0YZb9vl8h3h2s9tCOBwKg7YDMBx7IJ0VENcqcFynRLs=;
+	b=ZrDeSKypv/yJzEJGgwWBI7+jw8VQjbiye5Xd6eaBa56KjHneFn0dFeBeL85Pjz1n/fMc
+	 34NrrlMQyF8P5kZZRkLw0l+N0TRDsmmtOmqLCrQE+/O7DeWLT+8BoNH3sqZhiYjEEqc1a
+	 /2c2EIIA2iT9PedhLkQUxQiv6KszhJnZLGO9CzRU1Pjn00f2wZZC7ZVxoqD3nrVN6tCbX
+	 u5+LP4CnRAiS6PhOLwWysg+ME8xWwV3mwhYkFa+EHxn7zVhR3mQjCWiHhW0Hvumer43RD
+	 yQAyLRcgJGvvRvJbqv+SIkJ4gFhHZIXWjed69PSrs7Z0Stb5ZNhC4XuI6LKzwiEKhGA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=w2pR9wVL;
+	arc=none smtp.remote-ip=91.218.175.215
+Received: from mta0.migadu.com (out-215.mta0.migadu.com [91.218.175.215])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 280591F000CA;
-	Sat, 21 Nov 2026 15:47:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795276041;
-	bh=F5E/ZlPs4yzG3otHcOe3FnBTkOLh6I3GMMSmncibKPo=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=jSEPksMFKQYxJa1RX28s3bgxBi02xvD0Xt5DYuuWDahdLmg3PGp8Wsec4g+pM6hy0
-	 ga0oLZukSela/moNqyHbg3OZsyWaIKF0yEu5On8vmhNGrW2Ej8atk/jVUphFDJ9U7A
-	 i6OMxPYYKw6WFfM+1zp47vba310bOEma4uQ7dCDjqFIx+METnvC3Q0vgWbTS7uJ74g
-	 dufCXo5d+wp7ZUi57iRowx40PaOujN6A/YxVMqWV4nquOzP0qr7nvW9GpuvOP5f8GS
-	 msiNEuAOkoa0RuqOU9/+FiVxSnoMJ/7UT0RH+0hK640kaMH/d6elhyFem5JgrtJlZj
-	 pT7c/zCKryC5Q==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 7F2AE4BCDE;
-	Sat, 21 Nov 2026 15:47:19 +0000 (UTC)
-From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
-Subject: [PATCH v2 0/2] drm/imagination: Fix leaks in HWRT data set
- handling
-Date: Sat, 21 Nov 2026 15:47:18 +0000
-Message-Id: <20261121-pvr-hwrt-common-v2-0-9f53bdf954de@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 935A4606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 15:49:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 935A4606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=w2pR9wVL
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=87tG5wTJqa8KKU5Vw1XcYaRFIKmNyRkg1DQIqfjExPM=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795276168; v=1; x=1795880968;
+ b=w2pR9wVLVUEmNc/0xvbGAfErcyc7Q064cNe2Qb0JIQ8E3trfNPtCcUuXokXWWavloaXnxfRU
+ Y3drjX4obip27K21vOfT/kadJGIDVNpdHfim3KoKCHqoBpoWUFI7VggUrR3pFshFi6VvgDpAEym
+ dXAczSt5dyLO0XQ6IT/CY/Lk=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 1cf4a9c89376da71;
+	Sat, 21 Nov 2026 15:49:28 +0000
+X-Mizu-Trace-ID: 1cf4a9c89376da71
+X-Migadu-Flow: FLOW_OUT
+Date: Sat, 21 Nov 2026 16:48:51 +0100
+From: Andrew Jones <andrew.jones@linux.dev>
+To: Gong Shuai <gong.shuai@sanechips.com.cn>
+Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Tomasz Jeznach <tomasz.jeznach@linux.dev>, "Joerg Roedel (AMD)" <joro@8bytes.org>, 
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>, 
+	Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>, 
+	Andrew Jones <andrew.jones@oss.qualcomm.com>, Fangyu Yu <fangyu.yu@linux.alibaba.com>, 
+	Tan Chi <tanchi25@mails.ucas.ac.cn>, Wu Fei <wu.fei9@sanechips.com.cn>, 
+	Zhao Qingye <zhao.qingye@sanechips.com.cn>
+Subject: Re: [RFC PATCH v3 09/10] iommu/riscv: Add
+ riscv_iommu_attach_dev_nested
+Message-ID: <awG5Q7pmntSme1A2@orel>
+References: <20261119132744.396426-1-gong.shuai@sanechips.com.cn>
+ <20261119132744.396426-10-gong.shuai@sanechips.com.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,54 +75,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAa9AWsC/yXMQQqDMBBA0avIrDtgJiK2V5Euahx1BBOZqC2Id
- 2/U5Vv8v0NkFY7wynZQ3iRK8An0yMANH98zSpsMlFNpDBmcN8Xhqwu6ME3BY5U/HdnCNpY7SNW
- s3MnvOtbv23FtRnbLuYHj+AOOuSqTcwAAAA==
-X-Change-ID: 20261121-pvr-hwrt-common-809c2343b3ef
-To: alessio.belle@imgtec.com, luigi.santivetti@imgtec.com
-Cc: donald.robson@imgtec.com, mripard@kernel.org, 
- dri-devel@lists.freedesktop.org, maarten.lankhorst@linux.intel.com, 
- airlied@gmail.com, simona@ffwll.ch, tzimmermann@suse.de, 
- linux-kernel@vger.kernel.org, imagination@lists.freedesktop.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795276038; l=1054;
- i=shyckless@gmail.com; s=default; h=from:subject:message-id;
- bh=iAyx4VKD3Xv1616eFxfmrsRynviVXNZ24B8giwun1Vc=;
- b=mt/gzNvH8FhV/6IA+g7Buh16qvErqpTF/q1qscdAwycxY2+4UFHd09K3xpXY7hz6p/8lwyYPA
- 1sJDj/8t6vECtMAcPFmhuVtJrrTUChVtLzidkrvHvidJBewqMAZZWO7
-X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
- pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
-X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
- auth_id=1498
-X-Original-From: Suyuan Wang <shyckless@gmail.com>
-Reply-To: shyckless@gmail.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119132744.396426-10-gong.shuai@sanechips.com.cn>
 
-Patch 1 is v1 with the Fixes tag corrected: the error path that skips
-hwrt_fini_common_fw_structure() came with f1f55ed3ffe4, not with the
-commit that added the ioctl (thanks to the Sashiko review).
+On Thu, Nov 19, 2026 at 09:27:43PM +0800, Gong Shuai wrote:
+...
+> +	if (riscv_iommu_bond_link(s2_parent, dev, nested_domain->viommu->gscid))
+> +		return -ENOMEM;
+> +
+> +	riscv_iommu_iodir_update(iommu, dev, &dc);
+> +	riscv_iommu_bond_unlink(info->domain, dev);
+> +	info->domain = s2_parent;
+> +
 
-Patch 2 fixes the other leak that review pointed out: the 32-bit layer
-count is truncated into the 16-bit max_rts, so the SRTC and RAA objects
-allocated for layers > 1 can be skipped on destroy.
+When moving between the S2 parent and a nested domain on it, the parent
+briefly has two bonds for dev. bond_link() puts the new bond after the
+first bond with the same GSCID, which may come before dev's old bond,
+and since it's then dev's first bond, bond_unlink() removes it. dev is
+left bonded with its old GSCID, so its new GSCID misses invalidations
+once no other device's bond has it.
 
-Found with a static analysis tool and checked by hand. Compile tested on
-arm64 (W=1, all files that include pvr_hwrt.h); I don't have the
-hardware.
+Passing the old domain to bond_unlink(), like I do in [1] for a
+different reason, would let it remove the bond matching both dev and
+old's GSCID.
 
-Changes in v2:
-- 1/2: Fixes tag now points to f1f55ed3ffe4. No code change.
-- 2/2: new.
+[1] https://lore.kernel.org/all/20260928143113.49838-12-andrew.jones@oss.qualcomm.com/
 
-v1: https://lore.kernel.org/all/20261121-pvr-hwrt-common-v1-1-784ce45b782a@gmail.com/
----
-Suyuan Wang (2):
-      drm/imagination: Destroy the common FW object when HWRT data setup fails
-      drm/imagination: Don't truncate the layer count in max_rts
-
- drivers/gpu/drm/imagination/pvr_hwrt.c | 2 ++
- drivers/gpu/drm/imagination/pvr_hwrt.h | 2 +-
- 2 files changed, 3 insertions(+), 1 deletion(-)
-
-
+Thanks,
+drew
