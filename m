@@ -1,54 +1,140 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795256763;
-	b=iwXzA8D47zKIjG1yOpxanLGv9J/nd3Ifw6Dv2M81cYWur8vEQDJ1ecnloM9z7QylqblS
-	 AjxHhoQtL2lrhQLhqt3v0/UFWOwCE90EpB1M9YMOhS3nPswVbe17z23EbSxORRiiFpPi5
-	 dat2SvAYwo3omALxKSC14gz+Atl8sNn3lQkVyTm2eNoV3xbxc2sscVARN/1EpSmYD++Ac
-	 uQTKmTPOE/W69F3ECv3O8e3SeoH6XM5RKunJ9/SVNqaZklIyIrEj/tv9vY7blKGU37HKj
-	 klGdBjzjdOaRSa4p1afaImJ8p0zhwfLi7qNkcvPDIaYMAzpv4URReVWRleIrKd1/bsQ==
+	t=1795256812;
+	b=rhl72sT1mPEc5RnIGz8S0jOQf3vFhbJBAVV/grfojbgFuIKXnWLi+8HZ+FoSyo+sCgzG
+	 3k4dHZRnmD4foMyiTsLA5HqFPmL+o80eWvpAtlKrJ9ACL0UeIm4L08935biDtHtdZuRFP
+	 TmPM3sEwJZUnrWa5amCh9Qh4VzoNOxP+yvq4omitZwi0zOnivzW+C/TinvQNKtazNhfZb
+	 a57nejDTpR7yp0dlSrPt/CtcDjrG3T/5IznDtoph9Y2N+Cu0wtCxRBnpfZJfJ2i/v+s/D
+	 4t7N1cz2IvBvnmcNi7EItvrt821us92Gb0xYgEnDyD/0pyoU8IOnowBkrm4j617z6GA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795256763;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=qa9oD3zTchOdAVP4qDsTgWeaLYAWjGscH74jTPHvN0o=;
-	b=4rmTgrzZkYcPnZd7LXLQ2K24VTKSPGh6+sDD0gAiJIryPrpix1KLzFS4JCrwOZ5C9OqY
-	 872RZXr1/DMyaxqCDULLdLj6nhBZcUyfslQVX9pMNJ+NJ4xpps7zmLkEdSSu4q2z0Mai/
-	 onIiDMzgvhCZGBsoE5sSzwf85BzTU62w8e2MLvdt00tvN/coeQjbFM5pRk5aB1keDsjha
-	 hieplMw06swV9fg9Hy5eIqC2Mv6jl/0Vpewmci75la0D5iGF+3FvL5AOkLI3MWGuV8UKk
-	 bnZP52kLO9MNNS/DXX8XHF9iDq6A+KrNA7pnrmeY3Vs41jqGHfLPVTS50/goI5wjrIw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795256812;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
+	 References:Autocrypt:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version;
+	bh=o4cYPm4nikQRXCKmajkr5M1HuTe4y5SdQDfgOMYEdEQ=;
+	b=108FMy6conbrHrNJl/vWoi47RVsfpWglkWDT4sKuu09YRKw5SbXNwV/vc6VY4pMlBawo
+	 nXiDlkHb6GoUmZXWyvwxtWGfROOG3w1G8lFU/2r7KKuyX2092MKei7TIg/pI80MrIYQf3
+	 K+3A62/jt9ws/SpX+wmNSuwbDWlhI93A2bIQd0prEjG+20MSn+NEnoV8erAkw/E+t/Tvd
+	 MCuHvZmD2YPAInCPXosZcHoc5GYsBVYj0JdY4aX0yX0404TCYseTzw6fiH/iuZvhAKDQl
+	 6grJQf0YkpukIb015Zx9LMSCqF+c9jx0NMIqpLdCoWiSN6egk5fzF0DKySSzAwPHdJA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=stu.xidian.edu.cn;
-	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 148B9606A332;
-	Sat, 21 Nov 2026 10:25:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 148B9606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="U5mIerW/";
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=gaB7QzDy;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB779606A337
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:26:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB779606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=U5mIerW/;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=gaB7QzDy
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795256811;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=o4cYPm4nikQRXCKmajkr5M1HuTe4y5SdQDfgOMYEdEQ=;
+	b=U5mIerW/P2+TefYsaUU3Si79wfcnaUevwIDKvepdzVNf6h47jdA4BPcFvTyRUJ5IZCCJ9d
+	7hYxa8hUIPtHbE/EZ0ofuMrmYNVCyFtu++CCLCafC4H3Y1hSiDRy9FclQ7IqVgKwlUeolA
+	7TGUiCfuSCq0c7GRlfpCVk5N2nyphns=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-495-bWnAm6N8NPKUxWigNKO2Aw-1; Sat, 21 Nov 2026 10:26:48 +0000
+X-MC-Unique: bWnAm6N8NPKUxWigNKO2Aw-1
+X-Mimecast-MFC-AGG-ID: bWnAm6N8NPKUxWigNKO2Aw_1795256808
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4bb8ae35aeaso11793315e9.3
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 02:26:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=qa9oD3zTch
-	OdAVP4qDsTgWeaLYAWjGscH74jTPHvN0o=; b=YnPVaTNZs3VOMWBD6U7Pmk41fi
-	CKbVNyO2JMv3nKiMe8P0wyiQXXK+LnghXbQzl15z395O7A4zK8CZRV44uxqD3ksU
-	6UN+7lvhjELh3Fu1ELAQlnhFsu/u6OL2Tm2ZYPV/XXoS3Vnt7moqgEDHTnt2WCe7
-	J98DDdXXN9aMZ7oLQ=
-Received: from user-virtual-machine.localdomain (unknown [113.200.174.70])
-	by hzbj-edu-front-4.icoremail.net (Coremail) with UTF8SMTPA id BrQMCkBWdPqvcQFrwtIAAg--.46559S2;
-	Sat, 21 Nov 2026 18:25:52 +0800 (CST)
-From: 25031212351@stu.xidian.edu.cn
-To: Hans Verkuil <hverkuil+cisco@kernel.org>,
-	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-Cc: linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Bin Yu <byu@xidian.edu.cn>,
-	Cheng Wen <wencheng@xidian.edu.cn>
-Subject: [PATCH v5] media: hdpvr: fix out-of-bounds read in hdpvr_read()
-Date: Sat, 21 Nov 2026 18:25:51 +0800
-Message-Id: <20261121102551.11263-1-25031212351@stu.xidian.edu.cn>
-X-Mailer: git-send-email 2.34.1
+        d=redhat.com; s=google; t=1795256807; x=1795861607; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=o4cYPm4nikQRXCKmajkr5M1HuTe4y5SdQDfgOMYEdEQ=;
+        b=gaB7QzDyzvvVNfn+EoNpc++kSPVrbtuDYK1ssBsZIITP/j+uc+QwGqOtgFaP8/6ybf
+         zzK6NU1DeChboDKDBowB0njamB5lzCHGfF8OeoJNiS6lcqEbur2m8UrGvt2cQXOhIOud
+         FynS+UcuHrA6jKX32O58aVUA0Cn7fJXFsb7L5h+4kFbSGqbi/gAZDRkW8f2F9VcTFfm7
+         9xvh3yOX0TnksPVj6kZ0j1/JFBeKe284yjXDwTUPiW/51H0ReYmPzruNWs6X0zqafQV7
+         BLnLSvwfUlAXc1ewbIfXWoIIprT9HhPztkL7yosTPAeL9TDuebRHJQwa+YVUmbqQ/MAw
+         gEOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795256807; x=1795861607;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=o4cYPm4nikQRXCKmajkr5M1HuTe4y5SdQDfgOMYEdEQ=;
+        b=rVhu3Yhr0ldzxMhGMbLQToicnmoIIvb9W6YO2FkrBgxUzoo4X8mrN/kn34KT+NQqFY
+         vcIPEpO7hhN7eEHdvFDN5fJHAFukqTBz9jpHG3TEoldFoWEz9tmSEeG1kAsVDnC0BYwT
+         +66e0+i4Kvbn0ug+1w8adr5Q13ID8ovNhQsQ4qxrvVj83VW89U5bVNSVH8lFq3eDsBtT
+         l6JFcEmnH6rLIT9gqfGEjsGpKUwqLDR1pGmSmZfsVbGrUivysU/ixpp5eUGVdU1/2+go
+         wIa+S0wTCQnDotr0SzCenlZ8uP/eMBJsL7fg8t4NABr7vs9jGcQ4dYKlOcvpFcy7zXEn
+         N1bw==
+X-Forwarded-Encrypted: i=1; AL+hErE5MSHf0D6dASfRDfk9UqizRojQY5vFsaypUCZttCX/Hg7faPdjQPijtfhjib9p5fM8UroAjbwSKD7RRL0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9hGbt1frsGS5K49TmWWcBnF7rLBqaCqLgayG/hvFGqC6mv176W
+	/YuwAPfcAhCLlZ4w7NbaONZRUwMjJ+dtufvAdiUeowt0PAE9CSPF1y0j9eorpaQul5LS6461AGl
+	O1XocbGQ6ZtFhnT+PWHzRQS3QrSgkxVEDANVnJR4jwNzNmXCWVJQ2549NKIQlEHUAFQ==
+X-Gm-Gg: AZFdTZffTexQPOXEfNDbVuda43NYfUrm5THY98ile9M5ZU6HhMzuUxTocI8XKaus87f
+	9Y52TsxahmbMmpD0Wxl5gDUm3bQVX+NEewuupRrrIvacdVrSVtKYuB/CQGJBy+iN6dUXeCmDEO8
+	1J1d2b4KsQiFiuR79bEpeXN7hyHvYkChUX/t8Hm2M1mI8O22a7tynYG6CDabdILXuSZ4YiHMWjx
+	hMnYG66hb6ukIOJTmUdOvCVlAM5Ed1eHEKrQzE1boV+2kna3RLhCAqI4EiDqW5H/TxluePE+Dgv
+	N2bii2NGC8pI+Ni7SotliqWkcABU/SBuooMciBOr/qExhCCTOB/MAxODKLXcL6vIPRDJ449TpIA
+	F1yoRk6j05PQuX/lOK3boQkPrOJ6YJ5ASWKi5TTEqq+LXkRX8z6QuNF5mhqf803TEJqU53LAqyS
+	g3
+X-Received: by 2002:a05:600c:5306:b0:4a2:5ca:767f with SMTP id 5b1f17b1804b1-4bb887c9af4mr131050325e9.4.1795256807703;
+        Sat, 21 Nov 2026 02:26:47 -0800 (PST)
+X-Received: by 2002:a05:600c:5306:b0:4a2:5ca:767f with SMTP id 5b1f17b1804b1-4bb887c9af4mr131049895e9.4.1795256807347;
+        Sat, 21 Nov 2026 02:26:47 -0800 (PST)
+Received: from gmonaco-thinkpadt14gen3.rmtit.csb ([185.168.96.228])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9065744esm39169705e9.1.2026.11.21.02.26.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 02:26:46 -0800 (PST)
+Message-ID: <661a3aad86b215989dfc916fa9f568c66e18a466.camel@redhat.com>
+Subject: Re: [RFC PATCH v2 1/9] tracing/irq: Add generic IRQ context
+ boundary tracepoints
+From: Gabriele Monaco <gmonaco@redhat.com>
+To: Karl Mehltretter <kmehltretter@gmail.com>, Steven Rostedt
+	 <rostedt@goodmis.org>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers	
+ <mathieu.desnoyers@efficios.com>, Thomas Gleixner <tglx@kernel.org>, 
+ Sebastian Andrzej Siewior	 <bigeasy@linutronix.de>, Clark Williams
+ <clrkwllms@kernel.org>, Ingo Molnar	 <mingo@redhat.com>, Peter Zijlstra
+ <peterz@infradead.org>, Andy Lutomirski	 <luto@kernel.org>, Juri Lelli
+ <juri.lelli@redhat.com>, Vincent Guittot	 <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,  Ben Segall
+ <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Valentin Schneider
+ <vschneid@redhat.com>,  K Prateek Nayak <kprateek.nayak@amd.com>, Jonathan
+ Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,  Randy
+ Dunlap <rdunlap@infradead.org>, Wen Yang <wen.yang@linux.dev>,
+ linux-trace-kernel@vger.kernel.org, 	linux-rt-devel@lists.linux.dev,
+ linux-doc@vger.kernel.org, 	linux-kernel@vger.kernel.org
+Date: Sat, 21 Nov 2026 11:26:44 +0100
+In-Reply-To: <20261107171252.25090-2-kmehltretter@gmail.com>
+References: <20261107171252.25090-1-kmehltretter@gmail.com>
+	 <20261107171252.25090-2-kmehltretter@gmail.com>
+Autocrypt: addr=gmonaco@redhat.com; prefer-encrypt=mutual;
+ keydata=mDMEZuK5YxYJKwYBBAHaRw8BAQdAmJ3dM9Sz6/Hodu33Qrf8QH2bNeNbOikqYtxWFLVm0
+ 1a0JEdhYnJpZWxlIE1vbmFjbyA8Z21vbmFjb0BrZXJuZWwub3JnPoiZBBMWCgBBFiEEysoR+AuB3R
+ Zwp6j270psSVh4TfIFAmjKX2MCGwMFCQWjmoAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
+ Q70psSVh4TfIQuAD+JulczTN6l7oJjyroySU55Fbjdvo52xiYYlMjPG7dCTsBAMFI7dSL5zg98I+8
+ cXY1J7kyNsY6/dcipqBM4RMaxXsOtCRHYWJyaWVsZSBNb25hY28gPGdtb25hY29AcmVkaGF0LmNvb
+ T6InAQTFgoARAIbAwUJBaOagAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgBYhBMrKEfgLgd0WcK
+ eo9u9KbElYeE3yBQJoymCyAhkBAAoJEO9KbElYeE3yjX4BAJ/ETNnlHn8OjZPT77xGmal9kbT1bC1
+ 7DfrYVISWV2Y1AP9HdAMhWNAvtCtN2S1beYjNybuK6IzWYcFfeOV+OBWRDQ==
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,247 +144,162 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:BrQMCkBWdPqvcQFrwtIAAg--.46559S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxKF18KFy3Gry5uw15Kw1Dtrb_yoW3uF4kpF
-	WfK3yayrWDXryxursrJF48Ja4rAwn29FW8GrWxGasYyr15Gr1FgFyFqryjkryrGr92vr4j
-	qF4a9ryfuF4UAFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPGb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2vYz4IE4I80cI0F
-	6IAvxc0EwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I
-	80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCj
-	c4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4kE6xkIj40Ew7xC0wCY1x0262kKe7AKxVWUAV
-	WUtwCY02Avz4vE14v_Gw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1l
-	x2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14
-	v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IY
-	x2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87
-	Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIF
-	yTuYvjxUguWLUUUUU
-X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAgUED2sAZMnEuAADs1
 
-From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+On Sat, 2026-11-07 at 18:12 +0100, Karl Mehltretter wrote:
+...
+> =C2=A0void __local_bh_disable_ip(unsigned long ip, unsigned int cnt)
+> =C2=A0{
+> +=09unsigned long trace_flags =3D 0;
+> =C2=A0=09unsigned long flags;
+> +=09bool trace_serving;
+> =C2=A0=09int newcnt;
+> =C2=A0
+> =C2=A0=09WARN_ON_ONCE(in_hardirq());
+> @@ -200,6 +202,16 @@ void __local_bh_disable_ip(unsigned long ip, unsigne=
+d int
+> cnt)
+> =C2=A0=09=09}
+> =C2=A0=09}
+> =C2=A0
+> +=09/*
+> +=09 * A serving interval starts here, before handle_softirqs(). When its
+> +=09 * entry is traced, keep IRQs and task switches from observing the
+> bit
+> +=09 * before the event. Any blocking BH lock was acquired above.
+> +=09 */
+> +=09trace_serving =3D (cnt & SOFTIRQ_OFFSET) &&
+> +=09=09=09trace_softirq_context_entry_tp_enabled();
+> +=09if (trace_serving)
+> +=09=09local_irq_save(trace_flags);
+> +
+> =C2=A0=09/*
+> =C2=A0=09 * Track the per CPU softirq disabled state. On RT this is per C=
+PU
+> =C2=A0=09 * state to allow preemption of bottom half disabled sections.
+> @@ -233,15 +245,27 @@ void __local_bh_disable_ip(unsigned long ip, unsign=
+ed
+> int cnt)
+> =C2=A0=09=09=09raw_local_irq_restore(flags);
+> =C2=A0=09=09}
+> =C2=A0=09}
+> +
+> +=09if (trace_serving) {
+> +=09=09trace_softirq_context_entry_tp(!!in_serving_softirq(),
+> false);
 
-hdpvr_read() computes the number of bytes left in the current buffer as
-urb->actual_length - buf->pos and uses that as the length for
-copy_to_user(). buf->pos is a plain unsigned int that is neither reset
-when hdpvr_cancel_queue() recycles a buffer nor protected by
-dev->io_mutex.
+Probably someone more experienced with this code can comment whether the
+tracepoints and other things you do make sense, you're going to need an
+ack from these folks anyway.
 
-After hdpvr_stop_streaming() has killed the URBs, the buffers are put
-back on the free list with their old position, and the worker resubmits
-them with urb->actual_length reset to 0. If the next transfer completes
-with less data than the position a reader has already consumed, the
-subtraction yields a negative value. As rem is an int and count is a
-size_t, the comparison "rem > count" is then true, so cnt becomes count
-and copy_to_user() copies count bytes starting at
-transfer_buffer + buf->pos, which can be past the end of the 8192 byte
-transfer buffer. Two readers of the same video device can corrupt each
-other's position in the same way, and buf->pos is read twice, once for
-rem and once for the source address.
+From the tracing point of view. You're doing good avoiding any extra
+action if trace_##_enabled() is false. Since you are already checking
+for it, you may simplify the call to the tracepoint, essentially
 
-A KASAN slab-use-after-free read of 4096 bytes was observed in
-hdpvr_read() with the source address 1281 bytes past the end of the
-transfer buffer; the pages following the buffer had been recycled as
-slab pages. A second report with a 42 byte copy was 25 bytes past the
-end of the buffer.
+ trace_##_tp() <=3D> if (trace_##_enabled()) trace_call__##_tp()
 
-Fix this by reading the position once, by using min_t() so that a
-negative remainder cannot be turned into a full-size copy, and by
-accounting the consumed bytes in hdpvr_account_buffer(), which recycles
-the buffer once it has been read completely: the position, the status
-and the buffer lists are updated in the same critical section.
+As you see, you're basically checking for the static key twice. Not a
+big deal but you can use the new API and skip it:
 
-The helper only acts when the buffer still holds the transfer that was
-read from. A reader can sleep in copy_to_user() while another reader or
-a stream restart recycles and resubmits the buffer, and the new transfer
-may start at offset 0 as well, so every buffer carries a generation that
-is bumped on submission and is checked along with the position. For the
-same reason the head of the receive list is re-read after each copy
-instead of keeping a buffer that may meanwhile have been queued behind
-the reader's back.
+  s/trace_softirq_context_entry_tp/trace_call__sched_set_state_tp/
 
-Reset buf->pos when hdpvr_cancel_queue() discards the buffers as well,
-otherwise a restarted stream either skips the first bytes of the new
-transfer or drops it entirely.
+Obviously you do the trace_call__##_tp() function ONLY if you're already
+checking the static key.
 
-The buffer status is printed while dev->io_mutex is still held, as
-print_buffer_status() walks both buffer lists.
+> +=09=09local_irq_restore(trace_flags);
+> +=09}
+> =C2=A0}
+> =C2=A0EXPORT_SYMBOL(__local_bh_disable_ip);
+> =C2=A0
+> =C2=A0static void __local_bh_enable(unsigned int cnt, bool unlock)
+> =C2=A0{
+> +=09bool entering =3D (cnt & SOFTIRQ_OFFSET) && !in_serving_softirq();
+> +=09bool trace_exiting =3D (cnt & SOFTIRQ_OFFSET) && !entering &&
+> +=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0 trace_softirq_context_exit_tp_enabled(=
+);
+> =C2=A0=09unsigned long flags;
+> =C2=A0=09bool sirq_en =3D false;
+> =C2=A0=09int newcnt;
+> =C2=A0
+> +=09/* Callers already disabled IRQs around the counter and its events.
+> */
+> +=09if (trace_exiting)
+> +=09=09trace_softirq_context_exit_tp(!!in_serving_softirq(), false);
 
-Fixes: 9aba42efe85b ("V4L/DVB (11096): V4L2 Driver for the Hauppauge HD PVR usb capture device")
-Cc: stable@vger.kernel.org
-Co-developed-by: Bin Yu <byu@xidian.edu.cn>
-Signed-off-by: Bin Yu <byu@xidian.edu.cn>
-Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
----
-v5:
- - Bump a generation on every submission and check it when accounting the
-   consumed bytes: a reader that slept through a recycle and resubmission
-   could mistake the new transfer for the one it was reading, as both start
-   at offset 0.
- - Re-read the head of the receive list after each copy instead of keeping
-   the buffer, so a reader never waits on a buffer that has been recycled
-   and resubmitted behind its back.
- drivers/media/usb/hdpvr/hdpvr-video.c | 86 +++++++++++++++++++++------
- drivers/media/usb/hdpvr/hdpvr.h       |  3 +
- 2 files changed, 70 insertions(+), 19 deletions(-)
+Here as well, you're checking so you can simply trace_call()
 
-diff --git a/drivers/media/usb/hdpvr/hdpvr-video.c b/drivers/media/usb/hdpvr/hdpvr-video.c
-index 4290b2367fa3..c7b55962d986 100644
---- a/drivers/media/usb/hdpvr/hdpvr-video.c
-+++ b/drivers/media/usb/hdpvr/hdpvr-video.c
-@@ -92,6 +92,8 @@ int hdpvr_cancel_queue(struct hdpvr_device *dev)
- 	list_for_each_entry(buf, &dev->rec_buff_list, buff_list) {
- 		usb_kill_urb(buf->urb);
- 		buf->status = BUFSTAT_AVAILABLE;
-+		/* the data is discarded, the next transfer starts at 0 */
-+		buf->pos = 0;
- 	}
- 
- 	list_splice_init(&dev->rec_buff_list, dev->free_buff_list.prev);
-@@ -210,6 +212,8 @@ static int hdpvr_submit_buffers(struct hdpvr_device *dev)
- 		urb = buf->urb;
- 		urb->status = 0;
- 		urb->actual_length = 0;
-+		buf->pos = 0;
-+		buf->generation++;
- 		ret = usb_submit_urb(urb, GFP_KERNEL);
- 		if (ret) {
- 			v4l2_err(&dev->v4l2_dev,
-@@ -246,6 +250,42 @@ static struct hdpvr_buffer *hdpvr_get_next_buffer(struct hdpvr_device *dev)
- 	return buf;
- }
- 
-+/*
-+ * Account the bytes consumed from a buffer and hand it back to the worker
-+ * once it has been read completely.
-+ *
-+ * The buffer may have been recycled and resubmitted, either by another
-+ * reader or after a stream restart, while copy_to_user() slept. Its
-+ * position and its place in the buffer lists then belong to the newer
-+ * transfer and must not be touched, so only act if the buffer still holds
-+ * the transfer that was read from. The generation tells the transfers
-+ * apart even when both of them started at offset 0.
-+ */
-+static void hdpvr_account_buffer(struct hdpvr_device *dev,
-+				 struct hdpvr_buffer *buf,
-+				 unsigned int generation, unsigned int pos,
-+				 unsigned int new_pos)
-+{
-+	bool recycled = false;
-+
-+	mutex_lock(&dev->io_mutex);
-+	if (buf->generation == generation && buf->status == BUFSTAT_READY &&
-+	    buf->pos == pos) {
-+		buf->pos = new_pos;
-+		if (new_pos >= buf->urb->actual_length) {
-+			buf->pos = 0;
-+			buf->status = BUFSTAT_AVAILABLE;
-+			list_move_tail(&buf->buff_list, &dev->free_buff_list);
-+			print_buffer_status();
-+			recycled = true;
-+		}
-+	}
-+	mutex_unlock(&dev->io_mutex);
-+
-+	if (recycled)
-+		wake_up_interruptible(&dev->wait_buffer);
-+}
-+
- static void hdpvr_transmit_buffers(struct work_struct *work)
- {
- 	struct hdpvr_device *dev = container_of(work, struct hdpvr_device,
-@@ -415,6 +455,7 @@ static ssize_t hdpvr_read(struct file *file, char __user *buffer, size_t count,
- 	struct urb *urb;
- 	int ret = 0;
- 	int rem, cnt;
-+	unsigned int generation, buf_pos;
- 
- 	if (*pos)
- 		return -ESPIPE;
-@@ -488,10 +529,25 @@ static ssize_t hdpvr_read(struct file *file, char __user *buffer, size_t count,
- 
- 		/* set remaining bytes to copy */
- 		urb = buf->urb;
--		rem = urb->actual_length - buf->pos;
--		cnt = rem > count ? count : rem;
-+		generation = buf->generation;
-+		buf_pos = buf->pos;
-+		rem = urb->actual_length - buf_pos;
-+		if (rem <= 0) {
-+			/*
-+			 * The buffer was recycled and refilled with less data
-+			 * than this reader already consumed from it, so there
-+			 * is nothing left to copy. Give it back to the worker
-+			 * if it is still the buffer we were reading from.
-+			 */
-+			hdpvr_account_buffer(dev, buf, generation, buf_pos,
-+					     buf_pos);
-+
-+			buf = hdpvr_get_next_buffer(dev);
-+			continue;
-+		}
-+		cnt = min_t(int, rem, count);
- 
--		if (copy_to_user(buffer, urb->transfer_buffer + buf->pos,
-+		if (copy_to_user(buffer, urb->transfer_buffer + buf_pos,
- 				 cnt)) {
- 			v4l2_err(&dev->v4l2_dev, "read: copy_to_user failed\n");
- 			if (!ret)
-@@ -499,27 +555,19 @@ static ssize_t hdpvr_read(struct file *file, char __user *buffer, size_t count,
- 			goto err;
- 		}
- 
--		buf->pos += cnt;
- 		count -= cnt;
- 		buffer += cnt;
- 		ret += cnt;
- 
--		/* finished, take next buffer */
--		if (buf->pos == urb->actual_length) {
--			mutex_lock(&dev->io_mutex);
--			buf->pos = 0;
--			buf->status = BUFSTAT_AVAILABLE;
--
--			list_move_tail(&buf->buff_list, &dev->free_buff_list);
--
--			print_buffer_status();
-+		hdpvr_account_buffer(dev, buf, generation, buf_pos,
-+				     buf_pos + cnt);
- 
--			mutex_unlock(&dev->io_mutex);
--
--			wake_up_interruptible(&dev->wait_buffer);
--
--			buf = hdpvr_get_next_buffer(dev);
--		}
-+		/*
-+		 * The buffer may have been recycled and resubmitted to the
-+		 * tail of the list while we copied, so re-read the head
-+		 * instead of keeping it.
-+		 */
-+		buf = hdpvr_get_next_buffer(dev);
- 	}
- err:
- 	if (!ret && !buf)
-diff --git a/drivers/media/usb/hdpvr/hdpvr.h b/drivers/media/usb/hdpvr/hdpvr.h
-index 84519c962cb4..4504fb58855a 100644
---- a/drivers/media/usb/hdpvr/hdpvr.h
-+++ b/drivers/media/usb/hdpvr/hdpvr.h
-@@ -139,6 +139,9 @@ struct hdpvr_buffer {
- 
- 	uint			pos;
- 
-+	/* bumped every time a new transfer is started on the buffer */
-+	unsigned int		generation;
-+
- 	__u8			status;
- };
- 
--- 
-2.34.1
+> +
+> =C2=A0=09if (IS_ENABLED(CONFIG_PREEMPT_RT_NEEDS_BH_LOCK)) {
+> =C2=A0=09=09DEBUG_LOCKS_WARN_ON(current->softirq_disable_cnt !=3D
+> =C2=A0=09=09=09=09=C2=A0=C2=A0=C2=A0 this_cpu_read(softirq_ctrl.cnt));
+> @@ -276,6 +300,18 @@ static void __local_bh_enable(unsigned int cnt, bool
+> unlock)
+> =C2=A0=09=09=09WARN_ON_ONCE(current->softirq_disable_cnt < 0);
+> =C2=A0=09=09}
+> =C2=A0=09}
+> +
+> +=09/*
+> +=09 * An exit probe can raise a softirq while serving state still
+> suppresses
+> +=09 * the normal ksoftirqd wakeup. Hand it off once no outer BH-disable
+> +=09 * reference remains.
+> +=09 */
+> +=09if (trace_exiting && sirq_en && unlikely(local_softirq_pending()))
+> +=09=09wakeup_softirqd();
+> +
+> +=09/* local_bh_enable() can turn BH-disabled state into serving state.
+> */
+> +=09if (entering)
+> +=09=09trace_softirq_context_entry_tp(!!in_serving_softirq(),
+> false);
+
+Here for example, entering doesn't check the static key so you must keep
+the tracing as is.
+
+> =C2=A0}
+> =C2=A0
+> =C2=A0void __local_bh_enable_ip(unsigned long ip, unsigned int cnt)
+> @@ -640,11 +676,15 @@ static void handle_softirqs(bool ksirqd)
+> =C2=A0=09 */
+> =C2=A0=09current->flags &=3D ~PF_MEMALLOC;
+> =C2=A0
+> -=09pending =3D local_softirq_pending();
+> -
+> =C2=A0=09from_irq_exit =3D softirq_handle_begin();
+> =C2=A0=09in_hardirq =3D lockdep_softirq_start();
+> =C2=A0=09account_softirq_enter(current);
+> +=09if (!IS_ENABLED(CONFIG_PREEMPT_RT))
+> +=09=09trace_softirq_context_entry_tp(!!in_serving_softirq(),
+> +=09=09=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 from_irq_exit);
+> +
+> +=09/* Include work raised by the context-entry event. */
+> +=09pending =3D local_softirq_pending();
+> =C2=A0
+> =C2=A0restart:
+> =C2=A0=09/* Reset the pending bitmask before enabling irqs */
+> @@ -692,6 +732,14 @@ static void handle_softirqs(bool ksirqd)
+> =C2=A0=09=09wakeup_softirqd();
+> =C2=A0=09}
+> =C2=A0
+> +=09if (!IS_ENABLED(CONFIG_PREEMPT_RT) &&
+> +=09=C2=A0=C2=A0=C2=A0 trace_softirq_context_exit_tp_enabled()) {
+> +=09=09trace_softirq_context_exit_tp(!!in_serving_softirq(),
+> +=09=09=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 from_irq_exit);
+> +=09=09/* The final pending-work decision above has already
+> completed. */
+> +=09=09if (unlikely(local_softirq_pending()))
+> +=09=09=09wakeup_softirqd();
+> +=09}
+> =C2=A0=09account_softirq_exit(current);
+> =C2=A0=09lockdep_softirq_end(in_hardirq);
+> =C2=A0=09softirq_handle_end(from_irq_exit);
+> @@ -722,6 +770,7 @@ void irq_enter_rcu(void)
+> =C2=A0=09=09tick_irq_enter();
+> =C2=A0
+> =C2=A0=09account_hardirq_enter(current);
+> +=09trace_hardirq_context_entry_tp(hardirq_count() >> HARDIRQ_SHIFT);
+
+Here again, no check, so keep it as is.
+
+Thanks,
+Gabriele
 
