@@ -1,59 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795264100;
-	b=QWlBOfwnbmAiWjNlDreFdPpzw0wDQCGVashedCmUwU8arRLVz2TdFyKDIWqJBpo/CiP0
-	 dmsA1JHaB1YpNsp1HXloNn5445SfNJ9f8wcZ/svaRDkf3e1yTCAiqEhLWcOFBtm2PJI1V
-	 /BnPpbVuH22yl80rj+Ekb58dG+dNEanbSSPWINoDIvcuI2DlCCV0gdhdgAgk+j8RR329w
-	 7m3fqVLxD+HqrxE9R730jq905xD/gQs++LsnscJDD+7NUwMo50u0RArz5KRClbs6ESYbk
-	 G57f3Gd4VwrkxDJqHk0caKVvcC0W3zIA8lHNqpp2R8jfQzXNuIFitRyDi80qZnygcQg==
+	t=1795264113;
+	b=kX5W+P47Te8Wyn6xw9+5qFaQ3dybrQgkgP8m5YqL6o2OgtList30c3LPGg4MO6ZG4ik2
+	 ghe8RctGj/l076X7u3wiYQNwQyQfT5fZA6zQ3HXABGO20MnVy+7VBd+bRamLqezL+6+Fo
+	 Jilwrkjp5s0sQkBgDamR8Unde0M1NeOofjHiD+xaa8eFi/3jioNe+oXdqavHbFnHUfkfU
+	 Yarc++0F6bosWRcs8u1AKLaUROIK1y5L9LBcyxRVg3DBHt6k+SSy9oitiiaKMgCbcWbB4
+	 B0SP9EQFLDPUl3AdrPi5J/EJnENgwaj6pH+A1XN3Qq6KRuJQGuYb/x7MCZxC7P7CYnQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795264100;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=7H6yTJgiXVjurwuVwDh2bU2c+2wm8uECQPTv4Fe2SXA=;
-	b=fmxgws+/NLKIOAC4YhPc9nxBat99vY524jJmvVgbQWJirb4KzfK+a2BWWlR/SA1wUL8H
-	 iWU8xxLyJyCQVOGmqFXtGMemyhZSIAMSSJfpluIJqfFlOVIkLCFvvLH8QiiHvW6UlME8v
-	 hq3E1Bahy4tEDftw/IMLRmYDL/WDezvpTFA1/TsH/JukgW0FilvAgO4bRcN1pV9OdYnmr
-	 V2VebIOVp/Nu1GqwMrfA+WFmtwK164yJpSv5PzKO9iC3vG9bXmkCcSMfZ+Rha5RbOE+4W
-	 3MOUagaD/6Q5BvI8k1TvjIeZsdwGKuT6GM2fX6vTH9F5kbrIsAq6YcUQNcj5APgqjfw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795264113;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=rFdayxRtJl/NSoob2VtOJz54UfnrykTn3RP7oeZONZ0=;
+	b=Bm/ldCoLKjjz5lbvkQe+lfAf0oOnTeIly7xUWmMnqJqE2gc558VW0WNOXwOQ6dHhTwT8
+	 emdEnFnh0f05NQymXKD1Y7vlYOIDeOu9X7755TLT6KzIkB6SfKDn3KljVonC2FNVO1GDe
+	 n4Qq5xtZK3YKi0PMn4S6lT2kTVfOsJLR+SzTNDs+HVHP8e5A8YF6D9S0e8r3H23DCuQSs
+	 e43ZRvYSZgo8DnGE/E4Zvw0VsTTw/Q34thimPtQCUI8cjoj5iv3ANwdaxWVDh06S0D+jF
+	 2kuwvtM35ERwrKh9fe48eM7tD3q5albY9fx/i2zhjsk6utu5jA+Yny6sHtgk9lTkTAA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FwLhBHfu;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=POtic4UK;
+	arc=none smtp.remote-ip=74.125.82.171
+Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24329606A320;
-	Sat, 21 Nov 2026 12:28:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 459D8606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 12:28:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 459D8606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FwLhBHfu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8C5C1F000C4;
-	Sat, 21 Nov 2026 12:28:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795264099;
-	bh=7H6yTJgiXVjurwuVwDh2bU2c+2wm8uECQPTv4Fe2SXA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FwLhBHfufqwXZeNQ6Ov4B6OaGsVBAJ7XCHmXMbe+iEf3NnGJNqugTCNnCqhTQoYAb
-	 BBJp9SNsbW6yhDKVEJ6/M/hBR73MRngtUM1/NljbzqQvRj6n7crSDUsPfgMX/4eVTK
-	 jV7+LrLJwBAe4skUxuniF7o5VLOvOgLLlBO6ViiFZsG+hhgRLcpEFHLKBUjSQDDmGk
-	 L4Fh3bTgM354j6HGyg4U40vIUnu0IGVPRJ4Fs9vivT+LojFuv7a/Ff82Olf3RxtMKF
-	 ts2RqWuYnMTRfEfKclwTJSoFxVWJ1701Bek1Vgt8Uz1SODFtG4+KtBrH9xBQyD6p18
-	 BfLyZtdUxyjIA==
-Date: Sat, 21 Nov 2026 13:28:16 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
-Cc: Johannes Berg <johannes@sipsolutions.net>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jeff Johnson <jjohnson@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	linux-wireless@vger.kernel.org, devicetree@vger.kernel.org, ath12k@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH ath-next v3 15/15] wifi: ath12k: add Wi-Fi 8 PCI driver
- scaffolding for QCN9575
-Message-ID: <20261121-astute-calculating-hippogriff-69ecfc@quoll>
-References: <20261118-wifi8_qcn9575_bringup-v3-0-9875d2a3953f@oss.qualcomm.com>
- <20261118-wifi8_qcn9575_bringup-v3-15-9875d2a3953f@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=POtic4UK
+Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso3845066eec.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 04:28:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795264112; x=1795868912; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rFdayxRtJl/NSoob2VtOJz54UfnrykTn3RP7oeZONZ0=;
+        b=POtic4UKlRWck6bMKXB4dPlX62Zqdy04A10cDjVNVvW1kXXnIRPpMdK5egZ2FxEWoU
+         Agp1GAhGEGLcqpsjmSemUp3j41GKISZhwukkNNp6/GBvlnfCaL0Ay9JWuvPwOChXohIC
+         ZVrK8sNir0ES/79YmuLRMjk8Qs4LENsEcuuEQM+TWp+bxdIxSlO2NFEexbZ598RSvbi+
+         26O2KmqJ2G8yywcKpHT1jeUak43YxxstMLVLZTBQJ/DqYUKawpd19HQWwDXoCsWSem8K
+         BYqwzj0G+BKWnw6VU+wqjUneIdVCuWU4LZ1LPPwvBa+q01CsTAjevnJyvFMXS0hNXvQZ
+         v6VA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795264112; x=1795868912;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=rFdayxRtJl/NSoob2VtOJz54UfnrykTn3RP7oeZONZ0=;
+        b=joEYUxr10s3T/sRz3YM/PgetHNt1TjZ6YBLYLVTfvBsbENSVeuXFGZ2CIcG9cnSq0f
+         nYnfQP11I6ej4V7Fuxy7AgQeCoMw+nAgcLh6D8pFfHKpP9N/lw+L6xDp8l5hR4bJ0ua8
+         EMLxf7zOZvz8qFxSlzcSElC7YCgF4xPmKPUVhsvfN0xFyZLqrnKcwPImgYgzbRpGQi3O
+         M5dklGL2vFTn9ym0xgZmdWGG7+cR0OGvEXKaY1HV5MOwEaITDeNMpJd16GboIltbCgZS
+         AzVRo1Xj8HjChEzMstytWTLaiQJym2gCIkxKIqGuWmyXcKd+SSeZd0xePIsIZ2U8ofxo
+         t65g==
+X-Forwarded-Encrypted: i=1; AL+hErHJQA6+D09ZOwdbzK4fVl7SyJX5jFw9Od0yBCy6/6XQ74NFkAPp7QiHFePasv3Wl+2Dd3M2xpKYRCniN7U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8EGqUqi5c2B7YyQigTni21Z4G4iigLjDB8mxg7ThsxdQ5RNAyU
+	IaJ4515YKJMQ9t0oT6qW7ibD26U0D0Q7Ba99/0cBBUB7QgYUPsXyfBWEUxPNNz1G
+X-Gm-Gg: AZFdTZchuNTH5tnlV+L+M3zVFUCqmFiQ1RB/VsvnsLE140kpzJW6dJ3nRReNJUPiIFI
+	TLjwsEAJksSuCHWt6A2hzJzJlbwwm6oREgrtFmnf0hKeOQ8/UesM/dCW5SM4b/4yzLVU+bFEcYx
+	BOlIueXBAAXfIcrsyNlJ3aUn/vy2U9YiUCt5TAeqPh30fxUaDebiWYaFGAXsARosi7ZbLc+TSMF
+	Hwb7VyHYAPypkJhKduzKjcEs0qUXqcZX+tDaec8HyZLsFxJ4MxyKqRCJPkveQnOigG8Xptfl9fq
+	nHeFXn5KO3aTwesR8IMyjISoYQCAWnBS4NVCO4fE/sRZsYwz3djdHSbip40lHKeVM0+/S7kxwFW
+	8HZ6bvHDeeYjbbKuxTZ5iNEm7DTIYWDg3pr0GD1wHQuRL1vr5MILHkFVMDtFTdPRx0k5zA9LCqf
+	WEmXgYtuHwomFlqFKAj2InDX30RGbXjELRCjWcUBdsgPYtQOkM1Tbot1TfBP5gUjDSyeWJXqyCC
+	gBmDCaeSuoEORgq5j2CxvssNxysGaI/OLBeFLTzPXsF6M/AnZ/FAzMRWH5icFunVRjhzSj+CcWV
+	vQNyGEbY8uhCq8dLw5SlGlwytU2ni2wRrD0rReo6mlnXSZQCkqnuV+fTY/4=
+X-Received: by 2002:a05:7300:c695:b0:37f:73f9:aee7 with SMTP id 5a478bee46e88-3856c9a6408mr6641670eec.5.1795264112075;
+        Sat, 21 Nov 2026 04:28:32 -0800 (PST)
+Received: from G7XWH7K1F3 ([2408:8256:2e80:7371:8549:3fe7:526f:af9])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567da4f85sm18941986eec.27.2026.11.21.04.28.21
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 21 Nov 2026 04:28:31 -0800 (PST)
+From: Zhao Li <enderaoelyther@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Eric Woudstra <ericwouds@gmail.com>,
+	=?UTF-8?q?Bj=C3=B8rn=20Mork?= <bjorn@mork.no>,
+	"Lucien . Jheng" <lucienzx159@gmail.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2] net: phy: air_en8811h: check PBUS register read errors
+Date: Sat, 21 Nov 2026 20:27:58 +0800
+Message-ID: <20261121122758.7136-1-enderaoelyther@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <439bfedb-fc9f-4e41-a87d-f5e6a3b7950c@lunn.ch>
+References: <20261120062001.38233-1-enderaoelyther@gmail.com> <439bfedb-fc9f-4e41-a87d-f5e6a3b7950c@lunn.ch>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,127 +106,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261118-wifi8_qcn9575_bringup-v3-15-9875d2a3953f@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 18, 2026 at 01:45:38PM +0530, Madhavan Ganesan wrote:
-> Add QCN9575 PCI window register constants (WINDOW_VALUE_MASK [25:19],
-> WINDOW_STATIC_MASK [31:7], CE_WINDOW_MASK [13:7], UMAC_WINDOW_MASK
-> [20:14]) and a Wi-Fi 8 reg_base instance (ath12k_wifi8_reg_base) for
-> per-device window selection. Implement ath12k_wifi8_pci_probe() to
-> configure QCN9575-specific PCI settings: MSI vector layout (3 MHI, 5 CE,
-> 8 DP vectors), static window mapping, window register address (0x3278),
-> and hardware revision. Call ath12k_wifi8_hw_init() at the end of probe
-> to complete hardware initialization. Define the Wi-Fi 8 PCI driver
-> struct with the probe callback, and register it with
-> ath12k_pci_register_driver() in ath12k_wifi8_pci_init().
-> 
-> This series only adds Wi-Fi 8 platform scaffolding; QCN9575's CP, DP,
-> and MAC datapath support will be posted as a follow-up series.
-> QCN9575_DEVICE_ID is intentionally left out of
-> ath12k_wifi8_pci_id_table for now, so no physical device can match and
-> probe until that follow-up series lands. The id_table entry will be
-> added in the final patch of that series, once QCN9575 is actually
-> functional.
-> 
-> Tested-on: QCN9274 hw2.0 PCI WLAN.WBE.1.6-01243-QCAHKSWPL_SILICONZ-1
-> Tested-on: WCN7850 hw2.0 PCI WLAN.HMT.1.1.c7-00108-QCAHMTSWPL_V1.0_V2.0_SILICONZ_UPSTREAM-3
-> 
-> Signed-off-by: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
-> ---
->  drivers/net/wireless/ath/ath12k/hal.h       |  2 +
->  drivers/net/wireless/ath/ath12k/wifi7/hal.h |  2 -
->  drivers/net/wireless/ath/ath12k/wifi8/hal.h |  1 +
->  drivers/net/wireless/ath/ath12k/wifi8/pci.c | 89 ++++++++++++++++++++++++++++-
->  4 files changed, 91 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/net/wireless/ath/ath12k/hal.h b/drivers/net/wireless/ath/ath12k/hal.h
-> index 9e88bdf4a93b..b30a8039b2ec 100644
-> --- a/drivers/net/wireless/ath/ath12k/hal.h
-> +++ b/drivers/net/wireless/ath/ath12k/hal.h
-> @@ -11,6 +11,8 @@
->  
->  struct ath12k_base;
->  
-> +#define HAL_CE_WFSS_CE_REG_BASE			0x01b80000
-> +
->  #define HAL_DESC_REO_NON_QOS_TID	16
->  
->  #define HAL_INVALID_PEERID	0x3fff
-> diff --git a/drivers/net/wireless/ath/ath12k/wifi7/hal.h b/drivers/net/wireless/ath/ath12k/wifi7/hal.h
-> index 19e02bb16ff2..fe880b0befcb 100644
-> --- a/drivers/net/wireless/ath/ath12k/wifi7/hal.h
-> +++ b/drivers/net/wireless/ath/ath12k/wifi7/hal.h
-> @@ -31,8 +31,6 @@
->  	((hal)->regs->umac_ce1_dest_reg_base)
->  #define HAL_SEQ_WCSS_UMAC_WBM_REG		0x00a34000
->  
-> -#define HAL_CE_WFSS_CE_REG_BASE			0x01b80000
-> -
->  #define HAL_TCL_SW_CONFIG_BANK_ADDR		0x00a4408c
->  
->  /* SW2TCL(x) R0 ring configuration address */
-> diff --git a/drivers/net/wireless/ath/ath12k/wifi8/hal.h b/drivers/net/wireless/ath/ath12k/wifi8/hal.h
-> index c99521abdcb3..89fa9a7f3fd9 100644
-> --- a/drivers/net/wireless/ath/ath12k/wifi8/hal.h
-> +++ b/drivers/net/wireless/ath/ath12k/wifi8/hal.h
-> @@ -11,6 +11,7 @@
->  #include "hal_desc.h"
->  
->  /* WCSS Relative address */
-> +#define HAL_SEQ_WCSS_UMAC_OFFSET		0xf00000
->  #define HAL_SEQ_WCSS_UMAC_CE0_SRC_REG(hal) \
->  	((hal)->regs->umac_ce0_src_reg_base)
->  #define HAL_SEQ_WCSS_UMAC_CE0_DST_REG(hal) \
-> diff --git a/drivers/net/wireless/ath/ath12k/wifi8/pci.c b/drivers/net/wireless/ath/ath12k/wifi8/pci.c
-> index 3975081d167b..fd0489f8333f 100644
-> --- a/drivers/net/wireless/ath/ath12k/wifi8/pci.c
-> +++ b/drivers/net/wireless/ath/ath12k/wifi8/pci.c
-> @@ -5,14 +5,101 @@
->  
->  #include <linux/pci.h>
->  
-> +#include "../core.h"
-> +#include "../hal.h"
-> +#include "../hif.h"
-> +#include "../mhi.h"
-> +#include "../pci.h"
-> +#include "hal.h"
-> +#include "hw.h"
-> +#include "mhi.h"
->  #include "pci.h"
->  
-> +#define QCN9575_DEVICE_ID		0x1113
-> +#define WINDOW_REG_ADDRESS		0x3278
-> +
-> +#define WINDOW_VALUE_MASK		GENMASK(25, 19)
-> +#define WINDOW_STATIC_MASK		GENMASK(31, 7)
-> +#define CE_WINDOW_MASK			GENMASK(13, 7)
-> +#define UMAC_WINDOW_MASK		GENMASK(20, 14)
-> +
-> +static const struct pci_device_id ath12k_wifi8_pci_id_table[] = {
-> +	{}
+On Fri, Nov 20, 2026 at 02:15:00PM +0100, Andrew Lunn wrote:
+> >  		/* We do not know what errors this check is supposed
+> >  		 * catch or what to do about a failure. So print the
+> >  		 * result and continue like the vendor driver does.
+> >  		 */
+> >  		if (pbus_value & AN8811HB_CRC_ST) {
+> > -			air_phy_buckpbus_reg_read(phydev, mon3, &pbus_value);
+> > +			ret = air_phy_buckpbus_reg_read(phydev, mon3,
+> > +							&pbus_value);
+> > +			if (ret < 0)
+> > +				return ret;
+>
+> Please could you explain your understanding how this change and the
+> comment go together? You did read the comment didn't you?
 
-Why do you need an empty table?
+Yes, I did.
 
-> +};
-> +
-> +MODULE_DEVICE_TABLE(pci, ath12k_wifi8_pci_id_table);
+The failure mentioned in the comment is a firmware CRC mismatch
+(AN8811HB_CRC_CHECK_PASS clear in mon3 once AN8811HB_CRC_ST is set in
+mon2). That behavior is unchanged: when reading mon3 succeeds, a CRC
+FAIL is only logged via phydev_dbg(), AN8811HB_CRC_RD_EN is cleared,
+and firmware loading continues.
 
-...
+The added check handles a PBUS/MDIO register read failure instead. If
+air_phy_buckpbus_reg_read() returns an error, pbus_value is not updated
+and still holds the mon2 status word, so phydev_dbg() would report PASS
+or FAIL decoded from the wrong register.
 
-> +static struct ath12k_pci_driver ath12k_wifi8_pci_driver = {
-> +	.name = "ath12k_wifi8_pci",
-> +	.id_table = ath12k_wifi8_pci_id_table,
+an8811hb_check_crc() already propagates PBUS errors from the
+air_phy_buckpbus_reg_modify() calls at the start and end of the check
+(and returns -ENODEV on timeout), so propagating errors from the three
+PBUS reads in between keeps bus-error handling consistent.
 
-I actually wonder how does it work with such table - what is its
-purpose?
+If the comment now looks misleading right above the mon3 read check, I
+can move it down above phydev_dbg() in a v3.
 
-> +	.ops.probe = ath12k_wifi8_pci_probe,
-> +	.reg_base = &ath12k_wifi8_reg_base,
-> +};
-
-Best regards,
-Krzysztof
-
+Thanks,
+Zhao
