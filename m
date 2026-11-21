@@ -1,82 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.39
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795224725;
-	b=merHQf2nuLtopX0H5fbA5mHcpfTbHUjB7DlSH7WF+L7oYYd3pFGCsB8bBGN7daLR7+Y/
-	 mzoCy7juX2bniKBpnxuqdHW/D279UtT4Y8FINk5X9DHjipk2/yhb9WEq41W/6Eem8llvR
-	 Vp14L1lpry9IaA+iseDJjszuCYA3Bql4+izliSD8CgnCoKz1E3PFtBoxPSswHFzfwFslH
-	 goIP2zxpnQZ5F2DZfTD1+AIkRu+oNyrxpQqugzbk1oB+1WcV7Al6vkKtoHjCmh95bhDC3
-	 8zxfEuS3Qz5To75JCRhv76xslizWhNZYN9YjwzEv4V3RtZFBZ8Vg87rQTQpEVJ7LWhg==
+	t=1795224728;
+	b=pfQPOdeZZYQTzcy/f15kB/NsdiWSnmTT6Ch7+zgmSRJK9YYuk04oyZRlKfZRM5x5ehu2
+	 ONaozgOU0jTSJkd38uEdHhF09JO6BgrL14p3hXfdD1ZvnEp3NJxIUA+QFteLYw6aGygk1
+	 fjkRtgMNVUY4gPiO9cXOPBfCgq3xYjHrg0d4/qNY8EXndEIcHEQPkNyjpEZwLAAilZIXg
+	 jrveE1YPZKmsuhcK+quOcsX96cqtz2G9Nk3KPihHVPHQyKhzeueVN0Ab1ACZiLyxyEk7p
+	 Agnr7rTW+xQdqyHhprg6NWY3idz5B+YoQBDbYFeOx5BtFHyhJHCDXjXLodCQny4sayA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795224725;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:
-	 X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
-	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
-	 X-Local-Domain:X-CMAE-Envelope;
-	bh=rlDLliB+QOtD7Ziahgfuy5fLAO8NSvZb0oJ9Xi9dkRs=;
-	b=IKASM+54HcBeyA1BPVvo0fj4fA9+teTt/VTVzn6yvbT1D4LBDMlh53rloMiAXdVnUwU1
-	 3PY/n9zGi6jmmKTOrIgZQMUZ+QBO/Ab619LTrZ/DKELBDv8hQwfjGI7VrvActpZ8u6Vqe
-	 pVeGsjhg6A83cGiacRRCR61nt1teE3PIog8iPYRZAmgAGqKKhuRagS0tn4Y6hELqplVc6
-	 cbmPxyDQ+ZL/OWMXYr2NFp2QCX4dIZgTdLJdoM+HD1tS9e1BA2IhVRW2xg9qZ0rTTWRZZ
-	 nn+4+I6DMeW3MgpBVx6TFQEWCYsolDqDZPYVrMOYqoDaif0TYt1R0ElzU/q/2slN3LA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795224728;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=5/7MyMIXr0GDno34tV42HvOi56g013l0wGScJy1uGp0=;
+	b=xIbBfZHZCvRm++Hp6sOxsszaRfEN2dq7npW89yE5SIumZWDcOvjjiDNwCASC/w46a4yO
+	 F3f5MzacZnZATqr+83WcL1DYRSv4YxqnWxQrvBotqH/c4Fc5UQWXIyVYF4pJ/QLh1iUKP
+	 ZJhcCuGYCDCkQQd31Z9jjzl6rPpO0jE7aB3duR2AxFEW0Ah3/cZs8tDK0jntzoQ43N9wV
+	 /8dhn68HI1L84X5Tmjd5s8zbBBIpOY7UpOzJIBeBUHYXsrjQRAkhLa5pzqS1V9zLddTii
+	 GZS1T3iIdaT8NHimU+jj+FuQOXWr9y6vRNSqFdxrDweH9KTK9jQMAFAj9rahbfequrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=roeck-us.net;
-	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=s85U6r6i;
-	arc=none smtp.remote-ip=35.89.44.39
-Received: from omta40.uswest2.a.cloudfilter.net (omta40.uswest2.a.cloudfilter.net [35.89.44.39])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V1FYfrGT;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1501F606A692
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 01:32:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1501F606A692
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 9552A606A6AB;
+	Sat, 21 Nov 2026 01:32:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=s85U6r6i
-Received: from eig-obgw-6007b.ext.cloudfilter.net ([10.0.30.166])
-	by cmsmtp with ESMTPS
-	id UW3rxAHOnyb4YUZxTxbQS0; Sat, 21 Nov 2026 01:32:03 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id UZxSxlvir3nNNUZxSxrBvx; Sat, 21 Nov 2026 01:32:03 +0000
-X-Authority-Analysis: v=2.4 cv=TuLmhCXh c=1 sm=1 tr=0 ts=6b00f493
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10
- a=9C19SFpus36fZyHDVEEA:9 a=CjuIK1q_8ugA:10 a=O8hF6Hzn-FEA:10
- a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
-	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
-	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=rlDLliB+QOtD7Ziahgfuy5fLAO8NSvZb0oJ9Xi9dkRs=; b=s85U6r6iq7R9/waSVarOgreJWT
-	TrcqunRegDk7BrDXjdDvhXx4es4vrkbmwPEp/3XBkdSzvLV0rpgskhpqxgEx2LpS4+KKUjINzO9FQ
-	N8qo+XKoZEPkQ5ncqxoRpzH9szgXSczSvBnU049qKPUo5qHTwhpnZDOu3ZulJHkjpM3bjPSafwusf
-	cTrrqlsYnvVDZ+5aRuVGm9VQEzNd2HzH8xQe5TJUbJBqVkQvnvMBY8PhJJyXpdf32Onz9lyXd/pes
-	0NfotXZOc9IRhHefWSstRJPMu4Tvr46+Gcm/5hWdYWa+M9FhgTvoLJgwNOL+bsJtY0mILBfMwP5ie
-	rGoKgtRw==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:37764 helo=server.roeck-us.net)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xUZxS-000000041yX-18L9;
-	Sat, 21 Nov 2026 07:02:02 +0530
-Date: Fri, 20 Nov 2026 17:32:00 -0800
-From: Guenter Roeck <linux@roeck-us.net>
-To: Paul Menzel <pmenzel@molgen.mpg.de>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>, Kees Cook <kees@kernel.org>,
-	Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Diogo Ivo <diogo.ivo@siemens.com>, linux-watchdog@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] watchdog: intel_oc_wdt: Stop the watchdog during
- system sleep
-Message-ID: <66a0d81c-13f4-40a2-bad1-96f9cf98deed@roeck-us.net>
-References: <20261120102311.621074-1-pmenzel@molgen.mpg.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V1FYfrGT
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 8B58A1F000D2;
+	Sat, 21 Nov 2026 01:32:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795224728;
+	bh=5/7MyMIXr0GDno34tV42HvOi56g013l0wGScJy1uGp0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=V1FYfrGTatK4t00vmPWVjtv5HLsnbLBQJryhm1RAw1jnSsFpourNb3t1IjzSNXxX9
+	 6Bq0R9I4WaCdpXZX3hs2TSXWe+ogMvOxCYptsDe9heLB/DRu3jnf1Ra6f6JDEemD1j
+	 7Ztegvu2jmd0It2EtCck+YGJjbblBujYOojylXdkcLxQW+4YV4lXpMp4fzKNiIc96d
+	 zWTi4ICSpKYW7JvYV71KxHiIMYRy0vFhI0sCj4pcDHT8NJHbwAYCAZIa4sbRh/LMYQ
+	 Q2vVzh7EY9qiZrVGlr9vAi90q99Jbd7CoOV5MuyrCPk6oRrhEKBAi7Y4to5qFVrlj3
+	 tsOSq4fsG9ZWw==
+Date: Sat, 21 Nov 2026 03:32:04 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+	Alexander Mikhalitsyn <alex@amutable.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Christian Brauner <brauner@kernel.org>,
+	David Howells <dhowells@redhat.com>, Jan Kara <jack@suse.cz>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Josef Bacik <josef@toxicpanda.com>, Kees Cook <kees@kernel.org>,
+	Neal Gompa <neal@gompa.dev>, Paul Moore <paul@paul-moore.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: Re: [RFC PATCH v5 12/25] rootns: Track init lifecycle via
+ copy_process() and pid_namespace
+Message-ID: <awD0lNmhRPaXI9Pg@kernel.org>
+References: <20261121000844.1863324-1-jarkko@kernel.org>
+ <20261121000844.1863324-13-jarkko@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,73 +71,31 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261120102311.621074-1-pmenzel@molgen.mpg.de>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xUZxS-000000041yX-18L9
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:37764
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 1
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfLtmZbUxHNo/lp/zu+mG+cJrzUnR3PbLHEiAAH4DRkHOl+2Y2g+puY0buhmr42iRYOdFU8D3i0slPasuMopCyUa7xIWQzfDiSRIEcxgDFA9BRvLxWGJw
- +POiLbzRVm+VFjGkCJxDdSbwQN/K6mK6hZ5JWtQgEoZFbOHiGkdCLlwiTSAAq74pTz4q1OAhoE3Ea93vOtCXBBCxHP7Q3bXhHNXvz1Us0bkfLcFOBwLbATEa
+In-Reply-To: <20261121000844.1863324-13-jarkko@kernel.org>
 
-On Fri, Nov 20, 2026 at 11:23:09AM +0100, Paul Menzel wrote:
-> The driver has no system sleep callbacks, so a running watchdog keeps
-> counting in suspend-to-idle. Suspend-to-idle stops the tick, so neither
-> user space nor the watchdog core can ping it, and the watchdog resets
-> the machine once the timeout expires.
+On Sat, Nov 21, 2026 at 02:08:31AM +0200, Jarkko Sakkinen wrote:
+> A root namespace needs to record its init thread group's PID when
+> bootstrapped and capture its exit status once all processes in the root
+> namespace have terminated, without serializing normal fork() and exit()
+> paths inside the container.
 > 
-> On a Dell XPS 13 9310 (Tiger Lake, BIOS 3.17.0, no ACPI S3) with systemd
-> `RuntimeWatchdogSec=30s` on /dev/watchdog-oc, both `rtcwake -m freeze -s
-> 900` and `rtcwake -m freeze -s 60` resulted in a reset about 30 s after
-> entering suspend, without any message in the journal or in pstore. With
-> the systemd runtime watchdog disabled, the system stayed in
-> suspend-to-idle for 900 s and resumed normally.
+> Commit the bootstrap child reaper and bind pid_ns->rootns in
+> copy_rootns() after attach_pid(PIDTYPE_PID), and invoke exit_rootns()
+> from zap_pid_ns_processes() after the root namespace's PID namespace has
+> killed and reaped all member tasks.
 > 
-> Stop the watchdog in the noirq suspend phase and restart it, with a
-> reload, in the noirq resume phase, as iTCO_wdt does. Check the enable
-> bit in hardware rather than watchdog_active(), so a watchdog started by
-> the firmware, which only the watchdog core pings, is covered too. If the
-> control register is locked, the watchdog cannot be stopped, so leave it
-> alone.
-> 
-> Also program the timeout again on resume, whether or not the watchdog
-> was running: the platform firmware may reset the control register, and
-> when resuming from hibernation, it holds the timeout the boot kernel
-> set. intel_oc_wdt_start() only sets the enable bit, so a timeout set
-> with WDIOC_SETTIMEOUT would otherwise be lost.
-> 
-> Unlike iTCO_wdt, do this for all sleep states and not only for
-> suspend-to-idle, as it is not documented whether the platform firmware
-> stops the OC watchdog in ACPI S3 or S4. Hangs in the device suspend and
-> resume callbacks outside the noirq phases are still caught.
-> 
-> Tested on a Dell XPS 13 9310 (BIOS 3.17.0) with the module built for
-> 7.4.0-rc1 and systemd RuntimeWatchdogSec=30s:
-> 
-> - rtcwake -m freeze -s 120 resumes normally; the stock module reset the
->   machine in 2 of 2 attempts.
-> - TOV restore: with the watchdog armed, overwrite TOV with 0x3b (60 s) via
->   outl, as the firmware might, then rtcwake -m freeze -s 60. v1: register
->   0x0080603b after resume (TOV 60 s kept). v2: 0x0080601d (TOV 30 s
->   restored, EN set), watchdog still running 40 s later.
-> 
-> Fixes: 535d1784d8a9 ("watchdog: Add driver for Intel OC WDT")
-> Signed-off-by: Paul Menzel <pmenzel@molgen.mpg.de>
+> Co-developed-by: David Howells <dhowells@redhat.com>
+> Signed-off-by: David Howells <dhowells@redhat.com>
+> Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
 
-Applied.
+ROOTNS_GET_NSFD will be the only surviving ioctl, which make access
+control wise sense.
 
-Thanks,
-Guenter
+This leaves room for ROOTNS_SHARE_NSFD, which would share a namespace
+from host. This makes whole a lot more sense than unsharing security
+wise as it is allow listing (instead of deny listing).
+
+It can be post-clone3 disabled. This is what we do in SGX driver i.e.,
+have build phase enabled ioctls.
+
+Br, Jarkko
