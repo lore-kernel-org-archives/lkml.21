@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795278574;
-	b=D+nNyxq9uvsEUXczKobsYOGRrGduij8tHl2uVpXFDM6kOm7yq5Eu451XA/AdDmEd8Vo/
-	 TqL2zi9IaeOVIoC7GSLzfZGnN7QpaS6nQnYDsqTibV8EVkrkgAd5rIzyqVzYm2U7ZcZYi
-	 m4kZzGTtcoQYjjYfP39Y95Hy+P+eE0zrDciahRyOsN+wu6jnNrFOxb3PydstmOiqBEtTc
-	 Y+Neh0hXvuzY2wkr+e+sxOXdLL4W88NbvOSEGlxHReYdhQhtLSJZ1nxS+R19DyUwhaHOY
-	 o79KXJVJeiwG+K+onlRscWv5vUcjPvTEqp1h45MxvC4py+JVnaWgLcnK3d79lqnj8lQ==
+	t=1795278569;
+	b=fnq9M7FSUheep6osGmfpys72KN86U+3Un1uZlLqKXC9X2v0uWVe/W2g5aNpZwfQp2G6/
+	 1bQoTKod2kOKIbugCjyjoEy49+lVc1WdfOVIyDbfMasm5GskqTLDhSF3qP+Pz9rDODy47
+	 d2iCtw811P2dhP+SOgLYv8wFIkuITF0AGl7uX50uystBxWaDhFkAD6OjgI0VX23c13R6O
+	 HWAe5EUkLRyUGT0K2G5hbPKJUzV+rbwNjvABjSX4i46kb30nidUgrEl0BremEZ4l7B9Gy
+	 FOn16mzDoqGkxBpsc/wPR1TmzPunu5/vnXkkBNVQ3bJSkdzayY9vP+iKLBJl+ISnrag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795278574;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795278569;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=/gvhPLIVhCoxfejxGP171pEQlCwakQHiu1fq9DJdqP0=;
-	b=rvcpUxIMPbhadJaTCuONzyYrMAZ+rFl6x0ZkiGKwymKdA0Z+a3IJtbf5WQgGpYdbaG01
-	 iSvOBxd99hFPCA+MP8HzJSU0i2s2frIUsZme3INlwB0dOn1uMqtJQcFjOfa08AGgu8Sq9
-	 QA4AHGZKzr4DQyRCStuEWOX3pjiCfCMBP1Po5RgCBEh13MpZJZDVfjngfrpyrlcc1HTQh
-	 HFIhZWOMWNxmbaGyfKcxfDhHdm5ri50TvACN7mQbationgGZxHDZuWcZUNC8uIrrFeYu1
-	 JsyUx7e3QIrxmhiARByLW8JX4COuBTH2bz0HA6QoRSTy6vXnd4DLD3EoB6Xe9MCaSiQ==
+	bh=M5xA6QGIByoSTDsPMlSDUlJT+zz0u0K41KRAMq/PgG8=;
+	b=zKcAnb9p8PN7pl6OJ5Le/CUCU055wTEw6778nw/vcl/YvfgxTxjMpeiqfY4Q8dIoFP8v
+	 mRG/DSNgmjJgf4f4XUxn4xP2PdKxtY7aEKahC7ZJdGwiM0HnXwSQ0+1eZUj+lncCsJpwD
+	 CZ2HWtkmmRgb+JzLdAxn1yyo/haw8Lk5aqkybVQ9TBPIiB8+J8NWQfWnLP6mt5qnBJ1Mi
+	 46E4lZXziVlL9/sE/G3b5H3c+0D8dZoW298iqAUvfOLD78XXAr92BOqMS3SB9eAjOCgp6
+	 dF3Yz1vIB97lR+P3lDTdWql62t4wbOYn7BJMdmNKMsdjGg75mLXLL0jPqNhtb22AcZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f4gRizVT;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LSZhSZha;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66E31606A331;
-	Sat, 21 Nov 2026 16:29:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA9CA606A320;
+	Sat, 21 Nov 2026 16:29:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f4gRizVT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46A891F000C0;
-	Sat, 21 Nov 2026 16:29:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LSZhSZha
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14C811F000C4;
+	Sat, 21 Nov 2026 16:29:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795278574;
-	bh=/gvhPLIVhCoxfejxGP171pEQlCwakQHiu1fq9DJdqP0=;
+	s=k20260515; t=1795278569;
+	bh=M5xA6QGIByoSTDsPMlSDUlJT+zz0u0K41KRAMq/PgG8=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=f4gRizVTQZflQ8m1Dtia7NvYwVC4X6V94nR10u7nGFrbVAgunw20qY292yIUUc8fa
-	 s8mGhnojRxlG6QzXxvURV/1ag3NboCIBl6Jb2xX01+niVxysO+2P1cNcHaqnDaBZnX
-	 gajCj/t51KVp521bjSwQlzDk61cjvZKoJ7/6RQkjWqtnyw24yyRtJnkiTD/BMGJeNW
-	 K9BZdsusXmSItdeRu6HSb50xbZSUKkRedaKEiBr287y81q5v79UlgktfUvYdPJw+S3
-	 tLOV9ZtmggRv5JNcNocFJ+7EgNDTWCghdEgSJF5OvGCKfk8SCQZ7sAP7ixfvwm8YKO
-	 g5gSPHcrK4SfQ==
-Subject:
- Re: [PATCH net-next v11 3/4] net: mana: support concurrent HWC requests
+	b=LSZhSZhaRhXDhoI/Ly5RNxA9CyNgq61fv7dM6NzwgXdJD9MY/D7sJBIJblVE6WEZb
+	 tQ17X2uYNNnx1kD4frt5j8D53rH4PZGIZZ8pFJQ0rZHbcZ+NjsHQNKQn3qp0GiDWvY
+	 qahiR2S0MMEti+PI2AC33uspV7U92EdujCnUY9eYmYv/Y3dA4jACbbdGr5HGHn+a8A
+	 tsCJ5/3chDBtjow9x7DIaKZCW5jy/qzxb+0Jbyhfl9lLv4ovkmO4waOUWnZ8YVkVZM
+	 nU1FtxyPpd/TE6KUZXsIqlT+TplDmbl2ZtX2sXkLAyATXiuLkBd6oPXfEuEHlWkww6
+	 50EHQ8wKY88wg==
+Subject: Re: [PATCH net-next v11 1/4] net: mana: prepare HWC ownership for
+ safe reinitialization
 From: netdev-bot+sashiko@kernel.org
 To: weh@linux.microsoft.com
 Cc: longli@kernel.org, kotaranov@microsoft.com, kuba@kernel.org,
@@ -54,11 +54,11 @@ Cc: longli@kernel.org, kotaranov@microsoft.com, kuba@kernel.org,
  gargaditya@linux.microsoft.com, kees+treewide@kernel.org, kees@kernel.org,
  mawasthi@linux.microsoft.com, weh@microsoft.com, edumazet@kernel.org,
  shacharr@microsoft.com
-Date: Sat, 21 Nov 2026 16:29:31 +0000
-Message-ID: <179527857180.3135.15262062177473658662@kernel.org>
-In-Reply-To: <45db2acd8f03421191f5b3a9f4bd7ce9e9259b33.1794751992.git.weh@linux.microsoft.com>
-References: <45db2acd8f03421191f5b3a9f4bd7ce9e9259b33.1794751992.git.weh@linux.microsoft.com>
-X-sashiko-severity: Critical
+Date: Sat, 21 Nov 2026 16:29:27 +0000
+Message-ID: <179527856753.3135.1812581824985082274@kernel.org>
+In-Reply-To: <f94c7f71d4228c7c30838f9c901b429ec5b1428c.1794751992.git.weh@linux.microsoft.com>
+References: <f94c7f71d4228c7c30838f9c901b429ec5b1428c.1794751992.git.weh@linux.microsoft.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -71,10 +71,10 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 5 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 1 · High: 2 · Medium: 2 · Low: 0
+Critical: 0 · High: 0 (1) · Medium: 2 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -82,350 +82,267 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Critical] When a kernel CQ destroy is rejected locally,
-  mana_ib_destroy_cq() leaves a dangling CQ callback, and a later…
-- [High] EQ references to MSI-X/IRQ contexts (GIC references) that are
-  kept after a rejected EQ destroy break mana_gd_remove_irqs() and the…
-- [High] RDMA/mana_ib: returning errors in mana_ib_destroy_qp() breaks
-  teardown
-- [Medium] mana_create_eq() (mana_en.c) and mana_ib_create_eqs()
-  (infiniband main.c) skip mana_gd_put_gic() whenever…
-- [Medium] The Ethernet objects that are kept after a rejected destroy
-  become unreachable, so they leak permanently on every service-reset…
+- [Medium] The HWC DMA leak that the commit message describes as a one-
+  time 'final disposal' cost can repeat without limit, because the…
+- [Medium] mana_smc_setup_hwc_locked() sets *submitted
+  (hwc->setup_active) to true just before the aperture writel() loop,…
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the patch
+  documents and relies on it being absent.
 
 --
 
-net: mana: support concurrent HWC requests
+net: mana: prepare HWC ownership for safe reinitialization
 
-This patch gives each HWC message slot separate sender and response
-references. Timed-out requests are quarantined until their late response
-arrives, and admission now waits on a waitqueue instead of a semaphore.
-It also adds a "locally rejected" error class (-ENOTCONN/-ENODEV/-EMSGSIZE)
-and propagates it through the Ethernet and RDMA destroy paths, so that
-memory the device may still own is retained instead of freed.
+This commit serializes the SMC ESTABLISH_HWC and DESTROY_HWC transactions.
+It tracks whether the PF may own the HWC queues through setup_active, and
+keeps the HWC queue memory when DESTROY_HWC is not acknowledged. It also
+snapshots the PF-reported CQ count and CQ ID, publishes cq_table with
+acquire/release ordering, and adds a final-disposal helper that frees only
+software state when a gdma_context is discarded.
 
-Link: https://lore.kernel.org/r/20260908035201.402424-4-longli@microsoft.com
-Link: https://lore.kernel.org/r/20260914175044.2a26bb46@kernel.org
-Link: https://lore.kernel.org/r/179196575640.434549.9102950927041409151@kernel.org
-Link: https://lore.kernel.org/r/179250339266.3135.15035365058593192217@kernel.org
-Link: https://lore.kernel.org/r/179455240021.2199510.18244084352437360589@kernel.org
+Link: https://lore.kernel.org/r/20260908035201.402424-2-longli@microsoft.com
+Link: https://lore.kernel.org/r/20260908035201.402424-5-longli@microsoft.com
+Link: https://lore.kernel.org/r/178910960115.219967.13830871915506436112@kernel.org
+Link: https://lore.kernel.org/r/179196575238.434549.10775387794024020898@kernel.org
+Link: https://lore.kernel.org/r/sashiko-outbox-170992@kernel.org
+Link: https://lore.kernel.org/r/179455239601.2199510.13335902064048081755@kernel.org
 
-> diff --git a/drivers/infiniband/hw/mana/cq.c b/drivers/infiniband/hw/mana/cq.c
-> index 843e2c64b32bc..95b7c250494b1 100644
-> --- a/drivers/infiniband/hw/mana/cq.c
-> +++ b/drivers/infiniband/hw/mana/cq.c
+> diff --git a/drivers/net/ethernet/microsoft/mana/gdma_main.c b/drivers/net/ethernet/microsoft/mana/gdma_main.c
+> index d6ae89c2ccddc..fc460d83fb800 100644
+> --- a/drivers/net/ethernet/microsoft/mana/gdma_main.c
+> +++ b/drivers/net/ethernet/microsoft/mana/gdma_main.c
 
 [ ... ]
 
-> @@ -169,16 +170,14 @@ int mana_ib_destroy_cq(struct ib_cq *ibcq, struct ib_udata *udata)
+> @@ -796,11 +804,16 @@ static void mana_gd_process_eqe(struct gdma_queue *eq)
+>  	switch (type) {
+>  	case GDMA_EQE_COMPLETION:
+>  		cq_id = eqe->details[0] & 0xFFFFFF;
+> -		if (WARN_ON_ONCE(cq_id >= gc->max_num_cqs))
+> +		/* HWC teardown unpublishes this table and waits for these
+> +		 * RCU readers before freeing it, then fences its own EQ.
+> +		 */
+> +		cq_table = smp_load_acquire(&gc->cq_table);
+> +		if (!cq_table || cq_id >= READ_ONCE(gc->max_num_cqs))
+>  			break;
 >  
->  	mdev = container_of(ibdev, struct mana_ib_dev, ib_dev);
+> -		cq = gc->cq_table[cq_id];
+> -		if (WARN_ON_ONCE(!cq || cq->type != GDMA_CQ || cq->id != cq_id))
+> +		cq = READ_ONCE(cq_table[cq_id]);
+> +		if (!cq || WARN_ON_ONCE(cq->type != GDMA_CQ ||
+> +					cq->id != cq_id))
+>  			break;
 >  
-> -	mana_ib_remove_cq_cb(mdev, cq);
-> -
-> -	/* Ignore return code as there is not much we can do about it.
-> -	 * The error message is printed inside.
-> -	 */
-> -	mana_ib_gd_destroy_cq(mdev, cq);
-> +	err = mana_ib_gd_destroy_cq(mdev, cq);
-> +	if (mana_gd_is_request_rejected(err) ||
-> +	    READ_ONCE(cq->queue.retain_dma))
-> +		return err ? err : -ENOTCONN;
+>  		if (cq->cq.callback)
 
-[Severity: Critical]
-Can this leave a dangling CQ callback for kernel CQs, which then runs on
-freed memory?
+[Severity: High]
 
-For a kernel CQ, mana_ib_install_cq_cb() puts cq->queue.kmem into the
-global table, and its context points back at the mana_ib_cq:
+This isn't a bug introduced by this patch, but the new comment describes
+a rule for cq_table (unpublish the slot, wait for RCU readers, then free)
+that mana_ib does not follow. Can this IRQ path dereference a gdma_queue
+that mana_ib has already freed?
 
-    gdma_cq->cq.context = cq;
-    gdma_cq->cq.callback = mana_ib_cq_handler;
-    gc->cq_table[cq->queue.id] = gdma_cq;
-
-Before this patch the entry was always detached by
-mana_ib_destroy_queue()->mana_gd_destroy_queue(kmem)->mana_gd_destroy_cq().
-With the early return above, neither mana_ib_remove_cq_cb() nor
-mana_ib_destroy_queue() runs when the destroy is rejected.
-
-ib_free_cq() does not honour the driver's error, though:
-
-drivers/infiniband/core/cq.c:ib_free_cq() {
+drivers/infiniband/hw/mana/cq.c:mana_ib_remove_cq_cb() {
     ...
-	else
-		ret = cq->device->ops.destroy_cq(cq, NULL);
-	WARN_ONCE(ret, "Destroy of kernel CQ shouldn't fail");
-	kfree(cq->wc);
-	kfree(cq);
+	kfree(gc->cq_table[cq->queue.id]);
+	gc->cq_table[cq->queue.id] = NULL;
 }
 
-The freed mana_ib_cq can therefore still be reached through gc->cq_table.
-mana_gd_process_eqe() indexes that table with the cq_id from any EQE,
-whether it comes from an RDMA EQ, a still-live Ethernet EQ or the HWC EQ:
+The entry is freed while it is still published. The slot is then cleared
+with a plain store, and there is no grace period before or after.
 
+A possible interleaving:
+
+CPU0 (mana_gd_intr, under rcu_read_lock)
+mana_gd_process_eqe()
     cq = READ_ONCE(cq_table[cq_id]);
-    ...
-    if (cq->cq.callback)
-        cq->cq.callback(cq->cq.context, cq);
 
-mana_ib_cq_handler() then loads cq->ibcq.comp_handler from the freed
-object and calls through it.
+CPU1
+mana_ib_destroy_cq()
+    mana_ib_remove_cq_cb()
+        kfree(gc->cq_table[cq->queue.id]);
 
-One way to reach this is mana_serv_reset()->mana_gd_cancel_hwc_timeout().
-After that, mana_gd_suspend()->mana_rdma_remove()->ib_unregister_device()
-tears down the GSI QP and calls ib_free_cq(). mana_ib_gd_destroy_cq() is
-rejected with -ENOTCONN because no slot is free and the timeout is 0. A
-single 30s timeout on the depth-one channel has the same effect, since it
-quarantines the only slot.
+CPU0
+    cq->type / cq->id checks
+    cq->cq.callback(cq->cq.context, cq);
 
-mana_ib_retain_qp() is a second trigger. After a rejected UD/GSI QP
-destroy in a create unwind, it sets retain_dma on the kernel send/recv
-CQs, so their later destroy also takes this early return.
+CPU0 then calls through a function pointer read from freed memory.
+mana_ib_cq_handler() also dereferences the mana_ib_cq, which the IB core
+frees after destroy_cq returns.
 
-The WARN_ONCE in ib_free_cq() also fires every time this path is taken.
+mana_ib_destroy_cq() calls mana_ib_remove_cq_cb() before
+mana_ib_gd_destroy_cq(), so the device can still generate completions for
+that CQ. The error path in mana_ib_create_qp_rss() has the same ordering:
+it calls mana_ib_remove_cq_cb() before mana_ib_destroy_wq_obj().
 
-Should the software callback for kernel CQs be withdrawn here
-unconditionally, even when the DMA memory has to be retained?
+mana_ib_install_cq_cb() also publishes the new gdma_cq with a plain store.
+Nothing orders it against these READ_ONCE() readers:
 
->  
-> -	mana_ib_destroy_queue(mdev, &cq->queue);
-> +	mana_ib_remove_cq_cb(mdev, cq);
->  
-> -	return 0;
-> +	return mana_ib_destroy_queue(mdev, &cq->queue);
->  }
+	gc->cq_table[cq->queue.id] = gdma_cq;
 
-[ ... ]
+Should mana_ib unpublish the slot, wait for a grace period, and only then
+free the object, as the HWC teardown path in this patch does?
 
-> diff --git a/drivers/infiniband/hw/mana/main.c b/drivers/infiniband/hw/mana/main.c
-> index 858bbc325eb29..7d5a8fc7380d7 100644
-> --- a/drivers/infiniband/hw/mana/main.c
-> +++ b/drivers/infiniband/hw/mana/main.c
+> diff --git a/drivers/net/ethernet/microsoft/mana/hw_channel.c b/drivers/net/ethernet/microsoft/mana/hw_channel.c
+> index fb9f38f65911c..9e0964072af9a 100644
+> --- a/drivers/net/ethernet/microsoft/mana/hw_channel.c
+> +++ b/drivers/net/ethernet/microsoft/mana/hw_channel.c
 
 [ ... ]
 
-> @@ -841,7 +862,8 @@ int mana_ib_create_eqs(struct mana_ib_dev *mdev)
+> @@ -852,9 +960,44 @@ void mana_hwc_destroy_channel(struct gdma_context *gc)
+>  	kfree(hwc);
+>  	gc->hwc.driver_data = NULL;
+>  	gc->hwc.gdma_context = NULL;
+> +}
 >  
->  	err = mana_gd_create_mana_eq(mdev->gdma_dev, &spec, &mdev->fatal_err_eq);
->  	if (err) {
-> -		mana_gd_put_gic(gc, false, 0);
-> +		if (!mana_gd_is_request_rejected(err))
-> +			mana_gd_put_gic(gc, false, 0);
->  		return err;
->  	}
-
-[Severity: High]
-Can a rejected destroy here leave the driver tracking a QP that the
-RDMA core then frees anyway?
-
-mana_ib_destroy_ud_qp(), mana_ib_destroy_rc_qp() and
-mana_ib_destroy_uc_qp() now return before mana_table_remove_qp() and
-mana_remove_qp_from_cqs() when the HWC rejects the command. The core
-does not treat that error as "object still exists" in every caller.
-
-First, ib_destroy_qp_user() returns the error without calling
-ib_qp_usecnt_dec(), so the PD and CQ usecnt stay elevated. For the
-kernel GSI QP this is on the same reset path as the CQ issue above:
-mana_serv_reset()->mana_gd_cancel_hwc_timeout(), then
-mana_gd_suspend()->mana_rdma_remove()->mana_ib_remove().
-
-mana_drain_gsi_sqs() first links the GSI QP onto the MAD CQ's
-send_err_qp_list and schedules cq->work. ib_unregister_device() then
-reaches ib_mad_port_close()->destroy_mad_qp(), which gets -ENOTCONN.
-ib_free_cq() hits WARN_ON_ONCE(atomic_read(&cq->usecnt)) and returns
-without cancelling the CQ work. ib_dealloc_pd() warns, port_priv is
-freed, and ib_dealloc_device() frees the mana_ib_dev. The queued CQ
-work and later EQEs still reach the QP through mdev->qp_table_wq and
-the CQ error lists, so they run on freed memory.
-
-Second, the create_qp() unwind in drivers/infiniband/core/verbs.c
-ignores the destroy_qp() return value at its err_security label and
-does kfree(qp) unconditionally. mana_table_store_qp() has already run
-at that point, so mdev->qp_table_wq keeps a pointer to the freed QP.
-mana_get_qp_ref() then hands that pointer to mana_ib_event_handler()
-on the next GDMA_EQE_RNIC_QP_FATAL.
-
-Third, on uverbs close or disassociation, uverbs_destroy_ufile_hw()
-falls back to RDMA_REMOVE_DRIVER_FAILURE. That path warns and frees
-the uobject anyway. The undestroyed QP stays in mdev->qp_table_wq,
-and its event handler dereferences the freed qp->uobject. The new
-error returns from mana_ib_destroy_wq() and mana_ib_destroy_cq() have
-the same problem on this path.
-
-None of this needs unusual user action. A service reset, or a single
-timeout on the depth-one channel, is enough to make the destroys
-reject.
-
-Could the destroy paths always drop the software state (qp table
-entry, CQ error lists, CQ callbacks) and retain only the PF-owned DMA
-mappings and umem, the way the Ethernet paths retain queue memory? If
-the verbs object itself really has to stay alive, how is that meant
-to work with core callers that cannot handle a failed destroy?
-
-[Severity: Medium]
-Does this leak the GIC reference when the rejected command was not the
-EQ disable?
-
-Both this call site and the matching one in mana_create_eq() in mana_en.c
-decide whether to keep the GIC from the errno class alone. The assumption
-is that a rejected errno means the device still owns the vector. But
-mana_gd_create_mana_eq() also returns a rejected errno in cases where no
-device EQ refers to the vector.
-
-First, mana_gd_create_dma_region() can be rejected before any IRQ or EQ
-exists. The region is still GDMA_INVALID_DMA_REGION and disable_needed is
-false, so this branch frees the memory and still returns -ENOTCONN/-ENODEV:
-
-    if (!mana_gd_is_request_rejected(err) ||
-        (gmi->dma_region_handle == GDMA_INVALID_DMA_REGION &&
-         !queue->eq.disable_needed))
-        mana_gd_free_memory(gmi);
-
-Second, mana_gd_create_hw_eq() can be rejected while disable_needed is
-still false. Third, mana_gd_test_eq() can be rejected after create_hw_eq()
-succeeded, and the cleanup disable then completes. In both cases
-mana_gd_create_eq() keeps the original rejected err, because it only
-remaps when the destroy itself is rejected:
-
-    if (mana_gd_is_request_rejected(mana_gd_destroy_eq(gc, false, queue)))
-        err = -ENOTCONN;
-
-In each of these cases the reference from mana_gd_get_gic() is never
-dropped, and in dedicated-MSI mode the msi_bitmap bit also stays set.
-
-Could mana_gd_create_mana_eq() report whether the vector is still in use
-by the device, instead of the callers inferring it from the errno?
-
-[ ... ]
-
->  void mana_ib_destroy_eqs(struct mana_ib_dev *mdev)
->  {
->  	struct gdma_context *gc = mdev_to_gc(mdev);
-> -	int i, msi;
-> +	int err, i, msi;
->  
-> -	mana_gd_destroy_queue(gc, mdev->fatal_err_eq);
-> -	mana_gd_put_gic(gc, false, 0);
-> +	err = mana_gd_destroy_queue(gc, mdev->fatal_err_eq);
-> +	if (!mana_gd_is_request_rejected(err))
-> +		mana_gd_put_gic(gc, false, 0);
-
-[Severity: High]
-What releases this retained GIC reference later?
-
-Neither mana_ib_destroy_eqs() nor mana_destroy_eq() in mana_en.c keeps
-the EQ anywhere afterwards; mana_destroy_eq() frees apc->eqs right after
-this loop. mana_gd_remove_irqs() was not updated and still drops exactly
-one reference per irq_contexts entry:
-
-drivers/net/ethernet/microsoft/mana/gdma_pci.c:mana_gd_remove_irqs() {
-    ...
-	xa_for_each(&gc->irq_contexts, msi, gic)
-		mana_gd_put_gic(gc, false, msi);
-
-	WARN_ON(!xa_empty(&gc->irq_contexts));
-
-	pci_free_irq_vectors(pdev);
-    ...
-}
-
-If an EQ destroy was rejected, that GIC keeps a reference of 1. free_irq()
-and xa_erase() never run for it, the WARN_ON fires, and
-pci_free_irq_vectors() frees vectors whose handlers are still requested.
-
-On the next mana_gd_resume() for the same gc,
-mana_gd_setup_irqs()->mana_gd_get_gic() finds the stale entry:
-
-    gic = xa_load(&gc->irq_contexts, msix_index);
-    if (gic) {
-        refcount_inc(&gic->refcount);
-        ...
-        goto out;
-    }
-
-request_irq() is never called on the newly allocated vector, and the old
-gic->irq is used instead. msi 0 is shared between fatal_err_eq and the
-HWC EQ, so would the new HWC come up without a working interrupt after a
-service reset?
-
-The path is mana_serv_reset()->mana_gd_cancel_hwc_timeout(), then
-mana_gd_suspend()->mana_rdma_remove()->mana_ib_destroy_eqs(), where
-mana_gd_disable_queue() gets -ENOTCONN. mana_destroy_eq() then does the
-same for each Ethernet EQ, and finally mana_gd_cleanup() calls
-mana_gd_remove_irqs().
-
->  
->  	for (i = 0; i < mdev->ib_dev.num_comp_vectors; i++) {
-> -		mana_gd_destroy_queue(gc, mdev->eqs[i]);
->  		msi = (i + 1) % gc->num_msix_usable;
-> -		mana_gd_put_gic(gc, false, msi);
-> +		err = mana_gd_destroy_queue(gc, mdev->eqs[i]);
-> +		if (!mana_gd_is_request_rejected(err))
-> +			mana_gd_put_gic(gc, false, msi);
->  	}
->  
->  	kfree(mdev->eqs);
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/microsoft/mana/mana_en.c b/drivers/net/ethernet/microsoft/mana/mana_en.c
-> index 744e6ceb7d2b9..1af0ed35c5988 100644
-> --- a/drivers/net/ethernet/microsoft/mana/mana_en.c
-> +++ b/drivers/net/ethernet/microsoft/mana/mana_en.c
-
-[ ... ]
-
-> @@ -2730,21 +2733,29 @@ static void mana_destroy_txq(struct mana_port_context *apc)
-
-[ ... ]
-
-> +		if (mana_gd_is_request_rejected(err)) {
-> +			if (apc->tx_qp[i]->tx_cq.gdma_cq)
-> +				mana_gd_detach_cq(gc,
-> +						  apc->tx_qp[i]->tx_cq.gdma_cq);
-> +			continue;
-> +		}
+> -	vfree(gc->cq_table);
+> -	gc->cq_table = NULL;
+> +static void mana_hwc_free_retained_wq(struct hwc_wq *wq)
+> +{
+> +	if (!wq)
+> +		return;
 > +
->  		mana_deinit_cq(apc, &apc->tx_qp[i]->tx_cq);
->  
->  		mana_deinit_txq(apc, &apc->tx_qp[i]->txq);
+> +	kfree(wq->msg_buf);
+> +	kfree(wq->gdma_wq);
+> +	kfree(wq);
+> +}
+> +
+> +/* Final disposal after IRQ and service-work teardown, not a retry path.
+> + * Free only software state: unacknowledged HWC DMA allocations stay live.
+> + */
+> +void mana_hwc_free_retained_channel(struct gdma_context *gc)
+> +{
+> +	struct hw_channel_context *hwc = gc->hwc.driver_data;
+> +
+> +	if (!hwc)
+> +		return;
+> +
+> +	gc->hwc.driver_data = NULL;
+> +	mana_hwc_clear_cq_table(gc);
+> +
+> +	if (hwc->cq) {
+> +		kfree(hwc->cq->gdma_eq);
+> +		kfree(hwc->cq->gdma_cq);
+> +		kfree(hwc->cq->comp_buf);
+> +		kfree(hwc->cq);
+> +	}
+> +
+> +	mana_hwc_free_retained_wq(hwc->txq);
+> +	mana_hwc_free_retained_wq(hwc->rxq);
 
 [Severity: Medium]
-After the continue, what still points to the retained tx_qp[i]?
 
-The loop is followed by:
+Can this leak repeat without limit through the existing PCI recovery loop?
 
-    kfree(apc->tx_qp);
-    apc->tx_qp = NULL;
+When DESTROY_HWC is not acknowledged, mana_hwc_destroy_channel() leaves
+the hwc in gc->hwc.driver_data. On probe failure or remove,
+mana_gd_free_context() calls this function.
 
-So the retained mana_tx_qp, its CQ/SQ queues and their DMA memory become
-unreachable. mana_destroy_rxq() is similar. It returns before
-page_pool_destroy(), the RX page frees and kvfree(rxq), and the caller
-then sets apc->rxqs[idx] to NULL. mana_destroy_eq() also skips the EQ
-free and the GIC put, then calls kfree(apc->eqs).
+This function kfree()s gdma_eq, gdma_cq, and each wq's gdma_wq and
+msg_buf. Those structures hold the only copies of the mem_info for the
+EQ/CQ/RQ/SQ rings and both message buffers. mana_gd_free_memory() is
+never called, so nothing can reach those coherent allocations afterwards.
 
-This patch also makes mana_serv_reset() call mana_gd_cancel_hwc_timeout()
-before mana_gd_suspend(). With the timeout at 0, the first teardown
-command is posted and abandoned. Every later admission in
-mana_hwc_try_get_msg_index() then returns -ENOTCONN:
+After freeing the context, the probe error path schedules recovery:
 
-    if (!mana_hwc_timeout_read(hwc) ||
-        (u32)atomic_read(&hwc->abandoned_msgs) == r->size)
-        err = -ENOTCONN;
+mana_gd_probe() {
+    ...
+free_gc:
+	pci_set_drvdata(pdev, NULL);
+	mana_gd_free_context(gc);
+    ...
+	if (err == -ETIMEDOUT || err == -ENOTCONN || err == -EPROTO) {
+		...
+		schedule_delayed_work(&mana_dev_recovery_work.work,
+				      secs_to_jiffies(MANA_SERVICE_PERIOD));
 
-As a result, most destroys in mana_remove()->mana_dealloc_queues() take
-these retain branches on every service reset. In the baseline those
-commands were posted, returned -ETIMEDOUT, and the memory was freed.
+mana_serv_reset() then runs with gc == NULL and calls mana_serv_rescan(),
+which probes the device again.
 
-Is this unbounded per-reset leak intended? The commit message says:
+Consider a PF that keeps accepting ESTABLISH_HWC but never acknowledges
+DESTROY_HWC, for example when INIT_DONE never arrives and DESTROY then
+times out. Each cycle would leak another full HWC DMA footprint, and
+nothing limits the number of retries.
 
-  "Preserve the baseline cleanup policy for commands that were actually
-  posted and then timed out or received PF errors"
+The in-place reset path also behaves differently now. Before this patch,
+mana_serv_reset() -> suspend/resume re-established the HWC in place,
+because the teardown error was ignored. With a retained context,
+mana_hwc_create_channel() returns a fixed -ETIMEDOUT and the real teardown
+error is lost:
 
-It does not mention that the cancellation in mana_serv_reset() turns most
-reset-time teardown into local rejection. If the objects have to be
-retained, could they be kept somewhere they can be reclaimed once the
-function has been reset, instead of being orphaned?
+	if (gd->driver_data) {
+		mana_hwc_destroy_channel(gc);
+		if (gd->driver_data)
+			return -ETIMEDOUT;
+	}
+
+mana_serv_reset() turns that error into a full remove/rescan:
+
+	ret = mana_gd_resume(pdev);
+	if (ret == -ETIMEDOUT || ret == -ENOTCONN || ret == -EPROTO) {
+		/* Perform PCI rescan on device if we failed on HWC */
+		dev_err(&pdev->dev, "MANA service: resume failed, rescanning\n");
+		mana_serv_rescan(pdev);
+
+The rescan then reaches the leaking path above.
+
+The commit message describes this as a one-time final disposal. Should
+recovery attempts be limited once HWC DMA has been retained? If not,
+could the changelog at least describe this interaction?
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/microsoft/mana/shm_channel.c b/drivers/net/ethernet/microsoft/mana/shm_channel.c
+> index d21b5db06e509..df9d05062dd57 100644
+> --- a/drivers/net/ethernet/microsoft/mana/shm_channel.c
+> +++ b/drivers/net/ethernet/microsoft/mana/shm_channel.c
+
+[ ... ]
+
+> @@ -229,6 +243,7 @@ int mana_smc_setup_hwc(struct shm_channel *sc, bool reset_vf, u64 eq_addr,
+>  	/* Write 256-message buffer to shared memory (final 32-bit write
+>  	 * triggers HW to set possession bit to PF).
+>  	 */
+> +	*submitted = true;
+>  	dword = (u32 *)shm_buf;
+>  	for (i = 0; i < SMC_APERTURE_DWORDS; i++)
+>  		writel(*dword++, sc->base + i * SMC_BASIC_UNIT);
+
+[Severity: Medium]
+
+What happens to setup_active when the PF returns possession with a
+well-formed ESTABLISH_HWC response that carries a non-zero status?
+
+In that case mana_smc_read_response() returns -EPROTO:
+
+	if (hdr.status != 0) {
+		dev_err(sc->dev, "SMC operation failed: 0x%x\n", hdr.status);
+		return -EPROTO;
+	}
+
+smc_proto_hdr defines status as the operation result on a response
+(success = 0, failure = 1 or greater), so this is an explicit rejection.
+Even so, *submitted stays true, and hwc->setup_active still records that
+the PF owns the HWC queues.
+
+Only mana_smc_teardown_hwc_locked() clears the flag, and only after a
+DESTROY_HWC sent with reset_vf=false is acknowledged. As a result, the
+create failure path in mana_hwc_create_channel() sends DESTROY_HWC for a
+channel the PF reported it never established.
+
+If the PF rejects or ignores that DESTROY, the hwc is retained. Every
+later mana_hwc_create_channel() on that gc then returns -ETIMEDOUT, and
+mana_hwc_free_retained_channel() leaks all of the HWC coherent DMA memory.
+
+The baseline sent DESTROY only after init events had arrived
+(max_num_cqs > 0).
+
+Could an explicit non-zero status in the ESTABLISH_HWC response clear
+*submitted? Alternatively, could a DESTROY with reset_vf set be tried as a
+fallback before the context is retained?
 
 [ ... ]
 
