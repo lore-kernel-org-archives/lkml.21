@@ -1,78 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.108.101.136
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795304622;
-	b=X+NsPaF1yuddZn1nj90oqJImkoUpq9xSEGszDhEQrYw/b3ZVnyNWBMxpCjBO1xPeqPoL
-	 TG9NsYfGOHwqBExgNjNT56fxOqdzKlR1kZPicSvcWTQm5/fp7LS2mYFzrh2naahRuJySi
-	 ERnTUelDHyZUElbr+GCO4TEd/tlphn10y98hOC1V5DTSrgVPYXmZxdeIORwZ/jM7uqk4t
-	 CADiNQyWJ2emvKqBxLdwlnLA0Xi6IO0HdP9oCxONPaaGYHZU5LOPBexq+RoXVcfAkE91Y
-	 a4YKLMXbJSwUCC4cqOxzlCrB7gb5JV573oufRIAV18mMMKSs4QFcruBvyJKsjDpllVw==
+	t=1795304624;
+	b=be8L83MUYFgZKrcvl43GxVJstGbnEbRloZDSga5sp9xXUtU2fqsZLkeyqbHKx925vdQH
+	 LtyZy2ZWcTCFTMVKyQBSFzjFU+4iDp8zWXCGM+VyuUN5h5HchmNAAVMHpCbdCzZ2z0bZC
+	 M5HeUW0h6TATnHCi6xAJyu8RFl/36Nr2IKbDR8tILbd1MFBpuNWs3OStiRRADNr04n/ub
+	 kOathlfn2w4chyJXFwrdokYFTZ9v09TqGac4TdEAXCbimDRLh6p8iZjuf+5CPi6OKz+SB
+	 997JH3PbuzgkgHPlU1dj1Xn3Av80UUgMQPFfiTrYwO4xQe4mkiDwZl+Np8QEaa3jxTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795304622;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795304624;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=BzTXmv4/43QI+gEKg0wG102Avm+8UYVbizH4U07EQKk=;
-	b=DnkNk59PD4RlAPuraqi2i0qFPsenTfAoebydudcufuFlzvAvOGgVtvfTIKDi1TFXGKHB
-	 VmggVVEQdqlxIjT0cF30JU5bKC1jxBDEmpKrXxcxe8mW/Bj8hYiRwf161UyY823B9zl5p
-	 MT33zrxgUf8gwjyDQijHue05x0rxQ32CjMU/rArG0KWEZuiorfgIr592XzEoqO/PlT0RH
-	 FkWDjAQO+6vhgss0IlQc6xSvuhdIyAu/7+U2E+ai67HfU3Nh/FCf+l3kyHmJGXEfsNy1O
-	 9oEUYXo9VfCPrkly79WILkPCIqB8P6Sn2ujDMXdPt/K0MopDWTPIxD0j6hkBJez0RkA==
+	bh=dQxHVLXRVtvTiVK3ZDZFUT2JZy2SgYhBAEXijNGW5Ak=;
+	b=RnKZWTsMrLctsKGz+FKBQGjTw7rdey2wsElrmvi1uzJ7xi4Ytib/hE+PhaN9KVObuWJ5
+	 BfB97VMZshKdn95aIITM/jKsn1r5HsV8qfVX+sbEV6aV9+H+HcO/YGaMlSWkbir6o0QeE
+	 8TZ/QtQpyczhHxAszyg1hLzjh9kIWHvN2Z1J08woesUghwCxNeTGVo0o47MCemY6tOwkY
+	 ncAIrSsJtk2nptmbwu4CoQz0HVBBP1JCTpxYf8G1C+Fe+/4kXhhYC+6v2gDhwj722EZr4
+	 YxPBpi2vl3fE8jHSywxdsDfpc9MuFaaPjWEw00vzqbsdmYq2OxTFLmdzF7C9we88FWA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=nb4bQAL1;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id B2164606A33A;
-	Sat, 21 Nov 2026 23:43:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2164606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=vitkazik.cz;
+	spf=pass smtp.mailfrom=vitkazik.cz;
+	dkim=pass header.d=vitkazik.cz header.i=@vitkazik.cz header.a=ed25519-sha256 header.s=v1-ed25519-20261107 header.b=DhTcSk5g;
+	dkim=pass header.d=vitkazik.cz header.i=@vitkazik.cz header.a=rsa-sha256 header.s=v1-rsa-20261107 header.b=p3y1RGps;
+	arc=none smtp.remote-ip=78.108.101.136
+Received: from mail.vitkazik.cz (unknown [78.108.101.136])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8ABED606A683
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 23:43:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8ABED606A683
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=vitkazik.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=vitkazik.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=nb4bQAL1
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F81C16F2;
-	Sat, 21 Nov 2026 15:43:38 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 77F343F632;
-	Sat, 21 Nov 2026 15:43:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795304621; bh=hp6B0902OkqPJqA8hd1E1Is4PsF85zVkd8lR/8dLC48=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nb4bQAL1k29nfg3Anw98wV7W1AVkPJyrUuwsrPMiYRs4frb3faHrB+LRfCWdm3M1L
-	 U2zquT/U7Ir+hd18vwMpnRkGu5C52wG+FwrXfCZAiqpRxbLocnudQjn47dsuq/IPfd
-	 XGs3UENUAmVrZxVRSzTLVLqNkAQQnUrzO76I76o8=
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Cc: sudeep.holla@kernel.org,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	d-gole@ti.com,
-	jonathan.cameron@oss.qualcomm.com,
-	elif.topuz@arm.com,
-	lukasz.luba@arm.com,
-	philip.radford@arm.com,
-	david@kernel.org,
-	souvik.chakravarty@arm.com,
-	leitao@kernel.org,
-	kas@kernel.org,
-	puranjay@kernel.org,
-	usama.arif@linux.dev,
-	kernel-team@meta.com,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v16 05/31] firmware: arm_scmi: Add new SCMIv4.0 error codes definitions
-Date: Sat, 21 Nov 2026 23:39:39 +0000
-Message-ID: <20261121234005.1525419-6-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261121234005.1525419-1-cristian.marussi@arm.com>
-References: <20261121234005.1525419-1-cristian.marussi@arm.com>
+	dkim=pass header.d=vitkazik.cz header.i=@vitkazik.cz header.a=ed25519-sha256 header.s=v1-ed25519-20261107 header.b=DhTcSk5g;
+	dkim=pass (2048-bit key, unprotected) header.d=vitkazik.cz header.i=@vitkazik.cz header.a=rsa-sha256 header.s=v1-rsa-20261107 header.b=p3y1RGps
+DKIM-Signature: v=1; a=ed25519-sha256; s=v1-ed25519-20261107; d=vitkazik.cz; c=relaxed/relaxed; r=y;
+	h=Message-ID:Date:Subject:To:From; t=1795304609; bh=dQxHVLXRVtvTiVK3ZDZFUT2
+	JZy2SgYhBAEXijNGW5Ak=; b=DhTcSk5gg7W9N7KvtLhlquKHbMZa4TvdAUkT8LKpvq67haQz2U
+	2IyOi1+ZayUbvhX2Ar4V5/kOEvUxVWxsNkCA==;
+DKIM-Signature: v=1; a=rsa-sha256; s=v1-rsa-20261107; d=vitkazik.cz; c=relaxed/relaxed; r=y;
+	h=Message-ID:Date:Subject:To:From; t=1795304609; bh=dQxHVLXRVtvTiVK3ZDZFUT2
+	JZy2SgYhBAEXijNGW5Ak=; b=p3y1RGpsyLwg5jvxIQAW6ow4EQ5F6b1nNU1PijVEzuqQrcvJjv
+	dAD1DZbhmLen2EOdVLpZNii4CRZo2UArs3zs6axnDwEjt3SrMuImOPkkwT9IemZjGGZ3fvWEsUm
+	FSrKOhSwvZv3eg6Ntc8FoBF0xctxYKOHctfZqMjSy5yTsHWe5na3Dc61aCzdlCNZ+dlZnDUnBWu
+	ngeAsKRMRhEUCAq55oaw9MmF3jjpyS182/bEctrlVx1g5g6jSZSLLfJV0WF3T7WocctcY0uYX4f
+	W0rG3BTwXeDY4TZr9l7a1Z7oK+4Uv2aFkyyWIuFupXl4VWDK5O+QBk7c42IQjwBeqDQ==;
+From: =?UTF-8?q?V=C3=ADt=20Kaz=C3=ADk?= <vitkazik@vitkazik.cz>
+To: miquel.raynal@bootlin.com,
+	richard@nod.at,
+	vigneshr@ti.com
+Cc: tudor.ambarus@linaro.org,
+	linux-mtd@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?V=C3=ADt=20Kaz=C3=ADk?= <vitkazik@vitkazik.cz>
+Subject: [PATCH] mtd: spinand: micron: add support for MT29F1G01AAADD
+Date: Sun, 22 Nov 2026 00:41:24 +0100
+Message-ID: <20261121234125.16093-1-vitkazik@vitkazik.cz>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,51 +67,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-SCMIv4.0 introduces a couple of new possible protocol error codes: add the
-needed definitions and mappings to Linux error values.
+Add support for the Micron MT29F1G01AAADD (M68A), a 1Gb 3.3V SPI NAND
+with 2048+64 byte pages, 64 pages per block, two planes and 4-bit
+on-die ECC.
 
-Note that SCMI_PARTIAL_ERROR has to be handled specially and as such it
-needs to be distinguishable but, as of now, all of the available sensible
-error codes are already mapped to some other pre-existent SCMI error
-condition, so we settled on -EBADMSG which is far from ideal, but at least
-kind of captures the nature of the underlying issue.
+The 64 spare bytes are split into four 16-byte sections, each with
+2 reserved bytes, 6 free bytes and 8 ECC bytes. The existing
+micron_4_ooblayout reports the reserved bytes of sections 1-3 as
+free, so add a layout that exposes only bytes 2-7 of each section.
 
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+Tested on a Motorola NCAP-500 (Atheros AR7242) running OpenWrt
+with kernel 6.18.39, using UBI with UBIFS for about 3 months.
+The chip is detected correctly:
+
+spi-nand spi0.1: Micron SPI NAND was found.
+spi-nand spi0.1: 128 MiB, block size: 128 KiB,
+page size: 2048, OOB size: 64
+
+Signed-off-by: Vít Kazík <vitkazik@vitkazik.cz>
 ---
-v12 --> v13
- - use EBADMSG to map SCMI_PARTIAL_ERROR
-v4 --> v5
- - map SCMI_ERR_IN_USE to EBUSY as natural
----
- drivers/firmware/arm_scmi/errors.h | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/mtd/nand/spi/micron.c | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
 
-diff --git a/drivers/firmware/arm_scmi/errors.h b/drivers/firmware/arm_scmi/errors.h
-index e1b265d5c148..707761cd8d34 100644
---- a/drivers/firmware/arm_scmi/errors.h
-+++ b/drivers/firmware/arm_scmi/errors.h
-@@ -23,6 +23,8 @@ enum scmi_error_codes {
- 	SCMI_ERR_GENERIC = -8,	/* Generic Error */
- 	SCMI_ERR_HARDWARE = -9,	/* Hardware Error */
- 	SCMI_ERR_PROTOCOL = -10,/* Protocol Error */
-+	SCMI_ERR_IN_USE = -11,  /* In Use Error */
-+	SCMI_ERR_PARTIAL = -12, /* Partial Error */
+diff --git a/drivers/mtd/nand/spi/micron.c b/drivers/mtd/nand/spi/micron.c
+index 36f6cbbd7462..cc6eff0e54c2 100644
+--- a/drivers/mtd/nand/spi/micron.c
++++ b/drivers/mtd/nand/spi/micron.c
+@@ -134,6 +134,23 @@ static const struct mtd_ooblayout_ops micron_4_ooblayout = {
+ 	.free = micron_4_ooblayout_free,
  };
  
- static const int scmi_linux_errmap[] = {
-@@ -38,6 +40,8 @@ static const int scmi_linux_errmap[] = {
- 	-EIO,			/* SCMI_ERR_GENERIC */
- 	-EREMOTEIO,		/* SCMI_ERR_HARDWARE */
- 	-EPROTO,		/* SCMI_ERR_PROTOCOL */
-+	-EBUSY,			/* SCMI_ERR_IN_USE */
-+	-EBADMSG,		/* SCMI_ERR_PARTIAL */
- };
- 
- static inline int scmi_to_linux_errno(int errno)
++static int micron_m68a_ooblayout_free(struct mtd_info *mtd, int section,
++				      struct mtd_oob_region *region)
++{
++	if (section >= 4)
++		return -ERANGE;
++
++	region->offset = (section * 16) + 2;
++	region->length = 6;
++
++	return 0;
++}
++
++static const struct mtd_ooblayout_ops micron_m68a_ooblayout = {
++	.ecc = micron_4_ooblayout_ecc,
++	.free = micron_m68a_ooblayout_free,
++};
++
+ static int micron_select_target(struct spinand_device *spinand,
+ 				unsigned int target)
+ {
+@@ -404,6 +421,16 @@ static const struct spinand_info micron_spinand_table[] = {
+ 		     SPINAND_ECCINFO(&micron_8_ooblayout,
+ 				     micron_8_ecc_get_status),
+ 		     SPINAND_SELECT_TARGET(micron_select_target)),
++	/* M68A 1Gb 3.3V */
++	SPINAND_INFO("MT29F1G01AAADD",
++		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0x12),
++		     NAND_MEMORG(1, 2048, 64, 64, 1024, 20, 2, 1, 1),
++		     NAND_ECCREQ(4, 512),
++		     SPINAND_INFO_OP_VARIANTS(&x4_read_cache_variants,
++					      &x1_write_cache_variants,
++					      &x1_update_cache_variants),
++		     0,
++		     SPINAND_ECCINFO(&micron_m68a_ooblayout, NULL)),
+ 	/* M69A 2Gb 3.3V */
+ 	SPINAND_INFO("MT29F2G01AAAED",
+ 		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0x9F),
+
+base-commit: ec1e844b9486302a488abc03ea918db60709766e
 -- 
-2.54.0
+2.56.1
 
