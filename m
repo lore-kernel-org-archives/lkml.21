@@ -1,55 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.254.49.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795274863;
-	b=Rg7FUipuj3pfSPPAPlKMHvFiRghrZ/wYmXgF3aY7bVi0Pi9YZvo4mhEwjSUPydV7wVFg
-	 zoeg5hIzJdFA+6RHDofWJs/ZISeRqGTfBIsxCCZ91Q6RRtheh0rCb5chpgsfFG2gRlQfj
-	 NDP86g65RoDThGViPQw9fCh4FCoqv/VdJJtwMcYERlGu97P2HqyaF9Fbc8qEXxyC9w9If
-	 1asczYwqjDE/iuBaMgm0qm/sgNBI4Ldndalx17L1o3G+jggvNnkVjkRtbl8+q2hVtmnlD
-	 RXYnKv849m0XmghR531wkf8V0u0Y6Y2MSFEqMzcehQ3SIWZ2SOAntde9GKM5KOVZqXQ==
+	t=1795274870;
+	b=w9+QU/umrU8TSsvf8HQzWJWScj+ewdmHDaY7Cut0mYVwWkYJN1R0+2hCtTO4u7v1gzsK
+	 GlIsvFEtnkfIbiGMQpfzgySX0twtHl38iLVBR74reEPB2hFhi/flyriJn7M3aXrkP13mY
+	 y9ulWjeBNmrqgzcaV2zevEEefcBHpxoddSgWwmM+c6yxcmkmK/MRqjS9uejUIsv8A4vxr
+	 TDflb2BSiQpubCRe8bZaILrqwv3X8cbIazBStjmdml4zWc8uuM95XvE/In6JQjhNebRAy
+	 B3BQERM6SCU/JVUqZDyjnJL7/K6PwdvuqjRcqsWa+pQ/WypUpn54VKk509u8Snn0TvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795274863;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
-	 X-HM-Spam-Status;
-	bh=PZUjOuXotXUqzcn6MrbfswQYgqQ1n7UHIABMVzOfr54=;
-	b=O83zxK+IX2uS6GpnAjZrxPQgC3RKkMvT/XJuPMLhOp8bCh8nL0lyVc4F/E5EG+BYhNSs
-	 SVaMYknq9rFz/3dJSP3pOUuG207GT2V5n/lfNTTNxbtYkrNNZL9IoXQVVxgJiB9GZQ3bc
-	 YdIjIe7d4+aqj8DNwhErtXUmNOKRSoEqIbva9+K+OJITL9kecJPofsJ24AG3GkI/GYh4i
-	 OKEoMaQujQy2V+jiMqAfvA6AZ2EyFfzdeDJg5KUuc+hKGikQ+lPfd2qDlPIcWw5rFvFJR
-	 WDlYg0MMuRAcP8N0uNyvC234y+Y5DsKth064fX6F5obAq3g7TB/urXFk2RntyblW+Gg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795274870;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=71/h6Nc2Yz90Qu/VqGJi1BKctHrPxF4JtV6UsEPjLtA=;
+	b=nzQiVz55Wsm/wIMZKoNTAYn4LKrYAoCB7G38RY8deThtR87083RPdTgJbpnKGP/ZSjV9
+	 05YrIOQOQlxc5hKrbOiczzLDq36GJqpkzgO+BuOv2y9zI1wHoPUY7mfpWwOywKZcl8Buv
+	 rjTDxfMYhPUcKftG4u4Eb+hBWIYCBf6lISOe+Rush+GqzKm8XuJdtRv3BdIYsBJ9+/2Kz
+	 kHUewwH5MMnkq5E5mTCFbonDkaKwhdtUTJzeHUjeI5i4E/v3ETjvhEZAHqMkyqzsGIQ/o
+	 g+5oxS1w08+WhRrJy0qN1FSGkY083seBGTy9oSMqngxINkf0cdefncpVSz0D88jwKMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=whut.edu.cn;
-	spf=pass smtp.mailfrom=whut.edu.cn;
-	arc=none smtp.remote-ip=45.254.49.198
-Received: from mail-m49198.qiye.163.com (mail-m49198.qiye.163.com [45.254.49.198])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XEKWoLMG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6640606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 15:27:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6640606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=whut.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=whut.edu.cn
-Received: from Mogu.localdomain (unknown [202.197.100.81])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5583120b3;
-	Sat, 21 Nov 2026 23:27:31 +0800 (GMT+08:00)
-From: Haoming Gao <Naixumogu@whut.edu.cn>
-To: boris.brezillon@collabora.com
-Cc: adrian.larumbe@collabora.com,
-	Haoming Gao <Naixumogu@whut.edu.cn>,
-	Steven Price <steven.price@arm.com>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] drm/panthor: Fix overflow in fdinfo engine time conversion
-Date: Sat, 21 Nov 2026 23:27:28 +0800
-Message-ID: <20261121152728.210765-1-Naixumogu@whut.edu.cn>
-X-Mailer: git-send-email 2.43.0
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0C5B606A32C;
+	Sat, 21 Nov 2026 15:27:49 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XEKWoLMG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8BEF1F000C4;
+	Sat, 21 Nov 2026 15:27:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795274869;
+	bh=71/h6Nc2Yz90Qu/VqGJi1BKctHrPxF4JtV6UsEPjLtA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=XEKWoLMG7+NW+lu/wuwueI2RGzwvIYjYZW62ANY4uTrm1EikiC5Y5QEvN65aXC/BD
+	 NRHEpeyeaaFETKoszc/msxAji6sCTiBezj7dkJkpIhfds0wchzIGxs6rRyn0LiDPtb
+	 39hqKmS34YolX6VUyFZHdjnhewveOOS7Df87oeQ0DbTyb0jJm11QYxxn8fI3TgMRKA
+	 qpKV7/Q/9aWHflL9BENGlA/0AAXKHUO4EnTbYwIQ51WeOWgFNwWHj2NBokkRZDRcWY
+	 540stOqNF/eeRkTLqYjJqfdcoZgSoHDgHvv7wpEZ64SCS+p7AMvaVUhpUztb7ZGnhQ
+	 MYh9IzOTqUDpA==
+From: Sasha Levin <sashal@kernel.org>
+To: stable@vger.kernel.org
+Cc: Sasha Levin <sashal@kernel.org>,
+	"Michael S. Tsirkin" <mst@redhat.com>,
+	Jason Wang <jasowangio@gmail.com>,
+	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>,
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Nikolai Kalinin <nikolai@kalinidze.me>,
+	netdev@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Vladimir Petrzhikovskii <vladimir@dfb.sh>
+Subject: Re: [PATCH 6.18.y] virtio_net: check RX buffer length before DMA sync
+Date: Sat, 21 Nov 2026 10:27:30 -0500
+Message-ID: <2026-11-21-1-daily-reply-0002@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261120143953.1560229-1-vladimir@dfb.sh>
+References: <20261120143953.1560229-1-vladimir@dfb.sh>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,56 +72,11 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa1feb845b703a1kunm82fa9b59271cb4
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUtXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCS0NIVhhJTBgYQkxNQkIfGlYeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlJS0lVSkJMVUpLS1VDSllXWRYaDxIVHRRZQVlLVUtVS1VLWQ
-	Y+
 
-The timestamp counter accumulates GPU ticks per DRM client. Multiplying
-that counter by NSEC_PER_SEC in u64 can overflow before the division by
-the timer frequency, even when the result in nanoseconds fits in u64.
+> [ Upstream commit 29dfa436bc488056a84ee423ba82336db453e2a6 ]
 
-On an RK3588 with a 24 MHz timer, drm-engine-panthor dropped from
-768569012750 ns to 422647638 ns between two reads of the same client's
-fdinfo. The GPU cycle counter continued to advance.
+Queued for 7.3, 6.18 and 6.6, thanks.
 
-Use mul_u64_u64_div_u64_roundup() to preserve the full product and keep
-the existing rounding. The helper was checked against a 128-bit
-reference on the board, including at the first wrap boundary.
-
-Fixes: e16635d88fa0 ("drm/panthor: add DRM fdinfo support")
-Signed-off-by: Haoming Gao <Naixumogu@whut.edu.cn>
----
- drivers/gpu/drm/panthor/panthor_drv.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/gpu/drm/panthor/panthor_drv.c b/drivers/gpu/drm/panthor/panthor_drv.c
-index dc8d0191aef4..39b827a9b9cc 100644
---- a/drivers/gpu/drm/panthor/panthor_drv.c
-+++ b/drivers/gpu/drm/panthor/panthor_drv.c
-@@ -8,6 +8,7 @@
- #endif
- 
- #include <linux/list.h>
-+#include <linux/math64.h>
- #include <linux/module.h>
- #include <linux/of_platform.h>
- #include <linux/pagemap.h>
-@@ -1708,8 +1709,8 @@ static void panthor_gpu_show_fdinfo(struct panthor_device *ptdev,
- 	if (ptdev->profile_mask & PANTHOR_DEVICE_PROFILING_TIMESTAMP) {
- #ifdef CONFIG_ARM_ARCH_TIMER
- 		drm_printf(p, "drm-engine-panthor:\t%llu ns\n",
--			   DIV_ROUND_UP_ULL((pfile->stats.time * NSEC_PER_SEC),
--					    arch_timer_get_cntfrq()));
-+			   mul_u64_u64_div_u64_roundup(pfile->stats.time, NSEC_PER_SEC,
-+						       arch_timer_get_cntfrq()));
- #endif
- 	}
- 	if (ptdev->profile_mask & PANTHOR_DEVICE_PROFILING_CYCLES)
-
-base-commit: 878c885830ef004a32e8974c4d1ae14e2ea30c5a
 -- 
-2.43.0
-
+Thanks,
+Sasha
