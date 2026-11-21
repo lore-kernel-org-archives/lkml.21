@@ -1,91 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795233341;
-	b=yeO1Pdn6NcBnzQlJu71kKljDexVDBaQclgEiBudOAavHO2G27G2fc5AnZYiF7EsXIE/9
-	 i1q8xyrJNZWJqSrRKZsob8FMbmell2AIxQSvnijbM1/BGD7e+Xwsqe4dAPeMWUtOvq+dQ
-	 2PyzcCdboEnRQE3M+pgdJxXzH6cNzMGe7B7NxQfSWwOmScN28JnVoscbRLGti5/wZMLQ7
-	 MX+Pn+JaGb2pTM8xLh890vOEhBgvPD8umockR5TLYxgIQmoUnDV9GC5UUr/PdXPP52Sqq
-	 K5dJZn1BGD4wIoVWqZMDGBaXEhJv4gJJSy0UkNNp3SNXxbOYg31zOaqmmkbvcSbDfWg==
+	t=1795233345;
+	b=q+G952kzHp3sOIdPSdN3RWJX73esiOuxuIsxw9N478xQSQjT1SqOWeXRHXCGmeHtXUwq
+	 q2ip4Ip9+aJ/CZgBO5o9v7IeV852Lpu+07El/gmHoqJ2OWbHroTbRqtuwPbIGcHyhButX
+	 lxesEBczGLLvr7zX++mU4Pu803UdRo7MoPinaFMdgGsLnpLs693K4U0vGylN6HHcrjiQy
+	 X7K5MHLT6UwPsvdDF81DQ+++fH+32MzehHbkESZ3yPweiJAfCaxHmGW2Hn4wKOuAjjCUj
+	 /RYqQ+BDzxEZ6BPEz7xJ5M8jicPA5qc/0XYcPVgQ1iwGaH3n0v68HUcn9DYLsRURB/w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795233341;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795233345;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=Jn4kf5W7lzfWnr06Y2ZW00xRkwmTnr7Hlmhw1WVwvLU=;
-	b=zFC98pdRlQqR1spB2YyJKiQhfcYuBTm493yEkR286n0NeID1HtoAXDn3w79+/ev+TR9v
-	 PkpNKa2pYjWI/qleHqpAs2E+CI/gJKOHfguazPn1jg0jzQYSN/e/tpqqtur5tlJvS1D8H
-	 Uh49cPQwUsM1uCUUPyh6RX+tBZN8hAKm8XGAr6h3c19Lkdwx2kUXTlr9+z4KDEq6woujz
-	 sLOfpbSgc+IdoeP5SXO78frYWLNGT94BK9F6aHyGxbswxmRQNjxReJiLEoggSerwZEq3D
-	 aXzuRcpThjRz/ZSqtv/Y0qGWLtBDw3IiYpLMy/dYcOgJXxDtL8h4WjNLKz1IGNQyRJQ==
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=jgUdZaGhqWrc4BAHJXZyBPZNLZ60f3XoK2Gog1q3Uc8=;
+	b=N4j+M0eK+I4boJvUeqik2zvMTgVgpFf1oq3won83smgJEW8p7LI/m7QpjrKov+J1Qe9V
+	 mOBbIa8yeg+u40bvo26cTxloQoPJ6FjiMg9Z7HI55BACARGVi8MJnbt7+pYgTGnTpLDLd
+	 LVtq6JSlwMI10godn5kZ8FP78Rm3ViG2hlHFcYT8czH5aIAyhgYqK3n0qolbEVHLRPPqk
+	 9M8EEFPqgmkNnzya204wiDz1hNnoA9q69HXvOeH90+RosKpJAG0Yv9ymiJLNOGGVTugNd
+	 8YbfzkB9IsZ83ptWYA5AWrzBUfH0zdgR4FfQ8R7qi8Qy6ViuklxsRMD0x70e75YIGaA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=X2YPSEfF;
-	arc=none smtp.remote-ip=209.85.161.42
-Received: from mail-oo1-f42.google.com (mail-oo1-f42.google.com [209.85.161.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SiEljIY9;
+	arc=none smtp.remote-ip=209.85.210.44
+Received: from mail-ot1-f44.google.com (mail-ot1-f44.google.com [209.85.210.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65E04606A6BB
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:55:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65E04606A6BB
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DB6B606A331
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:55:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3DB6B606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=X2YPSEfF
-Received: by mail-oo1-f42.google.com with SMTP id 006d021491bc7-70b875f6f13so1222340eaf.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:55:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SiEljIY9
+Received: by mail-ot1-f44.google.com with SMTP id 46e09a7af769-86156cf8a7eso2045159a34.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:55:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795233339; x=1795838139; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Jn4kf5W7lzfWnr06Y2ZW00xRkwmTnr7Hlmhw1WVwvLU=;
-        b=X2YPSEfFi5vaFVVRhwllZw0ddenYAWIvuJqKnKm7TvaGho1dkz+gbX8ueys17lDn3W
-         ENI3qJpxBNwEJ0Bfm1LImglO+giY8zAsEYBLB6OUq1OXX6NQmBI72dTBT2yXItigtGJ+
-         Ez1rGiC5byy55wu4tobGb5aOSaaDFmSxAF+1I4OsSvHOdWBpAWsHpT9t+1uO6U/EdFXA
-         A3QcCRK2OHinatM4lwoJSfsvp9zlmoEasd7/J8T29DjJRESHn+IA1/g2CFuACy77C5pZ
-         Eyf3m6o8RxjHgtfVa9szcn1gvR1NQd1duC7Ao9EtA6AzIE/aJKShS2DW1AF766MbBCQG
-         8mrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795233339; x=1795838139;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795233342; x=1795838142; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Jn4kf5W7lzfWnr06Y2ZW00xRkwmTnr7Hlmhw1WVwvLU=;
-        b=pUqbPwhOdo5auNd/fYKnAzmUz9AcmdHWWj90d2uBHc37qUL+m2BlNVeKOMdtfh5sxO
-         9YiQAwpqTlEbsuasyrJK2NyO9kaKw3M2fjNSo/ocq/bQOcOGRGQP546FhzuqOj+Q4U6Q
-         ech1uP7AvwtQBgM+GDcoFvjRJ4njTtF+YsLUTipcwOe6P9nPf2WXqnz/FYoLolgwWGZc
-         Px4gWuC/75HUAH+lvnOcqhsReMylqO30CAziyh30Ty7PRNYmxzvgS+E6YgZhWfIBpotI
-         BiSg6FdAcW0Cv8ufR1bKY17ms3akw2RgDLfj1kfynOX0+5MScHOYoXLiBMAShpy1UQ0c
-         oBuA==
-X-Gm-Message-State: APuU4Z9LO1v4fMH0G/CE0A+n6YngI/gp5FrP/w8PAaBCFcXl1hGbug4O
-	xyH6gahqiqdw9fscj8pIVFETJJpOtaJtNUDcbW9gISOWkczl3JgXzno=
-X-Gm-Gg: AYBFou0DiJu2OGL8sgNkHl0lgNuJg3OiUPCH47bn2DDyAj4xxfbeO63XbXloUG8sB7h
-	wFcjtR59FdNMQJDs2obhIfHUn6nBhsuFxw2kq/1bb4y4UcqfXMmn5sqT/c86b6SE4JKRX9Q73Oj
-	dqJPRy8hSaCz9Z2ouXI9pPSiHGJttXTQumfNAUWWTm6MDjF/IA25yGkFRyzqaA4t1ahupvPyUdN
-	K/fmKt7n5UjU4NyS7G4fIO8CH5si7qWmUNzP6knAstmZFyizhyihcNVQt/pZ5Nm6Uew5XWYJu0i
-	fwHg6TZ0tMXt48Bu6jfvdThUer/tJhu0QLi4oGw19te6yMN+Xt8eOVQzBz9Ft8rWtRIUDCfL5nB
-	k1WIYVy/pUHWxa8F5SGzJvvGUeNIN/+FrQj3FnWj3UlQ3MwIVP9zJomOBTr/G1KfcLeMhrjReHZ
-	3GKPOnAMydNxDkDXapjdPttgORQNeBNNUsWtIt13mMPd1WHVYuk3PnuyRXHXj2JHk5Idf/GJbPo
-	RbUC/jFO4+eO8SYvkG/IghOmFZLvObKyQQ1tjRpJ4y0lVU+7edVmRCpLSn/ssKxIhUwpgvqXQtE
-	gyL9c3Pi+zA6FdiSuby+PmevJIh3kSHQ7Mhnw84HzlWaDHIfOidI9tcn
-X-Received: by 2002:a05:6820:5616:b0:716:cfaa:133a with SMTP id 006d021491bc7-71b3962b41bmr3118869eaf.89.1795233339171;
-        Fri, 20 Nov 2026 19:55:39 -0800 (PST)
+        bh=jgUdZaGhqWrc4BAHJXZyBPZNLZ60f3XoK2Gog1q3Uc8=;
+        b=SiEljIY9Mcg9FXo0sQwif4upe3XondP+ab2bFC/HoIvVbdg/GqptcMkpEJl5hwBtm4
+         sy0eskecI+6aqkXhijQf3zbOX2dxdX5NneFZQ43Z7k8bIzDm14FIXMrdn67DBBiw/c09
+         MWCDN0mobbKp9TG7406qRLkJSMMoh2nc4ldmxXp8WA7pwy0Sg3B3UBUk4ZAnVtIhhYSi
+         234qPgqzhM1Qw7sIUIKJgbZYc/J92mtifsVyZpb8aKTrdSVVQteKXH3lOzFDfvYgifUL
+         uFXJoGKAF3j/GgJIbldi4jsTg6eGBdwW5EpNio+sXh31PRKETOfeQdK5mPmzEP6kf18G
+         LnIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795233342; x=1795838142;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jgUdZaGhqWrc4BAHJXZyBPZNLZ60f3XoK2Gog1q3Uc8=;
+        b=StASsVwQeYRl1EVdtaLdk81K5YoEYtgnx1bnOR1OLwpTGN4YGzCL71+XIY61wQ6Vj4
+         PfeprehKKlHOA2kk3HBP/RVz9MrDf/NXIMGLp5TwCoTIuSCiIJdx3C/8RRyEjF9TTzFI
+         BADFJ7clYIriTZh0hN4i/rMRnkyxcFbtNli9Q4FHj692NC0ZFan8lVqQcHniZ/USDGRT
+         krxe5Z1xuPyPOM33pWrSlqGJBiOhz5bBM0RBD3+o157Yv0TCx/fd2S9fozafi1gUbbI/
+         rcxAPj/kK00K+JFrXbi7fR2H2TjjXa35mX+HHe74w3glgyw+7kDdXf8gY3Mz8SrAasev
+         m3bg==
+X-Gm-Message-State: APuU4Z+7f8zJiDLF8KWI0V1OBm6Xk0mzXnIJlqUuDmR9MqEGKNf2gPvf
+	sP+I/HXdqCXl2QDK4CLCdfjUaE/Z0LoerOkldqBpxfeO+USfasQLYTM=
+X-Gm-Gg: AYBFou3aKxiQNX5Gskl5HbZ2TX9RnLT0RdY82tT1qmJ04Dtn+CZU/cVvNdYUnFulPW9
+	wbu0Pi8tU8StVapfC5eTZ7olFcuxC0WmH5Aw4AX3YXCBEAQrtiGYzWRJ6kSh+F60EB7DtPzZLG8
+	stFGN2i8G9iAoZ998o0DaK35ae+bzato1l5TPYAg6NDxr/pfgRtDtHCyagxhH3DL1iqg77t8sB3
+	cr6YzqtL1pDXmY6SJG3dS1X8ezzBCFNo8xQgbtznugZoqRuHfm2aATLVolD3M66rVc8T3J2+eQ2
+	1+ssUsTDZv6YN+p+plye0x0JB7yQ6zxXRG9NugveMyNKqwgfovi76CmXTrk0Qk+mvMlsfPRksja
+	NROAJM5klGQnTx5sF9Dcn/7uZNuiIwZ361vTWaRfTjDn6lisKHh1a1QBxJL+J9qd4vQMDC5ecsz
+	03tJEQr8Cb7C1vAeYQcw5fQH6gEPxneSbO/fhU3XZVvBJCytGAed7u49TYL2g44iPXUf9wmhVvu
+	mGmCzI4Lv6yzvVAuUAkDktUEBUAf+xH7eTXBPRpSkpK1gGFb73ZAZ6qMDd+uyK4Z5riI/AQf23n
+	mzMVV7fJsnxoP3Hmuyr89QPqXqphWOcqu0FJAFihfBEO4tNerUPxWJp/8Rq96b1xMEq1MoiVZ7E
+	tHQ==
+X-Received: by 2002:a05:6820:4381:b0:71a:fcbf:2484 with SMTP id 006d021491bc7-71b395d4870mr2846540eaf.36.1795233342085;
+        Fri, 20 Nov 2026 19:55:42 -0800 (PST)
 Received: from miso.lan ([136.62.61.36])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380b6f82sm2878076eaf.10.2026.11.20.19.55.36
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380b6f82sm2878076eaf.10.2026.11.20.19.55.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 19:55:37 -0800 (PST)
+        Fri, 20 Nov 2026 19:55:40 -0800 (PST)
 From: Matthew Laux <matthew.laux@gmail.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Hans Verkuil <hverkuil@kernel.org>,
 	Mehdi Djait <mehdi.djait@bootlin.com>
 Cc: linux-kernel@vger.kernel.org,
 	linux-media@vger.kernel.org,
-	Matthew Laux <matthew.laux@gmail.com>
-Subject: [PATCH v7 00/12] Add driver for StarTech USB3HDCAP capture device
-Date: Fri, 20 Nov 2026 21:55:11 -0600
-Message-ID: <20261121035523.26764-1-matthew.laux@gmail.com>
+	Matthew Laux <matthew.laux@gmail.com>,
+	Paul Kocialkowski <paul.kocialkowski@bootlin.com>
+Subject: [PATCH v7 01/12] media: tw9900: Disable regulator on runtime resume failure
+Date: Fri, 20 Nov 2026 21:55:12 -0600
+Message-ID: <20261121035523.26764-2-matthew.laux@gmail.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261121035523.26764-1-matthew.laux@gmail.com>
+References: <20261121035523.26764-1-matthew.laux@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,369 +103,68 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add a V4L2/ALSA driver for the StarTech USB3HDCAP (and Micomsoft
-XCAPTURE-1 variant), a USB 3.0 video capture device based on the
-MST3367 HDMI receiver, TW9900 composite decoder, and CS53L21 audio codec.
+If writing the initialization registers fails, put the chip back in reset
+and disable the regulator before returning the error. Fixes this warning:
 
-The driver supports composite, S-Video, component, and HDMI inputs,
-including audio capture.
+WARNING: drivers/regulator/core.c:2657 at regulator_put+0x61/0x70
+RIP: 0010:regulator_put+0x61/0x70
+Call Trace:
+ <TASK>
+ release_nodes+0x46/0xd0
+ devres_release_group+0x11f/0x150
+ i2c_device_remove+0x41/0xb0
+ device_release_driver_internal+0x19c/0x200
+ bus_remove_device+0xca/0x140
+ device_del+0x160/0x3e0
+ device_unregister+0x17/0x70
+ v4l2_device_unregister+0x9c/0xd0 [videodev]
+ usb3hdcap_release+0x26/0x40 [usb3hdcap]
+ v4l2_device_put+0x37/0x60 [videodev]
+ release_card_device+0x51/0x90 [snd]
+ device_release+0x37/0x90
+ kobject_put+0x8e/0x210
+ snd_card_file_remove+0x174/0x190 [snd]
+ snd_ctl_release+0x14d/0x160 [snd]
+ __fput+0xe6/0x2a0
+ __x64_sys_close+0x3d/0x80
+ do_syscall_64+0x120/0x1610
+ ? do_syscall_64+0x15e/0x1610
+ ? irqentry_exit+0x7b/0x590
+ entry_SYSCALL_64_after_hwframe+0x76/0x7e
 
-Tested on all four inputs at various resolutions. All v4l2-compliance
-tests pass, including streaming tests, with these two v4l2-compliance bugs
-patched:
+Fixes: 918b14a26b12 ("media: i2c: Introduce a driver for the Techwell TW9900 decoder")
+Cc: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
+Signed-off-by: Matthew Laux <matthew.laux@gmail.com>
+---
+ drivers/media/i2c/tw9900.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-https://lore.kernel.org/linux-media/20261116214655.6979-1-matthew.laux@gmail.com/T/#u
-https://lore.kernel.org/linux-media/20261116214755.7040-1-matthew.laux@gmail.com/T/#u
-
-The first 10 patches are changes to the existing upstream tw9900 driver to
-prepare for my driver. The 11th is a driver for the MST3367 chip. The 12th
-is the bridge device driver and "everything else".
-
-I tried to use patterns from existing drivers wherever possible and
-welcome all feedback. This is my own work. I accepted two small PRs to my
-out-of-tree in-development version on GitHub that were LLM-assisted. I
-also used LLM help to split the tw9900 fixes into logical commits, and for
-help understanding/fixing Sashiko feedback. I am committed to sticking
-around to make any improvements required.
-
-Thanks,
-Matthew
-
-Changelog:
-
-v7: rework ioctls to follow the API better:
-      - S_STD/S_DV_TIMINGS now apply immediately and update the format
-      - add QUERYSTD
-      - QUERY_DV_TIMINGS now gets the timings from the chip
-    detection now only happens in S_INPUT (or first open)
-    starting streaming no longer can change the required buffer size
-    size the parse buffer from the iso packet size
-    use V4L2's AVI InfoFrame parsing instead of my own
-    report the field height in get_fmt for interlaced timings
-    accept vtotal alternating by one line when detecting interlaced
-    split "use runtime PM autosuspend and power down on suspend"
-    2 new tw9900 runtime PM fixes
-
-v6: fix 2 possible usages of uninitialized variables (one could not
-    happen, one could)
-
-v5: refactor to use subdevices, so it's no longer targeting staging.
-    support HDMI on the XCAPTURE-1
-    detect HDMI timings from the chip instead of using a fixed table
-    fix (valid) Sashiko automated review feedback
-    fix composite/S-Video audio on the XCAPTURE-1
-
-v4: add USB to Kconfig "depends on"... oops. fixes randconfig
-
-v3: fix truncation warnings in (u8) casts >= 0x80, static-ify mode table
-
-v2: remove unused CSC matrix control, remove version.h include,
-    fix all remaining `check`-level checkpatch issues, update TODO
-
-v4l2-compliance 1.33.0-5524, 64 bits, 64-bit time_t
-v4l2-compliance SHA: 485c038f10ae 2026-10-30 13:45:36
-
-Compliance test for usb3hdcap device /dev/video0:
-
-Driver Info:
-	Driver name      : usb3hdcap
-	Card type        : StarTech USB3HDCAP
-	Bus info         : usb-0000:00:14.0-2
-	Driver version   : 7.0.0
-	Capabilities     : 0x85200001
-		Video Capture
-		Read/Write
-		Streaming
-		Extended Pix Format
-		Device Capabilities
-	Device Caps      : 0x05200001
-		Video Capture
-		Read/Write
-		Streaming
-		Extended Pix Format
-
-Required ioctls:
-	test VIDIOC_QUERYCAP: OK
-	test invalid ioctls: OK
-
-Allow for multiple opens:
-	test second /dev/video0 open: OK
-	test VIDIOC_QUERYCAP: OK
-	test VIDIOC_G/S_PRIORITY: OK
-	test for unlimited opens: OK
-
-Debug ioctls:
-	test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
-	test VIDIOC_LOG_STATUS: OK
-
-Input ioctls:
-	test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
-	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
-	test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
-	test VIDIOC_ENUMAUDIO: OK (Not Supported)
-	test VIDIOC_G/S/ENUMINPUT: OK
-	test VIDIOC_G/S_AUDIO: OK (Not Supported)
-	Inputs: 4 Audio Inputs: 0 Tuners: 0
-
-Output ioctls:
-	test VIDIOC_G/S_MODULATOR: OK (Not Supported)
-	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
-	test VIDIOC_ENUMAUDOUT: OK (Not Supported)
-	test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
-	test VIDIOC_G/S_AUDOUT: OK (Not Supported)
-	Outputs: 0 Audio Outputs: 0 Modulators: 0
-
-Input/Output configuration ioctls:
-	test VIDIOC_ENUM/G/S/QUERY_STD: OK
-	test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK
-	test VIDIOC_DV_TIMINGS_CAP: OK
-	test VIDIOC_G/S_EDID: OK (Not Supported)
-
-Control ioctls (Input 0):
-	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
-	test VIDIOC_QUERYCTRL: OK
-	test VIDIOC_G/S_CTRL: OK
-	test VIDIOC_G/S/TRY_EXT_CTRLS: OK
-	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
-	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
-	Standard Controls: 8 Private Controls: 0
-
-Format ioctls (Input 0):
-	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
-	test VIDIOC_G/S_PARM: OK
-	test VIDIOC_G_FBUF: OK (Not Supported)
-	test VIDIOC_G_FMT: OK
-	test VIDIOC_TRY_FMT: OK
-	test VIDIOC_S_FMT: OK
-	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
-	test Cropping: OK (Not Supported)
-	test Composing: OK (Not Supported)
-	test Scaling: OK (Not Supported)
-
-Codec ioctls (Input 0):
-	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
-	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
-	test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
-
-Buffer ioctls (Input 0):
-	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
-	test CREATE_BUFS maximum buffers: OK
-	test VIDIOC_REMOVE_BUFS: OK
-	test VIDIOC_EXPBUF: OK (Not Supported)
-	test Requests: OK (Not Supported)
-	test blocking wait: OK
-
-Control ioctls (Input 1):
-	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
-	test VIDIOC_QUERYCTRL: OK
-	test VIDIOC_G/S_CTRL: OK
-	test VIDIOC_G/S/TRY_EXT_CTRLS: OK
-	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
-	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
-	Standard Controls: 8 Private Controls: 0
-
-Format ioctls (Input 1):
-	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
-	test VIDIOC_G/S_PARM: OK
-	test VIDIOC_G_FBUF: OK (Not Supported)
-	test VIDIOC_G_FMT: OK
-	test VIDIOC_TRY_FMT: OK
-	test VIDIOC_S_FMT: OK
-	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
-	test Cropping: OK (Not Supported)
-	test Composing: OK (Not Supported)
-	test Scaling: OK (Not Supported)
-
-Codec ioctls (Input 1):
-	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
-	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
-	test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
-
-Buffer ioctls (Input 1):
-	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
-	test CREATE_BUFS maximum buffers: OK
-	test VIDIOC_REMOVE_BUFS: OK
-	test VIDIOC_EXPBUF: OK (Not Supported)
-	test Requests: OK (Not Supported)
-	test blocking wait: OK
-
-Control ioctls (Input 2):
-	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
-	test VIDIOC_QUERYCTRL: OK
-	test VIDIOC_G/S_CTRL: OK
-	test VIDIOC_G/S/TRY_EXT_CTRLS: OK
-	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
-	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
-	Standard Controls: 8 Private Controls: 0
-
-Format ioctls (Input 2):
-	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
-	test VIDIOC_G/S_PARM: OK
-	test VIDIOC_G_FBUF: OK (Not Supported)
-	test VIDIOC_G_FMT: OK
-	test VIDIOC_TRY_FMT: OK
-	test VIDIOC_S_FMT: OK
-	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
-	test Cropping: OK (Not Supported)
-	test Composing: OK (Not Supported)
-	test Scaling: OK (Not Supported)
-
-Codec ioctls (Input 2):
-	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
-	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
-	test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
-
-Buffer ioctls (Input 2):
-	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
-	test CREATE_BUFS maximum buffers: OK
-	test VIDIOC_REMOVE_BUFS: OK
-	test VIDIOC_EXPBUF: OK (Not Supported)
-	test Requests: OK (Not Supported)
-	test blocking wait: OK
-
-Control ioctls (Input 3):
-	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
-	test VIDIOC_QUERYCTRL: OK
-	test VIDIOC_G/S_CTRL: OK
-	test VIDIOC_G/S/TRY_EXT_CTRLS: OK
-	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
-	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
-	Standard Controls: 8 Private Controls: 0
-
-Format ioctls (Input 3):
-	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
-	test VIDIOC_G/S_PARM: OK
-	test VIDIOC_G_FBUF: OK (Not Supported)
-	test VIDIOC_G_FMT: OK
-	test VIDIOC_TRY_FMT: OK
-	test VIDIOC_S_FMT: OK
-	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
-	test Cropping: OK (Not Supported)
-	test Composing: OK (Not Supported)
-	test Scaling: OK (Not Supported)
-
-Codec ioctls (Input 3):
-	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
-	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
-	test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
-
-Buffer ioctls (Input 3):
-	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
-	test CREATE_BUFS maximum buffers: OK
-	test VIDIOC_REMOVE_BUFS: OK
-	test VIDIOC_EXPBUF: OK (Not Supported)
-	test Requests: OK (Not Supported)
-	test blocking wait: OK
-
-Test input 0:
-
-Streaming ioctls:
-	test read/write: OK
-	test MMAP (no poll, REQBUFS): OK
-	test MMAP (select, REQBUFS): OK
-	test MMAP (epoll, REQBUFS): OK
-	test MMAP (no poll, CREATE_BUFS): OK
-	test MMAP (select, CREATE_BUFS): OK
-	test MMAP (epoll, CREATE_BUFS): OK
-	test USERPTR (no poll): OK
-	test USERPTR (select): OK
-	test DMABUF (no poll): OK (Not Supported)
-	test DMABUF (select): OK (Not Supported)
-
-Test input 1:
-
-Streaming ioctls:
-	test read/write: OK
-	test MMAP (no poll, REQBUFS): OK
-	test MMAP (select, REQBUFS): OK
-	test MMAP (epoll, REQBUFS): OK
-	test MMAP (no poll, CREATE_BUFS): OK
-	test MMAP (select, CREATE_BUFS): OK
-	test MMAP (epoll, CREATE_BUFS): OK
-	test USERPTR (no poll): OK
-	test USERPTR (select): OK
-	test DMABUF (no poll): OK (Not Supported)
-	test DMABUF (select): OK (Not Supported)
-
-Test input 2:
-
-Streaming ioctls:
-	test read/write: OK
-	test MMAP (no poll, REQBUFS): OK
-	test MMAP (select, REQBUFS): OK
-	test MMAP (epoll, REQBUFS): OK
-	test MMAP (no poll, CREATE_BUFS): OK
-	test MMAP (select, CREATE_BUFS): OK
-	test MMAP (epoll, CREATE_BUFS): OK
-	test USERPTR (no poll): OK
-	test USERPTR (select): OK
-	test DMABUF (no poll): OK (Not Supported)
-	test DMABUF (select): OK (Not Supported)
-
-Test input 3:
-
-Streaming ioctls:
-	test read/write: OK
-	test MMAP (no poll, REQBUFS): OK
-	test MMAP (select, REQBUFS): OK
-	test MMAP (epoll, REQBUFS): OK
-	test MMAP (no poll, CREATE_BUFS): OK
-	test MMAP (select, CREATE_BUFS): OK
-	test MMAP (epoll, CREATE_BUFS): OK
-	test USERPTR (no poll): OK
-	test USERPTR (select): OK
-	test DMABUF (no poll): OK (Not Supported)
-	test DMABUF (select): OK (Not Supported)
-
-Total for usb3hdcap device /dev/video0: 167, Succeeded: 167, Failed: 0,
-Warnings: 0
-
-Matthew Laux (12):
-  media: tw9900: Disable regulator on runtime resume failure
-  media: tw9900: release the device when stopping the stream fails
-  media: tw9900: accept the TW9910 chip ID
-  media: tw9900: add saturation, hue and sharpness controls
-  media: tw9900: program all mode registers in the PAL table
-  media: tw9900: power off the device on remove if still active
-  media: tw9900: power down analog blocks in runtime suspend
-  media: tw9900: use runtime PM autosuspend
-  media: tw9900: allow board-specific register tables via platform data
-  media: tw9900: add S-Video input and progressive source detection
-  media: Add subdevice driver for the Mstar MST3367 HDMI receiver
-  media: add driver for StarTech USB3HDCAP
-
- MAINTAINERS                                   |   14 +
- drivers/media/i2c/Kconfig                     |   11 +
- drivers/media/i2c/Makefile                    |    1 +
- drivers/media/i2c/mst3367.c                   | 1134 ++++++++++++++++
- drivers/media/i2c/tw9900.c                    |  271 +++-
- drivers/media/usb/Kconfig                     |    1 +
- drivers/media/usb/Makefile                    |    1 +
- drivers/media/usb/usb3hdcap/Kconfig           |   15 +
- drivers/media/usb/usb3hdcap/Makefile          |    8 +
- drivers/media/usb/usb3hdcap/usb3hdcap-audio.c |  323 +++++
- .../media/usb/usb3hdcap/usb3hdcap-composite.c |  212 +++
- drivers/media/usb/usb3hdcap/usb3hdcap-core.c  | 1173 +++++++++++++++++
- drivers/media/usb/usb3hdcap/usb3hdcap-hdmi.c  |  200 +++
- drivers/media/usb/usb3hdcap/usb3hdcap-video.c |  499 +++++++
- drivers/media/usb/usb3hdcap/usb3hdcap.h       |  241 ++++
- include/media/i2c/mst3367.h                   |   27 +
- include/media/i2c/tw9900.h                    |   38 +
- 17 files changed, 4135 insertions(+), 34 deletions(-)
- create mode 100644 drivers/media/i2c/mst3367.c
- create mode 100644 drivers/media/usb/usb3hdcap/Kconfig
- create mode 100644 drivers/media/usb/usb3hdcap/Makefile
- create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap-audio.c
- create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap-composite.c
- create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap-core.c
- create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap-hdmi.c
- create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap-video.c
- create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap.h
- create mode 100644 include/media/i2c/mst3367.h
- create mode 100644 include/media/i2c/tw9900.h
-
-
-base-commit: aa0f4c41d4870a18e65772a1817af16427200371
+diff --git a/drivers/media/i2c/tw9900.c b/drivers/media/i2c/tw9900.c
+index 60c102aba750..e07924faa84b 100644
+--- a/drivers/media/i2c/tw9900.c
++++ b/drivers/media/i2c/tw9900.c
+@@ -624,13 +624,20 @@ static int tw9900_runtime_resume(struct device *dev)
+ 
+ 	ret = tw9900_write_array(tw9900->client, tw9900_init_regs,
+ 				 ARRAY_SIZE(tw9900_init_regs));
++	if (ret) {
++		if (tw9900->reset_gpio)
++			gpiod_set_value_cansleep(tw9900->reset_gpio, 1);
++		regulator_disable(tw9900->regulator);
++		mutex_unlock(&tw9900->mutex);
++		return ret;
++	}
+ 
+ 	mutex_unlock(&tw9900->mutex);
+ 
+ 	/* This sleep is needed for the Horizontal Sync PLL to lock. */
+ 	msleep(300);
+ 
+-	return ret;
++	return 0;
+ }
+ 
+ static int tw9900_runtime_suspend(struct device *dev)
 -- 
 2.47.3
 
