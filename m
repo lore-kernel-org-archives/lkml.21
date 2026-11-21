@@ -1,57 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.220
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.241
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795229865;
-	b=LRQ4BQhSIqHqS8oVGfueZjXqBVZBKGVetYklmETAgFjjArWb/BJr3VgEpIC6csgsFkVL
-	 lVKWs820kjykUWgLXIJY5MJ5B8sNw2SabAUKBIYZMglNRvILyBFl2MXp1IMSdTcO3xKua
-	 nN5rJpoYndpIhSw9S8boZfTU4sAJG2rCAYx5+ca3vnDXbH7Qk5yh+5Sjtj4fPV5+qILtf
-	 EXhSE8X5EMC0Eute/z8Wc+hDUvHsxJP4tZcYQXpY/fmzrHx+alyCp8r9q8awy0MlWAitp
-	 /LlWbkMhq0bJiqePJ3kIx8+OpIjU42sLl0kAUUGMyy8JSDn+RkdI9NpT6DfyBRA5/4A==
+	t=1795229874;
+	b=gczchm2kxt5JTptlCLZ9bDX+WFidbyRG7C8TzqFyIVokc3voIiGQTd8IvMmLUDhPjeHn
+	 wymPWEEOxeot6csrWNRc+uSsRahaN3AgAM4lWEK8GWFPY5+FBKTSG5nGius1cS+aUyl7w
+	 b57B+7ZXe95eGd7kzRqwXLz4TORFk3AttCr8qBk14chQaVse2+2DpInj5pIIu0lDFJFM1
+	 R893g2D7zhF+JRFO0etAcJFskRktS5T4HWEA2khmvKA+ASQWKWOPauVeblR2HWLC4U9QM
+	 yYEtRZRX5bCEEAuoah+VGmvAqpgnMUwRslXo/6eysJc7JXsEbIEP7PXSlwqC2wwkxGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795229865;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795229874;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:To:
-	 Cc:X-Mailer;
-	bh=NpM1hBpAqL6TruKvkKba6ihti27OsSFgtTJFbLRQSKA=;
-	b=zQ3Q2jz8ewzuMxztjj3RZhuUNm5Qyo/HizUqTABJCkoMsKjvLJ4xv//at0u6JVNoUk3/
-	 bV/oPiz6C2E7GyOmw5WjUdhnAqmgN9k2AlJ9tu0s8huENUEj8JxOya8EAXdFnx5QXCVhp
-	 +sirdmHGs/Jg8zucoF8DZBJn2fX0qYSE6vwYWNWtQwSq8R+uMe4dxUr2VyUzWvVeH4uBc
-	 Vx2ww9JnUYFjiQ15Nw4pgPbCDlaZp+/UPkHSrF2liURj0yMLOCSlvhIJbSudYyylKem81
-	 zu9quWVZzBfOyQvDJwB5luub89XaocvVuCczqzFgSpn4zqxgx/WUdWvsI6eQRxkuKlg==
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer;
+	bh=Mxhl/TovSxd7tFVq3+0xncX85stNDBZis0a6yy8hdso=;
+	b=JoQ4OedTc8LXUXfUxewwpwTyOEwzpDS0KAxXctJ3BhAhCOG9BbfMiegtV66pnBTMh+rh
+	 JGSSQx+QeiAy4uXTojA+ZrNeUfH5f0lvV3eU1wYA5w3nTZ+3Nse5P5AfjQ1qONmn74UZ6
+	 AtT6RTN48txmYuJmAHAuWi4C54PO0ataRZicIayNkSPhUuMGKlKcg4BysDGaTwYEDGysI
+	 k9QbtMn8y+QEdggXOfhvc8wdbtTe/gL5yNAolXvES8zS7G+qkwlEob4OGy4cRywIcGQ/E
+	 V0Y0R8s+B60dHLbT/lPjG3MWlDV3OSQxeCPLuncn2bkUrM3YNw1GzbeIjCt2UpImEwg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ID2WTG9D;
-	arc=none smtp.remote-ip=95.215.58.220
-Received: from mta1.migadu.com (out-220.mta1.migadu.com [95.215.58.220])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=TBZTOuhj;
+	arc=none smtp.remote-ip=91.218.175.241
+Received: from mta0.migadu.com (out-241.mta0.migadu.com [91.218.175.241])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E68F1606A69B
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 02:57:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E68F1606A69B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA5E6606A6B3
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 02:57:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA5E6606A6B3
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ID2WTG9D
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=TBZTOuhj
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=SNxcP97DrMFSTzKl8YbePCg7uEhW1WeC0lpxno3jHZ4=;
+DKIM-Signature: a=rsa-sha256; bh=UQ3d6XxIXoDiMYT8MRy4iqt0mRxiRTsX3sK+wZ0Kb9s=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795229852; v=1; x=1795834652;
- b=ID2WTG9DytpPTawOajfdywxKh44KOYTOox65HIszkGXacWM7zyhqcwpgM8myLQxkf8ndLrYb
- C/FdvaLuvwZcpaUPEM3ZMhDu7vvNYFDRlyzpDiXSOm1o9GCzhkAJcFVzlS+CWiqNr+GxSJhOF2d
- lcsybmC6+SEalWX97Fj1BGfI=
+ t=1795229866; v=1; x=1795834666;
+ b=TBZTOuhjFbwsz+nd5lWdHTMydR1UMu82Pd9+Pyx7HzYN9BoA6CMyfTfWmXCR+4wfOOnqW/IS
+ HF2WrtBQKB/Uf/1+ja8R+2olJAR8AcAIKpiznkeSSryQ0w+3/vkcsvjNvroKXYuDqeK3j1n48WK
+ ep3bngLh062cQGgbO2rIJE7s=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id a933601eed77272d;
-	Sat, 21 Nov 2026 02:57:31 +0000
-X-Mizu-Trace-ID: a933601eed77272d
+Received: by smtp.migadu.com with ESMTPS id 5da319ec8fc0d3b7;
+	Sat, 21 Nov 2026 02:57:46 +0000
+X-Mizu-Trace-ID: 5da319ec8fc0d3b7
 X-Migadu-Flow: FLOW_OUT
 From: Qiliang Yuan <qiliang.yuan@linux.dev>
-Subject: [PATCH v3 0/3] sched/fair: Cut per-group work from sched domain
- rebuilds
-Date: Fri, 20 Nov 2026 21:57:23 -0500
-Message-Id: <20261120-bug-sched-fair-offline-active-v3-0-325e9eefa56d@linux.dev>
+Date: Fri, 20 Nov 2026 21:57:25 -0500
+Subject: [PATCH v3 2/3] sched: Keep CPUs that stay active online across
+ root domain moves
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,10 +62,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAJMIAWsC/43NwQ6CMAyA4VcxO1szNjbQk+9hPIytgyYGzAYLh
- vDuDk7ctLe/Tb4uLGIgjOx2WljARJGGPoc8n5jtTN8ikMvNBBe6yAPN1EK0HTrwhgIM3r+oRzB
- 2pIRQO64lVlI56Vk23gE9zbv/eObuKI5D+OzvUrFt/5VTARxKr0olpFWm4vd8neaLw8Q2OYmjV
- v/SRNYajQ7VVVtt9FFb1/ULAYqopRgBAAA=
+Message-Id: <20261120-bug-sched-fair-offline-active-v3-2-325e9eefa56d@linux.dev>
+References: <20261120-bug-sched-fair-offline-active-v3-0-325e9eefa56d@linux.dev>
+In-Reply-To: <20261120-bug-sched-fair-offline-active-v3-0-325e9eefa56d@linux.dev>
 To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
  Juri Lelli <juri.lelli@redhat.com>, 
  Vincent Guittot <vincent.guittot@linaro.org>, 
@@ -79,92 +77,146 @@ Cc: Li kunyu <likunyu@open-hieco.net>, linux-kernel@vger.kernel.org,
 X-Mailer: b4 0.13.0
 
 A sched domain rebuild, from CPU hotplug or a cpuset partition change,
-moves every active CPU to a new root domain through rq_attach_root().
-It does so by taking the CPU offline and back online, and
-rq_offline_fair() and rq_online_fair() then walk all task groups with
-the rq lock held and interrupts disabled, so a rebuild costs
-O(nr_cpus * nr_task_groups). Dietmar pointed at the offline side when
-f60a631ab9ed was reviewed [1]. Hosts running AI agent harnesses
-commonly carry over a thousand cpu cgroups, and their VMs hot-add vCPUs
-at run time.
+calls rq_attach_root() for every active CPU. rq_attach_root() takes the
+CPU offline in its old root domain and puts it back online in the new
+one, running all rq_offline() and rq_online() callbacks with the rq
+lock held and interrupts disabled.
 
-Based on Prateek's patch [2], patch 1 gives root domain moves their
-own sched_class callbacks, which only rt and dl implement.
-Patch 2 keeps CPUs that stay active online across a rebuild and moves
-only their root domain state, so fair is no longer called for them.
-Patch 3 drops a check in fair that patch 2 leaves dead.
+For fair, that walks all task groups twice per CPU: rq_offline_fair()
+in clear_tg_offline_cfs_rqs() and rq_online_fair() in
+update_runtime_enabled(), although nothing they maintain changes for a
+CPU that stays active; tg_set_cfs_bandwidth() already keeps
+runtime_enabled in sync on online CPUs. A rebuild thus costs
+O(nr_cpus * nr_task_groups), and hosts running AI agent harnesses
+commonly carry over a thousand cpu cgroups.
 
-With 4000 cpu cgroups on a 32-CPU VM booted with rt_group_sched=0
-(median of 20 partition switches and 16 hotplug operations, both
-kernels measured in the same run):
+Keep a CPU that stays active online and move only its root domain
+state with the rq_attach_root() and rq_detach_root() callbacks. A CPU
+that comes up is still put online by the rebuild in
+sched_cpu_activate(), and one that is no longer active is still taken
+offline there.
 
-  operation       base (ms)  patch 1-3 (ms)  change
-  partition root      15.97            1.19    -93%
-  cpu offline         49.66           15.74    -68%
-  cpu online          37.39           13.33    -64%
+With 4000 cpu cgroups on a 32-CPU VM booted with rt_group_sched=0,
+switching a 4-CPU cpuset to a partition root and offlining or onlining
+one CPU take (median of 20 partition switches and 16 hotplug
+operations, min-max in parentheses):
 
-Each rq_attach_root() call, which runs with interrupts disabled, takes
-(1280 calls over the 20 partition switches, change of the median):
+  operation       before (ms)           after (ms)           change
+  partition root  15.97 (14.76-35.88)    1.18 (1.14-2.26)      -93%
+  cpu offline     49.66 (42.11-58.82)   14.49 (12.71-23.19)    -71%
+  cpu online      37.39 (33.40-41.99)   13.70 (9.65-16.53)     -63%
 
-  kernel      median (us)  p90 (us)  max (us)  change
-  base                229       265      1335
-  patch 1-3             1         1        10    -99.6%
+Each rq_attach_root() call during those partition switches takes (1280
+calls, change of the median):
 
-Partition switches and onlining no longer grow with the number of
-groups; offlining still walks them once for the CPU that goes down.
-With RT_GROUP_SCHED enabled, the rt.c runtime walks remain.
+  kernel  median (us)  p90 (us)  max (us)  change
+  before          229       265      1335
+  after             1         1        26    -99.6%
 
-[1] https://lore.kernel.org/r/dbd36b16-4acb-415a-9bbd-258b2e022475@arm.com
-[2] https://lore.kernel.org/r/e1a63a3c-3975-4b05-8ab4-518c37d867d6@amd.com
-
+Suggested-by: K Prateek Nayak <kprateek.nayak@amd.com>
 Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
 ---
-V2 -> V3:
-- Give root domain moves their own rq_attach_root() and rq_detach_root()
-  callbacks, implemented by rt and dl, and keep CPUs that stay active
-  online across rebuilds instead of passing a hotplug argument to
-  rq_online() and rq_offline() (K Prateek Nayak)
-- Keep putting a CPU that comes up online from the rebuild in
-  sched_cpu_activate()
-- Move the removal of the active CPU check in
-  unthrottle_offline_cfs_rqs() into patch 3
-- Update the numbers from a new run
+ kernel/sched/core.c     | 27 +++++++++++++++++++++++++++
+ kernel/sched/sched.h    |  2 ++
+ kernel/sched/topology.c | 20 +++++++++++++++++---
+ 3 files changed, 46 insertions(+), 3 deletions(-)
 
-V1 -> V2:
-- Pass a hotplug argument to rq_online() and rq_offline() instead of
-  adding a member to struct rq (Peter Zijlstra)
-- Skip both fair task group walks on rebuilds, which leaves no second
-  loop to merge
-- Rebase onto tip/sched/core, where sched_ext no longer implements
-  rq_online() and rq_offline(), and update the numbers from a new run
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index ca920a302ecba..49a0cee90a834 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -8580,6 +8580,33 @@ void set_rq_offline(struct rq *rq)
+ 	}
+ }
+ 
++void rq_attach_root_domain(struct rq *rq)
++{
++	struct root_domain *rd = rcu_dereference_root_domain(rq->rd);
++	const struct sched_class *class;
++
++	cpumask_set_cpu(rq->cpu, rd->online);
++
++	for_each_class(class) {
++		if (class->rq_attach_root)
++			class->rq_attach_root(rq);
++	}
++}
++
++void rq_detach_root_domain(struct rq *rq)
++{
++	struct root_domain *rd = rcu_dereference_root_domain(rq->rd);
++	const struct sched_class *class;
++
++	update_rq_clock(rq);
++	for_each_class(class) {
++		if (class->rq_detach_root)
++			class->rq_detach_root(rq);
++	}
++
++	cpumask_clear_cpu(rq->cpu, rd->online);
++}
++
+ static inline void sched_set_rq_online(struct rq *rq, int cpu)
+ {
+ 	struct root_domain *rd;
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index a24801d2058b4..1ceef4af26bc8 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -3534,6 +3534,8 @@ static inline void double_rq_unlock(struct rq *rq1, struct rq *rq2)
+ 
+ extern void set_rq_online (struct rq *rq);
+ extern void set_rq_offline(struct rq *rq);
++void rq_attach_root_domain(struct rq *rq);
++void rq_detach_root_domain(struct rq *rq);
+ 
+ extern bool sched_smp_initialized;
+ 
+diff --git a/kernel/sched/topology.c b/kernel/sched/topology.c
+index 99878da03bce7..cc2bc832dad1a 100644
+--- a/kernel/sched/topology.c
++++ b/kernel/sched/topology.c
+@@ -488,14 +488,26 @@ static void free_rootdomain(struct rcu_head *rcu)
+ void rq_attach_root(struct rq *rq, struct root_domain *rd)
+ {
+ 	struct root_domain *old_rd = NULL;
++	bool active, move = false;
+ 	struct rq_flags rf;
+ 
+ 	rq_lock_irqsave(rq, &rf);
+ 
++	active = cpumask_test_cpu(rq->cpu, cpu_active_mask);
++
+ 	old_rd = rcu_dereference_root_domain(rq->rd);
+ 	if (old_rd) {
+-		if (cpumask_test_cpu(rq->cpu, old_rd->online))
+-			set_rq_offline(rq);
++		if (cpumask_test_cpu(rq->cpu, old_rd->online)) {
++			/*
++			 * Keep an online CPU that stays active online and move
++			 * only its root domain state.
++			 */
++			move = active;
++			if (move)
++				rq_detach_root_domain(rq);
++			else
++				set_rq_offline(rq);
++		}
+ 
+ 		cpumask_clear_cpu(rq->cpu, old_rd->span);
+ 
+@@ -512,7 +524,9 @@ void rq_attach_root(struct rq *rq, struct root_domain *rd)
+ 	rcu_assign_pointer(rq->rd, rd);
+ 
+ 	cpumask_set_cpu(rq->cpu, rd->span);
+-	if (cpumask_test_cpu(rq->cpu, cpu_active_mask))
++	if (move)
++		rq_attach_root_domain(rq);
++	else if (active)
+ 		set_rq_online(rq);
+ 
+ 	/*
 
-CPU hotplug and partition flips were also run with SCHED_FIFO tasks
-(rt_group_sched=1, RT_RUNTIME_SHARE on and off), SCHED_DEADLINE tasks
-and scx_simple loaded, plus the sched_ext selftests, with the same
-results as on tip/sched/core (b251360cb2e6c).
-
-v2: https://lore.kernel.org/r/20261118-bug-sched-fair-offline-active-v2-0-b6ede596c6a6@linux.dev
-v1: https://lore.kernel.org/r/20261111-bug-sched-fair-offline-active-v1-0-4f54523c5a70@linux.dev
-
----
-Qiliang Yuan (3):
-      sched: Give root domain moves their own sched_class callbacks
-      sched: Keep CPUs that stay active online across root domain moves
-      sched/fair: Drop the active CPU check from unthrottle_offline_cfs_rqs()
-
- kernel/sched/core.c        | 31 +++++++++++++++++++++++++++++++
- kernel/sched/cpudeadline.c |  5 +++--
- kernel/sched/deadline.c    |  8 ++++----
- kernel/sched/fair.c        |  4 ----
- kernel/sched/rt.c          |  8 ++++----
- kernel/sched/sched.h       |  8 ++++++++
- kernel/sched/topology.c    | 20 +++++++++++++++++---
- 7 files changed, 67 insertions(+), 17 deletions(-)
----
-base-commit: b251360cb2e6c7b74d962831f5797a4520511b36
-change-id: 20261111-bug-sched-fair-offline-active-8d063e735d3f
-
-Best regards,
 -- 
-Qiliang Yuan <qiliang.yuan@linux.dev>
+2.43.0
 
