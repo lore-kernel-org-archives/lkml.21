@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795266365;
-	b=P7qk7smkOgfCGIdtwkKcur2C3HoGP/Db18Sp8Cjp5y2QD3rSDD6ktQlSLILwi6w/rCHB
-	 2FlfieHlPTKKfcuOpDLGz/uL4qmWrchTvBgHUmfFyqt3fmAkkrJSoD2lluX/FAxOMK852
-	 o5sBBdO4OcemCM3dvFbvKuE3Icxve2jLO1PdUclSxRyG8bUfeNlqBDTqvf3LQYdtGifLV
-	 HKD8nVlcxpWMGYeZQkv5T7VsAmOIHv8YKd1L+hVPS9ujdaaD7SZsuYfWhhAy5E7I6QqrB
-	 /6MPinm0EypEFAGr/v/UbLKNxcm1carfLjGR2/49MKeJmqESLCqdoWUS0kvuZbjt4Qg==
+	t=1795266446;
+	b=N2fa4GvT3VmyiKODuquxZaV7np7qwAL/vYIC+3rlSXs8Nl6sywzHN9lOLuSacFUGvq6w
+	 pwhPFJSXo4PpO6CJKs5nFhD6Ih3hOaFZYN8edcXz0nj13czH7nmhlXn6VjJESjpwZ1vp2
+	 pZj1Kwt5INmKMRX8FfsjX8JNhXpI18yJYuWaedwTwYTj3GTQ0r8/iQ2rsGLFS4mqKXBeu
+	 C7lm6uifdauhzehejHIN+O4i/nWSN01e6a/gZXzcKVArMOkkgl1fVZvn/WFYCfyKUbREJ
+	 gIlmjRbnueF8cKXIeLiwAYSgIeJperyrtYDrawUy2EqSQTURZey4MmTew+u1DA9LSwQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795266365;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795266446;
 	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
 	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=7rHfx2XAqBmbSywEyiIwBXdgo8NxbqZDE7ZkTit84No=;
-	b=e+mv+aQmls/EgDvCZjIi5sfxX7GCk6C2gOTtr6J6un52xpJZln3KEK4ZbJmjFdFHWdp4
-	 RBVkKmBjMgrr4Y8fF2M8aOuJjwEWxwDovepQD9WemxGARTrzaM7bo++Y8fhipDDBcNr6d
-	 qJjh1Q3liESpQ9ez6HEgxnLUXDqJuqFlwY8KRkh9Ka9JABY7c2F69lIcyxfZQhT+4mW+D
-	 +NTpiTrJD33DS7lt+HdHx7Ssd+DFJbOVjlNpSefT3U2Cb0wTg5LgfPiWJjutM+0DvuyFJ
-	 FR4zNM6lv/gPhrVY/WKcfdpgP9NtZxuF34ZjWKuAgi85c1CQpo7eIHM7xyz2ETrxvvQ==
+	bh=ITRcNXOGOzf6fXvRxjYIfxCqRsSC7OU7PGM7ioDWcls=;
+	b=T8+5dF15CUv0KC+cD4dfLO06YEy/+jSfD4sZbGEIwQ8ov6TbvaT1dw6L/4ELPAmL+Bf8
+	 12mpOoTNx3tVbN+E1uxvAq8rixEFA+D4Co9Gh4UAnDi2gG35BofR/qWQbgdRU5we7WNZf
+	 5JX8vmqUPEpMfqvSXVPf7uFsgP+2E/nfQt1Am+KYDffT0KKLTJk0Js6CmHDWaePLDeC2r
+	 a111Ul39yFYj3uBKUT0FeB3sOowifmdDgFLMqSoBhKAOgaMV2ZdVt3JwtWyylyfvYcugp
+	 jVpvoG8Vc/VguvhcYt7S98586SpasOaVLFBXiRyxASe/R9ShZfTCBPlqBNlFKgSsZZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V2fyUQwW;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EAqpF+Kv;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0C5E606A32A;
-	Sat, 21 Nov 2026 13:06:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FD30606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:07:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V2fyUQwW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27E171F000C0;
-	Sat, 21 Nov 2026 13:05:58 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EAqpF+Kv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F3151F000C4;
+	Sat, 21 Nov 2026 13:07:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795266365;
-	bh=7rHfx2XAqBmbSywEyiIwBXdgo8NxbqZDE7ZkTit84No=;
+	s=k20260515; t=1795266445;
+	bh=ITRcNXOGOzf6fXvRxjYIfxCqRsSC7OU7PGM7ioDWcls=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=V2fyUQwWqcoCYUdbntUFFnDiAiyD2pNLByernr4+NUcaOy58il+sbgW+Qj4C5YFY3
-	 msz+MfNamx6uq42RRY0b7Ei/6zjpyaU6n5OJ87OdP2E55M00nX8W02Jp00Wk/PzMTe
-	 LQ1DxQnoh96+PLGuh875I1tqudoL6B7zlrvYf7nzgVQvOQd0b3oHrX1WJqfHXoglrQ
-	 MJFiDRLvFlqpyxOPTaERj+vKFeoYwkrZ1YHM4Gj0qoJ4OKMOjeeoZ+5gFbFvk1hZOL
-	 GyOHEBck2GLBnsMNCVUqnJU+UneTTVLp/5tr4bV0M79W/6QptXsQ9ZQAPIsrTuUFLU
-	 +bnc3xKNMbUTA==
-Message-ID: <c26b8002-c246-45cb-bca0-8f596a2a425b@kernel.org>
-Date: Sat, 21 Nov 2026 14:05:57 +0100
+	b=EAqpF+KvlLeO6kE5YykOqSIJ9ejXREbKBnhV7ry++oRciNc1vR0VgN24cdQ5xbFHW
+	 puchot6OjxmhQRuLsCDS89gPLMeqf3QBvWPwNWvcv/06IGHesIyDPqc/iz+2GmfTrM
+	 t93R7oLVzxFc2dyKUIaCEI/RP2/bmAAp6B4AsUspIrCwLVyVa9KHQdWvgDr4if+11g
+	 XxHIyQebpg3XQQ14sd3EYNBn7litRoH2UhXZ8E8ZFGFgV70gaQmQiI75ruU0aMIrGm
+	 aiitkQIrC3zivfKa4BtO/2Fl2lMTyMsUO8SzuEiUVZ7mS7xEtPjeH0KbMm4cbTX1wz
+	 9WFfFHzMo5yxw==
+Message-ID: <0c228778-1091-421e-9caf-2a476bf5ee1e@kernel.org>
+Date: Sat, 21 Nov 2026 14:07:21 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,82 +52,112 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 1/4] crypto: qce - convert to auxiliary bus
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Thara Gopinath <thara.gopinath@gmail.com>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>,
- Stanimir Varbanov <svarbanov@mm-sol.com>,
- Eneas U de Queiroz <cotequeiroz@gmail.com>,
- Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
- Eric Biggers <ebiggers@kernel.org>,
- Demi Marie Obenour <demiobenour@gmail.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Russell King
- <linux@armlinux.org.uk>, Abel Vesa <abelvesa@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, brgl@kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Pankaj Patil <pankaj.patil@oss.qualcomm.com>
-References: <20261120-qce-fix-self-tests-v12-0-b5a2a44bc5ae@oss.qualcomm.com>
- <20261120-qce-fix-self-tests-v12-1-b5a2a44bc5ae@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [patch v6] mm: vmstat_kunit: add synthetic benchmark for mm stats
+To: David Rientjes <rientjes@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: Christoph Lameter <cl@gentwo.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Sarthak Sharma <sarthak.sharma@arm.com>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <21183f5b-2697-cbe6-6370-dbd27c5e2b60@google.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261120-qce-fix-self-tests-v12-1-b5a2a44bc5ae@oss.qualcomm.com>
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <21183f5b-2697-cbe6-6370-dbd27c5e2b60@google.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 20/11/2026 20:34, Bartosz Golaszewski wrote:
-> This driver is disabled in arm64 defconfig but one of its
+On 11/5/26 02:53, David Rientjes wrote:
+> From: Christoph Lameter <cl@gentwo.org>
+> 
+> Add a synthetic benchmark that can be used to measure performance of MM
+> statistics.  This is used to analyze any improvements or regressions in
+> functions that are frequently used in hot code paths.
+> 
+> This is the first of three tests that measure the execution times of
+> critical MM functions anticipated to be used by developers to measure the
+> impact of any core changes that would end up causing workload performance
+> issues.  Vmstats are embedded into MM hotpaths, so any regression can
+> cause performance and scalability impact for users.  Google has carried
+> these tests internally and kept them updated since Christoph posted them
+> back in 2009 for this purpose.
+> 
+> This can also be used to detect regressions over time, from kernel
+> version to kernel version, independent of development use cases.
+> 
+> The test is run by KUnit or doing modprobe vmstat_kunit directly.
+> 
+> Sample output:
+>  KTAP version 1
+>  1..1
+>  KTAP version 1
+>  # Subtest: vmstat
+>  # module: vmstat_kunit
+>       1..3
+>       # vmstat_test_inc_dec_zone_page_state: 10000 ops: inc_zone_page_state -> 8 cycles (4 ns/op), dec_zone_page_state -> 9 cycles (4 ns/op)
+>       ok 1 vmstat_test_inc_dec_zone_page_state
+>       # vmstat_test_interleaved_zone_page_state: 10000 ops: inc/dec pair -> 17 cycles (8 ns/op)
+>       ok 2 vmstat_test_interleaved_zone_page_state
+>       # vmstat_test_count_vm_event: 10000 ops: count_vm_event -> 4 cycles (2 ns/op)
+>       ok 3 vmstat_test_count_vm_event
+>  # vmstat: pass:3 fail:0 skip:0 total:3
+>  # Totals: pass:3 fail:0 skip:0 total:3
+>  ok 1 vmstat
+> 
+> Assisted-by: Gemini:gemini-3.8-flash
+> Signed-off-by: Christoph Lameter <cl@gentwo.org>
+> Signed-off-by: David Rientjes <rientjes@google.com>
 
-That's true for next, but your patch #3 seems to disagree. That's
-confusing. Maybe you meant disabled for arm64 platforms or marked as
-broken? Because anyway defconfig does not matter here - even if drivers
-are not enabled in defconfig (so stay disabled), they should not be
-affected with unbisectable changes.
+Thanks!
 
-Best regards,
-Krzysztof
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+
+@Andrew, can you do the honors and queue this?
+
+-- 
+Cheers,
+
+David
