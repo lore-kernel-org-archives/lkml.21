@@ -1,74 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795287687;
-	b=1pMwhMSfuE6aRgHfZ5g6fg+eWOQkuj0ZJy3tXGZDPsFjr4PafoZDGLVOzfRZMEtx2fs6
-	 90rRO2x8PYmnoX3ihPKSlFiEr0AUccCTVGOHolyYb3n00Ly2OMcNhAWL8zYFkGbkm2zgs
-	 LTuJM8DbHjnzh4LXEmghsG76Q4MLrPVkQP2paSlR0GrXuvwDzKS+x7nR1jzfinKRGodMJ
-	 Kpc0WB8WrrCK3VM7aa83JgLqJE4jwkndbHClwP3nqpEvEsJmfMJtLWiNLgT7KUccX5HHU
-	 UBA3SDHCzdGo6JGdDQPu1PuygVu5EbcXHzc22R7XBH8dCjaTcrUk7nuVKWW311I4pvg==
+	t=1795287703;
+	b=dhYtlWZ2DCydvdYycOwG5ymqjkClihWFbf4TmmxNK6iS4H1U0MiiCvfZjQdNaHvweg6n
+	 jUfxFKGbqgQti3sKtvJVZfotR06fzgm/JHCNH6XYTcGTw4YASZSI0mk/RzLGqTTiEb0ek
+	 G3160X2V4H2mE0DT81BzybrrUo6dHWz2JdPjRA3ELuUs6VkxYX2Jz0p45ocgiUxaOqnFW
+	 ha8ieMi/+L9dtubGxpFpRrDNZR+zw3YXNhVpl1H85P9Z3WK+hvHIRHyj8PytfPJNqI3al
+	 KsF2Bxy+PeEGK0Q5mfJLfHtmxyvau051rdbni/7/2olKBQfbtIZECBZyFg8k1XPrvqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795287687;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=npJISL2k/U3/3aMtKq93LtOIkv0lviALR3+CkGMlie0=;
-	b=p9zzLt0FiS1yiQHiJacsUriTfQjji8ZOIZ50LD5Gmg2/U7iS9Xrgrac9PnNX9s4WqnBl
-	 s0c+32YmaTUq9SkA1jG8GdNEVG3lZ+B4rr//eTCXV7w72xK+CzOKjPXRzzocul3Tcdt9+
-	 P/vFvixEUXOHKu3qLsEfYkQv2b7mQV8+v/ycySpGy4Q8Wp2GHa7hYJ7/wVSgWGqDxtdqN
-	 SvM+78VBFytIPRbK+o1IupWzOlOksBvjDPgjosCa0u/Tvxk2zqJEYmslCQzyucXtkE796
-	 8PfDr/0+W3a6mE1qbzMi6cozf7eex/Sg8CevIxwWPJJZBSGhhujmspZQuyFR0oWMUXQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795287703;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=BWcYwG6aYUBcbIFd7axL29ZYREg4eBT0tDh0uF2VbWA=;
+	b=EmqoJ/IJ+PCSHvSz3dGt6WnPMiislszytm5LTtVedTtCeWtsqIccA+p2QnwDE9bhlfXn
+	 v8QnSebwU5AC8TqbGwqgViib32/qM3C6WUPnByqe4tHAJ4HUKYgXPcDGQplz9nFVavsPc
+	 kRdWU9WkpfoJJLQy/O4KTap5Fl0gWVH3WjTQOQMCz2E1EWV4+3b1D3e+gNxsNSIIGS4og
+	 g+grwbslcaoPWnwJZRer7o1fEvbnpicLA3AoxugzFEHWm6WKvK1ote+D7JnhjJIgCBYtq
+	 LWzhWM+VJXUylo2zBJub6xv+v8E2D0zhcTIyd5nrRqsOjKcyoKeTKaxhGtr8Nk0mjcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="Wl/gO4RR";
-	arc=none smtp.remote-ip=209.85.214.198
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lSGjrwz2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B1D9606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:01:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B1D9606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25BD8606A320;
+	Sat, 21 Nov 2026 19:01:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Wl/gO4RR
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2f05b674e3eso8884045ad.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:01:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795287686; x=1795892486; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=npJISL2k/U3/3aMtKq93LtOIkv0lviALR3+CkGMlie0=;
-        b=Wl/gO4RRcivDQLsntARvYG5i9p4EkTTFyeNOCu7pbNdwX1PiyyiWgpK4rueNSQWcLo
-         XOGb2CUIIIR9iui+ZEvMa/lG2NnozK90NDKD7y3hCsV7m7ZZVpiYePcIzJAnfcycAanR
-         wRZwQiFlsPmvOH3foUkiCFdUgahJtEjydLm0wKVCHwFYXwne9F5hqY3cTc6oc4cqmfKp
-         zij1cKiyUZ6eNcP6nbkTtQYnqUvHPSkVN69cIJSrWfS4y+KGbCoH2hLUEpQ5TEmnS/bc
-         oONd6xfAYmmCL6aLoa1yNg6JW9yCI9lB8v18uyV/9zt8iFfqUeGSAGSS6RJZ1D4z0eS7
-         +0Rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795287686; x=1795892486;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=npJISL2k/U3/3aMtKq93LtOIkv0lviALR3+CkGMlie0=;
-        b=2iRFYdJtdCYcOdTrGmNqFva9L5+DzJvBMY2gJSIX6jnT0PwHPN8gmHetQchTM88Iuh
-         MQ2ECnkUm8tWSLVfpotr9/j1fiySbDS+YH9AYge+HPF3DpVWx5pqL70X74lA/Z6aK3yb
-         dOV4l20YTM0Ww13jIC7Oeg7mIGDJRPcPvmPNcj4a40LgF4/0XUi7UUG/XJjcwxTnliaI
-         hrfjAxJlwl+hIYGZZBIxs3Gc7HtWn9dUbmwCkv7gWwIckGjxsMzY6sfm68OiHhSB9EA0
-         Z8Bemyc6jW4vGJvRTbW2TARAPzaWq1PYuTrreCjldpYzPMg8WTnifCB148CRKoksN5CX
-         /SMg==
-X-Forwarded-Encrypted: i=1; AL+hErHryvj18aKw9Ud3U49OGHhdj0kCMCw69+ldwG9GWvW+QvQnhOKtAE4Dey/0m1Yl2IGOG771hollVQQFS1k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z98ZBH57rTxpnDZxFD8AK8+FNVYUqFTNE7N1ZRG4Q5RbGo0kkI4
-	qhBGTbwq25CDZV7cVDcmRoECYELdKNb9MzxZvbZeG6K2/8SmpbWjXNBjuI17cea7+8iqurk9x93
-	LcQNfbw==
-X-Received: from plgs18.prod.google.com ([2002:a17:902:ea12:b0:2ef:a639:8b2f])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:b0e:b0:2ef:ced4:35e8
- with SMTP id d9443c01a7336-2f03f1e0d60mr67172675ad.52.1795287685430; Sat, 21
- Nov 2026 11:01:25 -0800 (PST)
-Date: Sat, 21 Nov 2026 19:01:24 +0000
-In-Reply-To: <20261119100414.13635-1-zihengw03@163.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lSGjrwz2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 574D21F000C0;
+	Sat, 21 Nov 2026 19:01:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795287702;
+	bh=BWcYwG6aYUBcbIFd7axL29ZYREg4eBT0tDh0uF2VbWA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=lSGjrwz2ZCGchBhzRYqIFUmDmqtnPb3JTcKrWTzIf9+IRtzpIBxocqWXRhiULJbuw
+	 Bj+jtGEL01EmLnnviJNvMNvoRHtjFXyCB7vHybAmdSwcm3TJEg18ICj6/9IiG+XQAc
+	 /YZ8qtauEW0Di/2DPMG+njsDN9xzvo+hdDlZ61W+l1n2/j8qmsNHxscoVs5Sjshyrm
+	 54s9TKNiWr60iNNVmz+SN7oZO0aXhf2ROuDTy0TvrgABUfQWi3DuuQ7Jf5zvcSYiuV
+	 5LsNqoaq012FSmzqNCK6XzTThQGpB40Rb0kvu0awrwYyGXj4UpReOPx06+9RtNvSzu
+	 6fc2nVSCc0ndg==
+Date: Sat, 21 Nov 2026 19:01:38 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Rupesh Majhi <zoone.rupert@gmail.com>
+Cc: Andy Shevchenko <andy@kernel.org>, David Lechner
+ <dlechner@baylibre.com>, Eddie James <eajames@linux.ibm.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Jonathan Cameron
+ <jonathan.cameron@oss.qualcomm.com>, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Arnav Kapoor <kapoorarnav43@gmail.com>
+Subject: Re: [PATCH v2] iio: pressure: dps310: read the first temperature in
+ probe
+Message-ID: <20261121190138.7a8f4bd9@jic23-hlaptop>
+In-Reply-To: <20261121182527.34489-1-zoone.rupert@gmail.com>
+References: <20261121182527.34489-1-zoone.rupert@gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,43 +62,73 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261119100414.13635-1-zihengw03@163.com>
-Message-ID: <awHqf1s90w124GpI@google.com>
-Subject: Re: [PATCH net-next v2] net: do not use SOCK_INODE() in sock_init_data_uid()
-From: Kuniyuki Iwashima <kuniyu@google.com>
-To: Ziheng Wei <zihengw03@163.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Thu, 19 Nov 2026 18:04:14 +0800, Ziheng Wei wrote:
-> Since commit 5d6b58c932ec ("net: lockless sock_i_ino()"),
-> sk_set_socket() reads i_uid and i_ino through SOCK_INODE(sock).
-> sock_init_data_uid() calls sk_set_socket(), but its only direct users
-> are tun and tap, which pass &tfile->socket and &q->sock. Those sockets
-> are embedded in struct tun_file and struct tap_queue, not in a struct
-> socket_alloc, so SOCK_INODE() points at whatever follows the socket in
-> those structures and both reads return unrelated data.
-> 
-> sk_uid is overwritten a few lines later with the uid passed in, and
-> nothing reads sk_ino of a tun or tap socket today, so the result is
-> not used. The reads themselves are still out of type, and with
-> CONFIG_RANDSTRUCT the inode fields can land beyond the end of struct
-> tap_queue.
-> 
-> sock_init_data_uid() was added so that tun and tap would not use
-> SOCK_INODE() on these sockets. Set sk_socket directly there, clear
-> sk_ino, and let sock_init_data(), whose sockets always come from
-> sockfs, fill in sk_ino.
-> 
-> Found by LLM-assisted source review and confirmed by code inspection
-> only; the out-of-type reads were not triggered at runtime. The fix was
-> build tested only; it was not run against selftests.
-> 
-> Fixes: 5d6b58c932ec ("net: lockless sock_i_ino()")
-> Signed-off-by: Ziheng Wei <zihengw03@163.com>
+On Sat, 21 Nov 2026 20:25:27 +0200
+Rupesh Majhi <zoone.rupert@gmail.com> wrote:
 
-Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
+> The first temperature read is in dps310_fifo_interval() instead of
+> probe. That function is called with data->lock held and takes it
+> again, so enabling the buffer without a trigger deadlocks.
+> 
+> Move the read to probe.
+> 
+> Fixes: 903941a9b06a ("iio: pressure: dps310: don't wait for new temperature in trigger handler")
+> Signed-off-by: Rupesh Majhi <zoone.rupert@gmail.com>
+
+> ---
+> v2: return inside the guard scope (Andy)
+> v1: https://lore.kernel.org/linux-iio/20261119190827.36947-1-zoone.rupert@gmail.com/
+> 
+> Based on iio togreg, fine to squash into 903941a9b06a instead.
+Squashed and fresh togreg pushed out. 
+> 
+> Tested on a DPS310 on a BeagleBone Black: enabling the buffer without
+> a trigger works.
+> 
+> Cc: Arnav Kapoor <kapoorarnav43@gmail.com>
+> Cc: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> 
+>  drivers/iio/pressure/dps310.c | 14 +++++++-------
+>  1 file changed, 7 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/iio/pressure/dps310.c b/drivers/iio/pressure/dps310.c
+> index 9b52cbc2372a..fc727e5fcd59 100644
+> --- a/drivers/iio/pressure/dps310.c
+> +++ b/drivers/iio/pressure/dps310.c
+> @@ -1058,16 +1058,9 @@ static unsigned int dps310_fifo_interval(struct dps310_data *data,
+>  {
+>  	unsigned int drain_interval_ms, fill_ms, want_ms;
+>  	int scan_rate;
+> -	int rc;
+>  
+>  	fill_ms = MSEC_PER_SEC * DPS310_FIFO_DEPTH / (prs_rate + tmp_rate);
+>  
+> -	/* Pressure compensation needs a temperature from the start */
+> -	scoped_guard(mutex, &data->lock)
+> -		rc = dps310_read_temp_raw_locked(data);
+> -	if (rc)
+> -		return rc;
+> -
+>  	/*
+>  	 * There is no hardware watermark, so take it as the number of scans
+>  	 * the user will wait for and drain at that rate. Scans come from
+> @@ -1478,6 +1471,13 @@ static int dps310_probe(struct i2c_client *client)
+>  	if (rc)
+>  		return rc;
+>  
+> +	/* Pressure compensation needs a temperature from the start */
+> +	scoped_guard(mutex, &data->lock) {
+> +		rc = dps310_read_temp_raw_locked(data);
+> +		if (rc)
+> +			return rc;
+> +	}
+> +
+>  	/*
+>  	 * The device measures continuously in background mode, so a triggered
+>  	 * capture is just a read of the latest results. The setup ops run the
+> 
+> base-commit: 903941a9b06ae445c70646ab061b604c2dea17d3
+
