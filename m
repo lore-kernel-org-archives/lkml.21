@@ -1,82 +1,146 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795303613;
-	b=z7uFgDPpiTIWH8PFpyzQt7rM4U7E9FLgZzISrvsx9X8KNYJpmscuzQstbAnsODmsqJBY
-	 vtfbtAJ5peWuyx7wvXvKc8/no32uJLzXFRE1d5tLHmRP5d9+YNPtWQiMH6o3g+buva9Tr
-	 Qyx+MwSCzQ2XpVqO3G4am/RxSugi37bQ0N3QxG+afxuHglISn2Z2Qcp2cjc5tr18auxq2
-	 8kdFHSjECmDRCT8+/dvWRvTN+G6AFjnHbFQv+9zR0ib5t2OkrVmYLOWQCxyz0kiXu21/p
-	 xE2uDcLiTIkvZyYbiMHPj1loKB1VRi1wAVLX1Ownm+q12YGFzptOs5kk4oQAfUMEd3g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795303613;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=OOpwGb6iiRpdbvFji5HfQ31pzcfgzMGcOtAI0T14btY=;
-	b=dYDppuSojvCGOMMbGAjymQQuU5xJnsyQpQBnXBO4UegK/IwK5S8KJ1INDgUObXfxPmdo
-	 P2krb7b5+sPpKarBTkLB0RyefJ+7vHxozixSVxk1d5JLzbX0lbYQ5dbNo0GZgqVw6V624
-	 wDwBPvnOAxIQeoZLET2pdPTshwQkC4/N5MVvEXdiC1BfVxsOSOp9m3OY9vXcvOvDFIcQH
-	 tERLqWkEfKm+9baAkRPVnWtGK9n32eW3+MkgfQAkygJc/z6LI8SDiz3h3cLYJ+dbJktO1
-	 k1ZcPrgX+KuvImQcLbOWl5NaUnu8pxOe376dZ5u3bLkRasKwvER2naC0aXeovXMJ6LA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aRyetPek;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.7.79
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795303827;
+	b=fnzrN9mi27Hnjd6ksj+u6NgVG/rDOpFT35yMIFwGz9Ho82glhfcKn/AW9T5lhHsAB5TY
+	 yQPrluJreqTQnW7Owz9iB05zy3XvdClbbOpVTq6tSEiz3r/YaBvx41f+UuJhNIyifbv7B
+	 kjYSrQvcn+c8wmO5qT0ZbwyHn0HzrK5Lx2YncBvXCiYCogd0D3VDOvdSKMehqtmu6JSUp
+	 8LPhT6AbMvnbQqHNWnXKQsVWLIW1UCnPYRSo2xIH2LDURmR9il9G7VjWMm2Yy7rNos1/4
+	 AithNyEBM6OweY4jc+tt35PwJp0TfObMARnk/DePyYnRLAt9HD/qxvqmBUJY77a+31w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795303827;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:
+	 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=u/tdSQCt9uPRoFdbm09xraXhCxmPlz/CUDR5i1yBOvE=;
+	b=131Z0Wznr3AsL2oqmA/r5AjjzEpXh2LMJ91ovC4zndgjGkXrylpj8ydZ72Harjk/cyBy
+	 QPFIHPVGDwKnmeC0QqHmit8YMa3M5rb9CKr+SKqsd3m6XyBuC3yFtKqmb9/oK3HYPOL29
+	 pvWKWce5AicJZsJJKNF4VkOltNFxSjg28craLHlshvaGxbJA03uqllbEMV6VlgSKmGi7/
+	 FpIBpnhMb7l8obeWTWiAHId+q+B6n5aQjQZiur3h+vPtYBRnDPsYBqW5M9LL2WoMWFA0x
+	 uFIvvHsubzC86Brc0wNfaBJ6EYqZD6TLHp9y572hjgg4mkW5bAXdCeoqDY81wO5NqCw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=outlook.com;
+	spf=pass smtp.mailfrom=outlook.com;
+	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=UHo7fSKC;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.7.79
+Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazolkn19013079.outbound.protection.outlook.com [52.103.7.79])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D340606A32A;
-	Sat, 21 Nov 2026 23:26:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B513606A320;
+	Sat, 21 Nov 2026 23:30:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B513606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aRyetPek
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0426B1F000EE;
-	Sat, 21 Nov 2026 23:26:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795303612;
-	bh=OOpwGb6iiRpdbvFji5HfQ31pzcfgzMGcOtAI0T14btY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=aRyetPekwe4RbB8YSlDry+M3TnERMsNfNHzSgTEHZFZ8cjWkZYT3JrkUbQmbB1wzh
-	 Jd2/64UeFsUvVok/W7mZP3n31quR4OV0eeEBbuKToz1XNX926hfI/+XWQff8ylbb88
-	 ZbawQ3F00Xi6u4NvkC/19IsXQ1a0O8Qdc/iYuBzwSKMdDXGvs2ifdDxRxgruXuWwSB
-	 MiyV3xHSoir7BgHfrPQ5757bnAaPRWwDBiVAH8X5a7LpogHOGqYj0LVVwJo6P27VnJ
-	 MbHY1QrIdTMlPkZEGLvcfJfCA5OmCHadD7cvIJan60nyEAXPToTxgvlSKdNmL/F4FL
-	 z+oMRsP790Qlw==
-From: Jakub Kicinski <kuba@kernel.org>
-To: ansuelsmth@gmail.com
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	horms@kernel.org,
-	corbet@lwn.net,
-	skhan@linuxfoundation.org,
-	rdunlap@infradead.org,
-	lorenzo@kernel.org,
-	hkallweit1@gmail.com,
-	linux@armlinux.org.uk,
-	maxime.chevallier@bootlin.com,
-	p.zabel@pengutronix.de,
-	nathan@kernel.org,
-	ndesaulniers@google.com,
-	morbo@google.com,
-	justinstitt@google.com,
-	rmk+kernel@armlinux.org.uk,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	llvm@lists.linux.dev,
-	zhengping.zhang@airoha.com
-Subject: Re: [PATCH net-next v22 09/15] net: phylink: support late PCS provider attach
-Date: Sat, 21 Nov 2026 15:26:50 -0800
-Message-ID: <20261121232650.1365455-1-kuba@kernel.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261117123956.11981-10-ansuelsmth@gmail.com>
-References: <20261117123956.11981-10-ansuelsmth@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=UHo7fSKC
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Hms7ooFNZLBJ9OmpcRtXEu7CXllhdeMPSb9meKvlYisH4SowhYkP3FxmQCgDYHRQpIvnzmAy2v6qukjJPUWblosToSBOV+Sz/js+cuu1QKqAKzeEkIMzrRBWJeWtLPUFT/SynCB7i6dpAFKkWxrG/rYtxybze8aGgooFc2Hf24I7FJT6AcjvJ7QULkWHfI8rVEWxpdRyshncrgYSdLtACqu++kYo3yu7P0ZTZLxgPrHoqebja+aoOeoWjnV385k9LzP7W+4e0ARkfVeK0PGF72XqYpbvCCZHw/jRAJn6INaU095EtJd2iSuUhF5E924SVJLTojwwiyKZGLzffcUY6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=u/tdSQCt9uPRoFdbm09xraXhCxmPlz/CUDR5i1yBOvE=;
+ b=uX/FoH8IPSnN/6shGv91QaDzJAgelJC/mPMLtrVSBsfvGaX06rkjHZqR6Iyxe9vsLHUP6mLpsXvq6c0cJdy6o6QBSr1OXmcLbEKjiQCgZ9V5DG9VsQQ+hGlJxXm9HxnjaALOETiL+a0JNF9dy5OruDo8c20OPU2NC/Q76zOnDF6gkBs5XKYub0kS5VzV4vqMVpIZ4/ihGKg7Cj0Wtc1xnSLLiQTuv28pX+pjyu5u8BQ0kVqEccBRajn9MFBkbON26HFdk4w7jWahQvXnvrHgfinzSc1TEgS5dLN7Y5lM46i3lNFy9t2MgYoSIxEXSm7qzuqzrGb9hekpnkEHs5GKjA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=u/tdSQCt9uPRoFdbm09xraXhCxmPlz/CUDR5i1yBOvE=;
+ b=UHo7fSKCMiEjPlsSXkCBVXZXlzpNM5lv8kVOQKXKfkRyM9G3vF/KiUyrPQrm1228083wdyMchsrtOYVjpyy+DXciKi286ScatSbEmVoTiZrrtrGWjS6CORKvV0WcFJotRwJ2s8xXodiVhLOW0LSypuyPu/higPfeecj/7oNs/QH5Ns4FHkOGFkxzxeWyR8VXPvs4ueQViymbHvnZQWPUxnuAZNkGwERBgOObsuFvimhJc2XK8pRx1pLlMr3h15Zs+4QPOfCGhs5q22xq0ggF2A/3Jxzn2f0TPtblB8rogQb2+3dxjelHLfYBhZOS8xf1EIGSb/BOFzFmmxdUM9Ngng==
+Received: from MN2PR02MB6863.namprd02.prod.outlook.com (2603:10b6:208:1d7::20)
+ by SJ0PR02MB7839.namprd02.prod.outlook.com (2603:10b6:a03:32d::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Sat, 21 Nov
+ 2026 23:30:24 +0000
+Received: from MN2PR02MB6863.namprd02.prod.outlook.com
+ ([fe80::da67:fd0f:d96d:ac53]) by MN2PR02MB6863.namprd02.prod.outlook.com
+ ([fe80::da67:fd0f:d96d:ac53%4]) with mapi id 15.21.0639.012; Sat, 21 Nov 2026
+ 23:30:23 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Mukesh R <mrathor@linux.microsoft.com>, "linux-hyperv@vger.kernel.org"
+	<linux-hyperv@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+CC: "haiyangz@microsoft.com" <haiyangz@microsoft.com>, "wei.liu@kernel.org"
+	<wei.liu@kernel.org>, "decui@microsoft.com" <decui@microsoft.com>
+Subject: RE: [PATCH] mshv: Handle completions on repeat hypercall failures
+Thread-Topic: [PATCH] mshv: Handle completions on repeat hypercall failures
+Thread-Index: AQHdeJQjAUjq0GifCEG3jRSWtn27JLc5L2Kw
+Date: Sat, 21 Nov 2026 23:30:23 +0000
+Message-ID:
+ <MN2PR02MB686354DA3595E40B457C130DD4472@MN2PR02MB6863.namprd02.prod.outlook.com>
+References: <20261120020858.3597446-1-mrathor@linux.microsoft.com>
+In-Reply-To: <20261120020858.3597446-1-mrathor@linux.microsoft.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN2PR02MB6863:EE_|SJ0PR02MB7839:EE_
+x-ms-office365-filtering-correlation-id: 277de455-90ee-4c26-cfec-08df48276a56
+x-microsoft-antispam:
+ BCL:0;ARA:14566002|37011999003|31061999003|41001999006|19110799012|8062599012|8060799015|8022599003|15080799012|12121999013|13091999003|55001999006|24021099003|25010399006|3412199025|440099028|102099032|3071699003;
+x-microsoft-antispam-message-info:
+ =?us-ascii?Q?8x6vsQCMmy1mReNNTmQiEc+1dr3CddRVKg0STWz+fHMjWcddrySwMFzzNWVn?=
+ =?us-ascii?Q?m8zXLpMWqm4iw9oPB/kUOnPIJIP1+nmCwtOrfcz3dFf+ZTZS0roojP/S+6nQ?=
+ =?us-ascii?Q?pTqF75aE7hq/sm3H/CYtzPxF0J6fz0pJTuyWRq1Mwqd3Z698GWnJQ9QpMioz?=
+ =?us-ascii?Q?tZQxbkbNzXM3+TPuUJEqz7CxIM1m67/cLSRwkjJarZvnTE+2DcXseE7Z3KJb?=
+ =?us-ascii?Q?F3TCAKmMBa+scUkJxGzx6cZ0sf6unL9qBV7JxDxgQGDufDudhjyabpqyQ0ui?=
+ =?us-ascii?Q?Bvg13IVzoTk0Rx8TNE18jZBrnEI5pePwDR5vmqgd8LMIB52xuuVzY+M44G9N?=
+ =?us-ascii?Q?UCnaFLJSvFca6cmCnIyLnx3Mtto9oeswACGC/pwJkplv5lBgNlTm9OSBsw72?=
+ =?us-ascii?Q?VsSwffGy86ZOAFa4G+PNNHV0uq/pWrNC/GVoV54hNE8zh7TCtP6XkwXwUuf8?=
+ =?us-ascii?Q?Jt4+VR0ezGPYQ2+/0FANbe8krY76+9gMiACvIJPFiUei8YX6S2Kn363N8NFB?=
+ =?us-ascii?Q?lxMWdZspw9GOEMHbCbEhl0fNcT8UhK5O/kjliFRHUBIwCSsbaqxclV0YrkUS?=
+ =?us-ascii?Q?hTP2tQbElokwoQRODgH/4v6QxOIfnCDQR3T0WpHGb0eDyYAF6S+CcYoCceZR?=
+ =?us-ascii?Q?Z3zjInf4dxFo+BSdGnKqsex//feBnXPMY1d4tfTqUVgZAZG5dARYK3v2CsPX?=
+ =?us-ascii?Q?0KQArLwJNU96xPmWZLHF2S7kKiQ0kR67PFRoz1IhKs1XuxSYONnKf1NA/Fjg?=
+ =?us-ascii?Q?FTRsGApIfSe60xUT80Jl1Gt4dfK8k1NgYa56BN8oup3IOqWnNctAfKElOi3l?=
+ =?us-ascii?Q?f0mwnaI3OcaCfQDh1W66CfRTr0bBj5EM//6Qlns+ItOmu6KfMYQDBK7GFHhO?=
+ =?us-ascii?Q?lDsFs+FDbGONSRZgt8kVsL35R3gmUcufRgL30g7V/K+2v1tYDJsYBGf+/PVz?=
+ =?us-ascii?Q?yHIT0h2ABYFaE27TzxR0JuskR7fqRUcpCHdwlOs7N+Bx7bWSQgN2bTqbXfiC?=
+ =?us-ascii?Q?R4nr1UuPeCDa6pQARlh6+NjTUK2p3vrTA/QgEQsdrAyC7Vsz0t0yVoWFAk+U?=
+ =?us-ascii?Q?9IxP0qPLVOq2J8Wfzu1aQ2lKPaBzOA=3D=3D?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?Tr05cq5mHwbRmVWkPdG9di9Q0UQSwBK0j1NOOCOSgSPxL5l5CmjTGoV2U2GJ?=
+ =?us-ascii?Q?H2GqSlrFEk7bqW6XyhLxI5wK3Nku4NTPuieHOjTA3PUltadkSaTUoaQRNph2?=
+ =?us-ascii?Q?f61uH66B9W68sJMwrx/b71o7x1aL89blWcUIDIFPgoqbf8QDUHfFrSeEbEFb?=
+ =?us-ascii?Q?jMmtVDT6l36plY6XHW+oOvC3XKaqw2Hbo01j7vUVsXRa1+p3bkHzDhHzzdWU?=
+ =?us-ascii?Q?WHOxB/G/FJlgP3Rs/N6qIG+66yiGnlZ1Y6JxYOkQhxQHea+G9agij7szka5U?=
+ =?us-ascii?Q?enFgUM7JFzhkWOr0/F9vet9PcpuiQnG/zDzZ4Q8O5Tr4+DnBTwUwff9XaLKn?=
+ =?us-ascii?Q?DkwFmhSeUYDs1FAcrpvf2TzBMsK8Z70fh2DFFodbhrn2m7HuGiafP5ZxsKrq?=
+ =?us-ascii?Q?oEFiKYOrnRa58BV8yrnuyx1fS8IPXNuTQlFp5lsDl8Afi3HTYyBwYKlWECIo?=
+ =?us-ascii?Q?zKIRP4tJSuCCujxxIAngpj61824AgMZ2fu4iipUU7/CWMT13c4xOpsrE/h0U?=
+ =?us-ascii?Q?HvJA+zj+9g3YNZWCZRL8rr6iZkg3I9kar1sGNIKY8CMFH5T3oMGpMbfpw5EX?=
+ =?us-ascii?Q?RrAas6Wr8JTIjGCv3joqqgqz3kND0ODMS70uBBDKL8Ng75NqB0osWV4Nw8vq?=
+ =?us-ascii?Q?hAe/K19WAfw15leL+pbETY+bp6DC0KsOH6yh4Dlo+UN5+9b0iqW4IR0LpWzW?=
+ =?us-ascii?Q?u+VxInw2ooQ6GTPNuUSmyI+AE5Jr0v+iM/BLzwoNh43yVAubdCwhEbe9MHmG?=
+ =?us-ascii?Q?xeBUw9A56geD0DXM+yarwIbj0i+HTdpQ/UTWxSAaygECZKT+wE0vfOny4vjM?=
+ =?us-ascii?Q?OxVRQNhmFkQ+EtfRivPLycB1TtH9e4pXjriMsqL8HldHsSjT5b7+8EyLCcdR?=
+ =?us-ascii?Q?md7DNsAguhHPJxuIph1/oMJ5ydDnKZUE23pUWr0oTdNXx84V1N4iBpxbmc3F?=
+ =?us-ascii?Q?jCsSmmoM0gUlgd2OU0pALMkt6a6ewmxb+t3yQcrFxuEJBKGa2KgF+hsbKCTk?=
+ =?us-ascii?Q?QBei1cM2ROVuCpUSOxiVPcU6ShCOZc574xXYbgqbGnmWIIi0XEhBFh5n0dT6?=
+ =?us-ascii?Q?9K4qqScBAtsNJi0BfIvZ+C5R9REAZP46TlS7cR1Tu0CadNf/HW+gpdJEMW/n?=
+ =?us-ascii?Q?OFIBfAltKbvZHKE0RJUgqxWBhjoIgugqHrjqDbBjMI2YSACJTTjmyzfI74Q8?=
+ =?us-ascii?Q?aLD5Gwfq+p5RMT1JINCOpoh3z1fNkxjDQBf+DNcz/DWNtM3cYCshjXFDfqL7?=
+ =?us-ascii?Q?E0SwpGY9w7WOn9sXP/b0LcOrBOjKNRlETaHhsIUXgkhxDElxCb6W2bKQ/JIz?=
+ =?us-ascii?Q?nqPAQIe9z5LMHwcuca+f6ldMC3gAILDVLdaGB4vta5cC4EX+yu3srPnGhcyy?=
+ =?us-ascii?Q?xRHvBR4=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,397 +150,142 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR02MB6863.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 277de455-90ee-4c26-cfec-08df48276a56
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Nov 2026 23:30:23.4777
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR02MB7839
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
----
-net: phylink: support late PCS provider attach
+From: Mukesh R <mrathor@linux.microsoft.com> Sent: Thursday, November 19, 2=
+026 6:09 PM
+>=20
+> When a repeat hypercall fails, it could still have completed some of the
+> entries requested. Fix places where completions are not checked in case
+> of repeat hypercall failures. Also, add error prints in couple places
+> with correct partial completion counts when repeat hypercall fails.
+>=20
+> Signed-off-by: Mukesh R <mrathor@linux.microsoft.com>
 
-This adds a FWNODE_PCS_PROVIDER_ADD notifier event, emitted from
-fwnode_pcs_add_provider(), so that a PCS provider registered after
-phylink_create() can be attached to an existing phylink instance.
-pcs_provider_notify() adds the matching PCSs through the new
-phylink_add_pcs() and fwnode_pcs_get_from_provider() helpers, refreshes
-supported interfaces and capabilities, and forces a major reconfig if the
-previous one failed. The patch also adds pl->sfp_module_interfaces to keep
-the SFP module's raw interface mask.
+Reviewed-by:  Michael Kelley <mhklinux@outlook.com>
 
-> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-> index 094a15f3dbcd0..8768d8220a134 100644
-> --- a/drivers/net/phy/phylink.c
-> +++ b/drivers/net/phy/phylink.c
-> @@ -112,6 +112,7 @@ struct phylink {
->  
->  	struct sfp_bus *sfp_bus;
->  	bool sfp_may_have_phy;
-> +	DECLARE_PHY_INTERFACE_MASK(sfp_module_interfaces);
->  	DECLARE_PHY_INTERFACE_MASK(sfp_interfaces);
->  	__ETHTOOL_DECLARE_LINK_MODE_MASK(sfp_support);
->  	u8 sfp_port;
-
-[Severity: Low]
-The commit message only describes the FWNODE_PCS_PROVIDER_ADD event and
-the late attach. The patch also reworks the generic SFP handling.
-
-The new pl->sfp_module_interfaces is set in phylink_sfp_module_insert()
-and cleared in phylink_sfp_module_remove() and phylink_sfp_config_phy().
-phylink_sfp_config_optical() now intersects with sfp_module_interfaces
-instead of narrowing pl->sfp_interfaces in place.
-
-The SFP branch of phylink_update_capabilities() is now selected by
-sfp_module_interfaces. It rebuilds pl->sfp_interfaces on every call, and
-zeroes pl->supported, pl->advertising and config->advertising when the
-intersection is empty.
-
-The patch also moves rcu_assign_pointer(pcs->phylink, pl) out of
-phylink_create() into the new phylink_add_pcs(), and adds a check that
-skips a PCS already on pcs_list.
-
-These changes also alter how the FWNODE_PCS_PROVIDER_DEL path from
-"net: phylink: support PCS provider release" recomputes SFP capabilities.
-They appear to be what makes that path restore them correctly.
-
-Could the commit message describe these changes as well?
-
-> @@ -2140,6 +2141,35 @@ int phylink_set_fixed_link(struct phylink *pl,
->  }
->  EXPORT_SYMBOL_GPL(phylink_set_fixed_link);
->  
-> +static bool phylink_add_pcs(struct phylink *pl, struct phylink_pcs *pcs)
-> +{
-> +	struct phylink_pcs *tmp;
+> ---
+>  drivers/hv/mshv_common.c       | 17 +++++++++++++----
+>  drivers/hv/mshv_root_hv_call.c | 15 +++++++++------
+>  2 files changed, 22 insertions(+), 10 deletions(-)
+>=20
+> diff --git a/drivers/hv/mshv_common.c b/drivers/hv/mshv_common.c
+> index 63f09bb5136e..580248a490ac 100644
+> --- a/drivers/hv/mshv_common.c
+> +++ b/drivers/hv/mshv_common.c
+> @@ -56,8 +56,6 @@ int hv_call_get_vp_registers(u32 vp_index, u64 partitio=
+n_id, u16 count,
+>=20
+>  		status =3D hv_do_rep_hypercall(HVCALL_GET_VP_REGISTERS, rep_count,
+>  					     0, input_page, output_page);
+> -		if (!hv_result_success(status))
+> -			break;
+>=20
+>  		completed =3D hv_repcomp(status);
+>  		for (i =3D 0; i < completed; ++i)
+> @@ -65,6 +63,13 @@ int hv_call_get_vp_registers(u32 vp_index, u64 partiti=
+on_id, u16 count,
+>=20
+>  		registers +=3D completed;
+>  		remaining -=3D completed;
 > +
-> +	/*
-> +	 * Make sure state mutex is locked to protect concurrent
-> +	 * access to phylink instance PCS list from
-> +	 * initial fill_available_pcs and late PCS attach
-> +	 */
-> +	lockdep_assert_held(&pl->state_mutex);
-> +
-> +	/* Make sure PCS is not already in the list */
-> +	list_for_each_entry(tmp, &pl->pcs_list, list)
-> +		if (tmp == pcs)
-> +			return false;
-> +
-> +	if (WARN(rcu_access_pointer(pcs->phylink),
-> +		 "%s: PCS already attached to a phylink instance\n",
-> +		 __func__))
-> +		return false;
-> +
-> +	list_add_tail(&pcs->list, &pl->pcs_list);
-> +
-> +	/* Link PCS to phylink */
-> +	rcu_assign_pointer(pcs->phylink, pl);
-
-[Severity: Low]
-Is the pcs->phylink check plus list_add_tail() atomic across phylink
-instances? The only lock held here is the per-instance pl->state_mutex.
-
-With this patch, a new provider's PCS is offered to every registered
-phylink instance:
-
-instance A
-fwnode_pcs_add_provider()
-  blocking_notifier_call_chain()
-    pcs_provider_notify()          /* holds A's state_mutex */
-      phylink_add_pcs()
-
-This can run at the same time as another instance is being created:
-
-instance B
-phylink_create()
-  phylink_fill_available_pcs()     /* holds B's state_mutex */
-    phylink_add_pcs()
-
-B's fill_available_pcs callback can find the same provider through
-fwnode_pcs_get(). The provider is already on fwnode_pcs_providers before
-the notifier is called.
-
-Suppose firmware describes two MACs whose pcs-handle entries resolve to
-the same PCS, which is the case this WARN is meant to catch. Can both
-threads pass the NULL check and link the single embedded pcs->list into
-both pcs_list heads?
-
-The comment above lockdep_assert_held() says state_mutex protects against
-concurrent access from fill_available_pcs and late PCS attach. That only
-seems to hold within one instance.
-
-> +
-> +	return true;
-> +}
-
-[ ... ]
-
-> @@ -2358,11 +2383,24 @@ static void phylink_update_capabilities(struct phylink *pl,
->  		goto exit;
->  	}
->  
-> -	/* Revalidate the SFP module modes against every available interface. */
-> +	/* Revalidate SFP modes against interfaces currently supported by the
-> +	 * MAC and PCS. Keep the module's interface list intact so a later PCS
-> +	 * addition can make an interface usable again.
-> +	 */
-
-[Severity: Medium]
-Does a later PCS addition actually make a rejected SFP module usable
-again?
-
-Suppose an optical module is inserted while the PCS provider is absent.
-That can happen during phylink_create()->phylink_register_sfp(), or after
-a FWNODE_PCS_PROVIDER_DEL. If the MAC driver leaves PCS-only interfaces
-out of config->supported_interfaces, phylink_sfp_config_optical() fails:
-
-	phy_interface_and(pl->sfp_interfaces, pl->supported_interfaces,
-			  pl->sfp_module_interfaces);
-	if (phy_interface_empty(pl->sfp_interfaces)) {
-		phylink_err(pl, "unsupported SFP module: no common interface modes\n");
-		return -EINVAL;
-	}
-
-sfp_sm_module() in drivers/net/phy/sfp.c then moves the module to
-SFP_MOD_ERROR, which is a terminal state:
-
-		err = sfp_module_insert(sfp->sfp_bus, &sfp->id,
-					sfp->quirk);
-		if (err < 0) {
-			sfp_sm_mod_next(sfp, SFP_MOD_ERROR, 0);
-			break;
-		}
-
-When the provider registers later, the FWNODE_PCS_PROVIDER_ADD branch of
-pcs_provider_notify() only adds the PCS and refreshes
-supported_interfaces. It then calls phylink_update_capabilities() with the
-existing link_config.interface.
-
-Nothing re-runs phylink_sfp_config_optical() or phylink_sfp_set_config(),
-so req_link_an_mode and link_config.interface are never switched to the
-module's interface. major_config_failed is not set either, because no
-major config was attempted for the module.
-
-Would the link stay down until the module is physically re-inserted?
-
-[ ... ]
-
-> @@ -2506,16 +2545,44 @@ static int pcs_provider_notify(struct notifier_block *self,
->  	if (pl->pcs_state == PCS_STATE_DETACHING)
->  		goto exit;
->  
-> -	/*
-> -	 * Loop all the PCS for phylink instance and check if
-> -	 * this notification is relevant for some of them.
-> -	 */
-> -	list_for_each_entry_safe(pcs, tmp, &pl->pcs_list, list) {
-> -		if (!fwnode_pcs_matches_provider(pp, pl->fwnode, pcs))
-> -			continue;
-> +	switch (val) {
-> +	case FWNODE_PCS_PROVIDER_ADD:
-> +		count = fwnode_phylink_pcs_count(pl->fwnode);
-> +		for (i = 0; i < count; i++) {
-> +			pcs = fwnode_pcs_get_from_provider(pp, pl->fwnode, i);
-> +			if (IS_ERR_OR_NULL(pcs))
-> +				continue;
-> +
-> +			/* Trigger a resolve only if a PCS is actually added */
-> +			if (phylink_add_pcs(pl, pcs))
-> +				resolve = true;
+> +		if (!hv_result_success(status)) {
+> +			pr_err("%s: count:%d comp:%d rem:%ld st:0x%llx\n",
+> +			       __func__, count, completed, remaining, status);
+> +			break;
 > +		}
-
-[Severity: Low]
-This fills pl->pcs_list differently from phylink_fill_available_pcs().
-
-The phylink_config kernel-doc describes @fill_available_pcs as the MAC
-driver's callback that fills the available PCS up to num_possible_pcs.
-This path ignores config->fill_available_pcs and config->num_possible_pcs.
-It parses pcs-handle on pl->fwnode directly instead.
-
-A driver's callback might use a different fwnode, or filter or limit the
-PCS set. Could such a driver end up with PCSs on pcs_list that its own
-callback would never have returned?
-
-Also, phylink_create() only rejects num_possible_pcs combined with
-mac_select_pcs. It registers this notifier whenever
-config->pcs_interfaces is non-empty.
-
-For a mac_select_pcs driver that sets pcs_interfaces, this path would add
-PCSs to pcs_list and OR their supported_interfaces into
-pl->supported_interfaces. Meanwhile phylink_major_config() changes
-pcs->phylink without touching pcs_list:
-
-		if (pl->mac_ops->mac_select_pcs) {
-			if (pl->pcs)
-				rcu_assign_pointer(pl->pcs->phylink, NULL);
-
-			if (pcs)
-				rcu_assign_pointer(pcs->phylink, pl);
-		}
-
-Does that conflict with the list and back-pointer assumptions in
-phylink_add_pcs()?
-
-The only in-series user (airoha) parses the same fwnode, and no
-mac_select_pcs driver currently sets pcs_interfaces. So this looks latent
-for now.
-
 > +
-> +		/*
-> +		 * Force an interface reconfig if major config failed.
-> +		 * Configure link_failed to retrigger a resolve a
-> +		 * second time to reevaluate AN mode with the new
-> +		 * PCS if selected.
-> +		 */
-> +		if (resolve && pl->major_config_failed) {
-> +			pl->force_major_config = true;
-> +			pl->link_failed = true;
-> +		}
-
-[Severity: Low]
-Should this be guarded by pl->phylink_disable_state, the way
-phylink_del_pcs() is?
-
-		if (!pl->phylink_disable_state)
-			pl->force_major_config = true;
-
-If the instance is stopped with major_config_failed left over from its
-last run, phylink_run_resolve() won't queue any work. However,
-force_major_config and link_failed stay set.
-
-On the next phylink_start(), the call to
-phylink_mac_initial_config()->phylink_major_config() clears
-major_config_failed but not force_major_config. phylink_resolve() then
-still sees the flag:
-
-	if ((mac_config && link_state.interface != pl->link_config.interface) ||
-	    pl->force_major_config) {
-
-It runs a second mac_prepare/mac_config/pcs_config/mac_finish sequence,
-followed by another resolve. Is that extra reconfiguration intended?
-
-> +
-> +		break;
-> +	case FWNODE_PCS_PROVIDER_DEL:
-
-[ ... ]
-
-> +		break;
 >  	}
->  
->  	/* Exit early if nothing has changed */
+>  	local_irq_restore(flags);
+>=20
+> @@ -99,12 +104,16 @@ int hv_call_set_vp_registers(u32 vp_index, u64 parti=
+tion_id, u16 count,
+>=20
+>  		status =3D hv_do_rep_hypercall(HVCALL_SET_VP_REGISTERS, rep_count,
+>  					     0, input_page, NULL);
+> -		if (!hv_result_success(status))
+> -			break;
+>=20
+>  		completed =3D hv_repcomp(status);
+>  		registers +=3D completed;
+>  		remaining -=3D completed;
+> +
+> +		if (!hv_result_success(status)) {
+> +			pr_err("%s: count:%d comp:%d rem:%ld st:0x%llx\n",
+> +			       __func__, count, completed, remaining, status);
+> +			break;
+> +		}
+>  	}
+>=20
+>  	local_irq_restore(flags);
+> diff --git a/drivers/hv/mshv_root_hv_call.c b/drivers/hv/mshv_root_hv_cal=
+l.c
+> index e761addda50e..6261686c3638 100644
+> --- a/drivers/hv/mshv_root_hv_call.c
+> +++ b/drivers/hv/mshv_root_hv_call.c
+> @@ -239,6 +239,7 @@ static int hv_do_map_gpa_hcall(u64 partition_id, u64 =
+gfn, u64 page_struct_count,
+>  		local_irq_restore(irq_flags);
+>=20
+>  		completed =3D hv_repcomp(status);
+> +		done +=3D completed;
+>=20
+>  		if (hv_result_needs_memory(status)) {
+>  			ret =3D hv_deposit_memory(partition_id, status);
+> @@ -246,11 +247,13 @@ static int hv_do_map_gpa_hcall(u64 partition_id, u6=
+4 gfn, u64 page_struct_count,
+>  				break;
+>=20
+>  		} else if (!hv_result_success(status)) {
+> +			pr_err("%s: failed to map pages at gfn %#llx: done %u/%llu, flags=3D%=
+#x, status=3D%#llx (%s)\n",
+> +			       __func__, gfn, done, page_count, flags, status,
+> +			       hv_result_to_string(hv_result(status)));
+> +
+>  			ret =3D hv_result_to_errno(status);
+>  			break;
+>  		}
+> -
+> -		done +=3D completed;
+>  	}
+>=20
+>  	if (ret && done) {
+> @@ -358,18 +361,18 @@ int hv_call_get_gpa_access_states(u64 partition_id,=
+ u32 count, u64 gpa_base_pfn,
+>=20
+>  		status =3D hv_do_rep_hypercall(HVCALL_GET_GPA_PAGES_ACCESS_STATES, rep=
+_count,
+>  					     0, input_page, output_page);
+> -		if (!hv_result_success(status)) {
+> -			local_irq_restore(flags);
+> -			break;
+> -		}
+>  		completed =3D hv_repcomp(status);
+>  		for (i =3D 0; i < completed; ++i)
+>  			states[i].as_uint8 =3D output_page[i].as_uint8;
+>=20
+>  		local_irq_restore(flags);
+> +
+>  		states +=3D completed;
+>  		*written_total +=3D completed;
+>  		remaining -=3D completed;
+> +
+> +		if (!hv_result_success(status))
+> +			break;
+>  	}
+>=20
+>  	return hv_result_to_errno(status);
+> --
+> 2.51.2.vfs.0.1
+>=20
 
-[Severity: Medium]
-Suppose the ADD branch adds a PCS while the link is up and working
-(major_config_failed is false). The code after this point still
-recomputes the advertisement, but does not reconfigure the PCS:
-
-	/* Recalculate capabilities */
-	phylink_update_capabilities(pl, &pl->link_config);
-
-For MLO_AN_INBAND without a PHY, phylink_parse_inband_capabilities() sets
-Pause and Asym_Pause in pl->supported and copies that into
-link_config.advertising. The SFP branch rebuilds it from pl->sfp_support.
-The exit label only masks out pl->user_disabled_advertising.
-
-A pause setting from ethtool -A is only recorded by
-phylink_update_pause_state(), in config->pause and here:
-
-	linkmode_set_pause(config->advertising, tx_pause,
-			   rx_pause);
-
-Can this silently re-enable a user-disabled pause advertisement in
-link_config.advertising?
-
-phylink_update_mac_pause_capabilities() re-applies the pause state with
-phylink_update_pause_state() after phylink_update_capabilities().
-pcs_provider_notify() does not.
-
-No pcs_config() or phylink_change_inband_advert() call is made, so the
-PCS hardware keeps advertising the old pause bits. Meanwhile ethtool and
-phylink_mac_pcs_get_state() use the recomputed link_config.advertising.
-The next pcs_config() would then program the re-enabled pause
-advertisement.
-
-[ ... ]
-
-> @@ -4556,6 +4620,7 @@ static int phylink_sfp_module_insert(void *upstream,
->  	ASSERT_RTNL();
->  
->  	caps = sfp_get_module_caps(pl->sfp_bus);
-> +	phy_interface_copy(pl->sfp_module_interfaces, caps->interfaces);
->  	phy_interface_copy(pl->sfp_interfaces, caps->interfaces);
->  	linkmode_copy(pl->sfp_support, caps->link_modes);
->  	pl->sfp_may_have_phy = caps->may_have_phy;
-
-[Severity: Medium]
-Can pl->sfp_module_interfaces stay set after the module has been rejected
-or removed?
-
-It is copied here before phylink_sfp_config_optical() runs. Nothing clears
-it when that call fails with "no common interface modes", which is what
-happens while the needed PCS is still missing.
-
-sfp.c then moves the module to SFP_MOD_ERROR. On physical removal,
-sfp_sm_mod_remove() skips the upstream module_remove callback for that
-state:
-
-static void sfp_sm_mod_remove(struct sfp *sfp)
-{
-	if (sfp->sm_mod_state > SFP_MOD_WAITDEV)
-		sfp_module_remove(sfp->sfp_bus);
-
-SFP_MOD_ERROR is below SFP_MOD_WAITDEV. So phylink_sfp_module_remove() is
-never called, and sfp_module_interfaces is never zeroed.
-
-phylink_update_capabilities() now selects its SFP branch with
-!phy_interface_empty(pl->sfp_module_interfaces). As a result, these calls
-rebuild pl->supported, pl->advertising and pl->link_config.advertising
-from the stale module data:
-
-  every later PCS ADD or DEL notification
-  every call to phylink_update_mac_pause_capabilities()
-
-If there is no interface overlap, all three are zeroed. Otherwise the
-stale module's link modes are installed.
-
-Before this patch, the same failure left pl->sfp_interfaces empty. That
-meant phylink_update_capabilities() fell through to the generic "no
-media" path instead.
-
-[ ... ]
-
-> diff --git a/include/linux/pcs/pcs.h b/include/linux/pcs/pcs.h
-> index 83e0a2ad4b099..a6fe9f71174ab 100644
-> --- a/include/linux/pcs/pcs.h
-> +++ b/include/linux/pcs/pcs.h
-
-[ ... ]
-
-> @@ -50,6 +51,28 @@ int unregister_fwnode_pcs_notifier(struct notifier_block *nb);
-
-[ ... ]
-
-> + * Returns: a pointer to the phylink_pcs, NULL or a negative error pointer. Can
-> + * return -EINVAL if the PCS provider firmware node doesn't match the referenced
-> + * firmware node or a negative error pointer (or NULL) from the PCS provider
-> + * xlate function for the relevant firmware node and PCS handle index.
-> + */
-> +struct phylink_pcs *fwnode_pcs_get_from_provider(struct fwnode_pcs_provider *provider,
-> +						 const struct fwnode_handle *fwnode,
-> +						 int index);
-
-[Severity: Low]
-The Returns: section doesn't seem to cover every case. The implementation
-also returns errors from fwnode_parse_pcsspec() before the provider match
-is checked:
-
-	ret = fwnode_parse_pcsspec(fwnode, index, NULL, &pcsspec);
-	if (ret)
-		return ERR_PTR(ret);
-
-Examples are -ENOENT for an out-of-range index and -EINVAL for a NULL
-fwnode. The stub used when PCS support is disabled returns
-ERR_PTR(-ENOENT). Could these be documented as well?
-
-This isn't a bug, but there is a type mismatch. The new helper takes an
-int index, while fwnode_pcs_get() and fwnode_phylink_pcs_count() use
-unsigned int. pcs_provider_notify() also stores the unsigned count in an
-int.
