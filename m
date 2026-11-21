@@ -1,106 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795267978;
-	b=oyExniz3HNcI4yqlZRj+qesICbO7SfDQwAkR65L9zpHbOnZYK9TgJjSygCTOwsZFKVDC
-	 yZkVr08EeHaGpxYFdSHFUoY6whSdMVEBofzptPrFkY4vtukbvk4x2jMeBKkABlgv5aysB
-	 mmNBGyuSsnCi5+YZJ0CAsjXwFxcALzdD9KWlI1ERRtI/rjO4Wb9ezZh3mftICviQWIZja
-	 /5dcQtXUYtLVJ846GRqu/rG9jzHfOQ9z7txuvwKDkeJE7yj5UGRQSkScXi2QEsP4CLQ/J
-	 6CNdIfc/OYuglzjHBXJN6/zmdSUskAoonk6NrbFrJCH0l8f/kcf2x+37VzJDK+9LHJw==
+	t=1795267975;
+	b=CW9NP6R6Pj6lyWXw8rVd52ORUDxoKNB2MEj3IUS+s+RVUyUF5+9xhdVhGKxIeQrQu6+n
+	 L6Gj13qmQE1Z3uDIdg6NrExGq1I2PNmmfqb0bPgJBTnjfuh64VKpsuUhLzc2sr1AZ5Kvj
+	 8b9Hk7q9gadl3tyFAv+2WWcnaqO5Fit9J8+Mvo/K3Ttz2YmitwZfTmk7sp6HeaIoC8pLi
+	 JgCvAGcEqLcB2faTo0i5YaT9TpI/R0jtKe7cWc5dR63Qulph8chTT7+zCy1L9LjVNbSx3
+	 LHlH8AV5paccw6ps6nIbTvwevX6MnahXekDXfsytRMNA90Ebqjfg5pYa2UhqjedAjTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795267978;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=54HoHtyBCmpZ6kkP9mnsCMJlZYb74fsAgesBBR9Cid0=;
-	b=SFUZpg1vGlDX0W+XWZnOiX40etQUiPsHE9dihckti2OmS5wxh37n1oSKpoFKYU0tW6MV
-	 nyZkML+GHX4skLcd96ljMzKgOiSOeafv9Tayb/SXumCpliS1jBb/2UxFiruEpFi+EWUUg
-	 cTekZ5aTF+Ou6gVZz/Cu+Wh4GAqYEi1+EjArJVWBPuHQLh+Kb3SNAf4f+88ypPCAGkDPr
-	 cqB0JKYNANOtPqBMNx0P09RXjrTJd84EAR8ok7fviBn1mC9JnOVhsZTVilWa7tqPHjEHm
-	 1q5GQERuV+E5+RgOEOBVxHdRDub3WeS479ykbkio7jexlWdaiQ5PKSVOY/Sl62qJmTw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795267975;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=JkdwCAEutEIfwhJO9SpdIcsXM2DUuJk895w0Ed5CRkg=;
+	b=C3ELnhhtKuRPi6g+NiQWIJIKHJb5Hsbnsk6FL10HsXaG62GWv5Asta4b0QkZ32+EZsvh
+	 ClJfnbN0E7BbP5P3E30+6vNlRsth/Uz0bLRHkWM2jvbBntLReqKtr34wkGR0ahmyIUa3v
+	 K/tQg0XcojsleoEcUMKVyx1y8gnglsF75dMdWAX4rHbxZcxFb1qcsvVa46Ht9gWRlcmL3
+	 BFlXbQnFDkqrC06rxnMCxTJ+aKx+IUPA9/vU3tBU1alac/Itwoh0wydDEt/O/2RiNZGwD
+	 F8hEeC4NE3ujZjR1m3qRo2vOr2ZsWAcpvcQjYDhmv0TDfY+dvG+53GE5UU/qU/pCH7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o4FSYklA;
-	arc=none smtp.remote-ip=209.85.128.45
-Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F632606A685
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:32:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F632606A685
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o4FSYklA
-Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4a5b2be99a8so15553285e9.2
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:32:58 -0800 (PST)
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 1F036606A320;
+	Sat, 21 Nov 2026 13:32:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F036606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795267976; x=1795872776; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=54HoHtyBCmpZ6kkP9mnsCMJlZYb74fsAgesBBR9Cid0=;
-        b=o4FSYklAFTz2MCeYPLpS/6EMK0P7m2UZ8gmkwXhHcI6T0QNTTe2NzKMKuAF3wubeYw
-         MCIE31sJVJH0+ih5gbPlUOhtfVFO9zaThOnxFWMtgV7KQfkfuG5dkBTR8Av92hflocdG
-         7S4cfW6GaAyU7kZyI85R37D/wXHVSxtbRFaRmUiRu6Oxxe3IIiTxF97xBRKnLNRhGlPM
-         xBNC/EXU9nL7mzEpB6Y2pNZXwVP2T/0Qy5HkL2CG0MPcrzLpjwE0OXvftsYIh8GWiXFQ
-         sEYj0b+wrmwrIn1JwE+mzuP/hS5h1FNQ+aXT/Wk4SX6LWRSXDjkyTE9CNRt1fHGvuNZD
-         YeEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795267976; x=1795872776;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=54HoHtyBCmpZ6kkP9mnsCMJlZYb74fsAgesBBR9Cid0=;
-        b=uHpaVAGApYMpICEtYe8OAaH4SQVCb9yO9A1m8koHJHOGwVcIOeeV5hJP7TOVTMLHhi
-         9q8Bd/gmagdGJyhpdgqIdwNO7fijd8ADGkqYeCszn9mqKg7JAqPJ2rCRNecKD7htmX10
-         1BU7UomI0HnF0tDlmK7totjkButSX39Lmbhzs0tQDB/FUNIQePLOs9wWGNnUX+laTkSy
-         hsONVilhJxjn8JJ6N8Wa5k4yhRH36Tn54ElOa4nFIvu5DikajqVb/eiCDFS1J/Y3Mqx5
-         R1yssmRLn4/aiYe9QFnHuWnT7NzihDSeHqnGBUd6LembxAzeHMgMFVlXzCKWQxsvfaE8
-         58OA==
-X-Forwarded-Encrypted: i=1; AL+hErGluyAV2jTcV6433mtM0hYhGLavDw1Sc9eTLO1BTzJEUV2zGkNxYpMQjYLyS52jOMdSX2ursc3pLe2XzSY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9OkLdtHulARK6yB6s8Jv3zwz5h3zNuIYcCqfEysGfu7WD5+4Ap
-	SYHCb+w1zeyM3oCOv2KZ/i/5A//nIIlTj/tktdblHVf0Y0p/GpWjlvxp
-X-Gm-Gg: AZFdTZevEKPI6mI5EogfCLIyZRHBxPIM4QkpNXlUjGpYrsOmLk7pz7IYVLVQL5b+f29
-	KsFH5FtuolANytICOrWlYdJdWGA2LFCsj4p6PpBohEjXchyDr4Yhy/nGEHKCTMc68lhTNbnSAoX
-	9/PFwnwWLco+nfLyOgD5Xj5F80i/dH4E/ctjlH4ZmA72Adpu5ipQSuVyEUYeTiEcFvaqA6/pQA7
-	JIOmlD4UBNjpQ0Qcp35sXM+u4x/kTMI5Th/G4qf54o9m0of6+80Ts0HAt59iICMXj/YERxm6yHP
-	1l0pnynhipHWlzhVhA/wVJ8onWywdxtYemcmrfH6aJCfgoL9gknScTQAtyqZAJL/JAhQMZ7uC1Z
-	oIkXJgj+nkeh2OusMsjzD++hgZtJtyZ2c2em3wEL2i3J40fxW5/Q/Jrkshp79yA4YNauLfg7ne/
-	bdA4B/m6xwtikIeGJ37A6+JicQpJjDVfCN/bohbccn8lW22B9l11sJcKLv2rD5f8cFu6U0zs4gv
-	bgb7WaXpQ17gKswwdOwPHx4qomtWjZYaNv838XiQNJUonKDoLTsIs5ez1JalM9MxCyT69EHleAJ
-	ofBlssCYQOhtqdKth6ZJrELTUzt6q4IUUQ4/OXPikuNoOmsFpYyBefItkmASoI6jgKJZmMKMnMs
-	qynDnYbs57xPN
-X-Received: by 2002:a05:600c:a088:b0:4bb:6473:cde9 with SMTP id 5b1f17b1804b1-4bb8880f2d8mr120065625e9.6.1795267976558;
-        Sat, 21 Nov 2026 05:32:56 -0800 (PST)
-Received: from 1Z10 ([2a02:b123:8010:295a:cf7a:d53b:95ce:c0e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm83345955e9.2.2026.11.21.05.32.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 05:32:56 -0800 (PST)
-From: Maurizio Casciano <mauriziocasciano7@gmail.com>
-To: linux-media@vger.kernel.org
-Cc: Maurizio Casciano <mauriziocasciano7@gmail.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Nicholas Roth <nicholas@rothemail.net>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Bingbu Cao <bingbu.cao@amd.com>,
-	Dan Scally <dan.scally@ideasonboard.com>,
-	Hans de Goede <hansg@kernel.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=JkdwCAEutE
+	IfwhJO9SpdIcsXM2DUuJk895w0Ed5CRkg=; b=Mjbf1JLfvyZGwEl4bNTmB+A5IX
+	A3F9pVBrGSn901WenGCPrmllMQOZS5aHE3gGCNl9pIiddztVSEzLOIIXLqyZNjiV
+	rvTJNWiaZz6egh00Ekky1Ss2gbp1KTRElKuKu9ecd1essMQChXSYyCWg9uD2tJJQ
+	WmBPpUtzYYur/C2r0=
+Received: from user-virtual-machine.localdomain (unknown [113.200.174.70])
+	by hzbj-edu-front-2.icoremail.net (Coremail) with UTF8SMTPA id BLQMCkCW1_x7nQFryewCAg--.24087S2;
+	Sat, 21 Nov 2026 21:32:43 +0800 (CST)
+From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+To: Johannes Berg <johannes@sipsolutions.net>
+Cc: linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Subject: [PATCH v11 05/14] media: intel: ipu-bridge: Add the Yoga Book OVTI2740 entry
-Date: Sat, 21 Nov 2026 14:31:35 +0100
-Message-ID: <48564c62d0c08d66023a40b6cdc175e5af88fbe4.1795267528.git.mauriziocasciano7@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <cover.1795267528.git.mauriziocasciano7@gmail.com>
-References: <cover.1795267528.git.mauriziocasciano7@gmail.com>
+	stable@vger.kernel.org,
+	James Prestwood <prestwoj@gmail.com>,
+	Bin Yu <byu@xidian.edu.cn>,
+	Cheng Wen <wencheng@xidian.edu.cn>
+Subject: [PATCH] wifi: mac80211: handle failure to re-add interface on address change
+Date: Sat, 21 Nov 2026 21:32:42 +0800
+Message-Id: <20261121133242.6550-1-25031212351@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,31 +59,96 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:BLQMCkCW1_x7nQFryewCAg--.24087S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxXryxXr1DJw1kXr48Zr45GFg_yoW5Xr4UpF
+	W5CrZIkryDJr43Gw43Ar47ua45CFs7GrWrCFnrAa13uF1Sgry3ury09a4j9FyfCFW8A342
+	yF90yr45WayDCrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9vb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
+	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r
+	18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vI
+	r41lc7CjxVAaw2AFwI0_JF0_Jw1lc2xSY4AK67AK6ry8MxAIw28IcxkI7VAKI48JMxC20s
+	026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_
+	JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14
+	v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xva
+	j40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8JV
+	W8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0niSPUUUUU==
+X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUED2sAYljOOwABsq
 
-The Yoga Book YB1-X91 uses OVTI2740 for its OV2740 front sensor. Add
-its default link frequency so the IPU bridge can construct the software
-endpoint. The existing INT3477 entry covers the rear sensor.
+Changing the MAC address of a running station interface makes mac80211
+remove the interface from the driver and add it back with the new
+address.  The code assumes that adding it back cannot fail and only warns
+if it does, which is not true: drivers may legitimately refuse to add the
+interface, for example a USB driver that has concluded its device has
+disappeared.  rt2x00 returns -ENODEV from ->add_interface() once it has
+seen too many consecutive -EPROTO errors and marked the device as gone,
+which produces
 
-Signed-off-by: Maurizio Casciano <mauriziocasciano7@gmail.com>
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+  WARNING: net/mac80211/iface.c:306 at ieee80211_change_mac
+
+and, worse, the address change still returns success to userspace even
+though the interface is now running but no longer present in the driver.
+Any further address change then attempts to remove the interface from the
+driver again and trips the check_sdata_in_driver() warning.
+
+Handle the error properly: keep the remove/add sequence, but propagate
+the driver's error to userspace instead of warning about it, and reject
+further address changes on an interface that the driver no longer knows
+about.
+
+Fixes: 3c06e91b40db6 ("wifi: mac80211: Support POWERED_ADDR_CHANGE feature")
+Cc: stable@vger.kernel.org
+Co-developed-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Bin Yu <byu@xidian.edu.cn>
+Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
 ---
- drivers/media/pci/intel/ipu-bridge.c | 2 ++
- 1 file changed, 2 insertions(+)
+ net/mac80211/iface.c | 20 +++++++++++++++++---
+ 1 file changed, 17 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/media/pci/intel/ipu-bridge.c b/drivers/media/pci/intel/ipu-bridge.c
-index 2a38c4bd8..5f6baac2c 100644
---- a/drivers/media/pci/intel/ipu-bridge.c
-+++ b/drivers/media/pci/intel/ipu-bridge.c
-@@ -115,6 +115,8 @@ static const struct ipu_sensor_config ipu_supported_sensors[] = {
- 	IPU_SENSOR_CONFIG("OVTIDB10", 1, 560000000),
- 	/* Omnivision OV2680 */
- 	IPU_SENSOR_CONFIG("OVTI2680", 1, 331200000),
-+	/* Omnivision OV2740 */
-+	IPU_SENSOR_CONFIG("OVTI2740", 1, 360000000),
- 	/* Omnivision OV5675 */
- 	IPU_SENSOR_CONFIG("OVTI5675", 1, 450000000),
- 	/* Omnivision OV5693 */
+diff --git a/net/mac80211/iface.c b/net/mac80211/iface.c
+index b6ed6541bc42..f3105d0564de 100644
+--- a/net/mac80211/iface.c
++++ b/net/mac80211/iface.c
+@@ -279,6 +279,15 @@ static int _ieee80211_change_mac(struct ieee80211_sub_if_data *sdata,
+ 		if (ret)
+ 			return ret;
+ 
++		/*
++		 * The driver may have refused to add the interface back
++		 * after a previous address change, e.g. because the device
++		 * disappeared. In that case the interface is not in the
++		 * driver, so don't try to remove/add it again.
++		 */
++		if (!(sdata->flags & IEEE80211_SDATA_IN_DRIVER))
++			return -ENODEV;
++
+ 		live = true;
+ 	}
+ 
+@@ -300,10 +309,15 @@ static int _ieee80211_change_mac(struct ieee80211_sub_if_data *sdata,
+ 	}
+ 
+ 	/* Regardless of eth_mac_addr() return we still want to add the
+-	 * interface back. This should not fail...
++	 * interface back, but the driver may refuse, e.g. if the device
++	 * disappeared in the meantime.
+ 	 */
+-	if (live)
+-		WARN_ON(drv_add_interface(local, sdata));
++	if (live) {
++		int err = drv_add_interface(local, sdata);
++
++		if (err && !ret)
++			ret = err;
++	}
+ 
+ 	return ret;
+ }
 -- 
-2.53.0
-
+2.34.1
 
