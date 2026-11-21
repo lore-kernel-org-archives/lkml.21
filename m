@@ -1,84 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.240
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795244388;
-	b=aWnWGaSuu/G6xv4UUo1HQWM0iJTtn1I1DIt4R3GdTkW+VZLKwQH+5Ma8Tc2U4EX/lbpK
-	 PxMuJq5nsyi2apg2v2E+fcZXabTh2HB+l1dYeSFT4Yiga7ielL+pEQ3/z31JaKrbQrkAU
-	 RPeDYjTHLz+XOY2zqvMtVsXsgM6Zdc1xQr6pO1I56kwO9M6qMP2csd4BToDEA6vDhsfDA
-	 gzy7Q9W5bjPIXUGLIYC/g3JiTayKA4dmoOhQsKoW17Fi+sj4ZgndtGaqAhbAwZwkrMrF7
-	 eCXt69fNpBRDsmPh+n0rGpxsh0OEgP0RQ2zeiBP9uVA8PnG7cSq/ti7anzqD/USR12Q==
+	t=1795244392;
+	b=DQe0p6aLjjexFhukYEvBydCxI1CV1FKq2DHAb6DHfXzc00jPOQOoWXbTx5M4QnK5ec7q
+	 3KzOkLRITEEAkIG3dgA3MReJl7iz41YAk9NDY+0jlxO0tRc0CaayqEgctJ9DfC1jH7EW0
+	 hXT9pdJVwRY7oPp1SfENeoiyhLfFE2dyhHullIhRR+dg9uxMMDsxZTnO1XFwV73ql4pH7
+	 1d1YqiY4IdfT6JDF+Vw3BV0a2fSR6nR9zVHTNH1AvDcUIbH1xVXYovEneSplkbe5qwA48
+	 Y6bnOc7G+/dlfRz8xNgOj+r1vd9SYV5xTIWaMKbKa5FHKQyltpQ8FCFc3UricJuO0Qw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795244388;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Koju0qPt9fKMm+7kXLbrbiJyDSbVhbvXFb4WSB8Qbzo=;
-	b=Khjn/OaPOEG9YuIx2UNXgQ/TTETA8g2YLkG/lE7qF92ar98asCxUdQzRkja2ZsSNxZQC
-	 isSjZQvMdOm9rALMOOAQ60TrZNFTOhK9wshFOEkXXKB09SuKC7fvBHcID7DAuJ1DlF+ma
-	 ake0jX2VioKJuZjMYxesUH6q2M4tNFs4LTIH81OYttwM6tPsDSkN6ozB4XKw8GHjvpUvS
-	 cDMVGb64CAufxquweJ1aXOA7LLwu1UnDArdcOrofDjYjXoohzDIuZkbIiRvSQhwXiezVz
-	 eFP3o87Kuv+vsGAZr1qQdwKILvz4nJt9A5dEwl4gQqOpcGAHXgbCDvs3YslHQluqgJg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795244392;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=fGAdvKbnnDNvC7VTESnuJjeTLcD1XbFE2xtDIUZCto4=;
+	b=5eHA/q7eu9c2BMYoBpRcNSmSQbZeKOnNyB2fx5pMDAdr+CPCYwW9R7YXc9kewScrjAle
+	 2TVhqJiqJiPRVbDa6O8Xva27qGAJf3cZ8E1Y51pNGCVQfuzuCRhBTLFaKCO1LGwAcpOQ8
+	 rsISptRQAQNh+Fcpsiw0oj3S+gw5if8fDt6VZGPCnEbK1sSuNvV2Hc0aipKJhIDh/w64X
+	 PtyBz7CwmCBi40Fqv45wUg3GFnT3cLskfckzSg04UryP437LiR6/wOnlrBvMuSS13AuNg
+	 GFSQp2V9MRZxB+uJlTjWSvHxnzY8mvU/3ZaxrEfmu+EEC3xCbYHaGO1ErPYZPeBnj4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b="zPl8okH/";
-	arc=none smtp.remote-ip=203.205.221.240
-Received: from out203-205-221-240.mail.qq.com (out203-205-221-240.mail.qq.com [203.205.221.240])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=INpYishy;
+	arc=none smtp.remote-ip=74.125.82.199
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F301606A68C;
-	Sat, 21 Nov 2026 06:59:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F301606A68C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19B78606A330
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:59:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19B78606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=zPl8okH/
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795244385; bh=Koju0qPt9fKMm+7kXLbrbiJyDSbVhbvXFb4WSB8Qbzo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=zPl8okH/oAVkc9qMRpg/okJocQnd6ocQI4OosZTK18lAkPAKyKfMzY1ciUIffKDjo
-	 AuEmcbnP/gtbPcsDgwiseBotmaXGEDj2Lq3tYTlXdX16W69KSbo4/yLjZJiuni4zdA
-	 IkE6DKYq72uRmMqLhtL/jtcbUTyduBDy4itpO2vU=
-Received: from jerry-PC.lan ([2408:8249:5f:7101:71a:8713:56b4:5043])
-	by newxmesmtplogicsvrszc56-0.qq.com (NewEsmtp) with SMTP
-	id EE72042D; Sat, 21 Nov 2026 14:59:39 +0800
-X-QQ-mid: xmsmtpt1795244380txnqd759c
-Message-ID: <tencent_85AFCE164FAAD1CCAB95DC7CD804CA9BB309@qq.com>
-X-QQ-XMAILINFO: NnYhxYSyuBnLgVnKCHPq4TJRX9EGGXwmMozjcwxP0/j/7DG/gqsvD5K21JBK3a
-	 pap9y5kXKDQy7seYcvGsFgUJKk1DxkZSglfl/2+pgNil0T/IFcer25XcOKmyZqghmJr2VlVbUWSj
-	 hzVqxCgInKWKB+KYqhfqJ1ExYVIQeQBUkmXBTrtSuTH2BuRyu0ERshoQW44ZvOUrR8eqlnSQk6dE
-	 YNBC8+mWoaJJF7Wux/M5pAigMZEM2CcRpJrCZON5F8bXaqWwCyXrwN2sE3ynEqBYI21kGgf7qoRP
-	 87qO5F+Ya5lGSfy9HhWyScgfgB7ZQxenWjB0BkHjR4hgUVjVaprLTyG8dp8nDEYxfXQcPSowl7iZ
-	 VHy0V3HBxe45q/sp7i2mnA/3K4fdBCmICirzEdDLddhC6a7oiJT8RGX1WYKsw4de59IO70OzN3JF
-	 EsSv+CvUT/0rlm7FBXJGbAXnQaAucUR82VgR5Aw6HNXHEsUgA0nI4oemzwmmA33vJ8OuVr3zX3XG
-	 xHeMhkERAYno020BnWbyCm6/O6lvZ7sVD/Ah3cVvitSJCtUafnmVWeZmCY1SUecmiAyHeZBhEW53
-	 RLGZCtRoSquZG+ysxORMus63SNP40vxdFhSTYWCJZ3RRGaK7lS5ZiELd2dP/Zzt0fEJaxoz849gM
-	 aJ26Fvvkbr6+OBdbNzplLVzaZp9o/tJ1z+h5C5dEtwPZQI7i6pupHjmNV3vsFBeZUzfZMs7kPjtZ
-	 TvGngM4SRn7hwZViRi+GPi/GrY1A9XhqyQj6euPULV09ioOhVzhKNEPBMAaO/j+pvspqk6CSrJ2q
-	 a3GgLxwA7E9on6IoWMCzhvdHVVKpMaAGyoUx+a+mHaU9/e0u/s9Lk3je3ppNXJV14fpiGj5oVDCg
-	 Pc18T294Go0wmNlDyx9Oum7zdtCX7iJOyHyOlvGVwezz+0VEhsIKRn12ordIQLiT9gLOzXV+WuC2
-	 ZK/P/DrfgeXUD66cp2B6BDRf5rjsyBOnIvhONy0bUSirI+8QwliYS+pEa2dCz5jkGyc1D5Oh5vVB
-	 oaqukonOep/jm0blWOxo8SJVlAZRN2HIjUVkP1aTiwmUUmpoFxZfdrcGAb+7UzFwwgdnSHybvFjd
-	 qPgeaHy1OXx4EUROf9lHpUq0TYVQ==
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-From: ZhuXiangyu <1194781887@qq.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-pwm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	ZhuXiangyu <1194781887@qq.com>
-Subject: [PATCH 2/2] dt-bindings: pwm: rockchip: add RK3506 and RK3576 PWM
-Date: Sat, 21 Nov 2026 14:59:36 +0800
-X-OQ-MSGID: <20261121065936.1125919-2-1194781887@qq.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261121065936.1125919-1-1194781887@qq.com>
-References: <20261121065936.1125919-1-1194781887@qq.com>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=INpYishy
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-386177b0516so4032138eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:59:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795244391; x=1795849191; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fGAdvKbnnDNvC7VTESnuJjeTLcD1XbFE2xtDIUZCto4=;
+        b=INpYishyBjqzCHtPkLUzALLHXaqZglbxaIt1wiWcwva416LFtcMHBPD2+cGMjFnwo5
+         tlhv7jPuRv22yW66JdlmNOITf5OD2JCpqy1Yfz+dOkJSUBiEVaknErML0ozRZnojN9BD
+         YAbCoPAOCh4MQ47VZKnT+f6uJxo7wgXDfoceg11V3QX52PYw1uNuyvbcfRYgUjL4a1n6
+         AxmjgAeAZr6J4/gg3wc8pbud+J1ULoTNT+Cdo69+3xpe1nlsmJrWxZ6UAzZMPcDRFMqV
+         Yiq35+1wY9gL7VKZnda839ti7EbYrTd6CZQP0rBH5NQH3DHUAohPdTSHd15uoQX7vEjG
+         PoXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795244391; x=1795849191;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fGAdvKbnnDNvC7VTESnuJjeTLcD1XbFE2xtDIUZCto4=;
+        b=B+5LT61+vwlC6K6X1CHi/p2YJw6OWdDkraugIsAvRi/eyCSGDNEiFe0gXnlGSOdPX9
+         U1Q5HxLATrJch2PvGPIgeAHBwoOzel252F5yVtJRdmyxqhH9k4nPIGNzAWzvhIC2nqh2
+         XfKtzf8DZz20qMsOYCdtEgD3sDbYMz9cLuEOlWrJohPO6EJyxaLVEDdopWVe9HdvDopN
+         yZD44QeQg2o/NEvgeLS02HJ/CMfQlCDZuc3p9AO33QnCmGtkWduZOYzBZ+EMnOfWCWO9
+         Ae2ZwATl+PNR3geOQAy/ERXhYYr+XjJktG3VUeEtGYHE8xIcxHKQ7OOBo5nxg+r8dH1+
+         eN+A==
+X-Forwarded-Encrypted: i=1; AL+hErGdVuZ7cruekFWuETAQ5QA1VEz2xbOgC4UwLnlEeENesB7JoSU8Bd9FRL+Lft3yP+gDjGjGLVs69KnALQM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8+/5Z5Ckf2vFxB7ZyZdwX4ytlew/BdyVELxbW3I9WeR4rzjLAy
+	aDokHBZRZLfmH5xwq3CA/mEfgQhxxcUtkeYe9aHxGScqSBEE7spxPwlMWIdsgNnDcLD2JyktLAu
+	lQpfqzW140g==
+X-Received: from dloo27-n1.prod.google.com ([2002:a05:7023:a5b:10b0:1b2:48fb:f4d0])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:2608:b0:1b5:342a:e4f0
+ with SMTP id a92af1059eb24-1b5568b678fmr7282977c88.6.1795244390557; Fri, 20
+ Nov 2026 22:59:50 -0800 (PST)
+Date: Fri, 20 Nov 2026 22:58:12 -0800
+In-Reply-To: <20261121065813.4143649-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,118 +78,65 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+References: <20261121065813.4143649-1-irogers@google.com>
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261121065813.4143649-24-irogers@google.com>
+Subject: [PATCH v15 23/23] perf machine: Add __guarded_by annotation to machines->guests
+From: Ian Rogers <irogers@google.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Marco Elver <elver@google.com>
+Cc: Bart Van Assche <bvanassche@acm.org>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
+	Weilin Wang <weilin.wang@intel.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, linux-perf-users@vger.kernel.org, 
+	llvm@lists.linux.dev, bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Ian Rogers <irogers@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-Document the PWM v4 controllers found on RK3506 and RK3576. They use
-the pwm/pclk clocks and may additionally provide the osc and rc
-clocks used by the extended features.
+Annotate guests in struct machines with __guarded_by(&lock) and mark
+machines__init() with __context_unsafe().
 
-Signed-off-by: ZhuXiangyu <1194781887@qq.com>
+Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- .../devicetree/bindings/pwm/pwm-rockchip.yaml | 54 +++++++++++++++----
- 1 file changed, 45 insertions(+), 9 deletions(-)
+ tools/perf/util/machine.c | 1 +
+ tools/perf/util/machine.h | 3 ++-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml b/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml
-index c8cdfb72..ea6622d9 100644
---- a/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml
-+++ b/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml
-@@ -15,6 +15,8 @@ properties:
-       - const: rockchip,rk2928-pwm
-       - const: rockchip,rk3288-pwm
-       - const: rockchip,rk3328-pwm
-+      - const: rockchip,rk3506-pwm
-+      - const: rockchip,rk3576-pwm
-       - const: rockchip,vop-pwm
-       - items:
-           - const: rockchip,rk3036-pwm
-@@ -42,10 +44,16 @@ properties:
+diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
+index 0cc593d5372a..70870baa157e 100644
+--- a/tools/perf/util/machine.c
++++ b/tools/perf/util/machine.c
+@@ -234,6 +234,7 @@ void machine__delete(struct machine *machine)
+ }
  
-   clocks:
-     minItems: 1
--    maxItems: 2
-+    maxItems: 4
+ int machines__init(struct machines *machines, struct perf_session *session)
++	__context_unsafe(/* initialization */)
+ {
+ 	int err = machine__init(&machines->host, "", HOST_KERNEL_ID);
  
-   clock-names:
--    maxItems: 2
-+    minItems: 1
-+    maxItems: 4
-+    items:
-+      - const: pwm
-+      - const: pclk
-+      - const: osc
-+      - const: rc
+diff --git a/tools/perf/util/machine.h b/tools/perf/util/machine.h
+index 80191545ee8a..67d517742fb6 100644
+--- a/tools/perf/util/machine.h
++++ b/tools/perf/util/machine.h
+@@ -3,6 +3,7 @@
+ #define __PERF_MACHINE_H
  
-   "#pwm-cells":
-     enum: [2, 3]
-@@ -66,25 +74,50 @@ allOf:
-           contains:
-             enum:
-               - rockchip,rk3328-pwm
-+              - rockchip,rk3506-pwm
-+              - rockchip,rk3576-pwm
-               - rockchip,rv1108-pwm
+ #include <sys/types.h>
++#include <linux/compiler-context-analysis.h>
+ #include <linux/rbtree.h>
+ #include "maps.h"
+ #include "dsos.h"
+@@ -153,7 +154,7 @@ struct machines {
+ 	struct perf_session *session;
+ 	struct rw_semaphore lock;
+ 	struct machine host;
+-	struct rb_root_cached guests;
++	struct rb_root_cached guests __guarded_by(&lock);
+ };
  
-     then:
-       properties:
-         clocks:
--          items:
--            - description: Used to derive the functional clock for the device.
--            - description: Used as the APB bus clock.
-+          minItems: 2
- 
-         clock-names:
--          items:
--            - const: pwm
--            - const: pclk
-+          minItems: 2
- 
-       required:
-         - clocks
-         - clock-names
- 
--    else:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - rockchip,rk3328-pwm
-+              - rockchip,rv1108-pwm
-+
-+    then:
-+      properties:
-+        clocks:
-+          maxItems: 2
-+
-+        clock-names:
-+          maxItems: 2
-+
-+  - if:
-+      not:
-+        properties:
-+          compatible:
-+            contains:
-+              enum:
-+                - rockchip,rk3328-pwm
-+                - rockchip,rk3506-pwm
-+                - rockchip,rk3576-pwm
-+                - rockchip,rv1108-pwm
-+
-+    then:
-       properties:
-         clocks:
-           maxItems: 1
-@@ -92,6 +125,9 @@ allOf:
-             Used both to derive the functional clock
-             for the device and as the bus clock.
- 
-+        clock-names:
-+          maxItems: 1
-+
-       required:
-         - clocks
- 
+ int machines__init(struct machines *machines, struct perf_session *session);
 -- 
-2.47.3
+2.56.1.750.gf70dc682cf-goog
 
