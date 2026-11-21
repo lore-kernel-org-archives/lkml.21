@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795303618;
-	b=5bw+/zukIZjuCUkywbbBznYoyMqM4uoaEHZ1ALP911dciKV7trSK4Cw7lYvpBs3mg4pR
-	 6YgQc4kIs+OG/iG5YlJUwY6Cxh45SjZlUaGzz+qLiBHdrVN8zI9nrpkCxgzZLz5/NsvWn
-	 ybitgE0vaooPsFtaz7FOB9GY1FjQFevoDM436pXvtmwX6oMtJt8brdeCwKqwNbHdEImEB
-	 Lcww0C0awFQsUTMktgOnru6nh2FCeIDp6U8RHIDZa6VhflNzqH7nVkvf3JWHBksUnN1Jo
-	 aa21OCvnN1fd2COLBhurFvz+Nd7GNSFag3U5PIzfHzY1gIRlcwSDbD4CjHWwmpbGARA==
+	t=1795303615;
+	b=ozCyWoqSKDN+ErTY6uy6dN8GX8ABo+hEIPdrYIFNLZQKaiysMNLgk3Fx6RZp7KG81zFa
+	 Fi1sMEGjnrMNYal/gMUlhj7aRQY2FoCSIN5UuchJ1nhrADkUPhSayVO5p3Eq/Tmgnv6dx
+	 zTOi2pguxkBp3GBGPV1Gk2eOwMl6fgpH2jk3E1HltxWXA+N7W4NParj14mJrun68+5wr0
+	 yzcX1/bmzvKKhrzX1pW2LP1nE4be+U7vOyE6g5sXeCtnZ/Lnz9iJhE93961YSFT3Eq+Yt
+	 gTq1B/U9jFQaG1ZK/qmi39lnaiVj+mt/ffoDlKZG3M0i4Qr4QTqJVeSRXsZopZIRNbA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795303618;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795303615;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=uNHo+Sfo4SO6w4MKR8YizO7/Dz3BQ3/Jvkiq3N5ai4Y=;
-	b=bJ1HL2zsn26AYDRXTiOMJWYOe3KCs7d4BXtXxY2RCH0iOkFIrNvl2WP8FEa9FyypGz2W
-	 AAg869JFN0sBQspLhQejUr5b2ct4sBDhsxXlWovmvmxpnqOxcOIL9Jm8+1zOHCK5EBi56
-	 GsgTdRnwg7iZnNfnyW3WQsVW75ZLQsfsEz0ciaqh/FcpKwjgghTTIM+DkoQnbx0TD/FTt
-	 Oq5wWp75UnLqjhngogL9V9iHNx4UEC9gZUV+Xm60but1i3caqGuD0xaqnoq45Ux7EZb4i
-	 p2CjzENmYA3DbZMr7ou25bOzwj/fheCI8rH4eS10tzsO+GhhA0EfAEvNghR+KoxdNDw==
+	bh=DFVrqdZeDqlrBye9VV56rwq6lBLAdxR5cl64HEeuiwQ=;
+	b=KnM9yv8oBWtrrnt2Yd3OHSZCq+nSPnK1A3UdBARiHwTSVoV6Tz+L4nPgjfmz6cPPzt8X
+	 4S4gVABMh2VJRyN/G2US5NKzCimscS+5dGOxlyu3ygLgwQroOqqENhGKOVX2ttCH8LBpv
+	 ysSmwH+Iag18KBYtJLKxQ7DHGcyaw/5envknVvejcIRtJISdF8SQycraSnznKjocMYxTc
+	 IqXerrTY7z2fqUPDaQDvFyeJUH+JfsHWX5gOdlSSpzEhLrx/Y8c94hEeLS1LCoGD0Qo2e
+	 YuuJnbDlOR4u9yota5kCcgG9r8S9hL50D6BZBJ6zJns+O65jE5bK+zSRkGT6rQjWMhQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VpBjouCj;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ee097l4J;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEB11606A6A3;
-	Sat, 21 Nov 2026 23:26:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13D92606A33F;
+	Sat, 21 Nov 2026 23:26:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VpBjouCj
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 638161F000E6;
-	Sat, 21 Nov 2026 23:26:57 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ee097l4J
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF8001F000CF;
+	Sat, 21 Nov 2026 23:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795303618;
-	bh=uNHo+Sfo4SO6w4MKR8YizO7/Dz3BQ3/Jvkiq3N5ai4Y=;
+	s=k20260515; t=1795303614;
+	bh=DFVrqdZeDqlrBye9VV56rwq6lBLAdxR5cl64HEeuiwQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=VpBjouCjqQQeI8P4RhYDWkheQLduY2KtRgjsuneT/skyQuzN+Cm9NkbngYx/vyJiM
-	 Dbef+S20RA8XkAFHAsU9ksaA8j/sCG5zW85U1NFq0MWh8X97oL1TsaCv1iFTt+RQVo
-	 lsPCPanYr0ZSGw8muAC/4zCt20iLBmOl1TGD/vJC+p05bYANijE+GKcgmCUxPXetrS
-	 xsjcjlkhy44JYXELUhjjES+3aWYs0MdolvWpAwqxSTl9oXmqBngsHCqd8iBT2cb9BC
-	 dq7nXqV95PUR8YrBkhhv5rxUTCg7Yk94OLRfVMYqyE/V9qbq0LTj383Rl1/CDZYzL6
-	 QhjMB35gwuJDA==
+	b=Ee097l4JbLy6nzJCvsLsbJ9A0Lk7hLoriItGm8iqn4dOQ3yaby+MGsiOqJKFtJVnB
+	 ZpFCdiCNqt/E/EZbUMetbaayuHKBmIZl/qKUrZutdQ7vosOndRBV+7D5fyjPFkjtGQ
+	 j6O4UhBxDgquzUant49UR8RZJCnfNmh1XoiIL11POJdsinPVZJjlAZiXfyt7XG4bDu
+	 PJymo0rXz/DnjH1pnst06ExiOKlvwD6pZUFKczK179z63kkIqDhkKWQ1SLnmtZ8Wxu
+	 BmtrtYN/OcZcN7Nd2gkujOyG6wi7VK+XglCzAN/cj6ItUmuwN/gMpx8k1EvQPnGQgY
+	 Jj7r1ao++e5dw==
 From: Jakub Kicinski <kuba@kernel.org>
 To: ansuelsmth@gmail.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -71,12 +71,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	linux-mediatek@lists.infradead.org,
 	llvm@lists.linux.dev,
 	zhengping.zhang@airoha.com
-Subject: Re: [PATCH net-next v22 15/15] net: airoha: add phylink support
-Date: Sat, 21 Nov 2026 15:26:56 -0800
-Message-ID: <20261121232656.1365664-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v22 10/15] net: Document PCS subsystem
+Date: Sat, 21 Nov 2026 15:26:52 -0800
+Message-ID: <20261121232652.1365578-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261117123956.11981-16-ansuelsmth@gmail.com>
-References: <20261117123956.11981-16-ansuelsmth@gmail.com>
+In-Reply-To: <20261117123956.11981-11-ansuelsmth@gmail.com>
+References: <20261117123956.11981-11-ansuelsmth@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,250 +91,262 @@ Content-Transfer-Encoding: 8bit
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-net: airoha: add phylink support
+net: Document PCS subsystem
 
-This adds phylink support for each GDM port. GDM1 is limited to the
-internal interface mode, and GDM2/3/4 use a PCS referenced through the
-pcs-handle property. The ethtool link_ksettings ops now go through
-phylink, and GDM4 TX/RX fragment sizes are set on link up.
+This commit adds Documentation/networking/pcs.rst. The new file describes
+the PCS subsystem, the fwnode producer/consumer API, late PCS registration
+handling, and has an API reference section. It also updates the
+sfp-phylink migration guide to point at num_possible_pcs and
+fill_available_pcs, and marks mac_select_pcs as deprecated.
 
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-> index 044ad0302ef35..e41dfad58b258 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-
-[ ... ]
-
-> @@ -3752,6 +3790,155 @@ bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
->  	return false;
->  }
->  
-> +/* Nothing to do in MAC, everything is handled in PCS */
-> +static void airoha_mac_config(struct phylink_config *config, unsigned int mode,
-> +			      const struct phylink_link_state *state)
-> +{
-> +}
-> +
-> +static void airoha_mac_link_up(struct phylink_config *config, struct phy_device *phy,
-> +			       unsigned int mode, phy_interface_t interface,
-> +			       int speed, int duplex, bool tx_pause, bool rx_pause)
-> +{
-> +	struct airoha_gdm_dev *dev = container_of(config, struct airoha_gdm_dev,
-> +						  phylink_config);
-> +	struct airoha_gdm_port *port = dev->port;
-> +	struct airoha_eth *eth = dev->eth;
-> +	u32 frag_size_tx, frag_size_rx;
-> +
-> +	/* TX/RX frag is configured only for GDM4 */
-> +	if (port->id != AIROHA_GDM4_IDX)
-> +		return;
-
-[Severity: Medium]
-Should tx_pause and rx_pause be applied somewhere in airoha_mac_link_up()?
-
-airoha_setup_phylink() advertises MAC_ASYM_PAUSE | MAC_SYM_PAUSE on every
-GDM port. However, airoha_mac_link_up() returns right away for GDM1-3 and
-only writes fragment sizes for GDM4.
-
-Nothing in drivers/net/ethernet/airoha uses tx_pause, rx_pause or
-GDM_INGRESS_FC_EN_MASK.
-
-The only flow control setup on this path is in airoha_pcs_config():
-
-drivers/net/pcs/airoha/pcs-airoha-common.c:airoha_pcs_config() {
-    ...
-	/* Configure Flow Control on XFI */
-	regmap_update_bits(maps->pcs_mac, AIROHA_PCS_XFI_MAC_XFI_GIB_CFG,
-			   AIROHA_PCS_XFI_TX_FC_EN | AIROHA_PCS_XFI_RX_FC_EN,
-			   permit_pause_to_mac ?
-				AIROHA_PCS_XFI_TX_FC_EN | AIROHA_PCS_XFI_RX_FC_EN :
-				0);
-    ...
-}
-
-permit_pause_to_mac reflects whether pause autoneg is enabled. It is not
-the result negotiated with the link partner.
-
-With the default MLO_PAUSE_AN, XFI TX/RX flow control ends up enabled even
-when the partner does not support pause. With pause forced on and autoneg
-off, it ends up disabled while phylink reports pause as on.
-
-Can the hardware flow control state differ from what phylink resolved and
-reports?
-
-Also, only get/set_link_ksettings were moved to phylink in
-airoha_ethtool_ops. These are not wired up:
-
-  get/set_pauseparam (phylink_ethtool_get/set_pauseparam())
-  nway_reset (phylink_ethtool_nway_reset())
-  ndo_eth_ioctl (phylink_mii_ioctl())
-
-Is that intended, given the commit message says "now that we fully support
-phylink"?
+> diff --git a/Documentation/networking/pcs.rst b/Documentation/networking/pcs.rst
+> new file mode 100644
+> index 0000000000000..71d1283a72cd1
+> --- /dev/null
+> +++ b/Documentation/networking/pcs.rst
+> @@ -0,0 +1,231 @@
 
 [ ... ]
 
-> +static int airoha_setup_phylink(struct net_device *netdev)
-> +{
-> +	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-> +	struct device_node *np = netdev->dev.of_node;
-> +	struct airoha_gdm_port *port = dev->port;
-> +	struct phylink_config *config;
-> +	phy_interface_t phy_mode;
-> +	struct phylink *phylink;
-> +	int err;
+> +With the use of the :c:func:`fwnode_phylink_pcs_parse` a common implementation
+> +is the following::
 > +
-> +	err = of_get_phy_mode(np, &phy_mode);
-> +	if (err) {
-> +		dev_err(&netdev->dev, "incorrect phy-mode\n");
-> +		return err;
-> +	}
-
-[Severity: Medium]
-Does this stop DTs that follow the current airoha,en7581-eth.yaml binding
-from probing?
-
-The binding's ^ethernet@[1-4]$ and ^ethernet@[0-5]$ patternProperties
-only require reg and compatible. The binding example has no phy-mode,
-fixed-link or pcs-handle. That example is ethernet@1, plus ethernet@4
-with eth-port children @0 and @1.
-
-With this patch, a missing phy-mode on any enabled GDM or eth-port node
-propagates up:
-
-airoha_probe()
-  airoha_alloc_gdm_port()
-    airoha_alloc_gdm_device()
-      return airoha_setup_phylink(netdev);
-        of_get_phy_mode() fails
-
-airoha_probe() then runs the error_napi_stop teardown, so every port is
-lost, GDM1 included. Before this patch the driver never called
-of_get_phy_mode(), and such DTs probed fine.
-
-A similar problem shows up in airoha_dev_open():
-
-	err = phylink_of_phy_connect(dev->phylink, netdev->dev.of_node, 0);
-	if (err) {
-		netdev_err(netdev, "could not attach PHY: %d\n", err);
-		return err;
-	}
-
-Suppose a node has phy-mode but no phy-handle, fixed-link, SFP or in-band
-managed mode. Phylink is then in MLO_AN_PHY, and
-phylink_fwnode_phy_connect() returns -ENODEV. Won't ndo_open now fail
-where it used to succeed?
-
-The commit message implies that GDM2/3/4 need pcs-handle. The code means
-GDM1 needs phy-mode = "internal" plus fixed-link, because only
-PHY_INTERFACE_MODE_INTERNAL is in supported_interfaces. The ethernet
-binding describes neither. The series updates the PCS binding but not
-this one.
-
-Should airoha,en7581-eth.yaml be updated too? Alternatively, should the
-driver fall back (for example to internal on GDM1) when phy-mode is
-absent?
-
-The in-tree en7581.dtsi gdm1 node already has phy-mode = "internal" and
-fixed-link, so in-tree boards still work.
-
+> +   static int mac_fill_available_pcs(struct phylink_config *config,
+> +   				                      struct phylink_pcs **available_pcs,
+> +					                      unsigned int num_possible_pcs)
+> +   {
+> +   	struct device *dev = config->dev;
 > +
-> +	config = &dev->phylink_config;
-> +	config->dev = &netdev->dev;
-> +	config->type = PHYLINK_NETDEV;
+> +   	return fwnode_phylink_pcs_parse(dev_fwnode(dev), available_pcs,
+> +						                    num_possible_pcs);
+> +   }
+> +
+> +   static int mac_setup_phylink(struct net_device *netdev)
+> +   {
+> +      struct phylink_config *config;
+> +
+> +      // ...
+> +
+> +      config->dev = &netdev->dev;
+> +
+> +      // ...
+> +
+> +      // Parse possible PCS and fill num_possible_pcs.
+> +      config->num_possible_pcs = fwnode_phylink_pcs_count(dev_fwnode(&netdev->dev));
+> +      config->fill_available_pcs = mac_fill_available_pcs;
+> +
 
 [ ... ]
 
-> +	} else {
-> +		config->mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
-> +					   MAC_10 | MAC_100 | MAC_1000 |
-> +					   MAC_2500FD | MAC_5000FD | MAC_10000FD;
+> +      phylink = phylink_create(config, //...
 
 [Severity: Medium]
-MAC_10, MAC_100 and MAC_1000 include MAC_10HD, MAC_100HD and MAC_1000HD.
-That means phylink will advertise and accept half duplex. Is half duplex
-actually supported on these ports?
+The example parses pcs-handle from dev_fwnode(&netdev->dev) for both
+num_possible_pcs and fill_available_pcs. The fwnode passed to
+phylink_create() is cut off. Do these two have to be the same node?
 
-Nothing seems to configure duplex:
+The earlier text describes both helpers as taking "the fwnode where the
+pcs-handle should be parsed", which reads as if the MAC driver can pick
+any node.
 
-  airoha_mac_link_up() ignores its duplex argument
-  airoha_pcs_link_up() never reads duplex
-  the Airoha PCS get_state helpers hard code DUPLEX_FULL
-  airoha_pcs_ops has no .pcs_validate to strip half duplex modes
+However, pcs_provider_notify() in drivers/net/phy/phylink.c only ever uses
+pl->fwnode, which is the node given to phylink_create():
 
-So a PHY that links half duplex with a half-duplex-only partner would
-leave the GDM/PCS running full duplex.
+	case FWNODE_PCS_PROVIDER_ADD:
+		count = fwnode_phylink_pcs_count(pl->fwnode);
+		for (i = 0; i < count; i++) {
+			pcs = fwnode_pcs_get_from_provider(pp, pl->fwnode, i);
+	...
+	case FWNODE_PCS_PROVIDER_DEL:
+		list_for_each_entry_safe(pcs, tmp, &pl->pcs_list, list) {
+			if (!fwnode_pcs_matches_provider(pp, pl->fwnode, pcs))
+				continue;
 
-Separately, USXGMII is in supported_interfaces and MAC_10 is advertised.
-In the out-of-band branch of airoha_pcs_link_up(), the USXGMII/10GBASE-R
-speed switch has no SPEED_10 case:
+If dev_fwnode(&netdev->dev) is NULL, fwnode_phylink_pcs_count() returns
+0 and no PCS is filled at create time. A provider that was already
+registered never sends ADD again, so the PCS is never attached and the
+major config fails.
 
-drivers/net/pcs/airoha/pcs-airoha-common.c:airoha_pcs_link_up() {
-    ...
-		if (interface == PHY_INTERFACE_MODE_USXGMII ||
-		    interface == PHY_INTERFACE_MODE_10GBASER) {
-			...
-			case SPEED_100:
-				rate_adapt = AIROHA_PCS_HSGMII_RATE_ADPT_FORCE_RATE_ADAPT_MODE_100;
-				mode = AIROHA_PCS_USXGMII_MODE_100;
-				break;
-			default:
-				/* Not supported */
-				return;
-			}
-    ...
-	if (data->link_up)
-		data->link_up(priv, port->index);
+If a PCS is filled from node A while pl->fwnode is node B, the
+PROVIDER_DEL check never matches it. The PCS stays on pl->pcs_list with
+pcs->phylink still set after the provider has freed it. Later,
+phylink_detach_pcss() writes to the freed memory:
 
-	/* BPI BMI enable */
-	regmap_clear_bits(maps->pcs_mac, AIROHA_PCS_XFI_MAC_XFI_GIB_CFG,
-			  AIROHA_PCS_XFI_RXMPI_STOP |
-			  AIROHA_PCS_XFI_RXMBI_STOP |
-			  AIROHA_PCS_XFI_TXMPI_STOP |
-			  AIROHA_PCS_XFI_TXMBI_STOP);
-}
+	list_for_each_entry_safe(pcs, tmp, &pl->pcs_list, list) {
+		rcu_assign_pointer(pcs->phylink, NULL);
+		list_del(&pcs->list);
 
-When a USXGMII PHY resolves to 10M, this returns before data->link_up().
-It also returns before the MPI/MBI STOP bits set by pre_config/link_down
-are cleared.
+pl->pcs may also still point at it.
 
-Would phylink then report carrier up while the XFI datapath stays stopped
-and the USXGMII mode register keeps its old speed?
+Could the example pass the same fwnode to phylink_create(), and could the
+text state this requirement? The airoha_eth user later in the series only
+works because it sets netdev->dev.of_node = np and passes
+of_fwnode_handle(np) to phylink_create().
 
-> +
-> +		config->num_possible_pcs = fwnode_phylink_pcs_count(dev_fwnode(config->dev));
-> +		config->fill_available_pcs = airoha_fill_available_pcs;
+[ ... ]
+
+> +The ``fill_available_pcs`` callback is called only on :c:func:`phylink_create`
+> +and is used only to compose the initial available PCS list. Ownership of PCS
+> +is held by phylink.
 
 [Severity: Low]
-The commit message says:
+Is "Ownership of PCS is held by phylink" accurate? phylink_add_pcs() links
+the PCS in without taking any reference:
 
-    These needs to be defined in the GDM port node using the pcs-handle
-    property.
+	list_add_tail(&pcs->list, &pl->pcs_list);
 
-Is that accurate? fwnode_phylink_pcs_count() returns 0 when there is no
-pcs-handle, and phylink_fill_available_pcs() then returns early:
+	/* Link PCS to phylink */
+	rcu_assign_pointer(pcs->phylink, pl);
 
-	if (!config->num_possible_pcs)
-		return 0;
+phylink never frees a struct phylink_pcs. phylink_fill_available_pcs()
+frees only the temporary pointer array. The memory stays with the provider
+driver, or with the MAC driver for an internal PCS. phylink drops its
+borrowed pointer only in the FWNODE_PCS_PROVIDER_DEL notifier sent by
+fwnode_pcs_del_provider(), or in phylink_detach_pcss().
 
-phylink_create() then succeeds with SGMII, 1000BASE-X, 2500BASE-X,
-10GBASE-R and USXGMII in supported_interfaces but no PCS at all. There is
-no error or warning.
+On teardown ordering, the "Writing PCS Drivers" section only says "You
+must call fwnode_pcs_del_provider from your remove function on driver
+detach." Could it state the lifetime rule? A provider's phylink_pcs has to
+stay valid until fwnode_pcs_del_provider(), or the devres release from
+devm_fwnode_pcs_add_provider(), has returned. A MAC-internal PCS has to
+outlive phylink_destroy().
 
-Can the port then report carrier up from the PHY while the SerDes is
-never configured? Should a missing pcs-handle on GDM2/3/4 be rejected
-here?
+Without that rule, a provider might free its PCS in .remove() while
+relying on the devm variant, or kfree() it before calling
+fwnode_pcs_del_provider(). In either case pcs_provider_notify() runs the
+xlate, list_del(&pcs->list) and possibly phylink_pcs_disable() on freed
+memory.
 
-Also, config->dev is &netdev->dev. When sub-ports exist, its of_node is
-the airoha,eth-port child. So pcs-handle is read from the child node, not
-from "the GDM port node".
+[ ... ]
 
-The commit message also leaves out the new GDM4 code in
-airoha_mac_link_up():
+> +It's worth to mention that xlate function MUST reference already allocated
+> +:c:struct:`phylink_pcs` pointer and MUST NOT dynamically allocate new PCS.
+> +The returned pointer is used to identify the PCS across provider lookup and
+> +removal notifications.
 
-  it writes speed-dependent TX/RX fragment sizes into
-  REG_FE_GDM4_TMBI_FRAG and REG_FE_GDM4_RMBI_FRAG
-  it picks the SGMII1 or SGMII0 fields based on dev->nbq == 1
-  it serializes the writes with the new port->link_lock mutex
+[Severity: Low]
+Should this section also say that a struct phylink_pcs can be attached to
+only one phylink instance at a time? phylink_add_pcs() refuses a second
+attach:
 
-Could the commit message describe this as well?
+	if (WARN(rcu_access_pointer(pcs->phylink),
+		 "%s: PCS already attached to a phylink instance\n",
+		 __func__))
+		return false;
+
+phylink_fill_available_pcs() ignores that return value:
+
+		phylink_add_pcs(pl, pcs);
+
+If two MAC nodes have a pcs-handle that resolves to the same phylink_pcs,
+the second MAC gets a WARN splat and runs without that PCS. Its major
+config can then fail. The text requires an already allocated PCS but says
+nothing about a single owner, so a provider author might share one PCS
+object across several ports.
+
+> +Late PCS registration handling
+> +------------------------------
+> +
+> +It's possible that a PCS becomes available after the MAC finished probing.
+> +Contrary to the usual producer/consumer implementation, when a PCS is not
+> +registered and can't be found, the fwnode parser helper returns ``-ENODEV``
+> +instead of ``-EPROBE_DEFER``.
+
+[ ... ]
+
+> +Function :c:func:`pcs_provider_notify` will check if the just added PCS
+> +should be used by the phylink instance. If it should be used then,
+> +it's added to the internal list of available PCS and a phylink major
+> +config is forced.
+
+[Severity: Low]
+A few statements in pcs.rst don't seem to match the implementation.
+
+Is a major config always forced here? pcs_provider_notify() forces one
+only after an earlier major config failure:
+
+		if (resolve && pl->major_config_failed) {
+			pl->force_major_config = true;
+			pl->link_failed = true;
+		}
+
+Otherwise it only refreshes supported_interfaces and the capabilities and
+runs a resolve.
+
+The text above says "the fwnode parser helper returns -ENODEV". But
+fwnode_phylink_pcs_parse() skips per-entry -ENODEV. It returns -ENODEV
+only when the pcs-handle property is missing:
+
+	if (!fwnode_property_present(fwnode, "pcs-handle"))
+		return -ENODEV;
+
+The "Using PCS Devices" section says the helper returns the number of
+available PCS found, and doesn't mention this case.
+phylink_fill_available_pcs() treats any negative return as fatal:
+
+	ret = config->fill_available_pcs(config, pcss, config->num_possible_pcs);
+	if (ret < 0)
+		goto out;
+
+So a MAC with a fixed num_possible_pcs that calls the helper on a node
+without pcs-handle would fail phylink_create(). Could this case be
+documented?
+
+In "Looking up PCS Devices", the two paragraphs before this sentence refer
+to supported_interfaces in struct phylink_pcs:
+
+  supported_interfaces describes all interface modes supported by the MAC,
+  whereas pcs_interfaces identifies the subset that require PCS selection.
+
+That sentence describes phylink_config.supported_interfaces instead.
+Which one is meant? Also, phylink_create() and pcs_provider_notify() OR
+every pcs->supported_interfaces into pl->supported_interfaces, so the
+code doesn't enforce the subset relationship.
+
+The docs present mac_select_pcs and num_possible_pcs as alternatives.
+They don't mention that phylink_create() returns -EINVAL when both are
+set. Should that be stated?
+
+[ ... ]
+
+> diff --git a/Documentation/networking/sfp-phylink.rst b/Documentation/networking/sfp-phylink.rst
+> index 5bf285d73e8a1..306505118eba9 100644
+> --- a/Documentation/networking/sfp-phylink.rst
+> +++ b/Documentation/networking/sfp-phylink.rst
+> @@ -311,33 +311,20 @@ this documentation.
+
+[ ... ]
+
+> +12. Populate the :c:var:`num_possible_pcs` value and
+> +    :c:func:`fill_available_pcs` callback and add it to your
+> +    :c:type:`struct phylink_config <phylink_config>`.
+>  
+> -                return NULL;
+> -        }
+> +    Refer to :ref:`Documentation/networking/pcs.rst <pcs_consumer>` for
+> +    further details and examples.
+>  
+> -    See :c:func:`mvpp2_select_pcs` for an example of a driver that has multiple
+> -    internal PCS.
+> +    Notice that the previous implementation of populating
+> +    :c:func:`mac_select_pcs` is considered deprecated in favor of the new
+> +    described above.
+
+[Severity: Low]
+num_possible_pcs and fill_available_pcs are members of struct
+phylink_config, not a global variable and a function. Will the :c:var:
+and :c:func: references resolve? The plain literal markup used in pcs.rst
+might be a better fit here.
+
+pcs.rst also refers twice to :c:func: pcs_provider_notify. That is a
+static function in drivers/net/phy/phylink.c with no kernel-doc, so the
+reference can't resolve either. It also puts an internal symbol into the
+user-facing documentation.
+
+This step calls mac_select_pcs deprecated, but its kernel-doc in
+include/linux/phylink.h is unchanged at the end of the series:
+
+  * mac_select_pcs: Select a PCS for the interface mode.
+
+That kernel-doc still presents mac_select_pcs as the normal mechanism.
+Should it be updated so the API reference matches this guidance?
