@@ -1,96 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.239
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795229807;
-	b=MqN89f1ypqk+x9H+v19tdnbwfKdI7R9ibzX2RDLbo/9MXKOsvTQqMVe7sXEZTEf8yUfI
-	 HbzmAqyHHmOBeHqlXy1W71eOSs9FyDlLxSZP9+xrSqF/7ans6LolwnqEzQo65GKxbh43/
-	 IqYnbseZStnZQ3m/c3lprMkdXlClC32jAxgQLBTkxTK9XORwNj27WCw88sTE2LEeZtgSh
-	 9U13EYL6Ve42JJkVgMlIFEb3/4/xmy0P2oSS+a71kaGPcybzsEvlJd5VrYSGsf+aQVhnS
-	 Vh3AuRi+aWe6ZecbDa1YtI5jfotNSGqO4tsxBX50yrF2b9+UmE54fFPZH2OeUFqBtzA==
+	t=1795229867;
+	b=1uAMMGNLxi6p8kU0CmaAKq/SuWduVPQ/Gc7sz5fe8lnJ/chE3cD321/qbvJxA6tV6occ
+	 TP7dGKRJIFhgTuujY6T2o5GQZIkQrx7MLF3r0/IskQCwXvQ0/dmfJbt5JF+eUKeYJu5bq
+	 KvH0OkQqzjf/8hmvbgVhjnQbEElg0m8QSPbpZB8JcLtjFyn9E5SQXywZr7Cw8QS4q8Ad7
+	 XSzxEd+9wq1MrfeJ2QD0Iw7Y2Noq4T2TRGhTQ8rD4HQphiA0NdZ1Sq5a8k9DuV94YSFk8
+	 CtO8lREgMJHAz1R7E9HmCPZxfRWWnDIYy0Te5Av5r0qaetvi3XFjCBdcHcbz/1Ax3kg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795229807;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=sQ0URJXLHPyhV0pqjQJeFam3yZqKvnQul1dVgNuKRU4=;
-	b=ObYll+IkbcMmjpMu2nPJkqpJwuK4APdQqG7ZndaLQuzJDSEFMPicFBKU8lEaa8lFFZ/q
-	 1gUkzIPkX42oiBDTX8HGAvcDGPhGJYB0mfvCyzIyCOekG+vtOp4hI35vkIQKNQW5DuPki
-	 s8OZHdixbRV4roz2LawLMu1eCnldomiA2zXt1QI/Z9uguMyAOAO4utRS/hZuDHn3TN8PZ
-	 qGI3Y06ykyIWMJAvdEa+Mmj/9J57Q+XFfIOhRlLiYsZUv4+xbULds7tisCDGce/xzPeC0
-	 0EZCYZPEC1mAcLXNBJqRjfaV7+1foARiZc3EofvjDjDk39kDc0RiPTLmijgOmLWaXqA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795229867;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer;
+	bh=BpfWIE25dkuD8zNFed2ewq15d6pWg35O4AjdsUKuCX8=;
+	b=UP384Be6uzOA+uhWASHhKSW1w7xgQjuiprcHPZobfHTQ4hYlMW2MxejsyWfypU78OeWE
+	 T4inW5SI3moTtApb9PKJnaeKPVYtHJQfWDO3eGF3U4Qa3VsdZ/GN4dYB3YazL6F1jSRNm
+	 fo4UyDddgwHsuBhJWFM2FGq9F6FoGRdaN36oYCSNIdYNjkuWyJ21LUl+4a6aknANfzFdH
+	 avcjf8b3Kw6M7KKFTMrgvk87dzF3Do1rlwaBUpQ7HYITUtFAhRFVTkM4x4kpdUQwP4nmm
+	 j4ou2y8shVZ6Q7MIxMg4R5EjthL54LUWEETujB18Sy8+sRmbxC4V33EgTZXSmovaLSQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g9Bi0j63;
-	arc=none smtp.remote-ip=74.125.82.174
-Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=gKXtS9o3;
+	arc=none smtp.remote-ip=91.218.175.239
+Received: from mta0.migadu.com (out-239.mta0.migadu.com [91.218.175.239])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78F9B606A6BA
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 02:56:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78F9B606A6BA
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33D79606A333
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 02:57:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33D79606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g9Bi0j63
-Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-38644aedba1so1607879eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:56:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795229802; x=1795834602; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=sQ0URJXLHPyhV0pqjQJeFam3yZqKvnQul1dVgNuKRU4=;
-        b=g9Bi0j638butKQqrJh7k3KCV/lIMMA+ErsuPa1dWZlOUuaBred/EkLCNPnCIcLvuZ3
-         gKYp+t4eSAhv3PBOKvKNjoFr6XldgWtmyhPbpcnf0PVdCgrBqBWvDCMTFDaN8OMRgygM
-         DenAySF+lbxJ/EVfFwP3SO2YyyivEWAcX1RANpsvtHozHj8U2cxosOrNmZDKO7o4KJAH
-         7Yv66Cjie6HXrTscNPQG+ZA3GObk4+gGCH52582Mgf7jFfGRQ5iEyDFBl4FN8OBPa78s
-         hz2JpkqSOlrsSkLPi7Zn1P2aj5/JZzZ8Ybs9WpzgZMa69ggJl//2Z+uxjj1Bu9V15jiT
-         u2zA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795229802; x=1795834602;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=sQ0URJXLHPyhV0pqjQJeFam3yZqKvnQul1dVgNuKRU4=;
-        b=neo/YId/2PrGUqjeDAxqBPQ8H8EISDZDgRoG8Ib4TeYeaunUnx1ZcE98HE9QZNe3YX
-         KMJFpV52GTH728DOEH30QqjLeFCYBuy8eg+LcV45BVnlWp+dUgHaZ0woMObMMLP5L7Ru
-         BvE0YmJWDBZM2NfDlGsJw0XOpzd/uhHKr9uvDBdofDMus9T6xh+dpB/Zx6eYMoISRcUR
-         QNF3xVBWbZln6Bx+yDH6dMIY3fbyLrfCi62Aoccj+Lpl5vJVUrBYfZ3ulRczEv579zOj
-         4wc6VQXGJOioCMgSFnbLNQiRPNJHjZIcs1DskiLe/nXOxhO7BPBll/4sSraYfrVCj2yn
-         /nsw==
-X-Forwarded-Encrypted: i=1; AL+hErH2ysqfoNPsn/vTJn/KpdICM2TjOKpjBEjNeYEaj1oH6fm3mzFxSuVrwHpErE/K1cECkUsDnYocyYu/w5M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8svNAGqM0Wj30lf7PHszM+cbYQ6RINsHWBygipyzB6ecV0Sp7F
-	Jd690xMnN8jnFjiQzSINCPU3GLXnDnoEjGyLqoy0VnmDv/vpv8l7HhNL
-X-Gm-Gg: AZFdTZf0xj3hAlSt5BooXtTh9F5x7reHtR6znd+dxQjttnYri/PZVvL92SC2yVlsv27
-	TfYs80vrfwlEMQfdealrpLsof/hD1txKTUzOjTU/TiUporoJpZzGQ7LQGuQGmkQwNmTAuOZ1DF2
-	JIBNfTePDtMdYCbmScSHNyQCGugMQdmXl37Fuqbn71tvlLjiR7uT/Bk0fWP2mk9kxRAlwEgfu0v
-	omCFrCEBIyYyUIkREjJh0ilH3/whMNnMZfMsnhMdACaN5SrD5fMViEHj5rOlJV5FAK/xbexXsKo
-	HbCUoYjfwWccBHRrTvMk6AYYJjQlKUsNyWLOZylpZDhlQzha9Ty5LnXWME6m8PVX/oUe7fLizdn
-	jTnD/mZiiezgOTkcaAOtOv9X14FxyZZt2M+UJY2hm31LnWrbpsm1V5fKwrn+LkUZ43DfBwDQHb0
-	5MqGKlxjwJpPEoXERrKVkreOdy8XhR7hlAHawy4RJS4eReXrYoexAEYwaKFfljmLm+7RPf+NOhx
-	H/CaYR9dOA9PCNWaR1XcEVVkZPCu7kJUXvgIrvu0uYMLaIh9AJJGChfIJL1awbZUCeKdgTg2KPn
-	KI2HCe+vNNNeCbX319bk0qMekrF7rqqdYEdSwmnnJe1IE7e8t0wMBZJVqG/jMNGE5gR+OQDH24i
-	eE6lunfP10t2uUBqT5N2HorC9EniRvnYOcvWO18MC3v5ZSmzfqEfoZnCoKDwfbYxytSLSH8uxeL
-	6W0A==
-X-Received: by 2002:a05:693c:8641:20b0:383:50b7:1d78 with SMTP id 5a478bee46e88-38571223ee7mr5312730eec.40.1795229801565;
-        Fri, 20 Nov 2026 18:56:41 -0800 (PST)
-Received: from localhost.localdomain (206.135.124.34.bc.googleusercontent.com. [34.124.135.206])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385667decc2sm12071967eec.9.2026.11.20.18.56.35
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 20 Nov 2026 18:56:41 -0800 (PST)
-From: Yifan Feng <evanfengff@gmail.com>
-To: SJ Park <sj@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: damon@lists.linux.dev,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Yifan Feng <evanfengff@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] mm/damon/core: fix damos_walk() hang with zero watermarks interval
-Date: Fri, 20 Nov 2026 18:56:26 -0800
-Message-Id: <20261121025626.75981-1-evanfengff@gmail.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=gKXtS9o3
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=lubXfcm13N5i1ubAGfTU+XgTRloOwGqG5TWqbspigoQ=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795229861; v=1; x=1795834661;
+ b=gKXtS9o3RNZNzusmLktQFEwYuARe3KcFNBA54IDwki+WAoQ5L6hnZSHfkKRO7//QvYjNvCy4
+ cSLVABFIScEaGV5bqCtJNj/5P1nPaUz2bcSuS0duXzi+aQQVUv8IetNrlfkfLQSS79W1Q30XQag
+ wXcQ7CNJ7BKXifzXzjXNYviQ=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id e06df9e49848c2d1;
+	Sat, 21 Nov 2026 02:57:41 +0000
+X-Mizu-Trace-ID: e06df9e49848c2d1
+X-Migadu-Flow: FLOW_OUT
+From: Qiliang Yuan <qiliang.yuan@linux.dev>
+Date: Fri, 20 Nov 2026 21:57:24 -0500
+Subject: [PATCH v3 1/3] sched: Give root domain moves their own sched_class
+ callbacks
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,75 +60,170 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-bug-sched-fair-offline-active-v3-1-325e9eefa56d@linux.dev>
+References: <20261120-bug-sched-fair-offline-active-v3-0-325e9eefa56d@linux.dev>
+In-Reply-To: <20261120-bug-sched-fair-offline-active-v3-0-325e9eefa56d@linux.dev>
+To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Juri Lelli <juri.lelli@redhat.com>, 
+ Vincent Guittot <vincent.guittot@linaro.org>, 
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, 
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, 
+ K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Li kunyu <likunyu@open-hieco.net>, linux-kernel@vger.kernel.org, 
+ Qiliang Yuan <qiliang.yuan@linux.dev>
+X-Mailer: b4 0.13.0
 
-kdamond_wait_activation() cancels damos_walk() requests while all
-schemes are deactivated by their watermarks.  But it returns without
-waiting when the watermarks check interval of a deactivated scheme is
-zero, which is the default of the DAMON sysfs interface.  The kdamond
-main loop then runs with all schemes deactivated.
+The rq_online() and rq_offline() callbacks run when a CPU comes up or
+goes down, and also when rq_attach_root() moves an active CPU to a new
+root domain during a sched domain rebuild. rt and dl use them for state
+kept in the root domain: the overload masks, cpupri, cpudl and the RT
+runtime shared within it. fair uses them for task group state, which
+does not depend on the root domain.
 
-In that state, kdamond_apply_schemes() finds no scheme to apply and
-returns before it calls damos_walk_complete().  The walk request is
-neither completed nor cancelled, so damos_walk() waits until the
-watermarks activate a scheme again, possibly forever.
+With one pair of callbacks for both events, a class cannot do only the
+work that a root domain move needs, so every rebuild runs the fair
+hotplug work for all active CPUs.
 
-For example, with a scheme that has the free_mem_rate metric, zero
-interval_us and a high watermark below the current free memory rate,
-writing update_schemes_tried_regions to the kdamond state file never
-returns and cannot be killed.  The writer holds damon_sysfs_lock, so all
-other DAMON sysfs writes including "off" fail with -EBUSY meanwhile.
+Add rq_attach_root() and rq_detach_root() to struct sched_class for the
+root domain state and convert rt and dl to them. Have set_rq_online()
+and set_rq_offline() call both kinds of callbacks class by class, so
+that every class still runs at the same points and in the same order.
 
-Cancel the walk request in kdamond_apply_schemes() when no scheme is
-activated, as kdamond_wait_activation() does for a non-zero interval.
-
-Fixes: bf0eaba0ff9c ("mm/damon/core: implement damos_walk()")
-Cc: <stable@vger.kernel.org> # 6.14.x
-Suggested-by: SJ Park <sj@kernel.org>
-Signed-off-by: Yifan Feng <evanfengff@gmail.com>
+Suggested-by: K Prateek Nayak <kprateek.nayak@amd.com>
+Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
 ---
-v2: cancel the walk when no scheme is activated, and leave has_schemes_to_apply as it is (SJ Park).
-v1: https://lore.kernel.org/r/20261118235012.14859-1-evanfengff@gmail.com
-QEMU: -ECANCELED instead of the hang, 20/20 walks of an activated scheme pass; kunit and 13 selftests pass (2 need drgn).
-Found and written with the help of an AI coding assistant.
+ kernel/sched/core.c        | 4 ++++
+ kernel/sched/cpudeadline.c | 5 +++--
+ kernel/sched/deadline.c    | 8 ++++----
+ kernel/sched/rt.c          | 8 ++++----
+ kernel/sched/sched.h       | 6 ++++++
+ 5 files changed, 21 insertions(+), 10 deletions(-)
 
- mm/damon/core.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
-
-diff --git a/mm/damon/core.c b/mm/damon/core.c
-index b8678a53b0a9..2748f9199924 100644
---- a/mm/damon/core.c
-+++ b/mm/damon/core.c
-@@ -3492,9 +3492,13 @@ static noinline_for_stack void kdamond_apply_schemes(struct damon_ctx *c)
- 	struct damon_target *t;
- 	struct damos *s;
- 	bool has_schemes_to_apply = false;
-+	bool has_activated_schemes = false;
- 	unsigned long max_region_sz;
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 8b4e4a6f4ae02..ca920a302ecba 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -8553,6 +8553,8 @@ void set_rq_online(struct rq *rq)
+ 		rq->online = 1;
  
- 	damon_for_each_scheme(s, c) {
-+		if (s->wmarks.activated)
-+			has_activated_schemes = true;
+ 		for_each_class(class) {
++			if (class->rq_attach_root)
++				class->rq_attach_root(rq);
+ 			if (class->rq_online)
+ 				class->rq_online(rq);
+ 		}
+@@ -8569,6 +8571,8 @@ void set_rq_offline(struct rq *rq)
+ 		for_each_class(class) {
+ 			if (class->rq_offline)
+ 				class->rq_offline(rq);
++			if (class->rq_detach_root)
++				class->rq_detach_root(rq);
+ 		}
+ 
+ 		cpumask_clear_cpu(rq->cpu, rd->online);
+diff --git a/kernel/sched/cpudeadline.c b/kernel/sched/cpudeadline.c
+index 0a2b7e30fd10c..8e2a95f846278 100644
+--- a/kernel/sched/cpudeadline.c
++++ b/kernel/sched/cpudeadline.c
+@@ -185,8 +185,9 @@ void cpudl_clear(struct cpudl *cp, int cpu, bool online)
+ 	if (old_idx == IDX_INVALID) {
+ 		/*
+ 		 * Nothing to remove if old_idx was invalid.
+-		 * This could happen if rq_online_dl or rq_offline_dl is
+-		 * called for a CPU without -dl tasks running.
++		 * This could happen if rq_attach_root_dl() or
++		 * rq_detach_root_dl() is called for a CPU without -dl
++		 * tasks running.
+ 		 */
+ 	} else {
+ 		new_cpu = cp->elements[cp->size - 1].cpu;
+diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+index 61b6a6d781715..fcbf53500083e 100644
+--- a/kernel/sched/deadline.c
++++ b/kernel/sched/deadline.c
+@@ -3366,7 +3366,7 @@ bool dl_task_needs_bw_move(struct task_struct *p,
+ }
+ 
+ /* Assumes rq->lock is held */
+-static void rq_online_dl(struct rq *rq)
++static void rq_attach_root_dl(struct rq *rq)
+ {
+ 	if (rq->dl.overloaded)
+ 		dl_set_overload(rq);
+@@ -3379,7 +3379,7 @@ static void rq_online_dl(struct rq *rq)
+ }
+ 
+ /* Assumes rq->lock is held */
+-static void rq_offline_dl(struct rq *rq)
++static void rq_detach_root_dl(struct rq *rq)
+ {
+ 	if (rq->dl.overloaded)
+ 		dl_clear_overload(rq);
+@@ -3664,8 +3664,8 @@ DEFINE_SCHED_CLASS(dl) = {
+ 	.select_task_rq		= select_task_rq_dl,
+ 	.migrate_task_rq	= migrate_task_rq_dl,
+ 	.set_cpus_allowed       = set_cpus_allowed_dl,
+-	.rq_online              = rq_online_dl,
+-	.rq_offline             = rq_offline_dl,
++	.rq_attach_root		= rq_attach_root_dl,
++	.rq_detach_root		= rq_detach_root_dl,
+ 	.task_woken		= task_woken_dl,
+ 	.find_lock_rq		= find_lock_later_rq,
+ 
+diff --git a/kernel/sched/rt.c b/kernel/sched/rt.c
+index 81a71aa5f094a..45d10334f7253 100644
+--- a/kernel/sched/rt.c
++++ b/kernel/sched/rt.c
+@@ -2398,7 +2398,7 @@ static void task_woken_rt(struct rq *rq, struct task_struct *p)
+ }
+ 
+ /* Assumes rq->lock is held */
+-static void rq_online_rt(struct rq *rq)
++static void rq_attach_root_rt(struct rq *rq)
+ {
+ 	if (rq->rt.overloaded)
+ 		rt_set_overload(rq);
+@@ -2409,7 +2409,7 @@ static void rq_online_rt(struct rq *rq)
+ }
+ 
+ /* Assumes rq->lock is held */
+-static void rq_offline_rt(struct rq *rq)
++static void rq_detach_root_rt(struct rq *rq)
+ {
+ 	if (rq->rt.overloaded)
+ 		rt_clear_overload(rq);
+@@ -2626,8 +2626,8 @@ DEFINE_SCHED_CLASS(rt) = {
+ 	.balance		= balance_rt,
+ 	.select_task_rq		= select_task_rq_rt,
+ 	.set_cpus_allowed       = set_cpus_allowed_common,
+-	.rq_online              = rq_online_rt,
+-	.rq_offline             = rq_offline_rt,
++	.rq_attach_root		= rq_attach_root_rt,
++	.rq_detach_root		= rq_detach_root_rt,
+ 	.task_woken		= task_woken_rt,
+ 	.switched_from		= switched_from_rt,
+ 	.find_lock_rq		= find_lock_lowest_rq,
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index e957524c3ee52..a24801d2058b4 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -2799,6 +2799,12 @@ struct sched_class {
+ 	void (*rq_online)(struct rq *rq);
+ 	void (*rq_offline)(struct rq *rq);
+ 
++	/*
++	 * Move an online rq to or from a root domain: rq->lock
++	 */
++	void (*rq_attach_root)(struct rq *rq);
++	void (*rq_detach_root)(struct rq *rq);
 +
- 		if (time_before(c->passed_sample_intervals, s->next_apply_sis))
- 			continue;
- 
-@@ -3506,8 +3510,12 @@ static noinline_for_stack void kdamond_apply_schemes(struct damon_ctx *c)
- 		damos_adjust_quota(c, s);
- 	}
- 
--	if (!has_schemes_to_apply)
-+	if (!has_schemes_to_apply) {
-+		/* The walk cannot be completed while no scheme is activated */
-+		if (!has_activated_schemes)
-+			damos_walk_cancel(c);
- 		return;
-+	}
- 
- 	max_region_sz = damon_region_sz_limit(c);
- 	mutex_lock(&c->walk_control_lock);
+ 	/*
+ 	 * push_cpu_stop: p->pi_lock && rq->lock
+ 	 */
 
-base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
 -- 
-2.39.3 (Apple Git-146)
+2.43.0
 
