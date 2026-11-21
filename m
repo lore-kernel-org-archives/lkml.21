@@ -1,97 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795285535;
-	b=4a1w06WYWODwck8lFZd1XWc06o0r/4psYmaT29PFOq01Tj0tXfRw3ByKAoYD/TSWB64X
-	 4DZxEZayQelWqZMIUAkUnakP70JsbgDP74VbcmN2t4b08vgxFDsdWl0R2rPqHA8L22pSx
-	 +li1/l4ZOlQalfsJDJHB8gnwPG4iX3rkDSJ/Ll+5tHFhuUg7W+yJD9fmlmz4/rVDWTo0E
-	 WZ+af5nXAx3/cto4FI/7BNmX7zITk2yxeDZzgl9YlbRqcHn3dhxK/QqDlBXCrPKJC3oOJ
-	 L2bXLNQ2MHeFk4OBqlk7sR+t6OlrKALyy8hVmgKMAlFQtDicBnJNkSU/QBAKsFI9fjg==
+	t=1795285585;
+	b=JOKBPDDcPBB8pXKVbHLIqlR5AQX0qdO9wiCOeE1GDPQq7PoaPYWw3mgxdYpZjoMDBEBW
+	 ltvKL0GX2y9jJrClmnlcyE+VXz0Ngm9Kk85tPshutvdivPZhjhXLckmKiXHfuUjlPebfz
+	 kFgqvmk2lKcScQUzhsRi4zNl6aXH/FO+XTXG1yEMpQlnL8a5fGO32qPUu6STt64UDB4SI
+	 sWfEiiTbY9nMCoFxLzG3VUuyEVzsL73hqN35a9tJtZbxvRmqGCZVWZyxls0c7KgBXRyai
+	 7mdNaw3/xmxsFfqegZc8PtyGy1YHVxzFIejM/6nvJbxWyZKCXzdgTpmDQI348M9lCFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795285535;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795285585;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=XIR6Wx/jogMouYNfoTVVWotCZnwikfuag8XOShgmdeo=;
-	b=1CWQRu/PlSstozflO7H3sk4unumbdsxxNA8n41TjedBvMu78OsrTbt9UO7fnLQQ4Fn5z
-	 BXsaIBKCBHC1Fv8vhvzaoc4r1rNT/mddSEbCwD4L3H6zVxDF6g6UbAsT0Ptq/6i3amhbB
-	 ljemgAJDYf+j9xGZqOePw8OV2JFEMvrUPBYjPjX9Oo42qsMTLMEmsqEGYsRFaCJNwkqYy
-	 fSjXUiz4ofv0Sb28NsNv4i3L+RObJqh3EsFLW0sswS8JVwauIZan35ngfBC9Jz1URBc4W
-	 N+TxiE60jd+HAFQAaiDTaBAmWRAFAuPD1G/46eivQAOZ3Bk8wuPTOIuTUne1MPPJnPg==
+	bh=yAYWGM+wOxQBk0PpmM5hBcytMWSDnG3ENBg6Zhdqtzg=;
+	b=uMFPbjj91f98RZIqdTdW1xvFGpT3prGvo8QOC5yxGmzjyImVUGpnMePahp/GZfdSm+KU
+	 RHPR9y69NiEH26rb2d524tRfyUA58cmwkcSFrkhWAJ4G3fyaxoePOXtd2cPHReuTA8IB2
+	 zfgWkorJraUamRWkzd4FQx2lOLgQFeZYD+RBMu5bWmR/GRQissAaawrdIBq64peaVlDFu
+	 jbF4HOPq530wrRSIAqa5luVaqEIIVkRbGcWhR5kcRnl7XbGey4ulGoNlCkesnww7uF+SE
+	 PV6/otXNEx9veJWPBR0fd9xoOxqndbsyvY2FnwkE+UJ75QCOsVzkbGeKQD96zvsZ2HA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ivJVa0li;
-	arc=none smtp.remote-ip=209.85.208.176
-Received: from mail-lj1-f176.google.com (mail-lj1-f176.google.com [209.85.208.176])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZKFalGLT;
+	arc=none smtp.remote-ip=74.125.229.9
+Received: from mail-dy2-f9.google.com (mail-dy2-f9.google.com [74.125.229.9])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF913606A32C
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:25:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF913606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2337606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:26:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2337606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ivJVa0li
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-3adf87fc0c6so16404351fa.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:25:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZKFalGLT
+Received: by mail-dy2-f9.google.com with SMTP id 5a478bee46e88-384d0550c71so1202553eec.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:26:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795285533; x=1795890333; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795285584; x=1795890384; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XIR6Wx/jogMouYNfoTVVWotCZnwikfuag8XOShgmdeo=;
-        b=ivJVa0liH8Wp0nV1SixjK4toqh6XCBigxUkZb9iYN+7ehEtuY/JMNjSVlQp0aVLKZr
-         5B3FJtA3rBiV+l/dp/9i92pOQ0IOgapx+KT+QFeYsNtrTZKU9/6zvEw1fBg1RAy1pHP4
-         3ytxvcj/yHihfsdB3pEO/wo3oTWCqmCVEKA5txENfPUI272ClFlQz5X5iWxLMssqa7hX
-         55y0UC5H3XyDVix5peRGc979ylryOxNAKBtrXH/IDVq7dy4gWssaVeN7DpgKgEvLMa18
-         iMDXWCF4BApFi2UDC0HRKvtt7l46OtnYGGT/Y2U9NU0/SBhnd7eXFPVQk8izq0BUGtPk
-         Aq1Q==
+        bh=yAYWGM+wOxQBk0PpmM5hBcytMWSDnG3ENBg6Zhdqtzg=;
+        b=ZKFalGLT+aaXpivK/3Ypqu5a9Dkkhf0E1d8u50CSUyKOUx1qXxWWgYIjq5HL0qdJ3d
+         GszeRiIDfnLIuMzozueKOunkt3An+6RfLHfeJBnm4RsTur6dZjyT/WtcJYttI/tG9qTL
+         dBU1FMdSG6pOnscPKzCn3U6oI8nbAzb3EUHO2lnS+TJiyneWm//WuXqr3xFcPUGh2Id1
+         iacbneDDYY9d4znevKwusXbesbV5pK1s7Y/H0appouJ6HRBTq0X3j48Pg+tv+DGwR4An
+         SA387ljnRYGDGn4+ZcJupx4Yw18m4gGrQ3YVna5wda2zQTPeYCr607/VjQJaoYWvQbbU
+         PWOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795285533; x=1795890333;
+        d=1e100.net; s=20260707; t=1795285584; x=1795890384;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=XIR6Wx/jogMouYNfoTVVWotCZnwikfuag8XOShgmdeo=;
-        b=RkztTcMIrdsX3MvnBUyrG18aoiWQs9vs8m0AlmfEJ1/EGVkRbhs4E4ldLElGnSnnE7
-         tSHBz6wiejhnCvhU7g8SeGtETLjihJLktVT/ml6IEg/s2G18BS4JsyICPZw4ax/zXO+z
-         p+I/Gt6Pwy5/yycm1LIjlfPdWQtfBQac9+JLJh9nqXR51cI9/zL1fHN+tKHbtf+Rm4k3
-         wekyR1WtDt+Pu86G1k409Ah2i/soCOswQ+uHEIBWupdS/eXyI9mVhUCSXMET4kdmp9Cp
-         aT8yOaNkmdRqcfSf4lomn935mvhP+NsIy+besDcdeiYd8t87hgmQTHRVxwUwGcReCdlA
-         JsFw==
-X-Forwarded-Encrypted: i=1; AL+hErFQ2uUrWSjqCcJwDFNYUwJeJRu+zC1tuqb44JgB5soMMkoNm6mXAUUz22vFgiMZG+U3hu77RTe+x4XPCqk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z80Nq6WDaP2VFc+DYD6cPtTkIrlRbQPsMSogljx77sTyfvG+Aqh
-	/0wVujSb+XR240CedOu2OMWMeSVP1oH33cDgVCGkLiNbku6VtwVyVs7W
-X-Gm-Gg: AZFdTZcDX5HQpIHHIwe80sAdAdjNXf7MuHLoe/9r7oAV37NdU6VjkgWAhoFJ4u9slAc
-	yTyKeHgRXgbDKiigaGlkUHVHQtdhcQX2pv0I7MKM9uDAseCxKyrHA8CbsfJIE3Ot9+WLHFVtBkF
-	fRTualGQLZuswYT8V+iLbmGnQxpPplReXbQGs1q0XLh7MFRwxm6yaQy7FagLJxWrlEOyApDH6tS
-	b/ikEfvtSMPyw0PONsXWTNdvzs5pBpT1x0TbPAOdJuwuO0+XZONObcs+uJvCc4hF9ssYdcCBg8r
-	E+u0xegRqrgLBx2pekFHqKbJxONd75tjUZ8d+bF+o5r1Mw726E7L8dx3x2XIcgUzZANO10QkbiG
-	CQtEWa9DiSUJcVUYy5akzq2qMgYy0mTxh+ZyutHR/opS0fpkgNAaa/oZK1DQLyNqD/mlqGOMhik
-	yJ9auOz/3CJxEjDZOM1CU1ztlaRtoh+hvYz5j6pQmm3wpcJIavzasEJmo8/CUmLaPLPNRqAPM9r
-	cj5KbGLOd503TT0NofXHV2fOsg1jcaCtBSf0clTukbY4nobolVstTGJe08YwsDWP9X2jPOTIQft
-	0Ff+i4fZhqrQPkHJGk1W5lOaIdmJZ4m3386IAnRgQg3hhOSUIPwT9TIWV77w/J00jTIIHnsUK/5
-	5iRPw0m/032ClP7iWCYuWIlxhiuxETJz9kfITJg==
-X-Received: by 2002:a05:651c:19a9:b0:3ae:6273:a010 with SMTP id 38308e7fff4ca-3ae7f9a6933mr23888191fa.9.1795285532768;
-        Sat, 21 Nov 2026 10:25:32 -0800 (PST)
-Received: from yantra.. (nekmmqulvmgxaw4nwuk-1.v6.elisa-laajakaista.fi. [2001:99a:d7d:c300:a86f:851c:d740:ea0c])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae80538a4esm17472771fa.29.2026.11.21.10.25.30
+        bh=yAYWGM+wOxQBk0PpmM5hBcytMWSDnG3ENBg6Zhdqtzg=;
+        b=pyHPGewzL/T3M0tad7GdSJpxjqrQr27pUB153j5O9RaSZEwKAGAJqhyLIrkdbrmVzD
+         nElnbKCnNtHcuKLFUwLkLYjqQ1p0VV6u6SpKjV5pK2QgsoJliEZmedT6QPQU7nPoGWZg
+         uS3PEKx+NYJHC0ifvczlFVDUhmWlPrB9GcpLqT7/2B4kp4763wWL/XJQUM07KDPap4uN
+         QPHVoQX3vg0GU1pkZ7tySPLx/vYZpAwlIh4VaNo34dewlKv5MgLlRPtgzUfnIQ9kY/ie
+         N8O2hH8RVdj0EQ0jEBm1JqQUinSk6bmZrSz5NzkdqhhU7R+qJKOwRvQWNobFn+KZM9XK
+         onnQ==
+X-Forwarded-Encrypted: i=1; AL+hErG2T64r8eU4mjdTgrhRbqFc5TykpjjePe0wjHMDtYUBcuOE3qyV8tc1bMc/lrWNGrLiV2QkUHiaJxCHD7g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ZMpjuhRQml2hfQWeguo2gaH3DH/M5oQzX8AJL6VuDxkdxi3n0
+	W1gYXFJu65oFELt8Z7ZzvLWXeJy3s5un/0oy1UNySG/JQ0mhBGNJRcGe
+X-Gm-Gg: AZFdTZfrWakBuDFrSu6ROyhEAR3UyxLc7vcqkuXC+k/7BLwT726PHYJwNhci6UygMMA
+	cDiULTMpJ+M/w1drTcJh2XLIBYqldIsS9+lzI1Sr3wCZAmIv6dnZHQDCLK3E7QO0jrjondq2VBz
+	vxlpgdkA0I8rNLi/NCimoeu/eEOxS1OeOhqdZ/o6hKMOnSknwDJrisOI+lqtEb4yeqxxXluOHkl
+	kVZdOiUuKHyBUrdW0A3+7gClyA1VFgV5MgLz9kmwfN48vLkpBP/ia3al8BtHH2UGN+RhBmN3S5V
+	9uegYBS0Qg6YH2fgpzgKjyF2cJ/AtkA26xfeoW+zCq8gaZ6ZxYkPRc4S+Ma1SNEMvc32xKYsbdN
+	+Cd0Q7MtavRSAne1sHP1S6+Cme8iFcIiK0Q1MXAqedBJwhguirXhgKtATJqdVdomj4aoHwQ1xCk
+	migf2OFmltIl/Z6nyv1mlOzUrS0GFQTiopsCXDSOLSeNnHeGqVMUAhvy9qX/c80zl03obyk/R0o
+	ntSaOH2qcGaLcsr6c4S6nfyLHCUwMiHjtpOUBydd7LhOQHboLBxOLVSnVw44p279k6CxBKS3kfl
+	vN/0lr6RvwNlKxJHc51u5BEHycg920PRou94JM5eV6KOHOIJNArO2wKTuH1N0PbMnC843e2O1nX
+	pp1xj0ftyvL3iJmdOJJTJxpHSSPdi4AbFtYv5CQ==
+X-Received: by 2002:a05:7301:dd94:b0:36c:9afe:fcd8 with SMTP id 5a478bee46e88-3856f559cfemr6470210eec.30.1795285583855;
+        Sat, 21 Nov 2026 10:26:23 -0800 (PST)
+Received: from localhost.localdomain ([98.148.34.5])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm25583535eec.4.2026.11.21.10.26.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 10:25:32 -0800 (PST)
-From: Rupesh Majhi <zoone.rupert@gmail.com>
-To: Andy Shevchenko <andy@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Eddie James <eajames@linux.ibm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Rupesh Majhi <zoone.rupert@gmail.com>
-Cc: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	linux-iio@vger.kernel.org,
+        Sat, 21 Nov 2026 10:26:23 -0800 (PST)
+From: Hungyu Lin <dennylin0707@gmail.com>
+To: linkinjeon@kernel.org
+Cc: senozhatsky@chromium.org,
+	tom@talpey.com,
+	chenxiaosong@chenxiaosong.com,
+	hyc.lee@gmail.com,
+	lsahlber@redhat.com,
+	icb@fastmail.org,
+	linux-cifs@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Arnav Kapoor <kapoorarnav43@gmail.com>
-Subject: [PATCH v2] iio: pressure: dps310: read the first temperature in probe
-Date: Sat, 21 Nov 2026 20:25:27 +0200
-Message-ID: <20261121182527.34489-1-zoone.rupert@gmail.com>
+	dennylin0707@gmail.com
+Subject: [PATCH v2] ksmbd: refuse to open an append-only file for writing without O_APPEND
+Date: Sat, 21 Nov 2026 18:23:13 +0000
+Message-ID: <20261121182313.43201-1-dennylin0707@gmail.com>
 X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -104,66 +104,92 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The first temperature read is in dps310_fifo_interval() instead of
-probe. That function is called with data->lock held and takes it
-again, so enabling the buffer without a trigger deadlocks.
+smb2_open() opens the file with dentry_open(), which does not go through
+may_open(). inode_permission() refuses write access to an immutable
+inode, but nothing looks at S_APPEND. A client that has write permission
+on an append-only file can open it for writing and overwrite the data
+that is already there, which open(2) on the server and nfsd do not
+allow.
 
-Move the read to probe.
+Refuse the open like may_open() does, when the file is opened for
+writing without O_APPEND or the create disposition asks to overwrite
+it. smb2_create_open_flags() also selects O_WRONLY or O_RDWR for
+FILE_WRITE_EA and FILE_WRITE_ATTRIBUTES, so these opens are refused
+too.
 
-Fixes: 903941a9b06a ("iio: pressure: dps310: don't wait for new temperature in trigger handler")
-Signed-off-by: Rupesh Majhi <zoone.rupert@gmail.com>
+An open with MAXIMUM_ALLOWED is granted the write rights that the
+permission bits or the stored DACL allow and would be refused as well.
+Leave the write rights that the client did not ask for explicitly out
+of the access granted to such an open, so that it gets a handle for
+reading. The maximal access returned in the MxAc create context is not
+changed.
+
+Directories are left alone: an append-only directory still takes new
+entries.
+
+Fixes: e2f34481b24d ("cifsd: add server-side procedures for SMB3")
+Cc: stable@vger.kernel.org
+Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
 ---
-v2: return inside the guard scope (Andy)
-v1: https://lore.kernel.org/linux-iio/20261119190827.36947-1-zoone.rupert@gmail.com/
+Changes in v2:
+- Refuse every open for writing without O_APPEND, not only the ones
+  that ask for FILE_WRITE_DATA or FILE_APPEND_DATA. A handle opened for
+  FILE_WRITE_ATTRIBUTES could still reach kernel_write() through
+  FSCTL_SET_SPARSE.
+- Refuse an overwrite disposition up front. The truncating ones used to
+  fail in vfs_truncate() after the oplocks were broken, with
+  STATUS_SHARING_VIOLATION.
+- Drop the write rights of a MAXIMUM_ALLOWED open in smb2_open()
+  instead of ksmbd_vfs_query_maximal_access(), so that a file with a
+  stored DACL is covered too and the MxAc reply stays as it is.
+- Keep the rights the client asked for next to MAXIMUM_ALLOWED. A POSIX
+  open for MAXIMUM_ALLOWED | FILE_APPEND_DATA can append again, as
+  reported by Ian Bridges.
 
-Based on iio togreg, fine to squash into 903941a9b06a instead.
+v1: https://lore.kernel.org/linux-cifs/20261120071553.28739-1-dennylin0707@gmail.com/
 
-Tested on a DPS310 on a BeagleBone Black: enabling the buffer without
-a trigger works.
+ fs/smb/server/smb2pdu.c | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
-Cc: Arnav Kapoor <kapoorarnav43@gmail.com>
-Cc: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-
- drivers/iio/pressure/dps310.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/iio/pressure/dps310.c b/drivers/iio/pressure/dps310.c
-index 9b52cbc2372a..fc727e5fcd59 100644
---- a/drivers/iio/pressure/dps310.c
-+++ b/drivers/iio/pressure/dps310.c
-@@ -1058,16 +1058,9 @@ static unsigned int dps310_fifo_interval(struct dps310_data *data,
- {
- 	unsigned int drain_interval_ms, fill_ms, want_ms;
- 	int scan_rate;
--	int rc;
+diff --git a/fs/smb/server/smb2pdu.c b/fs/smb/server/smb2pdu.c
+index 6bd63c5e7da3..bcd25c197ffa 100644
+--- a/fs/smb/server/smb2pdu.c
++++ b/fs/smb/server/smb2pdu.c
+@@ -5028,6 +5028,14 @@ int smb2_open(struct ksmbd_work *work)
+ 		maximal_access = daccess;
+ 	}
  
- 	fill_ms = MSEC_PER_SEC * DPS310_FIFO_DEPTH / (prs_rate + tmp_rate);
- 
--	/* Pressure compensation needs a temperature from the start */
--	scoped_guard(mutex, &data->lock)
--		rc = dps310_read_temp_raw_locked(data);
--	if (rc)
--		return rc;
--
- 	/*
- 	 * There is no hardware watermark, so take it as the number of scans
- 	 * the user will wait for and drain at that rate. Scans come from
-@@ -1478,6 +1471,13 @@ static int dps310_probe(struct i2c_client *client)
- 	if (rc)
- 		return rc;
- 
-+	/* Pressure compensation needs a temperature from the start */
-+	scoped_guard(mutex, &data->lock) {
-+		rc = dps310_read_temp_raw_locked(data);
-+		if (rc)
-+			return rc;
++	if (req->DesiredAccess & FILE_MAXIMAL_ACCESS_LE && file_present &&
++	    IS_APPEND(d_inode(path.dentry)) &&
++	    !S_ISDIR(d_inode(path.dentry)->i_mode)) {
++		__le32 asked = smb_map_generic_desired_access(req->DesiredAccess);
++
++		daccess &= ~(FILE_WRITE_DESIRE_ACCESS_LE & ~asked);
 +	}
 +
- 	/*
- 	 * The device measures continuously in background mode, so a triggered
- 	 * capture is just a read of the latest results. The setup ops run the
-
-base-commit: 903941a9b06ae445c70646ab061b604c2dea17d3
+ 	/* MAXIMUM_ALLOWED may not have granted the requested DELETE */
+ 	if (req->CreateOptions & FILE_DELETE_ON_CLOSE_LE &&
+ 	    !(daccess & FILE_DELETE_LE)) {
+@@ -5122,6 +5130,19 @@ int smb2_open(struct ksmbd_work *work)
+ 		goto err_out;
+ 	}
+ 
++	if (IS_APPEND(d_inode(path.dentry)) &&
++	    !S_ISDIR(d_inode(path.dentry)->i_mode)) {
++		if ((open_flags & O_ACCMODE) != O_RDONLY &&
++		    !(open_flags & O_APPEND)) {
++			rc = -EACCES;
++			goto err_out;
++		}
++		if (open_flags & O_TRUNC) {
++			rc = -EACCES;
++			goto err_out;
++		}
++	}
++
+ 	rc = 0;
+ 	filp = dentry_open(&path, open_flags, current_cred());
+ 	if (IS_ERR(filp)) {
 -- 
 2.43.0
 
