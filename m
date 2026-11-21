@@ -1,59 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795279777;
-	b=2SwukDHf28Y5XOSPG64PZ38V59cTuoN1Y+uQJlvvmLulZWG/vCaiaflTRs2noaYd68dD
-	 l5q4XR76tra2QFqVKyLsaLMWUxH/mLNxQFONksyLxF120M29DtEwBhwjYrnb2YoizvVP4
-	 /e9Y6JojaanR0JPU/Dcqsa/LH2h9BHovsQj3jUoxdTE+qEfMLtqvgoMK6t6ij1Rk/12XI
-	 wIU+DIXb0xcZ34vKB0SHMTltCf7RI0x0Oi418MGb0Yk674UwP3CpUdC/JYmWAxZT7gth+
-	 urGrf4xOrrqhVKyEIAj5D6UMJ9NZO0m16isgm/faxWgMUuget0g1h0K9lvxE+p0msig==
+	t=1795279803;
+	b=qxQOg0ULIn06/JTznRrvoxHrOrEp4KBnwXb1B6Gmo8in3j5cmAuE5DQdly3eFCxzDd5y
+	 55xHMQ8DJ/eIm65B6X7Wlgic7PKLyD+HZaHPs7FwDYqNqkfR8lxo8A1605ZguvJM0mSVd
+	 txPpOW609Ye8rCMhmFScg3HIenZNtz0JETxmmRZKV2z6fcLgJqx4z5vSAvAYQFrmMOi+6
+	 FUJAgXdVRm6r/0GLIqokhPhpQr3ZUJQuOGGGZG52WiqpS7jo7ifI3W0Kss1VPkSRsHeXG
+	 Z7uf3NePPzpfiT2WVVU4muPf1Nvmidu4mSWGn031LXt97JJUbgqhDhigUDds1N1srPA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795279777;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=5G+9ewNfiZuudG7vEE+47Lp1fAf9KEyf5+kMjiFZROY=;
-	b=VhWdpTZLp4LTl4G6Ib34J/IBxqWI0CrQ4y9j+yEuJemg0wcA5EBGPsTfJuULcfhb7GaG
-	 MCH+pTKvSlhixNOmUz0DnOH5L4dNUVSqsDd1MDtnWSKLaowo0FYx+kxk8YOolqw+GHcXA
-	 TrgdL3uB4fm4QH9tNDHk/nl3xKzgHJM+/PQKvPIHS2bb+kSpnvQarUmQxhQMjsNRQ/o8+
-	 YZ+bICY8G0xl/b7A6dtpfq5rWDbGc2ESdc+P6qH7lD6KlZUGoMV92lPy+0rgU136CIFJE
-	 XErI7bAgrzP31Ip+h60VGWoSzdrV0RKb9xD3nKr+Mld8ZmnAECPzB62qPE8H2mLZe8w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795279803;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=qmKlARszXrRzW/9tlEK7o5BZOIq/QjdgeWG7kY2Dx/k=;
+	b=uYCO67PHEiM7cNMqbiLTdcNfzyFhD3pGN4KU1IxrAfi+XNHKXn39ct3U/A+o3FMWHxmy
+	 Pqk8UsiVWQGy6hUjVrUzh8J1hgq1mJ+WYxG5JDlYzmIn9788RI0m8DZeGpEHDxVXG4omR
+	 cU3Fj9DYCV45eI844ivsDm08gI71tgaJdsSaCmLX/qq2jBAkN37wBL8eZmfp7y9bhPz8Z
+	 7unGI26EQrjVk/bzFEIL9WQMGM9Awq+pB0hR5tOV7eOfr7kZxN38KozXSFQWBpTIIeRta
+	 67ma9fLyYYTW4uM0vdkEBBaHvvMmgWXOlu9WEsCX6MuUu+NakKTp5//93IVkHLV4cNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=stu.xidian.edu.cn;
-	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 91DC1606A32C;
-	Sat, 21 Nov 2026 16:49:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91DC1606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-Id:In-Reply-To:References:MIME-Version:
-	Content-Transfer-Encoding; bh=5G+9ewNfiZuudG7vEE+47Lp1fAf9KEyf5+
-	kMjiFZROY=; b=JroaGme853vLP1sT/wKM2HmyyD/Dg86J1UdphcnBwbVaijUYF8
-	LNs4DJuJnvOyp+s1MWYWeKfbT4Jy8f5vr7Ou5IhxwG6mCFrAp80N2ddyCZdkLqMZ
-	m70eAoREgMCSdgl7QxESN1Txm2pw3lUVrDQ3I1bNW3hNQ7zru7KdkYLSE=
-Received: from user-virtual-machine.localdomain (unknown [113.200.174.70])
-	by hzbj-edu-front-2.icoremail.net (Coremail) with UTF8SMTPA id BLQMCkCGyP2UywFrA1QFAg--.46581S3;
-	Sun, 22 Nov 2026 00:49:29 +0800 (CST)
-From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
-To: Lachlan Hodges <lachlan.hodges@morsemicro.com>,
-	Dan Callaghan <dan.callaghan@morsemicro.com>,
-	Johannes Berg <johannes@sipsolutions.net>
-Cc: Arien Judge <arien.judge@morsemicro.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Bin Yu <byu@xidian.edu.cn>,
-	Cheng Wen <wencheng@xidian.edu.cn>
-Subject: [PATCH 1/2] wifi: mm81x: report a failed command urb to the caller
-Date: Sun, 22 Nov 2026 00:49:22 +0800
-Message-Id: <20261121164923.8862-2-25031212351@stu.xidian.edu.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261121164923.8862-1-25031212351@stu.xidian.edu.cn>
-References: <20261121164923.8862-1-25031212351@stu.xidian.edu.cn>
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hcaRsRrH;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 7A516606A32A;
+	Sat, 21 Nov 2026 16:50:03 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hcaRsRrH
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id AE3181F000D0;
+	Sat, 21 Nov 2026 16:50:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795279803;
+	bh=qmKlARszXrRzW/9tlEK7o5BZOIq/QjdgeWG7kY2Dx/k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hcaRsRrHvGL/Sc0mJK7h1Q60HXVGMSiV07H7e9Wm/eCYP/ovxlZrA3Nws0kSzUEKo
+	 7e2wiP4VwNV8c4JoR0QkYD6vXBuGWl0YKGXZKktvtFD1EWMAEV6WwWczGeiIojgRkQ
+	 c07DjrcsL7cdhRjvksQw8PqngHKEbho0S1Jxvp1wSikxOKzHJnruyYFpBBzoE4cp3H
+	 ED4fr5dv/tOVedrJeaonJMOVrz+FvQOQFrw+zJZl6s/vEw+Xq+Jb4hQmgLd9Oh5qkR
+	 qmM+edFAf/pZEZny4gRYJXUJM7NAAy7z/yqpjPMoTWOQ6AiKYnpTmHFksebB0DqtoY
+	 /e/wX9IzjItpg==
+Date: Sat, 21 Nov 2026 18:49:59 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+	Alexander Mikhalitsyn <alex@amutable.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Christian Brauner <brauner@kernel.org>,
+	David Howells <dhowells@redhat.com>, Jan Kara <jack@suse.cz>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Josef Bacik <josef@toxicpanda.com>, Kees Cook <kees@kernel.org>,
+	Neal Gompa <neal@gompa.dev>, Paul Moore <paul@paul-moore.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: Re: [RFC PATCH v5 02/25] userns: Add userns_set_idmap() system call
+Message-ID: <awHLt1IpLcqxUnDW@kernel.org>
+References: <20261121000844.1863324-1-jarkko@kernel.org>
+ <20261121000844.1863324-3-jarkko@kernel.org>
+ <awHCTNAo9uMakhAH@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,65 +69,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:BLQMCkCGyP2UywFrA1QFAg--.46581S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7tF4UAw1Utw18Aw4xCw45KFg_yoW8ArWrpF
-	45Zr9Fk3s8KryDCw43CFWI9Fy5A3Zxta9IkFyvvws8urn8JwsakFyYga1agFn0v34Iya42
-	vFWYyry7GF9xG37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUm2b7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
-	8067AKxVWUGwA2048vs2IY020Ec7CjxVAFwI0_JFI_Gr1l8cAvFVAK0II2c7xJM28CjxkF
-	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8IcV
-	CY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r1j6r4UM28EF7xvwVC2z280aVCY
-	1x0267AKxVW8JVW8Jr1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2
-	xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2
-	jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCY1x0262
-	kKe7AKxVWUtVW8ZwCY02Avz4vE14v_JwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkE
-	bVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67
-	AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI
-	42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMI
-	IF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVF
-	xhVjvjDU0xZFpf9x07jTiifUUUUU=
-X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUED2sAYljOOwAFsu
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awHCTNAo9uMakhAH@kernel.org>
 
-mm81x_usb_cmd() waits for the command urb and takes the return value of
-wait_event_interruptible_timeout() as the command result. The completion
-callback stores the urb status in musb->errors, but the wait only tells
-whether the callback ran, not whether the transfer succeeded, so a command
-that completed with -EPIPE or -EPROTO is reported as successful.
+On Sat, Nov 21, 2026 at 06:09:53PM +0200, Jarkko Sakkinen wrote:
+> On Sat, Nov 21, 2026 at 02:08:21AM +0200, Jarkko Sakkinen wrote:
+> > Configuring UID, GID, and project ID mappings currently requires writing
+> > formatted text to /proc/<pid>/{uid_map,gid_map,projid_map,setgroups},
+> > which depends on a live task in /proc and enforces write(2) file-opener
+> > CAP_SETUID/CAP_SETGID checks that prevent passing an unprivileged userns
+> > file descriptor over SCM_RIGHTS to a dedicated CAP_SETUID/CAP_SETGID
+> > mapping helper.
+> > 
+> > Add userns_set_idmap() to atomically configure setgroups policy and UID,
+> > GID, and project ID extents directly on a CLONE_NEWUSER nsfs file
+> > descriptor. Require CAP_SYS_ADMIN over the target user namespace in
+> > either the caller's or the file opener's credentials, and check parent
+> > ID-range capabilities strictly against the caller's credentials.
+> > 
+> > Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+> 
+> I'll remove the flags. I forgot to remove them from final version.
 
-mm81x_usb_mem_read() and mm81x_usb_mem_write() then submit the data urb
-even though the command that programs its address, direction and length
-never reached the device. On top of the useless transfer, the device can
-interpret the data phase in the context of the previous command.
+userns_set_idmap() still has flags-parameter but it is gated:
 
-Return musb->errors from mm81x_usb_cmd() so that both callers stop before
-the data phase.
+	if (flags & ~USERNS_SETGROUPS_ALLOWED)
+		return -EINVAL;
 
-Fixes: b1906cea00b0 ("wifi: mm81x: add mm81x Wi-Fi HaLow driver")
-Cc: stable@vger.kernel.org
-Co-developed-by: Bin Yu <byu@xidian.edu.cn>
-Signed-off-by: Bin Yu <byu@xidian.edu.cn>
-Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
----
- drivers/net/wireless/morsemicro/mm81x/usb.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+And used as a bitmask:
 
-diff --git a/drivers/net/wireless/morsemicro/mm81x/usb.c b/drivers/net/wireless/morsemicro/mm81x/usb.c
-index ec94936b157b..98ca9575b990 100644
---- a/drivers/net/wireless/morsemicro/mm81x/usb.c
-+++ b/drivers/net/wireless/morsemicro/mm81x/usb.c
-@@ -266,7 +266,7 @@ static int mm81x_usb_cmd(struct mm81x_usb *musb,
- 	}
- 
- 	musb->ongoing_cmd = false;
--	return writesize;
-+	return musb->errors ? musb->errors : writesize;
- 
- error:
- 	musb->ongoing_cmd = false;
--- 
-2.34.1
+	ns->flags = ns->flags & flags;
 
+Br, Jarkko
