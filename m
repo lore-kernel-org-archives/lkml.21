@@ -1,90 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795259493;
-	b=fpJXwI6Y5M67XLWAgJUqVRUdjxU2t2DYNdD+9XrO3jwhwQ3OoqBKwuLaEzAzjUxiYCKQ
-	 uJzugjRmXdiJ8OgmHco3tIbuxAIkbNM4+fBcNp28Xy2q4qRQcr+2q3PijpNceYftSLpIV
-	 W95WJIRCjm8nhMqyBcBEYYF2TmpbPOV8QnieZlnUEoOBizVfJL1esxSSM9rwkP3MYCnKQ
-	 QHKPjYhBY42d3rmxN3vGw3iblrEu2PSFSCmuYP2D/LmSKnnIxAbLew5osfnczyF4/hH/X
-	 ZGrb88AiiCN5i3HycG2KW8gsmm3GR0dZuc+IVwOmUpCqkWAhAzLl+NRoX/+gR0K5vHw==
+	t=1795259599;
+	b=seF6NqN+oKhXmpMsxBiEcAlwSiBtPwRaorHf9nmAlrflIbpRBfJZmi/KaZ/srcWIrmfN
+	 jtx9uJDZPZUDPDKH7kgTaN0gGA0jXJuXD840htKoJQ2Pu+ll7HwsYJTIuZj3GOaGbOdcA
+	 6CYoEYeUFjIVAHo3FefXj1eAH9DMLY+3mD3rZMIgbahvBaiEqTBF6c7d5jZhalAc3iybm
+	 Er8+MHaKhqlnn6cji9sf6FRytyvGeX9VCEuctP65yE6Gg9ryImqX3lYzzRAraEILugMCE
+	 ittxLoFRv3oJzXEbyA/dvUVekVo0KzYHLm8Ln2Z0CM1r6ZZ46X6M6YUzyHQmUIAJGAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795259493;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=+M0BZeuDrsVXzAn7sBMCGNL00597p0WjyKrrf1Dm54I=;
-	b=FlQ/MFG9toMv3OhKxM8VoQDfCzzy4Wk+apNENXAIPDRch8zqwNv9vbmpdJD2y3i5B90q
-	 S4Hjh56jyxt7GCuLOs+fKzM4k+5PuVgy3u0V2oz1OZg7+hlA6tFq+zxD0/nRtc8sUaZ4J
-	 fiRHFua1lW46aA3Hlvx+2bbuVbMdjXvzirtSKAWjxr2Xy1D6Fn2HRqtRX7IVV9LnBqnRf
-	 rA24v0HaAt6yLtZS5jcLv2P5YEzGQ449ZRJ+JkRA6RzKb9/Vn0SE8BQ+bWPhiMQj/dNRb
-	 dUSvFpyrk3Nr/V1e6W0M7bYj6sduofirQ7UIlsUZoS+6kvomyhKXYHyh17uC2S6VlRg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795259599;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=ugFk6s0GToyX3hg+udCNXOLZc1Yatauz4i+Os1cYmEs=;
+	b=MCmMfILW81e+m9cqJu/DZlW5K2Vs7xyS1A5sJFdt5rHp+3WQx1lBchOWs9L+Y/bd/lOf
+	 AaKZBMrUvaVutreQV8pdhSeOelqoFZaF6qzjQ9PjgrJkNw1HOvtmdqSjrPXjwIEsROYnj
+	 YCkCFbhSXur9YO5MQlTJyipU9hwjXTCZeiWR5J+oZkyMRLXvDC5i9y8Q2gKix+jNOJk+L
+	 D8WWlusMzxtjO8stL+gQmUleuPp5yA74AmlUogswHpmNsUUTMexm1OsESsXACP23VVtDl
+	 q2qLmO9AUrv4aFeM8pnxDtp58fsEXdrrKvkKDEtIKO0TnbqrQ+7DhXTrsVCHiOafInw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FxGLxh35;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=pm.me;
+	spf=pass smtp.mailfrom=pm.me;
+	dkim=pass header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=D9d7Cwuu;
+	arc=none smtp.remote-ip=79.135.106.118
+Received: from mail-106118.protonmail.ch (mail-106118.protonmail.ch [79.135.106.118])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F99C606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:11:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F99C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FAF3606A325;
+	Sat, 21 Nov 2026 11:13:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8FAF3606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pm.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pm.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FxGLxh35
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb6adaf0f1so15284885e9.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:11:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795259491; x=1795864291; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+M0BZeuDrsVXzAn7sBMCGNL00597p0WjyKrrf1Dm54I=;
-        b=FxGLxh351WyjFkOoMVbkDKCQLWMAD7Lu0G+6KFKnqN3h8YP5fbYQ5bloHntHWlom6z
-         63v7MEH5nctjOJkIz7ROIMvYhDP2w4SqemDG2gy0PmQM439U7WNjZf/SwzSSL2PuroLY
-         VIEe/O4MFzWKsDSKZVYar7L0y04HRevYGQw1Gd213AtYyUkN3/D0gLBlUNualmnZ9q8n
-         Nr8LyRhlRNyeMEhS32PV6uagq5q6cdgJv2htzDz4VmQstY86yF6D/1wxQ1lsOwfyUIM2
-         Pd7GFOJopdCpatj3MWkJJQKNwWvBi+O+6/Rye7YyYrrxqtD5J4U1dHwI4DpmAjSf8bTZ
-         hohQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795259491; x=1795864291;
-        h=content-transfer-encoding:content-type:mime-version:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+M0BZeuDrsVXzAn7sBMCGNL00597p0WjyKrrf1Dm54I=;
-        b=Iaf+D1hZ0UBUQxpYfQ2kAwEaN25mupR0M4RB2QP83f+TznIsBonz2qfsA4HQvMm36N
-         2r/4KwLUEePZvApis6y2y9aBkvfRy19V7QTShE+pEWytxAXu+Oq/scea0eaRxGPFn2a1
-         in6EiGI8Dew82DrbRibz+gogvrX+NKF+UgGqG8L++dqWDSP+HbnGO3sKJf2TRzQIHsjO
-         w5sGgRU7bW99eJh55KB7huJLn8jxBwJXl2Tr/rbqr6uhyLwasWoZCAewar4mjYAxe9qi
-         vHHaDbBLFFUPIlgbtuGkG9leaWs+hBXbE1BrvDU86LRcSgyPHFT5hWdSfrj+ACz/ZirI
-         j2fw==
-X-Forwarded-Encrypted: i=1; AL+hErHLgM6PtovnzQww8WXL1EHzs0FqSDh+1tTT0w8vFJqExOW+HBTf79oEvVXUynSSnj0vEANxNMXB96Doct8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+1fjSOTBrN7Ae+AOFXmfLjoMcFpdTu6iLxKgCQodgJfD1G9DaU
-	zPz/URprDztRh/ddkhjyNrovJj6bHLJpV1HrOWgzdwtt+h6YVluPZAuXwXjYBw==
-X-Gm-Gg: AZFdTZfR8VP/SiHPMxxrRLeR7bnN6V/t7cFae9UzVDDmTMvb0QEe5hcbhddUKmcmQQ0
-	ohmIIdr7SnGWlZprTcIE85c53CcI1AXNSFEgxczszRz5VBVQv+hOKWYIoAblMtwzA1e+FOZlW5i
-	Y1qALFsc5uNB0nceJxcASdz71hUR6Rd1gnkkapsjdhPI1TeUPki2LZJboWUcru97Lb+6wTGCWOD
-	4vtQgk+WsuxfB7MLcqEPBOQEthW5FI3Cdt11EWzLWzdP6zqaLEQG4XhNGNN1XIq9bmW+vAvgRNT
-	6x2j4QbXn863OwqWRlEi4XV7S9MBJ0pigT7jd5yxgIT6p+XZNkn2YT6tVDZc3uj7MjMBB+F56sS
-	1VOccD1+q0tq9L+qG7FyHNMMMGn9ayO9of8Z9Y00iygS+iozJT3CGJFBELpTpbBBL7iU3wc7RbJ
-	JlNY12BJbw+v00zqOR79ujw8qpVbmfPBPS+U7t6lpYnXIkCX+iCf8gvOGkHMUc8sx5ueb+/Z1OF
-	rZRHZQ8ou6XPfBvGH4G33J09aEkUoK2QsnaEfmS8k3lqtlS8QVoWIlydMUEa4x2fTAY54QWnzNx
-	i7MJugu6vPStQas/YRpbQhsNlmq5On1pz+WvSVP/JB9onCk+pEXdxbsvLHAsC+0=
-X-Received: by 2002:a05:600c:3b0e:b0:4a1:efba:511 with SMTP id 5b1f17b1804b1-4bb8882508emr139998355e9.35.1795259491414;
-        Sat, 21 Nov 2026 03:11:31 -0800 (PST)
-Received: from foxbook (bfh118.neoplus.adsl.tpnet.pl. [83.28.45.118])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110d56sm10697281f8f.40.2026.11.21.03.11.30
-        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
-        Sat, 21 Nov 2026 03:11:31 -0800 (PST)
-Date: Sat, 21 Nov 2026 12:11:29 +0100
-From: Michal Pecio <michal.pecio@gmail.com>
-To: erikhakan@gmail.com, bentiss@kernel.org, jikos@kernel.org
-Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] HID: steelseries: Add support for Arctis 7 (2018)
-Message-ID: <20261121121129.2a1d3013.michal.pecio@gmail.com>
-In-Reply-To: <20260901203044.459972-1-erikhakan@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=D9d7Cwuu
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
+	s=protonmail3; t=1795259596; x=1795518796;
+	bh=ugFk6s0GToyX3hg+udCNXOLZc1Yatauz4i+Os1cYmEs=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=D9d7CwuuuryxJxgAzo9AkZD9HAmaCWrP9YrQ6Rm5qy7xu9tKgY7Hptggm/7fDl9Zn
+	 fQiOVWiHty1O7s1oZpwo8efzMIFm2G4/4oGrdFOX4VDgl9UZKE9AEiOEteiqwl+w/3
+	 egj6RrbJVecTbIXFHl6u5BElcGMMjkFqLp+4FICFBlTlq04ZzzH4yvXZSqrypxD1E5
+	 1cEghkaWK+VjDzf0E1q46jA7Be8VgQkIdEAN1SFelPBzEP69FYpdMAv87s7Hhz4VQ/
+	 KUMR3nBN8zfdcbpovbPPDunUI0PYRBtXdRYTf4rSHpBz8MhUnC6KJ5TAJ14dxVYJ9/
+	 HPNyUruJorE7A==
+Date: Sat, 21 Nov 2026 11:13:07 +0000
+To: David Howells <dhowells@redhat.com>, Jarkko Sakkinen <jarkko@kernel.org>
+From: Sinan Turunc <enscrpt@pm.me>
+Cc: paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com, keyrings@vger.kernel.org, linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: [PATCH v3] keys: serialise key instantiation against keyctl_chown_key()
+Message-ID: <20261121111246.3478-1-enscrpt@pm.me>
+Feedback-ID: 48393780:user:proton
+X-Pm-Message-ID: 517120b5293edfc1226501d884046b776994fa3f
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,32 +61,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
-> The headset reports connection and battery status on HID interface
-> 5. When the device is disconnected, ignore incoming battery
-> reports as they will incorrectly report battery level 0.
->=20
-> Clamp overreported battery values to 100% and add USB ID 1038:12ad
-> to the driver's device tables.
->=20
-> Signed-off-by: Erik H=C3=A5kansson <erikhakan@gmail.com>
-> ---
-> Information available online suggests that at least two other Arctis 7
-> revisions (2017 and 2019) exist, with different device IDs.  Without
-> access to those devices, their protocol compatibility cannot be
-> verified, so this patch only adds support for the 2018 model.
+keyctl_chown_key() looks up the target key by calling lookup_user_key()
+with the KEY_LOOKUP_PARTIAL flag. That flag lets a caller with
+CAP_SYS_ADMIN change the UID of an uninstantiated key during construction.
+When the UID changes, keyctl_chown_key() replaces key->user under key->sem
+and drops the old reference with key_user_put().
 
-Hi,
+__key_instantiate_and_link() and key_reject_and_link() hold
+key_construction_mutex during instantiation, but neither function takes
+key->sem. Both functions increment key->user->nikeys, and
+__key_instantiate_and_link() also calls key->type->instantiate() without
+holding key->sem. When a key is in quota and its size changes,
+key_payload_reserve() reads key->user seven times without key->sem. Those
+reads include spin_lock_irqsave(&key->user->lock, flags) at the start and
+spin_unlock_irqrestore(&key->user->lock, flags) at the end.
 
-It seems that adding this ID here (or some other change?) has caused
-regression on some hardware, reported in bugzilla:
+If keyctl_chown_key() swaps key->user between those two calls,
+key_payload_reserve() unlocks the new owner's spinlock and leaves the old
+spinlock held. By source inspection, key_user_put() can also kfree() the
+old struct key_user while instantiation still dereferences it. That struct
+key_user use-after-free was found by reading the code and did not trigger
+during our KASAN runs.
 
-https://bugzilla.kernel.org/show_bug.cgi?id=3D222298
+  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+  WARNING: bad unlock balance detected!
+  7.4.0-rc2-g23c62304dde2 #3 Not tainted
+  -------------------------------------
+  request-key/163 is trying to release lock (&candidate->lock) at:
+  [<ffffffff82698fff>] key_payload_reserve+0x29f/0x370
+  but there are no more locks to release!
 
-URB status -75 is -EOVERFLOW: URB buffer too small for data returned
-by the device or the device babbled (exceeded wMaxPacketSize).
+  other info that might help us debug this:
+  locks held by request-key/163: 2, on CPU#3:
+   #0: ffffffff871c10a0 (key_construction_mutex){+.+.}-{4:4}, at: __key_ins=
+tantiate_and_link+0x38/0x370
+   #1: ffff88800de4a8b8 (&candidate->lock){..-.}-{3:3}, at: key_payload_res=
+erve+0x160/0x370
 
-Regards,
-Michal
+  Call Trace:
+   lock_release+0x286/0x2e0
+   _raw_spin_unlock_irqrestore+0x1a/0x50
+   key_payload_reserve+0x29f/0x370
+   generic_key_instantiate+0x42/0x230
+   __key_instantiate_and_link+0xd7/0x370
+   key_instantiate_and_link+0x40d/0x4b0
+   keyctl_instantiate_key_common+0x2d2/0x450
+   keyctl_instantiate_key+0x167/0x180
+   __do_sys_keyctl+0x391/0x550
+
+Take key->sem for write with down_write_nested(&key->sem, 2) inside
+key_construction_mutex in __key_instantiate_and_link() and
+key_reject_and_link().
+
+Fixes: 5801649d8b83 ("[PATCH] keys: let keyctl_chown() change a key's owner=
+")
+Cc: stable@vger.kernel.org
+Signed-off-by: Sinan Turunc <enscrpt@pm.me>
+---
+In v3 I removed the tool paragraph and the two lockdep subclass sentences.
+
+ security/keys/key.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/security/keys/key.c b/security/keys/key.c
+index 3f1f0fc..df31d10 100644
+--- a/security/keys/key.c
++++ b/security/keys/key.c
+@@ -441,6 +441,7 @@ static int __key_instantiate_and_link(struct key *key,
+ =09ret =3D -EBUSY;
+=20
+ =09mutex_lock(&key_construction_mutex);
++=09down_write_nested(&key->sem, 2);
+=20
+ =09/* can't instantiate twice */
+ =09if (key->state =3D=3D KEY_IS_UNINSTANTIATED) {
+@@ -473,6 +474,7 @@ static int __key_instantiate_and_link(struct key *key,
+ =09=09}
+ =09}
+=20
++=09up_write(&key->sem);
+ =09mutex_unlock(&key_construction_mutex);
+=20
+ =09/* wake up anyone waiting for a key to be constructed */
+@@ -609,6 +611,7 @@ int key_reject_and_link(struct key *key,
+ =09}
+=20
+ =09mutex_lock(&key_construction_mutex);
++=09down_write_nested(&key->sem, 2);
+=20
+ =09/* can't instantiate twice */
+ =09if (key->state =3D=3D KEY_IS_UNINSTANTIATED) {
+@@ -632,6 +635,7 @@ int key_reject_and_link(struct key *key,
+ =09=09=09key_invalidate(authkey);
+ =09}
+=20
++=09up_write(&key->sem);
+ =09mutex_unlock(&key_construction_mutex);
+=20
+ =09if (keyring && link_ret =3D=3D 0)
+--=20
+2.56.0
+
