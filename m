@@ -1,58 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795295948;
-	b=UZkyF93vDTDaMvDwfYIsOk/v1yFRyH0dXiqOpMJlr9gjE/Yltf1xU0Z65iBsuG2DvlhD
-	 Vq5KChkfMw3qaLYfXI+p2L4L4Dw+3WaGRz6Ndm6a2AtWNi5X9K3zU/nrygclNWMQEAVkP
-	 RxIKeaMySyahMRSQTZGGsajYMa71ulAdf2YC2FL+ndWjgTKg0pgzwr5aGbDL+KJoUb3ie
-	 4A/MicM0um6aQzUaRn71jC6J2dgVuA0Dq7Nx0p4+xfrh62n39KZmcsruW9NPhBGyRcsws
-	 EJKGuipheF0UAhdBxDPeYcPSofm7rfDEWihLGq8m3flrKmVGAgsmmvlkhGoWsuRDu/g==
+	t=1795295973;
+	b=rkDa4KuNdGjeAJpvBiFpoqTUHRZthhe8NFG3FyevsvBvrZWnDQsh6+iIxX+R/NPoKyE2
+	 uuFi5J4Rbn88TB+tsdFre0JTrfm4zhPIOdGnpnYBpRD4n93iRxJ0/igE3ROQD92MKJULK
+	 el3zEsljIKMN+FRKU6+ysC36xkKbaY77yZ0VVn/A9JnWvhX2jTwEZNZImbCg5C6XeL8ZD
+	 gdMGQVYO0l4MIzGoSL1rgkopW09J4xmfo/4VFprdlfHqne5Pbn3+4bQ/rwq3GwXXUXMH5
+	 HiJsKzPYGDJ69Z8jLp/0/Tw8PfSo+OAJPDGppDER8AislhQmOKUie6CrwauxVQWfQsw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795295948;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=nn4NLcCLn4UsidM4X4VaPvfR/4D6nJNXCDJVByzVWOA=;
-	b=4eHb++mhKgcqEXm35tizRZTCFWFLp1UMKeEmN3SJ62TctkCtrEZ39Ucer8lWLlR5IiFp
-	 gLFsR1Xpb9R8hRiagIKBeoVw84WfVHN8senb8UENeKelIt3tUq4ymKuk1f8pj05eO9s7p
-	 gPKvoCiI09NtwycrFUATEe8Lw6obiguWiEW70Q/mBts1TxsVYJyuSsxaHBCr29NXoaI4K
-	 Aer5bdxFqGbMhpKMr2N8ibagadnAsO8X1UqsuaE8JFnVYmSU+YCZ9Mn7/9z2S55qnjP9p
-	 2ZE8T3OX2BXx9DrR6E9Lp3Cs9A0dilQvfM/mSY+IYP5dvXp2UKK+nhdsu84oYLJf/MQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795295973;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=TwRAZOxTtTXy+S3cTIsOYqmghOtnES71mWdup4rt0co=;
+	b=iXWKxKgAng+KGoxH/vVDRrUYCA4BiJVKCN+nlArtxYxc76dl+qikgBReF1I4E/9naQwv
+	 FqaoPaCR3LEwsdcv1ZeKihgz3xWUORZOfmTqsGBIlXzzInDjtD8uRGwRbKiV6QFad0TNQ
+	 J71bGBB33fQ+FWMzlyy+E7tWRu1i7/vlsB90Mim4WUT9eQ8oC2CxZ4nB6hruyohpmHwvc
+	 h6++VOTut62Dvy4n/F3x41t0BZZUMqktO2Xs2oAFw7UlMBOhtcvaX3/ytLXBM7CIR5TAL
+	 ctPjqxfW13oCsA+AJQm0+/PWO0LBuMhG+85X3eRerSUZqTgyN7eKfL9Gs8sPT9MKs2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IbFJeKHn;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FhMdTVcv;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DAB7606A320;
-	Sat, 21 Nov 2026 21:19:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80F6A606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:19:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IbFJeKHn
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16A861F000C6;
-	Sat, 21 Nov 2026 21:19:06 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FhMdTVcv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B6A81F000EC
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:19:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795295948;
-	bh=nn4NLcCLn4UsidM4X4VaPvfR/4D6nJNXCDJVByzVWOA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=IbFJeKHn+82+xBNewS+Rnj7D9lnu5h6zu042G5j/tT6AoFVixsjMERdu3lH2l5Uej
-	 QvKX+QZML9RR2UomvsxJAn+HlHeTeTDRjJ0A7EfzxginDH42hR6EITCgXzwnsye8zw
-	 NF9W/nnISJ/qpMgzE6Uc7ZvvxSf7z1EKbzCCpyq4afVKoSC5QtnbgI0xUyq2yxpm8Y
-	 YLf/T2wCrFFB9esQVS3NGdBhsI3H4yKdhkH0mC5WpOO0rzpHiM/TEz34VDepYvuQAS
-	 RD27YZ2fTsIFv0Q8Ia6lsJOOTz+ZfGM8vPMtPrTdvDD5NPzV0klbsNtnvegha2RLk8
-	 N5m+LWEO8H7cQ==
-Date: Sat, 21 Nov 2026 21:19:02 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Arnav Kapoor <kapoorarnav43@gmail.com>
-Cc: Zhu Jun <zhujun2@cmss.chinamobile.com>, dlechner@baylibre.com,
- nuno.sa@analog.com, andy@kernel.org, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] tools: iio: Keep the buffer index separate from the
- acquired fd
-Message-ID: <20261121211902.13a9f3ed@jic23-hlaptop>
-In-Reply-To: <20261120210317.184756-2-kapoorarnav43@gmail.com>
-References: <20261120061903.98141-1-zhujun2@cmss.chinamobile.com>
-	<20261120210317.184756-2-kapoorarnav43@gmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1795295973;
+	bh=TwRAZOxTtTXy+S3cTIsOYqmghOtnES71mWdup4rt0co=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=FhMdTVcv7hTTIDYEMkZDmUO3HkhrUrXxLq3vHaLlCKM7YzylsICoYIYrTJzEPLoo9
+	 74m27GMvvah0DCKBWuQ6PrnTPtuQi0Mj5HochkXuFFLwSUgkupkE8pd+D4gi6l8yMY
+	 WiUsK6auPbm+CABDYq9ad1u8O4HV35tHtAx5BB0lbe7E/mMLpijZg+MBBW/og4WDVH
+	 PnrfIXeF49zLuvj/Zw5vW+24lreUmuBdqsnfKXERsHh8i+AdH9+H6q+Pj+wwBVoq9c
+	 4qZChs2Zy+IC0Q+zSRy0r9qNqwm36fY+aC33daLbfWwMzTKC/LoszT1mf+BmYgeGrY
+	 KtJv2l90OFpxQ==
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5c14f3dab66so1649542e87.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:19:33 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErE21C9Q+6nFXjkfrWS9/6olfUtOVC2xak4sugAErj2Te9MSXogThUFvkL5rmcCZyFYXFEb9lVw0eeP2qx4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9NDUSpXad2AjpRq2Hh38ODZh4Zy1mXkRf4bwwsDy4fTiSzvFEj
+	jsHu9ZlKjymhA9I/kgFOKRv7NcHfPJHKLLMtXIYoRhEvFyxFLTODnQzNTPYpGiRKc0Zy90CzKOh
+	IkhYczuLzXsq7gxyJ7Xh3qWTpGoQbXkY=
+X-Received: by 2002:a05:6512:2c90:b0:5c1:7c6a:fefb with SMTP id
+ 2adb3069b0e04-5c1bc822245mr1829531e87.5.1795295972116; Sat, 21 Nov 2026
+ 13:19:32 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,30 +59,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20261015142552.4128028-1-ryan.roberts@arm.com> <20261015142552.4128028-2-ryan.roberts@arm.com>
+In-Reply-To: <20261015142552.4128028-2-ryan.roberts@arm.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Sat, 21 Nov 2026 22:19:18 +0100
+X-Gmail-Original-Message-ID: <CAD++jLma8atXB=eT8TvvYfKMg=h6YGPY4THsYhLCeo2VumeJrw@mail.gmail.com>
+X-Gm-Features: Aa3M54r702fjHjrynCh9jy5iyOc-dutIFRI6s0mpbPcKoEHETe8434E7oYhGyyA
+Message-ID: <CAD++jLma8atXB=eT8TvvYfKMg=h6YGPY4THsYhLCeo2VumeJrw@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 01/15] misc/arm-cla: Add driver skeleton and documentation
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Alex Williamson <alex@shazbot.org>, Jason Gunthorpe <jgg@nvidia.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jean-Philippe Brucker <jpb@kernel.org>, Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, devicetree@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Sat, 21 Nov 2026 02:33:17 +0530
-Arnav Kapoor <kapoorarnav43@gmail.com> wrote:
+Hi Ryan, Jean-Philippe,
 
-> On Fri, Nov 20, 2026 at 02:19:03PM +0800, Zhu Jun wrote:
-> > IIO_BUFFER_GET_FD_IOCTL takes the buffer index as input and replaces
-> > it with a file descriptor on success. On failure, cleanup can mistake
-> > the unchanged index for an open fd and close a different file. Only
-> > assign the returned descriptor to buf_fd after successful acquisition.  
-> 
-> Checked against iio_device_buffer_getfd(): on every error path it
-> returns before copy_to_user(), so the argument keeps the index, and the
-> error: label then closes it because buf_fd >= 0. With the default
-> buffer index 0 that closes stdin, with -b 1 stdout. The patch fixes
-> that, buffer_idx is already rejected when negative, and it applies to
-> iio testing, builds without warnings and is checkpatch --strict clean.
-> 
-> Reviewed-by: Arnav Kapoor <kapoorarnav43@gmail.com>
+On Thu, Oct 15, 2026 at 4:26=E2=80=AFPM Ryan Roberts <ryan.roberts@arm.com>=
+ wrote:
 
-Applied to the testing branch of iio.git. That means it is queued up
-for the next merge window.
 
-Thanks,
+> +/**
+> + * struct cla_dev - CLA device
+> + *
+> + * Immutable state:
+> + * @cpu:               The CPU this CLA is attached to.
+> + * @dev:               The platform device.
+> + */
+> +struct cla_dev {
 
-Jonathan
+Don't abbreviate compulsively, cla is fine, I would
+call it cla_device.
+
+> +       unsigned int cpu;
+> +       struct device *dev;
+> +};
+
+I will argue in other patches that this should be a proper
+struct device and not a pointer to a platform_devcive
+&pdev->dev.
+
+Yours,
+Linus Walleij
