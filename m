@@ -1,62 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=43.163.128.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795258695;
-	b=fi4rlvzRPtS9v/+6xElhPqR3rOQ6eEvXrgnh/9d6ZUolxxWyXB0e2+kDucPe7VrOY9ua
-	 t8a3pyez8W3RfROiGZPlx90LucCDiIvkJRq1ggTGj8CybZu+BWm6aY99oEXPOJ60WZAwc
-	 AOJs36hqoJfSVzJztn4Dc/4Nk02tNLuBxgTHe3Kse1nNAqh2JM8hgmlnbEVNYF22i1++j
-	 r6R8mNthV3+UP942oxM6cPtSo6XsrOS/M+6GCpoQAwfum46ug++jgFOwm4qgyB7i07YUF
-	 h2eySeYVwHsqcgwudFhNoGfvrgm2uOLKLnn9reug8S1NLh6f3D3yrtZgAzwRoaaqs+A==
+	t=1795258746;
+	b=O8FYxVB/2RtrtdZow06eZlnlJ959oGNUAl19TngC3Otw9Jjy58ihEF+yvV8F7nMg1vfz
+	 ajLzGbcTkjYllA3+WnXVCoOgSh+pnHD76uwjI9SNJ/vFZX0YIsOgujDuO15a6v0HyNOSO
+	 h+kCMwWaSwVkYkurBIJot8Qyf1LG8bKcb/W9FbKWA2FODIXBRZnd+Hvm2smKOHKLCxXbu
+	 BbWJDUXgncTB5M8Uhcy/L+AhBRV1xpzKH+pcUQ0vbdJlp333g7RT/6zavun9lj9v0Otz8
+	 UB0WpWcfXzdlrNJ1bSB1UqHRqMChKirqEADeveSXkSgTni2+snui1+UjYqIREJjPHLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795258695;
-	h=DMARC-Filter:DKIM-Signature:Date:X-Original-From:In-Reply-To:
-	 Content-Transfer-Encoding:User-Agent:Reply-To:To:From:Subject:
-	 Message-Id:Mime-Version:References:Content-Type:Received:
-	 X-Lms-Return-Path;
-	bh=V3bNUNiT/0ywDdd6Xcd8mmP1/n5MrmRMqYlXo9hj8KQ=;
-	b=SwWt41NIJXCiqs7qLbnzWM8BuaI5rObbkU2mpfnwmEnweDwHIRkxgxO8ivbKnQAZEmV8
-	 MwF3uB9h3KEoJYsKKe3xwVfnnbblpJXi69QHQqCBcFsTX4HWb0j/BmtTDs6iKKtsoAqy1
-	 xmnpTMdPlDj/yTW7f6+F986xxUjifsUDC23YPrKj7M627zMI+fozYbzGRiJyxZx0Sdokr
-	 96p32FhD4JLF4MeslbnrGGFgWe4tl7C0WvyF43Zg5l3lq6r8/NPb8REv5DIJlPJ9p6KSJ
-	 UFWvQ56pJLYmEmZJbkXtvpK355PElposAMqkc2uXsA67muUq5ibIu/UFc0GM+Jd1Rmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795258746;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=aGX/622BLcEUD7STQZB7h5g1EsoIPpXceYZcwodljQ8=;
+	b=so2FFI8+0uged7zE5Lh91qv3N1n0fF8r+b37ULeheq7Ckz0RR7Cgai8OBUE1fMLgY59Y
+	 YKJ6Ppcvrzp6QD42Ynpn+DGurtGST2DuQwcAM75BhR9NUiAJyBEnK6SMF17SPNaQ8jYC7
+	 xxNTIoGv5KHQMyeyUcbPk43paIp63KbasXshbrw0JhQZP3jL8To/RyJBMSM9LPgPEBf1C
+	 nqC+41srCSwPAdvg9/ybtTauzRZWA6jZ1SbP0IkdM3yLjRnI63uImYkXTPdLxUL5+IEYf
+	 dgklYov2B8xuTk+/Fs34/iUe+UNeSyjNKbf/ZOzTlUjD7cF/S/3jBBAqPxuB6YmA7aQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fygo.io;
-	spf=pass smtp.mailfrom=fygo.io;
-	dkim=pass header.d=fygo-io.20200929.dkim.larksuite.com header.i=@fygo-io.20200929.dkim.larksuite.com header.a=rsa-sha256 header.s=s1 header.b=nHln9N2c;
-	arc=none smtp.remote-ip=209.127.231.44
-Received: from va-2-44.ptr.blmpb.com (va-2-44.ptr.blmpb.com [209.127.231.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ApvIgA7p;
+	arc=none smtp.remote-ip=43.163.128.47
+Received: from xmbghk7.mail.qq.com (xmbghk7.mail.qq.com [43.163.128.47])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2FF8606A325
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:58:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2FF8606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fygo.io
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fygo.io
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2872606A325;
+	Sat, 21 Nov 2026 10:59:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2872606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=fygo-io.20200929.dkim.larksuite.com header.i=@fygo-io.20200929.dkim.larksuite.com header.a=rsa-sha256 header.s=s1 header.b=nHln9N2c
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=fygo-io.20200929.dkim.larksuite.com; t=1795258687;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=V3bNUNiT/0ywDdd6Xcd8mmP1/n5MrmRMqYlXo9hj8KQ=;
- b=nHln9N2cAzfwDu3cnQey9Y7CZtTETZg9uZsYpo0pHpDjVsC5t5/lZhp0THoklE49wAkZ5G
- 1BV2ack+8Ch9njWF1qTdyGLHj276TNEU5ynKq50ITwBCjPFhK5imi6uPwgcEOWF8ybWfdS
- Oxdjqczz5t6Xl5TivFRKsZi59ou+nJ+EY+tMcnjUP/dBU29PFc74H5v8RdA+QE8QNupY9E
- errtTK05M2Ow4rtefrpO101fsXwWphDdeX4HVnuC+HvnZqH/4SQhqkKT6stXuDtTrzidYu
- GkP62Zd8ojuLgmdH4yxoYAgGbH7Shlepst5qaQEUjZh/oXA7+7uCD/O0ZBiLeA==
-Date: Sat, 21 Nov 2026 18:58:01 +0800
-X-Original-From: yu kuai <yukuai@fygo.io>
-In-Reply-To: <CAMnMt5Z+BwOaPWQGTTUeSr8uaT=dysMi42xRpFpUruRRcO7=wA@mail.gmail.com>
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Mozilla Thunderbird
-Reply-To: yukuai@fygo.io
-To: "Herman Semenoff" <germanaizek0@gmail.com>, <song@kernel.org>, 
-	<magiclinan@didiglobal.com>, <xiao@kernel.org>, 
-	<linux-raid@vger.kernel.org>, <linux-kernel@vger.kernel.org>, 
-	"yu kuai" <yukuai@fygo.io>
-From: "yu kuai" <yukuai@fygo.io>
-Subject: Re: [PATCH] md/raid0: optimize stripe mapping with bitwise shifts for power-of-2 devices
-Message-Id: <f1aa2a91-0859-44d7-9cc1-b64ed4def889@fygo.io>
+	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ApvIgA7p
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795258741; bh=aGX/622BLcEUD7STQZB7h5g1EsoIPpXceYZcwodljQ8=;
+	h=From:To:Cc:Subject:Date;
+	b=ApvIgA7pRlHLWlCD61Cqsgkd1XAu21U6HEpfnhJ3n0zf/dTorZroIBa5n3cX1JCDD
+	 Mde57uPNmsgTcAdwAiPp2OUWcgoPPPUI8pSSZlbJZDFk1+5qr8tXJaqHndMPQ9hVv5
+	 H05mYMOjSbjcMAWtQ1gxkzGnDTXPOVIIFDptYHIQ=
+Received: from jerry-PC.lan ([2408:8249:5f:7101:71a:8713:56b4:5043])
+	by newxmesmtplogicsvrsza53-0.qq.com (NewEsmtp) with SMTP
+	id EBA89487; Sat, 21 Nov 2026 18:58:58 +0800
+X-QQ-mid: xmsmtpt1795258738tog0ojgbw
+Message-ID: <tencent_8104629BEBAEF41637AAF1CC7D95BC7DCC09@qq.com>
+X-QQ-XMAILINFO: NnYhxYSyuBnLgVnKCHPq4TJMLrJsypE6Qo40ozViJR71TS3Rr5PZXax0WLYJQQ
+	 wsN5lH0sfI2ww8GsJuYP9MvREmVdkYFAYUqAVidf7DH03HXepozXc936IqEVlUbtupVL6VKLPec5
+	 3BanyHHL0/2FebIvbA9kdpq48WBDXST5bhNxhhhesJaOctePRELF/c+2AQdt3h2935RqDXTiVEID
+	 0rmiaRFlUOGkbCBjcOdOPxrR4Pir59L6HkLD1H7D76gnG5KwCOyAv0hQnoLMyQxkd/E0WcZ/5+SO
+	 jKcJvfv2xPT6ZAOq0IfbCRUOCaqmT8hDSfnf2pTEFjXCpGVginVmooJ9pzU0pHZcMcKsk4Np++A+
+	 e4fuNgy+TgE/9y0bo2mgVgkHz/FeOc6vy0GKhjmCwwOUW4oT3gNZV2snV7JdnuYQibcFh51lI/Th
+	 QkWwvIhZiV2PDl9ng5mFjMU+6qVHNd+mHnhQv8Z1+RCH/8nyZcIhwL7NeNo44kNb1LeWmSgKA1Rx
+	 Z9Em4smSvdi5433IyQ/90/DbmtQrOZiYvl2a7A4XtNrORy2CTdV4cwUptnSVBJngHUq7k0YpqroZ
+	 hmNM3pibG3Sdy88O0I/c/6yDOCbI+Gq28F7ujWNdbnP+eVDi9RwQhF2X5VxaidcS1BLYD7q6i/0r
+	 q2Dv8+k2zr+PhKDRZlyd819/CmGB6BCFdA2XAd7wrjy3aF1qT+JBZuMXXMxF8RIYH484Z/nOEExr
+	 I/2lSb+kOl+5/cjGn4LZjp8Tiyiejb9I+JA1aGzwxyX5z7UI3zquOL5osFvpyYQhEySzuxT8zuJv
+	 Z5d9skrCWYe887mEyzyXZmvNvBoF6CKsbBg3XnfOZSZJ7tV69OTL2KQmVofUVv49IuJltlkDC9v+
+	 JTCriJh4nMySdRt6RpQf0wZefXtS7YsP2dEV0URzJjRR7E7gGP+5RDFJoP6DnIkYKiYrtABkd6f2
+	 eZ4oW7xPouEx6Wz+OINGD2Bulif2Bi6mvt86KBO7wNTrWYlSRMnLUcu7bKuQCSqA9CDOKYSHT2CH
+	 c5xgphM6oz59GlQZ1wZV9OwkBSlxUPg8C3IrSxPQkYzj/FvyFyqI+rkMsQDjHmO+7SvotBX+Jtzd
+	 aiA/Qp74516r3YWs2lLaW1XdMjSMPbwsAM6GlKJDW/wgD3DXLCzaF8uEolug34RCaMNIFq
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+From: ZhuXiangyu <1194781887@qq.com>
+To: Stephen Boyd <sboyd@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	ZhuXiangyu <1194781887@qq.com>
+Subject: [PATCH 1/2] dt-bindings: clock: rockchip: add clk-out
+Date: Sat, 21 Nov 2026 18:58:55 +0800
+X-OQ-MSGID: <20261121105856.1414984-1-1194781887@qq.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,163 +86,105 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <CAMnMt5Z+BwOaPWQGTTUeSr8uaT=dysMi42xRpFpUruRRcO7=wA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Received: from [192.168.1.104] ([39.182.0.159]) by smtp.larksuite.com with ESMTPS; Sat, 21 Nov 2026 10:58:05 +0000
-X-Lms-Return-Path: <lba+26b01793e+928ddc+vger.kernel.org+yukuai@fygo.io>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Hi,
+Document the Rockchip clock output/input switch, a single GRF-
+controlled gate used for signals such as the SAI MCLK output.
 
-=E5=9C=A8 2026/11/17 13:15, Herman Semenoff =E5=86=99=E9=81=93:
->  From 086678202572260393864f72c06f4d67032a4b76 Mon Sep 17 00:00:00 2001
-> From: Herman Semenoff <GermanAizek@yandex.ru>
-> Date: Sun, 8 Nov 2026 22:43:29 +0300
-> Subject: [PATCH] md/raid0: optimize stripe mapping with bitwise shifts
-> for power-of-2 devices
->
-> In drivers/md/raid0.c, map_sector() performs two 64-bit integer divisions
-> (sector_div) on every submitted bio:
->    1. sector_div(chunk, zone->nb_dev << chunksect_bits) to compute the ch=
-unk
->       offset within the member device.
->    2. sector_div(sector, zone->nb_dev) to select the target member disk.
->
-> For ultra-low latency solid-state storage devices, such as Intel Optane
-> (3D XPoint NVMe SSDs) capable of sub-10us latencies and multi-million IOP=
-S,
-> these un-pipelined 64-bit division instructions create unnecessary CPU
-> pipeline stalls and latency overhead in the I/O submission hot path.
->
-> When the number of member devices in a strip zone is a power of two
-> (e.g., 2, 4, 8, 16 disks, which is the predominant configuration for
-> NVMe arrays), both divisions can be replaced with bitwise shifts and
-> masks:
->    - chunk >>=3D (zone->nb_dev_shift + chunksect_bits)
->    - disk_idx =3D sector & (zone->nb_dev - 1)
->    - *sector_offset =3D (chunk << chunksect_bits) + sect_in_chunk
->
-> Store nb_dev_shift (ilog2(zone->nb_dev)) in struct strip_zone during zone
-> initialization when is_power_of_2(zone->nb_dev) is true, or -1 otherwise.
-> If nb_dev_shift is non-negative and chunk_sects is a power of two, fast
-> bitwise math is used with zero divisions. Arrays with non-power-of-2 disk
-> counts fall back to the existing sector_div() path without any behavior
-> or compatibility change.
->
-> In addition, annotate the bio split check in raid0_make_request() with
-> unlikely(), as standard MD devices already enforce chunk_sectors limits
-> via bio_split_to_limits() in md_submit_bio().
->
-> Tested on an 8-disk Intel Optane Memory M10 (MEMPEK1J016GAD) RAID0 array:
->    - Random 4K read QD1 latency:  avg lat 22.06 us -> 21.10 us (-4.4%)
->    - Random 4K read QD1 IOPS:     42.6k IOPS       -> 44.6k IOPS (+4.7%)
->    - Random 4K read QD32x8 IOPS:  1.11M IOPS       -> 1.72M IOPS (+54.5%)
->    - Non-power-of-2 disk arrays:  unaffected, identical fallback path
->
-> Signed-off-by: Herman Semenoff <GermanAizek@yandex.ru>
-> Signed-off-by: Herman Semenoff <GermanAizek@aizekgroup.ru>
-> ---
->   drivers/md/raid0.c | 26 +++++++++++++++++++-------
->   drivers/md/raid0.h |  1 +
->   2 files changed, 20 insertions(+), 7 deletions(-)
+Signed-off-by: ZhuXiangyu <1194781887@qq.com>
+---
+ .../bindings/clock/rockchip,clk-out.yaml      | 81 +++++++++++++++++++
+ 1 file changed, 81 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/rockchip,clk-out.yaml
 
-This patch is unacceptable, you need to regenerate it with correct format.
+diff --git a/Documentation/devicetree/bindings/clock/rockchip,clk-out.yaml b/Documentation/devicetree/bindings/clock/rockchip,clk-out.yaml
+new file mode 100644
+index 00000000..bf2a9b8a
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/rockchip,clk-out.yaml
+@@ -0,0 +1,81 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/rockchip,clk-out.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Rockchip Clock Output/Input Switch
++
++maintainers:
++  - Heiko Stuebner <heiko@sntech.de>
++
++description: |
++  Some Rockchip SoCs route a clock between an internal clock and a pin
++  through a GRF bit, for example the SAI MCLK input/output switch. This
++  driver exposes that single bit as a gate clock.
++
++properties:
++  compatible:
++    const: rockchip,clk-out
++
++  reg:
++    maxItems: 1
++
++  "#clock-cells":
++    const: 0
++
++  clocks:
++    maxItems: 1
++    description: Parent clock.
++
++  power-domains:
++    maxItems: 1
++
++  clock-output-names:
++    maxItems: 1
++
++  rockchip,bit-shift:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: Bit position of the output enable in the register.
++
++  rockchip,bit-set-to-disable:
++    type: boolean
++    description: |
++      By default the clock is enabled by setting the bit at
++      rockchip,bit-shift. When this property is present the polarity is
++      inverted: setting the bit disables the clock and clearing it
++      enables the clock.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - "#clock-cells"
++  - clock-output-names
++  - rockchip,bit-shift
++
++additionalProperties: false
++
++examples:
++  - |
++    clkout_parent: clock {
++        compatible = "fixed-clock";
++        #clock-cells = <0>;
++        clock-frequency = <12288000>;
++    };
++
++    clkout: clock@ff910004 {
++        compatible = "rockchip,clk-out";
++        reg = <0xff910004 0x4>;
++        clocks = <&clkout_parent>;
++        #clock-cells = <0>;
++        clock-output-names = "mclk_sai0_to_io";
++        rockchip,bit-shift = <8>;
++    };
++
++    audio-codec {
++        clocks = <&clkout>;
++        clock-names = "mclk";
++    };
++
++...
+-- 
+2.47.3
 
->
-> diff --git a/drivers/md/raid0.c b/drivers/md/raid0.c
-> index 35e103f0c2c3..993df48eaa4c 100644
-> --- a/drivers/md/raid0.c
-> +++ b/drivers/md/raid0.c
-> @@ -207,6 +207,8 @@ static int create_strip_zones(struct mddev *mddev,
-> struct r0conf **private_conf)
->    }
->    zone->nb_dev =3D cnt;
->    zone->zone_end =3D smallest->sectors * cnt;
-> + zone->nb_dev_shift =3D is_power_of_2(zone->nb_dev) ?
-> +     ilog2(zone->nb_dev) : -1;
->
->    curr_zone_end =3D zone->zone_end;
->
-> @@ -246,6 +248,8 @@ static int create_strip_zones(struct mddev *mddev,
-> struct r0conf **private_conf)
->    }
->
->    zone->nb_dev =3D c;
-> + zone->nb_dev_shift =3D is_power_of_2(zone->nb_dev) ?
-> +     ilog2(zone->nb_dev) : -1;
->    sectors =3D (smallest->sectors - zone->dev_start) * c;
->    pr_debug("md/raid0:%s: zone->nb_dev: %d, sectors: %llu\n",
->    mdname(mddev),
-> @@ -330,6 +334,7 @@ static struct md_rdev *map_sector(struct mddev
-> *mddev, struct strip_zone *zone,
->    struct r0conf *conf =3D mddev->private;
->    int raid_disks =3D conf->strip_zone[0].nb_dev;
->    unsigned int chunk_sects =3D mddev->chunk_sectors;
-> + unsigned int disk_idx;
->
->    if (is_power_of_2(chunk_sects)) {
->    int chunksect_bits =3D ffz(~chunk_sects);
-> @@ -338,21 +343,28 @@ static struct md_rdev *map_sector(struct mddev
-> *mddev, struct strip_zone *zone,
->    sector >>=3D chunksect_bits;
->    /* chunk in zone */
->    chunk =3D *sector_offset;
-> - /* quotient is the chunk in real device*/
-> - sector_div(chunk, zone->nb_dev << chunksect_bits);
-> - } else{
-> + if (zone->nb_dev_shift >=3D 0) {
-> + chunk >>=3D (zone->nb_dev_shift + chunksect_bits);
-> + disk_idx =3D sector & (zone->nb_dev - 1);
-> + } else {
-> + /* quotient is the chunk in real device*/
-> + sector_div(chunk, zone->nb_dev << chunksect_bits);
-> + disk_idx =3D sector_div(sector, zone->nb_dev);
-> + }
-> + *sector_offset =3D (chunk << chunksect_bits) + sect_in_chunk;
-> + } else {
->    sect_in_chunk =3D sector_div(sector, chunk_sects);
->    chunk =3D *sector_offset;
->    sector_div(chunk, chunk_sects * zone->nb_dev);
-> + disk_idx =3D sector_div(sector, zone->nb_dev);
-> + *sector_offset =3D (chunk * chunk_sects) + sect_in_chunk;
->    }
->    /*
->    *  position the bio over the real device
->    *  real sector =3D chunk in device + starting of zone
->    * + the position in the chunk
->    */
-> - *sector_offset =3D (chunk * chunk_sects) + sect_in_chunk;
-> - return conf->devlist[(zone - conf->strip_zone)*raid_disks
-> -     + sector_div(sector, zone->nb_dev)];
-> + return conf->devlist[(zone - conf->strip_zone) * raid_disks + disk_idx]=
-;
->   }
->
->   static sector_t raid0_size(struct mddev *mddev, sector_t sectors, int
-> raid_disks)
-> @@ -616,7 +628,7 @@ static bool raid0_make_request(struct mddev
-> *mddev, struct bio *bio)
->    ? (sector & (chunk_sects-1))
->    : sector_div(sector, chunk_sects));
->
-> - if (sectors < bio_sectors(bio)) {
-> + if (unlikely(sectors < bio_sectors(bio))) {
->    bio =3D bio_submit_split_bioset(bio, sectors,
->         &mddev->bio_set);
->    if (!bio)
-> diff --git a/drivers/md/raid0.h b/drivers/md/raid0.h
-> index 8cc761ca7423..70b73511fb14 100644
-> --- a/drivers/md/raid0.h
-> +++ b/drivers/md/raid0.h
-> @@ -7,6 +7,7 @@ struct strip_zone {
->    sector_t dev_start; /* Zone offset in real dev (in sectors) */
->    int nb_dev; /* # of devices attached to the zone */
->    int disk_shift; /* start disk for the original layout */
-> + int nb_dev_shift; /* log2(nb_dev) if power of 2, else -1 */
->   };
->
->   /* Linux 3.14 (20d0189b101) made an unintended change to
-
---=20
-Thanks,
-Kuai
