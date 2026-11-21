@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795288905;
-	b=msyuoPQ1re4J/ocM3SzoqN2hclsoasUyI8wipsw0TCkpOf/KdO5DMyRrL0yz2XQwabec
-	 SWtRqNDVYSBrOd62Npdz5kIPWSucC+UoPx9fCqDzmNep8H9hdkSaoa0crfIrCynqqly72
-	 nfme64NXEg3CsjgrvBQXwsSrgaAFHbcNMhOQ7HqHy6A934mXZRRHGCh2t9fogAd28rP5X
-	 RxNldiKUkC7FlBcu3kZa2Dt18PeO8fZH5K0+yHbNdvLLRhitfHgFcewrJ7ZXlEVoAI0dC
-	 Zu4llLWpDc+eM3kQbikajz6rrmPw/TWhO0HDdTA4QE9Kd/h9LxkE6NSf2/xUblDSDNQ==
+	t=1795288901;
+	b=EKFvViafxmve7Xvdm8mC2EbM2nk8j4uV3igv+e/ihWYXDsUyBwpO0liHsE6Lst9qztg0
+	 810cQF/VJ1nm0UKSN4xByN9KtyK5WhmLtkuhP69tL4iUpUWpiSnhKCXIfBTQ8H5KcHgC3
+	 p6X1in+sxQVPsyYUVdqoFK8Tdu3H3+7qBnFzBOxbcdME5RH3cSSKSej5995gtAdbgvF4g
+	 QWNgtZoWffXbjcrE8mcIWaCvJr78pD3nmXazMUQh0bu8IvNRCMCK0DEFgbGkXr2KwvFLI
+	 4upb6cKsFob70mFRMpmnycvenKjAEM10jh2Y6lU5a+fA7j7MNfGiYmgevlpz+ZKTD0g==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795288905;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795288901;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=rAgcqIqOw6zcaQD0GaowJvtaNg3/b1Y5Y23WzFleRQ4=;
-	b=cjHrz0asmlDl5gXDzo7192JGPCWkiiyFekq9zu6ICystqeZoXH7SotIXIKdpurF6ci8A
-	 A/KpMZQv/vR6GHXEOmR4VmGlQ5C1Yfxm/0jU2qUveuMwLCroqDxOP8NeFIXSPf3NXia2J
-	 Ot70n9LBQUhtWRIQLJAz6cXMbcjpOGSGkrX1y/Y3BagJnkPZadE3DlhdjB4qMrlYt59YG
-	 jIBux2CCbLoYZQVnSw5R7T1m9B1CpYiAtfgU+oNYgT3+f+409QV21LFv/hhOXW1wbJKpy
-	 acy8O6XTgP03GuHWuymEKKYkJwF6oQlH4MZdr+29RDxvLGuahWMKQqGKLRyFkez1D4g==
+	bh=09MIVVUaXPmTOAMRCrsbJMFWfzMJrvosN8N7XD44Bng=;
+	b=4sHmgi4zX282t0leJkQTyJM0C7GtFO/7z4CsQAnBbjSdTa+W5iDe+QMf4HdT1P/VCad3
+	 DRA9ihgzzsGRJGDo+GOZK4rOQl92fsuS9sJgrXjvU8DG7rESmwFMz7Evjd97gPOXGvaC5
+	 CvJR1ajofCS/cOrnBPPQGTpSBf0417dvczZzPSMBklg+FSyHDouU6Yz8H4k3uaEoLBOxQ
+	 Isj4I3Mg6yapvkVv8W7qy/3DTJhntFI5kOwQUNrMbxhDYBcSZSbvA+S5U7OFkfRkqb7VF
+	 tpf2jVdtFxB8wtykYEUO/59R01YfB2AzaBGuhr9sGiB+pluyJcqtR65QtsAIqF8gqfw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JlEBdC2H;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L9T0n7IL;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0B4C606A33E;
-	Sat, 21 Nov 2026 19:21:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B142606A33F;
+	Sat, 21 Nov 2026 19:21:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JlEBdC2H
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L9T0n7IL
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795288905;
-	b=Yt2V6k8/DXdclqCos7oC1WThjl5gk983RApxu3TFT/X9qQJCidGF7HsyTLMIEAzEFUmy
-	 42Jh4bhCLxcs+CCFJTl7peLd0ewERxoSdfitFlvH1ojC1iA5rzk2T5MXzaJfaaGfOuSO0
-	 /+mI0ViWOPSeJVH27dFmKYZhw/8qmk/pbVuGcBZOPMsNhlQ7e3h7QVYnpNKMKtTfLS3sP
-	 IO5zhDUKFfkfhVy/prp7Wp7Q8/bRcM5XTX89bNkEvk0plNTMq/dCgM1WSl1iL0Wtuq5Sp
-	 sX/ZV6SbloJvEvd3WqfPHkY0+gthWha6dBPgXSBp1KBVflQs4VFtG/XapTGLq4HK4Mw==
+	t=1795288901;
+	b=DFpZFEvP5W0VCOAIJ3jvoB8PE0qjY550ztIkeX4pY8CONifm2QA87PnCl/G2ToEkFMS3
+	 xEeQyAicIxtY+kzPHF4n6+lGjaQBvJ9MkSFoij6HQTzpwpdCFdzgzoUeUKnKcPcTaa71w
+	 Uybm/wsfqqqYoJiBOdoClXedaulYvCR45KO2/1d8P+dGvC5K5KmZ6DPtpruJIUB7R1R4c
+	 ybsdwwVlP2G1KaVjFmPB+qnvxEvJdEBX6vwmHGA7LMVZSkM9Q5YNP7YW2HEGtLePeh9NN
+	 tLRyo5nItq4E8usSEyTdqY8FlgUULyMAATiC4KhLsRDlnwPH+WPm1lfaopWHZjQUSrg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795288905;
+	c=relaxed/relaxed; t=1795288901;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=rAgcqIqOw6zcaQD0GaowJvtaNg3/b1Y5Y23WzFleRQ4=;
-	b=dw871ckaIm0LZXCEb4Gvd2tHAtW2/jXCsZVdwsva40EQgmr/iztj/id6+DeiqOWXl8CT
-	 2ckVSoRqg5mbiJZP7jBAKMdB+waQenajktOElizDIdqARbkSJMzsvJv6dUpbWiK3YdSMq
-	 MZhgshH1tu5mXy1eyvL3zmMlp+P9OjncXI8YAQgpM09c+QpSC6QGYSyYqWNgGFKoZ9Bf6
-	 y8qFJ0T+ofVDimlpOOBfg6rFFTdNIXsi5GcyZdXNEBNLqSbApYvTLORRj61dVqsomSnLM
-	 KrT795xkcNmv5QeuLmYE2u2n+Ib7C1hQkF0sCTypwTOXcVkbY/usUC0H2eyp3b4sgbQ==
+	bh=09MIVVUaXPmTOAMRCrsbJMFWfzMJrvosN8N7XD44Bng=;
+	b=Z1PkIG7/S3egqNJqNzzmFMirqr4c+JDiMmnTvIr8xWQHme2j2gc2Z4y/SsYxJHIsHhRd
+	 qB7B8NBWkQLMgGVB4/baYkEA4NcwkexIE/8XRe/s5V9RYDVsyE1JgN6PxOGN4AI5wFcN2
+	 562shxQh0ttmqWtrSujFDmx5n/maNwGPRAwMu97VksAJsKHYt4NJBtNGvyldOmRaQ681n
+	 htnQg+UxSG1gkA64JK31bPP7LCuSON0le/0KIQeXrXORdpB4WNtZAhNz7RtsoCgOjGMR4
+	 Au74AJUyMyju0y3vltye8KGJRWiQUM3Sh1UXenWl5d2+pzNbrl99WrOgaahYvEdjzww==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 5A1031F000D3;
-	Sat, 21 Nov 2026 19:21:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795288905;
-	bh=rAgcqIqOw6zcaQD0GaowJvtaNg3/b1Y5Y23WzFleRQ4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=JlEBdC2H/30seFlcxFGPk7ym6bF9oBRq4CAuAOeBkV2JdBxUxIUlRzG5kWpygthN7
-	 I938eLXO4oEE5N8KFFY4HmLe08dL+K4tx9P3Dc51lzL1oF6ZEGWB9Q0F4P/llVoOOE
-	 OEKRLKsUV2YUqyrNst38FvGsqro0+u91e6CQ/csJTmUtW/EwLu0WjKSJ/gElBctvbV
-	 r9srK660KdXfgt5cYCIYRNxixW95dPCPN6INU5RGjbChQiCqqalOBu1VBXZwB+GWIy
-	 ls3QqRQi3mVbgGKg8q+2z60H5iusFAAripsVAfPspC1kA5b9Qpe7jjHgsFjFNUGKV4
-	 Zm+XPN+ddC0vg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 257064BD7A;
+	by smtp.kernel.org (Postfix) with ESMTPS id 4B7FB1F000D1;
 	Sat, 21 Nov 2026 19:21:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795288900;
+	bh=09MIVVUaXPmTOAMRCrsbJMFWfzMJrvosN8N7XD44Bng=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=L9T0n7ILVUT6EB2yM3CMfU+Kk1IwrRsFvRZi4hZLGyz8tHeP7Ji6i5FTy4FxvbbjZ
+	 b86KftNO2v4Pt3kwKF2zLWjfNgC+tuoVemiHIKNN2Y5mzFzfHKN+RZPgcqJuN5E9bH
+	 89EEd0y4RZWWjGZBbWP0RFojy1u3BCRfydbzRYbbENf+a3EnKZJEDI45kCu+lcB0pW
+	 EYpWN/6XplC2Ln2ARZNXsGT7aSc3hyFvSThafUvIJCKP6enW671vu/+U+77wd+xWA1
+	 p+71ibPtuIMGny8xlwlD/4HnsO2xVciQZ4g86t/sidC3rPHCuS7/OYRCRNBz6mVDdJ
+	 NqO+bWwJLXXBA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id C9A434BD6E;
+	Sat, 21 Nov 2026 19:21:38 +0000 (UTC)
 From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
-Date: Sat, 21 Nov 2026 20:21:08 +0100
-Subject: [PATCH v3 06/11] pmdomain: amlogic: meson-ee-pwrc: power up
- memories for boot-enabled domains
+Date: Sat, 21 Nov 2026 20:21:05 +0100
+Subject: [PATCH v3 03/11] dt-bindings: soc: amlogic: meson-gx-hhi-sysctrl:
+ Add hdmi-phy child node
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261121-meson-drm-create-hdmitx-phy-v3-6-f8f471788076@aliel.fr>
+Message-Id: <20261121-meson-drm-create-hdmitx-phy-v3-3-f8f471788076@aliel.fr>
 References: <20261121-meson-drm-create-hdmitx-phy-v3-0-f8f471788076@aliel.fr>
 In-Reply-To: <20261121-meson-drm-create-hdmitx-phy-v3-0-f8f471788076@aliel.fr>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -102,13 +102,13 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-phy@lists.infradead.org, dri-devel@lists.freedesktop.org, 
  Ronald Claveau <linux-kernel-dev@aliel.fr>, linux-pm@vger.kernel.org
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2681;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1884;
  i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
- bh=2pSroicxmn87L6WpeMI1TQ71NJdXRXfygd9gmAxHGRQ=;
- b=owGbwMvMwCWm1SvKXP3cUInxtFoSQzbjeyNd/pLbHSLbNC9O7Kpl3LCmtWPdlw0x26Z8ct2+b
- F4R+4KjHaUsDGJcDLJiiiz9cy1PvLt89MzXPeopMHNYmUCGMHBxCsBEShIY/rtH9t6YeTTJafnp
- 9R9ffZ8eufZx5l6Jn+wuL6YyvprF2HqV4Z99JNPl6lw7zxLnFWsfzZ+R/Cy0M3Zmq7DQ/47JSc8
- 2PuQBAA==
+ bh=GJIY+ibCECHLmuzGiUiB/LupTZ5nNvm+rMxqh5qXGxg=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQzbje80d/FtEYmd5rJNivWZyumRCmVnul90/8j68ZPEyW
+ 74pweRKRykLgxgXg6yYIkv/XMsT7y4fPfN1j3oKzBxWJpAhDFycAjCRe2GMDLulD2opPdQ8W3n6
+ icL0f7aW82M/6y3ZWLhRLqhHN7X/tQLDf9/NlyY8bXExslhWGX36I7fq3CMRDvn1jZJLtZyfWtt
+ kMgEA
 X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
  fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
 X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
@@ -119,75 +119,69 @@ Content-Transfer-Encoding: 7bit
 
 From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-When a power domain is found already powered on at probe time (typically
-the VPU domain left enabled by the bootloader), the driver registers the
-genpd in the ON state with GENPD_FLAG_ALWAYS_ON and never calls
-meson_ee_pwrc_on(). As a result, the memory power-down bits of the domain
-are not touched.
+The HDMI TX PHY found on Amlogic Meson SoCs is a child of the HHI
+system controller.
 
-pwrc_ee_is_powered_off() only checks the top-level sleep bit, so a
-bootloader that enabled the VPU without waking every memory block
-leaves those memories powered down, and nothing in the genpd framework
-will wake them since pm_runtime_resume_and_get() is a no-op for an
-always-on domain.
+Add an optional "hdmi-phy" child node referencing the
+amlogic,meson-hdmi-tx-phy binding, and add it to the example.
 
-This is a preparatory change: a following patch drops the explicit
-HHI_MEM_PD_REG0 write from the meson_dw_hdmi driver, which relies on the
-power domain to power the HDMITX memory.
+The node is forbidden for the other system controller variants.
 
 Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 ---
- drivers/pmdomain/amlogic/meson-ee-pwrc.c | 19 ++++++++++++++-----
- 1 file changed, 14 insertions(+), 5 deletions(-)
+ .../bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml    | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/drivers/pmdomain/amlogic/meson-ee-pwrc.c b/drivers/pmdomain/amlogic/meson-ee-pwrc.c
-index 338f70d77bf0..b3ae5cd7bea8 100644
---- a/drivers/pmdomain/amlogic/meson-ee-pwrc.c
-+++ b/drivers/pmdomain/amlogic/meson-ee-pwrc.c
-@@ -392,11 +392,21 @@ static int meson_ee_pwrc_off(struct generic_pm_domain *domain)
- 	return 0;
- }
+diff --git a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml
+index 285edac4c082..97e47592aff2 100644
+--- a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml
++++ b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml
+@@ -36,6 +36,9 @@ properties:
+   phy:
+     type: object
  
-+static void meson_ee_pwrc_mem_power_up(struct meson_ee_pwrc_domain *dom)
-+{
-+	int i;
++  hdmi-phy:
++    $ref: /schemas/phy/amlogic,meson-hdmi-tx-phy.yaml
 +
-+	for (i = 0; i < dom->desc.mem_pd_count; i++)
-+		regmap_update_bits(dom->pwrc->regmap_hhi,
-+				   dom->desc.mem_pd[i].reg,
-+				   dom->desc.mem_pd[i].mask, 0);
-+}
+ allOf:
+   - if:
+       properties:
+@@ -50,6 +53,7 @@ allOf:
+ 
+         pinctrl: false
+         phy: false
++        hdmi-phy: false
+ 
+   - if:
+       properties:
+@@ -80,6 +84,7 @@ allOf:
+ 
+         power-controller: false
+         phy: false
++        hdmi-phy: false
+ 
+   - if:
+       properties:
+@@ -104,6 +109,7 @@ allOf:
+           oneOf:
+             - $ref: /schemas/phy/amlogic,g12a-mipi-dphy-analog.yaml
+             - $ref: /schemas/phy/amlogic,meson-axg-mipi-pcie-analog.yaml
++        hdmi-phy: false
+ 
+ required:
+   - compatible
+@@ -155,6 +161,11 @@ examples:
+                 clocks = <&clk_vpu>, <&clk_vapb>;
+                 clock-names = "vpu", "vapb";
+             };
 +
- static int meson_ee_pwrc_on(struct generic_pm_domain *domain)
- {
- 	struct meson_ee_pwrc_domain *pwrc_domain =
- 		container_of(domain, struct meson_ee_pwrc_domain, base);
--	int i, ret;
-+	int ret;
++            hdmi-phy {
++                compatible = "amlogic,meson-g12a-hdmi-tx-phy";
++                #phy-cells = <0>;
++            };
+         };
+     };
  
- 	if (pwrc_domain->desc.top_pd)
- 		regmap_update_bits(pwrc_domain->pwrc->regmap_ao,
-@@ -404,10 +414,7 @@ static int meson_ee_pwrc_on(struct generic_pm_domain *domain)
- 				   pwrc_domain->desc.top_pd->sleep_mask, 0);
- 	udelay(20);
- 
--	for (i = 0 ; i < pwrc_domain->desc.mem_pd_count ; ++i)
--		regmap_update_bits(pwrc_domain->pwrc->regmap_hhi,
--				   pwrc_domain->desc.mem_pd[i].reg,
--				   pwrc_domain->desc.mem_pd[i].mask, 0);
-+	meson_ee_pwrc_mem_power_up(pwrc_domain);
- 
- 	udelay(20);
- 
-@@ -478,6 +485,8 @@ static int meson_ee_pwrc_init_domain(struct platform_device *pdev,
-          * prepare/enable counters won't be in sync.
-          */
- 	if (dom->num_clks && dom->desc.is_powered_off && !dom->desc.is_powered_off(dom)) {
-+		meson_ee_pwrc_mem_power_up(dom);
-+
- 		ret = clk_bulk_prepare_enable(dom->num_clks, dom->clks);
- 		if (ret)
- 			return ret;
 
 -- 
 2.56.1
