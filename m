@@ -1,88 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795221371;
-	b=PlIXzLCtceABJMGkQ0e5ecEJwWb97oCECWviMUIXj/u3QCAVuWdxOq0h9DcDZFmp+In8
-	 +6IcfRoOs1b/Jc9N2AymHV7eX8E4UnDq6ZByIofXAfoNY4ajZLLNMr0C87yKUCpIkuVUf
-	 EEyu364YsAQ7I2oaswkX4YuQuNELWYzCD+IAqw8xq2nj1yi3W4o9/cYSkIXShScMyBsCh
-	 TCHbDNX6sLgjgG9fVN/2Hq7I1Qw0DZmgZ0qtmV6nV0VHK0l2dczXBiLIvfHp3HWmqdWcz
-	 6ihq0rainugsa1NId6+t8lFGlACyPDpM1qDKuFgNAWuS0LV6FssD031SRu4k39QLQBg==
+	t=1795221422;
+	b=2Q8NKjVTHT11C2do7o7ERCsbuQPRD1gyZ+wQShxwk0EsXdinGCeqvGXHymKfVI3xez3R
+	 4eyrOzPn/Z8GbqDIRTpEL8R9M04PedJnMOVtNjqEL2ZuS1enRvb9j8KjOUT9WDE5D3Jmq
+	 zOhIGHcCmACDrvYl2XPK249/CvD5xccbBCA8tc2DhUuk13ImNW+yhKByqxtvIqDuw6X03
+	 c1Y9FCXcjnWPDGb4eGdNdyBP+4FbQNv3oVOvzJKBHAATmut4DrUA2yjQo/R+zkaKtbQvo
+	 oJTAAf5LiAoUgyLNCfn6EJsbw99SjqY+Rl8Ig5jSmz7YDiSDQAOMsZaAABrPi18FLcg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795221371;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=U/0XuajbgDayC8b7/gOQZ/dCtUSknit6rPJA2WUmI40=;
-	b=FNAwWI1dxQr2AaVbu0wcH4w+djzV5qkDN0rJuSc8RFJYXimMhHmRB2zNV9C0fVvbhoPg
-	 Bruw+3exYUKpbgGd7x1ThdN0S+QiIfLEiPGY4Qy1IaAl0LbNrYhrEA1nNJrgdY5KOnWFl
-	 zeQHZWgtsbSc49Op5ZvVgpV/qAzbgqpcOe9EMN307ZpGnzAAZ9VMpYmJfoEuT1YqlzBil
-	 IxP6P3zS37w8XuQ4iH5VUOS3uPeN8o8/+84rGaD090hB7a7UPPxd2YOrNG/79GT4Kzmwr
-	 aHvAGIp0VvtNhNsmFS0GrHe5tOMls/SRyiIAVePtxbVXXVY3gYz/a9lj5r+mYsGN1sg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795221422;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=tABwpsQwrh0QjJ0q1JegOwTwekJ3gPLUER4Cwmf2WjA=;
+	b=ECxlcyf05sRNfTyS7e8DfXCopD2ifMRmLADoFNpInbMdA6Q6rQSwU/RWewIVdFpSU2t7
+	 EXOvjJwiD9dTuKY5+UnlusZv2KEWpjZcRoVhBY8ItUPp2G3BGPKAIoBXiPBRIaYL7a86X
+	 c5dn88clhy/YXXakucTG5mpHrsqa6Zl0clh2hkGDjlqIdqzRnEpvlfPaZdj9xI6YOlS/Q
+	 wsxUq2MQMM4gkQD/c7Pncyk9JukRzalV8RL3b8fSNcTa8DoCTbKxadbXIQiLFrp59FjeB
+	 o+PwjT9Gf8m3l/gAXjLEEF+ka3IyTjMGYHEZhikhe6lqBzQgs+0bNcCY5JjiP8L87dg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="U58Y0/wQ";
-	arc=none smtp.remote-ip=192.198.163.18
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RY31DhA3;
+	arc=none smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC71C606A6A3;
-	Sat, 21 Nov 2026 00:36:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC71C606A6A3
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBE8D606A699
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 00:37:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BBE8D606A699
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=U58Y0/wQ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795221369; x=1826757369;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=2eDu3gGP65K8nxizJGWHJCwzKAZa5mWX3NYPVgpmuE4=;
-  b=U58Y0/wQDPG/DwpA45TYON49OHcbV6ODYW0UyoQB0J4tFJ0SaURA0cZl
-   3/jllUXo7NzL+/18pKEPHXHB+wvu3ZhGiRY9Q9rbAMTCmLoTo+p/Py1WQ
-   nLngMx7hjZCsKt8FbfjMloDavRsqo7DUzZqkVh3hIHYAW0Ovsv0zy0dr3
-   qVx7iZo7j738PhGqgW+vYzTbg4BrrpQyuip30+eiZQSfc3b2pRMClPBNU
-   nEOs3BiJ8wCVMutK42FIujCbnpmYanv2DtSjyXVGT7bibpNfxZWmStYud
-   qdp+TvL3Y6cgKzXLLMb0hNqSoyapmvkIKxtskgUwz6UxgcJVb4Uu5G5LR
-   A==;
-X-CSE-ConnectionGUID: 3qxTbvQISgW9gGLFPtQl8A==
-X-CSE-MsgGUID: eMPnBQgqT+eHinyhzJqkaA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4139378"
-X-IronPort-AV: E=Sophos;i="6.27,224,1787036400"; 
-   d="scan'208";a="4139378"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 16:36:05 -0800
-X-CSE-ConnectionGUID: TkUg6+zjTWKgMxqa7euqfA==
-X-CSE-MsgGUID: oar82XJmQuqMkiuLvzDleg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,224,1787036400"; 
-   d="scan'208";a="12646916"
-Received: from igk-lkp-server01.igk.intel.com (HELO 1073a420ae3a) ([10.211.93.152])
-  by fmviesa011.fm.intel.com with ESMTP; 20 Nov 2026 16:36:02 -0800
-Received: from kbuild by 1073a420ae3a with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xUZ5C-000000004C1-1t1H;
-	Sat, 21 Nov 2026 00:35:58 +0000
-Date: Sat, 21 Nov 2026 01:35:34 +0100
-From: kernel test robot <lkp@intel.com>
-To: =?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Darren Hart <dvhart@infradead.org>,
-	Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Waiman Long <longman@redhat.com>,
-	Ryan Houdek <Sonicadvance1@gmail.com>,
-	Thomas Gleixner <tglx@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-api@vger.kernel.org,
-	kernel-dev@igalia.com,
-	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>
-Subject: Re: [PATCH v8 05/10] futex: Create get_robust_list2() syscall
-Message-ID: <20261121013133.eLi73Mpq-lkp@intel.com>
-References: <20261115-tonyk-robust_futex-v8-5-a4fe47333a28@igalia.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RY31DhA3
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-491971ac844so1293242f8f.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:37:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795221419; x=1795826219; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=tABwpsQwrh0QjJ0q1JegOwTwekJ3gPLUER4Cwmf2WjA=;
+        b=RY31DhA3gi95oT5z4yw4u9QLhWUemT1EP9omO4loJL1T/Yw7egVM3w/xoxkcIespNj
+         uwzsFSC4MtJg2/HtHwoEvCxUyX1JpXHW1+EulR3JLWtPqp3x/lPis7lukdRmCFIwQDH2
+         JFdADIX/KY+TenGN8S6bOCWr1oySky2oi41knT8zod8qCCkh9dH3oywZrrq+2owZ0/zi
+         7g4f3t62XVX+oAeWSAelZ5oHr1TvUNdnPPyVDA1r2vlHHqm2hOtR0K8miwCm/OrQvTbx
+         QKZ2+DAdommIzJCUbVD5633LKH0sXVLQAN3/3arYfWPHmvRFC3AgGNKDJP0KMfyCKmXh
+         9Hvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795221419; x=1795826219;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=tABwpsQwrh0QjJ0q1JegOwTwekJ3gPLUER4Cwmf2WjA=;
+        b=zDQmZ3XhZP7eTlgE8mCDO3Vf/FXRQpjzOQaJg+JKPddVjgUGpDsKepAe6UYLrt3cwO
+         r7SrEqieUk2i2pDbcUCm0wkprW6iKJjeDxQkPlreww63PP8pbCqMBA41+IWkl/IUKcDR
+         Twk0u1/i+v1LphbDazMIwCMHzEHYnfXQd92RSON2Rkc5ZbfhA8zRHOr6zUzX13J2XjWV
+         1+GHZhVDCf4NGmH/DS3AA9Pvyj9qTdlmDMBpbbk7jR2edoPZf6DI62rMjpHh4JVyXBzV
+         U8dnbLdwjf7zaG9CdzZQvSQX3C4C/H79PNW1Xm2CPW+D5hJamNOgNXAFGrWiONZUysRJ
+         Tq2w==
+X-Forwarded-Encrypted: i=1; AL+hErHWbGd7zBN/a3XbXTqBGZFqgw0W8R8XrfwDxKQBjSxpuKL+IxLgcQh0UNi72ZQhgmJxPIqYitMQCMCGDHw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+EKJU7uM9hbSwiekefFn5IcoxgbXX2Nvo0h/k0Lf6mjmlDJMaU
+	jIEbj4aSx8SjGmufOBMBKFGYJVNvdJxb2DzrgQYiZhteqt1MG26Yg8Jq
+X-Gm-Gg: AZFdTZdA3G5mevPoZG+fPV95v67ZWhUO/490dUklf/KnlGsH1FxtptvEh/3fZ5Kp1pJ
+	RsOfgvDqBWjItEJkJLu06VMtV12iCvP4Bqn/3VMgxfMR87ja/JiX03YLia8PfK5e9/y8ObPFyLJ
+	cR0SMs1z2cZvEwidaBgLKZw2hqg3mccmhU4nCDW6VxF+nFiqg55+z3S3vmGq9tmMcQRxxm7nslG
+	A7na2CnFbPX/U2vEjYS7MBFgIVzS5IRh5bMabUXWMn6wuIKVXcMtFFFpoGT9dS+vEy3qNvFl7Yd
+	3qoGX3sFaQCOqEn67pKReTGcKzoxpGXY3rpshyGA5UXHNdXyq6+ZJKlqd/S0+xyIym+W8223eAG
+	e2pG/RTEwgEWb3Mw7zWAb4xdQMIlOz2UjmUc6Z74o5vCPcFEJ7siQN5R0eIOHP6kfLt/XsUIP4g
+	L3LGDhi3pZ4J1tzv1P/iPrlB0Luj2LOnVRFOkQmZS36XSgWnnllFxUoQU6ImNLnPechNK3mDORz
+	C1u6CoW5uenR43OTmPuvZPc3nAdz0XaNpYEsoKylL/WlSA8wwOAX3YcbggSWuSfPLszI9Zd0wVF
+	y5Bk6zhmUsIm/ZWsZmw9OjwxeYfQJq+c8weKTD7zGBD8i4Mq1oJGetKBmq4xRmcO9bpFb45DDfJ
+	1IRej
+X-Received: by 2002:a05:6000:2903:b0:49d:7e8c:e8a2 with SMTP id ffacd0b85a97d-4abb244870cmr11302603f8f.33.1795221419059;
+        Fri, 20 Nov 2026 16:36:59 -0800 (PST)
+Received: from [192.168.1.15] ([185.69.144.65])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a680355sm7203278f8f.27.2026.11.20.16.36.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 16:36:58 -0800 (PST)
+From: Dale Whinham <daleyo@gmail.com>
+Date: Sat, 21 Nov 2026 00:36:50 +0000
+Subject: [PATCH] arm64: dts: qcom: Add X1P64100 dtsi with fused-off cores
+ removed
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,94 +93,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261115-tonyk-robust_futex-v8-5-a4fe47333a28@igalia.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261121-sp11-x1p-10core-v1-1-5fed8ce846c7@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMMQ6DMAxG4asgz1iKU8rQqyAGGn6oO0AUtwgJc
+ XcCjN/w3kaGpDB6FRslLGo6TxlSFhQ+3TSCtc8m73wt4oUtivAqkcWFOYER8HCdq+oeT8pVTBh
+ 0vY5Ne9v+7y/C79zQvh8775H8cwAAAA==
+X-Change-ID: 20261121-sp11-x1p-10core-ece30a046de5
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Dale Whinham <daleyo@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795221416; l=2039;
+ i=daleyo@gmail.com; s=20251214; h=from:subject:message-id;
+ bh=ucZh0rrrTKCzMMAKIK2fAxwZBMPKDCo7fqu8jragjJg=;
+ b=+2UtxI6xI3S8/4D/sR+VtRDaaRmzJ3sDysyTSjC5UmMk3kr+oosXp17CoTOKEGpcnG8XKi/ER
+ KFclw1YrnC9DgTVddb9LX/Y4IKEFZnlQWOfH5w4WtshGxPPBDDfoX5/
+X-Developer-Key: i=daleyo@gmail.com; a=ed25519;
+ pk=M4mvgx1TB2TniKaedTDsO3PbLKgFosJuegXRXPbn2Ds=
 
-Hi André,
+X1P64100 is a 10-core binning of hamoa: the last core of clusters 1 and
+2 (MPIDR 0x10300 and 0x20300) is fused off. The Surface Pro 11 LCD MADT
+marks these two GICC entries as disabled, and booting them via PSCI
+fails:
 
-kernel test robot noticed the following build warnings:
+  psci: failed to boot CPU7 (-22)
+  psci: failed to boot CPU11 (-22)
 
-[auto build test WARNING on 9f74092fda91ef93c2b07585785c1dc83cd7971f]
+They also show up in the cpufreq policies' related_cpus.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Andr-Almeida/futex-Skip-test_futex_robust_unlock-if-not-supported/20261115-143110
-base:   9f74092fda91ef93c2b07585785c1dc83cd7971f
-patch link:    https://lore.kernel.org/r/20261115-tonyk-robust_futex-v8-5-a4fe47333a28%40igalia.com
-patch subject: [PATCH v8 05/10] futex: Create get_robust_list2() syscall
-config: arm64-randconfig-r2300-20261120 (https://download.01.org/0day-ci/archive/20261121/20261121013133.eLi73Mpq-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 12.5.0
-sparse: v0.6.5-rc1-21-g84ec0658
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261121/20261121013133.eLi73Mpq-lkp@intel.com/reproduce)
+Add an x1p64100.dtsi on top of hamoa.dtsi that drops cpu7, cpu11, their
+idle power domains and their cpu-map entries, and use it for the
+Surface Pro 11 LCD.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261121013133.eLi73Mpq-lkp@intel.com/
+Signed-off-by: Dale Whinham <daleyo@gmail.com>
+---
+ .../boot/dts/qcom/x1p64100-microsoft-denali.dts      |  2 +-
+ arch/arm64/boot/dts/qcom/x1p64100.dtsi               | 20 ++++++++++++++++++++
+ 2 files changed, 21 insertions(+), 1 deletion(-)
 
-sparse warnings: (new ones prefixed by >>)
-   kernel/futex/syscalls.c:119:46: sparse: sparse: dereference of noderef expression
-   kernel/futex/syscalls.c:216:14: sparse: sparse: incorrect type in assignment (different address spaces) @@     expected struct robust_list_head *head @@     got struct robust_list_head [noderef] __user * @@
-   kernel/futex/syscalls.c:216:14: sparse:     expected struct robust_list_head *head
-   kernel/futex/syscalls.c:216:14: sparse:     got struct robust_list_head [noderef] __user *
->> kernel/futex/syscalls.c:218:16: sparse: sparse: incorrect type in initializer (different address spaces) @@     expected void [noderef] __user *__rpu_val @@     got struct robust_list_head *head @@
-   kernel/futex/syscalls.c:218:16: sparse:     expected void [noderef] __user *__rpu_val
-   kernel/futex/syscalls.c:218:16: sparse:     got struct robust_list_head *head
+diff --git a/arch/arm64/boot/dts/qcom/x1p64100-microsoft-denali.dts b/arch/arm64/boot/dts/qcom/x1p64100-microsoft-denali.dts
+index d96202e2afc6..cbe2c1a4adc8 100644
+--- a/arch/arm64/boot/dts/qcom/x1p64100-microsoft-denali.dts
++++ b/arch/arm64/boot/dts/qcom/x1p64100-microsoft-denali.dts
+@@ -5,7 +5,7 @@
+ 
+ /dts-v1/;
+ 
+-#include "hamoa.dtsi"
++#include "x1p64100.dtsi"
+ #include "x1-microsoft-denali.dtsi"
+ 
+ / {
+diff --git a/arch/arm64/boot/dts/qcom/x1p64100.dtsi b/arch/arm64/boot/dts/qcom/x1p64100.dtsi
+new file mode 100644
+index 000000000000..ee6f2f3b6ef8
+--- /dev/null
++++ b/arch/arm64/boot/dts/qcom/x1p64100.dtsi
+@@ -0,0 +1,20 @@
++// SPDX-License-Identifier: BSD-3-Clause
++/*
++ * Copyright (c) 2026 Dale Whinham <daleyo@gmail.com>
++ */
++
++/* X1P64100 is a binned hamoa with the last core of clusters 1 and 2 fused off */
++#include "hamoa.dtsi"
++
++/delete-node/ &cpu7;
++/delete-node/ &cpu11;
++/delete-node/ &cpu_pd7;
++/delete-node/ &cpu_pd11;
++
++&{/cpus/cpu-map/cluster1} {
++	/delete-node/ core3;
++};
++
++&{/cpus/cpu-map/cluster2} {
++	/delete-node/ core3;
++};
 
-vim +218 kernel/futex/syscalls.c
+---
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+change-id: 20261121-sp11-x1p-10core-ece30a046de5
 
-   170	
-   171	SYSCALL_DEFINE4(get_robust_list2, int, pid,
-   172			void __user * __user *, head_ptr,
-   173			unsigned int, index, unsigned int, flags)
-   174	{
-   175		struct robust_list_head *head;
-   176		void __user *entry_ptr;
-   177		uintptr_t entry;
-   178	
-   179		if (index >= FUTEX_ROBUST_LISTS_PER_USER)
-   180			return -EINVAL;
-   181	
-   182		if (flags)
-   183			return -EINVAL;
-   184	
-   185		/*
-   186		 * The first two indexes are reserved for the kernel to be used with the
-   187		 * legacy syscall, so we hide them from userspace.
-   188		 *
-   189		 * We map [0, FUTEX_ROBUST_LISTS_PER_USER) to
-   190		 *  [FUTEX_ROBUST_LIST2_IDX, FUTEX_ROBUST_LIST2_MAX_IDX)
-   191		 */
-   192		index += FUTEX_ROBUST_LIST2_IDX;
-   193	
-   194		entry_ptr = futex_get_robust_list_common(pid, false, index);
-   195		if (IS_ERR(entry_ptr))
-   196			return PTR_ERR(entry_ptr);
-   197	
-   198		entry = (uintptr_t) entry_ptr;
-   199	
-   200		if (futex_in_32bit_syscall()) {
-   201			u32 entry32;
-   202	
-   203			if (entry && !(entry & FUTEX_ROBUST_LIST_ENTRY_32BIT))
-   204				return -EOPNOTSUPP;
-   205	
-   206			entry32 = (u32)entry;
-   207			entry32 &= FUTEX_ROBUST_LIST_ENTRY_MASK;
-   208	
-   209			if (copy_to_user(head_ptr, &entry32, sizeof(entry32)))
-   210				return -EFAULT;
-   211	
-   212			return 0;
-   213		}
-   214	
-   215		entry &= FUTEX_ROBUST_LIST_ENTRY_MASK;
-   216		head = (__force struct robust_list_head __user *)entry;
-   217	
- > 218		return put_user(head, head_ptr);
-   219	}
-   220	
+Best regards,
+--  
+Dale Whinham <daleyo@gmail.com>
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
