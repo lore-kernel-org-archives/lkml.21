@@ -1,99 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795304932;
-	b=nXIyKcEkQrWFQKksxnB2+pLw3KzYeSh2+iUjJXmNzxRjfJc4Y3mvpJFtGbBnahXBe0Sm
-	 pJRxhtaDDKEGLo87l9D9JFXb+RXy12Fb0W3vNYnOav7ZldUqVb5+N4CtgNpv+L/bP12j6
-	 DA0Aoh3EFtpHfwicWIRwY7V8klovVMIx6s9bV84aixKc05UCCxykfBPAvI6x3Fy+Z2Kaj
-	 wL1EnpbGUzAiaBjy7tgfH+QXcrlKfcHFmfKav9IAKE2zRrdDmEzLHkHTnRLo61KqU/CY+
-	 IgmTBOXK2sII2jE5as60/+n7cHe9dDPhPwqXtsf7Tnf2i9OT+fxWICXG1ds5rtBn4KQ==
+	t=1795305008;
+	b=1j453wC0wDc3mJ3F911BXq8JPetTrGqwENTdzGjlD90q453sXkZ4d/GfzB2TNiSaSq9/
+	 F0dA8bBsa/d/043tpMAkNrHqgHLMTdp/X211moZflB/FggmKtwinpRqv/BnuB3Z+extrq
+	 vbq9m00AN9wWvhqv9JrSyQQdAR5xpT0RoTijW2Jp/N4t2KGG28Y3QDvuBG77t8H5V9O0x
+	 k1/Z6zsc4C4E+QzjPxaCpsgcJNGGLepKEn5pfwYUrfAHPksSDIs1Cpyv6/xOt7627QyfU
+	 U+9Hc5N/gpTdK2dsF1RJbBZCMtpoDlIqPhJXHS8fnMcmRjQRA6cKryXy2SMyNzXP7Lg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795304932;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=wM708HwhUcKpDxEYjydx9KDWixNA1iE81j9OUZhkFbw=;
-	b=0kChgdlq/6JzSjXySGlYH+YZeThf5fUhAHRwGHZLTzNvzxXeCc6xjf0I92z3abYux44l
-	 yFxbMSDARrQtGO6xMsN9yPRpR6rfoij8P049K5lYsG78+qqfXMUFOgk2uG/TxNatx6xdh
-	 ovYWyaRK5Dq49Dr/pbHpLFljMRQ0rtQI+Z7iC0m9qSEvEZCxClFqmu9rZbSfrwRxyAf18
-	 AmIHEsZ4w/utOAwGehi4GLnjHmSugpkWL2M/2pAOVy1WgKpYkfhClrkjv8D3xmFAPJsme
-	 FE2sOkjOpgYIogrjYlji4l2t/T6S7CPa22Fo/KjbXowJbZD1fVJx4tfdLQr7/H38EEA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795305008;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=D8B33Q5+AnddwMjEk+JgQXKI1oQU3vTeifKn6ErInpM=;
+	b=bMDucA+nuJktiLCZbFgYtSC8BQzD+d5WC9TgUsDF38jeKmM8aVZhGimSnx4RZz/MtJ3G
+	 /pEumr8UBgBIO22jagsqJtjGYxajWjAMzjAv+GxOjAV4sIsMNkElVOaUzxI+mHSL+aJ3a
+	 B9hf+abBXwVmJkdZIR/x1iznWrnKXtzr4KuutMcPhBB4b3oJoCLSBl48g1pFOqgrWRWTF
+	 8/lKwSTS8L1UBKEScxrDKvMJg97LP9LXWwccHxHmCBqhN8AuOoxIj9ihkBbj1brN++k6/
+	 DKzxb8RvA+9xVW6loh6XRZx0EyGwcEnPCIeLUiI2Xy4pGsHjZl4DKNmJu7GEBw01Bgw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AEi1dkvd;
-	arc=none smtp.remote-ip=209.85.216.54
-Received: from mail-pj1-f54.google.com (mail-pj1-f54.google.com [209.85.216.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C4G6lmzv;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5847606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 23:48:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5847606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40037606A320;
+	Sat, 21 Nov 2026 23:50:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AEi1dkvd
-Received: by mail-pj1-f54.google.com with SMTP id 98e67ed59e1d1-3b155f50c24so1811674a91.3
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 15:48:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795304931; x=1795909731; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=wM708HwhUcKpDxEYjydx9KDWixNA1iE81j9OUZhkFbw=;
-        b=AEi1dkvd1iAbx9IB0IMCR3UE9iO988yBfhfkjx2i9mjncbiEHVVBFfXZ55Siz7OLad
-         hKHygBI5EWiua/IGIhAo+QKpeDXT8b53qhFXdt7p7s7V/9J9qP7c1BMuZ39aeIz1bNMp
-         Q5phb+V2Pyo6/7Ai2Xa9ooMuCCFBEHhUaBnFWlAxify3gS+UOZTiTfDYlkdkCkW0uCf3
-         AJwvk0btxPHVDq4GCveTblWNKSY5m7900GqJulzpo8SuxUWx2gSZMhJIgY+ZzmGhwTtT
-         p5XgjLG4heBRdLTVV1CR3Ksn4UjSIq4gBcvaBrwjndr8vwfNdrxDo95yzhO04Xvct/wG
-         lvAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795304931; x=1795909731;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wM708HwhUcKpDxEYjydx9KDWixNA1iE81j9OUZhkFbw=;
-        b=c3JY4WzPgRafQKZOss+J551rhvqLBJEl1TIeZ0bLGie6CL3iTaevZSlvB6sQFovlQ+
-         UKIZtRAaGXD9qL7/fQhisIRE6LSHqAgobeeHD22V582eTXhDWYjSGLuakNN9npX7vgY5
-         gdTkzJQi/zAR6zjN0upzUNzwIGJss2tVpfq9G7dgYXSora1dM8AEZ5DqwZsX0hdgOWya
-         ng6O7wnLhCaADd7qOrXHsYYf1QTUA0suwgrEOT7g/791oxq6ZHtxVPBGAhlEMBabcgSx
-         NqKSa2Txpe8MTqipoe+y+EAEUY4sX9OGeh73NHRMmAigJ/3cPDFRfsxC/1sxWiU4zIG2
-         iqjg==
-X-Forwarded-Encrypted: i=1; AL+hErG3FDPzs52otYYijrAqk6aAFjqb9+v/mJovRQ8cPQ0HNSpAmTV9kfhmQS1iQ+TLWr4U3HpzNyE2u24mDvs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+3FDbKc/mHXkCx9zc5uiXIX2KWP0yYy7lQkfc/ciOsmA+OPUmD
-	K6tfXstfWSgnPO5d6cjxhZzocBQPxQqBBKfzcRvjujUakJmit4heodBI
-X-Gm-Gg: AZFdTZeHQLJxKsO90V7FwT/ey6iDlKwvuD8j3QcgraVEXQC9+SEkYsifX824O4oKXKo
-	jCWrc4Q5/NB7OBP5ilhX5vOVS8bNc3BjQFkEO1lKMr/VgcfYdtGpCwJwyS05yS2XFbYIHkSjv7P
-	ADKnj4AFTdWUe4nPnXqKLLwyHQAR1KnDU7ZwoVqHuE7Y8V/SQKAbFkaDyICa7TCOpmkDZd6o/Fi
-	ID0utKgoKgeQ/xOphOw0qkP/+hSpoFxJtbiIraZDVsWSZ5o3C3dkKxDmLtsS2TSu0HKwFA6Aa4u
-	Iw3l37KE0PJjfz9BTVOSW5NNp2g3D4rr5xBFnmpUJykNbg/pn5NqRXQjoUBqkSI1uEILAPNHded
-	tE9NZfXAr9GZ3Cz9suzLUTrpBa/a9bIby4wOI672yM5j6ZH5cFqd8MgYY41Qz1llGv/ArU5S7Yo
-	lZlbPhnC7eVqm63ATKaz9BmaH7yDudxir+KDOq+4JzMVbJNuTjK+Af5ANI0lmAKnYMSG9SNRSkF
-	vI/r4nR8/IDDaPK23EYI+w8TsxZIkbpT957Q1wBp73QIVowztwfr+QzJ7rMxPN4NgIqTIRSq4L/
-	QMPa2eVa/bNFJwCerw2kADadHz8=
-X-Received: by 2002:a17:90a:d2cf:b0:3b4:1714:5bfc with SMTP id 98e67ed59e1d1-3b41c9b9dc1mr6761492a91.61.1795304931081;
-        Sat, 21 Nov 2026 15:48:51 -0800 (PST)
-Received: from localhost ([2001:19f0:8000:4ce8:5400:7ff:fe0e:e6b2])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb1b66sm10532985a91.1.2026.11.21.15.48.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 15:48:50 -0800 (PST)
-Date: Sun, 22 Nov 2026 07:48:17 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: gaohan@iscas.ac.cn, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen Wang <chen.wang@linux.dev>, 
-	Inochi Amaoto <inochiama@gmail.com>, Yao Zi <me@ziyao.cc>
-Cc: Chen Wang <unicorn_wang@outlook.com>, Han Gao <rabenda.cn@gmail.com>, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] clk: sophgo: Keep SG2042 gates listed in
- protected-clocks enabled
-Message-ID: <awIs42O_vJN3gB7l@inochi.infowork>
-References: <20261122-b4-sg2042-efi-rtc-v2-0-6d087e03e4e8@iscas.ac.cn>
- <20261122-b4-sg2042-efi-rtc-v2-2-6d087e03e4e8@iscas.ac.cn>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C4G6lmzv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDF601F000C4;
+	Sat, 21 Nov 2026 23:50:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795305007;
+	bh=D8B33Q5+AnddwMjEk+JgQXKI1oQU3vTeifKn6ErInpM=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=C4G6lmzv+HujkJNi7OqhBOhAL396SudvOiSqvvs7+xrU6wRfnxVIO/OT4x9b3+nEd
+	 iEB7TfRMU5OE7m+wdEzKXGPZPlHlSorghKNVlgv2LSkFB//m78mYYRK+OX2bqszfVx
+	 /6win+RcYhNW39bZqbiYUjT7tFPvXihLNh4BP1rT9BWbGmj1p7jSdYHo2heWDd5La1
+	 Xs/Ug1DGIjC0Rg+B06wkFZQ9VZ5zk6MWg5JIfOuUUUsw/wL6G2JMHMDoLoIgkbBOfq
+	 JGf1ecf4NxoADy00/w24AN/lRx1jJhzeDVUKE8lRmAT3xig3sWO6tZUHeeco89ELaO
+	 QP2FmzsL3c7VA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4518391B08F;
+	Sat, 21 Nov 2026 23:50:07 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,77 +53,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261122-b4-sg2042-efi-rtc-v2-2-6d087e03e4e8@iscas.ac.cn>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v9 0/3] netlink: specs: fill in the missing ovs
+ operations
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179530500653.1221130.3267976128355385798.git-patchwork-notify@kernel.org>
+Date: Sat, 21 Nov 2026 23:50:06 +0000
+References: <20261119172118.3416958-1-houminxi@gmail.com>
+In-Reply-To: <20261119172118.3416958-1-houminxi@gmail.com>
+To: Minxi Hou <houminxi@gmail.com>
+Cc: netdev@vger.kernel.org, dev@openvswitch.org, aconole@redhat.com,
+ davem@davemloft.net, donald.hunter@gmail.com, echaudro@redhat.com,
+ edumazet@kernel.org, i.maximets@ovn.org, kuba@kernel.org,
+ linux-kernel@vger.kernel.org, pabeni@redhat.com, horms@kernel.org
 
-On Sun, Nov 22, 2026 at 02:18:05AM +0800, Han Gao via B4 Relay wrote:
-> From: Han Gao <gaohan@iscas.ac.cn>
-> 
-> On Milk-V Pioneer, EFI runtime services use I2C0 and the serial flash,
-> while Linux drives other devices behind the same gates. When those
-> devices runtime-suspend, the gates are turned off under the firmware.
-> 
-> Mark gates listed in protected-clocks as critical. Unlike qcom, still
-> register them, since Linux devices use them too.
-> 
-> Suggested-by: Yao Zi <me@ziyao.cc>
-> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
-> ---
->  drivers/clk/sophgo/clk-sg2042-clkgen.c | 16 ++++++++++++++--
->  1 file changed, 14 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/clk/sophgo/clk-sg2042-clkgen.c b/drivers/clk/sophgo/clk-sg2042-clkgen.c
-> index 6abc2c973c49..65ab18f701e1 100644
-> --- a/drivers/clk/sophgo/clk-sg2042-clkgen.c
-> +++ b/drivers/clk/sophgo/clk-sg2042-clkgen.c
-> @@ -840,6 +840,18 @@ static int sg2042_clk_register_divs(struct device *dev,
->  	return ret;
->  }
->  
-> +static unsigned long sg2042_gate_flags(struct device *dev,
-> +				       const struct sg2042_gate_clock *gate)
-> +{
-> +	u32 id;
-> +
-> +	of_property_for_each_u32(dev->of_node, "protected-clocks", id)
-> +		if (id == gate->id)
-> +			return gate->hw.init->flags | CLK_IS_CRITICAL;
-> +
-> +	return gate->hw.init->flags;
-> +}
-> +
+Hello:
 
-I have a question on this: since a procteded clock should not be touched
-by a driver. Is this logic necessary? I guess this is a shared clock
-topology between the kernel and the firmare?
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Regards,
-Inochi
+On Thu, 19 Nov 2026 12:21:15 -0500 you wrote:
+> The ovs specs describe get and new but not every command the kernel
+> has registered: all three families lacked set, and ovs_flow also lacked
+> del. This series adds them, names the attributes each handler reads,
+> and corrects what the existing specs say about the kernel. No kernel
+> code changes.
+> 
+> v9:
+> https://lore.kernel.org/netdev/20261115072638.3163018-1-houminxi@gmail.com/
+>   - Rebased onto current net-next.
+>   - The note on the vport name is a complete sentence again. The v8
+>     wording stopped after "dp_ifindex from", so the sentence that says
+>     what the lookup falls back to was missing.
+> v8:
+> https://lore.kernel.org/netdev/20261110174751.973464-1@gmail.com/
+>   - The datapath spec no longer puts a maximum on masks-cache-size. The
+>     generator does not turn a check into a policy for these families, and
+>     the kernel bound is an expression, so the declaration promised
+>     something the spec cannot express.
+>   - The docs no longer say what a dump does with a key, a ufid or another
+>     request attribute. A dump now has its own request list for each family,
+>     which states what it takes, so the sentences that repeated it are gone.
+>     The ufid docs record the minimum length the policy sets, and the key,
+>     actions, stats, used and tcp-flags docs say the attributes appear in
+>     replies as well as in notifications.
+>   - The series gains a third patch for gaps that predate it. The vport
+>     netnsid is signed in the kernel. The two dumps stop sharing a request
+>     list with their get operation, and four lists named attributes their
+>     handler never reads or sends. The vport get request can be answered by
+>     port number, and the vport new doc says an ifindex needs an internal
+>     vport. The vport spec declared family version 2 where the kernel
+>     registers 1.
+>   - That patch also declares what the kernel registers: all four ovs specs
+>     document the header struct and none of them a member of it, the vport
+>     name note names the header member the lookup uses, the options note
+>     says what a set returns, the packet execute operation gains the
+>     validate flags and the admin permission, and the ynl selftest stops
+>     printing a field the datapath reply does not carry.
+>   - Deleting one flow sends that flow to the family's multicast group, a
+>     flush sends nothing, and the set operations do the same for the object
+>     they change, which those op docs now say.
+> 
+> [...]
 
->  static int sg2042_clk_register_gates(struct device *dev,
->  				     struct sg2042_clk_data *clk_data,
->  				     const struct sg2042_gate_clock gate_clks[],
-> @@ -858,7 +870,7 @@ static int sg2042_clk_register_gates(struct device *dev,
->  			 NULL,
->  			 gate->hw.init->parent_hws[0],
->  			 NULL,
-> -			 gate->hw.init->flags,
-> +			 sg2042_gate_flags(dev, gate),
->  			 clk_data->iobase + gate->offset_enable,
->  			 gate->bit_idx,
->  			 0,
-> @@ -900,7 +912,7 @@ static int sg2042_clk_register_gates_fw(struct device *dev,
->  			(dev,
->  			 gate->hw.init->name,
->  			 gate->hw.init->parent_data,
-> -			 gate->hw.init->flags,
-> +			 sg2042_gate_flags(dev, gate),
->  			 clk_data->iobase + gate->offset_enable,
->  			 gate->bit_idx,
->  			 0,
-> 
-> -- 
-> 2.55.0
-> 
-> 
+Here is the summary with links:
+  - [net-next,v9,1/3] netlink: specs: add ovs_flow del and set operations
+    https://git.kernel.org/netdev/net-next/c/a07bb1cee2af
+  - [net-next,v9,2/3] netlink: specs: add ovs datapath and vport set operations
+    https://git.kernel.org/netdev/net-next/c/fa2ea983e25d
+  - [net-next,v9,3/3] netlink: specs: correct the ovs specs where they do not match the kernel
+    https://git.kernel.org/netdev/net-next/c/f53c4f7ecfcc
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
