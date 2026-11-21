@@ -1,47 +1,162 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795260365;
-	b=jc3ppN9MEhB+araqJKrSQ41zNph2bl4wZb8Jkc43bDGsqauMc4O+NTNKV9OcW2mZ1SxU
-	 wHN7SYp6P4BkxKzsWvRdFk3S99C6MbjPShz9vjHDc0WWQ/ALXkHLKzjOwSnlxic4J72dM
-	 3eWSWb/eDmb0dc6+OLCoAyKdHZfK6gqRXJF7gRJ07a1fZInTu6YbIwNE4vhYTn/uqAPxR
-	 D8EG/YZ/Wvx/8r34XzifOmiKZQGD8VTZRkXNeRAs1yUtqAC3UO1JI2179EJeUUT7M2Yek
-	 nZY2v9LGOd4u+8e2WIsodpB56EpahYfVrAHQU0+xsyPxfWfymtpFtH828EFnVlEewIw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795260365;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=3bXHcl/fLFqRmej5Iy+GS47hNdziQAQfexcJcjrWskU=;
-	b=zZ5ng3QTuNtzypSSv5i/dCIyMucARAkJh6iLTdFcRnC/NrvPXpZkh58AryI/Wl4uUOKf
-	 M/tSdQHdwHbmn+H6y3+UOk2Ya+FMmxfFrOGgJuc2vRHutmIfvvpGsjU0qg+Wu73ZwrVKW
-	 WYoy2Jf5T4sRI/Cq3LBlMx6QVILg9o9fEocsR9gKUNm/tDZCE6RQJfJVUQMibRzdyfNm7
-	 1iKMT7XodrVUC3d++SDNsS86RgcTVz5rTeRRW1rf8Czs4H0KswYz+f85+jpzgB12dtiHt
-	 37YiqYbx1w7Uvth5GAp0kBS0S3sjIO/+T3IT7dBhqBLrIB0IDmNVjbMpZAlpkJB3yvw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P+ScNVmp;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.53.34
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795260368;
+	b=5KcwbQCawGKb3u3sCHIqI50Tu6lffPUIXXyb+9HfE7sgz8Y0xkkOU0TvN6yXuKBE31Wl
+	 S9pWrqOAUZ7XZrPsz2qsqPoXqbC4BC9+ZdMBsB4xYH2w05itWKhYt4LzJqFcdy5Ssly+O
+	 DzsWNlX1nCJ2T5REONdBE7M4dONqSbxOL9skcVpRyHPWAt+vty68h2mEmofY3PbN/TaBv
+	 jPyT1aMXNTapZejvcpn2WIoA1/8MZmQElR5ssOPosSus2pmSPbWhnbyLK0Z18uRew8Ppa
+	 Rvwqd+1j1RpvAZVroCcDQcLJ/irpheMvEl0qBtpnoyquJz/rDiy5v03lX0tEZtdlQvg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795260368;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:
+	 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=qRSrf0oi/i+17wMow74Gb6wuiZjtiEVyLDOPBKExg0I=;
+	b=QoUAsjEKc6iNPYoUZhdELV58jtLK91il5zdYS8fBssWkRofARp8M8shUcgr1ldv3DnXY
+	 TSgVXLvunVdTY8ANqldoShByM3abzuGafp+pP1NmyB5/5La+RMftHLkiEmagPDDzQa2zb
+	 lGdTEwIl5rZhZBrmRYn74Wvc9ZXyJvfsl7oiSlqDQZZBndBeLXK9L3cc/9Fs0/Kl1L2g7
+	 t9l0nenbN8QWd97gYcr9nmPiXNUbWuovHezOvrXA+hBqxhjQNUA85PaEFxC/byp19t4UF
+	 fYheO0ekUDKkOiempno2lxkXCSzOfu53PrpE7brnzI0TXwrJiiwdaSWu/6w845GUy4w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=hotmail.com;
+	spf=pass smtp.mailfrom=hotmail.com;
+	dkim=pass header.d=hotmail.com header.i=@hotmail.com header.a=rsa-sha256 header.s=selector1 header.b=eiNztnC4;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.53.34
+Received: from WA1P291CU003.outbound.protection.outlook.com (mail-polandcentralazolkn19011034.outbound.protection.outlook.com [52.103.53.34])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECEA9606A32A;
-	Sat, 21 Nov 2026 11:26:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EFA0606A32A;
+	Sat, 21 Nov 2026 11:26:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3EFA0606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hotmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P+ScNVmp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36E301F000C0;
-	Sat, 21 Nov 2026 11:26:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795260364;
-	bh=3bXHcl/fLFqRmej5Iy+GS47hNdziQAQfexcJcjrWskU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=P+ScNVmpJZXRRDAXyjPOhxBDFCglcm36joNg8WEYQzO51TFOmvzFOYMf+1flVUS7+
-	 u4t0m5jQLG8/Ja9Vqf1w0YVvs0lcwFoztshDpzr14fJul4X6CUiPp4i8aeRuIYe0Nn
-	 J4/nVpYGTUKoAZWMXL18VMRWexaIcAvpjrPqm6DpFUwiuydemYvjhgiEoorB6+OemW
-	 ToWISm2jQkBnKIvy/rPr63fd7ony+9aCuKjuo9WN8AEIxFt2xdon0BW/fXsWNadM8b
-	 mRYFkKndnXPVUlFRtYz1EtFyaV8iQyYuQy0fokeJ5innc3M6pg2dCNQ+FRwsC2z5/j
-	 16yMkcp7GvBbQ==
-Message-ID: <9ecda3f8-13f7-4bd3-81b9-cf7deafdbcb2@kernel.org>
-Date: Sat, 21 Nov 2026 12:25:57 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=hotmail.com header.i=@hotmail.com header.a=rsa-sha256 header.s=selector1 header.b=eiNztnC4
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pqtSD+yjxMMPFQrJl2F+dmBQ7VVx5VafabTTjyjushtJgNgN7jORuftfAd3/G6Hn7gGzMPN2+txKf398Bc5mXgwkvrRysuqnSuHVw3aDBCkgRw9JyCmagwh58vGcSmO0WXEx6HE6T2YK9u7e1BbF9aNW3k3/I+60nLjHLNwBZQZAWts1iRjmzuj/byZaKqLJ3BXzhcbIVoGTWHi7UNMM2PJaxAH4EhMWa9JeSJYBF7BO6RzLoj8CZrRJ65ph4YR7M9W3RTGCVCLcJimHjq+8hBeZFNpr4oIvt6eN3Sld1Cp5l+9c+Ev7Ce23iVq2/PVHBg1mX3lqdYgTNJcOvlwjUg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qRSrf0oi/i+17wMow74Gb6wuiZjtiEVyLDOPBKExg0I=;
+ b=EZQqO5Qa0W6sfRdPPN5hRvg7tTOb4jlOgKgobwG6x0aRaJS4Rzvgexq4sja4K3REssui7lBoB28Jd05rVSTzaoRV0QRDarHIlw+W7pfau0J/ridL3wW6U5TEtiwpakf1GlsnGR2DeeUPXso+b40GzmAfTZ92AvbHN7WUYFwDX3UHYU9ZJh8Ducb55EJP9cdtwfaVYw5nYK/Sul1p6hC+uY3EvG8cQX99HMltHS1dvf54DSrZXk0QrldnDmHAaTFVcT6o1v/TnNiBioD34fBOSJ0+aqNhxLuqc715AYz35yVCfF9OhNGRaQKyyiJHoi6c4zSqAntkic+NgPUDQk5tJg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qRSrf0oi/i+17wMow74Gb6wuiZjtiEVyLDOPBKExg0I=;
+ b=eiNztnC44khbLZCc6+WdFg5jLEkMu/7Dia+fTpQroKOpPgmvefRoiW2o74fOAU7W57iNO0POVc2pV98g5O5gDZDSeUqA4GBzvfZCRyl4tGiZv+cPWZGwfg9/ex6DmcyWgYG5xB3OoT++6E24zXHwew06WyvLMH26bWPqEu3fXaiHBrQBxHLb3vRb/jsHPsdiWHIx1o993I3p6iYmAKSrbsI7hqszVsxoF5dMNxcj56S6JgWBfNiHdCGtN05418CtMfIjpiy8KIc0wOdG52/uz5MWpNQ8ludHLwb/W1U41VA6kNIdlup6GpYy8eGo0C67a5cOqY+DwWSAWmAojGT1RA==
+Received: from WA2P291MB0187.POLP291.PROD.OUTLOOK.COM (2603:10a6:1d0:26::11)
+ by WA2P291MB0115.POLP291.PROD.OUTLOOK.COM (2603:10a6:1d0:26::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Sat, 21 Nov
+ 2026 11:26:05 +0000
+Received: from WA2P291MB0187.POLP291.PROD.OUTLOOK.COM
+ ([fe80::996b:1617:ce96:404]) by WA2P291MB0187.POLP291.PROD.OUTLOOK.COM
+ ([fe80::996b:1617:ce96:404%6]) with mapi id 15.21.0639.011; Sat, 21 Nov 2026
+ 11:26:05 +0000
+From: =?utf-8?B?SGFiaWwgRXJlbiBUw7xya2Vy?= <habilerenturker@hotmail.com>
+To: "andriy.shevchenko@intel.com" <andriy.shevchenko@intel.com>
+CC: "bhelgaas@google.com" <bhelgaas@google.com>, "bp@alien8.de"
+	<bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	=?utf-8?B?SGFiaWwgRXJlbiBUw7xya2Vy?= <habilerenturker@hotmail.com>,
+	"hpa@zytor.com" <hpa@zytor.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "mingo@redhat.com" <mingo@redhat.com>,
+	"tglx@kernel.org" <tglx@kernel.org>, "x86@kernel.org" <x86@kernel.org>
+Subject: Re: [PATCH v2 3/4] PCI: Convert quirks.c to pci_power_t helpers
+Thread-Topic: [PATCH v2 3/4] PCI: Convert quirks.c to pci_power_t helpers
+Thread-Index: AQHdeDNFCSkt0YnohU+kbfy3sJ7a1bc1oYCAgALEPoA=
+Date: Sat, 21 Nov 2026 11:26:05 +0000
+Message-ID: <20261121112604.42689-1-habilerenturker@hotmail.com>
+References: <av8tpQO7KYGUXQmN@ashevche-desk.local>
+In-Reply-To: <av8tpQO7KYGUXQmN@ashevche-desk.local>
+Accept-Language: tr-TR, en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: WA2P291MB0187:EE_|WA2P291MB0115:EE_
+x-ms-office365-filtering-correlation-id: 1dc9c525-b1c1-45c5-505f-08df47c23b4f
+x-microsoft-antispam:
+ BCL:0;ARA:14566002|19110799012|8062599012|8060799015|25010399006|15080799012|51005399006|38102599003|31061999003|55001999006|24021099003|40105399003|102099032|440099028|3412199025|1710799026;
+x-microsoft-antispam-message-info:
+ =?utf-8?B?Qld2dkZhaWhYYm9LZWR3ajF2S2wySTZBU25XK3AzVVhWWXBqMEFEanFyQlZX?=
+ =?utf-8?B?VWtHbCtsdmxWK3NlZGxIUUt1QmhlU2NqWGNydnJnVW1OQWxrQTFzTUhWeERi?=
+ =?utf-8?B?N2Q4MVNzV0J3akxlQ1UzTTh2RjVNZ3NkZWw5NE1uWEVsVlBQSjhOb1hGUmoy?=
+ =?utf-8?B?enFnV2Y5UnRxTDl4RGJsNVdsaFFXclBPeGtJODVHRXUrREErMUt6RkxiMis0?=
+ =?utf-8?B?Z2N2cVNpZWFnNEpKT21EcUx4MzVGUVh0SVRRMktDc2dsUFRKV2w1YzI5NTJr?=
+ =?utf-8?B?N1hMMEVWRXREWm8vRkJacEtMeDN4V1VQbEV5SWFJTmx0SWhBTDEwYWMvT0s5?=
+ =?utf-8?B?UWpFRDg5UjkyZHNjZDRKSUFLVUlZQlJKbFY5OTNKU1EyQlViV1k2TkV1ZUdx?=
+ =?utf-8?B?UTZRUjVxcVZXMGFnQ0hrZklEa0s5cS9BRXdEZUhoMGFONWRIMkJ3bmhtYTc3?=
+ =?utf-8?B?aFN2cElZTkxtUjZCWlc1Sk1EdFQyRkpqeFZYbXU2TVlqSkJlTzlOekZuTzI5?=
+ =?utf-8?B?L1pERmRpSnNJTUlLdWppWmFVcEJQSW4zbzh5N1RpSXh0d1VjWnIzL1RDdGxw?=
+ =?utf-8?B?eGZUdkJLN0hScnp6L1Q3VGp0ditJWWNjdWU0QU1uNGg1S1I4c2V0OENIaEcx?=
+ =?utf-8?B?VU1pSXByVlV3b1RxYjJkVFdFSERDUUtES2Exa1drWmRTWk5TSVRycVhiOXpN?=
+ =?utf-8?B?ekNoUzRkdEIrWjhDWlRoLzVNN0dYVE9lNGs0R0RiUW4vRlVOTDFqVGNBaGQ3?=
+ =?utf-8?B?OVVTMFpDTDA4WmRlQ3MydmQzb3JLcGhWbUwrRmNrcFJHK2QzaDBSMW9QbHNG?=
+ =?utf-8?B?RlZrSzNqd0MyOFFUQytyeTFqNUpwd0tMeExYSnhyYVM3MWlUQlNFanRhb0c1?=
+ =?utf-8?B?MUxiZ2Q2U0R3VUxJdTdxNkduM3EvSnhGbVVKZUZiNkoxNG5zN0xOUmhHM2My?=
+ =?utf-8?B?ZER3TGoxSFlNODJQMWYwa243Tm9peGlFZ0FLMmlYQkNudk15S1R5bVh4SXg5?=
+ =?utf-8?B?RTlwZCsyTEFKbWUzZmE0bEo1eWFKbk1BbmRoVFRwYXB0b2FQSDVGRnhHZ1Z1?=
+ =?utf-8?B?eXR2OW01YVJuWkQ5RkJ2UXA4K1NWTnVONWJaL0RVSDBYem9MMGFKOTRCU05q?=
+ =?utf-8?B?cFFPLzVCKzlkZWNsS05weElMS3ZkSC96Y2ZCTW01dUZ6MFV4Q3VQdjdzV2lJ?=
+ =?utf-8?B?eTJSNUJHdjJ2Ym5jUTkvd2FoSnVqaDVHdkMyd2k0cm9aSVgxWlhOZUxiaHRI?=
+ =?utf-8?B?OEZLUE9UQUVHdkgzdW55dzllRTMrSmJsSXJKNFJVYUhHaUlQZ0lEUmpRQVIw?=
+ =?utf-8?B?REFneExPSVAyR2ZWdFhrR29PTkxOR0xxRGQxRXpmWlRtY2hnaUhtazhiSmZt?=
+ =?utf-8?B?ZlQ1WEM4d2dIYnc9PQ==?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?utf-8?B?WUJEcUlkTXY1NmF1MEozNU9XRVdJOUFWNk9KSmIzd0lFc3JEcGlGeXo1YUkx?=
+ =?utf-8?B?WFdlU3BPWGUvQVM0d3dlK2E1S2dYcDIzcHNodnZtNlZMUU1IUE11MVl3SHlp?=
+ =?utf-8?B?SVp5SUNUS2gwb1B4Rk5MQUlicENGdkkrZWg2YUtNQzQzSjh2S0RBazhzK0xj?=
+ =?utf-8?B?TEZqZkIrY2ZuakNIY3Y4MkVaYitHNU5xQ2V0N0duZmMrTDNkeTUxL3NBZVFZ?=
+ =?utf-8?B?RmlPbkFjSnNpSG0xbWFidUc5WGVWbnNKblljc1MvMTI4ZnJDeXR3ZHZwTk1X?=
+ =?utf-8?B?c01vS0VKU1k0VTJiZUduNlV5WGkxRVZqU0lZeWp2R2pnb05uc2JiK04rdjlk?=
+ =?utf-8?B?NHlnZVYwT2U4NzRwR3haemFCY1dRQnJRd3FXMnd2ZUpaYU5KUERrcEhQRkRp?=
+ =?utf-8?B?aFRlamkxcS9RU0dYYnN0VytwRWw2SXRQQVJuQURIcmRGMzEwUTAyUVk4WE40?=
+ =?utf-8?B?YklNQStnMk5nUFZEK0VsYlg3cmk1eHZFYmJrK3JDRTdyYVl2V1FuSSs3blBV?=
+ =?utf-8?B?b2VlN2RqN2RSbmRJNklXa21HckpOTHRubElzTGxua3lJRDd3aWkzSGFOSW1T?=
+ =?utf-8?B?aFRjWlRETjU0ZWl2MURCMU9IVWMyU1d3N1BjK2ZDb05ScTh3QjlNSmtzSTBm?=
+ =?utf-8?B?UzlRQjh6RzVVcUF3OEFuZUY4czc4SXo4bUJUTHM1K1NqMjV1QnpmcXp3WmRt?=
+ =?utf-8?B?ZGpnOG9MSWtXTlo3ekhmSWhid0FrWDlaaVhIOUk0bjl6RTRib3dZeEtqRzZn?=
+ =?utf-8?B?VlFwdmNyc3VvaFFLcnpOVVIrYnEvM29kaGY3UTFRV3h5ZUQreDdNa1RnMTFC?=
+ =?utf-8?B?elFKSUYxdDRWWWUxSUVIRUxnSGVzbXhnbkY3UlpnZ3lBYlRBOTBsd0FZZ0NE?=
+ =?utf-8?B?Ty9DOXFFS09lYWRNVUpzVENHcnRrRE1Hbk5LMU1ESXJQdGh2Z1FlZ3ZmTFJF?=
+ =?utf-8?B?Mk1nYno4WW5QNkhxekJEVVJxQkJSYmU4OVpuUWRkeVFjTnlLS3R4ZWVaYXl4?=
+ =?utf-8?B?Z3R6WTY0eXF5Uzg5RE9BRUNoakFwbHFsSlo2dHcxNVU1c29VTVY2QzJsRzkx?=
+ =?utf-8?B?VWswc1M3bFVlYWdkbE5YM0RQNW5IbWVBNFZKbXFHTE96RTQ5ZU1YK2l0OGdI?=
+ =?utf-8?B?TEV3bXNzaTVUaStkcUhXMWVKQUE1cUZ6aVpVbFRBamw3YnVaQk4weHZkM3Y1?=
+ =?utf-8?B?VkxFME53YS9pam5Cd0JaQS9CWlRjcVdGTmJvemNxcU9BckgwL0l1QkxhbTJR?=
+ =?utf-8?B?WVRyTEFWYlJwYi92K2wxY1BDR1YxZDh6ZzRjdEM5clVlUmowemI1UHJReHlY?=
+ =?utf-8?B?eWhFL0RHQno2YU1USU5NYTVVNFlocjVod1NGa2dPT2hMWlExNWdHeDNwZHJS?=
+ =?utf-8?B?eEsyUVhBQWhsZzZuNldpVkJUK2ZCN09ROWV6K0RpS1VBVktQMnU5MW9oalJZ?=
+ =?utf-8?B?ZjNXZFRnNGMzWU9odTNTcnhVdEM2emRlald1aUsrNlZ5cnRiZUppQlJwMjFP?=
+ =?utf-8?B?L3VQRk1wNDVZWUxGeWExakhRUHc5VW55aVg1MUpYNTR1cmxTVldJSC9SaVVO?=
+ =?utf-8?B?RGoxSDlwWlJ2OHlNUGxDdWhyenFrQXUzNHlXWmg3N1pzbWtzUkpPM0luSjBa?=
+ =?utf-8?B?VmRUbzhLYlVxdHBPaVlZMThHY1Jqd20wakJrVGdKb2U3dlBETVhKZFYzYTVQ?=
+ =?utf-8?B?aTRyVjZLbzhpdm1rZzZJcWF2NXRhcTgvUEdVOVprUGlaanFNZHhnY2lpblFK?=
+ =?utf-8?B?NFFzaTVnTFBiVlB0NlJiZTVYcjJOcHpYV3hDYVhmVDFFcEZQS0lVWm9ORTFn?=
+ =?utf-8?B?R3RHbW01dnJzSjZ2MjZVdzExRXBiOWtFUHFOcjkwbFAwd1Y1bkc5R2s4Yy9B?=
+ =?utf-8?Q?fpalfFc1t1sTk?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <D86D6E9F384FE24B84B5FF10FEA0A5EF@POLP291.PROD.OUTLOOK.COM>
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,236 +166,18 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] powerpc/32: Decode MPC745x L2 and L3 cache machine
- checks
-To: Matt Turner <mattst88@gmail.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Shrikanth Hegde <sshegde@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
- Tony Luck <tony.luck@intel.com>
-Cc: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- linux-edac@vger.kernel.org
-References: <20261120-ppc32-l2-ecc-v1-0-98fc8e6e0a32@gmail.com>
- <20261120-ppc32-l2-ecc-v1-1-98fc8e6e0a32@gmail.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <20261120-ppc32-l2-ecc-v1-1-98fc8e6e0a32@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: sct-15-20-9412-4-msonline-outlook-2112e.templateTenant
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: WA2P291MB0187.POLP291.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1dc9c525-b1c1-45c5-505f-08df47c23b4f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Nov 2026 11:26:05.3941
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: WA2P291MB0115
 
-
-
-Le 20/11/2026 à 20:33, Matt Turner a écrit :
-> On the 745x, SRR1[MSS] means the memory subsystem detected an error, and
-> MSSSR0 says which: L2 tag or data parity, MPC7448 L2 ECC, or L3 tag or
-> data parity.  machine_check_generic() reports these cache errors as "L2
-> data cache parity error" and never clears MSSSR0, whose bits are sticky.
-> 
-> Add machine_check_745x(), which decodes and clears the MSSSR0 cache
-> error bits, and use it for every 745x.  Machine checks without one of
-> those bits still go to machine_check_generic().
-> 
-> Signed-off-by: Matt Turner <mattst88@gmail.com>
-> ---
->   arch/powerpc/include/asm/cputable.h       |  1 +
->   arch/powerpc/include/asm/reg.h            |  5 +++++
->   arch/powerpc/kernel/cpu_specs_book3s_32.h | 22 +++++++++++-----------
->   arch/powerpc/kernel/traps.c               | 28 ++++++++++++++++++++++++++++
-
-Can we avoid machine specific code in traps.c ?
-
-Other machine_check functions are in dedicated locations except e500 
-because it is common to mpc85xx and 64e
-
-platforms/44x/machine_check.c:int machine_check_4xx(struct pt_regs *regs)
-platforms/44x/machine_check.c:int machine_check_440A(struct pt_regs *regs)
-platforms/44x/machine_check.c:int machine_check_47x(struct pt_regs *regs)
-platforms/83xx/misc.c:int machine_check_83xx(struct pt_regs *regs)
-platforms/8xx/machine_check.c:int machine_check_8xx(struct pt_regs *regs)
-
-
-
-
->   4 files changed, 45 insertions(+), 11 deletions(-)
-> 
-> diff --git a/arch/powerpc/include/asm/cputable.h b/arch/powerpc/include/asm/cputable.h
-> index a3be81c47df3..8445533c946b 100644
-> --- a/arch/powerpc/include/asm/cputable.h
-> +++ b/arch/powerpc/include/asm/cputable.h
-> @@ -34,6 +34,7 @@ extern int machine_check_e500(struct pt_regs *regs);
->   extern int machine_check_47x(struct pt_regs *regs);
->   int machine_check_8xx(struct pt_regs *regs);
->   int machine_check_83xx(struct pt_regs *regs);
-> +int machine_check_745x(struct pt_regs *regs);
->   
->   extern void cpu_down_flush_e500v2(void);
->   extern void cpu_down_flush_e500mc(void);
-> diff --git a/arch/powerpc/include/asm/reg.h b/arch/powerpc/include/asm/reg.h
-> index 541a493e13bf..82a85d44776e 100644
-> --- a/arch/powerpc/include/asm/reg.h
-> +++ b/arch/powerpc/include/asm/reg.h
-> @@ -729,6 +729,10 @@
->   
->   #define SPRN_MSSCR0	0x3f6	/* Memory Subsystem Control Register 0 */
->   #define SPRN_MSSSR0	0x3f7	/* Memory Subsystem Status Register 1 */
-> +#define   MSSSR0_L2TAG	0x00040000	/* L2 tag parity error */
-> +#define   MSSSR0_L2DAT	0x00020000	/* L2 data parity/ECC error */
-> +#define   MSSSR0_L3TAG	0x00010000	/* L3 tag parity error */
-> +#define   MSSSR0_L3DAT	0x00008000	/* L3 data parity error */
->   #define SPRN_LDSTCR	0x3f8	/* Load/Store control register */
->   #define SPRN_LDSTDB	0x3f4	/* */
->   #define SPRN_LR		0x008	/* Link Register */
-> @@ -801,6 +805,7 @@
->   #define   SRR1_PROGTRAP		0x00020000 /* Trap */
->   #define   SRR1_PROGADDR		0x00010000 /* SRR0 contains subsequent addr */
->   
-> +#define   SRR1_MCE_MSS		0x00100000 /* 745x memory subsystem error (MSSSR0) */
->   #define   SRR1_MCE_MCP		0x00080000 /* Machine check signal caused interrupt */
->   #define   SRR1_BOUNDARY		0x10000000 /* Prefixed instruction crosses 64-byte boundary */
->   #define   SRR1_PREFIXED		0x20000000 /* Exception caused by prefixed instruction */
-> diff --git a/arch/powerpc/kernel/cpu_specs_book3s_32.h b/arch/powerpc/kernel/cpu_specs_book3s_32.h
-> index 3714634d194a..90ca26405c1d 100644
-> --- a/arch/powerpc/kernel/cpu_specs_book3s_32.h
-> +++ b/arch/powerpc/kernel/cpu_specs_book3s_32.h
-> @@ -426,7 +426,7 @@ static struct cpu_spec cpu_specs[] __initdata = {
->   		.num_pmcs		= 6,
->   		.pmc_type		= PPC_PMC_G4,
->   		.cpu_setup		= __setup_cpu_745x,
-> -		.machine_check		= machine_check_generic,
-> +		.machine_check		= machine_check_745x,
->   		.platform		= "ppc7450",
->   	},
->   	{	/* 7450 2.1 */
-> @@ -442,7 +442,7 @@ static struct cpu_spec cpu_specs[] __initdata = {
->   		.num_pmcs		= 6,
->   		.pmc_type		= PPC_PMC_G4,
->   		.cpu_setup		= __setup_cpu_745x,
-> -		.machine_check		= machine_check_generic,
-> +		.machine_check		= machine_check_745x,
->   		.platform		= "ppc7450",
->   	},
->   	{	/* 7450 2.3 and newer */
-> @@ -458,7 +458,7 @@ static struct cpu_spec cpu_specs[] __initdata = {
->   		.num_pmcs		= 6,
->   		.pmc_type		= PPC_PMC_G4,
->   		.cpu_setup		= __setup_cpu_745x,
-> -		.machine_check		= machine_check_generic,
-> +		.machine_check		= machine_check_745x,
->   		.platform		= "ppc7450",
->   	},
->   	{	/* 7455 rev 1.x */
-> @@ -474,7 +474,7 @@ static struct cpu_spec cpu_specs[] __initdata = {
->   		.num_pmcs		= 6,
->   		.pmc_type		= PPC_PMC_G4,
->   		.cpu_setup		= __setup_cpu_745x,
-> -		.machine_check		= machine_check_generic,
-> +		.machine_check		= machine_check_745x,
->   		.platform		= "ppc7450",
->   	},
->   	{	/* 7455 rev 2.0 */
-> @@ -490,7 +490,7 @@ static struct cpu_spec cpu_specs[] __initdata = {
->   		.num_pmcs		= 6,
->   		.pmc_type		= PPC_PMC_G4,
->   		.cpu_setup		= __setup_cpu_745x,
-> -		.machine_check		= machine_check_generic,
-> +		.machine_check		= machine_check_745x,
->   		.platform		= "ppc7450",
->   	},
->   	{	/* 7455 others */
-> @@ -506,7 +506,7 @@ static struct cpu_spec cpu_specs[] __initdata = {
->   		.num_pmcs		= 6,
->   		.pmc_type		= PPC_PMC_G4,
->   		.cpu_setup		= __setup_cpu_745x,
-> -		.machine_check		= machine_check_generic,
-> +		.machine_check		= machine_check_745x,
->   		.platform		= "ppc7450",
->   	},
->   	{	/* 7447/7457 Rev 1.0 */
-> @@ -522,7 +522,7 @@ static struct cpu_spec cpu_specs[] __initdata = {
->   		.num_pmcs		= 6,
->   		.pmc_type		= PPC_PMC_G4,
->   		.cpu_setup		= __setup_cpu_745x,
-> -		.machine_check		= machine_check_generic,
-> +		.machine_check		= machine_check_745x,
->   		.platform		= "ppc7450",
->   	},
->   	{	/* 7447/7457 Rev 1.1 */
-> @@ -538,7 +538,7 @@ static struct cpu_spec cpu_specs[] __initdata = {
->   		.num_pmcs		= 6,
->   		.pmc_type		= PPC_PMC_G4,
->   		.cpu_setup		= __setup_cpu_745x,
-> -		.machine_check		= machine_check_generic,
-> +		.machine_check		= machine_check_745x,
->   		.platform		= "ppc7450",
->   	},
->   	{	/* 7447/7457 Rev 1.2 and later */
-> @@ -554,7 +554,7 @@ static struct cpu_spec cpu_specs[] __initdata = {
->   		.num_pmcs		= 6,
->   		.pmc_type		= PPC_PMC_G4,
->   		.cpu_setup		= __setup_cpu_745x,
-> -		.machine_check		= machine_check_generic,
-> +		.machine_check		= machine_check_745x,
->   		.platform		= "ppc7450",
->   	},
->   	{	/* 7447A */
-> @@ -570,7 +570,7 @@ static struct cpu_spec cpu_specs[] __initdata = {
->   		.num_pmcs		= 6,
->   		.pmc_type		= PPC_PMC_G4,
->   		.cpu_setup		= __setup_cpu_745x,
-> -		.machine_check		= machine_check_generic,
-> +		.machine_check		= machine_check_745x,
->   		.platform		= "ppc7450",
->   	},
->   	{	/* 7448 */
-> @@ -586,7 +586,7 @@ static struct cpu_spec cpu_specs[] __initdata = {
->   		.num_pmcs		= 6,
->   		.pmc_type		= PPC_PMC_G4,
->   		.cpu_setup		= __setup_cpu_745x,
-> -		.machine_check		= machine_check_generic,
-> +		.machine_check		= machine_check_745x,
->   		.platform		= "ppc7450",
->   	},
->   	{	/* default match, we assume split I/D cache & TB (non-601)... */
-> diff --git a/arch/powerpc/kernel/traps.c b/arch/powerpc/kernel/traps.c
-> index 3a8f5416e3f6..4fb1610baa51 100644
-> --- a/arch/powerpc/kernel/traps.c
-> +++ b/arch/powerpc/kernel/traps.c
-> @@ -788,6 +788,34 @@ int machine_check_generic(struct pt_regs *regs)
->   	}
->   	return 0;
->   }
-> +
-> +#ifdef CONFIG_PPC_BOOK3S_32
-> +#define MSSSR0_CACHE_ERR	(MSSSR0_L2TAG | MSSSR0_L2DAT | MSSSR0_L3TAG | MSSSR0_L3DAT)
-> +
-> +/*
-> + * On the 745x, SRR1[MSS] means the memory subsystem detected an error, and
-> + * MSSSR0 says which.  The MSSSR0 bits are sticky, so clear them.
-> + */
-> +int machine_check_745x(struct pt_regs *regs)
-> +{
-> +	unsigned long reason = regs->msr;
-> +	unsigned long msssr0 = mfspr(SPRN_MSSSR0);
-> +
-> +	if (!(reason & SRR1_MCE_MSS) || !(msssr0 & MSSSR0_CACHE_ERR))
-> +		return machine_check_generic(regs);
-> +
-> +	mtspr(SPRN_MSSSR0, msssr0 & ~MSSSR0_CACHE_ERR);
-> +
-> +	pr_err("Machine check in kernel mode.\n");
-> +	pr_err("Caused by (from SRR1=%lx, MSSSR0=%lx):%s%s%s%s\n",
-> +	       reason, msssr0,
-> +	       msssr0 & MSSSR0_L2TAG ? " [L2 tag parity]" : "",
-> +	       msssr0 & MSSSR0_L2DAT ? " [L2 data parity/ECC]" : "",
-> +	       msssr0 & MSSSR0_L3TAG ? " [L3 tag parity]" : "",
-> +	       msssr0 & MSSSR0_L3DAT ? " [L3 data parity]" : "");
-> +	return 0;
-> +}
-> +#endif
->   #endif /* everything else */
->   
->   void die_mce(const char *str, struct pt_regs *regs, long err)
-> 
-
+SGkgQW5keSwKCkkgYWRkZWQgYSBvbmUtbGluZSBleGFtcGxlIG9mIHRoZSByZXNvbHZlZCBTcGFy
+c2Ugd2FybmluZyB0byB0aGUKY29tbWl0IG1lc3NhZ2UgaW4gdjMuCgpUaGFua3MgZm9yIHRoZSBz
+dWdnZXN0aW9uLgoKUmVnYXJkcywKVMO8cmtlcgo=
