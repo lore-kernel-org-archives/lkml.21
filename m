@@ -1,97 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.11.138.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795267552;
-	b=31WkukoPbswO5ithD2XAu0Qg0zKLdOW0f0VfyPus4S8m3hRjQ7MB1fAlHtDTjXrH8ig3
-	 NBrIPf0Jof2rfhNuc9l/8SgAa9mjDzkHqI4WYFl8KvYTw33VPrrk99w+ZbHwBqywjL5RF
-	 98MZbS6lMNnbhsR6xR/eLUdZ4lPhRsdA7kZJlNv5gohKGX051I9tn3lyNVzRnPgkZAtsE
-	 2CDn2id0Lyu3gtqs4yuvpEwbgtIeIE1gGlDCFtEq8kvU+M/humyHS6GoW3A560gui0z1k
-	 72dH0gTJIQ3Ehj86tbWTLnB3J3H3EhLG6MwuwOSwpMpLY05cmQQ534x60IA9ZJa0LZA==
+	t=1795267650;
+	b=ZGAJG3Bj3Keo7dqmMeGlsqQpQRnNlp/zapTiH1ZoglyhOqLgjllux72vEmyyDWi0G42A
+	 LLqfxvnY97yThY2xkdmoCoaZofSisbyKLwofrCXGk5H1qGa5ggzL1WouQsq6N0blnA90h
+	 Vv34qgzlDsWCa9u8tVZB3fZA5BWoCSEc3tn0S4M5CU/vUZy8PUFg4pljHzN/7JgGnmAvI
+	 fAIVtWEuXPsPK2X4gfCpUhVtv10eZN/TLu8tbTp1WIAirOvVPIMUsl3M1QeTE8tp89bRE
+	 mJEFN2fAtbqfAhFjMAwnziagxM++phLzr7eYvIu/8d8rOtWS2Hg2jmyxxiPbcESvW4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795267552;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=RzZc1ZvHcmljMIW8GIop80TWAkL0ySLaO8QbZptWPdw=;
-	b=auPxlQ1bsB1tbR+KB8XdXWaBvGvo53ikdFirnrJqUADx2v82gzi8eErUzCNWPXGwWKZ6
-	 mdsZsqIBTazpV8muaKGyKtATgLgz6TYq/M/uLcvEjP0kOCMkhdrm3XoXAs1SAvkaUoVAz
-	 qT+M1oc26h0Mo9Z7hAzQPhHUssMpvTtziR9sp7VrjE1xEImCyh7Fa93IHXxT6/jYThUHC
-	 /Ob/iVitE3VaocUe/gY870qHDrj2wLTRavtjgYdBlzb6AI371hi3lRMjBC1cWYDL1i9hT
-	 eJaLrgrLjD+x1PA1X1zt0l2VDXhdpL+DRYZ5uMZH8BeTCZ+a7kXyyxjtH0myuMgVQUw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795267650;
+	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type;
+	bh=t3R4tnJIY9kB5WytDi15OEl7ThCTHknTfMjZvEx+X/M=;
+	b=Q3s38T7KK8L/b6gvGHgY/an8U1gOfntPG5HxLGerb/NU242ICYgv8L2hzzmPLfvCO6hu
+	 +3REGQ4V22zuzrKDplYRIyE9vPf3D0cWR/MbMmvu7GPRD9X/bByklQ1OpuA2exhKLi/NW
+	 WLNbbGzckE3/eK09Pa86VwCtl7fwB/t2DadyMjhnD8MBLUhiEzXklVEpQp8WaADyylfAW
+	 xj+1W2auoaP4fRN0snrdDRsbUuOy1JRUnH9ktmE9eOPKgBCDHnfpz4hkx/iROTgVf2C4Z
+	 MW9tnW1PSbMWhqcQR0pZW9eNC+lnmp+CO3skQJ2MzfkH8+v1egVYhomUQdk4LOhbOrQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YqnWLLS4;
-	arc=none smtp.remote-ip=74.125.227.138
-Received: from mail-pj2-f10.google.com (mail-pj2-f10.google.com [74.125.227.138])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=sntech.de;
+	spf=pass smtp.mailfrom=sntech.de;
+	dkim=pass header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=MEiP69zJ;
+	arc=none smtp.remote-ip=185.11.138.130
+Received: from gloria.sntech.de (gloria.sntech.de [185.11.138.130])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8241F606A332
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:25:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8241F606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C64E3606A32A;
+	Sat, 21 Nov 2026 13:27:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C64E3606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=sntech.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sntech.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YqnWLLS4
-Received: by mail-pj2-f10.google.com with SMTP id d9443c01a7336-2effa00323fso6950435ad.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:25:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795267552; x=1795872352; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RzZc1ZvHcmljMIW8GIop80TWAkL0ySLaO8QbZptWPdw=;
-        b=YqnWLLS4xwW+96B+d8I4pYLP3yTj7kADqb3LdxDnt4f9wJ6G6aey0lgseU/Ltggvil
-         H0MXEb+JNeCssA0Tegz3ys0KcMXZqk3StTi2gRgnxREPO7wGLkqXEpmad7Y+VjpNu5US
-         P9iiKLq4rmgLgjW4Z7GKMiJ7tQoa8oMF6gJL2uLgqsPpDUYWOp5HhDX5mfdEgnx32GWN
-         oZ3gJ2wjlZIsuJbVe/YwwFJhk+6T7vYhIS7BzeBVhHDmFs6h50s9Nen92z3VuYZfB+mJ
-         UOIidWtfUh0gPEH1lYcYNkJxucWVtDryDoaCa5nn87UOUB8+fAshQrLzJiVkFOVA1q0/
-         vWQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795267552; x=1795872352;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RzZc1ZvHcmljMIW8GIop80TWAkL0ySLaO8QbZptWPdw=;
-        b=N/SD7MWALmRCw9rOjpt86dHOpHDmPgi7kOwIIrYm9sblJ3YuWxOs7DltTJ8oE9MMQt
-         Wara7O0dxhsev5VOmnpf4hjZcDONIHm2d6PJxxMiVZ3OY1iMH72nV4PMpV/07FVVsoZd
-         cLq+tETZMbFYAvoI+b2jjEDa3NOO6rqM8mk+TsEq7xaTwEqC1o9oHlhaL9i+W9H5DLo0
-         Ywv63+4nlNP9//tFKVdWW7Pb73RB6myix0eKwt+0gZJnYN5QX27QDcxYEipy0Drfzaoi
-         ekGZuD3SF8krx3OqCu1BP06rS1nwk9tkK/1INJ3HkQqQI0rn63xljr6rw0LE97MvgJJT
-         29/w==
-X-Forwarded-Encrypted: i=1; AL+hErFiuoF1R5joMSY5ntKoLRUnUUcAZ/orZbue6gDFKfbp3kd01a6GTEmv9nErz7xT/0kuLt9LPaCgBXE3uxk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z84Pwdt9/IWWzuelBIKZfxtVNGND3WdlOXu86b0c9tGpdnkBa4e
-	LwgN/PIBnOTybnIMnYinT9As0gCxDhzOXtDNQyYwZJtolh5XCmP99XY=
-X-Gm-Gg: AZFdTZcuFiN5TVj36NuKGgPgAHTa9gyT/S9IAlX/9NGx0F33UyiA86mjA+8zJnohSS6
-	3BjZhaWJ73GH/1CESvgpYpErNIBVsLyWmaxOnNHsfEZF2JCc88rtVA9an7gMiAhbMJsLYQ71LQj
-	eX48j5SzmPlXeVHKBxB9PcGE74LPiPGQdYf7jTGTDPHNLS2XqUcivp7uEWZj0DNk9EL7jqE9skY
-	bC88Y6r18UbMpQ/MY7/aKJGBg1zzjCkPYR/IOzaEkVMJMv54/OEYWoj9os9RSkyE7IaNNeg7E5o
-	oPwoLNkJzUVTmna9OWq1tsmxIcqJvWtdh7H5pdgemXFKcDTYHP5F8JfD4e1Qv+sEL2Msyb97xhX
-	TiGmLr5EEDzwSuB4v0aPfdHWQARpldPGcANylTwVqn8hVjhmUC+OwkAhcc6XBuFBxAPVeNu6S/V
-	DV3UVce01gRIdAvMRQu95XGFems1nDVrH3Sn6upO0KddwBeJwbP2Fbci63m+5H10A2gmTT/fgK1
-	fkRgwXC9MMDQvwsLgAKQl1VIIbLrl/paQuF0BHij9yK7j2SewmNDv7Ve6KWN2vGIN7vQ7gYP/eW
-	rs8ODoG1hHHmqqtqwbjEJvGWHhRe2amOfUFcgRA=
-X-Received: by 2002:a17:902:c409:b0:2e8:1c7b:3b6e with SMTP id d9443c01a7336-2f03f1fe182mr61390525ad.26.1795267551719;
-        Sat, 21 Nov 2026 05:25:51 -0800 (PST)
-Received: from archlinux ([2405:201:ac01:5300:572c:c4c3:6927:1f87])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f105bb2sm26620525ad.45.2026.11.21.05.25.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 05:25:50 -0800 (PST)
-From: Anvik Loitongbam <permissiontogallop@gmail.com>
-To: Alasdair Kergon <agk@redhat.com>,
-	Mike Snitzer <snitzer@kernel.org>,
-	Mikulas Patocka <mpatocka@redhat.com>,
-	Benjamin Marzinski <bmarzins@redhat.com>,
-	dm-devel@lists.linux.dev
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] dm-inlinecrypt: emit key type as an optional table argument
-Date: Sat, 21 Nov 2026 18:45:39 +0530
-Message-ID: <20261121131539.7519-1-permissiontogallop@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=MEiP69zJ
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=t3R4tnJIY9kB5WytDi15OEl7ThCTHknTfMjZvEx+X/M=; b=MEiP69zJ/0eWym4qb78XUFm2+V
+	QobfvUmO/6Hi80IUXhbcfqbaHCz/4xVaFFtjVDqoP/3UZ1vR+oN8QV+mI7E68mSGIl+mSpwaKGE+H
+	GLGCCrWrXgvaMGxp5Kbwd1pmb7OtfVmdZNSfLCm69bUw2lU/Ak0yT6ZkOY4ctj0a6+sfxUIHPyqUp
+	1hG1QklSBSV/V41i0soQzfkXY9Yv0mbJa2ratzSorI1mhJNNCkRuqwxOr4VCJljnHcukUOSZhVRU6
+	qgU/B558J447mBOrrS/HWCs95l0AE/k5MaE5Sspac89SO+fUB0H5sbGz3dPWe01xAMkSeY2dEUiec
+	FaBIsYeg==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: ZhuXiangyu <1194781887@qq.com>, Stephen Boyd <sboyd@kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: clock: rockchip: add clk-out
+Date: Sat, 21 Nov 2026 14:27:08 +0100
+Message-ID: <dggrSgDiRmusIaCk6T6L4Q@sntech.de>
+In-Reply-To: <f98c3f68-82d7-41e3-bb58-d3737b73c7b5@kernel.org>
+References:
+ <tencent_8104629BEBAEF41637AAF1CC7D95BC7DCC09@qq.com>
+ <f98c3f68-82d7-41e3-bb58-d3737b73c7b5@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,82 +67,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 
-inlinecrypt_status() emits ctx->key_type as a positional argument between
-the key and iv_offset:
+Am Samstag, 21. November 2026, 12:02:37 Mitteleurop=C3=A4ische Normalzeit s=
+chrieb Krzysztof Kozlowski:
+> On 21/11/2026 11:58, ZhuXiangyu wrote:
+> > Document the Rockchip clock output/input switch, a single GRF-
+> > controlled gate used for signals such as the SAI MCLK output.
+> >=20
+> > Signed-off-by: ZhuXiangyu <1194781887@qq.com>
+> > ---
+> >  .../bindings/clock/rockchip,clk-out.yaml      | 81 +++++++++++++++++++
+>=20
+> Please follow carefully submitting patches document, including how to
+> sign your work and how to send it correctly threaded. There are numerous
+> guides already, so just follow them.
+>=20
+>=20
+> >  1 file changed, 81 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/clock/rockchip,cl=
+k-out.yaml
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/clock/rockchip,clk-out.y=
+aml b/Documentation/devicetree/bindings/clock/rockchip,clk-out.yaml
+> > new file mode 100644
+> > index 00000000..bf2a9b8a
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/clock/rockchip,clk-out.yaml
+> > @@ -0,0 +1,81 @@
+> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/clock/rockchip,clk-out.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Rockchip Clock Output/Input Switch
+> > +
+> > +maintainers:
+> > +  - Heiko Stuebner <heiko@sntech.de>
+> > +
+> > +description: |
+> > +  Some Rockchip SoCs route a clock between an internal clock and a pin
+> > +  through a GRF bit, for example the SAI MCLK input/output switch. This
+> > +  driver exposes that single bit as a gate clock.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: rockchip,clk-out
+>=20
+> Generic compatibles are not allowed. Do NOT send us downstream code,
+> it's not acceptable.
+>=20
+> Not doing detailed review as it does not follow basic rules. Please go
+> through for example DTS101 slides.
 
-  <cipher> <key> <key_type> <iv_offset> <dev_path> <start>
+this whole implementation is bogous, but it seems the submitter found
+the correct way to do this in [0] .
 
-but inlinecrypt_ctr() parses the base table as:
+But of course the submitter still fails to follow basic styles there.
+Broken threading and especially not stating that the new one superseded
+this one.
 
-  <cipher> <key> <iv_offset> <dev_path> <start>
+And of course yet another patch bomb in the span of minutes accross so
+many different subsystems - which I guess is not a human doing it.
 
-and keytype, is an optional feature argument parsed by
-inlinecrypt_ctr_optional(). Resulting in STATUSTYPE_TABLE output for every
-dm-inlinecrypt device to be not reloadable, the constructor reads
-key_type as iv_offset and shifts the remaining fields.
+@ZhuXiangyu: even if you're an LLM and new to the process, don't flood
+the lists - especially not before you get the process right.
 
-Keep the base table in constructor order and emit a non-default key type
-as keytype:hw-wrapped in the optional feature list. Raw keys remain the
-default and are not emitted, preserving the existing table text for
-raw-key devices.
 
-The two dmsetup examples in the documentation acquired
-the same extra positional key-type field, so removed it there as well.
+[0] https://lore.kernel.org/linux-rockchip/tencent_9138CD6157C88BC2D52FE639=
+4AF83E560208@qq.com
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://sashiko.dev/#/patchset/20260525121348.1321282-2-linlin.zhang%40oss.qualcomm.com
-Fixes: f9f57971da38 ("dm-inlinecrypt: add support for hardware-wrapped keys")
-Cc: stable@vger.kernel.org
-Signed-off-by: Anvik Loitongbam <permissiontogallop@gmail.com>
----
-Changes in v2:
-- Add Reported-by/Closes tags for the Sashiko review.
-- Emit the literal keytype:hw-wrapped after the non-raw check, dropping the
-  unreachable raw fallback.
 
-diff --git a/Documentation/admin-guide/device-mapper/dm-inlinecrypt.rst b/Documentation/admin-guide/device-mapper/dm-inlinecrypt.rst
-index 8258a72f00a8..84dd2e6a1b26 100644
---- a/Documentation/admin-guide/device-mapper/dm-inlinecrypt.rst
-+++ b/Documentation/admin-guide/device-mapper/dm-inlinecrypt.rst
-@@ -119,11 +119,11 @@ using dmsetup
- 
- 	#!/bin/sh
- 	# Create a inlinecrypt device using dmsetup
--	dmsetup create inlinecrypt1 --table "0 `blockdev --getsz $1` inlinecrypt aes-xts-plain64 babebabebabebabebabebabebabebabebabebabebabebabebabebabebabebabe 0 0 $1 0 1 keytype:raw"
-+	dmsetup create inlinecrypt1 --table "0 `blockdev --getsz $1` inlinecrypt aes-xts-plain64 babebabebabebabebabebabebabebabebabebabebabebabebabebabebabebabe 0 $1 0 1 keytype:raw"
- 
- ::
- 
- 	#!/bin/sh
- 	# Create a inlinecrypt device using dmsetup when encryption key is stored in keyring service
--	dmsetup create inlinecrypt2 --table "0 `blockdev --getsz $1` inlinecrypt aes-xts-plain64 :64:logon:fde:dminlinecrypt_test_key 0 0 $1 0 1 keytype:raw"
-+	dmsetup create inlinecrypt2 --table "0 `blockdev --getsz $1` inlinecrypt aes-xts-plain64 :64:logon:fde:dminlinecrypt_test_key 0 $1 0 1 keytype:raw"
- 
-diff --git a/drivers/md/dm-inlinecrypt.c b/drivers/md/dm-inlinecrypt.c
-index 3479dfe5f708..c4a0501e7b9a 100644
---- a/drivers/md/dm-inlinecrypt.c
-+++ b/drivers/md/dm-inlinecrypt.c
-@@ -522,15 +522,18 @@ static void inlinecrypt_status(struct dm_target *ti, status_type_t type,
- 		 * the returned table.  Userspace is responsible for redacting
- 		 * the key when needed.
- 		 */
--		DMEMIT("%s %*phN %u %llu %s %llu", ctx->cipher_string,
--		       ctx->key.size, ctx->key.bytes,
--		       ctx->key_type, ctx->iv_offset,
-+		DMEMIT("%s %*phN %llu %s %llu", ctx->cipher_string,
-+		       ctx->key.size, ctx->key.bytes, ctx->iv_offset,
- 		       ctx->dev->name, ctx->start);
- 		num_feature_args += !!ti->num_discard_bios;
-+		if (ctx->key_type != BLK_CRYPTO_KEY_TYPE_RAW)
-+			num_feature_args++;
- 		if (ctx->sector_size != SECTOR_SIZE)
- 			num_feature_args += 2;
- 		if (num_feature_args != 0) {
- 			DMEMIT(" %d", num_feature_args);
-+			if (ctx->key_type != BLK_CRYPTO_KEY_TYPE_RAW)
-+				DMEMIT(" keytype:hw-wrapped");
- 			if (ti->num_discard_bios)
- 				DMEMIT(" allow_discards");
- 			if (ctx->sector_size != SECTOR_SIZE) {
