@@ -1,79 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=222.228.43.154
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795268092;
-	b=i+2fXwE/dhHou752y3XrVk1sdg8HSXpvaQBEeR0mfItVuPp+kGhfR5p+yQgsA3l9cV8U
-	 dOw7JANaBkUNguyl/xvZHotrOEm9RySRfE3W0swwlT61rUS7XQUdsYVUvAI+pcOTyyp1X
-	 ebPI1OFLsQSBh/k8L/JoR55d5AX7+lUPRB7YfRiqo4BSm+Kdzf62kEK5b43XOS6wWdFUA
-	 XPDjfc/M+IT+tAuKlJHAL1ndn7MrIjYcH84guifZuIxzeadLSM4SZFwnfT4g4UgutdIyE
-	 35Sb7poq34jtOQQbkCa4AObRg6qC3ryti6P8zwS6wbIJtNPMfMGeaf7ljjwerMQ1HjA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795268092;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DMARC-Filter:Received:
-	 DKIM-Filter:DKIM-Signature:MIME-Version:Date:From:To:Cc:Subject:
-	 In-Reply-To:References:Message-ID:X-Sender:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=3WXMn4W53e21VUBZEpduBlcXeP+fjzFXYYDchkxke2E=;
-	b=bC/BUaLY2uYl1pUCkkFHPIhioGZCel0qzD5t8G7cz4qO/XQfuIVjKWokloo8HMMHqRxq
-	 v52ljbZS47al6ccz+w7TVCTHb2Zo21sCMuG5HJ4LDXG0955t/fkF1K+dEMqkuHV6wmogd
-	 5CpQBt5rMKP4XjG56nwjsRTyTAbK+gSMp4TzUxX3D8BtPyS1OTdIPax71cplXQZ1ZuwFJ
-	 zicfmNw4FRwfQQ6s96KBV/boeGH1kTVU725wzm/5gW60LtrZspHQMGkJTrcv+NhFIm6Qm
-	 zaMjoLvPeCgXi4Vdr2yWwMGz3xZH3kwX8lYn8WBLFKBM3aGlOhLY2ySxTTMqM0zupKQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redadmin.org;
-	spf=pass smtp.mailfrom=redadmin.org;
-	dkim=pass header.d=redadmin.org header.i=@redadmin.org header.a=rsa-sha256 header.s=20231208space header.b=RQdfrbAW;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=222.228.43.154
-Received: from www.redadmin.org (bc043154.ppp.asahi-net.or.jp [222.228.43.154])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.11.138.130
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795268121;
+	b=B9SD7sEgedSopQVy2IyYiiXMs5L4I3GB+Rer2nN4P3Eor+AOya+EyU1lFK1lahAdBEho
+	 DJa7SU2G9JHol68RiRBLtaVIEwyqdM4yRfH+cAU+CnSzqA/hS64qKXQgGUSlMPj9QIZiL
+	 3AtgmGr+XFaELs7ux3LUvk5aK/yrrL9jSCcLz2M3B15IUILaD7V64/9iV7SVioP4zGzql
+	 DfwsA/xfg9+3xCMBBR9o3mw4S75+GTI5afdFDaHvO3N9fFuKBfS9UjYnx57BT0oDpvYOL
+	 KU4qSJYnrubhMUcVFLTYBWg1fxFqdunAALPqkDUvK5geNOy5PmxGnspR2dnvm/dizXA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795268121;
+	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type;
+	bh=fffPhen65RXvgrHvozLgMLsmu+SDxyuRcwXFiGMhJew=;
+	b=pELLtv2NqzzsIk/ENxRB0t9WN+69HtttwgXiHTEiJ0uUH/MLKyrF6J5ubUIg5f5EVO4Y
+	 QEwp/BYSfpiJUDsxwaJNbREB/JgUztStLrTav/rdfHW9+Ob5oHiMgzCdswmeHkhGC4iuX
+	 InhYPgZ6ZV+FzV0dXYuARnYFLOapK5rWHiBkVpBa4Y6ElC1Pn1aQpb8lJxU53GS1IUfnf
+	 oAxMQtFHN9/S1KheVvGDwX+7HdCoiSwxGAkyYFJ+uywHzVzvJyd/Y8W16E8HMNXeOhDT2
+	 3kkC8yKuFK/epkdSjgc7NUGovwIzGyhEPNYweEMHtiphd28F2dWYzELg6xMd/TuunLw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=sntech.de;
+	spf=pass smtp.mailfrom=sntech.de;
+	dkim=pass header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=nEylbCvu;
+	arc=none smtp.remote-ip=185.11.138.130
+Received: from gloria.sntech.de (gloria.sntech.de [185.11.138.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB4F6606A320;
-	Sat, 21 Nov 2026 13:34:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB4F6606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=redadmin.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redadmin.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 715B8606A320;
+	Sat, 21 Nov 2026 13:35:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 715B8606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=sntech.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sntech.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=redadmin.org header.i=@redadmin.org header.a=rsa-sha256 header.s=20231208space header.b=RQdfrbAW
-Received: from localhost (localhost [127.0.0.1])
-	by www.redadmin.org (Postfix) with ESMTP id 5B9B910DF1602;
-	Sat, 21 Nov 2026 22:34:42 +0900 (JST)
-X-Virus-Scanned: amavis at redadmin.org
-Received: from www.redadmin.org ([127.0.0.1])
- by localhost (redadmin.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id ghUWzKQUPRVN; Sat, 21 Nov 2026 22:34:38 +0900 (JST)
-Authentication-Results: www.redadmin.org; arc=none smtp.remote-ip=192.168.11.50
-DMARC-Filter: OpenDMARC Filter v1.4.2 www.redadmin.org 06FE11032EF54
-ARC-Seal: i=1; d=redadmin.org; s=20231208space; a=rsa-sha256; cv=none;
-	t=1795268078;
-	b=jtyWQPf5aMh/2sY4iZNOPAIj2fSkVya3p8N2SdAr+p9owh1S7a/PC5Ve7DkXWKbbMBc1
-	 vA/LqIW7m5Q/xi+dxo7s2oPVFoQLVblwvSLOaoy8TMMWfcPNhb9gsRQXaz+eoeEnvV4qe
-	 Nh0gVVMARXEf2amgS/7+oovnqtxkGOpYfk=
-ARC-Message-Signature: i=1; d=redadmin.org; s=20231208space; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795268078;
-	h=DKIM-Filter:DKIM-Signature:MIME-Version:Date:From:To:Cc:Subject:
-	 In-Reply-To:References:Message-ID:X-Sender:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=3WXMn4W53e21VUBZEpduBlcXeP+fjzFXYYDchkxke2E=;
-	b=n7NVQ5WnW7LNDxzquqcixllNlEfyJYUExLu9nqkULqHnGCfhB/QHTvYPU8oXUnqa7rME
-	 Z78W56Asm4NieLZcGs6hUVcdn3VLd0dqJZlLwKa87fP48StMlYFTgE/gQWT072IczcpZ5
-	 /Zt6dBhElPTaB2Nbc8ZHxwpiyR9iqgDRpw=
-ARC-Authentication-Results: i=1; www.redadmin.org; 
-	arc=none smtp.remote-ip=192.168.11.50
-Received: from webmail.redadmin.org (redadmin.org [192.168.11.50])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-256) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: weibu@redadmin.org)
-	by www.redadmin.org (Postfix) with ESMTPSA id 06FE11032EF54;
-	Sat, 21 Nov 2026 22:34:38 +0900 (JST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 www.redadmin.org 06FE11032EF54
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redadmin.org;
-	s=20231208space; t=1795268078;
-	bh=3WXMn4W53e21VUBZEpduBlcXeP+fjzFXYYDchkxke2E=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=RQdfrbAWTgpTZUs0CgPpKlFJPWV/aBFkwDPiWnwb44e/5FEWre5N8bhMyKQF/Ca2b
-	 OT8FULoGQQ27EQPdrVst6gYyAuS3UKhkIzrsjpBHOZJ4hWHt26w6KKhDOOQlktC/ZG
-	 FJoGem3xmXCcXWsp9TryldfGkGiC/cKZPf2P5YhM=
+	dkim=pass (2048-bit key) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=nEylbCvu
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=fffPhen65RXvgrHvozLgMLsmu+SDxyuRcwXFiGMhJew=; b=nEylbCvuQdGWOM/Z5RINWTpd0Q
+	ZKohSuNpjwv+qUOH+VwAOX6t1I6AhjQcjdO0UNXQmY4IYWW31T+vGl11olyTl22SSSukG4H/CUqjM
+	vh5OthKF5we6rnV+eL1JR9NZSnXcfDXBOHp528Gswn27fALsq2tzDLzZgCT+nscdib5axuNJw85l4
+	asYmd0Ze7D5MBfuRwSeBqQAGjsYNyEw7L4l+n5mejjv5Kb+mZvMDyw8rMRMw+Joq0Rm92HXlVddDx
+	H8q20B6fQgUdj/NVFy7PMz0kUI0XDJQF3a0j9Etgqapx2yPN1kUzG+Vkqj2Hw4wEeg75Z9u0Zq7AG
+	mFvw2B1Q==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>,
+ ZhuXiangyu <1194781887@qq.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-pwm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ ZhuXiangyu <1194781887@qq.com>
+Subject: Re: [PATCH 2/2] dt-bindings: pwm: rockchip: add RK3506 and RK3576 PWM
+Date: Sat, 21 Nov 2026 14:35:17 +0100
+Message-ID: <dcRZnWeuS9WMWkKE52x__A@sntech.de>
+In-Reply-To: <tencent_85AFCE164FAAD1CCAB95DC7CD804CA9BB309@qq.com>
+References:
+ <20261121065936.1125919-1-1194781887@qq.com>
+ <tencent_85AFCE164FAAD1CCAB95DC7CD804CA9BB309@qq.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,59 +66,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Sat, 21 Nov 2026 22:34:37 +0900
-From: weibu@redadmin.org
-To: Akira Yokosawa <akiyks@gmail.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan
- <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] docs/ja_JP: translate submitting-patches.rst (patch
- format)
-In-Reply-To: <d2b47b79-a579-4ac2-84ef-de477dd84a66@gmail.com>
-References: <20261106225619.12869-1-weibu@redadmin.org>
- <20261113024405.871312-1-weibu@redadmin.org>
- <d2b47b79-a579-4ac2-84ef-de477dd84a66@gmail.com>
-Message-ID: <0ffa9af9fc67900223a1b93d6807dd4e@redadmin.org>
-X-Sender: weibu@redadmin.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 
-Hi Jonathan,
+Am Samstag, 21. November 2026, 07:59:36 Mitteleurop=C3=A4ische Normalzeit s=
+chrieb ZhuXiangyu:
+> Document the PWM v4 controllers found on RK3506 and RK3576. They use
+> the pwm/pclk clocks and may additionally provide the osc and rc
+> clocks used by the extended features.
+>=20
+> Signed-off-by: ZhuXiangyu <1194781887@qq.com>
 
-A gentle ping on this patch.
 
-Akira has reviewed v2 and provided his Reviewed-by tag.
+please check mailing lists, before submitting duplicate work.
+There is already a better (yet unfinished implementation pending,
+that also incorporates the counter input).
 
-Could you please take a look when you have a chance?
+Especially as this is a new IP block - including a different hardware
+structure, this should most likely not live inside the previous binding.
 
-Thanks,
-Akiyoshi
+All the process issues, Krzysztof pointed out in another thread still
+apply too.
 
-2026-11-13 19:48 に Akira Yokosawa さんは書きました:
-> On Fri, 13 Nov 2026 11:44:05 +0900, Akiyoshi Kurita wrote:
->> Translate the sections describing permission requirements for
->> adding tags, the canonical patch format, and subject line
->> conventions into Japanese.
->> 
->> Update existing cross-references to point to the newly
->> translated section.
->> 
->> Signed-off-by: Akiyoshi Kurita <weibu@redadmin.org>
->> ---
->> Changes in v2:
->> - Reword the explanation of subject line sorting as suggested
->>   by Akira Yokosawa.
->> - Translate "global" as "大域的" instead of "世界的".
->> 
-> 
-> Looks good to me now.
-> 
-> Reviewed-by: Akira Yokosawa <akiyks@gmail.com>
-> 
-> Thanks!
-> 
->>  .../ja_JP/process/submitting-patches.rst      | 108 
->> ++++++++++++++++--
->>  1 file changed, 100 insertions(+), 8 deletions(-)
-> [...]
+
+Heiko
+
+
+
