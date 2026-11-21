@@ -1,67 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795221519;
-	b=nW9E9mNxQMBjIuZtALUoY4+5+CMF3I6Q1bZqLqo0k83Q8HiGF+LCsFUwxG0S3GMSYADQ
-	 NIFYsi+5shIDccC5fWfHVEHWk9mCu8El+GX3YhPO8WdQJdsjxIRXuzo8mVkcIdpW1hoZg
-	 ABJbsPE1s9keEQQoOy9AJSN5FFJC2Ale1lqKmJa7HEwaZgj93OumzhdMEfl2fysjqArSK
-	 uvZk/9QI/WpghferCvP4qkNMMQ/EpH/mQr/RdR1IaVryyFkOmh/bnUTqbAZ57OocGhaKp
-	 +KDrpsVonUxX6qef0aCg4/QLiWmasWFoQw3sc6O46VX3JSPdY5+l+iYF2CKLsDJoOIQ==
+	t=1795221609;
+	b=BMah5bNHHoZpTVJxb92g0vGRJXG19tpWf29/CQruui1SwWgrpJKpkcB2cwtnSeptthbD
+	 wRfR0bbcdFH+KaGwemRMSyUhMZal7uE6qVx4qYBpOghy2BgmaRW7akPGcBc21NKK8VVt2
+	 sHDA5PwqvNp6CSYy+livL21LPZuXhwkWIhdUKseHCtrPcWZyRWUzN5xByeyKPcSI4uzt9
+	 2GAxL9TcOuY1zx8R0Ep/OhmYlYq/Eb7gp9ICNqZpcKkZl37eruxw4VdF3ip+RS3I9/0Yt
+	 KixY5X1RXB77OdrCWnCzjqLqFMToo68KlB4HaaC3Eqo9EUqHeRrEBRvNC6e+mLm/RAg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795221519;
-	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 User-Agent;
-	bh=QV8D7ilUELbg/fg6EIzobLLMXxhaxLG1vZzySCiqx3s=;
-	b=w6h+13VmtxCHWUxp85vIry80dShvQL6zqVZgG0DPrFV4j9+86I9aoIp4c39NI6FogRrJ
-	 0lhFD+8gzYeI2Dhr5skS/YWg8HhhpDF+kcpjjBggr1F4MMTLUmjM7H0S477pzwKaLAjjP
-	 7cNg89e7v8q5XzrwgQDliJx3XTwP/3PwWvo7zUvES0HUnW1+dHoxbsgTzbDsz5rSpT2xb
-	 y/TiSYE1k35oLMbgG9Fs44IcESY+TpkNhlm6B7hWd/Ooj5qF91RrpRb+MdJ0TftNWANbX
-	 sdkoLIet0x93QWTGI2Xsct2vl+8gpxh/FBXnimnpRnxgGRQyt3q+jUCuc1fnFB+KiRg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795221609;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=F0SnR5ogjRurN4enoGe12ZgjMu7/sT5ybH/hkV4/fio=;
+	b=MHGzeRp5Y9gZKFqzHcz9msmIrRonkeDK4Yp+zRZQgSWmHMOrMDsxTZmijkpytlh5ssWh
+	 MYPbAv4eMDAaM0mjdHQm/Ah/UGCEPA9dqFz5HyYugDpN30j0Y2chtAUyslecV0mlCoVQf
+	 nTRObxzD+4jVizLcu7LaKEZ+JJTERBEofaAWzxSbLM1dI2J6Et5fR1YTY3f89QLtzkIZQ
+	 8dU54lut2Uz5+MdgOrNe24nM45Ns7XFJvrVLkiWq6FMpl6T18hqqRcAzfpZdX+uF/CPqB
+	 7Eu+7/0fLLFG3KN1xTYyQaeXKyr6mcaPzvnkvdB1n28mLp6euQYqUeREQULBZYqlcPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IalQirY3;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UmQAehc5;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82B41606A6B9;
-	Sat, 21 Nov 2026 00:38:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EEDA606A6B0;
+	Sat, 21 Nov 2026 00:40:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IalQirY3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D9631F000C0;
-	Sat, 21 Nov 2026 00:38:38 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UmQAehc5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFE2B1F000C0;
+	Sat, 21 Nov 2026 00:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795221518;
-	bh=QV8D7ilUELbg/fg6EIzobLLMXxhaxLG1vZzySCiqx3s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IalQirY3i3ZnT1uQl8cusJxa9oyi8QWJr3n7xNa9xVMtvl882mORIfuEm7GpMncNB
-	 986MKFLgh8xXQ5KTId7d070QIjTQVGO7owjQZcplyKTJD2k+YSe1qRf8ww3LKM0+It
-	 QVjbPn5TE/UPkrk7EiHdaAhZmzEnc5Ffb3HiCYNWHOuxbG/2kn8kSxZsOlq1KXFmdd
-	 ngjWxrO5rGkLunabeJm3vaz16qzC63rWtSyVnT7rHknojWHeXHQ7LBFnPMKztxiXae
-	 ocUcCAHUoOT901armeduxP5ErR3OLdr9lOfosFWnq9/hZfRvLQqzHIcHS9V2W23+0b
-	 eAVwlosEUqMmA==
-Received: by pali.im (Postfix)
-	id 82C3F4A0; Sat, 21 Nov 2026 01:38:35 +0100 (CET)
-Date: Sat, 21 Nov 2026 01:38:35 +0100
-From: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
-To: Brian Mak <bmak@nvidia.com>
-Cc: Hans de Goede <hansg@kernel.org>,
-	Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>,
-	Kurt Borja <kuurtb@gmail.com>,
-	Stuart Hayes <stuart.w.hayes@gmail.com>,
-	Matthew Garrett <mjg59@srcf.ucam.org>,
-	Lyndon Sanche <lsanche@lyndeno.ca>, Armin Wolf <W_Armin@gmx.de>,
-	Prasanth Ksr <prasanth.ksr@dell.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	platform-driver-x86@vger.kernel.org, Dell.Client.Kernel@dell.com,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 6/8] platform: dell: smbios: Add quirk for non-functional
- calling interface
-Message-ID: <20261121003835.uemb2uaqm6enjqrq@pali>
-References: <20261121000556.173028-1-bmak@nvidia.com>
- <20261121000556.173028-7-bmak@nvidia.com>
+	s=k20260515; t=1795221608;
+	bh=F0SnR5ogjRurN4enoGe12ZgjMu7/sT5ybH/hkV4/fio=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=UmQAehc5aharjI2x2sJrQGEMto8RQ2eHL9zGMZ1aHU9roxdKfhk53eIYG/pVvr4l6
+	 M/nw5qd1KQFT03adf67lMicpMDl8O91x15W9/f3oRRsZP5Ffl3hC96u3bcquNVIdsr
+	 +/2pTXDGwgtW04br4X4DpZKPR86vxYNL7rQDPkHwFrg1rb0zTMe004M0RxQNwye9eY
+	 NOifinfyCMAa/Sku0gbt7PkIuxUc3IFC+IUFi5D/G0Pzmy1HWPC9FrMGllQcmkEjCi
+	 66Cg4yFluiLtE8EkxBDmX/PrpRXAZtr63o43wR1avfGilIGVyY4QDf15GgiflLb5EI
+	 VkugKmh7jgTuw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B43EC380AA4D;
+	Sat, 21 Nov 2026 00:40:08 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,75 +53,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261121000556.173028-7-bmak@nvidia.com>
-User-Agent: NeoMutt/20180716
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] net/mlx5e: Release FIB event work flows before
+ dropping
+ RTNL
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179522160728.860209.2078425140293366542.git-patchwork-notify@kernel.org>
+Date: Sat, 21 Nov 2026 00:40:07 +0000
+References: <20261118143653.1915247-1-tariqt@nvidia.com>
+In-Reply-To: <20261118143653.1915247-1-tariqt@nvidia.com>
+To: Tariq Toukan <tariqt@nvidia.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+ dlinkin@nvidia.com, fmancera@suse.de, gal@nvidia.com, idosch@nvidia.com,
+ jianbol@nvidia.com, kuniyu@google.com, leon@kernel.org,
+ linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org, mbloch@nvidia.com,
+ razor@blackwall.org, roid@nvidia.com, saeedm@nvidia.com, vladbu@nvidia.com
 
-On Friday 20 November 2026 16:05:52 Brian Mak wrote:
-> On Dell RTX Spark laptops, the SMBIOS calling interface completes every
-> request with an all-zero buffer, even for requests that should fail.
-> Drivers that rely on it, such as dell-laptop and dell-pc, end up
-> reporting bogus state, like battery charge modes and thermal modes.
+Hello:
 
-Hello, is Dell aware of this firmware issue? And it is going to be fixed?
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-> Add a DMI quirk list for platforms with a non-functional calling
-> interface, and export dell_smbios_calls_functional() so that consumers
-> can avoid loading on them. dell-smbios itself still loads, as dell-wmi
-> depends on it.
+On Wed, 18 Nov 2026 16:36:53 +0200 you wrote:
+> From: Gal Pressman <gal@nvidia.com>
 > 
-> Signed-off-by: Brian Mak <bmak@nvidia.com>
-> ---
->  drivers/platform/dell/dell-smbios-base.c | 22 ++++++++++++++++++++++
->  drivers/platform/dell/dell-smbios.h      |  1 +
->  2 files changed, 23 insertions(+)
+> The FIB event work, neigh update work and the neigh stats work all use
+> flow->tmp_list to hold the encap flows they work on, while RTNL is what
+> keeps them from using it at the same time.
 > 
-> diff --git a/drivers/platform/dell/dell-smbios-base.c b/drivers/platform/dell/dell-smbios-base.c
-> index c8e93c12c445..e07cbb0e8a6a 100644
-> --- a/drivers/platform/dell/dell-smbios-base.c
-> +++ b/drivers/platform/dell/dell-smbios-base.c
-> @@ -390,6 +390,28 @@ bool dell_smbios_class_is_supported(u16 class)
->  }
->  EXPORT_SYMBOL_GPL(dell_smbios_class_is_supported);
->  
-> +/*
-> + * Some Dell firmware completes its proprietary SMBIOS calls with all zeroes,
-> + * so any value read through it (tokens, battery and thermal modes)
-> + * is invalid.
-> + */
-> +static const struct dmi_system_id dell_smbios_calls_broken_list[] = {
-> +	{
-> +		.ident = "Dell XPS 16 DX16263",
-> +		.matches = {
-> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> +			DMI_MATCH(DMI_PRODUCT_NAME, "XPS 16 DX16263"),
-> +		},
-> +	},
-> +	{ }
-> +};
-> +
-> +bool dell_smbios_calls_functional(void)
-> +{
-> +	return !dmi_check_system(dell_smbios_calls_broken_list);
-> +}
-> +EXPORT_SYMBOL_GPL(dell_smbios_calls_functional);
-> +
->  static void __init parse_da_table(const struct dmi_header *dm)
->  {
->  	/* Final token is a terminator, so we don't want to copy it */
-> diff --git a/drivers/platform/dell/dell-smbios.h b/drivers/platform/dell/dell-smbios.h
-> index 1e64803bc00d..26f54364ffde 100644
-> --- a/drivers/platform/dell/dell-smbios.h
-> +++ b/drivers/platform/dell/dell-smbios.h
-> @@ -89,6 +89,7 @@ int dell_laptop_register_notifier(struct notifier_block *nb);
->  int dell_laptop_unregister_notifier(struct notifier_block *nb);
->  void dell_laptop_call_notifier(unsigned long action, void *data);
->  bool dell_smbios_class_is_supported(u16 class);
-> +bool dell_smbios_calls_functional(void);
->  
->  /* for the supported backends */
->  #ifdef CONFIG_DELL_SMBIOS_WMI
-> -- 
-> 2.53.0
+> mlx5e_tc_fib_event_work() drops RTNL before it is done with its list.
+> A neigh work can then take the same flows while the FIB work is still
+> walking them, and the two overwrite each other's list.
 > 
+> [...]
+
+Here is the summary with links:
+  - [net] net/mlx5e: Release FIB event work flows before dropping RTNL
+    https://git.kernel.org/netdev/net/c/bfccb4e44e47
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
