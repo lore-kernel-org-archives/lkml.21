@@ -1,51 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.160.73.65
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795246995;
-	b=N5XbzTvf/HhFi5bkmkW3o2Q1Z/aV1UAkIu4vTImYwE+Qh123NWlipzfceCG3hW0wTmQG
-	 CNjRL9+nKpguqoVrSEtYMKdmyqQw2+Qp3oLCftxRo6sg8fBmfXWrQs3Sg7e/gLlvGbCdt
-	 btuYYo2VWIS+gX66mLx73gEpqKi6O3Esbg52bhHNB+Za/3o23Lb191Xs2JuQIzmgaVD4L
-	 1Iqh+8s/3tL8PCW7Pp0yX3mlImOGia5Nm/1GaJKC5MFJ0V6JqxFutDldvTGCXrxI1xfq1
-	 4TWpW3jTqY/DbwB7hybNhwmR42n1F+DS0MvmfPfBQTMiXixaWOjjccfob736u3dgzng==
+	t=1795247220;
+	b=z0AfBdhEnHPrdHVPRt21fyVj05lBHN32NkpkMsMVMiz1L/Zr2Dupvh8vG+itAipMHvOs
+	 TX2bTXmWBm6vqXFrH8NVDOg+Js49c4TFB+/y86p+C1dyaw+IDlm8727cjm6F5B8VN9e/g
+	 hUlwK0Ne+h4klrTb8twp/ZthRs7SGUvPfmmT9gcbaB9G7uCjJqLEWRdR3rK+2NMiTA9w7
+	 DwniPWdcd7oihgXvF5d9X46kqzIKOuQcJQEtzqrDT5nBwLZ74CWHun777G4aHtdqKJ8os
+	 ataG3rtSASXoGK/c6ruF2f0GAH1p0584yPJBg3ifKEuEZcAPqZI8ZDIYC03juPpZ5vw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795246995;
-	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=YQMD6P455roWznDvZidE7Y9pltP2O8Ucc6Aqgok7dcY=;
-	b=nLivZEiNlL5RE0oXON8yqI/uYbM30XpOmIJ8J/M1u6txiPl+qwT/1DZZO3wJzo3n+bHV
-	 YHJBC5/rGR3dVcttqs78P1fkt+vbsCWejJP29Lv/UoJLlWXwazSAiVPhho86fV1NHTgDc
-	 VaY60qdNdodwG2Xb8EwbC6QM72C2GppnLZq+vC8JLRXLzdy8adFpK/fLTUWGLYg0I36/j
-	 khj63enC+OE0ntiDFThesCbEQNl1pH3D/dJwQGXgP3oEtiwi+amomjSA3+V1pBwkNVgCE
-	 8pFYJhh9uqXViXsQ6S4zVYDKYUHkH8BZPbv/tGjP5W6KaJmP8R4SVJphz/OywyBjiig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795247220;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=302YmlBFcT29dtVYS2/IlQouy87kyb7NzSlXmbT4De8=;
+	b=fwtOY7ujcgNtqTuWcoRZJec7Iiy3dHN8IFylM6ds6FRAuImcMHGVNJIaf7L5gPMIILNw
+	 j85sQo78bvf0D0AJI3JEO3DTkCv7bu/JkZbBbkAEIJo6+Jv6yjASdW4PHRfgIj9n3mEW0
+	 SkXeQS/Vl+TkcyT5szeOS4H8dUV8XBJUgZSv19uHXgMYX9JU5lMwNJchbpgW227O/GfOG
+	 ApygV57E2y0472nPmrSQrWFvqUpmCxa07GgluAlumAMhnwWu9brLmudgeH+JFY5bCQp09
+	 yaK1/zX74WCL4w7KRHDv+wWT904IvKc+gpROytYx+LhvrHV4d/cpETq84ZJ5cSGGzIA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=blala.de;
-	spf=pass smtp.mailfrom=blala.de;
-	arc=none smtp.remote-ip=213.160.73.65
-Received: from vs81.iboxed.net (vs10.datenmanufaktur-hosting.net [213.160.73.65])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=EMYJABtc;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E115606A325;
-	Sat, 21 Nov 2026 07:43:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E115606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blala.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blala.de
-Received: from blala.de (localhost [127.0.0.1])
-	by vs81.iboxed.net (8.18.1/8.18.1/Debian-6) with ESMTP id 6AL7gqYQ008761;
-	Sat, 21 Nov 2026 07:42:52 GMT
-Received: (from akurz@localhost)
-	by blala.de (8.18.1/8.18.1/Submit) id 6AL7gpqB008760;
-	Sat, 21 Nov 2026 07:42:51 GMT
-From: Alexander Kurz <akurz@blala.de>
-To: Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>,
-        Griffin Kroah-Hartman <griffin@kroah.com>
-Cc: Mariusz Tkaczyk <mariusz.tkaczyk@linux.intel.com>,
-        =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-        Bjorn Helgaas <bhelgaas@google.com>, linux-leds@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Alexander Kurz <akurz@blala.de>
-Subject: [PATCH 1/2] leds: leds-mc13783: use unified device property API
-Date: Sat, 21 Nov 2026 07:42:38 +0000
-Message-ID: <20261121074239.8745-1-akurz@blala.de>
-X-Mailer: git-send-email 2.47.3
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA06D606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:46:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA06D606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=EMYJABtc
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id C45DC4E4168A;
+	Sat, 21 Nov 2026 07:46:56 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7CCE6603CF;
+	Sat, 21 Nov 2026 07:46:56 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8399111BC0212;
+	Sat, 21 Nov 2026 08:46:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795247214; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=302YmlBFcT29dtVYS2/IlQouy87kyb7NzSlXmbT4De8=;
+	b=EMYJABtcdwh7iR3ROahPEAfI2aRH8ZKlnmBfiOaPOG1AhXQh2wPY+9Sat+HSryWbKRFuss
+	lTfyMt5KRK+JRvn6VqnXj9j+JN3uetiwf1kfJBCmBdvIp6pMzpjBGTQn277rWd3371l/i/
+	sRmPQynRg9P3vFlyAsYjkAhVet6wJXlSLfiBAAx8NzYsDyb94O7+3vCwZXQTRo9XltWwiT
+	LShhvjid8ven666kDthXKVfjvDPkD2qPy1lCKwxD1uqDFyqENpu7lBJXR8QaglASPCYAVe
+	R+vzBSU6/lVk9gNZqi9uJwfYim2GJbqxv/U+auoLzif0Ue4iZE1mTBDUav/G3w==
+Message-ID: <2625b2b6-53f5-4c4b-b45f-fae0d7e781c7@bootlin.com>
+Date: Sat, 21 Nov 2026 08:46:37 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,82 +62,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: stmmac: xgmac: Report the VLAN tag type
+ from the descriptor
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Russell King <linux@armlinux.org.uk>,
+ Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+ Nicolai Buchwitz <nb@tipi-net.de>,
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+ Joseph Steel <recv.jo@gmail.com>,
+ Muhammad Nazim Amirul Nazle Asmade
+ <muhammad.nazim.amirul.nazle.asmade@altera.com>,
+ thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
+ <alexis.lothore@bootlin.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20261118162136.2782405-1-maxime.chevallier@bootlin.com>
+ <20261120164601.07f932cd@kernel.org>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20261120164601.07f932cd@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-As preparation for a fix regarding deferred probing, replace OF-specific
-API calls with the unified device property variants.
 
-Signed-off-by: Alexander Kurz <akurz@blala.de>
----
- drivers/leds/leds-mc13783.c | 20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/leds/leds-mc13783.c b/drivers/leds/leds-mc13783.c
-index 19c1b51475db..c3bbbc8ef946 100644
---- a/drivers/leds/leds-mc13783.c
-+++ b/drivers/leds/leds-mc13783.c
-@@ -16,8 +16,8 @@
- #include <linux/module.h>
- #include <linux/kernel.h>
- #include <linux/platform_device.h>
-+#include <linux/property.h>
- #include <linux/leds.h>
--#include <linux/of.h>
- #include <linux/mfd/mc13xxx.h>
- 
- struct mc13xxx_led_devtype {
-@@ -114,7 +114,7 @@ static struct mc13xxx_leds_platform_data __init *mc13xxx_led_probe_dt(
- {
- 	struct mc13xxx_leds *leds = platform_get_drvdata(pdev);
- 	struct mc13xxx_leds_platform_data *pdata;
--	struct device_node *child;
-+	struct fwnode_handle *child;
- 	struct device *dev = &pdev->dev;
- 	int i = 0, ret = -ENODATA;
- 
-@@ -122,34 +122,34 @@ static struct mc13xxx_leds_platform_data __init *mc13xxx_led_probe_dt(
- 	if (!pdata)
- 		return ERR_PTR(-ENOMEM);
- 
--	struct device_node *parent __free(device_node) =
--		of_get_child_by_name(dev_of_node(dev->parent), "leds");
-+	struct fwnode_handle *parent __free(fwnode_handle) =
-+		device_get_named_child_node(dev->parent, "leds");
- 	if (!parent)
- 		return ERR_PTR(-ENODATA);
- 
--	ret = of_property_read_u32_array(parent, "led-control",
-+	ret = fwnode_property_read_u32_array(parent, "fsl,led-control",
- 					 pdata->led_control,
- 					 leds->devtype->num_regs);
- 	if (ret)
- 		return ERR_PTR(ret);
- 
--	pdata->num_leds = of_get_available_child_count(parent);
-+	pdata->num_leds = fwnode_get_child_node_count(parent);
- 
- 	pdata->led = devm_kzalloc_objs(dev, *pdata->led, pdata->num_leds);
- 	if (!pdata->led)
- 		return ERR_PTR(-ENOMEM);
- 
--	for_each_available_child_of_node(parent, child) {
-+	fwnode_for_each_child_node(parent, child) {
- 		const char *str;
- 		u32 tmp;
- 
--		if (of_property_read_u32(child, "reg", &tmp))
-+		if (fwnode_property_read_u32(child, "reg", &tmp))
- 			continue;
- 		pdata->led[i].id = leds->devtype->led_min + tmp;
- 
--		if (!of_property_read_string(child, "label", &str))
-+		if (!fwnode_property_read_string(child, "label", &str))
- 			pdata->led[i].name = str;
--		if (!of_property_read_string(child, "linux,default-trigger",
-+		if (!fwnode_property_read_string(child, "linux,default-trigger",
- 					     &str))
- 			pdata->led[i].default_trigger = str;
- 
--- 
-2.39.5
+On 11/21/26 01:46, Jakub Kicinski wrote:
+> On Wed, 18 Nov 2026 17:21:34 +0100 Maxime Chevallier wrote:
+>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+>> @@ -209,8 +209,12 @@ static void vlan_rx_hw(struct mac_device_info *hw,
+>>  {
+>>  	if (hw->desc->get_rx_vlan_valid(rx_desc)) {
+>>  		u16 vid = hw->desc->get_rx_vlan_tci(rx_desc);
+>> +		u16 proto = ETH_P_8021Q;
+>>  
+>> -		__vlan_hwaccel_put_tag(skb, htons(ETH_P_8021Q), vid);
+>> +		if (hw->desc->get_rx_vlan_proto)
+>> +			proto = hw->desc->get_rx_vlan_proto(rx_desc);
+>> +
+>> +		__vlan_hwaccel_put_tag(skb, htons(proto), vid);
+> 
+> Heh, this function now does 3 indirect calls to get the info about 
+> the stripped vlan. Isn't this slower than disabling the offload and
+> stripping in SW at this point? Maybe the low-end CPUs are very
+> different :) Or there's something else I'm missing?
+
+We'll do like the rest of the driver and hide these indirections with
+a nasty macro :)
+
+(jk, but TBH I can't test that one at more than 1Gbps, it's very likely
+there's ton of room for optimisation...)
+
+Maxime
 
