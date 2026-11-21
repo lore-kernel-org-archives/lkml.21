@@ -1,59 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795264626;
-	b=FMMTQsoJh7UECARRwNARkxk02oyT70vVyb94yURk+d22atEMB6bGHM1S2HaN6ilkUk2Q
-	 +lQrpSfic2KqBBnfMQvhAS6eG9MHkAtbuU7NCOOgHr5Y6Xj4ZAzsbNcQ4UizJTfW1pHay
-	 TvzQ20p61eugtbaO0flDeRLfbBTwQHO72uw543L44Rx6ixlTTTcHpwoEYgj5S3Suo6q+H
-	 hTq8XNffCmjwIDJr7QopjGhm/GA/3IsyE/6/qvM+5vO2ntA1ihLTfCfvAtPzVJ1j3i/s0
-	 Z7Y6lezckifm9HZXf3gBpUKok0CZ1kWRRUu8EdjCyaXWGA+hFL+NZ3c3zZprTXkj2cQ==
+	t=1795264690;
+	b=ISDsiCx0wAJDg9+q2kluTSt75E5+UXuNlldMrH8KO2XOlHliMNpxwi6Ox8OxkFk7jc8I
+	 FbHFI/Vin7kPAtNjXhKBsra8/XXGUFPKmFF+HjUV73A2HGbLx9cDACZ4L1ZVBkkh6bU/U
+	 oK2YBchNazdgB7jTeOwl3356lyKv18wgQ/9hQLiaoQWVJ7vdgUoBVulPrNDrSBJe0fPo7
+	 D1/ITR1pZCQ++MZTgGybl4Lcre1OZ78NifLAUdtUVD2W//naNooGwuw5Fs/JH/zuF2RM+
+	 cbKF61YwrOdTl2xFvnZQINMwp40e4i3AuENj2aVBDDxwnFCXaw69H6T7jt8HR2QDBcw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795264626;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795264690;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=Bn8fYVdCnsxzaxXf/0e+OavoSH4Fq5m3TkgWBOG16mo=;
-	b=eXbb2oBz00LnbrmYaeWJBOxsw0Jh72PFEE+tJ+WHQElkzMvdJfZ2FLgIsXAa+OsvrBm+
-	 o0feHQPUt99s8957nRJzRjZdhS3oQb0z0dhE7NBi/lS7ZvWnC7L1z9BCeiJlkgDhqxD+o
-	 SrQarknMamMM/IgxZXolu6KPznYm4JpZa3PEPW7eE+sZNgoDXz9WYNjK7/2esc7CmomSM
-	 KvUoAHs4YwAMLFV4Yu3eewT+k931A1FcOSZSr0YBpsLiVE4qDQMWd6N8NI1KN5voT0Ift
-	 loWC3KFdT/7RjY0sZSqQnngDA1MdebapIrxkeD0kk3uYPII6qBZPnUkhm44Uen1JhHA==
+	bh=m5G/QICZ24fNOzMfjvXjLK2A3CcIHloqOJ+RgXtyUT4=;
+	b=g4RUndIEV4AnIl80Lmoonn4RusWSN3rWaAbwMEoaqQ+ElcVqp3VQqvnwZOgvuO0TPM9J
+	 Zm313vnaUAF+cRcmpEjdz0NJatup8OKfDTny3GNuvxziowZctdfPC5IybBD3P24y/Bz/J
+	 KP5QJjK5uxN9lKDC7teZUQvMosGtWWWKVXEgbZ2HppRtfk1An7xHXqlkOpOWccBeMpxJa
+	 KfCzTNCTV5juQt6VhyeJZcKCfAnG50UdPzMnjBrI4leO78kcLkx37/QKDftn3Oht6vlCQ
+	 uxapMC6/vQ/hC8XVArzXrufKWdQBaK+1gloAvdnBSXDBoiRD+5PKoumGyDoR1ujnzfQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RnADEjRu;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BVd7DUyo;
+	arc=none smtp.remote-ip=91.218.175.180
+Received: from mta0.migadu.com (out-180.mta0.migadu.com [91.218.175.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DD42606A320;
-	Sat, 21 Nov 2026 12:37:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2CFC606A32C
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 12:38:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2CFC606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RnADEjRu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1317E1F000CF;
-	Sat, 21 Nov 2026 12:37:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795264626;
-	bh=Bn8fYVdCnsxzaxXf/0e+OavoSH4Fq5m3TkgWBOG16mo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RnADEjRuJ1PyJwBoW8/yT7wcTg6Aaq/v5dbP7Z4QZIY+KpAvkZvYGotnFbK/yrCgy
-	 rZP5H1HwCJKnx8dZ0MfJ8nJlUo3k+8Sui8eJQt9fU76Zqn0eCze8RAUAOdFjlFIgVt
-	 QpUXyhlaUypPCrxxItQWzopcGxYnZe/8GBJWKa9XizqtC4LEbMSzal+kIzVrbuAn24
-	 wfFtnkaOuCpNhdFuIKjyMlrQwKMYOGb7FqXvmbhVajYCtRIpyVrWZYmyM5CWCo75xw
-	 6ULSB4Kcvnmg3OWi3werzIPimx+BNwsCY04fKnI3rolgYjpgVBx3CUOM41pDWYDk6u
-	 ALsZWOjFk8gXg==
-Date: Sat, 21 Nov 2026 13:37:02 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
-Cc: Johannes Berg <johannes@sipsolutions.net>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jeff Johnson <jjohnson@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	linux-wireless@vger.kernel.org, devicetree@vger.kernel.org, ath12k@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH ath-next v3 01/15] dt-bindings: net: wireless: add ath12k
- wifi device QCN9575
-Message-ID: <20261121-lobster-of-unearthly-variation-e75ea9@quoll>
-References: <20261118-wifi8_qcn9575_bringup-v3-0-9875d2a3953f@oss.qualcomm.com>
- <20261118-wifi8_qcn9575_bringup-v3-1-9875d2a3953f@oss.qualcomm.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BVd7DUyo
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=rRoUO1ekAv/EnBw/LqUWxSkU357wwykHVnVwqfZsCKg=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795264687; v=1; x=1795869487;
+ b=BVd7DUyoNQtYHAc4AxDOU+64n2ZFVG7Y9IswXb9+GmiSj5osvIXrsMxxPTJYs7PUDcCsV5L7
+ jJL3bm9/PTutt5R29GggzbveN3rBIOYTNJUAEIIIxDAzfmGYxgzDqf1DSZ6WuUVth46xQ5ngwMk
+ nw83sHH+nTiiOQbBQDGuw4H0=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 51c69ba41e2b6b86;
+	Sat, 21 Nov 2026 12:38:07 +0000
+X-Mizu-Trace-ID: 51c69ba41e2b6b86
+X-Migadu-Flow: FLOW_OUT
+Date: Sat, 21 Nov 2026 13:37:29 +0100
+From: Andrew Jones <andrew.jones@linux.dev>
+To: Gong Shuai <gong.shuai@sanechips.com.cn>
+Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Tomasz Jeznach <tomasz.jeznach@linux.dev>, "Joerg Roedel (AMD)" <joro@8bytes.org>, 
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>, 
+	Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>, 
+	Andrew Jones <andrew.jones@oss.qualcomm.com>, Fangyu Yu <fangyu.yu@linux.alibaba.com>, 
+	Tan Chi <tanchi25@mails.ucas.ac.cn>, Wu Fei <wu.fei9@sanechips.com.cn>, 
+	Zhao Qingye <zhao.qingye@sanechips.com.cn>
+Subject: Re: [RFC PATCH v3 05/10] iommu/riscv: Add nested domain allocation
+Message-ID: <awGP5H2JdjxW8WXG@orel>
+References: <20261119132744.396426-1-gong.shuai@sanechips.com.cn>
+ <20261119132744.396426-6-gong.shuai@sanechips.com.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,27 +74,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261118-wifi8_qcn9575_bringup-v3-1-9875d2a3953f@oss.qualcomm.com>
+In-Reply-To: <20261119132744.396426-6-gong.shuai@sanechips.com.cn>
 
-On Wed, Nov 18, 2026 at 01:45:24PM +0530, Madhavan Ganesan wrote:
-> -  The ath12k devices (QCN9274) feature WSI support. WSI stands for
-> -  WLAN Serial Interface. It is used for the exchange of specific
-> +  Some ath12k devices (QCN9274 and QCN9575) feature WSI support. WSI stands
-> +  for WLAN Serial Interface. It is used for the exchange of specific
->    control information across radios based on the doorbell mechanism.
->    This WSI connection is essential to exchange control information
->    among these devices.
-> @@ -48,6 +48,7 @@ properties:
->    compatible:
->      enum:
->        - pci17cb,1109  # QCN9274
-> +      - pci17cb,1113  # QCN9575
+On Thu, Nov 19, 2026 at 09:27:39PM +0800, Gong Shuai wrote:
+> From: Wu Fei <wu.fei9@sanechips.com.cn>
+> 
+> A nested domain describes two-stage translation through guest and
+> host page tables. Iommufd exposes this domain as a nested hwpt.
+> 
+> User space needs to provide the guest stage 1 configuration when
+> allocating a nested hwpt. Validate the configuration before storing
+> it for use in a physical device context.
+> 
+> Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
+> Co-developed-by: Gong Shuai <gong.shuai@sanechips.com.cn>
+> Signed-off-by: Gong Shuai <gong.shuai@sanechips.com.cn>
+> ---
+>  drivers/iommu/riscv/iommu.c | 153 ++++++++++++++++++++++++++++++++++++
+>  1 file changed, 153 insertions(+)
+> 
+> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> index f2305b953f71..4f8ce579ef08 100644
+> --- a/drivers/iommu/riscv/iommu.c
+> +++ b/drivers/iommu/riscv/iommu.c
+> @@ -1698,8 +1698,161 @@ static void riscv_viommu_destroy(struct iommufd_viommu *viommu)
+>  	ida_free(&riscv_iommu_gscids, rv_viommu->gscid);
+>  }
+>  
+> +struct riscv_iommu_nested_domain {
+> +	struct iommu_domain domain;
+> +	struct riscv_viommu *viommu;
+> +
+> +	u64 tc;
+> +	u64 ta;
+> +	u64 iosatp;
+> +};
+> +
+> +#define to_riscv_iommu_nested_domain(domain) \
+> +	container_of(domain, struct riscv_iommu_nested_domain, domain)
+> +
 
-I do not see any user of this (see submitting patches in DT directory
-for explanation).
+Please rename the macro parameter so it doesn't collide with the domain
+member name, otherwise macro expansion replaces the member name too.
 
-Best regards,
-Krzysztof
-
+Thanks,
+drew
