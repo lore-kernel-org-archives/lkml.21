@@ -1,65 +1,85 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795266992;
-	b=qiYFnnE1IHVFRUanIT2B9CcRVEtdAShqxo7o2K6jTGsBPyloq3HQrKzKoznJMDWA2v3f
-	 IRoK3XlkfoblEf9TMeQBGCI90RVmN7ryHel/Q9pAAmLfN/jpWgZBbUPG6t26jMbxRcyJh
-	 R7GI5SHm7UaksVWmuxi/9UxIzczZ9G+P3NgWTYkGS30snbfEeE+kEeCeQA1TfRyqkZdoJ
-	 M535pep6KUv062HTx9wwtiwfWnr6fzLuG8LMKFOMImevoTmjD0LPaUBdqdQjN6mUvgld5
-	 HanVNErHY0xBGg6sgb7RYrQUNNvjadvPUgJJamWoi2dJ2skskAreMnPTjCIty7HRy3Q==
+	t=1795266998;
+	b=AzNbGvHHy1ehSFjcmkYJI6J220L/ZTJ+0SRP13j87L3UjO/V8YLcigQcLzpds0wpdlSY
+	 UaxdwytEU4nf++sDl3xEcaiGO01JjE2VTu3HhoK6MyOPz1UQq4eLehy/W/x6UI6J6z68J
+	 pq7BfFaQsB3v/niVOs0t1FNIdI9+fT6XbdDmIc10h7yW1rAjbvCSSm7nQxyahvdzK0/Yv
+	 8kYtSOv4maITplIF6ZhBk8eEPsHP3vIJOrx6xLWC8iyxth3tcyI05+bmOLLByLXw+coPl
+	 pKhbVh3Acn6v5qcgSObHzcumc77PVONxnpUIxhAkQgN4xC2H4YPBJ/4wP0XF8CSAABg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795266992;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=gd+29OyRmdmWrXF2MTU6Wupy3NXK/3/Bt0tj+QOE1v0=;
-	b=xq7cpwsSR+FRHt4S3xtAxjyytfChp3gveDwRQc61jM6hCvfpsEjvD8/kdcbSIGEs05NY
-	 gQLrB93yfFIVLmENTF1qNwfCL6goQwu5BIKlTiL6ukSa/VFcneiAjykFm2f//Hiz6e9ee
-	 crQKAi5cw3Pu9ITmgNlHFjNYviTZzkM/XKvNQXXExeyP5LCkZHccaO6sZCFQo5lyQNzi6
-	 358Sa0jDAXTLgpJiqkoSNRnJNp/FfiCaQ8ls60pxF/8HwRXVj4ChCMMhdtji9qVHkXWGk
-	 009jeNWC0rdFYlOetdWj2ZXYTYXi5I50ieq7ulJQMEMp1ph8zjDcqBASSi/z+g08EHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795266998;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 Mail-Followup-To:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=TxW/RAptOpxLkind6FtvVROcaKbdd/cBMgMOKwStZeM=;
+	b=U3NkHpsa4qmmNgUoA1YsEvU/t4ZJL/1SaCrn3ACeq3Sxoi4J6NEwaQQmEpfCRvpWT0/P
+	 oBWHWR8mpxXCeZdCAUH/6H96dg6apN1nnPdKzk8JimjZJuFc8FMOHD8KBR22NaWX3egzF
+	 XBHgEwViFkiY8JcalCYdNicDMOLST997JAVwLSoy0eLyfq1OMw2/Or60lj16lL+rH+u47
+	 fXRiMXm4MKMjFEhWygN610iTsy08a5H2bGtw/fM3YUCbQnS4u1SKogBzaMNLDQp8DSMpT
+	 zb6ObHBgkBHAWSs6/Z3IHd1apupBTIGgbsBpEA0LgF/ZJy7hSO0+IjMF1toS7S3aEgA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Taku/ZE9";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bPAShBr7;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 79546606A32C;
-	Sat, 21 Nov 2026 13:16:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 77793606A32C;
+	Sat, 21 Nov 2026 13:16:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Taku/ZE9
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 3F6FF1F000C0;
-	Sat, 21 Nov 2026 13:16:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bPAShBr7
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 930CA1F000C0;
+	Sat, 21 Nov 2026 13:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795266991;
-	bh=gd+29OyRmdmWrXF2MTU6Wupy3NXK/3/Bt0tj+QOE1v0=;
-	h=From:To:Cc:Subject:Date;
-	b=Taku/ZE93TTg9Og4nqXlZDf0tA+542GQTBJ6lGjf9EkUR7NYTSTTU6N2GADLqcBs4
-	 wa3x0OhaRZTyyMVSkOVYuxxCTsJvF+gcc7ue7kMor1WG4kJlUS0K0sfZTzuAkaBLyH
-	 GPnFI+hYWIsXlScchY9E4y92xlkcPMAik0ToY/R87q7ZdCl1Bi3ASVdxfMuwUv/yCy
-	 6+PSJYh1qPEWGocZcHI0dALVy6sUOf/IpfrSo8WNfqlEZR2NFemoG28/djHZVJAW4R
-	 zTdKlXo3C6EE3mGGYskrexdgLG8um95O52elZDRiewSupTKwWE7+WlZ6J1PgvWaYcO
-	 X3EVtGW+pH1TA==
-From: Joel Fernandes <jfern@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>
-Cc: Joel Fernandes <jfern@kernel.org>,
-	rust-for-linux@vger.kernel.org
-Subject: [PATCH] rust: rbtree: remove redundant comparison in find_best_match
-Date: Sat, 21 Nov 2026 08:16:18 -0500
-Message-ID: <20261121131618.909529-1-jfern@kernel.org>
-X-Mailer: git-send-email 2.54.0
+	s=k20260515; t=1795266998;
+	bh=TxW/RAptOpxLkind6FtvVROcaKbdd/cBMgMOKwStZeM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=bPAShBr7KOOGPBKH+XTeVXkgXBPFn40auFQSlE9hM8FDZmc2VPBT8Pq0gw83FDHHz
+	 puDG/SloQy85d6f6pt40euCNXoB9KNLlbgkAg8nEZEwPv26NTv12dnjuIX1/hEkd7F
+	 Y+v34WLQW/heaHEZxlua+xB+3xcxWtK887Hdmb/5Kj5r/xUU7kORPO2reS/uCP5scj
+	 28VUcr02GlWxQzAWdy5DXSsAacKGZplfY7yTt8sxZ31jBcV/4+tI3snCWxj+0uAVEJ
+	 Hbjv/Gkh1sBmM/osurXObPF/vRMcavLbYjGrfmTZo2LL7YmOjGy/E0D83NqUxvDb/r
+	 +CjTnZ4TPRP7g==
+Date: Sat, 21 Nov 2026 13:51:44 +0100
+From: Nicolas Schier <nsc@kernel.org>
+To: kernel test robot <lkp@intel.com>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Sasha Levin <sashal@kernel.org>, llvm@lists.linux.dev,
+	oe-kbuild-all@lists.linux.dev,
+	Harald Freudenberger <freude@linux.ibm.com>,
+	Holger Dengler <dengler@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-kbuild@vger.kernel.org, linux-s390@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-kernel@vger.kernel.org, "kernelci.org bot" <bot@kernelci.org>
+Subject: Re: [PATCH] Move struct cpu_feature to a
+ <linux/device-id/cpu_feature.h>
+Message-ID: <awGT4AhwcFcLsW0c@levanger>
+Mail-Followup-To: Nicolas Schier <nsc@kernel.org>,
+	kernel test robot <lkp@intel.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Sasha Levin <sashal@kernel.org>, llvm@lists.linux.dev,
+	oe-kbuild-all@lists.linux.dev,
+	Harald Freudenberger <freude@linux.ibm.com>,
+	Holger Dengler <dengler@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-kbuild@vger.kernel.org, linux-s390@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-kernel@vger.kernel.org, "kernelci.org bot" <bot@kernelci.org>
+References: <20261120202712.3377691-1-nsc@kernel.org>
+ <202611211941.G0rlpNpN-lkp@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,48 +89,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <202611211941.G0rlpNpN-lkp@intel.com>
 
-In the Less arm of find_best_match(), the current node was recorded as
-the best match only if its key was smaller than the key of the best
-match found so far. That test can never fail, so remove it. It saves a
-comparison and reduces lines of code.
+On Sat, Nov 21, 2026 at 08:01:20PM +0800, kernel test robot wrote:
+> Hi Nicolas,
+> 
+> kernel test robot noticed the following build errors:
+> 
+> [auto build test ERROR on kvm/queue]
+> [also build test ERROR on kvm/next linus/master v7.4-rc3]
+> [cannot apply to kvm/linux-next next-20261119]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> 
+> url:    https://github.com/intel-lab-lkp/linux/commits/Nicolas-Schier/Move-struct-cpu_feature-to-a-linux-device-id-cpu_feature-h/20261120-212711
+> base:   https://git.kernel.org/pub/scm/virt/kvm/kvm.git queue
+> patch link:    https://lore.kernel.org/r/20261120202712.3377691-1-nsc%40kernel.org
+> patch subject: [PATCH] Move struct cpu_feature to a <linux/device-id/cpu_feature.h>
+> config: s390-allmodconfig (https://download.01.org/0day-ci/archive/20261121/202611211941.G0rlpNpN-lkp@intel.com/config)
+> compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 3b14d7c370558b46e5f0c6494a05c492e59bf32c)
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261121/202611211941.G0rlpNpN-lkp@intel.com/reproduce)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202611211941.G0rlpNpN-lkp@intel.com/
+> 
+> All errors (new ones prefixed by >>):
+> 
+> >> drivers/s390/crypto/pkey_cca.c:22:45: error: array has incomplete element type 'struct ap_device_id'
+>       22 | static struct ap_device_id pkey_cca_card_ids[] = {
+>          |                                             ^
+>    drivers/s390/crypto/ap_bus.h:158:9: note: forward declaration of 'struct ap_device_id'
+>      158 |         struct ap_device_id *ids;
+>          |                ^
+>    1 error generated.
+> --
+> >> drivers/s390/crypto/pkey_ep11.c:23:46: error: array has incomplete element type 'struct ap_device_id'
+>       23 | static struct ap_device_id pkey_ep11_card_ids[] = {
+>          |                                              ^
+>    drivers/s390/crypto/ap_bus.h:158:9: note: forward declaration of 'struct ap_device_id'
+>      158 |         struct ap_device_id *ids;
+>          |                ^
+>    1 error generated.
 
-Signed-off-by: Joel Fernandes <jfern@kernel.org>
----
- rust/kernel/rbtree.rs | 12 ++----------
- 1 file changed, 2 insertions(+), 10 deletions(-)
+That is fixed by [1] which is to be applied before the patch referenced
+above.
 
-diff --git a/rust/kernel/rbtree.rs b/rust/kernel/rbtree.rs
-index 6fbd579d4a43..5e64504d592e 100644
---- a/rust/kernel/rbtree.rs
-+++ b/rust/kernel/rbtree.rs
-@@ -493,7 +493,6 @@ pub fn cursor_lower_bound(&self, key: &K) -> Option<Cursor<'_, K, V>>
- 
-     fn find_best_match(&self, key: &K) -> Option<NonNull<bindings::rb_node>> {
-         let mut node = self.root.rb_node;
--        let mut best_key: Option<&K> = None;
-         let mut best_links: Option<NonNull<bindings::rb_node>> = None;
-         while !node.is_null() {
-             // SAFETY: By the type invariant of `Self`, all non-null `rb_node` pointers stored in `self`
-@@ -515,15 +514,8 @@ fn find_best_match(&self, key: &K) -> Option<NonNull<bindings::rb_node>> {
-                     node = node_ref.rb_right;
-                 }
-                 Ordering::Less => {
--                    let is_better_match = match best_key {
--                        None => true,
--                        Some(best) => best > this_key,
--                    };
--                    if is_better_match {
--                        best_key = Some(this_key);
--                        // SAFETY: `this` is a non-null node so it is valid by the type invariants.
--                        best_links = Some(unsafe { NonNull::new_unchecked(&mut (*this).links) });
--                    }
-+                    // SAFETY: `this` is a non-null node so it is valid by the type invariants.
-+                    best_links = Some(unsafe { NonNull::new_unchecked(&mut (*this).links) });
-                     node = node_ref.rb_left;
-                 }
-             };
+[1]: https://lore.kernel.org/linux-kbuild/66e4ee9c7f9b4bc48fcee92a94b6bb6d92fe1ad2.1794233316.git.sashal@kernel.org/
+
 -- 
-2.54.0
-
+Nicolas
