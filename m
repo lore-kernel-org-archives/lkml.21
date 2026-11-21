@@ -1,91 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795231933;
-	b=XiBZrNepO5VP6itCanUHRtFYmaw5mpAo8pBq17bAgiCSTg5l3cAGGTCFiEBqRE/nxwgS
-	 nWHITkeivVk428nCos5hqZbLlQ2zZUeWqeuMkOurm8XsswUgG4KFM//CMIBnonR55G3j1
-	 7LMhk56e/xpRknM1Vdf+UYUwoMXtAx9wmZgIp6l2kE0EG5XLrHmXQ31eVkNLaK1J4GWD4
-	 o6ex1Ezxg0sJ6xJT0x8zhW8fyYTP2sJlAxYmsVp1m36igDRl3AXfjEZAMOEch3683VmjB
-	 TYt3JXM3ZhpAWy8CeFzRDVLX8g4FEWNNKUKC99myFCgsUr1aICYHCOEl8Kn+pYcrIpQ==
+	t=1795231934;
+	b=dTGiWfB+wFwI2N/eUhjKcc1rue8E1AjhU/AP4tgu6dELVrEdkcjX1m4CF7FrWIIQkmQO
+	 GJmQAY6+36xIeFeYo+L1ek6VLykcQi4Ul3h8dyFDV7ntTkcyLGWVWlEI4Jt93e986Sgex
+	 IFQUVfR53K3651tW/5Lqoxtz3evb7zkYs7l9LD3KONqQEQWuKWt7nBOc0KQn97VbTrZp7
+	 yIaKwyIvYiJ6VS1Nmvy2elyFTLIUsy6ddl+oih7+aVcp814FVf0XDL9BYoA42KkLdLL8S
+	 XLhEuIEiPiEQ60oXUZPdtnX2GNxdX5ITLIOcsjP5ELHzuHRg729A3NssbHGSCKi7PFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795231933;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795231934;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=dzWuG6elwKYIyR9wRkORUHH+YbmAZopYlbWmaOd8JNo=;
-	b=EEwzEbTgCHWmBJWwqolNruD2jlEiiJWBRp2NAMGWtQi7bf78iqF9ApXExc63j1cEa4s0
-	 WdX8HPFdBQUSnbTzOZ8/y6ekB5oU4OASfBgUmUXXaFLbOi4paaATI+vUzogbfk4lEYPLJ
-	 tbfmP6HTZq5OXYvNxlY7mu1p8apMJEzy82eZyRwvxqV+f2wlRqRo/cdVpvsnuTv/+mXNc
-	 ukiPbREgKbILg4HFxiNHw1K20J/XEfoDFd5zwkVhpF5/aobmwdU+3dZkyzeUCb/BhFJrs
-	 GiDzutdiy4UdqJ8DPkPRAhUQUfUrvQWulNe84dAHet8GSAXT/qAaeo7w5G8RM7lyMfw==
+	bh=TAKJX2eFfbSxexSFrpKVYNT5rJCAgJ+amarkA8wMwcg=;
+	b=LkC3DmFqZDgEXtTx7ZkUVqvOsHzEK9qercC6m6/Zu3x/BpX3WMTfUL7abODZN686RmI2
+	 wZFdm4YuIfEfkdOmHwlN9+mfV5COrE66DmJuNRw+hQXO1faMlFICvYh9R77Vwva7hAvlh
+	 5i2W4KYvLzRG8tG7akhVypKpuyTznqBup6h0AL34qxoyPelfD/5w5BLApu4WXLKcn53P6
+	 6FveDHu24sYp0093Sn67tuavIjQ4Sp5AfA2vgrXCO1CyiJmGTC70bW7MzpKawFtJ/ZevJ
+	 M53IY9jAfInju28jJ+mrdXGMCW0v/9Zg6rWVbZ0NIa0GvBnQiKDkeiF9+EO5U8bIdPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S9SuaIVz;
-	arc=none smtp.remote-ip=209.85.217.47
-Received: from mail-vs1-f47.google.com (mail-vs1-f47.google.com [209.85.217.47])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lx0rH40W;
+	arc=none smtp.remote-ip=209.85.222.45
+Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com [209.85.222.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC846606A332
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:32:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC846606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6152606A6AA
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:32:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6152606A6AA
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S9SuaIVz
-Received: by mail-vs1-f47.google.com with SMTP id ada2fe7eead31-745497ac8fcso606907137.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:32:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lx0rH40W
+Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-99071945aa7so891620241.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:32:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795231925; x=1795836725; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795231932; x=1795836732; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=dzWuG6elwKYIyR9wRkORUHH+YbmAZopYlbWmaOd8JNo=;
-        b=S9SuaIVzCYiKD90jD7PQ6ZrHG11/xh1E3qFOAg6JWmhjAnH5BNq2uLnNHSK1DUJEqF
-         HzrQPaR2It0olkcGNuV0Y4Lv3iRHKqIIKMKnvPZ5dnaM9XM/KKQX3CJvK6xa9x+/W1Ub
-         VMjQefjHQX5iwvtdlNwaYjwyZrGLm/cQ8vWZJTeKQZbBJTL/tFS2Ws/Dm6Rq8LNZIvKy
-         7XdOh7dbqgSNpX+XIHmnce5cUcH2HSn93/Rtfqr68Qs0VTThNLxU2iyNjZfLPw91QDw2
-         MlQX/+m1XtPPwra22MV16Xa2JnbQqtsuxCGc6R+HGiELG09dn5fLA/5bHKKHGyKiLAt6
-         rbrw==
+        bh=TAKJX2eFfbSxexSFrpKVYNT5rJCAgJ+amarkA8wMwcg=;
+        b=lx0rH40WjAZuTpjzdSg282pS+q3j+eAu9Cy0K+veOkU0tDtEMXN41uf313jmctXIhQ
+         fdxevo5fL5v+L3Sl13PZnFrKz6VejvKgVUn8MoXflglOvT51hxXQ26wpnkVRmw40JWst
+         a7FdJ1mA7L0jBqsDyvZC3/dh9PyHqXNh1Ql01CZSCEOTEcn3OZwvFsOU5jb4mNDA4k8L
+         scV6vMXBTeKplGq2iX7PS8Z4xMic8sIhapOXqR73taxxVE+0dx5fJ6es4zPI9xwxNjOl
+         prPZk4Et9LNMc1/Jx1WVKh4I92PFC0V1WHU/F/21xUE6xr/NbIVXlPGoV8JNJViccL+B
+         xxzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795231925; x=1795836725;
+        d=1e100.net; s=20260707; t=1795231932; x=1795836732;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dzWuG6elwKYIyR9wRkORUHH+YbmAZopYlbWmaOd8JNo=;
-        b=zzddthXgoXgBRxwLH/EhQA0f9NJeLcWu5lKJPs3wpMvfglTpSqFYfytGum5twoIOQy
-         oLUAn861xtIOXC5oHAOy1UXzhcTblIC75PP4B0pI5rJ9oCXnU3sTX9wXfWav/rE1kzpG
-         2Cz+WkH0vnHntETiIQo8BIxFGw9m6MUTA6GKwiZTzTPCHT2gcSyYDsI7EszC2PdybHU3
-         iW5nWY6gKFXN9iDG+nMAy/Uvsd6wmr3B1Qe7pJAvAxkt1nYQ0QhZ9SAejxZy9Icuyjr3
-         9NM8Xr1996kLU45hnML67YFvKd/SJscrfTlSExMA72L8klQ/bWJJqxSd4rXk1MylOmhn
-         puwA==
-X-Forwarded-Encrypted: i=1; AL+hErFy3JCxzpfLI1b7JHvpcebt4YNk5N/5C5P52DoPjdHUhjr6sinAuZnd4Ku+A3Bxq6XDyJNdgraz2OL52HA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/DD+qNrKpap7Dw0m8Bl2Dd3I8luCyutHL7UJT3y+1mqwkAf3v5
-	t+13UPEDh36gfvd2WJvpLcV70krh5u6QxKXYSQMl718RYmHh/nkwZZOKTCYeD2GYAao=
-X-Gm-Gg: AZFdTZdQCX08T1njqpfheyWqCFyAdgkNRcO8erAU3O09CTduuCaEezS4bEhf0V0k5id
-	7n2UWlJNoK5Jd4EczrjqWph/6fcKvTx9WhOtoOeGUpmlf0BRQ3s925MBynHSVFOKvfQASkviu8X
-	Zc3FsDAIw+DlG6wu/j/vD76DBknHblzpoffYVK5RXb7plgXTN62KgWbHud0DDox+/M8n6lliMPv
-	HESU0aBmFSwMVrB+uhXdUad6Nkraz4eCTdNC8Md5e8MPfftk0WmTKv/HYag/610oAMLuBWaU+TI
-	sJY5XVfUW0MLZzwoOqeaQ4uD+fgvRdQKz1n6lK8BSdhxhGFxYepelPtfnScLM+hQSydfJvc0jNS
-	X+yFhC9pg26jsLybhBAX+X6pZFp5ZM6VJEb4fkQVP28OClg7VV4kgs85r+yIKy9uByNwdGl252s
-	WyWimGuIHWUyIHm9/Bv22DZixOhXcapoODUy5z03LYInLdJpzdtupOrak/naXTR6QyYLL/55rnv
-	1dGXxfBoX9erT0DGknQNaVApvsFSVMfefBR5QXJ0OHR4IRnXeUcutI/YTN+HNGApVAh7AoEceoD
-	ISdZmeuBZWv+TwHXqhjMKZoVnsoS2JV0/g==
-X-Received: by 2002:a05:6102:6f06:b0:7d2:8e49:f90e with SMTP id ada2fe7eead31-7d7395fe209mr1549680137.27.1795231924815;
-        Fri, 20 Nov 2026 19:32:04 -0800 (PST)
+        bh=TAKJX2eFfbSxexSFrpKVYNT5rJCAgJ+amarkA8wMwcg=;
+        b=OaObaI8z4zuwG2nFU10fMY6afMHKd+3T6i0kgwSGpZ3js0fKMF4Kig42OE88M6yGCv
+         o9s9FIyzVaKhURrrFcVkW3TwisThS26BE1cY6DFmMFpSscF/j5M0Do7LkwoIXOguU/4J
+         fDfIVUeJ3kNOQ4Cun8CFqk9AyK2YlusVbj5S2UBh1Af2fjQHzlY9FaAgcMFORMMdDz73
+         tYWCsUfLOm4JLRuxBILJtvJMQKc5OtQyz8TNDBPccGMVXJ2MUdGl9JlxYZUeHlbjX4fx
+         W0dn2NrrUPCreszV0tWdMN+NTnh93bENJKmkPHTeelORkDmVqOFPMZgsHkX6+5jnVlsq
+         3DQg==
+X-Forwarded-Encrypted: i=1; AL+hErFs0zUsG5x+mBMGrWUqbDe9DQcogM82E4qmG97zRSJkJUAXAF1YWhlDUr2b/XIubgWK1GCxgAN/+0OsCZI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8G5/DrzHl27E03FquGnCbUJ37KTvtsS93ALkTGD13z+UhNq54s
+	I/Fe9Hj2b4+JxInorAsJjqmKFB/ai9ljaJASZemvMIWzwxUPh8hsYsD8o14soEBPokA=
+X-Gm-Gg: AZFdTZfBc0+D4wVWliYs+SQVXoJja5NiqqMCzCCF85hA/djAAEte/upqU6SxPUtfl2A
+	WveaniUoPP6NPZgywyg6gokVcjzQn/MR/8MOcQcEr2uO2HN+mWemoy0I0vRZnggtsdfqpGCFAQ6
+	5K5z/ys+4aCW+OGJVjKa+2qC2iyif4Fv5qTFlChPsFz7Kdznja0WTtZ1tg9YzJYarKWevDaRmeg
+	GigfG1qdiL2ftK/JKpzHyfARpM95KM80eh1c6FPUUwBe0Id25/yloPGg/KUzGGpwFV4gxOlk6kQ
+	7lITDwI8HSY7xhI9swY35IUv0+lAUDi7xC8RIre5Fqb3APULahDo/Rq4dg5YWN3EXIoiW5QDnci
+	dlmMhHwFTfudkfQ4A3PJ9O8RUBVDcGeIhFm29Eu1JTuSAhQXBdJgyX6SeYMdsmVOdIPSemPaUH5
+	B9y69qqQ7Yg4++5IxpdqAXHNQbV+32YFxPo6fBO0nQZBGeLH1PuagAtjs/sichiXySCW6NPjBe0
+	6ofxhx3uo697nr/GRqEKpGsah4MwPt/bdDCLSvAuwVNZkSCi1zI7RgTpmKFQiLgzygUpf2vBYu8
+	YV5bqmnvet2zmY9bCxUMzBKV/MT891HWCyfNOmGqo5EeQDGCT0fhFg==
+X-Received: by 2002:a05:6102:508f:b0:7cc:94e0:ad23 with SMTP id ada2fe7eead31-7d73967085bmr2738629137.31.1795231932385;
+        Fri, 20 Nov 2026 19:32:12 -0800 (PST)
 Received: from shine.local ([168.196.221.52])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e7f3d7bcsm4871081137.4.2026.11.20.19.32.02
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e7f3d7bcsm4871081137.4.2026.11.20.19.32.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 19:32:04 -0800 (PST)
+        Fri, 20 Nov 2026 19:32:12 -0800 (PST)
 From: "Andrei A. Bykov" <andreiab9019@gmail.com>
 To: linux-bluetooth@vger.kernel.org
 Cc: marcel@holtmann.org,
 	luiz.dentz@gmail.com,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] Bluetooth: hci_event: keep event waiters pending on unrelated replies
-Date: Sat, 21 Nov 2026 00:31:03 -0300
-Message-ID: <20261121033104.441146-2-andreiab9019@gmail.com>
+Subject: [PATCH 2/2] Bluetooth: hci_core: keep the LE feature hold until completion
+Date: Sat, 21 Nov 2026 00:31:04 -0300
+Message-ID: <20261121033104.441146-3-andreiab9019@gmail.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261121033104.441146-1-andreiab9019@gmail.com>
 References: <20261121033104.441146-1-andreiab9019@gmail.com>
@@ -100,91 +100,50 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-An incoming bonded LE connection may issue LE Read Remote Features and
-wait for its terminal event while responding to an LTK Request with an
-asynchronous LTK Request Reply.
+LE feature discovery owns a connection hold until
+le_read_features_complete() runs. If encryption finishes while the
+connection is in BT_CONFIG, hci_encrypt_cfm() also drops a hold after
+notifying the upper layers.
 
-hci_req_cmd_complete() accepts the reply as a valid sent command but
-selects the completion callback from req_skb. If req_skb still belongs to
-Remote Features, the LTK reply completes that request before its terminal
-event arrives. This releases the feature hold while the connection is
-still in BT_CONFIG and can immediately disconnect it.
+When an ATT socket has taken its own hold, the sequence is:
+  feature discovery:        0 -> 1
+  ATT connection:           1 -> 2
+  encryption confirmation:  2 -> 1
+  feature completion:       1 -> 0
 
-Keep an active request with a terminal event pending when a valid reply
-belongs to a different opcode. Apply the guard to Command Complete and
-Command Status after command-specific handling and command-credit
-updates, and continue scheduling queued commands.
+The final drop arms the incoming connection's disconnect timer despite
+the open ATT socket. After applying the event-waiter fix, four hardware
+attempts showed the same sequence and a local disconnect approximately
+four seconds later.
 
-Limit the guard to an active waiter. Replies following cancellation or
-timeout retain the existing pending-flag cleanup. Unmatched replies still
-reach the spontaneous Reset recovery path, and matching replies retain
-their existing completion semantics.
+Restrict the drop in hci_encrypt_cfm() to non-LE links. BR/EDR connection
+setup takes its configuration hold in hci_conn_complete_evt() and still
+needs this drop. LE feature discovery releases its hold in its own
+completion callback, including error paths. Keep the state transition
+and upper-layer confirmation when encryption finishes first.
 
-Observed with an Intel AX210 peripheral, BlueZ 5.88 and a bonded Windows
-central. Three unpatched attempts disconnected immediately after LTK
-Reply completion, before Remote Features completion.
+With both fixes on Linux 7.3.5, a hardware trace leaves the ATT hold at
+one after feature completion and drops it to zero only when the test
+explicitly closes the connection.
 
-Fixes: 2615fd9a7c25 ("Bluetooth: hci_sync: Fix overwriting request callback")
+Fixes: a106e50be74b ("Bluetooth: HCI: Add support for LL Extended Feature Set")
 Signed-off-by: Andrei A. Bykov <andreiab9019@gmail.com>
 ---
- net/bluetooth/hci_event.c | 26 ++++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+ include/net/bluetooth/hci_core.h | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/net/bluetooth/hci_event.c b/net/bluetooth/hci_event.c
-index ab875b9..5281551 100644
---- a/net/bluetooth/hci_event.c
-+++ b/net/bluetooth/hci_event.c
-@@ -4862,6 +4862,18 @@ static void hci_cmd_complete_evt(struct hci_dev *hdev, void *data,
+diff --git a/include/net/bluetooth/hci_core.h b/include/net/bluetooth/hci_core.h
+index 4aa0b49..227830f 100644
+--- a/include/net/bluetooth/hci_core.h
++++ b/include/net/bluetooth/hci_core.h
+@@ -2335,7 +2335,9 @@ static inline void hci_encrypt_cfm(struct hci_conn *conn, __u8 status)
+ 			conn->state = BT_CONNECTED;
  
- 	handle_cmd_cnt_and_timer(hdev, ev->ncmd);
- 
-+	/* An unrelated command may complete while a request waits for its
-+	 * terminal event. Process the reply and command credits, but do not
-+	 * complete the pending request with that command's response.
-+	 * Unmatched replies must still reach hci_req_cmd_complete(), e.g.
-+	 * for the spontaneous Reset workaround during initialization.
-+	 */
-+	if (READ_ONCE(hdev->req_status) == HCI_REQ_PEND &&
-+	    hdev->req_skb && hci_skb_event(hdev->req_skb) &&
-+	    hci_skb_opcode(hdev->req_skb) != *opcode &&
-+	    hci_sent_cmd_data(hdev, *opcode))
-+		goto queue_next;
-+
- 	hci_req_cmd_complete(hdev, *opcode, *status, req_complete,
- 			     req_complete_skb);
- 
-@@ -4871,6 +4883,7 @@ static void hci_cmd_complete_evt(struct hci_dev *hdev, void *data,
+ 		hci_connect_cfm(conn, status);
+-		hci_conn_drop(conn);
++		/* LE feature discovery releases its own hold asynchronously. */
++		if (conn->type != LE_LINK)
++			hci_conn_drop(conn);
  		return;
  	}
  
-+queue_next:
- 	if (atomic_read(&hdev->cmd_cnt) && !skb_queue_empty(&hdev->cmd_q))
- 		queue_work(hdev->workqueue, &hdev->cmd_work);
- }
-@@ -4982,6 +4995,18 @@ static void hci_cmd_status_evt(struct hci_dev *hdev, void *data,
- 
- 	handle_cmd_cnt_and_timer(hdev, ev->ncmd);
- 
-+	/* An unrelated command may complete while a request waits for its
-+	 * terminal event. Process the reply and command credits, but do not
-+	 * complete the pending request with that command's response.
-+	 * Unmatched replies must still reach hci_req_cmd_complete(), e.g.
-+	 * for the spontaneous Reset workaround during initialization.
-+	 */
-+	if (READ_ONCE(hdev->req_status) == HCI_REQ_PEND &&
-+	    hdev->req_skb && hci_skb_event(hdev->req_skb) &&
-+	    hci_skb_opcode(hdev->req_skb) != *opcode &&
-+	    hci_sent_cmd_data(hdev, *opcode))
-+		goto queue_next;
-+
- 	/* Indicate request completion if the command failed. Also, if
- 	 * we're not waiting for a special event and we get a success
- 	 * command status we should try to flag the request as completed
-@@ -4998,6 +5023,7 @@ static void hci_cmd_status_evt(struct hci_dev *hdev, void *data,
- 		}
- 	}
- 
-+queue_next:
- 	if (atomic_read(&hdev->cmd_cnt) && !skb_queue_empty(&hdev->cmd_q))
- 		queue_work(hdev->workqueue, &hdev->cmd_work);
- }
