@@ -1,85 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.149
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795242823;
-	b=TmmQQCnD7ChT4rIBWuMLiWQ9dbUQSkZ2vWi6ZuoKAVw0WwwlKuJerxGqqvnD/PFZRdjW
-	 KU0wnX+W9qv8fk3bsukgV7HDLslRVuuoxJB0kHKNBs60Uf32eqIj1SLO3NzgIRvQKF7gU
-	 CGHPNniwTzdI907QC12Amyh/N1qRtkIpf3kavTb8lEpzaBaX+itNbDB6DS12yD2lPOP4i
-	 X4IX1K0hnfzkEEq0RWVWBPsksY1wGiz0xrf5nFuOLvPKBL++cAVVHnbCE7zD+5NXXvhX+
-	 4ZNpCXqawi3Zyty7YSBuqUkVvo3eRgTxjsyVa/IQaweL7hTLMJWIxB6m6zX895PachQ==
+	t=1795242930;
+	b=WtCYnGfL4qj83UVXI9celmP68xify0VCMvXwJnkScsdCgM2Pv2G0BLVSH9srI7IJW9m7
+	 sAJOWUwfMArh0jRrNJgtIXzLhX+FsHhu9gK6PESYravdehadA6gRrcrrITX3YD8FmZzrP
+	 EzFq0Kkdg+QXDYQIoLwd/Oy9eVUbNP2KB/zTUaqE+jaL6vdScXWZ71ecG7O9wdvISgi5a
+	 +cRl5d4+CMG6O2dK3DqbWhWrgYKyF6WH5DHCPq3T5dJh2/SPo/YKs5diXWiczEkSwdnCw
+	 OhZEvXoJpfyEbl9W2UEZb+JKM/zXMn1I8cTUrWesmUBccUA5gy0fGjuwcdc/DhW6QQA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795242823;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=WCE0vUfhS0MhPYOM4DRo/ve5dejGQTzGK0Aug4NmRXQ=;
-	b=El0J6WRGcu4g6QzplML3JlMnWQGGtG+gTm6tLPbW0ldk9S0QsC5kp6hq4JwEegNtVT/C
-	 02VOmXY0ckqM/GWkIOIlD5UiR/t1Vh222+Dld330N9bUTE9M+zvbKcv/R7Y55T60FG3LN
-	 eWxcmHSaJuUVZTsOa/kpHa91oE96VHyWrzC6k3uWix2iXI2TaR1TiyxMK3J/EaIhXQ6VP
-	 jK4frpmSUkkW7n9GJ+UgdpEHBDnOIQxfAm4Qr/NnBpNXd//W1gjvThkdTIAsakI5f9s4y
-	 sXua70HWUb0zuFm+dfstYQR0MWRmqya89c9NBCcCmRuRwTjVwUmpH5hLan7MUVrxwNA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795242930;
+	h=DMARC-Filter:X-Alimail-AntiSpam:Received:Date:From:To:Cc:Subject:
+	 Message-ID:MIME-Version:Content-Type:Content-Disposition;
+	bh=TuiyLAKZEvQwfukYNp4fOV5+cnoySxg2Xk/+x0BUTFs=;
+	b=J9U7YqZQtruj+i7bgzX0u7l4eSPdKnrICsrvJ2QSHpqZH/whnJk8egfOJjvYw9RSLUBI
+	 zkTEI6UcWzGEUPa1NYlvnGM6hiAAFFUEDY9kW+BhmGcBa/PuIfssveM5f3A8Fx8B3HTq3
+	 bHyEqu+e3PUuWz7zlFyD74vkpdeCS3IIXtRSecgeyT2nGXOImI0oy+ZgSy5hfwBK1N3IF
+	 EUA9bXcBLf3az7uwmvwHZKVYsE02WIDrWQt3rckiICYfEmmdHd1sZvrkJ5AjGukwTann/
+	 UVI/9mzptq4O6To9Uc116W8HEca/apLeSv3HBtI93/lAkk3IsDgJX3DeWJ4x+NAGaFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b="yt/wcE0V";
-	arc=none smtp.remote-ip=203.205.221.149
-Received: from out203-205-221-149.mail.qq.com (out203-205-221-149.mail.qq.com [203.205.221.149])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=none header.from=sjterm.com;
+	spf=pass smtp.mailfrom=sjterm.com;
+	arc=none smtp.remote-ip=115.124.28.43
+Received: from out28-43.mail.aliyun.com (out28-43.mail.aliyun.com [115.124.28.43])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A049606A33D;
-	Sat, 21 Nov 2026 06:33:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A049606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=yt/wcE0V
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795242816; bh=WCE0vUfhS0MhPYOM4DRo/ve5dejGQTzGK0Aug4NmRXQ=;
-	h=From:To:Cc:Subject:Date;
-	b=yt/wcE0VqUe3YStJRPZ64ruksnzgz5e5T3jmDUlwhR6IWTVR/bNblcjNvVD/4p9LF
-	 Ec1p/8XI7iv7oASsB+aFKC5aZmTpM9/BoJY/FdDcYfBPSvitVLI1eZve9fl88V4FdV
-	 cD4AS2VuwwTwcrGnTUDUYZ/44uVDfsEmbuH3faCU=
-Received: from jerry-PC.lan ([2408:8249:5f:7101:71a:8713:56b4:5043])
-	by newxmesmtplogicsvrsza53-0.qq.com (NewEsmtp) with SMTP
-	id 86136C4F; Sat, 21 Nov 2026 14:33:33 +0800
-X-QQ-mid: xmsmtpt1795242813t2sx48k49
-Message-ID: <tencent_5995CC7B942E7CD204E49AE7AE32164BAB09@qq.com>
-X-QQ-XMAILINFO: OZZSS56D9fAjSJ9wQXs34T/QCnXRQN1WHKrDU0AzKxo+oPpQOEt6oaKnTYBun0
-	 dhvk7l0VVzmWluLRZUV2IobXFwWimg3+dCrdNAqANIm/ZlYYeyrpFvHKeJduD/9yS8OtbK72EPhs
-	 jN73tWTYZUQNQCAv725uvIGjmsbZJUx0puQF9D6RX65exj+s2nlJZYVXMIeoQQVNZ8Ev1Hufw0/C
-	 qZ0aUcDa/Z1FE+ZolIkZNHBBJ0moqEpnYor+6xbq2CfU9WI6DVicRtZBVAkOFd4vPdr/aWfc1IOp
-	 NkIdWmIAi5CJ6Ychu651fWd80ykyDJLPOG0ge51CjvV//mZ8zKMeq479QVb3UqOenMFGEEc/AZ8V
-	 SISR7e/JwYnKxD4oTzptfHDFs6t1iYKB771+wmLZHYagFndpNvFJ9l+XNmy2Ob6nAfdEryvXRPVi
-	 uVwqhZzsUMgq5W2VXZkymaKt4RwUfR9qGzKRf1CecRNvxvh52KiC7ofapyscIvxLaGY0JJyr3tYF
-	 D3/mn4iO6lA9qV0X9P+lk2TAr3LmUlvJLaljktBDjkJ6z+QsEfFzBrCO9U8u0hD+VcrXzQKPsPi5
-	 iQwt7xWU81zcsk9E48Vwe1HlhoN3NLHfXAQtFXaoueB3vrtPA/bQXGVZYcFlrVM7rk6u1VYKptbi
-	 Wb7MtiJbtW1z4n7gYxLXbjl1GWJZCpYB74i03GRNf4NEImzYexSrRYCQK+940Xil6BiWBtRfzLKx
-	 CzGyGp8NLSVAk8vBfXFs/IRfq9gZVPUA+aoVHyX50AIfQgB2WsHSPdJzeZHjeWNh4Qv2dQ98yv5G
-	 LofJFsdTT2ULQzuJB64nqLbW8SgnSfbtPrA2t3sFm2vJIN7u3TRNwXT7CtQ9WS4V9yKE0M6G7BcL
-	 3UdcYngiz8FLby2LpJfy2EpMfPL6QysM+dvF/1b06CcNxX02fIzwHy6xRF9LVei8UojHx5sIEgCM
-	 MY1jRwGcLMTNx6OCmorD4aaGe0NXnMIZFbG81F1oetvmm3ODNEGyC97g+sdMp7ov/bhEG7sUD12G
-	 wSqj0WOeWiSS3RHrZHADNtyoBwOPYeDeeRrGFgEdx2cuMaXulRASi144AeL9EWXMWYrvAFOf0LBw
-	 ul5hI8IEyjGdMvDr7xktyeeLjshe6jLbkyIIxMGLG95gUEobFAyb+oxqIkqDGiX6RS7KMkl++8l2
-	 05qfSB0I4pXA81Hw==
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-From: ZhuXiangyu <1194781887@qq.com>
-To: "Rafael J . Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	ZhuXiangyu <1194781887@qq.com>
-Subject: [PATCH 1/2] thermal: rockchip: add RK3506 TSADC support
-Date: Sat, 21 Nov 2026 14:33:29 +0800
-X-OQ-MSGID: <20261121063330.1094548-1-1194781887@qq.com>
-X-Mailer: git-send-email 2.47.3
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11211606A33A;
+	Sat, 21 Nov 2026 06:35:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11211606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sjterm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sjterm.com
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07442638|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.0204295-0.000480235-0.97909;FP=16645005566030868333|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033032065030;MF=fuyao@sjterm.com;NM=1;PH=DS;RN=6;RT=6;SR=0;TI=SMTPD_---.k6zA2dx_1795242915;
+Received: from localhost(mailfrom:fuyao@sjterm.com fp:SMTPD_---.k6zA2dx_1795242915 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Sat, 21 Nov 2026 14:35:15 +0800
+Date: Sat, 21 Nov 2026 14:35:15 +0800
+From: Fuyao Kashizuku <fuyao@sjterm.com>
+To: Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>,
+	linux-serial@vger.kernel.org
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, linux-kernel@vger.kernel.org
+Subject: [PATCH] serial: 8250_dwlib: Restore NOTEMT for em485
+Message-ID: <awE7o4z1DMGb-YMg@debian.cyg>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,230 +51,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 
-The RK3506 TSADC is based on the TSADCV13 register layout and provides
-a single CPU sensor channel. Its analog front-end is enabled through
-the GRF and the controller needs the TSEN clock for the sensor analog
-supply.
+From: Fuyao Kashizuku <fuyao@sjterm.com>
 
-Add the chip data, the conversion table, the initialization sequence
-and a suspend callback that turns the analog front-end off while the
-SoC is suspended. Also grab the optional TSEN clock so that it is not
-disabled as unused.
+A DesignWare UART using software RS485 can transmit one byte and then
+leave the next write queued indefinitely.
 
-Tested on an RK3506B EVB: the thermal zone registers successfully and
-reports the on-chip temperature correctly.
+dw8250_setup_port() sets UART_CAP_NOTEMT because the UART does not
+interrupt when the shift register becomes empty. If neither hardware
+nor platform data supplies a component parameter register (CPR) value,
+the driver leaves UPF_FIXED_TYPE clear. When autoconfig() identifies
+a 16550A, it replaces the capabilities with the type defaults and drops
+UART_CAP_NOTEMT.
 
-Tested-by: ZhuXiangyu <1194781887@qq.com>
-Signed-off-by: ZhuXiangyu <1194781887@qq.com>
+If the TX FIFO empties while the shift register is still busy, __stop_tx()
+then returns without arming the stop timer or clearing THRI. With no
+further interrupt when the last bit leaves the wire, em485 can stay in
+transmit mode and a subsequent write can remain queued.
+
+Restore UART_CAP_NOTEMT in the DW software RS485 configuration callback.
+This lets the existing em485 timer finish the transmission and release
+RTS after the last character.
+
+Fixes: 5ff33917faca ("serial: 8250_dwlib: Implement SW half duplex support")
+Assisted-by: Codex:gpt-6
+Signed-off-by: Fuyao Kashizuku <fuyao@sjterm.com>
 ---
- drivers/thermal/rockchip_thermal.c | 101 +++++++++++++++++++++++++++++
- 1 file changed, 101 insertions(+)
+Tested on UART1 of an Allwinner T113 board running a 6.12.60-based BSP.
+The board uses a GPIO for direction. The BSP forces the DW software RS485
+path for this wiring. Both runs used 115200 baud and a 1 ms RTS delay
+before and after transmission.
 
-diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchip_thermal.c
-index 5e327039..fbfd78a6 100644
---- a/drivers/thermal/rockchip_thermal.c
-+++ b/drivers/thermal/rockchip_thermal.c
-@@ -104,6 +104,7 @@ struct rockchip_tsadc_chip {
- 	/* Chip-wide methods */
- 	void (*initialize)(struct regmap *grf,
- 			   void __iomem *reg, enum tshut_polarity p);
-+	void (*suspend)(struct regmap *grf, void __iomem *reg);
- 	void (*irq_ack)(void __iomem *reg);
- 	void (*control)(void __iomem *reg, bool on);
- 
-@@ -146,6 +147,7 @@ struct rockchip_thermal_sensor {
-  * @sensors: array of thermal sensors
-  * @clk: the controller clock is divided by the exteral 24MHz
-  * @pclk: the advanced peripherals bus clock
-+ * @tsen: the sensor analog clock, optional
-  * @grf: the general register file will be used to do static set by software
-  * @regs: the base address of tsadc controller
-  * @trim_base: major component of sensor trim value, in Celsius
-@@ -165,6 +167,7 @@ struct rockchip_thermal_data {
- 
- 	struct clk *clk;
- 	struct clk *pclk;
-+	struct clk *tsen;
- 
- 	struct regmap *grf;
- 	void __iomem *regs;
-@@ -210,6 +213,7 @@ struct rockchip_thermal_data {
- #define TSADCV2_AUTO_PERIOD_HT			0x6c
- #define TSADCV3_AUTO_PERIOD			0x154
- #define TSADCV3_AUTO_PERIOD_HT			0x158
-+#define TSADCV9_Q_MAX				0x210
- 
- #define TSADCV2_AUTO_EN				BIT(0)
- #define TSADCV2_AUTO_EN_MASK			BIT(16)
-@@ -220,6 +224,7 @@ struct rockchip_thermal_data {
- #define TSADCV2_AUTO_TSHUT_POLARITY_MASK	BIT(24)
- 
- #define TSADCV3_AUTO_Q_SEL_EN			BIT(1)
-+#define TSADCV3_AUTO_Q_SEL_EN_MASK		BIT(17)
- 
- #define TSADCV2_INT_SRC_EN(chn)			BIT(chn)
- #define TSADCV2_INT_SRC_EN_MASK(chn)		BIT(16 + (chn))
-@@ -246,6 +251,10 @@ struct rockchip_thermal_data {
- #define TSADCV6_AUTO_PERIOD_TIME		5000 /* 2.5ms */
- #define TSADCV6_AUTO_PERIOD_HT_TIME		5000 /* 2.5ms */
- 
-+#define TSADCV13_AUTO_PERIOD_TIME		2500 /* 2.5ms */
-+#define TSADCV13_AUTO_PERIOD_HT_TIME		2500 /* 2.5ms */
-+#define TSADCV13_Q_MAX_VAL			0x3ff /* 10bit 1023 */
-+
- #define TSADCV2_USER_INTER_PD_SOC		0x340 /* 13 clocks */
- #define TSADCV5_USER_INTER_PD_SOC		0xfc0 /* 97us, at least 90us */
- 
-@@ -255,6 +264,10 @@ struct rockchip_thermal_data {
- 
- #define PX30_GRF_SOC_CON2			0x0408
- 
-+#define RK3506_GRF_TSADC_CON			0x0010
-+#define RK3506_GRF_TSADC_TSEN			(0x10001 << 8)
-+#define RK3506_GRF_TSADC_ANA			(0xff0007 << 0)
-+
- #define RK3568_GRF_TSADC_CON			0x0600
- #define RK3568_GRF_TSADC_ANA_REG0		(0x10001 << 0)
- #define RK3568_GRF_TSADC_ANA_REG1		(0x10001 << 1)
-@@ -526,6 +539,17 @@ static const struct tsadc_table rk3399_code_table[] = {
- 	{TSADCV3_DATA_MASK, 125000},
- };
- 
-+static const struct tsadc_table rk3506_code_table[] = {
-+	{0, -60000},
-+	{362, -60000},
-+	{395, -40000},
-+	{503, 25000},
-+	{604, 85000},
-+	{672, 125000},
-+	{757, 180000},
-+	{TSADCV3_DATA_MASK, 180000},
-+};
-+
- static const struct tsadc_table rk3568_code_table[] = {
- 	{0, -40000},
- 	{1584, -40000},
-@@ -863,6 +887,40 @@ static void rk_tsadcv8_initialize(struct regmap *grf, void __iomem *regs,
- 			       regs + TSADCV2_AUTO_CON);
+Two one-byte writes ('V', then '7' about 300 ms later) each returned 1.
+Before the fix the peer received only 'V', the TX counter stayed at 1,
+and TIOCOUTQ still reported 1. With the fix the peer received 'V7',
+TIOCOUTQ returned 0, and the board received the peer's six-byte reply.
+
+The change was built and run on the BSP. It was checked for clean
+application to the mainline base below.
+Codex assisted with diagnosis, the code change and the test runs.
+
+ drivers/tty/serial/8250/8250_dwlib.c | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/tty/serial/8250/8250_dwlib.c b/drivers/tty/serial/8250/8250_dwlib.c
+index 9bb02a4ab11f..5a6ba9e921b0 100644
+--- a/drivers/tty/serial/8250/8250_dwlib.c
++++ b/drivers/tty/serial/8250/8250_dwlib.c
+@@ -170,6 +170,21 @@ static int dw8250_rs485_config(struct uart_port *p, struct ktermios *termios,
+ 	return 0;
  }
  
-+static void rk_tsadcv13_initialize(struct regmap *grf, void __iomem *regs,
-+				   enum tshut_polarity tshut_polarity)
++static int dw8250_em485_config(struct uart_port *p, struct ktermios *termios,
++			       struct serial_rs485 *rs485)
 +{
-+	regmap_write(grf, RK3506_GRF_TSADC_CON, RK3506_GRF_TSADC_TSEN);
-+	usleep_range(10, 20);
-+	regmap_write(grf, RK3506_GRF_TSADC_CON, RK3506_GRF_TSADC_ANA);
-+	usleep_range(100, 200);
 +
-+	writel_relaxed(TSADCV13_AUTO_PERIOD_TIME, regs + TSADCV3_AUTO_PERIOD);
-+	writel_relaxed(TSADCV13_AUTO_PERIOD_TIME,
-+		       regs + TSADCV3_AUTO_PERIOD_HT);
-+	writel_relaxed(TSADCV2_HIGHT_INT_DEBOUNCE_COUNT,
-+		       regs + TSADCV3_HIGHT_INT_DEBOUNCE);
-+	writel_relaxed(TSADCV2_HIGHT_TSHUT_DEBOUNCE_COUNT,
-+		       regs + TSADCV3_HIGHT_TSHUT_DEBOUNCE);
-+	writel_relaxed(TSADCV13_Q_MAX_VAL, regs + TSADCV9_Q_MAX);
-+	if (tshut_polarity == TSHUT_HIGH_ACTIVE)
-+		writel_relaxed(TSADCV2_AUTO_TSHUT_POLARITY_HIGH |
-+			       TSADCV2_AUTO_TSHUT_POLARITY_MASK,
-+			       regs + TSADCV2_AUTO_CON);
-+	else
-+		writel_relaxed(TSADCV2_AUTO_TSHUT_POLARITY_MASK,
-+			       regs + TSADCV2_AUTO_CON);
-+	writel_relaxed(TSADCV3_AUTO_Q_SEL_EN | TSADCV3_AUTO_Q_SEL_EN_MASK,
-+		       regs + TSADCV2_AUTO_CON);
++	struct uart_8250_port *up = up_to_u8250p(p);
++
++	/*
++	 * Without CPR, 8250 autoconfiguration can overwrite capabilities.
++	 * Restore NOTEMT before enabling emulation: DW has no TEMT interrupt.
++	 */
++	up->capabilities |= UART_CAP_NOTEMT;
++
++	return serial8250_em485_config(p, termios, rs485);
 +}
 +
-+static void rk3506_tsadc_suspend(struct regmap *grf, void __iomem *regs)
-+{
-+	/* Disable the analog front-end while the SoC is suspended. */
-+	regmap_write(grf, RK3506_GRF_TSADC_CON,
-+		     RK3506_GRF_TSADC_TSEN & 0xffff0000);
-+}
-+
- static void rk_tsadcv2_irq_ack(void __iomem *regs)
- {
- 	u32 val;
-@@ -1280,6 +1338,29 @@ static const struct rockchip_tsadc_chip rk3399_tsadc_data = {
- 	},
- };
- 
-+static const struct rockchip_tsadc_chip rk3506_tsadc_data = {
-+	.chn_offset = 0, /* cpu sensor is channel 0 */
-+	.chn_num = 1, /* one channel for tsadc */
-+	.grf_required = true,
-+	.tshut_mode = TSHUT_MODE_CRU, /* default TSHUT via CRU */
-+	.tshut_polarity = TSHUT_LOW_ACTIVE, /* default TSHUT LOW ACTIVE */
-+	.tshut_temp = 95000,
-+	.initialize = rk_tsadcv13_initialize,
-+	.suspend = rk3506_tsadc_suspend,
-+	.irq_ack = rk_tsadcv4_irq_ack,
-+	.control = rk_tsadcv4_control,
-+	.get_temp = rk_tsadcv4_get_temp,
-+	.set_alarm_temp = rk_tsadcv3_alarm_temp,
-+	.set_tshut_temp = rk_tsadcv3_tshut_temp,
-+	.set_tshut_mode = rk_tsadcv4_tshut_mode,
-+	.table = {
-+		.id = rk3506_code_table,
-+		.length = ARRAY_SIZE(rk3506_code_table),
-+		.data_mask = TSADCV3_DATA_MASK,
-+		.mode = ADC_INCREMENT,
-+	},
-+};
-+
- static const struct rockchip_tsadc_chip rk3568_tsadc_data = {
- 	/* cpu, gpu */
- 	.chn_offset = 0,
-@@ -1383,6 +1464,10 @@ static const struct of_device_id of_rockchip_thermal_match[] = {
- 		.compatible = "rockchip,rk3399-tsadc",
- 		.data = (void *)&rk3399_tsadc_data,
- 	},
-+	{
-+		.compatible = "rockchip,rk3506-tsadc",
-+		.data = (void *)&rk3506_tsadc_data,
-+	},
- 	{
- 		.compatible = "rockchip,rk3568-tsadc",
- 		.data = (void *)&rk3568_tsadc_data,
-@@ -1736,6 +1821,11 @@ static int rockchip_thermal_probe(struct platform_device *pdev)
- 		return dev_err_probe(&pdev->dev, PTR_ERR(thermal->pclk),
- 				     "failed to get apb_pclk clock.\n");
- 
-+	thermal->tsen = devm_clk_get_optional_enabled(&pdev->dev, "tsen");
-+	if (IS_ERR(thermal->tsen))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(thermal->tsen),
-+				     "failed to get tsen clock.\n");
-+
- 	rockchip_thermal_reset_controller(thermal->reset);
- 
- 	error = rockchip_configure_from_dt(&pdev->dev, np, thermal);
-@@ -1815,6 +1905,10 @@ static int __maybe_unused rockchip_thermal_suspend(struct device *dev)
- 
- 	thermal->chip->control(thermal->regs, false);
- 
-+	if (thermal->chip->suspend)
-+		thermal->chip->suspend(thermal->grf, thermal->regs);
-+
-+	clk_disable(thermal->tsen);
- 	clk_disable(thermal->pclk);
- 	clk_disable(thermal->clk);
- 
-@@ -1842,6 +1936,13 @@ static int __maybe_unused rockchip_thermal_resume(struct device *dev)
- 		return error;
- 	}
- 
-+	error = clk_enable(thermal->tsen);
-+	if (error) {
-+		clk_disable(thermal->pclk);
-+		clk_disable(thermal->clk);
-+		return error;
-+	}
-+
- 	rockchip_thermal_reset_controller(thermal->reset);
- 
- 	tsadc->initialize(thermal->grf, thermal->regs, thermal->tshut_polarity);
--- 
-2.47.3
+ /*
+  * Tests if RE_EN register can have non-zero value to see if RS-485 HW support
+  * is present.
+@@ -202,7 +217,7 @@ void dw8250_setup_port(struct uart_port *p)
+ 		up->lsr_save_mask = LSR_SAVE_FLAGS | DW_UART_LSR_ADDR_RCVD;
+ 		p->rs485_supported = dw8250_rs485_supported;
+ 	} else {
+-		p->rs485_config = serial8250_em485_config;
++		p->rs485_config = dw8250_em485_config;
+ 		p->rs485_supported = serial8250_em485_supported;
+ 		up->rs485_start_tx = serial8250_em485_start_tx;
+ 		up->rs485_stop_tx = serial8250_em485_stop_tx;
 
+base-commit: c44104f3642da720164042623e4832836aefdd8e
