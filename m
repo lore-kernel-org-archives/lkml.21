@@ -1,63 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795260387;
-	b=rW0bdvTu88+TATe16s7UvAfV5fxRd65JWtdCSZQK+XYwb8PM6QSpUEjKOsjc8yl1EfTC
-	 V9HV7H0irJAHRAjT56473TUsVy8FHNNYMHhJ8w0HZE74/FRT2sLGst8/5MDr18j5pz333
-	 XQ+pKnRHxbg0mfMUtgscl2J+oWVZEZca6SIGbvcklIRXmodaBDEJ3ABYMilIgLb/e9Afz
-	 QJbvO23Q3ZfgdSb3EiZVOXu3Oc7hJtsuPYsN1VquabliTrt//OxANW4I5K6Suu//dzBUY
-	 HAapJ0LvcVb5uAJ/gYlApjx+PwLXKJfo449DYpsQ9jc4wFXi1cJx7QhGOjHCZ2fux7w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795260387;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:
-	 MIME-Version:User-Agent:X-ZohoMailClient;
-	bh=WvQDY/6XJyxZ6Kpv8z5j97OZsE+oBbUMKjQCg9UF338=;
-	b=yXEWxzfpLJm6NAD8/wDorU3A2G1PzuNt2kzM3q7Jyr8gRqq9rNSG/ML4PXvlG2ZNOARu
-	 NrxBACGQzsO4FuXR7cU3b3x/04hVvCTZ5ZH6lcVYMqFfVxNhRxYI1f0ssALg3aCWQ2vVp
-	 pceTt8Z7E4vEs7wNCYsA1+mFKMMV4niFJmWrknUS/KU6K4fMjbvYfX0w87EU3EgT2FHof
-	 nKvNcHnrGf12yWBMNV+cl6hiIF3ktvlR3pQqpA+j17G0es60LNpQZPqAvbKwt7nEfx87Y
-	 7g4QhCf64R27VVW29TLIyVVsAv1lVtq+5UbBae368t/tVNEk2SQm0p4v1y5yt48CnzQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rong.moe;
-	spf=pass smtp.mailfrom=rong.moe;
-	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b="O7txkv/7";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795260402;
+	b=pQwOzA4/dRA4hpBI7CYm8tTwB7pwCuLxRDGB3j6Gb7ljlsShxCVlv4XwJ5U72gmw15pO
+	 qKohWguqp4QMDFBdCLPHSoTjH3Ji6v6wZCpAxBK+6pxNvlWEpiYXV8MHsGAGfeix1XPUi
+	 NQfxyWpHzwNSKPS9F3izQya4PWvWo5KDxJT6A1ohgA/Fhq8e82OP6XwVWjPxZgIkf7ReY
+	 YVlRDua1wj97hSjFsRqm4jlMqX5WQi/DucBzB4ijga1PXGsfBp0DPFtsJsQSsiOexiNR4
+	 R0tDAXokbkVx8LPKdQA3wmYWd581tYjBKgI94NyLHttdDjiOKw7HXftGWNmUQAkfcRA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795260402;
+	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
+	 In-Reply-To:References:Subject:From:To:Cc:Date;
+	bh=sGSN7On8nFkwH/9q3bEhemJb5I6b9tJ93aScF88rRUo=;
+	b=KDFteZWM4kM7L2xb/a7/9GVSFC4HzdSkinRN3NN8jlaOfbiiFomMUQpYZ0xGCLKqtlOU
+	 ZWyot0WQjgs8rfieHubW5os4q/V96oCgNrIqi6vrA1jMTS87CjJFNZTY05garZFV7arBU
+	 jmPEAhMm+QQsV+d/FHHJxKKqLb2z8uYp1pPwAFkVpLFGiDh7qL676rIM4yqx+URBsWciX
+	 eJH5lBU/yVWDjbArWg35qSkyN0PP6kNiwrcA0lCNeNwuLRXc2G7koFIcieymI+NtzXRn2
+	 wHGQfRgPruj3jYulQhP6vW2MnHkRrneLFUiANVfEKnW6yliZYfoNlCk2b5UwXVP1Ggw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="g/tABRo7";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25D75606A320;
-	Sat, 21 Nov 2026 11:26:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25D75606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BE62606A320;
+	Sat, 21 Nov 2026 11:26:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=O7txkv/7
-ARC-Seal: i=1; a=rsa-sha256; t=1795260383; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=LfnecYbJB3tiXd3+OdXcW4xfTeDsckeWNW3jE+dQxIvpjOXJzBt4d2VTihl2eucF2IPvNfv6Awb/0avpl5IFokbJTzeMgVZza2eEqwhnGRE3EbIiiw7Hl+dy+/Rc1o2azmQ6cZmnsrzk4gZCn3IbqNTlVAsvpHW/1y46YzscIWo=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795260383; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=WvQDY/6XJyxZ6Kpv8z5j97OZsE+oBbUMKjQCg9UF338=; 
-	b=nn3hbXXjvHa1R4KhwVoEK3WLQeX3u/wrU5lLYnOXj4LlBrBhp+yXJ3v3HB5zjZUq4LMF+D2Lp+NBDPqM1bpcLhMhPpCxdNmjOXzZCGun4q5yeEOphGCz/zBB2zAsAN2GE7QNH4/9tyKwrWKM9hHXdoVuoSOjWlERERbn7+VM4QQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: a=rsa-sha256; b=O7txkv/76duCn9RR421LaI50xLXgTkaThBMrWJtHHOm+tpF+oHWRYRyk9OSNGCCNUPSXVR1c2bSokMBV3eUVS/e898xW+AqJX1SqcQ70xVO6LyXgOoWxWAWXQXGpJPa+U53NfI+XDvvEbpoiPvGiRdVmBWN2rh5h3E5UKt1nk3lq83PR8p2jBVXn4kLrTgPtmKo6vYGn2jxCizRJOgtyHYepquVMhBV08IJZnGQc5D28jd6TiURnwn/yDJD996I9fRr24Nf4bTkfTgwZE+GjLkhNz2+2Rn87VOBIbjLYpR6XQg3X1uYzc9yVEHjgOPCVDrxrWS1QB2K+TVB8ukEpRA==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=WvQDY/6XJyxZ6Kpv8z5j97OZsE+oBbUMKjQCg9UF338=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795260379820428.61296969080024;
-	Sat, 21 Nov 2026 03:26:19 -0800 (PST)
-Message-ID: <77c77dd13a1cc44416ceb28ee4dacfab51c7c220.camel@rong.moe>
-Subject: Re: [PATCH v3 00/11] leds: class: Support custom sysfs groups on
- multicolor and flash LEDs
-From: Rong Zhang <i@rong.moe>
-To: Armin Wolf <W_Armin@gmx.de>, lee@kernel.org, pavel@kernel.org
-Cc: linux-leds@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261120212431.152081-1-W_Armin@gmx.de>
-References: <20261120212431.152081-1-W_Armin@gmx.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Sat, 21 Nov 2026 19:21:11 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g/tABRo7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F09631F000C4;
+	Sat, 21 Nov 2026 11:26:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795260402;
+	bh=sGSN7On8nFkwH/9q3bEhemJb5I6b9tJ93aScF88rRUo=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=g/tABRo7YRPaovOqVvaleGibiGLNGmDReb1edEr1cRdfkwXR+U6lOnUZWqck58eR5
+	 Z3cwfByPRsHNmvYolQqirMc0G/3vWJpqTtqaicPKy9to/lcJZ33T+nWbJEQu8JChr7
+	 k+FfBzmkn4HNrS3F13Qck4Q+3uce2ZxohNtGidXAuTZJDfAVlTX+XsHsadFKYCcRKf
+	 VJspO+9FZo6/YEeByj+sxiXBaI20l2gpyReUGKXjAstw9Iqp19W2OYit2k+/PGH6eg
+	 Esj6Bem/GeE8bUUZbdJgph3/jD5t2FnHq93KSfeycEoHwAQuNxCILDlC45h6Eev7kt
+	 IlStXewlTSFJA==
+Content-Type: multipart/mixed; boundary="===============6756210861823213151=="
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,68 +49,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Evolution 3.62.1-3 
-X-ZohoMailClient: External
+Message-Id: <48ff1b193b49c5f1dad6e9335679ba1129916e61ed94976b0b3b8ba4a92e9948@mail.kernel.org>
+In-Reply-To: <20261121103222.88209-9-jiayuan.chen@linux.dev>
+References: <20261121103222.88209-9-jiayuan.chen@linux.dev>
+Subject: Re: [PATCH bpf 08/11] bpf, sockmap: Fix socket lock taken on a child before accept()
+From: bot+bpf-ci@kernel.org
+To: jiayuan.chen@linux.dev,bpf@vger.kernel.org,ast@kernel.org
+Cc: jiayuan.chen@linux.dev,john.fastabend@gmail.com,jakub@cloudflare.com,davem@davemloft.net,edumazet@kernel.org,kuba@kernel.org,pabeni@redhat.com,horms@kernel.org,kuniyu@google.com,willemb@google.com,ncardwell@google.com,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,shuah@kernel.org,rhkrqnwk98@gmail.com,mhal@rbox.co,mattia.meleleo@coralogix.com,linux-kernel@vger.kernel.org,netdev@vger.kernel.org,linux-kselftest@vger.kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Sat, 21 Nov 2026 11:26:38 +0000 (UTC)
 
-Hi Armin,
+--===============6756210861823213151==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-On Fri, 2026-11-20 at 22:22 +0100, Armin Wolf wrote:
-> Until now drivers are unable to atomically register custom sysfs
-> groups below multicolor and flash LED class devices, because the
-> led_cdev->sysfs_groups field is being overwritten inside the
-> associated initialization functions. This patch series tries to
-> fix this.
->=20
-> The first three patches constify the sysfs attributes of all three
-> LED flavors, while the next four patches fix various unrelated issues
-> affecting LED device initialization. The next two patches migrate
-> the multicolor and flash LEDs to use struct device_type for
-> registering their sysfs attributes, so that led_cdev->sysfs_groups is
-> not touched anymore. The last patch contains a minor optimization
-> for multicolor LEDs.
->=20
-> All patches have been tested on real hardware, with the flash LED
-> interface being tested using a custom kernel module.
+> bpf, sockmap: Fix socket lock taken on a child before accept()
 
-The series looks good to me (except for PATCH 10, as I am not familiar
-with that driver).
+TL;DR: Behaviour change question: sk_msg ingress redirects to not-yet-accepted
+children now fail with -EINVAL instead of queueing, and with
+bpf_msg_cork_bytes() send() may report success while dropping data. Intended?
 
-FWIW, for PATCH 1-9,11:
+> diff --git a/net/ipv4/tcp_bpf.c b/net/ipv4/tcp_bpf.c
+> --- a/net/ipv4/tcp_bpf.c
+> +++ b/net/ipv4/tcp_bpf.c
 
-Reviewed-by: Rong Zhang <i@rong.moe>
+[ ... ]
 
-Thanks,
-Rong
+> @@ -188,9 +188,17 @@ static int tcp_bpf_push_locked(struct sock *sk, struct sk_msg *msg,
+>  int tcp_bpf_sendmsg_redir(struct sock *sk, bool ingress,
+>  			  struct sk_msg *msg, u32 bytes, int flags)
+>  {
+> -	struct sk_psock *psock = sk_psock_get(sk);
+> +	struct sk_psock *psock;
+>  	int ret;
+>
+> +	/*
+> +	 * The listener frees a child that nobody has accepted yet without
+> +	 * waiting for the owner of its socket lock.
+> +	 */
+> +	if (!READ_ONCE(sk->sk_socket))
+> +		return sock_flag(sk, SOCK_DEAD) ? -EPIPE : -EINVAL;
 
->=20
-> Changes since v2:
-> - fix issue inside KTD202X driver
->=20
-> Changes since v1:
-> - use READ_ONCE() inside brightness_hw_changed_show()
-> - fix possible deadlock in led_classdev_notify_brightness_hw_changed()
-> - set led_cdev->dev to NULL when initialization fails
-> - call device_set_node() after device_add()
->=20
-> Armin Wolf (11):
->   leds: class: Constify sysfs attributes
->   leds: multicolor: Constify sysfs attributes
->   leds: flash: Constify sysfs attributes
->   leds: class: Create "brightness_hw_changed" attribute atomically
->   leds: class: Fix race condition when creating the device
->   leds: class: Access brightness_hw_changed exactly once
->   leds: class: Use correct type for brightness_hw_changed field
->   leds: class: Split led_classdev_register_ext()
->   leds: Support custom sysfs groups on multicolor and flash LEDs
->   leds: rgb: ktd202x: Initialize max_brightness before registering LED
->   leds: multicolor: Adjust maximum subled intensity during
->     initialization
->=20
->  drivers/leds/led-class-flash.c      | 153 +++++++++---------
->  drivers/leds/led-class-multicolor.c |  76 ++++-----
->  drivers/leds/led-class.c            | 233 +++++++++++++++++++---------
->  drivers/leds/leds.h                 |   3 +
->  drivers/leds/rgb/leds-ktd202x.c     |   4 +-
->  include/linux/led-class-flash.h     |   5 -
->  include/linux/leds.h                |   2 +-
->  7 files changed, 278 insertions(+), 198 deletions(-)
+Before this patch, an ingress redirect (BPF_F_INGRESS) to a peer that the
+server has not accepted yet queued the data on the psock, and the server
+read it after accept().  Is this change in behavior intended?
+
+A common setup adds the client at BPF_SOCK_OPS_ACTIVE_ESTABLISHED_CB and
+the server child at BPF_SOCK_OPS_PASSIVE_ESTABLISHED_CB, and the client's
+sk_msg program redirects to the peer with BPF_F_INGRESS.  If the client
+sends before the server calls accept(), the child still has
+sk->sk_socket == NULL, so this now returns -EINVAL.
+
+The old path was:
+
+tcp_bpf_sendmsg_redir(child, ingress=true)
+  bpf_tcp_ingress()
+    lock_sock(child)
+    sk_psock_queue_msg()
+    sk_psock_data_ready()
+
+and tcp_bpf_recvmsg() read psock->ingress_msg after accept().  The comment
+in tcp_bpf_recvmsg_parser() ("We may have received data on the
+sk_receive_queue pre-accept ...") suggests pre-accept data on a sockmap
+child is a supported state.
+
+For a plain send(), this means the call fails depending on whether it runs
+before the server's accept().
+
+With bpf_msg_cork_bytes(), the failure looks worse.  In
+tcp_bpf_send_verdict():
+
+    if (unlikely(ret < 0)) {
+        int free = sk_msg_free(sk, msg);
+
+        if (!cork)
+            *copied -= free;
+    }
+    ...
+    if (cork) {
+        sk_msg_free(sk, msg);
+        kfree(msg);
+        msg = NULL;
+        ret = 0;
+    }
+
+For a corked message the data is freed, ret is set to 0 and *copied is left
+unchanged, so can send() report success while the bytes are dropped from
+the TCP stream?
+
+Also, sk_psock_skb_ingress() still queues to unaccepted children, so
+sk_skb and sk_msg redirects now behave differently.
+
+The commit message says "Refuse the ingress redirect too".  It does not
+mention that a redirect which used to deliver now fails, or that corked
+data can be dropped.  Could the ingress case avoid the WARN_ON without
+refusing delivery, or should this behavior change be stated and justified?
+
+>
+> +	psock = sk_psock_get(sk);
+>  	if (unlikely(!psock))
+>  		return -EPIPE;
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/44896626218
+--===============6756210861823213151==--
