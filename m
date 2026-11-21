@@ -1,87 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795280995;
-	b=JO0PDY48l9+AjU/7tVGM5u3eCrd9RD5UxEA0Y3m0fg1kCT5k90k8xhrmg2bZDvo5sOCH
-	 a5gD+21DWdCA5obh49lHqBfAI+tQjraX4xv8W8nrJhFHMEWSy3X88HGOHCQZuk9f1+6NU
-	 Ll71IZ2bvAiW45IgCC82po83Dt/nHYhxZ/S3Odk4s4nVF0IWvSJKFLwOL+w5bV9+DY46N
-	 gm0+Hq2qOOALOOkjWe91RagBldHWX6HopbvWlLcgjjlnlOxJYyp/7UTo1ExEh2yhipSwU
-	 3m06Uo0mR/+/IrVIfh8gmtZKDQgN/OuSK15YAdioMBhS70XST0AVQf5gBdXqqki8+2A==
+	t=1795280990;
+	b=nHE//c9FAxJptLEyhlaClFkSOgjJam6AovyX3rAgPMb79qjFKyWxZPs3cG8VU7GniSQU
+	 e2VCnyuZPRZr/WvL9RxMm3DIbZHud8YiHPhcJpTZ0S3L2lqnQguQeCJw6uf8LFizYPrIQ
+	 qCrOeTQZ9Qj5tisF7x36q5rYAhCsb4DQnVKDd8LO2xyGJbIS/wtEKUK0oLX0laaPNezAM
+	 2PuFnkwRcuEdSAAOrnJ44bJHGK7s3qHTxO2haq9P88zgE0L3LqjNk9EIVRfInZReeD55x
+	 DtODALggrNMuYmyT8ClIK6kCMo3N0Jvrg9SGe31Fmaj7KeGoDHlvZVmELwrGphU2XHA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795280995;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795280990;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Mailer;
-	bh=zDORON3xMDp8H5oOXThyfh+pRFIhkBuXyf3+LFM8vcQ=;
-	b=Ph9FB+CxIkHsvxA0MJpKAsEUF85xRLM1p4nuVSrzP16IPelQx8hkvU7D43QaY9qh+Nnq
-	 7IfMZZUMLXf4Iz/wOGxfiLhcd2xlfieJWqA0MuQMQ87OvJ6DkFxwr8txqm4ok9bJq7Kpf
-	 V7CiYFi3G7yZWlIR8QLE7cz4IZqzyFWABb7QoQwpGdPus6GfN4iKTzCFgliEJazzlSSv4
-	 WtHp2bWoMwrsXDMd1DxXdaEka9CZ8R0/5FO6jdvlx/7IlhPa0ZpIQ612MgRaxp5b95127
-	 I0i01as+KGh29O/fEhxmDr4/UgSy9vM9nRfviqFFEq7FmT63KhAkH/Vjh3DdSminOQA==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Subject:Date:
+	 Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=+/DGpjCF1AMbD6J8UfGRizKwiMAblO4BBrSABe5kffk=;
+	b=oc+HunjpB37YpADAzBNSBPHUM5U05RiQECSRBZWqws2aUdU2+MRH+2rD9RGa6dsdMIiq
+	 9PwoXH6NFSo0OzqjtU6H99fx0KAyQrYrZA5+zzcAakW94avGHuLxJH0hT15ZNbdjwdi1p
+	 Bhx4Sf/qR1fmpPZ1JxR3eHCrD+EJXFOKbe/LnihbnipzaqTyXSRFFFGblV6nl231W/+74
+	 aMi4aPcAXMfcKUQMWZkA4+onTpGYUnqI7N4K4MCVFK/SgmJEmEynhH5/LG5uSrL3VNcRl
+	 w+0BuvPRz3viHbLchdCpAG/zIWZzrpcVI7MagrXbazQ3THWVhRljDzRcRyorAq1mXBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ATrcJoCL;
-	arc=none smtp.remote-ip=74.125.82.48
-Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FBG9O+Pa;
+	arc=none smtp.remote-ip=74.125.82.46
+Received: from mail-dl1-f46.google.com (mail-dl1-f46.google.com [74.125.82.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B93E2606A337
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 17:09:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B93E2606A337
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62CB3606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 17:09:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62CB3606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ATrcJoCL
-Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-1b50438451fso41585c88.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 09:09:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FBG9O+Pa
+Received: by mail-dl1-f46.google.com with SMTP id a92af1059eb24-1b50dc340d9so39532c88.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 09:09:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795280994; x=1795885794; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=zDORON3xMDp8H5oOXThyfh+pRFIhkBuXyf3+LFM8vcQ=;
-        b=ATrcJoCLmDvsJt7us0vYVNcN8Ff7k3YMHTyWBSqVGKwqTmVCVwd/FIrLSgusZrGSB+
-         kZFsKIMcR4xrcT5iBZ6jLMj4rA2JuvJ5mWgH2pz2bNmYxr4swNRW7haMSu04JzSNGRgZ
-         8RpMainQQYIsAObH/oC7HvIdZy3pPctVCBLozGJvX4wkxx2jvpTxEVmH6bIvxkTvvkFM
-         2YUZ0VUY8O9zJYEdV+11iAGyFjl2A+/YaRP3gFHkXLSs6iwR7LP6DjjApLze0eOZMwQv
-         asMQSdnzy9C39/XiM83Ipwo8UBodt7TLnJLf/4vzwo/5OI7K3x0pNK5TPO03YUKXWA2Y
-         8Npg==
+        d=gmail.com; s=20260707; t=1795280988; x=1795885788; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=+/DGpjCF1AMbD6J8UfGRizKwiMAblO4BBrSABe5kffk=;
+        b=FBG9O+PaG46G74PboDUZtRyJfjw4wJ7Vv0L1Fr3Xx/8ZvoTyIBK+C/wqKh8uCFct9n
+         VJIakphsTpYnSLK93XCjiis2PzQcVmI9kOtO5IGsDl4KfR+eKwdaZ3EohsZDYUf0n+4h
+         TuNTv/EpOgT8UiB8OpeAsbkor2TaZxcCETr55ZJEJ0oCeoowlMzbS2pnE8oQrYd0N/hf
+         eyE6/fUnySBSa/YEQGzuM195nDjFrWMPsSX1yRNheMmRfCm1oCTWE5TyD6T3ZkMUwzK6
+         tQijLxlZIRRWn/2Ztk/MChpbADDMolkvHVxrmW0kXXYlKh3CmiRtHaeix61Mm0sRSSLU
+         sqVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795280994; x=1795885794;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zDORON3xMDp8H5oOXThyfh+pRFIhkBuXyf3+LFM8vcQ=;
-        b=Vn1kQY5X1d6LIzRcksTxGq7BuiGvfUYecMMzKUv5HQUwZU7r1itazkLDebbmPpaTgW
-         R2kTr/9h1ZBMFaTUavLFroPtmoZKfRNhJy2iRwHbhL//VsCvWcEY6NBKicYGIyd7MHjn
-         UcIdds2vjgx7iWz7Mk3dNlgqrxtIiWvEGpAz+KzW3hMORYwswk2wWYXBT6F3icWsphU/
-         l7myk519KA7WXRix8iWLf/0361r+zx0FUTLCvfEeFlC8zYyaltSrZy3s/HXOhp0Ca0+v
-         SfcfbvJoplK/CGYO7CFQANMeqzzCWXAopT5JNxjN3EPShj9IuzOXyoyJknax/OoJGM8m
-         F5uA==
-X-Gm-Message-State: APuU4Z8SH8vDitJzAJ+relfMz01bp+yX+TKeQykDFqmp+FyaTwS9Q2v5
-	BCVSZMg7AiiJRF6awG0XBDJrVH7S9Y5xZXLuO8V8xxKxfPXBbrbedXAhKQ3FD9/Zu+dKbrpi
-X-Gm-Gg: AZFdTZemof4m3gZlcU4WKSC4UrztsVvIH+6Y7tL75Oeu3s/opg8FWQUvCsDxSQGqJsD
-	HWfiFYyEcIMBFfs8SNaTbdJGJ0yg6yWP6HFAdF7+EIViwpN3NlJsv99P0FJRxmbbi8srxnhMGku
-	yPYCC0mDf4WGI8GME2EsWzKUPX6B/nVeVQc3/wHeDmOemKAMPKwwtFxhk2dhg6ERyFLwT+yvR3N
-	u3f9ZU2Yb9yPcqf1jVHSmqlwaKdVPHjYb/neGVxvJCQakqhq4dNlkJE9+cd5d1jwmKkumxrcc42
-	BNymVJcwwx9MM+8S9jVLR+hhdcEqdaMRRfJj8FTAhWZ3K02fYnVeyDEQBw9PiZHZ9smAyL13I1L
-	px7/Zdvz0O2fsvsZdapR9/ZNukV4Plimm+DfCb7kQzllfd3HrLWZYWX/ZMkIXzCMcApCCHfOHeY
-	GFgKfqWORKHpSxAWThE+LglyOJ1CHEJ/rmH4kujVtT3G4/zyq215mpJP7U66hH/JlmgheuTFnL8
-	7lPfdA5rWYgqvqM6/I0HpS6bdVrVr8zrfnA0MXQGddR3Xw/tYjom6uJoEX3QAkoqC+514auBxYe
-	gGNmlrdp+dXssOO4ISBPo04ukELjC8u/5OYmdkHB/0BRxZ42NMxyeD731oTBx9SOZ34=
-X-Received: by 2002:a05:701b:450b:20b0:1b5:5a76:dfea with SMTP id a92af1059eb24-1b55a76e18emr7712339c88.0.1795280993507;
-        Sat, 21 Nov 2026 09:09:53 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795280988; x=1795885788;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=+/DGpjCF1AMbD6J8UfGRizKwiMAblO4BBrSABe5kffk=;
+        b=0Z/dsGYabu6sKLLX1uQTcel5hGkbN7Ca2ndLQtU058UDNEXNC8i1U7Hk3HIq5bJZ1P
+         CEyY9M/Pytc021+ACPOIIazGJzTwAmI9iBcwDkyuiSlmviw+K+Z+7gOwIYDTlj05/5T6
+         v2XGjughsIEOnymKrifdaCIDmySsKqT/ojIlPE+aFcpUWpT06Lrs2hrFfzQmKWgLi4uk
+         /Y3+Jq7uIV8pleKEU2fUctD+RQw7UEYpNEOhaNco9fJAYGcEgKMbtM9CAoiBE9w86ZN8
+         KIvESLhaTWTMp7+AiC67EWoGEdvE6x0ic6/3iWjNmNzpOKBGHVpUymq4s1m5brEjx8KS
+         cf8g==
+X-Gm-Message-State: APuU4Z/Qi0YK1fh4ShJxYJTXIoWBXD7OKED0BRjdKaSYEzJGWOsUcT9c
+	snv5DuZeBsZADFiGNtZ2tOxmgxnq6kcgRR08twV4reog67ibUdeSa/NR
+X-Gm-Gg: AZFdTZfGbyh64EgeBtSTjL9CAqGXrfMe1MnBsgZ3zk+N5b7jYFaPCEQJNOcIvzSwCAR
+	wz9s7qkbnWCpYxLu3fGtF9/Cj9MH2IgWp/TTcXA04pwqqaA9DS5vC58e1Di+WR9IqlP65yfxxUN
+	ttq1maK0HZI/lE+klEChRLCRsHa5Di832lb6KfEfeNJnxsnzVPU4Oa0i4aXnhywrm+cF/VxHa8M
+	xHUZcIH9YWaUv6n626+DdfuLaDU4FVvH/8d878AI0+DXSWvjxq6SYN+qSReqJU/9eh17+opivts
+	36Awv9UU01pYBVYdGvcJmQAWGRC85s2Y8WaXtO9YNbhClwCQneWJcOnk54c/r8al3VjCasY7zES
+	ewNCgUOU4GvOJ0t09+Qd4WAesqDTZMFJp75H/QldXQt3WpHtLMws+5bEFnUkKjX2SGxqXwTzsiL
+	WuC4pP2nZ2ahFMYArRWcNY1pp/pSESbteaX8ZW7rhQF+X+kuoDeL4BNSidtBQNwaNXSX6h9jS7X
+	oqmqW3Ib0ZhFOFBLQtRcJJtTMYc0lw/4m8U8f/KJh9A2oBVFGbgc5AeSrUiMwCn2EU3jvMVuIZP
+	/PCV3wI9/7PZIOqnfr7NSGR2s0940b9L+wyCLf+DANACgV3J8njM/kyEPn3k7HojLIQ=
+X-Received: by 2002:a05:701b:2919:b0:1b3:a881:a67b with SMTP id a92af1059eb24-1b5568a8a08mr8858631c88.1.1795280987955;
+        Sat, 21 Nov 2026 09:09:47 -0800 (PST)
 Received: from o6.lan ([2602:fce1:44f:115e::])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55684c85fsm22813152c88.14.2026.11.21.09.09.51
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55684c85fsm22813152c88.14.2026.11.21.09.09.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 09:09:53 -0800 (PST)
+        Sat, 21 Nov 2026 09:09:47 -0800 (PST)
 From: Xueyuan Chen <xueyuan.chen21@gmail.com>
-Date: Sun, 22 Nov 2026 01:09:25 +0800
-Subject: [PATCH RFC 2/3] lib/lz4: add safe decompression from two input
- buffers
+Subject: [PATCH RFC 0/3] zram: avoid copying spanning LZ4 objects before
+ decompression
+Date: Sun, 22 Nov 2026 01:09:23 +0800
+Message-Id: <20261122-zram-split-decomp-mm-rfc-v1-0-4e69b08c0fed@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,238 +93,61 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261122-zram-split-decomp-mm-rfc-v1-2-4e69b08c0fed@gmail.com>
-References: <20261122-zram-split-decomp-mm-rfc-v1-0-4e69b08c0fed@gmail.com>
-In-Reply-To: <20261122-zram-split-decomp-mm-rfc-v1-0-4e69b08c0fed@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAETQAWsC/yWMywrCMBAAf6Xs2YVmhfq4Cn5Ar+IhTTe6YtqwW
+ 0Us/XejHmdgZgZjFTbYVzMoP8VkHAq4VQXh6ocLo/SFgWpqnCPCt/qElu8yYc9hTBlTQo0B102
+ M1PnNtt55KHlWjvL6rU/QHg9w/kt7dDcO03cKy/IBajr+PIEAAAA=
+X-Change-ID: 20261122-zram-split-decomp-mm-rfc-36ff2ba7809a
 To: Minchan Kim <minchan@kernel.org>, 
  Sergey Senozhatsky <senozhatsky@chromium.org>, Jens Axboe <axboe@kernel.dk>
 Cc: linux-kernel@vger.kernel.org, linux-block@vger.kernel.org, 
  Xueyuan Chen <xueyuan.chen21@gmail.com>
 X-Mailer: b4 0.16.0
 
-LZ4_decompress_generic() assumes contiguous input. Its wide literal
-loads can cross the boundary between independently mapped fragments.
+When a compressed object spans two zsmalloc pages, zram copies it into
+a contiguous buffer before decompression. This series lets the LZ4 and
+LZ4HC backends decode dictionary-free blocks directly from the two
+fragments.
 
-Add a dictionary-free block decoder that reads from two buffers and
-handles literals, lengths and offsets that cross the split.
+I measured the time to swap in 1 GiB of synthetic data on arm64 with
+4 KiB pages. Each page started with pseudorandom data of one of 16
+lengths, followed by zeros. On this workload, 32.6% of compressed
+reads spanned two pages with LZ4 and 34.4% with LZ4HC.
 
+The table shows median swap-in times over seven pairs. The last two
+columns summarize the percentage change within each pair.
+
+  Codec  Workers  Baseline (ms)  Patched (ms)   Median   Range
+  LZ4          1        1403.81       1344.45   -4.21%   -4.64% to -1.61%
+  LZ4          8         222.57        216.36   -2.73%   -4.19% to -1.97%
+  LZ4HC        1        1403.35       1336.99   -4.74%   -5.07% to -2.90%
+  LZ4HC        8         222.10        215.77   -3.16%   -4.39% to -1.27%
+
+These timings include both skipping the copy and switching decoders.
+
+I used Codex to help implement this series.
+Do you think the swap-in improvement justifies maintaining a second
+LZ4 decoder?
+
+Assisted-by: LLM
 Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
 ---
- include/linux/lz4.h      |  18 ++++++
- lib/lz4/lz4_decompress.c | 163 +++++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 181 insertions(+)
+Xueyuan Chen (3):
+      zram: allow backends to decompress from two input buffers
+      lib/lz4: add safe decompression from two input buffers
+      zram: use split-input decompression for LZ4 and LZ4HC
 
-diff --git a/include/linux/lz4.h b/include/linux/lz4.h
-index ad6042a718b5..3b6217bd9a9b 100644
---- a/include/linux/lz4.h
-+++ b/include/linux/lz4.h
-@@ -292,6 +292,24 @@ int LZ4_decompress_fast(const char *source, char *dest, int originalSize);
- int LZ4_decompress_safe(const char *source, char *dest, int compressedSize,
- 	int maxDecompressedSize);
- 
-+/**
-+ * LZ4_decompress_safe_split() - Decode a single block from two buffers
-+ * @first: address of the first input fragment
-+ * @first_len: bytes in the first input fragment
-+ * @second: address of the second input fragment
-+ * @second_len: bytes in the second input fragment
-+ * @dst: output buffer, disjoint from the input buffers
-+ * @capacity: bytes available in the output buffer
-+ *
-+ * The fragments, in order, contain one dictionary-free LZ4 block.
-+ * Their addresses need not be adjacent. An empty fragment may be NULL.
-+ *
-+ * Return: the decoded size, or -EINVAL on error.
-+ */
-+int LZ4_decompress_safe_split(const u8 *first, size_t first_len,
-+			      const u8 *second, size_t second_len,
-+			      u8 *dst, int capacity);
-+
- /**
-  * LZ4_decompress_safe_partial() - Decompress a block of size 'compressedSize'
-  *	at position 'source' into buffer 'dest'
-diff --git a/lib/lz4/lz4_decompress.c b/lib/lz4/lz4_decompress.c
-index 3a2cd9acada4..548197faa3e3 100644
---- a/lib/lz4/lz4_decompress.c
-+++ b/lib/lz4/lz4_decompress.c
-@@ -39,6 +39,11 @@
- #include <linux/kernel.h>
- #include <linux/unaligned.h>
- 
-+#ifndef STATIC
-+#include <linux/errno.h>
-+#include <linux/limits.h>
-+#endif
-+
- /*-*****************************
-  *	Decompression functions
-  *******************************/
-@@ -705,6 +710,164 @@ int LZ4_decompress_fast_usingDict(const char *source, char *dest,
- }
- 
- #ifndef STATIC
-+struct lz4_split_input {
-+	const u8 *first;
-+	const u8 *second;
-+	size_t split;
-+	size_t size;
-+	size_t pos;
-+};
-+
-+static __always_inline size_t
-+lz4_split_input_left(const struct lz4_split_input *in)
-+{
-+	return in->size - in->pos;
-+}
-+
-+static __always_inline int lz4_split_get_byte(struct lz4_split_input *in)
-+{
-+	size_t pos = in->pos;
-+
-+	if (unlikely(pos == in->size))
-+		return -1;
-+	in->pos++;
-+	if (pos < in->split)
-+		return in->first[pos];
-+	return in->second[pos - in->split];
-+}
-+
-+/* The caller has checked that two bytes remain in the block. */
-+static __always_inline int lz4_split_get_offset(struct lz4_split_input *in)
-+{
-+	size_t pos = in->pos;
-+
-+	in->pos += 2;
-+	if (pos >= in->split)
-+		return get_unaligned_le16(in->second + (pos - in->split));
-+	if (in->split - pos >= 2)
-+		return get_unaligned_le16(in->first + pos);
-+	return in->first[pos] | (in->second[0] << 8);
-+}
-+
-+static __always_inline bool
-+lz4_split_copy_literals(struct lz4_split_input *in, u8 *dst, size_t len)
-+{
-+	size_t pos = in->pos;
-+
-+	if (unlikely(len > lz4_split_input_left(in)))
-+		return false;
-+	if (!len)
-+		return true;
-+	if (pos < in->split) {
-+		size_t n = min(len, in->split - pos);
-+
-+		memcpy(dst, in->first + pos, n);
-+		pos += n;
-+		dst += n;
-+		len -= n;
-+	}
-+	if (len)
-+		memcpy(dst, in->second + (pos - in->split), len);
-+	in->pos = pos + len;
-+	return true;
-+}
-+
-+/* The decoder has checked the lookbehind distance and output capacity. */
-+static __always_inline void
-+lz4_split_copy_match(u8 *dst, size_t distance, size_t len)
-+{
-+	size_t copied = min(distance, len);
-+
-+	if (distance == 1) {
-+		memset(dst, dst[-1], len);
-+		return;
-+	}
-+
-+	memcpy(dst, dst - distance, copied);
-+	/* Reuse the period already written, keeping each copy disjoint. */
-+	while (len - copied > copied) {
-+		memcpy(dst + copied, dst, copied);
-+		copied *= 2;
-+	}
-+	if (copied < len)
-+		memcpy(dst + copied, dst, len - copied);
-+}
-+
-+static __always_inline int
-+lz4_split_read_length(struct lz4_split_input *in, int length, int limit)
-+{
-+	int byte;
-+
-+	if (length > limit)
-+		return -EINVAL;
-+	if (length < RUN_MASK)
-+		return length;
-+
-+	do {
-+		byte = lz4_split_get_byte(in);
-+		if (byte < 0 || byte > limit - length)
-+			return -EINVAL;
-+		length += byte;
-+	} while (byte == 255);
-+	return length;
-+}
-+
-+int LZ4_decompress_safe_split(const u8 *first, size_t first_len,
-+			      const u8 *second, size_t second_len,
-+			      u8 *dst, int capacity)
-+{
-+	struct lz4_split_input in = {
-+		.first = first,
-+		.second = second,
-+		.split = first_len,
-+	};
-+	int written = 0, min_last_literals = 0;
-+
-+	if (capacity < 0 || !dst || (!first && first_len) ||
-+	    (!second && second_len) || first_len > SIZE_MAX - second_len)
-+		return -EINVAL;
-+	in.size = first_len + second_len;
-+
-+	for (;;) {
-+		int token, literal, distance, match;
-+
-+		token = lz4_split_get_byte(&in);
-+		if (token < 0)
-+			return -EINVAL;
-+		literal = lz4_split_read_length(&in, token >> ML_BITS,
-+						capacity - written);
-+		if (literal < 0 ||
-+		    !lz4_split_copy_literals(&in, dst + written, literal))
-+			return -EINVAL;
-+		written += literal;
-+		if (!lz4_split_input_left(&in))
-+			return literal >= min_last_literals ? written : -EINVAL;
-+
-+		/* A match must leave room for the final literal sequence. */
-+		if (lz4_split_input_left(&in) < 2 + 1 + LASTLITERALS ||
-+		    capacity - written < MFLIMIT)
-+			return -EINVAL;
-+
-+		distance = lz4_split_get_offset(&in);
-+		if (!distance || distance > written)
-+			return -EINVAL;
-+		match = lz4_split_read_length(&in, token & ML_MASK,
-+					      capacity - written - MINMATCH -
-+					      LASTLITERALS);
-+		if (match < 0)
-+			return -EINVAL;
-+		match += MINMATCH;
-+		lz4_split_copy_match(dst + written, distance, match);
-+		written += match;
-+		/*
-+		 * Leave at least LASTLITERALS bytes and end at least MFLIMIT
-+		 * bytes past the start of the last match.
-+		 */
-+		min_last_literals = max(LASTLITERALS, MFLIMIT - match);
-+	}
-+}
-+EXPORT_SYMBOL_GPL(LZ4_decompress_safe_split);
-+
- EXPORT_SYMBOL(LZ4_decompress_safe);
- EXPORT_SYMBOL(LZ4_decompress_safe_partial);
- EXPORT_SYMBOL(LZ4_decompress_fast);
+ drivers/block/zram/backend_lz4.c   |   1 +
+ drivers/block/zram/backend_lz4.h   |  19 +++++
+ drivers/block/zram/backend_lz4hc.c |   2 +
+ drivers/block/zram/zcomp.c         |  28 +++++++
+ drivers/block/zram/zcomp.h         |   8 ++
+ include/linux/lz4.h                |  18 ++++
+ lib/lz4/lz4_decompress.c           | 163 +++++++++++++++++++++++++++++++++++++
+ 7 files changed, 239 insertions(+)
+---
+base-commit: b95f8bb86713c860ce8536d22a988b949b884d5f
 
--- 
-2.47.3
+--  
+Best regards,
+Xueyuan
 
