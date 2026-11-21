@@ -1,127 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795233155;
-	b=YiMNABHw6sbsyOH5HqaBsjCbX5uFvwUs9chmn+V5DwkXlDsAZuX4ehzVKrhgLsi+0Cnf
-	 mkkGvW7xb6MryI+N+US0BDj1tL2qENU7CRlUfeDMa3BqFo8s7MLK6+jZmWysMGDCHyrG/
-	 +9GLvFlBwIJA3OSK8rjGKyCOzYB4O/fzU2otcKG8TIO3RwZPp5nrPwEWufZGuKfnxHVVQ
-	 c6Do8fuhoYbkLKGJ3RCAUKMjrOhPRTf6wwEJ7cD+S/LTl9yzeISYTjgZx4qzSGmmxZsm/
-	 2R5aWcIgAj9Wda5h14Kk3ZHq63CbHYwso36ygcYNzz7+Ta+/GrFRnGv7WcG0KiAzA3g==
+	t=1795233341;
+	b=yeO1Pdn6NcBnzQlJu71kKljDexVDBaQclgEiBudOAavHO2G27G2fc5AnZYiF7EsXIE/9
+	 i1q8xyrJNZWJqSrRKZsob8FMbmell2AIxQSvnijbM1/BGD7e+Xwsqe4dAPeMWUtOvq+dQ
+	 2PyzcCdboEnRQE3M+pgdJxXzH6cNzMGe7B7NxQfSWwOmScN28JnVoscbRLGti5/wZMLQ7
+	 MX+Pn+JaGb2pTM8xLh890vOEhBgvPD8umockR5TLYxgIQmoUnDV9GC5UUr/PdXPP52Sqq
+	 K5dJZn1BGD4wIoVWqZMDGBaXEhJv4gJJSy0UkNNp3SNXxbOYg31zOaqmmkbvcSbDfWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795233155;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=zIDk71Ax+oCdiiIjTS8sKBRujsFJoxCyGBXFurjsjm8=;
-	b=iZ+QVD/YAu+74YSLlTjgEqHPQc7J0kQErCKFmuONQSIOEi7meM1qldcoWOo74kOwxGwD
-	 dKWNaaugh3BBvQ85yShZbFVoakuo90E222vl6xZNmnWZ2UWJ3aFjrGYQGXZdInhE9GZcI
-	 nGWL0HLhg8VeS7V6VJDrh5vsv9JmNWC+iohS9iFciZDpvYShxpQVgeW1mLF/txifNhu/z
-	 CDY9d2Zzwk9iSMrm8sdnO/2vePtZRp2ejBvxueOz6Zn0FQ5Od4QquUxq5YSkjiZS6kZS/
-	 +UZ+KEAGnlY/ALb/0eqcx0orVZ5nZmoqg7oazIOTAQlX0eVQfJeyn7Rko5lomZoi3Lg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795233341;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=Jn4kf5W7lzfWnr06Y2ZW00xRkwmTnr7Hlmhw1WVwvLU=;
+	b=zFC98pdRlQqR1spB2YyJKiQhfcYuBTm493yEkR286n0NeID1HtoAXDn3w79+/ev+TR9v
+	 PkpNKa2pYjWI/qleHqpAs2E+CI/gJKOHfguazPn1jg0jzQYSN/e/tpqqtur5tlJvS1D8H
+	 Uh49cPQwUsM1uCUUPyh6RX+tBZN8hAKm8XGAr6h3c19Lkdwx2kUXTlr9+z4KDEq6woujz
+	 sLOfpbSgc+IdoeP5SXO78frYWLNGT94BK9F6aHyGxbswxmRQNjxReJiLEoggSerwZEq3D
+	 aXzuRcpThjRz/ZSqtv/Y0qGWLtBDw3IiYpLMy/dYcOgJXxDtL8h4WjNLKz1IGNQyRJQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=GzmoljCk;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Bdj4+7rG;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=X2YPSEfF;
+	arc=none smtp.remote-ip=209.85.161.42
+Received: from mail-oo1-f42.google.com (mail-oo1-f42.google.com [209.85.161.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95731606A696
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:52:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95731606A696
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65E04606A6BB
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:55:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65E04606A6BB
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=GzmoljCk;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Bdj4+7rG
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AL29Fjp3676695
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:52:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=zIDk71Ax+oCdiiIjTS8sKBRu
-	jsFJoxCyGBXFurjsjm8=; b=GzmoljCk11fmune989tg3EQ+1KooQ4eiUnNITPK0
-	ksIdXiwn7nxZQBKPCCUsy6jmg7OOZSKOuVlQYIy1fCAn4vbPLMI90WaSGs9y32qw
-	JxRR4k3o0Sjp8XdeGQ1XA/LSDykWwhuLZNPXC4KL7qCdhAHLGhHR4e9fxgcxRHbf
-	7Y/CMk8VSW1c6zFak0z3HrCxontXpkdhqjLSyKJcw77IWLB1wRLV1BHPL6z3UqJn
-	w1KritOYE+EZ/BdHnUnEPC9aU/mLzsnCtPh8Z1fTp5csINBaXrQz5hasVoGQjGma
-	hrixnHuo6kRf5e74TRPtt5f41NcyKkcs4SYFrdY33NCYqQ==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j328rr6m3-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:52:32 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-341eff9e381so2457870eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:52:32 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=X2YPSEfF
+Received: by mail-oo1-f42.google.com with SMTP id 006d021491bc7-70b875f6f13so1222340eaf.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:55:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795233152; x=1795837952; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=zIDk71Ax+oCdiiIjTS8sKBRujsFJoxCyGBXFurjsjm8=;
-        b=Bdj4+7rGFUlTYMnIoAd6fUZ8ApFm0NCSTOKONEOxZU6gdQh7+rT2W2b/lb0eifRQ7q
-         3IkohNT2siHJZZxygrB8ZgcyzCv/L9JAZlYiMhlxqdBzaBtesmWIJWg80KqfnVND5gIM
-         qu5z4ZI76llpK5NHOfJ6rXLgTcAIu+9b7ly7Um9sEk2FTZMiLU5jWE7AODtmcCxd2BF0
-         vITBThcOF2IsbLBmS4yWSYPOxp4n1PwZPp6fDpx0c/tMHhYfhXbHg85whKQK/oZByNio
-         TDoy2WfXbzlUm4JbghPl/E4e6fVtg14v5k4hDhyD+x27hdPmKDJHlboMNasc7H07yRkB
-         zdeA==
+        d=gmail.com; s=20260707; t=1795233339; x=1795838139; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Jn4kf5W7lzfWnr06Y2ZW00xRkwmTnr7Hlmhw1WVwvLU=;
+        b=X2YPSEfFi5vaFVVRhwllZw0ddenYAWIvuJqKnKm7TvaGho1dkz+gbX8ueys17lDn3W
+         ENI3qJpxBNwEJ0Bfm1LImglO+giY8zAsEYBLB6OUq1OXX6NQmBI72dTBT2yXItigtGJ+
+         Ez1rGiC5byy55wu4tobGb5aOSaaDFmSxAF+1I4OsSvHOdWBpAWsHpT9t+1uO6U/EdFXA
+         A3QcCRK2OHinatM4lwoJSfsvp9zlmoEasd7/J8T29DjJRESHn+IA1/g2CFuACy77C5pZ
+         Eyf3m6o8RxjHgtfVa9szcn1gvR1NQd1duC7Ao9EtA6AzIE/aJKShS2DW1AF766MbBCQG
+         8mrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795233152; x=1795837952;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zIDk71Ax+oCdiiIjTS8sKBRujsFJoxCyGBXFurjsjm8=;
-        b=Y2B3vwufrKtAHWpjZyU73firHEXx+/FkbQn40+AfxIdBrawTIJRzmkf29YKWXL1niN
-         YwzPJBrbR7IucYDE0rR8r5tdS1GQp7ysSfcttavQwcrzb4FunZxHaINlDwLwqBGaLfPE
-         T6LKF4ug3PxUx1FZGcvRMDB+snlfg+wmFrVHile68pDtkalLQloOC+F1J/wuTZtNhVW1
-         oRzAb9woLU8NfSHvT12jzR7ymlXiovEfKuYzBDgl12vOly8RTintq41owonkQo/3UVJc
-         SpuiAPTGb56MI+qX1+e+Yj6EZpM6vMV3AbT/JKUjjh1s2Cuc34KGzw9LAFw2kQjfGxj3
-         mmLw==
-X-Forwarded-Encrypted: i=1; AL+hErHxb82FnjxpUpSg5E6PhJhFHKiOd15DN2JlGlbuOb//QJdNxzPUxbqAzSQKCDaCC9S/X/wL9YloNKXOYUE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9zbdpFG3B5agfH9CWjCUAWqTVGblpoNxnxmRAFgPxa/q2nAACk
-	wQxOGOlzte4K2FtOpSzkdlFlDLRWZ6QqYXGgM/l3YoYf17AFnCPuj/kzmTwkxtPQ04htj5eYuTH
-	0rYMDaABu6qIErjNXpEQ28isYN9+azVG0/JGMNxZniI3k2ymUfBRZQWkAzvMr/M3hi8M=
-X-Gm-Gg: AZFdTZcgjPBjdjOJurcPc8M1150rZ93sRHINh9jxoEdVlQjuiyEq6J1+pDObPXhLlSI
-	AziqfX5dzzIAl//MsZfctZ7hW/pcMnmXWXlN+dPQOv9CsHfHaanzmz+GLcmI4NHfjQ2uy+ZNCx1
-	/5bsLEIMoIKM2jDIVAt9gwNtyi/ykKCxD34tI30Txp+cd4ydPywaFsn7tnd3ePGRUI0uk+XYkkB
-	cbO7hkTUl86s+MeCboRCiaVfsdqKSjRdQsss1/rUkZp75YjjfcoXENSpWCetNHd/OJzzt1Uud9Y
-	9cY7JT0QvW1UKzMxb0zzg1ID84IWtD3lOmMvItQfm96o41IigNWbyzrnmGGlDxPV7AiKkRtekWI
-	kYjeFI+Ta5hdHq0mEAjPvRT+pFPALVbVJioFGmKvQdNdkNqhKZNxWzNEco305JV2DggzVvQ7AIy
-	pAe8ykSuai1KhIMUL+pCsDxJM=
-X-Received: by 2002:a05:693c:4195:10b0:385:2c71:7539 with SMTP id 5a478bee46e88-3856f258aa5mr5504169eec.9.1795233151985;
-        Fri, 20 Nov 2026 19:52:31 -0800 (PST)
-X-Received: by 2002:a05:693c:4195:10b0:385:2c71:7539 with SMTP id 5a478bee46e88-3856f258aa5mr5504128eec.9.1795233151382;
-        Fri, 20 Nov 2026 19:52:31 -0800 (PST)
-Received: from hu-ashoraj-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm16134963eec.5.2026.11.20.19.52.29
+        d=1e100.net; s=20260707; t=1795233339; x=1795838139;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Jn4kf5W7lzfWnr06Y2ZW00xRkwmTnr7Hlmhw1WVwvLU=;
+        b=pUqbPwhOdo5auNd/fYKnAzmUz9AcmdHWWj90d2uBHc37qUL+m2BlNVeKOMdtfh5sxO
+         9YiQAwpqTlEbsuasyrJK2NyO9kaKw3M2fjNSo/ocq/bQOcOGRGQP546FhzuqOj+Q4U6Q
+         ech1uP7AvwtQBgM+GDcoFvjRJ4njTtF+YsLUTipcwOe6P9nPf2WXqnz/FYoLolgwWGZc
+         Px4gWuC/75HUAH+lvnOcqhsReMylqO30CAziyh30Ty7PRNYmxzvgS+E6YgZhWfIBpotI
+         BiSg6FdAcW0Cv8ufR1bKY17ms3akw2RgDLfj1kfynOX0+5MScHOYoXLiBMAShpy1UQ0c
+         oBuA==
+X-Gm-Message-State: APuU4Z9LO1v4fMH0G/CE0A+n6YngI/gp5FrP/w8PAaBCFcXl1hGbug4O
+	xyH6gahqiqdw9fscj8pIVFETJJpOtaJtNUDcbW9gISOWkczl3JgXzno=
+X-Gm-Gg: AYBFou0DiJu2OGL8sgNkHl0lgNuJg3OiUPCH47bn2DDyAj4xxfbeO63XbXloUG8sB7h
+	wFcjtR59FdNMQJDs2obhIfHUn6nBhsuFxw2kq/1bb4y4UcqfXMmn5sqT/c86b6SE4JKRX9Q73Oj
+	dqJPRy8hSaCz9Z2ouXI9pPSiHGJttXTQumfNAUWWTm6MDjF/IA25yGkFRyzqaA4t1ahupvPyUdN
+	K/fmKt7n5UjU4NyS7G4fIO8CH5si7qWmUNzP6knAstmZFyizhyihcNVQt/pZ5Nm6Uew5XWYJu0i
+	fwHg6TZ0tMXt48Bu6jfvdThUer/tJhu0QLi4oGw19te6yMN+Xt8eOVQzBz9Ft8rWtRIUDCfL5nB
+	k1WIYVy/pUHWxa8F5SGzJvvGUeNIN/+FrQj3FnWj3UlQ3MwIVP9zJomOBTr/G1KfcLeMhrjReHZ
+	3GKPOnAMydNxDkDXapjdPttgORQNeBNNUsWtIt13mMPd1WHVYuk3PnuyRXHXj2JHk5Idf/GJbPo
+	RbUC/jFO4+eO8SYvkG/IghOmFZLvObKyQQ1tjRpJ4y0lVU+7edVmRCpLSn/ssKxIhUwpgvqXQtE
+	gyL9c3Pi+zA6FdiSuby+PmevJIh3kSHQ7Mhnw84HzlWaDHIfOidI9tcn
+X-Received: by 2002:a05:6820:5616:b0:716:cfaa:133a with SMTP id 006d021491bc7-71b3962b41bmr3118869eaf.89.1795233339171;
+        Fri, 20 Nov 2026 19:55:39 -0800 (PST)
+Received: from miso.lan ([136.62.61.36])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380b6f82sm2878076eaf.10.2026.11.20.19.55.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 19:52:30 -0800 (PST)
-Date: Fri, 20 Nov 2026 19:52:28 -0800
-From: Ashok Raj <ashok.raj@oss.qualcomm.com>
-To: Ahmed Azeem <ahmed.azeem@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-        Sudeep Holla <sudeep.holla@kernel.org>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <skhan@linuxfoundation.org>,
-        Randy Dunlap <rdunlap@infradead.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-api@vger.kernel.org,
-        linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Divin Raj <divin.raj@arm.com>,
-        Bertrand Marquis <Bertrand.Marquis@arm.com>,
-        Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-        Ashok Raj <ashok.raj@oss.qualcomm.com>
-Subject: Re: [PATCH RFC 3/4] firmware: arm: Add PFDI run, result, and error
- injection support
-Message-ID: <awEVfD12XgmNhqxt@hu-ashoraj-lv.qualcomm.com>
-References: <20261119-topics-ahmaze01-upstream-pfdi-rfc-v1-0-4772d18b9115@arm.com>
- <20261119-topics-ahmaze01-upstream-pfdi-rfc-v1-3-4772d18b9115@arm.com>
+        Fri, 20 Nov 2026 19:55:37 -0800 (PST)
+From: Matthew Laux <matthew.laux@gmail.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Mehdi Djait <mehdi.djait@bootlin.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	Matthew Laux <matthew.laux@gmail.com>
+Subject: [PATCH v7 00/12] Add driver for StarTech USB3HDCAP capture device
+Date: Fri, 20 Nov 2026 21:55:11 -0600
+Message-ID: <20261121035523.26764-1-matthew.laux@gmail.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -131,363 +95,371 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261119-topics-ahmaze01-upstream-pfdi-rfc-v1-3-4772d18b9115@arm.com>
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIxMDAxNSBTYWx0ZWRfX/OFaW22G7Uoy
- nnCiBNjtpCAbTyx6bBcVsIwbeirZmh68bAnWVfV5Dtzm0VcGsdcvjsgG0K/jei5WD31sB/sdDhc
- YE4ANWhlQM26l0YZof0DPQ4ak8TpV+E=
-X-Proofpoint-GUID: xOalZXkEIMc7WrzXNC4zyz4WXB-c57fF
-X-Proofpoint-ORIG-GUID: xOalZXkEIMc7WrzXNC4zyz4WXB-c57fF
-X-Authority-Analysis: v=2.4 cv=c9w+0h9l c=1 sm=1 tr=0 ts=6b011580 cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=7CQSdrXTAAAA:8 a=hGlcRQhp3Xgnm4JraE4A:9 a=QEXdDO2ut3YA:10
- a=scEy_gLbYbu1JhEsrz4S:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIxMDAxNSBTYWx0ZWRfX6O5eVB5DADoI
- 6MxJ4Z7sEV1JtpLGCNdwiiwVd+PHfSK1ycry1Z1u7r0+nWEv240TGG2LPSCBkzPio4r3WA+Tj3p
- 3PYfd9tz9V1ODtMN/K+O12YznHtjqSVECiR/z3SAw7qppb03/ZHSSz3kqBisMmwYBfchABhWR3t
- Iz3LRzenwUfXXLj1sU2wa8bJhm16oqyRxoYo6LSGArp7Q+q3AGhBQcToJmR3P3VUuUmDfO/q7C5
- pvjcViw31L2HGK8/WX0f57JX97FO992bCo2iIpqpxMV7jmjKPUraa56kEMPYHHZRMsUaMmWgACD
- /doEV1xEZtXnPiRKw6fZ0CNeIB0Zv24uFRZdkaXdbwWwcEYL0P1SOP/j8pca30rl+VnYoYtYyEz
- bkEcM0zw484lyOuPPo3P99WQryNgdgsiFYLMDdcH/HlGNHJ/5khvbr+EYbCuaYXc5LCs7JTXRxv
- XMUDq1iDIMIVRUkIxVQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_06,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 phishscore=0 adultscore=0 bulkscore=0 clxscore=1015
- suspectscore=0 malwarescore=0 impostorscore=0 priorityscore=1501 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611210015
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 19, 2026 at 03:36:05PM +0000, Ahmed Azeem wrote:
-> From: Divin Raj <divin.raj@arm.com>
-> 
-> Extend the PFDI driver with ioctls to execute tests and manage results.
-> 
-> Add support for PFDI_IOCTL_PE_TEST_RUN, PFDI_IOCTL_PE_TEST_RESULT, and
-> PFDI_IOCTL_FORCE_ERROR, along with per-CPU state to serialize test
-> execution. When firmware reports PFDI_RET_FAULT_FOUND, return the
-> failing test identifier to userspace.
-> 
-> Signed-off-by: Divin Raj <divin.raj@arm.com>
-> Signed-off-by: Ahmed Azeem <ahmed.azeem@arm.com>
-> ---
->  drivers/firmware/arm_pfdi.c | 225 ++++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 225 insertions(+)
-> 
-> diff --git a/drivers/firmware/arm_pfdi.c b/drivers/firmware/arm_pfdi.c
-> index 8c6d315b0572..22a69b12dbc8 100644
-> --- a/drivers/firmware/arm_pfdi.c
-> +++ b/drivers/firmware/arm_pfdi.c
-> @@ -18,10 +18,16 @@
->  #include <linux/slab.h>
->  #include <linux/smp.h>
->  #include <linux/uaccess.h>
-> +#include <linux/wait.h>
->  
->  struct pfdi_per_cpu_info {
-> +	atomic_t run_inprogress;
->  	/* Ensures a single userspace owner per CPU while the node is open. */
->  	struct semaphore open_sem;
-> +	/* Serializes per-CPU run state and device availability. */
-> +	struct mutex state_lock;
-> +	struct pfdi_test_range ongoing_run_range;
-> +	wait_queue_head_t run_wait;
->  };
->  
->  struct pfdi_dev_data {
-> @@ -36,6 +42,8 @@ struct pfdi_cpu_worker {
->  	u32 feature_fid;
->  	/* Protects worker lifetime and in-flight work state. */
->  	struct mutex worker_lock;
-> +	struct pfdi_force_error error_info;
-> +	struct pfdi_test_run test_run;
->  	struct arm_smccc_res smc_ret;
->  	int result;
->  };
-> @@ -59,6 +67,10 @@ static DEFINE_PER_CPU(struct pfdi_per_cpu_info, pfdi_cpu_info);
->  
->  static enum cpuhp_state pfdi_cpuhp_state;
->  
-> +static unsigned int pfdi_wait_timeout_ms = 60;
-> +module_param_named(wait_timeout_ms, pfdi_wait_timeout_ms, uint, 0444);
-> +MODULE_PARM_DESC(wait_timeout_ms,
-> +		 "Maximum time in ms to wait for an in-progress PFDI run");
->  static int pfdi_to_linux_errno(int err)
->  {
->  	switch (err) {
-> @@ -95,6 +107,18 @@ static int pfdi_smc_feature(u32 smc_fid)
->  	return (int)pfdi_smc_call(PFDI_FN_FEATURES, smc_fid, 0, 0, 0).a0;
->  }
->  
-> +static bool pfdi_fid_supported(u32 smc_fid)
-> +{
-> +	unsigned int i;
-> +
-> +	for (i = 0; i < ARRAY_SIZE(pfdi_supported_fids); i++) {
-> +		if (pfdi_supported_fids[i] == smc_fid)
-> +			return true;
-> +	}
-> +
-> +	return false;
-> +}
-> +
->  static int pfdi_validate_cpu_features(void)
->  {
->  	unsigned int i;
-> @@ -275,6 +299,172 @@ static int pfdi_pe_fw_check(unsigned int cpu)
->  	return pfdi_to_linux_errno(per_cpu(pfdi_worker_ctx, cpu).result);
->  }
->  
-> +static void pfdi_pe_get_result_fn(struct kthread_work *work)
-> +{
-> +	struct pfdi_cpu_worker *worker_ctx;
-> +
-> +	worker_ctx = container_of(work, struct pfdi_cpu_worker, work);
-> +	worker_ctx->smc_ret = pfdi_smc_call(PFDI_FN_PE_TEST_RESULT,
-> +					    0, 0, 0, 0);
-> +	complete(&worker_ctx->done);
-> +}
-> +
-> +static int pfdi_pe_get_result(unsigned int cpu, s64 *ft_id)
-> +{
-> +	int ret;
-> +	struct pfdi_cpu_worker *worker_ctx = &per_cpu(pfdi_worker_ctx, cpu);
-> +
-> +	ret = pfdi_thread_worker(cpu, pfdi_pe_get_result_fn,
-> +				 MAX_SCHEDULE_TIMEOUT);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = (int)worker_ctx->smc_ret.a0;
-> +	if (ret == PFDI_RET_FAULT_FOUND)
-> +		*ft_id = worker_ctx->smc_ret.a1;
-> +
-> +	return pfdi_to_linux_errno(ret);
-> +}
-> +
-> +static void pfdi_pe_force_error_fn(struct kthread_work *work)
-> +{
-> +	struct pfdi_cpu_worker *worker_ctx;
-> +
-> +	worker_ctx = container_of(work, struct pfdi_cpu_worker, work);
-> +	worker_ctx->result = pfdi_smc_call(PFDI_FN_FORCE_ERROR,
-> +					   worker_ctx->error_info.smc_fid,
-> +					   worker_ctx->error_info.error_id,
-> +					   0, 0).a0;
-> +	complete(&worker_ctx->done);
-> +}
-> +
-> +static int pfdi_pe_force_error(unsigned int cpu,
-> +			       const struct pfdi_force_error *error_info)
-> +{
-> +	int ret;
-> +	struct pfdi_cpu_worker *worker_ctx = &per_cpu(pfdi_worker_ctx, cpu);
-> +
-> +	if (!pfdi_fid_supported(error_info->smc_fid))
-> +		return -EINVAL;
-> +
-> +	if (error_info->error_id < PFDI_RET_TEST_COUNT_ZERO ||
-> +	    error_info->error_id > SMCCC_RET_SUCCESS)
-> +		return -EINVAL;
-> +
-> +	worker_ctx->error_info = *error_info;
-> +
-> +	ret = pfdi_thread_worker(cpu, pfdi_pe_force_error_fn,
-> +				 MAX_SCHEDULE_TIMEOUT);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return pfdi_to_linux_errno(worker_ctx->result);
-> +}
-> +
-> +static bool pfdi_ranges_equal(const struct pfdi_test_range *lhs,
-> +			      const struct pfdi_test_range *rhs)
-> +{
-> +	return lhs->start == rhs->start && lhs->end == rhs->end;
-> +}
-> +
-> +static bool pfdi_run_available(const struct pfdi_per_cpu_info *cpu_info)
-> +{
-> +	return !atomic_read(&cpu_info->run_inprogress);
-> +}
-> +
-> +static int pfdi_validate_test_range(unsigned int cpu,
-> +				    const struct pfdi_test_range *range)
-> +{
-> +	s64 count;
-> +	int ret;
-> +
-> +	if (range->start == -1 || range->end == -1)
-> +		return pfdi_ranges_equal(range,
-> +					 &(struct pfdi_test_range){ .start = -1,
-> +								    .end = -1 }) ?
-> +		       0 : -EINVAL;
-> +
-> +	if (range->start < 0 || range->end < 0 || range->start > range->end)
-> +		return -EINVAL;
-> +
-> +	ret = pfdi_pe_get_test_count(cpu, &count);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (range->start >= count || range->end >= count)
-> +		return -EINVAL;
-> +
-> +	return 0;
-> +}
-> +
-> +static void pfdi_pe_run_fn(struct kthread_work *work)
-> +{
-> +	struct arm_smccc_res smc_ret;
-> +	struct pfdi_cpu_worker *worker_ctx;
-> +
-> +	worker_ctx = container_of(work, struct pfdi_cpu_worker, work);
-> +	smc_ret = pfdi_smc_call(PFDI_FN_PE_TEST_RUN,
-> +				worker_ctx->test_run.range.start,
-> +				worker_ctx->test_run.range.end, 0, 0);
-> +
-> +	if ((int)smc_ret.a0 == PFDI_RET_FAULT_FOUND)
-> +		worker_ctx->test_run.ft_id = smc_ret.a1;
-> +
-> +	worker_ctx->result = (int)smc_ret.a0;
-> +	complete(&worker_ctx->done);
-> +}
-> +
-> +static int pfdi_pe_run_tests(unsigned int cpu, struct pfdi_test_run *test_run)
-> +{
-> +	int ret;
-> +	unsigned long wait_timeout;
-> +	struct pfdi_cpu_worker *worker_ctx = &per_cpu(pfdi_worker_ctx, cpu);
-> +	struct pfdi_per_cpu_info *cpu_info = &per_cpu(pfdi_cpu_info, cpu);
-> +
-> +	ret = pfdi_validate_test_range(cpu, &test_run->range);
-> +	if (ret)
-> +		return ret;
-> +
-> +	wait_timeout = msecs_to_jiffies(pfdi_wait_timeout_ms);
-> +
-> +	mutex_lock(&cpu_info->state_lock);
-> +	while (atomic_read(&cpu_info->run_inprogress)) {
-> +		if (pfdi_ranges_equal(&test_run->range,
-> +				      &cpu_info->ongoing_run_range)) {
-> +			mutex_unlock(&cpu_info->state_lock);
-> +			return -EBUSY;
-> +		}
-> +
-> +		mutex_unlock(&cpu_info->state_lock);
-> +			ret = wait_event_interruptible_timeout(cpu_info->run_wait,
-> +							       pfdi_run_available(cpu_info),
-> +							       wait_timeout);
-> +		if (ret <= 0)
-> +			return ret ? ret : -ETIME;
-> +
-> +		mutex_lock(&cpu_info->state_lock);
-> +	}
-> +
-> +	atomic_set(&cpu_info->run_inprogress, 1);
-> +	cpu_info->ongoing_run_range = test_run->range;
-> +	worker_ctx->test_run = *test_run;
-> +	mutex_unlock(&cpu_info->state_lock);
-> +
-> +	ret = pfdi_thread_worker(cpu, pfdi_pe_run_fn, wait_timeout);
-> +
-> +	mutex_lock(&cpu_info->state_lock);
-> +	if (worker_ctx->result == PFDI_RET_FAULT_FOUND)
-> +		test_run->ft_id = worker_ctx->test_run.ft_id;
-> +	atomic_set(&cpu_info->run_inprogress, 0);
-> +	wake_up_all(&cpu_info->run_wait);
-> +	mutex_unlock(&cpu_info->state_lock);
-> +
-> +	if (ret)
-> +		return ret;
-> +
-> +	return pfdi_to_linux_errno(worker_ctx->result);
-> +}
-> +
->  static int arm_pfdi_open(struct inode *inode, struct file *file)
->  {
->  	struct miscdevice *misc_dev = file->private_data;
-> @@ -310,9 +500,12 @@ static long arm_pfdi_ioctl(struct file *file, unsigned int cmd,
->  	u32 feature_fid;
->  	u32 version;
->  	s64 count;
-> +	s64 ft_id;
->  	u64 lib_info;
->  	struct miscdevice *misc_dev = file->private_data;
->  	struct pfdi_dev_data *device_data;
-> +	struct pfdi_test_run test_run;
-> +	struct pfdi_force_error error_info;
->  	unsigned int cpu;
->  
->  	if (!misc_dev || !misc_dev->this_device)
-> @@ -350,9 +543,35 @@ static long arm_pfdi_ioctl(struct file *file, unsigned int cmd,
->  					 sizeof(count)))
->  			err = -EFAULT;
->  		break;
-> +	case PFDI_IOCTL_PE_TEST_RUN:
-> +		if (copy_from_user(&test_run, (void __user *)arg,
-> +				   sizeof(test_run)))
-> +			return -EFAULT;
-> +
-> +		err = pfdi_pe_run_tests(cpu, &test_run);
-> +		if (err == -EFAULT &&
-> +		    copy_to_user((void __user *)arg, &test_run,
-> +				 sizeof(test_run)))
-> +			err = -EFAULT;
-> +		break;
+Add a V4L2/ALSA driver for the StarTech USB3HDCAP (and Micomsoft
+XCAPTURE-1 variant), a USB 3.0 video capture device based on the
+MST3367 HDMI receiver, TW9900 composite decoder, and CS53L21 audio codec.
 
-Hi Ahmed, Divin,
+The driver supports composite, S-Video, component, and HDMI inputs,
+including audio capture.
 
-One UAPI concern with PFDI_IOCTL_PE_TEST_RUN is the use of -EFAULT
-to represent PFDI_RET_FAULT_FOUND.
+Tested on all four inputs at various resolutions. All v4l2-compliance
+tests pass, including streaming tests, with these two v4l2-compliance bugs
+patched:
 
-The ioctl returns -EFAULT when copy_from_user() cannot read the request,
-and when copy_to_user() cannot write the failing test-part ID.  It also
-returns -EFAULT when the PFDI test completed and firmware reported
-PFDI_RET_FAULT_FOUND.
+https://lore.kernel.org/linux-media/20261116214655.6979-1-matthew.laux@gmail.com/T/#u
+https://lore.kernel.org/linux-media/20261116214755.7040-1-matthew.laux@gmail.com/T/#u
 
-This leaves userspace unable to distinguish a bad request/result pointer
-from a completed test that detected a platform fault.  In the latter case,
-the failing test-part ID is meaningful, while in the former case it is not.
+The first 10 patches are changes to the existing upstream tw9900 driver to
+prepare for my driver. The 11th is a driver for the MST3367 chip. The 12th
+is the bridge device driver and "everything else".
 
-Could the test outcome instead be returned explicitly in the request/result
-structure, with ft_id valid when the reported PFDI result is
-PFDI_RET_FAULT_FOUND?  The ioctl return value could then remain reserved
-for Linux-side failures such as an inaccessible userspace buffer, an
-interrupted wait, or device removal.
+I tried to use patterns from existing drivers wherever possible and
+welcome all feedback. This is my own work. I accepted two small PRs to my
+out-of-tree in-development version on GitHub that were LLM-assisted. I
+also used LLM help to split the tw9900 fixes into logical commits, and for
+help understanding/fixing Sashiko feedback. I am committed to sticking
+around to make any improvements required.
 
-Apart from avoiding the overloaded meaning of -EFAULT, this would give the
-new UAPI a natural place to reserve flags and result fields for future
-extension.
+Thanks,
+Matthew
 
-Hope this helps. 
+Changelog:
 
-> +	case PFDI_IOCTL_PE_TEST_RESULT:
-> +		err = pfdi_pe_get_result(cpu, &ft_id);
-> +		if (err == -EFAULT && copy_to_user((void __user *)arg, &ft_id,
-> +						   sizeof(ft_id)))
-> +			err = -EFAULT;
-> +		break;
->  	case PFDI_IOCTL_FW_CHECK:
->  		err = pfdi_pe_fw_check(cpu);
->  		break;
-> +	case PFDI_IOCTL_FORCE_ERROR:
-> +		if (copy_from_user(&error_info, (void __user *)arg,
-> +				   sizeof(error_info)))
-> +			return -EFAULT;
-> +		if (error_info.reserved)
-> +			return -EINVAL;
-> +
-> +		err = pfdi_pe_force_error(cpu, &error_info);
-> +		break;
->  	default:
->  		err = -ENOTTY;
->  		break;
+v7: rework ioctls to follow the API better:
+      - S_STD/S_DV_TIMINGS now apply immediately and update the format
+      - add QUERYSTD
+      - QUERY_DV_TIMINGS now gets the timings from the chip
+    detection now only happens in S_INPUT (or first open)
+    starting streaming no longer can change the required buffer size
+    size the parse buffer from the iso packet size
+    use V4L2's AVI InfoFrame parsing instead of my own
+    report the field height in get_fmt for interlaced timings
+    accept vtotal alternating by one line when detecting interlaced
+    split "use runtime PM autosuspend and power down on suspend"
+    2 new tw9900 runtime PM fixes
+
+v6: fix 2 possible usages of uninitialized variables (one could not
+    happen, one could)
+
+v5: refactor to use subdevices, so it's no longer targeting staging.
+    support HDMI on the XCAPTURE-1
+    detect HDMI timings from the chip instead of using a fixed table
+    fix (valid) Sashiko automated review feedback
+    fix composite/S-Video audio on the XCAPTURE-1
+
+v4: add USB to Kconfig "depends on"... oops. fixes randconfig
+
+v3: fix truncation warnings in (u8) casts >= 0x80, static-ify mode table
+
+v2: remove unused CSC matrix control, remove version.h include,
+    fix all remaining `check`-level checkpatch issues, update TODO
+
+v4l2-compliance 1.33.0-5524, 64 bits, 64-bit time_t
+v4l2-compliance SHA: 485c038f10ae 2026-10-30 13:45:36
+
+Compliance test for usb3hdcap device /dev/video0:
+
+Driver Info:
+	Driver name      : usb3hdcap
+	Card type        : StarTech USB3HDCAP
+	Bus info         : usb-0000:00:14.0-2
+	Driver version   : 7.0.0
+	Capabilities     : 0x85200001
+		Video Capture
+		Read/Write
+		Streaming
+		Extended Pix Format
+		Device Capabilities
+	Device Caps      : 0x05200001
+		Video Capture
+		Read/Write
+		Streaming
+		Extended Pix Format
+
+Required ioctls:
+	test VIDIOC_QUERYCAP: OK
+	test invalid ioctls: OK
+
+Allow for multiple opens:
+	test second /dev/video0 open: OK
+	test VIDIOC_QUERYCAP: OK
+	test VIDIOC_G/S_PRIORITY: OK
+	test for unlimited opens: OK
+
+Debug ioctls:
+	test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+	test VIDIOC_LOG_STATUS: OK
+
+Input ioctls:
+	test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+	test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+	test VIDIOC_ENUMAUDIO: OK (Not Supported)
+	test VIDIOC_G/S/ENUMINPUT: OK
+	test VIDIOC_G/S_AUDIO: OK (Not Supported)
+	Inputs: 4 Audio Inputs: 0 Tuners: 0
+
+Output ioctls:
+	test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+	test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+	test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+	test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+	Outputs: 0 Audio Outputs: 0 Modulators: 0
+
+Input/Output configuration ioctls:
+	test VIDIOC_ENUM/G/S/QUERY_STD: OK
+	test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK
+	test VIDIOC_DV_TIMINGS_CAP: OK
+	test VIDIOC_G/S_EDID: OK (Not Supported)
+
+Control ioctls (Input 0):
+	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+	test VIDIOC_QUERYCTRL: OK
+	test VIDIOC_G/S_CTRL: OK
+	test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
+	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+	Standard Controls: 8 Private Controls: 0
+
+Format ioctls (Input 0):
+	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+	test VIDIOC_G/S_PARM: OK
+	test VIDIOC_G_FBUF: OK (Not Supported)
+	test VIDIOC_G_FMT: OK
+	test VIDIOC_TRY_FMT: OK
+	test VIDIOC_S_FMT: OK
+	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+	test Cropping: OK (Not Supported)
+	test Composing: OK (Not Supported)
+	test Scaling: OK (Not Supported)
+
+Codec ioctls (Input 0):
+	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+	test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+
+Buffer ioctls (Input 0):
+	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+	test CREATE_BUFS maximum buffers: OK
+	test VIDIOC_REMOVE_BUFS: OK
+	test VIDIOC_EXPBUF: OK (Not Supported)
+	test Requests: OK (Not Supported)
+	test blocking wait: OK
+
+Control ioctls (Input 1):
+	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+	test VIDIOC_QUERYCTRL: OK
+	test VIDIOC_G/S_CTRL: OK
+	test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
+	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+	Standard Controls: 8 Private Controls: 0
+
+Format ioctls (Input 1):
+	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+	test VIDIOC_G/S_PARM: OK
+	test VIDIOC_G_FBUF: OK (Not Supported)
+	test VIDIOC_G_FMT: OK
+	test VIDIOC_TRY_FMT: OK
+	test VIDIOC_S_FMT: OK
+	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+	test Cropping: OK (Not Supported)
+	test Composing: OK (Not Supported)
+	test Scaling: OK (Not Supported)
+
+Codec ioctls (Input 1):
+	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+	test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+
+Buffer ioctls (Input 1):
+	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+	test CREATE_BUFS maximum buffers: OK
+	test VIDIOC_REMOVE_BUFS: OK
+	test VIDIOC_EXPBUF: OK (Not Supported)
+	test Requests: OK (Not Supported)
+	test blocking wait: OK
+
+Control ioctls (Input 2):
+	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+	test VIDIOC_QUERYCTRL: OK
+	test VIDIOC_G/S_CTRL: OK
+	test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
+	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+	Standard Controls: 8 Private Controls: 0
+
+Format ioctls (Input 2):
+	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+	test VIDIOC_G/S_PARM: OK
+	test VIDIOC_G_FBUF: OK (Not Supported)
+	test VIDIOC_G_FMT: OK
+	test VIDIOC_TRY_FMT: OK
+	test VIDIOC_S_FMT: OK
+	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+	test Cropping: OK (Not Supported)
+	test Composing: OK (Not Supported)
+	test Scaling: OK (Not Supported)
+
+Codec ioctls (Input 2):
+	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+	test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+
+Buffer ioctls (Input 2):
+	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+	test CREATE_BUFS maximum buffers: OK
+	test VIDIOC_REMOVE_BUFS: OK
+	test VIDIOC_EXPBUF: OK (Not Supported)
+	test Requests: OK (Not Supported)
+	test blocking wait: OK
+
+Control ioctls (Input 3):
+	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+	test VIDIOC_QUERYCTRL: OK
+	test VIDIOC_G/S_CTRL: OK
+	test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
+	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+	Standard Controls: 8 Private Controls: 0
+
+Format ioctls (Input 3):
+	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+	test VIDIOC_G/S_PARM: OK
+	test VIDIOC_G_FBUF: OK (Not Supported)
+	test VIDIOC_G_FMT: OK
+	test VIDIOC_TRY_FMT: OK
+	test VIDIOC_S_FMT: OK
+	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+	test Cropping: OK (Not Supported)
+	test Composing: OK (Not Supported)
+	test Scaling: OK (Not Supported)
+
+Codec ioctls (Input 3):
+	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+	test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+
+Buffer ioctls (Input 3):
+	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+	test CREATE_BUFS maximum buffers: OK
+	test VIDIOC_REMOVE_BUFS: OK
+	test VIDIOC_EXPBUF: OK (Not Supported)
+	test Requests: OK (Not Supported)
+	test blocking wait: OK
+
+Test input 0:
+
+Streaming ioctls:
+	test read/write: OK
+	test MMAP (no poll, REQBUFS): OK
+	test MMAP (select, REQBUFS): OK
+	test MMAP (epoll, REQBUFS): OK
+	test MMAP (no poll, CREATE_BUFS): OK
+	test MMAP (select, CREATE_BUFS): OK
+	test MMAP (epoll, CREATE_BUFS): OK
+	test USERPTR (no poll): OK
+	test USERPTR (select): OK
+	test DMABUF (no poll): OK (Not Supported)
+	test DMABUF (select): OK (Not Supported)
+
+Test input 1:
+
+Streaming ioctls:
+	test read/write: OK
+	test MMAP (no poll, REQBUFS): OK
+	test MMAP (select, REQBUFS): OK
+	test MMAP (epoll, REQBUFS): OK
+	test MMAP (no poll, CREATE_BUFS): OK
+	test MMAP (select, CREATE_BUFS): OK
+	test MMAP (epoll, CREATE_BUFS): OK
+	test USERPTR (no poll): OK
+	test USERPTR (select): OK
+	test DMABUF (no poll): OK (Not Supported)
+	test DMABUF (select): OK (Not Supported)
+
+Test input 2:
+
+Streaming ioctls:
+	test read/write: OK
+	test MMAP (no poll, REQBUFS): OK
+	test MMAP (select, REQBUFS): OK
+	test MMAP (epoll, REQBUFS): OK
+	test MMAP (no poll, CREATE_BUFS): OK
+	test MMAP (select, CREATE_BUFS): OK
+	test MMAP (epoll, CREATE_BUFS): OK
+	test USERPTR (no poll): OK
+	test USERPTR (select): OK
+	test DMABUF (no poll): OK (Not Supported)
+	test DMABUF (select): OK (Not Supported)
+
+Test input 3:
+
+Streaming ioctls:
+	test read/write: OK
+	test MMAP (no poll, REQBUFS): OK
+	test MMAP (select, REQBUFS): OK
+	test MMAP (epoll, REQBUFS): OK
+	test MMAP (no poll, CREATE_BUFS): OK
+	test MMAP (select, CREATE_BUFS): OK
+	test MMAP (epoll, CREATE_BUFS): OK
+	test USERPTR (no poll): OK
+	test USERPTR (select): OK
+	test DMABUF (no poll): OK (Not Supported)
+	test DMABUF (select): OK (Not Supported)
+
+Total for usb3hdcap device /dev/video0: 167, Succeeded: 167, Failed: 0,
+Warnings: 0
+
+Matthew Laux (12):
+  media: tw9900: Disable regulator on runtime resume failure
+  media: tw9900: release the device when stopping the stream fails
+  media: tw9900: accept the TW9910 chip ID
+  media: tw9900: add saturation, hue and sharpness controls
+  media: tw9900: program all mode registers in the PAL table
+  media: tw9900: power off the device on remove if still active
+  media: tw9900: power down analog blocks in runtime suspend
+  media: tw9900: use runtime PM autosuspend
+  media: tw9900: allow board-specific register tables via platform data
+  media: tw9900: add S-Video input and progressive source detection
+  media: Add subdevice driver for the Mstar MST3367 HDMI receiver
+  media: add driver for StarTech USB3HDCAP
+
+ MAINTAINERS                                   |   14 +
+ drivers/media/i2c/Kconfig                     |   11 +
+ drivers/media/i2c/Makefile                    |    1 +
+ drivers/media/i2c/mst3367.c                   | 1134 ++++++++++++++++
+ drivers/media/i2c/tw9900.c                    |  271 +++-
+ drivers/media/usb/Kconfig                     |    1 +
+ drivers/media/usb/Makefile                    |    1 +
+ drivers/media/usb/usb3hdcap/Kconfig           |   15 +
+ drivers/media/usb/usb3hdcap/Makefile          |    8 +
+ drivers/media/usb/usb3hdcap/usb3hdcap-audio.c |  323 +++++
+ .../media/usb/usb3hdcap/usb3hdcap-composite.c |  212 +++
+ drivers/media/usb/usb3hdcap/usb3hdcap-core.c  | 1173 +++++++++++++++++
+ drivers/media/usb/usb3hdcap/usb3hdcap-hdmi.c  |  200 +++
+ drivers/media/usb/usb3hdcap/usb3hdcap-video.c |  499 +++++++
+ drivers/media/usb/usb3hdcap/usb3hdcap.h       |  241 ++++
+ include/media/i2c/mst3367.h                   |   27 +
+ include/media/i2c/tw9900.h                    |   38 +
+ 17 files changed, 4135 insertions(+), 34 deletions(-)
+ create mode 100644 drivers/media/i2c/mst3367.c
+ create mode 100644 drivers/media/usb/usb3hdcap/Kconfig
+ create mode 100644 drivers/media/usb/usb3hdcap/Makefile
+ create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap-audio.c
+ create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap-composite.c
+ create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap-core.c
+ create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap-hdmi.c
+ create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap-video.c
+ create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap.h
+ create mode 100644 include/media/i2c/mst3367.h
+ create mode 100644 include/media/i2c/tw9900.h
 
 
-Cheers,
-Ashok
+base-commit: aa0f4c41d4870a18e65772a1817af16427200371
+-- 
+2.47.3
+
