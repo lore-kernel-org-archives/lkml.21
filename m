@@ -1,63 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795231508;
-	b=y7DQ44+z+BCpxtghnQRJDyHMqDh3Cj36XCN6VWeL/0ytIKsdlSt9X0iIBLs4pF+hT/Wn
-	 aYn640Y0V7sYUn7fq7ZUyp4HKS5SuBXnuuFLvkeL1VAbtaZu3RwMumsTBuAocpQJ2QaSD
-	 HImN/LfxiKUBnbocb7YL/RVVU7R3Og+GHpWBxiU6e3RrzICpEokkdtJpxhqHm+oGFMH8D
-	 YjlK0kK34Q/csQ+A22eJA0OeAFIch6up6prwto7zbjguWJXb/MyZdLT1a+qQjAuvzodMY
-	 AfL2f6VYhTl2am0gEW2f12bXqXASos/u9p2UMwokFalB5AVyfKanSsu5FG9e9Qgcthg==
+	t=1795231873;
+	b=oUEthBqQTDfhTKxI0/5/IvuKiDOESMVY1YEgW1SrxkW/moYFacKyKt58Az+9oegwKsRx
+	 C2Yfp7DvaFcz1FxiiXbKRJTsr5DH9McIc1dQN1ewlG8e+8bUSqBYkbC6El/1JdRvKRbcL
+	 7lnWliEYzQ80LsF+OGYchEPiLpBbCsQ0djSaA5MSH8gtDbdtS7wsVVniFgnT4u+G2HJLy
+	 GzMLy0TtmQExA9Ttuo9CIgfT5eN5DGPPPJPYAukUzY8WVnyxH2fsnIXABhUt9klaYhkCg
+	 Ncbu5PDUdAV8vwCaj2MyR+tn6YTeUwiSPfz55Dsj8AxoutXVaK91L9uaXhv7rc4hvLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795231508;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=ywvcXdEzMlpkXyBIr8U6P5Bs89wJlEBGndZBQ01hhDU=;
-	b=ymaD1cRxzcJg7snkan1pqF+aH21E4o8mGkGhay9gCfhy0mJXorMmRdChlgPf5F4/P9cz
-	 hmBNh+IVTHAHpaG/Udp/y29tzc6HyZL21+0kXf4IUV3jbccAjJzBc2gJMMlwQC/9tUb7q
-	 ZgadvhF4H02tAkGgAmtwQClRcGf6tRE0hOXesdalPC8t47dzQv6N6V2fo/AWdyCXHeSHV
-	 z7y8BkHaMOj9r5eFE1EHTBH2vWnGQ24CgoSaJN53JObAg+b5S3j17tZ0LK9H8KYy1SiEZ
-	 OhEDHZrgqItNw6MrwhffpYK/FayyfLT8PcAGNqDlR0yB1MFZiALlNdHECmFz+QFYzQw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795231873;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=X9k99YWlnt4nbGZyPDuesahA3NaBAphEO1mgNKV7HCQ=;
+	b=L9hfeoHyyecMOn13hBJ5cRU15bfC42B/Copjfowh/RMmEiG/tkCgqtVQO1t/lZSqP1LJ
+	 TYTMz3fg/puXdBXeW52dvu2FIq5VnAaTbxkXB+a8ljvUAuXKStS4UmUTpcA/StHDkMumg
+	 0srNOfr0sZhFasZ42tuP3gv7G0YiDUD+sfIOHai4iP4SHQEQ9NK/8fwW9vmgUkq1Sqqta
+	 pMms5JoU22CfpDIqCNj1TXB5Kc68Y54QbRiYCHvdJ8g0ZeY9x2q33WSNzVuMwo5v7e4u7
+	 n+hMTLPWCFU6q9i12OJ6TlhwzBWxcCMWqVIsxXfhwR62ig/s+9Ze7hm8K/wGa8vD1Tw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RiwMZ6PT;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=alien8.de;
+	spf=pass smtp.mailfrom=alien8.de;
+	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=ETXQ+NuX;
+	arc=none smtp.remote-ip=65.109.113.108
+Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 777AA60A262D;
-	Sat, 21 Nov 2026 03:25:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0914606A6AB
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:31:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0914606A6AB
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RiwMZ6PT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB8BB1F000CA;
-	Sat, 21 Nov 2026 03:25:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795231508;
-	bh=ywvcXdEzMlpkXyBIr8U6P5Bs89wJlEBGndZBQ01hhDU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=RiwMZ6PTyy7rPgR1kvw6yGdXBOExU75JbBV+y7ysSpLaFr1ahk88FVRayf7d4Wkbd
-	 TT0Mj2ONjcp981U0RvaHTF4nAvvCiHcS+Had42dRPNs2d6xaVWozBh7TG0IR71Xcic
-	 j/vg9qfZBntkKlCZhAdVuWMphmXhbNp5am1zLsdPUfHXpofaZ5ozeca19DPwXsh2zw
-	 9i74cVn7t54b76a7/wnEFzslKpgI497ZvYYapx1z/6HMxttSgnkd8o7LDMIDRoDGwh
-	 JpLc1pJOhfcW/fy4frWQfk2gtlKpZDTNxSXeFBPg0MbaPW05V4U8ay6WE4JgdTN6jo
-	 JO61mxCpu3f4g==
-From: "Martin K. Petersen (Oracle)" <mkp@kernel.org>
-To: Sathya Prakash <sathya.prakash@broadcom.com>,
-	Sreekanth Reddy <sreekanth.reddy@broadcom.com>,
-	Suganath Prabu Subramani <suganath-prabu.subramani@broadcom.com>,
-	Ranjan Kumar <ranjan.kumar@broadcom.com>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Louis Sautier <sautier.louis@gmail.com>
-Cc: "Martin K . Petersen" <mkp@kernel.org>,
-	MPT-FusionLinux.pdl@broadcom.com,
-	linux-scsi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] scsi: mpt3sas: Fix out-of-bounds cpu_msix_table read on CPU hotplug
-Date: Fri, 20 Nov 2026 22:24:53 -0500
-Message-ID: <179523145631.420187.8247268740882578143.b4-ty@b4>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118201316.326943-1-sautier.louis@gmail.com>
-References: <20261118201316.326943-1-sautier.louis@gmail.com>
+	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=ETXQ+NuX
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 93A3540E01E1;
+	Sat, 21 Nov 2026 03:31:04 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id jZAIpj3fUQNg; Sat, 21 Nov 2026 03:31:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1795231861; bh=X9k99YWlnt4nbGZyPDuesahA3NaBAphEO1mgNKV7HCQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ETXQ+NuXqFIPnAGxqi0d4cMaGqXwi85eulYwdcq0BKNjX9d8Me2UwTeNl7zcp8GD5
+	 TP2CWGPhOp0kz0xwL4y/8jmX7qw2yKLehr56tUvYcEOL4qZN7MvlVPSb1CPOGK2Jw1
+	 qc25jrTCEPcl2j8PoVA6ZmQHcKh+fwXURDBt0d68cbJor70Y8gSBtkXROxSOQIGoEU
+	 Lf8QmG45pIVcp9LETJG5j+zZcieriuIV11QCSZSEpiBzn0RfR+YJ8mrtzzCLX3up2p
+	 xLFiA4l89M4iMkXIX2zcm0YHBlLVW1+Ewea30qUUV91DpgaokjGFGA4vBMZ6CJBbc9
+	 G7bPfCoVHZlxn4AikE8+MxuQZ6c23LpFiBqbxu7XBNlYNgmbm3Kqer22hSOTaD57Xb
+	 fu75QfT+pCWA532Cfu5TAueucFDtRVoBGn3SmqgWv66y7s+czwZPGT/p9vS1yMVsTE
+	 +5cB9W2zkZHYxCpljU9wnnWUpP6kQRrujvUV3y6nHetZCh034vumALVhYROyluzDqV
+	 hL5PA+kXYNV8kwmhIfDgH3V3BopiOFDD/QwYzwKIqtLLgceNvMa+fg6egXOCRQGxWb
+	 lt0DMsBFVivjJLSfqhady//DeanE0Jm/7jYqOypqO1UJ28x1th1Yiqxd20XkLGv+oz
+	 Lsf70rRZk/vynng3kjc93OmI=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 7068C40E015B;
+	Sat, 21 Nov 2026 03:30:55 +0000 (UTC)
+Date: Fri, 20 Nov 2026 19:30:52 -0800
+From: Borislav Petkov <bp@alien8.de>
+To: Melody Wang <huibo.wang@amd.com>
+Cc: x86@kernel.org, LKML <linux-kernel@vger.kernel.org>,
+	Tom Lendacky <thomas.lendacky@amd.com>, ardb@kernel.org
+Subject: Re: [PATCH v6 5/7] x86/sev: Register Alternate Injection protocol
+ during OVMF boot
+Message-ID: <20261121033052.GDawEQbFJ7XyDOM-K-@fat_crate.local>
+References: <cover.1793926736.git.huibo.wang@amd.com>
+ <bc08967cc41dd4454c75e9315e37dbe34225e258.1793926736.git.huibo.wang@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,24 +81,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <bc08967cc41dd4454c75e9315e37dbe34225e258.1793926736.git.huibo.wang@amd.com>
 
-On Wed, 18 Nov 2026 21:13:16 +0100, Louis Sautier wrote:
+On Fri, Nov 06, 2026 at 01:25:31AM +0000, Melody Wang wrote:
+> The SVSM provides the SVSM_APIC_CONFIG_EMULATION protocol to register
+> and deregister Alternate Injection. This configuration must be completed
 
-> mpt3sas_base_attach() allocates cpu_msix_table based on the highest CPU
-> online at probe time, but _base_get_msix_index() indexes it with
-> raw_smp_processor_id() without a bounds check. Once a CPU with a higher
-> id comes online, I/O submitted from it causes an out-of-bounds read of
-> the table. The value read is sent to the firmware as the reply queue
-> index. When it is not a valid queue, the IOC faults and I/O fails.
+Unknown word [deregister] in commit message. Use "unregister".
+
+But you said that the spec calls it "deregister". Oh well...
+
+> before ExitBootServices() is called. Therefore, OVMF needs to invoke
+> this protocol early to set up Alternate Injection for SEV-SNP guests.
 > 
-> [...]
+> Implement this registration by default for guests that have SEV-SNP
+> Alternate Injection enabled.
+> 
+> Signed-off-by: Melody Wang <huibo.wang@amd.com>
+> ---
+>  drivers/firmware/efi/libstub/efistub.h  | 11 ++++++++
+>  drivers/firmware/efi/libstub/x86-stub.c | 36 ++++++++++++++++++++++++-
+>  include/linux/efi.h                     |  2 ++
+>  3 files changed, 48 insertions(+), 1 deletion(-)
 
-Applied to 7.4/scsi-fixes, thanks!
+...
 
-[1/1] scsi: mpt3sas: Fix out-of-bounds cpu_msix_table read on CPU hotplug
-      https://git.kernel.org/mkp/scsi/c/14bc5d239ddd
+> diff --git a/drivers/firmware/efi/libstub/x86-stub.c b/drivers/firmware/efi/libstub/x86-stub.c
+> index a2f193da9bde..878f61cd6fab 100644
+> --- a/drivers/firmware/efi/libstub/x86-stub.c
+> +++ b/drivers/firmware/efi/libstub/x86-stub.c
+> @@ -786,6 +786,39 @@ static efi_status_t exit_boot(struct boot_params *boot_params, void *handle)
+>  	return EFI_SUCCESS;
+>  }
+>  
+> +/*
+> + * When the guest is running at VMPL2 with Alternate Injection enabled,
+> + * register Alternate Injection before ExitBootServices().
+> + *
+> + * Return true in the first conditional to mean that this is not an Alternate
+> + * Injection guest and boot can continue. If it is an Alternate Injection guest,
+> + * both failure to locate the protocol and to register it, means fail the boot.
+> + */
+
+So since we have a CONFIG_AMD_ALTERNATE_INJ config symbol, the intent is to
+put all that functionality behind it so you can do something like this:
+
+> +static bool svsm_register_alt_inj(void)
+> +{
+> +	efi_guid_t alt_inj_proto = OVMF_SEV_ALT_INJ_REGISTER_PROTOCOL_GUID;
+> +	sev_alt_inj_register_protocol_t *proto;
+> +	efi_status_t status;
+
+        if (!IS_ENABLED(CONFIG_AMD_ALTERNATE_INJ))
+                return true;
+
+> +
+> +	if (!early_is_sevsnp_guest() || !snp_vmpl ||
+> +	    !(sev_get_status() & MSR_AMD64_SNP_ALTERNATE_INJ))
+> +		return true;
+> +
+> +	status = efi_bs_call(locate_protocol, &alt_inj_proto, NULL, (void **)&proto);
+> +	if (status != EFI_SUCCESS) {
+> +		efi_err("Alternate Injection registration protocol not exist\n");
+> +		return false;
+> +	}
+> +
+> +	status = efi_call_proto(proto, sev_register_alt_inj);
+> +	if (status != EFI_SUCCESS) {
+> +		efi_err("Alternate Injection registration protocol failed\n");
+> +		return false;
+> +	}
+> +
+> +	return true;
+> +}
 
 -- 
-Martin K. Petersen
+Regards/Gruss,
+    Boris.
+
+https://people.kernel.org/tglx/notes-about-netiquette
