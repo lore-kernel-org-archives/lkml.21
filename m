@@ -1,80 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795273109;
-	b=pTd92bzfWys4wJC0O/9SHuXa/XHRwEL0um0SEvfzg1b3hdhyH6lqHe/tRiVBeXZZDCVv
-	 A4ZP/IVkefcxUbMNPy632fSsWTxDMENzcSSyPxgpltjGSYUnLqLimIm9pmdWI5ktobd1n
-	 3RfsSbTfLRTklKBx9MXB9BYbLDNaFXX9VrguHEc3Yw32QFhomSegEzxchHvh4jnV845Ld
-	 /QdmIbLq1bHEOlY2gM588IR7fuNRvbJBcC75ysSoH6+jK8Fw5YuMM06EmWv+GWzcMwtQ8
-	 6ZKmB/X6Lg2vSU/rVm+K1KqnjbJr5uzz60LPqScIybNvOFmMk4dJ4OqH0KRe/0+To4g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795273109;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 Organization;
-	bh=i3b3cLtt8G5/INJz756VDaB4GfRsAFuhpYGDkJwdzxI=;
-	b=VkDlon/+mBDdzICmMUmIzQajMol0R1d1G3SykpqubUvr/mA3fm0rtyEI5N7Sl1CA3XwR
-	 PCXvxT94JEjgASquOkfqnebBPr9hZ6KwHL6NPP4F49LFGRHNYFa+tr+rmRVktCquP/kms
-	 Lo+Zr9twgpMvn3ssfS9oeMoYhM+6u+K029Qb3uRn1LRZyqvppydOLu1FkgjGnd1LClokv
-	 aDSPujTv3+Uf8G9rFt4dF8a8+A1MNS0xyS/01K25J7ws0L/MQ0WB8iN5/ieNZez/Km5aF
-	 kDHQiqy5q3WeDS+Pqi06hsoMXy4SvqUvjUxc71fwIFYGWsa5MaNUtbWHKejkqrtRdNw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gsRsfpvD;
-	arc=none smtp.remote-ip=198.175.65.20
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.125.84
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795273179;
+	b=pEsRcMkmUkn7QMSjy9kHzeD2EE2wKIHettQsi8p/rc1gfn77LLVQ9aOynoV3wZVFeoAc
+	 g4e6d5xX8lZa6/qAmWmWixG0jU6sCGi8fyfJL56eXg014vlol3yn/QQBMMgy7ZASOur8f
+	 WByUv8sgUEj3y08g8XmWFcl4LpRPfN+ZGTemaMOeRwrCQRpHeHDYwUdO2IhD6wwL6Psfv
+	 Ur+fNYkp2BSdVYh4L5pl3jpnifkJ35jaIWnWWNbcKFa2RY2uWHpF6aUdh+KYXmChrxW9d
+	 6y0gZtEviF1Qjweih50WCXMpOz5cfS0p3iMPl/EBqlTtF0yiaTMpWQN60agM0nFSJzA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795273179;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=QGLKBJGKJmG8wTC85yxU4LzEhwN+ufN/tKb6of50/Sw=;
+	b=w3D2SQqC8uV7U2EImlILqiykHBlcC7AwW659KgfUGvh4IYHi/bXHIMhKyPYxWfXpv4Lp
+	 jUtWQX2nLHrtyDrqsQ1gudOulbNWD8+pGzPkwoLdQDm/aJQRCKZXe2/roFO0J7Qg2TNnZ
+	 7MpjtI9FXaWqM9EHkIWHheb8lTQUd6UuGrqspqY8blkhOIYfBMVe90UmjPwoJTJJbrYoL
+	 GWdf6yzXvh5Y+zvjggWmobFI/1ROGrvMWgXl9REpGwZv9hTcKfr3sztrw/t4NBiE1lhX4
+	 IHM/dq4ytS0B+DOYZ+JegIOL/aRcLGKpSXPSNTXr1CMglLqhGNKhd7YkkekF6Yh2oIQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=valinux.co.jp;
+	spf=pass smtp.mailfrom=valinux.co.jp;
+	dkim=pass header.d=valinux.co.jp header.i=@valinux.co.jp header.a=rsa-sha256 header.s=selector1 header.b=MmyNSjg3;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.125.84
+Received: from TYVP286CU001.outbound.protection.outlook.com (mail-japaneastazon11021084.outbound.protection.outlook.com [52.101.125.84])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8691A606A320;
-	Sat, 21 Nov 2026 14:58:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8691A606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73C61606A320;
+	Sat, 21 Nov 2026 14:59:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73C61606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=valinux.co.jp
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=valinux.co.jp
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gsRsfpvD
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795273109; x=1826809109;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=+2TVOJ7oWyeYgmNbI/7CjJduZ8iKEhMSXWBN6IhabsA=;
-  b=gsRsfpvD944MrXJqZmhmuH4U6fR66u86B5T08p+N42Fp8DUpIKuQCyt4
-   kgA66q1inP5fUL8EfvSml0BJets6ejwsPBJCrMEJECB+agfA6lISCsfGT
-   8vy0gZZ/cyIUrAzSRp6LtytXoYPTSJMy+OVmRsU9kak6hvKnQ0AjcCaW0
-   7VXZPdhQh/uphOv8rEjSQRlCC27yi0370qHO+sNuBG4kFHQeM0f7Z1WBw
-   SCX4KBrto59z+sL+B5qaUKSG9656G0zePKOgn8DpNJJiuTMv1HMWGeB9x
-   UCFjljjuuKzLoFADo271ISXdNKEm06NgtZjhvbrX2JmBMqpZ8TWWvp1Bm
-   A==;
-X-CSE-ConnectionGUID: 7xIHk65nT3md4TJN+No91w==
-X-CSE-MsgGUID: fhRY29ixSUeguhgKGUvALw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11973"; a="4176173"
-X-IronPort-AV: E=Sophos;i="6.27,225,1787036400"; 
-   d="scan'208";a="4176173"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2026 06:58:28 -0800
-X-CSE-ConnectionGUID: 6GiRcTiFThySDZbJz8JxEQ==
-X-CSE-MsgGUID: WFRzvSSJQ8WHjwrfWzIsNQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,225,1787036400"; 
-   d="scan'208";a="11338686"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.129])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2026 06:58:25 -0800
-Date: Sat, 21 Nov 2026 16:58:23 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Joe LeVeque <joe.l@reflexrobotics.com>
-Cc: jean-baptiste.maneyrol@tdk.com, jic23@kernel.org, dlechner@baylibre.com,
-	nuno.sa@analog.com, andy@kernel.org, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] iio: imu: inv_icm42600: return -EBUSY for
- temperature reads when idle
-Message-ID: <awGxj7xP6oTlkUt0@ashevche-desk.local>
-References: <20261120020850.24318-1-joe.l@reflexrobotics.com>
- <20261120020850.24318-2-joe.l@reflexrobotics.com>
- <awAT-ofy0p_uhvGN@ashevche-desk.local>
- <CAJLMkXafYtUx7gXE8g-sJ0keGW8eSrVGPc2ao5EzjkxZ-nN2cA@mail.gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=valinux.co.jp header.i=@valinux.co.jp header.a=rsa-sha256 header.s=selector1 header.b=MmyNSjg3
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=P51rUx8cZa0p2i/KTSqtMsRMbp7p3LcqKgOnUTFYrOu0w+NCiBkcHnLEWd0flzxc0BAQs4cotGzWhL7EaDX2NcXifqs+IA8GtYUM0pmih6/aqHUkIHM+YKqgCYyndITu/F6pJiEWFTh3TAJtL+52mq4cbOFsNXevpKkJorVVDgwetceWcIQeKBRznZa9QADdHZeBSldx4zvIyYCiH0hti3uyVag8DWnRTOimBHVEXxfg30o5xuoszqZKcEV6rcrz9AVgZh8S6c1t8RC/jRFEQ5/8Icmt829k//Wm0xDkEvWSkiYZU4Eo+AgkvKbdn1+IvhbIkNJBU1VW5fyKQLXFhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QGLKBJGKJmG8wTC85yxU4LzEhwN+ufN/tKb6of50/Sw=;
+ b=tNe1BIKrtNDyQ5aHCrdRcxjnJ2OpZj9nBbdaRZSl51vSVJGOOLfyIDc2MprooBuOlaBIQSt5Kik4B/AqLzB8WYMH1o1BObBUcyDLzji4Q2KeE7e8NfDN4624QfXlSuB/Y2I7CY8rPnqDWRqBDVSb225YRG+oGhmF9XDdnO9PINOlaJq/yV3DJyoErffxZ4+hbzqE+S8sVlJNwaGrBcH6t/AHXnjd3t+HRWvHu4o/rEo0J2CMRS4ERR0HkzUZ/gt806z9iml4i6ogPg5+Ul8V09+H9y4pudBBeTce1UU8Pcy7WZ7u+ue6g61rcWnjKHzZmXTVTKxHcsVQdgQC0214lQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=valinux.co.jp; dmarc=pass action=none
+ header.from=valinux.co.jp; dkim=pass header.d=valinux.co.jp; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=valinux.co.jp;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QGLKBJGKJmG8wTC85yxU4LzEhwN+ufN/tKb6of50/Sw=;
+ b=MmyNSjg38Q/D58y7WL+pU5vz4iepRATldu8pOyshggzDQCTxTiN8LfybuirzZ6pcxZZ5xW7zmJfqs54fdfACcu5i5y8JcjRuwtqu5AkJqa9J9CN77mjZXALc3l/j78pNT7OGgeNyMDbk0jZsoGahKaQS9qvw90jgVgHxX77fbB8=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=valinux.co.jp;
+Received: from TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:325::11)
+ by OSOP286MB4177.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:304::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Sat, 21 Nov
+ 2026 14:59:35 +0000
+Received: from TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::cce5:2aa8:53f9:dba9]) by TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::cce5:2aa8:53f9:dba9%5]) with mapi id 15.21.0639.012; Sat, 21 Nov 2026
+ 14:59:35 +0000
+Date: Sat, 21 Nov 2026 23:59:33 +0900
+From: Koichiro Den <den@valinux.co.jp>
+To: Andrew Jones <andrew.jones@linux.dev>
+Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Bingyu Xian <shanbeeyoo@gmail.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] RISC-V: KVM: Batch user accesses when updating steal
+ time
+Message-ID: <awGevuQAuA349gO8@z790sl>
+References: <20261118062242.2914385-1-den@valinux.co.jp>
+ <20261118062242.2914385-2-den@valinux.co.jp>
+ <awB1hZGh3LYztjqL@orel>
+ <awB6FpVOpZ9fhMt1@z790sl>
+ <awGJaUFUmBOa4xfO@orel>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awGJaUFUmBOa4xfO@orel>
+X-ClientProxiedBy: TY4P301CA0070.JPNP301.PROD.OUTLOOK.COM
+ (2603:1096:405:36a::8) To TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:405:325::11)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,77 +103,125 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAJLMkXafYtUx7gXE8g-sJ0keGW8eSrVGPc2ao5EzjkxZ-nN2cA@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY7P286MB6866:EE_|OSOP286MB4177:EE_
+X-MS-Office365-Filtering-Correlation-Id: a9e5fece-e322-4d03-9e15-08df47e00e3a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|10070799003|1800799024|366016|7416014|376014|261026121527099003|261026140227099003|261022105027099003|261022075727099003|261028144727099003|261021121427099003|10067099003|4143699003|56012099006|261102123227099003|261009223027099003|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	F4bPLYUZbCQ7oOkuKaj2CyYtv8lQUSbX9KTFgX9I/1fgLbVhu7J1jqfQBCaZMNjyYh7zumyFPpR7uIEJtV5SZyw59R0A6DvTB65pKEEXylcL8l08jLvfpwgydSTjQMAOgm9x6AEQAUvGadldRYqWakMU6LSWNO7LgQu1S4rke+HYcZgXIJl0m62FQidy16SFnfQVcFV/DhHwseT84bQaCVg05WVq9iCEskoCtDSGx8/rjTMwfrFTH1Lhyj7Gr9hIlNIUrw0uROS98SXan7SFg/nTC0eTEjXGnzBWfMMF5JC54RhIq8qRoDH5lK80f8gp+F6/XkbpVG3YbyuT6LiqhRQWvTfFJA1KmLkWsfviFCC0v5paQ7cuz066O+8JAVOEn0OMPCvtUBqHDud5d3rggG9jozB4K/P+5B0ogvvpI6nsNICru7uy45fqxzb69rhNV5WeNF/Dsl0I2s5ZlXEN3tD9PExbKwOq31BWGjgDD3kQ6Ey/MVLRizcrtGPMWTcJjJ/N1xHg0BKd+4FYtGF1qrLYLVGc6bDWmVLq4qZS2sWLyoCSgG1kQM6avUNEDJs473FU2X9AN2Fav1+q4XNrpjAOtxcykAstKEGcTkZmmRc=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(10070799003)(1800799024)(366016)(7416014)(376014)(261026121527099003)(261026140227099003)(261022105027099003)(261022075727099003)(261028144727099003)(261021121427099003)(10067099003)(4143699003)(56012099006)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?okExQm1sYlTfvAD669SzVcQTKApY5A0HchtowQXKVGqz0wSKs1BE7b4Lz9C5?=
+ =?us-ascii?Q?H9CvPD7F3m+RCqfuCkHb8AG0w9/SIjbqzni/WgwhUlfOn9rWTRrVyaK20Udh?=
+ =?us-ascii?Q?Mvvq+TrolxMs7ufiEXDDGdI5JUjhLhrl9OIWg+BFlZvCitLXFZRmRneNQXE1?=
+ =?us-ascii?Q?NxzFo5BayoRerLvpL1h1/AYHMhaKYs8Xw8dizTw/mPlUOEbq+rVwsYmbkje7?=
+ =?us-ascii?Q?Ifc3gaRcbscDAS87MJr/qmexGfRuS00VFrtphECdDc79gCR5Iuo/pBYt5Cpv?=
+ =?us-ascii?Q?R5ZdkC4+g8UaaZzrx4CxqcE4gu3OyDl0FA6ZIcARijTCGuSPR2bK6Xt23rq1?=
+ =?us-ascii?Q?pV1yssjncjhVV6hKWQ2eYxafM/FDIobGDUavz/KcWI3PYqhpLuFFsrhlRdA+?=
+ =?us-ascii?Q?+1Zm5gz40Fkg7liVPo5+thcrXwgTIm18kj6ID8ltTNCOrBHBik27gP6KRxHH?=
+ =?us-ascii?Q?JbXmgmwywpzBT0Tow9CbWpM9K10ybWybnV8y4q+G8sjyzPkodP9iLTEOwSAh?=
+ =?us-ascii?Q?bnHSUWsmVqFLeYhNNOoTyE/0bTh06/1XLMK6ymordsa40P/iX6RwTuZlQZjv?=
+ =?us-ascii?Q?4Mqms7nJgwMTy3Of+lkAS9Qcd1JcKYZYtS9SHfR/d4IrtUXJZ11nhWWpu6qu?=
+ =?us-ascii?Q?Iw9eIN2sX4ME71ucJDv7Fhvct7Eafz621UW/dzWlanUtZsG9gZdyHeA1xyUC?=
+ =?us-ascii?Q?b/JA1HwTMHOIpapxNPDAswxcjzszVU+SuiZhPZ31CtguDtstf2Y0it2yrlz/?=
+ =?us-ascii?Q?ZG+MWNR21qPJkZ2FVrpFLkizcnvv8BVpsmRCvGoIo+umg+U2xy5jawjHsbh9?=
+ =?us-ascii?Q?C/sk4PS7RuC5m7OWTNjWFPeNkUSXCWz3JAgo6YhyiJWiPuk4wbINymPWbinO?=
+ =?us-ascii?Q?tNYIpWStMrFcu9GJ9smaOIDnsId0kpyjN1fK0E6RHCq6Hr3tiWjFwYDrwcGB?=
+ =?us-ascii?Q?NcEFp46F7yzRACY+ivq3O2AMhciA2a0/tZf7mQXCvrqBJm30j9DT7q7xTNvL?=
+ =?us-ascii?Q?N8FnsbutNSuP7SiOQ8wOm2HCLT9pk4ajvdEEdvLVaFkXBLOCVy8I8okxKOSV?=
+ =?us-ascii?Q?7IBbOa5Z7cpSu7kUWaTeuBUZCep+4J6RKGfZEOeSl6kC1/TV39vsG/0TcL1C?=
+ =?us-ascii?Q?eZZmSC8h1DBWidznEDqJTlVUGKetucQXqKeIIhbIP4jOH8tiFKytBajWo2nO?=
+ =?us-ascii?Q?8Fl+fvw7PORZQnnW0X/v/qRyb5r02Q2Wyod3ISgoMDXLtMBDGJiVV4nOYZTJ?=
+ =?us-ascii?Q?n2JiWYf7iZNioStkV7qikvQreVdQIihAGg2lYe0Sjpfe0gdYap/awlHWB++e?=
+ =?us-ascii?Q?ghD0n02n4qyBr+GUKA/0Tf+KsUJh/5aWD5vE3dr1H7Pg50tls4jASu8CGzCG?=
+ =?us-ascii?Q?fHV1gfWSkHwk5ImyVkttHi4pStxaiJIeXHwNbKaYYvfVqEps+XPqZi6QlpX4?=
+ =?us-ascii?Q?OMFL6x3zs6G3MNF5eKrUqrGNrRWpVlZDqlpJqWX3SWYOh52Nn6v5BAIXzsaL?=
+ =?us-ascii?Q?lVZnceuv2b2M0MGIh7XqszSuopt2R5rGUOxXHqJTjq09sPjdKyxdNRcMJaFd?=
+ =?us-ascii?Q?79DHGOL7mKlVhhMdLaD01Q7dMId+GNf4nZOCGDFAGA9JW2nAb7VFGaUrGcCe?=
+ =?us-ascii?Q?q6uAcNk5zXx1QYVP9cxFMaGTOacBjIUZWgXwRU0uj+jJZjfDpUcawda5sMtc?=
+ =?us-ascii?Q?aAiXYaWi6EtRTh1UdvslmmNhnxRqFMx6qeW5f8C1a0qjXtl3eC6EwtEF4HL6?=
+ =?us-ascii?Q?Fo/1IdMbtvPRqFJHgnv9GXWQvOWyGQiy/q5BfbXw0ATCZ6C65mty?=
+X-OriginatorOrg: valinux.co.jp
+X-MS-Exchange-CrossTenant-Network-Message-Id: a9e5fece-e322-4d03-9e15-08df47e00e3a
+X-MS-Exchange-CrossTenant-AuthSource: TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2026 14:59:34.9569
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 7a57bee8-f73d-4c5f-a4f7-d72c91c8c111
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tnJSfFP8FcI7YLx/nscpPqGEgaswXKW8HaOslbnfswnK/5Lj7B+8dkk0fCJl89QqdkLs3BVmMu4U5j+ECINBDA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSOP286MB4177
 
-On Fri, Nov 20, 2026 at 10:32:52AM -0800, Joe LeVeque wrote:
-> Hi Andy,
+On Sat, Nov 21, 2026 at 01:23:43PM +0100, Andrew Jones wrote:
+> On Sat, Nov 21, 2026 at 02:20:17AM +0900, Koichiro Den wrote:
+> > On Fri, Nov 20, 2026 at 05:40:29PM +0100, Andrew Jones wrote:
+> > > On Wed, Nov 18, 2026 at 03:22:41PM +0900, Koichiro Den wrote:
+> > > > Updating the SBI STA shared structure performs 2x get_user() + 3x
+> > > > put_user() calls, each of which toggles sstatus.SUM.
+> > > > 
+> > > > Keep SUM enabled across all five accesses to the shared structure.
+> > > > 
+> > > > Note that write barriers are added to order the odd sequence store
+> > > > before the steal-time update and the even sequence store after it.
+> > 
+> > Hi Andrew, thanks for the review.
+> > 
+> > > 
+> > > The barrier additions should probably be posted separately with a Fixes
+> > > tag.
+> > 
+> > That's exactly what I wasn't sure about when I read the ISA spec.
+> > It was unclear to me from the Zicsr ordering rules whether the SUM toggle in
+> > the old code's get_user() and put_user() calls also order the stores to 'sequence'
+> > and 'steal' as seen by another hart.
+> > (I don't think they do, but I'm not 100% sure. It feels a bit like trying to
+> > prove a negative, as I couldn't find a clear statement. I may have missed one
+> > though. OTOH, the new code surely needs the barrier, so I included them.)
+> > 
+> > Do you read the spec as allowing another hart to observe those stores out of
+> > order in the old code? If so, I agree the barriers can go in a separate patch.
 > 
-> The -EBUSY here is consistent with the existing invalid-data case in
-> inv_icm42600_temp_read(), which commit dfdc31e7ccf3 (“iio: imu:
-> inv_icm42600: change invalid data error to -EBUSY”) changed from
-> -EINVAL to -EBUSY for the same situation (both accel and gyro off).
-> Patch 1 returns the same error for the stale-data case, so userspace
-> sees one consistent response.
+> Yes, we always needed the barriers since we need something to pair with
+> the virt_rmb()'s in pv_time_steal_clock(). get/put_user weren't covering
+> for that omission either because CSR accesses are weakly ordered.
+
+Thanks. What I had in mind was the exception in [1] for a CSR access that
+"modifies the execution behavior of the instruction that performs the explicit
+memory access". I wondered whether toggling it between the stores in the old
+code also ordered them as seen by another hart. I agree we can't rely on that.
+
+I'll split the barriers out into the first patch of v2 and add a Fixes tag.
+
+[1] https://docs.riscv.org/reference/isa/v20260120/unpriv/zicsr.html#5-1-1-1-csr-access-ordering
+
 > 
-> https://git.kernel.org/torvalds/c/dfdc31e7ccf3
+> > 
+> > > 
+> > > > 
+> > > > Signed-off-by: Koichiro Den <den@valinux.co.jp>
+> > > > ---
+> > > > To reviewers: please let me know if you'd prefer
+> > > > scoped_user_rw_access() here.
+> 
+> For scoped_ or not, whatever you think reads the best. I prefer scoped_
+> when it makes sense, as it's harder to get wrong, but readability also
+> matters.
 
-I see, but even if it's used otherwise, perhaps we need to consider to replace
-in both places (or rather replace existing one first).
+Makes sense. After polishing up the scoped_ version locally and looking at both
+side by side, I now agree the scoped_ version looks a bit cleaner. I'll use it
+in v2.
 
-What about using ESTALE?
+Thanks for the review.
 
-> On Fri, Nov 20, 2026 at 1:33 AM Andy Shevchenko
-> <andriy.shevchenko@intel.com> wrote:
-> > On Thu, Nov 19, 2026 at 06:08:49PM -0800, Joe LeVeque wrote:
-> > > The temperature sensor only measures while the accel or gyro is on.
-> > > With both off, its data register keeps the last measurement, so a
-> > > temperature read returns stale data. On an ICM-42688-P, a value held at
-> > > about 52 C was returned while the chip was at about 62 C. The data only
-> > > reads as invalid before the first measurement after power-up.
-> > >
-> > > The temperature is the die temperature, used for accel and gyro
-> > > compensation, so return -EBUSY when both are off instead of stale data.
-> >
-> > Hmm... EBUSY means they are doing something and kinda hints user to come again.
-> > Would this condition change on its own if user comes again later with the same
-> > request?
+Best regards,
+Koichiro Den
 
-...
-
-> > > +     /*
-> > > +      * The temperature sensor only measures while the accel or gyro is
-> > > +      * on; with both off, its data register holds a stale value.
-> > > +      */
-> > > +     if (st->conf.gyro.mode == INV_ICM42600_SENSOR_MODE_OFF &&
-> > > +         st->conf.accel.mode == INV_ICM42600_SENSOR_MODE_OFF) {
-> > > +             ret = -EBUSY;
-> > > +             goto exit;
-> > > +     }
-> >
-> > I would choose one from the below (they all have their pros and cons)
-> >
-> > ESTALE
-> > something like this, but error message is specific about file handle
-> >
-> > EL3HLT
-> > what is level 3? But we have the only user, and it is outside network
-> > and it sounds close to this case, but why not EL2HLT? (Also the users
-> > are outside network.)
-> >
-> > ENODATA
-> > also used a lot, so semantics not so clear, and data is there, but outdated
-> >
-> > Depending on the answer to the question at the top of my reply, the error
-> > codes may be EIO, ENXIO, EPROTO, EAGAIN (but if EAGAIN fits to the flow,
-> > EBUSY also fits).
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+> 
+> Thanks,
+> drew
