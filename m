@@ -1,77 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.22
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795292724;
-	b=RaJPlBq9k5T/SVYEjGo5x/XXlZ8Dl14jOhrmKuv/Q9USzLxbVpVyR5HE7uxBv7BCq2/f
-	 hj4+jQxRrljS4GkNQZ/r1kKdENZjoEOIi+NOhhFNb83JrAgMwOm6/PvtErr6fIuogpczj
-	 GIiSpghe7lgmhLqg8aO98LhiTG4p6ZhZI4kwhcBplViMBdIUTNSOxGPEtlEYpdhEpImfN
-	 yu8j+PPd2YrQE+xo43FDwWPgvv4tf+/xH6CKuPZ7lqWWLFaggq2WVDolJ0BNcBtRk4SXp
-	 d5Q0ZiAX5KTJ+ShXAPOsYpze8P1vifenemGYA8fZmXY1P+kEY8fuLVbNPPBGyPdR2Yg==
+	t=1795292842;
+	b=IzhIUzxZxHm08XhmYWLyKdN0fzEzsJHTSd9pyLn5FGeN3P8fr4C31iLxARhbfapQ0D0T
+	 ipf5t70/UPkZogfaSmIXmC98IEqvkfB9jY2qaNw2aWWoxGQkcQHOV9LtSvrO5pO++16JK
+	 e4qF+W5m92KvXROO4BuWAyryLcw/iW+TV6V9LVlaOIE3E965Lr8996lSBIQ0bwXPT/kQa
+	 +h3Gx4euAjbQaGdzF39JkJ3Wb0DoY88zDBaXO/DMKl9+0TcXzkK+Ah+jTgg12GJBdrWZu
+	 rNU07lgg65zGeC2LBerIQ+D8LYUrXss8gf7UeGTTCuCcOL+KCtNwhB0LbPUgoGUmdhg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795292724;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
-	 UI-OutboundReport;
-	bh=FlZD16XOXzpBlGeSpCzFFK87s1nxhxjAOKNSrws2Kh8=;
-	b=UuAUBgzxjY5VgUY0/X0KJRRI1tCL5xVugKRkiOdZ9jDtKmGBi0WuvX2TouJo5tjczgaa
-	 HdobKsqS0y+hdzTbthL8xtFUjSf9WdSCYFMShQh9OFDsKXFwuUa1kjCTjaxviB5VBG8hR
-	 Iy+KdtzYCihfP7UAWh7uKuIcxvr+BX3Y41tyHmveqM/1rOu2M4Se/8OqZz6mVnQ8p7DOr
-	 gvenZQ2ZHWWcCG0cMMtZ/bH+QvHdJGFLcv7fKTWKa+l/WiNoB91ceUpzOHcRVHpVEnUKT
-	 gYLMkppg/yQHaLrT3uWOLsf3TIG+0/djx1a7InWOLQo2lwd0DRZMN3R0iWsywy+/uLg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795292842;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=40tejK4FZl5LRGOXaGeE0E1U7AlddvNA/8gzWd64RMk=;
+	b=YLrRfhb5NM9Ez5cs6MYK8RniDAtZBoK6nxwF8YSiY4HbP8bK4lW45zlVVbyUMfcegBOo
+	 zxp46uBxAFeKpXfFXFW2B5gU1A0CZhWUMVzbUXugzc2ZyLHzdp80WN0KuZ7eGbwYCy7Q9
+	 66jzfFaQyL+qDdgGJdBwRB+9uSlBE6XBEvv318Ji8OnsahDBU/kbjZ2XabyACbzktDPVd
+	 Fz56b1uFZoDnXh/BEL5bl+T+GFKrIRPlNovU7jhSniQDrwgiP5Lis/FtjhbahG2nO9HqQ
+	 1Y2koTBDRjigE+x1U7xEDqd7LBRjkJXCjf5Lx58H0f1jadvMXhXtx7txlUFWN+7LBUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmx.de;
-	spf=pass smtp.mailfrom=gmx.de;
-	dkim=pass header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b="EBmVh/QH";
-	arc=none smtp.remote-ip=212.227.17.22
-Received: from mout.gmx.net (mout.gmx.net [212.227.17.22])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h2NnCgJS;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0107606A32C
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:25:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0107606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D658606A320;
+	Sat, 21 Nov 2026 20:27:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=EBmVh/QH
-DKIM2-Signature:  i=1; m=1; t=1795292721;
- mf=PFdfQXJtaW5AZ214LmRlPg==;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=gmx.de;
- s=s31663417:rsa-sha256:tDpzh9c6mZNxK9mZGlBH+SZVuPPz
-   HYZeSq0t6YPdLYKto/5f55sUlat7pTSmp/vsQF57wycCNatuvUevxBJ9ukniP9+kWOLNNl85bGH
-   PMIp0eZxFGtEIto31b9E9k5gt9isVMlzLMUqtMIf+XyCmYsqZMfSKbLjDA8Wh1U6hZ00nQrkvXV
-   L2SIppotMwJCIihKgNheR1uS0y30DxwRwNHqu/9oZJpaqnEA8BM6DVrKEZhV550O19IC2YHoaCS
-   rgPuIPbuNe80rjBUID/16+X3JosKneFa9j/QxrIaeZfy5+DCFjIsE1+r3oQ3vtfxGCDqQ09Epb5
-   Q3NKT5i4M6Xk/Q==;
-Message-Instance:  m=1;
- h=sha256:
-   iKwMvcTetfZDme+27PeFO0vJhRwW0WWySi0vN2R1Y+8=:
-   bypAxPXAhLwgVnKIzNi21/TsgWarp5O7LwH6ybLI174=,
-  sha512:
-   2+h5vkW9GsQ+cDUwSY8AzJKNLXUYx4I8gjxI39JFB75SluCm4xDooBuUX88BKfC+TCcZD2PhnscoNMLGHwUBtg==:
-   km8FLW5QHhfldcUtMqJrBQIFRGv0lwLiDUJVoZL4ysC1C11txk6/rF5rJgoGy5q/PcAk6iyeqeiPEqm3hnJAKQ==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1795292717; x=1795897517; i=w_armin@gmx.de;
-	bh=FlZD16XOXzpBlGeSpCzFFK87s1nxhxjAOKNSrws2Kh8=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=EBmVh/QH+Igf9bMJM9V54/qw3H7PFta+TqCYnzQzHXru5TbRSH8VHD4i2+AGF1Fs
-	 y//GTuxIwQg/pbZi3B333MUfzvHoAs9UaO1KJ5OovwcdJP/aZya9DE04oM5fFqUvg
-	 Ry32Armb/hZuGGNSGdD0brD3riHVUH/azLmLL1F2J5zgdgWYOrtPQLAPUWS9jrACI
-	 WuWWiPsRbZb/MfxqtRWaql1+doTv7RPI70URCSb6zUMDyLZz/df4sFFzzeqffJ5bs
-	 QSqMn1SyscL4NlrcLKCZMWL7/puEWdLFYxH7nAhMq/2WH5bJHIQWcD6pFahsCmWWQ
-	 SRcMuKsKXq+XqkQWeA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1N6sn1-1ycADK23CR-00rXnL; Sat, 21
- Nov 2026 21:25:17 +0100
-Message-ID: <79f7bfaa-1cd0-4d44-818a-f080cf0168c5@gmx.de>
-Date: Sat, 21 Nov 2026 21:25:12 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h2NnCgJS
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0C271F000C0;
+	Sat, 21 Nov 2026 20:27:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795292841;
+	bh=40tejK4FZl5LRGOXaGeE0E1U7AlddvNA/8gzWd64RMk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=h2NnCgJSxklNKvLXaKEdoAr76GOJ4d5ohriu48SW+L9hjft3I254TdHcWVq6n5Bnj
+	 JVGQIHOKR2HaGSr8rvaDrc966smIgn8VusrN0LTH36WvRsh7U98DkEqStRY7piDCfP
+	 QVVQoIRlxpsLhZvLKv0RbJmvWyogzdi9y6MF19+JbOjuNsEzG3tneX++J7NwxTkppd
+	 Q1M2xN8de8h1EuhN6szN6SEF//EMRwM55Anc+1XCUUdum82069PmHAILBkBmsWk79p
+	 cFanWlnwfVG0t8VC8dhFmbO/At/VCotkwtU2he8z9x3HF0rQmSkcRk+qKGOlYmpS64
+	 qFH1bvf7OIjpQ==
+Date: Sat, 21 Nov 2026 20:27:13 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Amit Kucheria <amitk@kernel.org>, Thara Gopinath
+ <thara.gopinath@gmail.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Daniel
+ Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org, Kamal Wadhwa
+ <kamal.wadhwa@oss.qualcomm.com>, Anjelique Melendez
+ <anjelique.melendez@oss.qualcomm.com>, Manaf Meethalavalappu Pallikunhi
+ <manaf.pallikunhi@oss.qualcomm.com>, Priyansh Jain
+ <priyansh.jain@oss.qualcomm.com>
+Subject: Re: [PATCH v2 1/7] dt-bindings: iio: adc: Add "qcom,adc5-gen4"
+ property for ADC channels
+Message-ID: <20261121202713.15008e5c@jic23-hlaptop>
+In-Reply-To: <20261120-pmic5_gen4_adc-v2-1-94d0e1fd6847@oss.qualcomm.com>
+References: <20261120-pmic5_gen4_adc-v2-0-94d0e1fd6847@oss.qualcomm.com>
+	<20261120-pmic5_gen4_adc-v2-1-94d0e1fd6847@oss.qualcomm.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,162 +72,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] hwmon: (dell-smm) Add Dell XPS 15 9550 to fan control
- whitelist
-To: Ivan Popovych <ivan@ipvych.com>, linux-kernel@vger.kernel.org
-Cc: pali@kernel.org, linux@roeck-us.net, linux-hwmon@vger.kernel.org
-References: <20261121193227.9408-1-ivan@ipvych.com>
-Content-Language: en-US
-From: Armin Wolf <W_Armin@gmx.de>
-In-Reply-To: <20261121193227.9408-1-ivan@ipvych.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:kr0E23JFqzSxbAlTNOXiCOgLQxS6KjYknRopma95FvUD1NsA7Bc
- Jt5VR2Ip5GkdPYXH6Fh1rGvdFvnkxrkUcy170XWS0pe1R0vJI5owCcBTY/giY5UBHKXOHkg
- QhvLkSp/iSG3MKL2zDZYKDkXA1GJxuy9JeZsFaOKf8vxWQArTD5sShfmElyRjqSwWS2N+WW
- r7kzPsIMFbpjG5o8+0C7g==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:MJgSmBMdozE=;jszdxBcvwbr2waAKJ8vZU8zmOCs
- 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
 
-Am 21.11.26 um 20:32 schrieb Ivan Popovych:
+On Fri, 20 Nov 2026 14:49:41 +0530
+Jishnu Prakash <jishnu.prakash@oss.qualcomm.com> wrote:
 
-> Confirmed on my own Dell XPS 15 9550 running BIOS version 1.14.0
-> running "echo 1 > pwm1_enable" disables automatic fan control and
-> "echo 2 > pwm1_enable" enables it back.
+> PMIC5 Gen4 ADC is similar to PMIC5 Gen3 ADC, with several changes made for
+> improved performance, mostly at the hardware level. The main differences
+> are increased ratiometric conversion resolution (from 14 bits to 16 bits)
+> and increased bit field width for PMIC SID (to allow communication with an
+> increased number of PMICs, supported on latest SoCs).
+> 
+> In the Gen3 ADC topology, the ADC peripheral on the master PMIC
+> communicates with ADCs on other PMICs. It is possible that some of these
+> other PMICs have ADCs of a different generation and may need to be handled
+> differently (for example, on SM8750, PMK8550 is the master PMIC with Gen3
+> ADC peripheral and it communicates with PMIH0108, which has Gen4 ADC).
+> Add the "qcom,adc5-gen4" ADC channel property to indicate that a channel
+> is of type Gen4 ADC.
+> 
+> Signed-off-by: Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>
+Hi Jishnu,
 
-Hi,
 
-can you check if the 30a3/31a3 pair also works?
+Minor thing.  Other than one long line, this binding currently keeps to 80
+chars. Hence the new stuff here looks a little out of place.
 
-Thanks,
-Armin Wolf
-
-> Signed-off-by: Ivan Popovych <ivan@ipvych.com>
+One small additional comment below.
 > ---
->   drivers/hwmon/dell-smm-hwmon.c | 8 ++++++++
->   1 file changed, 8 insertions(+)
->
-> diff --git a/drivers/hwmon/dell-smm-hwmon.c b/drivers/hwmon/dell-smm-hwmon.c
-> index 5963f908972f..ba189b086b22 100644
-> --- a/drivers/hwmon/dell-smm-hwmon.c
-> +++ b/drivers/hwmon/dell-smm-hwmon.c
-> @@ -1640,6 +1640,14 @@ static const struct dmi_system_id i8k_whitelist_fan_control[] __initconst = {
->   		},
->   		.driver_data = (void *)&i8k_fan_control_data[I8K_FAN_30A3_31A3],
->   	},
-> +	{
-> +		.ident = "Dell XPS 15 9550",
-> +		.matches = {
-> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> +			DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "XPS 15 9550"),
-> +		},
-> +		.driver_data = (void *)&i8k_fan_control_data[I8K_FAN_34A3_35A3],
-> +	},
->   	{
->   		.ident = "Dell Optiplex 7000",
->   		.matches = {
+>  .../devicetree/bindings/iio/adc/qcom,spmi-adc5-gen3.yaml          | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/iio/adc/qcom,spmi-adc5-gen3.yaml b/Documentation/devicetree/bindings/iio/adc/qcom,spmi-adc5-gen3.yaml
+> index 149f4af8f4b8..065b82c41e86 100644
+> --- a/Documentation/devicetree/bindings/iio/adc/qcom,spmi-adc5-gen3.yaml
+> +++ b/Documentation/devicetree/bindings/iio/adc/qcom,spmi-adc5-gen3.yaml
+> @@ -83,6 +83,14 @@ patternProperties:
+>            This property indicates ADC_TM monitoring is done on this channel.
+>          type: boolean
+>  
+> +      qcom,adc5-gen4:
+> +        description:
+> +          Indicates channel is of type ADC5 Gen4. This may be needed in cases where the
+
+The 'may' seems confusing as implies there is an alternative.
+
+"This is needed in cases where the..." or
+"This is needed when the..."
+
+> +          master PMIC has an ADC peripheral of type Gen3, but some of the other PMICs it
+Is it too loose to refer to a "GEN3 ADC peripheral" ?
+I'm just thinking the text would read better that way.
+
+> +          communicates with have ADC peripherals of type Gen4, so channels of those PMICs
+> +          need to be marked as Gen4 to ensure their conversions are handled correctly.
+> +        type: boolean
+> +
+>  required:
+>    - compatible
+>    - reg
+> 
+
