@@ -1,63 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.11.138.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795267650;
-	b=ZGAJG3Bj3Keo7dqmMeGlsqQpQRnNlp/zapTiH1ZoglyhOqLgjllux72vEmyyDWi0G42A
-	 LLqfxvnY97yThY2xkdmoCoaZofSisbyKLwofrCXGk5H1qGa5ggzL1WouQsq6N0blnA90h
-	 Vv34qgzlDsWCa9u8tVZB3fZA5BWoCSEc3tn0S4M5CU/vUZy8PUFg4pljHzN/7JgGnmAvI
-	 fAIVtWEuXPsPK2X4gfCpUhVtv10eZN/TLu8tbTp1WIAirOvVPIMUsl3M1QeTE8tp89bRE
-	 mJEFN2fAtbqfAhFjMAwnziagxM++phLzr7eYvIu/8d8rOtWS2Hg2jmyxxiPbcESvW4g==
+	t=1795267712;
+	b=X4wvVm8+x3s65wq1ZRTvBpp+d+jyitTGtPPn+enGJobw7b4IzRP3pj/en1GP8QHNubN9
+	 3lBZ0pGY1iFZ+YtZB5PQX0mbx2Fppth9x2Y2owH70THl3mKpqJ6DkwgzYTCF3PzpTk4H3
+	 CP9rePbk5BNyKHtAs2MVt/OLV1pIxddxYjOMDIoag3EOxLkRcjemr4ydiTpfkavvHDMZl
+	 NzzAzG1/y0pIYfTFzfkuk3rk6o+11bLPuXurmWhiHRmyYI87L4WPB1ByWgdIBHR2Cmdl/
+	 QeBpkOX2SfJTH/PlU9zE3Km/zFCEemY69RSKI3vL9nDJ0aop+mP8v9QY5x/a8Bts6Nw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795267650;
-	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type;
-	bh=t3R4tnJIY9kB5WytDi15OEl7ThCTHknTfMjZvEx+X/M=;
-	b=Q3s38T7KK8L/b6gvGHgY/an8U1gOfntPG5HxLGerb/NU242ICYgv8L2hzzmPLfvCO6hu
-	 +3REGQ4V22zuzrKDplYRIyE9vPf3D0cWR/MbMmvu7GPRD9X/bByklQ1OpuA2exhKLi/NW
-	 WLNbbGzckE3/eK09Pa86VwCtl7fwB/t2DadyMjhnD8MBLUhiEzXklVEpQp8WaADyylfAW
-	 xj+1W2auoaP4fRN0snrdDRsbUuOy1JRUnH9ktmE9eOPKgBCDHnfpz4hkx/iROTgVf2C4Z
-	 MW9tnW1PSbMWhqcQR0pZW9eNC+lnmp+CO3skQJ2MzfkH8+v1egVYhomUQdk4LOhbOrQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795267712;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=kDNbZxXOaisBTyYZgGVkrcz49v41G3fPzDPbhhCuzWk=;
+	b=0tDzH3XbF4aMqGFaZz36hifEHk+yYHh+Oh9xny2goOcDmB96mX5F/yprR0HZJ11aBCAs
+	 4EV6bhMjXNj7MNNjAw9x3/MF3dSILuJawiPwd5m1jdyWlKXbYMnrd4tRmNgaxQXhRlTbd
+	 7RvHnG2qev6d0abIL1pVwIcRNRjCXXu1RwtZ0WPrDVDVAle/PWmEQwz8Qaw7u1F2N8hDa
+	 HE7rs2jMeYicwd+wFj5wKVA7bB0LTtJgJFQCm+5aNOoYZpjOPJHY0Oekd+hCIaiCsmWtd
+	 Bp9hj6ul5hapjIo1ZWAjve9UevDhCSHafgWo+mif+Ll4uEQbJ5b7xOCMYuOai/ilzHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=sntech.de;
-	spf=pass smtp.mailfrom=sntech.de;
-	dkim=pass header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=MEiP69zJ;
-	arc=none smtp.remote-ip=185.11.138.130
-Received: from gloria.sntech.de (gloria.sntech.de [185.11.138.130])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f2qtp1le;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C64E3606A32A;
-	Sat, 21 Nov 2026 13:27:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C64E3606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=sntech.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sntech.de
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id A9F86606A320;
+	Sat, 21 Nov 2026 13:28:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=MEiP69zJ
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=t3R4tnJIY9kB5WytDi15OEl7ThCTHknTfMjZvEx+X/M=; b=MEiP69zJ/0eWym4qb78XUFm2+V
-	QobfvUmO/6Hi80IUXhbcfqbaHCz/4xVaFFtjVDqoP/3UZ1vR+oN8QV+mI7E68mSGIl+mSpwaKGE+H
-	GLGCCrWrXgvaMGxp5Kbwd1pmb7OtfVmdZNSfLCm69bUw2lU/Ak0yT6ZkOY4ctj0a6+sfxUIHPyqUp
-	1hG1QklSBSV/V41i0soQzfkXY9Yv0mbJa2ratzSorI1mhJNNCkRuqwxOr4VCJljnHcukUOSZhVRU6
-	qgU/B558J447mBOrrS/HWCs95l0AE/k5MaE5Sspac89SO+fUB0H5sbGz3dPWe01xAMkSeY2dEUiec
-	FaBIsYeg==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: ZhuXiangyu <1194781887@qq.com>, Stephen Boyd <sboyd@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: clock: rockchip: add clk-out
-Date: Sat, 21 Nov 2026 14:27:08 +0100
-Message-ID: <dggrSgDiRmusIaCk6T6L4Q@sntech.de>
-In-Reply-To: <f98c3f68-82d7-41e3-bb58-d3737b73c7b5@kernel.org>
-References:
- <tencent_8104629BEBAEF41637AAF1CC7D95BC7DCC09@qq.com>
- <f98c3f68-82d7-41e3-bb58-d3737b73c7b5@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f2qtp1le
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id E69F81F000C6;
+	Sat, 21 Nov 2026 13:28:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795267712;
+	bh=kDNbZxXOaisBTyYZgGVkrcz49v41G3fPzDPbhhCuzWk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=f2qtp1lemvblFmUy2qlArDDs1OdYxtd6qgLFU5qNkY4MgBdEMsuT0pCFq/dctZC+c
+	 S282KNo8jmbO6TSh+OD0AwTij4ZYtFprDCbEJ59U3lFi1YHKA7FrOIsOb7EuweIGrT
+	 qjv1XrslgPf4prUqreGjp14tRs5h1rX0TFVQXMenzaiWfrfrfCpwcyomyDqjPIE/Ej
+	 sI2kaxAXuqtkh53gyt1+EwYRDYv6eBGWiccrLean8ME1u/sBuA8xpqyZ9hpEOTfSAj
+	 wZvo/qlWIW9T2PhU8zNuO/qNSZq/t5Hs+CR8aDfM3kHaEc7KTNMJq4CG0dyRfYKClX
+	 vGnBU5uFh9Jcw==
+Date: Sat, 21 Nov 2026 15:28:28 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Sinan Turunc <enscrpt@pm.me>
+Cc: David Howells <dhowells@redhat.com>, paul@paul-moore.com,
+	jmorris@namei.org, serge@hallyn.com, keyrings@vger.kernel.org,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v3] keys: serialise key instantiation against
+ keyctl_chown_key()
+Message-ID: <awGcfFldbGuXWBJL@kernel.org>
+References: <20261121111246.3478-1-enscrpt@pm.me>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,76 +59,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261121111246.3478-1-enscrpt@pm.me>
 
-Am Samstag, 21. November 2026, 12:02:37 Mitteleurop=C3=A4ische Normalzeit s=
-chrieb Krzysztof Kozlowski:
-> On 21/11/2026 11:58, ZhuXiangyu wrote:
-> > Document the Rockchip clock output/input switch, a single GRF-
-> > controlled gate used for signals such as the SAI MCLK output.
-> >=20
-> > Signed-off-by: ZhuXiangyu <1194781887@qq.com>
-> > ---
-> >  .../bindings/clock/rockchip,clk-out.yaml      | 81 +++++++++++++++++++
->=20
-> Please follow carefully submitting patches document, including how to
-> sign your work and how to send it correctly threaded. There are numerous
-> guides already, so just follow them.
->=20
->=20
-> >  1 file changed, 81 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/clock/rockchip,cl=
-k-out.yaml
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/clock/rockchip,clk-out.y=
-aml b/Documentation/devicetree/bindings/clock/rockchip,clk-out.yaml
-> > new file mode 100644
-> > index 00000000..bf2a9b8a
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/clock/rockchip,clk-out.yaml
-> > @@ -0,0 +1,81 @@
-> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/clock/rockchip,clk-out.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Rockchip Clock Output/Input Switch
-> > +
-> > +maintainers:
-> > +  - Heiko Stuebner <heiko@sntech.de>
-> > +
-> > +description: |
-> > +  Some Rockchip SoCs route a clock between an internal clock and a pin
-> > +  through a GRF bit, for example the SAI MCLK input/output switch. This
-> > +  driver exposes that single bit as a gate clock.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: rockchip,clk-out
->=20
-> Generic compatibles are not allowed. Do NOT send us downstream code,
-> it's not acceptable.
->=20
-> Not doing detailed review as it does not follow basic rules. Please go
-> through for example DTS101 slides.
+On Sat, Nov 21, 2026 at 11:13:07AM +0000, Sinan Turunc wrote:
+> keyctl_chown_key() looks up the target key by calling lookup_user_key()
+> with the KEY_LOOKUP_PARTIAL flag. That flag lets a caller with
+> CAP_SYS_ADMIN change the UID of an uninstantiated key during construction.
+> When the UID changes, keyctl_chown_key() replaces key->user under key->sem
+> and drops the old reference with key_user_put().
+> 
+> __key_instantiate_and_link() and key_reject_and_link() hold
+> key_construction_mutex during instantiation, but neither function takes
+> key->sem. Both functions increment key->user->nikeys, and
+> __key_instantiate_and_link() also calls key->type->instantiate() without
+> holding key->sem. When a key is in quota and its size changes,
+> key_payload_reserve() reads key->user seven times without key->sem. Those
+> reads include spin_lock_irqsave(&key->user->lock, flags) at the start and
+> spin_unlock_irqrestore(&key->user->lock, flags) at the end.
+> 
+> If keyctl_chown_key() swaps key->user between those two calls,
+> key_payload_reserve() unlocks the new owner's spinlock and leaves the old
+> spinlock held. By source inspection, key_user_put() can also kfree() the
+> old struct key_user while instantiation still dereferences it. That struct
+> key_user use-after-free was found by reading the code and did not trigger
+> during our KASAN runs.
+> 
+>   =====================================
+>   WARNING: bad unlock balance detected!
+>   7.4.0-rc2-g23c62304dde2 #3 Not tainted
+>   -------------------------------------
+>   request-key/163 is trying to release lock (&candidate->lock) at:
+>   [<ffffffff82698fff>] key_payload_reserve+0x29f/0x370
+>   but there are no more locks to release!
+> 
+>   other info that might help us debug this:
+>   locks held by request-key/163: 2, on CPU#3:
+>    #0: ffffffff871c10a0 (key_construction_mutex){+.+.}-{4:4}, at: __key_instantiate_and_link+0x38/0x370
+>    #1: ffff88800de4a8b8 (&candidate->lock){..-.}-{3:3}, at: key_payload_reserve+0x160/0x370
+> 
+>   Call Trace:
+>    lock_release+0x286/0x2e0
+>    _raw_spin_unlock_irqrestore+0x1a/0x50
+>    key_payload_reserve+0x29f/0x370
+>    generic_key_instantiate+0x42/0x230
+>    __key_instantiate_and_link+0xd7/0x370
+>    key_instantiate_and_link+0x40d/0x4b0
+>    keyctl_instantiate_key_common+0x2d2/0x450
+>    keyctl_instantiate_key+0x167/0x180
+>    __do_sys_keyctl+0x391/0x550
+> 
+> Take key->sem for write with down_write_nested(&key->sem, 2) inside
+> key_construction_mutex in __key_instantiate_and_link() and
+> key_reject_and_link().
+> 
+> Fixes: 5801649d8b83 ("[PATCH] keys: let keyctl_chown() change a key's owner")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Sinan Turunc <enscrpt@pm.me>
+> ---
+> In v3 I removed the tool paragraph and the two lockdep subclass sentences.
+> 
+>  security/keys/key.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/security/keys/key.c b/security/keys/key.c
+> index 3f1f0fc..df31d10 100644
+> --- a/security/keys/key.c
+> +++ b/security/keys/key.c
+> @@ -441,6 +441,7 @@ static int __key_instantiate_and_link(struct key *key,
+>  	ret = -EBUSY;
+>  
+>  	mutex_lock(&key_construction_mutex);
+> +	down_write_nested(&key->sem, 2);
+>  
+>  	/* can't instantiate twice */
+>  	if (key->state == KEY_IS_UNINSTANTIATED) {
+> @@ -473,6 +474,7 @@ static int __key_instantiate_and_link(struct key *key,
+>  		}
+>  	}
+>  
+> +	up_write(&key->sem);
+>  	mutex_unlock(&key_construction_mutex);
+>  
+>  	/* wake up anyone waiting for a key to be constructed */
+> @@ -609,6 +611,7 @@ int key_reject_and_link(struct key *key,
+>  	}
+>  
+>  	mutex_lock(&key_construction_mutex);
+> +	down_write_nested(&key->sem, 2);
+>  
+>  	/* can't instantiate twice */
+>  	if (key->state == KEY_IS_UNINSTANTIATED) {
+> @@ -632,6 +635,7 @@ int key_reject_and_link(struct key *key,
+>  			key_invalidate(authkey);
+>  	}
+>  
+> +	up_write(&key->sem);
+>  	mutex_unlock(&key_construction_mutex);
+>  
+>  	if (keyring && link_ret == 0)
+> -- 
+> 2.56.0
+> 
 
-this whole implementation is bogous, but it seems the submitter found
-the correct way to do this in [0] .
+Thank you looks good to me.
 
-But of course the submitter still fails to follow basic styles there.
-Broken threading and especially not stating that the new one superseded
-this one.
+Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
 
-And of course yet another patch bomb in the span of minutes accross so
-many different subsystems - which I guess is not a human doing it.
-
-@ZhuXiangyu: even if you're an LLM and new to the process, don't flood
-the lists - especially not before you get the process right.
-
-
-[0] https://lore.kernel.org/linux-rockchip/tencent_9138CD6157C88BC2D52FE639=
-4AF83E560208@qq.com
-
-
+Br, Jarkko
