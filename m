@@ -1,75 +1,75 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795270371;
-	b=Pk65jb/FIaQUTAh47xdUpr8VS/ee7n7+9dWXucireCBtA6oYp9g4GnoOqggT99U/o1pR
-	 z1fe7sYdj4jtWvntI9oDQYa/VVpPWFMg5PM5+0C5gt//BS1pkDQw6h1yQewy1fDH9swmU
-	 0D0pR4GX23dQGj7WpxU/YTjLU3Ojk1MB8ye2XdmrgLNGh101BeuAEEnF+SUmzJy3P/zuL
-	 D7a3ruJjtW+TXJeCn6wY5joY4NJ6tCJKIhAU5EsYNEMUcbG+ZVe1kmFpCcAyZ5RPOV/a1
-	 bgHjwXqXkvfMcoR+SeKPrl2+WHXtiihurvKnxWajjics1C4IctKRSXtEFRuAILBYf3w==
+	t=1795270373;
+	b=BFD/tdwk+G6ImW19Yr8iojFt2gWISdST44pzG8kVzxQihKsNNGnD2qpuRqx3qtN0wfAW
+	 PoETMojKK7wM/OXWdNeH/Zl9WR8XhrEbghzxSuRSag35XE0YVijB/cBMlzxmJ3tbP8yVj
+	 M79SBYdn6CD1qCfdUMBsGAA0TWbVjzRpcOGztbf3Vh1KAzGSyGHtgSIU6Cv7sBSJpy7z3
+	 eHBxkd7P7vcrj9EhqZMD0Q/Fmrh/tePf9CJEOI18okA630WLkPOn2Mmen7/jUjHV8WzgJ
+	 pFb86+HwxKEXypHWZ624TnHEirfwPjigAn16id/WMjgfIGQJKLzsVqfZFGCqnzV/iTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795270371;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795270373;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=Jy6Vcdhv2NcktCCVIrJ79GzBwKeJB8AKRYT9ZAytoZ0=;
-	b=eMKiUIEpLESxMrKcixAq+O/FsWhhQtN3YQkI95GOHYWweuhdwoBHRDqiA5IUaGvmWx09
-	 B1asMr93Ex6jffmYVicmkD91M+EyeMVXdoOHEV9RWdjXb9sLnVYMB1HQTugXN4fZTYixA
-	 TRtARGR0OHtJhpKop+JY9znONOLxum5nVptN7YxDQKFwu/y7IZwlowDhn/dOhlNRHOKnf
-	 kq9TIJmKMGUAgJPES2GKdZ+VsXXuQvLZlubUO3kTIDRK97sZCM9Een2ErR7wr4GAX8aeZ
-	 trCsO/txDFWr+dJDZbbAbdgUbiZWaHAdtC0rCyFaRZ60FV7WJWqTImYttAbAHoOoUyw==
+	bh=kwU0uvZlqUjWSWVM4I5jaqBzT9+TKQG4/BkygdKEJxw=;
+	b=cK5xI4RiClEM4BMMY8YAuyAMqBTmJcDuad/gLmegAwMYiiMIWO3BS5uqd6OXljA5rhY4
+	 pNs8UsJcClnQMu/aP96FAdQ25x+liqOHk/eZ3kSKbCa0zrQ/stE2iE0Qhr5fymndNkti7
+	 tdxw8gHgw/BrINoA5Dim3SG4aygDk/uTBi+4DvVqRwXeqGd6IZka2empj4T9TpAaXlBT5
+	 V0Q91VtArFJPoGH70TmDyjp5rK/wVMejfVTVlgT+j2GbRlrL0UkSTIqHIUs6h7xI0thWT
+	 XYrrxsSCKZBR1c6TZCCN6Yt85MUUr4dmLg3OjYybrqTNkItISv2IIsLolrZPv30RLJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="H/zb4JNr";
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JQcJisPz;
 	arc=none smtp.remote-ip=209.85.221.69
 Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com [209.85.221.69])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8F3F606A330
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 14:12:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8F3F606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62889606A33F
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 14:12:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62889606A33F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=H/zb4JNr
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-49337a224a8so1052614f8f.3
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:12:50 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JQcJisPz
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-48e0389d6f9so1057750f8f.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:12:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795270369; x=1795875169; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795270371; x=1795875171; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Jy6Vcdhv2NcktCCVIrJ79GzBwKeJB8AKRYT9ZAytoZ0=;
-        b=H/zb4JNr3JhpSSqDlS59uvRJAhO+co+VqIY9aORfduKliaaMsb81WAYsG/38OdCY9P
-         zZZW8u9uVJIH9i/YHjnCcz6jGkCG/HXndpOtMLaiz/d525Lb8wKzkWsamKKYd/IBYiXm
-         4864hWN7oSot814FsxJ5M5nhXZ0yn7guXaiUtXzfq36e1l8OQeR/n6kZFcTDwTsgfq6Y
-         1RZnAK1LrewpPxCh87Lmz603d9a8Tg98FAEOAnzzbZK/2jLq/It65TJpzA+U3oNrRGA6
-         XE0WzbKi69WY9XAIJRtuE+0wZI+g3h3ZBYN/5zdZBAYKWxOd7lIIhFxPxnMtZ2HqW5L2
-         0BKg==
+        bh=kwU0uvZlqUjWSWVM4I5jaqBzT9+TKQG4/BkygdKEJxw=;
+        b=JQcJisPzT36Y/JDAtA+YkjBLMmWMGpNHQZ7UScrSWbIpjWomL9t5p6vA2aUSMtHyBN
+         FK/e7m78jEhA4vdUsWX0dRafvn6xiz1jlGkUAwLRVLwKXqmfKoWRYlWvyfwTLiLIz0hA
+         qxJhGOBkCj5wBYf3Hc0xSJQE9dQ3h9DKUxUzh4PU+Fh2XPzxHxLQTldoyigRiNHyHUOB
+         Fn7y02kJVp6WEyfk81d3wLfKgBW9oknUEZtsrdLKPvHtFZQRB9QhCHo8AVifjU/oVoLJ
+         kwFESeJnyGZYgnGCfwTB8ZCuNF4Yx1NGUZf42Y428NW7Brfc8b8GoY7kYuWROhG+Sxp+
+         4EDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795270369; x=1795875169;
+        d=1e100.net; s=20260707; t=1795270371; x=1795875171;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Jy6Vcdhv2NcktCCVIrJ79GzBwKeJB8AKRYT9ZAytoZ0=;
-        b=srOkX4DlDMuNusZjjNl2HLDygtYFP2cxo1gWAYa/qKtNpaJz9o8NxPYPNqqLUzeJEr
-         5kDZizjBVo+IXxLO57hegIvtTxG6W7KgqQl9wHJPlWhaQ6vuwRHtj8uX6BjqZZSPAoDI
-         YG9UJGIrfCTZSCMuIuPmhvxa45fgCB/+8AN04U9GzXVTFbudvxqQGKH/Yxn0oiyGZxlN
-         Kas6Ma63SknM2V1hlTf24Q3gziH7EcWZy8ag1rOaP2WvTfvcd4jV+dKfDppiD71cgWnZ
-         wXcbfeAeqMiOD4zX/3IpoVtUojZcc3bQjoQIeSgBYr5Bjp95XX5GEEOUtC3NsT7EArN/
-         2LqQ==
-X-Forwarded-Encrypted: i=1; AL+hErFtTOqZPRce80Jr68lzGtnPOUNb9J99iJ0yJHEh6Es0dVHqC0UEcwWOtLR3WVjt0Ff2BNeiMSukUNIXlsU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9i0v3uxv9fiqNmFIPtntyQ62McmNYz6xA7H1WV4fmEfSwlds+/
-	Q6kMGdtpd6vPWjMqM+Cqri0Zag9yoDETXN0GRPdoPriCPjNx94D2Afo5HfOlU8brw5VD9fRNnAi
-	Q+GOhhST/5rJjmyZotg==
-X-Received: from wmdn12.prod.google.com ([2002:a05:600c:294c:b0:4bb:5ea0:79c])
+        bh=kwU0uvZlqUjWSWVM4I5jaqBzT9+TKQG4/BkygdKEJxw=;
+        b=qAe0qE6anGhXz5svI5CFn2L6Ptg9r/+1wjznUBEomx3yRG9CroARmYOplGyov3v1+r
+         enpu4fggAYISOVBrOEOic5bnUE50Wy/8UnrOmwyoisDxqq7N+ucfmk5UjN1gJ2IENZcA
+         KXCPis7CLQBeAz1GUgmzu6QXo/IBSsdDvj4UegQw8UuridiySW0i/uW+UJERDpqbaJ1+
+         Q77SDuHvV7ib3HjoVYPVv0wWtUY/PyWV6mbJAdVZDn1GQYhfWq7SiS5jjCMQa1ldgXzD
+         CeAjfxubVYMcO3iKDFHW4yEASkDrlc72GsVGEFfYs0xvwf6hsE7yThDN/hhnytygbMkN
+         xMGw==
+X-Forwarded-Encrypted: i=1; AL+hErHE/uuH2iRNpmn0vDrzy/FTYAKHra2AckftYb6rgZpH/Qp4k1+B+WvUMxi4eiIW9yspYssfKkSvy8kPrno=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8+KAMwLR09rPCwS11yinBoqeOHO8pUy/ZWjo91VOqvX9e/SnOt
+	Dpx/q3xFRjqOYi+eR3K1ijiVT7qO1TcYvBcWzQaEPMaZp5ob7aeCFdnWTP+LPU3O/PYS4CkRguS
+	rqQGVORWB8/9WFxFBBg==
+X-Received: from wron3.prod.google.com ([2002:adf:f083:0:b0:48d:f857:4141])
  (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:674b:b0:4bb:6847:791f with SMTP id 5b1f17b1804b1-4bb8880f267mr135552605e9.7.1795270368808;
- Sat, 21 Nov 2026 06:12:48 -0800 (PST)
-Date: Sat, 21 Nov 2026 14:12:45 +0000
-In-Reply-To: <20261020-b4-gpu_info_intobytes-v5-0-3e0c7c93223c@collabora.com>
+ 2002:a05:6000:4b1e:b0:48e:7e1f:8cee with SMTP id ffacd0b85a97d-4abb0f3c23bmr13133773f8f.12.1795270370489;
+ Sat, 21 Nov 2026 06:12:50 -0800 (PST)
+Date: Sat, 21 Nov 2026 14:12:46 +0000
+In-Reply-To: <20261119-gpuvm-data-rename-v1-1-8eb773435fde@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,31 +79,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261020-b4-gpu_info_intobytes-v5-0-3e0c7c93223c@collabora.com>
+References: <20261119-gpuvm-data-rename-v1-1-8eb773435fde@google.com>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261121141247.142001-1-aliceryhl@google.com>
-Subject: Re: [PATCH v5 0/2] drm/tyr: safely write GpuInfo to userspace
+Message-ID: <20261121141247.142001-2-aliceryhl@google.com>
+Subject: Re: [PATCH] rust: drm: gpuvm: rename UniqueRefGpuVm data accessors
 From: Alice Ryhl <aliceryhl@google.com>
-To: Deborah Brouwer <deborah.brouwer@collabora.com>
-Cc: Alice Ryhl <aliceryhl@google.com>, Danilo Krummrich <dakr@kernel.org>, 
-	Daniel Almeida <daniel.almeida@collabora.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
-	Gary Guo <gary@garyguo.net>, 
+To: Danilo Krummrich <dakr@kernel.org>
+Cc: Alice Ryhl <aliceryhl@google.com>, Matthew Brost <matthew.brost@intel.com>, 
+	"=?UTF-8?q?Thomas=20Hellstr=C3=B6m?=" <thomas.hellstrom@linux.intel.com>, Miguel Ojeda <ojeda@kernel.org>, 
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
 	"=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
 	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	"=?UTF-8?q?Onur=20=C3=96zkan?=" <work@onurozkan.dev>, Jesung Yang <y.j3ms.n@gmail.com>, dri-devel@lists.freedesktop.org, 
+	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>, "=?UTF-8?q?Onur=20=C3=96zkan?=" <work@onurozkan.dev>, 
+	Sami Tolvanen <samitolvanen@google.com>, dri-devel@lists.freedesktop.org, 
 	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-On Tue, Oct 20, 2026 at 04:47:47PM -0700, Deborah Brouwer wrote:
-> This series makes zerocopy and zerocopy_derive available to both the UAPI
-> and bindings crates.
+On Thu, Nov 19, 2026 at 04:36:54PM +0000, Alice Ryhl wrote:
+> `UniqueRefGpuVm` currently names its shared and mutable data accessors
+> `data_ref()` and `data()`, unlike `GpuVmBo::data(&self)` and standard
+> Rust naming conventions. Thus, rename them to `data(&self)` and
+> `data_mut(&mut self)` for consistency.
 > 
-> It derives the zerocopy traits specifically for struct
-> drm_panthor_gpu_info, allowing Tyr to safely copy this struct byte-for-
-> byte into userspace memory.
-> 
-> Signed-off-by: Deborah Brouwer <deborah.brouwer@collabora.com>
+> Link: https://lore.kernel.org/r/20261118111653.448550-1-aliceryhl@google.com
+> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 
 Applied to drm-rust-next. Thanks!
