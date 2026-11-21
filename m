@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795296473;
-	b=YEWx2v5qkAdufxFjLLNeytYjrP4dsnyAk3iyHjV4tbvsogyV7aHi5mUAI8KBEnnqYT/s
-	 arpSccSgEE6iuuTbUuvlejNEN+0MuDjLqdYLA+AjaqqcSbvfLaCx+6ixEzk+OlfJth+KS
-	 LDK4IOW0PPhvNDgUiWob8yfQN+1eziDrq7PasxP4dWRfuLhNZ1JBXC2BZSSpWuUDjDR1I
-	 bHmDR+7SW4GejNwneUrTlAAzWs05Z80qPSWhAauK+mVRhoFM9OPL4pJBt0rIVIoS1hRfW
-	 BqBE1HCojmZy3h2T0iNJn+3a6n/d004p5QSJ82HAhdQtDB6ZGKgJG9Uvm1gU6cFEBBw==
+	t=1795296476;
+	b=JAyYaouDcfx8yenIDz6QUA1RMl/aDECQZlHKxk8rZ0pdCmC7hdqikJvwI35fWocXi9fJ
+	 P5wn2X6L5y5hFUoUG2Wb7thqV10VOGfp/4hmodb/qMTrwVtTEtzOURIqLSSdqEi6F+/F4
+	 L78FOzjzJXAwZabY02Igv9MMfq/u4jCqU4xzTRRvog61RN7DsHjjQG7pCwXOhoINokJQK
+	 G3RK45s8aTkUtKJjvPixfiymFjSuCQL5cWP+9oixHE2WVq6T9swHHQYfJZ+dNn4OI0RTm
+	 fYdr8ZCUxDZHbrTZ5nJB25ONvoCXWEjvIblJL/QgUfX5YcEDcpt1vwupOdwppe+wcJA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795296473;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795296476;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=8iFoRCsnLXiwnHCHjY4cuqwaLaLe2pBEmp7x1xjf4qc=;
-	b=0G4CWq7fUrbzI4MrulwsGxCXjvVwpuRelGeBmIg2vTUCLykvERzSBbLTmdbhIUorqe9u
-	 GMqz7QvpWDc0PXuZSUG2tJboILBM1VvU23hro6OP9LdnhQzWWIDnYLFtrpRVG1qWlmlZS
-	 rhGtMUJN39oSLesjEsnA6//8DXwrNocDYRvgKGsP2oLDIH909RXhr3KQ7OcwTE0HY6MpU
-	 G87bhhlfsPD0bYvtLcyAa9vZfrLMBEYWpijyAnnC4TkEKosM0fzklC15pLUo3wChPYXlO
-	 pN2bwMkg6poNQoivfxWFEz7y2qcUoxbrEwkVXl0qr/fdKTG2AENlurCelkrj8MXzMmw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=vM8WZhbKmN29nQ6mO4DJr0H5CZ8GyUYQkfSPTP5P5Kc=;
+	b=CTpBrFd+pgnH4Z9AY2F3BvJvAsm+D2fJCvMWJtP/JpYtKjIHMlWk4SUglpmLAhMHFQGV
+	 +o4liLbJXZO1deipUL+EE/YutAhvgzn6s6ciAXUOKd0GBC1sFWnUAT0cPQK4LqtReg2l+
+	 l5kGFndL5Kqoxj4HuHZq467akxjiNHItTUHlWGtQDVVlGZ72+IoyjfSDepa/80YDU7ReS
+	 Nb93DHON9R4Z52Okj/ZMfLqEuUCvZKT1TRPgFn5/lxNA1kAkT/Reetue+lyj4O4RyvZ/I
+	 hse37p76nPTEUqT/u2L4/k2RUobyQT3WcTstYk8oUG/HSS85hNyqDooUparnTUqg0jA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=al8q8kIV;
-	arc=none smtp.remote-ip=209.85.128.46
-Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=brq69Qmt;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0094606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:27:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0094606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9810606A337
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:27:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9810606A337
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=al8q8kIV
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb77a462c6so23637565e9.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:27:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=brq69Qmt
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so24072875e9.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:27:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795296471; x=1795901271; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8iFoRCsnLXiwnHCHjY4cuqwaLaLe2pBEmp7x1xjf4qc=;
-        b=al8q8kIVCmw6MiMt65Iueza+XABxhPxX2xNL4nlblp71fgfW7crmFSA8Hp3q8CmhtF
-         DIM1fpexXucynuyKElHILyjLatX8my/uTR6lEvTpUWGmFBxAw45nsRNmF0ZJ6Gc4zLL6
-         58lE30ykrI7kQ5mKTQsiX9dvy92N+KI+an2nAkRwh66/tWiKXf/hSMykEJMMMHM/Ts32
-         fawEkD+1Md1nVfYU5hk4hcZ67G4hxrGxrgVvOZ1SXoLBekwtHtL9FefZKNEIII4YDaU1
-         wZEx6XmMfheqEiFvBim/U7PZ35vnAhHz2GdCd2z980XD1TzQ+o8fe3EsbROUnJWg66q1
-         4ysQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795296471; x=1795901271;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795296474; x=1795901274; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=8iFoRCsnLXiwnHCHjY4cuqwaLaLe2pBEmp7x1xjf4qc=;
-        b=hFres0k9r0Ef4kQHM3+yhBaBVU57BVlWv9dTUnAbNDI9mNEQ/aG4pbCgbDg0wPd/M4
-         ncpKhWmSCroDoVJAzZvXNG0pBWfv9LEjBt6K0buyJXromTWn6sn2H+LVa2XMRLCTP6rg
-         rolbyxyf+DK4kN3Qi4Tue8OZHwZLkliQKI9RYGgj0iSn2fGBTzPD0HIj16e998zHO65C
-         7g/CXWcqPBsWt7fTgxrX/3YA+l9gJ8A3vpGgcj7A4NZzzIdBxbR67xb5Paz3uUPeBuqC
-         mc/QtE2fzDlmGUZlJSfHaVl5fut/cHiTO5W8qy0dpfquq5FHeY0FrfKwDYYa7EgJedXE
-         mtKw==
-X-Forwarded-Encrypted: i=1; AL+hErF5eJuHWkbWwo/ZBGHGSHlMtCpO0Rs+U5C/lTM1rz2/YqaSl2sydaP+GcS+2dmJ6bLlt+RLra3RBcrDC54=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9OCfc+pcjksiC8Dyka8RIDWSje5QMawasFpj24+cNSuv0lUUgz
-	p+sdoOukSJyKVZqcNxYnfhcHGqhHaHQTvrAiAq9simsYB0YmDoUk0CbL
-X-Gm-Gg: AZFdTZenNwQM9pNSkRPCxvcKPpkLtJXjsaoqgSLn2MICKrNR9Zu+sMzNbEdCBjCE90O
-	W5PiGFD8FotiS1L7NUSUPxpHp+W7i2NkYcMK9j/939Q8/mdeCpE9OYoxUlbD++d30Et9df/Cp7z
-	abR32Nx2KS/Q3OVCu1cPrpLClbJuBytD2goVbxJGjkn32Vj597uk8YxK2QpkPjqm1SsHnL6Tfdi
-	vnONxmdcYU3iTgFn6oRQZ7qznx4FObWN2gHqcXOB2y47SMYyDC7Xvp5R2EtiDUKLh2LqShzkpyp
-	8JyNTk+Mfdj/EGzv4o1hDv4DaaV5pw7e+eTkg1MSCM91qzl0ybg3JwCnc/xCj2tE9MP0eQCHSQu
-	lMS/Gj0BYCXIKJS1e746EkKATzr8drrPoPAZXaoMOw3tkmOlYw5xVXOEEnMAL0Xi/DU/oC2OGbV
-	ruXCXH0qUSd8Jf53BdyiVIx6WAW6hXCx9USd8t2T9zR/QsEPszaRpNPuiUgkWjVMWHcknWEJLtR
-	iuXTzwNS70Vm5cCwOyet4r/OFUVzsLm5rHQgrdI1BiS4hSQYftgjGVRCys6LdRsFuYhToqPW2ZI
-	XN3d+zkeoBpDTwbrmLFEEiaFEfKEqpZ6dh1/6UBOKl2jnRCpxpae59PWtTjrNvxHIrEdO1uo84M
-	LaZjgMhB4Chjw/oyRrMKTCQWlfK+pwxxnug4HiDn1envH2rDs9Yg=
-X-Received: by 2002:a05:600c:4e0b:b0:49e:65f2:db64 with SMTP id 5b1f17b1804b1-4bb887fb66cmr168468595e9.5.1795296471125;
-        Sat, 21 Nov 2026 13:27:51 -0800 (PST)
+        bh=vM8WZhbKmN29nQ6mO4DJr0H5CZ8GyUYQkfSPTP5P5Kc=;
+        b=brq69QmtSdY6LvsBGsyCIgmwtJxd4gvXCgAw8iEFSFZES0kqnoRxnN80CAAT4Hb8NU
+         OhxM3IqTo2Bvs9qmauYl8MPUocEXyUZApW2LIiNtk0Lg1Zc35ctvcKvK+c65wALwwjj2
+         RKFJ7aR8wpjuNXqUwmWtC03DTql1Vx5kLaQadqNb1JlBtAG0Yf+qFMZKEWaH5yp5cz5S
+         AVkEMK5EIG3iyZv08sDRjYy/Q81xzgsxDhH5P9Sicu9WA1SCNJgln+wrAj4ZZfpamtLQ
+         OCiF0jb+EuM+9GFkf4w4jaxZ35nISU518Y+3w81EZSwiz8/PwHWzKWJfOrXIMh43PHzU
+         4Dgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795296474; x=1795901274;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=vM8WZhbKmN29nQ6mO4DJr0H5CZ8GyUYQkfSPTP5P5Kc=;
+        b=PnQAMdTGXw9AFU5OSTFtWwKSVmth6A7DhCv+6H9BJB/iZ69zy4NyoKMS1nWWZpwdB7
+         eswOtYmXKYH8WDaUqxwmi+psbbjI3AGVkbX4AxUIQdVeYwRqhs+26agPIboOlTOvDDq1
+         jSX+dii5kSIDpo4GrbIHN3C1ddlPFBg/Zfw2p2aEMOJ8wZ4JTAkMWO6AdqASmbEdplGS
+         lgOl6X0Y+LUk272XlUfQh31L99iotdyJSd+14/as0NLOMuRAWCDHPsSRU1s6JSe9Cmlu
+         9QM3Jhr2WvYYGJajGU0bJhc8GUcvza9CfSAsENhcuwFROeddcUw7QXHT9cMv6u7AkBoB
+         7qNQ==
+X-Forwarded-Encrypted: i=1; AL+hErFJcg8VAHtYmYZzxJlM2NOC13mX7Gn9i2VyliksfvDKf1uLsuUmOeup9RwJkiU+U68eUUO7yi/jUTIb0dA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/qkZqqqQdP1D0S8vQ89s0JlqwfPJbcIQpJW2VnQfpMfVNbg2zn
+	K0V8DJtry5UuquyEFrVTBW/5jor8rPJtemyBtwtk0d3vJaQIBU5VDyZd
+X-Gm-Gg: AZFdTZdo1gpqVFQJBM3QyoEJ47b0z9+6nEHts3o9xjxYfxnUVXG0mw7v5baiLuSaPWl
+	MdJWhWigLU2+gHw6zjYgv2MtPoUzvSL6GANPgqi25a2N9D8hBsjrrQe2VaqENXP8Jgtzoa5X5fk
+	0Q5llQxJuM7ekIubklUj0k8bu8BS21eG3d8pwGUPgFLhqfErvbcU5R/9GOb6rP8gT9t6UrmsUj4
+	8M3iDKPjL2A6/csqw3g9zyAUvCjK31W9INOpHh6mgE615RNb+imGg4qcmXhpZnBUl9+NvBoY8FK
+	DGKhedQtaxhYqNstzQpb1xkv3Edqz17DJ/goXqRCLqLpBYAgSXTFFuBCiKMG04l2EVZPXC+z/YL
+	M6VdZhPnHVmeZtiTHBPye5payuRkd/a683jGtCH4hJbuAtVvBLEBbK/z2aARdDn5qZPY/qtN52Q
+	OWXQI7O8bHXk2o07BHQ2S6Dx2fw5TQ/Lef9lmMG6XIXnZ9kt5jdNyRY4VhSMuEe+JwCBShsVG1u
+	K2OB0V2nj0DrT0zgs6tQMR8cOBHK8I77TdzuiInXJ+L74BRq4U5CkrwH8NnJYa72sodSrO3kSkS
+	zm8vSKnu5oER7LGRcNvNTzPfDEpoiJzjhbmUDvSPde9yMDkkpOfZXT2IIsimZUDZuSyJaWJSh9A
+	Eyx4i/WrTNRUOwJVwHiT7G0i6RkW9bTlmmF13gPHQqmQypqPoZX8=
+X-Received: by 2002:a05:600d:600b:b0:4a2:18c4:61a5 with SMTP id 5b1f17b1804b1-4bb887fb6e7mr157077865e9.6.1795296474193;
+        Sat, 21 Nov 2026 13:27:54 -0800 (PST)
 Received: from Ansuel-XPS24.localdomain (host-87-17-253-173.retail.telecomitalia.it. [87.17.253.173])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b3a7sm255668955e9.3.2026.11.21.13.27.49
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b3a7sm255668955e9.3.2026.11.21.13.27.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 13:27:50 -0800 (PST)
+        Sat, 21 Nov 2026 13:27:53 -0800 (PST)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Stephen Boyd <sboyd@kernel.org>,
 	Brian Masney <bmasney+clk@redhat.com>,
@@ -91,10 +92,12 @@ To: Stephen Boyd <sboyd@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: Christian Marangi <ansuelsmth@gmail.com>
-Subject: [PATCH v15 0/5] clk: add support for Airoha AN7583 clock
-Date: Sat, 21 Nov 2026 22:27:30 +0100
-Message-ID: <20261121212738.170775-1-ansuelsmth@gmail.com>
+Subject: [PATCH v15 2/5] clk: en7523: use devm variant for clk_hw_register and fixed clock
+Date: Sat, 21 Nov 2026 22:27:32 +0100
+Message-ID: <20261121212738.170775-3-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261121212738.170775-1-ansuelsmth@gmail.com>
+References: <20261121212738.170775-1-ansuelsmth@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,96 +109,57 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This small series introduce some cleanup and support for
-clock and reset of Airoha AN7583.
+Use devm variant for clk_hw_register and clk_hw_register_fixed_rate
+to correctly unregister the clocks on probe fails.
 
-The implementation is similar to EN7581 but AN7583 introduce
-new reset and more clock divisor support.
+This should never happen under normal condition but it's better to
+handle these cleanup.
 
-Changes v15:
-- Fix num_clocks with new implementation for AN7583
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+---
+ drivers/clk/clk-en7523.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-Changes v14:
-- Fix wrong definition for chip-scu
-- Use scoped guard and guard API in reset
-- Rework for better num_clocks handling
-- Address some forma impovement suggested by Brian
-
-Changes v13:
-- Use guard API
-- Drop spinlock on read operation
-- Use enabled/disabled now that they don't sleep anymore
-- Rebase on top of linux-next
-
-Changes v12:
-- Fix dereference on pcie early unprepare
-
-Changes v11:
-- Move to global spinlock
-- Move pci ops to sleepable prepare/unprepare
-
-Changes v10:
-- Fix whitespace in include patch
-- Add reset and phy cell as required
-- Add additional patch for devm variant
-- Add additional patch for lock for clock and reset access
-
-Changes v9:
-- Fix compilation error for priv (again) (this time fixed)
-
-Changes v8:
-- Add ACK tag by Connor
-- Fix missing priv->base assign
-
-Changes v7:
-- Add further info for DT patch
-- Add serdes selection support
-- Rebase on top of linux-next
-  Link: https://lore.kernel.org/all/20261009070725.13196-1-ansuelsmth@gmail.com/
-
-Changes v6:
-- Address bot suggestion for DT patch
-- Add further information on chip-scu phandle
-- Add dedicated PERSTOUT reset and PCIE_HB reset
-  Link: https://lore.kernel.org/all/20260819221458.30040-1-ansuelsmth@gmail.com/
-
-Changes v5:
-- Rebase on top of linux-next
-- Drop even more patch to reduce patch delta
-- Make chip-scu specific to AN7583
-  Link: https://lore.kernel.org/all/20260528190000.9164-1-ansuelsmth@gmail.com
-
-Changes v4:
-- Add review tag for DT patch
-- Fix clock patch to use en7581-chip-scu compatible
-- Drop PCIE SCU SSR write
-
-Changes v3:
-- Drop .set_rate patch (will be proposed later)
-- Drop chip-scu binding and related patch
-  Link: https://lore.kernel.org/all/20251106195935.1767696-1-ansuelsmth@gmail.com
-
-Changes v2:
-- Add .set_rate support
-- Rework DT to EN7581 implementation (clock driver is parent)
-- Add additional cleanup patch
-- Merge binding with schema patch
-- Add chip_scu phandle
-
-Christian Marangi (5):
-  dt-bindings: clock: airoha: Document support for AN7583 clock
-  clk: en7523: use devm variant for clk_hw_register and fixed clock
-  clk: en7523: protect concurrent access to reset and PCI register
-  clk: en7523: generalize register clocks function
-  clk: en7523: add support for Airoha AN7583 clock
-
- .../bindings/clock/airoha,en7523-scu.yaml     |  26 ++
- drivers/clk/clk-en7523.c                      | 389 ++++++++++++++++--
- include/dt-bindings/clock/en7523-clk.h        |   3 +
- .../dt-bindings/reset/airoha,an7583-reset.h   |  65 +++
- 4 files changed, 447 insertions(+), 36 deletions(-)
- create mode 100644 include/dt-bindings/reset/airoha,an7583-reset.h
-
+diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
+index b38d7b5dc0ac..9e92586f207c 100644
+--- a/drivers/clk/clk-en7523.c
++++ b/drivers/clk/clk-en7523.c
+@@ -651,7 +651,7 @@ static struct clk_hw *en7523_register_pcie_clk(struct device *dev,
+ 	if (init.ops->unprepare)
+ 		init.ops->unprepare(&cg->hw);
+ 
+-	if (clk_hw_register(dev, &cg->hw))
++	if (devm_clk_hw_register(dev, &cg->hw))
+ 		return NULL;
+ 
+ 	return &cg->hw;
+@@ -707,7 +707,7 @@ static void en7523_register_clocks(struct device *dev, struct clk_hw_onecell_dat
+ 		val = readl(base + reg);
+ 		rate /= en7523_get_div(desc, val);
+ 
+-		hw = clk_hw_register_fixed_rate(dev, desc->name, NULL, 0, rate);
++		hw = devm_clk_hw_register_fixed_rate(dev, desc->name, NULL, 0, rate);
+ 		if (IS_ERR(hw)) {
+ 			pr_err("Failed to register clk %s: %ld\n",
+ 			       desc->name, PTR_ERR(hw));
+@@ -769,7 +769,7 @@ static void en7581_register_clocks(struct device *dev, struct clk_hw_onecell_dat
+ 		}
+ 		rate /= en7523_get_div(desc, val);
+ 
+-		hw = clk_hw_register_fixed_rate(dev, desc->name, NULL, 0, rate);
++		hw = devm_clk_hw_register_fixed_rate(dev, desc->name, NULL, 0, rate);
+ 		if (IS_ERR(hw)) {
+ 			pr_err("Failed to register clk %s: %ld\n",
+ 			       desc->name, PTR_ERR(hw));
+@@ -1103,7 +1103,7 @@ static void en751221_try_register_clk(struct device *dev, int key,
+ 	if (WARN_ON_ONCE(key >= EN751221_MAX_CLKS))
+ 		return;
+ 
+-	hw = clk_hw_register_fixed_rate(dev, name, NULL, 0, rate);
++	hw = devm_clk_hw_register_fixed_rate(dev, name, NULL, 0, rate);
+ 	if (IS_ERR(hw))
+ 		pr_err("Failed to register clk %s: %pe\n", name, hw);
+ 	else
 -- 
 2.55.0
 
