@@ -1,89 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795255558;
-	b=5AmywesgxXSWFIe+jfiRO6jHJx+eeNyv5IW1x+MNiHe1CCeFd6L56e+jHl6M7ihJrQ5C
-	 qTeaJ/YRJt7KptokzKqjzNRRYCAvFiGVFxLIvjJ1mzD02RKul00+zbBNkDN3Z0md7zYXf
-	 EOq3811Cr0D6NPAYOU45dabz1a/6/c6yGtvX+awDFjiP8FlSA6yBnDRdaXAATMgHRZ9Cs
-	 SFLrbIrKyoxeE5XA+Q/RITkd5dBpsmJ+C2hWSj0usKcfiouMJOokHlujK2SGqAAnUL11b
-	 aH1ZiX2ccRMyrKURA34xSGmv+a9naYXyKLzuqeXuUYW1E6gpcdT4GO4OwGXAaTgBZNw==
+	t=1795255716;
+	b=yo55WZFXYFDmhYjEV+WkS5sMRuJtCh6tvAuo/0/RyBG2f94t4LINEdAHHmSCgPsceK9g
+	 mo9lOlBiTx9n0bctIenREfJCXbgzxkMheFrtHahtO38eRAULrMZ2mkLpwm4EpqE4L0MVx
+	 oj75iNAs6O6x0aokSrnRMVS1Vzs52jFDew7EQGsLXI5KyB8LFMmzzH6MrMGMoCisXGIka
+	 jD9NaFzWzTdLMMji6vXcVFzb7I8M1jQueVLI2cDgoJSkGoyiB6gz+06pka1Pnz3gDmTFc
+	 t/5fPTQxt0yeqRH3NvGhCMNfOml2p8NHcD566wzp+EU0wP3Zs0LHTHAKBtzJaDTNsnQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795255558;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=zE5eX58071rX2+3ny95L61kUwJINXoAYcP3/Wdhf/8Q=;
-	b=duHDZAfpDgrqsbTZ9ETMmq3w7/1Fdecwk4Eo+ob8QVIhlRG5iZN0VjifVwJplQmOjb3Q
-	 dTRd25nIxWduWt1Izd1ZOveGxoRcJkbb27zw0XW87NePEia2St0uRISrmG2FwA2ZCSFhi
-	 npagRpksw9UaykmcoqqDfNKBejSw2YF1WlzVxvb6qAF1he5mfABJU0tYVmUMGr4H1GqTS
-	 z6Gq8SiO9Ic8EwaVbsNzEtXgXCPim6Ty3LP6aJcgFcBBw7AH3pyymWg/mcJzAAm0Os9un
-	 BSTvEWlHRsNhhmwADSNJNDqmZS4Zr8IfGd4fT0FCizMd67i6n7BfljmPZvxSeju5Vnw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795255716;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=M3bV9m2HMGmaCwO2iKbHIS6yi+cpxYoMn1NsouoZxXQ=;
+	b=xJp2gc0Hi/+z5RxaFRj48chhzCDtIEphcwm2nQ3vImv/Pb82vv/iHq/omk57Hg9QYz7/
+	 uDd+Hh7otVRSBqcTEP/EzJpkM0pMLzzcdQLP1W5NN+MlmVtooM4/lvmsS1jFBLcCHXjSz
+	 K69HO2Kz3RHOYY9RzhUTJcf8RAs0e1yAlQgWNa2Vhm3zGQ3jLtXGKH7XfpfTsbFOqwvAE
+	 hb293IUvdwgHhAaIL3BHaISlEUIiCj5K7dmJWEUlyQzvCRO1PtSMPb9FXQTjADB+DF3dO
+	 t09s9EXEyAsZebiwW/K+WKHOlV4U+EWPp50kfrOVjkkV3nJBi4dfQoiF3AToWnCZ8KQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ND+FCYNY;
-	arc=none smtp.remote-ip=192.198.163.7
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.7])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vIjejmKx;
+	arc=none smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA0FE606A330;
-	Sat, 21 Nov 2026 10:05:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA0FE606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84714606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:08:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84714606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ND+FCYNY
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795255558; x=1826791558;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=qG+vai3fUu9yq82SLlVtxqR29jLNXrTh+HjAdeNsHso=;
-  b=ND+FCYNYe+fK27ugX50yXpFFOWsRi5fRAk4iax7crcKdSEb02YsUYHlJ
-   SAMdRV+XSmON2NQsCyFfgjuQSgA8ydgb/XTXmkfICDCCO/TC8NaYTK2Ag
-   FGfxZZOTMzvRAC7JCZhknatb5ab6EzHRg2bguhT6GdFwdpt4a9SgAo+Cb
-   ju5GFy17Mom9xnLqGglzjrH5IlwiZ09jsHJE1SqcoxOAr/ZsQkuptZk9R
-   6k6//9Z6Edh2Aj5C9DJ7VkqgAv41poc2PuBYcRqurdwld18FG9VioZMrA
-   2GdvCqz0//uxmeGcHLT9S5sUSJPkrOItOwt4dvCdAJfxW18fM2E/uSYty
-   A==;
-X-CSE-ConnectionGUID: ZEOusycRRmS9uYkfm9VLeQ==
-X-CSE-MsgGUID: ypTokMXqQ5CboA34s9+nNQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3972586"
-X-IronPort-AV: E=Sophos;i="6.27,224,1787036400"; 
-   d="scan'208";a="3972586"
-Received: from fmviesa012.fm.intel.com ([10.60.135.152])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2026 02:05:57 -0800
-X-CSE-ConnectionGUID: kfk3+Wu9TaWvjotOTxtLzQ==
-X-CSE-MsgGUID: sVRUFlqfSHi/t6304uuvLw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,224,1787036400"; 
-   d="scan'208";a="12597887"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa012.fm.intel.com with ESMTP; 21 Nov 2026 02:05:53 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xUhyg-00000001JsZ-1trF;
-	Sat, 21 Nov 2026 10:05:50 +0000
-Date: Sat, 21 Nov 2026 18:05:34 +0800
-From: kernel test robot <lkp@intel.com>
-To: Brian Mak <bmak@nvidia.com>, Hans de Goede <hansg@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: oe-kbuild-all@lists.linux.dev, Kurt Borja <kuurtb@gmail.com>,
-	Stuart Hayes <stuart.w.hayes@gmail.com>,
-	Matthew Garrett <mjg59@srcf.ucam.org>,
-	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
-	Lyndon Sanche <lsanche@lyndeno.ca>, Armin Wolf <W_Armin@gmx.de>,
-	Prasanth Ksr <prasanth.ksr@dell.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	platform-driver-x86@vger.kernel.org, Dell.Client.Kernel@dell.com,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Brian Mak <bmak@nvidia.com>
-Subject: Re: [PATCH 2/8] platform: dell: Move out of x86 directory
-Message-ID: <202611211817.BLHa92e0-lkp@intel.com>
-References: <20261121000556.173028-3-bmak@nvidia.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vIjejmKx
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a00so13165605e9.3
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 02:08:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795255715; x=1795860515; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=M3bV9m2HMGmaCwO2iKbHIS6yi+cpxYoMn1NsouoZxXQ=;
+        b=vIjejmKx+awfWvtxbaiVdjBrjmiWjacQOxqPsZUI0CqGCDW0fuIiZRQXVDudTZGOTR
+         gju5da9tDZjUyLhePRxMGltOIhPeBE99/TXalHSZJxFwMd2nSXfj/NxgATCe0LqtdlUl
+         zckXDAqUVxmrB6H3i/aAMoJt1OqMT1zQ4QELOVm5EJMHsQHN6XIozmQwDAcFpaTGe1FJ
+         kzBgVYJr/RM5r+BgnefB75i+A+nbhCubEQMkKMT+c012le4aDcLPSP1Tv3b/eFsVO8YK
+         BrQMgijnUDiONQ99FXmLVxrum8UhLJCHLtkwN18C5zeOB1xqLvThyeguoPisJgItezGP
+         A4LA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795255715; x=1795860515;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=M3bV9m2HMGmaCwO2iKbHIS6yi+cpxYoMn1NsouoZxXQ=;
+        b=pBD2//leqnR23OQUfPh+6HH/qCe97mPjrRs5IG3La4rzamEDTbtEJW3tflLAOJn3ZX
+         b0T9IiDWbVX71wAyuL20wdeW7E6eC0PRI+iQQr8TAQ9CSCqv3IhDJWgbcJ8sckRzXztZ
+         nD+eaE9jSwyJ2i3qXV+OOtG+W+aKtztXKTJ9nBwEaX/iSKYQyEPsNFgziE/S5nQGBVVz
+         bsuZrSFYwEvpg29lkDagvJ9h97w7sCyZYHViUAEwa/0429EDq78dDZgYSWq6RGyor9pr
+         19WgWJM+46wSbpgL6T828OcaGQDKTfSQxnscwuGyWXRVSYrlWjSPPao11RnUDAMEbxwG
+         qLrQ==
+X-Forwarded-Encrypted: i=1; AL+hErH/RoqPSNuuXHyL2OsNfpByjslrEMVrcWHxcD/UrA4Xjefdm4qDm0tf+bTI3nny7CjAigxw+5UCeyO1xIQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/SHyfxguWlWTXxxoNoCY8XF/TsChbCep5GUkZr+xoE/B8CyeqW
+	7+oUkJVMEIa3qWGAQhuDwBpAVtkS4UoB2XBGV9UU9Qp9xVKzqm2NwgWwAQ3+xA==
+X-Gm-Gg: AZFdTZdvKbgctS7CRGQtorA3Dq+4I/r7szAG6Yx0l8me+TuenCxAFogFgWySzrWk9XG
+	anrBEGuWzrHksdi2QFpNjpKyY+cRz+4/ypzS8fd6qRrH2LLmlirR4UPanKBi+wJgn6KhUClZRWP
+	JyQQprZwOamWthdHmPHSNWKglRJV9/VFPRldroapmkvrfKLN9B2bqL7/+X6lPm01nt68sFFcEWD
+	m2bSWD0Pvs6efIBgQJaS1Sk0eaG75HnTQqiEdoXkl2kYOyWwgVcggtiPKKxQoiayMjDzIuhmpnx
+	mPghPD2blbjGqvZJsMemdR9dfiD5zSXc+velqqo/dSU2tz0DkClB4/70wGty8tHzsr/t5XFVJ+G
+	YV3xNMIopGK+/x9lRk0Cm+k/QkIu/Xn+ay5nPRYiIlbmoAjpeaeUdutpLFGq8TrsLa+Gnjsyy5w
+	rjnKVkHqxxwwQ+GqolQTraWOwjwlFAV3wtdVzXWGKLQuqncSt48xg0MvpwmAuhD6nhAs70xYD0i
+	Fjllv7Gwm2MdbndP/ddfjpvrbn+IdazQ6BGjIoD9yaHLq+OyJQEEJFTIqQGofJiYHKwSTyRjfS8
+	vqvmAQD+7ezCekZD91CmCiw7A7Q3SdhUKaXm8HFEX9Ga3760jPB8bSW69d+6ctxkOLRNxcofVg/
+	Hqt2Ge0Njzcg5fF23drUTBufNRlFFSIUnHLAnYRupUiQPFs1s5ns=
+X-Received: by 2002:a05:600c:3b8a:b0:4a3:59c9:a754 with SMTP id 5b1f17b1804b1-4bb8892da25mr128310005e9.22.1795255714723;
+        Sat, 21 Nov 2026 02:08:34 -0800 (PST)
+Received: from DESKTOP-IR7J1S9.localdomain ([197.118.31.178])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906635c7sm44631505e9.2.2026.11.21.02.08.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 02:08:34 -0800 (PST)
+From: Drif Abdelmalek Mohamed Said <drifabdelmalekmohamedsaid@gmail.com>
+To: paul@paul-moore.com,
+	jmorris@namei.org,
+	serge@hallyn.com
+Cc: linux-security-module@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	sashiko-bot@kernel.org
+Subject: Re: [PATCH v2] lsm: don't call d_path() when current->fs is NULL
+Date: Sat, 21 Nov 2026 11:08:32 +0100
+Message-ID: <20261121100832.499-1-drifabdelmalekmohamedsaid@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <481c20b898f003247763475ef417c321@paul-moore.com>
+References: <481c20b898f003247763475ef417c321@paul-moore.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,50 +102,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261121000556.173028-3-bmak@nvidia.com>
+Content-Transfer-Encoding: 8bit
 
-Hi Brian,
+Hello Paul,
+Thanks for the reply,
 
-kernel test robot noticed the following build warnings:
+>  static void audit_log_lsm_path(ab, inode, path)
+>  {
+>    if (current->fs)
+>      audit_log_d_path(...);
+>    else if (inode)
+>      audit_log_lsm_inode(ab, inode)
+>    else
+>      audit_log_format(ab, " path=?");
+>  }
 
-[auto build test WARNING on d0f871bfb831705d9f55479f5b2b40f636ea7b16]
+I got your intention in your v1's reply, but i think that changes the current behaviour,
+if current->fs is not NULL, then this would only log path, without inode, whereas current
+code for example here:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Brian-Mak/platform-x86-dell-Make-uart-backlight-x86-only/20261120-160547
-base:   d0f871bfb831705d9f55479f5b2b40f636ea7b16
-patch link:    https://lore.kernel.org/r/20261121000556.173028-3-bmak%40nvidia.com
-patch subject: [PATCH 2/8] platform: dell: Move out of x86 directory
-config: x86_64-rhel-9.4 (https://download.01.org/0day-ci/archive/20261121/202611211817.BLHa92e0-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261121/202611211817.BLHa92e0-lkp@intel.com/reproduce)
+case LSM_AUDIT_DATA_PATH: {
+	struct inode *inode;
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611211817.BLHa92e0-lkp@intel.com/
+	audit_log_d_path(ab, " path=", &a->u.path);
 
-All warnings (new ones prefixed by >>):
+	inode = d_backing_inode(a->u.path.dentry);
+	if (inode) {
+		audit_log_format(ab, " dev=");
+		audit_log_untrustedstring(ab, inode->i_sb->s_id);
+		audit_log_format(ab, " ino=%llu", inode->i_ino);
+	}
+	break;
+}
 
->> Warning: drivers/platform/dell/dcdbas.c:103 function parameter 'size' not described in 'smi_data_buf_realloc'
->> Warning: drivers/platform/dell/dcdbas.c:284 function parameter 'smi_cmd' not described in 'dcdbas_smi_request'
->> Warning: drivers/platform/dell/dcdbas.c:316 function parameter 'dev' not described in 'smi_request_store'
->> Warning: drivers/platform/dell/dcdbas.c:316 function parameter 'attr' not described in 'smi_request_store'
->> Warning: drivers/platform/dell/dcdbas.c:316 function parameter 'buf' not described in 'smi_request_store'
->> Warning: drivers/platform/dell/dcdbas.c:316 function parameter 'count' not described in 'smi_request_store'
->> Warning: drivers/platform/dell/dcdbas.c:615 function parameter 'nb' not described in 'dcdbas_reboot_notify'
->> Warning: drivers/platform/dell/dcdbas.c:615 function parameter 'code' not described in 'dcdbas_reboot_notify'
->> Warning: drivers/platform/dell/dcdbas.c:615 function parameter 'unused' not described in 'dcdbas_reboot_notify'
->> Warning: drivers/platform/dell/dcdbas.c:103 function parameter 'size' not described in 'smi_data_buf_realloc'
->> Warning: drivers/platform/dell/dcdbas.c:284 function parameter 'smi_cmd' not described in 'dcdbas_smi_request'
->> Warning: drivers/platform/dell/dcdbas.c:316 function parameter 'dev' not described in 'smi_request_store'
->> Warning: drivers/platform/dell/dcdbas.c:316 function parameter 'attr' not described in 'smi_request_store'
->> Warning: drivers/platform/dell/dcdbas.c:316 function parameter 'buf' not described in 'smi_request_store'
->> Warning: drivers/platform/dell/dcdbas.c:316 function parameter 'count' not described in 'smi_request_store'
->> Warning: drivers/platform/dell/dcdbas.c:615 function parameter 'nb' not described in 'dcdbas_reboot_notify'
->> Warning: drivers/platform/dell/dcdbas.c:615 function parameter 'code' not described in 'dcdbas_reboot_notify'
->> Warning: drivers/platform/dell/dcdbas.c:615 function parameter 'unused' not described in 'dcdbas_reboot_notify'
+if path is logged, and most probably also inode, and your suggested change only logs one of them,
+Is that intentional, or am i not getting something right?
+In either case, i would happily send v3 with suggested change.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Cordially,
