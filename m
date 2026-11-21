@@ -1,85 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.209
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795246376;
-	b=dU8+5Ryo6GotJh8MNJVFVTO8EM0J0/G1Wy94sd7xtDg+uhPIk1L0Bg94Z+YO6fROJ5fO
-	 y3JQ046uOuwebxd1v5/gkvg6J4kBLuWmdFYnMJPHC8sgwGrZjTtqhFK1YkUZE2d0MpRl6
-	 ZpiFRSTCpPPpTm/hzi2dEbZ5aDa4VE3C2EUjs1qJ6vtJ6GpJbM/mfNjaLs3jFduildzPS
-	 zMZBURGIIuMBbzzFeJYiDtZDUDZMvtJplrJkhVc0VCzav4+lAD3aoD2dA72vzUNAka9Zn
-	 Jp+zSLJrKb93/kB9HQ34GDW30d1okWJqPUptNK9KIC4yGpTLQjc6M9TXhkAONSSJvFQ==
+	t=1795246396;
+	b=GXiDOdpju5afvuIDVqfl6Dakx3N4s65VjrwNKpPryMuDh54jNkEDtJd3gcXOaO0RuGYw
+	 FCCfapI9nyplkEINmAvAV1TAvuU3XW8sWhvhQgiI8Hx/J3G92OvhDDl2mCYjJ+qAAXEbJ
+	 k5M5rWfp4MoKmzpRXCJMAGdopYzu4w+lXfH/iorkIA3cl3CTibJVwA9l2OEzGiG+5XezV
+	 18/PW2Ocj8+GUf4aqIE7Xkzd5mtwlewt9o2dBwNZoK/PIktLYy1IfKPtwQ1u3Yn2bR0LE
+	 figlbK9ESSqCKqqv8MG0fwMArQU9zYDX4ODjByLotsgVKCwgbJUVrDljI4p/pIHqM9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795246376;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=J+dcPkcXZ3s3MrRG1MQfLHmivGBQKC1Xk8mvOi8nCLY=;
-	b=YWQFLXIIJufsqaOgEmPl9ur2DxaQFWfjw+GKAxNfxT6uWsZ2NR9qEOdyRsjSmoHqme3t
-	 7OmrhbvBG65zXIX6/XQGC/fYYTJekbrwm4EfTS2G+syG1fbWpJHuZ/97ZUi1w1t49PdRl
-	 15Q9Zf2SJM/YEQVFUfJQ0ULcbe25+XSW6aBcIn9X4g2080Dl03AeXNa7D+cafZ2Ks4NNP
-	 4OUggECTOIEMH56awtfn+lV+EWm2rR2u3gWZaNWLo/r0TM8DHQnzb5UKGM1qa3v4t8K63
-	 XZ6Xu6N6pW/5NqpfrIjYhFk7yrDDPpVsExRkFuk2Ur7qZ+QgX0m9ErSGKOoZyMpi49g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795246396;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=YBrHrJ+Fi6ULgqrmNdXQFkJ1MFe995vz1lrt+TAu8xU=;
+	b=vXixkH1jt8at6lusdvjS6xLCQwTTO98dQfBTOl115MSJxHeAZqZxaX1JUso615eQiaaO
+	 weRTNPaaM6reO+dzIl4VtBtqmdRZrmZjQPSWtSHRkh0Mm7moYyTLc3q+gmD6MmT0QZ7vA
+	 kRbV21pqiyGoAUpAZNBsm9Mpur9D4l1bNFVxP7f4PqAqAQuo4btrJRu981EjNOwVhn9S9
+	 EmbWQVZW2JsZsIXnUo6t1+Kv8sAyicS3yNjhC26noxjTkF+1DV9zqvXPHuIlzOupwhQdC
+	 ewKzX+GevOxZYcnWIVkIvyej+dzyu3noGYIXdfbbwp/n49i+rG2eIV8rjL7kikYbnNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=cdVaEk5e;
-	arc=none smtp.remote-ip=203.205.221.209
-Received: from out203-205-221-209.mail.qq.com (out203-205-221-209.mail.qq.com [203.205.221.209])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g1KOuyd3;
+	arc=none smtp.remote-ip=209.85.214.179
+Received: from mail-pl1-f179.google.com (mail-pl1-f179.google.com [209.85.214.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABAE1606A335
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:32:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABAE1606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FB2D606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:33:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FB2D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=cdVaEk5e
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795246373; bh=J+dcPkcXZ3s3MrRG1MQfLHmivGBQKC1Xk8mvOi8nCLY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=cdVaEk5eAIPmIOk5+F6iMsEjzv/6emr9/7h2mxKPmyKZLAUvRxaK4ZINgaScYjX8E
-	 5qUruKO6tpmBZ7BiX5sgmPmY+nvwdXQFxI/bgQlLEoRTS5Fgrq/bhFwCU6eLTzD69j
-	 ZWwlvXhWWmreQC3PGSWE87ou6cNTxlG5wW/cmTEg=
-Received: from jerry-PC.lan ([2408:8249:5f:7101:71a:8713:56b4:5043])
-	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
-	id 830284BE; Sat, 21 Nov 2026 15:32:48 +0800
-X-QQ-mid: xmsmtpt1795246370tpq3bznqd
-Message-ID: <tencent_E24973E955D1A26CF5A4F983929F8F8B0006@qq.com>
-X-QQ-XMAILINFO: OATpkVjS499uL2TWbxEEsFmnEnc19DykXbomcd2rucq3Q6VPPxwPpOeHB46Rxg
-	 npusd0Ly+Fokip3MjyxvihICinj3t8vmi16KbS+EOadnd+Pendf3RXwhFo7NgyNQ2bNs1H/C+KMw
-	 mVGG7wUFNhi/kv01GV2CUaCFeFj1FH9zUoPrE8TomhHlG/jx1Z7bMJbkV6dsxYoI8fZE9H5FQ/un
-	 W4il3/9nuVDr1++Js9FwfFTxFofpJiKcb0eMNNZ/O+Hc00Lh6xc51JRm/IpJN67BMeD+wTvjpPVR
-	 OKmcs6pGNAzBqRsosgX/UOFCJM83v6nNtmPx67Jbvh8vjOtLKJYmXECPmCGS5eiC0RrT+ryhBkiR
-	 BV/clgdO53uRIr5ppUPA1RGgLgLaT7x0qU47/6pk247M+3sLAFF19/wr4IozDoahbm6csbcg1WWJ
-	 F3GhZHviwUT/DNBTv4mbW+qLUj/4jaobcMu+78J0RogRxxMBt4AlzgofwAeLUcqS7UpAfu+7c11p
-	 mYLKVOLzDO7Lpkw/6m8cekqwfDZs4qvP/hnT+Gm21YdCv//eAbBgjgPsxX/b4TVLxDz7Ik0m/5An
-	 4y/V3J2cu02gSUBq411+z7aFIwEjSxL9NwXtH1H6nPMMCo2SVen7wH1FwLRgo6GNqXYbtgwwP3qp
-	 UWcfdBh4Uc0o/seo/OhrLgk7sWFsyQfjkKsGYt9cCeXDlYrTQ15nlqkzjDVSXHr3AoPnJyLabg/Z
-	 2O595qusTXNq3sG8wtDaHeyN9vCFCVqS/KPWRV85Vr6HN4Nj3u4qkDySk85w192Pr5md2E/iTgEJ
-	 piEiue83T/I9qW7B4XvsBKgXO2FZZ4FvrQRlrzcOksliwCzxNjIlDFSccFIAlo7RYKVkxYaj15J1
-	 D/nRnNybZnL86uEs8ILw1GE21Jw9a43FGVcChcVt++IJp3vrSHR1RbgXotjixOHpBRiKj+ebx+H3
-	 Edgg9Y0RiR4/FUi31QFHviFszp8+Q+rjuruPKhct5Pky53qHrFBkohkO+8VmGqePK7Q0Pt5mUSOY
-	 m5d+V3na/Yspj1jjf751kzbRrXkTIEliA/YC6cDXQyJHFSIDKUHi8ZcEfTSWtqv0pDGAoFoA0RFe
-	 KB7byoRic0F++fgksk+yFnEZC/tQ==
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
-From: ZhuXiangyu <1194781887@qq.com>
-To: Mark Brown <broonie@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Chris Morgan <macromorgan@hotmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	ZhuXiangyu <1194781887@qq.com>
-Subject: [PATCH 2/2] dt-bindings: spi: rockchip-sfc: add RK3506 support
-Date: Sat, 21 Nov 2026 15:32:46 +0800
-X-OQ-MSGID: <20261121073246.1233736-2-1194781887@qq.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261121073246.1233736-1-1194781887@qq.com>
-References: <20261121073246.1233736-1-1194781887@qq.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g1KOuyd3
+Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2efdb4499a3so1288865ad.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:33:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795246395; x=1795851195; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YBrHrJ+Fi6ULgqrmNdXQFkJ1MFe995vz1lrt+TAu8xU=;
+        b=g1KOuyd39DbO1oJZCtZQXHAn3r83eoHFvdLOFAI6r1gcMgxhNE2+lmbsNryPqUR5AW
+         Kel2datY0J7UYUxZY6D4S6tgYPu6kSzulVufKRKEzqy7Tk/GmdNfulm7DdpnRd4QXKaY
+         2sSmceBXbDZfpb0UXzrHiIzTPW7AfIyBRpeFN0EBAfM1Ibu3dkiXiPZprw4HeTNOzZUl
+         GgBBCQMlbL4QE75HrX4LOp5N+YSwOlQcHm1pVcyidVVbBb/E2QLFlr8m6asAVNnJ4rA+
+         BmnzbmNp9JuNHsHAixgL5JBO/4HvBljTLUIOZDagJBcDJAz9UHhz75/L6ZBBVaXg546a
+         x0Dw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795246395; x=1795851195;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YBrHrJ+Fi6ULgqrmNdXQFkJ1MFe995vz1lrt+TAu8xU=;
+        b=AgOqXegZi3zVJvGw8LvwY/ydLRh9jQ0DwVOPWt5XXRO2MLM54AqIboSy6CclSi2fI0
+         v1LGId0x6SfZTe/Mv+DzIjUMfL0gns+iHhkbFiuHxNAX0oIkFhgGl87if6B524eIw1eG
+         9h2Dxi7FE9YD4dJkckAAO5MZ5ctd9wDiEvWscN618f8qj2FF/C7mp2I+MD45b/RW8shf
+         IkZ7+DLf+X+76Cj/kHGkpGemRGzMiSPqqeSBlEV7TCPIqGZWvB395m3IJ247xfrZ8uvo
+         hitSlNfY6BBUiZRVDOO/SQ8SUDNrq0KgqCDnQEtwG8Uhv2mjQlVAnVdIxq9hgbDz7NmQ
+         DtHQ==
+X-Forwarded-Encrypted: i=1; AL+hErGB/JaTZ19XA7FOAwF3HABjd5F4lBAgSpE5Eea3dU9az7tKoCLmGMrWcb2ftnXyAMRxw2fcVt0rxjXxE90=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9O1ZluRARU0Re6svG3j0bAqwlii1HcNDeLsqxh3HYfooUIZdw8
+	W9AEa+31FBDYVxezn61NZn53An47VuzsTQTyxQKmbd3mFekqiKM/pN8GPdYBBw==
+X-Gm-Gg: AZFdTZfcv2Uvb9Sn6PBC4qBEbE863Ij5hDm1bHX0bpZc5QbpmTcGxd1C2U4C1Eh3wZa
+	6ct5fNKNubFvnCcozStpaKKQB64LMpg2gYtWOOK82Cm9chfFBzXXmkkZYlK+OeOtcKCAkFLD91B
+	FBq+ozB2GYqaF7GOTpoVvE6Hi11wiBgT8xX1fnRekE+xwrRzz/H/EfgqMrm2e+Oe5Ml2qrIg40/
+	rlv5v260XrrEnk7vSQi2bE10G0Blm3/SpMgLVPBz6pv8BT5gYmpYtPYX1tPrLcGX4QIUsi6Zc9T
+	Emv1SMalsmPzq8O7+Hvy490wwIak4jJ8X1lcrmolpjkYYDQrBbgmwAD3FX98nehe7fvXu4esdpK
+	kWS/HeEg4ztgkPEsgXwilcMUO0OSj0Xs62TvJ8mdwQQ66sCJi8P8eZiyV9DEyvp4QKXsIA50zgw
+	DZ4WVDUI170zjQ4cxoR+zLp31EDhIVrV3OtYFO+BzdbQLMyaPtvggyqmyHVVTwkcUMwE5uLuaxY
+	y5xWtCM7enXhoOhzDYEdnPPUfuZF8nj48mFptEG32/w81H1j3zoVIw+KfGrNne97N7oleNpcjey
+	TFYRaLWHGqc7oWgnDc9iZbbU9340s8zGVNuK2Kam3PBW1pp6PWeNrw==
+X-Received: by 2002:a17:90b:57c6:b0:3b4:e3e:642 with SMTP id 98e67ed59e1d1-3b41c579226mr8216561a91.0.1795246394913;
+        Fri, 20 Nov 2026 23:33:14 -0800 (PST)
+Received: from [10.232.20.87] ([101.90.31.190])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecb486sm10344021a91.16.2026.11.20.23.33.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 23:33:14 -0800 (PST)
+From: Anfernee Cao <anferneemelokc5@gmail.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Bin Liu <b-liu@ti.com>
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, Alan Stern <stern@rowland.harvard.edu>, stable@vger.kernel.org
+Subject: Re: [PATCH RESEND] usb: musb: fix double put of gadget device on setup failure
+Date: Sat, 21 Nov 2026 15:33:10 +0800
+Message-ID: <179524639094.16200.18023925953069130613@gmail.com>
+In-Reply-To: <2026112011-dingy-onyx-4d4e@gregkh>
+References: <179250629747.20696.17364135141613638741@gmail.com> <179419596286.2244.11782596409403661076@gmail.com> <2026112011-dingy-onyx-4d4e@gregkh>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,68 +96,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: 8bit
 
-Document the RK3506 FSPI compatible with the generic SFC fallback, and
-the rockchip,grf and rockchip,max-dll properties used for the
-power-good handshake and DLL training.
+musb_gadget_setup() calls usb_add_gadget_udc() and, when that fails,
+calls device_unregister(&musb->g.dev).  But usb_add_gadget_udc() already
+releases the gadget on failure: usb_add_gadget_udc_release() calls
+usb_put_gadget(), i.e. put_device(&gadget->dev), in its error path.
 
-Signed-off-by: ZhuXiangyu <1194781887@qq.com>
+The device model documents the same rule in the kerneldoc of
+device_register() (drivers/base/core.c):
+
+    NOTE: _Never_ directly free @dev after calling this function, even
+    if it returned an error! Always use put_device() to give up the
+    reference initialized in this function instead.
+
+The extra device_unregister() therefore runs device_del() on a device
+that was never added (or was already deleted) and drops the reference a
+second time, causing a refcount underflow.
+
+Drop the redundant cleanup and just return the error; the UDC core has
+already released the gadget.
+
+This issue was found by manual code inspection.
+
+Fixes: 3301c215a2bb ("USB: UDC: Expand device model API interface")
+Cc: stable@vger.kernel.org # v5.10+
+Signed-off-by: Anfernee Cao <anferneemelokc5@gmail.com>
 ---
- .../devicetree/bindings/spi/rockchip-sfc.yaml | 30 ++++++++++++++++---
- 1 file changed, 26 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/spi/rockchip-sfc.yaml b/Documentation/devicetree/bindings/spi/rockchip-sfc.yaml
-index ac1503de..428740c8 100644
---- a/Documentation/devicetree/bindings/spi/rockchip-sfc.yaml
-+++ b/Documentation/devicetree/bindings/spi/rockchip-sfc.yaml
-@@ -13,13 +13,27 @@ maintainers:
- allOf:
-   - $ref: spi-controller.yaml#
+Resending in full because the original submission fell out of the queue
+during the merge window.  No changes from v1; Sashiko reviewed it and
+reported no issues.
+
+Link: https://lore.kernel.org/linux-usb/179250629747.20696.17364135141613638741@gmail.com/
+
+ drivers/usb/musb/musb_gadget.c | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/drivers/usb/musb/musb_gadget.c b/drivers/usb/musb/musb_gadget.c
+index 016d3f3fc1e0..4bc4270088bc 100644
+--- a/drivers/usb/musb/musb_gadget.c
++++ b/drivers/usb/musb/musb_gadget.c
+@@ -1794,13 +1794,9 @@ int musb_gadget_setup(struct musb *musb)
  
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: rockchip,rk3506-fspi
-+    then:
-+      required:
-+        - rockchip,grf
-+
- properties:
-   compatible:
--    const: rockchip,sfc
-+    oneOf:
-+      - const: rockchip,sfc
-+      - items:
-+          - const: rockchip,rk3506-fspi
-+          - const: rockchip,sfc
-     description:
--      The rockchip sfc controller is a standalone IP with version register,
--      and the driver can handle all the feature difference inside the IP
--      depending on the version register.
-+      The Rockchip SFC controller is a standalone IP with a version
-+      register. The driver handles most feature differences based on the
-+      version register, while SoC-specific data such as the power-good
-+      GRF offset is selected by the SoC-specific compatible.
+ 	status = usb_add_gadget_udc(musb->controller, &musb->g);
+ 	if (status)
+-		goto err;
++		return status;
  
-   reg:
-     maxItems: 1
-@@ -44,6 +58,14 @@ properties:
-     description: Disable DMA and utilize FIFO mode only
-     type: boolean
+ 	return 0;
+-err:
+-	musb->g.dev.parent = NULL;
+-	device_unregister(&musb->g.dev);
+-	return status;
+ }
  
-+  rockchip,grf:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: Phandle to the PMU GRF used for the power-good check.
-+
-+  rockchip,max-dll:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description: Maximum DLL cells used for delay-line training.
-+
- patternProperties:
-   "^flash@[0-3]$":
-     type: object
+ void musb_gadget_cleanup(struct musb *musb)
 -- 
-2.47.3
+2.54.0.windows.1
 
