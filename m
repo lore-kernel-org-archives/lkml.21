@@ -1,107 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795287973;
-	b=UGDd7CBZ/4Ar5HNxyqt91NFWVF+RkFs9acP+XvGD4jrKHWnd6aWhusQRpeRbfFhRVzFw
-	 q7WSQWu4PBfBwR75bEezRYEChcB/kT0eCEA69Pc0ULUvqyFAYKu0BXjKp9FiXzcqLc+V+
-	 mVKyJq/ZbRA0PLajC6oUeGCc9z3z+qovphvakZQ7JpfKYDljZJuCM5Bm47HvnORs2wYwj
-	 uhUgbPsO9TK04yF47LNsS2Y/M5PKgUB5MnggS/to3aXuhA4qSfli3x8N2NR7wJGxUREec
-	 xA1/N+z4bR6jS1iCI25vk4t2pFnrlfR3s7pom7s+WQ8qm+0txrUQ+E8LLc8nFKCvBQQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795287973;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=FpKHiV2uYxe7Ki0iO3VWKGByi0ydeGzhGSrgX6lNY+s=;
-	b=dpTeN15Rqnc/UwK8LKGAQkHjxtnf8qD0P3evV3VKzKnlOFVGugnWuyaBaU/9+asPlTUw
-	 w92yL2GUp5TTMvqNQf2HST1PpmjYI0s/6VszvWW2mY63df4zR3qySLEUqiZMICfjBC0hp
-	 GyvKzdYwb/B0Q88SR2ERDw1DhmlRsR8CqIR5Y5s87S4qj3AOTynMj6D2CBhQqOEet/YLL
-	 tlyGrEE4FO+mzQptpyKRghxYRCKt68Bh3BG1W+APKsDyqnUjAhez2b1WCCN1vt/ASYEuP
-	 +rTwyv7nNpfqdzR1POKZCL8DqaLsSyM3aPmGXAY2U9REFGn/2tZy6wZ65cKa+KG6c/Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dRUFuQH8;
-	arc=none smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.100.114
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795288034;
+	b=BLYCJ1w2xoyQNlGG9ZOeSMgio+FBN8lLKc5QyfBwawAXXFbV014CjrA/SsYdCllszqTS
+	 SZIDEIOCVRjDBLgUmhZmRtMXijPGhzrVJz9GrXLX26m+7NAzgT+xhfqEzkaE0z597YRQu
+	 L7NLZe3hkQ7DMYyhAbO1TirtbmDWiv3ub/ux2DrMF+ZNLTsrlyRVa+cg8uOh4NDb1xwtw
+	 XWexEUd9bD2i3N6mDGDyEeS1t+xhu7atnHTyv+IZEtxRHBsfVqyybu+7MCgEP5spjGcpA
+	 XpYXI6VC1oxJf2H+bxA9UZcyCTBpU2SfjRfRuRjFkJEiI72RX1bIUHXp43o7nLY9/2A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795288034;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 References:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=utccSXcUx3nMfrBMSzeVls7K0JPx57k8P3PqldUHswA=;
+	b=WIaII+mQ1bXtdS7CCAnrhDwCO82E7faUd1cvrfhFhhJSZRbsIBBDVn5FASKXBwh0wRMD
+	 5RvUlELhMRPqiiPhZ5WWVN5VcEaJhSsyi5YEaOWKNfyBL8bY/gFi8tA++Ej5RQZ81acHW
+	 Be7gNXRDlXOMBTTzOS5xncAy1fKpiqAOv4xicbo8FoWYNEl6kxFfMl1pvEtNOXDde3JRR
+	 aER6QfC6f4okN+vVunVfp6rBpylr4jTWO78BVw74EkLtNIwr4InQja32tkehs06YmVem/
+	 OyTEPqH71b7FqHDcoud9sLHeCjMF/UNcpwWWFg6iPNdu1kht5rrJHoiSeKHFgQYXqag==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=atomlin.com;
+	spf=pass smtp.mailfrom=atomlin.com;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.100.114
+Received: from CWXP265CU009.outbound.protection.outlook.com (mail-ukwestazon11021114.outbound.protection.outlook.com [52.101.100.114])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81451606A331
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:06:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81451606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dRUFuQH8
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb69f5b161so12525975e9.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:06:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795287972; x=1795892772; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=FpKHiV2uYxe7Ki0iO3VWKGByi0ydeGzhGSrgX6lNY+s=;
-        b=dRUFuQH8w4MMSrEuc/tUiHbAWm2e8J0TZVBrfHQOSMQQc0vMhH6D331bHZwmWI0nW2
-         lOwdSLLGhfXzgXbQEBKpcvr4+PI3b7XJh4mhRWqOQcNiR7cWa5aPNcNWAzqLnO4DfizM
-         opphh1/ieNCtEuzXfWV6VbBhb4yO6YmMnc8jznq9GO072dx30HONa2zs+cUSQbS8TJxV
-         m+4h+3WjdKBDkuVYBJ3KduUxejxMzvESrVOUs2AqVsUZ5dslRzyepHS7zppw82DxZaO1
-         rw9OiPKIfdAJwSEUOwttDjkpvJ5P6XfNisG/ZtDNOADkU2kxZdvnT4Ieor0Vy+9lLbUP
-         RBRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795287972; x=1795892772;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FpKHiV2uYxe7Ki0iO3VWKGByi0ydeGzhGSrgX6lNY+s=;
-        b=fIndNEUlU0owLPDeGKogYrNuxPj0MNqHwoqtRe/8hfP5trV5Y7HuocxBToHU4sqNYO
-         JyT0HtEzUg5lUuDXBuuDK2kxj8K2vMrE/lNhwzm/QYmSiREEkiRokwTtm++5q7aNrtNn
-         4wClulvLEWrJO0Xp71PoQ9RBWy0nTqdzmlRjLibO2zCU3Z6Su9cXmDc/WScjkXva1DSv
-         Bik2Y+L1p+FD1k2RSJmVc1lsXcQYibU2IbytDiBARdvXhaxHzhnVCoRKKYRfcJTgXnmJ
-         NOt8CXNX9ziRIM4nfEzKNT8pmZvBAwUaKJEpdzMNj5yHQPlbeYnk8MFatenftgFV/8sX
-         cpGA==
-X-Forwarded-Encrypted: i=1; AL+hErHTq+3APxC/gGXVhT/EDJ3pp9aqcTtOOGrlPdWNIVbYrjt7rLgFIWeT8oe+MqgZLZIXdDGVqBX6Y1kZnNg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8BgwHHbLqVnAg+cONX9FGbgId5HfVcqB94GoX+L7nWqZJT4Ahg
-	oCy8bIpCt7mkVROjAmmyIcCI+JQR5NIAcvNILNTjbE6FCECdNxTltIRj
-X-Gm-Gg: AZFdTZeIi4iJi26CU6vzLWNZbgHk+r0mt+tYVfIn16tAhbS7vNnMTNaUDwiKYAbfPMA
-	SHXOZKC1pwhDb9GhWhRj3ZJV1JOGFiZtX07YFlBGtbGaW34w20Z3qXkWAM+QPGN5EeuCVg3nqz8
-	Y/E7srT6TqcE0MRszyKnT3jbLqHXv9OmZ/gvLzSMYY8qA4F6KcRGCUqNbCCxS+KqI1UmAoVuCVA
-	FKwVEyeO0JawYApzQnx1TFxUH8sgyxd0OaOji6ck3myouNfIoy3ngU/rpFJDmdhW2lDQnjRAISC
-	nHwx83armayjnouDLUYXuUc0/9bIDyjgnxv5G70vyT11jB2uZdUiyyVamL5wGRcgpOEHcRk4ork
-	FGeBnFzvULExTXmMu3+RUcLP4Hpyw1WB3uMgLcuS4YqkHhMK3YvhtcxUU55u7UeDQhyczSYo5xl
-	GPSGqnf+uCib/nP9umomXT+JXicp+8qMiqnBQWFK9Pv+LYJeRYMg3DQhlJxuSihcyzEac/9C0Q0
-	3mBoESHDX0yS1L/dlC+GLtSd01W5SK4MJFnnfJgcYC5QflhL/dy3KNP+9JiAbeUA6ZbSF3Op1is
-	ntLUnMSGfjk25Evvrxb1bCZWxmpvQPkJB5K1bslonO4mRMp7kpEohwUP4zcZCjF8Qxuj0X8LwYF
-	G3G1zrYQznKa8IUHkp7VFIlVI/Mkueg==
-X-Received: by 2002:a05:600c:46c4:b0:4bb:6a5a:7834 with SMTP id 5b1f17b1804b1-4bb888106damr154232025e9.20.1795287971698;
-        Sat, 21 Nov 2026 11:06:11 -0800 (PST)
-Received: from [192.168.0.10] (catv-78-139-0-46.catv.fixed.one.hu. [78.139.0.46])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8d4f9aa8sm148595925e9.4.2026.11.21.11.06.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 11:06:11 -0800 (PST)
-Message-ID: <6937fed688e4bf1d7cb81b004c179cc4912cf6e2.camel@gmail.com>
-Subject: Re: [PATCH 0/6] Add USB support for Exynos7885 and enable USB and
- FG on gta3xllte
-From: David Virag <virag.david003@gmail.com>
-To: umer.uddin@mentallysanemainliners.org, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam
- <mani@kernel.org>, Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski	
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Marek Szyprowski	
- <m.szyprowski@samsung.com>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Peter Griffin
- <peter.griffin@linaro.org>, Alim Akhtar	 <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Date: Sat, 21 Nov 2026 20:06:10 +0100
-In-Reply-To: <20261119-gta3xllte-usb-battery-v1-0-0cf5f763522e@mentallysanemainliners.org>
-References: 
-	<20261119-gta3xllte-usb-battery-v1-0-0cf5f763522e@mentallysanemainliners.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.62.1 
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BC6B606A320;
+	Sat, 21 Nov 2026 19:07:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BC6B606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=atomlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=atomlin.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NOmUMBqqf85cgrMRsPcTU0y6cuszTCudNBtAcpV1BcTUYIH8aZKwby3NfAOFwqhIMFsvujnpH/m+fHvThUssRZS9tA2n81PDgR1NquF/X3lfKr1AsU5VeRz/tBuKyEKRNE8SdY0CQ4vVrGMsYPUXt6lkJGnSGWfb0JIl1pqGL56EcYTCX847B3p91+gaz33WNchqwxPLyF09kP7f12Q8YMQU4+vS7VUuYOvnPwn1CvgyKKDaa0OkhMGLEqeW6hqpt2TnWwv7//ZcLQLTwbc7Vr0pSPRitmmJMVhPaBtqvEbYrTseS2oF2/gADFL+1RLp6g5EOAEDUYjM2cjhfFgfpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001; h=From:Date:Subject:Message-ID:MIME-Version;
+ bh=utccSXcUx3nMfrBMSzeVls7K0JPx57k8P3PqldUHswA=;
+ b=sXbG0sY0QVguLmSU02S2mAGogoiz59GgCQ9BvO7tTrfee4j7CYkLZYtDwPW0uxGNMMYnylhcJ1gdKIX3ykVoSI1yQrCsiN0mhtwpUELKXH7J3WPS6kep+iYc2NmkOuTS/dzXK2j45fVlUdswxdKn4OTbCBRsFbwgW1jO7YXyBWhpVF1Eiist1W1j+X5fnrJ6v0yx99tmUBE2ca5V2VSGh8VjmZeG8o1vzor9uWWcOqyua/CyNgLp50V8UTpSsi+Xp0+7pSnUEYKfl95AZ6ESU8al3KHyqy2u3Q7dgiVyQQBxgoNIgXFeXXmvmsT7aR2gnHiudAJdlhNmehv8pQVMcg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=atomlin.com; dmarc=pass action=none header.from=atomlin.com;
+ dkim=pass header.d=atomlin.com; arc=none
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=atomlin.com;
+Received: from LO2P123MB4190.GBRP123.PROD.OUTLOOK.COM (2603:10a6:600:163::8)
+ by LNXP123MB3817.GBRP123.PROD.OUTLOOK.COM (2603:10a6:600:132::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Sat, 21 Nov
+ 2026 19:07:09 +0000
+Received: from LO2P123MB4190.GBRP123.PROD.OUTLOOK.COM
+ ([fe80::f71f:a9f:c4de:687a]) by LO2P123MB4190.GBRP123.PROD.OUTLOOK.COM
+ ([fe80::f71f:a9f:c4de:687a%5]) with mapi id 15.21.0639.012; Sat, 21 Nov 2026
+ 19:07:09 +0000
+Date: Sat, 21 Nov 2026 14:07:05 -0500
+From: Aaron Tomlin <atomlin@atomlin.com>
+To: Petr Pavlu <petr.pavlu@suse.com>
+Cc: Luis Chamberlain <mcgrof@kernel.org>, 
+	Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
+	linux-modules@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] module: Clarify purpose and description of
+ elf_validity_cache_copy()
+Message-ID: <zbu6fisnk6c27aixpcmy267fukgk3t2ss3tfyp2nlabxqi2kfm@6zchi53y42ee>
+References: <20261119-module-elf-validation-v1-1-69a74a84552c@suse.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261119-module-elf-validation-v1-1-69a74a84552c@suse.com>
+X-ClientProxiedBy: BN9PR03CA0500.namprd03.prod.outlook.com
+ (2603:10b6:408:130::25) To LO2P123MB4190.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:163::8)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,36 +88,153 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LO2P123MB4190:EE_|LNXP123MB3817:EE_
+X-MS-Office365-Filtering-Correlation-Id: da2a62ef-756d-42dd-d53c-08df4802a413
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|366016|23010399003|261028144727099003|10067099003|261022105027099003|261026140227099003|261009223027099003|261021123027099003|261022075727099003|261021121427099003|261102123227099003|56012099006|261026121527099003|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	hjW3UNFciBbHlfdvfthzY9+tv9P2kssnVbwfUCEjysMjOF6M2Uw9H7iWWLSt82AmSabAbk7suHxlCUiAJyoYcMfe+zz4TD91Hdiwu7Ih8ba2GXF35lzD+QnZ8azInQgD+vmZTtBs1WW9nFYeNODtTK34BjGUFU8bvjleGsGG1eYC2l2aV8SerBfbyqz2fOOTswQlEwdaHUJ3yUlnRxuQpEzHZ8OmV6xHeinCvLPOZ1MAP/TbBIRAQynxv3nHArpRWcdZRbDhyrl6M7dJkSK6NewIM3dxFdHZI0r/1lsz50dahf3t6DrptvKuIevYoI7Jq36+Cvt9sxzLTm7RHGnoRZP0nDZ3p33UgU9bprSlbPIWxdGoxpbdsTAvIDfaKbrQTUqs3tjWv8lFEaDLsDKD+ULQNJ07y5BzyLHJx28MqFBOHyw9IZ7duGUqevqsjEBRgU5g4uF7UWyGl7NSgy/YwMy2SwINT0cKqvJ93PQW89Pc10TXHCOLfx23ImNVc/thiG99ytWbp29DtnGpbI4lTvb0eKXzD0Rh9gFkeijsEpdQc1t40aRJjsTC6f0xjiaQLRMdWdhw3Sfb/rx5aBYMnzhNUjYbLzpA27ZJCS4bH+UuavKDt94JqSx9wZJ6fN2M5a9C6nctpCpaz9U9LQHQ/iShCbLVO00+62hUEWWNQqo=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LO2P123MB4190.GBRP123.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(23010399003)(261028144727099003)(10067099003)(261022105027099003)(261026140227099003)(261009223027099003)(261021123027099003)(261022075727099003)(261021121427099003)(261102123227099003)(56012099006)(261026121527099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?YkhCNklDV1pSeDMwWGRONDUrRGJ2emVRdVhyUE01L3BHOG1GNERpZ2ZFV05v?=
+ =?utf-8?B?WEcwb2ozSmcyM1FpN29FZWhxYmhmc3ljMXdlODI1V2U5OEs1MWVMblIrN0xR?=
+ =?utf-8?B?TFRCVitFUjRlZlYxM1JpWU1JVTN0V1hsWjVCWkZuUmFXMnIwbGNabjRHQm1H?=
+ =?utf-8?B?WnlnMjYyUEk0SWp0TnFhMWFLQldNMUpsMys5S28zOUd6L1JMVmFPUENEeUVy?=
+ =?utf-8?B?R0tmeHVLcDdFVFlPZ1VLS0lPQUtFTzFIM2tEQXVyRjhsWm5yTGRDY283b3Fa?=
+ =?utf-8?B?U1hwVDZZdXcybW5kRFRiNldJVnJuVkZSOUt4RER6VmRUV2VVRVkzS09LbnNE?=
+ =?utf-8?B?cWlVTitER3M5dVlKQStQM3J3QWFkWFIvbXJkTVVRMzBMdEJMSmxGbG1IYi9j?=
+ =?utf-8?B?MEl5U01KeFB1aWJFQlB4MGxSNXgvblNTVFN3OElEQTRUbk9xZFUzejFoTjZC?=
+ =?utf-8?B?QlgybVAwTklibnVTUGE5N0hLV2RDMUFIOVZpUHNGM3YrcDRFeTRlOTlmM2I5?=
+ =?utf-8?B?RWlrc2p5dkRKVjdiTWxHQURaanRvVk1tSEhBMEZIMlNnVjYxalBrbTREeEZJ?=
+ =?utf-8?B?cHJsMFF1ZXlWS3lJb0k0YngwekdiVVhQVnExUWxaY3ZxWk1LNksrcDQxK2Jn?=
+ =?utf-8?B?enV0QXFkZUtwc2dCelFFNDVGTENzTElVcy9wVXFoVWoxbkQwYWhmd2JydGZJ?=
+ =?utf-8?B?QnBMMER6UmNlUElJeTB4YlJXNzZhUzdaVjAzZXQxKzFKUWI2b1B6VmJjTEsy?=
+ =?utf-8?B?ZVZMK0E4aEpPU2NJUTFndEw5eitRZERBSWpJdmlEWkJBVHMvTTRnTHMvWTN2?=
+ =?utf-8?B?TG1zdjNmU2M2dGJJcTdKTGtZcVBYU0Rwb1FvT3lYSTJiM1gydTgyQmhIeTQv?=
+ =?utf-8?B?TUV4K3Q3U1NxV2RieWNHUTVBRGZMZTJWLzhMNlJmWE9EYTFXWnVYUDJQT1JL?=
+ =?utf-8?B?eEFrK1RteDMxd2daZllNZXllczkzRjdtUnQrekhORlJGVGM5Q04yY0NHUHha?=
+ =?utf-8?B?TnZJWE5iRGt0elZvd053aEtKK3ZQWWtmQWtjMjdrK20zYTZPSVAzQUNIMU5I?=
+ =?utf-8?B?dU9NUlBtZ2pqdGhDNE1GSS9MNkVIS1hpZjFkMURsRXFEeXV4VE9VdWE5Mk83?=
+ =?utf-8?B?SUNFK0ovZFRnKytDdDZYWGZocWNaeldnbEtVaG5pRnhpRHl5TUVNbkd3WGdL?=
+ =?utf-8?B?Z1pNZ3I2R2tmMkVJb1VSd0lTbFJqL01IODZjOGE1VDFNRng4alpxdjNKT3R5?=
+ =?utf-8?B?UWhaRHRvY0luYVI1dEo3aUJhdVQ0cjBxOGllaEduNVJWd3pta1FiUm56S2tq?=
+ =?utf-8?B?TnhGVkZoMGJiaFRnQTcyNjFBMXVnOVBIZWpCSU5Pb0pGeWJ0SURpMHJRWVBX?=
+ =?utf-8?B?NTB2NWY5Nk92SzhMc0J4MG9WcEJrQW5vKzVZTjhCVlFONWR6VWZJYVdaaTNY?=
+ =?utf-8?B?VVh1RUZhSE14em5PV2RtTExOZzV6TEJPY0p6NmZBbWZhK2RXMkQ3aE1xZUJl?=
+ =?utf-8?B?UDc2WktjdE9ZaWJqR3JnbHB6dC9URkxUVmhFODN1bzFLSUxqZFVzTUg1eTQ1?=
+ =?utf-8?B?OVg4WUlkU3VJdXZEQlorQi9Vbks1MlRWNEhVY0RuSUJwQU8xRDlIeGJpK2NH?=
+ =?utf-8?B?eG91VnlkalhTTEF5ZHNMalB6eko5azY5Mm1ESHRxRTFRQTIyR3E0S0JQQzh6?=
+ =?utf-8?B?RTdIZDdLejVZK0VLekUwY3FMaEUrR1RieFFIdERLaEtGRnJaL3VaTU50aVRa?=
+ =?utf-8?B?OWszeW5OUE1zYVd2dU1DVFRCM2VBa1J2eXF0dk5uN2t4L2FOWWdobmFMRVJi?=
+ =?utf-8?B?eC93d3RHbC9mUDJCbGNJSDQ1VDErS3VYdTNXbDBpTThqNkdXOFFWdkVoQUpz?=
+ =?utf-8?B?dVZLVUxkeFNodWQwYlVoSzJINmhyMGIwTHJXNGhkTys5bmdxalN3QnFPbHlB?=
+ =?utf-8?B?UUdaVjBlTlhSL2U5ek5TQTFzRkpGVHVEaFNGRVlSZDNTdnNXSVAzZWV5NDd4?=
+ =?utf-8?B?T3ppc2FGS0hkUEcrdUZ3cTJLRkxqU0dwRVgyL1doRnNjRm1ld3BTSTZzM1BN?=
+ =?utf-8?B?QktESzlDSjJpUjA3aUwwME1vWGNlYWRmMy9zZSs3RGk2allWYW5COGYweXdV?=
+ =?utf-8?B?NEhrQmF5R2dCckI2cE5uNzJJUmJsUmpvN3R2ZXpnNVdqaDUyREg3eEI1T2pC?=
+ =?utf-8?B?OVNaYjQxMVdGWEQ4c1h3U2RiWmoyVEpJQ2ZJNUNzdGZYZVZCNjE3eE0ySFps?=
+ =?utf-8?B?NEJWSnBXTm4vR3hPV0ZaK05GS0tLNWUwSlZEZVlJUnBKTTY0QndJRTVnU1VR?=
+ =?utf-8?B?MzJGNGRIWURvVjBUdjR4RDhsaGxjK25HNmZTMVAvdXBOOWVVYzYydz09?=
+X-OriginatorOrg: atomlin.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: da2a62ef-756d-42dd-d53c-08df4802a413
+X-MS-Exchange-CrossTenant-AuthSource: LO2P123MB4190.GBRP123.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2026 19:07:09.2598
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: e6a32402-7d7b-4830-9a2b-76945bbbcb57
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OpXgxjI2BbOPKbTxmjt4YGRPgJ5CudP1mFHui6aludkmx5npHREgiKg2BkBWkmNgW/jHSUjerMSMuSB5lQUEJA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LNXP123MB3817
 
-On Thu, 2026-11-19 at 19:49 +0000, Umer Uddin via B4 Relay wrote:
-> Hi guys, this patch series adds support for USB on Exynos7885. This
-> series
-> is based on David Virag's work[1] I had rebased it onto krzk's for-
-> next
-> tree and tested it on gta3xllte. This series also enables S2MU005 FG
-> on gta3xllte, which is also tested.
+On Thu, Nov 19, 2026 at 05:25:27PM +0100, Petr Pavlu wrote:
+> With the advent of LLM agents, a number of recent patches and bug reports
+> for the module loader focus on its validation of module ELF metadata.
+> However, many of them are misguided.
+> 
+> Loading a module is a privileged operation. The ELF metadata can normally
+> be trusted, just as the module code itself is expected to be correct. The
+> checks in elf_validity_cache_copy() are intended to catch accidental
+> corruption and basic violations of the ELF format, rather than to provide
+> exhaustive validation. The only requirement is that enough of the ELF data
+> is validated for the module loader to safely reach the blacklist check
+> without crashing on a corrupted module file. This allows a broken module to
+> be blacklisted and prevented from loading.
+> 
+> Clarify the purpose of elf_validity_cache_copy() and otherwise clean up its
+> description. Hopefully, LLM agents will take this into account and the
+> number of validation-related reports will decrease.
+> 
+> Signed-off-by: Petr Pavlu <petr.pavlu@suse.com>
+> ---
+>  kernel/module/main.c | 37 +++++++++++++++++++++++--------------
+>  1 file changed, 23 insertions(+), 14 deletions(-)
+> 
+> diff --git a/kernel/module/main.c b/kernel/module/main.c
+> index 34e0204ea37c..0c204f07ca68 100644
+> --- a/kernel/module/main.c
+> +++ b/kernel/module/main.c
+> @@ -2421,24 +2421,33 @@ static int elf_validity_cache_strtab(struct load_info *info)
+>  }
+>  
+>  /*
+> - * Check userspace passed ELF module against our expectations, and cache
+> - * useful variables for further processing as we go.
+> + * Check the ELF module passed in from userspace against our expectations, and
+> + * cache useful variables for further processing as we go.
+>   *
+> - * This does basic validity checks against section offsets and sizes, the
+> - * section name string table, and the indices used for it (sh_name).
+> + * Loading a module is a privileged operation. The ELF metadata can normally be
+> + * trusted, just as the module code itself is expected to be correct. These
+> + * checks are intended to catch accidental corruption and basic violations of
+> + * the ELF format, rather than to provide exhaustive validation. The only
+> + * requirement is that enough of the ELF data is validated for the module loader
+> + * to safely reach the blacklist check without crashing on a corrupted module
+> + * file. This allows a broken module to be blacklisted and prevented from
+> + * loading.
+>   *
+> - * As a last step, since we're already checking the ELF sections we cache
+> - * useful variables which will be used later for our convenience:
+> + * The checks cover the ELF header, section offsets and sizes, section-name and
+> + * symbol string tables, offsets into those tables, and selected
+> + * section-specific constraints.
+>   *
+> - * 	o pointers to section headers
+> - * 	o cache the modinfo symbol section
+> - * 	o cache the string symbol section
+> - * 	o cache the module section
+> + * While validating, cache the following for later use:
+>   *
+> - * As a last step we set info->mod to the temporary copy of the module in
+> - * info->hdr. The final one will be allocated in move_module(). Any
+> - * modifications we make to our copy of the module will be carried over
+> - * to the final minted module.
+> + * * pointers to the section headers and section-name string table
+> + * * indices of relevant sections, including .modinfo, the symbol table, the
+> + *   symbol string table, the module section, and version sections
+> + * * a pointer to the symbol string table
+> + *
+> + * Finally, set info->mod to point to the temporary module struct within
+> + * info->hdr. The final copy of the module struct will be allocated in
+> + * move_module(). Any modifications to the temporary copy will be carried over
+> + * to the final one.
+>   */
+>  static int elf_validity_cache_copy(struct load_info *info, int flags)
+>  {
+> 
+> ---
+> base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+> change-id: 20261119-module-elf-validation-a5a0e28e6dcb
 
-Hi, thanks for reviving my old patches
+Thank you.
 
-I actually have sent the patches before [1], got some reviews, but only
-ended up with the clock patches submitted and applied, and never
-actually got to submitting these patches with fixes based on the
-reviews (which have been sitting on my PC for quite a while).
+Reviewed-by: Aaron Tomlin <atomlin@atomlin.com>
 
-I think I will submit my fixed up patches (the ones you submitted still
-have some problems), and then your gta3xxlte patches can sit on top.
-
-[1]
-https://lore.kernel.org/linux-samsung-soc/20240804215458.404085-1-virag.dav=
-id003@gmail.com/
-
->=20
-> Please note, I did drop enabling USB on jackpotlte, this is because I
-> don't have the device myself to test the changes personally and I
-> didn't
-> want to risk a regression on jackpotlte.
-
-I can confirm it does still work properly on jackpotlte.
-
-Best regards,
-David
+-- 
+Aaron Tomlin
