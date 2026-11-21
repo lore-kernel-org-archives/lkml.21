@@ -1,68 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795251449;
-	b=yLEhyN2xwsXSwCGN6gqkJ/qNin7kudElvGXb++NS/9FJmBxwKeVMBkhgdMVNwaOaQs7r
-	 PtpSi8FlQuk751urtP8vmevpKTpn7KQq8NU9TCCGrCuLNQkuzuZEqQ0Ah7RgxwixHR6TE
-	 hcTjFvv7Ki8dhNoLpe/P3KvkzndENICQJj6QWK68U2KCKGwgl74JwmwVaBN+qrVVXBHzk
-	 uWX5XRhYQzV6PVW6qs1PM/jIvX6B1/gcMbhGZ2zM+WzbaF3hkXkOWsMSa216tJ4L/S07B
-	 AodLlBJb5KTqD9s3ZTbIxZ+pLBoxQgkDQOt+wLr7SaTlZfIthPaNrfJsRVi+nYcS3+g==
+	t=1795251577;
+	b=pwDj46aPwG28laIYwAso4HH87d7UbfKNqGIuWWi+4c8JtUnA0B3yJ2eKdu9NVUAnyhEf
+	 hjl9aXG9LK0rGeGCxhVLt4g6xdAdTZ2bOH2iBL9FiehYpwA2aedqz8djv1bCldaeJOwzs
+	 Xow55nsFZTz+igvCBor3YUlRnKMrFdtrqHdNMR+fSGfAUUuhLqJ0VsjpND/ntXkT6LpLQ
+	 jQAtyzPBJzSxmuCpGqx8vpYIO7vCDIQnheBVqrhbiOFEPItx44P1o3Jo8ufNe07Lp6b+E
+	 MuwkzKdOLodIMiwMSU33RUNguMuiczbsqxE42yuR1dR7WZL9ZeDayZeMP8VXdELpXYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795251449;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-MBO-RS-ID:X-MBO-RS-META;
-	bh=cdthxAkaHO+yeVbZfruiT0cSICDqg/vv+2t7JBROBgQ=;
-	b=YCGcbaSgk6K987Q3HV3I2+n/SfmnfQHH52LXGjXaZvX/uuKDQqN7NOos8e++xqe91PJU
-	 SMtBvyx6EaWOQ336LY09F41fI5aQ2aW9njY2kFQjkbwF1R+wy+wLXBdqVhemw8iCbFkqy
-	 TxHNCFC+6nl2ZguWg9ZvhaT/VBcsWDUnwLUEx+ZywCk9+FtJBmVBnWnwdaDpxyGySvqkV
-	 LE7FMIfXU747nO9PsESR/n7DTKq1ff0xAdz3KUvrcYl1j6v/Z/wcm/HkWk1C30QyOeP76
-	 BpUnptZhhtL4l9fRBBpE/MLOmglrbWJXRSzU7ek1v/UtIQKZD4ktFWzgUlTltNhVaJg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795251577;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=NCTFB5JRRg8EpNoDbg3P7LW5zydeMcq3Z/Cv9CKpzbs=;
+	b=NItVSWqhOSbdGeKCaO/u4UDRZv5OZwbj4NxYVvJj12SQ/1ObQ0yRilQ6arVOrQwahNXx
+	 4JPFqRVvLQl5udTJfjL8JgRBKRkwasfGMOnBKTVT3EMUVumy2Sjb9jrfKqHkqS1fgA1Gw
+	 Z8HqpfXjrr/PfR8aVMu3ftFLWswPGYza2O/CJdAIzyj2YmD2wZ6FAoyl9VU+JkB3ZQZT3
+	 CleE5RAOjSF8zqRoQSpyRHnnXKJeKze9TofrQwcLuXe7VOQJf5JoOPga+9dAwpT7QXE/Z
+	 nwsqblw04f6pp6081JKLMYJSAoOHeMiSBc+XHv8+Z8eD37WzwQKv3QYYBmdBqjQAAlQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mailbox.org;
-	spf=pass smtp.mailfrom=mailbox.org;
-	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=snpK6Y4c;
-	arc=none smtp.remote-ip=80.241.56.172
-Received: from mout-p-202.mailbox.org (mout-p-202.mailbox.org [80.241.56.172])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bnNYHsO6;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2708606A320;
-	Sat, 21 Nov 2026 08:57:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2708606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FBAD606A32C;
+	Sat, 21 Nov 2026 08:59:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=snpK6Y4c
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4jWmLF1KwYzMls1;
-	Sat, 21 Nov 2026 09:57:25 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1795251445;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=cdthxAkaHO+yeVbZfruiT0cSICDqg/vv+2t7JBROBgQ=;
-	b=snpK6Y4ce4KSzi2XWNx06liSe2i73b/+WvcAUrjLJrNHXz3LrNwNdIHVLxT86pqIo701xe
-	jOcafIkxQ0/3lmPM/6WeGIUTvILbAovTH/5Eyadt8uqRLM2Sy1qKYD7xcRuwPmdzoK5Wa4
-	X9gghqyz7fVD7172pdBLJxcwxI5ZzQZ/yDF3XD5QpWhclS6n9pQfe6ilLjwpL4YpBoGaic
-	TifHfqRU876dQThS01eDPI1VT4W6E4NLWQ/1wCdj4KnLrX2SOFao8ZnwSHc2XkvKgMwpu9
-	HNRFLWcTQ9fLgt2b09w+5ayu90PsxQqqJXFHbUR9qXjMSfRFTG9niqs6GcYQKA==
-From: Manuel Ebner <manuelebnerli@mailbox.org>
-To: Basavaraj Natikar <basavaraj.natikar@amd.com>,
-	Jiri Kosina <jikos@kernel.org>,
-	Benjamin Tissoires <bentiss@kernel.org>,
-	Ping Cheng <ping.cheng@wacom.com>,
-	Jason Gerecke <jason.gerecke@wacom.com>
-Cc: Manuel Ebner <manuelebnerli@mailbox.org>,
-	linux-input@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] drivers/hid: fix brackets in comments
-Date: Sat, 21 Nov 2026 09:56:28 +0100
-Message-ID: <20261121085628.1430330-2-manuelebnerli@mailbox.org>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bnNYHsO6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA5441F000CA;
+	Sat, 21 Nov 2026 08:59:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795251576;
+	bh=NCTFB5JRRg8EpNoDbg3P7LW5zydeMcq3Z/Cv9CKpzbs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=bnNYHsO6BstHjlpOWSG1Wi1ZWC7yG+PzG2yWh2EyZY6jyhofF/sGA8f7GhbXJuJh8
+	 7oSoU0C3jfMuZJtw40NCbMUrlQuPDSi1bdnMlGXKewyhu+gxNLUVCfUAkWkPGRxfb3
+	 wpm0edZCt4xbudCwbeAW5t6zpsPHhuGwYezoZZyrbB4BcGX0QvLylS66WYP0uaYu4P
+	 UzgtkoWC2DKv7RCBbvs/bwHESZEVkKgNt1T+SWF39g0QF5gUAN1XJa/D1W9RODUseb
+	 9a3L8owqfmFHDUiALLvO3NcU3xtitpYmcP+oC5Cvl93Ahkgc3KDA7nIMZfPbxc6qGa
+	 dnaTxyg21qLXw==
+Date: Sat, 21 Nov 2026 09:59:33 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andyshrk@163.com>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, Icneowy Zheng <uwu@icenowy.me>, 
+	Han Gao <gaohan@iscas.ac.cn>
+Subject: Re: [PATCH v2 1/2] dt-bindings: display: bridge: document TH1520
+ MIPI DSI controller
+Message-ID: <20261121-rampant-golden-urchin-ceb26c@quoll>
+References: <20261119-th1520-dw-mipi-dsi-v2-0-9ab5f9808f87@iscas.ac.cn>
+ <20261119-th1520-dw-mipi-dsi-v2-1-9ab5f9808f87@iscas.ac.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,88 +69,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 7bed8ca2e82a95b5cc5
-X-MBO-RS-META: 17hux4qqacjzbmquj8sjd8fb81d6pznj
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261119-th1520-dw-mipi-dsi-v2-1-9ab5f9808f87@iscas.ac.cn>
 
-Remove multiple ')' without opening '(' and add missing '(' in comments.
+On Thu, Nov 19, 2026 at 11:50:44PM +0800, Icenowy Zheng wrote:
+> T-Head TH1520 SoC contains two DesignWare MIPI DSI host controllers.
+> 
+> Add a binding document for them, referencing the common dw-mipi-dsi
+> binding file.
+> 
+> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> ---
+>  .../display/bridge/thead,th1520-dw-mipi-dsi.yaml   | 102 +++++++++++++++++++++
+>  1 file changed, 102 insertions(+)
+> 
 
-Signed-off-by: Manuel Ebner <manuelebnerli@mailbox.org>
----
- .../hid_descriptor/amd_sfh_hid_report_desc.h         | 12 ++++++------
- drivers/hid/wacom_wac.c                              |  2 +-
- 2 files changed, 7 insertions(+), 7 deletions(-)
+I don't think this was tested. You use properties which do not exist.
 
-diff --git a/drivers/hid/amd-sfh-hid/hid_descriptor/amd_sfh_hid_report_desc.h b/drivers/hid/amd-sfh-hid/hid_descriptor/amd_sfh_hid_report_desc.h
-index 67ec2d6a417d..6c331c2c63b8 100644
---- a/drivers/hid/amd-sfh-hid/hid_descriptor/amd_sfh_hid_report_desc.h
-+++ b/drivers/hid/amd-sfh-hid/hid_descriptor/amd_sfh_hid_report_desc.h
-@@ -81,7 +81,7 @@ static const u8 accel3_report_descriptor[] = {
- 0x95, 1,	  /* HID report count(1) */
- 0x55, 0,	  /* HID unit exponent(0) */
- 0xB1, 0x02,	  /* HID feature (Data_Arr_Abs) */
--0x0A, 0x52, 0x14, /* Sensor data motion accel and mod change sensitivity ABS) */
-+0x0A, 0x52, 0x14, /* Sensor data motion accel and mod change sensitivity ABS */
- 
- 0x15, 0,		/* HID logical Min_8(0) */
- 0x26, 0xFF, 0xFF,	/* HID logical Max_16(0xFF,0xFF) */
-@@ -248,7 +248,7 @@ static const u8 gyro3_report_descriptor[] = {
- 0x95, 1,		/* HID report count(1) */
- 0x55, 0,		/* HID unit exponent(0) */
- 0xB1, 0x02,		/* HID feature (Data_Arr_Abs) */
--0x0A, 0x56, 0x14,	/* Angular velocity and mod change sensitivity ABS)*/
-+0x0A, 0x56, 0x14,	/* Angular velocity and mod change sensitivity ABS*/
- 
- 0x15, 0,		/* HID logical Min_8(0) */
- 0x26, 0xFF, 0xFF,	/* HID logical Max_16(0xFF,0xFF) */
-@@ -408,7 +408,7 @@ static const u8 comp3_report_descriptor[] = {
- 0x95, 1,		/* HID report count(1) */
- 0x55, 0,		/* HID unit exponent(0) */
- 0xB1, 0x02,		/* HID feature (Data_Arr_Abs) */
--0x0A, 0x71, 0x14,	/* Orientation  and mod change sensitivity ABS)*/
-+0x0A, 0x71, 0x14,	/* Orientation  and mod change sensitivity ABS*/
- 0x15, 0,		/* HID logical Min_8(0) */
- 0x26, 0xFF, 0xFF,	/* HID logical Max_16(0xFF,0xFF) */
- 0x75, 16,		/* HID report size(16) */
-@@ -429,14 +429,14 @@ static const u8 comp3_report_descriptor[] = {
- 0x95, 1,		/* HID report count(1) */
- 0x55, 0x0F,		/* HID unit exponent(0x0F) */
- 0xB1, 0x02,		/* HID feature (Data_Arr_Abs) */
--0x0A, 0x84, 0x14,	/* Maganetic flux and change sensitivity ABS) */
-+0x0A, 0x84, 0x14,	/* Maganetic flux and change sensitivity ABS */
- 0x15, 0,		/* HID logical Min_8(0) */
- 0x26, 0xFF, 0xFF,	/* HID logical Max_16(0xFF,0xFF) */
- 0x75, 16,		/* HID report size(16) */
- 0x95, 1,		/* HID report count(1) */
- 0x55, 0x0E,		/* HID unit exponent(0x0E) */
- 0xB1, 0x02,		/* HID feature (Data_Arr_Abs) */
--0x0A, 0x84, 0x24,	/* Maganetic flux and mod change sensitivity Max) */
-+0x0A, 0x84, 0x24,	/* Maganetic flux and mod change sensitivity Max */
- 0x16, 0x01, 0x80,	/* HID logical Min_16(0x01,0x80) */
- 0x26, 0xFF, 0x7F,	/* HID logical Max_16(0xFF,0x7F) */
- 0x75, 16,		/* HID report size(16) */
-@@ -581,7 +581,7 @@ static const u8 als_report_descriptor[] = {
- 0x95, 1,		/* HID report count(1) */
- 0x55, 0,		/* HID unit exponent(0) */
- 0xB1, 0x02,		/* HID feature (Data_Arr_Abs) */
--0x0A, 0xD1, 0xE4,	/* Light illuminance and sensitivity REL PCT) */
-+0x0A, 0xD1, 0xE4,	/* Light illuminance and sensitivity REL PCT */
- 0x15, 0,		/* HID logical Min_8(0) */
- 0x26, 0x10, 0x27,	/* HID logical Max_16(0x10,0x27) */
- 0x75, 16,		/* HID report size(16) */
-diff --git a/drivers/hid/wacom_wac.c b/drivers/hid/wacom_wac.c
-index da1f0ea85625..b7aa6b60fb02 100644
---- a/drivers/hid/wacom_wac.c
-+++ b/drivers/hid/wacom_wac.c
-@@ -546,7 +546,7 @@ static int wacom_intuos_pad(struct wacom_wac *wacom)
- 		 * physically implemented as a touchstrip. Each button
- 		 * is approximately 3 bits wide with a 2 bit spacing.
- 		 * The raw touchstrip bits are stored at:
--		 *    ((data[3] & 0x1f) << 8) | data[4])
-+		 *    (((data[3] & 0x1f) << 8) | data[4])
- 		 */
- 		nkeys = 3;
- 		keys = ((data[3] & 0x1C) ? 1<<2 : 0) |
--- 
-2.54.0
+Best regards,
+Krzysztof
 
