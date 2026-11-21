@@ -1,104 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.0
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.46
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795219664;
-	b=15sAVllkEMyurZKb/VYF0qfWXFv30GAPnSWg8veLfQdqqFhSr4/amPWTAXYn+nVI1ahL
-	 E0Rrtiah3XkuhPjwsu6B4sVPhAx5qztdZvFOWhAcSVfJp+961ZERZM0eLg2WV61Z6tm39
-	 zgZ5KEKcVVvEj8/sHeMIq0Ut/hcuv4ylqDg8aF8UuEaVKeUOTIMU3ED/KRu/Spr6M7nES
-	 MxB+kW7gL8V+1k2+fZcps2TNDgZwFkK9r99zQpYB2wKB//uOKfiAyrOONbyyFCB13Rucn
-	 AJvD1LF7MglKx/QktTfaa/5V38EOklHi4NtcHkiJ2EVWa6MipC0FKPuEzrL8hXWe4jA==
+	t=1795219682;
+	b=DkyYlHq4K4A/zIm79cyesWEWVZiKdP/5YIlWKigSMehKyuap0Xrr7kTBs6NaXgPXaLgL
+	 VV1R41xi+43n7J3R/Ust2wWIJMANWUVWfCD9Lxo6nbdMkr9Rx4/7V1Jdabg33Nsap5iRe
+	 zHKxd9pmg/2kFKnT4KgOCjCeSUQ0f6SGZ0O9UWx+mdZbaaU9A0gYZBjKtTjhimPddIRTU
+	 ajH5iy/dcRHcZ21Y8Gl0+vAgwSzuVMXrLrI5ioka3ssjnLgPriAwnBZcV/PTBn/+YR8Lx
+	 nsW5H+oujMdksKYMtWcTPND2p/V4vzwXgMdyuZMkJblJ3YvWrNL6vI5Hd1SnXexUH6w==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795219664;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=PqiPqb4oTcJedb9oVCQx37PK5UqQ/VLv5I577QLTMI0=;
-	b=15yLuNQl22zg4X43Ceb3wEz42d0vXUKMd3Z+LZseSYILb7ey9FEbmoc53tcHjyc+SRO+
-	 B85BN9UjCiZUW5lKjDhUhiCMLZ0IJ9iNMiEuMZT/RBoG1lEulLO4pUCLcxWou2G5yAH5G
-	 qQnFllnUqe8MW0dwFznOMqT1cBWPnOxojaNBDzZ1KSa8Cr/Sxz0xf4wjEaz1ihAAYfIwc
-	 xipaCu6uoGYTldgJ5NTL9//hX6YfrdHbvwT5VBaDJNTXCHC52NEkI0SKA9JpNPSvKiUMp
-	 ZCTRIRnA6FzzgRR7aQ5uHfTptZbe0bl5tPTGY6lwMRWPiKZewgpOe2uE6Sfw4OwwOvw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795219682;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=FsYdnJMQiXGx+l4wB1iS5+Tppoq3uO18Wl9vnGYexkM=;
+	b=QvPNchFuuUCLoqCk+DM/QOkkpnKm8dd+++kNLA62sHhxFlyJTfYU4LEX+x9YHQY4jLup
+	 1yLmk0t9OmIpPpu7s4RtNSIy+q8P8CQSWk49aaWwh3tlhlR76IRvF0BSsYAdJz+4poc/e
+	 YKaQvHX1fFpOhTmNIzTFnIHIorF/qkEaEaJTSUpdzTAFz8lc7wTBm9qMjvwtMltsGg8qp
+	 nwcfpzi7qWX2jdQqm2bZMgMWi0Tostoqma51cS+qEamfuU8KPHbPAX/9OTgnphe/jkTrt
+	 Y3st+yhxZnFr4QKctjqOHnRYdAOIOvUrtnrYZf9bQEmvzij/RYju3BSkGQEx2GhXLUQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="ENr/VQq6";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.0
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazon11012000.outbound.protection.outlook.com [52.101.43.0])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=purestorage.com;
+	spf=pass smtp.mailfrom=purestorage.com;
+	dkim=pass header.d=purestorage.com header.i=@purestorage.com header.a=rsa-sha256 header.s=google2022 header.b=Ed2U7PXw;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.46
+Received: from mail-oo1-f46.google.com (mail-oo1-f46.google.com [209.85.161.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B7FC606A695;
-	Sat, 21 Nov 2026 00:07:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B7FC606A695
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E0CD606A692
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 00:08:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E0CD606A692
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=purestorage.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=purestorage.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ENr/VQq6
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rvVRnrt4ESbYHG7ZUdlQS2JkUtAS4LoKYCcWjXtSXq5Lz18kcy4VY73G9YZPZdcQD4oYhFNd/p+TqFhAEexLkT5rq7plk5yLxiBJ4Mxq5VPtfeOMy9Kjl2JmglzF5tI3r6+QgOkQerdQYAI9EpGCPzqCSH7aSJs2w1SrpllKxrVhOitN7o5iq4CPrNVsb47piR5Qd3qjfndeMkcrgyxGYdRs1eQS6DljROedaE5DgGAD/5Z7kpLfha7Bc69OW15gCGiba4mf9dQHRgspx+P6XlW1L1QBC5XhdRBBxjAdCnCsnZPfLVpbwxYCwmxoOpK6W1gMZDO+vx8kHvpuREImoA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PqiPqb4oTcJedb9oVCQx37PK5UqQ/VLv5I577QLTMI0=;
- b=dH8GqxlfCk0+5yjKAutOrjQPQaQUplg+FyGSBTiZAy476SCu6iuJOZ5BbSjsOYvrAJlTqxlA4qPrIWIbJlS5XN04p12ZcFlQWzU3VhCFkA4oHnF52WgmtgVW8di4vM8Wo4Fgk3RsIlYT+JS43BbZlRli2HdbjP0erLsv/JaCAdJSWHsOwIGKROD8EJD2GObllTO5dKm1nyjotnfd8MqINpypR9/YCHRE6bHOY2HHNxO24Cn4I+6Uq21BgVOKxo9v0AZ5kOQTDMVkXKOX3QGnu3/1cxsn5ugpWfvh4SycoEDCls9coVoLN2Y7SEPh3PTjkWQWjQBTUyVcksR2e22xsw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PqiPqb4oTcJedb9oVCQx37PK5UqQ/VLv5I577QLTMI0=;
- b=ENr/VQq6UUvJJq8OjsEx3aL1lFngmxx81jBBkLsF6VbPvOIhlrEg5RGmawJKq4C/6nEpYGoa9bvO64IXSe4ZtpLHtYwOIaQyBZiS6wXnsOTQkxYDd+KblY4Fd61ZWm5l+uzmUi/G8Hj+gJ4baO73nM/NZP8FTLWum96LZpZWLKOBiXB9/9qce0j5sMNtOOdgc9lF+eNUCLy3rp4eQBbS3m5pv+MiOTqiJBm5zjCMaZ1QfEt0nRw9h3/qEwA5e30Ua9BIm8lvkbf5NKlvtqLbL5dVyUHffTqZTMvfP93Ec1IpRQDQDduFqQeVONpsQUoc7BJICCeH0G1js2IqfBimTg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MN0PR12MB5786.namprd12.prod.outlook.com (2603:10b6:208:375::13)
- by SA0PR12MB4446.namprd12.prod.outlook.com (2603:10b6:806:71::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Sat, 21 Nov
- 2026 00:07:40 +0000
-Received: from MN0PR12MB5786.namprd12.prod.outlook.com
- ([fe80::ae61:c9b4:847b:4854]) by MN0PR12MB5786.namprd12.prod.outlook.com
- ([fe80::ae61:c9b4:847b:4854%5]) with mapi id 15.21.0639.011; Sat, 21 Nov 2026
- 00:07:39 +0000
-From: Brian Mak <bmak@nvidia.com>
-To: Hans de Goede <hansg@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: Kurt Borja <kuurtb@gmail.com>,
-	Stuart Hayes <stuart.w.hayes@gmail.com>,
-	Matthew Garrett <mjg59@srcf.ucam.org>,
-	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
-	Lyndon Sanche <lsanche@lyndeno.ca>,
-	Armin Wolf <W_Armin@gmx.de>,
-	Prasanth Ksr <prasanth.ksr@dell.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	platform-driver-x86@vger.kernel.org,
-	Dell.Client.Kernel@dell.com,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Brian Mak <bmak@nvidia.com>
-Subject: [PATCH 0/8] platform: dell: Move out of x86 and support Dell XPS 16 Creator Edition
-Date: Fri, 20 Nov 2026 16:05:46 -0800
-Message-ID: <20261121000556.173028-1-bmak@nvidia.com>
-X-Mailer: git-send-email 2.53.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MW4PR04CA0058.namprd04.prod.outlook.com
- (2603:10b6:303:6a::33) To MN0PR12MB5786.namprd12.prod.outlook.com
- (2603:10b6:208:375::13)
+	dkim=pass (2048-bit key, unprotected) header.d=purestorage.com header.i=@purestorage.com header.a=rsa-sha256 header.s=google2022 header.b=Ed2U7PXw
+Received: by mail-oo1-f46.google.com with SMTP id 006d021491bc7-6ddea4b8ec9so19623eaf.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:08:00 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795219679; cv=none;
+        d=google.com; s=arc-20260327;
+        b=nFziwvmA5fYdmWHXxSC3ninHFpZdWDeEzo9TjiE5HhZPUlSxTdDQkiRuxRN9DIoW8E
+         bYmety0wBeAlT2EmkEroVLXMotnakdB9buNoLUwWAqyMsQMOAqc8fNU2s/7Y9sDqQXfk
+         JITl1Fzw98S+dn//p3dwys6pCZkGHG3hqeOL/VUnsWTlb42X73GLnkvubvdiA9kHxp7F
+         rkA3id5T3YxMjyCmDg2GfGkuFLXj1Nv45wwEux2V31ewDzuoRANA+ddmtBChJvxE424k
+         Rsh9bHuwkIhOYMHFzp0bNFQmbVJc+y7zigPZq94+XEPl72PnLx/wVjwdB77pyATahUs+
+         y4gw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=FsYdnJMQiXGx+l4wB1iS5+Tppoq3uO18Wl9vnGYexkM=;
+        fh=hNb+TkXtyq49zSlAK1RKrwHw0LRIQ2Y33jbO1635AfY=;
+        b=jbpYN3lNryKCwVwoEcjbJSKnWM5MfwWTnE6jZuaQx5T0+zjEQQTl8hdNoyWz+3O1rB
+         ZLZJ1OkuvJzYF3VzFIFmiTiarYU1xv1YYS5u9Y5pU+HuyYeb97bj3A3GD0GvWQ7oMMtU
+         oLZ0ZbB81hbvmDaMSEKWFxyB52/aP/XpLpORfbV/BiNJmv4Y5z7v+KRB25dIY30wdDu9
+         AQO6k1DhaJZrSYVi+C6q6CZbZqLFMi4Ur/m9EYWrQ/Ba2GbfKHDsClD7wEj61WPCH+N/
+         HSIX+fJ3I82NHH2q4Lrce0LmofkMHmXtHIKfA28FDoEr9xwO6jMeeNBkwi1hRXr7e3aB
+         IvmQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=purestorage.com; s=google2022; t=1795219679; x=1795824479; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=FsYdnJMQiXGx+l4wB1iS5+Tppoq3uO18Wl9vnGYexkM=;
+        b=Ed2U7PXw6MISwxBLMOCl+VIadm1US5dV+Ir45yownslIgxA8LVqntjLWpYBc0Eb3ih
+         tuBOgHGJlmEiI9IG+4enilv0JZqtryrgJcEVls4oyensXmdxdLCdhEsS3QK/PE9GQYfo
+         T2TzLop2IOwT5Jby8AZJEsKqgLn3uEyIqaFon2Z3Yflw8KuvdMwC3+rKEd30ADiTiTX8
+         q8Er/iHZm8vsSNpRI83WDVEisA4kjGFtAVn5fRR90a3gt+aqgUjEz2nuRqJGZjQZIQfV
+         +OL6nEUtDY8rqjdJgMBZfgMSfq+kpalrgBtVkNl/77i04XJ3j/kEpoeh01v18xUtW/ge
+         RCPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795219679; x=1795824479;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FsYdnJMQiXGx+l4wB1iS5+Tppoq3uO18Wl9vnGYexkM=;
+        b=KQ1b8+WkeRfrvOcqz578YaCRDdxsLWE/UyEC8WGnuYOcb2BIWu2D/x9qsK6BtaaMd/
+         a6jd42P+D6ZyYjQXKcR+pQA4v8p1dxFd4Sqg3QSnK2VqyWSjZQhpKakW8DoT+iaO6Mb8
+         7BZD7GY5V1BiA/XaTVPxyJBDW2v021AOyWb2la3HJ+ZgDNf6cWxohhIEWb7JN8etgPhv
+         hUbYuHFjoLlIWDilSlwYtUUgP+NIVTHqdXQvwOdnKM5DEEz4uUbR7EccdA3s2Kuhr9MR
+         d/6/JgL7IBIU3KLCjamxJSg0hGLKBX3RgSQcSB7Dpf4EJXppm86KtYUP1alBqktqQCLn
+         hbig==
+X-Forwarded-Encrypted: i=1; AL+hErE+oAa4YVwbGRk1xp6gmZaxXjOYx1WRLm1xvBUWRRdf8kqkOr2dZdaLqwEEwHNqeh99M/H+t2mJ2eZB1V8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9ZjrLGHDxN5lNUbYpXWJCO2gs8ufH0Qv6OT0LSZ3SKkdxCM6vY
+	uo/iDlGgWxUGyC5nq+FUxbtP4kcfpdxtidz9FAktzpVsevcHp+JQe3JK8ab51Z54huj5GYHLHto
+	pMrEKDrd5IidiCfZsDFDC6cT68dccWgolEQGveoZtYrfOh6p85AJTcu3ONg==
+X-Gm-Gg: AYBFou2ZyzmRkwGMsjiFO9rRUu1WYbJnRhc7vJxpqet0bkaDCPQnIbm06QFLoIXQLni
+	r7xA26GNDNfVqVGijF0qvOBRqLTfMiFehIcSSmGUt0tA6qKknH2F4xFv8mb1cYylATGQdcdDViN
+	cTXTHJMzvKfSeax/GV8GT7+lIU5oTmAcykaegYfxQniIkKEGJGeeJ8dQdT+uPpda69lokDS4tKL
+	NHQnuQ2g11Wdy4efmAOGlvfskhBAxNxlAl5O1iOktc/ZUWXr0uCgaPgbZPWlZt7YgejemQYp31G
+	ON0Ay3qkTVpB30ZzzwPPlUp5XZbIqGJFhkv34e+WjCjifThZyvenLvvgW8zDHXhOT8Cj/W1LRnI
+	9iNk9n86Pn+5UIpirrRhLX2iPlSozSsDryRxB
+X-Received: by 2002:a05:6820:8599:10b0:70d:73e2:ff02 with SMTP id
+ 006d021491bc7-71b3932ca28mr4872166eaf.1.1795219679399; Fri, 20 Nov 2026
+ 16:07:59 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,223 +104,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN0PR12MB5786:EE_|SA0PR12MB4446:EE_
-X-MS-Office365-Filtering-Correlation-Id: 02df6193-a968-46d5-002e-08df476374cc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|23010399003|366016|7416014|376014|18002099003|6133799003|261009223027099003|261021121427099003|5023799004|11063799006|56012099006|261028144727099003|261026140227099003|261021123027099003|261022105027099003|261026121527099003|261102130727099003|10067099003|261102123227099003;
-X-Microsoft-Antispam-Message-Info:
-	qXezYDiA5ApdurI6vca701TQn4QDPSa07fG+ceFtFD3rjQdKEhnylQzp5Tb4T+OqylM4kIQ2j9BE29tizgdNn7mfPtnG4Cpv4fLNeh76wq9YJt/2AZgcrNGVyXtG8ysAOSZIvVNMvCrm3jZxi2KamKEENDr5xQgRvnxffSfxaH8AIHVbnGiDP76hD3bcXZdEL5pI/wlFDqfzMcHPmSy4SM1j+yAdPH6ZwKNeP219YHOenAgYYGejrfFoPzd/qcWzW+xfxz8WCyOvmByVqVhhjBK6jfKMsciAMXu+Y97L5DVvNyNanRanFx6Cy5Mlc3E9NV4ZRbz43eKTv+9/wZdeOj7g2JTRT55n+UVQOkXYLmV5evvlcQj+KBh9uWKqxv+nSVfARhcbNBY+kxRc8eynSNo30y3XdQ9rNkOinIiZzomiS1N9/ljBnHfOByf2VgMTZO/Q8ykclqDCxwIVcUqYEeTLJ6OlpL87zLUNBJ0tbzb2hfXN/s8zZH7xPBii/qUt2vVXmV29+oYD4sjA72pEu75vEAI+zzqWJdFV5eGQgw2Bnz3qiVrDF+o7A7wLz6N866bKZuTDU2+nH0YAb+Ywg9TeTPeMF4dWY3jjAD+79bKHUj68ZdC2cNyJA1TdSXXXKtHkqOgH8BDz21pbBfjgeud5kRXN27V917LhxrmfoJU=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5786.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(7416014)(376014)(18002099003)(6133799003)(261009223027099003)(261021121427099003)(5023799004)(11063799006)(56012099006)(261028144727099003)(261026140227099003)(261021123027099003)(261022105027099003)(261026121527099003)(261102130727099003)(10067099003)(261102123227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?9gC+shtPBwm+C27SyJov0ctr2iprxEnz3aRZyKQTdegiZNU53LgyeJiSuruO?=
- =?us-ascii?Q?fcGN4o0IcIkgQEMYT0pw4ltA/JaOCkVjJ+l2AM6fCFY+DXff3t5uJ+cjhDvL?=
- =?us-ascii?Q?4Fk6fSQS3ND2q3CmtuiR039OgJ2KppRPUZk0LEC6tokSvr7EGxHSvncp/Qr1?=
- =?us-ascii?Q?FLF4KXji9LlcgRU6dU3DDmkVAfivpEHJgdxhU8WNtkeJ64k7LT9eCHR2neaT?=
- =?us-ascii?Q?mQoEuM911PtTn92y8S+T0HqeAv7ZOAAHe5cUSvGXfjNWfIyYC9q+lzOiBCui?=
- =?us-ascii?Q?eMsDMdy0SbJth35ilYDmQr09cFqMf8+2MgWVttK7RrbFoMvaCvT9g6jqnyiV?=
- =?us-ascii?Q?E0siKcsAAIa9qYMQW2mrISP3ebcMQxTpmd0Q2BbvaO7Amz+yV8x4wheLnugS?=
- =?us-ascii?Q?22n9xPMBoHAzXrtI48TShWKpF1j8CnV2oMWmDMUamMMaAY6qz4yINNzyGbId?=
- =?us-ascii?Q?NekUcvsDCIp+deCs9Y6uux9PPyQR7tsCsdu+x8XWyzdwZRu5XSIUELCek2Z7?=
- =?us-ascii?Q?kX9/A2ISWOA4ueyFC6rWM1XkmK/8iVpP+9yX6CkLiaUN/SEumHD9GzcIxh4j?=
- =?us-ascii?Q?JWdAP3CtMtI4BjILkLzrcJVNPfpiCRET+afig/4rP0/+mxJjO/kR+YxI7vx3?=
- =?us-ascii?Q?tekYHKc8MayRnMk2OOWIBIk3MhL+nIST8R1rZyulS7gb1AUn1QNooP5u/KuA?=
- =?us-ascii?Q?ei3f0CPGMfBitynj35y9a0ss4YDyim4S+rRnKJCbKSQ7/9NLOaiRPDkB51gK?=
- =?us-ascii?Q?MjIcNelTd4fuKEgtTQ9MbjkoPouMhfGoRyVzPKvuNPKp/HPJiRPGG+0eGsOy?=
- =?us-ascii?Q?7vLBq/yoqONZ04//6Cy+v9Nh5LdnNFL5x+sDOppBueM2PXUQCYktGJLwakk/?=
- =?us-ascii?Q?iK9bLolAo27eao/l1NAuMwKNlkj7t/6RrsmNQszFMWSzsOylaKA0UNY37Koj?=
- =?us-ascii?Q?kTpirECCUnHPH/2u0SVcWyO/04s8hZvLbWlWM6iW87m2ZGBKr2GrxhU26Ndn?=
- =?us-ascii?Q?+2dQfOiOnaO6+b+TsPbH1GpAZHZXAlCMwlEmhv25Ob7iPt6yyznDWYiGPjdM?=
- =?us-ascii?Q?MzGR6KM9rLlG/i0xEgmvKxqILe+E2ENd8gZVX58xqwAHhDuitxl3YyUhpXbJ?=
- =?us-ascii?Q?kyZtWH90PRX392PnvQrBTm0ECWiEopmiMReVH4fCLOmzxLjrWgrwXrBBLfwU?=
- =?us-ascii?Q?ryYdncX+4hM7xzcXV2c1z4FIBwlzjwrOUi+wPQf33YPFWNmiwFIxCGJ2RDIP?=
- =?us-ascii?Q?hFK1je87+WdvVqwWn1BYE6BEgEIdcLo743QXmSCnfJ07pKu4BubCnBwXIpQX?=
- =?us-ascii?Q?S0u8LvS+KCr2HQ+SzNiYo/W+U+s1phn4MA5ArDIVJGm6joXPd7iJt8uVU5hG?=
- =?us-ascii?Q?a+TjlmyLcyyjc/Qwcb5I7GP1QdRsM5wUaNFhqVwCVkFrm6oiSfCyCL7DwHep?=
- =?us-ascii?Q?m2qwbgbIXGpZrU9Wky9S8h5FujMnxoUDlzfkxzojbrVZMsTBDeS7ioLjI5wi?=
- =?us-ascii?Q?YjUsCm61Am1CqvRtilH9jsFIayfltfalBy0AWnpdqDny2kxifkzlbHdUDqpr?=
- =?us-ascii?Q?1SOTsXEI+e8pgss2POBjq2vnpB6BvxtD1slor6PqvZSmbTZnhipe2bgcUF7y?=
- =?us-ascii?Q?3UqL1VXxw/wCutPybVmhiMNh+lmuwdrcewKH5EU5Y8cpLs4PdyYy6aB2XEvS?=
- =?us-ascii?Q?4llYXERgVYlrf1n3JE2YkWYaWhO2Pf7xXO1IT7nAdx93Kp0u8wkmdKiHzJVB?=
- =?us-ascii?Q?iilX3Yru+A=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 02df6193-a968-46d5-002e-08df476374cc
-X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5786.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2026 00:07:39.8578
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lSyZ49LilXqRlN23585uKbugrsAqYbv7g5w9wGWJxWJiTzNFXTohjcIIR9Y8+K/i
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4446
+References: <20261120195644.19511-1-zakaria.belkadi@inria.fr>
+In-Reply-To: <20261120195644.19511-1-zakaria.belkadi@inria.fr>
+From: Caleb Sander Mateos <csander@purestorage.com>
+Date: Fri, 20 Nov 2026 16:07:48 -0800
+X-Gm-Features: Aa3M54rN4fU2kZ1g3VyH3yN2HzL0XDhjtM9rK5s54_qMhP3uUFFQ5hk9tg3rtPg
+Message-ID: <CADUfDZpvgi5t_iy2AOhUTfQ9p9XNC_xosdKkMsQ-D11KntK-Yg@mail.gmail.com>
+Subject: Re: [PATCH v2] block: bounce user PI when writes may remap reference tags
+To: Zakaria Belkadi <zakaria.belkadi@inria.fr>
+Cc: Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@infradead.org>, Keith Busch <kbusch@kernel.org>, 
+	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org, Kanchan Joshi <joshi.k@samsung.com>, 
+	Anuj Gupta <anuj20.g@samsung.com>, florence.schadle@ssi.gouv.fr, 
+	frederic.tronel@centralesupelec.fr, louis.rilling@irisa.fr
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The Dell XPS 16 Creator Edition (DX16263) is an ARM64 laptop based on
-NVIDIA RTX Spark. Its firmware exposes the same ACPI-WMI and SMBIOS
-interfaces as Dell's x86 laptops, so existing Dell platform drivers
-apply to it as-is. Today, they live under drivers/platform/x86/ and are
-gated on X86_PLATFORM_DEVICES, so they can't be enabled on ARM64.
+On Fri, Nov 20, 2026 at 11:56=E2=80=AFAM Zakaria Belkadi
+<zakaria.belkadi@inria.fr> wrote:
+>
+> On an io_uring O_DIRECT write, bio_integrity_map_user() can attach the
+> caller's protection information (PI) buffer directly to the bio. The
+> block layer pins the pages for reading, but reference-tag remapping can
+> write to those same pages.
+>
+> A caller with write access to a block device whose integrity profile
+> enables reference-tag remapping can therefore modify a page it can
+> only map for reading. In testing, remapping changed a tag in the page
+> cache of a read-only file. With a PI buffer backed by the shared zero
+> page, the kernel faulted during remapping.
+>
+> Use the existing bounce-buffer path for REQ_OP_WRITE when the queue's
+> integrity profile has BLK_INTEGRITY_REF_TAG set. This copies the PI
+> buffer into kernel memory before remapping, so the caller's buffer
+> retains its original reference tags.
+>
+> I found this issue during a source review assisted by an LLM.
+>
+> Fixes: 3d8b5a22d404 ("block: add support to pass user meta buffer")
+> Cc: stable@vger.kernel.org
+> Suggested-by: Christoph Hellwig <hch@infradead.org>
+> Signed-off-by: Zakaria Belkadi <zakaria.belkadi@inria.fr>
 
-This series moves the Dell drivers to drivers/platform/dell/, makes the
-ones that work there available on ARM64, and works around some firmware
-quirks found on the Dell XPS 16 Creator Edition.
+This approach also looks good, thanks.
 
-Patch 1 makes DELL_UART_BACKLIGHT depend on X86 before the move. The
-driver relies on the DELL0501 handling in
-acpi_quirk_skip_serdev_enumeration(), which only exists in
-drivers/acpi/x86/utils.c, and on drivers/platform/x86/serdev_helpers.h.
-Without that quirk, no serdev controller or platform device is created,
-so the driver wouldn't work on other architectures.
+Reviewed-by: Caleb Sander Mateos <csander@purestorage.com>
 
-Patches 2-3 move the drivers to drivers/platform/dell/, rename
-X86_PLATFORM_DRIVERS_DELL to DELL_PLATFORMS (keeping the old symbol as a
-transitional config so existing .configs carry over), and add a
-MAINTAINERS entry for the new directory. The per-driver MAINTAINERS
-entries are updated to the new paths. DCDBAS, DELL_RBU and
-DELL_SMBIOS_SMM keep their X86 dependency.
-
-Patch 4 makes DELL_LAPTOP's SERIO_I8042 dependency optional, as there is
-a fallback stub, which returns -ENODEV.
-
-Patch 5 fixes dell-smbios-wmi probe on the XPS 16 Creator Edition. The
-driver looks for the misc BIOS flags (SMBIOS type 0xB1) only at the
-hardcoded handle 0xB100, but firmware numbers it differently. Handle
-0xB100 is still used whenever it exists. Otherwise, the driver falls
-back to the only type 0xB1 structure, if there is exactly one.
-
-Patches 6-8 handle a firmware problem on the same machine: the SMBIOS
-calling interface completes every request to the Dell-proprietary
-interface with all zeroes, even for requests that should fail. As a
-result, dell-laptop reports bogus battery charge modes and thresholds
-and registers mic mute/mute LEDs that do nothing, and dell-pc fails with
-"platform_profile probe failed". Patch 6 adds a DMI quirk list and
-exports dell_smbios_calls_functional(). Patches 7-8 make dell-laptop and
-dell-pc refuse to load on affected platforms. dell-smbios itself still
-loads, since dell-wmi depends on it.
-
-Testing done:
-- Build-tested x86-64 and arm64 with all Dell platform drivers enabled.
-- Runtime-tested on Dell XPS 16 Creator Edition. Mic mute key is
-  working.
-
-Need help testing:
-- x86 Dell laptops/desktops for regressions.
-
-Outstanding issues (outside of this series):
-- When spamming the keyboard backlight key, then pressing the mic mute
-  key, the mic mute event is spammed. This is a multi-part issue between
-  the EC and DSDT. I have a DSDT patch to fix this. I will be working
-  with Dell to get it resolved.
-- When the dell-wmi driver is not loaded and the keyboard backlight
-  button is spammed, it will eventually stop working and FF-A
-  notifications stop firing. This is likely an issue with the EC's event
-  queue filling up and not notifying anymore after being full (since
-  there's no consumers). I will be working with Dell to get this
-  resolved too.
-
-Brian Mak (8):
-  platform/x86: dell: Make uart-backlight x86 only
-  platform: dell: Move out of x86 directory
-  MAINTAINERS: Add Dell platform drivers entry
-  platform: dell: Allow DELL_LAPTOP to be arch-independent
-  platform: dell: smbios-wmi: Fix probe on RTX Spark
-  platform: dell: smbios: Add quirk for non-functional calling interface
-  platform: dell: laptop: Don't load if SMBIOS calls are non-functional
-  platform: dell: pc: Don't load if SMBIOS calls are non-functional
-
- .../admin-guide/laptops/alienware-wmi.rst     |  4 +-
- MAINTAINERS                                   | 36 ++++++++++--------
- drivers/platform/Kconfig                      |  2 +
- drivers/platform/Makefile                     |  1 +
- drivers/platform/{x86 => }/dell/Kconfig       | 21 +++++++----
- drivers/platform/{x86 => }/dell/Makefile      |  4 +-
- .../{x86 => }/dell/alienware-wmi-base.c       |  0
- .../{x86 => }/dell/alienware-wmi-legacy.c     |  0
- .../{x86 => }/dell/alienware-wmi-wmax.c       |  0
- .../platform/{x86 => }/dell/alienware-wmi.h   |  0
- drivers/platform/{x86 => }/dell/dcdbas.c      |  0
- drivers/platform/{x86 => }/dell/dcdbas.h      |  0
- .../{x86 => }/dell/dell-dw5826e-reset.c       |  0
- drivers/platform/{x86 => }/dell/dell-laptop.c |  3 ++
- .../platform/{x86 => }/dell/dell-lis3lv02d.c  |  0
- drivers/platform/{x86 => }/dell/dell-pc.c     |  3 ++
- drivers/platform/{x86 => }/dell/dell-rbtn.c   |  0
- drivers/platform/{x86 => }/dell/dell-rbtn.h   |  0
- .../{x86 => }/dell/dell-smbios-base.c         | 22 +++++++++++
- .../platform/{x86 => }/dell/dell-smbios-smm.c |  0
- .../platform/{x86 => }/dell/dell-smbios-wmi.c | 37 +++++++++++++++----
- drivers/platform/{x86 => }/dell/dell-smbios.h |  1 +
- .../{x86 => }/dell/dell-smo8800-ids.h         |  0
- .../platform/{x86 => }/dell/dell-smo8800.c    |  0
- .../{x86 => }/dell/dell-uart-backlight.c      |  2 +-
- .../platform/{x86 => }/dell/dell-wmi-aio.c    |  0
- .../platform/{x86 => }/dell/dell-wmi-base.c   |  0
- .../platform/{x86 => }/dell/dell-wmi-ddv.c    |  0
- .../{x86 => }/dell/dell-wmi-descriptor.c      |  0
- .../{x86 => }/dell/dell-wmi-descriptor.h      |  0
- .../platform/{x86 => }/dell/dell-wmi-led.c    |  0
- .../{x86 => }/dell/dell-wmi-privacy.c         |  0
- .../{x86 => }/dell/dell-wmi-privacy.h         |  0
- .../{x86 => }/dell/dell-wmi-sysman/Makefile   |  0
- .../dell/dell-wmi-sysman/biosattr-interface.c |  0
- .../dell/dell-wmi-sysman/dell-wmi-sysman.h    |  0
- .../dell/dell-wmi-sysman/enum-attributes.c    |  0
- .../dell/dell-wmi-sysman/int-attributes.c     |  0
- .../dell/dell-wmi-sysman/passobj-attributes.c |  0
- .../dell-wmi-sysman/passwordattr-interface.c  |  0
- .../dell/dell-wmi-sysman/string-attributes.c  |  0
- .../{x86 => }/dell/dell-wmi-sysman/sysman.c   |  0
- drivers/platform/{x86 => }/dell/dell_rbu.c    |  0
- drivers/platform/x86/Kconfig                  |  2 -
- drivers/platform/x86/Makefile                 |  3 --
- .../x86/dell-uart-backlight-emulator/README   |  4 +-
- 46 files changed, 103 insertions(+), 42 deletions(-)
- rename drivers/platform/{x86 => }/dell/Kconfig (95%)
- rename drivers/platform/{x86 => }/dell/Makefile (93%)
- rename drivers/platform/{x86 => }/dell/alienware-wmi-base.c (100%)
- rename drivers/platform/{x86 => }/dell/alienware-wmi-legacy.c (100%)
- rename drivers/platform/{x86 => }/dell/alienware-wmi-wmax.c (100%)
- rename drivers/platform/{x86 => }/dell/alienware-wmi.h (100%)
- rename drivers/platform/{x86 => }/dell/dcdbas.c (100%)
- rename drivers/platform/{x86 => }/dell/dcdbas.h (100%)
- rename drivers/platform/{x86 => }/dell/dell-dw5826e-reset.c (100%)
- rename drivers/platform/{x86 => }/dell/dell-laptop.c (99%)
- rename drivers/platform/{x86 => }/dell/dell-lis3lv02d.c (100%)
- rename drivers/platform/{x86 => }/dell/dell-pc.c (99%)
- rename drivers/platform/{x86 => }/dell/dell-rbtn.c (100%)
- rename drivers/platform/{x86 => }/dell/dell-rbtn.h (100%)
- rename drivers/platform/{x86 => }/dell/dell-smbios-base.c (97%)
- rename drivers/platform/{x86 => }/dell/dell-smbios-smm.c (100%)
- rename drivers/platform/{x86 => }/dell/dell-smbios-wmi.c (90%)
- rename drivers/platform/{x86 => }/dell/dell-smbios.h (98%)
- rename drivers/platform/{x86 => }/dell/dell-smo8800-ids.h (100%)
- rename drivers/platform/{x86 => }/dell/dell-smo8800.c (100%)
- rename drivers/platform/{x86 => }/dell/dell-uart-backlight.c (99%)
- rename drivers/platform/{x86 => }/dell/dell-wmi-aio.c (100%)
- rename drivers/platform/{x86 => }/dell/dell-wmi-base.c (100%)
- rename drivers/platform/{x86 => }/dell/dell-wmi-ddv.c (100%)
- rename drivers/platform/{x86 => }/dell/dell-wmi-descriptor.c (100%)
- rename drivers/platform/{x86 => }/dell/dell-wmi-descriptor.h (100%)
- rename drivers/platform/{x86 => }/dell/dell-wmi-led.c (100%)
- rename drivers/platform/{x86 => }/dell/dell-wmi-privacy.c (100%)
- rename drivers/platform/{x86 => }/dell/dell-wmi-privacy.h (100%)
- rename drivers/platform/{x86 => }/dell/dell-wmi-sysman/Makefile (100%)
- rename drivers/platform/{x86 => }/dell/dell-wmi-sysman/biosattr-interface.c (100%)
- rename drivers/platform/{x86 => }/dell/dell-wmi-sysman/dell-wmi-sysman.h (100%)
- rename drivers/platform/{x86 => }/dell/dell-wmi-sysman/enum-attributes.c (100%)
- rename drivers/platform/{x86 => }/dell/dell-wmi-sysman/int-attributes.c (100%)
- rename drivers/platform/{x86 => }/dell/dell-wmi-sysman/passobj-attributes.c (100%)
- rename drivers/platform/{x86 => }/dell/dell-wmi-sysman/passwordattr-interface.c (100%)
- rename drivers/platform/{x86 => }/dell/dell-wmi-sysman/string-attributes.c (100%)
- rename drivers/platform/{x86 => }/dell/dell-wmi-sysman/sysman.c (100%)
- rename drivers/platform/{x86 => }/dell/dell_rbu.c (100%)
-
-
-base-commit: d0f871bfb831705d9f55479f5b2b40f636ea7b16
--- 
-2.53.0
-
+> ---
+> v2:
+> - Bounce the user PI buffer instead of pinning it for writing (Christoph)=
+.
+> - Dropped Caleb's Reviewed-by, since the patch changed.
+> - Corrected what the caller controls (Caleb): it chooses the address of
+>   the PI buffer, the seed and the device offset, so both where the tag
+>   is stored and its value.
+>
+> v1: https://lore.kernel.org/linux-block/20261118154053.13218-1-zakaria.be=
+lkadi@inria.fr/
+>
+> Open question on stacked devices: the test uses the profile of the
+> top-level queue. By my reading of the source, a device-mapper target
+> with members of different profiles can get a top-level profile without
+> BLK_INTEGRITY_REF_TAG while a member has it, because
+> dm_set_device_limits() ignores a stacking mismatch. This condition
+> would then not force a bounce. I have not tested whether such a
+> configuration can accept user PI and reach reference-tag remapping on
+> the underlying device.
+>
+> Would you prefer bouncing all user PI buffers on writes to cover this
+> case?
+>
+> Tested on v7.4-rc3 in a QEMU guest, emulated NVMe namespace with
+> T10-DIF type 1, as an unprivileged user who owns only the device node:
+> - PI buffer =3D read-only mapping of a root-owned file: without the patch
+>   the reference tag in the file changes; with it the write succeeds and
+>   the file is unchanged.
+> - PI buffer =3D shared zero page: without the patch the kernel oopses in
+>   blk_integrity_remap(); with it the write succeeds with no fault.
+> - Writable PI buffers still work, and the kernel no longer modifies
+>   them.
+> - Stored tags (as root): a write with a seed different from the block
+>   number succeeds with reference-tag checking enabled. A subsequent
+>   read using the block number as the seed returns the expected remapped
+>   tags, with identical results before and after the patch.
+>
+>  block/bio-integrity.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
+> diff --git a/block/bio-integrity.c b/block/bio-integrity.c
+> index d3df726e0..aaea5802e 100644
+> --- a/block/bio-integrity.c
+> +++ b/block/bio-integrity.c
+> @@ -394,6 +394,11 @@ int bio_integrity_map_user(struct bio *bio, struct i=
+ov_iter *iter)
+>         copy =3D iov_iter_alignment(iter) &
+>                         blk_lim_dma_alignment_and_pad(&q->limits);
+>
+> +       /* Reference-tag remapping must operate on a private copy of user=
+ PI. */
+> +       if (bio_op(bio) =3D=3D REQ_OP_WRITE &&
+> +           (q->limits.integrity.flags & BLK_INTEGRITY_REF_TAG))
+> +               copy =3D true;
+> +
+>         if (blk_queue_pci_p2pdma(q))
+>                 extraction_flags |=3D ITER_ALLOW_P2PDMA;
+>
+>
+> base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+> --
+> 2.39.5
+>
