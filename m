@@ -1,148 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.5
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795276179;
-	b=X4pJf/vO/6EAYRjtRIB/F502JrGqD0l+/Z/pY7lm50Dm2vz5Ga3pET1smjVpL8y1hOv8
-	 lk/2iWK996Pijxe/82qJpgy3GozHGZ58SecTwGsUSg+XGW6rqK6uYTTvhHfEX1TrHaepI
-	 57r2qHzuwyAsstpBeLzjBnXXyMwuXzpVavJjsd+53hkNBgev3jBVSrdq3a6d8rFAXlMEn
-	 HcHyi/tEMsYkTQHCQZhwGTWQOhe/X/xVOkeG0zEU88yq8kP9rJLZ0e7BganLlkvnBU693
-	 0RFAFGOa+2NsP0j28/3+x9fe4z5fSi3FrzI9yFLv2JUUXWihdcOAO5d5OlSs4CuQUPQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795276179;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:Accept-Language:
-	 Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:msip_labels:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:
-	 x-ms-exchange-atpmessageproperties:x-etr-sdm:
-	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
-	 x-microsoft-antispam:x-microsoft-antispam-message-info:
-	 x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=7vAH9Ry36tAJQnaZqLPow9AkGPgtnaqOswFsBvsdS8Q=;
-	b=MVjucR/JX6LXIOt8Wt2pePMDwnwU+4DdQwnvYf0IbqTRksDK0y27t4PSuaPZLOHpy3uz
-	 v+sXfAp9UCcV0wHS8+aE58Hnn4h2F82F5pNTlKYrORVArPrlPjJPXLiL4EhRL8xcY0hQE
-	 oGEDc3n7AdZNwfmmMKjKlqxXVJWq69Z0je36Vx4eI5OjKjnsFIVHDrvCFYNO8hl4I0E8n
-	 B51cSGWNzBJwNK93Ah6bEGv2GOndvlRgZ+VXrhsvPrSOejfnHzxDmfOTn2kLoSfJlDVAq
-	 2ZEpRM0kWvkXCaA0b16wTSc2IaOS18AMt/eMdu8fkJ28D8tV9pnIebUb3a5qyD8iWDw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=solidigm.com;
-	spf=fail smtp.mailfrom=solidigm.com;
-	dkim=pass header.d=solidigm.com header.i=@solidigm.com header.a=rsa-sha256 header.s=selector2 header.b=ZUqcVhAe;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.5
-Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011005.outbound.protection.outlook.com [52.101.57.5])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795276270;
+	b=c2D9V/6ZiuXnZhIUjgSmLA19601hZyDeIqJKNXXuuyTRegoZ+0wob8rLFylAlFxulTiu
+	 wEECPL1cLn8Sro6FVtmgM9GDlFnmLHiiMHL7xUajdOtOp3l4vXh+YyITxamHTflcxKT6R
+	 a9N69vtbVz9WBOga0J0/LyIxmXiGRqz8/n3zn6RMnKmEseWH2DbFHhEi64ZZDsPrcPfAO
+	 7rncW6NPtvgXzk4s0ebc+8MLA3iBxevDUZuUCtCuH/MLGncjFjtBHJ7yxwskh2KayprPZ
+	 i/qq56jLcoL6fgJFQVpsR4IJQrJf4Q2bkFTMi2uN5YOvIq09wtD3MDVZbUONM0x9ZZg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795276270;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 References:In-Reply-To:Subject:Date:Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Mailer:Thread-Index:
+	 Content-Language:X-Authority-Analysis:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=WA8K5eTeIweFP8s3e1UACTpLtDJdZwazBFPNVjFuA7k=;
+	b=Cp4gP0gKeoIyPk6VyrF/fA5gV99/qokMMKNErMFCRmfZJiE0XAHeWm41IS6HSCmS9x4M
+	 fb94LxDvcVaA6m7SGsDhxR0TRW4ub0YoWj6sXW56321H1nGchsp51Cx13e53/5skDVaev
+	 ZsCtz44ct/DYvr+scwMFumIIUwLtkfZ7JFgGXG+1IIs7XHKDWfAmbby/sVGuInmQRRsjm
+	 054YkGX1xnY18RRCYElXhvTkc5m7bdG5ads8HlqTdTldzbmIYuE/18ane4LdMJVSo+cmT
+	 mHCcLATkytZvX+VlIRb7++gNu2SCmDrEnBooJEd2P5o0XXC/cLt0fTB4rwCxugI2oFQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=oB0e5cK4;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=JHceUiVA;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17109606A339;
-	Sat, 21 Nov 2026 15:49:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17109606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=solidigm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=solidigm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11545606A331
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 15:51:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11545606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=solidigm.com header.i=@solidigm.com header.a=rsa-sha256 header.s=selector2 header.b=ZUqcVhAe
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=R9o7zEaoN771prNUQbWCPsgq98pEsjDOIAwezROdkwh3ZXAo9VjH9mX4etbN/I0na1AUWyjnzzTL8zAqELjiSyHBi0VA1++kJ9ijmQ72B/KvWjCpJVhSRKKLhTKdoJBBeAYw8EEMV3AzCfgDHxiN7vJbrZGGOE+RKAHOov3jsE5a+r7ZIli81gQlVY6AAUCX8wSpsmNkCxpznxlniibBMa49L0ZJ1SAQTy4pQdLD+tI5EV2Ks2ud3m1OEfNH0fRXR1GnyKeBvNzSDBGrt+70a6GC2LXcpDmwQN/0xBnfD1O4BMZOwsFJwXkFKDBw6HeLH5YyrdkfEDz/QDEv6NKZvQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7vAH9Ry36tAJQnaZqLPow9AkGPgtnaqOswFsBvsdS8Q=;
- b=k9bLe+ARTcW5w0bL76fvELvaWxQw1vuy9yKxHW/mx9Pz/kV2lJCE/59kkOQPi9/BGYvgOBDH+0hO9GkSZeNeTuyEq0z8E+XMi92xsIlZEJlX1cWRkJ+kWFjweXL3phFBaQ+vxJWbJ9z6ngwspOIK4+jvLHrhaOBnhAqXzhqFkC7EF/wG5GsldCiRvDB+KeQAY0QHlPhBuSjgYxWzsR+BOR3T9Bzn8Y2j/bMygf/reJPG6i71hhuibKcIGMTZghTm4lGUR6AAC+MjhzKKHbpk2Vgj2uAwU427ZuXZD9iuVc1c/e1+h8M0zOUnz1fiuMoSADCcPRjLYFVw+p2nccAw9g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=solidigm.com; dmarc=pass action=none header.from=solidigm.com;
- dkim=pass header.d=solidigm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solidigm.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7vAH9Ry36tAJQnaZqLPow9AkGPgtnaqOswFsBvsdS8Q=;
- b=ZUqcVhAe5/R+ZYnh2v++ETTosIC5QEI5ZlfIaaOkS2Je6wfNmrq+cADm54cIKyd+ThYalkTtI79wGQYfAfF7xK/KESRx1F/tGSFO97pGxpLS3sxn2ZpSTN70Bl0uUQudszZWoQ1jHGqKobv4XCiMdusDs5l9BzgVkSa0NSBMBnnHEblZYRaGHf4Tzbwrex4qqkcTYzVB1WHTFOt13lPI9m85QwcTlQ/2pj/OahYziFX0scOq+jWrma1M36VBIUkwb4j9/dbkd+/gqK8rpPkoMw8NeFydcWVFj4N8Dog/9S5xTqjCuPKm3K6VYsTHJ2Sg1GniKC5Qk6yWmLX98NuxZQ==
-Received: from LV0PR10MB997684.namprd10.prod.outlook.com
- (2603:10b6:408:33f::17) by DM3PPFEACE3F2B7.namprd10.prod.outlook.com
- (2603:10b6:f:fc00::c54) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Sat, 21 Nov
- 2026 15:47:32 +0000
-Received: from LV0PR10MB997684.namprd10.prod.outlook.com
- ([fe80::2b69:d102:4935:e368]) by LV0PR10MB997684.namprd10.prod.outlook.com
- ([fe80::2b69:d102:4935:e368%5]) with mapi id 15.21.0639.011; Sat, 21 Nov 2026
- 15:47:32 +0000
-From: Wayne Gao <Wayne.Gao1@solidigm.com>
-To: "cem@kernel.org" <cem@kernel.org>
-CC: "linux-xfs@vger.kernel.org" <linux-xfs@vger.kernel.org>,
-	"linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Wayne Gao
-	<Wayne.Gao1@solidigm.com>
-Subject: [RFC PATCH] xfs: add a per-filesystem switch to force atomic CoW
-Thread-Topic: [RFC PATCH] xfs: add a per-filesystem switch to force atomic CoW
-Thread-Index: Ad15z2WocV/7eyH8R22b/KBFBzWDVw==
-Date: Sat, 21 Nov 2026 15:47:32 +0000
-Message-ID:
- <LV0PR10MB997684D5CA8A6AC037F6D1CD8AB9472@LV0PR10MB997684.namprd10.prod.outlook.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-msip_labels:
- MSIP_Label_1a4d86c9-6ef8-4c81-b7a9-15a3140c062e_ActionId=5e320fa8-cd9f-4c5f-9965-cd68baea30a4;MSIP_Label_1a4d86c9-6ef8-4c81-b7a9-15a3140c062e_ContentBits=0;MSIP_Label_1a4d86c9-6ef8-4c81-b7a9-15a3140c062e_Enabled=true;MSIP_Label_1a4d86c9-6ef8-4c81-b7a9-15a3140c062e_Method=Standard;MSIP_Label_1a4d86c9-6ef8-4c81-b7a9-15a3140c062e_Name=P2
- Confidential;MSIP_Label_1a4d86c9-6ef8-4c81-b7a9-15a3140c062e_SetDate=2026-11-21T15:43:47Z;MSIP_Label_1a4d86c9-6ef8-4c81-b7a9-15a3140c062e_SiteId=4bb44aac-867a-4be0-aa34-30794e8470dd;MSIP_Label_1a4d86c9-6ef8-4c81-b7a9-15a3140c062e_Tag=10,
- 3, 0, 1;
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=solidigm.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: LV0PR10MB997684:EE_|DM3PPFEACE3F2B7:EE_
-x-ms-office365-filtering-correlation-id: a27b52c7-58e5-4670-ab94-08df47e6c178
-x-ms-exchange-atpmessageproperties: SA
-x-etr-sdm: Outbound Disclaimer
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|376014|366016|23010399003|1800799024|38070700021|10067099003|5023799004|11063799006|260925021911599003|260925022911599003|260925021311599003|56012099006|261021123027099003|261102123227099003|261009223027099003|261021121427099003|261026140227099003|261022113327099003|261022105027099003|261022075727099003|261026121527099003|261028144727099003|55112099003|18002099003|6133799003;
-x-microsoft-antispam-message-info:
- M8RMqgdw0joZ6SH9Wst1aFjDB4EMEq3QWcTuXD+e9g4aWG500epchZTd8QBgfdAWISJnpLOSDmIz0CExJdlVYu2j63k+xVNLif0BYJPvDyq9OTQNDsbp90pBfWrkSCzJxkBB0TLwjf/BSKJqEWohaE2rKdHjJrbsNhre6Z5x6IaQtaN9TXbFDdMyqSVtfeTPFM845K899tRWC7RAALUytFWLRdCTNHJ9UViB7pwjJvAE83e7bmZYxcPBVz0mvA5E1aeucUMHaamUix7SObA6oeMOXoGNCNEve3MmsmjqvBpVX1/Jl2F+Iu9jnBOR5DexzmGAvprejIPbWF9GBl9GPcMMf1mWqh2WAAuNszz680MUfSA8Ax2CmiwoDLAmojjrGgDiZ1kRU912S4Knb/yJ1Tl9HUJt8Vw+Qb21O1ktYZXQbHcXq9G6lWZqID+/iJWBAgKnhFXgCnMpD/3Ob9ORIYqdTKfmncB/vo197ROLR3OEAxON3eL10EEXB1Fhu/W8XQ17RySdpt0bamhQSL87ME209Rkee0VYW4M+NuDRYKzm6CNhECOc+99Bv64Abmn3ceO/571r8uhZtAMBb7MIZJ2nIvpUuzUhnAGRpv5mnsCjLQ4EPUppCaeUg3f5k+U4DLMlaOGhpM+IQP7FxAc2e3v0QZnozZlIY2q6KaAOOj7Rw/m7TYOm6qEDodtcokqpMQZBxMhzttrjA4aQ6sA+E9vc3JTUm4kqhOxRCsnb0w4=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV0PR10MB997684.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(23010399003)(1800799024)(38070700021)(10067099003)(5023799004)(11063799006)(260925021911599003)(260925022911599003)(260925021311599003)(56012099006)(261021123027099003)(261102123227099003)(261009223027099003)(261021121427099003)(261026140227099003)(261022113327099003)(261022105027099003)(261022075727099003)(261026121527099003)(261028144727099003)(55112099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?iso-8859-1?Q?5Sep0i+5ThMD5fSd1cSOsNZvQt2FVkLx2TGGU1ElzetI7uE0b9DbuWRVGO?=
- =?iso-8859-1?Q?zu8H0zDNARMACoNoipdI9P03Gik5eZlHjjtAXyUmSc9z6k7tac6JKEgaSR?=
- =?iso-8859-1?Q?X3uj9GDDgFsjL7DS8necnns3MIVGF6/eY3ERqs4PIXxydP4MXNtYG6Y/Zs?=
- =?iso-8859-1?Q?Cq4vAt03/MFVoPQy3Lj/e2UVaDz7gyowfCoYWB8r7JsVpwX/D+lFEm+EcX?=
- =?iso-8859-1?Q?FrzO4BLa2nkLEZnFSMAS/OhHP7s/a53mMaQPGpJMGNyvu/syWqEmkEk+dU?=
- =?iso-8859-1?Q?GQl/sBkLYheN+8lxBiXTa048vSyaSnvbapeE4SW7qxNrrfnrbzKbN9K5x1?=
- =?iso-8859-1?Q?OuNbcPLhXoLbtyhi+bim1dIndt4rQmYFEln7xTsd67LYaBulwlt40Le5Pa?=
- =?iso-8859-1?Q?ZNgzkEsKj9XmCGuYIyEE+Sx9xj9w7WBPLm8ses38bw4IJvRkfVrXwWPVYl?=
- =?iso-8859-1?Q?F7eWbQFAqhQ7plIg1j99Cx/S06EawPWejKbRctWvt4KcGjOcNF5ERWLMqs?=
- =?iso-8859-1?Q?dRH+H0hPaDJMvzgv0QRKVML9oaMzWLUl2+Cn0q9uzmYXOOwcLRFZsKE7uC?=
- =?iso-8859-1?Q?/PYcw5g4/Tz7aIwUJaSVe4uzKY5+5eScYVTdGazVCoZYuCtk8JUmRaeMYP?=
- =?iso-8859-1?Q?NSbogJ9p18GgvnjrfuXiRDlCl1JWkNinJRnZTYjC0bsJLFe/huIzy8kp8x?=
- =?iso-8859-1?Q?9FrfkHhWBqogFSYMyIma96u7lS94tLOZ7MKPAYSy1JeWYvbmiedXw6OHUN?=
- =?iso-8859-1?Q?difGi8je7gz9WaZuapfKOutKwoNzx4Vy5YRQyj5Wkp0MiHTX6AktkAT0LY?=
- =?iso-8859-1?Q?itilHFkJbwy4exXKHB92nSOnPQNEL2Na8swnV/I8E/dE6B9jVtyYO0TIe0?=
- =?iso-8859-1?Q?sfQL47/UwXPMGaKAzq+TGwO77r3O0ctc6xZoO7qOUkK1vhKJIK6BiE1Jxh?=
- =?iso-8859-1?Q?ft8NfmdzkcuDDEpbVkVIc2p3gEdmPQyTT0J5xVJ0fOL6mYb0juQpt2Qghq?=
- =?iso-8859-1?Q?OjXjwAFyf/EUuYmposoHk9+PQMEWjiApAGm6hpkH5+tSMpDtvc6AWLhOth?=
- =?iso-8859-1?Q?y/mEPbBcWnnrzBbL5RTwj3DaamaH73j4iKOl6aZ2D61D8j0OZvTBhUXYBs?=
- =?iso-8859-1?Q?C6fLC+wGcksRdTFIPrf5rO5ZBMrg9t4g09l/sVuhOtoCEQYMJeAeLj1apA?=
- =?iso-8859-1?Q?0rcKBmNoTmwPhBVwR6eFo66i/lLfcJUVaWA7pDWCZ84QBCIvV6RMB+BErZ?=
- =?iso-8859-1?Q?CToBEO6WZ76gFqx0GuJ28ZT/pCk+z1Q40mlZtlSI5PmFWK7qBaJ800fWPG?=
- =?iso-8859-1?Q?SJrTEwSt0mShz1wVlj4/qh4xxoQ34hEfv4p2OQcvnf9NsoYsWJ+KoF87zE?=
- =?iso-8859-1?Q?bo+37qZ+3KwASwGYGI+9YwoW+/BsFxORg97txMU3GXttvl4mFGdrN9wz6K?=
- =?iso-8859-1?Q?XL1jDc6T3xq2wJvAJrG2h3ELNsUzA8gW+f1JmynQNmZxqGoISyM1XAON0c?=
- =?iso-8859-1?Q?meP3qEZ+uFadTUOp9+cWVA2AKNe/Bjsj6sk4dmrd+I4UAhByPWmpGzOurT?=
- =?iso-8859-1?Q?WJmsK63AWyU2gc9roWl67nVD+S47PnuXbQw/bvOmaimjfbHc8kPhkzGz6o?=
- =?iso-8859-1?Q?xwtuz5+dDqubq5DhMPrXrlnO6CM2vgHntHh4+v8N6fyDLcjU1tn5GntmAU?=
- =?iso-8859-1?Q?NYwGs+QOIq1GQsBp7ZsffNL132lO9NFiVCWdUel0ZaB3fsu3F33j/mQOF2?=
- =?iso-8859-1?Q?A6A3huR3Yd6qRihpeX9OmSSfmMZ8aNufEk/BNwricnfyqWZ3t9dtqiHi40?=
- =?iso-8859-1?Q?sm9yxLnBK55CBVfZjGlG2CU2o8Bk7So=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=oB0e5cK4;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=JHceUiVA
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ALFb2Rq510461
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 15:51:08 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	WA8K5eTeIweFP8s3e1UACTpLtDJdZwazBFPNVjFuA7k=; b=oB0e5cK4oPmaVVn3
+	U6ejYEl+rDgADtXfD1sduDs1LwYN4oB5NDOGK3eLAIVAWy7M03Z1B6H2HZfaaY6T
+	1cgH7X0DMwT0DRfdEQOCRd9E3f0SyP3epGV2SGTlUXX39HpjojY/1g+NQtDt27Jt
+	Mpnbc87hZNDgTL31NknIhycwlX9XTc37dArN1LXAbSjc+tyAZAUoSev1ufewxLKT
+	ogVfhmn6HzDvc3Yxsz3q315DBAYwkUQG3GNKR4oD8FxY/kTaAOLgP8Qr4e5K3aU7
+	EY2it9ZGfOPtOi7mi+DhwSCO8wjBxwBFeyXOJRO03u03uYnF5YwIz56ZM3xx8Wn1
+	bs3NnA==
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j33p7scpy-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 15:51:07 +0000 (GMT)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-384c78aa0dbso2636605eec.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:51:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795276267; x=1795881067; darn=vger.kernel.org;
+        h=content-language:thread-index:content-transfer-encoding
+         :content-type:mime-version:message-id:date:subject:in-reply-to
+         :references:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WA8K5eTeIweFP8s3e1UACTpLtDJdZwazBFPNVjFuA7k=;
+        b=JHceUiVAjBUszZcgvZWq5Cd2sXaSNq5iMPIESfgjPARaH2QevnqQva0CHVK4Fr1GBw
+         40b5T+XoFXwuG/0Ok+riwkhkdTp9YYWP8BZ4PtmOFJ5qudrHM8R62BNXuVMCNDbVg6Ip
+         C+q5KsV5nMeLfyjMdY4WDHC9tMYgw0ppf8KeyskCvoUwdg6LaMwBLF0BWynBtwhfSiGQ
+         T2bkygwvmIHMtFGcE9FQuafDvoLUeVJpAme49YLKTxzxkL/TxSUhUkiZ644uKnJdyFGB
+         amtDoF3w0Xr1kbUnMH7UkDkCEe9GgrCbz2M/6SKv1KKz0exA9JwYZtImiSQ/Pw63zKV1
+         8v1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795276267; x=1795881067;
+        h=content-language:thread-index:content-transfer-encoding
+         :content-type:mime-version:message-id:date:subject:in-reply-to
+         :references:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WA8K5eTeIweFP8s3e1UACTpLtDJdZwazBFPNVjFuA7k=;
+        b=Evh/ZxlkOBxmbx5TT41xW+B556MO+G8z6wNuM4h3Snc2PKgI2TG9essz47vGULBnpu
+         fqJMRaLawI/NCPxxKCucUqLAuNanckFhorNr/AiVrOvlyNh0+vwH/RVsfkiwjE+Z4xpE
+         lt/p+JRwqbQbLwXwPoOVF2JQyVvPQ/w61T3ZdM1i2epG9IKSK6JgsbTj33yLOdPyvNs/
+         pAqG2rn2LoXqcGa9LIh2qqQgHxaxbZ0MzKh68TqKckmmcSwLPHVCoBUl+ePMRJ+lCo9v
+         kRRcrQUTE6zyLAijIkPIQ+c2TsSrtsmfGK4ytMlVeAC95+jDlkpnWhva0tbaqxuLnbNY
+         Wkwg==
+X-Forwarded-Encrypted: i=1; AL+hErF3obnHyW/lDcegCJ99gjlsWGBl2UEyz/yUF/nKbfRA7mPYNdYrTjCcKuQ3x1wzlSfnaFekUFpyvv/X8+c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8EElwYKVxeBGxANKLgsEGjsocotGazeoivwD0UrHK8fPtR1n3y
+	oXy7XT7tOuojYblzRM4i9B3XBKtaEFXG+8RydcyhTN5nc1QtZi7UtaRL0eRyXY07lvpLBfxvbXW
+	vy7FfFj83SsKkpG9zoI+ywgVR3JGgB39vaIA1u/kDETNDMsgjQ7FHhCqpzRm4ck670lQ=
+X-Gm-Gg: AZFdTZeca/+F9y9WHwPjqaICouPdgD/Pe7nUWMHokKlQG+Ws18OxbzAOmmaJdcTifoH
+	SQG1ZNBKdBYngEInRKr1jj2CD3hMWm/OiAvbh5m72s9Amw0FwvfamRPC8CiWt/hkXVDW3N2Mmeg
+	TIpo9amhdatBgiuAbINc5S0YFW1KWLAVFAARN1By/6umdBRMsSGgtBoaNQuVkUrip7wHOy+lZS8
+	1hrJqNGOA9wQvPDirqZRVHUaqa7J96Wbim629oZasmry1jc576zBc+T3N4GJUVc4soqycK8qmXa
+	PhVX7yxq6N6ANzJrKCW9KpkMJhWORmVexTatNmxRzoUZX3Xe5FHnC9gUffGhjWcNFSmMDV7MMZh
+	pmawYkBu1jDrWpIP/sQN8chUxuxXQt97TMspBl+Ci0Bgh/Zt6Qn4RXVCykiEsTWWBRj+Gm6AW9E
+	WBGQCtqf6s+zKlgqnE/Dtji6Yd1Hq96iDbrOR9fH87p4WcbC8GyyYOuJt92g==
+X-Received: by 2002:a05:7301:4d18:b0:37d:bd4e:c378 with SMTP id 5a478bee46e88-3857181d8ddmr6249967eec.41.1795276266725;
+        Sat, 21 Nov 2026 07:51:06 -0800 (PST)
+X-Received: by 2002:a05:7301:4d18:b0:37d:bd4e:c378 with SMTP id 5a478bee46e88-3857181d8ddmr6249945eec.41.1795276266173;
+        Sat, 21 Nov 2026 07:51:06 -0800 (PST)
+Received: from QCOMk1gASIiYhG (66-33-8-210.colorado.intrepidfiber.us. [66.33.8.210])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567da4f85sm20604353eec.27.2026.11.21.07.51.05
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 21 Nov 2026 07:51:05 -0800 (PST)
+From: <subash.a.kasiviswanathan@oss.qualcomm.com>
+To: <netdev-bot+sashiko@kernel.org>
+Cc: <sean.tranchetti@oss.qualcomm.com>, <andrew+netdev@lunn.ch>,
+        <davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+        <pabeni@redhat.com>, <netdev@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20261117060737.2764327-6-subash.a.kasiviswanathan@oss.qualcomm.com> <179524464443.3135.11939584752095940965@kernel.org>
+In-Reply-To: <179524464443.3135.11939584752095940965@kernel.org>
+Subject: RE: [PATCH net v5 5/5] net: qualcomm: rmnet: Resize endpoints with dev_set_mtu() and restore on failure
+Date: Sat, 21 Nov 2026 08:51:04 -0700
+Message-ID: <000101dd79d0$1e2a73c0$5a7f5b40$@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -152,251 +125,246 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: solidigm.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: LV0PR10MB997684.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a27b52c7-58e5-4670-ab94-08df47e6c178
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Nov 2026 15:47:32.3819
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 4bb44aac-867a-4be0-aa34-30794e8470dd
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: GixQ9x7et/Yd7RlKfSrJgM+feXXrG+SPSoRcqp6guZmxcjBuO0vVt5JtYec5mToUgPyYpVIhZsHi/8taaUyTzBgxjBCJeDPd3/k3Xg29yGxFAgRF6nqVXiE9UUO8i8kF
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PPFEACE3F2B7
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQINMJy3lKvxuvNgiMIx7+eObMjZYAIHDEEOtskFHYA=
+Content-Language: en-us
+X-Authority-Analysis: v=2.4 cv=OrHaWC/t c=1 sm=1 tr=0 ts=6b01bdeb cx=c_pps
+ a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=OltkOWFNRHEXGe+8VJKHzA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=J1Y8HTJGAAAA:8 a=20KFwNOVAAAA:8
+ a=pdht-NoODuSLnQW0akAA:9 a=QEXdDO2ut3YA:10 a=bBxd6f-gb0O0v-kibOvt:22
+ a=y1Q9-5lHfBjTkpIzbSAN:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIxMDA2MyBTYWx0ZWRfX1FlqV61YQbCu
+ TiG4MTdfyT0t6xbI02SAS7oSe93S3ZdVqYUk+A9yKc60IE5CJfSTVDiyPonf035rx1RHrhx1+38
+ wT/jy5rKwOaGKBif0b7+i/csSbE5nGk=
+X-Proofpoint-GUID: 9amtm5azvT7k_llzGccCdOjAzKS9Hyk_
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIxMDA2MyBTYWx0ZWRfXw0/fquiDL/C1
+ 1yweAjZ2uy9Ft8b6hWoiCgxXDqQVGCb7931g6ZqPeczBloUl1k89j/WAoQy3+3Kub5HeNJ5bia8
+ BT3oggpfmMr3xyeGTZfgjUS8lVkEsFbQ9aDm4dbFOvfKXoRm7Uc5HzSaDcD2t9PVIM3GIbLI0sE
+ ICPoZ72gRpfv6zrO4CVHc0nfH6cm77l9okW7q5wr3Fx8rABay2jmXpwOGHTO/w4iw01Dl34g0F4
+ r81tcnYfcSDqP06h3dCn649hTHjK0yqQwKtCKCfDYt6lFb1goxCv6s+u2qioHS5fMkEIVlS41dk
+ 1iBqwFLaR1kXvJKc43PeqPtwSco74X80LqmbIzvfkPAguR7/WTa8NnYifWfmGMg/e9zUof5uCL9
+ InkcVpsQ2QcWvgZ5/F5yldOA7LnXydLkOEwpcTE20WPfAls2U5Awn5DKm+uWnaX87VspuRdNivd
+ U8O+f11rcgpXfHeboOA==
+X-Proofpoint-ORIG-GUID: 9amtm5azvT7k_llzGccCdOjAzKS9Hyk_
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-21_04,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 spamscore=0 clxscore=1015 phishscore=0 lowpriorityscore=0
+ suspectscore=0 priorityscore=1501 malwarescore=0 impostorscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611210063
 
+> -----Original Message-----
+> From: netdev-bot+sashiko@kernel.org <netdev-bot+sashiko@kernel.org>
+> Sent: Saturday, November 21, 2026 12:04 AM
+> To: subash.a.kasiviswanathan@oss.qualcomm.com
+> Cc: sean.tranchetti@oss.qualcomm.com; andrew+netdev@lunn.ch;
+> davem@davemloft.net; edumazet@kernel.org; kuba@kernel.org;
+> pabeni@redhat.com; netdev@vger.kernel.org; =
+linux-kernel@vger.kernel.org
+> Subject: Re: [PATCH net v5 5/5] net: qualcomm: rmnet: Resize endpoints =
+with
+> dev_set_mtu() and restore on failure
+>=20
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+>=20
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 1
+>=20
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let =
+patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your =
+reply
+> (one such reply per series is enough).
+>=20
+> - [Medium] rmnet_vnd_update_dev_mtu()
+>   (drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c:447-473) now
+> shrinks=E2=80=A6
+> - [Low] The commit message opens with "When the real device MTU or the
+>   data format requires a smaller MTU, existing endpoints are shrunk =
+by=E2=80=A6
+>=20
+> --
+>=20
+> net: qualcomm: rmnet: Resize endpoints with dev_set_mtu() and restore =
+on
+> failure
+>=20
+> This commit changes rmnet_vnd_update_dev_mtu() so it shrinks existing
+> endpoints with dev_set_mtu() instead of calling the ndo directly. As a
+> result, MTU notifiers and link notifications are now delivered. If =
+resizing
+> an endpoint fails, the endpoints already resized are put back to their
+> saved MTU, and the original error is returned.
+>=20
+> > When the real device MTU or the data format requires a smaller MTU,
+> > existing endpoints are shrunk by writing dev->mtu directly. No MTU
+> > notifiers run and userspace gets no link notification.
+>=20
+> [Severity: Low]
+> Is the part about the real device MTU accurate?
+>=20
+> rmnet_vnd_update_dev_mtu() has only two callers, rmnet_newlink() and
+> rmnet_changelink(). The changelink call only happens when
+> IFLA_RMNET_FLAGS
+> is present, which means a data format change.
+>=20
+> When the real device MTU changes, rmnet_config_notify_cb() only =
+validates
+> the new value and vetoes it if needed:
+>=20
+> =
+drivers/net/ethernet/qualcomm/rmnet/rmnet_config.c:rmnet_config_notify_
+> cb() {
+>     ...
+> 	case NETDEV_CHANGEMTU:
+> 		if (rmnet_vnd_validate_real_dev_mtu(real_dev))
+> 			return NOTIFY_BAD;
+>     ...
+> }
+>=20
+> So endpoints are never shrunk on that path, either before or after =
+this
+> patch.
+>=20
+> Could the commit message be limited to the data format case? As =
+written,
+> it suggests this fix also covers the real device MTU path.
+>=20
+> > diff --git a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+> b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+> > index 8bf87c5ecb43b..dce436e4c6305 100644
+> > --- a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+> > +++ b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+> > @@ -433,24 +433,42 @@ int rmnet_vnd_validate_real_dev_mtu(struct
+> net_device *real_dev)
+>=20
+> [ ... ]
+>=20
+> >  	hash_for_each_safe(port->muxed_ep, bkt_ep, tmp_ep, ep, hlnode) {
+> > -		if (ep->egress_dev->mtu <=3D new_mtu)
+> > +		ep->saved_mtu =3D ep->egress_dev->mtu;
+> > +		if (ep->saved_mtu <=3D new_mtu)
+> >  			continue;
+> >
+> > -		err =3D rmnet_vnd_change_mtu(ep->egress_dev, new_mtu);
+> > -		if (err)
+> > -			return err;
+> > +		err =3D dev_set_mtu(ep->egress_dev, new_mtu);
+> > +		if (err) {
+> > +			fail_ep =3D ep;
+> > +			break;
+> > +		}
+> >  	}
+> >
+> > -	return 0;
+> > +	if (!err)
+> > +		return 0;
+> > +
+> > +	/* Restore the endpoints which were already resized. Failures here
+> > +	 * are ignored since the original error is the one to report.
+> > +	 */
+> > +	hash_for_each_safe(port->muxed_ep, bkt_ep, tmp_ep, ep, hlnode) {
+> > +		if (ep =3D=3D fail_ep)
+> > +			break;
+> > +
+> > +		if (ep->egress_dev->mtu !=3D ep->saved_mtu)
+> > +			dev_set_mtu(ep->egress_dev, ep->saved_mtu);
+>=20
+> [Severity: Medium]
+> Does this restore undo everything the earlier dev_set_mtu() calls did?
+>=20
+> Now that the shrink goes through dev_set_mtu(), netif_set_mtu_ext() =
+runs
+> the NETDEV_PRECHANGEMTU and NETDEV_CHANGEMTU notifier chains for
+> each
+> endpoint.
+>=20
+> A PRECHANGEMTU notifier can now veto the shrink. For example,
+> team_device_event() does this:
+>=20
+> drivers/net/team/team_core.c:team_device_event() {
+>     ...
+> 	case NETDEV_PRECHANGEMTU:
+> 		/* Forbid to change mtu of underlaying device */
+> 		if (!port->team->port_mtu_change_allowed)
+> 			return NOTIFY_BAD;
+>     ...
+> }
+>=20
+> Before this patch, the direct rmnet_vnd_change_mtu() call could not =
+fail
+> here, because new_mtu < ep mtu <=3D real_dev->mtu - old headroom. So a
+> newlink or changelink with IFLA_RMNET_FLAGS that used to succeed can =
+now
+> return an error.
+>=20
+> If the veto happens on a later endpoint, the CHANGEMTU notifiers have
+> already run on the earlier ones. If the temporary new_mtu was below
+> IPV6_MIN_MTU, addrconf_notify() tore down IPv6 on those endpoints:
+>=20
+> net/ipv6/addrconf.c:addrconf_notify() {
+>     ...
+> 	case NETDEV_CHANGEMTU:
+> 		/* if MTU under IPV6_MIN_MTU stop IPv6 on this interface.
+> */
+> 		if (dev->mtu < IPV6_MIN_MTU) {
+> 			addrconf_ifdown(dev, dev !=3D net->loopback_dev);
+> 			break;
+> 		}
+>     ...
+> }
+>=20
+> In the same way, inetdev_event() falls through to inetdev_destroy() =
+when
+> the MTU is below the IPv4 minimum.
+>=20
+> Restoring saved_mtu only creates a new, empty inet6_dev or in_device. =
+The
+> configured addresses, routes and per-device sysctls are still lost, =
+even
+> though the request returned an error.
+>=20
+> For example, take a real_dev MTU of 1284 with no checksum offload (4 =
+bytes
+> of headroom). Endpoint A has a lower mux_id, has IPv6 configured and =
+is at
+> 1280. Endpoint B has a higher mux_id, is a team port and is also at =
+1280. A
+> changelink that sets CKSUMV5 (8 bytes of headroom) gives new_mtu =3D =
+1276:
+>=20
+>   dev_set_mtu(A, 1276)  -> addrconf_ifdown(A, true)
+>   dev_set_mtu(B, 1276)  -> vetoed by team_device_event(), -EPERM
+>   dev_set_mtu(A, 1280)  -> A comes back with no IPv6 addresses
+>=20
+> Userspace also gets a shrink-then-grow pair of RTM_NEWLINK events for =
+A,
+> for a request that failed.
+>=20
+> The commit message says a failed request "does not leave some of them
+> shrunk". That holds for the MTU values but not for the L3 state.
+>=20
+> Is this partial rollback intended? If so, should the commit message
+> mention the new veto failures and the lost L3 state on endpoints that =
+were
+> already resized?
+>=20
+> > +	}
+> > +
+> > +	return err;
+> >  }
+>=20
 
+Yes, partial rollback is expected here. The comment above the rollback =
+logic already mentions that - "Failures here
+are ignored".=20
 
-Hardware-capable devices normally prefer hardware atomic writes, making
-it difficult to exercise the software CoW path deterministically without
-changing file layouts or affecting ordinary writes.
-
-Add a non-debug force_atomic_cow sysfs control for each filesystem.
-When enabled, route RWF_ATOMIC writes directly to the existing software
-CoW path regardless of hardware eligibility. Keep automatic selection
-as the default and reject enabling the control without software atomic
-write support.
-
-Sample the setting once per I/O so in-flight requests retain their
-selected path. Preserve existing validation, completion and error
-handling, and leave non-atomic writes unchanged.
-
-Report no separate optimized atomic write limit while CoW is forced
-and document the control's runtime scope and lifetime.
-
-Validation: strict checkpatch passed. Linux kernel build and mounted-XFS
-runtime tests have not been run.
-
-Signed-off-by: Wayne Gao <wayne.gao1@solidigm.com>
----
-Hi Carlos and XFS developers,
-
-I would appreciate feedback on this proposed interface.
-
-The intended use is a controlled comparison of hardware-backed and
-software-backed RWF_ATOMIC writes on the same hardware, without having
-to construct misaligned mappings to trigger fallback. The existing
-DEBUG-only always_cow control also affects ordinary writes, which
-changes the workload being compared.
-
-In particular, I would welcome feedback on:
-
-1. Whether a non-debug, per-filesystem sysfs control is appropriate,
-   or whether another existing testing mechanism should be extended.
-
-2. Whether reporting stx_atomic_write_unit_max_opt as zero while
-   software CoW is forced is the right behavior.
-
-3. The expected fstests coverage for this control. Intended coverage
-   includes off/on/off transitions on hardware-eligible writes,
-   per-filesystem isolation, unchanged non-atomic write routing,
-   rejection without software atomic write support, and concurrent
-   toggling with in-flight I/O.
-
-Linux build, mounted-XFS testing and fstests coverage remain outstanding.
-This RFC is primarily requesting interface and semantic feedback, and
-does not make runtime performance claims.
-
-Thanks,
-Wayne
-
- Documentation/ABI/testing/sysfs-fs-xfs | 42 ++++++++++++++++++++++++++
- fs/xfs/xfs_file.c                      |  7 +++--
- fs/xfs/xfs_iops.c                      |  4 +++
- fs/xfs/xfs_mount.h                     |  1 +
- fs/xfs/xfs_sysfs.c                     | 33 ++++++++++++++++++++
- 5 files changed, 84 insertions(+), 3 deletions(-)
-
-diff --git a/Documentation/ABI/testing/sysfs-fs-xfs b/Documentation/ABI/tes=
-ting/sysfs-fs-xfs
-index 7da4de948..3d0c88df5 100644
---- a/Documentation/ABI/testing/sysfs-fs-xfs
-+++ b/Documentation/ABI/testing/sysfs-fs-xfs
-@@ -35,3 +35,45 @@ Description:
-         outstanding transactions, including regrants due to
-         rolling transactions in bytes.
- Users:         xfstests
-+
-+What:          /sys/fs/xfs/<disk>/force_atomic_cow
-+Date:          November 2026
-+Contact:       linux-xfs@vger.kernel.org
-+Description:
-+               Read-write boolean controlling the implementation of atomic
-+               writes. The default is 0, which prefers hardware atomic wri=
-tes
-+               and falls back to software copy-on-write (CoW) when needed.
-+               Setting this to 1 forces RWF_ATOMIC writes to use software =
-CoW,
-+               even when the request satisfies the hardware atomic write
-+               limits. Writes without RWF_ATOMIC are unaffected.
-+
-+               This control is available without CONFIG_XFS_DEBUG and is
-+               intended for testing and comparing the atomic write paths.
-+               Enabling it requires software atomic write support (current=
-ly
-+               the reflink feature); otherwise the write returns EOPNOTSUP=
-P.
-+               Invalid boolean input returns EINVAL. Failed updates leave
-+               the setting unchanged.
-+
-+               The setting belongs to the filesystem instance and is share=
-d
-+               by all mounts of that instance, including bind mounts. Each
-+               atomic write samples it once when selecting its I/O path.
-+               Changing it affects subsequent path selections, including
-+               writes through already open file descriptors, but does not
-+               wait for or redirect I/O that has already selected a path.
-+               Drain outstanding I/O before switching for comparisons that
-+               require an unambiguous boundary between the two modes.
-+
-+               Existing atomic write size, alignment and direct I/O
-+               requirements still apply. Forced CoW can fail for lack of
-+               space even when overwriting allocated data, and RWF_NOWAIT
-+               writes can return EAGAIN. Failures are not retried using
-+               hardware atomic writes.
-+
-+               While enabled, statx reports stx_atomic_write_unit_max_opt
-+               as 0, meaning that stx_atomic_write_unit_max is the optimiz=
-ed
-+               limit, with no separate hardware-optimized size range. The
-+               other atomic write limits are unchanged.
-+
-+               The setting survives remounts but is not stored on disk.
-+               A newly mounted filesystem instance starts with it disabled=
-.
-+Users:         xfstests
-diff --git a/fs/xfs/xfs_file.c b/fs/xfs/xfs_file.c
-index 8070a07e6..6f45b22e3 100644
---- a/fs/xfs/xfs_file.c
-+++ b/fs/xfs/xfs_file.c
-@@ -787,10 +787,11 @@ xfs_file_dio_write_atomic(
-     const struct iomap_ops     *dops;
-
-     /*
--        * HW offload should be faster, so try that first if it is already
--        * known that the write length is not too large.
-+        * Prefer HW offload unless software CoW is forced or the write len=
-gth
-+        * exceeds the hardware limit.
-      */
--       if (ocount > xfs_inode_buftarg(ip)->bt_awu_max)
-+       if (READ_ONCE(ip->i_mount->m_force_atomic_cow) ||
-+           ocount > xfs_inode_buftarg(ip)->bt_awu_max)
-         dops =3D &xfs_atomic_write_cow_iomap_ops;
-     else
-         dops =3D &xfs_direct_write_iomap_ops;
-diff --git a/fs/xfs/xfs_iops.c b/fs/xfs/xfs_iops.c
-index a84a4c1c3..c1720b2c9 100644
---- a/fs/xfs/xfs_iops.c
-+++ b/fs/xfs/xfs_iops.c
-@@ -664,6 +664,10 @@ xfs_get_atomic_write_max_opt(
-     const unsigned int hw_awu_max =3D xfs_inode_buftarg(ip)->bt_awu_max;
-     const xfs_fsize_t  hw_align_max =3D xfs_get_atomic_hw_write_align(ip);
-
-+       /* Forced software writes have no separate hardware-optimized limit=
-. */
-+       if (READ_ONCE(mp->m_force_atomic_cow))
-+               return 0;
-+
-     /* if the max is 1x block, then just keep behaviour that opt is 0 */
-     if (sw_awu_max <=3D mp->m_sb.sb_blocksize)
-         return 0;
-diff --git a/fs/xfs/xfs_mount.h b/fs/xfs/xfs_mount.h
-index cbcfb89c6..71f574c21 100644
---- a/fs/xfs/xfs_mount.h
-+++ b/fs/xfs/xfs_mount.h
-@@ -239,6 +239,7 @@ typedef struct xfs_mount {
-                         /* low free space thresholds */
-     unsigned long              m_opstate;      /* dynamic state flags */
-     bool                       m_always_cow;
-+       bool                    m_force_atomic_cow;
-     bool                       m_fail_unmount;
-     bool                       m_finobt_nores; /* no per-AG finobt resv. *=
-/
-     bool                       m_update_sb;    /* sb needs update in mount=
- */
-diff --git a/fs/xfs/xfs_sysfs.c b/fs/xfs/xfs_sysfs.c
-index 4a6a8c92c..b8fead80e 100644
---- a/fs/xfs/xfs_sysfs.c
-+++ b/fs/xfs/xfs_sysfs.c
-@@ -67,7 +67,40 @@ static const struct sysfs_ops xfs_sysfs_ops =3D {
-     .store =3D xfs_sysfs_object_store,
- };
-
-+static inline struct xfs_mount *to_xfs_mount(struct kobject *kobj)
-+{
-+       return container_of(to_kobj(kobj), struct xfs_mount, m_kobj);
-+}
-+
-+static ssize_t
-+force_atomic_cow_store(struct kobject *kobject, const char *buf, size_t co=
-unt)
-+{
-+       struct xfs_mount        *mp =3D to_xfs_mount(kobject);
-+       bool            enable;
-+       int             ret;
-+
-+       ret =3D kstrtobool(buf, &enable);
-+       if (ret)
-+               return ret;
-+
-+       if (enable && !xfs_can_sw_atomic_write(mp))
-+               return -EOPNOTSUPP;
-+
-+       WRITE_ONCE(mp->m_force_atomic_cow, enable);
-+       return count;
-+}
-+
-+static ssize_t
-+force_atomic_cow_show(struct kobject *kobject, char *buf)
-+{
-+       struct xfs_mount        *mp =3D to_xfs_mount(kobject);
-+
-+       return sysfs_emit(buf, "%d\n", READ_ONCE(mp->m_force_atomic_cow));
-+}
-+XFS_SYSFS_ATTR_RW(force_atomic_cow);
-+
- static struct attribute *xfs_mp_attrs[] =3D {
-+       ATTR_LIST(force_atomic_cow),
-     NULL,
- };
- ATTRIBUTE_GROUPS(xfs_mp);
-
-base-commit: 5e7b6fe39324913f6416c854c6ed3a1793aaba8e
---
-2.54.0.windows.1
-
-Wayne Gao
-Principle Storage Solution Architect
-wechat: 13636331364
-solidigm.com
-
-
-
-CONFIDENTIALITY NOTICE: This email and any files attached may contain confi=
-dential information and may be restricted from disclosure by corporate conf=
-identiality guidelines, or applicable state and federal law. It is intended=
- solely for the use of the person or entity to whom the email was addressed=
-. If you are not the intended recipient of this message, be advised that an=
-y dissemination, distribution, or use of the contents of this message is st=
-rictly prohibited. Please delete this email from your system if you are not=
- the intended recipient.
