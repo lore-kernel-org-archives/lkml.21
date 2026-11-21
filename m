@@ -1,89 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.43
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795287749;
-	b=g2J9qu+PlDyJDp3ew19QafvaKawJKXyAFm22CIcwjT+6Rw8GUDw7Ijmhhy7uHHEd8N3R
-	 xi1TLubCidaGiUfTvfgXm+DiB18Pzct854SFP5Ds4ztzmrBQjEKiEy18Bb1b03l9RFIXN
-	 qf6meshmWujoGvkFv+jjiOq7yhzNhdrkIbHxWlQh4O2hR0ncgyMzjsUD3cujCr/DXkLg8
-	 RvPCjRdyEtC5W+5VhBVX0df65Co7jnCNMypx9iRLF77Y4+uVMF5doDMHOM6Tsl0OHfwSE
-	 lHsnxuw4mnuBHRzytsKnu0KlvEiVPIKw8KCGx9upmbJgaeNSdp0ycIKhB9mCKnTuJjw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795287749;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=C4KEfQRTZSdTvWq9g7gVQah+LNPpDa1FpuzsFCfmc9c=;
-	b=N99mx0A/H5K7ae17dvAtV78VIebhw9BeQJDYhL2GY1yns/DevQ88qEIxzL3A8t5y1NVX
-	 c9HYqK2KGPwjX35fM/barY23J1pQ9Z6gXj2+kRreb9WtwlL+dyW58Eoh+aYxNjLiBIDeX
-	 HlhFNl+Tu7e0uG0gRKMmUDP77pX3Yv2Ir1flm9+CcwOpZmOVBgCxl4vUyzUANxBrJ59k4
-	 C78w292phIkDFApeQX08LlmUfN0PI6LjQg7YVTptJ0h7FyLCykkZrmAweAvOqjfPp9egz
-	 pRit43873tNMyOZWfK5+It42xjjz/qWbuP9aMesZHRRzOgcMxuWYN49MXe7yom9C3Xw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tF0L4OWQ;
-	arc=none smtp.remote-ip=209.85.219.43
-Received: from mail-qv1-f43.google.com (mail-qv1-f43.google.com [209.85.219.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795287921;
+	b=Ao55OMwDxTGcRh6ECrdnjzI7vEIbrGN/gIn6WEV4EO4+Udp2ql41lpo12P1kRvQsquEu
+	 /hEHEsUdx3iJM6T13/1TbO07C3O3BtEg8S0pH019GhsCxvoGioj9mzfy8apkwwDLtFCHo
+	 AHFnefx6FLPGHODvsS9VdFmVCIIrOX+JksTyfrTdHS7Y5Y2lp6jhWgCPn9pQKmK6S6KwZ
+	 z4xpppDXxrZR4z7AU16H6vpfIaoxuyrI6NhXPIxHlLYqqaD1d6LLn9uyj1y34AePVqvIY
+	 8juw5Y9n17anTh/o9oDE47sh3z6t5wyy6g2KQW42snEa8pror7mOf/LmscXfCazxA2Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795287921;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=gFdpcHGX3wO4L3lzPGqtUvwZbaMQ0FLlfOj30IvG9Rc=;
+	b=KfAxzDw9V1FcKKrGuxCwFnNXqzetCFZNOpr4C0+i2IbxFb1ud48+W9U29/F9gn1InCFn
+	 DCB3kANhy9WZhVjPBaisNjKkBUNTMHX1CDeMI38A2yYNo5yQ+62Eh+Xqxky44PWa4FlKf
+	 jWbpSwrowz1fYd4YEjRNWdRAwW19u3AKf0gqMQLhUYyNQ7QZSuO5TTCPegY0ge4MqX5GQ
+	 EQPWvhdXbl+UMyt6jUbVORrYcs3BlSXNGqjWljPnwrcpMycTfzjmuH8oMIjAWV8TiEvBx
+	 4Y4X50qbvCshNLg5A154jOq+UltSKadeES+cmRtaGMbLp9q2lZfIknDEN3McS/hunpA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T2UGLRaA;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C64AC606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:05:21 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T2UGLRaA
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795287921;
+	b=Ug00dmNEfsejWWHabICnqB0v2hGnaTcREKeOOPeQTfvc2NTpORem32myhTzxDlSlBRlK
+	 RWVO4J6Udt662dBGuTIYiU5+paE/xL1FNMl7V11OuLTa1jnqUsjnJIIN4VUkZqMwSWwPY
+	 1q+K9MwJfUNRDeVn9ciaC3O+n1tI6dnNE7I8Q6wpYSZymqMQ2y7N8lv047gtZpjvYP3T5
+	 w4HyZ3NF3RnI3qJaUegCF4PyA8HYpcLKR7xXaJWA+27sdgegMxcFPi3WhTfYUgYYk2nig
+	 CfqHc80Ljzi6f/2KoHI+2Bl4pNRfhwmCYCFQOiLdCs0b9bx1SgpTDtazUnkDPWOIv6Q==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795287921;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=gFdpcHGX3wO4L3lzPGqtUvwZbaMQ0FLlfOj30IvG9Rc=;
+	b=CyV5IRrp+0rsHPGm/ZNisqUsvtqX6Fg2L8ji1bECkMnxz56OF4z3aKBiJ5ZQXrQsnuwc
+	 I+y0neuOBiZeEKQ+0RtkpQH5KkvZy2E3kg7vYZFXopOfPFcd9uVsORHBqSieVLg/Oziru
+	 YIf4ltN6EVv01sNNd72oL5jjQTQL+sBuPS29kQb5N7uyjuWpwAZAqJ0CKrkcDWBxtdbNd
+	 Y8U/cIv4tsFGT4KSaVPwZmThs9k9JkJiH0Mz0VATkw3Q+cRVczlUAPQ/x83l62JfIIeLQ
+	 xA1PYVX1QOX1Zyrh+hHVYrt4D8XVvOdBWa2g3JIadrqMUdFL9M3ltqxtGm+HMfwduJQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C34DC606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:02:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C34DC606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tF0L4OWQ
-Received: by mail-qv1-f43.google.com with SMTP id 6a1803df08f44-91e7af9a67fso13004546d6.2
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:02:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795287748; x=1795892548; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=C4KEfQRTZSdTvWq9g7gVQah+LNPpDa1FpuzsFCfmc9c=;
-        b=tF0L4OWQ8diIx+BfGSc5Q27+DM9xv7zG+ssN6agguZg8GXUKNxOk/7p4/jJcSCCt2L
-         vWMIEgiJZG1GdutpyeUCPGYhzouIPKFfhcMk6jhEL0nvyfsw5ybTJ4naJgl4pGSTOhh2
-         cPjORvo68aZQtBovC1k2TesMjjyk9sQJ8DmTSiX8ZSxIHjHLkJ8tZ1KZjKss2/5m64Nn
-         3hnpZLekEE29JzQtCPIAvvlOk4KQfFVt9P6A+4ia68AhL8EPofCK/AW94UthF18ve91F
-         vIkmq7CCfF5QEjijJPXFfIgVIqeuQTkPTsoJjWp1LwsbozGMHrURGRuExm3PP66MLE4q
-         G6BA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795287748; x=1795892548;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=C4KEfQRTZSdTvWq9g7gVQah+LNPpDa1FpuzsFCfmc9c=;
-        b=RQFwbDoxK9aCpWwfe9hpqgpIxA43JXhUKcrIH6SnDsiMYTL1ZKSKqkyG4uhHnJP4ml
-         2e1v+Es+3AiBwh1gx78svs5T5/QjGcJVOCnrgdpwurqLRmXDNITKzgB12uylH7IRbphf
-         NBvs8mA95ANz6Apm3utc39/Q7KdTYhPW6YBeXuB0TG/KI40BsDf2RIhe+lQnXj80zCJ5
-         1mVPIFMkAC+yHaC729uKDBBwic4EBVolKpUfJzvIcWzbXXyEkOMPUvnM4v6CnBD1n+Yx
-         dEQ2GsBxJBXL8BnfRcuHZXORKUlCd5Hpardt2hoxrAKIwCHq4QbLkKyuN9k2sJMi31ny
-         iTMw==
-X-Forwarded-Encrypted: i=1; AL+hErFNLfPNKQqRGSPzVFsnn4AdkNmFSs8PRiPYyh76xebcmDzWrx5o3oxk7TnCfkjfjCuunAXM03iF3vyjcRo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/7ilTlL654dQewWn0u+fEW8DwMhG1tlvoq1Yfi/64/dB1y6BaR
-	ZJ9LKjXWdnuhzdIMgcM5+OhF3jXB8CVn/8DHH9syVAV2lnSUlSLGbCPE1aX4mL7FpjI=
-X-Gm-Gg: AZFdTZe+ZaAnkgpp1fq4UMjCt2aWdVGDwZqv1vJSlSq3D7IF5bIGot9jmPF4M6On4LM
-	aegdO8XoJIJj3SKIUVT5ySAiIRaxtR/c4k9+nljdIvJhOxy8iPI4Eu6UstWK++WtrlQq1ZYbiaR
-	9P7orxrHeT6badIcUSGgLpVWLpZuj427lhRWU7L0qBALzfFQqyGa9j1+TMEKrYjWBus9+/Okc2V
-	RhEKaAdMbymWQvvZLdHZydnsx/upc7izviyBC79PTrVgVFcOQZe39kwMLxBkXNb/qLBgwCwVUps
-	KfWHgRFM4Cl+RqH65c/rKlAwlq43aA+H9QhRAViifmywO4/juBuOLzjw9OYUx7p/PF93OPQAqj2
-	x9U7xyLwAa5p/4UuCJEhhee8Eeuf+UqJjwDzpwpOnFg4gnVeS6r6p+ffezsVu5lSTW7SSi8rYGY
-	ebVOJ4HPODqSB7byWILikiHib6ksqUfxHBxg7YyTGxNE2BgdMwAmqcoms9FnUyMMctdrQhd2s1q
-	Fpn+MvcW6SqWGpVM6EedYqlAmyhjRm6RJMJBNaYSjiKZssTO7QNyajSPPcneTwhesWz/45cQaXD
-	2KvMPOGdQrDKWlcIuymEJBWIpXCVHJnyOQob1ynzuyWZrkV0Eu3riDktMQ8ApPzV59Tiq7Oqrfm
-	vqXBDkgsJ8M1/9ePePkNsxXU6RiYENZn4/zHA/eNDWORJLX8i5bJF
-X-Received: by 2002:a05:6214:4e90:b0:91e:a629:ff9b with SMTP id 6a1803df08f44-92134b48e03mr101782516d6.52.1795287747625;
-        Sat, 21 Nov 2026 11:02:27 -0800 (PST)
-Received: from ?IPV6:2600:4040:5abf:f200::9dd? ([2600:4040:5abf:f200::9dd])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134a15b99sm59575286d6.38.2026.11.21.11.02.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 21 Nov 2026 11:02:27 -0800 (PST)
-Message-ID: <6f70f43f-4fc3-47ee-802d-50ebc0a8394f@gmail.com>
-Date: Sat, 21 Nov 2026 14:02:25 -0500
+	by smtp.kernel.org (Postfix) with ESMTPS id D435A1F000C4;
+	Sat, 21 Nov 2026 19:05:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795287921;
+	bh=gFdpcHGX3wO4L3lzPGqtUvwZbaMQ0FLlfOj30IvG9Rc=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=T2UGLRaAGpW6f/LUr9krhI2jg17QH3TG4usqslRYn/LOZUD6b5TPD+2I7LlF0N/hN
+	 sMfvPB8tuoSxsx/Zo7ZH0lEQzg7qkjrtWXwQHjIp/UTfOLhapnwMqsqyej5/Tfi6c+
+	 XbOIVwnQGPDvvEz7G4o2RSs5TyYLyKbULuLTO/9a+Uj5FUSiOLtEn2KexXh4h5d9yb
+	 FAe8rxOwypp7Q6MrMWFfql1TjbdQzX7NYGZKhh937BpPvvPOotj1ri4IhiBSPy+Ul8
+	 We11mGsYHZmlbr9bPJUONryc7tlyUolmDUQgLzwJTvjU2YUtLOElQ4J8tYM6QsDv/t
+	 4YNUnDVf6sXwQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 31DD84BD56;
+	Sat, 21 Nov 2026 19:05:20 +0000 (UTC)
+From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Date: Sat, 21 Nov 2026 19:05:20 +0000
+Subject: [PATCH] drm/panfrost: Unmask the interrupts of a re-enabled
+ address space
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,53 +83,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] media: i2c: ov13858: add regulator, clock and reset
- GPIO handling
-To: Sergey Lebedev <lsa.uz@pm.me>, Sakari Ailus
- <sakari.ailus@linux.intel.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Hans de Goede <hansg@kernel.org>
-Cc: Daniel Scally <dan.scally@ideasonboard.com>,
- Jakob Berg Jespersen <dev@berg.pm>, George Neacsu <geocausa@gmail.com>,
- Bryan O'Donoghue <bod@kernel.org>,
- German Pablo Lindo <germanpapulindez@gmail.com>,
- Simon Kruse <simon0x+git@proton.me>, linux-media@vger.kernel.org,
- platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261016210246.58562-1-lsa.uz@pm.me>
-Content-Language: en-US
-From: Haipeng Lin <jimmie.lin@gmail.com>
-In-Reply-To: <20261016210246.58562-1-lsa.uz@pm.me>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261121-panfrost-mmu-as-mask-v1-1-13ffb84d5562@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0avIrDtggm1Jr1K6mOhEpyVRMiqCe
+ HfTdvkW/++gnIUVHtUOmVdRGVOBuVTQDpR6RumKwdb2Zow1OFEKedQZY1yQFCPpB8OV755q5xr
+ voKRT5iDbb/t8/a2Lf3M7f19wHCddOqdMeAAAAA==
+X-Change-ID: 20261121-panfrost-mmu-as-mask-f5e7ba0994b9
+To: Boris Brezillon <boris.brezillon@collabora.com>, 
+ Rob Herring <robh@kernel.org>, Steven Price <steven.price@arm.com>, 
+ =?utf-8?q?Adri=C3=A1n_Larumbe?= <adrian.larumbe@collabora.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ Arun Iyengar <aiyengar1990@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795287919; l=1936;
+ i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
+ bh=K0pQ9F7/VC+mXmqa5mrb5ZLu5JBV43cmtWNL0qBRLk8=;
+ b=UTi0Pl9F3glZ6ZBQdexj6k4QpYeIH3xdTWKCxQwZRzr2XU/a/JTVxlvc7B02k0uyoGWKrATcT
+ g+FcGFgPdCNDTEHA+NQjKMyEW6LFejD0V9/42nHHqn7aCUM0ZctiwOG
+X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
+ pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
+X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
+ auth_id=1480
+X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
+Reply-To: aiyengar1990@gmail.com
 Content-Transfer-Encoding: 7bit
 
-On 10/16/26 5:02 PM, Sergey Lebedev wrote:
-> The driver assumes the sensor is already powered when probe() reads its
-> chip ID. That holds where the rails and clock are ACPI power resources,
-> but not where an INT3472 companion device registers them as regulators, a
-> clock and a reset GPIO for the sensor driver to consume, which this
-> driver does not do.
-> 
-> Request the three supplies and the reset GPIO, and sequence them along
-> with the clock the driver already looks up, in runtime PM callbacks.
+From: Arun Iyengar <aiyengar1990@gmail.com>
 
-[...]
+Sashiko reported this in a review of an unrelated patch.
 
-Hi Sergey,
+After an unhandled fault the AS is in as_faulty_mask and its interrupts
+are masked. panfrost_mmu_as_get() re-enables the AS but writes
+MMU_INT_MASK before it clears the AS from as_faulty_mask, so the
+interrupts stay masked and the next fault on the AS hangs the job until
+the scheduler timeout. Clear the bit first.
 
-Tested on a Surface Pro 11 (X1P-64-100, LCD, 5G) on a v7.3.4-based tree
-with out-of-tree CCI/CAMSS and SP11 camera DT nodes and George's DT v2
-patch on top:
+Fixes: ed7a34c57def ("drm/panfrost: Disable the AS on unhandled page faults")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/20260811215454.A1C8D1F000E9@smtp.kernel.org/
+Cc: stable@vger.kernel.org
+Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+---
+Tested on a Mali-G31 (H616), 7.3.5 with 8a597d099b8b and e9672bf9382f:
+a heap fault after an unhandled fault got no MMU interrupt and the job
+timed out; with this patch as the only change it is handled at once.
 
-- avdd, dovdd, dvdd, clock (19.2 MHz) and reset GPIO all come from DT;
-  the sensor probes and streams 4224x3136 at ~30 fps through CAMSS and
-  libcamera 0.7.2;
-- All three supply rails are off when idle, on when streaming.
-- v4l2-compliance on the subdev passes 46/46.
+Claude (Anthropic) wrote the patch and the commit message; I reviewed
+them and tested as above.
+---
+ drivers/gpu/drm/panfrost/panfrost_mmu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-I did not test system suspend while streaming.
+diff --git a/drivers/gpu/drm/panfrost/panfrost_mmu.c b/drivers/gpu/drm/panfrost/panfrost_mmu.c
+index faa62643c..98d52aca4 100644
+--- a/drivers/gpu/drm/panfrost/panfrost_mmu.c
++++ b/drivers/gpu/drm/panfrost/panfrost_mmu.c
+@@ -283,9 +283,9 @@ int panfrost_mmu_as_get(struct panfrost_device *pfdev, struct panfrost_mmu *mmu)
+ 			 * disabled. We need to re-enable the MMU after
+ 			 * clearing+unmasking the AS interrupts.
+ 			 */
++			pfdev->as_faulty_mask &= ~mask;
+ 			mmu_write(pfdev, MMU_INT_CLEAR, mask);
+ 			mmu_write(pfdev, MMU_INT_MASK, ~pfdev->as_faulty_mask);
+-			pfdev->as_faulty_mask &= ~mask;
+ 			panfrost_mmu_enable(pfdev, mmu);
+ 		}
+ 
 
-Tested-by: Haipeng Lin <jimmie.lin@gmail.com> # Surface Pro 11 (LCD 5G)
+---
+base-commit: c408466a4dfaee4b12587e926c5b85e68c8b3c40
+change-id: 20261121-panfrost-mmu-as-mask-f5e7ba0994b9
 
-Thanks,
-Haipeng
+Best regards,
+--  
+Arun Iyengar <aiyengar1990@gmail.com>
+
 
