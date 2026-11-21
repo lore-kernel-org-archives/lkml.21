@@ -1,83 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795296865;
-	b=QV67DXLqLq3Uz2chiB0QEPvfIKk/6I0FM27S1mG/4WOqsfDdlUTkQKV8z/E89PV65D+c
-	 NY/tIB/IDvGOjwEGZPDc4Oe1VKVpU0CZYEWlh+sqFkcvguKw0o+zuWCyo4hnYJqUVkM1r
-	 Nhysrw0iyHYbMphIOejEUkkCB1rZrjU7qkQOaTTpOnuhPAr+Tw6Q1nL+1zCw48aDqur3x
-	 ofE0d+whDEA8f8Bxnn75QmQ3mmxQ2b5/8zlGgN9kB3+kssC7ZTc1FfxBvKDexefzOhJSl
-	 CS3abS/flTnY9i1gm8syj59UrGkNhO5BsDzMEl7Y+6DoubgDfYKW2YVIcDghp4gmkBg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795296865;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
-	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=mUChzLeVR2MtutKX97MdpZQXyx2OvW2YcvAen733fVE=;
-	b=GtndlbboFpNU1dTwc+sxWZ48ujMCqC+Rs/DsLd6nuGNy/Tzob4w/xbtyQfyMz65hnJUc
-	 t7vUehhqdtsDu/jf6o2o+ArMOANVJcskWTAwA1cFS5P9GWzZcOK0hKML46UcF8ezE7pzI
-	 gJyFX3C3CWAbbuXG+uJz34LsQdcQm42gH7Es+FSGy+v4HJPxMc847Pt5BTkY5SAqoDR7h
-	 5MLHpUhhKLiX4lB46wtyfHAIYyHbqMhi6178qhd48+zzSFZ2jbW/BXt6njfAggaFWazVT
-	 Tgq45J3/bvc0LjJyPUjfNLveKrEtUmTURDZxb3HYaOqlxxGdT/8v2NkgVMRaWXz0zGQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=sang-engineering.com;
-	spf=pass smtp.mailfrom=sang-engineering.com;
-	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=d0YsZAnp;
-	arc=none smtp.remote-ip=194.117.254.33
-Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795296961;
+	b=CaSuyPo1OQWr5bk7Du/Y/p+iXosn54VWOS3RAIOoa9AwYaDD7sEaZyEgy5u/ugl7JWAq
+	 fIsP9MaHeLH+QkGPqtuO21pIwZmOMkYCl4A8YciNHjOMgpo8BIjoWdtkrR7TKwrHxZZRx
+	 7cDI/6Hytk4nnIxNOimDx1AMtMeOBtb0Fq6REQ6wUdEVyD0NxMZzA6sPATok6BP8iyn1T
+	 zc74aoFeNtsfUXKUpoNlVkHjjKiI2pCrVORCoryRuPVXPEEiYYUnuYf/BgRQXa2HhVKh4
+	 rt6O4wVmuEKlPwJXdyYiHMADsf99pI2jLhRyYnvAElfwHt3YIPCRT5amlaVn66qziZw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795296961;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Gvf3IdDLDeRNj9nlhALrJ/CcwWCiWPj0Ri5V51Dn7x8=;
+	b=xmQGru2zgI0ZzCC3MmeG4Osv19lLYsh9ye49hx0FL4BQ0s65MUSEx49oie8DXh3lBFEj
+	 KZ70CNuoJCXR+wuavC+arWjkpQz/eYw8rc1rj+VpqxA+wFhYdSX+EhnXj6J67yp+h77r8
+	 V8D47BSMYvv8hbt5T0f9wzohSbdCkRi60Ua1eGRxr//zqMB+4lSRzY7hHsE9sKfq8PyLx
+	 C2eDgrNiUotcudhBblk7MRosjzwMZsrBC9roVJYoRpso0t3JYWa9YkcwMoxWafOReM5pq
+	 6fiqDhSe6JhxvIYxQxWMk84hHdcSWuvJgNB5PCGq6iSsm3ID0PX2an76AjPYKSJ+9Jg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aYmicm12;
+	arc=fail smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30B3C606A32A;
+	Sat, 21 Nov 2026 21:36:01 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aYmicm12
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795296960;
+	b=vwT7gxucorxk5ygBxgULg9b88PCFgZiQRLO3qBAyOS6hg0JauOa3uQcYtsRsI/AN6QfL
+	 Y0ZDW/RjOGDJXPIaJ43PpEe0XkPcKmAaKwren190XnlyxH78JbS0Pa4ppiC+SnMcz27db
+	 MsBv5zDAOZZY27oFUKAbXKs5tZ05gWdTGXxflsdAgI2samudHWlgPOb82pWInJUvp1On/
+	 99YZavemtAAxVADgTWsSK7VLJ90Oyfw2lusZEQ2srY/wf0IDTtKBqQMq52B01emHQ4DIj
+	 pms+QBNJziVWBP6TyufebScRBwWbULdkZQhnkmXSEjBJQFPM85d5TyY65UKSoiyqaBg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795296960;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Gvf3IdDLDeRNj9nlhALrJ/CcwWCiWPj0Ri5V51Dn7x8=;
+	b=WdS/UgEclw3l5aiC4gRQNtGbtd+G8xteBE4h1WWs7g8N/9UPRlfOm1rX2fOM5A1zXQ4A
+	 RB7lgXsljuQBDY09c71FggJ4YxdQegj/y5IalzwvQywUI3MJIy1eovvrVdsNkXittFamV
+	 zLKkD6oXpPxdQYl1TvOC2VpVwHw4HWLjmbR3sbC8q/Nan7wbnZwkvZ77TMJ3NEvJZp8WY
+	 cN529TOjfyf5J0S8e8nEFqLj3Xl/nePtTcb9G8XxOwRtPg/VQgZUxazmpaXa4HQ2qBYgG
+	 0eqHM5zaX5pbuO1Sw2PlHacjHWg9/OHgcTkc6Ye/2tEv4YBTGjoM1jxlcdEXEAgHT+Q==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED1FE606A331
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:34:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED1FE606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=d0YsZAnp
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=mUCh
-	zLeVR2MtutKX97MdpZQXyx2OvW2YcvAen733fVE=; b=d0YsZAnpbPtYmpNcRM2C
-	SwMgfmHzUur9jym6TLvWP6yFBmfbiMz7GTVq2bYzCi9mo7w/J6gmvlLNeKVbxfEF
-	ATF4zA8/M6UHo+wOll0MTUswaIbCpJ1Cy5jtzOZl/mgbRMqPWKcWExP9YxEok13Z
-	IkGJniWBTahtwqByiPMbUSDp/SLEMvMN4U0kvyY9W8ZiSH1qWjNoV6WbzFV+FdWH
-	wAJmaZEnUv7xwJ+Njk39l7jlQO2linQutAXM61ddpShNXZOWt/oRVIdp8eRhi08J
-	/FKL7hwLS4TbZmfWrpqX0qscB2/JlqXozeMgtL1R1s0Idk1ooGu9sL+DfpM6hUYH
-	ew==
-Received: (qmail 1948086 invoked from network); 21 Nov 2026 22:34:21 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 21 Nov 2026 22:34:21 +0100
-X-UD-Smtp-Session: l3s3148p1@iaquH9BgZOIgAwDpTyYqANgHwk2rnHm5
-Date: Sat, 21 Nov 2026 22:34:20 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Ralph Siemsen <ralph.siemsen@linaro.org>
-Cc: khendry@reliablecontrols.com,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 2/6] clk: renesas: r9a06g032: Add reset controller
-Message-ID: <awIOXP337u_nHqnN@shikoro>
-References: <20261119-rzn1-miic-resets-v1-0-feee2bb28bb4@reliablecontrols.com>
- <20261119-rzn1-miic-resets-v1-2-feee2bb28bb4@reliablecontrols.com>
- <awATU_lyjPBxThwq@shikoro>
- <awGZ-nCCbCNEuyr7@maple.netwinder.org>
+	by smtp.kernel.org (Postfix) with ESMTPS id 12E7E1F000CA;
+	Sat, 21 Nov 2026 21:36:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795296960;
+	bh=Gvf3IdDLDeRNj9nlhALrJ/CcwWCiWPj0Ri5V51Dn7x8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=aYmicm12+lYvbdJ0MPJGUjoOaFtO8vhOAiETO9tkP0Yxy7JxWH3g4PU0IHKXMR0Ix
+	 qP8/pKqHPrQyolKSLQPf9qCAZ7rQRagmbNfomy5JjPxg15KuW26TRv4h5CpRyXvuDZ
+	 UsUYA4X0eu18v8t1A2rbTQiRyL72sPiwrXqQkdreugF1OfBAL35PLOzIWebvGh/vfj
+	 CAHmplg99NKK1OXyx/SorQ2R7CnnriLjAsDIiSoyTJvlWTxHgMOgMshlKm3jwR/ftt
+	 WVqR1fM0e7u1B1I9nb4aVb0nOnEaU+dJmZubgRynzDIKyVD5PR6EqYnzubpNWJLDsY
+	 FcnyzGQM3jnIw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 9415E4BDF1;
+	Sat, 21 Nov 2026 21:35:59 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Date: Sun, 22 Nov 2026 00:35:47 +0300
+Subject: [PATCH v9 02/10] dt-bindings: arm: Add Cortina Systems CS7542 and
+ Securifi Almond+
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,43 +83,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="pTXDnQ8DG42W+K2e"
-Content-Disposition: inline
-In-Reply-To: <awGZ-nCCbCNEuyr7@maple.netwinder.org>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261122-b4-cs75xx-v9-2-1fc1b90bd097@gmail.com>
+References: <20261122-b4-cs75xx-v9-0-1fc1b90bd097@gmail.com>
+In-Reply-To: <20261122-b4-cs75xx-v9-0-1fc1b90bd097@gmail.com>
+To: Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Drew Fustini <fustini@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+ Jason Li <jason.li@cortina-access.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Fil Dunsky <filipp.dunsky@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795296958; l=1646;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=ur5Y90DJUCyqB+ubnyEmmsptLVPvVwYRa4Bevb+7QSg=;
+ b=Z2vBiAMUHknExlzA/PRjJFmk8HT5qsuEPNQ6oXY0lQYko0o1V2Tp+gayf8LFE+n2XmAytUWnf
+ 7O48VkrAPZWB9P1VO8RBe42pYcA5WmS/5shKkb1D2PA4XT7EiifQ01Z
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Reply-To: filipp.dunsky@gmail.com
+Content-Transfer-Encoding: 7bit
 
---pTXDnQ8DG42W+K2e
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+From: Fil Dunsky <filipp.dunsky@gmail.com>
+
+Add the top-level binding for boards built around the Cortina Systems
+CS7542 ("Goldengate G2") network processor, a dual Cortex-A9 SoC, and
+the first such board, the Securifi Almond+ touchscreen router.
+
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/cortina.yaml | 31 ++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/cortina.yaml b/Documentation/devicetree/bindings/arm/cortina.yaml
+new file mode 100644
+index 000000000..1c04b1781
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/cortina.yaml
+@@ -0,0 +1,31 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/cortina.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Cortina Systems CS75xx platforms
++
++maintainers:
++  - Fil Dunsky <filipp.dunsky@gmail.com>
++
++description:
++  The CS75xx ("Goldengate G2") family are network processors from Cortina
++  Systems. The CS7542 has two Cortex-A9 cores with an SCU, GIC, private
++  timers and a PL310 L2 cache controller, a packet processing engine, three
++  PCIe root ports, a NAND flash controller and low speed peripherals.
++
++properties:
++  $nodename:
++    const: '/'
++  compatible:
++    oneOf:
++      - description: CS7542 based boards
++        items:
++          - enum:
++              - securifi,almondplus
++          - const: cortina,cs7542
++
++additionalProperties: true
++
++...
+
+-- 
+2.53.0
 
 
-> The reset duration could vary for each reset ID, since they refer to
-> different hardware. There's probably no "optimum" value here.
-
-Figures 7.3. and 7.4. say "5us delay is recommended" when changing
-XXX.RSTN bits, at least for the NoC parts. Yes, we can agree to trust
-the driver authors to get it right, but we could also decide to make it
-hard to get wrong. Bigger delays can still be open-coded if needed.
-
-
---pTXDnQ8DG42W+K2e
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmsCDlwACgkQFA3kzBSg
-KbbM8hAArBvvQ3J6Gl2ZjLmVjeIL3UFqSTbiCDK7dNBn73kMdODTOv6XgDwwQCJ0
-+RQVzZUoF483LdiGroT52MAKjlo1oWzk3gdMmtMt7FtGeZyFbC+E8jykCJNKM8tW
-TlPcVmrqpF94fiaGWpaa35ehTON2ezntNWShpvM/N5a467PfztHUKOEMyx7ERO/D
-q8Zn//i6qbQ/bci+hmagIMmDXFBiHV6akmDzttSbf4wZdH2u1yroItrahB3wTblE
-PL6B5BA4GjBL64FLKr8XW4NVDhxQmAVDoZdMlhUWjPS5vhqCPfS6NNuTLQUzUfWy
-E/BWwxn1CWMTxV+HhO4AXFVFrys9T42Z08ICAFOHjOleoLZplVkfMN+zIh3h7wBR
-o7iZb25vxWL2hu8UgGMc2sNo8OwT0PATXlCenrBuR/uqhSIsfhRCC/nF02/ZI47v
-ahSvFkWSufuVhwIhbUmk8U5Exgzj+Mg9c4TjhrRTK6MCDa4fpdCvNnpl1U72mJHR
-Xq3jgLhM+4bodCBDJQHXPVNZwkMbyKlTf+hPpav6okETuNgQ86XE+CNYNywhmnzJ
-Mlo12B/mYG5JwpKPGcR1smZkcwNsrp/A+I1asgC7fhSDs7eD5HXNlLBN92yrCTc4
-3LnPqGr6KuIzZPaT+I3FXAJ7Zoy5D41UpNpmpYtcFmsR2WAy6ys=
-=XIqi
------END PGP SIGNATURE-----
-
---pTXDnQ8DG42W+K2e--
