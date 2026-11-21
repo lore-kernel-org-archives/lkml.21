@@ -1,95 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795298328;
-	b=IdpuQ61+e8X69Sk+cHH4xX4dg+VR3uow9iZTdVQNV3V1m8kLZMGbBCVT82hrtkTgeGPi
-	 GkOCHJBSH0tiTcrOBfVOIIApIZgY8uCbcLbccPS9W0btujDImKNa1KKFQrJqWkbvB/0Og
-	 c88QGHy22unB08OWsITk6bMw1HojcqEWSHf4yj9VrGyQU5DrAOZ++4BfvxlGRZvYCvwrH
-	 ZWdiRa3ubhgNlgsNiNTon6BFoeMDdyXPAyDbjR6DJby/2GgQ5MksRmAHbNlm1UiTFM0RW
-	 rmS7q1VeO24w7ZoAyDDb2BBg4Cx78jOsuu4dW2E3ay5WPRdgRFaobqGTI0qJHvKyOug==
+	t=1795298363;
+	b=QVKmjXykPFD+q/x71VOpsCLJy5qQmdIuxDhqrJAOTtoolN1jUE0pLzRo5GFYOWykEibX
+	 EdcfAs2Ph91ALrfmG5tiD/ZtFIUnsU4QUK5OYnxR+dAXNeHwG2Z3AgpsnwoQvm1FOSk7D
+	 Sf4Hohsv23obQv6Nla2cqZY3itD8dKu8gjJyOl9RsfgqzQT6xxCEQeFp6qFNd/HvEKZ0U
+	 4qN1j26ZbhuPLbA8jM02JnTd3cLAXPvk4D1wq2BHw3JWisdoVABNxVbeWlnq2UICIulkm
+	 18YLwRLzUDAmhzZrQG9QcQGdjjTnUKmu9EprY01D5UIhYW/iUIAhoMvVyOHk7v7hLJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795298328;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795298363;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=46VDdhvfENPzlaXJtPGRjqKkSBNfoMZg5S+SSN5ITC4=;
-	b=HkJJme34Q4x5cgjy0HwOwtEJmbK1nfxpYG0f7MdHazQjMWHq2+7NbKcXYvebZp2UaIV6
-	 ayRZL3B0zkjJl2zwVBdx/SDe42g0zs+liFTaZ2u9iEHqRapcrWlrM+Z00y9FynmAjI0Bc
-	 B9RIZ6kIaTDWfBcZFWy7RQCD7u+eq21RRqWvqJn4kqpO3VAA0hPOVTtAbygoAkQaMNiND
-	 CubCrWJiTsgwwMIA66IZIJstKW0qfJJvBFe2TPCumnA3/5Z8+mJEtDIPCLctsI3b1p/AB
-	 Rx+v2GVlMBr/wm6VIYuIgRxWSveLY7jijmI0Fgz2z+QFPgxy3cGNaSbS3qfi5USaF0w==
+	bh=cizSpuD6AQD7saKDCptAezv8VsgPBzDcqDJo8Km8r6w=;
+	b=WruFZNfaapMi7bMudgYiBNXUrU3JENPKsHZ0C1kO8LlnooBCK9iCZv9ccydQJd0EUFcm
+	 5JDY1B9MrHKpKsZEgQ9KMSFB4hXDHyVIFIsZuFoc4a+V7lLsR1A8CoyHDzSVIDkp8Oqlr
+	 BVsggbkJE3T2wO3ThYyCrKSTKqDrISRq2G7C98c464tRG0c+10lbCtwi+E0ATXb6ZvxjO
+	 7KVcb9ElKCTkfLJqkZ0AlDucczqddsinrQHhjzwkIpF8XjPQ+vhIbCGb9kems+od2alkE
+	 rQt+BxXJUkKXZ2+x9eMf4zrIjgNAp/AHyeChrmK0K9FOsLPPV4GlzXVYg5nVtRXT6tg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bJoyM5hI;
-	arc=none smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
+	dmarc=pass header.from=kernel.dk;
+	spf=pass smtp.mailfrom=kernel.dk;
+	dkim=pass header.d=kernel.dk header.i=@kernel.dk header.a=rsa-sha256 header.s=google header.b=o1ddPjLx;
+	arc=none smtp.remote-ip=209.85.216.42
+Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 739B8606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:58:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 739B8606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D710C606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:59:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D710C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=kernel.dk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kernel.dk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bJoyM5hI
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-3866a784546so2354041eec.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:58:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.dk header.i=@kernel.dk header.a=rsa-sha256 header.s=google header.b=o1ddPjLx
+Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3ada4c06b7bso1116695a91.2
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:59:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795298327; x=1795903127; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=46VDdhvfENPzlaXJtPGRjqKkSBNfoMZg5S+SSN5ITC4=;
-        b=bJoyM5hIwxNrj1Qx6L6ywM19qg3W9QDVQjNGn1u9sUw0J35VmcgG3TY1Dfgkz+GB3k
-         8+ldL+il//9AvFrc9Hkzd/I3hIIQE0HfcKYcZe0I1cqge2D5qz33UW2MyPTpi13m5pZD
-         06Wz033gRZ4gdt/2D18hFUBx4cZTJqw38jDmAyHuQYuG2pad/mt765kNoT/4W/YK/aHY
-         fRaEkWh+jh806hu1PxZH04s6H6Or3CWfoQ5sXTVwXGJncXtwqeRgfpz9ls4r5IS70KgL
-         BFU88ppAaT/NgZqVJI4+WM7qNVp/2JpJTfJ/AXkZDNvX6ZIGfA2v1USFXYy3Ao292wXc
-         NJqQ==
+        d=kernel.dk; s=google; t=1795298361; x=1795903161; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cizSpuD6AQD7saKDCptAezv8VsgPBzDcqDJo8Km8r6w=;
+        b=o1ddPjLxJdJa2bMwWiU3woIQla1Jtio2NftVkFbtIJosheg7D7Jq/Wyh40e7AYheUj
+         t7mBUjZ80VxMeiTMhtA6pKUmCt8qGiLYF0oRELBIx6kW8RpCEqfxufgzMqvSqGDKWFQi
+         MuvFyW4zoaE0cDVcWZEj5SuhaAZ6da++28h++DN0UHTwSZCf5gHe8Ai480LBMKfBS3XC
+         oOQRt6/BR6G0wSnDpfGI/zi0QgGaPbzBMHQfPrNdyMFgywnKuHk22fHwJ+t1tDxJj0A/
+         Or/vc22zD55E74rQ4LzfKj1OiDIriVEVJgvtxVVC5Fip0MJDdXdkmT0dqOQ+vA1yOZXE
+         Zynw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795298327; x=1795903127;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795298361; x=1795903161;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=46VDdhvfENPzlaXJtPGRjqKkSBNfoMZg5S+SSN5ITC4=;
-        b=YhF6Nicv+x7+KClWU3xj5/2GTsPVtEEcvLiHESDpW9K5ailTbDSaJJSV73YQn3mxz/
-         kp4oAc7wFWpC5GDo+0C42DxYfDiJkS0PHaXKx7N09Gb0CVYwYaWswqAWURNHyNKdkKsY
-         2J8EMmXZwky1Wcc8M7k6D27RMDInXkByonSDY9U6XMSEUaZyCmNvrNzQsqZnyv+VSbnS
-         nADDo2mbQ3GxuNOK8MW9S/NwDEuBAXGIqGhU1nKNDDVEpkfAvN9JxiaGMJBAOBDT32ke
-         nf67J2o9U5L1HOLP3q549uhLT9CTxKl5eJ3JAjyY3Zra8joxYxyrDt9VkVwrhHrqAXOn
-         kvtg==
-X-Forwarded-Encrypted: i=1; AL+hErFZBAz6hQr2TSQ7vzLMLPtjTIzYHYtdF8aMlBnXTV2bWxI8V4OBQtMgQnmloYFxAEOb8PNery0Qh4CyJRk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8hxP9LIoWKN2FDlPiAAx1IGyAFJFnN88stBGdb9DhEWsQyv/26
-	VQZGk3uRy2/5xZZ3164IXgUqaUIxjYdSFlDgAzQ+XR83R8PfCINi9c4=
-X-Gm-Gg: AZFdTZdl2O1MQcZQYrpKnDmVdgwPBdK5p4WhDl2RO6rDjODUTfOZWK39TCmECLQsn5O
-	t4TVZ6IseJAgIoBBLLF1pa1S4oyxwuD96zHzEMKp9saet1U57MunTeLd5vRQowegQO7tVHa2Byt
-	kz3edtRVKP/18e0C7Qt69p5FOd8ZtiHm4iwCf5ARPqR30VFLUlWGqMQq8rBBauCQ9jk+J8O9Cza
-	lqiE4xYQUKAK7iGrdsV132R81V0NZI+HSYLH1aSYtwbmZ5qSHdu9gA7NM2+YTYwjE/WatMtnAue
-	RFCuxaENsszsryjOKmNPgIcaeALJl9gfeTbdJEIHD5+XnY6a/CtEG0nvqo0kmutlw6eikb5aUbY
-	rYneLaH2x26q/+X5vD39anVaGkAvhp48jibClwxLryD+IpCxk1I940cC9P/lES7lkcugciPbpAy
-	HLPm6fEa3Xfpy1d04zQW0LM4VljkeFe0hvm0TpH4I86RekjhQoh1hGPVMKaDXn4vdZklxjkQvPZ
-	FkUSO/04HRBnyBahh8og/GmAocJrpazW50lOp8pZ+J2/1pqlJ+w43xU1Ku1ndxg5lvZtGXPH3T1
-	YARMj++GcSvzPv/gy6WhDyK0jGD4Byns7DY8tgO//fBLZ2koebxMsZxXk09zlOQDtbwi8tPJ94i
-	i/Cc9kulr
-X-Received: by 2002:a05:693c:8813:10b0:385:cbc5:7eeb with SMTP id 5a478bee46e88-385cbc595acmr5922819eec.15.1795298327326;
-        Sat, 21 Nov 2026 13:58:47 -0800 (PST)
-Received: from at-Standard-PC-Q35-ICH9-2009.tailbdca44.ts.net ([223.228.8.4])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567ea2cc5sm19646544eec.29.2026.11.21.13.58.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 13:58:46 -0800 (PST)
-From: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
-To: 
-Cc: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>,
-	Antoine Sidem <sidemantoine@gmail.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	linux-acpi@vger.kernel.org (open list:ACPI),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v3] ACPI: processor: Use Apple-specific methods for P/C-states
-Date: Sat, 21 Nov 2026 16:58:38 -0500
-Message-ID: <20261121215841.1286-1-atharvatiwarilinuxdev@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        bh=cizSpuD6AQD7saKDCptAezv8VsgPBzDcqDJo8Km8r6w=;
+        b=e9K1ecgewag1A1Kzo8XAbnQ4BpWp79FkxgEF7p/OCGhgukmAJ1CBxxfDpys4D+aqQG
+         /yvl26EG52p01HX4Mk6DeXvg3TBEHEYphkE2zRmE2uqqtesRFPu8dL3exshKsf8Y5o6D
+         VIB4VGXlxps3o/vb1rsf1shN0n7tR1lsLhOKQJ+1Vk9CagQvafR0akbztIfjGZ+1JJZV
+         Sfcfhg8yf2biejD1gzeZv8LenVjsC9FAaPROFnUYFNQrOdT9sBP0/IHXDc9PNf/8qWc3
+         wC0VgB62c2DtKaiOdBIetzDit64Uo3Ud2Nuk8iL/9sa3kvsZq5vK55Njvz3IKrVMxrHb
+         m1iw==
+X-Forwarded-Encrypted: i=1; AL+hErFrX5BiAgSh7d2QWrnDXfMWO9z6Ncr7A6ZEmS4Wm1Dgxm+YafkRmQa/VeZX8CHk+UXiKys1LepsOg2Okkw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z86kExOmAd2xilRj0z50hlUZGtgAo3Mv4J9SpWhst9J+PSlrzXQ
+	KrA5nm38Buu2uXg8mlKqmYH2gAeEeXVN8zTvTyLLb9fvy5YuIXBkcAPYstdULk/2IMYxCN9R0F4
+	FdeM43iA=
+X-Gm-Gg: AZFdTZevq1LG/9N3RPW0+Xh6N5vbaMrDp5ZtI37QEk6+sdOma7g0pYJTt/9ceSTbh/b
+	syv3ipw3GjNq8D7YR0Wt0pjNFJiiG7BmjibP4Gz9zxpDWTysZ6ej8oz+w+QTWY83VJtiZa6zLrz
+	L0Rh7KDy43Mz52uNV+hflQ6q75s6oBXTpzYDOLiRcUgK4VK/dh/6Y0JlXQkBrqLVGTS5/Fw+WZC
+	sXqARt9ofQMieYZqzmo2M15DfXeqvVz0rR/wXzESy467y3ChrhE0qL1RDpeYJcD0+rKbYfm+9X/
+	2oMcgcQd6GIdPaDQxhyNsTEadiuvnR0Ro3T8ADFlHa/RBPShIgsSf0u+m2rTcO8w3dkXHOamCen
+	mMNsJJiVg55qdECaxmk8cMTmJLiXYxFmk56ikqcLqNKA96Ti/6muJ30D7I5XPJakWH1o2IbRprq
+	ChuxqGJ91Nm1VsGWAmmO9zp2FTC7Us/EMyhikfz2v24NJber73QbjvI1iJ/cHZISe3K7IaJfnvX
+	Tza6MNnsAbx/eCqH4/P94YS4Dqn7CW997yS3zczYObk9A/lW4YaHT29mdoyJ7hpecmfOU3B03JH
+	CjLIjqq/MuBqhOs3yRQYqj69pC7faaUeTij0LZ5Kr10rfcq3v1wNEK6qFSHzfKHF9qF0kNqMA+A
+	1jWLCJwSOmi7L6psGwZg8QwtQgh4MijMuEWzgk+nM4XO7XQ/z
+X-Received: by 2002:a17:90b:288e:b0:3aa:f875:3385 with SMTP id 98e67ed59e1d1-3b41c907e21mr6285185a91.26.1795298361220;
+        Sat, 21 Nov 2026 13:59:21 -0800 (PST)
+Received: from [192.168.1.142] ([198.8.77.135])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b6fe711sm2622799a91.1.2026.11.21.13.59.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 21 Nov 2026 13:59:20 -0800 (PST)
+Message-ID: <d1a1bfcd-234d-41a5-a0c4-16065e5f4857@kernel.dk>
+Date: Sat, 21 Nov 2026 14:59:19 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,299 +94,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] fs: shorten I/O that would extend past the maximum
+ file offset
+To: Matteo Croce <technoboy85@gmail.com>, linux-fsdevel@vger.kernel.org,
+ Christian Brauner <brauner@kernel.org>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, Ding Feng <dingf3ng@gmail.com>
+Cc: Paul Eggert <eggert@cs.ucla.edu>, LKML <linux-kernel@vger.kernel.org>,
+ io-uring@vger.kernel.org
+References: <20261121003356.290201-1-technoboy85@gmail.com>
+ <CAFnufp2uT0D8-5jw3DLhQzdfpB=eSuzhmGdmDqoB7arExaw9jw@mail.gmail.com>
+Content-Language: en-US
+From: Jens Axboe <axboe@kernel.dk>
+In-Reply-To: <CAFnufp2uT0D8-5jw3DLhQzdfpB=eSuzhmGdmDqoB7arExaw9jw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Use APSS and ACST instead of _PSS and _CST when available on Intel Macs
-as they include better P/C-States.
-These methods are used in macOS (X86PlatformPlugin.kext),
-and when not found we fallback to generic _PSS and _CST methods.
+On 11/20/26 5:49 PM, Matteo Croce wrote:
+> Il giorno sab 21 nov 2026 alle ore 01:34 Matteo Croce
+> <technoboy85@gmail.com> ha scritto:
+>>
+>> rw_verify_area() fails with -EINVAL any read or write where
+>> pos + count would exceed LLONG_MAX, even when pos itself is valid.
+>> Such a request should not fail: a read should return the bytes that
+>> are there up to the maximum offset, or 0 at end of file, and a write
+>> should write what fits and return a short count.
+>>
+>> This breaks ordinary programs that read a file up to an end at or near
+>> LLONG_MAX, even with ordinary buffer sizes. For example, dd fails on
+>> the last block, where it should get a short read, and cat fails where
+>> it should get end of file:
+>>
+>>   $ truncate -s $((2**63 - 1)) hugefile
+>>   $ dd if=hugefile of=/dev/null bs=1M skip=$((2**43 - 2))
+>>   dd: error reading 'hugefile': Invalid argument
+>>   1+0 records in
+>>   1+0 records out
+>>   1048576 bytes (1,0 MB, 1,0 MiB) copied, 0,103536 s, 10,1 MB/s
+>>
+>>   $ (dd bs=1 skip=$((2**63 - 1)) count=0 status=none; cat) < hugefile
+>>   cat: -: Invalid argument
+>>
+>> The same happens on a 100-byte file:
+>>
+>>   preadv2(fd, 200 bytes, pos = LLONG_MAX - 50) = -1 EINVAL
+>>   preadv2(fd,  50 bytes, pos = LLONG_MAX - 50) = 0
+>>
+>> With a large count, the range crosses LLONG_MAX even far from it:
+>> splice() of a 20 MB file with a count of 0x7FFFFFFFFF000000 fails once
+>> the position reaches 16 MB. sendfile(), aio and io_uring fail in the
+>> same way as read() and splice().
+>>
+>> Files with FOP_UNSIGNED_OFFSET, such as /dev/mem and /proc/pid/mem,
+>> have the same problem at U64_MAX, their maximum offset: a read or
+>> write that starts below U64_MAX but would end past it fails with
+>> -EOVERFLOW.
+>>
+>> Add rw_clamp_count(), which shortens the count so that the range ends
+>> at the maximum offset, LLONG_MAX or U64_MAX for files with
+>> FOP_UNSIGNED_OFFSET, and call it before rw_verify_area() in the read
+>> and write paths of the VFS, splice, aio and io_uring. Where the I/O is
+>> described by an iov_iter, truncate the iterator. This is what
+>> filemap_read() already does for s_maxbytes. In io_uring, also save the
+>> iterator state again after truncating it, so that the short read retry
+>> loop does not restore the full length.
+>>
+>> A read that starts at the maximum offset returns 0. A write that starts
+>> there cannot transfer anything and still fails in rw_verify_area(), as
+>> do negative positions on files without FOP_UNSIGNED_OFFSET and counts
+>> above SSIZE_MAX. For files with FOP_UNSIGNED_OFFSET, the file's own
+>> read and write methods still decide how much of the shortened range
+>> they can actually transfer.
+>>
+>> rw_verify_area() keeps its check, so callers that are not converted
+>> behave as before. copy_file_range() already clamps the range in
+>> generic_copy_file_checks() and is not changed.
+>>
+>> Reported-by: Ding Feng <dingf3ng@gmail.com>
+>> Closes: https://lore.kernel.org/linux-fsdevel/20261120051457.47753-1-dingf3ng@gmail.com/
+>> Suggested-by: Paul Eggert <eggert@cs.ucla.edu>
+>> Link: https://lists.gnu.org/archive/html/coreutils/2025-12/msg00097.html
+>> Link: https://lore.kernel.org/linux-fsdevel/20251219125250.65245-1-teknoraver@meta.com/
+>> Signed-off-by: Matteo Croce <technoboy85@gmail.com>
+> 
+> Forgot to re-run get_maintainer.pl after the io_uring change
 
-Changes in v3:
-- Used method variable instead of using_
-- Used bool instead of int for functions
+Maybe send it again then if it's something we shoudl see. You cut the
+patch out of this reply...
 
-Changes in v2:
-- Improved description of the patch
-- Replaced goto's and if statement's with new functions
-- Added support to differentiate _PSS and APSS in debug info/error info
-- Added support to differentiate _CST and ACST in debug info/error info
-- Used Package instead of variable for ACST description
-
-Link to v2:
-https://lore.kernel.org/all/20261113131243.28214-1-atharvatiwarilinuxdev@gmail.com/
-
-Link to v1:
-https://lore.kernel.org/all/20261015204450.1270-1-atharvatiwarilinuxdev@gmail.com/
-
-Tested-by: Antoine Sidem <sidemantoine@gmail.com>
-Signed-off-by: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
----
- drivers/acpi/acpi_processor.c    | 79 +++++++++++++++++++++-----------
- drivers/acpi/processor_perflib.c | 43 +++++++++++++----
- 2 files changed, 85 insertions(+), 37 deletions(-)
-
-diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.c
-index 5fbab5417..65e52cd52 100644
---- a/drivers/acpi/acpi_processor.c
-+++ b/drivers/acpi/acpi_processor.c
-@@ -18,6 +18,7 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/pci.h>
-+#include <linux/platform_data/x86/apple.h>
- #include <linux/platform_device.h>
- 
- #include <acpi/processor.h>
-@@ -815,6 +816,22 @@ bool acpi_processor_claim_cst_control(void)
- }
- EXPORT_SYMBOL_NS_GPL(acpi_processor_claim_cst_control, "ACPI_PROCESSOR_IDLE");
- 
-+static bool acpi_processor_apple_acst(acpi_handle handle, struct acpi_buffer *buffer)
-+{
-+	acpi_status status;
-+
-+	if (!x86_apple_machine)
-+		return false;
-+
-+	status = acpi_evaluate_object(handle, "ACST", NULL, buffer);
-+	if (ACPI_FAILURE(status)) {
-+		buffer->length = ACPI_ALLOCATE_BUFFER;
-+		buffer->pointer = NULL;
-+		return false;
-+	}
-+
-+	return true;
-+}
- /**
-  * acpi_processor_evaluate_cst - Evaluate the processor _CST control method.
-  * @handle: ACPI handle of the processor object containing the _CST.
-@@ -837,28 +854,34 @@ int acpi_processor_evaluate_cst(acpi_handle handle, u32 cpu,
- 	acpi_status status;
- 	u64 count;
- 	int last_index = 0;
--	int i, ret = 0;
-+	int i, ret = 0, base = 0;
-+	const char *method = "_CST";
- 
--	status = acpi_evaluate_object(handle, "_CST", NULL, &buffer);
--	if (ACPI_FAILURE(status)) {
--		acpi_handle_debug(handle, "No _CST\n");
--		return -ENODEV;
-+	if (acpi_processor_apple_acst(handle, &buffer)) {
-+		base = 1; /* ACST is a 4 field package we need to skip the first field */
-+		method = "ACST";
-+	} else {
-+		status = acpi_evaluate_object(handle, "_CST", NULL, &buffer);
-+		if (ACPI_FAILURE(status)) {
-+			acpi_handle_debug(handle, "No _CST\n");
-+			return -ENODEV;
-+		}
- 	}
- 
- 	cst = buffer.pointer;
- 
--	/* There must be at least 2 elements. */
--	if (!cst || cst->type != ACPI_TYPE_PACKAGE || cst->package.count < 2) {
--		acpi_handle_warn(handle, "Invalid _CST output\n");
-+	/* There must be at least 2 elements for _CST and at least 3 elements for ACST. */
-+	if (!cst || cst->type != ACPI_TYPE_PACKAGE || cst->package.count < base + 2) {
-+		acpi_handle_warn(handle, "Invalid %s output\n", method);
- 		ret = -EFAULT;
- 		goto end;
- 	}
- 
--	count = cst->package.elements[0].integer.value;
-+	count = cst->package.elements[base].integer.value;
- 
- 	/* Validate the number of C-states. */
--	if (count < 1 || count != cst->package.count - 1) {
--		acpi_handle_warn(handle, "Inconsistent _CST data\n");
-+	if (count < 1 || count != cst->package.count - 1 - base) {
-+		acpi_handle_warn(handle, "Inconsistent %s data\n", method);
- 		ret = -EFAULT;
- 		goto end;
- 	}
-@@ -882,24 +905,24 @@ int acpi_processor_evaluate_cst(acpi_handle handle, u32 cpu,
- 
- 		memset(&cx, 0, sizeof(cx));
- 
--		element = &cst->package.elements[i];
-+		element = &cst->package.elements[base + i];
- 		if (element->type != ACPI_TYPE_PACKAGE) {
--			acpi_handle_info(handle, "_CST C%d type(%x) is not package, skip...\n",
--					 i, element->type);
-+			acpi_handle_info(handle, "%s C%d type(%x) is not package, skip...\n",
-+					 method, i, element->type);
- 			continue;
- 		}
- 
- 		if (element->package.count != 4) {
--			acpi_handle_info(handle, "_CST C%d package count(%d) is not 4, skip...\n",
--					 i, element->package.count);
-+			acpi_handle_info(handle, "%s C%d package count(%d) is not 4, skip...\n",
-+					 method, i, element->package.count);
- 			continue;
- 		}
- 
- 		obj = &element->package.elements[0];
- 
- 		if (obj->type != ACPI_TYPE_BUFFER) {
--			acpi_handle_info(handle, "_CST C%d package element[0] type(%x) is not buffer, skip...\n",
--					 i, obj->type);
-+			acpi_handle_info(handle, "%s C%d package element[0] type(%x) is not buffer, skip...\n",
-+					 method, i, obj->type);
- 			continue;
- 		}
- 
-@@ -907,8 +930,8 @@ int acpi_processor_evaluate_cst(acpi_handle handle, u32 cpu,
- 
- 		obj = &element->package.elements[1];
- 		if (obj->type != ACPI_TYPE_INTEGER) {
--			acpi_handle_info(handle, "_CST C[%d] package element[1] type(%x) is not integer, skip...\n",
--					 i, obj->type);
-+			acpi_handle_info(handle, "%s C[%d] package element[1] type(%x) is not integer, skip...\n",
-+					 method, i, obj->type);
- 			continue;
- 		}
- 
-@@ -947,8 +970,8 @@ int acpi_processor_evaluate_cst(acpi_handle handle, u32 cpu,
- 				cx.entry_method = ACPI_CSTATE_HALT;
- 				snprintf(cx.desc, ACPI_CX_DESC_LEN, "ACPI HLT");
- 			} else {
--				acpi_handle_info(handle, "_CST C%d declares FIXED_HARDWARE C-state but not supported in hardware, skip...\n",
--						 i);
-+				acpi_handle_info(handle, "%s C%d declares FIXED_HARDWARE C-state but not supported in hardware, skip...\n",
-+						 method, i);
- 				continue;
- 			}
- 		} else if (reg->space_id == ACPI_ADR_SPACE_SYSTEM_IO) {
-@@ -956,8 +979,8 @@ int acpi_processor_evaluate_cst(acpi_handle handle, u32 cpu,
- 			snprintf(cx.desc, ACPI_CX_DESC_LEN, "ACPI IOPORT 0x%x",
- 				 cx.address);
- 		} else {
--			acpi_handle_info(handle, "_CST C%d space_id(%x) neither FIXED_HARDWARE nor SYSTEM_IO, skip...\n",
--					 i, reg->space_id);
-+			acpi_handle_info(handle, "%s C%d space_id(%x) neither FIXED_HARDWARE nor SYSTEM_IO, skip...\n",
-+					 method, i, reg->space_id);
- 			continue;
- 		}
- 
-@@ -966,8 +989,8 @@ int acpi_processor_evaluate_cst(acpi_handle handle, u32 cpu,
- 
- 		obj = &element->package.elements[2];
- 		if (obj->type != ACPI_TYPE_INTEGER) {
--			acpi_handle_info(handle, "_CST C%d package element[2] type(%x) not integer, skip...\n",
--					 i, obj->type);
-+			acpi_handle_info(handle, "%s C%d package element[2] type(%x) not integer, skip...\n",
-+					 method, i, obj->type);
- 			continue;
- 		}
- 
-@@ -975,8 +998,8 @@ int acpi_processor_evaluate_cst(acpi_handle handle, u32 cpu,
- 
- 		obj = &element->package.elements[3];
- 		if (obj->type != ACPI_TYPE_INTEGER) {
--			acpi_handle_info(handle, "_CST C%d package element[3] type(%x) not integer, skip...\n",
--					 i, obj->type);
-+			acpi_handle_info(handle, "%s C%d package element[3] type(%x) not integer, skip...\n",
-+					 method, i, obj->type);
- 			continue;
- 		}
- 
-diff --git a/drivers/acpi/processor_perflib.c b/drivers/acpi/processor_perflib.c
-index 9e25d6124..0844147d9 100644
---- a/drivers/acpi/processor_perflib.c
-+++ b/drivers/acpi/processor_perflib.c
-@@ -17,6 +17,7 @@
- #include <linux/cpufreq.h>
- #include <linux/slab.h>
- #include <linux/acpi.h>
-+#include <linux/platform_data/x86/apple.h>
- #include <acpi/processor.h>
- #ifdef CONFIG_X86
- #include <asm/cpufeature.h>
-@@ -313,6 +314,23 @@ static void amd_fixup_frequency(struct acpi_processor_px *px, int i)
- 	}
- }
- 
-+static bool acpi_evaluate_apple_apss(acpi_handle handle, struct acpi_buffer *buffer)
-+{
-+	acpi_status status;
-+
-+	if (!x86_apple_machine)
-+		return false;
-+
-+	status = acpi_evaluate_object(handle, "APSS", NULL, buffer);
-+	if (ACPI_FAILURE(status)) {
-+		buffer->length = ACPI_ALLOCATE_BUFFER;
-+		buffer->pointer = NULL;
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
- static int acpi_processor_get_performance_states(struct acpi_processor *pr)
- {
- 	int result = 0;
-@@ -323,16 +341,21 @@ static int acpi_processor_get_performance_states(struct acpi_processor *pr)
- 	union acpi_object *pss = NULL;
- 	int i;
- 	int last_invalid = -1;
-+	const char *method = "_PSS";
- 
--	status = acpi_evaluate_object(pr->handle, "_PSS", NULL, &buffer);
--	if (ACPI_FAILURE(status)) {
--		acpi_evaluation_failure_warn(pr->handle, "_PSS", status);
--		return -ENODEV;
-+	if (acpi_evaluate_apple_apss(pr->handle, &buffer))
-+		method = "APSS";
-+	else {
-+		status = acpi_evaluate_object(pr->handle, "_PSS", NULL, &buffer);
-+		if (ACPI_FAILURE(status)) {
-+			acpi_evaluation_failure_warn(pr->handle, "_PSS", status);
-+			return -ENODEV;
-+		}
- 	}
- 
- 	pss = buffer.pointer;
- 	if (!pss || pss->type != ACPI_TYPE_PACKAGE) {
--		pr_err("Invalid _PSS data\n");
-+		pr_err("Invalid %s data\n", method);
- 		result = -EFAULT;
- 		goto end;
- 	}
-@@ -360,7 +383,8 @@ static int acpi_processor_get_performance_states(struct acpi_processor *pr)
- 		status = acpi_extract_package(&(pss->package.elements[i]),
- 					      &format, &state);
- 		if (ACPI_FAILURE(status)) {
--			acpi_handle_warn(pr->handle, "Invalid _PSS data: %s\n",
-+			acpi_handle_warn(pr->handle, "Invalid %s data: %s\n",
-+					 method,
- 					 acpi_format_exception(status));
- 			result = -EFAULT;
- 			kfree(pr->performance->states);
-@@ -384,8 +408,8 @@ static int acpi_processor_get_performance_states(struct acpi_processor *pr)
- 		if (!px->core_frequency ||
- 		    (u32)(px->core_frequency * 1000) != px->core_frequency * 1000) {
- 			pr_err(FW_BUG
--			       "Invalid BIOS _PSS frequency found for processor %d: 0x%llx MHz\n",
--			       pr->id, px->core_frequency);
-+			       "Invalid BIOS %s frequency found for processor %d: 0x%llx MHz\n",
-+			       method, pr->id, px->core_frequency);
- 			if (last_invalid == -1)
- 				last_invalid = i;
- 		} else {
-@@ -402,7 +426,8 @@ static int acpi_processor_get_performance_states(struct acpi_processor *pr)
- 
- 	if (last_invalid == 0) {
- 		pr_err(FW_BUG
--			   "No valid BIOS _PSS frequency found for processor %d\n", pr->id);
-+			   "No valid BIOS %s frequency found for processor %d\n",
-+			   method, pr->id);
- 		result = -EFAULT;
- 		kfree(pr->performance->states);
- 		pr->performance->states = NULL;
 -- 
-2.55.0
+Jens Axboe
 
