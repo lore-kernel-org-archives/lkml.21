@@ -1,138 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795270996;
-	b=JRVhdN+yDNPMFl0XhSYmB9rGIE4ocYn91dVa1oEXpuCv/sayDkVIZdgsUl0nJiwj8CDG
-	 WArf9XxKtlEWYv/FV96QomHeZD1fgEPnalRf+WEMiZ557fC9mh0yedeOgF7EQivJ6cr0f
-	 H/F8GzNJkfrvR1AfRA8NTIW4oIGym0KmWrfyaGTgUlXX03gK8nr0lvzrhxI3MxYVjoy3C
-	 PtUINJUzy1ouJsrrcPJL2EDWLPp4XJogGSCoK0FFfeXj1305MO9nrcH1YPisAldzxYYal
-	 hhyIcvQEKD3Qa/UE3Hnsu9A7r5kWljnmqoU0nsQZE1VER6BIKJbAM2GA9A4QGSTeZtQ==
+	t=1795271018;
+	b=R5nFKcF6PJamU3DYkZe5Au+l4m71goiQPHHY57MapGo400JVqD3JDIR86kkiyyeoxf3z
+	 dpdSQfOfNzXOKYOmIKflFAYd7d05YUg1zVRpEeU15IM3pPRpgmtbz2e4D9UCBwoPveRwL
+	 qEb/iEr/1ht0TyTEtpIdFpIjCppq1J0hAhDFK6zCj2ck67n5iiLUBnP0hvjqxDJNlJqUk
+	 PB4DYjeAvXoxTYefep5kHTtOxB7P/uuL1jBrnRTn8bKqJOZj6mSsV1cafmcTrIq+6DXlE
+	 sPrSzNpzifjLByX84CXNvJL/pYtA1HUk3/84NkDcmrKgimlLgsU98l0a3IWOcSj57iA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795270996;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
-	 References:Autocrypt:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=WqzN6zJ4R2jqDldWJTZ9k5y4S9ZfXvzqjQVQe1JBsIo=;
-	b=M4XgGbab0wJtFf7ctu1Sc6Av+oYnXDwyjM96fkhPCd9VqSLW6wpsLm8MrwmHq3ls7XaA
-	 X6STkQExQc6ApHo8AY6Mvs+0Twt1HaPO8bDMmu2TRaxh91R/hUhcOW1jy5hKRZHAgub/j
-	 g7ZO9bC5jhYF8LuLR8yJz/U0GekQ6BJzSx2aykIHOzjKWnE2XqCBcxg7TaB8+R+dDHOpD
-	 K/rBwTUPcVj1jZHvE56n5bm87FBdiTpcV+VLN1Fn1oNEoghEpwTb/Wbfws4ECZtxSbMu2
-	 XVRDGF1Q5yhP2nZ13igXwO+GSMZCjNEMkZANgavGO3VhMEVVZkNjaxDZm9rFq7iXYLg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795271018;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=GgpdGs6wYexFLhnGl6N5YwJitX2Rvk/QL/OITtCuAhQ=;
+	b=bEdMO8BqHq93oqSHoDSImWUnN/17DyZhmQiinv85ORc+wsl/vrnCJUYOFeiKZhlIecWd
+	 TRHwLoDFn28ciIRf8Vv6omHy57rp5Z1s+nZ62/suZbm8I4xI5Jem3fFH7ZCSlljsMI0Di
+	 wXe0TL/P9aBRBQjo5MQhAMz/gp1jXAXRcSTYaQAHhaRB2dDJe1kPTjvwh26y6gQhDrn8K
+	 VNcjqMhzsGRr90NxHMvPqAYLeMRsNXiWupU89to7It2EZuUaNI3nMXCdZJYy3P6ev13xD
+	 vw5FwIaYn4mKVnkusd4x6TcxuUL5eO21ym9SGqeiH7KYbt3iin2bL2mcb/aGeQoMRQA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=gSmgkcqx;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=AUKUqEb9;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gKYaC4ok;
+	arc=none smtp.remote-ip=74.125.82.46
+Received: from mail-dl1-f46.google.com (mail-dl1-f46.google.com [74.125.82.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 599C1606A32C
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 14:23:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 599C1606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F21CD606A333
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 14:23:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F21CD606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=gSmgkcqx;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=AUKUqEb9
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795270994;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=WqzN6zJ4R2jqDldWJTZ9k5y4S9ZfXvzqjQVQe1JBsIo=;
-	b=gSmgkcqxubNWIlYYc8Ry7rjMOdcLZOiGCQNynXH7+mUPoRacPCUbYNvsgUgEyUdgnopVcc
-	nFFllVhP1ypfvO9V+RLlBSlBQHDVwKrVDQPFnN0My4tY0eD98GyESJN6/2fMMAjymE12Ox
-	uzHNvT/8tpApVmAUsMcTlYP314L4i3w=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-60-I3SCOc64MHCJwYuXE8IM8A-1; Sat, 21 Nov 2026 14:23:12 +0000
-X-MC-Unique: I3SCOc64MHCJwYuXE8IM8A-1
-X-Mimecast-MFC-AGG-ID: I3SCOc64MHCJwYuXE8IM8A_1795270991
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-48fbcf023dcso764151f8f.2
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:23:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gKYaC4ok
+Received: by mail-dl1-f46.google.com with SMTP id a92af1059eb24-1b244fb7fffso1880634c88.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:23:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795270991; x=1795875791; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=WqzN6zJ4R2jqDldWJTZ9k5y4S9ZfXvzqjQVQe1JBsIo=;
-        b=AUKUqEb9Jv5sEBL8RqHD81ZYnnJdkbD7QPEYrsk4NofCasIi7sHa52S2B4P89+me9u
-         46ykO0/K5eYaeLJr8y2f3XEUcv/LwEgg0d5H61uXZiWoIMs9qYA1TBVBbJtFRLwGy/gl
-         VHJTDHAv1wyF1T9dSpZk8Zg68y1RQf2nSM17mSfLgq/FscaiONF04jIZq1a8HPnBZUX4
-         O+pYBi0nYNHo6gC999PYImo7s6iO5SROafuLo93uE0lvwUj2uQTiB6TBctsBwOIFYbjb
-         nH2uQRbDZXS9pq6XmLAJX/ClGxGNz71TlLMj99u/ANmH00yjveuxhskn6IanD9XaO0Mr
-         jyPA==
+        d=gmail.com; s=20260707; t=1795271016; x=1795875816; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=GgpdGs6wYexFLhnGl6N5YwJitX2Rvk/QL/OITtCuAhQ=;
+        b=gKYaC4ok/C2c9lz49B5CysAZhena2jm5Q4lnJiwcV38pm+bhXMSvmiD0LRvYy37stZ
+         h6DyiuVQ8zp3ZpMd0hj4AYhsxeIeE8nfSM8o/faZQCgPr2QuoqsqfechgnmywDh6sG90
+         y3bD6bDSl/lwQpx0O9BddO+H3WSiN+FkKsvsymXkd/+QXbNa+FNDyxLb1AIMeEcablA5
+         JLS5BsUVdlPNBBah6DXVABe6rvysMkxgPKBS+dH6Ed3TR2Tm5znajGlK2jOT7fRiZR34
+         1mhNg0B4UdZ5b/rt1Fb1QhLKcqr9iVaZIo9q5ZsVm3eQZMiwJFSkwFsReREVouDLUW90
+         YNCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795270991; x=1795875791;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=WqzN6zJ4R2jqDldWJTZ9k5y4S9ZfXvzqjQVQe1JBsIo=;
-        b=NcpG7SR9mLuhHNH5x7C69Vsij0oUbfwsupbB+8vF+Z6nYCaO4HDw/T15o6Xxr0KL2s
-         hxELkaD2+FmIJfUtZcwWaKH2G8IFKHcqewIwGZm54IxyBsCFifevMZFYBSyX7tpseLyJ
-         VW7riicdgbP/iL7b1gKM5rv9YmJJQybLsACYGWEFzfY1XdRh2/eLxb+v24qw8wEF7ZHA
-         k8hTyeqb/9CcBkm1f43yEXC3U0QERghVGuklaQ1061NV6BMFS/IkhTwWRffGyjy5IzR3
-         NshoIf2qoK6cZtLZOHO5Lzme805HXnaola6pkCRAeHXTO4PoHHnUKuXhBWddwBlM3ljs
-         zYFQ==
-X-Forwarded-Encrypted: i=1; AL+hErFMOUti1UroB0OHu+XgJIaIWCrTVtxfHVln0UOv4BQ7Dh+ztcyz4FXXSiKiLjHFU1eZ+XPAb1flf169dQ0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9lN/089p1nGWjY/px02DIsPAMeEfztcfgeqxoYOGJ0vfG95g6q
-	isL8PpuwaVqbDWJi51bgUE0icOs+ybCn5UQYuFh3Nn03LnNidr4dJrFagTxkXdzz2EvigKmV6WO
-	DI9jmtIKD2VGU47IdBq6mB94/ra0sQVtwc4fzyz94e0a1kX417PUgFoaeq3xNggocWQ==
-X-Gm-Gg: AZFdTZcTx0ijK2LgjjI8QSI1zZnfXsjpjes5xjuthUVD4kDr2k+7JoFQA8jk0lhVhuW
-	7SPYK3ceGEnhQaAFmVXHWynJPpAzmnzB477UuTmt9R2jJTIYSoR8cmmJgXSHZ/0b+pnYjOblX3G
-	dL50Jhg9UnnQL5y/7g4R5OFcX61yVpgFirpaajo5zAYP+B+q4GUETNuU/nE8R5JbEfLzI1JEAt8
-	xNVn+8K1CS5RrGr7ZwLVPODCsWEVV8Y1mn1MRPRYZ87UV8THw3fjx1NJImyEEJzJZPxJQhy2GN+
-	xQpSURHEP6bbxGWd/LEDCzzeQxQ+2ZyZJdyfdMlApfYFpUs/eNS0pUANbcsUJgL0rkN3Fs90U6d
-	cCiAViaeJC8hbls2AQ18P4zOvVpuJEgM7WZcKMe2Clet5iHmiR+/w1S4OV3KYZB71ncT3wCmSCV
-	kC
-X-Received: by 2002:a05:6000:47d4:b0:4aa:5396:a7bc with SMTP id ffacd0b85a97d-4abb4b849fbmr9281748f8f.40.1795270991192;
-        Sat, 21 Nov 2026 06:23:11 -0800 (PST)
-X-Received: by 2002:a05:6000:47d4:b0:4aa:5396:a7bc with SMTP id ffacd0b85a97d-4abb4b849fbmr9281710f8f.40.1795270990742;
-        Sat, 21 Nov 2026 06:23:10 -0800 (PST)
-Received: from gmonaco-thinkpadt14gen3.rmtit.csb ([185.168.96.228])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4abbd84e661sm10354767f8f.18.2026.11.21.06.23.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 06:23:10 -0800 (PST)
-Message-ID: <9419fa94de8acc8f1ae445004b77d20d0be3e98e.camel@redhat.com>
-Subject: Re: [RFC PATCH v2 0/9] rv: Verify generic IRQ context transitions
-From: Gabriele Monaco <gmonaco@redhat.com>
-To: Karl Mehltretter <kmehltretter@gmail.com>, Steven Rostedt
-	 <rostedt@goodmis.org>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers	
- <mathieu.desnoyers@efficios.com>, Thomas Gleixner <tglx@kernel.org>, 
- Sebastian Andrzej Siewior	 <bigeasy@linutronix.de>, Clark Williams
- <clrkwllms@kernel.org>, Ingo Molnar	 <mingo@redhat.com>, Peter Zijlstra
- <peterz@infradead.org>, Andy Lutomirski	 <luto@kernel.org>, Juri Lelli
- <juri.lelli@redhat.com>, Vincent Guittot	 <vincent.guittot@linaro.org>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>,  Ben Segall
- <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Valentin Schneider
- <vschneid@redhat.com>,  K Prateek Nayak <kprateek.nayak@amd.com>, Jonathan
- Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,  Randy
- Dunlap <rdunlap@infradead.org>, Wen Yang <wen.yang@linux.dev>,
- linux-trace-kernel@vger.kernel.org, 	linux-rt-devel@lists.linux.dev,
- linux-doc@vger.kernel.org, 	linux-kernel@vger.kernel.org
-Date: Sat, 21 Nov 2026 15:23:08 +0100
-In-Reply-To: <20261107171252.25090-1-kmehltretter@gmail.com>
-References: <20261107171252.25090-1-kmehltretter@gmail.com>
-Autocrypt: addr=gmonaco@redhat.com; prefer-encrypt=mutual;
- keydata=mDMEZuK5YxYJKwYBBAHaRw8BAQdAmJ3dM9Sz6/Hodu33Qrf8QH2bNeNbOikqYtxWFLVm0
- 1a0JEdhYnJpZWxlIE1vbmFjbyA8Z21vbmFjb0BrZXJuZWwub3JnPoiZBBMWCgBBFiEEysoR+AuB3R
- Zwp6j270psSVh4TfIFAmjKX2MCGwMFCQWjmoAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
- Q70psSVh4TfIQuAD+JulczTN6l7oJjyroySU55Fbjdvo52xiYYlMjPG7dCTsBAMFI7dSL5zg98I+8
- cXY1J7kyNsY6/dcipqBM4RMaxXsOtCRHYWJyaWVsZSBNb25hY28gPGdtb25hY29AcmVkaGF0LmNvb
- T6InAQTFgoARAIbAwUJBaOagAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgBYhBMrKEfgLgd0WcK
- eo9u9KbElYeE3yBQJoymCyAhkBAAoJEO9KbElYeE3yjX4BAJ/ETNnlHn8OjZPT77xGmal9kbT1bC1
- 7DfrYVISWV2Y1AP9HdAMhWNAvtCtN2S1beYjNybuK6IzWYcFfeOV+OBWRDQ==
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+        d=1e100.net; s=20260707; t=1795271016; x=1795875816;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=GgpdGs6wYexFLhnGl6N5YwJitX2Rvk/QL/OITtCuAhQ=;
+        b=yQrQh4EosofyZFFolGeOsK3Lozhcwnlu0d720tUL4iqx9UffMr21yJIgbG0bCN0dJK
+         CDJ39W/wVhqJ6oo0Uxvm6HpLG5XRWaTjK+Bkon6s9TTlSLHsyc9CghRrGhpjSOJq0oSh
+         mkshyu56ZK94uJOO7tvRcYGylYhRwW2bSryDb7yKBuIP0YHWxTGI7L5CTYDFaAnKEjgb
+         Tu70fJkPLp5LJK36TecJ5mMcjFuhB9+iYrcNxCPb5qiqsJ4dJGTwffaGxbXw6P0/Wxly
+         4neeclZ+Z7RGr2K/uyoTu6LunWvrBu5Gk+dUTgpFjQvSaqGz3g5z967riyjEWiit53qc
+         p14g==
+X-Forwarded-Encrypted: i=1; AL+hErHjHAqc5KUzxNKbknKN/ND6in4zf7P/4+g7Gkq2yLJxu31HsI8iRmEtfb0q0GD0INcJHUwqtEfU33v0FPA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8o03w9p2KpjSRF1MOLZXbsROBiUX3CUNuSeRBmD4DEV/TvtEWZ
+	gfvbxwleZT+tpcB9HUXK8pi1Ufj5WFLm2YiZ4t7CYRYT+DVZoApbekMl
+X-Gm-Gg: AZFdTZerrEme02zyzyGQrdT0N/kAVRIOqwC4UHOFt89uAnE7SK3UJM4q6/dofBnCF9X
+	EGVqJnhCHOtvxdnz/fqNecMWZjUeKNFt49bAf4yqAMp7/G/l1QYwAGjTok+RNDqSfkqqn56vlvA
+	3w6hbou07swJd2mzxZY35tQCvZ5BrOkHPxP+2ZxfjUm98GRufZOF0KGos9Jzco4HAwps+MHuSt/
+	7GGiUeoDTndMG/o3aa4yC2wxZTPEA8k++wp67PYIQsc8JFULZg9GiEhkkWTWR7qfEujVWYpqdKf
+	5N7Aaef9NKfkYhXNrsN3FPOkGBNFXYx+whETCQmIUrFQBw/YBS0pQMYre23Uc3bF6i/h3RjN4Mb
+	0egnu1vLljf6eK/xvVBHSZ240gv8JEb/Jvue7pxraV29fMYwW6K9+4yafuUk8BOekisJlB3BDIJ
+	G9uL3QGMUVNYwA6+c9j86dKO6b+0Ofjg35PHeQUhsnsKolNEuu9WLcFreDMNDddvOa5bBlQQe/Y
+	qU0TgI9yEe8+WHEpYbQhF3TW4GbDCeX2tP98Zby/zXE7qn+o5MXhYJYsKZ8w+/nDBlkmM1Nw32l
+	j938osi0yNnltwlAIBlnOh9QDGTCMoDReebzJQ86t2jsYICinIt5vCqyME4=
+X-Received: by 2002:a05:7022:290:b0:191:444:425 with SMTP id a92af1059eb24-1b5567c0fbdmr5704524c88.2.1795271015705;
+        Sat, 21 Nov 2026 06:23:35 -0800 (PST)
+Received: from G7XWH7K1F3 ([2408:8256:2e80:7371:8549:3fe7:526f:af9])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556840494sm15183003c88.12.2026.11.21.06.23.22
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 21 Nov 2026 06:23:35 -0800 (PST)
+From: Zhao Li <enderaoelyther@gmail.com>
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: Johannes Berg <johannes@sipsolutions.net>,
+	Brian Norris <briannorris@chromium.org>,
+	Jeff Chen <chunfan.chen@gmail.com>,
+	Jeff Chen <jeff.chen_1@nxp.com>,
+	Francesco Dolcini <francesco@dolcini.it>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Pengpeng Hou <hppiscas@163.com>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4] wifi: mwifiex: validate event lengths before copying bodies
+Date: Sat, 21 Nov 2026 22:22:54 +0800
+Message-ID: <20261121142254.99326-1-enderaoelyther@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20260731141600.2-mwifiex-v4-pengpeng@iscas.ac.cn>
+References: <20260731141600.2-mwifiex-v4-pengpeng@iscas.ac.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -142,225 +104,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Sat, 2026-11-07 at 18:12 +0100, Karl Mehltretter wrote:
-> Questions still open from v1:
->=20
-> =C2=A0 1. Are dedicated scheduler tracepoints the right way to follow
-> =C2=A0=C2=A0=C2=A0=C2=A0 preempt_schedule_irq() across task switches and =
-migration?
+On Fri, Jul 31, 2026 at 10:20:02PM +0800, Pengpeng Hou wrote:
+> +		if (skb->len < MWIFIEX_EVENT_HEADER_LEN ||
+> +		    skb->len - MWIFIEX_EVENT_HEADER_LEN > MAX_EVENT_SIZE) {
 
-So I'm not quite sure you care about running outside or inside the exceptio=
-n
-context tracking. If you don't, an fentry/fexit in BPF (or fprobe in the ke=
-rnel,
-not supported) could work for you.
+One concern with v4: dropping SDIO events whose body is larger than
+MAX_EVENT_SIZE (2048) would also drop events that do not use
+adapter->event_body[]. SDIO command-port reads can reach 4 KiB,
+and events such as EVENT_EXT_SCAN_REPORT are parsed directly from
+adapter->event_skb->data. Rejecting skb->len < 4 and clamping the
+memcpy() into event_body[] to MAX_EVENT_SIZE would protect event_body[]
+without discarding > 2048-byte skbs.
 
-That said, we do roughly the same in __schedule(), so I don't see anything =
-wrong
-with what you're doing, as long as Peter is fine with it.
+However, clamping instead of dropping exposes a separate bug in
+EVENT_RXBA_SYNC (which v4 happens to mask on SDIO). Both sta_event.c
+and uap_event.c pass adapter->event_body paired with the untruncated
+adapter->event_skb->len - sizeof(eventcause) as the u16 length to
+mwifiex_11n_rxba_sync_event():
 
+- When event_skb->len > 2052 (possible on SDIO, up to 4092 bytes),
+  the TLV walk reads past event_body[2047] into the following
+  mwifiex_adapter fields.
+- On PCIe (untouched by v4), mwifiex_pcie_process_event_ready() has no
+  lower bound on evt_len: for evt_len 0..7 event_skb->len ends up at
+  0..3, and the u16 length argument wraps to 0xFFFC..0xFFFF.
 
-Maybe, you could somehow reuse the __schedule() tracepoints and understand =
-you
-came from interrupt context, but that would obviously not match the
-interrupt/preemption counts, although they are (now) guarded by a BUG so yo=
-u
-don't really need them.
-The loop should work fairly well anyway.
+nxpwifi (SDIO only) has the same RXBA_SYNC callers, and its SDIO copy
+already clamps to MAX_EVENT_SIZE, so only the length argument is
+unbounded there.
 
-The nrp model does something similar with the nested_preempt, flagging a
-schedule entry after irq as an irq preemption. You may look into that, I do=
-n't
-exactly remember but it probably isn't really accurate and you might need
-something else.
+Checking event_skb->len >= sizeof(eventcause) and parsing RXBA_SYNC
+from event_skb->data + sizeof(eventcause) (as the TDLS parser does)
+would fix both the over-read and the u16 wrap across all transports,
+without waiting for the PCIe buffer-return rework discussed in October.
 
-> =C2=A0 2. Is the KUnit-only hook for an empty ksoftirqd invocation
-> =C2=A0=C2=A0=C2=A0=C2=A0 acceptable? Outside a KUnit run, its worker chec=
-ks take a disabled
-> =C2=A0=C2=A0=C2=A0=C2=A0 static-key path.
-
-I mentioned it briefly in another email, but I don't think you should touch
-softirq code at all. Just simulate events, don't cause them.
-As a rule of thumb, if your RV unit test creeps into other subsystems, you'=
-re
-doing something wrong.
-
-Another story is if you want to write softirq KUnit tests, but that's beyon=
-d the
-scope of this series and I'm not the one to answer it.
+Are you planning a v5, and would it make sense for me to send separate
+fixes for EVENT_RXBA_SYNC in mwifiex and nxpwifi?
 
 Thanks,
-Gabriele
-
->=20
-> Patches 1-5 add the tracepoints, monitors and documentation. Patches 6-9
-> add KUnit coverage.
->=20
-> The series is based on v7.4-rc1, which contains the v1 prerequisite and
-> Wen Yang's reactor lockdep fix:
->=20
-> =C2=A0 commit feb5c9a2447a ("softirq: Preserve interrupt context on retur=
-n from
-> interrupt")
-> =C2=A0 commit 39ccedfd9e55 ("rv: Use LD_WAIT_SPIN as the reactor lockdep =
-wait
-> type")
->=20
-> The series is independent of the early-hardirq series [2], which
-> installs hardirq state before entry tracing. Both change
-> kernel/softirq.c, so applying one on top of the other needs a small
-> conflict resolution in __irq_exit_rcu().
->=20
-> Changes since v1:
->=20
-> =C2=A0 - Use bare DECLARE_TRACE() tracepoints instead of trace events
-> =C2=A0=C2=A0=C2=A0 (Gabriele)
-> =C2=A0 - Rename the irqentry container to irq (Gabriele)
-> =C2=A0 - Add text schematics of both models to the documentation (Gabriel=
-e)
-> =C2=A0 - Document why irqstate and irqexit are separate automata
-> =C2=A0 - Rebase onto v7.4-rc1
->=20
-> Testing on v7.4-rc1 with Clang 23.1.5, GCC 14.2 (x86) and GCC 16.2
-> (cross), and QEMU 10.0 TCG, with lockdep and the locking selftests:
->=20
-> =C2=A0 - Each patch builds with W=3D1 on x86_64 without new warnings.
-> =C2=A0=C2=A0=C2=A0 RV_MONITORS_KUNIT_TEST=3Dm builds on x86_64 and arm64.=
- kernel-doc
-> =C2=A0=C2=A0=C2=A0 reports no warnings for the changed headers.
-> =C2=A0 - The rv_mon KUnit suite and the reactor suites passed without
-> =C2=A0=C2=A0=C2=A0 failures on:
->=20
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 x86_64=C2=A0=C2=A0 PREEMPT SMP4 and UP, PR=
-EEMPT with nohz_full=3D1-3 and
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 threadirqs, PREEMPT_RT SMP4, PREEMPT_RT SMP8 with
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 nohz_full=3D1-3
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 arm64=C2=A0=C2=A0=C2=A0 PREEMPT, PREEMPT w=
-ith nohz_full=3D1-3 and threadirqs,
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 PREEMPT_RT, PREEMPT_RT SMP8 with nohz_full=3D1-3
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 riscv64=C2=A0 PREEMPT
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ARMv7=C2=A0=C2=A0=C2=A0 UP
->=20
-> =C2=A0=C2=A0=C2=A0 Each configuration ran 13 to 21 of the 29 rv_mon cases=
-. The others
-> =C2=A0=C2=A0=C2=A0 are skipped because they need a different configuratio=
-n.
-> =C2=A0 - RV=3Dn kernels boot on x86_64 and arm64.
-> =C2=A0 - On top of the early-hardirq series, the same suites passed on
-> =C2=A0=C2=A0=C2=A0 x86_64 (PREEMPT, PREEMPT_RT), arm64 (PREEMPT, PREEMPT_=
-RT) and
-> =C2=A0=C2=A0=C2=A0 riscv64.
->=20
-> An LLM assisted with the patches and the testing.
->=20
-> v1: https://lore.kernel.org/all/20261022050712.75035-1-kmehltretter@gmail=
-.com/
->=20
-> [1]
-> https://lore.kernel.org/all/FACA54EC-F846-4051-9ADD-DB46E7665FAD@redhat.c=
-om/
-> [2] https://lore.kernel.org/all/20261028033127.82193-1-kmehltretter@gmail=
-.com/
->=20
-> Karl Mehltretter (9):
-> =C2=A0 tracing/irq: Add generic IRQ context boundary tracepoints
-> =C2=A0 tracing/sched: Add IRQ preemption lifecycle tracepoints
-> =C2=A0 rv: Add a monitor for generic IRQ context transitions
-> =C2=A0 rv: Add a monitor for IRQ-exit scheduling ownership
-> =C2=A0 docs/rv: Document the IRQ monitors
-> =C2=A0 rv: Add KUnit coverage for IRQ context transitions
-> =C2=A0 rv: Add KUnit coverage for IRQ-exit scheduling
-> =C2=A0 rv: Test empty PREEMPT_RT softirq worker intervals
-> =C2=A0 rv: Test IRQ-exit softirq provenance and handoff
->=20
-> =C2=A0Documentation/trace/rv/index.rst=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 1 +
-> =C2=A0Documentation/trace/rv/monitor_irq.rst=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 |=C2=A0 475 ++++
-> =C2=A0include/linux/interrupt.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 |=C2=A0=C2=A0=C2=A0 8 +
-> =C2=A0include/rv/kunit.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 34 +-
-> =C2=A0include/trace/events/irq.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
- |=C2=A0=C2=A0 56 +
-> =C2=A0include/trace/events/sched.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=
-=A0 26 +
-> =C2=A0kernel/sched/core.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 6 +
-> =C2=A0kernel/softirq.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 324 ++-
-> =C2=A0kernel/trace/rv/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 11 +-
-> =C2=A0kernel/trace/rv/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 3 +
-> =C2=A0kernel/trace/rv/monitors/irq/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 13 +
-> =C2=A0kernel/trace/rv/monitors/irq/irq.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 35 +
-> =C2=A0kernel/trace/rv/monitors/irq/irq.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 3 +
-> =C2=A0kernel/trace/rv/monitors/irqexit/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 |=C2=A0=C2=A0 14 +
-> =C2=A0kernel/trace/rv/monitors/irqexit/irqexit.c=C2=A0=C2=A0=C2=A0 |=C2=
-=A0 172 ++
-> =C2=A0kernel/trace/rv/monitors/irqexit/irqexit.h=C2=A0=C2=A0=C2=A0 |=C2=
-=A0=C2=A0 85 +
-> =C2=A0.../trace/rv/monitors/irqexit/irqexit_kunit.c |=C2=A0 540 ++++
-> =C2=A0.../trace/rv/monitors/irqexit/irqexit_kunit.h |=C2=A0=C2=A0 21 +
-> =C2=A0.../trace/rv/monitors/irqexit/irqexit_trace.h |=C2=A0=C2=A0 19 +
-> =C2=A0kernel/trace/rv/monitors/irqstate/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0 |=
-=C2=A0=C2=A0 14 +
-> =C2=A0kernel/trace/rv/monitors/irqstate/irqstate.c=C2=A0 |=C2=A0 289 ++
-> =C2=A0kernel/trace/rv/monitors/irqstate/irqstate.h=C2=A0 |=C2=A0 139 +
-> =C2=A0.../rv/monitors/irqstate/irqstate_kunit.c=C2=A0=C2=A0=C2=A0=C2=A0 |=
- 2339 +++++++++++++++++
-> =C2=A0.../rv/monitors/irqstate/irqstate_kunit.h=C2=A0=C2=A0=C2=A0=C2=A0 |=
-=C2=A0=C2=A0 25 +
-> =C2=A0.../rv/monitors/irqstate/irqstate_trace.h=C2=A0=C2=A0=C2=A0=C2=A0 |=
-=C2=A0=C2=A0 15 +
-> =C2=A0kernel/trace/rv/rv_monitors_test.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 30 +
-> =C2=A0kernel/trace/rv/rv_trace.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
- |=C2=A0=C2=A0=C2=A0 2 +
-> =C2=A0tools/verification/models/irq/irqexit.dot=C2=A0=C2=A0=C2=A0=C2=A0 |=
-=C2=A0=C2=A0 21 +
-> =C2=A0tools/verification/models/irq/irqstate.dot=C2=A0=C2=A0=C2=A0 |=C2=
-=A0=C2=A0 32 +
-> =C2=A029 files changed, 4737 insertions(+), 15 deletions(-)
-> =C2=A0create mode 100644 Documentation/trace/rv/monitor_irq.rst
-> =C2=A0create mode 100644 kernel/trace/rv/monitors/irq/Kconfig
-> =C2=A0create mode 100644 kernel/trace/rv/monitors/irq/irq.c
-> =C2=A0create mode 100644 kernel/trace/rv/monitors/irq/irq.h
-> =C2=A0create mode 100644 kernel/trace/rv/monitors/irqexit/Kconfig
-> =C2=A0create mode 100644 kernel/trace/rv/monitors/irqexit/irqexit.c
-> =C2=A0create mode 100644 kernel/trace/rv/monitors/irqexit/irqexit.h
-> =C2=A0create mode 100644 kernel/trace/rv/monitors/irqexit/irqexit_kunit.c
-> =C2=A0create mode 100644 kernel/trace/rv/monitors/irqexit/irqexit_kunit.h
-> =C2=A0create mode 100644 kernel/trace/rv/monitors/irqexit/irqexit_trace.h
-> =C2=A0create mode 100644 kernel/trace/rv/monitors/irqstate/Kconfig
-> =C2=A0create mode 100644 kernel/trace/rv/monitors/irqstate/irqstate.c
-> =C2=A0create mode 100644 kernel/trace/rv/monitors/irqstate/irqstate.h
-> =C2=A0create mode 100644 kernel/trace/rv/monitors/irqstate/irqstate_kunit=
-.c
-> =C2=A0create mode 100644 kernel/trace/rv/monitors/irqstate/irqstate_kunit=
-.h
-> =C2=A0create mode 100644 kernel/trace/rv/monitors/irqstate/irqstate_trace=
-.h
-> =C2=A0create mode 100644 tools/verification/models/irq/irqexit.dot
-> =C2=A0create mode 100644 tools/verification/models/irq/irqstate.dot
->=20
->=20
-> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+Zhao
