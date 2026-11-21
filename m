@@ -1,98 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795279126;
-	b=U/YCWSOZrO3djteVybv3IKJmaqBidERku40Jm0q5J7Imcq78NY/RSO/cR2Bs9fD9CW1A
-	 I9FMS42/oCGXKQTzMBsD2yguX4XlmcUb8frpbPpYJ6s7r9z6PhzFds5cijUhf1XY3rYwo
-	 2IOh7ngduanHzlFYc6F7VDmFNdzI/dA/n8O2xIoAAePyySBgmQQbZBuqTI6WIbiU4Miia
-	 zJ/uIxAw4gxaKCLF3CKFJ1s5EbaxTtd8SZIewffRpfpQO+R7IHAyLdrf/kORh87TIB8vS
-	 ht49peMNI61FGE7ecZ0Azpn3crynmheTeWmFfLXmGhxCitmhfGkEPKW+/KDWfnrvLOg==
+	t=1795279173;
+	b=pbO4lDZL518bK2tVSr7xdLXge5HM8M36F8vhLCE/7CgQxP3H94vcxY/+rB9hyzwJaxBI
+	 SH+kPCRpmu4gRmfDaAJsZy0fR1xucKhTJqINgkoYAmTyOCp4GHpTarnXMZpW1FL8FUecC
+	 oTfj2IQtnZNO0Zj8a/lyAy3PkDKxJ76l6NzzHV1Zu/anJJ5E78jzQ0FhURaJqdK8YzMBS
+	 xslmAqxLTFhbZ17LIp1jPgRXlpfvz7p5FG6RrKbR0PJEnip2z5WqbhUS1ENtH3BA3EcpZ
+	 G/Gh8CtOA88YAk/uHS8gIXiRpq+xLJnPd2CUC3eNogisjIcX+vbuo7OdykO7j6dPplg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795279126;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795279173;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=dfLpaiZKgialdhZmLohg/bMfGz6NinnnazUQ52qYpko=;
-	b=RpBsXHMrrN+cJLVjiAio3mg6ohJHJaZkTaYAiG+DSsBgHxiEmSdvyQfwT3mQWVWniH1B
-	 6rxEJSY+ZMAmZ3ymR2VzMtvnLz3rBkMg7Vp/+XarL1ma48vwYmrosMJLS1OTr84OCCv7E
-	 FJix3iZSE71p6QYrcOEj4QsxJMU0pCNcRVUi4NVbbmjAWRQDKZB0IYXdEj4RUAC/JTm1P
-	 r4tTRBtXD5dDXwJBjzwFOG0UlubH+ZkF2OFYJTaOLFHqMu6H7YN8APCQtkt7nadIqLla6
-	 Jur7HazAPmuc0jCpAmpqCFcb1T+AMmM1xgkmbKrnIFwEfD8AvhLt+LkMxIu0noKKeaQ==
+	bh=pLQTRcXUJhUmLmDSMnhR3mvBdnibH29NsZJ/odBJs3k=;
+	b=GVI9vJTSiv4cOToHSS42c82gAalNJH9T2qqPTGXCV6UO3JWw4t90cVzTAhMPrMmIWbxB
+	 5B9e06vCHw7AcxwuNlmrk8b+/oBE7JidJC0lfgtuR2arDVhyw1Crj1lO+NyY4i6OEIA60
+	 jMxzaU2zP/a4ftunjZoyx8XzMe6g6EizHHIVhG5Gx+lkBQnkzoll4FozHXwd+CLnBpEMX
+	 lJpI4McMoWf9IG+95JpkpUKsqGU+jFE5+FwmVo7aQXpwgrIWZqy1grZq7FCV8giUMJ1uL
+	 XRUXJP3n+kbm00faVvLiv73ZIe0GgEHOJQSmg5+hSCwZYkMpL72rrpR9DmmxHxEzRpQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="gD2/Nb+7";
-	arc=none smtp.remote-ip=209.85.221.51
-Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=elwNxqNl;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A127606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:38:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A127606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 236FE606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:39:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 236FE606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gD2/Nb+7
-Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-491f34b4e0fso874738f8f.2
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 08:38:45 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=elwNxqNl
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb72b44a97so15694665e9.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 08:39:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795279124; x=1795883924; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795279171; x=1795883971; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dfLpaiZKgialdhZmLohg/bMfGz6NinnnazUQ52qYpko=;
-        b=gD2/Nb+7IUgO/G4FfpKXEN54NPKAB1zQMgmY5eoqgeIerjOf8ZFoHZUJOAv0hFOGQK
-         Ljp8y5EsU1zXe/60I0ExARiER+L9J1OAm1KleL6FcvFUPOQAccswTJFJbRotQ04v3qtj
-         OVDkQtFcJYa/7BG/pFNi0db3Qz+sNH0vWICCCF7lr9YQ5s05v3zW8+71CLSJUYeYv606
-         vVXD4sdfCdllrHaVYOM+HGf2IEa+wsmAL6uo4l1ZdqFlSYIE4IU51NzbIOpzzKst5Ea4
-         czG0aCdppa2Cb3eWcwQsdguuP+sZXgz2dO6+VJ4GZJevVqFHc9Gq7Cg/a3IncmE6d4ko
-         WIdw==
+        bh=pLQTRcXUJhUmLmDSMnhR3mvBdnibH29NsZJ/odBJs3k=;
+        b=elwNxqNlg9w5HA4LpyiiqlhnV/mtuNlaGEuQHi7q1/TQd1LxWvhsEROrLfyl+oUeQt
+         RdhMat5q2HO24mh7XjReHGhzbHiWH5k04ifg8LlWxuel68EZ69OLJozB7gZqJH3PqD7/
+         dyEN1Z2uYfE1PMdC4CkcLFlgejYSp/b+149udohvf91lqJk/weZkc/cdNPWIX3E7+x1Y
+         5KIJyvRXSCSfQcz3klDvWB7u7gIC9qSNF2mM5aEY++25AaAwTzWcC2XS2EtgsY+uYWo1
+         ofWKvYFwvgjEgKCL9PVjZ0VOU9LwZsYwv5rI6V+uokTIAXmN7uM5SFoJqmGm00TNMghq
+         9gBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795279124; x=1795883924;
+        d=1e100.net; s=20260707; t=1795279171; x=1795883971;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=dfLpaiZKgialdhZmLohg/bMfGz6NinnnazUQ52qYpko=;
-        b=l8WiJQwdzn9nnBKSf8cl4N3R3We1iZQ6acORg3T5b+IhNI7paomq7NJZuRO5kvKPh2
-         vZfAGEko40KQrrWlLVRY5f7adYaUFzLlb9aO1V2WR6Q/283jMmZB4mlb1mRjmRc41tER
-         /VqCKo6sJ7F9yFjuW1AUsjtsi95KPZY3xO7SqfuCoX0qSeajqD9crvvmAxROXYq920Fo
-         AhlQVo9bsBUVHPXZ1YAIIl/GPF0MH4VucPSq8J3p1aroh4L5EWlC4hrFXiRKT7Z0XSee
-         NT/8FYjb2EXU6ksjNRzMhVA1mFpeeJBFt1M3X95TbI3MhXStY8Q+DDTXSp3fwP6Fc8uZ
-         v2sA==
-X-Forwarded-Encrypted: i=1; AL+hErHLYa4XEcJ9E02n/7dUWDio3h4L+jCENtpBhikTz7yxu84Cd0UL3YYsbc6todaYXm/NcPZqX5wnaIUiUYs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8lE/T+9mLlEDDFXon7TSvedQnnm60Xv4QC0M0cuValJH93bTXV
-	caYfpKL/jrr0ikDG4rI6txpJ017cX2jS5vBiTMOzsvSBg0vAu/EQBWLT
-X-Gm-Gg: AZFdTZcg1N9fn5axjG/Nggzxr7EpfGCDVe8QuyJev+nOPpcDlFi/tKH5xoiA4du+MMg
-	utWz7waRj7dJy9Vhz/CDY8c015shDUcZEgY9AUOzEgJnD422K2OKluPwy0MkEe4sqRNDIXNWeSO
-	F5zhSYk4gvuGcYXytOZ3iScnIe3TdeVfQAAWlcGUKpwS4T84vyLcv0PcRPz7r2tC930NvhyX3uy
-	94EVG61g5hcWEXugxIYTmsVAZVyI+FVYvJgN/ouCsVwhRDrbYT/RhNmvP0b/+DVQEioqfR6wJgM
-	nkzUQ2nssXAdrc4EdewP0xflmsIpzrMwevcMpG+emaLi3VjKX5iO7yQU40BdnRWZ3QIBwHjEk+N
-	6DCIv7xLm98nnRh0eywDd4jZidXvSdSVNppX70P9YRZ3GnMAEKi0jNH4YSFIjBNvTCrJERZvQ2D
-	7nETkUQA0LACFbSKjeqC6P7QS10VDRqUstSExi3uTSvKwYb6abnatXLW8ROTPs77ean172RgFeb
-	Ef0EuVNXanfdL+JpwAHLR/zbbcKlQ+IAnIDf5xNROMqTCtgb7n8KAxfxc8kKM09Rqvsw5ygfj5u
-	Hz/MkQeNar2p9ERee3vcNHrjHoeTQ0Lkd3nMgZYieaAHKLEwarTzW75ai5WQbG+1Bam+tFrqjt+
-	B41xGqOiyBYu62a/JJ6X+1xVYOOzzbvvOY0KAl2ek/ec1Y5+eO00c34wqqWkM8xNT1gBKaMgcfC
-	c3tm1w9KVrpIxzivB7tYstsOc8UPPfBmfQ
-X-Received: by 2002:a05:6000:2c13:b0:491:fd47:5df3 with SMTP id ffacd0b85a97d-4abab02d216mr13249942f8f.7.1795279124204;
-        Sat, 21 Nov 2026 08:38:44 -0800 (PST)
-Received: from localhost.localdomain (dynamic-2a02-3100-aeb0-6801-ad74-bca0-dc5f-7242.310.pool.telefonica.de. [2a02:3100:aeb0:6801:ad74:bca0:dc5f:7242])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2e6dsm12468455f8f.6.2026.11.21.08.38.43
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 21 Nov 2026 08:38:43 -0800 (PST)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Russell King <linux@armlinux.org.uk>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	David Hildenbrand <david@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Xu Xin <xu.xin@linux.dev>,
-	Chengming Zhou <chengming.zhou@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: mm: Ignore PTE_AP2 in pte_same() for LPAE
-Date: Sat, 21 Nov 2026 17:38:34 +0100
-Message-Id: <20261121163834.15441-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+        bh=pLQTRcXUJhUmLmDSMnhR3mvBdnibH29NsZJ/odBJs3k=;
+        b=DGNc9P10hBRn3FK9CLKZ8eJy/JAx18cwRYiAVL4vsgFnJHO9M2qH7aJsCPD3mNLkxj
+         8Bv8eD6l+BUQoDAIbbHUN++yVqRBO1Ec2l1K1c7C6cv6nt19EPF7QmZuOiWjJqCt6dOF
+         TZIGQoxkxdKOPx5dWk75gC1vxqtryzQq2pPSqgUQNyJAbe/e0JVAMvEr8z1bOfgd6lNe
+         C5TJ7JvIHthiHmcRehaZBseZFAkRNDWIRJnoEIZuWodHfbNXSCecGEYkX5gyr5Ma1wDb
+         953p+um1Ib330wZhCxsLM3tRUm1J4VPd74Eil3DgB50d+CQmcCn0Dt99iDkxlMXYmWf7
+         sLvA==
+X-Forwarded-Encrypted: i=1; AL+hErHSMUW2pfBJ7sNvDGhI9agUz62Gj/CWI7liJLIPEMkkZORhHqBFAKT7a+ThJ+0khxgEuM/FqQoGwe/jD4Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/UP5upZZmnd7PxoUtxizeiwBUhW0LixXGjn+kwIC7l8ios8q3g
+	g59ZYhwoDTIuWI6DpGS2U2pGptaICehvk/p2+yl9jj85LwTBB8id9NFg8OGTP3iDzd4=
+X-Gm-Gg: AZFdTZfs3YEpB2elUGRa7ThcvT4jc/muuv3yqBcbEc2rQELGWJSbf/7tMhVU/vCqHmP
+	6t3TLIKq6CWxyHJEXNekbIpoLMiIR6pOBnxuud4RqbaU8rfwYCMDVeDGipA1uS4B7KwrqxEOT/0
+	QrTj4J1la5Z+loSnz5rz9L7v5e9+VK5DVFfZka/2nV3+gw3N1gG0ESBdBIg4RrhoIvGS5t1BPF5
+	s5MguLIVrsfjw4UAeuz6Q/ouW3JUfygymM3ONcyGQmesq9Pj8PjGZqT2KHOUbgVugeU5RNCgHJ2
+	zQTMvYLFyn5Bz14Ja4vTpUiAyEnFWaWH8gRBpv2WezfbLebSFl2WRatOr8f65XRe0zSAr6L5RgV
+	aXeYRAA63Og2wIljJpfsj9rhfstk8Ev1CHhFbQnsxaCDOrMG/EtWtM8PXpSsIbQW3MAUxllT0Y5
+	t/4/abqLsVX2tjaXcABGpp51NeCsXj+UrSqnfAfKGk6ca6CFgvEAYfg012kZX2O/4qw3bBiWak9
+	19AlyhX9bUU56Fz//wVBQqQIgimP7MjxnwuXDPQhYREhFH1A43qyIRy8q6ditO9ZWB1h5s4hbBc
+	/3HC36HpPKa0LJcFgN5iIi0pAJs99px9EwXtDWT7sBbsiKTZZFQeMt63lbE5Qtp+uyg94j9X
+X-Received: by 2002:a05:600c:1549:b0:4bb:741d:ea8 with SMTP id 5b1f17b1804b1-4bb8880ad4amr140075845e9.7.1795279171363;
+        Sat, 21 Nov 2026 08:39:31 -0800 (PST)
+Received: from localhost-live.home.vlan10 (053da81f.dynamic.tele-ag.de. [5.61.168.31])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8d4f9aa8sm140114675e9.4.2026.11.21.08.39.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 08:39:30 -0800 (PST)
+From: Joshua Covington <joshuacov@gmail.com>
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	linux-clk@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joshua Covington <joshuacov@gmail.com>
+Subject: [PATCH] clk: rp1: allow the clock provider to be probed again
+Date: Sat, 21 Nov 2026 16:39:15 +0000
+Message-ID: <20261121163915.86681-1-joshuacov@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,69 +101,61 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-For valid ptes, cpu_v7_set_pte_ext() derives the hardware read-only bit
-PTE_AP2 from L_PTE_DIRTY and L_PTE_RDONLY. pte_wrprotect() and
-pte_mkclean() only change those software bits and leave PTE_AP2 as it
-is. Starting from a dirty, writable pte, the software value therefore
-has PTE_AP2 clear while the installed entry has it set.
+The clock descriptors are static and are registered directly. The
+clock framework clears hw.init once a clock has been registered, so
+when the RP1 device is unbound and bound again, the second probe
+registers clocks without init data and oopses:
 
-KSM hits this since commit c33c794828f2 ("mm: ptep_get() conversion"),
-which made write_protect_page() return the software value instead of
-reading the installed entry back. replace_page() then finds the stored
-entry different and gives up. After a failed zero-page merge, KSM can
-fall back to a regular merge in the same pass, so zero-filled pages
-end up as ordinary KSM pages instead of mapping the zero page.
+  pc : __clk_register+0x5c/0x9dc
+  Call trace:
+   __clk_register+0x5c/0x9dc (P)
+   devm_clk_hw_register+0x5c/0xe0
+   rp1_register_pll+0x24/0x40
+   rp1_clk_probe+0xc0/0x168
 
-Mask PTE_AP2 like PTE_EXT_NG for present ptes. L_PTE_DIRTY and
-L_PTE_RDONLY are still compared, so changes to the dirty and
-write-permission state remain visible.
+Keep the init data of each descriptor and restore it before the clock
+is registered.
 
-Fixes: ded947798469 ("ARM: 8109/1: mm: Modify pte_write and pmd_write logic for LPAE")
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+Fixes: 6486341721a2 ("clk: rp1: Add support for clocks provided by RP1")
+Signed-off-by: Joshua Covington <joshuacov@gmail.com>
 ---
-Assisted by an LLM.
+Tested on a Raspberry Pi CM5 with 6.18.64 and the Raspberry Pi
+downstream patches, where binding rp1_pci again after unbinding it hit
+this. Applies unchanged to v7.4-rc3 and builds there without warnings.
 
-Tested on v7.4-rc3, multi_v7_defconfig with ARM_LPAE and KSM, as a
-32-bit guest in QEMU (TCG, cortex-a15) and under KVM on a Raspberry Pi
-400 (Cortex-A72). 1024 zero-filled pages merged with use_zero_pages=1,
-and test_unmerge_zero_pages from
-tools/testing/selftests/mm/ksm_functional_tests:
+ drivers/clk/clk-rp1.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-                     ksm_zero_pages   test_unmerge_zero_pages
-  v7.4-rc3                        0   fails
-  with this patch              1024   passes
-
-Unpatched v6.12 shows the same failure. If this is better handled in
-KSM, reading the entry back after set_pte_at() in write_protect_page(),
-as before c33c794828f2, also fixes it.
-
- arch/arm/include/asm/pgtable-3level.h | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm/include/asm/pgtable-3level.h b/arch/arm/include/asm/pgtable-3level.h
-index 7b71a3d414b..4a187d7be1d 100644
---- a/arch/arm/include/asm/pgtable-3level.h
-+++ b/arch/arm/include/asm/pgtable-3level.h
-@@ -161,11 +161,15 @@ static inline pmd_t *pud_pgtable(pud_t pud)
-  *
-  * To correct this behaviour, we mask off PTE_EXT_NG for any pte that is
-  * present before running the comparison.
-+ *
-+ * Likewise, cpu_v7_set_pte_ext() sets PTE_AP2 in a valid stored entry when
-+ * the pte is clean or read-only. PTE_AP2 is derived from L_PTE_DIRTY and
-+ * L_PTE_RDONLY, which are still compared, so mask it off as well.
-  */
- #define __HAVE_ARCH_PTE_SAME
--#define pte_same(pte_a,pte_b)	((pte_present(pte_a) ? pte_val(pte_a) & ~PTE_EXT_NG	\
-+#define pte_same(pte_a, pte_b)	((pte_present(pte_a) ? pte_val(pte_a) & ~(PTE_EXT_NG | PTE_AP2) \
- 					: pte_val(pte_a))				\
--				== (pte_present(pte_b) ? pte_val(pte_b) & ~PTE_EXT_NG	\
-+				== (pte_present(pte_b) ? pte_val(pte_b) & ~(PTE_EXT_NG | PTE_AP2) \
- 					: pte_val(pte_b)))
+diff --git a/drivers/clk/clk-rp1.c b/drivers/clk/clk-rp1.c
+index 1dd276dd2..5c3929e93 100644
+--- a/drivers/clk/clk-rp1.c
++++ b/drivers/clk/clk-rp1.c
+@@ -363,6 +363,7 @@ struct rp1_clk_desc {
+ 				       struct rp1_clk_desc *desc);
+ 	const void *data;
+ 	struct clk_hw hw;
++	const struct clk_init_data *init;
+ 	struct rp1_clockman *clockman;
+ 	unsigned long cached_rate;
+ 	struct clk_divider div;
+@@ -2418,8 +2419,15 @@ static int rp1_clk_probe(struct platform_device *pdev)
  
- #define set_pte_ext(ptep,pte,ext) cpu_set_pte_ext(ptep,__pte(pte_val(pte)|(ext)))
-
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+ 	for (i = 0; i < asize; i++) {
+ 		desc = clk_desc_array[i];
+-		if (desc && desc->clk_register && desc->data)
+-			hws[i] = desc->clk_register(clockman, desc);
++		if (!desc || !desc->clk_register || !desc->data)
++			continue;
++
++		/* The clock core clears hw.init of these static descriptors */
++		if (!desc->init)
++			desc->init = desc->hw.init;
++		desc->hw.init = desc->init;
++
++		hws[i] = desc->clk_register(clockman, desc);
+ 	}
+ 
+ 	clk_audio_core = &pll_audio_core_desc;
 -- 
-2.39.5 (Apple Git-154)
+2.56.0
 
