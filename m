@@ -1,67 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795260781;
-	b=apbXqyqDeZzjNBFgwK4HLly2Mt6CKXZ5X4tR9nJM3QfSbVs/IsTmAEelczIZoo+oTV4P
-	 msNxan5CHVL+BrvrQq81JV1SWioc12oWfRP0Ny2i24W3ZuP2tc+XI+k9S9mfOCmh6thdq
-	 S0EhC1TUiOvInrlY03s2gcHLM/SvAuaIumyhLfWP2k+IPZyQpYgtmiGa6uS5Nm/i3UakZ
-	 rETuxy0t+P5gBGHcl/9IypEuHAPW+VdOtvRanfDGUs0JT6/n+Zqee2Vq3D5B8ABDzy6wu
-	 ylbDlFv/b9EUsfcmKeiXlL+f1w9kEUaK77Wr2oJzIGr+k/d7gshHv0XiaDZrrXR/g9w==
+	t=1795260783;
+	b=uDVwmVb8qGDpZZE78xse4+z40zwpUEfMvn9CSzZnAfup9TB5QOSMy0kQxHQcnxOgY+bX
+	 sOgrxJBFuvmFOR32pxFdMVcKMuSFHZBgUnrTktWEQqBwxm22flTe377sYyNyjPblRn4FL
+	 2JyqzUMTxImYMvtAjckt5aMweZwKByd/cSDv0pya1O7RYZcDyEgRiGulXDorwtCBfh1gz
+	 IQOlFEZoRYEvF6AgeXzz+f/mZ4eUkG1nRPjOWo4HVABGehm0WOp3aNu7UR8WabdYRhv4n
+	 yAQ+eleTkDAyujX3+4UchQZ5wMYkBBfftN7nxOoHTiLYUF+WOxjAkvRUBY+g/W9466g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795260781;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-MBO-RS-ID:X-MBO-RS-META;
-	bh=OarbdWsksfiuMbaIbktAxhgdo23HxzOkVP045lkqcyY=;
-	b=fRDcZZeTfI4vfVWvhEYewA23gwhDcyIEelwahrgn2Y+HELxuDtsgLa2tJKFdm7jEYUq8
-	 sZalLyvz/Ol6w2bu9V8h81Xfy1I2uuBIc6i1AGED/CME8uFIUaWPCOijlIc4MVLyCAEVF
-	 gb+p0z6dwAb6jvsrw+wPYaB+Srsy9xe+F+WZG6/5ehLzvMDhtdLxtsyc0Hq2OGNNFd3nH
-	 QCbmsJzk8conpWMf4O55RuHRyMf+34d5VbE7uh6Tl/8MeaEtbybFr5b9tOK3uyIrL2nDP
-	 dqmBREAhxlpkV2muryiRv65bDbBZocT0+6iCcF2z3dsTDhDrkpSCN88ArLAFmIAGOMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795260783;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=KK9UBGoOXxDgxdIHhYwv6EiDDgCB6dEuVsqhbAuDLYA=;
+	b=bGE/Vzjg0+7pTPcb4C2f4HI+xprpdsRPOfpZOiZ8onQA9Dbv/vC8Rb0/rmAFUX7KN8S+
+	 GFMkwM9uWhVOgtWLHlfKwj2/fThS8PH8G7zYmfgygj/xn3h67kh8uiUeHnhHF9a7eEhNN
+	 Te4wh2NRbQhJfbPd8zmooJ+f3fa79q+VAvC1htwL/6SJzDCRY24qj4PwAVKoGI/rhKecP
+	 611Cyy2ah8z5LhZxSqEned7+g8OeaeaptRPzmyKqRwwdeFDmEGdce1n1xctB+Hz0dilwS
+	 R6/3MHrsYnkpzyeqCwQyrNEaEMK13QlNDZ6VeaVEQfQLh7tGIdop3lPn+R15zvTCEKg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mailbox.org;
-	spf=pass smtp.mailfrom=mailbox.org;
-	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=aEk+di5R;
-	arc=none smtp.remote-ip=80.241.56.151
-Received: from mout-p-101.mailbox.org (mout-p-101.mailbox.org [80.241.56.151])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bVOx2BaF;
+	arc=none smtp.remote-ip=209.85.215.177
+Received: from mail-pg1-f177.google.com (mail-pg1-f177.google.com [209.85.215.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F347606A325;
-	Sat, 21 Nov 2026 11:33:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F347606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43D25606A331
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:33:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43D25606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=aEk+di5R
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4jWqnj0j15z8vTn;
-	Sat, 21 Nov 2026 12:32:57 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1795260777;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=OarbdWsksfiuMbaIbktAxhgdo23HxzOkVP045lkqcyY=;
-	b=aEk+di5R+zMQLIgaCqbX5xSP75U/wUaKNG/lgo5wLryZ7t0K8iw7KSsxNKaXQ2X0kTBAi3
-	GhrKP+uiarERyjjZnYO97kjcZF21AMFHofCq93/l2WfECUA3y2T4/AUcajQMJg3zxR7YoB
-	gKVDTb2WFQLQ9ztNjye7K6PcDx+Sw/japTcwm7smdCRB4Ii+ZSab4z7B/zVOTfVdfVz/Qt
-	epM650fAuqxR8CMOPhDSqPq2rmnSI+oHC1S/Cb0m6sLx9TivKI7KkLvVl7jGanrVfgT3hQ
-	N2jvlO3nEjyAtlnjdl4KMU4mQT9pfQgNV6Vekme8yFn/irW+3/4+EFjFSCfm4A==
-From: Manuel Ebner <manuelebnerli@mailbox.org>
-To: Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>
-Cc: Manuel Ebner <manuelebnerli@mailbox.org>,
-	workflows@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] Docs/process/changes: add comment refering to ver_linux
-Date: Sat, 21 Nov 2026 12:32:21 +0100
-Message-ID: <20261121113221.1442278-2-manuelebnerli@mailbox.org>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bVOx2BaF
+Received: by mail-pg1-f177.google.com with SMTP id 41be03b00d2f7-cde4b4e936fso1474679a12.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:33:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795260783; x=1795865583; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=KK9UBGoOXxDgxdIHhYwv6EiDDgCB6dEuVsqhbAuDLYA=;
+        b=bVOx2BaF0j1A8v2xP5IWCF6AoWR9qXDMiCGDhBgRGmRIG0RKog6xiWH9E0mOFqiBQd
+         AihY6i83Z/8/+8U91DTM++idZIj3nqbaBtXCtsLQdeBZdUZ2pBfpCocgTds5bFC/ZL0b
+         +h9K5SKZIasYAxZayoIixsW/dQZur+T8aCGPLWIrbCITx1a4qiOJRidi3oSEwuovAAJs
+         7DR55VoSYvH30UMi9g9rtq0PMJgxucZC4e7vdqD5Z/Kn+2U4JdRP06ZnQu9wIz0I0h5H
+         /NkG/BCrL0D9WrY1VJMkl1q5psXzyZiW6NjfQa3eZLEu6Xcvi7Vw5XUiyPK20J7ODMA8
+         7s9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795260783; x=1795865583;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=KK9UBGoOXxDgxdIHhYwv6EiDDgCB6dEuVsqhbAuDLYA=;
+        b=w2yjxGis0idJ8zb9eE8TbwNTOKiOPIUbKRYLDcNcNxAdBwiTIPx4x+I/+amU1lrhW4
+         hPJu36VR3kuipdWaIeMSSBRsBDclKYHk9hpazs4XceSM/jlvx0i6PLH6We5MFIP+v0Gk
+         /54+j8ohxdbWsdeNbD2+1phYdojT1cSwNi92gIUkrAy10oId1Dz6irEeJDiqsRD9DXZ0
+         Z0/IHmuaPESg1ovJWMUc/QqjugF2/9T0+npBoC4chIptk1bS9HCmroaSGCG0XCCar5xm
+         tKS03aq9DiQyjcyfFhAmAyUu/h4DVXx1njoWnoLbaaIT0Ekonh5Nngwp61O+LAEKqIXd
+         pWNA==
+X-Forwarded-Encrypted: i=1; AL+hErEK9bnDHjjiSEAS3c96AwW9dn87NtRSBYIFRqpZGFh4aE04o2ZiOijVyqnYn4ZNjQVm6h2gawK8zWalSjY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9WlNJVqgnFh4HvVu6rxm08LSt9gvbwppRtjHq+GRzIph40bNJX
+	PJghCUo1m9n+x+Lj74+YlISIeBJ1gUyPV7rVp+Bn2sDwfaYn8CpwTOk/
+X-Gm-Gg: AZFdTZeXR1QQo6ZJzJpURrhtIJN6gg4svgIhZD1trqENYQnZJyaQ6cgfPaVdr+4P/0k
+	4L45vEGCGYY3tc0N8aMS8VUCwKrKVSYgo3PQ9SEa3xdMwGgNiAhg1w7oqkTDa/EbieF4nDNifeH
+	FnxM+LcNYkGnxVSPkrDYKGgwKt3KR26tntiYioyG4aa2jL+wkIEUPEhX9Y9jD8+m8owB0KGXWMj
+	5bPJsX6poBonN+vH58KH6VOJrgs9AcO4mjkzQA2bh/3X8fukWD47JOJ+ruiM9iS+whRv2HSSwsd
+	HjB+SLYv1kPVcAfgXgmvtbyHJAZRTAerjwOFFFfDukUOtQidY04uBGisDTIMeq664MIoTSEZ3hF
+	Ki93vPKuMJX2FaSYWJ74A9L3NJkjZa0rnG4H390uuzrRBeIaEx063CERdffLLqXwg97j5m3LCK5
+	RM+ASBGC2zHmbxR0Tjx7GdDE65Hj4DmmPCMpJcIBjKTSU6+FrTtBONaIjIU3BHhYKxzrvjrTvGH
+	kjdG+GvILtMl29RHgjvWnHVuIUGj4CaGpje4lVq1XuKwgZasJptJ/ykZ0GGaF26J9KKvgkg4sxA
+	Jf7U7VQXVx4P8scpIg8zoCd7LbjBeEX46zOs9f2NPT3+
+X-Received: by 2002:a17:90b:390b:b0:3b1:d40:2c4e with SMTP id 98e67ed59e1d1-3b41c56f34amr3999717a91.0.1795260782587;
+        Sat, 21 Nov 2026 03:33:02 -0800 (PST)
+Received: from [127.0.1.1] ([2408:840d:6830:46f1:7c60:7a01:9164:e1a0])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecb486sm11111223a91.16.2026.11.21.03.32.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 03:33:01 -0800 (PST)
+From: Chaosheng Qu <chaosheng.qu.linux@gmail.com>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Martin King <martin3kx@gmail.com>, Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, Thorsten Leemhuis <regressions@leemhuis.info>, regressions@lists.linux.dev, linux-kernel@vger.kernel.org, linux-rt-users@vger.kernel.org
+Subject: [PATCH] sched/rt: push a queued task when its priority is boosted
+Date: Sat, 21 Nov 2026 19:31:27 +0800
+Message-ID: <179526068763.97100.12205093734161349836@gmail.com>
+In-Reply-To: <20261015084615.05957ae3@gandalf.local.home>
+References: <CAEB5A_91hob8ddOhW=PrO1=O7GrFmSxY3r1-_Ard6x8KHHuJGA@mail.gmail.com> <20260814183652.611e7ecf@gandalf.local.home> <6db9c47f-a1f8-49dd-9e80-f9014d75f9e8@leemhuis.info> <20260903092037.5b739980@gandalf.local.home> <20261015061915.126442-1-chaosheng.qu.linux@gmail.com> <20261015084615.05957ae3@gandalf.local.home>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,33 +96,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: c6be58729ddd3357dfd
-X-MBO-RS-META: 3gdg4195k4jzxr44o78bw7czucug7pit
 
-Add comment to keep ver_linux up to date. This comment does not show up
-in the output of sphinx.
+A PI boost can raise a queued task above everything that is runnable on
+other CPUs while it still cannot run on its own rq, because the task
+currently running there has equal or higher priority.  prio_changed_rt()
+only calls resched_curr() in that case.  The task then waits for the
+current task to schedule out.
 
-Signed-off-by: Manuel Ebner <manuelebnerli@mailbox.org>
+The pull side does not necessarily rescue it: pull_rt_task() only picks a
+task whose affinity includes the pulling CPU, so a task whose mask
+excludes the CPUs that just became idle is unreachable until the running
+task leaves on its own.  With RT_PUSH_IPI off this is the difference
+between a millisecond migration and a wait for the hog to finish.
+
+Queue a push when the priority of a queued, non-current RT task goes up.
+push_rt_task() already declines to move a task that is not pushable and
+skips the reschedule path when the task is higher priority than the
+current one, so the extra callback only acts when a migration target
+exists.
+
+Signed-off-by: Chaosheng Qu <chaosheng.qu.linux@gmail.com>
 ---
- Documentation/process/changes.rst | 4 ++++
- 1 file changed, 4 insertions(+)
+Steve,
 
-diff --git a/Documentation/process/changes.rst b/Documentation/process/changes.rst
-index 0aa232b117b..769557d03d9 100644
---- a/Documentation/process/changes.rst
-+++ b/Documentation/process/changes.rst
-@@ -27,6 +27,10 @@ running a Linux kernel.  Also, not all tools are necessary on all
- systems; obviously, if you don't have any PC Card hardware, for example,
- you probably do not need to concern yourself with pcmciautils.
- 
-+..
-+   When changing anything in the following table, make shure to update
-+   scripts/ver_linux aswell
+This is the fix we discussed in October.  The case that matters is the
+queued task that the pull side cannot reach because its mask excludes the
+CPUs that just became idle.
+
+Numbers from a 4-vCPU QEMU guest (TCG; KVM is not available here), non-RT
+kernel, RT_PUSH_IPI off.  L is FIFO 10 with mask {cpu1,cpu3}, X is FIFO 99
+hogging cpu1, W is FIFO 90 on cpu2 and blocks on L's PI mutex, R is FIFO 60
+on cpu3:
+
+   baseline: 1/5 rescued, 802.8 / 1161.0 / 1311.8 / 30.2 / 1280.0 ms
+   patched:  5/5 rescued,  13.8 / 1.1 / 0.2 / 0.2 / 0.8 ms
+
+The reproducer is a small static C program; I can post it if useful.
+
+ kernel/sched/rt.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/kernel/sched/rt.c b/kernel/sched/rt.c
+index 85303add7..db93bfff7 100644
+--- a/kernel/sched/rt.c
++++ b/kernel/sched/rt.c
+@@ -2499,6 +2499,19 @@ prio_changed_rt(struct rq *rq, struct task_struct *p, u64 oldprio)
+ 		 */
+ 		if (p->prio < rq->donor->prio)
+ 			resched_curr(rq);
 +
- ====================== ===============  ========================================
-         Program        Minimal version       Command to check the version
- ====================== ===============  ========================================
++		/*
++		 * A (PI) boost can make @p the highest priority
++		 * pushable task on this rq while it still cannot run
++		 * here, because the running task is of equal or higher
++		 * priority. If @p's affinity excludes the CPUs that
++		 * become idle, the pull side cannot pick it and it may
++		 * stay queued until the current task schedules out.
++		 * Trigger a push for the new priority.
++		 */
++		if (oldprio > p->prio && p->nr_cpus_allowed > 1 &&
++		    p->prio >= rq->donor->prio)
++			rt_queue_push_tasks(rq);
+ 	}
+ }
+ 
 -- 
-2.54.0
+2.43.0
+
 
