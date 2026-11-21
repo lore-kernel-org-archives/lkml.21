@@ -1,98 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795247610;
-	b=E22MUVYMbYuEETW4CfL1yKnm/n90343i+uRBmGxAJi6gQWOKH9SYvFysrnqZqfNZ/5DH
-	 jn6g4YvlPhXNAyYqoAnBMO45K1Y0TQWHboMB5880qGmduyDz8gGs/CvarXta2zQOqlX+n
-	 AaFQ3HtjhfAFxKU/lCexHivnNMApJt35rg64+VQH+itdpDocZaTcCn8toxZD8qs8Whk78
-	 qU1sLxf9BhqNv4/w6/fJXz+ynriMduug1XoqGVUA7MxtEc5c7+n39uzv0rEHRdpb2xiW/
-	 w+oAMZ+NYYknc6SHNO/GooSYkJ1HeRqJAxP7gFPFjwCXSYURzvqPqmWt0Y9iEt1rfSA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795247610;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=OFCgfXZyqNz90HWdYpeyXbVhNfixwYHLdj2jezmIKJE=;
-	b=VLcSUq9Y3Kl7TUlK/dgL83xKGrVZjMyGch/XDL4F4cKhc47s60K+fgEhWpK3eMY3YVxk
-	 kfAM9KJl9OdI8Ls6SunecGwtuuYd6E1hRW96wjf5W88oC7zyfNf7dbAO0ipAAHfO9CoNg
-	 HpnBcYkn2nO+qr42eUAbUqdkeYxGTwDQ2WS+65uYMiih+iM6B5ntEwQ94IWonFo8teqH+
-	 9ywj2KM+fLvNOtCX+vgpybkjiiutX1byndVjvohmrhpp1PmAblgGbmdpJhNaeSqPW16GU
-	 5TScAx6G5I8WLX1MTTiqtEpov9Vd4cm/6EDPmjEntLihZxjSwPBbaupCAYKcrvkKi0w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZsjrLeJh;
-	arc=none smtp.remote-ip=209.85.216.52
-Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795247749;
+	b=hkSmPyU1Uul12ZcrI1Fi9H9KXdkr/t6ukGA6MHmdrws6WXbCPRvUzshSypo+HqcDLKtw
+	 82uKrTtW3MgnRKk+AY4oiwlrq2AgAFO2gg7CR4Wf+pibua2VeaSfLXn4j0dLVHIU3nJ2S
+	 /f2YR6TXCKr1RD4AbRNDYG8cNp5Kl82rOJRHB63FAjR1nE10mYXGYiF/QEFrzNFbLeoAq
+	 fE+Sv5iewZMFAGOlC/5z5G4yNAcN71kpgtf7yuSYMXoLPF9oBMFaV1wFtNn7RXY1mbmL6
+	 uRRneCDv5HNDui7Rs/v2uOmO8OS+OSvrgUiCOevlCJhsxYb6b2UUk+cGTAgpBlMGagw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795247749;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=qXfZdfLbYngiwneMT5/oAhiJpL1DMcXjDGugDTBA9xM=;
+	b=z2CrO3tru5AfLzmvKld3bXT/JLCD0C1MxgUGLQrM4zdVOOZr0egYuLNpeQEr3F8f1xhr
+	 0GiGgU/XdG2TXn1tns4uaPaxVOxehAJIS4PIaxuK5IrdRT0FAaV01VSsTKq9/V8ERlLdz
+	 wPjLEDxD9qkJA31xTS8fzoUCmlXRmpXm1WISivA5eGtpqVlmbYrVP0zLyPQwFaryluQLC
+	 D1IiNzIyO3ORyDRB3YdPYe+IK6qWdNcLrPYZZVDdx0Xg3kqVz8MiqgrIF67Zi7jUq6bzT
+	 whthZxbIiXLpW0Ky6KkqJ/+wkUeO72pNTa+SDbXdX0d0Vstn/UwNCsKtQcSBkZydH0A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SL5K22rg;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16B2B606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:55:49 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SL5K22rg
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795247748;
+	b=FP2fgZaqFMxmhTlhTendliqSaVeV86qaA0irYnUEbU6dT+2343uL8ylFerpWIU+K70UM
+	 Yw0POsZlNuORAApGrFFL6r3v6qPCyMSdiQr2UYw0XWMCCuOPWXVGa2ZMRibLM9sTfbDZH
+	 MaTYKWGNEWYHLGKYCW0TbbZeAPJHbHi107C11GpIeQy9UWcEFCDvmVhhKss7HPKcwbeG+
+	 1ezIv8GM9xDsP0WRJiQc5YotYfyqrS7fwioR+KmP3lJ4cwO+pdgR68LQ9vKRAAmpV70Cm
+	 eSXiFHXDUa2MXLmQu/9x6kKYgdymJUsNryElOXvYQrP2zZ92gbd63zVQXn9qOBgZ4qw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795247748;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=qXfZdfLbYngiwneMT5/oAhiJpL1DMcXjDGugDTBA9xM=;
+	b=a+so0Eu6rxehvHn7QI3FnWjDGo8wRzhulO512rqM1g26abCqWVgofNozcyi1MfbMapmf
+	 7MO9K/rHSsHQqY91t1unZx62YrWfha2mtI+n6/vNNi3ie8BndujsdNmGD+LqCQbigXB0h
+	 pwIrh+UbItcCdd1t7F1ZIYK4nVvMTOXSyxipbGk7fq4bgQ5E5JS+njx1TTT55iwEE3glj
+	 m+dZNESoAJ6QKANPw2F29mV1ATkc6oyMTg+fg3Re1J/+zZzsSPBxZBCvDNJtcsWDn5nQl
+	 qnQt5lIxU2EC12IcxLJls80XegSIacl7Z4MdmCYftmAPpbNz5gQfXsMvyvFpvZ3MIgQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D7C0606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:53:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D7C0606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZsjrLeJh
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b3fb193c03so801032a91.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:53:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795247610; x=1795852410; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=OFCgfXZyqNz90HWdYpeyXbVhNfixwYHLdj2jezmIKJE=;
-        b=ZsjrLeJhExZmq+zhRqrSR8+6MNEcnHuDRH6Ybj/2v+ODRA4bwXNFgNZ/m7quFkQvCa
-         i6PFUV7KuCUYljPvm2NmE2URutm49zPCkh0DNhAEm4vI86J3h6zGPscN0KhuDQBNVRcj
-         FhMXhW144241qz+UOG4qO7LU94hPNVtu6gYts+nVywrOiW2drXqPeYFQceitFnzvGQt3
-         0tM6Ft0P2qQpIzhh62cYblRAS4g4KZ9F9WwpkwVf9jZO19FGWVFQ3paacLWh6WOYTy3d
-         poJYAB99LJnASeX5ZmOyeHpe5qtzvsuw8HUnPNdQjIfALVbGApPRd1iULLXkoJHx+54C
-         UA/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795247610; x=1795852410;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OFCgfXZyqNz90HWdYpeyXbVhNfixwYHLdj2jezmIKJE=;
-        b=JC9tUxoyWLjLktCSzt+J5oth23qpp+l4CzR0bZ2fviimlSMxC0pmnbdtvHG2ba8Nvc
-         GvxrraME2GZLEpjKqfzI3VQRx9dDHKBohjpdARGvQf7Wn6uMAVccuvKsXAKE9ILdZnBn
-         3THp1BLyyRy1wqJ6tc49rZ3QxY641wyAk47GR7JP1arBCjmtLvEu3AbfVDBkBREaRMzM
-         zAvHX9m3ZfQGsvB+DYwxQyouRs4new+W2WEUBNrFFIJv5mWcTAJf6jGqeIc7DLZP+7Bp
-         FDlvkzPi+m7SCCV9R2G5n7N0fYP/1XV5POv4OVkoieB3+tJTuxgGFVbyQyATft4ftO6N
-         g3FQ==
-X-Forwarded-Encrypted: i=1; AL+hErG+SwHEsVosu2hT9WUFcxmtGCdD7/eVoM0q1hn5AdX5J12rWCWFE+heSyssAM4Q/NfLDWMTO32NSzLr4M0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9qz7L/mHs5tOEOFEni8RtS8q01+twMhd21xAkvmvpLDQEsvZJQ
-	cFNaaDWeRuGAUWe2swdZy5dGxyW4vzJ7Wd1D70KFBsSlYzVT21koY2Kq
-X-Gm-Gg: AZFdTZelpDixcFJ6uedBqrvT3x9ypqK0S10FhNisWNmuuYoz3Q5sfKbR36s+8bUcja5
-	qy7iEI2Wz8cKhCe2QsCp37aAX3eeQSGEAn3jIQtWB+kmCJzy9Ck8TOgtJOnpE7NUUaOaPIwvCFJ
-	PXHQptt9bjWuJ9eLBlZJirrYHjzTDywRSfoZoMQPmdgt7S/HEYopwtIZ0zr9aqZCxgzAfYHbjmo
-	7Uqi47DlMmR6Y90KJawOzQT8SEZyc5gegNXGYJ8UrR8wuXt5fqfx1rjg4iDyETwQqeiogBaOw9g
-	vnKIKGNgzkh4ypyeyisDpTw5aCMssXPDnO5LijcaH0AugyzEqdNXZYJzlYzCUXHw0/uWKU/5e5m
-	QNQNL3n8Y5HLVESIh12utGznqkLbiEBpAkIhyUqzzlh/gITzvkPqJQi8S/I/c0qMuLNhAFb8zH7
-	QEeWKha+xzG9aXHVshImV+F+BH3AtjOnwlNN1Nb8Mi7KA73Es17QBl9gap6bll+Eq5OixGP0gH1
-	HH4R48xK9j2k8tifGc9KxIoG2nRWu1FAq2dZrYyTLqEgnIe9M/Gr89F6hl2t4ENyM0hfHgnRcfZ
-	SSm/X4hDBrotbrj1XnNZbD/OT00=
-X-Received: by 2002:a17:90b:3ec8:b0:3ac:8dfe:8ec9 with SMTP id 98e67ed59e1d1-3b41cafdb7dmr4480174a91.47.1795247609783;
-        Fri, 20 Nov 2026 23:53:29 -0800 (PST)
-Received: from localhost ([2001:19f0:8000:4ce8:5400:7ff:fe0e:e6b2])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b409330ae8sm10382959a91.7.2026.11.20.23.53.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 23:53:28 -0800 (PST)
-Date: Sat, 21 Nov 2026 15:52:55 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Vladimir Oltean <olteanv@gmail.com>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Rhys Tumelty <rhys@tumelty.co.uk>, Inochi Amaoto <inochiama@gmail.com>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, 
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v4 3/5] phy: core: Add phy bulk data helper functions
-Message-ID: <awFL17YyVU7yRKZz@inochi.infowork>
-References: <20260929085235.469515-1-inochiama@gmail.com>
- <20260929085235.469515-4-inochiama@gmail.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 65DD21F000C0;
+	Sat, 21 Nov 2026 07:55:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795247748;
+	bh=qXfZdfLbYngiwneMT5/oAhiJpL1DMcXjDGugDTBA9xM=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=SL5K22rgxZLW1OwxV3ayv6ff/hpTPZLsxCIYRV2kOyzS43RPBDKApAXhsOvCgdeKr
+	 q61xEGRfR71dmdJQTklRxbIj6VzNJXzQPmi1kHDf07J0jfMq0R3MKRX1GGwH52oSeW
+	 tPIn0Hj4m8W4lrwZj4LmbspQJMFPb6yfMdaXP8ijiSQtxnp77Ycq6DF9zoL1Qio3lb
+	 rgvJHZovUTJtcLpHkBpvRgGyO132DZJ+isnt7hLzikZ3zCokApY1/x65fMJX5GzoxM
+	 VXpMuuYnkZ2oL+6vFMfzxn+dfGKl48znegPt23GwiRN4+ARWLDznADl3EABgBEBjIu
+	 iBDfltPHN8wEw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id B8FBC4BB50;
+	Sat, 21 Nov 2026 07:55:47 +0000 (UTC)
+From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Date: Sat, 21 Nov 2026 07:55:48 +0000
+Subject: [PATCH] drm/rockchip: vop2: Give each RK3588 video port its own
+ cluster
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,102 +83,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260929085235.469515-4-inochiama@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261121-vop2-axi-primary-v1-1-8d5c74905207@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ5EQBBA0atIracS1QuDq4hFa4WSoFM9hIi7a
+ 2P5Fv+fEFiFA5TJCcqbBFnmCPok4AY794zSRoNJTUZkCLfFG7S7oFeZrB5YfKlzjU3bImeImVf
+ uZP8vq/p1WJuR3e/5wHXdfoi3WXQAAAA=
+X-Change-ID: 20261121-vop2-axi-primary-971fcba0d98e
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andyshrk@163.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Sascha Hauer <s.hauer@pengutronix.de>
+Cc: dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+ Damon Ding <damon.ding@rock-chips.com>, 
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+ Arun Iyengar <aiyengar1990@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795247747; l=2484;
+ i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
+ bh=UR8Iq6V+Z+wSboGx6S1Fg+4yyPj7jK+nIZtEYEItTcg=;
+ b=BzumBlQkZjOG0TMxnd3EtaRuRxZfKAHpRClLRwaJBDZUqFH4KPBUDGCnKKSnEDXOiwOrH/jJL
+ 6sQahfkkNrbBNjoPQ8VYFezMHCfJgh8R52jxwiRw3NBZ8PTHffQuEGm
+X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
+ pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
+X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
+ auth_id=1480
+X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
+Reply-To: aiyengar1990@gmail.com
+Content-Transfer-Encoding: 7bit
 
-On Tue, Sep 29, 2026 at 04:52:33PM +0800, Inochi Amaoto wrote:
-> Add several helper functions that allow drivers to get several phy
-> consumers in one operation. If any of the phy cannot be acquired then
-> any phys that were got will be put before returning to the caller.
-> 
-> This can relieve the driver owners' life who needs to handle many phys,
-> as well as each phy error reporting.
-> 
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> ---
->  drivers/phy/phy-core.c  | 253 ++++++++++++++++++++++++++++++++++++++++
->  include/linux/phy/phy.h |  55 +++++++++
->  2 files changed, 308 insertions(+)
-> 
-> diff --git a/drivers/phy/phy-core.c b/drivers/phy/phy-core.c
-> index 8fbaea003b90..5b76c006575b 100644
-> --- a/drivers/phy/phy-core.c
-> +++ b/drivers/phy/phy-core.c
-> @@ -1004,6 +1004,259 @@ struct phy *devm_of_phy_get_by_index(struct device *dev, struct device_node *np,
->  }
->  EXPORT_SYMBOL_GPL(devm_of_phy_get_by_index);
+From: Arun Iyengar <aiyengar1990@gmail.com>
 
-[...]
+Damon Ding asked for POST_BUF_EMPTY to be fixed in the layer setup, and
+Chaoyi Chen pointed out that a video port's layers must stay on one AXI
+port. On RK3588 Cluster0/1 fetch through AXI0 and Cluster2/3 through
+AXI1. Each video port takes the first free primary window, so VP0 and
+VP2 get Cluster0 and Cluster1, both on AXI0. A 4K120 and a 4K60 XR24
+primary need about 6 GB/s there, one port delivers about 4.5 GB/s, and
+VP0 underflows in every frame. aclk_vop at 750 or 850 MHz is the same.
 
-> +/**
-> + * phy_bulk_init() - initialize multiple PHYs
-> + * @num_phys: number of entries in the phys array
-> + * @phys: array of struct phy_bulk_data to initialize
-> + *
-> + * Initializes the PHYs in array order. If an initialization fails, all PHYs
-> + * initialized by this call are exited in reverse order.
-> + *
-> + * Return: %0 if successful, a negative error code otherwise
-> + */
-> +int phy_bulk_init(unsigned int num_phys, struct phy_bulk_data *phys)
-> +{
-> +	unsigned int i;
-> +	int ret;
-> +
-> +	for (i = 0; i < num_phys; i++) {
-> +		ret = phy_init(phys[i].phy);
-> +		if (ret)
-> +			goto err;
-> +	}
-> +
-> +	return 0;
-> +
-> +err:
-> +	while (i--)
-> +		phy_exit(phys[i].phy);
-> +
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(phy_bulk_init);
-> +
-> +/**
-> + * phy_bulk_exit() - exit multiple PHYs
-> + * @num_phys: number of entries in the phys array
-> + * @phys: array of struct phy_bulk_data to exit
-> + *
-> + * Exits the PHYs in reverse array order. All PHYs are processed even if an
-> + * error occurs.
-> + *
-> + * Return: %0 if successful, the first negative error code otherwise
-> + */
-> +int phy_bulk_exit(unsigned int num_phys, struct phy_bulk_data *phys)
-> +{
-> +	int ret = 0;
-> +	int err;
-> +
-> +	while (num_phys--) {
-> +		err = phy_exit(phys[num_phys].phy);
-> +		if (err && !ret)
-> +			ret = err;
-> +	}
-> +
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(phy_bulk_exit);
-> +
+On RK3588 give VP N Cluster N as primary plane. Boards without VP1 now
+get Cluster2 instead of Cluster1 as VP2's primary. RK3568 and RK3576 are
+unchanged.
+
+Fixes: 5a028e8f062f ("drm/rockchip: vop2: Add support for rk3588")
+Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+---
+Tested on Orange Pi 5, HDMI 4K120 + DP 4K60, v7.3 plus local HDMI FRL and
+750 MHz aclk_vop (not in mainline): 7207 bad frames in 60 s before, 0 after.
+Applies with Chaoyi Chen's 8K series [1]: VP0 keeps Cluster0 and Cluster1.
+
+[1] https://lore.kernel.org/all/20261116084555.1061-4-kernel@airkyi.com/
+
+Developed with Claude (Anthropic), which wrote the code and the commit
+message. I reviewed every change.
+---
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index 76d151b8bc52..303d9b987a7c 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -2583,6 +2583,12 @@ static bool vop2_is_mirror_win(struct vop2_win *win)
+ 	}
+ }
+ 
++/* RK3588 primary per video port; Cluster0/1 on AXI0, Cluster2/3 on AXI1. */
++static const u8 rk3588_vp_primary[] = {
++	ROCKCHIP_VOP2_CLUSTER0, ROCKCHIP_VOP2_CLUSTER1,
++	ROCKCHIP_VOP2_CLUSTER2, ROCKCHIP_VOP2_CLUSTER3,
++};
++
+ static int vop2_create_crtcs(struct vop2 *vop2)
+ {
+ 	const struct vop2_data *vop2_data = vop2->data;
+@@ -2655,6 +2661,10 @@ static int vop2_create_crtcs(struct vop2 *vop2)
+ 			if (!(win->data->possible_vp_mask & BIT(vp->id)))
+ 				continue;
+ 
++			if (vop2->version == VOP_VERSION_RK3588 &&
++			    win->data->phys_id != rk3588_vp_primary[vp->id])
++				continue;
++
+ 			if (vop2_is_mirror_win(win))
+ 				continue;
+ 
+
+---
+base-commit: c408466a4dfaee4b12587e926c5b85e68c8b3c40
+change-id: 20261121-vop2-axi-primary-971fcba0d98e
+
+Best regards,
+--  
+Arun Iyengar <aiyengar1990@gmail.com>
 
 
-Hi Vinod, Vladimir and Manivannan,
-
-Before sending the next patch (I guess I can update it in the next
-week), I have a question for the error handle.
-
-As the phy_exit()/phy_power_off()/phy_power_on() can return an
-error code, should the corresponding bulk api need to call the
-corresponding  phy_init()/phy_power_on()/phy_power_off() when
-there is an error occurs. Or just leave the state as it is.
-I saw the reset subsystem does this rollback.
-
-Regards,
-Inochi
