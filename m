@@ -1,13 +1,13 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.51.99
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.57.91
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795244515;
-	b=z1LBCwS1ntvB8l/O2jnMjQ/iWbIqwsgKIA7TS6OdVhHVUYsn99bD6YT9sUTi+jc38YCf
-	 CQSlPAAbx4ULB5lug8jv+jPqYzxf7rsrg2LRiOph5WC5wJBiCguX10K8BjSyq/odIbxIg
-	 0tSeiuLaDw+mkSpMij6FfXopPsfiS+JrOuhDAi/rEI0pzcbR7NwNCPVqL4ByHYc0vFXTk
-	 enNfTv+MwRppL7IDM3z2wb75JTTDh3FUjO5enshXfcDCqD0nh3fEnEYl1J2lCOgBA4Cmu
-	 /bLhNkOWCkBGX+bEWkk2kgu31dM/nUugfpRxp8F9nvoFvU9KYuVI24mJdwlyIvQaYBQ==
+	t=1795244522;
+	b=niTCTYfRIP+SsZ98xHRPMx1542wcnzOvDt5JmSS5N6E82x4nb1Yiig2WI1pjk/1nVmW7
+	 WKRMfTZfBq6WLKPEGhuWmEIr5xF9R2F1UO5OniSWsGHUsXurgq//zqFAQldJiLQQpzqTs
+	 zN9kCYelx+OOu8fqJE3lnPbepI0eatfFXNHVz6PJyL85JCRChfbPfNqEIfJmY8jQ0UGv4
+	 S1cAZYEAOjZ8PvaFrIBrMcUYI3QpAESSba2wOHLD/8LWj23aKdz+xcsG+azrqobyIisO2
+	 PkM8d/AR3A6OyBQyNbRovdg6ZemM5fTj1xlKPSquxSYvkZmMJDBMkVUzRjNb7BH43UA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795244515;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795244522;
 	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-Id:
 	 X-Mailer:In-Reply-To:References:Content-Transfer-Encoding:
 	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
@@ -24,32 +24,32 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=6CZJUkL3kguNbhnUlMgJvjRSsdL6ARrRxqyg6ZKduow=;
-	b=zgUfrsKniR0Lp11X4A86XacdjYLUPhfKebYKyLiIwuc7Pp4wp87APuKDrEEwVeAk356a
-	 YmC4EL/rsnrjBkB/OMKWvVW1AnJ1LlWgQC8z5yUTX4RmB4NrUyX9eEYGoDyLeNhV3I4c0
-	 Hll+LbsR4JyVQBmNhOnViOltyr+c9WWiSUQOf3G8zc4xOtwN07M9PgLOdxfPdV4LSfK3A
-	 rDL32Un2bitQmXIK9gvsBvWZaN0qvK+0U0cixinCFMYcLjNfDjuPQRzFjcbzbiXQT6eEZ
-	 IMQnHk9glFgBlwV+CispHBLiia4HyVwr4hoPGLitorZcofDnM6kZpLyybYAksHrJJWw==
+	bh=ynF/pD9hrRMyciCfKr3ww4F6lv0lnbnzxZPrmV1nMRQ=;
+	b=XyyXVCS94zhvsbt3Qi8JKbpc1mbI2vt3sRdPnPmNOnVUZ0usvcMAw0GmwJ+6LS2wXDah
+	 VwLWAcO3kbwhFaLh62CjUMYIPEnNglyiZCuDXBRB6peunJKTEQo7gpUx2aZt9oC3QRwKB
+	 oc75hI0Wp6Y/mXo+/h17wGh6Wy5WCWoeA3SBJx2JVNa2J/0PBtOvQrFTRbnegO4iErPqf
+	 CROXjuozzAXin7v5AmcGB6I1heoJmb80HIHFgo0k5S5Xcreffb3xcV8kRBNpVbs67cK6f
+	 RH0MGys1WP/E/xUTzqO0m8E3lsoPahVVOqbJZR+LyZgtcAOMcm+7dvSsdlHMqharAMQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=siliconsignals.io;
 	spf=pass smtp.mailfrom=siliconsignals.io;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.51.99
-Received: from PNZPR01CU001.outbound.protection.outlook.com (mail-centralindiaazon11021099.outbound.protection.outlook.com [40.107.51.99])
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.57.91
+Received: from MA0PR01CU012.outbound.protection.outlook.com (mail-southindiaazon11021091.outbound.protection.outlook.com [40.107.57.91])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6544E606A335;
-	Sat, 21 Nov 2026 07:01:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6544E606A335
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB83560A260A;
+	Sat, 21 Nov 2026 07:02:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB83560A260A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=siliconsignals.io
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=siliconsignals.io
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=M08P5AHtLEiSb2qyzLfiomr32EikmWhvbumONP1+a4OYq3BVW5qm5o6VOzxu81fU/jeEbFLLUes1FiBi5pH9TZXob0OI9dwSobv46VSYncnFRuSPsw52PzyoIx8hA4xlgdUXPKwbTBbj8EpiwUhhqZaPaNbCsYe4qtQfJ9lv0K+mwdaLRf4pL3wZBGICIPl+vIMm6XdvN8P3eqMzxCF3s3h6OOivA4B3edzLR40+Afc57VPloK0AIYGGwNNHWhNbn02sdE1yZEt/Pf9tGcHTZF7PAZIKkaWwNdQqyYEsRUvOIF0wiG3tahODh8DbQpIFbLhKrQyk5EbMu8gzRLDjZg==
+ b=JaQK+MSDfys11gHq9FWLSyySyQon5VvClhrI//Nudi28x8xCXd83sIqU2lxwlhHBw3pWnM09/S7TmQHMzllqyuhiJlFl45oUp2ufJoXIWukLNSe3jOtcupt6yyk2HWpDT3cNAQlVUW9qGtD4cklbMcT3bVwUj6qTj3h9INrHTj2FifIzyyUg53yrw8pbAmAsL/MTOkKIQUfWMA+H6/z6fhA/ZwBiES/uCM1FnHrhcT9IOG1rIx29WC1ZrZ9dnpoQbVjy0cFMKWu1fNaW4PeDR2B8aQJ0VhMo7UM1CwWOJrXEPsmHYPDpdLet3gUXw/K9yoNLSUqXTwbYO2sZ89uEjQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6CZJUkL3kguNbhnUlMgJvjRSsdL6ARrRxqyg6ZKduow=;
- b=FVwziKa14mol+4pKWK7vFh7MRNI1pBsLI5oMkJ0cjipwEZpdxV3N8hgObumL8nMLaSeYsdCdWhvi4rapAWROBUnj7lA93tpY7ZuIO9js/ns9AZkn4mDyhCu100eGAtAmL2Dh25vOVZRPfT3xGGSG9We/n9h5iPHkqMf2ztI+YmNt+ojslMKcVCrLOlZz+FQTm9AmiJTCAFHrstvkVKZUVmcgHRM0LiqEGu7cJtsQJPD4NOMgw7BNp6b6qkY2oWpEOFZLqLzwEKuFb2BR4hl3kmOfBYedY05dBK3Pr8kx5/JuXkCUbIC+O9BDh9uAtCBf2JnHiVAmbj7lousih41ABQ==
+ bh=ynF/pD9hrRMyciCfKr3ww4F6lv0lnbnzxZPrmV1nMRQ=;
+ b=PYB+eVhzZ5sXMIYFvtZ2br2JFgjCvw4BCQ1VRE5oI5TecTYT8pSY8Z6IP8aLVxkXADtNnYsfvjEziScr3ktlpFSUw5+EpzeLQgNJ9EhtZwxyiR6p0PgS0Z3stPs1BRzTBy6mWud44wyvo8co3VOMAC1DO9TrgKI00FPG/0V6J4u0gw18iY/HEnam7TBNnNiQi8fxCZOcKcAEfxsA63jNt0zx2yKgXpj7c+blqNZuOYNAJe1/QQ+yjGHH9jxB9sx5qW8t5kBQf+2abYfvapS8Er6bVKNyb2VDriTiJr2RDtSBiU12HkKALYY56mdIJra6aSvgHqqNUFfZRIWAWMr+Mw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=siliconsignals.io; dmarc=pass action=none
  header.from=siliconsignals.io; dkim=pass header.d=siliconsignals.io; arc=none
@@ -59,26 +59,25 @@ Received: from PN3P287MB1829.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:199::7)
  by PN2P287MB1768.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:1b1::10) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Sat, 21 Nov
- 2026 07:01:49 +0000
+ 2026 07:01:59 +0000
 Received: from PN3P287MB1829.INDP287.PROD.OUTLOOK.COM
  ([fe80::ce63:5749:b390:508b]) by PN3P287MB1829.INDP287.PROD.OUTLOOK.COM
  ([fe80::ce63:5749:b390:508b%4]) with mapi id 15.21.0639.011; Sat, 21 Nov 2026
- 07:01:49 +0000
+ 07:01:59 +0000
 From: Tarang Raval <tarang.raval@siliconsignals.io>
 To: sakari.ailus@linux.intel.com
 Cc: jai.luthra@ideasonboard.com,
 	Tarang Raval <tarang.raval@siliconsignals.io>,
-	Mehdi Djait <mehdi.djait@linux.intel.com>,
-	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
 	Himanshu Bhavani <himanshu.bhavani@siliconsignals.io>,
 	Elgin Perumbilly <elgin.perumbilly@siliconsignals.io>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Mehdi Djait <mehdi.djait@linux.intel.com>,
 	linux-media@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 10/15] media: i2c: os05b10: Add test pattern options
-Date: Sat, 21 Nov 2026 12:31:00 +0530
-Message-Id: <20261121070107.1768-11-tarang.raval@siliconsignals.io>
+Subject: [PATCH v6 14/15] media: i2c: os05b10: add 2-lane support
+Date: Sat, 21 Nov 2026 12:31:04 +0530
+Message-Id: <20261121070107.1768-15-tarang.raval@siliconsignals.io>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261121070107.1768-1-tarang.raval@siliconsignals.io>
 References: <20261121070107.1768-1-tarang.raval@siliconsignals.io>
@@ -98,186 +97,224 @@ Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: PN3P287MB1829:EE_|PN2P287MB1768:EE_
-X-MS-Office365-Filtering-Correlation-Id: c533a1dd-285a-4125-7960-08df479d504e
+X-MS-Office365-Filtering-Correlation-Id: ff9b405e-8b92-48cc-33ff-08df479d5616
 X-LD-Processed: 7ec5089e-a433-4bd1-a638-82ee62e21d37,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
- BCL:0;ARA:13230040|366016|1800799024|52116014|376014|23010399003|38350700014|10067099003|56012099006|261021123027099003|261021121427099003|261022105027099003|261009223027099003|261028144727099003|261026121527099003|261026140227099003|261102123227099003|18002099003|22082099003;
+ BCL:0;ARA:13230040|366016|1800799024|52116014|376014|23010399003|38350700014|10067099003|56012099006|261021123027099003|261021121427099003|261022075727099003|261022105027099003|261009223027099003|261028144727099003|261026140227099003|261102123227099003|18002099003|22082099003|6133799003;
 X-Microsoft-Antispam-Message-Info:
- 5B+Dugt9BuK8qRZjNnP0div7zbOuQR0db+ALDM86SCiKE7HLBZh04hSSA5YQrqKKW8VZExDy+zZOMkxxXCFGxLIzSTYSgbcmZ7KNak3vl9DxaP5KrOkg7qpknMjYhFJskZaJ5RHOlflfWbaZmZKsMbA0i4crY2KQQ69+57/QzpzdlapmioOSJq0RxWSRtHOEt+BLHvWQqekSP3JogT/nNSRy5G82I9aZiKnMqNDaoyr41VeJP2MzgUe1T+9l8/KrZSnRi5JiogvSIsUKmsBKwXA0wFInopTtH5Ji9p03T3lxxL55syg58ue+uXQCd1kyJgvNxOu9OBGcLeVNt3RBmsEzKqTSi+xsFiJD7Qym6PcRd+VJb+V4U4TiqU5Kty01e1brto1FTtNJm0xaT/mj6UOJz/s5+rRGGH6CR8J33bHQIegTl/5TdEufahk1sJYAhlv1buNoeFp3f/QV7aRiAEU4K/mD4jU3Yvoz/fb9FzKN1FX0N5vX0wq3Vj4qzOSEOp4vSIaVgfRWQrMTij9+TRdxc6tAYNjFPQjFls4IL24XnGP89Q9hDwjZCmJIYfUuqeqads2POIKKa9+bFEMiAq5t/KWvchVOY5jbhnDvNSeL2lXiS/cJ0kld9N9PAiypo+prZsi1bRc6jz17J9PW2v5JG7nJce7VFXIFUmBWB0nXMtjq3Yb1AIXsSyO54WT7eAJZ1ijNuhs6l71NM4GoMoSI4O9WIrFMFDA70xuPya8=
+ 82jD0vjrWvLEv5Q2bx0Y8SfICflA5lRwOs44R15L+FIy7OpoKvwRIG7wzrnlXfJeZHrfJNBfoPjjiEUhIW2DfkHC0WFCsy1CZ8Xm2hK+O0XDBfLmlkIeTfNgDURllYKi9I/GqorctZKsVESVjThIfiA2iWR4HUwPk8JkPNmYpByaJ2cYvbQZZJwJUanrx/7lesJ/+RnXQSEntH+/rhpFFXPugceZ2tmgxMC2TokjWnf41jWPyDeE0vKAkQqREP72tnBCr1njiEsao5g6xvUW6gN7E+9aJ0999DqFSDHVCUc8EjP2RE3QSzENCpGFweVNyQOEW5X91sOEQLY+X85FkX7XN7DS3oOX5eEbe0bPHCatiTDaraXwOP0hgOIlntU2/BHNh9KmFdbq/Gi5tzdmGqdgMA28xbO0u6KqKO8gdd65mfx8tvUNz9k0P5fxkReJ9wq87LiMPRObvcWEs9Ut+M5OLnf4SmM4pyBFFt51UioF6WJnBfsp8jZgxjSijUmRWjoxMn4k/uC9R+eVo9FBSgpa6jiETq8lqYi1IXMFYBv2L2+x8BJmDCIkrtfz8iwEY62hcxiB5fuzVQxtLLn3VCPHQwihgv8Z2o/nRdIccIJttKklvEEiUHUcfmhTB1GP9jWbhmW7ONMM/6ZkNtGmuG04dgpm4v38BM2bQEKLA9PNCf/83WSUfJ/3TYp7ciQjsPVYwXagaZp5YM0oqYix91ttab6e/nrm6d0bOxqcwrg=
 X-Forefront-Antispam-Report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN3P287MB1829.INDP287.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(23010399003)(38350700014)(10067099003)(56012099006)(261021123027099003)(261021121427099003)(261022105027099003)(261009223027099003)(261028144727099003)(261026121527099003)(261026140227099003)(261102123227099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN3P287MB1829.INDP287.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(23010399003)(38350700014)(10067099003)(56012099006)(261021123027099003)(261021121427099003)(261022075727099003)(261022105027099003)(261009223027099003)(261028144727099003)(261026140227099003)(261102123227099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
- =?us-ascii?Q?danzIh2aXqGVqrrciLKJXW5yahmUiAaXq1cJXYSnNojlGRRtUxfXogfET17c?=
- =?us-ascii?Q?pUUbXz0pdxqAoGeWr46JwlUm+l4aahTfMgFYQ7KCcjQO7J2ks38ofD42bpig?=
- =?us-ascii?Q?8IfBxBC235ianXfTpwiBUdOyhyUaIbIJfSvrNcE9iIK7i5hNT1MRdLp1tzy5?=
- =?us-ascii?Q?Pqn9Y1Alt1q6bap2wvzGVq0sEPxb+DjDlCKGQXz+F8byw9EtbJN2e15Zf/Mc?=
- =?us-ascii?Q?uYDLnkR+2/a6XDBsZXXaSADE345t49UT3iwI62qEKzwr0c+Q4ZaMwmLa9D67?=
- =?us-ascii?Q?wXD2voe/5AiFLOqIFBjFLZlpVRgkjcjUqqJng78q81TR3DxeU5Pq/cktsIc/?=
- =?us-ascii?Q?e3Sast+RBnIptdRk/6FBCruPi4o0HrVDn1zXKxMyE+i3sRsuKN9yxS/Ask9I?=
- =?us-ascii?Q?16jS2Vgt3nlviaBTD9LffcHum7SIWn89l0piTukfwAlJjI8Z8VBRd3sQJrDj?=
- =?us-ascii?Q?66DBHEQKQvSpSt4ZmtAUVUdMx4EA0UjFWoEXEDnJbNnvA5qCjSF7qGiz+Xu0?=
- =?us-ascii?Q?3wpIxi74OURKSRrcUkMopdx7zropQAJKQH4GQpuNWufIBLBPooqe34BJJQgm?=
- =?us-ascii?Q?nPphVtj3i+tNvek3W8amJFS9KFSchbshgRm0qVfuO45J4sNDOaPIChQpLwlZ?=
- =?us-ascii?Q?3jsXLlJcVzMdTLECoIiCD6K5RMfkrOIuvof2mT7OwgbDgM2RS728qtuRSDbm?=
- =?us-ascii?Q?+2GE8l63GPkn73ceErd97CHd0zzSmBnewcJPKd/25e3iifxHC2fal19Eah3U?=
- =?us-ascii?Q?W5Scpxl9rsFLAtcGcEKWxDF9o2NjRH1XthpR28RC2BUWXc++ST641I5AsB/h?=
- =?us-ascii?Q?eiGavQwKyLysFRcIOfr3cGbV6fpM6zTtLaIdBiFNbA/n8G1RTwvFOBN3VGDv?=
- =?us-ascii?Q?pYETDB+z2Nbycco7W+gpbpCnKCNiQhnlw2Ejo/HllD7aQmJaCU68+nczJ1Ai?=
- =?us-ascii?Q?CMVx4t5AXwNagoRFh0I6dbf5EhTlznyJZNYEfXbym9ZHnjggWAGCNENzZmWe?=
- =?us-ascii?Q?+3B53aRNasLwmEd9QPbCyjxH5ttiE+ZIVq6EmWRfY7zWYqPdHMh34ezvSRIi?=
- =?us-ascii?Q?DxCr9h5S215H2BgNOR0b2eVXiz5wnSyxcTN+obV1RLbAPMCHCAgzwp3DAvPl?=
- =?us-ascii?Q?2YA3gK5Pv/0maE4hKLhimm1LBr2GdIzBQ6lL00ZBjb2Gd+bsY5DSvYUhRENm?=
- =?us-ascii?Q?bcbp364LJsaisQ292lAQ0A0DP8LizE5A9YNmNfcJBbLRzNP7PlHqsd2JmhON?=
- =?us-ascii?Q?Q3dTtqLQ3jAkKymwxM68Uk2XG9ruJJ1rOEiyHAcDGw78P9zqgtX+6OLPjkm5?=
- =?us-ascii?Q?hNbZENjmrETqbmRMKJmKubsw87fOCYesXt/DWm9N+04NO7O5JSf6oCuT9dG1?=
- =?us-ascii?Q?EArBHFGjP5FpMx84MzHTF6JFMnvvbusD4Lh+5VVe2ckCkQIOkIle6dOt1aU6?=
- =?us-ascii?Q?L4uvAIyQJmAcJK18hsMA/fsYG4v9oD6LhF5vNrRyU4Ia4nbwM4FScZrclw5K?=
- =?us-ascii?Q?yO1fDL0TS3kLCCsRdcVYQcOgJw7t/U/FVN7JTNxX7P3u5B8pgQroCEfYbE/h?=
- =?us-ascii?Q?1F/+O3eC+LPpsl3PI3OydUJRQjE70MADxhM5Fzu6E9ZHNS3tNdWEu12yY0DO?=
- =?us-ascii?Q?92675cebRsHoy3Nk1+lnJI2J1VdSikAV9/ddw2+bulvQ3ZktrfTS3f9gCKfv?=
- =?us-ascii?Q?9ly5w5acT9zsLHusR8BC90DEci5TSYRL2RQkfdf+br1vk3fHZcxCQnN+CSEr?=
- =?us-ascii?Q?Jy7ZQN0VPK5Xh6qdXeWSffd9Po2yIHs=3D?=
+ =?us-ascii?Q?zY0gl7gO1+9DpVkNUEFq2FnOvuWx/shPFFIpbUO78BNMSYlrj3BzgvN2PzBv?=
+ =?us-ascii?Q?26a5gVcOMO8A/Z89n9ZICVvRwz5YReZfMXFWG0v4ySYicMtujMJwJNXpfCT2?=
+ =?us-ascii?Q?Pi+x5ufyQMaVw3V0N99ch7Fy1ktJ7t2EQKK8goX7g2GBY/+SOv6OZEIEqfk/?=
+ =?us-ascii?Q?cevkhyBXM+ha8UL9vd8E4FbPfFxkJaDST/YkGmPsZkPJCfZi+ugJLqGlAlAO?=
+ =?us-ascii?Q?4TDhiqcMSaa1FkUmOgdBPd/cEzSpuPmovg32RHuipV3Nb3JESynp3gC4d3iD?=
+ =?us-ascii?Q?659qGoTYvXyptqULicymPw5N1NVrbgwIbp8L7iSJbY79xg7AM2M+Ypy2iX4Z?=
+ =?us-ascii?Q?unWrMAeSqnE7mytO+LFlHMQzvOvDWuNeq1RJBtBMVDFs9QuIyvLSuvE9uO17?=
+ =?us-ascii?Q?iRTGX712xsrjxamc9CJMoXI+VKMfwMirjkRWxjQtyfycLe95hGftKOvxVTi7?=
+ =?us-ascii?Q?Lp04mRfPvEwScj5g1vJN7FLxqjhe0+xJVxivcGXYOgrA78eMbr9bv/a3jIXw?=
+ =?us-ascii?Q?1BeAgHpS3jDj24xFEHBeJw5GyBSQ27b44CnvLYEV1nSrMilR/AGF3h1KX3/K?=
+ =?us-ascii?Q?vsKz6mJMf0cSTD9ZIgr6z+EMchu1X84S7Z683SsCaxSWIN3O8ekjYCX0Faz0?=
+ =?us-ascii?Q?uGocq5nSpgPvYg9CcZVRNJkJE0vlmG1Cmjl7UqzfPnjAempSywdq30G/iMH+?=
+ =?us-ascii?Q?jhA6LU/GCWLCtWxqQ5zHVTekwdDxbZhQRteqakX5UQahO4+A9zQR7TFSecNq?=
+ =?us-ascii?Q?nMHzgC5C6o7C/YcE9pMP34ODIioaLkRbpIiadBboqRE/ddWKoVitwS+KiSpI?=
+ =?us-ascii?Q?LY0S/R2SmGxAduX4wVAc78FrYDDFZlzY4Uict7ARDu6xDFTpzXyRY6N/1huH?=
+ =?us-ascii?Q?Yp6ndQeoSei2ldINwxS0x2vDyDncp+KlQoO4W46oh9M8oGvMgKGPORoY4kqN?=
+ =?us-ascii?Q?CliyV5PPeb4iUd58X6eyyC06OLdRJj7KQ67nCIatR9DP/jQ9WNcRsA4wkB42?=
+ =?us-ascii?Q?YUv5XmYR3U84LEnwlSqaIBe5LNbDKw7HeWAWmHX2U5NTQ6qRje6PHZmuxQzk?=
+ =?us-ascii?Q?w9YgUSanXRfXqs6hbEjHYVjxB7V9VP2gwSN6yGVmD2jD8U5gToQHOgRKC1re?=
+ =?us-ascii?Q?aflmZDC+2tRL6jWmoytmu2m4e00DVYUdPDSy0AjBMhfyhzYY+t6FCJM4HdaO?=
+ =?us-ascii?Q?IoYzTC1foDbm/fSNj05KhL8B5TGHqPxRnuF3sZmFvcvpXpgqQoPR8Jt6Rm8N?=
+ =?us-ascii?Q?/XUiqxfITtnlDKnZnsADItQ3hBABCrGJHKu8myJl/+5gSLWLF1q1wx3d0lEQ?=
+ =?us-ascii?Q?tJDcCt7h7SLcPgfog2Lqn4q97UVbq7PuMjyunRDqjVFLeLz0EgdPvNksLfPB?=
+ =?us-ascii?Q?P637bYDBkQaF6mIo0zMQpkpnKMkk/x4lEwGc7qzhZkiX2ToxFtI9aAAlAhTP?=
+ =?us-ascii?Q?p9B8b8uwBqnltCuWyahe93KoIeHEmMCnlBbeSh/sOBh7LXEOmt46YWC61EMs?=
+ =?us-ascii?Q?cjPeA9TFg99UYYh84x6flkwTK14o/ey12uTGSTl40k4b2+HK469l0qnD7y18?=
+ =?us-ascii?Q?MMeOKb4yhk+/Fdkvh055SRZYZZYkyEF7zmqc8YD/NGy53hIHa0nT/DGspc/c?=
+ =?us-ascii?Q?VvSKn+qnk06c7y0U6rVwvqVGQT34XpIrhsvi9r+y5dSp+NrbawZmDH+i4H1f?=
+ =?us-ascii?Q?d/plkEm405NGp/b2+UGxAdi9ogBvBL13hybGmKSapvMcT1fNJtT3pRRne25+?=
+ =?us-ascii?Q?+0qYZpBuLzIVt2cD5mGa59Tfx1tWqqs=3D?=
 X-OriginatorOrg: siliconsignals.io
-X-MS-Exchange-CrossTenant-Network-Message-Id: c533a1dd-285a-4125-7960-08df479d504e
+X-MS-Exchange-CrossTenant-Network-Message-Id: ff9b405e-8b92-48cc-33ff-08df479d5616
 X-MS-Exchange-CrossTenant-AuthSource: PN3P287MB1829.INDP287.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2026 07:01:49.3655
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2026 07:01:59.0622
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 7ec5089e-a433-4bd1-a638-82ee62e21d37
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: G8+PnywsjHXdlWgu7h1gQOa4wF4jfu0+N71N/0JgtvH95pkTgpB4zQbv6cwr4o8MF2HfS44qZrYTqMX1vy2cT2B0vtxb2qVzz085spBzPYs=
+X-MS-Exchange-CrossTenant-UserPrincipalName: EsN6vMR9F9M2mq+XBOCqIJjWiZ1Stbvnrul8WJbiZ7yUbriAmVIttylSG6OSJqb2S/TB/cLDNmKRMnJ5wRHgJtpVfOe1KWU5Gs0g0BChQ5U=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN2P287MB1768
 
-Add V4L2_CID_TEST_PATTERN support with multiple sensor test-pattern modes
-and program them via register 0x5080. Drop the fixed 0x5080 setting from
-the common register sequence so the pattern is selected only through the
-control.
+Add support for 2-lane operation.
 
-Removing the default write of 0x04 to register 0x5080 does not change the
-sensor's default behaviour. The value 0x04 leaves the test pattern enable
-bit (bit 7) cleared, so the sensor remains in normal streaming mode. It
-only programs the color bar style field, which is ignored unless a test
-pattern is enabled.
+The link frequency depends on the number of data lanes: 750 MHz for
+2-lane and 600 MHz for 4-lane. Select the matching frequency table while
+parsing the endpoint and use it for the LINK_FREQ control and the pixel
+rate computation. Accept 2 or 4 data lanes in the endpoint.
 
 Signed-off-by: Tarang Raval <tarang.raval@siliconsignals.io>
-Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
-Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
 ---
- drivers/media/i2c/os05b10.c | 55 +++++++++++++++++++++++++++++++++++--
- 1 file changed, 53 insertions(+), 2 deletions(-)
+ drivers/media/i2c/os05b10.c | 70 +++++++++++++++++++++++++++++--------
+ 1 file changed, 55 insertions(+), 15 deletions(-)
 
 diff --git a/drivers/media/i2c/os05b10.c b/drivers/media/i2c/os05b10.c
-index 7b82ba274768..79d497e6c1c5 100644
+index c03738d20a2b..0d248d3bf0c5 100644
 --- a/drivers/media/i2c/os05b10.c
 +++ b/drivers/media/i2c/os05b10.c
-@@ -98,6 +98,17 @@
+@@ -111,6 +111,7 @@
+ #define OS05B10_ROLLING_BAR_EFFECT	0xc0
  
- #define OS05B10_REG_FORMAT2		CCI_REG8(0x3821)
- 
-+#define OS05B10_REG_PRE_ISP_20_0	CCI_REG8(0x5080)
-+#define OS05B10_DISABLED		0x00
-+#define OS05B10_COLOR_BAR_1		0x80
-+#define OS05B10_COLOR_BAR_2		0x84
-+#define OS05B10_COLOR_BAR_3		0x88
-+#define OS05B10_COLOR_BAR_4		0x8c
-+#define OS05B10_COLOR_SQUARE		0x82
-+#define OS05B10_BW_SQUARE		0x92
-+#define OS05B10_TRANSPARENT_EFFECT	0xa0
-+#define OS05B10_ROLLING_BAR_EFFECT	0xc0
-+
  #define OS05B10_LINK_FREQ_600MHZ	(600 * HZ_PER_MHZ)
++#define OS05B10_LINK_FREQ_750MHZ	(750 * HZ_PER_MHZ)
  
  static const struct v4l2_rect os05b10_native_area = {
-@@ -391,7 +402,6 @@ static const struct cci_reg_sequence os05b10_common_regs[] = {
- 	{ CCI_REG8(0x5004), 0x00 },
- 	{ CCI_REG8(0x5005), 0x0e },
- 	{ CCI_REG8(0x5036), 0x00 },
--	{ CCI_REG8(0x5080), 0x04 },
- 	{ CCI_REG8(0x5082), 0x00 },
- 	{ CCI_REG8(0x5180), 0x00 },
- 	{ CCI_REG8(0x5181), 0x10 },
-@@ -507,6 +517,30 @@ static const u32 os05b10_mbus_codes[] = {
- 	MEDIA_BUS_FMT_SBGGR10_1X10,
+ 	.top = 0,
+@@ -133,13 +134,7 @@ static const char * const os05b10_supply_name[] = {
  };
  
-+static const char * const os05b10_test_pattern_menu[] = {
-+	"Disabled",
-+	"Color bar type 1",
-+	"Color bar type 2",
-+	"Color bar type 3",
-+	"Color bar type 4",
-+	"Color square",
-+	"Black-white square",
-+	"Transparent effect",
-+	"Rolling bar effect",
+ static const struct cci_reg_sequence os05b10_common_regs[] = {
+-	{ OS05B10_REG_PLL_CTRL(0x01), 0x44 },
+-	{ OS05B10_REG_PLL_CTRL(0x03), 0x02 },
+-	{ OS05B10_REG_PLL_CTRL(0x05), 0x32 },
+-	{ OS05B10_REG_PLL_CTRL(0x06), 0x00 },
+-	{ OS05B10_REG_PLL_CTRL(0x25), 0x3b },
+ 	{ CCI_REG8(0x3002), 0x21 },
+-	{ OS05B10_REG_MIPI_SC_CTRL, OS05B10_4_LANE_MODE },
+ 	{ CCI_REG8(0x301e), 0xb4 },
+ 	{ CCI_REG8(0x301f), 0xd0 },
+ 	{ CCI_REG8(0x3021), 0x03 },
+@@ -529,6 +524,24 @@ static const struct cci_reg_sequence mode_1280_720_regs[] = {
+ 	{ CCI_REG8(0x4837), 0x0d },
+ };
+ 
++static const struct cci_reg_sequence os05b10_2lane_regs[] = {
++	{ OS05B10_REG_PLL_CTRL(0x01), 0x44 },
++	{ OS05B10_REG_PLL_CTRL(0x03), 0x02 },
++	{ OS05B10_REG_PLL_CTRL(0x05), 0x64 },
++	{ OS05B10_REG_PLL_CTRL(0x06), 0x00 },
++	{ OS05B10_REG_PLL_CTRL(0x25), 0x3b },
++	{ OS05B10_REG_MIPI_SC_CTRL, OS05B10_2_LANE_MODE },
 +};
 +
-+static const int os05b10_tp_val[] = {
-+	OS05B10_DISABLED,
-+	OS05B10_COLOR_BAR_1,
-+	OS05B10_COLOR_BAR_2,
-+	OS05B10_COLOR_BAR_3,
-+	OS05B10_COLOR_BAR_4,
-+	OS05B10_COLOR_SQUARE,
-+	OS05B10_BW_SQUARE,
-+	OS05B10_TRANSPARENT_EFFECT,
-+	OS05B10_ROLLING_BAR_EFFECT,
++static const struct cci_reg_sequence os05b10_4lane_regs[] = {
++	{ OS05B10_REG_PLL_CTRL(0x01), 0x44 },
++	{ OS05B10_REG_PLL_CTRL(0x03), 0x02 },
++	{ OS05B10_REG_PLL_CTRL(0x05), 0x32 },
++	{ OS05B10_REG_PLL_CTRL(0x06), 0x00 },
++	{ OS05B10_REG_PLL_CTRL(0x25), 0x3b },
++	{ OS05B10_REG_MIPI_SC_CTRL, OS05B10_4_LANE_MODE },
 +};
 +
- static inline struct os05b10 *to_os05b10(struct v4l2_subdev *sd)
- {
- 	return container_of_const(sd, struct os05b10, sd);
-@@ -522,6 +556,15 @@ static u32 os05b10_get_format_code(struct os05b10 *os05b10)
- 	return codes[os05b10->vflip->val][os05b10->hflip->val];
- }
+ struct os05b10 {
+ 	struct device *dev;
+ 	struct regmap *cci;
+@@ -547,6 +560,7 @@ struct os05b10 {
+ 	struct v4l2_ctrl *vflip;
+ 	struct v4l2_ctrl *hflip;
  
-+static int os05b10_update_test_pattern(struct os05b10 *os05b10, u32 pattern)
-+{
-+	if (pattern >= ARRAY_SIZE(os05b10_test_pattern_menu))
-+		return -EINVAL;
-+
-+	return cci_write(os05b10->cci, OS05B10_REG_PRE_ISP_20_0,
-+			 os05b10_tp_val[pattern], NULL);
-+}
-+
- static int os05b10_set_ctrl(struct v4l2_ctrl *ctrl)
- {
- 	struct os05b10 *os05b10 = container_of_const(ctrl->handler,
-@@ -584,6 +627,9 @@ static int os05b10_set_ctrl(struct v4l2_ctrl *ctrl)
++	const s64 *link_frequencies;
+ 	u32 link_freq_index;
+ 	u32 data_lanes;
+ };
+@@ -644,10 +658,14 @@ static const struct os05b10_mode supported_modes_10bit[] = {
+ 	},
+ };
  
- 		fmt->code = os05b10_get_format_code(os05b10);
- 		break;
-+	case V4L2_CID_TEST_PATTERN:
-+		ret = os05b10_update_test_pattern(os05b10, ctrl->val);
+-static const s64 link_frequencies[] = {
++static const s64 link_frequencies_4lane[] = {
+ 	OS05B10_LINK_FREQ_600MHZ,
+ };
+ 
++static const s64 link_frequencies_2lane[] = {
++	OS05B10_LINK_FREQ_750MHZ,
++};
++
+ static const u32 os05b10_mbus_codes[] = {
+ 	MEDIA_BUS_FMT_SBGGR10_1X10,
+ 	MEDIA_BUS_FMT_SBGGR12_1X12,
+@@ -983,6 +1001,19 @@ static int os05b10_enable_streams(struct v4l2_subdev *sd,
+ 	if (ret < 0)
+ 		return ret;
+ 
++	/* Write PLL and MIPI lane configuration */
++	if (os05b10->data_lanes == 2)
++		ret = cci_multi_reg_write(os05b10->cci, os05b10_2lane_regs,
++					  ARRAY_SIZE(os05b10_2lane_regs), NULL);
++	else
++		ret = cci_multi_reg_write(os05b10->cci, os05b10_4lane_regs,
++					  ARRAY_SIZE(os05b10_4lane_regs), NULL);
++	if (ret) {
++		dev_err(os05b10->dev,
++			"failed to write PLL and MIPI lane registers\n");
++		goto err_rpm_put;
++	}
++
+ 	/* Write common registers */
+ 	ret = cci_multi_reg_write(os05b10->cci, os05b10_common_regs,
+ 				  ARRAY_SIZE(os05b10_common_regs), NULL);
+@@ -1194,9 +1225,16 @@ static int os05b10_parse_endpoint(struct os05b10 *os05b10)
+ 	if (ret)
+ 		return ret;
+ 
+-	if (bus_cfg.bus.mipi_csi2.num_data_lanes != 4) {
++	switch (bus_cfg.bus.mipi_csi2.num_data_lanes) {
++	case 2:
++		os05b10->link_frequencies = link_frequencies_2lane;
 +		break;
- 	default:
- 		ret = -EINVAL;
- 		break;
-@@ -972,7 +1018,7 @@ static int os05b10_init_controls(struct os05b10 *os05b10)
- 	        return ret;
++	case 4:
++		os05b10->link_frequencies = link_frequencies_4lane;
++		break;
++	default:
+ 		ret = dev_err_probe(os05b10->dev, -EINVAL,
+-				    "only 4 data lanes are supported\n");
++				    "only 2 or 4 data lanes are supported\n");
+ 		goto error_out;
+ 	}
  
- 	ctrl_hdlr = &os05b10->handler;
--	v4l2_ctrl_handler_init(ctrl_hdlr, 11);
-+	v4l2_ctrl_handler_init(ctrl_hdlr, 12);
+@@ -1204,11 +1242,13 @@ static int os05b10_parse_endpoint(struct os05b10 *os05b10)
  
- 	pixel_rate = os05b10_pixel_rate(os05b10, mode);
- 	v4l2_ctrl_new_std(ctrl_hdlr, &os05b10_ctrl_ops, V4L2_CID_PIXEL_RATE,
-@@ -1016,6 +1062,11 @@ static int os05b10_init_controls(struct os05b10 *os05b10)
- 	os05b10->vflip = v4l2_ctrl_new_std(ctrl_hdlr, &os05b10_ctrl_ops,
- 					   V4L2_CID_VFLIP, 0, 1, 1, 0);
- 
-+	v4l2_ctrl_new_std_menu_items(ctrl_hdlr, &os05b10_ctrl_ops,
-+				     V4L2_CID_TEST_PATTERN,
-+				     ARRAY_SIZE(os05b10_test_pattern_menu) - 1,
-+				     0, 0, os05b10_test_pattern_menu);
-+
- 	ret = v4l2_ctrl_new_fwnode_properties(ctrl_hdlr, &os05b10_ctrl_ops,
- 					      &props);
+ 	ret = v4l2_link_freq_to_bitmap(os05b10->dev, bus_cfg.link_frequencies,
+ 				       bus_cfg.nr_of_link_frequencies,
+-				       link_frequencies,
+-				       ARRAY_SIZE(link_frequencies),
++				       os05b10->link_frequencies,
++				       ARRAY_SIZE(link_frequencies_4lane),
+ 				       &link_freq_bitmap);
  	if (ret) {
+-		dev_err(os05b10->dev, "only 600MHz frequency is available\n");
++		dev_err(os05b10->dev, "%lld Hz link frequency required for %u lanes\n",
++			os05b10->link_frequencies[0],
++			os05b10->data_lanes);
+ 		goto error_out;
+ 	}
+ 
+@@ -1223,7 +1263,7 @@ static int os05b10_parse_endpoint(struct os05b10 *os05b10)
+ static u64 os05b10_pixel_rate(struct os05b10 *os05b10,
+ 			      const struct os05b10_mode *mode)
+ {
+-	u64 link_freq = link_frequencies[os05b10->link_freq_index];
++	u64 link_freq = os05b10->link_frequencies[os05b10->link_freq_index];
+ 	u64 pixel_rate = div_u64(link_freq * 2 * os05b10->data_lanes, mode->bpp);
+ 
+ 	dev_dbg(os05b10->dev,
+@@ -1255,9 +1295,9 @@ static int os05b10_init_controls(struct os05b10 *os05b10)
+ 
+ 	link_freq = v4l2_ctrl_new_int_menu(ctrl_hdlr, &os05b10_ctrl_ops,
+ 					   V4L2_CID_LINK_FREQ,
+-					   ARRAY_SIZE(link_frequencies) - 1,
++					   ARRAY_SIZE(link_frequencies_4lane) - 1,
+ 					   os05b10->link_freq_index,
+-					   link_frequencies);
++					   os05b10->link_frequencies);
+ 
+ 	hblank_def = mode->hts - mode->width;
+ 	os05b10->hblank = v4l2_ctrl_new_std(ctrl_hdlr, NULL, V4L2_CID_HBLANK,
 -- 
 2.34.1
 
