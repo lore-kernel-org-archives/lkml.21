@@ -1,118 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795266035;
-	b=cO+KjSEraV/N8ckWblE9agSmfs1t4YStc3rxe2FXYJQgM/CW0mTeqdN2PLorTld3Edrk
-	 OhmrkDhD9TYrN/F2VXTt1R0ZR7Uh844Hbmc8byJdcn38Y+Iq0RqqDLu7rkWG8PHiMqTWY
-	 rS0P2fy/FDM1C2KjmoeELa/A4jl/oawYPOFwOeKu+Y4rSVGqcs0HZCy3dn4nO4jOVJ3Tz
-	 9eMSK99HrohlIlUGKYAgE2rDXbj+8vtL9U+4FkbCBj2y8dBGh2k2Z4Y+uB10L9o6xUYU7
-	 SKI9YUz9JHSmLPc1DRuOs/Q4QKlloD3AVL2T5VMLudsbcMNAdSAmVxy8j/tCwWTQwaw==
+	t=1795266066;
+	b=0oFbvy1JZmvHO88xVrTA6FJnuAMC91BfBRMoCi6DsmOHtNMhuoetTrvZDNOWhITPyFMW
+	 XyfEsxhUsKEobE/Vew60iQX4Y4Xm4V/nnUYnEgCAmLKydy/IFjks4Uwkuk1kAMtVHerfu
+	 FxgI7a0qIxXj9IfLHOOUPcrbHiB2+hFRxvIfmW9WZORhTubT8UXoMtD5ZbQBGNn8azIr9
+	 eaMN4dxmschtcYU6dlqqP/G4CuBXON7TrYTo7a2Yl0zerQV23Mp5APfAy8RC1wC3x3lqe
+	 joMFDsQ/rgZ+5+Y0cwVaGnMwNkpbA/B7C+UPj1TPnGYj4mRLZnhsxjDj7yWyw8302dw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795266035;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=NXIuNB3ZQ4GT/Hz3ry1FYljBSts0wnPjJe/0CXC9B/Q=;
-	b=z/e3094De7eXK3L4btorAxr44NmaZv8he+OJb0Y1Y9fPouscLcI6NC8W6c2ABRHDBlF1
-	 aA3oPkmijzm9NSZhWZlBRbsr9cKoT7pLRuSOoGn9B97qaOh5T41yYteNywziPuXVfMLtG
-	 jJ+ZZvCmjPaZNYHjh0IRE5fyO1mxgXaG2Y9a0/MHWF1n7W+2SSlkDEP/11DSouh+KpXov
-	 zSrfRFbpo+6Gd3bOt2GNW1CCGHIIN6R3eOGbmOoTTZ1/7M0sZDOzYtyuGB+OlVnhevXMQ
-	 Q1GsgarZU7872engHwh2KcFh314a6ZMtKTZhW/keHY5nE7udGSD3CxdpzxC2H2ql7uw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795266066;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=LBTcxjD/jP+a0J14fwq37AGdaxbLVWZgFPI61idAJ0Q=;
+	b=0F0oY+0Z/UyUOwsBm0UI8UmAd6ueiBZVjMfgBew1XW+86cYKG3GcJCNsSepx9KKEH8Q0
+	 m4GvzdoA+qDnalaxJrN2sMSuU4crr9mOAdOOWXFml3BWk+Q4kJ9a+dyBDM4+GWqBeyO46
+	 5kTnLgNXpJQp88U/LV63/dsQBRegyp7tTYQBP/IdCh8njbfMB7gCV09M5+L8jOF3tGl6P
+	 IY8i5bJNgg2slASLZHhJjtAUg0KmKXCXqpywxwIorUsbMeMCPzMLVOnhUxcrMBYXebX+Z
+	 9zrnqTYo9Zh+rAVbDmrtlAtDigSIkmC4IzBkPf8Ln0p/x/+WxC+MdQeVpgEd+M2JnmA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=RNtRAbmQ;
-	arc=none smtp.remote-ip=209.85.222.172
-Received: from mail-qk1-f172.google.com (mail-qk1-f172.google.com [209.85.222.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jUbivFcs;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B353606A332
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:00:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B353606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 132B8606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:01:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=RNtRAbmQ
-Received: by mail-qk1-f172.google.com with SMTP id af79cd13be357-9496473b511so224068485a.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:00:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795266034; x=1795870834; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=NXIuNB3ZQ4GT/Hz3ry1FYljBSts0wnPjJe/0CXC9B/Q=;
-        b=RNtRAbmQYXLSiaEjtX2aUWytq3ybkP6vzvMM/GYzBbb22sqY7OMQwI+6PVQp9DHcAr
-         lhyzXBhfLKqVcuJ8sVYNtP2aRDK4nll7J9DPE5KKQ2CAiVa+LkTWYungYQISMsCYyeh8
-         hpGt4X4Nli6qalkIo2q0QmQpZOhYwDWO5tabVR1HVgZiiW3bleQnCJNRgfq3ll0kyepq
-         3gsRAOgqgRVcju81U/9by/AXAbdfkcF2NzQSoJbhod4BZL71XZp0atz6aRPfoC9lunEa
-         hlKhShuYNK3XPf/2DcuSXs5DhYd1yfNh3h4hIJmP4ba3ACaEg6LShMxd5328jY0CMk/1
-         hndQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795266034; x=1795870834;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NXIuNB3ZQ4GT/Hz3ry1FYljBSts0wnPjJe/0CXC9B/Q=;
-        b=03U7SIoJ4dFPgTBDPod0jjeK4h6IHfBzOJ94++xU84+cYDYpYYGcqRkVC/7DvRVhel
-         zOPaepPQM6LbouxfZLkffpy8btcEYaqTNlsapancyLDkfiuTezMOcEj9rPi1prrnb9aB
-         /t8gffQt5IwcmKGqGBo5ccWTwkGOwMmeNEfMMLy0hhEBI7UkjQNyy4WWbQ9IncItaYR+
-         W1ynco6MJ05kLKZu2E57EI0FwGu1Zh4pHlYA3oQZz6uWN5HLOBcgzNVVXKhWogLr0pdI
-         DViM+6iM/+DESXlpm1Exl0CboohbMbd5dLiAvmL0WDo7EJIPqILqpH8CzDO/bUaiW3eR
-         1tjA==
-X-Forwarded-Encrypted: i=1; AL+hErGEC+ScNIsq5akS0TC0Y/HPEzthJsLWU9OHCApVTJmS05+1CX9Svfqcxi/kbmgt9cYevV25vgWNw04NbNc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+DQpXKuFeAXj+mR/WJcZZt/ojGlrh0wvVrpmu/FSUL88n6UqGO
-	ydLSmQDTiwPKSmtdVAyMuZGg50FZFWF2THgyCPPGI0L+/BoJwxQYKQH7pHuEZs6d/JM=
-X-Gm-Gg: AZFdTZfm8WYzltlo9ijj5U8BW3nCSFcwrKLCfsmJW250B2+klpTZ5yuXVk+FJRAHUEp
-	ZCkFwJVt6Fj0s0JhJDFIVVFZi6v37dIitDAFUMdSlyOkw9zgaLXTooiWIv+gjPmjT9lRHHW7aCo
-	EAb4vYEWXFZIf4CaR+s64dAIbnS2JhkPcrdfTfGX6egWoL2siJj+mH69roDQWxEYEXVpckUAlLJ
-	ie7qbADeTSnTx65vzlTG8mRAQjBijF75xj5iMMRCLx6DTwvP2gonEoTjIBfRlC3JmpLTAbzcPPw
-	9h8acP01VlgYsGZn6IbOYDP8VqbPA4KZsf3wT+Bm0yqkr9I32/mLWMvZZYwTv8MPJooe0dmBGlZ
-	aNsMmtCO+8NRtnnLTL0ThJC1UqQV8+681gNefFPE1BBPr2VmqWuZv5HGpwglnIDlIn4+0tB38ff
-	+vxOE/4cr44CXAjsyfTn/kfAhPM5cQEXxDYP8u5ObdYYj5by4uXLaZA1qhjbfbAyWvbMgyzcS8a
-	LaeuCY/RVTOe/ceduZbJdJd5Mi33rInS94DE97rnYh2ISZYzzf64kug0kK/B3o6aDfJxDk56vrY
-	hBy6lhT/lqn42WUEbmAH8lJnMJ+H+C0WVsrXl8m9MxMJ6JpHV4tXDwpaEMTiZq7e3UgzxEtO5LV
-	cLltwvSAURMnUq+qGjK/6KWtbjK8IrhhFlJzul2BTW/eFYP8=
-X-Received: by 2002:a05:620a:2786:b0:93e:5677:317b with SMTP id af79cd13be357-949b35e9b3fmr1046746285a.25.1795266033942;
-        Sat, 21 Nov 2026 05:00:33 -0800 (PST)
-Received: from localhost ([204.244.107.52])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb427388sm408593585a.42.2026.11.21.05.00.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 05:00:33 -0800 (PST)
-Date: Sat, 21 Nov 2026 08:00:32 -0500
-From: Ralph Siemsen <ralph.siemsen@linaro.org>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, khendry@reliablecontrols.com,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 1/6] dt-bindings: clock: r9a06g032-sysctrl: Document
- reset cells
-Message-ID: <awGV8BU_AfaXQyBv@maple.netwinder.org>
-References: <20261119-rzn1-miic-resets-v1-0-feee2bb28bb4@reliablecontrols.com>
- <20261119-rzn1-miic-resets-v1-1-feee2bb28bb4@reliablecontrols.com>
- <awARmkCuelD_fdX6@shikoro>
- <5d8530485716d129be2efa0518254e3322cecdb0.camel@pengutronix.de>
- <awAq7vxcY8CGjhNl@ninjato>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jUbivFcs
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 634321F000C0;
+	Sat, 21 Nov 2026 13:01:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795266065;
+	bh=LBTcxjD/jP+a0J14fwq37AGdaxbLVWZgFPI61idAJ0Q=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=jUbivFcs9cry91XPTkbT/185do1RnL/TsUv2YpsKCeGHMENOPk5uOtW2fKgEn6LGX
+	 RSBA2skOWiqcl0JNo4ebQjVsqRa51JHe7MyLNvwcnLtYysT3vRpOcAYqGDJEoVYoEm
+	 nJTVlMtRQcFUNfcdulMWSAc+77f63HfGakiwjzDVQKbXxBc5XBShcFJKwmndyhbGAf
+	 Ct3QTLhAG4UJdConrNgEwZ36H16ygilJ9DQvg6dMUoR/APkIuJFecFMwXbhHgNUTrK
+	 lHG+9GZBtWf3SG8CoxkFSbSXii8qLXlATOlxi6cgKsj6cLD7Q6pnZB98b7DlwmFK4I
+	 yokHJT3Ysh2oA==
+Message-ID: <960b4568-9d20-4eb0-b0e4-67e60f8274d4@kernel.org>
+Date: Sat, 21 Nov 2026 14:00:59 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -122,31 +51,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <awAq7vxcY8CGjhNl@ninjato>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/1] mm/shmem: don't use the memcg of an uncharged
+ folio
+To: "Gregory Price (Meta)" <gourry@gourry.net>, Chris Mason <mason@kernel.org>
+Cc: hughd@google.com, baolin.wang@linux.alibaba.com,
+ akpm@linux-foundation.org, qi.zheng@linux.dev, qinyuntan@linux.alibaba.com,
+ shakeel.butt@linux.dev, linux-mm@kvack.org, linux-kernel@vger.kernel.org
+References: <20261120195057.50031-1-mason@kernel.org>
+ <20261120195057.50031-2-mason@kernel.org>
+ <179526598180.412063.14973682472309530978.b4-reply@b4>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
+ dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
+ QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
+ XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
+ Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
+ PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
+ WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
+ UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
+ jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
+ B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzS5EYXZpZCBIaWxk
+ ZW5icmFuZCAoQ3VycmVudCkgPGRhdmlkQGtlcm5lbC5vcmc+wsGQBBMBCAA6AhsDBQkmWAik
+ AgsJBBUKCQgCFgICHgUCF4AWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaYJt/AIZAQAKCRBN
+ 3hD3AP+DWriiD/9BLGEKG+N8L2AXhikJg6YmXom9ytRwPqDgpHpVg2xdhopoWdMRXjzOrIKD
+ g4LSnFaKneQD0hZhoArEeamG5tyo32xoRsPwkbpIzL0OKSZ8G6mVbFGpjmyDLQCAxteXCLXz
+ ZI0VbsuJKelYnKcXWOIndOrNRvE5eoOfTt2XfBnAapxMYY2IsV+qaUXlO63GgfIOg8RBaj7x
+ 3NxkI3rV0SHhI4GU9K6jCvGghxeS1QX6L/XI9mfAYaIwGy5B68kF26piAVYv/QZDEVIpo3t7
+ /fjSpxKT8plJH6rhhR0epy8dWRHk3qT5tk2P85twasdloWtkMZ7FsCJRKWscm1BLpsDn6EQ4
+ jeMHECiY9kGKKi8dQpv3FRyo2QApZ49NNDbwcR0ZndK0XFo15iH708H5Qja/8TuXCwnPWAcJ
+ DQoNIDFyaxe26Rx3ZwUkRALa3iPcVjE0//TrQ4KnFf+lMBSrS33xDDBfevW9+Dk6IISmDH1R
+ HFq2jpkN+FX/PE8eVhV68B2DsAPZ5rUwyCKUXPTJ/irrCCmAAb5Jpv11S7hUSpqtM/6oVESC
+ 3z/7CzrVtRODzLtNgV4r5EI+wAv/3PgJLlMwgJM90Fb3CB2IgbxhjvmB1WNdvXACVydx55V7
+ LPPKodSTF29rlnQAf9HLgCphuuSrrPn5VQDaYZl4N/7zc2wcWM7BTQRVy5+RARAA59fefSDR
+ 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
+ VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
+ /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
+ iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
+ 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
+ zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
+ azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
+ FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
+ sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
+ 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
+ EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
+ IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
+ 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
+ Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
+ sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
+ yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
+ 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
+ r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
+ 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
+ CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
+ qIws/H2t
+In-Reply-To: <179526598180.412063.14973682472309530978.b4-reply@b4>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 20, 2026 at 12:11:42PM +0100, Wolfram Sang wrote:
->
->> > > +#define R9A06G032_RST_TS		1
->> > > +#define R9A06G032_RST_MIIC		2
->> >
->> > I didn't find any listing of the resets in the RZN1 docs, so coming up
->> > with arbitrary numbers as we need them seems okay to me.
+On 11/21/26 13:59, Gregory Price (Meta) wrote:
+> On 2026-11-20 14:50 -0500, Chris Mason wrote:
+>> The shrinker for unused huge tmpfs folios can dereference a NULL memcg
+>> if it races with the migration of the folio at the end of a file.
 >>
->> Why aren't we starting at 0?
->
->I wondered as well but clocks are also starting from 1, so we could
->argue with consistency.
+>> folio_memcg_list_lru_alloc() assumes that folio_memcg() is never NULL.
+>> But it is NULL until the folio is charged, and a migration target can be
+>> in the page cache before charging.
+>>
+>> shmem_unused_huge_shrink() looks the folio up without the folio lock,
+>> so we can race with migration:
+>>
+>>     __migrate_folio()               shmem_unused_huge_shrink()
+>>     =================               ==========================
+>>     __folio_migrate_mapping()
+>>       xas_store(newfolio)
+>>                                     filemap_get_entry()
+>>                                       returns newfolio
+>>                                     folio_trylock() fails
+>>                                     shmem_unused_huge_requeue()
+>>                                       folio_memcg_list_lru_alloc()
+>>                                         folio_memcg() is NULL
+>>                                         memcg->kmemcg_id
+>>     folio_migrate_flags()
+>>       mem_cgroup_migrate()
+>>         commit_charge(newfolio)
+>>
+>> Fix it by keeping the original objcg around while the inode is isolated.
+>>
+>> Fixes: 743e7d025d2f ("mm: shmem: make unused huge shrinker memcg aware")
+>> Suggested-by: Qi Zheng <qi.zheng@linux.dev>
+>> Signed-off-by: Chris Mason <mason@kernel.org>
+> 
+> Reproduced and validated the fix. Changes look ok.
 
-The clocks use value 0 to indicate "no parent clock", but only for the 
-".source" element of struct r9a06g032. The encoding macros add and 
-subtract 1 to the clock IDs, so it should in fact be possible to use 
-0-based values even for the clocks. Too late to change now since the 
-values are encoded into DTBs.
+Thanks, I'll throw this into for-next-fixes right away and cc stable.
 
-Thinking about it some more, perhaps instead of using 0 as the special 
-case for "no parent", we could set .source to match .index. In other 
-words a clock pointing to itself means "no parent". Worth changing? 
+-- 
+Cheers,
 
-Ralph 
+David
