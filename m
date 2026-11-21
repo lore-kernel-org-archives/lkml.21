@@ -1,107 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795278308;
-	b=skt9nkeDb+Ns3+aiWORMZr8TXbgjDJ9s8y45sgMX4zEwbb5LcK7OCoveayUsUCi0sNOw
-	 UseaSCQ1ZAOSdwsGQLR4UkNzOyBds0A5CyC5LYHD6Ts80ycmilQ9GAe1NwCDl++21YrBW
-	 4byffJu9d/Dml3ZV75EZYDOcEvGGCA1T7MyElcC4puGdsBv8E+OGmt9V5LMpj0i1RXcrd
-	 WXGfmSfp0ZIeLzz1QiTewJZHMuCc1tx4o84b6UWVRwqNQ+Sbk+xStqBn3zqNNsD1g8g+o
-	 JCjGh1yrX8L+p5BH+PIUKiEpfGCbbBqv2T91Dytl5YPyYKvOE9wwrgx1UV2ZIBpAeqQ==
+	t=1795278574;
+	b=D+nNyxq9uvsEUXczKobsYOGRrGduij8tHl2uVpXFDM6kOm7yq5Eu451XA/AdDmEd8Vo/
+	 TqL2zi9IaeOVIoC7GSLzfZGnN7QpaS6nQnYDsqTibV8EVkrkgAd5rIzyqVzYm2U7ZcZYi
+	 m4kZzGTtcoQYjjYfP39Y95Hy+P+eE0zrDciahRyOsN+wu6jnNrFOxb3PydstmOiqBEtTc
+	 Y+Neh0hXvuzY2wkr+e+sxOXdLL4W88NbvOSEGlxHReYdhQhtLSJZ1nxS+R19DyUwhaHOY
+	 o79KXJVJeiwG+K+onlRscWv5vUcjPvTEqp1h45MxvC4py+JVnaWgLcnK3d79lqnj8lQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795278308;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=36d9hExkEjPtvmQtsPosnEH+c8Q4VXKpCfV8tJSV/JA=;
-	b=UuqzpTZTul+sIENRyJm5ngT+EQNCZMiCiNmdK3Pb8bOI/44U18wXLBUz9fh7AOCo3l3Z
-	 EFc72QWzl8ONVqbPoisMpOaKVmuKcIiXtUQoXVtnGBEOkCDv9zt/j4DY/zTA9V7TlqkXP
-	 UhtPTr2AYPPAvy+lXS1YaW6tuLU60CWdoJucP1TEV38zUeVxkJZ2zz7MMaYAY9BfcI0i5
-	 +fzhr0UFPoevqH+rwn/H+zQgEaLQVw0zmHJW726GEFOpXtjV33kOAMWqQk9STguvThibI
-	 0Dc8P4KTY3k4Cn906gKEhsFeN0fQdPIHmWk8nZ182Qe/PJhL2QW+/F8BzsvGiTc5JPw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795278574;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=/gvhPLIVhCoxfejxGP171pEQlCwakQHiu1fq9DJdqP0=;
+	b=rvcpUxIMPbhadJaTCuONzyYrMAZ+rFl6x0ZkiGKwymKdA0Z+a3IJtbf5WQgGpYdbaG01
+	 iSvOBxd99hFPCA+MP8HzJSU0i2s2frIUsZme3INlwB0dOn1uMqtJQcFjOfa08AGgu8Sq9
+	 QA4AHGZKzr4DQyRCStuEWOX3pjiCfCMBP1Po5RgCBEh13MpZJZDVfjngfrpyrlcc1HTQh
+	 HFIhZWOMWNxmbaGyfKcxfDhHdm5ri50TvACN7mQbationgGZxHDZuWcZUNC8uIrrFeYu1
+	 JsyUx7e3QIrxmhiARByLW8JX4COuBTH2bz0HA6QoRSTy6vXnd4DLD3EoB6Xe9MCaSiQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O3HKPdoW;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f4gRizVT;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21659606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:25:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21659606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66E31606A331;
+	Sat, 21 Nov 2026 16:29:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O3HKPdoW
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4bb666304fdso26693445e9.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 08:25:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795278306; x=1795883106; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=36d9hExkEjPtvmQtsPosnEH+c8Q4VXKpCfV8tJSV/JA=;
-        b=O3HKPdoWDNlPpa4GOqunHzCTOD1ZVBThTLWBXpFFL/kUd7IRONtBl1NCeGle3gaJe0
-         TLrXKknF+bo3AhXUZ4MvCZWQHGhSjvSQb6qHzkXFHzfBjaXv6NVVwASnyw0ChS771Jkj
-         UaaBZ0pdSI4rh4tpVo+Vmu078rUgFe72BGiF6u700rTFHEPZthcO2ITFQd65daXyjLsy
-         NBY7BBGQTd04dJ6pJg36HFvEKRAJB/luGkzwuw8iiFsYf885AcgS7RotlUHRlQjgG4In
-         WnABRBs+PU73ATkwerA2nS4QTxMLCCDAWPYKEJ22/tKKH3QocFpKPmbtYN+aXDFuf4Ud
-         xtJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795278306; x=1795883106;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=36d9hExkEjPtvmQtsPosnEH+c8Q4VXKpCfV8tJSV/JA=;
-        b=xk7Pb4wIY/98kNsqYEYgTw5K6fm3/lPbBsU+BOhTSrD/s1rmg+oMxSFt2e4kslOpzg
-         iU2VU7haeRWj2F4tzn1r3nEW8PjXSqNUOCb3P68+IGL1TpG5HwGBAWrzJFSKH1YVEhdm
-         R8pXhredFPcoA6C5cHiJoEN2IIe4XIpvLZjk2bJSIN2AehXBzjfez/AOLbEYrp8dD71t
-         v1jiJzP7rhtdTqkLmZlqCpXj66uL0nwMC8jWGWt7sJNgiLn4/OFU/9LTbl+h03xs5BS4
-         LzO6ID0OTKbsBHsMmg6RK3/xrb1EW1eXP3/bJCoZaeowwj6x133Io7VrBkw8od563CcO
-         Cnkg==
-X-Forwarded-Encrypted: i=1; AL+hErHbEhRsAqz/F/9buK8aI2M8AvznaxihAHXCKXTDEHJRQPnl9rF6KDJG2/judLx+0FSXFZP48+F1HdnaBAM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+CbU1hcfLe9O5Tb3WQ8nT1cHvlyqGszfBrxLkadkPQV3satU3b
-	XR9yhOaU6jP1hDJRfT7Qdgy4RVdU3Uk6RgCDAJMTXQ6cUidorpEzECWT
-X-Gm-Gg: AZFdTZddXEAAyammZYpgLTBayAk2exScZq/RarENEVA/3RASS7vHUfGtt2RAuq3AviH
-	0CR9KBlQrCjhmWNKZ52zJEwPfUSw/ZSmcQEKotacA4NmgGMsG+jRrGx/oEzASF3CdantOlqic4w
-	ylo0ADlT/J9RakCOjFpYvvTz4zlANXcUdclktY7bzSk7spmOecFt+l/8SwOSMSWShxwpFtY0Ek0
-	N4G6WavmT68lXbZqPFn5JsGGOAdibRJAd4IC7aN99RDcIpv2Bw5uBVccK4lLzpmSpJ5Q2042BWS
-	f4A46sttJ24EJDpSOzxFV+6hcGynfuvjk0zMEeUIJqHFxDq0xfNVD8uRVIOvGjNHSFTesTvi8r1
-	Aoh8gK8vmqcQ/3il2ZqjiOHweW8LVc/4avhZECs42KWPkLGZ24N7DeadYIAkQHmxbxwTuGuO7j3
-	6lg4toRhwCNMDOLajKvh90/K4stHJ/uvsWw9nuakI+93mRhH19HoHaJXPIN0dhClrzxKLON7W0Y
-	ua+ij+S5XkyQ7M+PFJXJ1C/rLq+kFtXQDpvQkD2ZhFQNOGqJ1QTebIlM13aI+olZrpHpZZ+LioX
-	UdWGtU3uZ+Fdcr4IJJ9674LO+zEJc20t91J/zGEtkZKwlVVxijsfq67Z+1Hqc3C6dmc187M5xVk
-	47C2Pu4c64mOB
-X-Received: by 2002:a05:600c:5303:b0:4ba:4928:8aec with SMTP id 5b1f17b1804b1-4bb88807d7cmr140280015e9.9.1795278306276;
-        Sat, 21 Nov 2026 08:25:06 -0800 (PST)
-Received: from 1Z10 ([2a02:b123:8010:2d5f:cf9a:376a:baf:495a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9066e34esm67580365e9.3.2026.11.21.08.25.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 08:25:05 -0800 (PST)
-From: Maurizio Casciano <mauriziocasciano7@gmail.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Maurizio Casciano <mauriziocasciano7@gmail.com>,
-	linux-media@vger.kernel.org,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Nicholas Roth <nicholas@rothemail.net>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Bingbu Cao <bingbu.cao@amd.com>,
-	Dan Scally <dan.scally@ideasonboard.com>,
-	Hans de Goede <hansg@kernel.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	linux-kernel@vger.kernel.org,
-	linux-staging@lists.linux.dev
-Subject: Re: [PATCH v11 01/14] media: v4l2-core: Preserve existing subdevice nodes on rollback
-Date: Sat, 21 Nov 2026 17:24:58 +0100
-Message-ID: <20261121162458.1373638-1-mauriziocasciano7@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261121135349.GE2472094@killaraus.ideasonboard.com>
-References: <cover.1795267528.git.mauriziocasciano7@gmail.com> <48240d57d86e78cce814822360c1b22cea80268b.1795267528.git.mauriziocasciano7@gmail.com> <20261121135349.GE2472094@killaraus.ideasonboard.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f4gRizVT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46A891F000C0;
+	Sat, 21 Nov 2026 16:29:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795278574;
+	bh=/gvhPLIVhCoxfejxGP171pEQlCwakQHiu1fq9DJdqP0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=f4gRizVTQZflQ8m1Dtia7NvYwVC4X6V94nR10u7nGFrbVAgunw20qY292yIUUc8fa
+	 s8mGhnojRxlG6QzXxvURV/1ag3NboCIBl6Jb2xX01+niVxysO+2P1cNcHaqnDaBZnX
+	 gajCj/t51KVp521bjSwQlzDk61cjvZKoJ7/6RQkjWqtnyw24yyRtJnkiTD/BMGJeNW
+	 K9BZdsusXmSItdeRu6HSb50xbZSUKkRedaKEiBr287y81q5v79UlgktfUvYdPJw+S3
+	 tLOV9ZtmggRv5JNcNocFJ+7EgNDTWCghdEgSJF5OvGCKfk8SCQZ7sAP7ixfvwm8YKO
+	 g5gSPHcrK4SfQ==
+Subject:
+ Re: [PATCH net-next v11 3/4] net: mana: support concurrent HWC requests
+From: netdev-bot+sashiko@kernel.org
+To: weh@linux.microsoft.com
+Cc: longli@kernel.org, kotaranov@microsoft.com, kuba@kernel.org,
+ davem@davemloft.net, pabeni@redhat.com, edumazet@google.com,
+ andrew+netdev@lunn.ch, jgg@ziepe.ca, leon@kernel.org, haiyangz@microsoft.com,
+ wei.liu@kernel.org, decui@microsoft.com, shradhagupta@linux.microsoft.com,
+ horms@kernel.org, ernis@linux.microsoft.com, stephen@networkplumber.org,
+ netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
+ gargaditya@linux.microsoft.com, kees+treewide@kernel.org, kees@kernel.org,
+ mawasthi@linux.microsoft.com, weh@microsoft.com, edumazet@kernel.org,
+ shacharr@microsoft.com
+Date: Sat, 21 Nov 2026 16:29:31 +0000
+Message-ID: <179527857180.3135.15262062177473658662@kernel.org>
+In-Reply-To: <45db2acd8f03421191f5b3a9f4bd7ce9e9259b33.1794751992.git.weh@linux.microsoft.com>
+References: <45db2acd8f03421191f5b3a9f4bd7ce9e9259b33.1794751992.git.weh@linux.microsoft.com>
+X-sashiko-severity: Critical
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,20 +70,364 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 
-Hi Laurent,
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
 
-> NAK.
+Critical: 1 · High: 2 · Medium: 2 · Low: 0
 
-Thanks for reviewing. The test only checked which nodes were removed.
-On re-reading the error path, I saw that unregistering a new node can
-invoke the subdevice release callback while the subdevice is still
-registered. The test didn't cover that ordering.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Is that the issue you had in mind? If you see a different problem,
-could you point me to the code path or assumption I missed?
+- [Critical] When a kernel CQ destroy is rejected locally,
+  mana_ib_destroy_cq() leaves a dangling CQ callback, and a later…
+- [High] EQ references to MSI-X/IRQ contexts (GIC references) that are
+  kept after a rejected EQ destroy break mana_gd_remove_irqs() and the…
+- [High] RDMA/mana_ib: returning errors in mana_ib_destroy_qp() breaks
+  teardown
+- [Medium] mana_create_eq() (mana_en.c) and mana_ib_create_eqs()
+  (infiniband main.c) skip mana_gd_put_gic() whenever…
+- [Medium] The Ethernet objects that are kept after a rejected destroy
+  become unreachable, so they leak permanently on every service-reset…
 
-With Best Regards,
-Maurizio Casciano
+--
+
+net: mana: support concurrent HWC requests
+
+This patch gives each HWC message slot separate sender and response
+references. Timed-out requests are quarantined until their late response
+arrives, and admission now waits on a waitqueue instead of a semaphore.
+It also adds a "locally rejected" error class (-ENOTCONN/-ENODEV/-EMSGSIZE)
+and propagates it through the Ethernet and RDMA destroy paths, so that
+memory the device may still own is retained instead of freed.
+
+Link: https://lore.kernel.org/r/20260908035201.402424-4-longli@microsoft.com
+Link: https://lore.kernel.org/r/20260914175044.2a26bb46@kernel.org
+Link: https://lore.kernel.org/r/179196575640.434549.9102950927041409151@kernel.org
+Link: https://lore.kernel.org/r/179250339266.3135.15035365058593192217@kernel.org
+Link: https://lore.kernel.org/r/179455240021.2199510.18244084352437360589@kernel.org
+
+> diff --git a/drivers/infiniband/hw/mana/cq.c b/drivers/infiniband/hw/mana/cq.c
+> index 843e2c64b32bc..95b7c250494b1 100644
+> --- a/drivers/infiniband/hw/mana/cq.c
+> +++ b/drivers/infiniband/hw/mana/cq.c
+
+[ ... ]
+
+> @@ -169,16 +170,14 @@ int mana_ib_destroy_cq(struct ib_cq *ibcq, struct ib_udata *udata)
+>  
+>  	mdev = container_of(ibdev, struct mana_ib_dev, ib_dev);
+>  
+> -	mana_ib_remove_cq_cb(mdev, cq);
+> -
+> -	/* Ignore return code as there is not much we can do about it.
+> -	 * The error message is printed inside.
+> -	 */
+> -	mana_ib_gd_destroy_cq(mdev, cq);
+> +	err = mana_ib_gd_destroy_cq(mdev, cq);
+> +	if (mana_gd_is_request_rejected(err) ||
+> +	    READ_ONCE(cq->queue.retain_dma))
+> +		return err ? err : -ENOTCONN;
+
+[Severity: Critical]
+Can this leave a dangling CQ callback for kernel CQs, which then runs on
+freed memory?
+
+For a kernel CQ, mana_ib_install_cq_cb() puts cq->queue.kmem into the
+global table, and its context points back at the mana_ib_cq:
+
+    gdma_cq->cq.context = cq;
+    gdma_cq->cq.callback = mana_ib_cq_handler;
+    gc->cq_table[cq->queue.id] = gdma_cq;
+
+Before this patch the entry was always detached by
+mana_ib_destroy_queue()->mana_gd_destroy_queue(kmem)->mana_gd_destroy_cq().
+With the early return above, neither mana_ib_remove_cq_cb() nor
+mana_ib_destroy_queue() runs when the destroy is rejected.
+
+ib_free_cq() does not honour the driver's error, though:
+
+drivers/infiniband/core/cq.c:ib_free_cq() {
+    ...
+	else
+		ret = cq->device->ops.destroy_cq(cq, NULL);
+	WARN_ONCE(ret, "Destroy of kernel CQ shouldn't fail");
+	kfree(cq->wc);
+	kfree(cq);
+}
+
+The freed mana_ib_cq can therefore still be reached through gc->cq_table.
+mana_gd_process_eqe() indexes that table with the cq_id from any EQE,
+whether it comes from an RDMA EQ, a still-live Ethernet EQ or the HWC EQ:
+
+    cq = READ_ONCE(cq_table[cq_id]);
+    ...
+    if (cq->cq.callback)
+        cq->cq.callback(cq->cq.context, cq);
+
+mana_ib_cq_handler() then loads cq->ibcq.comp_handler from the freed
+object and calls through it.
+
+One way to reach this is mana_serv_reset()->mana_gd_cancel_hwc_timeout().
+After that, mana_gd_suspend()->mana_rdma_remove()->ib_unregister_device()
+tears down the GSI QP and calls ib_free_cq(). mana_ib_gd_destroy_cq() is
+rejected with -ENOTCONN because no slot is free and the timeout is 0. A
+single 30s timeout on the depth-one channel has the same effect, since it
+quarantines the only slot.
+
+mana_ib_retain_qp() is a second trigger. After a rejected UD/GSI QP
+destroy in a create unwind, it sets retain_dma on the kernel send/recv
+CQs, so their later destroy also takes this early return.
+
+The WARN_ONCE in ib_free_cq() also fires every time this path is taken.
+
+Should the software callback for kernel CQs be withdrawn here
+unconditionally, even when the DMA memory has to be retained?
+
+>  
+> -	mana_ib_destroy_queue(mdev, &cq->queue);
+> +	mana_ib_remove_cq_cb(mdev, cq);
+>  
+> -	return 0;
+> +	return mana_ib_destroy_queue(mdev, &cq->queue);
+>  }
+
+[ ... ]
+
+> diff --git a/drivers/infiniband/hw/mana/main.c b/drivers/infiniband/hw/mana/main.c
+> index 858bbc325eb29..7d5a8fc7380d7 100644
+> --- a/drivers/infiniband/hw/mana/main.c
+> +++ b/drivers/infiniband/hw/mana/main.c
+
+[ ... ]
+
+> @@ -841,7 +862,8 @@ int mana_ib_create_eqs(struct mana_ib_dev *mdev)
+>  
+>  	err = mana_gd_create_mana_eq(mdev->gdma_dev, &spec, &mdev->fatal_err_eq);
+>  	if (err) {
+> -		mana_gd_put_gic(gc, false, 0);
+> +		if (!mana_gd_is_request_rejected(err))
+> +			mana_gd_put_gic(gc, false, 0);
+>  		return err;
+>  	}
+
+[Severity: High]
+Can a rejected destroy here leave the driver tracking a QP that the
+RDMA core then frees anyway?
+
+mana_ib_destroy_ud_qp(), mana_ib_destroy_rc_qp() and
+mana_ib_destroy_uc_qp() now return before mana_table_remove_qp() and
+mana_remove_qp_from_cqs() when the HWC rejects the command. The core
+does not treat that error as "object still exists" in every caller.
+
+First, ib_destroy_qp_user() returns the error without calling
+ib_qp_usecnt_dec(), so the PD and CQ usecnt stay elevated. For the
+kernel GSI QP this is on the same reset path as the CQ issue above:
+mana_serv_reset()->mana_gd_cancel_hwc_timeout(), then
+mana_gd_suspend()->mana_rdma_remove()->mana_ib_remove().
+
+mana_drain_gsi_sqs() first links the GSI QP onto the MAD CQ's
+send_err_qp_list and schedules cq->work. ib_unregister_device() then
+reaches ib_mad_port_close()->destroy_mad_qp(), which gets -ENOTCONN.
+ib_free_cq() hits WARN_ON_ONCE(atomic_read(&cq->usecnt)) and returns
+without cancelling the CQ work. ib_dealloc_pd() warns, port_priv is
+freed, and ib_dealloc_device() frees the mana_ib_dev. The queued CQ
+work and later EQEs still reach the QP through mdev->qp_table_wq and
+the CQ error lists, so they run on freed memory.
+
+Second, the create_qp() unwind in drivers/infiniband/core/verbs.c
+ignores the destroy_qp() return value at its err_security label and
+does kfree(qp) unconditionally. mana_table_store_qp() has already run
+at that point, so mdev->qp_table_wq keeps a pointer to the freed QP.
+mana_get_qp_ref() then hands that pointer to mana_ib_event_handler()
+on the next GDMA_EQE_RNIC_QP_FATAL.
+
+Third, on uverbs close or disassociation, uverbs_destroy_ufile_hw()
+falls back to RDMA_REMOVE_DRIVER_FAILURE. That path warns and frees
+the uobject anyway. The undestroyed QP stays in mdev->qp_table_wq,
+and its event handler dereferences the freed qp->uobject. The new
+error returns from mana_ib_destroy_wq() and mana_ib_destroy_cq() have
+the same problem on this path.
+
+None of this needs unusual user action. A service reset, or a single
+timeout on the depth-one channel, is enough to make the destroys
+reject.
+
+Could the destroy paths always drop the software state (qp table
+entry, CQ error lists, CQ callbacks) and retain only the PF-owned DMA
+mappings and umem, the way the Ethernet paths retain queue memory? If
+the verbs object itself really has to stay alive, how is that meant
+to work with core callers that cannot handle a failed destroy?
+
+[Severity: Medium]
+Does this leak the GIC reference when the rejected command was not the
+EQ disable?
+
+Both this call site and the matching one in mana_create_eq() in mana_en.c
+decide whether to keep the GIC from the errno class alone. The assumption
+is that a rejected errno means the device still owns the vector. But
+mana_gd_create_mana_eq() also returns a rejected errno in cases where no
+device EQ refers to the vector.
+
+First, mana_gd_create_dma_region() can be rejected before any IRQ or EQ
+exists. The region is still GDMA_INVALID_DMA_REGION and disable_needed is
+false, so this branch frees the memory and still returns -ENOTCONN/-ENODEV:
+
+    if (!mana_gd_is_request_rejected(err) ||
+        (gmi->dma_region_handle == GDMA_INVALID_DMA_REGION &&
+         !queue->eq.disable_needed))
+        mana_gd_free_memory(gmi);
+
+Second, mana_gd_create_hw_eq() can be rejected while disable_needed is
+still false. Third, mana_gd_test_eq() can be rejected after create_hw_eq()
+succeeded, and the cleanup disable then completes. In both cases
+mana_gd_create_eq() keeps the original rejected err, because it only
+remaps when the destroy itself is rejected:
+
+    if (mana_gd_is_request_rejected(mana_gd_destroy_eq(gc, false, queue)))
+        err = -ENOTCONN;
+
+In each of these cases the reference from mana_gd_get_gic() is never
+dropped, and in dedicated-MSI mode the msi_bitmap bit also stays set.
+
+Could mana_gd_create_mana_eq() report whether the vector is still in use
+by the device, instead of the callers inferring it from the errno?
+
+[ ... ]
+
+>  void mana_ib_destroy_eqs(struct mana_ib_dev *mdev)
+>  {
+>  	struct gdma_context *gc = mdev_to_gc(mdev);
+> -	int i, msi;
+> +	int err, i, msi;
+>  
+> -	mana_gd_destroy_queue(gc, mdev->fatal_err_eq);
+> -	mana_gd_put_gic(gc, false, 0);
+> +	err = mana_gd_destroy_queue(gc, mdev->fatal_err_eq);
+> +	if (!mana_gd_is_request_rejected(err))
+> +		mana_gd_put_gic(gc, false, 0);
+
+[Severity: High]
+What releases this retained GIC reference later?
+
+Neither mana_ib_destroy_eqs() nor mana_destroy_eq() in mana_en.c keeps
+the EQ anywhere afterwards; mana_destroy_eq() frees apc->eqs right after
+this loop. mana_gd_remove_irqs() was not updated and still drops exactly
+one reference per irq_contexts entry:
+
+drivers/net/ethernet/microsoft/mana/gdma_pci.c:mana_gd_remove_irqs() {
+    ...
+	xa_for_each(&gc->irq_contexts, msi, gic)
+		mana_gd_put_gic(gc, false, msi);
+
+	WARN_ON(!xa_empty(&gc->irq_contexts));
+
+	pci_free_irq_vectors(pdev);
+    ...
+}
+
+If an EQ destroy was rejected, that GIC keeps a reference of 1. free_irq()
+and xa_erase() never run for it, the WARN_ON fires, and
+pci_free_irq_vectors() frees vectors whose handlers are still requested.
+
+On the next mana_gd_resume() for the same gc,
+mana_gd_setup_irqs()->mana_gd_get_gic() finds the stale entry:
+
+    gic = xa_load(&gc->irq_contexts, msix_index);
+    if (gic) {
+        refcount_inc(&gic->refcount);
+        ...
+        goto out;
+    }
+
+request_irq() is never called on the newly allocated vector, and the old
+gic->irq is used instead. msi 0 is shared between fatal_err_eq and the
+HWC EQ, so would the new HWC come up without a working interrupt after a
+service reset?
+
+The path is mana_serv_reset()->mana_gd_cancel_hwc_timeout(), then
+mana_gd_suspend()->mana_rdma_remove()->mana_ib_destroy_eqs(), where
+mana_gd_disable_queue() gets -ENOTCONN. mana_destroy_eq() then does the
+same for each Ethernet EQ, and finally mana_gd_cleanup() calls
+mana_gd_remove_irqs().
+
+>  
+>  	for (i = 0; i < mdev->ib_dev.num_comp_vectors; i++) {
+> -		mana_gd_destroy_queue(gc, mdev->eqs[i]);
+>  		msi = (i + 1) % gc->num_msix_usable;
+> -		mana_gd_put_gic(gc, false, msi);
+> +		err = mana_gd_destroy_queue(gc, mdev->eqs[i]);
+> +		if (!mana_gd_is_request_rejected(err))
+> +			mana_gd_put_gic(gc, false, msi);
+>  	}
+>  
+>  	kfree(mdev->eqs);
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/microsoft/mana/mana_en.c b/drivers/net/ethernet/microsoft/mana/mana_en.c
+> index 744e6ceb7d2b9..1af0ed35c5988 100644
+> --- a/drivers/net/ethernet/microsoft/mana/mana_en.c
+> +++ b/drivers/net/ethernet/microsoft/mana/mana_en.c
+
+[ ... ]
+
+> @@ -2730,21 +2733,29 @@ static void mana_destroy_txq(struct mana_port_context *apc)
+
+[ ... ]
+
+> +		if (mana_gd_is_request_rejected(err)) {
+> +			if (apc->tx_qp[i]->tx_cq.gdma_cq)
+> +				mana_gd_detach_cq(gc,
+> +						  apc->tx_qp[i]->tx_cq.gdma_cq);
+> +			continue;
+> +		}
+> +
+>  		mana_deinit_cq(apc, &apc->tx_qp[i]->tx_cq);
+>  
+>  		mana_deinit_txq(apc, &apc->tx_qp[i]->txq);
+
+[Severity: Medium]
+After the continue, what still points to the retained tx_qp[i]?
+
+The loop is followed by:
+
+    kfree(apc->tx_qp);
+    apc->tx_qp = NULL;
+
+So the retained mana_tx_qp, its CQ/SQ queues and their DMA memory become
+unreachable. mana_destroy_rxq() is similar. It returns before
+page_pool_destroy(), the RX page frees and kvfree(rxq), and the caller
+then sets apc->rxqs[idx] to NULL. mana_destroy_eq() also skips the EQ
+free and the GIC put, then calls kfree(apc->eqs).
+
+This patch also makes mana_serv_reset() call mana_gd_cancel_hwc_timeout()
+before mana_gd_suspend(). With the timeout at 0, the first teardown
+command is posted and abandoned. Every later admission in
+mana_hwc_try_get_msg_index() then returns -ENOTCONN:
+
+    if (!mana_hwc_timeout_read(hwc) ||
+        (u32)atomic_read(&hwc->abandoned_msgs) == r->size)
+        err = -ENOTCONN;
+
+As a result, most destroys in mana_remove()->mana_dealloc_queues() take
+these retain branches on every service reset. In the baseline those
+commands were posted, returned -ETIMEDOUT, and the memory was freed.
+
+Is this unbounded per-reset leak intended? The commit message says:
+
+  "Preserve the baseline cleanup policy for commands that were actually
+  posted and then timed out or received PF errors"
+
+It does not mention that the cancellation in mana_serv_reset() turns most
+reset-time teardown into local rejection. If the objects have to be
+retained, could they be kept somewhere they can be reclaimed once the
+function has been reset, instead of being orphaned?
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1794751992.git.weh%40linux.microsoft.com
