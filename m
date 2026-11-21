@@ -1,79 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795279283;
-	b=ZVjMxan+yWcOtiu2VJYXyUhIGHOCjrG+BG4MiK6d93qxd1Ri3MLHzsxqHQdtt4pbRVCO
-	 myOt6zx8p1mkJYnjYRYuyB2bKBjR+8jd8ZNNq9vSJwgLCfASY8OcxoyIl6v8Gkyk4DVvM
-	 nBuBn7+f7aKIaTSZBSOqSMPlDlHiWbSx+vA1DOtugGsGDd8v0nPAur79F9lfjOPbflhuc
-	 uFWHfR3QbsQPxv/j27nYQfsBkA1Jevu6pqvex/fRN5P/whYdYNjlfqi6P6x7EVmYsCwLm
-	 5Cp8gqyoLCA/3CnCVWiReedkbdWyKF/fPILSs/kolwyZy6a8YAX31XT4w3fYyzXie4w==
+	t=1795279285;
+	b=NFFte0w8uAc7FOrrXxkGlvfKd0FCW1XmzsOMfERxkwe5frXih4ZMsvP9OYsdTLiltFHg
+	 4nzqPqCjvpuMjjaEA/UmAJTVdXkhxWeBpaY0nKF31b8C3e//cHBzMXEr0TtuctHwtAfR7
+	 aL4K1UK6zYI+3s19sOfLpJuh7jAVkpP3ocHOAoIZnQOlzJTawLsBGPxVtlKlKV/bzSpwR
+	 1MGgLqI8HIwJ9YsbEfmu4H6u00d3lA7hw8EX/dQmibFZ+slpcUaVw0gj2hw5JWIxYAi05
+	 AawdoIt+6+326/0eli6iqxKMmHED6L9CtKaRZv/A1qX3J0JOVLEuILIcQ5Ga9iFv+hQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795279283;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795279285;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=X7jOf2bHUIQ1znpCVryw+UrUbONt2NMOHYuwQfxmifo=;
-	b=ThBJlkPM1i6LbVIPHOpM8N7YUMz3V66gConpJ0RE1ikViJRQcuMlXRlyH/1+EYDhC0YI
-	 PxwiOnf9MO46soRcdEK7mdDDtgz9bV67t/4CNCwK1Hy7PrvArH7kzRKksLzjj+JwzWMHA
-	 5svJFvZrNe5g4ooJWU5nfEaJBm43mf9PhMXq6bU246LQdDeFbHiC/h/LL1AGarCjCyxoN
-	 jhN4Pw2mxmkgXXFThD5QP3VgQJRnXS8nAPsIV9fTyGnU/9PjrL3cfVA5/d8hrIZ+7S+GR
-	 RCn/htzNQFDTkKWCs+k/PUkc5vckSJ7OB0QZzG/Ge2wJX7s+teYahh+h9E4paVJ/ZlA==
+	bh=cgvUZp3OcGcmOSt6XVZVeYZi3mE9aAJQ7BfUfsMvxNM=;
+	b=pRYIu9aCnyqTocwoGOWpY2rxtzyGMZH1wKTGlGr2xxiC671u1KTL8ignfJ8z5oMyk3vD
+	 /cxvAHUVeGtKDFi+ctkDIa38To+nlLIbLLUZPCiKGsGSkBpdqf4eaT+dD8zIiOvJUh37R
+	 B6wvwzLEJ/JpVEiOUKaAJmqPmkcl2UJ/4ZCrDr+RiODaPeqIavEqjKAo74tlyAD0pA9Tw
+	 kxqbU/bTdFnaHVeC4GHg/QInu4LCrP+Qgk/IubBy3GpMeCHD7pcEkIjxKOwQ+BRTQp/3/
+	 D27ht6xXF9bwErG0sTH6lETCdtCk8wm3K305iuF1mTK3KsE57vv3Nb3V2YbidCuRQ0g==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IH22OBsN;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IYuWWKga;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C361606A338;
-	Sat, 21 Nov 2026 16:41:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC07F606A680;
+	Sat, 21 Nov 2026 16:41:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IH22OBsN
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IYuWWKga
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795279282;
-	b=pfffIZ7WdMddK4a6VJFrJzoWMvYG1fP7KbN4sZIzicsTS4PWfMheltTQyDdY9GBn4NT4
-	 dPDvNRGO7OvRcFio8FiLTmw36L6Z1NDsNMKHkdfIDiYW5X9ecshaFNfvEUt14bs2DAKcS
-	 AarmxJpCCPO9o6j9EE4NzkSid6w4UyZ7PA1V36EhrR35vMVnyCE73RoNfIH3AEJXcXIXe
-	 yMJ0N3ACz9SBZ3ELsu9g7Ad9bksSiavGh8jJ4gPvoHKHqnG89IepkKTRrHLYLI3USYi5h
-	 gNLvqLLoUCOFYvcsPkYnxxxHwxrenDRDZ1OUWf84FVezqt9hGLIK9FTS9CVRCxhod7w==
+	t=1795279285;
+	b=Nzbelu03suyE/emuSCbqt69Hb3i/O0qibzw6+R19qnhmcZQPvjmJz4d537xE8/Bepfdh
+	 pMf2RAB0Lw+TXp7j3e79jy+kaBk+kbf6Y4Ko8ZgKdWZVGVWuxi2WRAK4g4WZNTFI84CKg
+	 Ak33TTWUoFu2V4bVb7t9iMDYkkBmheEkpN4DbF2YrYo5TbrAgU8hXebmr0YHoUtJXyRAm
+	 AbX9Ri114K0uzb4YtnwcWT0S4MAEZdA5wDFPohk+572E9Sq+YuZB/UOjy1tTvmTh3HLWd
+	 Ep11qWMLi7+OmQ+6dnQoqnjOleLMFIPKf6u8yR/z9NSmLAbzc03rOuvIQ+XdDKikl9A==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795279282;
+	c=relaxed/relaxed; t=1795279285;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=X7jOf2bHUIQ1znpCVryw+UrUbONt2NMOHYuwQfxmifo=;
-	b=0nExutdnmWUlDlKLT4V6Tn5Ssqs2mETwsz31cqcWbQWKijYZXwya5wBXIDRdafsdxmep
-	 /rQAyolVzpKJhHUvsRNDK+UOZL87L87rBejNxYRM1PhMLESI5eGlFCvuTXYDkyq+I4Fm0
-	 p1cDfm2qkBXTfuc86FkVX1ctb69FBGjlewFNu6hLCjLsKLzyGkzas3QEqFuv82B6Rw6+F
-	 PBMM5/Wkwwk21K03oxtyjWAtwiPDoko7Y1PkOKMHoa6BUN9MelFXQsUtIDYuFbPgO+BFV
-	 DIcNQsKDXFxqREcskxjgppozzLiZ1mQTY2oKhvXWBFjK1X4BooJPX5duC7oaVxSEoxA==
+	bh=cgvUZp3OcGcmOSt6XVZVeYZi3mE9aAJQ7BfUfsMvxNM=;
+	b=GB7vtmcYXUMhUngT2zCNGVXMfyMWeCM4mu2g7PR8DiZrM1e4z6yB6fFpzBJ99qob/fEB
+	 F5NkTEBRDql8QpP5nmMXEEWBnOZZz6R9g4OLkG+WQAFJt8tcs7G41bFlmxjjeoTMOP5PY
+	 cVoOIMRTU0ijf+xVCsl+JwTMyLqM4tzMjiERyEi0tmvhbqT3N6UowH3tSJF4ogbuVy9i7
+	 PISWcKpoV7Fkxo0NKIqEKe77ySuJSSwtZ67nmvCemLAKwU63vF8cdVPZz8I8FKzmzZ2W5
+	 nG+fxJMP0R9EL69ZSkCzCSpeyMY1obaSWRBG+vQeRHqBM2qKwKv5L/yOjJGBNC6m8Bw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 778431F000C4;
-	Sat, 21 Nov 2026 16:41:21 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id EFEF81F000E6;
+	Sat, 21 Nov 2026 16:41:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795279282;
-	bh=X7jOf2bHUIQ1znpCVryw+UrUbONt2NMOHYuwQfxmifo=;
+	s=k20260515; t=1795279285;
+	bh=cgvUZp3OcGcmOSt6XVZVeYZi3mE9aAJQ7BfUfsMvxNM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=IH22OBsNRMQPqU7E9AUdm6aNO9kQns+TURqi6rSlTYrRigW8j6xL4TGpIIQPkPMjW
-	 +pfP8Z8YVAMazDSRBmXDb2xweE9Qwm94aoNNPCqOixcnNnf4xHKY+0DBF5Yupadn2X
-	 qChKKw2JSDwN6DK2J5CBUUdjgQYI9A1a/GnS8QHXt2fXIeE7nCvHktBFSwKvYYLL2y
-	 9FQ206xfhU2wBAEz/j6zuTfk/Aq7enWSFgPOp9xi/AD04sYjzmvsinzfEneERn4bMn
-	 pCvPy+t6ZvXgBhGVesFnBU3lZXbA0grVY8wCavKcoUotmFb9qr6m2V0FcKLOTUOou+
-	 l3691Ay3F4aMw==
+	b=IYuWWKgar7+ZU9H9+YzzKn7RNPDVm0AyxuEFlBZxGYD8A6SMh3u7pt+uyJv87Y0Aa
+	 czGoj6/xY5zG6VL5uN8rmPq64ZenEO8KP+5stWPZgUwYzAURbgNdrWBP8ztdmtEpC5
+	 ciYeqND1YbbfFkuqyGTL015vA1dVs9K8YhFTUzBPhc6axHmVZ4oRr634JkmAxfiqVV
+	 baWn/uISfmh9b/zh2R/lgbEW9YC3ChC+xsHqc+Wqu1mT0khRHfNr6FmZjjAB91S1Ow
+	 ZkYirvgO41J8hW1D56JQWmKRxrL6KfAoLpVV4kl6i63M4C0K7qX4eVWRjKD2jI5y0o
+	 jyK1wCEFkljDg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id F075C4BD00;
-	Sat, 21 Nov 2026 16:41:20 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 968B84BD1C;
+	Sat, 21 Nov 2026 16:41:21 +0000 (UTC)
 From: Alireza Haghdoost via B4 Relay <devnull+haghdoost.uber.com@kernel.org>
-Date: Sat, 21 Nov 2026 08:41:01 -0800
-Subject: [PATCH v8 1/7] perf symbols: Split out name-independent duplicate
- symbol selection
+Date: Sat, 21 Nov 2026 08:41:07 -0800
+Subject: [PATCH v8 7/7] perf test: Add lazy symbol loading shell tests
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +83,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261121-perf-symbol-memory-send-v8-1-370561cbb5a7@uber.com>
+Message-Id: <20261121-perf-symbol-memory-send-v8-7-370561cbb5a7@uber.com>
 References: <20261121-perf-symbol-memory-send-v8-0-370561cbb5a7@uber.com>
 In-Reply-To: <20261121-perf-symbol-memory-send-v8-0-370561cbb5a7@uber.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -97,21 +96,21 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Alireza Haghdoost <haghdoost@uber.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3028; i=haghdoost@uber.com;
- h=from:subject:message-id;
- bh=VGrhvbBMlOezaIej0nQ/zA/IXFiLbKzeTc7elGOodLk=;
- b=owEBiQJ2/ZANAwAIAVNlBDxl2ALYAcsmYgBrAcmt0Xkby2keCpXtfE7nzOqOHFa1/SpVOjDrh
- H5FxvVNhb6JAk8EAAEIADkWIQS5+sFL3gX/8PrA0S1TZQQ8ZdgC2AUCawHJrRsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwwLDMACgkQU2UEPGXYAthd2w/8DvPTWAN9EW/zSErnaq9QLh0x8joZdMi
- ikZEQLuy8GsPxKefPLCwKSeoVDsTW7BDbLvBg4aqucPvdL5DImryrOk7t2wbaF1kSKhSHPL1oFN
- +8BlQ+6fEdJVnQfSSesn5pZ1HDzk1LV6OANDKoeCebJEmjhAMyV9ctgspCD8jNRNXJyibtzVlB6
- hIVxSK1TShS60jdgpRWxy+hgCHjR1CVFjx8/NkKnv8mruLz9DIdAvfAvN8UyLrGNsRA8GsR653K
- th8OQEo/saW1oIRuZJas8+KjmnJXd1UKku/7GPqEz/NTVsKre7WjBKJA+2ymkpPUEa+vytUI5ut
- 4Ee5agEsaczzEJH3oszq2eEFCd8OgB35NxFUiCJ/VQbCbOyTvDREvYmYBd6N1PPwuO4WbTFD35J
- kpcCfzYMnjeEXshsA4WyY+uYrn9oZ3CErd3n9qI+ccJvezuuKlR9sQz6YboajScXhNVugY4UsxY
- m896Qbh9NZ+nu/BDQDQofpsxtYPCvREiujFLmfPV27TMVtEXGpFH2sg+9HdaMgvmeDsjmxvsFhr
- ynbJ7XtsBbYiBgufqqo/jTvpNda72/T1ddvSBNSsqhyNmEj2gVCJSZ4A+m9dfBqk0tzWGr/XPi1
- tn4Nzt/+kjkPNK3zUXRXuddw2pb9Ddt2r6JBoKc2k0f66cMEHY/c=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=22712;
+ i=haghdoost@uber.com; h=from:subject:message-id;
+ bh=3bLF4LInipxN0OXv37gE+4A9h3MLSlHzxx7Oln+VRUw=;
+ b=owEBiQJ2/ZANAwAIAVNlBDxl2ALYAcsmYgBrAcmvrhEZWckMel9ybtUipZGfCysdhUOuk3vdM
+ s9sh4Vdxh6JAk8EAAEIADkWIQS5+sFL3gX/8PrA0S1TZQQ8ZdgC2AUCawHJrxsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwwLDMACgkQU2UEPGXYAtgBjBAAjhBo2S/EBnzesKTbCASah/JaT8QgGte
+ k7fmtsGYKQf5W00CPcADVxYy/Es+lyQIxblqNnsEIaUUeg87amV0SEpKuuQvWnfeJGKXx9IKNxX
+ QlT2WHQeBn7Qar/O/nOcaxlHPoyHu+LDgV2zJ2U289HCLwdIIZYJcst8WsWSwCtvchXBNZqOZPZ
+ oubFjc5g1oi7JtUrRrDXxG0WQFeqgIZSdxyy2Sfy4lnBcAcPPLQkbupi6Z/kphysNvxP+nWyhvN
+ ZZAqirN4bcTzu1oNNRuf9w+cypAL6gYBx0cJRrYyqV6YSZvjfnE2P3NOnioytRPggXGVAZvmM01
+ HrGMGAXXcm2eVIOfIZpqWzMgrflvzLjCqzg43KFiLNKoZiklcL2e4MhizAUOa8MdpVdBfhkt1rX
+ CpeZocJ6x0Q5xSV/loZyAz1Eg+gg18Q5XHJGCxUBRln3XyZey7iF5G6suBmNwzh0+h7jIJM1BBN
+ iFaAWTVYDZyyjmnwMN3Z2GPz4h5dnMOD60D8qn3r6yzrPSphKAySE06eipiVrtEBNUJE2OKk3Hm
+ x/UgjPgNlahn7mOvioX21S64dBO8qXL+zx4m85aEK40vNNkSAhpqIE9OylPwLJXt6CplBquVugH
+ X8y8YvLQUYIDk6dys6fwjvVCz0fjlV3qO0dtH3+ZhO8Unnhyb5LI=
 X-Developer-Key: i=haghdoost@uber.com; a=openpgp;
  fpr=B9FAC14BDE05FFF0FAC0D12D5365043C65D802D8
 X-Endpoint-Received: by B4 Relay for haghdoost@uber.com/default with
@@ -122,87 +121,707 @@ Content-Transfer-Encoding: 7bit
 
 From: Alireza Haghdoost <haghdoost@uber.com>
 
-This patch is a refactoring and does not change behavior. It moves the
-size, type and binding checks from choose_best_symbol() to
-choose_best_symbol_by_attrs(), and adds symbol__choice_needs_names() to
-tell whether choosing between two symbols needs their names.
+lazy_load_symbols_parity.sh runs the lazy and eager parity unit test on
+seven small binaries built for the loader's corner cases: split
+debuginfo whose function section is NOBITS in the debug file, a shared
+library with .dynsym-only symbols and aliases, a stripped library with
+.gnu_debugdata, and on x86_64 an IFUNC behind an IRELATIVE PLT slot, the
+same with the IFUNC and its aliases exported, an exported function
+followed in .symtab by a zero-size label at its address, and exported
+functions with nested entry points.
 
-symbols__fixup_duplicate() keeps one of the symbols that share a start
-address. It compares size, type and binding first. If those are equal,
-it compares leading underscores, name lengths and the result of
-arch__choose_best_symbol().
+script_lazy_load_symbols.sh records a small callchain profile and checks
+that perf script prints the same output with and without
+--lazy-load-symbols. As root, it also checks that names are read from
+the build-id cache when the profiled process is in another mount
+namespace.
 
-An unresolved lazy symbol stores a file offset instead of a name
-pointer, so the lazy loader cannot call choose_best_symbol() before it
-has read both names. The new helper lets it leave the names unread when
-the attributes already pick one of the symbols.
+Both tests skip a case, rather than fail it, when the toolchain produced
+a file whose names perf loads eagerly anyway (PPC64 ELFv1 .opd,
+.gnu_debugdata or a compressed .strtab).
 
-Reviewed-by: Ian Rogers <irogers@google.com>
 Signed-off-by: Alireza Haghdoost <haghdoost@uber.com>
 ---
- tools/perf/util/symbol.c | 26 ++++++++++++++++++++++++--
- tools/perf/util/symbol.h |  1 +
- 2 files changed, 25 insertions(+), 2 deletions(-)
+ tools/perf/tests/shell/lazy_load_symbols_parity.sh | 447 +++++++++++++++++++++
+ tools/perf/tests/shell/lib/lazy_names.sh           |  20 +
+ tools/perf/tests/shell/script_lazy_load_symbols.sh | 190 +++++++++
+ 3 files changed, 657 insertions(+)
 
-diff --git a/tools/perf/util/symbol.c b/tools/perf/util/symbol.c
-index a1ac1cd1d2e7..a5ed8a65986b 100644
---- a/tools/perf/util/symbol.c
-+++ b/tools/perf/util/symbol.c
-@@ -157,11 +157,15 @@ int __weak arch__choose_best_symbol(struct symbol *syma,
- 	return SYMBOL_A;
- }
- 
--static int choose_best_symbol(struct symbol *syma, struct symbol *symb)
-+/*
-+ * Choose between two symbols at the same address by size, type and binding.
-+ * Returns SYMBOL_A or SYMBOL_B, or -1 if only their names can decide.
-+ */
-+static int choose_best_symbol_by_attrs(const struct symbol *syma,
-+				       const struct symbol *symb)
- {
- 	s64 a;
- 	s64 b;
--	size_t na, nb;
- 
- 	/* Prefer a symbol with non zero length */
- 	a = syma->end - syma->start;
-@@ -194,6 +198,24 @@ static int choose_best_symbol(struct symbol *syma, struct symbol *symb)
- 	if (b && !a)
- 		return SYMBOL_B;
- 
-+	return -1;
+diff --git a/tools/perf/tests/shell/lazy_load_symbols_parity.sh b/tools/perf/tests/shell/lazy_load_symbols_parity.sh
+new file mode 100755
+index 000000000000..178988a6202f
+--- /dev/null
++++ b/tools/perf/tests/shell/lazy_load_symbols_parity.sh
+@@ -0,0 +1,447 @@
++#!/bin/bash
++# SPDX-License-Identifier: GPL-2.0
++# lazy symbol loading parity with eager loading
++
++# Build small ELF files whose symbols are hard to get right without their
++# names, and check that lazy and eager loading agree on their address lookups,
++# ranges and names:
++#  - split debuginfo, where a function's section is NOBITS (with a different
++#    sh_offset) in the debug file and has no PT_LOAD in the runtime ELF;
++#  - a shared library with symbols that are only in .dynsym, one of them a
++#    longer-named alias of a .symtab symbol;
++#  - a stripped shared library whose local symbols are in .gnu_debugdata,
++#    one of them an alias of a .dynsym symbol, which must load eagerly;
++#  - on x86_64, an IRELATIVE PLT slot whose IFUNC loses duplicate selection
++#    to an alias that loses to another one in turn;
++#  - on x86_64, an exported function followed in .symtab by a zero-size
++#    label at its address, which keeps zero size only because the .dynsym
++#    copy of the function follows it;
++#  - on x86_64, a shared library of exported functions with nested entry
++#    points, where a lookup past the end of the inner one must still find
++#    the outer one;
++#  - on x86_64, an IRELATIVE PLT slot whose IFUNC and its aliases are
++#    exported, so that the .dynsym copy of the IFUNC passes on its mark.
++
++set -e
++
++shelldir=$(dirname "$0")
++# shellcheck source=lib/lazy_names.sh
++. "${shelldir}"/lib/lazy_names.sh
++
++err=0
++tmpdir=$(mktemp -d /tmp/__perf_test.lazy_parity.XXXXX)
++
++cleanup() {
++	rm -rf "${tmpdir}"
++	trap - EXIT TERM INT
 +}
 +
-+bool symbol__choice_needs_names(const struct symbol *syma, const struct symbol *symb)
-+{
-+	return choose_best_symbol_by_attrs(syma, symb) < 0;
++trap_cleanup() {
++	echo "Unexpected signal in ${FUNCNAME[1]}"
++	cleanup
++	exit 1
++}
++trap trap_cleanup EXIT TERM INT
++
++skip() {
++	echo "Lazy-load parity [Skipped: $1]"
++	cleanup
++	exit 2
 +}
 +
-+static int choose_best_symbol(struct symbol *syma, struct symbol *symb)
++if ! perf check feature -q libelf; then
++	skip "no libelf support"
++fi
++
++for tool in cc objcopy strip readelf nm dd; do
++	if ! command -v "${tool}" > /dev/null; then
++		skip "${tool} not found"
++	fi
++done
++
++# check_parity NAME FILE [eager]
++# Lazy loading must leave names of FILE unread, or none if "eager" is given.
++check_parity() {
++	local out="${tmpdir}/parity.out"
++	local lazy="[0-9][0-9]* symbols with lazy names"
++
++	if [ "$3" = eager ]; then
++		lazy="no lazy names"
++	fi
++	perf test --dso "$2" -vv "Lazy and eager symbol parity" > "${out}" 2>&1 || true
++	if grep -q ': Ok$' "${out}" && grep -q "^$2: ${lazy}$" "${out}"; then
++		echo "Lazy-load parity $1 [Success]"
++		return
++	fi
++	if [ "$3" != eager ] && grep -q ': Ok$' "${out}" &&
++	   grep -q "^$2: no lazy names$" "${out}" && lazy_names_disabled "$2" "$2.debug"; then
++		echo "Lazy-load parity $1 [Skipped: names load eagerly on this toolchain]"
++		return
++	fi
++	grep -E 'symbols$|names$|mismatch|lookup|no symbols' "${out}" || true
++	echo "Lazy-load parity $1 [Failed]"
++	err=1
++}
++
++test_split_debug() {
++	local prog="${tmpdir}/split"
++
++	cat > "${prog}.c" << EOF
++__attribute__((section("splittext"), noinline, used))
++int split_func(int x)
 +{
-+	int ret = choose_best_symbol_by_attrs(syma, symb);
-+	s64 a;
-+	s64 b;
-+	size_t na, nb;
++	return x * 3 + 1;
++}
 +
-+	if (ret >= 0)
-+		return ret;
++int main(int argc, char **argv)
++{
++	(void)argv;
++	return split_func(argc);
++}
++EOF
++	if ! cc -O1 -g -o "${prog}" "${prog}.c" \
++		-Wl,--section-start=splittext=0x800000 2> /dev/null; then
++		echo "Lazy-load parity split debuginfo [Skipped: cannot build]"
++		return
++	fi
++	objcopy --only-keep-debug "${prog}" "${prog}.debug"
++	strip -s "${prog}"
++	objcopy --add-gnu-debuglink="${prog}.debug" "${prog}"
 +
- 	/* Prefer a symbol with less underscores */
- 	a = prefix_underscores_count(syma->name);
- 	b = prefix_underscores_count(symb->name);
-diff --git a/tools/perf/util/symbol.h b/tools/perf/util/symbol.h
-index a6a2ab200f98..fc98fab1c8d0 100644
---- a/tools/perf/util/symbol.h
-+++ b/tools/perf/util/symbol.h
-@@ -295,6 +295,7 @@ int arch__compare_symbol_names(const char *namea, const char *nameb);
- int arch__compare_symbol_names_n(const char *namea, const char *nameb,
- 				 unsigned int n);
- int arch__choose_best_symbol(struct symbol *syma, struct symbol *symb);
-+bool symbol__choice_needs_names(const struct symbol *syma, const struct symbol *symb);
- 
- enum symbol_tag_include {
- 	SYMBOL_TAG_INCLUDE__NONE = 0,
++	# The debug file must keep splittext as NOBITS at a stale offset.
++	local debug_sec run_sec debug_off run_off
++	debug_sec=$(readelf -SW "${prog}.debug" 2> /dev/null | grep ' splittext ' || true)
++	run_sec=$(readelf -SW "${prog}" | grep ' splittext ' || true)
++	if ! echo "${debug_sec}" | grep -q NOBITS; then
++		echo "Lazy-load parity split debuginfo [Skipped: splittext is not NOBITS]"
++		return
++	fi
++	debug_off=$(echo "${debug_sec}" | sed 's/.*splittext *//' | awk '{print $3}')
++	run_off=$(echo "${run_sec}" | sed 's/.*splittext *//' | awk '{print $3}')
++	if [ -z "${run_off}" ] || [ "${debug_off}" = "${run_off}" ]; then
++		echo "Lazy-load parity split debuginfo [Skipped: offsets do not differ]"
++		return
++	fi
++
++	# Drop the PT_LOAD covering splittext so program header lookup fails.
++	local phoff phentsize idx
++	phoff=$(readelf -hW "${prog}" | awk '/Start of program headers/ {print $5}')
++	phentsize=$(readelf -hW "${prog}" | awk '/Size of program headers/ {print $5}')
++	idx=$(readelf -lW "${prog}" 2> /dev/null | awk '
++		/^Program Headers:/ { in_ph = 1; next }
++		in_ph && /^  Type/ { next }
++		in_ph && /^ *$/ { exit }
++		in_ph && /^  [A-Z]/ {
++			if ($1 == "LOAD" && $3 ~ /^0x0*800000$/) { print n; exit }
++			n++
++		}')
++	if [ -z "${phoff}" ] || [ -z "${phentsize}" ] || [ -z "${idx}" ]; then
++		echo "Lazy-load parity split debuginfo [Skipped: no PT_LOAD for splittext]"
++		return
++	fi
++	dd if=/dev/zero of="${prog}" bs=1 seek=$((phoff + idx * phentsize)) \
++		count=4 conv=notrunc 2> /dev/null
++	if readelf -lW "${prog}" 2> /dev/null | grep -q 'LOAD .*0x0*800000 '; then
++		echo "Lazy-load parity split debuginfo [Failed to drop PT_LOAD]"
++		err=1
++		return
++	fi
++	check_parity "split debuginfo" "${prog}"
++}
++
++test_dynsym_only() {
++	local lib="${tmpdir}/libdyn.so"
++
++	cat > "${tmpdir}/libdyn.c" << EOF
++int dyn_only(int x)
++{
++	return x + 1;
++}
++
++int dyn_and_symtab(int x)
++{
++	return x * 2;
++}
++
++/* Same range as dyn_and_symtab; duplicate selection prefers the longer name. */
++int dyn_and_symtab_alias(int x) __attribute__((alias("dyn_and_symtab")));
++EOF
++	if ! cc -O1 -shared -fPIC -o "${lib}" "${tmpdir}/libdyn.c" 2> /dev/null; then
++		echo "Lazy-load parity .dynsym-only symbol [Skipped: cannot build]"
++		return
++	fi
++	# --strip-symbol leaves .dynsym untouched.
++	objcopy --strip-symbol=dyn_only --strip-symbol=dyn_and_symtab_alias \
++		"${lib}"
++	for sym in dyn_only dyn_and_symtab_alias; do
++		if readelf -sW "${lib}" | \
++			awk '/Symbol table .\.symtab/ { s = 1 } s' | \
++			grep -qw "${sym}" || \
++		   ! readelf --dyn-syms -W "${lib}" | grep -qw "${sym}"; then
++			echo "Lazy-load parity .dynsym-only symbol [Skipped: cannot strip]"
++			return
++		fi
++	done
++	check_parity ".dynsym-only symbol" "${lib}"
++}
++
++test_gnu_debugdata() {
++	local lib="${tmpdir}/libgdd.so"
++	local dir="${tmpdir}/gdd"
++
++	if ! perf check feature -q lzma || ! command -v xz > /dev/null; then
++		echo "Lazy-load parity .gnu_debugdata [Skipped: no lzma support or xz]"
++		return
++	fi
++	mkdir "${dir}"
++	cat > "${dir}/libgdd.c" << EOF
++int exported(int x)
++{
++	return x * 3 + 1;
++}
++
++/* Same range as exported; duplicate selection prefers the global symbol. */
++static int local_alias(int x) __attribute__((alias("exported"), used));
++
++__attribute__((noinline)) static int local_helper(int x)
++{
++	return x + 7;
++}
++
++int call_local(int x)
++{
++	return local_helper(x) * 2;
++}
++EOF
++	if ! cc -O1 -shared -fPIC -o "${lib}" "${dir}/libgdd.c" 2> /dev/null; then
++		echo "Lazy-load parity .gnu_debugdata [Skipped: cannot build]"
++		return
++	fi
++	# Build MiniDebugInfo the way distributions do: the function symbols
++	# that are not in .dynsym, xz-compressed into .gnu_debugdata.
++	nm -D --format=posix --defined-only "${lib}" | awk '{ print $1 }' | \
++		sort > "${dir}/dynsyms"
++	nm --format=posix --defined-only "${lib}" | \
++		awk '$2 == "T" || $2 == "t" { print $1 }' | sort > "${dir}/funcsyms"
++	comm -13 "${dir}/dynsyms" "${dir}/funcsyms" > "${dir}/keep"
++	if ! grep -qx local_alias "${dir}/keep" ||
++	   ! objcopy --only-keep-debug "${lib}" "${dir}/debug" ||
++	   ! objcopy -S --remove-section .comment \
++		--keep-symbols="${dir}/keep" "${dir}/debug" "${dir}/mini" ||
++	   ! xz "${dir}/mini" || ! strip --strip-all "${lib}" ||
++	   ! objcopy --add-section .gnu_debugdata="${dir}/mini.xz" "${lib}" ||
++	   readelf -SW "${lib}" | grep -qw '\.symtab'; then
++		echo "Lazy-load parity .gnu_debugdata [Skipped: cannot build MiniDebugInfo]"
++		return
++	fi
++	check_parity ".gnu_debugdata" "${lib}" eager
++}
++
++test_ifunc_alias() {
++	local prog="${tmpdir}/ifunc"
++	local order
++
++	if [ "$(uname -m)" != x86_64 ]; then
++		echo "Lazy-load parity IFUNC alias [Skipped: IRELATIVE naming is x86_64 only]"
++		return
++	fi
++	# Duplicate selection prefers fewer leading underscores, so at the
++	# resolver's address __lazy_ifunc loses to _lazy_ifunc_x, which loses
++	# to lazy_ifunc_y. Whether the PLT slot is named after lazy_ifunc_y
++	# depends on how that passes on the IFUNC mark.
++	cat > "${prog}.c" << EOF
++static int impl(void)
++{
++	return 42;
++}
++
++__attribute__((used, noinline)) static void *___lazy_ifunc_resolver(void)
++{
++	return (void *)impl;
++}
++
++asm(".type __lazy_ifunc, @gnu_indirect_function\n"
++    ".set __lazy_ifunc, ___lazy_ifunc_resolver\n"
++    ".size __lazy_ifunc, 1\n"
++    ".type _lazy_ifunc_x, @function\n"
++    ".set _lazy_ifunc_x, ___lazy_ifunc_resolver\n"
++    ".size _lazy_ifunc_x, 1\n"
++    ".type lazy_ifunc_y, @function\n"
++    ".set lazy_ifunc_y, ___lazy_ifunc_resolver\n"
++    ".size lazy_ifunc_y, 1\n");
++
++int __lazy_ifunc(void);
++
++int main(void)
++{
++	return __lazy_ifunc();
++}
++EOF
++	if ! cc -O1 -fno-pie -no-pie -o "${prog}" "${prog}.c" 2> /dev/null ||
++	   ! readelf -rW "${prog}" | grep -q R_X86_64_IRELATIVE; then
++		echo "Lazy-load parity IFUNC alias [Skipped: cannot build]"
++		return
++	fi
++	# The outcome depends on the order of the aliases in .symtab.
++	order=$(readelf -sW "${prog}" | \
++		awk '$8 ~ /^_*lazy_ifunc(_x|_y)?$/ { printf "%s ", $8 }')
++	if [ "${order}" != "__lazy_ifunc _lazy_ifunc_x lazy_ifunc_y " ]; then
++		echo "Lazy-load parity IFUNC alias [Skipped: unexpected symbol order]"
++		return
++	fi
++	check_parity "IFUNC alias" "${prog}"
++}
++
++test_dynsym_copy_zero_size() {
++	local prog="${tmpdir}/zero"
++	local order
++
++	if [ "$(uname -m)" != x86_64 ]; then
++		echo "Lazy-load parity zero-size label [Skipped: x86_64 only]"
++		return
++	fi
++	# If end fixup gave the label a size, its longer name would win
++	# duplicate selection over the function.
++	cat > "${prog}.S" << EOF
++	.text
++	.globl	lazy_sized
++	.type	lazy_sized, @function
++lazy_sized:
++	.globl	lazy_sized_label
++	.type	lazy_sized_label, @function
++lazy_sized_label:
++	nop
++	ret
++	.size	lazy_sized, .-lazy_sized
++	.p2align 4
++	.globl	main
++	.type	main, @function
++main:
++	call	lazy_sized
++	xor	%eax, %eax
++	ret
++	.size	main, .-main
++	.section .note.GNU-stack,"",@progbits
++EOF
++	if ! cc -o "${prog}" "${prog}.S" \
++		-Wl,--export-dynamic-symbol=lazy_sized 2> /dev/null ||
++	   ! readelf --dyn-syms -W "${prog}" | grep -qw lazy_sized ||
++	   readelf --dyn-syms -W "${prog}" | grep -qw lazy_sized_label; then
++		echo "Lazy-load parity zero-size label [Skipped: cannot build]"
++		return
++	fi
++	# The label must follow the function in .symtab.
++	order=$(readelf -sW "${prog}" | \
++		awk '/\.symtab/ { s = 1 } s && $8 ~ /^lazy_sized(_label)?$/ { printf "%s ", $8 }')
++	if [ "${order}" != "lazy_sized lazy_sized_label " ]; then
++		echo "Lazy-load parity zero-size label [Skipped: unexpected symbol order]"
++		return
++	fi
++	check_parity "zero-size label" "${prog}"
++}
++
++test_nested_entry() {
++	local lib="${tmpdir}/libnested.so"
++	local i
++
++	if [ "$(uname -m)" != x86_64 ]; then
++		echo "Lazy-load parity nested entry [Skipped: x86_64 only]"
++		return
++	fi
++	# The lookup at the last byte of each outer function, past the end of
++	# its inner entry point, depends on the shape of the rb-tree, which
++	# the .dynsym copies take part in.
++	{
++		echo "	.text"
++		for i in 0 1 2; do
++			echo "	.globl	lazy_pad_${i}"
++			echo "	.type	lazy_pad_${i}, @function"
++			echo "lazy_pad_${i}:"
++			echo "	ret"
++			echo "	.size	lazy_pad_${i}, .-lazy_pad_${i}"
++		done
++		for i in 0 1 2 3 4 5 6; do
++			echo "	.globl	lazy_outer_${i}, lazy_inner_${i}"
++			echo "	.type	lazy_outer_${i}, @function"
++			echo "	.type	lazy_inner_${i}, @function"
++			echo "lazy_outer_${i}:"
++			echo "	nop"
++			echo "lazy_inner_${i}:"
++			echo "	nop"
++			echo "	.size	lazy_inner_${i}, .-lazy_inner_${i}"
++			echo "	ret"
++			echo "	.size	lazy_outer_${i}, .-lazy_outer_${i}"
++		done
++		echo '	.section .note.GNU-stack,"",@progbits'
++	} > "${tmpdir}/nested.S"
++	if ! cc -shared -nostdlib -o "${lib}" "${tmpdir}/nested.S" 2> /dev/null ||
++	   ! readelf --dyn-syms -W "${lib}" | grep -qw lazy_outer_0; then
++		echo "Lazy-load parity nested entry [Skipped: cannot build]"
++		return
++	fi
++	check_parity "nested entry" "${lib}"
++}
++
++test_exported_ifunc_alias() {
++	local lib="${tmpdir}/libifunc.so"
++
++	if [ "$(uname -m)" != x86_64 ]; then
++		echo "Lazy-load parity exported IFUNC alias [Skipped: x86_64 only]"
++		return
++	fi
++	# At the resolver's address, lazy_exp_ifunc_y wins duplicate selection
++	# over __lazy_exp_ifunc and _lazy_exp_ifunc_x, and an alias that lost
++	# after it took the IFUNC mark does not pass the mark on. The PLT slot
++	# of the local IFUNC __lazy_exp_call is named after lazy_exp_ifunc_y
++	# only if the .dynsym copy of __lazy_exp_ifunc marks it.
++	cat > "${tmpdir}/libifunc.c" << EOF
++static int impl(void)
++{
++	return 42;
++}
++
++__attribute__((used, noinline)) static void *lazy_exp_resolver(void)
++{
++	return (void *)impl;
++}
++
++asm(".globl __lazy_exp_ifunc, _lazy_exp_ifunc_x, lazy_exp_ifunc_y\n"
++    ".type __lazy_exp_ifunc, @gnu_indirect_function\n"
++    ".set __lazy_exp_ifunc, lazy_exp_resolver\n"
++    ".size __lazy_exp_ifunc, 1\n"
++    ".type _lazy_exp_ifunc_x, @function\n"
++    ".set _lazy_exp_ifunc_x, lazy_exp_resolver\n"
++    ".size _lazy_exp_ifunc_x, 1\n"
++    ".type lazy_exp_ifunc_y, @function\n"
++    ".set lazy_exp_ifunc_y, lazy_exp_resolver\n"
++    ".size lazy_exp_ifunc_y, 1\n");
++asm(".local __lazy_exp_call\n"
++    ".type __lazy_exp_call, @gnu_indirect_function\n"
++    ".set __lazy_exp_call, lazy_exp_resolver\n");
++
++int __lazy_exp_call(void);
++
++int lazy_exp_main(void)
++{
++	return __lazy_exp_call();
++}
++EOF
++	if ! cc -O1 -shared -fPIC -o "${lib}" "${tmpdir}/libifunc.c" 2> /dev/null ||
++	   ! readelf -rW "${lib}" | grep -q R_X86_64_IRELATIVE ||
++	   ! readelf --dyn-syms -W "${lib}" | grep -q 'IFUNC .* __lazy_exp_ifunc$'; then
++		echo "Lazy-load parity exported IFUNC alias [Skipped: cannot build]"
++		return
++	fi
++	check_parity "exported IFUNC alias" "${lib}"
++}
++
++test_split_debug
++test_dynsym_only
++test_gnu_debugdata
++test_ifunc_alias
++test_dynsym_copy_zero_size
++test_nested_entry
++test_exported_ifunc_alias
++
++cleanup
++exit ${err}
+diff --git a/tools/perf/tests/shell/lib/lazy_names.sh b/tools/perf/tests/shell/lib/lazy_names.sh
+new file mode 100644
+index 000000000000..0358a039b4d2
+--- /dev/null
++++ b/tools/perf/tests/shell/lib/lazy_names.sh
+@@ -0,0 +1,20 @@
++#!/bin/bash
++# SPDX-License-Identifier: GPL-2.0
++
++# lazy_names_disabled FILE...
++# Return whether one of FILE has a PPC64 ELFv1 .opd, a .gnu_debugdata symbol
++# table or a compressed .strtab, for which perf loads symbol names eagerly.
++lazy_names_disabled() {
++	local f
++
++	command -v readelf > /dev/null || return 1
++	for f in "$@"; do
++		[ -e "${f}" ] || continue
++		if readelf -SW "${f}" 2> /dev/null |
++		   grep -Eq ' \.(opd|gnu_debugdata) | \.strtab +STRTAB( +[0-9a-f]+){4} +[A-Z]*C'
++		then
++			return 0
++		fi
++	done
++	return 1
++}
+diff --git a/tools/perf/tests/shell/script_lazy_load_symbols.sh b/tools/perf/tests/shell/script_lazy_load_symbols.sh
+new file mode 100755
+index 000000000000..48f05b24c921
+--- /dev/null
++++ b/tools/perf/tests/shell/script_lazy_load_symbols.sh
+@@ -0,0 +1,190 @@
++#!/bin/bash
++# SPDX-License-Identifier: GPL-2.0
++# perf script lazy symbol loading tests (exclusive)
++#
++# Verifies that --lazy-load-symbols matches the default eager loader for a
++# controlled symbol.
++
++set -e
++
++shelldir=$(dirname "$0")
++# shellcheck source=lib/perf_has_symbol.sh
++. "${shelldir}"/lib/perf_has_symbol.sh
++# shellcheck source=lib/lazy_names.sh
++. "${shelldir}"/lib/lazy_names.sh
++
++testsym="test_loop"
++# Printed with -v for each symbol table loaded with lazy names.
++lazy_names=': [1-9][0-9]* \.(symtab|dynsym) symbols with lazy names$'
++
++skip_test_missing_symbol ${testsym}
++
++if ! perf check feature -q libelf
++then
++	echo "Lazy symbol loading [Skipped no libelf support]"
++	exit 2
++fi
++
++perf_path=$(readlink -f "$(command -v perf)")
++err=0
++passed=0
++temp_dir=$(mktemp -d /tmp/__perf_test.lazy_load.XXXXX)
++perfdata="${temp_dir}/perf.data"
++eager_out="${temp_dir}/eager.out"
++lazy_out="${temp_dir}/lazy.out"
++lazy_err="${temp_dir}/lazy.err"
++ns_pid=
++
++cleanup() {
++	if [ -n "${ns_pid}" ]; then
++		kill "${ns_pid}" 2> /dev/null || true
++		wait "${ns_pid}" 2> /dev/null || true
++	fi
++	rm -rf "${temp_dir}"
++	trap - EXIT TERM INT
++}
++
++trap_cleanup() {
++	echo "Unexpected signal in ${FUNCNAME[1]}"
++	cleanup
++	exit 1
++}
++trap trap_cleanup EXIT TERM INT
++
++# check_lazy_names CASE
++# Return whether perf was loaded with lazy names. If not, report CASE as
++# skipped when perf's symbol table cannot have them, and as failed otherwise.
++check_lazy_names() {
++	if grep -F "${perf_path}: " "${lazy_err}" | grep -Eq "${lazy_names}"
++	then
++		return 0
++	fi
++	if lazy_names_disabled "${perf_path}"
++	then
++		echo "$1 [Skipped perf loads its symbol names eagerly]"
++	else
++		echo "$1 [Failed perf has no lazy names]"
++		err=1
++	fi
++	return 1
++}
++
++test_lazy_load_identical() {
++	echo "Lazy-load output matches eager loader"
++
++	if ! perf record -o "${perfdata}" -g -- perf test -w thloop 2> /dev/null
++	then
++		echo "Lazy-load identical [Skipped record not supported]"
++		return 0
++	fi
++
++	if ! perf script -i "${perfdata}" 2> /dev/null > "${eager_out}" || \
++	   ! perf script -v --lazy-load-symbols -i "${perfdata}" \
++		2> "${lazy_err}" > "${lazy_out}"
++	then
++		echo "Lazy-load identical [Failed perf script error]"
++		err=1
++		return
++	fi
++	# The comparison is only meaningful if something actually resolved;
++	# two all-[unknown] outputs would also match. Without samples in perf,
++	# perf is not loaded and has no lazy names either.
++	if ! grep -q "${testsym}" "${eager_out}"
++	then
++		echo "Lazy-load identical [Skipped no ${testsym} resolved]"
++		return 0
++	fi
++	if ! check_lazy_names "Lazy-load identical"
++	then
++		return
++	fi
++	if ! cmp -s "${eager_out}" "${lazy_out}"
++	then
++		echo "Lazy-load identical [Failed output differs from eager]"
++		err=1
++		return
++	fi
++	echo "Lazy-load identical [Success]"
++	passed=$((passed + 1))
++}
++
++# A build-id cache file is opened outside the target's mount namespace, so
++# lazy name reads must open it there too.
++test_lazy_load_mount_ns() {
++	echo "Lazy-load build-id cache source of a process in a mount namespace"
++
++	if [ "$(id -u)" != 0 ] || ! command -v unshare > /dev/null
++	then
++		echo "Lazy-load mount namespace [Skipped needs root and unshare]"
++		return 0
++	fi
++
++	local buildid_dir="${temp_dir}/buildid"
++	local nsdata="${temp_dir}/ns.data"
++
++	# The workload sees an empty build-id cache; perf sees the real one.
++	mkdir -p "${buildid_dir}"
++	unshare -m --propagation private sh -c \
++		"mount -t tmpfs none '${buildid_dir}' && exec perf test -w thloop 30" &
++	ns_pid=$!
++	for _ in $(seq 50)
++	do
++		if [ "$(readlink "/proc/${ns_pid}/exe" 2> /dev/null)" = "${perf_path}" ]
++		then
++			break
++		fi
++		sleep 0.1
++	done
++	if [ "$(readlink "/proc/${ns_pid}/exe" 2> /dev/null)" != "${perf_path}" ]
++	then
++		echo "Lazy-load mount namespace [Skipped cannot start workload]"
++		return 0
++	fi
++
++	if ! perf record -N -o "${nsdata}" -p "${ns_pid}" -- sleep 1 2> /dev/null ||
++	   ! perf --buildid-dir "${buildid_dir}" buildid-cache -a "${perf_path}" \
++		2> /dev/null ||
++	   [ -z "$(ls -A "${buildid_dir}/.build-id" 2> /dev/null)" ]
++	then
++		echo "Lazy-load mount namespace [Skipped record or build-id cache failed]"
++		return 0
++	fi
++	if ! perf --buildid-dir "${buildid_dir}" script -i "${nsdata}" \
++		2> /dev/null > "${eager_out}" ||
++	   ! perf --buildid-dir "${buildid_dir}" script -v --lazy-load-symbols \
++		-i "${nsdata}" 2> "${lazy_err}" > "${lazy_out}"
++	then
++		echo "Lazy-load mount namespace [Failed perf script error]"
++		err=1
++		return
++	fi
++
++	if ! grep -q "${testsym}" "${eager_out}"
++	then
++		echo "Lazy-load mount namespace [Skipped no ${testsym} resolved]"
++		return 0
++	fi
++	if ! check_lazy_names "Lazy-load mount namespace"
++	then
++		return
++	fi
++	if ! cmp -s "${eager_out}" "${lazy_out}"
++	then
++		echo "Lazy-load mount namespace [Failed output differs from eager]"
++		err=1
++		return
++	fi
++	echo "Lazy-load mount namespace [Success]"
++	passed=$((passed + 1))
++}
++
++test_lazy_load_identical
++test_lazy_load_mount_ns
++
++cleanup
++# Report a skip only if no test case ran.
++if [ "${err}" -eq 0 ] && [ "${passed}" -eq 0 ]
++then
++	err=2
++fi
++exit $err
 
 -- 
 Git-157)
