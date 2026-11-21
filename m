@@ -1,77 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795264977;
-	b=anLiRdZjo1NdHeRd4fMm7q022XDsW3ATEEmEhoheOqud5bCnrBEnjF755VFkR78EYp8Q
-	 timjN1CDMx3T/leWTFam5oiYwO/6rwQzWYTbDadmsu/GzRnRTN5gMi234vZy9aA+KyHfZ
-	 CkLkCV9bsbTHS2x2ypYigsjvJ9oKWzRhM4bWTc3ZDgKXZKb2TCSZdW1qTUfpqAZkZKkFA
-	 Inypfn4RTIfYCFCWTLmBqn+0P34JkUyNB7ZiMDurqotSOvlrhRdX82QLfw5wCUwiYY8bo
-	 u3wYHTzMqb35WeYjTcGqoGYB9DNipC9VlezbzNrg+gok3y+DW1pBqqmTZSun2v43h+g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795264977;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
-	 UI-OutboundReport;
-	bh=1bbIhpgc2q/tt7gyTkozbhTPOCroiLTr6iidbtRdGvE=;
-	b=oW6XrCPRXSpnDryxkAzcHpfRwclUeInDBgv79dsLVJE/J/E+F2TFrA2ZwYIr/wr1UXev
-	 2hT9xAjal2V31xlbxo+o+/tLAH2aTZdz9rDCTboqNWjsUL8uviQN/VfNWkGrRxVm+/dSw
-	 q0tWDARDJ+3tpqZvYcObTRjShGFt2LDGNJrGn3gGNJl5OQofeemO1D4cWipGfHL3hzdfA
-	 grvPYBSdun4i3XXjly88eUKBhIdJopxJgLSBLFB9aPHDemmc4HkaLWkRcdMdh2LskTfeP
-	 Gx4oBp35vwrNhNIniGnKZ/JXgksWd/jg7dOpyeBGe7reG86JEjoMb9hdywYomoXBg7g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmx.de;
-	spf=pass smtp.mailfrom=gmx.de;
-	dkim=pass header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=J4QcKj6D;
-	arc=none smtp.remote-ip=212.227.15.18
-Received: from mout.gmx.net (mout.gmx.net [212.227.15.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795264995;
+	b=4xAhEuOfuV0OjzHGy5zz4sVfJJKnXeWcFJ5OWOR8EGogYOSz8YWYYNhtwXXJ+wyqE1Hj
+	 UOpqwQrOZR1bKBBbsSdVDtwc5SBQHzVyE58sFr4EXf6UyviX2ikDJnDQJZGs0JLsNQqmL
+	 whq10lmgcO4rFxC/7eeE77Wq/o4oMkT+UQbZNbZs7jRN1kqnqKai/ImDMNkw6Re2hbzki
+	 T3e0wJ0te2A73HIuX9mjAufowxrUl9IH0pjqliGhiBDyiXlL6dXbrhls8p9np2vyB+pAZ
+	 Kzg0PwmUuO6GePJ5v11mfb09fmafZHTerKQhwegQwLe1c4K9dAdKpufVKOt2aDlgCvg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795264995;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=pOYSnVFZKQIm6jlB3U99AsAPBj+MjXXoDxaUN21SqZc=;
+	b=OHH3Cck30ymqzNDA97DKu5/VvGBi6zuF3GAHrVrogbsVs21oRkMsAlp1cztGRGMNL7Md
+	 i7m5gvIQ5NwXuQtEXSICK8J0rU6flxxjaicIRL7iarb0+a0wy+UzOc4P0lCKZWAsHriPy
+	 NW93arfPzxX67AkYnVSJI9JF3cNfCld0GNcemRV3At2V2qejHwEBsvcVUIwTqvG/9TCyb
+	 MwXIio+9RNwCSy3TpokA29YlyRYYWRO6YQ2PN839K6ngsbNpW2rrm2USqW/GUSXHN49Jq
+	 k9Q2V4OUrimNB2v8JemzCYQI2jcmo6Qtpbee96KEVw5lBsEwO+7x5wq9qcyBbMXOIZg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z7em+UPR;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB593606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 12:42:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB593606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3D52606A32A;
+	Sat, 21 Nov 2026 12:43:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=J4QcKj6D
-DKIM2-Signature:  i=1; m=1; t=1795264973;
- mf=PFdfQXJtaW5AZ214LmRlPg==;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=gmx.de;
- s=s31663417:rsa-sha256:mSeh4FtHwym5wfZvanHIgiCSmFeo
-   vIUup5xF1poc/w7gDhl8JN6UwUIQYY0D7Q7BejIS/cLwByNmP95yTeVl7JhsdJw+qxdLKSyyXHV
-   aoLoA1Rvf5HmyTW9Or4ofRlN1LOVkb41Zidb1bdeCVuI99/9FGoz5/GPOGfsyeCIUmPpLboCxl5
-   X2PkwKoH32VDXl7QX5qOcl3SL2miqwBFSy4kkOc+X+sOskLXAI+D0QslS5RcQfCQadmV/qVKc5H
-   Fj/FXkHxGM5YtvcG8IDP7sCsjvgewWE6mIh8beIm5bAxfnIBXfAZRvplwXZeTUooiXSw+shkh0Q
-   9Q5xzoZIjwKNpw==;
-Message-Instance:  m=1;
- h=sha256:
-   vgpT+/m1qFA8P3oMwF+vg4U/enDe565reLZn47BQ2cE=:
-   Uq091gS1PHLOxlp4ss3pmDmU/Qzqk06Gwmx1kOqoeNQ=,
-  sha512:
-   vtxGIWhc7VAmZjBGXxntp2UXXTnqGpyH/cQ//24hM4pViVEesJnjas/kEQUMSfUlCkXZHao8ZjCZ5MWEiY/Ixw==:
-   j8uecTkxQT9VsrMXj8XyMZ4B62H691lIjuR2SBWFy4TMezgMJphOnQZRSklkcVw6hj4yIjVeAZc64AwUDAm9Zg==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1795264973; x=1795869773; i=w_armin@gmx.de;
-	bh=1bbIhpgc2q/tt7gyTkozbhTPOCroiLTr6iidbtRdGvE=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=J4QcKj6DeX7adiyICAXWic8ocgeBfHILg5h2OweMB8xl6ItlVIFRfDdLjATXb73Z
-	 +Ensnof/ew4HA69nNv0PRUjuV3SfHfkhl9BcHivoxhvKQRsOR1CxfW7QtLelNdCVi
-	 +YMkKzBo/esDIy2AvKiBm4ZpeWeHLkqX5Sz0YR7MOgTQuYjnmVsa2nUdLKI1zCgkm
-	 TEQGcO7jaWIkXXeLLNdRP11s00n0xV6J6PTIhM2a3QSy49pEFnpu7IB8incYLEW2c
-	 mpLpajrF4jqaEmdkWblCMmxQ00mnRaTGOPmTIg9bFD+J59wnx3C8JhgxQ+Ypsp/Ob
-	 bl/MWHYI7QnLxF4gxA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MQ5rO-1xqnWf2BoO-00KdB3; Sat, 21
- Nov 2026 13:42:53 +0100
-Message-ID: <9f83d934-9913-4101-b899-0c7c99fa39fc@gmx.de>
-Date: Sat, 21 Nov 2026 13:42:52 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z7em+UPR
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795264994;
+	b=3rSiK/cRgayebHlwTM0ZGM3gIfeBIje2xZ6QqSVtSK8dWJCiS/0BCaIiK5dzTYdoKvSL
+	 2c8jY0iVkB7MLyQD+7kJZ7kSGjk48eDejXVls6lcgbZWIDl4eUc+uZHWPv8yMisTqhbcm
+	 E6AgEgAR4Z4ZB3Xr6Glf67KV+DW4K4VrekfLn+sQkK/qMxyOCGshgd3wgoDtdiBTfoGsA
+	 9HoYODW0+iMtwjnCP8WHk8brNr/pNbq5Bl1u4yxrZGvX1wAiOhzxVcjjc5i4OCwyv7nEJ
+	 oo8iSxUPH1eDR0lTAta0bRnCQyxooqlFJXmxQqMf8Hkp15R/ouYzUUrXLrbcXZPDNBg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795264994;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=pOYSnVFZKQIm6jlB3U99AsAPBj+MjXXoDxaUN21SqZc=;
+	b=ejjIuOd2vQFCUNnMlgCL1WrSA8srd40VaJx/xtSNoVJrTdg6HGCznUhAzINJcvK4B2PT
+	 IdKZ/mFSuPTLvk/cAz3tLnIYbn8b54/ZO7aRTQuOc+wPo/CejwrW9pgewoBDqkT5y2jot
+	 r952zuSMyjMIO7p5qINFrg1A66l5kSM124KXcvkXDnDiiDO7kUvQnvA7sf6K8e+GERj7o
+	 HvNWXF5BQygmyPH8fzK177sACCO57kNd4Ts16ppEVhxIAbLzrNggcQA7TFDlXUkHraInL
+	 OcXY7ay300T7UhPSbmDFkhMr9rvb3q2lj6lmOgFhVpTrMSUFI5Vc3pgmESBX/vVa7vw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 8960D1F000C6;
+	Sat, 21 Nov 2026 12:43:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795264994;
+	bh=pOYSnVFZKQIm6jlB3U99AsAPBj+MjXXoDxaUN21SqZc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=Z7em+UPRIxz4uxGXf31XEfb4l0ygDJTnMIiJ+pXKqcBOJFnxtK8xLzbPxuqLnUXjY
+	 BfJRDE3P+4BexVQAmXNLUXZFPH4dnI3EQbgonwJwQpsnF+MUbPbcv/1z1dIiKXN4mf
+	 IOWIT0PFH2NB0l+XqJBX6oP37mIvxwPt9Y5z7oF1/5uwn152l9ZVZh6pmZP5cOQCHj
+	 SbLgVDYVLUwfvokWYUezCCH0fT9eSXb8rXFnZ7uUrUPSYFuNF2KkTLODzLwsFOpu8x
+	 OudckUMGN736SruaycyLvgsdFMsPLgvTX4DJjX5G1wcDafIxRYIGgxbfllIXMoGk9o
+	 GdKtYLCkI76Zg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 1A7104BC3A;
+	Sat, 21 Nov 2026 12:43:13 +0000 (UTC)
+From: Yuugo Yoneda via B4 Relay <devnull+yogo.0917.sabu.gmail.com@kernel.org>
+Date: Sat, 21 Nov 2026 21:43:12 +0900
+Subject: [PATCH RFC v2 02/13] dt-bindings: arm: add SiRF AT550 and Yupiteru
+ YPL514si
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,182 +83,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/11] leds: class: Support custom sysfs groups on
- multicolor and flash LEDs
-To: Rong Zhang <i@rong.moe>, lee@kernel.org, pavel@kernel.org
-Cc: linux-leds@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261120212431.152081-1-W_Armin@gmx.de>
- <77c77dd13a1cc44416ceb28ee4dacfab51c7c220.camel@rong.moe>
-Content-Language: en-US
-From: Armin Wolf <W_Armin@gmx.de>
-In-Reply-To: <77c77dd13a1cc44416ceb28ee4dacfab51c7c220.camel@rong.moe>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261121-at550-rfc-v1-v2-2-b0309d0789b2@gmail.com>
+References: <20261121-at550-rfc-v1-v2-0-b0309d0789b2@gmail.com>
+In-Reply-To: <20261121-at550-rfc-v1-v2-0-b0309d0789b2@gmail.com>
+To: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Radu Rendec <radu@rendec.net>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Ulf Hansson <ulfh@kernel.org>, 
+ Adrian Hunter <adrian.hunter@intel.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, Russell King <linux@armlinux.org.uk>, 
+ Arnd Bergmann <arnd@arndb.de>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>, 
+ linux-kernel@vger.kernel.org, linux-input@vger.kernel.org, 
+ linux-mmc@vger.kernel.org, linux-doc@vger.kernel.org, soc@lists.linux.dev
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795264991; l=1613;
+ i=yogo.0917.sabu@gmail.com; s=ypl514-20261117; h=from:subject:message-id;
+ bh=PQrX/FspDA33PekWwNtkQNVgZAR2YGwuuowr8uCQ39A=;
+ b=hnIFHkpO/fOjyh207yCGUwqWuFV7rTti8wsPk3qoG+YRunLsOlNp/PFVSab7tls06HaRhzjRt
+ Ty67dTXHUS3CP/JdaxriOUFj5TyhAF6X889ETQ40JFnH3O2TKbZ6Rz6
+X-Developer-Key: i=yogo.0917.sabu@gmail.com; a=ed25519;
+ pk=TIQ8Tk4xQrxyn8rmk3GI2f5qg/kO6g2KZm7YOOyBHeg=
+X-Endpoint-Received: by B4 Relay for
+ yogo.0917.sabu@gmail.com/ypl514-20261117 with auth_id=1550
+X-Original-From: Yuugo Yoneda <yogo.0917.sabu@gmail.com>
+Reply-To: yogo.0917.sabu@gmail.com
 Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:fzP/yYa8Aly5BWZqUJ7+n1HohZFGEH4pFWaGQ3lyK4XHRcsAguI
- M2aF/8qCqsOAzl1aXRVxEJESGL7Ij8D8TJfNiVaEqgRIotZHiwEEL4HyZdi2UsS9bvE2iGM
- cfIPkHJXLIwWxSygHSDBvfyq8bytGJIZsfjMZ3miPTJe4Ye/JyTQ4zaIqChMM8P/5bNLWi1
- znVzLy/QpoRt+xwisD8lA==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:XZ6ZDuwDzqo=;kjqW8NkTiXGyudBc6LdH01ifWHH
- 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
 
-Am 21.11.26 um 12:21 schrieb Rong Zhang:
+From: Yuugo Yoneda <yogo.0917.sabu@gmail.com>
 
-> Hi Armin,
->
-> On Fri, 2026-11-20 at 22:22 +0100, Armin Wolf wrote:
->> Until now drivers are unable to atomically register custom sysfs
->> groups below multicolor and flash LED class devices, because the
->> led_cdev->sysfs_groups field is being overwritten inside the
->> associated initialization functions. This patch series tries to
->> fix this.
->>
->> The first three patches constify the sysfs attributes of all three
->> LED flavors, while the next four patches fix various unrelated issues
->> affecting LED device initialization. The next two patches migrate
->> the multicolor and flash LEDs to use struct device_type for
->> registering their sysfs attributes, so that led_cdev->sysfs_groups is
->> not touched anymore. The last patch contains a minor optimization
->> for multicolor LEDs.
->>
->> All patches have been tested on real hardware, with the flash LED
->> interface being tested using a custom kernel module.
-> The series looks good to me (except for PATCH 10, as I am not familiar
-> with that driver).
->
-> FWIW, for PATCH 1-9,11:
->
-> Reviewed-by: Rong Zhang <i@rong.moe>
->
-> Thanks,
-> Rong
+Add the Devicetree binding schema for the SiRF AT550 SoC and the
+Yupiteru YPL514si board, and create the SIRF AT550 PLATFORM MAINTAINERS
+entry.
 
-Thank you :)
+Signed-off-by: Yuugo Yoneda <yogo.0917.sabu@gmail.com>
+---
+ .../devicetree/bindings/arm/sirf,at550.yaml        | 22 ++++++++++++++++++++++
+ MAINTAINERS                                        |  5 +++++
+ 2 files changed, 27 insertions(+)
 
->> Changes since v2:
->> - fix issue inside KTD202X driver
->>
->> Changes since v1:
->> - use READ_ONCE() inside brightness_hw_changed_show()
->> - fix possible deadlock in led_classdev_notify_brightness_hw_changed()
->> - set led_cdev->dev to NULL when initialization fails
->> - call device_set_node() after device_add()
->>
->> Armin Wolf (11):
->>    leds: class: Constify sysfs attributes
->>    leds: multicolor: Constify sysfs attributes
->>    leds: flash: Constify sysfs attributes
->>    leds: class: Create "brightness_hw_changed" attribute atomically
->>    leds: class: Fix race condition when creating the device
->>    leds: class: Access brightness_hw_changed exactly once
->>    leds: class: Use correct type for brightness_hw_changed field
->>    leds: class: Split led_classdev_register_ext()
->>    leds: Support custom sysfs groups on multicolor and flash LEDs
->>    leds: rgb: ktd202x: Initialize max_brightness before registering LED
->>    leds: multicolor: Adjust maximum subled intensity during
->>      initialization
->>
->>   drivers/leds/led-class-flash.c      | 153 +++++++++---------
->>   drivers/leds/led-class-multicolor.c |  76 ++++-----
->>   drivers/leds/led-class.c            | 233 +++++++++++++++++++---------
->>   drivers/leds/leds.h                 |   3 +
->>   drivers/leds/rgb/leds-ktd202x.c     |   4 +-
->>   include/linux/led-class-flash.h     |   5 -
->>   include/linux/leds.h                |   2 +-
->>   7 files changed, 278 insertions(+), 198 deletions(-)
+diff --git a/Documentation/devicetree/bindings/arm/sirf,at550.yaml b/Documentation/devicetree/bindings/arm/sirf,at550.yaml
+new file mode 100644
+index 000000000..0234324e2
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/sirf,at550.yaml
+@@ -0,0 +1,22 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/sirf,at550.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: SiRF AT550 platforms
++
++maintainers:
++  - Yuugo Yoneda <yogo.0917.sabu@gmail.com>
++
++properties:
++  $nodename:
++    const: '/'
++  compatible:
++    items:
++      - const: yupiteru,ypl514si
++      - const: sirf,at550
++
++additionalProperties: true
++
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index d73899016..a825b3bae 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -25847,6 +25847,11 @@ F:	drivers/gpio/gpio-siox.c
+ F:	drivers/siox/*
+ F:	include/trace/events/siox.h
+ 
++SIRF AT550 PLATFORM
++M:	Yuugo Yoneda <yogo.0917.sabu@gmail.com>
++S:	Odd Fixes
++F:	Documentation/devicetree/bindings/arm/sirf,at550.yaml
++
+ SIS 190 ETHERNET DRIVER
+ M:	Francois Romieu <romieu@fr.zoreil.com>
+ L:	netdev@vger.kernel.org
+
+-- 
+2.56.0
+
+
