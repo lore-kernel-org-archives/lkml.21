@@ -1,54 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795272529;
-	b=SKFKWawyw9jP/Zy7AtMdXKowFDy9KhWDBnKMTeYAEE0m4ZsDB6kG1fqarp77XfiPiMoq
-	 lvJ34Nex4b+LFgf+81nV3ICtTC/NOnwX8C5Vm9DsUFDYyXKOG0Rc6peIt+ZDi5hvDmWEQ
-	 VOWpRY3MhCconSqf1lYbyHZnp5tYu75rKKVMWvHZl8byBPb2psTOFSUmPV84tqUMkPQX2
-	 TKs8UU5vDrkrDrngAiSTXdNuYatLvDs6Uc6XKCYhCUaaNeJv0tqzk9kcVvU97b7tlX+It
-	 R1RrqN+jM9j+qXfxiAKzcORDdh5im/YT2EYS/NQZMAsZRlKMWcpUgdyBqv7yv8lNYlQ==
+	t=1795272537;
+	b=E6+w8ia454AUE5OuDhpZ/gNnoxkcnz1wd6cHVYX3W+aOt2XfNF51v5LH+Opu5hVnqMxV
+	 opO7EAF187Ya4LP7XdaicNW9scIOwF5+q8+R9wx+cxePPsFUvYveail2S4fO79e8Qi9O1
+	 YOrj8BAv4jLgPn06/Mx//V/kDFDDXx9JX5fTEgtx2mbmJM2xAs+b+9H+F5FZnXTrot9H1
+	 o9Ig0TNKvpqVmadeOkaN3xqLAl3VrZ+6Aop5lkZHVpl3sa5SgDt1uv7AxMNWwPWhKSW8s
+	 8JP7dJ4+CMO8Cmy5OOFIsF7DThuncTIKS7cM5WPGxRmZTdeB7vyLB6GkhXRyJ81ER3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795272529;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=BQumXRQl87bc44nKVouFo9VGgnHpda2MT0aPk1KmvGk=;
-	b=zQ4n/WpBkm5l7nhbpGhCwoL1W+SkxkqGXt1rUkYc1S2Zz+sbte8MEreKPVejx1cttlAi
-	 nl2VHxEjklXp/zjyR2M4XJLN+AsJCwuO9x/JZxsJWTuoKofzFhmzE1WieWtVL7QjJCPa4
-	 CG8/t0/hdglwZ0izKBAp8yobW7CNMz0tQ/u0fTZPUpJhVTMvKBRkbsdM/6XQLG4s5zwET
-	 RH/sr0BlEsSuX4oLjnXQi+iW17A6fl5OfAPBNNKk6wfUiUMEWYDQcc+ZRmrVoVEuWQFRy
-	 29sQX5KepOdGWFVZ6eM4cw16MqIUzsnqxUdFEQgYQopNHfLHN5mFGTP+spX+AV4EoWA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795272537;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=EdCe+8kSe9PjEo1XndTkJdrgn2vsntTF1WvbXrRZYxs=;
+	b=YgA/nAWSoHmpoPaD4jL/2RjhUMxA5TYb3qG6LAolPIwRVxTq02NlSq5wVTyvjR8d3u6x
+	 QGdzCtK6ijFA57cyTCkBqcwnNg+nkKeQkvSJSjbD9+bfEV7wgPANHfM9MzK6f1vDcl7Vr
+	 IQfKEaWOL3JPkuFh3nJCgAbBfsm/7UTbJX0SyEZFAyMCNCO1azaNwphqHkgr3s7WwQoqu
+	 ysb5j+BJuU7of1HDxxxPALoHWT2II+Nl0PJG8JWnFmYXBEU1lmjSf1Rtw3sHWQf1ZOI5X
+	 EYYM8Cz/wfUBl1PtsdR4jKfC+AD78Fh64YIkG0X3cH2taHb3kOxtRJ6uAhVs6H3QAwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.197
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ddZnEjuz;
+	arc=none smtp.remote-ip=209.85.210.174
+Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39087606A32C
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 14:48:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39087606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-4a7de733fa9so2073590b6e.3
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:48:49 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5365F606A330
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 14:48:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5365F606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ddZnEjuz
+Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8a06e79e152so919332b3a.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:48:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795272536; x=1795877336; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=EdCe+8kSe9PjEo1XndTkJdrgn2vsntTF1WvbXrRZYxs=;
+        b=ddZnEjuzbdWoUoW/4tbAOHS9vp1GkI8ol1D1jOZqCCmgvyVZuD/hITyx40rje6PmnO
+         L2bKPzDMD1Y8Rgl7HDxTiNdXliZI/LkEzkZxbz8gCfvYDsXS5OfUccZFb5s9VYhEeRKW
+         GpMoMHTzRtaI5orPzWEmwmbkvaVBKELWc9GPKYfta9p7ae7hj7N4G/kgB6LK6Q7zDtEt
+         IT6Ytp739R+9fTxXrl6VigiUBnTrvpJeu7GkmKvN7qB05yqbUi/NqOk6O7Onzq/u1Y7i
+         r63ag27vpXzFc7VRoLZeoob8+B1l7g0iEr02eR6Qb/I7NlWsfX79hPyYlXSHbYbW+ULb
+         80zQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795272528; x=1795877328;
-        h=content-type:to:from:subject:message-id:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BQumXRQl87bc44nKVouFo9VGgnHpda2MT0aPk1KmvGk=;
-        b=E72tuAmsGVuJ/sov8ueBx0VQE6vPnoAstMcvUN2/kpGrntgWnb4HjXqFOu+IuRJKpW
-         k+1dwD/oFhDUbhjbcsSFIRefdEIlodxN9LKsfCdK4uKzPJ7PIGaKtVdYL11gweK0RLd9
-         bJvqN3rvpxhFnQHYghk7zZWB13JeA3PYltGaMttoBGvM0aOqI68CsZURaBkQ9B0Su0V9
-         XIbN1jNVUnkgwaF88SC30XBtrncXWeLenRCo8A0PnXsMVhOxEb12/uWTepEY59V5BnrZ
-         SEi1kOnEl6QRuZqCiscvAdLoD/HqZHU69m0fZ50wQQRnTkgbNMOqtAPEgM2nYEBbp1m5
-         C/kw==
-X-Forwarded-Encrypted: i=1; AL+hErGCjdFjExL6eJWfsoE8DIjvImbBklvLHcGprRXayRZ26SRaHX5Dz1uZ6AmIVx+KEnBCmkEhj6Q0JV28lbo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ahuc/yH0Kz+gvv+4nSaSiPFfErqhHYBwNQQEV5U0oX5Hvmas3
-	l79lV8ndzMAUPbof3nJ37ssU+ga/MQv8kcXGkUZrT+2JXVvXUTEWljC2fC8GJvdfODm759Vk3hC
-	zhL08rol48l2etPK6sJLKm6QskUwus41rUr3fUiKfPsE0neNlJWfISf4ExWU=
+        d=1e100.net; s=20260707; t=1795272536; x=1795877336;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=EdCe+8kSe9PjEo1XndTkJdrgn2vsntTF1WvbXrRZYxs=;
+        b=T3fjwoEpQsCfuOM2E3tfNYgYvxi2g7ezTdzUDb1tPr+eDNs2QM4ww/VV38NnFDuQdK
+         ljhJUHNIkkPNoyjQtrkPU2BHIwAtaWgI8w30y8O5dreix3Eez1jaibdH31InrgLAm+6T
+         4RamRp2VBDts/H+TBYI7+E11ZhxtYDaMW10QvdU/jeg5iByoK4e7G9HF48i2xwE9jxhr
+         PauYDH/SGP6F7yT8LfdfAumfVEb/17wGylipgPby0ySh53XhZwAfylXcz0TLTzUh8Jv4
+         fGap4qK5c358haIjKJcUhM5bDsCqgCdGeBvYI1Lvw2TsLuehIqF6SPDVAY7WUzaQQo0E
+         33FA==
+X-Forwarded-Encrypted: i=1; AL+hErFIxytOtqduKqwBK3SK1TNtHMWvF8VJTk3d0mIxAHrtig1yyUw/P3XyTXHDqdpFKKBtnwF5cAHXngMIW8M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9biBI6yMN3zqo6l82BlkAOpy7iK+zg66WDQGTSxUMApoJCVuIO
+	lJdZ3ZaHcChKix1HsQ4GQFBOWdcIzWmitwGwgKVv3Ysw6jKyyeQ4uTRf
+X-Gm-Gg: AZFdTZdq8QCHVPdnGDBhifc5xHEzF9XnocmaQUQPpIQh/BvcQvVa4oFEA7/MdHB4noW
+	THKiwzgrqxSvlpWFi7Rfobuc1ZhH0uc7EU3wsy37e7P0boRMB+HsD12ggk9H/hd5mF9x27bkv5U
+	vDTmB7CZpg6bJUuwDm8Z2H/0ieU6UuI7HrFIhP4XrLs3sBdsNNqLznfZ/EWeBYS30froBQrBXgO
+	JZqh9X11EZSCDPKPsdB2E0JQX5qAmqLO/nQjP11mw02o03iZOTU3IsRPMmbgan+9vKLF8TK5IFg
+	/2q84Ro9MtLp4sLnH/NUbVtu0QLfL+InrTyWJq36HQQ/fb20+9pzSRlTawGfaNpz9/6mnrFhmNQ
+	ddz5JTExeBz4H1FgmOf/MfQDp8KDgVCkW2yKuThI7NH61dzFTann9UjIlPTwX0lGSCZgY4x0t4l
+	ghxw0jE3sFZej7NjqcQcEQR5cUckXqHM6HDtKMyuJ1HlPU3usxHx1V4LxBkD+UnIAVRIjD/Sz28
+	+0d/9Oe6r40b7i8cJvYCrJo+9yKuy5uaXnlNNPN1TTLZTG0OU0a3rNGusDhJZuBvjtE00skdSBs
+	0opeigYwNla2Wmk6P+SZaRDb6g7AifQ/PcF8DNS4Nssrse9GFrQAICtXtA==
+X-Received: by 2002:a05:6a20:244b:b0:3ed:bbab:9386 with SMTP id adf61e73a8af0-4014d35ab9cmr6017467637.42.1795272536129;
+        Sat, 21 Nov 2026 06:48:56 -0800 (PST)
+Received: from localhost ([2.27.148.107])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f726sm3048343b3a.36.2026.11.21.06.48.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 06:48:55 -0800 (PST)
+From: Han Gao <rabenda.cn@gmail.com>
+To: "Ard Biesheuvel" <ardb@kernel.org>
+Cc: Han Gao <rabenda.cn@gmail.com>,
+	gaohan@iscas.ac.cn,
+	"Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
+	"Paul Walmsley" <pjw@kernel.org>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>,
+	"Albert Ou" <aou@eecs.berkeley.edu>,
+	"Alexandre Ghiti" <alex@ghiti.fr>,
+	"Atish Patra" <atish.patra@linux.dev>,
+	"Stephen Boyd" <sboyd@kernel.org>,
+	"Brian Masney" <bmasney+clk@redhat.com>,
+	"Jerome Brunet" <jbrunet+clk@baylibre.com>,
+	"Chen Wang" <chen.wang@linux.dev>,
+	"Inochi Amaoto" <inochiama@gmail.com>,
+	linux-efi@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	sophgo@lists.linux.dev
+Subject: Re: [PATCH 1/2] riscv: efi: Map runtime MMIO with device attributes
+Date: Sat, 21 Nov 2026 22:48:45 +0800
+Message-ID: <20261121144848.1277368-1-rabenda.cn@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <bb39f961-0589-4a3e-b649-888cf5edd3a1@app.fastmail.com>
+References: 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,145 +113,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:1916:b0:4f4:6421:5efe with SMTP id
- 5614622812f47-57a0ba53122mr7079187b6e.36.1795272528263; Sat, 21 Nov 2026
- 06:48:48 -0800 (PST)
-Date: Sat, 21 Nov 2026 06:48:48 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b01af50.44b41460.34b83f.000c.GAE@google.com>
-Subject: [syzbot] [wireguard?] KCSAN: data-race in wg_index_hashtable_lookup / wg_packet_decrypt_worker
-From: syzbot <syzbot+434045ea68296f3f0219@syzkaller.appspotmail.com>
-To: Jason@zx2c4.com, andrew+netdev@lunn.ch, davem@davemloft.net, 
-	edumazet@kernel.org, jason@zx2c4.com, kuba@kernel.org, 
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, 
-	syzkaller-bugs@googlegroups.com, wireguard@lists.zx2c4.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-Hello,
+On Sat, 21 Nov 2026 13:42:20 +0100 "Ard Biesheuvel" <ardb@kernel.org> wrote:
 
-syzbot found the following issue on:
+> 
+> 
+> On Sat, 21 Nov 2026, at 11:38, Han Gao via B4 Relay wrote:
+> > From: Han Gao <gaohan@iscas.ac.cn>
+> >
+> > EFI_MEMORY_MAPPED_IO regions are mapped with PAGE_KERNEL, so device
+> > registers end up mapped as normal memory.
+> >
+> > On Milk-V Pioneer, GetTime() reads the clock controller registers and
+> > faults:
+> >
+> >   Oops - load access fault [#1]
+> >   Workqueue: efi_runtime efi_call_rts
+> >   status: 0000000200000120 badaddr: 0000007030012000 cause: 0000000000000005
+> >
+> > Use PAGE_KERNEL_IO for these regions.
+> >
+> > Fixes: b91540d52a08 ("RISC-V: Add EFI runtime services")
+> > Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+> > ---
+> >  arch/riscv/kernel/efi.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> 
+> Acked-by: Ard Biesheuvel <ardb@kernel.org>
+> 
+> I can take this as a fix via the EFI tree if you like.
 
-HEAD commit:    c44104f3642d Merge tag 'drm-fixes-2026-11-21' of https://g..
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=131d3203580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=886d2ddd2d6b664e
-dashboard link: https://syzkaller.appspot.com/bug?extid=434045ea68296f3f0219
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+Yes, please take it through the EFI tree. Thanks!
 
-Unfortunately, I don't have any reproducer for this issue yet.
+> 
+> 
+> > diff --git a/arch/riscv/kernel/efi.c b/arch/riscv/kernel/efi.c
+> > index 2d3cc57b4535..11e85d0ebc91 100644
+> > --- a/arch/riscv/kernel/efi.c
+> > +++ b/arch/riscv/kernel/efi.c
+> > @@ -22,7 +22,7 @@ static __init pgprot_t 
+> > efimem_to_pgprot_map(efi_memory_desc_t *md)
+> >  	u32 type = md->type;
+> > 
+> >  	if (type == EFI_MEMORY_MAPPED_IO)
+> > -		return PAGE_KERNEL;
+> > +		return PAGE_KERNEL_IO;
+> > 
+> >  	/* R-- */
+> >  	if ((attr & (EFI_MEMORY_XP | EFI_MEMORY_RO)) ==
+> >
+> > -- 
+> > 2.55.0
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-Downloadable assets:
-disk image: https://storage.googleapis.com/syzbot-assets/3fc1eaf78772/disk-c44104f3.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/d89308c4a5cc/vmlinux-c44104f3.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/5eea3049fa3b/bzImage-c44104f3.xz
-
-The issue was bisected by AI to:
-
-commit e7096c131e5161fa3b8e52a650d7719d2857adfd
-Author: Jason A. Donenfeld <Jason@zx2c4.com>
-Date:   Sun Dec 8 23:27:34 2019 +0000
-
-    net: WireGuard secure network tunnel
-
-AI reasoning:   https://syzkaller.appspot.com/ai_job?id=3b0df671-a26c-4b49-8c2e-0c6fac1004c7
-
-AI-generated root cause summary:
-In wg_index_hashtable_lookup() (drivers/net/wireguard/peerlookup.c:218), the
-function mistakenly assigns the return value of
-wg_peer_get_maybe_zero(entry->peer) to entry->peer instead of setting the
-caller's output parameter *peer. The entry->peer pointer is intended to remain
-immutable after keypair/handshake creation. This unintended write causes a data
-race against concurrent readers (such as PACKET_PEER(skb) in
-wg_queue_enqueue_per_peer_rx()) and concurrent lookups. If the peer's refcount
-has dropped to zero, it overwrites entry->peer with NULL, leading to potential
-NULL-pointer dereference crashes in subsequent teardown code.
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=434045ea68296f3f0219
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+434045ea68296f3f0219@syzkaller.appspotmail.com
-
-The cause commit was identified by AI and may be wrong.
-If you agree with it, please also add:
-Fixes: e7096c131e51 ("net: WireGuard secure network tunnel")
-
-==================================================================
-BUG: KCSAN: data-race in wg_index_hashtable_lookup / wg_packet_decrypt_worker
-
-read to 0xffff88811b843800 of 8 bytes by task 3420 on cpu 1:
- wg_queue_enqueue_per_peer_rx drivers/net/wireguard/queueing.h:195 [inline]
- wg_packet_decrypt_worker+0x45c/0x670 drivers/net/wireguard/receive.c:503
- process_one_work kernel/workqueue.c:3495 [inline]
- process_scheduled_works+0x582/0xab0 kernel/workqueue.c:3578
- worker_thread+0x56c/0x770 kernel/workqueue.c:3659
- kthread+0x248/0x2a0 kernel/kthread.c:436
- ret_from_fork+0x146/0x330 arch/x86/kernel/process.c:158
- ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
-
-write to 0xffff88811b843800 of 8 bytes by interrupt on cpu 0:
- wg_index_hashtable_lookup+0xcf/0x120 drivers/net/wireguard/peerlookup.c:218
- wg_packet_consume_data drivers/net/wireguard/receive.c:517 [inline]
- wg_packet_receive+0xa90/0x1260 drivers/net/wireguard/receive.c:576
- wg_receive+0x4e/0x80 drivers/net/wireguard/socket.c:325
- udp_queue_rcv_one_skb+0x85f/0x8b0 net/ipv4/udp.c:2433
- udp_queue_rcv_skb+0x355/0x430 net/ipv4/udp.c:2473
- udp_unicast_rcv_skb+0x196/0x1c0 net/ipv4/udp.c:2621
- udp_rcv+0xa3c/0xf20 net/ipv4/udp.c:2698
- ip_protocol_deliver_rcu+0x43d/0x810 net/ipv4/ip_input.c:207
- ip_local_deliver_finish+0x1f0/0x2e0 net/ipv4/ip_input.c:247
- NF_HOOK include/linux/netfilter.h:325 [inline]
- ip_local_deliver+0xe8/0x1e0 net/ipv4/ip_input.c:268
- dst_input include/net/dst.h:482 [inline]
- ip_rcv_finish+0x188/0x1a0 net/ipv4/ip_input.c:498
- NF_HOOK include/linux/netfilter.h:325 [inline]
- ip_rcv+0x62/0x160 net/ipv4/ip_input.c:618
- __netif_receive_skb_one_core net/core/dev.c:6451 [inline]
- __netif_receive_skb net/core/dev.c:6564 [inline]
- process_backlog+0x349/0x690 net/core/dev.c:6915
- __napi_poll+0x73/0x350 net/core/dev.c:8001
- napi_poll net/core/dev.c:8064 [inline]
- net_rx_action+0x33f/0x850 net/core/dev.c:8221
- handle_softirqs+0x109/0x310 kernel/softirq.c:669
- do_softirq+0x46/0x60 kernel/softirq.c:569
- __local_bh_enable_ip+0x79/0x80 kernel/softirq.c:473
- __raw_read_unlock_bh include/linux/rwlock_api_smp.h:283 [inline]
- _raw_read_unlock_bh+0x2f/0x40 kernel/locking/spinlock.c:319
- wg_socket_send_skb_to_peer+0x10c/0x130 drivers/net/wireguard/socket.c:183
- wg_packet_create_data_done drivers/net/wireguard/send.c:251 [inline]
- wg_packet_tx_worker+0x173/0x340 drivers/net/wireguard/send.c:276
- process_one_work kernel/workqueue.c:3495 [inline]
- process_scheduled_works+0x582/0xab0 kernel/workqueue.c:3578
- worker_thread+0x56c/0x770 kernel/workqueue.c:3659
- kthread+0x248/0x2a0 kernel/kthread.c:436
- ret_from_fork+0x146/0x330 arch/x86/kernel/process.c:158
- ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
-
-Reported by Kernel Concurrency Sanitizer on:
-CPU: 0 UID: 0 PID: 12 Comm: kworker/0:1 Not tainted syzkaller #0 PREEMPT(lazy) 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-Workqueue: wg-crypt-wg2 wg_packet_tx_worker
-==================================================================
-
-
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-For information about AI bisection see: https://goo.gl/tpsmEJ#ai-bisection
-
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
+Sent using hkml (https://github.com/sjp38/hackermail)
