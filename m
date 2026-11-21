@@ -1,79 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.238.174.39
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795237898;
-	b=SdJHKLKlvS8r3+x7rU+yy5IOoLE/ecSPbI9Jy4RvwpvISRVw8uviIEl1/mdfAyVG7NVk
-	 HIfKBPBApf7CIv5SAKBWQTbtf8qVVPhS2LHA2TFJZC2s6xt+XUelIgvvLtjoO5rDnoYWd
-	 /PzAqHmCnqb6oieNXZR5rFcHl0HQQXt/ff9V1tE3VQhhtygx8XWwfHQEj+onh6Wck0CVX
-	 T4PATsoT2wRW4rWCbbVTfenRyBsmfqRRKdjnhupXyVZhtWbeIlkLdl6lPbBhWCv6eNXJh
-	 a48gfNmOkpGagEQ2ESelKWfnTdxQDqPHgqmrYPWOoTMsC9HBq1zNqC/kDB0BkDCeOFw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795237898;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:Date:
-	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
-	 Content-Type;
-	bh=kRQ0W4a0EM2TYF/Rr39Y65umfvFk2BHxJmx2nTsJCs0=;
-	b=vRkBqYapZtWF5I3IuxHZey7mVDz1gOwdOBqo1ADZmAJrNIVBO9fOF6QgppUZHllsifwC
-	 T/5Q4C+tvrLKwGVhqYpzbkeAwQMjf88qlndcBCs64zq0g1jwTDQZ4rqMwVWhwLMmHNGKp
-	 aBtpGu+oN2aUMj5QlsqBHUJsQEBwFpPn8KdRrUArdcL2ZuTxOKpeQmBKCEf207ffgQskO
-	 EHslE9+ClxSRzYotC4ISgHcSv59Ktr/yXtfV0HcszsHTvtaWHoSaEIfpI7+CEzzWj7ZPz
-	 myv6J4z+MtLSDZIe1x0JfuDNWg4JrcsuAgW7r568lY7bQa9NNHZco0Q/wm1nGJMknvg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ssi.bg;
-	spf=pass smtp.mailfrom=ssi.bg;
-	dkim=pass header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b="O8BJ/oIC";
-	arc=none smtp.remote-ip=193.238.174.39
-Received: from mx.ssi.bg (mx.ssi.bg [193.238.174.39])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.39
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795238354;
+	b=0Rz0xDt0BuFJuYzo7c3eOs3E+kYR3P8SXqOro8BJUE737u837HkbVnXonQrqmSimnUNp
+	 saU/ojbsTeW/lr2UVFaXWQ/MglyRQTWWnnDXTgsG5PawiIVVZvs3g7j2sQCvwKnuHXOCA
+	 Vy4eBUWSwpQEM+Kh5w4i1TSiJJ6en9CoYpPZfGnCJaWPNey7lDOGr1yvnvXfnwXl+8khK
+	 f9gcLQgjvOJLVazrjlEPxfRsZvyrkEoCd6cnvNVUTEzv3Oe8QkhZzBo2JVrq8pQgF5Os9
+	 U7ID5edWHxbqa8olF1u0jJdQfzNGV5J0miul9nPyuyBsqNV3LKRDSsTf4Jjv04eJOEA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795238354;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=GUBPwEi7oMaEgzwb1Hi2j1ZA2DRZCp7QdZDE9yZgJVs=;
+	b=tYb5j5gqXN2g/Jt6sTyfHhAOq3Wi5PhFRHKh80l5WhwhAYhGy3s/nXA8kXFJ0ufBt+9T
+	 T0PHZhNkjYHio0Co359oABQJhg8niRGSYh2JkdcckME3IZn/JP1jtN2caMFvcPV7+Asil
+	 4BqhLnkXRW23nUymTzcv9KvnNCFeZiZLCFZtg217gDPEWJNy+qn2SnnniGif00ACDlEMI
+	 9iPdSLGmK4lk4CBEr93Rxi7kBLGV/anBRojXp3LXolGqBzLwk4laQDQjXHp75JGGGoPSj
+	 clsLbq9avcXfNPJz/jZA3BWV8wC3Ce5F0Bf7AlJt8onBEB/d0W6NH7IKILedui22Zxg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=mWBZxaZy;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.39
+Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012039.outbound.protection.outlook.com [52.101.48.39])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA7AE606A68E;
-	Sat, 21 Nov 2026 05:11:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA7AE606A68E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ssi.bg
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ssi.bg
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72D8D606A693;
+	Sat, 21 Nov 2026 05:19:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72D8D606A693
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key, unprotected) header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=O8BJ/oIC
-Received: from mx.ssi.bg (localhost [127.0.0.1])
-	by mx.ssi.bg (Potsfix) with ESMTP id 7A90021FDB;
-	Sat, 21 Nov 2026 07:11:30 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ssi.bg; h=cc:cc
-	:content-type:content-type:date:from:from:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=ssi;
-	 bh=kRQ0W4a0EM2TYF/Rr39Y65umfvFk2BHxJmx2nTsJCs0=; b=O8BJ/oICgH47
-	4/WHhWhrDYwRQ6UuTZevX5MTb8cBKDfIHHE7MuOeH5PsSiIy4elD9iCD4eXorxkF
-	3UjaDEkqlwZdD5cLKUPPFL7tBsJmUIcDnJ4juyOg3zUXpyMHFRQvtklCKihOLaDn
-	lE3N/Q+s+2F6edm+REC7DKqMG86kuEzo4Y4DCWzqaEwQ+nGrhhI4ovEjpa1OZ2WD
-	gDOnTWo+6Mi1LQl99EJAbYXzeMtf16ReLdCrqhD6uDjmXmfjE6zIR2nC2EIqFFz+
-	zrt2c5NuLy0IYyFqTWgJYEWafEajYe+xvUThQsS2Bbk05ih7cojfT62N4886wB1I
-	tujsUqQ7IJfTr5bRS2Kj15tmZJb571xoJpX8oz7/ns6IyoKhVFtqyJ4+hGWOSlvi
-	iEwavgXsBctEwy+0MRmRFgfypp4UOVNmlvClmJAvYo1T+E5Da2gXZHKCx+pXHAYV
-	KW0ged29gZGat5wkgSc2zyhk+Gz88VrxEDu8o/dk7TSxgx/8Ds2h0ZF2Jutjd/6Y
-	s88oaqyfRswuRYhDQqjHgI5tQYsjKwT+/jVC3QSBgyTmRz3h8Wyf9giO3NgPoCB6
-	ARVvZB7rOWr6m5d5ClvF7kMe5m3hNFPp+/P0RRJkpqUWjYN6SXy8bIhDPXXXGVm0
-	gITun8MFtWLgKKJpZKVQIriMnlLlPBE=
-Received: from box.ssi.bg (box.ssi.bg [193.238.174.46])
-	by mx.ssi.bg (Potsfix) with ESMTPS;
-	Sat, 21 Nov 2026 07:11:30 +0200 (EET)
-Received: from ja.ssi.bg (unknown [213.16.62.126])
-	by box.ssi.bg (Potsfix) with ESMTPSA id D18EB60453;
-	Sat, 21 Nov 2026 07:11:29 +0200 (EET)
-Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
-	by ja.ssi.bg (8.18.2/8.18.2) with ESMTP id 6AL5BM9J005997;
-	Sat, 21 Nov 2026 07:11:23 +0200
-Date: Sat, 21 Nov 2026 07:11:22 +0200 (EET)
-From: Julian Anastasov <ja@ssi.bg>
-To: Star Chang <starchang@google.com>
-cc: johannes@sipsolutions.net, netdev@vger.kernel.org, dsahern@kernel.org,
-        idosch@nvidia.com, davem@davemloft.net, edumazet@google.com,
-        kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
-        linux-kernel@vger.kernel.org, wangroger@google.com
-Subject: Re: [PATCH net v4] net: Fix Hole-196 vulnerability by dropping
- unicast ARP/IP in L2 BMC
-In-Reply-To: <20261116133734.607866-1-starchang@google.com>
-Message-ID: <4022cbce-2f7b-2dd7-9c87-6b54e94d3a4b@ssi.bg>
-References: <20261026150539.1357037-1-starchang@google.com> <20261027015619.1745984-1-starchang@google.com> <5c1fe870-39ff-e83e-e479-0e1f0fed6a83@ssi.bg> <20261028061644.2997812-1-starchang@google.com> <f631e178-d9ec-f335-9163-c44a9e6c58af@ssi.bg>
- <20261030030715.604215-1-starchang@google.com> <65cf2338-7bb4-3151-f3b1-ef171bb5723b@ssi.bg> <c2780bb291244cf32c1dbda63f0dcf594d22da30.camel@sipsolutions.net> <20261102070552.3516567-1-starchang@google.com> <0f9ce5de-4e1c-52a3-1bee-aecb1cd836db@ssi.bg>
- <20261116133734.607866-1-starchang@google.com>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=mWBZxaZy
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fpCjm2gBBJx5YogTe8DsaghiGKC7vGC8KlRNCNQAEzHfMrhi4MCsiMYLMOyWVLHDmFnwTumDTwcd694Oh3k1F05koR6dQwjhyt5J7JbQf49TBnGUChGBsXDm2RThI64yFdu5/f8sQVBUIGjM+31wyUzdFBq6BHEMSD3TG4cprQsdgaBZ6TbF+LEAqxVX7iHInZAWC5C597McIW2RPJLwTloXB4pzj/KIfPoG84NitmzSHoFVrcv/hGPLHs0lUINXU72Eu042tCmsr3X4Ue2pLyE+woU8okOww9O21isPhFohyA6fv0I7Bk6g2V1CF9gUmx/I102PMlyWzjqfmOcM2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GUBPwEi7oMaEgzwb1Hi2j1ZA2DRZCp7QdZDE9yZgJVs=;
+ b=ImbuzGddYbryr6mw0synHCsAUbetlxiMyYXqtVJtwN4rb48+CaGb/uWf+Xiq8KlDY2nJNqT8ahIb1wXmw/Wd5XsiIKg7w4+wNznq1oqFbocNBzuds1OH8NHtuG7Mq01uuy8KQXZKm9GoTtPk06mzAE/+2ZZBHqfrrjp6Fr+arrVZK5YwETlZIBHGjESgJ90HSSHrl9MTLhtqbgAuHMM10CbFqWNTWtesOwq1uyhRI1t7X0vOPfgRvqILeQ+SXSj6iysMgFXC1RraFoWD96j/4WWN2gCE43uj7URSglVR5b8zxu/QbjBc7XjTIvMO3C/ZujnDAb62kyvVP6ncbPUCaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GUBPwEi7oMaEgzwb1Hi2j1ZA2DRZCp7QdZDE9yZgJVs=;
+ b=mWBZxaZy0Gm0jhT4UNgxQwr0BFkikXLdqpvK3+MOBWI7O7UFUEnwCjoHy2MSusfIvtKJlXreK/DZAcn92+jpH6OjSzt4AqFIh2gluOVaZSH7lRqBj+DM5orU7rUZqL2beRa/Q37VuwJZUz6/5IqTmLoZMHQpdA9ZAWaYyv0KzB9nW/NCQgGNdu4F/3Jzno/WUXkU736R8wdsutwEp2bF6RrEV7OqBhG2BSe+4NJm3oE97A4/CUnN5Qbjn4YL/Y4vfBTrHAMasFvDvxg1QQnbG+9xXZK4+DenUAU40yKkZTaabRGg0lFu2fdusyqYIEtoIRxbQdlzGsyO/LeUhkHBBA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from PH7PR12MB5974.namprd12.prod.outlook.com (2603:10b6:510:1d9::19)
+ by DS0PR12MB8017.namprd12.prod.outlook.com (2603:10b6:8:146::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Sat, 21 Nov
+ 2026 05:19:05 +0000
+Received: from PH7PR12MB5974.namprd12.prod.outlook.com
+ ([fe80::f5a5:bbc3:e9da:f8a0]) by PH7PR12MB5974.namprd12.prod.outlook.com
+ ([fe80::f5a5:bbc3:e9da:f8a0%3]) with mapi id 15.21.0639.011; Sat, 21 Nov 2026
+ 05:19:05 +0000
+From: Adrian Ambrozewicz <aambrozewicz@nvidia.com>
+To: Kent Gibson <warthog618@gmail.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Jia Jia <physicalmtea@gmail.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v7 7/8] gpiolib: let the character device free its IRQs first on chip removal
+Date: Sat, 21 Nov 2026 07:19:01 +0200
+Message-ID: <20261121051900.4118973-2-aambrozewicz@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261121044657.GA17013@rigel>
+References: <20261120-gpiolib-chip-removal-v7-0-aambrozewicz@nvidia.com> <20261120-gpiolib-chip-removal-v7-7-aambrozewicz@nvidia.com> <20261121044657.GA17013@rigel>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: TLZP290CA0004.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:9::15) To PH7PR12MB5974.namprd12.prod.outlook.com
+ (2603:10b6:510:1d9::19)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,117 +104,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5974:EE_|DS0PR12MB8017:EE_
+X-MS-Office365-Filtering-Correlation-Id: 067d1c6a-6c28-49d7-5cf8-08df478ef60c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|1800799024|366016|7416014|376014|261026140227099003|261022105027099003|261022075727099003|261028144727099003|11063799006|10067099003|4143699003|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	wT32pMd5iW0279BTBKlTPnybw8xvojDyfCY7+WxHmyPd0FJz3u0j+9evqDqXLFacphH1y1RRAg78poXTjeieYikmcXV/42WBP37VfJtwEU5SQkDHuJTBsHGCD4b40cJxEawdbVcPYS33PtN0RQZWasA8/Ujk/a3mTZuomw102MK8KryalMiBSgQKkB3dx19KS9yzxOpkXhBe4985uR0H3lVPa+kuQf/JheVGt8Ps44q6pfjdtAzmbCfpBNaR2GAb5X4rnYGE0ysf6TPIGe5Y1XdT58GHnOaJW/HUkwPTEA5JnkLk8t9UFNqxeYkiWRtSL53nkJJagoQuXu3yJmJCl97UyfkZaQTSxSsHCp0pTemBn6d7GpaLb9LLD62FM3IEnDmVn2vVELeFFpAjz7LtTOSgB2JsI770BX2zQ5nOC40og+8c7kCfwrpNCOZDd8pHVK/wupBE780+GDls+LDnHxT2f57XAmlpWEcqdqbTGpkV3PlH4hQltqwu2pjK/3ZtYXglDJbhdYcCa9/I1FS3DJ7csKa7Ch/ngZFafRvmDZywz82kk2WphGuqz3cYAZ7bXk7PeBsBIzihPnw/+hAL7PeaLXn4iJe+noGrzx5vvylxln3deyWXkKUZ6EVZ3K5vYqySSGLHsUZ/1thqv8rHXd7NmHw+IX3t+VO1345C/MM=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5974.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(7416014)(376014)(261026140227099003)(261022105027099003)(261022075727099003)(261028144727099003)(11063799006)(10067099003)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?kiK9eqhI1z2yMjr3pQg8raajs17YbIpotIncLPEqNns+Bk/rLDYTCxJfr8F0?=
+ =?us-ascii?Q?qv/KDKdvbmGRrcAeS1UgoiidkfL1gb4iNau0S6J7WfajMxrYncV3Ak7HlskT?=
+ =?us-ascii?Q?aoxP1nxhdbk+7wXv3ugyNQNaccwi1YStBs+AsHJaU4+mDHva1Pj8lHyJ9cmq?=
+ =?us-ascii?Q?eXeUZR1QO0uNrxEWYOwQhz/jWoyjzWp6g/HqztDtNOxsXumsL5VZw8pshiAa?=
+ =?us-ascii?Q?zlMOk8C2H+fG2EBexAd1N5B/J57hoCiwGnxYpS67xdz9+pkL9Mrik1bQkcMG?=
+ =?us-ascii?Q?Mf/VlQ1oRo09MRuAEzDsWf5eDjU87gkCGkTKevcHFPeJE4Iu5vZFncYsDb5n?=
+ =?us-ascii?Q?oRCB+zC9QB3HEvf0Zf65v/gu3LNSScetCLyfU/Uh2ryrMKMzFgx4SZkTGiYP?=
+ =?us-ascii?Q?yaVt0MTL4s9sgILiEKW6fc8wbeMagZIVwcgMio8WXlVIqyWAv4XvhRyOuTvU?=
+ =?us-ascii?Q?vG6ABE0H2N26BY86IdEvtY9trUiHIwMZJe79K9/Z1I6nu/tDDp+CbxD7kmay?=
+ =?us-ascii?Q?gMORgXU3V1WjIUvHFyXHAZdyBnsM8o7ODzyXDwQC3hSQ8Pd6OsADYI3Bzv05?=
+ =?us-ascii?Q?K+FgcfmTlMhgQX95lmofKg3eTNzG5x5UaLBCHH49FXsEtmNKlAsyqKpxc9qj?=
+ =?us-ascii?Q?6jRO7XOuFAgOqOLG9Puy8J6mZxyr/LFK01ETkpxDdISxsQA/qNsAz8JuChbW?=
+ =?us-ascii?Q?h48Dr4ueEG/9OgGN0n2CLbMzKM3Wwkti412pAJkNRxA9dRDJIHPrPQ1vIHhY?=
+ =?us-ascii?Q?+4ps0ZE3IqLmubLmew10fa3Aso6s/7gV4oycMHHlIhlT7sc6uYb8F38cmJwj?=
+ =?us-ascii?Q?Pzh/FaB7fTWw6F7SkqkTKwYMbHqJ4oTD6Ml4sgg1KfLInsDGDCuAyeIhUQ2W?=
+ =?us-ascii?Q?3BEtJphr1CmJLWC9iYUs5ljvaSZI8/4/SP+iBmJDy1DxPGRebZe66wbAT9Te?=
+ =?us-ascii?Q?c2eawSn+JXcA7ty0eLeHaLJHYjS5yv83nRoIfNDtpGERZfkPvrJ0kNZVGT4T?=
+ =?us-ascii?Q?hUpwQFgTMRZD2Hcd1arrGr3aSQYl2n45edO6fCsuHW68lJGA3FFDbf765mLj?=
+ =?us-ascii?Q?umM07aJKb6iCjEey+NSPbp/ZzZNMxj8bOk4CqFFwiIhCi4kqR4U5P4mNqnuq?=
+ =?us-ascii?Q?kYPWz8S2ilMCy46x/m3XVnnLaux9OuJ4ldXGXXFUh35kuz2s2p7wvgdfGK82?=
+ =?us-ascii?Q?S3z0uOu6/4w/KZFJPI58UrPrISmIkHgGCxm8a4qEkzFpPVY9NV9GsOJZcWLt?=
+ =?us-ascii?Q?mgVIJmtCQAmbrd3z3qRceF9PK4gjKcPDU8FPNszLehPwXj0K/EDyMQm7n5+B?=
+ =?us-ascii?Q?eyPzaD2GbaRKXt/RJbB5XYnUxjGEQXchKOArRyh3MkfAkNr9dXPFoyrc620U?=
+ =?us-ascii?Q?F0VT86bv9us5QbAs4HhzgNIJ/RgtDVVH6sobwsoaZqMK6qCbHM8G3VvU3D89?=
+ =?us-ascii?Q?YBuFxllpfbcqwMsIXlXF/DtFaJKeMO9G+3I9svLEwEU9mjH5a6ima1KkMQ/L?=
+ =?us-ascii?Q?ZoMy6CHzgU5w92uPxFrzeIh2kuE2Yhil3rhp9vBZlOf/fAVlN8iKXKhn0C9a?=
+ =?us-ascii?Q?6peVJJjePj0TvK/SCdp15ivqQkaXWNvgARyraogTUyhkNEf4OBSoaMUvZn0r?=
+ =?us-ascii?Q?hD8GKzl+BfCY4Xi99DnL/ruMEy36mmdCRxk0XUTxgE97QQZpPHwbZIjCY1Fm?=
+ =?us-ascii?Q?TTxdD9cfimikqMgJJUGypnFvJKctsuum5AjV2fxUiWD7GfDrlaGhnY3j2aWg?=
+ =?us-ascii?Q?3E/86/R4jw=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 067d1c6a-6c28-49d7-5cf8-08df478ef60c
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5974.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2026 05:19:05.3411
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aJP8UKgaElRUXnSakO5cg6adyGPSRG4aVs1MqBiuuUDWbHKHyXP671G3WhQz3Lr2TOo3A0j2jGrMZAkXFKjUDg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8017
 
+On Sat, Nov 21, 2026 at 12:46:57PM +0800, Kent Gibson wrote:
+> > @@ -1690,7 +1697,6 @@ static int linereq_create(struct gpio_device *gdev, void __user *ip)
+> >  			return -ENOMEM;
+> >  	}
+> >  
+> > -	mutex_init(&lr->config_mutex);
+>
+> What is the rationale for relocating the mutex_init()?
+> Looks like a gratuitous change, and if this patch is going to be
+> backported then it should be kept minimal.
 
-	Hello,
+It is needed: linereq_free() now takes config_mutex, and __free() also
+calls it when linereq_create() fails after allocating lr. The first such
+failure, kstrndup(), returned before the old mutex_init(), so it would
+have locked an uninitialised mutex. I plan to say so in the commit
+message in v8.
 
-On Mon, 16 Nov 2026, Star Chang wrote:
+> The lines removed/guarded were added in patch 3, so note that this patch is
+> dependent on patch 3 in the description[1].
+[...]
+> The line removed/guarded was added in patch 5, so note that this patch is
+> dependent on patch 5 in the description[1].
 
-> Hi Julian,
-> 
-> You are right, any broadcast request with sip = GW can do it, not only
-> GARP, so drop_gratuitous_arp does not help here.
-> 
-> Following your suggestion, when drop_unicast_in_l2_multicast is set, ARP
-> received in L2 BMC frames skips neigh_event_ns() and neigh_update(), so
-> it cannot create or change any neighbour entry. Requests for us are
-> still answered. Something like:
-> 
-> --- a/net/ipv4/arp.c
-> +++ b/net/ipv4/arp.c
-> @@ -714,6 +714,7 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
->  	struct neighbour *n;
->  	struct dst_entry *reply_dst = NULL;
->  	bool is_garp = false;
-> +	bool bmc_no_override;
->  
->  	/* arp_rcv below verifies the ARP header and verifies the device
->  	 * is ARP'able.
-> @@ -791,6 +792,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
->  	    (!IN_DEV_ROUTE_LOCALNET(in_dev) && ipv4_is_loopback(tip)))
->  		goto out_free_skb;
->  
-> +	bmc_no_override = (skb->pkt_type == PACKET_BROADCAST ||
-> +			   skb->pkt_type == PACKET_MULTICAST) &&
-> +			  IN_DEV_ORCONF(in_dev, DROP_UNICAST_IN_L2_MULTICAST);
-> +
->   /*
->    *	For some 802.11 wireless deployments (and possibly other networks),
->    *	there will be an ARP proxy and gratuitous ARP frames are attacks
-> @@ -850,14 +855,19 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
->  			if (!dont_send && IN_DEV_ARPFILTER(in_dev))
->  				dont_send = arp_filter(sip, tip, dev);
->  			if (!dont_send) {
-> -				n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
-> -				if (n) {
-> -					arp_send_dst(ARPOP_REPLY, ETH_P_ARP,
-> -						     sip, dev, tip, sha,
-> -						     dev->dev_addr, sha,
-> -						     reply_dst);
-> -					neigh_release(n);
-> +				n = NULL;
-> +				/* Do not learn the sender from a BMC frame */
-> +				if (!bmc_no_override) {
-> +					n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
-> +					if (!n)
-> +						goto out_consume_skb;
->  				}
-> +				arp_send_dst(ARPOP_REPLY, ETH_P_ARP,
-> +					     sip, dev, tip, sha,
-> +					     dev->dev_addr, sha,
-> +					     reply_dst);
-> +				if (n)
-> +					neigh_release(n);
->  			}
->  			goto out_consume_skb;
->  		} else if (IN_DEV_FORWARD(in_dev)) {
-> @@ -866,9 +876,11 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
->  			     arp_fwd_pvlan(in_dev, dev, rt, sip, tip) ||
->  			     (rt->dst.dev != dev &&
->  			      pneigh_lookup(&arp_tbl, net, &tip, dev)))) {
-> -				n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
-> -				if (n)
-> -					neigh_release(n);
-> +				if (!bmc_no_override) {
-> +					n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
-> +					if (n)
-> +						neigh_release(n);
-> +				}
->  
->  				if (NEIGH_CB(skb)->flags & LOCALLY_ENQUEUED ||
->  				    skb->pkt_type == PACKET_HOST ||
-> @@ -887,6 +899,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
->  		}
->  	}
->  
-> +	/* ARP received in L2 BMC frames must not change the neighbour table */
-> +	if (bmc_no_override)
-> +		goto out_consume_skb;
+Agreed, I plan to note both dependencies in the v8 description.
 
-	This deserves to be 'goto out_free_skb;' but also 
-dst_release(reply_dst) is needed. Or we can add 'out_drop_dst:'
-before 'out_free_skb:' where we will call dst_release:
+Thanks for the review.
 
-+
-+out_drop_dst:
-+	dst_release(reply_dst);
- 
- out_free_skb:
- 	kfree_skb(skb);
-
-
-> +
->  	/* Update our ARP tables */
->  
->  	n = __neigh_lookup(&arp_tbl, &sip, dev, 0);
-> 
-> If this looks OK I will send v6.
-
-	The main part looks good to me.
-
-Regards
-
---
-Julian Anastasov <ja@ssi.bg>
-
+Adrian
