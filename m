@@ -1,63 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.152
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795287531;
-	b=uxusWXbRAvXPNThEt4G2ikmENA3arS7WkesvR0LNS8++27Iv11DUcWocsaDEOkhCdAOL
-	 rzbvsEJDc2Fl14/p6VaWUNdgGViFLDgR0U3fqnTw65rpnMn4CkEntIM0PyRL8Z69klMSX
-	 Ko6KjtoXGltnVwPl0n6s5/r+JMdkCiGNRd2g6I2EmUpbi7L/c3rJDheTjNwIpCC/G67pc
-	 4WETpG5U57wrUhOjlYPckV/GJMt7xiP6FXo9wIb+fJzuFBSU/Gng/aJz2dSCVnOa/ocj/
-	 7iOzmNFxaREvv1E1D3s27vKB9I8LwZZrcIT0otNLq61t7jO8+wlSbgZbesvQ1IZQ0YA==
+	t=1795287687;
+	b=1pMwhMSfuE6aRgHfZ5g6fg+eWOQkuj0ZJy3tXGZDPsFjr4PafoZDGLVOzfRZMEtx2fs6
+	 90rRO2x8PYmnoX3ihPKSlFiEr0AUccCTVGOHolyYb3n00Ly2OMcNhAWL8zYFkGbkm2zgs
+	 LTuJM8DbHjnzh4LXEmghsG76Q4MLrPVkQP2paSlR0GrXuvwDzKS+x7nR1jzfinKRGodMJ
+	 Kpc0WB8WrrCK3VM7aa83JgLqJE4jwkndbHClwP3nqpEvEsJmfMJtLWiNLgT7KUccX5HHU
+	 UBA3SDHCzdGo6JGdDQPu1PuygVu5EbcXHzc22R7XBH8dCjaTcrUk7nuVKWW311I4pvg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795287531;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-MBO-RS-META:X-MBO-RS-ID;
-	bh=LKYSyxQkaXNU8HwjfmWopz1aukj0DXPMr9/KZoFXd54=;
-	b=RKL6jtS7uhTFBIqFVbWRcyfogKZJxJSKxvP9J8KCV4bHnLGLa6elWv1bBxtN/+3zl1zP
-	 1w374j5cjIt0TjhiLPrnTS+Pz9h05ElRiN8e1k/d68+RfBmAwEV66wK6r8B1CMBVpGCpx
-	 TxtoRqXaZpGfxjhP86he9ms0TVDt37ITu0pvRegZ4H2gwXkfjw0YIEi6Bpu3kjqc6UANo
-	 7FQBtrmBd1mtb38YYVk8K0wv+ZXOuKcCh7oOXzUQXnyNsawPu2q5xgjNpwHebXl3j9OdG
-	 1cQ17yarzPD6inX2kRHYDpgIhEW5W7jMef/nI4peT36MYjitfbmLNGX5VKAQMD0V6CQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795287687;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=npJISL2k/U3/3aMtKq93LtOIkv0lviALR3+CkGMlie0=;
+	b=p9zzLt0FiS1yiQHiJacsUriTfQjji8ZOIZ50LD5Gmg2/U7iS9Xrgrac9PnNX9s4WqnBl
+	 s0c+32YmaTUq9SkA1jG8GdNEVG3lZ+B4rr//eTCXV7w72xK+CzOKjPXRzzocul3Tcdt9+
+	 P/vFvixEUXOHKu3qLsEfYkQv2b7mQV8+v/ycySpGy4Q8Wp2GHa7hYJ7/wVSgWGqDxtdqN
+	 SvM+78VBFytIPRbK+o1IupWzOlOksBvjDPgjosCa0u/Tvxk2zqJEYmslCQzyucXtkE796
+	 8PfDr/0+W3a6mE1qbzMi6cozf7eex/Sg8CevIxwWPJJZBSGhhujmspZQuyFR0oWMUXQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mailbox.org;
-	spf=pass smtp.mailfrom=mailbox.org;
-	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=sDCE5jGW;
-	arc=none smtp.remote-ip=80.241.56.152
-Received: from mout-p-102.mailbox.org (mout-p-102.mailbox.org [80.241.56.152])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="Wl/gO4RR";
+	arc=none smtp.remote-ip=209.85.214.198
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 274F6606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:58:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 274F6606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B1D9606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:01:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B1D9606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=sDCE5jGW
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4jX1h05kzjzKqZk
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:58:40 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1795287520;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=LKYSyxQkaXNU8HwjfmWopz1aukj0DXPMr9/KZoFXd54=;
-	b=sDCE5jGWjqPxh/lLkRJeplg0dxqjiInUKD3xNC0n3MDKQikoEuC0r7hNwcuQZCBqdTc9Km
-	JheheWmgVL7npoYtBE+z9wdO5OUfGJ/5aL4xq5Bpa7LSBLFFyScFq5EbrJbf7OhfMUkDJa
-	rQDsb6biL/9wvjE0GbQLPNkIyruObK/tKbmw5gTTo27/gS5QRQpjM6o/VmRoIt9qIHy/o+
-	CuFmA0AN6Kl8yq3tjLJt1QBk6NL1QYDC+nFDuxYS9P58ql1Oll2RewlxHnmQZvdTDLYFTD
-	m+CCsr+o1X6ZfRQjXyl3J710VkdLfQjgjvo5uJyN1+0zGc8p6vR39O27WVhM7g==
-From: Manuel Ebner <manuelebnerli@mailbox.org>
-To: 
-Cc: Manuel Ebner <manuelebnerli@mailbox.org>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] scripts/spelling.txt: add "aswell" typo
-Date: Sat, 21 Nov 2026 19:58:24 +0100
-Message-ID: <20261121185825.1463268-1-manuelebnerli@mailbox.org>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Wl/gO4RR
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2f05b674e3eso8884045ad.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:01:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795287686; x=1795892486; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=npJISL2k/U3/3aMtKq93LtOIkv0lviALR3+CkGMlie0=;
+        b=Wl/gO4RRcivDQLsntARvYG5i9p4EkTTFyeNOCu7pbNdwX1PiyyiWgpK4rueNSQWcLo
+         XOGb2CUIIIR9iui+ZEvMa/lG2NnozK90NDKD7y3hCsV7m7ZZVpiYePcIzJAnfcycAanR
+         wRZwQiFlsPmvOH3foUkiCFdUgahJtEjydLm0wKVCHwFYXwne9F5hqY3cTc6oc4cqmfKp
+         zij1cKiyUZ6eNcP6nbkTtQYnqUvHPSkVN69cIJSrWfS4y+KGbCoH2hLUEpQ5TEmnS/bc
+         oONd6xfAYmmCL6aLoa1yNg6JW9yCI9lB8v18uyV/9zt8iFfqUeGSAGSS6RJZ1D4z0eS7
+         +0Rg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795287686; x=1795892486;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=npJISL2k/U3/3aMtKq93LtOIkv0lviALR3+CkGMlie0=;
+        b=2iRFYdJtdCYcOdTrGmNqFva9L5+DzJvBMY2gJSIX6jnT0PwHPN8gmHetQchTM88Iuh
+         MQ2ECnkUm8tWSLVfpotr9/j1fiySbDS+YH9AYge+HPF3DpVWx5pqL70X74lA/Z6aK3yb
+         dOV4l20YTM0Ww13jIC7Oeg7mIGDJRPcPvmPNcj4a40LgF4/0XUi7UUG/XJjcwxTnliaI
+         hrfjAxJlwl+hIYGZZBIxs3Gc7HtWn9dUbmwCkv7gWwIckGjxsMzY6sfm68OiHhSB9EA0
+         Z8Bemyc6jW4vGJvRTbW2TARAPzaWq1PYuTrreCjldpYzPMg8WTnifCB148CRKoksN5CX
+         /SMg==
+X-Forwarded-Encrypted: i=1; AL+hErHryvj18aKw9Ud3U49OGHhdj0kCMCw69+ldwG9GWvW+QvQnhOKtAE4Dey/0m1Yl2IGOG771hollVQQFS1k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z98ZBH57rTxpnDZxFD8AK8+FNVYUqFTNE7N1ZRG4Q5RbGo0kkI4
+	qhBGTbwq25CDZV7cVDcmRoECYELdKNb9MzxZvbZeG6K2/8SmpbWjXNBjuI17cea7+8iqurk9x93
+	LcQNfbw==
+X-Received: from plgs18.prod.google.com ([2002:a17:902:ea12:b0:2ef:a639:8b2f])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:b0e:b0:2ef:ced4:35e8
+ with SMTP id d9443c01a7336-2f03f1e0d60mr67172675ad.52.1795287685430; Sat, 21
+ Nov 2026 11:01:25 -0800 (PST)
+Date: Sat, 21 Nov 2026 19:01:24 +0000
+In-Reply-To: <20261119100414.13635-1-zihengw03@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,28 +77,43 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: 3tswgam48s7qn3oxmijyjsm5qiuazp6u
-X-MBO-RS-ID: 2d58daa840ca17bff0f
+Mime-Version: 1.0
+References: <20261119100414.13635-1-zihengw03@163.com>
+Message-ID: <awHqf1s90w124GpI@google.com>
+Subject: Re: [PATCH net-next v2] net: do not use SOCK_INODE() in sock_init_data_uid()
+From: Kuniyuki Iwashima <kuniyu@google.com>
+To: Ziheng Wei <zihengw03@163.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 
-Signed-off-by: Manuel Ebner <manuelebnerli@mailbox.org>
----
- scripts/spelling.txt | 1 +
- 1 file changed, 1 insertion(+)
+On Thu, 19 Nov 2026 18:04:14 +0800, Ziheng Wei wrote:
+> Since commit 5d6b58c932ec ("net: lockless sock_i_ino()"),
+> sk_set_socket() reads i_uid and i_ino through SOCK_INODE(sock).
+> sock_init_data_uid() calls sk_set_socket(), but its only direct users
+> are tun and tap, which pass &tfile->socket and &q->sock. Those sockets
+> are embedded in struct tun_file and struct tap_queue, not in a struct
+> socket_alloc, so SOCK_INODE() points at whatever follows the socket in
+> those structures and both reads return unrelated data.
+> 
+> sk_uid is overwritten a few lines later with the uid passed in, and
+> nothing reads sk_ino of a tun or tap socket today, so the result is
+> not used. The reads themselves are still out of type, and with
+> CONFIG_RANDSTRUCT the inode fields can land beyond the end of struct
+> tap_queue.
+> 
+> sock_init_data_uid() was added so that tun and tap would not use
+> SOCK_INODE() on these sockets. Set sk_socket directly there, clear
+> sk_ino, and let sock_init_data(), whose sockets always come from
+> sockfs, fill in sk_ino.
+> 
+> Found by LLM-assisted source review and confirmed by code inspection
+> only; the out-of-type reads were not triggered at runtime. The fix was
+> build tested only; it was not run against selftests.
+> 
+> Fixes: 5d6b58c932ec ("net: lockless sock_i_ino()")
+> Signed-off-by: Ziheng Wei <zihengw03@163.com>
 
-diff --git a/scripts/spelling.txt b/scripts/spelling.txt
-index 9ec2529bc5..aa322d157b 100644
---- a/scripts/spelling.txt
-+++ b/scripts/spelling.txt
-@@ -190,6 +190,7 @@ assum||assume
- assumtpion||assumption
- asume||assume
- asuming||assuming
-+aswell||as well
- asychronous||asynchronous
- asycronous||asynchronous
- asymetric||asymmetric
--- 
-2.56.0
-
+Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
