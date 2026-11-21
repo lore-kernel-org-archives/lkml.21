@@ -1,81 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.35
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795274776;
-	b=bDzr+TOHTQd1/z4r9H1nvtMdqp7UOkX/S2cUmQrt/dLoIGYiVa7R9lJuvkopOY0pPZdW
-	 KSCoeEpJNNWKj2Y29K7rlDh9z2uAHOC+Hqqluv4iuXMj2MlSjpaIFl+w5sWtQODQwjbB8
-	 fWpBq6ZRGGt6ExR9xX0rcbDNNd47CPleId/1HBMIdtfMwWfX+asdr4rjZ5G4W1pLVyn2l
-	 XUYLm4kLxJlIS55GwmVFpmdOPgQ+kOg2TxefP4C954K4MxPgBXzu4nxpmC8K4ZleO8TqL
-	 CkQD9RbWu96zVdBtIzJrhk6FsC3K+iAuRQoye0ue98l2SSCPiM7om5wvg5EVRg486OA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795274776;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:
-	 X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
-	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
-	 X-Local-Domain:X-CMAE-Envelope;
-	bh=id4o5PzKM3zH5WOwNFoAsHmh451u7zQsm4VsNoJjbC0=;
-	b=e8TBAA/mI5Ec5WEdR1lXj3UU5CQsCKr5rx7eoInCfHVS9JElhhHIb6TSs9EDbvEYqEXK
-	 Erw3HMYf9P04siojtidxcYfcjHwgyY4E36nV4U6LRfHSCTRsMm13a7t6hfN9v1flTO3rz
-	 VFkmP6Dcs7pD3Fq9/VRQNSJDmG4aOORC+aTBieG/h4SngQC4TPPdchGRuDRSguFIrNtqD
-	 IJGN8gOGsa9dzYrRrgvVlBNA8J/FWMNFLzEJSSnafkbXkVkiqYZOQhpO0qNMLBEE+8kEH
-	 L6dac7U7omz2UNqgRIHJl5yQO3U5JUfYqGQWCJnzjlWxZE3hmRKL28lCY9noNCgO4Sw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=roeck-us.net;
-	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=SmcTfL65;
-	arc=none smtp.remote-ip=35.89.44.35
-Received: from omta36.uswest2.a.cloudfilter.net (omta36.uswest2.a.cloudfilter.net [35.89.44.35])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795274789;
+	b=AchSqm3368i3eB3WAwz8v4zxF3mrvn6GMFvLmPELw5PZQ4GNZiXMCdV64YUlrFKpzpSK
+	 ePqfEL4dmbV7cv7gXMF67xX0tcWwOOC4qRMPro5/9JjJfAycCFwKnpPcJk5majvUlf1xE
+	 iBt+GyrnRqYjGweYME403GPsSBIhwPvtu/D2AuW+JMaw1tE/sDPi3esnYf8b3shbwVu+l
+	 zQ+rQym3jrvtHg1Qi38otQ+LVMP9URV96UtrCD0wtrE56DASC4OWRMK1U4Hipd56KcDKJ
+	 IaLIjaSb4h1CRcnoh0nz/3fP82+8gMgdpWCW/FUJQWitcMAQAKtBWi6CG3OqdQUuKsw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795274789;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=QC2cEHggkze8ARQwMAA8dJGzcnfsYoRrHYcMsVM/vFE=;
+	b=YpW9pcJ0M4acAZ/dXHKKnR3I7MAseG70NCTpjvenX+m5ObCpwx3bcKBoSheD4jYkYUpe
+	 WlT8TZ331kHQbkYs6yVbJXYgxjzmHtkOpLL2Y4TPwox1M20vzJyY6y0q2qQY5ciEiw5vQ
+	 hrtRaYZZRiudBL6Gihb5iSNYyaRI7DFiI4q1ZKRhUyIe7aWo9woPm8q+335AG9W9TAwNN
+	 XzRWhy8MGx0ral29g/uPGaTKdYt0+Zfxk82Dlma+/P/tF4B6LGO4kba4X/D4qBdV2jdeP
+	 4mY+sLWpcOQIZfZuSOFfQeMj9KjlQkmLeKU9awGcMfFNauf+xOYLsPbiVZb931PgzLQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hPkfrWd9;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EAE94606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 15:26:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EAE94606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C93B606A320;
+	Sat, 21 Nov 2026 15:26:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=SmcTfL65
-Received: from eig-obgw-6004b.ext.cloudfilter.net ([10.0.30.210])
-	by cmsmtp with ESMTPS
-	id UjBoxmnp1RiNxUmylxAi4r; Sat, 21 Nov 2026 15:26:15 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id UmyjxMEa2laNKUmykxBOY9; Sat, 21 Nov 2026 15:26:14 +0000
-X-Authority-Analysis: v=2.4 cv=UbpRSLSN c=1 sm=1 tr=0 ts=6b01b817
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=VwQbUJbxAAAA:8
- a=_jlGtV7tAAAA:8 a=pGLkceISAAAA:8 a=ryv-YxDhWCmM8qAHW4sA:9 a=CjuIK1q_8ugA:10
- a=nlm17XC03S6CtCLSeiRr:22 a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
-	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
-	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=id4o5PzKM3zH5WOwNFoAsHmh451u7zQsm4VsNoJjbC0=; b=SmcTfL65i9WV5hm2yGgZHKnRXA
-	eH1/TkNSZdfFsUlKo+yR5GQHjNnZJ5RG0/jdiS/J4CrKsDdpdQtg5EVCndq6wCB03fBbSRQqMhJy8
-	vCL5hqSkY7QsN2Ta/NOxVql19/W6umBS73a2BnWkxVAYUWrPOpvfN9/8PxTQLrpHT8W37wL8sHz68
-	AzdgxtP7nCs6gH3lJNmrJ0JINAdNpCD/6QpNuloB6g/LO+/wg5gz2vQZGkD3fEI/4NE8wl58/tLU9
-	OZZW7AF7kEiMaCoS6L9EHOIZwYqCTjThitQVXRSarbpITjXDmj8pBdfjb8EWrBctI8ggRRQfFmd9r
-	K3x5BM6Q==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:50930 helo=server.roeck-us.net)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xUmyj-0000000112x-2dFW;
-	Sat, 21 Nov 2026 20:56:13 +0530
-Date: Sat, 21 Nov 2026 07:26:12 -0800
-From: Guenter Roeck <linux@roeck-us.net>
-To: Nhat Tran <nhat.tranminhk2@gmail.com>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Lars Poeschel <poeschel@lemonage.de>,
-	linux-watchdog@vger.kernel.org, linux-omap@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2] watchdog: core: Don't report time left for a stopped
- watchdog
-Message-ID: <08729e0f-874f-41cb-b6ee-bff6207c1cb4@roeck-us.net>
-References: <20261121052950.287506-1-nhat.tranminhk2@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hPkfrWd9
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795274789;
+	b=WtSZwlWt86eEUtSwyFx4eLzcS9ZfTElpOL7p7oCundQeIGP1ZKeSfx2Z9taglIVYbt0o
+	 WZ5QkE1DSKQ8tVkvEV6mruBWE0UKpDf4vky4eYdNkogF9s8s42XGi2aRkYE+vnpRzvREP
+	 CRCpc0W5Sh7WK4QklW83zi/x+msM+SOz+pUY/gXswVQk+Hh9LMkb+u9llbGBvcWjohK2O
+	 h3H2+2tWtFzjkY40YUyUMEZMXB3sjFW2u8PYv8FXvcdgk4Fjc0YoXRWTy5fBfi0LP1uCg
+	 D41PNMT0AqTad2EPW77lY/UlpwcqXbU8fmESvjikK+HWl/gcVtjT/8kuPl9wPF1+Q5Q==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795274789;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=QC2cEHggkze8ARQwMAA8dJGzcnfsYoRrHYcMsVM/vFE=;
+	b=bWwyNvgvN84wrabwGNLEpY/M3dqqTcMWAlcrOE0ALyWKgYBpGQ5OwpmC6gpJeQ367S6o
+	 xSu5jtq4DKMVnKl/kyFzdkHCbc6NP3+GvcrpfIINH2W7lfsGIue+V8gZzJExpjd6rrN2U
+	 q/l9whMf8YueRGgsM1GD3BMXLb/ibnzuaSiqJuZRDZy19q0mspPGFPp/qlYEz2TccopTw
+	 oCGBV3p3J4QgzrqZ8/C9W73YmOafpYYGlCJT2yfltq0zSH1RfKQk5DU4eVb2jJf/x7yZy
+	 4e3ygghRqUBeItouUuvgmuab6xwrRkfTIORaDU7InwysTeELtvJHvCLU7OUCz0rvKMQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 853371F000C6;
+	Sat, 21 Nov 2026 15:26:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795274789;
+	bh=QC2cEHggkze8ARQwMAA8dJGzcnfsYoRrHYcMsVM/vFE=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=hPkfrWd9dHSkfCd/YfmQx7OSfzipugP+Ut/daxWrXupNkxtBRzYETRJM+Alq78CsI
+	 iHHIQVrpdFnVCtJ2N9Um8m2sinWpUyZzj1cmjJzb2oCvDmycDyd4FkJ4ZIb4Aw/5Td
+	 8ljQbc9qHdUbHR2zHyuh+yZoW76K7L0rMLJs5fL3Uu3bsJQXOTT3tSbu/YqUke0l8K
+	 yY1U18yfIE6orYjjMEAbguw+bfroC+eLaKxP+6KFmuMx9OFKudSIjCdnRloX3agLz3
+	 MSuc9auo98BLo17Lv/Uks8kkJyE5tsfn4r/9llSskDfqeqpclpPBvh+uTMFg7q2+1Z
+	 HBTmPQ2Yk4WdQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D8F804BCD5;
+	Sat, 21 Nov 2026 15:26:27 +0000 (UTC)
+From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Date: Sat, 21 Nov 2026 15:26:27 +0000
+Subject: [PATCH] ASoC: SOF: ipc4-mtrace: fix the wrapped read when the user
+ buffer is short
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,84 +83,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261121052950.287506-1-nhat.tranminhk2@gmail.com>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xUmyj-0000000112x-2dFW
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:50930
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 9
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfAV5oNp+uD5EOo50b2ZAzDHai4Iim2gL9tVsaMPIksaxUvnNk0mH5P03bi7m8kBZ2qY106+/95uVd6mA4VWgmvEgYpe2qZnCGHPYgL/Uy98azXzI6xiF
- jHq0BDe0admtRUzxaucPZLoGkxmYnIPFLXiSPsKcAj1nlERtQmhMxTkOq2CHhmeHUGYPcf6uDjt4H2GxwU9tP/A1YoNh9Ok4PFUi4ok+KTj68mxnc1eWh6OX
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261121-sof-mtrace-wrap-v1-1-9798707c3439@gmail.com>
+X-B4-Tracking: v=1; b=H4sIACK4AWsC/yXMwQrCMAyA4VcZORuwHR3UVxEPtUlnBLeRbG4w9
+ u5WPX6H/9/BWIUNLs0Oym8xGYcKd2ogP9LQMwpVgz/7zjnv0MaCr1lTZlw1TRioLRSJcgwt1Gp
+ SLrL9jtfb37bcn5zn7waO4wO9roLXcwAAAA==
+X-Change-ID: 20261121-sof-mtrace-wrap-5d3fd9ddc953
+To: yung-chuan.liao@linux.intel.com, broonie@kernel.org, 
+ lgirdwood@gmail.com, peter.ujfalusi@linux.intel.com
+Cc: linux-kernel@vger.kernel.org, sound-open-firmware@alsa-project.org, 
+ kai.vehmanen@linux.intel.com, tiwai@suse.com, 
+ pierre-louis.bossart@linux.dev, daniel.baluta@nxp.com, 
+ linux-sound@vger.kernel.org, perex@perex.cz
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795274787; l=2836;
+ i=shyckless@gmail.com; s=default; h=from:subject:message-id;
+ bh=eCZ+OHYWPM9lk6X07kSRGna3tHg4IdTpUM5N3XCFjbA=;
+ b=gljffVztdZYIhKC+yfJh8dtwobmcl9RKf2zd3Vthk2kNVBmFUctSJ3Yrg54DcHdX/pg7VKPAQ
+ y40IMyriAuGCFTG3uky0QbP9j1vYeAE5Yp/zliVCPp0hw3d5fQfAaAX
+X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
+ pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
+X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
+ auth_id=1498
+X-Original-From: Suyuan Wang <shyckless@gmail.com>
+Reply-To: shyckless@gmail.com
 
-On Sat, Nov 21, 2026 at 12:29:50PM +0700, Nhat Tran wrote:
-> watchdog_get_timeleft() calls the driver's ->get_timeleft() regardless
-> of whether the watchdog is running. It is reachable through the sysfs
-> timeleft attribute, which is world readable with CONFIG_WATCHDOG_SYSFS=y,
-> and through WDIOC_GETTIMELEFT, also after the watchdog was stopped with
-> WDIOS_DISABLECARD while the device is still open.
-> 
-> Drivers may not be able to access the hardware while the watchdog is
-> stopped. omap_wdt only holds a runtime PM reference while the watchdog
-> is running, so on a BeagleBone Black (AM335x) reading the counter of a
-> stopped watchdog triggers an external abort. Any unprivileged user can
-> hit it through sysfs:
-> 
->   $ cat /sys/class/watchdog/watchdog0/timeleft
->   Unhandled fault: external abort on non-linefetch (0x1028) at 0xf9e35028
->   Internal error: : 1028 [#1] SMP ARM
->   PC is at omap_wdt_get_timeleft+0x4/0x14
->   LR is at watchdog_get_timeleft+0x24/0x130
->   Call trace:
->    omap_wdt_get_timeleft from watchdog_get_timeleft+0x24/0x130
->    watchdog_get_timeleft from timeleft_show+0x3c/0x80
->    timeleft_show from dev_attr_show+0x18/0x4c
->    dev_attr_show from sysfs_kf_seq_show+0xa0/0x138
->    ...
-> 
-> and the same happens with WDIOS_DISABLECARD followed by
-> WDIOC_GETTIMELEFT on the open device, once the module has idled:
-> 
->   Call trace:
->    omap_wdt_get_timeleft from watchdog_get_timeleft+0x24/0x130
->    watchdog_get_timeleft from watchdog_ioctl+0x494/0x668
->    watchdog_ioctl from sys_ioctl+0x128/0xbcc
->    sys_ioctl from ret_fast_syscall+0x0/0x54
-> 
-> If the ioctl comes before the module has idled, the read succeeds but
-> reports 59 seconds left for a watchdog that is stopped.
-> 
-> A stopped watchdog will not reboot the system, so report 0 time left
-> when neither WDOG_ACTIVE nor WDOG_HW_RUNNING is set, without calling
-> into the driver. This matches the software fallback for drivers without
-> ->get_timeleft(), which already decays to 0 once the watchdog is no
-> longer pinged.
-> 
-> Tested on a BeagleBone Black: with the watchdog stopped, both the sysfs
-> attribute and WDIOC_GETTIMELEFT after WDIOS_DISABLECARD return 0; with
-> the watchdog started through /dev/watchdog0, timeleft counts down as
-> before (59, then 56 three seconds later).
-> 
-> Fixes: 452fafed839e ("watchdog: omap_wdt: implement get_timeleft")
-> Cc: stable@vger.kernel.org
-> Suggested-by: Guenter Roeck <linux@roeck-us.net>
-> Signed-off-by: Nhat Tran <nhat.tranminhk2@gmail.com>
+From: Suyuan Wang <stevewong@hust.edu.cn>
 
-Applied, and thanks for testing with WDIOS_DISABLECARD/WDIOC_GETTIMELEFT.
+When the log data wraps around the end of the slot,
+sof_ipc4_mtrace_dfs_read() copies it in two parts:
 
-Thanks,
-Guenter
+	sof_mailbox_read(..., log_buffer, avail - write_ptr);
+	sof_mailbox_read(..., log_buffer + avail - write_ptr, write_ptr);
+
+This assumes that avail is still the full distance from read_ptr to
+write_ptr. But avail has just been cut down to count - sizeof(avail) if
+the user asked for less. If it ends up smaller than write_ptr,
+avail - write_ptr wraps around, and the first sof_mailbox_read() gets a
+length of about 4 GiB for the 4 KiB log_buffer.
+For example, with read_ptr = 4080 and write_ptr = 16, a read of 12 bytes
+gives avail = 8 and a copy of 0xfffffff8 bytes. If avail is cut but
+still larger than write_ptr, the two parts don't line up with read_ptr
+and the user gets the wrong bytes.
+
+Copy from read_ptr up to the end of the slot, but no more than avail,
+and take the rest from the start of the slot.
+
+Found with a static analysis tool and checked by hand.
+
+Fixes: f4ea22f7aa75 ("ASoC: SOF: ipc4: Add support for mtrace log extraction")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
+---
+Compile tested (x86_64, W=1). I don't have SOF hardware, so I checked
+the pointer arithmetic in userspace instead: the code of this function
+with the mailbox replaced by an array, under ASan. Without the patch a
+12-byte read at read_ptr 4080, write_ptr 16 copies 0xfffffff8 bytes,
+and a 104-byte read at read_ptr 4000 returns 16 wrong bytes; with it
+both return the expected data.
+---
+ sound/soc/sof/ipc4-mtrace.c | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
+
+diff --git a/sound/soc/sof/ipc4-mtrace.c b/sound/soc/sof/ipc4-mtrace.c
+index 064291e26974..0d5135d256c3 100644
+--- a/sound/soc/sof/ipc4-mtrace.c
++++ b/sound/soc/sof/ipc4-mtrace.c
+@@ -230,14 +230,17 @@ static ssize_t sof_ipc4_mtrace_dfs_read(struct file *file, char __user *buffer,
+ 		/* Read data between read pointer and write pointer */
+ 		sof_mailbox_read(sdev, log_buffer_offset + read_ptr, log_buffer, avail);
+ 	} else {
++		/* avail may have been cut to the user's count above */
++		u32 tail = min(avail, log_buffer_size - read_ptr);
++
+ 		/* read from read pointer to end of the slot */
+ 		sof_mailbox_read(sdev, log_buffer_offset + read_ptr, log_buffer,
+-				 avail - write_ptr);
+-		/* read from slot start to write pointer */
+-		if (write_ptr)
++				 tail);
++		/* read the rest from slot start */
++		if (avail > tail)
+ 			sof_mailbox_read(sdev, log_buffer_offset,
+-					 (u8 *)(log_buffer) + avail - write_ptr,
+-					 write_ptr);
++					 (u8 *)(log_buffer) + tail,
++					 avail - tail);
+ 	}
+ 
+ 	/* first write the number of bytes we have gathered */
+
+
+
+
