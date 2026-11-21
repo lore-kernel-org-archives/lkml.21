@@ -1,56 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795279777;
-	b=rmodtH4p6jocdmUSqSvseXAlGf/Q8i8ZrA5J5zgR2n5rQLh5896iv/QNe1OoBqdoN9Ye
-	 n5LOrtgHyQRW7HAxZRvFeyAnCn9C3fDS2/AaXCMV1x9iQEEszlblcwv5/7gdYKjTgrY+X
-	 EIg8cKIOueMyaUENOOPtczjWYu2FgohQoPPhDrxQYastwhKQFbwYoCT+5ndOfPOt57V9q
-	 Ans682lj2Nt6yutL2Itz33hS4L/S1RnsGqLOs7C0dyxYDpkGaVGKL+M3Hwdx/15zbfyaF
-	 YklDiinOI5n9zM1tLZiM7Hxb1/+QUS22Mty8FGmJ+RAIDvlgRehEeaTnfsltcpp32Ww==
+	t=1795279778;
+	b=wchmq/3YV1U1i4Kt3T6AAZJCM3KAlMIZkAJN9nrepN6qU5Tj4Yr7GOxNU86+4jj8hZNG
+	 ITPzRnH4yDsdChojHH+hEJ+bdf+nNotjKtvpvPp7aZ2dwEgm0CrNxlfoQtf8yVsgrrl6h
+	 2MrvxZYR48Wa6eOs2EvrtpBW4ijN7V1ExLhkW7UzRAjLDo0DOuS/eAPMSvPV14lnQWU7A
+	 mHQCuImHm3kS7u4SPNtFHngjO3uQ05hYCnalzuTiM2KSkPkVsSxWzge0Wb+ncAv2CQUAr
+	 inLOuA+VGSexT295hm4cY0/oGlEeREmK9nx7GDgXKp8fX55QSWVj+B9Ox/0rWgwMWfQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795279777;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=R7fX+Uz+QNYUv4vkCcnO4HudXcK/0BmjU5Y0F9HVjpg=;
-	b=hpdoUDY7VH1P3VhXMmAk38cSemr0IWgb9+VG7plEUlWApjb5kiTg8M/uk8MXLB6h2PZK
-	 ERY9ugKp0m03eDbbMXI9AZVRPyXzfpsLF/I2T1L+uhebjoqMcqXWlJfjKC9UC0OmjpPF/
-	 tuiS9EZfAMjDUuNkuLRWdkUyRUluGs5lw4lr/MlGhKYVnpCF7zKvIROe9cFAM9ldDiH8/
-	 KX07mZxSCo93XbhcWaWF5DS4X2beDgxPptz6A8cWRHQupplm3FTcEgjAiPFLNT6Ds/T1N
-	 cCQvyTTIDoe889oekZXkcQfTr4vWc6i/kyY6BET7ci3c4tV0Bx36TuxyUy2xR95V7cA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795279778;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=ugnNXXIsy9Uor/V8luuCj9VNvTB9GFq713zvZphiVc8=;
+	b=tE5GpnG9cArFJWEJ+iITMPSW5vkFqEvKH/rghag5yrQORcF1rdMyt9HJ+7Rdc94QHPx4
+	 5fn4mTzel0HtAaisv16bZqDwWwTvEKZo+NnV6TAmtDA9nYGoQDRkYcfg+/5unAjYTPZkx
+	 Bv6kh4I2co6T9ts9RdIHt4wF/yie01YGy9LAGpcOYt16/9e9rOSLfwm7ZtoOEwMk7oMCO
+	 CMucDQaykJcYD+YbyB3vJDsF7Q2Djo+DzO9WsNj+a0ApE+lOXlXZOuiufC8cRfYeZXEfg
+	 y8YciZp4bEMBtxzCpxFjs2nFgcC3QUyM3KNonRhvuMvFarjgWhIwlgc8ZEkitDZCe2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=stu.xidian.edu.cn;
-	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 91D40606A32A;
-	Sat, 21 Nov 2026 16:49:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91D40606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S1NccJw0;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93F43606A68E
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:49:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93F43606A68E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S1NccJw0
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso22097835e9.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 08:49:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=R7fX+Uz+QN
-	YUv4vkCcnO4HudXcK/0BmjU5Y0F9HVjpg=; b=knZ7hRRL+CXHq8f7cu76Vvi2FY
-	vMYq0AGos3vOPBLjCp9iopA0OPm/UeBVnT4tkxwdCOsxYFU3QCHM59id1/xLlzVp
-	b0p/o/ofj2fDVRJyshJhwKIIHRQz5HsMGYyDB2QZTw6a+s4aivH6H99jJATwkjB1
-	6QZJJJSFAaCbySQEA=
-Received: from user-virtual-machine.localdomain (unknown [113.200.174.70])
-	by hzbj-edu-front-2.icoremail.net (Coremail) with UTF8SMTPA id BLQMCkCGyP2UywFrA1QFAg--.46581S2;
-	Sun, 22 Nov 2026 00:49:25 +0800 (CST)
-From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
-To: Lachlan Hodges <lachlan.hodges@morsemicro.com>,
-	Dan Callaghan <dan.callaghan@morsemicro.com>,
-	Johannes Berg <johannes@sipsolutions.net>
-Cc: Arien Judge <arien.judge@morsemicro.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Bin Yu <byu@xidian.edu.cn>,
-	Cheng Wen <wencheng@xidian.edu.cn>
-Subject: [PATCH 0/2] wifi: mm81x: recover from bulk transfer errors
-Date: Sun, 22 Nov 2026 00:49:21 +0800
-Message-Id: <20261121164923.8862-1-25031212351@stu.xidian.edu.cn>
-X-Mailer: git-send-email 2.34.1
+        d=gmail.com; s=20260707; t=1795279776; x=1795884576; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ugnNXXIsy9Uor/V8luuCj9VNvTB9GFq713zvZphiVc8=;
+        b=S1NccJw0Ms+NHuzySD+H8dg4z2d7XLQp651/mphadfSwCAJxOZksz4J6/G7lFu4C83
+         wgvpoYo8mezwD2HykkrtAatmVDpTlUPXyfM1Yk47PAkddq4KmODejoLVmjmCXBghfPcz
+         G7pJ2/mggW/ix9QBknkTXUrLaGIYZLl/RPYuF+Y/e/rpjiiTKMMkAQRBWKKGcm9vw7of
+         IGzhEjSSAM/t8gK86Bjv4faIaACHEsW9crqzr5bYd7Osv/lYXikDK0+kwJ1gZrJMCLWm
+         4mkUzKSqchtA5U96FxEN+CPjRFoJOlv6McHzoNFHIx6SWGeuYuE0DygUOYEwmwMAKTwH
+         LY4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795279776; x=1795884576;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ugnNXXIsy9Uor/V8luuCj9VNvTB9GFq713zvZphiVc8=;
+        b=vJ5PmioFB/cjKuk9EWk9Ke11cZkV9OjrdK7iuodfmQ5opDz2wyefSyqA6FnmdP3UYG
+         Y8RVyFLNKNUQWFkqhbChUr7DZ0HqnKChatFCuMlH7RL2bs8VP6rHGm1MJ3YAoxA4AJjQ
+         cdv2YJJfIkdkQIce5XMuO5I8Jm9gYVzhn+ywniBQWYvsun1OmPJMr9uDIIK42fYcwLMb
+         5HzCSnX3oKISj9TbpXIwbZkZxPMP/JNFQ5Alb8lHaIRuehlxpsFsFEonpdm912P0xtX2
+         +CwcWdwO5RqhUwU6sBqKdGgR8yxqzIpUp6BpUyTTTVWwtk4HAY2JCCQh3jTpmsbnqt66
+         TS6g==
+X-Forwarded-Encrypted: i=1; AL+hErFi+qN3lM5U4RgFhmovNmiCjTVxlUTYIq2qU0A/a9WiOH8rGVwNhV0S/cjCD/YPhkkAEovZdkbhk1uNQO8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8DV7lDXXkhZEx41tqgrojM0jj8PQMqIIeljeSXEah4zdfFEfG7
+	B56AnleHrE2ZJ0rwjw7Q3HGCZFC/CKZRJEoVv97TACDA2ozcUOAE7ROZ
+X-Gm-Gg: AZFdTZcDmndeBzxQ4oi7Deecmq7LE283xhSJ6wERYxw5RfrcQPPudhVwp2AKmjjon7O
+	8rZH1QNdqs63GMjOq2T8Z+e/uZxVrCK7cxevYu+C7px14CrPI5ylXIV3Fj59iyusNVLJJSzX+Pg
+	tvx1AX7pnUk0Y4n6FuYkkUzU930vH9peOSUuj91yeM3aSxXlrb0mkgFNC7IiSfFnkWoyRKnofuN
+	yJ3h23KtdNPLyQuKeLNTAC5YwzsNgs6Opmrp8zxeQGxgch3Wm4isEpHF+Pg2gOAo+927mwe9/SR
+	2wRAWYebUdQKqffZ7IovS9VlyKqUBZIOberXquQq6JQNYkA1M6fEYELZfKJqvHPVQYsQXDuJJDP
+	e3DvK1xFPcj2SBFjxIky1XVXmNC0YsAOMxkUdxkRhqIVPJtTCUhPyjdI3UivSW+j5SvSRoQqobF
+	TDtD3n893z+0DqCSIHWShL+jvw7jLmDFHsfHVuHzKKluHqtRJfsmn8PAsmrR6SPNxvfdc0ViLZY
+	V8OlMlZ59xLXzzppJGd2UZyAHy9hVxyfooijhWV4Y4M+AAqpKLWUFejaw8iN184r0yvGeOlEExf
+	kwSrjyaQWEvpxDFAwfRBh8q12zluYIc=
+X-Received: by 2002:a05:600c:820c:b0:4bb:6f6a:1976 with SMTP id 5b1f17b1804b1-4bb887c2923mr139557955e9.2.1795279775875;
+        Sat, 21 Nov 2026 08:49:35 -0800 (PST)
+Received: from unknown.local ([2a02:b027:11:696f:25b0:e663:79f5:e891])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-4ab6b110ba3sm9761749f8f.35.2026.11.21.08.49.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 08:49:35 -0800 (PST)
+From: Gianluca Boiano <morf3089@gmail.com>
+Date: Sat, 21 Nov 2026 17:49:05 +0100
+Subject: [PATCH] dt-bindings: media: i2c: dongwoon,dw9768: add DW9763
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,47 +92,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:BLQMCkCGyP2UywFrA1QFAg--.46581S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrKr43Zw1xAr1fGw4ruw18uFg_yoWDXFb_Za
-	48ta97Xw1UW3ZFkFW3Gr1avFZrGay2v3WUAF1DX342y34UJFWkAFsYkrs0yw1fGa9YyFn7
-	Ww1jqr1ruF17WjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbaxYjsxI4VWkCwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
-	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
-	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0
-	cI8IcVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r1j6r4UM28EF7xvwVC2z2
-	80aVCY1x0267AKxVW8JVW8Jr1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28I
-	cVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx
-	0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCY
-	1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14v_JwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4
-	IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1r
-	MI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJV
-	WUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
-	6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYx
-	BIdaVFxhVjvjDU0xZFpf9x07j3WrXUUUUU=
-X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUED2sAYljOOwAEsv
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261121-dw9763-v1-1-f215290602f0@gmail.com>
+References: <20261121-dw9763-v1-0-f215290602f0@gmail.com>
+In-Reply-To: <20261121-dw9763-v1-0-f215290602f0@gmail.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Dongchun Zhu <dongchun.zhu@mediatek.com>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ David Heidelberg <david@ixit.cz>, linux-media@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ phone-devel@vger.kernel.org, Gianluca Boiano <morf3089@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795279770; l=1908;
+ i=morf3089@gmail.com; s=20240402; h=from:subject:message-id;
+ bh=qLwwZ3rP/fjc2JAHuzzvcKw4S3Ep+DNYoDcVGI1KFc8=;
+ b=FXcyCoVTdSrnvMx/FpFgdpHcR6SnrRAqBrBe9xrqyPsXhxCW27B742B0YYg0QtpySDp8a7kv9
+ f7/o4C3koqzC44B2qlmfzILBcVcnnUlw6PFbYxtNUCsJZL6+gjJSXlJ
+X-Developer-Key: i=morf3089@gmail.com; a=ed25519;
+ pk=HsGrEQ3ia8BGGGO8/nUM2K2UX9JKvRPV+nbrVDGrYhA=
 
-The MM81x USB driver mishandles errors of its bulk transfers in two
-independent ways.
+The Dongwoon DW9763 is a 10-bit VCM driver with 8 KiB of embedded
+eFlash. No public register map exists, but the Rockchip and MediaTek
+vendor drivers program it exactly like the DW9768: control at 0x02,
+10-bit DAC at 0x03/0x04, status at 0x05, mode/prescaler at 0x06 and
+resonance timing at 0x07. The chip ID reads 0xf9 and DAC writes read
+back as expected.
 
-Patch 1 makes mm81x_usb_cmd() report the status of the completed command
-urb. Today a command that completed with -EPIPE or -EPROTO is reported as
-successful, so the data phase is submitted even though the command that
-programs its address, direction and length never reached the device.
+The only register-level difference is the naming of the 0x06[7:5]
+mode field: the DW9763 calls the values SAC1/2/2.5/3/4 (0/1/2/3/5),
+the DW9768 AAC2/3/4/8 (1/2/3/5). The encodings match, so the existing
+dongwoon,aac-mode and dongwoon,aac-timing properties apply unchanged.
+The dw9768 driver's settle-delay estimate assumes the AAC4 multiplier
+for mode 3, which may be slightly off for SAC3; this only affects the
+wait after a move, not the lens position. The eFlash is not covered by
+this binding.
 
-Patch 2 clears the halt of a bulk endpoint that answered with a stall. A
-stalled endpoint stays halted until CLEAR_FEATURE(ENDPOINT_HALT); without
-it every later transfer on that endpoint fails as well. The command
-endpoint is the same endpoint as the memory write endpoint, so patch 2
-builds on the error reporting added by patch 1.
+Document dongwoon,dw9763 with dongwoon,dw9768 as fallback. No driver
+change is needed.
 
-YuanZhe Liu (2):
-  wifi: mm81x: report a failed command urb to the caller
-  wifi: mm81x: clear a stalled bulk endpoint before the next transfer
+Signed-off-by: Gianluca Boiano <morf3089@gmail.com>
+---
+ .../devicetree/bindings/media/i2c/dongwoon,dw9768.yaml         | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
 
- drivers/net/wireless/morsemicro/mm81x/usb.c | 25 ++++++++++++++++++++-
- 1 file changed, 24 insertions(+), 1 deletion(-)
+diff --git a/Documentation/devicetree/bindings/media/i2c/dongwoon,dw9768.yaml b/Documentation/devicetree/bindings/media/i2c/dongwoon,dw9768.yaml
+index a0855d3b7..386352f62 100644
+--- a/Documentation/devicetree/bindings/media/i2c/dongwoon,dw9768.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/dongwoon,dw9768.yaml
+@@ -20,9 +20,13 @@ description: |-
+ 
+ properties:
+   compatible:
+-    enum:
+-      - dongwoon,dw9768 # for DW9768 VCM
+-      - giantec,gt9769  # for GT9769 VCM
++    oneOf:
++      - enum:
++          - dongwoon,dw9768 # for DW9768 VCM
++          - giantec,gt9769  # for GT9769 VCM
++      - items:
++          - const: dongwoon,dw9763
++          - const: dongwoon,dw9768
+ 
+   reg:
+     maxItems: 1
 
 -- 
-2.34.1
+2.56.1
 
