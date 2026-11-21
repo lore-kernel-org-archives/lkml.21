@@ -1,62 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795244235;
-	b=2dEgHgUlYRddDf/wsu51eCSaNhYsn7w4NtUf9JiUb/+RZaVUpfEk1sot871GyOkdXiZK
-	 4tc5tCIhF37z0L4PzSNw7OUyqN+9pIMlz7Q5EFUG7ifZlFbkZ3ph6DsZ4Sod5n5VFWMwm
-	 H7xjrwa5ky4jkNvqhMRiz6xqKQIXEceNsdKdLDEDkcwrBhZyFj+EfHJSbjJJnE+IHGu5G
-	 OUTniMJl7sjLrcXvOUdmiAzwzEuIL/AVlLsjQ+TBWnXQxVuqLSvOmSGW8i/jBQbLBCOCL
-	 4EXkz5sU5n6d5aPbc8m+uWZWBYdM4QnSNz32k5uKAuo9OuYtddy8UVIg6jUmfQzeFyg==
+	t=1795244284;
+	b=YBUQC7Ks+WNLxnxhPZZqBQb6UbmJWPpfU/lKQet8mC3TyphIZTIN1t7DWYO0DvIoQ32t
+	 QMOqh1qikxvXIJXTt+Ggs9sVD6VUeqenLriuo7IS9wKYpuQnuuMcnRqqpF9q8iu3QKsbW
+	 YADdgV0FMnDScm93cyPKbwU/dP1pJ6JkbAkA8dQXBi/STMBT7ZdtFkXBtmLH7D/xo8Xw8
+	 CILaHaSCNFeuyByu2UIIsY+Rltk906fOI8jwlsKWWlWhsZMTgmOaoQBI/uTm/ksB+i+Ky
+	 DaOAFG1F4SEPoStekz8ViT5RCOZZn633r8jDc6xKQry+vu/DTlX7FFs8sKK7T3dzS1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795244235;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=ksbhy0xodm3CgAlLkde69u7bohvkk2sKgDCXNK1T2kQ=;
-	b=nTuZTDi6xqtxq3lC2dvQurlxmPn1TsJl80euBO4sJOpFnTupe1jXO2CC5fXlaMsFIcK+
-	 bOKmNLlzy/BKJOAJnE0PMXGpa1dYZGgfGKpNYCOPUqJxpurTBvjECbA9KHC2tI1PhHEVq
-	 cuNEmlXvoFBgynd5NR0L72ON3CSSTswbbqKklbsCZdfaKMWPDTPxKxlXDtDQIkFDA9QY5
-	 W54ZJQRrwACxNsSoEyKknFV87pTUnIGRHES6dDiFMKX+AiZR5P+pKHDFkSJw4l/1R5woI
-	 evOMXMo2E8FKahX8r7bY1Mc7Q4/kqEFkRrbqwVBmuVmM/W7/Gh3vL8r8ry3hmiN7Mvg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795244284;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=HJvLZtYqV9IRY5S+Gk4Obo3dupP4kEt47B2cXHjBvWw=;
+	b=3q7X2Tl7CfJOUNNwpJifYlq0+gKEEMwG5vyM9ivqdR3iOngJ5MheYJWv+jTsHgbMTkBJ
+	 7IZtJ5x0gpTJPqKkKAJ+noE9oMPScP6qu2h59lY/UHA92s77R+fcVLOAO41riIdY9oB0L
+	 79IlpVk5zGIDWNeH/3Cow34DB1SDIvF53nHkxuPFcS2RIueavY35lT86bRxhEW309kIt9
+	 F3kiySpfbx/co5p2HMAk6bVzzioUsEP/Ey+DZz9OB4bnbmDv9g81Le2pBkrKLkHf1iPz0
+	 gGVVKNT7NDX26uaqSMW3+tEy1wutBCGcrH+97dc9k7bm30scr7UgDdDN/bRTnrhMEwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=iEyvQMCw;
-	arc=none smtp.remote-ip=220.197.31.3
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.3])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SoeqgtS+;
+	arc=none smtp.remote-ip=209.85.214.176
+Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62468606A320;
-	Sat, 21 Nov 2026 06:57:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62468606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 919A5606A325
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:58:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 919A5606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=iEyvQMCw
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=ks
-	bhy0xodm3CgAlLkde69u7bohvkk2sKgDCXNK1T2kQ=; b=iEyvQMCwm3u4R/c1tw
-	NvDEP8eViTBcZol552sJlZq5rfYDQ7BgFcPnUCPp1jR6oGfkZWgAEUOM845jPmBR
-	/I4Y9nRXJo3PzTnYPsd0xBIZr6C1k0mq/clEp3E+OrupnbrMAPcfA0k7B2zXMbD9
-	ItYqFM0w3qam+vCFrgSH+g89U=
-Received: from colol4bi5.localdomain (unknown [])
-	by gzsmtp5 (Coremail) with SMTP id QCgvCgCHOZObQAFrNe_VHA--.28370S2;
-	Sat, 21 Nov 2026 14:56:28 +0800 (CST)
-From: Binbin Deng <18983559317@163.com>
-To: sam@mendozajonas.com,
-	fercerpav@gmail.com,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Binbin Deng <18983559317@163.com>
-Subject: [PATCH net v4] net/ncsi: fix use-after-free of ncsi_channel in ncsi_remove_channel()
-Date: Sat, 21 Nov 2026 14:56:25 +0800
-Message-ID: <20261121065625.27934-1-18983559317@163.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SoeqgtS+
+Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2f04fab527eso9548755ad.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:58:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795244284; x=1795849084; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=HJvLZtYqV9IRY5S+Gk4Obo3dupP4kEt47B2cXHjBvWw=;
+        b=SoeqgtS+1h/2ImBq/UuEjf7ZubtLd/vVrYcv1kJZWXz+PiNQNVFZWNIBtR17VmMt8y
+         TfTkpCcECO8nHgS4VLKyTR/sUm3GwVWeqSjZP6lRWbxf638yFLhvtPGcWOxgkBB8gHUF
+         vNhothvTxK1Gt5lW9YmcEXlvpUWMpuzuzCfK62NrbgJ/dvceFbRp5cY7GfAdk76iXQYw
+         J12xwfMV1mizZvOMAbahnokRSDIE7zst+HAIz77OQRJNHn+ARhIj1hZcwzf6+cvi/tC/
+         cdptZ6gFZzRmRfFXR/sgRyNaPqE05qQef5yQEII+forAcqApeDrnKgqoE7wNRHgEarzu
+         9S0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795244284; x=1795849084;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HJvLZtYqV9IRY5S+Gk4Obo3dupP4kEt47B2cXHjBvWw=;
+        b=ywAtwjTjvouqbjKE3fijUhrVLAQ7IJ08mffMIM40p3rJUUCc6vd/WzN5EAARODfmkR
+         nJtTyEHw0rhJKGZMA+EVYysaJQu6oej0LOb0lH08ONY8E9tmqQ11uX3aBK5VfbJKMKrv
+         chfI1B40WD3xNHFv+EgKsFQtZvB3Wh8PgweyUxsmWbSZ/om9N6G5sRX4dp8729rqDR7/
+         GrWOGmhQgRYoNB0B+/7A89RZfFyqDol3e0geVW4C7N6pAHFuX6fWYA6C9PH+mTzQ/HWL
+         W3V4VHfpLyfvdszO8wXK+oTF3iWpfrXbFUJw2aKOSrSUglC/PQk4AqrI6l+6t17EsaIE
+         5Xeg==
+X-Forwarded-Encrypted: i=1; AL+hErEIOUJx/N5k8Iyiw6iAzewGXuNI5O1Xp8/sX/4wlHxYn4LLR7xYVReJhhB3br5L0dHvsImRrnKP8/iF8Is=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8PLwOwM3LryiPMsxWF3G+oevo8CfH1c6iOmogC7NVXQv1nDSun
+	B6P//pnxeNoRwLlk7i9jriB3v9H6BttTwZwvJFbF4WlzKxWsxsu1jBVm
+X-Gm-Gg: AZFdTZcFm816ehbsNeVpMiQXDejtqrV4OZ7sEnuiXQ0WWs10/qkKZttgWuoMbryFvDk
+	Dt9ieACqW5Ia1N3ByQ6YiYsj6ulFDoBk2ydRR7hYd30fArdYjuPlPFVJru0CD+pUox4TKRXTHTm
+	FmyoXP4RgNJ7eUhnofEhZN4yy6CD33kSY3jmlr4w0z+F7yuNKpBlNFNU4TRd/sgnJoh75ZGQ34U
+	WjLrWI+rxOHGCsbZqJejvQ07QpCt2ZmcMmYYQBTo5D+jKDS7qDl4PL4gPGwA/BwgbpJG9dnKP4W
+	2XFz5lobOdYLSEAATBJDKheDzYodJn4ktZHC2XBhC1lM6z6bmbwSXxZK2zqda3RKKz18bWAhYPL
+	P2ApQiuoA3qxBCOe1qqZ16v1MhmyJ5QkPDxN7asWguTd77lv7Rmpx58zVhfuFx4kPV3d3ZFsleU
+	Oqo8vQsTD0dYp72z34v1BUvgOnN/YqnKDzerFvtXQUCISx+d/zyx9N6oi3CNkriFGT3Nf/uh8/Q
+	8Zi4fYN10XrvekFjMmHcsiqtoPUXSFV/WTZGTzVJvpwup8uhavC6QzNNXwECKBvmRCK4NWvMH42
+	rKXhPkJ9w7/qS/t2pWRm1RZj
+X-Received: by 2002:a17:90a:d2cf:b0:3b4:1714:5bfc with SMTP id 98e67ed59e1d1-3b41c9b9dc1mr4963449a91.61.1795244283752;
+        Fri, 20 Nov 2026 22:58:03 -0800 (PST)
+Received: from localhost ([111.228.63.84])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad48786sm7447286a91.9.2026.11.20.22.58.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 22:58:03 -0800 (PST)
+From: Cen Zhang <zzzccc427@gmail.com>
+To: marcel@holtmann.org,
+	luiz.dentz@gmail.com
+Cc: linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	baijiaju1990@gmail.com,
+	jjzuming@gmail.com,
+	zzzccc427@gmail.com
+Subject: [PATCH 0/2] Bluetooth: SMP: Avoid stale pairing key reads
+Date: Sat, 21 Nov 2026 14:57:54 +0800
+Message-Id: <pm-bluetooth-objects-candidate-0132-v9-b93d60723e48169ee3ae-0@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,458 +99,17 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:QCgvCgCHOZObQAFrNe_VHA--.28370S2
-X-Coremail-Antispam: 1Uf129KBjvAXoWfJr4UJF48XF4rXr1kAF1DKFg_yoW8GFy8Xo
-	WfXrW3Xrn7Gr1UWayYq3Z3tFW7Za48Kr98Aan0kw4kCFsxXrW5A3y3AanxWa4xZF4SkFWD
-	ZFnrXw4vqay8tr1kn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjTRLvtAUUUUU
-X-CM-SenderInfo: jprymmytvvmjmrxbiqqrwthudrp/xtbC3xxSNmsBQJxr0gAA3o
 
-ncsi_remove_channel() frees the channel filter arrays and the channel
-itself immediately after list_del_rcu():
+Management can reload a key registry while a pairing context is still
+alive. These changes use the pairing's own flags and identity data for
+the debug-key decision and IRK notification, avoiding reads through two
+saved registry pointers.
 
-    kfree(nc->mac_filter.addrs);
-    kfree(nc->vlan_filter.vids);
-    ...
-    list_del_rcu(&nc->node);
-    ...
-    kfree(nc);
+Cen Zhang (2):
+  Bluetooth: SMP: Use pairing state for the debug key check
+  Bluetooth: SMP: Use pairing data for IRK notifications
 
-The generic netlink package info walkers iterate np->channels with the
-list_for_each_entry_rcu() based NCSI_FOR_EACH_CHANNEL() and
-dereference deep into the channel: ncsi_write_channel_info() reads
-nc->version.fw_name with nla_put_string() (strlen) and iterates
-nc->vlan_filter.vids[].  No NCSI genl handler enters an RCU read-side
-critical section -- genl doit and dumpit callbacks run under
-genl_mutex and cb_mutex -- so a walk that overlaps the teardown reads
-freed memory.  NCSI_CMD_PKG_INFO has no GENL_ADMIN_PERM, so an
-unprivileged user can race it against rmmod of the driver:
+ net/bluetooth/smp.c | 21 +++++++++++++++++----
+ 1 file changed, 17 insertions(+), 4 deletions(-)
 
-  writer: rmmod ftgmac100
-            -> ftgmac100_remove() -> ncsi_unregister_dev()
-            -> ncsi_remove_package() -> ncsi_remove_channel()
-  reader: sendmsg(NETLINK_GENERIC, NCSI_CMD_PKG_INFO)
-            -> ncsi_pkg_info_nl() -> ncsi_write_package_info()
-
-KASAN reports (arm multi_v7, QEMU ast2600-evb, KASAN + SLUB + PREEMPT,
-four threads looping PKG_INFO doit/dump while cycling insmod/rmmod):
-
-  BUG: KASAN: slab-use-after-free in ncsi_write_package_info+0xa5c/0xf84
-  Read of size 1 at addr c69019e0 by task poc_dump/68
-  The buggy address belongs to the object at c6901800
-   which belongs to the cache kmalloc-1k of size 1024
-  The buggy address is located 480 bytes inside of
-   freed 1024-byte region [c6901800, c6901c00)
-
-The 480-byte offset is nc->version.fw_name, read by the strlen() of
-the nla_put_string() in ncsi_write_channel_info() inlined into the
-walker; kmalloc-1k is the size class of struct ncsi_channel.  The
-dump variant of the same reader is caught reading the freed filter
-array instead:
-
-  BUG: KASAN: slab-use-after-free in ncsi_write_package_info+0xb6c/0xf84
-  Read of size 2 at addr c6b03600 by task poc_dump/72
-  The buggy address belongs to the object at c6b03600
-   which belongs to the cache kmalloc-64 of size 64
-  The buggy address is located 0 bytes inside of
-   freed 64-byte region [c6b03600, c6b03640)
-
-which is the u16 vlan_filter.vids[] walk of the same handler.
-
-Fix both halves of the contract for the channel:
-
-  * The free of the channel and of the filter arrays, which are only
-    reachable through the channel, moves into an RCU callback.
-
-  * All seven genl handlers now resolve the device and walk the lists
-    inside an RCU read-side critical section, so the grace period of
-    that callback protects them.  The critical sections are
-    non-sleeping: the reply skb of the PKG_INFO doit is allocated
-    before the lock is taken (genlmsg_new(GFP_KERNEL) must not run
-    under rcu_read_lock()) and its unicast reply is sent after the
-    walk; NCSI_CMD_SEND_CMD runs ncsi_xmit_cmd() under the lock (it
-    only uses GFP_ATOMIC command skbs, spinlocks and
-    dev_queue_xmit()) and defers its error notification past the
-    unlock, as nlmsg_unicast() may sleep; the net_device the
-    notification uses is pinned by a dev_hold() taken inside the
-    critical section and released once the notification has been
-    sent.
-
-  * The handlers used get_net(sock_net(skb->sk)), which takes a
-    reference on init_net that is never dropped anywhere in
-    net/ncsi/; plain sock_net() is enough as the socket pins the
-    netns.
-
-Found by a Coccinelle rule matching kfree() immediately after
-list_del_rcu(); the code inspection and the fix were LLM-assisted,
-and the race was confirmed at runtime with KASAN as above.
-
-Fixes: 2d283bdd079c ("net/ncsi: Resource management")
-Fixes: 955dc68cb9b2 ("net/ncsi: Add generic netlink family")
-Signed-off-by: Binbin Deng <18983559317@163.com>
 ---
-
-Changes in v4:
-- Pin the net_device used by the SEND_CMD error notification with
-  dev_hold()/dev_put(); the notification runs after the RCU unlock,
-  where the pointer captured inside the critical section no longer
-  has any protection.
-- Reword the commit message and the comment in ncsi_pkg_info_nl() so
-  they describe only the lifetime rules this patch itself establishes,
-  without referring to other in-flight changes.
-
- net/ncsi/internal.h     |   1 +
- net/ncsi/ncsi-manage.c  |  20 +++++---
- net/ncsi/ncsi-netlink.c | 102 +++++++++++++++++++++++++++++++---------
- 3 files changed, 95 insertions(+), 28 deletions(-)
-
-diff --git a/net/ncsi/internal.h b/net/ncsi/internal.h
-index adee6dc..530834d 100644
---- a/net/ncsi/internal.h
-+++ b/net/ncsi/internal.h
-@@ -239,6 +239,7 @@ struct ncsi_channel {
- 	} monitor;
- 	struct list_head            node;
- 	struct list_head            link;
-+	struct rcu_head             rcu;
- };
- 
- struct ncsi_package {
-diff --git a/net/ncsi/ncsi-manage.c b/net/ncsi/ncsi-manage.c
-index 54d0df0..2b117cf 100644
---- a/net/ncsi/ncsi-manage.c
-+++ b/net/ncsi/ncsi-manage.c
-@@ -242,17 +242,21 @@ struct ncsi_channel *ncsi_add_channel(struct ncsi_package *np, unsigned char id)
- 	return nc;
- }
- 
-+static void ncsi_channel_release(struct rcu_head *rcu)
-+{
-+	struct ncsi_channel *nc = container_of(rcu, struct ncsi_channel, rcu);
-+
-+	kfree(nc->mac_filter.addrs);
-+	kfree(nc->vlan_filter.vids);
-+	kfree(nc);
-+}
-+
- static void ncsi_remove_channel(struct ncsi_channel *nc)
- {
- 	struct ncsi_package *np = nc->package;
- 	unsigned long flags;
- 
- 	spin_lock_irqsave(&nc->lock, flags);
--
--	/* Release filters */
--	kfree(nc->mac_filter.addrs);
--	kfree(nc->vlan_filter.vids);
--
- 	nc->state = NCSI_CHANNEL_INACTIVE;
- 	spin_unlock_irqrestore(&nc->lock, flags);
- 	ncsi_stop_channel_monitor(nc);
-@@ -263,7 +267,11 @@ static void ncsi_remove_channel(struct ncsi_channel *nc)
- 	np->channel_num--;
- 	spin_unlock_irqrestore(&np->lock, flags);
- 
--	kfree(nc);
-+	/* Netlink walkers may still hold the channel or its filter
-+	 * arrays; the arrays are only reachable through @nc and share
-+	 * its grace period.
-+	 */
-+	call_rcu(&nc->rcu, ncsi_channel_release);
- }
- 
- struct ncsi_package *ncsi_find_package(struct ncsi_dev_priv *ndp,
-diff --git a/net/ncsi/ncsi-netlink.c b/net/ncsi/ncsi-netlink.c
-index 8cc5383..3310a9c 100644
---- a/net/ncsi/ncsi-netlink.c
-+++ b/net/ncsi/ncsi-netlink.c
-@@ -169,11 +169,6 @@ static int ncsi_pkg_info_nl(struct sk_buff *msg, struct genl_info *info)
- 	if (!info->attrs[NCSI_ATTR_PACKAGE_ID])
- 		return -EINVAL;
- 
--	ndp = ndp_from_ifindex(genl_info_net(info),
--			       nla_get_u32(info->attrs[NCSI_ATTR_IFINDEX]));
--	if (!ndp)
--		return -ENODEV;
--
- 	skb = genlmsg_new(NLMSG_DEFAULT_SIZE, GFP_KERNEL);
- 	if (!skb)
- 		return -ENOMEM;
-@@ -192,7 +187,23 @@ static int ncsi_pkg_info_nl(struct sk_buff *msg, struct genl_info *info)
- 		kfree_skb(skb);
- 		return -EMSGSIZE;
- 	}
-+
-+	/* Resolve the device and walk its lists inside an RCU read-side
-+	 * critical section: the channel and its filter arrays are freed
-+	 * from an RCU callback, so the walker is protected by that
-+	 * grace period.
-+	 */
-+	rcu_read_lock();
-+	ndp = ndp_from_ifindex(genl_info_net(info),
-+			       nla_get_u32(info->attrs[NCSI_ATTR_IFINDEX]));
-+	if (!ndp) {
-+		rcu_read_unlock();
-+		kfree_skb(skb);
-+		return -ENODEV;
-+	}
-+
- 	rc = ncsi_write_package_info(skb, ndp, package_id);
-+	rcu_read_unlock();
- 
- 	if (rc) {
- 		nla_nest_cancel(skb, attr);
-@@ -228,20 +239,25 @@ static int ncsi_pkg_info_all_nl(struct sk_buff *skb,
- 	if (!attrs[NCSI_ATTR_IFINDEX])
- 		return -EINVAL;
- 
--	ndp = ndp_from_ifindex(get_net(sock_net(skb->sk)),
--			       nla_get_u32(attrs[NCSI_ATTR_IFINDEX]));
-+	package_id = cb->args[0];
- 
--	if (!ndp)
-+	rcu_read_lock();
-+	ndp = ndp_from_ifindex(sock_net(skb->sk),
-+			       nla_get_u32(attrs[NCSI_ATTR_IFINDEX]));
-+	if (!ndp) {
-+		rcu_read_unlock();
- 		return -ENODEV;
-+	}
- 
--	package_id = cb->args[0];
- 	package = NULL;
- 	NCSI_FOR_EACH_PACKAGE(ndp, np)
- 		if (np->id == package_id)
- 			package = np;
- 
--	if (!package)
-+	if (!package) {
-+		rcu_read_unlock();
- 		return 0; /* done */
-+	}
- 
- 	hdr = genlmsg_put(skb, NETLINK_CB(cb->skb).portid, cb->nlh->nlmsg_seq,
- 			  &ncsi_genl_family, NLM_F_MULTI,  NCSI_CMD_PKG_INFO);
-@@ -266,8 +282,10 @@ static int ncsi_pkg_info_all_nl(struct sk_buff *skb,
- 
- 	cb->args[0] = package_id + 1;
- 
-+	rcu_read_unlock();
- 	return skb->len;
- err:
-+	rcu_read_unlock();
- 	genlmsg_cancel(skb, hdr);
- 	return rc;
- }
-@@ -289,10 +307,13 @@ static int ncsi_set_interface_nl(struct sk_buff *msg, struct genl_info *info)
- 	if (!info->attrs[NCSI_ATTR_PACKAGE_ID])
- 		return -EINVAL;
- 
--	ndp = ndp_from_ifindex(get_net(sock_net(msg->sk)),
-+	rcu_read_lock();
-+	ndp = ndp_from_ifindex(sock_net(msg->sk),
- 			       nla_get_u32(info->attrs[NCSI_ATTR_IFINDEX]));
--	if (!ndp)
-+	if (!ndp) {
-+		rcu_read_unlock();
- 		return -ENODEV;
-+	}
- 
- 	package_id = nla_get_u32(info->attrs[NCSI_ATTR_PACKAGE_ID]);
- 	package = NULL;
-@@ -302,6 +323,7 @@ static int ncsi_set_interface_nl(struct sk_buff *msg, struct genl_info *info)
- 			package = np;
- 	if (!package) {
- 		/* The user has set a package that does not exist */
-+		rcu_read_unlock();
- 		return -ERANGE;
- 	}
- 
-@@ -317,6 +339,7 @@ static int ncsi_set_interface_nl(struct sk_buff *msg, struct genl_info *info)
- 			netdev_info(ndp->ndev.dev,
- 				    "NCSI: Channel %u does not exist!\n",
- 				    channel_id);
-+			rcu_read_unlock();
- 			return -ERANGE;
- 		}
- 	}
-@@ -350,6 +373,7 @@ static int ncsi_set_interface_nl(struct sk_buff *msg, struct genl_info *info)
- 	if (!(ndp->flags & NCSI_DEV_RESET))
- 		ncsi_reset_dev(&ndp->ndev);
- 
-+	rcu_read_unlock();
- 	return 0;
- }
- 
-@@ -365,10 +389,13 @@ static int ncsi_clear_interface_nl(struct sk_buff *msg, struct genl_info *info)
- 	if (!info->attrs[NCSI_ATTR_IFINDEX])
- 		return -EINVAL;
- 
--	ndp = ndp_from_ifindex(get_net(sock_net(msg->sk)),
-+	rcu_read_lock();
-+	ndp = ndp_from_ifindex(sock_net(msg->sk),
- 			       nla_get_u32(info->attrs[NCSI_ATTR_IFINDEX]));
--	if (!ndp)
-+	if (!ndp) {
-+		rcu_read_unlock();
- 		return -ENODEV;
-+	}
- 
- 	/* Reset any whitelists and disable multi mode */
- 	spin_lock_irqsave(&ndp->lock, flags);
-@@ -389,12 +416,14 @@ static int ncsi_clear_interface_nl(struct sk_buff *msg, struct genl_info *info)
- 	if (!(ndp->flags & NCSI_DEV_RESET))
- 		ncsi_reset_dev(&ndp->ndev);
- 
-+	rcu_read_unlock();
- 	return 0;
- }
- 
- static int ncsi_send_cmd_nl(struct sk_buff *msg, struct genl_info *info)
- {
- 	struct ncsi_dev_priv *ndp;
-+	struct net_device *dev;
- 	struct ncsi_pkt_hdr *hdr;
- 	struct ncsi_cmd_arg nca;
- 	unsigned char *data;
-@@ -427,17 +456,26 @@ static int ncsi_send_cmd_nl(struct sk_buff *msg, struct genl_info *info)
- 		goto out;
- 	}
- 
--	ndp = ndp_from_ifindex(get_net(sock_net(msg->sk)),
-+	rcu_read_lock();
-+	ndp = ndp_from_ifindex(sock_net(msg->sk),
- 			       nla_get_u32(info->attrs[NCSI_ATTR_IFINDEX]));
- 	if (!ndp) {
-+		rcu_read_unlock();
- 		ret = -ENODEV;
- 		goto out;
- 	}
-+	dev = ndp->ndev.dev;
-+	/* The error notification below runs after the unlock and may
-+	 * sleep; pin the net_device for it while still inside the
-+	 * read-side critical section.
-+	 */
-+	dev_hold(dev);
- 
- 	package_id = nla_get_u32(info->attrs[NCSI_ATTR_PACKAGE_ID]);
- 	channel_id = nla_get_u32(info->attrs[NCSI_ATTR_CHANNEL_ID]);
- 
- 	if (package_id >= NCSI_MAX_PACKAGE || channel_id >= NCSI_MAX_CHANNEL) {
-+		rcu_read_unlock();
- 		ret = -ERANGE;
- 		goto out_netlink;
- 	}
-@@ -446,6 +484,7 @@ static int ncsi_send_cmd_nl(struct sk_buff *msg, struct genl_info *info)
- 	if (len < sizeof(struct ncsi_pkt_hdr)) {
- 		netdev_info(ndp->ndev.dev, "NCSI: no command to send %u\n",
- 			    package_id);
-+		rcu_read_unlock();
- 		ret = -EINVAL;
- 		goto out_netlink;
- 	} else {
-@@ -462,23 +501,31 @@ static int ncsi_send_cmd_nl(struct sk_buff *msg, struct genl_info *info)
- 	nca.info = info;
- 	nca.payload = ntohs(hdr->length);
- 	if (nca.payload > len - sizeof(*hdr)) {
-+		rcu_read_unlock();
- 		ret = -EINVAL;
- 		goto out_netlink;
- 	}
- 	nca.data = data + sizeof(*hdr);
- 
-+	/* ncsi_xmit_cmd() is safe to run under the RCU read-side
-+	 * critical section: it only uses GFP_ATOMIC command skbs,
-+	 * spinlocks and dev_queue_xmit().
-+	 */
- 	ret = ncsi_xmit_cmd(&nca);
-+	rcu_read_unlock();
-+
- out_netlink:
- 	if (ret != 0) {
--		netdev_err(ndp->ndev.dev,
-+		netdev_err(dev,
- 			   "NCSI: Error %d sending command\n",
- 			   ret);
--		ncsi_send_netlink_err(ndp->ndev.dev,
-+		ncsi_send_netlink_err(dev,
- 				      info->snd_seq,
- 				      info->snd_portid,
- 				      info->nlhdr,
- 				      ret);
- 	}
-+	dev_put(dev);
- out:
- 	return ret;
- }
-@@ -608,10 +655,13 @@ static int ncsi_set_package_mask_nl(struct sk_buff *msg,
- 	if (!info->attrs[NCSI_ATTR_PACKAGE_MASK])
- 		return -EINVAL;
- 
--	ndp = ndp_from_ifindex(get_net(sock_net(msg->sk)),
-+	rcu_read_lock();
-+	ndp = ndp_from_ifindex(sock_net(msg->sk),
- 			       nla_get_u32(info->attrs[NCSI_ATTR_IFINDEX]));
--	if (!ndp)
-+	if (!ndp) {
-+		rcu_read_unlock();
- 		return -ENODEV;
-+	}
- 
- 	spin_lock_irqsave(&ndp->lock, flags);
- 	if (nla_get_flag(info->attrs[NCSI_ATTR_MULTI_FLAG])) {
-@@ -639,6 +689,7 @@ static int ncsi_set_package_mask_nl(struct sk_buff *msg,
- 			ncsi_reset_dev(&ndp->ndev);
- 	}
- 
-+	rcu_read_unlock();
- 	return rc;
- }
- 
-@@ -663,10 +714,13 @@ static int ncsi_set_channel_mask_nl(struct sk_buff *msg,
- 	if (!info->attrs[NCSI_ATTR_CHANNEL_MASK])
- 		return -EINVAL;
- 
--	ndp = ndp_from_ifindex(get_net(sock_net(msg->sk)),
-+	rcu_read_lock();
-+	ndp = ndp_from_ifindex(sock_net(msg->sk),
- 			       nla_get_u32(info->attrs[NCSI_ATTR_IFINDEX]));
--	if (!ndp)
-+	if (!ndp) {
-+		rcu_read_unlock();
- 		return -ENODEV;
-+	}
- 
- 	package_id = nla_get_u32(info->attrs[NCSI_ATTR_PACKAGE_ID]);
- 	package = NULL;
-@@ -675,8 +729,10 @@ static int ncsi_set_channel_mask_nl(struct sk_buff *msg,
- 			package = np;
- 			break;
- 		}
--	if (!package)
-+	if (!package) {
-+		rcu_read_unlock();
- 		return -ERANGE;
-+	}
- 
- 	spin_lock_irqsave(&package->lock, flags);
- 
-@@ -690,6 +746,7 @@ static int ncsi_set_channel_mask_nl(struct sk_buff *msg,
- 			}
- 		if (!channel) {
- 			spin_unlock_irqrestore(&package->lock, flags);
-+			rcu_read_unlock();
- 			return -ERANGE;
- 		}
- 		netdev_dbg(ndp->ndev.dev,
-@@ -721,6 +778,7 @@ static int ncsi_set_channel_mask_nl(struct sk_buff *msg,
- 	if (!(ndp->flags & NCSI_DEV_RESET))
- 		ncsi_reset_dev(&ndp->ndev);
- 
-+	rcu_read_unlock();
- 	return 0;
- }
- 
--- 
-2.43.0
-
