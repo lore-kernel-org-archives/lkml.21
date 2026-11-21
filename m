@@ -1,78 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795246866;
-	b=SWx9t4iCNGEYTjQhw+gvwRsgN3/Fb4wqHQXmKaVxdeO1v1IIphXoOONE9KIww8c/s2W9
-	 6tuKx7AaCl4yCt+KHf/sfVh2/iQk+PIktSmlil5e17/ok+DC8cO8hxsFOVPbwtGbRXPBn
-	 mBN10Rp2oGaqkheDjzaA12meelgFjBp6zisAqy8G9SmwUyoHGOGB1bpr9/PWcNXbfnFAL
-	 XgNXzF3d3aI9KfaaQuLhdgk54WFuz7uH4oKEtIbdK6Yvg0LGqUvxAmTnOC23dZ9foWMk5
-	 4BqQsSjsy+AK7LPKomm6FPAaHtJv0QgcvxB+wAvuLuvovdhoPHOp6rz0nyqunhr7I+Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795246866;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=FuEqkaJbijoHfO5kZ4c3Ea8x3lze+19mWnFDMr9NUiY=;
-	b=ViyWmAK4y8y1RBiFaEVXBRy5LKfOpP6tteL/VuydeqBLjm1+ZaYY92PFmHRhyoOHn95Z
-	 1mNIYgX3PmhUDGcwi/e/yiBwEZsEnX4d2/S5jHGjtrzV7X/zXDz2tmXQ0IoLHW0XS5QYk
-	 RUC58Pss/Kk5JsC81eIFuQlFpwMBALXwBYZ/56t2MUN+uTBFFHHkNcsI2aKXZshYHcmRr
-	 Jed9LjekGq0X7tJ9KGsM64SJtacgFucGwRDwTUDPAElAY13uRoSi0mvWHz4/imNPyP/c6
-	 eELcJiLKykDjsjCkynGmycJUcLImkKjzpVK26sfvdrwMDhzVr87eVW6TaYZ56WXHOmg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="aMFL/0Ej";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A22560A3838;
-	Sat, 21 Nov 2026 07:41:06 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aMFL/0Ej
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795246866;
-	b=RWfWAQfrYyWsdAQan56l94WugDpcxvtlRbfWSIqPJwxMnSvLhy3jzlCl/ucPsQVWzDan
-	 qCXe3v5QjG1yF8P5aFaOu3iH4x42D0eIiZficb6ocqFohufgo8Al8AeZJzJpa7u7MM1Dm
-	 UAqK6T9M+LPrWBHToeQ17KGs4qN7khiWN0YFqP8Vg9lbVP/WvzWm7P9aN5Fo6jRc6eRA4
-	 /vmuH3GWED65+qTChSki3gSoUKJYHLBH6R3J2iMNMKvaKPVEtp3ebkHzyc2kQthnlMfsi
-	 lJmsELugYGSEMZ//RDU32gwpt/g/prKFtJAxl2N4/NeFJ7V93MgMEt9AzSLIoi1DOeQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795246866;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=FuEqkaJbijoHfO5kZ4c3Ea8x3lze+19mWnFDMr9NUiY=;
-	b=cbGdKka6xWlH9lPaA2beNirqW8cboIeqjmQqLvftCx6b4qCbJPgG6ZK63P6aiMOTXhpM
-	 wNfj7Q6WCv6l5nJLTGZAUIfjrNWor2BuWOGc+1/QZG86yh+GTewOD6UawWFC1eAiBzqQ3
-	 AqbEuwfXr8Vhc9GxlmlAwz3ob19LWEaaJPSz92qjTwLgG4qFxIq0s4XJSSVg1uWJKSpBZ
-	 UXvertdhucJtcTn8SjqLJ9NzeoOJulAW6umMtoibqiIi3rB3giKAhk85jiqbr33kUnumu
-	 q0nT2fVFLmGv/zyojBHvcFyPwr/Xmk35l7Qy0dObkCjXrA3OqmFnxPXr3B9dGXsRdzA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.160.73.65
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795246994;
+	b=bDITxD4CuHXlbi3cVvGvfcj5sqzQLU/lCmSfnzX0lA59Cm/U/FaBW1EkSDiVKXmEfsYx
+	 K3yQS6JsvVupVpiG1EJMLAgFRD29EKKksMiHL5wCN/WZ7AP3Z0Kt1noUxzD1mtKc9Fura
+	 t0T73DL7rKNUkJ3BXUO4ya33CjQG579cH1E0yGLIN3wYadjlEgkPFurgFEr1Edk17Nx4o
+	 CQUNhIK1ZhsV37FBIrRbqTjkfsRavDv1hhgZnUB3C0XBwJfCs7HbKfng8ULBnT9aO/yN1
+	 TTV4mcTTucIxUl+MSBMs2G0Wd9eHvidZfIzMAyHM/zqRhQTPrqBlw3PrvPb3jkHjYkw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795246994;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=TfZDmxUS3f9DwEGJSoQXaI/7hT5azmRVE2pM5ktJupM=;
+	b=obse2D5zDd3MJlJJr63/DPd/D+xKalIzDHObKI6s6TZYDFY7hNCzye/vcULkW0hD4n49
+	 6FPWZxAnBLtxLydcsGdJi6YxE4XPn3/6kixm6z1BZAFIvecqtb5Y+vp0an/QLg6zY52nV
+	 XdAVCg4uditOgRx08X4FkIV54+wUL/JuuoGCOpbTFNxsCG0RSoz286x5MJz5PvusCB8EJ
+	 2p60YnX+FKM4BM7QmbbLGN9vyrqfbSjarQ52iMBUUDNwhiDGSyievvpk6MmHc1cqxTK7+
+	 LfA1tnehEBTWpI+O5GUcjdAZCU23/AbpL8/GonZnbMmm542dyY7iyggtiAgjl41ppKg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=blala.de;
+	spf=pass smtp.mailfrom=blala.de;
+	arc=none smtp.remote-ip=213.160.73.65
+Received: from vs81.iboxed.net (vs10.datenmanufaktur-hosting.net [213.160.73.65])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id EB1871F000EC;
-	Sat, 21 Nov 2026 07:40:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795246866;
-	bh=FuEqkaJbijoHfO5kZ4c3Ea8x3lze+19mWnFDMr9NUiY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=aMFL/0EjRaguQsysKMvEozyAsrrPlYtiAv1nnCa7dGdHKKVyBADSr0eISLD6tyqgr
-	 CTIAx9m4U2mvlXo8kDEltRp9ZHqW3JVdnd69m+rwxORzltIjbD+l5yyN+AablTcEeo
-	 LH3m+a0uUcP2sQcowSF3mcOrrO/8w5b0Iu8Q8iANzyKHA3PN7QkoYJteqIEwBDuBn1
-	 onriS5FmXd3knjf1JQ+qlUxhceqwFCXug/KRnkxyTTYeQuV29rJ7XqHLOwwSuMwjjc
-	 eJocHOhN+l11Lc0AGpLDf+bnAAUQFI+zabXBA9d3iS8GYLAtGHYVopnkxhyuRuvhl7
-	 qwKI9Fi6tRwwA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 8E6234BB74;
-	Sat, 21 Nov 2026 07:40:51 +0000 (UTC)
-From: Cody Kang via B4 Relay <devnull+codykang.hk.gmail.com@kernel.org>
-Date: Sat, 21 Nov 2026 15:40:50 +0800
-Subject: [PATCH v3 11/17] drm/spacemit: add Saturn DPU DRM device driver
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E0A7606A320;
+	Sat, 21 Nov 2026 07:43:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E0A7606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blala.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blala.de
+Received: from blala.de (localhost [127.0.0.1])
+	by vs81.iboxed.net (8.18.1/8.18.1/Debian-6) with ESMTP id 6AL7gr0X008770;
+	Sat, 21 Nov 2026 07:42:53 GMT
+Received: (from akurz@localhost)
+	by blala.de (8.18.1/8.18.1/Submit) id 6AL7grtD008769;
+	Sat, 21 Nov 2026 07:42:53 GMT
+From: Alexander Kurz <akurz@blala.de>
+To: Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>,
+        Griffin Kroah-Hartman <griffin@kroah.com>
+Cc: Mariusz Tkaczyk <mariusz.tkaczyk@linux.intel.com>,
+        =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+        Bjorn Helgaas <bhelgaas@google.com>, linux-leds@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Alexander Kurz <akurz@blala.de>
+Subject: [PATCH 2/2] leds: leds-mc13783: enable driver for deferred probe
+Date: Sat, 21 Nov 2026 07:42:39 +0000
+Message-ID: <20261121074239.8745-2-akurz@blala.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261121074239.8745-1-akurz@blala.de>
+References: <20261121074239.8745-1-akurz@blala.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,362 +58,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261121-k3-display-v3-11-ec419e8e96b8@gmail.com>
-References: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
-In-Reply-To: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
-To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Haylen Chu <heylenay@4d2.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Yao Zi <me@ziyao.cc>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
- Guodong Xu <docular.xu@gmail.com>, Icenowy Zheng <uwu@icenowy.me>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Sarah Emery <sarah.emery@canonical.com>, 
- Ze Huang <ze.huang@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>
-Cc: Cody Kang <codykang@vsit.ai>, dri-devel@lists.freedesktop.org, 
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- linux-phy@lists.infradead.org, linux-clk@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795246844; l=10267;
- i=codykang.hk@gmail.com; s=codykang; h=from:subject:message-id;
- bh=1LLB7ck/Lz0FSwwHejBfJ5Pj0yWwrzMJKJvxXMU6xuA=;
- b=9pYbXeciEjnf32sOqi+9dGMRyDmcoK6SIxZwf0R30SQFjCQ44DnEjZEP5Q3MK2L0pESnh8HS8
- VQAgAs+DSTCA/BuZ4Du4RHS6JCsQfxQVPZdJOwc2ssrrYZhsc9m1nVH
-X-Developer-Key: i=codykang.hk@gmail.com; a=ed25519;
- pk=Osn6/cs9Su/mHHw4P19cmVc3v2FMQfiWahjsN0vEkuk=
-X-Endpoint-Received: by B4 Relay for codykang.hk@gmail.com/codykang with
- auth_id=895
-X-Original-From: Cody Kang <codykang.hk@gmail.com>
-Reply-To: codykang.hk@gmail.com
+Content-Transfer-Encoding: 8bit
 
-From: Cody Kang <codykang@vsit.ai>
+The probe order between mfd and leds has been changed with commit
+78efa53e715e ("leds: Init leds class earlier") so that mc13xxx-led
+driver was not registered any more due to the missing mfd instance.
+Use module_platform_driver() to replace module_platform_driver_probe().
+The former utilizes platform_driver_register(), which allows the driver
+to defer probing when it doesn't acquire the necessary resources from
+the mfd device due to probe order.
 
-Add the DRM device for the SpacemiT K3 Saturn display processing unit
-and hook the driver up to the build. The SoC has two DPU instances;
-each drives one CRTC that scans out a single primary plane in linear
-RGB at up to 3840x2160@60 and feeds a downstream DP/eDP controller
-over an OF-graph endpoint. Buffers use drm_gem_shmem_helper. The
-AFBC/compressed decode path is not exposed and writeback is not
-implemented.
-
-The write-combining mapping of the scanout buffers is from Sarah Emery
-<sarah.emery@canonical.com>.
-
-Signed-off-by: Cody Kang <codykang@vsit.ai>
-
+Fixes: 78efa53e715e ("leds: Init leds class earlier")
+Signed-off-by: Alexander Kurz <akurz@blala.de>
 ---
-v3:
-- map scanout buffers write-combining (Sarah Emery); build the sg table
-  when a dumb buffer is created, so the zeroes it was cleared with are
-  written back before anything is drawn
-- bound framebuffers by what the RDMA registers can address instead of
-  by the largest mode (Icenowy Zheng)
-- stop the component match loop on the first error; depend on PM
-- add a GEM object wrapper carrying the display MMU table (Thomas
-  Zimmermann)
-v2:
-- check for an ERR_PTR component match before
-  component_master_add_with_match() (Sashiko)
-- add a comment explaining why commit_tail waits for flip_done before
-  commit_hw_done (Sashiko)
----
- drivers/gpu/drm/Kconfig                 |   1 +
- drivers/gpu/drm/Makefile                |   1 +
- drivers/gpu/drm/spacemit/Kconfig        |  18 +++
- drivers/gpu/drm/spacemit/Makefile       |  12 ++
- drivers/gpu/drm/spacemit/spacemit_drm.c | 204 ++++++++++++++++++++++++++++++++
- 5 files changed, 236 insertions(+)
+ drivers/leds/leds-mc13783.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpu/drm/Kconfig b/drivers/gpu/drm/Kconfig
-index 61111d50b1c65..76abdfb25dc44 100644
---- a/drivers/gpu/drm/Kconfig
-+++ b/drivers/gpu/drm/Kconfig
-@@ -345,6 +345,7 @@ source "drivers/gpu/drm/renesas/Kconfig"
- source "drivers/gpu/drm/rockchip/Kconfig"
- source "drivers/gpu/drm/sitronix/Kconfig"
- source "drivers/gpu/drm/solomon/Kconfig"
-+source "drivers/gpu/drm/spacemit/Kconfig"
- source "drivers/gpu/drm/sprd/Kconfig"
- source "drivers/gpu/drm/sti/Kconfig"
- source "drivers/gpu/drm/stm/Kconfig"
-diff --git a/drivers/gpu/drm/Makefile b/drivers/gpu/drm/Makefile
-index 2c6bc093a923a..d0ef32d224382 100644
---- a/drivers/gpu/drm/Makefile
-+++ b/drivers/gpu/drm/Makefile
-@@ -204,6 +204,7 @@ obj-$(CONFIG_DRM_MSM) += msm/
- obj-$(CONFIG_DRM_TEGRA) += tegra/
- obj-$(CONFIG_DRM_STM) += stm/
- obj-$(CONFIG_DRM_STI) += sti/
-+obj-$(CONFIG_DRM_SPACEMIT) += spacemit/
- obj-y 			+= imx/
- obj-$(CONFIG_DRM_INGENIC) += ingenic/
- obj-$(CONFIG_DRM_LOGICVC) += logicvc/
-diff --git a/drivers/gpu/drm/spacemit/Kconfig b/drivers/gpu/drm/spacemit/Kconfig
-new file mode 100644
-index 0000000000000..8326a7b98151a
---- /dev/null
-+++ b/drivers/gpu/drm/spacemit/Kconfig
-@@ -0,0 +1,18 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+config DRM_SPACEMIT
-+	tristate "DRM support for SpacemiT display controllers"
-+	depends on DRM && OF && MMU
-+	depends on PM
-+	depends on ARCH_SPACEMIT || COMPILE_TEST
-+	select DRM_CLIENT_SELECTION
-+	select DRM_KMS_HELPER
-+	select DRM_GEM_SHMEM_HELPER
-+	select REGMAP_MMIO
-+	help
-+	  Choose this option if you have a SpacemiT SoC with the Saturn
-+	  display processing unit, such as the K3. The DPU scans out
-+	  framebuffers through its private display MMU and feeds a
-+	  DisplayPort or embedded DisplayPort controller.
-+
-+	  If M is selected the module will be called spacemit-drm.
-diff --git a/drivers/gpu/drm/spacemit/Makefile b/drivers/gpu/drm/spacemit/Makefile
-new file mode 100644
-index 0000000000000..b3b148000cf7b
---- /dev/null
-+++ b/drivers/gpu/drm/spacemit/Makefile
-@@ -0,0 +1,12 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+spacemit-drm-y := spacemit_drm.o \
-+		  spacemit_crtc.o \
-+		  spacemit_cmdlist.o \
-+		  spacemit_planes.o \
-+		  spacemit_dmmu.o \
-+		  dpu/dpu_saturn.o \
-+		  dpu/dpu_saturn_hee.o \
-+		  dpu/saturn_fbcmem.o
-+
-+obj-$(CONFIG_DRM_SPACEMIT) += spacemit-drm.o
-diff --git a/drivers/gpu/drm/spacemit/spacemit_drm.c b/drivers/gpu/drm/spacemit/spacemit_drm.c
-new file mode 100644
-index 0000000000000..eb3cb5e302556
---- /dev/null
-+++ b/drivers/gpu/drm/spacemit/spacemit_drm.c
-@@ -0,0 +1,204 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2025-2026 SpacemiT Co., Ltd.
-+ *
-+ */
-+
-+#include <linux/component.h>
-+#include <linux/of_graph.h>
-+#include <linux/slab.h>
-+
-+#include <drm/drm_atomic_helper.h>
-+#include <drm/drm_dumb_buffers.h>
-+#include <drm/drm_fbdev_shmem.h>
-+#include <drm/drm_framebuffer.h>
-+#include <drm/drm_gem_framebuffer_helper.h>
-+#include <drm/drm_gem_shmem_helper.h>
-+#include <drm/drm_of.h>
-+
-+#include "spacemit_crtc.h"
-+#include "spacemit_dmmu.h"
-+#include "spacemit_drm.h"
-+
-+#define DRIVER_NAME	"spacemit"
-+#define DRIVER_DESC	"SpacemiT SoC DRM driver"
-+#define DRIVER_MAJOR	1
-+#define DRIVER_MINOR	0
-+
-+static void spacemit_drm_atomic_commit_tail(struct drm_atomic_commit *old_state)
-+{
-+	struct drm_device *dev = old_state->dev;
-+
-+	/*
-+	 * Enables before planes, and planes on active CRTCs only: the DPU is
-+	 * powered from atomic_enable to atomic_disable.
-+	 */
-+	drm_atomic_helper_commit_modeset_disables(dev, old_state);
-+
-+	drm_atomic_helper_commit_modeset_enables(dev, old_state);
-+
-+	drm_atomic_helper_commit_planes(dev, old_state,
-+					DRM_PLANE_COMMIT_ACTIVE_ONLY);
-+
-+	/*
-+	 * Flip first, hw_done second: each channel has two command lists
-+	 * written alternately, and the engine may re-read the previous one
-+	 * until the next CFG_RDY has been consumed. Holding the next commit
-+	 * back until this one's vblank keeps it from rewriting a list still
-+	 * in use.
-+	 */
-+	drm_atomic_helper_wait_for_flip_done(dev, old_state);
-+
-+	drm_atomic_helper_commit_hw_done(old_state);
-+
-+	drm_atomic_helper_cleanup_planes(dev, old_state);
-+}
-+
-+static const struct drm_mode_config_helper_funcs spacemit_drm_mode_config_helper = {
-+	.atomic_commit_tail = spacemit_drm_atomic_commit_tail,
-+};
-+
-+static const struct drm_mode_config_funcs spacemit_drm_mode_config_funcs = {
-+	.fb_create = drm_gem_fb_create,
-+	.atomic_check = drm_atomic_helper_check,
-+	.atomic_commit = drm_atomic_helper_commit,
-+};
-+
-+int spacemit_drm_mode_config_init(struct drm_device *drm)
-+{
-+	int ret;
-+
-+	ret = drmm_mode_config_init(drm);
-+	if (ret)
-+		return ret;
-+
-+	drm->mode_config.min_width = 1;
-+	drm->mode_config.min_height = 1;
-+	/*
-+	 * Framebuffer bounds come from the RDMA register widths: a 16-bit
-+	 * byte stride (16383 pixels at 32 bpp) and 16-bit image dimensions.
-+	 * The 3840x2160 output limit is enforced per CRTC in mode_valid.
-+	 */
-+	drm->mode_config.max_width = SPACEMIT_DPU_MAX_FB_WIDTH;
-+	drm->mode_config.max_height = SPACEMIT_DPU_MAX_FB_HEIGHT;
-+
-+	drm->mode_config.funcs = &spacemit_drm_mode_config_funcs;
-+	drm->mode_config.helper_private = &spacemit_drm_mode_config_helper;
-+
-+	return 0;
-+}
-+
-+static void spacemit_gem_free(struct drm_gem_object *obj)
-+{
-+	spacemit_dmmu_release(obj);
-+	drm_gem_shmem_free(to_drm_gem_shmem_obj(obj));
-+}
-+
-+/* drm_gem_shmem_funcs with a free that also drops the DMMU table. */
-+static const struct drm_gem_object_funcs spacemit_gem_funcs = {
-+	.free = spacemit_gem_free,
-+	.print_info = drm_gem_shmem_object_print_info,
-+	.pin = drm_gem_shmem_object_pin,
-+	.unpin = drm_gem_shmem_object_unpin,
-+	.get_sg_table = drm_gem_shmem_object_get_sg_table,
-+	.vmap = drm_gem_shmem_object_vmap,
-+	.vunmap = drm_gem_shmem_object_vunmap,
-+	.mmap = drm_gem_shmem_object_mmap,
-+	.vm_ops = &drm_gem_shmem_vm_ops,
-+};
-+
-+static struct drm_gem_object *spacemit_gem_create_object(struct drm_device *drm,
-+							 size_t size)
-+{
-+	struct spacemit_gem_object *sgem;
-+
-+	sgem = kzalloc_obj(*sgem);
-+	if (!sgem)
-+		return ERR_PTR(-ENOMEM);
-+
-+	mutex_init(&sgem->tbl_lock);
-+	sgem->base.map_wc = true;
-+	sgem->base.base.funcs = &spacemit_gem_funcs;
-+
-+	return &sgem->base.base;
-+}
-+
-+/*
-+ * A new buffer's pages are cleared through the cached linear map, while
-+ * everything drawn afterwards goes through a write-combining mapping. Build
-+ * the sg table now: mapping it writes the cached zeroes back before anything
-+ * is drawn. Left to the first scanout, they would land on top of the picture.
-+ */
-+static int spacemit_gem_dumb_create(struct drm_file *file,
-+				    struct drm_device *drm,
-+				    struct drm_mode_create_dumb *args)
-+{
-+	struct drm_gem_shmem_object *shmem;
-+	struct sg_table *sgt;
-+	int ret;
-+
-+	ret = drm_mode_size_dumb(drm, args, 0, 0);
-+	if (ret)
-+		return ret;
-+
-+	shmem = drm_gem_shmem_create(drm, args->size);
-+	if (IS_ERR(shmem))
-+		return PTR_ERR(shmem);
-+
-+	sgt = drm_gem_shmem_get_pages_sgt(shmem);
-+	if (IS_ERR(sgt))
-+		ret = PTR_ERR(sgt);
-+	else
-+		ret = drm_gem_handle_create(file, &shmem->base, &args->handle);
-+
-+	/* On success the handle holds the reference. */
-+	drm_gem_object_put(&shmem->base);
-+
-+	return ret;
-+}
-+
-+DEFINE_DRM_GEM_FOPS(spacemit_drm_fops);
-+
-+const struct drm_driver spacemit_drm_drv = {
-+	.driver_features = DRIVER_GEM | DRIVER_MODESET | DRIVER_ATOMIC,
-+	.fops = &spacemit_drm_fops,
-+
-+	.gem_prime_import_sg_table = drm_gem_shmem_prime_import_sg_table,
-+	.dumb_create = spacemit_gem_dumb_create,
-+	.gem_create_object = spacemit_gem_create_object,
-+	DRM_FBDEV_SHMEM_DRIVER_OPS,
-+
-+	.name		= DRIVER_NAME,
-+	.desc		= DRIVER_DESC,
-+	.major		= DRIVER_MAJOR,
-+	.minor		= DRIVER_MINOR,
-+};
-+
-+int spacemit_drm_of_component_probe(struct device *dev)
-+{
-+	struct component_match *match = NULL;
-+	struct device_node *remote, *ep;
-+
-+	/* The DPU is the drm root: its OF graph names the DP/eDP components. */
-+	for_each_endpoint_of_node(dev->of_node, ep) {
-+		remote = of_graph_get_remote_port_parent(ep);
-+		if (!remote)
-+			continue;
-+		if (of_device_is_available(remote))
-+			drm_of_component_match_add(dev, &match,
-+						   component_compare_of,
-+						   remote);
-+		of_node_put(remote);
-+		if (IS_ERR(match)) {
-+			of_node_put(ep);
-+			return PTR_ERR(match);
-+		}
-+	}
-+
-+	if (!match)
-+		return dev_err_probe(dev, -ENODEV,
-+				     "no downstream component available\n");
-+
-+	return component_master_add_with_match(dev, &spacemit_drm_master_ops,
-+					       match);
-+}
-
+diff --git a/drivers/leds/leds-mc13783.c b/drivers/leds/leds-mc13783.c
+index c3bbbc8ef946..042cefde7853 100644
+--- a/drivers/leds/leds-mc13783.c
++++ b/drivers/leds/leds-mc13783.c
+@@ -109,7 +109,7 @@ static int mc13xxx_led_set(struct led_classdev *led_cdev,
+ }
+ 
+ #ifdef CONFIG_OF
+-static struct mc13xxx_leds_platform_data __init *mc13xxx_led_probe_dt(
++static struct mc13xxx_leds_platform_data *mc13xxx_led_probe_dt(
+ 	struct platform_device *pdev)
+ {
+ 	struct mc13xxx_leds *leds = platform_get_drvdata(pdev);
+@@ -163,14 +163,14 @@ static struct mc13xxx_leds_platform_data __init *mc13xxx_led_probe_dt(
+ 	return pdata;
+ }
+ #else
+-static inline struct mc13xxx_leds_platform_data __init *mc13xxx_led_probe_dt(
++static inline struct mc13xxx_leds_platform_data *mc13xxx_led_probe_dt(
+ 	struct platform_device *pdev)
+ {
+ 	return ERR_PTR(-ENOSYS);
+ }
+ #endif
+ 
+-static int __init mc13xxx_led_probe(struct platform_device *pdev)
++static int mc13xxx_led_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct mc13xxx_leds_platform_data *pdata = dev_get_platdata(dev);
+@@ -296,13 +296,14 @@ static const struct platform_device_id mc13xxx_led_id_table[] = {
+ MODULE_DEVICE_TABLE(platform, mc13xxx_led_id_table);
+ 
+ static struct platform_driver mc13xxx_led_driver = {
++	.probe = mc13xxx_led_probe,
+ 	.driver	= {
+ 		.name	= "mc13xxx-led",
+ 	},
+ 	.remove		= mc13xxx_led_remove,
+ 	.id_table	= mc13xxx_led_id_table,
+ };
+-module_platform_driver_probe(mc13xxx_led_driver, mc13xxx_led_probe);
++module_platform_driver(mc13xxx_led_driver);
+ 
+ MODULE_DESCRIPTION("LEDs driver for Freescale MC13XXX PMIC");
+ MODULE_AUTHOR("Philippe Retornaz <philippe.retornaz@epfl.ch>");
 -- 
-2.43.0
-
+2.39.5
 
