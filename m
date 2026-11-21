@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795275365;
-	b=S40CLJHip91ejE3gXnZ6RPMxhvmB843TL51/tEI9xcSWcnadfhXkDXCPFg/UZyiJ9Dyb
-	 RgrwvHYENMr/V+JypP1Vk2H1u683lUYNPImrFo2pIy2fI/5O7+twZ4tvX6rK0G9omaLUm
-	 R29fgdTjOuALphzAfz+cCDWW8iC4qQ82Q/AHM9Up4SopyTRWxdhfaUAkCMZUGyBNcvewT
-	 CLuTDS6reKBOi0DNclSX0+2e5bblqtvzUPWg4HrCkI8cATYtizRMsfTG9u6CRPsb4CBXP
-	 sFGwGZPLk7YrcmDrFVF6MmyDS0IXp9HuKS6UKIRoYvuYb256DcX9aE4UZCKrZrL33ZQ==
+	t=1795275362;
+	b=EVi3IL9sfQD52W+NP2Pm49LUAbnAjhbOhCfB++jDZUXD+TH1afUXNRUYdyHfTmEasJ2I
+	 y+mEzMgq9GJ1NA23FBOZZFTvxUBhrIEzLq+gy0EDBoSF6fQeKlmKh0hUF7cnFGd8mhy9F
+	 VYg+tVUJyOBTmDtwTEMXxK4YMVino5+57CUYNmdoSK379up8sVuTynb2JANveK6FkEeb2
+	 s5fz70bbqvNmRgEYmYAS7ga3mGmy+tgO63v0Po/N8I8YgM4ZN8oEjAp/SYpESnQZvIfyo
+	 9xMCf9U4UKcrLrfHPJtFU4Uxg4CoGJvROhNlvwEme63Qp2AtdqSF79rZhPkYjT7U08g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795275365;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795275362;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=Z3okq6kOWMyroI150hcih+Kw/W2zOxVqBWWCYspoAnY=;
-	b=44q3lEwcVrSGvd9kwaWeM1IHwrfEKhWLOlEdgNfY+AQqGy/hlwxIWPgA/escFWUZp+Zf
-	 6jq+luZ9sReQ3EuouRbWMti7CCFUEkPmU62s2A90Jp8bKouC07zmHb6icvQOBRywBuxxz
-	 s0Yy8iTs1VV1/tl9BOxGpnAxvVrQBnNGygMBE78413PR7bMruxYAUi0PabIjk+jYytWBn
-	 mM92/ne4GZpPYdcDD752lAt0QzUS44nhd37end+3khohQ14HPU7iabTsMS5H/agUW3elv
-	 Y753PHf/A+BRP9iByoVH+nqzeNNBZZWRjHG32eE+vKB0aa34EAQ+miRVWkfkfUAC5tQ==
+	bh=QCzRUsrVJH6ZcRbzmdnsbyjAvqZ9+MEIZ8zwHJoZbiw=;
+	b=kwKH6OCkppNI0cGtBirSusonUQfefR2sfbP3cLskCaXfapOvkOzho/NdcPOABSRp5JqM
+	 orrwL34uevoWQoaB+UfsUtvJWLENLp2qS7RYltbOjM7YfsP5yeZda1BcnfDw/pvvKI2+F
+	 z3rSGU2pKo4HDNR2x/NB6zZcvkJWOaj7aN1EPhZ9Px4hSTqQmeUz+1zW/VwOmnq9qBa/t
+	 f+fJNIVhKQ9nvKgZ0ju7c0Rp07LcmXw8pMnAkmF9gtAPXE0BinxNPvBCeNq3mxBjvmm4g
+	 Ms8N3OuNkTbxntjh8HU58MvyHAgRhd54IKufJ1unvgb2mVYQntzkn3SvQArWz4/jX5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gF3ai+yY;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SlbonoSg;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 8FC52606A689;
-	Sat, 21 Nov 2026 15:36:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 7BC0E606A693;
+	Sat, 21 Nov 2026 15:36:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gF3ai+yY
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 2441F1F000C0;
-	Sat, 21 Nov 2026 15:36:05 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SlbonoSg
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id E37581F000D2;
+	Sat, 21 Nov 2026 15:36:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795275365;
-	bh=Z3okq6kOWMyroI150hcih+Kw/W2zOxVqBWWCYspoAnY=;
+	s=k20260515; t=1795275362;
+	bh=QCzRUsrVJH6ZcRbzmdnsbyjAvqZ9+MEIZ8zwHJoZbiw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=gF3ai+yYrG2zSzf82jjWgd5Btqpu87m6Yj5U9TwaTNN0B70n/vuuJ8FB0RIWn0QDM
-	 gmQgAv1FXrR7LImpHSoAEZYKGjjS2boQ1PM/+6R55z41ub3DA8o7MWMXqIZirOcMoI
-	 VztjRK423IN5iI+Av/hITWAPKaa/+S+cUWJbSFmBK1dVU+ThgshwLvYu0zSsc/nXaH
-	 QRFCcyu7lXNgj8cNooNiEdNA531mRu9nMe5Vfo9+3tjBr4Url5JPx3IPZqmPM7Ercc
-	 p2OWrsNrTxtHq4mpZzWLgGqIMu66Z+KCJeSAW5RyPquRguxxo6WYc+chkAbsLzd8In
-	 JtJDy3wGQMbOg==
+	b=SlbonoSg6AfbgfU+hBULhu7HO1wBXRUGHTh2pYX6d2X+okXGzJNsMHnvTB2zJNo3a
+	 JhTN1gLKmgYSYxvn6rRn0tVqqW4W9+h7kQLtTfI3YAk7CGsIL6LVyKvLRUKc2ssTHf
+	 nT5TQpTKSR1ViS1QmxEYaco2N6iEOp1sA9gxkKrO18FKEZjNaxZhZ8dluY8k9Zrhn3
+	 i/lbL2NPlbwNK9RejpXWVLLrqG7W0DI9pImWogg3Ki7b2awA7AZN86dkbAL25+7C90
+	 s/SL+YkEwHWuuzjjS7tRlMFguja0ZpACRsrb0mXXan71FRqxL9T8Or6mPQDHpEol45
+	 a50bh1rqgt27g==
 From: Joel Fernandes <jfern@kernel.org>
 To: paulmck@kernel.org,
 	rcu@vger.kernel.org,
@@ -59,9 +59,9 @@ Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH v3 6/6] rcutorture: Make BUSTED-BOOST disable RCU priority boosting
-Date: Sat, 21 Nov 2026 10:35:52 -0500
-Message-ID: <20261121153552.68941-7-jfern@kernel.org>
+Subject: [PATCH v3 4/6] doc: Document rcutorture.test_boost_reader_ms
+Date: Sat, 21 Nov 2026 10:35:50 -0500
+Message-ID: <20261121153552.68941-5-jfern@kernel.org>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20261121153552.68941-1-jfern@kernel.org>
 References: <20261121153552.68941-1-jfern@kernel.org>
@@ -76,36 +76,34 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-BUSTED-BOOST is supposed to fail because priority boosting is broken,
-but boosting is now always built in for preemptible RCU, so the
-scenario passed.  Boot it with rcutorture.boost_disable=1 so that it again
-exercises rcutorture's ability to detect missing priority boosting.
-
-Testing: kvm.sh --configs BUSTED-BOOST --duration 10 now ends FAILURE,
-with 82 of 84 boost intervals reporting:
-
-	rcu_torture_boost boosting failed
-	Boost inversion: reader got only 203 of 2000 ms CPU in 4003 jiffies
-
-Without the parameter the same scenario passed with no boost failures.
-
-[ jfern: Follow the rename to rcutorture.boost_disable ]
+Add the new priority-boost reader CPU-time parameter to
+kernel-parameters.txt.
 
 Signed-off-by: Joel Fernandes <jfern@kernel.org>
+Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Tested-by: Paul E. McKenney <paulmck@kernel.org>
 ---
- tools/testing/selftests/rcutorture/configs/rcu/BUSTED-BOOST.boot | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/admin-guide/kernel-parameters.txt | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/tools/testing/selftests/rcutorture/configs/rcu/BUSTED-BOOST.boot b/tools/testing/selftests/rcutorture/configs/rcu/BUSTED-BOOST.boot
-index 84f6bb98ce99..8e5b6ab533dc 100644
---- a/tools/testing/selftests/rcutorture/configs/rcu/BUSTED-BOOST.boot
-+++ b/tools/testing/selftests/rcutorture/configs/rcu/BUSTED-BOOST.boot
-@@ -6,3 +6,4 @@ rcutree.gp_cleanup_delay=3
- rcutree.kthread_prio=2
- threadirqs
- rcutree.use_softirq=0
-+rcutorture.boost_disable=1
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 176648941aec..ac97cbd98b46 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -6283,6 +6283,13 @@ Kernel parameters
+ 	rcutorture.test_boost_interval= [KNL]
+ 			Interval (s) between each boost test.
+ 
++	rcutorture.test_boost_reader_ms= [KNL]
++			CPU time (ms) that each boost-test reader must
++			consume within the test_boost_duration interval.
++			The reader runs in an RCU read-side critical section
++			while a real-time CPU hog tries to starve it, so it
++			can finish in time only if it is priority boosted.
++
+ 	rcutorture.test_no_idle_hz= [KNL]
+ 			Test RCU's dyntick-idle handling.  See also the
+ 			rcutorture.shuffle_interval parameter.
 -- 
 2.54.0
 
