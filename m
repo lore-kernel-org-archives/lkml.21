@@ -1,49 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795304665;
-	b=lcv8GaBP2JVOQ6MYpBG6X+s/bQezHgIgo9NS9pMFJeG0lWALvBNh2QO+a8SwFrFNENZh
-	 85Z2+JpZVmSl3SJJz8mwG4F2qii1e0pa/CaIfHHwnT4qB9zT0lEmexXq5UelML7zuFZtQ
-	 V7n1EEb1Bg9NRnWWz1JoIsT3fDc0Aygpn2IvAnEBAC6D0b0mzxUU7L4+AyuBb50MMTJ4n
-	 xFbCFj1yXB6PfVk3sRbqOAEGhUasQLhd6UXkI7A86092VPlcttpBOUoxjGk6dnhhuspgN
-	 XoMZgU5JSJxT6hswMEPlK8C7laGYnRdW/A78gnqx/tRRIEl/oUZRPIN7faK/Pxl4orw==
+	t=1795304673;
+	b=ASTKoPYc/7zXR5xnE+F1sBTBfAQyacLwdtxYg5M4vNo2ldvnCDTnfqjFsiotCfaOxfOh
+	 URUjQzWQ0D+14dEfFOXDqeSRSAZe0QdQz0EFEmi7aLN+AAvRZqmD6XWsmRP4M0tZKuKwY
+	 3zIyx7kwYknffB7ETRsbvNHobFgHnyIuRlAjnXgxvI5v7LiRS9D0xTAiAf5e2b96e1bZg
+	 yonKIpddUWZcdZ5XTS9Yir15pIA3X6ZsHPMlWepJSv/9NrDtNIgx+rGL/4MFB031pPQEA
+	 yXY6/8yNOp3L+WiOO30aK9GSz3cvo5ZZutdbMr3XoRgIrDhaiKBI+A8mdieCFClOUuw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795304665;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=sRkY7zM0xKaJxy4mzyL5E+209WLLZ6mGzirmGXa5UsA=;
-	b=raFdB9q7lAyms2FuGsNHAuwCsquLCDmK0tDO0SPSQcY6b+pBWwawAzt/IpDpHyQ5FH/8
-	 HRzNsuuahIpPDc+cjKa826GzCoQ8VZdMFMGwNChkzWOF0FaREJbKOjqza/XOYlws7mdKu
-	 PW6u4cN/CQVcfTIM4g/IqwDMTKciifYP6ee5JR9w8KHf0nAN/mldOKcC3uCxXIsMKugqO
-	 stjy6HdXT7DC+ojR/tj3Jl4s3/+ue6Mg0fdqA1knvrdFORlDGfUT6Fw18rha6ub10Fpnc
-	 1Fv1qGmEi2LgK27r78ZvPM7hl2Oi8k92pXG/MBBLZEJfVeHYb//kzHD3TCvKdxk5QZA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795304673;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=OKpDCNyl1moqPt1/HkWVp3v99rggGU7D2fGszC6D84Y=;
+	b=QEYOxLOz8xFX953wT0ujJVoiTSPtFOkn1k+te0RizpQAvdCaiZ9qH2yvgAW6lrnHpErq
+	 R2YSnIwGrwrI74+9YLJOrtae6hWtWV9TXsyC+UhWSnUCajEJ2jq8rGbl93EL01iO46Pts
+	 pllzxeZqBS6FtMbng76xqzc2VS1zPT7c0NUDUoaIPHUoM1jfPc8QkcgI+JB5Fmot12A60
+	 AEbLf6n3nPxAxjQ2WHqq5i/8+JXPKDz5igLPW+/2P/v3zAUSH0rCECLg9fTWY5mL3+CmN
+	 c/yHMmakbzefSaG7oGqdb62Y5OjJd5kaeFxFOCkDbiRoqS/S51IVpZ4jDeOQZE/7VnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OCsPkCy5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA712606A335;
-	Sat, 21 Nov 2026 23:44:24 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Htofl0ZR;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 74470606A33D;
+	Sat, 21 Nov 2026 23:44:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74470606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OCsPkCy5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8053B1F000CF;
-	Sat, 21 Nov 2026 23:44:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795304664;
-	bh=sRkY7zM0xKaJxy4mzyL5E+209WLLZ6mGzirmGXa5UsA=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=OCsPkCy5lB1nuG/GMENesGHpAm0+U044by7TZVn9nnFcS7qFuyG1kE554qObTnSLv
-	 SB1HX+zJrCDI+5Cs4sDk6NjBWGCcDFKcenq8DlMqo2XY4b888UbAi2a35JMHxgJh8/
-	 1vnB6BBwbKXGVTsLQ+8RoWUS8YXC6Dr5c6eR+kwwteMXU2E24y39UOLgSySsW8hiio
-	 AKDE0IWotxi/xOYG8T0xkJAknLTI7s5ZOBF24vKCvfpngcTCrVPkix3g8pfcliL0Z+
-	 xECnMLg49uPb1nDcGep67lKLccKfiVSs8cwrkD0J5s6/InWmBPS8Y9LD6m7L5N4tfk
-	 Cm1Y+LLX5UVdA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7743E391B08F;
-	Sat, 21 Nov 2026 23:44:24 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Htofl0ZR
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E01701575;
+	Sat, 21 Nov 2026 15:44:28 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 06B1A3F632;
+	Sat, 21 Nov 2026 15:44:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795304671; bh=ZrwV5GEgbTHD6z7lX0jVIStuH2ZZt3a6t5U6nc2ToL0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Htofl0ZRP6WfomXdNQ9yfEhDRA3qEE9CERVMNFDUVzlD3SHM3bZTQxd4hZHZRjpri
+	 QixxZMO2ZAWo8uwaJvCdF8edg1xueSTX6h/hkcExlZVBPhv8H1Gi+Gw+jeTIdcpbcf
+	 LOpYCsEyAKnMBfnPfbsz9pv5FYhOzpheqey/2yN8=
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Cc: sudeep.holla@kernel.org,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	d-gole@ti.com,
+	jonathan.cameron@oss.qualcomm.com,
+	elif.topuz@arm.com,
+	lukasz.luba@arm.com,
+	philip.radford@arm.com,
+	david@kernel.org,
+	souvik.chakravarty@arm.com,
+	leitao@kernel.org,
+	kas@kernel.org,
+	puranjay@kernel.org,
+	usama.arif@linux.dev,
+	kernel-team@meta.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v16 21/31] firmware: arm_scmi: Add common per-protocol debugfs support
+Date: Sat, 21 Nov 2026 23:39:55 +0000
+Message-ID: <20261121234005.1525419-22-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261121234005.1525419-1-cristian.marussi@arm.com>
+References: <20261121234005.1525419-1-cristian.marussi@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,47 +83,239 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v8] kcm: reject TLS on attached TCP sockets
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179530466302.1212208.15645522376520311508.git-patchwork-notify@kernel.org>
-Date: Sat, 21 Nov 2026 23:44:23 +0000
-References: <20261116190111.3317976-1-rjethwani@purestorage.com>
-In-Reply-To: <20261116190111.3317976-1-rjethwani@purestorage.com>
-To: Rishikesh Jethwani <rjethwani@purestorage.com>
-Cc: netdev@vger.kernel.org, jiayuan.chen@linux.dev, stable@vger.kernel.org,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, corbet@lwn.net, skhan@linuxfoundation.org,
- rdunlap@infradead.org, ncardwell@google.com, kuniyu@google.com,
- john.fastabend@gmail.com, sd@queasysnail.net, davejwatson@fb.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
 
-Hello:
+Allow interested SCMI protocols to register their own specific debugfs
+entries under a common per-instance and per-protocol subtree rooted
+at /sys/kernel/debug/scmi/<N>/protocols/<PROTO_ID>/
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Expose a helper to enable protocol initialization code to get access to
+such per-protocol/per-instance dentries in order to be able to install
+their own dedicated debugfs entries.
 
-On Mon, 16 Nov 2026 12:01:08 -0700 you wrote:
-> Neither kcm_attach() nor tls_init() rejects the other, so KCM and kTLS RX
-> can be stacked on the same TCP socket in either order. This breaks in
-> several ways:
-> 
-> - KCM calls read_sock() from its receive callback in atomic context.
->   With kTLS RX this reaches tls_sw_read_sock(), which can sleep.
-> - Before tls_sw_read_sock() existed, read_sock was tcp_read_sock(), so
->   KCM consumed raw ciphertext from the receive queue that TLS parses.
-> - Both install socket callbacks. kcm_unattach() restores the pre-KCM
->   sk_data_ready over tls_data_ready, so TLS RX stops getting notified.
-> 
-> [...]
+Per-protocol debugfs support is configurable and default off.
 
-Here is the summary with links:
-  - [net,v8] kcm: reject TLS on attached TCP sockets
-    https://git.kernel.org/netdev/net/c/746dbdc5fa60
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+---
+v15 --> v16
+ - cleanup protocol dbg root after devres group closure
+v14 --> v15
+ - fix debugfs_remove_recursive call-site...was too early
+v8 --> v9
+ - avoid NULL deref on DBG cleanup path
+v5 --> v6
+ - bail out of dentry_get helper when SCMI debug susbsytem failed to init
+ - remove stale SCMI protocol operations
+ - add a preoper clean up of debugfs when protocol init fails
+---
+ drivers/firmware/arm_scmi/Kconfig     | 14 ++++++++++
+ drivers/firmware/arm_scmi/common.h    |  2 ++
+ drivers/firmware/arm_scmi/driver.c    | 39 +++++++++++++++++++++++++++
+ drivers/firmware/arm_scmi/protocols.h |  6 +++++
+ include/linux/scmi_protocol.h         |  1 -
+ 5 files changed, 61 insertions(+), 1 deletion(-)
 
-You are awesome, thank you!
+diff --git a/drivers/firmware/arm_scmi/Kconfig b/drivers/firmware/arm_scmi/Kconfig
+index 783c24a20e29..f506c4d1d96a 100644
+--- a/drivers/firmware/arm_scmi/Kconfig
++++ b/drivers/firmware/arm_scmi/Kconfig
+@@ -69,6 +69,20 @@ config ARM_SCMI_DEBUG_COUNTERS
+ 	  such useful debug counters. This can be helpful for debugging and
+ 	  SCMI monitoring.
+ 
++config ARM_SCMI_DEBUG_PROTOCOLS
++	bool "Enable SCMI protocols debug"
++	select ARM_SCMI_NEED_DEBUGFS
++	depends on DEBUG_FS
++	default n
++	help
++	  Enables per-protocol specific debug features, where available.
++	  When provided, such per-protocol debugfs entries are grouped
++	  inside a common a subtree named by the protocol number and rooted
++	  under a per-instance 'protocols' directory.
++
++	  Such per-protocol entries subtree structure is freely defined
++	  within the related protocol code.
++
+ config ARM_SCMI_QUIRKS
+ 	bool "Enable SCMI Quirks framework"
+ 	depends on JUMP_LABEL || COMPILE_TEST
+diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+index cdd6f887fae7..ed1623da6563 100644
+--- a/drivers/firmware/arm_scmi/common.h
++++ b/drivers/firmware/arm_scmi/common.h
+@@ -307,6 +307,7 @@ enum debug_counters {
+ /**
+  * struct scmi_debug_info  - Debug common info
+  * @top_dentry: A reference to the top debugfs dentry
++ * @protos: A reference to the top debugfs protocols subdirectory
+  * @name: Name of this SCMI instance
+  * @type: Type of this SCMI instance
+  * @is_atomic: Flag to state if the transport of this instance is atomic
+@@ -314,6 +315,7 @@ enum debug_counters {
+  */
+ struct scmi_debug_info {
+ 	struct dentry *top_dentry;
++	struct dentry *protos;
+ 	const char *name;
+ 	const char *type;
+ 	bool is_atomic;
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 1e2bf1eef2a4..4b3f291e623a 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -19,6 +19,7 @@
+ #include <linux/acpi.h>
+ #include <linux/bitmap.h>
+ #include <linux/cleanup.h>
++#include <linux/dcache.h>
+ #include <linux/debugfs.h>
+ #include <linux/device.h>
+ #include <linux/export.h>
+@@ -101,6 +102,8 @@ struct scmi_xfers_info {
+  *			has completed.
+  * @ph: An embedded protocol handle that will be passed down to protocol
+  *	initialization code to identify this instance.
++ * @dbg: An optional reference to this protocol top debugfs directory; it will
++ *	 be automatically recursively removed on protocol de-initialization.
+  *
+  * Each protocol is initialized independently once for each SCMI platform in
+  * which is defined by fwnode and implemented by the SCMI server fw.
+@@ -114,6 +117,7 @@ struct scmi_protocol_instance {
+ 	unsigned int			version;
+ 	unsigned int			negotiated_version;
+ 	struct scmi_protocol_handle	ph;
++	struct dentry			*dbg;
+ };
+ 
+ #define ph_to_pi(h)	container_of(h, struct scmi_protocol_instance, ph)
+@@ -2154,6 +2158,25 @@ static void scmi_common_fastchannel_db_ring(struct scmi_fc_db_info *db)
+ 		SCMI_PROTO_FC_RING_DB(64);
+ }
+ 
++static struct dentry *
++scmi_debugfs_proto_dentry_get(const struct scmi_protocol_handle *ph)
++{
++	struct scmi_protocol_instance *pi = ph_to_pi(ph);
++	struct scmi_info *info = handle_to_scmi_info(pi->handle);
++
++	if (!IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_PROTOCOLS) || !info->dbg)
++		return ERR_PTR(-ENODEV);
++
++	if (!pi->dbg) {
++		char proto_dir[8];
++
++		snprintf(proto_dir, 8, "0x%02X", pi->proto->id);
++		pi->dbg = debugfs_create_dir(proto_dir, info->dbg->protos);
++	}
++
++	return pi->dbg;
++}
++
+ static const struct scmi_proto_helpers_ops helpers_ops = {
+ 	.extended_name_get = scmi_common_extended_name_get,
+ 	.get_max_msg_size = scmi_common_get_max_msg_size,
+@@ -2164,6 +2187,7 @@ static const struct scmi_proto_helpers_ops helpers_ops = {
+ 	.protocol_msg_check = scmi_protocol_msg_check,
+ 	.fastchannel_init = scmi_common_fastchannel_init,
+ 	.fastchannel_db_ring = scmi_common_fastchannel_db_ring,
++	.debugfs_proto_dentry_get = scmi_debugfs_proto_dentry_get,
+ };
+ 
+ /**
+@@ -2315,6 +2339,7 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
+ {
+ 	int ret = -ENOMEM;
+ 	void *gid;
++	struct dentry *dbg;
+ 	struct scmi_protocol_instance *pi;
+ 	const struct scmi_handle *handle = &info->handle;
+ 
+@@ -2377,7 +2402,9 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
+ clean:
+ 	/* Take care to put the protocol module's owner before releasing all */
+ 	scmi_protocol_put(proto);
++	dbg = pi->dbg;
+ 	devres_release_group(handle->dev, gid);
++	debugfs_remove_recursive(dbg);
+ out:
+ 	return ERR_PTR(ret);
+ }
+@@ -2455,6 +2482,7 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
+ 		goto out;
+ 
+ 	if (refcount_dec_and_test(&pi->users)) {
++		struct dentry *dbg = pi->dbg;
+ 		void *gid = pi->gid;
+ 
+ 		if (pi->proto->events)
+@@ -2468,6 +2496,14 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
+ 		scmi_protocol_put(pi->proto);
+ 
+ 		devres_release_group(handle->dev, gid);
++
++		/*
++		 * Remove per-protocol top dir only after protocol release in
++		 * order to allow any protocol specific cleanup on the pi->dbg
++		 * subtree.
++		 */
++		debugfs_remove_recursive(dbg);
++
+ 		dev_dbg(handle->dev, "De-Initialized protocol: 0x%X\n",
+ 			protocol_id);
+ 	}
+@@ -3224,6 +3260,9 @@ static struct scmi_debug_info *scmi_debugfs_common_setup(struct scmi_info *info)
+ 	if (IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_COUNTERS))
+ 		scmi_debugfs_counters_setup(dbg, trans);
+ 
++	if (IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_PROTOCOLS))
++		dbg->protos = debugfs_create_dir("protocols", top_dentry);
++
+ 	dbg->top_dentry = top_dentry;
+ 
+ 	if (devm_add_action_or_reset(info->dev,
+diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
+index 1aa3ee1fb2b0..c39ef77770d1 100644
+--- a/drivers/firmware/arm_scmi/protocols.h
++++ b/drivers/firmware/arm_scmi/protocols.h
+@@ -11,6 +11,7 @@
+ 
+ #include <linux/bitfield.h>
+ #include <linux/completion.h>
++#include <linux/debugfs.h>
+ #include <linux/device.h>
+ #include <linux/errno.h>
+ #include <linux/kernel.h>
+@@ -292,6 +293,9 @@ struct scmi_fc_info {
+  *		      gathering FC descriptions from the SCMI platform server.
+  * @fastchannel_db_ring: A common helper to ring a FC doorbell.
+  * @get_max_msg_size: A common helper to get the maximum message size.
++ * @debugfs_proto_dentry_get: A common helper to get a per-protocol debugfs top
++ *			      directory to use as a root. It will be
++ *			      recursively removed on protocol de-initialization.
+  */
+ struct scmi_proto_helpers_ops {
+ 	int (*extended_name_get)(const struct scmi_protocol_handle *ph,
+@@ -315,6 +319,8 @@ struct scmi_proto_helpers_ops {
+ 				 u32 *rate_limit);
+ 	void (*fastchannel_db_ring)(struct scmi_fc_db_info *db);
+ 	int (*get_max_msg_size)(const struct scmi_protocol_handle *ph);
++	struct dentry *(*debugfs_proto_dentry_get)
++		(const struct scmi_protocol_handle *ph);
+ };
+ 
+ /**
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index a2f46167883d..4b4c7b336c71 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -1119,7 +1119,6 @@ struct scmi_handle {
+ 	void (*devm_protocol_put)(struct scmi_device *sdev, u8 proto);
+ 	bool (*is_transport_atomic)(const struct scmi_handle *handle,
+ 				    unsigned int *atomic_threshold);
+-
+ 	const struct scmi_notify_ops *notify_ops;
+ };
+ 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.54.0
 
