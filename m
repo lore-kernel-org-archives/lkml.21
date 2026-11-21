@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795271126;
-	b=hNxaqQXGcQUQno/2nXHTdHhf3q32QaLxuKIHJab3NTgcEnPMYaNBeUY1XFh1hSXqynuo
-	 B2moRiJ8s4lw39VludePJ2G4x01SXTNoSAI234SD1QrbQqUT7wPQewB9rLcX5i+EEEZpT
-	 EVVME7K22/vrhTMrmq/sHHSadhcsf+uZEj25FYRxhq8FvEl0JpwDH2xcp2+5iPFmqXchp
-	 PsEbj+t4D24Decu95w7arjO1iRg1Yf3sr8oaItzHHPpoWQ8PDa5kthEbInLBUe/xYd59J
-	 jy07geq28kulbMGBve9WCM5kaZshg0SIIULF5G3cRJZwgEZSfi1ysLZkDb6RvZHqIxQ==
+	t=1795271140;
+	b=sEP4aqDxSBfDLcWrsRaBZua7QDl5wGVeKhhg3vw/9zTMooybOByeusd8chJzEHrXgHZ+
+	 8z7fMf7hIupqBi5TU+uJR/f+J/KrdfCchk71dKv8ctHrqJI1BByobWcvT1wAi/0/cTe0l
+	 lNr5Qa4kID5TWmOxNhxAZKURMReW1fxxf3PS9yUUae4HwRA2Rk1oqp7QTJ2cvQTqL7ssk
+	 OG5SOuffRz4EixkoE1r5RT8yA7NxdxCEUNMFujNBqxUecRphcSyTEZN/3o0oimc3+uw7a
+	 Ir1YyyU033syUe0hSXbBdkiepcI2FH1izlGC8KGDBr1hzxzD81W99O5rwSjLMguItFA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795271126;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=3CsdqCdeeJmuQ3XbtXPJLibFyHRpdZZGE1AIWlpXzNc=;
-	b=f51ZHuDspNemtjG0QM46DnV5zhfpi2BMJrrP1+/IccIgYsHozss16d7ehv1I6xUauw4C
-	 3HCT45NA0wTVb2Y1vA/ERS1/m95o2/Zdsybu3sXySnLNh4f+7+3iVt8yeL+os2vCWX8x0
-	 AatjmycIrql9TR0+IiU/ilO15rdUcXD1o6ELRqwSk7/R8IL42b9fwz1rp6RS8fQz7wgor
-	 vNdp75ynrOOL4AY4UeOIbXfgZr7Br8MLmi9/XusBg6mff1KtZYraW9OQY+zFjTOw4MTVY
-	 RXhwDivolfP7p9w3oQnBlSRDnIKo3gnA0u5bY28QXw/bZ72A8YxmmjKSCpSvOf6Purw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795271140;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=R2eFuVKMuKx/HT5/2aCPbO7MjOp+iQ1ERiIlQILhiRQ=;
+	b=A04eUaICTub2BVAM56pgiA/KuYfUliOveGgnmX7gGp11P+xWj/im6mwarz6fmkM8Pq53
+	 AYP/vXQU/tPYd+uXo/4eZyFhWxM23+Y9B7FdVKhEXckZ8gUkJuUXYYkxCmALg3LV0jdrR
+	 KHq5KO9eKfVruSG35yzSAKTLHPYuELigtzol/sgVYka33KJ38/pCXB0vn0ho5YoX6/Mz2
+	 A6kGbk2R2tk8usV0NFiacBlOdi85m1nI2w/9OlvODVjW5xS0vS28uWwcbGyjo6eN7r9Fs
+	 H86TpHMK+bH7mIm62sGQIvVCIp8nLHUNaEdOODzGTu9fekc/eesjT0PPMdWFKDph9CQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VqN8towA;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GBysk8i7;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40BF9606A682;
-	Sat, 21 Nov 2026 14:25:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66BC3606A680;
+	Sat, 21 Nov 2026 14:25:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VqN8towA
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GBysk8i7
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795271125;
-	b=k/gIu4xEndtbkSYpLLQmaz8vkwP5y73ngKzYU87s6BbRbzq1KV3tYGJcz9H2BsR7Eu9Y
-	 Sb/2qXh9+hr+kuIYvxU8hHE8JWAobz3bVeKNoR5huuoAWqlgyFIhGYz47OA46fJN7yYBH
-	 RW1MKf5Dpq9X4B3ihEJFS2jvEcLM0LCWBUtiFSXbOH29SBO4kHET234TWvk0/heTIlkAF
-	 +CP6yWMQ55t6ugBL6KFHUU5mAR5zQ5XhJbI1bO0t8UzxfgOOwcsAWt+ojDX1R7PKVqoQT
-	 OT5aWsNQ1uaJ0Avyo2QskkQtt6wNooZhz95dzp6fcCv6J3+XhtBRoELZI7qot45AgPQ==
+	t=1795271140;
+	b=LHeq/PprDtBX3Fm01iKeE0Bc3lukS4yWmQMbUJHLkhEWmdaieaz2fSKXcCMLIK0rdkVM
+	 6xXJdjuRIRzHPK4lFNXoxGfOiEwXtxpTUQigCCHxCtggfEVA4ENh0Iwk8Zss8xlJtxL6Q
+	 0JgUDF4n9Q3nsGEF3DVYLbds2g+IdqSA7Jv0EixGeW5uCnoGYDGhseFLZDNLye4T+btdl
+	 MA5lsdZ2Yp2+KQftvMSztSkv2kyWzwu4zJrn/dNqdYZgUN4OLxayC/Fr3PEOq12Nys7q5
+	 WOA1nInJDIi3jpVFetGxo2awOoQi+949/vWiQNAylXA8a4n3OfJe3cyEJ7Kdd7L/OpQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795271125;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=3CsdqCdeeJmuQ3XbtXPJLibFyHRpdZZGE1AIWlpXzNc=;
-	b=CoonuvnggpHrP5d7OETW5sJdnIyHKILDKOe6ams7Tkkx/v7Bd4dWp6IpyZHrwal3wMmm
-	 rObLkc41q4EpakjamnZHvUQGNzG3WnW/dOUFAkkNERU1KBeM7YGQUhPvIhK8D28gh/L6j
-	 tpSh1fF91MIPFoSLofmbl+P3CQMT7n0Kp7i6MyqldU4eZi4cx47WoM2i0wvAtOaHryX8W
-	 l2GS/qfae/9FKboYu6Yz2IKC4Lz+38N/oKa2NIYA1dnuP1FVd1ebTlK04R/vK2BWH9lOL
-	 axoDnw8ibFjM1EQ41Gvuzu78utfucIztCqGTdIm0HnIhZywcYFyEebe4SFl9/2TfWiQ==
+	c=relaxed/relaxed; t=1795271140;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=R2eFuVKMuKx/HT5/2aCPbO7MjOp+iQ1ERiIlQILhiRQ=;
+	b=dqtuD2n9bVz6gJfIhnJWOEuzGOq0WZSxvGUycX7ywwFClAwd0Qip6t64j1N1HfzLdgbv
+	 mSfAvwF7enuBGUMzax6LQgN/9XijHeuJQY2tYP6Lxm1NHq6gzVMn8ivK50jppgWmkvsAf
+	 GAFe1pTix/8Lx/69hpRzAc+sLUd3ohFEQ+W7/AMLIP/QfTCxkhXglBbPGejGI9yoQo13v
+	 xtw2mFVhmlmNUOcBPaP74kKZlPt6bgVhf62QWydy5GIafTKO5VAOZFjjZqihlAe7/GSdm
+	 j6TN3Bv51VcR9mEITy8VDGg2ySz3QamNd/MqXegtWwdDySoSWbmBudykDc27PO715BQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id E07FA1F000C0;
-	Sat, 21 Nov 2026 14:25:23 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 899E71F000D3;
+	Sat, 21 Nov 2026 14:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795271125;
-	bh=3CsdqCdeeJmuQ3XbtXPJLibFyHRpdZZGE1AIWlpXzNc=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=VqN8towAVTbQuoHpQ8shvgdJ4DOUjusReniQ8zPaqdKa+EOddU7uZP6vxNnaSlEuK
-	 YGvIHmVXuw2U32gq8e9HWPmrP/CK7fvC9ix5X68RJEA/3bqZbEm1JzjL0tgNjEssc9
-	 743tPfkIr9EOY1aryRN1/cjK95wljOgdwaNiUd7FlFzdMjHMQBBD/N2ujMMRl6qnWm
-	 HEH4a0cWasoi3vf3gyWnylkXFWwf4s9UIwDGb1o7kfH8c2LsFhFs9YbkJTft6+icHC
-	 MNZZ77BNgxWiMnYPaBILXj68aQZNao7K918irq53GGoC0gq0im7vaLv5cYYUGqL41/
-	 NgFFPV82R3O/g==
+	s=k20260515; t=1795271140;
+	bh=R2eFuVKMuKx/HT5/2aCPbO7MjOp+iQ1ERiIlQILhiRQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=GBysk8i7oQckDVNCz7F//62GoGhw9GWjlaef/kGgMRHqRHwPnaJFfgpk96vyK3d3B
+	 m+vsUXPIJMWD55f+fKvsZ++NRRMsPnR8LFoMOStpp1RBkqrELAT0aJIFvVyyeVfrJC
+	 0j6fbOYCKh1c9V3MS3MSGhsxp8Cv9AgBfNUA8yy5LmREUBFsIxQfWajBbH7pS+2KaV
+	 9314kQSwyMNBwPbo7bRguRog55EXp+miJCh9Vq5AL+B91i4/XoNl74djpP5nSlBfDt
+	 g5JFcaRlHO96ijX2NDcXkJnoRctDJiQJPKlIX5pEeZiG8r2MU+8AoMWqcmnmzEMoeF
+	 A1r9tPYO5AwyQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 40BEC4BCA7;
-	Sat, 21 Nov 2026 14:25:23 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 141BE4BCB8;
+	Sat, 21 Nov 2026 14:25:38 +0000 (UTC)
 From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Subject: [PATCH v2 0/2] media: rockchip: Decode monochrome H.264 to GREY
-Date: Sat, 21 Nov 2026 14:25:22 +0000
-Message-Id: <20261121-b4-h264-monochrome-grey-v2-0-ffe7f2383cbe@gmail.com>
+Date: Sat, 21 Nov 2026 14:25:39 +0000
+Subject: [PATCH v4 3/3] arm64: dts: rockchip: Add IEP2 deinterlacer to
+ RK3588
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,95 +84,77 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNwQ6CMBAFf4Xs2TVtbaDx5H8YDqVsaY2lpEUiI
- fy7gF49TvLezAKZkqcM12KBRJPPPvYbiFMBxum+I/TtxiCYKDnnEhuJTpQSQ+yjcSkGwi7RjFX
- LrW7sRTJRwfYeEln/Psz3+sv51TzIjLtuXzifx5jmIz3xfferCPa3MnFkqFTFmdClUra9dUH75
- 9nEAPW6rh+wQams0AAAAA==
-X-Change-ID: 20261114-b4-h264-monochrome-grey-7d1fabf34027
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Detlev Casanova <detlev.casanova@collabora.com>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Hans Verkuil <hverkuil@kernel.org>
+Message-Id: <20261121-iep2-v4-3-760cf25f322b@gmail.com>
+References: <20261121-iep2-v4-0-760cf25f322b@gmail.com>
+In-Reply-To: <20261121-iep2-v4-0-760cf25f322b@gmail.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
 Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Arun Iyengar <aiyengar1990@gmail.com>
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Hans Verkuil <hverkuil@kernel.org>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Alex Bee <knaerzche@gmail.com>, Arun Iyengar <aiyengar1990@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795271122; l=2963;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795271137; l=1631;
  i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=1AOZgIbbymLsepcyi/gXZ6yRt0VKzk+OlM1UFXxm2b8=;
- b=3ERUJbxJDYvzH/UaEKVOw3M5cAyVjzAefXCUw4H3a8KGOzweL/kzmUMT9pc/f4YHra7mkYjKs
- j4B/lRaEZwfA2S77mFfpFkPJbx/PHUOdaYrGZK/p8XTAAW4fZjjWNRC
+ bh=pLFuCmNVRbb5CYDpQgDI0o9UDTdkG7B7CO7SPDGMaZU=;
+ b=yxgywoVv8poDbopGdZ3H0aaTxtZ8+BmvnJblZXzFqpRF5UH6QIyzGi5uegTEpaC9YT3TA/Nra
+ 8AzvZY41eAVDXRKx96/bPlck1Tq4ZMwM3o2oyD2ZJB8kJP9XQ/ZOIRj
 X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
  pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
 X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
  auth_id=1480
 X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
 Reply-To: aiyengar1990@gmail.com
+Content-Transfer-Encoding: 7bit
 
-The Rockchip Hantro (G1/VDPU2) and rkvdec decoders write no chroma for
-4:0:0 H.264, but the drivers offer only formats with chroma. Offer GREY
-for such streams.
+From: Arun Iyengar <aiyengar1990@gmail.com>
 
-Tested on an Orange Pi 5 (RK3588S: VDPU121 and rkvdec) on a 7.3-based
-tree that carries my other pending Hantro series; build-tested on media
-next. v1 passed fluster: JVT-FR-EXT HPCAMOLQ_BRCM_B and HPCVMOLQ_BRCM_B
-on both decoders, other results unchanged. v2: format and control ioctl
-cases, including a too small CAPTURE buffer and a refused request, with
-the size check and request error path of patch 1 in the posted form;
-4:0:0, 4:2:0 and concatenated streams bit-exact with a locally patched
-GStreamer, there with the size check of [2]. All under KASAN. Other
-SoCs are untested. Userspace without GREY support gets an error for
-these streams instead of wrong chroma.
+Add the IEP2 deinterlacer and its IOMMU to the RK3588 base dtsi. Both
+share GIC SPI 117 and sit in the VDPU power domain.
 
-A change between 4:0:0 and 4:2:0 needs new CAPTURE buffers: Hantro
-refuses the new SPS with -EBUSY while CAPTURE streams, rkvdec while
-CAPTURE buffers exist (as before; the rkvdec concatenation ran only
-with an out-of-tree busy check).
-
-Conflicts with my pending [1] in hantro_try_fmt() and [2] in
-device_run() (the same size check); I will rebase whichever goes second.
-
-[1] https://lore.kernel.org/r/20261112-hantro-fmt-role-v1-1-e596d6f4828f@gmail.com
-[2] https://lore.kernel.org/r/20261112-hantro-dec-size-check-v1-1-e5f1180b625f@gmail.com
-
-Developed with Claude (Anthropic), which wrote the code and the commit
-messages. I reviewed every change.
-
+Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 ---
-Changes in v2:
-- Hantro: GREY only for High profile 4:0:0, as the hardware does (Sashiko)
-- Hantro: no GREY on open, SPS ignored for other codecs (Sashiko)
-- Hantro: keep the 4:0:0 state across S_FMT(OUTPUT) (Sashiko)
-- Hantro: no transient 4:0:0 state on variants without GREY (Sashiko)
-- Hantro: fail refused requests and too small CAPTURE buffers (Sashiko)
-- Link to v1: https://patch.msgid.link/20261120-b4-h264-monochrome-grey-v1-0-887102a688fd@gmail.com
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
----
-Arun Iyengar (2):
-      media: verisilicon: Decode monochrome H.264 to GREY on Rockchip
-      media: rkvdec: Decode monochrome H.264 to GREY
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index aa69fd3793fd..5297519bd251 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1397,6 +1397,28 @@ vepu121_3_mmu: iommu@fdbac800 {
+ 		#iommu-cells = <0>;
+ 	};
+ 
++	iep: deinterlace@fdbb0000 {
++		compatible = "rockchip,rk3588-iep2", "rockchip,rk3568-iep2";
++		reg = <0x0 0xfdbb0000 0x0 0x500>;
++		interrupts = <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_IEP2P0>, <&cru HCLK_IEP2P0>, <&cru CLK_IEP2P0_CORE>;
++		clock-names = "aclk", "hclk", "sclk";
++		resets = <&cru SRST_A_IEP2P0>, <&cru SRST_H_IEP2P0>, <&cru SRST_IEP2P0_CORE>;
++		reset-names = "axi", "ahb", "core";
++		power-domains = <&power RK3588_PD_VDPU>;
++		iommus = <&iep_mmu>;
++	};
++
++	iep_mmu: iommu@fdbb0800 {
++		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdbb0800 0x0 0x100>;
++		interrupts = <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_IEP2P0>, <&cru HCLK_IEP2P0>;
++		clock-names = "aclk", "iface";
++		power-domains = <&power RK3588_PD_VDPU>;
++		#iommu-cells = <0>;
++	};
++
+ 	vdec0: video-codec@fdc38000 {
+ 		compatible = "rockchip,rk3588-vdec";
+ 		reg = <0x0 0xfdc38000 0x0 0x100>,
 
- .../platform/rockchip/rkvdec/rkvdec-h264-common.c  |  4 +-
- drivers/media/platform/rockchip/rkvdec/rkvdec.c    |  4 ++
- drivers/media/platform/rockchip/rkvdec/rkvdec.h    |  1 +
- drivers/media/platform/verisilicon/hantro.h        | 11 ++++
- drivers/media/platform/verisilicon/hantro_drv.c    | 71 ++++++++++++++++++++--
- drivers/media/platform/verisilicon/hantro_h264.c   | 11 +++-
- drivers/media/platform/verisilicon/hantro_hw.h     |  2 +-
- drivers/media/platform/verisilicon/hantro_v4l2.c   | 22 +++++--
- .../media/platform/verisilicon/rockchip_vpu_hw.c   | 39 ++++++++++++
- 9 files changed, 152 insertions(+), 13 deletions(-)
----
-base-commit: ccf78740d63813c452c035b57d17a650492562fa
-change-id: 20261114-b4-h264-monochrome-grey-7d1fabf34027
-
-Best regards,
---  
-Arun Iyengar <aiyengar1990@gmail.com>
+-- 
+2.55.0
 
 
