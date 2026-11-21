@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795226219;
-	b=ofrssEGmQvyt9xpYjaWHEZKSyyMNCkknNsR3/t/BOxX/+AkOdRQpx96oCGPSGYie3ecF
-	 aWm/nZ4sqkdEifIbKi0mTW5Qv7LPXaNxDYPWG76MUdGrihYdvavt2UcFRJ391eQP9b2R3
-	 iljuJkaNqQp5HK6udqBkZJGxW7GRbl5AhXB484/3O70H1gzE79h3gYVdsDXc++JY815E1
-	 q+0v5cl7iEuQoZUj/Y6zqrmxH6QRjL63Th8QT7/eK2GtniyyzO4Q0rX2x7J7rvet+2X9T
-	 0DnXSqv8HXTasVv/7YhVOBMBiynuGAn3WnHLg0Cg0Js6cYdnX2+L/0HMQhRsTlpffDg==
+	t=1795226253;
+	b=UM6loEZLilKpL2iA97AlM7INvyvhKF5WGepfkRrhsCQul0VlK9XLR2lu4Olu57t7OosS
+	 eXdathbw0PkOwBEfD6iwQPhwADFsqHMJ+NiGao71v3fhmKK6TrEkN8ht9jUQzyfNPZusR
+	 gyfNeNId0Evqbk1IXn4YMsqM2mNY4gOqNLK9skn8ad3PXqh2laTEoo/NRYS1JJYylD8wQ
+	 cSP5Qeq2CZp2yVpEDBWp5GhD2lP3DXBSX0N/vKfDGJsfPkwn+78bsQgiHufy6OXC9k5bk
+	 G6MiKxTBBENpOMU3A/D3Ez2YOQupNSyj4EBlMzlyFK3FaSgKoqh3lTmiZDAXXs1WWJA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795226219;
-	h=Received:DKIM-Signature:To:Cc:Subject:From:In-Reply-To:Message-ID:
-	 References:Date:MIME-Version:Content-Type;
-	bh=8YU74oSWaUXyEg1JWnFYgk1bNUG9MnPuQkgEBSPuZFE=;
-	b=D4mrWpEFMHWx2b5Tx2gF+wjfF7tG3QWMFjdJkUZTKGPKX7876CwjzLYT2g6J502/keYi
-	 E1MpJ425NUQcKW24xG5GGr0aE6E3WCjsnKsodw1eFa1PAw6bZl/r3RQAWbPprojbOGDpQ
-	 H1pc2D7OHj7pnOMKgtUUG/WJLUT3ViMqP/vBBbZ57VUIMEOdtshvf47JisUDY/RuKzz+2
-	 SaJ+tI0zdTsSYHWIN9yf9xUScSePan4h4R0buZwOVJ/6C9Vb1RYxARfUMa6SVFYJPPZo5
-	 pZ06XzdfjlKt6IVccbWrSJaRwhnRq7woQ/MGCHbD1yFNSlnDuXd9CjkRgNruIrjwHXg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795226253;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=6bykOydDu0O4FHmMNk7Jp7BVGe4iDBIyIZTVK6rs5L0=;
+	b=l5MNL0x//y0S1v1ghhBapd8oH2X3FZKxajnuSwwCq6UDON4DRoSH5fJumhLxjBX/lE0o
+	 XVCCKsLbDJTpOVLg+B+zRBwDvfNhm2zYgKoDoYCvXtyB1k7TdgZkouP5BI1YF8+JKc3yC
+	 cl0i+AZesMfqla69keRlDSmPmcBFPw0x1/36qOUDZrYVaoZsLCxsirDik07GGQEbgBLdm
+	 nKwOlB9S3vz1LjRXJNJh3sZoNw2Azv4u3n/+CusFGGsulhRFfZuVrvpcWtV1osqD8glsm
+	 j3fMnvaWE5sb5l7VqNea8SD+w2qw6ehNVsDI2ds0ZmBWAMKIeQh6eytk8Swd7zkIukw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BQnQ1dKX;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CfgtMgZT;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F862606A6B2;
-	Sat, 21 Nov 2026 01:56:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3693D606A68A;
+	Sat, 21 Nov 2026 01:57:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BQnQ1dKX
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65D561F000C4;
-	Sat, 21 Nov 2026 01:56:58 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CfgtMgZT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A55A1F000CA;
+	Sat, 21 Nov 2026 01:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795226218;
-	bh=8YU74oSWaUXyEg1JWnFYgk1bNUG9MnPuQkgEBSPuZFE=;
-	h=To:Cc:Subject:From:In-Reply-To:References:Date;
-	b=BQnQ1dKX1Xxcw793fp9CCI9JE10SlzP/stIQcExIZqM2MB0LO9GUz/BWtEV/0aSEz
-	 w6LX/PJFwg/fyS+naAQmogMZGd7D/CKC7RXRvfuHI1xJYhh00mQ/K+XXun6VAFrHX6
-	 b8P+SWkc7Fy5k1IKoE22Kg6yR2LQ1VE0yw6a4zfYrto3trBhE+gStlIua93Sq51YJr
-	 JslIxvKCcDF1eVI4d1hUn98P4Wh5OKgS7JKQIppEhhQLl4AwDO3cv63yA8LkZCU+M3
-	 RGEEAx6jLBFwI5koq3GjvgXfa5lwKT8FyY5QNyk4ZqN6axQcj7w91NH0+++nIjjuP2
-	 U89XwNq1bYzRQ==
-To: Ian Rogers <irogers@google.com>
-Cc: Justin Tee <justin.tee@broadcom.com>,  Paul Ely <paul.ely@broadcom.com>,
-  "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,  "Martin
- K. Petersen" <mkp@kernel.org>,  linux-scsi@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  llvm@lists.linux.dev,  Elkin Cruz
- <elkin@google.com>
-Subject: Re: [PATCH] scsi: lpfc: Fix format string and OOB copy in
- lpfc_read_object()
-From: "Martin K. Petersen" <mkp@kernel.org>
-In-Reply-To: <20261119170500.1514537-1-irogers@google.com>
-Message-ID: <yq1a4n3oskh.fsf@mail.kernel.org>
-References: <20261119170500.1514537-1-irogers@google.com>
-Date: Fri, 20 Nov 2026 20:56:57 -0500
+	s=k20260515; t=1795226252;
+	bh=6bykOydDu0O4FHmMNk7Jp7BVGe4iDBIyIZTVK6rs5L0=;
+	h=Date:From:To:Cc:Subject;
+	b=CfgtMgZTMRM5c5MZuOPlTETHQliulLNDDljo+czhpyiNl5BVsWbYeWm+3bItB8t21
+	 rs4EPTtrQ2SV03C3RV4ZELQrOC1GTuxZu7t6IwxXzaTj9C16qN8IHZvtn6wzh43gmv
+	 2sWiZvwlpPTmJiyS7qo9Zr4qm8WimRmndiM1/Y6U6ybKWTNKRlQ6xIrvCYbhliymOW
+	 XHbo5sULZaQ5v0fO1+4sJDpxmbe0GGJW0zDCRGEft3Ji16npN51/i0k8Elfc3eSpqc
+	 LcRwVH8hyfyUJ0I771ct5QIsuoVDHTMEow1kUwJcafXYehfpP7iiW88t/k0x2Xm7Ne
+	 +NxTxYVRCE/6w==
+Date: Fri, 20 Nov 2026 19:57:31 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Alexander Gruhlke <gruhlke@mailbox.org>,
+	Sun Yuechi <sunyuechi@iscas.ac.cn>,
+	Donghui Zhao <zhaodonghui@eswincomputing.com>,
+	Senchuan Zhang <zhangsenchuan@eswincomputing.com>
+Subject: [GIT PULL] PCI fixes for v7.4
+Message-ID: <20261121015731.GA966532@bhelgaas>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,17 +61,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
+The following changes since commit 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4:
 
-Ian,
+  Linux 7.4-rc1 (2026-11-01 13:26:31 -0800)
 
-> In lpfc_read_object(), rd_object_name is a 26-element u32 array (104
-> bytes, LPFC_OBJ_NAME_SZ) populated from rdobject via scnprintf()
-> without a "%s" format string, and then copied to the SLI-4 mailbox
-> request with:
+are available in the Git repository at:
 
-Applied to 7.5/scsi-staging, thanks!
+  git://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git tags/pci-v7.4-fixes-1
 
--- 
-Martin K. Petersen
+for you to fetch changes up to e735de71a2d9403fa1e2d134d1e9aa0a24f4eaff:
+
+  MAINTAINERS: Add Donghui Zhao as ESWIN PCIe maintainer (2026-11-18 09:54:31 -0600)
+
+----------------------------------------------------------------
+
+  - Ignore Immediate Readiness on Samsung PM9D3a NVMe which falsely
+    advertises it; removal of unrelated delays in v7.2 caused post-FLR
+    state restoration to fail, resulting in VFIO and nvme regressions
+    (Sun Yuechi)
+
+  - Add Donghui Zhao as ESWIN PCIe maintainer (Donghui Zhao)
+
+----------------------------------------------------------------
+Donghui Zhao (1):
+      MAINTAINERS: Add Donghui Zhao as ESWIN PCIe maintainer
+
+Sun Yuechi (1):
+      PCI: Ignore Immediate Readiness on Samsung PM9D3a NVMe
+
+ MAINTAINERS          | 2 +-
+ drivers/pci/quirks.c | 1 +
+ 2 files changed, 2 insertions(+), 1 deletion(-)
