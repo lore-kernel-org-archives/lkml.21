@@ -1,105 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795232510;
-	b=IIHT8YcpQ5XNo2M5x281J92prQkNJhUDwAh4/JzPEOtrU6/XS1YEksWJ6HG8+RO9ekVB
-	 4HIYtjMth5RfILibbUGTeyaYi7qZQAD6Y4s+pW1T06YbTz0qEGntHrbHbJkpiFjXJNUas
-	 BW9iaBRsozMKz1DK/igSz8yMAEdzw2sNchcQam+TUqJWbGsEgk/3d8Q1ax2ADTbJpQoVO
-	 1orQIKHYras6PAlGx6NQAjzY6YMrhwAyQKhYyJzS5jdhFmZvdfitBJ8nXhBONHqzRqVZC
-	 ++z0PkSPG+CiJl5j103cANUPDqB/2d1X+H5RGYzyvbSSBZZ8/K3smVKns15OjxSHGAg==
+	t=1795232546;
+	b=rM3zlNZOAcmrTlpelhK0d7nhIA2LEMMaA61XxWWzS3RVUtEPPMk/FyKq1VZfJfLmQW7X
+	 M8XoL7k4CRCs5wBfSO12qXFs+hpDljdXrN1JVyiUhVUpwfr1IxKC7G2DoGFucqGzjwgVc
+	 NkkCvbkdYF5B2y/nSv1N6wcpfj70OqEkfoYogBr16BGu7zNQtSyjTMg+DOAnOFCL+9SF1
+	 oJ4WtnCzEdvj5b4p0y2niZ4XMo22TAakoSMEaRGHZyFT6DN06u1jsUF1zPi5spCi/V2aK
+	 SrcuPcMPJvOL/LdYMqqz/Nx1dXi1GwOPATlezpMDS5IoCxDg0jgw2wuFZC9whioW5Vg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795232510;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=kJZsEvQkjwtM0z9/dpxgzPf7D4sJ4j0CFIrJuHV97Tg=;
-	b=PCxviA5KLYge2VO2y9oa+d/SLf5OqBCPMUJeWY+yMOIx7ZsVruwM07jyqf0OC8vPzu8b
-	 fZ/Y3BI7UMYq7qyuWN0jgB7xyTLoZs9WO8kqJbOPNYNgPV1v+kXYDMUcpXiLYff/s/6Ep
-	 qWHxp/OoCXtMzKPeD4lWtPeFkui47JYfJ1XfBBoGfN+4MtowpSArPND5rkgmASZPIZQKF
-	 1aqsgtCVddcQK8ns4iwsvMzC+le88C4iNwR7xBifovx9VEPAGva4Yy9Vyno/bO6G06b7s
-	 /Jtlap5YNM8zW12icp8VdOwlotL63BrWwqVzoUDQ1RDyQE2QerzWjyztPc/+r57QiHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795232546;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=55KLg5TPytdDc9hoRdxs/pCCWjQgeOkyFylwJEOUFYM=;
+	b=CGToarPNIzRQABPU/In8ioReSdLJI+oTNqSN+LcRcWW0bJ9rGCGY5IkKVGG9tA7SVVnu
+	 oWuix7Z1D1hkwadCzjCzsBhKZm7QeMXREpsNnBn30cALD6sYHaqel618QrDI9koc28VCa
+	 X6sNY5H+AqWNHGe+nUZxSdCRP5SdD5bE5xrdwe75WVJ6kXWtIsun1/r/cJZ5B0wtJqGF/
+	 O4Lan0ffyRnH4yr65rG+a9XV/uj8E8xUlvSOptAyhkK9tm9zVQm3jXBqs4ckVU/3HAZ3q
+	 qatwTg5vzY9Nnmj257IUbAcX/tuCm/4XgHMp06oNglCsn7PIvI0ZkpWnWeIATb3k9UA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ti5sirnI;
-	arc=none smtp.remote-ip=74.125.82.181
-Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=gSBnsy61;
+	arc=none smtp.remote-ip=203.205.221.173
+Received: from out203-205-221-173.mail.qq.com (out203-205-221-173.mail.qq.com [203.205.221.173])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D81B7606A68B
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:41:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D81B7606A68B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20D10606A688;
+	Sat, 21 Nov 2026 03:42:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20D10606A688
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ti5sirnI
-Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-380b40319bdso2032861eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:41:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795232507; x=1795837307; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=kJZsEvQkjwtM0z9/dpxgzPf7D4sJ4j0CFIrJuHV97Tg=;
-        b=ti5sirnIz52T84qwqQD2AQa2e6xW/U2SjRKU2YGH1H9B29TKkrz0Y+JxUkudar1/c/
-         AKNNSzR7BaD6MCAkIMosqdGGKbNAKn6ydVGKuW1d5MfUsjGsLCMLMEkBtJdyrtjpn0EC
-         WgrGTGsmsBJLc2xH0VkWUd8SLMTlIuFIe3zxODTrQY4FYPVa/IeQ4C2TQUDhd9ao0mM9
-         OCwYZTkuMk6am1zanzyz2SKwpxFYctKL8Ut5QSY25fO+lKY7cFXZm8Hf0F6XxA3U2Iqk
-         vmY5FuYA/t5T607wfZExATFr8TZfI76Xn9OhyenVvWKO32BpqkoH1VyCLVsZPFykiFXh
-         9saw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795232507; x=1795837307;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=kJZsEvQkjwtM0z9/dpxgzPf7D4sJ4j0CFIrJuHV97Tg=;
-        b=j06XZU4VH8heVrzfzNLRjtpL929wHpUVBB5GSeahqVk14Y+Uyb0m5/ZKBno9Dg/Mks
-         R+LO80L0b70gpo7hgfzdHnd7/iM97Bw3ZJHNr45hStisLALFIJBcsEW0SlAGTI8XTvG2
-         FmNef4TPBMGD57cU6Du4kv8ucx4pY+yq3O7JyqOl3+QZy7C3tdhvBtkhmAc1tYzsc6Lc
-         4ZumNVh60NAvE6fYxehWXGld6vGLY8EKvqrUarBNPE47szc32xkVeyQhQr6ppa6lpjVJ
-         gF29Uzpf/lm+YmLzlLZWF0fBrzVZPrU3TTZoYHI82/nHt1fUqVBaFPk3KL/4gzAKz+hA
-         p+sg==
-X-Forwarded-Encrypted: i=1; AL+hErE7bgTRE+GPMajBdTjDqfAont3cbtXftsF1TX0ilb5KKyDgfR5KBATGkvI1Re784P6Y4tPF79wua0sepWw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/M0wg1xJA+H5IHWug/sfCk6Bljy0WOZoK/w9i6m0DgtNG/Y79u
-	lTAZoD4MqrsKgK5TfCZAcaT80DN/PI91y+s1duKGiqYlAOsasE/vnhyE
-X-Gm-Gg: AZFdTZfcM2XbcU7LLrRHzJlWyaYz2Fdrnfzm1JoSae4aTz35N1eG1k0XZ1S7FkPOjSk
-	Ef5iS2GOeqpXRvmqI885zfULgOxu8OFNbVjRV/SPkrK9/oDsmDQnZ2+uYw4oJy3IB/gZvlvqSIA
-	9h8cZUQQNjinK6syoC2FlZFZJtINoLq3bDipLSn/PifjnRqwLh2rI8gygsv2pFkVv6Jqp/88Sg9
-	azcKDlOCITzmhiYEFo5ejP7qUCang4Q6n+mmXu/aKiIVlMjQgx20YM0Pwj3nzlqxD7R696QhOmN
-	5X07PHaGQmjaMTE2jS7m0pWK1J3LuFqjZEJDYSJ4NGh9DsELlyvnj8FMscdH9ANH7qbRqjw2wty
-	R5SMOf/gcHCNuhDeWBWLOfL1GA3LobmglQjBAPGwWs/sTQAbfd4unfdSy+YiQ/dHQfl7szsR6uh
-	1Zm0vFiYAARLRrTnduihJ6+1NOSmtFO9ctDR9JyRDsz3EFS+HfX0r2JrXl+AvHnuC+Kvj9KDfAr
-	Tl1CrWPyhr0KkLQJc+z4LmEskyiWEUmuaQ0CWTGDYK8s822aY4z4DVidBi++LdSpEH08RGDFfW7
-	2jptFEYW/GHxU4Oj9zMFtFohEkChwOOwUqa87COIKYHrhf4=
-X-Received: by 2002:a05:693c:88c9:20b0:385:d556:1c41 with SMTP id 5a478bee46e88-385d5561e1bmr4081752eec.16.1795232506657;
-        Fri, 20 Nov 2026 19:41:46 -0800 (PST)
-Received: from debian.prasanth ([103.177.82.216])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm20891464eec.3.2026.11.20.19.41.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 19:41:46 -0800 (PST)
-From: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-To: srini@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	joel@jms.id.au,
-	andrew@codeconstruct.com.au,
-	ryan_chen@aspeedtech.com,
-	billy_tsai@aspeedtech.com,
-	neal_liu@aspeedtech.com,
-	tan.siewert@9elements.com,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=gSBnsy61
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795232527; bh=55KLg5TPytdDc9hoRdxs/pCCWjQgeOkyFylwJEOUFYM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=gSBnsy611qLxqFl1wexhgR24XXTIztko8drty2NoomMsxYsHGc3jdcA9fTTk5vatQ
+	 99v+3mBtP5jTvEaCwmgoEOVpX1pK/AvHDwftVztYy+bpejNC3qmUGPndnhYOPHpw4+
+	 1NtRbc0e3l0Zusiqrq5Z5QURALfv0BA4WbSE/6Dg=
+Received: from shuai-VMware-Virtual-Platform.. ([117.158.156.198])
+	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
+	id A8519672; Sat, 21 Nov 2026 11:42:05 +0800
+X-QQ-mid: xmsmtpt1795232525tzzj93r6y
+Message-ID: <tencent_03B85262EE136CEE83D2012CA5F2704D2008@qq.com>
+X-QQ-XMAILINFO: M2SvzgchpLqfjYSr+5qdYkljKTTtIvN4a3FibtIAt8oLjS96ZPgz3DmVMCHhak
+	 W/pRi1TRZGfHkjI2UjU5XtoVe0iFVtzKbA1117KiF8yQPcFK3bIJtOOoW9j6U4zkC3BaafjnVvT1
+	 o7XTN6JGzdR3vOPqI1ApfMVJuZpkUw8z1LSWG11NbgxUoxe2G37SPCMLK1RVP4GUNJAuoocL8h6+
+	 tCxm0H+Ht2bZLHwfxnLtct58J/xV2LICZe9lVVHGBuubJDtaw6oS0ixb7TtPHIxlkR4+RNoucvms
+	 TgGsFOn6/nhFZYbq5iIxeCO/5a7HYoBqE/w5KV47S8fWtVW98giueoPgxadnUbP2fZxp4dqrrrBo
+	 DhBtH6aq9/uBE77Pn9rjl2CWCukpaBcWxORmduytHqeph9VTeoJ6rVPSytPXkOtlMlFj0xxqIzMB
+	 6tRCA3MTTq80uC1CylJ3kZfXns/b91C0ShJR2j5GmFoEmUOIatnOeAWse551NyKBRKxiWu+H8IyV
+	 wm0QS5dJZwFsInYq6fxmGCUb/ImYjb+Il3W8Vtrjc5EnkgDUSTwd2h8jA/IZ1+TTYg28WlqU3gTN
+	 HT0lLkI1rFyN2rSd3xWwj24DqQbDnlNyusTslYBGWyFcLWxBwKRCMw4mv389diZHOj3mQSR8LJaH
+	 6J7duQiifL4B420cFlOjq2ZlCimi5knD10OHBabzZDVs2pKHcfMrdgsQzXjdGoarPuhBMIIu0OJJ
+	 qiYqHiDkuJ6px3IsdyzU6MorYjcaDXFKYpC2p93DlrRRzKPb6sT1jpZMduRnqCn3sqU8FMNfGhoA
+	 4JEmFI2BsBaIkNZZ1mHNONDAuy8evjj8eAid8KAB2NtDJSlyp4TwVxqPRA9WosvoHz5oxLB+Sc/Z
+	 mTFRJjIBFA2/3S/Ly+KBql7Cq8mqLApTwNZWexfI6sOlfqVVf6VRNWgy3zjx67DrJ6Yvsbzu7PbT
+	 7OLJeRTIOHDMpQOhx7DDjMYrQ7Z4Rx7hTdEcTjxT7l2puCDHaiB9Zo/R+ZLlGZqGXYG5uV/6vp52
+	 kmfXjyF46JvH8a7CGNWSC0dGC068Wx/Sh34YVjW6NaK58TZiwLGBMViIHn0Ap5zkbOFJ1I2B+nvM
+	 lhYltv
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+From: Shuai Liu <847807867@qq.com>
+To: linux-rdma@vger.kernel.org
+Cc: yanjun.zhu@linux.dev,
+	zyjzyj2000@gmail.com,
+	jgg@ziepe.ca,
+	leon@kernel.org,
+	rpearsonhpe@gmail.com,
+	syzbot+fef38133c495aeb48297@syzkaller.appspotmail.com,
+	syzkaller-bugs@googlegroups.com,
 	linux-kernel@vger.kernel.org,
-	Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-Subject: [PATCH v3 2/2] nvmem: aspeed: Add read-only AST2600 OTP support
-Date: Sat, 21 Nov 2026 09:10:53 +0530
-Message-ID: <20261121034053.39878-3-prasanth.padarthi10@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261121034053.39878-1-prasanth.padarthi10@gmail.com>
-References: <20261121034053.39878-1-prasanth.padarthi10@gmail.com>
+	sashiko-reviews@lists.linux.dev
+Subject: [PATCH] RDMA/rxe: Mask the SQ producer index read from user space
+Date: Sat, 21 Nov 2026 11:42:04 +0800
+X-OQ-MSGID: <20261121034204.102626-1-847807867@qq.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <tencent_5B9FB1BCC8EF36C5E2128B7D4D54B867480A@qq.com>
+References: <tencent_5B9FB1BCC8EF36C5E2128B7D4D54B867480A@qq.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,390 +89,83 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-AST2600's secure boot controller provides an 8-KiB OTP data region through
-paired-word commands rather than memory-mapped storage. Expose permitted
-words through NVMEM for privileged userspace bring-up diagnostics, which
-compare raw OTP offsets with reference reads; no named cells are required
-by this consumer.
+The send queue producer index of a user space QP is stored in the
+queue buffer which is shared with and written by user space. The
+requester reads it without any validation in req_retry() and
+__req_next_wqe() and compares it against its own local index which
+is always masked.
 
-Earlier firmware may leave the OTP macro in programming mode, so Linux
-must establish read mode before using it. Programming protection does not
-prevent reads, but the configured secure prefix and SEC54 restrict the
-readable region. SEC54 can increase until ARM reset, so a probe-time
-snapshot alone cannot describe every later read restriction.
+The requester stops processing WQEs when its local WQE index equals
+the producer index. If user space writes an out of range producer
+index into the queue buffer, that comparison can never become true.
+Once the QP is put into the error state, rxe_requester() then keeps
+flushing WQEs forever: the flush path advances the WQE index with the
+masked queue_next_index() but the producer index stays out of range,
+and each pass calls rxe_qp_error() which reschedules the send task,
+so the loop never converges. The send task holds a reference to the
+QP for as long as this lasts, so ib_destroy_qp() waits for the QP
+reference to drop until it times out after 50 seconds and the
+WARN_ON(!ret) fires in __rxe_cleanup():
 
-SEC00 relocking does not cancel a running command. Since there is no
-documented safe retry after a timeout, stop issuing commands rather than
-risk overlapping an outstanding operation. Normal reads take less than
-1 us; the 100-ms bound is deliberately generous, not a specified maximum.
+  WARNING: drivers/infiniband/sw/rxe/rxe_pool.c:212 at __rxe_cleanup
+  Call Trace:
+   __rxe_cleanup
+   rxe_destroy_qp
+   ...
+  rxe0: qp#17 rxe_destroy_qp: cleanup failed, err = -110
 
-The read sequence is adapted from ASPEED's downstream driver.
+Fix this by masking the producer index with q->index_mask when reading
+it in queue_get_producer() for QUEUE_TYPE_FROM_CLIENT. This restores
+what producer_index() did before commit ae6e843fe08d ("RDMA/rxe: Add memory
+barriers to kernel queues") replaced it with queue_get_producer() and
+dropped the mask, and keeps the requester, the completer and the queue
+helpers, which all compare the difference of the two indices modulo
+index_mask, consistent. rxe_qp_init_req() also initializes
+qp->req.wqe_index from this value so it gets validated as well.
 
-Link: https://github.com/AspeedTech-BMC/linux/blob/769f62b7baa84d6998723b0ea60280e380183553/drivers/soc/aspeed/ast2600-otp.c
-Link: https://lore.kernel.org/linux-aspeed/KL1PR0601MB3986A356BD06F98D0FF9AD5E80792@KL1PR0601MB3986.apcprd06.prod.outlook.com/
+Masking the index in queue_get_producer() instead of checking it at
+the two requester call sites was suggested by the Sashiko AI review of
+v1 of this patch.
 
-Co-developed-by: Neal Liu <neal_liu@aspeedtech.com>
-Signed-off-by: Neal Liu <neal_liu@aspeedtech.com>
-Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+Verified with the syzbot reproducer in QEMU: without this patch every
+destroy_qp hangs for 50 seconds and hits the WARNING above; with this
+patch the reproducer runs cleanly.
+
+Reported-by: syzbot+fef38133c495aeb48297@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=fef38133c495aeb48297
+Fixes: ae6e843fe08d ("RDMA/rxe: Add memory barriers to kernel queues")
+Signed-off-by: Shuai Liu <847807867@qq.com>
 ---
-Tested on ASRock Rack B650D4U (AST2600 A3), Linux 7.4-rc1:
-- ARM zImage build with W=1 completed.
-- Repeated 12-byte reads and cross-pair/final-pair comparisons passed.
-- Four concurrent readers completed 40 matching reads.
-- Bytes 8172..8183 matched the saved ASPEED-derived reference fingerprint.
-The kernel was RAM-booted with the working OpenBMC DTB and initramfs.
+Changes since v1:
+- Mask the producer index in queue_get_producer() for
+  QUEUE_TYPE_FROM_CLIENT instead of checking it at the two requester
+  call sites, as suggested by the Sashiko AI review of v1. This also
+  covers rxe_qp_init_req(), which initializes qp->req.wqe_index from
+  the same value, and keeps the requester, the completer and the queue
+  helpers consistent with each other.
+- Point Fixes at commit ae6e843fe08d, which dropped the mask that
+  producer_index() had, instead of commit 5bcf5a59c41e.
+- Reword the commit message: the flush loop never converges because
+  the WQE index is advanced with the masked queue_next_index() while
+  the producer index stays out of range; the req_retry() reset detail
+  in the v1 description was inaccurate.
+- Update the subject to describe the actual mechanism.
 
-Host-model checks passed 4096 protection combinations, 200 copying cases
-and 24 timeout cases, including unlock-failure cleanup. Strict source
-checkpatch passed. The existing ASPEED MAINTAINERS matcher covers the file.
+ drivers/infiniband/sw/rxe/rxe_queue.h | 1 +
+ 1 file changed, 1 insertion(+)
 
- drivers/nvmem/Kconfig            |  13 ++
- drivers/nvmem/Makefile           |   1 +
- drivers/nvmem/nvmem-aspeed-otp.c | 299 +++++++++++++++++++++++++++++++
- 3 files changed, 313 insertions(+)
- create mode 100644 drivers/nvmem/nvmem-aspeed-otp.c
-
-diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
-index d2f5bb2..65f6a88 100644
---- a/drivers/nvmem/Kconfig
-+++ b/drivers/nvmem/Kconfig
-@@ -164,6 +164,19 @@ config NVMEM_APPLE_SPMI
- 	  This driver can also be built as a module. If so, the module
- 	  will be called apple-nvmem-spmi.
- 
-+config NVMEM_ASPEED_OTP
-+	tristate "ASPEED OTP support"
-+	depends on ARCH_ASPEED || COMPILE_TEST
-+	depends on HAS_IOMEM
-+	help
-+	  Say Y here to enable read-only access to the OTP data region
-+	  on ASPEED AST2600 BMCs through the NVMEM interface.
-+
-+	  This driver can also be built as a module. If so, the module
-+	  will be called nvmem-aspeed-otp.
-+
-+	  If unsure, say N.
-+
- config NVMEM_BCM_OCOTP
- 	tristate "Broadcom On-Chip OTP Controller support"
- 	depends on ARCH_BCM_IPROC || COMPILE_TEST
-diff --git a/drivers/nvmem/Makefile b/drivers/nvmem/Makefile
-index 5e70bad..ca62940 100644
---- a/drivers/nvmem/Makefile
-+++ b/drivers/nvmem/Makefile
-@@ -23,6 +23,7 @@ obj-$(CONFIG_NVMEM_APPLE_EFUSES)	+= nvmem-apple-efuses.o
- nvmem-apple-efuses-y 			:= apple-efuses.o
- obj-$(CONFIG_NVMEM_APPLE_SPMI)		+= apple_nvmem_spmi.o
- apple_nvmem_spmi-y			:= apple-spmi-nvmem.o
-+obj-$(CONFIG_NVMEM_ASPEED_OTP)	+= nvmem-aspeed-otp.o
- obj-$(CONFIG_NVMEM_BCM_OCOTP)		+= nvmem-bcm-ocotp.o
- nvmem-bcm-ocotp-y			:= bcm-ocotp.o
- obj-$(CONFIG_NVMEM_BRCM_NVRAM)		+= nvmem_brcm_nvram.o
-diff --git a/drivers/nvmem/nvmem-aspeed-otp.c b/drivers/nvmem/nvmem-aspeed-otp.c
-new file mode 100644
-index 0000000..e4b3a8e
---- /dev/null
-+++ b/drivers/nvmem/nvmem-aspeed-otp.c
-@@ -0,0 +1,299 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) ASPEED Technology Inc.
-+ *
-+ * ASPEED AST2600 OTP Controller driver
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/cleanup.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/nvmem-provider.h>
-+#include <linux/platform_device.h>
-+#include <linux/unaligned.h>
-+
-+#define AST2600_OTP_PROTECT_KEY		0x00
-+#define  AST2600_OTP_UNLOCK_KEY		0x349fe38a
-+#define AST2600_OTP_CMD			0x04
-+#define  AST2600_OTP_CMD_READ		0x23b1e361
-+#define  AST2600_OTP_CMD_WRITE_MODE	0x23b1e362
-+#define AST2600_OTP_ADDR			0x10
-+#define AST2600_OTP_STATUS		0x14
-+#define  AST2600_OTP_STATUS_DONE		GENMASK(2, 1)
-+#define AST2600_OTP_COMPARE_1		0x20
-+#define AST2600_OTP_COMPARE_2		0x24
-+#define AST2600_OTP_EXTRA_READ_PROTECT	0x54
-+#define  AST2600_OTP_EXTRA_READ_RANGE	GENMASK(5, 0)
-+
-+/* OTP macro addresses selected through AST2600_OTP_ADDR, not MMIO offsets. */
-+#define AST2600_OTP_CONF0_ADDR		0x800
-+#define  AST2600_OTP_CONF0_SEC_SIZE	GENMASK(21, 16)
-+#define AST2600_OTP_MR			0x1000
-+#define AST2600_OTP_MRA			0x3000
-+#define AST2600_OTP_MRB			0x5000
-+
-+/* Normal reads take less than 1 us; allow a generous bounded wait. */
-+#define AST2600_OTP_TIMEOUT_US		100000
-+#define AST2600_OTP_DATA_WORDS		0x800
-+#define AST2600_OTP_SIZE			(AST2600_OTP_DATA_WORDS * sizeof(u32))
-+#define AST2600_OTP_SEC_SIZE_UNIT		(32 * sizeof(u32))
-+
-+struct aspeed_otp {
-+	struct device *dev;
-+	void __iomem *base;
-+	/* Serialize the complete unlock, read and relock sequence. */
-+	struct mutex lock;
-+	struct nvmem_keepout secure_keepout;
-+	bool failed;
-+};
-+
-+static int aspeed_otp_unlock(struct aspeed_otp *priv)
-+{
-+	writel(AST2600_OTP_UNLOCK_KEY, priv->base + AST2600_OTP_PROTECT_KEY);
-+	if (readl(priv->base + AST2600_OTP_PROTECT_KEY) != 1)
-+		return -EIO;
-+
-+	return 0;
-+}
-+
-+static void aspeed_otp_lock(struct aspeed_otp *priv)
-+{
-+	writel(0, priv->base + AST2600_OTP_PROTECT_KEY);
-+}
-+
-+static int aspeed_otp_wait_complete(struct aspeed_otp *priv)
-+{
-+	u32 status;
-+	int ret;
-+
-+	/* Wait at least 1 us before the first sample of both idle flags. */
-+	ret = read_poll_timeout(readl, status,
-+				(status & AST2600_OTP_STATUS_DONE) ==
-+				AST2600_OTP_STATUS_DONE,
-+				1, AST2600_OTP_TIMEOUT_US, true,
-+				priv->base + AST2600_OTP_STATUS);
-+	if (ret) {
-+		/* Relocking SEC00 does not abort an outstanding command. */
-+		priv->failed = true;
-+		dev_err(priv->dev,
-+			"OTP completion timed out (status=%#x); further reads blocked\n",
-+			status);
-+	}
-+
-+	return ret;
-+}
-+
-+static int aspeed_otp_init_read_mode(struct aspeed_otp *priv)
-+{
-+	static const u32 mode_addresses[] = {
-+		AST2600_OTP_MRA, AST2600_OTP_MRB, AST2600_OTP_MR,
-+	};
-+	int i, ret;
-+
-+	ret = aspeed_otp_wait_complete(priv);
-+	if (ret)
-+		return ret;
-+
-+	/* Earlier firmware may leave the macro in program mode; restore read mode. */
-+	for (i = 0; i < ARRAY_SIZE(mode_addresses); i++) {
-+		writel(mode_addresses[i], priv->base + AST2600_OTP_ADDR);
-+		writel(0, priv->base + AST2600_OTP_COMPARE_1);
-+		writel(AST2600_OTP_CMD_WRITE_MODE, priv->base + AST2600_OTP_CMD);
-+		ret = aspeed_otp_wait_complete(priv);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int aspeed_otp_read_pair(struct aspeed_otp *priv,
-+				unsigned int aligned_word, u32 data[2])
-+{
-+	int ret;
-+
-+	/* The hardware reads two words starting at an even word index. */
-+	writel(aligned_word, priv->base + AST2600_OTP_ADDR);
-+	writel(AST2600_OTP_CMD_READ, priv->base + AST2600_OTP_CMD);
-+
-+	ret = aspeed_otp_wait_complete(priv);
-+	if (ret)
-+		return ret;
-+
-+	data[0] = readl(priv->base + AST2600_OTP_COMPARE_1);
-+	data[1] = readl(priv->base + AST2600_OTP_COMPARE_2);
-+
-+	return 0;
-+}
-+
-+static int aspeed_otp_init_unlocked(struct aspeed_otp *priv)
-+{
-+	u32 data[2];
-+	int ret;
-+
-+	ret = aspeed_otp_init_read_mode(priv);
-+	if (ret)
-+		return ret;
-+
-+	ret = aspeed_otp_read_pair(priv, AST2600_OTP_CONF0_ADDR, data);
-+	if (ret)
-+		return ret;
-+
-+	priv->secure_keepout.end =
-+		FIELD_GET(AST2600_OTP_CONF0_SEC_SIZE, data[0]) *
-+		AST2600_OTP_SEC_SIZE_UNIT;
-+
-+	return 0;
-+}
-+
-+static int aspeed_otp_init(struct aspeed_otp *priv)
-+{
-+	int ret;
-+
-+	/* The provider is not registered yet; there are no concurrent readers. */
-+	ret = aspeed_otp_unlock(priv);
-+	if (!ret)
-+		ret = aspeed_otp_init_unlocked(priv);
-+	aspeed_otp_lock(priv);
-+
-+	return ret;
-+}
-+
-+static int aspeed_otp_read_data(struct aspeed_otp *priv, unsigned int offset,
-+				void *val, size_t bytes)
-+{
-+	unsigned int word_index = offset / sizeof(u32);
-+	u8 *buf = val;
-+	u32 data[2];
-+	int i, ret;
-+
-+	ret = aspeed_otp_wait_complete(priv);
-+	if (ret)
-+		return ret;
-+
-+	while (bytes) {
-+		ret = aspeed_otp_read_pair(priv, word_index & ~1U, data);
-+		if (ret)
-+			return ret;
-+
-+		for (i = word_index & 1; i < ARRAY_SIZE(data) && bytes; i++) {
-+			put_unaligned_le32(data[i], buf);
-+			buf += sizeof(u32);
-+			bytes -= sizeof(u32);
-+			word_index++;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int aspeed_otp_read(void *context, unsigned int offset,
-+			   void *val, size_t bytes)
-+{
-+	struct aspeed_otp *priv = context;
-+	unsigned int secure_size;
-+	u32 extra_read;
-+	int ret;
-+
-+	if (!bytes)
-+		return 0;
-+
-+	if (offset % sizeof(u32) || bytes % sizeof(u32))
-+		return -EINVAL;
-+
-+	if (offset >= AST2600_OTP_SIZE ||
-+	    bytes > AST2600_OTP_SIZE - offset)
-+		return -EINVAL;
-+
-+	guard(mutex)(&priv->lock);
-+
-+	if (priv->failed)
-+		return -EIO;
-+
-+	/* SEC54[5:0] can only grow until the ARM cores reset. */
-+	extra_read = readl(priv->base + AST2600_OTP_EXTRA_READ_PROTECT);
-+	secure_size = FIELD_GET(AST2600_OTP_EXTRA_READ_RANGE, extra_read) *
-+		      AST2600_OTP_SEC_SIZE_UNIT;
-+	secure_size = max(priv->secure_keepout.end, secure_size);
-+	if (offset < secure_size)
-+		return -EACCES;
-+
-+	ret = aspeed_otp_unlock(priv);
-+	if (!ret)
-+		ret = aspeed_otp_read_data(priv, offset, val, bytes);
-+	aspeed_otp_lock(priv);
-+	/* Complete the lock write before handing the mutex to another reader. */
-+	readl(priv->base + AST2600_OTP_PROTECT_KEY);
-+
-+	return ret;
-+}
-+
-+static int aspeed_otp_probe(struct platform_device *pdev)
-+{
-+	struct nvmem_config config = {
-+		.name = "aspeed-otp",
-+		.id = NVMEM_DEVID_AUTO,
-+		.owner = THIS_MODULE,
-+		.type = NVMEM_TYPE_OTP,
-+		.read_only = true,
-+		.root_only = true,
-+		.word_size = sizeof(u32),
-+		.stride = sizeof(u32),
-+		.size = AST2600_OTP_SIZE,
-+		.reg_read = aspeed_otp_read,
-+	};
-+	struct aspeed_otp *priv;
-+	struct device *dev = &pdev->dev;
-+	int ret;
-+
-+	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	priv->dev = dev;
-+	priv->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(priv->base))
-+		return PTR_ERR(priv->base);
-+
-+	ret = devm_mutex_init(dev, &priv->lock);
-+	if (ret)
-+		return ret;
-+
-+	ret = aspeed_otp_init(priv);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "Failed to initialize OTP read mode and secure prefix\n");
-+
-+	config.dev = dev;
-+	config.priv = priv;
-+	if (priv->secure_keepout.end) {
-+		config.keepout = &priv->secure_keepout;
-+		config.nkeepout = 1;
-+	}
-+
-+	return PTR_ERR_OR_ZERO(devm_nvmem_register(dev, &config));
-+}
-+
-+static const struct of_device_id aspeed_otp_of_match[] = {
-+	{ .compatible = "aspeed,ast2600-sbc" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, aspeed_otp_of_match);
-+
-+static struct platform_driver aspeed_otp_driver = {
-+	.probe = aspeed_otp_probe,
-+	.driver = {
-+		.name = "aspeed-otp",
-+		.of_match_table = aspeed_otp_of_match,
-+	},
-+};
-+module_platform_driver(aspeed_otp_driver);
-+
-+MODULE_AUTHOR("Neal Liu <neal_liu@aspeedtech.com>");
-+MODULE_AUTHOR("Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>");
-+MODULE_DESCRIPTION("ASPEED AST2600 read-only OTP NVMEM driver");
-+MODULE_LICENSE("GPL");
+diff --git a/drivers/infiniband/sw/rxe/rxe_queue.h b/drivers/infiniband/sw/rxe/rxe_queue.h
+index c711cb98b9496..fe65aecc60464 100644
+--- a/drivers/infiniband/sw/rxe/rxe_queue.h
++++ b/drivers/infiniband/sw/rxe/rxe_queue.h
+@@ -106,6 +106,7 @@ static inline u32 queue_get_producer(const struct rxe_queue *q,
+ 	case QUEUE_TYPE_FROM_CLIENT:
+ 		/* used by rxe, client owns the index */
+ 		prod = smp_load_acquire(&q->buf->producer_index);
++		prod &= q->index_mask;
+ 		break;
+ 	case QUEUE_TYPE_TO_CLIENT:
+ 		/* used by rxe which owns the index */
 -- 
-2.47.3
+2.43.0
 
