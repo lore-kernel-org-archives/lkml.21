@@ -1,66 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.142.180.65
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795280255;
-	b=rmnPI7Zpcp1V0opuFxCpcehm3TY1f0ErFitLA19KYHzgXXz/p/YOOntFHZLvd+biqjrV
-	 8D9C5f7B2Ip3U02h2SP8FL4AWA5A0u+bfVKebyU7prFR7y1hiI//md570I9tzrAx1DXC3
-	 XN7MrryXllOtOQkH01y4+siXY3hYFw5WLf/tVFFnIAcBVR6o0wFKRwcQtwF8OP/lPQtUT
-	 7PaUc4mkztx9cMYMHkjqTeTGskUWNqcob38UVllcA5hwf75NDLLb/nMZKd2IvUd1snQbq
-	 tFvZOe8Cq88yo4zpZ9OTI3m/r0Bjo+J8ix3ZUeZr5tRQZOJCp9dn54sKKBKJPYqlyEw==
+	t=1795280396;
+	b=hz1Q81AzGiHHgsqk9OVGYGge9ao00Wg/7YxDYZSS6KwMMKAWKlNE2LqZaFIZtdQB4xcx
+	 Relf1QtwnsCfMa69GhDFeHK7K0b9iCFsKQySbXA+fWi1Zp2/TJTanJLEKv7ruLsqrgqLh
+	 3DnG2dOHmSnbe/RDyruUsigfqac1+9gyupc4cYKxwfdXmd6eD+ddPVdcwiFqVf+6PuvQi
+	 0tjHYIaNv6jtGO3431DdW1Q4M+YYqlwiYnu/9Bz3H4O7yAlHc2/VvjeZ6EBqu26yskZh6
+	 tTVVaj459hiV+xRGunju0qhud3lY1VYeLf9Nme4PJu20C/+eqGtfmiBtOl77YlhYhBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795280255;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=VS06vSM4qtWUmBvMENtTVI0rKBtvKYghkg4SBYgLU6w=;
-	b=l27TedCkteMP/Cz01AhmF07gWnM+is3Y02oQyi+pWgDM8Ho0GEsRWI9XNoEf9iS2kEvG
-	 vw7CjpgpTwT01JiFn8eAeWoyvVfEm3VfO/qXi93dK93/2khkXQcKxrVtXL6Dus26iO+uD
-	 vdBWnYDrof6aBx34wwQp4D61ZxFEf/60JcOpZ4ZaK1A+AAHAv2IxTrdHA1EDmv41JSdGP
-	 or08L6wSlFoqlysi0MILVO631l9l7z2lXUdCMVcjoIjNssW/vxBROqmyj7QkBhEWhBiPt
-	 X2pjL3YIUoJNMgI4GY+JYbKMBafrV+l8Scw3w4S0J9pJb93j0/ydm35ygdjKoLm6K+g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795280396;
+	h=Received:DKIM-Signature:Date:From:To:Subject:Message-ID:MIME-Version:
+	 Content-Type:Content-Disposition;
+	bh=HxFQ2qa/MmVsd7tMIBT1v4526ip7d+VB96nm/kUeU0c=;
+	b=R5uY6aNjsxN9XRAeLUrsrOAct0jWQ81XjMZTg0Us6+j/TEaO++I9PlN40SpzmHqyBJGn
+	 l41MiQLmh6zxYXroQ9dpJf3Mgpbw74R/ieQ2qcUeNROvSzSAO4cab5wvBxNCE6CYRPmyQ
+	 9OoT6+JAruqpegmDESjz9VyX+/NDEp4xRfEPynid6j8yIesDlpdRtyozLy4D8+FJJAKHf
+	 yM+OBCgK9bnvlagyYxRvWQbm/2UBw6Z2JYVWy2hBJ+HD1FbzhZjSTAZgiUR1tTEBgenKM
+	 1KPIxQuw9QMrLj1HlWyuW3G/7lOpAaOOXYqtTHwuMrZH/e/YdVlZoVg2F4Qqq7pnKxQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=makrotopia.org;
-	spf=pass smtp.mailfrom=makrotopia.org;
-	arc=none smtp.remote-ip=185.142.180.65
-Received: from pidgin.makrotopia.org (pidgin.makrotopia.org [185.142.180.65])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XrA1lHl4;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECF6C606A68E;
-	Sat, 21 Nov 2026 16:57:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ECF6C606A68E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=makrotopia.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=makrotopia.org
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
-	 (Exim 4.100.1)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1xUoP1-000000006J5-3KDm;
-	Sat, 21 Nov 2026 16:57:27 +0000
-Date: Sat, 21 Nov 2026 16:57:18 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: Detlev Casanova <detlev.casanova@collabora.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Michael Riesch <michael.riesch@collabora.com>,
-	David Heidelberg <david@ixit.cz>,
-	Christian Hewitt <christianshewitt@gmail.com>,
-	Marc Zyngier <maz@kernel.org>, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Diederik de Haas <diederik@cknow-tech.com>,
-	Dang Huynh <dang.huynh@mainlining.org>,
-	Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-Subject: [PATCH v6 5/5] arm64: dts: rockchip: rk356x: Clock the vdec at 400
- MHz
-Message-ID: <11b23bbdd9b1e2e351978ed87ed87bfbb7a00076.1795279680.git.daniel@makrotopia.org>
-References: <cover.1795279680.git.daniel@makrotopia.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 427CD606A32C;
+	Sat, 21 Nov 2026 16:59:56 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XrA1lHl4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FBE31F000C6;
+	Sat, 21 Nov 2026 16:59:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795280395;
+	bh=HxFQ2qa/MmVsd7tMIBT1v4526ip7d+VB96nm/kUeU0c=;
+	h=Date:From:To:Subject;
+	b=XrA1lHl4gnn2kw/Bz9DfiQwty3vdVgUUmcCpbnNE5YokCOeCyK9ut/VNAUd+/LI7F
+	 ny/GwGPeF9RR/9wExG7twav6NXRbpAVE9dxPYHoC5nRWVY9bQgZbN5g/3CkH2smJg5
+	 Tpzf8iGI/7pKH0AiQiuxl4D7IBRPe7mvJQ4hgcAddeG4J9e6bqRd+H0H/mx3gAYd8+
+	 CGAkSDk7YlsxZXLi0yCdMivpTQUzIquIFlm2QT8+VHu4XNE8E2fFWYqxx1S20Ry17p
+	 WmMcSIWogeY2Uu1Gppxt6mmwjbPSGil5+hTpKK3UJm0/Poub821WFMZtWmNGPzAhmE
+	 R17rjA13cn9NA==
+Date: Sat, 21 Nov 2026 17:59:51 +0100
+From: Helge Deller <deller@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
+	dri-devel@lists.freedesktop.org
+Subject: [GIT PULL] fbdev fixes for v7.4-rc4
+Message-ID: <awHOB8hdCRXVd--I@carbonx1>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,43 +57,81 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cover.1795279680.git.daniel@makrotopia.org>
 
-The decoder AXI, core and CABAC clocks are assigned 297 MHz, the rate
-the vendor kernel derives as a quarter of its 1188 MHz GPLL. This dtsi
-runs the GPLL at 1200 MHz, from which the closest rate below 297 MHz
-is 240 MHz.
+Dear Linus,
 
-Assign 400 MHz, a third of the GPLL. The vendor kernel clocks the
-decoder at a third of its GPLL for streams above 1920x1088 and lists
-400 MHz at 900 mV as the highest decoder operating point. The rkvdec
-driver scales neither the clocks nor the supply, so the rate applies
-to every stream.
+please pull some more fbdev fixes for kernel v7.4-rc4.
 
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
----
-v6: no changes
-v5: state that the rate applies to all streams; no changes to the dtsi
-v4: new patch
+Thanks!
+Helge
 
----
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+----------------------------------------------------------------
+The following changes since commit 7475ea8b58616b33c04afb976cf0fbaad9dd63fb:
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index 411c9ed62d4ac..6305a57258b4c 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -666,8 +666,8 @@ vdec: video-codec@fdf80100 {
- 				  <&cru CLK_RKVDEC_CORE>,
- 				  <&cru CLK_RKVDEC_CA>,
- 				  <&cru CLK_RKVDEC_HEVC_CA>;
--		assigned-clock-rates = <297000000>, <297000000>,
--				       <297000000>, <600000000>;
-+		assigned-clock-rates = <400000000>, <400000000>,
-+				       <400000000>, <600000000>;
- 		iommus = <&vdec_mmu>;
- 		power-domains = <&power RK3568_PD_RKVDEC>;
- 		resets = <&cru SRST_A_RKVDEC>, <&cru SRST_H_RKVDEC>,
--- 
-2.56.1
+  Linux 7.4-rc2 (2026-11-08 16:22:20 -0800)
+
+are available in the Git repository at:
+
+  http://git.kernel.org/pub/scm/linux/kernel/git/deller/linux-fbdev.git tags/fbdev-for-7.4-rc4
+
+for you to fetch changes up to b3f1631d362539cfe14571ccfd7db919ffbc08c7:
+
+  fbdev: radeonfb: reject a zero pixclock in radeonfb_check_var() (2026-11-19 17:57:11 +0100)
+
+----------------------------------------------------------------
+fbdev fixes for 7.4-rc4:
+
+Various small fixes, all scheduled for backport, which fix out-of-bound
+accesses, improves the parameter checks or fix use-after-free accesses in
+fm2fb, radeonfb, cobalt_lcdfb, valkyriefb, sstfb.
+vgacon now falls back to the dummy console if mapping the VGA memory
+fails, which fixes a crash on Alpha, and fix one sleep-in-atomic-context
+bug which is triggered by the blinking cursor.
+
+----------------------------------------------------------------
+Jianqiang Zou (1):
+      fbdev: radeonfb: reject a zero pixclock in radeonfb_check_var()
+
+Matt Turner (1):
+      vgacon: Fall back to the dummy console if mapping VGA memory fails
+
+Miro Kropacek (1):
+      fbdev: atafb: Restrict SuperVidel handling to the Falcon
+
+Steffen A. Mork (1):
+      fbdev: fm2fb: Fix iomem access
+
+Suyuan Wang (1):
+      fbdev: cobalt_lcdfb: Don't read info after framebuffer_release()
+
+Tim Douglas (2):
+      fbdev: macmodes: compare the pixel clock of each candidate mode
+      fbdev: valkyriefb: keep the framebuffer mapping size fixed
+
+Weiming Shi (1):
+      fbdev: vfb: Validate framebuffer geometry and memory size
+
+Xue Haolin (1):
+      fbdev: sstfb: Error out if pixclock equals zero
+
+Yao Yiqi (1):
+      fbcon: Avoid cancel_delayed_work_sync() in atomic context
+
+YuanZhe Liu (3):
+      fbdev: smscufx: don't free registered framebuffer on probe error
+      fbdev: smscufx: keep the usb_device alive while ufx_data is in use
+      fbdev: smscufx: allocate the size advertised in smem_len
+
+ drivers/video/console/vgacon.c        |  2 ++
+ drivers/video/fbdev/atafb.c           | 18 ++++++++++-----
+ drivers/video/fbdev/aty/radeon_base.c |  3 +++
+ drivers/video/fbdev/cobalt_lcdfb.c    |  3 ++-
+ drivers/video/fbdev/core/fbcon.c      | 41 ++++++++++++++++++++++++++++++-----
+ drivers/video/fbdev/core/fbcon.h      |  1 +
+ drivers/video/fbdev/fm2fb.c           |  2 +-
+ drivers/video/fbdev/macmodes.c        |  2 +-
+ drivers/video/fbdev/smscufx.c         | 26 +++++++++++++++++-----
+ drivers/video/fbdev/sstfb.c           |  3 +++
+ drivers/video/fbdev/valkyriefb.c      |  3 +--
+ drivers/video/fbdev/vfb.c             | 18 +++++++++++++--
+ 12 files changed, 99 insertions(+), 23 deletions(-)
