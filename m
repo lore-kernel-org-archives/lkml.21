@@ -1,106 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795297295;
-	b=NwDhaCrKQyCwGKzPD87o3IUrz+OH0Di128ECWmg1qtQ1WBfSHyJUYda2ct+MeECk0HuF
-	 9qYqMk4CxRWPAT8t4DDjfF0mQltQVlsevPuAVDj87JegXzZBT9N421MZEZv/LpI4ZVyUV
-	 aAxFl5UJa/uN7+tBJU+Z1oWqtSDj8ODiz578+Am3/PWBxGRjqFm3ISCRO6LGAlbXrI7zw
-	 HVoEu5tFWV0Pg0Y1PZjx9LCIbU5kzNlqHN/SSlBC9qoPsqBAacf+vd6wdx09rqQIRDtel
-	 9X/0nGPr38WQ4ZfIZbO8KeHDZBpA03DXtMP7/Y7nmzDEvPFMkJgb90XQY29Q//sPcHQ==
+	t=1795297616;
+	b=dpBUVYFdlb8hA71Qi9/EReN/AH/K5Fg3MdOgzxAyUBVOgHTpZNwpdYuU4K/cYTea1jYZ
+	 WyOnzdK3AjdEMOULmUcarDKbSV1/DepLqyw526QSeUbdQyG70m8ZT3aU/sbbU+H6E+G9J
+	 vAnAr66Q3IS29pWfNuku9IBsfEgrKslyLog/8XfvMQo/rAywjhFPNi27mnVc2fdPszUiT
+	 FKHdmNa2v3wp71ORBPNpXDKEOkqyLAZNEG+2o/RAChpf5pmysq/zS5jpGubfnXw7Nu9mg
+	 lMQfSDwOriXUdpeCAO5XlPGbPR9jxTMAG9iJgv0YCYNO16G46D2/M+VF3xpdXJskilg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795297295;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795297616;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=5I2aOpuySiZc3XsYEC1y1yTm/k9Phx8ruM/1Leeniig=;
-	b=bIa3IN3tKqGkvQAL5wgiaRwAvjjS5l+CHGLfDcckw21c2kBO4dPus06uC0hMZBGtUb1+
-	 vmljJyTa/h+KVzqSA9iIwHumn6jJQdvqYxzwvzUuticrJf0rUlWndB3kvS1rnVttfKF00
-	 dtvevNB5Mnf/5yAQfOfq1dKBVdJNLlIgJgiqdx6gYRDheQeGpmxTfXkvJw1mN4auxxM+7
-	 o/gttGmzablLvaPK8z65vqN7h8Dhm5plDeJW6f2CYSuhjhr0QUYnyzklcoMi1K7VoQdkF
-	 kAwjJWFgr4tbqjyyut8yibfab0+JIGaZ7LuZ5dZmdbMvhF8VlIH07TJuXJmAhbS6+Aw==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=TWNBM4X5o3GcOyIN6ILVF1WfQ9yHkncXfpMuWBwbaI0=;
+	b=mZ+PRy34g0WUyank+mLUHs61g0LR96qRPIAxgUKpe8LVMZA/l/9eVUk135Hed8fjaH4r
+	 8XSWrUSivxEBW26y1ZrAJkOFT8zfJpTs+tWybmuqDHPDiu+SzAoTvC8iosRGuw/7beO0M
+	 F3p8HPuMsquUVaPJUmOTz/xaSUMWcTcO8TYiChmhL13vB9/C6wdCNEoCZ/Axm9wAJHx1y
+	 4nuVYgUJlgBkgFThkmBIK3rmxSmFhUCzTvy7xDUw/4xBlp90rY+d0K2+vyeHgiTFxFfKe
+	 j/U1ymKvGevuTkHptgWRefwqYWMvkLZtVaSH6OW4mhJhRh9GNZSQOWcUvmi1vMGkW9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=H3hNGtNh;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jSsSuIyv;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07DB5606A684
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:41:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07DB5606A684
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB26C606A32C
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:46:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB26C606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=H3hNGtNh
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb6adaf0f1so17462235e9.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:41:33 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jSsSuIyv
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4a35ac4475dso15349895e9.2
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:46:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795297292; x=1795902092; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5I2aOpuySiZc3XsYEC1y1yTm/k9Phx8ruM/1Leeniig=;
-        b=H3hNGtNhCqo5UV0LMegPiex9yYlJgra1sYUFExskdnuhc88GThB0OPpD+zCGvcvm5L
-         S8SgghGEGDvnW5ZWK/fDMmnJCxaoA1LNr70WKCKXlvgVJFy1olWhoCuw6cWLM3naUlbD
-         kEH7Kjra8JIA3c6lewfvKI7lOUrKH1tRsgjoysRYzR7bogJHz6JiUz97LD97bn0XnJ/U
-         NXRu/wilCskBqS3yyrq9kdCFJtBDDTnEch6WAHENBGhuzTvcZjgPKIj0m0FJlTQGWV6t
-         AosLQVUiZlcOo0B0TrPJuDanByX75hl9eTqxK/I1zLIAfka3ObMUcoXNpQ9kA5OG7s5H
-         zTsQ==
+        d=gmail.com; s=20260707; t=1795297614; x=1795902414; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TWNBM4X5o3GcOyIN6ILVF1WfQ9yHkncXfpMuWBwbaI0=;
+        b=jSsSuIyv+nr0WU2tkwLYJqsObng/5bFZYVRN7hJwQZJdjy9JHvI9MlUHcLrpUhkzKQ
+         cClPDOemgU9H/pXDSRDs/UcL6r37lycX57cBVTcxRMimY1Aa075NxhBjPVDTj670AByL
+         dxYs4x3o/9mYTzoShOtazjfrQdkmcUZFgqOl9aTnm8gA3rgk113M4mE7ZvnEGyX+Ky5D
+         uMsg17vkPH/Rph2ZifV/CtfxxPUuTtP7MQdlP1gWPxo2GzP7H8x0VlLJzefr9CBc+Ayc
+         7NSWD9V+GDaBqwR6jGwFz7SUGOTv9+pQsC8jx3UC/Zs6vTJOW+YemaDs2/AQ8b6Ocy+H
+         149g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795297292; x=1795902092;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5I2aOpuySiZc3XsYEC1y1yTm/k9Phx8ruM/1Leeniig=;
-        b=HeadAWNNeIB3vC9l9dYouu2fLCFhpc21JuRT75zPee/vv8M8b80mxfTHxj7P1p+jgY
-         hUbuEHoZ2PAzue7wvBc+cwLbgODsbvNJvrKOo3m2loJ0APr8+jHsHGhpiD74Kqo5+KZZ
-         gK3clH/q98JsFidhitWkR/1OIWQAIiwWnwizUHJBIjocmRiVcvNClhrK6IDKvtoyigvN
-         TjOxZ+K4TmjQnnxR+HqPD8EjNeeFMQBs98vBsjomVr8GaH6b22HGIZ/KUxHzPplldB7c
-         cjHLS7u1cn1WkdUoqz1OUbibKa3Tyl+QG4lZacmFKlVNkBo9gPm+FMIKCxv54iIkqqCe
-         /WJQ==
-X-Forwarded-Encrypted: i=1; AL+hErHuXRF1327tUqRtb0LzAy/CwrZpAvUHxt9aSsAfqq03DwczJdISm0yVMKAEo0joli04s6O00Ev/qVflOr0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+eBl9WgNbYNsUCx1MC3UgwmYKrqHZTzguuND90bHPSZAyDb1cv
-	XeVkFpKPTJnvwgcMomG0gNoGfCvo6fZo9Ps3ltlnT9iiHgydlWjkb2s=
-X-Gm-Gg: AZFdTZcMvU3h7IK7lRYRXRFyCBGV2QlvenUU3T8guJMqf+OCwp3VaKpimC2dzsCMqAG
-	SJuDIjkqtLlEG8/O+oZrQMswdpmGrsP6KJzV7ZoeUVOk6gsmbqCxKXRn09w7JUmug92Ir0rjHbt
-	FJzcAallN6i/DqdWlls084vg9SQUUwhXTiAQv8tL3Zx/HtYzJlCihFUTbT0vJjRGYm3zCyGpI1Y
-	Orvo0xbZhw/eywLMKDMQoMWIKFNB2ow0EY88uRfnNwZND2gDOjVlvHSsJuOJz9Hmum6zVnVqO2u
-	3WLCeJkwbgSis26BmXN2qSA3rXcAebBLwoqlQpqhwoX3PrkQL+SQFM/7ECG9AtSEUCKLv8PNifW
-	Yy7iQ2JhcbcfdcByveBKT0SkfphINJmM0Cz+doX2hEo8UgxRU+2KlXfZT1d8kO6S3kAhy6f7XUb
-	bc2/kUSGssUnwuWckGFXwOLUcTbq1hqNaa12sjMj7SRsp/fjC6GV8LZ/X06pWeiA/kSfQXexD3W
-	46lIfsPrNLnufc2bJytnd9YuHqs9MQhNDI99L49wfCb2z709OXfvdBySB+yJ1YOvVgmhFBkDvfw
-	+kSoWcYGwEt9zfMzGcDysKJaKFFRi8IQz34ZlG2T6KHHY4X2GOoJJjZk75pS6g==
-X-Received: by 2002:a05:600c:c4a2:b0:4a3:59c9:a744 with SMTP id 5b1f17b1804b1-4bb88807d87mr165597625e9.7.1795297292204;
-        Sat, 21 Nov 2026 13:41:32 -0800 (PST)
-Received: from h7015t.. ([193.207.113.127])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9067a0e6sm54580645e9.4.2026.11.21.13.41.30
+        d=1e100.net; s=20260707; t=1795297614; x=1795902414;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=TWNBM4X5o3GcOyIN6ILVF1WfQ9yHkncXfpMuWBwbaI0=;
+        b=F8sIlu+XqhrsN4EsH5RFH7nugpeGwkpmkEHmpKoUvVQj2ssoxebCikN+f0qkNBl2Ow
+         lNOgWTblBaZXq0kiGlywsDOGqiXOTk0B3DCbRye9Xn7pEWgUS3cbxI0bU40R0B8cefZO
+         hF5cXmCDi9jkrDJwdjhWSlJovVX0z3YJYdSte4zVqVrQK2aFqymUEXvajm19dRHfOTYZ
+         jOS9bq0Hg1Xbzk74ySX63IlgfBcydK+xm+esmJvNMHZrGcGfk0N9cTZR54s94vKDdwl/
+         rglCBI4ycR6qrJLa9ULWJfAhDfAzIhuzNlu3mfBq6VCWYYvJKnyBcz2s8lLWT+BirruR
+         IgJA==
+X-Forwarded-Encrypted: i=1; AL+hErGn4jyw3WelBTN9lA416mnQ0OIvzkHP1mAIhwFuiJufznkeJBBb0T0JOIf53NXp1WRKS0Whiep5xFUjlJc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/SU199tGJUIKKvcxvqTFIP//1ZuF+hFUSLzTVXvckD37t6BnwX
+	A1Tr//VNeZey51tvnG8ojhG9MXs/vq903iAg5jgsL+2pZ92RVogjt5BA
+X-Gm-Gg: AZFdTZcj43cgqCyHwRLZ3F2ZHUw4j3HlkVZQgusv3J4ZxPD4uqbd4xSL67JrVnyi6Jr
+	swH8rlPcz5MrUrBOXLlAhrpnDUrxMVL+ZrxOtJo+hNpSat7U0S/O5jn11YisFfoD5xG8y+U7aG3
+	PSlmsjW8DZvXz57RrD4kyAPs8C42SrjbKtL8S7UMnDu8iAE4aJ80bKAfpOECp1PjWZOKNqBDF/m
+	1+XOxMSxjIeTvObnIUZcYPtfEneyzagzm6T5TSMb1P7n6cZZlKzS5BVcg9Y6tEfQo8TVX+FN44w
+	E5zCZUUp1TITTrrU2+cRCnHG/vT9DAhlQ4hbCx68ud5iodH2bDpH5HsUOBUAL6YVNvjAFjIZu6c
+	youAnzcSkCn9bpOEjtNHGdcvuD2y4BNUaqNHOqk579RVaAfrg0utQxMzhwHukN3Cx4N7Czduzo6
+	TMMa503xcQZpBqO0BdRcwU/vCgVo2HpMKdauGQo8XaR02Jy08mvpvF94yEf7nmqWiGU97v9XzlK
+	hSuMhUpPj9Q2foginE0ZKyVjpa9wYjAqjhOUSmF0eGS7D3XS4r4D+rZBuiPjVhY256RZfTitN4X
+	ZiFwEgJdw/Va65/wBaTD5Vxdw5k9XjmkJUwNZV8WHBqan2zbkHO3jQ==
+X-Received: by 2002:a05:600c:3b1d:b0:4bb:6991:2330 with SMTP id 5b1f17b1804b1-4bb8881a890mr155037435e9.22.1795297613938;
+        Sat, 21 Nov 2026 13:46:53 -0800 (PST)
+Received: from localhost (ip87-106-108-193.pbiaas.com. [87.106.108.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a15absm182082365e9.9.2026.11.21.13.46.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 13:41:31 -0800 (PST)
-From: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
-To: Rob Clark <robin.clark@oss.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>
-Cc: Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Sean Paul <sean@poorly.run>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	Yongxing Mou <yongxing.mou@oss.qualcomm.com>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Dale Whinham <daleyo@gmail.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	linux-arm-msm@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	freedreno@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
-Subject: [PATCH 7/7] drm/msm/dp: fix HPD plugged and sink_count state tracking across hotplug
-Date: Sat, 21 Nov 2026 22:41:05 +0100
-Message-Id: <20261121214105.32596-8-gianfranco.mariotti94@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261121214105.32596-1-gianfranco.mariotti94@gmail.com>
-References: <20261121214105.32596-1-gianfranco.mariotti94@gmail.com>
+        Sat, 21 Nov 2026 13:46:53 -0800 (PST)
+Date: Sat, 21 Nov 2026 22:46:49 +0100
+From: =?iso-8859-1?Q?G=FCnther?= Noack <gnoack3000@gmail.com>
+To: =?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>
+Cc: Christian Brauner <brauner@kernel.org>,
+	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
+	Oleg Nesterov <oleg@redhat.com>, Tejun Heo <tj@kernel.org>,
+	Bart Van Assche <bvanassche@acm.org>, Cen Zhang <blbllhy@gmail.com>,
+	James Morris <jmorris@namei.org>,
+	Lee Seong Hyeon <ihopenre@gmail.com>,
+	Marco Elver <elver@google.com>, NeilBrown <neil@brown.name>,
+	Nickolai Zeldovich <nickolai@csail.mit.edu>,
+	Paul Moore <paul@paul-moore.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Serge E . Hallyn" <serge@hallyn.com>,
+	Yihan Ding <dingyihan@uniontech.com>, linux-kernel@vger.kernel.org,
+	linux-security-module@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] landlock: Do not hold exec_update_lock across the TSYNC
+ wait
+Message-ID: <20261121.bd9ab1ba5f9f@gnoack.org>
+References: <20261120151554.2651743-1-mic@digikod.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,147 +109,277 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261120151554.2651743-1-mic@digikod.net>
 
-Keep dp->plugged, dp->link->sink_count, AUX transfer enablement, and
-runtime PM references consistent across DisplayPort hotplug cycles:
+On Fri, Nov 20, 2026 at 04:15:52PM +0100, Mickaël Salaün wrote:
+> landlock_restrict_sibling_threads() write-locks
+> current->signal->exec_update_lock to serialize TSYNC callers, and holds
+> it until every sibling thread has run its task_work.  This wait is
+> unbounded: TWA_SIGNAL does not wake a TASK_KILLABLE sleeper, so a
+> sibling blocked as a vfork() parent runs it only once its child execs or
+> exits.
+> 
+> Meanwhile, readers of this lock block, mostly in D state:
+> /proc/<pid>/stat, mm_access(), pidfd_getfd(), kcmp(), perf_event_open(),
+> etc.  An unprivileged process can thus stall tools run by other users,
+> including root, such as ps and top.
+> 
+> Only a per-process "TSYNC in progress" marker is needed.  Use an unused
+> signal_struct.flags bit, protected by sighand->siglock, which is held
+> only to set or clear the marker.  A second caller still restarts the
+> syscall, and a cleanup class releases the marker on every return.
+> 
+> Like de_thread(), treat a group exit or an ongoing exec as a held
+> marker: a group exit may overwrite the flags, and both kill the other
+> threads, which the restart lets the caller handle.
+> 
+> Add KUnit tests for taking a free marker and for rejecting a held one.
+> A concurrent TSYNC caller cannot be started deterministically from user
+> space, but a KUnit thread has no sibling and can hold the marker itself.
+> 
+> Cc: Christian Brauner <brauner@kernel.org>
+> Cc: Günther Noack <gnoack@google.com>
+> Cc: Nickolai Zeldovich <nickolai@csail.mit.edu>
+> Cc: Oleg Nesterov <oleg@redhat.com>
+> Cc: Tejun Heo <tj@kernel.org>
+> Cc: Yihan Ding <dingyihan@uniontech.com>
+> Cc: stable@vger.kernel.org
+> Reported-by: Lee Seong Hyeon <ihopenre@gmail.com>
+> Suggested-by: Lee Seong Hyeon <ihopenre@gmail.com>
+> Fixes: ff88df67dbf7 ("landlock: Serialize TSYNC thread restriction")
+> Signed-off-by: Mickaël Salaün <mic@digikod.net>
+> ---
+> 
+> Changes since the initial report from Lee Seong Hyeon:
+> - Rewrite the fix, storing the marker in an unused signal_struct.flags
+>   bit protected by sighand->siglock instead of adding a signal_struct
+>   field.
+> - Treat group exit and ongoing exec as a held marker, because group exit
+>   may overwrite the flags.
+> - Release the marker with a cleanup class.
 
-- In msm_dp_hpd_plug_handle(), return early if dp->plugged is already
-  set so duplicate plug notifications do not leak runtime PM references,
-  and unwind AUX/PHY/runtime-PM state instead of setting dp->plugged =
-  true when msm_dp_display_process_hpd_high() fails.
-- In msm_dp_display_process_hpd_high(), ensure dp->link->sink_count = 1
-  when a valid EDID is read from a sink that reports sink_count == 0,
-  preventing msm_dp_display_prepare_link() from failing with -ENOTCONN.
-- In msm_dp_bridge_detect(), stop mutating priv->plugged (which is
-  paired with the HPD plug/unplug runtime PM reference), and always
-  disable AUX transfers on exit when !priv->plugged even if the PHY was
-  already initialized.
-- In msm_dp_hpd_unplug_handle(), reset dp->link->sink_count = 0 on
-  disconnect, and in msm_dp_display_unprepare(), only enter dongle D3
-  and re-initialize the PHY when dp->link->sink_count == 0 &&
-  dp->plugged so a full cable unplug powers down the PHY instead of
-  issuing AUX writes and leaving the PHY active.
+It's not clear to me why the cleanup class and the fix are bundled in
+one commit here.  (I do find the cleanup class useful, but shouldn't a
+bugfix commit be as minimal as possible so that it is easy for people
+to apply to their downstream kernels?)
 
-Fixes: 3ea2d1c3d154 ("drm/msm/dp: turn link_ready into plugged")
-Fixes: 1bda647ce61b ("drm/msm/dp: move link-level teardown from display_disable to display_unprepare")
-Signed-off-by: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
----
- drivers/gpu/drm/msm/dp/dp_display.c | 31 +++++++++++++++++++----------
- 1 file changed, 20 insertions(+), 11 deletions(-)
+–Günther
 
-diff --git a/drivers/gpu/drm/msm/dp/dp_display.c b/drivers/gpu/drm/msm/dp/dp_display.c
-index eddeb972d6d6..80f05effd18a 100644
---- a/drivers/gpu/drm/msm/dp/dp_display.c
-+++ b/drivers/gpu/drm/msm/dp/dp_display.c
-@@ -307,6 +307,9 @@ static int msm_dp_display_process_hpd_high(struct msm_dp_display_private *dp)
- 	dp->msm_dp_display.psr_supported = dp->panel->psr_cap.version && psr_enabled;
- 
- 	dp->audio_supported = info->has_audio;
-+	if (drm_edid && dp->link->sink_count == 0)
-+		dp->link->sink_count = 1;
-+
- 	msm_dp_panel_handle_sink_request(dp->panel, drm_edid);
- 
- 	/*
-@@ -417,6 +420,9 @@ static int msm_dp_hpd_plug_handle(struct msm_dp_display_private *dp)
- 
- 	guard(mutex)(&dp->plugged_lock);
- 
-+	if (dp->plugged)
-+		return 0;
-+
- 	ret = pm_runtime_resume_and_get(&pdev->dev);
- 	if (ret) {
- 		DRM_ERROR("failed to pm_runtime_resume\n");
-@@ -428,6 +434,12 @@ static int msm_dp_hpd_plug_handle(struct msm_dp_display_private *dp)
- 	msm_dp_display_host_phy_init(dp);
- 
- 	ret = msm_dp_display_process_hpd_high(dp);
-+	if (ret) {
-+		msm_dp_aux_enable_xfers(dp->aux, false);
-+		msm_dp_display_host_phy_exit(dp);
-+		pm_runtime_put(&pdev->dev);
-+		return ret;
-+	}
- 
- 	drm_dbg_dp(dp->drm_dev, "After, type=%d sink_count=%d\n",
- 			dp->msm_dp_display.connector_type,
-@@ -435,8 +447,8 @@ static int msm_dp_hpd_plug_handle(struct msm_dp_display_private *dp)
- 
- 	dp->plugged = true;
- 
--	return ret;
--};
-+	return 0;
-+}
- 
- static void msm_dp_display_handle_plugged_change(struct msm_dp *msm_dp_display,
- 		bool plugged)
-@@ -477,6 +489,8 @@ static int msm_dp_hpd_unplug_handle(struct msm_dp_display_private *dp)
- 	if (dp->link->sink_count == 0)
- 		msm_dp_display_host_phy_exit(dp);
- 
-+	dp->link->sink_count = 0;
-+
- 	/*
- 	 * We don't need separate work for disconnect as
- 	 * connect/attention interrupts are disabled
-@@ -923,26 +937,22 @@ enum drm_connector_status msm_dp_bridge_detect(struct drm_bridge *bridge,
- 	DRM_DEBUG_DP("aux link status: %x\n", ret);
- 	if (!priv->plugged && !ret) {
- 		DRM_DEBUG_DP("aux not connected\n");
--		priv->plugged = false;
- 		goto end;
- 	}
- 
- 	ret = drm_dp_read_dpcd_caps(priv->aux, dpcd);
- 	if (ret) {
- 		DRM_DEBUG_DP("failed to read caps\n");
--		priv->plugged = false;
- 		goto end;
- 	}
- 
- 	ret = drm_dp_read_desc(priv->aux, &desc, drm_dp_is_branch(dpcd));
- 	if (ret) {
- 		DRM_DEBUG_DP("failed to read desc\n");
--		priv->plugged = false;
- 		goto end;
- 	}
- 
- 	status = connector_status_connected;
--	priv->plugged = true;
- 
- 	if (drm_dp_read_sink_count_cap(connector, dpcd, &desc)) {
- 		int sink_count = drm_dp_read_sink_count(priv->aux);
-@@ -959,10 +969,9 @@ enum drm_connector_status msm_dp_bridge_detect(struct drm_bridge *bridge,
- 	 * lose the state.
- 	 */
- 	if (!priv->plugged) {
--		if (phy_deinit) {
--			msm_dp_aux_enable_xfers(priv->aux, false);
-+		msm_dp_aux_enable_xfers(priv->aux, false);
-+		if (phy_deinit)
- 			msm_dp_display_host_phy_exit(priv);
--		}
- 
- 		pm_runtime_put_sync(&dp->pdev->dev);
- 	}
-@@ -1524,12 +1533,12 @@ static void msm_dp_display_unprepare(struct msm_dp_display_private *dp)
- 	struct msm_dp *msm_dp_display = &dp->msm_dp_display;
- 
- 	/* dongle is still connected but sinks are disconnected */
--	if (dp->link->sink_count == 0)
-+	if (dp->link->sink_count == 0 && dp->plugged)
- 		msm_dp_link_psm_config(dp->link, &dp->panel->link_info, true);
- 
- 	msm_dp_ctrl_off_link(dp->ctrl, dp->panel);
- 
--	if (dp->link->sink_count == 0)
-+	if (dp->link->sink_count == 0 && dp->plugged)
- 		/* re-init the PHY so that we can listen to Dongle disconnect */
- 		msm_dp_ctrl_reinit_phy(dp->ctrl);
- 	else
--- 
-2.25.1
-
+> - Clarify that not all readers wait in D state: perf_event_open() waits
+>   interruptibly.
+> - Add KUnit tests.
+> - Credit Lee Seong Hyeon with Reported-by and Suggested-by instead of
+>   authorship, because the implementation was rewritten.
+> 
+> Christian, Oleg, and Tejun, this patch reserves a signal_struct.flags
+> bit for Landlock and relies on group-exit paths overwriting these flags
+> under siglock.  Please check that this use of signal-core state is
+> acceptable.
+> 
+> Lee, this rewrites the patch you sent with your report, so it credits
+> you with Reported-by and Suggested-by.  Please tell me if you prefer a
+> different credit.
+> ---
+>  include/linux/sched/signal.h |   1 +
+>  security/landlock/tsync.c    | 134 +++++++++++++++++++++++++++++++----
+>  2 files changed, 122 insertions(+), 13 deletions(-)
+> 
+> diff --git a/include/linux/sched/signal.h b/include/linux/sched/signal.h
+> index 0adb51ab1542..f68bbaa3527a 100644
+> --- a/include/linux/sched/signal.h
+> +++ b/include/linux/sched/signal.h
+> @@ -262,6 +262,7 @@ struct signal_struct {
+>  #define SIGNAL_STOP_STOPPED	0x00000001 /* job control stop in effect */
+>  #define SIGNAL_STOP_CONTINUED	0x00000002 /* SIGCONT since WCONTINUED reap */
+>  #define SIGNAL_GROUP_EXIT	0x00000004 /* group exit in progress */
+> +#define SIGNAL_LANDLOCK_TSYNC	0x00000008 /* Landlock TSYNC in progress */
+>  /*
+>   * Pending notifications to parent.
+>   */
+> diff --git a/security/landlock/tsync.c b/security/landlock/tsync.c
+> index cfa73a2a67ca..a6fa9ce0ac78 100644
+> --- a/security/landlock/tsync.c
+> +++ b/security/landlock/tsync.c
+> @@ -5,6 +5,7 @@
+>   * Copyright © 2025 Google LLC
+>   */
+>  
+> +#include <kunit/test.h>
+>  #include <linux/atomic.h>
+>  #include <linux/cleanup.h>
+>  #include <linux/completion.h>
+> @@ -479,6 +480,46 @@ static void cancel_tsync_works(const struct tsync_works *works,
+>  	}
+>  }
+>  
+> +/*
+> + * try_set_current_tsync_marker - mark the current thread group as under TSYNC
+> + *
+> + * Returns false if another TSYNC operation, group exit, or exec is in progress.
+> + */
+> +static bool try_set_current_tsync_marker(void)
+> +{
+> +	struct signal_struct *const signal = current->signal;
+> +
+> +	guard(spinlock_irq)(&current->sighand->siglock);
+> +
+> +	/*
+> +	 * Group-exit paths may replace all signal flags, including an active
+> +	 * marker.  Treat SIGNAL_GROUP_EXIT as a held marker to prevent another
+> +	 * TSYNC operation from starting during group teardown.
+> +	 *
+> +	 * Like de_thread(), also treat an ongoing exec as a group action in
+> +	 * progress.  de_thread() sets group_exec_task in the same siglock
+> +	 * critical section that sends SIGKILL to all other threads, including
+> +	 * current.  Instead of queuing task_work for exiting threads,
+> +	 * restart_syscall() lets current handle its pending SIGKILL.
+> +	 */
+> +	if ((signal->flags & (SIGNAL_GROUP_EXIT | SIGNAL_LANDLOCK_TSYNC)) ||
+> +	    signal->group_exec_task)
+> +		return false;
+> +
+> +	signal->flags |= SIGNAL_LANDLOCK_TSYNC;
+> +	return true;
+> +}
+> +
+> +static void clear_current_tsync_marker(void)
+> +{
+> +	guard(spinlock_irq)(&current->sighand->siglock);
+> +
+> +	current->signal->flags &= ~SIGNAL_LANDLOCK_TSYNC;
+> +}
+> +
+> +DEFINE_CLASS(current_tsync_marker, bool, if (_T) clear_current_tsync_marker(),
+> +	     try_set_current_tsync_marker(), void)
+> +
+>  /*
+>   * restrict_sibling_threads - enables a Landlock policy for all sibling threads
+>   */
+> @@ -492,6 +533,19 @@ int landlock_restrict_sibling_threads(const struct cred *old_cred,
+>  	size_t newly_discovered_threads;
+>  	bool found_more_threads;
+>  
+> +	/*
+> +	 * Serialize concurrent TSYNC operations to prevent deadlocks when
+> +	 * multiple threads call landlock_restrict_self() simultaneously.  If
+> +	 * another operation got there first, gracefully yield by restarting the
+> +	 * syscall.  This allows the current thread to process pending
+> +	 * task_works before retrying.
+> +	 *
+> +	 * sighand->siglock protects only the marker, not the wait below.
+> +	 */
+> +	CLASS(current_tsync_marker, marker)();
+> +	if (!marker)
+> +		return restart_syscall();
+> +
+>  	atomic_set(&shared_ctx.preparation_error, 0);
+>  	init_completion(&shared_ctx.all_prepared);
+>  	init_completion(&shared_ctx.ready_to_commit);
+> @@ -503,16 +557,6 @@ int landlock_restrict_sibling_threads(const struct cred *old_cred,
+>  		(restrict_flags & LANDLOCK_RESTRICT_SELF_NO_NEW_PRIVS) ||
+>  		task_no_new_privs(current);
+>  
+> -	/*
+> -	 * Serialize concurrent TSYNC operations to prevent deadlocks when
+> -	 * multiple threads call landlock_restrict_self() simultaneously.
+> -	 * If the lock is already held, we gracefully yield by restarting the
+> -	 * syscall. This allows the current thread to process pending
+> -	 * task_works before retrying.
+> -	 */
+> -	if (!down_write_trylock(&current->signal->exec_update_lock))
+> -		return restart_syscall();
+> -
+>  	/*
+>  	 * We schedule a pseudo-signal task_work for each of the calling task's
+>  	 * sibling threads.  In the task work, each thread:
+> @@ -536,8 +580,9 @@ int landlock_restrict_sibling_threads(const struct cred *old_cred,
+>  	 * 5) signals that it's done altogether (barrier synchronization
+>  	 *    "all_finished")
+>  	 *
+> -	 * Unlike seccomp, which modifies sibling tasks directly, we do not
+> -	 * need to acquire the cred_guard_mutex and sighand->siglock:
+> +	 * Unlike seccomp, which modifies sibling tasks directly, we do not need
+> +	 * to hold the cred_guard_mutex or sighand->siglock around the thread
+> +	 * walk:
+>  	 *
+>  	 * - As in our case, all threads are themselves exchanging their own
+>  	 *   struct cred through the credentials API, no locks are needed for
+> @@ -634,6 +679,69 @@ int landlock_restrict_sibling_threads(const struct cred *old_cred,
+>  		wait_for_completion(&shared_ctx.all_finished);
+>  
+>  	tsync_works_release(&works);
+> -	up_write(&current->signal->exec_update_lock);
+>  	return atomic_read(&shared_ctx.preparation_error);
+>  }
+> +
+> +#ifdef CONFIG_SECURITY_LANDLOCK_KUNIT_TEST
+> +
+> +static bool is_current_tsync_marker_set(void)
+> +{
+> +	return current->signal->flags & SIGNAL_LANDLOCK_TSYNC;
+> +}
+> +
+> +static void test_tsync_marker_free(struct kunit *const test)
+> +{
+> +	const struct cred *const cred = current_cred();
+> +
+> +	KUNIT_ASSERT_TRUE(test, thread_group_empty(current));
+> +	KUNIT_ASSERT_FALSE(test, is_current_tsync_marker_set());
+> +
+> +	KUNIT_EXPECT_TRUE(test, try_set_current_tsync_marker());
+> +	KUNIT_EXPECT_TRUE(test, is_current_tsync_marker_set());
+> +	clear_current_tsync_marker();
+> +	KUNIT_EXPECT_FALSE(test, is_current_tsync_marker_set());
+> +
+> +	/* Takes and releases the marker. */
+> +	KUNIT_EXPECT_EQ(test, 0,
+> +			landlock_restrict_sibling_threads(cred, cred, 0));
+> +	KUNIT_EXPECT_FALSE(test, is_current_tsync_marker_set());
+> +}
+> +
+> +static void test_tsync_marker_held(struct kunit *const test)
+> +{
+> +	const struct cred *const cred = current_cred();
+> +
+> +	KUNIT_ASSERT_TRUE(test, thread_group_empty(current));
+> +	KUNIT_ASSERT_TRUE(test, try_set_current_tsync_marker());
+> +
+> +	KUNIT_EXPECT_FALSE(test, try_set_current_tsync_marker());
+> +	KUNIT_EXPECT_TRUE(test, is_current_tsync_marker_set());
+> +
+> +	/* Restarts without releasing the marker held by another caller. */
+> +	KUNIT_EXPECT_EQ(test, -ERESTARTNOINTR,
+> +			landlock_restrict_sibling_threads(cred, cred, 0));
+> +	KUNIT_EXPECT_TRUE(test, is_current_tsync_marker_set());
+> +
+> +	/* Clears TIF_SIGPENDING set by restart_syscall(). */
+> +	scoped_guard(spinlock_irq, &current->sighand->siglock)
+> +		recalc_sigpending();
+> +
+> +	clear_current_tsync_marker();
+> +}
+> +
+> +static struct kunit_case test_cases[] = {
+> +	/* clang-format off */
+> +	KUNIT_CASE(test_tsync_marker_free),
+> +	KUNIT_CASE(test_tsync_marker_held),
+> +	{}
+> +	/* clang-format on */
+> +};
+> +
+> +static struct kunit_suite test_suite = {
+> +	.name = "landlock_tsync",
+> +	.test_cases = test_cases,
+> +};
+> +
+> +kunit_test_suite(test_suite);
+> +
+> +#endif /* CONFIG_SECURITY_LANDLOCK_KUNIT_TEST */
+> 
+> base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+> -- 
+> 2.56.0
+> 
