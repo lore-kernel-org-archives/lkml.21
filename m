@@ -1,62 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.38.64.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795267241;
-	b=iifwtKSeez6I5C66Frqk0+QqJFdigSN6cjvqQZZBB21TSKJFRM6sYFxL/OmQR0W9JEj1
-	 Ai2950tAyopu6eGpSl9fA1nSsOFb6wIOH/yA/zQ04tWnpdzAgHvUD0C+c1fUyjQMV42JO
-	 IRwup7I7lJ0Sua+8CJJI+xMpavOrDZsRStSDLk+ACwyghLsU81mdDdEt61RhagaMqX6tp
-	 aFYy6rEb4YcEpIlNFbxh0DDuv01IKcF3G+hobnrX3SUN+4F+Ow990IXyK3lR/4CsnR5AB
-	 AN6sJaLlDTeH4az+dRmSbFIPoEMOAjbXfORtFGqEJWwXugA+9nh6mFPzteQMbhTOebA==
+	t=1795267526;
+	b=umw27yV/YIXS+7WD9xGmDUt8gkc36dsmhTWuSuS0Md6JKmX5XPXQgM+GfkBHkWfSoxWK
+	 JqPoFQXjT7ZbGbErIIXnxxYgTUMPiCbN7n+MldZpEOVcvNvn1ymdiUZTqnUlEIqML9b7w
+	 2yqj8d6DawPt39TzZWtv5szePZt0lU7GokbAVsFU7ghfUFjwFCE3wqpRovhGIJy/AMr57
+	 Yfz0wPIy6QQhvRcVVE1QO5X9xUNrLHV0c2+KaT1tmb2FUSflCl401NgeUhZUZXNPhOnWX
+	 4XmxdGS4eX4Re+Tb+FCpOnqNZYpkGAN6+tn9yoVeH6qQfF95oJhPxL2FF6d7UAZUQYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795267241;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=ev0BQgNOu8wMIz0Mz8ErSO+xcJwac6x7M9MmyhMsR3I=;
-	b=BkTYABEiFBizs1a3k8qgdeJxlhZahOLEhF7jRJPMWhMOhE50mT+wTgwH//ecZcJQNv7H
-	 CKmPZdoJcN0jQRmNR/In8NLfGUvGZjBeRS4Tn0fAbh3tuUEOjkXw6injy/4YBlx89Ak8/
-	 LQK0sS9z3oPPqqYLUtAJF5NQ640Ae0j3JOEEyydRBkEKSUcqSqKFrMfAb8m5ePbzSWZrk
-	 mxIE6xjdKi6fKbwW7oRvAkqKBNItcFlYdb0GLO68/5f4vkM48iGVnutVU/z0+1gUZ+2kK
-	 klL7K/OkNbnsJxsrLk+lmU56uTIsiS28Xo8eLBhEwX2Ki5HMQ7+UtmDPj9jek7bUs6w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795267526;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Q64k/lxKzfUbYjglOjoXICquDEIU+gLL7GdLxP+v06A=;
+	b=uoGxvVmH6OedJDkWEK+KtEsfienBGgRrcVZIurQN44/5SLhH/vINdtO4kZSb78GEmPfh
+	 LglLJppR/nQOBnWX/f+fv5MfWBvlOreLPgSfOM+zzCA5dX5EqZpm4vUIRUXZqpkXnXPy4
+	 JZ3jJE9xjycgj/yjqGBP9LwJz9NW6arx5aGaUeaRm5ECuQ0awNRlZZTLEUEwxwSNLNojA
+	 xINrz2VYm6+iUH9XSXYpsbPqOZM8WPujxnBdDIoMj8Bk3kQhcXIuELEJPYDgMkBHVWG1n
+	 9XZYO7yXRRihttWvgg8baQhOOoRGrU8u1NzN7f/UKOuh8rbl5UedhUujxOclHYQlSng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.ustc.edu.cn;
-	spf=pass smtp.mailfrom=mail.ustc.edu.cn;
-	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=T4Wu5oKg;
-	arc=none smtp.remote-ip=202.38.64.46
-Received: from ustc.edu.cn (smtp.ustc.edu.cn [202.38.64.46])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9232C606A33A;
-	Sat, 21 Nov 2026 13:20:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9232C606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.ustc.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.ustc.edu.cn
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NmXWtpkK;
+	arc=none smtp.remote-ip=74.125.82.48
+Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9144606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:25:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9144606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=T4Wu5oKg
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NmXWtpkK
+Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-1b546061d58so3954285c88.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:25:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-ID:In-Reply-To:References:MIME-Version:
-	Content-Transfer-Encoding; bh=ev0BQgNOu8wMIz0Mz8ErSO+xcJwac6x7M9
-	MmyhMsR3I=; b=T4Wu5oKgAjM+5a4vswvSYGkCH73tVFKUOh5v+1feWc054MGk9R
-	7ubi8tLmc5lf31BAiiSp7iS9tOcQjiPF7jAvT9R0KvalV5AVVdwCNomXPxyHc3fu
-	LnQBU/4eQO2G7aytsvqu95IjFOwoQ+MT2pGKt3GkUzPb3EPxPw4ATR2og=
-Received: from xuqianhui.ustc.edu.cn (unknown [114.214.187.147])
-	by mailimap2024 (Coremail) with SMTP id 3pYKCgCnKT6dmgFr9DfkAA--.3095S2;
-	Sat, 21 Nov 2026 21:20:31 +0800 (CST)
-From: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
-To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	linux-usb@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
+        d=gmail.com; s=20260707; t=1795267525; x=1795872325; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Q64k/lxKzfUbYjglOjoXICquDEIU+gLL7GdLxP+v06A=;
+        b=NmXWtpkKy+eQd4Ug8YEo0iveU0Xhzt7pU1BSWIyhbuDOibVbXGfXYo6zAMZ+8AF/p0
+         832gF4CNXO8aNvGRCgdoxwCr36AeynP11QOleUvX6jtUfgcd24b9v+nOtDnS0/L8URCe
+         iZe/ohatu1exz3j3DYA20a29tznHk1V6g3qI75cTiyjJ/jKwOrBnCyEYaQO8Akj6w2om
+         Q8ui349lmlnHJtAqOTtSUR7vwDnrMHyZe6EZ1Q4M0PJKD43QHun8oa5uIbFOB9NTlosz
+         W1SXH1g3zYEBbQazE4zoocw3TLCgHzCiftncS5zt+Qx6VxzVNCRv4p7NCV+35w7V6ZMk
+         oWqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795267525; x=1795872325;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Q64k/lxKzfUbYjglOjoXICquDEIU+gLL7GdLxP+v06A=;
+        b=SADcVRndZausV4TcrePmw6YnDVSAxpRHR0NXDzQfXWNJZ3QeSp/nGJraUdOs/2qAbv
+         b++jw0ukKnzjungFARUzvYDIU+pRMzXVFO0e82YvNLbGYrW3QuGjzpCVdxAk52jwy22o
+         gLpLxjwqgaRZVRGCkWH7Wd79h2uphz0gpce8bWI4YrzZV7maQEaan4ybIx97PkFMvsuM
+         9RCuuadJFynipMxgVxxYssqe1KwnyG6aXLLJVNDigrU1wlHEgfqCLqOLhK2JrU6MSqXX
+         OBMAJybPsAMxdVTE3bigiXRMi0xFJF2kGXOT6pOXN6ebjOtfaPVBZZmQ736c0HOQw/tE
+         6gEQ==
+X-Forwarded-Encrypted: i=1; AL+hErFQ6kPujjgLJA4reER+0DypPXXfQQjD1gwcq77S3N8UFhfuXwvuAP0Wd6VoZL7GQ6CRD76q69QYrTJNte4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/e0Ai0T2YvVh4uzWFi65bfg12KDMIHnMLe9qShEbYx91nWjLiz
+	xZ0ESxpTpGzX4XuZVPLuPzXqsARxeHYERmQ62LTTePWVyiiptoo+RYNO
+X-Gm-Gg: AZFdTZf5F0/BH8z0UiEbqiWx/LCy0Zv7ouUMMAu0dD8gsusBBeNgJ/mT8VbpFu4Gnh5
+	azACs5cG4nZ4QBn2NN8jjblEqTlxLiFDqA6EU4pUGB9iHU4cdo1lq8A7N+qqvbSvf2F9FGVQa3a
+	YuB7pzHDOzepDKOXvSweyyjMunkVTiCIAqCu7PVpZtqr2QIux+6Z2dBRACHAqAH6TlIOVOad0bc
+	i2jWyPt//vssO4V5W29IzN444DjmBAchwQQHXPx9x8owxTWblvRez2smKZYffjMIfU0Ej7L27TC
+	PX3ImDXo9f44wucTugQJYxoam/0ipNTb+y/wyBxusA8RZH2mx8Zgxi7iBSUChIJSygnDnvkqQg/
+	3YXPUWthTy0RgGWbdcf8cc/USAtDFd1X5Jq3dXy+2o5U7H9PJpUmVLW5dVcuSzOjVB/n6U7HbnO
+	Q8bYeuOYN76eeAGL678OVtcQSbasFReFL7mEuh0xB7gA09TQ//YU/C9avw5yflj1GeSqtwkfH6s
+	+a3+VnAqYiuLpFR+NY4GrR/VR4HAzR/HhwFgzCn33B7d7n6BuPtQzMh2mP9T44NHwzLkrY4GVg2
+	s60KXGYVNvTqulIrnQeGHY09iwqHW53Yq4G831Oh8uIoBBd8UUcumg3LdOHQPn2tTfJC
+X-Received: by 2002:a05:7022:b0c4:b0:1b3:b455:93db with SMTP id a92af1059eb24-1b5568eec9fmr6015203c88.24.1795267524795;
+        Sat, 21 Nov 2026 05:25:24 -0800 (PST)
+Received: from youngkk-vm.localdomain (67.216.200.102.16clouds.com. [67.216.200.102])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ff27bsm15112714c88.6.2026.11.21.05.25.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 05:25:24 -0800 (PST)
+From: Cheng Yongkang <teel4res@gmail.com>
+To: David Sterba <dsterba@suse.com>
+Cc: Chris Mason <mason@kernel.org>,
+	Qu Wenruo <wqu@suse.com>,
+	linux-btrfs@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v11 0/3] usb: dwc3: support two connectors sharing one HS data bus
-Date: Sat, 21 Nov 2026 21:20:26 +0800
-Message-ID: <20261121132029.2379449-1-xiaqinghuan@mail.ustc.edu.cn>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261121022104.1507987-1-xiaqinghuan@mail.ustc.edu.cn>
-References: <20261121022104.1507987-1-xiaqinghuan@mail.ustc.edu.cn>
+Subject: [PATCH v5] btrfs: tree-checker: add more checks for file extent items
+Date: Sat, 21 Nov 2026 05:25:19 -0800
+Message-Id: <20261121132519.2182511-1-teel4res@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,172 +97,164 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:3pYKCgCnKT6dmgFr9DfkAA--.3095S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3JrWxXFW5XF1xXrWkJw1UKFg_yoWxKrWfpF
-	Z8ta1SyF1kJrWfAryxA3W8G34ruan3JrZxtFy8t34UAanxWayIqr93K3y5uFyUGF93Xa4a
-	9FyDWa4UuFsrAaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvFb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCY1x0262kKe7AKxVWUtVW8ZwCY
-	02Avz4vE14v_Xr4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxV
-	Aqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q
-	6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6x
-	kF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AK
-	xVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvj
-	xUy0edUUUUU
-X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/1tbiARESB2sAn9smxQBKsD
 
-Two USB Type-C receptacles can share one High Speed D+/D- pair if a
-multiplexer selects which of them drives the controller.  This series
-describes that in the DWC3 binding, adds the endpoint-scoped role-switch
-lookup the connectors need, and drives the shared data path from the DWC3
-mode worker through the mux controller API.
+check_extent_data_item() only checks the alignment of most members of a
+regular or preallocated file extent. Add the following checks, based on
+what btrfs writes:
 
-No runtime testing is claimed for this version: the mux path has not been
-exercised on hardware.  The series was reviewed statically and through the
-gates listed below.
+- An explicit hole (disk_bytenr == 0) must be an uncompressed regular
+  extent with zero disk_num_bytes. Its offset is not checked, as
+  btrfs_drop_extents() can trim the front of a hole extent.
 
-*** AI-assistance disclosure ***
-This series was prepared with the help of an LLM coding assistant.  The
-author reviewed every line, checked every quoted claim against the tree,
-and ran the gates quoted below; the design decisions and any errors are the
-author's.  Each patch repeats this disclosure in its own commit message.
+- A preallocated extent must not be compressed.
 
-Changes since v10
+- An extent with data on disk must have a non-zero disk_num_bytes. If it
+  is compressed, disk_num_bytes must not exceed BTRFS_MAX_COMPRESSED and
+  ram_bytes must not exceed BTRFS_MAX_UNCOMPRESSED, as compression and
+  encoded writes never create larger ones. Otherwise both must not
+  exceed U32_MAX. Uncompressed extents can be larger than 256MiB, for
+  example preallocated extents from kernels before v3.9, but they should
+  never get close to U32_MAX.
 
-1) [Medium, on 3/3] "Should dwc3_role_mux_deselect() be called after the
-   switch (dwc->current_dr_role) block tears down the active host or gadget
-   instance?"
+- offset + num_bytes of an extent with data on disk must not exceed its
+  ram_bytes.
 
-   Accepted.  Deselecting first moves the shared High Speed lines back to
-   the mux' idle state while the host or gadget instance that owns them is
-   still running.  dwc3_role_mux_deselect() is now called after that switch
-   block, i.e. in the same order as __dwc3_set_mode() (host/gadget exit
-   first, then the data path switch), and still after
-   cancel_work_sync(&dwc->drd_work).
+Suggested-by: Qu Wenruo <wqu@suse.com>
+Signed-off-by: Cheng Yongkang <teel4res@gmail.com>
+---
+Note that before v3.9, __btrfs_prealloc_file_range() reserved the whole
+fallocate range at once, so on a RAID0 or RAID10 filesystem with five or
+more data stripes a preallocated extent can be up to the 10G data chunk
+limit, above U32_MAX. Such a filesystem would fail the new check. If it
+should still be accepted, BTRFS_MAX_DATA_CHUNK_SIZE could be used as the
+uncompressed limit instead, as a data extent never crosses a chunk.
 
-2) [Medium, on 1/3] "Does applying $ref: '#/$defs/hs-port'
-   unconditionally to port@0 cause a dtbs_check regression for
-   single-connector DWC3 nodes without mux-controls?"
+Changes in v5:
+- Drop the crash reports from the commit message, the patch is a
+  tree-checker hardening.
+- Add a dedicated check for explicit holes: they must be uncompressed
+  regular extents with zero disk_num_bytes, as Sashiko pointed out on
+  v4 that a hole bypassed all the new checks.
+- Reject compressed preallocated extents, also pointed out by Sashiko.
+- Check offset + num_bytes against ram_bytes for uncompressed extents
+  too.
+- Only use preallocated extents from kernels before v3.9 as the example
+  of uncompressed extents larger than 256MiB. A direct I/O write
+  reserves its whole range, but each bio gets its own ordered extent, so
+  its file extents are only as large as its bios.
+- Change the subject, as the patch no longer only checks disk_num_bytes.
 
-   Accepted, for the shape that v10 posted.  Reproduced with the v10 schema
-   bundle: a single-connector node that numbers its endpoint
-   ("port@0/endpoint@0" with "reg" only) was rejected with
-   "'usb-role-switch' is a required property" and "'mux-state' is a required
-   property".  "port@0" keeps the generic graph port at the top level now;
-   the two endpoints, their "usb-role-switch"/"mux-state" and the
-   address/size cells are required by the "mux-controls" branch of "allOf"
-   only, so single-connector controllers are described exactly as before.
+Changes in v4:
+- Also check ram_bytes of uncompressed extents against U32_MAX, with
+  max_ram_bytes picked the same way as max_disk_num_bytes.
+- Reject a zero disk_num_bytes for extents with data on disk, and an
+  offset + num_bytes beyond ram_bytes for compressed extents, as
+  Sashiko pointed out on v2 and v3.
+- Skip holes for the new checks, as their ram_bytes is the hole size
+  without NO_HOLES.
+- Correct the commit message: direct I/O writes can also create
+  uncompressed extents larger than 256MiB.
+- Rebase onto misc-next.
 
-   One half of the report did not reproduce: an unnumbered
-   "port@0/endpoint" of a non-mux controller was not rejected by the v10
-   schema either, because graph.yaml#/$defs/port-base does declare
-   "endpoint".  Only the numbered-endpoint shape regressed; both shapes pass
-   now.
+Changes in v3:
+- Relax the uncompressed disk_num_bytes limit from 256MiB to U32_MAX,
+  as preallocated extents created before v3.9 can be larger.
+- Also check ram_bytes of compressed extents against
+  BTRFS_MAX_UNCOMPRESSED.
 
-3) [Low, on 1/3] "should the local $defs be dropped in favor of defining
-   the endpoint schema under patternProperties for '^endpoint@[01]$', and
-   can the Linux driver implementation details be removed from the
-   binding?"
+Changes in v2:
+- Use SZ_256M directly instead of adding a new macro, and leave
+  inode.c alone.
+- Shorten the comment.
 
-   Accepted.  The endpoint schema is inlined under "port@0" through
-   patternProperties, the local "$defs" section and the "$ref" to it are
-   gone, and the "mux-controls" branch no longer names driver functions: it
-   only states what the device tree must contain.
+ fs/btrfs/tree-checker.c | 64 +++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 64 insertions(+)
 
-4) [Low, on 1/3] "Does listing dr_mode in required reject DWC3 nodes with
-   mux-controls that omit dr_mode to rely on the default 'otg' mode from
-   usb-drd.yaml?"
+diff --git a/fs/btrfs/tree-checker.c b/fs/btrfs/tree-checker.c
+index f021ac14babf..0a99e628d37c 100644
+--- a/fs/btrfs/tree-checker.c
++++ b/fs/btrfs/tree-checker.c
+@@ -244,7 +244,10 @@ static int check_extent_data_item(struct extent_buffer *leaf,
+ 	struct btrfs_file_extent_item *fi;
+ 	u32 sectorsize = fs_info->sectorsize;
+ 	u32 item_size = btrfs_item_size(leaf, slot);
++	u32 max_disk_num_bytes;
++	u32 max_ram_bytes;
+ 	u64 extent_end;
++	u64 ram_end;
+ 	u8 fi_type;
+ 
+ 	if (unlikely(!IS_ALIGNED(key->offset, sectorsize))) {
+@@ -377,6 +380,67 @@ static int check_extent_data_item(struct extent_buffer *leaf,
+ 		     CHECK_FE_ALIGNED(leaf, slot, fi, num_bytes, sectorsize)))
+ 		return -EUCLEAN;
+ 
++	if (!btrfs_file_extent_disk_bytenr(leaf, fi)) {
++		/* Explicit holes are uncompressed regular extents without disk space. */
++		if (unlikely(fi_type != BTRFS_FILE_EXTENT_REG ||
++			     btrfs_file_extent_compression(leaf, fi) != BTRFS_COMPRESS_NONE ||
++			     btrfs_file_extent_disk_num_bytes(leaf, fi))) {
++			file_extent_err(leaf, slot,
++"invalid hole file extent, have type %u compression %u disk_num_bytes %llu expect type %u compression 0 disk_num_bytes 0",
++					fi_type, btrfs_file_extent_compression(leaf, fi),
++					btrfs_file_extent_disk_num_bytes(leaf, fi),
++					BTRFS_FILE_EXTENT_REG);
++			return -EUCLEAN;
++		}
++	} else {
++		if (unlikely(fi_type == BTRFS_FILE_EXTENT_PREALLOC &&
++			     btrfs_file_extent_compression(leaf, fi) != BTRFS_COMPRESS_NONE)) {
++			file_extent_err(leaf, slot,
++		"invalid compression for preallocated file extent, have %u expect 0",
++					btrfs_file_extent_compression(leaf, fi));
++			return -EUCLEAN;
++		}
++
++		/*
++		 * Compressed extents are at most 128K both on disk and
++		 * uncompressed. Uncompressed extents should never get close to
++		 * U32_MAX.
++		 */
++		if (btrfs_file_extent_compression(leaf, fi) != BTRFS_COMPRESS_NONE) {
++			max_disk_num_bytes = BTRFS_MAX_COMPRESSED;
++			max_ram_bytes = BTRFS_MAX_UNCOMPRESSED;
++		} else {
++			max_disk_num_bytes = U32_MAX;
++			max_ram_bytes = U32_MAX;
++		}
++		if (unlikely(btrfs_file_extent_disk_num_bytes(leaf, fi) == 0 ||
++			     btrfs_file_extent_disk_num_bytes(leaf, fi) > max_disk_num_bytes)) {
++			file_extent_err(leaf, slot,
++		"invalid disk_num_bytes for file extent, have %llu expect (0, %u]",
++					btrfs_file_extent_disk_num_bytes(leaf, fi),
++					max_disk_num_bytes);
++			return -EUCLEAN;
++		}
++		if (unlikely(btrfs_file_extent_ram_bytes(leaf, fi) > max_ram_bytes)) {
++			file_extent_err(leaf, slot,
++		"invalid ram_bytes for file extent, have %llu expect <= %u",
++					btrfs_file_extent_ram_bytes(leaf, fi),
++					max_ram_bytes);
++			return -EUCLEAN;
++		}
++		if (unlikely(check_add_overflow(btrfs_file_extent_offset(leaf, fi),
++						btrfs_file_extent_num_bytes(leaf, fi),
++						&ram_end) ||
++			     ram_end > btrfs_file_extent_ram_bytes(leaf, fi))) {
++			file_extent_err(leaf, slot,
++	"invalid offset + num_bytes for file extent, have %llu + %llu expect <= ram_bytes %llu",
++					btrfs_file_extent_offset(leaf, fi),
++					btrfs_file_extent_num_bytes(leaf, fi),
++					btrfs_file_extent_ram_bytes(leaf, fi));
++			return -EUCLEAN;
++		}
++	}
++
+ 	/* Catch extent end overflow */
+ 	if (unlikely(check_add_overflow(btrfs_file_extent_num_bytes(leaf, fi),
+ 					key->offset, &extent_end))) {
 
-   Accepted, and reproduced against the v10 schema bundle ("'dr_mode' is a
-   required property").  "dr_mode" is no longer listed in "required"; it
-   stays "const: otg" when present, so "host" and "peripheral" are still
-   rejected.
-
-5) Unchanged: 2/3 (usb: roles: look up role switches attached to a graph
-   endpoint).  It got no review comment and is byte-identical to v10.
-
-Known gaps (stated so that nobody has to guess)
-
-- Which physical receptacle corresponds to mux state 0 and which to 1 is not
-  proven on hardware yet; the board DTS therefore names them "Receptacle A"
-  and "Receptacle B" and does not claim long/short edge.
-- "gpio-mux" drives the select lines low in probe
-  (devm_gpiod_get_array(dev, "mux", GPIOD_OUT_LOW)), so the level left by
-  the firmware is not preserved.  "idle-state" is deliberately omitted: a
-  non-AS_IS idle state would drive the wrong state between
-  mux_control_deselect() and the following mux_control_select().  Making the
-  probe keep the pin as is (GPIOD_ASIS) is a change to drivers/mux/gpio.c and
-  affects the ~70 existing gpio-mux users, so it does not belong in this
-  series; it needs a separate discussion with the mux maintainer.
-- dtbs_check cannot see "idle-state" values: gpio-mux.yaml declares it
-  without a type or bounds, so an out-of-range value is only rejected at
-  probe time.  The gate below therefore does not claim coverage for it.
-- The board DTS is not part of this posting: the Lenovo Legion Y700 Gen 4
-  file is not upstream yet and is posted with its own board series.
-
-Gate results (base: v7.4-rc3 = aebb7274476403040d582c61478df8f4a7bf9cd3)
-
-  G1 apply       git apply --check + apply on a pristine check-out of the
-                 base above: 3/3 clean, rc=0, no offset/fuzz; resulting
-                 blobs snps,dwc3-common.yaml = 7a9cb5a115a6,
-                 drd.c = 906cac4f3e6e
-  G2 checkpatch  perl scripts/checkpatch.pl --strict --no-signoff --no-tree
-                 1/3 0E/0W/0C (115 lines) ; 2/3 0E/0W/0C (63 lines)
-                 3/3 0E/0W/0C (624 lines)
-  G3 build       make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- W=1
-                 drivers/usb/dwc3/ drivers/usb/roles/
-                 (CONFIG_MULTIPLEXER=y, CONFIG_USB_ROLE_SWITCH=y)
-                 rc=0, 0 warnings, 22 objects (21 dwc3 + 1 roles), all
-                 aarch64 relocatables
-  G4 binding     make ARCH=arm64 dt_binding_check   (no DT_SCHEMA_FILES)
-                 rc=0, no diagnostics; 5420 example DTC [C]
-  G5 dtbs_check  make ARCH=arm64 CHECK_DTBS=1 qcom/sm8250-mtp.dtb
-                 qcom/sm8650-mtp.dtb qcom/sm8750-mtp.dtb qcom/sm8750-qrd.dtb
-                 (no DT_SCHEMA_FILES)
-                 patched: 4/4 DTC [C], 0 diagnostics
-                 base:    4/4 DTC [C], 0 diagnostics  => 0 new
-  G6 samples     dt-validate on the rebuilt schema bundle
-                 positive, 0 complaints each:
-                   two endpoints, opposite mux-state, dr_mode = "otg"
-                   same, with dr_mode omitted (usb-drd.yaml default)
-                   single connector, plain "port@0/endpoint", no mux
-                   single connector, "port@0/endpoint@0" without role props
-                 negatives, all rejected:
-                   same mux-state on both endpoints
-                   endpoint@1 missing
-                   endpoint@1 without usb-role-switch/mux-state
-                   mux-controls with dr_mode = "host"
-                 control: the v10 schema bundle rejects the two shapes of
-                 items 2 and 4 above, the v11 bundle accepts them.
-  G7 hardware    not run
-
-  On the command shapes: DT_SCHEMA_FILES is intentionally not used for
-  dtbs_check.  It is passed to dt-validate as "-l", which only keeps schemas
-  whose $id matches and that still select a node themselves;
-  snps,dwc3-common.yaml is a fragment without "select:", so the run reports
-  nothing and looks green.  The dtbs_check rule also ends with "|| true", so
-  the result is read from the diagnostics in the output, not from the exit
-  status.
-
-Qianhui Xu (3):
-  dt-bindings: usb: snps,dwc3: describe two connectors on one HS data
-    bus
-  usb: roles: look up role switches attached to a graph endpoint
-  usb: dwc3: select the shared HS data bus with a mux controller
-
- .../devicetree/bindings/usb/snps,dwc3-common.yaml  |  99 ++++++
- drivers/usb/roles/class.c                          |  45 +++
- drivers/usb/dwc3/core.c                            | 116 +++++++
- drivers/usb/dwc3/core.h                            |  43 +++
- drivers/usb/dwc3/debugfs.c                         |   4 
- drivers/usb/dwc3/drd.c                             | 329 ++++++++++++++++++++
- 6 files changed, 632 insertions(+), 4 deletions(-)
-
+base-commit: 0e6c0a834a2329b3a2767a4485f9891348725c0b
 -- 
-2.53.0
+2.34.1
 
