@@ -1,122 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795281614;
-	b=RiOF0zZGpx01jbRRPgx8/IUlKq7EYvw84FGrliCKmEe/q1kpsE4AMXCHkNQoPEDiMayy
-	 ERAnwM8Wx6dZ1+eHpnsCeBm+gwV4ams90/idBl4jGJIjkk+K3VPOJcX7yHpe3RCGNloNW
-	 BEYepdN4A8pFDyzfGBXOtm4lxNkgJunu+GlyZ9otru198lOWE7wJGHj1mjBXaWbSedso4
-	 th/v0Q32f8kY7zo1QouOQFlEZAuXneo11IR7k9W5LthCqvusSYPEuehaWNhn1dXKO8UFC
-	 98R26xGSI4aSeKUbyYd7o6gNmA0cWYC/Zz8eCG9lXXygQifw9CGgZqxlFAPoKfcbj7A==
+	t=1795281717;
+	b=YJPMnNJhiCZYf/Z+oWT/cRWN9j2Vfsg3bq9msmXQoLFVlMhsyxicCyW1Z9Xn5lCc1NHe
+	 dwFN/f5U8qmEOJsUyhxg4I70th7r9ajL4o1GkXTB2FWxgYb62CizecmL2QJxC8evTlvZ7
+	 2GzphoPyVvx/wouizBXp2Rfr9gHTQDWrQ5MN5HZbDvWS3Mv921T3vNBgeBjnBKROKGinh
+	 tezcVFc6SBdU4mckhUbWv54obFkluDIg0qQBxeNXgISEXnXW8DLyKfQZl9a1g8i4ypiVL
+	 GVRKrf75BAyEKxeBCE1fFXXZppU8AnQR6G6wbeXjavXE6bFiTPBcn5evaFLlB9mk6nw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795281614;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=EToEzVRVg3WYCmb+Ipge3agclXFYn4/uigqheoHGHhY=;
-	b=hE2WDqX4kcVdqgZRT0l9yCUkYcHFqhhSC86VS4KZFtkWXga+m4zpGnQXMaxsdz9wcUax
-	 xG9xqxrM40mZS58qmCAG4Zj0VgT2sjGVkzBTOrxAjyAL88HxgpiBSf2l3tIsk5Q9bkGwt
-	 2wOVbOYFG5jT6yW2Q+SbkwMOTa8U1H8tB4HxD+O5Med/jCTmgU3kf6aXPX4MJHHhu7sC9
-	 UOZZj2Slr+I/Ozbmb3siJi9NXQ8Yo5OZhzsJFT73I8tQ7aVhbI5okxUqYEZcvgL/Yjl4z
-	 iCcEq4fGXgnvyZK3bIO5tlLovTzkqGc1Kk8K2+7YHFQerz7BYoZ+LF6vSGJhzwb3nfw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795281717;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ohIR6Qw82vrbkY4AEMlZ5OFiQyPze3nGc8ZbxW8VQNk=;
+	b=XY4F6T9rfb+nHWQLpDhYSnhUPSTB/z3J5GTROslvGN8ckDybQY1Ocauq19FWRXv0oycM
+	 L8LnGDeHk2+5YwLy6FngYTWvk0YLTOTwt+05ofhsG4/wCoK5ZUVDKS1jHal6oJbB03E5e
+	 j8T4YLPpgu88xkuxVy1EyThVnbHbtMWfOtiBrKfxrPBahf9AuRsZ+EiicAqEMG50sIZF1
+	 koWeT1Zm9bx8Nfq1oCOD17X9tweO0bHXWvTHy+GwBEktH9sBglZYqncwpk7RNKUQP9OWp
+	 DCy9Adx4s/8RDHKXyiX7B2V/k560Qe3VIQmc6VB6E57UW3vB8AOnnmrQm9BpJqOJ2iw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=R8lt9rnr;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=LD4zR4Y1;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MfOJU2OB;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19FB0606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 17:20:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19FB0606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 23E20606A320;
+	Sat, 21 Nov 2026 17:21:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=R8lt9rnr;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=LD4zR4Y1
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ALFaD941140146
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 17:20:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=EToEzVRVg3WYCmb+Ipge3agc
-	lXFYn4/uigqheoHGHhY=; b=R8lt9rnrMWNv8jRFcGdODknQ8oy6XvTiXjgNUJ4i
-	MY0tL51IWIQSKGFMyh76tvqZ/VEnj4o7AlCUBzcu+e39rxqb3RZX1AydZa4XVoxq
-	qEHSLJ6DLo1x0zjxDhoQ6BE9s6ym+c1BumtOPR5+hKQ4kC1FYE6mtJ9oejhGR4Uh
-	dzJEoVNuZ5OYYXvDhmBJw5qLGT7yann9TeKKEPJmLfPT2KW1DSIvGi8/V2Dk/F4Z
-	M7gNyrEC1FqUaJbQHELKQVobW28PZUNlYrq4SiK0Vd0Xsw53cwxLyOB87nVVw51k
-	UunvQxWqJ5WXm5hL+BqMogsB2UsUtqZGomMfFGALtBR90g==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j328rsss2-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 17:20:12 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-94960131befso319165885a.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 09:20:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795281611; x=1795886411; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=EToEzVRVg3WYCmb+Ipge3agclXFYn4/uigqheoHGHhY=;
-        b=LD4zR4Y1gbaDQ75fVGtwJy2sv2y+HM2Wf3wiHtYnmG84TjskgL/SEmwiE3SJoWjDpa
-         BArEnvvt4iIkvao2hcxZtZ2dYNzJC0n5/N7Et43CLtXUuHdzcuu578aJij5oKviL8aPX
-         DGsT7Zkrb8lh7Ig/g78rcDET1MPkD1TejIWLIlh2zV+ObP8z/y0Wfu2xt6xczCVp3LCX
-         xvHoKLbMRd8thYLedjPIEeDSp6trop+4u74pE0pi7ns7oKYhjlkf6FubyIPsIVY+cd4v
-         568fvRdD6L4mZYNSzAEZnq8i47tQHk01ZxabZncBwD6MF8Z+WiLPgAn3e8Yhkrdn11VY
-         4F6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795281611; x=1795886411;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=EToEzVRVg3WYCmb+Ipge3agclXFYn4/uigqheoHGHhY=;
-        b=mVBBpEhcLwnC4zk2KixOawNK49AIPqznhFzxV/aO4dRaNetM35H0JwCCi69lJWtg4c
-         iTL4KwJEvzJphY1s7LfEMzZqyOVM6EsfW1NRW8Wg6i62aqQLswrbyrQJxujuuHicKM6g
-         hGOelWeDYrKYQad8RQAi7WwP5AzkBgbddd7f8Xaxo1USSgnXeBx9V0fgRojuafZKwznM
-         rcaDquR32m97nPDGKVKXt6lFAQuWIko+aLF//RAd+qaQeoPGgqswLjlQMAff/7effsml
-         MQPw84KA4WJ4W2HQJQTG9NobC1uZsoN64TnH65O19fOzL9mEd/r6onaF887fEGolKJte
-         GfQA==
-X-Forwarded-Encrypted: i=1; AL+hErHeSeh6yrmquuJ2xEn7ysnWBCjTf27SYvVi3w1aCmS8saHHsXQwWXJUQX9gRiZzm3bKtey5ajl7Qfvzn5M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9zhlwD8TPWYgcrnMDL9YfcYZcHASLBULQILRjMwqNvew+WS/aE
-	CPD9LqxN0NgOl/2qepUUE8kDB6crCrJvQnO82h+je5KqQ1r+kj3rECWBGEzvrgbW7l8PWw1NeBW
-	ARD/uB/Mf4NeB4/0ElVkLVU4nqEQLzA4QPSMAfecsigBV5nIqTW3e9892kaHsY/8vx0w=
-X-Gm-Gg: AZFdTZfXaKqEF9xeXYH78KKeMGs8cYKSMavDbvfuYkSVB9M/9X8r9laIq38cPDri8a4
-	9Kz2DANs6CZYMTNKLr7P2HCJsc+q1w1hD2fuAcPgRrdJV0JQZ6FEODfASJkgGBA/jygtBDxn0mx
-	jaixc6UQU4L3FB3UmonTz3Cp2UdBoXrhskMEDuunrtOzBLEJT3A+FDbmxmZCHbC98JkbRdteGdx
-	XfqEEAqDyuBqhL4sADFzgQfZL2uf2ZudhSE0xEzUI6rgt85IHTlaJEBR39qo7iTrVneMIMKBoKw
-	LWLSTXW5Bzt3ucJGVMAmD4cQCm/7lhCq6v++YmZKT0DLyGV+re8AfyRh4wqNks4rKUQSgyL50Xl
-	3g7CDhlMsEKVuwubaf7yLi+oDZS3m7quOp5N+SoB0KRQ7T2NZSl5kkyQsA7yhFE/PDg==
-X-Received: by 2002:a05:620a:29c2:b0:93e:acdd:acd9 with SMTP id af79cd13be357-949ba7e227amr1113767185a.7.1795281611130;
-        Sat, 21 Nov 2026 09:20:11 -0800 (PST)
-X-Received: by 2002:a05:620a:29c2:b0:93e:acdd:acd9 with SMTP id af79cd13be357-949ba7e227amr1113760385a.7.1795281610513;
-        Sat, 21 Nov 2026 09:20:10 -0800 (PST)
-Received: from localhost ([188.152.73.83])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b8429sm299567205e9.14.2026.11.21.09.20.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 09:20:09 -0800 (PST)
-Date: Sat, 21 Nov 2026 18:20:08 +0100
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next] net: stmmac: eic7700: Use
- syscon_regmap_lookup_by_phandle_args
-Message-ID: <awHSyEATb5sUMs2h@lore-qca>
-References: <20261121170753.161170-2-krzysztof.kozlowski@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MfOJU2OB
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 34F461F000C0;
+	Sat, 21 Nov 2026 17:21:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795281716;
+	bh=ohIR6Qw82vrbkY4AEMlZ5OFiQyPze3nGc8ZbxW8VQNk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MfOJU2OB8lw5gSY9BnMmPvchn99+EsG8UzO4ZvAUo1WYMnnEcq9l22P9SFCMIfG97
+	 6g1DB1fPOHkkhNeQyatKx6xx82XIKQq6NmVa7ROmN01aXYxgdXSh+pSXWh7ZQo9nrb
+	 VuEg7DF7+VCLLHrN2rKKof0hdINX2MahCtu7DK97H5v+99TQtkYaYP+EmJrWbSPfZ8
+	 w+WXxHVoDa4iCMOGX0YxSgkypG1gOGZhRWzBQzr6JMwomnHh5KIaqjJJWoMW3McUpJ
+	 apwmVODt2VzXn5CnaPnu7Ie+YskEZN+V3ZYeFSpJHkDC8zS5rqBo7LJqcHZFHJxnLg
+	 NMzrk1GVnTNEg==
+Date: Sat, 21 Nov 2026 19:21:52 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+	Alexander Mikhalitsyn <alex@amutable.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Christian Brauner <brauner@kernel.org>,
+	David Howells <dhowells@redhat.com>, Jan Kara <jack@suse.cz>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Josef Bacik <josef@toxicpanda.com>, Kees Cook <kees@kernel.org>,
+	Neal Gompa <neal@gompa.dev>, Paul Moore <paul@paul-moore.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: Re: [RFC PATCH v5 25/25] MAINTAINERS: Add entry for ROOT NAMESPACE
+Message-ID: <awHTMNdonDO8IQtF@kernel.org>
+References: <20261121000844.1863324-1-jarkko@kernel.org>
+ <20261121000844.1863324-26-jarkko@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -126,133 +68,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="0OvQp1Mflhl1IUn0"
-Content-Disposition: inline
-In-Reply-To: <20261121170753.161170-2-krzysztof.kozlowski@oss.qualcomm.com>
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIxMDA2OCBTYWx0ZWRfXyK/cK0JCXaAj
- QhLZiIkPC/rHa4Et/kv/SrHIBGH/Iiu1T6kDsrWnR39bqh1eBIJ4YQwbHWm4O4TcSxme43mPwnJ
- j1vFYTguPWH2kFs64f7RifOszJ+tQis=
-X-Proofpoint-GUID: NZh4ox1KMAta4TaYhXX2qRBu2bpp7FVh
-X-Proofpoint-ORIG-GUID: NZh4ox1KMAta4TaYhXX2qRBu2bpp7FVh
-X-Authority-Analysis: v=2.4 cv=c9w+0h9l c=1 sm=1 tr=0 ts=6b01d2cc cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=mlS0om9xteqVCAF/aDpb2g==:17
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22 a=EUspDBNiAAAA:8
- a=7SHFOz60fl6yjfH7NaMA:9 a=CjuIK1q_8ugA:10 a=hsGEX8tnh7uD-6tXlA0A:9
- a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIxMDA2OCBTYWx0ZWRfX5wsCCdPEozcs
- fNlII4MsSGIyPzQBvp0cw36ZvCBx0uOspJ8KX60kpDg11572yO6EGIlBIYRtuIt2MTYyZtRtwBR
- kFmWTJJmQL8WtDggF8I+AQXyEEFNjKdKaX7oxTDX2lAgapn9XBylXa7CLRyvX3UkyAx6vMZDjLJ
- J+RGrG0ez6ybSNxvSP6mke960gsB5nNW90pIswNIalDzDD6JSqFdxqtEKNMHD/z0O309Td723kd
- hbVK1I9awitQ9z6Dd+oH1RQqXferPhdvdPeJ5WPmFCwv+KkFHkLVVpDiqtyxBXi+ze9shBJ945K
- iK3rU7wxLcd3hVee9YKCEZbBhN3XAqJHK4M2CgQhZ7iGYJITfVwg5gV/kee9zNtmFcjNsiTs30A
- 733tlrXklXp5unb8WDehVYIOnA656zD4ZKZXSadDPoM5O2S+tO8qfMlwyVwCHQ2sVq5iNKfETt6
- nRudQOrV8cEfQ83gnnA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-21_04,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 phishscore=0 adultscore=0 bulkscore=0 clxscore=1015
- suspectscore=0 malwarescore=0 impostorscore=0 priorityscore=1501 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611210068
-
---0OvQp1Mflhl1IUn0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20261121000844.1863324-26-jarkko@kernel.org>
 
-> Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
-> syscon_regmap_lookup_by_phandle() combined with getting the syscon
-> argument.  Except simpler code this annotates within one line that given
-> phandle has arguments, so grepping for code would be easier.
->=20
-> There is also no real benefit in printing errors of missing individual
-> syscon arguments, because this is done just too late: runtime check on
-> static/build-time data.  Dtschema and Devicetree bindings offer the
-> static/build-time check for this already.  OTOH,
-> syscon_regmap_lookup_by_phandle_args() already handles error case if the
-> number of arguments is too low, thus switch is safe.
->=20
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-Reviewed-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-
+On Sat, Nov 21, 2026 at 02:08:44AM +0200, Jarkko Sakkinen wrote:
+> Record maintainership and mailing list routing for the root namespace
+> subsystem across its uAPI headers, core implementation, documentation,
+> and selftests.
+> 
+> Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
 > ---
->  .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 30 +++++--------------
->  1 file changed, 8 insertions(+), 22 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/driver=
-s/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> index c229275b11b3..287f717ab3ed 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> @@ -170,6 +170,7 @@ static int eic7700_dwmac_probe(struct platform_device=
- *pdev)
->  	struct plat_stmmacenet_data *plat_dat;
->  	struct stmmac_resources stmmac_res;
->  	struct eic7700_qos_priv *dwc_priv;
-> +	unsigned int hsp_args[3];
->  	u32 delay_ps, val;
->  	int i, ret;
-> =20
-> @@ -254,33 +255,18 @@ static int eic7700_dwmac_probe(struct platform_devi=
-ce *pdev)
->  	}
-> =20
->  	dwc_priv->eic7700_hsp_regmap =3D
-> -			syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
-> -							"eswin,hsp-sp-csr");
-> +		syscon_regmap_lookup_by_phandle_args(pdev->dev.of_node,
-> +						     "eswin,hsp-sp-csr",
-> +						     ARRAY_SIZE(hsp_args),
-> +						     hsp_args);
->  	if (IS_ERR(dwc_priv->eic7700_hsp_regmap))
->  		return dev_err_probe(&pdev->dev,
->  				PTR_ERR(dwc_priv->eic7700_hsp_regmap),
->  				"Failed to get hsp-sp-csr regmap\n");
-> =20
-> -	ret =3D of_property_read_u32_index(pdev->dev.of_node,
-> -					 "eswin,hsp-sp-csr",
-> -					 1, &dwc_priv->eth_phy_ctrl_offset);
-> -	if (ret)
-> -		return dev_err_probe(&pdev->dev, ret,
-> -				     "can't get eth_phy_ctrl_offset\n");
-> -
-> -	ret =3D of_property_read_u32_index(pdev->dev.of_node,
-> -					 "eswin,hsp-sp-csr",
-> -					 2, &dwc_priv->eth_axi_lp_ctrl_offset);
-> -	if (ret)
-> -		return dev_err_probe(&pdev->dev, ret,
-> -				     "can't get eth_axi_lp_ctrl_offset\n");
-> -
-> -	ret =3D of_property_read_u32_index(pdev->dev.of_node,
-> -					 "eswin,hsp-sp-csr",
-> -					 3, &dwc_priv->eth_clk_offset);
-> -	if (ret)
-> -		return dev_err_probe(&pdev->dev, ret,
-> -				     "can't get eth_clk_offset\n");
-> +	dwc_priv->eth_phy_ctrl_offset =3D hsp_args[0];
-> +	dwc_priv->eth_axi_lp_ctrl_offset =3D hsp_args[1];
-> +	dwc_priv->eth_clk_offset =3D hsp_args[2];
-> =20
->  	ret =3D of_property_read_u32_index(pdev->dev.of_node,
->  					 "eswin,hsp-sp-csr",
-> --=20
-> 2.53.0
->=20
->=20
+>  MAINTAINERS | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 7cbce21ba45a..072be5ec7fd8 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -24533,6 +24533,17 @@ F:	include/linux/mfd/rohm-bd96802.h
+>  F:	include/linux/mfd/rohm-generic.h
+>  F:	include/linux/mfd/rohm-shared.h
+>  
+> +ROOT NAMESPACE
 
---0OvQp1Mflhl1IUn0
-Content-Type: application/pgp-signature; name=signature.asc
+Out-of-date.
 
------BEGIN PGP SIGNATURE-----
+Not sure if rootns is a great name overall, it just randomly picked WiP
+name. What gets produced are opaque fd-bound containers so maybe even
+calling syscall as container() would not be such a bad idea (unweighted
+and unconsidered idea).
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCawHSyAAKCRA6cBh0uS2t
-rPlnAQDvFThEV0w9sN0ihzSOFueg0SkPnLH7gOu/w6OxmOIKFQD/ecz5Rb5UjmPu
-wcE4gdPGntcwSBsNbPzD5kliXTV/+A0=
-=TTZe
------END PGP SIGNATURE-----
-
---0OvQp1Mflhl1IUn0--
+Br, Jarkko
