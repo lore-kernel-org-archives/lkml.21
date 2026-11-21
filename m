@@ -1,80 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.111
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795266177;
-	b=BmyUM2BzYSEqWlR/PMcZY6DCIyo0iUlOEevWymGYJxADQXnb6WSDL4m0dXTNETWJBkpo
-	 F4jw4yt139JzgyS0B7Fci6Iapm8y0QCvYyraXVYLuowRgCPJlrsIwTV44UKu1reWJKo59
-	 /K0dxW/IXP51/Fr9b5p4APzHc3nI7ortAOGJHRnKFw15bkJrctqiMUDK/7b3c2ULL3TNv
-	 jsch1N+lvLaMvgDqNBfIjc7ZUQmP0Sb6NmyzV8j6zAP1HM8fFGZ37RxJTk7hpKzqpAmfS
-	 qA7bnYqOp7CDtSsgtyeKqlP+onfviK6uhP1VfLdZL3wph1ov/v0Tpwd8v3sKGhpijJA==
+	t=1795266224;
+	b=3hjjfY7QyvWJUtRjNtgbnYVMxSyWYXlhKD/2gn7GwgG+GKDF8N+/ADobF4SA72wnILEi
+	 rBrAB9Hfm74uevkRNJ2Yg0x5Ew6VCNZTzCQyI3EMqqDxm9oBOsddJSmPLoJH42Oq/eh7e
+	 pryo1o4GUxhGyIRKrDNvqKmFNnH51nDGRdoGdETeeLrS/PbC9FvrvPUH7UoirUKP2VkLB
+	 7+8bVwNFMW/x3I9X14QP/whDU+cCszzarkTQ9n4ksy7jdPDQSVx/yh0Wy7juZMdyvgfrn
+	 WdLL/2RnznNhDdwqh/tG3QM/B7GdwWfIMfna4Sd2DoU3Li5uljwPN7dFdrbSXrA0cIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795266177;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=kosSlO4n4eaj/l8QctRPYZS0nYWx+0xDQzEvrB+dFGg=;
-	b=DPytLyNV9ZhzrSZl53ZtTs89N1CLi3z/YZNOkov+gKKytL1C2bn06uqnDosX0sqvxTZ3
-	 fSJ2xoe5N0KDWaT+aEPiebdcricfLY3OCxs9XwSo6xQaoGv9egMifYc7i8NcUaKkPZvx1
-	 4edfPlHIQsRpR8+uafNa8tqDt05agdkp9/+KTrj1xQRGTP9Y+ihVqIcrAJv3NLomkw0mr
-	 ntEwdthYxHIV5zmhlVAbp2t6+9oFD9/3z7frDKG796C8V54IkHkcXi9jLuwoA+urxRFsR
-	 eILS+sU1D+UUS2r/I6nhQ17bCn2XlpjacktP7lbRjitfz+kKr+rrzcIxao/5jtiiukw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795266224;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=NN9PV3EIA0LeMNEdrMa7ju2o8RGtnqlY03dOr+4MbQs=;
+	b=GdfPPYUv7+G2b9AGoHSX0PjjAKILWto9cEwN9xl73h+A+wnkPqgBZlG7WuwX0Kx8YyIa
+	 /CpUKnba8k0F0vZJW8Jjt3ahcYaX35fBkqsuamTi6x9zhPtflooPMMmQ7hk3XdVMcuyhV
+	 PMwBVX9wt2iovotoz4ESdG+YHvJvKT/fVBAQehTNPRz4nyOh5STZneafv3sviWDIhX8Xa
+	 YsoUKlJhXqrIZVDeeePNJdMzc+6d/MNPy16mnL8OJPKuaarOZfvUWvRydYgdoqEemAk81
+	 ghvhz3hnnpR0/vK35faZSeQ1GEZ8ABPGeixXHLRs3Ga2QJru034RLUnjoYhD+jzz/lA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=evWxxf05;
-	arc=none smtp.remote-ip=91.218.175.111
-Received: from mta0.migadu.com (out-111.mta0.migadu.com [91.218.175.111])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CCk6n69f;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A140606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:02:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A140606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78532606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:03:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=evWxxf05
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=AXPl9MSQKEVnxwBZxVz70iQ3WAgcrk7wcvSe7Ve0uwo=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795266175; v=1; x=1795870975;
- b=evWxxf05XzVJt8Tiou/ooJaFuuGuIEy6pjt2YmbAgNiOxUhEf41eaNZKkg47SGXEuGOXmAyt
- 3WwiAi8ByTAobCpv3Fp+93sxm2LZVZgMx5+WnZdbPDilExVU6ew6/6LAC8t6n1rEElzVU8kRIXn
- y9U/4883p+Brc6sMaiwDe+Bk=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 2fb3a475fbc6b1aa;
-	Sat, 21 Nov 2026 13:02:54 +0000
-X-Mizu-Trace-ID: 2fb3a475fbc6b1aa
-X-Migadu-Flow: FLOW_OUT
-Date: Sat, 21 Nov 2026 21:02:42 +0800
-From: Peng Fan <peng.fan@linux.dev>
-To: Jason Gunthorpe <jgg@ziepe.ca>, Frank Li <Frank.Li@nxp.com>,
-	Vinod Koul <vkoul@kernel.org>, Robin Murphy <robin.murphy@arm.com>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Frank Li <Frank.Li@nxp.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Laxman Dewangan <ldewangan@nvidia.com>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@kernel.org>,
-	Larisa IIeana Grigore <larisa.grigore@nxp.com>, imx@lists.linux.dev,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, linux-tegra@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v6 0/9] dmaengine: add DMA channel bus and fsl-edma
- per-channel IOMMU support
-Message-ID: <awGWcq_nKWShC81B@fedora>
-References: <20261112-edma-iommu-v3-v6-0-b038edb8ce6f@nxp.com>
- <20261116193021.GB2452510@ziepe.ca>
- <avwQl18smAW4R6ec@fedora>
- <20261117130005.GC2606445@ziepe.ca>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CCk6n69f
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14D961F000D0
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:03:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795266224;
+	bh=NN9PV3EIA0LeMNEdrMa7ju2o8RGtnqlY03dOr+4MbQs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=CCk6n69fw2sJmloh3K1tFqvaHZD5cQdd8OXIgLZyT6nVox3M4v/BKO68xzNhLeqaO
+	 HXn9kWaCiI9ehpdXrs9ncUN7kQe/a0BCTlpq5ZpocS+Du/NuiVqPssINbwBy2UMGTy
+	 E+zYZ2w8VeW0d2s6T3Im78sAdosMz5hg3dG1ApGShT16uZSrHT1SdV5wut6q4F0aZ/
+	 wJqlenrgZSB4HmWXjArujeZFcjnUVyNatbrpNsaxP9AGz10TCh3B2fM5QjYRMH2f7e
+	 QfbgLxxtJZKzb5DcTSG1RCj5r2gr6IaFuUS0DJPHlvnbe61yxJTEt58SpWbAOflOcY
+	 HICcAKF4dR3DA==
+Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-6b8784a3284so2632218a12.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:03:44 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFsJcdOhlx7JNBrjzslit8WmFPaq+BS5Z82gjByRuRtTIRwZqIKeiTmcC7skmLxNj89tgHu0Ssq4b25MLI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/OAuS9KDOHOXmLsZFP7iVvSdjrldNEc7aB13gdngmQWfh92yTt
+	X55mZwcq8wB0jDokwHiiMXbDPySP+1GwHjWRgDsJcD1Y38qqcfft1b+BrRcXm4HB8oGck1q5VAu
+	Bhfq7KV6bWwdCnFmbWDf2qv6MGgWMcVE=
+X-Received: by 2002:a05:6402:4501:b0:6ba:144f:ae47 with SMTP id
+ 4fb4d7f45d1cf-6ba37ec05c3mr4590419a12.26.1795266222631; Sat, 21 Nov 2026
+ 05:03:42 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,68 +59,198 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117130005.GC2606445@ziepe.ca>
+References: <C3361EF435F90A22+20261119121937.2447021-1-luoqiu@kylinsec.com.cn>
+ <CAAhV-H7037=znoeU3+V086qGuDkRMVeSmt0PKe8DrdiFKcvF0A@mail.gmail.com>
+ <6ADB4C8146800DEE+635e4c74-fbd8-46bc-b1b7-670a35e62cb8@kylinsec.com.cn>
+ <CAAhV-H4PM0iPH0mBQy=Tj16b2o_5zNwzEyjd8LqMMQeRQpDxNg@mail.gmail.com> <6C1A5340F9F491C3+2f4be193-b25b-4386-89e5-654277569ad6@kylinsec.com.cn>
+In-Reply-To: <6C1A5340F9F491C3+2f4be193-b25b-4386-89e5-654277569ad6@kylinsec.com.cn>
+From: Huacai Chen <chenhuacai@kernel.org>
+Date: Sat, 21 Nov 2026 21:03:30 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H7W3WLvdJGVb210PU=TPUUs7X3wm=mLknZ3B3DkY_KnPA@mail.gmail.com>
+X-Gm-Features: Aa3M54owCyzpPXl5Qb34BuhzUxT_xhNRDfl_3UvftNMZO-G5W6GfbCgJM06_zZc
+Message-ID: <CAAhV-H7W3WLvdJGVb210PU=TPUUs7X3wm=mLknZ3B3DkY_KnPA@mail.gmail.com>
+Subject: Re: [PATCH] platform/loongarch: laptop: Fix backlight device lifetime
+ on unload
+To: Luo Qiu <luoqiu@kylinsec.com.cn>
+Cc: Jianmin Lv <lvjianmin@loongson.cn>, Yao Zi <ziyao@disroot.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, Zixing Liu <liushuyu@aosc.io>, loongarch@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Jason, and all
-
-On Tue, Nov 17, 2026 at 09:00:05AM -0400, Jason Gunthorpe wrote:
->> 
-
-[...]
-
->> I may not describe it clear in cover-letter.
->> 
->> I understand the concern. Let me explain why I believe it is justified here
->> rather than a hack.
->> 
->> On i.MX eDMA each channel has its own interrupt, its own register region,
->> and on i.MX8QM even its own power domain. Each channel may also have its
->> own Stream ID, or share one when SIDs are scarce. These are genuine
->> per-channel hardware resources, not software fiction.
->> 
->> In dmaengine each channel is already modeled as a channel device (see
->> dmaengine_chan_dev()), and this series puts those devices on a real bus
->> (dmaengine_chan_bus_type) as a prerequisite. The DT child node simply
->> describes that existing device, so its reg/interrupts/power-domains/iommus
->> are attached per channel instead of as index-matched flat lists on the
->> controller.
+On Sat, Nov 21, 2026 at 8:45=E2=80=AFAM Luo Qiu <luoqiu@kylinsec.com.cn> wr=
+ote:
 >
->If they are real devices then why can't they come out as platform
->devices?
 >
->I think you are overstating how independent they are. Many single
->devices have per "channel" resources like MMIO and IRQs. That's
->totally normal. It doesn't make the sub resources independent devices.
+> On 11/20/26 6:16 PM, Huacai Chen wrote:
+> > On Fri, Nov 20, 2026 at 5:13=E2=80=AFPM Luo Qiu <luoqiu@kylinsec.com.cn=
+> wrote:
+> >>
+> >> On 11/20/26 4:16 PM, Huacai Chen wrote:
+> >>> Hi, Qiu,
+> >>>
+> >>> On Thu, Nov 19, 2026 at 8:22=E2=80=AFPM Luo Qiu <luoqiu@kylinsec.com.=
+cn> wrote:
+> >>>> The driver registers a platform backlight device during module init =
+but
+> >>>> discards the returned pointer. Consequently, the device is never
+> >>>> unregistered when the module is removed, leaving its ops callbacks
+> >>>> pointing into freed module text. After module removal, reading the
+> >>>> backlight's actual_brightness attribute can call the stale callback =
+and
+> >>>> crash the kernel. Registration failures are also silently ignored.
+> >>>>
+> >>>> Store the returned pointer, use it for resume, and unregister it on
+> >>>> module exit. Propagate registration failures to avoid silently
+> >>>> continuing without a backlight device.
+> >>>>
+> >>>> Fixes: 6246ed09111f ("LoongArch: Add ACPI-based generic laptop drive=
+r")
+> >>>> Signed-off-by: Luo Qiu <luoqiu@kylinsec.com.cn>
+> >>>> ---
+> >>>>    drivers/platform/loongarch/loongson-laptop.c | 19 +++++++++++++--=
+----
+> >>>>    1 file changed, 13 insertions(+), 6 deletions(-)
+> >>>>
+> >>>> diff --git a/drivers/platform/loongarch/loongson-laptop.c b/drivers/=
+platform/loongarch/loongson-laptop.c
+> >>>> index 4ec56621db24..ec0742e5ed46 100644
+> >>>> --- a/drivers/platform/loongarch/loongson-laptop.c
+> >>>> +++ b/drivers/platform/loongarch/loongson-laptop.c
+> >>>> @@ -56,6 +56,7 @@ static acpi_handle hotkey_handle;
+> >>>>    static struct key_entry hotkey_keycode_map[GENERIC_HOTKEY_MAP_MAX=
+];
+> >>>>
+> >>>>    static bool bl_powered;
+> >>>> +static struct backlight_device *backlight_dev;
+> >>>>    static int loongson_laptop_backlight_update(struct backlight_devi=
+ce *bd);
+> >>>>
+> >>>>    /* 2. ACPI Helpers and device model */
+> >>>> @@ -194,13 +195,12 @@ static int loongson_hotkey_resume(struct devic=
+e *dev)
+> >>>>    {
+> >>>>           int status =3D 0;
+> >>>>           struct key_entry ke;
+> >>>> -       struct backlight_device *bd;
+> >>>>
+> >>>> -       bd =3D backlight_device_get_by_type(BACKLIGHT_PLATFORM);
+> >>>> -       if (bd) {
+> >>>> -               loongson_laptop_backlight_update(bd) ?
+> >>>> +       if (backlight_dev) {
+> >>>> +               loongson_laptop_backlight_update(backlight_dev) ?
+> >>>>                   pr_warn("Loongson_backlight: resume brightness fai=
+led") :
+> >>>> -               pr_info("Loongson_backlight: resume brightness %d\n"=
+, bd->props.brightness);
+> >>>> +               pr_info("Loongson_backlight: resume brightness %d\n"=
+,
+> >>>> +                               backlight_dev->props.brightness);
+> >>>>           }
+> >>>>
+> >>>>           /*
+> >>>> @@ -409,6 +409,7 @@ static int laptop_backlight_register(void)
+> >>>>    {
+> >>>>           int status =3D 0, ret;
+> >>>>           struct backlight_properties props;
+> >>>> +       struct backlight_device *bd;
+> >>>>
+> >>>>           memset(&props, 0, sizeof(props));
+> >>>>
+> >>>> @@ -426,9 +427,12 @@ static int laptop_backlight_register(void)
+> >>>>           props.power =3D BACKLIGHT_POWER_ON;
+> >>>>           props.type =3D BACKLIGHT_PLATFORM;
+> >>>>
+> >>>> -       backlight_device_register("loongson_laptop",
+> >>>> +       bd =3D backlight_device_register("loongson_laptop",
+> >>>>                                   NULL, NULL, &backlight_laptop_ops,=
+ &props);
+> >>>> +       if (IS_ERR(bd))
+> >>>> +               return PTR_ERR(bd);
+> >>>>
+> >>>> +       backlight_dev =3D bd;
+> >>>>
+> >>>>           return 0;
+> >>>>    }
+> >>>> @@ -622,6 +626,9 @@ static void __exit generic_acpi_laptop_exit(void=
+)
+> >>>>                                   generic_subdriver_exit(&generic_su=
+b_drivers[i]);
+> >>>>                   }
+> >>>>           }
+> >>>> +
+> >>>> +       backlight_device_unregister(backlight_dev);
+> >>> backlight_device_register is called conditionally but
+> >>> backlight_device_unregister() is called unconditionally, I think this
+> >>> is wrong.
+> >>>
+> >>> Huacai
+> >> Hi, Huacai.
+> >>
+> >> Thanks for the review. The unconditional call is intentional and is sa=
+fe
+> >>
+> >> because backlight_device_unregister() explicitly accepts a NULL device=
+:
+> >>
+> >>       void backlight_device_unregister(struct backlight_device *bd)
+> >>       {
+> >>           if (!bd)
+> >>               return;
+> >>           ...
+> >>       }
+> >>
+> >> backlight_dev is statically initialized to NULL. It is only assigned a=
+fter
+> >> backlight_device_register() succeeds and the IS_ERR() check has passed=
+. If
+> >> registration is skipped or fails, the pointer remains NULL, so the cal=
+l in
+> >> the module exit path is a no-op rather than a NULL dereference.
+> >>
+> >> I can change it to `if (backlight_dev) backlight_device_unregister(...=
+)` in
+> >> a follow-up if you prefer that style.
+> > Yes, I think that is better. And it is also better to put this block
+> > before the "if (generic_inputdev)" block.
+> Thanks for the suggestion. I would prefer to keep the backlight
+> unregistration after the generic_inputdev cleanup block.
 >
->AFAICT what you have here is some HW designer used SID where they
->should have used SSID and you are trying to hack DT to make that
->usable because Linux does not support a SID as SSID model today.
+> loongson_hotkey_resume() accesses backlight_dev, and that resume callback
+> belongs to loongson_hotkey_driver, which is only unregistered by
+> generic_subdriver_exit(). If we unregister the backlight before that bloc=
+k,
+> the PM callback remains reachable while its backlight_dev dependency may
+> already have been released.
 >
->Again, since this is the 3rd - 4th case like this, it seems like a
->popular hardware choice and we should try to do better to make Linux
->support if we can.
+> The backlight device itself is independent of generic_inputdev. The
+> ordering is required by the hotkey PM callback lifetime, rather than by a
+> device dependency between the backlight and the input device.
+>
+> I think keeping the teardown order as:
+>
+>      generic_inputdev/generic_subdriver_exit()
+>      backlight_device_unregister()
+>
+> is safer.
+OK, go ahead please.
 
-Let's put i.MX eDMA aside, I have one general question regarding
-dma channel DMA.
-
-The below two drivers[1] has chan_dma_dev set as true which means they use
-dma channel device to do dma memory allocation. And for tegra186, it
-use dma channel device for iommu, the buggy part is that it forces
-chan dev's bus to platform bus.
-
-Do you think it is reasonable to have chan device(not platform device) do dma
-allocation? I ask because if we allow chan device to do dma allocation, we need
-to provide a dma channel bus for iommu_buses to fix tegre186(TBH, I 
-am not familar with this platform, it even has iommu-map for the dma node).
-
-[1] drivers/dma/tegra186-gpc-dma.c
-    drivers/dma/ti/k3-udma.c
-    https://elixir.bootlin.com/linux/v7.4-rc1/A/ident/chan_dma_dev
-
-Thanks
-Peng
+Huacai
 
 >
->Jason
+> Qiu Luo
+>
+> >
+> > Huacai
+> >
+> >> Thanks.
+> >>
+> >> Qiu Luo
+> >>>> +       backlight_dev =3D NULL;
+> >>>>    }
+> >>>>
+> >>>>    module_init(generic_acpi_laptop_init);
+> >>>> --
+> >>>> 2.56.1
+> >>>>
