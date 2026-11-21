@@ -1,54 +1,67 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795292149;
-	b=Vg5vWHxq2bau8zZUMX3GHbOEvdWT8CIGpeLq1vAXhTASAEDGwoDxzS9yEZ2PHgMnJDcw
-	 zQhz1mU4eKL+N5Ka9BhN2zEirWTKcrEXDKJfAep0dNlaSKYn+2r0FUwsGP+Uk65Te78uR
-	 muL3L1U+fhX6FyVF2eWMQu8l/AGOF4sF1URtHU6FlDWT/Q2fFF00HcOrbCYfMHqPH+xFf
-	 z7SBnood1v90zEAOWjx43W5SSmGc0pgJShRs5I2G/QffjrVsAtRJzchYOoOOrq+Hvvu8d
-	 XDFHiCd5OySmoV57hzTwDqLBxftbhbdFSkUXVN7H5KM1z3GACh1INN1xM1LfGlzitbg==
+	t=1795292219;
+	b=qM93Iqa3qBj3N5mBGj8jgCa0wQFXABFRUYf8qucW5u4oIgDR8U6E8JAORwgD2ny/E+Jy
+	 3+5RZ+lImWF1RMM2w+o8DzcPZWe6yjH6pzXjIwuNEVcpUoc6qc6Nm3EtwZOaOsTg1RLHX
+	 rByJtFkqRWA8F9SVH9bhTQlH5USPfimxXzXZ0tG+uzscXhcVCCrchEGrIGdaIXfyV7XiH
+	 mzfBWeltHr7Fa8sTANkkNUwdHRovRGBbxjxjFCcakiwW7bpGBj56y2TgduPGV5OzlQYZk
+	 aufWzr6FBWOMzy4FJUwbla5+nM6MPIdoG8FVMrY/ovok/eIBGBpNG/VWgq/8PstptHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795292149;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795292219;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=ptZn/PY1qnnr3eBmB2mWHLWI6g925yKErFSC8CXOBEE=;
-	b=xGKqqB/Kx8bN4YA7MhtW7VWNFasH82dkwz1J6Th9baR6KUTLWhVdGNzF3PXGIewX7u0J
-	 GUuyPNy/HP+CMBuNLrL7QBevyIkgFFNCQb5BVHoF9bd2gp79rYcCCi3qLqHZlvE3RTdf0
-	 SeI3KFiAGkHd2mmnttn6WeNxv/b36r8qNX0XtI9F/dFkc5iNhH8lrpeDQ3hK1WxvAi/Gx
-	 E4ZQAbtlr6FysFreB9LrDiOylGc9LgJUjyY02CFcd3fidVSHMgSRoVWH7iNIP0QJFNuIH
-	 WKjAdr+cffCXB8/Q3/tIxoEhHhCzXVHrv+aQSUKPumkTd6b2jGtgUrUSWUvDVG9aQEA==
+	bh=WCBP8JNN9LhYmA42mMEQijOkZabItzYoL6U32M5rD5U=;
+	b=c4Gdg/hmcgTuAB+fnVOTSmTpVeGvK3YbUhqoc3sUvRE6IsuDAUY8P1Z0CoqRGL2m+2Is
+	 KLm6u5t53J7FxtYZWX11N3F4FDiVfcslFoSVENthG6Qb3mZkQAM9xxVog23SIU0VexXaG
+	 yGHfnYiz2CY369WhoFUdIVt5RNAJuzRyaHoO4QY2DnFVtB0VJlxjwCDXzlfwoerlxhVr0
+	 9MJFqqnJGdbGYwin8sXTv1s8D4NB8i65GBhIAa69k24/zGFuPvBxhEuC692NSBGldWnAk
+	 5WVtLyT+2qQFBGJzCUpAS9pZQr8M1DBaCZ7g/uHmfbABzKbB+YpStBQ4NNmicSwZJFg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XVRSxQs6;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=awKUlLbv;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCA87606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:15:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 12A33606A320;
+	Sat, 21 Nov 2026 20:16:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XVRSxQs6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8F561F000C6;
-	Sat, 21 Nov 2026 20:15:48 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=awKUlLbv
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 24FC01F000C0;
+	Sat, 21 Nov 2026 20:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795292149;
-	bh=ptZn/PY1qnnr3eBmB2mWHLWI6g925yKErFSC8CXOBEE=;
+	s=k20260515; t=1795292218;
+	bh=WCBP8JNN9LhYmA42mMEQijOkZabItzYoL6U32M5rD5U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XVRSxQs6Ig7L8GYvF4uChf5yMpyTJMFIJuE4kW0Y/pdw/KhtVj2iB3TMm0eOBwORQ
-	 68Gsij5X3mzfQ1jVF5a/f5ahzCz8GYq37mYPB7txL00NeHZlFJDTnqrWt6eVezclHI
-	 SjinjifoWOEP1YXmMmqSYGX9a/pHeePcti9Hp6C1eCjmwa+VbRNVFQZjHbIzE7ixeg
-	 Drw7G7E8WiZbMmAxI0IDttPUgKEruPiDopt9GjIWLI0MPOomAUDV7VtITfuEdvtEQQ
-	 RbnO1kUyPq4oc54mhDGQjmHv8qaPqXynr5Ku2fxA6530UG3Bv04198KaQ+WD3ASjOf
-	 uAFHNPQ5ViFBQ==
-Date: Sat, 21 Nov 2026 12:15:47 -0800
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Jiri Olsa <jolsa@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Jason Baron <jbaron@akamai.com>, 
-	Alice Ryhl <aliceryhl@google.com>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, x86@kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCHv2] jump_label/x86: Avoid decoding instructions for jump
- entry size
-Message-ID: <awH76ikbfurgj63W@jpoimboe>
-References: <20261117195506.23759-1-jolsa@kernel.org>
+	b=awKUlLbvP1S0RSzq6or2hZk+BFppVeROah3E6sRNOD8PhwN/YJIWZpiBtcRyolg/T
+	 OAor4bxjQjxffQ2cWBYSzf+63SP3VWuAFwgbj5r1R8nWBvFl0qsUuXzRDQrkVAzDwV
+	 4dtkFBBRR2QZ+lmw2F8tH4liqDs/uESzlGjQXBgpRCOVdHoZucHE/KRjglh51qB0Ro
+	 /HfEC2+MWTkQpXSu7fSpGg2hbdcqX6hRvudPt9RKoDxJ/ULfNU+vmQPE2IQU4gW6nG
+	 HWsg1YjK73T7okHlUCt6GK0kxjkG2SsceSqSICwvFSPIs/1O8o0LWRsbEmSw8S5gyc
+	 Kh+ZH6SteCe3w==
+Date: Sat, 21 Nov 2026 22:16:54 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+	Alexander Mikhalitsyn <alex@amutable.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Christian Brauner <brauner@kernel.org>,
+	David Howells <dhowells@redhat.com>, Jan Kara <jack@suse.cz>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Josef Bacik <josef@toxicpanda.com>, Kees Cook <kees@kernel.org>,
+	Neal Gompa <neal@gompa.dev>, Paul Moore <paul@paul-moore.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: Re: [RFC PATCH v5 13/25] rootns: Add rootns() system call
+Message-ID: <awH8NsS5dH7FTDPv@kernel.org>
+References: <20261121000844.1863324-1-jarkko@kernel.org>
+ <20261121000844.1863324-14-jarkko@kernel.org>
+ <awHsvz1vdlwsink0@kernel.org>
+ <awHtKMkyGEPTB17G@kernel.org>
+ <awH3BUHarwfCPJwi@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,25 +71,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261117195506.23759-1-jolsa@kernel.org>
+In-Reply-To: <awH3BUHarwfCPJwi@kernel.org>
 
-On Tue, Nov 17, 2026 at 08:55:06PM +0100, Jiri Olsa wrote:
-> arch_jump_entry_size() runs the full instruction decoder just to find
-> out whether a jump entry is 2 or 5 bytes long. A jump label site can
-> only ever hold a JMP8, a JMP32 or the matching 2/5 byte NOP, so the
-> size can be determined directly from the opcode byte or by comparing
-> against the x86_nops[] encodings.
+On Sat, Nov 21, 2026 at 09:54:50PM +0200, Jarkko Sakkinen wrote:
+> On Sat, Nov 21, 2026 at 09:12:44PM +0200, Jarkko Sakkinen wrote:
+> > On Sat, Nov 21, 2026 at 09:10:59PM +0200, Jarkko Sakkinen wrote:
+> > > On Sat, Nov 21, 2026 at 02:08:32AM +0200, Jarkko Sakkinen wrote:
+> > > > Setting up an isolated namespace environment from a multithreaded
+> > > > manager process currently requires helper processes to call unshare()
+> > > > and pass file descriptors back over sockets.
+> > > > 
+> > > > Add the rootns() system call to allocate a detached rootns instance
+> > > > owning a fresh user namespace alongside dedicated empty mount
+> > > > (CLONE_EMPTY_MNTNS), PID, UTS, IPC, network, cgroup, and time
+> > > > namespaces, and return its control file descriptor. Finalize the nsproxy
+> > > > time namespace and pin active references for the lifetime of the rootns.
+> > > > 
+> > > > Co-developed-by: David Howells <dhowells@redhat.com>
+> > > > Signed-off-by: David Howells <dhowells@redhat.com>
+> > > > Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+> > > 
+> > > Syscall name is outdated. I'll rename it as container_create(). Does
+> > > not have to be final name, but is a better wip name.
+> > 
+> > Something more non-generic as it inevitably would collide to something
+> > (did not check). I'll figure something out.
 > 
-> This matters for kprobe registration, where the address safety check
-> calls jump_label_text_reserved(), which walks the jump entries and
-> calls arch_jump_entry_size() for each of them. When registering many
-> kprobes the instruction decoding dominates the registration time.
+> At least for the next iteration I call the object as "vault" and rename the
+> syscall as vault_open(), and that is based on:
 > 
-> Signed-off-by: Jiri Olsa <jolsa@kernel.org>
+> 	$ cat /proc/kallsyms | sed -n '/call_meta__/p' | sed 's/.*call_meta__\(.*\)/\1/g; s/\(.*\)/SYS_\1 \1/; 1i #include <sys/syscall.h>' | gcc -E -P - | grep -v 'SYS_' | sort -n | uniq | grep _open
+> 	240 mq_open
+> 	298 perf_event_open
+> 	434 pidfd_open
 
-Acked-by: Josh Poimboeuf <jpoimboe@kernel.org>
+https://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd.git/log/?h=vault
 
--- 
-Josh
+Br, Jarkko
