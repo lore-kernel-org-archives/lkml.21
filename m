@@ -1,70 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795253384;
-	b=YRsa2JuGHThpiXinYGuE6mLX4fEjtVDpemrOgw2NjhfVm6YJgbkWUa/NK3p5EWriWqdS
-	 PrIziYU8gHegnDybu4GqB9JzddkEtA4AuHvzw0t6mzVJMtyv2GNFxZMcrqjg/jwDoxpjY
-	 Kfelx1xDKfITTPkAf7Z65kCwnSFcmsXJL/nfTtbUOXVR7NMJJHYLYAWzB8OBQ3V1/QBUa
-	 Mbrel8JxZAGx1bGP5vG9NUFEpNGCLlSRCwKecSDzmHjfOVeZ6YiSIJ2HKEkthoEbTcKRw
-	 NSanoZyJkJ/eoISX3/WcpWp2NIYk/hVpEIBYnIDJu1b8mBmDkCPy/OhVRI1winClthQ==
+	t=1795253415;
+	b=2okQh0pz/92vOst6TTMAGAuqmhXEOFH8DEgKzCAlqu1+Ac7Sgzwbq0yCtrSwW3GWFUFJ
+	 uiykPdlQw5mlQnROoaQwhOwguw7prVqR7J2YHVHwqrv8Bj550derXOg3+aFHPSWZ0dCr5
+	 zAkDklMA0DTVhS3vZpvxUXcX66d7GAugkmozZCL7FT/PB/tuYIPZan/wm59F0dChQvN8j
+	 xc9bObHhBlbUD8M2OcpZMo+NyOngiY4U57WC7/MrIeyfn2v2HvHWys+DsNjM3dUWS2WnW
+	 BhFLgIXmBqXVi3X1/O0WN6Ei7bQd+unkUSnMAC68bTvi6R36lDHn2xQ+fzT8lK8xXUQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795253384;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795253415;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-Debian-User;
-	bh=XEMLomkRYjVFAGSgdBsQ30iuJaHeuFjw8UOUtIs9VfM=;
-	b=dJPV2QfjxSGO5xUdlUn5vL1UYwftRgADw7GflJTUMX8Hn2BZg6+EIs9UTH71J7ZFWc6K
-	 0aJWyJEL47/QgJQWw9ZZ2BeCQGEdk3HxP8PfVuBLJQUPFmLeL6kAG/x15xzJjzvziDvi6
-	 GFkVWkJIHlcFLQ3Obx/SOCzGk/y/nk3TZWofjZ0lv7XDOlSrgEmEbXyTzkjF+PbayEWZ8
-	 1Yk2MVlm+zzXHcDm3fEUjjhEwZ2phhLUkPYo/CVoLjLCIjjZSEUuXhxPe7tl9bQH/+dxG
-	 Gz6FYSg0OPLlVYMqBj8PF2UdWJ6wu2W7m9Dbtoouf8NGLjTKm9jTmBW4NBXdZSASF4w==
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=S1fow+tcHSCPQnCraqLiE7sTVQfos47VnR/u8cbK+IQ=;
+	b=t7jA3+LtCMkApLP+grR8JkpT6rl2nwpYCbqEw11S/2iorAbJyJbZZF5bph5EnjECeFRp
+	 bV9L9oKvjn0FPFkKB4FEzFpeJIoTdvwHbP0WxIJoTaOVzCpOm4moAsLly3z0HWoG48L05
+	 ZFv3bVtBrcpYrVITEt5GN4VVsS5gG0mRtpVDtIBgkOjdimHR7f1+3sfXuzlOl+f987a+B
+	 DNpSo+L1FN+9EePHb8CkvXb0Y4hv3FaDvw30vdqZ1OvsGt1G2WPawWpQPiRJtNsUUaq0B
+	 JfVMLZNPgz0kAFSXPigtmtVu6oqRGQ2+qFqH7kcSdeBaLLgrRaWcD1hPs0BeP0SuW3A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=debian.org;
-	spf=pass smtp.mailfrom=debian.org;
-	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=sbpfsdIC;
-	arc=none smtp.remote-ip=82.195.75.108
-Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB7E9606A320;
-	Sat, 21 Nov 2026 09:29:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB7E9606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=sbpfsdIC
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=XEMLomkRYjVFAGSgdBsQ30iuJaHeuFjw8UOUtIs9VfM=; b=sbpfsdIClPshry40ab8H01ZWrB
-	HmLz+H9qUJasDwjVRZ1YyQxMkcSg7fKcuh6kPfRBkW4JUAYBfCRkbfF3VXhIJR3bDl7+TsMjZTwgM
-	i7dpt5rVrOdL+/RVx2vHddNidLp4AYY7RXrcugaO7c3WyRlyCH2bW9fUcJAt9RwlNXi1g8SY4KDhS
-	fvGzWghHp39spopHKOwQufBfnP7YAYuY7JsoHv2ZAUPSpptA+C9DFYsU+gGe3uUjxiAxM+yEnfMoS
-	O/EtdOBWIBiKVtpKs8KVAkn79P80oolTcr33mcVqS4SmGK/EDmGOprc6WAxGjw5Z6qbK8HhEkymMq
-	+AFLEMRA==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <bage@debian.org>)
-	id 1xUhPd-003Y7V-09;
-	Sat, 21 Nov 2026 09:29:37 +0000
-From: Bastian Germann <bage@debian.org>
-To: andrew@lunn.ch
-Cc: hkallweit1@gmail.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	linux@armlinux.org.uk,
-	olteanv@gmail.com,
-	netdev@vger.kernel.org,
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id F0E36606A325;
+	Sat, 21 Nov 2026 09:30:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0E36606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=S1fow+tcHS
+	CPQnCraqLiE7sTVQfos47VnR/u8cbK+IQ=; b=EMfd78ByRlHfslwxV15TylNw4q
+	raRpyYUqc/R3MnfE2j4SfZdW3fG2EKsCOp11GTZrVI8IBRFieSSnCNQJzAoIlUj1
+	aeYNp6kcK91pg4l83sf7OAYS4f8ce6rgmiDmA/eC/xJaZsEIDsuGLk3kk7tPE7XX
+	pdESg0v02UZmEi41k=
+Received: from user-virtual-machine.localdomain (unknown [113.200.174.70])
+	by hzbj-edu-front-3.icoremail.net (Coremail) with UTF8SMTPA id BbQMCkDW3gGaZAFrlJH_AQ--.51524S2;
+	Sat, 21 Nov 2026 17:30:03 +0800 (CST)
+From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+To: Takashi Iwai <tiwai@suse.de>,
+	Jaroslav Kysela <perex@perex.cz>
+Cc: linux-sound@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Bastian Germann <bage@debian.org>
-Subject: [PATCH net-next v2] net: mdio: handle broken-turn-around for non-PHY MDIO devices
-Date: Sat, 21 Nov 2026 10:29:33 +0100
-Message-ID: <20261121092933.186731-1-bage@debian.org>
-X-Mailer: git-send-email 2.55.0
+	stable@vger.kernel.org,
+	Bin Yu <byu@xidian.edu.cn>,
+	Cheng Wen <wencheng@xidian.edu.cn>
+Subject: [PATCH] ALSA: line6: Kill URBs before releasing the PCM buffer
+Date: Sat, 21 Nov 2026 17:30:01 +0800
+Message-Id: <20261121093001.18469-1-25031212351@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,61 +59,105 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Debian-User: bage
+X-CM-TRANSID:BbQMCkDW3gGaZAFrlJH_AQ--.51524S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxGw1xXrW7uF17GrW7Gr4DArb_yoW5trW8pF
+	yrua4YyFZ8JF12krW7Jws5Ww1Sva1kXF9rGF1UCrWrAa13G3Z0q3Wavr45Wr4UCF40va4a
+	vFW5tw4rGr15Ca7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9vb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
+	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r
+	18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vI
+	r41lc7CjxVAaw2AFwI0_JF0_Jw1lc2xSY4AK67AK6r4fMxAIw28IcxkI7VAKI48JMxC20s
+	026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_
+	JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14
+	v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xva
+	j40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JV
+	W8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8RbyJUUUUU==
+X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUED2sAYlijTwABsz
 
-The "broken-turn-around" property is documented in mdio.yaml for any
-MDIO device, but the MDIO core currently parses it only for PHY devices
-in fwnode_mdiobus_phy_device_register(). Non-PHY devices, such as DSA
-switches, are registered through of_mdiobus_register_device(), where the
-property is ignored, so MDIO bus drivers that rely on phy_ignore_ta_mask
-still treat the turn-around/read failure as an error.
+line6_buffer_release() frees the stream buffer after
+line6_wait_clear_audio_urbs() gave up waiting for the URBs that are still
+active.  The buffer is still referenced by those URBs, and the completion
+callback of such an URB resubmits it from submit_audio_out_urb() with
+line6pcm->out.buffer already set to NULL, which ends up in a NULL pointer
+dereference in the memset() in submit_audio_out_urb().
 
-Parse the property in of_mdiobus_register_phy() and
-of_mdiobus_register_device() instead, so it is handled in one place for
-both PHYs and other MDIO devices, and drop it from
-fwnode_mdiobus_phy_device_register().
+While the URBs remain queued, the host controller can also write the
+received isochronous data into the freed buffer.  Such a write does not go
+through the KASAN checks, so it silently corrupts the freed slab object;
+the corruption was observed as a bogus KASAN quarantine entry that later
+led to a general protection fault in qlist_free_all().
 
-Signed-off-by: Bastian Germann <bage@debian.org>
+The active_urbs bitmap cannot prove that the URBs are gone:
+line6_unlink_audio_urbs() is called outside the stream lock and only marks
+the URBs that are active at that moment, so an URB resubmitted by a
+completion callback right after the scan is never unlinked and keeps being
+resubmitted after the stream was stopped.
+
+Set the unlink bit for every currently active URB under the stream lock,
+so that the completion callbacks cannot resubmit them, and then kill them
+synchronously.  usb_kill_urb() waits for the giveback, hence the buffer is
+no longer referenced by any URB when it is freed.
+
+Fixes: 63e20df1e5b2 ("ALSA: line6: Reorganize PCM stream handling")
+Cc: stable@vger.kernel.org
+Co-developed-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Bin Yu <byu@xidian.edu.cn>
+Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
 ---
- drivers/net/mdio/fwnode_mdio.c | 3 ---
- drivers/net/mdio/of_mdio.c     | 6 ++++++
- 2 files changed, 6 insertions(+), 3 deletions(-)
+ sound/usb/line6/pcm.c | 27 ++++++++++++++++++++++++++-
+ 1 file changed, 26 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/mdio/fwnode_mdio.c b/drivers/net/mdio/fwnode_mdio.c
-index ba7091518265..129481e8a910 100644
---- a/drivers/net/mdio/fwnode_mdio.c
-+++ b/drivers/net/mdio/fwnode_mdio.c
-@@ -89,9 +89,6 @@ int fwnode_mdiobus_phy_device_register(struct mii_bus *mdio,
- 		phy->irq = mdio->irq[addr];
- 	}
- 
--	if (fwnode_property_read_bool(child, "broken-turn-around"))
--		mdio->phy_ignore_ta_mask |= 1 << addr;
--
- 	/* Associate the fwnode with the device structure so it
- 	 * can be looked up later
- 	 */
-diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
-index b8d298c04d3f..c03fcf34b3a6 100644
---- a/drivers/net/mdio/of_mdio.c
-+++ b/drivers/net/mdio/of_mdio.c
-@@ -46,6 +46,9 @@ EXPORT_SYMBOL(of_mdiobus_phy_device_register);
- static int of_mdiobus_register_phy(struct mii_bus *mdio,
- 				    struct device_node *child, u32 addr)
- {
-+	if (of_property_read_bool(child, "broken-turn-around"))
-+		mdio->phy_ignore_ta_mask |= BIT(addr);
-+
- 	return fwnode_mdiobus_register_phy(mdio, of_fwnode_handle(child), addr);
+diff --git a/sound/usb/line6/pcm.c b/sound/usb/line6/pcm.c
+index 2932eaf157f4..e05fa20cf4ed 100644
+--- a/sound/usb/line6/pcm.c
++++ b/sound/usb/line6/pcm.c
+@@ -134,6 +134,31 @@ static void line6_wait_clear_audio_urbs(struct snd_line6_pcm *line6pcm,
+ 			"timeout: still %d active urbs..\n", alive);
  }
  
-@@ -56,6 +59,9 @@ static int of_mdiobus_register_device(struct mii_bus *mdio,
- 	struct mdio_device *mdiodev;
- 	int rc;
- 
-+	if (fwnode_property_read_bool(fwnode, "broken-turn-around"))
-+		mdio->phy_ignore_ta_mask |= BIT(addr);
++/*
++ * Mark all currently active URBs for unlinking and kill them.
++ *
++ * The unlink bit is set under the stream lock, so the completion
++ * callbacks cannot resubmit these URBs any longer; usb_kill_urb() then
++ * waits until each of them is given back and hence the stream buffer is
++ * no longer referenced by the host controller.  This function must be
++ * called from a sleepable context.
++ */
++static void line6_kill_audio_urbs(struct snd_line6_pcm *line6pcm,
++				  struct line6_pcm_stream *pcms)
++{
++	int i;
 +
- 	mdiodev = mdio_device_create(mdio, addr);
- 	if (IS_ERR(mdiodev))
- 		return PTR_ERR(mdiodev);
++	scoped_guard(spinlock_irqsave, &pcms->lock) {
++		for (i = 0; i < line6pcm->line6->iso_buffers; i++)
++			if (test_bit(i, &pcms->active_urbs))
++				set_bit(i, &pcms->unlink_urbs);
++	}
++
++	for (i = 0; i < line6pcm->line6->iso_buffers; i++)
++		if (test_bit(i, &pcms->active_urbs))
++			usb_kill_urb(pcms->urbs[i]);
++}
++
+ static inline struct line6_pcm_stream *
+ get_stream(struct snd_line6_pcm *line6pcm, int direction)
+ {
+@@ -172,7 +197,7 @@ static void line6_buffer_release(struct snd_line6_pcm *line6pcm,
+ {
+ 	clear_bit(type, &pstr->opened);
+ 	if (!pstr->opened) {
+-		line6_wait_clear_audio_urbs(line6pcm, pstr);
++		line6_kill_audio_urbs(line6pcm, pstr);
+ 		kfree(pstr->buffer);
+ 		pstr->buffer = NULL;
+ 	}
+-- 
+2.34.1
+
