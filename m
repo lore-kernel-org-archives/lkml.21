@@ -1,64 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795223229;
-	b=eB+slqj8ctYucpgBGd2eIBzkg0XW5pG780WQzzMjmAfwRetA+KeF2viNHIjQ0wESeKJu
-	 At28tcQFXRGklkIG0Oqpogh3d9ncUSjpMYeEu5UzASIc6onQQfhtt6AMCIrqcK9sUDBb7
-	 xTKulyrV6VoKa9RIYQkoz/rrB1lY+iGE3n3HMPk0sDwMdbq9xX2RBJYc79yl20X73h6Zq
-	 5BCGE+K/r6lNhk9ZVkm+RpQd0wjTvWV69h51+gRr4n0pr6bM/2H1IeAxCD0Y+z9Z9/fuQ
-	 NuElZeWLdOzp59dNmW4zTTpnPvdeYVWMmSPZ9HR9R7ktIoPJ+nlkQLMMg4wnAbYcwGg==
+	t=1795223354;
+	b=1cgfRc6uqMdreq3dMa5ntzwiW6XrD2HJFxoy93W5U0DHxR9GXjbMv2fPmmXj0wyf/97z
+	 vVSvUuxp73Cr2yz00/KVF6PnZaJjTWchYVaNctvqvuPwz0QzxKXQRe8LQhVCQ97ck03aZ
+	 /qffB4g0aBFRgucHN8i3zT6UIpTDmdq9QREVVB504WBmFid+U3nrXqcEXIeIPwm6J7BOC
+	 W4d3o/1IFWY5GPWQG+bX8s5EbIkevel6IHvazqMfoxW9Y9sccIaxOzN333neYpG62owLu
+	 UJbiyuobu0AOIaTjnflnaqP4ZqIUgdkEN8G4Ikf/3wp1NKW9LTpEur9BYe3Z8V1aUfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795223229;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795223354;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=uRbvTYGHLE/dSalAhrR1hJSynJ2eHI0LzzHZL/10yZo=;
-	b=UwMPmbsfYE5D/15kCQxbOODsZtw3Io6hHPi1Amr/TSeY+YdGIqfws60c39KWv8d9k5o4
-	 V7ZTtfTizfQCdImKIPUCRq92KbiaitJgHolsbLtpSSYop1RAHP7uGO4h+34VO9PQLRUlh
-	 h6Dk0lB5Uh/C7a84hstPtSjbGC5/GWEOpc2RVMvwfiRNylrUhB5GHc4f9LdXFTerqHj2V
-	 5Z7zfRsj+BN6AdCt11uaR3jV0lP9T6zDro60vvy8HajS7VxXjxTQLU39xLfjsyzQdk4py
-	 L3ljQjcO6RUVzjz/eR4f7pskCC5dSMXOvY/0YgeIKruM8OiZGRA3x0aVaXEL7u+HZQQ==
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=Dq4uYrhSligK2Yc6yPFlriNqvNi/HgVAWMNzxpJUth0=;
+	b=Mk5/F8ZBXojmlehMhXENiqQDoXK4GvdiBRxKej6Cyo1ljQC+myGNMvppeourm79KxVC/
+	 4fnbsmjoy6FVBgfkOD/w2My72SiAFbxiR5CBr3d52mS6eLbBofsGbhOVInkYG0itRlTIR
+	 15Psp2CNkfqGNO7A4UqRMQ1V5LE/K+Qegq6D4oPZ+tZ8ZQc1Pw8J3Ss5Xte/qv/V/4xuq
+	 OHPkUSe2zlrdBqrqsW0Biq/RYoa96DGrlELvDxM2CcKUYoZiNLEPgnu23Tn2edCP+p3EC
+	 nqR3+jojs7ww+F9tzbrN4qRoWF0NO9/zwjbdZ3epawv8TnHzspgrAmV8zNdWKqmXrVA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LN+7Xyts;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lev9yW6T;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4C94606A6BB;
-	Sat, 21 Nov 2026 01:07:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id AAA82606A6A5;
+	Sat, 21 Nov 2026 01:09:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LN+7Xyts
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22B6F1F000C6;
-	Sat, 21 Nov 2026 01:07:09 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lev9yW6T
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id B4AB11F000C4;
+	Sat, 21 Nov 2026 01:09:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795223229;
-	bh=uRbvTYGHLE/dSalAhrR1hJSynJ2eHI0LzzHZL/10yZo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=LN+7XytsqPs5YF9E9mIPKktv5Gsp1VQ/w4jEbFo5vT2u5BKEyqjRyUqoRT5Nwolq4
-	 22by5rzHW0eHEBArf/qXzbjMAzXm9+SMOpY3BX8vpfcJ+8afSf2FEG4/f+nbp+/ZRO
-	 68K1I1fQenkijo8Fswmmi/4ZjGCNGJke2gScCoR7QBbZTNTgvHjhLTc3rKj0c1FfqX
-	 UTRlaA6BjtCIifzWkxXNuMyjVLjrF/nUkDgiT6MTRCoiiGQAQBb/PHJ1aP+qIuoyW3
-	 7qFrHDkVDpVFY3egBfLOSHiksLdfXHaG/THUnKOaXkCK3JKG0LoWz71q4DCSXQkpiW
-	 1cVy6Rw3zd+NQ==
-Date: Fri, 20 Nov 2026 19:07:08 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Pavel Popov <pavel.e.popov@intel.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>,
-	Logan Gunthorpe <logang@deltatee.com>,
-	Arnd Bergmann <arnd@arndb.de>, Leon Romanovsky <leon@kernel.org>,
-	Lukas Wunner <lukas@wunner.de>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	Jim Chow <jim.chow@broadcom.com>,
-	Radu Rugina <radu.rugina@broadcom.com>,
-	Alexey Makhalov <alexey.makhalov@broadcom.com>,
-	Wei Liu <wei.liu@kernel.org>, Michael Kelley <mhklinux@outlook.com>,
-	Nathan Ciobanu <nathan.d.ciobanu@linux.intel.com>,
-	bcm-kernel-feedback-list@broadcom.com,
-	virtualization@lists.linux.dev, linux-hyperv@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 0/3] PCI/P2PDMA: Allow P2PDMA on Intel Xeon server CPUs
-Message-ID: <20261121010708.GA929035@bhelgaas>
+	s=k20260515; t=1795223354;
+	bh=Dq4uYrhSligK2Yc6yPFlriNqvNi/HgVAWMNzxpJUth0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=lev9yW6T0RvL4iasvGrmNZTk4lNhOVNmBrF/T7i35at+a3FTHi7tKpepvNL2D7KTB
+	 h0qDHLVue1JtkmyMZAHextD2GwOh4MT4ACttjuSgzOVEgr60lATGlJCU7IgUKx3fkQ
+	 le6QElebQWnly9BHqqJBhk0mfDgCU4zh0d/cQGDUMeLmg4jEkVMHB1zy6d3QAGxqyV
+	 O6YA0FvNSKhchFW6WlOSPRgLScQNvnzgAhLBKc9hq4A9SyGetfcf1watb19WTJdnrH
+	 thztGrMxm54eA2/KEIAK0nkjpjH+bPpf3ylKRyhPpB9EbRccri3kJABFowAFM8KaY2
+	 2lxX87Owry5ng==
+Date: Sat, 21 Nov 2026 03:09:10 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+	Alexander Mikhalitsyn <alex@amutable.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Christian Brauner <brauner@kernel.org>,
+	David Howells <dhowells@redhat.com>, Jan Kara <jack@suse.cz>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Josef Bacik <josef@toxicpanda.com>, Kees Cook <kees@kernel.org>,
+	Neal Gompa <neal@gompa.dev>, Paul Moore <paul@paul-moore.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: Re: [RFC PATCH v5 14/25] rootns: Add ROOTNS_WAIT ioctl
+Message-ID: <awDvNgCFnMhOy3Y5@kernel.org>
+References: <20261121000844.1863324-1-jarkko@kernel.org>
+ <20261121000844.1863324-15-jarkko@kernel.org>
+ <awDjC9hcKSRnCPgJ@kernel.org>
+ <awDjQeXjqrhNHoWQ@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,82 +72,85 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261111234439.4098-1-pavel.e.popov@intel.com>
+In-Reply-To: <awDjQeXjqrhNHoWQ@kernel.org>
 
-On Wed, Nov 11, 2026 at 04:44:36PM -0700, Pavel Popov wrote:
-> VMware and Hyper-V expose passthrough devices to guest VMs without an
-> explicit host bridge device. Consequently, host_bridge_whitelist()
-> cannot automatically identify the underlying host bridge structure,
-> causing Peer-to-Peer DMA (P2PDMA) requests to be rejected unless the
-> device IDs are explicitly listed in pci_p2pdma_whitelist[]. To enable
-> P2PDMA on Intel hosts, this series extends cpu_supports_p2pdma(), which
-> so far covers AMD Zen and newer, with an explicit list of Intel Xeon
-> server generations.
+On Sat, Nov 21, 2026 at 02:18:14AM +0200, Jarkko Sakkinen wrote:
+> > Ought to be dropped but seemed too irrelevant detail for the time
+> > being
 > 
-> Patch 1 adds a generic <asm/cpu_device_id.h>, so that generic code can
-> include it without #ifdef CONFIG_X86.
-> Patch 2 moves the CONFIG_X86 #ifdef out of cpu_supports_p2pdma(); this
-> is the v4 1/2 patch, unchanged.
-> Patch 3 is the v4 2/2 patch with Logan's Reviewed-by carried over; the
-> only change is in the includes.
-> 
-> Arnd, if 1/3 looks OK to you, could it go through the PCI tree
-> together with 2/3 and 3/3?
-> 
-> The other users of <asm/cpu_device_id.h> and <asm/intel-family.h>
-> under #ifdef CONFIG_X86 (ACPI, cpufreq, i915, amdgpu, tpm, ccp,
-> platform/x86) are converted in a follow-up series on top of this one.
-> 
-> Based on mainline (7.4-rc2+). Built with x86_64 and arm64
-> allmodconfig, each patch separately.
-> 
-> Changes in v5:
-> - Add 1/3, a generic <asm/cpu_device_id.h>, so the include no longer
->   needs #ifdef CONFIG_X86 (Leon Romanovsky)
-> - Drop the <asm/intel-family.h> include, <asm/cpu_device_id.h>
->   includes it on x86
-> 
-> Changes in v4:
-> - Add 1/2, moving the CONFIG_X86 #ifdef out of cpu_supports_p2pdma()
->   (Logan Gunthorpe, Leon Romanovsky)
-> - Keep the #ifdef around the asm/ includes, as these headers exist
->   only on x86 (Bjorn Helgaas)
-> 
-> Changes in v3:
-> - Drop the hypervisor check and move the Xeon list into
->   cpu_supports_p2pdma(), next to the AMD check, as suggested by Logan
->   Gunthorpe and Leon Romanovsky [1]
-> - Fold the VMware and Hyper-V patches into one, as the check no longer
->   depends on the hypervisor
-> 
-> Changes in v2:
-> - Replace the Skylake-and-newer threshold with an explicit list of Intel
->   Xeon server generations, from Skylake-SP to Diamond Rapids (Logan
->   Gunthorpe)
-> - Move the CONFIG_X86 #ifdef out of hypervisor_supports_p2pdma()
->   (Logan Gunthorpe)
-> - Rebased on current mainline
-> 
-> [1] https://lore.kernel.org/r/20261016153147.GC219304@unreal
-> 
-> v4: https://lore.kernel.org/r/20261020173736.81755-1-pavel.e.popov@intel.com
-> v3: https://lore.kernel.org/r/20261020151305.65218-1-pavel.e.popov@intel.com
-> v2: https://lore.kernel.org/r/20261016223402.19991-1-pavel.e.popov@intel.com
-> v1: https://lore.kernel.org/r/20261009154034.82321-1-pavel.e.popov@intel.com
-> 
-> Pavel Popov (3):
->   asm-generic: Add <asm-generic/cpu_device_id.h>
->   PCI/P2PDMA: Move CONFIG_X86 #ifdef out of cpu_supports_p2pdma()
->   PCI/P2PDMA: Allow P2PDMA on Intel Xeon server CPUs
-> 
->  drivers/pci/p2pdma.c                | 30 +++++++++++++++++++++++++++--
->  include/asm-generic/Kbuild          |  1 +
->  include/asm-generic/cpu_device_id.h |  5 +++++
->  3 files changed, 34 insertions(+), 2 deletions(-)
->  create mode 100644 include/asm-generic/cpu_device_id.h
+> I mean replaced with a syscall path.
 
-Applied to pci/p2pdma for v7.5, thanks for the reminder.
+Yeah, a lot better overall (less fallible paths).
 
-There were minor conflicts with Leon's series, but I applied yours
-directly on v7.4-rc1 and resolved the conflicts when adding Leon's on
-top.
++long rootns_waitid(int upid, struct waitid_info *infop, int options,
++                  struct rusage *ru)
+ {
+-       struct pid_namespace *pid_ns = task_active_pid_ns(current);
+-       struct rootns_wait_args args;
++       struct pid_namespace *pid_ns;
++       unsigned int f_flags;
++       struct rootns *rootns;
++       bool nonblock;
++       int status;
++       kuid_t uid;
+        long ret;
+
+-       if (!uarg)
++       if (upid < 0 || ru)
+                return -EINVAL;
+-       if (copy_from_user(&args, uarg, sizeof(args)))
+-               return -EFAULT;
+-       if (args.flags & ~WNOHANG)
++       if (options & ~(WEXITED | WNOHANG | WNOWAIT))
+                return -EINVAL;
++       if (!(options & WEXITED))
++               return -EINVAL;
++
++       CLASS(fd, f)(upid);
++       if (fd_empty(f) || !is_rootns_file(fd_file(f)))
++               return -EBADF;
++
++       f_flags = READ_ONCE(fd_file(f)->f_flags);
++       nonblock = (options & WNOHANG) || (f_flags & O_NONBLOCK);
++       rootns = fd_file(f)->private_data;
++       pid_ns = task_active_pid_ns(current);
++
+        if (!pidns_is_ancestor(rootns->ns->pid_ns_for_children, pid_ns))
+                return -ECHILD;
+        if (READ_ONCE(rootns->state) == ROOTNS_INIT)
+                return -ECHILD;
+
+-       if (!(args.flags & WNOHANG)) {
++       if (!nonblock) {
+                ret = wait_event_freezable(rootns->waitq,
+                                           READ_ONCE(rootns->state) == ROOTNS_DEAD ||
+                                           READ_ONCE(rootns->state) == ROOTNS_INIT);
+@@ -154,15 +191,23 @@ static long rootns_wait(struct rootns *rootns, void __user *uarg)
+                if (rootns->state == ROOTNS_INIT)
+                        return -ECHILD;
+                if (rootns->state != ROOTNS_DEAD)
+-                       return 0;
++                       return (options & WNOHANG) ? 0 : -EAGAIN;
+                ret = pid_nr_ns(rootns->init_pid, pid_ns);
+                if (ret <= 0)
+                        return -ECHILD;
+-               args.status = rootns->exit_code;
++               status = rootns->exit_code;
++               uid = rootns->init_uid;
+        }
+
+-       if (copy_to_user(uarg, &args, sizeof(args)))
+-               return -EFAULT;
++       if ((status & 0x7f) == 0) {
++               infop->cause = CLD_EXITED;
++               infop->status = status >> 8;
++       } else {
++               infop->cause = (status & 0x80) ? CLD_DUMPED : CLD_KILLED;
++               infop->status = status & 0x7f;
++       }
++       infop->pid = ret;
++       infop->uid = from_kuid_munged(current_user_ns(), uid);
+        return ret;
+ }
+
+Br, Jarkko
