@@ -1,78 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795250081;
-	b=kC3bKVb/RD8C2nLUtI+fWhfKlr7qNYSFaYQv6XrUeOXp/vl+anWHYOY7UHYRtpquoUjZ
-	 cE+dNm9oe0FyotOgRMubAgfA2kYhkjImvuY4E4PhX55yRf/FlP2gWXu7DRZ4q2O/JZhfw
-	 7a25j3O63iKTWe7ttV5ND2qPHtMKlE5hjCgrMl/QkuLmA7PBTFnyPOnarqDmZ+9gOIhX/
-	 KHT/VAtwqxTJXAn6B2rQnZW9vQdHHDJuwNpVox4HnCjdVotifb9634uynryGpSyEcKhXA
-	 YqPwYEFUvrCHGMBYPv+luc+LqcgEOrHNkySD8YKRdUy2ogCKidOBbg6P8qbusjFHvRA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795250081;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=lY3RZXnYKdS7JNZIMxGDLvSX/hSbpPA7qXVgH1rivdA=;
-	b=IzwJ0zP7lno5SQTP+ADs1k2Cg+/xZ8iTazVcXeRULRcFhNFEz/FW4eJUZBVNXtgXXKRa
-	 uv1b9UxXlkhG9zGMy9jpxcROZrfy2HRahULpvPv02yrbDC33NhJ7NqPL2QT8OULFQMiRT
-	 FZWUzDMeQJzMejRooGX7u74F33uUECTvJMwTmQk7Spsm5aeistPG2GbJ72ww6eOZFEz9/
-	 yrm8p2ZkLLLbalFR/dh1RdjAAsJSSm5y9oJa1djcgLibLPD1VtHk3Rd+f0Yp118u3mZEo
-	 2OLLuJsKaZlPlpyrf+Y4Fz9UlTFXsCukbUeM20Jeyzbh7hm5oMQKiytMRvKi8bvZm2g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mfXsunPB;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33C89606A332;
-	Sat, 21 Nov 2026 08:34:41 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mfXsunPB
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795250080;
-	b=Ktafl5LyDqbNCiCPTkpOxIjKdgvbgJhTqy6oqwkSGZVC4xwlLOfKC/qN2ucNMbilDPUB
-	 YZs9pkmTasnR73gZ1gQ3gUT2ls6inJeUjf86E0zrGsh6H4AGa6S6g7W3usJtbSyMeu9Xl
-	 7Qsd6bRY++OaYEYo7BvmXRLUXKuhOoLMgKJmBqUWV/hcArkDxjoSyklRAif4oYh1Qf5RQ
-	 /fXD/CcBt4bSPTgvz8ayNRCMTa8mLstvMA2tJHN1X75Uf5fV+MXu9j5aOWut0Gasp1Ir/
-	 bIcEnsfn2uUpCFtHP5SpDOfTwOnVX8eVWHYJvdJo/N/mmsPn6P7H0yUTV0eE2NYxBzQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795250080;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=lY3RZXnYKdS7JNZIMxGDLvSX/hSbpPA7qXVgH1rivdA=;
-	b=xhxVTyEThy7OMg3s/6nWhS3fh+AR+3TCzmPTYEyWD2+ydKiEHPGarPTzuvAqmS03HHV9
-	 ix3q2zXIP8j2+tgUjBJ2K4E9j/VyLvDNhsXH0O9IzoMSY4Q6PwWvVcQjuuOimRrcrSUWr
-	 KMADPgBTXMdUH+AZQ60hBtC69TK6iUaFRf/Smfdkx9Gp5RhB/2nVFxuE8JBFQJRNzDxzi
-	 sX/WxdoIXbccwwzdI+Gb139H5qPfJB5iBzHEwvbJLDKq2uiz8U+IhWRFOFCPnX5msya+D
-	 XrqrLhU2zFErnQpZoKEIMG13van0DI1bra0PhkUGn25fARaZbZ/qUiaXQOs91h621IQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795250162;
+	b=EnKRkiA/OLVCzqih5EAaWapNRDJTvT/A44QMvbiJdPwyFs7P4IiKpMD7/BUVoAtvKqq7
+	 bDP8EQgtm7ELeij72KoLBr6+93V/zfHiLoimk368UUy1jSj6R8cBSESm8rWnypPOMDF3b
+	 lJzlsFmMPja+Q3ykR+gIxEHJfAW0iUk3bmGb2ZrB19Pp2OgmQhs1OxoSW+51ZlCCUXHwd
+	 U0fuqyQQW47z7KPGPo32IkNX+fPXw81a0kFSSzZQHCtyl1DmQvi3tpVTICD/OL8Oc8xy1
+	 ZJy5X06hCV+s27oNH8yke+OD4x8VH+eYhOckb/UScUUIiCf/ZOxwpXcUjPmDvhm8T9w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795250162;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=q1d44l4EB5ZU0oAa814zHpO0T89XFHbgu/Aqd5GidKs=;
+	b=UelLBh9RggyHz/LCQmcyEyKHvteIT9Q5hxl5XCKjT5jqWLXxvq4b2rYR/U/wcCNHGLr2
+	 RH77jBDfMHfvTo4GXwPKPAnFp5lFd+o8KUmj3ZQmYd8pmfxNQzN01wZfTAuy4j0tgf4Hs
+	 BEVO3pN0XXjAtyqPpgVGJR5Ir5jlrjDObIQ+OVzqc7TWfoUYo69HBz4OA5Mo7b4JpvXbz
+	 0G28jd3hUWY8FSFAXPPOpYOP3Z4IqrMGE8jM5oZcGZgMkZI8TSO8CgiyBe+R4MZJt25IB
+	 +GyO6PcneRZC1FtwPbWPddX/ONzzw9Bvxq1nKPwcQThPHqILjUoe4zlZyF5DYO2xwIA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=fylOpPWO;
+	arc=none smtp.remote-ip=209.85.216.49
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id EE84E1F000CF;
-	Sat, 21 Nov 2026 08:34:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795250080;
-	bh=lY3RZXnYKdS7JNZIMxGDLvSX/hSbpPA7qXVgH1rivdA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=mfXsunPBsGbf/SoWd1udSgbRvpKT7mXr/bRv025/+eS0CEmspg9r1GE4PNljckgji
-	 DmD0nIAD0lIYll30QmFQ9V1NLfw7Mt6M7YyeUbzADj1j6XwPx75wuW7SOGauVRIkVZ
-	 kpgn9wG3ogLS37UvTIeGAIZNESepYACZDS9mQ4HZFmf5CdNUJf8d6ggm39dxxViabH
-	 nOVONYcN3eI0alDb1eMIRaPSIz7xjb1si8ldPgaig35ID6F8m5trY57842Y2fMYREc
-	 RfCQUG3uDE7lRl2aL0p+ZWzB4KEOl6vDM5K2qDj9hVPS50e++AWzAy56ZVc05bXikM
-	 WmBMk82c4U/pg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 7A4704BB97;
-	Sat, 21 Nov 2026 08:34:39 +0000 (UTC)
-From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
-Date: Sat, 21 Nov 2026 08:34:16 +0000
-Subject: [PATCH 2/4] dt-bindings: mfd: apple,smc: Add t8122-smc compatible
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14D0B606A334
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 08:36:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14D0B606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=fylOpPWO
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b3d4d3bba3so945939a91.3
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 00:36:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1795250160; x=1795854960; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=q1d44l4EB5ZU0oAa814zHpO0T89XFHbgu/Aqd5GidKs=;
+        b=fylOpPWOfbB8Mrzaa8jy6O6PqZYCt9WZPTMsgYGA4VPpsQ1Mv1UgBsovjDm+hc71OY
+         KZzdpWzTAstESQ8MR6iPswzIo6xcJm2mqUKn7R5liNiKfGLEcJh4re82835A2RzTv9V8
+         MSjXeTNCtlafTTYoQyO6X5xMQOdkhDVqBHLJE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795250160; x=1795854960;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=q1d44l4EB5ZU0oAa814zHpO0T89XFHbgu/Aqd5GidKs=;
+        b=UECACymkved7NoZWFO1ciQTG8cNdvFLV9gsf17cNiMbZnEby1CR/LF4JupkbJBh1G9
+         SD0nUuB/8NQAOgy4dzApxXd9AwKFwm1h6pmi/P8J85Wxren1w007XvP0WufmJMJcdIVu
+         2kTyGuvt1ZXHxFzmAuiNqjyv4S0dRwyX/nhrYKykzqoj9GGko4PVCoNIbaN2sPTIRWq0
+         lckQCOHGgPI6hosXLSxoq39KcfFMfUG6FkcetDRlGHZKOcfdXfq1Uj9yTAGBUvG9xW6l
+         ZdPKRX6MGriBFN6SBVreVagINbBiqSlSaTAbnjYI9ESCbZqJHA6vT8I8NIPQHohXwsbe
+         I3KQ==
+X-Forwarded-Encrypted: i=1; AL+hErGn93Uv9cGWoV8BAQ8/+UFNfEfodfKCgP3SGzNfpES6RYDBlaRuCSbTJkqAe5f5PXkWzlnpUIX+4BjEj3k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8YpjLltI1/HZWJswy0QIda6/gNKZ0p//RVkWSxkKpQShsICknW
+	H13w6QvFCUYBO2wjGOMjNGhVW17yJ9/lNTIkgdBYVlJHVlHfc6sdgtz4ECp9EOBJfA==
+X-Gm-Gg: AZFdTZdyP9P4bBO2NBm9TNbpnuOvS3mldukmKZZkc0No/S0fTABqxGr0EMRd2E3q653
+	+IijfMasTAEOpVcDPR2NP8Ghtm985DImCwxfrYX+xEcuv2eT9xsPi7uVnvNJw+aRCKe4Gnamci2
+	Fiqrz51ajzP8tac1VN48ZtjsvKaHRFg/rrUXAWxW9DisR29yHpbzpuRSoqnCbN5OL4lowEHOEQu
+	bK/w+WOTlnWfR4eYzOHUo9gDaExj/pdurtbJWZjU6n6cMStW29TnZss2T1FuNuKAT1rHl9E3B0k
+	BrGj1Wxt5V2cgx+DstPvkdCD4WFVWqvUaAYhcdbp4FMUd5UY9eGBas61/cc8hOyQVpZMnWsRZKh
+	a1lCruJaJa3bQlr8+xbwtQSlR+EBoE41q8cw8kyWun32Nc84+vjunVhC22Sotbakqzjv8+qTCVC
+	Sze2mlhxe6KnXmGZT6628mx5wUqcRmjVZ4GQkyoFWH3pfl1r9/6XhqvlKgZiSC16nCz9VlZBWUD
+	VK0tZyh/eXD2OPEirAYm4tR10aX7EionbWuKcIv8ULQmGnrq91KI29Kk97jU0zxO8HfklbsuPS1
+	meumlWY+KSj7uc0gImzdHrtqBHMzteTABPQ/1MUEzit1v6+4kNYcVjWkXWozddJ3Dibdqg==
+X-Received: by 2002:a17:90b:1a90:b0:3b0:9941:8d42 with SMTP id 98e67ed59e1d1-3b41c92a1c0mr5014603a91.33.1795250160405;
+        Sat, 21 Nov 2026 00:36:00 -0800 (PST)
+Received: from google.com ([2a00:79e0:2031:6:2f43:ed99:516b:8dcd])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c42b1sm24237865ad.17.2026.11.21.00.35.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 00:35:59 -0800 (PST)
+Date: Sat, 21 Nov 2026 17:35:54 +0900
+From: Sergey Senozhatsky <senozhatsky@chromium.org>
+To: Hongfeng Chen <hongfengchen@xiaomi.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Barry Song <baohua@kernel.org>, Chengming Zhou <chengming.zhou@linux.dev>, 
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>, 
+	Minchan Kim <minchan@kernel.org>, Nhat Pham <nphamcs@gmail.com>, 
+	Sergey Senozhatsky <senozhatsky@chromium.org>, Yosry Ahmed <yosry@kernel.org>, 
+	Wenchao Hao <haowenchao@xiaomi.com>, Wenchao Hao <haowenchao22@gmail.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-block@vger.kernel.org, chenhongfeng0212@gmail.com
+Subject: Re: [RFC PATCH v4 2/2] zram: keep the hot statistics per cpu
+Message-ID: <awFXOyeELHgLfy_D@google.com>
+References: <20261016120927.3191690-1-hongfengchen@xiaomi.com>
+ <20261017031542.3504947-1-hongfengchen@xiaomi.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,61 +99,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261121-t8122-smc-dt-v1-2-898f3f5d6228@gmail.com>
-References: <20261121-t8122-smc-dt-v1-0-898f3f5d6228@gmail.com>
-In-Reply-To: <20261121-t8122-smc-dt-v1-0-898f3f5d6228@gmail.com>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Stephen Boyd <sboyd@kernel.org>, 
- Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sasha Finkelstein <k@chaosmail.tech>, 
- Lee Jones <lee@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- mfd@lists.linux.dev, Michael Reeves <michael.reeves077@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795250077; l=946;
- i=michael.reeves077@gmail.com; s=20261107; h=from:subject:message-id;
- bh=tn5lVW1FjAYmZE60s+OKJciG68xs7HiP2AZnWSAa9v8=;
- b=6kSbfAXUY6Hx8zZUZFBAQvz8WcZ4q2RQ3ZdaVS8fU/1yMEP2+nQhCgjo7LEIvIovLZAWK4ETP
- ZkucVQe7/UuAhZKcrLPTm8hvQbpXqHfSupR5JZn7IEyJRMSlrgjusZK
-X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
- pk=ykwkLcuByJYb/cdLc2UuoYP03pIzwrscEZg30+4tJL8=
-X-Endpoint-Received: by B4 Relay for michael.reeves077@gmail.com/20261107
- with auth_id=1442
-X-Original-From: Michael Reeves <michael.reeves077@gmail.com>
-Reply-To: michael.reeves077@gmail.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261017031542.3504947-1-hongfengchen@xiaomi.com>
 
-From: Janne Grunau <j@jannau.net>
+Once again, recovered from the SPAM folder.  Sorry for the delay.
 
-Add the apple,t8122-smc compatible for the System Management Controller
-on the Apple M3 (T8122) SoC, which is compatible with apple,t8103-smc.
+On (26/10/17 11:15), Hongfeng Chen wrote:
+[..]
+> +#define zram_pcpu_add(zram_dev, field, val)					\
+> +do {									\
+> +	struct zram *__zram = (zram_dev);				\
+> +	struct zram_pcpu_stats *__stats;				\
+> +									\
+> +	__stats = get_cpu_ptr(__zram->pcpu_stats);			\
+> +	u64_stats_update_begin(&__stats->syncp);			\
+> +	WRITE_ONCE(__stats->field, __stats->field + (val));		\
+> +	u64_stats_update_end(&__stats->syncp);			\
+> +	put_cpu_ptr(__zram->pcpu_stats);				\
+> +} while (0)
+> +
+> +static void zram_pcpu_sum(struct zram *zram, struct zram_stats_sum *sum)
+> +{
+> +	int cpu;
+> +
+> +	memset(sum, 0, sizeof(*sum));
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		struct zram_pcpu_stats *stats;
+> +		unsigned int start;
+> +		s64 pages, bytes, same, huge;
+> +		u64 notify;
+> +
+> +		stats = per_cpu_ptr(zram->pcpu_stats, cpu);
+> +		do {
+> +			start = u64_stats_fetch_begin(&stats->syncp);
+> +			pages = READ_ONCE(stats->pages_stored);
+> +			bytes = READ_ONCE(stats->compr_data_size);
+> +			same = READ_ONCE(stats->same_pages);
+> +			huge = READ_ONCE(stats->huge_pages);
+> +			notify = READ_ONCE(stats->notify_free);
+> +		} while (u64_stats_fetch_retry(&stats->syncp, start));
+> +
+> +		sum->pages_stored += pages;
+> +		sum->compr_data_size += bytes;
+> +		sum->same_pages += same;
+> +		sum->huge_pages += huge;
+> +		sum->notify_free += notify;
+> +	}
+> +}
+> +
+>  #ifdef CONFIG_ZRAM_WRITEBACK
+>  #define INVALID_BDEV_BLOCK		(~0UL)
+>  
+> @@ -919,6 +969,8 @@ static void zram_account_writeback_submit(struct zram *zram)
+>  static int zram_writeback_complete(struct zram *zram, struct zram_wb_req *req)
+>  {
+>  	unsigned long index = req->pps->index;
+> +	struct zram_pcpu_stats *stats;
+> +	s64 huge, size;
+>  	int err;
+>  
+>  	err = blk_status_to_errno(req->bio.bi_status);
+> @@ -947,9 +999,14 @@ static int zram_writeback_complete(struct zram *zram, struct zram_wb_req *req)
+>  	}
+>  
+>  	clear_slot_flag(zram, index, ZRAM_IDLE);
+> -	if (test_slot_flag(zram, index, ZRAM_HUGE))
+> -		atomic64_dec(&zram->stats.huge_pages);
+> -	atomic64_sub(get_slot_size(zram, index), &zram->stats.compr_data_size);
+> +	huge = test_slot_flag(zram, index, ZRAM_HUGE) ? -1 : 0;
+> +	size = get_slot_size(zram, index);
+> +	stats = get_cpu_ptr(zram->pcpu_stats);
+> +	u64_stats_update_begin(&stats->syncp);
+> +	WRITE_ONCE(stats->huge_pages, stats->huge_pages + huge);
+> +	WRITE_ONCE(stats->compr_data_size, stats->compr_data_size - size);
+> +	u64_stats_update_end(&stats->syncp);
+> +	put_cpu_ptr(zram->pcpu_stats);
 
-Signed-off-by: Janne Grunau <j@jannau.net>
-Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
----
- Documentation/devicetree/bindings/mfd/apple,smc.yaml | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/devicetree/bindings/mfd/apple,smc.yaml b/Documentation/devicetree/bindings/mfd/apple,smc.yaml
-index 34ce048619f5..d5d30c053845 100644
---- a/Documentation/devicetree/bindings/mfd/apple,smc.yaml
-+++ b/Documentation/devicetree/bindings/mfd/apple,smc.yaml
-@@ -17,7 +17,9 @@ properties:
-   compatible:
-     oneOf:
-       - items:
--          - const: apple,t6020-smc
-+          - enum:
-+              - apple,t6020-smc
-+              - apple,t8122-smc
-           - const: apple,t8103-smc
-       - items:
-           - enum:
-
--- 
-2.56.0
-
-
+Thanks for reminding me that I actually looked into per-CPU stats a while
+ago.  And I had much less code, IIRC, let me find and rebase that patch,
+these WRITE_ONCE()-s, etc. are hard to maintain.  Let me find my patch.
