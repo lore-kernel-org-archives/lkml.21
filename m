@@ -1,110 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.171
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.47
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795234452;
-	b=ZqBADLxCe5UyHDKt6BwEiO810nnfmZcKvxBH9zu1Ls8Hs7zoVlOgLCK0fPhXQ6Asfv3n
-	 82kEjs3yL7XYyloeQ9bizVgWFDQq3ZKXT8RThxBazCeK9tnJxO+DzXI+YAy0WhF2yBej2
-	 gNXafEoRRZG8jNdGuZVYZn1CLzRuTRcY9Mz9WofnGOV6m2FeBtxfmbS0YpSUZcqzHvkDk
-	 2OrUjBxSyt23psnPoRzxv7gTEB9T/1LYYtpzapG9cctOB5LF7kFj2qesJiqpLf0Mw7DH7
-	 4/K1SrvmZbNzjp6rx7/VjHwXOFca7R7QjpwexzG6qGNldqdpPnT1U/dyrs2Axal1M/Q==
+	t=1795234456;
+	b=YwsVidlqXC9+q01vB6YZ2ivNNDXNXHYlt6Ev/4ycS2JKMeOsxIHgoihEMCMAvTeitgfO
+	 rfzES9Fm45sQG3nNRq2lNKqTcmbf3PH2Zo35uHnEQvlwzqYgvikk+Xy2sn+N+7WPeANBR
+	 RRoW61m6ZFHKBXjZLZYT8bcyaYqCM8XpqIBQGAnx/YLxxqMSvcBgn3wrrgMjl+15i7iiv
+	 J4hoH9apIrSqLNvi+AW2GEUOIR8m+elIOTc54c4nrXvXMfHzY57oYcP8Jp2fP3L7T88T9
+	 Ogwuo7TacxPYCWqi+44q7I3N+hH036KSt8EXEAYXgnV0n+AKDNtaSusRRnU0DUiCvCg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795234452;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795234456;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:From:In-Reply-To:References:MIME-Version:Date:X-Gm-Features:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
 	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=s1oUBUVsJdLlZK0BnMYfKVB2CVE8s/YWPNE5QQrqzaA=;
-	b=r9VI/iLtUJmxIA9xJSVULgYrAyQpvXBhvS3oqrOEUcmlNB3/nrlhdHWKIzQJvA0AaJ8p
-	 UCJqCtFmoF7QbrXTmp0G2Y34pRgYg+7pI8B/X2SoolkFzpPod+XoWcSgO5Rjn4efb0Yhl
-	 n9p9rYTTd/m76Vdtf89ikP1Xchd9UqqXeoHiX7Y1BqHkCUBMMaiMP+XeKfo/xFF7t3vPK
-	 AwnSy/K+AYcc6Slt+R3zNnCMSAJwRn/KRyYYZ5PPsxCgPoIPpIqsF1HC356JvswHb5dYa
-	 0aUld133bOVKo63gqU9CtEQB3TEzExybwbCa40mZAvexFNFOoFEzNvas42MAZ+EeKnw==
+	bh=3VWikePojs6Z/sOqx2CC1EDbJrjAJsIrE6pNTxCdNqs=;
+	b=EWMEP/We7fsN9m33cyZCDwfC//rwCgTTVmlXuQmd7d3lmZ4lUJR6Yaq6tyuji0/r+nS3
+	 xJJALe6PXNO1S+EVmSlXoSGZcMTV1v8r4okLl8cDcytAqf4roV30LaqLRNT2fZNMT/NZA
+	 DaQ9LM9kmM7Snm5dJ20OR0ZeQipnOFr+jBkyokYHOMOmyoeEWukI0hmYhkvD10KvbL20w
+	 id/sE1U4uS70Y2q06rZlXJ4FTkt7S3FSI5r13Lw0hcNoNM8nsFqDFEBeytEq9pGmo7Cim
+	 JaBPOSLwJssxIYgWyqGLoD5hdQccD4JeeN961lIzvosSYIVkZRFA3bl6pitZk8Ss0rg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=perfloop.ai;
-	spf=pass smtp.mailfrom=perfloop.ai;
-	dkim=pass header.d=perfloop.ai header.i=@perfloop.ai header.a=rsa-sha256 header.s=google header.b="eD/tFb9W";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.171
-Received: from mail-oi1-f171.google.com (mail-oi1-f171.google.com [209.85.167.171])
+	dmarc=pass header.from=purestorage.com;
+	spf=pass smtp.mailfrom=purestorage.com;
+	dkim=pass header.d=purestorage.com header.i=@purestorage.com header.a=rsa-sha256 header.s=google2022 header.b=K3bPr1S0;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.47
+Received: from mail-ot1-f47.google.com (mail-ot1-f47.google.com [209.85.210.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F141606A695
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 04:14:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F141606A695
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=perfloop.ai
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=perfloop.ai
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86318606A6B0
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 04:14:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86318606A6B0
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=purestorage.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=purestorage.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=perfloop.ai header.i=@perfloop.ai header.a=rsa-sha256 header.s=google header.b=eD/tFb9W
-Received: by mail-oi1-f171.google.com with SMTP id 5614622812f47-4b190cdc9feso1041301b6e.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:14:07 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795234446; cv=none;
+	dkim=pass (2048-bit key) header.d=purestorage.com header.i=@purestorage.com header.a=rsa-sha256 header.s=google2022 header.b=K3bPr1S0
+Received: by mail-ot1-f47.google.com with SMTP id 46e09a7af769-86287bb539fso204770a34.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:14:15 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795234454; cv=none;
         d=google.com; s=arc-20260327;
-        b=DpbW26lXlB4dfKZBw6mOSRjXaqUIKtDZY9uWwABhFC6mtvozonLWbOqjWpsHx/trSM
-         FdI8ub8llZvtp6yPnWrFr0DhY1oNZ8Hpd9KLJXT7yMQA01aHeo89o3Flwhvgh3XNeYuM
-         wDQwo0p+rV2POl+/zZy8ShNirZM98H77U94NlPImNei8CtDj7XuM9/Z+L47WayV2ED/j
-         aksN0ZS2+dGC0vJQx+qkg7lQ6YNa+Dtzomq/G5BBQFq0Db01KEmvXie4O4ZMJ8EaBqBX
-         UY7BdLArEscB5ullh7jhWUomVF/OxdVrIYKcDoON2Xv9DytVSEeK4/g0i7chby3FVAhX
-         kFeg==
+        b=rPLmjf6SbPwSWspkIXcO2/Mymos7DZIgLAEEGO54KckPgL2Buidf/LDKGgpIdvSs4s
+         W7NhRBIRgjCiwWME/k3bO790TnOVR+n0v40W13PZ7k9owHLhGNrFJIjOKOv4vih3p84R
+         LlSIBtomcMX+nyX2rMs9II7kxouTWt2OUGm3ChZeDF2PpooDzdEn1gNmPCwpG5cqVSFj
+         OJZO13nYwAumQZWfWOdu61jqbjZi0hect2O++z8sQZXYHhjqTG16seBabG/Y3IZSD3ga
+         axhXdaAJxlnpuApMqP0lTTmg1PgOwKMJCv+VWItC0WBgmV9KWZm3EgRwNSUu/QSQNru9
+         2Jsw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date
-         :mime-version:references:in-reply-to:from:dkim-signature;
-        bh=s1oUBUVsJdLlZK0BnMYfKVB2CVE8s/YWPNE5QQrqzaA=;
-        fh=fXYDVh5eI3O7+uodRa1sJ16DGiOY5gXXGoz+ZINu588=;
-        b=mYc8O8H0YLwUJb8aKkmC4OmX6elwJLYMM+WQpvL47CIzhHKPf8efJ+Q1AVybQtOdU0
-         sQ9QmYDMTEHuZEtFbkUceO3eH5xrzOCUdRVEJQHsgOjPcRuM5s17+0h2VctwhGzsBUXE
-         QHKZHjASOynr3mjsiKHcZzVydQktYmqXoclaC6X9y9B7MbfcSUlIMEnUpiO6LkMCsKrk
-         G5gLm6a0KyHIdjtYtp0W74fgtIe1oyNW7OvFFP1rBD2f6H/mXB0c4kUPWccX1oDNPlah
-         DKy57kTd2HxcTPMU5mTduZ3ectZoCRH9SLVmu6gKwbzoWOYxonP1iae6XA9kqRc9wu7o
-         bPJw==;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=3VWikePojs6Z/sOqx2CC1EDbJrjAJsIrE6pNTxCdNqs=;
+        fh=C2l8z5NKAqXfdzcOMO9qwsn1E12ZklzK2O5/vjshKPc=;
+        b=nZ8Rkpxo6hiYSGNqSKEI8VzxFScmlog3/HUdXxiOYxmyVknrRlLWHJq3XQu7F7syPJ
+         sINWFHPupcmuYilyEIMOa4UoFDvL+EqHOaXwDnooaQ5TEUgVWdIGNQrAnziN9ptHmqts
+         xH+IrHDDhMDqaB47alk9mOywvDBBm5R8d2s+fqccg1vbKBLbxzVOWMg2A1coNkZdZIAu
+         Kty3Zv/7TIZ5YRB2D7+vFL+LE8w+uhK0iVwwW/9a1MjFt7dLiTI9iKLs6LUHm54VzeBq
+         YwN/TfQNJYN4SaCY/+DO1kKN5/DP6AzjYDxtPINEYoFFkl+cFpTyt8gYzsYHEudGoZy9
+         /Qiw==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=perfloop.ai; s=google; t=1795234446; x=1795839246; darn=vger.kernel.org;
+        d=purestorage.com; s=google2022; t=1795234454; x=1795839254; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:mime-version:references:in-reply-to:from:from:to:cc:subject
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=s1oUBUVsJdLlZK0BnMYfKVB2CVE8s/YWPNE5QQrqzaA=;
-        b=eD/tFb9W0QTkZfqXX2nY5syzxoHKkMcvyjIGZ7Wk1DVYUwMwEfvGxY+UxaJ2PAVwxY
-         uQ/yNcPc2mIkQA6v3NAk7JWhYcWgCV7X02rDRlNSgR1+E5S1Fym992p5q/+xwqH3bDUS
-         2aW/FfCl3UW3jPngIzEVKSbwo5eRz+f2bPx56lLGX3nsqCCgBv3SpKk9Zi2NLLKeVVrI
-         Tp6jDVbYVE9rx/Ovu/yF5YQ9gOb9ZPscWckCvNdwJlZTuSfB58YOWRs3Wxmfv5tuJgGQ
-         nZzej4qYVdSJCcmyF41kXyDYTRcohlHjMIiB0AZQ98VGF9YidyUsb5LwXWmYNVB8SoeR
-         jrXA==
+        bh=3VWikePojs6Z/sOqx2CC1EDbJrjAJsIrE6pNTxCdNqs=;
+        b=K3bPr1S0ihAhALCu7A9KmU/u8VZ1fhbV5BeNsDZUZUUCpiWJYUQMYcu7a+ws3qpVNk
+         frFSBx6zuvxBmaIvLzzDUZYLu+CVS0HeUbDLDCzlTWEcY7ILjSk3h7mQNZZVSQwr1q2Q
+         TcG/rI3edxM54Gb4ZAS1KFxg+Hx3hAmlAtLeBx6rz39MJX2t8MDWfpho/mmSho0zmpM0
+         Dol6+ci4KTWP5gO3Z1oE/WfCV1KA8WVa4APSptrpNLRiknH2F5YIH/62q03ePu42jcqT
+         901bwEO3AYON6vRjveAv9PBwzCLstzc9L8HUfMvw4w07E8mgpNarILptfQlV0fxYA1Hf
+         JGIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795234446; x=1795839246;
+        d=1e100.net; s=20260707; t=1795234454; x=1795839254;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:mime-version:references:in-reply-to:from:x-gm-gg
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=s1oUBUVsJdLlZK0BnMYfKVB2CVE8s/YWPNE5QQrqzaA=;
-        b=FA8CScHPmzxwDXt8OqZRDP/7/kmW1zqiPTDVrxk3DZ9bBdvzoIW00XLlHobNeboqV/
-         alrsevgosy82WkFnknCmRpfpXqbhT12djucu08lIRde7o/4AaihGRXq16ES0Nuu021sO
-         wwdlxpjLWwEaLUAwmAz6/768Ip+Pikkw8sl85ptx1TbyDJedflfEWkidQB1L/6+XgDp2
-         +jcl0io6Bxto1u3B13skQrF61u5//ENrYBu+dsqT8+Z5maf06xkH4e+Fkxuj8kX+2qSJ
-         NtCowAqJeAWMWxR1Ejiu4h0N9M1HdHo33fnaeTziFLGxJsoyKxXvwrchVKfvszX6VyhY
-         Jtpg==
-X-Forwarded-Encrypted: i=1; AL+hErEcp22E7Ffl390e90Tk8iOVGCiw4BoiSxxjFNWWH3SeUWPKdb2+dE7JrfHHbbttfBpRIJ2q6NkjY1gpd2g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/HQ6w9gHHcxm3ebCvPPBaaD0/TdHuV2DABYUr+imJ7Urf3PndP
-	z2xfr2xEBxcU+BoBkDaG+MvI3PV3KUniNEm6mmQ938DJpHGFkLTe/vRCOawLVgoM4MqMX7EWEBf
-	+kt5UUCzTBrAlPgpB/ysLG4lPs6au+Hk3WYMj9oDgsAI/VcNDGQJZtVuCldk=
-X-Gm-Gg: AYBFou3e1uwZotYBdtoALcPtf1sk8k0Ia9oKP4bPMrg1+fMTz+oqHIwAPsdwjP3R3Iq
-	Ueb1UnKQkgjUvicQblOLwEavDb8yRA/ymvxrIqNiCGDVHPAirWHdf/jqqjL9Ljy04eyv+Hcu10A
-	QQIN3qXDyJ25Qa3Q/b6Pw2swkBcBkVJgeP6hzaG7/B+PPoHMDIoeVJccPGNIKWqYeOYR2d67w/g
-	XNBtcptK4eVzKq1NRZbFBGlXir7gibENzOuJexIwyUG8gQdIOeIwqxWLwd1wzpA8oLkm5SDnTH2
-	nvCs92W5nOR0cebIeGiZSm0Oy6v+k2cLFcRy2DML5trGiHyWliZo5toSNHTZOalcNK545EM23Fn
-	zWrMczEvSgQBPW1bPv6OwVdogTWxXiRCB52qb9l/UAo3gDC6kFRJuoZwvFSzlNWlbzy17YZSF3M
-	hpK272RjzEmOStJ43vbB4tinqNCWY+rBY5BI1iR11fGX8111tnUJKj4mwd02rudsqVnJ/w1Ahjy
-	donndPxlTNztQ/NIn+ZFegpM5ZoN4BC8w7HXlQljHlhSlGPrhY/03j+MvT/Btfb57f6NGoOubyu
-	9bzh4VooXyxA13ROFcImOJWGOlGaT8SfRT48S5nGUg==
-X-Received: by 2002:a05:6808:1645:b0:503:8f9d:f11a with SMTP id
- 5614622812f47-57a0a10c7a2mr5856561b6e.29.1795234446035; Fri, 20 Nov 2026
- 20:14:06 -0800 (PST)
-Received: from 202080787392 named unknown by gmailapi.google.com with
- HTTPREST; Sat, 21 Nov 2026 04:14:05 +0000
-Received: from 202080787392 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 20 Nov 2026 22:14:00 -0600
-From: =?UTF-8?Q?Tom=C3=A1s_Senart?= <ts@perfloop.ai>
-In-Reply-To: <CAEEBa3XJt0XU+5pXNQz_tjZyPEeEnY67i_QGupOnHLnXB=BVDw@mail.gmail.com>
-References: <CAEEBa3XJt0XU+5pXNQz_tjZyPEeEnY67i_QGupOnHLnXB=BVDw@mail.gmail.com>
+        bh=3VWikePojs6Z/sOqx2CC1EDbJrjAJsIrE6pNTxCdNqs=;
+        b=Vjn+pPrVvmYOX4iPPpacEJi8E93VH6g6JP2isFErE/WtF5FxSP/c7s34vLYIKJYqjX
+         mMbeCRsLVdIkEU8Im+Enl3SfAbqapp923dwLeL3Nb/Lz7QWAq6FVz7RPvKJhzU80ERnq
+         P1Mla5fLJ2JBzsdn4kobMMMO13zgsIU0xEwHzaK7WxidOXzX3GZxYhH7VXs0FuoEBWlU
+         X2wWRwIF3K6LxDncNCsgAWh87WWW5N7j96TcgfOw2gzmsF+z8IG+d7gfPtIdi1K3dTkx
+         p+udMlZjJvV40Ch5IUzpVEx6YE+B0asMlKpcvrg+4w3rr3ML4DjtBmfamc5qKZOEQgjz
+         sjsA==
+X-Forwarded-Encrypted: i=1; AL+hErH30h4qNP96c1e+Nd9XWEfHp4oScoKznB6KaKgoP6e1u1yn4BdwgoC4Sgm9zaXy0UbZ/wkCp6KiCSuBkV8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+0rHJIfIiBlNnvhdochJZfcYIzWvtu9Nm3+IlMJnIME7pilI0x
+	DGxiednLbpTQDMyDO90H8Xe7ZiKHEsKtKRd+2vfO5JSQxxdJkOkp0J31YAQhTsZRGr9sKn6qbjV
+	uuzEamMj0wph2ppnE+uQ0OET7DmizlOT+8J+JH+zvm3UTJ8bpu/3skP2rkA==
+X-Gm-Gg: AYBFou1X2bTqnlR489DhPfh/zf/x9zsWCyrS2iaAf36GXbT4bO1g5MKGLg2T5XsOCSP
+	hG4Fi4V32T9M96plByCNd+6y/pCezLxwckQmjJzExeXRSJwokxMbsX4PBtRj90N1SubjRwYXL//
+	BTmxxTUmomT0b3l7RB3TrWRalfn0NRIlL/4EYzko4RuBo0CpZr65W4yvw8iCtCXXkfzl/fD3LH5
+	YUjX5bA8clyla8mNwxB9GO7jV/0FacFspYktxEiDYXltG2mp0scShiVNDjWlv7Shl7KpnrwzBor
+	K8efqg26e1VtpI+TKw951Y6+MtPaEpcDSOj6rG0ZoCfxI4TxfQ1u3mrDXYzUmne8x4hQx2buEwo
+	LF4ghTgaPI04APvMIWP//eIDkzBkxIfOMvga6
+X-Received: by 2002:a05:6820:840d:b0:71a:ee8a:5d26 with SMTP id
+ 006d021491bc7-71b3903669fmr4532415eaf.0.1795234454393; Fri, 20 Nov 2026
+ 20:14:14 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,114 +104,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Sat, 21 Nov 2026 04:14:05 +0000
-X-Gm-Features: Aa3M54opRXm5ReTm4e3sjvrgM48zr-FpYqoMbn_tWRbU6Gsjp5HSemBksayrHS0
-Message-ID: <CAEEBa3Un8x208Ox=20TTmGgcmdMSTCC41fB7SWP7uuY1N3xLPw@mail.gmail.com>
-Subject: [PATCH v2] jbd2: fix fast commit recovery failure when the FC area is full
-To: "Theodore Ts'o" <tytso@mit.edu>, Jan Kara <jack@suse.cz>
-Cc: Harshad Shirwadkar <harshadshirwadkar@gmail.com>, linux-ext4@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20261120064806.752251-1-csander@purestorage.com>
+ <awBuiVyOQj_YHCZD@infradead.org> <CADUfDZonvcOkM7DD76Gg=Z6NHhM87a+n0xPirfTYS+wLLnHfmQ@mail.gmail.com>
+ <awDjRMv-TSvZKDdS@infradead.org>
+In-Reply-To: <awDjRMv-TSvZKDdS@infradead.org>
+From: Caleb Sander Mateos <csander@purestorage.com>
+Date: Fri, 20 Nov 2026 20:14:03 -0800
+X-Gm-Features: Aa3M54oMrehaCiS0ijZqohcZujok_ypFHbY0vJAi3ID-ob0bR0tgHb-XgCK5_G8
+Message-ID: <CADUfDZrXabOX1qM_4DrxwhQSZGo2tF6KUQ3yhDSgBr6hSGyUDQ@mail.gmail.com>
+Subject: Re: [PATCH] block/t10-pi: deduplicate blk_reftag_remap_{prepare,complete}()
+To: Christoph Hellwig <hch@infradead.org>
+Cc: Jens Axboe <axboe@kernel.dk>, Keith Busch <kbusch@kernel.org>, linux-block@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-jbd2_journal_load() sets j_fc_last to s_maxlen, which is the first block
-past the end of the journal, and jbd2_fc_get_buf() never hands out a
-block at or beyond j_fc_last.  The recovery loop in fc_do_one_pass()
-nevertheless runs while next_fc_block <=3D j_fc_last.  If ordinary fsync
-use has filled every usable fast commit block before the next full
-commit, recovery reads one block past the journal and jread() fails
-with -EFSCORRUPTED ("JBD2: corrupted journal superblock").  The
-filesystem then fails to mount after a crash until e2fsck is run.
+On Fri, Nov 20, 2026 at 4:18=E2=80=AFPM Christoph Hellwig <hch@infradead.or=
+g> wrote:
+>
+> On Fri, Nov 20, 2026 at 10:29:18AM -0800, Caleb Sander Mateos wrote:
+> > Sure, happy to switch to an if statement instead of the ternaries to
+> > initialize from and to. However, the code generation is worse with the
+> > 2 calls to blk_reftag_remap()/blk_tuple_remap(). The compiler doesn't
+> > notice that the calls are identical except for the swapped arguments
+> > and emits 2 out-of-line calls to the function instead of inlining it.
+>
+> Add a __force_inline tag to blk_tuple_remap and see if that fixes it?
 
-Stop the loop at j_fc_last.
+I mean, sure, you can apply __always_inline to blk_tuple_remap(),
+blk_set_ext_remap_ref(), and blk_set_t10_remap_ref() to force them to
+be inlined, but that doesn't change the fact that there are 2 separate
+(inlined) calls to blk_tuple_remap(). That makes the generated
+assembly for blk_integrity_remap() significantly longer. I don't think
+compilers generally merge common pieces from if and else branches
+(even if they can detect the common code, they may choose to keep
+separate copies to improve branch prediction for any nested branches
+correlated with the outer branch).
 
-That alone is not enough.  ext4_fc_replay() calls
-ext4_fc_set_bitmaps_and_counters() only when it is called again after
-fc_replay_num_tags has reached zero.  A TAIL tag always ends its block,
-so the call that handles the last tag returns JBD2_FC_REPLAY_CONTINUE
-and the finishing call used to come from the next block.  When the last
-fast commit block is the last block of the journal there is no next
-call, ext4_fc_replay_inode() has already cleared the inode's blocks in
-the bitmap and e2fsck reports a block bitmap difference.  Do the
-finishing step in the same call that consumes the last tag, and drop
-the in-loop copy, which would otherwise run it twice.
-
-Reproduced in User-Mode Linux with 1 KiB blocks (mke2fs -J size=3D8,
-63 usable fast commit blocks) and 4 KiB blocks (default journal, 15
-usable blocks): with the fast commit area exactly full the unpatched
-kernel fails the mount, and with one block fewer it recovers.  With this
-patch mount succeeds, the file has all fast committed data, and
-e2fsck -fn exits 0 with no differences after recovery, for the full,
-one-block-short and three-fast-commit cases at both block sizes.
-
-This bug was found with Perfloop, an automated code analysis tool. The
-fix, this message and the reproducer were written with AI assistance and
-reviewed by me.
-
-Fixes: 5b849b5f96b4 ("jbd2: fast commit recovery path")
-Fixes: 8016e29f4362 ("ext4: fast commit recovery path")
-Cc: stable@vger.kernel.org
-Signed-off-by: Tom=C3=A1s Senart <ts@perfloop.ai>
----
-v2:
-- Please do not apply v1. v1 only changed the loop bound. As the
-  Sashiko review pointed out, a full fast commit area then mounts but
-  skips ext4_fc_set_bitmaps_and_counters(), and e2fsck -fn reports
-  "Block bitmap differences: +2113" (4 KiB) and "+32769" (1 KiB) after
-  recovery. ext4_fc_replay() now finishes the replay in the call that
-  consumes the last tag.
-- The reproducer now runs e2fsck -fn after recovery.
-
-Tested on torvalds master 65e4fd942f72a9dba0e4e257290c4fa1aa756854,
-under User-Mode Linux only, with one journal size per block size, and
-only with INODE fast commit tags (no create, link or range tags).
-
- fs/ext4/fast_commit.c | 9 +++++----
- fs/jbd2/recovery.c    | 2 +-
- 2 files changed, 6 insertions(+), 5 deletions(-)
-
-diff --git a/fs/ext4/fast_commit.c b/fs/ext4/fast_commit.c
-index 0cac890cf370..5d9b95817ac6 100644
---- a/fs/ext4/fast_commit.c
-+++ b/fs/ext4/fast_commit.c
-@@ -2608,11 +2608,8 @@ static int ext4_fc_replay(journal_t *journal,
-struct buffer_head *bh,
- 		ext4_fc_get_tl(&tl, cur);
- 		val =3D cur + EXT4_FC_TAG_BASE_LEN;
-
--		if (state->fc_replay_num_tags =3D=3D 0) {
--			ret =3D JBD2_FC_REPLAY_STOP;
--			ext4_fc_set_bitmaps_and_counters(sb);
-+		if (state->fc_replay_num_tags =3D=3D 0)
- 			break;
--		}
-
- 		ext4_debug("Replay phase, tag:%s\n", tag2str(tl.fc_tag));
- 		state->fc_replay_num_tags--;
-@@ -2656,6 +2653,10 @@ static int ext4_fc_replay(journal_t *journal,
-struct buffer_head *bh,
- 			break;
- 		ret =3D JBD2_FC_REPLAY_CONTINUE;
- 	}
-+	if (ret >=3D 0 && state->fc_replay_num_tags =3D=3D 0) {
-+		ext4_fc_set_bitmaps_and_counters(sb);
-+		ret =3D JBD2_FC_REPLAY_STOP;
-+	}
- 	return ret;
- }
-
-diff --git a/fs/jbd2/recovery.c b/fs/jbd2/recovery.c
-index cac8c2cd4a92..a59de33a2a4a 100644
---- a/fs/jbd2/recovery.c
-+++ b/fs/jbd2/recovery.c
-@@ -242,7 +242,7 @@ static int fc_do_one_pass(journal_t *journal,
- 	if (!journal->j_fc_replay_callback)
- 		return 0;
-
--	while (next_fc_block <=3D journal->j_fc_last) {
-+	while (next_fc_block < journal->j_fc_last) {
- 		jbd2_debug(3, "Fast commit replay: next block %ld\n",
- 			  next_fc_block);
- 		err =3D jread(&bh, journal, next_fc_block);
---=20
-2.55.0
+Best,
+Caleb
