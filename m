@@ -1,100 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.39
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795238354;
-	b=0Rz0xDt0BuFJuYzo7c3eOs3E+kYR3P8SXqOro8BJUE737u837HkbVnXonQrqmSimnUNp
-	 saU/ojbsTeW/lr2UVFaXWQ/MglyRQTWWnnDXTgsG5PawiIVVZvs3g7j2sQCvwKnuHXOCA
-	 Vy4eBUWSwpQEM+Kh5w4i1TSiJJ6en9CoYpPZfGnCJaWPNey7lDOGr1yvnvXfnwXl+8khK
-	 f9gcLQgjvOJLVazrjlEPxfRsZvyrkEoCd6cnvNVUTEzv3Oe8QkhZzBo2JVrq8pQgF5Os9
-	 U7ID5edWHxbqa8olF1u0jJdQfzNGV5J0miul9nPyuyBsqNV3LKRDSsTf4Jjv04eJOEA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795238354;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=GUBPwEi7oMaEgzwb1Hi2j1ZA2DRZCp7QdZDE9yZgJVs=;
-	b=tYb5j5gqXN2g/Jt6sTyfHhAOq3Wi5PhFRHKh80l5WhwhAYhGy3s/nXA8kXFJ0ufBt+9T
-	 T0PHZhNkjYHio0Co359oABQJhg8niRGSYh2JkdcckME3IZn/JP1jtN2caMFvcPV7+Asil
-	 4BqhLnkXRW23nUymTzcv9KvnNCFeZiZLCFZtg217gDPEWJNy+qn2SnnniGif00ACDlEMI
-	 9iPdSLGmK4lk4CBEr93Rxi7kBLGV/anBRojXp3LXolGqBzLwk4laQDQjXHp75JGGGoPSj
-	 clsLbq9avcXfNPJz/jZA3BWV8wC3Ce5F0Bf7AlJt8onBEB/d0W6NH7IKILedui22Zxg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=mWBZxaZy;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.39
-Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012039.outbound.protection.outlook.com [52.101.48.39])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795238690;
+	b=dmU0b83reN62hSa/McKJ0xsXqdXvH4rYIy//RPs7fV3v9iaYprp9/mQtwfPGKI+pFnHM
+	 ZADTDL9T9VGSz2W+Pa6UK+x2SdYTYpfHtS/si5qqzDqxU7awKUPdSUVveMEAegu9L7uUF
+	 g/Vq5UYCjG2u4du8UJuoh5LsWNJ/VHTWX3eo+go/TitaxLf92m4roadg8Y2VcbEzPKKUS
+	 fGkaTk64cAL2IGPgL8C75B4Wbid1yuuhoAIOxAXh2Hsaf6OYwXASoNExha7a9KIWmVHHW
+	 ZW5UKgk0p+mvOdS11VhTEE+WuL+8Lu3Ytl/Qrej/xZaoqKMwQODEFEsywKDeX1UX5PA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795238690;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=vrAH11RxlITDJuS6ccKcKd1F7cmDmkL8RNwIxF0LPl8=;
+	b=SnMHlfbCojJBq/jPBDacHYdAxnTrZJnLBOfbWKsf/49ifX3fUCjIkuE7JNyGe0CD/PDh
+	 DpjfOaHMAskPnrb94nGSBSvMidKf1fUUS4wPK+xpxjAopda4So+shw1IY3q1u5AAgXJiW
+	 mMbGexD17c+UeiTXCr3itIk+k8hn49QXzmH27h4D2LLhh8fdZQar//6fYfJtnz3VtXPYn
+	 dN+VXgtVPGWjqtQptnkJAB3QU/IQnJZv+uXSrPS3mkuz3M5zDzGo6pugFivMw7SO2z0wB
+	 MpbLmCUt81p/77L8TsgbwQpzKQTrtjAKNzvTgrR2vWEQ/QsvYnr1UihiZQ0t2IEW9uw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RDbB8tzH;
+	arc=none smtp.remote-ip=74.125.82.170
+Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72D8D606A693;
-	Sat, 21 Nov 2026 05:19:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72D8D606A693
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE05E606A331
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:24:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE05E606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=mWBZxaZy
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fpCjm2gBBJx5YogTe8DsaghiGKC7vGC8KlRNCNQAEzHfMrhi4MCsiMYLMOyWVLHDmFnwTumDTwcd694Oh3k1F05koR6dQwjhyt5J7JbQf49TBnGUChGBsXDm2RThI64yFdu5/f8sQVBUIGjM+31wyUzdFBq6BHEMSD3TG4cprQsdgaBZ6TbF+LEAqxVX7iHInZAWC5C597McIW2RPJLwTloXB4pzj/KIfPoG84NitmzSHoFVrcv/hGPLHs0lUINXU72Eu042tCmsr3X4Ue2pLyE+woU8okOww9O21isPhFohyA6fv0I7Bk6g2V1CF9gUmx/I102PMlyWzjqfmOcM2g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GUBPwEi7oMaEgzwb1Hi2j1ZA2DRZCp7QdZDE9yZgJVs=;
- b=ImbuzGddYbryr6mw0synHCsAUbetlxiMyYXqtVJtwN4rb48+CaGb/uWf+Xiq8KlDY2nJNqT8ahIb1wXmw/Wd5XsiIKg7w4+wNznq1oqFbocNBzuds1OH8NHtuG7Mq01uuy8KQXZKm9GoTtPk06mzAE/+2ZZBHqfrrjp6Fr+arrVZK5YwETlZIBHGjESgJ90HSSHrl9MTLhtqbgAuHMM10CbFqWNTWtesOwq1uyhRI1t7X0vOPfgRvqILeQ+SXSj6iysMgFXC1RraFoWD96j/4WWN2gCE43uj7URSglVR5b8zxu/QbjBc7XjTIvMO3C/ZujnDAb62kyvVP6ncbPUCaA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GUBPwEi7oMaEgzwb1Hi2j1ZA2DRZCp7QdZDE9yZgJVs=;
- b=mWBZxaZy0Gm0jhT4UNgxQwr0BFkikXLdqpvK3+MOBWI7O7UFUEnwCjoHy2MSusfIvtKJlXreK/DZAcn92+jpH6OjSzt4AqFIh2gluOVaZSH7lRqBj+DM5orU7rUZqL2beRa/Q37VuwJZUz6/5IqTmLoZMHQpdA9ZAWaYyv0KzB9nW/NCQgGNdu4F/3Jzno/WUXkU736R8wdsutwEp2bF6RrEV7OqBhG2BSe+4NJm3oE97A4/CUnN5Qbjn4YL/Y4vfBTrHAMasFvDvxg1QQnbG+9xXZK4+DenUAU40yKkZTaabRGg0lFu2fdusyqYIEtoIRxbQdlzGsyO/LeUhkHBBA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from PH7PR12MB5974.namprd12.prod.outlook.com (2603:10b6:510:1d9::19)
- by DS0PR12MB8017.namprd12.prod.outlook.com (2603:10b6:8:146::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Sat, 21 Nov
- 2026 05:19:05 +0000
-Received: from PH7PR12MB5974.namprd12.prod.outlook.com
- ([fe80::f5a5:bbc3:e9da:f8a0]) by PH7PR12MB5974.namprd12.prod.outlook.com
- ([fe80::f5a5:bbc3:e9da:f8a0%3]) with mapi id 15.21.0639.011; Sat, 21 Nov 2026
- 05:19:05 +0000
-From: Adrian Ambrozewicz <aambrozewicz@nvidia.com>
-To: Kent Gibson <warthog618@gmail.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Jia Jia <physicalmtea@gmail.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	linux-gpio@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RDbB8tzH
+Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-380b40319bdso2093076eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:24:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795238689; x=1795843489; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=vrAH11RxlITDJuS6ccKcKd1F7cmDmkL8RNwIxF0LPl8=;
+        b=RDbB8tzH0MaqvkGFj9/YfKC7tmEOs5Hy2q8yEMCLNCCrXOJh6R1ANTno7DTBrnKYfv
+         AZUciZrwMv1IE5v5jM6JdOWy+dxKegGx/gl2+NHst+7dMbIUgjwYDUY0bUDeRfkuS0Y6
+         8g2Ia+Gq9f78G4NTeCOO4HHfCNn+LWUD0IXBeCLQX6jHEzqG5dwhrE7FHVY9TM1JAb1W
+         JZDcoblzR/kBgvYe339jN2ucmBUTETsIjhNm8wUPCNt18Oh0+3UJhPHcWDbK5KuVTfCc
+         +wcyCUvRB3V68Ggra60ETEK/FTVVeUTZB8sBydWdNtejTFQWSjVJBAkvvtox6oNGzyoj
+         V6AA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795238689; x=1795843489;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vrAH11RxlITDJuS6ccKcKd1F7cmDmkL8RNwIxF0LPl8=;
+        b=I3qeBCAT6zL+YjvUZ3hOd17N3YqatSM1sNEWqD6lIKs3imYZWQAVq8HMJArcYOXO1V
+         U611YwOtzc4QIrinVxa5ehuWeTI3zXybhPp3712vCQ9PHlUnlkCFBI+ibkVYDzgL95HG
+         homMWE62EtmDVdxuMsF+z+QgZFrLLgk6jF6Fy06rHrLhcGOjp7GB0uOzNyD3OBmO3tOf
+         XRotguomsrBsmPT6G/+gGDfvRqc/5ObFcp/QxmZMZ4tX3tTEK3WJku+xMi/6wqf28/O9
+         Gjfsz08ji/QXv6tfBamRbhZyT5R8ZatWSN2vVETSZtofu2Vg0xwRu9WKzC0TB4AMncYT
+         jobQ==
+X-Forwarded-Encrypted: i=1; AL+hErFB7XCCmqEeX9LauOZc8Qyp83odpWkRXoIja5fyOsVCQ822g3eSPxu7JCJIb9YqWxkxPVfn7aM2IkuK9K8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/7N9s0AxhptK4p4pqN6STdKm7CaAAt78T33czusL0vkDss0dzi
+	DQ08ID9F+An5Td2/5oJsF5hqc2nFXeG63AR7LX7VlyKh88B+jQW4HoTlxadtgYcf
+X-Gm-Gg: AZFdTZeFKNz0PW88lcEBKOD+Da/zFm22EhMGeza17Igm/ZI6Tgel6Lxz7soQLOTawyT
+	zDZFgvpuhuCl2+t8M6PikkQDXMawomrbOIbMzrmLATc5QNB7zRK/DaxqoqvatRPVGZob21Mk5Nw
+	DV0LMhYqniY+vgHT87R3+oJQPX9IhG+6tdmdgJbVPDmZtzsU481rm7hp9/vUr5saiWepnokrbsy
+	qJHeg2gqkw2rgknlr0Ya9wEIklHVPUJiKj9S1BmvHK6HCxrMrJbqNNWXW0R6PND9kMA50BGBpV1
+	u7jqBVqCrgP1rm//J5FwHnpgHQ+x2L/w4WjEq4iSuSAqK4yXoUDoim1ELioUFH16edjry0tF8K5
+	ltQCEPVkeqb/r1XRw5NJagMByJlc3P3eVy2AWtjPgFUIanQL+ODM5BLQGsgqqvmBQmEPmlEj3xA
+	1bZdaEeO1HIZNZ/jqz8y6WAOQBy/xIjLCO2mfRfGQD7Eh/J2uSpbQk6SMGDkvsNF8R+lF/Qz0V6
+	qWGpzIBu5kobRIIwhGsTLeMLk/97iZsx6dRpcofoQ+oZBZCeBPuObMCdMZCv2nALrsM7NydrBdI
+	tzloA4cZ2nxeM/Tl44q3
+X-Received: by 2002:a05:701a:8148:10b0:143:2719:f800 with SMTP id a92af1059eb24-1b556908ecdmr4821202c88.40.1795238688807;
+        Fri, 20 Nov 2026 21:24:48 -0800 (PST)
+Received: from a1-free ([161.33.196.121])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm19330849c88.9.2026.11.20.21.24.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 21:24:48 -0800 (PST)
+From: TAKANO Mitsuhiro <takano32@gmail.com>
+To: amd-gfx@lists.freedesktop.org,
+	Harry Wentland <harry.wentland@amd.com>,
+	Leo Li <sunpeng.li@amd.com>,
+	Alex Deucher <alexander.deucher@amd.com>
+Cc: Rodrigo Siqueira <siqueira@igalia.com>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	dri-devel@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v7 7/8] gpiolib: let the character device free its IRQs first on chip removal
-Date: Sat, 21 Nov 2026 07:19:01 +0200
-Message-ID: <20261121051900.4118973-2-aambrozewicz@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261121044657.GA17013@rigel>
-References: <20261120-gpiolib-chip-removal-v7-0-aambrozewicz@nvidia.com> <20261120-gpiolib-chip-removal-v7-7-aambrozewicz@nvidia.com> <20261121044657.GA17013@rigel>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: TLZP290CA0004.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:9::15) To PH7PR12MB5974.namprd12.prod.outlook.com
- (2603:10b6:510:1d9::19)
+	TAKANO Mitsuhiro <takano32@gmail.com>
+Subject: [PATCH] drm/amd/display: Fix spelling mistake "pre-definied" -> "pre-defined"
+Date: Sat, 21 Nov 2026 05:24:44 +0000
+Message-ID: <20261121052444.1797470-1-takano32@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,86 +102,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB5974:EE_|DS0PR12MB8017:EE_
-X-MS-Office365-Filtering-Correlation-Id: 067d1c6a-6c28-49d7-5cf8-08df478ef60c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|1800799024|366016|7416014|376014|261026140227099003|261022105027099003|261022075727099003|261028144727099003|11063799006|10067099003|4143699003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	wT32pMd5iW0279BTBKlTPnybw8xvojDyfCY7+WxHmyPd0FJz3u0j+9evqDqXLFacphH1y1RRAg78poXTjeieYikmcXV/42WBP37VfJtwEU5SQkDHuJTBsHGCD4b40cJxEawdbVcPYS33PtN0RQZWasA8/Ujk/a3mTZuomw102MK8KryalMiBSgQKkB3dx19KS9yzxOpkXhBe4985uR0H3lVPa+kuQf/JheVGt8Ps44q6pfjdtAzmbCfpBNaR2GAb5X4rnYGE0ysf6TPIGe5Y1XdT58GHnOaJW/HUkwPTEA5JnkLk8t9UFNqxeYkiWRtSL53nkJJagoQuXu3yJmJCl97UyfkZaQTSxSsHCp0pTemBn6d7GpaLb9LLD62FM3IEnDmVn2vVELeFFpAjz7LtTOSgB2JsI770BX2zQ5nOC40og+8c7kCfwrpNCOZDd8pHVK/wupBE780+GDls+LDnHxT2f57XAmlpWEcqdqbTGpkV3PlH4hQltqwu2pjK/3ZtYXglDJbhdYcCa9/I1FS3DJ7csKa7Ch/ngZFafRvmDZywz82kk2WphGuqz3cYAZ7bXk7PeBsBIzihPnw/+hAL7PeaLXn4iJe+noGrzx5vvylxln3deyWXkKUZ6EVZ3K5vYqySSGLHsUZ/1thqv8rHXd7NmHw+IX3t+VO1345C/MM=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5974.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(7416014)(376014)(261026140227099003)(261022105027099003)(261022075727099003)(261028144727099003)(11063799006)(10067099003)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?kiK9eqhI1z2yMjr3pQg8raajs17YbIpotIncLPEqNns+Bk/rLDYTCxJfr8F0?=
- =?us-ascii?Q?qv/KDKdvbmGRrcAeS1UgoiidkfL1gb4iNau0S6J7WfajMxrYncV3Ak7HlskT?=
- =?us-ascii?Q?aoxP1nxhdbk+7wXv3ugyNQNaccwi1YStBs+AsHJaU4+mDHva1Pj8lHyJ9cmq?=
- =?us-ascii?Q?eXeUZR1QO0uNrxEWYOwQhz/jWoyjzWp6g/HqztDtNOxsXumsL5VZw8pshiAa?=
- =?us-ascii?Q?zlMOk8C2H+fG2EBexAd1N5B/J57hoCiwGnxYpS67xdz9+pkL9Mrik1bQkcMG?=
- =?us-ascii?Q?Mf/VlQ1oRo09MRuAEzDsWf5eDjU87gkCGkTKevcHFPeJE4Iu5vZFncYsDb5n?=
- =?us-ascii?Q?oRCB+zC9QB3HEvf0Zf65v/gu3LNSScetCLyfU/Uh2ryrMKMzFgx4SZkTGiYP?=
- =?us-ascii?Q?yaVt0MTL4s9sgILiEKW6fc8wbeMagZIVwcgMio8WXlVIqyWAv4XvhRyOuTvU?=
- =?us-ascii?Q?vG6ABE0H2N26BY86IdEvtY9trUiHIwMZJe79K9/Z1I6nu/tDDp+CbxD7kmay?=
- =?us-ascii?Q?gMORgXU3V1WjIUvHFyXHAZdyBnsM8o7ODzyXDwQC3hSQ8Pd6OsADYI3Bzv05?=
- =?us-ascii?Q?K+FgcfmTlMhgQX95lmofKg3eTNzG5x5UaLBCHH49FXsEtmNKlAsyqKpxc9qj?=
- =?us-ascii?Q?6jRO7XOuFAgOqOLG9Puy8J6mZxyr/LFK01ETkpxDdISxsQA/qNsAz8JuChbW?=
- =?us-ascii?Q?h48Dr4ueEG/9OgGN0n2CLbMzKM3Wwkti412pAJkNRxA9dRDJIHPrPQ1vIHhY?=
- =?us-ascii?Q?+4ps0ZE3IqLmubLmew10fa3Aso6s/7gV4oycMHHlIhlT7sc6uYb8F38cmJwj?=
- =?us-ascii?Q?Pzh/FaB7fTWw6F7SkqkTKwYMbHqJ4oTD6Ml4sgg1KfLInsDGDCuAyeIhUQ2W?=
- =?us-ascii?Q?3BEtJphr1CmJLWC9iYUs5ljvaSZI8/4/SP+iBmJDy1DxPGRebZe66wbAT9Te?=
- =?us-ascii?Q?c2eawSn+JXcA7ty0eLeHaLJHYjS5yv83nRoIfNDtpGERZfkPvrJ0kNZVGT4T?=
- =?us-ascii?Q?hUpwQFgTMRZD2Hcd1arrGr3aSQYl2n45edO6fCsuHW68lJGA3FFDbf765mLj?=
- =?us-ascii?Q?umM07aJKb6iCjEey+NSPbp/ZzZNMxj8bOk4CqFFwiIhCi4kqR4U5P4mNqnuq?=
- =?us-ascii?Q?kYPWz8S2ilMCy46x/m3XVnnLaux9OuJ4ldXGXXFUh35kuz2s2p7wvgdfGK82?=
- =?us-ascii?Q?S3z0uOu6/4w/KZFJPI58UrPrISmIkHgGCxm8a4qEkzFpPVY9NV9GsOJZcWLt?=
- =?us-ascii?Q?mgVIJmtCQAmbrd3z3qRceF9PK4gjKcPDU8FPNszLehPwXj0K/EDyMQm7n5+B?=
- =?us-ascii?Q?eyPzaD2GbaRKXt/RJbB5XYnUxjGEQXchKOArRyh3MkfAkNr9dXPFoyrc620U?=
- =?us-ascii?Q?F0VT86bv9us5QbAs4HhzgNIJ/RgtDVVH6sobwsoaZqMK6qCbHM8G3VvU3D89?=
- =?us-ascii?Q?YBuFxllpfbcqwMsIXlXF/DtFaJKeMO9G+3I9svLEwEU9mjH5a6ima1KkMQ/L?=
- =?us-ascii?Q?ZoMy6CHzgU5w92uPxFrzeIh2kuE2Yhil3rhp9vBZlOf/fAVlN8iKXKhn0C9a?=
- =?us-ascii?Q?6peVJJjePj0TvK/SCdp15ivqQkaXWNvgARyraogTUyhkNEf4OBSoaMUvZn0r?=
- =?us-ascii?Q?hD8GKzl+BfCY4Xi99DnL/ruMEy36mmdCRxk0XUTxgE97QQZpPHwbZIjCY1Fm?=
- =?us-ascii?Q?TTxdD9cfimikqMgJJUGypnFvJKctsuum5AjV2fxUiWD7GfDrlaGhnY3j2aWg?=
- =?us-ascii?Q?3E/86/R4jw=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 067d1c6a-6c28-49d7-5cf8-08df478ef60c
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5974.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2026 05:19:05.3411
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aJP8UKgaElRUXnSakO5cg6adyGPSRG4aVs1MqBiuuUDWbHKHyXP671G3WhQz3Lr2TOo3A0j2jGrMZAkXFKjUDg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8017
+Content-Transfer-Encoding: 8bit
 
-On Sat, Nov 21, 2026 at 12:46:57PM +0800, Kent Gibson wrote:
-> > @@ -1690,7 +1697,6 @@ static int linereq_create(struct gpio_device *gdev, void __user *ip)
-> >  			return -ENOMEM;
-> >  	}
-> >  
-> > -	mutex_init(&lr->config_mutex);
->
-> What is the rationale for relocating the mutex_init()?
-> Looks like a gratuitous change, and if this patch is going to be
-> backported then it should be kept minimal.
+Three kernel-doc lines in dc.h spell the word with an extra "i": the
+@dgam_rom_caps and @ogam_rom_caps entries of dpp_color_caps, and the
+@ogam_rom_caps entry of mpc_color_caps.  No other file in the tree has
+this spelling.  The @dgam_rom_for_yuv entry above them already uses the
+hyphenated form, so fix the three lines to match.
 
-It is needed: linereq_free() now takes config_mutex, and __free() also
-calls it when linereq_create() fails after allocating lr. The first such
-failure, kstrndup(), returned before the old mutex_init(), so it would
-have locked an uninitialised mutex. I plan to say so in the commit
-message in v8.
+No functional change.
 
-> The lines removed/guarded were added in patch 3, so note that this patch is
-> dependent on patch 3 in the description[1].
-[...]
-> The line removed/guarded was added in patch 5, so note that this patch is
-> dependent on patch 5 in the description[1].
+Written with Hermes Agent, an LLM assistant; the author reviewed it and
+checked that the change touches comments only.
 
-Agreed, I plan to note both dependencies in the v8 description.
+Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
+---
+ drivers/gpu/drm/amd/display/dc/dc.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Thanks for the review.
+diff --git a/drivers/gpu/drm/amd/display/dc/dc.h b/drivers/gpu/drm/amd/display/dc/dc.h
+index d3c484f45333..3492ff0af1ab 100644
+--- a/drivers/gpu/drm/amd/display/dc/dc.h
++++ b/drivers/gpu/drm/amd/display/dc/dc.h
+@@ -250,8 +250,8 @@ struct rom_curve_caps {
+  * @ocsc: output color space conversion
+  * @dgam_rom_for_yuv: pre-defined degamma LUT for YUV planes
+  * @upsp_pre_scaler: Ability to upsample 420/422 before scaling
+- * @dgam_rom_caps: pre-definied curve caps for degamma 1D LUT
+- * @ogam_rom_caps: pre-definied curve caps for regamma 1D LUT
++ * @dgam_rom_caps: pre-defined curve caps for degamma 1D LUT
++ * @ogam_rom_caps: pre-defined curve caps for regamma 1D LUT
+  *
+  * Note: hdr_mult and gamut remap (CTM) are always available in DPP (in that order)
+  */
+@@ -310,7 +310,7 @@ struct lut3d_caps {
+  * @num_rmcm_3dluts: number of RMCM 3D LUTS; always assumes a preceding shaper LUT
+  * @shared_3d_lut: shared 3D LUT flag. Can be either DPP or MPC, but single
+  * instance
+- * @ogam_rom_caps: pre-definied curve caps for regamma 1D LUT
++ * @ogam_rom_caps: pre-defined curve caps for regamma 1D LUT
+  * @mcm_3d_lut_caps: HW support cap for MCM LUT memory
+  * @rmcm_3d_lut_caps: HW support cap for RMCM LUT memory
+  * @preblend: whether color manager supports preblend with MPC
 
-Adrian
+base-commit: d0f871bfb831705d9f55479f5b2b40f636ea7b16
+-- 
+2.53.0
+
