@@ -1,76 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795270374;
-	b=Gl3CGd4huLOVomWDjNvJjMgbPtaCMUluByaXtyTJCv9U5GmKTCJ3VNejZ7OZGlpHVtb8
-	 L3sd6RZJMgUeqAJXlmXtxZui6jnpuiMBXe+rtVW/hqaX1+cdVM0BbA/StuJxbRTZ9mrdP
-	 hBdcRYK2M/cW+K+qFvO3nQhWAcwty4c5KY8gKgc7qdI/Jq7aUMBaZ8JWELpAKHHFOsAey
-	 VS7cWpXubCwcZLSxVHzgJ1c54YMANaHbpXhWUB+ZmPkrGFLEGCM2MVDkA3MFNLyqa9TlJ
-	 5uajFHbTcFlKzgzOgRvnQzhfkrcmJfROoks3PG3skHU3WPLxDCYV1yWrJRwaNRpV55w==
+	t=1795270467;
+	b=DZxEfGfr0EyUQN3NxQvfet6ULfl6/pablhmAXttAmHuAoFa9qY5di112c+tArbFk513t
+	 HE2FDZzW2FXgtgXIn9Jfc0PR49BHuztU0WunWW87GMn6qKkThVPwAQIoILYHHchQvrNSK
+	 vH9l9SaR6ZedrnQxkUyM03vBYgx2OnvfuvMZtuzA4IBwwgnEqnBY2+2t+Yi0hpDL8Q7M8
+	 D5G7tnFwvCqvKfSOfL/IO2Zn8iCEjC0GDsOjYj7sYWMBLBwm0pDl2ZPbXApqOJmce7vzm
+	 xpOg9egAsjKIA5kVs60qE+FD/Rm9dwL0ZHD888yWleiom02YN7t1pPosnZwP7rNB9Tw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795270374;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795270467;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=PuHKHlqLNR2MksId4LLRNrhrnwLo9yVhdzo1ZqEJWls=;
-	b=Q1Fhsv8BS2h1SJomaKzkuglQIQnKN+ey5qsmR53HyJKzVsqQtWcbk3yBW6xNEMz81KbP
-	 wrY0Bau+JDCjkldBux6A9b/rVbWCAGuX1bsSa9hKXEyfI+AfwTKuRxjtnG9IT8+Khak8F
-	 HgGztT42e9cBpXKqxqoFmiTZynjzmJEE9BYmlrYYAcP/bJdBlSzuq5FXrl06igln72p0G
-	 TmLYPtZSNyOlqUJvuPIo3KUKgAiR2f9Trb7ue4/7NpR2GCjHWR1jUhaCB2W3Oi0CWYJAs
-	 lTQzK8aVZVoFgUzTlKloc9HcsVbDWa+xhKzQjspQ2LzZYKbjvmtD0wFMIlMf3zr/pIQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=0rD0qrd+dhCoLB0IIDp8JdT6Z9kjllGZPoZgWfwBLLA=;
+	b=hqwV+VYmacvmvM553VylcpV/gUjtCArWw7tX2+gCOJbwiR5kkyK3pemGEiKIa4HebXw9
+	 bGyZHsRGURk7bBmC0sQldTRwsrPpykmKGQA4NxLTs3Hi87dzqNt+IP2SCJS9LoVxcq0NK
+	 rpNeKt34wJbU2TZ2XQ19aYLRBJpoYefUEJnaeECosqHwPQf/XysOCexxnYUKNnAfP+hwe
+	 wOnXvV12SeID7IlSRN8Kn90guM1YAuauPwFt31vlBZMcKBO6eHqZwNgxMYgJCBcOzNkeD
+	 DxuZdqanSGwpgSvWNw1sUBTZ8/9qQzjFzpNqgfr2gJD9M5sivfNKirrS6PS3eXKnPiQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AjadA13+;
-	arc=none smtp.remote-ip=209.85.128.70
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PzzTyVDr;
+	arc=none smtp.remote-ip=209.85.218.52
+Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE610606A68A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 14:12:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE610606A68A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4155C606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 14:14:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4155C606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AjadA13+
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4b9fde3044dso12890455e9.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:12:53 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PzzTyVDr
+Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c50ac25cdd4so252268766b.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:14:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795270372; x=1795875172; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=PuHKHlqLNR2MksId4LLRNrhrnwLo9yVhdzo1ZqEJWls=;
-        b=AjadA13+1JWdiMR9IBnGjh6jjgCZzjeI67CBHj9DENQCFoed8vlm1ErurhrjpO8ygw
-         qIugUFCaI6UDjd7BVvmv5wZKQ5S0bOn9GlQvJkIRfu3eJcqTnoyAKAwGb6WLMFvsA/Zx
-         bpJ9IhnK6R9aveDR7iLdMACp9V5A7AGK35wAQQMXPTloMpTVlODxEb0EI1tpBA3yl33V
-         /x+NBWi4tXLbMhWYcCk97klit5X1GzoCroDNjS3r/HW0OF3t/DmynpmsGtaX7+Rd0b/k
-         pylgQgKO8E+PQjLjSL1H4snABZMrHiUU9Zsad+jic1w14vBsuDUCZJPCLthjyHcwVqAB
-         jS1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795270372; x=1795875172;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795270465; x=1795875265; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=PuHKHlqLNR2MksId4LLRNrhrnwLo9yVhdzo1ZqEJWls=;
-        b=Vl1Dryy1Ip6FbtJ29oMnZDN0KV+nuquV4oBCTW2Wkcus4OaF/ggUzyM6j17jFlg+3m
-         3VlK2DuDkK9hCuZ6Q/KMFeGGldAy0gVrUhtUDw1ZZx9Gwf8dFFBQnPRcfjhtc/kmCmcK
-         pFrKT1iDSnzV2pVQIuOD/PVoyyfQpqqsbYa4E/E2U9i7LgmbmssoF0+ZxYVIdJD9oLPy
-         VQEHTYaH6YEVNzrJJtSlxT3aP4qslSfom0X9VMf2yh/fhuBBB/d27jx/UrORr+HxYTIv
-         KDWlKEdpOxW+9IIbWEbqpNX+zzINiK0ZuUGyDx9izXLSm9XKhgACYPoQDmx+t6PwE/xh
-         /img==
-X-Forwarded-Encrypted: i=1; AL+hErFJzDf4wTHtQMN/Nm6pIGRYrYfeQHCKitfitzCcdiOtdGzIWPUuHXA/cknIPRkzRv3q0aVLH12aUQ/SJHg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+WECv5Ms8sMG1eJ4UET19nsoMNYQVjkl/SDI7vg6UY4WmaPJ2N
-	3b+j00FIlJZH4+ur1d87XEyzV5ybFq7dECSyvCtmcB1eDYucwWoxItLDInd32FBZu587EwHqMap
-	LrD9C2DLU42KG3zWk2Q==
-X-Received: from wmcz23.prod.google.com ([2002:a05:600c:c297:b0:4a1:e780:89af])
- (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:1d0a:b0:4bb:840c:72f2 with SMTP id 5b1f17b1804b1-4bb889323a1mr136801365e9.25.1795270371975;
- Sat, 21 Nov 2026 06:12:51 -0800 (PST)
-Date: Sat, 21 Nov 2026 14:12:47 +0000
-In-Reply-To: <20261113-tyr-reset-impl-v8-1-2ee298ac9808@onurozkan.dev>
+        bh=0rD0qrd+dhCoLB0IIDp8JdT6Z9kjllGZPoZgWfwBLLA=;
+        b=PzzTyVDriiN+HvGRxS7X6sD9LGrnUU8hbM4kSKjRxAZUGbx4mIclczlBrG9vN2MH0Z
+         ZOv85TMKPJrzu1ya89b/hqdJ3cfSD50+hNCY/gvXdRirEdeAbTE0m3c3IGRU2bEERS9m
+         hWJg3BnQ2x+eMJcDtGfNid8M/41PKwJ5LP2En8bZAi8yE7Cpi8Y/pCymFsrxAMDDUcr1
+         D64EKioRbb0X6QZwsh1okQcoRZGu7kAUR1+xck/EJlvtsMTnwvXBPSXWIUsnJkSpXL6R
+         Br+pxmWSSH6E2uoYz5hhCt4SAOm28UY60EPzRfhlCjoPYRVhCl5FMe+O6E1OB4OPYdVF
+         URwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795270465; x=1795875265;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0rD0qrd+dhCoLB0IIDp8JdT6Z9kjllGZPoZgWfwBLLA=;
+        b=ECPKcrnnWuwO5XyL8TWX3PmOtdzgPx46/w9uGxdis6ZHa6x+KDht9iuA1f7emId3Iv
+         rPHcuVgGge6WcoL9OiW1PiPirDwvW4dLPcPawPBWyBoLsDjgB4g36ghdN/x/dYIa5G+n
+         cE/qFOI0x/YhoPe9icIZlDemUYjRNMUvGEjyosIBcjXD3upwke/Zk0F5lCAf+IODAI3g
+         cU+a4TRBKiT4z504AfnXVbxQ+CCYGqMlSw5HRgbj27KcPjL154JCnUMT2Pdm+t2agE+B
+         qKtRW8pui8RKTOgFXR4x+yuKuGgLqLBeUNwXzai4zMQa+KLaJa+l2FQQZMqK0IftYICF
+         GBcw==
+X-Forwarded-Encrypted: i=1; AL+hErFHEUNLdnzgPiwI64Aj1EpIMru+hNjz++CDmB+Fqd4cME4pDVAGxQq0Hob0u9rIkWnARZBG7HGpB4Miu0g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+iLakbmfUZYanGL4yulAC2XaiNNxBlUdN5hO1ITQkhLkbpedPj
+	fR4n/9DDpWKkzYd1BBbz+qLv05ao8lB4P7IoVbyf84DEfaufJ5XyaGaM
+X-Gm-Gg: AZFdTZcxk7Jk4CFClotpNQcdCYGoRdp+vfdpI2GV/IUPpuJWYWOvVCSYE4yvq1RgIyu
+	tzC0XCKCPmg/fnyx8zINuKhtXxmH6GgG4GBojB2Vematniqt6eX8yoqvlaxAUDtPRLwfhnNc/vY
+	Vmaj8vlT/IGEFGsoEx7A2nYtHQWV5MIcKCDdDRb/l4dj3nVNYVqqa6SIoUe+iV/OWa9ptzFx6m/
+	FvTJHa0Ug+rVPQ1Vtk0pNz35FE1t0LXGNrHC3BRdI2IZkjKylfuuvNSbaFFc4EcTwnj7agd6L4t
+	AOXj67261WHoCXzF44ai11OE1UHZWM9XH45vJgWHB4U0mVjBqz1je4/Vj9MgY0If/VJCu80g5DV
+	KgwBnvWBGjzo4IEqIGTToG5/kbD9hai3dNuGUkq293dwv/WDKaqlAMvxHcN3KMNsjLCjoutPXzR
+	COtvf/g4HmsSUtC2PEusrSw9+bjndw4Vph0AImuANDbhKItOu97W+aX59hlDCqjQnOPBHyjkWLe
+	Fj/u6xDiy+UXag5mtmxcfbUS/66EJQ+YOwy5NRxyin4pgq8X4wwloer+EC6/pxczDtIfjaoDoZ4
+	h56LhT6UAw5PwtwTmtb7cs40cr6mTT87MK1DbHN17d7V1UQdC53cmvOfpGm01qwVsw3ZcT3eKAO
+	CtTrVCH+C8XUmf9lNX/0YfsuGPbSh
+X-Received: by 2002:a17:907:3cb:b0:c51:40e:847c with SMTP id a640c23a62f3a-c513a84ab4emr344789866b.23.1795270465486;
+        Sat, 21 Nov 2026 06:14:25 -0800 (PST)
+Received: from ?IPV6:2a02:a03f:a75e:9a00:3fc0:359d:ccea:ff00? ([2a02:a03f:a75e:9a00:3fc0:359d:ccea:ff00])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ad00232sm210570166b.12.2026.11.21.06.14.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 21 Nov 2026 06:14:25 -0800 (PST)
+Message-ID: <78ea7e1d-b6fe-46ee-8dda-1fe6655bbf31@gmail.com>
+Date: Sat, 21 Nov 2026 15:14:24 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,36 +92,143 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261113-tyr-reset-impl-v8-0-2ee298ac9808@onurozkan.dev> <20261113-tyr-reset-impl-v8-1-2ee298ac9808@onurozkan.dev>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261121141247.142001-3-aliceryhl@google.com>
-Subject: Re: [PATCH v8 1/3] drm/tyr: clear stale IRQ state before soft reset
-From: Alice Ryhl <aliceryhl@google.com>
-To: "=?UTF-8?q?Onur=20=C3=96zkan?=" <work@onurozkan.dev>
-Cc: Alice Ryhl <aliceryhl@google.com>, linux-kernel@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	dakr@kernel.org, daniel.almeida@collabora.com, airlied@gmail.com, 
-	simona@ffwll.ch, ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net, 
-	bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org, 
-	tmgross@umich.edu, boris.brezillon@collabora.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] ipv6: fix ioam6_id_wide sysctl on 32-bit
+ architectures
+To: Shashank Mohan Jain <jain.sm@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261118042958.83243-1-jain.sm@gmail.com>
+Content-Language: en-US
+From: Justin Iurman <justin.iurman@gmail.com>
+In-Reply-To: <20261118042958.83243-1-jain.sm@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 13, 2026 at 05:32:26PM +0300, Onur =C3=96zkan wrote:
-> Previous reset may leave the reset completed IRQ set which can make the
-> poll return too early.
->=20
-> Clear the IRQ first so the driver waits for the current reset to
-> complete.
->=20
-> Reviewed-by: Daniel Almeida <daniel.almeida@collabora.com>
-> Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
-> Signed-off-by: Onur =C3=96zkan <work@onurozkan.dev>
+On 11/18/26 05:29, Shashank Mohan Jain wrote:
+> net.ipv6.ioam6_id_wide stores a u64 (netns_sysctl_ipv6.ioam6_id_wide),
+> but its table entry uses proc_doulongvec_minmax() with .maxlen =
+> sizeof(u64) and .extra2 pointing at a u64. On 32-bit, unsigned long is
+> 4 bytes, so the handler treats the field as a vector of two 32-bit
+> values and reads the u64 max through an unsigned long pointer:
+> 
+>   - reading prints two numbers ("4294967295 16777215" by default on
+>     little-endian);
+>   - writing one value only replaces one half of the u64: on
+>     little-endian "echo 5 >" leaves 0x00ffffff00000005; on big-endian it
+>     sets the upper half, and the range check uses the upper word of
+>     ioam6_id_wide_max (0x00ffffff).
+> 
+> The wide namespace ID emitted in IOAM trace data is then not the
+> configured value. Same class of issue as commit 162cf592b577
+> ("net/smc: fix limit_smc_hs sysctl on big-endian architecture").
+> 
+> There is no u64 variant of proc_doulongvec_minmax(), so use a small
+> local handler that goes through proc_dostring() and kstrtou64(). A
+> generic u64 helper in kernel/sysctl.c would be a larger change for net
+> and stable; it can follow separately. For normal input the handler
+> behaves as the 64-bit one does today: base 0 parsing (decimal, hex or
+> octal), surrounding white space is accepted, and values above
+> IOAM6_DEFAULT_ID_WIDE return -EINVAL. Input too long for the 24-byte
+> buffer is rejected rather than truncated by proc_dostring().
+> 
+> Found by reading the code with LLM assistance. Tested on i386 and x86_64
+> under QEMU: on i386 the sysctl now reads and writes a single 64-bit
+> value, and on x86_64 reads, writes and range checks behave as before.
+> 
+> Fixes: 9ee11f0fff20 ("ipv6: ioam: Data plane support for Pre-allocated Trace")
+> Assisted-by: LLM
+> Signed-off-by: Shashank Mohan Jain <jain.sm@gmail.com>
+> ---
+> Prepared with Claude Code (Anthropic), model Claude Opus 5.5
+> (claude-opus-5-5).
+> 
+> Based on net.git main 2a324a58a084. Built for x86_64, i386 and 32-bit
+> powerpc (pmac32_defconfig); W=1 shows no warnings for
+> sysctl_net_ipv6.c before or after.
+> 
+> Runtime tested on i386 and x86_64 under QEMU (TCG), with a small static
+> test program as init: default read, echo 5, the maximum, max + 1,
+> values above U64_MAX, -1, non-numeric, hex, white space, over-long
+> input, two-part writes with sysctl_writes_strict 1 and 0, and a new
+> netns. Before this change i386 read "4294967295 16777215", and after
+> "echo 5" it read "5 16777215". With it, i386 gives the same results as
+> x86_64. On x86_64 two corner cases change: a write of only "\n" is now
+> a no-op instead of -EINVAL, and a number with 21 to 23 digits (only
+> possible with leading zeros) is now accepted.
+> 
+> I did not add Cc: stable; please add it if you think it fits.
+> 
+>   net/ipv6/sysctl_net_ipv6.c | 36 ++++++++++++++++++++++++++++++++++--
+>   1 file changed, 34 insertions(+), 2 deletions(-)
+> 
+> diff --git a/net/ipv6/sysctl_net_ipv6.c b/net/ipv6/sysctl_net_ipv6.c
+> index 1a0a36dcd..7bac56b9c 100644
+> --- a/net/ipv6/sysctl_net_ipv6.c
+> +++ b/net/ipv6/sysctl_net_ipv6.c
+> @@ -30,6 +30,39 @@ static u32 rt6_multipath_hash_fields_all_mask =
+>   static u32 ioam6_id_max = IOAM6_DEFAULT_ID;
+>   static u64 ioam6_id_wide_max = IOAM6_DEFAULT_ID_WIDE;
+>   
+> +/* unsigned long is 32-bit on some arches, so handle the u64 here */
+> +static int proc_ioam6_id_wide(const struct ctl_table *table, int write,
+> +			      void *buffer, size_t *lenp, loff_t *ppos)
+> +{
+> +	u64 *valp = table->data;
+> +	char buf[24] = "";
+> +	const struct ctl_table tmp = {
+> +		.data	= buf,
+> +		.maxlen	= sizeof(buf),
+> +	};
+> +	u64 val;
+> +	int ret;
+> +
+> +	if (!write) {
+> +		snprintf(buf, sizeof(buf), "%llu", READ_ONCE(*valp));
+> +		return proc_dostring(&tmp, write, buffer, lenp, ppos);
+> +	}
+> +
+> +	/* proc_dostring() would silently truncate a longer input */
+> +	if (*lenp >= sizeof(buf))
+> +		return -EINVAL;
+> +
+> +	ret = proc_dostring(&tmp, write, buffer, lenp, ppos);
+> +	if (ret || !buf[0])
+> +		return ret;
+> +
+> +	if (kstrtou64(strim(buf), 0, &val) || val > ioam6_id_wide_max)
+> +		return -EINVAL;
+> +
+> +	WRITE_ONCE(*valp, val);
+> +	return 0;
+> +}
+> +
+>   static int proc_rt6_multipath_hash_policy(const struct ctl_table *table, int write,
+>   					  void *buffer, size_t *lenp, loff_t *ppos)
+>   {
+> @@ -210,8 +243,7 @@ static const struct ctl_table ipv6_table_template[] = {
+>   		.data		= &init_net.ipv6.sysctl.ioam6_id_wide,
+>   		.maxlen		= sizeof(u64),
+>   		.mode		= 0644,
+> -		.proc_handler	= proc_doulongvec_minmax,
+> -		.extra2		= &ioam6_id_wide_max,
+> +		.proc_handler	= proc_ioam6_id_wide,
+>   	},
+>   };
+>   
 
-Applied to drm-rust-next. Thanks!
+Thanks for this patch. I agree that a generic u64 helper could wait for 
+net-next. Please keep -EINVAL for a lone "\n", as before. For example, 
+not tested, save *ppos and return pos ? 0 : -EINVAL when buf is empty, 
+so that strict-mode continued writes are still ignored. Also worth a 
+line in the changelog: on 64-bit, "5 6" (for example) is now rejected 
+with -EINVAL (which is good) instead of being a partial write that sets 
+"5" (which was bad).
 
-I added this tag when applying:
-Fixes: 6ea52b6d8f33 ("drm/tyr: use read_poll_timeout")
+For v2: make sure the above is addressed and all maintainers are CC'ed 
+(Joel Granados is missing). Please also fix your Assisted-by tag.
 
-Alice
+pw-bot: cr
