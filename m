@@ -1,58 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795225824;
-	b=ZCZ8PVyjCcY/KoXK8WuqFqutdWLl9nM9wMDi8SZhoi0Q34QTXKXkaPwzzlKtg9KCPp/U
-	 FtzFZM5rlLZFSzb2/zhKYC3l1almAjrC2TszuY6u/D8HYjKbU7LfvcgNogSiCr6Q69BUg
-	 wWPBF3TfDR/fLkZH9JOz/Ji4ZDEVb/Y/vV4oCSfoE30NfFARqZ3pSIiHBg3esfBC5YqHf
-	 UHpYh1l/jCCGofj+CNIbpU8FZOw8kFXvnE+TkwU+wH7EmjP31fi8civhUe4C/VyQzZWZG
-	 aJo2jWPa74u6ldwjHQ/qW8+aUZqoddoi3a7wEkq4fJZrmiVpd/CRX6A4fdC+HFeadzQ==
+	t=1795225893;
+	b=NWVkbj8b9Bqk2zluPbUMmANL99fpLHVdWUe13c2AaQmXF+lIxxkeY01iUqA86P66FAcM
+	 2bHy+iB4S5okRls56fuQGTyqlRz6VFMP+PTbZ99z5AEYRTaIE3VadI8TvsQ3XBxz5wmSH
+	 lkoNUYsVsRYzICW5vOD5GpdU4VQObn3u4d8FzFXOqZV/3mVrsKf66iPX5uPcslm9wbVGK
+	 dHKlWQFR1ASNOcle15U8Wk3kuMOhXjUdFYFMxS/8J28dYO5DTcZK+RtnJ+SQYKMGi+nzI
+	 0CLiRAtJMu9xH92gVcpKNIKK0tEiNKgpBB123aWnF7yV9n37HZ0Nwe5wV3LAX3z53EA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795225824;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=ngYwgfdeC8tM2vLALasck0hhBjZwgFRev5da8Gpz1k8=;
-	b=njYxWjXeCnwN9JMfb+cL1UYAnxBnjXXqvbhhT3AhNXFfDKoLL7Qx3MIt/AaLwjH85MG9
-	 apwdDcuzAynPSC3fR7xwkdASi9mGd6oQP7vRokdqUYOzLoRDBBsMkZg6bhLz3J2aBdgPJ
-	 l/ZXSKhM75K/HpJWDcnkTHy5p9cxcx3IHbHi3YWrkRmcQj0M4EM30PSLkJf7PR7Xw1H0N
-	 aVsGDX3iHyw2Q9b1wzqOx56ZWKYR9JjYWvxAvUckfJ/GF9mdOv7zgYG/c/eTTE0y8t3UJ
-	 I7JzXTmA0e6JbDUchaiEaKlrd8abAZfezRcZp/2klnO7dS4GVCzSNlJ+CCMWCB4VSAw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795225893;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
+	 Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=ZhsI3lhwD+t6nMHv4Tk5Gvew3vT8WrKD/K7/YEVJPaw=;
+	b=SHA5dlHHS/lpCOhFobYmIqxDhfWNj83Hd1W1ZTPi2WiyrucHlRmggwj6BxNKJbx+KHGk
+	 Pj+bbD7wTnANuhlQ7daDA0mBQyS9ayKhoQcAGchXirbMWwp+TXOCYNNma1k8UrAPcWfFG
+	 X/3YWpixocIYwEVZA8lE9pn45JTslEK1p2xBiQJ3DIcD2vMkwQZ8rSChN92wWBtVywbkz
+	 M9f+q6SPzwMHLqN7j9I6TmZHVY3xM0xV4rVPEJdNPFybvDZjsF4x5ZbwODJUdCpyCzdho
+	 ULd+MligXRGTdhLQSeA0zU6de1o22HNYeTuDIgpVlC6GC5zguVYAe7LefxY1zjSPgGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FzENRqz+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=googlemail.com;
+	spf=pass smtp.mailfrom=googlemail.com;
+	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=GriKDtLc;
+	arc=none smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74C27606A687;
-	Sat, 21 Nov 2026 01:50:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5472606A6B4
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 01:51:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5472606A6B4
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FzENRqz+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FAF11F000E1;
-	Sat, 21 Nov 2026 01:50:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795225823;
-	bh=ngYwgfdeC8tM2vLALasck0hhBjZwgFRev5da8Gpz1k8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=FzENRqz+vZzWWMMqcxuW2G/ON6ca5tFdkeBpuS92CKqM2OY28TmXI9uoiKCkujUSI
-	 DnlsddxSaV2l7gVyYGcc2ynCc05X5qmCp/4Teb6nchokjoI+5/b2FLJq7ZWzhgQ8lW
-	 a7JfaWnrZPtSRY9pMqfwZzcE64MZrgZibvJLi186B+FwjB1N0IpRYO7VDcEUNBd+sn
-	 J0Md3Xv6Mz2ccoAGWEW8xSqD15HeE3cuV9TvESDyVVUS5KnSjtin6080SzqeUnVfos
-	 L+7f8oJM9AqPsTDUcVpZvpifCcgw7FzjRXHFW/pEDA4Px4w/e8Cc+O4NTK5AnJGrGz
-	 MxqosyAHAUubg==
-Subject: Re: [PATCH net v1] r8169: fix RTNL deadlock in runtime suspend
-From: netdev-bot+sashiko@kernel.org
-To: stefanomunari.sm@gmail.com
-Cc: hkallweit1@gmail.com, nic_swsd@realtek.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Sat, 21 Nov 2026 01:50:22 +0000
-Message-ID: <179522582267.3135.2912031877143705376@kernel.org>
-In-Reply-To: <20261118000631.17771-1-stefanomunari.sm@gmail.com>
-References: <20261118000631.17771-1-stefanomunari.sm@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=GriKDtLc
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a3517554f7so15095805e9.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:51:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20260707; t=1795225891; x=1795830691; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ZhsI3lhwD+t6nMHv4Tk5Gvew3vT8WrKD/K7/YEVJPaw=;
+        b=GriKDtLcKMPkRF/s4LcGU+eYEMs7fQYr22/aNjOx4fsc6pWNjyZ3GImkVKDKtSL7x6
+         zWDh5CHOzoo9TAfFQy7nb5hkSoqJ2bSL/qgWuP1EqmHCp77whYR9V+NmP37krlDqJP7Q
+         76m+Y6tk9gUFlnCl4fqfhcxRIkZ7lkTlS7pexjcffvLFP3VaK+a6KWh+HXC7Bew+ngRI
+         AzM9p67nKW+D7oQzpkx4i2gH4GrKTlB3KwrxBtxxuxA9WGpCLyqmmOHSrz2NhfhzxwHP
+         d6tFLfUX+a4OQM9Kj3StAxUJzqL7NWKBWUdJll9GB+CWWnC9SC4xcMCeEd2PJe9Xq7rr
+         uKcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795225891; x=1795830691;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZhsI3lhwD+t6nMHv4Tk5Gvew3vT8WrKD/K7/YEVJPaw=;
+        b=l6R7BgThGg8rZnEBKlsjfNH50kXNxPxD4roEUNbV0NE1eYhx0bndR5Ut5zQWMru+Mm
+         gjeuskqkIgpP5bcsj4EFBPY3AgZkqR1+NZOJft96HmWriJ2NDy5nNqwaMnXod52AFbp8
+         WMRhu5Ckfdi6Ak7PxwJJySCNvPEYcB5c0tM6m92hD+0xdndVxgCc7IS4vW8I59XCkMpU
+         uvXenv0hZ/f8jBt+tKRlYqnFCl2MSyWL+svb1mv3PtBk6cpPkAhJE0wTeWT/Fl0mtCIt
+         6UpjYFYa6wcXSRpaVV+hNMSGN6mrmwDnQT8noFZRVMsj1GTzi7H8purA8zgm12QfNaHn
+         sZ8Q==
+X-Forwarded-Encrypted: i=1; AL+hErEMls4aavJX0KErIWJ1mSbwrOUtlFRK/V41I7CxTMb3dlZh+8OVLr33nS/VY9QqfGM07ZPN9sa5orN7ilY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+f1Ff5OoXkYjbTVHIXl2l2J4w5GKvKpgsvYsW9s4DQloE0p+XE
+	msr9A55jQF17wk+3jSflA8IgDSWTuQsKfMLRlS4TCjhRwunfiJrA/jE=
+X-Gm-Gg: AYBFou23Fet6eQ6Ih7yw6gcCb1/L7pq7S+WDT/nPu9mdt9yKo3Eefe3+NjA+dtOvb7p
+	wmPowVH/rFBjPoJW5Jzjbk10vzLDJMCH2cL6F5DAriyM+6NFa02cSIoku1HGHwJAcXASen9iCUE
+	lLiASIZbqYwkksWSlbbY6GRD4ALuNQ5C3/NPJIph6lt8ApzRhjdcr2ZKE1i1aAza8SxjEnnuuP6
+	0oQ2kEqYmrCFbBDgmZ2nsMwxauvI0sHCQFHmkzbiydaK/WIsDlr3IcEePieJ9ZsCSHXEP16jZWD
+	WeS3qFArTeBjz2p6vRJON2xzwGzdycUDTgaQuaiZv14cFa/2fghjaHJGM0Jg2oLKh0DQ/MoV0y2
+	Xclsu5FofrlQazxThKjZrEs2phUoHw7rcjI/gDjRa1+2bA7fPzWSWTTZhpRsGNBNHgNIU2c9o/5
+	QfXQBIvWWOXNpGlFfhUi9iqyZDfWegIUGVLHgcwmCv0lmvZPoct9G1cPmoo0DOsjBhXiyGqIeMW
+	PeT8fuMA88K3okPv/SC7z2p4wWRCmJvbhFbNOpdEUwrQcqx2mCBoCharRsJmxtRQ+BuLhjMfa3Q
+	dznJEUKHYhXOE+z5QK+gZrv9Vm/XoGpBt2wA9Ktv+6B6nZnJ7TKs+yXIZO/VsZxWOG7w62fvt5h
+	wpYU=
+X-Received: by 2002:a05:600c:a51:b0:4bb:5f43:23bb with SMTP id 5b1f17b1804b1-4bb88828173mr107576685e9.33.1795225890849;
+        Fri, 20 Nov 2026 17:51:30 -0800 (PST)
+Received: from [192.168.1.3] (p5b2b4923.dip0.t-ipconnect.de. [91.43.73.35])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85399d52sm150309475e9.6.2026.11.20.17.51.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 17:51:30 -0800 (PST)
+Message-ID: <4f3c5405-fde4-43af-9624-6a28041e673c@googlemail.com>
+Date: Sat, 21 Nov 2026 02:51:29 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,134 +92,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH 6.1 0000/2812] 6.1.193-rc2 review
+Content-Language: de-DE
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
+ conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ achill@achill.org, sr@sladewatkins.com
+References: <20261120055200.707545519@linuxfoundation.org>
+From: Peter Schneider <pschneider1968@googlemail.com>
+In-Reply-To: <20261120055200.707545519@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Am 20.11.2026 um 06:57 schrieb Greg Kroah-Hartman:
+> This is the start of the stable review cycle for the 6.1.193 release.
+> There are 2812 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Builds, boots and works on my 2-socket Ivy Bridge Xeon E5-2697v2 server. No dmesg oddities or regressions found.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Tested-by: Peter Schneider <pschneider1968@googlemail.com>
 
-- [Medium] The patch makes rtl8169_runtime_suspend()
-  (drivers/net/ethernet/realtek/r8169_main.c) return -EBUSY whenever…
 
---
-
-r8169: fix RTNL deadlock in runtime suspend
-
-This patch replaces rtnl_lock() in rtl8169_runtime_suspend() with
-rtnl_trylock(), and returns -EBUSY when RTNL is contended. The goal is to
-avoid an ABBA deadlock. The runtime suspend callback keeps the device in
-RPM_SUSPENDING while it waits for RTNL. Meanwhile, RTNL holders such as
-rtl8169_close() and the ethtool paths wait in pm_runtime_get_sync().
-
-> diff --git a/drivers/net/ethernet/realtek/r8169_main.c b/drivers/net/ethernet/realtek/r8169_main.c
-> index f151ab6813932..c60d87015eb94 100644
-> --- a/drivers/net/ethernet/realtek/r8169_main.c
-> +++ b/drivers/net/ethernet/realtek/r8169_main.c
-> @@ -5975,7 +5975,14 @@ static int rtl8169_runtime_suspend(struct device *device)
->  		return 0;
->  	}
->  
-> -	rtnl_lock();
-> +	/*
-> +	 * Do not block on RTNL.
-> +	 * Other callers holding RTNL may wait for suspend to complete
-> +	 * in pm_runtime_get_sync(), which would deadlock.
-> +	 */
-> +	if (!rtnl_trylock())
-> +		return -EBUSY;
-
-[Severity: Medium]
-Once this returns -EBUSY, does anything schedule another runtime suspend
-attempt?
-
-r8169 arms the suspend from rtl8169_runtime_idle() with a plain timer
-request, not with autosuspend:
-
-drivers/net/ethernet/realtek/r8169_main.c:rtl8169_runtime_idle() {
-    ...
-	if (!netif_running(tp->dev) || !netif_carrier_ok(tp->dev))
-		pm_schedule_suspend(device, 10000);
-    ...
-}
-
-pm_schedule_suspend() leaves timer_autosuspends at 0. As a result,
-pm_suspend_timer_fn() calls rpm_suspend() with RPM_ASYNC but without
-RPM_AUTO. The driver also never calls pm_runtime_use_autosuspend() or
-pm_runtime_mark_last_busy().
-
-On -EBUSY, the fail path of rpm_suspend() only retries for autosuspend:
-
-drivers/base/power/runtime.c:rpm_suspend() {
-    ...
-	if (!dev->power.runtime_error && (rpmflags & RPM_AUTO) &&
-	    pm_runtime_autosuspend_expiration(dev) != 0)
-		goto repeat;
-
-	pm_runtime_cancel_pending(dev);
-    ...
-}
-
-So the pending request and the suspend timer are both cancelled.
-
-The comment in pci_pm_runtime_suspend() says "-EBUSY and -EAGAIN is used
-to request the runtime PM core to schedule a new suspend". The core
-doesn't do that for non-autosuspend requests, though.
-
-After that, the suspend is only re-armed if rtl8169_runtime_idle() runs
-again. That happens on:
-
-  - open/close
-  - the LED helpers, which use pm_runtime_put_sync()
-  - the ethtool core's pm_runtime_put() in net/ethtool/ioctl.c and
-    net/ethtool/netlink.c
-  - rtl_mac_link_down(), which calls pm_runtime_idle()
-
-rtl8169_get_stats64() uses pm_runtime_put_noidle(), so stats reads don't
-re-arm it.
-
-The patch targets a setup where the interface is up with no carrier and
-power/control is set to auto. In that setup the link-down event has
-already happened.
-
-Suppose an unrelated task holds RTNL when the 10s timer fires. Examples
-are a netlink or ethtool request for another NIC, a netdev notifier, or
-an ip -s link dump. Can the NIC then stay in D0 indefinitely, without
-WAKE_PHY armed? Before this patch, rtnl_lock() waited, so the suspend
-always completed.
-
-The commit message says:
-
-    If RTNL is held by an unrelated task, the device stays
-    active until the next idle check (usage count drop or link down).
-
-Is a next idle check actually guaranteed in this setup?
-
-This also looks like the "trylock with fallback to skip the work
-entirely" pattern. That pattern is only acceptable when the failure path
-reschedules the work.
-
-Would one of these approaches work instead?
-
-  - Convert the driver to autosuspend, using pm_runtime_use_autosuspend()
-    plus pm_runtime_mark_last_busy() before returning -EBUSY, so the PM
-    core retries.
-
-  - Re-arm from the driver after the callback returns, for example with a
-    work item that calls pm_runtime_idle() or pm_schedule_suspend().
-    Re-arming from inside the callback won't work, because
-    pm_runtime_cancel_pending() in the fail path cancels it.
-
-  - Restructure the suspend path so it doesn't need RTNL.
-
->  	__rtl8169_set_wol(tp, WAKE_PHY);
->  	rtl8169_net_suspend(tp);
->  	rtnl_unlock();
+Beste Grüße,
+Peter Schneider
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118000631.17771-1-stefanomunari.sm%40gmail.com
+Climb the mountain not to plant your flag, but to embrace the challenge,
+enjoy the air and behold the view. Climb it so you can see the world,
+not so the world can see you.                    -- David McCullough Jr.
+
+OpenPGP:  0xA3828BD796CCE11A8CADE8866E3A92C92C3FF244
+Download: https://www.peters-netzplatz.de/download/pschneider1968_pub.asc
+https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@googlemail.com
+https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@gmail.com
