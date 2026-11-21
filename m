@@ -1,62 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.226.149.37
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795285960;
-	b=FmA1IwSBUu5FGXapyvhQ0PyG3/ma7DIfh6zI1DbF2tIwrrZfQ1Ewpe2XvmTNHZKWkGA6
-	 BSwdVQdZQXY6TgJ1QnhGkYwgrTVDjeK6nwnZdXeoRVjb/tboClwro17hP3orii11gvcJz
-	 w5pK7nAylFe09pUb7ilrKonjzo4YKPgVats2df5iO25nqoJboXZzLzT+kBWBluOZekzfi
-	 NLRoTW3VsE6c8vDaZiiDO8OsS0C4nqUGoCKEjSK2pKj70uoJLX5aB9CwJhQpw8USKDDn8
-	 KzDKWvX9UrxcTsclwY33hzLLK9jxo5G4ddAgX9Ey88o674Q5G2OmL4k8sPirwsboPdg==
+	t=1795286059;
+	b=vibgFFSsJq69Gr+F7KiT8a0BvxnbhAa0hr+fvOajaqvjKTL1ky9j6VsqmPN/GZRmxUPP
+	 yNfO2IrelX6KmSpn7QYfFOrPSSeU3hUjQFrguRCwapxbAgea48YZ9Iu7IA/WDqnN5DRpQ
+	 /RFnPMTuZgkcP5iDTIAvtq2fXcTdQDnk9q/iDtsY4FW7fm7UsE15SVwx9r/PjBlnDwaYO
+	 Fvfe9msE1ccDy2s7TdjIh6yTznPV9WrsbGjYBC8alstAvwil1H5JKIJHSGfKTto0ltFnP
+	 YotsP7XeXnVaLiGuj0JHLjv4gfQcysOvyBKzI6cCrIAnXtsKd2NJzPDwvTIbIZSVE6A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795285960;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:From:Subject:To:Cc:References:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=fzDF0mKpBuN/Th1s2Wo0lqYfX3U1baz/HyUNpPlSrLo=;
-	b=BytIP781UMD6XQqWPVIZR280Tgc7TtzAhEobOZI5RXDu+/Ts8B6Z9a8ujp6KScHVw7mZ
-	 vW/8E0hbGsIa2CuB4A1/ybDSJQMtg9Ia+W2Zexi9WG+8DJGXrb+q+ZB7GkmuYfssizeIG
-	 3Xmiuj2caybA+vBJHMFyd2F8jM088STAkUX+Nrpt5chtReimPLYt2IZh2QelrnDznqBvV
-	 PJNxUsHRp2QtRUyYoeKSg/tQfSvpItcwvVft6tsrckCzOWbeVNJ/SL9rGvXIGQFq0mXZq
-	 Z/jw5AKfqabAPYbvgwV12MrCG1MTNOHVtc7ar2xEUG7g1J1G18fpSx4j5SrstJOFP0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795286059;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=pZwAAsxZcP3F0DIRuj83h9LceocBWHM2k4wu68EYJlk=;
+	b=B7Wst19t54kNFa7uJRpe6aVmF67EtxMI29qk5xyMj/7C6FBu8Xh3kzrdc+aNPsiWaHot
+	 bcQ7GAysz3CfI9Mol3m0TAiUvq3iQtZGH/voQXZWpN/jB9t/NDoe5rS4kHXxJ8OZkyUEa
+	 JBHv4FnQftIzqwdgPNjCVYxEMdFw3hHJWvJXrVpWPBtuIRyb5dwPOp+VYcWadJX4nf5Lf
+	 At0+MYmDl3a0DIX8X90h0xQV8IgMUGuLJmTjc/mPCLEPGFc2gtezIwo4V9BFtBA5No1Xe
+	 Uic+8/g0B9sjzwsUD3Idgn2roA1lR9ZtCt6+UGj2thPaaCzvyBS8DGKm/OabBP/MTkQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rbox.co;
-	spf=pass smtp.mailfrom=rbox.co;
-	dkim=pass header.d=rbox.co header.i=@rbox.co header.a=rsa-sha256 header.s=selector1 header.b=EFDz5rbI;
-	arc=none smtp.remote-ip=185.226.149.37
-Received: from mailtransmit04.runbox.com (mailtransmit04.runbox.com [185.226.149.37])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ib6aRbCf;
+	arc=none smtp.remote-ip=209.85.214.179
+Received: from mail-pl1-f179.google.com (mail-pl1-f179.google.com [209.85.214.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AACA606A320;
-	Sat, 21 Nov 2026 18:32:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6AACA606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rbox.co
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rbox.co
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 724D6606A32C
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:34:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 724D6606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=rbox.co header.i=@rbox.co header.a=rsa-sha256 header.s=selector1 header.b=EFDz5rbI
-Received: from mailtransmit03.runbox ([10.9.9.163] helo=aibo.runbox.com)
-	by mailtransmit04.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.93)
-	(envelope-from <mhal@rbox.co>)
-	id 1xUpsz-00FCPW-7M; Sat, 21 Nov 2026 19:32:29 +0100
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=rbox.co;
-	s=selector1; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:References:
-	Cc:To:Subject:From:MIME-Version:Date:Message-ID;
-	bh=fzDF0mKpBuN/Th1s2Wo0lqYfX3U1baz/HyUNpPlSrLo=; b=EFDz5rbIH+g3Jvyr3pCaQMqHvE
-	Kn/I9edyG1N0gh5sRV+4prgaDrHW/9+1lUDXxvyw/13jqjpFKvgxcqAMweZwnByS4RMV/o+YmAxQl
-	6m1qvQ/BP9jBipOxsU6AOHP4NkXDcuP+WNbqTZTJQMn7uETD2PV0XIRY+TKI1H1tKQARJGofrDay3
-	TUlOSDev30eao2yDOE5oq9wwsqAiUtu45EwgFDXBdvmbPOP2BDJEV+caWeLftroGEFQCrfhpLT7RS
-	eyYTNmAOXOD8xIpjrD3IW99ugwP4DiGGx/rCO4XZSCw9Ugl/6CZZ6oloY5zkl3cZfplw4DgVAZdQH
-	psjNF2ZA==;
-Received: from [10.9.9.72] (helo=submission01.runbox)
-	by mailtransmit03.runbox with esmtp (Exim 4.86_2)
-	(envelope-from <mhal@rbox.co>)
-	id 1xUpst-000056-As; Sat, 21 Nov 2026 19:32:23 +0100
-Received: by submission01.runbox with esmtpsa  [Authenticated ID (604044)]  (TLS1.2:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.95)
-	id 1xUpsr-0001IN-15;
-	Sat, 21 Nov 2026 19:32:21 +0100
-Message-ID: <ed28d36a-682e-4db5-abf4-1339734e7c57@rbox.co>
-Date: Sat, 21 Nov 2026 19:32:15 +0100
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ib6aRbCf
+Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2ee254f6eefso46715ad.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:34:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795286059; x=1795890859; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=pZwAAsxZcP3F0DIRuj83h9LceocBWHM2k4wu68EYJlk=;
+        b=ib6aRbCfOGwQE6/BATIR+ceYurjtyrXkoCQHVhE028ha+RoKuL8pR1qHFqJyREFiKp
+         z8p0CuAQU2n88ax0i8wGZlB6nXui7WzmCSc2h0hXq3v6IsM2CXQWpqyyv1iALwoW9ZwQ
+         NvataTs2P5rQ8WJAEEhfk4cuMQ3PG9jA2yrPBuWooin0pTdFTUTZ1coIiZTEa9+r7lfk
+         /QPClRGwXRDRWTQToXdR4j3aUxsV8XrJ0tuosKcEP/cfY524JSaePMdH0+JNm6/o/sx7
+         xw+9VJpw6BCTn+81JZihzC1VDOlc+XArW/7P8L2u8Sv1dC3L49WMbrDg/NKIXjBupZvt
+         KuLA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795286059; x=1795890859;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pZwAAsxZcP3F0DIRuj83h9LceocBWHM2k4wu68EYJlk=;
+        b=zmF9K9wB7VZX0ayE9nTq6zu7+sj3A707ojsx68ZhRiNBiVg/tGEp+yL6IEogwTSlpK
+         uXZgCOsky3dfHpQSIO5R05Ma22m4j3jfACpFSXZlhmdZkA7wGPNiMBXwwNIopArhixUL
+         uE3NKgny/vDkj3EGOu+XMssbfIpBJV4x//1mqmuv567xFcUwPetOiS8C/2r0d/PaeqAC
+         adJk0aFOQT0iT3qsJGcpxqnlkjZVuEXMO6pdb/2/NonIwCQ/VBbVHsBOJRIb8KlutK7W
+         2w19mx6Hgw07/8Lpa8keZ1DBkB/X0+tdkYPy8M/vZaagGvfyQe2pWnvNMY8G1V1EN4+O
+         B5Vw==
+X-Forwarded-Encrypted: i=1; AL+hErHw7/GfGPEnKN3BPQ+0f30At9HGrHccRWBWt5obAISesXcmHHSw1/QTtIdGxYq4wMPNMQq90q2sa3ild+c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/tKj1InV2D5+tYMz0iQzLcpaQm5ZtERo1ct/lcmfq7AmdXNSg/
+	9Ap9qzlIbyqqecdv9h//PRxbu8GTqdhJtvTMEUXywW65pHbeMM3RI3ncxOhzCov1Xg==
+X-Gm-Gg: AZFdTZc83nEdxdzLgDeWVLlIzIPDMLF/eC1fKSxH0kaEpOfIoi2MPLXBE23Hs8jCDm3
+	aYIAQaXTKJ2nyjC2YGH8U7EytewAf0F5+TZ8viRAt9XfP0cNdOIKuyaua8Czuk6vO5qTf5qutFv
+	XSdj2jZPT/reel9+Dxif92jsVqFLaCUMvCCKNJIl+ytG9rxtGWvM3sBbl3s5rj1c3004NsJaF/K
+	e+tR+xjS3QFhoZYVpJY7c/V2Dj6B/aWPAkgXMKFc8NAdW4XS7dGa5HELOlv9BEUJaH8JTikYzi/
+	d9ABC9FFlR/31K5XtNJmqfws+dp1XWAJg8+nCKguNAxOBXmGbX3lxKbvMHX43LlG3bR6hmRmmwo
+	xHMpAZGJND1BHPfuVTBPru5fwOE/O45mV7gksvQ/2VjljlM8nNmAsGVHezhEUcADwDQ/uxU7yka
+	QQhEzhV4Mr15veHas3V7hsK1giT0UnxnEsNs2KBKKuRR3tkxnSOBTqGKWfBWnxak8nygfq2YOR7
+	2Hp/6zRoC6vgyird8DjszU20AC2Mc9zcfFwQtaBfBM/vCHi6S9dHsCbKhB/cL6+7u2uKi83mQ0E
+	rCj7QqvvX635IUURsiDu8+pdUDijE2B3+lKPh2Qo2q6R1jr6/ifsXAgOSb5xrLjZYePLu0ksBv/
+	4wWAAHvjt/TEsW4bh+zHrNxfESAcjBFGPW9l1LGwwQwP8RzGuLe4iwE4GoG0OPR5F79M2sCURvE
+	/xZjE4os6Q0ZwBr8qTzUXaDtq/qUMmX7Dyng3fBvIa+kf5N6GeoGuioQRyaXStBOonH3qV
+X-Received: by 2002:a17:902:e950:b0:2e6:12af:5b04 with SMTP id d9443c01a7336-2f0615b8824mr3806955ad.0.1795286058213;
+        Sat, 21 Nov 2026 10:34:18 -0800 (PST)
+Received: from google.com (130.155.125.34.bc.googleusercontent.com. [34.125.155.130])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b6fe711sm2350677a91.1.2026.11.21.10.34.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 10:34:16 -0800 (PST)
+Date: Sat, 21 Nov 2026 18:34:12 +0000
+From: Carlos Llamas <cmllamas@google.com>
+To: Alice Ryhl <aliceryhl@google.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] rust_binder: report EINVAL for unknown handles
+Message-ID: <awHkJIAjp7FuTxia@google.com>
+References: <20261118-binder-unknown-einval-v1-1-ef4ece277b26@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,98 +110,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Michal Luczaj <mhal@rbox.co>
-Subject: Re: [PATCH net v2] vsock: only undo SS_CONNECTING when connect()
- fails
-To: Bobby Eshleman <bobbyeshleman@meta.com>,
- Stefano Garzarella <sgarzare@redhat.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, George Zhang <georgezhang@vmware.com>,
- Andy King <acking@vmware.com>, Dmitry Torokhov <dtor@vmware.com>
-Cc: virtualization@lists.linux.dev, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, Kyle Zeng <kylebot@openai.com>
-References: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
-Content-Language: pl-PL, en-GB
-In-Reply-To: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118-binder-unknown-einval-v1-1-ef4ece277b26@google.com>
 
-On 11/18/26 02:34, Bobby Eshleman wrote:
-> vsock_connect() sleeps with the socket unlocked. Meanwhile the transport
-> can complete the handshake, setting sock->state to SS_CONNECTED, and then
-> reset the connection, e.g. in vhost_vsock_reset_orphans(),
-> virtio_vsock_reset_sock() or vmci_transport_handle_detach(). When
-> connect() gets the lock back, it finds sk_err set and moves the socket
-> back to SS_UNCONNECTED. Userspace can then connect() the socket again,
-> and a connect() to a CID on another transport makes
-> vsock_assign_transport() release the transport the socket was connected
-> on.
+On Wed, Nov 18, 2026 at 11:25:40AM +0000, Alice Ryhl wrote:
+> Currently unknown handles are reported as ENOENT, which userspace
+> doesn't treat as a fatal error. However, providing the wrong handle is a
+> fatal API violation, and indicates UAF in the userspace process.
 > 
-> Only move the socket back to SS_UNCONNECTED if it is still
-> SS_CONNECTING. A socket that got connected stays SS_CONNECTED, and
-> another connect() fails with -EISCONN.
+> Thus, change it to EINVAL to match C Binder and make userspace treat it
+> as a fatal error.
 > 
-> Likewise, only move sk_state to TCP_CLOSE if it is still TCP_SYN_SENT.
-> Otherwise a second thread blocked in connect() on the same socket can
-> time out after the first one failed and called listen(), and overwrite
-> TCP_LISTEN.
+> Cc: stable@vger.kernel.org
+> Fixes: eafedbc7c050 ("rust_binder: add Rust Binder driver")
+> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
+> ---
+>  drivers/android/binder/process.rs | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/android/binder/process.rs b/drivers/android/binder/process.rs
+> index e97213250beb..406d80cfff08 100644
+> --- a/drivers/android/binder/process.rs
+> +++ b/drivers/android/binder/process.rs
+> @@ -958,7 +958,7 @@ pub(crate) fn get_node_from_handle(&self, handle: u32, strong: bool) -> Result<N
+>              .lock()
+>              .by_handle
+>              .get_mut(&handle)
+> -            .ok_or(ENOENT)?
+> +            .ok_or(EINVAL)?
+>              .node_ref()
+>              .clone(strong)
+>      }
+> 
+> ---
+> base-commit: 917fcbf033154a6c8d83cfa6c88f012b71eb37b2
+> change-id: 20261029-binder-unknown-einval-10407d1ebb1e
+> 
+> Best regards,
+> -- 
+> Alice Ryhl <aliceryhl@google.com>
+> 
 
-Ohh, this took me a while.
+LGTM,
 
-> +/* Avoid breaking the socket when another thread has changed its state while
-> + * we were asleep.
-> + */
-> +static void vsock_connect_close(struct socket *sock)
-> +{
-> +	struct sock *sk = sock->sk;
-> +
-> +	if (sk->sk_state == TCP_SYN_SENT)
-> +		sk->sk_state = TCP_CLOSE;
-> +	if (sock->state == SS_CONNECTING)
-> +		sock->state = SS_UNCONNECTED;
-> +}
-
-I was wondering why not
-
-	if (sk->sk_state == TCP_SYN_SENT) {
-		sk->sk_state = TCP_CLOSE;
-		sock->state = SS_UNCONNECTED;
-	}
-
-and I think the only reasons we can't say "SYN_SENT iff CONNECTING" is
-because shutdown() can flip SYN_SENT/CONNECTING to SYN_SENT/DISCONNECTING.
-On connect's failure, the blocking path kinda-ignores such shutdown() and
-resets the socket to UNCONNECTED anyway, while the non-blocking (i.e.
-vsock_connect_timeout()) also consults sk_shutdown != SHUTDOWN_MASK.
-
-So how about being consistent:
-
-static void vsock_connect_close(struct socket *sock)
-{
-	struct sock *sk = sock->sk;
-
-	// we follow vsock_connect_timeout():
-	// TCP_SYN_SENT implies SS_{DIS,}CONNECTING;
-	// and we do check sk_shutdown
-	//
-	// or am I missing something?
-
-	if (sk->sk_state == TCP_SYN_SENT &&
-	    sk->sk_shutdown != SHUTDOWN_MASK) {
-		sk->sk_state = TCP_CLOSE;
-		sock->state = SS_UNCONNECTED;
-	}
-}
-
-What do you think?
-
-I guess this approach also addresses "[Severity: Low] What happens if
-another thread calls shutdown() while a blocking connect() is asleep?". As
-for "[Severity: Medium] Can a connect() waiter that times out late still
-abort a newer connect attempt on the same socket?", isn't this the current
-situation?
-
-thanks,
-Michal
+Acked-by: Carlos Llamas <cmllamas@google.com>
