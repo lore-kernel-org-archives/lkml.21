@@ -1,60 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.98
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795257824;
-	b=IJVc0FVAIeNaFYOQ/Tk6z6oemuUeKOqLHkVm4oq3oPHMHCa6MTay0Hsipgv6zv7T29FN
-	 wlKVS//q+ZgFQNdCf8XVGQjHGjIjQuhIRAud3U93rlPzH5RrUfMahqsyzPcjERQ/B61iy
-	 njbN8O0Hyf/4EQlBwVKhbQ2PZ0Y1PN3hmnvFzN7i5iMMn14FsX0MBpZqu2OmbdUWX+iFG
-	 A/xs+/I4XewKCUkT2ZkZNUDH7EVPaK0h1/uTB5x2+/UG6ivOuPzMQ83k7NUQ+jQAxpy1K
-	 RxJks8RFi6KwfmE8jp0M/AimQ9kAz1hsh/j5BVGDWtKGHRfawJROEXSD/4LGO48t6BQ==
+	t=1795257885;
+	b=TUEj43dUmjgovksJuTk2kklvCQH5AOBoqqOh7Cid5m2g5D1IgyqsU7civNpx+dN3LfAK
+	 dW2Me0DNzsdsDj4iPTa56BD1KYphoARdgGNxeLwtTzj5o12nspaRRoqmiQxppJAu0HWhQ
+	 p7c04+oxLI77K+Tpu9becd/xYFC3jwuV0hXpHJvGm8CFKdIuV6mS6poq4dtA0qcuY5T0b
+	 sFrrtHdLxF2znp8q7FnTN7p6gOjD6NTkZx59WkXHIS1DEBlLpJ+pYXk4vWta8sPAqmdQO
+	 VwZE8S5r5NEO1RUMWOsTFcyvL40ssI/lKfN+WPkqCnF1b7/2OBEnvftES9JZqOz3A+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795257824;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=5qFrHybFgn3xA42XyK9cEuXKRJg4yf4XyYywjW290pU=;
-	b=tB3ZWAu32BN0YM9NV05zyqyBFwpmLmZzvsgxmGGkKFRhnWjGDVBnOnazCPHLHIw4RmfU
-	 dHCz9GWE/jCcaY6wxRIxrIi9D5lbPX1Ov9xM7t1qzGY0R2CEe/AeT7K7kc5pTT4eBT21Q
-	 MVQPCo8ywQB1uB0ZyK1bmoPDVME/90329bTlvcfYX2BG8doZB4xEFULplYl3DBVyE4O/z
-	 1ExGw9nGdcDgDyxmB1oXsymVWBTUtiX4OMR+pbt724UzOZ3dVhj1EcLtui3AoOffPn1GC
-	 yyFkmWt2GaKqq23pkvIAUB2nUHTsCkXlQt/+fdkYvEc1zfM9swEv1fBHnNhXZGupjqA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795257885;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=6CDS5jsykY2tmpx/HC0dDui4GWuFilg6j81uj+xMFWw=;
+	b=gD1BiAwyJCYOCQYQak6YNdG0I2JU+cbDhPL/iCkg+O+8QY/dhan2lNDKzbDU+7iRCk7t
+	 NQonbEcw2XVTyYHgvRTD2baAu8jpikqvUg+QdhwI1jQBG1HmvwRl51IEsaSFT+rm68k8C
+	 VYOaSeasFFCsarD6V78NTGzF+UQU7IQUaOAptAnWuyp9rQP2W5WuctmvZwZfzwHhQbcpI
+	 NS8PJsZVPmmnlPtqaJE5pJxqAbPHTfzEISv8biJjga3H/v9CkFD6no5iKBInoFuc7eENX
+	 W4njhdISdT1B3ph76KcKd0au6oqicWF07inT0ZAqFvoFA8Q0nmCU4IzJBNd20Fl9pEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mCyJLkO5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=jVYeMYDm;
+	arc=none smtp.remote-ip=79.135.106.98
+Received: from mail-10698.protonmail.ch (mail-10698.protonmail.ch [79.135.106.98])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76B23606A320;
-	Sat, 21 Nov 2026 10:43:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7820D606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:44:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7820D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mCyJLkO5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3114D1F000C6;
-	Sat, 21 Nov 2026 10:43:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795257824;
-	bh=5qFrHybFgn3xA42XyK9cEuXKRJg4yf4XyYywjW290pU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mCyJLkO5qU1yecQLntXP9mZJ02uePt0B2S82MR7Q1IojntTzrqruWZ5Oq9DqfYFTS
-	 WXWRJ8744YfWdqNDKhyrhNwwT1chaU1ZLJ5cZ8U4uC4canysDHdCY2fjIdp3Y/loJv
-	 5aBfnnGGAgjFD7uc5sVwKJgMBAsddij4MoYTGZDioZN2D5ftBFIu27rmygsGdOZNo8
-	 W+lPIPvXUqmpEHG5B70JRrAgkfB5S5rHRby8+/ZBugd6jt5TYP0WrMnGf4mOVk3pgo
-	 xvvhzn0sxGLQib98lxRgZcNKE7/eBuq+5vws/nHZWIl/KSg4xRUXB1cJ29naJTVVhL
-	 kackkBgXVImow==
-Date: Sat, 21 Nov 2026 11:43:40 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Griffin Kroah-Hartman <griffin.kroah@fairphone.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, =?utf-8?B?QW5kcsOp?= Apitzsch <git@apitzsch.eu>, 
-	Luca Weiss <luca.weiss@fairphone.com>, Daniel Scally <dan.scally@ideasonboard.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Hans Verkuil <hverkuil+cisco@kernel.org>, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v4 1/3] dt-bindings: media: i2c: dw9800: Redocument
- DW9800K
-Message-ID: <20261121-judicious-vengeful-ant-f9bcb1@quoll>
-References: <20261119-b4-dw9800k_cleanup-v4-0-df26c431595e@fairphone.com>
- <20261119-b4-dw9800k_cleanup-v4-1-df26c431595e@fairphone.com>
+	dkim=pass (2048-bit key, unprotected) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=jVYeMYDm
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795257882; x=1795517082;
+	bh=6CDS5jsykY2tmpx/HC0dDui4GWuFilg6j81uj+xMFWw=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=jVYeMYDmolld6i19Iw8VvEBpZyAnufm6dWe0PwbzvCfvzHCYfW0/XBqcOfs7zO6ZT
+	 dhPeII+eiZxWbqKUtfOp+nq5XHlSOSAJsQVWFcrtn6I3JeVB4KeMe8eG9vLTU+N6+f
+	 uGaCbNeHekpQH675LuzYEyeX+jTM+EUoCt5a+iy8bvxJJmWMG3/8QtKKuV2rTzsJdx
+	 ejkRmrtcUV5DbgN+4O93xnebibIERdEEKsgjJs8ffHR39UoAkzNhKBUOgOXsLQvM1o
+	 ngH0qmEvY6t2LipjOYgzuI7r60NOf9RsysS2L4w+Q62RiFg1GdQY6og3aX6bhda9wi
+	 3VcikwkFFw5wQ==
+Date: Sat, 21 Nov 2026 10:44:38 +0000
+To: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+From: Turritopsis Dohrnii Teo En Ming <teo.en.ming@protonmail.com>
+Cc: "ceo@teo-en-ming-corp.com" <ceo@teo-en-ming-corp.com>
+Subject: New NoisyTCP Linux Kernel vulnerability lets attackers crash Linux servers
+Message-ID: <f8K_cO2BtAALe7VsLn9GTBIHZAk8nBZ7eTPjhzOUYNTEkdfA8dcRraSsq9UZI9WBFUDibjTCrg6w2KfEXYqOHo_BdenWq1gbUh80hNQlWao=@protonmail.com>
+Feedback-ID: 39510961:user:proton
+X-Pm-Message-ID: 923a341894e25ca0dd5718287d6f2d736c52ddbe
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,121 +62,36 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261119-b4-dw9800k_cleanup-v4-1-df26c431595e@fairphone.com>
+Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 19, 2026 at 10:51:23AM +0100, Griffin Kroah-Hartman wrote:
-> The DW9800K's properties are too different to justify sharing the same
-> bindings file as the dw9719, Create a separate bindings documentation
-> for the Dongwoon Anatech DW9800K with its updated properties.
-> 
-> More specifically:
-> 
-> The DW9800K did not share the SAC1 and SAC6 modes
-> that the DW9719 used.
-> 
-> Description of vcm-prescale does not match the calculations labeled in
-> the DW9800K datasheet for how clock diving rate is computed.
-> 
-> New property timing-control introduced to offer more fine-tuned dividing
-> options available to the DW9800K.
-> 
-> Signed-off-by: Griffin Kroah-Hartman <griffin.kroah@fairphone.com>
-> ---
->  .../bindings/media/i2c/dongwoon,dw9719.yaml        |  1 -
->  .../bindings/media/i2c/dongwoon,dw9800k.yaml       | 91 ++++++++++++++++++++++
->  2 files changed, 91 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/media/i2c/dongwoon,dw9719.yaml b/Documentation/devicetree/bindings/media/i2c/dongwoon,dw9719.yaml
-> index 8e8d62436e0d0c4f9af9e52262b23881abd37cec..38db0764c0f70ad49295dcddc182b7e100a68b29 100644
-> --- a/Documentation/devicetree/bindings/media/i2c/dongwoon,dw9719.yaml
-> +++ b/Documentation/devicetree/bindings/media/i2c/dongwoon,dw9719.yaml
-> @@ -21,7 +21,6 @@ properties:
->        - dongwoon,dw9718s
->        - dongwoon,dw9719
->        - dongwoon,dw9761
-> -      - dongwoon,dw9800k
->  
->    reg:
->      maxItems: 1
-> diff --git a/Documentation/devicetree/bindings/media/i2c/dongwoon,dw9800k.yaml b/Documentation/devicetree/bindings/media/i2c/dongwoon,dw9800k.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..99f3b506cf12c63ddef1e3d18fd59179a5e7800c
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/i2c/dongwoon,dw9800k.yaml
-> @@ -0,0 +1,91 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/i2c/dongwoon,dw9800k.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Dongwoon Anatech DW9800K Bi-Direction Voice Coil Motor (Bi-VCM) Controller
-> +
-> +maintainers:
-> +  - Luca Weiss <luca.weiss@fairphone.com>
-> +  - Griffin Kroah-Hartman <griffin.kroah@fairphone.com>
-> +
-> +description:
-> +  The Dongwoon DW9800K is a single 10-bit digital-to-analog converter with
-> +  +-130 mA output current sink capability, designed for linear control of
-> +  bi-directional voice coil motors (Bi-VCM) in camera lenses. This chip
-> +  provides a Smart Actuator Control (SAC) mode intended for minimizing
-> +  mechanical vibration.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - dongwoon,dw9800k
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  vdd-supply:
-> +    description: VDD power supply, can range from 2.3V to 4.8V
-> +
-> +  dongwoon,sac-mode:
-> +    description: >
-> +      Slew Rate Control mode to use: direct, LSC (Linear Slope Control) or
-> +      SAC2-SAC5 (Smart Actuator Control).
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum:
-> +      - 0 # Direct mode
-> +      - 1 # LSC mode
-> +      - 2 # SAC2 mode (operation time# 0.48 x Tvib)
-> +      - 3 # SAC3 mode (operation time# 0.72 x Tvib)
-> +      - 4 # SAC4 mode (operation time# 1.20 x Tvib)
-> +      - 5 # SAC5 mode (operation time# 1.64 x Tvib)
+Subject: New NoisyTCP Linux Kernel vulnerability lets attackers crash Linux=
+ servers
 
-That's ABI break, although you explained the reasons, but ABI was
-released and I think this can easily support older ABI while fixing
-things: simply use old values without SAC1 and SAC6.
-OTOH, how did DTS work with value =2 (so SAC1) and =7 (SAC6)?
+Good day from Singapore,
+
+Here is an article which I would like to share.
+
+Article: New NoisyTCP Linux Kernel vulnerability lets attackers crash Linux=
+ servers
+Link: https://www.bleepingcomputer.com/news/linux/new-noisytcp-linux-kernel=
+-flaw-lets-attackers-crash-servers/
+Date of article: 16 Nov 2026
+
+Thank you.
+
+Regards,
+
+Mr. Turritopsis Dohrnii Teo En Ming
+Targeted Individuals Singapore
+Government-Induced Schizophrenia, Government-Induced Health and Medical Pro=
+blems, and Government-Induced Extreme Poverty for the Past 20 Years (Govern=
+ment Persecution)
+Why is the Government SOOO ADAMANT, INSISTENT AND PERSISTENT about maintain=
+ing Absolute and Total CONTROL over all of my Android (Linux) phones for th=
+e past 20 years???
+21 Nov 2026 Saturday 6.41 pm Singapore Time
 
 
-> +    default: 3
-> +
-> +  dongwoon,vcm-prescale:
-> +    description:
-> +      Indication of VCM internal clock dividing rate select, as one multiple
-> +      factor to calculate VCM ring periodic time Tvib.
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum:
-> +      - 0 #  Dividing Rate -  2
-> +      - 1 #  Dividing Rate -  1
-> +      - 2 #  Dividing Rate -  1/2
-> +      - 3 #  Dividing Rate -  1/4
-> +      - 4 #  Dividing Rate -  8
-> +      - 5 #  Dividing Rate -  4
-> +    default: 1
-> +
-> +  dongwoon,timing-control:
-> +    description:
-> +      In LSC mode (252 + value * 4) * divider value in microseconds
-> +      In SAC mode (6.3 + value * 0.1) * divider value in milliseconds
 
-This should use property units, so microseconds.
 
-Best regards,
-Krzysztof
 
