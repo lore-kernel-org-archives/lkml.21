@@ -1,54 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.35
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795274749;
-	b=fCX1NPH8YE/3eUqlMtXT+mFvpH15JYOJ5EhMvyRU7bWT1SDEHVfFSrap3DnTtqhrxIay
-	 VeAXEDmC65jJicGtiUTy6+gk8TgzPq9/wpq86znGooHfrMaeSc5lVsQ1p5xLkti1xk+RK
-	 kTJE/NWvwe5TzabP8QzcV4ZHZQeKsW8qaeJLKMdNbhCsWiehKHTPdDcGnSTDU9Y0L+W2X
-	 pfKKhlim4cVbPI+DguVVrQ0okH9whrhWFuDHSnsxR+jvrazzGitpTVpWWS0YRwpkt35mq
-	 B8OwLYgiUqvlzKL2h5FWSAg17iKheF2ZdkFCbZwL57gpvhYjn7fRrEuYOFEC6QNEkQw==
+	t=1795274776;
+	b=bDzr+TOHTQd1/z4r9H1nvtMdqp7UOkX/S2cUmQrt/dLoIGYiVa7R9lJuvkopOY0pPZdW
+	 KSCoeEpJNNWKj2Y29K7rlDh9z2uAHOC+Hqqluv4iuXMj2MlSjpaIFl+w5sWtQODQwjbB8
+	 fWpBq6ZRGGt6ExR9xX0rcbDNNd47CPleId/1HBMIdtfMwWfX+asdr4rjZ5G4W1pLVyn2l
+	 XUYLm4kLxJlIS55GwmVFpmdOPgQ+kOg2TxefP4C954K4MxPgBXzu4nxpmC8K4ZleO8TqL
+	 CkQD9RbWu96zVdBtIzJrhk6FsC3K+iAuRQoye0ue98l2SSCPiM7om5wvg5EVRg486OA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795274749;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=mvqL5zgYjOQw7mrezGKjOH5XqeKwhXIVXfDOZi54svQ=;
-	b=KvFB+oaxjcRvFXJAGXiMoAyiZKQlAY1PgJ1h8Z0PKlIpmDmbLdRzqHkM0Hl6jOiU8e2f
-	 ism1bXWBk83H/jLAoJKz//NABs3+tkbVbx000vUbf9dK2pjoDMhZQxZ6b1Pr0ql71jq/k
-	 JKuxOdi2MXdFIw3V6L4ply8M4dlsPd4I7eclMHsuBUsuJ2nZ+u09f2xDa+TdMLxaepEN0
-	 yDXQPugtyENn4p0a4P+O64zvb9zZiWYho7qT9KU7sY4yjPG8cD+08o/mylJqQ0tZx13es
-	 8hxhrILoj+xHHXlvWXZ05oadY/PVVXA9K3ZZsau+waN8l2MGVmC4iJ9hx7aSeCCkbQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795274776;
+	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:
+	 X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
+	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
+	 X-Local-Domain:X-CMAE-Envelope;
+	bh=id4o5PzKM3zH5WOwNFoAsHmh451u7zQsm4VsNoJjbC0=;
+	b=e8TBAA/mI5Ec5WEdR1lXj3UU5CQsCKr5rx7eoInCfHVS9JElhhHIb6TSs9EDbvEYqEXK
+	 Erw3HMYf9P04siojtidxcYfcjHwgyY4E36nV4U6LRfHSCTRsMm13a7t6hfN9v1flTO3rz
+	 VFkmP6Dcs7pD3Fq9/VRQNSJDmG4aOORC+aTBieG/h4SngQC4TPPdchGRuDRSguFIrNtqD
+	 IJGN8gOGsa9dzYrRrgvVlBNA8J/FWMNFLzEJSSnafkbXkVkiqYZOQhpO0qNMLBEE+8kEH
+	 L6dac7U7omz2UNqgRIHJl5yQO3U5JUfYqGQWCJnzjlWxZE3hmRKL28lCY9noNCgO4Sw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.198
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=roeck-us.net;
+	spf=fail smtp.mailfrom=roeck-us.net;
+	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=SmcTfL65;
+	arc=none smtp.remote-ip=35.89.44.35
+Received: from omta36.uswest2.a.cloudfilter.net (omta36.uswest2.a.cloudfilter.net [35.89.44.35])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCE31606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 15:25:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCE31606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4b37620eb73so2678543b6e.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:25:48 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795274748; x=1795879548;
-        h=content-type:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=mvqL5zgYjOQw7mrezGKjOH5XqeKwhXIVXfDOZi54svQ=;
-        b=Ym44LDKJdkvrqFcNO7h/0DOvkPQCI1SzABOR49xGfFEv4e6jah0YTx075Lb8ISo6PD
-         qqdeVwOvmW2+CaxhymxyrA1IdIB+ZVsPHy3/EKkK6Q4ALr6A2WE0C6MbZW19AZgucFld
-         yhGpDP9Hv39yrqXzolfLcx/JAzEreZGTRAy7n2kRuyXstU8FccaRoZqhUXf3TqxooA5A
-         R2uzfp0RCQbN/KvhPaosN91Mqis0IYqJFef3snbkaYolboDNSHr7zYAbMfeQVU5nppdm
-         8SbVKnB4Qzv37vwtEy9eqpDinfQQAcv/dhUfe8CcoCededxudWUbMVUy5LulX65+xQCX
-         rGWA==
-X-Forwarded-Encrypted: i=1; AL+hErEQA1YPJQH3C3m499a3uOvqIyyCh6WLSJRbTGrTNeuGr8gbC2Ro+MFY83Wh79xvEqYYRBspIIf/L369rX8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8a8x4FS/IT+FedfzcWe3kynNaYVoFJuRAvJT49PhtW/3yEKtYl
-	aQzvsCUnTnAC9Gu71VQ8CbJx5kCAYdh6D2aZ9auk6pZWzrjM2M5MVBGnzQsgIQBgo3yBp5Nx6qH
-	NvUXUxavWVR/1Dg1zC33ktTu1feVgfuSMAvBNOBy/3OCG/nSRTW8B3djp2hU=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EAE94606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 15:26:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EAE94606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=SmcTfL65
+Received: from eig-obgw-6004b.ext.cloudfilter.net ([10.0.30.210])
+	by cmsmtp with ESMTPS
+	id UjBoxmnp1RiNxUmylxAi4r; Sat, 21 Nov 2026 15:26:15 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id UmyjxMEa2laNKUmykxBOY9; Sat, 21 Nov 2026 15:26:14 +0000
+X-Authority-Analysis: v=2.4 cv=UbpRSLSN c=1 sm=1 tr=0 ts=6b01b817
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=VwQbUJbxAAAA:8
+ a=_jlGtV7tAAAA:8 a=pGLkceISAAAA:8 a=ryv-YxDhWCmM8qAHW4sA:9 a=CjuIK1q_8ugA:10
+ a=nlm17XC03S6CtCLSeiRr:22 a=KPbNTLLc3YvdawN95zVk:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
+	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
+	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=id4o5PzKM3zH5WOwNFoAsHmh451u7zQsm4VsNoJjbC0=; b=SmcTfL65i9WV5hm2yGgZHKnRXA
+	eH1/TkNSZdfFsUlKo+yR5GQHjNnZJ5RG0/jdiS/J4CrKsDdpdQtg5EVCndq6wCB03fBbSRQqMhJy8
+	vCL5hqSkY7QsN2Ta/NOxVql19/W6umBS73a2BnWkxVAYUWrPOpvfN9/8PxTQLrpHT8W37wL8sHz68
+	AzdgxtP7nCs6gH3lJNmrJ0JINAdNpCD/6QpNuloB6g/LO+/wg5gz2vQZGkD3fEI/4NE8wl58/tLU9
+	OZZW7AF7kEiMaCoS6L9EHOIZwYqCTjThitQVXRSarbpITjXDmj8pBdfjb8EWrBctI8ggRRQfFmd9r
+	K3x5BM6Q==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:50930 helo=server.roeck-us.net)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xUmyj-0000000112x-2dFW;
+	Sat, 21 Nov 2026 20:56:13 +0530
+Date: Sat, 21 Nov 2026 07:26:12 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Nhat Tran <nhat.tranminhk2@gmail.com>
+Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Lars Poeschel <poeschel@lemonage.de>,
+	linux-watchdog@vger.kernel.org, linux-omap@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] watchdog: core: Don't report time left for a stopped
+ watchdog
+Message-ID: <08729e0f-874f-41cb-b6ee-bff6207c1cb4@roeck-us.net>
+References: <20261121052950.287506-1-nhat.tranminhk2@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,114 +85,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:1386:b0:574:6f37:6727 with SMTP id
- 5614622812f47-57a06b1e099mr7204479b6e.3.1795274747833; Sat, 21 Nov 2026
- 07:25:47 -0800 (PST)
-Date: Sat, 21 Nov 2026 07:25:47 -0800
-In-Reply-To: <6a891a2c.91706f20.16b6e3.02b1.GAE@google.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b01b7fb.44b41460.34b83f.000f.GAE@google.com>
-Subject: Re: [syzbot] [dmaengine?] BUG: unable to handle kernel paging request
- in ioat_pci_probe
-From: syzbot <syzbot+79a6b3f7a8df01f58774@syzkaller.appspotmail.com>
-To: Frank.Li@kernel.org, dave.jiang@intel.com, dmaengine@vger.kernel.org, 
-	frank.li@kernel.org, linux-kernel@vger.kernel.org, 
-	syzkaller-bugs@googlegroups.com, vkoul@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261121052950.287506-1-nhat.tranminhk2@gmail.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xUmyj-0000000112x-2dFW
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:50930
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 9
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfAV5oNp+uD5EOo50b2ZAzDHai4Iim2gL9tVsaMPIksaxUvnNk0mH5P03bi7m8kBZ2qY106+/95uVd6mA4VWgmvEgYpe2qZnCGHPYgL/Uy98azXzI6xiF
+ jHq0BDe0admtRUzxaucPZLoGkxmYnIPFLXiSPsKcAj1nlERtQmhMxTkOq2CHhmeHUGYPcf6uDjt4H2GxwU9tP/A1YoNh9Ok4PFUi4ok+KTj68mxnc1eWh6OX
 
-syzbot has found a reproducer for the following issue on:
+On Sat, Nov 21, 2026 at 12:29:50PM +0700, Nhat Tran wrote:
+> watchdog_get_timeleft() calls the driver's ->get_timeleft() regardless
+> of whether the watchdog is running. It is reachable through the sysfs
+> timeleft attribute, which is world readable with CONFIG_WATCHDOG_SYSFS=y,
+> and through WDIOC_GETTIMELEFT, also after the watchdog was stopped with
+> WDIOS_DISABLECARD while the device is still open.
+> 
+> Drivers may not be able to access the hardware while the watchdog is
+> stopped. omap_wdt only holds a runtime PM reference while the watchdog
+> is running, so on a BeagleBone Black (AM335x) reading the counter of a
+> stopped watchdog triggers an external abort. Any unprivileged user can
+> hit it through sysfs:
+> 
+>   $ cat /sys/class/watchdog/watchdog0/timeleft
+>   Unhandled fault: external abort on non-linefetch (0x1028) at 0xf9e35028
+>   Internal error: : 1028 [#1] SMP ARM
+>   PC is at omap_wdt_get_timeleft+0x4/0x14
+>   LR is at watchdog_get_timeleft+0x24/0x130
+>   Call trace:
+>    omap_wdt_get_timeleft from watchdog_get_timeleft+0x24/0x130
+>    watchdog_get_timeleft from timeleft_show+0x3c/0x80
+>    timeleft_show from dev_attr_show+0x18/0x4c
+>    dev_attr_show from sysfs_kf_seq_show+0xa0/0x138
+>    ...
+> 
+> and the same happens with WDIOS_DISABLECARD followed by
+> WDIOC_GETTIMELEFT on the open device, once the module has idled:
+> 
+>   Call trace:
+>    omap_wdt_get_timeleft from watchdog_get_timeleft+0x24/0x130
+>    watchdog_get_timeleft from watchdog_ioctl+0x494/0x668
+>    watchdog_ioctl from sys_ioctl+0x128/0xbcc
+>    sys_ioctl from ret_fast_syscall+0x0/0x54
+> 
+> If the ioctl comes before the module has idled, the read succeeds but
+> reports 59 seconds left for a watchdog that is stopped.
+> 
+> A stopped watchdog will not reboot the system, so report 0 time left
+> when neither WDOG_ACTIVE nor WDOG_HW_RUNNING is set, without calling
+> into the driver. This matches the software fallback for drivers without
+> ->get_timeleft(), which already decays to 0 once the watchdog is no
+> longer pinged.
+> 
+> Tested on a BeagleBone Black: with the watchdog stopped, both the sysfs
+> attribute and WDIOC_GETTIMELEFT after WDIOS_DISABLECARD return 0; with
+> the watchdog started through /dev/watchdog0, timeleft counts down as
+> before (59, then 56 three seconds later).
+> 
+> Fixes: 452fafed839e ("watchdog: omap_wdt: implement get_timeleft")
+> Cc: stable@vger.kernel.org
+> Suggested-by: Guenter Roeck <linux@roeck-us.net>
+> Signed-off-by: Nhat Tran <nhat.tranminhk2@gmail.com>
 
-HEAD commit:    909ef7a9a30f Add linux-next specific files for 20261120
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-console output: https://syzkaller.appspot.com/x/log.txt?x=13ca7cd5580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=15db63a14ba195ac
-dashboard link: https://syzkaller.appspot.com/bug?extid=79a6b3f7a8df01f58774
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=10a07185580000
+Applied, and thanks for testing with WDIOS_DISABLECARD/WDIOC_GETTIMELEFT.
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+79a6b3f7a8df01f58774@syzkaller.appspotmail.com
-
-BUG: unable to handle page fault for address: 000000000001c008
-#PF: supervisor read access in kernel mode
-#PF: error_code(0x0000) - not-present page
-PGD 8000000074684067 P4D 8000000074684067 PUD 0 
-Oops: Oops: 0000 [#1] SMP KASAN PTI
-CPU: 1 UID: 0 PID: 6362 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-RIP: 0010:readb arch/x86/include/asm/io.h:57 [inline]
-RIP: 0010:ioat_pci_probe+0xad/0x410 drivers/dma/ioat/init.c:1365
-Code: 48 85 c0 74 4c 49 89 c7 48 b8 00 00 00 00 00 fc ff df 4c 89 fb 48 c1 eb 03 80 3c 03 00 74 08 4c 89 ff e8 06 55 c3 fc 49 8b 07 <44> 8a 60 08 41 0f b6 ec bf 30 00 00 00 89 ee e8 2f 13 43 fc 41 80
-RSP: 0018:ffffc900034578f8 EFLAGS: 00010246
-RAX: 000000000001c000 RBX: 1ffff110056d8ae7 RCX: ffff88801c9d5dc0
-RDX: 0000000000000000 RSI: ffffffff8ea2b415 RDI: 00000000ffffffff
-RBP: ffffc90003457b20 R08: ffffffff91e1e4bf R09: 1ffffffff23c3c97
-R10: dffffc0000000000 R11: fffffbfff23c3c98 R12: 1ffff110045d3c10
-R13: 0000000000000000 R14: ffff888022e9e000 R15: ffff88802b6c5738
-FS:  00007f687f7dd6c0(0000) GS:ffff8881231fd000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 000000000001c008 CR3: 000000007f156000 CR4: 00000000003526f0
-Call Trace:
- <TASK>
- local_pci_probe drivers/pci/pci-driver.c:355 [inline]
- pci_call_probe drivers/pci/pci-driver.c:417 [inline]
- __pci_device_probe drivers/pci/pci-driver.c:479 [inline]
- pci_device_probe+0x48e/0xd10 drivers/pci/pci-driver.c:513
- call_driver_probe drivers/base/dd.c:-1 [inline]
- really_probe+0x254/0xae0 drivers/base/dd.c:707
- __driver_probe_device+0x1e8/0x360 drivers/base/dd.c:869
- device_driver_attach+0xe4/0x1f0 drivers/base/dd.c:1211
- bind_store+0x1d0/0x220 drivers/base/bus.c:267
- kernfs_fop_write_iter+0x3a4/0x540 fs/kernfs/file.c:345
- new_sync_write fs/read_write.c:580 [inline]
- vfs_write+0x612/0xba0 fs/read_write.c:672
- ksys_write+0x150/0x270 fs/read_write.c:1021
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x00007f688019e0d9
-Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
-RSP: 002b:00007f687f7dd028 EFLAGS: 00000246 ORIG_RAX: 0000000000000001
-RAX: ffffffffffffffda RBX: 00007f6880426090 RCX: 00007f688019e0d9
-RDX: 000000000000000d RSI: 0000200000000600 RDI: 0000000000000005
-RBP: 00007f6880235024 R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
-R13: 00007f6880426128 R14: 00007f6880426090 R15: 00007ffcb8a3f2d8
- </TASK>
-Modules linked in:
-CR2: 000000000001c008
----[ end trace 0000000000000000 ]---
-RIP: 0010:readb arch/x86/include/asm/io.h:57 [inline]
-RIP: 0010:ioat_pci_probe+0xad/0x410 drivers/dma/ioat/init.c:1365
-Code: 48 85 c0 74 4c 49 89 c7 48 b8 00 00 00 00 00 fc ff df 4c 89 fb 48 c1 eb 03 80 3c 03 00 74 08 4c 89 ff e8 06 55 c3 fc 49 8b 07 <44> 8a 60 08 41 0f b6 ec bf 30 00 00 00 89 ee e8 2f 13 43 fc 41 80
-RSP: 0018:ffffc900034578f8 EFLAGS: 00010246
-RAX: 000000000001c000 RBX: 1ffff110056d8ae7 RCX: ffff88801c9d5dc0
-RDX: 0000000000000000 RSI: ffffffff8ea2b415 RDI: 00000000ffffffff
-RBP: ffffc90003457b20 R08: ffffffff91e1e4bf R09: 1ffffffff23c3c97
-R10: dffffc0000000000 R11: fffffbfff23c3c98 R12: 1ffff110045d3c10
-R13: 0000000000000000 R14: ffff888022e9e000 R15: ffff88802b6c5738
-FS:  00007f687f7dd6c0(0000) GS:ffff8881231fd000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 000000000001c008 CR3: 000000007f156000 CR4: 00000000003526f0
-----------------
-Code disassembly (best guess):
-   0:	48 85 c0             	test   %rax,%rax
-   3:	74 4c                	je     0x51
-   5:	49 89 c7             	mov    %rax,%r15
-   8:	48 b8 00 00 00 00 00 	movabs $0xdffffc0000000000,%rax
-   f:	fc ff df
-  12:	4c 89 fb             	mov    %r15,%rbx
-  15:	48 c1 eb 03          	shr    $0x3,%rbx
-  19:	80 3c 03 00          	cmpb   $0x0,(%rbx,%rax,1)
-  1d:	74 08                	je     0x27
-  1f:	4c 89 ff             	mov    %r15,%rdi
-  22:	e8 06 55 c3 fc       	call   0xfcc3552d
-  27:	49 8b 07             	mov    (%r15),%rax
-* 2a:	44 8a 60 08          	mov    0x8(%rax),%r12b <-- trapping instruction
-  2e:	41 0f b6 ec          	movzbl %r12b,%ebp
-  32:	bf 30 00 00 00       	mov    $0x30,%edi
-  37:	89 ee                	mov    %ebp,%esi
-  39:	e8 2f 13 43 fc       	call   0xfc43136d
-  3e:	41                   	rex.B
-  3f:	80                   	.byte 0x80
+Thanks,
+Guenter
