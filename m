@@ -1,84 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795241748;
-	b=x8dzvGil0X6iZhtjlHCGEb9zw4JdUEReMDWe8ko6UK5rge5GWtcgX7aDUy23woBebXMW
-	 yPcWGi5nvJg63DyeHV4D4JtnYcnOc++AV8ZjhKJVwCqtMUMJOW+8kMpr3MYcOw5VD3vzu
-	 EwyjMypRoDs0IkPOyuTL7olP2Jjk5yVyvp5y6JqxMq9jRgjJcl1V/ccUijeNIl7h6EZl0
-	 aprNpO6cGzF9pmjIgGnsG3Tn/K4jXH7c476hGPJIumMYGiGbpqeLWSJqAT60e41XTcf/M
-	 +Mf8qsFai1/C/GAh9btz+YiYnByktcm9f7twDCKWmaFtYh9onxZEgOYEPs/2oTy4Stg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795241748;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=YShQ51CxPN05RyeAJpAM1rmHPAWCYeDv107+BzXh+IU=;
-	b=cZRNGopl7e4BcAz22tWdNHSvGQ8G0h3qqzVslU7MZtrtHbTQU1m9kXE7a2xIU7MEogf5
-	 OFT3Ql21CXsoaIr+J/xqybPOoT8czFZa87NFeO8md0L0QIRe+juVi2it3u1fdut5D5e2W
-	 CUsD+taxkuy5gULHXqo9pL8m8SUy+2OSX7daQx4aNvuae1ApoQvVMnQK70Zimzi4Pl0aD
-	 4vkR4ynzVbbrDJhvpLEyT6UgL47R+fRhELE9MJQVSZ1DEpu1jxhnHIYn2Lnbw9ywqMJyR
-	 gvfDakaT4JsD2+XOJamfZpvNqnUmYSb+SGnFnMQNWKT7qQrYvFbdHTvWraonwr9KPhQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=P+IsRQQd;
-	arc=none smtp.remote-ip=115.124.30.131
-Received: from out30-131.freemail.mail.aliyun.com (out30-131.freemail.mail.aliyun.com [115.124.30.131])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795241901;
+	b=hwU5eTNRt4XW9Do3QgHakPjXDvoqEKkeiNIZ6nZHGBHSTtNC/l5mtOsLXrUUwDIYnsp6
+	 6HqDwc0Ap4Z5+unf8zJKefv70J2/id+XJGIu5tEvmdKnvY0HftvBgVS2twLdozh/vSlNo
+	 40O6dUfQXqXS92K+xmAmTOHfGTWz+wLYiMq2HcUceNqrWwr5s5qPttak6rzIj26r8VBd7
+	 UPEMYS2oXBZJNj8cVoDuHASo8vc7hGi2XdLA4HWnROfz87o+1+9Yh/OPtowvbf3+4M+mB
+	 glHVF5OGgq1ebD/TWmCQjM7v4qYUxWNYJlqnrJ7UgeqIm1f3YF9rpnLMVpcLqWx+KEQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795241901;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=cyD+55yTSWllH/V4M00D2aK0PjmiLdG4LzGnKueD4ws=;
+	b=sN2YOqQNhF/V3MECLO1DzgrnTQdOdZXmmFdRwJxjuqVCrd1lGxVv/Hixiqvo3G1L2dgJ
+	 jt/t+Oe/26xa1fiDwFAzFCcrI1CXikKOn9rsTrN3wCpwX0RUuWB4+yLcWVKvIHFXBOehk
+	 xqy9yZh/mRwSD5yK1J86lH9R2u8iev40uHozxW6eMq5n4IYKHklyu2mbww8wkSHaUXWLA
+	 2mG80xItu9HAHvNA7i+D0LBqBagvz74l5P2RMpikWNA9MR38mG7nekLMDkj1qd9DlhHd9
+	 KQwBFyhguFtZf4poznyxH/BJgyEEGCUKsflCYk9ZhsSu7H3h66F5ilyv8oLgLU/HXKw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QH5aCLg3;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89C14606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:15:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89C14606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDE03606A335;
+	Sat, 21 Nov 2026 06:18:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=P+IsRQQd
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795241738; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=YShQ51CxPN05RyeAJpAM1rmHPAWCYeDv107+BzXh+IU=;
-	b=P+IsRQQd0chCnVD/8d8CMexNOPxH0TE1IA7ZmsemAf/sYtNU/GYmyAbGkUgZozcEbQ92yD8NosObkN4IlsrQh81lT1gwlmQTS+7SNnl9v77sf2P14X+3M+DFfTnpGdsD7LwYcMlryFiowl4R4L4Z51mzMtefjm29z2nbJ/WzdyY=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R831e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=30;SR=0;TI=SMTPD_---0XF83hNL_1795241733;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XF83hNL_1795241733 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Sat, 21 Nov 2026 14:15:35 +0800
-From: fangyu.yu@linux.alibaba.com
-To: gsh517025@gmail.com
-Cc: alex@ghiti.fr,
-	andrew.jones@linux.dev,
-	anup@brainfault.org,
-	aou@eecs.berkeley.edu,
-	atish.patra@linux.dev,
-	baolu.lu@linux.intel.com,
-	fangyu.yu@linux.alibaba.com,
-	gong.shuai@sanechips.com.cn,
-	guoren@kernel.org,
-	iommu@lists.linux.dev,
-	jgg@nvidia.com,
-	jgg@ziepe.ca,
-	joerg.roedel@amd.com,
-	joro@8bytes.org,
-	jroedel@suse.de,
-	kevin.tian@intel.com,
-	kvm-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	nutty.liu@hotmail.com,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	robin.murphy@arm.com,
-	skhawaja@google.com,
-	tanchi25@mails.ucas.ac.cn,
-	tomasz.jeznach@linux.dev,
-	vasant.hegde@amd.com,
-	will@kernel.org,
-	zong.li@sifive.com
-Subject: Re: [PATCH v7 05/10] iommu/riscv: support GSCID and GVMA invalidation command 
-Date: Sat, 21 Nov 2026 14:15:32 +0800
-Message-Id: <20261121061532.23534-1-fangyu.yu@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <23b033cb-1b98-48cf-a089-4e710dfe3e15@gmail.com>
-References: <23b033cb-1b98-48cf-a089-4e710dfe3e15@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QH5aCLg3
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795241901;
+	b=AHiX2/wk3Nb+TIyam0cqcr2EcKaWiGS7AzxSb/BgtAKzFOTepwOWZqN/YN6MnA07rsXr
+	 SivtAJUOOLvsogiwe3Hyq9qZz4E1uN7PkKZSwNkh8PaNFyHWPEUW4LtCQFGCbiZCxzTqs
+	 qBIA4PkslsSBUXjgBxn7w2W967c92IhVIJkw6Dmh/E23sMAx8Jq1/qtX+FNCOFHTiEqax
+	 QFmKUs/v7EVlEQKr9ta3eD4tH63O0jxUxbMHrh08LSYA8c5ZmswjzWkKFIzDL45CJxx+o
+	 keFLccVTx2jLAiSiAda47iCiGUPkKdJQmqvYqDso8jxz+dumfHrZZWholuCPABuL8Xw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795241901;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=cyD+55yTSWllH/V4M00D2aK0PjmiLdG4LzGnKueD4ws=;
+	b=CXNARAyr6iwhsQvAKMzVCGuG+lX++7WPtUhOSLcevEemcX05PmUyXyNxM43Fod4v9eFS
+	 dg9lvMPqhKbOe+jHgIiBO3tuskykHPSruA6wIsOkWNcR5j8mVHJOoJOdva+EOmM3EJPgE
+	 6DcFjm3onMtCuq5+/Z+elT49/tWHekX/BYODvy0ydgC/LwUK7/FwldTbNNzrbT2RZAffk
+	 pMBayB2B7IPO/0s3eaP7JZnnTNiIE6eH+YZ8owUjeRkQYFdWsEkwdcaouoKgQF9yp0rA2
+	 i246JRvF2eDgk9+bFyr/20EtHkPA30gEPtyyIqSfJvg8JkiSM+3VwOudHlHZqEsJ2wQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 7BE541F000C4;
+	Sat, 21 Nov 2026 06:18:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795241901;
+	bh=cyD+55yTSWllH/V4M00D2aK0PjmiLdG4LzGnKueD4ws=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=QH5aCLg3fSc99xnpitG9jJMs7OS/UV0wTnWeE1Up/N1gqEQJBI8t+3b27CGlRRxud
+	 2KSW4HbqFpdjsAMQPFsGuKN7Rt5w9mm/ERO49fnCY/b7tG4tRoFBUixODxodae7bJ+
+	 UgPEIxFPro7eisLXWs5BHwzXaPQXkoWURv9lkF/n/ywf+MDRnEGpauEEX1bp73kpgm
+	 pFuVbVz6CC4tvauIN8oLW/W7J4FNJ4LdTAGlzpKbqMPcvK2lmnA5phpntXAvOXg3jQ
+	 M4w7r1riDmFdTzrpM4+e/kXk1DscHTzbGU8sPWutZfL0HtJGsRlWwZ034BKGVRR94C
+	 zvHl11C09d15Q==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id CEFEA4BB15;
+	Sat, 21 Nov 2026 06:18:19 +0000 (UTC)
+From: Xiubo Li via B4 Relay <devnull+xiubo.li.clyso.com@kernel.org>
+Date: Sat, 21 Nov 2026 08:18:15 +0200
+Subject: [PATCH] ceph: ignore a cap IMPORT peer that names the importing
+ MDS
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,148 +83,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261121-b4-ceph-cap-import-self-peer-v1-1-9cbc14a6c8b7@clyso.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMwQrCMAwA0F8ZORtoO1Hmr4iHNaYuoltINhHG/
+ t2qx3d5KzibsMOpWcH4JS7TWBF3DdDQjzdGuVZDCukQYwqY90isA1KvKE+dbEbnR0FlNqTUhtg
+ dc1u6BLVQ4yLvX3++/O1LvjPN3xO27QOEUZxBgAAAAA==
+X-Change-ID: 20261120-b4-ceph-cap-import-self-peer-c230197b3f92
+To: Ilya Dryomov <idryomov@gmail.com>, Alex Markuze <amarkuze@redhat.com>, 
+ Viacheslav Dubeyko <slava@dubeyko.com>
+Cc: ceph-devel@vger.kernel.org, stable@vger.kernel.org, security@kernel.org, 
+ Quinn Grant <leograntquinn@gmail.com>, linux-kernel@vger.kernel.org, 
+ Xiubo Li <xiubo.li@clyso.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795241898; l=3029;
+ i=xiubo.li@clyso.com; s=20260625; h=from:subject:message-id;
+ bh=/3Lg5v/cOBVmlJ+Hh/ywgxHY68XitXvI31NKdYtN2P0=;
+ b=Xrn1wuHrIpn8W8Cq4p1Heqk4JkoHGwrmCkFXb7IcicSv78cp+r1y90vhRJHPFn6ERr+ThxF0U
+ /w6nxw8hzwlDpMF6NwjkKf6oFcWKRrt/fF6te/4NTCxV8le9LWGUcQa
+X-Developer-Key: i=xiubo.li@clyso.com; a=ed25519;
+ pk=V3NGr0AgAopiUhaLY51ipBkLN5LlcLhjOEfLEq1RoZ8=
+X-Endpoint-Received: by B4 Relay for xiubo.li@clyso.com/20260625 with
+ auth_id=840
+X-Original-From: Xiubo Li <xiubo.li@clyso.com>
+Reply-To: xiubo.li@clyso.com
+Content-Transfer-Encoding: 7bit
 
->>>Hi Fangyu,
->>>
->>>> From: Zong Li <zong.li@sifive.com>
->>>>
->>>> This patch adds a ID Allocator for GSCID and a wrap for setting up
->>>> GSCID in IOTLB invalidation command.
->>>>
->>>> Set up iohgatp to enable second stage table and flush stage-2 table if
->>>> the GSCID is set.
->>>>
->>>> The GSCID of domain should be freed when release domain. GSCID will be
->>>> allocated for parent domain in nested IOMMU process.
->>>>
->>>> Signed-off-by: Zong Li <zong.li@sifive.com>
->>>> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
->>>> Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
->>>> ---
->>>>  drivers/iommu/riscv/iommu-bits.h |  7 ++++
->>>>  drivers/iommu/riscv/iommu.c      | 62 ++++++++++++++++++++++++++------
->>>>  2 files changed, 58 insertions(+), 11 deletions(-)
->>>>
->>>> diff --git a/drivers/iommu/riscv/iommu-bits.h b/drivers/iommu/riscv/iommu-bits.h
->>>> index f2ef9bd3cde9..65d1f2250011 100644
->>>> --- a/drivers/iommu/riscv/iommu-bits.h
->>>> +++ b/drivers/iommu/riscv/iommu-bits.h
->>>> @@ -720,6 +720,13 @@ static inline void riscv_iommu_cmd_inval_vma(struct riscv_iommu_command *cmd)
->>>>  	cmd->dword1 = 0;
->>>>  }
->>>>
->>>> +static inline void riscv_iommu_cmd_inval_gvma(struct riscv_iommu_command *cmd)
->>>> +{
->>>> +	cmd->dword0 = FIELD_PREP(RISCV_IOMMU_CMD0_OPCODE, RISCV_IOMMU_CMD_IOTINVAL_OPCODE) |
->>>> +		      FIELD_PREP(RISCV_IOMMU_CMD0_FUNC, RISCV_IOMMU_CMD_IOTINVAL_FUNC_GVMA);
->>>> +	cmd->dword1 = 0;
->>>> +}
->>>> +
->>>>  static inline void riscv_iommu_cmd_inval_set_addr(struct riscv_iommu_command *cmd,
->>>>  						  u64 addr)
->>>>  {
->>>> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
->>>> index 918fce4aa8c4..5546dfcd976c 100644
->>>> --- a/drivers/iommu/riscv/iommu.c
->>>> +++ b/drivers/iommu/riscv/iommu.c
->>>> @@ -49,6 +49,10 @@
->>>>  static DEFINE_IDA(riscv_iommu_pscids);
->>>>  #define RISCV_IOMMU_MAX_PSCID		(BIT(20) - 1)
->>>>
->>>> +/* IOMMU GSCID allocation namespace. */
->>>> +static DEFINE_IDA(riscv_iommu_gscids);
->>>> +#define RISCV_IOMMU_MAX_GSCID		(BIT(16) - 1)
->>>> +
->>>>  /* Device resource-managed allocations */
->>>>  struct riscv_iommu_devres {
->>>>  	void *addr;
->>>> @@ -842,6 +846,7 @@ struct riscv_iommu_domain {
->>>>  	struct list_head bonds;
->>>>  	spinlock_t lock;		/* protect bonds list updates. */
->>>>  	int pscid;
->>>> +	int gscid;
->>>>  };
->>>>  PT_IOMMU_CHECK_DOMAIN(struct riscv_iommu_domain, riscvpt.iommu, domain);
->>>>
->>>> @@ -1004,7 +1009,7 @@ static void riscv_iommu_tlbi_calc(struct riscv_iommu_tlbi *tlbi,
->>>>  }
->>>>
->>>>  static void riscv_iommu_iotlb_inval_iommu(struct riscv_iommu_device *iommu,
->>>> -					  int pscid,
->>>> +					  int pscid, int gscid,
->>>>  					  struct riscv_iommu_tlbi *tlbi)
->>>>  {
->>>>  	bool use_nl = tlbi->non_leaf &&
->>>> @@ -1012,8 +1017,13 @@ static void riscv_iommu_iotlb_inval_iommu(struct riscv_iommu_device *iommu,
->>>>  	struct riscv_iommu_command cmd;
->>>>  	unsigned int i;
->>>>
->>>> -	riscv_iommu_cmd_inval_vma(&cmd);
->>>> -	riscv_iommu_cmd_inval_set_pscid(&cmd, pscid);
->>>> +	if (gscid) {
->>>> +		riscv_iommu_cmd_inval_gvma(&cmd);
->>>> +		riscv_iommu_cmd_inval_set_gscid(&cmd, gscid);
->>>> +	} else {
->>>> +		riscv_iommu_cmd_inval_vma(&cmd);
->>>> +		riscv_iommu_cmd_inval_set_pscid(&cmd, pscid);
->>>> +	}
->>>
->>>As I understand it, the same choice is needed in
->>>riscv_iommu_bond_unlink().
->>>
->>>The missing GVMA command does not break anything today, because every
->>>caller of bond_unlink() runs iodir_update() just before it, and that
->>>already sends the GVMA for the old GSCID. But depending on that
->>>ordering seems fragile, and the comment in bond_unlink(), "invalidate
->>>all cached entries for domain's PSCID", is no longer true now that we
->>>have S2 domains.
->>>
->>
->> There is no functional issue with the current code, since
->> iodir_update() already performs the required invalidation.
->>
->> That said, as this series adds S2 domain support,
->> bond_unlink() should indeed be updated accordingly.
->> Good catch.
->
->Hi Fangyu,
->
->I've included this code in patch 10 of the v3 nested series [1].
->
+From: Xiubo Li <xiubo.li@clyso.com>
 
-Hi Shuai,
+handle_cap_import() first adds or updates the importing MDS's cap,
+then looks up the export peer's cap with __get_cap_for_mds() and
+removes it.  The caps rbtree holds one cap per MDS, so when the peer
+rank in the IMPORT is the sending MDS itself and the peer cap_id is
+the imported cap_id, the "export" cap is the very cap that was just
+added: ceph_remove_cap() puts it, and handle_cap_import() still hands
+it back to ceph_handle_caps(), which passes it to handle_cap_grant().
+That then writes the freed cap (KASAN: slab-use-after-free in
+handle_cap_grant()).
 
-Thanks for the pointer. If possible, I'd suggest keeping this
-change in the current patch rather than splitting it out --
-it makes the functionality look more complete, and splitting
-it into two patches seems a bit odd.
+A cap is always moved from one MDS to another, so a real MDS never
+sends such a peer; only a broken or malicious one can.  Warn and treat
+the IMPORT as having no export peer.
 
->BTW, if you have time, would you mind reviewing the nested series?
->I'd greatly appreciate your help.
->
+Fixes: 2cd698be9a3d ("ceph: handle cap import atomically")
+Cc: stable@vger.kernel.org
+Reported-by: Quinn Grant <leograntquinn@gmail.com>
+Signed-off-by: Xiubo Li <xiubo.li@clyso.com>
+---
+A buggy or malicious MDS can send a cap IMPORT whose export peer is the
+sending MDS itself, with the peer cap_id equal to the imported cap_id.
+handle_cap_import() then removes, and frees, the very cap it has just
+added, and handle_cap_grant() goes on to use it.  This patch ignores
+such a peer.
 
-Regarding the nested series, it looks like a solid set of
-patches that already provides the basic nested IOMMU
-functionality. I'd be glad to help with the review and hope
-I can be of some help.
+Tested on a KASAN kernel, with a test-only hook that turns an MDS cap
+REVOKE into an IMPORT whose peer is the sending MDS (the cap pool was
+filled to its retention limit first, so the put really frees):
+ - without the patch: KASAN reports a slab-use-after-free in
+   handle_cap_grant() on the ceph_cap freed by ceph_remove_cap(); the
+   client loses the cap and the other client's write waits for the
+   revoke forever
+ - with the patch: the peer is ignored with a warning, the revoke
+   completes, and two-client read/write ping-pong and umount work with
+   no KASAN or lockdep reports
+---
+ fs/ceph/caps.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-Thanks,
-Fangyu
+diff --git a/fs/ceph/caps.c b/fs/ceph/caps.c
+index 3f4ac4d94d5b..ac780fdfaeb7 100644
+--- a/fs/ceph/caps.c
++++ b/fs/ceph/caps.c
+@@ -4652,6 +4652,21 @@ static void handle_cap_import(struct ceph_mds_client *mdsc,
+ 		peer = -1;
+ 	}
+ 
++	/*
++	 * A cap moves from the exporting MDS to the importing one, so the
++	 * export peer can never be the MDS that sends the IMPORT.  Caps are
++	 * kept one per MDS, so a peer naming the sender itself would make
++	 * the export cap removed below the very cap this IMPORT adds or
++	 * updates, and handle_cap_grant() would then write the freed cap.
++	 */
++	if (peer == mds) {
++		pr_warn_ratelimited_client(cl,
++			"%llx.%llx mds%d names itself as cap export peer, ignoring it\n",
++			ceph_vinop(inode), mds);
++		p_cap_id = 0;
++		peer = -1;
++	}
++
+ 	boutc(cl, " cap %llx.%llx import from peer %d piseq %u pmseq %u\n",
+ 	      ceph_vinop(inode), peer, piseq, pmseq);
+ retry:
 
->[1] https://lore.kernel.org/linux-riscv/20261119132744.396426-11-gong.shuai@sanechips.com.cn/
->
->Thanks,
->Shaui
->
->>
->> Thanks,
->> Fangyu
->>
->>>The change, if you think it is needed, fits better in the last patch,
->>>"iommu/riscv: Add IOTINVAL.GVMA invalidations". I am replying here
->>>only because the code is very similar.
->>>
->>>Thanks,
->>>Shuai
->>>
+---
+base-commit: 6a9830a8f414d3830c584782568d0233be969d09
+change-id: 20261120-b4-ceph-cap-import-self-peer-c230197b3f92
+
+Best regards,
+--  
+Xiubo Li <xiubo.li@clyso.com>
+
+
