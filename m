@@ -1,75 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795285687;
-	b=f2oBvrfaoNgaRCViSI9L2mcvn/jUC5dqTuFa/o1FAgbrsUOH/vtmeCDD/eNyez77z0wJ
-	 4RZ9pdrGMlyQP0am9mY+1n5zcDhHne7l1U6wC2mNfSnuh/1rZR1LRas3H9rMQ8RRXRHM/
-	 yMNfAaLuBekAsh6irY3e94QXcdvwHgaiuqorB+XsiWTT0me4gIGx9PFnuG3oYqm/sRtr8
-	 d83PXCwiLqLPCqPDysFEwd4jDXyrV9F1okfEjMyN5hBt18BU0tp31rdXejPXbB53RQqgf
-	 42SyxwdqEc/97iw5EsjpdhgDeOk0s2YcXcm3DX7EXTqiy2y0k4XTTZCNkrPzfIaMktA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795285687;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.42
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795285779;
+	b=SU8YmY9iuJGyx8gFpzDlZsJgTuwfr9fq45TNjlb9pbAxkYs5BldWvPvzj94uWJb+nlt3
+	 oCLE+p0KyZ3uihp/Wim+nKiRR7G1DUn9SdI4R7n1vnhRBN+BTHq1tX8j/4qoBXeQ5hbDI
+	 A8/a97DL9lVg9wTfupMYbF1BvObet0qdMSLDxqsiyxviv2d2PqieF1V3Tk1ASPwWI9qxR
+	 /87NuD0EQ5b3O8gXNsFyKtRmo21XJXtIhIKb3FMGP8pzn8mEkN65Np1zGfXEAn7IFTWac
+	 sTYQSc9kn+MXu/CpAgd7Bq+ubn7LcWcv+PiBGPnMGslqnOYrrKJvjeCojrMCwQp1oRw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795285779;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=yCcssTD+yjuJjPO5oBtaLbwjf70aLXXs2hchJn8Qrh8=;
-	b=JwzgZQyBQFYPu/dXimCj61wiJDSGU3y+xYrAhRB3oOAkVXBWVTNrIeXD0UinWdzulh5Z
-	 JZm0KDVZ3nGv8PE3LyydieiGYC5iCH9Ui+R+AqI53yuiDfSjvVzzoj0Yc8CFCkMYKdLxZ
-	 8u2sMcQNKHO67rYD2gvwf+nV164ZqYx6IIwvjKFKbrYOBMK1oeMdD/P0DHK3FZl+Gv+V2
-	 NJRIU4Z8YdQKfOt3BKkwOEorH0W9d3AXHyHSR0wyRm1nwrKUxmHyxcKYVq/0G5yKo6iJQ
-	 vgSERT5GiLbuZUc8Qojfu1kCcDH5vN6zZmhqeBdHf6baACFcMYF1dALlkOCqW5Hucdw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--cmllamas.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=T2oAa6xl;
-	arc=none smtp.remote-ip=74.125.82.198
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=8lV1mlfunlG0Z+KIHHP7dGizpthdTB34pPO145VjCj0=;
+	b=ETJp+uq9H+HoD5+1GeXYx4HmIuT/zcONCTsm38SVBxblUK/mcRiP1/1xhdaGaPZ22OaD
+	 fNX+XtT736McG3aakUlRtoayqfNrdF5IMRh89TBLRCA5Yd2XEjBEvhzYfqo68C0CQQYP1
+	 VS3HDD9TBsLG/iCIUCvl3YOwwaxlyUWeJnzWQXh+019nK//GIbEP/Wn70EONQC/gC3/Kt
+	 W8ST/8NeImOeT8ObSldQvb5byI7zDaqPa3piL1OC7yNBi2deqlChpXF5Z5X+b2Dwrwu1R
+	 g18i5P/FbidLxv3+1CNyh2lzzSZeBZ5FZdZ32Jw62jUdZOlSYrbukir0/2DBvVmIMJg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bWZNnK5x;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.42
+Received: from mail-yx1-f42.google.com (mail-yx1-f42.google.com [74.125.224.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C806606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:28:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C806606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--cmllamas.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF880606A336
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:29:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF880606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=T2oAa6xl
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-386a65fca25so59549eec.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:28:06 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bWZNnK5x
+Received: by mail-yx1-f42.google.com with SMTP id 956f58d0204a3-677bc4704cbso2379518d50.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:29:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795285778; cv=none;
+        d=google.com; s=arc-20260327;
+        b=AoBVKs6X8jomwOyJEnYyan5dSAFgRKSRvGu+enSzPx5673MRTdKTKyacmyhOMh9iHX
+         9ZJEdC/NgyDQsZVH23KTVsQx3fXIlXMKTv7IX4szx6PVYR3QtqRYZp8Gssx8kcrBtOsP
+         AetvDPff6dfLsmiyDrDCjOsE8NBBPsXUaSzR9Q53/GCmQ4ZD8pcMbHNu0Ish4iVniTil
+         uhPe/ua1sQX/OYf05mi6MTWScj5ezfEDnmycUyv8+im37guJAAxgqoSO0Fm7LGdOGcrP
+         mfJiUkoJQsVQIdB3ncTRpIdRviSw2znweBH7Dh+FJNSBayvi7kzaK1B03B0nw4okidFl
+         5iOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=8lV1mlfunlG0Z+KIHHP7dGizpthdTB34pPO145VjCj0=;
+        fh=pz08SDvS3q+m9VotBXSbQrA1tAnGH7oWuSS9AbmZDRg=;
+        b=kD78yarYc38niTQMT+Yj2Bqkl7sbJ8oGzz9cct1biz4xW2+zRVfp+QjZ1jV9jEOW2C
+         PKIWJF55P7nSQzOWGSuSV9lyfmC8pymLcYHL5dcSFnPLSH4s8TxdAPQM2LHdarXbyApp
+         +A5TxFQ0WLpG4vu1eG6fTxTb7D3HWSxMR3oYq1JHHpy6hqy2nkZR8IoVT0Hbseu7BXj0
+         gfebuOjWBRgj5iAjTi3WYkcL4Qze8F6OV6hP3G65aAavitMAGsaIQw2wOWoMTyeUKHK/
+         zrVjqB81vjnoOM1MF5OxU6AXSvAP4GXiDnr6pLMd5pgTAUuefvcJhDmYm2UqUuh/FkBi
+         bUeg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795285686; x=1795890486; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795285777; x=1795890577; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=yCcssTD+yjuJjPO5oBtaLbwjf70aLXXs2hchJn8Qrh8=;
-        b=T2oAa6xl6/LZvHB4W7BbgT4C0xtwjEiogX4UkC8eSDPGff0K+yTBZKR0gwh89nJykK
-         ms5Lnr16ohyeD/WHwxvtppoVPlxHBLGxxPgwW1xRExx1ZWl97sjWIqP+uQxuA94I25Ue
-         YardoQZy3VsIXw4s2itO5h53r7C9+Ya8kZZ091Zdqz2NAzjxygbKiceimpJr9K1wX1kX
-         sP44qEnuKGKItc+MAQrW8LnvjpuleKtPCqD4Z0izE7T2diNsc1p4Y389EYQL6rIZY1xd
-         Abk4x5CPToybUZ78maOsdDTr20DID0XUKESWz8Cyz+C5SydAo645x0mr0zyDuCEfpVR1
-         Z+LQ==
+        bh=8lV1mlfunlG0Z+KIHHP7dGizpthdTB34pPO145VjCj0=;
+        b=bWZNnK5x3F5FBrc8XhkPCBtafzaCS54wkPJOnb8N3PHGUqZ2BX0pgjxNIN9HWDVyoq
+         Ztl5ZnD8WC6TmXK7/KoPIvGGfwQRyfkYn5nXXq6b+IuBXY/3RtQaF7iG4xQI5Ywc87LK
+         +u2pef2mwGo+GwP2s46dkDT3bPzc1CINJ+l9E6qYzmE5m4VZmIs6fR6CarS2/hbxhyj1
+         OlUQK2+kZgAlIczrS51n9TotmAa00gIEQAS+4Sn9YL7FkafXxB19QUxx6arMmIoEbD3T
+         mB1rMxHB5cQcCwy8yYEvP4KqbyJyLMsvVNcrIhb3fzS+WTRze1UX+Hv4myd8fIUYSH//
+         Tdwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795285686; x=1795890486;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yCcssTD+yjuJjPO5oBtaLbwjf70aLXXs2hchJn8Qrh8=;
-        b=D2TLpZXuOlmmKmVn818YOMeO0Kow0xXuNW4uJxNCUDizFybqJN41c0CEOFt6JmyvKP
-         YvjNSDveC7Oigvdrq52FNGKEUSbIbj3/GaSHqvSsGM1ZokY6XpId8C0uLTjrQut1NMR9
-         WdiXkL07LVFdGFplA1e0SZxFV0UQmJE6WHiiLoSjJnFUOuGY2HDKNrr3HYjREOmmmaTv
-         kpzOa3cFKqtf7PQcyrNxnoS46qAeTcnRsLUhnS8pm3jx3XVLlPqE67LaVdaJjvszTDdA
-         +zqRFln9aaY4mB28QamaOr86S1864xEX4BOM6sjgmbV/LDj4WOBkETuGpaaV8AOQs7CH
-         zNVQ==
-X-Forwarded-Encrypted: i=1; AL+hErFrfjA7mWz0Qdep10EgDjKrBcjgOEvBiJKfc+awOcgrAVe2YlX3L+sDne7yYsM9Kub5PnAgdIXdxl3sud8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/2nA4cJrlLOUW3FWtB0sCpACg8o3YRS0AKYOMkwcCz3McEYKGu
-	/becSNRjrxc6prTwnrv9yOsUMHZxWwzOWKWnGirZ2kEhieShzBPQhmEsbA6D+kLH6IGUCjnRiJC
-	biIX0sPTcpwlCWw==
-X-Received: from dyu12.prod.google.com ([2002:a05:693c:810c:b0:35d:1771:4816])
- (user=cmllamas job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:7301:dd83:b0:386:5adb:ac29 with SMTP id 5a478bee46e88-3865adbb03fmr4466333eec.7.1795285685610;
- Sat, 21 Nov 2026 10:28:05 -0800 (PST)
-Date: Sat, 21 Nov 2026 18:28:02 +0000
-In-Reply-To: <--in-reply-to=20261118112933.477541-1-aliceryhl@google.com>
+        d=1e100.net; s=20260707; t=1795285777; x=1795890577;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=8lV1mlfunlG0Z+KIHHP7dGizpthdTB34pPO145VjCj0=;
+        b=su+Mqp47brDsFxc+Npf7VLoKwtKqXMjnEfdhRez5bFesQ9rH4Jx1wkUsFrhW/9Vb5H
+         kvUmQ0JFpTFFHnVf7mTpPoWe1Zf7ckz/KogkJ9hPGLaF18su7aJmXnKTdt0cHZrMfKjT
+         VQZJTy0NlHz/VQhXVFtYDxDStqqvBdOkctfKRUhb3x5kcTui6pE1vd+uIY8OOLcl23oy
+         pO+ld7ARvZ3FgaBsvyN4vnUAWgoYAKiBAyH0Ut8ahxRsxvNFCSBoHNf0qrNV8t1YtVFl
+         rGILsaO+TQExJZ+Z9e/whqXTG4ys6srTWZ7452X0XwNRo5K5RgXpqc6lGeozDFz0qUkF
+         Pl7Q==
+X-Forwarded-Encrypted: i=1; AL+hErE6q157ouP6Y4hWzBoVbX3vI1v9boaBt/6WiDBwu5QfDr+i93u6OhjC485zmFWNYllFkJfQRtI+aX9SKGw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+brASqX3JeptvhUqF6pQwWoy1GR94+D2/x9Ndu/mXRE3LoFxFW
+	Cl/BvWiaKNJVhWoXQljmBRPVPgA6lO7xyLUJttjIX7QqtNWEokNujgzRJdQ+bsfi80cPXCKPh+3
+	nfRVnkkTJFbjqywlr7YbIuF7p3SzZTaM=
+X-Gm-Gg: AZFdTZe5Kq2DwHWlLOG54QmyBYj0W4V2//zzdsNSZGjWm5UkXAifBNaMZ29df3aLtfK
+	eIZS+qec6ZIaFA1JirfuVXL5xoYy00B9PuuF+DNOAu3WweG9TZd8G5hQd6T4WmbbdiJJeysQUV2
+	0ZCzlz7VMCIY38nmsMwrmeogjrxCu0qBUk4f93QfWZPA6Naun0h7UPXGgQjesGEFnLqb215pz6b
+	wnPLMVdVVOPUfdAm9prCOelguLcDHhgaBdKwStIQa8TsAZTMTHTEdD/3kY2QcsLX5fRXJzip4B9
+	wFM+PBXpHhPyaZ4ANdzQbBJBhy8CtlwMQUb7d6Z9i1uq0VIvqJ9EJ0kkQq41m80Hm3woEqF+Wyk
+	Tr7oqf7nAFjwuPxG06+epf6grYsWKMPZYUSyW0GSBzOXXoEic2oWMhwGIgMX6C9TLkgHdM1o3
+X-Received: by 2002:a05:690e:4086:b0:67d:ac2d:d80c with SMTP id
+ 956f58d0204a3-67df42b59damr2470765d50.4.1795285777648; Sat, 21 Nov 2026
+ 10:29:37 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,71 +102,63 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <--in-reply-to=20261118112933.477541-1-aliceryhl@google.com>
-X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261121182803.2600723-1-cmllamas@google.com>
-Subject: [PATCH v2] rust_binder: disallow binder fd transfers
-From: Carlos Llamas <cmllamas@google.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"=?UTF-8?q?Arve=20Hj=C3=B8nnev=C3=A5g?=" <arve@android.com>, Todd Kjos <tkjos@android.com>, 
-	Christian Brauner <brauner@kernel.org>, Carlos Llamas <cmllamas@google.com>, 
-	Alice Ryhl <aliceryhl@google.com>
-Cc: kernel-team@android.com, linux-kernel@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org
+MIME-Version: 1.0
+References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
+ <729eeb67-d812-4f1d-81e2-4f4437181744@yahoo.com> <CAK+kzgzzcGPWVoXQ=VKFeojk+-=9S_mWBhMdcN44M9QXkihn-g@mail.gmail.com>
+ <c848fe82-a534-410b-80a6-8d7fb35ab0ae@yahoo.com>
+In-Reply-To: <c848fe82-a534-410b-80a6-8d7fb35ab0ae@yahoo.com>
+From: Gustavo Foletto Mora <gusfmora@gmail.com>
+Date: Sat, 21 Nov 2026 15:29:26 -0300
+X-Gm-Features: Aa3M54rpFSxZ7uu4Nu8kwXj4vOO1ZNNEv44XG4NuzhczSlabI7eoqMHvRg-6wHQ
+Message-ID: <CAK+kzgxmgdFoBhzNhfxB29yS_Hz13LOm7rZvKb6fpyVKb8kwdw@mail.gmail.com>
+Subject: Re: [PATCH net-next v12 13/13] net: dsa: realtek: rtl8365mb: add
+ support for RTL8367S-VB
+To: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, 
+	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com, 
+	linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	alvin.sipraga@analog.com, kuncy7@gmail.com, fabianotassotti@gmail.com, 
+	gabonpivovich@gmail.com, contact@c127.dev, o.rempel@pengutronix.de
 Content-Type: text/plain; charset="UTF-8"
 
-Transferring a binder device fd via BINDER_TYPE_FD or BINDER_TYPE_FDA
-has no valid use case and can create direct reference cycles that
-prevent Process::release() from running when a queued transaction is
-left unread. Moreover, a binder file is bound to the opening process's
-task, credentials, and mmap state, so transferring it to another
-process breaks binder's per-process ownership model.
+Hi Mieczyslaw,
 
-Disallow binder device fd transfers by returning EINVAL in
-Allocation::info_add_fd().
+On 21/11/2026 Mieczyslaw Nalewaj wrote:
+> 1. Does a non-zero value written to 0x0851 on your board change
+>    anything (PCP of untagged frames, or the register reading back)?
 
-Signed-off-by: Carlos Llamas <cmllamas@google.com>
----
-v2: switch to atomic_load instead of volatile as suggested by Alice.
+Not yet answered: on my test image the switch registers are read-only
+from userspace (regmap debugfs) and CONFIG_DCB is not set, so nothing
+writes 0x0851 other than the baseline's 0. It needs a test kernel that
+allows debugfs writes; I will report back if I do that.
 
-v1:
-https://lore.kernel.org/all/20261117231927.2200674-1-cmllamas@google.com/
+> 2. Does the Realtek API in your stock firmware have an 802.1p
+>    remarking table (internal priority -> PCP, with a per-port
+>    enable) for this chip, and at which registers?
 
- drivers/android/binder/allocation.rs | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
+Yes. The family D functions write the same registers as family C's
+rtl8367c_setAsicRemarkingDot1p*():
 
-diff --git a/drivers/android/binder/allocation.rs b/drivers/android/binder/allocation.rs
-index 927bf47d5d20..f998744f075d 100644
---- a/drivers/android/binder/allocation.rs
-+++ b/drivers/android/binder/allocation.rs
-@@ -9,7 +9,11 @@
-     bindings,
-     fs::file::{File, FileDescriptorReservation},
-     prelude::*,
--    sync::{aref::ARef, Arc},
-+    sync::{
-+        aref::ARef,
-+        atomic::{atomic_load, Relaxed},
-+        Arc,
-+    },
-     transmute::{AsBytes, FromBytes},
-     uaccess::UserSliceReader,
-     uapi,
-@@ -182,6 +186,13 @@ pub(crate) fn info_add_fd(
-         buffer_offset: usize,
-         close_on_free: bool,
-     ) -> Result {
-+        // SAFETY: `file` is valid and any concurrent `f_op` writes are atomic.
-+        let f_op = unsafe { atomic_load(&raw mut (*file.as_ptr()).f_op, Relaxed) };
-+        if core::ptr::eq(f_op, &crate::rust_binder_fops.0) {
-+            // Binder FD transfers are not allowed.
-+            return Err(EINVAL);
-+        }
-+
-         self.get_or_init_info().file_list.files_to_translate.push(
-             FileEntry {
-                 file,
--- 
-2.56.1.809.ga0b61035b5-goog
+- dal_rtl8367d_qos_1pRemarkEnable_set(): per-port enable, bit 12 of
+  0x000E + 0x20 * port
+- dal_rtl8367d_qos_1pRemark_set(): internal priority -> PCP, 0x1211
+  for priorities 0-3 and 0x1212 for 4-7, 3 bits per priority at a
+  4-bit stride
+- dal_rtl8367d_qos_1pRemarkSrcSel_set(): the remark source, 0x09DF
+  bit 2
 
+dal_rtl8367d_qos_init() clears the per-port enable on every port.
+
+One thing to keep in mind: the remark applies to every frame that
+leaves the port tagged, not only to the untagged ones. If I read the
+baseline's priority decision right (port priority only, weights
+0001 0000 0000 0000 at 0x087b), every frame gets internal priority 1,
+so an inverse table would also turn tagged PCP 5 into PCP 0, while
+today tagged frames keep their PCP (1 and 5 measured). With an
+apptrust that includes PCP, the inverse table would keep the tagged
+PCPs and give untagged frames PCP 0. I have not tried any of this on
+hardware.
+
+Thanks,
+Gustavo
