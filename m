@@ -1,55 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.25
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795295973;
-	b=rkDa4KuNdGjeAJpvBiFpoqTUHRZthhe8NFG3FyevsvBvrZWnDQsh6+iIxX+R/NPoKyE2
-	 uuFi5J4Rbn88TB+tsdFre0JTrfm4zhPIOdGnpnYBpRD4n93iRxJ0/igE3ROQD92MKJULK
-	 el3zEsljIKMN+FRKU6+ysC36xkKbaY77yZ0VVn/A9JnWvhX2jTwEZNZImbCg5C6XeL8ZD
-	 gdMGQVYO0l4MIzGoSL1rgkopW09J4xmfo/4VFprdlfHqne5Pbn3+4bQ/rwq3GwXXUXMH5
-	 HiJsKzPYGDJ69Z8jLp/0/Tw8PfSo+OAJPDGppDER8AislhQmOKUie6CrwauxVQWfQsw==
+	t=1795295976;
+	b=Kfx2yknza1jO3yREdN5MJ+fg9NasxSTMT3/FA/T2WVuVrzISjBhyVn2x0D/s0RL+aS6S
+	 ax6LGY+KIf+DlogspN9IBbwrdVFi52VyNzJtz0aGPK/Hm+J0S5Y4EGhFmoRR9wy8ulROF
+	 lCCIpJPik7CPqTppfy22R4ql0RaYY6asrLTLdwFQ1BktzdpJJG2E8X1nSU25mmC7w1gVc
+	 GovaFOMxgv9gZmQye9yzXCCiDA8AgVbcEPY+Nlvs3uNX0mFgT8HDu/vW7iZDY3mJxdN9/
+	 dDq0xryHoYGWjW8pCzSRN/x+Dj707M9b8UpvT8Ltw3Nw8Y6VJ0SncYxF8FDiL70WDXg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795295973;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=TwRAZOxTtTXy+S3cTIsOYqmghOtnES71mWdup4rt0co=;
-	b=iXWKxKgAng+KGoxH/vVDRrUYCA4BiJVKCN+nlArtxYxc76dl+qikgBReF1I4E/9naQwv
-	 FqaoPaCR3LEwsdcv1ZeKihgz3xWUORZOfmTqsGBIlXzzInDjtD8uRGwRbKiV6QFad0TNQ
-	 J71bGBB33fQ+FWMzlyy+E7tWRu1i7/vlsB90Mim4WUT9eQ8oC2CxZ4nB6hruyohpmHwvc
-	 h6++VOTut62Dvy4n/F3x41t0BZZUMqktO2Xs2oAFw7UlMBOhtcvaX3/ytLXBM7CIR5TAL
-	 ctPjqxfW13oCsA+AJQm0+/PWO0LBuMhG+85X3eRerSUZqTgyN7eKfL9Gs8sPT9MKs2g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795295976;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=FIae99VdjOnktXUaF8ZSc8D6iFOOoPDveBDju+SVuiI=;
+	b=KZPQeiA9OntKJoL96jiesGLRBaQyKioqp7I7NjKxMPih1juQ6bxO9OI8/EGvstqbPKw0
+	 cDEZlUJnDMlF/9dhOkzHNtlLFxEuDMwP+52mw1R3x04MdxSRewrLl4h5XNGnkoz/pe4XL
+	 BCy//Rp/PdHq4d2iORIJFb3+iOud1NSBNGn2xQ5EnHFHmJt5Q+uDrNSs6sHSvwGhd0lfP
+	 //xNPuzPRFcQRcbtMmEVXnLkVGc0tNZXgE9vG0jS9E57giBrHwwQVaB2GxNikIEoOMIJw
+	 bWhpbJZYqmzScE3BdtEjars9NfswDdWsYcAN2OrsuI9t2TsciDcxhosldKebJqhsl3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FhMdTVcv;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=raidlab.org;
+	spf=pass smtp.mailfrom=raidlab.org;
+	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=VHVYYKRD;
+	arc=none smtp.remote-ip=79.135.106.25
+Received: from mail-10625.protonmail.ch (mail-10625.protonmail.ch [79.135.106.25])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80F6A606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:19:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A677A606A682
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:19:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A677A606A682
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=raidlab.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=raidlab.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FhMdTVcv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B6A81F000EC
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:19:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795295973;
-	bh=TwRAZOxTtTXy+S3cTIsOYqmghOtnES71mWdup4rt0co=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=FhMdTVcv7hTTIDYEMkZDmUO3HkhrUrXxLq3vHaLlCKM7YzylsICoYIYrTJzEPLoo9
-	 74m27GMvvah0DCKBWuQ6PrnTPtuQi0Mj5HochkXuFFLwSUgkupkE8pd+D4gi6l8yMY
-	 WiUsK6auPbm+CABDYq9ad1u8O4HV35tHtAx5BB0lbe7E/mMLpijZg+MBBW/og4WDVH
-	 PnrfIXeF49zLuvj/Zw5vW+24lreUmuBdqsnfKXERsHh8i+AdH9+H6q+Pj+wwBVoq9c
-	 4qZChs2Zy+IC0Q+zSRy0r9qNqwm36fY+aC33daLbfWwMzTKC/LoszT1mf+BmYgeGrY
-	 KtJv2l90OFpxQ==
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5c14f3dab66so1649542e87.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:19:33 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErE21C9Q+6nFXjkfrWS9/6olfUtOVC2xak4sugAErj2Te9MSXogThUFvkL5rmcCZyFYXFEb9lVw0eeP2qx4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9NDUSpXad2AjpRq2Hh38ODZh4Zy1mXkRf4bwwsDy4fTiSzvFEj
-	jsHu9ZlKjymhA9I/kgFOKRv7NcHfPJHKLLMtXIYoRhEvFyxFLTODnQzNTPYpGiRKc0Zy90CzKOh
-	IkhYczuLzXsq7gxyJ7Xh3qWTpGoQbXkY=
-X-Received: by 2002:a05:6512:2c90:b0:5c1:7c6a:fefb with SMTP id
- 2adb3069b0e04-5c1bc822245mr1829531e87.5.1795295972116; Sat, 21 Nov 2026
- 13:19:32 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=VHVYYKRD
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raidlab.org;
+	s=protonmail; t=1795295972; x=1795555172;
+	bh=FIae99VdjOnktXUaF8ZSc8D6iFOOoPDveBDju+SVuiI=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=VHVYYKRDAtKO4egAWKVZIKcjlJep4ohIz535qTP8+M9LYJCKzC/d/wouGFVOFSK7L
+	 28UOKuWwUXhTUueNng8TUNWIlW0+Ns1zTe/z1z24fT5k1L+MTDjFubRT6TUmQHyGAn
+	 LyeN5dKNF7yJ1QcwyqiYvhsONV+ag+4f2YGwzr/rcf6qlwwEx65UafUTEBB6BgPOH0
+	 bWrlkdhEjoG7TLfuudaSNYJUEe+8Al4eNaWyN6XNGvjyljnnsLy0HmleB9p2rTKASs
+	 DIHvcGmdsiOduCT0BnG5pIuVbAsizoPH4elTGi9UsFScaBYn8MLVA7jLai2Ux42Jc3
+	 1e3hLQO/KaATg==
+Date: Sat, 21 Nov 2026 21:19:27 +0000
+To: linux-btrfs@vger.kernel.org
+From: Miroslav Cimerman <mc@raidlab.org>
+Cc: David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>, Naohiro Aota <naohiro.aota@wdc.com>, Johannes Thumshirn <johannes.thumshirn@wdc.com>, Qu Wenruo <wqu@suse.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 4/5] btrfs: zoned: use the highest RAID1 write pointer on degraded mounts
+Message-ID: <Zsyg3rL37zRaM6G8PMk9I9QQ94L5mPmCjqZBvTUdSalcGjfQoAnV2XD_0EVngvGjkzSMg39jfSTV-qoo66B2KV6tJcUTN-ogQNlRzF4qbK0=@raidlab.org>
+In-Reply-To: <20261121134550.216217-5-mc@raidlab.org>
+References: <20261121134550.216217-1-mc@raidlab.org> <20261121134550.216217-5-mc@raidlab.org>
+Feedback-ID: 232820807:user:proton
+X-Pm-Message-ID: 8f63fdd4432fb1199f9e2ef81906bdc9a41b0391
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,52 +64,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261015142552.4128028-1-ryan.roberts@arm.com> <20261015142552.4128028-2-ryan.roberts@arm.com>
-In-Reply-To: <20261015142552.4128028-2-ryan.roberts@arm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Sat, 21 Nov 2026 22:19:18 +0100
-X-Gmail-Original-Message-ID: <CAD++jLma8atXB=eT8TvvYfKMg=h6YGPY4THsYhLCeo2VumeJrw@mail.gmail.com>
-X-Gm-Features: Aa3M54r702fjHjrynCh9jy5iyOc-dutIFRI6s0mpbPcKoEHETe8434E7oYhGyyA
-Message-ID: <CAD++jLma8atXB=eT8TvvYfKMg=h6YGPY4THsYhLCeo2VumeJrw@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 01/15] misc/arm-cla: Add driver skeleton and documentation
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Alex Williamson <alex@shazbot.org>, Jason Gunthorpe <jgg@nvidia.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jean-Philippe Brucker <jpb@kernel.org>, Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, devicetree@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
-Hi Ryan, Jean-Philippe,
+Sashiko's review of this patch [1] found that on a degraded mount, a
+RAID1 data block group whose zones differ in their active state can be
+marked active without all its zones counted, or, if it is full, left
+inactive with an open zone that is never finished. That is right, but
+not new in this series: the base compares the active state with stripe 0
+the same way and skips the activation on degraded mounts, 1/5 only
+compares with the first present stripe, and 4/5 changes it for metadata
+only. The 1/5 note mentions the first case and a block group with room
+left, but not the full one.
 
-On Thu, Oct 15, 2026 at 4:26=E2=80=AFPM Ryan Roberts <ryan.roberts@arm.com>=
- wrote:
+I reproduced both on the base and with this series, and sent a fix that
+applies on top of this series:
+https://lore.kernel.org/linux-btrfs/20261121205657.1108500-1-mc@raidlab.org=
+/
 
-
-> +/**
-> + * struct cla_dev - CLA device
-> + *
-> + * Immutable state:
-> + * @cpu:               The CPU this CLA is attached to.
-> + * @dev:               The platform device.
-> + */
-> +struct cla_dev {
-
-Don't abbreviate compulsively, cla is fine, I would
-call it cla_device.
-
-> +       unsigned int cpu;
-> +       struct device *dev;
-> +};
-
-I will argue in other patches that this should be a proper
-struct device and not a pointer to a platform_devcive
-&pdev->dev.
-
-Yours,
-Linus Walleij
+[1] https://sashiko.dev/#/patchset/20261121134550.216217-1-mc%40raidlab.org=
+?part=3D4
