@@ -1,58 +1,64 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795231502;
-	b=vtxe+9d8sN3GYujw2f4igrrXgZ6+4cY8kHE/9AM8HvQoHCj0gla1YctnvJ6f3lFC0bFx
-	 99zo9jIzIwVXTpg6MbL9rVazZ7osGTQc5eyB5jVfOZr10W9xhZUdr9ZLzqrfWXVXai/XK
-	 vX8Z2EgjZqMhwPbmyZJyzVbiZUgaofPefe9lQNEQ2V6GFpYynqWwbPR0yU44HA53CWPf4
-	 lql2G5Nb7DXP/QF9iHck2HByllhfJAZwLQI9uipmyxVXQtZVd9EVNCPQVs1R99QVvSQj4
-	 uze0rOUTzg+Lj+ZDLUijewre0DzfBGC/qVoD4FuLoYwyZeDC6UxtqmXvFmNWsV9GHhQ==
+	t=1795231504;
+	b=CHx5dIgZfoGsln+hmSFTi5Q5/TYKkly1eMNP8tr1wSJi03SdkBGZsU7+xu6O4Z7QE1TI
+	 lYQ/Xy4lsIdlVyMarAOvaZRnYDnElgo72PvuB4/alVbwRh634p0TszONB9UM3qMXVL77I
+	 HlH/pzj08yyjo3BI4oDd82zA4E9OZoZZsSxMYNpucuXNEu/qrY0SonfHxSWaDgdfWUc2e
+	 ZQOCgHsMKz8U/++mLG+nx3maT/HVsYokMx511a08WeefIDOqC5gAP7VxRUf3DMFFFlQFe
+	 246SG9HXvzpbpDX7xH9ANtRdQeV8A8RhbtGTvKliNjKlCH+qTaSFAlkbMZFsB4804MA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795231502;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795231504;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=lvSyLytB5SwO0LPvkN3MPCaXDUFv1bn9tN9WJbt8r6Q=;
-	b=uGmHf7HZ6N2qOdIhiUK0hZDlnUSrZEyAzCMrSX062KHN1VpCbldoLPCZzCOdL8GfBjgJ
-	 bOW0enWslM0fpelBfkM7d7TrWc9/z0V7/w0mwYVTW6hxCgk2Qfzj9JQEJqLWh6SiGgR3Z
-	 JFkghamkPVZoMBM9Cs5yKd97b0JAtmA/ay3CHbUFJyKUR01AZhFdj8WBEKHjzDT/FnK7s
-	 d6IHVxY/XTXNnblBnDuwJSAlRw8yEXzq65zMqJXow8wXYNud29EoXnyoo5dojkmovMyOj
-	 KXqWoeOTIszlpqlAIPJNGre3WImNl0gGsDkM+JPl7B/EROpqUuvdU9neslITT1K+hZA==
+	bh=dFoQ7O2IGK1nSFEodFxJ6wg6pducvyR4YJQYYfyNJSQ=;
+	b=2ngx07B10u/GXOipTU9YDOCUbJLHDFPQaqJQ4+LhWJ5aGWy/E6LOKetA7DLynVZsFfIy
+	 glqti9631WFxmrOk1Tnjamu4cBVeuT91bErPR52hu071qZzP1uJqRUU3JeAvXwYXTSMMS
+	 KwGFWI/LGATZu//3ZqoxYRcB4t6lXqM+OlfnLQkc26gmpNMmta++2R6duPFrPAjwU7B6e
+	 zSuZZt+EVWvRwZEnvFJoP8L1kFxcsKAlYbNu01rPouu5U/XE+5OTS9NvxVu732wTuxi6L
+	 0VgarYKtYzg1Z/mtM4/eMUZzhAdyKBfJ41VeAcfDECsxEyaat5yZs/8fD0ngmTdIs9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hsisy7x6;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jHvicj5p;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A84C4606A338;
-	Sat, 21 Nov 2026 03:25:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F044606A6B4;
+	Sat, 21 Nov 2026 03:25:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hsisy7x6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81B841F000C4;
-	Sat, 21 Nov 2026 03:25:01 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jHvicj5p
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 903611F000CA;
+	Sat, 21 Nov 2026 03:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795231502;
-	bh=lvSyLytB5SwO0LPvkN3MPCaXDUFv1bn9tN9WJbt8r6Q=;
+	s=k20260515; t=1795231503;
+	bh=dFoQ7O2IGK1nSFEodFxJ6wg6pducvyR4YJQYYfyNJSQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Hsisy7x69QPQ4mQwO4vYWpJz+wIDoJQ4ef4aQSyHktC3aEINhK04Te27z1g0G7Kp7
-	 8XMVIWb+aMqntPnuq6w+93RPo0FaYsEFZcrZLhkKWCgcR618edK4Df/UQBzjeJhuEg
-	 wgzEkk3n/AnrJUzegdazauo1dkdkUhQsiHLPue2CcgzsdjH3r9yEw3uUtOF8jrEXpU
-	 +o2WWIKctUmF5fRDw1utuoYTb9q3X9R4+wNn0bV914HIcryTVHL4gyfP6i8N6qck8y
-	 aOxTo8+oob+szDQC6kWDHcyGTZitotQftopsxrJMesS+YjUATveKtb7ZmSe42gbb/A
-	 IaNTT3YU2qrRA==
+	b=jHvicj5pwn9sYzEq1EiiCrmFI0Hs6b30eRNfU74OyjDjM5Crvj03ZpxKJRnP8nJFK
+	 1j7SCBSWNseSzmrN6O5KJ78OL0kVXhs2IhiZj2Yr5fma9zoR36msDxSBFmj+RnsbGF
+	 w6RUmVRU6Tq+rl24BS9RmbaJ2zu1hdmYyRRAz32CPsgBaoL3bv0fvW5ZGdrHeexNL/
+	 EflvAcfZ6dva0yvTtXNIhYmnMJCQL3iZl5RZK51OmzOIXMkirufoDlcfNN5L/0bo4H
+	 L0p0lKRJjTqFduq/9eDcsG7caqmt4lgEpwhiaABYJDdyWOIBFZ9lCyjGII9v6ntLQ0
+	 hL/0u58IAORPg==
 From: "Martin K. Petersen (Oracle)" <mkp@kernel.org>
-To: Ciro Iriarte <ciro.iriarte+software@gmail.com>
+To: peter.wang@mediatek.com,
+	chaotian.jing@mediatek.com,
+	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
 Cc: "Martin K . Petersen" <mkp@kernel.org>,
-	target-devel@vger.kernel.org,
+	chu.stanley@gmail.com,
+	alim.akhtar@samsung.com,
+	bvanassche@acm.org,
+	stanley.chu@mediatek.com,
+	sashiko-bot@kernel.org,
 	linux-scsi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] scsi: target: compare all six ISID bytes when identifying a nexus
-Date: Fri, 20 Nov 2026 22:24:49 -0500
-Message-ID: <179523145636.420187.17732155640521575769.b4-ty@b4>
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/2] scsi: ufs-mediatek: fix va09 regulator lifecycle
+Date: Fri, 20 Nov 2026 22:24:50 -0500
+Message-ID: <179523145639.420187.12014570853735820164.b4-ty@b4>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <8b1ac7d9-b0e4-42ac-b8a2-c4c70cccdddc@gmail.com>
-References: <8b1ac7d9-b0e4-42ac-b8a2-c4c70cccdddc@gmail.com>
+In-Reply-To: <20261119071611.117-1-laixiangwu@cmss.chinamobile.com>
+References: <20261119071611.117-1-laixiangwu@cmss.chinamobile.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,21 +71,23 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
-On Mon, 09 Nov 2026 11:31:01 -0300, Ciro Iriarte wrote:
+On Thu, 19 Nov 2026 15:16:08 +0800, Xiangwu Lai wrote:
 
-> lio_sess_get_initiator_sid() reports the ISID as twelve hex digits, and
-> iSCSI TransportIDs carry the same digits. __transport_register_session(),
-> __core_scsi3_do_alloc_registration() and
-> core_scsi3_alloc_aptpl_registration() turn that text into
-> sess_bin_isid and pr_reg_bin_isid with get_unaligned_be64(), which takes
-> the first eight characters, i.e. the first four ISID bytes.
+> Two fixes for the va09 regulator handling of the Mediatek UFS variant
+> driver.
+> 
+> Patch 1 converts the va09 acquisition to devm_regulator_get() and adds
+> an .exit callback that powers the M-PHY off, so the enable count is
+> balanced when devm releases the regulator.
 > 
 > [...]
 
 Applied to 7.4/scsi-fixes, thanks!
 
-[1/1] scsi: target: compare all six ISID bytes when identifying a nexus
-      https://git.kernel.org/mkp/scsi/c/fb8fd1da808f
+[1/2] scsi: ufs-mediatek: use devm_regulator_get() for the va09 regulator
+      https://git.kernel.org/mkp/scsi/c/def1745a6a8b
+[2/2] scsi: ufs-mediatek: restore the M-PHY power state when va09 disable fails
+      https://git.kernel.org/mkp/scsi/c/71b5da0b45fb
 
 -- 
 Martin K. Petersen
