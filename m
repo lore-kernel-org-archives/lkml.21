@@ -1,62 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795263983;
-	b=0+HV0ZtD8VqONnbrDXhumKkp2ClNTj6EQ9YzHuWzFjtAhfHNC9ACfiAWAUKg906fQg9S
-	 HhAI4BeldzSoxfuGucA6RJAqUhpwQp4BKOC+Y+YStcxPXi54tpWAhqzT5g6onaT5QBQCM
-	 RRBhgqBy095fifb0UQFefZbX/rSDKrsTLWdsJTQxlnF0UW1/PZfH6DIKvkT7w+IIzFZVo
-	 Izl8UWR4LWKzAikqWo9d0xbcxjdSQu2hvJ9a0j6p5WFv3yQF1aBHsdJNC0LyUlQhVa2hL
-	 lI8q0WgLkClfWehxzpVeRpsWdJZmi9gKFwdVVE04muKQ5X3mf/3zZU7YcVsTI6OUTsQ==
+	t=1795264100;
+	b=QWlBOfwnbmAiWjNlDreFdPpzw0wDQCGVashedCmUwU8arRLVz2TdFyKDIWqJBpo/CiP0
+	 dmsA1JHaB1YpNsp1HXloNn5445SfNJ9f8wcZ/svaRDkf3e1yTCAiqEhLWcOFBtm2PJI1V
+	 /BnPpbVuH22yl80rj+Ekb58dG+dNEanbSSPWINoDIvcuI2DlCCV0gdhdgAgk+j8RR329w
+	 7m3fqVLxD+HqrxE9R730jq905xD/gQs++LsnscJDD+7NUwMo50u0RArz5KRClbs6ESYbk
+	 G57f3Gd4VwrkxDJqHk0caKVvcC0W3zIA8lHNqpp2R8jfQzXNuIFitRyDi80qZnygcQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795263983;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=C0neY9nO3KCbPA/3zfsAmJZKfNu+EcSR5phNhBE+ICg=;
-	b=DhIj0xdtfd/sGSHWvqrFVinQb5N0RPNMG9oSUWP9vk2lvK580mEMwIq3zI/DFxoO14TY
-	 m0BCOX8ewu5plIF2MF2cJjPe/P+ePnNA7ntIW0ni1I/WXWgyifnJKolaDqC9DhUoYaLcT
-	 pzY7J1wQDak3/KXxgtwdygz8ojfQQtNis1VSx9xRgBJ56+SgV/1/gAkh7OI9a3RTREkpA
-	 xvJejQ4pXYyIfT/bMQV7alFm1n22fWFmAWd7LuTkFpCbNTdxudDg/lacQQ4MRNENRPoei
-	 LfNnf/GwA3AgYU9qwsmYHtf+oD1VFoJg9+tr99jhOYLv21I6j4vTOYD7aAu3ek+5Kbw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795264100;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=7H6yTJgiXVjurwuVwDh2bU2c+2wm8uECQPTv4Fe2SXA=;
+	b=fmxgws+/NLKIOAC4YhPc9nxBat99vY524jJmvVgbQWJirb4KzfK+a2BWWlR/SA1wUL8H
+	 iWU8xxLyJyCQVOGmqFXtGMemyhZSIAMSSJfpluIJqfFlOVIkLCFvvLH8QiiHvW6UlME8v
+	 hq3E1Bahy4tEDftw/IMLRmYDL/WDezvpTFA1/TsH/JukgW0FilvAgO4bRcN1pV9OdYnmr
+	 V2VebIOVp/Nu1GqwMrfA+WFmtwK164yJpSv5PzKO9iC3vG9bXmkCcSMfZ+Rha5RbOE+4W
+	 3MOUagaD/6Q5BvI8k1TvjIeZsdwGKuT6GM2fX6vTH9F5kbrIsAq6YcUQNcj5APgqjfw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lBJKd2gZ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FwLhBHfu;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 055B2606A320;
-	Sat, 21 Nov 2026 12:26:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24329606A320;
+	Sat, 21 Nov 2026 12:28:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lBJKd2gZ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C998D1F000C0;
-	Sat, 21 Nov 2026 12:26:19 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FwLhBHfu
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8C5C1F000C4;
+	Sat, 21 Nov 2026 12:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795263982;
-	bh=C0neY9nO3KCbPA/3zfsAmJZKfNu+EcSR5phNhBE+ICg=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=lBJKd2gZtJqmOhALUfIZFUGEvMU9nWGSgsPCQlQVBuILcl3ryODy3jrX3L+5KxaNE
-	 A5/UKy/VB9vg4xYZhigz4P5PaLg6q1sMJT26HWNFfUv4AiGMxWPn7/En1V+bzGAWZ5
-	 VnEF0dOMlckg76+ITSXFVB4vjFF5pTCqrn2L8KbdQ+SSEWVkRnqQ6/0ZBXkJYcFbMz
-	 ftRuhMvhUqewdzBr+hYn/LvI7xnCqMSiKxGDJT8W4F4NOTXhnuQ1sQ2OPsDwmJ0IDx
-	 2Rig2v2Ew16plr0Ar6yUMRxKRLYoYEh+XLDaTaoxTeXyM6DEL4tncZsQ13OigoyRT5
-	 qgkzmGsCcGG4w==
-From: David Hildenbrand <david@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, 
- Nico Pache <nico.pache@linux.dev>, 
- Jerrin Shaji George <jerrin.shaji-george@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Arnd Bergmann <arnd@arndb.de>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, 
- "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: linux-mm@kvack.org, virtualization@lists.linux.dev, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- Shao Mingyin <shao.mingyin@zte.com.cn>
-In-Reply-To: <20261120-b4-balloon_nr_pages-v1-0-d8944b587819@kernel.org>
-References: <20261120-b4-balloon_nr_pages-v1-0-d8944b587819@kernel.org>
-Subject: Re: [PATCH 0/2] mm: two NR_BALLOON_PAGES accounting fixes
-Message-Id: <179526397954.4537.13435944828068166975.b4-ty@b4>
-Date: Sat, 21 Nov 2026 13:26:19 +0100
+	s=k20260515; t=1795264099;
+	bh=7H6yTJgiXVjurwuVwDh2bU2c+2wm8uECQPTv4Fe2SXA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FwLhBHfufqwXZeNQ6Ov4B6OaGsVBAJ7XCHmXMbe+iEf3NnGJNqugTCNnCqhTQoYAb
+	 BBJp9SNsbW6yhDKVEJ6/M/hBR73MRngtUM1/NljbzqQvRj6n7crSDUsPfgMX/4eVTK
+	 jV7+LrLJwBAe4skUxuniF7o5VLOvOgLLlBO6ViiFZsG+hhgRLcpEFHLKBUjSQDDmGk
+	 L4Fh3bTgM354j6HGyg4U40vIUnu0IGVPRJ4Fs9vivT+LojFuv7a/Ff82Olf3RxtMKF
+	 ts2RqWuYnMTRfEfKclwTJSoFxVWJ1701Bek1Vgt8Uz1SODFtG4+KtBrH9xBQyD6p18
+	 BfLyZtdUxyjIA==
+Date: Sat, 21 Nov 2026 13:28:16 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
+Cc: Johannes Berg <johannes@sipsolutions.net>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Jeff Johnson <jjohnson@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	linux-wireless@vger.kernel.org, devicetree@vger.kernel.org, ath12k@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH ath-next v3 15/15] wifi: ath12k: add Wi-Fi 8 PCI driver
+ scaffolding for QCN9575
+Message-ID: <20261121-astute-calculating-hippogriff-69ecfc@quoll>
+References: <20261118-wifi8_qcn9575_bringup-v3-0-9875d2a3953f@oss.qualcomm.com>
+ <20261118-wifi8_qcn9575_bringup-v3-15-9875d2a3953f@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,41 +63,127 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261118-wifi8_qcn9575_bringup-v3-15-9875d2a3953f@oss.qualcomm.com>
 
-On Fri, 20 Nov 2026 11:34:41 +0100, David Hildenbrand (Arm) wrote:
-> two simple fixes for NR_BALLOON_PAGES accounting. I can take both
-> through the mm-core tree.
+On Wed, Nov 18, 2026 at 01:45:38PM +0530, Madhavan Ganesan wrote:
+> Add QCN9575 PCI window register constants (WINDOW_VALUE_MASK [25:19],
+> WINDOW_STATIC_MASK [31:7], CE_WINDOW_MASK [13:7], UMAC_WINDOW_MASK
+> [20:14]) and a Wi-Fi 8 reg_base instance (ath12k_wifi8_reg_base) for
+> per-device window selection. Implement ath12k_wifi8_pci_probe() to
+> configure QCN9575-specific PCI settings: MSI vector layout (3 MHI, 5 CE,
+> 8 DP vectors), static window mapping, window register address (0x3278),
+> and hardware revision. Call ath12k_wifi8_hw_init() at the end of probe
+> to complete hardware initialization. Define the Wi-Fi 8 PCI driver
+> struct with the probe callback, and register it with
+> ath12k_pci_register_driver() in ath12k_wifi8_pci_init().
 > 
-> I tested patch #1 briefly in a QEMU VM with two numa nodes.
+> This series only adds Wi-Fi 8 platform scaffolding; QCN9575's CP, DP,
+> and MAC datapath support will be posted as a follow-up series.
+> QCN9575_DEVICE_ID is intentionally left out of
+> ath12k_wifi8_pci_id_table for now, so no physical device can match and
+> probe until that follow-up series lands. The id_table entry will be
+> added in the final patch of that series, once QCN9575 is actually
+> functional.
+> 
+> Tested-on: QCN9274 hw2.0 PCI WLAN.WBE.1.6-01243-QCAHKSWPL_SILICONZ-1
+> Tested-on: WCN7850 hw2.0 PCI WLAN.HMT.1.1.c7-00108-QCAHMTSWPL_V1.0_V2.0_SILICONZ_UPSTREAM-3
+> 
+> Signed-off-by: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
+> ---
+>  drivers/net/wireless/ath/ath12k/hal.h       |  2 +
+>  drivers/net/wireless/ath/ath12k/wifi7/hal.h |  2 -
+>  drivers/net/wireless/ath/ath12k/wifi8/hal.h |  1 +
+>  drivers/net/wireless/ath/ath12k/wifi8/pci.c | 89 ++++++++++++++++++++++++++++-
+>  4 files changed, 91 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/net/wireless/ath/ath12k/hal.h b/drivers/net/wireless/ath/ath12k/hal.h
+> index 9e88bdf4a93b..b30a8039b2ec 100644
+> --- a/drivers/net/wireless/ath/ath12k/hal.h
+> +++ b/drivers/net/wireless/ath/ath12k/hal.h
+> @@ -11,6 +11,8 @@
+>  
+>  struct ath12k_base;
+>  
+> +#define HAL_CE_WFSS_CE_REG_BASE			0x01b80000
+> +
+>  #define HAL_DESC_REO_NON_QOS_TID	16
+>  
+>  #define HAL_INVALID_PEERID	0x3fff
+> diff --git a/drivers/net/wireless/ath/ath12k/wifi7/hal.h b/drivers/net/wireless/ath/ath12k/wifi7/hal.h
+> index 19e02bb16ff2..fe880b0befcb 100644
+> --- a/drivers/net/wireless/ath/ath12k/wifi7/hal.h
+> +++ b/drivers/net/wireless/ath/ath12k/wifi7/hal.h
+> @@ -31,8 +31,6 @@
+>  	((hal)->regs->umac_ce1_dest_reg_base)
+>  #define HAL_SEQ_WCSS_UMAC_WBM_REG		0x00a34000
+>  
+> -#define HAL_CE_WFSS_CE_REG_BASE			0x01b80000
+> -
+>  #define HAL_TCL_SW_CONFIG_BANK_ADDR		0x00a4408c
+>  
+>  /* SW2TCL(x) R0 ring configuration address */
+> diff --git a/drivers/net/wireless/ath/ath12k/wifi8/hal.h b/drivers/net/wireless/ath/ath12k/wifi8/hal.h
+> index c99521abdcb3..89fa9a7f3fd9 100644
+> --- a/drivers/net/wireless/ath/ath12k/wifi8/hal.h
+> +++ b/drivers/net/wireless/ath/ath12k/wifi8/hal.h
+> @@ -11,6 +11,7 @@
+>  #include "hal_desc.h"
+>  
+>  /* WCSS Relative address */
+> +#define HAL_SEQ_WCSS_UMAC_OFFSET		0xf00000
+>  #define HAL_SEQ_WCSS_UMAC_CE0_SRC_REG(hal) \
+>  	((hal)->regs->umac_ce0_src_reg_base)
+>  #define HAL_SEQ_WCSS_UMAC_CE0_DST_REG(hal) \
+> diff --git a/drivers/net/wireless/ath/ath12k/wifi8/pci.c b/drivers/net/wireless/ath/ath12k/wifi8/pci.c
+> index 3975081d167b..fd0489f8333f 100644
+> --- a/drivers/net/wireless/ath/ath12k/wifi8/pci.c
+> +++ b/drivers/net/wireless/ath/ath12k/wifi8/pci.c
+> @@ -5,14 +5,101 @@
+>  
+>  #include <linux/pci.h>
+>  
+> +#include "../core.h"
+> +#include "../hal.h"
+> +#include "../hif.h"
+> +#include "../mhi.h"
+> +#include "../pci.h"
+> +#include "hal.h"
+> +#include "hw.h"
+> +#include "mhi.h"
+>  #include "pci.h"
+>  
+> +#define QCN9575_DEVICE_ID		0x1113
+> +#define WINDOW_REG_ADDRESS		0x3278
+> +
+> +#define WINDOW_VALUE_MASK		GENMASK(25, 19)
+> +#define WINDOW_STATIC_MASK		GENMASK(31, 7)
+> +#define CE_WINDOW_MASK			GENMASK(13, 7)
+> +#define UMAC_WINDOW_MASK		GENMASK(20, 14)
+> +
+> +static const struct pci_device_id ath12k_wifi8_pci_id_table[] = {
+> +	{}
 
-Applied, thanks!
+Why do you need an empty table?
 
-tree: mm/core.git
-branch: balloon-7.5.misc
+> +};
+> +
+> +MODULE_DEVICE_TABLE(pci, ath12k_wifi8_pci_id_table);
 
-Applied patches will appear soon in mm-next, followed by linux-next.
+...
 
-Please report any outstanding bugs that were missed during review, so we
-can either drop the patch series or decide how to fix it up.
+> +static struct ath12k_pci_driver ath12k_wifi8_pci_driver = {
+> +	.name = "ath12k_wifi8_pci",
+> +	.id_table = ath12k_wifi8_pci_id_table,
 
-It is encouraged to provide Acked-bys, Reviewed-bys, and Tested-bys even
-though the patches have already been applied. If possible, patch trailers
-will be updated.
+I actually wonder how does it work with such table - what is its
+purpose?
 
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. Further, this is not a guarantee that the
-patches will go upstream. If in doubt, please check the listed branch.
+> +	.ops.probe = ath12k_wifi8_pci_probe,
+> +	.reg_base = &ath12k_wifi8_reg_base,
+> +};
 
-[1/2] mm/balloon: fix NR_BALLOON_PAGES accounting during page migration
-      https://git.kernel.org/mm/core/c/99d23a24
-[2/2] vmw_balloon: account 2 MiB pages in NR_BALLOON_PAGES
-      https://git.kernel.org/mm/core/c/7e980d06
-
--- 
-Cheers,
-
-David
+Best regards,
+Krzysztof
 
