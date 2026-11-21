@@ -1,98 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.48
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795223119;
-	b=SLexFbVllmdPqLAn+AGRFUgyQJBEgHTQjdIT5VX2oG7iylsKyc3aTUwu7tDR7ab+yHgk
-	 QG7GOrRWTalyGZ5/GMhGblJATKaS+d2eV/a5emmyKL5qRUbc7k2WccISMSlOL8rI35Axg
-	 Yo9RG1DfhIQN7UUYe9ALgMDhtk1WFVHKsX2Bjk0l69pNdMZo4bexRl77eidc0/aEXN5/F
-	 O2bGRIgGec4nsc1K0vQ6GDE/bBTmOcvQt+uZvcczPZcSHBtx+3zGEzZKP6DQ0B/KVARsy
-	 hDX0V91maOC5BlXwIalzLR9IlOq1JxKw3Bfzp18VYBoTFdwpbG60/5Ic5phcfiQHIQw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795223119;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type;
-	bh=8xwlgo/XNZO5KLdBkEW/2WF1dNv58iVv6RHyfi9TaJc=;
-	b=F+EwDPm4qn1IYRPThspBy1/ghPD3fIBnaaarbysvvK16hECXgbC0ouvYLFYICqcl9lcb
-	 59eByLsvFnxfxN50D6zfpDBdt3KEAYfWSPP346le1wR8p5srz/tJn4igFBWD9Uq09HLUk
-	 q3NYpVbWf8DM3tFmH/s+/9vlfN2EbswHLXrGJoyY6DX5YAm3tzwvHs1bPbUROKYbj9E9r
-	 Z8zFyO6/Ou8kooclRAT1KKKm7QJbVcymCNRm6IyHRYhy1XVZaytF97yLMhAK0ckJRQoeA
-	 Vxfr9izyWMLJ7vXJ2RMR9ww2E7QgQTLZHeGCiIM2YMCEcbNDoFeaGfYzNA0+Ny4F0ZA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pNm6DzDO;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.48
-Received: from mail-qv1-f48.google.com (mail-qv1-f48.google.com [209.85.219.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795223229;
+	b=eB+slqj8ctYucpgBGd2eIBzkg0XW5pG780WQzzMjmAfwRetA+KeF2viNHIjQ0wESeKJu
+	 At28tcQFXRGklkIG0Oqpogh3d9ncUSjpMYeEu5UzASIc6onQQfhtt6AMCIrqcK9sUDBb7
+	 xTKulyrV6VoKa9RIYQkoz/rrB1lY+iGE3n3HMPk0sDwMdbq9xX2RBJYc79yl20X73h6Zq
+	 5BCGE+K/r6lNhk9ZVkm+RpQd0wjTvWV69h51+gRr4n0pr6bM/2H1IeAxCD0Y+z9Z9/fuQ
+	 NuElZeWLdOzp59dNmW4zTTpnPvdeYVWMmSPZ9HR9R7ktIoPJ+nlkQLMMg4wnAbYcwGg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795223229;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=uRbvTYGHLE/dSalAhrR1hJSynJ2eHI0LzzHZL/10yZo=;
+	b=UwMPmbsfYE5D/15kCQxbOODsZtw3Io6hHPi1Amr/TSeY+YdGIqfws60c39KWv8d9k5o4
+	 V7ZTtfTizfQCdImKIPUCRq92KbiaitJgHolsbLtpSSYop1RAHP7uGO4h+34VO9PQLRUlh
+	 h6Dk0lB5Uh/C7a84hstPtSjbGC5/GWEOpc2RVMvwfiRNylrUhB5GHc4f9LdXFTerqHj2V
+	 5Z7zfRsj+BN6AdCt11uaR3jV0lP9T6zDro60vvy8HajS7VxXjxTQLU39xLfjsyzQdk4py
+	 L3ljQjcO6RUVzjz/eR4f7pskCC5dSMXOvY/0YgeIKruM8OiZGRA3x0aVaXEL7u+HZQQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LN+7Xyts;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A208606A6B4
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 01:05:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0A208606A6B4
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4C94606A6BB;
+	Sat, 21 Nov 2026 01:07:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pNm6DzDO
-Received: by mail-qv1-f48.google.com with SMTP id 6a1803df08f44-9213f004a14so11151276d6.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:05:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795223117; cv=none;
-        d=google.com; s=arc-20260327;
-        b=rXsCZOt6zywIYfbfDfD8QGAkHI52KAg+1mEiXCkrbvGWA6IZEty6kbTTrkmZ/j6hrb
-         cHrf/9urcyWUkI9cSbtD5FMi7x3VECvOh3ZQdxmcc82j1TLyBNlfQb7jc6GBB9zvvVSe
-         b03uFeuS2cKFqKGhhdWa9R0UtMoQiHqR4zeJPQ14LRbwnRiGbQxRqWxJKpGJtwtfpb61
-         Bb2rIfLKqrcz1O3Mu9UHHNFcPN5E1I5HxH7VnAHN3VciqekuvbrIqYnMvuqQ3OFiuJW9
-         YHN/achu52DLw+EK1fdYQy/l8wMLgnQqu2kI9RhqaOVpsDH92xHq8cxuw1Wf6S5Opxyr
-         Qgyg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=8xwlgo/XNZO5KLdBkEW/2WF1dNv58iVv6RHyfi9TaJc=;
-        fh=h1/Gmi02hBfrghccPDjMN5wih/hMqkneuM/0iZGY62Q=;
-        b=P6wj5UdCTqzw7aEZbF8sQ+FO3kRP0dUIKgDnVYnmXjrbkMBsHxV13u7SwO2PU934yw
-         iNREhFPhGSf52NIZHvzgh1lkXQePQLyQJ7qXaF6QzAwcj/EINL5KdbHi+BcPJm9n6Y15
-         CeYQK7geM27TgZcFOU7ULEyWjZbEqMbB3ZsVIryYveYyR5lfufBdMUlsyqOkVhf00K9q
-         udMRQ6zG5wnZx3rHzd65wzQvLvCtQZyrfCPgV4qrAzOzFDPluL04YHPw61wnTO0cLFgU
-         3xe+8GNcLFrNC7uqFjlly/ciKkEM+dJMwRmMwrHxS8ecJ80cctgtOwH6OW7+bO/zJ5P8
-         o6XQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795223117; x=1795827917; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8xwlgo/XNZO5KLdBkEW/2WF1dNv58iVv6RHyfi9TaJc=;
-        b=pNm6DzDON3XuRFzRjM7Y+16VKhmwQFhBUf5Hq++UUOPEGE6DGbP+pA49uGkh17af66
-         aBRcavRbk+rvUvDZG+U2ITO0qJ3DIL1eqKKxCxfPpixEeseINAmWRQkkc/jlfUjkORZO
-         ml8oIoA3AND6rP6fD6MxW63/nSkvRK3jY6B+0ZSMyPTEqfgxlIglT3FWf8ghU4+seyqV
-         +bkE1BIYi+8rRt/rK7uML6rU3qu0hJratEMux8jzuyLkRcIU4jtXklfSaSb2arEuFFfo
-         linnLAVVmNdFPVTCPEMQYffRNn1H7I5wBad5fvjfMjBsPwnEeiOrq0b4GdHMAhmiAJ6i
-         xj9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795223117; x=1795827917;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=8xwlgo/XNZO5KLdBkEW/2WF1dNv58iVv6RHyfi9TaJc=;
-        b=TZBJjCrYT2UX6iX9guU8kigESEHmZG5gc4L5HV1T36aNSvDuTjPeQuUGCgctZ9WYTs
-         bHc9CcZnrSzTt9uF+aqma8JYzsMK2ZVISa8XS2ro494DJJcU8iWXyf3Hy6m3DyVKxDbe
-         EXRDLjrFvXzwDwD0+xZgqfKSI2Ae1mjAzijBIkWLF/na0jjJ5pwW2u3EHnxPasyQ3vF8
-         1Kw10rMgJQm2e33EQL9rkNG3cbvOJsqqTGTcdpmic4f7p/z0Ds74nt1d5M8jg4MdZxnX
-         PSrWsJsga+/xZb52Sse0pS1yF8DqCGFNHTG7qH9fpWm3xXQyG1N+1K8PkPls4Ecu5KV2
-         DL3Q==
-X-Forwarded-Encrypted: i=1; AL+hErGnP7ZbfCpEqIusHY1Mv2ILYZEkUD7BlaazBq6GoS6EVNDkS0gi2n30Iu4f/RClm0yGIIN1o1xKIFrG1Lc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+NQSSsJJRLPcsA7kuoqQpaQIYB/IJ7XmOGRlhUBrgqFF3Ye/sr
-	9YkFWg3DHoXMROJ0RVvm7cFQ2TdQAohaXYql6ZSKIQE2qdoDOBuzCqp64hNRMNtUuqvnUfiO0sh
-	1Hsd9Jrhcrc3qkVaN7nCJruq8bv7enbE=
-X-Gm-Gg: AYBFou0ISAyG5ayAgiTfsRHccBqvuo2htX1qjn0ty6T/VkIDxWGi+q2fRhWpUqliHDo
-	AuKG7Q9j5J+2623m/TtlIZY6i1H40DVxURdRO6kXIs2LXhk/U8zOnfTWzGKY+Ee9Ut/HjnWMdxI
-	yTn1ZRCw8rfM9cJuBSRcm/LoyYM7I5GEREuEUCiwrew8+sw4dNkgOIwVa4GC3onPpDf+eiu7vxl
-	DXhjdXLqHzq5//y3NcaHb1MQbFvy//HGsWGl2UxjorjYtH8QHIenplVxPA86AtThiRPiGCTP5DY
-	UPAPZUJTNsUYHjTLJ3kYPyFbjRON06E+m6Bd1oslqaBuUUgZmRBuMCWpOzRGpvZ733/UiE6Idn2
-	9ca4jfgbyA78zSGaIb6gk2kdyGVeL5/zykw+NrIT9hqezQ+7EUZT08vuxpuAWv/7Mif57EI3K1n
-	wMF3Tu4Axr
-X-Received: by 2002:a05:620a:448e:b0:949:673f:72b8 with SMTP id
- af79cd13be357-949bab7c484mr770407685a.82.1795223116801; Fri, 20 Nov 2026
- 17:05:16 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LN+7Xyts
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22B6F1F000C6;
+	Sat, 21 Nov 2026 01:07:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795223229;
+	bh=uRbvTYGHLE/dSalAhrR1hJSynJ2eHI0LzzHZL/10yZo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=LN+7XytsqPs5YF9E9mIPKktv5Gsp1VQ/w4jEbFo5vT2u5BKEyqjRyUqoRT5Nwolq4
+	 22by5rzHW0eHEBArf/qXzbjMAzXm9+SMOpY3BX8vpfcJ+8afSf2FEG4/f+nbp+/ZRO
+	 68K1I1fQenkijo8Fswmmi/4ZjGCNGJke2gScCoR7QBbZTNTgvHjhLTc3rKj0c1FfqX
+	 UTRlaA6BjtCIifzWkxXNuMyjVLjrF/nUkDgiT6MTRCoiiGQAQBb/PHJ1aP+qIuoyW3
+	 7qFrHDkVDpVFY3egBfLOSHiksLdfXHaG/THUnKOaXkCK3JKG0LoWz71q4DCSXQkpiW
+	 1cVy6Rw3zd+NQ==
+Date: Fri, 20 Nov 2026 19:07:08 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Pavel Popov <pavel.e.popov@intel.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>,
+	Logan Gunthorpe <logang@deltatee.com>,
+	Arnd Bergmann <arnd@arndb.de>, Leon Romanovsky <leon@kernel.org>,
+	Lukas Wunner <lukas@wunner.de>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	Jim Chow <jim.chow@broadcom.com>,
+	Radu Rugina <radu.rugina@broadcom.com>,
+	Alexey Makhalov <alexey.makhalov@broadcom.com>,
+	Wei Liu <wei.liu@kernel.org>, Michael Kelley <mhklinux@outlook.com>,
+	Nathan Ciobanu <nathan.d.ciobanu@linux.intel.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	virtualization@lists.linux.dev, linux-hyperv@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 0/3] PCI/P2PDMA: Allow P2PDMA on Intel Xeon server CPUs
+Message-ID: <20261121010708.GA929035@bhelgaas>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,116 +68,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Aditya Kulkarni <adityapk@gmail.com>
-Date: Fri, 20 Nov 2026 20:05:03 -0500
-X-Gm-Features: Aa3M54pTWqH1XC2rWFy8uaXuOTB6eCym0Qm8pobFm_S8fWG3Z5eim7Tuy-Z91ys
-Message-ID: <CAO91vefPN9NBiaErBZk+D_7wehUZozU6Bo5gy7mPZw2MtJk_jw@mail.gmail.com>
-Subject: [BUG] x86/mce: mce_syscore_resume() queues MCEs with MCP_QUEUE_LOG
- without draining, causing permanent 20 Hz MCP polling
-To: linux-edac@vger.kernel.org
-Cc: x86@kernel.org, bp@alien8.de, tony.luck@intel.com, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261111234439.4098-1-pavel.e.popov@intel.com>
 
-Hi,
-I've run into a bug in arch/x86/kernel/cpu/mce/core.c where resuming
-from S3 on a machine whose firmware leaves stale MCA bank status bits
-across sleep permanently locks all CPUs into ~20 Hz machine check
-polling (~320-335 wakeups/sec across 16 threads) and silently drops the
-resume-time MCE logs until a sysfs write to check_interval or reboot.
-Environment
------------
-- Hardware: Apple MacBookPro16,1
-- CPU: Intel(R) Core(TM) i9-9880H (family 6, model 158, stepping 13,
-  microcode 0x104, 16 threads)
-- Kernel: 7.2.15 (7.2.15-arch1-1-t2; CONFIG_HZ=1000; arch/x86/kernel/cpu/mce/
-  is unmodified upstream)
-- MCE settings: default (check_interval=300, cmci_disabled=0, ignore_ce=0,
-  mca_cfg.bootlog enabled)
-Root cause
-----------
-1. On this machine, Apple EFI leaves stale error bits in MCA Bank 12 and
-   Bank 13 (status 0xee2000000040110a, ADDR 0xff7dda00/0xff7dda40) on
-   both cold boot and S3 resume.
-2. At cold boot, __mcheck_cpu_init_prepare_banks() checks mca_cfg.bootlog
-   and calls:
-       machine_check_poll(MCP_UC | MCP_QUEUE_LOG, &all_banks);
-   Because MCP_QUEUE_LOG is set, machine_check_poll() calls
-   mce_gen_pool_add() without calling irq_work_queue(&mce_irq_work).
-   Later during boot, mcheck_late_init() checks !mce_gen_pool_empty()
-   and schedules mce_work, which logs the entries and empties
-   mce_event_llist.
-3. On S3 resume, mce_syscore_resume() calls
-   __mcheck_cpu_init_prepare_banks() again. Since mca_cfg.bootlog is
-   still non-zero, it again invokes
-   machine_check_poll(MCP_UC | MCP_QUEUE_LOG, &all_banks), pushing the
-   post-S3 Bank 12/13 entries onto mce_event_llist without queuing
-   mce_irq_work or mce_work.
-   Unlike mcheck_late_init() and store_int_with_restart() (both of which
-   check !mce_gen_pool_empty() and schedule mce_work after calling
-   __mcheck_cpu_init_prepare_banks()), mce_syscore_resume() never drains
-   mce_event_llist.
-4. As a result, mce_event_llist stays permanently non-empty after the
-   first S3 resume (and those MCEs never appear in dmesg). On every
-   subsequent mce_timer_fn() tick, !mce_gen_pool_empty() evaluates true
-   (without scheduling mce_work), so every CPU halves mce_next_interval
-   down to the HZ/100 (10 jiffies / 10 ms) floor:
-   - Within ~10 minutes of S3 resume (at check_interval=300), all 16
-     threads hit the 10 ms floor and stay there until reboot.
-   - Inside __start_timer(), round_jiffies(jiffies + 10) falls back to
-     unrounded jiffies + 10 whenever rem <= 249 ms (since rounding down
-     lands in the past), firing ~20-25 times during the first 250 ms of
-     every second and then rounding up to the next second boundary.
-   - Over ~14 hours of active uptime this accumulated ~810k-935k MCP
-     polls per CPU thread (~320 wakeups/sec system-wide) with THR=0 and
-     MCE=0.
-Live reproducer & verification
-------------------------------
-1. Fresh boot (22 min uptime, 0 suspends, check_interval=300):
-     THR: 0  0  0 ...
-     MCE: 0  0  0 ...
-     MCP: 5  6  6 ... (1 poll every 300s)
-2. Set check_interval=5 (just to speed up the halving sequence from
-   ~10 min to ~15s), suspend to S3 (mem_sleep=deep), and resume ~30s
-   later (at 19:55:59):
-   ~28s after resume, /proc/interrupts over a 2-second window:
-     t=0s:  MCP: 420 334 325 333 331 327 334 331 324 333 330 337 332 330 337 334
-     t=2s:  MCP: 459 373 364 378 374 370 376 372 364 374 370 382 377 375 380 377
-   (~20-22.5/sec per thread, ~335/sec total; zero MCE messages in dmesg.)
-3. Write 300 to /sys/devices/system/machinecheck/machinecheck0/check_interval
-   (triggering store_int_with_restart(), which checks
-   !mce_gen_pool_empty() and queues mce_work):
-   Immediately at 19:57:00, dmesg flushes the two trapped S3-resume
-   records (note TIME 1795222559 == 19:55:59, 61 seconds earlier):
-     Nov 20 19:57:00 macintel kernel: mce: [Hardware Error]: CPU 0:
-Machine Check: 0 Bank 12: ee2000000040110a
-     Nov 20 19:57:00 macintel kernel: mce: [Hardware Error]: TSC 0
-ADDR ff7dda00 MISC 43880000086
-     Nov 20 19:57:00 macintel kernel: mce: [Hardware Error]: PROCESSOR
-0:906ed TIME 1795222559 SOCKET 0 APIC 0 microcode 104
-     Nov 20 19:57:00 macintel kernel: mce: [Hardware Error]: CPU 0:
-Machine Check: 0 Bank 13: ee2000000040110a
-     Nov 20 19:57:00 macintel kernel: mce: [Hardware Error]: TSC 0
-ADDR ff7dda40 MISC 43880000086
-     Nov 20 19:57:00 macintel kernel: mce: [Hardware Error]: PROCESSOR
-0:906ed TIME 1795222559 SOCKET 0 APIC 0 microcode 104
-   And MCP polling immediately drops from ~335/sec back to 0/sec:
-     t=0s:  MCP: 1002 933 920 941 929 917 934 924 905 933 920 941 928
-919 933 924
-     t=2s:  MCP: 1002 933 920 941 929 917 934 924 905 933 920 941 928
-919 933 924
-Workaround & possible fix
--------------------------
-Booting with mce=nobootlog avoids the issue by skipping the
-machine_check_poll(MCP_UC | MCP_QUEUE_LOG, ...) call in
-__mcheck_cpu_init_prepare_banks().
-For an upstream fix, mce_syscore_resume() could queue mce_irq_work when
-!mce_gen_pool_empty() (e.g. irq_work_queue(&mce_irq_work), matching
-mce_log() and safe with IRQs disabled in syscore resume), or
-__mcheck_cpu_init_prepare_banks() could avoid MCP_QUEUE_LOG once the
-system is past early boot.
-Happy to test a patch if you'd like.
+On Wed, Nov 11, 2026 at 04:44:36PM -0700, Pavel Popov wrote:
+> VMware and Hyper-V expose passthrough devices to guest VMs without an
+> explicit host bridge device. Consequently, host_bridge_whitelist()
+> cannot automatically identify the underlying host bridge structure,
+> causing Peer-to-Peer DMA (P2PDMA) requests to be rejected unless the
+> device IDs are explicitly listed in pci_p2pdma_whitelist[]. To enable
+> P2PDMA on Intel hosts, this series extends cpu_supports_p2pdma(), which
+> so far covers AMD Zen and newer, with an explicit list of Intel Xeon
+> server generations.
+> 
+> Patch 1 adds a generic <asm/cpu_device_id.h>, so that generic code can
+> include it without #ifdef CONFIG_X86.
+> Patch 2 moves the CONFIG_X86 #ifdef out of cpu_supports_p2pdma(); this
+> is the v4 1/2 patch, unchanged.
+> Patch 3 is the v4 2/2 patch with Logan's Reviewed-by carried over; the
+> only change is in the includes.
+> 
+> Arnd, if 1/3 looks OK to you, could it go through the PCI tree
+> together with 2/3 and 3/3?
+> 
+> The other users of <asm/cpu_device_id.h> and <asm/intel-family.h>
+> under #ifdef CONFIG_X86 (ACPI, cpufreq, i915, amdgpu, tpm, ccp,
+> platform/x86) are converted in a follow-up series on top of this one.
+> 
+> Based on mainline (7.4-rc2+). Built with x86_64 and arm64
+> allmodconfig, each patch separately.
+> 
+> Changes in v5:
+> - Add 1/3, a generic <asm/cpu_device_id.h>, so the include no longer
+>   needs #ifdef CONFIG_X86 (Leon Romanovsky)
+> - Drop the <asm/intel-family.h> include, <asm/cpu_device_id.h>
+>   includes it on x86
+> 
+> Changes in v4:
+> - Add 1/2, moving the CONFIG_X86 #ifdef out of cpu_supports_p2pdma()
+>   (Logan Gunthorpe, Leon Romanovsky)
+> - Keep the #ifdef around the asm/ includes, as these headers exist
+>   only on x86 (Bjorn Helgaas)
+> 
+> Changes in v3:
+> - Drop the hypervisor check and move the Xeon list into
+>   cpu_supports_p2pdma(), next to the AMD check, as suggested by Logan
+>   Gunthorpe and Leon Romanovsky [1]
+> - Fold the VMware and Hyper-V patches into one, as the check no longer
+>   depends on the hypervisor
+> 
+> Changes in v2:
+> - Replace the Skylake-and-newer threshold with an explicit list of Intel
+>   Xeon server generations, from Skylake-SP to Diamond Rapids (Logan
+>   Gunthorpe)
+> - Move the CONFIG_X86 #ifdef out of hypervisor_supports_p2pdma()
+>   (Logan Gunthorpe)
+> - Rebased on current mainline
+> 
+> [1] https://lore.kernel.org/r/20261016153147.GC219304@unreal
+> 
+> v4: https://lore.kernel.org/r/20261020173736.81755-1-pavel.e.popov@intel.com
+> v3: https://lore.kernel.org/r/20261020151305.65218-1-pavel.e.popov@intel.com
+> v2: https://lore.kernel.org/r/20261016223402.19991-1-pavel.e.popov@intel.com
+> v1: https://lore.kernel.org/r/20261009154034.82321-1-pavel.e.popov@intel.com
+> 
+> Pavel Popov (3):
+>   asm-generic: Add <asm-generic/cpu_device_id.h>
+>   PCI/P2PDMA: Move CONFIG_X86 #ifdef out of cpu_supports_p2pdma()
+>   PCI/P2PDMA: Allow P2PDMA on Intel Xeon server CPUs
+> 
+>  drivers/pci/p2pdma.c                | 30 +++++++++++++++++++++++++++--
+>  include/asm-generic/Kbuild          |  1 +
+>  include/asm-generic/cpu_device_id.h |  5 +++++
+>  3 files changed, 34 insertions(+), 2 deletions(-)
+>  create mode 100644 include/asm-generic/cpu_device_id.h
 
+Applied to pci/p2pdma for v7.5, thanks for the reminder.
 
-Thanks,
-Aditya Kulkarni
+There were minor conflicts with Leon's series, but I applied yours
+directly on v7.4-rc1 and resolved the conflicts when adding Leon's on
+top.
