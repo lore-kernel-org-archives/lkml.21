@@ -1,64 +1,82 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795303499;
-	b=pm6kmTBs4GysDa+3Rnz4BMEDv7UkPIn/GJJCd/1F4T4MnyTc/fRKCMSd5b706lIwDP28
-	 pN6sbybKGymf/K59JMJ25EVCZ410Wh79KyqY5O0RTaYt41nMpPFhD1cVzF0xI3Cu1AIfZ
-	 XILAgwYDRR6YDWFkDI8+Ob6Zy3VjIdgAaFtxvUQcfIh++cOGp6qfHRuWbMSVbrQ2HG6lq
-	 rCHN+4A8+FMmjL/kM9IYQn4XGzXHjjy7/+HQdgIBZBsc06bA4VlBYnp+GeWX5QqyPA8/Y
-	 vGPa5LqBEmxM3gxaSP4EaofRQBspBXF2qwP6OgeMoCr8SoRsjcXjoIvWdbp7mtAj83g==
+	t=1795303603;
+	b=n2+AZyS2eViO/Z+cm4TxfuOGKMKqVlMcI6jcR0TkeEVQdUxVzuefs8MADjNRvQS3V2cx
+	 QZBkeEFAhVZzHHLqITzdc7PhxRdtcMDLbs0p7dI5wTAu0lnD3wP4snsF9PNk9FD5bt0D2
+	 jd6uEP37OURnJHcz2z/b09UIzpnUgVh7hSgIfP4LwqoHBb1SZVi0Y7prueebfz8ZxKCq+
+	 G2W9lT+Viw5gV/jjBu3ibgz9dtHOIE97iKofhjC4/nF035mVcHC3H9JtyRACWICGHa9MS
+	 Lo2rQ+6OYuDvFI88ZzbJMa9Ml2kUSDne6gcm+6MIlbWX0rZCRSLVBdCiytrlE+68H7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795303499;
-	h=Received:DKIM-Signature:Received:Subject:From:In-Reply-To:References:
-	 X-PR-Tracked-List-Id:X-PR-Tracked-Message-Id:X-PR-Tracked-Remote:
-	 X-PR-Tracked-Commit-Id:X-PR-Merge-Tree:X-PR-Merge-Refname:
-	 X-PR-Merge-Commit-Id:Message-Id:Date:To:Cc;
-	bh=LoUzMfo0k61oI4vQs7dqYReT8l0FvW5rHD7+sXlGUN4=;
-	b=mRea0a+mO7199cI04sCyN14nowBpqDG0Po/nlewszgnbOGAvZEOZky4fpCc9vbs7XxdX
-	 ZETGPhtaZSLBWxEMa607ur/ZnEvcRJ15kDOfgqPnQpKPoXzC6jXHJECd2EbOaEhO6XKoK
-	 dbjPtORtfwFPcjC6bhVY3Pj/ze9d1U6H1rjnniAajIKr0G3SH4co+FHJoWbPeusXscTnh
-	 AVf1TTtVhOtRwSK+U0sOsJQHft1eF/3Ex7MaRFUJyVBzuW2X3IatRwOJugw8FhHgimM+2
-	 uMpRI3PTHVhOMViv1n8ApwSa3vsxNrPZlf2dVmaEaRchoUtAHO+RQei/ZEck9jQFI8A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795303603;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=swVWLdIORzAn0CH5DXvzx6L8MBh1Ls3/BIBJUSCbZaw=;
+	b=vYztEnYjbU35fX1SyY9e6zXFZ5GkCrAVuiIIyRjOC3D7F1TXvK5dBN9s6bXgZrECbTWj
+	 CDk4g4yiI1Fh0g60wf4Sa64Bb3V0UgarkWcaZGHIkB6cKb/wB1Dal0fTRl7nyRTt/3xY9
+	 qRJ2wCcbeJoTiRqSH6vGPxtRKUp+mFXdfe4xL6BK+eNfgFBTR7TrY1yEJUb6RDrXgbFBf
+	 r4on5o82wrFPG2aJHGMQ9XjyPwgW+FwSWGP6UhkUXOsTa3UWlyPHp96F45428rC9+XQyd
+	 UUU1FNETnxbDzqPuz2J/+AObTcoPikIVdEpv4guVImSpKNzkdfFtOx3Ix3ESdoeuoNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m0cIeL3Y;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jvdDXah3;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AC7F606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 23:24:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B33D606A320;
+	Sat, 21 Nov 2026 23:26:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m0cIeL3Y
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 444BE1F000C6;
-	Sat, 21 Nov 2026 23:24:59 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jvdDXah3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97CDA1F000C4;
+	Sat, 21 Nov 2026 23:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795303499;
-	bh=LoUzMfo0k61oI4vQs7dqYReT8l0FvW5rHD7+sXlGUN4=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc;
-	b=m0cIeL3YLXg8KqO6+YcyVaqf+2qfLapfH6sNor769257zWRT0s0pjdJLbQiGBDvVH
-	 6s4NsM/EY+QDMkSUBsFs8kyRupnqH4UzUR9B8XseTkH8e7zSj69mBVIcjKeyDpwNtd
-	 oF8gZQrcZu1rrhA2LU5LC1K1dM7SjhoLdPaS2XD8qnrsVslpkFhsgkJ7syfjtMshQk
-	 gd4XMwoP1J6bOI91uwZdhZiTM3UkofC+RRK5jH/1nmaz3Q2EjaczVADRKCXT2fgWo+
-	 PJmp6W5l6TBxUlE53pWRb1EM2kFdN2cFIWid7E/RugW1dS7VBTozsam0usbfxoiAt2
-	 of+E3KpQYmvsA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A66C391B08F;
-	Sat, 21 Nov 2026 23:24:59 +0000 (UTC)
-Subject: Re: [GIT PULL] tracing: Fixes for v7.4
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20261121075739.3ad033bf@fedora>
-References: <20261121075739.3ad033bf@fedora>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <20261121075739.3ad033bf@fedora>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace.git trace-v7.4-rc3
-X-PR-Tracked-Commit-Id: 56ce4ed6316cae9536ea891d6686b92f1d930c00
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: e572847ee4d074c9947e8367d150b81775a7e903
-Message-Id: <179530349780.1207690.5348109516942334729.pr-tracker-bot@kernel.org>
-Date: Sat, 21 Nov 2026 23:24:57 +0000
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, LKML <linux-kernel@vger.kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Amit Machhiwal <amachhiw@linux.ibm.com>, "Baek Kyu, Kim" <pocj8ur4in@gmail.com>, Breno Leitao <leitao@debian.org>, Brian Norris <briannorris@chromium.org>, Chaosheng Qu <chaosheng.qu.linux@gmail.com>, Christian Aurich Zanettini Martins <christian.aurichzm@gmail.com>, David Carlier <devnexen@gmail.com>, Jaewon Jung <jaewon8868@gmail.com>, Kyle Zeng <kylebot@openai.com>, Pengfei Li <ljdlns1987@gmail.com>, Vincent Donnefort <vdonnefort@google.com>, Vineet Gupta <vineet.gupta@linux.dev>, Wenwu Hou <hwenwur@gmail.com>
+	s=k20260515; t=1795303603;
+	bh=swVWLdIORzAn0CH5DXvzx6L8MBh1Ls3/BIBJUSCbZaw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=jvdDXah3Hd6doiFD8BxoHgq35Lk519EEEBXbpMJuqFLib6fkIPhQTywtVl4OuKslw
+	 +z9zD5VdozW41LO6u3zqgi8IdR40bMhuiAJt9ktLYmCNDyq1v+NNUXq0O2GECARiKh
+	 4J9jaPjF7JEaqSm1T0ZS5589PUyWa3pyglLtMj68yNyglQJa14hA4yVuxTwxli2amE
+	 L8hs4kF2pKQaEpSHLRxzS+poH9iska0Tl/BgHO5TQxPzeQ1b6UzMstZJOjEEiQIuw6
+	 jMW6GKRhahuSfwVOj5S1iTYosoY/h7W2gO/aXoeqxWiIKGQaEwXn5Hc3asD9TmMvTD
+	 0NIpotgHAqCgg==
+From: Jakub Kicinski <kuba@kernel.org>
+To: ansuelsmth@gmail.com
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	horms@kernel.org,
+	corbet@lwn.net,
+	skhan@linuxfoundation.org,
+	rdunlap@infradead.org,
+	lorenzo@kernel.org,
+	hkallweit1@gmail.com,
+	linux@armlinux.org.uk,
+	maxime.chevallier@bootlin.com,
+	p.zabel@pengutronix.de,
+	nathan@kernel.org,
+	ndesaulniers@google.com,
+	morbo@google.com,
+	justinstitt@google.com,
+	rmk+kernel@armlinux.org.uk,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	llvm@lists.linux.dev,
+	zhengping.zhang@airoha.com
+Subject: Re: [PATCH net-next v22 01/15] net: phylink: make PCS phylink instance access RCU protected
+Date: Sat, 21 Nov 2026 15:26:40 -0800
+Message-ID: <20261121232640.1365293-1-kuba@kernel.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261117123956.11981-2-ansuelsmth@gmail.com>
+References: <20261117123956.11981-2-ansuelsmth@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,16 +85,105 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-The pull request you sent on Sat, 21 Nov 2026 07:57:39 -0500:
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+---
+net: phylink: make PCS phylink instance access RCU protected
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace.git trace-v7.4-rc3
+This commit makes the phylink back-pointer in struct phylink_pcs RCU
+protected and reads it under rcu_read_lock() in phylink_pcs_change().
+phylink_destroy() now clears that pointer and calls synchronize_rcu(), so
+a concurrent phylink_pcs_change() should not run on a freed phylink
+instance.
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/e572847ee4d074c9947e8367d150b81775a7e903
+> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+> index e7734e45376cd..d9d0ace2042e5 100644
+> --- a/drivers/net/phy/phylink.c
+> +++ b/drivers/net/phy/phylink.c
 
-Thank you!
+[ ... ]
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+> @@ -1295,10 +1296,10 @@ static void phylink_major_config(struct phylink *pl, bool restart,
+>  		phylink_pcs_disable(pl->pcs);
+>  
+>  		if (pl->pcs)
+> -			pl->pcs->phylink = NULL;
+> +			rcu_assign_pointer(pl->pcs->phylink, NULL);
+>  
+>  		if (pcs)
+> -			pcs->phylink = pl;
+> +			rcu_assign_pointer(pcs->phylink, pl);
+>  
+>  		pl->pcs = pcs;
+>  	}
+
+[ ... ]
+
+> @@ -2137,6 +2138,11 @@ void phylink_destroy(struct phylink *pl)
+>  	if (pl->link_gpio)
+>  		gpiod_put(pl->link_gpio);
+>  
+> +	if (pl->pcs) {
+> +		rcu_assign_pointer(pl->pcs->phylink, NULL);
+> +		synchronize_rcu();
+> +	}
+> +
+>  	cancel_work_sync(&pl->resolve);
+>  	kfree(pl);
+>  }
+
+[Severity: High]
+Can phylink_pcs_change() still use pl after kfree(pl) here?
+
+phylink_destroy() only waits for a grace period when pl->pcs is non-NULL.
+pl->pcs can be NULL at this point if an earlier phylink_major_config()
+switched to a NULL PCS. That happens when mac_select_pcs() returns NULL
+for the new interface, for example in the default case of
+mv88e639x_pcs_select().
+
+In that case phylink_major_config() cleared old_pcs->phylink and set
+pl->pcs to NULL without waiting for a grace period. A sequence like this
+looks possible:
+
+PCS driver threaded IRQ handler:
+phylink_pcs_change(old_pcs)
+    rcu_read_lock();
+    pl = rcu_dereference(pcs->phylink);
+    <preempted>
+
+Resolve worker:
+phylink_major_config()
+    rcu_assign_pointer(pl->pcs->phylink, NULL);
+    pl->pcs = pcs;    /* pcs == NULL */
+
+Driver teardown:
+phylink_stop()
+phylink_destroy()
+    if (pl->pcs) { ... }    /* skipped, no synchronize_rcu() */
+    cancel_work_sync(&pl->resolve);
+    kfree(pl);
+
+IRQ handler resumes:
+    phylink_link_changed(pl, up, "pcs");
+        /* writes pl->link_failed, may queue_work(&pl->resolve) */
+
+phylink_stop() does not seem to close this window. It only handles
+phylink's own link_poll timer, link_irq and resolve work, and the
+phylink_pcs_disable(pl->pcs) call gets a NULL PCS here. The mv88e6xxx PCS
+drivers use request_threaded_irq(), so with CONFIG_PREEMPT_RCU the reader
+can be preempted inside its RCU section.
+
+The commit message says the change will "syncronyze RCU to catch an
+execution of phylink_pcs_change()". This case still seems to be open at
+the end of the series. phylink_detach_pcss() only sets rcu_sync when
+pcs_list is non-empty or pl->pcs is non-NULL, and pcs_list stays empty for
+mac_select_pcs() drivers. The later READ_ONCE(pl->pcs) == pcs check in
+phylink_pcs_change() also dereferences the possibly freed pl.
+
+Would it make sense to call synchronize_rcu() unconditionally in
+phylink_destroy() (and later in phylink_detach_pcss())? Another option is
+to wait for a grace period whenever phylink_major_config() detaches the
+old PCS.
