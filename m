@@ -1,55 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795292113;
-	b=TD2DEKmPVqsF+K59YopZvzUf/jd/uRIUsUyLS9s42UGqGphXlBmLZn3RvQTXeYjouPHT
-	 UcCfLiphh2DrSGBN5zF5LMC6GQyZviNT3Gwy7lWH7mPtwwJWgtzBUD6o0qoo8Y3Nav6vy
-	 FS0JHp6pKZxbwrZylCMOguHvDVRXmUCwy7zKHEBrlOQQ0/EdXJvWugJaTyuXhggceDKRt
-	 7+D3TYR18i9q2IuGxiRanKSTBEV92vFm+GOOaednQUexdnf6ETf4HF2xhgT34XomJgfWr
-	 0h9cHupEbUE8BupGfbCqupd9zdu30hYHqhBCH2KMn5kn1AOFJF09bMlOw+mu6I2Shiw==
+	t=1795292149;
+	b=Vg5vWHxq2bau8zZUMX3GHbOEvdWT8CIGpeLq1vAXhTASAEDGwoDxzS9yEZ2PHgMnJDcw
+	 zQhz1mU4eKL+N5Ka9BhN2zEirWTKcrEXDKJfAep0dNlaSKYn+2r0FUwsGP+Uk65Te78uR
+	 muL3L1U+fhX6FyVF2eWMQu8l/AGOF4sF1URtHU6FlDWT/Q2fFF00HcOrbCYfMHqPH+xFf
+	 z7SBnood1v90zEAOWjx43W5SSmGc0pgJShRs5I2G/QffjrVsAtRJzchYOoOOrq+Hvvu8d
+	 XDFHiCd5OySmoV57hzTwDqLBxftbhbdFSkUXVN7H5KM1z3GACh1INN1xM1LfGlzitbg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795292113;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795292149;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=8uhAFZ7h1LFOLqH+boeQkUjvDPoO3zqskMS2pOYyjAE=;
-	b=qpmDa+GUQlokFGJwd6ij8pG9Oi3+HdchT2gnXh/EUTRFREGVPY1hNQf0QOqvOibC1a9S
-	 eBUobnJDzneOyoaWVrv3/rtSezSjujeXcZEgZrUkfvYHyROwPOR7+23V06dZHupdY84kd
-	 EjapDzX4AEgDktnvyKkh6s2RmD4fDQq2YieNSqx7gkSqlKa00/z34xrxePZxpa7yU8tqP
-	 A/obpJlY/XTORmQl9B2R+ItihJheboANY9W9NJumr7o13Nv017SSe2wgi9ZqE5GfFFLgm
-	 icPNHrU5Uv+4A8062aWKDQBuFTpsn3LAJ1usCNF7OfIjFB6z3LLCDip3p4GjrW0qiPA==
+	bh=ptZn/PY1qnnr3eBmB2mWHLWI6g925yKErFSC8CXOBEE=;
+	b=xGKqqB/Kx8bN4YA7MhtW7VWNFasH82dkwz1J6Th9baR6KUTLWhVdGNzF3PXGIewX7u0J
+	 GUuyPNy/HP+CMBuNLrL7QBevyIkgFFNCQb5BVHoF9bd2gp79rYcCCi3qLqHZlvE3RTdf0
+	 SeI3KFiAGkHd2mmnttn6WeNxv/b36r8qNX0XtI9F/dFkc5iNhH8lrpeDQ3hK1WxvAi/Gx
+	 E4ZQAbtlr6FysFreB9LrDiOylGc9LgJUjyY02CFcd3fidVSHMgSRoVWH7iNIP0QJFNuIH
+	 WKjAdr+cffCXB8/Q3/tIxoEhHhCzXVHrv+aQSUKPumkTd6b2jGtgUrUSWUvDVG9aQEA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kf2Jw065;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XVRSxQs6;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C841C606A32A;
-	Sat, 21 Nov 2026 20:15:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCA87606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:15:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kf2Jw065
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F45F1F000C0;
-	Sat, 21 Nov 2026 20:15:13 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XVRSxQs6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8F561F000C6;
+	Sat, 21 Nov 2026 20:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795292113;
-	bh=8uhAFZ7h1LFOLqH+boeQkUjvDPoO3zqskMS2pOYyjAE=;
+	s=k20260515; t=1795292149;
+	bh=ptZn/PY1qnnr3eBmB2mWHLWI6g925yKErFSC8CXOBEE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Kf2Jw065rh0xSXxciSE+F3yevvqVWm0K2dpOs18g2p3A4sQxZKI2861u7vGtTzQvW
-	 rNgWTJEUMRIPx6h8pLlJoHRHTBz6l9Pe29dGc/z6fSlvGLFlGb3cEU15HOO1HlszTn
-	 9vuQ9vB37AEKke2N23V7KNa9k5nei14VSAE6mIX1SB5OGWW+QIoInTkX105DxCi1k6
-	 5Zqb9W41o4dymzI2eli5vOEe9/ckWyojqVwF0niN44xWsvbe/y6VfmN/PSBGRPESzK
-	 fv94rA6GwpKTCF3kVODAA07IPpdlrIFHT2EXno2ctkd6ZSg8pGvS52IyOt+xFUW1Ad
-	 rhLONGXzeVHTA==
-Date: Sat, 21 Nov 2026 12:15:11 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Xueyuan Chen <xueyuan.chen21@gmail.com>
-Cc: Minchan Kim <minchan@kernel.org>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Jens Axboe <axboe@kernel.dk>, linux-kernel@vger.kernel.org,
-	linux-block@vger.kernel.org
-Subject: Re: [PATCH RFC 0/3] zram: avoid copying spanning LZ4 objects before
- decompression
-Message-ID: <20261121201511.GG1975@quark>
-References: <20261122-zram-split-decomp-mm-rfc-v1-0-4e69b08c0fed@gmail.com>
+	b=XVRSxQs6Ig7L8GYvF4uChf5yMpyTJMFIJuE4kW0Y/pdw/KhtVj2iB3TMm0eOBwORQ
+	 68Gsij5X3mzfQ1jVF5a/f5ahzCz8GYq37mYPB7txL00NeHZlFJDTnqrWt6eVezclHI
+	 SjinjifoWOEP1YXmMmqSYGX9a/pHeePcti9Hp6C1eCjmwa+VbRNVFQZjHbIzE7ixeg
+	 Drw7G7E8WiZbMmAxI0IDttPUgKEruPiDopt9GjIWLI0MPOomAUDV7VtITfuEdvtEQQ
+	 RbnO1kUyPq4oc54mhDGQjmHv8qaPqXynr5Ku2fxA6530UG3Bv04198KaQ+WD3ASjOf
+	 uAFHNPQ5ViFBQ==
+Date: Sat, 21 Nov 2026 12:15:47 -0800
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Jiri Olsa <jolsa@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Jason Baron <jbaron@akamai.com>, 
+	Alice Ryhl <aliceryhl@google.com>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, x86@kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCHv2] jump_label/x86: Avoid decoding instructions for jump
+ entry size
+Message-ID: <awH76ikbfurgj63W@jpoimboe>
+References: <20261117195506.23759-1-jolsa@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,54 +58,25 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261122-zram-split-decomp-mm-rfc-v1-0-4e69b08c0fed@gmail.com>
+In-Reply-To: <20261117195506.23759-1-jolsa@kernel.org>
 
-Hi Xueyuan,
-
-On Sun, Nov 22, 2026 at 01:09:23AM +0800, Xueyuan Chen wrote:
-> I measured the time to swap in 1 GiB of synthetic data on arm64 with
-> 4 KiB pages. Each page started with pseudorandom data of one of 16
-> lengths, followed by zeros. On this workload, 32.6% of compressed
-> reads spanned two pages with LZ4 and 34.4% with LZ4HC.
+On Tue, Nov 17, 2026 at 08:55:06PM +0100, Jiri Olsa wrote:
+> arch_jump_entry_size() runs the full instruction decoder just to find
+> out whether a jump entry is 2 or 5 bytes long. A jump label site can
+> only ever hold a JMP8, a JMP32 or the matching 2/5 byte NOP, so the
+> size can be determined directly from the opcode byte or by comparing
+> against the x86_nops[] encodings.
 > 
-> The table shows median swap-in times over seven pairs. The last two
-> columns summarize the percentage change within each pair.
+> This matters for kprobe registration, where the address safety check
+> calls jump_label_text_reserved(), which walks the jump entries and
+> calls arch_jump_entry_size() for each of them. When registering many
+> kprobes the instruction decoding dominates the registration time.
 > 
->   Codec  Workers  Baseline (ms)  Patched (ms)   Median   Range
->   LZ4          1        1403.81       1344.45   -4.21%   -4.64% to -1.61%
->   LZ4          8         222.57        216.36   -2.73%   -4.19% to -1.97%
->   LZ4HC        1        1403.35       1336.99   -4.74%   -5.07% to -2.90%
->   LZ4HC        8         222.10        215.77   -3.16%   -4.39% to -1.27%
-> 
-> These timings include both skipping the copy and switching decoders.
-> 
-> I used Codex to help implement this series.
-> Do you think the swap-in improvement justifies maintaining a second
-> LZ4 decoder?
-> 
-> Assisted-by: LLM
-> Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+> Signed-off-by: Jiri Olsa <jolsa@kernel.org>
 
-LZ4_decompress_safe_split() isn't actually very well optimized.  While
-it avoids the copy of the source data into a contiguous buffer, it
-copies every match and literal run with a variable-length memcpy(),
-which on most data is a very slow way to implement LZ decompression.
+Acked-by: Josh Poimboeuf <jpoimboe@kernel.org>
 
-I suspect it looked good on your synthetic benchmark (pseudorandom data
-followed by 0's) only because that tended to generate 1 very long
-literal run and 1 very long match.  Whereas normal data would have lots
-of interleaved literal runs and matches of much shorter lengths where an
-external memcpy() call does very poorly; that is why the existing LZ4
-decompression code does not do it that way.
-
-To some extent the literal run and match copy performance is fixable
-with a better implementation.  However, having to handle two different
-source buffers still introduces overhead that cannot go away.
-
-So I feel this approach is probably not worth it.  If you'd like to
-continue to explore it, it would need to be tested on different data and
-would need to be properly optimized.
-
-- Eric
+-- 
+Josh
