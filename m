@@ -1,82 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795297279;
-	b=h9B7pScERfrqBTQyb6UoPk53Z6dq0BSa0jFJReiP074xfoKgY7um20W4qUzs2XzzcHHe
-	 FWhmPh4NI4HZZ4KP992VrEMjVkoG6rxc7AyYFxhbV6djiz50XfPKQEiHgO83qwLypAT2Y
-	 WlKwF9XRImZXJoJhR/+h/7emSRLslyqUkhV6paZC88Lz3sfNw7dZnPtaoBjbJDkS/cxFQ
-	 M9LUkK/khK17FVn+y/+VWNX7up89c1fxU7/ge1tcf1ukZKZjBOoY90HYZ7zQlgKro/8tZ
-	 W16eQ1YXyjdpCn+pOInM1pW5Y1N8cEyBY0w5dtkPv8VuN0DHJr8B7XDYFKhPVOXUjdQ==
+	t=1795297286;
+	b=1osiTArJEmm6hZ0NIeVBl3CE9qO6WBehujix/R1oyAM4hEh5nd6zJzGy9bH0BdKwKDq9
+	 oNltd2owo4BsLCtVYnHrd40mEFFKqg1qFLLo3mjnCsXNwZD14plhogfblyda2/Y7qL4T6
+	 EEn67hMopue2UuI5hRlK9ufWyKAyZKTapYEyYnyUfJW1spBhmoiZVMhowsAmfEKnimB50
+	 j4iPo78DrT2IOr0520RFLVE+tHDErwxGvcQMhTcqOw98vwwG9eFqxkMk/z86K1DoQmj1s
+	 pkvKXLkXio0MCBhdmsxQSoItWlN9pb4ul84xX6fnLONOLpQiP1SoDAHs25cysFeOHOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795297279;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795297286;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=VciGgAHE9AKbwhjShHEMH37yF95luzzv2P4k7R87BOw=;
-	b=MhlKRsFBXpQXPzGJnVwruh2Dbe9Q2BUU/lU4sme8fu6l+/e8bVWXISONrSmqWI5TJrRN
-	 +mpje8UULykXZN0o+/hbaGcUUBoui1KCrrqy9+/Ea/g/JCcKXB8ysLN1vsQnEhX9bWcH/
-	 fO1p03vl/Y4MPfWecE774yrOXlvAdm3vbXCxTWL3oZjrMJCv3Fr5cQ7NqhvXeowxsNJnm
-	 OZZ7ibi+pzcbOXI0KomItb67QOfRt5DkzvpRJIE5tnAv+tiCko1ru6nu72vlN40h1ChNI
-	 1cyQijkx0ZKaKLJPVbfJwY2AvqdEojhpSc1iUU55kdini2pru9cq9Ze78h7ehAi8i7g==
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=2njdU2P0o0owSxMfoiGpvysc8tEsvleUf6yxLSSSXCM=;
+	b=3uxp60J2nxrE9ET+soq4LVOarAJ4rfjn8vkbYSkPtMke10QMFxl6qz4nrSYTr1Mo/eJh
+	 5HWxeYIfw58eh1mmboIbe9F+xn51kUrAZoryqhgSLwvk8T1fNwEtGdvhUmlMk4obfYXtk
+	 4j2AWUccUep8W2aYYILVDPd9IdmPo+WgjrKROgaLxNwh851b/h3t9kJ9djNvpreTJx5K1
+	 +ozc0KHwWMf3YOnWkJ5jf7kJrCoO6g5XEk7F+z8BV5cdRyG66lIS5Oxh/L5skdqqnvKAp
+	 ItsrTd35XqeC4L6I4jL5C91efSZtT/08KaEsSiZmKxml/Xy6iiTaQs0gzx5K7n0o5HQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="vms/8fN+";
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0sw0TkCc;
+	arc=none smtp.remote-ip=209.85.128.50
+Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1019D606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:41:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1019D606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AEF1606A33A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:41:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9AEF1606A33A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vms/8fN+
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb606491faso11328905e9.3
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:41:18 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0sw0TkCc
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4a207b02a2cso14433135e9.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:41:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795297277; x=1795902077; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VciGgAHE9AKbwhjShHEMH37yF95luzzv2P4k7R87BOw=;
-        b=vms/8fN+Bl8w2xU2W6cWQYeTyeoa+tp9vpy/hXhIzyb+w0gG++VWAc9Xv5xSUHqR7/
-         yLNAMVJU9BX8eRj5r55da3Cpk0RQuAiNU0zkfauuy+DAGx0JFZCaFTGRiBRULrrTh4bZ
-         KL7oyWYri5WosyrQGPgC32K6uX7e/VSnysFHek/jdlqxN6kx+JHXP/VihNw2X2Tf1TFx
-         +TWPxFvjKENRTVMXzHaPHZ6cpxvUIGrJDQL8t3yIcXYZ71oS5xeNQXA1S67JRAJFSS1L
-         A3k1lIIAftEzE09jyzGTGaGKiQ3cDcwQnD5peQSPY8OzPGVcyLwZB+Coz0cRUqFCSfCU
-         js/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795297277; x=1795902077;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795297284; x=1795902084; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=VciGgAHE9AKbwhjShHEMH37yF95luzzv2P4k7R87BOw=;
-        b=VuZsjgrI4ZpYTuk0awYdKfMglVZ5LeaiIlbLMQGAKUXLPEAG+Q06Kgue3naxOsAjFh
-         etMfwraa+bZSmwcWuOrEbEh0TGEiCuJQXNV1gI3z4jOFMy+cLW0g+P8oBbaOS/BWHhxl
-         Dn/Cm2TfciGiZSGY+yYV1ssUDv1pY8F8f34VeUZAhTeG3siycZbaiKALV79y45v6Ypo9
-         yd0izpTlYqzfpBqfpRexC1qj0ES/aTffYzSU69ZEbBIRdcHzUfFZAh0wL0FNh/cMhFZ5
-         Z/iynZoj7pUzwphjS3Jus5sNg3DrsWOb+U1zvohhgpvh3TLIwVEZgKUeKisrNOHy7zUw
-         ZwIw==
-X-Forwarded-Encrypted: i=1; AL+hErHUASOb/H/E0CeL7x2SUKJEvgCs2cUelfjax3WKI8BrHx+WoIkq+nygG98d0U+DB0k+oM0r9wEJG3EjNWU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z//Qbx9BCfJrUfnoauJAKC7vV52XeHMCbxy4isBM4Al56BsPGqW
-	AvB1TfzWH5/aQQeCNVIiXBlza+EQrqBnvOfZeu6NODGnbN6t8ZOfZXI=
-X-Gm-Gg: AZFdTZd88RgMy50pYQzuYPZKAeBuPO0x1VJRMsxEOaDKp4S6R+M9vUiCuo9DUbEnJGo
-	P8CLmNVvB6c4/Oz7w5g38SUMGfGflRNW+Ras4F/o6VAYsWZ4x3fpDqqlhyXHjV0XGkGsKTBRd10
-	gNNDFQXI6bSN1UTkOvbLCrPUPotxo0C9Nlxn5uQOgGxDJnsPp8eXyXQfC+JZapAeY4I286JNbnM
-	78cxZ7tac5QW8YdCqcQ4p23hV3WUb8z28EM4NCnny0fOFBCH+eRhQLzw9rC7vR5OfH/m05QecdU
-	6RME82C9i0aRDxJwFUebq/EqwKJHa9XeJypi3Bz5Ry9uzMqnrmM5oN4j6PhrST8zn49TP49qMvD
-	RIpMEec44nSfL0kENMSkqt27QNm15h/8F8me50DxWesOzNeLOhla4d3Td9M3Y5zsv06U8rciDmc
-	gjfnX/aiISMDmOjg5WCqdvku3Vk4CdYyKdHUFhSmiD6oeWqs0xbGErtWO4qgTKK7moU5+39lIb6
-	v0KOZ0PctnkTJv6rXHbEmqIJNz54+epzINHt/HPW3m2WXLHXaCYKypDZf8Odl+x0GH/sb88O3bj
-	Isb9QydZW86Cqr/CsE46M1MIthcpDeCBSvt1KVo=
-X-Received: by 2002:a05:600c:a0b:b0:4b7:6a8b:9df2 with SMTP id 5b1f17b1804b1-4bb8882432bmr151110535e9.25.1795297277176;
-        Sat, 21 Nov 2026 13:41:17 -0800 (PST)
+        bh=2njdU2P0o0owSxMfoiGpvysc8tEsvleUf6yxLSSSXCM=;
+        b=0sw0TkCcEve5HC15tE7aSCGs5k+TgF+IqmDqLSrIGuPjkY0IohgPsgQXUA1YlVRAue
+         CxjO+ak9gJLRlJAWacPg2xCxx06ZxhxUuPMdcY9WbPqNl1qRd6zLZ82n4KS4I1P1zykk
+         BWTFfJNHWYj5HRI/5DtkImzmbMTKaVk2ivIFqXRwGonreIV1E4XzHJPjlUQUldqhtUq6
+         B4xf1wtAJp5CziMO2uDfG8T84jLrEQU01wIg2+DAuxl/PDfi0ehzWD1e8zmGd/dFjSTO
+         SNneaNksu6jmMQuMFkQ26VPlZmsnf5oaH6iToA1H9C/pppJ5t8l2v+TbRxAdIJcNUAjI
+         VLbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795297284; x=1795902084;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=2njdU2P0o0owSxMfoiGpvysc8tEsvleUf6yxLSSSXCM=;
+        b=w/GKMaILJ+mo0S+oBetBVppvperTXcaZ+qw9ZGHia1Sfxf6WlMVWth3ydtzg5ZBEvB
+         rZQMBgK51OEulfJ4a0K/h4D6Yxr6Asy7ETWeszOIAvpnY7M3RlShTm24mBx7vRfhMtki
+         HMnWaTxYy8y9GQ99Uzw9aGN6ZSnUXjp1Ay2Hw69adwzNzCCG0xwPTj5opz0QzohXbSf8
+         oBckD1HaY7CK8J1ZKGu+MZQkrwYCihf5C6dH/X8qCVz87Z4OritYnIRHRegZlv/XWC3I
+         gUbQblpol7XPM7sGYv90lfBcz1082Gner698VqeBk2bFwc3TNhdngM6n9u9VrbFmadMb
+         2llQ==
+X-Forwarded-Encrypted: i=1; AL+hErG8GTOF/pZkzHgXPDhQDlMH/GrFjvdUZWfabAUSyTJxnLwIQnW9jnx24uMemvBnubnzd/xx/Sx1tBDy0LI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/oaBnArSAXv/SmFzIeaSYnSgul35xB4+Oo+lV6bJqm0Fj5kExm
+	OxyKBR2jk78klt4XzYkLlqrvAi7sHp88viTLv06A4Ns1JRkCOHHKqeo=
+X-Gm-Gg: AZFdTZeYC8LaGhQwZJjCr4Ge7QiEByd96bfhy7E+Q8RvjSMuYgu1ybUdWJEWElD0ra+
+	fNZC2OocmFviKwi9tyf+UQh06rK4APAnUp28wwCUmqbJTU8n/a7v6UbaqpTri/kz1ViS78NHj/8
+	fk9irTAp+Ge8mG4cUwj9xUfBTfbMgLUCOGw1xxGSgQqyZBLq82YY/1Muduq5D//27bXf7B4K5kX
+	zLUzItDlLUaWY6NhWvwv2eA71i2AuGDuTd+iOuSW2aYXdALg9LNLgCXzbvU1Y52A/YVaAj4sh3O
+	sXp95YzpKSYJBQx5LPxuvMsV0D7+PeoYSrD8BlJ6Ebh/tn0w9B/HJbisXilo03iL8reYyXxibtL
+	CzGyj2WxC1NGIq6WHH8VeVBscx5vuVZth2rIjPQ2Zb0iuf1P6UBpDTouDwUTW1BX2LdsW0jtrMZ
+	oN2qkkgLX0yrpTmfFtJeA+R4I9wRA/Dgma4t2IJHhJgpNJUybYfS7EGmhKt3ineKlchFkxaMOsa
+	+bKLVxau874QazZW0KMHLIOumaSPEM897QESfSI/olGf5k+Iiq3l6RiHNjVi0oqMloJERUowCHm
+	lw7BvFJ8ilXT9Jd+KAc8WV1K1weefct5y8zObF1v
+X-Received: by 2002:a05:600c:3113:b0:4bb:693e:4c8e with SMTP id 5b1f17b1804b1-4bb88816a53mr166279085e9.21.1795297283922;
+        Sat, 21 Nov 2026 13:41:23 -0800 (PST)
 Received: from h7015t.. ([193.207.113.127])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9067a0e6sm54580645e9.4.2026.11.21.13.41.15
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9067a0e6sm54580645e9.4.2026.11.21.13.41.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 13:41:16 -0800 (PST)
+        Sat, 21 Nov 2026 13:41:23 -0800 (PST)
 From: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
 To: Rob Clark <robin.clark@oss.qualcomm.com>,
 	Dmitry Baryshkov <lumag@kernel.org>
@@ -94,10 +95,12 @@ Cc: Abhinav Kumar <abhinav.kumar@linux.dev>,
 	freedreno@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org,
 	Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
-Subject: [PATCH 0/7] drm/msm/dp: fix DisplayPort hotplug, link training, and multi-lane PHY setup
-Date: Sat, 21 Nov 2026 22:40:58 +0100
-Message-Id: <20261121214105.32596-1-gianfranco.mariotti94@gmail.com>
+Subject: [PATCH 3/7] drm/msm/dp: keep training pattern active until stream video is ready
+Date: Sat, 21 Nov 2026 22:41:01 +0100
+Message-Id: <20261121214105.32596-4-gianfranco.mariotti94@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261121214105.32596-1-gianfranco.mariotti94@gmail.com>
+References: <20261121214105.32596-1-gianfranco.mariotti94@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,65 +112,98 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On platforms with a native DisplayPort connector using direct HPD
-interrupts, DisplayPort initializes on cold boot, but physical cable
-unplug and re-plug cycles leave the display blank even though link
-training and stream enable callbacks report success.
+Commit ca16db3d18cf ("drm/msm/dp: break up dp_display_enable into two
+parts") introduced two regressions on DisplayPort re-plug:
 
-This series fixes the underlying PHY lane setup, DPCD link-rate caching,
-SST training-pattern handover, link maintenance BPC restoration, and
-HPD / runtime-PM state tracking issues:
+1. msm_dp_display_prepare_link() called msm_dp_ctrl_on_link() on every
+   prepare (even when power_on was already true) and unconditionally set
+   force_link_train = true when !power_on, causing
+   msm_dp_ctrl_prepare_stream_on() to immediately re-run link training a
+   second time right after msm_dp_ctrl_on_link() succeeded. Only call
+   msm_dp_ctrl_on_link() when !power_on, and pass force_link_train =
+   false to msm_dp_ctrl_prepare_stream_on() so it only retrains if
+   channel equalization was lost.
 
-1. Configure PHY voltage swing and pre-emphasis across all active lanes
-   in msm_dp_ctrl_set_vx_px() instead of only lane 0.
-2. Reset cached link_info->rate and link_info->use_rate_set in
-   msm_dp_panel_read_dpcd() so re-plugging a different sink does not
-   skip drm_dp_max_link_rate().
-3. Avoid redundant back-to-back link training in
-   msm_dp_display_prepare_link() and keep DP_TRAINING_PATTERN_SET active
-   until msm_dp_ctrl_on_stream() is ready to switch REG_DP_STATE_CTRL to
-   DP_STATE_CTRL_SEND_VIDEO.
-4. Reinitialize ctrl->video_comp and restore source BPC/format
-   parameters in msm_dp_ctrl_link_maintenance().
-5. Dispatch DP_DP_IRQ_HPD_INT_MASK to msm_dp_irq_hpd_handle() instead of
-   misrouting expired 0.5-1.0 ms short pulses to msm_dp_hpd_plug_handle()
-   (kept separate as it can be dropped once Dmitry Baryshkov's and
-   Yongxing Mou's in-flight DRM_CONNECTOR_DP_IRQ_HPD series land).
-6. Use asynchronous pm_runtime_put() on HPD unplug/notify paths called
-   from msm_dp_display_irq_thread() to avoid a synchronous disable_irq()
-   self-deadlock in msm_dp_pm_runtime_suspend().
-7. Keep dp->plugged, dp->link->sink_count, AUX transfer enablement, and
-   PHY teardown consistent across plug, detect, unplug, and unprepare.
+2. Splitting msm_dp_ctrl_on_stream() left
+   msm_dp_ctrl_clear_training_pattern() in
+   msm_dp_ctrl_prepare_stream_on(), clearing DP_TRAINING_PATTERN_SET
+   (DPCD 0x102 = 0x00, which re-enables the sink descrambler) ~45 ms
+   before msm_dp_ctrl_on_stream() enables the pixel clock, programs the
+   TU, and switches REG_DP_STATE_CTRL to DP_STATE_CTRL_SEND_VIDEO.
+   During that window the DPTX remains in MR_LINK_TRAINING2 transmitting
+   unscrambled TPS symbols, causing SST monitors to lose symbol lock.
 
-Testing:
-Hardware-tested across cold boot, unplug/re-plug, monitor swap, and
-IRQ_HPD link-retrain cycles on a QCS8275 (Monaco) SMARC board (SECO F86)
-with a native DisplayPort connector running v6.18 + the FROMLIST DP
-HPD/MST series (Qualcomm Linux / QLI 2.0), then forward-ported and
-build-tested against msm-next.
+Move msm_dp_ctrl_clear_training_pattern() back into
+msm_dp_ctrl_on_stream() immediately before DP_STATE_CTRL_SEND_VIDEO.
 
+Fixes: ca16db3d18cf ("drm/msm/dp: break up dp_display_enable into two parts")
 Signed-off-by: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
+---
+ drivers/gpu/drm/msm/dp/dp_ctrl.c    |  6 +++---
+ drivers/gpu/drm/msm/dp/dp_display.c | 16 +++++++---------
+ 2 files changed, 10 insertions(+), 12 deletions(-)
 
-Gianfranco Mariotti (7):
-  drm/msm/dp: configure voltage swing and pre-emphasis for all active
-    lanes
-  drm/msm/dp: reset cached link rate before reading DPCD capabilities
-  drm/msm/dp: keep training pattern active until stream video is ready
-  drm/msm/dp: restore source params and reinit video_comp on link
-    maintenance
-  drm/msm/dp: dispatch native IRQ_HPD directly to
-    msm_dp_irq_hpd_handle()
-  drm/msm/dp: avoid synchronous runtime PM put from HPD IRQ thread
-  drm/msm/dp: fix HPD plugged and sink_count state tracking across
-    hotplug
-
- drivers/gpu/drm/msm/dp/dp_ctrl.c    | 23 ++++++++----
- drivers/gpu/drm/msm/dp/dp_display.c | 55 ++++++++++++++++-------------
- drivers/gpu/drm/msm/dp/dp_panel.c   |  2 ++
- 3 files changed, 48 insertions(+), 32 deletions(-)
-
-
-base-commit: d024361c631b3f020a26c07d683e5103404b0fbf
+diff --git a/drivers/gpu/drm/msm/dp/dp_ctrl.c b/drivers/gpu/drm/msm/dp/dp_ctrl.c
+index b896196cf244..779f743f9418 100644
+--- a/drivers/gpu/drm/msm/dp/dp_ctrl.c
++++ b/drivers/gpu/drm/msm/dp/dp_ctrl.c
+@@ -2616,9 +2616,6 @@ int msm_dp_ctrl_prepare_stream_on(struct msm_dp_ctrl *msm_dp_ctrl,
+ 	if (force_link_train || !msm_dp_ctrl_channel_eq_ok(ctrl))
+ 		msm_dp_ctrl_link_retrain(ctrl, panel);
+ 
+-	/* stop txing train pattern to end link training */
+-	msm_dp_ctrl_clear_training_pattern(ctrl, panel, DP_PHY_DPRX);
+-
+ 	return ret;
+ }
+ 
+@@ -2663,6 +2660,9 @@ int msm_dp_ctrl_on_stream(struct msm_dp_ctrl *msm_dp_ctrl, struct msm_dp_panel *
+ 
+ 	msm_dp_ctrl_setup_tr_unit(ctrl, panel);
+ 
++	/* stop txing train pattern to end link training */
++	msm_dp_ctrl_clear_training_pattern(ctrl, panel, DP_PHY_DPRX);
++
+ 	msm_dp_write_link(ctrl, REG_DP_STATE_CTRL, DP_STATE_CTRL_SEND_VIDEO);
+ 
+ 	ret = msm_dp_ctrl_wait4video_ready(ctrl);
+diff --git a/drivers/gpu/drm/msm/dp/dp_display.c b/drivers/gpu/drm/msm/dp/dp_display.c
+index bce641d7d893..b8373740275b 100644
+--- a/drivers/gpu/drm/msm/dp/dp_display.c
++++ b/drivers/gpu/drm/msm/dp/dp_display.c
+@@ -632,7 +632,6 @@ static int msm_dp_display_prepare_link(struct msm_dp_display_private *dp)
+ {
+ 	struct msm_dp *msm_dp_display = &dp->msm_dp_display;
+ 	int rc = 0;
+-	bool force_link_train = false;
+ 
+ 	drm_dbg_dp(dp->drm_dev, "sink_count=%d\n", dp->link->sink_count);
+ 
+@@ -650,17 +649,16 @@ static int msm_dp_display_prepare_link(struct msm_dp_display_private *dp)
+ 
+ 	if (!msm_dp_display->power_on) {
+ 		msm_dp_display_host_phy_init(dp);
+-		force_link_train = true;
+-	}
+ 
+-	rc = msm_dp_ctrl_on_link(dp->ctrl, dp->panel);
+-	if (rc) {
+-		DRM_ERROR("Failed link training (rc=%d)\n", rc);
+-		// TODO: schedule drm_connector_set_link_status_property()
+-		return rc;
++		rc = msm_dp_ctrl_on_link(dp->ctrl, dp->panel);
++		if (rc) {
++			DRM_ERROR("Failed link training (rc=%d)\n", rc);
++			/* TODO: schedule drm_connector_set_link_status_property() */
++			return rc;
++		}
+ 	}
+ 
+-	return msm_dp_ctrl_prepare_stream_on(dp->ctrl, dp->panel, force_link_train);
++	return msm_dp_ctrl_prepare_stream_on(dp->ctrl, dp->panel, false);
+ }
+ 
+ static int msm_dp_display_enable(struct msm_dp_display_private *dp,
 -- 
 2.25.1
 
