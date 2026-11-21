@@ -1,68 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795295338;
-	b=nnhHUadNRxlsox+jwho7wHZjPLGgWdEo+v9sUVpXnh2x6IULe8fCc0+rujpTSD3567Ax
-	 Zeguz9i4CTpgX+x1ymMfV2wbK0VbnLjneMAT/THfROC2RmmfFJaHXAWsLi8KDf/vkLhrj
-	 W51hSfb6HQ3I2n3FZES2OJhiZnDrGH64Z15ht8MEChx5v77tFo9vzgpcWn6Q5WaECFcDf
-	 fSHo/ZO+lTDLcEbYFXg70rdXjTBHYN9lLL0BYKYZrpeWX5XtTvrF2y9qHOksv+G6HmlOV
-	 ECoaxlXdEcHZy310PCNbt6U3HH/XzqQjg11wGfyX3Y/T0TYgb/8m1mvMLFZyxDA8HUQ==
+	t=1795295360;
+	b=PX11SMW+WjBhahqRs2fNawXASma41cOny3pXsyqUpjbUXZ/6Cip8WQZt+ZDqrG51PNl6
+	 teLYaet5HlvTTFVXRyVmaCuBXosuEhj575pEzn+YnTpWuZ/TmeKURc1mZQtgNPjk2Duro
+	 Cia6Q65+soZK/9ycVAztm6VjqrOFPLizamtuxMDTxPV+5FqDjRLhSZ9oW/afy7ORimNP4
+	 vmLQJ7MPmjkizlsM+DIO99k51r4QjVpO/B1E5N7IfndNPZ6+0mzY0pCu1qCoHeOMnri3B
+	 nbmODNCM9hlHuw7ok4cR+yCKzELYspN5QZk7LX/RkswHawDaJDRUL65yvsKK8ANi7TQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795295338;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795295360;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=J8c2sc9pHyGkMH12X1dKW2Db+m7WpKDYGFFOvD1bnfM=;
-	b=gw+c2BY8Juxu46iHmDJ6csxF9XEEaYQbLur9ZD/ddbeH1vRUcLXTnje50Yp8vIO+rTb3
-	 0mqRCdBrW30HhOFwF2Mr46a3eojGkw9lg7AjvkqtBk/2CnJcTuuGXaefLRhhVq1ng9Yjx
-	 uYbfbd4F+a7h2apWwLD31uS1ZFW0bTfxI7URphqZoIczERIri21+ESv0EnJQyt+k3aWvD
-	 DsgirQXTstDxuxRgFxauAeeqtfAKVHTFb3vb4b1+HRjYNrbcnAD3AgUHFyG6S26vXpGIG
-	 ULZOUWBB09Nq0Me+jpPyMgytF/BiZE6soIOubozw87lND+bzIdp9FsthdcSq4YQVUdw==
+	bh=FILw1BUU13VmbLBMyG9K0DFpVAG3hbn960fhU8qq/90=;
+	b=JsDMDWqr0g7S1zEHNitLogu+l9nxBtqyptpZlVgm+ws+YCNzLoguG6C3NVxcpyquymx+
+	 VbDWJbxKyq2e9TNSTqpizYivXkOfdROrhLmC1ROeS05g877i9frRrOPCIMUvCTL8I5A18
+	 eOmHnKTmEmg1ctbZImYDczGX/gLYCCx/PVyDxSPs8aSedysEn85kR255K+bUCbZf6Or9b
+	 lycHTi8vb+8o/7BO6qRduMTF7sS/kGRBL80rdSEu+62q2oPKL/b2CJj5gyg0y6GJsqnNn
+	 UpUAr2gzQYYsIHtwcWGYBbN0bvA/VanpZlD+ITjmmfr7nsiHLeisEt4taFEVNFGcTtQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A1c50uxe;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JclfRHCS;
+	arc=none smtp.remote-ip=91.218.175.131
+Received: from mta0.migadu.com (out-131.mta0.migadu.com [91.218.175.131])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A9B2606A320;
-	Sat, 21 Nov 2026 21:08:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93A4E606A32C
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:09:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93A4E606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A1c50uxe
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 187481F000C0;
-	Sat, 21 Nov 2026 21:08:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795295338;
-	bh=J8c2sc9pHyGkMH12X1dKW2Db+m7WpKDYGFFOvD1bnfM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=A1c50uxe9q2n/EXWdWf11CJGRgpdzw6KkLEYdFyJvl8P9Bl/rnZQSPLVGlmYH1h2O
-	 /IeHdNcptRndL0+A7ne7l9L17nS8eqBkCENUICZJk4QwVS8WPEb0T0o2wCNvERuA92
-	 dmFyZQq1QKdjIuWR9HEDBfwTR+TNcIPGH66qIp87I6DQ1a/DGx+qpCQgwO10/RaAte
-	 zX6El0vnu4fRBp92kwVqwlAHfDQ4EAE7Pj7Q/Fgj6TyugpbdQtCKNzut4QNN9JZQu1
-	 HpTZupP59iPwR7lJqcCs+fykHI+So8uFfdJWXGV+2uU1k2NoCNxGDT0JHCFLwvIVHp
-	 wNzcYaF4N97rA==
-Date: Sat, 21 Nov 2026 21:08:52 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Amit Kucheria <amitk@kernel.org>, Thara Gopinath
- <thara.gopinath@gmail.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Daniel
- Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org, Kamal Wadhwa
- <kamal.wadhwa@oss.qualcomm.com>, Anjelique Melendez
- <anjelique.melendez@oss.qualcomm.com>, Manaf Meethalavalappu Pallikunhi
- <manaf.pallikunhi@oss.qualcomm.com>, Priyansh Jain
- <priyansh.jain@oss.qualcomm.com>
-Subject: Re: [PATCH v2 5/7] iio: adc: qcom-spmi-adc5-gen3: Remove Gen3
- virtual channel macros
-Message-ID: <20261121210852.67e2d4ed@jic23-hlaptop>
-In-Reply-To: <20261120-pmic5_gen4_adc-v2-5-94d0e1fd6847@oss.qualcomm.com>
-References: <20261120-pmic5_gen4_adc-v2-0-94d0e1fd6847@oss.qualcomm.com>
-	<20261120-pmic5_gen4_adc-v2-5-94d0e1fd6847@oss.qualcomm.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JclfRHCS
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=PgbC1H0E1UNZYOVBbx3o/pUMbLRsx5eTFPVVjt3CvXU=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795295357; v=1; x=1795900157;
+ b=JclfRHCSpHdpDNUp3/hn1w9pPCTHPBFtGUIJFVvW4/YG2x+GAMfcx3nCkT4Nb54AFCxQHtD3
+ KQ87eklSGH+yB1WxuT7rxS2u76qG6BdVDURw1nTTxslfmwy0z8VSDrZZ2iuGMXck8Rxsq1qKmBW
+ W7b10cBqTpvM55JJa9HGcw3w=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id a8e2b04fc8ae0b67;
+	Sat, 21 Nov 2026 21:09:17 +0000
+X-Mizu-Trace-ID: a8e2b04fc8ae0b67
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <9ec73d93-2d91-4d87-857f-4480084bb7a1@linux.dev>
+Date: Sat, 21 Nov 2026 13:09:10 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,54 +58,135 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] RDMA/rxe: match a duplicate request to a resource of its
+ own type
+To: Yiran Qiu <eritque-arcus@ikuyo.dev>, zyjzyj2000@gmail.com, jgg@ziepe.ca,
+ leon@kernel.org, "yanjun.zhu@linux.dev" <yanjun.zhu@linux.dev>
+Cc: linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20261120055951.302239-1-eritque-arcus@ikuyo.dev>
+From: Zhu Yanjun <yanjun.zhu@linux.dev>
+In-Reply-To: <20261120055951.302239-1-eritque-arcus@ikuyo.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Fri, 20 Nov 2026 14:49:45 +0530
-Jishnu Prakash <jishnu.prakash@oss.qualcomm.com> wrote:
 
-> Now that the Gen3 virtual channel macros have been replaced with Gen4
-> macros in both main IIO ADC driver and auxiliary ADC_TM driver, remove
-> the Gen3 macros as they are no longer used.
-> 
-> Signed-off-by: Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>
-Ah. Ok.  I missed this was coming.
-
-Perhaps modifying these to align in earlier patches is to much
-pain given you are going to delete them.
-
-Ignore those comments.
-
-Thanks,
-
-Jonathan
-
+在 2026/11/19 21:59, Yiran Qiu 写道:
+> find_resource() matches a retransmitted request to a responder resource
+> by PSN alone, and rxe_prepare_res() never sets the PSN range of a FLUSH
+> resource, so it keeps the PSNs of the request that last used the slot.
+> duplicate_request() then gives a retransmitted READ the FLUSH resource
+> and reads res->read through the union, so read.rkey and read.length come
+> from the FLUSH's RETH va, chosen by the requester. read_reply() replays
+> the READ through rxe_recheck_mr(), which only checks that the rkey names
+> a valid MR.
+>
+> A FLUSH with no persistence type needs no QP access bit. A connected RC
+> peer holding one rkey of the QP's PD can thus read any valid MR on the
+> device, including MRs of other PDs without remote access and the DMA MR
+> that each kernel PD gets on rxe, which reads kernel memory at the
+> address the peer gives.
+>
+> Record the PSNs of a FLUSH resource, and match a duplicate only to a
+> resource of its own type.
+>
+> Found with afb-afl, an LLM-driven kernel audit/repro pipeline; the fix
+> and this changelog were also drafted with LLM assistance. Reproduced on
+> an unmodified KASAN build of mainline, with raw RoCEv2 packets to an rxe
+> RC QP: four zero-length READs, a FLUSH, then a READ with the first PSN.
+> The replayed READ returned 64 bytes of an MR that another process had
+> registered in another PD with local access only and, against the kernel
+> DMA MR of rxe0 (key byte found in at most 256 tries), 64 bytes of
+> linux_banner. With this patch the replayed READ is dropped in both
+> cases. Retransmitted READ, FETCH_ADD and ATOMIC WRITE requests are
+> replayed as before, a READ with a foreign rkey is NAKed, and a
+> retransmitted FLUSH is now acknowledged instead of dropped. The
+> rdma-core v65.0 tests pass on rxe with and without this patch.
+>
+> Fixes: ea1bb00ee9a5 ("RDMA/rxe: Implement flush execution in responder side")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yiran Qiu <eritque-arcus@ikuyo.dev>
 > ---
->  include/linux/iio/adc/qcom-adc5-gen3-common.h | 5 -----
->  1 file changed, 5 deletions(-)
-> 
-> diff --git a/include/linux/iio/adc/qcom-adc5-gen3-common.h b/include/linux/iio/adc/qcom-adc5-gen3-common.h
-> index fa7e08d67f26..105b0766a01f 100644
-> --- a/include/linux/iio/adc/qcom-adc5-gen3-common.h
-> +++ b/include/linux/iio/adc/qcom-adc5-gen3-common.h
-> @@ -40,7 +40,6 @@
->  #define ADC5_GEN3_CONV_ERR_CLR_REQ		BIT(0)
->  
->  #define ADC5_GEN3_SID				0x4f
-> -#define ADC5_GEN3_SID_MASK			GENMASK(3, 0)
->  #define ADC5_GEN4_SID_MASK			GENMASK(4, 0)
->  #define ADC5_GEN4_BUS_INDEX_MASK		GENMASK(6, 5)
->  
-> @@ -78,10 +77,6 @@
->  #define ADC5_GEN3_CONV_REQ			0xe5
->  #define ADC5_GEN3_CONV_REQ_REQ			BIT(0)
->  
-> -#define ADC5_GEN3_VIRTUAL_SID_MASK		GENMASK(15, 8)
-> -#define ADC5_GEN3_CHANNEL_MASK			GENMASK(7, 0)
-> -#define ADC5_GEN3_V_CHAN(x)		\
-> -	(FIELD_PREP(ADC5_GEN3_VIRTUAL_SID_MASK, (x).sid) | (x).channel)
->  #define ADC5_GEN4_V_CHAN_BUS_INDEX_MASK		GENMASK(14, 13)
->  #define ADC5_GEN4_V_CHAN_SID_MASK		GENMASK(12, 8)
->  #define ADC5_GEN4_V_CHAN_CHANNEL_MASK		GENMASK(7, 0)
-> 
+> Tested on mainline 4405c18c95d2 (v7.4-rc3+) in QEMU. Applies to
+> rdma.git for-rc and for-next.
+> A reproducer and the test logs are available on request.
+
+Thanks a lot. If you can share the reproducer and the test logs with me,
+
+I can reproduce this problem in my local host.
+
+Except that, I am fine with this commit.
+
+Reviewed-by: Zhu Yanjun <yanjun.zhu@linux.dev>
+
+Zhu Yanjun
+
+>
+>   drivers/infiniband/sw/rxe/rxe_resp.c | 14 +++++++++-----
+>   1 file changed, 9 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/infiniband/sw/rxe/rxe_resp.c b/drivers/infiniband/sw/rxe/rxe_resp.c
+> index 1b7f31737225..db662736404c 100644
+> --- a/drivers/infiniband/sw/rxe/rxe_resp.c
+> +++ b/drivers/infiniband/sw/rxe/rxe_resp.c
+> @@ -688,6 +688,9 @@ static struct resp_res *rxe_prepare_res(struct rxe_qp *qp,
+>   		res->flush.length = qp->resp.length;
+>   		res->flush.type = feth_plt(pkt);
+>   		res->flush.level = feth_sel(pkt);
+> +		res->first_psn = pkt->psn;
+> +		res->last_psn = pkt->psn;
+> +		res->cur_psn = pkt->psn;
+>   	}
+>   
+>   	return res;
+> @@ -1327,14 +1330,14 @@ static enum resp_states cleanup(struct rxe_qp *qp,
+>   	return RESPST_DONE;
+>   }
+>   
+> -static struct resp_res *find_resource(struct rxe_qp *qp, u32 psn)
+> +static struct resp_res *find_resource(struct rxe_qp *qp, u32 psn, int type)
+>   {
+>   	int i;
+>   
+>   	for (i = 0; i < qp->attr.max_dest_rd_atomic; i++) {
+>   		struct resp_res *res = &qp->resp.resources[i];
+>   
+> -		if (res->type == 0)
+> +		if (res->type != type)
+>   			continue;
+>   
+>   		if (psn_compare(psn, res->first_psn) >= 0 &&
+> @@ -1361,7 +1364,7 @@ static enum resp_states duplicate_request(struct rxe_qp *qp,
+>   		struct resp_res *res;
+>   
+>   		/* Find the operation in our list of responder resources. */
+> -		res = find_resource(qp, pkt->psn);
+> +		res = find_resource(qp, pkt->psn, RXE_FLUSH_MASK);
+>   		if (res) {
+>   			res->replay = 1;
+>   			res->cur_psn = pkt->psn;
+> @@ -1376,7 +1379,7 @@ static enum resp_states duplicate_request(struct rxe_qp *qp,
+>   	} else if (pkt->mask & RXE_READ_MASK) {
+>   		struct resp_res *res;
+>   
+> -		res = find_resource(qp, pkt->psn);
+> +		res = find_resource(qp, pkt->psn, RXE_READ_MASK);
+>   		if (!res) {
+>   			/* Resource not found. Class D error.  Drop the
+>   			 * request.
+> @@ -1423,7 +1426,8 @@ static enum resp_states duplicate_request(struct rxe_qp *qp,
+>   		struct resp_res *res;
+>   
+>   		/* Find the operation in our list of responder resources. */
+> -		res = find_resource(qp, pkt->psn);
+> +		res = find_resource(qp, pkt->psn, pkt->mask & RXE_ATOMIC_MASK ?
+> +				    RXE_ATOMIC_MASK : RXE_ATOMIC_WRITE_MASK);
+>   		if (res) {
+>   			res->replay = 1;
+>   			res->cur_psn = pkt->psn;
+
+-- 
+Best Regards,
+Yanjun.Zhu
 
