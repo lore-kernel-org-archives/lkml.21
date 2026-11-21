@@ -1,59 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795288276;
-	b=y+SzC3kN/LSQXcmbsfW/cRSz/hIEdpVWknxbxHXU50g8EkYggUe5RmtTrmsq3vkirKwA
-	 K6MTyD7aWyhZ5c7QdZgBbWxqIhkQaCTgAT/NBK9cW9KH/L6afUVMceYAt3bc4pOSL6cPS
-	 kh7xL0VkvLsJkFXJoJQwNVWuc81gbTj3Bs6qAsuoh2hGmzmjNN9IZkkQsMN9fV2TNUP6c
-	 JOU7IpvpQzvJ6i+IlDCIDe2TrpOM4eP+IMTOOozNknnfnVlwx8zg+iYNkzy5uh9Mdozio
-	 LYg5HIHzCsgoCfthG1h3yPQJ9H9M9DS13u7o7xHOaxwU/kgKDjczZMe0QKT1tUU+wUQ==
+	t=1795288364;
+	b=AjZSn+kudy0KFlGMigzWQkJ9n55yXe1rVvPTP3MLt/QMEYO62dKrpoG/IQBh36aEeMXR
+	 7WWTY/k4KHYWV4KPUblDg8D4/fmMv6wXJ++vqIbqLaL+K+ZfRDG3YE7NPB3ImhgzdN4iv
+	 ec4o/Ai2Foe2IGRG8mdgdLN/tuwDug5XeCfIcCioxVlwpinADLBrjGA3j6IYZirsk3Imi
+	 UjZpyvNcarqqUF4Ogj0PRs72VJXivwsc7YaMAxi/qr+FWYlYiqCmyVGdK6vNqKnnUNbPA
+	 8ectZLgd7JBia+6mF2e3xRZfH7y+GHjvbXS+GiWv3SVjBC/5SPCsa+HYwZigQmPFvFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795288276;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795288364;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=L4eNTZonp+k+fZ1GyudD41c0bwWGbcvGd3rWqouDY4Y=;
-	b=Iq13Aejwm3I4gc3TErcAXVm/zFZkfOfaJF+Dm49vlenPAtiHJ3Tnzl0A8hdM+osP9NBr
-	 90fzAaW2k++8eZLcFimDOtSF4/ZkczXxEfoHjwAVUOpaIq0I8u4NJy++LuucFVG1O93l+
-	 aDeKY2dhhC1qMs4/4LSIpygeijsVXnQF3b+wTJCv5HWVBfUznRnJA1bX0XvTo2An6JnY+
-	 195saKR4/rtfERK3Ft+5dTZ3jXgviibAOy4odZZ7zBAL2de2VsH+rs/5zd/eAM7B2l3iG
-	 0ITv7RIfZDtQcJlCH22KJFUGqGAI1nuqHfOtJoUJcSw2NpuGSEUdUgiSg8bWVSXuQ2Q==
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=75J+TPV4gUTQlMal80OEqhZTuIvyo01lM/tzLCah7ac=;
+	b=CZJEOXhVMI+pCjZ1cjcsuioJ0xuFhrV1eCAyxfzdEhvLRk9zLsJuM703+OQszQ1CLXUI
+	 mK+8t4Sp6Sf7GfOnqYM9TiYRlyKxh886N22SQNz8Z5Gc/M2hMy8aAwCBgKX9ijv7ZU+OW
+	 FHqfTRithJXXFDzYBRc+25ZmkuxsadGTiMFxUqkvVKWKeUJ0cna/H4SNkWMbW+RpBkwcP
+	 4MwCah4P0bl937YqLx6+pSuKKF3ajb8kBkcH3lLUiXC9UD1DUqLDYnKRFGwCvBwpba73A
+	 8ZAimO32N2BQ5FwVnop44b9FNet5Lv9ElXgq887+jJXSmfH7IgYNDPQn5+EKq/u7m3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bbzPbNpe;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W34Ribl0;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBE29606A320;
-	Sat, 21 Nov 2026 19:11:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 848EF606A32A;
+	Sat, 21 Nov 2026 19:12:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bbzPbNpe
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0AD61F000C0;
-	Sat, 21 Nov 2026 19:11:15 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W34Ribl0
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 8E93B1F000C6;
+	Sat, 21 Nov 2026 19:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795288276;
-	bh=L4eNTZonp+k+fZ1GyudD41c0bwWGbcvGd3rWqouDY4Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=bbzPbNpeZO0b/DMfj67XtGFQVBAX+rWG1AaXU0PgcDUvRBNLcin4paZH0yGnJZJR/
-	 zjRAhrAzrfzHpB3xPGJ4lxjMByN3nLK7zbN+ot9UnJ7N/Kn2ZVeEe+BkKAFjGyI+ut
-	 fxPDbQgKA1PamvZIqqfqwrBTj6JC4zaADNCXu6Nj1+CAxiFJlqV3p1jb3Um1JcLtar
-	 +lNBGD3NAYDHIuxtfw6T7OTAnzJsd0RVx0hxluhpEyqcfS1Ta/KZIbA2UV2Aw7H1UP
-	 RUpF7TpHUIKBMENCq6iu4XHTq2rtfAuMTB9anyXSJfgk4QTlAw2JWQFAh8Bw014BS0
-	 T26PoilvJHeYw==
-Date: Sat, 21 Nov 2026 11:11:14 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Jinvas <jinvas@126.com>
-Cc: saeedm@nvidia.com, tariqt@nvidia.com, mbloch@nvidia.com,
- leonro@nvidia.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
- linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org, horms@kernel.org,
- alexious@zju.edu.cn
-Subject: Re: [PATCH net v3 1/1] net/mlx5e: fix NULL pointer dereference in
- arfs_create_groups()
-Message-ID: <20261121111114.0ce8c76e@kernel.org>
-In-Reply-To: <20261118134514.1765-2-jinvas@126.com>
-References: <20261118134514.1765-1-jinvas@126.com>
-	<20261118134514.1765-2-jinvas@126.com>
+	s=k20260515; t=1795288364;
+	bh=75J+TPV4gUTQlMal80OEqhZTuIvyo01lM/tzLCah7ac=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=W34Ribl0z+7v1iFlGB13v8z4TgYNiMd+GVWrEW8Fx8AMnkQrg6P+VOBP5vlnJfkLE
+	 kbLJA7xiGiPh0mPVcF3J1GBshtd3l1vOB1EjXO29Emfao1V88o+EPc3WQyIehYbx+/
+	 6o7/jZGDLhwU6pt5IDamQKA0wSaik0am9reT73p1DVRQ1dVLJtXuHQ3IsDiUxayJrq
+	 gcFJQiaaji47qcsJEDM4kAf4Z8UkS1t8Y1/T8eQrQhxHgYW5Vk8HRAhuDta0+xrglu
+	 yXH4pJmYQKPHvutd2n4tEWoMapfHzpSlnd7OKjYNHnSbOOPkpchfCLpZZIf0f8Rj84
+	 X6Yt3/s2KQ2Og==
+Date: Sat, 21 Nov 2026 21:12:40 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+	Alexander Mikhalitsyn <alex@amutable.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Christian Brauner <brauner@kernel.org>,
+	David Howells <dhowells@redhat.com>, Jan Kara <jack@suse.cz>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Josef Bacik <josef@toxicpanda.com>, Kees Cook <kees@kernel.org>,
+	Neal Gompa <neal@gompa.dev>, Paul Moore <paul@paul-moore.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: Re: [RFC PATCH v5 13/25] rootns: Add rootns() system call
+Message-ID: <awHtKMkyGEPTB17G@kernel.org>
+References: <20261121000844.1863324-1-jarkko@kernel.org>
+ <20261121000844.1863324-14-jarkko@kernel.org>
+ <awHsvz1vdlwsink0@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,14 +69,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awHsvz1vdlwsink0@kernel.org>
 
-On Wed, 18 Nov 2026 21:45:14 +0800 Jinvas wrote:
-> Signed-off-by: Jinvas <jinvas@126.com>
+On Sat, Nov 21, 2026 at 09:10:59PM +0200, Jarkko Sakkinen wrote:
+> On Sat, Nov 21, 2026 at 02:08:32AM +0200, Jarkko Sakkinen wrote:
+> > Setting up an isolated namespace environment from a multithreaded
+> > manager process currently requires helper processes to call unshare()
+> > and pass file descriptors back over sockets.
+> > 
+> > Add the rootns() system call to allocate a detached rootns instance
+> > owning a fresh user namespace alongside dedicated empty mount
+> > (CLONE_EMPTY_MNTNS), PID, UTS, IPC, network, cgroup, and time
+> > namespaces, and return its control file descriptor. Finalize the nsproxy
+> > time namespace and pin active references for the lifetime of the rootns.
+> > 
+> > Co-developed-by: David Howells <dhowells@redhat.com>
+> > Signed-off-by: David Howells <dhowells@redhat.com>
+> > Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+> 
+> Syscall name is outdated. I'll rename it as container_create(). Does
+> not have to be final name, but is a better wip name.
 
-We need a real / legal name as author and sign off.
-Correct me if I'm wrong but Jinvas does not look like one.
-Please repost with your real name.
--- 
-pw-bot: cr
+Something more non-generic as it inevitably would collide to something
+(did not check). I'll figure something out.
+
+Br, Jarkko
