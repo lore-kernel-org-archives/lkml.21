@@ -1,79 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795279286;
-	b=FXD1zXj5ExYXU4H7FvnEFG+DMtDKd3IhpfEuu91bCKIZtDrD55tf9nIysx39PxO/e8lk
-	 1KE9xlE19C5DimbhPRRrMnyEJWpYrLAxwGNZVBiyJh3GtM9oFuQeYdFe5nzzqCONToX/W
-	 ngBjzMR25GAe+QujQn6sB6qYHhjEez1YhzCuDkB+xqKAhPwAOYBoRXlPLACIwkhCrKg/G
-	 XaSjSrPqbR/BcncfC7mBuGHymeOympfCV+WxuhwKna/8SnEQGVnsWT0d89f+WnWiVIiT2
-	 nBj42WKYKrgyFuX8vUiWrGhO8cFctLdrV3yHQ6nsJs9aar2Sa4EdzxW3ODb99q3u8lw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795279286;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Z0C5Z9UfNVvv5InL/IZ5GrQ7hkgQt92Ixgewa1JYHK0=;
-	b=n8gAVckdTzZaBjAXn6yWuOgj2HJEReJ5PoSD8BM3FfV6e0ofR5J4kLVt2nsS2nKEjS7c
-	 dpkvfuXddIHQzBb+X4R93NYL/545hzY+Day+NpxZvSjlOTYAuejWMIbkbN0O1pgQBySVe
-	 BM4RebfGetDfx+dd3v3enYj67/DP1/c3IVlzK+RHuJxE1PLX34xFczFA7G3+B+ZmJpfHs
-	 Fv95G2xf7956WnFXqnX34mMe/T4EqueemD34qjvXCnv/Y3qCxSLYujjE41TUryPSBFO1a
-	 8pC+dQ4bh1NfHjHguEPdSo7Gbv6nesIHe7Vg0d+Tt2rbbZjot/xoHpKQ/1XvngYaS7g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mPVALENA;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795279480;
+	b=nX6K2GXgcPf+LBwNvgWsvCYJoSyuqp442QuS/QmTUcuQsvPaR8wSFLloDZH6/YKITEKF
+	 7Q/qEodydUAsncswz5sQEXc7VS7WiIt5HIz6A5C9FWFDFVoazeTYuNQfMEmuxbLpOCyLx
+	 +ys5+9HdDMRNj+CRuBXqxGgpi9ygKUcB5gJW0cCOe3XN6lC9TOzbzIVlhOg7fQwx9UDwI
+	 /3QMa+gnhw/8zJNdhZdzgTWPlCc4boOGbgpKMupdH/HnQdOvY7W1NAcjdRYw8FYo1Wsh2
+	 fFy+sr2mIe7YGxWLiH/YEtCbcJYOvMwCnCRqrP5Nz+YrtVHyTFwGSBpiJOG+pvITIMw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795279480;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=s2vyU3vFrC0NUh7tVrPidneeWbqOaMwhYs4Bn+HJRNw=;
+	b=Ui5uyDg8HunPyzNCckSbeBizm6NzwDMWJmYh8UVZ7zfLjO1YEJaLDi6MzxZG5CWdP1jf
+	 jlHB4Z81LzMWXJ0UL9pspgPzj2YuQcvOaVDQ9g7Mt982XnNbj3Dg9d+yc586H8iYKa7/X
+	 Ybnme0+7qYkKGiVT6Kw1kgVpO7qAFNRomx/kLwUWbgCgvDLcbvpgX3fUS6BXcSBEDhCOB
+	 tuF6yAEKMfVp2D61VR5yZFKCOGHfpiGGp+3ABmG9z9lrjCLZsvbiWGJZ2cVEWzQn4WJ9z
+	 THTG2BCkVLwaMSPwj68pnFdSjHPx7eoc0Rl8uR7dBlGWaHiJtYFYvB1jMYz3QvZegPQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V3hESoHs;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46AC0606A683;
-	Sat, 21 Nov 2026 16:41:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3E7E606A337;
+	Sat, 21 Nov 2026 16:44:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mPVALENA
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795279286;
-	b=irD9IrB2akBvUIKarCTtwgl4tCD1koog0nY3wdrYiABBfDoHNeuphoNp4CvyD1GeC4hG
-	 h7jaSDQy6hJd3YXOgh2D1uG1UYRHTSGFopFyWdkEaQIy4IDisPLOouH4wVq9nDlhIOm+6
-	 bNcag5Wtf4IQtmijjPl0PH6Xrpy8OOP2tHXCPcZsWOHgR5G9pbpKM2oN3CopxUSGSn1Vk
-	 b4QFGdyn4nXOjFomstUjtHNIXk9cldgvHTw4SQ0Ec554IoKEvaNb4btAdHm4FPauJzd2r
-	 M7zFMwlvKMx4ZdPqMCxsGPy/9mvECmmXW8Bufiw3SFfNPPmb40wgriCcszo0cwsDVdw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795279286;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Z0C5Z9UfNVvv5InL/IZ5GrQ7hkgQt92Ixgewa1JYHK0=;
-	b=QemwkQkJ2FuvYzVjf8F1LF96VE5pB9j4Omepl4PzkPESS8N4sYXYGfv/XecoV6csYS5T
-	 chPi8p6F5y8FXWik5WqVlIYFrl5/VcsVn30vGz1I/cKQjDKGwTr0HmAghdU9lOnLxH5tS
-	 yt0iunlBoJYO3IBjwQBjaDEI21VOFN3QLDXftRhPrF2m4RBzZR+KwBtauymg3yKoCs5ID
-	 W8vjAV8D8LNPSImei6iDRLVyGz2oOOVxj9saSXHUQOSp8y1PhiiuSJIH6JpqkbsMOs6UY
-	 qtorIrmYhzlDGLnZ6/gYvjj7YDCNNjEiqjj26naCkzB72S6xnf/iXZYvCVGIRE9bnyw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id AB30A1F000CA;
-	Sat, 21 Nov 2026 16:41:22 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V3hESoHs
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 802481F000C4;
+	Sat, 21 Nov 2026 16:44:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795279286;
-	bh=Z0C5Z9UfNVvv5InL/IZ5GrQ7hkgQt92Ixgewa1JYHK0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=mPVALENAwKTVexQi4b/+Mq0draSgtNtzziQspxMJbIMLgVumUht1tMqWdcquhQ3qS
-	 O6grVBvuU8hUgImfHRyHcfcSyvLoMUs5vp9/Txa+z4tuPFo0V1H50XJMIUjZsZSemS
-	 HVmki7FP3TZyWmHoLJ4GAj+X/m00li9g70d3+FTOB98s9Gfo0DHsyOMmjO/RnHqJvL
-	 80yIx1Hwg4Z7tSGi7w1pjRoK/QcD5o5zX5+VWG7n116X7DN4xlyLLtwGxbnN5hDb7i
-	 D95hvQidvgATx9+Wm2qNvYWt5iWwKmcHBmsMfxmwjEu/0tXV6pxqcFNwK7oNyWjvpl
-	 7bQ0y208VHeJA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 6231A4BD14;
-	Sat, 21 Nov 2026 16:41:21 +0000 (UTC)
-From: Alireza Haghdoost via B4 Relay <devnull+haghdoost.uber.com@kernel.org>
-Date: Sat, 21 Nov 2026 08:41:05 -0800
-Subject: [PATCH v8 5/7] perf script: Add --lazy-load-symbols to load symbol
- names lazily
+	s=k20260515; t=1795279480;
+	bh=s2vyU3vFrC0NUh7tVrPidneeWbqOaMwhYs4Bn+HJRNw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=V3hESoHsfIFyhVVUq9Nbw76xQwwdkkosH3PAFFajdKtfYnYXuEeqkTldM2EgmV8Ln
+	 LIbBkNRkerRa94S3OuiWCZTIz4Kac2J+ex80ehWYjNrtLa2HfUOnCasVVO8kuhyzvq
+	 6V+qjIS6H0ZYWKrZS5/rcX482eDlsXgr1sy81p5v5l2/vVRjhDriVXj0OP7l4Jn4gm
+	 kD2+R0gCpirlkenGbmota9uaBoGX/m4gEkTLKWHVvsNWWTDpTQ7Jl3G0gwY0SUSG5e
+	 e6SoDIGiQR6MUhB+BEsJAY2pYcctqVteeYe8eVAiIrTukyV1a6W3ykkfvJwVD5/e4S
+	 jJiLvnXtpOxsg==
+Message-ID: <f8cc1652-7577-4ace-97ed-081ecd65a031@kernel.org>
+Date: Sat, 21 Nov 2026 17:44:34 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,285 +51,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261121-perf-symbol-memory-send-v8-5-370561cbb5a7@uber.com>
-References: <20261121-perf-symbol-memory-send-v8-0-370561cbb5a7@uber.com>
-In-Reply-To: <20261121-perf-symbol-memory-send-v8-0-370561cbb5a7@uber.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- James Clark <james.clark@linaro.org>
-Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Alireza Haghdoost <haghdoost@uber.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9524; i=haghdoost@uber.com;
- h=from:subject:message-id;
- bh=tlJIUoPpSy1y4jLw3r8xZ0bLXUYYFxAz4xSLlEjQLLA=;
- b=owEBiAJ3/ZANAwAIAVNlBDxl2ALYAcsmYgBrAcmvN1yLRClSHBY9PASGdgx7d8V+VlnUUYqXh
- kUlY2lRfgiJAk4EAAEIADkWIQS5+sFL3gX/8PrA0S1TZQQ8ZdgC2AUCawHJrxsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwwLDMACgkQU2UEPGXYAtgUfA/2KC16mI9c+abIgwXFv7VBlcyxzXsO0xb
- o62sroH48Fb39fPZs6qqYP+FX0+owd1S65KBFvDfi2tO+1bF2yxkJA1TljxrLitC2/RFd2DNWAg
- EYce7ftD+8sSIDUKP1v25U0SrwD+JRUy3/aG25gaL371PMi5W3PZ7NQpvrIviPudgTr26sh+nQY
- Gl6fI3ixBDnMhDIEVF59feZ2D2ABT+h0+kj6l4lTWNd49GbFODgk+jUXHg1Jh6+laYBlEZoAjI7
- Jogl1ig7CUD17x9jrNQRnX4aPCrn4t1tBPiJA4UbHJH5TntFRmnJZka54qEaHOwHzJegTDXXlon
- dfNQF2MnS3oIfoQ2EdthycpeGIF3PGTSZVZxdM1YrQXCypP+a2AC9RcZNFloh5Z88Znz9wt18m5
- JY/4i84t4N6jPmuUXK70c++RkzMbdV6Kr+5K/lBhozWs4RFJYVcr7CSYSwe2wloLg/vjrhac71e
- DswwU33JVsAuZFmA7fBqoM3tv6bM03BCPb2Jqbs1F6a8xU0XUiByvYtp6jQksf8MG9YmPjpTIZ8
- XB8GqfLpmXYGqqixx9WUIihR97JHPDPCTSkpVvu8Dx7GhmF+Iv826ucuoEodd5MIvLEG3RiYaBy
- SQiNgpnxcHpGJWd/2gYLHgEd4rtpp9y9koF3CpuXCy20D8UrkJQ==
-X-Developer-Key: i=haghdoost@uber.com; a=openpgp;
- fpr=B9FAC14BDE05FFF0FAC0D12D5365043C65D802D8
-X-Endpoint-Received: by B4 Relay for haghdoost@uber.com/default with
- auth_id=764
-X-Original-From: Alireza Haghdoost <haghdoost@uber.com>
-Reply-To: haghdoost@uber.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [BUG] mm/gup: WARNING: mm/page-writeback.c:2678 at
+ __folio_mark_dirty on v7.4-rc3
+To: Yi Wen <shicenci@gmail.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, linux-ext4@vger.kernel.org,
+ Jan Kara <jack@suse.cz>, John Hubbard <jhubbard@nvidia.com>,
+ Pedro Falcato <pfalcato@suse.de>
+References: <CAPHJ_V+_=Av8pAM+N+oc4JRmtqBjhcimh3B_pSy_N+5qecm6Mg@mail.gmail.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <CAPHJ_V+_=Av8pAM+N+oc4JRmtqBjhcimh3B_pSy_N+5qecm6Mg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-From: Alireza Haghdoost <haghdoost@uber.com>
+On 11/21/26 15:49, Yi Wen wrote:
+> Hi,
+> 
+> I am reporting a kernel WARNING triggered by a syzkaller reproducer on
+> Linux v7.4-rc3.
+> 
+> The reproducer triggers a WARNING in ext4_dirty_folio() when
+> process_vm_writev() writes to a file-backed mapping.
+> 
+> The call trace shows that the warning occurs during the GUP page
+> unpinning and dirtying path:
+> 
+> process_vm_writev()
+>   -> process_vm_rw_core()
+>     -> unpin_user_pages_dirty_lock()
+>       -> folio_mark_dirty()
+>         -> ext4_dirty_folio()
+> 
+> A second WARNING is subsequently triggered in __folio_mark_dirty() in
+> mm/page-writeback.c.
+> 
+> This appears to be related to the interaction between GUP-based page
+> dirtying and filesystem-managed folio metadata. In particular, the GUP
+> dirtying path may mark a file-backed folio dirty without ensuring that
+> the filesystem-specific metadata required by its dirty_folio()
+> implementation remains available.
+> 
+> This may be related to the known issue where GUP-based page dirtying
+> does not properly notify the filesystem through page_mkwrite(), as
+> well as the interaction between GUP dirtying and
+> filemap_release_folio().
+> 
+> Before these warnings, all four ext4 loop devices also report delayed
+> block allocation errors and abnormal free block accounting. These
+> errors may indicate an additional filesystem inconsistency and are
+> included in the console log for further investigation.
+> 
 
-This patch adds a --lazy-load-symbols option to perf script. With it,
-the ELF loader creates userspace .symtab and .dynsym symbols with lazy
-names, and perf reads a name only when a lookup returns that symbol.
-Eager loading stays the default.
+Hi,
 
-perf script loads the whole ELF symbol table of every DSO that appears
-in a sample and keeps every symbol, with its demangled name, until exit.
-Most of those symbols are never sampled, and their names take most of
-the memory. On a large profile this is the main memory cost of perf
-script, and in a memory-limited cgroup it gets perf OOM-killed.
+thanks for the report.
 
-The loader still creates every symbol, so end fixup, duplicate
-selection, PLT synthesis and IFUNC marking do not change. It uses lazy
-names only if the string table is stored as is in the symbol table file,
-since names are read from it with pread().
+Did you only find this through syzcaller or by the help of an LLM?
 
-A few names are still read at load time: aliases that duplicate
-selection can tell apart only by name, such as the .dynsym copies of
-.symtab symbols, and IFUNC symbols, whose names PLT synthesis uses.
+I'm asking because the timing is interesting; this should be one of the problems
+discussed by:
 
-The offsets are only valid in the file that perf loaded, so the loader
-records the file and its string tables with dso__set_lazy_file(), and
-perf checks the file, as the previous patch describes, before it reads
-names from it.
+https://lore.kernel.org/r/20261119-gup-dirty-what-v1-0-236d69f25c24@suse.de
 
-The kernel, modules, PPC64 .opd and .gnu_debugdata still load names
-eagerly.
-
-On a 45,073-sample callchain profile of a large C++ service (about 1M
-symbols), lazy loading cuts max RSS from 327 MiB to 174 MiB, with
-identical output. It saves little run time, 3.56 seconds against 3.75,
-because one of the binaries exports most of its symbols, and duplicate
-selection reads the names of each .dynsym copy and of the .symtab
-symbol that it copies.
-
-Signed-off-by: Alireza Haghdoost <haghdoost@uber.com>
----
- tools/perf/Documentation/perf-script.txt |  11 ++++
- tools/perf/builtin-script.c              |   2 +
- tools/perf/util/symbol-elf.c             | 108 +++++++++++++++++++++++++++----
- 3 files changed, 110 insertions(+), 11 deletions(-)
-
-diff --git a/tools/perf/Documentation/perf-script.txt b/tools/perf/Documentation/perf-script.txt
-index f0228e784ced..4d04f5ecae8a 100644
---- a/tools/perf/Documentation/perf-script.txt
-+++ b/tools/perf/Documentation/perf-script.txt
-@@ -343,6 +343,17 @@ include::itrace.txt[]
- 
-         Default: 127
- 
-+--lazy-load-symbols::
-+	Read and demangle userspace ELF symbol names only when perf needs
-+	them. By default, perf reads every symbol name from each binary
-+	referenced by a sample. This option reduces memory use when samples
-+	reference only a small fraction of a large binary's symbols. The
-+	names are read while perf script runs. If a binary cannot be opened
-+	then, or no longer matches the one perf loaded, perf warns and shows
-+	the symbols whose names it cannot read as unknown. A binary matches
-+	if it has the same build ID and string table layout or, without a
-+	build ID, if it is the same unchanged file.
-+
- --ns::
- 	Use 9 decimal places when displaying time (i.e. show the nanoseconds)
- 
-diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
-index b6691ebb1b4e..88aaf9cfd132 100644
---- a/tools/perf/builtin-script.c
-+++ b/tools/perf/builtin-script.c
-@@ -4287,6 +4287,8 @@ int cmd_script(int argc, const char **argv)
- 		     "Set the maximum stack depth when parsing the callchain, "
- 		     "anything beyond the specified depth will be ignored. "
- 		     "Default: kernel.perf_event_max_stack or " __stringify(PERF_MAX_STACK_DEPTH)),
-+	OPT_BOOLEAN(0, "lazy-load-symbols", &symbol_conf.lazy_load_symbols,
-+		    "Read symbol names only when they are needed"),
- 	OPT_BOOLEAN(0, "reltime", &reltime, "Show time stamps relative to start"),
- 	OPT_BOOLEAN(0, "deltatime", &deltatime, "Show time stamps relative to previous event"),
- 	OPT_BOOLEAN('I', "show-info", &show_full_info,
-diff --git a/tools/perf/util/symbol-elf.c b/tools/perf/util/symbol-elf.c
-index 468a0695809e..76f4aecb8632 100644
---- a/tools/perf/util/symbol-elf.c
-+++ b/tools/perf/util/symbol-elf.c
-@@ -1871,6 +1871,52 @@ void dso__load_symbol_names(struct dso *dso, struct symbol **syms, size_t nr)
- 	}
- }
- 
-+/*
-+ * symbols__fixup_duplicate() compares the names of symbols at the same
-+ * address only when their size, type and binding tie. Load those names.
-+ */
-+static int dso__load_alias_names(struct dso *dso, int fd)
-+{
-+	struct rb_node *nd = rb_first_cached(dso__symbols(dso));
-+
-+	while (nd) {
-+		struct symbol *first = rb_entry(nd, struct symbol, rb_node);
-+		struct rb_node *end = rb_next(nd), *a, *b;
-+
-+		while (end && rb_entry(end, struct symbol, rb_node)->start == first->start)
-+			end = rb_next(end);
-+
-+		for (a = nd; a != end; a = rb_next(a)) {
-+			for (b = rb_next(a); b != end; b = rb_next(b)) {
-+				struct symbol *pair[2] = {
-+					rb_entry(a, struct symbol, rb_node),
-+					rb_entry(b, struct symbol, rb_node),
-+				};
-+
-+				if (symbol__choice_needs_names(pair[0], pair[1]) &&
-+				    read_symbol_names(dso, fd, pair, 2))
-+					return -1;
-+			}
-+		}
-+		nd = end;
-+	}
-+	return 0;
-+}
-+
-+/* PLT synthesis names IRELATIVE slots after IFUNC symbols. Load those names. */
-+static int dso__load_ifunc_names(struct dso *dso, int fd)
-+{
-+	struct symbol *pos;
-+	struct rb_node *nd;
-+
-+	symbols__for_each_entry(dso__symbols(dso), pos, nd) {
-+		if ((symbol__type(pos) == STT_GNU_IFUNC || symbol__ifunc_alias(pos)) &&
-+		    read_symbol_names(dso, fd, &pos, 1))
-+			return -1;
-+	}
-+	return 0;
-+}
-+
- static int
- dso__load_sym_internal(struct dso *dso, struct map *map, struct symsrc *syms_ss,
- 		       struct symsrc *runtime_ss, int kmodule, int dynsym)
-@@ -1888,11 +1934,21 @@ dso__load_sym_internal(struct dso *dso, struct map *map, struct symsrc *syms_ss,
- 	GElf_Sym sym;
- 	Elf_Scn *sec, *sec_strndx;
- 	Elf *elf;
--	int nr = 0;
-+	int nr = 0, nr_lazy = 0;
- 	bool remap_kernel = false, adjust_kernel_syms = false;
- 	u64 max_text_sh_offset = 0;
- 	struct elf_phdr_cache phdr_cache = {};
- 	struct elf_sec_cache_entry sec_cache[ELF_SEC_CACHE_SIZE];
-+	/*
-+	 * Names are read later from the file of dso__symtab_type(). The
-+	 * .gnu_debugdata symbol table is a temporary file.
-+	 */
-+	bool lazy_allowed = symbol_conf.lazy_load_symbols && !dso__kernel(dso) &&
-+			  !kmodule && syms_ss->type == dso__symtab_type(dso) &&
-+			  syms_ss->type != DSO_BINARY_TYPE__GNU_DEBUGDATA &&
-+			  !runtime_ss->opdsec;
-+	bool lazy_names = false;
-+	GElf_Shdr strshdr;
- 
- 	if (kmap && !kmaps)
- 		return -1;
-@@ -1928,6 +1984,17 @@ dso__load_sym_internal(struct dso *dso, struct map *map, struct symsrc *syms_ss,
- 	if (symstrs == NULL)
- 		goto out_elf_end;
- 
-+	/*
-+	 * Names are read with pread(), so the string table must be stored as
-+	 * is, and later reads must find it in the same place.
-+	 */
-+	if (lazy_allowed && gelf_getshdr(sec, &strshdr) &&
-+	    strshdr.sh_type == SHT_STRTAB && !(strshdr.sh_flags & SHF_COMPRESSED) &&
-+	    !dso__set_lazy_file(dso, syms_ss->fd, dynsym,
-+				&(struct dso_lazy_strtab){ shdr.sh_link, strshdr.sh_offset,
-+							   strshdr.sh_size }))
-+		lazy_names = true;
-+
- 	sec_strndx = elf_getscn(runtime_ss->elf, runtime_ss->ehdr.e_shstrndx);
- 	if (sec_strndx == NULL)
- 		goto out_elf_end;
-@@ -2166,16 +2233,24 @@ dso__load_sym_internal(struct dso *dso, struct map *map, struct symsrc *syms_ss,
- 			}
- 		}
- 
--		if (!elf_name)
--			elf_name = elf_sym__name(&sym, symstrs);
--		demangled = dso__demangle_sym(dso, kmodule, elf_name);
--		if (demangled != NULL)
--			elf_name = demangled;
--
--		f = symbol__new(sym.st_value, sym.st_size,
--				GELF_ST_BIND(sym.st_info),
--				GELF_ST_TYPE(sym.st_info), elf_name);
--		free(demangled);
-+		if (lazy_names && sym.st_name < strshdr.sh_size) {
-+			f = symbol__new_lazy(sym.st_value, sym.st_size,
-+					     GELF_ST_BIND(sym.st_info),
-+					     GELF_ST_TYPE(sym.st_info),
-+					     strshdr.sh_offset + sym.st_name);
-+			nr_lazy++;
-+		} else {
-+			if (!elf_name)
-+				elf_name = elf_sym__name(&sym, symstrs);
-+			demangled = dso__demangle_sym(dso, kmodule, elf_name);
-+			if (demangled != NULL)
-+				elf_name = demangled;
-+
-+			f = symbol__new(sym.st_value, sym.st_size,
-+					GELF_ST_BIND(sym.st_info),
-+					GELF_ST_TYPE(sym.st_info), elf_name);
-+			free(demangled);
-+		}
- 		if (!f)
- 			goto out_elf_end;
- 
-@@ -2186,6 +2261,10 @@ dso__load_sym_internal(struct dso *dso, struct map *map, struct symsrc *syms_ss,
- 	}
- 	dso__put(curr_dso);
- 	elf_phdr_cache__exit(&phdr_cache);
-+
-+	if (lazy_names)
-+		pr_debug("%s: %d %s symbols with lazy names\n", dso__long_name(dso),
-+			 nr_lazy, dynsym ? ".dynsym" : ".symtab");
- 	return nr;
- out_elf_end:
- 	dso__put(curr_dso);
-@@ -2256,9 +2335,16 @@ int dso__load_sym(struct dso *dso, struct map *map, struct symsrc *syms_ss,
- 	if (nr > 0) {
- 		struct kmap *kmap = dso__kernel(dso) ? map__kmap(map) : NULL;
- 		struct maps *kmaps = kmap ? map__kmaps(map) : NULL;
-+		/* Lazy names are only in syms_ss, never in the kernel or modules. */
-+		bool lazy = symbol_conf.lazy_load_symbols && !dso__kernel(dso) && !kmodule;
- 
- 		symbols__fixup_end(dso__symbols(dso), false);
-+		if (lazy && !symbol_conf.allow_aliases &&
-+		    dso__load_alias_names(dso, syms_ss->fd))
-+			return -1;
- 		symbols__fixup_duplicate(dso__symbols(dso));
-+		if (lazy && dso__load_ifunc_names(dso, syms_ss->fd))
-+			return -1;
- 		if (kmap) {
- 			/*
- 			 * We need to fixup this here too because we create new
+CCing Pedro, John und Jan.
 
 -- 
-Git-157)
+Cheers,
 
-
+David
