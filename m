@@ -1,95 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795262134;
-	b=YIVClromHdqbgj5DE5JrvmJPpggM8LBbbFudtxSDDzIghOgm1iiQRhF3IATQgGowUo+K
-	 U5wRNC4v6YAwyLvMihZuQ1VO6bYIUpLEkP8JAy6v8HHFInpDxniYdUb92w+fTRRk3fo41
-	 Lx9Jp45lQ2saWZZAw+Lr8VOvy5bq/bxg1kSq9Ignpj9/WRTeoUa8qhp5bTjOYjZHvW8O4
-	 bTFpsg+qLMv1so7nJ40ZJltwM2JbcVbdS6eLToTwnRxPlynhkDhBiqoJ5EsQcr0XSYIkD
-	 ddZR4UXClX24lUn6n7MsXRYRxiXZUO6io/GHI8sLbjrRkpcPS8x8ENmThKbFGNgTyOA==
+	t=1795262488;
+	b=3olMT4qplYXuanHgbOyHNKntgHI4QHuj5VBHYjrJEW6NkLRAO71O16LoPr/x92nLp5Gr
+	 8nz8lvN5kH5T8YC3+xIPVqHA/CAvfChZmx4Qu0o6dNY92Qckg/nkymhb1/S5gXDUn5peI
+	 Htx3smdofJu8KW9haaIKrzx6LTRmaiW8ZBMiTTeEvSQzA71zcpVnkTsU6ciYk48jO1eAx
+	 WcoTeNdiyYprN9RiTFxvAEdMiYMfMdgLgiEDLU/zN3YID4sMBgCoDWzabkAI2i9O6lej4
+	 PfP93YfZJ3h10zFrajDbQPVm72kvNoHqhTqx4e5UstGu0nDMFIXolCJ9rafjp5LXdKQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795262134;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795262488;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:From:To:Cc:Subject:In-Reply-To:References:
-	 Content-Transfer-Encoding:MIME-Version:Content-Type;
-	bh=Udl+/K1uwpei4wEZthYxSyLuxFRGO3vhDmEacUQwYcU=;
-	b=SOg9siidfO8Pe1TtoSqYj+MTLgzqLoFmscU27iWSWkijF+216WAWWHRShE4iCxwqWwU7
-	 afaQzPpcy4nd66t1Te2CreAsRbdP1chLDX+yLTb8o2MYnEXFdgl5cLpZiAGC61Xyae3zL
-	 i0tOu14KNSP8P7hZxAv4d6uQsy4MXgxqHFfNVF/m5PNb6ggctAGJEscVTKuWPZHZMdciZ
-	 d5yvKYHiiTN+mnASMiW5rDYYRmmjd+krL/U53zv30ypJm7kH3NvdWTR39heiRPnXNL6O3
-	 H2V0I0/nS+e73yd9vdPbsRc/ThKh9XA1ZnmAJCABJJEO2hTayPz+DCTc8alH+2DvEqQ==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Ci3P64xa38O00hMX/k7f2bmsUDxwfYwySYQ2yHWRji0=;
+	b=qOHayqBpdDoj9ZcNMJi1DTe9ZILSeqb/cYMhtSHYSs7wSxx7VNCYmURbg+wgxRxsegLx
+	 WYF0Siw18yaoaASyXgw/ThxoeMUxvOqteJ08wHp5eOPTPn0RZADny6dJYAxgkKJlEXVy2
+	 fEIQK+2fXpliW56ZWVzkAbjGWcyTK1+St0qLDZ9cXu+CBaGd4bNQZE1sz2Sizzqi7x/sm
+	 ZOliv5yU+v1KB+nMAAOloqEq8LrOf76CZCrmerkjYO3kYmeptAHFqOB0YYFkVPLxh1VPO
+	 N07qJdXFmxzgv1YVFg1lzMYYjUl+MznkSsKcHncgyLt6ZQvtU1OmBfwqEQsvH1JRN+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0k+YJBUH;
-	arc=none smtp.remote-ip=74.125.82.178
-Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=W4uGXw7W;
+	arc=none smtp.remote-ip=209.85.216.42
+Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9191606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:55:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9191606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08C78606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 12:01:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08C78606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0k+YJBUH
-Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-382f4710a17so3009251eec.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:55:33 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=W4uGXw7W
+Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3b3fb193c03so847705a91.2
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 04:01:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795262133; x=1795866933; darn=vger.kernel.org;
-        h=content-type:mime-version:content-transfer-encoding:references
-         :in-reply-to:subject:cc:to:from:date:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Udl+/K1uwpei4wEZthYxSyLuxFRGO3vhDmEacUQwYcU=;
-        b=0k+YJBUHmdNpld/JWXvrBrKQuGuyaLGNv3sxg43FeN8rrDSQ4s066Skzh/9L7bR3yC
-         1IZqCBZz8ikuGIAebBgi1vCiSPFarzz7syzVNBvi3h4KusKVoQryvGBmPxJHnseTA/WL
-         Dvl9WLqU4BcUiaFeEOe54dbE5E4cpDXgsHc5cvz72kSnPB2WFbkdF4eEAM1c6+UMWn9w
-         6zu8kPnFmVmhe3iCdCDm6JEflXLETJTrW6NEhHuZ2ui1LXOUpC1KIp73tXusjZkTq7E5
-         /nJGiiJR3ogrKwP0sflp2r2J4DXc3TDupzRJlONF0NTg6yTWJ6jrzG3NIOumNQHSCeDH
-         LNRg==
+        d=gmail.com; s=20260707; t=1795262487; x=1795867287; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Ci3P64xa38O00hMX/k7f2bmsUDxwfYwySYQ2yHWRji0=;
+        b=W4uGXw7WjyTLVvD7OZJuIB2YeKLFjPrWw5X+YKHFSrHJQjc/OMA9EWQwAJb2IW86Wm
+         P4Vhx2n/cGvLhIBQm9AdWD44IYWujl/6iuHlWKVdESoMhDIXeE45gpRsFkn8zbEdJQWe
+         4/rKwPdmu/wkojfZgKv/UWNjZ8WY8cbq+1tANxLRm9PK1tPxmX09SLHRZ5evQ+hmEsz3
+         uGTURAfyV+8c8hWFP8OzsB497zq7AlLSgfeAfrFlTLloAyW5mXHdmJOrlHCBjru9gVAx
+         684/gd/33kLxJW338CCnEFqLkJ7rg9COazFu+3zgT7CIU2Rsk9F7kqR4nHg7ZxtaasGz
+         SU4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795262133; x=1795866933;
-        h=content-type:mime-version:content-transfer-encoding:references
-         :in-reply-to:subject:cc:to:from:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Udl+/K1uwpei4wEZthYxSyLuxFRGO3vhDmEacUQwYcU=;
-        b=Hd/jqJ2fIOmb40cNuN905LwWZE8x4kp7JV1D0YzX6HO9lCqz8eW+YmX7C2x43WodcX
-         jcZpKilTrFvs6KB009VJ3mpwTRMGvRjzsqG/XBOt6jutSrduLp0crivzytpi9Qh26Kap
-         /5xhcuu93pJMc8mPlsvEX5axgU5h4I2JoYtupqcARjXGbbKIE3rlB18YnPhhwMCrPRat
-         BwHZJz32/FukQuXOkXNnhyHS9cOw2D38ch4hppLTbFBqSelB9qnj8SVGni89XSMX4oa4
-         hzmZ2HwfECU9E8tNNmLlYdSHC4Qjb7/hStkemAS4cAVoPAY6S74pzHCpybA4M/T05vG/
-         PHVw==
-X-Forwarded-Encrypted: i=1; AL+hErFUQuHeHT3FAy76h/kxTN1ToZ3ON+LAdeH689K7UPE5t3tTrW6vtxNX7ECbB8VmfwR4vObScil5G9eNpiY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+l+DIH+Mu5IpGBFtwsHXXsQCykXptaGdvyQ0PP57d2ZvmHxdUp
-	BTOtPQCZrOW7JitWDJm3xWIWQUwPSpM/1ROXFtwIe+TeucvIisMhLRe4
-X-Gm-Gg: AZFdTZcBKASAA8Eik7Joh02FwWenfKrbZmp6jBL+wsQbhVl5EZhxbL2u8VWLn/ilzM9
-	AenDeRKrrmRdBfFAAI1upRatHlhjfxu4R6jM05eCg/F0ZRUj2ZmOiD/Up+RE42VLxN+HX6FJZRM
-	3o3VPpxOIfWLGMvhb46m+pGF8QpzkA21jI56DNMgLBarowTVFH+FSbQLcOc9+l3vCQvMaMBHel1
-	GVzjkoRLiuaoCg2CnQPLPTTE85gc/E/jPqjem7pie274tibD5xGErEkP9hxtoe7f1wdUuFBbysJ
-	yob2z6uHa6M08XdU0UixKw3TWMASvjuTdGb3ixMzNpBilQUOtC/XAdJUJH/fmlYZ9+aRB9J5ge9
-	2vLEBCvlSqql69OTAnhUW+OWtVKieoPcASC/BvDOkqScWSUZg2GQT71eTopM8urA3Suv3r+KHxt
-	vg0T7XGAu1KEoC+ZdcZtHX0jiUJH/HRjo0GJkuqFd3gpdLkuHULedmTLUC1puph0lgWtBkLi2KZ
-	HzYfD8jC2/zuWaWzR1Nn4WP1dtqOYJVdURoEaRPUpGXamcZEh7BYoqNRRG9tQ68X6/Zw1ixLEm4
-	x72gZirC5CZXXIoYujyLEVLKfLczbeNrpDB5Wc32LIjr8hGXSSA=
-X-Received: by 2002:a05:7300:bf11:b0:36a:15cb:30bf with SMTP id 5a478bee46e88-3856fe5971amr6534175eec.13.1795262132618;
-        Sat, 21 Nov 2026 03:55:32 -0800 (PST)
-Received: from ip-192-168-31-150.ap-south-1.compute.internal ([2409:40d2:10d7:e30e:302e:83a2:5a33:afcc])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm22261925eec.4.2026.11.21.03.55.29
+        d=1e100.net; s=20260707; t=1795262487; x=1795867287;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Ci3P64xa38O00hMX/k7f2bmsUDxwfYwySYQ2yHWRji0=;
+        b=XuV7w8SyOxHRFOYu72zKxvaylFavo3+u/lxnRDnoGSrv4we8GatWksaNQvigRp+Og/
+         oIao/HSYlPRlYeThU+7y6Lxqnj2OC9ol381tiUwmhXSTZ0jV7BMlQsUKtj7dexh4AnbQ
+         Fu5VX1j2NGz474YNSVdcx/1miRFlHgCf0Zmc4pKJu0oXL2U87JvvrFt3WFAFlsBuQAdI
+         /hLsfiSq0vcC3KK9X9ByWnakhrvCxRAgScxKT5O5L3b3JU5PsZ3/Ou3Nqogj22Pn/SUM
+         pugHLfle3N7TNuZVYf0aS3F0E3BeoxoKjQebRNcdUORu5idNz+uh2Ui4d1FKB1VxmVIa
+         BcYA==
+X-Forwarded-Encrypted: i=1; AL+hErFIF1/+j+No5U0OECL8xRI81lLglp4AOdGf+/Pw6qlzEs3ZIbwelM6weGIVUcFGOR9k9vactXjt/dmAGwI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9oKGEG5Dp8ZAvW5GphQzFxUhevucgUIGCst4RLkhMAvAjlb+Fy
+	Qe3vNx1/BpNBj9x7lymfywAwrxzH27fWqmTM6Yq+G4zQGnxl0J/yCJ02
+X-Gm-Gg: AZFdTZdyfn0g55gOhPSozbBSosMfmWHmHpt8xOjwNhH2VWj+togOw+WFKKNW2H4UeIg
+	uz9Csak9G+Cf7J8TVL2LGlkX9BVBYcIT4eG8iLS4xMTN3DWy/sikNUfXrCcve2MBUTwJa6wKCdd
+	xd7mjgFUnCuO2rRnKlvFc3wtsIRO7MOjdJARl+Qs12IcCOgfyYFfog0t9OyZLFA1YGgDyTZB7cJ
+	irJ9Sp5ccB2xabDg6m/+XRye3c43uLRJW7iSKnD+Q0geTAh5Qlp4FEy10PomBEqjpCHBtjZkITN
+	lcYPcKt7dkJuVuf4LxnvN27nFB3696oe6NLmUjyLUiJoueD+8zvrWg+WbWJkWx8ESYYKyuPQkgs
+	J5uJSnXXf7ftIRyudAmL4LY9zO/WHqwBw3Xlx6h9bqnIX4jFfqM0Xb90LP3N+6e1zMpfYKhl7jI
+	OJ+8B/na+LSBgsV2sh44/Qyh+pMJqNgKQnrc7ZnhFvkniBWmVRHxQBPMPxYYAyBSMcrmBdWAZSI
+	zhDSXqJe/bkiAL/XazHbXDzwvOMAex9IM/sdR6JXZxDuPnITcSGifQP+/C2NFAuqtuWzp3aZX5v
+	PaKkLFiYI+OHUiEwZMmt7MY3Qo9RlPlBrqcwq7sj3oMBBB9SWss1hA==
+X-Received: by 2002:a17:90b:4b:b0:3b4:1265:740b with SMTP id 98e67ed59e1d1-3b41c9cf6efmr4903980a91.28.1795262487338;
+        Sat, 21 Nov 2026 04:01:27 -0800 (PST)
+Received: from DESKTOP-UCPRL76.localdomain ([113.200.174.114])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b8733e6sm1573965a91.3.2026.11.21.04.01.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 03:55:32 -0800 (PST)
-Message-ID: <6b0186b4.6dbf942f.174087.451e@mx.google.com>
-Date: Sat, 21 Nov 2026 03:55:32 -0800 (PST)
-From: Tanuj Sharma <ertanuj96@gmail.com>
-To: ntfs3@lists.linux.dev
-Cc: almaz.alexandrovich@paragon-software.com, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, gregkh@linuxfoundation.org
-Subject:
- [PATCH v2] ntfs3: fix out-of-bounds write in do_action() bitmap operations
-In-Reply-To: <2026112159-sampling-unmade-c123@gregkh>
-References: <2026112159-sampling-unmade-c123@gregkh>
-Content-Transfer-Encoding: quoted-printable
+        Sat, 21 Nov 2026 04:01:26 -0800 (PST)
+From: Zheng Shuhao <viennaoffh@gmail.com>
+To: linux-bluetooth@vger.kernel.org
+Cc: marcel@holtmann.org,
+	luiz.dentz@gmail.com,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] Bluetooth: hci_sync: invoke destroy callbacks outside lock
+Date: Sat, 21 Nov 2026 20:01:20 +0800
+Message-ID: <20261121120121.576-1-viennaoffh@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,95 +95,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 8bit
 
-In do_action(), when replaying log records for ATTR_ALLOC attributes,
-the buffer is allocated based on bytes_per_index (typically 4096 bytes,
-kmalloc-4k) but bitmap operation bounds checking uses lco -- a larger
-value derived from lcns_follow << cluster_bits (typically 8192).
+hci_cmd_sync_clear() cancels queued command-sync entries while holding
+cmd_sync_work_lock. Cancellation invokes entry->destroy(), and
+add_ext_adv_params_complete() takes hdev->lock. In the opposite direction,
+le_conn_complete_evt() holds hdev->lock while hci_update_passive_scan()
+queues work and acquires cmd_sync_work_lock. This creates the circular
+locking dependency reported by lockdep during controller teardown.
 
-This allows SetBitsInNonresidentBitMap and ClearBitsInNonresidentBitMap
-opcodes to write past the allocated buffer into the adjacent slab object
-when processing crafted NTFS images with malicious $LogFile records.
+Detach the queued entries to a local list under cmd_sync_work_lock, then
+run the cancellation callbacks after releasing the mutex. This keeps
+queue updates serialized without invoking callbacks under the mutex.
 
-The bounds check compares against lco (the full LCN extent size) but
-should compare against the actual buffer capacity. For ATTR_ALLOC, the
-buffer is only bytes_per_index bytes, allocated here:
+Testing:
+- Lockdep-enabled QEMU baseline: reproducer completed twice and emitted
+  the circular-locking warning once.
+- Patched QEMU kernel: reproducer completed five times with no such
+  warning.
+- Bluetooth ECDH and SMP self-tests passed in both kernels.
+- Both kernels built; baseline build logged a timestamp clock-skew
+  warning. checkpatch.pl --strict reported no errors or warnings.
 
-  if (attr->type =3D=3D ATTR_ALLOC) {
-      t32 =3D le32_to_cpu(oe->bytes_per_index);
-      if (bytes < t32)
-          bytes =3D t32;
-  }
-  buffer_le =3D kmalloc(bytes, GFP_NOFS);
+Fixes: 1c66bee492a5 ("Bluetooth: Fix race condition in hci_cmd_sync_clear")
+Reported-by: syzbot+fc55a609cd9deea4ea37@syzkaller.appspotmail.com
+Link: https://syzkaller.appspot.com/bug?extid=fc55a609cd9deea4ea37
+Signed-off-by: Zheng Shuhao <viennaoffh@gmail.com>
 
-But the bounds check uses the larger lco:
-
-  if (cbo + (off + 7) / 8 > lco || ...)
-
-With bytes_per_index=3D4096 and lco=3D8192, any bitmap_off >=3D 32768
-(byte offset 4096) passes the lco check but writes past the buffer.
-
-Fix this by computing the bounds limit as the minimum of the buffer
-extent (cbo + bytes_per_index) and the LCN extent (lco). This ensures
-bitmap operations cannot exceed either the allocated buffer or the
-on-disk extent, and also prevents a crafted bytes_per_index larger
-than lco from weakening the existing check.
-
-Found by code audit and confirmed with a crafted NTFS image that
-triggers the OOB write on mount.
-
-Cc: stable@vger.kernel.org
-Fixes: b46acd6a6a62 ("fs/ntfs3: Add NTFS journal")
-Signed-off-by: Tanuj Sharma <ertanuj96@gmail.com>
----
- fs/ntfs3/fslog.c | 20 ++++++++++++++++----
- 1 file changed, 16 insertions(+), 4 deletions(-)
-
-diff --git a/fs/ntfs3/fslog.c b/fs/ntfs3/fslog.c
-index 1879d04e3cd05..85590f56587c2 100644
---- a/fs/ntfs3/fslog.c
-+++ b/fs/ntfs3/fslog.c
-@@ -3751,10 +3751,16 @@ static int do_action(struct ntfs_log *log, struct OPE=
-N_ATTR_ENRTY *oe,
- 		off =3D le32_to_cpu(((struct BITMAP_RANGE *)data)->bitmap_off);
- 		bits =3D le32_to_cpu(((struct BITMAP_RANGE *)data)->bits);
-=20
--		if (cbo + (off + 7) / 8 > lco ||
--		    cbo + ((off + bits + 7) / 8) > lco) {
-+		{
-+		u64 bmp_limit =3D attr->type =3D=3D ATTR_ALLOC ?
-+			min(cbo + (u64)le32_to_cpu(oe->bytes_per_index), lco) :
-+			lco;
+diff --git a/net/bluetooth/hci_sync.c b/net/bluetooth/hci_sync.c
+index ea2014e74..65b8aa4ad 100644
+--- a/net/bluetooth/hci_sync.c
++++ b/net/bluetooth/hci_sync.c
+@@ -683,6 +683,7 @@ static void _hci_cmd_sync_cancel_entry(struct hci_dev *hdev,
+ 
+ void hci_cmd_sync_clear(struct hci_dev *hdev)
+ {
++	LIST_HEAD(cancel_list);
+ 	struct hci_cmd_sync_work_entry *entry, *tmp;
+ 
+ 	/* cmd_work is disabled, the pending request can only time out */
+@@ -690,10 +691,13 @@ void hci_cmd_sync_clear(struct hci_dev *hdev)
+ 	cancel_work_sync(&hdev->cmd_sync_work);
+ 	cancel_work_sync(&hdev->reenable_adv_work);
+ 
++	/* Run destroy callbacks without holding cmd_sync_work_lock. */
+ 	mutex_lock(&hdev->cmd_sync_work_lock);
+-	list_for_each_entry_safe(entry, tmp, &hdev->cmd_sync_work_list, list)
+-		_hci_cmd_sync_cancel_entry(hdev, entry, -ECANCELED);
++	list_splice_init(&hdev->cmd_sync_work_list, &cancel_list);
+ 	mutex_unlock(&hdev->cmd_sync_work_lock);
 +
-+		if (cbo + (off + 7) / 8 > bmp_limit ||
-+		    cbo + ((off + bits + 7) / 8) > bmp_limit) {
- 			goto dirty_vol;
- 		}
-+		}
-=20
- 		ntfs_bitmap_set_le(Add2Ptr(buffer_le, roff), off, bits);
- 		a_dirty =3D true;
-@@ -3764,10 +3770,16 @@ static int do_action(struct ntfs_log *log, struct OPE=
-N_ATTR_ENRTY *oe,
- 		off =3D le32_to_cpu(((struct BITMAP_RANGE *)data)->bitmap_off);
- 		bits =3D le32_to_cpu(((struct BITMAP_RANGE *)data)->bits);
-=20
--		if (cbo + (off + 7) / 8 > lco ||
--		    cbo + ((off + bits + 7) / 8) > lco) {
-+		{
-+		u64 bmp_limit =3D attr->type =3D=3D ATTR_ALLOC ?
-+			min(cbo + (u64)le32_to_cpu(oe->bytes_per_index), lco) :
-+			lco;
-+
-+		if (cbo + (off + 7) / 8 > bmp_limit ||
-+		    cbo + ((off + bits + 7) / 8) > bmp_limit) {
- 			goto dirty_vol;
- 		}
-+		}
-=20
- 		ntfs_bitmap_clear_le(Add2Ptr(buffer_le, roff), off, bits);
- 		a_dirty =3D true;
---=20
-2.43.0
-
++	list_for_each_entry_safe(entry, tmp, &cancel_list, list)
++		_hci_cmd_sync_cancel_entry(hdev, entry, -ECANCELED);
+ }
+ 
+ void hci_cmd_sync_cancel(struct hci_dev *hdev, int err)
