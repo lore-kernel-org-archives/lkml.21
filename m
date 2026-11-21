@@ -1,49 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795221008;
-	b=FUbl5Mt5+N+JiuNPZKFdya1Qeq5qwIWfhai/2YuGmZQqvfl6HY3u1bW1g8BizQGRNrJD
-	 ENrV3WgI91p8205z4Q8jsUkPox7yZbWI53DUMPJ2LDwoBglVPXYQulZRiHnBpPq1M84IB
-	 yahRYUQ3/I4/6MqIKqexNGs2rs12jDaGpx0lGSE+wFHvYipi5mCPxECXgfGGf70kWP3ag
-	 2KcV2YTgwmIT/HQmiNWmcQtUv8LskGdR7lsAntH6wIX4aMmRW/MjpejpE3mJV0qRDioKK
-	 BFYc5gJnDTyK5HiDJKBoUzy0xNQFdls2jxFRhcmz2Trf4WJUY5T3DAzwkjeG8/vCQNA==
+	t=1795221247;
+	b=HnHKExGT6H3fdyhTLTM2LD1LR7f7Ua3upKjL2XkPbXj9XpZuf6NknlhciUeTybk73Y8x
+	 zSIRBIHBPK7MinbJOcNe9sglTEzaJHIC7QQwBbHbN/u+vDOjeZOgMGu+YeUJ98+h7Fkrz
+	 N22U3vyi8CCXEukqRc+RUeEfWRIZk9ssNuuZjrsoF6l5wIeTJoI7FgsZIgGeeCvVOmwux
+	 vXT/BnQnLJUJujXYK8Ra17toIOdcYbb5lVn42mtlmU/OkwdEIiYL9aJAYX8OzKUenJ2LK
+	 Qs21CnsDOhdl3/A7b+y+SPdpUt11lGXgUsdQ4nHLVRavkgLu0TgZnzI9ShRFkatInhQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795221008;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=bJsBR9xFNxBE9L9/4DqISqmvoAkbXZrq/wuv7yBNLo4=;
-	b=ZYTqANAORLWUPg6Ugi5CoDmsP2JzCAOkoLt4BR78841lftyludV4EHCjHmvyYcWQkVtH
-	 7hKXmsvppGptB9+GBh/UkHWG1Js+gBVgGKBP+mmeMlxPyLS2Bgwg/hNiEVB3HKYYY6nwj
-	 LR00KUktra2egwwKoQutgmzqtnGNjHX9gRLcoUwb5QNocQYUdIJV1nh7BZqEGlJcN2stJ
-	 6wGv+phmilNKvXjtTVYu+EmZorAidEd3h6cWxKXI/sQv81+PXsBk4+QWPfezDtJkGYH+G
-	 qpcw+doe3ohNEJFFWPjpaLMj6bTTj+2Ync0QaCSbudHYxwoZGqPj1ulMfPc+SlYlLOQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795221247;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=+jB7fxNZtqmiW6gtoN61gXB4CDTQflqNtVX+fxWNhT8=;
+	b=r35JCbfT4QltplnLs76ueTBLMrR4WSu6zFXVeL4EQYaQJDpGEMvtbkxJHmdITZpKqTjY
+	 bMTn71IT5FhM5tIwXyokt8r5lCRtScM2PttUm2CRo5Q0IdWVNcpWf8AK4zdZi6X1b876i
+	 mzx8PLf1qxdyZkwn0msB9M55lFpFiRaCbPRMhdPs05/QoasUNuGBVri+pJu0aCbEMnLCU
+	 DQ/k6w7RbM1IAYJAYUaNX/uE1QGplbH+IA+aspLgK05zTLC0b0ajUWFc138a84V2E+Zxb
+	 mefCM9ZlZOvrb1QcwJipmMNQW/b5cwdyil7I9V1oJxpLM0FBD/dtTk0GOZ9IIabj17Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fidmq9h3;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V8nFTjHa;
+	arc=none smtp.remote-ip=209.85.221.50
+Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2494C606A6BD;
-	Sat, 21 Nov 2026 00:30:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11869606A6B9
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 00:34:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11869606A6B9
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fidmq9h3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 459331F000CA;
-	Sat, 21 Nov 2026 00:30:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795221007;
-	bh=bJsBR9xFNxBE9L9/4DqISqmvoAkbXZrq/wuv7yBNLo4=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=fidmq9h35PebspB+dzJPM5MNK1tmMyUr86mXM1wGg92iZUA0Li+TKyVYp27xCQ1Ne
-	 TWfaPginIIoUmZjpi8nJa8njwaWCedYfOJy5CNOFe6K0k4GYvImvRe2oEylwerNALo
-	 9BlLOKLWPlPUmXHzezvzgyIRUOtiFCdHLNGqUdhMmwsfdNyugrSfvpRADyMyLo73Or
-	 orHPJxCPe9cx7S0pW9CYS6xLq5INkqPrrfcKTqqBg1hWP6twaScfBXkL6elCuSVXHp
-	 n7uo8vw0VxXKGncihmGOAYgKW8P4kKb/Sy/dMBuLCQ8nocgSNn0l5TxshPAStOLnsm
-	 QhqJbP5v0KfhQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A34F380AA4D;
-	Sat, 21 Nov 2026 00:30:07 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V8nFTjHa
+Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-497614c95f0so905991f8f.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:34:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795221244; x=1795826044; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+jB7fxNZtqmiW6gtoN61gXB4CDTQflqNtVX+fxWNhT8=;
+        b=V8nFTjHa+1oyIqrf4lS7Hnj8Z4xgUvSGPVZzCpv1r8cCCisbqIyf0ag6Za2dHEXvha
+         MJ1GnP7GvwXM1wbnDvpbzV6zU3fFZ/8LfHAsyefyRrNHeFUTcM0JbhFDdPjutERm/QOQ
+         gb1oVK8FY80SWvFRLx411gMwMPATuOMR5xPqDEiIw7syqBC/eurDuXoxvprudhrlhTdj
+         kNS4U5+PCthvDrm9C/XC6xst57KT+aXI43xbLJ2l2aqlEykx3FmDchFhd9j+LPi+M4Oe
+         46zDCjB+L/y3rcTuSherNZ7eoyD3dDYJzpBoTS3IjsbRm7jGscFf8sWGrF9Rh1L1g3M1
+         ttcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795221244; x=1795826044;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+jB7fxNZtqmiW6gtoN61gXB4CDTQflqNtVX+fxWNhT8=;
+        b=z91Vul2R7psAN+gVmyaWX11QpY9Hak+B6ianqrf5Qf8w/+2F/+K95SsCPlhZykQijQ
+         l9JSxt8Zpa8rC/e2RLUGqv73qkYOoCV2vqLq+6b+EZ5T545LcCK1z1KqlKlPJ79dr0t5
+         bquyxpmR/3GSgyXoVSStwYblZvsw9g11NNYNHp1E+n12ekFLzRMh4EKyguDtZ36IdHAx
+         A35eKY2pATaoglTNGsfh7+fZ8GyH8QIc21km9T7gAx5429SKSorwwb6Z0sOWQNOjqwIX
+         ZSDMjPvybHIrwdBKIb6+63qFyyy8t0V6gwzBRJX+MSX0vKj5GkeYtkVFZ0qroDm2SmGC
+         S9VQ==
+X-Forwarded-Encrypted: i=1; AL+hErENTqvZxgTJnPNinCRd3B85DTtvUgWS5GKYxDbUXPmIIkSkFwtwuCR31ERfhNbIeekwmZqwFWgiDmaHRJc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z869DQFKBYEGqNHPl3zCtUlvoWFJP/0OQSzWUzEDu8hYSG8dGYf
+	IbNXkqxO1tp+7UlRhOLdX0NgMR4ZQ4O1u0+6um2FiJDyTooa1yviuj5Q
+X-Gm-Gg: AZFdTZc2z5xPBSxizbG08e6JVlxC/4BfKD2VW5Xe6Shzmha8AJxovjwEAQDnd4Qd4dP
+	YEh14+Lmd4yItiICo7y6Xhm4L8idy/rHjJF2r51RXeYFkhBDQI7juwbkOMoA7vzaYedjy0V4gA8
+	Qhc+RCBaFO69f9ytBrQx+BLBY33HYAPxLMkFYBGRoRflPvfaKbccl0ib+tRKG4RX8JNt8H7bQo0
+	KSBqPS6q4mvLGUns4Vdh+40a08oW++e3E8TJN2jSMa9yPE9w5eAsXwhJxuPfSukK4jU7BFK0Pge
+	Opd52AwbZQHq/jn2dOVo13HpR8ZsxAZ5WaetiV3K4pLGZ562VRe4H2g6rE4BAmqvxHNniqnVDoV
+	aRVNHKQeQt6AwOp9FMHu3d6BxQor1ULf0r4Z4M8BhARmfx8zQh4fp5SXDTxQ+0vYm2ptUgHHSrr
+	00K+GY9FT9gfIjgxgeZDzkjTCnOlyVsWh+d09HTLtmebRFHYhERN8rJ7/AIHKMCtQOTJB330k7m
+	JjGy+iVCo3efWYyI1J7JcKWgXOfym11EMtCqpXjCqq9rqN9MH+8i64sLVDFkNhKi00sKaOBkwQC
+	qu3d4rvekzuoyfbBBDOL9RgLyAzk7XFjoJFrW9oGL8N9
+X-Received: by 2002:a5d:5f86:0:b0:4ac:f79a:28ab with SMTP id ffacd0b85a97d-4acf79a2aa2mr7241880f8f.8.1795221244092;
+        Fri, 20 Nov 2026 16:34:04 -0800 (PST)
+Received: from asahi.teknoraver.net ([195.182.211.216])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a680483sm8528316f8f.28.2026.11.20.16.34.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 16:34:03 -0800 (PST)
+From: Matteo Croce <technoboy85@gmail.com>
+To: linux-fsdevel@vger.kernel.org,
+	Christian Brauner <brauner@kernel.org>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Ding Feng <dingf3ng@gmail.com>
+Cc: Paul Eggert <eggert@cs.ucla.edu>,
+	LKML <linux-kernel@vger.kernel.org>
+Subject: [PATCH v2] fs: shorten I/O that would extend past the maximum file offset
+Date: Sat, 21 Nov 2026 01:33:56 +0100
+Message-ID: <20261121003356.290201-1-technoboy85@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,59 +98,358 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v5 0/8] vxlan: vnifilter: bound a single request
- and
- account per-VNI memory
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179522100603.856366.12879815292143114431.git-patchwork-notify@kernel.org>
-Date: Sat, 21 Nov 2026 00:30:06 +0000
-References: <20261114221412.255825-1-alishmery18@gmail.com>
-In-Reply-To: <20261114221412.255825-1-alishmery18@gmail.com>
-To: Ali Firas <alishmery18@gmail.com>
-Cc: netdev@vger.kernel.org, idosch@nvidia.com, kuba@kernel.org,
- pabeni@redhat.com, davem@davemloft.net, edumazet@kernel.org,
- andrew+netdev@lunn.ch, horms@kernel.org, razor@blackwall.org,
- roopa@nvidia.com, kuniyu@google.com, petrm@nvidia.com, aroulin@nvidia.com,
- shuah@kernel.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org
 
-Hello:
+rw_verify_area() fails with -EINVAL any read or write where
+pos + count would exceed LLONG_MAX, even when pos itself is valid.
+Such a request should not fail: a read should return the bytes that
+are there up to the maximum offset, or 0 at end of file, and a write
+should write what fits and return a short count.
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+This breaks ordinary programs that read a file up to an end at or near
+LLONG_MAX, even with ordinary buffer sizes. For example, dd fails on
+the last block, where it should get a short read, and cat fails where
+it should get end of file:
 
-On Sun, 15 Nov 2026 01:14:04 +0300 you wrote:
-> The VNI filter interface accepts a VNI range with no bound on either
-> endpoint or on how many VNIs one message may ask for, and the memory it
-> allocates per VNI is not charged to the caller's cgroup. Charging it
-> makes adding a VNI, or changing its remote, fail routinely at a cgroup
-> limit, which exposes two error paths that leave configuration state
-> inconsistent; patches 5 and 6 fix those first.
-> 
-> [...]
+  $ truncate -s $((2**63 - 1)) hugefile
+  $ dd if=hugefile of=/dev/null bs=1M skip=$((2**43 - 2))
+  dd: error reading 'hugefile': Invalid argument
+  1+0 records in
+  1+0 records out
+  1048576 bytes (1,0 MB, 1,0 MiB) copied, 0,103536 s, 10,1 MB/s
 
-Here is the summary with links:
-  - [net-next,v5,1/8] vxlan: vnifilter: reject VNIs outside the 24-bit space
-    https://git.kernel.org/netdev/net-next/c/4d00df6019f8
-  - [net-next,v5,2/8] vxlan: vnifilter: clamp the dumped VNI range to the request limit
-    (no matching commit)
-  - [net-next,v5,3/8] vxlan: vnifilter: bound the number of VNIs one request may touch
-    (no matching commit)
-  - [net-next,v5,4/8] vxlan: vnifilter: account per-VNI memory to memcg
-    https://git.kernel.org/netdev/net-next/c/39508fb293a9
-  - [net-next,v5,5/8] vxlan: leave FDB state and flags unchanged when an update fails
-    (no matching commit)
-  - [net-next,v5,6/8] vxlan: vnifilter: roll back a VNI add that fails
-    (no matching commit)
-  - [net-next,v5,7/8] vxlan: vnifilter: account the default FDB entry to memcg
-    (no matching commit)
-  - [net-next,v5,8/8] selftests: net: test the vxlan vnifilter request limit and dump replay
-    (no matching commit)
+  $ (dd bs=1 skip=$((2**63 - 1)) count=0 status=none; cat) < hugefile
+  cat: -: Invalid argument
 
-You are awesome, thank you!
+The same happens on a 100-byte file:
+
+  preadv2(fd, 200 bytes, pos = LLONG_MAX - 50) = -1 EINVAL
+  preadv2(fd,  50 bytes, pos = LLONG_MAX - 50) = 0
+
+With a large count, the range crosses LLONG_MAX even far from it:
+splice() of a 20 MB file with a count of 0x7FFFFFFFFF000000 fails once
+the position reaches 16 MB. sendfile(), aio and io_uring fail in the
+same way as read() and splice().
+
+Files with FOP_UNSIGNED_OFFSET, such as /dev/mem and /proc/pid/mem,
+have the same problem at U64_MAX, their maximum offset: a read or
+write that starts below U64_MAX but would end past it fails with
+-EOVERFLOW.
+
+Add rw_clamp_count(), which shortens the count so that the range ends
+at the maximum offset, LLONG_MAX or U64_MAX for files with
+FOP_UNSIGNED_OFFSET, and call it before rw_verify_area() in the read
+and write paths of the VFS, splice, aio and io_uring. Where the I/O is
+described by an iov_iter, truncate the iterator. This is what
+filemap_read() already does for s_maxbytes. In io_uring, also save the
+iterator state again after truncating it, so that the short read retry
+loop does not restore the full length.
+
+A read that starts at the maximum offset returns 0. A write that starts
+there cannot transfer anything and still fails in rw_verify_area(), as
+do negative positions on files without FOP_UNSIGNED_OFFSET and counts
+above SSIZE_MAX. For files with FOP_UNSIGNED_OFFSET, the file's own
+read and write methods still decide how much of the shortened range
+they can actually transfer.
+
+rw_verify_area() keeps its check, so callers that are not converted
+behave as before. copy_file_range() already clamps the range in
+generic_copy_file_checks() and is not changed.
+
+Reported-by: Ding Feng <dingf3ng@gmail.com>
+Closes: https://lore.kernel.org/linux-fsdevel/20261120051457.47753-1-dingf3ng@gmail.com/
+Suggested-by: Paul Eggert <eggert@cs.ucla.edu>
+Link: https://lists.gnu.org/archive/html/coreutils/2025-12/msg00097.html
+Link: https://lore.kernel.org/linux-fsdevel/20251219125250.65245-1-teknoraver@meta.com/
+Signed-off-by: Matteo Croce <technoboy85@gmail.com>
+---
+v2:
+- Also shorten I/O on files with FOP_UNSIGNED_OFFSET, so that the range
+  ends at U64_MAX (Paul Eggert).
+- Fix readv() and writev() returning the requested length instead of 0
+  when the count is shortened to zero.
+- Commit message: fix the cat reproducer, add the splice() case.
+
+v1: https://lore.kernel.org/linux-fsdevel/20261120184225.257554-1-technoboy85@gmail.com/
+
+ fs/aio.c           |  4 ++++
+ fs/read_write.c    | 26 ++++++++++++++++++++++++--
+ fs/splice.c        |  3 +++
+ include/linux/fs.h | 45 +++++++++++++++++++++++++++++++++++++++++++++
+ io_uring/rw.c      | 16 ++++++++++++++++
+ 5 files changed, 92 insertions(+), 2 deletions(-)
+
+diff --git a/fs/aio.c b/fs/aio.c
+index d78acc69f487..abd17f75faaa 100644
+--- a/fs/aio.c
++++ b/fs/aio.c
+@@ -1651,6 +1651,8 @@ static int aio_read(struct kiocb *req, const struct iocb *iocb,
+ 	ret = aio_setup_rw(ITER_DEST, iocb, &iovec, vectored, compat, &iter);
+ 	if (ret < 0)
+ 		return ret;
++	iov_iter_truncate(&iter, rw_clamp_count(READ, file, &req->ki_pos,
++						iov_iter_count(&iter)));
+ 	ret = rw_verify_area(READ, file, &req->ki_pos, iov_iter_count(&iter));
+ 	if (!ret)
+ 		aio_rw_done(req, file->f_op->read_iter(req, &iter));
+@@ -1679,6 +1681,8 @@ static int aio_write(struct kiocb *req, const struct iocb *iocb,
+ 	ret = aio_setup_rw(ITER_SOURCE, iocb, &iovec, vectored, compat, &iter);
+ 	if (ret < 0)
+ 		return ret;
++	iov_iter_truncate(&iter, rw_clamp_count(WRITE, file, &req->ki_pos,
++						iov_iter_count(&iter)));
+ 	ret = rw_verify_area(WRITE, file, &req->ki_pos, iov_iter_count(&iter));
+ 	if (!ret) {
+ 		if (S_ISREG(file_inode(file)->i_mode))
+diff --git a/fs/read_write.c b/fs/read_write.c
+index e8c14e2760b2..03b8b0f351b2 100644
+--- a/fs/read_write.c
++++ b/fs/read_write.c
+@@ -544,6 +544,7 @@ ssize_t kernel_read(struct file *file, void *buf, size_t count, loff_t *pos)
+ {
+ 	ssize_t ret;
+ 
++	count = rw_clamp_count(READ, file, pos, count);
+ 	ret = rw_verify_area(READ, file, pos, count);
+ 	if (ret)
+ 		return ret;
+@@ -562,6 +563,7 @@ ssize_t vfs_read(struct file *file, char __user *buf, size_t count, loff_t *pos)
+ 	if (unlikely(!access_ok(buf, count)))
+ 		return -EFAULT;
+ 
++	count = rw_clamp_count(READ, file, pos, count);
+ 	ret = rw_verify_area(READ, file, pos, count);
+ 	if (ret)
+ 		return ret;
+@@ -653,6 +655,7 @@ ssize_t kernel_write(struct file *file, const void *buf, size_t count,
+ {
+ 	ssize_t ret;
+ 
++	count = rw_clamp_count(WRITE, file, pos, count);
+ 	ret = rw_verify_area(WRITE, file, pos, count);
+ 	if (ret)
+ 		return ret;
+@@ -675,6 +678,7 @@ ssize_t vfs_write(struct file *file, const char __user *buf, size_t count, loff_
+ 	if (unlikely(!access_ok(buf, count)))
+ 		return -EFAULT;
+ 
++	count = rw_clamp_count(WRITE, file, pos, count);
+ 	ret = rw_verify_area(WRITE, file, pos, count);
+ 	if (ret)
+ 		return ret;
+@@ -879,6 +883,8 @@ ssize_t vfs_iocb_iter_read(struct file *file, struct kiocb *iocb,
+ 	if (!(file->f_mode & FMODE_CAN_READ))
+ 		return -EINVAL;
+ 
++	iov_iter_truncate(iter, rw_clamp_count(READ, file, &iocb->ki_pos,
++					       iov_iter_count(iter)));
+ 	tot_len = iov_iter_count(iter);
+ 	if (!tot_len)
+ 		goto out;
+@@ -907,6 +913,8 @@ ssize_t vfs_iter_read(struct file *file, struct iov_iter *iter, loff_t *ppos,
+ 	if (!(file->f_mode & FMODE_CAN_READ))
+ 		return -EINVAL;
+ 
++	iov_iter_truncate(iter, rw_clamp_count(READ, file, ppos,
++					       iov_iter_count(iter)));
+ 	tot_len = iov_iter_count(iter);
+ 	if (!tot_len)
+ 		goto out;
+@@ -939,6 +947,8 @@ ssize_t vfs_iocb_iter_write(struct file *file, struct kiocb *iocb,
+ 	if (!(file->f_mode & FMODE_CAN_WRITE))
+ 		return -EINVAL;
+ 
++	iov_iter_truncate(iter, rw_clamp_count(WRITE, file, &iocb->ki_pos,
++					       iov_iter_count(iter)));
+ 	tot_len = iov_iter_count(iter);
+ 	if (!tot_len)
+ 		return 0;
+@@ -970,6 +980,8 @@ ssize_t vfs_iter_write(struct file *file, struct iov_iter *iter, loff_t *ppos,
+ 	if (!file->f_op->write_iter)
+ 		return -EINVAL;
+ 
++	iov_iter_truncate(iter, rw_clamp_count(WRITE, file, ppos,
++					       iov_iter_count(iter)));
+ 	tot_len = iov_iter_count(iter);
+ 	if (!tot_len)
+ 		return 0;
+@@ -1007,9 +1019,13 @@ static ssize_t vfs_readv(struct file *file, const struct iovec __user *vec,
+ 	if (ret < 0)
+ 		return ret;
+ 
++	iov_iter_truncate(&iter, rw_clamp_count(READ, file, pos,
++						iov_iter_count(&iter)));
+ 	tot_len = iov_iter_count(&iter);
+-	if (!tot_len)
++	if (!tot_len) {
++		ret = 0;
+ 		goto out;
++	}
+ 
+ 	ret = rw_verify_area(READ, file, pos, tot_len);
+ 	if (ret < 0)
+@@ -1045,9 +1061,13 @@ static ssize_t vfs_writev(struct file *file, const struct iovec __user *vec,
+ 	if (ret < 0)
+ 		return ret;
+ 
++	iov_iter_truncate(&iter, rw_clamp_count(WRITE, file, pos,
++						iov_iter_count(&iter)));
+ 	tot_len = iov_iter_count(&iter);
+-	if (!tot_len)
++	if (!tot_len) {
++		ret = 0;
+ 		goto out;
++	}
+ 
+ 	ret = rw_verify_area(WRITE, file, pos, tot_len);
+ 	if (ret < 0)
+@@ -1325,6 +1345,7 @@ static ssize_t do_sendfile(int out_fd, int in_fd, loff_t *ppos,
+ 		if (!(fd_file(in)->f_mode & FMODE_PREAD))
+ 			return -ESPIPE;
+ 	}
++	count = rw_clamp_count(READ, fd_file(in), &pos, count);
+ 	retval = rw_verify_area(READ, fd_file(in), &pos, count);
+ 	if (retval < 0)
+ 		return retval;
+@@ -1365,6 +1386,7 @@ static ssize_t do_sendfile(int out_fd, int in_fd, loff_t *ppos,
+ #endif
+ 	opipe = get_pipe_info(fd_file(out), true);
+ 	if (!opipe) {
++		count = rw_clamp_count(WRITE, fd_file(out), &out_pos, count);
+ 		retval = rw_verify_area(WRITE, fd_file(out), &out_pos, count);
+ 		if (retval < 0)
+ 			return retval;
+diff --git a/fs/splice.c b/fs/splice.c
+index 9d8f63e2fd1a..7a889274f9d6 100644
+--- a/fs/splice.c
++++ b/fs/splice.c
+@@ -1001,6 +1001,7 @@ ssize_t vfs_splice_read(struct file *in, loff_t *ppos,
+ {
+ 	ssize_t ret;
+ 
++	len = rw_clamp_count(READ, in, ppos, len);
+ 	ret = rw_verify_area(READ, in, ppos, len);
+ 	if (unlikely(ret < 0))
+ 		return ret;
+@@ -1338,6 +1339,7 @@ ssize_t do_splice(struct file *in, loff_t *off_in, struct file *out,
+ 		if (unlikely(out->f_flags & O_APPEND))
+ 			return -EINVAL;
+ 
++		len = rw_clamp_count(WRITE, out, &offset, len);
+ 		ret = rw_verify_area(WRITE, out, &offset, len);
+ 		if (unlikely(ret < 0))
+ 			return ret;
+@@ -1364,6 +1366,7 @@ ssize_t do_splice(struct file *in, loff_t *off_in, struct file *out,
+ 			offset = in->f_pos;
+ 		}
+ 
++		len = rw_clamp_count(READ, in, &offset, len);
+ 		ret = rw_verify_area(READ, in, &offset, len);
+ 		if (unlikely(ret < 0))
+ 			return ret;
+diff --git a/include/linux/fs.h b/include/linux/fs.h
+index deb411e86661..708d211d14de 100644
+--- a/include/linux/fs.h
++++ b/include/linux/fs.h
+@@ -3128,6 +3128,51 @@ extern loff_t fixed_size_llseek(struct file *file, loff_t offset,
+ extern loff_t no_seek_end_llseek_size(struct file *, loff_t, int, loff_t);
+ extern loff_t no_seek_end_llseek(struct file *, loff_t, int);
+ int rw_verify_area(int, struct file *, const loff_t *, size_t);
++
++/**
++ * rw_clamp_count - shorten an I/O so it does not extend past the maximum offset
++ * @read_write:	READ or WRITE
++ * @file:	file the I/O is done on
++ * @ppos:	file position of the I/O, or NULL for stream files
++ * @count:	number of bytes requested
++ *
++ * A read or write that starts at a valid file position but would end past
++ * the maximum file offset should transfer the bytes up to that offset and
++ * return a short count, rather than fail.  rw_verify_area() rejects such a
++ * range, so callers clamp @count with this helper before verifying it.
++ *
++ * The maximum offset is LLONG_MAX, or U64_MAX for files with
++ * FOP_UNSIGNED_OFFSET, whose positions are unsigned.
++ *
++ * Out-of-range positions and counts are left alone so that
++ * rw_verify_area() still rejects them.  So is a write starting at the
++ * maximum offset, which cannot transfer anything.  A read starting there
++ * is clamped to zero bytes and reports end of file.
++ *
++ * Return: the possibly shortened count.
++ */
++static inline size_t rw_clamp_count(int read_write, struct file *file,
++				    const loff_t *ppos, size_t count)
++{
++	u64 pos, max = LLONG_MAX;
++
++	if (!ppos || unlikely((ssize_t)count < 0))
++		return count;
++
++	pos = *ppos;
++	if (unlikely(file->f_op->fop_flags & FOP_UNSIGNED_OFFSET))
++		max = U64_MAX;
++	else if (unlikely(*ppos < 0))
++		return count;
++
++	if (likely(count <= max - pos))
++		return count;
++	if (read_write == WRITE && pos == max)
++		return count;
++
++	return max - pos;
++}
++
+ extern int generic_file_open(struct inode * inode, struct file * filp);
+ extern int nonseekable_open(struct inode * inode, struct file * filp);
+ extern int stream_open(struct inode * inode, struct file * filp);
+diff --git a/io_uring/rw.c b/io_uring/rw.c
+index 432820f86251..6c01290aa2fb 100644
+--- a/io_uring/rw.c
++++ b/io_uring/rw.c
+@@ -918,6 +918,7 @@ static int __io_read(struct io_kiocb *req, struct io_br_sel *sel,
+ 	struct io_async_rw *io = req->async_data;
+ 	struct kiocb *kiocb = &rw->kiocb;
+ 	ssize_t ret;
++	size_t count;
+ 	loff_t *ppos;
+ 
+ 	if (req->flags & REQ_F_IMPORT_BUFFER) {
+@@ -946,6 +947,13 @@ static int __io_read(struct io_kiocb *req, struct io_br_sel *sel,
+ 
+ 	ppos = io_kiocb_update_pos(req);
+ 
++	count = rw_clamp_count(READ, req->file, ppos, req->cqe.res);
++	if (unlikely(count != req->cqe.res)) {
++		iov_iter_truncate(&io->iter, count);
++		iov_iter_save_state(&io->iter, &io->iter_state);
++		req->cqe.res = count;
++	}
++
+ 	ret = rw_verify_area(READ, req->file, ppos, req->cqe.res);
+ 	if (unlikely(ret))
+ 		return ret;
+@@ -1134,6 +1142,7 @@ int io_write(struct io_kiocb *req, unsigned int issue_flags)
+ 	struct io_async_rw *io = req->async_data;
+ 	struct kiocb *kiocb = &rw->kiocb;
+ 	ssize_t ret, ret2;
++	size_t count;
+ 	loff_t *ppos;
+ 
+ 	if (req->flags & REQ_F_IMPORT_BUFFER) {
+@@ -1166,6 +1175,13 @@ int io_write(struct io_kiocb *req, unsigned int issue_flags)
+ 
+ 	ppos = io_kiocb_update_pos(req);
+ 
++	count = rw_clamp_count(WRITE, req->file, ppos, req->cqe.res);
++	if (unlikely(count != req->cqe.res)) {
++		iov_iter_truncate(&io->iter, count);
++		iov_iter_save_state(&io->iter, &io->iter_state);
++		req->cqe.res = count;
++	}
++
+ 	ret = rw_verify_area(WRITE, req->file, ppos, req->cqe.res);
+ 	if (unlikely(ret))
+ 		return ret;
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.56.1
 
