@@ -1,81 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795229442;
-	b=toKWK6facXJBX8ocDoCWOIpgzCAvPHf3f8Uua9qBqNwINE/gjQRPuidHWeXzzdKKMQI/
-	 Q0aJu7KKSawtQWj/3hR1VxAnFVuEYkIb9br625IykTYW1U345zymXLmpxm7dCQzOmzft/
-	 m1saB+UkwQLs5lbO3BlruZ/pMLpvH11HdNVSaE3fuwo7SMoyNq5hcG3ciuyD/U2kFvC+h
-	 V5bipcu7sboqqPDA4ENJNKmsyUUON0uT5/JVBHGldDohZ9fPJI19a2yODsOtQdjxOdV+1
-	 blDOhMDVSUSQ9zoxFJgUs9oIHQAdoNzIgZ8Abe+hgqcQdUH++QqEmPhKX23CK8YnjdA==
+	t=1795229807;
+	b=MqN89f1ypqk+x9H+v19tdnbwfKdI7R9ibzX2RDLbo/9MXKOsvTQqMVe7sXEZTEf8yUfI
+	 HbzmAqyHHmOBeHqlXy1W71eOSs9FyDlLxSZP9+xrSqF/7ans6LolwnqEzQo65GKxbh43/
+	 IqYnbseZStnZQ3m/c3lprMkdXlClC32jAxgQLBTkxTK9XORwNj27WCw88sTE2LEeZtgSh
+	 9U13EYL6Ve42JJkVgMlIFEb3/4/xmy0P2oSS+a71kaGPcybzsEvlJd5VrYSGsf+aQVhnS
+	 Vh3AuRi+aWe6ZecbDa1YtI5jfotNSGqO4tsxBX50yrF2b9+UmE54fFPZH2OeUFqBtzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795229442;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:User-Agent;
-	bh=yCBx/Es5J3SUpzkPHLi96/E6VeKicpxhtWzFsN0S05s=;
-	b=YWitKG/v5zJy3MrGCsdrrqRsRCCxrUTx4Sa1YFqfhZ6jsPGXcVlCC4QfAINtaYOn8K0u
-	 P5n49kfK/F0+BmD548QvEKgax/5hOlT7CLbAiihuGF9m1V36CH/kY7SDtiGT7/LorIvdF
-	 ejwo3njAYLb08hahpIjB4mbE+i19Ta7epreGOtYe1iU4JQH7vaX7NffppAMo9ogcrR6AL
-	 v+rwhKpaR2DHJ2qLkV1XCD56ZmVNEfPHu4lrmdceNzHPGV1AvMLnfRkpcRAnCS6Tvf4sb
-	 J0ut0tpQ5sD28L2f2gqVsjUAHF4DuElupuogPXtdOt6hZ+Uhcigj39+LrKcDMsgFzQQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795229807;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=sQ0URJXLHPyhV0pqjQJeFam3yZqKvnQul1dVgNuKRU4=;
+	b=ObYll+IkbcMmjpMu2nPJkqpJwuK4APdQqG7ZndaLQuzJDSEFMPicFBKU8lEaa8lFFZ/q
+	 1gUkzIPkX42oiBDTX8HGAvcDGPhGJYB0mfvCyzIyCOekG+vtOp4hI35vkIQKNQW5DuPki
+	 s8OZHdixbRV4roz2LawLMu1eCnldomiA2zXt1QI/Z9uguMyAOAO4utRS/hZuDHn3TN8PZ
+	 qGI3Y06ykyIWMJAvdEa+Mmj/9J57Q+XFfIOhRlLiYsZUv4+xbULds7tisCDGce/xzPeC0
+	 0EZCYZPEC1mAcLXNBJqRjfaV7+1foARiZc3EofvjDjDk39kDc0RiPTLmijgOmLWaXqA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="VQ76/E5b";
-	arc=none smtp.remote-ip=198.175.65.17
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g9Bi0j63;
+	arc=none smtp.remote-ip=74.125.82.174
+Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E26760A381A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 02:50:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E26760A381A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78F9B606A6BA
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 02:56:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78F9B606A6BA
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=VQ76/E5b
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795229438; x=1826765438;
-  h=date:from:to:cc:subject:message-id;
-  bh=TDLJr6QVq3+vLPLHDt6l6qsY3dWRPIJ0JtuQidSGitY=;
-  b=VQ76/E5b+/1bxYo9Jl3NmAKnDvcKh9u+o8q2sw71jOXeNABbU4EXRnZa
-   KqUuecCIrN0WO4+bs5HZdin0XMkwDWLK7okWW1SHL/B4WUB7wPBLy1RHI
-   VRTtu9Bhkl09K9Z2V1KO/SR18cZDN7qabgis8Y2ZzyLdaqeCranNEg1V6
-   kfEHkqcS94+BMh296INIz31ca9MqJweZwNsNsV/ogRWYPGYLEWvBYN+PE
-   +ergRlZfeAXkgeKxzOrgQWA+xf9hs55dS0B5nAghcmnb7YDTy4tYavBob
-   edhWyKin0ZF1sBN8IMunZQouJsG6UW0/oqfnHfHKa4Yq2lJWZFB5x9l2N
-   g==;
-X-CSE-ConnectionGUID: E9jQe4HOQ1eYNVhVrfAhhQ==
-X-CSE-MsgGUID: WbcS51FdRL2Y28fELnuZGA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4123671"
-X-IronPort-AV: E=Sophos;i="6.27,224,1787036400"; 
-   d="scan'208";a="4123671"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 18:50:37 -0800
-X-CSE-ConnectionGUID: 5I0xCVAlQV+bbAFU7HqWoA==
-X-CSE-MsgGUID: YYarhr3WRNuvt5SpkxVh1g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,224,1787036400"; 
-   d="scan'208";a="11166986"
-Received: from igk-lkp-server01.igk.intel.com (HELO 1073a420ae3a) ([10.211.93.152])
-  by fmviesa006.fm.intel.com with ESMTP; 20 Nov 2026 18:50:34 -0800
-Received: from kbuild by 1073a420ae3a with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xUbBO-000000004Dd-3vC1;
-	Sat, 21 Nov 2026 02:50:30 +0000
-Date: Sat, 21 Nov 2026 03:49:59 +0100
-From: kernel test robot <lkp@intel.com>
-To: Finn Thain <fthain@linux-m68k.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>,
- Linux Memory Management List <linux-mm@kvack.org>,
- Arnd Bergmann <arnd@arndb.de>
-Subject: include/linux/compiler_types.h:631:45: error: call to
- '__compiletime_assert_433' declared with attribute error: BUILD_BUG_ON
- failed: offsetof(struct qla_tgt_sess_op, atio) + sizeof(u->atio) !=
- sizeof(*u)
-Message-ID: <20261121034304.2dPxVKzk-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g9Bi0j63
+Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-38644aedba1so1607879eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:56:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795229802; x=1795834602; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=sQ0URJXLHPyhV0pqjQJeFam3yZqKvnQul1dVgNuKRU4=;
+        b=g9Bi0j638butKQqrJh7k3KCV/lIMMA+ErsuPa1dWZlOUuaBred/EkLCNPnCIcLvuZ3
+         gKYp+t4eSAhv3PBOKvKNjoFr6XldgWtmyhPbpcnf0PVdCgrBqBWvDCMTFDaN8OMRgygM
+         DenAySF+lbxJ/EVfFwP3SO2YyyivEWAcX1RANpsvtHozHj8U2cxosOrNmZDKO7o4KJAH
+         7Yv66Cjie6HXrTscNPQG+ZA3GObk4+gGCH52582Mgf7jFfGRQ5iEyDFBl4FN8OBPa78s
+         hz2JpkqSOlrsSkLPi7Zn1P2aj5/JZzZ8Ybs9WpzgZMa69ggJl//2Z+uxjj1Bu9V15jiT
+         u2zA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795229802; x=1795834602;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=sQ0URJXLHPyhV0pqjQJeFam3yZqKvnQul1dVgNuKRU4=;
+        b=neo/YId/2PrGUqjeDAxqBPQ8H8EISDZDgRoG8Ib4TeYeaunUnx1ZcE98HE9QZNe3YX
+         KMJFpV52GTH728DOEH30QqjLeFCYBuy8eg+LcV45BVnlWp+dUgHaZ0woMObMMLP5L7Ru
+         BvE0YmJWDBZM2NfDlGsJw0XOpzd/uhHKr9uvDBdofDMus9T6xh+dpB/Zx6eYMoISRcUR
+         QNF3xVBWbZln6Bx+yDH6dMIY3fbyLrfCi62Aoccj+Lpl5vJVUrBYfZ3ulRczEv579zOj
+         4wc6VQXGJOioCMgSFnbLNQiRPNJHjZIcs1DskiLe/nXOxhO7BPBll/4sSraYfrVCj2yn
+         /nsw==
+X-Forwarded-Encrypted: i=1; AL+hErH2ysqfoNPsn/vTJn/KpdICM2TjOKpjBEjNeYEaj1oH6fm3mzFxSuVrwHpErE/K1cECkUsDnYocyYu/w5M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8svNAGqM0Wj30lf7PHszM+cbYQ6RINsHWBygipyzB6ecV0Sp7F
+	Jd690xMnN8jnFjiQzSINCPU3GLXnDnoEjGyLqoy0VnmDv/vpv8l7HhNL
+X-Gm-Gg: AZFdTZf0xj3hAlSt5BooXtTh9F5x7reHtR6znd+dxQjttnYri/PZVvL92SC2yVlsv27
+	TfYs80vrfwlEMQfdealrpLsof/hD1txKTUzOjTU/TiUporoJpZzGQ7LQGuQGmkQwNmTAuOZ1DF2
+	JIBNfTePDtMdYCbmScSHNyQCGugMQdmXl37Fuqbn71tvlLjiR7uT/Bk0fWP2mk9kxRAlwEgfu0v
+	omCFrCEBIyYyUIkREjJh0ilH3/whMNnMZfMsnhMdACaN5SrD5fMViEHj5rOlJV5FAK/xbexXsKo
+	HbCUoYjfwWccBHRrTvMk6AYYJjQlKUsNyWLOZylpZDhlQzha9Ty5LnXWME6m8PVX/oUe7fLizdn
+	jTnD/mZiiezgOTkcaAOtOv9X14FxyZZt2M+UJY2hm31LnWrbpsm1V5fKwrn+LkUZ43DfBwDQHb0
+	5MqGKlxjwJpPEoXERrKVkreOdy8XhR7hlAHawy4RJS4eReXrYoexAEYwaKFfljmLm+7RPf+NOhx
+	H/CaYR9dOA9PCNWaR1XcEVVkZPCu7kJUXvgIrvu0uYMLaIh9AJJGChfIJL1awbZUCeKdgTg2KPn
+	KI2HCe+vNNNeCbX319bk0qMekrF7rqqdYEdSwmnnJe1IE7e8t0wMBZJVqG/jMNGE5gR+OQDH24i
+	eE6lunfP10t2uUBqT5N2HorC9EniRvnYOcvWO18MC3v5ZSmzfqEfoZnCoKDwfbYxytSLSH8uxeL
+	6W0A==
+X-Received: by 2002:a05:693c:8641:20b0:383:50b7:1d78 with SMTP id 5a478bee46e88-38571223ee7mr5312730eec.40.1795229801565;
+        Fri, 20 Nov 2026 18:56:41 -0800 (PST)
+Received: from localhost.localdomain (206.135.124.34.bc.googleusercontent.com. [34.124.135.206])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385667decc2sm12071967eec.9.2026.11.20.18.56.35
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 20 Nov 2026 18:56:41 -0800 (PST)
+From: Yifan Feng <evanfengff@gmail.com>
+To: SJ Park <sj@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>
+Cc: damon@lists.linux.dev,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	Yifan Feng <evanfengff@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] mm/damon/core: fix damos_walk() hang with zero watermarks interval
+Date: Fri, 20 Nov 2026 18:56:26 -0800
+Message-Id: <20261121025626.75981-1-evanfengff@gmail.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,75 +99,76 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Hi Finn,
+kdamond_wait_activation() cancels damos_walk() requests while all
+schemes are deactivated by their watermarks.  But it returns without
+waiting when the watermarks check interval of a deactivated scheme is
+zero, which is the default of the DAMON sysfs interface.  The kdamond
+main loop then runs with all schemes deactivated.
 
-FYI, the error/warning still remains.
+In that state, kdamond_apply_schemes() finds no scheme to apply and
+returns before it calls damos_walk_complete().  The walk request is
+neither completed nor cancelled, so damos_walk() waits until the
+watermarks activate a scheme again, possibly forever.
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-head:   5f22fb20497f4983094131f00a734362300d22d2
-commit: e428b013d9dff30f7a65509e33047ba975cce8ba atomic: specify alignment for atomic_t and atomic64_t
-date:   10 months ago
-config: m68k-randconfig-2000-20261121 (https://download.01.org/0day-ci/archive/20261121/20261121034304.2dPxVKzk-lkp@intel.com/config)
-compiler: m68k-linux-gcc (GCC) 13.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261121/20261121034304.2dPxVKzk-lkp@intel.com/reproduce)
+For example, with a scheme that has the free_mem_rate metric, zero
+interval_us and a high watermark below the current free memory rate,
+writing update_schemes_tried_regions to the kdamond state file never
+returns and cannot be killed.  The writer holds damon_sysfs_lock, so all
+other DAMON sysfs writes including "off" fail with -EBUSY meanwhile.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Fixes: e428b013d9df ("atomic: specify alignment for atomic_t and atomic64_t")
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261121034304.2dPxVKzk-lkp@intel.com/
+Cancel the walk request in kdamond_apply_schemes() when no scheme is
+activated, as kdamond_wait_activation() does for a non-zero interval.
 
-All errors (new ones prefixed by >>):
+Fixes: bf0eaba0ff9c ("mm/damon/core: implement damos_walk()")
+Cc: <stable@vger.kernel.org> # 6.14.x
+Suggested-by: SJ Park <sj@kernel.org>
+Signed-off-by: Yifan Feng <evanfengff@gmail.com>
+---
+v2: cancel the walk when no scheme is activated, and leave has_schemes_to_apply as it is (SJ Park).
+v1: https://lore.kernel.org/r/20261118235012.14859-1-evanfengff@gmail.com
+QEMU: -ECANCELED instead of the hang, 20/20 walks of an activated scheme pass; kunit and 13 selftests pass (2 need drgn).
+Found and written with the help of an AI coding assistant.
 
-   In file included from <command-line>:
-   In function 'qlt_queue_unknown_atio',
-       inlined from 'qlt_24xx_atio_pkt_all_vps.isra' at drivers/scsi/qla2xxx/qla_target.c:331:4:
->> include/linux/compiler_types.h:631:45: error: call to '__compiletime_assert_433' declared with attribute error: BUILD_BUG_ON failed: offsetof(struct qla_tgt_sess_op, atio) + sizeof(u->atio) != sizeof(*u)
-     631 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-         |                                             ^
-   include/linux/compiler_types.h:612:25: note: in definition of macro '__compiletime_assert'
-     612 |                         prefix ## suffix();                             \
-         |                         ^~~~~~
-   include/linux/compiler_types.h:631:9: note: in expansion of macro '_compiletime_assert'
-     631 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-         |         ^~~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:39:37: note: in expansion of macro 'compiletime_assert'
-      39 | #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
-         |                                     ^~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:50:9: note: in expansion of macro 'BUILD_BUG_ON_MSG'
-      50 |         BUILD_BUG_ON_MSG(condition, "BUILD_BUG_ON failed: " #condition)
-         |         ^~~~~~~~~~~~~~~~
-   drivers/scsi/qla2xxx/qla_target.c:216:9: note: in expansion of macro 'BUILD_BUG_ON'
-     216 |         BUILD_BUG_ON(offsetof(struct qla_tgt_sess_op, atio) + sizeof(u->atio) != sizeof(*u));
-         |         ^~~~~~~~~~~~
+ mm/damon/core.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
+diff --git a/mm/damon/core.c b/mm/damon/core.c
+index b8678a53b0a9..2748f9199924 100644
+--- a/mm/damon/core.c
++++ b/mm/damon/core.c
+@@ -3492,9 +3492,13 @@ static noinline_for_stack void kdamond_apply_schemes(struct damon_ctx *c)
+ 	struct damon_target *t;
+ 	struct damos *s;
+ 	bool has_schemes_to_apply = false;
++	bool has_activated_schemes = false;
+ 	unsigned long max_region_sz;
+ 
+ 	damon_for_each_scheme(s, c) {
++		if (s->wmarks.activated)
++			has_activated_schemes = true;
++
+ 		if (time_before(c->passed_sample_intervals, s->next_apply_sis))
+ 			continue;
+ 
+@@ -3506,8 +3510,12 @@ static noinline_for_stack void kdamond_apply_schemes(struct damon_ctx *c)
+ 		damos_adjust_quota(c, s);
+ 	}
+ 
+-	if (!has_schemes_to_apply)
++	if (!has_schemes_to_apply) {
++		/* The walk cannot be completed while no scheme is activated */
++		if (!has_activated_schemes)
++			damos_walk_cancel(c);
+ 		return;
++	}
+ 
+ 	max_region_sz = damon_region_sz_limit(c);
+ 	mutex_lock(&c->walk_control_lock);
 
-vim +/__compiletime_assert_433 +631 include/linux/compiler_types.h
-
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  617  
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  618  #define _compiletime_assert(condition, msg, prefix, suffix) \
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  619  	__compiletime_assert(condition, msg, prefix, suffix)
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  620  
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  621  /**
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  622   * compiletime_assert - break build and emit msg if condition is false
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  623   * @condition: a compile-time constant condition to check
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  624   * @msg:       a message to emit if condition is false
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  625   *
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  626   * In tradition of POSIX assert, this macro will break the build if the
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  627   * supplied condition is *false*, emitting the supplied error message if the
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  628   * compiler has support to do so.
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  629   */
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  630  #define compiletime_assert(condition, msg) \
-eb5c2d4b45e3d2 Will Deacon 2020-07-21 @631  	_compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  632  
-
-:::::: The code at line 631 was first introduced by commit
-:::::: eb5c2d4b45e3d2d5d052ea6b8f1463976b1020d5 compiler.h: Move compiletime_assert() macros into compiler_types.h
-
-:::::: TO: Will Deacon <will@kernel.org>
-:::::: CC: Will Deacon <will@kernel.org>
-
+base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.39.3 (Apple Git-146)
+
