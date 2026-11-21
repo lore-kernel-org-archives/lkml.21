@@ -1,93 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.74
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795257191;
-	b=oPHpsIcN6sJhGXhMYZf6NImfDN1wgz33+VCK5Ocu4tTxnGeNJBjwjXz9MnUxm443z7lQ
-	 PRvDb5Z1+jRsf6a8683The5DcfJbou0QZeTXR2foz+gdTwmYhIC5AYoIQYU3lQ66EL/Dj
-	 2l4frk7TLI5FZZB7f6YxZkHZPWKpP/Rtsy7U2U1z58l3o9H8XGtrLjy4EjGP1hHLxV1d2
-	 I79I79RKi39mhyX3LLQUAoMUoPYMEytdEXkhnUI2hscz7okr+zccicLWlv9n4dPf9rFbR
-	 HoASMYZpv6+LCFmGBBVUPHFnSEQTcHPfTSsbDGoJO9cyGXhTgD4VQMboXpMXt21XhSw==
+	t=1795257194;
+	b=OVcYdqxFNnatauQH1rXdV1W76hKwvWhcFMOHH2slx5h0UykqsEl5NkcOTkoe2UP08r63
+	 3xqH15RkH/6Zd3bT7v68MLC025ZdELPoH6BA5nFzTua4mj8gh4qTiIUHp7OQT6MzfI5y8
+	 a9i6Qp7VHCs4u72adtwjCANAdT25RJwV9Gdr8z39zdQ+ctjtwe7na6anUwsfisyjeW9a7
+	 5Wwy8SHCzMbimaUjs1h+CrbJ89rtTz50ZHidFCwSdvhYkmW3PxY2tHelok1nutZ0lyeI7
+	 BCIkNfPympXlorQ8mgibAgwJXaI55WSwJNHFUfNvRRxwryyiW8r9f/s3zsbIEtzhLJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795257191;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=4p4wKE6PvmozHeJwACGdfAUAVrmaa85dC2fv+mLU1vI=;
-	b=Cshzu8CnxiHQp5+TZ9pfWCSnDzU1di6Erzv8WQWgLxJdO4u/4cC1yu/mJ7094rMQ3aaW
-	 wC6HAbIZzPz98X1HEusKG76kqfW/0bsbZJReQbVLtZMYIN25+WF6i+VUk0hJtyW4+IpoH
-	 qO/7lHxwq61qOaG/fMF//e5oEkXt87yNv4gbrh2R9Y4e0S1y7HsHypRIglGlX2J0Pdamd
-	 g0ipoZo6pMr5h4oTCh3zaHNYgO+zbKfgKG3BRzF1pm4e0zRG0A/W2kLmhv11XzrAIl8S4
-	 4Z0jg9K9UebLNCdoQcnpABzKo1jMO8DF4hQATMb1UennXR8xO6iw2vvUxnccdCCIuUA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795257194;
+	h=DMARC-Filter:DKIM-Signature:In-Reply-To:Content-Type:Message-Id:Cc:
+	 Mime-Version:X-Lms-Return-Path:References:Content-Transfer-Encoding:
+	 Date:To:Subject:From;
+	bh=T59pDsr6tSYSA2/xk2S6/po3pnlTyL9A/hY0kf/Q/p8=;
+	b=Ys1RjRf4dqB0lsTrWDnhKN3V62Tx0FRJrGfeY1Cajxog870RzRJpolOYSaU00jDoV748
+	 9QGRbBtZ32CJjV+lPFhOKQTLwH0CrwPUZlvUNBc6QzV/6Zu8gtviVtf7vxTY6rTqdQW4i
+	 I8EMPz8dnUvRVUP4HARe07D3hnGFsnxGsivAhm6Zf/ZtGK4RZHFzKDUM7EPceX6nhLQdk
+	 vEVp32XdCxXsDYvFCVRW//9Rgc/MUiTDUzeWziN6aKb0m0E1jbG0WCl3QzBZp1eH6mQaL
+	 Cw/k259P+ycvljjUn0WWGk3+O6rYUJDqliACgrGJzBNzbR9bdKvSvLU9nBOioJdR1ZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ZdJWXIcq;
-	arc=none smtp.remote-ip=95.215.58.74
-Received: from mta1.migadu.com (out-74.mta1.migadu.com [95.215.58.74])
+	dmarc=none header.from=bedmex.com;
+	spf=none smtp.mailfrom=bedmex.com;
+	dkim=pass header.d=bedmex-com.20200927.dkim.feishu.cn header.i=@bedmex-com.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=E5NitpAC;
+	arc=none smtp.remote-ip=209.127.231.47
+Received: from va-2-47.ptr.blmpb.com (va-2-47.ptr.blmpb.com [209.127.231.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B56EF606A32C
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:33:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B56EF606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11EA7606A68D
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:33:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11EA7606A68D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=bedmex.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=bedmex.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ZdJWXIcq
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=CbMozn8Q/GM0OSVU0Aj0Uoh2TZ6v7CkdghbcrV/tHjI=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795257188; v=1; x=1795861988;
- b=ZdJWXIcqcYftA0gxNsl1aBkyYr0nBTJ/z3nhKG63NTqFT2ytE0qAqsOBSenkfxOyu8G6PI85
- RveC3G00/L/MrYOjR471kst79DBN1phTpGrJanHmts2MAWHHV1HIcj3GW/XUXGU0sppbpKYYOaq
- OpsLbGQszno/3TM+aNWmUV5s=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id f56831efb0c9a871;
-	Sat, 21 Nov 2026 10:33:08 +0000
-X-Mizu-Trace-ID: f56831efb0c9a871
-X-Migadu-Flow: FLOW_OUT
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-To: bpf@vger.kernel.org,
-	ast@kernel.org
-Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
-	stable@vger.kernel.org,
-	Vega <vega@nebusec.ai>,
-	Alexei Starovoitov <alexei.starovoitov@gmail.com>,
-	Zhiling Zou <zhilinz@nebusec.ai>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Jakub Sitnicki <jakub@cloudflare.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Neal Cardwell <ncardwell@google.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Sechang Lim <rhkrqnwk98@gmail.com>,
-	Michal Luczaj <mhal@rbox.co>,
-	Mattia Meleleo <mattia.meleleo@coralogix.com>,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH bpf 01/11] bpf, sockmap: Fix copied_seq updates with strparser
-Date: Sat, 21 Nov 2026 18:30:02 +0800
-Message-ID: <20261121103222.88209-2-jiayuan.chen@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261121103222.88209-1-jiayuan.chen@linux.dev>
-References: <20261121103222.88209-1-jiayuan.chen@linux.dev>
+	dkim=pass (2048-bit key) header.d=bedmex-com.20200927.dkim.feishu.cn header.i=@bedmex-com.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=E5NitpAC
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=bedmex-com.20200927.dkim.feishu.cn; t=1795257188;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=T59pDsr6tSYSA2/xk2S6/po3pnlTyL9A/hY0kf/Q/p8=;
+ b=E5NitpACBHpbIfleIJ52idQAsKM2EfO7caNmKjpZuPBA4O5ZMcDOzq7d4IJRKEON3kjG3X
+ 6IYULIq/oEVbYk69WrvrTFFeESWaWJm0wvx7VtlYU6Y6oLLM6FV9dlmCxABH6c+6AOrqqZ
+ 01M1DPx2YdwPH7XJQPe4TJahvt1lXJWiByIO/sXWcy7HM19DsdavpvmERKSjweYFpBVFLm
+ qV/VJl5Y9bns4F6YMKDmxImhztQKgpQ33Zc4hfo7PBkEVrFX6mOZUwZ6V95wx+OlQT1zaK
+ 6mdHUaYq3Jj/kis0rLlbKSP11Ks5qlBm2RpRYR5o+Yb1PUqu6SoFogtrcQbifA==
+In-Reply-To: <20261116-pygmy-partridge-of-defense-e039a8@quoll>
+Content-Type: text/plain; charset=UTF-8
+Message-Id: <0c6903be00b92ecb18f2e74fdd9f8cb39e4db47b.a32caef0.2b0a.4db2.8079.1f11d8d5855d@feishu.cn>
+Cc: <linux-wireless@vger.kernel.org>, 
+	"Johannes Berg" <johannes@sipsolutions.net>, 
+	"Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Conor Dooley" <conor+dt@kernel.org>, <devicetree@vger.kernel.org>, 
+	<linux-kernel@vger.kernel.org>, "Zhirun Liu" <zhirunliu@aicsemi.com>, 
+	"Dijia Xu" <dijiaxu@aicsemi.com>, "Chunqiu Liu" <chunqiuliu@aicsemi.com>, 
+	"Liheng Wei" <liheng.wei@bedmex.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,193 +62,137 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Lms-Return-Path: <lba+16b017362+4df84e+vger.kernel.org+yanli.yang@bedmex.com>
+References: <179481380235.4.7388336477392853157@bedmex.com> <179481380242.4.1693438763870948060@bedmex.com>
+	<20261116-pygmy-partridge-of-defense-e039a8@quoll>
+Content-Transfer-Encoding: quoted-printable
+Date: Sat, 21 Nov 2026 18:33:05 +0800
+To: "Krzysztof Kozlowski" <krzk@kernel.org>
+Subject: Re: [PATCH wireless-next v5 4/4] wifi: aic: Integrate the AIC8800 SDIO driver
+From: =?utf-8?q?=E6=9D=A8=E5=BD=A6=E7=AB=8B?= <yanli.yang@bedmex.com>
 
-With strparser, read_sock advances tp->copied_seq when it pulls skbs
-off sk_receive_queue, and recvmsg() advances it again when the user
-reads from ingress_msg. For a skb that the verdict passes back to the
-same socket, this counted the bytes twice, so commit 36b62df5683c
-("bpf: Fix wrong copied_seq calculation") added psock->ingress_bytes to
-record how many bytes went to self and take them out of the read_sock
-side.
+Thanks for the review.
 
-That works for RPC style traffic, where each reply is read before the
-next one arrives. But psock->copied_seq is advanced on every read_sock
-call while ingress_bytes is reset on every call, so tp->copied_seq
-moves forward whenever a new skb arrives, even if the user never calls
-recvmsg(). Once the parser runs twice before a read, the SK_PASS bytes
-of the first run are no longer subtracted and tp->copied_seq already
-covers them. recvmsg() then adds them again and copied_seq passes
-rcv_nxt. The socket now looks empty to TCP, the parser is not woken for
-new data anymore and recvmsg() keeps returning -EAGAIN while the skbs
-sit on sk_receive_queue.
+> So all these five people will be providing reviews, right? Just don't
+> add random managers names?
 
-tcp_bpf_recvmsg_parser() has the same problem from the other side. It
-snapshots tp->copied_seq at entry and writes the snapshot plus
-copied_from_self back at exit. tcp_data_ready() and tcp_msg_wait_data()
-release the socket lock in between, and the parser can consume data and
-advance copied_seq meanwhile. Writing the snapshot back rewinds that
-progress and leaves copied_seq behind the queued data.
+Yes, all five people listed here are technical engineers who will actively =
+review patches and maintain this driver. No non-technical managers are adde=
+d.
 
-tp->copied_seq should only cover bytes that have left the socket: what
-the verdict redirected or dropped, plus what the user has read. SK_PASS
-bytes still queued in ingress_msg must not count until recvmsg() hands
-them out. So let both sides add only their own delta to the current
-tp->copied_seq instead of recomputing it from a saved value. The
-read_sock side advances by what this call consumed minus what it passed
-to self, taking the delta from psock->copied_seq rather than the return
-value so that the FIN byte is still counted. The recvmsg() side adds
-copied_from_self, and counts the FIN there as well. Either change alone
-moves the mismatch to the other side, so they go together.
+> Bindings as well
 
-ingress_bytes is also bumped from sk_psock_skb_ingress_enqueue(), which
-the backlog work reaches without the socket lock for skbs redirected
-from other sockets. Those bytes are not part of this socket's stream
-and recvmsg() never adds them back, so subtracting them leaves
-copied_seq behind. Count only in sk_psock_skb_ingress_self(), where
-msg->sk is set, which is what recvmsg() checks.
+I will add the binding to the MAINTAINERS entry:
 
-A strparser skb has no owner when the verdict runs.
-sk_psock_skb_ingress_self() sets one with skb_set_owner_r(), and when
-the enqueue fails after that, the skb is left to the backlog with
-skb->sk still set. It is not in ingress_bytes, so read_sock has already
-counted it as consumed. But the backlog picks the path by skb->sk:
+F: =C2=A0 =C2=A0 =C2=A0=C2=A0 Documentation/devicetree/bindings/net/wireles=
+s/aicsemi,aic8800d80-fmac.yaml
 
-  sk_psock_backlog
-    sk_psock_handle_skb
-      sk_psock_skb_ingress
-        if (skb->sk == sk)
-          sk_psock_skb_ingress_self   <- sets msg->sk
+> Why this cannot be previous patch? Why Makefile entry has to be a
+> separate commit?
 
-and recvmsg() counts the bytes again. So once a strparser skb is left
-to the backlog, it must not take the skb->sk == sk path. Drop the owner
-with skb_orphan() when the enqueue fails. This also gives the rmem
-charge back, and the backlog charges the skb again like any other
-strparser skb queued there. Picking the path by skb->sk is nasty and
-will be reworked later.
+Agreed. The intention was to keep the driver unselectable until all
+sources were present, but folding this patch into patch 3 achieves
+the same result. Patch 3 already adds the remaining implementation
+and the driver-local Kconfig and Makefiles.
 
-Fixes: 36b62df5683c ("bpf: Fix wrong copied_seq calculation")
-Fixes: e5c6de5fa025 ("bpf, sockmap: Incorrectly handling copied_seq")
-Cc: stable@vger.kernel.org
-Reported-by: Vega <vega@nebusec.ai>
-Suggested-by: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Co-developed-by: Zhiling Zou <zhilinz@nebusec.ai>
-Signed-off-by: Zhiling Zou <zhilinz@nebusec.ai>
-Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
----
-The BUG_ON(offset < 0) in tcp_collapse() when copied_seq trails the head
-of sk_receive_queue is not addressed here.
----
- net/core/skmsg.c   | 18 ++++++++++++++----
- net/ipv4/tcp_bpf.c | 12 ++++++------
- 2 files changed, 20 insertions(+), 10 deletions(-)
+I will fold this patch, including the MAINTAINERS entry, into patch 3
+in v6 and update the cover letter accordingly.
 
-diff --git a/net/core/skmsg.c b/net/core/skmsg.c
-index 8a3b8536c0c21..16f84dcb5acd9 100644
---- a/net/core/skmsg.c
-+++ b/net/core/skmsg.c
-@@ -574,9 +574,6 @@ static int sk_psock_skb_ingress_enqueue(struct sk_buff *skb,
- 			return num_sge;
- 	}
- 
--#if IS_ENABLED(CONFIG_BPF_STREAM_PARSER)
--	psock->ingress_bytes += len;
--#endif
- 	copied = len;
- 	msg->sg.start = 0;
- 	msg->sg.size = copied;
-@@ -642,8 +639,21 @@ static int sk_psock_skb_ingress_self(struct sk_psock *psock, struct sk_buff *skb
- 	 */
- 	msg->sk = sk;
- 	err = sk_psock_skb_ingress_enqueue(skb, off, len, psock, sk, msg, take_ref);
--	if (err < 0)
-+	if (err < 0) {
- 		kfree(msg);
-+		/*
-+		 * A strparser skb comes in without an owner and read_sock counts
-+		 * it as consumed once it is left to the backlog. Drop the owner
-+		 * again, or sk_psock_skb_ingress() takes the skb->sk == sk path
-+		 * and recvmsg() counts it a second time.
-+		 */
-+		if (skb_bpf_strparser(skb))
-+			skb_orphan(skb);
-+	}
-+#if IS_ENABLED(CONFIG_BPF_STREAM_PARSER)
-+	else
-+		psock->ingress_bytes += len;
-+#endif
- 	return err;
- }
- 
-diff --git a/net/ipv4/tcp_bpf.c b/net/ipv4/tcp_bpf.c
-index 788ce08eef4d7..e59103e77aa5f 100644
---- a/net/ipv4/tcp_bpf.c
-+++ b/net/ipv4/tcp_bpf.c
-@@ -249,7 +249,6 @@ static int tcp_bpf_recvmsg_parser(struct sock *sk,
- 	struct tcp_sock *tcp;
- 	int copied_from_self = 0;
- 	int copied = 0;
--	u32 seq;
- 
- 	if (unlikely(flags & MSG_ERRQUEUE))
- 		return inet_recv_error(sk, msg, len);
-@@ -263,7 +262,6 @@ static int tcp_bpf_recvmsg_parser(struct sock *sk,
- 
- 	lock_sock(sk);
- 	tcp = tcp_sk(sk);
--	seq = tcp->copied_seq;
- 	/* We may have received data on the sk_receive_queue pre-accept and
- 	 * then we can not use read_skb in this context because we haven't
- 	 * assigned a sk_socket yet so have no link to the ops. The work-around
-@@ -295,11 +293,10 @@ static int tcp_bpf_recvmsg_parser(struct sock *sk,
- 
- 		if (is_fin) {
- 			copied = 0;
--			seq++;
-+			copied_from_self++;
- 			goto out;
- 		}
- 	}
--	seq += copied_from_self;
- 	if (!copied) {
- 		long timeo;
- 		int data;
-@@ -341,7 +338,7 @@ static int tcp_bpf_recvmsg_parser(struct sock *sk,
- 	}
- out:
- 	if (!peek)
--		WRITE_ONCE(tcp->copied_seq, seq);
-+		WRITE_ONCE(tcp->copied_seq, tcp->copied_seq + copied_from_self);
- 	tcp_rcv_space_adjust(sk);
- 	/* Data on the psock outlives the connection that it came in on */
- 	if (copied > 0 && tcp_can_send_ack(sk))
-@@ -756,6 +753,7 @@ int tcp_bpf_strp_read_sock(struct strparser *strp, read_descriptor_t *desc,
- 	struct sk_psock *psock;
- 	struct tcp_sock *tp;
- 	int copied = 0;
-+	u32 seq;
- 
- 	tp = tcp_sk(sk);
- 	rcu_read_lock();
-@@ -765,6 +763,7 @@ int tcp_bpf_strp_read_sock(struct strparser *strp, read_descriptor_t *desc,
- 		goto out;
- 	}
- 
-+	seq = psock->copied_seq;
- 	psock->ingress_bytes = 0;
- 	copied = tcp_read_sock_noack(sk, desc, recv_actor, true,
- 				     &psock->copied_seq);
-@@ -775,7 +774,8 @@ int tcp_bpf_strp_read_sock(struct strparser *strp, read_descriptor_t *desc,
- 	 * For SK_REDIRECT, we need to ack the frame immediately but for
- 	 * SK_PASS, we want to delay the ack until tcp_bpf_recvmsg_parser().
- 	 */
--	tp->copied_seq = psock->copied_seq - psock->ingress_bytes;
-+	WRITE_ONCE(tp->copied_seq, tp->copied_seq + psock->copied_seq - seq -
-+				   psock->ingress_bytes);
- 	tcp_rcv_space_adjust(sk);
- 	__tcp_cleanup_rbuf(sk, copied - psock->ingress_bytes);
- out:
--- 
-2.43.0
+Best regards,
+Yanli
 
+> From: "Krzysztof Kozlowski"<krzk@kernel.org>
+> Date:=C2=A0 Mon, Nov 16, 2026, 19:10
+> Subject:=C2=A0 Re: [PATCH wireless-next v5 4/4] wifi: aic: Integrate the =
+AIC8800 SDIO driver
+> To: "Yanli Yang"<yanli.yang@bedmex.com>
+> Cc: <linux-wireless@vger.kernel.org>, "Johannes Berg"<johannes@sipsolutio=
+ns.net>, "Rob Herring"<robh@kernel.org>, "Krzysztof Kozlowski"<krzk+dt@kern=
+el.org>, "Conor Dooley"<conor+dt@kernel.org>, <devicetree@vger.kernel.org>,=
+ <linux-kernel@vger.kernel.org>, "Zhirun Liu"<zhirunliu@aicsemi.com>, "Diji=
+a Xu"<dijiaxu@aicsemi.com>, "Chunqiu Liu"<chunqiuliu@aicsemi.com>, "Liheng =
+Wei"<liheng.wei@bedmex.com>
+> On Mon, Nov 16, 2026 at 03:23:22PM +0800, Yanli Yang wrote:
+> > From: Zhirun Liu <zhirunliu@aicsemi.com>
+> >=C2=A0
+> > Connect the AIC vendor directory to the wireless Kconfig and Makefile
+> > so the complete AIC8800D80 and AIC8800D80N FullMAC driver can be select=
+ed.
+> >=C2=A0
+> > Add the driver maintainers, reviewers and linux-wireless mailing list t=
+o
+> > MAINTAINERS. Keep the parent build integration last so that intermediat=
+e
+> > patches do not expose an incomplete driver configuration.
+> >=C2=A0
+> > Signed-off-by: Chunqiu Liu <chunqiuliu@aicsemi.com>
+> > Signed-off-by: Zhirun Liu <zhirunliu@aicsemi.com>
+> > Signed-off-by: Yanli Yang <yanli.yang@bedmex.com>
+> > ---
+> > =C2=A0MAINTAINERS =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 | 10 ++++++++++
+> > =C2=A0drivers/net/wireless/Kconfig =C2=A0| =C2=A01 +
+> > =C2=A0drivers/net/wireless/Makefile | =C2=A01 +
+> > =C2=A03 files changed, 12 insertions(+)
+> >=C2=A0
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index 7336600952c8..4e327fd62b26 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -746,6 +746,16 @@ L: =C2=A0 =C2=A0 =C2=A0 =C2=A0linux-scsi@vger.kern=
+el.org
+> > =C2=A0S: =C2=A0 =C2=A0 =C2=A0 =C2=A0Maintained
+> > =C2=A0F: =C2=A0 =C2=A0 =C2=A0 =C2=A0drivers/scsi/aic7xxx/
+> > =C2=A0
+> > +AIC8800 WIRELESS DRIVER
+> > +M: =C2=A0 =C2=A0 =C2=A0 =C2=A0Zhirun Liu <zhirunliu@aicsemi.com>
+> > +M: =C2=A0 =C2=A0 =C2=A0 =C2=A0Dijia Xu <dijiaxu@aicsemi.com>
+> > +M: =C2=A0 =C2=A0 =C2=A0 =C2=A0Chunqiu Liu <chunqiuliu@aicsemi.com>
+> > +R: =C2=A0 =C2=A0 =C2=A0 =C2=A0Liheng Wei <liheng.wei@bedmex.com>
+> > +R: =C2=A0 =C2=A0 =C2=A0 =C2=A0Yanli Yang <yanli.yang@bedmex.com>
+>=C2=A0
+> So all these five people will be providing reviews, right? Just don't
+> add random managers names?
+>=C2=A0
+> > +L: =C2=A0 =C2=A0 =C2=A0 =C2=A0linux-wireless@vger.kernel.org
+> > +S: =C2=A0 =C2=A0 =C2=A0 =C2=A0Maintained
+> > +F: =C2=A0 =C2=A0 =C2=A0 =C2=A0drivers/net/wireless/aic/
+>=C2=A0
+> Bindings as well
+>=C2=A0
+> > +
+> > =C2=A0AIMSLAB FM RADIO RECEIVER DRIVER
+> > =C2=A0M: =C2=A0 =C2=A0 =C2=A0 =C2=A0Hans Verkuil <hverkuil@kernel.org>
+> > =C2=A0L: =C2=A0 =C2=A0 =C2=A0 =C2=A0linux-media@vger.kernel.org
+> > diff --git a/drivers/net/wireless/Kconfig b/drivers/net/wireless/Kconfi=
+g
+> > index f4f969fdbc02..964e633898ca 100644
+> > --- a/drivers/net/wireless/Kconfig
+> > +++ b/drivers/net/wireless/Kconfig
+> > @@ -19,6 +19,7 @@ menuconfig WLAN
+> > =C2=A0if WLAN
+> > =C2=A0
+> > =C2=A0source "drivers/net/wireless/admtek/Kconfig"
+> > +source "drivers/net/wireless/aic/Kconfig"
+> > =C2=A0source "drivers/net/wireless/ath/Kconfig"
+> > =C2=A0source "drivers/net/wireless/atmel/Kconfig"
+> > =C2=A0source "drivers/net/wireless/broadcom/Kconfig"
+> > diff --git a/drivers/net/wireless/Makefile b/drivers/net/wireless/Makef=
+ile
+> > index fa3100ff3bf7..47b999e8014c 100644
+> > --- a/drivers/net/wireless/Makefile
+> > +++ b/drivers/net/wireless/Makefile
+> > @@ -4,6 +4,7 @@
+> > =C2=A0#
+> > =C2=A0
+> > =C2=A0obj-$(CONFIG_WLAN_VENDOR_ADMTEK) +=3D admtek/
+> > +obj-$(CONFIG_WLAN_VENDOR_AIC) +=3D aic/
+>=C2=A0
+> Why this cannot be previous patch? Why Makefile entry has to be a
+> separate commit?
+>=C2=A0
+> > =C2=A0obj-$(CONFIG_WLAN_VENDOR_ATH) +=3D ath/
+> > =C2=A0obj-$(CONFIG_WLAN_VENDOR_ATMEL) +=3D atmel/
+> > =C2=A0obj-$(CONFIG_WLAN_VENDOR_BROADCOM) +=3D broadcom/
+>=C2=A0
