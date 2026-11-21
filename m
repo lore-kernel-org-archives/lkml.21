@@ -1,54 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795260199;
-	b=s1ZwfTNNyPpMBRDtqYXYJ7T944uyxbjFD8JXX8UhmEFQQqXKmdz3dsH/P2KFnYTC5gB+
-	 YEz6jY4pUOr2eZYjluFy7EjNLmKt6SA/nX0b8pDDA1GDdCM11WHZMlGigQ5CWRb+b1beX
-	 up9oCuSocUaBieoI0g/r9hWIe5/XiXrdDajepQyI4qMUCIJZEXIFS+n7X/mkjtuprZU35
-	 sx3S7uUPl2NqWVg3wPsNrP9UDXxL38ZEZZ+tLSAgr+LANiIXnv8qr9IsVGWKa31cNw29k
-	 1N2Gs9qiTNAvZdHZG1Z0EP0eTjHaNxBgVZQXvOS6G9YZ7iCniLn7ZKWRx4M4SnxLY1w==
+	t=1795260258;
+	b=3BSIjyjV35iqqK2sNXbZSPj/NfH4zXVTzhhWVqpI8Z/HsyYZUnaAVZz0FQj2htGQHt7g
+	 yKKi28yQOe2cxFuth9ls58EEvr+jJo/wLuSJGvBvEurUwB1nASjfPvswVIwUpRNtlFsSn
+	 IuJALcXm7LrlzQrAQxV2PXZzftK7hfFaMBfeClaKdexjUK2UoU+G+oj4uaZ3o5OGPa5Bb
+	 YzE4m66CavpoWT+jGZwWkVNhotrIcJD1a8Tlw+t/d0efPqTi4dQcld8JwCP6j7fq7IRvH
+	 KiQ/DlUT5doe1AmPyBcKaIWVPhlM3l6PXtkGZpmpUa59nvUOXn5Hip5sy6BRAZgm4mw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795260199;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795260258;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=xm3swyOD9hZAartdvtVYhOV619I4AuZu0vugsVSqOuU=;
-	b=pq0B6E1/fibc3qOZErA3EgbNmci1PQm8FU/hvMJNMaMkpLaU1LNpymwWH0T25oOGpjkH
-	 pXcCS3V/F13qqtVjKVLXZDUtdccdq9dyUWcKfZEHYIVtRGxIHf9ClxJiKOhElML9CIS7Z
-	 +01ZPSdw6LcyS9b1zoDEzm+8I/u2VPzPZvISeYJQrVP5eL22sp6re8aIznTnSbA7k6D5Y
-	 V7v+m/+z61fTT4O2P0xKdzOjXIRdTF0XWmwI3hEzeO07iSPuf3Z4//BlaRn/G6/wnMIAT
-	 ECcqLw9zqvwidcO2gzEhAZsbT5a/eetAuakcryriPSViIPaRkblW6haAK3Avd/3bYoA==
+	bh=GHbQtC6gIc0jGnYZ6s00mCvjyoI1Kvae0ypDCzK5JU0=;
+	b=fYqbib2n19WMsoWLd0nftQhaGf5q6ZRQFDwbGA+lufDzrw5YxIyM8Be/Ow0v1uTBtKAf
+	 x3Dvx/OuFC8wTu68W2XRYIoZ6igDGAcGVTMf3feTBaBgKeBRJsNFmI8bvXhOUWh6zNBg4
+	 m7XQcDDcEaMZhGGcDdM68zc4gLjvmmPHozgOH5W4nuZMz8cqsUWg+QYd4nFvPIp+evD3s
+	 g23lj5ME/SOqtnOhEaeuPxpbeR2EW/TPha2oCh+FRThV6mjDrN/5oIpPBfo+zUk1FqvWs
+	 Fu5miR0fnEsA89ncYHlZ3fGH3DHYEvm5hAq5nFeUQs3Paqhqe5E3QyoOzryYuDcuIng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gGH8UoMm;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mB0YRm3j;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24413606A320;
-	Sat, 21 Nov 2026 11:23:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id BD9AF606A320;
+	Sat, 21 Nov 2026 11:24:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gGH8UoMm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A64D91F000C0;
-	Sat, 21 Nov 2026 11:23:17 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mB0YRm3j
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id EFF371F000C4;
+	Sat, 21 Nov 2026 11:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795260198;
-	bh=xm3swyOD9hZAartdvtVYhOV619I4AuZu0vugsVSqOuU=;
+	s=k20260515; t=1795260258;
+	bh=GHbQtC6gIc0jGnYZ6s00mCvjyoI1Kvae0ypDCzK5JU0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gGH8UoMmuBvFymZmxiVdxqpxIy01DlJgFtg+AmYxWqcG+XFCU7fzm9hDGLAARfQCh
-	 jQne0iB6/6vXxBQr7h++NQr9wtkCwemedT8uqMwfJgSOETXs4/4gXzT1nJVmYSsHjW
-	 R7jTmncQG0cfV98sgUl5dHylYI4ZajBN/j3HC0gkYF0EIAkcTp5ZZ9qw7YAr4tkHdT
-	 kQKivVQJQHo+D3jCHFOcSKPuE4Y7CxWHkNQDLEVAwhfdWVZ25vI2rydqZJXGAVzN5Z
-	 pKDgBw7IXrh/D5GsC4XWECuYf6VBVoGLAGc/wOC3IVdAc4GVWo7KA/LfAKdiB2g9K+
-	 u/NXSuyZOSUaA==
-Date: Sat, 21 Nov 2026 12:23:14 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: pjh456 <pengjunhao409@gmail.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4] dt-bindings: rtc: haoyu,hym8563: document vdd-supply
-Message-ID: <20261121-attentive-grateful-caracal-5cefec@quoll>
-References: <20261120113502.563894-1-pengjunhao409@gmail.com>
+	b=mB0YRm3jiQg6+dAG4Uh+kh+x0CIpL21NhV92OyKjRc4Nza2T3tFWotVyy2F3LVDkP
+	 TDWkq9Ns3VJKWe9ABDZH8j4zYwrx7d9HbeCjrlBUun5+r7vTyh0N/tLEKFB5z8ICp8
+	 qxYpXHkhVSTOh/LCRPqYeZKg+ZB7e4/9BbBfT5R9OcvwUtzYXz4ilD9CAeuOvXx81g
+	 Dp8xUFM1/TAxBbErZPKEA/4uf/7MxVON2JR7/HEbHbLOa29JUDaZ2np/MQ/wBSCjBn
+	 X1ArG35BUmmZXAPBQRSM66IPm6GHxeW8BlPy0LNZdkeKdtQiZyQ44rkuf+WoHNXFGO
+	 8tMX0FG52frPQ==
+Date: Sat, 21 Nov 2026 13:24:14 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+	Alexander Mikhalitsyn <alex@amutable.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Christian Brauner <brauner@kernel.org>,
+	David Howells <dhowells@redhat.com>, Jan Kara <jack@suse.cz>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Josef Bacik <josef@toxicpanda.com>, Kees Cook <kees@kernel.org>,
+	Neal Gompa <neal@gompa.dev>, Paul Moore <paul@paul-moore.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: Re: [RFC PATCH v5 15/25] rootns: Add ROOTNS_KILL ioctl
+Message-ID: <awF_XiObSZVSARoh@kernel.org>
+References: <20261121000844.1863324-1-jarkko@kernel.org>
+ <20261121000844.1863324-16-jarkko@kernel.org>
+ <awDxps7uLbikjV5B@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,27 +69,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261120113502.563894-1-pengjunhao409@gmail.com>
+In-Reply-To: <awDxps7uLbikjV5B@kernel.org>
 
-On Fri, Nov 20, 2026 at 07:35:01PM +0800, pjh456 wrote:
-> The HYM8563 is supplied through its VDD pin.  Add an optional
-> vdd-supply property so a board can describe the regulator connected
-> to it.
+On Sat, Nov 21, 2026 at 03:19:38AM +0200, Jarkko Sakkinen wrote:
+> On Sat, Nov 21, 2026 at 02:08:34AM +0200, Jarkko Sakkinen wrote:
+> > Signaling every process inside a container from userspace via /proc is
+> > racy against concurrent fork() calls.
+> > 
+> > Add the ROOTNS_KILL ioctl to require an ancestor active PID namespace,
+> > walk the root namespace's PID namespace IDR under tasklist_lock, and
+> > deliver a validated signal once to each thread group including in-flight
+> > forks, aggregating per-process delivery results.
+> > 
+> > Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
 > 
-> The property is optional because some boards connect VDD to an
-> always-on rail.  Describing the supply also lets fw_devlink order the
-> RTC probe after its regulator.
-> 
-> Signed-off-by: pjh456 <pengjunhao409@gmail.com>
+> Will be gone i.e., can do also  pidfd_send_signal(fd, signum, NULL, 0).
 
-What did the LLM tool ask you to do in regards of the commit msg?
+Wiring:
 
-What did I ask you to read - which document? What is there about DCO?
+        case PIDFD_SELF_THREAD_GROUP:
+                pid = get_task_pid(current, PIDTYPE_TGID);
+                type = PIDTYPE_TGID;
+                break;
+        default: {
+                CLASS(fd, f)(pidfd);
+                if (fd_empty(f))
+                        return -EBADF;
 
-So at this point you are about to be treated as a bot.
+                if (is_rootns_file(fd_file(f)))
+                        return rootns_send_signal(fd_file(f), sig, info, flags);
 
-Best regards,
-Krzysztof
+After this only ROONTS_GET_NSFD remains.
 
+Br, Jarkko
