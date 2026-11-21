@@ -1,83 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.205
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.240
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795247282;
-	b=2qkYI4JqJLcJifgh2H/w0WruajV1WVjH6wer5OV41oVkNxUVDIrvWgEFXgnRrL/eW8tu
-	 KzrCZWvIa+28n8H9Rq4rlk3rlWU/J1vKdNHUrpQTDUqOzDejclauHaD359kEILYi6Vw34
-	 wjn7haZAH2AnwLFD3yRKrfKWwdYEw6G3rzKxuWVoy71sn4BbW+MBmg+NTwMarIrJXu8SX
-	 Aj31nBOivxeZ+IFOKaYnFkMs4Kg6nl8XIwW0M/TgTyfsS+/gfdGVg5Ka5upKBi/Sezfbj
-	 ry0Slb84xT6StgfD1RQA6YhPcWZCKQvxrARqrTpr6y/t8cnCT0SqNN6i4YcZlbjckEA==
+	t=1795247378;
+	b=H9SpKjKug39ZPWQRjCbONtLY/UY31Ea0RkWFQBv7f74ZKldvPWCwX71M4UyV4n1KU3OL
+	 ijYuXpVTz/mEjEltjgS0C+xiAmrYjsc+nZ0oZz+DaOqcaoMJ6nEXzDaDtALBC4idAgmv4
+	 IWn1cryhkv3SquDe/ButfWqyoCOF5an6WI5RLxiDsTFKRgeKx9o4cuxeeYq1ba2ehzIAK
+	 CWDmaCEGRUqcxQBe77D7dZIw7bGrJQ+vj6CDe2OGseqKOMEwe8/RKFZpupFO8gLyesdru
+	 TWRPtpmgZoox+ddhIZGwGLQMBFDqaLkfulf2lOLjyrzqTuvpUTvZBkNEC6Ra/l0kqVA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795247282;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=ueMDV0zkslEtYlqqHnL9zl53jNUKumH06vyFp4k6ec4=;
-	b=K+WRgTGLPHxMFcPia4RVapcHvMHt7Wahn47/wWZc9AC+LSKjsJl7mEA7xtEP/zNpvqeN
-	 3XPzdCtQPxqIe8u3P6dUmW09+EF3qvarkHzVHyZpU1JDf74kt7gTrAkvD9cXoSmrzV0pK
-	 uzkg+rSiulqtPCtgNPqWK7Lb4p0xx2GuZXxKSGurBcL49KRLbUeP5rejie8hw4eGDAXSQ
-	 QUdFQVTUdmu5jY1Suo+BwvLXV6E05bmUxTYW97M6+Xvo2EfRRk8/7dVa1KbliJvebDm6t
-	 WwU8D2T/3Z7Mqtgf0Kozhvlgv7KbCWER9Le+TTJ1SKUYWol14Y6KS4MVp2EWPUwQywA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795247378;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-XMRINFO:X-QQ-XMAILINFO:From:To:Cc:
+	 Subject:Mime-Version:Content-Type:Content-Transfer-Encoding:Date:
+	 X-Priority:Message-ID:X-QQ-MIME:X-Mailer:X-QQ-Mailer:References:
+	 In-Reply-To:X-QQ-mid;
+	bh=iLcinoRHQQpGqpB7RbYpvqsBws/0VYTm7Rl5LRYYZVQ=;
+	b=ONub8JgL4esMLLRfrDHDE6MtJb3kpyt/nLpIjs++RTUhz368CnePScNXdCMDRSbBvjyd
+	 svjgAtUiGNXg4FmKMVzGvf2YA6B2Mg9FHnKGoPR9Yj6Z0Fyjs/tGNpwvWzebLpz/KF3LZ
+	 5dEsOEQSqNnoN6Spsj70Xxxe1S50F4KeOy9gslrhsfOLIo3f0F+yNgt3F2F/6rsgB+p3g
+	 ffQYiSU4uYnR1mZWn+bJKQ1YPdBnEbkl18zkPuBeZHOSxTotqkupIXG/uaeNGF2gNuKfp
+	 14Si1Ks11Js9uxPHw6w4GjxRvY869jV2N1nj5+6XW/cUVfYA6FZbE/1Ktzn8wpXp48g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=qq.com;
 	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=aOm7QODZ;
-	arc=none smtp.remote-ip=203.205.221.205
-Received: from out203-205-221-205.mail.qq.com (out203-205-221-205.mail.qq.com [203.205.221.205])
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=fbbvA+FR;
+	arc=none smtp.remote-ip=203.205.221.240
+Received: from out203-205-221-240.mail.qq.com (out203-205-221-240.mail.qq.com [203.205.221.240])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D5B0606A320;
-	Sat, 21 Nov 2026 07:48:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D5B0606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A907C606A325;
+	Sat, 21 Nov 2026 07:49:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A907C606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=aOm7QODZ
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=fbbvA+FR
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795247278; bh=ueMDV0zkslEtYlqqHnL9zl53jNUKumH06vyFp4k6ec4=;
-	h=From:To:Cc:Subject:Date;
-	b=aOm7QODZCPcqAogHM32Qn4FWsJ1oWBg0CbzM4avlVw+ZsXO/M+1nX084nZjuUtsCM
-	 XpD5nP/cjoAaDz51O8s65n/qC0ar2sOGi6nH2Z2Ol4EKwUJJd5/PbfvWHuy4QT9DVv
-	 TX2KMH3wJdguYSbNBpOTXEs7oXRnFAb28QPbBv2o=
-Received: from jerry-PC.lan ([2408:8249:5f:7101:71a:8713:56b4:5043])
-	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
-	id BF71E40F; Sat, 21 Nov 2026 15:47:55 +0800
-X-QQ-mid: xmsmtpt1795247275t7989d969
-Message-ID: <tencent_A28766992BC445C76A277305A50C1F300107@qq.com>
-X-QQ-XMAILINFO: NJFIk87MF7ke+lAfbXH+n5m+tBBi33Z+EksO7USaool3hU1zORwg9X5LECpz1Q
-	 9u66McU12v8kHWrAV2S8Vu2HTSsGMCla6imSgNgn9nxbW9arLh/IvFP1bqAS0kqT06OPlJJOPj1R
-	 jXBYAfDDlx3QylMEu4uvzjNlGO4zwvGJXF1YmMwbwE9Ihgtg4w/FQkArmlVW16iuhPy4LTSJcbCQ
-	 EhIqO4RKdqHunG1kmpUvGYm6qtcXP9jqZybxzuD5cjHz/AgnfS7TugbHC8QSgIx+qjayX4jmxIr7
-	 fS4XkLhi2aVoi60xC3tN52xIEPVT2Sn2hVxPocqXhNwO5e5juS61RwYrIUImumSqiPOygRzP0TlM
-	 tA/hxm/7cygsFLuDbRjxY3iBBR8FQVKaNLlweflA1iIXLRouae6KFsrxfoHmZAWjcnVxttq0X5t2
-	 YEV4H1Dsy+IqvXcVMwYi9hO/YUeNR5xcGIR98Vv6qJitJxyR9VYhum4Q0RjlH2gTWnWpHHEwFJ9b
-	 l4LN/gTa8oL4dz35zvt0o9PUYLeIGFz8l7izyuKO24GAkhuqyZ4I+WO2oqNtK0ek+DajNo8xwntm
-	 zC0gjXv1Ni2nlpn94ufYIU+RLmbK/+S/00ZPzI/PiyK8xjKZiUzqO1ab/tNMYjGeN0G3moM2uGUZ
-	 7uu4IEetI8tqqJplvzpQic7aV/fb9uX9+z+lrG3xFzm1zxDviq0t4ejdwM8/arbMmy0BzAqQt+DM
-	 AbqIPPK3Q4mtr5Q9xmLn0uHxmUFO5ZmY7nNMWWD0HLMElbDZh1B9PBAnmOfZC05JSupKxzEEVySM
-	 mM3DApCrFloajaZkUXDgABdXBbmLCt04afYYVywrJ93QGiW1IIrw7ZFM1pwFBxKPSRzDydU2QeB6
-	 pdZn++p3ORTObvDU3qYTI1zuwrczUDyXIRRNfZik6zuEEWStWW/S68gq+fuPx3DpcX8jII4s5WaT
-	 mt1vXhfMp3MOG0dc6htiPTmmxy/1kROkgk9CdMxRpzLJirCR27ETz4u8w69nQJAuLZJnIFSimxnU
-	 gv5m6wEcu5JNb+rvqta+MbpGdm/HYx8w0TBHG9aLt7WE3nMZpP11MT0SoIL8eXRKc4QsRBhg0RbD
-	 y6jGdcc8oNU8qVqRSRaUbDBbdQGqP7dsN1jzC9vQLHXhI71WvWFNgtDEkae8aMluR8oakZ
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-From: ZhuXiangyu <1194781887@qq.com>
-To: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	ZhuXiangyu <1194781887@qq.com>
-Subject: [PATCH 1/2] phy: rockchip: inno-usb2: add RK3506 support
-Date: Sat, 21 Nov 2026 15:47:52 +0800
-X-OQ-MSGID: <20261121074753.1262819-1-1194781887@qq.com>
-X-Mailer: git-send-email 2.47.3
+	t=1795247375; bh=iLcinoRHQQpGqpB7RbYpvqsBws/0VYTm7Rl5LRYYZVQ=;
+	h=From:To:Cc:Subject:Date:References:In-Reply-To;
+	b=fbbvA+FRNXczTapsO3RJdGTVycvvhiEsNQO3CDNr0I9GyRwaFRBimhWHFTFSb4Qjl
+	 c6wHnNaEY3mEI1njqjdpC9pzh4kXve3B9W+9uc0GTIvesh942rT45U84CykkMsXEiC
+	 jwInIqL8yMT76YcwAB+6H2TCn5c33Hemj9FfTgQE=
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+X-QQ-XMAILINFO: NMF8M2bwIxE1fM67/ApOI8rE5vkr2L5vHqFC/04+JAPMM4YLpcaV8NR3cl1J1S
+	 HfGJ+fYkalur0uwkQ2/TRQTrLI6S2Z/YK8Vo5B9LQHC1Qjvfr5fwQ7JWuh2ksqPKPczWGQAY+einR
+	 Qcjnksa48T1U1h9meYFjeB0cyCdEP4FsfB15Qa/gldIGhYLnnMXqQOIWiBT49wvVRiFAn3ts9WYT7
+	 q6y7SWmTisRBcRkbGsXc3Z1yz5i1cx5B8SqFYeFGDiTGboZ5IC3PvJw2zIj6IZ80XUdHnK3vkh5cs
+	 9gel50hfITLldq9sqzhPog574DrLaC45ry+B7GU+50lVSWsKM2eawS3uW3OY09KP0u4c7Q9b+Yhbr
+	 yJrOULAbiIxy3Tnj/pDGfUAB1k6Q/TfK6WDFkT4/u2Veicab/hT4amFf0/+BWrdpKV2SzeqNfJJZB
+	 mDFbGN/GLRhJ38fWbeV8FqCaLTdezHVVr/8JXrqgEef8IisOiMmgmtNK/UhkXK5VmQiOFAs7Hdg62
+	 QW2alhgpCgWnjA8HR3GmgJ7oWNM6kUn3cRSOHbtKVKbaWx+fVTSe0z2IdDG5ldgSeL5SIekSQVkoo
+	 NvWQKRsHc+fDqOCmIUkYlzNYxAJQJhC/wYrvRoYI+WIH1KGEUqMvm0OYZ5GlQylComEpM0oe7nVY0
+	 emJ/36OhQeKv7GesVWDdss+7m7/h7qx9HjSBz2NaJxnasWvL1bCRBvmCVXElGOD1iueNVSqN6FCpe
+	 SPbHwTHj9mwsr6om+/K3cPCum93zLiX2Zpl+m9v0g1MBBD42aWk7u5RCVg483prFuvrD+WC78c7rp
+	 vO4WQjoaL2MXLxdH6UXs32EpgC35wHCyY2B2Pe9EJL8eIuIuvNkheHtlMMr1619GqVTeKbp0LPrm1
+	 XEcYMK+SQXuFZI1/Us7NMfUsG1EGapRMUpuHRCrWSXHUEjCyH92yKtJpGK9MA0md9xaHpXKqfUg7u
+	 3OmWxI1dhRvAN+CRENAj4i4rG0uEDgr9xCd/APX6jNpwV5lF1eCjl2kn/wUQnohGfKUV4UaZwSAz6
+	 bxuMp/fQQXA4kZLkDztpQvgrSa68tjuzupvgT+yqmBaBgK5dQdy8NZx0osqk76DEwKsM6harlYSDw
+	 dOvxZQXHPYO+Ow==
+From: "=?utf-8?B?Q3VuaGFvIEx1?=" <1579567540@qq.com>
+To: "=?utf-8?B?bmV0ZGV2LWJvdCtzYXNoaWtv?=" <netdev-bot+sashiko@kernel.org>
+Cc: "=?utf-8?B?bWts?=" <mkl@pengutronix.de>, "=?utf-8?B?a2VybmVs?=" <kernel@pengutronix.de>, "=?utf-8?B?bWFpbGhvbA==?=" <mailhol@kernel.org>, "=?utf-8?B?aGVpa28=?=" <heiko@sntech.de>, "=?utf-8?B?c29ja2V0Y2Fu?=" <socketcan@hartkopp.net>, "=?utf-8?B?ZGF2ZW0=?=" <davem@davemloft.net>, "=?utf-8?B?ZWR1bWF6ZXQ=?=" <edumazet@kernel.org>, "=?utf-8?B?a3ViYQ==?=" <kuba@kernel.org>, "=?utf-8?B?cGFiZW5p?=" <pabeni@redhat.com>, "=?utf-8?B?aG9ybXM=?=" <horms@kernel.org>, "=?utf-8?B?Y29yYmV0?=" <corbet@lwn.net>, "=?utf-8?B?c2toYW4=?=" <skhan@linuxfoundation.org>, "=?utf-8?B?cmR1bmxhcA==?=" <rdunlap@infradead.org>, "=?utf-8?B?d2c=?=" <wg@grandegger.com>, "=?utf-8?B?bGludXgtY2Fu?=" <linux-can@vger.kernel.org>, "=?utf-8?B?bGludXgtYXJtLWtlcm5lbA==?=" <linux-arm-kernel@lists.infradead.org>, 
+	"=?utf-8?B?bGludXgtcm9ja2NoaXA=?=" <linux-rockchip@lists.infradead.org>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>, "=?utf-8?B?bGludXgtZG9j?=" <linux-doc@vger.kernel.org>, "=?utf-8?B?c3RhYmxl?=" <stable@vger.kernel.org>
+Subject: Re: [PATCH net v10 08/10] can: rockchip_canfd: retry the outstanding TX buffer
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,170 +69,76 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: base64
+Date: Sat, 21 Nov 2026 15:49:32 +0800
+X-Priority: 3
+Message-ID: <tencent_C2353675D108CA2C26008C5405302266F80A@qq.com>
+X-QQ-MIME: TCMime 1.0 by Tencent
+X-Mailer: QQMail 2.x
+X-QQ-Mailer: QQMail 2.x
+References: <20261119-rockchip-canfd-restart-close-v10-8-df23913aa33a@qq.com>
+	<179521934391.3131.16575184154447420964@kernel.org>
+In-Reply-To: <179521934391.3131.16575184154447420964@kernel.org>
+X-QQ-mid: xmsezb41-0t1795247372t59iwxlbh
 
-Add the USB2 PHY configuration for the RK3506. The PHY needs a
-board-specific tuning sequence: the OTG differential receivers are
-disabled in suspend mode, the HS eye height is reduced to 425 mV, and
-the Tx fs/ls linestate is selected from the TX driver.
-
-Tested on an RK3506B board: USB host mode enumerates devices and a USB
-drive mounts correctly; device and OTG modes work, including adb.
-
-Tested-by: ZhuXiangyu <1194781887@qq.com>
-Signed-off-by: ZhuXiangyu <1194781887@qq.com>
----
- drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 122 ++++++++++++++++++
- 1 file changed, 122 insertions(+)
-
-diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-index 848c07cc..634fdbb0 100644
---- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-+++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-@@ -1617,6 +1617,53 @@ static int rk3588_usb2phy_tuning(struct rockchip_usb2phy *rphy)
- 	return ret;
- }
- 
-+static int rk3506_usb2phy_tuning(struct rockchip_usb2phy *rphy)
-+{
-+	int ret;
-+
-+	/* Turn off otg0 port differential receiver in suspend mode */
-+	ret = regmap_write(rphy->phy_base, 0x30,
-+			   BIT(2) << BIT_WRITEABLE_SHIFT);
-+	if (ret)
-+		return ret;
-+
-+	/* Turn off otg1 port differential receiver in suspend mode */
-+	ret = regmap_write(rphy->phy_base, 0x430,
-+			   BIT(2) << BIT_WRITEABLE_SHIFT);
-+	if (ret)
-+		return ret;
-+
-+	/* Set otg0 port HS eye height to 425mV (default is 450mV) */
-+	ret = regmap_write(rphy->phy_base, 0x30,
-+			   (0x05 << 4) |
-+			   (GENMASK(6, 4) << BIT_WRITEABLE_SHIFT));
-+	if (ret)
-+		return ret;
-+
-+	/* Set otg1 port HS eye height to 425mV (default is 450mV) */
-+	ret = regmap_write(rphy->phy_base, 0x430,
-+			   (0x05 << 4) |
-+			   (GENMASK(6, 4) << BIT_WRITEABLE_SHIFT));
-+	if (ret)
-+		return ret;
-+
-+	/* Choose the Tx fs/ls data as linestate from TX driver for otg0 port */
-+	ret = regmap_write(rphy->phy_base, 0x94,
-+			   (0x03 << 3) |
-+			   (GENMASK(6, 3) << BIT_WRITEABLE_SHIFT));
-+	if (ret)
-+		return ret;
-+
-+	/* Choose the Tx fs/ls data as linestate from TX driver for otg1 port */
-+	ret = regmap_write(rphy->phy_base, 0x494,
-+			   (0x03 << 3) |
-+			   (GENMASK(6, 3) << BIT_WRITEABLE_SHIFT));
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
- static const struct rockchip_usb2phy_cfg rk3036_phy_cfgs[] = {
- 	{
- 		.reg = 0x17c,
-@@ -2366,6 +2413,80 @@ static const struct rockchip_usb2phy_cfg rv1108_phy_cfgs[] = {
- 	{ /* sentinel */ }
- };
- 
-+static const struct rockchip_usb2phy_cfg rk3506_phy_cfgs[] = {
-+	{
-+		.reg = 0xff2b0000,
-+		.num_ports	= 2,
-+		.phy_tuning	= rk3506_usb2phy_tuning,
-+		.clkout_ctl_phy = { 0x041c, 7, 2, 0, 0x27 },
-+		.port_cfgs	= {
-+			[USB2PHY_PORT_OTG] = {
-+				.phy_sus	= { 0x0060, 8, 0, 0, 0x1d1 },
-+				.bvalid_det_en	= { 0x0150, 2, 2, 0, 1 },
-+				.bvalid_det_st	= { 0x0154, 2, 2, 0, 1 },
-+				.bvalid_det_clr = { 0x0158, 2, 2, 0, 1 },
-+				.idfall_det_en	= { 0x0150, 5, 5, 0, 1 },
-+				.idfall_det_st	= { 0x0154, 5, 5, 0, 1 },
-+				.idfall_det_clr = { 0x0158, 5, 5, 0, 1 },
-+				.idrise_det_en	= { 0x0150, 4, 4, 0, 1 },
-+				.idrise_det_st	= { 0x0154, 4, 4, 0, 1 },
-+				.idrise_det_clr = { 0x0158, 4, 4, 0, 1 },
-+				.ls_det_en	= { 0x0150, 0, 0, 0, 1 },
-+				.ls_det_st	= { 0x0154, 0, 0, 0, 1 },
-+				.ls_det_clr	= { 0x0158, 0, 0, 0, 1 },
-+				.disfall_en	= { 0x0150, 7, 7, 0, 0 },
-+				.disfall_st	= { 0x0154, 7, 7, 0, 1 },
-+				.disfall_clr	= { 0x0158, 7, 7, 0, 1 },
-+				.disrise_en	= { 0x0150, 6, 6, 0, 0 },
-+				.disrise_st	= { 0x0154, 6, 6, 0, 1 },
-+				.disrise_clr	= { 0x0158, 6, 6, 0, 1 },
-+				.utmi_avalid	= { 0x0118, 1, 1, 0, 1 },
-+				.utmi_bvalid	= { 0x0118, 0, 0, 0, 1 },
-+				.utmi_ls	= { 0x0118, 5, 4, 0, 1 },
-+				.utmi_hstdet	= { 0x0118, 7, 7, 0, 1 },
-+			},
-+			[USB2PHY_PORT_HOST] = {
-+				.phy_sus	= { 0x0070, 8, 0, 0, 0x1d1 },
-+				.bvalid_det_en	= { 0x0170, 2, 2, 0, 1 },
-+				.bvalid_det_st	= { 0x0174, 2, 2, 0, 1 },
-+				.bvalid_det_clr = { 0x0178, 2, 2, 0, 1 },
-+				.idfall_det_en	= { 0x0170, 5, 5, 0, 1 },
-+				.idfall_det_st	= { 0x0174, 5, 5, 0, 1 },
-+				.idfall_det_clr = { 0x0178, 5, 5, 0, 1 },
-+				.idrise_det_en	= { 0x0170, 4, 4, 0, 1 },
-+				.idrise_det_st	= { 0x0174, 4, 4, 0, 1 },
-+				.idrise_det_clr = { 0x0178, 4, 4, 0, 1 },
-+				.ls_det_en	= { 0x0170, 0, 0, 0, 1 },
-+				.ls_det_st	= { 0x0174, 0, 0, 0, 1 },
-+				.ls_det_clr	= { 0x0178, 0, 0, 0, 1 },
-+				.disfall_en	= { 0x0170, 7, 7, 0, 0 },
-+				.disfall_st	= { 0x0174, 7, 7, 0, 1 },
-+				.disfall_clr	= { 0x0178, 7, 7, 0, 1 },
-+				.disrise_en	= { 0x0170, 6, 6, 0, 0 },
-+				.disrise_st	= { 0x0174, 6, 6, 0, 1 },
-+				.disrise_clr	= { 0x0178, 6, 6, 0, 1 },
-+				.utmi_avalid	= { 0x0118, 9, 9, 0, 1 },
-+				.utmi_bvalid	= { 0x0118, 8, 8, 0, 1 },
-+				.utmi_ls	= { 0x0118, 13, 12, 0, 1 },
-+				.utmi_hstdet	= { 0x0118, 15, 15, 0, 1 },
-+			}
-+		},
-+		.chg_det = {
-+			.opmode		= { 0x0060, 8, 0, 0, 0x1d7 },
-+			.cp_det		= { 0x0118, 19, 19, 0, 1 },
-+			.dcp_det	= { 0x0118, 18, 18, 0, 1 },
-+			.dp_det		= { 0x0118, 20, 20, 0, 1 },
-+			.idm_sink_en	= { 0x006c, 1, 1, 0, 1 },
-+			.idp_sink_en	= { 0x006c, 0, 0, 0, 1 },
-+			.idp_src_en	= { 0x006c, 2, 2, 0, 1 },
-+			.rdm_pdwn_en	= { 0x006c, 3, 3, 0, 1 },
-+			.vdm_src_en	= { 0x006c, 5, 5, 0, 1 },
-+			.vdp_src_en	= { 0x006c, 4, 4, 0, 1 },
-+		},
-+	},
-+	{ /* sentinel */ }
-+};
-+
- static const struct of_device_id rockchip_usb2phy_dt_match[] = {
- 	{ .compatible = "rockchip,px30-usb2phy", .data = &rk3328_phy_cfgs },
- 	{ .compatible = "rockchip,rk3036-usb2phy", .data = &rk3036_phy_cfgs },
-@@ -2375,6 +2496,7 @@ static const struct of_device_id rockchip_usb2phy_dt_match[] = {
- 	{ .compatible = "rockchip,rk3328-usb2phy", .data = &rk3328_phy_cfgs },
- 	{ .compatible = "rockchip,rk3366-usb2phy", .data = &rk3366_phy_cfgs },
- 	{ .compatible = "rockchip,rk3399-usb2phy", .data = &rk3399_phy_cfgs },
-+	{ .compatible = "rockchip,rk3506-usb2phy", .data = &rk3506_phy_cfgs },
- 	{ .compatible = "rockchip,rk3528-usb2phy", .data = &rk3528_phy_cfgs },
- 	{ .compatible = "rockchip,rk3562-usb2phy", .data = &rk3562_phy_cfgs },
- 	{ .compatible = "rockchip,rk3568-usb2phy", .data = &rk3568_phy_cfgs },
--- 
-2.47.3
+SGksCgo+IFtTZXZlcml0eTogTG93XQo+IElzIHRoZXJlIGEgbGltaXQgb24gaG93IG1hbnkg
+dGltZXMgdGhpcyByZS1hcm1zPwo+IAo+IHJrY2FuZmRfY2hpcF9zdGFydCgpIGVuYWJsZXMg
+UktDQU5GRF9SRUdfTU9ERV9BVVRPX1JFVFhfTU9ERS4gSWYgdGhlCj4gcmV0cmllZCBmcmFt
+ZSBuZXZlciBnZXRzIGFuIEFDSyAoZm9yIGV4YW1wbGUgdGhlIGJ1cyBpcyB1bnBsdWdnZWQg
+b3IgdGhlCj4gb25seSBvdGhlciBub2RlIGdvZXMgc2lsZW50KSwgdGhlIGNvbnRyb2xsZXIg
+a2VlcHMgcmV0cmFuc21pdHRpbmcgYW5kCj4gVFhfUkVRIHN0YXlzIHNldC4KPiAKPiBVbmRl
+ciB0aGUgSVNPIDExODk4LTEgZmF1bHQgY29uZmluZW1lbnQgZXhjZXB0aW9uLCBhbiBlcnJv
+ci1wYXNzaXZlCj4gdHJhbnNtaXR0ZXIgdGhhdCBzZWVzIG9ubHkgQUNLIGVycm9ycyBkb2Vz
+IG5vdCBpbmNyZWFzZSBURUMuIEJ1cy1vZmYgaXMKPiBuZXZlciByZWFjaGVkLCBzbyBya2Nh
+bmZkX3R4X2Rpc2FibGUoKS0+cmtjYW5mZF90eF9yZXRyeV9zdG9wKCkgbmV2ZXIKPiBydW5z
+Lgo+IAo+IFdvdWxkbid0IHRoaXMgd29ya2VyIHRoZW4gdGFrZSB0eF9sb2NrIGFuZCByZWFk
+IFJLQ0FORkRfUkVHX0NNRCBvbmNlIHBlcgo+IGppZmZ5IHVudGlsIHRoZSBpbnRlcmZhY2Ug
+aXMgY2xvc2VkIG9yIHJlc3RhcnRlZD8gQW4gdW4tQUNLZWQgZnJhbWUgYWxzbwo+IHN0YWxs
+ZWQgVFggYmVmb3JlIHRoaXMgcGF0Y2gsIGJ1dCB0aGUgcGVyLWppZmZ5IHBvbGxpbmcgd2l0
+aCBubyBsaW1pdCBpcwo+IG5ldy4KPiAKPiBJbiB0aGUgc3B1cmlvdXMgbWF0Y2ggY2FzZSB0
+aGUgc3R1Y2sgcmVxdWVzdCBpcyB0aGUgdW50cmFja2VkIGR1cGxpY2F0ZS4KPiBUaGUgcXVl
+dWUgdGhlbiBzdGF5cyBzdG9wcGVkIGV2ZW4gdGhvdWdoIHR4X3BlbmRpbmcgaXMgMC4KCk5v
+LiBBIG1pc3NpbmcgQUNLIGFsb25lIGRvZXMgbm90IHN0YXJ0IHRoZSB3b3JrZXIuIFRoZSBk
+cml2ZXIgbXVzdCBmaXJzdAppc3N1ZSBhIHNvZnR3YXJlIHJldHJ5IGZvciBlcnJhdHVtIDYu
+IEVpdGhlciBUWDBfUkVRIG9yIFRYMV9SRVEgbXVzdAp0aGVuIHN0YXkgc2V0LCBhbmQgdGhl
+IGludGVyZmFjZSBtdXN0IHJlbWFpbiB1cCB3aXRob3V0IHRoZSBjb250cm9sbGVyCmdvaW5n
+IGJ1cy1vZmYuIFByb2xvbmdlZCBwb2xsaW5nIHJlcXVpcmVzIGFsbCBvZiB0aG9zZSBjb25k
+aXRpb25zLgoKSSB0ZXN0ZWQgdGhpcyBvbiBSSzM1ODguIFRoZSBmaXJzdCB0aW1lIHRoZSB3
+b3JrZXIgdG9vayB0aGUgYnVzeSBwYXRoLApUWDBfUkVRIHdhcyBzdGlsbCBzZXQsIHNvIGl0
+IHNjaGVkdWxlZCBhbm90aGVyIHBvbGwuIEJ5IHRoZSBuZXh0IHBvbGwsCmJvdGggVFgwX1JF
+USBhbmQgVFgxX1JFUSB3ZXJlIGNsZWFyLiBJIHN1c3BlY3QgdGhlCnByb2xvbmdlZCBwb2xs
+aW5nIHlvdSBkZXNjcmliZSBtYXkgbmV2ZXIgb2NjdXIgaW4gcHJhY3RpY2UsIGFsdGhvdWdo
+CnRoaXMgdGVzdCBhbG9uZSBjYW5ub3QgZXN0YWJsaXNoIHRoYXQuCgo+IFtTZXZlcml0eTog
+TWVkaXVtXQo+IAo+IElzIGl0IHNhZmUgdG8gcmVsZWFzZSB0aGUgZ3VhcmQgYXMgc29vbiBh
+cyBib3RoIFRYX1JFUSBiaXRzIHJlYWQgY2xlYXI/Cj4gCj4gcmtjYW5mZF94bWl0X3JldHJ5
+KCkgc3RhcnRzIGEgc2Vjb25kIGhhcmR3YXJlIHRyYW5zbWlzc2lvbiBvZiB0aGUgZnJhbWUg
+YXQKPiB0eF90YWlsLCBidXQgaXQgY3JlYXRlcyBubyBlY2hvX3NrYiBzbG90IG9yIHBlbmRp
+bmcgY291bnQgZm9yIGl0LiBDbGVhcgo+IFRYX1JFUSBiaXRzIG9ubHkgbWVhbiB0aGUgaGFy
+ZHdhcmUgZmluaXNoZWQgc2VuZGluZy4gVGhlIFJYU1RYCj4gc2VsZi1yZWNlcHRpb24gb2Yg
+dGhlIHJldHJpZWQgY29weSBtYXkgc3RpbGwgYmUgaW4gdGhlIFJYIEZJRk8uCj4gCj4gVGFr
+ZSB0aGUgb3JkZXJpbmcgdGhlIGNvbW1pdCBtZXNzYWdlIGRlc2NyaWJlcywgd2hlcmUgdGhl
+IG9yaWdpbmFsIHJlcXVlc3QKPiBoYXMgYWxyZWFkeSBjb21wbGV0ZWQgd2hlbiB0aGUgbWF0
+Y2hpbmcgc3RhbmRhcmQgZnJhbWUgaXMgcHJvY2Vzc2VkOgo+IAo+IDEuIFN0YW5kYXJkIGZy
+YW1lIFMgbWF0Y2hlcyBwZW5kaW5nIEVGRiBmcmFtZSBCIGF0IHR4X3RhaWwuCj4gICAgcmtj
+YW5mZF9yeHN0eF9maWx0ZXIoKSBjYWxscyBya2NhbmZkX3htaXRfcmV0cnkoKSwgYW5kIEIg
+aXMgc2VudCBhZ2Fpbi4KPiAKPiAyLiBCJ3Mgb3JpZ2luYWwgZWNobywgc3RpbGwgaW4gdGhl
+IFJYIEZJRk8sIG1hdGNoZXMgZWNob19za2JbdHhfdGFpbF0uCj4gICAgdHhfdGFpbCBhZHZh
+bmNlcyBhbmQgdHhfcGVuZGluZyBiZWNvbWVzIDAuCj4gCj4gMy4gVGhlIHJldHJ5IGZpbmlz
+aGVzLiBUaGlzIHdvcmtlciBzZWVzIFRYX1JFUSBjbGVhciwKPiAgICBya2NhbmZkX2dldF9l
+ZmZlY3RpdmVfdHhfZnJlZSgpIHJldHVybnMgMiwgYW5kIHRoZSBxdWV1ZSBpcyB3b2tlbi4K
+PiAKPiBbLi4uXQo+IAo+IFNob3VsZCB0aGUgZWNobyBvZiB0aGUgcmV0cnkgYmUgYWNjb3Vu
+dGVkIGZvcj8gSWYgbm90LCBjb3VsZCB0aGUgY29tbWl0Cj4gbWVzc2FnZSBhbHNvIG1lbnRp
+b24gdGhlIGxvY2FsIHBoYW50b20gUlggYW5kIHRoZSBtaXNhdHRyaWJ1dGVkCj4gY29tcGxl
+dGlvbj8KClRoZSBkcml2ZXIgYWxyZWFkeSByZXRyaWVzIHRoZSBmcmFtZSB3aXRob3V0IGFs
+bG9jYXRpbmcgYSBzZWNvbmQgZWNobwpzbG90LiBPbmNlIHRoZSBvcmlnaW5hbCBlY2hvIGhh
+cyBiZWVuIGNvbnN1bWVkLCB0aGUgcmV0cnkgZWNobyBjYW4gYmUKZGVsaXZlcmVkIGFzIG9y
+ZGluYXJ5IFJYIG9yIG1pc3Rha2VuIGZvciB0aGUgY29tcGxldGlvbiBvZiBhbiBpZGVudGlj
+YWwKc3VjY2Vzc29yLiBUaGlzIHByZWRhdGVzIHRoZSBwYXRjaC4gVGhlIGd1YXJkIGtlZXBz
+IG5ldyBzdWJtaXNzaW9ucyBmcm9tCm92ZXJ3cml0aW5nIHRoZSBUWCByZWdpc3RlcnMgd2hp
+bGUgdGhlIHJldHJ5IGlzIGFjdGl2ZS4gSXQgZG9lcyBub3QKaWRlbnRpZnkgdGhlIHJldHJ5
+IGVjaG8sIGFuZCBJIGRvIG5vdCBjdXJyZW50bHkgcGxhbiB0byBmaXggdGhpcyBpc3N1ZQpp
+biB0aGlzIHBhdGNoLgoKQmVzdCByZWdhcmRzLApDdW5oYW8gTHUK
 
