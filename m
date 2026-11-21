@@ -1,97 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795279497;
-	b=HfCVnzfq02gKn0uOWo+AUaRp6QTaJTwrSi6IV7YUtbhBRkm53PxMP44KLW68N3vCN30P
-	 AIKfC6Qus35VSgteXPf8I/Nuq0W1TkIcVWfxX2AVxdW1Ke1ZzmWZ9p5b5LiD4Af43JPlD
-	 kETvzvn9CvJ1RRhLo+h1ZlzD90BNZlf9j9nnqdy6sC/gsZE+W5c5SQrqClpDnj/EI7sHp
-	 PSOekJgiXDUhguOe8lRPtDX3L6j5hyHgq4bGk2ZgRf9JItETle5soU/Y1/xX+uXDCwOTt
-	 s8+IbA/k8ku2fT3y5psS81XOuFiNyGDSy6wuy/0LsbyI4nADICmS/C4XQZ95Nr74fpQ==
+	t=1795279601;
+	b=bW6I2sYZJTPH1BeQK3ZywBeH0Anqkbu1WhMYF1Xz9dW9JnmjeqOJ/3iAwBOnm26K+MfH
+	 rvfMrKx41xT4jnmQg6qXLuqdZTbsSIyZUQ3tfQxAi4aoY+e/HOycxzkURXDJ9CWGerxRW
+	 8bk/MDx4iTG7fIkAwWWcErtq4FfhPT1CEF36tEJjN51d/mckZvqHEwGSw3XhAZvwOj4gD
+	 BH/Rmk5lJYJjoNiNQw8RvreMsy2V1EvNKQld2C2gdh87q8XliwS3UdIcUxH0pC32sJMel
+	 zKt/O1UVaj0RP9TQYjEgfNqvUhsQPjda392rjhjgiUxTPA3QK0fS4tBiA6GilxHRw0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795279497;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795279601;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=CxqkyoWUaTTX2T9h8JesIf80SZlF7IaEiUzIJtTzDJk=;
-	b=21LEn3BUYs+2M+qiYZE1hLuME5S9rn4zPm04uZ2nVkgxYv2Gv9aPaprl8kVZdUlUMJ+I
-	 opB3VeLLjphPL/o3Ub5n64NQPsf0txdrsi27GXA8//1sgCVxWTg+OFGFjBDSK2LniwAa+
-	 DIx1kSPs8H6Bayi0uX8oa/SPDXpxWTfwbJyLdRTFAIntEEtYDsBmYAKHypoEbGxo4KMSf
-	 MQ7zqv/6Aoys96UhFey2EnXAV3f+J035TJdaPHzTgn9NicgkyU0mcQw2xYyjkcukNcSiE
-	 dijabb/liqGkKDVfu1M5CJ8OoWOB4Vif66xrh2gTGNUmiTTpJ/Z/hlKde49zebTUSvw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=P/gSH84W9nTAHSSAJ/t1/ktXrTVBa/4q/QfiolBhcqw=;
+	b=I+aHfsGdQ5Ac05cArDYE6gtDYBzrA6VebEzcJifAAmls36hLLWPTBzmKzgMruUyVapkr
+	 bdrGbVbwjbPODLlmMs34qxaXLeeaTyxpTd2451eKLsn+B4n/G2AsbpweNICxSA587NVbT
+	 AFrw66+dx2Rf3nEQ1v7dv7+V+JCEjhTs7r1bBRlH2s+aUykd/XzVsJPtUeL7e4JH63wYX
+	 pQguWYKlc+eB8YMI7DwtzPBpZBWrZs/3vmYdLRxtiNWpOynhucHGo0FpVXwd5vZC2VR0k
+	 ifcyvYON4DMFciD9dzeEM+5LwnSJRiR5p82fnBwQMEHuqXdAglWXrFsz1C8YcoCWaLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hz9sT3yV;
-	arc=none smtp.remote-ip=74.125.82.173
-Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	dmarc=pass header.from=bairaktaris.de;
+	spf=pass smtp.mailfrom=bairaktaris.de;
+	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=JuGADNsl;
+	arc=none smtp.remote-ip=209.85.218.44
+Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0647606A336
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:44:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0647606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0E51606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:46:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0E51606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hz9sT3yV
-Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-36a315ed211so2323698eec.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 08:44:56 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=JuGADNsl
+Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c50cc8e0f84so289378566b.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 08:46:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795279496; x=1795884296; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CxqkyoWUaTTX2T9h8JesIf80SZlF7IaEiUzIJtTzDJk=;
-        b=hz9sT3yVPSsdmeXUzzQ/OVC/OtIFzaPMVXX0ckbqhQbtpL+VG+LssjROz4BSKZt9JK
-         cdWDsaKEMuY1lyAqQeaN7+6CYDSclB/TsmEnXzMnrgNaz9GOzouZBF8sakyd5gXyqzsB
-         Etp5/+yHAoTCBrW9dKobmkzg770jwKN9wJGyM2lEp+Y+/4mVArdhuebn5B6ahstfGnbB
-         EXkoTkHe2aAKCiC7P7vcxii9Vt7ef0kwbdY714wM7sUFHW/64uwK3vDHooaZVrOiGdFL
-         eUE/kVmyW9uFt6duKhmvb5w75l6UlHrGCycn3VNVmeMfHJm/TU0RT//F+qH/hDHP0HLa
-         Cfww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795279496; x=1795884296;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=bairaktaris.de; s=google; t=1795279599; x=1795884399; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=CxqkyoWUaTTX2T9h8JesIf80SZlF7IaEiUzIJtTzDJk=;
-        b=DrzWIPAVYtvnFv2seDEwkJ+szXvkZv9wcHxBDSiuny7neYE4lmKDRgitS3P8fVPIC1
-         wp7D+UVzGPHaf4qzujNeo/x3XMdDEOhJ/PXC+PstsAKcUxl5eYsGCcQM4qIOAx9GQDqD
-         xtHt8WRNyYe2d0CgoCB8odvA6T3rYG+lax2t+mH5fxEbDlXtmpSEfK55DUYUqG+r9GTM
-         wd5KkwfBZ/XpPd3xSmETGPzUd9zww15VbYUaMJa9lgYIVD/jH9QFqCb/wUkaCui0gWGL
-         JDjvfdlSCECjF490plCu92AcwXsuC4TIAhdt3ayDcsA9ms+P4YARApPfRiuuGWFUlyul
-         ClCw==
-X-Forwarded-Encrypted: i=1; AL+hErEiUwzxaZUkNY3VQ0HvcvFiKx78xXyzpbcTv1GUQS4YENc06aMqKPDtyIxAgRtHFnl7p5deBEDN5d2PTvQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8KHivA7wdqo9NgP4IQlKhkg5mknfqJl+pM126NRjb8t/Bvsf5D
-	I3m5JaG3Qxj3T8bKK0yI6jNivS0Zjlt+bZWY+ZyAp85PAyOakB7syRLf
-X-Gm-Gg: AZFdTZf6Jhp+ESAxmE1hNFqLavX11DHckm55HrhK+oFTUTmSX4oQKuhi8RWoPdHUAxN
-	ODssjRY66uO3rlJd/V5Rc7HJZ3fO539+qloWHPq7VY+S52lBZAGXPfRbtDyzPd0NP2Y1svWcHYx
-	tE+/RtU3h3j4S5XJSWxS4/Anzpi/q11rom5P+FXXis7GDTKKWvfw+iw3ZlpMLLq2XTxLfjv/rhW
-	u5toA+61p/YgZDyArGXf0CVb6GmUdW4amkhxej2qaNAPBNjsoEfNWEH9HUki4KOOKqahSURdUkZ
-	7AUQxGnQLSoukMCpJTaO6GZ6RscBpdnxfPceHZFitpYrX/UWcrxzPm04L4EGPYJ80TLauqy7Q1p
-	sZ4xtnQegqTsQMyN51CuYMarbOh9v+HPiWBGu0/upyy2bbqOmgApGFPeIy67+QFjMSIaEWp3oW1
-	KOsaGVc9rXcLTpJX/wZx9lXqCjXgHjUiBR/n2zw6WQNpSd6oMkj4UhamZmpkBgm0B8kn0OJPsky
-	vKMvYFFFFcEEw/6b1lr+RZKehdlYB/q30t8m1sCNnxO+yQFb4yHR3R9AQnrmYexOZXJzFadKCqo
-	2YnSUIvVRdjGf8frCeQP89sntNgcvpstA2Zk4A==
-X-Received: by 2002:a05:7300:6b0a:b0:382:75b5:e77 with SMTP id 5a478bee46e88-384b4a80eeemr8320187eec.25.1795279495752;
-        Sat, 21 Nov 2026 08:44:55 -0800 (PST)
-Received: from DESKTOP-NM9EKIA ([2001:e60:8509:ba6c:4c23:efbc:89e:50d9])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672c6f31sm18791440eec.15.2026.11.21.08.44.53
+        bh=P/gSH84W9nTAHSSAJ/t1/ktXrTVBa/4q/QfiolBhcqw=;
+        b=JuGADNsl9TUMT7yDaFS/ab9hGycHQVyzfEYELymbXEuLx0NmeYYvhpljikqtxMqPPG
+         ZGqNweZLvfa8mMiCL8QCfUjjJ+UuTrCqgC48uZKPlb9mr0daTQ6yQ56Lq/jq7xZlIhkS
+         gO/WOYZovZ/nmV94m+BnEMbh+bqFQiIKCnl6umDl9QNIrepWA4yLc1MkPQCoe0WbH/RZ
+         oYDkChPQGNiPzjoYuy7iQP85D5S3sZyW1GsHTC5+9MrD5UUTQlDRD0/J4HZT1XuoBLEc
+         l74DhbY+RM1PA98AMIBjHE6CCOt2EQVvI5BrlIE3NPlQWPkpmRV9Nx3csGCgrLiDpGBD
+         618Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795279599; x=1795884399;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=P/gSH84W9nTAHSSAJ/t1/ktXrTVBa/4q/QfiolBhcqw=;
+        b=mvuSRfNxmnDGiRqjoeu8/w6f/G70YnN3s17VDmDV0snQmuzvJO4/h8Ujxpj9/zEwZn
+         /FXgXRmEZ25fRQ7tspHk46T6ndpPrD+q/q/6Qp26SO0YSOxJTxMRe2jp7r+hurcl2YV6
+         XOzU/X6nJgLO9xVP+ENB3K4+sB+HfpzjU4RNZCXoQEniRgP/LNAhKlXasbC/G9scaYsy
+         XxjpKt3vBXqiqQr/cOz7yPmM5HRdIWW0zOZEZj1BKAmJpuczBzcZ+YP0ObSaE0q/WJXV
+         aiO6gwQ3bKcoa8qMLMkkoaW7TmoiVejHEpoUGwXKFy7WKa2ZcWZq+wTUbUfegjirA77j
+         rJKw==
+X-Forwarded-Encrypted: i=1; AL+hErGXtHiI+dJVrRtr+lVx+CDhlVlbFVJvva7KHLQpDvGimMlIHESd14tbiCb9kto4ydx8I2YP6wnuWqIqbhw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z88sfXReBnOhuFbt1N5/wQOHB2fcB6oJ7mPkSpWLjJ0jNNc8IeO
+	vs2rT3ZqieFXXYjuuZ8UnuEvxxBXrO0nTzEBBcjrz92ZEVcIysbgk2OvWFVlooF81g==
+X-Gm-Gg: AZFdTZfJkdhVl9zG7MKXaLkprUgqZU1CAQvd3pHmeLZKzsvaX9TtDpTEWfBAktGmP6s
+	6i56ctPvm6/iERfPtbzi9rJ9Ilw/ccxVIu3X2LJybNADRcKYDaiFkAX2amRM+bmj8dSNyX2F8Cd
+	sKdK4JHhDbT79vu6a7MIEnRJhTzIImhp5kE05zHW1tXEo7xPH2btIISWcp4FAYV9h3qHDERCNNj
+	Z6XsAagqDKM5vDmWrZe0ETwLP89yeBirGw/0a+xiLNfYL1bRvR0FSxSFEniUSvsEaTKeILMjnhw
+	dtAgKFyePRYRrqTCVHyTy7zxQ/lL5SkzTZ/GahAK+xk4Y59bpcAsYQw4uQDC6yV1N0o6Ci3x3eX
+	ok4KfqLV5LKzE8vb0ZnseC/ppFyDjAZAXcuNZb87VLCIDfEYefHALlHs0zC9B4iir/ezOD/ZVRQ
+	XT0aNdbNS8mlFDP9LR9K8B6elpCnqTUFXY0L27uYACraziE3Ah+4/XLub3bcetQ/goIZJ9ms6YS
+	XPpAqkx3g6A60dx8p/uPNPJWv+j4rCf0nvGp6ZX9uBHKuo9MyR3wmViRArLPjplONJ07rbYT4f/
+	CpUJbklY+1b9lQ5FtN+3GKRgFdPxuRQNypppujbyds/9DjPzWoBnGRmxVEGqdW+m9YYTtr+rHeJ
+	BFS5BCReosaXvBT6J5ep2muHb4hoBHJxa/nJmO088ar/nNtJnFiOjT9KQJWyaMgCVa4uhg1vZg6
+	6Po2geReOyDr8gH6S3jThIDIoYR18Dra+mOezBVi4oV4fcFc2Hz4EgopGZE6v4iEqULLEomJuHM
+	uxFobzD0rgspg8T1Zmp+/FnhzR9jng3SrToC9Co5ZVLWavcY60wkScEeT094ij0yZz2+IA+l+Ow
+	bVCqfVyRWP1ZOE6PefRkB7AfFY3M8zNCRNPA4mmTy7fMUcVU/Ij8HV+07o0j/vGwFEXLPx1BqDS
+	/zg==
+X-Received: by 2002:a17:906:3e1b:b0:c50:93b6:52ed with SMTP id a640c23a62f3a-c513aab27ccmr426031766b.40.1795279598346;
+        Sat, 21 Nov 2026 08:46:38 -0800 (PST)
+Received: from Desktop.tail070c67.ts.net (p200300f2470da3000000000000000a27.dip0.t-ipconnect.de. [2003:f2:470d:a300::a27])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae8f70fsm213796366b.40.2026.11.21.08.46.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 08:44:55 -0800 (PST)
-From: Joonhoe Kim <26rote@gmail.com>
-To: andersson@kernel.org,
-	konradybcio@kernel.org
-Cc: abelvesa@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	mani@kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: qcom: kaanapali: Describe the UFS MCQ registers
-Date: Sun, 22 Nov 2026 01:44:53 +0900
-Message-ID: <20261121164453.26-1-26rote@gmail.com>
-X-Mailer: git-send-email 2.55.0.windows.5
+        Sat, 21 Nov 2026 08:46:37 -0800 (PST)
+From: Julius Bairaktaris <julius@bairaktaris.de>
+To: jjohnson@kernel.org
+Cc: ath11k@lists.infradead.org,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	baochen.qiang@oss.qualcomm.com,
+	vasanthakumar.thiagarajan@oss.qualcomm.com,
+	rameshkumar.sundaram@oss.qualcomm.com,
+	kvalo@kernel.org
+Subject: Re: [PATCH RFC ath-next] wifi: ath11k: advance the TX PN of keys reinstalled after a firmware restart
+Date: Sat, 21 Nov 2026 17:46:36 +0100
+Message-ID: <20261121164636.3949260-1-julius@bairaktaris.de>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261018210212.1926073-1-julius@bairaktaris.de>
+References: <20261018210212.1926073-1-julius@bairaktaris.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,47 +109,13 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The UFS host on Kaanapali supports Multi-Circular Queue (MCQ) mode, but
-its node only describes the standard register space, so ufshcd falls
-back to the legacy single doorbell.
+On Sun, 18 Oct 2026 23:02:12 +0200 Julius Bairaktaris wrote:
+> Which command or field sets the TX PN of an installed key on this
+> firmware? Without one the stations need new keys after a restart.
 
-Describe the MCQ register region and the ITS MSI parent used for Event
-Specific Interrupts (ESI). The region has the same address and size as
-on Eliza, and the ITS device ID 0x60 is taken from the downstream
-device tree.
+Please drop this RFC. With key_tsc_counter set in
+WMI_VDEV_INSTALL_KEY_CMDID, WLAN.HK.2.9.0.1-02146 still started the data
+frames at PN 0 after the restart (1 run), so the patch does not do what
+its subject says.
 
-On a Lenovo Y700 Gen 5 (TB323FU, Kaanapali) this more than doubles 4k
-random read throughput (fio, 4 jobs, QD32): 186k to 431k IOPS on the
-first run after boot.
-
-Signed-off-by: Joonhoe Kim <26rote@gmail.com>
----
- arch/arm64/boot/dts/qcom/kaanapali.dtsi | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/qcom/kaanapali.dtsi b/arch/arm64/boot/dts/qcom/kaanapali.dtsi
-index 132577d540bf..c841a1e1e1f4 100644
---- a/arch/arm64/boot/dts/qcom/kaanapali.dtsi
-+++ b/arch/arm64/boot/dts/qcom/kaanapali.dtsi
-@@ -2536,10 +2536,15 @@ ufs_mem_hc: ufs@1d84000 {
- 			compatible = "qcom,kaanapali-ufshc",
- 				     "qcom,ufshc",
- 				     "jedec,ufs-2.0";
--			reg = <0x0 0x01d84000 0x0 0x3000>;
-+			reg = <0x0 0x01d84000 0x0 0x3000>,
-+			      <0x0 0x01da0000 0x0 0x15000>;
-+			reg-names = "std",
-+				    "mcq";
- 
- 			interrupts = <GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>;
- 
-+			msi-parent = <&gic_its 0x60>;
-+
- 			clocks = <&gcc GCC_UFS_PHY_AXI_CLK>,
- 				 <&gcc GCC_AGGRE_UFS_PHY_AXI_CLK>,
- 				 <&gcc GCC_UFS_PHY_AHB_CLK>,
-
-base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
--- 
-2.53.0
-
+Julius
