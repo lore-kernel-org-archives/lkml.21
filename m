@@ -1,75 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.155
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795244382;
-	b=RRYLkwSYoaZp2q5PheMyKFEF1mrYxryM5YubZSrQW13LfVYlEA2xCp7lmjeY96dFPbHj
-	 13mOg1p6zCzRZqFen6CDpkMuIPg47wddJs21hzzosgO9YwXWR+SLsG99XDHlHFW6FMKCR
-	 wzMGFiXrMu1lNuqG/LH0uIwmmYn7t3OPcUtlA21zDOP6eUazeTkHMCFbVFpCZbAItC//2
-	 25Aa0ecmxx6SJOb05QBVhKp1U6xOe4X8njhNDMydwFsVJemAG7iGLEpsU5VWIsVl+V60N
-	 IzVWlN84DCbEuZfCgr8dAdjFuV4+07BfrDcn/f/t1R7EmrTqIB2cJoaCR8S8cH6mCKg==
+	t=1795244385;
+	b=aHPxW41mT3NMuNjpvyaJec7iARXRxeFHW0EPJsdV5dN3qfWd62N8JFisGk0lrqQpcASc
+	 6h6RXPw0qTVYMk1JJJ+Krmpxpy4qc0qEm0RtPE5wxALTf//G6LrW8kns0Og1f2vMJ7aAc
+	 fuEdtmnyJwYIwLt4YmiUdxhIa3bUdtW6KeKPsF//tRPxm0tKLA1D/QUAz0j94t9IzBca3
+	 KjvZ5llukIG8EhczXyWru+CEhrJx3puMj2krdQjpzcjS3iQbcUGTzgYZjzZeOJ5LAr/oP
+	 RIiplokbJwEMOvkf2WPX4+g3v06fXIki08LwU+/fFxeRCGYV5yRgd8Op7WApOCZTpxg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795244382;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=3ldaH1DsummI25gX35EZsyDmjsqnnx62kQYSRGas9Bc=;
-	b=Mel6b45SkrGzZsKdj7CEtZGoSYXO0kjeW7GwR15fGgPNAYaIEafmDyqNUlHdIyE9UKza
-	 57cumSQsQanFqJjc5dG8wRuf4E8JUiiKn39C8VPXCuMPPF+lw0MRlSKssZJGG1a2pfxK+
-	 4vy0UhlqT3H8I3i6n+lo/QcnVuNyg62d3+CekRLPitJdXpcLAiUtwZ6IftOueCQSFwy2A
-	 oI4LIwG9y9CiVU8JOSUFxC9IMLHZ/E796vOnkGgz5kTXmejGE6qJOC+LPacI/5oX5Gj2P
-	 3Jgq5JUEIwZJEJ/1Dc2ghrbYN5g4iLIW/Uakh8LYmPE4PvAZo+wzJ3kg6tVeF/Ggy0g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795244385;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=jK2zYQmh64qPZi1PcNYWIZ+ueibLnSi2h0M89dZtMcg=;
+	b=IcSdFTk5+JmAgQ/q+YZdv3k3DrNf3wwv97xMWz+NaxxHb3xCFGLYOJXptw9KHVgkZ5mX
+	 c0AtQSxp7884jzVdiB7tRUq1oaNq6SAhTDPHxB7/Tv+Gs8AjHwCN7NDWv/YCZzQBge5m+
+	 LcnxStfitEESLrMzGBQ08R72D7MaewcOynbOokFTYdeFjYrwkAu3nrrs4PgPfnzhlW+CS
+	 dpimn+vPyIj63OsaCMRNhb6HZVUh3rm2kWW2TSAryCDe+OPCu8G1okuLMd7f6hL4CXiqi
+	 NoytHkPiqAyPI+fpF8Yv6QDvKjxgN6dDSsxdV4TR2VWKFXknt9XO70+3NgvfWpknP5g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cIMq7voa;
-	arc=none smtp.remote-ip=209.85.160.70
-Received: from mail-oa1-f70.google.com (mail-oa1-f70.google.com [209.85.160.70])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b="pElU/YCg";
+	arc=none smtp.remote-ip=203.205.221.155
+Received: from out203-205-221-155.mail.qq.com (out203-205-221-155.mail.qq.com [203.205.221.155])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F78E606A337
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:59:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F78E606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F3E0606A330;
+	Sat, 21 Nov 2026 06:59:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F3E0606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cIMq7voa
-Received: by mail-oa1-f70.google.com with SMTP id 586e51a60fabf-45e6091d8a1so1338461fac.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:59:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795244381; x=1795849181; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3ldaH1DsummI25gX35EZsyDmjsqnnx62kQYSRGas9Bc=;
-        b=cIMq7voaQeCHhfzcptVQ1YdpOt+CBKj4cXe3JwGlFetNcrcaHT7GI4ZqK2qWQ+nAhs
-         revMUeAH7BKvHz1tvZXyRPlyjkXC0K81AtTgyTKcaLFBxkpR2aHssKTDFRNfhkaEYq6k
-         rs7s50WKbKz78DSFDj3oDqJXZCqmt1NAvsThOuEu4csLMKA8jK80Bm8RN7GkNDok7L7R
-         juU629LzPabLVfKtA7byg5qIOA+5IoGvnsPjbRV5QPRWi4udn1qQyse7PidrJ+te+n1r
-         ALhdleQJkNe4wWJpzBJcoVZntR68js0PHRGeLdG1OdJ+Hx6tUXUMGpRViI96ZKogw7o8
-         14lA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795244381; x=1795849181;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3ldaH1DsummI25gX35EZsyDmjsqnnx62kQYSRGas9Bc=;
-        b=YyAlnsY/FtPAJLR26vGYUu5aDD8xgx+mubMBrpHbKxVhozKcEHVQsVWXlk05BtT/Pf
-         G2mAvPbkb+wimO7y3nAVuWLw0uAi98++RdCVeF4qhORwKb/QXwjsAjnLeVoAUu+hz4vV
-         UPQCy5EWrqsgfjfvMnANXgMlRmVfRV7Fh0HGAsvO7ajNMvaxFhSgRjesTYg3567lW3gy
-         ZhJ3u8ObvV7wgPdatGfoSptbNPlH4Wqsk+LUd4UelKgWqKQ/RPWpz1pMYd5Fpa3Derxw
-         9/SIyDPKrbLN6G2X65ZotnVP9DkrCJH94g79Wy6AGhpboxougkhfSVP3wvx3ljAe3/h0
-         Z6dg==
-X-Forwarded-Encrypted: i=1; AL+hErE39jMu27a0wAyQ0r7QI/xYVm2qoD8ocx4mhCObj0Hi6bSGWQlG5fRNyYi9ebmGNBqUn7Y5zSBPdDN4QjM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Xx+mBUNJ+Wg4Hbkc7Bj22/vha6qonZbemePP0SNwc02qdDSSX
-	MFdIFoE8OpO9a/uhZ7aJonQxTgzM1Gcz5B7QJToGllJ5nOroPNMtIJG6PTCZ+Q356MPuPDhz6Vc
-	yzxijlA7Llw==
-X-Received: from iofh2.prod.google.com ([2002:a05:6602:6fc2:b0:9c3:dedd:2a97])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6808:1992:b0:579:f56e:45a2
- with SMTP id 5614622812f47-57a0bc8c353mr6204162b6e.53.1795244381098; Fri, 20
- Nov 2026 22:59:41 -0800 (PST)
-Date: Fri, 20 Nov 2026 22:58:09 -0800
-In-Reply-To: <20261121065813.4143649-1-irogers@google.com>
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=pElU/YCg
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795244382; bh=jK2zYQmh64qPZi1PcNYWIZ+ueibLnSi2h0M89dZtMcg=;
+	h=From:To:Cc:Subject:Date;
+	b=pElU/YCguCeDHzYXiYZAXUWSu5OfRdfp7/zbiybcDOhKx5azB2T2jpb+9bNDBA4za
+	 VnUdqYjCWEiVCuU0MJ9cRH2F/36K/fzlq5u5YEtx9nkPZ37wC4Q70bE8/dlEtpHBUt
+	 HQT874azzwFBb5MmZy7AGV/OiYG9HVnWsVXZUTRE=
+Received: from jerry-PC.lan ([2408:8249:5f:7101:71a:8713:56b4:5043])
+	by newxmesmtplogicsvrszc56-0.qq.com (NewEsmtp) with SMTP
+	id EE72042D; Sat, 21 Nov 2026 14:59:39 +0800
+X-QQ-mid: xmsmtpt1795244379t6zcn6lw1
+Message-ID: <tencent_27C5A1EA3CF33BA5221F7F01A066E92BCC07@qq.com>
+X-QQ-XMAILINFO: Mpt5V4XGwnFy4a/nabu402ZCgr4HCjbav7E+2nIRO5S+M9bW9j16AgO0eYZNxO
+	 Z/QSlGGFAV96WP9hht/6bqcxhLGoaztLNOYmXxy/3oIqdNhSwMoL0N1Ay1ELmbXRBQB0XM0Gix8k
+	 mYFlVQIRKhdEe4hRWIF8JqVcmuj7xapfA/4+QJsSm+sUFi59otfV2fHOjSYlN4PJBoMgoJcuJoWb
+	 MgnjNVsIuIQ3XUaWbe6YP+L2+bf7wN0F27uxwmrxnM+WVNdaFdRco3IyTplKdplG317qZH8NX0SS
+	 fQll/9vJGL9uB1sxzfDRZTgD3I0bVuc5IcdSD9C7ZVW2cWNovWUHKlTocpuBAglOB6cbAPtMmTKR
+	 xqHGMKZc1nE5DtCnAzRyejjiQNQ6FVhIMEKjmOYCtUH6GRR0CAig/F+7aKDfDdKRe7oht/UiTrAU
+	 WP/Rb6vHcoClZL3Aw4Umaqiwl1wNaZiYcrKMU+bjXE8XLm2Zoclzh7aJ/ZUpHcSNJ+B+3CYM1P51
+	 Hd8TRKzz2ixnJqXD2CY/sYrcpD62cPLyTHDoBajmBgJBlutHGYXURVuvB1An6jAZJrUyAjOi0y2k
+	 hCYY3rbXwJDbk320sclhaLTK2aHDWlHfhR436O96XHRRqwruVVEo++iNvUJhA57qlUHdC29cBU/Q
+	 YBbPVi828deqwxn4CbmVAsIFyn8G3yThlhF5nzHmt4gIOyWJc9DUfLjWKX+LYqhDfDNLTW6tu8zM
+	 /MdCVpvtjYnDl4EUOZiIW0Mjckp1ASLOe/0uGvMpRuD+QUNtZRK7DzbKD4E9BClSMaQk5eqq7QmN
+	 NGB3C6VeuWiHE5tHLuIda/9k/XhOVG+bLomj1Uj/MUNBAlXNg3O45aTH0wrIM/hgesw0WxzL73Hd
+	 490qOg6sbyb39XeFCm7U9FKmLkBwzvQAnTwF3W1sTkiHFI8DXGCi6/ZWhZdL726oRk8xACoGo2c8
+	 jmqahsEIWIZ62rvzD9ugzWGn95WB8pPX8/XnOHmnfZLvXrcquQm3LvirycHSy/Uwp6BmQu0qwLAE
+	 YCmGaDvNCLuVxs2bqEH8didhEX23RFne4vGPymTz9S5RLy/5WBrlHL83MISIyPGeyFThp8fKPfAU
+	 osIy+e+vo/BXm0oDttX02Dq6h4dG0Q52/rGx2DUUVOGYxqj1k=
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+From: ZhuXiangyu <1194781887@qq.com>
+To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-pwm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	ZhuXiangyu <1194781887@qq.com>
+Subject: [PATCH 1/2] pwm: rockchip: add PWM v4 support
+Date: Sat, 21 Nov 2026 14:59:35 +0800
+X-OQ-MSGID: <20261121065936.1125919-1-1194781887@qq.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,461 +84,253 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261121065813.4143649-1-irogers@google.com>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261121065813.4143649-21-irogers@google.com>
-Subject: [PATCH v15 20/23] perf maps: Fix map index lookup fallback and removal
-From: Ian Rogers <irogers@google.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Marco Elver <elver@google.com>
-Cc: Bart Van Assche <bvanassche@acm.org>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
-	Weilin Wang <weilin.wang@intel.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, linux-perf-users@vger.kernel.org, 
-	llvm@lists.linux.dev, bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Ian Rogers <irogers@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-maps__by_address_index() and maps__by_name_index() currently only run
-their linear pointer scan when maps_by_address_sorted or
-maps_by_name_sorted is false, returning -1 (UINT_MAX) immediately if
-bsearch() returns NULL. When a map's start/end address or DSO short_name
-is updated in place without clearing the sorted flags (for example
-during module map setup), map__start_cmp() or map__strcmp() tie-breakers
-can become stale and cause bsearch() to miss an entry that is present in
-the array.
+Add basic support for the Rockchip PWM v4 controller found on the
+RK3506 and RK3576 SoCs. Compared to the earlier versions, v4 moves the
+enable bits into a separate register, uses hiword write masks for the
+control fields and latches a new configuration with a control-update
+bit.
 
-Fix the lookup and removal paths so stale sort keys or missing maps are
-handled safely:
-  - Fall back to the linear pointer scan in maps__by_address_index() and
-    maps__by_name_index() when bsearch() returns NULL, and avoid calling
-    bsearch() on empty or NULL arrays.
-  - Factor out __maps__remove_at() with bounds checks on address_idx and
-    name_idx (freeing maps_by_name if out of bounds) and remove from
-    maps_by_name before calling map__put() on the maps_by_address entry
-    so REFCNT_CHECKING does not see a freed handle. Have
-    maps__remove_maps() call __maps__remove_at(maps, i) directly so it
-    removes at index i in O(1) without redundant lookup or risking an
-    infinite loop if lookup failed.
-  - Guard against maps__by_address_index() returning -1 wrapping ++i to
-    0 in maps__find_next_entry().
-  - Clear maps_by_name_sorted and re-sort maps_by_address when
-    maps__fixup_end() clamps equal-start maps, and use
-    machine__update_kernel_mmap() instead of the unlocked
-    machine__set_kernel_mmap() in machine__create_kernel_maps().
+Only continuous output mode is supported for now.
 
-Add a unit test in tests/maps.c covering maps__remove(),
-maps__remove_maps(), maps__fixup_end(), and maps__find_next_entry().
+Tested on an RK3506 board with a 100 kHz output at 40% duty cycle,
+including enable/disable, verified on an oscilloscope.
 
-Fixes: 659ad3492b91 ("perf maps: Switch from rbtree to lazily sorted array for addresses")
-Signed-off-by: Ian Rogers <irogers@google.com>
+Tested-by: ZhuXiangyu <1194781887@qq.com>
+Signed-off-by: ZhuXiangyu <1194781887@qq.com>
 ---
- tools/perf/tests/maps.c   | 140 ++++++++++++++++++++++++++++++++++++++
- tools/perf/util/machine.c |  21 ++----
- tools/perf/util/maps.c    |  91 ++++++++++++++++---------
- 3 files changed, 207 insertions(+), 45 deletions(-)
+ drivers/pwm/pwm-rockchip.c | 146 +++++++++++++++++++++++++++++++++----
+ 1 file changed, 130 insertions(+), 16 deletions(-)
 
-diff --git a/tools/perf/tests/maps.c b/tools/perf/tests/maps.c
-index ff6d25f9c043..054e4fafef3f 100644
---- a/tools/perf/tests/maps.c
-+++ b/tools/perf/tests/maps.c
-@@ -1,5 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <inttypes.h>
-+#include <string.h>
- #include <unistd.h>
- #include <linux/compiler.h>
- #include <linux/kernel.h>
-@@ -253,9 +254,148 @@ static int test__maps__fixup_overlap_and_insert(struct test_suite *t __maybe_unu
- 	return TEST_OK;
- }
+diff --git a/drivers/pwm/pwm-rockchip.c b/drivers/pwm/pwm-rockchip.c
+index 050ca8aa..aa89f23d 100644
+--- a/drivers/pwm/pwm-rockchip.c
++++ b/drivers/pwm/pwm-rockchip.c
+@@ -7,6 +7,7 @@
+  */
  
-+static bool remove_not_keep_cb(struct map *map, void *data)
-+{
-+	const char *keep_name = data;
+ #include <linux/clk.h>
++#include <linux/delay.h>
+ #include <linux/io.h>
+ #include <linux/limits.h>
+ #include <linux/math64.h>
+@@ -31,6 +32,27 @@
+ #define PWM_LOCK_EN		(1 << 6)
+ #define PWM_LP_DISABLE		(0 << 8)
+ 
++/*
++ * Register layout for PWM v4
++ */
++#define PWM_V4_HIWORD_UPDATE(v, l, h) \
++	((((v) << (l)) & GENMASK((h), (l))) | (GENMASK((h), (l)) << 16))
 +
-+	return strcmp(dso__name(map__dso(map)), keep_name) != 0;
-+}
++#define PWM_V4_ENABLE_MASK		GENMASK(1, 0)
++#define PWM_V4_CLK_EN(v)		PWM_V4_HIWORD_UPDATE(v, 0, 0)
++#define PWM_V4_EN(v)			PWM_V4_HIWORD_UPDATE(v, 1, 1)
++#define PWM_V4_CTRL_UPDATE_EN(v)	PWM_V4_HIWORD_UPDATE(v, 2, 2)
 +
-+static int check_remove_after_end_update(bool swap_order, bool use_by_name,
-+					 bool use_fixup_end, bool use_remove_maps)
-+{
-+	struct perf_env host_env;
-+	struct machine *machine;
-+	struct maps *maps;
-+	struct map *map_a = NULL, *map_b = NULL, *map_keep = NULL, *missing = NULL;
-+	struct map *map_first, *map_second, *found;
-+	struct map_def expected_after_first[] = {
-+		{ "map_same", 1000, use_fixup_end ? 1000 : 1100 },
-+		{ "z_keep",   1000, 1300 },
-+	};
-+	struct map_def expected_after_remove_maps[] = {
-+		{ "z_keep",   1000, 1300 },
-+	};
-+	int ret = TEST_FAIL;
++#define PWM_V4_MODE(v)			PWM_V4_HIWORD_UPDATE(v, 0, 1)
++#define PWM_V4_CONTINUOUS		1
++#define PWM_V4_POLARITY(v)		PWM_V4_HIWORD_UPDATE(v, 2, 3)
++#define PWM_V4_DUTY_NEGATIVE		(0 << 0)
++#define PWM_V4_DUTY_POSITIVE		BIT(0)
++#define PWM_V4_INACTIVE_NEGATIVE	(0 << 1)
++#define PWM_V4_INACTIVE_POSITIVE	BIT(1)
++#define PWM_V4_CTRL_DUTY_POSITIVE	BIT(2)
++#define PWM_V4_ALIGNED_INVALID(v)	PWM_V4_HIWORD_UPDATE(v, 5, 5)
 +
-+	perf_env__init(&host_env);
-+	machine = machine__new_live(&host_env, /*kernel_maps=*/false, getpid());
-+	maps = maps__new(machine);
-+	if (!machine || !maps)
-+		goto out_env;
-+
-+	map_a = dso__new_map("map_same");
-+	map_b = dso__new_map("map_same");
-+	map_keep = dso__new_map("z_keep");
-+	missing = dso__new_map("missing");
-+	if (!map_a || !map_b || !map_keep || !missing)
-+		goto out_maps;
-+
-+	map_first = swap_order ? map_b : map_a;
-+	map_second = swap_order ? map_a : map_b;
-+
-+	map__set_start(map_first, 1000);
-+	map__set_end(map_first, 1100);
-+	map__set_start(map_second, 1000);
-+	map__set_end(map_second, 1200);
-+	map__set_start(map_keep, 1000);
-+	map__set_end(map_keep, 1300);
-+
-+	if (maps__insert(maps, map_first) ||
-+	    maps__insert(maps, map_second) ||
-+	    maps__insert(maps, map_keep))
-+		goto out_maps;
-+
-+	/* Trigger sorting of maps_by_address, and optionally maps_by_name. */
-+	found = maps__find(maps, 1000);
-+	map__zput(found);
-+	if (use_by_name) {
-+		found = maps__find_by_name(maps, "z_keep");
-+		map__zput(found);
-+	}
-+
-+	/* Missing map must not wrap around to index 0 in maps__find_next_entry(). */
-+	found = maps__find_next_entry(maps, missing);
-+	if (found) {
-+		map__zput(found);
-+		goto out_maps;
-+	}
-+
-+	if (use_fixup_end) {
-+		maps__fixup_end(maps);
-+	} else {
-+		/*
-+		 * Simulate in-place end adjustment (as in module map setup),
-+		 * which can invert the pointer tie-breaker in map__start_cmp().
-+		 */
-+		map__set_end(map_second, 1100);
-+	}
-+
-+	if (use_remove_maps) {
-+		map__zput(map_a);
-+		map__zput(map_b);
-+		map__zput(map_keep);
-+		maps__remove_maps(maps, remove_not_keep_cb, (void *)"z_keep");
-+		if (use_by_name) {
-+			found = maps__find_by_name(maps, "z_keep");
-+			if (found && maps__nr_maps(maps) == 1)
-+				ret = TEST_OK;
-+			map__zput(found);
-+		} else {
-+			ret = check_maps(expected_after_remove_maps,
-+					 ARRAY_SIZE(expected_after_remove_maps), maps);
-+		}
-+	} else {
-+		maps__remove(maps, map_first);
-+		map__zput(map_a);
-+		map__zput(map_b);
-+		map__zput(map_keep);
-+		if (use_by_name) {
-+			found = maps__find_by_name(maps, "z_keep");
-+			if (found && maps__nr_maps(maps) == 2)
-+				ret = TEST_OK;
-+			map__zput(found);
-+		} else {
-+			ret = check_maps(expected_after_first,
-+					 ARRAY_SIZE(expected_after_first), maps);
-+		}
-+	}
-+
-+out_maps:
-+	map__zput(map_a);
-+	map__zput(map_b);
-+	map__zput(map_keep);
-+	map__zput(missing);
-+out_env:
-+	maps__zput(maps);
-+	machine__delete(machine);
-+	perf_env__exit(&host_env);
-+	return ret;
-+}
-+
-+static int test__maps__remove(struct test_suite *t __maybe_unused, int subtest __maybe_unused)
-+{
-+	for (int fixup = 0; fixup <= 1; fixup++) {
-+		for (int by_name = 0; by_name <= 1; by_name++) {
-+			for (int swap = 0; swap <= 1; swap++) {
-+				TEST_ASSERT_VAL("maps__remove failed",
-+						check_remove_after_end_update(swap, by_name,
-+									      fixup, false) ==
-+						TEST_OK);
-+				TEST_ASSERT_VAL("maps__remove_maps failed",
-+						check_remove_after_end_update(swap, by_name,
-+									      fixup, true) ==
-+						TEST_OK);
-+			}
-+		}
-+	}
-+	return TEST_OK;
-+}
-+
- static struct test_case tests__maps[] = {
- 	TEST_CASE("Test merge_in interface", maps__merge_in),
- 	TEST_CASE("Test fix up overlap interface", maps__fixup_overlap_and_insert),
-+	TEST_CASE("Test remove interface", maps__remove),
- 	{	.name = NULL, }
+ struct rockchip_pwm_chip {
+ 	struct clk *clk;
+ 	struct clk *pclk;
+@@ -43,6 +65,7 @@ struct rockchip_pwm_regs {
+ 	unsigned long period;
+ 	unsigned long cntr;
+ 	unsigned long ctrl;
++	unsigned long enable;
  };
  
-diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
-index 02711995f0b6..0cc593d5372a 100644
---- a/tools/perf/util/machine.c
-+++ b/tools/perf/util/machine.c
-@@ -1580,19 +1580,6 @@ static int machine__create_modules(struct machine *machine)
+ struct rockchip_pwm_data {
+@@ -88,13 +111,25 @@ static int rockchip_pwm_get_state(struct pwm_chip *chip,
+ 	tmp *= prescaled_ns;
+ 	state->duty_cycle =  DIV_U64_ROUND_UP(tmp, clk_rate);
+ 
+-	val = readl_relaxed(pc->base + pc->data->regs.ctrl);
+-	state->enabled = (val & enable_conf) == enable_conf;
++	if (pc->data->regs.enable) {
++		val = readl_relaxed(pc->base + pc->data->regs.enable);
++		state->enabled = (val & enable_conf) == enable_conf;
+ 
+-	if (pc->data->supports_polarity && !(val & PWM_DUTY_POSITIVE))
+-		state->polarity = PWM_POLARITY_INVERSED;
+-	else
+-		state->polarity = PWM_POLARITY_NORMAL;
++		val = readl_relaxed(pc->base + pc->data->regs.ctrl);
++		if (pc->data->supports_polarity &&
++		    !(val & PWM_V4_CTRL_DUTY_POSITIVE))
++			state->polarity = PWM_POLARITY_INVERSED;
++		else
++			state->polarity = PWM_POLARITY_NORMAL;
++	} else {
++		val = readl_relaxed(pc->base + pc->data->regs.ctrl);
++		state->enabled = (val & enable_conf) == enable_conf;
++
++		if (pc->data->supports_polarity && !(val & PWM_DUTY_POSITIVE))
++			state->polarity = PWM_POLARITY_INVERSED;
++		else
++			state->polarity = PWM_POLARITY_NORMAL;
++	}
+ 
+ 	clk_disable(pc->clk);
+ 	clk_disable(pc->pclk);
+@@ -102,6 +137,47 @@ static int rockchip_pwm_get_state(struct pwm_chip *chip,
  	return 0;
  }
  
--static void machine__set_kernel_mmap(struct machine *machine,
--				     u64 start, u64 end)
--{
--	map__set_start(machine->vmlinux_map, start);
--	map__set_end(machine->vmlinux_map, end);
--	/*
--	 * Be a bit paranoid here, some perf.data file came with
--	 * a zero sized synthesized MMAP event for the kernel.
--	 */
--	if (start == 0 && end == 0)
--		map__set_end(machine->vmlinux_map, ~0ULL);
--}
--
- struct kernel_mmap_mutation_ctx {
- 	u64 start;
- 	u64 end;
-@@ -1604,6 +1591,10 @@ static int kernel_mmap_mutate_cb(struct map *map, void *data)
- 
- 	map__set_start(map, ctx->start);
- 	map__set_end(map, ctx->end);
-+	/*
-+	 * Be a bit paranoid here, some perf.data file came with
-+	 * a zero sized synthesized MMAP event for the kernel.
-+	 */
- 	if (ctx->start == 0 && ctx->end == 0)
- 		map__set_end(map, ~0ULL);
- 	return 0;
-@@ -1668,8 +1659,10 @@ int machine__create_kernel_maps(struct machine *machine)
- 							 machine__kernel_map(machine));
- 
- 		if (next) {
--			machine__set_kernel_mmap(machine, start, map__start(next));
-+			ret = machine__update_kernel_mmap(machine, start, map__start(next));
- 			map__put(next);
-+			if (ret < 0)
-+				goto out_put;
- 		}
- 	}
- 
-diff --git a/tools/perf/util/maps.c b/tools/perf/util/maps.c
-index 496a592284c5..2279d8e3edc0 100644
---- a/tools/perf/util/maps.c
-+++ b/tools/perf/util/maps.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <errno.h>
- #include <stdlib.h>
-+#include <string.h>
- #include <linux/zalloc.h>
- #include "debug.h"
- #include "dso.h"
-@@ -411,19 +412,19 @@ static int maps__sort_by_name(struct maps *maps)
- static unsigned int maps__by_address_index(const struct maps *maps, const struct map *map)
- {
- 	struct map **maps_by_address = maps__maps_by_address(maps);
-+	unsigned int nr_maps = maps__nr_maps(maps);
- 
--	if (maps__maps_by_address_sorted(maps)) {
-+	if (nr_maps && maps__maps_by_address_sorted(maps)) {
- 		struct map **mapp =
--			bsearch(&map, maps__maps_by_address(maps), maps__nr_maps(maps),
-+			bsearch(&map, maps_by_address, nr_maps,
- 				sizeof(*mapp), map__start_cmp);
- 
- 		if (mapp)
- 			return mapp - maps_by_address;
--	} else {
--		for (unsigned int i = 0; i < maps__nr_maps(maps); i++) {
--			if (RC_CHK_ACCESS(maps_by_address[i]) == RC_CHK_ACCESS(map))
--				return i;
--		}
-+	}
-+	for (unsigned int i = 0; i < nr_maps; i++) {
-+		if (RC_CHK_ACCESS(maps_by_address[i]) == RC_CHK_ACCESS(map))
-+			return i;
- 	}
- 	pr_err("Map missing from maps");
- 	return -1;
-@@ -432,19 +433,22 @@ static unsigned int maps__by_address_index(const struct maps *maps, const struct
- static unsigned int maps__by_name_index(const struct maps *maps, const struct map *map)
- {
- 	struct map **maps_by_name = maps__maps_by_name(maps);
-+	unsigned int nr_maps = maps__nr_maps(maps);
-+
-+	if (!maps_by_name)
-+		return -1;
- 
--	if (maps__maps_by_name_sorted(maps)) {
-+	if (nr_maps && maps__maps_by_name_sorted(maps)) {
- 		struct map **mapp =
--			bsearch(&map, maps_by_name, maps__nr_maps(maps),
-+			bsearch(&map, maps_by_name, nr_maps,
- 				sizeof(*mapp), map__strcmp);
- 
- 		if (mapp)
- 			return mapp - maps_by_name;
--	} else {
--		for (unsigned int i = 0; i < maps__nr_maps(maps); i++) {
--			if (RC_CHK_ACCESS(maps_by_name[i]) == RC_CHK_ACCESS(map))
--				return i;
--		}
-+	}
-+	for (unsigned int i = 0; i < nr_maps; i++) {
-+		if (RC_CHK_ACCESS(maps_by_name[i]) == RC_CHK_ACCESS(map))
-+			return i;
- 	}
- 	pr_err("Map missing from maps");
- 	return -1;
-@@ -540,32 +544,44 @@ int maps__insert(struct maps *maps, struct map *map)
- 	return ret;
- }
- 
--static void __maps__remove(struct maps *maps, struct map *map)
-+static void __maps__remove_at(struct maps *maps, unsigned int address_idx)
- {
- 	struct map **maps_by_address = maps__maps_by_address(maps);
- 	struct map **maps_by_name = maps__maps_by_name(maps);
- 	unsigned int nr_maps = maps__nr_maps(maps);
--	unsigned int address_idx;
-+	struct map *map;
- 
--	/* Slide later mappings over the one to remove */
--	address_idx = maps__by_address_index(maps, map);
--	map__put(maps_by_address[address_idx]);
--	memmove(&maps_by_address[address_idx],
--		&maps_by_address[address_idx + 1],
--		(nr_maps - address_idx - 1) * sizeof(*maps_by_address));
-+	if (address_idx >= nr_maps)
-+		return;
- 
-+	/* Slide later mappings over the one to remove */
-+	map = maps_by_address[address_idx];
- 	if (maps_by_name) {
- 		unsigned int name_idx = maps__by_name_index(maps, map);
- 
--		map__put(maps_by_name[name_idx]);
--		memmove(&maps_by_name[name_idx],
--			&maps_by_name[name_idx + 1],
--			(nr_maps - name_idx - 1) *  sizeof(*maps_by_name));
-+		if (name_idx < nr_maps) {
-+			map__put(maps_by_name[name_idx]);
-+			memmove(&maps_by_name[name_idx],
-+				&maps_by_name[name_idx + 1],
-+				(nr_maps - name_idx - 1) * sizeof(*maps_by_name));
-+		} else {
-+			__maps__free_maps_by_name(maps);
-+		}
- 	}
- 
-+	map__put(map);
-+	memmove(&maps_by_address[address_idx],
-+		&maps_by_address[address_idx + 1],
-+		(nr_maps - address_idx - 1) * sizeof(*maps_by_address));
-+
- 	--RC_CHK_ACCESS(maps)->nr_maps;
- }
- 
-+static void __maps__remove(struct maps *maps, struct map *map)
++static void rockchip_pwm_config_v4(struct pwm_chip *chip, struct pwm_device *pwm,
++				   const struct pwm_state *state)
 +{
-+	__maps__remove_at(maps, maps__by_address_index(maps, map));
++	struct rockchip_pwm_chip *pc = to_rockchip_pwm_chip(chip);
++	u64 prescaled_ns = (u64)pc->data->prescaler * NSEC_PER_SEC;
++	u64 clk_rate, tmp;
++	u32 period_ticks, duty_ticks;
++
++	clk_rate = clk_get_rate(pc->clk);
++
++	tmp = mul_u64_u64_div_u64(clk_rate, state->period, prescaled_ns);
++	if (tmp > U32_MAX)
++		tmp = U32_MAX;
++	period_ticks = tmp;
++
++	tmp = mul_u64_u64_div_u64(clk_rate, state->duty_cycle, prescaled_ns);
++	if (tmp > U32_MAX)
++		tmp = U32_MAX;
++	duty_ticks = tmp;
++
++	writel_relaxed(period_ticks, pc->base + pc->data->regs.period);
++	writel_relaxed(duty_ticks, pc->base + pc->data->regs.duty);
++
++	if (pc->data->supports_polarity) {
++		if (state->polarity == PWM_POLARITY_INVERSED)
++			writel_relaxed(PWM_V4_POLARITY(PWM_V4_DUTY_NEGATIVE |
++						       PWM_V4_INACTIVE_POSITIVE),
++				       pc->base + pc->data->regs.ctrl);
++		else
++			writel_relaxed(PWM_V4_POLARITY(PWM_V4_DUTY_POSITIVE |
++						       PWM_V4_INACTIVE_NEGATIVE),
++				       pc->base + pc->data->regs.ctrl);
++	}
++
++	writel_relaxed(PWM_V4_MODE(PWM_V4_CONTINUOUS) |
++		       PWM_V4_ALIGNED_INVALID(false),
++		       pc->base + pc->data->regs.ctrl);
++	writel_relaxed(PWM_V4_CTRL_UPDATE_EN(true),
++		       pc->base + pc->data->regs.enable);
 +}
 +
- void maps__remove(struct maps *maps, struct map *map)
+ static void rockchip_pwm_config(struct pwm_chip *chip, struct pwm_device *pwm,
+ 			       const struct pwm_state *state)
  {
- 	down_write(maps__lock(maps));
-@@ -714,7 +730,7 @@ void maps__remove_maps(struct maps *maps, bool (*cb)(struct map *map, void *data
- 	maps_by_address = maps__maps_by_address(maps);
- 	for (unsigned int i = 0; i < maps__nr_maps(maps);) {
- 		if (cb(maps_by_address[i], data)) {
--			__maps__remove(maps, maps_by_address[i]);
-+			__maps__remove_at(maps, i);
- 			removed = true;
- 		} else {
- 			i++;
-@@ -1320,7 +1336,7 @@ struct map *maps__find_by_name(struct maps *maps, const char *name)
- 
- struct map *maps__find_next_entry(struct maps *maps, struct map *map)
- {
--	unsigned int i;
-+	unsigned int i, nr_maps;
- 	struct map *result = NULL;
- 
- 	down_read(maps__lock(maps));
-@@ -1330,7 +1346,8 @@ struct map *maps__find_next_entry(struct maps *maps, struct map *map)
- 		down_read(maps__lock(maps));
- 	}
- 	i = maps__by_address_index(maps, map);
--	if (++i < maps__nr_maps(maps))
-+	nr_maps = maps__nr_maps(maps);
-+	if (i < nr_maps && ++i < nr_maps)
- 		result = map__get(maps__maps_by_address(maps)[i]);
- 
- 	up_read(maps__lock(maps));
-@@ -1341,6 +1358,7 @@ void maps__fixup_end(struct maps *maps)
- {
- 	struct map **maps_by_address;
- 	unsigned int n;
-+	bool revalidate_sort = false;
- 
- 	down_write(maps__lock(maps));
- 	if (!maps__maps_by_address_sorted(maps))
-@@ -1352,16 +1370,27 @@ void maps__fixup_end(struct maps *maps)
- 		struct map *prev = maps_by_address[i - 1];
- 		struct map *curr = maps_by_address[i];
- 
--		if (!map__end(prev) || map__end(prev) > map__start(curr))
-+		if (!map__end(prev) || map__end(prev) > map__start(curr)) {
- 			map__set_end(prev, map__start(curr));
-+			if (map__start(prev) == map__start(curr))
-+				revalidate_sort = true;
-+			maps__set_maps_by_name_sorted(maps, false);
-+		}
+@@ -175,14 +251,31 @@ static int rockchip_pwm_enable(struct pwm_chip *chip,
+ 			return ret;
  	}
  
- 	/*
- 	 * We still haven't the actual symbols, so guess the
- 	 * last map final address.
- 	 */
--	if (n > 0 && !map__end(maps_by_address[n - 1]))
-+	if (n > 0 && !map__end(maps_by_address[n - 1])) {
- 		map__set_end(maps_by_address[n - 1], ~0ULL);
-+		maps__set_maps_by_name_sorted(maps, false);
-+	}
+-	val = readl_relaxed(pc->base + pc->data->regs.ctrl);
+-
+-	if (enable)
+-		val |= enable_conf;
+-	else
+-		val &= ~enable_conf;
++	if (pc->data->regs.enable) {
++		writel_relaxed(PWM_V4_EN(enable) | PWM_V4_CLK_EN(enable),
++			       pc->base + pc->data->regs.enable);
 +
-+	if (revalidate_sort) {
-+		maps__set_maps_by_address_sorted(maps, false);
-+		__maps__sort_by_address(maps);
++		if (!enable) {
++			struct pwm_state curstate;
++
++			/*
++			 * In continuous mode the disable takes effect at the end
++			 * of the current period, so keep the clock running for
++			 * one more period.
++			 */
++			pwm_get_state(pwm, &curstate);
++			fsleep(DIV_ROUND_UP_ULL(curstate.period, NSEC_PER_USEC));
++		}
++	} else {
++		val = readl_relaxed(pc->base + pc->data->regs.ctrl);
++
++		if (enable)
++			val |= enable_conf;
++		else
++			val &= ~enable_conf;
+ 
+-	writel_relaxed(val, pc->base + pc->data->regs.ctrl);
++		writel_relaxed(val, pc->base + pc->data->regs.ctrl);
 +	}
  
- 	RC_CHK_ACCESS(maps)->ends_broken = false;
- 	check_invariants(maps);
+ 	if (!enable)
+ 		clk_disable(pc->clk);
+@@ -217,7 +310,10 @@ static int rockchip_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 		enabled = false;
+ 	}
+ 
+-	rockchip_pwm_config(chip, pwm, state);
++	if (pc->data->regs.enable)
++		rockchip_pwm_config_v4(chip, pwm, state);
++	else
++		rockchip_pwm_config(chip, pwm, state);
+ 	if (state->enabled != enabled) {
+ 		ret = rockchip_pwm_enable(chip, pwm, state->enabled);
+ 		if (ret)
+@@ -291,11 +387,26 @@ static const struct rockchip_pwm_data pwm_data_v3 = {
+ 		       PWM_CONTINUOUS,
+ };
+ 
++static const struct rockchip_pwm_data pwm_data_v4 = {
++	.regs = {
++		.duty = 0x14,
++		.period = 0x10,
++		.ctrl = 0xc,
++		.enable = 0x4,
++	},
++	.prescaler = 1,
++	.supports_polarity = true,
++	.supports_lock = true,
++	.enable_conf = PWM_V4_ENABLE_MASK,
++};
++
+ static const struct of_device_id rockchip_pwm_dt_ids[] = {
+ 	{ .compatible = "rockchip,rk2928-pwm", .data = &pwm_data_v1 },
+ 	{ .compatible = "rockchip,rk3288-pwm", .data = &pwm_data_v2 },
+ 	{ .compatible = "rockchip,vop-pwm", .data = &pwm_data_vop },
+ 	{ .compatible = "rockchip,rk3328-pwm", .data = &pwm_data_v3 },
++	{ .compatible = "rockchip,rk3506-pwm", .data = &pwm_data_v4 },
++	{ .compatible = "rockchip,rk3576-pwm", .data = &pwm_data_v4 },
+ 	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, rockchip_pwm_dt_ids);
+@@ -327,7 +438,7 @@ static int rockchip_pwm_probe(struct platform_device *pdev)
+ 
+ 	count = of_count_phandle_with_args(pdev->dev.of_node,
+ 					   "clocks", "#clock-cells");
+-	if (count == 2)
++	if (count >= 2)
+ 		pc->pclk = devm_clk_get(&pdev->dev, "pclk");
+ 	else
+ 		pc->pclk = pc->clk;
+@@ -351,7 +462,10 @@ static int rockchip_pwm_probe(struct platform_device *pdev)
+ 	chip->ops = &rockchip_pwm_ops;
+ 
+ 	enable_conf = pc->data->enable_conf;
+-	ctrl = readl_relaxed(pc->base + pc->data->regs.ctrl);
++	if (pc->data->regs.enable)
++		ctrl = readl_relaxed(pc->base + pc->data->regs.enable);
++	else
++		ctrl = readl_relaxed(pc->base + pc->data->regs.ctrl);
+ 	enabled = (ctrl & enable_conf) == enable_conf;
+ 
+ 	ret = pwmchip_add(chip);
 -- 
-2.56.1.750.gf70dc682cf-goog
+2.47.3
 
