@@ -1,118 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795302479;
-	b=0WBzx9uwnGkZC/WtjTOqeilXLDLl5dcNzfEKmoa5SkD786XyIzwsFgmbcLvf1yIj3od5
-	 hb6APoE5dIyRFP4uFo3J+AeV5ArDei1ENCvD50sfcmRLk2fi3YYDqbczBIgj0qHtAQgJU
-	 Iuz1t9MqU95kxxXNmieS1J2c9rmz5JiQ4PnqIJad3/g1NGfT5vJj6GB7sfgsvTzwXEc2L
-	 ol8HpSJ5jzHA+VKMkEglIEF7IGYjOeuRik+j4GB3SXUrd+VQQVBKaU+POihZbl/MrRRpj
-	 M79YliTFxCopaDghW8nWnl55Lcbj3n2NZuIKGzXguPslIQ2w6K54kQlVvNzygpncQ+g==
+	t=1795302501;
+	b=yTd3etO0gsVH5I+lwn6fSnDiy2kI8Ihy8qClYjD0eetjYJdp/vKeeNWjsBJnubSf8cdO
+	 X1eMlqxJ9pWW+20OX/KlFH4OqN4CccKjyXiWtLZbI59dlTrWD6BF+eMmTjj0eXdpbBBiM
+	 1F2qkJg0QaPunj7cbkBo8MMavEI4MIoq/wQq/7Xpkozy6vP4bZ/I8VYIHiQGBTnvJxOeN
+	 ry4kluIbJPMcaKbGvHoKiwXDfK5TtjvYocPtfgyNxIGl2D6torFWn0ht24UTNIQgttfVY
+	 I6qHuTSSOB3nLqpMgMlRbeTae1VScQDpYYRO84gts3ZbkwOJXK4E+90tHZbIaasSkiw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795302479;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Jfrh1uIU+/waSgkZCGYbAyxAmQdxTwCrEPYnNRV069U=;
-	b=32SATi6m8DzGVgGUt0KMulK74MvXgo8fZemMCg3lKk+uMtVOKHl0VEvsK2FI9Z8CnyPI
-	 +DDnouf3CVCSkY5NSDR44PQDsndQTD43lihh0VVhAsssIVOH7T+D66xPIh+wc9j7aK565
-	 keCZ/OjUWUTn+YR6f849G/xZiVH/+dFLbd8kUSVE74cSAOFFfQZGoFLPxFKd7Y1zyBUA2
-	 f+xUjxR+vWyOeKEyiAkeXTb27rrHxdGj8e9L0p98JaPKqGgArzjC3n2SkJDSAl/e1Ty3y
-	 Ki2GHe8l26UdwStwtZ/cnWzOXKqn/Hu13CZeT/BNITkJ4iwDl8fWZRngR64TRyNGofA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795302501;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=H/CBwGcnijyRu1LgxwMqIktWt8iJi1924oX4F9L6lNE=;
+	b=cZVDkDQzvy/ETKj+H/g5NgnPpc5XlNwCKexwx7yGc+bptKoudJdgL1t/l+SsoQx4vtzM
+	 QHANHX4gNSvGkU/WHjKbhm5EIEh1CZiVAvorQYeI27mQGzbRejVOr9FjfMSrI+gJR5Sdc
+	 Agut6nb9/+sHfBgDaIntnNzWx9eOKJ3Eegs1LIoxiwgs/keOM9MDXyUoRs+GyZHSQLVPM
+	 YVYMNqO3SUSJwkfl/fqahx4Lrmj92CARW+H8Oa1yWfCyCmiyG3IwOAICFvxsPlCvNlWWk
+	 pqb8YgCEVltNKx6/nwrrfiy9neTT++8FrA0pLOAFiua3ky9qaLoPqDaGcErI68L3+vw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bairaktaris.de;
-	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=Y4DSGDzW;
-	arc=none smtp.remote-ip=209.85.218.46
-Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com [209.85.218.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GFcUDguT;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1977C60A5BC7
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 23:07:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1977C60A5BC7
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26C07606A330;
+	Sat, 21 Nov 2026 23:08:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=Y4DSGDzW
-Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-c4d5b2db4bbso477295966b.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 15:07:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795302476; x=1795907276; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Jfrh1uIU+/waSgkZCGYbAyxAmQdxTwCrEPYnNRV069U=;
-        b=Y4DSGDzWNrPyJqrxTJ0lhKrSAz5dkggFsvVp8ZiyzuBH4JqzRQmwoc6DgZHpcvehiL
-         iUbMNef6MIxzHOfL11EFzsKVrP/M0aBGWJxaeUgmj4dz4xDbAbzDU1C5z5ZJFEyLDEJQ
-         s6zvSZBRqCks5EQt29Vj9H2Z/7m7LmteMeEGqMc2xdWPde0/DhJHeoGGIkQQbENhRf8Q
-         9vUKu9rps8MXskdv36TFGMaGe1/xABojop4Nx8y9mSw0VQ+KSYu3u9MjkRg78OR8GDhi
-         3WTWfVCqRFUswal7fmVf6OYDCBrUSg5h+ZadrvugMkkYfeHptfu8t17sWuf0nWah84Zy
-         mXHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795302476; x=1795907276;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Jfrh1uIU+/waSgkZCGYbAyxAmQdxTwCrEPYnNRV069U=;
-        b=QgIPHjADmGglgO+juX/f4npS5bmBNx/+OequgwBB4HeRpmfAjv62hEaAUCdXg9ZVVv
-         6wiB7VJA9bvZWQ2SrxZSEe+vV1ZKJA4VTgUa/h7Zt5CoDGBveJnAk4rIZ0LeaAxZtp8K
-         01VTs/NsE5i3Pzyg2MYPg0CQRteuDw/6dNHPF+CFdo2MgA5uuJmO9zLL0WKAzpbE1BYS
-         kCS7Njxkml4kprUTHt6NY3QsGAHI0VBghTi/yVF2g0jfQG8ullzyXXM2KYze8DPca603
-         nEkwnu2nU5+tVi1SoynBgoDnVfQNRF0UJkdUjQK436qSqKEB9zLUK3VWNrFKfSoyIUNm
-         YejA==
-X-Forwarded-Encrypted: i=1; AL+hErEHi4mzNS4PTUiEZ6x+P/cG/6jOC19CSKZciwAylHBEiA79qNt5CeVS9mo5WoGQ1TSoBhdpQiYY+F42x5g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8VSfXKyLOx8gC8UGXom0KfzuqJ/CO+xIRdyDrJhGeIpvo2bl5d
-	1Y7UChsfMV1SvMT6lGMkFHFllUuO4ooRdXMB2pQDIG+5/GtxwwUWTTO7sJgqNHgBhw==
-X-Gm-Gg: AZFdTZcbeRtpmafMmiebd0yUrNyD9Yfbest3ckxVG3V68bIT8hfQ3iyAAZJISDoxwPj
-	nlfSpkSvMm9lcNHGyLKUSgxoyHr8pkNnBFuiH2rnYkiEx4Vn2Vj4mH92yy2OdvxgvvKUuMkxFZL
-	fh9g/K3pTIAMq21tO2A+L+ocORsQ4dxlxpBsW2/efeli7hWo+japQeJiz7yleziC+sJ1l3uZQ7g
-	QWVuLTqvtVLLQucBoMROL1Gy8mtjUSeOeVrgRrEmW1CNVi9gU+tiTr9Om14zgxOQf6ELvRf6dje
-	/mexmTHf5xTmuOze7e2yXdDPWzVGwOd7t6gp7SPJx5oyALM4lUr1DtyTZzRJnkia7REixRYDHHc
-	gEvhVOC7zmsJt9ldcfO6Fn2FijZgG9ZPyo1zlhaNlBBNE02xYJ3rHUumzJCt17wc6bPDdBiYMVQ
-	47gduoip1uQiBLa1FJVeIx9CVTPHMW78rPnFMi4w0r7F0ZFQmgsghxosSYBm0We+sOF5Ufd9l8V
-	iNWQuHYzXp8Wy35LJ17t4Os82yEiyZq/5iAx4mB/SGtt5ow9/a+f8ShBWkxyy4s/UtJR63jHRYt
-	K8/O14RK2l1whXMlhvZdwJJYyRhqWzV8VhbpQLkI4OJE7L/yGVFePsoKQTLnxhILx+tQmzzg7lm
-	VJ81P+L5pV8/yv7bspXJPDUFhmtWi9gBvcKntmAtro/TVvOe9pavesdksnfI/fquWTnyOtTRWnG
-	GvHykh2Gx+mV4vhlqlhrqOr6izkieYUgGIY8dRSVlMj+TbeoKpkcGpyEK4xjZap47wzG8W0vM+q
-	UeVcdptojHW8uFBxoeaVdDtpWuwqzB2/7A3rMvkCoQN4oxC/eRDpSCeRjByFSY70o4Z3fEooCF+
-	FQPmUZNEGvF9/u0dvVxs9Fk276+sfDedxkzCAF/UJDVzmFSWBRcPpOVzmTwbroL25kskrnnlluk
-	=
-X-Received: by 2002:a17:907:3f0f:b0:c41:9a35:17a2 with SMTP id a640c23a62f3a-c5131a6ef04mr809669266b.31.1795302476575;
-        Sat, 21 Nov 2026 15:07:56 -0800 (PST)
-Received: from Desktop.tail070c67.ts.net (p200300f2470edf0034412c7e8f5a5e7a.dip0.t-ipconnect.de. [2003:f2:470e:df00:3441:2c7e:8f5a:5e7a])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc1b40sm242721466b.54.2026.11.21.15.07.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 15:07:56 -0800 (PST)
-From: Julius Bairaktaris <julius@bairaktaris.de>
-To: Jeff Johnson <jjohnson@kernel.org>
-Cc: ath11k@lists.infradead.org,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Florian Maurer <fmaurer@disroot.org>,
-	Baochen Qiang <baochen.qiang@oss.qualcomm.com>,
-	Vasanthakumar Thiagarajan <vasanthakumar.thiagarajan@oss.qualcomm.com>,
-	Rameshkumar Sundaram <rameshkumar.sundaram@oss.qualcomm.com>,
-	P Praneesh <praneesh.p@oss.qualcomm.com>,
-	Kalle Valo <kvalo@kernel.org>,
-	Muhammad Usama Anjum <usama.anjum@arm.com>,
-	John Crispin <john@phrozen.org>,
-	Sriram R <sriram.ramachandran@oss.qualcomm.com>,
-	Miaoqing Pan <miaoqing.pan@oss.qualcomm.com>,
-	Karthikeyan Periyasamy <karthikeyan.periyasamy@oss.qualcomm.com>,
-	Rosen Penev <rosenp@gmail.com>,
-	Jiale Yao <yaojiale02@163.com>,
-	Julia Lawall <julia.lawall@lip6.fr>,
-	Anilkumar Kolli <quic_akolli@quicinc.com>,
-	Manikanta Pubbisetty <quic_mpubbise@quicinc.com>,
-	Pradeep Kumar Chitrapu <quic_pradeepc@quicinc.com>,
-	Sathishkumar Muruganandam <quic_murugana@quicinc.com>,
-	Muna Sinada <quic_msinada@quicinc.com>
-Subject: [PATCH ath-next v3 13/13] wifi: ath11k: keep the cooling device across a firmware recovery
-Date: Sun, 22 Nov 2026 00:07:31 +0100
-Message-ID: <20261121230731.1206043-14-julius@bairaktaris.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261121230731.1206043-1-julius@bairaktaris.de>
-References: <20261121230731.1206043-1-julius@bairaktaris.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GFcUDguT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CD641F000C0;
+	Sat, 21 Nov 2026 23:08:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795302500;
+	bh=H/CBwGcnijyRu1LgxwMqIktWt8iJi1924oX4F9L6lNE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=GFcUDguTktk0PmCr+SxS352kExTu+3RpYMZ316Z7fssWn9QGkqHksLFgvSuqfqmIw
+	 bwmVboVY7AfpS4V4E1b6wFwiLC8D8Ufte4kaClWE8OSG/UreoJftDO4dkMUyZ9f1j0
+	 PishGfgZUfoZo7lCQwdCoIFDHRlv5M96dT1UOpJHo9UXnCpieB8M6OUmRGj3gP5mUX
+	 iP53uoChhuI6IXG3dYBvc1gdiQuX8B2BgWxrfoNyJVIl1euoOM7ZKjfLts69Yi/x7M
+	 AbDWdmuE1BBPP1Nnd+2eFF9iTCgzMZn7wFqX4VkUNfenWnVQSeij6wZzYM3rqSiPC7
+	 prFg8McwGpUHw==
+Date: Sat, 21 Nov 2026 23:08:15 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Lee Jones <lee@kernel.org>, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>,
+ linux-arm-msm@vger.kernel.org, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 07/10] iio: adc: qcom-spmi-adc5-gen3: Free TM auxiliary
+ device wrapper in release callback
+Message-ID: <20261121230815.5e49b4fc@jic23-hlaptop>
+In-Reply-To: <av8yO-0PUvvGsQgt@ashevche-desk.local>
+References: <20261119153151.1397003-1-lee@kernel.org>
+	<20261119153151.1397003-8-lee@kernel.org>
+	<av8yO-0PUvvGsQgt@ashevche-desk.local>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -122,63 +65,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-ath11k_core_reconfigure_on_crash() unregisters the thermal cooling
-devices of all radios, but ath11k_thermal_register() returns early once
-ATH11K_FLAG_REGISTERED is set, so the recovery never registers them
-again. After the first recovery the cooling devices and the phy's
-cooling_device link are gone, and ar->thermal.cdev still points to the
-freed cooling device.
+On Thu, 19 Nov 2026 19:30:35 +0200
+Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
 
-The next ath11k_thermal_unregister(), from the second recovery or from
-driver removal, passes that pointer to
-thermal_cooling_device_unregister(). With CONFIG_THERMAL_DEBUGFS,
-thermal_debug_cdev_remove() takes cdev->lock in the freed object. Without
-it, thermal_cooling_device_exit() only compares the pointer with the
-registered cooling devices, so it unregisters a cooling device that was
-registered since and allocated at the same address.
+> On Thu, Nov 19, 2026 at 03:30:40PM +0000, Lee Jones wrote:
+> > struct tm5_aux_dev_wrapper embeds a reference-counted struct
+> > auxiliary_device, whose memory must be released from its dev.release
+> > callback once the final device reference is dropped.
+> > 
+> > Allocating the wrapper with devm_kzalloc_obj() on the parent ADC device
+> > and providing an empty adc5_gen3_aux_device_release() causes parent
+> > devres teardown to free the wrapper immediately after
+> > auxiliary_device_uninit(), even if external references to the embedded
+> > struct device are still held.
+> > 
+> > Allocate the wrapper with kzalloc_obj(), release it from
+> > adc5_gen3_aux_device_release(), and unwind cleanly on early error paths
+> > in adc5_gen3_add_aux_tm_device().  
+> 
+> ...
+> 
+> >  #include <linux/platform_device.h>
+> >  #include <linux/property.h>
+> >  #include <linux/regmap.h>
+> > +#include <linux/slab.h>
+> >  #include <linux/types.h>
+> >  #include <linux/unaligned.h>  
+> 
+> > +static void adc5_gen3_aux_device_release(struct device *dev)
+> > +{
+> > +	struct tm5_aux_dev_wrapper *aux_device =
+> > +		container_of(dev, struct tm5_aux_dev_wrapper, aux_dev.dev);  
+> 
+> container_of() is also in a separate header, id est container_of.h.
+> 
+> > +	kfree(aux_device);
+> > +}  
+> 
+> ...
+> 
+> >  	ret = auxiliary_device_add(&aux_device->aux_dev);
+> > -	if (ret)
+> > +	if (ret) {
+> > +		devm_release_action(adc->dev, adc5_gen3_uninit_aux,
+> > +				    &aux_device->aux_dev);  
+> 
+> Oh, this is interesting... Usually the release devm_*() calls point
+> to a misdesign somewhere. But I haven't checked the twisted flow of
+> this code.
 
-Since ath11k_thermal_register() is a no-op during recovery, the cooling
-devices stay registered like the radios: do not unregister them in
-ath11k_core_reconfigure_on_crash(), and unwind them in
-ath11k_core_pdev_create() only when this call registered them. Their
-callbacks do not reach the firmware while it restarts:
-ath11k_thermal_set_throttling() and ath11k_thermal_show_temp() return
-early unless the radio is in ATH11K_STATE_ON.
+It's one of those complex / annoying cases where a driver uses devm but
+carries on with a subset of features if a particular bit doesn't work.
 
-Tested-on: IPQ8074 hw2.0 AHB WLAN.HK.2.12-01460-QCAHKSWPL_SILICONZ-1
+Right answer here is probably a devres group.
 
-Fixes: 50556081e09b ("wifi: ath11k: thermal: don't try to register multiple times")
-Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
----
-v3: new.
+That is independent of the handoff dance done here.
 
- drivers/net/wireless/ath/ath11k/core.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+I'd move the auxiliary_device_init() earlier, stop messing
+with the memory being devm controlled at all except by adding
+a put_device() in a dev_add_action_or_reset().
+Actually that's already done by the auxiliary_device_uniit.
 
-diff --git a/drivers/net/wireless/ath/ath11k/core.c b/drivers/net/wireless/ath/ath11k/core.c
-index 0795ba7e038c..4aaac5200ed2 100644
---- a/drivers/net/wireless/ath/ath11k/core.c
-+++ b/drivers/net/wireless/ath/ath11k/core.c
-@@ -2072,7 +2072,8 @@ static int ath11k_core_pdev_create(struct ath11k_base *ab)
- err_spectral_unregister:
- 	ath11k_spectral_deinit(ab);
- err_thermal_unregister:
--	ath11k_thermal_unregister(ab);
-+	if (!test_bit(ATH11K_FLAG_REGISTERED, &ab->dev_flags))
-+		ath11k_thermal_unregister(ab);
- err_mac_unregister:
- 	if (!test_bit(ATH11K_FLAG_REGISTERED, &ab->dev_flags))
- 		ath11k_mac_unregister(ab);
-@@ -2342,7 +2343,6 @@ static int ath11k_core_reconfigure_on_crash(struct ath11k_base *ab)
- 	mutex_lock(&ab->core_lock);
- 	ath11k_hif_irq_disable(ab);
- 	ath11k_hif_ce_irq_disable(ab);
--	ath11k_thermal_unregister(ab);
- 	ath11k_dp_pdev_free(ab);
- 	ath11k_cfr_deinit(ab);
- 	ath11k_spectral_deinit(ab);
--- 
-2.53.0
+Anyhow, whilst I haven't looked at this that closely looks
+like right clean answer is a dev_res group for the whole
+function (can be done at the caller if neater). That allows
+either handling the group over to normal devres cleanup on
+success, or cleaning it up on erorr.
+
+That plus the move of the kfree into release as Lee has done.
+Also smells like tm_props lifetime is probably wrong as well
+and should be part of the release rather than devm_kzalloc.
+
+Jonathan
+
+> 
+> >  		return ret;
+> > +	}
+> > +
+> >  	ret = devm_add_action_or_reset(adc->dev, adc5_gen3_delete_aux,
+> >  				       &aux_device->aux_dev);
+> > -	if (ret)
+> > +	if (ret) {
+> > +		devm_release_action(adc->dev, adc5_gen3_uninit_aux,
+> > +				    &aux_device->aux_dev);
+> >  		return ret;
+> > +	}  
+> 
 
