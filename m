@@ -1,56 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.111
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795266120;
-	b=UJCas+HiswLa4+Vyo+6M08Eh7knadGXZ+knELCOVkW6pnr0Pch9OIDStPGBOwAOuyi/x
-	 bXALU3+82CuiOUkNEXSj0HjgfcaaM/gSrJfOR280DcxbHLeKZjAXj5h0kRo4zT0F2hwsB
-	 wimTFBWgr+lsUJoYpnqNSeqj0zHJ/n7rZLLS1vSsegH4WNpz8SFLXWBUXv0tNwzcTkxH7
-	 no7J9OHENYPp1wAupdmOKTDJeRz4UPV+44RftXvwL6rUVrt0LqTdOM0bYnm4RL7ZGYAlj
-	 fLy9e3zteIvL38WxQoYKICrEega90epTmdpxTcaXpAUcKrs0xJm2vKn1JsCvpGe4qFg==
+	t=1795266177;
+	b=BmyUM2BzYSEqWlR/PMcZY6DCIyo0iUlOEevWymGYJxADQXnb6WSDL4m0dXTNETWJBkpo
+	 F4jw4yt139JzgyS0B7Fci6Iapm8y0QCvYyraXVYLuowRgCPJlrsIwTV44UKu1reWJKo59
+	 /K0dxW/IXP51/Fr9b5p4APzHc3nI7ortAOGJHRnKFw15bkJrctqiMUDK/7b3c2ULL3TNv
+	 jsch1N+lvLaMvgDqNBfIjc7ZUQmP0Sb6NmyzV8j6zAP1HM8fFGZ37RxJTk7hpKzqpAmfS
+	 qA7bnYqOp7CDtSsgtyeKqlP+onfviK6uhP1VfLdZL3wph1ov/v0Tpwd8v3sKGhpijJA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795266120;
-	h=Received:DKIM-Signature:From:To:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=gN74NZ4s008fGO70Y8YMhr74zbTWwZSYt3Tm98apf2Q=;
-	b=rRviyTEg1wF5kkong5KXSTO0kQWQD+zxm3Az8c+NX77m/rxtvF+khDVahstoZ/8ojoj1
-	 /dKjjtE13da+8njgbVETqxE1D47RtC13grnZfVU5qYyOtBzuQskAfhfYQa68WnSyxbJhS
-	 6b0GsiKzBfnVwEsWdo97WSQN6tP9QPI+e/S0OSTW+pTTiaUL179fbLfnOmLUFsR8eJCRj
-	 /klPidzD6wUPZ1jGBtkvTAfSiLw2NQE6CmNAiRuou8mDTFAgffbFXD3Xqmv3GqzNq0c4C
-	 kc2EvD5ORoC4pHf8klTwkiqX6kPJaQpt/RcW5g0kar2NUHYBGkNCuyXNGnhtKjVkTXg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795266177;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=kosSlO4n4eaj/l8QctRPYZS0nYWx+0xDQzEvrB+dFGg=;
+	b=DPytLyNV9ZhzrSZl53ZtTs89N1CLi3z/YZNOkov+gKKytL1C2bn06uqnDosX0sqvxTZ3
+	 fSJ2xoe5N0KDWaT+aEPiebdcricfLY3OCxs9XwSo6xQaoGv9egMifYc7i8NcUaKkPZvx1
+	 4edfPlHIQsRpR8+uafNa8tqDt05agdkp9/+KTrj1xQRGTP9Y+ihVqIcrAJv3NLomkw0mr
+	 ntEwdthYxHIV5zmhlVAbp2t6+9oFD9/3z7frDKG796C8V54IkHkcXi9jLuwoA+urxRFsR
+	 eILS+sU1D+UUS2r/I6nhQ17bCn2XlpjacktP7lbRjitfz+kKr+rrzcIxao/5jtiiukw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cm4zYYJk;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=evWxxf05;
+	arc=none smtp.remote-ip=91.218.175.111
+Received: from mta0.migadu.com (out-111.mta0.migadu.com [91.218.175.111])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D503606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:02:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A140606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:02:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A140606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cm4zYYJk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B94961F000C6;
-	Sat, 21 Nov 2026 13:01:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795266119;
-	bh=gN74NZ4s008fGO70Y8YMhr74zbTWwZSYt3Tm98apf2Q=;
-	h=From:To:In-Reply-To:References:Subject:Date;
-	b=cm4zYYJkzEQNCsleAc4lr+XCjAKeMbJstFIDTJ65hV9aXuauSZu6TvxNCkzgsEuLk
-	 FNbRbXCBkc1lTg5lcm0nW/9gyEzMKQPhrn9I1SIlVONLqZ20HG4qQFPjOTk0sQfqs2
-	 B0Ds7eSnVtftKrFgRj1GLHZNgE7l9SxlmBKvkN8bcz7J8H95S3ouAl7lfgraZVOzNH
-	 wmqEB8E5u3KYbp0kd51Qe5D6BepMYkq2mOXM2UQmCcTomNqKWTvlxybL+evoVLnfbz
-	 vd7GXOkU1lPjSVNCsDodSX+W6A51LlAhWu2c8JbJgO5xLR/Jnrmo4aMQOkWbVuieoE
-	 bwDS5+Hm7tSrw==
-From: David Hildenbrand <david@kernel.org>
-To: hughd@google.com, david@kernel.org, baolin.wang@linux.alibaba.com, 
- akpm@linux-foundation.org, qi.zheng@linux.dev, qinyuntan@linux.alibaba.com, 
- shakeel.butt@linux.dev, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- Chris Mason <mason@kernel.org>
-In-Reply-To: <20261120195057.50031-1-mason@kernel.org>
-References: <20261120195057.50031-1-mason@kernel.org>
-Subject: Re: [PATCH v2 0/1] mm/shmem: don't use the memcg of an uncharged
- folio
-Message-Id: <179526611747.5902.12576936678713287811.b4-ty@b4>
-Date: Sat, 21 Nov 2026 14:01:57 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=evWxxf05
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=AXPl9MSQKEVnxwBZxVz70iQ3WAgcrk7wcvSe7Ve0uwo=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795266175; v=1; x=1795870975;
+ b=evWxxf05XzVJt8Tiou/ooJaFuuGuIEy6pjt2YmbAgNiOxUhEf41eaNZKkg47SGXEuGOXmAyt
+ 3WwiAi8ByTAobCpv3Fp+93sxm2LZVZgMx5+WnZdbPDilExVU6ew6/6LAC8t6n1rEElzVU8kRIXn
+ y9U/4883p+Brc6sMaiwDe+Bk=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 2fb3a475fbc6b1aa;
+	Sat, 21 Nov 2026 13:02:54 +0000
+X-Mizu-Trace-ID: 2fb3a475fbc6b1aa
+X-Migadu-Flow: FLOW_OUT
+Date: Sat, 21 Nov 2026 21:02:42 +0800
+From: Peng Fan <peng.fan@linux.dev>
+To: Jason Gunthorpe <jgg@ziepe.ca>, Frank Li <Frank.Li@nxp.com>,
+	Vinod Koul <vkoul@kernel.org>, Robin Murphy <robin.murphy@arm.com>
+Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Frank Li <Frank.Li@nxp.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Laxman Dewangan <ldewangan@nvidia.com>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@kernel.org>,
+	Larisa IIeana Grigore <larisa.grigore@nxp.com>, imx@lists.linux.dev,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, linux-tegra@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v6 0/9] dmaengine: add DMA channel bus and fsl-edma
+ per-channel IOMMU support
+Message-ID: <awGWcq_nKWShC81B@fedora>
+References: <20261112-edma-iommu-v3-v6-0-b038edb8ce6f@nxp.com>
+ <20261116193021.GB2452510@ziepe.ca>
+ <avwQl18smAW4R6ec@fedora>
+ <20261117130005.GC2606445@ziepe.ca>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,43 +84,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117130005.GC2606445@ziepe.ca>
 
-On Fri, 20 Nov 2026 14:50:57 -0500, Chris Mason wrote:
-> This is relatively niche, but actually new with 7.4-rc1, and I would
-> expect it to trigger under heavy load with huge=always on tmpfs. We'd
-> need to run out of room in the tmpfs or reclaim memory while huge folios
-> are migrated.
-> 
-> Qinyun Tan's pending series fixes the oops:
-> 
-> [...]
+Hi Jason, and all
 
-Applied, thanks!
+On Tue, Nov 17, 2026 at 09:00:05AM -0400, Jason Gunthorpe wrote:
+>> 
 
-tree: mm/core.git
-branch: for-next-fixes
+[...]
 
-Applied patches will appear soon in mm-next, followed by linux-next.
+>> I may not describe it clear in cover-letter.
+>> 
+>> I understand the concern. Let me explain why I believe it is justified here
+>> rather than a hack.
+>> 
+>> On i.MX eDMA each channel has its own interrupt, its own register region,
+>> and on i.MX8QM even its own power domain. Each channel may also have its
+>> own Stream ID, or share one when SIDs are scarce. These are genuine
+>> per-channel hardware resources, not software fiction.
+>> 
+>> In dmaengine each channel is already modeled as a channel device (see
+>> dmaengine_chan_dev()), and this series puts those devices on a real bus
+>> (dmaengine_chan_bus_type) as a prerequisite. The DT child node simply
+>> describes that existing device, so its reg/interrupts/power-domains/iommus
+>> are attached per channel instead of as index-matched flat lists on the
+>> controller.
+>
+>If they are real devices then why can't they come out as platform
+>devices?
+>
+>I think you are overstating how independent they are. Many single
+>devices have per "channel" resources like MMIO and IRQs. That's
+>totally normal. It doesn't make the sub resources independent devices.
+>
+>AFAICT what you have here is some HW designer used SID where they
+>should have used SSID and you are trying to hack DT to make that
+>usable because Linux does not support a SID as SSID model today.
+>
+>Again, since this is the 3rd - 4th case like this, it seems like a
+>popular hardware choice and we should try to do better to make Linux
+>support if we can.
 
-Please report any outstanding bugs that were missed during review, so we
-can either drop the patch series or decide how to fix it up.
+Let's put i.MX eDMA aside, I have one general question regarding
+dma channel DMA.
 
-It is encouraged to provide Acked-bys, Reviewed-bys, and Tested-bys even
-though the patches have already been applied. If possible, patch trailers
-will be updated.
+The below two drivers[1] has chan_dma_dev set as true which means they use
+dma channel device to do dma memory allocation. And for tegra186, it
+use dma channel device for iommu, the buggy part is that it forces
+chan dev's bus to platform bus.
 
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. Further, this is not a guarantee that the
-patches will go upstream. If in doubt, please check the listed branch.
+Do you think it is reasonable to have chan device(not platform device) do dma
+allocation? I ask because if we allow chan device to do dma allocation, we need
+to provide a dma channel bus for iommu_buses to fix tegre186(TBH, I 
+am not familar with this platform, it even has iommu-map for the dma node).
 
-[1/1] mm/shmem: don't use the memcg of an uncharged folio
-      https://git.kernel.org/mm/core/c/eb01811c
+[1] drivers/dma/tegra186-gpc-dma.c
+    drivers/dma/ti/k3-udma.c
+    https://elixir.bootlin.com/linux/v7.4-rc1/A/ident/chan_dma_dev
 
--- 
-Cheers,
+Thanks
+Peng
 
-David
-
+>
+>Jason
