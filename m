@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795244343;
-	b=f0LwfEGnQhgXwPEv7vebe5r7xKv+T3r6wgHsnNnwrLnJR6mKiYrq+BNShQycFT+XrgU5
-	 RqI5kwEjU8DZ8OKvCsTONA0Hu8DGKAiR/MsjJOqGJxZ8LWhfnMukh7z/8rlWrTodCq/Tn
-	 7In6Vn8+xZRbiwW0wpwhIHqtfqI+0CSas3/elVmiwm/5CGtYn2iJvNf9/sVvJEuBIkL5/
-	 Ob4LiKVqBJW1CbkZcYpW+ILnTixCPiIs8QlCs3zDT65xwZ+mV/TbpzSD6Q1pMcZoHUpK3
-	 lbmi/PYavOqJDMTvjMAcFdLQ9FCgh7HTF4eiBGBvsIsWfkxt8fKjrZeE2Ob0He54P8A==
+	t=1795244346;
+	b=Tv6WpNahjE/dTUo/vYhDzzkvJTAiPfJvERWVKqmRpTYA6Cyhb5N+lj2w1SLKeNk0x1f7
+	 DjHnX7K0b+PQP6qunqOkSQzzZDMpN7uLiuwE0aROQXOo1QgPujsZVvZCZvax7x4S6HyB/
+	 WkefAM5f0swG7hlOaNQLdTrfgQJ1g1SWsXmEcnPl48S72E74PsnEneTwd64u9ZZONfC6H
+	 8+YtOzYGLzEtOtbCrSbam2CNBExODdXzYzCXvuWFLdwkNe/M2/i584NTujFg6fgjadCF4
+	 Qf7itB57CUfRhVX8hThnUa1eB96pC3mbZQfcYWkAYT25ssVZGChsqYQyVGCC5G0S5Hw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795244343;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795244346;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=ceOCiUal3x2CUb6+gSFDn+xj67LposR+qOo8ZKtSNko=;
-	b=OwAxoPtkHzv1PVv8aDHw3pFasPariNPxVOCPLMseAse6OyfHz7wSa01O8FPwb12nU/wm
-	 eiWajNX0qCCV8KcQrEr2jC3QLPXUMcgO8YFnRwWa4jQq7o6uiqpQ5A4JQIFwE22SdAk//
-	 LhSyPwFdJj2kdLwINb8GCP8nw2N8NxITTqV4B2vTsfNye8j+TS8ELEz2mO0T9p+dPiTbx
-	 eKcBJoMr4pcWaAPw1o3fZXIqoTkzFRSS+qg/R7DIxDDAgmcYYL+syX4mN0lakJvCbSTPG
-	 e17BHtBzWp2bkKjPRH3R5RxXA8SZbSoQMEm08AksTSgaTfFh7AIKDKNU8VZ6gIht9GA==
+	bh=YaOrepU6AaV9bsaJ1eqR9wb353r378iiA6um3H27iXs=;
+	b=MvjacMrjiZrgWRQSaBRtxCBG0Dw0hZL0TNKDUapBKtqm/RCYuNiX5jZi8kCoQaAv88wL
+	 +eKSxrWN9+DX1G0B9V4GwgMI+IVVE64slR31ojVE/nL3ll65a5HOnzJavzfK9dn86tKyG
+	 PC6vcFtaBuaEha2zhbV39hZtY/G6C3e+/ptjUKDJUrtni5L2CnHbpPKxPJTZogEoSWY2M
+	 kjMP7Jax5CxUwnfDqYi2mnMTZUhKVDWUaIdoQMqx4ikyh8tm/utzDlssCcZ2oRjjpzoZG
+	 Q6rFU+P2TT8gl2d6jWheNQ/hBq2u8MGmVq4QvQXVY9bRqdHPagG9axfxvNcPJef3aew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="QYPeg/GU";
-	arc=none smtp.remote-ip=74.125.82.198
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=NWlG9GPF;
+	arc=none smtp.remote-ip=74.125.82.72
+Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F372606A33A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:59:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F372606A33A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F095D606A685
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:59:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F095D606A685
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=QYPeg/GU
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-341eff9e381so2640807eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:59:03 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=NWlG9GPF
+Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1b25d977b91so1915186c88.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:59:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795244343; x=1795849143; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795244345; x=1795849145; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ceOCiUal3x2CUb6+gSFDn+xj67LposR+qOo8ZKtSNko=;
-        b=QYPeg/GUH0W8t0GKwXHdQVkNgatdDcUR+sG+6SpGYag03+hy1WTBQnWeuuILssHCAy
-         VI0NQYGzGHlET0gPM7krnXW6BZX8TVBhUm8MHNAlWAkYEUgWpOqflYHOMYGcoYX5fpIS
-         cibXR77KZqBpmRdQ5gdHvlkjb878WoaxpbDEmSWVLPYcmuNCa0LtHPriQcoZg2WXuVvf
-         OYbtxe1IbcmYoxi5cyAo6Y3iKafgj4w2UGf/Nbe3dQyf5/XEBWd9bRg6dzfG9wtFr+rR
-         0pWBIBv/gZUDiIH3vOROTYYqStKon4w/iHD8sVI3j3PUr6bTTiSgTaS1gXjyayoYO9td
-         vQZw==
+        bh=YaOrepU6AaV9bsaJ1eqR9wb353r378iiA6um3H27iXs=;
+        b=NWlG9GPFXRrhC8HnN8Fpxhynk2bHNo+O3biLoOEDn5YG2Xz+N2CNW7biIP8VqFnp1/
+         M2i6oBpBXZXV7BlrLOKwPOclFTtaocGAy3Qg5K/4OQnNuZiHSZ0oO3YZqRz7+GBVVbSr
+         39A+KXkX71ecY0RH15tch1YysYPHUoD4lURF+bAsZVF6VeG3dipI0rpuDOqWwMtlcFTu
+         mS24FJeYYgkjYaZQDqYrL2YzBIdS3eXwXR3cm1JYnLL8o6gJ9W9R0l1q8PYuPt9mjmQC
+         ejRWH7vh0y2UJEcwSAT0eaGNKtU5oDu9cLvpg+Pe6eWXN3PZ18tmohriQWZuEVsuHQjA
+         sU0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795244343; x=1795849143;
+        d=1e100.net; s=20260707; t=1795244345; x=1795849145;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ceOCiUal3x2CUb6+gSFDn+xj67LposR+qOo8ZKtSNko=;
-        b=PB7s5u1pVQ55tjivc79yEDF6t6SbcLqTpDm8smIXW3ej55zF43vP0y7V0LfCd7EcDE
-         OeE1nzbJ+bmGEXTBmmgc582A09VGpF2qfIMdHVbgtM67IOcgAIMT5jxosOcX2PPG+v9g
-         KaAR957E2kle1erbtj1FKo+5cJ2rky5Dk2RDk8uCMWgX8PAFm4lwo2iLoHQMX7vC9ybE
-         IDmpTNjz6J8anzteo8/Dx3kfsO27kQv+ntL6ZJJa4TUDil0fpDHgzs0soRqKMglolEx7
-         P4kT1R2XqqYThF603OUk3D372oIZ9Xby1GA8u9seP8EWPI7y+FqAi2R//lDoNKu9OuEC
-         8eSA==
-X-Forwarded-Encrypted: i=1; AL+hErEDWIndtm78syNLUPJwuNgHhxrzcIduTZEl9D6r6MEU2dF/rPnaTzQFsJT30iQ2ORuJSR1QTtSt6bb0s3k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+i24zyAuDI5TcjOplA1vKwvHI/ARYFZ8bM2fmT8+HT3qH8qnYl
-	OSZk4Maw1crhsZ/tUAEseB8pPr3GpQ87QUFQHhBU3DMEHQc98doNhjn7lU/QwVNd77TzVMYil/7
-	nsZbYqWNOgg==
-X-Received: from dyjz27.prod.google.com ([2002:a05:7300:b1b:b0:381:fb4c:34e1])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:8641:20b0:383:50b7:1d78
- with SMTP id 5a478bee46e88-38571223ee7mr5801142eec.40.1795244342218; Fri, 20
- Nov 2026 22:59:02 -0800 (PST)
-Date: Fri, 20 Nov 2026 22:57:56 -0800
+        bh=YaOrepU6AaV9bsaJ1eqR9wb353r378iiA6um3H27iXs=;
+        b=0g7mOyGP4XU6OBo+HELuCOlz8JDy66CvXt2mYqj5bGm4Lowf0LfrVueevk9ZTxFz9Y
+         RYWqF+KmJTPj/wS7Z8rg2l+vp6pPh0JLqHcddY49rKV5ZPXwl9RYhN67il0k1gC/RK1/
+         aN/7dNxOIIaXzpHtH5MULYXJfQmy57+hs2NZ2PByXJUP7mRrEELR9SmYQheOVJYwrIAE
+         vcsMQoCRQ94q/4JJmwP7Qq0jAzyVzEa/BuLr8wSgWYiYdTnoS+Qyo3TjoMFi4JmcB57L
+         XCX9Inmq9iHRG4yN5kALgEl9+S/oOOErzgA/NjlRIF3fFCv+hWTJz95aRq/QJiZdboYa
+         UrFw==
+X-Forwarded-Encrypted: i=1; AL+hErFR8i2vtZ2g4WPtM2ifSxcpNOdcbbp2jVX3qBYr0ItK8sCXjDZR9Bpcw9NGdywo/9TxtQVxO6aiIjut3zE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9HrpbO5TYCJFAJbrajRNeV4eBUp44smUA3GvvhVRjBTQsNf0w/
+	qtrXlIEZEXHKvT4xjFxAiPBijF6cxaC+02ex3NtJf3dBPiWnnwG5sOj51eFF9tbZrlnqp2GEf/L
+	zqBObKccwLg==
+X-Received: from dled20-n1.prod.google.com ([2002:a05:701b:42d4:10b0:1b3:befc:72bc])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:2508:b0:1b2:3497:5998
+ with SMTP id a92af1059eb24-1b5568f03abmr4870446c88.36.1795244344566; Fri, 20
+ Nov 2026 22:59:04 -0800 (PST)
+Date: Fri, 20 Nov 2026 22:57:57 -0800
 In-Reply-To: <20261121065813.4143649-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261121065813.4143649-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261121065813.4143649-8-irogers@google.com>
-Subject: [PATCH v15 07/23] perf vdso: Fix unlocked __dsos__add() and race in __machine__addnew_vdso()
+Message-ID: <20261121065813.4143649-9-irogers@google.com>
+Subject: [PATCH v15 08/23] perf dsos: Skip BPF and OOL DSOs in dsos__find_kernel_dso()
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Marco Elver <elver@google.com>
@@ -95,155 +95,117 @@ Cc: Bart Van Assche <bvanassche@acm.org>, Jiri Olsa <jolsa@kernel.org>,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-__machine__addnew_vdso() called __dsos__add(&machine->dsos, dso) without
-holding machine->dsos.lock, and machine__findnew_vdso() and
-__machine__findnew_compat() initialized machine->vdso_info and created
-temporary VDSO files without synchronization. Acquire
-machine->dsos.lock in write mode across machine->vdso_info
-initialization, duplicate checking via __dsos__find(), temporary file
-creation, dso__set_long_name(), and __dsos__add().
+Factor out dso__is_bpf_prog() from __map__is_bpf_prog() and update
+dsos__find_kernel_dso_cb() to skip dso__is_bpf_prog(dso),
+DSO_BINARY_TYPE__BPF_IMAGE, and DSO_BINARY_TYPE__OOL so that
+dsos__find_kernel_dso() does not match ksymbol DSOs in machine->dsos.
+In machine__process_ksymbol_register(), also check
+event->ksymbol.ksym_type == PERF_RECORD_KSYMBOL_TYPE_BPF before setting
+DSO_BINARY_TYPE__BPF_IMAGE for is_bpf_image() symbols prior to inserting
+the DSO.
 
-Fixes: f649ed80f3ca ("perf dsos: Tidy reference counting and locking")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/dsos.c |  8 ++++++-
- tools/perf/util/dsos.h |  2 ++
- tools/perf/util/vdso.c | 52 +++++++++++++++++++++++++++---------------
- 3 files changed, 42 insertions(+), 20 deletions(-)
+ tools/perf/util/dso.h     | 16 ++++++++++++++++
+ tools/perf/util/dsos.c    |  3 +++
+ tools/perf/util/machine.c |  9 ++++-----
+ tools/perf/util/map.c     | 14 ++------------
+ 4 files changed, 25 insertions(+), 17 deletions(-)
 
-diff --git a/tools/perf/util/dsos.c b/tools/perf/util/dsos.c
-index a2cd37bd1660..1574c8885d78 100644
---- a/tools/perf/util/dsos.c
-+++ b/tools/perf/util/dsos.c
-@@ -284,12 +284,18 @@ static struct dso *__dsos__find_id(struct dsos *dsos, const char *name, const st
- 	return res;
+diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
+index f6c60bafcde1..009bd3001ace 100644
+--- a/tools/perf/util/dso.h
++++ b/tools/perf/util/dso.h
+@@ -1022,6 +1022,22 @@ static inline bool dso__is_kallsyms(const struct dso *dso)
+ 	return is_guest_kallsyms_pid_name(name);
  }
  
-+struct dso *__dsos__find(struct dsos *dsos, const char *name, bool cmp_short, bool write_locked)
-+	__must_hold_shared(&dsos->lock)
++static inline bool dso__is_bpf_prog(const struct dso *dso)
 +{
-+	return __dsos__find_id(dsos, name, &dso_id_empty, cmp_short, write_locked);
++	const char *name;
++
++	if (dso__binary_type(dso) == DSO_BINARY_TYPE__BPF_PROG_INFO)
++		return true;
++
++	/*
++	 * If PERF_RECORD_BPF_EVENT is not included, the dso will not have
++	 * type of DSO_BINARY_TYPE__BPF_PROG_INFO. In such cases, we can
++	 * guess the type based on name.
++	 */
++	name = dso__short_name(dso);
++	return name && !strncmp(name, "bpf_prog_", sizeof("bpf_prog_") - 1);
 +}
 +
- struct dso *dsos__find(struct dsos *dsos, const char *name, bool cmp_short)
+ static inline enum dso_binary_type dso__dbginfo_type(const struct dso *dso)
  {
- 	struct dso *res;
+ 	return RC_CHK_ACCESS(dso)->dbginfo_type;
+diff --git a/tools/perf/util/dsos.c b/tools/perf/util/dsos.c
+index 1574c8885d78..a7f6a98acbaf 100644
+--- a/tools/perf/util/dsos.c
++++ b/tools/perf/util/dsos.c
+@@ -475,6 +475,9 @@ static int dsos__find_kernel_dso_cb(struct dso *dso, void *data)
+ 	 * is_kernel_module() treats it as a kernel cpumode.
+ 	 */
+ 	if (!dso__kernel(dso) ||
++	    dso__is_bpf_prog(dso) ||
++	    dso__binary_type(dso) == DSO_BINARY_TYPE__BPF_IMAGE ||
++	    dso__binary_type(dso) == DSO_BINARY_TYPE__OOL ||
+ 	    is_kernel_module(dso__long_name(dso), PERF_RECORD_MISC_CPUMODE_UNKNOWN))
+ 		return 0;
  
- 	down_read(&dsos->lock);
--	res = __dsos__find_id(dsos, name, &dso_id_empty, cmp_short, /*write_locked=*/false);
-+	res = __dsos__find(dsos, name, cmp_short, /*write_locked=*/false);
- 	up_read(&dsos->lock);
- 	return res;
- }
-diff --git a/tools/perf/util/dsos.h b/tools/perf/util/dsos.h
-index a26774950866..dbd06f420753 100644
---- a/tools/perf/util/dsos.h
-+++ b/tools/perf/util/dsos.h
-@@ -30,6 +30,8 @@ void dsos__exit(struct dsos *dsos);
+diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
+index 5b4550e97172..4a3461d79593 100644
+--- a/tools/perf/util/machine.c
++++ b/tools/perf/util/machine.c
+@@ -791,6 +791,10 @@ static int machine__process_ksymbol_register(struct machine *machine,
+ 			dso__set_binary_type(dso, DSO_BINARY_TYPE__OOL);
+ 			dso__data(dso)->file_size = event->ksymbol.len;
+ 			dso__set_loaded(dso);
++		} else if (event->ksymbol.ksym_type == PERF_RECORD_KSYMBOL_TYPE_BPF &&
++			   is_bpf_image(event->ksymbol.name)) {
++			dso__set_binary_type(dso, DSO_BINARY_TYPE__BPF_IMAGE);
++			dso__set_long_name(dso, "", false);
+ 		}
  
- int __dsos__add(struct dsos *dsos, struct dso *dso);
- int dsos__add(struct dsos *dsos, struct dso *dso);
-+struct dso *__dsos__find(struct dsos *dsos, const char *name, bool cmp_short, bool write_locked)
-+	__must_hold_shared(&dsos->lock);
- struct dso *dsos__find(struct dsos *dsos, const char *name, bool cmp_short);
+ 		map__set_start(map, event->ksymbol.addr);
+@@ -802,11 +806,6 @@ static int machine__process_ksymbol_register(struct machine *machine,
+ 		}
  
- struct dso *dsos__findnew_id(struct dsos *dsos, const char *name, const struct dso_id *id);
-diff --git a/tools/perf/util/vdso.c b/tools/perf/util/vdso.c
-index 7f2dde70f3e4..8bf81e2c9e78 100644
---- a/tools/perf/util/vdso.c
-+++ b/tools/perf/util/vdso.c
-@@ -131,8 +131,13 @@ static struct dso *__machine__addnew_vdso(struct machine *machine, const char *s
- 
- 	dso = dso__new(short_name);
- 	if (dso != NULL) {
--		__dsos__add(&machine->dsos, dso);
-+		/*
-+		 * Set the long name before adding to machine->dsos so that
-+		 * __dsos__add() inserts it in sorted order without needing to
-+		 * re-take machine->dsos.lock.
-+		 */
- 		dso__set_long_name(dso, long_name, false);
-+		__dsos__add(&machine->dsos, dso);
+ 		dso__set_loaded(dso);
+-
+-		if (is_bpf_image(event->ksymbol.name)) {
+-			dso__set_binary_type(dso, DSO_BINARY_TYPE__BPF_IMAGE);
+-			dso__set_long_name(dso, "", false);
+-		}
+ 	} else {
+ 		dso = dso__get(map__dso(map));
  	}
+diff --git a/tools/perf/util/map.c b/tools/perf/util/map.c
+index d5319ffa88a7..5155c95df85d 100644
+--- a/tools/perf/util/map.c
++++ b/tools/perf/util/map.c
+@@ -248,19 +248,9 @@ bool __map__is_extra_kernel_map(const struct map *map)
  
- 	return dso;
-@@ -250,15 +255,19 @@ static struct dso *__machine__findnew_compat(struct machine *machine,
- 	const char *file_name;
- 	struct dso *dso;
- 
--	dso = dsos__find(&machine->dsos, vdso_file->dso_name, true);
-+	down_write(&machine->dsos.lock);
-+	dso = __dsos__find(&machine->dsos, vdso_file->dso_name, true, /*write_locked=*/true);
- 	if (dso)
--		return dso;
-+		goto out_unlock;
- 
- 	file_name = vdso__get_compat_file(vdso_file);
- 	if (!file_name)
--		return NULL;
-+		goto out_unlock;
- 
--	return __machine__addnew_vdso(machine, vdso_file->dso_name, file_name);
-+	dso = __machine__addnew_vdso(machine, vdso_file->dso_name, file_name);
-+out_unlock:
-+	up_write(&machine->dsos.lock);
-+	return dso;
- }
- 
- static int __machine__findnew_vdso_compat(struct machine *machine,
-@@ -332,33 +341,38 @@ struct dso *machine__findnew_vdso(struct machine *machine,
+ bool __map__is_bpf_prog(const struct map *map)
  {
- 	struct vdso_info *vdso_info;
- 	struct dso *dso = NULL;
--	char *file;
-+	const char *file;
- 
-+	dso = machine__find_vdso(machine, thread);
-+	if (dso)
-+		return dso;
-+
-+	down_write(&machine->dsos.lock);
- 	if (!machine->vdso_info)
- 		machine->vdso_info = vdso_info__new();
- 
- 	vdso_info = machine->vdso_info;
--	if (!vdso_info)
-+	if (!vdso_info) {
-+		up_write(&machine->dsos.lock);
- 		return NULL;
+-	const char *name;
+-	struct dso *dso = map__dso(map);
 -
--	dso = machine__find_vdso(machine, thread);
--	if (dso)
--		return dso;
-+	}
+-	if (dso__binary_type(dso) == DSO_BINARY_TYPE__BPF_PROG_INFO)
+-		return true;
++	const struct dso *dso = map__dso(map);
  
- #if BITS_PER_LONG == 64
-+	up_write(&machine->dsos.lock);
- 	if (__machine__findnew_vdso_compat(machine, thread, vdso_info, &dso))
- 		return dso;
-+	down_write(&machine->dsos.lock);
- #endif
- 
--	dso = dsos__find(&machine->dsos, DSO__NAME_VDSO, true);
--	if (dso)
--		return dso;
--
--	file = get_file(&vdso_info->vdso);
--	if (!file)
--		return NULL;
-+	dso = __dsos__find(&machine->dsos, DSO__NAME_VDSO, true, /*write_locked=*/true);
-+	if (!dso) {
-+		file = get_file(&vdso_info->vdso);
-+		if (file)
-+			dso = __machine__addnew_vdso(machine, DSO__NAME_VDSO, file);
-+	}
-+	up_write(&machine->dsos.lock);
- 
--	return __machine__addnew_vdso(machine, DSO__NAME_VDSO, file);
-+	return dso;
+-	/*
+-	 * If PERF_RECORD_BPF_EVENT is not included, the dso will not have
+-	 * type of DSO_BINARY_TYPE__BPF_PROG_INFO. In such cases, we can
+-	 * guess the type based on name.
+-	 */
+-	name = dso__short_name(dso);
+-	return name && (strstr(name, "bpf_prog_") == name);
++	return dso && dso__is_bpf_prog(dso);
  }
  
- bool dso__is_vdso(const struct dso *dso)
+ bool __map__is_bpf_image(const struct map *map)
 -- 
 2.56.1.750.gf70dc682cf-goog
 
