@@ -1,108 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=173.38.203.68
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795274696;
-	b=teU1yrR9me7d/YFenMLGVizMjCmR+ac6U8O4lg7YpmtF0FB8xqTH4FCQG9PCEcHunxt0
-	 V6tKwFky434IeKbOLn12ROGiVpNHX39aImxdWppIJ/SDD93STgN+yBHwoXMlMn7awZnkq
-	 +G6pmFc1kpdjtyZfEavP1fGpQtbywTn+5AUJCY9SnQJqS9UMkpUbQZijE6QQjFkAq48gq
-	 2gzgI6Nk9TB32FhdcBfvGmdFA3aLMPp5Z0Lmd1uUXTNKcT5EjATxv4GwOgUEYA9+ptX4V
-	 OFBKPnvXBo8FtJd8inDaL9OQaEV9iy2RT1Mwh2xpXtLcLJu0Xj7ije3zRrt3Nn7I77g==
+	t=1795274749;
+	b=fCX1NPH8YE/3eUqlMtXT+mFvpH15JYOJ5EhMvyRU7bWT1SDEHVfFSrap3DnTtqhrxIay
+	 VeAXEDmC65jJicGtiUTy6+gk8TgzPq9/wpq86znGooHfrMaeSc5lVsQ1p5xLkti1xk+RK
+	 kTJE/NWvwe5TzabP8QzcV4ZHZQeKsW8qaeJLKMdNbhCsWiehKHTPdDcGnSTDU9Y0L+W2X
+	 pfKKhlim4cVbPI+DguVVrQ0okH9whrhWFuDHSnsxR+jvrazzGitpTVpWWS0YRwpkt35mq
+	 B8OwLYgiUqvlzKL2h5FWSAg17iKheF2ZdkFCbZwL57gpvhYjn7fRrEuYOFEC6QNEkQw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795274696;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IPAS-Result:IronPort-Data:IronPort-HdrOrdr:X-Talos-CUID:
-	 X-Talos-MUID:X-IronPort-Anti-Spam-Filtered:X-IronPort-AV:Received:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:
-	 X-Outbound-Client-TLS:X-Outbound-SMTP-Client:X-Outbound-Node;
-	bh=1m+4+4Gjf2WUHXsHYkn5LWKFpyyZZgpg0hPU7qpx32Q=;
-	b=SaHCzDA3j2qW6n6Hu+lsQrLFYyHVjQp1+6yn14hQ56h8o5lBqV3X+/U81iueZj+crQf4
-	 QPnfU16DwIGqCKbyhvfMaaKNnAtFkggMlOdbVjMD8KG25hBQ+ao8pE656X7bLiR4eBVw9
-	 6gfoEeKxxAopDUn0Ho+ywFFlGsT+/1fPT7PLUrrQX7vUXzI3qjdxtto94GBIOKcC6p934
-	 5r+lpatDueRZGTgpNp36+6rM7HXoPBd1MzM1dMcf3G/Jlmgk/K++Dq8iiVSHkbNwvociA
-	 hVZPrbhic9PohkZGxG7Vm2lJjYoAXRxJR154pmYxOR42gXwPaRrT1x9EVnFkgW/Lx/Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795274749;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=mvqL5zgYjOQw7mrezGKjOH5XqeKwhXIVXfDOZi54svQ=;
+	b=KvFB+oaxjcRvFXJAGXiMoAyiZKQlAY1PgJ1h8Z0PKlIpmDmbLdRzqHkM0Hl6jOiU8e2f
+	 ism1bXWBk83H/jLAoJKz//NABs3+tkbVbx000vUbf9dK2pjoDMhZQxZ6b1Pr0ql71jq/k
+	 JKuxOdi2MXdFIw3V6L4ply8M4dlsPd4I7eclMHsuBUsuJ2nZ+u09f2xDa+TdMLxaepEN0
+	 yDXQPugtyENn4p0a4P+O64zvb9zZiWYho7qT9KU7sY4yjPG8cD+08o/mylJqQ0tZx13es
+	 8hxhrILoj+xHHXlvWXZ05oadY/PVVXA9K3ZZsau+waN8l2MGVmC4iJ9hx7aSeCCkbQg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cisco.com;
-	spf=pass smtp.mailfrom=cisco.com;
-	dkim=pass header.d=cisco.com header.i=@cisco.com header.a=rsa-sha256 header.s=iport01 header.b=StVPJBcW;
-	arc=none smtp.remote-ip=173.38.203.68
-Received: from aer-iport-6.cisco.com (aer-iport-6.cisco.com [173.38.203.68])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.198
+Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F05A606A320;
-	Sat, 21 Nov 2026 15:24:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F05A606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cisco.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cisco.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=cisco.com header.i=@cisco.com header.a=rsa-sha256 header.s=iport01 header.b=StVPJBcW
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=cisco.com; i=@cisco.com; l=2585; q=dns/txt;
-  s=iport01; t=1795274696; x=1796484296;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=1m+4+4Gjf2WUHXsHYkn5LWKFpyyZZgpg0hPU7qpx32Q=;
-  b=StVPJBcWLCGc61K39dDcDuUr1QSk4CZunULr3qTUTAo1K9K3ACdfxMpI
-   D0TB5X/O52zyQGjfhkj6Xi4wLYceYK0U6a+xEBUKi00daDqy2QAjJ1yZV
-   bqNRMvXqimfXAkKi+GYa4Jf+ZDCZBL/671Js1fTRXFb5ueIZDZHlO6Vbz
-   i1xDqQGMcb6EUhSCYKSM0tzleCz6a/VFhV9XMLyx7dhmnsHJUxad+Mt1D
-   a4xmbJSUFHR8q4/3zqpfq4uZypEbrUUUm2ertOckXi5rE2JWhDXiZjx0s
-   143MyF+qq3kdFBPPCbXxBsZW0MHflPcd3bwNIrzhsgRjksiIT3ySvNDuK
-   w==;
-X-CSE-ConnectionGUID: UX6DZANYRFmbwEYirrHpRg==
-X-CSE-MsgGUID: kjchhqeSTAShB4SvwOpQKQ==
-X-IPAS-Result: =?us-ascii?q?A0BdAwAatgFr/89K/pBaHgEBCxIMggULhCxDSZZLA54pg?=
- =?us-ascii?q?X4PAQEBD1EEAQGFBQKOIQImNAkOAQIEAwIDAQEBAQEBAQEBAQEBCgEBBQEBA?=
- =?us-ascii?q?QIBBwWBDhOGXJATAQEBAycLAUYQCxguVgYTgwKCdQO5NYF5M4EB3kmBdBWBO?=
- =?us-ascii?q?IV0h3J2G4RiJxuBSUSBFAGCezE+gQUBigMEgiKBDIEHhwmILIgwSAqBFANZL?=
- =?us-ascii?q?AFVEw0KCwcFgSVDAzUSKhUjDzwFLR2BIzsXEXYbBgUSICpAQ1uBEoEDXYErK?=
- =?us-ascii?q?F0BAh9GLRWBdgKCUYEjXQIBSUEOB0VTCSVDEkckIggSCQETGiwKgRo1PAkmP?=
- =?us-ascii?q?xUMWwwIAxoFGiYCHwgCCwIMdCgREBMdHiQvBRomPhsKgQwnHx4bDgIfEAYZG?=
- =?us-ascii?q?A1IESwUIxUZBD5uB5N2gxhbgVsldB5Fkm2SPaERhCuBaJ92GjOqcpkIpAsZN?=
- =?us-ascii?q?4RqgWg8gVkzGggbFYMiUxkPji4LCxzSHyYyPQEBBwIHDgMLgWiRfgEB?=
-IronPort-Data: A9a23:scS9yKLNnV5KeJBwFE+R8ZQlxSXFcZb7ZxGr2PjKsXjdYENShDRUm
- DEdUGmFPfveM2unfd9+YYy+oUgBuZbWyoVrGwEd+CA2RRqmiyZq6fd1j6vUF3nPRiEWZBs/t
- 63yUvGZcoZpCCea9k3wWlTYhSEU/bmSQbbhA/LzNCl0RAt1IA8skhsLd9QR2uaEuvDnRVnS0
- T/Oi5eHYgH8gmQtaj58B5+r8XuDgtyj4Fv0gXRmDRx7lAe2v2UYCpsZOZawIxPQKqFIHvS3T
- vr017qw+GXU5X8FUrtJRZ6iLyXm6paLVeS/oiI+t5qK23CulQRuukoPD8fwXG8M49m/c3+d/
- /0W3XC4YV9B0qQhA43xWTEAe811FfUuFLMqvRFTvOTLp3AqfUcAzN1TPB8aD6Q+y9xZBGtR2
- M0ZMiotdiqM0rfeLLKTEoGAh+wqIdOuOMYUvWttiGmHS/0nWpvEBa7N4Le03h9p2pwIR6uCI
- ZVFL2A3M3wsYDUXUrsTIIk3gOazhnr/WzZZs1mS46Ew5gA/ySQsgeW8bYGFI7RmQ+1WnE2Yp
- nvLxFjQOREwaOeB1h2dy1GV07qncSTTHdh6+KeD3uVniVuRzUQcDxoZUVb9qv684ma7UsB3K
- EEO/Ccq668o+ySDScTlQxq+iH2JpBgRX5xXCeJSwBmHzazG4gCYLnIJQj5IdJots8pebT800
- 3eXkN7zQz9iqruYTTSa7Lj8hTezPzUFaGwPfykJSSMb7NT55oI+lBTCSpBkCqHdszHuMTj92
- XWO6SM5nbhW1ZBN3KSg9leBiDWpznTUcjMICszsdjrNxmtEiESNPuRENXCzAS58Ebuk
-IronPort-HdrOrdr: A9a23:FmAf8KA5C2vPr03lHemM55DYdb4zR+YMi2TDGXocdfUzSL39qy
- nAppomPHPP4gr5HUtQ+uxoW5PwJE80l6QV3WB5B97LNzUO+lHYTr2KhrGM/9SPIUDDH5ZmtZ
- tIQuxZFMD6C0R8gILR5Qm1FMtl/fy8mZrY4ts3CxxWPHhXg2YK1XYeNjqm
-X-Talos-CUID: 9a23:HGG/4GwelZ8NuIWYr2QbBgUpKp4JQFT7/U3+JkWnJFdoUqe1UWWfrfY=
-X-Talos-MUID: =?us-ascii?q?9a23=3AHTSPFA/NoTZFRPjzufPqSDyQf8Rq6KSuEU02rbw?=
- =?us-ascii?q?9u+PYDjJvHC+krw3iFw=3D=3D?=
-X-IronPort-Anti-Spam-Filtered: true
-X-IronPort-AV: E=Sophos;i="6.27,225,1787011200"; 
-   d="scan'208";a="59595381"
-Received: from aer-l-core-06.cisco.com ([144.254.74.207])
-  by aer-iport-6.cisco.com with ESMTP/TLS/TLS_AES_256_GCM_SHA384; 21 Nov 2026 15:24:47 +0000
-Received: from satishkh-l-mj0bbv6x.cisco.com (unknown [10.25.129.52])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by aer-l-core-06.cisco.com (Postfix) with ESMTPS id A4208180001DA;
-	Sat, 21 Nov 2026 15:24:43 +0000 (GMT)
-From: Satish Kharat <satishkh@cisco.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Satish Kharat <satishkh@cisco.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Oliver Upton <oupton@kernel.org>,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH v2 5/6] KVM: Send reschedule IPIs instead of SMP function calls for non-waiting requests
-Date: Sat, 21 Nov 2026 07:24:30 -0800
-Message-ID: <20261121152434.955716-1-satishkh@cisco.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261119235656.70315-6-seanjc@google.com>
-References: <20261119235656.70315-1-seanjc@google.com> <20261119235656.70315-6-seanjc@google.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCE31606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 15:25:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCE31606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4b37620eb73so2678543b6e.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:25:48 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795274748; x=1795879548;
+        h=content-type:to:from:subject:message-id:in-reply-to:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=mvqL5zgYjOQw7mrezGKjOH5XqeKwhXIVXfDOZi54svQ=;
+        b=Ym44LDKJdkvrqFcNO7h/0DOvkPQCI1SzABOR49xGfFEv4e6jah0YTx075Lb8ISo6PD
+         qqdeVwOvmW2+CaxhymxyrA1IdIB+ZVsPHy3/EKkK6Q4ALr6A2WE0C6MbZW19AZgucFld
+         yhGpDP9Hv39yrqXzolfLcx/JAzEreZGTRAy7n2kRuyXstU8FccaRoZqhUXf3TqxooA5A
+         R2uzfp0RCQbN/KvhPaosN91Mqis0IYqJFef3snbkaYolboDNSHr7zYAbMfeQVU5nppdm
+         8SbVKnB4Qzv37vwtEy9eqpDinfQQAcv/dhUfe8CcoCededxudWUbMVUy5LulX65+xQCX
+         rGWA==
+X-Forwarded-Encrypted: i=1; AL+hErEQA1YPJQH3C3m499a3uOvqIyyCh6WLSJRbTGrTNeuGr8gbC2Ro+MFY83Wh79xvEqYYRBspIIf/L369rX8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8a8x4FS/IT+FedfzcWe3kynNaYVoFJuRAvJT49PhtW/3yEKtYl
+	aQzvsCUnTnAC9Gu71VQ8CbJx5kCAYdh6D2aZ9auk6pZWzrjM2M5MVBGnzQsgIQBgo3yBp5Nx6qH
+	NvUXUxavWVR/1Dg1zC33ktTu1feVgfuSMAvBNOBy/3OCG/nSRTW8B3djp2hU=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,65 +58,114 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Outbound-Client-TLS: ANONYMOUS;unknown [10.25.129.52];TLSv1.3;TLS_AES_256_GCM_SHA384;256
-X-Outbound-SMTP-Client: 10.25.129.52, [10.25.129.52]
-X-Outbound-Node: aer-l-core-06.cisco.com
+X-Received: by 2002:a05:6808:1386:b0:574:6f37:6727 with SMTP id
+ 5614622812f47-57a06b1e099mr7204479b6e.3.1795274747833; Sat, 21 Nov 2026
+ 07:25:47 -0800 (PST)
+Date: Sat, 21 Nov 2026 07:25:47 -0800
+In-Reply-To: <6a891a2c.91706f20.16b6e3.02b1.GAE@google.com>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b01b7fb.44b41460.34b83f.000f.GAE@google.com>
+Subject: Re: [syzbot] [dmaengine?] BUG: unable to handle kernel paging request
+ in ioat_pci_probe
+From: syzbot <syzbot+79a6b3f7a8df01f58774@syzkaller.appspotmail.com>
+To: Frank.Li@kernel.org, dave.jiang@intel.com, dmaengine@vger.kernel.org, 
+	frank.li@kernel.org, linux-kernel@vger.kernel.org, 
+	syzkaller-bugs@googlegroups.com, vkoul@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Thu, Nov 19, 2026 at 03:56:55PM -0800, Sean Christopherson wrote:
-> When kicking multiple vCPUs for a non-waiting request, send a reschedule
-> IPI to each vCPU instead of batching IPIs via a single SMP function call so
-> that KVM can make non-waiting requests with IRQs disabled.
-> 
-> Avoiding SMP function calls for non-waiting requests fixes a potential
-> deadlock if KVM VMX triggers KVM_REQ_UNBLOCK to all vCPUs when starting
-> device assignmennt:
-> 
->   WARNING: kernel/smp.c:943 at smp_call_function_many_cond
->     kvm_make_all_cpus_request [kvm]
->     kvm_arch_irq_bypass_add_producer [kvm]
->     __connect [irqbypass]
->     irq_bypass_register_producer [irqbypass]
->     vfio_msi_set_vector_signal [vfio_pci_core]
+syzbot has found a reproducer for the following issue on:
 
-Thanks for picking this up. I reported the splat above, so I ran the series
-against the workload that originally triggered it.
+HEAD commit:    909ef7a9a30f Add linux-next specific files for 20261120
+git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+console output: https://syzkaller.appspot.com/x/log.txt?x=13ca7cd5580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=15db63a14ba195ac
+dashboard link: https://syzkaller.appspot.com/bug?extid=79a6b3f7a8df01f58774
+compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=10a07185580000
 
-Setup:
- - Intel VT-d host (Cisco UCS C220 M7, Xeon Platinum), APICv and
-   device-posted interrupts enabled.
- - Guest with a Cisco VIC (enic) VF assigned via VFIO.
- - KVM built from this series as modules and loaded against the running
-   kernel (no reboot). To confirm the series itself does the work, my
-   arch/x86/kvm/irq.c change was intentionally not applied.
- - Trigger: reload the guest's enic driver to re-arm the VF's MSI-X vectors
-   while other vCPUs spin in guest mode, i.e.
-     vfio_msi_set_vector_signal() -> irq_bypass_register_producer() ->
-     kvm_arch_irq_bypass_add_producer() -> pi_start_bypass() ->
-     kvm_make_all_cpus_request(KVM_REQ_UNBLOCK) with IRQs disabled.
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+79a6b3f7a8df01f58774@syzkaller.appspotmail.com
 
-Before/after, same trigger:
- - With a build that has neither my irq.c fix nor this series, the warning
-   reproduces on the first cycle.
- - With this series applied, no warning across repeated reload cycles.
-   Function tracing shows the bypass callback issuing reschedule IPIs
-   (native_smp_send_reschedule) for the non-waiting request instead of
-   reaching smp_call_function_many_cond(); waiting requests still use the
-   batched SMP call with IRQs enabled. Bidirectional VF traffic (ICMP and
-   TCP) and repeated driver reloads pass, lockdep stays enabled, and no new
-   warnings appear.
-
-irqfd_test, irq_test, vmx_posted_intr_test and smptest also pass with the
-series applied.
-
-This was Intel-only and module-against-running-kernel; I did not exercise
-the arm64 KVM_IRQFD path, s390, or AMD, so the tag below is for the x86
-VFIO / KVM_REQ_UNBLOCK path I can vouch for.
-
-Tested-by: Satish Kharat <satishkh@cisco.com>
-
-Test automation was LLM-assisted; all results were reviewed by me. Full
-logs available on request.
-
-Thanks,
-Satish
+BUG: unable to handle page fault for address: 000000000001c008
+#PF: supervisor read access in kernel mode
+#PF: error_code(0x0000) - not-present page
+PGD 8000000074684067 P4D 8000000074684067 PUD 0 
+Oops: Oops: 0000 [#1] SMP KASAN PTI
+CPU: 1 UID: 0 PID: 6362 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+RIP: 0010:readb arch/x86/include/asm/io.h:57 [inline]
+RIP: 0010:ioat_pci_probe+0xad/0x410 drivers/dma/ioat/init.c:1365
+Code: 48 85 c0 74 4c 49 89 c7 48 b8 00 00 00 00 00 fc ff df 4c 89 fb 48 c1 eb 03 80 3c 03 00 74 08 4c 89 ff e8 06 55 c3 fc 49 8b 07 <44> 8a 60 08 41 0f b6 ec bf 30 00 00 00 89 ee e8 2f 13 43 fc 41 80
+RSP: 0018:ffffc900034578f8 EFLAGS: 00010246
+RAX: 000000000001c000 RBX: 1ffff110056d8ae7 RCX: ffff88801c9d5dc0
+RDX: 0000000000000000 RSI: ffffffff8ea2b415 RDI: 00000000ffffffff
+RBP: ffffc90003457b20 R08: ffffffff91e1e4bf R09: 1ffffffff23c3c97
+R10: dffffc0000000000 R11: fffffbfff23c3c98 R12: 1ffff110045d3c10
+R13: 0000000000000000 R14: ffff888022e9e000 R15: ffff88802b6c5738
+FS:  00007f687f7dd6c0(0000) GS:ffff8881231fd000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000000001c008 CR3: 000000007f156000 CR4: 00000000003526f0
+Call Trace:
+ <TASK>
+ local_pci_probe drivers/pci/pci-driver.c:355 [inline]
+ pci_call_probe drivers/pci/pci-driver.c:417 [inline]
+ __pci_device_probe drivers/pci/pci-driver.c:479 [inline]
+ pci_device_probe+0x48e/0xd10 drivers/pci/pci-driver.c:513
+ call_driver_probe drivers/base/dd.c:-1 [inline]
+ really_probe+0x254/0xae0 drivers/base/dd.c:707
+ __driver_probe_device+0x1e8/0x360 drivers/base/dd.c:869
+ device_driver_attach+0xe4/0x1f0 drivers/base/dd.c:1211
+ bind_store+0x1d0/0x220 drivers/base/bus.c:267
+ kernfs_fop_write_iter+0x3a4/0x540 fs/kernfs/file.c:345
+ new_sync_write fs/read_write.c:580 [inline]
+ vfs_write+0x612/0xba0 fs/read_write.c:672
+ ksys_write+0x150/0x270 fs/read_write.c:1021
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x00007f688019e0d9
+Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f687f7dd028 EFLAGS: 00000246 ORIG_RAX: 0000000000000001
+RAX: ffffffffffffffda RBX: 00007f6880426090 RCX: 00007f688019e0d9
+RDX: 000000000000000d RSI: 0000200000000600 RDI: 0000000000000005
+RBP: 00007f6880235024 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f6880426128 R14: 00007f6880426090 R15: 00007ffcb8a3f2d8
+ </TASK>
+Modules linked in:
+CR2: 000000000001c008
+---[ end trace 0000000000000000 ]---
+RIP: 0010:readb arch/x86/include/asm/io.h:57 [inline]
+RIP: 0010:ioat_pci_probe+0xad/0x410 drivers/dma/ioat/init.c:1365
+Code: 48 85 c0 74 4c 49 89 c7 48 b8 00 00 00 00 00 fc ff df 4c 89 fb 48 c1 eb 03 80 3c 03 00 74 08 4c 89 ff e8 06 55 c3 fc 49 8b 07 <44> 8a 60 08 41 0f b6 ec bf 30 00 00 00 89 ee e8 2f 13 43 fc 41 80
+RSP: 0018:ffffc900034578f8 EFLAGS: 00010246
+RAX: 000000000001c000 RBX: 1ffff110056d8ae7 RCX: ffff88801c9d5dc0
+RDX: 0000000000000000 RSI: ffffffff8ea2b415 RDI: 00000000ffffffff
+RBP: ffffc90003457b20 R08: ffffffff91e1e4bf R09: 1ffffffff23c3c97
+R10: dffffc0000000000 R11: fffffbfff23c3c98 R12: 1ffff110045d3c10
+R13: 0000000000000000 R14: ffff888022e9e000 R15: ffff88802b6c5738
+FS:  00007f687f7dd6c0(0000) GS:ffff8881231fd000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000000001c008 CR3: 000000007f156000 CR4: 00000000003526f0
+----------------
+Code disassembly (best guess):
+   0:	48 85 c0             	test   %rax,%rax
+   3:	74 4c                	je     0x51
+   5:	49 89 c7             	mov    %rax,%r15
+   8:	48 b8 00 00 00 00 00 	movabs $0xdffffc0000000000,%rax
+   f:	fc ff df
+  12:	4c 89 fb             	mov    %r15,%rbx
+  15:	48 c1 eb 03          	shr    $0x3,%rbx
+  19:	80 3c 03 00          	cmpb   $0x0,(%rbx,%rax,1)
+  1d:	74 08                	je     0x27
+  1f:	4c 89 ff             	mov    %r15,%rdi
+  22:	e8 06 55 c3 fc       	call   0xfcc3552d
+  27:	49 8b 07             	mov    (%r15),%rax
+* 2a:	44 8a 60 08          	mov    0x8(%rax),%r12b <-- trapping instruction
+  2e:	41 0f b6 ec          	movzbl %r12b,%ebp
+  32:	bf 30 00 00 00       	mov    $0x30,%edi
+  37:	89 ee                	mov    %ebp,%esi
+  39:	e8 2f 13 43 fc       	call   0xfc43136d
+  3e:	41                   	rex.B
+  3f:	80                   	.byte 0x80
