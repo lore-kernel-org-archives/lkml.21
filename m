@@ -1,96 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795296081;
-	b=2H1220bYVvtHxOsv2E82k4b03GwnUcXOok8FthbfywUBaPEU8ObPHV1Sn/w3iCCuRhHE
-	 X+iKP56VwO1pAAxHlW4FjGwYzNDwDe1teye0To+cWqv0jwpqRy08QlTI/Ytr0xjc6U2yX
-	 60AVMXPgklUqneOPiXcr4/UN0f1+b29pPkWSJYwZR+l/jDlMPheFrQI0LaBHbLHNiZkJQ
-	 A/vqAridW8IQB9bgBOcLXYu5u0PTV6sQkk+qGxQ0OydOeklI66T4LHjvIpeoJBfAjVvwT
-	 mrrqURPFwxlRj01nP099WTzyYfoEHLriWd3R8ubZ5cgqFioupcLQXx9m269/v9n96Pg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795296081;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Date:Message-ID;
-	bh=O3ljys2G/dfGrzQSHlcDxa7rlNuO9sIfulWEdwLNsJ0=;
-	b=K5CGy4yJ4o22PgF7OLMr4gmQLTRncWnD0laZa8q+pMH8m4zIKvn6OkF5HDyyNmPu6tNV
-	 0gHAkYg66c0iYfM3Ccks0uiPM4NEx4Gz3eGPs68UvxGFnC19n0ojsUKfT/S9TDuJ6fps5
-	 WEVjChyEmXFBfbXI5vtzpeKb6uGtUzlC7Z2Y0EsH1Or1z3NE817KchEOdc/GYfSedvkui
-	 iocdOdWedwp+9SofnMiLxfJNWHYSyYIkHIMuvmI5FKcBASjY1TXLcj4E8UMETtC8azz+g
-	 nuonLpqs9229vaeLiDwxb/cuKw4837rqQqGTeyNc3LHDtWDNyKrGqGKifvMuxbIx9hQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i8Rz2RMp;
-	arc=none smtp.remote-ip=209.85.218.41
-Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795296182;
+	b=oqh6wAlUXW4mkFxDPrJW1AvGqt7hnbiOUFelqu+6WU8NYWj0y5IsONtLkLMjRIQt3hjR
+	 6Kliw5W9nhp1R4J0p9IVf3V4jXeqgb7/a+ENJZNRLFozBLJ+MWxcNMd0jwotxkCzafs0H
+	 duN5slPMM7fVpjyOOj7kuqeQHYm7zlwU4lC0lhnHELNDematTJyTJeBDQvqqcAKdw6bR5
+	 MbrcTR9hSwd+yyu/SzMCYrnoTXRSA2MjMaG5xaDRDG5aD1pGteQdQJMriirCNjKMg2eVN
+	 no3bsQ+W5lwWC2r9FoK2iZktJDeRjZX4MGL3KrfrH0zLetF0Fok1KxdprSseleqjtVg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795296182;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=Gz+3NvBC2zk/8nbalMo2YjaUp+0+kpkuvM4R9/vQNqU=;
+	b=LbvTnFPD9veHrb7KIeBQt59A7mfmvNSIBCBKpNDiyuvRB8zGfl2vcpK3XMLyqCiWVSll
+	 xc241BJJ/Jytpq+Q94APdx7JYCiXeSWd+Q3GvmzG+Luv3t/6gU3qD4bbjnCIuczmhDalZ
+	 QBz0p/e/Us54vcC6I/CjNsUqqBH3eUzamCeQu0xIiACKLKgZUDW6pZgIIn8RldesZ/+Lu
+	 7jNV3L0Qs3hsiwNWgU95dlCmBRBxEHEXmuIj9U7X8/4cX452nrlQsFvesHD1iBn5Iv6Xo
+	 f8hmpoGsIt83YiatLlnUOlGtvZrYs2qSymS0AwTXS3TSnLq0w1oPEmAjzafia1W7Atg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DKpZOJvk;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44D1E606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:23:02 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DKpZOJvk
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795296182;
+	b=iv5Hp2f0M/XKHAD2QNawWV7hc43Ns/S9/fgbjJGkIFyxLcgE6R8YG4lKQTweUDBPnEeK
+	 Ne8qfoyaVbS9CJXRREoz301TrWQl3DGAE68IzYJ35nI0E7kEYLCPgbXhsCjwhcRMWNgxx
+	 nw6365pow1RrMhmkP6BCnLbARxPNoQyiTHnOx80b+iLbvXAAtKhhOmJZt1wElRn5J7W6P
+	 VVRzBOeHEuTy2BuWV/sRgAXylRUrLo6mUZDZhft/TqPqxJp3WYJPfx6eLlaugj6BvgGlD
+	 R0BW3tdnQEnT6BdIH7NY+pkQOVT4zdBRUKXk7vFPKA2begzHEJdR0sUrpSmFB6TR9dA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795296182;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=Gz+3NvBC2zk/8nbalMo2YjaUp+0+kpkuvM4R9/vQNqU=;
+	b=J//mJmg9ROYdCBnlFVflV8cIrmw1+fvthYA2XvBvNiXlhSBZUWR0xYI8md3H6YJy6kVY
+	 mCKOJw3HPyQLL4CceS0B6iEaKgZjWC6azm+iixLU26WnZRjr+9Z7Dui5MX8uYQhEANTsT
+	 tT14SDv3gsJKcQAV4H058WidFXuDO5bpXVag7tXXeBdb/Ek1Bh26v2JnJMZJbS49DePPm
+	 G6aq/8WGcQHTwHLEKakxBMLoIM0J9N4/f+xyGYSSQy4TWl2iv8oBkwGcBTBN3kyQdclie
+	 KllUcyrkGkFZhHgMh/ROtbsd3IKT0SN5jUbVYURY8tzHNrAwad/cIXuEQXjquYHwN6g==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D43E2606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:21:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D43E2606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i8Rz2RMp
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c4322d310e7so370074366b.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:21:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795296079; x=1795900879; darn=vger.kernel.org;
-        h=message-id:date:content-transfer-encoding:content-type:mime-version
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=O3ljys2G/dfGrzQSHlcDxa7rlNuO9sIfulWEdwLNsJ0=;
-        b=i8Rz2RMpPmkXYItSIndpWJR63ShbcEOT18h3HDALB8+aTuOXp4xTJl0bXxP5lQ8Su3
-         E382aOfjHM96onbffE4BozXFmdo5gHP3RvxEg5KXM33RJL/vSmFp16Wtjd8BBedvHhgW
-         1iVU/K1qLjSptz5Yfltsg+Pudxm/+TbBWQOFPx+tVxAQhS8PMrW6XYqtk242qjuUvHGp
-         qnpLBWi5bevQxy9wxEdfLIwsD/K87xZHuH9/1TudVpGLrDLz6Ir8Zzo5Fed3UlYCQpBu
-         +dSqoOWTHFtfYm9IpDMTtsHZKW9o8LuBFQHc4q0zR4lsKsUGfdVGttxQSb2z0MremoYk
-         he4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795296079; x=1795900879;
-        h=message-id:date:content-transfer-encoding:content-type:mime-version
-         :references:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=O3ljys2G/dfGrzQSHlcDxa7rlNuO9sIfulWEdwLNsJ0=;
-        b=CJKV9StiLUEuIf+Yt8W1Djn2ddACbNLYfXkKa5Chrz/7tTNtlHQMNgbTwJdbw4HXy5
-         5UWkAJQfr0el5ULyFZ/+4EOG6hE+7pUvfX7GhL7xcJeol/lwZVgTWWBuN+MQczBq4BAY
-         iOyzRtJ+r0Tvx6ISytJHuEOLhtHHfvr8APUxUplnzScDcaYAuYJy049WvADSY0x1ZbhI
-         gpE4m0XV1iOZ0ys8N1D0zevhszJ1CrozVKw2HW9yvdMceIc45w4ACxxOEldGMdQZbuuk
-         6DKVPMfpJcBaW9MiL5arm9KlDHR96pwDx2XejAMZGmoM3mcS67HZ2DKsffkqbas+01XD
-         vrew==
-X-Forwarded-Encrypted: i=1; AL+hErGyOchG+bPttenVoAt7FXRl1g4OwpWhiyHf4KtWQqjo8Y2T1PZ1Rh1Pm2QrLneOW6VWoxPzV44vOP8X/Sg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/elsOFObLgzY3i5t/QizAkTcRSy9qtHO/+cmgfbeFaJv02eR+t
-	uCUskQtsZr7s9tmWmne4Hnv1PN9Z6LMxO6MtG4LrUntPZQOf9DcVlOlE
-X-Gm-Gg: AZFdTZc7zig/dCUESTDp7qG8m5Xw8OZgBTCCLPlECNJdRRW38RnslYzZbnDm2c5DNrT
-	scqAnQfX7QwFX6fbOKl6MNUBQxScCVloTah52tKl4tKNfmPs1RGDjnO+WMkh8h/PrCMw8Pk0eyn
-	sY2tm6uVY6gYeWPygiZ7eg+tgLitvhTmzWUJvqrXvqVrUFAF9DktoJ124TNC+wE95vFyjBfyFd1
-	mWR4hKN3dw8lrAHquPwZSZj3IcdmfbQp5kYz9uv3g6UIuHd0c2DFQmf+Qnt9a7bZ3vgQkKj9OdW
-	0iovsZzY8YbNii0MSNJ0V+/oxpr5BDbAMftHfzagK2jDKIZEj1LfDaHGbIfO0ggzIqLt6YtEdPc
-	iOGiiZ3epejZlmlcSvH2+zKzrO8Rj3tT9lnH13RhoCAiMTIaak99EvUD+TR4ybnvermEFnsUvsi
-	GRGJejSPfPMdrMSPSI4CV8ev5nfYVdWtSFZ5RVuGzRNLvtjhLQJDgkqpzUxzELOgmO+hfqGS6p9
-	1gwq+FLUTPdeArQE15zLFxwQa+9Fylot8jxM2wmKlcVqQO9uyrMqikrsfGW44oZdYjCJmCOw26h
-	ohfYvA3oPRnXs+Y+CMjXChe+89A=
-X-Received: by 2002:a17:906:7f01:b0:c4d:2867:281c with SMTP id a640c23a62f3a-c513a89466dmr477367466b.1.1795296079086;
-        Sat, 21 Nov 2026 13:21:19 -0800 (PST)
-Received: from [172.17.0.1] ([2a0c:db40:0:80df::2])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ad010a6sm243362266b.7.2026.11.21.13.21.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 13:21:17 -0800 (PST)
-From: Konstantin Nikiforov <helllamer@gmail.com>
-To: linux-raid@vger.kernel.org
-Cc: linux-bcache@vger.kernel.org, regressions@lists.linux.dev,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- Yu Kuai <yukuai@fygo.io>, Song Liu <song@kernel.org>,
- Coly Li <colyli@fygo.io>, Kent Overstreet <kent.overstreet@linux.dev>,
- magiclinan@didiglobal.com, xiao@kernel.org
-Subject: Re: [PATCH] md/raid5: complete unsupported discards successfully
-In-Reply-To: <179299857972.12222.2729359466842183358@gmail.com>
-References:
- <CAO96y0V6oncv54ihXnHfJMYiG_QAQ-NM8BOdqPDXKL8r8-kR9Q@mail.gmail.com>
- <179299857972.12222.2729359466842183358@gmail.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 796ED1F000C4;
+	Sat, 21 Nov 2026 21:23:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795296182;
+	bh=Gz+3NvBC2zk/8nbalMo2YjaUp+0+kpkuvM4R9/vQNqU=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=DKpZOJvksbTEh4zEP7Hm7SG/9BI+JOEaw9PQq35j42q/1VR2pQwSksDASLsL0KTqg
+	 9ot/4mTckB4kOnmQaOMtV0frN7ZmmibGgNMl4VdShN1plBmY9IDyUQBBaRT5vEbDmV
+	 eN/jzi0FsXJnV8z3seCTlH4SFl0sGcZUPGqr7VIrYFNQXU2oAyHxLwcnW0ka9zr1cG
+	 idIQph8RR12bP+1ZiBetmYIvwVOwo/nidH3gYdEBBX7fmtw3ePzQDizasRoaORTUN8
+	 +X5VJw70NPCW1CSCWHNRAubF7QXu4jMa2obv/VT0fNmcogEqI1dj4wwtgaChVmdDbZ
+	 LXoWtGwmo1dzQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id CFDA54BDCA;
+	Sat, 21 Nov 2026 21:23:00 +0000 (UTC)
+From: Jim Cromie via B4 Relay <devnull+jim.cromie.gmail.com@kernel.org>
+Subject: [PATCH v3 0/6] drm/print,dyndbg: __drm_debug __read_mostly, uint
+ shrink, build fixes
+Date: Sat, 21 Nov 2026 14:22:53 -0700
+Message-Id: <20261121-rd-mostly-v3-0-89e74b23b491@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,63 +84,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-Date: Sun, 22 Nov 2026 00:21:15 +0300
-Message-ID: <179529607529.5.3302391929789139470@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/03MQQqDMBBA0auEWTslmdZoXfUepYs0GTWgTUkkV
+ MS7F4UWtx/+WyBx9JygEQtEzj758IJGnAsBtjevjtE7aASQJC2vVGJ0OIY0DTNqQ62V1unWaSg
+ EvCO3/rNb90choPdpCnHe6ay2+lP0QckKJVL9rFylLuzI3rrR+OFkwwibkul/KkXyeBJKrGtZa
+ nYsydTHc13XLwnwPercAAAA
+X-Change-ID: 20260925-rd-mostly-6a2fc0cd6fd6
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Jason Baron <jbaron@akamai.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ Jim Cromie <jim.cromie@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795296180; l=3008;
+ i=jim.cromie@gmail.com; s=20260203; h=from:subject:message-id;
+ bh=Zau8dBhEANl7tYMwKgNve822IH1DfMTFcsXZxbLchlw=;
+ b=+5W/OGApBUn9TFxMzwW4M3u5InVhsVQ/obNCS6z+Qr1EgJELGNrrlfdhyhiRCjYpbMyWnod0y
+ l/s988xi8iMBQjKmnJzA4ROSuqromCFp4nPJpw3woRYXjvSIhxb6Nlh
+X-Developer-Key: i=jim.cromie@gmail.com; a=ed25519;
+ pk=C6E5ODlPQo7ZBynATXH9wg7K6HxP0pIXyf4s38Qw0XE=
+X-Endpoint-Received: by B4 Relay for jim.cromie@gmail.com/20260203 with
+ auth_id=958
+X-Original-From: Jim Cromie <jim.cromie@gmail.com>
+Reply-To: jim.cromie@gmail.com
 
-Hi Kuai,
+This series improves __drm_debug placement/sizing and fixes two build
+issues exposed when CONFIG_DRM_USE_DYNAMIC_DEBUG=y is enabled:        
 
-I built and tested md-7.5 with b964c9240a37 on the machine from the
-regression report.  The reproducer passes and the machine runs without
-backing-device errors.
+1. Mark __drm_debug as __read_mostly to move it out of the cacheline
+it currently shares with frequently written locks and structures.  In
+a 12-vkcube test, its read rate is ~83 kHz.
+    
+2. Fix spelling error in drivers/gpu/drm/Makefile, ie change "CFLAGS-"
+to "subdir-ccflags-".
 
-Tested tree
------------
-md-7.5 tip c526b7cd32f7, based on v7.4-rc2, with b964c9240a37 applied.
-Built as 7.4.0-rc2-md75+ (x86_64, Arch config, gcc 16.2.1) and booted
-on the affected machine.
+This adds -DDYNAMIC_DEBUG_MODULE to compilations in both drm and its
+subdirs, as needed with CONFIG_DYNAMIC_DEBUG_CORE=y but without
+CONFIG_DYNAMIC_DEBUG=y.
 
-Reproducer
-----------
-Three 256M loop files -> raid5 (64K chunk, metadata 1.2) -> bcache
-backing device.  devices_handle_discard_safely is left at its default
-(N), so the array takes the raid5_discard_limits() path changed by the
-patch.
+3. Drop the unused `category` local in __drm_printfn_dbg() when
+CONFIG_DRM_USE_DYNAMIC_DEBUG=y expands __drm_debug_enabled() to true.
 
-  md125: discard_max_bytes=2199023255040, discard_granularity=131072
-  blkdiscard 8M on md125: exit 0
-  bcache1 over md125: discard_max_bytes=2199023255040
-  4x blkdiscard 8M on bcache1: io_errors=0, no
-  bch_count_backing_io_errors lines in dmesg
+4. Shrink __drm_debug and struct ddebug_class_param.bits from unsigned
+long back to (original) unsigned int, updating lib/dynamic_debug.c and        
+lib/test_dynamic_debug.c callers accordingly.               
 
-The same reproducer gave io_errors=4 with the unpatched 7.2.11 module.
-With the patched 7.2.11 module, and now with this kernel, it stays 0.
+NOTES:
 
-Affected machine
-----------------
-3x ST1000DM010 (no TRIM) -> md126 raid5 -> bcache0 (NVMe cache
-attached, writethrough) -> LVM -> ext4/btrfs root.
+drm and dyndbg are coupled on __drm_debug's size and type, so changing
+the size requires coordination between DRM and dyndbg.  The coupling
+allows dyndbg to still use the var to keep 'state', and allows drm to
+continue using it in the few cases where drm_*dbg doesnt quite fit.
 
-Since booting 7.4.0-rc2-md75+, md126 and md127 are [UUU],
-/sys/block/bcache0/bcache/io_errors is 0, and dmesg has no
-bch_count_backing_io_errors or md/bcache I/O errors.
+Because DRM_USE_DYNAMIC_DEBUG still depends on BROKEN, patches 2-4
+were build-tested with that dependency locally removed. That un-BROKEN
+patch is intentionally excluded here, as modular DRM probe-time
+drm.debug support (and external users like drivers/accel/) still
+need the separate/pending classmap fixup series.
 
-Caveat: the local workaround (udev rule zeroing discard_max_bytes on
-md*/bcache*, plus nodiscard mounts) is still in the initramfs, so the
-HDD-backed array has not received discards on this boot.  The loop
-reproducer is what exercises the changed code path.  I can do a
-no-workaround boot and a scratch-LV discard test if you want that
-before this goes to stable.
+Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
+---
+Changes in v3:
+- dont need both ccflags-y and subdir-ccflags-y, latter covers former.
+- Link to v2: https://lore.kernel.org/r/20261120-rd-mostly-v2-0-88056ede02a8@gmail.com
 
-Note: 7.2.y is EOL (7.2.15, 2026-11-01), so the "Cc: stable # 7.2" is
-stale; v7.3.5 still has the old code, so the fix is needed in 7.3.y
-once this reaches mainline.
+Changes in v2:
+- Add subdir-ccflags- propagation in drivers/gpu/drm/Makefile (patch 2).
+- Add unused `category` warning fix under CONFIG_DRM_USE_DYNAMIC_DEBUG=y
+(patch 3). 
+- Add __drm_debug and ddebug_class_param.bits shrink to unsigned int
+(patch 4).
+- Link to v1: https://lore.kernel.org/r/20260926-rd-mostly-v1-0-28b7d714ed2c@gmail.com
 
-Tested-by: Konstantin Nikiforov <helllamer@gmail.com>
+---
+Jim Cromie (6):
+      drm/print: Mark __drm_debug as __read_mostly
+      drm: Fix incorrect CFLAGS-y spelling inside Makefile
+      fixup-makefile
+      drm: fix config dependent unused variable warning.
+      drm/print,dyndbg: restore __drm_debug to uint from ulong
+      drm-dyndbg: drop BROKEN on DRM_USE_DYNAMIC_DEBUG for testing (DONT_APPLY)
 
-#regzbot fix: md/raid5: complete unsupported discards successfully
+ drivers/gpu/drm/Kconfig.debug | 1 -
+ drivers/gpu/drm/Makefile      | 3 ++-
+ drivers/gpu/drm/drm_print.c   | 7 +++----
+ include/drm/drm_print.h       | 2 +-
+ include/linux/dynamic_debug.h | 2 +-
+ lib/dynamic_debug.c           | 8 +++++---
+ lib/test_dynamic_debug.c      | 2 +-
+ 7 files changed, 13 insertions(+), 12 deletions(-)
+---
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+change-id: 20260925-rd-mostly-6a2fc0cd6fd6
 
-Thanks,
-Konstantin
-DeepSeek Harness 0.2.2-rc.5; model: deepseek-flash
+Best regards,
+-- 
+Jim Cromie <jim.cromie@gmail.com>
+
+
