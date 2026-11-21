@@ -1,103 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795268314;
-	b=e4r78nHbuRBuLhpLLRV5Q0Q5wnYbaMbW9RmL5T5zdImSWmmCU3RNg3mh8YVYR7oQNIRe
-	 opmIv+Bsv5w/s4EJ9U7QebXDQMvm8MsRrk9G2YGIMKRIfRicouRjfsG2IKORc1/wJNSaG
-	 rBKPPLgopYYqJwvo9us0TRnlySzc/c9aG91l3TiegSLXFHVLb4X1ABPuaiGrrCqyk4JMR
-	 0ymBfS1fkjSIe5fsT9W5d0KjRMYWUwV+9nsYOYGiPbSszV3rzHcSB13JoiBaE3a2wHlJ/
-	 +9fqFzVhiIoDQm1puo5QSRfgffNNDhjicpQ3yiBYrkjsN5Y1aaRhkBUhY942LBE3oUQ==
+	t=1795268375;
+	b=2TzP4IcBwjM6Bm8OJEIjiU4MS++z9wbOE+x5QQl3SLRsn6Q4Jzn+3p7nqxkvBfQrcdUN
+	 s5R26JOrpQSfa5cHZVPQnwDBzvqCYw2CpEjZ+Fx/QEp0Tc/pWRo89wV79tvruMfbJnVjs
+	 DBchhxhOOKlkBn8duRYIwtlYAl8iYLyMZtrJI/JXivgGig+MtFH3LztOjEfeFy3NsAXLv
+	 8XTPwMRFunBrL75e8zKbMPCEI9e96WEbJ6gW6XCarnQUvNf+aSEwd2NCaZ1izE2NhDQ+f
+	 Pd141C+Yiu3epmKgHd3V+Tm46h2PuUo7pkaovVWjMyJZtLfxqiyRV208LmichQRq8sQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795268314;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795268375;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:In-Reply-To:References:Content-Type:Date:
-	 Message-ID;
-	bh=2JcSkgOAc70yUl0xOGsAkRmn2yrqWyaYEB22eRFKz4Q=;
-	b=g0SThnSvVQ4kDHzf0xBf4U5G6wmGLfUxudfR8xC6iymtkuHu0zAkQSBZ3fCGM7lcfIFR
-	 6DdBIBwUcFNPFabxaC3cn9Zz4p3qPO1u0InH+lel6CoTTTHncwsyL1uqCEaytFvxybpG3
-	 sTr3j3jR8yx8mdgBTJp7z4JfILp5Nofl2bgXdgr7tl6h+kyafH5OU+wQMaaSxFbyDNVGC
-	 SKfC0iSCehQ+bRGOnVjZu+PLihg5I1JigYs3T0YELGYcCB+LyxnjLMCrJ4xUcmVrNybso
-	 3tm6m5X8bJJsvI2XppsrrKIAo/a7sKzb4X0jdNwEDrhv/U68Lp0pOviVf2rRoknTpDQ==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=jpAB7bN4jOX4zDM3zWu+BqiTANE8OqvGyHkfG0EgWp8=;
+	b=nwZ6av9kdCK8tBiBV0jbvlb8QrAHLxXpkyzEpN7jbhZzDhVEd6/KF3a3cALOk3EEyAlK
+	 h59an+Gs7b3Tj0g8eKCvMQzhpvv6FU3BGjn3HgvPl8ODQs9qbO0Kwuk+aJxHeeGWmzsrR
+	 gplMVl+oGjO1Hk1XteIYUIaIBXwsPUr0qcLCO4wB28BfbN8wKxs8HjQpsYqSx2IPvq5to
+	 WaZIFLewgmSeQYxe6p4cfGw1tkT7dJacI7yd93WBQq/6YgzFnj6Dgu3dfYB7phCNwvpYp
+	 XPa7CC3XVFE1PO8SBXrbWOLQRbGXiEBANm/MRps+x+ZB55TxRVmXenaARVQUgIRduOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NiI8guW9;
-	arc=none smtp.remote-ip=209.85.216.43
-Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x0GmXMpc;
+	arc=none smtp.remote-ip=209.85.214.180
+Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A53F3606A32C
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:38:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A53F3606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B70C606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:39:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B70C606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NiI8guW9
-Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3ae691283ecso896640a91.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:38:33 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x0GmXMpc
+Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2f02f04a426so15388935ad.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:39:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795268313; x=1795873113; darn=vger.kernel.org;
-        h=message-id:date:content-type:references:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2JcSkgOAc70yUl0xOGsAkRmn2yrqWyaYEB22eRFKz4Q=;
-        b=NiI8guW97trs2YALHBUQx5HwUu1q8e+xkO4IqLHlA4TYdHvu7rzrplXh+EWPxIKrd7
-         z9pXZcroA89w541dMTytKW0zYAAHKhG2OQG79hskyNXx9Ops5jcgk48JQUCJjk8zfQ5/
-         rG2dSVnCXgjNygIlV7c8yByNBjP6yj4vyKtWFGCG5VUlvRZI8Ee8H7rF9Q7BYZZCRU7S
-         VE05mPAu0L6B/mejL7DpatGB2CpMceBiI+5ohCWORZ9wLBvpVugXnNIOI119HfeK4pG7
-         9QmZNgHPcUEE0pf6cCpXVyoEhO0zjI5MD3Jpb9m+PYqHS3x+fJ0cERtzroQmpFsQxNv9
-         geTg==
+        d=gmail.com; s=20260707; t=1795268374; x=1795873174; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jpAB7bN4jOX4zDM3zWu+BqiTANE8OqvGyHkfG0EgWp8=;
+        b=x0GmXMpcJGEGUgPPs38gakwdA6J6Z0yLES82zLYAFZLqsbI/lndHmKNXRzl/mvoskn
+         XKlNKB+5kMzOTrRf6SM1je6hFibJUyQ4CBKY1OrWOpFHh0uVsiehpwzlbwC6ZpR0FapB
+         a9Wiyz0iwaw0PQa67CPgPMv1wpd2wbSKX8D0Sf9QXzwur2fJj8AdAj/n5oH3jvUjCAB+
+         lUL7doeJadhWhrDsV7LUeXgr9H6M0Il8DnFZ9xynGi6WUcendggG/Z6WP8pU8YlDYQgt
+         /KAoFs8ASbifr0GK4SteOXLxN1kX2EGyrEe+zfHYAgcIv6TtUi7tNEmW37akNyRLEPEB
+         wI9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795268313; x=1795873113;
-        h=message-id:date:content-type:references:in-reply-to:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=2JcSkgOAc70yUl0xOGsAkRmn2yrqWyaYEB22eRFKz4Q=;
-        b=h93IBtO9Fq59m4PbCYJ5GWGZw3DhzTJ9NjfLDTAEQxrYrab6EmZ6MXDIOkNfxnl+ek
-         qd1aQSWCzYym8FA97mybUUSdO6oOP55FTX78u6JYuMKkdxCWSCYFV5u+3gkVnhpBAQHX
-         C9RTCapZ/F7eMvEU6SMsGduRGZ5a6OxtJsWQIWqeOW/ZyVSskWEL+NPy7MPN9nK2sRxc
-         FpFv9PioC2XqTwLuCCcpg3cMPe48UTb5fr97pj+PfN4x2Ecxh/MHkOIK19fxphYO0qPC
-         1B80fDV6/uUiUFFYyKCUZHe/J/f8eQCZd/liQkrfUX3QHl/UPfDB1PbaJJThIcIKUxxO
-         9fNA==
-X-Forwarded-Encrypted: i=1; AL+hErExyb7AphFvRIKiSRKJXE559UkaFnEea5lXiqI7BN5ok14H1PFFgVNcQZ0p2uHmzGaERPDTgYpIzhg53Wc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/akDuizxw/WugWv53ckAlGmaR5grw5VC26+PFzI1FyhMPAEta5
-	yFaR0IjZ5EnW6jJ3A7JFAq8ivmDScor4eA2+lq9GiDb2Fy1K3/fozmmR
-X-Gm-Gg: AZFdTZeSKmGhn6Uue9XtbkCs9pqVPfvd1Vnp433b/cI6HldoxGgd8AiUHbdR7HSYwoX
-	ChXenBSEFLr4srHQWYzVa6HT0rsVnSgVmKmzfh1KoMOFSpiQa+86gWi8YSa37ahbFrMCvKz9gn3
-	Pb6JvR0xllqEdNB8LV1W4dhM/m4iHg6YVHq7JL5u42FkxxiqTLpRrPQbrleDQ3zmcmZIh4nqIPu
-	GxumcAd4Myat9FXA9v/gn835veh7bmndHAd1gDb7XZK2FckGaSaIK5LyI57wC3UJ8NQc5dNGlva
-	2bKGEavxK1ahUqyq0LF5sf2gMTW2okpGJAQN1AWv1EYBTmaCwxIrZLI8wq9AIg/Ju/eYfW/C+0Z
-	7aCZ0cP+kJYHkZJER96O845jxoa2TqvVU2bdngldLKdojw3Hd0qC5IX4ldP9ujorSBi83IBBG2q
-	g8lwGzCY9B0m+HpQt7TSyErD0NSTUowMH1bWhMJduR9H7Qvs5lfDhOdwQI2U43jyPuiVDlQCRJ4
-	zYcFMkQoXbCu6K80JBskj4yZBqAJsuKBO7lQhMil+CM09XVkaTUyMLhsJ4TG7B18mbk6+Qj6vgZ
-	+O4J4nOVKOBpgdFPacxvL6Pwwhbn112iHoUwEXNy1f5yDG2Z5MwGIs7voxmN6rr35H/JAMF4odk
-	=
-X-Received: by 2002:a17:90b:2f8f:b0:3a0:d82b:237b with SMTP id 98e67ed59e1d1-3b41c938926mr3785656a91.25.1795268312893;
-        Sat, 21 Nov 2026 05:38:32 -0800 (PST)
-Received: from DESKTOP-UCPRL76.localdomain ([113.200.174.114])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b7f4899sm2032844a91.4.2026.11.21.05.38.28
+        d=1e100.net; s=20260707; t=1795268374; x=1795873174;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jpAB7bN4jOX4zDM3zWu+BqiTANE8OqvGyHkfG0EgWp8=;
+        b=v6mWewstzfQ+HFNItyOHo0fzMALaoFivlXMcS0eznAP4T+ksFO/cLwhmqJP50kKg+I
+         xcint7iqe7+f0lryYqOyqtBCFiAuLRwElizqulm/6VboJbn6jOO6LdG/IdSjBLHt4G7l
+         0rLr+jJ3Sk/yQOVOQ3rWcuvZcCWxHWjsAzAp1xNkmKEx89klYt8ugc6wrRQ5W+snF35S
+         +wizpU2pkKp7885CmRZk6Uh+3l5QVEKE8x1qzZ9EZT7CZuo8H/JNQXqauEYZGA4iNSew
+         /QOCVLYWaN6H7j+6kJaZhX1u3T+lQu1QsPj/hTNYU0B5iE4ZDdv5Z2h8tSv30ZLNGBfD
+         MTeQ==
+X-Forwarded-Encrypted: i=1; AL+hErGnhiGp1cR0iSlq3/ZutLDy4eS3QNXJFImy5t7c9E2H/KeSuzsXr/KobHaFdK5VAmOGholCR1o54IZGYgc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9q7Dj6ATRHfJ93EG9SZitjMEyosTw7KF7BplU1ZJZB8RaGmU2d
+	C3a4vkiCuuh51FKiowRn7+07Z8NK0OxxrzGiPeEyAB9wlXyVo5x9cBYk
+X-Gm-Gg: AZFdTZcf4ly8kYm5oGu/+z5qUOEgiQxRGPl0JeVUy9Miyiypgx7/p42CGz9S12KfQrt
+	WDpWORuG7x8J/OCnV72jSMImtbyv3TiVTyssNSOxvkLZiSNSH3hHOaTEhEmaAwo3f4IPuWDnDrv
+	oNs/ak8A3Y52YAZFTNoQPGEu7vNN4maAPoyKdm4jju+0/LQQx2btdz8pmUi/MdnIBRA/21bIgDc
+	hUd3EtGlOO6VQUtPJXQNAH7155MxtIaOAXF8gixg38+yfnQYDeEeQFsqZ7awoNRBIjHMwkIMZ1c
+	eEa41CGQg4KQC7vpk8nbAaeCyBi8Dr0mjVJ2PojSbxazj4BE6vNiFU00GYNXEZlAsZgf14oMIQ0
+	ol71ke1wB6Le8Ds++3Cv1nBUhcITXfqF1yjAgqtS3DoXmxFt4FsOAPi+CkqrUQhAHpmBkfOPfKa
+	5DH/Fkxct3GHaDlBUunPppK8LadxlBfhVYLUI4z+sbQm7dJNlGo0QrMucU5TKpMBdr4bHqPx4Is
+	3yYttZiZDpP2lAK1AT8NpYbAgah4o07lnC9oVhw0Qz38Za+7OSKnjzO+QmX5cfQgshaBI3C0tdt
+	dvOVqZ+Q5hvDmbmqbWXs1dYh4Fa7wHIpAgPx+fg=
+X-Received: by 2002:a17:903:98b:b0:2df:aed3:2ac0 with SMTP id d9443c01a7336-2f03f1cf5ccmr67862115ad.10.1795268373920;
+        Sat, 21 Nov 2026 05:39:33 -0800 (PST)
+Received: from omarchy ([14.139.177.146])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0de00asm26621375ad.35.2026.11.21.05.39.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 05:38:32 -0800 (PST)
-From: Zheng Shuhao <viennaoffh@gmail.com>
-To: Ayaan Mirza Baig <ayaanmirzabaig85@gmail.com>
-Cc: Arnav Kapoor <kapoorarnav43@gmail.com>,
- Jiri Kosina <jikos@kernel.org>,
- Benjamin Tissoires <bentiss@kernel.org>,
- Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
- Jonathan Cameron <jic23@kernel.org>,
- Lee Jones <lee@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>,
- linux-input@vger.kernel.org,
- linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- syzbot+fb951970a334aaff00ba@syzkaller.appspotmail.com
-Subject: Re: [PATCH v2] HID: hid-sensor-hub: avoid lock inversion in
- sensor_hub_remove()
-In-Reply-To: <20261120210317.184756-1-kapoorarnav43@gmail.com>
-References: <20261120210317.184756-1-kapoorarnav43@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Date: Sat, 21 Nov 2026 21:38:25 +0800
-Message-ID: <179526830578.567.7445109567862298713@viennaoffh.gmail.com>
+        Sat, 21 Nov 2026 05:39:33 -0800 (PST)
+From: Vaibhav Chahar <vaibhav.chahar26@gmail.com>
+To: sudipm.mukherjee@gmail.com,
+	teddy.wang@siliconmotion.com,
+	gregkh@linuxfoundation.org
+Cc: linux-fbdev@vger.kernel.org,
+	linux-staging@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Vaibhav Chahar <vaibhav.chahar26@gmail.com>
+Subject: [PATCH] staging: sm750fb: Use str_has_prefix instead of strncmp()
+Date: Sat, 21 Nov 2026 19:08:43 +0530
+Message-ID: <20261121133843.127718-1-vaibhav.chahar26@gmail.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,12 +97,67 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Hi Ayaan,
+Using str_has_prefix() is cleaner and more readable than using
+strncmp() with strlen(). Also avoiding the possibility of errors due to
+mismatched string lengths.
 
-Hmm, I overlooked the latest discussion, which caused some overlap between our patches. Sorry for the confusion.
+Signed-off-by: Vaibhav Chahar <vaibhav.chahar26@gmail.com>
+---
+ drivers/staging/sm750fb/sm750.c | 22 +++++++++++-----------
+ 1 file changed, 11 insertions(+), 11 deletions(-)
 
-We can merge the fixes into a single version or find another compromise. Either way works for me.
+diff --git a/drivers/staging/sm750fb/sm750.c b/drivers/staging/sm750fb/sm750.c
+index 99d410e18..658e93b27 100644
+--- a/drivers/staging/sm750fb/sm750.c
++++ b/drivers/staging/sm750fb/sm750.c
+@@ -854,21 +854,21 @@ static void sm750fb_setup(struct sm750_dev *sm750_dev, char *src)
+ 		dev_info(&sm750_dev->pdev->dev, "opt=%s\n", opt);
+ 		dev_info(&sm750_dev->pdev->dev, "src=%s\n", src);
+ 
+-		if (!strncmp(opt, "swap", strlen("swap"))) {
++		if (str_has_prefix(opt, "swap")) {
+ 			swap = 1;
+-		} else if (!strncmp(opt, "nocrt", strlen("nocrt"))) {
++		} else if (str_has_prefix(opt, "nocrt")) {
+ 			sm750_dev->nocrt = 1;
+-		} else if (!strncmp(opt, "36bit", strlen("36bit"))) {
++		} else if (str_has_prefix(opt, "36bit")) {
+ 			sm750_dev->pnltype = SM750_DOUBLE_TFT;
+-		} else if (!strncmp(opt, "18bit", strlen("18bit"))) {
++		} else if (str_has_prefix(opt, "18bit")) {
+ 			sm750_dev->pnltype = SM750_DUAL_TFT;
+-		} else if (!strncmp(opt, "24bit", strlen("24bit"))) {
++		} else if (str_has_prefix(opt, "24bit")) {
+ 			sm750_dev->pnltype = SM750_24TFT;
+-		} else if (!strncmp(opt, "nohwc0", strlen("nohwc0"))) {
++		} else if (str_has_prefix(opt, "nohwc0")) {
+ 			g_hwcursor &= ~0x1;
+-		} else if (!strncmp(opt, "nohwc1", strlen("nohwc1"))) {
++		} else if (str_has_prefix(opt, "nohwc1")) {
+ 			g_hwcursor &= ~0x2;
+-		} else if (!strncmp(opt, "nohwc", strlen("nohwc"))) {
++		} else if (str_has_prefix(opt, "nohwc")) {
+ 			g_hwcursor = 0;
+ 		} else {
+ 			if (!g_fbmode[0]) {
+@@ -1073,11 +1073,11 @@ static int __init lynxfb_setup(char *options)
+ 	 */
+ 	while ((opt = strsep(&options, ":")) != NULL) {
+ 		/* options that mean for any lynx chips are configured here */
+-		if (!strncmp(opt, "noaccel", strlen("noaccel"))) {
++		if (str_has_prefix(opt, "noaccel")) {
+ 			g_noaccel = 1;
+-		} else if (!strncmp(opt, "nomtrr", strlen("nomtrr"))) {
++		} else if (str_has_prefix(opt, "nomtrr")) {
+ 			g_nomtrr = 1;
+-		} else if (!strncmp(opt, "dual", strlen("dual"))) {
++		} else if (str_has_prefix(opt, "dual")) {
+ 			g_dualview = 1;
+ 		} else {
+ 			strcat(tmp, opt);
+-- 
+2.56.0
 
-Thanks,
-Zheng
