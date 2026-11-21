@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795245332;
-	b=4y5o+BLnBVk1udDzKFwkx/I3k/9Dk53MyqzI4ScXtuOVlpjMGLET4KEcReO8NsqeEEe4
-	 JCiUd+ku54SnCK9+BZ5AnC71dncOA/ILYfBXaTwQfCBozvRua3pkjV6OabIgLH+SihJpX
-	 Nyue+O00/HTr5dA4kx6tRFsurKC44ztl45LuBEaaVU2szHQxz/EabjtAo/AKfP4gFVXST
-	 K2ifOM+Y18Y1KRiITg16tPc8VgO5f+OOfvpP0ZmHfjIcMWifclqPwQAZSpJD3OXcx42GX
-	 fcBC/Y/bHK0ZGZuUIxdjng6c+6P5NOM62GAy4bw7/fd/0dch2u3azq5DeEZMwc60ABA==
+	t=1795245336;
+	b=qhGrqtyD2Gra4mLZCFgbfRyePpPpe6H/VaARoV5IM7QjCJM58Ns9wR30ElYwMmzBfiaP
+	 lbNZfQy3N81eWvE2+pTDsyfbwTUwq80XRPR052ZW86gtnDxY9Yv69ygtZt3YSeBtHFDds
+	 DKjAsyNSVTe1Vil+0L7s0DhUMhJJNEITWPVovhcJR2GDFB0NQomXwX+XH/WlJZu0FAtgy
+	 SNbQOXDvSNaC8z89elOSgju5RFwUx+nbL88jZTEwChb0CtyAj7UiM172GlSnriz9anG9i
+	 5fH7wBJjth4544BbzR9vSw89MmcD5byNGgK08GK6mTnibqwq99ZPpO5jgzjEhgzF7fQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795245332;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795245336;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=xehfxoWBrgISLXlBo/1/2M9JN2iv5hKTOq6rJFCfrgg=;
-	b=QTnmlLOmhZAFakb9GBfn98CizRKpuwk3I8QLjOqIE+85fGD57Tz7ia7YpQhBkNm7ckSe
-	 c9kNO0cFlmRZAV89BEbIrc5SvK7sNgCtAFiY2WTugrHV5wbGpoei3ocqCGPsf+0Uae3U1
-	 NBd/N92GN6c4k/kdbTXBy6McFjR/TpDHtxNSqgAt4XRLxvKILZzMhVMNGNyliu+bNurPv
-	 QGsyU9I0008rJLmf7KXzXFMTvbmHCx12IHCMPxlO37rei9SSWloMp4TaA1N3mp3VYja+k
-	 6tVVir8fVCR42wKxuV6cE80kbYjDJvjU5ZcqmE8TLIm1CMhTalSm+JakPTzeyF6907Q==
+	bh=KNdj2KYdydX2zqKT4RqJarDshMygrJ5nIrbhNDBbZ40=;
+	b=qkIIB+sLoGEmhA/jrhJAw3soQ7pC243guNSS6w0tQx8hwEP6TYrNNIgLie27fkxfrRWG
+	 qlBD5YwM+AdTqpW5aIXyE5s4XIJWZ4t5828pV4DRgAF28CB7tfeQ3Rj+3yRW/Q1TPDGC5
+	 bDCSFTuo+faFg2NkIl0TjcR9idEMKOVaRXPlA6XtEjO7b8WEFd7yZzkXuIoH/L2X1b+7Z
+	 muIitnzcEZlssNuCEEQwu9qPhryRiJtO/V2litePrbSuqLBQ+CiXBj4RoHAaU7zcLDkci
+	 307xi8VwuFWH6ICpCS6oDXzs1OSmDM9/zGZsjI+u0r+97q2xoX4tNRGDzTMcbDj5qAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JRqPDBk4;
-	arc=none smtp.remote-ip=209.85.214.178
-Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZsC32Nv0;
+	arc=none smtp.remote-ip=209.85.214.181
+Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14415606A33C
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:15:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14415606A33C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2844606A333
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:15:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2844606A333
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JRqPDBk4
-Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2f0458cc9easo11070295ad.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:15:31 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZsC32Nv0
+Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2f0213202fdso9031125ad.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:15:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795245331; x=1795850131; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795245335; x=1795850135; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=xehfxoWBrgISLXlBo/1/2M9JN2iv5hKTOq6rJFCfrgg=;
-        b=JRqPDBk4Ykh2bcHqsDvCmq4KDoLGs226Qw8ABAVVkWkoT+zmRW7ZpF3CGl2DsnO/3u
-         Dp5hA6OGw6HriAFMGCDEGneetWTMNjS/9aCqZ/PPRXm42opaw8r6qzjAyF2y+rI0Ym6B
-         VAp2LMI15KFru/8a1DpK45TJctKBHpe01XUXim51zJ60p5g6Rdf0hG9IPHLWnw1r4z5I
-         0CVZXOJUr0gBaDRojux2j4NBdo4ftDgrjczsbOvCDHAoHdf5TurrLoljiYKg5KeigfUD
-         rfcd23LuPQW6v32/t8hMmK3O3vmkGEHSOCPqcaVwg8Mls4mUL+gI7vHw0pxejlcNmQ3o
-         hSWw==
+        bh=KNdj2KYdydX2zqKT4RqJarDshMygrJ5nIrbhNDBbZ40=;
+        b=ZsC32Nv0GNTFlvPF6LUsheBOQ6dDrCQfeIUqLfWglbThHMzXFDnQu77u0C6vwUcAga
+         cxywL0qtfi1rDV+VVJM60xhBTmac+JQ764vjh9m0Szq/JAfADKybI7KLkWW4V1a8GOUp
+         ChWaejDRr8CVdXCqKwMRfm6WrmLIK83gK62J9K++dhWrAcYAxDQKjvzGw6DLRrx0oT8a
+         QcymYN8dxfHoTMO3NomPaclhaFc4M2Dc3i/QxcEa+PaIQi3Jf64tbYXOY7jpsc/Yu3Nh
+         9iuwHeAYalABXACpwcbRZHh+lAdm+2gBNahjI35Faz15pZfN86Ltqkp7NHtgiYIsAkMS
+         TgKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795245331; x=1795850131;
+        d=1e100.net; s=20260707; t=1795245335; x=1795850135;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xehfxoWBrgISLXlBo/1/2M9JN2iv5hKTOq6rJFCfrgg=;
-        b=vVID3Nasjkzc8b2C0nXf9XuEvQzgVyWmko/f/U88qNe2Y4gR6Ku+UeHCGoEvP57R5T
-         C/INEnS/3VOJ1Y0/9NCcFenJcNVbiVij32/7aiKMrpI5kujleXn/u7iI2g26YwAqp/Hx
-         Gi4E2y9kt8721EhZYXszm6/6FMoIxe8Zvz2il9UnfnZ9Fk8BWQlJKwWpXH00HoEN1rpO
-         d1PYlQXsgjmH0KUcAamgG7NklAmaqbwpWptBIyUTbe4qwUraqXEbJxuyh1u7SUJDG/n7
-         8BFLOjp5t6rSMRqtgBAhRzCOmJkGZ4WfVPxWR0hN/FKePXI/TfJo9DAB26MsY19ybM1w
-         sVoA==
-X-Forwarded-Encrypted: i=1; AL+hErGFus7AxCDDXly3BItnFNJOfySYwjTdgtfldU9I5WN/jORRVtKd0V0Uva46UhxgnFVoUFp5VWn1DnabWeo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ECrq7AT5RoFTVpb8D2bqDk1hVCbUuFPXF3DgVcD3uvCtbPZsM
-	1j8G40e3Qb5nbikKL/F2mqhWu4BFbnMxYIuQpK0YIlhuP/1t1h6EPcxkZQNuBQCKzg4=
-X-Gm-Gg: AZFdTZe8TnXCcWFhqYz3e/cBxA9JwXi//cHAK+wJlzxQoRpfl57APEnFkq4aYazu/nG
-	HZtQw5dpph0LS/B/XJFLyguOnfV4fbwM6nuXSqIBUsw6keLnvRKlaqmCvP1BmDUnzLKpY7YOno9
-	IjgnmJ89bgfrw4lOGw0Nhvq8ROXy7Yy15DrLOqiHJ7VYmaR9IT1j351v5lw8SRx1gp5S418Yxaq
-	PeDXalSWD03bxxWiy1nsF8mY4uldqoMkrfW3Bp4O0A1rWBjFdLLoB1Li8v6AcvSV2SmqcDlZ7jT
-	6v8ntGJVPxGaFLx3Ryvs+i4nK9SuhCGEWz2sYbAV489NbFBoPEmcoEq9WM9xffSGlJSPOPTkUGB
-	pa09XD27lnI4fTLDDooPq37LF2G74WXVi3nZfq3aWD8EhCNmbzLQXblutOyBKut24IexbU7WSqq
-	4CzEbB21pgEJsAMZ3m011wf4LKQqggEC/kf97z0lkOmfj1Opm3K1b1iaTDSt6cnIHzfZwSDH5Vl
-	Ooc7ldVUosIDZi8gXbBouKlQuMezkV8HunUz9RpggHTvb2MskX1xDQzTT3AYfbB1EImFumdP00W
-	y4Wo2lZIEkCi7Pa9ZSYg5JZq
-X-Received: by 2002:a17:903:4b04:b0:2ed:1ef3:9ec with SMTP id d9443c01a7336-2f03f17d159mr56885465ad.14.1795245331194;
-        Fri, 20 Nov 2026 23:15:31 -0800 (PST)
+        bh=KNdj2KYdydX2zqKT4RqJarDshMygrJ5nIrbhNDBbZ40=;
+        b=D74C84ydAzUaCFKpZN3IE81hdf6SW9FrfgSewXuUKlsXAyLqz7KB4xs5oZ++wICO3b
+         IakJHHSbiqrughLfy3bDxCaI0vz9ZJ6sMWMrthpnccNb/NFd0JHbzmPn+qfIgh9TVnst
+         exOxheV11aIn/8oz6iiQVNMBzmAFCfXMx3XBphasWsyVairRUQd5Q5imxxwOYavgpdN/
+         YCZ0SwN8ILzf5I75TSvXU+ei+/YQOOB7Dx/achuSyePgQ6937YGt5LEUjuCHZCdhUlxR
+         lPmn4MO5LjHKQ6qRVgxxTH9L8MS6STRaYEL40w0AcNvOUUQwwrQCC2lurB1uMljfEjpl
+         43YQ==
+X-Forwarded-Encrypted: i=1; AL+hErGsYaAeNAKLOHXQWCRzMN4e3bSZ6dwUiDRKdbb4So2+ovK5SqmJwehGmbTlF73tjeon2MJM+tRk925PAVM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9AoVb3qeNTbJkdu3hKpeQqPQWX+a7D7Ul179+KZ3mbdpQ4yhFt
+	+2CBchaVOSDHBMXUMxcAqPgCyNgrkJMWoD5bmuwypSI5CFUHrSSeYHdO
+X-Gm-Gg: AZFdTZfE3DLbZMJJpe3c/MyUHNmUQMvrOdV819eiZWVf591Ja2MMdvF2ZAvJLQq4uAL
+	2RkCWohMfaaTYTlU+DJROkxdMdCR58O5XF6p/2tuX3B7oID6SLXlSewb+ucV5JKXcsAHg9sV0/R
+	ldKCtUhno5dOYttjhYMjHGinzHgcj1pnSruSdUR9n1AHv3EiixMm6+tXvGWhd+6+oeYrX4Vg07y
+	d+AqG/nTIXr+vUoH2FLjdJAPO9hYcx0m3X5E8VUOVc0OwcMzJRWsgtd9MHB/PQZ3HCDaPzZU5b1
+	TkNlHUgk6PdSMkUmYaDEk77qSR8ZM3bqsmG4AaFT3WDM4ztPPwFCf53PtKwuF6BAfDjd/Hmc/sk
+	+0zXjV5Vyb+XHsacVHwdM1GmPW4sqsJFg3wYAiS3fzT0Yru4w4mVaG0mlJf/fhyF0KBw7Xixa0l
+	cKZ2KdQ0zOslXXgVgP6k0azdO++Zdci3BaMJNIFgalO5SQjR7fT3PGElRz3gkxQPdSPaPM4RbCV
+	T5Hx0yLHW2RHaqC5lAMvw4iw71WONT6hZPHp0IFUMbX69o6PVYczUTKjim90zqRmL6sPmkgabYx
+	PiyOh0fz5kvQfwebsiNy98YC
+X-Received: by 2002:a17:902:e847:b0:2f0:2c63:8bff with SMTP id d9443c01a7336-2f03f1c0088mr59655895ad.39.1795245334948;
+        Fri, 20 Nov 2026 23:15:34 -0800 (PST)
 Received: from localhost ([111.228.63.84])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f04f6049dfsm13508675ad.19.2026.11.20.23.15.28
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f04f6049dfsm13508675ad.19.2026.11.20.23.15.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 23:15:30 -0800 (PST)
+        Fri, 20 Nov 2026 23:15:34 -0800 (PST)
 From: Cen Zhang <zzzccc427@gmail.com>
 To: marcel@holtmann.org,
 	luiz.dentz@gmail.com
@@ -86,9 +86,9 @@ Cc: linux-bluetooth@vger.kernel.org,
 	baijiaju1990@gmail.com,
 	jjzuming@gmail.com,
 	zzzccc427@gmail.com
-Subject: [PATCH 2/3] Bluetooth: MGMT: Claim pending pairing before immediate completion
-Date: Sat, 21 Nov 2026 15:15:17 +0800
-Message-Id: <pm-bluetooth-objects-candidate-0167-v9-45c99868af18e41665a3-2@gmail.com>
+Subject: [PATCH 3/3] Bluetooth: MGMT: Reject advertising data while parameters are pending
+Date: Sat, 21 Nov 2026 15:15:18 +0800
+Message-Id: <pm-bluetooth-objects-candidate-0167-v9-45c99868af18e41665a3-3@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <pm-bluetooth-objects-candidate-0167-v9-45c99868af18e41665a3-0@gmail.com>
 References: <pm-bluetooth-objects-candidate-0167-v9-45c99868af18e41665a3-0@gmail.com>
@@ -103,122 +103,186 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-pair_device() publishes a pending command and installs the connection
-callbacks before checking whether security is already sufficient. SMP
-completion runs without the handler's device mutex and can consume the
-same command during this check:
+An ADD_EXT_ADV_PARAMS request retains an instance number while its
+completion runs later in request work. ADD_EXT_ADV_DATA can remove that
+pending instance on a validation error and a later request can reuse the
+number. The old completion then resolves the number to the new instance:
 
-  Pair Device handler               SMP completion
-  publish cmd and callbacks
-  hci_conn_security()
-                                    remove_pairing()
-                                    complete and free cmd
-  read cmd->cmd_complete
+  Parameters request                Management handler
+  queue parameters for A
+                                    invalid data removes A
+                                    create B with A's number
+  complete parameters for A
+    look up the instance number
+    read or remove B
 
-Use pairing_complete_cb() for immediate completion too. It claims the
-request through remove_pairing() under mgmt_pending_lock before using
-it. If SMP has already claimed the command, the callback finds nothing
-and returns; otherwise it owns completion and release.
+List the parameters command as pending, validate and claim it before
+completion, and copy its instance number under the pending-list lock in
+the request function. Reject advertising data while parameters are
+pending so the data handler cannot retire the instance in that interval.
+
+The report below was captured before the separate RPA work initialization
+fix. The stale completion can still select and remove a replacement
+instance after that fix.
 
 The excerpt below retains the headline and stack traces.
 
 KASAN report as below:
 
-    BUG: KASAN: slab-use-after-free in pair_device+0xfcd/0x1070
-    Read of size 8 at addr ffff88810b001f48 by task python3/561
+    BUG: KASAN: slab-use-after-free in adv_instance_rpa_expired+0x2c0/0x2f0
+    Read of size 1 at addr ffff888110924b2e by task kworker/u17:1/501
 
+    Workqueue: hci0 adv_instance_rpa_expired
     Call Trace:
      <TASK>
      dump_stack_lvl+0x93/0xd0
      print_report+0xce/0x630
-     ? pair_device+0xfcd/0x1070
+     ? adv_instance_rpa_expired+0x2c0/0x2f0
      ? srso_alias_return_thunk+0x5/0xfbef5
      ? __virt_addr_valid+0x20d/0x410
-     ? pair_device+0xfcd/0x1070
+     ? adv_instance_rpa_expired+0x2c0/0x2f0
      kasan_report+0xe0/0x110
-     ? pair_device+0xfcd/0x1070
-     pair_device+0xfcd/0x1070
-     ? __pfx_pair_device+0x10/0x10
+     ? adv_instance_rpa_expired+0x2c0/0x2f0
+     adv_instance_rpa_expired+0x2c0/0x2f0
+     process_one_work+0x908/0x19c0
+     ? __pfx_process_one_work+0x10/0x10
      ? srso_alias_return_thunk+0x5/0xfbef5
-     ? do_raw_read_unlock+0x49/0xe0
+     ? lock_is_held_type+0x8f/0x100
      ? srso_alias_return_thunk+0x5/0xfbef5
-     ? _raw_read_unlock+0x23/0x40
-     ? __pfx_mgmt_init_hdev+0x10/0x10
-     hci_sock_sendmsg+0x128b/0x22e0
-     ? __pfx_hci_sock_sendmsg+0x10/0x10
+     worker_thread+0x65c/0xe40
+     ? __pfx_worker_thread+0x10/0x10
+     kthread+0x34f/0x460
      ? srso_alias_return_thunk+0x5/0xfbef5
-     ? selinux_socket_sendmsg+0x160/0x280
-     __sys_sendto+0x425/0x470
-     ? __pfx_hci_sock_sendmsg+0x10/0x10
-     ? __pfx___sys_sendto+0x10/0x10
+     ? __pfx_kthread+0x10/0x10
+     ret_from_fork+0x659/0x940
+     ? __pfx_ret_from_fork+0x10/0x10
      ? srso_alias_return_thunk+0x5/0xfbef5
-     ? lockdep_hardirqs_on_prepare+0xea/0x1a0
+     ? save_fpregs_to_fpstate+0xd7/0x230
      ? srso_alias_return_thunk+0x5/0xfbef5
-     ? __x64_sys_poll+0x11a/0x430
-     ? __pfx___x64_sys_poll+0x10/0x10
-     __x64_sys_sendto+0xe5/0x1c0
-     ? lockdep_hardirqs_on_prepare+0xea/0x1a0
-     ? srso_alias_return_thunk+0x5/0xfbef5
-     ? trace_hardirqs_on+0x18/0x160
-     do_syscall_64+0x115/0x6a0
-     entry_SYSCALL_64_after_hwframe+0x77/0x7f
-    RIP: 0033:0x7f2c2833e687
-
+     ? __switch_to+0x74f/0xf80
+     ? __pfx_kthread+0x10/0x10
+     ret_from_fork_asm+0x1a/0x30
      </TASK>
 
-    Allocated by task 561:
+    Allocated by task 519:
      kasan_save_stack+0x33/0x60
      kasan_save_track+0x14/0x30
      __kasan_kmalloc+0xaa/0xb0
      __kmalloc_cache_noprof+0x251/0x610
-     mgmt_pending_new+0x60/0x230
-     mgmt_pending_add+0x3b/0x180
-     pair_device+0x633/0x1070
+     hci_add_adv_instance+0x756/0xae0
+     add_advertising+0x85c/0xff0
      hci_sock_sendmsg+0x128b/0x22e0
      __sys_sendto+0x425/0x470
      __x64_sys_sendto+0xe5/0x1c0
      do_syscall_64+0x115/0x6a0
      entry_SYSCALL_64_after_hwframe+0x77/0x7f
 
-    Freed by task 522:
+    Freed by task 500:
      kasan_save_stack+0x33/0x60
      kasan_save_track+0x14/0x30
      kasan_save_free_info+0x3b/0x60
      __kasan_slab_free+0x5f/0x80
      kfree+0x307/0x580
-     mgmt_auth_failed+0x238/0x3a0
-     smp_recv_cb+0x1ccc/0x8d80
-     l2cap_recv_frame+0x16f4/0x8b10
-     l2cap_recv_acldata+0xe9f/0x10e0
-     hci_rx_work+0x5a6/0xf00
+     hci_remove_adv_instance+0x222/0x550
+     add_ext_adv_params_complete+0x2b9/0x880
+     hci_cmd_sync_work+0x207/0x450
      process_one_work+0x908/0x19c0
      worker_thread+0x65c/0xe40
      kthread+0x34f/0x460
      ret_from_fork+0x659/0x940
      ret_from_fork_asm+0x1a/0x30
 
-Fixes: a511b35ba4f0 ("Bluetooth: Fix incorrect pending cmd removal in pairing_complete()")
+Fixes: cba6b758711c ("Bluetooth: hci_sync: Make use of hci_cmd_sync_queue set 2")
 Signed-off-by: Cen Zhang <zzzccc427@gmail.com>
 ---
 This patch was written with assistance from Codex (OpenAI).
 
- net/bluetooth/mgmt.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ net/bluetooth/mgmt.c | 39 +++++++++++++++++++++++++++++++++------
+ 1 file changed, 33 insertions(+), 6 deletions(-)
 
 diff --git a/net/bluetooth/mgmt.c b/net/bluetooth/mgmt.c
-index 68fc33542645d..947d308145e37 100644
+index 947d308145e37..dfc2d276a8107 100644
 --- a/net/bluetooth/mgmt.c
 +++ b/net/bluetooth/mgmt.c
-@@ -3853,10 +3853,8 @@ static int pair_device(struct sock *sk, struct hci_dev *hdev, void *data,
- 	cmd->user_data = hci_conn_get(conn);
+@@ -9286,7 +9286,7 @@ static void add_ext_adv_params_complete(struct hci_dev *hdev, void *data,
+ 					int err)
+ {
+ 	struct mgmt_pending_cmd *cmd = data;
+-	struct mgmt_cp_add_ext_adv_params *cp = cmd->param;
++	struct mgmt_cp_add_ext_adv_params *cp;
+ 	struct mgmt_rp_add_ext_adv_params rp;
+ 	struct adv_info *adv;
+ 	u32 flags;
+@@ -9295,6 +9295,12 @@ static void add_ext_adv_params_complete(struct hci_dev *hdev, void *data,
  
- 	if ((conn->state == BT_CONNECTED || conn->state == BT_CONFIG) &&
--	    hci_conn_security(conn, sec_level, auth_type, true)) {
--		cmd->cmd_complete(cmd, 0);
--		mgmt_pending_remove(cmd);
--	}
-+	    hci_conn_security(conn, sec_level, auth_type, true))
-+		pairing_complete_cb(conn, 0);
+ 	hci_dev_lock(hdev);
  
- 	err = 0;
++	if (err == -ECANCELED || !mgmt_pending_valid(hdev, cmd)) {
++		hci_dev_unlock(hdev);
++		return;
++	}
++
++	cp = cmd->param;
+ 	adv = hci_find_adv_instance(hdev, cp->instance);
+ 	if (!adv)
+ 		goto unlock;
+@@ -9335,9 +9341,22 @@ static void add_ext_adv_params_complete(struct hci_dev *hdev, void *data,
+ static int add_ext_adv_params_sync(struct hci_dev *hdev, void *data)
+ {
+ 	struct mgmt_pending_cmd *cmd = data;
+-	struct mgmt_cp_add_ext_adv_params *cp = cmd->param;
++	struct mgmt_cp_add_ext_adv_params *cp;
++	u8 instance;
++
++	mutex_lock(&hdev->mgmt_pending_lock);
++
++	if (!__mgmt_pending_listed(hdev, cmd)) {
++		mutex_unlock(&hdev->mgmt_pending_lock);
++		return -ECANCELED;
++	}
++
++	cp = cmd->param;
++	instance = cp->instance;
  
+-	return hci_setup_ext_adv_instance_sync(hdev, cp->instance);
++	mutex_unlock(&hdev->mgmt_pending_lock);
++
++	return hci_setup_ext_adv_instance_sync(hdev, instance);
+ }
+ 
+ static int add_ext_adv_params(struct sock *sk, struct hci_dev *hdev,
+@@ -9431,8 +9450,8 @@ static int add_ext_adv_params(struct sock *sk, struct hci_dev *hdev,
+ 	 * will be programmed once the instance is scheduled.
+ 	 */
+ 	if (ext_adv_capable(hdev) && !adv_overridden_by_global(hdev, adv)) {
+-		cmd = mgmt_pending_new(sk, MGMT_OP_ADD_EXT_ADV_PARAMS, hdev,
+-				       data, data_len);
++		cmd = mgmt_pending_add(sk, MGMT_OP_ADD_EXT_ADV_PARAMS,
++				       hdev, data, data_len);
+ 		if (!cmd) {
+ 			err = -ENOMEM;
+ 			goto remove;
+@@ -9441,7 +9460,7 @@ static int add_ext_adv_params(struct sock *sk, struct hci_dev *hdev,
+ 		err = hci_cmd_sync_queue(hdev, add_ext_adv_params_sync, cmd,
+ 					 add_ext_adv_params_complete);
+ 		if (err < 0) {
+-			mgmt_pending_free(cmd);
++			mgmt_pending_remove(cmd);
+ 			goto remove;
+ 		}
+ 	} else {
+@@ -9545,6 +9564,14 @@ static int add_ext_adv_data(struct sock *sk, struct hci_dev *hdev, void *data,
+ 		goto unlock;
+ 	}
+ 
++	/* Preserve the instance until its parameters complete. */
++	if (pending_find(MGMT_OP_ADD_EXT_ADV_PARAMS, hdev)) {
++		err = mgmt_cmd_status(sk, hdev->id,
++				      MGMT_OP_ADD_EXT_ADV_DATA,
++				      MGMT_STATUS_BUSY);
++		goto unlock;
++	}
++
+ 	/* In new interface, we require that we are powered to register */
+ 	if (!hdev_is_powered(hdev)) {
+ 		err = mgmt_cmd_status(sk, hdev->id, MGMT_OP_ADD_EXT_ADV_DATA,
