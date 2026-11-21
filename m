@@ -1,109 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795222107;
-	b=tgqh5H03DPLdn/Ii/fVHRGobHxuYed0xwe7FJmQDsciW/6q6XSe1Z81cF3Ko6sQuTR+I
-	 gPg+aqA8FHRyN1MF2afaJ5J/0Q4kYkMX+5SKFkW1FX90U8DrCFiYWjOKfvGHkAXqc5QL0
-	 cYAfxwpiKCiJ5i+t5HGFAnEG3xdDtCI60+qSZ9lTEZ8iWDib0bnOhtLEx79aelRG10Owq
-	 5CaLoNSTDudixKIdz21lvxrZt5buI8zv+sWJwuDjIU7LS/IHF7EI/tbgr8qqZNW14U7V2
-	 R61RDjNi4uIajFKdKE+q5HO8ljVU1/GOIlBu+ZziDHpgPu2ZThOpQebTZ0nmf99z5wg==
+	t=1795222112;
+	b=YrBGg2XLS4DVxlsG+je8VR5+fan3RPBGGmi7gQSjrEudtJlU0JjsPpkooArKoIO8v9Wm
+	 z6xdC7UNeAiXK6G67PVuSSMNndxv4HyI+vRyJeNY4CtUMFvej+l+JPVtZzVK37Bm0FTgd
+	 hMO+mt2vTOBq17CU8Shigg6qMQtGetJIkgojE5Qv1Xk3Lc2wJdA+NbF0dMVHHQ64iJU4R
+	 OIUP0D+no0fIBT57eHY3B6jOclj46MFrwvKmJpy1KjIpLvUbtIi84olPFeci01H5NvmdD
+	 UYPDxmnTcUqEsxiRrt3jhPy0dgZAIjkv/xUZUYRhGz11jwi7SgCyNjufgNUl0IdnVHA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795222107;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=MwfzvTv0x0cb0+KwHKdlTWaN0+a4w378ig/9ybBrmuY=;
-	b=cZekn6G+gjPOANYGT2KNkVSJbfsoUucvIfp+bmncaIwbo/LmwhUtj1Dsms0kfFmOcptv
-	 QX2JG9dAcB1ML7IWEexBbiokvvZASVzyuyvzlt/X4Sayl7LvtfMVdLoes9m9/5pJ1XSIh
-	 s+24f5BGtIY9x/UfbXT6eAPGbxNmOYj2Axx1wYy/UWLF+qXo1Q5/bvITdd5tU10EdLagh
-	 cXeMy0jvhbUGHCX/spmP+2URaW86zH74hqaScM+RF1wnWhVDl6hw17/tWzro/zKVLjbhS
-	 NAyzo75j1yHiGop+lQ0tfsWjt/Eg9PHowRKG13XaqDsgiSHEsK0AKbBIpw2RCIsDjpA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795222112;
+	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 User-Agent;
+	bh=xZCuNtiE/RvgUGlq9aWOLBkXGZW67SdG7iTq4KVsRT0=;
+	b=36Home8HvwI772l8Tpuy3joqqGNuJPNRE/JlWZzHmI1Ns+DSbEsdEERhxTm4vGkc8uyA
+	 2HIgFwHEPU84LWp5sVYZ15WGZ0AFXY7kInjb9REs44u2iMcV0nfhp24jReW0u/WhLH3h+
+	 BYB6vLTGTJimnx97UX2eU8XKw6bbpJzIpVGlb+FwAVgRhfR1Tv4CH2ciwrfP9/x65rMMt
+	 L3s4ZWreetZTGNYdGby1P3chCXc13+MVJaHI7l9ujXBikvjO5YnER3wbBBlX+yiZmQAuY
+	 MweIDaT7UVWv1PTy428KrEWzevnsGXXa9SLanxkF7S9N1ySnZK73bgDNKLVh3YqrtuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bXgr5u+6;
-	arc=none smtp.remote-ip=74.125.82.54
-Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CgRXbhxB;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BB6860A380E
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 00:48:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BB6860A380E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BD4760A2637;
+	Sat, 21 Nov 2026 00:48:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bXgr5u+6
-Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-1b3a05f8b5bso1903871c88.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:48:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795222104; x=1795826904; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=MwfzvTv0x0cb0+KwHKdlTWaN0+a4w378ig/9ybBrmuY=;
-        b=bXgr5u+6ih3KVrxqwFMuyBXs8vSIs9EdY9cgCC/4mkj1SVtcMA0sD1+9QNPGkShfjT
-         Q+5XEAre6TojMjEO1zYtL+xjHftp3xhF+nAb6LQvfh/SBATvhSIjEPRMbGboM1qCywly
-         uPHM7qioGeVFZ8DupT1bnmwDYAXSR0suLYxS2SWZTVnFjyVLQneaaEwMHv89Ev0GycDm
-         vlMk75Rb8KIYISHHOYOlaovX91q5tWsQafIFXi9B6vOTueJc/Jt/+NnhIP1uyUmkD1ev
-         aP5P4Z6SNTPsA//ibAfhDRNlm7pp6PgE2LKrDvkVJpVtAxEhYpEaCzTKeWdZMt4gRt5i
-         9N8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795222104; x=1795826904;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MwfzvTv0x0cb0+KwHKdlTWaN0+a4w378ig/9ybBrmuY=;
-        b=W9Zp8KkavVAyP4DwjcvrewztCVkCQasQE9tebDpebq0WyqyxEyPk5SVzODXA8k7Ims
-         WG8NYrT4C8KpdwKoqj1bZFzwWhaoJ57kaUDpQPC/9StwAlifZFAho8YaaCVCPw/SAOxO
-         ywPJ1geU68R2O6WRnrfAg5r2Cw15pIhxj4FQZb+cCtg1bMO/a5ex3Hbx9cyIwPksPTje
-         oTdnJQc+4iUMa7PfYtig+Ez5pGRSX8g5+iQ/NOg7LdHeV7cHIaLaziTrjJy1wpDT4ZP3
-         Bkc3TYso9FBB4GYcbHJY/M5jDp7y5gZIo+VRAyESPu63JtIwXA8bpQSJtZgwAuQqMlfW
-         l9+Q==
-X-Forwarded-Encrypted: i=1; AL+hErEMbiXknjIuOKKN1FxBdVmbJrBNuvLnD9A+eBR4J6ZlgWCJV0uF7uXyCN3gqCWou6Txhdfb0uTBMx+dulc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z83vR6O+nmn5ND6mzd1cPfNE6qd1TtQORBR3Vmj0rWTVOfrItIQ
-	UV0ay7PnKWDO5r6lBG2rHO+YNiZBAb0VTX7lIi2JWG2Fy+WP2EH6VjTM
-X-Gm-Gg: AYBFou0H73WEYy0cZ2xGkHMqXwtOIYLztbqqMqVk/i0cj46Q5376iQh285vKmVQaj62
-	wM/LYW7E2QAWutABnX5lf3TNTIEB/jfP1SDjNBmDGEwdUULzbrJJUtwOpC6hf0EMrWWczWOo/TN
-	SLU8hpyL/ubMAeEiYVlDO3F+UjbS6WAmndIll4TQFEBaS6tHmexVD3uIc30Au8pEYESCg14xySk
-	1quC2W4kA/Rrr/QUfCZT+2wlWAkWYLt4+VdKbd6O9wAm42odO2bkaeRAbC0M0eW+E7f/Zq6oLQF
-	7M+sEPVCtln8+rLIkpRAvU0/DKN9zGcZmMHEkRBpV48JdruOqAfTkzuV0hMYZEovqw4HwZUVX0h
-	BbghL+z7ErSI2yInKjLuf6Ky8FBYCYecPWWRm7lrmw4aru1Ky4VGzESF8hC1g3jA1T2eVZ3re5A
-	rZaNWKpSdEgGhY+WGU8hvqQ7fY1d1maD+L8kkQmZq6DPjFuj96wATmFeCdZg5sIeK+vlw2SjHbW
-	DbWY0V89SX/VEz8TiXU8W0yU2DT5EfYNd+l393cDldhwvK+yaHOZxLKfR6dVBrUroDpJJiavfmL
-	7RAQdoaC
-X-Received: by 2002:a05:7022:295:10b0:183:e993:7901 with SMTP id a92af1059eb24-1b556898be9mr4256668c88.17.1795222104119;
-        Fri, 20 Nov 2026 16:48:24 -0800 (PST)
-Received: from eldorado ([2600:8802:b00:1f88::287])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm11462472c88.13.2026.11.20.16.48.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 16:48:23 -0800 (PST)
-From: Florian Fainelli <f.fainelli@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Jijie Shao <shaojijie@huawei.com>,
-	Simon Horman <horms@kernel.org>,
-	Runyu Xiao <runyu.xiao@seu.edu.cn>,
-	David Yang <mmyangfl@gmail.com>,
-	Herbert Valerio Riedel <hvr@gnu.org>,
-	Danny Kukawka <danny.kukawka@bisect.de>,
-	Mugunthan V N <mugunthanvnm@ti.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	linux-kernel@vger.kernel.org (open list),
-	Manuel Lauss <manuel.lauss@gmail.com>
-Subject: [PATCH net v4 08/10] net: phy: smsc: wait for LAN83C183 power-down recovery
-Date: Fri, 20 Nov 2026 16:48:07 -0800
-Message-ID: <20261121004809.1690280-9-f.fainelli@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261121004809.1690280-1-f.fainelli@gmail.com>
-References: <20261121004809.1690280-1-f.fainelli@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CgRXbhxB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A58E71F01570;
+	Sat, 21 Nov 2026 00:48:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795222111;
+	bh=xZCuNtiE/RvgUGlq9aWOLBkXGZW67SdG7iTq4KVsRT0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CgRXbhxBV2XXdfOFv+augDdnz8IFkIp4M0qr+nj8Q977ELdnUdYlZHQqy14fOmZdp
+	 z5ZY8Qm3ykWQ/aj35iKD/uRYKmojimDEI4U4lzUi8pPFPczhK2Q3FL8iYFtjDCIisH
+	 qpUQcKZQabnPBiijcBLsbVFiM5cuvFuvKUNWVLUoU9ASxT59RttAwv3bj8MzoX/Epn
+	 fJatvT9wtsjNygQno791zULziz20T8NLC9vqvvABSYlnsUZBBX9MAa7hjXcIwqHgEZ
+	 pjddEpZE+Qs49ukqQy8eXy0SgGX+dxZO4cqOQSgNlwBCbqt42Y0luK4wuJLqJ9QewJ
+	 /O2q1vbscoLMw==
+Received: by pali.im (Postfix)
+	id C8C114A0; Sat, 21 Nov 2026 01:48:28 +0100 (CET)
+Date: Sat, 21 Nov 2026 01:48:28 +0100
+From: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
+To: Brian Mak <bmak@nvidia.com>
+Cc: Hans de Goede <hansg@kernel.org>,
+	Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>,
+	Kurt Borja <kuurtb@gmail.com>,
+	Stuart Hayes <stuart.w.hayes@gmail.com>,
+	Matthew Garrett <mjg59@srcf.ucam.org>,
+	Lyndon Sanche <lsanche@lyndeno.ca>, Armin Wolf <W_Armin@gmx.de>,
+	Prasanth Ksr <prasanth.ksr@dell.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	platform-driver-x86@vger.kernel.org, Dell.Client.Kernel@dell.com,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/8] platform: dell: Allow DELL_LAPTOP to be
+ arch-independent
+Message-ID: <20261121004828.rk2k2cq4id2ixkal@pali>
+References: <20261121000556.173028-1-bmak@nvidia.com>
+ <20261121000556.173028-5-bmak@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,118 +71,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261121000556.173028-5-bmak@nvidia.com>
+User-Agent: NeoMutt/20180716
 
-The LAN83C183 uses the generic PHY driver, which returns immediately
-after clearing BMCR_PDOWN. Section 1.11 of the datasheet allows 500 ms
-before normal operation is restored. Starting the Au1000 MAC before the
-MII clocks recover can hang the MTX-1 when reopening its interface.
+On Friday 20 November 2026 16:05:50 Brian Mak wrote:
+> CONFIG_DELL_LAPTOP is currently not available on ARM64, due to a
+> dependency on CONFIG_SERIO_I8042. This dependency is actually not
+> necessary, as there is a fallback. Make it optional.
 
-Add a LAN83C183 driver entry and resume callback. Wait for recovery only
-when BMCR_PDOWN was actually cleared, and propagate MDIO errors without
-waiting. Resuming an already awake PHY does not incur the delay.
+i8042 is used for controlling touchpad LED and for receiving rfkill
+events when the dell-rbtn is not supported on the particular machine.
 
-This supplies the PHY recovery delay; it does not by itself fix the
-Au1000 MAC/PHY ordering on reopen. The companion patch, "net: au1000:
-keep the MAC stopped until the PHY link is ready", resumes the PHY
-synchronously before MAC initialization and stops the MAC before PHY
-suspend. Both changes are needed to address the MTX-1 reopen hang.
-Keep this PHY change first so the recovery delay is available when the
-MAC sequencing fix is applied.
+Touchpad led is available on more Vostro and Inspirion machines and
+there is no fallback or detection of i8042 at all. Even there is no
+error checking.
 
-The specific PHY driver must be bound before the MAC attaches the PHY.
-For a built-in au1000 MAC used during early boot, enable CONFIG_SMSC_PHY=y.
-Module configurations must arrange for smsc.ko to be loaded before PHY
-attachment. If attachment falls back to genphy, loading smsc.ko later
-does not replace that binding and the recovery delay will not run.
-MTX-1 validation used CONFIG_MIPS_AU1X00_ENET=y and CONFIG_SMSC_PHY=y;
-the boot logs confirmed attachment to the SMSC LAN83C183 driver.
+And for receiving rfkill events it is same situation.
 
-The LAN83C183 and LSI L80227 document the same LSI/SEEQ OUI and model 4,
-so this ID match also binds the L80227 and applies the same conservative
-500 ms delay when clearing power-down. The entry otherwise uses generic
-PHY helpers and does not program SMSC-specific registers. Hardware
-validation is limited to the LAN83C183; the L80227 was not tested.
+So the dell-laptop driver expects that the SERIO_I8042 is enabled and
+compiled in.
 
-Sashiko AI review identified the dependency, binding prerequisite and
-shared PHY ID.
+If none of these functionality is available on arm64 HW, then it makes
+sense to make the SERIO_I8042 only for x86. And then in the dell-laptop
+driver marking the x86 specific dependency via ifdefs. Which allows to
+compile driver on arm64 without those specific functionalities.
 
-Fixes: be9dad1f9f26 ("net: phy: suspend phydev when going to HALTED")
-Link: https://pdf.dzsc.com/LAN/LAN83C183.pdf#page=44
-Link: https://datasheet.octopart.com/L80223-LSI-datasheet-11757091.pdf#page=73
-Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
----
- drivers/net/phy/Kconfig |  2 +-
- drivers/net/phy/smsc.c  | 27 +++++++++++++++++++++++++++
- 2 files changed, 28 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
-index 30e9d22c8d1a..10466b2574eb 100644
---- a/drivers/net/phy/Kconfig
-+++ b/drivers/net/phy/Kconfig
-@@ -421,7 +421,7 @@ config SMSC_PHY
- 	tristate "SMSC PHYs"
- 	select CRC16
- 	help
--	  Currently supports the LAN83C185, LAN8187 and LAN8700 PHYs
-+	  Currently supports the LAN83C183, LAN83C185, LAN8187 and LAN8700 PHYs
- 
- config STE10XP
- 	tristate "STMicroelectronics STe10Xp PHYs"
-diff --git a/drivers/net/phy/smsc.c b/drivers/net/phy/smsc.c
-index 48487149c225..c0713017e54b 100644
---- a/drivers/net/phy/smsc.c
-+++ b/drivers/net/phy/smsc.c
-@@ -13,6 +13,7 @@
-  */
- 
- #include <linux/clk.h>
-+#include <linux/delay.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/mii.h>
-@@ -684,8 +685,33 @@ int smsc_phy_probe(struct phy_device *phydev)
- }
- EXPORT_SYMBOL_GPL(smsc_phy_probe);
- 
-+static int lan83c183_resume(struct phy_device *phydev)
-+{
-+	int ret;
-+
-+	ret = phy_modify_changed(phydev, MII_BMCR, BMCR_PDOWN, 0);
-+	if (ret < 0)
-+		return ret;
-+
-+	/* The PHY needs up to 500 ms to restore operation after power-down. */
-+	if (ret)
-+		msleep(500);
-+
-+	return 0;
-+}
-+
- static struct phy_driver smsc_phy_driver[] = {
- {
-+	/* LSI/SEEQ OUI 00:a0:7d, model 4; shared with L80227. */
-+	.phy_id		= 0x0016f840,
-+	.phy_id_mask	= 0xfffffff0,
-+	.name		= "SMSC LAN83C183",
-+
-+	.get_features	= genphy_read_abilities,
-+	.suspend	= genphy_suspend,
-+	.resume		= lan83c183_resume,
-+	.set_loopback	= genphy_loopback,
-+}, {
- 	.phy_id		= 0x0007c0a0, /* OUI=0x00800f, Model#=0x0a */
- 	.phy_id_mask	= 0xfffffff0,
- 	.name		= "SMSC LAN83C185",
-@@ -887,6 +913,7 @@ MODULE_AUTHOR("Herbert Valerio Riedel");
- MODULE_LICENSE("GPL");
- 
- static const struct mdio_device_id __maybe_unused smsc_tbl[] = {
-+	{ 0x0016f840, 0xfffffff0 },
- 	{ 0x0007c0a0, 0xfffffff0 },
- 	{ 0x0007c0b0, 0xfffffff0 },
- 	{ 0x0007c0c0, 0xfffffff0 },
--- 
-2.53.0
-
+> Signed-off-by: Brian Mak <bmak@nvidia.com>
+> ---
+>  drivers/platform/dell/Kconfig | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/platform/dell/Kconfig b/drivers/platform/dell/Kconfig
+> index 7030f817b6af..0223e2373508 100644
+> --- a/drivers/platform/dell/Kconfig
+> +++ b/drivers/platform/dell/Kconfig
+> @@ -77,7 +77,7 @@ config DELL_LAPTOP
+>  	depends on ACPI_VIDEO || ACPI_VIDEO = n
+>  	depends on RFKILL || RFKILL = n
+>  	depends on DELL_WMI || DELL_WMI = n
+> -	depends on SERIO_I8042
+> +	depends on SERIO_I8042 || SERIO_I8042 = n
+>  	depends on DELL_SMBIOS
+>  	select POWER_SUPPLY
+>  	select LEDS_CLASS
+> -- 
+> 2.53.0
+> 
