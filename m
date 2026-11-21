@@ -1,75 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795278797;
-	b=P9EUe+r3Z77+EMFESlMTawf6ksgMapV+fGv7REIen6qUK4mUMcE8IMbFTor9bcLnZMZr
-	 7Vhm6ftNJcX5OauBXxOAnwfYdVUYYTKEloS+HWQlynlVkiFsU1jPp4NLhUJUYLJIK99gS
-	 D6taLoaml7YAiPgFGZjd+h6Aew90VhA1QfQxFHUNzwLMnypb7PGa1kpuSemS2gFW7fj9m
-	 TNagAhkqwsSfI6kUakjjW2KBxEYaufuZjGG26wpDTDBddp8LnvQPeCqweemaoGY3WGpDS
-	 jCX0Tl2hBNLa06YIQc2oy1cHqljLl/HbhK/LHd2yWmqg3gkuvppTXBe6MmOd2mwSR+A==
+	t=1795278968;
+	b=qSbbQMzOb38LWBzoIGGrz3FB40A7YWc8OuCjf4VolAEwZacqwYJdjjp+FA1g7E2JLDzF
+	 VpzNEiwYNoeXpJfSkG91UX0HdpC7bPNAoq+2u7FpHraIGF0RbWCf8Jg7B6zVlhBalvZLQ
+	 rsqKk0r5QSe6lT2TJ2WVFgiw8tn7vY04GxVfkMk2ySwlpnEzpo5ZfK2Cb5PV7eQA9hs3g
+	 4mEcG1CXBhnSGZvBfZSlQ5fw5x2RLuIiJVV3K6rhDt7ry+5sLp6P8KI7cgxe17W6ohuqy
+	 oebJMFjg7XimuTHps30kVapef/yNZljqe3ulCkUQtvQ+0QaUXXz/maJT+C0xfRf6ZNg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795278797;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Content-Language:To:From:Subject:Cc:Content-Type:
-	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
-	bh=auWbpWfPPFdjYS0sjeGkL+z83l0fOIuRwcMvAjF4Jc0=;
-	b=3tsNXwzbx/g05oJd+i7pUDl9jTjE7HBJMQA6Y1MTPW/tdG6+2NgPcfQqeGpOKAwKFtbL
-	 +ckzsTW29dsVt/mrG3W4ReGOs76YWK0DTYfU8Zk1+vzZrDLCUICve91vH/UpjZDylAESs
-	 n0/7o+o+hwQypOW7V3Rt6VBr11Rzy7+Vfiy+2JMBxitsrypg/vWlujcDYPvPpRkdUHAxO
-	 T3aT6KynJmmCT52MuQ2G08RQsTY5yAiuhegEAKEPFNVXmi4i36zcFiYx8Hk1YDxvQbkqz
-	 sR+gpZKdmSe1SbeyG++Rb3PWzYxqPe65Mn3NUWoqmcuMjvg1TQllmapap5uiL59h5zA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795278968;
+	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=5x98UPaGgzT43cg9tAkkJmDC1rq7XTi3UWTY4DtEVEw=;
+	b=caGNqwvtQDfxoZl/J9Izyu3Che1WDLs6hvBTqiuWfmwhvqWRYrCTx+l/Bbf2PwxqlkyT
+	 d3tPcB1nS6PuZN8GUv/uP3K3EqP+oJMfXTRf3jvY2pc/foAvE5WYknBzqPtIAmOGL+Uv6
+	 leQQxHEVj/FTRZ1tlKp53Ctb7bYCHBJneodV3Ocbg4YmAeqJFCH83fHHX+KueRdpH6Krv
+	 ZwFJptJK+1Cos2Oew/9CXleqW6QHbrGQ0h1RRfYISY/rkMfKxTSG1zg7D5Z24w9j5TGhp
+	 XhOrwYIu80s1BdlVq7wuVJOilrhqZ1LDSrzHaSVovFRhVwKuI552AL3AxK1D7Si7DLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=web.de;
-	spf=pass smtp.mailfrom=web.de;
-	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=VLbnCl77;
-	arc=none smtp.remote-ip=212.227.15.3
-Received: from mout.web.de (mout.web.de [212.227.15.3])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=kx6TZRg6;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=78JkIfWX;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7063E606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:33:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7063E606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49029606A33A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:36:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49029606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=VLbnCl77
-DKIM2-Signature:  i=1; m=1; t=1795278794;
- mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=web.de;
- s=s29768273:rsa-sha256:R6VVo7MnIcUmK8+bbnfuj4Uw9rCU
-   MF/zmIn92oe/d4uNzZSFdt8fb6Rp5T/xlQEKuLEampQZZSyTLrrh8K0U9v9QZlfg8s1e9oCnkk1
-   tfJv0i0ClabYyuLHKY2veXdc3/a52EkF7jFC49mpnlwk39jmKwfiigQAY0nUpmbaa+moKwLdAoy
-   lI87X0KGhDCB4n4Tzd2iuWi5lkSnOl0H2KTDiGZmYR3S/R2Jg7ZGKzwc/2ysgZIAKSvloeri1HZ
-   p3RKNaglwcFySADCPogoWdvCOqEIMXsVKOO+ytHDzynhmPQRepv8e1gTctaCORoSSp8DrYvdbh2
-   42IYxPzbrat7eQ==;
-Message-Instance:  m=1;
- h=sha256:
-   +htYexGBTL2kBAPo9jTQRKIbUfRm1urwn+kdAc+VkEE=:
-   N7e3qNVbjjZchMqSISQgG5F1KkwW9NMwj1Xj5wWQ2As=,
-  sha512:
-   Sox2zYRxP8bZVGPkg7K8XJrMUgN7Mlt2fjgjmVv/5SVj7jSOITQEvnjJ0ytuImv3RGxZ1KMKpL1I2GTr10tj2A==:
-   GRrB3Lg4xoy7w2Xzuvvjt0Ly/F4OOdziDEX5aOcZPFhvNqvoqG9KR9RMFN7QoBnKc2RCBchiW+vH4YBC8th82w==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1795278790; x=1795883590; i=markus.elfring@web.de;
-	bh=auWbpWfPPFdjYS0sjeGkL+z83l0fOIuRwcMvAjF4Jc0=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:From:Subject:
-	 Cc:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=VLbnCl77bnDCskStlab/2GGRU3BGp4yGfEqo5XUOs+j+DdrT1tErU1JDwy/jSPGt
-	 ucnSVlsmt6W8BY7wfPztJ0dPkDMmcTxdJ6yR0dLL9EGfOwELoOtwI2ZQFDB7hJrFZ
-	 24VnlpbPJILNUm02e58OjBTDtR61fTuAcWkmuJ1Lsv2RTubCwh36zu8wsegNZxkdn
-	 QPhn6j1zKTq4oHUyedcQvTlU59xZfFvv6SLv/G178GJrlmAFE+uCulyUuW6ZDdE2G
-	 l2zvWjzc9qqWC//V12NvGm+cpdIYWe9XttntcGvJXBNaA2MwI+Mnr62vdNjOJZ9u7
-	 wpCE7zkRxNQm3kI/Eg==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MA4bO-1xgOcO21gA-006a4Z; Sat, 21
- Nov 2026 17:33:10 +0100
-Message-ID: <ab46a205-d1c4-48f2-8891-4de667f8ebf1@web.de>
-Date: Sat, 21 Nov 2026 17:33:06 +0100
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=kx6TZRg6;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=78JkIfWX
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795278961;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5x98UPaGgzT43cg9tAkkJmDC1rq7XTi3UWTY4DtEVEw=;
+	b=kx6TZRg6nA64B73CSzJWQgOD3mtqu1KltFFGvhe36HB9M2+wVGjl8I6JzkqcUSZ0jKK6gp
+	bq19DYVm56vRSv2I9FdhX35ez0GYJjXWVYAlXabV/lMuPbjXNQqCs9J1lQWcIjk2Xg/5RO
+	1HQJNm6H36Ove0gaAua2HcfIO4rRW5yt+eDj6DE87LWrsA71ue69VqTlKXlPk1jM7OxO/s
+	M+aC923VG/JGZLQ67ZS/JpuBwzTqXLIKo0trQ5NBCoB8zkR++7/4bZ98OQdtcjrd+1HF9m
+	2Ca1t8ol0LoJ+JtrWan5lh9z1rnu6LpXFkopx3EZo6XGqdtYwCudXb6+9eKqiw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795278961;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5x98UPaGgzT43cg9tAkkJmDC1rq7XTi3UWTY4DtEVEw=;
+	b=78JkIfWXtY9k/0EdeWPTr6vMlbm9Iq4d+ee5mTMLINNOC5Ju4WBmbkL4oLm5FqMrm9Sw7h
+	B/7awgQAhsy4BaDg==
+To: Petr Mladek <pmladek@suse.com>
+Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Breno Leitao <leitao@debian.org>,
+	printk@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: [PATCH printk v4 3/8] printk: Move unsafe takeover check out of console_is_usable()
+Date: Sat, 21 Nov 2026 17:41:51 +0106
+Message-ID: <20261121163557.963029-4-john.ogness@linutronix.de>
+In-Reply-To: <20261121163557.963029-1-john.ogness@linutronix.de>
+References: <20261121163557.963029-1-john.ogness@linutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,263 +79,160 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-GB, de-DE
-To: linux-usb@vger.kernel.org, openbmc@lists.ozlabs.org,
- Andrew Jeffery <andrew@codeconstruct.com.au>,
- Avi Fishman <avifishman70@gmail.com>, Benjamin Fair
- <benjaminfair@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Nancy Yuen <yuenn@google.com>, Patrick Venture <venture@google.com>,
- Peter Chen <peter.chen@kernel.org>, Tali Perry <tali.perry1@gmail.com>,
- Tomer Maimon <tmaimon77@gmail.com>
-From: Markus Elfring <Markus.Elfring@web.de>
-Subject: [PATCH v2] usb: chipidea: Use devm_clk_get_optional_enabled() in two
- probe functions
-Cc: sashiko-reviews@lists.linux.dev, LKML <linux-kernel@vger.kernel.org>,
- kernel-janitors@vger.kernel.org,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
- Florian Fainelli <f.fainelli@gmail.com>, Frank Li <Frank.Li@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:qa0Zm20PhwI+l7EB09aMt9rkzuTOEgQgcW0Iftqs/AYHOgeiq04
- MffT33zE9VaZ7tMqgUW2F57LzyviXpi99fw+yiVdZKjUA3Ag6w237ngLe6UZ6tG0hOFI9jW
- L0Hk+MJwQeBOlm+l5nlZ834Mu9VRrneSXxE2NLcnwkPbJ09FKwEmX3GWwS/iRz9JyuMkry2
- PVg3BTL+wOcqkfeTMoLiw==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:mWywF0oAKec=;C/OPxiawL6H4zEC53h0jGwKUNeg
- 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
- oY9dLsljIkh2YH3MX4pCC+h8XeeCsoAWeF57+ug=
+Content-Transfer-Encoding: 8bit
 
-From: Markus Elfring <elfring@users.sourceforge.net>
-Date: Sat, 21 Nov 2026 17:06:32 +0100
+Change console_is_usable() to never claim a console with
+CON_NBCON_ATOMIC_UNSAFE is usable since that is the normal use
+case. This allows moving nbcon_allow_unsafe_takeover() out of
+console_is_usable().
 
-* Reuse existing functionality from devm_clk_get_optional_enabled()
-  instead of keeping duplicate source code.
+To support unsafe atomic flushing, provide a variant of
+console_is_usable() called nbcon_is_unsafe_usable() that accepts
+CON_NBCON_ATOMIC_UNSAFE consoles as usable. However, this adds
+responsibility to the caller to determine if unsafe atomic printing
+should occur.
 
-* Omit a clk_disable_unprepare() call on error handling paths
-  and in the implementation of two remove functions.
+__nbcon_atomic_flush_pending() is the only function that enables
+unsafe atomic printing by calling nbcon_allow_unsafe_takeover().
+Rather that using console_is_usable() to select atomic printing
+consoles, use nbcon_is_unsafe_usable() and only select
+CON_NBCON_ATOMIC_UNSAFE consoles if the unsafe takeover is allowed.
 
-* Delete the label =E2=80=9Cclk_err=E2=80=9D.
+These changes effectively move the nbcon_allow_unsafe_takeover()
+check from console_is_usable() to __nbcon_atomic_flush_pending().
+This has no external functional change. Internally within
+__nbcon_atomic_flush_pending() it means that
+nbcon_allow_unsafe_takeover() is evaluated after the usable check
+rather than during. The result is the same.
 
-This issue was detected by using the Coccinelle software.
+Since __nbcon_atomic_flush_pending() also knows the @reason for
+the flush, this opens the door for the unsafe atomic flushing
+policy to be enforced in __nbcon_atomic_flush_pending().
 
-Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
-=2D--
+Signed-off-by: John Ogness <john.ogness@linutronix.de>
+---
+ include/linux/console.h | 40 +++++++++++++++++++++++++++-------------
+ kernel/printk/nbcon.c   | 17 +++++++++++++++--
+ 2 files changed, 42 insertions(+), 15 deletions(-)
 
-V2:
-Sashiko provided hints for further development considerations.
-https://sashiko.dev/#/patchset/6d2450cf-9bbc-47b6-9ea3-f91bc1b91371%40web.=
-de
-
-
- drivers/usb/chipidea/ci_hdrc_npcm.c | 13 ++-----------
- drivers/usb/chipidea/ci_hdrc_usb2.c | 15 ++-------------
- 2 files changed, 4 insertions(+), 24 deletions(-)
-
-diff --git a/drivers/usb/chipidea/ci_hdrc_npcm.c b/drivers/usb/chipidea/ci=
-_hdrc_npcm.c
-index 75a0223b578a..4b608f2bb383 100644
-=2D-- a/drivers/usb/chipidea/ci_hdrc_npcm.c
-+++ b/drivers/usb/chipidea/ci_hdrc_npcm.c
-@@ -47,14 +47,10 @@ static int npcm_udc_probe(struct platform_device *pdev=
-)
- 		return -ENOMEM;
- 	platform_set_drvdata(pdev, ci);
-=20
--	ci->core_clk =3D devm_clk_get_optional(dev, NULL);
-+	ci->core_clk =3D devm_clk_get_optional_enabled(dev, NULL);
- 	if (IS_ERR(ci->core_clk))
- 		return PTR_ERR(ci->core_clk);
-=20
--	ret =3D clk_prepare_enable(ci->core_clk);
--	if (ret)
--		return dev_err_probe(dev, ret, "failed to enable the clock: %d\n", ret)=
-;
--
- 	ci->pdata.name =3D dev_name(dev);
- 	ci->pdata.capoffset =3D DEF_CAPOFFSET;
- 	ci->pdata.flags	=3D CI_HDRC_REQUIRES_ALIGNED_DMA |
-@@ -67,17 +63,13 @@ static int npcm_udc_probe(struct platform_device *pdev=
-)
- 	if (IS_ERR(plat_ci)) {
- 		ret =3D PTR_ERR(plat_ci);
- 		dev_err(dev, "failed to register HDRC NPCM device: %d\n", ret);
--		goto clk_err;
-+		return ret;
- 	}
-=20
- 	pm_runtime_no_callbacks(dev);
- 	pm_runtime_enable(dev);
-=20
- 	return 0;
--
--clk_err:
--	clk_disable_unprepare(ci->core_clk);
--	return ret;
+diff --git a/include/linux/console.h b/include/linux/console.h
+index df23148987eeb..227a7cf296f60 100644
+--- a/include/linux/console.h
++++ b/include/linux/console.h
+@@ -611,7 +611,6 @@ extern void nbcon_write_context_set_buf(struct nbcon_write_context *wctxt,
+ extern bool nbcon_enter_unsafe(struct nbcon_write_context *wctxt);
+ extern bool nbcon_exit_unsafe(struct nbcon_write_context *wctxt);
+ extern void nbcon_reacquire_nobuf(struct nbcon_write_context *wctxt);
+-extern bool nbcon_allow_unsafe_takeover(void);
+ extern bool nbcon_kdb_try_acquire(struct console *con,
+ 				  struct nbcon_write_context *wctxt);
+ extern void nbcon_kdb_release(struct nbcon_write_context *wctxt);
+@@ -625,13 +624,8 @@ static inline bool nbcon_is_braille(struct console *con)
+ 	return con && (con->flags & CON_BRL);
  }
-=20
- static void npcm_udc_remove(struct platform_device *pdev)
-@@ -86,7 +78,6 @@ static void npcm_udc_remove(struct platform_device *pdev=
-)
-=20
- 	pm_runtime_disable(&pdev->dev);
- 	ci_hdrc_remove_device(ci->ci);
--	clk_disable_unprepare(ci->core_clk);
+ 
+-/*
+- * Check if the given console is currently capable and allowed to print
+- * records. Note that this function does not consider the current context,
+- * which can also play a role in deciding if @con can be used to print
+- * records.
+- */
+-static inline bool console_is_usable(struct console *con, short flags, bool use_atomic)
++static inline bool __console_is_usable(struct console *con, short flags, bool use_atomic,
++				       bool allow_atomic_unsafe)
+ {
+ 	if (!(flags & CON_ENABLED))
+ 		return false;
+@@ -645,11 +639,7 @@ static inline bool console_is_usable(struct console *con, short flags, bool use_
+ 			if (!con->write_atomic)
+ 				return false;
+ 
+-			/*
+-			 * An unsafe write_atomic() callback is only usable
+-			 * when unsafe takeovers are allowed.
+-			 */
+-			if ((flags & CON_NBCON_ATOMIC_UNSAFE) && !nbcon_allow_unsafe_takeover())
++			if (!allow_atomic_unsafe && (flags & CON_NBCON_ATOMIC_UNSAFE))
+ 				return false;
+ 		}
+ 
+@@ -675,6 +665,29 @@ static inline bool console_is_usable(struct console *con, short flags, bool use_
+ 	return true;
  }
-=20
- static const struct of_device_id npcm_udc_dt_match[] =3D {
-diff --git a/drivers/usb/chipidea/ci_hdrc_usb2.c b/drivers/usb/chipidea/ci=
-_hdrc_usb2.c
-index b0200c5937cd..0cff5486e9c0 100644
-=2D-- a/drivers/usb/chipidea/ci_hdrc_usb2.c
-+++ b/drivers/usb/chipidea/ci_hdrc_usb2.c
-@@ -70,16 +70,10 @@ static int ci_hdrc_usb2_probe(struct platform_device *=
-pdev)
- 	if (!priv)
- 		return -ENOMEM;
-=20
--	priv->clk =3D devm_clk_get_optional(dev, NULL);
-+	priv->clk =3D devm_clk_get_optional_enabled(dev, NULL);
- 	if (IS_ERR(priv->clk))
- 		return PTR_ERR(priv->clk);
-=20
--	ret =3D clk_prepare_enable(priv->clk);
--	if (ret) {
--		dev_err(dev, "failed to enable the clock: %d\n", ret);
--		return ret;
--	}
--
- 	ci_pdata->name =3D dev_name(dev);
-=20
- 	priv->ci_pdev =3D ci_hdrc_add_device(dev, pdev->resource,
-@@ -90,7 +84,7 @@ static int ci_hdrc_usb2_probe(struct platform_device *pd=
-ev)
- 			dev_err(dev,
- 				"failed to register ci_hdrc platform device: %d\n",
- 				ret);
--		goto clk_err;
-+		return ret;
- 	}
-=20
- 	platform_set_drvdata(pdev, priv);
-@@ -99,10 +93,6 @@ static int ci_hdrc_usb2_probe(struct platform_device *p=
-dev)
- 	pm_runtime_enable(dev);
-=20
- 	return 0;
--
--clk_err:
--	clk_disable_unprepare(priv->clk);
--	return ret;
+ 
++/*
++ * Check if the given console is currently capable and allowed to print
++ * records. Note that this function does not consider the current context,
++ * which can also play a role in deciding if @con can be used to print
++ * records.
++ */
++static inline bool console_is_usable(struct console *con, short flags, bool use_atomic)
++{
++	return __console_is_usable(con, flags, use_atomic, false);
++}
++
++/*
++ * Similar to console_is_usable(), but allows atomic unsafe consoles. This is
++ * only interesting for nbcon unsafe atomic printing.
++ *
++ * Note: It is the responsibility of the caller to decide if unsafe printing
++ *       should actually occur.
++ */
++static inline bool nbcon_is_unsafe_usable(struct console *con, short flags)
++{
++	return __console_is_usable(con, flags, true, true);
++}
++
+ #else
+ static inline void nbcon_cpu_emergency_enter(void) { }
+ static inline void nbcon_cpu_emergency_exit(void) { }
+@@ -691,6 +704,7 @@ static inline
+ bool nbcon_write_context_is_braille(struct nbcon_write_context *wctxt) { return false; }
+ static inline bool console_is_usable(struct console *con, short flags,
+ 				     bool use_atomic) { return false; }
++static inline bool nbcon_is_unsafe_usable(struct console *con, short flags) { return false; }
+ static inline bool nbcon_braille_try_acquire(struct console *con,
+ 					     struct nbcon_write_context *wctxt) { return false; }
+ static inline void nbcon_braille_release(struct nbcon_write_context *wctxt) { }
+diff --git a/kernel/printk/nbcon.c b/kernel/printk/nbcon.c
+index 7bc10dcaee7e5..9073d1f258a89 100644
+--- a/kernel/printk/nbcon.c
++++ b/kernel/printk/nbcon.c
+@@ -1468,7 +1468,7 @@ static bool panic_nbcon_allow_unsafe_takeover;
+  * This is also used by console_is_usable() to determine if it is allowed to
+  * call write_atomic() callbacks flagged as unsafe (CON_NBCON_ATOMIC_UNSAFE).
+  */
+-bool nbcon_allow_unsafe_takeover(void)
++static bool nbcon_allow_unsafe_takeover(void)
+ {
+ 	return panic_on_this_cpu() && panic_nbcon_allow_unsafe_takeover;
  }
-=20
- static void ci_hdrc_usb2_remove(struct platform_device *pdev)
-@@ -111,7 +101,6 @@ static void ci_hdrc_usb2_remove(struct platform_device=
- *pdev)
-=20
- 	pm_runtime_disable(&pdev->dev);
- 	ci_hdrc_remove_device(priv->ci_pdev);
--	clk_disable_unprepare(priv->clk);
- }
-=20
- static struct platform_driver ci_hdrc_usb2_driver =3D {
-=2D-=20
-2.56.1
+@@ -1672,11 +1672,24 @@ static void __nbcon_atomic_flush_pending(enum pr_flush_reason reason, u64 stop_s
+ 		if (!(flags & CON_NBCON))
+ 			continue;
+ 
+-		if (!console_is_usable(con, flags, true))
++		/*
++		 * Using variant of console_is_usable() to include consoles
++		 * with unsafe write_atomic() implementations. They might be
++		 * allowed depending on nbcon_allow_unsafe_takeover().
++		 */
++		if (!nbcon_is_unsafe_usable(con, flags))
+ 			continue;
+ 
+ 		allow_unsafe_takeover = nbcon_allow_unsafe_takeover();
+ 
++		/*
++		 * Since nbcon_is_unsafe_usable() was used, ensure @con does
++		 * not have an unsafe write_atomic() if this context expects
++		 * safe printing.
++		 */
++		if ((flags & CON_NBCON_ATOMIC_UNSAFE) && !allow_unsafe_takeover)
++			continue;
++
+ 		if (nbcon_seq_read(con) >= stop_seq)
+ 			continue;
+ 
+-- 
+2.47.3
 
