@@ -1,74 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.200
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795286355;
-	b=VsI7PDiV4HNYYNlux00cGI2YwfP93gUUL/u3cD8F8hQPCxkRTLvDz4vKm6adHVaqYk0+
-	 JcLGLletX6Xi3fARjUZkaU5au83KpLqG1EgCyWhEiFtw8nvBpUsNtPMPHYgb2FcxhVC73
-	 Pk0LHP8ljSlYZww1yO35vAJLVmjcFqpB7Z8VpvIycLoKRaHPoKVUj03lrBQvNi8g1rSnx
-	 9dht89wx0Q4aYlKVgIKiW3pAl83ZohUHeB44PXPSG4ssrA1n2wbApKYUzQoao6+iDkLbv
-	 nLxXrE/csflKJ36+YsgxxwQJm3H3g0fkMp7uUztR36iyf/h3r52XbBq/Ws9P1y4LunA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795286355;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=B+C2/33K4kduexdkENaQSrBZ5xc/12xNlj0pd3fSUlo=;
-	b=FjYJKbXMqj+PDldKnEuHSWK7HXoWv7VIk9aEFgkF5OLjGhqGd5R2EWHpBbklUVWZ//td
-	 Kqj3Oz4Ga2bVOZ/93ZHC4Oa4SFxmZqIKaCPAZuOdvO4VVloJhOONP5n7RzkQ3vk9fpnDi
-	 uPqRwufBXy+ZGQiPx3/qn4n91NqksLqzsKDf+ezPklmSTEhrMI2jFggYMTfeEW+P4tvFd
-	 4GRQyhYQrQgglZMaszv30yBxj30jw5IyXE85idC/PK9vI7gMLMumUX1ABkxanT9Hjm6Lp
-	 jL2GfiOq+xcPqm9ueqWReNFIjp9adTHA4Sjeltpl3Wc83wxM9K5Ux8zJGhdlII8UZFw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=N4LRxPnN;
-	arc=none smtp.remote-ip=209.85.210.200
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795286490;
+	b=nrmPLtEEZkygKiCKwK7iKMgCpiBhZe0WMAKX/Lsp16VTAIeMQruqjumNNPrQrSzf/ZcQ
+	 1PKFa3RDWphbZlblSpr0eOVvcUsyssbKkNdYuHamMiRJT6lGEXKR94zA21+j3IteQMTEP
+	 xaDHFUbFq/jAbBXvF84NctLDc364rSZHYql96CQqW94LMMEDFB9KE5Ypv58OpXSX9bz5j
+	 k2UX3kKzBQBpVeqCGzo7S6wSGLJHV7cUtjxc0WNiNVbaMiY133UttFDly3AU8SNKAo5i0
+	 MKYy5wHmaypDsVmnFZoFDGpCZU3JkZJbLiOZMggJT/kjbOUN5YZIDo6UZlpq9yfVx8w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795286490;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:MIME-Version:Content-Type:Content-Disposition;
+	bh=kSYUHzts+bCt+RIyQSmQsSm4cLVVSyQ+sBrYFWLe0Co=;
+	b=QvYPRuUYwjTc438KC3ojlZlpyHJLpPx/nnbd3E3Wz/pXBE1fNXWFnwqptJqLfrQQ2Inj
+	 uzkz2aixRacF9gUxbXd0sL3cR2Cm2YpQlWh/BwwX0R29fxBFeuXyFFLvYKJZ467+Brcbn
+	 NOWZ7Pe/z25/jNWKI+lUODV2YJi5VI2xgJZva2mNYxDLkenzbQPNNo07QcTzlAWQ8YLKH
+	 sya/5lavJ9/gqB5+Vnw7sVeYcg40mFtTe2yHhnJcAHt6f7VR8ke3Y1yMojtmEYMX8PU0M
+	 SFPKbncdlLHJ34kG8zk2bSRBEUxfI/wymgmT/Cngc8AUavy9cFjvJWc+RTOCzJ4oqpA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b="FS/F3z26";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FDE7606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:39:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1FDE7606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23581606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:41:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23581606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=N4LRxPnN
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8a0592d4539so2513875b3a.3
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:39:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795286353; x=1795891153; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=B+C2/33K4kduexdkENaQSrBZ5xc/12xNlj0pd3fSUlo=;
-        b=N4LRxPnNO1YjitxvDLP5/5kIqInUyAb2PxwB47pUzyklLYXgDRLm+hBGOagI9wIIHu
-         zqGxOyfeJMlgyeICmsIL5liJN+MwmXywg7S1NQL94dcQresjALSGWYMSxAB+agNmQic+
-         CIG5lRe9aZBEsF6MZKhIi22V+Bd78oiJBpcwsVJLmRbfv1ulzKuLuen4EPSlL9XpZz8E
-         aw9FldXk7Su1f172F9G+Lz6zw4K7JFXDMOpv6euElqN69npigs8dtlapsNhkItca4PtU
-         Yot9+fi3GxfeKm6XTWv4sK6rrRHpHhcvMEEa8na6M8UbGqns0ypFEnf30gskc6/yTBxG
-         IqUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795286353; x=1795891153;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=B+C2/33K4kduexdkENaQSrBZ5xc/12xNlj0pd3fSUlo=;
-        b=yJhHpyyYhOwdM5tICn3ifuzik8MKZ/wj5mzCTpXMKt2DhHHsaiIk9xvjro+sofqM7J
-         Oj7BO6tndn/tA70mErUZds+rhp3vHDIVWY/DDNCN89UNpJ6FzaEyZwT48w8AIlOc8RdH
-         9OkMkDO41BqNESFDSIks23aKA31eNbLoyL4kzU11d7+IBWdu2KjxJokKiJ8a//Fyl7gE
-         88KG86N8dUOLaRXuw3dEbQ5gkpLw2N0KtTS7QC2O+Us8fmo0Qh2AVSDaLSIl43NC2UDC
-         8bdOepYAiuKIkt1Wwstgqk6mOIW5yCzznGGZ8UQVpyvH+NHGu2FFi5W9K3OABQpTtJJc
-         Et8A==
-X-Forwarded-Encrypted: i=1; AL+hErHE1UVNXTGqHprX0DGUIjnCmcF16zHg6dGVrCLEaFUsHLXJZccDbsKcLg+wq2bvuuoRKavciMW/x22m+L0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9URvF11eDPGo8tVwItMs5Y7ynsYLKYjgXouRrK/2YH7NpiLPPW
-	xoDk98MK4pFNEonVQuzCYGg5mII0gZO94Bpw8rHfGSigyqFS7O87sSl/P1ICkOI6p2LUFFHkk+Q
-	mAp+Ipw==
-X-Received: from pfdb13.prod.google.com ([2002:a05:6a00:94ed:b0:89f:41ff:99c0])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:14c3:b0:89e:779b:d0f
- with SMTP id d2e1a72fcca58-8c87ce3165emr7009702b3a.37.1795286353159; Sat, 21
- Nov 2026 10:39:13 -0800 (PST)
-Date: Sat, 21 Nov 2026 18:39:12 +0000
-In-Reply-To: <20261118101752.1989502-1-bsdhenrymartin@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=FS/F3z26
+Received: from pengutronix.de (ptz.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::77])
+	(Authenticated sender: mkl@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id A92D120188D;
+	Sat, 21 Nov 2026 19:41:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795286480;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
+	bh=kSYUHzts+bCt+RIyQSmQsSm4cLVVSyQ+sBrYFWLe0Co=;
+	b=FS/F3z26i5jMq0GMOaycA2wf4zlfMmHXXviCzPTr/hOLbvujqi5cFzvxbylwssgUJqVWGh
+	W2PpgA+PKnyvSv1S1QOjtRAU/ZlYI1RpK5uyTyQwtRuqaFvoHzQWQEvs3lYXPW9el976A/
+	kCBmIA+n7mHcTDRZYvHVvwChm06XXAAvvEk384LmOLakLYhxYhURkPklpo9YlVCcP0jxfu
+	IENvEuf5t8NFXPT4TKW/KUz6GPNcS3eIxLjWlrJ2/EI3NRUJXncEDAO9JwY9FtRtJQalQh
+	88yU4WAwv/lfcBFqPm7aeSsFB/7JrBMriBOQT3aNSAT6lWjzT04Y5jgCKH8K9Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795286480;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
+	bh=kSYUHzts+bCt+RIyQSmQsSm4cLVVSyQ+sBrYFWLe0Co=;
+	b=MnQRIiWq55WVLq/fnFAkUMmMU1WzT80ekjTb989sSutr6fun1RFSqOIZP0PXdUurL+oJkN
+	U50rhz3bdX4b8XES/JsQCRcpoFmlgN7GcaE4FbyutunDq6sjOBY6M4954b9KeATFOfkje6
+	56hzxz3SIXUUsP53G7jE+PzfEnnXWPhiFhl9c+rM4Z1slgNVs8t8+5yr203e6I7JnwMYM5
+	ZrsN/SUm54Kd58sAjJhrsEbUDpe8WoQX5VWQ3pJ6/upJ6OADBzUIXw3G7B8mHvcs33xlrY
+	KtWJPaBT5pVhI8LR+YqxwjqQjVA9PJMnOcpw54y1oqAcD25vzyQUWXh08gJavA==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795286480; a=rsa-sha256;
+	cv=none;
+	b=fq8v1u+XvncXOF7PB3ZmRdt2a/lBa5IkMD1lX7dW5lr2uzTTlAcCZw0mo79eegKSxpvuN8
+	2PibT068cWFmwRpSVwCzS43kj7q+yYOerT2OWUXhRdjpx5pkrba1o8riAWDeLLo6U7FInO
+	WyicvoBPn+/sh/xvCiRSBwXmQivEmIXOFJYBh9XzN/Ae+aQGEzZtU/OD3nE1YC8oFSNeaI
+	mMErMSTKN8Uz+sS4PUxuhXmiLJodWFTOY/W8sWEL0vz/xCMB8TBoROb/7BBOuwwh4aCM9t
+	HX7l3v364P77raopjNO96wl1nlSdh2FgAGGnv89pI+sysCfkMuZuwoqWJLjuUQ==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=mkl@pengutronix.de smtp.mailfrom=mkl@pengutronix.de
+Date: Sat, 21 Nov 2026 19:41:20 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: linux-kernel@vger.kernel.org, kernel@pengutronix.de
+Subject: [BUG] topology.c fails to build with clang-24
+Message-ID: <20261121-lively-delectable-duck-f7c503-mkl@pengutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,40 +84,69 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261118101752.1989502-1-bsdhenrymartin@gmail.com>
-Message-ID: <awHkoGTQ71NbCeU0@google.com>
-Subject: Re: [PATCH net] net: initialize sk_peer_lock in cloned sockets
-From: Kuniyuki Iwashima <kuniyu@google.com>
-To: Henry Martin <bsdhenrymartin@gmail.com>
-Cc: Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Willem de Bruijn <willemb@google.com>, "David S . Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="sb23j6dmmvzwxdtl"
+Content-Disposition: inline
 
-On Wed, 18 Nov 2026 18:17:52 +0800, Henry Martin wrote:
-> sock_copy() clones a struct sock with two memcpys that both include
-> sk_peer_lock.  sk_clone() re-initializes sk_lock, but nothing resets
-> sk_peer_lock, so a clone created while the parent's sk_peer_lock is held
-> inherits the lock in the locked state.
-> 
-> The first getsockopt(SO_PEERCRED) on such a child spins forever in
-> queued_spin_lock_slowpath().  spin_lock() disables preemption, so the
-> task never schedules and its CPU stops reporting quiescent states; RCU
-> grace periods then stop and callers of synchronize_rcu(), such as
-> expand_files() from accept(), hang.
-> 
-> Initialize sk_peer_lock explicitly for the clone.
-> 
-> This issue was discovered by Tencent CodeBuddy Security.
-> 
-> Fixes: 35306eb23814 ("af_unix: fix races in sk_peer_pid and sk_peer_cred accesses")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
-> Reviewed-by: Eric Dumazet <edumazet@kernel.org>
 
-Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
+--sb23j6dmmvzwxdtl
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: [BUG] topology.c fails to build with clang-24
+MIME-Version: 1.0
 
-As Eric mentioned in v1, restricting SO_PEERCRED etc to AF_UNIX
-and AF_BLUETOOTH makes more sense.
+Hello,
+
+current Linus master commit c44104f3642d ("Merge tag
+'drm-fixes-2026-11-21' of https://gitlab.freedesktop.org/drm/kernel")
+fails to build with Debian's clang-24 from experimental:
+
+| $ clang-24 --version
+| Debian clang version 24.0.0 (++20261119065354+16721c9d8e82-1~exp1)
+| Target: x86_64-pc-linux-gnu
+| Thread model: posix
+| InstalledDir: /usr/lib/llvm-24/bin
+
+Standard x86-64 defconfig compilation, with LLVM=3D-24.
+
+| In file included from kernel/sched/build_utility.c:86:
+| kernel/sched/topology.c:2008:29: error: unsequenced accesses to volatile =
+qualified 'jiffies' [-Werror,-Wunsequenced-volatile]
+|  1998 |                 .last_balance           =3D jiffies,
+|       |                                           ~~~~~~~
+|  1999 |                 .balance_interval       =3D sd_weight,
+|  2000 |
+|  2001 |                 /* 50% success rate */
+|  2002 |                 .newidle_call           =3D 512,
+|  2003 |                 .newidle_success        =3D 256,
+|  2004 |                 .newidle_ratio          =3D 512,
+|  2005 |                 .newidle_stamp          =3D now,
+|  2006 |
+|  2007 |                 .max_newidle_lb_cost    =3D 0,
+|  2008 |                 .last_decay_max_lb_cost =3D jiffies,
+|       |                                           ^
+| 1 error generated.
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--sb23j6dmmvzwxdtl
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCawHlzQAKCRDMOmT6rpmt
+0tFZAQCCzwKFfCy3tlCnFTWKGxOyJFwLKGglzKjrDT9qUs7LpQEA8mElbdsjWzWQ
+udm1Hbox0zAGOZCiT09WWeP0PL770wo=
+=wwMO
+-----END PGP SIGNATURE-----
+
+--sb23j6dmmvzwxdtl--
