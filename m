@@ -1,88 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795289495;
-	b=mf3Rxf3wkV0oPRbzPZg8WA1AC14KCM4y8fCq+cWIneKnimzqktysf7Nt6gYuM0eaAuCH
-	 Drht6k8kvhmigkwBrKhpqWhadC7osRllZ+wg1/YpGWht9lehfxvPdGYBAqXAIv1ayBR/1
-	 xCM6PRleQMJKOol+TGKEHtQHdLXzM+TqrBuTjEDqCisDavOvm6RwYpGIELYjhgDKHJJ5l
-	 Oew/nQeEG0ENBuKH9c+E7py07Ss1dUIBAek2wgJp9KXb2cVOY9s2NXWURgm2cclPMkmO9
-	 FwDRSHpUUHbkb571BKEg3qLUHCyqJzuEAVZcJY/8yDeQN3E6bHqb16dQ0ccbcbDcE3g==
+	t=1795289528;
+	b=5WfLEs2tmKUnfVIfm/4AO9bR7tUHGxGia06wOTT7FuiXwASu1nus81Fo9gim2nF5KIL6
+	 cgFZ7bEtQx50h0wI0EBNzUvwLDG4YW1cUaRnrGwfuC2YqtvprltYRhBMq29xzVzByCkPr
+	 ThFW6POnvW33kiBXcgzB0cBx3OGQssxZYnlJ3pEd3xc1Lp3UatZv7t63zu6AC4uHp4hHh
+	 V2gP6h5cds8zcIygEcU4JyKBGoqA2yFN5AzAZq+ilBD+6yG+o83gOkBaRD40rP79t6fn3
+	 7LWn41GuvlHTqd5NBz0cXwWpQcL5VARTjzDZABykEvEM6DnExogP10otLKTehic4XMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795289495;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=yqFg/CDfhcQQki7rbGu6XmQIamv54cpSA2pIhpeTPrI=;
-	b=kQy2jkY1O4WOmsxk2E7YyRx7Su3jBIjp6kN1H5RxzgA8HSvYxdCAMRRa/+N+zULVq1DO
-	 FnI8VDQ7mhj5flC2W3VTxkbWKq0BSl0y58Jiw3XSyIPz7iCC+Bpuqe1ATDSu1xkui3XCX
-	 4DuSyBhKWkvzrLVdiT3b+jXe17ES5kaF7FtnyypveGmULJLjsajNKd+JmNKBbutPyOyb8
-	 qzA65tMrYUFadLXvRR4Qn5Ks4eCAa8HGBt4nw416MmuKCRiUxUuWWD2i6qTRvilEN1YLH
-	 BcusDl0YS+W/DneX0KtHpTV9noAPYjq6jT29/g/6e58yaQXpz22P6ez+J0fECG4WUIg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795289528;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=VE4zAAxcygsvV5ZcsBxmmkhqvwMRdkRmIU2rT504NLg=;
+	b=TEzGD6ritEYOXIu7BkEPgF6n6jKUAhnDlQQqvVrNlyWWvF4hm44nM6WsTHl16me49LTx
+	 2T8frVxUJgwrmuBfSfO08whN2jsX6KN6MOSl4g78OwlgR3yhCYMhNQaf9ms0fmzPGHYkc
+	 DXIQfrlOncjHseL8Yn+emhCPqsTnhJInvF7P0IDPAQ/5etz7sSHivzeG/4okh0xYSYn3P
+	 SACJ/2fZ2vqlmMFbwooQshLMG0fdn+A31hrwlZO7R65fgcwjErrsgWYHUP5Cz+xtdhVbs
+	 fwsICbLS/6Dw9BOaNeEiqgkEd21GSy1qW+nerlDiWlZHk3n4l22cx/+Aba9HFLESYPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PZwUmAk8;
-	arc=none smtp.remote-ip=192.198.163.14
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jHRe5Yaq;
+	arc=none smtp.remote-ip=209.85.214.181
+Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C013A606A320;
-	Sat, 21 Nov 2026 19:31:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C013A606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49532606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:32:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49532606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PZwUmAk8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795289494; x=1826825494;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=9zj66kMuwbMu44FH/2iMUwR4Us5WeWzErC6aqT+gjgA=;
-  b=PZwUmAk8DJdS5U+Ob6JiIT/+61l58OoCVpQ5ZPcIez+5JRbWBa0fI16o
-   l1rKpN3JwgcqZJNk5VEqZiBLJFTpJ76lbwPAQSEpD/mlJzNnGZAYPiCMo
-   QSBya+sCIZBbgI2fXPq1484nlZZ2tWreAriI/8MQmDcMLLeqCDq8uGhfh
-   FgxYYZoyE1RP1nkjPpZ701cYYbfOnLrNLM12xCfMoOUT/QtZGginOP3Hp
-   SB1BGFDGzypynwsa/afB55kurmaWlE2ZZYom/Ak8nNYKf+CgL1MlTq3jE
-   L5eRlcOaIiRaenYycnf1LA0bwpYDig2uylAn9V+Htmf8glYKZjeet80kN
-   w==;
-X-CSE-ConnectionGUID: 2wIxOSVAQe+2ENnSNsSraw==
-X-CSE-MsgGUID: M6rhjYFHQD2DAADh0plSOg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11973"; a="4035638"
-X-IronPort-AV: E=Sophos;i="6.27,225,1787036400"; 
-   d="scan'208";a="4035638"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2026 11:31:34 -0800
-X-CSE-ConnectionGUID: 0ayvV+adR7qaALPVu/CEdg==
-X-CSE-MsgGUID: KtrBk2viQS+k/l115C11bg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,225,1787036400"; 
-   d="scan'208";a="10859667"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa005.jf.intel.com with ESMTP; 21 Nov 2026 11:31:30 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xUqo3-00000001KV9-1kKB;
-	Sat, 21 Nov 2026 19:31:27 +0000
-Date: Sun, 22 Nov 2026 03:31:15 +0800
-From: kernel test robot <lkp@intel.com>
-To: Paul Cercueil <paul.cercueil@bootlin.com>,
-	Jassi Brar <jassisinghbrar@gmail.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Sunil Kovvuri Goutham <sgoutham@marvell.com>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	George Cherian <gcherian@marvell.com>,
-	Sujeet Baranwal <sbaranwal@marvell.com>,
-	Paul Cercueil <paul.cercueil@bootlin.com>
-Subject: Re: [PATCH v2 2/2] mailbox: marvell-mhu: add Marvell MHU driver
-Message-ID: <202611220344.CTLohdLM-lkp@intel.com>
-References: <20261120113952.168265-3-paul.cercueil@bootlin.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jHRe5Yaq
+Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2f04e3bf46dso12771215ad.2
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:32:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795289528; x=1795894328; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=VE4zAAxcygsvV5ZcsBxmmkhqvwMRdkRmIU2rT504NLg=;
+        b=jHRe5YaqOekqoanDCL2SqWu+a0WnRr+HP/6F5Xp/9YDfMohErQGbCjzj1yVPjIfq8v
+         N8v1HFclRLzyZ3jmWqlq8ipqm0qgH0hueJ+ZTMgeRLOsqrM/VmS2ibNaihovCF3yx6Kf
+         rhfX42Y3ADLvbkuvgAeNfrF5PXvv86jqJyyApYPubLNbDZYk99Q003BdQZMLGr8cITD7
+         Re2W4mVpE7fvHrvMrCCrZKcgB8r2HpYkhZF38cPptw6EBtARGGAeFkV4LTRmDDaXwd+e
+         509ENlVvFgIVhHqPYvmL/TU8xg6aFmeZQR/KD7XZtIHlyw2PNfiOgdKAnEQqFBT9WscW
+         1WNg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795289528; x=1795894328;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=VE4zAAxcygsvV5ZcsBxmmkhqvwMRdkRmIU2rT504NLg=;
+        b=I80j2NxBfEEaJtqEDK04yWKlE6z32lSNNHHj9p6C68oHI0urciw/8SVbIfeFOEoxgs
+         yKRFpqfUlRFgO6MmdVDVkvpo8KUu1f0wCygsGItjf1CrQTcXhIBK8IzmTLbVkr0BbwCM
+         HC3d863b4D8PQ7X1tMFJjy78fZXqHckn9RTUmWAK/RUAyR0WrRz/lxRgWV44PJ78Nn2H
+         CXFXYqjQVMwktxG57USmfIAStoLbvq5LtuG3ok8i0eveLai5W4P8/gLGs8zdQHAX0SIC
+         UBTJAYP0uljU+yNz3ybuRB+AHLV/O5dtquQjP+ViwCFx29l4tVB06+wo6URpZcQgkkGS
+         WLrg==
+X-Forwarded-Encrypted: i=1; AL+hErHznMWM56qmyv1c7h7xjwr4TRUBZNykPL1R0TTvslTTlQ9mKVJ7MMb9pOrJAGtQZHkrJOHpPuFU/qOuID0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/WSPBxUPW/XGb0HZrxbMF+d4s2bZunVkj/JHy5tilCKteCI5Hs
+	n2+TRevZdg/WJ/M4wzoy3fp0jkDNzOQVv+SRFnlK8gexy9/OVfDPUbts
+X-Gm-Gg: AZFdTZdd0SKF6mQmll1VQzm8S533c538UmymAAHgayoguWTWCJIxJzswAE9Hm3fqnwB
+	VuWXwVx0FJOIEZ2i3AEP8wfCWStR+o+b9QpYM+wSsGEfo7h4l0ZsB1k1322mJw3uNnLT76Ra7IX
+	jS4+WO2ThlYsNuvGvpWSAi3bESQRsibgD8zIUZyjwY1I/2bqNoWpk3kZT372+0fgPPVI+qZgZ50
+	E7VSURMzpg65J5zSUIYk92kl7b7uOeNPcTS+bIZKV95yueMECEtEQS+tb/djtd2meYzImXxqhhE
+	omIxlwiSD0YjppI3BInUk2o4RmnLr6OgdcA3NVxC6HR421EkFzkbHqM700vuCGQUBfNOghvmafc
+	4UbP8cozo2rQ26XoWJKQoNVUyWtP7NfU4CtQaJU7UDJCOByP8faCcddR0dcttvMD9VL5VOra+mT
+	mvB+35lUJasLkZAl+ZFpxeoLQelRn96mY6kHLLMt6LA9CGdm4mGwpH4k0zYweWHTyx6MxcSOt1L
+	+H1mSFoJ7Cr6VsW01HJpbqkh/RLHtPGfQiSzOj+1cLjgmsSGCjJ6JpfTpkIyExoQMJHPxU9MPnj
+	t09IicMVnlha+3gZzmvPFAnoQw5hIWveV0vMO8hs2vnZ/9JezWd/03ykqw9Bvu2M/WcnCfXPMHi
+	7Gnh4ooinZfAh
+X-Received: by 2002:a17:902:e847:b0:2ef:e32d:f476 with SMTP id d9443c01a7336-2f03f1cf4cdmr74856185ad.10.1795289527674;
+        Sat, 21 Nov 2026 11:32:07 -0800 (PST)
+Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120282sm28591205ad.59.2026.11.21.11.32.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 11:32:06 -0800 (PST)
+From: Kyuwon Cho <kyuwoncho18@gmail.com>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Breno Leitao <leitao@debian.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v2 0/1] netdevsim: bound the peer TX queue index in nsim_start_peer_tx_queue()
+Date: Sun, 22 Nov 2026 04:32:01 +0900
+Message-ID: <179528809256.2009509.5007624677973207521@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,70 +99,25 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120113952.168265-3-paul.cercueil@bootlin.com>
+Content-Transfer-Encoding: 8bit
 
-Hi Paul,
+nsim_start_peer_tx_queue() can wake a TX queue past the end of the
+peer's TX queue array after the device is relinked to a peer with fewer
+TX queues; KASAN reports a slab-out-of-bounds read in nsim_poll(). The
+patch skips the wake-up in that case.
 
-kernel test robot noticed the following build errors:
+v2: send the patch inline instead of as an attachment (Jakub).
+v1: https://lore.kernel.org/netdev/179505710275.3511681.13434978152402269948@gmail.com/
 
-[auto build test ERROR on jassibrar-mailbox/for-next]
-[also build test ERROR on robh/for-next krzk-dt/for-next linus/master v7.4-rc3 next-20261119]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+The patch was written with LLM assistance; we reviewed and tested it.
+With it, the reproducer from v1 no longer triggers the KASAN report.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Paul-Cercueil/dt-bindings-mailbox-add-Marvell-MHU/20261120-123951
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git for-next
-patch link:    https://lore.kernel.org/r/20261120113952.168265-3-paul.cercueil%40bootlin.com
-patch subject: [PATCH v2 2/2] mailbox: marvell-mhu: add Marvell MHU driver
-config: x86_64-allmodconfig (https://download.01.org/0day-ci/archive/20261122/202611220344.CTLohdLM-lkp@intel.com/config)
-compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
-rustc: rustc 1.96.0 (ac68faa20 2026-05-25)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261122/202611220344.CTLohdLM-lkp@intel.com/reproduce)
+Kyuwon Cho (1):
+  netdevsim: bound the peer TX queue index in nsim_start_peer_tx_queue()
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611220344.CTLohdLM-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/mailbox/marvell_mhu.c:96:2: error: call to undeclared function 'iowrite64'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      96 |         iowrite64(doorbell, mhu->base + AP0_TO_SCP_MBOX);
-         |         ^
->> drivers/mailbox/marvell_mhu.c:106:11: error: call to undeclared function 'ioread64'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     106 |         status = ioread64(mhu->base + AP0_TO_SCP_MBOX_LINT);
-         |                  ^
-   2 errors generated.
-
-
-vim +/iowrite64 +96 drivers/mailbox/marvell_mhu.c
-
-    89	
-    90	static int mrvl_mhu_send_data(struct mbox_chan *chan, void *data)
-    91	{
-    92		const u64 doorbell = 0xff;  /* Arbitrary value, SCP requires a value */
-    93		struct mrvl_mhu *mhu = chan->con_priv;
-    94	
-    95		/* signal SCP */
-  > 96		iowrite64(doorbell, mhu->base + AP0_TO_SCP_MBOX);
-    97	
-    98		return 0;
-    99	}
-   100	
-   101	static bool mrvl_mhu_last_tx_done(struct mbox_chan *chan)
-   102	{
-   103		struct mrvl_mhu *mhu = chan->con_priv;
-   104		u64 status;
-   105	
- > 106		status = ioread64(mhu->base + AP0_TO_SCP_MBOX_LINT);
-   107	
-   108		return status != 0;
-   109	}
-   110	
+ drivers/net/netdevsim/netdev.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
+
