@@ -1,78 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795296183;
-	b=FGZwbv4s4PWPNmZLEDuFXNAIDVpLTbx+zFJbyogbcAkK+8eR3U88ldInt6OJXqE14qtt
-	 pNg6JOOrK2SnX41jVbgiuaq7QhHoaX0jpwvZvHSir4XzaiB/t9mL9iT4YB4QEBdYIeO9r
-	 u8UF8KsTBFfA/Q2Nqwu+hc8dk1kSFqKIClc0mkLEY5HxvxI3y+PSy4cBoabR+BSIER4lO
-	 svxgd4CNPXml9sG9jkMsrZ6jQRt+06qW3z0tYWF3iILnjNHRXS/dgAw/bX1uLDtrCDx8f
-	 m6A4oLR5T2P3qEswNVkeDQ0keShosIowVbVWHsc5tJ4PrLmVjQtnNpFC4UIPJ644tfA==
+	b=Fu5ioUqa+g+bfFwuDidFuuVKQdOegZaIEekW0yBk6K+wCftE0F+bOFd5Cvs67NjKe1RP
+	 RvweLrzXARlwLa4l0kMFxRk3+mA1m7HZkWfjGVJ81qq197bovMDzKjqoaqUIObfXfCKhY
+	 hMLjTshJoRNkOWDtqBw+IF8C4nCMRcP36zfIeBRgdMgPfla/te1PxKfxkVm7zMikCN98P
+	 zNMV5+Z/zZ+u4tam7PsJbsNuQEA6GL85azOOkc+VJ7OkJW4mEhg9C0VCYKDPEAL3CJENe
+	 MV3tlnQnGSd4gCLUFlEq8xWatd8Z59YxoRb8dEssO1xyvo9wfUqCaFs5ZzqVxuI7PQA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795296183;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=3csgu0tjIUZ+obCVSJX7VQSV8oTLlItzQji91gW6nIg=;
-	b=SroN9pduObvWjrxRqYAFU13yzFsB6IS7bG/MgkACLM2rBO8AHxiwB5nfwuiOhSFs+GVP
-	 ySlsD23hx+wwLKBuBsOC3oAerTM9tR2tOEUtMR4cTzRvA55HnvOKBqSuM6MbHBkXDh0oO
-	 lyzqNbSkuCT6/80b+yJWQKmMI/GUaHKQzM+fHqnMiVuWfh8iHkCYg3ZIOXBtPNaPe+39v
-	 /YFEAYJfQrUGmxPL+EuA91lBGIPcwMCkpT9B9wkBf4zQ0zgm730uPEOPfrpsRrQPGTOH6
-	 hcvOlu3cvKBJc2dLb9kWt+UXzlULCZ4ok6SpxZa1IeFtiSDq7QqXkAaOkrAwbczj6Gw==
+	bh=kPxefFj5DZD/dxigVwgPLNCbE/33TaMQjOGL9JkEFwQ=;
+	b=3TLA4K0pHouqNYzK3gAauTK/GHAcTjt5MwlS2lXyJwn6H5zayPTle5ajLSHa8DrdcH+G
+	 LHOpz9lRVDh0CdyihU2CiUCAT1FMAme7QofsvYmSK43p+gnNLF9pErwtqzZC3BTQPlYN4
+	 B3pj0PQOPIAmeqHxw9vUFaQMh2LdihTNSbGfful4uTmLiNYU56RaoN5Pt/d4y0edrglrS
+	 n5Sdw4hnkQ3Nn5+aKqrIpzaRDj9aC8Bw2mD+2jVqOCpxZB1fR5PrrOdFIg9jX0hZSP2FG
+	 eKy1P3yK6yM6d1Lgg6AN6SB/u8KFMUteo5kAH22DS4yCf+BMBclqwcuAFuaJpb8ChJw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OYIaEpGR;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EP36zt71;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03FBB606A334
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:23:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A281606A339
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:23:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OYIaEpGR
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EP36zt71
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795296182;
-	b=DWVxZOVYbw0kuIud2JIjYBmnJXIcD9U1bYRPt3ekb35gPQqeZTFHkinVCUjjtap44vMH
-	 tF6s67WhF98SMQogivRBPZQXT2dJMkfgIlSsZDWEiQyIMdFLsO//MWdmOVdbiM9NzYJK4
-	 LCLvS9oby7fA08FOJEjuJF9AM5xiLnXE44OHnYD1nDF1QbW875fisrQ03/hSQ+xvZrSEO
-	 zIK32kdMB1GaLb5UQhPIkDmPTI59eYGfLKjUtV8GSYHfQ4FEZdh+OnoIuYr6whg4IDOQ3
-	 uesYD6HJCqkU+J+6pLmn8IGLEi26z7d7pkAFFAIuiEiteEvfheEEGRsYVoGqo69NWnw==
+	t=1795296183;
+	b=n/nZ/DEvTggvoN7BVzaf01WF6G9/+PtLCYE1qM+nsYYfNpJsahSO9mTGbdsOBvPzJds+
+	 Bp5nZSU6XrZQaJ9WL304a+b7M7OF7xMwCWhJIXfVHPiHBx11MRMLPzKkgnxJDDJQ02Hjm
+	 sEpw7qKyk3hhZlDdaOimU2Y0cm6r5Fw/bNWQbgPqVQinJYHFD/UjWZ7wmjsc9UvU5BlXc
+	 gQXLsXG3wsYzT10SXq9T8zptVgVApyG+feMIl9m4BTD2Xhrtxbb5H88iD6Xb7thsnla8g
+	 APYBsEZbGAQwWusqxexcJ5HGqwoy6F79dx/fyg5tlc8w+WRUpccNcrn1NOKIgEfU7mg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795296182;
+	c=relaxed/relaxed; t=1795296183;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=3csgu0tjIUZ+obCVSJX7VQSV8oTLlItzQji91gW6nIg=;
-	b=V+14JfbLwqyIbXPsvBDZPOf3fGKuzQAazd4Y/sHbBSBpI/WTD9d84lN79NWoRsKBhEgp
-	 wYwBGq+z6pu2k7y6OjJOUrg/mHrA4EoDMErjG05FiWzcLr1/7XLrJdDnqiT+o/2keVcXw
-	 8YEqCa3s5XAKIi6mawuuxOrUIJEwINzCJP+FcHJK0A17XTrzjMafYt/5B5oz08uCqK+gt
-	 0xdn4g9IkBW2UtXI+AKoXyoY8e43T+8eWmAopSxDYul7khJ2wPvw+g/mOaUP3mGGF1OPn
-	 129xgJcNq6b3ECTgw3zNv2sYU5JY9U3wd40/fLsfwQvxENLi3/scVvFV+ozKUFbpSsw==
+	bh=kPxefFj5DZD/dxigVwgPLNCbE/33TaMQjOGL9JkEFwQ=;
+	b=UlH7qFxsUg8soNaUcGW6YSIDWjYRObwTFG0bysMaErn4WEoR4BDGGIZNRtV34EmjZe3O
+	 xRR1WUBd+jOtaMoBcUBmee5vaL86HNKgCy6XYC2LIWk7uUn2k4vn5MXbU7hE+Nbwppq83
+	 Jw/JUAnQNiBkQMPWmPbzzUgUjjhyjUGO2nPW6r8DicLpEaxjDaHLzFUjAtdh3hMJDMLRr
+	 4WJtk78v0G31VlDppI9aeSvXBPsE5+FGT8S0P604tiEhmGMb1ukAvcu5OOjD42DX4LKvh
+	 OHJ4zbXoUwPJO1v0QU2bmTN14ezJ2cm9aI5BwMdqbuhXCvCBVTyq8/YCIkBJid9hhOg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id A18CF1F000CA;
+	by smtp.kernel.org (Postfix) with ESMTPS id 881AD1F000C6;
 	Sat, 21 Nov 2026 21:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795296182;
-	bh=3csgu0tjIUZ+obCVSJX7VQSV8oTLlItzQji91gW6nIg=;
+	s=k20260515; t=1795296183;
+	bh=kPxefFj5DZD/dxigVwgPLNCbE/33TaMQjOGL9JkEFwQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=OYIaEpGRzsPO9QpHqSDtHtdSPVCndp2MH2DLT3TOMbYnYpIbUd6gg1um6Uaks+1bj
-	 23HaXH6v0wHvn9YC6kMNCIeSTqo9kON/Sq1JANN8l7ToGcmWq8ncncCfA9XGTuYfl4
-	 /x+0Z64r3TRwqkpj2YjLMLwj1LPj/w/LXMEtY2GYjuhe2U7WZUM7eR7qWpieSfYrhE
-	 gWclZ2E5FHGujh7ueNdUqPVey1/WToO5SbwdLMsEhE/ChDXjda1OQjqk8C1GtfTbnD
-	 9WgaAE/aOjfGAoSgk6tQEgfxQt09mkpzI/cEK0zYcH3NB9omuHD5mznbQ3ojRDi0es
-	 qWry0ap+iBm1w==
+	b=EP36zt71vpTsjIr+PGCxh/8UP1R/sdhaPVvqZ0g+Z3SRwEcx6IJSjFAFM59ituyj9
+	 T5ZIEd642q9Xg+94NUd+TjuJIByqzsH5MOOA3wsMnmaTeIZAdexwTs94PTJQPYBUci
+	 CzcF9OgxZeBO2sExjYZCEdw4SqB+j7GaJSkaxj+kbD0Rbcmmr2decJO2jjSHCu8KVQ
+	 DkJwEQSbjVPc3VeL5S3zPGYJ4i5jsPkH+NYJAhYmJSBBNJy33tlvQIm7qLEfIU0sib
+	 L3KOdfhrANlnjOuwiubFNK5tN9MxYDr35q22HN8JzeypMsPE5UpkbVfNQk5VhaOcqg
+	 jBBt3lA2Tmc6A==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 2E3694BDD8;
+	by lkml.kernel.org (Postfix) with ESMTP id 1626C4BDD4;
 	Sat, 21 Nov 2026 21:23:01 +0000 (UTC)
 From: Jim Cromie via B4 Relay <devnull+jim.cromie.gmail.com@kernel.org>
-Date: Sat, 21 Nov 2026 14:22:56 -0700
-Subject: [PATCH v3 3/6] fixup-makefile
+Date: Sat, 21 Nov 2026 14:22:55 -0700
+Subject: [PATCH v3 2/6] drm: Fix incorrect CFLAGS-y spelling inside
+ Makefile
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261121-rd-mostly-v3-3-89e74b23b491@gmail.com>
+Message-Id: <20261121-rd-mostly-v3-2-89e74b23b491@gmail.com>
 References: <20261121-rd-mostly-v3-0-89e74b23b491@gmail.com>
 In-Reply-To: <20261121-rd-mostly-v3-0-89e74b23b491@gmail.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -95,11 +96,11 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
  Jim Cromie <jim.cromie@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795296180; l=715;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795296180; l=1669;
  i=jim.cromie@gmail.com; s=20260203; h=from:subject:message-id;
- bh=UbYmJUbYozcybXjWWNTdliSZ+bJNJebHuGNQgVyBKs8=;
- b=W9b1h0CFK/+FvKXIc86Uv20na8l571YFEIY8hv/KYVeF/KJ6yWBD1+YHHC2aZHSmKfszziBsk
- H2r9xLeXHWsACnP7X4V6/Fp0asDBnR81nl5hPm2XvVOlbAQDWYlFoXu
+ bh=PNDrfsA84PuTN7eG4zqahY8+OYZihSCYKHCt1mJS2go=;
+ b=Q6kceBssgoFt7rOTiEK1VGH0yxbBzkdT5eBxc86olKaz7paVZQWDuXjWaVpVLbEseC9xpc0Tk
+ VqMMcCF4r5SBfRvBGFgkAqhtu9XVs9FyZ1VYoWMpKye1Q8lr7TOxUMQ
 X-Developer-Key: i=jim.cromie@gmail.com; a=ed25519;
  pk=C6E5ODlPQo7ZBynATXH9wg7K6HxP0pIXyf4s38Qw0XE=
 X-Endpoint-Received: by B4 Relay for jim.cromie@gmail.com/20260203 with
@@ -110,23 +111,41 @@ Content-Transfer-Encoding: 7bit
 
 From: Jim Cromie <jim.cromie@gmail.com>
 
+DRM Makefile spelled CFLAGS-$(CONFIG_DRM_USE_DYNAMIC_DEBUG)
+incorrectly, which kbuild ignores.  So -D<flag> was omitted, breaking
+DRM dynamic debug callsites when CONFIG_DYNAMIC_DEBUG_CORE=y without
+CONFIG_DYNAMIC_DEBUG.
+
+Replace "CFLAGS-" with "subdir-ccflags-", so that -D<flag> is added to
+drm-core and to drivers and helpers in the subdirectories.  "ccflags-y"
+only applies to the current directory.
+
+NOTE: When CONFIG_DYNAMIC_DEBUG=y, -DDYNAMIC_DEBUG_MODULE is redundant
+because defined(CONFIG_DYNAMIC_DEBUG) already enables callsites.
+Passing it unconditionally under CONFIG_DRM_USE_DYNAMIC_DEBUG avoids
+extra Makefile conditionals and keeps the preprocessor environment
+consistent across DYNAMIC_DEBUG=y and DYNAMIC_DEBUG_CORE=y builds.
+
+Fixes: 84ec67288c10 ("drm_print: wrap drm_*_dbg in dyndbg descriptor factory macro")
+Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
 ---
- drivers/gpu/drm/Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/gpu/drm/Makefile | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/Makefile b/drivers/gpu/drm/Makefile
-index 4a93c09f08d9..2c0839b6d648 100644
+index 2c6bc093a923..4a93c09f08d9 100644
 --- a/drivers/gpu/drm/Makefile
 +++ b/drivers/gpu/drm/Makefile
-@@ -3,7 +3,7 @@
+@@ -3,7 +3,8 @@
  # Makefile for the drm device driver.  This driver provides support for the
  # Direct Rendering Infrastructure (DRI) in XFree86 4.1.0 and higher.
  
--ccflags-$(CONFIG_DRM_USE_DYNAMIC_DEBUG)		+= -DDYNAMIC_DEBUG_MODULE
-+# enable dyndbg for CONFIG_DYNAMIC_DEBUG_CORE (ie mechanism) w/o builtins
- subdir-ccflags-$(CONFIG_DRM_USE_DYNAMIC_DEBUG)	+= -DDYNAMIC_DEBUG_MODULE
+-CFLAGS-$(CONFIG_DRM_USE_DYNAMIC_DEBUG)	+= -DDYNAMIC_DEBUG_MODULE
++ccflags-$(CONFIG_DRM_USE_DYNAMIC_DEBUG)		+= -DDYNAMIC_DEBUG_MODULE
++subdir-ccflags-$(CONFIG_DRM_USE_DYNAMIC_DEBUG)	+= -DDYNAMIC_DEBUG_MODULE
  
  # Unconditionally enable W=1 warnings locally
+ # --- begin copy-paste W=1 warnings from scripts/Makefile.warn
 
 -- 
 2.56.1
