@@ -1,68 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795239372;
-	b=3lamGFVn3gQAuBY1+VCAYRdLD/JfhTQ7JYHtOu3+OkWSskysVooahei5kt9pkROfS8Vj
-	 1EbwmR8aEWZ8Dd66UqlE5kC8HVGE6u6j0RN9tyI045obKHyYQCqYPcajaZJ65LV8bwL/+
-	 owYJh4uMDwRRD0pDZHrdoVqBumO9B+g4PlneCbhF63rPRd+tdIKaoloo1P0PS3n6mE6dp
-	 K4XqhC+lheSYA4jqu1dKNbTCOC0roCRHfeYWS1pXJvxZTQ4VRF+iMTNb2PEE98HxZn+0B
-	 gyWQOQgjqn2KW5FWJWB8Jn9O3oyKnXqcnW2vGfc7Bank4uoj4ZIEtN4AcmK4Sxpa7tw==
+	t=1795240521;
+	b=iYFSq8dNjIPXosBOVyZE8DWnm0jz3f0TemOVNiTaUoTfjblOB5tKr9boHbbsbh4K3eve
+	 2dYFWmAnQWY/e5eV3wvPOCXV/Hcb18ut1r70u+lZP/frIZC+nxDe5UnE+Dt4Jd7PgIlI+
+	 EKl1ka6UDGEWomM13zrrvV/AycYm7esFwdR0+2UgJOkPIDRf/oEdzSFJYOhWrl4ettwQV
+	 zamMGlxHOB5XeOabh6aJihgwQ5SRcr3wbJ4vmGWHZyQG6ZnmPDMuM7sTazJhr+XekXeJP
+	 sAZIUmSZbGldqWiz1lPTWQAVUftqDxXcZm4bJXnmDOY6Lu2DqXWDYOmnWemzUTd7GoA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795239372;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=0o3FRnQiKkoscsEUT3YbtKJLx8HWGG44j8iwYcNZKHw=;
-	b=JbaM2jSWZbc03N4IXdvitbuSEpFQcz6Xp8ROf4/zDzzZGwf6xQdg1R070zAQE2KO48/3
-	 zAKWQ7nm1J4TEZRxIeEK7crjg/+6p3ZTXcYDqJ3z4CKBw3HTnH9HlqW1BzOyh32YE4WmV
-	 vXPCmfG6OuraJNgvJpctA+K+6ZSD0vvIk6dBwnmk9+zCaBdPC9bZbiVr557qRtVVqnYWa
-	 DHn83FU8hNs0NXH0w8uK45sa4LmpFyvGlVTDOPpMZC13BFE8k/8eEHM8De2jejEGRLAZy
-	 aCjnkYLuMAhMJKtfrAXrtXglPSog0UxqVwfaVIk5j6wVI6fK/3bYK8HTIXK1kBQ6K4Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795240521;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=VRkzVDCu4h7OOw62wkfxEZaIQL0l0jarNYsHxjBjg4s=;
+	b=kEzegj6nCKFeOs2ZeYGCoLtWpDfGoC+FsX5YkMSu4mQQD9WKbYAjJg3OgcJ8mB+2DIte
+	 NGAo3rCmHm/E0wK/7mCSWJw9dqeOHBvmDSRxAs262ipVXZKsKIUKjZ/CsZvalZaxi3OYe
+	 jssNYGcd5oppe/qwziU0XK9agzLp/7r1AEnIHZ0NdKZ8a/btPauBwplRkpZU0O32h1mL+
+	 TO95yEsQo/vCG0T0sDy2J9RQlOD/f/FtoKLNN9Js3wo7YJ+FH7t8XLWFpy9u0vo1yi6iz
+	 iD+DJL5ApqWRIWlG3CrDSrVs/7vML0L6/O4tbz/cKE/CJzyWAIGZgRBV5HKkGi+P/nQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=j8EeED3Q;
-	arc=none smtp.remote-ip=198.175.65.14
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o3UW+XKk;
+	arc=none smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFA6A606A32C;
-	Sat, 21 Nov 2026 05:36:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFA6A606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC9FC606A693
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:55:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC9FC606A693
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=j8EeED3Q
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795239371; x=1826775371;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=oGHFSLX2ZWq3/D9o1TXL/H7n6lw7cEG3lMvkKg7Zizo=;
-  b=j8EeED3QWCCNwjg98IqjrnK2iY8nL5pHtNP/SwyW8YJPGXzsxZPh1j9Y
-   w5lSEWZn3rEvjkqataVAbY3mPmBAZmlBdB5SwnU1LKBBF+woMmoM4t+jf
-   TIVJ5P0jpjOSceLig4M8hfwCC74HMsBBkkOdkKK4iwDFy0uLa4NgekNL2
-   XrWWH+toUdMiV+R5lB9DAi6sVUcjx/O+lrOVageJ+LSFUvD86ve/1RO9w
-   3XE6cQXZb55xZBwR5J94XrIznSiFqSzZLWHidI3U/kl6Wi+qed2YWyHS5
-   nJnqm2+jvCsEDqnCkPzEvHtblU/FnP7z2k3sZuCjV887JtWuqd19eCEKO
-   g==;
-X-CSE-ConnectionGUID: gC5T/XHvRSaCxSY7PbHGgQ==
-X-CSE-MsgGUID: w9bM5KuzQK6ydOdTdKRCWQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4011810"
-X-IronPort-AV: E=Sophos;i="6.27,224,1787036400"; 
-   d="scan'208";a="4011810"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 21:36:10 -0800
-X-CSE-ConnectionGUID: YrtsrEmMQhGUdJckcrBI6Q==
-X-CSE-MsgGUID: JtL1kT7bS4W4ro3XpJvdjA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,224,1787036400"; 
-   d="scan'208";a="11068491"
-Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.241.239]) ([10.124.241.239])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 21:36:05 -0800
-Message-ID: <e8e95f5f-973c-4b81-944b-46d7ce683042@linux.intel.com>
-Date: Sat, 21 Nov 2026 13:36:00 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o3UW+XKk
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-382f4710a17so2689405eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:55:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795240519; x=1795845319; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=VRkzVDCu4h7OOw62wkfxEZaIQL0l0jarNYsHxjBjg4s=;
+        b=o3UW+XKk9Ru8xXN6/wgel/cgId1/iPY/5oSeQ6xcb7HJ7ifn3GBm2KCQGnOufJ5yBy
+         d5cFcM8H0KgyLPrf3Gta+p+VnJ5TJf30/nn3oC1HlLgNCvnOsZHKf8/NUl04WIuG12ci
+         pCOiBfP4/Pd/jX4DxDfDFY79qmvBO7VCm4941fWAU4eAfxb8drp5e2fDlQu4rtnCYvco
+         Es9CZ5VqbInjKmjsACH5dlrbB5u24Zx1Fsl+FWlRMKaW7D0M4WJgry8S4hz/bB+IHElb
+         bUA5MdfvvDwkZRUHhOk9wxo8klI5KW3DWiaPjwVHB5Wwoi5Ek36i9k6Y8TNDeMvZY971
+         xmsA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795240519; x=1795845319;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=VRkzVDCu4h7OOw62wkfxEZaIQL0l0jarNYsHxjBjg4s=;
+        b=mMK/t/koG7PVusbMZbuk1w4wJD0ks10Fq/RUg/S7ImEeAS5ONbIcJa7Js26MZasGK8
+         t41wRfCXl2zj5tPMuJwW7KJSE0pKQ2YiH1PNRXP4Y+ieVsqIkUaK6jGhrczaqrAo9p4m
+         SnIa1ISTC7MQ38SfArylIIl4w29IBKwIRlemJCK6vG/g6T7Xde7GYKn8z2f/jEZSw1X0
+         YEPPQGCt3HoigB0OvCe7vTETVmOtycC7pOPo1q/d7P1KZCqCYJwRDt6cjbwoufWa7Wl9
+         E9b41mPf3EPvaQSAWN2FX6G119HQN7RyNQOgvs+CLUMInCYlICSGxK9KvCJF92x36Jjh
+         5puQ==
+X-Forwarded-Encrypted: i=1; AL+hErEjSCfgKiDgqgi2StGC1G8dpgKqkj/CIz1VlE+x9sxZa28qZHGZXxNm5y+xkfIT3ASpYgEa1TDWQmZpJ5c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Ryk60jmZC/I1OavRf5M1MBLVo6W8rawOXnWR6WSQRRXkzjpjO
+	Fl8X1RUZUlpjBppu5HAkW806+2ISVLtWbNcNqyrNVC0eJZ/TcnKI4Dvc
+X-Gm-Gg: AZFdTZc6znK12lydC0y0P+MeKJvQZt+4bt01Yh41KjNelXPPuLCQ3kk2INe/AKQANig
+	5NG9akXvDBuPx1h3Qha6kTl4ZLDwTEi+NOXKxNJAKJtDa6NPSbRbPbbGSBu115rlL5lLuHF455c
+	tO11q89FQtIZ7ZX4iYQnTCbebWQdVPiEhngvS6hPXU5bMcOpHX3Sp1rFgrpBSUxNWu7Qxlvl6jB
+	bhf9n15fmUAVJ+NUnNw47rljk5gCs6uUm8LArDWcEh3VtEGhkPFbs3TYY1805QKNdzh76ir+zbe
+	qlAMVI393kXtwpxswzSLpFVBGWc0v2dv6U49GAWekRbgv17mVQjwe7UsjEnP3TyuFYSJc31RmgD
+	zWIJq5t98O3JTwmNBWFL3gOnu6zvIYzjDZ2lXEVKSHkRdUKN0lD3f2upvYdJ6v7D/sQYP3TrNfU
+	gdGSLFy617P2pMad4+GCDoY1lSZ6EdtFylBEh8PMQVW+QqR2bZERTjB8ZGnanTodM7xUCjiA0qx
+	ZntffV3tTZgrqTsBa7Yw2so8H2ssEQ1P02h/9FKif0uXfApY8mVo92Yb4WBNXbEYVkLJJhr/iCp
+	04OQmxxlkEAd7wqs7eu3hHEr+XtX8r4=
+X-Received: by 2002:a05:693c:20c8:20b0:381:53ed:1c4b with SMTP id 5a478bee46e88-38571518db2mr5440311eec.34.1795240518911;
+        Fri, 20 Nov 2026 21:55:18 -0800 (PST)
+Received: from [127.0.1.1] ([2405:201:201e:8863:a72d:7d80:d674:e22b])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c0c1dsm14423662eec.21.2026.11.20.21.55.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 21:55:18 -0800 (PST)
+From: Viral Patel <viral8854@gmail.com>
+Subject: [PATCH v2 0/2] iio: magnetometer: add Infineon TLE493D-W2B6
+ support
+Date: Sat, 21 Nov 2026 11:25:09 +0530
+Message-Id: <20261121-tle493d-v2-0-92d7e57cec89@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,100 +93,169 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] perf/x86/intel/ds: don't WARN when the BTS buffer can't
- be allocated
-To: Yuehong Wu <wuyuehong@cmss.chinamobile.com>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- x86@kernel.org
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, James Clark
- <james.clark@linaro.org>, Thomas Gleixner <tglx@kernel.org>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Kan Liang <kan.liang@linux.intel.com>,
- David Rientjes <rientjes@google.com>, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261105-perf-ds-bts-warn-1-yuehongwu@cmss.chinamobile.com>
-Content-Language: en-US
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-In-Reply-To: <20261105-perf-ds-bts-warn-1-yuehongwu@cmss.chinamobile.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAD0yAWsC/z3Myw6CMBCF4Vchs7amM61IXfkehgXCAJNwS0saD
+ eHdrZi4/E9Ovg0Ce+EAt2wDz1GCzFMKOmVQ99XUsZImNZCmHDUVah3YOtMotLUpWno2dDWQ3ov
+ nVl6H9ChT9xLW2b8POOJ3/RmoL38jotLKkM3ZIefG2Xs3VjKc63mEct/3D2YzTYmeAAAA
+To: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Dixit Parmar <dixitparmar19@gmail.com>
+Cc: Victor Chernyakin <chernyakin.victor.j@outlook.com>, 
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Viral Patel <viral8854@gmail.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795240513; l=6963;
+ i=viral8854@gmail.com; s=20261014; h=from:subject:message-id;
+ bh=MzBc98Zhhkw57lEqQQOcbrGAiY+LY9quSwYv0/7I6Lo=;
+ b=R3gSSlYhITz002ctFfK4fCNua+wTP/43nqOmJwcU81rGA+YxNxN8UZ/8msebgErAA4NnonkJ+
+ ZsLoJzsoV90DZupZAyu2k128jG7xFwNkV7VY+kouACszroaUan7DYyT
+X-Developer-Key: i=viral8854@gmail.com; a=ed25519;
+ pk=UC+UDB53t70pTK4wncXf3tfh0hsYMCqpxYnTaKX3MYA=
 
+This series adds support for the Infineon TLE493D-W2B6, a 3D
+Hall-effect sensor with an I2C interface, 12-bit X/Y/Z data and an
+integrated temperature sensor. It was tested with the TLE493D-W2B6
+Shield2Go board (variant A0, I2C address 0x35) on a Raspberry Pi 5.
 
-On 11/6/2026 11:06 AM, Yuehong Wu wrote:
-> alloc_bts_buffer() asks for the buffer with __GFP_NOWARN and then WARNs
-> if the allocation failed anyway.  The failure is already handled: the
-> caller disables BTS for the event and releases what was set up, and
-> perf_event_open() returns -ENOMEM.
->
-> The WARN_ONCE() came with commit 4485154138f6 ("perf/x86/intel: Avoid
-> spamming kernel log for BTS buffer failure"), which added __GFP_NOWARN to
-> stop the log spam of the failing per-CPU allocation but kept one warning
-> as a hint.  That hint is fatal under panic_on_warn: on a machine with
-> BTS, the 64 KiB buffer allocation can fail on a memory-constrained
-> system and a plain perf_event_open() then panics the kernel.  Since the
-> allocation explicitly asked not to warn and the error path is fine, drop
-> the WARN_ONCE().
->
-> Reproduced on 7.3.0-next-20261027 by making the page allocator fail the
-> order-4 BTS buffer allocation (fail_page_alloc: min-order=4,
-> ignore-gfp-wait=0).  Without this change the first perf_event_open() of
-> a hardware event hits the warning and, with panic_on_warn=1, panics.
-> With this change the same allocation failure is silent: BTS is disabled
-> and a following branches/period=1 event returns -EOPNOTSUPP, while the
-> kernel keeps running.  The buffer is allocated per possible CPU,
-> independently of any specific BTS event, so the failure path is
-> exercised without BTS tracing.
->
-> Fixes: 4485154138f6 ("perf/x86/intel: Avoid spamming kernel log for BTS buffer failure")
-> Signed-off-by: Yuehong Wu <wuyuehong@cmss.chinamobile.com>
-> ---
->  arch/x86/events/intel/ds.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
->
-> diff --git a/arch/x86/events/intel/ds.c b/arch/x86/events/intel/ds.c
-> index 8444670..27e4115 100644
-> --- a/arch/x86/events/intel/ds.c
-> +++ b/arch/x86/events/intel/ds.c
-> @@ -939,10 +939,8 @@ static int alloc_bts_buffer(int cpu)
->  		return 0;
->  
->  	buffer = dsalloc_pages(BTS_BUFFER_SIZE, GFP_KERNEL | __GFP_NOWARN, cpu);
-> -	if (unlikely(!buffer)) {
-> -		WARN_ONCE(1, "%s: BTS buffer allocation failure\n", __func__);
+Why a new driver
+================
+The TLE493D-W2B6 is a second-generation sibling of the TLV493D-A1B6
+(drivers/iio/magnetometer/tlv493d.c). Only the X/Y/Z bit packing is
+shared; everything else differs, so this adds a new driver rather than
+extending tlv493d.c, as agreed with Andy in the RFC [1]:
 
-It's meaningful to keep the WARN_ONCE() here since __GFP_NOWARN is set and
-the memory allocator won't print the warning message when allocation fails.
+ - Writes: the byte after the I2C address is a register address that
+   also carries ADC trigger bits; tlv493d writes a raw stream starting
+   at write register 0.
+ - Reads after reset: the sensor starts in a 2-byte read protocol that
+   Linux cannot drive, so the first access must be a write that sets
+   the PR bit to switch to plain reads starting at 0x00.
+ - Register map: a single unified map, 0x00-0x16.
+ - Mandatory odd parity bits (FP, CP). A wrong FP makes the sensor
+   release the bus until it is reset, so FP is recomputed on every
+   mode register write.
+ - Data validity: a Diag register (PD0/PD3, frame counter, bus parity)
+   instead of the channel bits tlv493d polls in register 3.
+ - Temperature: 10-bit, with a different encoding and scale/offset.
+ - Different power modes and update rates, and a selectable short
+   range (X2); the A1B6 has a single range.
+ - A dedicated I2C reset sequence.
 
-About the panic_on_warn worries , as the
-"Documentation/process/coding-style.rst" said, it's the users'
-responsibility to deal with the possible crash if user enables the
-"panic_on_warn" option.
+The other Hall-effect drivers in drivers/iio/magnetometer (tmag5273,
+als31300, si7210) were also checked; none share the register map, the
+write format or the parity scheme.
 
-"
+Scope
+=====
+The driver supports master-controlled single-shot measurements of
+X/Y/Z and temperature at full range, via sysfs and a triggered buffer
+with a soft timestamp.
 
-Do not worry about panic_on_warn users
-**************************************
+The temperature has 10 bits of resolution. It is reported as the
+12-bit aligned register value, so in_temp_raw moves in steps of 4 and
+the scale and offset follow the datasheet's 12-bit LSB.
 
-A few more words about panic_on_warn: Remember that ``panic_on_warn`` is an
-available kernel option, and that many users set this option. This is why
-there is a "Do not WARN lightly" writeup, above. However, the existence of
-panic_on_warn users is not a valid reason to avoid the judicious use
-WARN*(). That is because, whoever enables panic_on_warn has explicitly
-asked the kernel to crash if a WARN*() fires, and such users must be
-prepared to deal with the consequences of a system that is somewhat more
-likely to crash.
+Not supported yet (possible follow-ups): wake-up thresholds, the
+built-in self-tests, low-power and fast modes, sampling-frequency
+control, and the short range.
 
-"
+Testing
+=======
+The series is based on iio.git togreg and build-tested there. Hardware
+testing was done on a Raspberry Pi 5 running the downstream
+rpi-6.18.y kernel (6.18.59). For v1 both patches were applied there
+unchanged apart from a Makefile context fix-up; for v2 the driver from
+this series was built as a module against that kernel and re-tested.
 
+ - Probe: the module autoloads from the DT compatible and the Version
+   and ID registers match the A0 variant. With the sensor disconnected,
+   probe fails cleanly with -EREMOTEIO (v1).
+ - Reset: the Pi's DesignWare adapter advertises I2C_FUNC_SMBUS_QUICK.
+   An i2c/smbus trace of probe shows two Quick reads from 0x7f and two
+   Quick writes to 0x00, each NACKed as expected, followed by the MOD1
+   write to 0x35.
+ - Raw reads via sysfs: with no magnet nearby, X/Y/Z read within
+   +/-3 LSB of zero; temperature reads about 30-33 degC at room
+   temperature, matching a userspace bring-up tool.
+ - Triggered buffer with an hrtimer trigger at 10, 100 and 500 Hz: no
+   missed samples (20/20, 200/200 and 1000/1000 over 2 s). In v1 the
+   mean period at 100 and 500 Hz was 10.000 ms and 2.000 ms with at
+   most 3 us jitter.
+ - sysfs reads from four processes in parallel, and sysfs reads while
+   streaming, work.
+ - 10 rmmod/modprobe cycles and unbind/bind: no errors.
+ - W=1, sparse, checkpatch --strict and dt_binding_check are clean
+   apart from the Datasheet: tag line-length/link warnings.
 
-> +	if (unlikely(!buffer))
->  		return -ENOMEM;
-> -	}
->  	hwev->ds_bts_vaddr = buffer;
->  	/* Update the fixmap */
->  	cea = &get_cpu_entry_area(cpu)->cpu_debug_buffers.bts_buffer;
+Known limitation
+================
+After a sensor power-on reset while the driver is bound, reads return
+-ETIMEDOUT until the driver is rebound. The reset clears PR, so the
+sensor is back in its 2-byte read protocol, plain reads return 0xff,
+the frame counter never changes and the driver times out waiting for
+a new frame. Recovery is planned as a follow-up.
+
+Use of AI tools
+===============
+Claude (Anthropic), used through Claude Code, assisted with this
+series. I gave it a specification of the hardware (register map, parity
+rules, I2C protocol, conversion constants and test vectors) based on the
+User Manual, together with the v1 scope and IIO style requirements. From
+that it produced the initial drafts of the driver, the binding and a
+userspace bring-up tool, and it reviewed my later changes. I did the
+hardware bring-up and the v1 testing on the Pi 5, including the device
+tree overlay and boot setup, analysed the power-loss behaviour, and
+fixed up and reviewed every patch.
+
+For v2 I went through the review with Jonathan and Victor and decided
+how to address each point, including checking the TLV493D datasheet to
+confirm that its /INT also shares the SCL pin, which is what allows the
+binding to be merged. Claude then made the code changes and ran the
+re-test above on my Pi 5 setup. I reviewed every change and the
+results, and re-tested v2 on the Pi 5 myself: probe, and the triggered
+buffer at 100 Hz (200/200 samples, 10.000 ms period). I take
+responsibility for all of it.
+
+[1] https://lore.kernel.org/linux-iio/atyPf0msZ85z2m19@ashevche-desk.local/
+
+Signed-off-by: Viral Patel <viral8854@gmail.com>
+---
+Changes in v2:
+- Rebased onto current togreg
+- dt-bindings: add the compatible to infineon,tlv493d-a1b6.yaml instead
+  of a new file. interrupts is allowed as for the TLV493D, since both
+  parts have /INT on SCL and Infineon recommends wiring it up (Jonathan)
+- Use FIELD_GET() for the single-bit Diag flags (Jonathan)
+- Comment on why Diag is cached before the error checks (Jonathan)
+- Use guard() in read_raw() and mutex_lock()/mutex_unlock() in the
+  trigger handler (Jonathan)
+- Send the reset as SMBus Quick commands and skip it if the adapter
+  lacks I2C_FUNC_SMBUS_QUICK (Jonathan)
+- Declare the reset loop counter in the for statement (Jonathan)
+- Comment on IICadr and on the 7-bit vs 8-bit addresses (Jonathan, Victor)
+- Link the user manual in the driver commit message (Victor)
+- Link to v1: https://lore.kernel.org/r/20261105-tle493d-v1-0-3246e91e6394@gmail.com
+
+---
+Viral Patel (2):
+      dt-bindings: iio: magnetometer: infineon,tlv493d-a1b6: add TLE493D-W2B6
+      iio: magnetometer: add Infineon TLE493D-W2B6 driver
+
+ .../iio/magnetometer/infineon,tlv493d-a1b6.yaml    |  14 +-
+ MAINTAINERS                                        |   7 +
+ drivers/iio/magnetometer/Kconfig                   |  13 +
+ drivers/iio/magnetometer/Makefile                  |   1 +
+ drivers/iio/magnetometer/tle493d.c                 | 572 +++++++++++++++++++++
+ 5 files changed, 605 insertions(+), 2 deletions(-)
+---
+base-commit: 903941a9b06ae445c70646ab061b604c2dea17d3
+change-id: 20261028-tle493d-14c38f2bd273
+
+Best regards,
+-- 
+Viral Patel <viral8854@gmail.com>
+
