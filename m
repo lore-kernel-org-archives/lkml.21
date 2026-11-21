@@ -1,55 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795243515;
-	b=o8MCj6Ga2FM0hl5gECWFDwKK9XiX9vAvN2GOVWe/PDRPOsAdfVceQLrw0RlKQCuy1wmC
-	 TFyGc2bZ6L6zrw+yqC+dQrNne0+S1Gza5r92HDbVvCciPpNjA7XLOQg3mCTIJWW4f6i7C
-	 UHwOGuyh4iNBeP8hW4C28lDqGVQPo7geY1NPB+5q7ofNaxdgYAtyXvhuQZpgG3J9ObmFU
-	 nhJj+lBM4cgaSnMMaKsvWlE8TaCiPHN2Po8Va7p3Kl3+bV1D60pKeLQjZUnU1AlC6sSs3
-	 pd9yY13GtwDy/cb6sAueSgWdr3s99ho1BlPSKiFEUBH9twSrG9QloJ5VNxgqXB+4hnw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795243515;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=FbE77umev5juPy7Fs4gx65Zwxt75bhSJ44VTn9JcJ4Y=;
-	b=twCzlpDxHGcXdHiN/hS2TAzwpGik86VweA7TswpF7pOW1EG9TqlcgOU0nwheT1aBnyXC
-	 vUSK9ZNebg4Xw9mFRJu7pzC/rPaTEr9gv9hVe60SLBtuNpojxc0++LbrHa/cvi8mLE8m7
-	 LWxfrMCTeYKNa0Fq97BoGN/44RiDwt4+DaT69XRnJTC1snhpWgE1mlrSDRNpoe59gkHxO
-	 BbUwYCq7MBpWxPZWn1Y9XT6l+n6+JO9S+CLebvQwfviAdNinqvP4jA6oQo8SjM6/5NhL4
-	 7w3Mi2xBLbHXKOEWdSpdNVAkj+Mg9IO90xKOFw/FoiOlsr3zRcVoJFnfPw9MGzdpaOA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=stu.xidian.edu.cn;
-	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 18214606A680;
-	Sat, 21 Nov 2026 06:45:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18214606A680
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.182
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795243546;
+	b=0MRhVqIJv8mZwG7OSEZB6FIUMxJWBHU3VxKyq02dJwGnNA6LEsw5gC8SBalGoC3bbj4s
+	 S5EZ4eWpFCLXk7MAJYHDu4C8S9eGHJaqS4hobauZMnw1/DrockSiVgOVvMiiyp2ud7w1h
+	 zXVW9vxZZHIR4tTwCgtj9eHMz8MhJkuEhapqDe0duXYI4f7TuOxYzYACQg7Gh9osYq0r4
+	 qmZt8rQoCg5S9tBWhivi1HizakIiZujjaq9rr0vYE2lnK3ZGp1KjeYyEu49BPRRHZq/R3
+	 oa84Iakf7UOkuFh93MmliiZpkMoVQWKdFiPzL7EGZ+vw+DQMuTrTuzxGd60ZCs0OcbQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795243546;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=iyUW/gQgK6sLuAw1qsqOpPSq/qowOpiEcwfea2zJOWY=;
+	b=ARiEv9fBAJz3hIiG/3Kce2EwTv0dX7FmZDsibit+AuUlhidpcHN5sS6YXYTE4EM5Jr/b
+	 d5CMuMX6dpluIsl7JaJ1tHHCrxqRN8pAI5PIjKuUYbIvbyFl5lSWzE9xEQ0/9OI6cEe7+
+	 dy1FLG3AyzK07taPT7c0ArcIs1zF+XuxYief71rzag4KMJZ65hY2FZQJlqiIvC3JMTrGG
+	 8Fao3hhTWqToMm6DRcwTg8rHjxUn1KzXu51T0EPK2l5eqaMspH6t5cSFyNJ+65z0XE7ql
+	 ZqaKK7Nmnk/pBSxbKyCjei41bOzUCcNhTBjem8QuNuBWSSuV3MP4lGOxDWLRNPf5LCg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Scq+rGqM;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.182
+Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com [209.85.160.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5759606A33E
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:45:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5759606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Scq+rGqM
+Received: by mail-qt1-f182.google.com with SMTP id d75a77b69052e-55be673e029so80341cf.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:45:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795243544; cv=none;
+        d=google.com; s=arc-20260327;
+        b=G4lQUTgQeImUgFeVxg3Pc2+NEVKKhF/VcDnKxatVA9rr4lDZ6EHPzzmvgBZN4pcu2D
+         NA/gcfiVVA8eetHuNpIZx3J3Q+KWPO4yky4YztGgj+c9BMyiodNcMZihQ72Vxm8d0ui7
+         HPsxjelv/oG/69i+gL6LeaTF3vZ7FcDlBgzgRY11NUE58WBnfupZUfCTquS78cIjik8t
+         D9UOKsAlsO5/wTq+qk3j+KBPhOh1k30PX6WWfiAbPNiwiQJfXBScbNcvVYKbOC9vnsQ9
+         rtGOPPAT7id5z5mYFePGU8Eh8GzuTylGaeYz+rjJaWKso8qlyBvXLEMQL9JQazrHeIJV
+         3Avg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=iyUW/gQgK6sLuAw1qsqOpPSq/qowOpiEcwfea2zJOWY=;
+        fh=9OzQgi8WDax8B4EEw+0wN8hKBfm3WEEaQSB//Fj1Wuk=;
+        b=LlAKDXQgAgOKBGXUyKT4ARlxMa4iHXs3F8aJZ9rOgm0GJBOrIE3cS9iYq6gtSteCEl
+         MWPT0mpbtf4wSUuvOJyqqkI5Gnw/5LQMPQ6oXSwN1ACSCb+vLLQapeD/O+YBoGzeE+C8
+         s1t6HaHTv9RlWX72nvOMHXHdLf+Vv/SZs9vhgRRt/aolMj315wZgNHQrx4b01dGQJav2
+         QcRIjivkSvraFUd6E7MM65gevdlQ/9aHzTxMTW0g7TNtSIKohVaH+WOKBnRDvL5UiAkh
+         LPiB+NAOrZCd8DS1OOmlS4ORFe1nXMJvd5mEOzCd0qfEQffNUvtCtRlf+XiLK5HncpYT
+         cdZw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=FbE77umev5
-	juPy7Fs4gx65Zwxt75bhSJ44VTn9JcJ4Y=; b=Y4CIKsr3x7Cm9O6HIuAXbBOH5r
-	u1dqMLZ1mFyfz7ROoDbId3LZO1aJdOw0A8xVXJUq1L/gcOVvbClp25ytDlbJMyWc
-	KV1xZQsDAmTMcr8xG5ScAkGu3noDx6tWiKuc+N3dk5KzBo1CzY5YOHaaL78ziuR3
-	f9vqCVuWHRJqoYThU=
-Received: from user-virtual-machine.localdomain (unknown [113.200.174.70])
-	by hzbj-edu-front-2.icoremail.net (Coremail) with UTF8SMTPA id BLQMCkDGCP7hPQFrhz3+AQ--.18087S2;
-	Sat, 21 Nov 2026 14:44:50 +0800 (CST)
-From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
-To: Marc Kleine-Budde <mkl@pengutronix.de>,
-	Vincent Mailhol <mailhol@kernel.org>
-Cc: Oliver Hartkopp <socketcan@hartkopp.net>,
-	linux-can@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Bin Yu <byu@xidian.edu.cn>,
-	Cheng Wen <wencheng@xidian.edu.cn>
-Subject: [PATCH net] can: dev: reject unusable bit-timing constants
-Date: Sat, 21 Nov 2026 14:44:49 +0800
-Message-Id: <20261121064449.9706-1-25031212351@stu.xidian.edu.cn>
-X-Mailer: git-send-email 2.34.1
+        d=google.com; s=20260707; t=1795243544; x=1795848344; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=iyUW/gQgK6sLuAw1qsqOpPSq/qowOpiEcwfea2zJOWY=;
+        b=Scq+rGqMgjH5HvW1o8QNBcQd8ROgCAPIjtciEEDHUXKDU6H//hWWcDXXVa3kFxUNAW
+         KRdLlMav5f6WM4wWJFB6MZgmNhHvEFzZ4t3BdyD38HoUapC+T2O+YNfydNfPNhNejIbI
+         iUnMn6wecMomnkQ5uhrzmii0UJW9BOq2nAtPFnEqTLnBr4MGNb3Btkns2hpHvazS6Nan
+         aFmw6Mt2+srHc3wdcg5x/g9zzz7bBOjP/RHsgcsFSI4pC0OPQl2wZQFWxrvKegG24hdm
+         ZISGveilcdcJ0SEzDr5Yv1WiSBeDhdIzgmMarnooUL39nIwXpER1uol+ej8mkrl86J7Z
+         sWcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795243544; x=1795848344;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iyUW/gQgK6sLuAw1qsqOpPSq/qowOpiEcwfea2zJOWY=;
+        b=cJTM6Zf8mtQIBLE007gGonZtpEjRH6mR216Gzelte/0qvA9G7rMjmo04mj3dQx/2Oz
+         dPkfmiGpJAgZjFUuXsEHs9jLSp0/yLflqMNPrpPlZo7XsHd3lV5oygLy5O/AVOrm8J1p
+         ebQY5EfK0l4dOYV6q/LXK+U065G+RipvqSQbquRvb0kcfIzWreATeVg6NX+2/cyFh5HB
+         Oh9I3QCn9kKMFjzLpzi+4ZWN6u4KHUWeDijk62nPxFWfMeCvjPotm/vNCAfrjtK2dzFp
+         ic6u1BzJuATENVfXN45DReck2Po9D8+y1pKzzxnlYkb+RlEV//DYg8l6PgbAV/wEq9SE
+         BJHA==
+X-Forwarded-Encrypted: i=1; AL+hErGXV+iq2nB10e3FtYVoNaQq5X3WGpQ9bFRcRf44eaCeOTLkUBVyl00OrpMLDiJ4QNi8O8uRDuVXkZkgn9g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9NQmIw3XoIK86m3iwdG68G+hAKKqMbnEC9VEzYcsihwmNzY8m5
+	B9UfYkP9k2vpMaX0aaL/t+MoFVgAgWFxSADzWiO+Spw566IC4E7/VbQadQ/jNLw3yn9AiVxie54
+	+V3G7+5q/Sn/mr6lsyPYGWwRmaTsepLeap+2bJ90J
+X-Gm-Gg: AZFdTZeCAJIp1eDk0uea9IubLMaI8k5sGK+F4TRJs2djMmIxCDD3MGRHpmf/KNixckf
+	VGni3NShRM9tmzbBQZhD4hrzMBZsFnzgDs+FVU9rQJZxMlgVnoG1+DvOZrunBt9rlbijRfHREFy
+	nUfBjHFRH3Vb//lM1uVNciCtJkF7GaLWurh2UktUwFqSo5lDewarplKVBXtY9DdzQqIJh+wtKYF
+	uoYtSNLllG2fHZawNcz4DSZvx8L47aa3wbueug34RovCZwWN2e3FJA8GILt/tYJsb1usRnHmAuh
+	uDB/uWvDg9boPRLl8zG2haJ3dnjdWpQnvAIzfYqq+81Eaj+1KbHw0uxyf/6dxH4uhGAjGXajBDS
+	3uEXNOSFYLgwDjcgBR596kUiW8g41dRnkQCQ59FYgT7aaV5rWdCJWYWUbAA==
+X-Received: by 2002:a05:622a:2598:b0:533:9731:f0f1 with SMTP id
+ d75a77b69052e-55d890363c8mr7906391cf.10.1795243543244; Fri, 20 Nov 2026
+ 22:45:43 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,89 +104,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:BLQMCkDGCP7hPQFrhz3+AQ--.18087S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxJw1fKw4rCrW3KF15KFyDWrg_yoW5Jw1kpF
-	Z5JFyYkFyqyw4j9w48trs2y3yrG3ZaqryFkryYywnYkrn8Z3WFkrW5GF45ur43tr47AFy2
-	vFWjg3yUWr45CFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9vb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
-	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r
-	18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vI
-	r41lc7CjxVAaw2AFwI0_JF0_Jw1lc2xSY4AK67AK6r47MxAIw28IcxkI7VAKI48JMxC20s
-	026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_
-	JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14
-	v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xva
-	j40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JV
-	W8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU00oGPUUUUU==
-X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAgUDD2sAZMkq1QACsw
+References: <20261113164152.2095566-1-irogers@google.com> <20261113164152.2095566-20-irogers@google.com>
+ <av_bvJpYwwMWNfDt@google.com>
+In-Reply-To: <av_bvJpYwwMWNfDt@google.com>
+From: Ian Rogers <irogers@google.com>
+Date: Fri, 20 Nov 2026 22:45:32 -0800
+X-Gm-Features: Aa3M54qyHKFYs0sdnXs9w20kZO_6DKZ1sbg-cIz7ng-wQJ7TMSYuLzSPX_ox-F0
+Message-ID: <CAP-5=fV=DxVPn_wQGuFD8FEmz0n4kXQLyYV7aTc53-HoUp=NeA@mail.gmail.com>
+Subject: Re: [PATCH v13 19/21] perf maps: Fix lock inversion in maps__load_first()
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: acme@kernel.org, adrian.hunter@intel.com, bvanassche@acm.org, 
+	elver@google.com, james.clark@linaro.org, jolsa@kernel.org, 
+	justinstitt@google.com, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, llvm@lists.linux.dev, mingo@redhat.com, 
+	morbo@google.com, nathan@kernel.org, ndesaulniers@google.com, 
+	peterz@infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-can_bittiming_const_valid() is the hook register_candev() uses to verify
-the bit-timing constants a driver registers, but it only looks at
-sjw_max.  The values can_calc_bittiming() actually depends on are not
-checked.
+On Thu, Nov 19, 2026 at 9:33=E2=80=AFPM Namhyung Kim <namhyung@kernel.org> =
+wrote:
+>
+> On Fri, Nov 13, 2026 at 08:41:50AM -0800, Ian Rogers wrote:
+> > In maps__load_first(), take a reference to the first map and drop
+> > maps__lock(maps) before calling map__load() to avoid a read-to-write
+> > self-deadlock when loading kernel maps inserts extra trampoline maps.
+>
+> It seems this function is not used anymore.
 
-gs_usb builds its struct can_bittiming_const from the response of the
-GS_USB_BREQ_BT_CONST control request, so the constants come from the USB
-device.  A device that reports brp_inc = 0 crashes the kernel with a
-division by zero as soon as a user with CAP_NET_ADMIN configures a
-bitrate:
+Good catch! Commit 553d18c98a89 ("perf lock contention: Load kernel map
+before lookup") removed the last caller. I'll replace this patch with
+one removing maps__load_first() in v15.
 
-  Oops: divide error: 0000 [#1] SMP KASAN
-  RIP: 0010:can_calc_bittiming+0x3dd/0xcd0
-  Call Trace:
-   can_get_bittiming (drivers/net/can/dev/bittiming.c:146)
-   can_changelink (drivers/net/can/dev/netlink.c:594)
-   rtnetlink_rcv_msg (net/core/rtnetlink.c:7137)
+Thanks,
+Ian
 
-brp_min and the time segment minima are just as fatal: with brp_min = 0
-the prescaler can stay zero and is then used as a divisor in the same
-loop, and with tseg1_min + tseg2_min = 0 the unsigned loop counter wraps
-around instead of terminating.
-
-Reject such constants during registration, so that a device or driver
-handing out unusable values fails to probe instead of taking the kernel
-down later.
-
-Fixes: d58ac89d0d38 ("can: dev: register_candev(): ensure that bittiming const are valid")
-Cc: stable@vger.kernel.org
-Co-developed-by: Bin Yu <byu@xidian.edu.cn>
-Signed-off-by: Bin Yu <byu@xidian.edu.cn>
-Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
----
- drivers/net/can/dev/dev.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
-
-diff --git a/drivers/net/can/dev/dev.c b/drivers/net/can/dev/dev.c
-index 769745e22a3c..749da996331a 100644
---- a/drivers/net/can/dev/dev.c
-+++ b/drivers/net/can/dev/dev.c
-@@ -601,6 +601,20 @@ can_bittiming_const_valid(const struct can_bittiming_const *btc)
- 	if (!btc)
- 		return true;
- 
-+	/* can_calc_bittiming() rounds the bit-rate prescaler to a multiple of
-+	 * brp_inc and divides priv->clock.freq by brp. A zero brp_inc divides
-+	 * by zero directly, a zero brp_min lets brp become zero.
-+	 */
-+	if (!btc->brp_min || !btc->brp_inc)
-+		return false;
-+
-+	/* The time segment loop counts down to tseg1_min + tseg2_min. If both
-+	 * are zero the unsigned loop counter wraps around and the loop does
-+	 * not terminate.
-+	 */
-+	if (!btc->tseg1_min || !btc->tseg2_min)
-+		return false;
-+
- 	if (!btc->sjw_max)
- 		return false;
- 
--- 
-2.34.1
-
+> Thanks,
+> Namhyung
+>
+> >
+> > Fixes: e77b0236cd0c ("perf maps: Add maps__load_first()")
+> > Signed-off-by: Ian Rogers <irogers@google.com>
+> > ---
+> >  tools/perf/util/maps.c | 11 ++++++++---
+> >  1 file changed, 8 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/tools/perf/util/maps.c b/tools/perf/util/maps.c
+> > index f808df2fe77b..7ca33e5218e7 100644
+> > --- a/tools/perf/util/maps.c
+> > +++ b/tools/perf/util/maps.c
+> > @@ -1459,10 +1459,15 @@ int maps__merge_in(struct maps *kmaps, struct m=
+ap *new_map)
+> >
+> >  void maps__load_first(struct maps *maps)
+> >  {
+> > -     down_read(maps__lock(maps));
+> > +     struct map *first =3D NULL;
+> >
+> > +     down_read(maps__lock(maps));
+> >       if (maps__nr_maps(maps) > 0)
+> > -             map__load(maps__maps_by_address(maps)[0]);
+> > -
+> > +             first =3D map__get(maps__maps_by_address(maps)[0]);
+> >       up_read(maps__lock(maps));
+> > +
+> > +     if (first) {
+> > +             map__load(first);
+> > +             map__put(first);
+> > +     }
+> >  }
+> > --
+> > 2.56.1.703.gf848ed807c-goog
+> >
+>
