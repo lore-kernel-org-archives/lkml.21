@@ -1,97 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795245336;
-	b=qhGrqtyD2Gra4mLZCFgbfRyePpPpe6H/VaARoV5IM7QjCJM58Ns9wR30ElYwMmzBfiaP
-	 lbNZfQy3N81eWvE2+pTDsyfbwTUwq80XRPR052ZW86gtnDxY9Yv69ygtZt3YSeBtHFDds
-	 DKjAsyNSVTe1Vil+0L7s0DhUMhJJNEITWPVovhcJR2GDFB0NQomXwX+XH/WlJZu0FAtgy
-	 SNbQOXDvSNaC8z89elOSgju5RFwUx+nbL88jZTEwChb0CtyAj7UiM172GlSnriz9anG9i
-	 5fH7wBJjth4544BbzR9vSw89MmcD5byNGgK08GK6mTnibqwq99ZPpO5jgzjEhgzF7fQ==
+	t=1795245400;
+	b=WlbJYWBhfywZEEJL4n+BiRfjOd5JVFF/WModcHgJdBJIzqw3EgGT2WFNNTj41BBI7/yw
+	 07DyMllRIsDt5vpwiKeToWPcxEmPYe2KfzacMIlYVXPzg4fQ1UTIQuDS2kZjmTA3IHocN
+	 6GYNr1A5WWIscsMR4FZ2oseIErX3TTaHTITuN/Jy5uVVi2oldlKOWefnqeKzr/JRU4K6r
+	 KVK6wHTZPEI3QgZ8lqlBzoe3pDUwRyiOwYG4slm7ArsdyHmJQsUDnY1/+iUPX1wVPL3kP
+	 3LJxUC+WhwvoVg8os5LzY7j9rQipkHB6YVJFoGeXzIAqVrTQrUwM7oz/Dfnn+BJBF3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795245336;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795245400;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=KNdj2KYdydX2zqKT4RqJarDshMygrJ5nIrbhNDBbZ40=;
-	b=qkIIB+sLoGEmhA/jrhJAw3soQ7pC243guNSS6w0tQx8hwEP6TYrNNIgLie27fkxfrRWG
-	 qlBD5YwM+AdTqpW5aIXyE5s4XIJWZ4t5828pV4DRgAF28CB7tfeQ3Rj+3yRW/Q1TPDGC5
-	 bDCSFTuo+faFg2NkIl0TjcR9idEMKOVaRXPlA6XtEjO7b8WEFd7yZzkXuIoH/L2X1b+7Z
-	 muIitnzcEZlssNuCEEQwu9qPhryRiJtO/V2litePrbSuqLBQ+CiXBj4RoHAaU7zcLDkci
-	 307xi8VwuFWH6ICpCS6oDXzs1OSmDM9/zGZsjI+u0r+97q2xoX4tNRGDzTMcbDj5qAw==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=tdCP/mypa2/iILqauJ+aqk0pnjBkqNtJg4KvWW3pS9w=;
+	b=lahgp+kmSLjzfh/6I+UMs9dEzRl1vs1CVTJVKJUqT6G/3h3EOw/t6rn3zv2vxA+sP/yF
+	 OkG2HSh7Y4pN/u3Hw82WZ/BdTqbPHk4QRnfk4P/MfyRWJiXuw8FwbU6t5OstWx0BZ0HeQ
+	 EfM/EnAZWY0UT7trANfmSCAG71ZWcZvEF8OAiPZXwTzPcn1N4ODRmzkTw9hg/S4ch7ClO
+	 ajhOBfocA4L892dcjug80p5TKtC946Ojtrtd2BjP4rBLQXVmHSfMfINxP/o1D0M8UVXV2
+	 xKvFsVB4h+XS+Q9OWjh+h7xTgWU89WToNUKYAVnVUDswrgGytJdOu8sffoRVcOEH7xw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZsC32Nv0;
-	arc=none smtp.remote-ip=209.85.214.181
-Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ALSW9fU+;
+	arc=none smtp.remote-ip=74.125.82.41
+Received: from mail-dl1-f41.google.com (mail-dl1-f41.google.com [74.125.82.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2844606A333
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:15:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2844606A333
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0742606A325
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:16:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0742606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZsC32Nv0
-Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2f0213202fdso9031125ad.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:15:35 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ALSW9fU+
+Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-1b24f4b15c4so988452c88.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:16:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795245335; x=1795850135; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795245399; x=1795850199; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=KNdj2KYdydX2zqKT4RqJarDshMygrJ5nIrbhNDBbZ40=;
-        b=ZsC32Nv0GNTFlvPF6LUsheBOQ6dDrCQfeIUqLfWglbThHMzXFDnQu77u0C6vwUcAga
-         cxywL0qtfi1rDV+VVJM60xhBTmac+JQ764vjh9m0Szq/JAfADKybI7KLkWW4V1a8GOUp
-         ChWaejDRr8CVdXCqKwMRfm6WrmLIK83gK62J9K++dhWrAcYAxDQKjvzGw6DLRrx0oT8a
-         QcymYN8dxfHoTMO3NomPaclhaFc4M2Dc3i/QxcEa+PaIQi3Jf64tbYXOY7jpsc/Yu3Nh
-         9iuwHeAYalABXACpwcbRZHh+lAdm+2gBNahjI35Faz15pZfN86Ltqkp7NHtgiYIsAkMS
-         TgKg==
+        bh=tdCP/mypa2/iILqauJ+aqk0pnjBkqNtJg4KvWW3pS9w=;
+        b=ALSW9fU+n3W7WmoyLRDEW2909svEnnBqGvBB9cG9yZ/vOis+U7SRVFVylleCZCa8sb
+         5ZXoP8fiF+muBQzltTcfBo+UPr7T5aQ/+nWfPEWlBP330dMxWmXMKQhU4ew6M4LVTR22
+         ntMADf8QYuojqJBCPE+XjTEjXo/8vsacNLvD1YRpdrkZVVYi+S1yfebpusA3GN3CRW7i
+         6y5SyTE4O8El7uNqa1NBQRGTB34prlSZk86bIndJIo2vvIqkp1Yv+jUTu+szuSmjEk0q
+         BSXv99fJPcs5EGS5rDZU307/FTMuuC3D4SI1uh0Dqzs1xyU8LprCmX64uDFvE4a+l71Y
+         Gnyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795245335; x=1795850135;
+        d=1e100.net; s=20260707; t=1795245399; x=1795850199;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=KNdj2KYdydX2zqKT4RqJarDshMygrJ5nIrbhNDBbZ40=;
-        b=D74C84ydAzUaCFKpZN3IE81hdf6SW9FrfgSewXuUKlsXAyLqz7KB4xs5oZ++wICO3b
-         IakJHHSbiqrughLfy3bDxCaI0vz9ZJ6sMWMrthpnccNb/NFd0JHbzmPn+qfIgh9TVnst
-         exOxheV11aIn/8oz6iiQVNMBzmAFCfXMx3XBphasWsyVairRUQd5Q5imxxwOYavgpdN/
-         YCZ0SwN8ILzf5I75TSvXU+ei+/YQOOB7Dx/achuSyePgQ6937YGt5LEUjuCHZCdhUlxR
-         lPmn4MO5LjHKQ6qRVgxxTH9L8MS6STRaYEL40w0AcNvOUUQwwrQCC2lurB1uMljfEjpl
-         43YQ==
-X-Forwarded-Encrypted: i=1; AL+hErGsYaAeNAKLOHXQWCRzMN4e3bSZ6dwUiDRKdbb4So2+ovK5SqmJwehGmbTlF73tjeon2MJM+tRk925PAVM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9AoVb3qeNTbJkdu3hKpeQqPQWX+a7D7Ul179+KZ3mbdpQ4yhFt
-	+2CBchaVOSDHBMXUMxcAqPgCyNgrkJMWoD5bmuwypSI5CFUHrSSeYHdO
-X-Gm-Gg: AZFdTZfE3DLbZMJJpe3c/MyUHNmUQMvrOdV819eiZWVf591Ja2MMdvF2ZAvJLQq4uAL
-	2RkCWohMfaaTYTlU+DJROkxdMdCR58O5XF6p/2tuX3B7oID6SLXlSewb+ucV5JKXcsAHg9sV0/R
-	ldKCtUhno5dOYttjhYMjHGinzHgcj1pnSruSdUR9n1AHv3EiixMm6+tXvGWhd+6+oeYrX4Vg07y
-	d+AqG/nTIXr+vUoH2FLjdJAPO9hYcx0m3X5E8VUOVc0OwcMzJRWsgtd9MHB/PQZ3HCDaPzZU5b1
-	TkNlHUgk6PdSMkUmYaDEk77qSR8ZM3bqsmG4AaFT3WDM4ztPPwFCf53PtKwuF6BAfDjd/Hmc/sk
-	+0zXjV5Vyb+XHsacVHwdM1GmPW4sqsJFg3wYAiS3fzT0Yru4w4mVaG0mlJf/fhyF0KBw7Xixa0l
-	cKZ2KdQ0zOslXXgVgP6k0azdO++Zdci3BaMJNIFgalO5SQjR7fT3PGElRz3gkxQPdSPaPM4RbCV
-	T5Hx0yLHW2RHaqC5lAMvw4iw71WONT6hZPHp0IFUMbX69o6PVYczUTKjim90zqRmL6sPmkgabYx
-	PiyOh0fz5kvQfwebsiNy98YC
-X-Received: by 2002:a17:902:e847:b0:2f0:2c63:8bff with SMTP id d9443c01a7336-2f03f1c0088mr59655895ad.39.1795245334948;
-        Fri, 20 Nov 2026 23:15:34 -0800 (PST)
-Received: from localhost ([111.228.63.84])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f04f6049dfsm13508675ad.19.2026.11.20.23.15.31
+        bh=tdCP/mypa2/iILqauJ+aqk0pnjBkqNtJg4KvWW3pS9w=;
+        b=ykw/8xdcuudDy7m/h1XH30P5J0Fbx050lXbVSt9TIEJUZGV0i4Gd73XvIvNYvx2L7t
+         7iF9wNaHAwq2v90Ebe7WZYN6AZjXVNhZPZ4FYOUUtwCZ8eIXSkhbrLgyh5dVZ0qVs1n7
+         6MMayelH9I3Ofow/+ntRgMJoW7DKu9gw7kntFRlmUWusssPW2LfJ1akyPIxxQvaiIjGj
+         IB+2Zd0nDx52PiSSzWfAi76+r85SuTP+NZ8YdzDkaGquFhcW8t3juztMZ45BVdsv/yD0
+         105tOivVjlRD0f3EWUiHTFfvMiHNdJhNV+cc2ae38nWQmZs1ll41pvDGOubdfdSOoFpK
+         Wuug==
+X-Gm-Message-State: APuU4Z/+wA0j+K+qOWwFIRkaoAlSW1naU5EbFz6scnifeCkx1TtXs0Cy
+	2Sqd7ewZvr3Rg7s0p+IxpwccMHAyn4xOnvEAzQRLuu8ARPBEczlmHbWb
+X-Gm-Gg: AZFdTZe9z4xquVcbTRDhJ5ybxmCwb3lT03ggLO9Mn4RNIdXjIKop28UGCwvkv4W6/NJ
+	CvZsv0GWEii4/OmqmDc3YE0McHZA2aa5SmsjFEcCbbCm2KAhOv0w7zc7Nh7wXYZTGSRuTZnN+69
+	PuM23aXUedD6vFdP3AqYoxoX1VGBTJC5Xhhq2EFbheskruZoaBlGLFSkKW8j9H2YYaLjBKqwjOM
+	a7+GtIG3a2j5RDXNKcl1MaefBgCHW9ueKsv/mhmUdXh2IylrHiOs+1ZnPS7fbafl15/2C4+joN2
+	nJdDeVlFCupnn4aKdtLkTCq01q5EOPgFmNkitjyAXJErN07hWPmloCNydcZNW9aQ8yr8t0FAn0z
+	fFWO5YJ53dv8FuORtyFI0zTH0axxA5ZIVwLIH6yZVyrG1mw2+t/MArO0ZulCAoLd1K0E88oBOKv
+	7pX8iWos0lHxUKoFqGR+w9VDaZQvSDICnTtmHC7pffufyFfQCmSB1qFiOkJmRuGZC0ZCdHX17Yh
+	i1fuvprsOEVcwMkDoWsRsdV/ePLQXpAiGsBuHspx2w6KxDoeja3Y4NxkNVeVpIx+0ui/NDV0cTz
+	nnTa4QGCMZ6ukJuXdB2imblMsjwGU8xKsDgOcRgAkTbINm2DEqA=
+X-Received: by 2002:a05:701b:4551:20b0:1a9:4d51:8c33 with SMTP id a92af1059eb24-1b5569167b4mr4993441c88.18.1795245398780;
+        Fri, 20 Nov 2026 23:16:38 -0800 (PST)
+Received: from localhost.localdomain ([2409:40e2:2f:4d17:70ef:2f53:72ff:31c8])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm20880373c88.9.2026.11.20.23.16.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 23:15:34 -0800 (PST)
-From: Cen Zhang <zzzccc427@gmail.com>
-To: marcel@holtmann.org,
-	luiz.dentz@gmail.com
-Cc: linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	baijiaju1990@gmail.com,
-	jjzuming@gmail.com,
-	zzzccc427@gmail.com
-Subject: [PATCH 3/3] Bluetooth: MGMT: Reject advertising data while parameters are pending
-Date: Sat, 21 Nov 2026 15:15:18 +0800
-Message-Id: <pm-bluetooth-objects-candidate-0167-v9-45c99868af18e41665a3-3@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <pm-bluetooth-objects-candidate-0167-v9-45c99868af18e41665a3-0@gmail.com>
-References: <pm-bluetooth-objects-candidate-0167-v9-45c99868af18e41665a3-0@gmail.com>
+        Fri, 20 Nov 2026 23:16:38 -0800 (PST)
+From: Sourav Nayak <nonameblank007@gmail.com>
+To: ilpo.jarvinen@linux.intel.com
+Cc: linux-kernel@vger.kernel.org,
+	nonameblank007@gmail.com,
+	platform-driver-x86@vger.kernel.org
+Subject: [PATCH v3 0/2] platform/x86: hp-wmi: fix platform profile values and fan freeze Victus 15-fb0xxx (8A3D)
+Date: Sat, 21 Nov 2026 12:45:32 +0530
+Message-ID: <20261121071534.28473-1-nonameblank007@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <1061c0e1-9e05-a09f-3eb6-5702f4fbcf08@linux.intel.com>
+References: <1061c0e1-9e05-a09f-3eb6-5702f4fbcf08@linux.intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,186 +99,23 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-An ADD_EXT_ADV_PARAMS request retains an instance number while its
-completion runs later in request work. ADD_EXT_ADV_DATA can remove that
-pending instance on a validation error and a later request can reuse the
-number. The old completion then resolves the number to the new instance:
+changes for v3:
+made patches seprate for clean merge (thought it would be better?)
 
-  Parameters request                Management handler
-  queue parameters for A
-                                    invalid data removes A
-                                    create B with A's number
-  complete parameters for A
-    look up the instance number
-    read or remove B
+- v3 changes are mainly for fan freeze pointed out by ilpo,
+- added a bool in fan profile params struct 'hp_wmi_fan_speed_auto_reapply', created a new 
+victus_s_ec_fan_profile_prams with new bool. 
+- also made that bool a wraper and re-made the 'if' statement with it
 
-List the parameters command as pending, validate and claim it before
-completion, and copy its instance number under the pending-list lock in
-the request function. Reject advertising data while parameters are
-pending so the data handler cannot retire the instance in that interval.
+Sourav Nayak (2):
+  platform/x86: hp-wmi: fix platform profile values for Victus 15-fb0xxx
+    (8A3D)
+  platform/x86: hp-wmi: fix fan freeze during load for Victus 15-fb0xxx
+    (8A3D)
 
-The report below was captured before the separate RPA work initialization
-fix. The stale completion can still select and remove a replacement
-instance after that fix.
+ drivers/platform/x86/hp/hp-wmi.c | 44 ++++++++++++++++++++++++++++++--
+ 1 file changed, 42 insertions(+), 2 deletions(-)
 
-The excerpt below retains the headline and stack traces.
+-- 
+2.55.0
 
-KASAN report as below:
-
-    BUG: KASAN: slab-use-after-free in adv_instance_rpa_expired+0x2c0/0x2f0
-    Read of size 1 at addr ffff888110924b2e by task kworker/u17:1/501
-
-    Workqueue: hci0 adv_instance_rpa_expired
-    Call Trace:
-     <TASK>
-     dump_stack_lvl+0x93/0xd0
-     print_report+0xce/0x630
-     ? adv_instance_rpa_expired+0x2c0/0x2f0
-     ? srso_alias_return_thunk+0x5/0xfbef5
-     ? __virt_addr_valid+0x20d/0x410
-     ? adv_instance_rpa_expired+0x2c0/0x2f0
-     kasan_report+0xe0/0x110
-     ? adv_instance_rpa_expired+0x2c0/0x2f0
-     adv_instance_rpa_expired+0x2c0/0x2f0
-     process_one_work+0x908/0x19c0
-     ? __pfx_process_one_work+0x10/0x10
-     ? srso_alias_return_thunk+0x5/0xfbef5
-     ? lock_is_held_type+0x8f/0x100
-     ? srso_alias_return_thunk+0x5/0xfbef5
-     worker_thread+0x65c/0xe40
-     ? __pfx_worker_thread+0x10/0x10
-     kthread+0x34f/0x460
-     ? srso_alias_return_thunk+0x5/0xfbef5
-     ? __pfx_kthread+0x10/0x10
-     ret_from_fork+0x659/0x940
-     ? __pfx_ret_from_fork+0x10/0x10
-     ? srso_alias_return_thunk+0x5/0xfbef5
-     ? save_fpregs_to_fpstate+0xd7/0x230
-     ? srso_alias_return_thunk+0x5/0xfbef5
-     ? __switch_to+0x74f/0xf80
-     ? __pfx_kthread+0x10/0x10
-     ret_from_fork_asm+0x1a/0x30
-     </TASK>
-
-    Allocated by task 519:
-     kasan_save_stack+0x33/0x60
-     kasan_save_track+0x14/0x30
-     __kasan_kmalloc+0xaa/0xb0
-     __kmalloc_cache_noprof+0x251/0x610
-     hci_add_adv_instance+0x756/0xae0
-     add_advertising+0x85c/0xff0
-     hci_sock_sendmsg+0x128b/0x22e0
-     __sys_sendto+0x425/0x470
-     __x64_sys_sendto+0xe5/0x1c0
-     do_syscall_64+0x115/0x6a0
-     entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
-    Freed by task 500:
-     kasan_save_stack+0x33/0x60
-     kasan_save_track+0x14/0x30
-     kasan_save_free_info+0x3b/0x60
-     __kasan_slab_free+0x5f/0x80
-     kfree+0x307/0x580
-     hci_remove_adv_instance+0x222/0x550
-     add_ext_adv_params_complete+0x2b9/0x880
-     hci_cmd_sync_work+0x207/0x450
-     process_one_work+0x908/0x19c0
-     worker_thread+0x65c/0xe40
-     kthread+0x34f/0x460
-     ret_from_fork+0x659/0x940
-     ret_from_fork_asm+0x1a/0x30
-
-Fixes: cba6b758711c ("Bluetooth: hci_sync: Make use of hci_cmd_sync_queue set 2")
-Signed-off-by: Cen Zhang <zzzccc427@gmail.com>
----
-This patch was written with assistance from Codex (OpenAI).
-
- net/bluetooth/mgmt.c | 39 +++++++++++++++++++++++++++++++++------
- 1 file changed, 33 insertions(+), 6 deletions(-)
-
-diff --git a/net/bluetooth/mgmt.c b/net/bluetooth/mgmt.c
-index 947d308145e37..dfc2d276a8107 100644
---- a/net/bluetooth/mgmt.c
-+++ b/net/bluetooth/mgmt.c
-@@ -9286,7 +9286,7 @@ static void add_ext_adv_params_complete(struct hci_dev *hdev, void *data,
- 					int err)
- {
- 	struct mgmt_pending_cmd *cmd = data;
--	struct mgmt_cp_add_ext_adv_params *cp = cmd->param;
-+	struct mgmt_cp_add_ext_adv_params *cp;
- 	struct mgmt_rp_add_ext_adv_params rp;
- 	struct adv_info *adv;
- 	u32 flags;
-@@ -9295,6 +9295,12 @@ static void add_ext_adv_params_complete(struct hci_dev *hdev, void *data,
- 
- 	hci_dev_lock(hdev);
- 
-+	if (err == -ECANCELED || !mgmt_pending_valid(hdev, cmd)) {
-+		hci_dev_unlock(hdev);
-+		return;
-+	}
-+
-+	cp = cmd->param;
- 	adv = hci_find_adv_instance(hdev, cp->instance);
- 	if (!adv)
- 		goto unlock;
-@@ -9335,9 +9341,22 @@ static void add_ext_adv_params_complete(struct hci_dev *hdev, void *data,
- static int add_ext_adv_params_sync(struct hci_dev *hdev, void *data)
- {
- 	struct mgmt_pending_cmd *cmd = data;
--	struct mgmt_cp_add_ext_adv_params *cp = cmd->param;
-+	struct mgmt_cp_add_ext_adv_params *cp;
-+	u8 instance;
-+
-+	mutex_lock(&hdev->mgmt_pending_lock);
-+
-+	if (!__mgmt_pending_listed(hdev, cmd)) {
-+		mutex_unlock(&hdev->mgmt_pending_lock);
-+		return -ECANCELED;
-+	}
-+
-+	cp = cmd->param;
-+	instance = cp->instance;
- 
--	return hci_setup_ext_adv_instance_sync(hdev, cp->instance);
-+	mutex_unlock(&hdev->mgmt_pending_lock);
-+
-+	return hci_setup_ext_adv_instance_sync(hdev, instance);
- }
- 
- static int add_ext_adv_params(struct sock *sk, struct hci_dev *hdev,
-@@ -9431,8 +9450,8 @@ static int add_ext_adv_params(struct sock *sk, struct hci_dev *hdev,
- 	 * will be programmed once the instance is scheduled.
- 	 */
- 	if (ext_adv_capable(hdev) && !adv_overridden_by_global(hdev, adv)) {
--		cmd = mgmt_pending_new(sk, MGMT_OP_ADD_EXT_ADV_PARAMS, hdev,
--				       data, data_len);
-+		cmd = mgmt_pending_add(sk, MGMT_OP_ADD_EXT_ADV_PARAMS,
-+				       hdev, data, data_len);
- 		if (!cmd) {
- 			err = -ENOMEM;
- 			goto remove;
-@@ -9441,7 +9460,7 @@ static int add_ext_adv_params(struct sock *sk, struct hci_dev *hdev,
- 		err = hci_cmd_sync_queue(hdev, add_ext_adv_params_sync, cmd,
- 					 add_ext_adv_params_complete);
- 		if (err < 0) {
--			mgmt_pending_free(cmd);
-+			mgmt_pending_remove(cmd);
- 			goto remove;
- 		}
- 	} else {
-@@ -9545,6 +9564,14 @@ static int add_ext_adv_data(struct sock *sk, struct hci_dev *hdev, void *data,
- 		goto unlock;
- 	}
- 
-+	/* Preserve the instance until its parameters complete. */
-+	if (pending_find(MGMT_OP_ADD_EXT_ADV_PARAMS, hdev)) {
-+		err = mgmt_cmd_status(sk, hdev->id,
-+				      MGMT_OP_ADD_EXT_ADV_DATA,
-+				      MGMT_STATUS_BUSY);
-+		goto unlock;
-+	}
-+
- 	/* In new interface, we require that we are powered to register */
- 	if (!hdev_is_powered(hdev)) {
- 		err = mgmt_cmd_status(sk, hdev->id, MGMT_OP_ADD_EXT_ADV_DATA,
