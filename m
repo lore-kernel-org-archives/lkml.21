@@ -1,102 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.178
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795295684;
-	b=kNlTdlQYylRI0IRutE6vrYgduksoX5AIF/NIPNTgXbYFms4K+7oiaSiQPdFtsloVBI+O
-	 JVBYnxhvjXhySC+QH7JV68sW4b3RE6Ej6IZTZjwSTb21VHXF6JNr0rVTLLuBjlRTIOn7c
-	 8QpKw1UgniXPcfyXnKPAEJdNEitT9TXFUq/D9OO6Fcv+gEz+fvtUtRNAGtyjIl/VyMvVw
-	 0tdDmsApBZcB+2Ob+5LZiOPClLpzkA1gxD3bUv6iv3n0PL6MlRAnkU1/xqg24yH/CY89d
-	 3Z49biwgn4ZtPiS/5ZeTazeqXosUq/IJTOH7exExyRyR4SNRFj32szHRgzQtJYk5EZA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795295684;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=JVXIUze55zta93CLasHcBtUF3k3F0VOVstypLu4rWEo=;
-	b=kyqNbq4B/FlMcLVlqw99xWKyGJY/lGzTywiP/DJQEfYStQe5S+Yu8xhnpJwZ3sp9wxwl
-	 bwRk3IgDDzDrPXR8ls6OethTVoIXEA8qFet1HgsN3yzS5c4aOVjowMPpBhLkzIxa5Rmg2
-	 wztVdbeYHSvITtsPfHtn+GCYbngazj+cbDEC+I0OMrOyfDaKkjKf/eYMDWRU3c2Azxd7x
-	 Zdt5jL3BEHNuxpTqx+OiOLpvC7MKG6JsyXShNuyXRQeCGKAOJGhAdLvb0EIz6M0ZtRxwi
-	 1GRzVlwwPj3K115db9S9NZezmsez+HaD9SM7NyIdX65CKNnP8HNZrCtMxKuNDwJ6oLQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=daSCu1rV;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.178
-Received: from mail-vk1-f178.google.com (mail-vk1-f178.google.com [209.85.221.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795295771;
+	b=ZsWvjgTj/tLjyfUANwV5NzXQc37fil9MXefWv1EoIi7szNYf3dQ2t7o6pgii463NkAu4
+	 NBhUHNz167CGS+uRLpJWZ8x43EIdwTsI6HXNTkI7Rkf/p03c4okPsYovVd4Rh0WFgnOHY
+	 c75U9JqitUkB9fVb4AvbWxGZlxdgzSU/yYz7OS7UtUMuvtbZkcw4Mw42IX+Ji9qVQD9O3
+	 +6cEIPiR+FjEsCqWJTwHb0aZRJ7uwi8mm4hHX0aTnQrb/tsNNPc+NCnpG5CZxWGGXpMKH
+	 GtS+ZZGgyFckjnJx+NB0qUoV9j50/Ju1J7hku914n9aqYe+F4elqnoAPye8IJHz1rZw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795295771;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=7eXrGkj05XJIeWdMg8bWi/sqvFudK/TAUg1y65LM1tg=;
+	b=zLQLH15XnfOm0R3FcT4hfQ6C5LKF4NN7yAajAWgfn+tx3KLhBrcuQd5qSJWUteEHonGL
+	 AuQCVcunnbasHDeQRAUKlWvaOh1X1X8L1xkMTzLp0Kt76ReLA5UWkoItopGs9bjDwhGeN
+	 jXNGIRZlvWGXOqVIvdm8ftUwa3wAs1ifo9tr778aUnxfxkOqmFywjBspLQYxcc2D1SuFH
+	 F7g8xXCVO7/KmmiepNLq1iRL8j283r9+/b6mn2L5lJyD0WVySdTMH2WeO90SXRgD7MFpi
+	 X20hWGbucFSYihslq1m3B5un40ZP2WCtraDVXtRbqNxWBPYQRUagK4KHGwm/PPB5oZw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=byGxwCUu;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E7E0606A335
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:14:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E7E0606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20B10606A330
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:16:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=daSCu1rV
-Received: by mail-vk1-f178.google.com with SMTP id 71dfb90a1353d-5ee3e658c70so582272e0c.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:14:43 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795295682; cv=none;
-        d=google.com; s=arc-20260327;
-        b=cTg07BzIDfo1L66Dm6F74HuzNbqojfkosbcOGte2KqhMEGiY8fM6CzzrVIVZAcUb9p
-         s/l5RiABVSzQ+Bsx321VpGDx0NLZcdco+fi4HT2hFSodKUh2jeW/Z3wstoUcevWN5WFG
-         QIHip2/gfebmLuh8IdWr9DDg+joNqZEWWWMcTJBjWh5Vwp9847y7kwb7MXpq7rTq6Vko
-         fV9UADwyTMJrH5fwgXikGvgo1+MjHuz9W6aDFfbZBO50haM+pPVbs+XKeZGhQomIyx8/
-         g8X+xZy9uJaphxzWPFjQK+7kwQ0Aare2ySyuq41zgROlPVbLu/KMx1Kx5nQRSrfaR5kK
-         aUdg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=JVXIUze55zta93CLasHcBtUF3k3F0VOVstypLu4rWEo=;
-        fh=jzaEuOfTDKMLNK8jiQIxuCatYtpx+M1siO/7j1CekGg=;
-        b=FUkoIiWJK9b7LyxoWObrxE4Hs5N2CH58kWVZP4cRO5q1oNfFuK2zIQLp9WxXApweXS
-         6hz20B0Vf3qB7UErl9hEfCxWr+jUshSO7XQQzaswFW5uGJfnwOmVvZG9wsgW+kppZEW1
-         S83qjhA5Z1VkP+6w40EX/29IbgQLnqjxU+frKpw852A+3Kh8g8MMPSbZyzvQMM6kwZmG
-         EYHL8iJ8MWLbKESm7VEGD7Dfg8IsIrK78RPtiphdirfeqsECie3gu42ilpQj0rBAC1Cm
-         xz9561IC0abONIl/kpHJ2xPuP+es+aKWaiD3kazTlgbcMElVm4EKDOL/C+rfCokqrcH+
-         4E7g==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795295682; x=1795900482; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=JVXIUze55zta93CLasHcBtUF3k3F0VOVstypLu4rWEo=;
-        b=daSCu1rVibP6KmyXonSqkr5VdhcRGAjLASbLzwqytA8wCCYmTkuypGNc9yh3g8tYro
-         gcoLLfqIjpVrzh1a0Qg7pINTcCVmT9WihsvEDNJcu/1iRmj1MkHnYT/nJliaeU0aCGor
-         ZG2WKAD3ONqob74E9Lt0wohObg+p2u+kz5zkhu2KVXO9dz6Xj2PBhjk7iII9lIDYlyMQ
-         a+RLJ+MTy74iMQR/JNE8Gmj11KQj3Vt/CQcLsv+BFt7Jg6Hkt2MjgL5KbLZs78NXeif2
-         TMXPkxEW/EQNSJFgb/HHs3nh65h259gh7DP4ybPfO/JH+toj05KzMIIUO2fFkflD5GF0
-         JmaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795295682; x=1795900482;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JVXIUze55zta93CLasHcBtUF3k3F0VOVstypLu4rWEo=;
-        b=lsFgz9R7WeemfMloT3LWZhvjLvCzIerCXO/5h272tyAmDp7vmYvn0ULdpaoMXD4SvX
-         A4G6hbx9bL3O3iqlB+IL7TYep5vsrTojGS5zYj9bE8KlQ7sBgxdQcws4FBQmBP2Fn7J5
-         swhTXiRsbSKsrhbAmosDP1HTwbYn156tMEEEkrSw6hWvULiEkZPA+2/Dsz+8K71HW0ZO
-         S5iclYQiO3iFv3zZslBDm0XEBBID8LlfGqZ3CtxOccVRQJsN9u5yrR905BP4AmH9do5e
-         cBjq0AYncnJSpUZWiskekb70kFcoW+qx0VWbY8FSm2HgJRZlc3HFhm8dl6eUolzTxuL3
-         TfRA==
-X-Forwarded-Encrypted: i=1; AL+hErEwTU9icaB3grE8Ca6r37uIwyDfs0AVU2LP3XV0uYI0rm34Pn9MGvK0YRZfRol/HCPhR5Ev7keGcgR8GXs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8VbdEvT7Wd3In1vQ5h1piYtbE05CpzDbMPU3AW0pn7EW7STvxL
-	PC+68/IbX+SePRh/yQDXut9qjt/16H2EigYa/rcjHuZwefMXy3dyWYbMy00+xEq8n/3OLJNzl7r
-	KJgUHMdAhMqDet4g1wQ0dCMlEa2rRNkA7fg==
-X-Gm-Gg: AZFdTZfw4yH1sB/l6Vdaq0BMz6oMaH9E1tKz/0Zi18mWJIT1tpHrodbp6Y7u34sEeN6
-	EwbTmgi1BETA80DOQU6H3u58UZP9JhzJCC4qxYb9kKABvtMQmL0Wcp+1w9ApwaL/isO9SeC5VkC
-	VSMYmlGOmu4ZoWHFWoCd0O10kzKp1IO0+8ndELO1sZbZOCG8bN1QQl+eEbmHfOJViwEXouamdBN
-	7mt3LcF0Vth2kMGWO/5u6uD2c/ENySPdAZhKQncLuLfpvmZrxDDyUgM9IfSD685Bw6i3ImyU4Xs
-	c/BN8qFTjrkMTSr6xgMyE0am4Wbqb6JYNLTWbgTCzzqDyCBz96tGMxRjq1UCChY+4HXZbC9pgFL
-	yDVnTe8jN8Tg/1AT7FwQgL0RRf4kQuWdzxsLuc+9MBdWgVE6GYPiqe51QhwruQUho19MNUThzBq
-	xsWwENBKYhyV4dUpVo8afGhcRjOQQTmb22O2tEz7RD8Fo3lFyHVTJSxbyV/2yDv0zEk30R8TAU2
-	IDpUslZumJbPxdaW1Kv4+1meUi0A/2EvEaf/Aedm4HWDp3A3YR9bJdxeTEl2ZqFKzemJVp7
-X-Received: by 2002:a05:6122:17a2:b0:5ec:d70c:6326 with SMTP id
- 71dfb90a1353d-5ee8af988f4mr3347118e0c.23.1795295682517; Sat, 21 Nov 2026
- 13:14:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=byGxwCUu
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7D861F000ED
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:16:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795295770;
+	bh=7eXrGkj05XJIeWdMg8bWi/sqvFudK/TAUg1y65LM1tg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=byGxwCUuh5O87gOGC39H5SQNQxs1CDkdy0T3fQo/SjrYp6oHt/UkzZaFQEhu9iHuQ
+	 enNmWGbZFz+D7B4BNdeAx7DhShQxOMhmHptAOssaOPHVKpv2tYPbeknGi/q7FkvRN1
+	 ADE/exyhF4Az4ygBI5TL0tMWcOgWpzGjygQmNDvk4ZwtPnRECU/BBTV/lNmD7NAAeh
+	 /ABWstb7KW9HwTHm5lW1fhSxw2pOM9g1YNQr+T/Vle649Zzyb/TD+2eBTlNUzvnQvx
+	 2kJdQh9uy8q4yzsEFDpe15cYvwmGcqSjXyepL7e4lLIKQrRK+Jk1dhJ1oGt9huphvW
+	 Uhhcx8LbwBlvA==
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5c1a947b4adso1633214e87.2
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:16:10 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHPi/wmvs7s5mvRSAQypRu5IuZcgb1m+732fxxdHhQ9sDI/u/H8h1cc5sVggMgP/uRZ1nBt7lQ75ccIpKg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+8yx7okwi85Q7PTyA7D5Glb8wiCX2PnyXzzblk8GaHQxYu5EeG
+	RS+KuT0HkwUb6JVuDt11J0ZZA60Zc8xtQanEn26MuBr3/qmKM1TNHWgbnUjEsCOcIFwf1hlJazu
+	HVy7OglGbhsXBZxp0s/09XsLPgAVAKqY=
+X-Received: by 2002:a05:6512:3087:b0:5c1:4974:c159 with SMTP id
+ 2adb3069b0e04-5c1bc8cc90cmr2071934e87.55.1795295769485; Sat, 21 Nov 2026
+ 13:16:09 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,99 +59,153 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <1218ce4d98a4c6ab6df6279c34d973b9d033755e.1795042969.git.edumucelli@gmail.com>
- <undine-1795189391477787363-17dbbdcc692ec995@undined.local>
-In-Reply-To: <undine-1795189391477787363-17dbbdcc692ec995@undined.local>
-From: Eduardo Mucelli <edumucelli@gmail.com>
-Date: Sat, 21 Nov 2026 22:14:02 +0100
-X-Gm-Features: Aa3M54q79aKI1og8D0RQNbEoTQYxDDLEgGbfjp3m4OsVj8VXK4D6VmegMI0QjiM
-Message-ID: <CAK0NWSOGSiBEHMaMg1vcheH9-EHU4fUW3sEQsg5H5Btr7+S9og@mail.gmail.com>
-Subject: Re: [PATCH] tools/bootconfig: Preserve structured histogram filter strings
-To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-Cc: rostedt@goodmis.org, linux-trace-kernel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+References: <20261015142552.4128028-1-ryan.roberts@arm.com> <20261015142552.4128028-5-ryan.roberts@arm.com>
+In-Reply-To: <20261015142552.4128028-5-ryan.roberts@arm.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Sat, 21 Nov 2026 22:15:56 +0100
+X-Gmail-Original-Message-ID: <CAD++jLnVu-nLi34mZT_wuJAHqgupgBT5A1jBUfScn81wuY3UCg@mail.gmail.com>
+X-Gm-Features: Aa3M54ro2NNB4LQvH-Q4GEm3pg_4771RV__twhnRQdUNcV3HdQO1On99ooANozQ
+Message-ID: <CAD++jLnVu-nLi34mZT_wuJAHqgupgBT5A1jBUfScn81wuY3UCg@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 04/15] misc/arm-cla: Probe firmware-described devices
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Alex Williamson <alex@shazbot.org>, Jason Gunthorpe <jgg@nvidia.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jean-Philippe Brucker <jpb@kernel.org>, Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, devicetree@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Thanks Masami!
+Hi Ryan & Jean-Philippe,
 
-On Fri, Nov 20, 2026 at 4:43=E2=80=AFPM Masami Hiramatsu (Google)
-<mhiramat@kernel.org> wrote:
->
-> On Thu, 19 Nov 2026 00:02:52 +0100, Eduardo Mucelli Rezende Oliveira <edu=
-mucelli@gmail.com> wrote:
-> > print_one_histogram() expands the hist.filter value through an unquoted
-> > command substitution. Field splitting collapses repeated whitespace in
-> > quoted filter strings, and pathname expansion replaces literal wildcard
-> > characters with filenames. The generated command is already incorrect
-> > before run_cmd() evaluates it.
-> >
-> > Print the filter with printf and a quoted command substitution so that
-> > structured histogram filters reach the generated command unchanged.
-> >
-> > Fixes: f134ebb28126 ("tools/bootconfig: Add histogram syntax support to=
- bconf2ftrace.sh")
-> > Signed-off-by: Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
->
-> OK, looks good to me. Let me pick it.
->
-> Thanks!
->
-> > ---
-> > Hi Masami,
-> >
-> > Thanks for picking up the run_cmd() quoting fix. I had this small
-> > follow-up ready in case that patch went in.
-> >
-> > Here's the thread for that patch.
-> > https://lore.kernel.org/all/97454eceb5d56bf956740b8998972767bcfe6c70.17=
-93216183.git.edumucelli@gmail.com/
-> >
-> > This uses the structured hist.filter option documented here:
-> > https://docs.kernel.org/trace/boottime-trace.html#ftrace-histogram-opti=
-ons
-> >
-> > I tested numbered and unnumbered histograms in a temporary tracefs
-> > instance on my Ubuntu machine, running kernel 7.0.0-38-generic. Repeate=
-d
-> > spaces and tabs were collapsed, and a wildcard expanded to filenames.
-> > With the fix, the generated and installed filters matched the input.
-> >
-> > The run_cmd() quoting fix was present in both versions of this test.
-> > This additional change fixes the string while the histogram command is
-> > being generated, before it reaches run_cmd().
-> >
-> > Feedback is welcome.
-> >
-> > Thanks,
-> > Eduardo
-> >
-> >  tools/bootconfig/scripts/bconf2ftrace.sh | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> >
-> > base-commit: 0ad31c3252d4c626a93ae6251340ef86b18342d0
-> >
-> > diff --git a/tools/bootconfig/scripts/bconf2ftrace.sh b/tools/bootconfi=
-g/scripts/bconf2ftrace.sh
-> > index 6a3535a2c..0992e54c6 100755
-> > --- a/tools/bootconfig/scripts/bconf2ftrace.sh
-> > +++ b/tools/bootconfig/scripts/bconf2ftrace.sh
-> > @@ -163,7 +163,7 @@ print_one_histogram() { # prefix
-> >       print_hist_actions ${1} "onmatch" "event"
-> >
-> >       if xbc_has_key "${1}.filter"; then
-> > -             echo -n " if "`xbc_get_val ${1}.filter`
-> > +             printf ' if %s' "$(xbc_get_val ${1}.filter)"
-> >       fi
-> >  }
-> >
-> >
->
-> --
-> Masami Hiramatsu (Google) <mhiramat@kernel.org>
+thanks for your patch!
 
+I see this framework is (ab)using platform_device, and Greg has many
+times pointed out that he doesn't like that, and I don't like it either,
+so I'm gonna complain about that.
 
+On Thu, Oct 15, 2026 at 4:26=E2=80=AFPM Ryan Roberts <ryan.roberts@arm.com>=
+ wrote:
 
---=20
-Eduardo Mucelli R. Oliveira -- http://eduar.do
+> +static int cla_of_to_cpu(struct device_node *of_node)
+> +{
+> +       int cpu;
+> +       int ret;
+> +       u32 cpu_phandle;
+> +       struct device_node *cpu_node;
+> +
+> +       if (!of_node)
+> +               return -ENODEV;
+> +
+> +       ret =3D of_property_read_u32(of_node, "cpu", &cpu_phandle);
+> +       if (WARN_ON(ret))
+> +               return -EINVAL;
+> +
+> +       cpu_node =3D of_find_node_by_phandle(cpu_phandle);
+> +       if (WARN_ON(!cpu_node))
+> +               return -EINVAL;
+> +
+> +       cpu =3D of_cpu_node_to_id(cpu_node);
+> +       of_node_put(cpu_node);
+> +
+> +       return cpu;
+> +}
+> +
+> +static struct cla_dev *cla_dev_alloc(struct device *parent, int cpu,
+> +                                    void __iomem *regs, phys_addr_t base=
+)
+> +{
+> +       struct cla_dev *dev;
+> +
+> +       dev =3D devm_kzalloc(parent, sizeof(*dev), GFP_KERNEL);
+> +       if (!dev)
+> +               return ERR_PTR(-ENOMEM);
+> +
+> +       dev->pfn =3D __phys_to_pfn(base);
+> +       dev->regs =3D cla_get_regs(regs, cla_kernel_pl);
+> +       dev->cpu =3D cpu;
+> +       dev->dev =3D parent;
+
+Why is struct cla_dev just a hollow thing without it's own
+struct device? This is free-riding on the parent device, which
+seems odd to me.
+
+Should you rather have:
+
+struct cla_device {
+      unsigned int cpu;
+       void __iomem *regs;
+       struct device dev;
+
+^ Not a pointer
+
+       unsigned long pfn;
+       unsigned long pg_offset;
+       struct cla_domain *domain;
+};
+
+Instead of first creating platform devices, then spawn this
+hollow struct cla_dev from the platform device, what about
+just creating struct cla_device directly from the beginning
+if the platform_device has no real use?
+
+> +static int cla_probe(struct platform_device *pdev)
+
+Why send in a platform device here at all, just create the
+cla_device and pass this in here instead. It does exist
+right?
+
+> +{
+> +       int cpu;
+> +       void __iomem *reg;
+> +       size_t reg_size;
+> +       struct cla_dev *dev;
+> +       struct resource *res;
+> +
+> +       /*
+> +        * TODO: the firmware maps this as well to access PL3, and the gu=
+est
+> +        * will map PL1 and PL0. Avoid TLB attr mismatches by only mappin=
+g what
+> +        * we need.
+> +        */
+> +       reg =3D devm_platform_get_and_ioremap_resource(pdev, 0, &res);
+
+And register resource to &cla->dev; etc.
+
+> +static int __init cla_module_init(void)
+> +{
+> +       bool driver_registered =3D false;
+> +       int ret;
+> +
+> +       /*
+> +        * For now, we reject any CLAs discovered via FW tables, whose CP=
+U is
+> +        * offline during init. This keeps things simple by allowing us t=
+o probe
+> +        * all HW at init time. Keep the online CPU set stable so that th=
+e
+> +        * cpu_online() check in cla_probe() is consistent with the onlin=
+e cpus
+> +        * when we call cpuhp_setup_state().
+> +        */
+> +       scoped_guard(cpus_read_lock) {
+> +               /*
+> +                * CPUs may be hotplugged, but all CLAs are described by
+> +                * firmware so the probe can be synchronous. This only se=
+ts up
+> +                * the resources, and CPUHP callbacks do the actual peeki=
+ng and
+> +                * poking. This returns an error when no CLA has an onlin=
+e CPU.
+> +                */
+> +               ret =3D platform_driver_probe(&cla_driver, cla_probe);
+
+Create your own cla_driver for cla_device instead.
+
+Yours,
+Linus Walleij
