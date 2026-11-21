@@ -1,58 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795225155;
-	b=3fPjgBvT11SRxry5/qHBwNsm+mS4GJsFZL2zFYzPjyu65dZIqVyY3nyqHZ8l6AaISrJz
-	 2ZjBL+hXsZtip1+a537KR1HGMr4QguJY5Dm5bt8vIyuQRPNeizuscazG4TQLRHrHixwSA
-	 Ae169ngphascCv6H3V/lyw6PrdO0bWVLqi5mDPYYD42rUxl9S2aomTcyqpWWmbM65muXO
-	 WjUC3lAU4SUADX7WupT5vk/yauMnxWdlualgavFFB2808rlhdeHoWiCvl/ePUufNOSYpO
-	 UwIEp/Ifkgr2lL8G0WAccHt1DEuCyug5BCfNBCEQomXmdh4qcsW6ad/7aVHlu2W/hSw==
+	t=1795225437;
+	b=wO096Aq03UzdJzfluw7rdSYhQhQnPv/Wj5MUraqRdFF4Ahr5FvCtxY75Sjp8oM0OWWfI
+	 hVTawHIl5VxIvr+wW5GNhYzaZjjNx/mqrOLIEQO4OPQM25HW6b88Fc1IkzgdanjYmdbCk
+	 r6SBg13TJRwlB8o9K1qSYl9qR0WD3cVnpzJknT7gVuyoz10si2rkfdWki5mZ2LWPzgUVR
+	 H6uk3LzuOKu71zsZPZsrDIt4loMM6tXhU5ISn09QqP0yfpZW5nhaH/V8FKC1MAeUkcdlO
+	 /siZa7XbncecB7mq4lasORiYiE0V7K/V96Ia/J129aGfTcTU3KnM72VFz8rY8ik+36w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795225155;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=xkIFUE3rSguA2k8pPYGYGiPVAWdD1uXdPaRAnWcMV+A=;
-	b=2qSZpDsEDCBJaK83HswsPOLoEQmYMDkqZ0pU1R074T0rl7OpM8FRaywndJwPNle7N+wQ
-	 RGgM0PWm5G0ffEaUkoSYLYtpgy68dJTF/1MOdyOSd6Ul7mqx0nu8XPljE41WTSTRzSj0a
-	 XtFmSEzTpD73heJEcZ/jOd8CoIlfN31XZHVujEbYvGafoHvvmEvtdNW04fwjFPhkffYRB
-	 b1kaucN5RHah4HYNhIDsCilqAfyr9wjxNZXAbDMJvZbUNv5FJlaSXn9u99VBx+oS0Oa+2
-	 Ecx1xmtRLQqaUqxoQGdzMormzr1LsEYyeEmuFYwx2eoCtFjjhszAp0hFTs//NZrHyZw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795225437;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=IZHBpmYgwg2uHcAp2EVwGofB3o+jQ8LHJLT3ugevwxc=;
+	b=lkZsQG4a3l4lACDUyGwNY1Zk/0QHBFMzG2Mut5As9Hjoj2j7VtBh6Yh5f0l53/VI3F2i
+	 a8waG0s8qTe78mqm4gbGBkkryvn/ev9mZmxti5QZorrXcCrEJbHFGwCNjCqwUJ8K6REYM
+	 q0+8snbU2M674Y7UERNT6UL6oiJdvf5+MzxnLAtK5KMMNSt06pzbVQNsji4+VWrbY6pzJ
+	 h7r9oipstpKRxeuAD0nbOq8+thpw01RnKpvUDPqPh0kzbPt0NTQ1seUAb1A+dUOokV491
+	 kCdIISVexSPqvvj8BnX2IiGNRBkLNtOtFlSpmOzgvvtoJTpxrjsQ6Q9PWi+J+/GeRvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hh6OG1vv;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aFm9trbG;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72FE1606A6A2;
-	Sat, 21 Nov 2026 01:39:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F801606A6A6
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 01:43:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hh6OG1vv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61E721F000C0;
-	Sat, 21 Nov 2026 01:39:13 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aFm9trbG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 242091F000D0
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 01:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795225155;
-	bh=xkIFUE3rSguA2k8pPYGYGiPVAWdD1uXdPaRAnWcMV+A=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=hh6OG1vv6ngyV+s4Axqcx+NBUjziANO9mnX+pIscR4RFOSGUnnsZSsPW2vtsZ23f9
-	 m4yKtHrKAtdNU4z5ePD/nVrR5ezOIZ0iAnwZzXimatu0tgqHadAS8posYHCoAGH3TI
-	 f3LZEXq6+q/Y79Pfs6uQx6Hc0tTsXe7le+p4pUGi742mgagMd163ECLtx3s1EvinYk
-	 Werkwwb5JF2ZnrmWXtRqsZzj5PwrUrd0fVmShbUmarMCJqQ51s4JxGoU+AhLp2F0NK
-	 oncE/+kstCuoj35Xyra4MWEF3w6d2lD+79YwxsVM+4onPqYwz7hemtAcPVe7n9Ea9G
-	 wDzkbRXFv8ncw==
-Date: Sat, 21 Nov 2026 01:39:07 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Rodrigo Alencar via B4 Relay
- <devnull+rodrigo.alencar.analog.com@kernel.org>
-Cc: rodrigo.alencar@analog.com, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, David Lechner <dlechner@baylibre.com>, Andy
- Shevchenko <andy@kernel.org>
-Subject: Re: [PATCH RFC 0/5] iio: split struct iio_dev_attr into typed core
- attributes
-Message-ID: <20261121013907.5e15d2b1@jic23-hlaptop>
-In-Reply-To: <20261120-iio-core-attr-review-v1-0-05b41f8133c2@analog.com>
-References: <20261120-iio-core-attr-review-v1-0-05b41f8133c2@analog.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1795225436;
+	bh=IZHBpmYgwg2uHcAp2EVwGofB3o+jQ8LHJLT3ugevwxc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=aFm9trbGR1ttSbNewz/MAIEVl2v5cjfdDYKiyeGDWaDt9zYxg1ZFQPM+BfCDY/aKl
+	 yDXfd0n9dTenoorzPADsFvbz5T96kpXTvAV2KE3v8/RwcRf0bfRi8SskaR76tLMMgc
+	 cNeH3TbCDM05WCXybXi9AKAVPi6qVoT9Sgk3lUfMSJbK3e95wjWTM2Zx9Z8qecu/fF
+	 qaMOMbH3lhKYzxT8zfh35uojyoxtLlH9jhVS+w1phhfhF+VHHPsr2lb7H/xUfH6qJo
+	 irRnFU3Sw+zeD5/eoJn6D6ox0t2Uyy4x//lC5Zv+BPnzw0TfN7GV4S3+riMIYNjjSW
+	 R9rbNfqsyMHbQ==
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-6b167ffd132so2354639a12.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:43:56 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEC7EyY18iVsp4V7w4xr0kKgjpSA2bT5MqVZCpFbT7p4iKtwNf1C/EisUOQSAWttSPo3SXuV7x9wWnLrL4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8I5EHwfmeI0NXp/SGdJZ2+W6jrsRT5umFLWz7JbKmhvvG7bxAT
+	GfH+FNDmbqjJKhveI49ybkToEVUrzCLMr2VzTWsnDS7QeelCT/8XPTYsexvv8N6GUZBYlHbJ4Jo
+	zrdDYuKDS/mSlya4OLlXVZc/iB4rohMY=
+X-Received: by 2002:a05:6402:1512:b0:6ba:12e2:46f2 with SMTP id
+ 4fb4d7f45d1cf-6ba37d18d2emr2899334a12.8.1795225434798; Fri, 20 Nov 2026
+ 17:43:54 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,16 +59,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20261120155021.1618964-1-liubaolin12138@163.com>
+In-Reply-To: <20261120155021.1618964-1-liubaolin12138@163.com>
+From: Namjae Jeon <linkinjeon@kernel.org>
+Date: Sat, 21 Nov 2026 10:43:40 +0900
+X-Gmail-Original-Message-ID: <CAKYAXd97DoyU_uorCoM1viB6T=z14t3V21gXehBg9gDL_b4SRQ@mail.gmail.com>
+X-Gm-Features: Aa3M54qJWxRShaBRDGyYV0K_jGwemM3TQK7CLamk1rs-YxAipl2WbAM4lXns4n4
+Message-ID: <CAKYAXd97DoyU_uorCoM1viB6T=z14t3V21gXehBg9gDL_b4SRQ@mail.gmail.com>
+Subject: Re: [PATCH v1] ntfs: limit MFT mirror comparisons to system records
+To: Baolin Liu <liubaolin12138@163.com>
+Cc: hyc.lee@gmail.com, d3nchk@outlook.com, ntfs@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Baolin Liu <liubaolin@kylinos.cn>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, 20 Nov 2026 18:03:56 +0000
-Rodrigo Alencar via B4 Relay <devnull+rodrigo.alencar.analog.com@kernel.org> wrote:
-
-This is missing key thing for an RFC.  Sentence at the top that tells
-us 'why?'  To me this looks like nice work with no obvious outstanding
-questions so not RFC material.  
-
-So unless I missed something, drop the RFC for v2!
-
-J
+On Sat, Nov 21, 2026 at 12:50=E2=80=AFAM Baolin Liu <liubaolin12138@163.com=
+> wrote:
+>
+> From: Baolin Liu <liubaolin@kylinos.cn>
+>
+> Windows 10 can leave $MFTMirr records from record 16 onwards stale on
+> volumes with large clusters. Comparing them can falsely report
+> corruption.
+>
+> Commit 749357bd48c1 ("ntfs: mount hibernated volumes read-only regardless
+> of errors=3D") made these mismatches force a read-only mount even with
+> errors=3Dcontinue.
+>
+> Limit the record checks and comparison to the first 16 records within
+> the mirror, following ntfs-3g. Keep reading the full mirror for runlist
+> mapping and location checks, and leave mirror writeback unchanged.
+>
+> Fixes: 2beaa98b46c4 ("ntfs: restore $MFT mirror contents check")
+> Cc: stable@vger.kernel.org
+> Link: https://github.com/tuxera/ntfs-3g/commit/85e208176ffd16ce9a51a9f534=
+b194f0ebbde6e3
+> Signed-off-by: Baolin Liu <liubaolin@kylinos.cn>
+Applied it to #ntfs-next.
+@d3nck, Let me know your test result.
+Thanks!
