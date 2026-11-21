@@ -1,99 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.42
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795285779;
-	b=SU8YmY9iuJGyx8gFpzDlZsJgTuwfr9fq45TNjlb9pbAxkYs5BldWvPvzj94uWJb+nlt3
-	 oCLE+p0KyZ3uihp/Wim+nKiRR7G1DUn9SdI4R7n1vnhRBN+BTHq1tX8j/4qoBXeQ5hbDI
-	 A8/a97DL9lVg9wTfupMYbF1BvObet0qdMSLDxqsiyxviv2d2PqieF1V3Tk1ASPwWI9qxR
-	 /87NuD0EQ5b3O8gXNsFyKtRmo21XJXtIhIKb3FMGP8pzn8mEkN65Np1zGfXEAn7IFTWac
-	 sTYQSc9kn+MXu/CpAgd7Bq+ubn7LcWcv+PiBGPnMGslqnOYrrKJvjeCojrMCwQp1oRw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795285779;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.72
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795285935;
+	b=JBAUp+uHbmiaGyI58vCxQFynCPODvVjElkaxvxqSYcg93gbzUk9E0z9gW5NJPIqo8dbm
+	 FKjP9RE24nVMe4b9/ZhkCLq6gnWNZ6kNO+maslHnH4+G4z/ycxaedu+u1REJcWBph/xCF
+	 aSZGLMLcDFeaHfaEHLWpxUwU+LixgOwUR0h0EcaJAwFGmZivNRy4dNJpKbqLoFF4672Pr
+	 oPp5wgD8yXcU9cmXVoIvMlkVqDm2rj7w0un3BRznXORbD73c4STd4zJldEkNcKzihOdcw
+	 JDSlxKAeN/j5DoV0fOYyJsaNSKSrwCAs7orREK2EhjcnLsCU1CbZL/nWJFCTpcIv3Iw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795285935;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=8lV1mlfunlG0Z+KIHHP7dGizpthdTB34pPO145VjCj0=;
-	b=ETJp+uq9H+HoD5+1GeXYx4HmIuT/zcONCTsm38SVBxblUK/mcRiP1/1xhdaGaPZ22OaD
-	 fNX+XtT736McG3aakUlRtoayqfNrdF5IMRh89TBLRCA5Yd2XEjBEvhzYfqo68C0CQQYP1
-	 VS3HDD9TBsLG/iCIUCvl3YOwwaxlyUWeJnzWQXh+019nK//GIbEP/Wn70EONQC/gC3/Kt
-	 W8ST/8NeImOeT8ObSldQvb5byI7zDaqPa3piL1OC7yNBi2deqlChpXF5Z5X+b2Dwrwu1R
-	 g18i5P/FbidLxv3+1CNyh2lzzSZeBZ5FZdZ32Jw62jUdZOlSYrbukir0/2DBvVmIMJg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bWZNnK5x;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.42
-Received: from mail-yx1-f42.google.com (mail-yx1-f42.google.com [74.125.224.42])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=yO3QbsamQWD6lYmcNlTS5aLXfBdJGNAcBuob3Fh76eg=;
+	b=dtpvQzQi6GQvvf6kfQx7+0uO+1BvwaBQ/Fx29sd6Kcv5SZ7sWb6ewZFI122gROjKqlvR
+	 SdWO2G8CMnOGuqyUZyZugUlFbhDwLVNdBnvBm6oKkbczLDr/Tp86P6czY69DT86w3Zcf8
+	 KTEZXx9Ugw3bJcgK3dv9KmekxwxH713QVN5MVzICTyEGB0WeFEgsCWqirJLqHbq7+dbSZ
+	 d9RrbI7eYWSPEIrWf/U6R5p/WAZ1hdDIP7dhbkKAGV5PQraSRD6Uaa4MNsnRRiCYHxZjw
+	 pA2Hs1zCycwpa62BF6HblsK6x68C/sOe3AaOza7xtGJWAbI+1KXpmBqIGjvnTMPKIRw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Daghztvb;
+	arc=none smtp.remote-ip=74.125.82.72
+Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF880606A336
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:29:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF880606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67695606A330
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:32:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67695606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bWZNnK5x
-Received: by mail-yx1-f42.google.com with SMTP id 956f58d0204a3-677bc4704cbso2379518d50.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:29:38 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795285778; cv=none;
-        d=google.com; s=arc-20260327;
-        b=AoBVKs6X8jomwOyJEnYyan5dSAFgRKSRvGu+enSzPx5673MRTdKTKyacmyhOMh9iHX
-         9ZJEdC/NgyDQsZVH23KTVsQx3fXIlXMKTv7IX4szx6PVYR3QtqRYZp8Gssx8kcrBtOsP
-         AetvDPff6dfLsmiyDrDCjOsE8NBBPsXUaSzR9Q53/GCmQ4ZD8pcMbHNu0Ish4iVniTil
-         uhPe/ua1sQX/OYf05mi6MTWScj5ezfEDnmycUyv8+im37guJAAxgqoSO0Fm7LGdOGcrP
-         mfJiUkoJQsVQIdB3ncTRpIdRviSw2znweBH7Dh+FJNSBayvi7kzaK1B03B0nw4okidFl
-         5iOw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=8lV1mlfunlG0Z+KIHHP7dGizpthdTB34pPO145VjCj0=;
-        fh=pz08SDvS3q+m9VotBXSbQrA1tAnGH7oWuSS9AbmZDRg=;
-        b=kD78yarYc38niTQMT+Yj2Bqkl7sbJ8oGzz9cct1biz4xW2+zRVfp+QjZ1jV9jEOW2C
-         PKIWJF55P7nSQzOWGSuSV9lyfmC8pymLcYHL5dcSFnPLSH4s8TxdAPQM2LHdarXbyApp
-         +A5TxFQ0WLpG4vu1eG6fTxTb7D3HWSxMR3oYq1JHHpy6hqy2nkZR8IoVT0Hbseu7BXj0
-         gfebuOjWBRgj5iAjTi3WYkcL4Qze8F6OV6hP3G65aAavitMAGsaIQw2wOWoMTyeUKHK/
-         zrVjqB81vjnoOM1MF5OxU6AXSvAP4GXiDnr6pLMd5pgTAUuefvcJhDmYm2UqUuh/FkBi
-         bUeg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Daghztvb
+Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-14373747468so1912513c88.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:32:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795285777; x=1795890577; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795285934; x=1795890734; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=8lV1mlfunlG0Z+KIHHP7dGizpthdTB34pPO145VjCj0=;
-        b=bWZNnK5x3F5FBrc8XhkPCBtafzaCS54wkPJOnb8N3PHGUqZ2BX0pgjxNIN9HWDVyoq
-         Ztl5ZnD8WC6TmXK7/KoPIvGGfwQRyfkYn5nXXq6b+IuBXY/3RtQaF7iG4xQI5Ywc87LK
-         +u2pef2mwGo+GwP2s46dkDT3bPzc1CINJ+l9E6qYzmE5m4VZmIs6fR6CarS2/hbxhyj1
-         OlUQK2+kZgAlIczrS51n9TotmAa00gIEQAS+4Sn9YL7FkafXxB19QUxx6arMmIoEbD3T
-         mB1rMxHB5cQcCwy8yYEvP4KqbyJyLMsvVNcrIhb3fzS+WTRze1UX+Hv4myd8fIUYSH//
-         Tdwg==
+        bh=yO3QbsamQWD6lYmcNlTS5aLXfBdJGNAcBuob3Fh76eg=;
+        b=DaghztvbDwmLFkrHuo7a/sJTEMIbMPmqTCllt3YXXs5/QvBXSOdXJqhVDvN8JLxAn0
+         Vriw8/p4M1Guwy4T73CnQNyFoXuwNeLiyfkeQxsU6imRnXU9tQehTBTNWUntjRpNOnmt
+         81VjVdUMTWUnSOsb6oSsyLdzYGp1/peaaANrZO6Z0YHZRiHJmCYVw7lm+R+1lAM23u0B
+         2XQ+EBzTODDyCbn7xTfv0qbjMsNI0g0OwlLQ9b6SaiVFY0RhrvKqDHIKkpGzbbRioG7Z
+         5TG/C2jVnysrVLiW9jEyHjBQO8xtX71626/ZYM761cudpBrdY6lAEgVsCBaRu6WR/0Or
+         mQPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795285777; x=1795890577;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=8lV1mlfunlG0Z+KIHHP7dGizpthdTB34pPO145VjCj0=;
-        b=su+Mqp47brDsFxc+Npf7VLoKwtKqXMjnEfdhRez5bFesQ9rH4Jx1wkUsFrhW/9Vb5H
-         kvUmQ0JFpTFFHnVf7mTpPoWe1Zf7ckz/KogkJ9hPGLaF18su7aJmXnKTdt0cHZrMfKjT
-         VQZJTy0NlHz/VQhXVFtYDxDStqqvBdOkctfKRUhb3x5kcTui6pE1vd+uIY8OOLcl23oy
-         pO+ld7ARvZ3FgaBsvyN4vnUAWgoYAKiBAyH0Ut8ahxRsxvNFCSBoHNf0qrNV8t1YtVFl
-         rGILsaO+TQExJZ+Z9e/whqXTG4ys6srTWZ7452X0XwNRo5K5RgXpqc6lGeozDFz0qUkF
-         Pl7Q==
-X-Forwarded-Encrypted: i=1; AL+hErE6q157ouP6Y4hWzBoVbX3vI1v9boaBt/6WiDBwu5QfDr+i93u6OhjC485zmFWNYllFkJfQRtI+aX9SKGw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+brASqX3JeptvhUqF6pQwWoy1GR94+D2/x9Ndu/mXRE3LoFxFW
-	Cl/BvWiaKNJVhWoXQljmBRPVPgA6lO7xyLUJttjIX7QqtNWEokNujgzRJdQ+bsfi80cPXCKPh+3
-	nfRVnkkTJFbjqywlr7YbIuF7p3SzZTaM=
-X-Gm-Gg: AZFdTZe5Kq2DwHWlLOG54QmyBYj0W4V2//zzdsNSZGjWm5UkXAifBNaMZ29df3aLtfK
-	eIZS+qec6ZIaFA1JirfuVXL5xoYy00B9PuuF+DNOAu3WweG9TZd8G5hQd6T4WmbbdiJJeysQUV2
-	0ZCzlz7VMCIY38nmsMwrmeogjrxCu0qBUk4f93QfWZPA6Naun0h7UPXGgQjesGEFnLqb215pz6b
-	wnPLMVdVVOPUfdAm9prCOelguLcDHhgaBdKwStIQa8TsAZTMTHTEdD/3kY2QcsLX5fRXJzip4B9
-	wFM+PBXpHhPyaZ4ANdzQbBJBhy8CtlwMQUb7d6Z9i1uq0VIvqJ9EJ0kkQq41m80Hm3woEqF+Wyk
-	Tr7oqf7nAFjwuPxG06+epf6grYsWKMPZYUSyW0GSBzOXXoEic2oWMhwGIgMX6C9TLkgHdM1o3
-X-Received: by 2002:a05:690e:4086:b0:67d:ac2d:d80c with SMTP id
- 956f58d0204a3-67df42b59damr2470765d50.4.1795285777648; Sat, 21 Nov 2026
- 10:29:37 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795285934; x=1795890734;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yO3QbsamQWD6lYmcNlTS5aLXfBdJGNAcBuob3Fh76eg=;
+        b=Kf1P/5MbLKbd4aNUPf0K6h4JafHOVpXycSr7WeemPGbpzbNUwnoDHuLi+c6ECULtND
+         MMmqCNc6xcEebbt6cS0//V7Zx65BMwIHNk1N76qIW3aWipSoP05SO6AxvjQ9ype6jS0K
+         owy8O9h6SCcWqw7Q7/Fx+FIgAtQE1tKSaF5ALwRNpAh5txXcNV4moLbs2wkzM1hr7uF/
+         NTznIg6RL3ai/+kMANNOlzD9YmRksd4vLpOgVpLFETscfSeb1XVQT6fBkAbQ9YTO0QEY
+         QY2U4Yh8gVvHRmmVZaCgW11XhS94Mo55MwwzYmEURQMohBgzJdJso+L0ZC7WRwhOZ+TE
+         um9A==
+X-Forwarded-Encrypted: i=1; AL+hErENGhFGaEkn3XC45QdyFmb7TbaO8SoOrGS/ug5HtNDFFsNfuEuDYLQf9vhq8mzZoyxIWOkfojogUsY44cA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ZAZhIIBlT1S6Z5VcMhV1dKNzLYcW46AG56gSQnO6aIZmiwKLl
+	lg/45GE6Uy18q+6CTPdQIpKTNonOWgLBmU6++dB8w+kfV0PyUgdlV2qwiL9rTPdcM7mj4KOFBua
+	81bowiA==
+X-Received: from dlbrl27.prod.google.com ([2002:a05:7022:f51b:b0:1b2:375c:827])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:f516:b0:1b5:1a41:f3b6
+ with SMTP id a92af1059eb24-1b5567b4783mr5725838c88.4.1795285933762; Sat, 21
+ Nov 2026 10:32:13 -0800 (PST)
+Date: Sat, 21 Nov 2026 18:32:13 +0000
+In-Reply-To: <20261118-tcp-mtu-probing-doc-v1-v2-1-e795f20b8cfe@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,63 +77,29 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
- <729eeb67-d812-4f1d-81e2-4f4437181744@yahoo.com> <CAK+kzgzzcGPWVoXQ=VKFeojk+-=9S_mWBhMdcN44M9QXkihn-g@mail.gmail.com>
- <c848fe82-a534-410b-80a6-8d7fb35ab0ae@yahoo.com>
-In-Reply-To: <c848fe82-a534-410b-80a6-8d7fb35ab0ae@yahoo.com>
-From: Gustavo Foletto Mora <gusfmora@gmail.com>
-Date: Sat, 21 Nov 2026 15:29:26 -0300
-X-Gm-Features: Aa3M54rpFSxZ7uu4Nu8kwXj4vOO1ZNNEv44XG4NuzhczSlabI7eoqMHvRg-6wHQ
-Message-ID: <CAK+kzgxmgdFoBhzNhfxB29yS_Hz13LOm7rZvKb6fpyVKb8kwdw@mail.gmail.com>
-Subject: Re: [PATCH net-next v12 13/13] net: dsa: realtek: rtl8365mb: add
- support for RTL8367S-VB
-To: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, 
-	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com, 
-	linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	alvin.sipraga@analog.com, kuncy7@gmail.com, fabianotassotti@gmail.com, 
-	gabonpivovich@gmail.com, contact@c127.dev, o.rempel@pengutronix.de
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0
+References: <20261118-tcp-mtu-probing-doc-v1-v2-0-e795f20b8cfe@gmail.com> <20261118-tcp-mtu-probing-doc-v1-v2-1-e795f20b8cfe@gmail.com>
+Message-ID: <awHjn5AXWjW2qMPw@google.com>
+Subject: Re: [PATCH net-next v2 1/2] tcp: document black hole detection for tcp_mtu_probing
+From: Kuniyuki Iwashima <kuniyu@google.com>
+To: Yongjian Wang <echoowall@gmail.com>
+Cc: corbet@lwn.net, edumazet@kernel.org, davem@davemloft.net, kuba@kernel.org, 
+	shuah@kernel.org, pabeni@redhat.com, rdunlap@infradead.org, 
+	linux-doc@vger.kernel.org, horms@kernel.org, ncardwell@google.com, 
+	skhan@linuxfoundation.org, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 
-Hi Mieczyslaw,
+On Wed, 18 Nov 2026 16:10:52 +0800, Yongjian Wang wrote:
+> ip-sysctl.rst says that tcp_mtu_probing=1 enables MTU probing once an
+> ICMP black hole is detected, but not when that happens or what TCP
+> does then.
+> 
+> Describe both, as implemented in tcp_write_timeout() and
+> tcp_mtu_probing(). Also add the missing defaults of tcp_mtu_probing
+> and tcp_base_mss.
+> 
+> Signed-off-by: Yongjian Wang <echoowall@gmail.com>
+> Reviewed-by: Eric Dumazet <edumazet@kernel.org>
 
-On 21/11/2026 Mieczyslaw Nalewaj wrote:
-> 1. Does a non-zero value written to 0x0851 on your board change
->    anything (PCP of untagged frames, or the register reading back)?
-
-Not yet answered: on my test image the switch registers are read-only
-from userspace (regmap debugfs) and CONFIG_DCB is not set, so nothing
-writes 0x0851 other than the baseline's 0. It needs a test kernel that
-allows debugfs writes; I will report back if I do that.
-
-> 2. Does the Realtek API in your stock firmware have an 802.1p
->    remarking table (internal priority -> PCP, with a per-port
->    enable) for this chip, and at which registers?
-
-Yes. The family D functions write the same registers as family C's
-rtl8367c_setAsicRemarkingDot1p*():
-
-- dal_rtl8367d_qos_1pRemarkEnable_set(): per-port enable, bit 12 of
-  0x000E + 0x20 * port
-- dal_rtl8367d_qos_1pRemark_set(): internal priority -> PCP, 0x1211
-  for priorities 0-3 and 0x1212 for 4-7, 3 bits per priority at a
-  4-bit stride
-- dal_rtl8367d_qos_1pRemarkSrcSel_set(): the remark source, 0x09DF
-  bit 2
-
-dal_rtl8367d_qos_init() clears the per-port enable on every port.
-
-One thing to keep in mind: the remark applies to every frame that
-leaves the port tagged, not only to the untagged ones. If I read the
-baseline's priority decision right (port priority only, weights
-0001 0000 0000 0000 at 0x087b), every frame gets internal priority 1,
-so an inverse table would also turn tagged PCP 5 into PCP 0, while
-today tagged frames keep their PCP (1 and 5 measured). With an
-apptrust that includes PCP, the inverse table would keep the tagged
-PCPs and give untagged frames PCP 0. I have not tried any of this on
-hardware.
-
-Thanks,
-Gustavo
+Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
