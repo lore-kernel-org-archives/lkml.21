@@ -1,68 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.106
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795263905;
-	b=fTgFTeRukgUS2wIhsGaqbCeP0qDezswWwQr4EgM3bXeSORhsvdIaX6SZrhtWr8lpAYa+
-	 HbSVF1mZK0TglYlExxczoVS/CYKCGh06Ff7yp/Ea1M96ZacGuIkVZrbf9Dz1z7SDulO43
-	 C8crR9u9pWyEQdm48zjO1PJtnMNFHKUqfBfK8mm3Q9zyhjgDVdH+YZSpoxybbeM6+WXI+
-	 kjEcGT+Pz6NMfr1ZmLpeFUxH6zMMH9jlwIAlLrPL7sGP3Y3A76mQNMjWMJvy7Ojga9uXZ
-	 V4WgYMQ+gD5DWYwW3UCk+DTegp/QimHeVJ0RCCCSXixoZnKjLd0KuVKhSVHqa38AmQA==
+	t=1795263916;
+	b=sEECod7Z3RmKuAxwqjncdSKZeStqFQ+vwdjLMYq1VXgrdX2uOQcorD74rK29snoAn+jl
+	 VundhVuDPTsNYHD5SKFs2T0xK6oeJ80maVB8Q0fzTAkom43diQhEGKHXXebDla6J6f+LI
+	 A6fxn+TzkBFM/d8XBEF1Oy2WtM5T5ziB/q8ucs1AlVPxpKV5VQWx8Byg/4BRasIYE+acT
+	 sO09WmgVyJxWDMwnf1Tti2egTPS7kAU+ukkmDdCIaHkb3cxgMFccHya29RoD4WrQ1kRwh
+	 s9rjqfSXDMVdnnkANSPYd8rlaoTZMM7Vzx5Ugf3+zdVHBDbIZ7FNDhpcU0piBTj9Emw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795263905;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version:X-MBO-RS-META:X-MBO-RS-ID;
-	bh=u7XRQt6yLVhShDzUrcNskUAt9AB9U5rbWWbW51FRgzw=;
-	b=T8MusW+0+w6914hjOlNctWZu/69+I7cezpzJnPDi65x/s1SlUnRWoKf1ZEj41L/VolZH
-	 Z3iK8D9ncFeLBh+5yCdEaGPTR4h2hi4kgDbVe4R3IaaxEBHkedRInQowrBQ593QheYmOd
-	 xP+Xh0S2df+Om0tJhG5Tvw4BZO3fIXO2uRdL7oCzgKsjj8FtHNdgoGj/5D/Xp5M91/Q7O
-	 P+e1poGwepzoSNDkIXTJjxQTuRPJMeFadmo6W8DrRWOAoJTQ8YHGaEPxvhiUO/GOSjlA2
-	 tw8DvaE+OXAoymPMXhlZfGg0Lm+zdqplwOF03jrwI8uuB+4kYUb2xpZ9U/j9rDBuCGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795263916;
+	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=OMJUqx2DQ3BhmM2pBkud0YM/8aXiQ465Qxorf67Y66o=;
+	b=NjrSWOWaWWDC/TPS8S3PvqJhOmw5meLd+KO2UyAcnJSXudFoVuAahyBJ1za2XXY74vea
+	 ivzAlYPRjkaO3vDBFzbD0brWJNnK3cEC80iGvcyC8+XqCnDMd6w3Rp5VO0HJpmwSAYoQz
+	 oXIdF71ytt4xRpLTbohybbP3NJdNnz/6lDUjMl8ZZZEsB+O5VwtSK9lBapuDOZt0+7q84
+	 BhxYR/uPblFUYivZEoM3JVHaSEeoa7DudFBCtrCZEGO7E7/EAsUYJbFNg96n+Ivy7Uz7B
+	 Z5OpDfpRL/uLkk5PVMEYRn3nCt4/F8SJQwv8/Fv/AmL5LSVnnFuSpRqQOr4fZ7HnkuQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mailbox.org;
-	spf=pass smtp.mailfrom=mailbox.org;
-	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=VOOUXk00;
-	arc=none smtp.remote-ip=80.241.56.171
-Received: from mout-p-201.mailbox.org (mout-p-201.mailbox.org [80.241.56.171])
+	dmarc=pass header.from=onurozkan.dev;
+	spf=pass smtp.mailfrom=onurozkan.dev;
+	dkim=pass header.d=onurozkan.dev header.i=@onurozkan.dev header.a=rsa-sha256 header.s=protonmail2 header.b=NlD+OZHp;
+	arc=none smtp.remote-ip=109.224.244.106
+Received: from mail-244106.protonmail.ch (mail-244106.protonmail.ch [109.224.244.106])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90624606A320;
-	Sat, 21 Nov 2026 12:25:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90624606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AD74606A32C;
+	Sat, 21 Nov 2026 12:25:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AD74606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=onurozkan.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=onurozkan.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=VOOUXk00
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4jWrxf1qZrzMlbQ;
-	Sat, 21 Nov 2026 13:24:54 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1795263894;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=u7XRQt6yLVhShDzUrcNskUAt9AB9U5rbWWbW51FRgzw=;
-	b=VOOUXk00tIru3UQzwrADrp8CFbAJG1BM3oUJ5TrhVtEl1ld8j9xH6Tv3OOxGxjfmtRICLU
-	SfdUi/g/cFbSfmPxGs0XZg9n/kSnFUjgFZtTQYGupSA88v65waatrZ7JRVaJAcKsFfX0M9
-	yQidHOOn8Fh3g005uZxt+oZ6/j8Jwz8qgvwnZ4z7rDU8nMpQaaT4QQrEWDat9/hSr7gikd
-	/OrFRcRCsYT9YMzHx10aO+jQO1PpjCrqhCIUvBOZeSVrdL0AubweraF/2ZpDgLEBu4qmzS
-	XqRZtJU0cBNhSv7BRR0+MZGZZSuw4j6W2VKTRT2U4oDKIY4CISbm5McvJLFXYg==
-Message-ID: <0b5b642e7135c1e0d47c0b169ed8dcd3a03192b0.camel@mailbox.org>
-Subject: Re: [PATCH RESEND] mm: doc: add bracket
-From: Manuel Ebner <manuelebnerli@mailbox.org>
-To: Jonathan Corbet <corbet@lwn.net>, Shuah Khan
- <skhan@linuxfoundation.org>,  Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Sat, 21 Nov 2026 13:24:52 +0100
-In-Reply-To: <20260916134934.323858-2-manuelebnerli@mailbox.org>
-References: <20260916134934.323858-2-manuelebnerli@mailbox.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key, unprotected) header.d=onurozkan.dev header.i=@onurozkan.dev header.a=rsa-sha256 header.s=protonmail2 header.b=NlD+OZHp
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=onurozkan.dev;
+	s=protonmail2; t=1795263912; x=1795523112;
+	bh=OMJUqx2DQ3BhmM2pBkud0YM/8aXiQ465Qxorf67Y66o=;
+	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:From:To:
+	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=NlD+OZHpJ0nC5UIQ/VqY+yPMhtgzft/2SpP6Mtl7A1Kp4wsy5uXZZQ166yubGSebY
+	 m6tFz8Q9FUdYdGjJWaZpt/MzSTb0+4s6js6DuS1nAADnJSR0eR7ot5ET17tp8GoHC5
+	 Hy5GoQQYbFPet7Zj8lGMt4h7g2QCKfQi0g31d03hnfTjd5dg0gJmERPSfnIpmeTY4Z
+	 JWsM/MhQl1Wo44tSnSNqdacW+gWqJ391AYCzuoKumME3BjPUDa0irZmznXR8uQ/u/Y
+	 4tOOGeFhS8TL9QWY7SdNLfK15rTN5exXSp1LRPO4eAOC4FAPJ7YT8ODV9+47T933dy
+	 S8U1e02kT5ftg==
+X-Pm-Submission-Id: 4jWrxx4yJtz1DFSv
+From: =?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>
+To: Daniel Almeida <daniel.almeida@collabora.com>
+Cc: Alice Ryhl <aliceryhl@google.com>,
+	linux-kernel@vger.kernel.org,
+	rust-for-linux@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	dakr@kernel.org,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	ojeda@kernel.org,
+	boqun@kernel.org,
+	gary@garyguo.net,
+	bjorn3_gh@protonmail.com,
+	lossin@kernel.org,
+	a.hindborg@kernel.org,
+	tmgross@umich.edu,
+	boris.brezillon@collabora.com
+Subject: Re: [PATCH v8 1/3] drm/tyr: clear stale IRQ state before soft reset
+Date: Sat, 21 Nov 2026 15:25:06 +0300
+Message-ID: <20261121122508.20705-1-work@onurozkan.dev>
+X-Mailer: git-send-email 2.51.2
+In-Reply-To: <B56A0B7A-A0DC-4BCC-8556-F7BC105B991F@collabora.com>
+References: <20261113-tyr-reset-impl-v8-0-2ee298ac9808@onurozkan.dev> <20261113-tyr-reset-impl-v8-1-2ee298ac9808@onurozkan.dev> <av2U1FflKT1mEotg@google.com> <B56A0B7A-A0DC-4BCC-8556-F7BC105B991F@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,42 +77,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MBO-RS-META: wgd9erwebbfiitqe67z7kxp3o3ifaamy
-X-MBO-RS-ID: 67e2fb770acfc1fa4fd
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, 2026-09-16 at 15:49 +0200, Manuel Ebner wrote:
-> Add missing ')' to sentence.
->=20
-> Signed-off-by: Manuel Ebner <manuelebnerli@mailbox.org>
-> Acked-by: Randy Dunlap <rdunlap@infradead.org>
-
-Can I do anything to get this applied?
-
-Thanks
- Manuel
-> ---
-> [first send]
-> =C2=A0https://lore.kernel.org/all/20260902144210.703915-2-manuelebnerli@m=
-ailbox.org/
-> ---
-> =C2=A0Documentation/filesystems/mmap_prepare.rst | 2 +-
-> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/Documentation/filesystems/mmap_prepare.rst b/Documentation/f=
-ilesystems/mmap_prepare.rst
-> index 82c99c95a..0482c21b4 100644
-> --- a/Documentation/filesystems/mmap_prepare.rst
-> +++ b/Documentation/filesystems/mmap_prepare.rst
-> @@ -114,7 +114,7 @@ VMA Flags
-> =C2=A0Along with ``mmap_prepare``, VMA flags have undergone an overhaul. =
-Where before
-> =C2=A0you would invoke one of vm_flags_init(), vm_flags_reset(), vm_flags=
-_set(),
-> =C2=A0vm_flags_clear(), and vm_flags_mod() to modify flags (and to have t=
-he
-> -locking done correctly for you, this is no longer necessary.
-> +locking done correctly for you), this is no longer necessary.
-> =C2=A0
-> =C2=A0Also, the legacy approach of specifying VMA flags via ``VM_READ``, =
-``VM_WRITE``,
-> =C2=A0etc. - i.e. using a ``-VM_xxx``- macro has changed too.
+On Wed, 18 Nov 2026 10:07:49 -0300=0D
+Daniel Almeida <daniel.almeida@collabora.com> wrote:=0D
+=0D
+> =0D
+> =0D
+> > On 18 Nov 2026, at 09:06, Alice Ryhl <aliceryhl@google.com> wrote:=0D
+> > =0D
+> > On Fri, Nov 13, 2026 at 05:32:26PM +0300, Onur =C3=96zkan wrote:=0D
+> >> Previous reset may leave the reset completed IRQ set which can make th=
+e=0D
+> >> poll return too early.=0D
+> >> =0D
+> >> Clear the IRQ first so the driver waits for the current reset to=0D
+> >> complete.=0D
+> >> =0D
+> >> Reviewed-by: Daniel Almeida <daniel.almeida@collabora.com>=0D
+> >> Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>=0D
+> >> Signed-off-by: Onur =C3=96zkan <work@onurozkan.dev>=0D
+> > =0D
+> > Do you want me to merge this now, without waiting for the other patches=
+?=0D
+> > =0D
+> > Reviewed-by: Alice Ryhl <aliceryhl@google.com>=0D
+> =0D
+> If Onur is fine with this, I think we should merge what we can.=0D
+=0D
+Sure, I am fine with that.=0D
+=0D
+Thanks=0D
+=0D
+> =0D
+> =E2=80=94 Daniel=0D
