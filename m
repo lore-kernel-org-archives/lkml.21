@@ -1,54 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=143.255.12.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795280008;
-	b=4Pxlm0A1CiEmGEgnjDEK7j4gzYwk2X8QXASGXo8ELgVUheShoA8RLFfYgufRcb4CPC6j
-	 653bDx8vVIgI48oVZOqyVDncGuNldbz1q39FF57/aWkdSVD4/bXRAgud7e5hWLYQpiyPp
-	 7mlyJEK2nyHA050R8WQAEQ5iwhz+2wnrkepZNw49ID5ASgUq5YCG208nhqT0GjHg91XIv
-	 nPbGaq1llOWGoVkioFWt4cZhNhuLA0SYxJTKjEvX1cMGbpefUx75I2QLsBStABPZdv0w9
-	 vnQdJiPAaSk1Ctzarxjcu6b6lAsy7lJSejPIVXkhs5+xDWFlUBF+T1dZcndGg1beY2g==
+	t=1795280028;
+	b=cT1iM9GMtwiY4h+f3U1mnmDOcgNU/MEza+IptAnM+vk1GKbM/tmgb9bWLB+EAzs7cEj9
+	 6bj0pPiKHtX38bgVe2DYrrweIakC3ZKVByUj4JXWPpAnKENWZHziPn0WWe4MPnT+Ev5H0
+	 V6VCZBul//hnoNaR+r6o5B+BiWhe9Iy8OFINS+NRtvR5RH8BdwIWc6DKsdkME4tgknYsf
+	 05es9g2eOSA4MPo+rOVHkk/sydvA4EP0aExt6nJyon7I0FMoYmaMPfLCeG7A9xZrvBXur
+	 tBmdTnC6EgoDbZFrt/o+Dylz1J5qqk0c1x/ZofVzCdYv9NwnVJaAHVOoU2xX2kH3GAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795280008;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=DZVQZqKXqbRKF2KM4ZF2ZgwvQAofmplM9n83pr5oX+I=;
-	b=DblS9aTaVsaW2GSBMQbfKXwrWRiz260pLJQjd4GPYFHZzfy+FujNPfTUOaipRI3ldnNm
-	 khZXAH/3ki4HiV+XVzDWTV/yxOhkIDKEQG47nltE/OXwNVGc6JNHfxrAuGLnsQHf2Ym+l
-	 m/yCDx0KEADgsFr/puyjGFE1DzjLu9b/P2hMrOHY5VDVM6kR6X0uHQdFuTlI18c1zV/1G
-	 20XkWwQQWr1/a3fn1+Ny9aqeCpQN7OrJE1P0OBUUP6baDyxz9IXBKre3DNiPEBTGhmA0o
-	 SRBCBC9KO1rwZ/R7rVestAO46cSfu+ymIEo9RC2O5a6l/RPHJpg9tkNARWGZl0Ew90g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795280028;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:From:To:Cc:Subject:
+	 Date:MIME-Version:Content-Type;
+	bh=71/vZ+6SlAhlKpr2/pRAGRVZmNz47utIjOuG4CCzQE8=;
+	b=z7b9ujm6N0G+ZP6sHc6vSgwniwsSlthBL55Q1OyC1dVqy5zWBUOaWgzZuXy6m2Hwf1qU
+	 H91HRq88235oD/jLBhpH+AZ+q/U5ajsjpouSDwQOP9dhtAZvYxqSLMpzLtKu0A44Eckfb
+	 XTQB7F+/NW48AkfiYjws3z8xYazxCwZiW6ESGAMzA93PRNrRMXa5ywrNuxchAX9skzxuk
+	 3r8njqHjBeGbpC9axaEEdLESnfHGStWpeqdu4y7q3m0sjKNG+slX94McT2UFGLsJld8ec
+	 YBmwo0Gjg9tFLjzQO25ngIEOqQOW7I8yAImXx+PjA8h1A+19OxYuohnog0eTEypjtJQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eQU1oKAi;
-	arc=none smtp.remote-ip=198.137.202.133
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+	dmarc=pass header.from=manguebit.org;
+	spf=pass smtp.mailfrom=manguebit.org;
+	dkim=pass header.d=manguebit.org header.i=@manguebit.org header.a=rsa-sha256 header.s=dkim header.b="gKMiCl/h";
+	arc=none smtp.remote-ip=143.255.12.172
+Received: from mx1.manguebit.org (mx1.manguebit.org [143.255.12.172])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A705B606A320;
-	Sat, 21 Nov 2026 16:53:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A705B606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3E4A606A320;
+	Sat, 21 Nov 2026 16:53:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3E4A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=manguebit.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=manguebit.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eQU1oKAi
+	dkim=pass (2048-bit key, unprotected) header.d=manguebit.org header.i=@manguebit.org header.a=rsa-sha256 header.s=dkim header.b=gKMiCl/h
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Sender:Reply-To:Content-ID:Content-Description;
-	bh=DZVQZqKXqbRKF2KM4ZF2ZgwvQAofmplM9n83pr5oX+I=; b=eQU1oKAiHYli3YMbUqLz9sX05H
-	5uIURQ1KOSbadCLL1lyaxXKQMYJvuvgC7T7PPVL0uptP1lmCFWnSfU6+DJm+PbjLSfYvjeNQWgVen
-	JINKX23PNAszcl5pjIyOLld27cKMF8nr0lRFt+sRexNaw4Z5zt8JzA+wVwQZjv7bffEiQrl6C71tf
-	zF+jzMGAA4cD7OcD5IIl81bajHHRgCEnWp9sjh2fSqme3Eu7NufYmQNGjuN3Zg8AFrtHunN35sL2W
-	a4YMckrI9J2hp+LmGtNevEHaacAV+C7reNASGQMzLjBO/5oq7eNv0o7EAr4E7fgfgCoOEZVf3Bvs0
-	muSltCKQ==;
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUoL3-0000000HWMn-04p3;
-	Sat, 21 Nov 2026 16:53:21 +0000
-Message-ID: <bd50aa92-fffe-4176-ba63-4812c68565f8@infradead.org>
-Date: Sat, 21 Nov 2026 08:53:20 -0800
+	d=manguebit.org; s=dkim; h=Content-Type:MIME-Version:Date:Subject:Cc:To:From:
+	Message-ID:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=71/vZ+6SlAhlKpr2/pRAGRVZmNz47utIjOuG4CCzQE8=; b=gKMiCl/hc8t4mdWPpP5n3dF1RB
+	MfzJlSu/P7ncgIKp7fpRFVEPjXYdR09KCyEiEIbNQ9CPzGFS+OnnnOYBdJVdDHt7dgBZq/m5cJxT7
+	f03nd0NYYC2pCZyKCs2RI4rN0koQqxGuYhu9XEMePoMzyYJSpbiGow/9rk02T+RmwfW6wmH59rJSc
+	llh/ln7wrm9urq58+BMbEAaup9y5+YKZ2DZn1UA+/0KFDHc0gwijeUzXOIoBER0zPJrqWhTTYtncL
+	Y7H6BU/EjgA8wWEH+FWSt6O2HueaE7F7pRPVMs7us0z0tQZpkCh2YGghbQDF/KBndH+i2jrVlNzqI
+	FWsPRuFA==;
+Received: from pc by mx1.manguebit.org with local (Exim 4.100.1)
+	id 1xUoLL-00000000ZrI-2kzA;
+	Sat, 21 Nov 2026 13:53:39 -0300
+Message-ID: <bada6649ca5eb9e4603216c71aff0a85@manguebit.org>
+From: Paulo Alcantara <pc@manguebit.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: linux-cifs@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [GIT PULL] smb client fixes for 7.4-rc4
+Date: Sat, 21 Nov 2026 13:53:39 -0300
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,56 +60,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] Docs/process/changes: add comment referring to
- ver_linux
-To: Manuel Ebner <manuelebnerli@mailbox.org>, Jonathan Corbet
- <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>
-Cc: workflows@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261121115203.1444513-2-manuelebnerli@mailbox.org>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20261121115203.1444513-2-manuelebnerli@mailbox.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 
+Linus,
 
+Please consider pulling these smb client fixes for v7.4-rc4.  The main
+ones are a server-triggerable use-after-free and two fixes that stop the
+client from accepting SMB2 responses and read data with a bad signature;
+the rest are a couple of busy-inode-on-unmount races and some metadata
+fixes.  All of them are for stable.
 
-On 11/21/26 3:52 AM, Manuel Ebner wrote:
-> Add comment to keep ver_linux up to date. This comment does not show up
-> in the output of sphinx.
-> 
-> Signed-off-by: Manuel Ebner <manuelebnerli@mailbox.org>
-> ---
-> [v2]
->  fix typos in diff and subject
-> 
-> [v1]
->  https://lore.kernel.org/all/20261121113221.1442278-2-manuelebnerli@mailbox.org/
-> 
->  Documentation/process/changes.rst | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/Documentation/process/changes.rst b/Documentation/process/changes.rst
-> index 13093c5c26..ffeaa3dce3 100644
-> --- a/Documentation/process/changes.rst
-> +++ b/Documentation/process/changes.rst
-> @@ -27,6 +27,10 @@ running a Linux kernel.  Also, not all tools are necessary on all
->  systems; obviously, if you don't have any PC Card hardware, for example,
->  you probably do not need to concern yourself with pcmciautils.
->  
-> +..
-> +   When changing anything in the following table, make sure to update
-> +   scripts/ver_linux aswell.
+Thanks,
+Paulo
 
-                        as well.
+----------------------------------------------------------------
+The following changes since commit 3db1c74a20f0552fadc2c6886a43feee8894fa19:
 
-> +
->  ====================== ===============  ========================================
->          Program        Minimal version       Command to check the version
->  ====================== ===============  ========================================
+  Merge tag 'cifs-fixes-7.4-rc3' of https://git.manguebit.org/linux (2026-11-13 09:56:22 -0800)
 
--- 
-~Randy
+are available in the Git repository at:
 
+  https://git.manguebit.org/linux.git tags/cifs-fixes-7.4-rc4
+
+for you to fetch changes up to a1a0ef3ba8e802060bfc2b0ebf131a2cf98c3b71:
+
+  smb: client: don't use read data that failed signature verification (2026-11-19 12:02:54 -0300)
+
+----------------------------------------------------------------
+smb client fixes for v7.4-rc4
+
+ - Fix a use-after-free in the netfs write collector that a malicious or
+   broken server can trigger by returning a write count larger than the
+   request
+
+ - Reject SMB2 responses whose signature fails verification instead of
+   using them, so a tampered response on a signed connection is no
+   longer accepted
+
+ - Don't return read data whose signature failed verification when the
+   read lands at the remote end of file
+
+ - Fix a busy inode and dentry on unmount caused by a late oplock break
+   queued after the workqueues were already flushed
+
+ - Fix a busy dentry on unmount caused by a persistent-handle reopen
+   racing the unmount
+
+ - Fix creation and change time assignments in the SMB2 POSIX readdir
+   path, which clobbered ctime and could give a hard link a separate
+   in-memory inode
+
+ - Normalise pre-epoch timestamps read from the server so stat no longer
+   reports a garbled time
+
+ - Fix DFS prefix paths being truncated on non-utf8 mounts, where
+   path_consumed was applied in the wrong charset and the mount failed
+   with -ENOENT
+
+----------------------------------------------------------------
+Fredric Cover (1):
+      smb: client: convert path_consumed to mount charset units
+
+Siddharth Chintamaneni (2):
+      smb: client: fix busy dentry and inode on unmount from late oplock break
+      smb: client: fix busy dentry on unmount from persistent handle reopen
+
+Suyuan Wang (2):
+      smb: client: fail SMB2 responses with a bad signature
+      smb: client: don't use read data that failed signature verification
+
+koraynilay (2):
+      smb: client: fix negative timestamps being read from smb
+      smb: client: fix times assignments in cifs_posix_to_fattr()
+
+ozgun kultekin (1):
+      smb: client: do not let the server grow a write subrequest
+
+ fs/smb/client/cifsfs.c        | 10 +++---
+ fs/smb/client/dfs.c           | 77 +++++++++++++++++++++++++++++++++++++++++--
+ fs/smb/client/file.c          |  8 +++++
+ fs/smb/client/misc.c          |  6 +++-
+ fs/smb/client/netmisc.c       |  3 +-
+ fs/smb/client/readdir.c       |  3 +-
+ fs/smb/client/smb2pdu.c       | 22 +++++++++----
+ fs/smb/client/smb2transport.c |  7 ++--
+ fs/smb/client/trace.h         |  1 +
+ fs/smb/client/transport.c     |  5 +++
+ 10 files changed, 122 insertions(+), 20 deletions(-)
