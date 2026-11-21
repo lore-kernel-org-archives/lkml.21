@@ -1,78 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795288789;
-	b=fajYxMdaFZAomjOJYSxowPhjDCi7xVXImon926OH7V0wHBUIq1WcdO08+/bPNF2gA3FU
-	 rxhh8MJaBTvnP/Ch6h0XwBZX3KC1CymSdPZPGUNNv6KZSIFce+Zx+bfXpSeu9eYv0HSYy
-	 EE3fBKWeyVhX1U1zEO+JKRVSjEaz6CgAMBSUNzwdad3bBidIr/z+pSvTqnlfFPziCsv3n
-	 T6GLUlN8V4gPIrbgY3779Fx8AzqNZYwRfZg4nqh3pCHnnzkJUELDI+W9vlkJhzr+UiY/R
-	 +TM5+HN9StUwjdImA/gfLRUHn0ErPaj8KfvyeOAUXUMWhNVMQUzVwA/bzrdRPELkfLQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795288789;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=6SrPi0bx6GHMMCmA6LUjcTk40O7E8I1mi6dEbN9j2Pw=;
-	b=hCyzXOoEluRsR6mxO1PP0SlgqGp/dgy4QTjWzKGabi2Ktx6+kGUuwPqAO1tUb533XGW1
-	 M+qwQvMC7k+zbmQmQ8gYCbFzfwXRUuDGWGOsj9nd/2FSQauNxmUGUBxCkUKmdSRwj+izi
-	 +09FHLZunsyDTkX6RQtW3wuS+JF1qK1NEtANgsa3cRmcVTUTg1fXFN4zzAeudYgdLmB9/
-	 RcU/5RigsZ+TctMhZSfycLFmw66u57lLwAI3J1ZwJGZcX6gMIbuFwadpPq6FTf6RAH5td
-	 G/DEcYc5o2L9cIGCQzi7tcQwnKxbFLlU3+Fl46tc071/zdQoYR1CdTVaUbVBhU+VCBA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=alien8.de;
-	spf=pass smtp.mailfrom=alien8.de;
-	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=SUdyUo3B;
-	arc=none smtp.remote-ip=65.109.113.108
-Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795288900;
+	b=Wzumc+BsBuiJSqm2A6whhfDgv0ljkDRH25QoTIoDEZ7iNOv7/D9MtvFWG3Tiks07KERj
+	 DjBeloy4XASb2AJ6pU7v1L4zm9SrWiiTpymhk6oPT2mRlbHloJdpm2c8ORTgC4px/i5eE
+	 u0NqdVRztzc9GetMGkgs7P659mzq2nfFOBJCVdfljLu/hygsrkZILlvGq2dDuzehXyRSa
+	 zEnispj5PVtpaETavAjvw/XDoUg0wJR1fvElu0nnsrs3g6mEBRScrWTMgPcjs7DatXt0r
+	 +C+nX3aJTC0VvKTX61D4Rv1/kLQMou+5jPptAzT8RsSUTxBgBO8hc5sdPRJ8RJse+Uw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795288900;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=NgtfBGZW6JnOX8QXxkHMy03vg6zeloIYXjLXT43yxao=;
+	b=baB7IULtQva7/sOLvjn4Mk+zjtiF0/6f1q4AafPFXtNZPum1T3l8VTGMfDcWk4RjhNOs
+	 JX8vn2AcBAnXv7k5M3uHkCzUd/8/mZl9zfGkB2Hl2x8yMfK8cUT6odSyxAkfrn/bcZBXn
+	 eeDprJWy1LFDGWYYl7u91FM3X8i5aTBAj8JQY48bVvEN6KOFWsTTEJXMx1BO1VC2Y2jTd
+	 W/xAOqfTgwBavmeTm/TfTANbnR0Mv4b7gg1YZzVSuPtyxOxTzcHDBTCJoGs7wq6W05wbL
+	 p2ryuH7sMCbt3FpxYlG7YnDKdNC+w1ZDbL/7DI0SUqA0eWWSMLStn06PJlHsZThEd/Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bu2qiCQM;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2731B606A32A;
+	Sat, 21 Nov 2026 19:21:39 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bu2qiCQM
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795288899;
+	b=hkRQjjwfqaITcKXXTCcNyD3CuZKzrXPr8wJvTIKIjDP3gUTgZs/dD2KyklRY9jasA2XA
+	 5BUx8BFcgoCcXrThTvtHGjx9DcC2X4BZSXudVG86SnxqExZslwq94KVT3ymM+oWqP9UhR
+	 nKfoO6iNm9seOBQbD8qbuWhp2p2OqMoQ5H3yLCvazHv61qnxbRH2p4dEERKI3hqtfJROe
+	 ZYoDruhfR7pACI3p8GB1/JpdPqAoBJJI6ML0G9pWMQpI/W8eJxCQ1ozqJdSJ08OgsPQuI
+	 nRIhS2ag0PsCC8mQ+LORNGgh7J3PiA2SHdC6O/5tuBLNZ8q3gUOixyuWGyqV4yXsi7w==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795288899;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=NgtfBGZW6JnOX8QXxkHMy03vg6zeloIYXjLXT43yxao=;
+	b=x6kbJgYgR2u9/OctG1nPvc0uqD0+ZkUJRcWhQn5Pbn7HwjUQ7+n5wxinLNb1Mpr7kolM
+	 rB6ooRK5mnvw5b+YXTPcIXF83wWNW66j7kOBJBluPtvIR0iKi5DLhMf8hSCwPuBtWELg4
+	 KC7Win2+Bcsy1FP1iuVMSrC1E/9eW/4vhDIUOkJr5fzwN/F7HXdwyFYHAcriIcf0gjzQY
+	 ESUcydJ/p6bfbOLqbt9USTm6OCCgrVj9kPjKWvm+kVU1gjvsK9p/+yd3RarorY7X1OA3a
+	 +7c8qMH57Qixu+fyJabY8b+uwd9hdhN1+ZHQqZP5XzXSWXTtmMCSEg8b/num/tlngTQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E8D8606A320;
-	Sat, 21 Nov 2026 19:19:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E8D8606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=SUdyUo3B
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 37BF540E0218;
-	Sat, 21 Nov 2026 19:19:40 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id dbxgZAZ7WSbB; Sat, 21 Nov 2026 19:19:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1795288776; bh=6SrPi0bx6GHMMCmA6LUjcTk40O7E8I1mi6dEbN9j2Pw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SUdyUo3BZP7LdTG1nKwjE3gy0EoBtvxEGR7xdyrVw1v32JjOHf2xZ8RRvbCvaF/Nj
-	 7QW3X9l5D/E+9Kkc3TpPger5kKYZ+yy12epBCvoB9+sbUwD+Q2LraeqQdS0EXsa1na
-	 uDg1iTZOeMPHqR22mH7YN/9tC6ysvQZSx7ZYopfQ3eX8/WsuMouvFk6E1b1n2a36az
-	 S4HLr7fs8RyE8s31yZCaRvbYdZei1vaDumPYmGJPIFTpBNVLaumsRoOuzxfKv/PJVI
-	 9Tm+HRsu2qkThp9xUvUDe/6FCyN3YdB1nTFnUso1f5siWks0kSdwIfIrJjw7vFWH1/
-	 GX9yfIw6hyyzu1rm+jWENLyC1Qlokdzn2vsKaGujZ5cWdFPEV4oipNz7HohMHA5DW6
-	 qYiHsV9eGDNBjZvgF68FQ8hEduJmbzLmODpCK8CAddERy21Zx5ntWjc/59H8SJlzrq
-	 cUJB6CEE58avCGVTeZDzfhSy5n7ACxh6KhOmDtqsMNm4zddj8s81G9r+pDARahqTZF
-	 yfhs7XKsr0BAuF56zOKMgVyzK3rLFDGDbv+B/It3oD9CQ5tGMLJZ0X6Nnl5i9se133
-	 7+lZ2Ro03c17M0eZs1WusxSaLkeqo/wGbWHB7LeropVuANj1lV/xkGJ1VE6gHRDqVI
-	 hNC4j0ZY0yHVD/3alx+cXOjU=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id E47BC40E015B;
-	Sat, 21 Nov 2026 19:19:22 +0000 (UTC)
-Date: Sat, 21 Nov 2026 11:19:19 -0800
-From: Borislav Petkov <bp@alien8.de>
-To: Tina Zhang <zhang_wei@open-hieco.net>
-Cc: x86@kernel.org, puwen@hygon.cn, tglx@linutronix.de, mingo@redhat.com,
-	dave.hansen@linux.intel.com, andrew.cooper3@citrix.com,
-	david.laight.linux@gmail.com, hpa@zytor.com,
-	linux-kernel@vger.kernel.org, yangzhen@hygon.cn,
-	dengqiming@hygon.cn, stable@vger.kernel.org
-Subject: Re: [PATCH v2] x86/cpu/hygon: Work around XSAVES Erratum 1386
-Message-ID: <20261121191919.GAawHutzJsmVu7m3Tz@fat_crate.local>
-References: <20261121105320.478279-1-zhang_wei@open-hieco.net>
+	by smtp.kernel.org (Postfix) with ESMTPS id 1A99A1F000C0;
+	Sat, 21 Nov 2026 19:21:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795288899;
+	bh=NgtfBGZW6JnOX8QXxkHMy03vg6zeloIYXjLXT43yxao=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=bu2qiCQMU1osHOpdUN2on0rAgOTnfShprejvu04fJbqGwFJlFzfbj8nPbmXN7Z/Pp
+	 jPibZooHoMmF3x3b2mTz6Gzwx1LV6agSRsYJF0e/t7icIhubJ34J6DVBLsT4wwbQRv
+	 AUmcKQusTMbQvfKnCl7tqoNK+ETlEGSWf3+UcrOvqB/c0jg6/Wv5tWax0lWZYEldod
+	 ZzjXZudB7icOcceTZJMM6fanLfNKo496ki6yfZw2sIQabXaS7P177K3KNAwEGsjrX/
+	 TAfH7eDjKlW12WIJi9ulBbzlOKSvosvTwqU8uMBPo1+QF3lX+0ATEvu/TGcQgntHxQ
+	 ugVabyE8GSAAw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 8E5194BD60;
+	Sat, 21 Nov 2026 19:21:38 +0000 (UTC)
+From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
+Date: Sat, 21 Nov 2026 20:21:03 +0100
+Subject: [PATCH v3 01/11] dt-bindings: soc: amlogic: meson-gx-hhi-sysctrl:
+ Fix compatible matching in conditionals
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,64 +83,143 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261121105320.478279-1-zhang_wei@open-hieco.net>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261121-meson-drm-create-hdmitx-phy-v3-1-f8f471788076@aliel.fr>
+References: <20261121-meson-drm-create-hdmitx-phy-v3-0-f8f471788076@aliel.fr>
+In-Reply-To: <20261121-meson-drm-create-hdmitx-phy-v3-0-f8f471788076@aliel.fr>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Ulf Hansson <ulfh@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-phy@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>, linux-pm@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3283;
+ i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
+ bh=PVKFWIK5TVZ+BrIG2D/sPckomoO1CwEMBpgyzjwKon8=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQzbje1XfldbHf9f21s259Mfgxdld5jw8bXvcZQwXbn9Wr
+ FtYe8i8o5SFQYyLQVZMkaV/ruWJd5ePnvm6Rz0FZg4rE8gQBi5OAZhIKzcjwxTtg+futHWkzJzD
+ ePpq54OJN5YubGy58Vv5V+OX56KVLlcZ/sdozeLY5T631v2Zwrbqkk0cV1s65nv+itJRnTu/ffv
+ GbH4A
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
+ fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
+X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
+ auth_id=744
+X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Reply-To: linux-kernel-dev@aliel.fr
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 21, 2026 at 06:53:20PM +0800, Tina Zhang wrote:
-> The XSAVES malfunction described in AMD Erratum 1386 also affects
-> certain Hygon Family 18h processors. Under specific conditions, XSAVES
-> may fail to save XMM register state, allowing stale register values to
-> reappear after the state is restored.
-> 
-> The failure mode is documented as Erratum 1386 in "Revision Guide for
-> AMD Family 19h Models 00h-0Fh Processors", Publication #56683 [1].
-> 
-> None of the affected processors enumerate supervisor XSAVE state
-> components. XSAVEC is therefore equivalent for their enabled state
-> components and is not affected by the erratum.
-> 
-> Family 18h models 00h through 06h and model 10h are affected. Other
-> Family 18h models contain the fix in hardware.
-> 
-> For the following model and stepping combinations, the minimum
-> microcode revisions containing the fix are:
-> 
->   Model  Stepping  Microcode
->   04h    0         0x9040000f
->   04h    1         0x9041000f
->   06h    0         0x9060000f
->   06h    1         0x9061000f
->   10h    0         0x91000004
-> 
-> These are the only known steppings for those models.
-> 
-> Disable XSAVES on affected processors unless a matching model and
-> stepping entry identifies a sufficiently recent microcode revision
-> containing the fix. This allows the x86 FPU code to use XSAVEC
-> instead.
-> 
-> [1] https://www.amd.com/content/dam/amd/en/documents/processor-tech-docs/revision-guides/56683.pdf
-> 
-> Signed-off-by: Tina Zhang <zhang_wei@open-hieco.net>
-> Tested-by: Qiming Deng <dengqiming@hygon.cn>
-> Reviewed-by: Zhen Yang <yangzhen@hygon.cn>
-> Cc: stable@vger.kernel.org
-> ---
-> Changes in v2:
-> - Keep the workaround self-contained in hygon.c while following the AMD
->   implementation pattern.
-> - Describe the affected processors in an x86_cpu_id table instead of using
->   open-coded family and model checks.
-> - Add a reference to the public Erratum 1386 documentation.
-> 
->  arch/x86/kernel/cpu/hygon.c | 41 +++++++++++++++++++++++++++++++++++++
->  1 file changed, 41 insertions(+)
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-https://sashiko.dev/#/patchset/20261121105320.478279-1-zhang_wei%40open-hieco.net
+The conditional schemas select on "compatible" with a bare enum. On a
+list such as:
+
+  compatible = "amlogic,meson-gx-hhi-sysctrl", "syscon", "simple-mfd";
+
+an enum applied to the whole array only matches single-entry lists, so
+the if: blocks never match as intended and the per-variant constraints
+are not applied reliably.
+
+Wrap the enums in "contains" so that the conditions match on any entry
+of the compatible list.
+
+Doing so exposes the "phy" child node of "amlogic,meson-gx-hhi-sysctrl":
+it was forbidden (phy: false), but some DT legitimately describe an
+"amlogic,g12a-mipi-dphy-analog" PHY node under this system controller,
+which resulted in dtbs_check warnings such as:
+
+  system-controller@0 (amlogic,meson-gx-hhi-sysctrl): False schema does
+  not allow {'compatible': ['amlogic,g12a-mipi-dphy-analog'],
+  '#phy-cells': 0, ...}
+
+Allow the phy child node for amlogic,meson-gx-hhi-sysctrl by referencing
+the amlogic,g12a-mipi-dphy-analog binding instead of rejecting it.
+
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+---
+ .../soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml  | 32 +++++++++++++---------
+ 1 file changed, 19 insertions(+), 13 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml
+index f3a85c67ce8a..285edac4c082 100644
+--- a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml
++++ b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml
+@@ -40,8 +40,9 @@ allOf:
+   - if:
+       properties:
+         compatible:
+-          enum:
+-            - amlogic,meson-hhi-sysctrl
++          contains:
++            enum:
++              - amlogic,meson-hhi-sysctrl
+     then:
+       properties:
+         clock-controller:
+@@ -53,9 +54,10 @@ allOf:
+   - if:
+       properties:
+         compatible:
+-          enum:
+-            - amlogic,meson-gx-hhi-sysctrl
+-            - amlogic,meson-axg-hhi-sysctrl
++          contains:
++            enum:
++              - amlogic,meson-gx-hhi-sysctrl
++              - amlogic,meson-axg-hhi-sysctrl
+     then:
+       properties:
+         clock-controller:
+@@ -67,9 +69,10 @@ allOf:
+   - if:
+       properties:
+         compatible:
+-          enum:
+-            - amlogic,meson-gx-ao-sysctrl
+-            - amlogic,meson-axg-ao-sysctrl
++          contains:
++            enum:
++              - amlogic,meson-gx-ao-sysctrl
++              - amlogic,meson-axg-ao-sysctrl
+     then:
+       properties:
+         clock-controller:
+@@ -81,17 +84,20 @@ allOf:
+   - if:
+       properties:
+         compatible:
+-          enum:
+-            - amlogic,meson-gx-hhi-sysctrl
++          contains:
++            enum:
++              - amlogic,meson-gx-hhi-sysctrl
+     then:
+       properties:
+-        phy: false
++        phy:
++          $ref: /schemas/phy/amlogic,g12a-mipi-dphy-analog.yaml
+ 
+   - if:
+       properties:
+         compatible:
+-          enum:
+-            - amlogic,meson-axg-hhi-sysctrl
++          contains:
++            enum:
++              - amlogic,meson-axg-hhi-sysctrl
+     then:
+       properties:
+         phy:
 
 -- 
-Regards/Gruss,
-    Boris.
+2.56.1
 
-https://people.kernel.org/tglx/notes-about-netiquette
+
