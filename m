@@ -1,140 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795257315;
-	b=UIGjYspNMbNXDp93rxEJnV8xIDj+E089xD2TI9k9cRuNSAbV3VkHlftmd9MSplheYOQU
-	 fFdHZoosjXbuXCVldWCVJD5LZkwhlZxLZ82bCpThcjpbzY0GqXrTnO9rBCQdg4wmWBmnX
-	 eD1Uv1979eWpsmmK6p/SJlzv7yIbbDSInIgylwErnKXDCE8sXE3DaK70pnGNfM+lQfEuL
-	 mQbqkqKJu8LAUvkzL+6L3pEv9DQuMdGsX52l0SWlVPPlAbH6BjZeyfnu1ZWVQ04OvD7Ho
-	 TXmd1xziyR1r/m7dq/Lj2WugjigHnI1oEORjHOlclAoCNSLvCygTt42bK33kc+pPBoQ==
+	t=1795257319;
+	b=lbmX92lSLHFrCcRteRQ0B+UIgJb1TPKrQKN6rksYvbTYdWbU+0RZn84SitWGk+8IXmdn
+	 FPzEy1NHXIydR+Vg/CzexiI1b9ZvpuwFTDGo8oCs8u584CDBduMcywXu1GZgom/YXhm6D
+	 sXSSRqPsh/DdxxSRkOLzbWSyPceG9Ipn1eMgJEvrLDObwyF5cSfcXozfnNFVjKXOisecZ
+	 dd4/XY24tfqu9+aPIZifRO1Xb8AYn+TqeBWr4ys3zFRtyckhC2yqarQ8qxwHqA0mun2yi
+	 XGXL6IHltIeKzZeS0DljAQMfz9VBmKAQHUI6cM/X3+5F63UUEZgJ8S94spDLCFY4x4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795257315;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
-	 References:Autocrypt:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=9bsvYKUqqiIEmbO2aiAG3E5Ax6t0fNk6OQ/rRTGZEtM=;
-	b=CJg1F7dQz9s0PbKcTXa+E1Ne1CM8bjaktOB6zIWazWX5Dr+6Y8B4zGJ6i68ctGZOaPrW
-	 Ol2CogWG+2/mZXT4QJzO7WDCsRlwS+J/wjtQE8h6fKK+ULEkw/3Q1x2mkazDzSyu260O+
-	 g1pxhFnG5eyo7s+KFpGWZk+fkhz/Vsko/gBL8VaUu8iulfu9xq2Lp/i458rxHiYlEz1Hs
-	 EQn9svvNsGwcngE0cyYg3i/CzvPazJYYP/AEnVJXhPEnWOR3NNKaxXCyTidZ0fX9ZgX5o
-	 NxTZ3dYy1q0F2J0AVuHLIMxB5DMqeQ8d+zASGAliquUk6F3vbxRournAoT6PA7dL87w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795257319;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=bjG2Okz8iGgbh3ees3i7reQXyGSwi++CYO+Z/Q8Ttss=;
+	b=Hg/8vQoiB98EnWfMYEnZ+DW9Unejdq8zz183G3DKl/uuN/qmMgRrY7Fida1OLXg40YAb
+	 4oWJtCREaHjSrJVpM31g5hwQPLp1O5rLNvRMs2vXo6r84ycZF+6Ddkiisnmb1btPtWcUQ
+	 b93drXyfUrIO4pIi029eJJXRNFkPRfL/Y2Cig5uuoVAbaeU2m7lIofG3U5W+sp8gMDGnJ
+	 8l0BtTlphGtEXywm1wdIvQjEagBS+aSKePk0+KTgoLHJPlcvJtijKFN1cM2pQeyt2QeHp
+	 ak0XepNBM8xoAbOqZo4hOSHtf9fI37QHHoR9hRfl96bPFKcE/kjnu0LCdunVWRfmNWA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="T06V/NK5";
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=GH8CCjzs;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=KbV66rLa;
+	arc=none smtp.remote-ip=91.218.175.10
+Received: from mta0.migadu.com (out-10.mta0.migadu.com [91.218.175.10])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47E6B606A332
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:35:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47E6B606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDA13606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:35:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EDA13606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=T06V/NK5;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=GH8CCjzs
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795257313;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=9bsvYKUqqiIEmbO2aiAG3E5Ax6t0fNk6OQ/rRTGZEtM=;
-	b=T06V/NK5+dY7JdHwvdPwQG8fzDOLDWPMkf/lRpaDG95YoizlwQc0kJMdv3bgQu6AyJjqr+
-	OLVUjH+zk1SGdk6p7pYXwARhx6bYHMvBJG0mjcqLMgxZ2s2jLbef0f5fxAu6G3MMJ4Yzch
-	Sv406BK65IXypEE9peNczxOaiJFdCnI=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-492-_oFcwsEKO6GrLTJqjTuy4g-1; Sat, 21 Nov 2026 10:35:11 +0000
-X-MC-Unique: _oFcwsEKO6GrLTJqjTuy4g-1
-X-Mimecast-MFC-AGG-ID: _oFcwsEKO6GrLTJqjTuy4g_1795257310
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4a799d93bc3so829121f8f.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 02:35:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795257310; x=1795862110; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9bsvYKUqqiIEmbO2aiAG3E5Ax6t0fNk6OQ/rRTGZEtM=;
-        b=GH8CCjzsFzumr78PhysOTQ9fkumvDAoN8Fd/Xl2Jo6xyS6KMUDENRwz1Jx2iFo1n5+
-         EcV/Xbf5P9qsSu4nEiaLbb1wZdOknxRBuqvVKndZ51WHNh2VlCkM+3TRDLx+ldjBxuPa
-         w+7Q+vaegvCwQA2zsgRC0iQXhpKl5Jj1PmtyVI2SLPq8haKyssNY0bv2isx+daLX5Iao
-         0LEAblvztaCa2gOplJidMPyYtd3oi3j05ddpAUxlXu5kXd8fMH2wswRikDhUE1T3R1Hn
-         IVTBk90gxbpJCldrV+Je54Oh79n4oeVmcH1NSXowvr4TML8scYFuB1LGFcRbO9mfXs7T
-         fhqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795257310; x=1795862110;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=9bsvYKUqqiIEmbO2aiAG3E5Ax6t0fNk6OQ/rRTGZEtM=;
-        b=wSnW8uqmc1aECfRPCcSDd7wJZr4FhZ22ovBlH5JRvau73HNDpf77LDrjtC7HMM43EL
-         y88SskjrUPQunigt4Pb5YYGtp7tknyqG5mANzJtAYpixIy/A2gsH2YMiUg9Bd3qncFuT
-         PKPjk9JYtXXpqkxkrJIzcZVcfbl4R+JCoir6rr2S3JykRoPTKRocKM6hKZcm7a7g9CdQ
-         LT7MX70Clu8tZsYxqqbSlzB+wL9IgaKFYUaOLdiFs9dpquV9vKGdEBCnFri3HfaO/XDV
-         ebXj711iqU4Hf84CoCQcnGr7e5vK0/nTHPdvDoPIh/e8Y4C+fw3PEZXZ3ew657HW9ToY
-         cJ6w==
-X-Forwarded-Encrypted: i=1; AL+hErEn7PXrIXgzWAFxmVeo4DbSCNimUySMu0yW3B94bBHpyetHhnkb2rjx7l4Qh1jkRD75Tw+BgzgXXnYn2tk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8IRKxDl2P5gF8t3yrc6b/z0Cy88EZR+3hkkclNY8/X4LLtRmmQ
-	t2FjmE/z632DAaprykUJLOv3vr/EYPGR4RRGKi1Cmpdf52UxnBMYgA2WvCBx1MmZJUuW2PMSJSL
-	C/CR7GrGxSXze8Qvteqv/5x6+9PGo+Y6eiASjhDsTR+eYHcvMWmElowpkdbrCwj26YQ==
-X-Gm-Gg: AZFdTZduFIPIYBulsHzKbLVxzm5JcGom9qlfXyHVEFe42KUupaJ64i7SFnu0snNrz3z
-	bSjf+2L/YHK4dF3rVFpwS4UBzePUL4D2irGRb/bB/Z3h8l6wsR7pk4hGJclRlViKE2rwNwrVlPF
-	d/ETDCgaLSLdD8MOG5hLMrQ56cf4Gtba6/uNaaV+eF7VYkh0ZW07zhEluUtfHHEQsURusOHkSAP
-	aHs24j10fNyVkRqXJzEHfOGfdTBKsnmCrILc2HC5GXQEFsZx4asN5adPXjIWfVcvTBoxes/lEgo
-	6+ixqmVWExkQWCToQXVxV3wtymx30P4B4tm1RyzmoiBs+1Uyr29C5GTWoFdPkF11h1/Sjk+fYKG
-	o0WCfhfW2c8XgfpR0H8SCK4aaLmFlUanX1k+phnK5rCMeVMHHSlV+30/DaOS6cif60v2DKnydQc
-	yY
-X-Received: by 2002:a05:600c:1389:b0:4bb:7347:d5c0 with SMTP id 5b1f17b1804b1-4bb88826937mr123102035e9.9.1795257310564;
-        Sat, 21 Nov 2026 02:35:10 -0800 (PST)
-X-Received: by 2002:a05:600c:1389:b0:4bb:7347:d5c0 with SMTP id 5b1f17b1804b1-4bb88826937mr123101795e9.9.1795257310278;
-        Sat, 21 Nov 2026 02:35:10 -0800 (PST)
-Received: from gmonaco-thinkpadt14gen3.rmtit.csb ([185.168.96.228])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884865b1sm165089265e9.5.2026.11.21.02.35.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 02:35:09 -0800 (PST)
-Message-ID: <6c3fa853697803c63e2b87c7f8a9d4ff2f561820.camel@redhat.com>
-Subject: Re: [RFC PATCH v2 2/9] tracing/sched: Add IRQ preemption lifecycle
- tracepoints
-From: Gabriele Monaco <gmonaco@redhat.com>
-To: Karl Mehltretter <kmehltretter@gmail.com>, Steven Rostedt
-	 <rostedt@goodmis.org>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers	
- <mathieu.desnoyers@efficios.com>, Thomas Gleixner <tglx@kernel.org>, 
- Sebastian Andrzej Siewior	 <bigeasy@linutronix.de>, Clark Williams
- <clrkwllms@kernel.org>, Ingo Molnar	 <mingo@redhat.com>, Peter Zijlstra
- <peterz@infradead.org>, Andy Lutomirski	 <luto@kernel.org>, Juri Lelli
- <juri.lelli@redhat.com>, Vincent Guittot	 <vincent.guittot@linaro.org>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>,  Ben Segall
- <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Valentin Schneider
- <vschneid@redhat.com>,  K Prateek Nayak <kprateek.nayak@amd.com>, Jonathan
- Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,  Randy
- Dunlap <rdunlap@infradead.org>, Wen Yang <wen.yang@linux.dev>,
- linux-trace-kernel@vger.kernel.org, 	linux-rt-devel@lists.linux.dev,
- linux-doc@vger.kernel.org, 	linux-kernel@vger.kernel.org
-Date: Sat, 21 Nov 2026 11:35:07 +0100
-In-Reply-To: <20261107171252.25090-3-kmehltretter@gmail.com>
-References: <20261107171252.25090-1-kmehltretter@gmail.com>
-	 <20261107171252.25090-3-kmehltretter@gmail.com>
-Autocrypt: addr=gmonaco@redhat.com; prefer-encrypt=mutual;
- keydata=mDMEZuK5YxYJKwYBBAHaRw8BAQdAmJ3dM9Sz6/Hodu33Qrf8QH2bNeNbOikqYtxWFLVm0
- 1a0JEdhYnJpZWxlIE1vbmFjbyA8Z21vbmFjb0BrZXJuZWwub3JnPoiZBBMWCgBBFiEEysoR+AuB3R
- Zwp6j270psSVh4TfIFAmjKX2MCGwMFCQWjmoAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
- Q70psSVh4TfIQuAD+JulczTN6l7oJjyroySU55Fbjdvo52xiYYlMjPG7dCTsBAMFI7dSL5zg98I+8
- cXY1J7kyNsY6/dcipqBM4RMaxXsOtCRHYWJyaWVsZSBNb25hY28gPGdtb25hY29AcmVkaGF0LmNvb
- T6InAQTFgoARAIbAwUJBaOagAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgBYhBMrKEfgLgd0WcK
- eo9u9KbElYeE3yBQJoymCyAhkBAAoJEO9KbElYeE3yjX4BAJ/ETNnlHn8OjZPT77xGmal9kbT1bC1
- 7DfrYVISWV2Y1AP9HdAMhWNAvtCtN2S1beYjNybuK6IzWYcFfeOV+OBWRDQ==
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=KbV66rLa
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=YCflmLbeG3eTiOPqoz6EeAAsvzcvl036eUCwFD/lgzA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795257317; v=1; x=1795862117;
+ b=KbV66rLavEd09iNPFLKlLOR0o/foh3f43LDSDxutDXTrWl+5RQ0icvpnC13nJ/UGgMGOEq1f
+ hZm2caQC5NexHDmaxtqEqID/82K2HvPNgww+UAq5AFqXj1Iw6abk9lzsNDCkltgeXDi8WBlQlb6
+ ca5idOc7qpnVZzS0X4ekklL0=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 0bf361dc8874d648;
+	Sat, 21 Nov 2026 10:35:12 +0000
+X-Mizu-Trace-ID: 0bf361dc8874d648
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: bpf@vger.kernel.org,
+	ast@kernel.org
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Jakub Sitnicki <jakub@cloudflare.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Neal Cardwell <ncardwell@google.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Sechang Lim <rhkrqnwk98@gmail.com>,
+	Michal Luczaj <mhal@rbox.co>,
+	Mattia Meleleo <mattia.meleleo@coralogix.com>,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH bpf 06/11] bpf, sockmap: Fix reconnect with a psock by rejecting disconnect
+Date: Sat, 21 Nov 2026 18:30:07 +0800
+Message-ID: <20261121103222.88209-7-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261121103222.88209-1-jiayuan.chen@linux.dev>
+References: <20261121103222.88209-1-jiayuan.chen@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -144,56 +93,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Sat, 2026-11-07 at 18:12 +0100, Karl Mehltretter wrote:
-...
+Commit 8cc3aef0cb19 ("tcp: Do not allow buggy transitions between ehash
+and lhash2.") rejects connect() -> disconnect -> listen(), but
+connect() -> disconnect -> connect() is still allowed.
 
-> =C2=A0asmlinkage __visible void __sched preempt_schedule_irq(void)
-> =C2=A0{
-> +=09struct task_struct *owner =3D current;
-> =C2=A0=09enum ctx_state prev_state;
-> =C2=A0
-> =C2=A0=09/* Catch callers which need to be fixed */
-> =C2=A0=09BUG_ON(preempt_count() || !irqs_disabled());
-> =C2=A0
-> =C2=A0=09prev_state =3D exception_enter();
-> +=09/* Sample before tracing bookkeeping can change the observed context.
-> */
+A socket in a sockmap keeps its psock across tcp_disconnect(), and the
+new connection runs into what the old one left there:
 
-What's this comment for? You're tracing before disabling preemption to sche=
-dule,
-what bookkeeping?
+ - recvmsg() returns the old data still queued on psock->ingress_msg.
+ - psock->copied_seq and psock->ingress_bytes still account for it, so
+   copied_seq runs ahead of rcv_nxt for the rest of the connection.
+ - sk_psock_backlog() does not take the socket lock for ingress, so it
+   can queue old skbs from psock->ingress_skb after the reconnect.
 
-> +=09if (trace_sched_irq_preempt_entry_tp_enabled())
-> +=09=09trace_sched_irq_preempt_entry_tp(owner, preempt_count(),
-> irqs_disabled());
+Cleaning all of this up on disconnect is hard. Do what TLS did in commit
+5071a1e606b3 ("net: tls: explicitly disallow disconnect") and reject the
+disconnect with -EOPNOTSUPP.
 
-I don't think you need to check the static key manually, arguments are expa=
-nded
-inside the trace_##_tp() after checking it, so you can just trace here.
+Unlike TLS, some callers have to be let through. None of them leads to
+a reconnect with old data:
 
-> =C2=A0
-> =C2=A0=09do {
-> =C2=A0=09=09preempt_disable();
-> @@ -7664,6 +7668,8 @@ asmlinkage __visible void __sched
-> preempt_schedule_irq(void)
-> =C2=A0=09=09sched_preempt_enable_no_resched();
-> =C2=A0=09} while (need_resched());
-> =C2=A0
-> +=09if (trace_sched_irq_preempt_exit_tp_enabled())
-> +=09=09trace_sched_irq_preempt_exit_tp(owner, preempt_count(),
-> irqs_disabled());
+ - A child can be added to a sockmap before accept(), e.g. by a sockops
+   prog. When the listener is closed, inet_child_forget() disconnects
+   the child and frees it right after, without looking at the return
+   value. Such a child has no sk_socket.
+ - close() with a zero linger time disconnects through sk_prot, which
+   is still tcp_bpf as long as somebody else holds the psock.
+   sock_map_close() sets SK_PSOCK_CLOSING for it.
+ - A listener is disconnected by shutdown(SHUT_RD) and
+   connect(AF_UNSPEC), and has no data.
 
-Does the owner here makes sense? Do you use it as the /initiator/ of the fi=
-rst
-switch? Is it only to match it with the entry (although, as you said, it ma=
-y be
-somewhere else, running again, or not running at all).
+Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+---
+ include/linux/skmsg.h |  1 +
+ net/core/sock_map.c   |  1 +
+ net/ipv4/tcp_bpf.c    | 21 +++++++++++++++++++++
+ 3 files changed, 23 insertions(+)
 
-Thanks,
-Gabriele
-
-> =C2=A0=09exception_exit(prev_state);
-> =C2=A0}
-> =C2=A0
+diff --git a/include/linux/skmsg.h b/include/linux/skmsg.h
+index 98f71c6d0af73..7e8256b2b4d6c 100644
+--- a/include/linux/skmsg.h
++++ b/include/linux/skmsg.h
+@@ -70,6 +70,7 @@ enum sk_psock_state_bits {
+ 	SK_PSOCK_RX_STRP_ENABLED,
+ 	SK_PSOCK_STRP_DONE_PENDING,
+ 	SK_PSOCK_TX_BUSY,
++	SK_PSOCK_CLOSING,
+ };
+ 
+ struct sk_psock_link {
+diff --git a/net/core/sock_map.c b/net/core/sock_map.c
+index 6747b3cc1cac1..6fc1d29ac6ed5 100644
+--- a/net/core/sock_map.c
++++ b/net/core/sock_map.c
+@@ -1763,6 +1763,7 @@ void sock_map_close(struct sock *sk, long timeout)
+ 		sock_map_remove_links(sk, psock);
+ 		rcu_read_unlock();
+ 		sk_psock_stop(psock);
++		sk_psock_set_state(psock, SK_PSOCK_CLOSING);
+ 		release_sock(sk);
+ 		cancel_delayed_work_sync(&psock->work);
+ 		sk_psock_put(sk, psock);
+diff --git a/net/ipv4/tcp_bpf.c b/net/ipv4/tcp_bpf.c
+index 077b65927ac8d..9715716518c49 100644
+--- a/net/ipv4/tcp_bpf.c
++++ b/net/ipv4/tcp_bpf.c
+@@ -710,12 +710,33 @@ static struct proto *tcpv6_prot_saved __read_mostly;
+ static DEFINE_SPINLOCK(tcpv6_prot_lock);
+ static struct proto tcp_bpf_prots[TCP_BPF_NUM_PROTS][TCP_BPF_NUM_CFGS];
+ 
++static int tcp_bpf_disconnect(struct sock *sk, int flags)
++{
++	struct sk_psock *psock;
++	bool reject;
++
++	/*
++	 * A new connection must not reuse the psock. Let through a child
++	 * that nobody has accepted yet, a socket in close() and a listener.
++	 */
++	rcu_read_lock();
++	psock = sk_psock(sk);
++	reject = psock && sk->sk_socket && sk->sk_state != TCP_LISTEN &&
++		 !sk_psock_test_state(psock, SK_PSOCK_CLOSING);
++	rcu_read_unlock();
++	if (reject)
++		return -EOPNOTSUPP;
++
++	return tcp_disconnect(sk, flags);
++}
++
+ static void tcp_bpf_rebuild_protos(struct proto prot[TCP_BPF_NUM_CFGS],
+ 				   struct proto *base)
+ {
+ 	prot[TCP_BPF_BASE]			= *base;
+ 	prot[TCP_BPF_BASE].destroy		= sock_map_destroy;
+ 	prot[TCP_BPF_BASE].close		= sock_map_close;
++	prot[TCP_BPF_BASE].disconnect		= tcp_bpf_disconnect;
+ 	prot[TCP_BPF_BASE].recvmsg		= tcp_bpf_recvmsg;
+ 	prot[TCP_BPF_BASE].sock_is_readable	= sk_msg_is_readable;
+ 	prot[TCP_BPF_BASE].ioctl		= tcp_bpf_ioctl;
+-- 
+2.43.0
 
