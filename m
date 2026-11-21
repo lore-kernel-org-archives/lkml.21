@@ -1,93 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795289809;
-	b=Fcc3iEYq9zo9LMkoZD17BzRKNO5fSqa9nYaGmLx3jKk/xuNFkd2FZR0IPSY6QnY4g12E
-	 5aI1wabaDdENMlN3TZjyXMm0GnFYfr5whMTWb9+kw31ONgCf+yHSjE5XU3sjorvmnY3Ad
-	 bYSa7B4y0n3c5j+f7bG09Gu06Q8Uz1d8Cd3mFHTPVFD7rp5qqNpGADprG03bcCC1/sQ+j
-	 M7XZ/PoWrOYvlDlyDzp4CCUq8M6zwLQgfXKYNLRH1GXJQwXGDw6CumUFs49049VvmZtcS
-	 MKXVWUiZ0cLPwudf4wpsM+4MFrTrXRVHvXH2rZ/Y2463YVpmTGFwnt464/p6nciIz/g==
+	t=1795289846;
+	b=g0nKIj+MZqJX3p6IJuQ2mzI6gLUPt7w8RMKVAAedwmGMrr4V/v4BgkskYUcKsS+QIIcu
+	 RU5FkzOHsJSzZk8bi4h3RIPPaOBkCPdONYOcyrGbFh/meeWrujsdyByF2NAJkyVZGnT4c
+	 5t1YDgOqwzKC+ThWCudi2ji1ULS/BbDS9IHV+/gAk81rtqyKa3ybwo3n/QQ16rA++7qa3
+	 kO6mkA4HfnKQk/j1iyf5FDzvyu9418jVzXECFYh2grqlBUpBP97QsJrpJdclQiCYLNx5T
+	 I2uTjWl19G5kAEgVEaN/lYePo+9eaeaega0lPT87AEorNkyzNQcXS3lhDycxBiJr6cQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795289809;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=zYdaJU4QxZKFt9mArfZJHxgjCfAoVZtUbTcwfAe0KXI=;
-	b=5NJl9+OH3LqX/CVbJJcEYcYzafNseb0OSBGLMJp0X2URMNVhHaBeQRvDzycL5uvGmVhY
-	 75Xrtz38uwQATU6234Tz8xA0k7JcAgdCJ5px+2KZ5O5mH4hZuhBTXbfKmTb5YBg33ufd5
-	 MhZJ6F21behAc9KJFzq0uIdy3xQTXEBjxq3tZywoWBKM43qni6YjH84ywOy0+cHy6y68E
-	 Xfcca/pXJecZxkqGMrgfw4euaDQDbUdhkm60Ilb/KJTzOwpPT8FjYSHsyAukN9EzSw7wt
-	 UAw6lw6Yw4YWcg9El+6oKe158TNMv5yCiRW5Oe3zgz/1yJ2VTyVull2/eg0CF/LJ4hw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795289846;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Debian-User;
+	bh=ZioayeppIOBHdNjSq6qe74+lfa9kFKgG5lBRMMYto9c=;
+	b=1Rk7hC+fKBf6T4ZxiXq0vd/YmLHny9yat77C7wVJktT98WdUVcyHHSKTAyHhT94Nieqh
+	 qvHCqU3cKQRHFnRYuVN2kYwH6e7dceo1LqDXdLySbZyYMvukYzvjc+VUm9e8DhRpjREsw
+	 7XQRjV8mB9oLHC4XYZkoA0nxZGpJ9S65LLaIeXMh9WGrYaq21CwVHxcfHJW0lfgUsWr7s
+	 xUmkTEC2TssoIB5fWeJxON/yC1vkYbNokNBrjVkH0XeAtDjCbb4nobfpCTbg2/RVd888O
+	 VkFe4qGy4qYyweGkFHc9jBCguZfZsXOIOIdpOzddK0MJQCTg1/QgqW/v63Ar3tYp3cw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QhpzhZbS;
-	arc=none smtp.remote-ip=209.85.222.181
-Received: from mail-qk1-f181.google.com (mail-qk1-f181.google.com [209.85.222.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=debian.org;
+	spf=pass smtp.mailfrom=debian.org;
+	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b="RJ/qBsrZ";
+	arc=none smtp.remote-ip=82.195.75.108
+Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88A44606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:36:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88A44606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23771606A320;
+	Sat, 21 Nov 2026 19:37:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23771606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QhpzhZbS
-Received: by mail-qk1-f181.google.com with SMTP id af79cd13be357-94999a08973so213385785a.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:36:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795289807; x=1795894607; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zYdaJU4QxZKFt9mArfZJHxgjCfAoVZtUbTcwfAe0KXI=;
-        b=QhpzhZbSgUeW1NUXdljf8NYHuB1Uh5vcrbCCQ+GBOmZQ/q3MfvoO//GbdRPKQDiAjH
-         bKkaCSTWdYhR0k4+UDk2LrzgcOMf+q8593G4IjHkKQ4OeQP68244Nyj6rh41v/h3psTu
-         RN2VbWeW7JwZCS+8mkslZYrkmNu7LchPd5gpC89i3k6BG4nMr9h71q5FHXc4Kaz7Hhfh
-         H6F7EPuPJVMUMmwCzNe8wcBOrt25CqrHxIUdM3B4tMzSC/GoNVv3T90iHLJNlEV1BX9B
-         KEKg6M/lVDLGaijYH/u7/eBUFb0RTftwIdimgkdWjv136abVOeGXxFWcA+J0K3XdWxwF
-         gBFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795289807; x=1795894607;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=zYdaJU4QxZKFt9mArfZJHxgjCfAoVZtUbTcwfAe0KXI=;
-        b=FyuhZKNXbDAWs1XYUy0thykhjB/q4R9IOd/yqdFOFLbRZLi4lqP1ByIxMbkt1xMWHt
-         RM8cO3Q1QK09p76zFKr42/chrGc+tz49yGHWKO4rdRpX2drYj2asUAgW5Ui12AyeRUpw
-         EdhesVdOjJXnJnKWIHxvBudTrfO2MKlrO8QvnDft1Q7mq9fCIWa8DG2pj8BaOJACrGlr
-         R48knJ8ZORjM46lSbEKS4WIpOY0efe3mnt8dHDJqFiAmebCdapZSixrzqJqczpXfKkTS
-         JoxFTaFw9voWk8q6+jh0OlUaEDzQD92NHBDBrZ/EtahPFVz9ydrPp4CwkJdaqHG4kkXa
-         VPZg==
-X-Forwarded-Encrypted: i=1; AL+hErGaftKhL33r6lU6jQOhQUPf4puFS0zbhoGKg2dxzeOfDun29a+L9k9kFtYbog3fW8LmcidnXVEgZWxnVjk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ky9Jxmos12aSKKloqkx44E2ybVZMcCKMaawDWTqUJbdSG8k0v
-	Y6RTo07/B2fDqE+hR2WanMNIvM24tQfxsXmkdMwEd5OnltunR/m4QM6XOVZnjg==
-X-Gm-Gg: AZFdTZfVPCX2wlckEc2WC5I3Du8Gg/Uo7z41CV2Dblf5o0PeLFNrOArS1MzaGbdSd+2
-	AKHS/AFOPduw1ZPoxiBLEBOLyaPai8NX5S3aP4vrvssvWSE0sHRDE/WrB/KcYDmyhSN6ZueQS0b
-	dAz6K32gvaL7qI8jL7QqyPW844NV2dMwHW4vM/OE4E2v+YzudRHqrlhLD3VMM59KHqwSCbJ337R
-	cfmbObU5ZmBzUo3oD1mKtrXQ02+Qm6BcXw1D8L18LCX678xmrg7ITB07sKvOxPZw/Q/XfrrPWI9
-	8SLGwhrojohYvFhjD02NBAbAQyZvUI20C79r0ysfLeF5RjOSpc18MHNlYgxMkZLsTLm0sA0Sq8S
-	xsFcFRT7UYntmCQpy/SQiF51PP0vRVqByLmmQ+yk6GyFVkfzqe+NV5KN2pVyjT/dH7OaHyfPA4n
-	ze2GDpTQ0fdkpVdKmGs1W+KT446jHUCDgoe/HWNTFBryTzlmLIAiJ052y0qznWSW9jbGw2a/k8s
-	7JFCRtDkjCwUBiDzhJvXvwTuJ88qXbIs8y0wjQFbCb7widJ1s83GB7c16kqdGjSxIlK2VT3Suoy
-	DwnHmJj0x9wj/EParZ7028UUvfLpaJB8gZg=
-X-Received: by 2002:a05:620a:4606:b0:93f:22af:cce7 with SMTP id af79cd13be357-949ba7cbc42mr1188629885a.12.1795289807366;
-        Sat, 21 Nov 2026 11:36:47 -0800 (PST)
-Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb427388sm466931785a.42.2026.11.21.11.36.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 11:36:46 -0800 (PST)
-From: Mehmet Fide <mehmet.fide@gmail.com>
-To: Ping-Ke Shih <pkshih@realtek.com>
-Cc: Luka Gejak <luka.gejak@linux.dev>,
-	Bitterblue Smith <rtl8821cerfe2@gmail.com>,
-	linux-wireless@vger.kernel.org,
+	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=RJ/qBsrZ
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=ZioayeppIOBHdNjSq6qe74+lfa9kFKgG5lBRMMYto9c=; b=RJ/qBsrZj4wkbyyVigtC9dV/UB
+	ab3MfTAA9Tc3nCpCYPpKvApyzwcD3vIy3rivSNawbm3dZLuJdl6tJiHDwLh7hTZG7sp30DYZnCVqe
+	TR5nkXJot5myNNeYDdY3YXBY3NR0dyunBbLyR6pG3Dwev+ip1bOT2S/ThbHyr5eMoKItcKKNXe68M
+	1/kGEwTtvwhwhbD7b6a8oOwO9zTJFa2GpprAZz4CP2MPw4Z/qeFNMtzc/FgXO193oEQWSKgkkNaNZ
+	KSTl2ow+svZWYUk1PWr3YgnxtY9A2HAu8q6xPxhl02dT+uhCsdUMu9gyLfMG3LT1gnqyOWzFOtIJU
+	oGKMrcsA==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <bage@debian.org>)
+	id 1xUqti-003swJ-1q;
+	Sat, 21 Nov 2026 19:37:18 +0000
+From: Bastian Germann <bage@debian.org>
+To: andrew@lunn.ch
+Cc: hkallweit1@gmail.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	linux@armlinux.org.uk,
+	olteanv@gmail.com,
+	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	mehmet.fide@screeningeagle.com
-Subject: [PATCH rtw-next v14 0/3] wifi: rtw88: channel switch in AP mode
-Date: Sat, 21 Nov 2026 20:36:41 +0100
-Message-ID: <20261121193644.603289-1-mehmet.fide@gmail.com>
-X-Mailer: git-send-email 2.56.0
+	"Signed-off-by: Bastian Germann" <bage@debian.org>
+Subject: [PATCH net-next v3] net: mdio: handle broken-turn-around for non-PHY MDIO devices
+Date: Sat, 21 Nov 2026 20:36:55 +0100
+Message-ID: <20261121193655.225520-1-bage@debian.org>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,252 +75,53 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Debian-User: bage
 
-From: Mehmet Fide <mehmet.fide@screeningeagle.com>
+From: "Signed-off-by: Bastian Germann" <bage@debian.org>
 
-An rtw88 AP cannot change its channel: the driver does not announce
-channel switch support, so hostapd's CHAN_SWITCH is refused and the
-only way is to tear the AP down. The series fixes the beacon download
-the reserved page build makes twice, counts a switch down on top of
-the firmware's beacon page, and times the countdown downloads from the
-TBTT so that every count goes out on the air.
+The "broken-turn-around" property is documented in mdio.yaml for any
+MDIO device, but the MDIO core currently parses it only for PHY devices
+in fwnode_mdiobus_phy_device_register(). Non-PHY devices, such as DSA
+switches, are registered through of_mdiobus_register_device(), where the
+property is ignored, so MDIO bus drivers that rely on phy_ignore_ta_mask
+still treat the turn-around/read failure as an error.
 
-v14 applies on top of the firmware recovery fixes v4 [2]. The refresh
-in rtw_ops_stop_ap() relies on rtw_core_check_sta_active(), which the
-separate fix [3] makes find a station without allocating.
+Parse the property once in __of_mdiobus_parse_phys(), before the PHY and
+non-PHY registration paths diverge, and drop it from
+fwnode_mdiobus_phy_device_register().
 
-v14 was tested on rtw-next 0bdc579dbfc2 with [2] and [1] (now commit
-12f97c692dcb in mainline), with lockdep, kmemleak and KFENCE, on an
-RTL8821CU (two adapters), an RTL8822BU, an RTL8822CU and an RTL8822CE
-as AP with hostapd, the beacons sniffed from a second machine:
+Signed-off-by: Bastian Germann <bage@debian.org>
+---
+ drivers/net/mdio/fwnode_mdio.c | 3 ---
+ drivers/net/mdio/of_mdio.c     | 4 ++++
+ 2 files changed, 4 insertions(+), 3 deletions(-)
 
-- the regression suite on both bands with 300 switches with counts 2,
-  5 and 10: the AP switched in 300 of 300 and every count went out in
-  299. On one RTL8821CU the station lost the AP after 2 of 30 switches
-  with a count of 2 although its CSA beacon was on the air, as in 3 of
-  60 with v11 and v12. No lockdep report, and no kmemleak report from
-  the drivers
-- beacon intervals of 19 and 30 TU with a count of 10 (Luka): the
-  RTL8822CE sent no count twice, where v13 did at 19 TU, and every
-  count in 3 of 6 switches. The RTL8822BU at both intervals and the
-  RTL8821CU at 19 TU sent every count in 3 of 3, most of them more than
-  once, as a USB download of the page takes 6 to 17 ms
-- a test build that fails the first download of a countdown or holds the
-  first step back by 95 ms: the AP switched in 70 of 70, and every count
-  went out in 62 of the 68 with a whole capture. Holding the step of the
-  count of 1 back by 150 ms, every count went out in 5 of 5. A failed
-  download of the count of 1, with an off-channel period next to it, was
-  repeated before the switch completed in 20 of 20
-- an IBSS left during its countdown: the work stopped and a scan
-  worked; an AP stopped during a countdown next to an associated
-  station interface: the station stayed associated in 6 of 6; an
-  off-channel period of 300 ms during a countdown: the AP switched in
-  3 of 3; a firmware crash during a countdown: no lockdep report
-
-Every count missing with v14 fell on a TBTT at which no sniffer heard
-any beacon, which also happens without a countdown. The 2.4 GHz beacon
-tests of the RTL8822BU and the RTL8822CE lost beacons with and without
-the series while a neighbour AP's beacons passed our TBTT.
-
-In IBSS a countdown leaves more beacons off the air on a busy channel,
-because rtw_fw_write_data_rsvd_page() turns the beacon function off for
-the download. Not run: Windows stations, and WoWLAN with a countdown.
-Patch 1 changed only in its commit message and comments since v6.
-
-v14:
-- 3/3: the margins scale with the beacon interval, a quarter of it up
-  to 10 ms, instead of skipping intervals of 20 ms and less; no step
-  runs less than 5 ms after a TBTT, past the TBTT hold time. The commit
-  message says that counts repeat at short intervals over USB (Luka)
-- dropped the comments that repeated the commit messages, reworded the
-  commit messages
-- rebased on v4 of [2]
-
-v13:
-- 2/3: beaconing that is enabled again keeps the retry of a failed
-  count download, so an off-channel period after a failed download of
-  the count of 1 no longer completes the switch before that count
-  reached the firmware (Sashiko)
-- 2/3: the declarations of rtw_get_rsvd_page_skb() in reverse xmas tree
-  order
-- rtw_core_check_sta_active(), which rtw_ops_stop_ap() uses for the
-  refresh, no longer misses a station when an allocation fails; sent
-  as the separate fix [3] (Luka, Ping-Ke)
-- rebased on rtw-next (Luka)
-
-v12:
-- 2/3: a failed download of a count is repeated before the next step,
-  and the switch completes only after the count of 1 reached the
-  firmware (Luka). The work steps with the count that
-  ieee80211_beacon_update_cntdwn() returns and no longer calls
-  ieee80211_beacon_cntdwn_is_complete(), which warned when the AP
-  stopped in between (Sashiko)
-- 2/3: the work never clears csa_vif, and rtw_ops_stop_ap() downloads
-  the page again whenever a station interface stays (Luka)
-- 2/3: the countdown stops while beaconing is disabled, for an IBSS
-  that is left or an off-channel period, and starts again when it is
-  enabled with the switch still announced (Sashiko)
-- 2/3: WoWLAN suspend keeps the interface of the countdown and resume
-  starts it again, without iterating the interfaces (Luka)
-- 2/3: a failed download of the replay after a hardware restart is
-  repeated before the next step
-- 3/3: each step reads the TSF after its download and the next one runs
-  10 ms after the first TBTT at least 10 ms away; no step runs less than
-  5 ms after or 10 ms before a TBTT, the one that finishes the switch
-  included. A late step delays the switch instead of taking a count off
-  the air (Luka)
-- 3/3: the commit message says which count the first CSA beacon
-  carries (Sashiko)
-- 1/3: the commit message says why there is no Fixes tag and what
-  mac80211 reports for the double fetch (Sashiko)
-- rebased on patches 1-4 of [2]
-
-v11:
-- 2/3: the channel_switch_beacon op is gone, the BSS_CHANGED_BEACON
-  path starts every countdown (Luka)
-- 2/3: rtw_fw_csa_start() does nothing on a device that is not
-  running
-- 2/3: only the countdown work advances the count. The beacon of the
-  reserved page is fetched as a template while a switch is announced,
-  so the replay after a firmware recovery and the page of the WoWLAN
-  firmware repeat the count that is on the air
-- 2/3: an AP that stops in its countdown downloads the reserved page
-  again if a station interface stays behind; the downloads the
-  countdown held back were lost for it
-- 3/3: the first download shares the branch of a late one, and the
-  comment says what the branch catches (Luka)
-- the beacon interval that stays at 100 TU on the air is fixed by a
-  separate patch (Luka)
-- rebased on rtw-next
-
-v10:
-- 2/3: rtw_core_stop() clears csa_vif and cancels the countdown work
-  again once it has the mutex back, for a switch started while the
-  mutex was dropped (Luka)
-- 3/3: the first count is downloaded by the countdown work, 10 ms
-  after the next TBTT, and no longer when mac80211 changes the beacon.
-  My reply on v9 said v10 only drops the back-off; that is not enough
-  on the RTL8822CE, where a TBTT shortly before the download sends no
-  beacon and the next one stays out too, so a count of 2 went out
-  without a CSA beacon (Luka). The switch completes up to one beacon
-  interval later. Ping-Ke's Acked-by and Luka's Reviewed-by are
-  dropped for the changed code
-- rebased on rtw-next
-
-v9:
-- 2/3: the countdown starts again after a WoWLAN resume that worked,
-  which mac80211 follows with no replay (Luka); Ping-Ke's Acked-by is
-  dropped for the new code
-- 3/3: Acked-by from Ping-Ke on v8, Reviewed-by from Luka
-- an IBSS left during its countdown and joined again kept csa_active;
-  that is mac80211's, fixed by a separate patch [1] (Luka)
-
-v8:
-- 2/3: Acked-by from Ping-Ke
-- 3/3: the TSF read retries once instead of looping, rtw_fw_csa_queue()
-  reads the TSF once also on start, the port 0 comment is gone, empty
-  lines where asked (Ping-Ke)
-
-v7:
-- new patch 3: the countdown downloads are timed from the TSF, 10 ms
-  after each TBTT, so a download that runs late by less than a beacon
-  interval still reaches the firmware before the next beacon; one
-  later than that is followed by its successor at once. Ping-Ke's
-  question on v6: with the absolute due time a late download and its
-  successor could land in one beacon period and leave a count out of
-  the air
-- patch 3 takes a TBTT within the margin before the start as the one
-  that sent the countdown template: a TBTT between the template
-  download and the first TSF read made the stations see one count
-  twice
-- patch 2 keeps csa_vif until the beacon after the switch: a TIM
-  update before it fetched one beacon past count 1 and hit the WARN
-  in ieee80211_beacon_update_cntdwn()
-- rebased on rtw-next
-
-v6:
-- the wiphy work patch of v5 is gone: the countdown work is an
-  ieee80211 delayed work and csa_vif is driver state, both under the
-  driver mutex, so rtw88 takes no wiphy lock anywhere (Ping-Ke)
-- rtw_core_stop() cancels the countdown work and clears csa_vif, which
-  covers the IPS path and the firmware recovery; the wiphy_lock() in
-  the recovery work is gone (Ping-Ke)
-- the BSS_CHANGED_BEACON path says why it starts the countdown, the
-  replay after a hardware restart, and stops it when the beacon comes
-  back without a switch announced (Ping-Ke)
-- the downloads are paced from the first one with an absolute due
-  time. Queued after each download, they drifted by about 10 ms per
-  beacon interval on the ordered mac80211 workqueue; on a count of 50
-  the AP switched half a second after its station had, and the
-  station re-associated
-
-v5:
-- 2/3 is new: update_beacon_work becomes a wiphy work, so that it can
-  look at the channel switch state under the wiphy lock; it checks
-  RTW_FLAG_RUNNING instead of being cancelled in rtw_core_stop(), which
-  runs without the wiphy lock on the IPS path (Ping-Ke); reverted in v6
-- 3/3: rtw_fw_csa_active/start/stop() assert the wiphy lock (Ping-Ke);
-  reverted in v6, they assert the driver mutex
-- 3/3: hw_scan() takes the mutex with guard() (Ping-Ke)
-- 3/3: a comment on the association download names the STA+AP
-  combination it skips the download for (Ping-Ke)
-- the whole set ran on a PROVE_LOCKING kernel without a lockdep report:
-  switches with counts 1 to 100, hostapd stopped and restarted during
-  a countdown, scans during a countdown, a firmware crash during a
-  countdown, three stop/idle/start cycles, IBSS, 50 switches with a
-  station attached, and on the RTL8822CU a station interface
-  associating while the AP interface counted down
-
-v4:
-- 1/2: Reviewed-by from Luka
-- 2/2: the countdown work is back in the device, initialised once,
-  with csa_vif naming the interface; no interface iteration and no
-  lookup through the reserved page any more (Ping-Ke)
-- 2/2: the countdown is cancelled before a firmware recovery restarts
-  the hardware, instead of guarding the work with flags (Ping-Ke)
-- 2/2: the page download on association skips a running countdown,
-  like the TIM update and the PG backup (Luka)
-- 2/2: the scan refusal comes before the scan offload test, so that
-  firmware without scan offload does not fall back to a software scan
-  during a countdown (Luka)
-
-v3:
-- 1/2: the beacon out-pointer is initialised in the caller (Luka)
-- 2/2: the countdown work lives in the interface, remove_interface
-  cancels it unconditionally, the queue wrapper and the comments are
-  gone (Ping-Ke)
-- 2/2: the TIM update and the PG backup on set_key skip the page
-  download while a switch is announced; every beacon fetch advances
-  the countdown (Luka)
-- 2/2: the commit message names the refused hardware scan (Ping-Ke)
-
-v2:
-- 2/2: a hardware scan is refused while a switch is announced
-- the rtw89 mention is gone from the cover
-
-[1] https://lore.kernel.org/linux-wireless/20261025193615.1123718-1-mehmet.fide@gmail.com/
-[2] https://lore.kernel.org/linux-wireless/20261121191528.591334-1-mehmet.fide@gmail.com/
-[3] https://lore.kernel.org/linux-wireless/20261118104738.2020747-1-mehmet.fide@gmail.com/
-
-Mehmet Fide (3):
-  wifi: rtw88: download the beacon the reserved page was built with
-  wifi: rtw88: support channel switch in AP mode
-  wifi: rtw88: time the countdown downloads from the TBTT
-
- drivers/net/wireless/realtek/rtw88/fw.c       | 184 ++++++++++++++++--
- drivers/net/wireless/realtek/rtw88/fw.h       |   5 +
- drivers/net/wireless/realtek/rtw88/mac80211.c |  52 ++++-
- drivers/net/wireless/realtek/rtw88/main.c     |   9 +-
- drivers/net/wireless/realtek/rtw88/main.h     |   5 +
- drivers/net/wireless/realtek/rtw88/reg.h      |   1 +
- 6 files changed, 231 insertions(+), 25 deletions(-)
-
-
-base-commit: 0bdc579dbfc251a6b6838ee9459b6771b948c617
-prerequisite-patch-id: 47beb21885d08f8f2930508b06f2612a87693d4b
-prerequisite-patch-id: 37af73660914a3099b8dc3815b65ae5bea30190b
-prerequisite-patch-id: 966252aa5c7435e4ed3642513e458991d298efa2
-prerequisite-patch-id: 6ecc624d0c38a71c64993f725622e02ae2ad1629
--- 
-2.56.0
-
+diff --git a/drivers/net/mdio/fwnode_mdio.c b/drivers/net/mdio/fwnode_mdio.c
+index ba7091518265..129481e8a910 100644
+--- a/drivers/net/mdio/fwnode_mdio.c
++++ b/drivers/net/mdio/fwnode_mdio.c
+@@ -89,9 +89,6 @@ int fwnode_mdiobus_phy_device_register(struct mii_bus *mdio,
+ 		phy->irq = mdio->irq[addr];
+ 	}
+ 
+-	if (fwnode_property_read_bool(child, "broken-turn-around"))
+-		mdio->phy_ignore_ta_mask |= 1 << addr;
+-
+ 	/* Associate the fwnode with the device structure so it
+ 	 * can be looked up later
+ 	 */
+diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
+index b8d298c04d3f..fe321fa16188 100644
+--- a/drivers/net/mdio/of_mdio.c
++++ b/drivers/net/mdio/of_mdio.c
+@@ -164,6 +164,10 @@ static int __of_mdiobus_parse_phys(struct mii_bus *mdio, struct device_node *np,
+ 			continue;
+ 		}
+ 
++		/* Common to PHYs and other MDIO devices */
++		if (of_property_read_bool(child, "broken-turn-around"))
++			mdio->phy_ignore_ta_mask |= BIT(addr);
++
+ 		if (of_mdiobus_child_is_phy(child))
+ 			rc = of_mdiobus_register_phy(mdio, child, addr);
+ 		else
