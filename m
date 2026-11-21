@@ -1,88 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795222039;
-	b=XFykWBLu4Yo47hjWjjXwZ5csahT6o2yKpbd8qoPGO6E/0tpfNMg4RE29eHrLmLofu7VD
-	 CGpVjNiG0EncnEBQMQsObSZiXMFY0fgdZuFCOt3nyz4pNU+6AOJjdUthMNb3HPMCGMnFT
-	 szsflnJ2PfBPtoyyDnvc6HXmR08auDbY2j5C3RZUyhewtmsvPmRYJm8bgrT27VrGSIlj0
-	 iab26wLDkHBSggduUDgLe+qAqFGPlbU0AX9zwHjva4b6+I4yFWAAg9h7/x1vSFhl4wP+F
-	 trMkbHKK+e/2TGw3AvLL6fV2VH04HLgDLockH0O4R6h/TR5/ScfEc4pooASKH9ho2sA==
+	t=1795222096;
+	b=czSQ6tr1lCAoC5T3C01gzrX/IRtcarf7LrkYrI5kh6NfTHN/Ewi8zVfegJSJfG24A4Qf
+	 XrKaL5KtvZUXvwdSeJ9P1yw6OKhTa0DIHPlPgdAbz44t8N6fN4CEMoQeiRo2Bz1KVJG3W
+	 oEhElMxz1r9SySNggM1m4lAgVLln3/mqOqUwaA04KtWVc/smhDjmQam2uy7MyRYTFDtYV
+	 wMT3HsP67Tc4kQx+0q/BFE6E86SsBziVeKH8N5pQwAh5kGBkSXLeMYMKBTXaNYCo/shEW
+	 N3eu0PRXdaukhPJn+RXFaZeebBPr0Hk34Uy+O8jLFwCGcnELKSIh357VJjyNM4r0IGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795222039;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=ZYuDsRnyclF2VRwaoOL8CawoKJrWply8tLhZ2luNmJc=;
-	b=1pxhfrhFEsvtVR/X0uVE36p1IB6o2dB+JE8lbS/k68AZ7S7eiiEmev32MkAZZMWHAtEy
-	 8FfjkeyXEW0MPF3tK4Vf5GRgclFw1aZ/PsBv03Cj32O2roxQAEGcrNkCVaV/sqmg6pQFU
-	 f/J3udB7UA3BiDdTD3PZvrZlUsfrAQwqfD4xbXuhAPdAt4Lg2Y5VjEpBV6xQ9M6cIuqxn
-	 b+iRGMeHmHNEIRd4WiY+TksJx+r8JrCnUpwsO2mCm8opI6YeVWCGm0nm8jGV/EvT9jWBj
-	 FX2s0Mj8rk5RjyiB1JYVKMDWy5VScsX+W3VVfRLFqWpVQQB7otsVI1ZD9jei5NoCL9Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795222096;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=Fq7eVjoo8xJhvVi6unc9XNet04qh3ukyVn0blU6xcQE=;
+	b=mFtJb3MXw6cAnHTNfjLrRTtKC4TacA/+cJZFk7rEdwKM71Q/u/gtBSXRZhOc1HDuhCS+
+	 LpOQ6SBZ1qu3t9kUYjH6HPD3NTrXIjFZ+4fj1JZcpIOpFY0YzpcjU7y14sPRihtvIEV6c
+	 vCiCB3DwKDPy8v0c/I3uDdbJfLhg2+723sjo8oflct3AjLVhYMC01aPpKC7ubj5abqzj0
+	 zoNO9DimAvKeEmuOjrwKlhCfAZXUynOslvjSruZNQb8eXVAtwTQoarpSrUXzUEebKy2dW
+	 1KR+Aa4VrNkCwhVXVrU1+77FIG/MwPeezFcJyv/gQRbgyrA8aT7Grvoohy8DH6Pj7Iw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Jf7rT6bu;
-	arc=none smtp.remote-ip=192.198.163.13
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nA5j9l9T;
+	arc=none smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21585606A69C;
-	Sat, 21 Nov 2026 00:47:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21585606A69C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01257606A6B6
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 00:48:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01257606A6B6
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Jf7rT6bu
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795222033; x=1826758033;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=QxRf+0BoXASOSJt1utY22DHCLw6gWPNr2ZBpfZfUl98=;
-  b=Jf7rT6bus+B4RfNYSmcekubeRdYTEvttXTqmQZw8Epus9JsZivCEz/cj
-   kIAaRy/KJ+IsB0DTii1+GOb9rUB9UgJ1W5yUlWPqhUNO+TJ3lar90R+kj
-   cOkiPuiz3zEFzD0YxmocO0jpp/o8qiw6/vJW0CPnH3pIvblq5+7jMohn7
-   PK6pzTGNe3nRX1Rrd5kelWWwg9L5VeJM26IsGBhru2jiyO9rregjX75c6
-   taqRQsv4/o4qttbYVfLwbWObxP3nejS5saQR5qZK46Y1Zr7d4Daxff63e
-   8f+LWQuREP3c44UkZb0dCcQBnuPe+M9xniZ+9itmy07srP30nsolh/gb6
-   A==;
-X-CSE-ConnectionGUID: 8t2uY0jYSgaXHvAJpP4TKA==
-X-CSE-MsgGUID: S72QXicFTpWeDUzfSlsLvQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4098348"
-X-IronPort-AV: E=Sophos;i="6.27,224,1787036400"; 
-   d="scan'208";a="4098348"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 16:47:12 -0800
-X-CSE-ConnectionGUID: HrY6XosTREuMsuUWurVZDw==
-X-CSE-MsgGUID: hJJFmc75SKiSLyD/sb7ZjQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,224,1787036400"; 
-   d="scan'208";a="11144294"
-Received: from igk-lkp-server01.igk.intel.com (HELO 1073a420ae3a) ([10.211.93.152])
-  by fmviesa006.fm.intel.com with ESMTP; 20 Nov 2026 16:47:08 -0800
-Received: from kbuild by 1073a420ae3a with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xUZFt-000000004CH-0WzZ;
-	Sat, 21 Nov 2026 00:47:01 +0000
-Date: Sat, 21 Nov 2026 01:46:05 +0100
-From: kernel test robot <lkp@intel.com>
-To: =?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Darren Hart <dvhart@infradead.org>,
-	Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Waiman Long <longman@redhat.com>,
-	Ryan Houdek <Sonicadvance1@gmail.com>,
-	Thomas Gleixner <tglx@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-api@vger.kernel.org,
-	kernel-dev@igalia.com,
-	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>
-Subject: Re: [PATCH v8 05/10] futex: Create get_robust_list2() syscall
-Message-ID: <20261121013854.0hhfuC97-lkp@intel.com>
-References: <20261115-tonyk-robust_futex-v8-5-a4fe47333a28@igalia.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nA5j9l9T
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-3866a784546so1319771eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:48:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795222093; x=1795826893; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Fq7eVjoo8xJhvVi6unc9XNet04qh3ukyVn0blU6xcQE=;
+        b=nA5j9l9TnGc2ofeval0osHGmUatRVHuC8h0ZfCjdiPWL3Y9CHH92zy44+m11tG2rNZ
+         K477NSGfyzi771sxhkbfg+0x2TNan+31CnZfDU63lgXOBN9U7T3JKS4fjsdkCdFq1+0Z
+         Ocq0MU3C4/yBBFmPNJuTkD7vnTJsZdQc9f6ffCmuDF+jNNMtcBOI91weecfXpidcm2NR
+         JS2HS2JIUVTyE336cVaJurB7FjkctiFWvKxpul+Uj+vR7WaYu1S1oFWLHZW5tr6P1k+G
+         EegYp0ijOlXJdL5D8pNKBFZui/ohUjCA+ttJuBw3KPzmKSvmsmUPNVsy25gGbo9LyZqE
+         qnHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795222093; x=1795826893;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Fq7eVjoo8xJhvVi6unc9XNet04qh3ukyVn0blU6xcQE=;
+        b=iBtTDyFIuQkhjttnTfZAt5LlFTkUj6IYg64oeUgLYqoWQrvngPY8497QeR07eCTmuT
+         CzHTC37hZ/WLvvllHQHC5w1iPCyf5MzrLi5yh9z+tQ4YZ9/G/E7Qb1810jGrd2GD2CTT
+         SPh9wZyQcZ3Htt8ighsZYj+fGuw0oInRsBGa2ad887hCWmoZhWV6dg8HajTOZI4zb1eI
+         MNwXAnFV8amPJWhUtX8GoPWyw9kH1APfnpEiFI/bmQWrmM3M3V9Dg9xItktPnbbhg2op
+         s5FK9rhZIRzQSv665MWZ8KDemQCi3xM9/acdMmOIMQgyia4OPfn79ZPsI4FTpbrX5TYd
+         dEsA==
+X-Forwarded-Encrypted: i=1; AL+hErFpKT3aPfUd0cM5euiIeamkvUrWL/otH9D5ZuYLsNjcPQiuFowsm9XPZCwdAFUcLbpzjaMEaJlShue4/4E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+BSbn6Cg2vtS1oaoYM1y15ORTFU+jJctCcMX1onKeffl6OIkDR
+	9f+FRNTjB0vJxFoiCxlMgeUGkmNVYU66AU2JUm2tsxkUKP5CR4qWXRvz
+X-Gm-Gg: AYBFou1XNrXtGY6hqfO8nSCdGsNL4ILej9Uw/Z8gDCVoqpmFAOMnkGPR9U/8TJWhRDu
+	0lVmhKw/67voeqClluJ0SV4cFkU8tihWRS5RSwe4R4qzpfSwUXY+xohO/eUzK3np2x1vi//6PHF
+	65JuksXOITNND8cOdTCDEwq6AqDizNwd3zkIw+CZfWnQuNoFUAEmEBnF9LpTYFxrlgCHv4vU5Cv
+	01U0g6A+osq4yjMRxn4nu6vicXmkhIL/ScUIok/GuLruLbv8mGNeNj6YWecrGIO/0iOixlVnTr+
+	7JgU2pJ4bfBwLHMeQVCeGm2XnRRpR2vUhpnAm2bhnw4JnUcz8cH7CMiRFumHq0Nj+0famcJ7c73
+	yymTMVjbpI0pArSatyhVPTTp0YphK9hzb1Nw7928OwoSH04cuags6FtAMPj8kPLE7AlYckg6zM4
+	ZQMFOP8AYq0BLqALXKT8R1ob+1RSQLNRK5FNRH0t13wxhi7JMF/X2QUo7edSkOOyX+bWoUwtaQJ
+	SJ0hRIM3yTI/fEe5HCbkhH+ZhgzwlXtKqCQDuYch/bo7EkEX6+GzeT+WyOnE8Llb/6bX5rE/q52
+	/NbaGmvB
+X-Received: by 2002:a05:701b:2804:b0:1b5:434d:b61b with SMTP id a92af1059eb24-1b5568cd633mr3993249c88.22.1795222093072;
+        Fri, 20 Nov 2026 16:48:13 -0800 (PST)
+Received: from eldorado ([2600:8802:b00:1f88::287])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm11462472c88.13.2026.11.20.16.48.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 16:48:12 -0800 (PST)
+From: Florian Fainelli <f.fainelli@gmail.com>
+To: netdev@vger.kernel.org
+Cc: Florian Fainelli <f.fainelli@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Jijie Shao <shaojijie@huawei.com>,
+	Simon Horman <horms@kernel.org>,
+	Runyu Xiao <runyu.xiao@seu.edu.cn>,
+	David Yang <mmyangfl@gmail.com>,
+	Herbert Valerio Riedel <hvr@gnu.org>,
+	Danny Kukawka <danny.kukawka@bisect.de>,
+	Mugunthan V N <mugunthanvnm@ti.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	linux-kernel@vger.kernel.org (open list),
+	Manuel Lauss <manuel.lauss@gmail.com>
+Subject: [PATCH net v4 01/10] net: au1000: recycle RX descriptors on allocation failure
+Date: Fri, 20 Nov 2026 16:48:00 -0800
+Message-ID: <20261121004809.1690280-2-f.fainelli@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261121004809.1690280-1-f.fainelli@gmail.com>
+References: <20261121004809.1690280-1-f.fainelli@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,94 +113,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261115-tonyk-robust_futex-v8-5-a4fe47333a28@igalia.com>
 
-Hi André,
+An skb allocation failure retries the same completed descriptor forever
+in hard IRQ context. Return the buffer to DMA and advance the ring even
+when the packet must be dropped.
 
-kernel test robot noticed the following build warnings:
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
+---
+ drivers/net/ethernet/amd/au1000_eth.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-[auto build test WARNING on 9f74092fda91ef93c2b07585785c1dc83cd7971f]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Andr-Almeida/futex-Skip-test_futex_robust_unlock-if-not-supported/20261115-143110
-base:   9f74092fda91ef93c2b07585785c1dc83cd7971f
-patch link:    https://lore.kernel.org/r/20261115-tonyk-robust_futex-v8-5-a4fe47333a28%40igalia.com
-patch subject: [PATCH v8 05/10] futex: Create get_robust_list2() syscall
-config: loongarch-randconfig-r2311-20261120 (https://download.01.org/0day-ci/archive/20261121/20261121013854.0hhfuC97-lkp@intel.com/config)
-compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 8db60b003f961f25c5cafe91ee44176f61374279)
-sparse: v0.6.5-rc1-21-g84ec0658
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261121/20261121013854.0hhfuC97-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261121013854.0hhfuC97-lkp@intel.com/
-
-sparse warnings: (new ones prefixed by >>)
-   kernel/futex/syscalls.c:119:46: sparse: sparse: dereference of noderef expression
-   kernel/futex/syscalls.c:216:14: sparse: sparse: incorrect type in assignment (different address spaces) @@     expected struct robust_list_head *head @@     got struct robust_list_head [noderef] __user * @@
-   kernel/futex/syscalls.c:216:14: sparse:     expected struct robust_list_head *head
-   kernel/futex/syscalls.c:216:14: sparse:     got struct robust_list_head [noderef] __user *
->> kernel/futex/syscalls.c:218:16: sparse: sparse: incorrect type in assignment (different address spaces) @@     expected void [noderef] __user *__pu_val @@     got struct robust_list_head *head @@
-   kernel/futex/syscalls.c:218:16: sparse:     expected void [noderef] __user *__pu_val
-   kernel/futex/syscalls.c:218:16: sparse:     got struct robust_list_head *head
-
-vim +218 kernel/futex/syscalls.c
-
-   170	
-   171	SYSCALL_DEFINE4(get_robust_list2, int, pid,
-   172			void __user * __user *, head_ptr,
-   173			unsigned int, index, unsigned int, flags)
-   174	{
-   175		struct robust_list_head *head;
-   176		void __user *entry_ptr;
-   177		uintptr_t entry;
-   178	
-   179		if (index >= FUTEX_ROBUST_LISTS_PER_USER)
-   180			return -EINVAL;
-   181	
-   182		if (flags)
-   183			return -EINVAL;
-   184	
-   185		/*
-   186		 * The first two indexes are reserved for the kernel to be used with the
-   187		 * legacy syscall, so we hide them from userspace.
-   188		 *
-   189		 * We map [0, FUTEX_ROBUST_LISTS_PER_USER) to
-   190		 *  [FUTEX_ROBUST_LIST2_IDX, FUTEX_ROBUST_LIST2_MAX_IDX)
-   191		 */
-   192		index += FUTEX_ROBUST_LIST2_IDX;
-   193	
-   194		entry_ptr = futex_get_robust_list_common(pid, false, index);
-   195		if (IS_ERR(entry_ptr))
-   196			return PTR_ERR(entry_ptr);
-   197	
-   198		entry = (uintptr_t) entry_ptr;
-   199	
-   200		if (futex_in_32bit_syscall()) {
-   201			u32 entry32;
-   202	
-   203			if (entry && !(entry & FUTEX_ROBUST_LIST_ENTRY_32BIT))
-   204				return -EOPNOTSUPP;
-   205	
-   206			entry32 = (u32)entry;
-   207			entry32 &= FUTEX_ROBUST_LIST_ENTRY_MASK;
-   208	
-   209			if (copy_to_user(head_ptr, &entry32, sizeof(entry32)))
-   210				return -EFAULT;
-   211	
-   212			return 0;
-   213		}
-   214	
-   215		entry &= FUTEX_ROBUST_LIST_ENTRY_MASK;
-   216		head = (__force struct robust_list_head __user *)entry;
-   217	
- > 218		return put_user(head, head_ptr);
-   219	}
-   220	
-
+diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
+index 8682323d693f..cd25248f4e3a 100644
+--- a/drivers/net/ethernet/amd/au1000_eth.c
++++ b/drivers/net/ethernet/amd/au1000_eth.c
+@@ -788,7 +788,7 @@ static int au1000_rx(struct net_device *dev)
+ 			skb = netdev_alloc_skb(dev, frmlen + 2);
+ 			if (!skb) {
+ 				dev->stats.rx_dropped++;
+-				continue;
++				goto next;
+ 			}
+ 			skb_reserve(skb, 2);	/* 16 byte IP header align */
+ 			skb_copy_to_linear_data(skb,
+@@ -820,6 +820,7 @@ static int au1000_rx(struct net_device *dev)
+ 				pr_cont("\n");
+ 			}
+ 		}
++next:
+ 		prxd->buff_stat = lower_32_bits(pDB->dma_addr) | RX_DMA_ENABLE;
+ 		aup->rx_head = (aup->rx_head + 1) & (NUM_RX_DMA - 1);
+ 		wmb(); /* drain writebuffer */
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.53.0
+
