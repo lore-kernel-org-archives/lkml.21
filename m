@@ -1,97 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795279225;
-	b=uvEPM9IvDnQb82Oq2YuegLrUOkmet515+/qxdSY9f9vaFdS6JYJd0/aP/EgnM56zJivw
-	 csD5xwuCYUFIgLVYn+FWsktx+pNOZlOq3wnkxD93wmQ61IikFuE9xmAZ9z/FIQwCBBBzM
-	 24KXzKtBAllKHioj3Jhf6UpuxRseZUUcu7lvqOFQyOEfWZ7UyRTxf6Tz0/eJd70rIcil/
-	 lPoLQECUmrZwjGmuoZhtZkUqRVOGHtdX9VuAiyJgTdZ8o4HJqRRwSN35H/mZk+rO8WULR
-	 C4VlW58UdS0vGPdF4uDZrMnyBj0z21O87jHCWP4SbWVzJnkvjmccZprquqVYHyqqJ8w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795279225;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=VF70xVoqzD2NvrvaiuYe3HOvhAKV5aI6KvFLBn3iiJM=;
-	b=LBQ7TirckJ6mcbdy5gSf11drlzAqgR+2VNyko8UNg+jIpv+G/vXSqQgWIiXMAXtTEgbI
-	 cL/M8go5AMjJtdU0ipcng0z3e7X3hLhZZFKa/zOBhKdEqXTExE03WMTdGvs3N9eEvyEzz
-	 PnqrJoBwW8+dOYZkfRSsr5xMt+uoNDE4ImpwTjZxlq7hPIXUXSwusHViaqws1w8AtbqgW
-	 NXWiVhHXHpqVebwYISzR6Gg4DnXaIGgAmKZfxZAE4lkioT8kvbixPeSD0US+k+PBnJoBJ
-	 IA2ahgATcJmMm58HXy1bWIV6KC8CIgnkBlPtzCFsIm/E6GB4vdteA5Ej6ucXJUowgCA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k3snNuAD;
-	arc=none smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795279284;
+	b=X0KC6xLrlDi71wVxvTHz+Nt8qx4ydb9Ck8v+QmRzDHox+fRvQKOLSt1GtRx43U6AL3pq
+	 6Yx+mcsmgZjrWF+X6f45gY5E9yRPp2YGw2L/yf6k1Lwix5Nm86rWq8ar/57u19thmakn7
+	 q/4t7gHbXpGfq0xOdj/xKDaeKwReffNsXQMBh/Swn1SxajaLMxTJj5WVYojZQFXbesK7w
+	 3cc3r0/+En66+o1MkTElnF/uHctUzliNdOzEvtoEbChpoTbUuaBP0qCDUqCMYN5HRTHE3
+	 o/qK5LQgDDnBleidvWYqfKvVHdwDW0ynjiWCRESzL1daw7UF4LzXKVSMSrDuxp2rO4Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795279284;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=JkZxs0xSApmHhGpJibJt3ClXqKc3V0vaSb+q3kJXtBg=;
+	b=BtFmQKZ89udvCZHnucU2QVjQcjDChzZp5+CkUx/mxiMorH9D6UKL5JknyO4O2rTc0pnA
+	 xl+rYOziqOlrSFKDLNu2asnvg8UM688rPdsU2Ac/Ay6yKzkhiolUm/Nxh767kNyKVYrwb
+	 s1QYQ6b8ZsgJ8wqMpqk0rqqQ0kSEerruExyDbXo/G771z3hByqvvC2F54KTIrJdkOoMKF
+	 UBvT1bQPITggKBRbTbtfQZ+Uny7KUP1GkkXt+0sV/W8qFRlrQN6ChXoa7J/dh0Fu/H3hK
+	 OLzxiAnm3m/DRrXi1buITykxghCn3rE580gtMsj9KoPwLRM12MkAXV3gEYkmWK3gEsg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="bL2his/Q";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 967C9606A336;
+	Sat, 21 Nov 2026 16:41:24 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bL2his/Q
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795279284;
+	b=YLQ6W5uBerI+/5M2s69suba7Won+3SOODc4aWmglp18igr1wFMJRmE0WZ9/MqVJGvZhC
+	 0aPh4waaGmmp5qj1nnbDHqh0GQzc0W1746/zniYwogfDX2LPaahecQiMvzYEvFIFE3zgQ
+	 h77IjNEH6v4e6Q9Li95ntfF3sCLHmyZ3JiXbcAPJp516vExFKNVSPdYl0wt8RXUBdJZ4q
+	 zwI6dxSU8XZgWgFFytvgWqhdZyB9BbsUpX1OIUR6dFGZ0WIDlN5dnemeZjfr5/JeK2uF/
+	 +QgQKX1+nYWqsRC08EKmIVn6NVA3KlqTb9IZIDanNFCjnnYTQwT+5f9WyEO3pMaaySQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795279284;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=JkZxs0xSApmHhGpJibJt3ClXqKc3V0vaSb+q3kJXtBg=;
+	b=aI3zXdYONQdZ2ghPRb9pCIuM9urpD/wdAkTUIQlbwSlRXFTuHxYw291gxPP4Hlk2nDDC
+	 AVZ44haIQX9i1YguP/EzVo42S4YRx6Q/GYoL4nBvY9Bd4qTt35vTaC5KAY9MSQY7bPHr+
+	 6Pq9lUB4YltnpzT/zLLCDJlXLIfnHVk+LT0Iihyfu83b9SCVIaKq2c7gaF2B5ZVxcqMye
+	 AT33AcPGxywVH/O8Npze/QRAEWa+bw8vFSX/yoOTZM3sVKinAjD5wPG+93GSLMghQ7vcI
+	 rjen29UPJpWI7v+V2GOjzdufPi91Y8f/PMIkLCPRMgMBLTrnaOn0y91LDWMpvInSchQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44AC4606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:40:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44AC4606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k3snNuAD
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-380b40319bdso2578795eec.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 08:40:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795279224; x=1795884024; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VF70xVoqzD2NvrvaiuYe3HOvhAKV5aI6KvFLBn3iiJM=;
-        b=k3snNuADsgbixZgwz8fYwWJWOfUIOuMtSxvBK86C7cg72pyDC5qb7/yxZ6Za3IROom
-         iNjlwLdLxOMKFCf5lLPu79oXHcj6+lhm0281eQF5jQyFRnrozDXnKPTfxQZHTs6xfLfS
-         5v7W9cm2vt6u3v93YYAG+Tui1swTGlgVO87IqGww7pxXS8yERxWH2cmC8IKrD1dnt3st
-         6f6fiTYR3y1Ygx1V88bbqjpjvFyhO4NYvdXC/Q06NBUt4FSYcUJbV5zScOzrYgqOm6mM
-         KLTyBQ+IHHqtrg0wBVGF7FYYnvsuFFtDizMX5Ca5w4DpUDDuAogJFJ6qDhSdrLlORqGH
-         uMfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795279224; x=1795884024;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VF70xVoqzD2NvrvaiuYe3HOvhAKV5aI6KvFLBn3iiJM=;
-        b=AG4DFR4L/F8Gj/e6WV4yjcMU5szI5Wabt089ddWPRF2Cylg9Oa2DlS2bMBAP08WxNf
-         nBWdbfS5BqDSTfBCjFAhRd+2NdWC+vUzuPiVPJQ7gGl+EkIIz87BpVt13lhVK13oWFLE
-         gWPBGYY+0FdcOvcXBLOFCWhrO6pvdZsf+PPMfCryoXQD5zjGDr+AXYkqdB5fXl/giBK4
-         ddUQuXl9bRWxT5PmUqBI2g7CglPd+O1w/KZj2FepLNkc+YC0NMPK1vu1Axff9I37qD9V
-         BZAvCsPUKWn1QF6LPwLAwXSmmNZcWmkEp0mNgItcmk65Hzsb0FgCm/SsvY6cpj8Fil5/
-         z+0A==
-X-Forwarded-Encrypted: i=1; AL+hErHTM/2828e7C4QWnouZbxft6Tb6nw8uoCnkPmYclx4h+zIxsUxBFAFiizimf6vjUv4k+SiwodqQrQ3Gy+0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8UO0nbZ6sD4pnP2seW7vkv36u9tfHU12DGOC78ysxfZCUiNrT+
-	RdW39vvtwPbZIXwZZ7VYRe42Ec/GRlgAlG3Jxxxx9H7s5aUK54jv+WINnVJlFTZqUtQ=
-X-Gm-Gg: AZFdTZfI81yG89dlyHSFFId29nvFsOGpLEG7PBS1HutQyABLjGuqHfYsKpZo5tJgG9P
-	ux0uvgJwRgs7ugUrohCBw59d5lIyrwlNC6qzreeomHjlf3qB3tUkiWC5DtK0P9wMxqp2lML6rMI
-	JIt4DhVzn7IEsHnCpcaSOOlWiwFAmlBPYyjWwGqvv8osl7XGjtRuLB24bcvQva/JnWtT+HXoSH1
-	lc08mKuaH2LQEwn/F/aLeZqc5M6gTbY6kMOKdol2liMwUhl7uDTJn28qJhl3tssCrOPss2Xdqc5
-	X3JuGuKOZI6JTXHpP3lVs7c4qsaVYlZKkg+RvPNQC2GCsQe9QWrfGVeyWNi3D8wI0n1X31pjQLZ
-	D/VNhdTX5E9O3WXr1Ca5IyB8TjOlHTB83Ymfe7Wr5z0GUQOEZRuIYz0uSqJCRwXFjIAGOZubW7d
-	E7ZNUwewer5UDBHOfY+vZHaC6kHgnCbX5DZ2GVOdJxVmqXxhNLPAygfscaA5CiLG9Xg/SQLp83K
-	hDvZ/jlYjO8HOAfC59C9XZVKzZ/rb8NXl+YJ3/kwNrOxv7dzUU6/zxl/UZfD+oh2nabU64zUeai
-	e7WpVGwj55J81sb1tQDNPbNbcEa6gTWDSiaa8AzFMibY2w==
-X-Received: by 2002:a05:7301:9a81:b0:384:7a8f:3bc1 with SMTP id 5a478bee46e88-3856fd555eamr7609789eec.17.1795279224072;
-        Sat, 21 Nov 2026 08:40:24 -0800 (PST)
-Received: from asahi.tail4da9e3.ts.net ([218.48.198.193])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c371esm18710807eec.23.2026.11.21.08.40.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 08:40:23 -0800 (PST)
-From: "Baek Kyu, Kim" <pocj8ur4in@gmail.com>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	Mike Rapoport <rppt@kernel.org>
-Cc: "Baek Kyu, Kim" <pocj8ur4in@gmail.com>,
-	David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] mm/secretmem: Keep locked memory accounting until inode eviction
-Date: Sun, 22 Nov 2026 01:40:20 +0900
-Message-ID: <20261121164020.1465498-1-pocj8ur4in@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261030152407.113568-1-pocj8ur4in@gmail.com>
-References: <20261030152407.113568-1-pocj8ur4in@gmail.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id A67C41F000CF;
+	Sat, 21 Nov 2026 16:41:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795279284;
+	bh=JkZxs0xSApmHhGpJibJt3ClXqKc3V0vaSb+q3kJXtBg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=bL2his/QaIja+PM3hj1glsxLnW96H9pt+bK9evT4/q+V7SnODEyS8jg84Zd+LzLSA
+	 Cz24Zwo+YeZjeAop+8iaJU67f3WUoBfQRifg38LzUEkc81fvamrZbkS0CLUrZ7CHVg
+	 Bivb+kPD/gEiFWAXDB90gRcw7Q1AbVPJw9dxrX3SN7DUbgpKS99MNUGVnWh6kpZ9MO
+	 tjB/1LH4uvKuyaTy94QvaSwkKQTd6QICz438OsUsx39qyoYfSgQrtzLHTFPAEq344x
+	 3zwFeGqPr/uYqxFlWexIRCP1IcuRB8Swkihpt3sl/i2QNpt2yVyI4qHY28OAZvnlX/
+	 69vOPc1FQ7IXA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 302B14BD0C;
+	Sat, 21 Nov 2026 16:41:21 +0000 (UTC)
+From: Alireza Haghdoost via B4 Relay <devnull+haghdoost.uber.com@kernel.org>
+Date: Sat, 21 Nov 2026 08:41:03 -0800
+Subject: [PATCH v8 3/7] perf symbols: Add lazy symbol names
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,164 +82,545 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261121-perf-symbol-memory-send-v8-3-370561cbb5a7@uber.com>
+References: <20261121-perf-symbol-memory-send-v8-0-370561cbb5a7@uber.com>
+In-Reply-To: <20261121-perf-symbol-memory-send-v8-0-370561cbb5a7@uber.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ James Clark <james.clark@linaro.org>
+Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Alireza Haghdoost <haghdoost@uber.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=17587;
+ i=haghdoost@uber.com; h=from:subject:message-id;
+ bh=f3dV/bRpi8/Yw18Z0rjbfVNGY8Lfyd3iQ7tOQn4qxcY=;
+ b=owEBiQJ2/ZANAwAIAVNlBDxl2ALYAcsmYgBrAcmuXnGBTcOwihMs0tBrIn19kr03XcgCdXKYE
+ fTo1r2hgK6JAk8EAAEIADkWIQS5+sFL3gX/8PrA0S1TZQQ8ZdgC2AUCawHJrhsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwwLDMACgkQU2UEPGXYAthasg/+M/u9CaevEZHgCiCiPMWKhh2OEMDcA41
+ 9HDGsJsLZ9XouPhXEAb1ePonHhrj59PDKkV9o8LEXz81zcI7kkKOHuxE3ln2IAHRdyzwBc8FhGi
+ E7knGCdCpbWQVT3L1E7K8p3Y/eOEau0lGHiCtk5EB6P9tRyDUOBjYFH1t+NmZ8Vzeiu1Hv166W9
+ IZ/mqu7mpqbRMIu9B9HKUbWVSkB7jBRa6a4o1ad1y35JCNPPBO0XDthCi/JwPjv2azAWubRRBYL
+ OSJSdJgUe4QCE0NBWWM5crG1P/+0WWGq7wisc94mN1mQEfJImdUj7DzTIQwU4AB/LzOgZX2SD3V
+ 43AFrB3K/FJW2yKnLg1SHmG6zFBRoerygxUpSeC0ZA7VII6y84YB/PFpgmJ+Uh63dqaFsiDAPVq
+ Pj20zdGCo8nkL9iI0i4m8LlneLMrDlxh9KoII+Smrq3yS2IfXlCBc1atycjr+UiVEqrLuiPKrsM
+ cNkZ9CJesZnksZ80ylvuC76dMR6q+rGzz+8pf1o2Exo2m2pbElVIXG+j0WFSOJRyFf+wgDI+pDa
+ nsHvwFAW+B3+qVO44QmXDxZVU/N2xVbAz4AEuUhdjvkZpqVIeVc1xKyLrNWQ8Ai1enRUFow+ROH
+ aKZ7TvZ90cIsMgfqci6rIAy26fhnm3wQtjWSgxO4zo6YxXRNuPbM=
+X-Developer-Key: i=haghdoost@uber.com; a=openpgp;
+ fpr=B9FAC14BDE05FFF0FAC0D12D5365043C65D802D8
+X-Endpoint-Received: by B4 Relay for haghdoost@uber.com/default with
+ auth_id=764
+X-Original-From: Alireza Haghdoost <haghdoost@uber.com>
+Reply-To: haghdoost@uber.com
+Content-Transfer-Encoding: 7bit
 
-A secretmem inode can outlive its original file. An O_PATH descriptor
-opened through /proc/self/fd keeps the inode and its unevictable folios
-alive after the mapping and original descriptor are closed. The file
-release path nevertheless drops the locked-memory charge, allowing the
-same user to reuse RLIMIT_MEMLOCK while those folios remain allocated.
+From: Alireza Haghdoost <haghdoost@uber.com>
 
-Move private-state and locked-memory accounting cleanup to inode eviction,
-after truncating the page cache. Keep secretmem_users active over the same
-lifetime so that the hibernation guard covers retained secret pages.
+This patch lets a symbol be created without its name, so that perf reads
+the name lazily only when it needs it and does not waste RSS memory
+holding symbol names that are never sampled. symbol__new_lazy() stores
+the file offset of the name instead, in a union with the name pointer,
+and SYMBOL_FLAG_LAZY_NAME tells which one is set. This is a preparatory
+change for a later patch in this series, which adds --lazy-load-symbols
+to the ELF loader.
 
-Allocate private state before inode creation and release it if the
-secure-inode helper fails. Attach it immediately after creation so
-later failures can use iput() for cleanup. An LSM denial inside the
-helper can call iput() before i_private is set; skip private cleanup
-at eviction when i_private is NULL.
+The DSO lookups load the name of the symbol they return, and code that
+walks all symbols of a DSO gets them from dso__named_symbols(), which
+loads every name. Names are read under the DSO lock with pread() from
+the symbol table file, which is open only while perf reads them, and
+demangled as at load time. If another thread loaded them first, perf
+does not open the file. A name that cannot be read becomes
+"[unknown]", and address lookups do not return that symbol. The ELF
+loader looks symbols up with symbols__find(), so that it does not read
+names while it loads the symbols.
 
-On arm64 QEMU with an 8 KiB RLIMIT_MEMLOCK, the original kernel allowed
-an additional 4 KiB secretmem fault while O_PATH retained two pages.
-v2 rejected that fault with SIGBUS and allowed it after O_PATH closed.
-Injected LSM denial and file-allocation failure completed without a
-crash; file-allocation cleanup returned secretmem_users to zero.
-KASAN, lockdep, hibernation and long-running concurrency were not
-tested in this v2 run.
+No functional change, since no symbol has a lazy name yet.
 
-Fixes: 97d34aa65c29 ("mm/secretmem: properly account locked pages")
-Signed-off-by: Baek Kyu, Kim <pocj8ur4in@gmail.com>
+Signed-off-by: Alireza Haghdoost <haghdoost@uber.com>
 ---
-Changes in v2:
-  - Allocate state before inode creation, as Mike Rapoport suggested,
-    and free it if the secure-inode helper fails.
-  - Guard private-state cleanup in secretmem_evict_inode() because an
-    LSM denial can call iput() before i_private is set.
+ tools/perf/ui/browsers/map.c     |   2 +-
+ tools/perf/util/dso.c            |   2 +-
+ tools/perf/util/dso.h            |   3 +-
+ tools/perf/util/symbol-elf.c     |  97 ++++++++++++++++++++++++++++++++-
+ tools/perf/util/symbol-minimal.c |   6 +++
+ tools/perf/util/symbol.c         | 114 ++++++++++++++++++++++++++++++++++++---
+ tools/perf/util/symbol.h         |  27 +++++++++-
+ tools/perf/util/symbol_conf.h    |   1 +
+ 8 files changed, 237 insertions(+), 15 deletions(-)
 
-Link to v1: https://lists.openwall.net/linux-kernel/2026/10/30/1883
-
- mm/secretmem.c | 58 ++++++++++++++++++++++++++++------------------------------
- 1 file changed, 28 insertions(+), 30 deletions(-)
-
-diff --git a/mm/secretmem.c b/mm/secretmem.c
-index b3f79ad56790..5a7378b62bb2 100644
---- a/mm/secretmem.c
-+++ b/mm/secretmem.c
-@@ -189,14 +189,7 @@ static void secretmem_destroy_inode_priv(struct inode *inode)
- 	free_uid(state->user);
- 	kfree(state);
- 	inode->i_private = NULL;
--}
--
--static int secretmem_release(struct inode *inode, struct file *file)
--{
- 	atomic_dec(&secretmem_users);
--	secretmem_destroy_inode_priv(inode);
--
--	return 0;
- }
- 
- static int secretmem_mmap_prepare(struct vm_area_desc *desc)
-@@ -216,7 +209,6 @@ bool vma_is_secretmem(struct vm_area_struct *vma)
- }
- 
- static const struct file_operations secretmem_fops = {
--	.release	= secretmem_release,
- 	.mmap_prepare	= secretmem_mmap_prepare,
- };
- 
-@@ -264,39 +256,34 @@ static const struct inode_operations secretmem_iops = {
- 
- static struct vfsmount *secretmem_mnt;
- 
--static int secretmem_init_inode_priv(struct inode *inode)
--{
--	struct secretmem_inode_state *state;
--
--	state = kzalloc_obj(*state);
--	if (!state)
--		return -ENOMEM;
--
--	state->user = get_uid(current_user());
--	inode->i_private = state;
--	return 0;
--}
--
- static struct file *secretmem_file_create(unsigned long flags)
+diff --git a/tools/perf/ui/browsers/map.c b/tools/perf/ui/browsers/map.c
+index be7390156edd..b7ae2ad4126f 100644
+--- a/tools/perf/ui/browsers/map.c
++++ b/tools/perf/ui/browsers/map.c
+@@ -111,7 +111,7 @@ int map__browse(struct map *map)
  {
-+	struct secretmem_inode_state *state;
- 	struct file *file;
- 	struct inode *inode;
- 	const char *anon_name = "[secretmem]";
- 	int err;
- 
-+	state = kzalloc_obj(*state);
-+	if (!state)
-+		return ERR_PTR(-ENOMEM);
-+	state->user = get_uid(current_user());
-+
- 	inode = anon_inode_make_secure_inode(secretmem_mnt->mnt_sb, anon_name, NULL);
--	if (IS_ERR(inode))
-+	if (IS_ERR(inode)) {
-+		free_uid(state->user);
-+		kfree(state);
- 		return ERR_CAST(inode);
-+	}
- 
--	err = secretmem_init_inode_priv(inode);
--	if (err)
--		goto err_free_inode;
-+	inode->i_private = state;
-+	atomic_inc(&secretmem_users);
- 
- 	file = alloc_file_pseudo(inode, secretmem_mnt, "secretmem",
- 				 O_RDWR | O_LARGEFILE, &secretmem_fops);
- 	if (IS_ERR(file)) {
- 		err = PTR_ERR(file);
--		goto err_free_priv;
-+		goto err_free_inode;
+ 	struct map_browser mb = {
+ 		.b = {
+-			.entries = dso__symbols(map__dso(map)),
++			.entries = dso__named_symbols(map__dso(map)),
+ 			.refresh = ui_browser__rb_tree_refresh,
+ 			.seek	 = ui_browser__rb_tree_seek,
+ 			.write	 = map_browser__write,
+diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
+index e46cd614eb21..881603d78b4b 100644
+--- a/tools/perf/util/dso.c
++++ b/tools/perf/util/dso.c
+@@ -2021,7 +2021,7 @@ size_t dso__fprintf(struct dso *dso, FILE *fp)
+ 	ret += fprintf(fp, "%sloaded, ", dso__loaded(dso) ? "" : "NOT ");
+ 	ret += dso__fprintf_buildid(dso, fp);
+ 	ret += fprintf(fp, ")\n");
+-	for (nd = rb_first_cached(dso__symbols(dso)); nd; nd = rb_next(nd)) {
++	for (nd = rb_first_cached(dso__named_symbols(dso)); nd; nd = rb_next(nd)) {
+ 		struct symbol *pos = rb_entry(nd, struct symbol, rb_node);
+ 		ret += symbol__fprintf(pos, fp);
  	}
+diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
+index d5f7382d4e13..10eac0b31b7d 100644
+--- a/tools/perf/util/dso.h
++++ b/tools/perf/util/dso.h
+@@ -369,7 +369,7 @@ int dso_id__cmp(const struct dso_id *a, const struct dso_id *b);
+  * @n: the 'struct rb_node *' to use as a temporary storage
+  */
+ #define dso__for_each_symbol(dso, pos, n)	\
+-	symbols__for_each_entry(dso__symbols(dso), pos, n)
++	symbols__for_each_entry(dso__named_symbols(dso), pos, n)
  
- 	mapping_set_gfp_mask(inode->i_mapping, GFP_USER);
-@@ -309,11 +296,7 @@ static struct file *secretmem_file_create(unsigned long flags)
- 	inode->i_mode |= S_IFREG;
- 	inode->i_size = 0;
- 
--	atomic_inc(&secretmem_users);
--
- 	return file;
--err_free_priv:
--	secretmem_destroy_inode_priv(inode);
- err_free_inode:
- 	iput(inode);
- 	return ERR_PTR(err);
-@@ -335,6 +318,20 @@ SYSCALL_DEFINE1(memfd_secret, unsigned int, flags)
- 	return FD_ADD(flags & O_CLOEXEC, secretmem_file_create(flags));
- }
- 
-+static void secretmem_evict_inode(struct inode *inode)
-+{
-+	truncate_inode_pages_final(&inode->i_data);
-+	clear_inode(inode);
-+	/* The filesystem root and failed secure inodes have no private state. */
-+	if (inode->i_private)
-+		secretmem_destroy_inode_priv(inode);
-+}
-+
-+static const struct super_operations secretmem_super_ops = {
-+	.statfs		= simple_statfs,
-+	.evict_inode	= secretmem_evict_inode,
-+};
-+
- static int secretmem_init_fs_context(struct fs_context *fc)
+ static inline void *dso__a2l(const struct dso *dso)
  {
- 	struct pseudo_fs_context *ctx;
-@@ -342,6 +339,7 @@ static int secretmem_init_fs_context(struct fs_context *fc)
- 	ctx = init_pseudo(fc, SECRETMEM_MAGIC);
- 	if (!ctx)
- 		return -ENOMEM;
-+	ctx->ops = &secretmem_super_ops;
+@@ -831,6 +831,7 @@ char *dso__filename_with_chroot(const struct dso *dso, const char *filename);
+ bool dso__sorted_by_name(const struct dso *dso);
+ void dso__set_sorted_by_name(struct dso *dso);
+ void dso__sort_by_name(struct dso *dso);
++struct rb_root_cached *dso__named_symbols(struct dso *dso);
  
+ int dso__swap_init(struct dso *dso, unsigned char eidata);
+ 
+diff --git a/tools/perf/util/symbol-elf.c b/tools/perf/util/symbol-elf.c
+index 2b7f9e30916d..82d6a76176d2 100644
+--- a/tools/perf/util/symbol-elf.c
++++ b/tools/perf/util/symbol-elf.c
+@@ -17,6 +17,7 @@
+ #include "machine.h"
+ #include "vdso.h"
+ #include "debug.h"
++#include "namespaces.h"
+ #include "util/copyfile.h"
+ #include <linux/ctype.h>
+ #include <linux/kernel.h>
+@@ -460,7 +461,7 @@ static bool get_ifunc_name(Elf *elf, struct dso *dso, GElf_Ehdr *ehdr,
+ 
+ 	addr -= phdr.p_vaddr - phdr.p_offset;
+ 
+-	sym = dso__find_symbol_nocache(dso, addr);
++	sym = symbols__find(dso__symbols(dso), addr);
+ 
+ 	/* Expecting the address to be an IFUNC or IFUNC alias */
+ 	if (!sym || sym->start != addr ||
+@@ -741,7 +742,7 @@ int dso__synthesize_plt_symbols(struct dso *dso, struct symsrc *ss)
+ 	 * by symbols__fixup_end() to overlap .plt. Truncate it before adding
+ 	 * a symbol for .plt header.
+ 	 */
+-	f = dso__find_symbol_nocache(dso, shdr_plt.sh_offset);
++	f = symbols__find(dso__symbols(dso), shdr_plt.sh_offset);
+ 	if (f && f->start < shdr_plt.sh_offset && f->end > shdr_plt.sh_offset)
+ 		f->end = shdr_plt.sh_offset;
+ 
+@@ -1628,6 +1629,98 @@ static int dso__process_kernel_symbol(struct dso *dso, struct map *map,
  	return 0;
  }
+ 
++static char *read_name_at(int fd, u64 off)
++{
++	char small[256], *buf = NULL, *tmp;
++	size_t size = sizeof(small);
++	ssize_t n = pread(fd, small, size, off);
++
++	if (n > 0 && memchr(small, '\0', n))
++		return strdup(small);
++
++	while (n == (ssize_t)size) {
++		size *= 2;
++		tmp = realloc(buf, size);
++		if (!tmp)
++			break;
++		buf = tmp;
++		n = pread(fd, buf, size, off);
++		if (n > 0 && memchr(buf, '\0', n))
++			return buf;
++	}
++	free(buf);
++	return NULL;
++}
++
++static int read_symbol_names(struct dso *dso, int fd, struct symbol **syms, size_t nr)
++{
++	int err = 0;
++
++	for (size_t i = 0; i < nr; i++) {
++		char *name, *demangled;
++
++		if (!symbol__needs_lazy_name(syms[i]))
++			continue;
++		name = read_name_at(fd, syms[i]->name_off);
++		if (!name) {
++			pr_debug("%s: cannot read the symbol name at %#" PRIx64 "\n",
++				 dso__long_name(dso), syms[i]->name_off);
++			err = -1;
++			continue;
++		}
++		demangled = dso__demangle_sym(dso, /*kmodule=*/0, name);
++		if (demangled) {
++			free(name);
++			name = demangled;
++		}
++		symbol__set_loaded_name(syms[i], name);
++	}
++	return err;
++}
++
++/*
++ * A name that cannot be read becomes "[unknown]". The caller holds the
++ * DSO lock.
++ */
++void dso__load_symbol_names(struct dso *dso, struct symbol **syms, size_t nr)
++{
++	enum dso_binary_type type = dso__symtab_type(dso);
++	/* As in dso__load(), the build-id cache is in perf's mount namespace. */
++	bool own_ns = type == DSO_BINARY_TYPE__BUILD_ID_CACHE ||
++		      type == DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO;
++	struct nscookie nsc;
++	bool decomp;
++	char *name;
++	int fd = -1;
++	size_t i;
++
++	/* Another thread can load the names before the caller takes the lock. */
++	for (i = 0; i < nr && !symbol__needs_lazy_name(syms[i]); i++)
++		;
++	if (i == nr)
++		return;
++	if (!own_ns)
++		nsinfo__mountns_enter(dso__nsinfo(dso), &nsc);
++	name = dso__get_filename(dso, "", &decomp, type);
++	if (name)
++		fd = open(name, O_RDONLY | O_CLOEXEC);
++	if (!own_ns)
++		nsinfo__mountns_exit(&nsc);
++
++	if (fd >= 0) {
++		read_symbol_names(dso, fd, syms, nr);
++		close(fd);
++	} else {
++		pr_debug("%s: cannot open the symbol table file\n", dso__long_name(dso));
++	}
++	if (name)
++		dso__put_filename(dso, name, decomp);
++	for (i = 0; i < nr; i++) {
++		if (symbol__needs_lazy_name(syms[i]))
++			symbol__set_unknown_name(syms[i]);
++	}
++}
++
+ static int
+ dso__load_sym_internal(struct dso *dso, struct map *map, struct symsrc *syms_ss,
+ 		       struct symsrc *runtime_ss, int kmodule, int dynsym)
+diff --git a/tools/perf/util/symbol-minimal.c b/tools/perf/util/symbol-minimal.c
+index 0a71d1463952..fa87c2d9de2a 100644
+--- a/tools/perf/util/symbol-minimal.c
++++ b/tools/perf/util/symbol-minimal.c
+@@ -330,6 +330,12 @@ enum dso_type dso__type_fd(int fd)
+ 	return DSO__TYPE_32BIT;
+ }
+ 
++void dso__load_symbol_names(struct dso *dso __maybe_unused,
++			    struct symbol **syms __maybe_unused,
++			    size_t nr __maybe_unused)
++{
++}
++
+ int dso__load_sym(struct dso *dso, struct map *map __maybe_unused,
+ 		  struct symsrc *ss,
+ 		  struct symsrc *runtime_ss __maybe_unused,
+diff --git a/tools/perf/util/symbol.c b/tools/perf/util/symbol.c
+index ad4bf7685293..f4dd630aa10f 100644
+--- a/tools/perf/util/symbol.c
++++ b/tools/perf/util/symbol.c
+@@ -338,9 +338,9 @@ void symbols__fixup_end(struct rb_root_cached *symbols, bool is_kallsyms)
+ 		curr->end = roundup(curr->start, 4096) + 4096;
+ }
+ 
+-struct symbol *symbol__new(u64 start, u64 len, u8 binding, u8 type, const char *name)
++static struct symbol *symbol__alloc(u64 start, u64 len, u8 binding, u8 type,
++				    u16 flags, size_t namelen)
+ {
+-	size_t namelen = strlen(name) + 1;
+ 	struct symbol *sym = calloc(1, sizeof(*sym) + namelen);
+ 
+ 	if (sym == NULL)
+@@ -349,7 +349,18 @@ struct symbol *symbol__new(u64 start, u64 len, u8 binding, u8 type, const char *
+ 	sym->start   = start;
+ 	sym->end     = len ? start + len : start;
+ 	atomic_init(&sym->flags, (type << SYMBOL_FLAG_TYPE_SHIFT) |
+-				 (binding << SYMBOL_FLAG_BINDING_SHIFT));
++				 (binding << SYMBOL_FLAG_BINDING_SHIFT) | flags);
++	return sym;
++}
++
++struct symbol *symbol__new(u64 start, u64 len, u8 binding, u8 type, const char *name)
++{
++	size_t namelen = strlen(name) + 1;
++	struct symbol *sym = symbol__alloc(start, len, binding, type, 0, namelen);
++
++	if (sym == NULL)
++		return NULL;
++
+ 	sym->namelen = namelen - 1;
+ 
+ 	pr_debug4("%s: %s %#" PRIx64 "-%#" PRIx64 "\n",
+@@ -360,10 +371,39 @@ struct symbol *symbol__new(u64 start, u64 len, u8 binding, u8 type, const char *
+ 	return sym;
+ }
+ 
++struct symbol *symbol__new_lazy(u64 start, u64 len, u8 binding, u8 type, u64 name_off)
++{
++	struct symbol *sym = symbol__alloc(start, len, binding, type,
++					   SYMBOL_FLAG_LAZY_NAME, 0);
++
++	if (sym)
++		sym->name_off = name_off;
++	return sym;
++}
++
++/* @sym takes ownership of @name. */
++void symbol__set_loaded_name(struct symbol *sym, char *name)
++{
++	sym->namelen = strlen(name);
++	sym->name = name;
++	atomic_fetch_and(&sym->flags, ~SYMBOL_FLAG_LAZY_NAME);
++}
++
++static const char unknown_name[] = "[unknown]";
++
++void symbol__set_unknown_name(struct symbol *sym)
++{
++	symbol__set_loaded_name(sym, (char *)unknown_name);
++}
++
+ void symbol__delete(struct symbol *sym)
+ {
+ 	if (!sym)
+ 		return;
++	/* A loaded lazy name is allocated apart from the symbol. */
++	if (!symbol__needs_lazy_name(sym) && sym->name != (char *)(sym + 1) &&
++	    sym->name != unknown_name)
++		free(sym->name);
+ 	symbol__annotation_delete(sym);
+ 	free(sym);
+ }
+@@ -451,7 +491,7 @@ void symbols__insert(struct rb_root_cached *symbols, struct symbol *sym)
+ 	__symbols__insert(symbols, sym);
+ }
+ 
+-static struct symbol *symbols__find(struct rb_root_cached *symbols, u64 ip)
++struct symbol *symbols__find(struct rb_root_cached *symbols, u64 ip)
+ {
+ 	struct rb_node *n;
+ 
+@@ -626,6 +666,18 @@ void dso__delete_symbol(struct dso *dso, struct symbol *sym)
+ 	dso__reset_find_symbol_cache(dso);
+ }
+ 
++static struct symbol *dso__resolve_symbol_name(struct dso *dso, struct symbol *sym)
++{
++	if (sym && symbol__needs_lazy_name(sym)) {
++		mutex_lock(dso__lock(dso));
++		dso__load_symbol_names(dso, &sym, 1);
++		mutex_unlock(dso__lock(dso));
++	}
++	if (sym && sym->name == unknown_name)
++		return NULL;
++	return sym;
++}
++
+ struct symbol *dso__find_symbol(struct dso *dso, u64 addr)
+ {
+ 	if (dso__last_find_result_addr(dso) != addr || dso__last_find_result_symbol(dso) == NULL) {
+@@ -633,22 +685,22 @@ struct symbol *dso__find_symbol(struct dso *dso, u64 addr)
+ 		dso__set_last_find_result_symbol(dso, symbols__find(dso__symbols(dso), addr));
+ 	}
+ 
+-	return dso__last_find_result_symbol(dso);
++	return dso__resolve_symbol_name(dso, dso__last_find_result_symbol(dso));
+ }
+ 
+ struct symbol *dso__find_symbol_nocache(struct dso *dso, u64 addr)
+ {
+-	return symbols__find(dso__symbols(dso), addr);
++	return dso__resolve_symbol_name(dso, symbols__find(dso__symbols(dso), addr));
+ }
+ 
+ struct symbol *dso__first_symbol(struct dso *dso)
+ {
+-	return symbols__first(dso__symbols(dso));
++	return symbols__first(dso__named_symbols(dso));
+ }
+ 
+ struct symbol *dso__last_symbol(struct dso *dso)
+ {
+-	return symbols__last(dso__symbols(dso));
++	return symbols__last(dso__named_symbols(dso));
+ }
+ 
+ struct symbol *dso__next_symbol(struct symbol *sym)
+@@ -680,12 +732,58 @@ struct symbol *dso__find_symbol_by_name(struct dso *dso, const char *name, size_
+ 	return s;
+ }
+ 
++/*
++ * Do not delete the symbols whose name cannot be read, since address
++ * lookups search the tree without the DSO lock.
++ */
++static void __dso__load_all_symbol_names(struct dso *dso)
++{
++	struct rb_node *nd = rb_first_cached(dso__symbols(dso));
++	struct symbol *batch[512];
++
++	while (nd) {
++		size_t nr = 0;
++
++		for (; nd && nr < ARRAY_SIZE(batch); nd = rb_next(nd)) {
++			struct symbol *pos = rb_entry(nd, struct symbol, rb_node);
++
++			if (symbol__needs_lazy_name(pos))
++				batch[nr++] = pos;
++		}
++		if (nr)
++			dso__load_symbol_names(dso, batch, nr);
++	}
++}
++
++/*
++ * Lazy names exist only in userspace DSOs. Checking that first avoids taking
++ * the DSO lock, which the callers that walk kernel symbols may hold.
++ */
++static bool dso__may_have_lazy_names(struct dso *dso)
++{
++	return symbol_conf.lazy_load_symbols && !dso__kernel(dso);
++}
++
++struct rb_root_cached *dso__named_symbols(struct dso *dso)
++{
++	if (dso__may_have_lazy_names(dso)) {
++		mutex_lock(dso__lock(dso));
++		/* All names are loaded once the DSO is sorted by name. */
++		if (!dso__sorted_by_name(dso))
++			__dso__load_all_symbol_names(dso);
++		mutex_unlock(dso__lock(dso));
++	}
++	return dso__symbols(dso);
++}
++
+ void dso__sort_by_name(struct dso *dso)
+ {
+ 	mutex_lock(dso__lock(dso));
+ 	if (!dso__sorted_by_name(dso)) {
+ 		size_t len = 0;
+ 
++		if (dso__may_have_lazy_names(dso))
++			__dso__load_all_symbol_names(dso);
+ 		dso__set_symbol_names(dso, symbols__sort_by_name(dso__symbols(dso), &len));
+ 		if (dso__symbol_names(dso)) {
+ 			dso__set_symbol_names_len(dso, len);
+diff --git a/tools/perf/util/symbol.h b/tools/perf/util/symbol.h
+index a449c170d834..d690cb1d021c 100644
+--- a/tools/perf/util/symbol.h
++++ b/tools/perf/util/symbol.h
+@@ -78,8 +78,15 @@ enum symbol_idle_kind {
+ #define SYMBOL_FLAG_INLINED         (1 << 11)
+ #define SYMBOL_FLAG_ANNOTATE2       (1 << 12)
+ #define SYMBOL_FLAG_IFUNC_ALIAS     (1 << 13)
++#define SYMBOL_FLAG_LAZY_NAME       (1 << 14)
+ /**
+  * A symtab entry.
++ *
++ * The DSO lookups such as dso__find_symbol() load a lazy name before
++ * returning the symbol, and the address lookups return NULL if it cannot
++ * be read. Code that walks dso__symbols() directly must use
++ * dso__named_symbols() or not read the name of a symbol with
++ * SYMBOL_FLAG_LAZY_NAME.
+  */
+ struct symbol {
+ 	struct rb_node	rb_node;
+@@ -91,13 +98,24 @@ struct symbol {
+ 	_Atomic uint16_t flags;
+ 	/** Architecture specific. Unused except on PPC where it holds st_other. */
+ 	u8		arch_sym;
+-	/** The name of length namelen associated with the symbol. */
+-	char		*name;
++	union {
++		/** The name of length namelen associated with the symbol. */
++		char	*name;
++		/** File offset of the name while SYMBOL_FLAG_LAZY_NAME is set. */
++		u64	name_off;
++	};
+ };
+ 
+ void symbol__delete(struct symbol *sym);
+ void symbols__delete(struct rb_root_cached *symbols);
+ 
++/* Pairs with the release in symbol__set_loaded_name(). */
++static inline bool symbol__needs_lazy_name(const struct symbol *sym)
++{
++	return (atomic_load_explicit(&sym->flags, memory_order_acquire) &
++		SYMBOL_FLAG_LAZY_NAME) != 0;
++}
++
+ static inline u8 symbol__type(const struct symbol *sym)
+ {
+ 	return (atomic_load_explicit(&sym->flags, memory_order_relaxed) &
+@@ -219,6 +237,9 @@ void symbol__elf_init(void);
+ int symbol__annotation_init(void);
+ 
+ struct symbol *symbol__new(u64 start, u64 len, u8 binding, u8 type, const char *name);
++struct symbol *symbol__new_lazy(u64 start, u64 len, u8 binding, u8 type, u64 name_off);
++void symbol__set_loaded_name(struct symbol *sym, char *name);
++void symbol__set_unknown_name(struct symbol *sym);
+ size_t __symbol__fprintf_symname_offs(const struct symbol *sym,
+ 				      const struct addr_location *al,
+ 				      bool unknown_as_addr,
+@@ -249,11 +270,13 @@ int dso__load_bfd_symbols(struct dso *dso, const char *debugfile);
+ int dso__load_sym(struct dso *dso, struct map *map, struct symsrc *syms_ss,
+ 		  struct symsrc *runtime_ss, int kmodule);
+ int dso__synthesize_plt_symbols(struct dso *dso, struct symsrc *ss);
++void dso__load_symbol_names(struct dso *dso, struct symbol **syms, size_t nr);
+ 
+ char *dso__demangle_sym(struct dso *dso, int kmodule, const char *elf_name);
+ 
+ void __symbols__insert(struct rb_root_cached *symbols, struct symbol *sym);
+ void symbols__insert(struct rb_root_cached *symbols, struct symbol *sym);
++struct symbol *symbols__find(struct rb_root_cached *symbols, u64 ip);
+ void symbols__fixup_duplicate(struct rb_root_cached *symbols);
+ void symbols__fixup_end(struct rb_root_cached *symbols, bool is_kallsyms);
+ 
+diff --git a/tools/perf/util/symbol_conf.h b/tools/perf/util/symbol_conf.h
+index aaa7148c3ac1..f47482072625 100644
+--- a/tools/perf/util/symbol_conf.h
++++ b/tools/perf/util/symbol_conf.h
+@@ -76,6 +76,7 @@ struct symbol_conf {
+ 			no_buildid_mmap2,
+ 			guest_code,
+ 			lazy_load_kernel_maps,
++			lazy_load_symbols,
+ 			keep_exited_threads,
+ 			annotate_data_member,
+ 			annotate_data_sample,
+
+-- 
+Git-157)
+
+
