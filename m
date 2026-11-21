@@ -1,49 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795304663;
-	b=D/GdYpAkxhPtEMyukeRj9FslQdvXxerowKdj/VtkYl5qWIoE680kwFYufMFlLe8by1XI
-	 CWvraoOSSJPc06QUN0eIcggQOULSeh25TBLUA6+Y0wXUVHaoUWvPnEezWYhVrEoHf3Imt
-	 TFpTa1pov+d+JxKKJXgMpfu2rqdwAhdOg9Kqyej9Ga6qz075lbfD9dFrtImZoc419itmh
-	 93aWhp8NCUhgLnGci12oY1itA9GSpzJvu7GlzOqZvkpNr9LL/k1HrKyL7T8rUiaAsL4eN
-	 NLEYhOgjE+3wGr/S8BKzyEpWy7MNawBbahGaT90tURTRDxd9qY5fJPkOZo4dnn6xYPQ==
+	t=1795304682;
+	b=13EOQ1ekmH2ZKu0Fun4cvfdi35k2VP70ONl0zoHzI/0Gh/kuhV6iFIZs6jGNktKWt5fH
+	 fiuyOLBap2/W2ahyHU26QilDHVlYIGN4bj5c2qmVqPvNIhatHxY/qURi3mxLY4FO1J/66
+	 s7jEeNJMhex4Ycm6aiXEjpqNHhrIxaHnQ5jWzcAbfJd3svOXQZR07ROaA/QdX6q8sLKF/
+	 RrhDSJ6Nh/tSRjAAzlcRIhCG0GetYHOfo738ZvafgMLXQE6a6t9aWtRZ+4f9U8W7hGkn+
+	 UV/lX+8G3o71pm4ykbxikd/EhXk4kih6E2X5Yl8DvhsVT7u2QBx5zhSQMcvVWM7edFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795304663;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=bJv2CRi9uextI7SDskU+t+k/eig77lL331lPw8tX8+Y=;
-	b=1I3KWwQWdCh7ROlJto9K8dAM/vlPDu81zRoQPtCMPjpdD2NTPqT57ci8vxn3LPKEa9iL
-	 oZLNSAdlSF597cXpSV07IM+IDpMbWf2L5g8OtwdD+vY/6SWsqwfKmmGgis1Cm81DOrbqA
-	 flKkq9Hhd89sPWihm0vWrrLGWLavUz+IijXZE5yjrhzTong1HtFXD4lvYAmzWPXmAXB/Q
-	 y6wGJLj87zH40cTPRqphHZez6vPXqvWO/DNHpfzq5Xk9cV3wkdmpZ8a8FiBU0ZDV/Lkix
-	 2G9o8kTxdNa9RBEZL0ac99P9YZSFcouftaN9QALrzl4ylMdwI9ADzrLDc/D7+hSFrPw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795304682;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Yfdde+/hJowzTbg0KjHhSlaVR/+nDe4W6soN7D1vscU=;
+	b=xhFg9muliDWXdArGIyrCL9zwJWxi7ZV7+KejmXCf0qKl8xWQWEG7/bT8GlksM0m0ZwrA
+	 YSX5/1fqyP2DNRi55Kj1gX8lixOj3SL3CifmGEYARRzL0GoRtyvTcq53hG4r+tgCcoA0m
+	 ZPHsSQKF+0UP8onuXCLZJ2yQNf1Ht83a0j62Xg+l0Qvm1HISKN5SrUNavdu7t8pBliTB/
+	 PHvWjdBOdsLAMxkdph4LuoJ0YoaUsiBEs453bwY4TbPRaZiiU18PDc78tNiDRNyNDEdyS
+	 Ll4ZHwXqmXnjUTgKPjcB9T7nDiFCBUxbZiSK2s/PwL3zpgFn2VX+PBIEDfnZD4XuHPQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nbv8iWP4;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C8E4606A337;
-	Sat, 21 Nov 2026 23:44:23 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ZiNGVtjp;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E000B606A331;
+	Sat, 21 Nov 2026 23:44:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E000B606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nbv8iWP4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 084531F000C0;
-	Sat, 21 Nov 2026 23:44:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795304663;
-	bh=bJv2CRi9uextI7SDskU+t+k/eig77lL331lPw8tX8+Y=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=Nbv8iWP4eDIu7oYO4iAVCFUX/wOcOenIU8cUMWaTZezQZRRNPcPIirGaJpfk6OPjy
-	 aXhzmCYIb/kMAmBKmYcD/pOqlMBSy08l73X80CpSw37mOVbsHuYhZOSoKq/sOiqhec
-	 BHBYH7ahS5CwjhYrYr//gdhwPXbzlnsAoOPuYdAf04fDmYfmDsZG111IiFoK7Fn0Y5
-	 y9F5ocZ5JHYkzjf2o7sqXGJiicrr6r+DkEW4nv8QA3HvSjyS/xsQVfsuS+V/vO4Cb7
-	 8Jrmt0dp8gVz7QVpl+MF9bPFj9oHZ6Muo9pcJDFH2/ulB0+o7Gw9q8PZ0NM6Ol2320
-	 KEwOKiE2HTJKw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15AF391B08F;
-	Sat, 21 Nov 2026 23:44:22 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ZiNGVtjp
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BB5E175D;
+	Sat, 21 Nov 2026 15:44:38 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5FDAF3F632;
+	Sat, 21 Nov 2026 15:44:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795304681; bh=MXfhRpApggBTfwv/7/s4oWFtSJgBGz+mbDFJ2DLWHjI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ZiNGVtjp/2ZT9xZrQL4FhHdZxNgCY+hrOBg60Dt9PyXrs6qFLUzd8Bu0p8ni3S/Ss
+	 9HAbxks+eivZoHAhgqxDyHZDsJKknjZ6ziiKJK2w/frGSbV03Dkn+OpbrQWP4Gremn
+	 5TvC/DugIYHTaGodq+N5yIC4AnosI7bCri46LtKU=
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Cc: sudeep.holla@kernel.org,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	d-gole@ti.com,
+	jonathan.cameron@oss.qualcomm.com,
+	elif.topuz@arm.com,
+	lukasz.luba@arm.com,
+	philip.radford@arm.com,
+	david@kernel.org,
+	souvik.chakravarty@arm.com,
+	leitao@kernel.org,
+	kas@kernel.org,
+	puranjay@kernel.org,
+	usama.arif@linux.dev,
+	kernel-team@meta.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v16 24/31] firmware: arm_scmi: Expose per-instance identifier
+Date: Sat, 21 Nov 2026 23:39:58 +0000
+Message-ID: <20261121234005.1525419-25-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261121234005.1525419-1-cristian.marussi@arm.com>
+References: <20261121234005.1525419-1-cristian.marussi@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,44 +83,61 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: initialize sk_peer_lock in cloned sockets
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179530466152.1212208.3098530208274110712.git-patchwork-notify@kernel.org>
-Date: Sat, 21 Nov 2026 23:44:21 +0000
-References: <20261118101752.1989502-1-bsdhenrymartin@gmail.com>
-In-Reply-To: <20261118101752.1989502-1-bsdhenrymartin@gmail.com>
-To: Henry Martin <bsdhenrymartin@gmail.com>
-Cc: edumazet@kernel.org, kuniyu@google.com, pabeni@redhat.com,
- willemb@google.com, davem@davemloft.net, kuba@kernel.org, horms@kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
 
-Hello:
+When multiple SCMI instances are configured, the SCMI stack probes and
+it is initialized multiple times: one core stack for each defined instance.
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Each istance is simply identified internally with a number and such number
+is already exposed to the user to name the root of the per-instance debugfs
+subtree, if enabled.
 
-On Wed, 18 Nov 2026 18:17:52 +0800 you wrote:
-> sock_copy() clones a struct sock with two memcpys that both include
-> sk_peer_lock.  sk_clone() re-initializes sk_lock, but nothing resets
-> sk_peer_lock, so a clone created while the parent's sk_peer_lock is held
-> inherits the lock in the locked state.
-> 
-> The first getsockopt(SO_PEERCRED) on such a child spins forever in
-> queued_spin_lock_slowpath().  spin_lock() disables preemption, so the
-> task never schedules and its CPU stops reporting quiescent states; RCU
-> grace periods then stop and callers of synchronize_rcu(), such as
-> expand_files() from accept(), hang.
-> 
-> [...]
+Expose such unique identifier to the SCMI drivers so that they can use
+that same identifier when in need to name their per-instance resources.
 
-Here is the summary with links:
-  - [net] net: initialize sk_peer_lock in cloned sockets
-    https://git.kernel.org/netdev/net/c/ff73a2bb558f
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+---
+v7 --> v8
+ - fixed Doxygen 'non-negative' integer
+---
+ drivers/firmware/arm_scmi/driver.c | 1 +
+ include/linux/scmi_protocol.h      | 5 +++++
+ 2 files changed, 6 insertions(+)
 
-You are awesome, thank you!
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 4b3f291e623a..5203872b57e1 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -3451,6 +3451,7 @@ static int scmi_probe(struct platform_device *pdev)
+ 	idr_init(&info->rx_idr);
+ 
+ 	handle = &info->handle;
++	handle->id = info->id;
+ 	handle->dev = info->dev;
+ 	handle->version = &info->version;
+ 	handle->devm_protocol_acquire = scmi_devm_protocol_acquire;
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index 4b4c7b336c71..12a980dbc7c8 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -1088,6 +1088,10 @@ struct scmi_notify_ops {
+ /**
+  * struct scmi_handle - Handle returned to ARM SCMI clients for usage.
+  *
++ * @id: A unique non-negative natural integer identifying the SCMI Instance
++ *	associated with this handle to be used across all drivers for
++ *	naming purposes: same identifier used internally as the root for
++ *	the debugfs per-instance tree.
+  * @dev: pointer to the SCMI device
+  * @version: pointer to the structure containing SCMI version information
+  * @devm_protocol_acquire: devres managed method to get hold of a protocol,
+@@ -1108,6 +1112,7 @@ struct scmi_notify_ops {
+  * @notify_ops: pointer to set of notifications related operations
+  */
+ struct scmi_handle {
++	unsigned int id;
+ 	struct device *dev;
+ 	struct scmi_base_info *version;
+ 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.54.0
 
