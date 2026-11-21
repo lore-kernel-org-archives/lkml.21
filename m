@@ -1,82 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795288533;
-	b=fJKAmfOdQjBsKPAvspI15m3iwFpegQ+QgN4bXfpa55pKgsKwJb93gDyDpsv7jnSMBEi3
-	 ahsImNfAaJgqC6oCylxtAsjFRbvLfY2sEWftQeWy+pIBmtpld0HuIQozkb5OQFEnatypv
-	 PSKU0H3ontOstYSDX5VgLOHQYJLahkait+yFRGYJcFkifcn11YZ6PStRoIN//Jd79a0Re
-	 eOPz/twVauQdTIiX3t9l0YAwCbRyriui+iuhIdnWjPvEuC/WwUWWVz1ASvKApe+0DJz3n
-	 k1f16cRNGYy31GNaOG3QSU6CklyiDGdYtF2ikDK3rFV63qYUVEfXG2hashrRBK9rqiQ==
+	t=1795288534;
+	b=jwvyUqAqY7C8d+1ap2CKx+gC7i2HCDO3sFRHcKJlVC86bQD2VrumurQM7Io7ChipabLw
+	 ZBxjqCks1Y1xonx6rZpQe+5K+U8U7RoiMtwEQDeXKvhqPakUSrsl/EpYSfMTZbwcrGLHg
+	 DqtqL40xuB1dcMF8DihL8Mkq+pyt3TKwoU1A5SmGjeQgPmkqo0eQedhOJV8isVsnUKyZh
+	 INVDepgczo3uuLwbcnmJx9JmETu7GWSI/yvg4dgnnfTvDbe5ylUZ2eNyv7XYmFwnmpwXy
+	 6V+PMZIe8+YKrWvuANzduGc2tYcNf/kMj5o6cC2/xpSq9P3P5HZvTKRkP8oNfCxtAMQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795288533;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795288534;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=BV6eprrpmk60WsgTos/4/q2nGNAqJeHGHSNMjCSFXis=;
-	b=V1XwcU2b2CaA4gVfZArRs7laofUnR0SA8AgBnqu3yNtdExdjHPGkRkBsWxWp3NhBd6q9
-	 yyXhU1bVE+MoDMaJ1ksc4DsVxFpgzASik3OKt8qX+gcNFshdP0j4cphAhQbY+vfa7Fwre
-	 jMWdfJpBZYEEdLysb3ghlePYvspY280zbHZwS1I2rtvQZGhao+kzB01ndLX7AaOJJ1Aiw
-	 sVRmWaSF5tBIh2Qr6a5qyCas/0mB+busIl1BBfb+PkYFnDDkGmc8y5ZFGXCcElDEdIrSZ
-	 A4bHUaL6ooZbjQBg+C145yxcEdrnD5pKdgtfRsevbU5LuJmlI8iivMmRfHHEQSfcpNQ==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=Q4WD7Jk0cw2TjprWNqsQesqn3kn3kUHgcZy5hZWTIA8=;
+	b=VvfillN6GtW/M8Aw4pQGGMhOYTvYBiLtu46o1XREJZ4oeGd3vzSMu8RaBptsP+YbtGGF
+	 rDgsw6/PGZlOcKGdAPkoB3vlleuEbffPcfrwYKCbOOwiVhN+DEenoLvQPYrfjBGXvPvty
+	 5CiF0EUdgSSv2m8mhyhsUSgljssecgyo+q+fKALZW0GAbJHb5/UwHNqrEXVTFkDKvpwH7
+	 6CiOit57sWy/zSq7EFiP0sX8431rpto4x3RkXwmin8gK9IPsu26G+9J0HNCZUrkqh1WmW
+	 csbp7iWbizIvs+cq5gRT2/t7lhJuwf2hEEnx5i8cr/yvNrsUvlMRzSqJN9h1YEXqA5g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lrW9pljv;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=biOl1fS7;
+	arc=none smtp.remote-ip=209.85.128.54
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B265606A331
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:15:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B265606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 838F8606A335
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:15:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 838F8606A335
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lrW9pljv
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a210470b49so17769785e9.2
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:15:32 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=biOl1fS7
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb61185057so13089015e9.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:15:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795288531; x=1795893331; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BV6eprrpmk60WsgTos/4/q2nGNAqJeHGHSNMjCSFXis=;
-        b=lrW9pljvogIQJMAPD1HjzkVAE72U83bgVdExyRBkuoylxhafUbM1yINJrxAup0qRl0
-         ISO2qlGwdzhO+JyXBwK2SZAr+L2vsxM7SGuHHdukzchRoteUovPxgge73Ynp7wA4k7Bc
-         OlVdO3TdmQzRWoRRFaa4Snuj1ieoGCm5oCGpGC4/GeQrN8uHFP0PCzdT/pkDRqNQL6EP
-         RiaKkG51p0YgoSYwA3WA1A6fb98MtZY+NHOfZaGGddfJ/HBLTaBW5jcKKPqOfX0ztwR2
-         B8tgEGuEqoBq9ai1ELNiJHIXZ3oMH2LT/qzZHCgSzczI8WyaAZ5jDN3CTd5a4AHT9l9J
-         3Hvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795288531; x=1795893331;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795288532; x=1795893332; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=BV6eprrpmk60WsgTos/4/q2nGNAqJeHGHSNMjCSFXis=;
-        b=jSaTZTbmGjBUGCFWw9PbvPDZfFTSe1ZVevi+HW9AU1ETG1B3rMcLJeV/ZXtaNqBgzY
-         Tlke59Ff91rZPJ3LoAqy9n30UbJI/Vu7HfAzaBvQkZnduEDEqe4YgF8AC1gmG0NnrVMU
-         LZCF15unQKm9EyfMTRr4CwjJAO/fk+1/48+W0Je7ghV7VxjSL+yzZP6bKXLvqa+4wZBx
-         GJodmCg0/AIhyKT5+yhMgO3K75zSi/bo3RjOzDqx1TL0Sqd1AybtpJ7lW067UmPoME9v
-         yLjvMDAcilRIKXsRaEBw3rWRwMaNbz2O5s8504H6va0Wk2ADSfvpQSflQL3Q7etY4F+R
-         IWfw==
-X-Forwarded-Encrypted: i=1; AL+hErGLzon6PTcPHQEmsTigN2hyFi1FJI5JRK9MN9gALHp+KzFeNmN3UECHzPCWzZYqpkdRPpoApV0XhybSRbQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+DXhYQRufmwjRbai429BmO1CVQb2bXmU61LI60SS2vjh43MwP2
-	ps2mlD3JBXPPvzQYvCxlTcOq5SEVlhAyzXHglO0hN4zEscR9AP1aWzz5
-X-Gm-Gg: AZFdTZchk4QPOxTssoXpb7hwvTCm/M/dKGVymO8KbjamRr/vLkF1P2J2o8ryT3kH0FZ
-	MeptNnf0sa3uSUnk7tfO2OKNQzPShDknzCp5cLZ3e9GvBN0GIeFCnYcImL0g6uxsi90FqUPC6GX
-	DJgRm0oyhUK8FapTosmmZtX5GBZMM0/7+2Q7CemwZGmJ/XCTxRKlmztOMMk4uTDB46PF7eAQ+2c
-	59E4M5yfa+5Q2AzzzZYeJgKyA4rgodwE3exFSMOVjiYNbLaNUf0gNhSNtuul35Gsz05y6iJuDZ8
-	e8FmAGWOAQDeRvr1sxGR9+NsrHxjVcrO4xYwlsihhA+lqbCpjvyXbAxhoTapt+gFgAXUQWAH1qJ
-	LjVYobsMbPEPIUl7kFvKx386RyHJ6+u6OieP6XnlyuoMUEzTmDWYp5FN6buOo0r4T05by3UoMWw
-	uIGrkESLRTZlZMcK+8lq8mMTyLVw/AbShSEJyu/O4tSHf04H9wpDne41iSQyMhMQB9xfQhoE41R
-	6y5SgaauhPFuL1L1Otxp5QmH2mBtRWKZaRdsM9O0yWBYoOGIVO7Ol8JkNij/rA4NWPhxQcQ+FP7
-	lR+bI0wyMJqJQ1P2Gxpq5B/sGp+F9562YfbL
-X-Received: by 2002:a05:600c:3508:b0:4b2:3c81:d1 with SMTP id 5b1f17b1804b1-4bb88826921mr147640705e9.5.1795288530817;
-        Sat, 21 Nov 2026 11:15:30 -0800 (PST)
+        bh=Q4WD7Jk0cw2TjprWNqsQesqn3kn3kUHgcZy5hZWTIA8=;
+        b=biOl1fS7Ss4E+Q1n81nIHaIPbpQwjXpgxrWdtRs8bmZZh8qWbVavgqucuLGq+PX83I
+         4qxp9aCsmgpuW4LWaWnp8jy8AHzAnzQOZT93Sro9kj/jElmaZ0cEzKk//F9kGv+5xDod
+         k59KBq8HrumEMVnN0Tjgl7LLLlf0/9ytBBCxSTPP8GrtXboATbFG3kvZ9ywPusd4fmW2
+         dTVEP++GyYhHkqyCesH0FzFNlsOUE6Ri0fUC5XaI9dzhn2bYlFWyGse3a9CJudGbbtD8
+         3eKLuKQny98pl5+A6ODggZ7JtNQe8V412sVCHBmM3br4JuekeSEL5kFDEbc40lCPZjON
+         fhvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795288532; x=1795893332;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Q4WD7Jk0cw2TjprWNqsQesqn3kn3kUHgcZy5hZWTIA8=;
+        b=h4llbDtruASrZgqEuo4b0SAso9RhJM54ruVQPzEasUvPDDmn6pnsMfHssmdOBfJGTS
+         SfodPNeZ40oZr/M+CB/7YI6V18AP+VHxf17uiZzzuMPoz0sBLJJ9q8SMR3CxAWXL5gpB
+         v3JKm9daVX9rRlBdfIkZ+zJu0hO8JzwFpsEiCx8gJI9oSJYHOL6WjR7zxjX0UeQESx4F
+         f8scwSRqRLVX04NFtoxH0xR4ouJ7YAhXZ97/mlLeeEaDr+84JTNvmzm3lY5+vVENgtLq
+         q0Vw1tf4143eCXmbIVZa7AnOzNi/c/1Y9x7wwRw2tSRT0tNJ/2OUMGbCj6gQ5EHShBLC
+         EMzg==
+X-Forwarded-Encrypted: i=1; AL+hErGHc9TGHLVqVXmHCQJzs8w3CYH43xhBpnXWPtvhxD99V3dzifGVVNFlbXo1Unm1fFt988JR34XS9ZlJJME=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9/rQ3pHN+muQhaDaksQUJGoE6Usu9dF3BzwszUoJx1S4ZN3swU
+	YN/PgnSy4bGYbOkNgjXAusFISNwtu0V89eBiPzydPU5l0XXZvOuDvbsi
+X-Gm-Gg: AZFdTZdKtwrm9T+b/bB37MO9yqgrEyowjiTnnXI7jn5lZKoPeMVG/OTgvecSgxvYBNz
+	paYKE0cqmNEkqbdrrxlGkIHL/jJmLOfDtI7tPBJMFpLCgprsm/YYP/cR2B6fHMlaa5SLqBwFHbA
+	4zsc90CJF+BOuECXxu6ehp59bt2f05t1f30WqUAvuGqm4RtTrC3TJJ4vpr0RWsChLq3cVORaSAx
+	0kJc3PHd16eIp2JK+jZzVootWSo/4gy3fkY0p3wdcaoduiDnCRNpCdhZboAmxeuK8cHnlQP3zmA
+	bQkpt9+1DPeEUSBkNPJhMgAXeH4FjHVWTxfWq6P60JlBf7Ap3Acvt7NpA9VMuwo6E14TfpubQEs
+	yOrp2UZt8Ah7KAnDCcaa3mphEp3LtffTcyiK/TOOBcwyKq9Po60JcyhFz9p+199CQm76ePUya1w
+	lMusPCmNPcL+Hd9PAPpM4uL+qdOtpV8eNmrAHa+ktiKAxjkeKCKv86/o+fssAsemcfLF/QSu8AA
+	GMwaMR9bzj03LYkUpEpMl4kHaTRSml4hpUNlcNpeAhqmAv2TO+ZeNri8kxjKYM6FTZx9g6CU59x
+	X2fOgv8vDMjf2BUMmOQ5hoecWX6viMF2XK8=
+X-Received: by 2002:a05:600c:3b99:b0:4a1:777b:8a12 with SMTP id 5b1f17b1804b1-4bb8880b984mr175856705e9.14.1795288531829;
+        Sat, 21 Nov 2026 11:15:31 -0800 (PST)
 Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8849247asm194929325e9.7.2026.11.21.11.15.29
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8849247asm194929325e9.7.2026.11.21.11.15.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 11:15:29 -0800 (PST)
+        Sat, 21 Nov 2026 11:15:31 -0800 (PST)
 From: Mehmet Fide <mehmet.fide@gmail.com>
 To: Ping-Ke Shih <pkshih@realtek.com>
 Cc: Luka Gejak <luka.gejak@linux.dev>,
@@ -90,10 +91,12 @@ Cc: Luka Gejak <luka.gejak@linux.dev>,
 	linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	mehmet.fide@screeningeagle.com
-Subject: [PATCH rtw-next v4 0/4] wifi: rtw88: fixes around the firmware recovery
-Date: Sat, 21 Nov 2026 20:15:24 +0100
-Message-ID: <20261121191528.591334-1-mehmet.fide@gmail.com>
+Subject: [PATCH rtw-next v4 1/4] wifi: rtw88: free the reserved pages of an interface on firmware recovery
+Date: Sat, 21 Nov 2026 20:15:25 +0100
+Message-ID: <20261121191528.591334-2-mehmet.fide@gmail.com>
 X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261121191528.591334-1-mehmet.fide@gmail.com>
+References: <20261121191528.591334-1-mehmet.fide@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,79 +110,76 @@ Content-Transfer-Encoding: 8bit
 
 From: Mehmet Fide <mehmet.fide@screeningeagle.com>
 
-Fixes for what a firmware crash test showed on an RTL8822CE, and for
-what Luka found in v2 and v3. Patch 5 of v3 is dropped, commit
-3f2238709f5d ("wifi: rtw88: clear RTW_FLAG_RESTARTING on stop and start
-failure") does the same.
+After a firmware crash, mac80211 adds the interfaces again without
+removing them first. rtw_ops_add_interface() then reinitializes the
+reserved page list, and the pages allocated before the crash leak:
 
-Tested on rtw-next 0bdc579dbfc2 on an i.MX8MP board with lockdep and
-kmemleak, with firmware crashes triggered from debugfs on the RTL8822CE:
+unreferenced object 0xffff0000cbe22c60 (size 96):
+  comm "hostapd", pid 25545, jiffies 4296463067
+  backtrace (crc cbdc21c4):
+    kmemleak_alloc+0xcc/0xe4
+    __kmalloc_cache_noprof+0x234/0x3bc
+    rtw_add_rsvd_page+0x38/0xa8 [rtw88_core]
+    rtw_add_rsvd_page_bcn+0x30/0x58 [rtw88_core]
+    rtw_ops_add_interface+0x144/0x2cc [rtw88_core]
 
-- patch 1: no reserved page leaked after crashes with an AP or a
-  station interface, where rtw-next leaked pages on each crash. The
-  beacon update work and a WoWLAN suspend between the crash and the
-  reconfiguration found the pages
-- patch 2: with the firmware TX reports dropped in a test build, hostapd
-  got a purged client probe as not acknowledged, with no ACK signal or
-  link ID
-- patch 3: with the collection held back in a test build, a client
-  moved back to AUTH and deleted in that window was skipped
-- patch 4: no "sleeping function called from invalid context" on a
-  crash with an associated station interface
+mac80211 zeroes the driver data of a new and of a removed interface, so
+track in struct rtw_vif whether the list was initialized, and free the
+old pages when the interface is added again. Until then the pages stay
+on the list, so a download before the reconfiguration, from the beacon
+update work or a WoWLAN suspend, still finds them.
 
-The regression tests on an RTL8822CE, an RTL8822BU, an RTL8822CU and
-two RTL8821CU on both bands passed, except the 2.4 GHz beacon test of
-the RTL8822CE. A neighbour AP's beacons pass our TBTT on that channel
-every 157 s, and the beacon loss over 330 to 400 s is in the same
-range with and without the series.
+Fixes: 5c831644e1f4 ("rtw88: handle and recover when firmware crash")
+Suggested-by: Zong-Zhe Yang <kevin_yang@realtek.com>
+Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
+---
 
-v4:
-- patch 1: the pages are kept through the recovery and freed when the
-  interface is added again; no port checks (Zong-Zhe Yang, Luka Gejak)
-- patch 2: the TX status is cleared when a frame is queued (Luka Gejak);
-  Reviewed-by dropped
-- patch 3: stations without si->vif are skipped (Luka Gejak)
-- patch 4: no change
-- patch 5 of v3 dropped for commit 3f2238709f5d
+Notes:
+    v4: keep the pages through the recovery and free them in
+        rtw_ops_add_interface() (Zong-Zhe Yang); no port checks
+    v3: no RTW_FLAG_RESTARTING test; the page download and the page
+        location H2C do nothing while no port is in use (Luka Gejak)
+    v2: the beacon update work does nothing while RTW_FLAG_RESTARTING is
+        set (Luka Gejak)
 
-v3:
-- patch 1: no RTW_FLAG_RESTARTING test in the beacon update work; the
-  page download and the page location H2C do nothing while no port is
-  in use (Luka Gejak)
-- patch 3: new, rtw_iterate_stas() cannot skip a station (Luka Gejak)
-- patch 5: new, RTW_FLAG_RESTARTING is cleared when the device stops
-  (Luka Gejak)
-- patches 2 and 4: no change
-- rebased on rtw-next
+ drivers/net/wireless/realtek/rtw88/mac80211.c | 8 +++++++-
+ drivers/net/wireless/realtek/rtw88/main.h     | 1 +
+ 2 files changed, 8 insertions(+), 1 deletion(-)
 
-v2:
-- patch 1: the beacon update work does nothing while
-  RTW_FLAG_RESTARTING is set (Luka Gejak)
-- patches 2 and 3: Reviewed-by Luka Gejak, no change
-- rebased on rtw-next
-
-v3: https://lore.kernel.org/linux-wireless/20261117171003.1840491-1-mehmet.fide@gmail.com/
-v2: https://lore.kernel.org/linux-wireless/20261116072014.1142494-1-mehmet.fide@gmail.com/
-v1: https://lore.kernel.org/linux-wireless/20261111213239.569224-1-mehmet.fide@gmail.com/
-
-Mehmet Fide (4):
-  wifi: rtw88: free the reserved pages of an interface on firmware
-    recovery
-  wifi: rtw88: report the frames purged from the TX report queue
-  wifi: rtw88: do not drop stations when collecting them for an
-    iteration
-  wifi: rtw88: reset the stations outside of RCU on firmware recovery
-
- drivers/net/wireless/realtek/rtw88/mac80211.c |  8 +++++-
- drivers/net/wireless/realtek/rtw88/main.c     |  7 ++----
- drivers/net/wireless/realtek/rtw88/main.h     |  2 ++
- drivers/net/wireless/realtek/rtw88/tx.c       | 25 +++++++++++++++----
- drivers/net/wireless/realtek/rtw88/tx.h       |  1 +
- drivers/net/wireless/realtek/rtw88/util.c     | 23 ++++++-----------
- 6 files changed, 39 insertions(+), 27 deletions(-)
-
-
-base-commit: 0bdc579dbfc251a6b6838ee9459b6771b948c617
+diff --git a/drivers/net/wireless/realtek/rtw88/mac80211.c b/drivers/net/wireless/realtek/rtw88/mac80211.c
+index 3029fbdb288a..b14d7fffb98f 100644
+--- a/drivers/net/wireless/realtek/rtw88/mac80211.c
++++ b/drivers/net/wireless/realtek/rtw88/mac80211.c
+@@ -166,10 +166,16 @@ static int rtw_ops_add_interface(struct ieee80211_hw *hw,
+ 	rtwvif->scan_req = NULL;
+ 	memset(&rtwvif->bfee, 0, sizeof(struct rtw_bfee));
+ 	rtw_txq_init(rtwdev, vif->txq);
+-	INIT_LIST_HEAD(&rtwvif->rsvd_page_list);
+ 
+ 	mutex_lock(&rtwdev->mutex);
+ 
++	if (rtwvif->rsvd_page_inited) {
++		rtw_remove_rsvd_page(rtwdev, rtwvif);
++	} else {
++		INIT_LIST_HEAD(&rtwvif->rsvd_page_list);
++		rtwvif->rsvd_page_inited = true;
++	}
++
+ 	rtwvif->mac_id = rtw_acquire_macid(rtwdev);
+ 	if (rtwvif->mac_id >= RTW_MAX_MAC_ID_NUM) {
+ 		mutex_unlock(&rtwdev->mutex);
+diff --git a/drivers/net/wireless/realtek/rtw88/main.h b/drivers/net/wireless/realtek/rtw88/main.h
+index 525f17590adb..5291de0ea38f 100644
+--- a/drivers/net/wireless/realtek/rtw88/main.h
++++ b/drivers/net/wireless/realtek/rtw88/main.h
+@@ -830,6 +830,7 @@ struct rtw_vif {
+ 	u8 bssid[ETH_ALEN];
+ 	u8 port;
+ 	u8 bcn_ctrl;
++	bool rsvd_page_inited;
+ 	struct list_head rsvd_page_list;
+ 	struct ieee80211_tx_queue_params tx_params[IEEE80211_NUM_ACS];
+ 	const struct rtw_vif_port *conf;
 -- 
 2.56.0
 
