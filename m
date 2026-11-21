@@ -1,111 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795285681;
-	b=RiIEWRF3L09uCWZb2yvHllRyulGXVa0jhexFpnhNwBj8kSYn6hS6hTLSJnsWoYjmD8sd
-	 Ssl2LJVYFH9zikZcMNBgN9kXLXSqcwrQMKhbcTqh+vSlpJItS+jQ5oZYSK/LJZUh0ewJn
-	 WNt+zd20Xde7bzOipepTk576+fkw69arq2FLgWhHWdrQkXBJv/oIuoE2McshUplM22GUE
-	 4w4gbkclva01xm553vxmwOaAXs80UqEExytHORv1lMEkzxEX7ZhoPMgZ6mOPi63dE71ws
-	 mqUerqrsjEJdu/KIE2eiwKAskfHojv27aIb9nca0RHq8YO4Qyk5mVSuB03DO2wpqpDA==
+	t=1795285687;
+	b=f2oBvrfaoNgaRCViSI9L2mcvn/jUC5dqTuFa/o1FAgbrsUOH/vtmeCDD/eNyez77z0wJ
+	 4RZ9pdrGMlyQP0am9mY+1n5zcDhHne7l1U6wC2mNfSnuh/1rZR1LRas3H9rMQ8RRXRHM/
+	 yMNfAaLuBekAsh6irY3e94QXcdvwHgaiuqorB+XsiWTT0me4gIGx9PFnuG3oYqm/sRtr8
+	 d83PXCwiLqLPCqPDysFEwd4jDXyrV9F1okfEjMyN5hBt18BU0tp31rdXejPXbB53RQqgf
+	 42SyxwdqEc/97iw5EsjpdhgDeOk0s2YcXcm3DX7EXTqiy2y0k4XTTZCNkrPzfIaMktA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795285681;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795285687;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=5Og6NCy+0q6Ms7/gjrdBqKnQWMZOjV+DT8n7b5GCP2c=;
-	b=PHTqLpYsBcZkLicvk+EKai0WRHfYfUl4wFe6XyLhSYkgqMSO2u8fi2ff7vLoalo51IOX
-	 +ddN7nRh4hojFLaLJkRRYMT9cIFm18K90xQ9O3DbYv0qT0Zg8eGq2eh9YNALAyQZL+92a
-	 aXvgx6Ben/mLQRjAlu0LDEFqjH0A6RA278kvMebkQH3OValRrTIBkkWc+vVC3Qj7St/0w
-	 5Mq2XE9yn3kWvaBhG5TZTTbM048UgIet/PK75yWABdrbELRiQcWl5TBk/rVzq3ylBgXUc
-	 uGAzIPiRXr6uExBH2rt8DNzkR4y3mMFUxW7nWp9IGv0IrlgwDd38d2ECY39Sq4NC9Ng==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=yCcssTD+yjuJjPO5oBtaLbwjf70aLXXs2hchJn8Qrh8=;
+	b=JwzgZQyBQFYPu/dXimCj61wiJDSGU3y+xYrAhRB3oOAkVXBWVTNrIeXD0UinWdzulh5Z
+	 JZm0KDVZ3nGv8PE3LyydieiGYC5iCH9Ui+R+AqI53yuiDfSjvVzzoj0Yc8CFCkMYKdLxZ
+	 8u2sMcQNKHO67rYD2gvwf+nV164ZqYx6IIwvjKFKbrYOBMK1oeMdD/P0DHK3FZl+Gv+V2
+	 NJRIU4Z8YdQKfOt3BKkwOEorH0W9d3AXHyHSR0wyRm1nwrKUxmHyxcKYVq/0G5yKo6iJQ
+	 vgSERT5GiLbuZUc8Qojfu1kCcDH5vN6zZmhqeBdHf6baACFcMYF1dALlkOCqW5Hucdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nyMluaa0;
-	arc=none smtp.remote-ip=209.85.128.44
-Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--cmllamas.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=T2oAa6xl;
+	arc=none smtp.remote-ip=74.125.82.198
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6F97606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:28:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6F97606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C806606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:28:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C806606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--cmllamas.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nyMluaa0
-Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4a68f888a41so1585125e9.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:28:00 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=T2oAa6xl
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-386a65fca25so59549eec.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:28:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795285679; x=1795890479; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5Og6NCy+0q6Ms7/gjrdBqKnQWMZOjV+DT8n7b5GCP2c=;
-        b=nyMluaa0J1C8Evy34JB1U2I9D51Q8jV2XWGP33Q29wwR04CdaApUHFGVZ2CgDIlzru
-         6JtGhIgueKLnH8bgq4caltjkpVzFJlDPCnKVJp3MR6DXGXe933oVBlSg2XJKdhtgD9y6
-         8ZDnyTSpLzDB15hwFqy2tPgVOVY2zXmdMPG2Nv6qlJih+3q+3wcN4Ny6qm1QUQvl2C3F
-         hg+NKn/4Zn4b0mhLm8VFpPrvJvhoGR/IL1PBlQUZZR83ssKIcynL9HPYhajsYO9E+qlZ
-         s+EL0mbWGwNTx3uSimOvIAEK0oLNMwvjW+ejd7sUdYqOrb9LpWhoA1aBBJidKPmRS7Ak
-         ILsw==
+        d=google.com; s=20260707; t=1795285686; x=1795890486; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yCcssTD+yjuJjPO5oBtaLbwjf70aLXXs2hchJn8Qrh8=;
+        b=T2oAa6xl6/LZvHB4W7BbgT4C0xtwjEiogX4UkC8eSDPGff0K+yTBZKR0gwh89nJykK
+         ms5Lnr16ohyeD/WHwxvtppoVPlxHBLGxxPgwW1xRExx1ZWl97sjWIqP+uQxuA94I25Ue
+         YardoQZy3VsIXw4s2itO5h53r7C9+Ya8kZZ091Zdqz2NAzjxygbKiceimpJr9K1wX1kX
+         sP44qEnuKGKItc+MAQrW8LnvjpuleKtPCqD4Z0izE7T2diNsc1p4Y389EYQL6rIZY1xd
+         Abk4x5CPToybUZ78maOsdDTr20DID0XUKESWz8Cyz+C5SydAo645x0mr0zyDuCEfpVR1
+         Z+LQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795285679; x=1795890479;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5Og6NCy+0q6Ms7/gjrdBqKnQWMZOjV+DT8n7b5GCP2c=;
-        b=TF+i+ZPW4w7af+nwOtgE/jNg4zaCXD+Eg1tgtsdcxvWxDpaaqz66d7P+JM91M0R5N4
-         YNxn8JcxU7Qq116qbZnVBW6fAFvU1u8U85pC1/oPQUokMAP903nObEBarX0eHAotbTjZ
-         KT1imBwdurfvi4rlVSZjSnpWD67beGgaUgX1UUfhzXTrbT78Fk6cDNWE3n/1FtS4QTrh
-         bZuwNo5H8olSMPTg6EmICKnFrm6P9vvUm2Zw2PMyFAMevs3l5cdQuCyyUVV1GAj0S0z9
-         x+Rp6P3c90WXhAMc+tWQGlCigzeANliPTjadxIamxrCog7lbPbaajcw8xhCzLDRBPVz2
-         r19A==
-X-Forwarded-Encrypted: i=1; AL+hErGRxUtpf6HQsFkBfUczqzePxjJAJlFct7a3O1mi0bvXrzr+3aEeqgdVZsqb3vQN8HjH82NCRhAqxgjTiO8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/8DSBkoYnc+CBK07PI07vtESAUFic9TVrWVx6UhDH1z5hxCsd8
-	x0dv/eUimqdMp8RhMC8/Zv0l14PpXTc0A1+PMl8BQnFb+kg9eCxYiiBM
-X-Gm-Gg: AZFdTZdGjLkawkOqVHzjGpVh9xuPZ/3W9J5QbW/dyUc8Y14kqergVzQ2Dxu39263ELV
-	SzxQ5e3zKcKPaNRtESqCxu2lrWfcJXrNtygUSqESCqe37aZ5gI84TOIKqTizRSPWsnBr85A/9C2
-	+OI7LFZaPQFl9qcMYmN05YhXxqHuRud7CdNONHPKB0ThHiikLE9wxMy51zNN1JrYegw7m5Y2KMy
-	OUF53q+yoAOlKe87NyAlNkAkx7I6FBmOTRBLBt9gly/RLOmiII9BaSEPFRmY+p2lvcpmo/cvqW5
-	AvU0QQ4//t/8hM+WIt4MqLV82P58lQu8gDhnqv+HSPbj6ywr6U/D30Yq7QP3/u+EL9AT9ArWC1q
-	E4/4cZNkCNND4wgbdbul59nWEWl5KBPkt1ZenUYlEy+DuNAcPKdz/nrZtfo2SeiWBXNNQu/I00V
-	HBgRmhbzOUlhCC0+sFFLcKeQDUuZWeZ3f1j57C/1AvjGd/DYkjFAetzNf8tOOYxVXW1EFWasAxX
-	diF2y/z3zp8t2RFR4uqNqUWbvNL9qDNTBhwG847oFsuq4VNWs2o7hIbkIgp0lA/2vbDlKhYua/M
-	gg1UCtoSYzwxfhp9wmPo9ITFv59yaA7W3PQhYO/UQ4uHsgU2MVTwkEorlYsFF9g49aSZiA==
-X-Received: by 2002:a5d:5f93:0:b0:48e:6675:3a77 with SMTP id ffacd0b85a97d-4abb400ac51mr13733609f8f.3.1795285679025;
-        Sat, 21 Nov 2026 10:27:59 -0800 (PST)
-Received: from Nuel20.localdomain ([102.90.87.129])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fe75sm14215507f8f.24.2026.11.21.10.27.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 10:27:58 -0800 (PST)
-From: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-To: tianyi@cloudflare.com,
-	hangbin.liu@linux.dev
-Cc: kuba@kernel.org,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	shuah@kernel.org,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	sdf@fomichev.me,
-	skhan@linuxfoundation.org,
-	kernel-team@cloudflare.com,
-	tianyi.gao@linux.dev,
-	Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-Subject: [PATCH net-next v5 3/3] selftests: net: veth: propagate bad-settings check failures to exit status
-Date: Sat, 21 Nov 2026 19:22:17 +0100
-Message-ID: <20261121182217.4609-4-emmaonana18@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261121182217.4609-1-emmaonana18@gmail.com>
-References: <20261121182217.4609-1-emmaonana18@gmail.com>
+        d=1e100.net; s=20260707; t=1795285686; x=1795890486;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yCcssTD+yjuJjPO5oBtaLbwjf70aLXXs2hchJn8Qrh8=;
+        b=D2TLpZXuOlmmKmVn818YOMeO0Kow0xXuNW4uJxNCUDizFybqJN41c0CEOFt6JmyvKP
+         YvjNSDveC7Oigvdrq52FNGKEUSbIbj3/GaSHqvSsGM1ZokY6XpId8C0uLTjrQut1NMR9
+         WdiXkL07LVFdGFplA1e0SZxFV0UQmJE6WHiiLoSjJnFUOuGY2HDKNrr3HYjREOmmmaTv
+         kpzOa3cFKqtf7PQcyrNxnoS46qAeTcnRsLUhnS8pm3jx3XVLlPqE67LaVdaJjvszTDdA
+         +zqRFln9aaY4mB28QamaOr86S1864xEX4BOM6sjgmbV/LDj4WOBkETuGpaaV8AOQs7CH
+         zNVQ==
+X-Forwarded-Encrypted: i=1; AL+hErFrfjA7mWz0Qdep10EgDjKrBcjgOEvBiJKfc+awOcgrAVe2YlX3L+sDne7yYsM9Kub5PnAgdIXdxl3sud8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/2nA4cJrlLOUW3FWtB0sCpACg8o3YRS0AKYOMkwcCz3McEYKGu
+	/becSNRjrxc6prTwnrv9yOsUMHZxWwzOWKWnGirZ2kEhieShzBPQhmEsbA6D+kLH6IGUCjnRiJC
+	biIX0sPTcpwlCWw==
+X-Received: from dyu12.prod.google.com ([2002:a05:693c:810c:b0:35d:1771:4816])
+ (user=cmllamas job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:7301:dd83:b0:386:5adb:ac29 with SMTP id 5a478bee46e88-3865adbb03fmr4466333eec.7.1795285685610;
+ Sat, 21 Nov 2026 10:28:05 -0800 (PST)
+Date: Sat, 21 Nov 2026 18:28:02 +0000
+In-Reply-To: <--in-reply-to=20261118112933.477541-1-aliceryhl@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,73 +78,71 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+References: <--in-reply-to=20261118112933.477541-1-aliceryhl@google.com>
+X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
+Message-ID: <20261121182803.2600723-1-cmllamas@google.com>
+Subject: [PATCH v2] rust_binder: disallow binder fd transfers
+From: Carlos Llamas <cmllamas@google.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"=?UTF-8?q?Arve=20Hj=C3=B8nnev=C3=A5g?=" <arve@android.com>, Todd Kjos <tkjos@android.com>, 
+	Christian Brauner <brauner@kernel.org>, Carlos Llamas <cmllamas@google.com>, 
+	Alice Ryhl <aliceryhl@google.com>
+Cc: kernel-team@android.com, linux-kernel@vger.kernel.org, 
+	rust-for-linux@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Three more checks in veth.sh print "fail - set operation successful
-?!?" without setting ret: "bad setting: XDP with RX nr less than TX",
-"bad setting: reducing RX nr below peer TX with XDP set", and "bad
-setting: increasing peer TX nr above RX with XDP set". A kernel that
-wrongly accepts any of these invalid operations would be reported yet
-the script would still exit 0. Wrap each fail branch so it sets ret=1.
+Transferring a binder device fd via BINDER_TYPE_FD or BINDER_TYPE_FDA
+has no valid use case and can create direct reference cycles that
+prevent Process::release() from running when a queued transaction is
+left unread. Moreover, a binder file is bound to the opening process's
+task, credentials, and mmap state, so transferring it to another
+process breaks binder's per-process ownership model.
 
-Reported-by: Tianyi Gao <tianyi@cloudflare.com>
-Link: https://lore.kernel.org/all/CAG4wq-cd01i7YrcFPmma=BXUcwn_PK=wneKW=vyEBYzQ3Bn7QA@mail.gmail.com/
-Signed-off-by: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+Disallow binder device fd transfers by returning EINVAL in
+Allocation::info_add_fd().
+
+Signed-off-by: Carlos Llamas <cmllamas@google.com>
 ---
- tools/testing/selftests/net/veth.sh | 26 +++++++++++++++++++-------
- 1 file changed, 19 insertions(+), 7 deletions(-)
+v2: switch to atomic_load instead of volatile as suggested by Alice.
 
-diff --git a/tools/testing/selftests/net/veth.sh b/tools/testing/selftests/net/veth.sh
-index 7a2bbed0263e7..6eeb123aaf885 100755
---- a/tools/testing/selftests/net/veth.sh
-+++ b/tools/testing/selftests/net/veth.sh
-@@ -474,9 +474,13 @@ if [ $CPUS -gt 1 ]; then
- 	ip netns exec $NS_DST ethtool -L veth$DST rx 1 tx 2 2>/dev/null
- 	ip netns exec $NS_SRC ethtool -L veth$SRC rx 1 tx 2 2>/dev/null
- 	printf "%-60s" "bad setting: XDP with RX nr less than TX"
--	ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} \
--		section xdp 2>/dev/null &&\
--		echo "fail - set operation successful ?!?" || echo " ok "
-+	if ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} \
-+		section xdp 2>/dev/null; then
-+		echo "fail - set operation successful ?!?"
-+		ret=1
-+	else
-+		echo " ok "
-+	fi
- 
- 	# the following tests will run with multiple channels active
- 	ip netns exec $NS_SRC ethtool -L veth$SRC rx 2
-@@ -484,16 +488,24 @@ if [ $CPUS -gt 1 ]; then
- 	ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} \
- 		section xdp 2>/dev/null
- 	printf "%-60s" "bad setting: reducing RX nr below peer TX with XDP set"
--	ip netns exec $NS_DST ethtool -L veth$DST rx 1 2>/dev/null &&\
--		echo "fail - set operation successful ?!?" || echo " ok "
-+	if ip netns exec $NS_DST ethtool -L veth$DST rx 1 2>/dev/null; then
-+		echo "fail - set operation successful ?!?"
-+		ret=1
-+	else
-+		echo " ok "
-+	fi
- 	CUR_RX=2
- 	CUR_TX=2
- fi
- 
- if [ $CPUS -gt 2 ]; then
- 	printf "%-60s" "bad setting: increasing peer TX nr above RX with XDP set"
--	ip netns exec $NS_SRC ethtool -L veth$SRC tx 3 2>/dev/null &&\
--		echo "fail - set operation successful ?!?" || echo " ok "
-+	if ip netns exec $NS_SRC ethtool -L veth$SRC tx 3 2>/dev/null; then
-+		echo "fail - set operation successful ?!?"
-+		ret=1
-+	else
-+		echo " ok "
-+	fi
- 	chk_channels "setting invalid channels nr" $DST 2 2
- fi
- 
+v1:
+https://lore.kernel.org/all/20261117231927.2200674-1-cmllamas@google.com/
+
+ drivers/android/binder/allocation.rs | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/android/binder/allocation.rs b/drivers/android/binder/allocation.rs
+index 927bf47d5d20..f998744f075d 100644
+--- a/drivers/android/binder/allocation.rs
++++ b/drivers/android/binder/allocation.rs
+@@ -9,7 +9,11 @@
+     bindings,
+     fs::file::{File, FileDescriptorReservation},
+     prelude::*,
+-    sync::{aref::ARef, Arc},
++    sync::{
++        aref::ARef,
++        atomic::{atomic_load, Relaxed},
++        Arc,
++    },
+     transmute::{AsBytes, FromBytes},
+     uaccess::UserSliceReader,
+     uapi,
+@@ -182,6 +186,13 @@ pub(crate) fn info_add_fd(
+         buffer_offset: usize,
+         close_on_free: bool,
+     ) -> Result {
++        // SAFETY: `file` is valid and any concurrent `f_op` writes are atomic.
++        let f_op = unsafe { atomic_load(&raw mut (*file.as_ptr()).f_op, Relaxed) };
++        if core::ptr::eq(f_op, &crate::rust_binder_fops.0) {
++            // Binder FD transfers are not allowed.
++            return Err(EINVAL);
++        }
++
+         self.get_or_init_info().file_list.files_to_translate.push(
+             FileEntry {
+                 file,
 -- 
-2.43.0
+2.56.1.809.ga0b61035b5-goog
 
