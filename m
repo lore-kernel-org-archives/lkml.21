@@ -1,79 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795296183;
-	b=QcZH5i7uT8D7c6SSlbwek4pIlSa4quJJeYvmRi/4nMxOuDCSCylQZoGr1+4EpMcDfJXz
-	 QjhTJUlWLsuuUiFHbMpRhyXqoX/9n+FKRJkY5L9jEc6bnF24VOrqz0m7zBQDihb9AqbVp
-	 ZHAoHxwp8Er1Qvv/jL+qJC5u5jXltePRmTri93jT8lxfv0rDZ4+d0kTTjgnZ+5Yf7lhBb
-	 p7Nh46vrvoIANZKwd0AGFwnQ61IvZQQOnFt7q8hDgxkbPzxndui1OHG+QyWae8BTVzaYP
-	 VEjVzd+zH22UlOZVtfOMhNrA6sTFjVpcODCvyUZvCaun1KMEcwVuUYFVn5EcvOZyrBg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795296183;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=x4XRBq3Pn5wzsPC99XTIJw6bsLuCLk/3nxJnla9KLVw=;
-	b=hMWlvwogR+3hAnFEzN/SWcJMpBeZWSnH1rL9iW6WoUoToUHBnaTiUaP5Ou+SmBXZsMUX
-	 NJyz6Aa30998ogTx/zLE4H5Z24eNjV/xd9rw7RaE1trrKPlNj7KdonnvvAbhcWA36VdWS
-	 JyELFOa2JRA2JpajFgqJkWvgTrjec1ejrZBHZQFDppmofz+ufTKf8TGwKwQIV2XnEafIl
-	 ftcppubZSNTIRAKctH5+AugdGvR5JHBzo8VzNDjL5Jjv+fSlfEVG3N8DsXgDEj8v4jP/K
-	 N61lbEJTC2ejXra3uITbsmjiscPmB/BZ/Hufv56roAsbEDzPnffHYsScpIjg7Z4wCQA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A5PDbX27;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D702606A685
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:23:03 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A5PDbX27
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795296183;
-	b=XdAyp6YkuNwUPtcodWCgB00jSXu+/JzG2MyqtzX1jLoXkdxz5e/u6r9EvN+io1QXsjXz
-	 4seZzr39mPZ0vCZKK37RvA6KkEdNcbrdPfYIgI2wgIfgULJGrMOHZRWNR9e/QuacDIDZu
-	 RxQcNbD4PvH2AtHJ5JTPm0rmI3AztKV8vbbHq/494dENcqza1oohZ64E1DTiN+ql4VaKM
-	 NCtLI2ZSfzS22u9mCwK7fHIVntR0FdyeRmzum2OjMm81VqTKpb7E3TlVZNDHq867vkebi
-	 frvwoFckobFKvy0NVfk7PbCnPq5SOz9bi5mk+hY5ShADwAo7T8GDSAsKeF/3JhbjiaQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795296183;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=x4XRBq3Pn5wzsPC99XTIJw6bsLuCLk/3nxJnla9KLVw=;
-	b=aBmz5aln8pRBHZZtiPiD0X594XOst1UbmIeUtNeuEYPuHldR1+VaAKKlKHURQkEIVDk6
-	 a+p8d/gUWv/Knl5heUP5u0F48cHddtnxnPkMmOkKO5th4qH2TXiiCgAVlDe51y6INZ96W
-	 xCzfYVUDrGtusIOMcPXjvku+jq0LJ4eByyKy32aQl2z+mE5yWENYO3qlhaHhHSEd7i0kH
-	 QwM57Xwq+pL13r4ZU+eBumJMX8Llc4MyINHv1Bzlsc/kzoq5G3iNiul/gNjqDy3AH0Uqw
-	 /5Lwb4CmhKXw8pk7PXXndk7eymxYqK2Gi4p4d2VRBTuABZukuT8JzXnULkgIq12CM6A==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795296282;
+	b=hx6mqQm/KoG5UuaZ+1w3mSMF6aI/Lrt7fEg1RKAJHcWCWzN9PIdT0M6dLTxnFwJBpaQE
+	 ru5nkC5tCq4B/Hsehp4mLbBYRw/fo8llRyc5vbgIdv0hbxJeOxmHka3ID97O///icWHpw
+	 e7nTslp/bJbpb3a2B1RuSlRwt31DYiKMq+dKXQaTIp0dnLHyI8Oyc4pm8SlbHYsASKhmU
+	 I1I1DrbEW4ri3Lb6Ehq9F2fGJCy/y93fI/I5b78+LtLFr6B2okhZmXUwPJS9K3IGciqKB
+	 4S8ukbg25Nig35p6fNGpVLML6GwuT5idjpCdi3xIy/DpwNMy0I4/7t46J1pJhRX3nDA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795296282;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=qPv/aRybxiihzTHTiKkFME6FpgXCP+REMbbDc/0fYE8=;
+	b=J6n+uVdSDRm4A+hVkOvhT9Co8zX/BR2U104ljPqToPFSxu4VTIBGX8KSY2epJObafCtV
+	 zfzgCz2RmDmPQb+aMvB0Hw6j2IvpCedHPff5RaPSPY3g8sUykNU/0ROfgYfdTd56y/DHu
+	 vSXccDigzqYcwbTuK2RAfS8bc/ATt//8Tocxqa1belVncxms1Ltrsms3tMWp+RVTgKnqq
+	 5JIaiGybfslRwxYP44Is8fX3Y87W1/u74tQWp4zzb1qstrEfucWYJCl9O4yojM6hJzH9z
+	 30fU/gKq9JDj3IYVIOwBi3eAlVbmcGyT6mkxvgOTK9+kr6j7L7r9o+uPi6CsgS11rQw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=sang-engineering.com;
+	spf=pass smtp.mailfrom=sang-engineering.com;
+	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=AJqs8GGY;
+	arc=none smtp.remote-ip=194.117.254.33
+Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 9C0E71F000D3;
-	Sat, 21 Nov 2026 21:23:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795296183;
-	bh=x4XRBq3Pn5wzsPC99XTIJw6bsLuCLk/3nxJnla9KLVw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=A5PDbX27xNPku/5wBSaZel30n5lcgCLoGJRk17KiS2hMOf7yIf43aq+CHlXrWtE7F
-	 qq6iT/M1x4A8jnNW/4k8wW7RGYcIX4HM7j5ZqORO4AiNBL5jmpJfTQTGfnM4cFJdF2
-	 DiaAKu4Y/LvfOsWVTuNajdjoF3BiNOuQmLF/7gSWhikETTa2hHAJXKiB8Bu5hcoXPS
-	 GJ2dffyh6eIIH5jcP1ktwUAeKI1rjvYsaw2vtqkA9ERZCxE6E0o9ZxSf89/fdFgge6
-	 1BEBJEBrWGJURPFfu8pZbVBA3l+edD+mGDnL/KfZGICysqVUFeV3t/5pap8jlHEdvN
-	 hKa/lXM0+D3sw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 788834BDE4;
-	Sat, 21 Nov 2026 21:23:01 +0000 (UTC)
-From: Jim Cromie via B4 Relay <devnull+jim.cromie.gmail.com@kernel.org>
-Date: Sat, 21 Nov 2026 14:22:59 -0700
-Subject: [PATCH v3 6/6] drm-dyndbg: drop BROKEN on DRM_USE_DYNAMIC_DEBUG
- for testing (DONT_APPLY)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F3E9606A336
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:24:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F3E9606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=AJqs8GGY
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=qPv/
+	aRybxiihzTHTiKkFME6FpgXCP+REMbbDc/0fYE8=; b=AJqs8GGYNI1DF6qNJeT9
+	gyjB3dc6oXz4D+Yz/Qu+w02FrCzwj8AHpHK0fH6BeLfjG77NqlYQkpC3PnjCG92A
+	tGtT44cHaEKXQxziL01NLdBOJsvmclbSlpav6UUGWBRwlJmGHoHsgwOhISrn9uEE
+	fIp2eXF8iUGnlgLm56VCvglKYYvAcQx/O4G/w7AmpTw0JdjJV5aHFFZOls9s7VU5
+	diZ730+ilaxa6udyF0BVGbHNDiiEjL8n3yden5w4wI9YvSZAwHDs6DbP3dF2CAzl
+	U1uHwNFnxnbRRDCntrrlEgmN3udg9q6oA39xHetZr2yPK7N1dCq2oo/gToOVOYd2
+	tQ==
+Received: (qmail 1945706 invoked from network); 21 Nov 2026 22:24:28 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 21 Nov 2026 22:24:28 +0100
+X-UD-Smtp-Session: l3s3148p1@betU/M9gntsgAwDpTyYqANgHwk2rnHm5
+Date: Sat, 21 Nov 2026 22:24:27 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Ralph Siemsen <ralph.siemsen@linaro.org>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, khendry@reliablecontrols.com,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 1/6] dt-bindings: clock: r9a06g032-sysctrl: Document
+ reset cells
+Message-ID: <awIMBj_7OLrlM5G-@shikoro>
+References: <20261119-rzn1-miic-resets-v1-0-feee2bb28bb4@reliablecontrols.com>
+ <20261119-rzn1-miic-resets-v1-1-feee2bb28bb4@reliablecontrols.com>
+ <awARmkCuelD_fdX6@shikoro>
+ <5d8530485716d129be2efa0518254e3322cecdb0.camel@pengutronix.de>
+ <awAq7vxcY8CGjhNl@ninjato>
+ <awGV8BU_AfaXQyBv@maple.netwinder.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,60 +89,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261121-rd-mostly-v3-6-89e74b23b491@gmail.com>
-References: <20261121-rd-mostly-v3-0-89e74b23b491@gmail.com>
-In-Reply-To: <20261121-rd-mostly-v3-0-89e74b23b491@gmail.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Jason Baron <jbaron@akamai.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Andrew Morton <akpm@linux-foundation.org>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- Jim Cromie <jim.cromie@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795296180; l=818;
- i=jim.cromie@gmail.com; s=20260203; h=from:subject:message-id;
- bh=FywBSQVzh/O/x8StOKw+M4F1py0iU1srNXGib4Mzet0=;
- b=T8tjzcqYU8dNAr80WEMaNe5Y+y9n1HhIv7+/s+beMcEpAeBQQtcrMHIbFoI/02hVK1IH+Qu3T
- 4lO67Oy2KlsAFVJgY6oaQ64wM2hUbJBOx4YTCCssztf9sXKlIesd6OO
-X-Developer-Key: i=jim.cromie@gmail.com; a=ed25519;
- pk=C6E5ODlPQo7ZBynATXH9wg7K6HxP0pIXyf4s38Qw0XE=
-X-Endpoint-Received: by B4 Relay for jim.cromie@gmail.com/20260203 with
- auth_id=958
-X-Original-From: Jim Cromie <jim.cromie@gmail.com>
-Reply-To: jim.cromie@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fv0MbHVxiEYH6cP3"
+Content-Disposition: inline
+In-Reply-To: <awGV8BU_AfaXQyBv@maple.netwinder.org>
 
-From: Jim Cromie <jim.cromie@gmail.com>
-
-remove BROKEN from DRM_USE_DYNAMIC_DEBUG, to facilitate testing with
-it enabled.
-
-DO_NOT_APPLY - full functionality requires the (forthcoming) classmaps
-patchset, and drivers/accel/ uses drm_*dbg, and needs the ccflags
-additions like for drm/Makefile
-
-Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
----
- drivers/gpu/drm/Kconfig.debug | 1 -
- 1 file changed, 1 deletion(-)
-
-diff --git a/drivers/gpu/drm/Kconfig.debug b/drivers/gpu/drm/Kconfig.debug
-index b909cd0a619f..b0aa56281413 100644
---- a/drivers/gpu/drm/Kconfig.debug
-+++ b/drivers/gpu/drm/Kconfig.debug
-@@ -1,7 +1,6 @@
- config DRM_USE_DYNAMIC_DEBUG
- 	bool "use dynamic debug to implement drm.debug"
- 	default n
--	depends on BROKEN
- 	depends on DRM
- 	depends on DYNAMIC_DEBUG || DYNAMIC_DEBUG_CORE
- 	depends on JUMP_LABEL
-
--- 
-2.56.1
+--fv0MbHVxiEYH6cP3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
 
+> Thinking about it some more, perhaps instead of using 0 as the special case
+> for "no parent", we could set .source to match .index. In other words a
+> clock pointing to itself means "no parent". Worth changing?
+
+What would be the gain? As you said before we can't update the values
+because they are already in DTBs.
+
+
+--fv0MbHVxiEYH6cP3
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmsCDAYACgkQFA3kzBSg
+KbaxSQ//cizj5OOLsgYrAxaW1EKGn9YvmafR+RlvEqb8FlFxWBREKwon8e0FF3gu
+2Jpvaf/tOsiK1NhtQ/eTuYRfJ89p1XpJXX0tA+oTBv8eYdCEik3NV7hBMMNAXb7G
+EA/K0pyjN4k+UqvQMWP6h+WodMzFfNvLyu8aVMaNyGfC2Bjii/GKUAfJAUcR6ZTK
+McT0/W4e4kvFRKJQ0Lq1vQjzins0eQhFtTDnGd9hqDakYfbKFYE6TZQ/GuiQdfuf
+1+2wk+shbGWC1D1zk2kzHx+QCYxAZnNnFtF+XPtgorT6XKucDDgeeZ2A0qXpT1+z
+TVL6DMGWPaC78QHXrDuh52k8IgpB9EMAPksX+GcLlHdbSwjxtbGVcg6RoyVQH+dQ
+RQ+QHRgQtuw48k/SdZ6AILxxgUGGM5wWfn/xUWz7HF6kekq91GVIDraIEhpe5M1r
+32mie0F8Ej8YQj5Tpc5MSNrtRRLAKDQFnd95BmRvZeM7dZtHo5ajZWiRq8BMFaix
+VVJk+y6dxOXlZfm6I1rZYRnz0etxZhfYaUh3xth557wkLrXft4r5x1Gyr/G2xA9U
+uh5AhXZO5WMo7H9sv6XX7KnH640ry/gJpkK4G4qcS7KrFMddn2zhFG3pDpwxMdpR
+oCQzd28u2Kelvnez5qwBUf7Y/E48ehv8YgVjkAeHbFCtHVnMbqY=
+=0+NB
+-----END PGP SIGNATURE-----
+
+--fv0MbHVxiEYH6cP3--
