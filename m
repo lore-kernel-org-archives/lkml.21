@@ -1,58 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.36.144.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795293703;
-	b=3PW5x0+vYUUrht1fC5Pyds8HwvY4FRewegyyfr4Hjl3ZJCxCo9Mvkkq54EFGP4/QhADb
-	 8GXVCNxVNSfCxWYK1B0zAViNnrrZtNULV5CPa0c2sstGSWENNjtbUMYuZbww/PVjHiZG1
-	 zi3dvJkmc7UaT6DkOa0QQ9bts/QBvZPfm9aUt2wEiXmznTvW/cLllV2NXu5ghsEUIHHNU
-	 Mds145cWaE+zEsNKeUay0HmjK16AITSRmTAvCFFq6px3Y/WVHHR2VhWzHoV7thqqEEqW/
-	 QCSH0idi1RVZMbws6xmS/LP5/UULUugzqnN4lZmv8CJYsxYDTCdRaf5ySCF3VLPv4ug==
+	t=1795293704;
+	b=gvqQA9cR5cLksoRJeODhRxPO7OT0bUEKHbtmWhwCuAXRR1ydaSEZHOj61sUgaOYJHA97
+	 2hslUCdob6dSYcFYoOm4rocIs750jO/ffMCNhLKlZ9IYGEW2I7L20lMKIEOu6KyoB13dC
+	 n4v127hrJZdh6wv0mgHPyDho5r+erp8+BQwkmdXlRxUgpYpjPw5xugj7akkYAThKK0pZJ
+	 pBMKFaTh6iu9gCgSlr3JmlmEB3C+/E+HK2NVPc543fH9+uNHiccSwRp/GqOOgxTtv5KDD
+	 QXhmjCVazO+ar6axXdwMW0JiuJDAgTQRrsVWigUjTxnMHDRCd2vMJNSJFfDQNW3Ibgw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795293703;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795293704;
 	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=AcjVc0Nkrb9pyqjq7pD12Xjy1QFAnw5M2h90dx+nTtg=;
-	b=M0KgI5jwBqhtoMZZe1F7bWRdI4mUj+3eSLLjgzCYakniwuepVXbQnXzi3Gbw7P6+IXm1
-	 dmLDyN2vYe6SBxaomrLRPrLuKegOnGNazGFATeld5ce1z5UGKaAZaM6bbSlBvlytQR/0u
-	 h8oNjmNpDLV3O+rA0JpW6CnbNIehG6GnGyBIS3QN+0p7Hx+OEBROxAdd8+wmcYJt6dmFJ
-	 TOxaA3HDA+buy1JeF3AjXB3k57G5ZaBND5/nttYp6yWg7WiDLjRjN9hCi3nNS6w8cmhc6
-	 eXPb9OB2/8BmLqp1zIWCIzgoJCLMN61h0AbYvLPyR3hZXubu2vieYnl2vVRPveeaofA==
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=PDCvLMGwM11MK3WEkdDTeME/kwH28+87zeqhQ6FbLP4=;
+	b=ltC1GT2BM+f7lj0XIBDf2Q+9u1Y7ypspSfD7rOf8h9wL81ISUDYrfXVjNq+TGNSFkI1T
+	 nUJJaGlEdD3+u0hp7JpygG3xS4a3NWO5KEC0XE0PvgLI95Yrphp5wvdaVxopQknpl/3KY
+	 O9HVP+UgPm3yZPuRnQkW/W0LyR6Q5VhZRQQioOgreXX0oV+5T5VbG78gagZ0FjvxPIILD
+	 3Fg+18B/dMgs5WN3RWNXgLporUOCqUP6vjRDO7+goYJsSgjOb8HKCeQgckXuGBK6TwBeu
+	 ySKU2lS7iF4c08AVZE4nDW7MBh7v4iMQ1hgm3HTCpYjwOV9tFWdUjie98Af7Dpabxcw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=yoxcu.de;
 	spf=pass smtp.mailfrom=yoxcu.de;
-	dkim=pass header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b="UUQ+ImI/";
+	dkim=pass header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=ABnx6ix+;
 	arc=none smtp.remote-ip=194.36.144.171
 Received: from morty.yoxcu.de (morty.yoxcu.de [194.36.144.171])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA8A4606A32A;
-	Sat, 21 Nov 2026 20:41:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA8A4606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D795606A331;
+	Sat, 21 Nov 2026 20:41:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D795606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=yoxcu.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yoxcu.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=UUQ+ImI/
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 92C261D86D6C;
-	Sat, 21 Nov 2026 21:41:40 +0100 (CET)
+	dkim=pass (2048-bit key) header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=ABnx6ix+
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6D4801D8725C;
+	Sat, 21 Nov 2026 21:41:41 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yoxcu.de; s=dkim;
-	t=1795293700; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=AcjVc0Nkrb9pyqjq7pD12Xjy1QFAnw5M2h90dx+nTtg=;
-	b=UUQ+ImI/sdGx3C/I9d9X6ZZne10XF9C1Haixlx4r7sJpOeU7JmYoOh0SIgCSlXs5a97PQX
-	njSUtUCcyM/D0LXpQHhSAPaBzDRXR62hAozSIqLmCG1raT7MxSO6t67++XzwSdKN82MoFw
-	C/0j0HyCtYki9SFwmt/Gq3empGZjFFt//ajSTcSzPdMH+T8vvYUUT+DKVsX6sQx4GcgXKz
-	Z7YFps6nJepYtnd/HA4iiFGtj2gbJXx8or3TvD4Pkm83n2ii8ABoSxzMG9fErJ4F9j6OQp
-	K2+yxTKrIeWRsfM8BHe/3/GIY83EIejbkSTNOq8TC5UzpqH9apdotZkow0DsRA==
+	t=1795293701; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=PDCvLMGwM11MK3WEkdDTeME/kwH28+87zeqhQ6FbLP4=;
+	b=ABnx6ix+8oXQAynS/NA64vi6Szw74GhE5Y/XsR8w12VkoHxxNACd9f7Sg7sq67+9l/M0Bi
+	KbSksxP1ipriSJzTaRfDlpZvg78D4SjwdfH4JugbmNPzxnubfUcrn/PGtOXDBJBdKT/Nmj
+	34dMjTTLb/vguX5c+Ja6KL0ijykZCyT3J8ipXywLSzBeZUy9Yq6zkuyNS0PnZEQbHy3rjY
+	0EPq2r6J6bf6mz1HLqGo6mKKV3frLwT32fvDsv01u8ryFTdR492inLQKah0m1/y/qa8E8P
+	wz1ZT3Fkf3LJ6Tg/xoM9RRsI5MJNIq/UXIc6nhQFJho7YjbQFjqixxi6BqY8UQ==
 From: Michael Auer <mick@yoxcu.de>
 To: Sebastian Reichel <sre@kernel.org>
 Cc: =?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
 	linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Michael Auer <mick@yoxcu.de>
-Subject: [PATCH 0/3] power: supply: bq27xxx: fix wrong battery states after resume
-Date: Sat, 21 Nov 2026 21:41:34 +0100
-Message-ID: <20261121204137.848173-1-mick@yoxcu.de>
+Subject: [PATCH 1/3] power: supply: bq27xxx: report discharging at zero current without a charger
+Date: Sat, 21 Nov 2026 21:41:35 +0100
+Message-ID: <20261121204137.848173-2-mick@yoxcu.de>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261121204137.848173-1-mick@yoxcu.de>
+References: <20261121204137.848173-1-mick@yoxcu.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,36 +68,44 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 
-On a OnePlus 6 (bq27541 on i2c-qcom-geni) user space sometimes sees a
-wrong battery state right after resume.
+The status is derived from the sign of the current, so a current of 0
+is reported as "Not charging". On a OnePlus 6 (bq27541) the first
+current reading after a resume from deep sleep is 0. User space then
+sees "Not charging" while on battery: UPower no longer reports the
+device as on battery, and the desktop plays its "power adapter plugged
+in" sound after such resumes, until the next reading shows a negative
+current again.
 
-Patch 1 fixes "Not charging" while on battery, when the current reads 0
-after deep sleep. Patches 2 and 3 fix a battery that is reported as
-missing at 0 % after a failed read, which made the desktop start its
-critical battery action. It happened in about 1 of 350 resumes. Patch 2
-covers a single missed transfer, patch 3 a failure that lasts longer.
+"Not charging" means a charger is present but not charging, so report
+"Discharging" for a zero current when no power supply is online. Do it
+only for the direct property read: the cached update runs under
+di->lock, and power_supply_is_system_supplied() also reads properties
+of this battery.
 
-All three are in daily use on a OnePlus 6 with an sdm845-mainline
-7.1-rc1 based kernel, patch 1 since late September, patches 2 and 3
-since early October. On power-supply for-next they were only build
-tested (W=1, arm64 and x86_64 allmodconfig).
+Signed-off-by: Michael Auer <mick@yoxcu.de>
+---
+ drivers/power/supply/bq27xxx_battery.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-Tool use: the analysis, the code and the commit messages were
-written with an LLM coding assistant (Claude Code). I reviewed all
-of it and tested it on my phone as described above.
-
-Michael Auer (3):
-  power: supply: bq27xxx: report discharging at zero current without a
-    charger
-  power: supply: bq27xxx: retry a failed register read once
-  power: supply: bq27xxx: keep the last values over a short read failure
-
- drivers/power/supply/bq27xxx_battery.c | 60 ++++++++++++++++++++++++++
- include/linux/power/bq27xxx_battery.h  |  2 +
- 2 files changed, 62 insertions(+)
-
-
-base-commit: abbe0a96bdbadae9e29489a1528fa436c55aca25
+diff --git a/drivers/power/supply/bq27xxx_battery.c b/drivers/power/supply/bq27xxx_battery.c
+index 747a38d3390d..032eea030f2f 100644
+--- a/drivers/power/supply/bq27xxx_battery.c
++++ b/drivers/power/supply/bq27xxx_battery.c
+@@ -1942,6 +1942,14 @@ static int bq27xxx_battery_current_and_status(
+ 			val_status->intval = POWER_SUPPLY_STATUS_CHARGING;
+ 		else if (curr < 0)
+ 			val_status->intval = POWER_SUPPLY_STATUS_DISCHARGING;
++		else if (!cache && power_supply_is_system_supplied() == 0)
++			/*
++			 * No charger online: |current| is below the resolution (e.g. after
++			 * deep sleep). Only for the direct property read: the cached update
++			 * runs under di->lock, and power_supply_is_system_supplied() calls
++			 * get_property() on every supply, this battery included.
++			 */
++			val_status->intval = POWER_SUPPLY_STATUS_DISCHARGING;
+ 		else
+ 			val_status->intval = POWER_SUPPLY_STATUS_NOT_CHARGING;
+ 	}
 -- 
 2.43.0
 
