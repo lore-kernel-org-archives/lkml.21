@@ -1,89 +1,140 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.148
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795257288;
-	b=WDmE9a9psqzPqMnH/6vyrp0MraqIq18g42yzI6CO/P1BICNeIro8AwjfqMD5KWQfpsjp
-	 Kuq2P6UbphhqeUfUSlxYF2BipA/6AyYlIgCQMdsBTRh4weix8DbZrzJg6Fh26Y+opsEVA
-	 Dz2iW32o8k1YX0K9tuW3GPo6KN77HlWeQ7XvXYglXi+eY7H95gP3cOZjvjNS3vPQ3XLat
-	 SECCstF8u8UkBZN0xkTopeage3WP7gwbb1SUkk0Ijr1jLLAePc8wE7in9jEdatTPPEfho
-	 8eg3mnWMm6YIS7W+qLBqHfvs6v8HwcIc+cGlbwUi7L8QE1srdBQYpmQ4fBWpNBa+BYA==
+	t=1795257315;
+	b=UIGjYspNMbNXDp93rxEJnV8xIDj+E089xD2TI9k9cRuNSAbV3VkHlftmd9MSplheYOQU
+	 fFdHZoosjXbuXCVldWCVJD5LZkwhlZxLZ82bCpThcjpbzY0GqXrTnO9rBCQdg4wmWBmnX
+	 eD1Uv1979eWpsmmK6p/SJlzv7yIbbDSInIgylwErnKXDCE8sXE3DaK70pnGNfM+lQfEuL
+	 mQbqkqKJu8LAUvkzL+6L3pEv9DQuMdGsX52l0SWlVPPlAbH6BjZeyfnu1ZWVQ04OvD7Ho
+	 TXmd1xziyR1r/m7dq/Lj2WugjigHnI1oEORjHOlclAoCNSLvCygTt42bK33kc+pPBoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795257288;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=LPFZQcCTi6LQtpkv23wJyXGegy4F2oEOqrAD0zlfT+0=;
-	b=WhhsgT9K4go/yrSsKgaw570DZNyhLxbkNSh2RC4MA+VXf0wNgRkHC287RpNQVWO5q8g/
-	 tttba5VUyzPOyfMNp/DTFr6UpogO4Kbof0f2md65DB771onb0B+eHtqYdlZxWGZNOPqFJ
-	 B2nR51Mes7trVvq5PyNo8SshWxjBn9oyyqBuew7xGi+v0BW0yQvbgMevxfz/9gGstOF4T
-	 oDoz43mDBaFbZWCYe86tUsjz+v0O+1N4GngMUwEJkCgGjbtCEy2cvLefYtXt35MdRMbrh
-	 D9j03SllOEBnw19gS14K+qmLQsjrAHr1rm6YmhYkZx1JlrrAEWrIBq/W9kDck6J+Rbw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795257315;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
+	 References:Autocrypt:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version;
+	bh=9bsvYKUqqiIEmbO2aiAG3E5Ax6t0fNk6OQ/rRTGZEtM=;
+	b=CJg1F7dQz9s0PbKcTXa+E1Ne1CM8bjaktOB6zIWazWX5Dr+6Y8B4zGJ6i68ctGZOaPrW
+	 Ol2CogWG+2/mZXT4QJzO7WDCsRlwS+J/wjtQE8h6fKK+ULEkw/3Q1x2mkazDzSyu260O+
+	 g1pxhFnG5eyo7s+KFpGWZk+fkhz/Vsko/gBL8VaUu8iulfu9xq2Lp/i458rxHiYlEz1Hs
+	 EQn9svvNsGwcngE0cyYg3i/CzvPazJYYP/AEnVJXhPEnWOR3NNKaxXCyTidZ0fX9ZgX5o
+	 NxTZ3dYy1q0F2J0AVuHLIMxB5DMqeQ8d+zASGAliquUk6F3vbxRournAoT6PA7dL87w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=uvB0cGD1;
-	arc=none smtp.remote-ip=95.215.58.148
-Received: from mta1.migadu.com (out-148.mta1.migadu.com [95.215.58.148])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="T06V/NK5";
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=GH8CCjzs;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FD18606A32C
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:34:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FD18606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47E6B606A332
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:35:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47E6B606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=uvB0cGD1
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=AYqpTYvRuEBRpQb7WDgABr+Pg0aWSiLgEXSmi0Zru54=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795257286; v=1; x=1795862086;
- b=uvB0cGD11aEC5FaXz9KFFNJYu6neePNb2tHrna7/Z296oWSKuiIa2WE0+5gc8qtjdY1ltu1x
- 1sJjJH+Imet0sXCuQ/qf4h9ofp1XCN9IWhWK2uzhAPF5hPReSwKDHr0D2jAoiQkWSI3LJotq+4D
- WxkM3sFpVNTvQFdOhJnHiw0Y=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 92dc6a10f9544e2f;
-	Sat, 21 Nov 2026 10:34:45 +0000
-X-Mizu-Trace-ID: 92dc6a10f9544e2f
-X-Migadu-Flow: FLOW_OUT
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-To: bpf@vger.kernel.org,
-	ast@kernel.org
-Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Jakub Sitnicki <jakub@cloudflare.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Neal Cardwell <ncardwell@google.com>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Shuah Khan <shuah@kernel.org>,
-	Sechang Lim <rhkrqnwk98@gmail.com>,
-	Michal Luczaj <mhal@rbox.co>,
-	Mattia Meleleo <mattia.meleleo@coralogix.com>,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH bpf 05/11] bpf, sockmap: Fix concurrent senders on one psock
-Date: Sat, 21 Nov 2026 18:30:06 +0800
-Message-ID: <20261121103222.88209-6-jiayuan.chen@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261121103222.88209-1-jiayuan.chen@linux.dev>
-References: <20261121103222.88209-1-jiayuan.chen@linux.dev>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=T06V/NK5;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=GH8CCjzs
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795257313;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=9bsvYKUqqiIEmbO2aiAG3E5Ax6t0fNk6OQ/rRTGZEtM=;
+	b=T06V/NK5+dY7JdHwvdPwQG8fzDOLDWPMkf/lRpaDG95YoizlwQc0kJMdv3bgQu6AyJjqr+
+	OLVUjH+zk1SGdk6p7pYXwARhx6bYHMvBJG0mjcqLMgxZ2s2jLbef0f5fxAu6G3MMJ4Yzch
+	Sv406BK65IXypEE9peNczxOaiJFdCnI=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-492-_oFcwsEKO6GrLTJqjTuy4g-1; Sat, 21 Nov 2026 10:35:11 +0000
+X-MC-Unique: _oFcwsEKO6GrLTJqjTuy4g-1
+X-Mimecast-MFC-AGG-ID: _oFcwsEKO6GrLTJqjTuy4g_1795257310
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4a799d93bc3so829121f8f.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 02:35:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795257310; x=1795862110; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9bsvYKUqqiIEmbO2aiAG3E5Ax6t0fNk6OQ/rRTGZEtM=;
+        b=GH8CCjzsFzumr78PhysOTQ9fkumvDAoN8Fd/Xl2Jo6xyS6KMUDENRwz1Jx2iFo1n5+
+         EcV/Xbf5P9qsSu4nEiaLbb1wZdOknxRBuqvVKndZ51WHNh2VlCkM+3TRDLx+ldjBxuPa
+         w+7Q+vaegvCwQA2zsgRC0iQXhpKl5Jj1PmtyVI2SLPq8haKyssNY0bv2isx+daLX5Iao
+         0LEAblvztaCa2gOplJidMPyYtd3oi3j05ddpAUxlXu5kXd8fMH2wswRikDhUE1T3R1Hn
+         IVTBk90gxbpJCldrV+Je54Oh79n4oeVmcH1NSXowvr4TML8scYFuB1LGFcRbO9mfXs7T
+         fhqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795257310; x=1795862110;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=9bsvYKUqqiIEmbO2aiAG3E5Ax6t0fNk6OQ/rRTGZEtM=;
+        b=wSnW8uqmc1aECfRPCcSDd7wJZr4FhZ22ovBlH5JRvau73HNDpf77LDrjtC7HMM43EL
+         y88SskjrUPQunigt4Pb5YYGtp7tknyqG5mANzJtAYpixIy/A2gsH2YMiUg9Bd3qncFuT
+         PKPjk9JYtXXpqkxkrJIzcZVcfbl4R+JCoir6rr2S3JykRoPTKRocKM6hKZcm7a7g9CdQ
+         LT7MX70Clu8tZsYxqqbSlzB+wL9IgaKFYUaOLdiFs9dpquV9vKGdEBCnFri3HfaO/XDV
+         ebXj711iqU4Hf84CoCQcnGr7e5vK0/nTHPdvDoPIh/e8Y4C+fw3PEZXZ3ew657HW9ToY
+         cJ6w==
+X-Forwarded-Encrypted: i=1; AL+hErEn7PXrIXgzWAFxmVeo4DbSCNimUySMu0yW3B94bBHpyetHhnkb2rjx7l4Qh1jkRD75Tw+BgzgXXnYn2tk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8IRKxDl2P5gF8t3yrc6b/z0Cy88EZR+3hkkclNY8/X4LLtRmmQ
+	t2FjmE/z632DAaprykUJLOv3vr/EYPGR4RRGKi1Cmpdf52UxnBMYgA2WvCBx1MmZJUuW2PMSJSL
+	C/CR7GrGxSXze8Qvteqv/5x6+9PGo+Y6eiASjhDsTR+eYHcvMWmElowpkdbrCwj26YQ==
+X-Gm-Gg: AZFdTZduFIPIYBulsHzKbLVxzm5JcGom9qlfXyHVEFe42KUupaJ64i7SFnu0snNrz3z
+	bSjf+2L/YHK4dF3rVFpwS4UBzePUL4D2irGRb/bB/Z3h8l6wsR7pk4hGJclRlViKE2rwNwrVlPF
+	d/ETDCgaLSLdD8MOG5hLMrQ56cf4Gtba6/uNaaV+eF7VYkh0ZW07zhEluUtfHHEQsURusOHkSAP
+	aHs24j10fNyVkRqXJzEHfOGfdTBKsnmCrILc2HC5GXQEFsZx4asN5adPXjIWfVcvTBoxes/lEgo
+	6+ixqmVWExkQWCToQXVxV3wtymx30P4B4tm1RyzmoiBs+1Uyr29C5GTWoFdPkF11h1/Sjk+fYKG
+	o0WCfhfW2c8XgfpR0H8SCK4aaLmFlUanX1k+phnK5rCMeVMHHSlV+30/DaOS6cif60v2DKnydQc
+	yY
+X-Received: by 2002:a05:600c:1389:b0:4bb:7347:d5c0 with SMTP id 5b1f17b1804b1-4bb88826937mr123102035e9.9.1795257310564;
+        Sat, 21 Nov 2026 02:35:10 -0800 (PST)
+X-Received: by 2002:a05:600c:1389:b0:4bb:7347:d5c0 with SMTP id 5b1f17b1804b1-4bb88826937mr123101795e9.9.1795257310278;
+        Sat, 21 Nov 2026 02:35:10 -0800 (PST)
+Received: from gmonaco-thinkpadt14gen3.rmtit.csb ([185.168.96.228])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884865b1sm165089265e9.5.2026.11.21.02.35.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 02:35:09 -0800 (PST)
+Message-ID: <6c3fa853697803c63e2b87c7f8a9d4ff2f561820.camel@redhat.com>
+Subject: Re: [RFC PATCH v2 2/9] tracing/sched: Add IRQ preemption lifecycle
+ tracepoints
+From: Gabriele Monaco <gmonaco@redhat.com>
+To: Karl Mehltretter <kmehltretter@gmail.com>, Steven Rostedt
+	 <rostedt@goodmis.org>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers	
+ <mathieu.desnoyers@efficios.com>, Thomas Gleixner <tglx@kernel.org>, 
+ Sebastian Andrzej Siewior	 <bigeasy@linutronix.de>, Clark Williams
+ <clrkwllms@kernel.org>, Ingo Molnar	 <mingo@redhat.com>, Peter Zijlstra
+ <peterz@infradead.org>, Andy Lutomirski	 <luto@kernel.org>, Juri Lelli
+ <juri.lelli@redhat.com>, Vincent Guittot	 <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,  Ben Segall
+ <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Valentin Schneider
+ <vschneid@redhat.com>,  K Prateek Nayak <kprateek.nayak@amd.com>, Jonathan
+ Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,  Randy
+ Dunlap <rdunlap@infradead.org>, Wen Yang <wen.yang@linux.dev>,
+ linux-trace-kernel@vger.kernel.org, 	linux-rt-devel@lists.linux.dev,
+ linux-doc@vger.kernel.org, 	linux-kernel@vger.kernel.org
+Date: Sat, 21 Nov 2026 11:35:07 +0100
+In-Reply-To: <20261107171252.25090-3-kmehltretter@gmail.com>
+References: <20261107171252.25090-1-kmehltretter@gmail.com>
+	 <20261107171252.25090-3-kmehltretter@gmail.com>
+Autocrypt: addr=gmonaco@redhat.com; prefer-encrypt=mutual;
+ keydata=mDMEZuK5YxYJKwYBBAHaRw8BAQdAmJ3dM9Sz6/Hodu33Qrf8QH2bNeNbOikqYtxWFLVm0
+ 1a0JEdhYnJpZWxlIE1vbmFjbyA8Z21vbmFjb0BrZXJuZWwub3JnPoiZBBMWCgBBFiEEysoR+AuB3R
+ Zwp6j270psSVh4TfIFAmjKX2MCGwMFCQWjmoAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
+ Q70psSVh4TfIQuAD+JulczTN6l7oJjyroySU55Fbjdvo52xiYYlMjPG7dCTsBAMFI7dSL5zg98I+8
+ cXY1J7kyNsY6/dcipqBM4RMaxXsOtCRHYWJyaWVsZSBNb25hY28gPGdtb25hY29AcmVkaGF0LmNvb
+ T6InAQTFgoARAIbAwUJBaOagAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgBYhBMrKEfgLgd0WcK
+ eo9u9KbElYeE3yBQJoymCyAhkBAAoJEO9KbElYeE3yjX4BAJ/ETNnlHn8OjZPT77xGmal9kbT1bC1
+ 7DfrYVISWV2Y1AP9HdAMhWNAvtCtN2S1beYjNybuK6IzWYcFfeOV+OBWRDQ==
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,86 +144,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-tcp_bpf_sendmsg() keeps the state of the current send in the psock:
-the verdict in eval, the byte budget in apply_bytes, the redirect
-target in sk_redir and the message being built in cork. The socket lock
-does not protect that state all the way through. tcp_bpf_push() drops
-it in sk_stream_wait_memory(), and the SK_REDIRECT branch of
-tcp_bpf_send_verdict() drops it around tcp_bpf_sendmsg_redir(). A
-second sendmsg() on the same socket then runs with the state of the
-first one.
+On Sat, 2026-11-07 at 18:12 +0100, Karl Mehltretter wrote:
+...
 
-The cork is the worst case. The SK_PASS branch pushes psock->cork while
-it is still attached. When the push sleeps, the second sender picks the
-same cork up through psock->cork, appends to it, runs the prog on it,
-and on SK_REDIRECT frees it. The first sender wakes up in
-tcp_bpf_push() and writes to a freed sk_msg. The other fields are not
-freed, but the second sender sends without a verdict, or with the
-verdict and the budget of the first one.
+> =C2=A0asmlinkage __visible void __sched preempt_schedule_irq(void)
+> =C2=A0{
+> +=09struct task_struct *owner =3D current;
+> =C2=A0=09enum ctx_state prev_state;
+> =C2=A0
+> =C2=A0=09/* Catch callers which need to be fixed */
+> =C2=A0=09BUG_ON(preempt_count() || !irqs_disabled());
+> =C2=A0
+> =C2=A0=09prev_state =3D exception_enter();
+> +=09/* Sample before tracing bookkeeping can change the observed context.
+> */
 
-Plain TCP has no state of this kind, and two senders on one stream
-socket only get their bytes interleaved. There is no use for it with
-sockmap either, so refuse it. Mark the psock busy for the whole
-tcp_bpf_sendmsg() and return -EBUSY to a second sender.
+What's this comment for? You're tracing before disabling preemption to sche=
+dule,
+what bookkeeping?
 
-The second sender could wait instead, but that takes a wait queue with
-signal and timeout handling. Concurrent sends on one socket are rare, so
-keep the fix simple.
+> +=09if (trace_sched_irq_preempt_entry_tp_enabled())
+> +=09=09trace_sched_irq_preempt_entry_tp(owner, preempt_count(),
+> irqs_disabled());
 
-Redirects to another socket go through tcp_bpf_push_locked() and
-bpf_tcp_ingress() and do not touch the target's send state, so they are
-not affected.
+I don't think you need to check the static key manually, arguments are expa=
+nded
+inside the trace_##_tp() after checking it, so you can just trace here.
 
-Fixes: 4f738adba30a ("bpf: create tcp_bpf_ulp allowing BPF to monitor socket TX/RX data")
-Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
----
- include/linux/skmsg.h |  1 +
- net/ipv4/tcp_bpf.c    | 11 +++++++++++
- 2 files changed, 12 insertions(+)
+> =C2=A0
+> =C2=A0=09do {
+> =C2=A0=09=09preempt_disable();
+> @@ -7664,6 +7668,8 @@ asmlinkage __visible void __sched
+> preempt_schedule_irq(void)
+> =C2=A0=09=09sched_preempt_enable_no_resched();
+> =C2=A0=09} while (need_resched());
+> =C2=A0
+> +=09if (trace_sched_irq_preempt_exit_tp_enabled())
+> +=09=09trace_sched_irq_preempt_exit_tp(owner, preempt_count(),
+> irqs_disabled());
 
-diff --git a/include/linux/skmsg.h b/include/linux/skmsg.h
-index 276692e060d53..98f71c6d0af73 100644
---- a/include/linux/skmsg.h
-+++ b/include/linux/skmsg.h
-@@ -69,6 +69,7 @@ enum sk_psock_state_bits {
- 	SK_PSOCK_TX_ENABLED,
- 	SK_PSOCK_RX_STRP_ENABLED,
- 	SK_PSOCK_STRP_DONE_PENDING,
-+	SK_PSOCK_TX_BUSY,
- };
- 
- struct sk_psock_link {
-diff --git a/net/ipv4/tcp_bpf.c b/net/ipv4/tcp_bpf.c
-index 7191b95c7b1c7..077b65927ac8d 100644
---- a/net/ipv4/tcp_bpf.c
-+++ b/net/ipv4/tcp_bpf.c
-@@ -602,6 +602,16 @@ static int tcp_bpf_sendmsg(struct sock *sk, struct msghdr *msg, size_t size)
- 	if (unlikely(!psock))
- 		return tcp_sendmsg(sk, msg, size);
- 
-+	/*
-+	 * The verdict, apply_bytes, sk_redir and the cork live in the psock
-+	 * and span the places where the socket lock is dropped below. They
-+	 * can only serve one sender at a time.
-+	 */
-+	if (test_and_set_bit(SK_PSOCK_TX_BUSY, &psock->state)) {
-+		sk_psock_put(sk, psock);
-+		return -EBUSY;
-+	}
-+
- 	lock_sock(sk);
- 	timeo = sock_sndtimeo(sk, msg->msg_flags & MSG_DONTWAIT);
- 	while (msg_data_left(msg)) {
-@@ -677,6 +687,7 @@ static int tcp_bpf_sendmsg(struct sock *sk, struct msghdr *msg, size_t size)
- 	if (err < 0)
- 		err = sk_stream_error(sk, msg->msg_flags, err);
- 	release_sock(sk);
-+	clear_bit(SK_PSOCK_TX_BUSY, &psock->state);
- 	sk_psock_put(sk, psock);
- 	return copied > 0 ? copied : err;
- }
--- 
-2.43.0
+Does the owner here makes sense? Do you use it as the /initiator/ of the fi=
+rst
+switch? Is it only to match it with the entry (although, as you said, it ma=
+y be
+somewhere else, running again, or not running at all).
+
+Thanks,
+Gabriele
+
+> =C2=A0=09exception_exit(prev_state);
+> =C2=A0}
+> =C2=A0
 
