@@ -1,53 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795299510;
-	b=44AOlBsRLzO+a9x9XNkHv5ubRNt7nMiXbqMbSo0p4GjoPnCIN+vKwc4QZIy2sqSBTX+A
-	 /M5/O5bKwtRqIv8nhuL/hpj8Qi+Phxe63Y4sEZZbEfCBfqsdSr/Jz+m4nxqhGtln9C8ut
-	 VKYWbFbZcWRr8Tdpfwm54J1oF+fUFTPcrcAczjPR6fnBSPmeC+R8QUPlBzMxe37zaFWOK
-	 +d3Ukwo7C7DINLcsGx4ugmq2XAK2WtgfsKIX6g7gkw6xp1tEwUKMb+1QMOy1KcznCmWyJ
-	 ydkE6N/4v8xOUpHCQNRwo5yE+cj07KcxHl3kDZB+AzkB2PWdl7IbxBBM2QW+UXJwF1w==
+	t=1795299513;
+	b=CrX3zeDQ41HyiYdoOoIJzBBs297GJnmZc4pIWzsX9q9tFyzjwMEx1lRkFpuwOMsnZXoZ
+	 Kz2Mb1ae1L9d2JkwhfHE/JYzHBv5ndYDUR9dXdAl7G0bYJh7oxk28pwjvScNQQz0jb2Hd
+	 Q5V7HcN9+IzU90RnW1s0FuNd7HgDtq2XbCgStvF8/XE+k01cr/+ATLeszf03VeGp4IGPp
+	 /2r2Ys/ROBhIh69t0EZeStNGgGtZFVx5mLzVfoCvbYcOA2vQ1N4SSfqlhGtHXfkJEKsXv
+	 awx9w+Xihp45SaG+Pi81Q9AhQJGvI13VwMl54sajiqjjlABhGeKa8FnuNFZucYvACZg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795299510;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795299513;
 	h=Received:DKIM-Signature:Date:To:Cc:From:Message-Id:In-Reply-To:
 	 References:Subject;
-	bh=2ljPbviUXKu1SCaRavSk4LhU7mdn/H04EXeK9PLuTmo=;
-	b=oWX3jeMX7TYbk27WPeDCRVuQ6yk53DyJgAtiihaYtIG3uuJ8dDmC9Jx/q/zPdFzan/eJ
-	 qhd96G386wQe6dEHyHiUGS+psOkvTHpJAaVE0XTL3aQkTCBKcrk3DX2WfX8m4RDYR8tmI
-	 ya50MYEgIfAmkAdKeeldFf/DpI/3+F2svoN6MfudnbPZVjeAngkA634PUqqflffByg9Ip
-	 i9UxL6Cm9YpglbWy8v//DzByk6mN8ZEzUj9EsRlmW9kmdAHQr+znU04KPLmRdD1g+ApeR
-	 S9plDHYHKwcqduYLqIvftBF4rkpZTIznXyc54uqKG3gBdK0auvmZUNAXRI4c7OAU9xg==
+	bh=jc0e9w5B/WyGX+EuQP/e+iqjqymm8yhUQoI3phbuDaY=;
+	b=muoB4C1O9/Ilpq6i1ZH4ua8IygliWZUi0YTyzdNB+WF9bOY5W1bksf82Bq/LBDBvvU/F
+	 qEu1ekJPecR8+6BRn1WhLNqi44K6tpMvrFCYxiEvDnsaviKzq430B6Ei/1yjira+X2oyw
+	 4bOTujDbRaQfCwJSvCa+z165H30WW6DN3Nk+rzM8lXIXxWSF2Rs+GJrwTCtw90nSTiQoV
+	 jFTuXqZ/wN3JeAPZoVMxnR2bAP38KyFxChI/AW1vRjqDX4s3nOFpJbVBd/yspJYpbe2sY
+	 UJ6V9+o6KTki1WquvbOY5ib00eXwdLWzy4If5V4hNyykYC/c6FxvACqKB7XhwPCp6KQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=netKusrG;
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=msTCBmdx;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50097606A335;
-	Sat, 21 Nov 2026 22:18:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F255A606A33F;
+	Sat, 21 Nov 2026 22:18:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=netKusrG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5D4A1F000CF;
-	Sat, 21 Nov 2026 22:18:29 +0000 (UTC)
+	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=msTCBmdx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C76D1F000E6;
+	Sat, 21 Nov 2026 22:18:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1795299509;
-	bh=2ljPbviUXKu1SCaRavSk4LhU7mdn/H04EXeK9PLuTmo=;
+	d=linux-foundation.org; s=korg; t=1795299512;
+	bh=jc0e9w5B/WyGX+EuQP/e+iqjqymm8yhUQoI3phbuDaY=;
 	h=Date:To:Cc:From:In-Reply-To:References:Subject;
-	b=netKusrGp+sRX3aLeD14XWKNNKdUwuLOvn3Qwv4wmun0xK7jJndf5dxL330bWqmqY
-	 UgbTecV3leJ3kDr1miff/ZmDYs8G6aaGo6zgPqM0/xUVGCyH6XSS3c1hDgFGzs8i2Q
-	 mAlbHFhWgb5PyOwx7vpMdKc1AZ+sf7o1DGSj03jU=
-Date: Sat, 21 Nov 2026 14:18:29 -0800
+	b=msTCBmdx/suzcgkscRklorUgg/8vtfuieQdHp9uhxXagQtLOwDnOXCi3AJ7WQpABL
+	 +wwJrGEuXhSaVHGEX3Wl1wL3Kgc6esez2FUElfc+kH+LiUE//NDY2EPrfQO4VidCpk
+	 4PUexmk42ZsdgF889/XL/Zpp0jKH6VEZGlksVkFo=
+Date: Sat, 21 Nov 2026 14:18:32 -0800
 To: "Matthew Wilcox (Oracle)" <willy@infradead.org>
 Cc: linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
  linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
  Nickolai Zeldovich <nickolai@csail.mit.edu>,
- Baoli Zhang <baoli.zhang@intel.com>,
- syzbot+73641b60a3bc11dfca8c@syzkaller.appspotmail.com
+ syzbot+73641b60a3bc11dfca8c@syzkaller.appspotmail.com,
+ Baoli Zhang <baoli.zhang@intel.com>, stable@vger.kernel.org
 From: Andrew Morton <akpm@linux-foundation.org>
-Message-Id: <08ceefcb212e4dda9767389fe7f162a8.1@linux-foundation.org>
+Message-Id: <08ceefcb212e4dda9767389fe7f162a8.2@linux-foundation.org>
 In-Reply-To: <08ceefcb212e4dda9767389fe7f162a8.0@linux-foundation.org>
 References: <08ceefcb212e4dda9767389fe7f162a8.0@linux-foundation.org>
-Subject: [PATCH v2 1/2] lib/test_xarray: check the offset of new root nodes
+Subject: [PATCH v2 2/2] xarray: initialise the offset of a new root node
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,68 +59,58 @@ Precedence: list
 
 From: Nickolai Zeldovich <nickolai@csail.mit.edu>
 
-Free XArray nodes whose offsets are nonzero, then check that roots
-created by xas_create() and xas_expand() have offset zero. An old
-root with a stale offset can make a concurrent iterator resume in
-the wrong slot after expansion.
+xas_alloc() sets node->offset only when the new node has a parent.  A root
+node can retain a nonzero offset from its previous use in the slab.  While
+xas_expand() links that root below a new one, an RCU walker can read the
+stale offset and then the new parent pointer.  It can resume at the wrong
+slot and report an entry at the wrong index or skip entries.
 
-Link: https://lore.kernel.org/r/20261024014344.830116-1-nickolai@csail.mit.edu
+Initialize the offset to zero when allocating a root.  The old root
+already has that offset when xas_expand() links it beneath the new root,
+so remove the store to its offset during expansion.
+
+Link: https://patch.msgid.link/20261024014344.830116-1-nickolai@csail.mit.edu
+Fixes: 58d6ea3085f2 ("xarray: Add XArray unconditional store operations")
 Signed-off-by: Nickolai Zeldovich <nickolai@csail.mit.edu>
 Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+Reported-by: <syzbot+73641b60a3bc11dfca8c@syzkaller.appspotmail.com>
+Closes: https://syzkaller.appspot.com/bug?extid=73641b60a3bc11dfca8c
+Tested-by: Baoli Zhang <baoli.zhang@intel.com>
+Tested-by: Andrew Morton <akpm@linux-foundation.org>
 Cc: Matthew Wilcox (Oracle) <willy@infradead.org>
-Cc: Baoli Zhang <baoli.zhang@intel.com>
-Cc: <syzbot+73641b60a3bc11dfca8c@syzkaller.appspotmail.com>
+Cc: <stable@vger.kernel.org>
+---
+akpm: Tested the two-patch series on x86-64, with the new test present on
+both kernels.  Without the fix, 64 runs of the test each failed both
+root-offset checks.  With the fix, neither check failed and all XArray
+checks passed.  Both kernels used the same configuration and test setup. 
+This tests the stale root offset; it does not separately reproduce the
+concurrent RCU-walker failure.
 
- lib/test_xarray.c |   33 +++++++++++++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+ lib/xarray.c |    6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
---- a/lib/test_xarray.c~lib-test_xarray-check-the-offset-of-new-root-nodes
-+++ a/lib/test_xarray.c
-@@ -370,6 +370,38 @@ static noinline void check_xa_shrink(str
+--- a/lib/xarray.c~xarray-initialise-the-offset-of-a-new-root-node
++++ a/lib/xarray.c
+@@ -387,6 +387,8 @@ static void *xas_alloc(struct xa_state *
+ 		parent->count++;
+ 		XA_NODE_BUG_ON(node, parent->count > XA_CHUNK_SIZE);
+ 		xas_update(xas, parent);
++	} else {
++		node->offset = 0;
  	}
- }
- 
-+static noinline void check_xa_root_offset(struct xarray *xa)
-+{
-+	DEFINE_XARRAY(tmp);
-+	struct xa_node *node;
-+
-+	/* Free two nodes with non-zero offsets so the slab can reuse them */
-+	xa_store_index(&tmp, 0, GFP_KERNEL);
-+	xa_store_index(&tmp, 5UL << XA_CHUNK_SHIFT, GFP_KERNEL);
-+	xa_store_index(&tmp, 6UL << XA_CHUNK_SHIFT, GFP_KERNEL);
-+	xa_store_index(&tmp, 7UL << XA_CHUNK_SHIFT, GFP_KERNEL);
-+	xa_erase_index(&tmp, 5UL << XA_CHUNK_SHIFT);
-+	xa_erase_index(&tmp, 6UL << XA_CHUNK_SHIFT);
-+	rcu_barrier();
-+
-+	/* A root created by xas_create() must have offset 0 */
-+	XA_BUG_ON(xa, xa_store_index(xa, 1, GFP_KERNEL));
-+	rcu_read_lock();
-+	node = xa_to_node(xa_head(xa));
-+	XA_BUG_ON(xa, node->offset != 0);
-+	rcu_read_unlock();
-+
-+	/* And so must a root created by xas_expand() */
-+	XA_BUG_ON(xa, xa_store_index(xa, XA_CHUNK_SIZE, GFP_KERNEL));
-+	rcu_read_lock();
-+	node = xa_to_node(xa_head(xa));
-+	XA_BUG_ON(xa, node->offset != 0);
-+	rcu_read_unlock();
-+
-+	xa_destroy(xa);
-+	xa_destroy(&tmp);
-+}
-+
- static noinline void check_insert(struct xarray *xa)
- {
- 	unsigned long i;
-@@ -2336,6 +2368,7 @@ static int xarray_checks(void)
- 	check_xa_load(&array);
- 	check_xa_mark(&array);
- 	check_xa_shrink(&array);
-+	check_xa_root_offset(&array);
- 	check_xas_erase(&array);
- 	check_insert(&array);
- 	check_cmpxchg(&array);
+ 	XA_NODE_BUG_ON(node, shift > BITS_PER_LONG);
+ 	XA_NODE_BUG_ON(node, !list_empty(&node->private_list));
+@@ -617,10 +619,8 @@ static int xas_expand(struct xa_state *x
+ 		 * Now that the new node is fully initialised, we can add
+ 		 * it to the tree
+ 		 */
+-		if (xa_is_node(head)) {
+-			xa_to_node(head)->offset = 0;
++		if (xa_is_node(head))
+ 			rcu_assign_pointer(xa_to_node(head)->parent, node);
+-		}
+ 		head = xa_mk_node(node);
+ 		rcu_assign_pointer(xa->xa_head, head);
+ 		xas_update(xas, node);
 _
