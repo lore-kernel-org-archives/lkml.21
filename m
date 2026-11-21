@@ -1,98 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795280100;
-	b=EI+TbQ/vEdE41/9p/GKHrrkjd14nSOLJ2POq8FQ9T4Y98q46LFtt5nH1BqpqqlBnrrMR
-	 SnsBBZnEHlT2WGvltIb4f245LESC1AjU+aJseYs2qfjd5TXPYp6MJn/A/i0lr0XeIIFeF
-	 9OA4TcDZ7mjipY+4d/Um1/n7JtUzoZEdAtjd6PvMZJZ2OZi0ZfZ8fxYr9fq5x462h/Okt
-	 kh7+jEzCU0ETe9Vz2yU8AYx+ewewdVNAKRbnYD3gmCNWX2uIwptz+xa2fiIP6CleMV6F6
-	 PUvyvb0Dyf4t2YBASd2w8Q9LsuoIc/MgAK456+LkMcdGWPogFwmSB36EJ/9RUwCGzGg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795280100;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:
-	 Content-Type;
-	bh=p4VRFPXRszZf9dXxkcrFMy0Ly2f9TrDiVC01Lr7U2eo=;
-	b=VEwnFJLB5wUZcRReACSnnmkflk3qeSLm7RYelpAahRF3Ei/+oVSFKMZiWLX1FeQ8x48e
-	 8kQf3AjlkrI4jIxBgX5uFlXl50dC7oWfBJtUyPxnmbYHHwK/aeiLyeL5lmTfj2zQM5WKT
-	 I5IEjR7AekRQBnCLXHTmCkvzvQdUS4OSYOemO+WvwYrjr0lrJK13sF5aLhLiuhCdv8qMk
-	 ytGAWE0eYhQiQz1l+0CVTnvWFkStn7UyBwJsOI4+eQ3vrJy7fQemwjOgWTkAPsrQ5Fxiq
-	 xC+zPGQbZMr+OpFw+yJ3PGPzya0T0T4A+ruffKAvDl7wOw/PitSNPrRdGHp1Emp4fNQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ntv+tyfo;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.52
-Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.142.180.65
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795280170;
+	b=wlC1SlC5QOkTt2qLU+5iFf0NSofRRCsms7jFPgqOeJPA/MEx/4d+6PLRUyDLte1pAGAy
+	 JbphmxuTi2zgwkk4ekz/LA2dVLdzrWA7JH/AB5tGmr9E3RG2+YZYVkhO2uGkWd1v6z+Ld
+	 OrYrDTobrYHV/0XXh7o82v1m0EAwJXtyghyVMYCGJ/ExHjVSzGGvyZr2BqfQRZj2vDEy2
+	 S0DWw2Xo1VADomQ7vTikj5qszCx5zJ184buBVuOEeW0J0Oq8pYCpSAldK5Oo96ZpYPPCk
+	 ou0T9SPydF02YbnA74POBuud/3hWc8LiwC/SBKEcafvQgr+RDvbmbsmouvCP52gDtVw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795280170;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=xYz9pA1mSMoNnWygMUOBu3XO1KnQlEYwkYTGx2Jq9oQ=;
+	b=nOdZScrrICXramFjGckD9p8SEzymV7UWaaexbuFikJuFDO3x1e95QqeHVziqxHtVRtIi
+	 RrH/e4GPXE7LNi6fYXdnQW/iLht6T3fwRlkzWVSuz3rnf4xsqGak07xSdJ97hprvl95sO
+	 bkIw70VK5sUaj6b1tFDVyKiZwpxCKcExZwNo9LXjudeBX4UY1c/pPyqDCLqcO9D5qi3ks
+	 V4EbIzuMVOUCMeqHiCOksVBaGDD4qsA+vpLR+Xa+zmH5cXesNscwyvH4knM0R6T7sg9kl
+	 LW1CRzrRuxVduWARPtbVaiQ3FnUZu0/Pa7cGHsYNQ4CxKBrJZ0awsRys8T4B48kOmjQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=makrotopia.org;
+	spf=pass smtp.mailfrom=makrotopia.org;
+	arc=none smtp.remote-ip=185.142.180.65
+Received: from pidgin.makrotopia.org (pidgin.makrotopia.org [185.142.180.65])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D823E606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:54:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D823E606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ntv+tyfo
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c4d5b2db4bbso434697366b.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 08:54:59 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795280098; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Y9Ku0MOmzSddkFPnR8AgOfO3gt7ZygYzUA3AvU3zf6O4VHuPuIfW/eRwN5T9m5K4Hi
-         s/OwrPzmLzJkHv4FC5whTXM82Hex/GjYLV3VJ8UuyRCuB/+svxgwJuJ/6IllsZxATXdh
-         Cnowb7A/N7lKyl2qDQW5rWOSrBiCR5n7icPwhTomcq9bMNmNsuGhUe616VtfDUIyPdbv
-         PosWAgHre5ABUHEsDLFmCkAFnPF8HDe/WwWBo4swI5SJPlVHLEoc2Rz7rP9nDS6SLZYJ
-         iY6cqYKwje2CBV4Shpgs3gZmUyDr9EyzswHsfLBJ8+YpB0X6FYGHxxDij8eyQIjd3xSR
-         vQNA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=p4VRFPXRszZf9dXxkcrFMy0Ly2f9TrDiVC01Lr7U2eo=;
-        fh=PXfdsVQsdgNhDA9v2OogfSpRHGaHmQcAdc+cFmCJy34=;
-        b=Y+zzQy7wUdr+7lL7OOzanHuxD3Te61HhDPmbxV8bWX/FcBx7W08M5/YQjnixgdgYqQ
-         /iWN5P+xtGfWXhQVflA6wydI7Pggm16BP5jaEstjiRyw1zDoyVYcRQ10XGRX/9B08Y8r
-         PjJ62Y/qLxFV+ayJ5xM13ujr/l9rno70ewxo94jKrJ8jCAty/Cc20rS/j15fEE6hZRgh
-         eQOWetNA6X0G6ELU78nZgllJB+/tkTl9nafCAwkFTxXzszGw/anTtbUC3sccKL7hB5vD
-         zDJ8JZN8Vwa5FAZ31luT4I8z/d+Rle/KiQUoAz36fXwydO/i3gkyMG31WU4IeIz8zf7H
-         Mncg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795280098; x=1795884898; darn=vger.kernel.org;
-        h=content-type:to:subject:message-id:date:from:mime-version:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=p4VRFPXRszZf9dXxkcrFMy0Ly2f9TrDiVC01Lr7U2eo=;
-        b=Ntv+tyfoGZrKdNVbzRR93la72PF6+CfgZUt3q8pplxGe0KIEQD332IQfH40HQvQn1B
-         zYHV3V67lL5OFXv+ExjfbvGiowVo6BgkNycLr1LqmGKR5woeYOUgUQADNM43AZpe4zIc
-         9TocEcT4LEkzWgwZdzjZCezBqB5Ilg+K+0zLB3EROmJJ3WXnijHGkq1qQkPgEDrxDubG
-         SL2GELit0O7Dc9zRtlSGC1tdUkrtxGzcd08v67EIPI1NW34mIK5np3HkVwSlAKaFqWRq
-         r5shaDT6Nr37jFyfuBeE4cd+J+uAwTtkt2MzyL/gXll1WSmXsOL/y6BLeaFF7xbKlDx+
-         jsvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795280098; x=1795884898;
-        h=content-type:to:subject:message-id:date:from:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=p4VRFPXRszZf9dXxkcrFMy0Ly2f9TrDiVC01Lr7U2eo=;
-        b=1HHLEKfSsP22fYTs23u8oJ86olWR338OstBrR+N1nXKCzQp7L6WS8ICFKI1qZMv7Po
-         VOV30dL50faMoIPClZHF5J3Mmj3iie/wxvp7AZYdUABdoGItH/ixa0vdoT9qGqiCzT8w
-         QMKlfzawJvVUvUljxJjHZKqZXftJMfpLmzJz8/nR30SqdRB69whNp0QoRsRlifqb589n
-         apCJxUEkUyixqH+EVV+y3MhCDgiWAc5rD7SixYZKgFNWj4aymV34TvYwx6byfga4H/p+
-         l74MiHv6jU0Own4Q/J5CiM22UMPZRSUUlxDRRE21CNhTN+GnruN6Cisc1dM+t5pW16m1
-         X5Rg==
-X-Forwarded-Encrypted: i=1; AL+hErG5OaWa9AWafHgspHk7oeXxPhQQUrAoD3HEcU3AAX4SK8LQEqz9w/gV2TPTiQWva23tNIXlpGPtD5OHb4s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/MdhiJ2YKCiw5qDKAFsiGtA7qCJC57lyBwGKSaGrHo3Zt+jOOI
-	jtilNn+4qJ1myDxMrYqlOG/H5icg+4PniktwJqN68k1xSshx2Resjx32TyrCJJEZkQGEFWzP7bl
-	8NkfTkO7pMD1hB8jP8ba1gCBiWht50yWyaya41hEbtA==
-X-Gm-Gg: AZFdTZcdTpmoQcgZTUPbiOsN34PjDeJP8+NfoyA9lbfYmJ9uV9Lc7xP2QxjgvAjgMiM
-	OYkg7sJh6hjGIfuMK+C1bGZwhKe6g9GDwYIQyVLUG9S5JGj6pLVHjGS2XHcUUCybjIqeX8I5TOv
-	obrOKQVGCOn9RAiyCPsEcQlln1szgQXNQuscoFnBnEiOzZx0CKxpinr+OtVL4GIX53m5Rqb959r
-	9FxBSzcZ8MNzvMeB5KW7QVY9CUfKUQS1CVf5CVRJD3pkNFY1hWX6zvY4ipRYFElaszZ7xp9EVMi
-	zjMQNZusgnGACJv1dFfRJRSLbNoSeJ62IIchQYo2Xs+7JVgIXrJLMTvUoTJhfQO4nepWXwjHkDK
-	Iw3w6tYapJm+YL5IHhEq1Unu+gk/Oz8J6QmrJyrdxd8hMnZMn4VUzrVtRo+NFDTfqk+hV0PrKC6
-	0hHKm9R6fDQw6NnODeb6HIMhVvTzUlBnQVMhytA4LimQHkjyX7
-X-Received: by 2002:a17:906:730a:b0:c2e:1b6b:8b19 with SMTP id
- a640c23a62f3a-c51319443e5mr756376366b.23.1795280098016; Sat, 21 Nov 2026
- 08:54:58 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 014E2606A320;
+	Sat, 21 Nov 2026 16:56:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 014E2606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=makrotopia.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=makrotopia.org
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
+	 (Exim 4.100.1)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1xUoNY-000000006Hk-2eaa;
+	Sat, 21 Nov 2026 16:55:56 +0000
+Date: Sat, 21 Nov 2026 16:55:40 +0000
+From: Daniel Golle <daniel@makrotopia.org>
+To: Detlev Casanova <detlev.casanova@collabora.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	David Heidelberg <david@ixit.cz>,
+	Christian Hewitt <christianshewitt@gmail.com>,
+	Marc Zyngier <maz@kernel.org>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Diederik de Haas <diederik@cknow-tech.com>,
+	Dang Huynh <dang.huynh@mainlining.org>,
+	Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+Subject: [PATCH v6 0/5] media: rockchip: rkvdec: add support for the VDPU346
+ variant
+Message-ID: <cover.1795279680.git.daniel@makrotopia.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,156 +69,158 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Herman Semenoff <germanaizek0@gmail.com>
-Date: Sat, 21 Nov 2026 19:55:14 +0300
-X-Gm-Features: Aa3M54qjEMC-B19WwPy3mwsbI41xLRHwyJMCWJ-SqiNDvruJ2FeNFUQFuycHa_A
-Message-ID: <CAMnMt5YdKe__Q3o3M-og5LnC0To0DOiX80nDosYKNfVbZg1QgQ@mail.gmail.com>
-Subject: [PATCH v2] md/raid0: optimize stripe mapping with bitwise shifts for
- power-of-2 devices
-To: Song Liu <song@kernel.org>, Yu Kuai <yukuai@fygo.io>, Li Nan <magiclinan@didiglobal.com>, 
-	Xiao Ni <xiao@kernel.org>, linux-raid@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-From 450ebc4be1d31f25855c6771e67d27718ab6540f Mon Sep 17 00:00:00 2001
-From: Herman Semenoff <GermanAizek@yandex.ru>
-Date: Sun, 8 Nov 2026 22:43:29 +0300
-Subject: [PATCH] md/raid0: optimize stripe mapping with bitwise shifts
-for power-of-2 devices
+This series adds the VDPU346 decoder of the RK3566 and RK3568 to the
+rkvdec driver, for H.264 and HEVC. It continues Christian Hewitt's v3
+[1]; in the v2 cover letter he offered to pass the series on. The
+previous posting [2] carried no version in its subject and counts as
+v4.
 
-In drivers/md/raid0.c, map_sector() performs two 64-bit integer divisions
-(sector_div) on every submitted bio:
-  1. sector_div(chunk, zone->nb_dev << chunksect_bits) to compute the chunk
-     offset within the member device.
-  2. sector_div(sector, zone->nb_dev) to select the target member disk.
+Patches 1, 2 and 4 are Christian's, with two fixups folded in that v4
+carried as separate patches. Patches 3 and 5 are new since v3 and come
+out of a comparison of the driver with the vendor kernel driver
+(rockchip-linux/kernel develop-6.6, drivers/video/rockchip/mpp) and
+the Rockchip MPP library, followed by conformance runs on hardware.
 
-For ultra-low latency solid-state storage devices, such as Intel Optane
-(3D XPoint NVMe SSDs) capable of sub-10us latencies and multi-million IOPS,
-these un-pipelined 64-bit division instructions create unnecessary CPU
-pipeline stalls and latency overhead in the I/O submission hot path.
+Fluster on a NanoPi R5C (RK3568B2), GStreamer 1.28.7 v4l2sl decoders:
 
-When the number of member devices in a strip zone is a power of two
-(e.g., 2, 4, 8, 16 disks, which is the predominant configuration for
-NVMe arrays), both divisions can be replaced with bitwise shifts and
-masks:
-  - chunk >>= (zone->nb_dev_shift + chunksect_bits)
-  - disk_idx = sector & (zone->nb_dev - 1)
-  - *sector_offset = (chunk << chunksect_bits) + sect_in_chunk
+  JCT-VC-HEVC_V1   142/147
+  JVT-AVC_V1       129/135
+  JVT-FR-EXT        65/69
 
-Store nb_dev_shift (ilog2(zone->nb_dev)) in struct strip_zone during zone
-initialization when is_power_of_2(zone->nb_dev) is true, or -1 otherwise.
-If nb_dev_shift is non-negative and chunk_sects is a power of two, fast
-bitwise math is used with zero divisions. Arrays with non-power-of-2 disk
-counts fall back to the existing sector_div() path without any behavior
-or compatibility change.
+HEVC failures: PICSIZE_A/B/C/D_Bossen_1 are coded at up to 8440 luma
+samples in one dimension, beyond the 4096x2304 limit of the decoder.
+TSUNEQBD_A_MAIN10_Technicolor_2 has unequal luma and chroma bit depth,
+which the driver rejects for every variant.
 
-In addition, annotate the bio split check in raid0_make_request() with
-unlikely(), as standard MD devices already enforce chunk_sectors limits
-via bio_split_to_limits() in md_submit_bio().
+H.264 failures: CVFC1_Sony_C, FM1_BT_B, FM1_FT_E, SP1_BT_A, sp2_bt_b
+and FM2_SVA_C fail in JVT-AVC_V1; the Hantro G1 of the same board
+fails the same six with the same GStreamer. In JVT-FR-EXT
+Hi422FREXT17_SONY_A, Hi422FREXT19_SONY_A, HPCAMOLQ_BRCM_B and
+HPCVMOLQ_BRCM_B fail; the two BRCM vectors fail on the Hantro G1 as
+well, the two Hi422 intra profile vectors are not understood yet.
 
-Tested on an 8-disk Intel Optane Memory M10 (MEMPEK1J016GAD) RAID0 array:
-  - Random 4K read QD1 latency:  avg lat 22.06 us -> 21.10 us (-4.4%)
-  - Random 4K read QD1 IOPS:     42.6k IOPS       -> 44.6k IOPS (+4.7%)
-  - Random 4K read QD32x8 IOPS:  1.11M IOPS       -> 1.72M IOPS (+54.5%)
-  - Non-power-of-2 disk arrays:  unaffected, identical fallback path
+SAODBLK_A/B_MainConcept_4 and FREH10-1/2 are counted as passes: they
+decode correctly and exceed the default 60 s fluster timeout only
+because the checksum is computed from an uncached mapping of the
+capture buffers.
 
-Signed-off-by: Herman Semenoff <GermanAizek@yandex.ru>
-Signed-off-by: Herman Semenoff <GermanAizek@aizekgroup.ru>
----
- drivers/md/raid0.c | 26 +++++++++++++++++++-------
- drivers/md/raid0.h |  1 +
- 2 files changed, 20 insertions(+), 7 deletions(-)
+Patch 3 is what makes the score deterministic. With the read caches
+left in their reset state, RAP_B_Bossen_2, WPP_D_ericsson_MAIN_2,
+WPP_D_ericsson_MAIN10_2, WPP_E_ericsson_MAIN_2 (HEVC) and
+CAPM3_Sony_D, MR8_BT_B, MR9_BT_B, NRF_MW_E (H.264) produce wrong
+output in three runs out of three; with the patch they pass in three
+out of three. This is likely the source of the artefacts reported
+against v3. The function is shared with the VDPU381, where the cache
+block is mapped by the binding already. The series has been run on
+the RK3588 as well as on the RK3568.
 
-diff --git a/drivers/md/raid0.c b/drivers/md/raid0.c
-index 35e103f0c2c3..aeb305077a5e 100644
---- a/drivers/md/raid0.c
-+++ b/drivers/md/raid0.c
-@@ -207,6 +207,8 @@ static int create_strip_zones(struct mddev *mddev,
-struct r0conf **private_conf)
-  }
-  zone->nb_dev = cnt;
-  zone->zone_end = smallest->sectors * cnt;
-+ zone->nb_dev_shift = is_power_of_2(zone->nb_dev) ?
-+     ilog2(zone->nb_dev) : -1;
+Decode rates with the series: HEVC Main 2160p 92 fps, Main10 2160p
+77 fps, Main 1080p 380 fps, H.264 High 1080p 197 fps.
 
-  curr_zone_end = zone->zone_end;
+Patch 5 is kept apart from the node it modifies because the existing
+Tested-by tags were given at the v3 clock rates, and so that it can be
+dropped on its own.
 
-@@ -246,6 +248,8 @@ static int create_strip_zones(struct mddev *mddev,
-struct r0conf **private_conf)
-  }
+On the row and column buffer sizes raised in the v3 review [3]: the
+MPP library uses one vdpu34x HAL with one set of size formulas for the
+RK356x and the RK3588, so the variant keeps vdpu381_rcb_sizes.
 
-  zone->nb_dev = c;
-+ zone->nb_dev_shift = is_power_of_2(zone->nb_dev) ?
-+     ilog2(zone->nb_dev) : -1;
-  sectors = (smallest->sectors - zone->dev_start) * c;
-  pr_debug("md/raid0:%s: zone->nb_dev: %d, sectors: %llu\n",
-  mdname(mddev),
-@@ -330,6 +334,7 @@ static struct md_rdev *map_sector(struct mddev
-*mddev, struct strip_zone *zone,
-  struct r0conf *conf = mddev->private;
-  int raid_disks = conf->strip_zone[0].nb_dev;
-  unsigned int chunk_sects = mddev->chunk_sectors;
-+ unsigned int disk_idx;
+Known limits, none of them introduced here:
 
-  if (is_power_of_2(chunk_sects)) {
-  int chunksect_bits = ffz(~chunk_sects);
-@@ -338,21 +343,28 @@ static struct md_rdev *map_sector(struct mddev
-*mddev, struct strip_zone *zone,
-  sector >>= chunksect_bits;
-  /* chunk in zone */
-  chunk = *sector_offset;
-- /* quotient is the chunk in real device*/
-- sector_div(chunk, zone->nb_dev << chunksect_bits);
-- } else{
-+ if (zone->nb_dev_shift >= 0) {
-+ chunk >>= (zone->nb_dev_shift + chunksect_bits);
-+ disk_idx = sector & (zone->nb_dev - 1);
-+ } else {
-+ /* quotient is the chunk in real device*/
-+ sector_div(chunk, zone->nb_dev << chunksect_bits);
-+ disk_idx = sector_div(sector, zone->nb_dev);
-+ }
-+ *sector_offset = (chunk << chunksect_bits) + sect_in_chunk;
-+ } else {
-  sect_in_chunk = sector_div(sector, chunk_sects);
-  chunk = *sector_offset;
-  sector_div(chunk, chunk_sects * zone->nb_dev);
-+ disk_idx = sector_div(sector, zone->nb_dev);
-+ *sector_offset = (chunk * chunk_sects) + sect_in_chunk;
-  }
-  /*
-  *  position the bio over the real device
-  *  real sector = chunk in device + starting of zone
-  * + the position in the chunk
-  */
-- *sector_offset = (chunk * chunk_sects) + sect_in_chunk;
-- return conf->devlist[(zone - conf->strip_zone)*raid_disks
--     + sector_div(sector, zone->nb_dev)];
-+ return conf->devlist[(zone - conf->strip_zone) * raid_disks + disk_idx];
- }
+- FFmpeg's v4l2-request hwaccel does not set the HEVC EXT_SPS_ST_RPS
+  and EXT_SPS_LT_RPS controls, so HEVC through FFmpeg decodes wrongly
+  on this decoder as on the VDPU381 ("Long and short term RPS not
+  set"). The handling of these controls is also the subject of [6].
+- A decode error on such a stream ends in the IOMMU page faults and
+  the oops reported against v3 [4]. The cause is in the error path
+  shared by all variants: the interrupt handler restores the IOMMU
+  while the watchdog is still armed, and the watchdog starts the next
+  job while the IOMMU is detached. "media: rkvdec: Handle interrupts
+  without a current context" [5] covers the oops; the remainder will
+  be addressed separately.
+- The Sashiko review of v4 points out that rkvdec_probe() takes the
+  SRAM pool without a device link to its provider. This predates the
+  series, affects all variants with an sram property and will be sent
+  as a separate fix.
 
- static sector_t raid0_size(struct mddev *mddev, sector_t sectors, int
-raid_disks)
-@@ -616,7 +628,7 @@ static bool raid0_make_request(struct mddev
-*mddev, struct bio *bio)
-  ? (sector & (chunk_sects-1))
-  : sector_div(sector, chunk_sects));
+Patches 3 and 5 were written with the help of an LLM coding assistant,
+which also performed the comparison with the vendor sources. It was
+asked to review the v3 series against the vendor driver and to
+complete it, and for v5 to go through the v4 feedback, fold the fixups
+and revise the commit messages. The conformance and A/B runs above
+were done on the board with builds of v4 on Linux 6.18; v5 and v6
+differ from v4 in the order of two writes to the device tree source,
+in one node name and in tags, the driver code is unchanged.
 
-- if (sectors < bio_sectors(bio)) {
-+ if (unlikely(sectors < bio_sectors(bio))) {
-  bio = bio_submit_split_bioset(bio, sectors,
-       &mddev->bio_set);
-  if (!bio)
-diff --git a/drivers/md/raid0.h b/drivers/md/raid0.h
-index 8cc761ca7423..70b73511fb14 100644
---- a/drivers/md/raid0.h
-+++ b/drivers/md/raid0.h
-@@ -7,6 +7,7 @@ struct strip_zone {
-  sector_t dev_start; /* Zone offset in real dev (in sectors) */
-  int nb_dev; /* # of devices attached to the zone */
-  int disk_shift; /* start disk for the original layout */
-+ int nb_dev_shift; /* log2(nb_dev) if power of 2, else -1 */
- };
+Changes since v5:
+- Drop the Tested-by from "media: dt-bindings: rockchip: Add RK3568
+  Video Decoder bindings"
 
- /* Linux 3.14 (20d0189b101) made an unintended change to
+Changes since v4:
+- Fold "media: rkvdec: vdpu346: Limit HEVC EXT SPS RPS dimensions"
+  into "media: rkvdec: Add support for the VDPU346 variant", so that
+  no commit registers 65 element controls
+- Fold "arm64: dts: rockchip: rk356x: Order vdec regs by address" into
+  "arm64: dts: rockchip: Add the vdpu346 Video Decoders on RK356X"
+- Name the SRAM pool node codec-sram as on the RK3588
+- Read caches: shorten the commit message and state that the cache
+  block is mapped for the VDPU383 as well
+- 400 MHz: state that the rate applies to all streams
+- Cc the reviewers and testers of v3
+
+Changes since v3:
+- Add "media: rkvdec: vdpu381: Program the read caches"
+- Add "arm64: dts: rockchip: rk356x: Clock the vdec at 400 MHz"
+- Register the HEVC EXT SPS RPS controls with 64 and 32 elements
+- List the vdec register blocks as link, function, cache
+- Add fluster scores and failure analysis
+- Add Tested-by from Diederik de Haas
+
+Changes since v2:
+- Use correct .max_width/.max_height from TRM (Diederik de Haas)
+- Add Tested-by from Dang Huynh
+
+Changes since v1:
+- Drop DO-NOT-MERGE patch as changes included in Detlev's v7 series
+- Adapt to variant/capability changes in Detlev's v7 series
+- Add bindings ack from Rob
+- Add rkvdec ack from Nicolas
+- Rebase against Linux 6.19-rc2
+
+v5: https://lore.kernel.org/r/cover.1795191822.git.daniel@makrotopia.org
+v4: https://lore.kernel.org/r/cover.1794654074.git.daniel@makrotopia.org
+v3: https://lore.kernel.org/r/20260110053727.2295260-1-christianshewitt@gmail.com
+v2: https://lore.kernel.org/r/20251226113140.573759-1-christianshewitt@gmail.com
+
+[1] https://lore.kernel.org/r/20260110053727.2295260-1-christianshewitt@gmail.com
+[2] https://lore.kernel.org/r/cover.1794654074.git.daniel@makrotopia.org
+[3] https://lore.kernel.org/r/DFL5TY0QQNMN.1RS04UM9D1V8S@cknow-tech.com
+[4] https://lore.kernel.org/r/DFRU6ODDM71P.3NQGLRK8IVDUY@cknow-tech.com
+[5] https://lore.kernel.org/r/20261026124808.642373-1-a.kazinsky@ideco.ru
+[6] https://lore.kernel.org/r/cover.1794645268.git.daniel@makrotopia.org
+
+Christian Hewitt (3):
+  media: dt-bindings: rockchip: Add RK3568 Video Decoder bindings
+  media: rkvdec: Add support for the VDPU346 variant
+  arm64: dts: rockchip: Add the vdpu346 Video Decoders on RK356X
+
+Daniel Golle (2):
+  media: rkvdec: vdpu381: Program the read caches
+  arm64: dts: rockchip: rk356x: Clock the vdec at 400 MHz
+
+ .../bindings/media/rockchip,vdec.yaml         |   2 +
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi |  49 +++++++
+ .../rockchip/rkvdec/rkvdec-vdpu381-h264.c     |   2 +
+ .../rockchip/rkvdec/rkvdec-vdpu381-hevc.c     |   2 +
+ .../rockchip/rkvdec/rkvdec-vdpu381-regs.h     |   9 ++
+ .../media/platform/rockchip/rkvdec/rkvdec.c   | 121 ++++++++++++++++++
+ .../media/platform/rockchip/rkvdec/rkvdec.h   |   2 +
+ 7 files changed, 187 insertions(+)
+
+
+base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
 -- 
-2.55.0
+2.56.1
