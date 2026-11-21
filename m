@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795302174;
-	b=Wq9ku0RMfVIAItoaHZLnF3nkjb2NJJlKbzOiHt51o6Oe2DPNXgfDpwSNjbtdfc/AZDJE
-	 J33oxQgyQCJS2DMlGTcsQE9G7I2a0sa2ivhdjEmsA3XGZJE9ECQvqlIGVp/LhSuftrPVL
-	 Jm3nnzF+F4HhyKbXXVAUabsta7nWRuS9wO+1InNuhB8qR+0KUUA/i9S3J1U35mRT7jg6f
-	 b6f+1YVfsF8xEKKUd34l5FDXc0+zUsyKTPEcAnb2Y7tmjx0wAE5dreRAuLHAREN7JXADT
-	 R/+zLRGgzADctHASVqAO7VJjosQgVORiijh2DdWWHadDlZy9Zkz5cIMB3pXoz1CL6Fw==
+	t=1795302175;
+	b=Iuy/d1nNsj6zFP98lZUe8sMSY58pXs4tj9Mg6gZ3EsKvkO2uul8V2YCQa4BVcTvW+5L8
+	 4varhjxngBktvIji9+G2kySA99ZLq1g7wDdLw52surpz2XmJQFCJ/f17T2plIzpqqQUf+
+	 2wZDj+QKfJVXpTfiTzRld6aJXjPeY4G3wvM344uGH7FifxNPu9n5sq063XbjW4CxiBYii
+	 hEIFFLhfpzESlfilyy+LCq58z5nv8ZzOdeord/7arQ1dpsKDOvU7XtXpyLy5ExrsR81iJ
+	 EM0T1BriIIlBRTLWP00e3bw6ahjmG46D8uZ02AoZsWyrDevm040sH7CrKkRCi+STRjQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795302174;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795302175;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=EiNrcz/ZXxZYdeBH1eFbaY3DbgX+3ZSe+NGOrjnHYG8=;
-	b=x45+GymNe3o3C2d/xkCNJh28Puia2fRT9bDSyQGJyzt2Z6pYewbReNGVE3z+0+2dwx1O
-	 CnhHneExGW92e3TkTQxXTNuOjVPJ0zHC0HRd0BEUJDd7YnIAlz8ZpdPGWEIkEAIbBgDAI
-	 8zCMjbvkkV0eETSwnWxL9Pybe7vwb5EKjfWnhIe/khcpIrJf4Bvjfkbc40pnBtVDygGjd
-	 wG6Wm64DCTnc+uF3JuvuVwePb3aJo/SoKf2KHVAfzJjpPSKnvCjeYfzcbE0ER4dMCYLsv
-	 4SOK3MI9ME7ivRadTqX+VJw7ZIJTMQwX3CD2XcEf+XLT/cINkQg6vQzSzvFAWpoj2Hg==
+	bh=BcwfrCF7f7T5NQYQ4yDuCUyKOzQJSTxR3lI9Uml7xAg=;
+	b=1J7U5SZT1JExbedEMity3KTi/dUWJeizRcBfV6p31fteYcnkNjj0KSqDlh077Y/nR7mU
+	 BfXyYhoeDRg8vFCYhiqm5PHksERxYj4JwudEIHxxVJL9omx04kzkZcG3j3OhmAUsUNvwY
+	 qJUR9r+8QShqjuL7qg+uDJDZybbWp9mHeGRfr1WRe57fn1SUH9iSmCYMcHvsJca2plIqO
+	 gBjFstOAUFPAK2HYdq8IV0JKK6pWEIKq0dnQ0FRWQc8s2DlzKnzJarsMuFyjMMy3HQd9N
+	 svX73yaBmuuL5CrkzXqkuctgHlXCw7r6MsM/dMm8xYohLp2t+lkzuMEkV89ONHCZi/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G0yoi6hx;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KFCFmOi+;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E0C4606A32A;
-	Sat, 21 Nov 2026 23:02:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 821EB606A33E;
+	Sat, 21 Nov 2026 23:02:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G0yoi6hx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76EE21F000C6;
-	Sat, 21 Nov 2026 23:02:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KFCFmOi+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A53DF1F000C6;
+	Sat, 21 Nov 2026 23:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795302174;
-	bh=EiNrcz/ZXxZYdeBH1eFbaY3DbgX+3ZSe+NGOrjnHYG8=;
+	s=k20260515; t=1795302175;
+	bh=BcwfrCF7f7T5NQYQ4yDuCUyKOzQJSTxR3lI9Uml7xAg=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=G0yoi6hx0MOD6satKt+pgRDwxaQp79LhMqTfqOuQUf470Rzob/aqrm9s1uv8O93Cm
-	 jtod5Ys+LsiCyS28kNzGEJYFi69aMvklQ05KVlBADQsS/r4usbhYtbkw3XHPIbOc9L
-	 HFdnZ596bbgPqafC1ViCbLqDeYXRi89Y3aTGJaL7pRgvO395GnjtBS4MBieuF2fNSD
-	 9AICf1Q9MZTgum6jIxn5Na1kUtCsvC2aCWEbEQw4wR5Hnizw48gOTUJ4D6WniWIeUJ
-	 fGj/degRcTWlyQ3ql79HbMOobO6xdgXRyyPW8/fW6PQ6CcF+koQjUjWaMYFJl11C1w
-	 V3MneLbP8n9pw==
-Subject: Re: [PATCH net-next v4 2/6] net: mvneta: fix the removal of the
- mqprio offload
+	b=KFCFmOi++nS91OlAYII9Okgq0ZwLlUgi8yRP2FFDoU0WUKA00+bNCHKa6kgrTjshN
+	 sNKw0hcEh63MyA1b2u3smhvQGM7EcGpZcKLmJaUkTbdV2XKJan0aZuA+wr9ZsIqtZT
+	 lOlAEHt7BJLHxZEYEo1My8K9VNdo4tMfXliwCOLbG4iFung8jXiyJfJqTnn0JfaCtC
+	 2UYP1Ygmq3tEoBCFcnSZkoIo0DpRIjLsejSjuztYzm4IgltN8XcO50ugXMMnm6F3If
+	 kU++mtWx1WbPoHtgbeS4Paw24aThJ/SxXUfgNKcCPwwQlNv56qaf0iN8VrbtJmGV6F
+	 qhhA80l+TlhMQ==
+Subject: Re: [PATCH net-next v4 4/6] net: mvneta: keep the TX rate limits
+ across open and MTU change
 From: netdev-bot+sashiko@kernel.org
 To: pepe.schlehofer@gmail.com
 Cc: netdev@vger.kernel.org, marcin.s.wojtas@gmail.com, andrew+netdev@lunn.ch,
  davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
  maxime.chevallier@bootlin.com, w@1wt.eu, linux-kernel@vger.kernel.org
-Date: Sat, 21 Nov 2026 23:02:53 +0000
-Message-ID: <179530217303.3135.1162900771508007234@kernel.org>
-In-Reply-To: <20261118093012.90121-3-pepe.schlehofer@gmail.com>
-References: <20261118093012.90121-3-pepe.schlehofer@gmail.com>
+Date: Sat, 21 Nov 2026 23:02:54 +0000
+Message-ID: <179530217425.3135.3188367185761117756@kernel.org>
+In-Reply-To: <20261118093012.90121-5-pepe.schlehofer@gmail.com>
+References: <20261118093012.90121-5-pepe.schlehofer@gmail.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -75,97 +75,117 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] After this patch, every all-zero mqprio teardown runs the full
-  device-wide reset in mvneta_setup_mqprio()…
+- [Medium] In this patch, a rejected mqprio shaper config leaves the new
+  `bucket_refill` copy set, and `mvneta_restore_per_queue_rate_limit()`…
 
 --
 
-net: mvneta: fix the removal of the mqprio offload
+net: mvneta: keep the TX rate limits across open and MTU change
 
-This patch changes mvneta_setup_mqprio() so that qopt.hw is checked only
-when num_tc is non-zero. The all-zero teardown from
-mqprio_disable_offload() can then reach the code that clears the RX prio
-map, the per-queue rate limits and the netdev TC state.
+This commit saves the refill value of each rate limited TX queue in a new
+bucket_refill field of struct mvneta_tx_queue. A new helper,
+mvneta_restore_per_queue_rate_limit(), writes the limits back from
+mvneta_start_dev(). Before this, mvneta_txq_hw_init() reset every limit to
+10.23 Mbit/s after ifup, an MTU change or resume.
 
 > diff --git a/drivers/net/ethernet/marvell/mvneta.c b/drivers/net/ethernet/marvell/mvneta.c
-> index c0abc843b1c1a..06b5453543a19 100644
+> index 76dfbc484269e..58453c69be361 100644
 > --- a/drivers/net/ethernet/marvell/mvneta.c
 > +++ b/drivers/net/ethernet/marvell/mvneta.c
-> @@ -5251,11 +5251,12 @@ static int mvneta_setup_mqprio(struct net_device *dev,
->  	int rxq, txq, tc, ret;
->  	u8 num_tc;
->  
-> -	if (mqprio->qopt.hw != TC_MQPRIO_HW_OFFLOAD_TCS)
-> -		return 0;
-> -
->  	num_tc = mqprio->qopt.num_tc;
->  
-> +	/* On removal the qdisc passes an all-zero qopt, with hw 0 */
-> +	if (num_tc && mqprio->qopt.hw != TC_MQPRIO_HW_OFFLOAD_TCS)
-> +		return 0;
-> +
+
+[ ... ]
+
+> @@ -5239,11 +5247,32 @@ static int mvneta_setup_queue_rates(struct mvneta_port *pp, int queue,
+>  	val |= (MVNETA_TXQ_BUCKET_REFILL_PERIOD <<
+>  		MVNETA_TXQ_BUCKET_REFILL_PERIOD_SHIFT);
+>
+> +	pp->txqs[queue].bucket_refill = val;
+>  	mvreg_write(pp, MVNETA_TXQ_BUCKET_REFILL_REG(queue), val);
+>
+>  	return 0;
+>  }
 
 [Severity: Medium]
-Can this wipe the configuration of a replacement qdisc? Since the hw
-check is now skipped when num_tc == 0, every all-zero teardown goes on
-to the device-wide reset further down in mvneta_setup_mqprio():
+Can a rejected mqprio shaper config leave bucket_refill set for some
+queues?
 
-	mvneta_clear_rx_prio_map(pp);
+mvneta_setup_mqprio() calls mvneta_setup_queue_rates() one traffic class
+at a time. If a later class fails (nonzero min_rate, a rate that is not a
+multiple of 10 kbit/s, zero, or above the maximum), it returns in the
+middle of the loop:
 
-	if (!num_tc) {
-		mvneta_disable_per_queue_rate_limit(pp);
-		netdev_reset_tc(dev);
-		return 0;
-	}
+mvneta_setup_mqprio() {
+    ...
+			ret = mvneta_setup_queue_rates(pp, txq,
+						       mqprio->min_rate[tc],
+						       mqprio->max_rate[tc]);
+			if (ret)
+				return ret;
+    ...
+}
 
-The teardown from mqprio_disable_offload() in net/sched/sch_mqprio.c is
-an all-zero struct tc_mqprio_qopt_offload. It does not say which qdisc
-instance it belongs to.
+The queues of the earlier classes keep a nonzero bucket_refill.
 
-Take a replace under a new handle, for example:
+In net/sched/sch_mqprio.c, mqprio_enable_offload() sets priv->hw_offload
+only when the offload succeeds. So mqprio_destroy() takes the
+netdev_set_num_tc(dev, 0) branch and does not call the driver with
+num_tc == 0.
 
-  tc qdisc replace dev eth2 root handle 200: mqprio ... hw 1
+That means mvneta_disable_per_queue_rate_limit() never runs, and it is
+the only place that clears bucket_refill. This also breaks the "0 when
+not limited" comment on the new field.
 
-The calls then happen in this order:
+For example:
 
-qdisc_create()
-  mqprio_init()
-    mqprio_enable_offload()
-      mvneta_setup_mqprio(num_tc=N, hw=1)    <- new config programmed
+tc qdisc add ... mqprio ... hw 1 mode channel shaper bw_rlimit \
+    max_rate 10Mbit 10001kbit
+  mvneta_setup_mqprio()
+    class 0 sets bucket_refill for its queues
+    class 1 returns -EINVAL
+  hw_offload stays 0, mqprio_destroy() does not call the driver
+ip link set dev ... down; ip link set dev ... up (or an MTU change)
+  mvneta_start_dev()
+    mvneta_restore_per_queue_rate_limit()
 
-qdisc_graft()
-  rcu_assign_pointer(dev->qdisc, new ? : &noop_qdisc);
-  notify_and_destroy(old)
-    mqprio_destroy(old)
-      mqprio_disable_offload(old)
-        mvneta_setup_mqprio(num_tc=0)        <- new config cleared
-  new->ops->attach(new)                      <- offload not reprogrammed
+> +/* The TX queue setup overwrites the rate limits, program them again */
+> +static void mvneta_restore_per_queue_rate_limit(struct mvneta_port *pp)
+> +{
+> +	int queue;
+> +
+> +	for (queue = 0; queue < txq_number; queue++) {
+> +		if (pp->txqs[queue].bucket_refill)
+> +			break;
+> +	}
+> +
+> +	if (queue == txq_number || mvneta_enable_per_queue_rate_limit(pp))
+> +		return;
+> +
+> +	for (; queue < txq_number; queue++) {
+> +		if (pp->txqs[queue].bucket_refill)
+> +			mvreg_write(pp, MVNETA_TXQ_BUCKET_REFILL_REG(queue),
+> +				    pp->txqs[queue].bucket_refill);
+> +	}
+> +}
 
-A software taprio replacement sets its TCs with netdev_set_num_tc() in
-taprio_change() before the old offloaded mqprio is destroyed. The
-netdev_reset_tc() above then undoes them.
+At every later mvneta_start_dev(), would this find the leftover entries,
+turn the v3 limiter back on, and write back the limits of the rejected
+config?
 
-In that case, would a new offloaded mqprio end up without its traffic
-classes, its MVNETA_VLAN_PRIO_TO_RXQ mapping and its TX rate limits,
-while its priv->hw_offload still reads 1? And would a taprio left
-without TCs stop sending?
+No mqprio qdisc is installed at that point, so tc cannot show or delete
+these limits. Installing and then deleting a valid shaper is the only way
+to clear them.
 
-Before this patch, the early return on hw != TC_MQPRIO_HW_OFFLOAD_TCS
-made this teardown a no-op, so the replacement kept its configuration.
+Before this patch, a rejected config already left the hardware partly
+configured, but that state did not survive a port restart.
 
-The commit message describes this behaviour. The root cause looks like
-it is in the qdisc core: it destroys the old qdisc after the new one is
-set up, and its teardown does not name the qdisc.
+The next patch in the series, "net: mvneta: validate an mqprio setup
+before applying it", appears to fix this. With it, mvneta_setup_mqprio()
+validates every class with mvneta_txq_refill_val() before touching the
+hardware, and bucket_refill is written only after that.
 
-Several other drivers reset the same way on num_tc == 0:
-enetc_setup_tc_mqprio(), ocelot_port_mqprio(), am65_cpsw_setup_mqprio(),
-dpaa_setup_tc(), dpaa2_eth_setup_mqprio() and bnx2x_setup_tc().
-
-At the end of the series, mvneta_setup_mqprio() still does the full
-reset for every num_tc == 0 call.
-
-Would a proper fix need the core to identify the qdisc in the teardown
-call, so the removal fix does not cause a regression on replace?
+Both patches carry the same Fixes: tag. Should they go to stable together,
+or should this patch only store bucket_refill once the whole config has
+been accepted?
 
 [ ... ]
 
