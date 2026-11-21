@@ -1,79 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795261479;
-	b=X4cN1JImTZ7MphqoN2o+YVqBdccTWEJY6HhopFlAjznuCxGTgEH5yPc/j+6IZIXFM5cu
-	 iJ7fZlR/BhMjZBHo4LtVNQ9dMldvNXQ6vpE2oRBK29hXSMEk0c2CJmqDzva0Q+0Mh9D18
-	 O1AizKwu7e/3StOPEN/h+21YhYxdvfmwcaRUeUSOJsH33wDYTgVxAjvZrqf3jQQjHO6oJ
-	 +fxQohzt0knb5mMDV5DZ56j/BwcMVyBKF0gdppvtwBkTIgO7VXu1KueIKa8e1SW4AH5og
-	 2NMttdUlfnw68wNE0GLwTP9G9zqpvvYUnpdMUTOouOXtOWIAct8xCJztoUbZGbiqfYg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795261479;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=BgRa25c2yeRWcTsSfy5rWDhEKsR4WN0Hp2Qr9mr0vew=;
-	b=h4FdmAkYrs0xJ29OJrI6fxaSnvKxUaVn5dlj/on/hL6jwt2Kl/oQiQIFO2xnh+luKrtw
-	 6Bnb/TznsYkd6mc1E+V4VlXF2a0srqv5pV6JTUQ54LQcLHU/HRS3f50KM7GtKuRuzPWVZ
-	 WcBohIep4onYPnSL/SRIdS58m+M19odb682tDGOm3bhCdAnqwYbwPozlBHmXs+gdrMfIf
-	 +F4eixhyNVh+JnHrpaMTJn7QVT0OYwE20ZczgRYM45HqwO7p24lNvSvfMNi9lQDG9Vfa7
-	 mGpPZktXywIhcGIvj56jk2WpZF8gGRhWpnlj2UtMVrJKXIcyFSK32WgfeEY7AtivOxQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="nh4O/Ojp";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79993606A337;
-	Sat, 21 Nov 2026 11:44:39 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nh4O/Ojp
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795261479;
-	b=BoNWniE3k5KkvmijpxHMLNcU+KTD1Z3pzIbiNJXQ1dZ5+EUdO5kQLkwvRgEa+lW/MkF4
-	 u7yCi75XWGxx6EJyQKOdHjOYc708hdgsNaO/Cv4AGLC//tmEFuacc+v65VFnvlH+C3Ssh
-	 g8fqmIPpHUnMCbWXzQNa7CMsfX2C5J1r9X1jwJ03FCNaIq+hF+s0GcCmnnutF4oPXvv3u
-	 CK7wWNUotpD355KzkaUTejIcFhxHOhj/EFvn4lzegBtCsrqYmv+NusTDvDHpfeGCdbk0t
-	 JkYlmEvHIR4+CXTE9mj7Md4nNdj0DeE0vdg6loaQbJ1XQxOOOFGIt6G56FIi+1MH9oA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795261479;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=BgRa25c2yeRWcTsSfy5rWDhEKsR4WN0Hp2Qr9mr0vew=;
-	b=JSJLGaf/1V+nHG4bCRtPLgAA7Nl8VJGTvWnGiPBYdfSKX7/8NfcqSW0R963ZHic+Wf10
-	 R27dZieYAcESb+CQMeOkQD9C1szD4on7am9JIO2HXSZO5NC4TGWCHtceai6V7NWBNYtG2
-	 0sy1p/MqcIRe+9xoKThy93iroLcZqyHAbEOZHNdN13Ep0DfvIuZicwqtmiIs8r5g7p07k
-	 KmMTp86F7A/ugJxEqrSfA2rxrKDx/LRs5IplE4Dd/yoIFrvNb0v/VEFc2HggLl+5DylIq
-	 YoKub8PCCaynaWrUBR9xc2dhgn27Ofip85fDw/UO6E1IQq6zpNo7UXeB3DnMvpjwX4A==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.51
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795261572;
+	b=CI0WlEpn18FMicHboo1mo37VmYrqWy5DuTp7q1Py0N68SnXrilwJYwIjXnddsmOEWfM2
+	 0loW/9BZCqc6FYpT9ZHdHqeTUQwvQ7KCRLScEkOBH5Ce6JQtasuOt0mLIk1d3w8l5ef05
+	 vMlDs1QSTqzhOMmzjpAaPwtZ9/+ytffjKqp1FpTkoKT6OnMOSEUbB3bcuz1rWla780l/O
+	 U1vFF3W8USmLUn4U2allRNX1qxfWZN7hWVZYVPGoOe6JDqD6gRu8NrOnkyKEhmXLrnI9B
+	 Zq/6s6CM63fhRHuyj0oQA7O/rYl5qP8ZsDFyw4BN3GxjiNKopaSd5kJD7IGVBE11p5Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795261572;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=5bq54PBPl4YCnVxEmHl/CCwjoHYf0FGqHDDIF9WweFI=;
+	b=zVOF5vMxYIN0zZuWit79HxDYmPs1lNW+ji0Nr5lT9ThV0Nspv6j7U+uy+7t2mo6AzqZC
+	 C0g2ISykBjv0sHrolY1YwhMwuMMVl7xEAB5Kpbta1+IBi1rtjpcoMFKRPHJNcUnolkxEl
+	 gLswpsjZvawK3RkmiMvaTnOmAmiHDBiOHOhZuTlSjJFieJ22CbaYDhu+M6zoby72HJ1Mb
+	 +KPwl5PaIZE9bFc4W/Zhxk8MgU39GjM0L34X9x/OIDqlJrDLQx95Xn67AIsly9Z1HylYT
+	 A1MDrwnpmGHYi/SWMwBBySCvAvUDq+O75/0hKrupcWgHNWd2RdZ/F1uEKuprj91FFMQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pardini.net;
+	spf=pass smtp.mailfrom=pardini.net;
+	dkim=pass header.d=pardini.net header.i=@pardini.net header.a=rsa-sha256 header.s=google header.b=NmGSSMgi;
+	arc=none smtp.remote-ip=209.85.208.51
+Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 269141F000CA;
-	Sat, 21 Nov 2026 11:44:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795261479;
-	bh=BgRa25c2yeRWcTsSfy5rWDhEKsR4WN0Hp2Qr9mr0vew=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=nh4O/Ojp2IbSYBMPAdv2h9hjGHSYKHPadJR7Ulukwe2GDR8f5kKI0cHihKO4RnCV5
-	 ZB7DuSOoBIFdpxbfpVZ9//UZX8FsjrLXMOP6dxl7sPfvNRDkqb4MfvXIX1j264b1WM
-	 l2JsxtTwwK7y1r3DprXXqsTf/WdSa4gTT9W/l+/DA3MIxNj2w8pIHLOOgAfRAaRVzJ
-	 vUny+HYPlnkPYxyPnsU4phBlrdbK7NS0N7MBTQxYZqUZQO8UYm3MGBCK63vmPDozsx
-	 aOIlfJl0p8bRgCzlO6eojFGC5yNTEeSINDnwFsJASpk86S2r86PBKYEALRUvaYj3g2
-	 QFMRmLr7YONWw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id A8D4E4BC18;
-	Sat, 21 Nov 2026 11:44:37 +0000 (UTC)
-From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
-Date: Sat, 21 Nov 2026 11:42:47 +0000
-Subject: [PATCH 2/4] arm64: dts: apple: t8122: Add CPU frequency scaling
- and OPPs
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04857606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:46:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 04857606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pardini.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pardini.net
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=pardini.net header.i=@pardini.net header.a=rsa-sha256 header.s=google header.b=NmGSSMgi
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6b8977f2785so2435427a12.3
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:46:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=pardini.net; s=google; t=1795261570; x=1795866370; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5bq54PBPl4YCnVxEmHl/CCwjoHYf0FGqHDDIF9WweFI=;
+        b=NmGSSMgirxB1kw5J9zgoq5QISvw6Yh8iCK75uOY3jeW+ZW/aKB9e+tUf7wxRok7G46
+         vJ/9mtgJHMMJ5DAtmtE+Pk8fSME84BwT1R7vRROAN+5X06IYWugXETfDYQo1Q/tWPkHq
+         UBY1wCGPQRMK6E3PVBqfjA7W7T2059iNNepjX6jy8DHzrCYo6jX3zaZoijslKUTqaDOU
+         hXIqSwG2tF5Nz35paPvbZ8xQXbucMkfjryF14JAVewKjqdRhfmIeGRQXl4TAMxouxaOJ
+         X8nOKKe4Om/JYvbSm9+4sP4E8Np3AZM4f1cMfynxtszkLgDWNLXMIodtWGOGa36NpCYz
+         x5TA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795261570; x=1795866370;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5bq54PBPl4YCnVxEmHl/CCwjoHYf0FGqHDDIF9WweFI=;
+        b=damXVvFXDtazI+/f/DJntkyIprfkOUKPiN1tpp78Ug39h2XleOmMsrSOd4hPmjh4V3
+         9ETcMJ9Br0BTy9j5Ek34GXbgmu3GqOr3V83PwU6M7b9sE2XO+88gBM60fKszt9iE4NeB
+         SH6fa1pwfkTUUDKQjW+SJJVrGMacrGpusglJ+govRyVH+PgSNNbzCXDqhqxFjTxw4YS2
+         d403B9I1G2OoNIRorMTCNU3CsFDZlaiU5TzcJUk9yrG9pz0Q1U9no6qlO/7iyRtKKliX
+         rcWVQZisKvzcKuk0dFBzsW5RLUl6n/Rg5OUD8icgrJXmvoLIRB/FIyDOE8qzRFi//gRf
+         KLmg==
+X-Forwarded-Encrypted: i=1; AL+hErF6gl5bZiprlQArUHY45AGWRU4gQ92muLvupMMc0ZHuCHBFMR1iUXRMgeyjVZEphBKE4f331550tL+Hqgw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/PFdaVYj75RUOT2mvKZwrf79eeoL2bpI7lG5iP3nQ+jA3UeRoC
+	jqW5ca3D3pnbFZwGYU5i024g8vNhI4tGa0ocUHoYFa8hljjoy6/bM7DuT8OzDv7gGw==
+X-Gm-Gg: AZFdTZfBIYOCpoWfw/zk+HhptYV2d+F5mIKVZYU4Ym6baoQeSe5IymZ/4lm+hBkSJd/
+	peG2QaM48NlLRASWbS7CCf8GIr+oz0mTCuIdz8J8LLg+7PS0B90t6pmSRp6zcuwwSM6rCCzLwjo
+	JIEz8HKe/AV2biVOeIjCq/OP+6JIPqI0XNeZMO+5Eib5coo74btQt/aKfNjesq2m2fd0VQepj0e
+	EXpwsbfjz/If1EoJKypfe9QxylS385gKkrx30NnjpJ8zShYxnj1Liel1GVDH3AWCTIL/mdWCfTa
+	vkNUj2320LvQdx9k/+4d4A4H/EWR69lU+91LcdRZDzm6/8yioLQ0pEQ6SSqasdX0EYfDeEg0235
+	6yFPJbW3tVpiaKuRn98BoeRTM1S8hDNgSummDfhydnZgiOFmsI968kMWaDhe9ZbnE6UmK5N5KNH
+	N5olhYA9cbeR8uVcSXCmaNezkff0edpR9TQcnBZgph57k3u9Ki5BCZpNi1x6ykwU+Tj0GYb44hP
+	Ic0qBmSeVn/eq9VeGK2zQEHuM/+eaUDEfxhHLX4iSVP5TAWt8MsEXuH8PgGgMeJqzTq/anjao6M
+	7ULrwnkxjhVPRMaJzvSTLk2tgAM1MQz/V1X4EjYawaICwHnhYbYEam2x7S3pg0M6zDAFuoJ/P42
+	gK+97+jwI8jvUwIjkYlKg2T/HZRa+iQ9ITO65sshEe8YbJgVJ2Q5J6Q0KgyWypZrp/9OuoHSfIg
+	li
+X-Received: by 2002:a05:6402:134a:b0:6b9:c43e:19fb with SMTP id 4fb4d7f45d1cf-6ba37d632e0mr3291804a12.25.1795261570200;
+        Sat, 21 Nov 2026 03:46:10 -0800 (PST)
+Received: from ?IPV6:2a02:a466:4d7a:0:409e:13f1:8f3d:aa19? (2a02-a466-4d7a-0-409e-13f1-8f3d-aa19.fixed6.kpn.net. [2a02:a466:4d7a:0:409e:13f1:8f3d:aa19])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba854bed08sm173298a12.30.2026.11.21.03.46.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 21 Nov 2026 03:46:08 -0800 (PST)
+Message-ID: <9e4c3ed3-812c-4ad4-aab8-b1a783cec95e@pardini.net>
+Date: Sat, 21 Nov 2026 12:46:07 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,361 +94,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 00/23] Synopsys DisplayPort Controller improvements
+ for Rockchip platforms
+To: Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andyshrk@163.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>,
+ Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, kernel@collabora.com,
+ linux-arm-kernel@lists.infradead.org, Sashiko <sashiko-bot@kernel.org>,
+ Igor Paunovic <royalnet026@gmail.com>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Yury Smirnov <yurymonzon@gmail.com>
+References: <20261114-synopsys-dw-dp-improvements-v12-0-d42d3dc5bdd4@collabora.com>
+Content-Language: en-US
+From: Ricardo Pardini <ricardo@pardini.net>
+In-Reply-To: <20261114-synopsys-dw-dp-improvements-v12-0-d42d3dc5bdd4@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261121-m3-cpufreq-opp-v1-2-42a0c07c48a4@gmail.com>
-References: <20261121-m3-cpufreq-opp-v1-0-42a0c07c48a4@gmail.com>
-In-Reply-To: <20261121-m3-cpufreq-opp-v1-0-42a0c07c48a4@gmail.com>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, "Rafael J. Wysocki" <rafael@kernel.org>, 
- Viresh Kumar <viresh.kumar@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Michael Reeves <michael.reeves077@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795261476; l=8104;
- i=michael.reeves077@gmail.com; s=20261107; h=from:subject:message-id;
- bh=7RgM/pZr6piF1+dFtELmpZINHsFgJk4k3LRIKe7+/VE=;
- b=xLKKcOwH35mGmXJSR+/e95VIwYvD/a+rvEyNSixiW2lqLpUKaIJ/GC5+M7sSAh0MNCPcXX+Ic
- cE43iqsTFrdCAHr4gWxqyWQ31JxOskaxiufdRm7M/DMmo/M1GMBzA4G
-X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
- pk=ykwkLcuByJYb/cdLc2UuoYP03pIzwrscEZg30+4tJL8=
-X-Endpoint-Received: by B4 Relay for michael.reeves077@gmail.com/20261107
- with auth_id=1442
-X-Original-From: Michael Reeves <michael.reeves077@gmail.com>
-Reply-To: michael.reeves077@gmail.com
 
-From: Janne Grunau <j@jannau.net>
+On 14/11/2026 06:00, Sebastian Reichel wrote:
+> This patch series updates the Synopsys Designware DisplayPort bridge
+> together with the only existing user: The Rockchip RK3576/RK3588:
+[...]
 
-Add the cluster cpufreq controller nodes, operating performance point
-tables, and CPU capacity values for the Apple T8122 (M3) Sawtooth
-efficiency and Everest performance clusters.
+Thanks for the series! Tested on a Mekotronics R58X-Pro (RK3588) on
+v7.4-rc3 (it needs 941e3acfb358 from linux-next to apply there):
 
-The capacity-dmips-mhz values were determined by measuring single-core
-CoreMark [1] Iterations/Sec/MHz at fixed frequencies under the
-performance governor.
+- dp1, full-size DP: Dell U3415W at 3440x1440.
+- dp0, DP alt mode through usbdp_phy0 + FUSB302 with an Apple USB-C
+   Digital AV Multiport adapter (A2119, pin assignment D, HBR3 x2):
+   1080p60 on a small HDMI monitor and 3440x1440@50 on the Dell's HDMI
+   input. Works in both orientations, and out-of-band HPD retrains the
+   link after a flip. With the adapter plugged in at boot, this also
+   needs your "drm/connector: Cache out-of-band hotplug events".
+- Audio on both outputs to the Dell's speakers, over S/PDIF
+   (spdif_tx2/tx5, simple-audio-card, mclk-fs 512, DAI 1). It also
+   needs a clk core workaround I am not sure about: AUPLL's assigned rate
+   rounds to the current rate, so the S/PDIF frac notifiers get
+   PRE_RATE_CHANGE without POST_RATE_CHANGE and leave the muxes on the
+   gated fractional divider; no DMA requests, EIO.
 
-[1] https://github.com/eembc/coremark
+Tested-by: Ricardo Pardini <ricardo@pardini.net> # Mekotronics R58X-Pro 
+(RK3588)
 
-Signed-off-by: Janne Grunau <j@jannau.net>
-Co-developed-by: Michael Reeves <michael.reeves077@gmail.com>
-Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
----
- arch/arm64/boot/dts/apple/t8122.dtsi | 210 +++++++++++++++++++++++++++++++++++
- 1 file changed, 210 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/apple/t8122.dtsi b/arch/arm64/boot/dts/apple/t8122.dtsi
-index 959ddf36efa1..3d41d32331a8 100644
---- a/arch/arm64/boot/dts/apple/t8122.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8122.dtsi
-@@ -76,9 +76,12 @@ cpu_e0: cpu@0 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <804>;
- 			d-cache-size = <0x10000>;
- 			i-cache-size = <0x20000>;
- 			next-level-cache = <&l2_cache_0>;
-+			operating-points-v2 = <&sawtooth_opp>;
-+			performance-domains = <&cpufreq_e>;
- 		};
- 
- 		cpu_e1: cpu@1 {
-@@ -88,9 +91,12 @@ cpu_e1: cpu@1 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <804>;
- 			d-cache-size = <0x10000>;
- 			i-cache-size = <0x20000>;
- 			next-level-cache = <&l2_cache_0>;
-+			operating-points-v2 = <&sawtooth_opp>;
-+			performance-domains = <&cpufreq_e>;
- 		};
- 
- 		cpu_e2: cpu@2 {
-@@ -100,9 +106,12 @@ cpu_e2: cpu@2 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <804>;
- 			d-cache-size = <0x10000>;
- 			i-cache-size = <0x20000>;
- 			next-level-cache = <&l2_cache_0>;
-+			operating-points-v2 = <&sawtooth_opp>;
-+			performance-domains = <&cpufreq_e>;
- 		};
- 
- 		cpu_e3: cpu@3 {
-@@ -112,9 +121,12 @@ cpu_e3: cpu@3 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <804>;
- 			d-cache-size = <0x10000>;
- 			i-cache-size = <0x20000>;
- 			next-level-cache = <&l2_cache_0>;
-+			operating-points-v2 = <&sawtooth_opp>;
-+			performance-domains = <&cpufreq_e>;
- 		};
- 
- 		cpu_p0: cpu@10100 {
-@@ -124,9 +136,12 @@ cpu_p0: cpu@10100 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <1024>;
- 			d-cache-size = <0x20000>;
- 			i-cache-size = <0x30000>;
- 			next-level-cache = <&l2_cache_1>;
-+			operating-points-v2 = <&everest_opp>;
-+			performance-domains = <&cpufreq_p>;
- 		};
- 
- 		cpu_p1: cpu@10101 {
-@@ -136,9 +151,12 @@ cpu_p1: cpu@10101 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <1024>;
- 			d-cache-size = <0x20000>;
- 			i-cache-size = <0x30000>;
- 			next-level-cache = <&l2_cache_1>;
-+			operating-points-v2 = <&everest_opp>;
-+			performance-domains = <&cpufreq_p>;
- 		};
- 
- 		cpu_p2: cpu@10102 {
-@@ -148,9 +166,12 @@ cpu_p2: cpu@10102 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <1024>;
- 			d-cache-size = <0x20000>;
- 			i-cache-size = <0x30000>;
- 			next-level-cache = <&l2_cache_1>;
-+			operating-points-v2 = <&everest_opp>;
-+			performance-domains = <&cpufreq_p>;
- 		};
- 
- 		cpu_p3: cpu@10103 {
-@@ -160,9 +181,12 @@ cpu_p3: cpu@10103 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <1024>;
- 			d-cache-size = <0x20000>;
- 			i-cache-size = <0x30000>;
- 			next-level-cache = <&l2_cache_1>;
-+			operating-points-v2 = <&everest_opp>;
-+			performance-domains = <&cpufreq_p>;
- 		};
- 
- 		l2_cache_0: l2-cache-0 {
-@@ -180,6 +204,178 @@ l2_cache_1: l2-cache-1 {
- 		};
- 	};
- 
-+	sawtooth_opp: opp-table-0 {
-+		compatible = "operating-points-v2";
-+		opp-shared;
-+
-+		opp01 {
-+			opp-hz = /bits/ 64 <744000000>;
-+			opp-level = <1>;
-+			clock-latency-ns = <7800>;
-+		};
-+
-+		opp02 {
-+			opp-hz = /bits/ 64 <1044000000>;
-+			opp-level = <2>;
-+			clock-latency-ns = <19400>;
-+		};
-+
-+		opp03 {
-+			opp-hz = /bits/ 64 <1476000000>;
-+			opp-level = <3>;
-+			clock-latency-ns = <24800>;
-+		};
-+
-+		opp04 {
-+			opp-hz = /bits/ 64 <2004000000>;
-+			opp-level = <4>;
-+			clock-latency-ns = <43600>;
-+		};
-+
-+		opp05 {
-+			opp-hz = /bits/ 64 <2268000000>;
-+			opp-level = <5>;
-+			clock-latency-ns = <49200>;
-+		};
-+
-+		opp06 {
-+			opp-hz = /bits/ 64 <2556000000>;
-+			opp-level = <6>;
-+			clock-latency-ns = <53400>;
-+		};
-+
-+		opp07 {
-+			opp-hz = /bits/ 64 <2748000000>;
-+			opp-level = <7>;
-+			clock-latency-ns = <56800>;
-+		};
-+	};
-+
-+	everest_opp: opp-table-1 {
-+		compatible = "operating-points-v2";
-+		opp-shared;
-+
-+		opp01 {
-+			opp-hz = /bits/ 64 <696000000>;
-+			opp-level = <1>;
-+			clock-latency-ns = <9400>;
-+		};
-+
-+		opp02 {
-+			opp-hz = /bits/ 64 <1092000000>;
-+			opp-level = <2>;
-+			clock-latency-ns = <19800>;
-+		};
-+
-+		opp03 {
-+			opp-hz = /bits/ 64 <1356000000>;
-+			opp-level = <3>;
-+			clock-latency-ns = <23700>;
-+		};
-+
-+		opp04 {
-+			opp-hz = /bits/ 64 <1596000000>;
-+			opp-level = <4>;
-+			clock-latency-ns = <25000>;
-+		};
-+
-+		opp05 {
-+			opp-hz = /bits/ 64 <1884000000>;
-+			opp-level = <5>;
-+			clock-latency-ns = <28200>;
-+		};
-+
-+		opp06 {
-+			opp-hz = /bits/ 64 <2172000000>;
-+			opp-level = <6>;
-+			clock-latency-ns = <32300>;
-+		};
-+
-+		opp07 {
-+			opp-hz = /bits/ 64 <2424000000>;
-+			opp-level = <7>;
-+			clock-latency-ns = <35600>;
-+		};
-+
-+		opp08 {
-+			opp-hz = /bits/ 64 <2616000000>;
-+			opp-level = <8>;
-+			clock-latency-ns = <38200>;
-+		};
-+
-+		opp09 {
-+			opp-hz = /bits/ 64 <2808000000>;
-+			opp-level = <9>;
-+			clock-latency-ns = <39700>;
-+		};
-+
-+		opp10 {
-+			opp-hz = /bits/ 64 <2988000000>;
-+			opp-level = <10>;
-+			clock-latency-ns = <41700>;
-+		};
-+
-+		opp11 {
-+			opp-hz = /bits/ 64 <3144000000>;
-+			opp-level = <11>;
-+			clock-latency-ns = <43700>;
-+		};
-+
-+		opp12 {
-+			opp-hz = /bits/ 64 <3288000000>;
-+			opp-level = <12>;
-+			clock-latency-ns = <45000>;
-+		};
-+
-+		opp13 {
-+			opp-hz = /bits/ 64 <3420000000>;
-+			opp-level = <13>;
-+			clock-latency-ns = <48700>;
-+		};
-+
-+		opp14 {
-+			opp-hz = /bits/ 64 <3540000000>;
-+			opp-level = <14>;
-+			clock-latency-ns = <55700>;
-+		};
-+
-+		opp15 {
-+			opp-hz = /bits/ 64 <3636000000>;
-+			opp-level = <15>;
-+			clock-latency-ns = <55900>;
-+		};
-+
-+		opp16 {
-+			opp-hz = /bits/ 64 <3720000000>;
-+			opp-level = <16>;
-+			clock-latency-ns = <55900>;
-+		};
-+
-+		opp17 {
-+			opp-hz = /bits/ 64 <3780000000>;
-+			opp-level = <17>;
-+			clock-latency-ns = <56000>;
-+		};
-+
-+		opp18 {
-+			opp-hz = /bits/ 64 <3864000000>;
-+			opp-level = <18>;
-+			clock-latency-ns = <56000>;
-+		};
-+
-+		opp19 {
-+			opp-hz = /bits/ 64 <3960000000>;
-+			opp-level = <19>;
-+			clock-latency-ns = <61800>;
-+		};
-+
-+		opp20 {
-+			opp-hz = /bits/ 64 <4056000000>;
-+			opp-level = <20>;
-+			clock-latency-ns = <61900>;
-+		};
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		ranges;
-@@ -190,6 +386,20 @@ soc {
- 		nonposted-mmio;
- 		#size-cells = <2>;
- 
-+		cpufreq_e: performance-controller@210e20000 {
-+			compatible = "apple,t8122-cluster-cpufreq",
-+				     "apple,t8112-cluster-cpufreq";
-+			reg = <0x2 0x10e20000 0x0 0x1000>;
-+			#performance-domain-cells = <0>;
-+		};
-+
-+		cpufreq_p: performance-controller@211e20000 {
-+			compatible = "apple,t8122-cluster-cpufreq",
-+				     "apple,t8112-cluster-cpufreq";
-+			reg = <0x2 0x11e20000 0x0 0x1000>;
-+			#performance-domain-cells = <0>;
-+		};
-+
- 		i2c0: i2c@2a1010000 {
- 			compatible = "apple,t8122-i2c", "apple,t8103-i2c";
- 			reg = <0x2 0xa1010000 0x0 0x4000>;
-
--- 
-2.56.0
-
+mvg,
+Ricardo
 
