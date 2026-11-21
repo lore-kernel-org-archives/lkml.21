@@ -1,54 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.24
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795230109;
-	b=qJwGFKnTFyutS6pOb+zxdAh3IaLLFjJqcJTAafFJck+JnVWdDJf+gK0eVuOXM4otd2DZ
-	 1Ly9wWROgbSwkFHUsZlz3hIJCC3TZBBJmZqg8VPXuE6yU54ERuS9iodTktcgiZAdifVwF
-	 xHgR/qA6RlNuiXMRdEvNvTLgATcwQYuYYy+89PlLnQhGAnh+Ct1MGxhFLxzOm/7OxAegD
-	 OE/2IcME2WWQMnWDCbUJq+XvtQNLmnStX6ToYpsAeIUHYnMlh+AMguu0aT9fecb6hszMa
-	 1QPHnxqwMA55TaJWyDeqv6IeU0dDcmHDd5bQMAuzS7EBhbP37op7XEFrf37eYtY0zIQ==
+	t=1795230175;
+	b=4UfyG566HCes56CQ55SWcIEp1tlFS4hYmXtVttCNp0vBtSKA9piYXtzFFvlB04E500Xy
+	 ddaegM4OVhUQlKl+sx+74ObKHVNjrtr+U/JU4K6IAFU7jYAzXXLzSIYL+tHkY7iSzh43U
+	 HROjaQS6ZQOCUMKWkOX1HDYAjUvz8e0h42249zJngxmP2i9CozZ2G9jOOhEzWnWItUvyZ
+	 /erJxpbLnNrv0u9TLfa187y3goCbkSJdY6tUrtx/cRaL++1yCcGb2sBL/KKlxfXlpaDQl
+	 YdzsA+C2ihTHEpEoHWO9V+CXeeoB7UPswK0Lw6yw//aMn6hADxPRLdNHFwdcs1UXvyA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795230109;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=ywPoIWURrrH5KkyxwY1SfMOlMWxZ7GGIQgz38Z63dWc=;
-	b=Vz4V84E2Q/d2IUnKif/EkXWUuSH6IWSOVIucVq7m9qCHZTpP7LRIs6PHOb0WtFo8HE10
-	 xbJ0Qyh+1z8TMVdWCTITCqBPvogU2X2JWTJ4aua2PE9A8pbMBVSkcf2a0EVxTCMDih2j7
-	 sZ+M0pBjVgrmHDKjP94DarU14/yay0dFuM/haEhYNSskzsru95D2LQWjnmrLsm+sgPGi5
-	 PkRzjYRQGYyYEfSl6yfN9ixwglR1nKoJvHZRwEkyACb89BbMsN2hOCPGgceCr/XSEoS4v
-	 bcyxXbFmYWdE4IC/xU3Gj9MxoqLIs9B+fDgmDfBlUUsLUG70UqiH7ibZzm6dGZOgLlQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795230175;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Guzi9+/70idztYEfgK/lQL3nqGfBTC47et0quiLCDzQ=;
+	b=ZICb5XHlu+XDebtjC+8hMxIMCrcESE0VEZbIqFXknY17YrcvWA7AaiFkxgXvkS/3m1YM
+	 bMEtNvdboGvrArNZCIFPH/l8iboGK2nHQWBX55xDqgGAyL7sXT7JNXfj/ns3yQsB5D/Mq
+	 rZBVYsfuOcxfzt/NjdZlIdJfqBduF+9xUWs5eqXuR+RafFe+PtL56qgyCe9BZKo/S2bZU
+	 dE3WytIZq9RoTRoAHUnfqPQLLSgrC9bYVWHtAJBlCI3ZrMGqzHepJepkK9qDIAJRElThH
+	 i5xbl+LJrrMxnFKVv3IlAkXv2FXtISpHcedKXTHDs1wH9U1fDIQpZKk01/BTDGLOStA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=pywxHqlj;
-	arc=none smtp.remote-ip=91.218.175.24
-Received: from mta0.migadu.com (out-24.mta0.migadu.com [91.218.175.24])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CJIJDjx3;
+	arc=none smtp.remote-ip=74.125.82.177
+Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59465606A6A5
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:01:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59465606A6A5
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 735D9606A690
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:02:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 735D9606A690
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=pywxHqlj
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=HSZLlB8/kDuoQhQ6wWt7/Tc4Dx6a2fEeRsBjkzGgzGk=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795230106; v=1; x=1795834906;
- b=pywxHqlj9Ow0eAN1QZC03eR6snLyms8HUB/VsKpg096Oo3NociFQ4RZjrES4YyhdIyQBPiC4
- E9mMteKhWUshO7ZndU/SwYZcWr61jqGNT+V+wAL7gMo6jOmFnYOzJY1Iz5UffQujOnEPBHSog/m
- AFUvyP2F2U3Z4DVhGpuW/I/w=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 50e77010917d361f;
-	Sat, 21 Nov 2026 03:01:46 +0000
-X-Mizu-Trace-ID: 50e77010917d361f
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <d93d15a1-cf67-4395-b2ea-2af05afc7001@linux.dev>
-Date: Fri, 20 Nov 2026 19:01:39 -0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CJIJDjx3
+Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-38587f3de36so1820188eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:02:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795230173; x=1795834973; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Guzi9+/70idztYEfgK/lQL3nqGfBTC47et0quiLCDzQ=;
+        b=CJIJDjx3kZoG6v12b9/kGtLLfJx8jvCKioGC/vXB7PRhYXgm5cR/a+pMFhTHxCnCOm
+         5pm1EO4R6Bx1HhWyUYWr3Ri5AGNhQM78wJAP8/6KFnqCmluogkVN+GfXtVbvXZm0jfiw
+         axxNmh8qz+AqIk0TLJwAOEVf8+NP3NSGWrvwZMdXKm0cftz9zUBhl03xyCcRBDIV14Dg
+         RQv1rYtwCylcHLWWqTYcIAUhnHBjznQTZc4q2BhQe5pfs3iT4ykZSSIKewyrIN5q37PJ
+         +ExrxJ4n3KvWjAe5PqTqbpQCyzmVXaNjYWjwhwwxOth+5xy7nyhOARQg0Q4mMkSVVEeO
+         bloQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795230173; x=1795834973;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Guzi9+/70idztYEfgK/lQL3nqGfBTC47et0quiLCDzQ=;
+        b=D5TkVlL2tqDantGrctlsWIoA1v/sXy2/5Gs8bBKe4ckKtUiwAztcwNjvBdpPZyFHc+
+         MAN/ura74xn5goa77dAa1ikZfyY36w1pyJv4OEnYkCmb42tUSqdgbSyKSspNoJJImNkI
+         5YR/mAVgl4ZqUoX4O5v/t8Sj92uu2APSipKwTOQVqEp5qsaMflMy99iukMMdRMscOqjE
+         8+xwMwQnIE4CULOtjgcvuGy1TUOUAaPwURTfJVC1wb+B5gTIkTE+PLCB1GUw1CF0uqIn
+         r5z65/NKZ3qImkODRMH4Hn9u0tQoMRUeq4sxuG0qvIpusME+CGB6qsYZCuJ5q55ysKG0
+         PRDg==
+X-Forwarded-Encrypted: i=1; AL+hErFZfA4WhTIo92J9hqBUJVhiVsC9CQPG0zV3/lNablzqxSJkA9jHnRYsaYtfrLmmh+8rNHZk/CDg4hzCz0U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+5gqGlvrYK2TKLNc11PK3WV93OuWlNch0JkUkAwJVMDcNL85UT
+	L+JvSi/6cwTYrnpbEmrBWpGEL6nfVGhiiVaRh6as15u/YVFnQg6SADjD
+X-Gm-Gg: AZFdTZdHkBbKDCq0XAXa/m/zUM6jDODWISirG9xXFaFhSFRv/l8WwMoO9InR9ktkOmR
+	u+E2RaSLzEPWU1POUPyK+kyuf8Uynm+WLXN8qNTkCeUh6PC5+foCARI3SOrAvZSc4R/BZb1Hi2i
+	dTYZIdD6LLQDf3nr+h3x/frMQ7vNSl/waP7+VeXaSbeKicxA1KwlQ/q7WIT2AKQGdmSgO9PKbbd
+	U/XtCUR+t+UvxdYus9v5LUm4lZzf4IYJEiLUGF/G5XcBO8NrbwxIpYfUGGgvuBI1CK3mwT+/I2j
+	0VKXn+88IRODwLjXZQtTRNnDTwBBdpY8X+Tl2IbsYfIm6+D1QIkCrq4ejOMxjwCQBerNWf4uk5i
+	XlS5pfRakus+GUaws7PdUzZs7degdXZHp1AiZBArOspG/OGRBTDagjvyuapfSFKZqyh8yGajIEZ
+	8/uknQDA0DMlE9ZC3Vv2lidyWjm51s1EbYI5oHLcKk8BhVO5Tqtu18DI7i/vZ/ysJeT5UjZyS/l
+	xsQitqHkwOTG3/WK/LrAN4IXQLOVGwogAgTEqaMb64rZYSIHg4rEA1WKClli0y0DGLEayc+r7F8
+	gkfnPPgwahNUDtpW11nJ
+X-Received: by 2002:a05:7301:1806:b0:381:4b4b:f96c with SMTP id 5a478bee46e88-38570450b07mr5162511eec.34.1795230173484;
+        Fri, 20 Nov 2026 19:02:53 -0800 (PST)
+Received: from a1-free ([161.33.196.121])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385616f0a3fsm11651970eec.0.2026.11.20.19.02.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 19:02:53 -0800 (PST)
+From: TAKANO Mitsuhiro <takano32@gmail.com>
+To: amd-gfx@lists.freedesktop.org,
+	Alex Deucher <alexander.deucher@amd.com>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>
+Cc: David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Candice Li <candice.li@amd.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	TAKANO Mitsuhiro <takano32@gmail.com>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH] drm/amdgpu: Document parse_psp_v1_bin_descriptor
+Date: Sat, 21 Nov 2026 03:02:50 +0000
+Message-ID: <20261121030250.1674303-1-takano32@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,47 +101,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [EXT.MSG] Re: [PATCH bpf-next v3 0/4] bpf: Check recursion per
- task for preemptible programs
-To: Mike Bazov <mikeba@sentinelone.com>
-Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
- <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
- Jiri Olsa <jolsa@kernel.org>, John Fastabend <john.fastabend@gmail.com>,
- Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>, Steven Rostedt
- <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
- Martin Kelly <martin.kelly@crowdstrike.com>,
- Andrey Grodzovsky <andrey.grodzovsky@crowdstrike.com>,
- tyler.wilson@crowdstrike.com
-References: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com>
- <9a47ede3-24fa-4fa3-8d7e-50f221de0929@linux.dev>
- <CAPnbwjpmRCR3F4V3StUz=702AdWZzHHZjP68GepnYdYykjoC8g@mail.gmail.com>
- <CAPnbwjrQcd5R0aqNKeJV3wWuMcTTsxsamxpKVpKY7Za2xKB1gA@mail.gmail.com>
-Content-Language: en-US
-From: "JP Kobryn (CrowdStrike)" <jp.kobryn@linux.dev>
-In-Reply-To: <CAPnbwjrQcd5R0aqNKeJV3wWuMcTTsxsamxpKVpKY7Za2xKB1gA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/19/26 3:22 AM, Mike Bazov wrote:
-> Thanks for testing, JP.
-> 
->> fexit (marked)                61      135
-> 
-> Marked programs take the same per-CPU counter as before, so I expect no
-> change there. How many runs are behind these numbers, and how much do
-> they vary from run to run?
+The kernel-doc comment of parse_psp_v1_bin_descriptor says what the
+function does but names neither of its two parameters and does not
+describe its return value, so kernel-doc reports:
 
-That was 3 runs taken over a 30 min sapling window of a specific workload.
-We changed from a timed window to the full duration of the workload and on
-5 new runs, we got mixed results. In one run, we got the inverse where the
-miss count was higher before the patch. But this is only in terms of marked
-fexit. I think this is noise from system services. We're in the process of
-building up a new harness for this issue so I expect by next rev we have
-more consistency.
+  drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c:4440 function parameter 'desc' not described in 'parse_psp_v1_bin_descriptor'
+  drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c:4440 function parameter 'hdr' not described in 'parse_psp_v1_bin_descriptor'
+
+Describe both parameters and the return value.  kernel-doc prints each of
+these warnings twice, so the file goes from four warning lines to none, and
+from six to none with -Wall.
+
+Written with Hermes Agent, an LLM assistant; the author reviewed it and ran
+kernel-doc on the file with and without the change.
+
+Fixes: 581ada8f9bf3 ("drm/amdgpu: factor PSP v1.0 firmware bin descriptor parsing")
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202608210800.S15sl61g-lkp@intel.com/
+Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
+---
+ drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c
+index 82a2684dbd2e..3fd93cb1e634 100644
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c
+@@ -4435,6 +4435,9 @@ int psp_ring_cmd_submit(struct psp_context *psp,
+ /**
+  * parse_psp_v1_bin_descriptor - Populate struct psp_bin_desc from a
+  * v1.0 PSP firmware header (standalone images such as ASD or TOC).
++ * @desc: the descriptor to populate
++ * @hdr: the firmware header to read
++ * Return: 0 on success, -EINVAL if either argument is NULL.
+  */
+ static int parse_psp_v1_bin_descriptor(struct psp_bin_desc *desc,
+ 					const struct psp_firmware_header_v1_0 *hdr)
+
+base-commit: d0f871bfb831705d9f55479f5b2b40f636ea7b16
+-- 
+2.53.0
+
