@@ -1,88 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795225893;
-	b=NWVkbj8b9Bqk2zluPbUMmANL99fpLHVdWUe13c2AaQmXF+lIxxkeY01iUqA86P66FAcM
-	 2bHy+iB4S5okRls56fuQGTyqlRz6VFMP+PTbZ99z5AEYRTaIE3VadI8TvsQ3XBxz5wmSH
-	 lkoNUYsVsRYzICW5vOD5GpdU4VQObn3u4d8FzFXOqZV/3mVrsKf66iPX5uPcslm9wbVGK
-	 dHKlWQFR1ASNOcle15U8Wk3kuMOhXjUdFYFMxS/8J28dYO5DTcZK+RtnJ+SQYKMGi+nzI
-	 0CLiRAtJMu9xH92gVcpKNIKK0tEiNKgpBB123aWnF7yV9n37HZ0Nwe5wV3LAX3z53EA==
+	t=1795225910;
+	b=C8x1yhGd9v7XmeCYkA/q8+nupa6n4a8Ata/yz7WzstSsQfHr4eBYcbvjseW0Qusa0KWk
+	 cA/OoTyE2Yhs6Ui8oEYpvtgSWmU3BYNprII21XoIouxvCbAg8AZemR1M8MURLqCywJ7yZ
+	 dT5B4NyUQlcpO3RErQVocHz6ClFNMF/JH+PkhEdgYVIeFyIwJ2Jv8VWwr2i+b1COARyy/
+	 xYCvCwpaFOhxht4fgHI6EcsxKm3AlDT6RFCVqqUKM0M/mJM9Eu+OuJaUp/Ug03vbuMn15
+	 OTbMc8dF6ORj+obwgo2KvxpuyjJU92+PgrWsqBCwkUt0sKSAEo74quAwQi1tQ9VaYUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795225893;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
-	 Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=ZhsI3lhwD+t6nMHv4Tk5Gvew3vT8WrKD/K7/YEVJPaw=;
-	b=SHA5dlHHS/lpCOhFobYmIqxDhfWNj83Hd1W1ZTPi2WiyrucHlRmggwj6BxNKJbx+KHGk
-	 Pj+bbD7wTnANuhlQ7daDA0mBQyS9ayKhoQcAGchXirbMWwp+TXOCYNNma1k8UrAPcWfFG
-	 X/3YWpixocIYwEVZA8lE9pn45JTslEK1p2xBiQJ3DIcD2vMkwQZ8rSChN92wWBtVywbkz
-	 M9f+q6SPzwMHLqN7j9I6TmZHVY3xM0xV4rVPEJdNPFybvDZjsF4x5ZbwODJUdCpyCzdho
-	 ULd+MligXRGTdhLQSeA0zU6de1o22HNYeTuDIgpVlC6GC5zguVYAe7LefxY1zjSPgGg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795225910;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=QzIhuJSftvZpgQFLV10hnC6j7UD3FLUoU0pfIWKv3/w=;
+	b=wHQGpToHXHIg0bYtSxY0s+xccfWn8NJdvi2WjwpwjuxPiZ/N5CTbUsoqkJdTfN01BJyU
+	 chazXh48g703RIXD0sCM29Od4Tj30M9KHoxTCb9Nu3CMZtPbxka8UTUjYJBzaFrK/D+r6
+	 9afULHHFBg3MaWE4enTWNbb14BxjtJgGsHLhfwFYWQuksx7IFh1aXzIUjIFlym5hJLBAP
+	 Qh6aZKqUCDmpagTc86OYD0lpkjcpUShQp73jK86fjHkxXhKUrUGetgsU3QhhK9XRQpGYg
+	 z1qOoJobAhuym/RgEhAxaphHaLcbRDinI4Y00jVGA8xgj3JazncWSS0WoGrAymWFqbg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=googlemail.com;
-	spf=pass smtp.mailfrom=googlemail.com;
-	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=GriKDtLc;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="COia/9Fa";
+	arc=none smtp.remote-ip=198.175.65.20
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5472606A6B4
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 01:51:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5472606A6B4
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66191606A681;
+	Sat, 21 Nov 2026 01:51:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66191606A681
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=GriKDtLc
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a3517554f7so15095805e9.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:51:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20260707; t=1795225891; x=1795830691; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZhsI3lhwD+t6nMHv4Tk5Gvew3vT8WrKD/K7/YEVJPaw=;
-        b=GriKDtLcKMPkRF/s4LcGU+eYEMs7fQYr22/aNjOx4fsc6pWNjyZ3GImkVKDKtSL7x6
-         zWDh5CHOzoo9TAfFQy7nb5hkSoqJ2bSL/qgWuP1EqmHCp77whYR9V+NmP37krlDqJP7Q
-         76m+Y6tk9gUFlnCl4fqfhcxRIkZ7lkTlS7pexjcffvLFP3VaK+a6KWh+HXC7Bew+ngRI
-         AzM9p67nKW+D7oQzpkx4i2gH4GrKTlB3KwrxBtxxuxA9WGpCLyqmmOHSrz2NhfhzxwHP
-         d6tFLfUX+a4OQM9Kj3StAxUJzqL7NWKBWUdJll9GB+CWWnC9SC4xcMCeEd2PJe9Xq7rr
-         uKcQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795225891; x=1795830691;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ZhsI3lhwD+t6nMHv4Tk5Gvew3vT8WrKD/K7/YEVJPaw=;
-        b=l6R7BgThGg8rZnEBKlsjfNH50kXNxPxD4roEUNbV0NE1eYhx0bndR5Ut5zQWMru+Mm
-         gjeuskqkIgpP5bcsj4EFBPY3AgZkqR1+NZOJft96HmWriJ2NDy5nNqwaMnXod52AFbp8
-         WMRhu5Ckfdi6Ak7PxwJJySCNvPEYcB5c0tM6m92hD+0xdndVxgCc7IS4vW8I59XCkMpU
-         uvXenv0hZ/f8jBt+tKRlYqnFCl2MSyWL+svb1mv3PtBk6cpPkAhJE0wTeWT/Fl0mtCIt
-         6UpjYFYa6wcXSRpaVV+hNMSGN6mrmwDnQT8noFZRVMsj1GTzi7H8purA8zgm12QfNaHn
-         sZ8Q==
-X-Forwarded-Encrypted: i=1; AL+hErEMls4aavJX0KErIWJ1mSbwrOUtlFRK/V41I7CxTMb3dlZh+8OVLr33nS/VY9QqfGM07ZPN9sa5orN7ilY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+f1Ff5OoXkYjbTVHIXl2l2J4w5GKvKpgsvYsW9s4DQloE0p+XE
-	msr9A55jQF17wk+3jSflA8IgDSWTuQsKfMLRlS4TCjhRwunfiJrA/jE=
-X-Gm-Gg: AYBFou23Fet6eQ6Ih7yw6gcCb1/L7pq7S+WDT/nPu9mdt9yKo3Eefe3+NjA+dtOvb7p
-	wmPowVH/rFBjPoJW5Jzjbk10vzLDJMCH2cL6F5DAriyM+6NFa02cSIoku1HGHwJAcXASen9iCUE
-	lLiASIZbqYwkksWSlbbY6GRD4ALuNQ5C3/NPJIph6lt8ApzRhjdcr2ZKE1i1aAza8SxjEnnuuP6
-	0oQ2kEqYmrCFbBDgmZ2nsMwxauvI0sHCQFHmkzbiydaK/WIsDlr3IcEePieJ9ZsCSHXEP16jZWD
-	WeS3qFArTeBjz2p6vRJON2xzwGzdycUDTgaQuaiZv14cFa/2fghjaHJGM0Jg2oLKh0DQ/MoV0y2
-	Xclsu5FofrlQazxThKjZrEs2phUoHw7rcjI/gDjRa1+2bA7fPzWSWTTZhpRsGNBNHgNIU2c9o/5
-	QfXQBIvWWOXNpGlFfhUi9iqyZDfWegIUGVLHgcwmCv0lmvZPoct9G1cPmoo0DOsjBhXiyGqIeMW
-	PeT8fuMA88K3okPv/SC7z2p4wWRCmJvbhFbNOpdEUwrQcqx2mCBoCharRsJmxtRQ+BuLhjMfa3Q
-	dznJEUKHYhXOE+z5QK+gZrv9Vm/XoGpBt2wA9Ktv+6B6nZnJ7TKs+yXIZO/VsZxWOG7w62fvt5h
-	wpYU=
-X-Received: by 2002:a05:600c:a51:b0:4bb:5f43:23bb with SMTP id 5b1f17b1804b1-4bb88828173mr107576685e9.33.1795225890849;
-        Fri, 20 Nov 2026 17:51:30 -0800 (PST)
-Received: from [192.168.1.3] (p5b2b4923.dip0.t-ipconnect.de. [91.43.73.35])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85399d52sm150309475e9.6.2026.11.20.17.51.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 17:51:30 -0800 (PST)
-Message-ID: <4f3c5405-fde4-43af-9624-6a28041e673c@googlemail.com>
-Date: Sat, 21 Nov 2026 02:51:29 +0100
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=COia/9Fa
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795225905; x=1826761905;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=IwahHoB4S9ZhcNncbWPcEfTPsCZcT9vB1MtXpBP03/g=;
+  b=COia/9FayfUhZoHlHdDA7chh9woWIpsKfUytj5ByoamJt+IU9+pJTYIw
+   EdzwQC75k58UmKbSre01rx9RpPO4VmLI/yMjComA6x1LwJO0pt97GOKxH
+   RvQgA7Jy0P/BssQ1WXIgEoszMVD6Gv6899U78cgTe1Yh2IugbQtHmkCYZ
+   bdOuET67gvPyGWMLNaGQogoqrQARoLWJqiKwVNyzW/NEdBejvz4HJ8aCv
+   AXNurzIhD3U1OA0C6tuGZioLeF/Ou5tMjMKrN/FK1XTPbH6agv4dbBmUz
+   hntBeKh9PueulgYE91p1BevW0DeY1+JbrEFQ5Yx802CXi89Y+3nC0yeFB
+   A==;
+X-CSE-ConnectionGUID: b1zHbiI9SqeIjhhMNxxG2A==
+X-CSE-MsgGUID: WLw1KYsDQuaMsHAyO3S8rg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4154313"
+X-IronPort-AV: E=Sophos;i="6.27,224,1787036400"; 
+   d="scan'208";a="4154313"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 17:51:44 -0800
+X-CSE-ConnectionGUID: AAmMxKbUSX+u0wxTw78PUQ==
+X-CSE-MsgGUID: NUWuXceNRh+Tm3I+RLBZpg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,224,1787036400"; 
+   d="scan'208";a="10914179"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 20 Nov 2026 17:51:38 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xUaGM-00000001JC7-0LGj;
+	Sat, 21 Nov 2026 01:51:34 +0000
+Date: Sat, 21 Nov 2026 09:51:21 +0800
+From: kernel test robot <lkp@intel.com>
+To: Olivier Moysan <olivier.moysan@foss.st.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	Philipp Stanner <phasta@kernel.org>,
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org, linux-sound@vger.kernel.org,
+	Olivier Moysan <olivier.moysan@foss.st.com>
+Subject: Re: [PATCH v2 08/11] iio: adc: stm32-mdf: add dma buffered
+ acquisition support
+Message-ID: <202611210936.q9qVaCjc-lkp@intel.com>
+References: <20261118-upstream_mdf_v2-v2-8-7939d3c3720a@foss.st.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,43 +105,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH 6.1 0000/2812] 6.1.193-rc2 review
-Content-Language: de-DE
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com
-References: <20261120055200.707545519@linuxfoundation.org>
-From: Peter Schneider <pschneider1968@googlemail.com>
-In-Reply-To: <20261120055200.707545519@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118-upstream_mdf_v2-v2-8-7939d3c3720a@foss.st.com>
 
-Am 20.11.2026 um 06:57 schrieb Greg Kroah-Hartman:
-> This is the start of the stable review cycle for the 6.1.193 release.
-> There are 2812 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+Hi Olivier,
 
-Builds, boots and works on my 2-socket Ivy Bridge Xeon E5-2697v2 server. No dmesg oddities or regressions found.
+kernel test robot noticed the following build warnings:
 
-Tested-by: Peter Schneider <pschneider1968@googlemail.com>
+[auto build test WARNING on d922ed738439e1d5b4701df7f4cdd49a09925624]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Olivier-Moysan/dt-bindings-iio-adc-add-stm32mp2-mdf-filter/20261118-161746
+base:   d922ed738439e1d5b4701df7f4cdd49a09925624
+patch link:    https://lore.kernel.org/r/20261118-upstream_mdf_v2-v2-8-7939d3c3720a%40foss.st.com
+patch subject: [PATCH v2 08/11] iio: adc: stm32-mdf: add dma buffered acquisition support
+config: csky-allmodconfig (https://download.01.org/0day-ci/archive/20261121/202611210936.q9qVaCjc-lkp@intel.com/config)
+compiler: csky-linux-gcc (GCC) 16.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261121/202611210936.q9qVaCjc-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611210936.q9qVaCjc-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/iio/adc/stm32-mdf-adc.c:1781:12: warning: 'stm32_mdf_adc_resume' defined but not used [-Wunused-function]
+    1781 | static int stm32_mdf_adc_resume(struct device *dev)
+         |            ^~~~~~~~~~~~~~~~~~~~
+>> drivers/iio/adc/stm32-mdf-adc.c:1766:12: warning: 'stm32_mdf_adc_suspend' defined but not used [-Wunused-function]
+    1766 | static int stm32_mdf_adc_suspend(struct device *dev)
+         |            ^~~~~~~~~~~~~~~~~~~~~
 
 
-Beste Grüße,
-Peter Schneider
+vim +/stm32_mdf_adc_resume +1781 drivers/iio/adc/stm32-mdf-adc.c
+
+  1765	
+> 1766	static int stm32_mdf_adc_suspend(struct device *dev)
+  1767	{
+  1768		struct iio_dev *indio_dev = dev_get_drvdata(dev);
+  1769		struct stm32_mdf_adc *adc = iio_priv(indio_dev);
+  1770		int ret = 0;
+  1771	
+  1772		if (iio_buffer_enabled(indio_dev))
+  1773			ret = stm32_mdf_adc_predisable(indio_dev);
+  1774	
+  1775		regcache_cache_only(adc->regmap, true);
+  1776		regcache_mark_dirty(adc->regmap);
+  1777	
+  1778		return ret;
+  1779	}
+  1780	
+> 1781	static int stm32_mdf_adc_resume(struct device *dev)
+  1782	{
+  1783		struct iio_dev *indio_dev = dev_get_drvdata(dev);
+  1784		struct stm32_mdf_adc *adc = iio_priv(indio_dev);
+  1785		int ret;
+  1786	
+  1787		regcache_cache_only(adc->regmap, false);
+  1788		ret = regcache_sync(adc->regmap);
+  1789	
+  1790		if (!ret && iio_buffer_enabled(indio_dev))
+  1791			ret = stm32_mdf_adc_postenable(indio_dev);
+  1792	
+  1793		return ret;
+  1794	}
+  1795	
 
 -- 
-Climb the mountain not to plant your flag, but to embrace the challenge,
-enjoy the air and behold the view. Climb it so you can see the world,
-not so the world can see you.                    -- David McCullough Jr.
-
-OpenPGP:  0xA3828BD796CCE11A8CADE8866E3A92C92C3FF244
-Download: https://www.peters-netzplatz.de/download/pschneider1968_pub.asc
-https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@googlemail.com
-https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@gmail.com
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
