@@ -1,89 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795270467;
-	b=DZxEfGfr0EyUQN3NxQvfet6ULfl6/pablhmAXttAmHuAoFa9qY5di112c+tArbFk513t
-	 HE2FDZzW2FXgtgXIn9Jfc0PR49BHuztU0WunWW87GMn6qKkThVPwAQIoILYHHchQvrNSK
-	 vH9l9SaR6ZedrnQxkUyM03vBYgx2OnvfuvMZtuzA4IBwwgnEqnBY2+2t+Yi0hpDL8Q7M8
-	 D5G7tnFwvCqvKfSOfL/IO2Zn8iCEjC0GDsOjYj7sYWMBLBwm0pDl2ZPbXApqOJmce7vzm
-	 xpOg9egAsjKIA5kVs60qE+FD/Rm9dwL0ZHD888yWleiom02YN7t1pPosnZwP7rNB9Tw==
+	t=1795270657;
+	b=dFTco9ZGNWfTG46SUQbf7gLvrDMTJJGX/DXQSgielITS8WkS/ddd+QXiDUqL/S/xEEy4
+	 jZ22dWbN5TU2TPB5BgtPiOJPkQn2N1nE1ETwWN9OldL+m+BiNbxciXUM1MnZtvj7llsEH
+	 eGPueEw0UqUQ34QlKOnmzxZkGH+0c+Hk9d53/xtxGlExn24az5Njt+x/B5AtJdBUZRl/0
+	 RPMm/Uh7ZBLSttsnIiYi+Yy7CvZxlNL7Hn/sCkBJpbv42SAfldBla5PtsGftpf3N3KYzn
+	 LKMgATt7s5zaa+QuejqBRLhbknCXb5dPMZ9qlRUfcF3ikaz2kOLHlPJ7gEM8Qz/mH+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795270467;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=0rD0qrd+dhCoLB0IIDp8JdT6Z9kjllGZPoZgWfwBLLA=;
-	b=hqwV+VYmacvmvM553VylcpV/gUjtCArWw7tX2+gCOJbwiR5kkyK3pemGEiKIa4HebXw9
-	 bGyZHsRGURk7bBmC0sQldTRwsrPpykmKGQA4NxLTs3Hi87dzqNt+IP2SCJS9LoVxcq0NK
-	 rpNeKt34wJbU2TZ2XQ19aYLRBJpoYefUEJnaeECosqHwPQf/XysOCexxnYUKNnAfP+hwe
-	 wOnXvV12SeID7IlSRN8Kn90guM1YAuauPwFt31vlBZMcKBO6eHqZwNgxMYgJCBcOzNkeD
-	 DxuZdqanSGwpgSvWNw1sUBTZ8/9qQzjFzpNqgfr2gJD9M5sivfNKirrS6PS3eXKnPiQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795270657;
+	h=Received:DKIM-Signature:Mime-Version:Content-Transfer-Encoding:
+	 Content-Type:Date:Message-Id:Subject:Cc:To:From:References:
+	 In-Reply-To;
+	bh=sFlfbs6Vr7PfYCSMBHpJ9X6tKrWXkYKKM8XUMpezu9Q=;
+	b=0SsHklJQnlwJYcH3cQbdtOT0i6+GaV3dZbMeHSeazce/Tkhy6EbjfXTWh3hZ7VB6LoQl
+	 dHOfrDE5NCQlEmSQZ5W0n8CkMeXngSW5KXFBrmeLG0Pw5BiaBfasYBbbTJXlVgYZUbmDu
+	 IPPP2ZQnvKNLOFB41fMxVYAFrGy7Jyh8eHBDVB7r8RFH+8Gvx0T8xIMvhQvfTsBHq1S04
+	 6TuG4WEsKo3VChrO1y/htToA9YbDNkWB4x+gTuxmS+XWBb1B1gWzxXsfjhKWa9mEYpCga
+	 12Nt64EiTtNLE4vgFbUEr1vWdsFMfPelcJbh9NQu36SPZ3a/9FjdnAalfhH2ikTZxPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PzzTyVDr;
-	arc=none smtp.remote-ip=209.85.218.52
-Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pv6YhcGt;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4155C606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 14:14:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4155C606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FA76606A320;
+	Sat, 21 Nov 2026 14:17:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PzzTyVDr
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c50ac25cdd4so252268766b.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:14:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795270465; x=1795875265; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0rD0qrd+dhCoLB0IIDp8JdT6Z9kjllGZPoZgWfwBLLA=;
-        b=PzzTyVDriiN+HvGRxS7X6sD9LGrnUU8hbM4kSKjRxAZUGbx4mIclczlBrG9vN2MH0Z
-         ZOv85TMKPJrzu1ya89b/hqdJ3cfSD50+hNCY/gvXdRirEdeAbTE0m3c3IGRU2bEERS9m
-         hWJg3BnQ2x+eMJcDtGfNid8M/41PKwJ5LP2En8bZAi8yE7Cpi8Y/pCymFsrxAMDDUcr1
-         D64EKioRbb0X6QZwsh1okQcoRZGu7kAUR1+xck/EJlvtsMTnwvXBPSXWIUsnJkSpXL6R
-         Br+pxmWSSH6E2uoYz5hhCt4SAOm28UY60EPzRfhlCjoPYRVhCl5FMe+O6E1OB4OPYdVF
-         URwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795270465; x=1795875265;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0rD0qrd+dhCoLB0IIDp8JdT6Z9kjllGZPoZgWfwBLLA=;
-        b=ECPKcrnnWuwO5XyL8TWX3PmOtdzgPx46/w9uGxdis6ZHa6x+KDht9iuA1f7emId3Iv
-         rPHcuVgGge6WcoL9OiW1PiPirDwvW4dLPcPawPBWyBoLsDjgB4g36ghdN/x/dYIa5G+n
-         cE/qFOI0x/YhoPe9icIZlDemUYjRNMUvGEjyosIBcjXD3upwke/Zk0F5lCAf+IODAI3g
-         cU+a4TRBKiT4z504AfnXVbxQ+CCYGqMlSw5HRgbj27KcPjL154JCnUMT2Pdm+t2agE+B
-         qKtRW8pui8RKTOgFXR4x+yuKuGgLqLBeUNwXzai4zMQa+KLaJa+l2FQQZMqK0IftYICF
-         GBcw==
-X-Forwarded-Encrypted: i=1; AL+hErFHEUNLdnzgPiwI64Aj1EpIMru+hNjz++CDmB+Fqd4cME4pDVAGxQq0Hob0u9rIkWnARZBG7HGpB4Miu0g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+iLakbmfUZYanGL4yulAC2XaiNNxBlUdN5hO1ITQkhLkbpedPj
-	fR4n/9DDpWKkzYd1BBbz+qLv05ao8lB4P7IoVbyf84DEfaufJ5XyaGaM
-X-Gm-Gg: AZFdTZcxk7Jk4CFClotpNQcdCYGoRdp+vfdpI2GV/IUPpuJWYWOvVCSYE4yvq1RgIyu
-	tzC0XCKCPmg/fnyx8zINuKhtXxmH6GgG4GBojB2Vematniqt6eX8yoqvlaxAUDtPRLwfhnNc/vY
-	Vmaj8vlT/IGEFGsoEx7A2nYtHQWV5MIcKCDdDRb/l4dj3nVNYVqqa6SIoUe+iV/OWa9ptzFx6m/
-	FvTJHa0Ug+rVPQ1Vtk0pNz35FE1t0LXGNrHC3BRdI2IZkjKylfuuvNSbaFFc4EcTwnj7agd6L4t
-	AOXj67261WHoCXzF44ai11OE1UHZWM9XH45vJgWHB4U0mVjBqz1je4/Vj9MgY0If/VJCu80g5DV
-	KgwBnvWBGjzo4IEqIGTToG5/kbD9hai3dNuGUkq293dwv/WDKaqlAMvxHcN3KMNsjLCjoutPXzR
-	COtvf/g4HmsSUtC2PEusrSw9+bjndw4Vph0AImuANDbhKItOu97W+aX59hlDCqjQnOPBHyjkWLe
-	Fj/u6xDiy+UXag5mtmxcfbUS/66EJQ+YOwy5NRxyin4pgq8X4wwloer+EC6/pxczDtIfjaoDoZ4
-	h56LhT6UAw5PwtwTmtb7cs40cr6mTT87MK1DbHN17d7V1UQdC53cmvOfpGm01qwVsw3ZcT3eKAO
-	CtTrVCH+C8XUmf9lNX/0YfsuGPbSh
-X-Received: by 2002:a17:907:3cb:b0:c51:40e:847c with SMTP id a640c23a62f3a-c513a84ab4emr344789866b.23.1795270465486;
-        Sat, 21 Nov 2026 06:14:25 -0800 (PST)
-Received: from ?IPV6:2a02:a03f:a75e:9a00:3fc0:359d:ccea:ff00? ([2a02:a03f:a75e:9a00:3fc0:359d:ccea:ff00])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ad00232sm210570166b.12.2026.11.21.06.14.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 21 Nov 2026 06:14:25 -0800 (PST)
-Message-ID: <78ea7e1d-b6fe-46ee-8dda-1fe6655bbf31@gmail.com>
-Date: Sat, 21 Nov 2026 15:14:24 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pv6YhcGt
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE35C1F000C6;
+	Sat, 21 Nov 2026 14:17:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795270657;
+	bh=sFlfbs6Vr7PfYCSMBHpJ9X6tKrWXkYKKM8XUMpezu9Q=;
+	h=Date:Subject:Cc:To:From:References:In-Reply-To;
+	b=Pv6YhcGtJpVO6kd28ZFcMwlrc8lsqKYza9hNXQKHFQ6N2rbBtcqDEoZGbPLhWVFNg
+	 wIVnjyiJpVrC2NhF8tOLVohtKE615nlWNmmmiaFXzlBwImS0Qd7t+3WHOMgGFBvC3r
+	 GzsUGVFPAj6Yn14fbr1zuN11Wl5mFzFh4mkvL3fWKZ3qf9eX64bcSgXMW5dC/T8VVW
+	 +if4hvG3Yzx/NgkLADbX3NpF4QpUjUSCpnVMgNpw3N5rS9WChOHpiVGyQ7hfTKfHCN
+	 PC51U3nPevE+XKEzkslP1KRGQkrmqBJSFOJGqKPtdiVpQQzcVMIRpDtTesm+55o66V
+	 KA9zrGzh/IEEQ==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,143 +48,67 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] ipv6: fix ioam6_id_wide sysctl on 32-bit
- architectures
-To: Shashank Mohan Jain <jain.sm@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261118042958.83243-1-jain.sm@gmail.com>
-Content-Language: en-US
-From: Justin Iurman <justin.iurman@gmail.com>
-In-Reply-To: <20261118042958.83243-1-jain.sm@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 21 Nov 2026 15:17:31 +0100
+Message-Id: <DN0YBZJNQVW4.2RY9NCR5T33HZ@kernel.org>
+Subject: Re: [PATCH v6 08/12] rust: mm: add abstractions for allocating from
+ a `sheaf`
+Cc: "Tamir Duberstein" <tamird@kernel.org>, "Miguel Ojeda"
+ <ojeda@kernel.org>, "Boqun Feng" <boqun@kernel.org>, "Gary Guo"
+ <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
+ <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Alice
+ Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>, "Daniel
+ Almeida" <daniel.almeida@collabora.com>, "Alexandre Courbot"
+ <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
+ "Matthew Wilcox" <willy@infradead.org>, "Andrew Morton"
+ <akpm@linux-foundation.org>, "Lorenzo Stoakes" <ljs@kernel.org>, "Liam R.
+ Howlett" <liam@infradead.org>, "Vlastimil Babka" <vbabka@kernel.org>,
+ "Harry Yoo" <harry@kernel.org>, "Hao Li" <hao.li@linux.dev>, "Christoph
+ Lameter" <cl@gentwo.org>, "David Rientjes" <rientjes@google.com>, "Roman
+ Gushchin" <roman.gushchin@linux.dev>, <rust-for-linux@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+ <linux-mm@kvack.org>
+To: "Andreas Hindborg" <a.hindborg@kernel.org>
+From: "Danilo Krummrich" <dakr@kernel.org>
+References: <20261120-xarray-entry-send-v6-0-1f69d7385f70@kernel.org>
+ <20261120-xarray-entry-send-v6-8-1f69d7385f70@kernel.org>
+In-Reply-To: <20261120-xarray-entry-send-v6-8-1f69d7385f70@kernel.org>
 
-On 11/18/26 05:29, Shashank Mohan Jain wrote:
-> net.ipv6.ioam6_id_wide stores a u64 (netns_sysctl_ipv6.ioam6_id_wide),
-> but its table entry uses proc_doulongvec_minmax() with .maxlen =
-> sizeof(u64) and .extra2 pointing at a u64. On 32-bit, unsigned long is
-> 4 bytes, so the handler treats the field as a vector of two 32-bit
-> values and reads the u64 max through an unsigned long pointer:
-> 
->   - reading prints two numbers ("4294967295 16777215" by default on
->     little-endian);
->   - writing one value only replaces one half of the u64: on
->     little-endian "echo 5 >" leaves 0x00ffffff00000005; on big-endian it
->     sets the upper half, and the range check uses the upper word of
->     ioam6_id_wide_max (0x00ffffff).
-> 
-> The wide namespace ID emitted in IOAM trace data is then not the
-> configured value. Same class of issue as commit 162cf592b577
-> ("net/smc: fix limit_smc_hs sysctl on big-endian architecture").
-> 
-> There is no u64 variant of proc_doulongvec_minmax(), so use a small
-> local handler that goes through proc_dostring() and kstrtou64(). A
-> generic u64 helper in kernel/sysctl.c would be a larger change for net
-> and stable; it can follow separately. For normal input the handler
-> behaves as the 64-bit one does today: base 0 parsing (decimal, hex or
-> octal), surrounding white space is accepted, and values above
-> IOAM6_DEFAULT_ID_WIDE return -EINVAL. Input too long for the 24-byte
-> buffer is rejected rather than truncated by proc_dostring().
-> 
-> Found by reading the code with LLM assistance. Tested on i386 and x86_64
-> under QEMU: on i386 the sysctl now reads and writes a single 64-bit
-> value, and on x86_64 reads, writes and range checks behave as before.
-> 
-> Fixes: 9ee11f0fff20 ("ipv6: ioam: Data plane support for Pre-allocated Trace")
-> Assisted-by: LLM
-> Signed-off-by: Shashank Mohan Jain <jain.sm@gmail.com>
-> ---
-> Prepared with Claude Code (Anthropic), model Claude Opus 5.5
-> (claude-opus-5-5).
-> 
-> Based on net.git main 2a324a58a084. Built for x86_64, i386 and 32-bit
-> powerpc (pmac32_defconfig); W=1 shows no warnings for
-> sysctl_net_ipv6.c before or after.
-> 
-> Runtime tested on i386 and x86_64 under QEMU (TCG), with a small static
-> test program as init: default read, echo 5, the maximum, max + 1,
-> values above U64_MAX, -1, non-numeric, hex, white space, over-long
-> input, two-part writes with sysctl_writes_strict 1 and 0, and a new
-> netns. Before this change i386 read "4294967295 16777215", and after
-> "echo 5" it read "5 16777215". With it, i386 gives the same results as
-> x86_64. On x86_64 two corner cases change: a write of only "\n" is now
-> a no-op instead of -EINVAL, and a number with 21 to 23 digits (only
-> possible with leading zeros) is now accepted.
-> 
-> I did not add Cc: stable; please add it if you think it fits.
-> 
->   net/ipv6/sysctl_net_ipv6.c | 36 ++++++++++++++++++++++++++++++++++--
->   1 file changed, 34 insertions(+), 2 deletions(-)
-> 
-> diff --git a/net/ipv6/sysctl_net_ipv6.c b/net/ipv6/sysctl_net_ipv6.c
-> index 1a0a36dcd..7bac56b9c 100644
-> --- a/net/ipv6/sysctl_net_ipv6.c
-> +++ b/net/ipv6/sysctl_net_ipv6.c
-> @@ -30,6 +30,39 @@ static u32 rt6_multipath_hash_fields_all_mask =
->   static u32 ioam6_id_max = IOAM6_DEFAULT_ID;
->   static u64 ioam6_id_wide_max = IOAM6_DEFAULT_ID_WIDE;
->   
-> +/* unsigned long is 32-bit on some arches, so handle the u64 here */
-> +static int proc_ioam6_id_wide(const struct ctl_table *table, int write,
-> +			      void *buffer, size_t *lenp, loff_t *ppos)
-> +{
-> +	u64 *valp = table->data;
-> +	char buf[24] = "";
-> +	const struct ctl_table tmp = {
-> +		.data	= buf,
-> +		.maxlen	= sizeof(buf),
-> +	};
-> +	u64 val;
-> +	int ret;
-> +
-> +	if (!write) {
-> +		snprintf(buf, sizeof(buf), "%llu", READ_ONCE(*valp));
-> +		return proc_dostring(&tmp, write, buffer, lenp, ppos);
-> +	}
-> +
-> +	/* proc_dostring() would silently truncate a longer input */
-> +	if (*lenp >= sizeof(buf))
-> +		return -EINVAL;
-> +
-> +	ret = proc_dostring(&tmp, write, buffer, lenp, ppos);
-> +	if (ret || !buf[0])
-> +		return ret;
-> +
-> +	if (kstrtou64(strim(buf), 0, &val) || val > ioam6_id_wide_max)
-> +		return -EINVAL;
-> +
-> +	WRITE_ONCE(*valp, val);
-> +	return 0;
+On Fri Nov 20, 2026 at 2:10 PM CET, Andreas Hindborg wrote:
+> +/// An owned allocation from a cache sheaf.
+> +///
+> +/// `SBox` is similar to `Box` but is backed by a slab cache allocation =
+obtained
+> +/// through a [`Sheaf`]. It provides owned access to an initialized obje=
+ct and
+> +/// ensures the object is properly freed back to the cache when dropped.
+> +///
+> +/// The contained `T` is initialized when the `SBox` is returned from al=
+loc and
+> +/// dropped when the `SBox` is dropped.
+> +///
+> +/// An `SBox` holds a reference to the [`KMemCache`] it was allocated fr=
+om.
+> +/// Dropping the `SBox` may thus drop the last reference to the cache an=
+d
+> +/// destroy the cache, which may sleep. See the `# Context` section of
+> +/// [`KMemCache`].
+> +///
+> +/// # Invariants
+> +///
+> +/// - `ptr` points to a valid, initialized object of type `T`.
+> +/// - `cache` is the cache from which this object was allocated.
+> +/// - The object remains valid for the lifetime of the `SBox`.
+> +pub struct SBox<T: KMemCacheInit<T>> {
+> +    ptr: NonNull<T>,
+> +    cache: Arc<KMemCache<T>>,
 > +}
-> +
->   static int proc_rt6_multipath_hash_policy(const struct ctl_table *table, int write,
->   					  void *buffer, size_t *lenp, loff_t *ppos)
->   {
-> @@ -210,8 +243,7 @@ static const struct ctl_table ipv6_table_template[] = {
->   		.data		= &init_net.ipv6.sysctl.ioam6_id_wide,
->   		.maxlen		= sizeof(u64),
->   		.mode		= 0644,
-> -		.proc_handler	= proc_doulongvec_minmax,
-> -		.extra2		= &ioam6_id_wide_max,
-> +		.proc_handler	= proc_ioam6_id_wide,
->   	},
->   };
->   
 
-Thanks for this patch. I agree that a generic u64 helper could wait for 
-net-next. Please keep -EINVAL for a lone "\n", as before. For example, 
-not tested, save *ppos and return pos ? 0 : -EINVAL when buf is empty, 
-so that strict-mode continued writes are still ignored. Also worth a 
-line in the changelog: on 64-bit, "5 6" (for example) is now rejected 
-with -EINVAL (which is good) instead of being a partial write that sets 
-"5" (which was bad).
+I did only notice this patch just now, will take a closer look later on. Bu=
+t
+this all looks like it belongs into the alloc module.
 
-For v2: make sure the above is addressed and all maintainers are CC'ed 
-(Joel Granados is missing). Please also fix your Assisted-by tag.
-
-pw-bot: cr
+Thanks,
+Danilo
