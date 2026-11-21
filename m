@@ -1,54 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795274445;
-	b=b8fYwSmlwa2wQhskGuMhEFpkTG11gnnDQe5/Jvqe1s4ifjkzon6GQsQL5Y9CoKsPeQya
-	 r/0LZa7eKshyqqjDR/nVWoe6HCnpD7g9ehgRznLZMiTEdZ4oYpGf82w3zFXQFz+rID2uK
-	 JcBan8oWGNVSi0cUCF2UaOiXrxbR3aUXX8KZoCAGVRcxQ2bL9IvIZsadRI0L5PJL0DS5H
-	 p2uYghRu0uXN9ccmDRgUur3cX64Ch9thctNo35vjtrFehk2pnYXLSSUxFDKK2mbRZgbyH
-	 zOze0/ouizMikXa6AWlOQ1i/W8NZ8i+uwQtllumqjaRCkpd0fXPUENEP4hfeT79seBg==
+	t=1795274514;
+	b=3RsKomyOGCHJp5Nv/HtB7C5dK3mIDYoMXnHlHqvP00BdMTrIByqMZIlegDvWHrd2v1qV
+	 EjsG2/cKfFd+LWmeB2Py6FgXEGD0JGjHL3bkLR9Lj4OwasHtCxVb02cLp16IDdgYwTqES
+	 nI7+2NUlWAt5D7IDk7Y9HaX3WnbsopmYA/NLQ8x8R9/2rNUoorBuGNnGuNMFmbnWr4qWL
+	 fQipPIddwkjDGeDnkSheufXU5+eO3txzXd2opt8qVojOVJmNWJDzn1j61aGyr2V9Q+Sjm
+	 qBz6sq6Z9qZZb4eUMu+L1tGyIeV+8TKpHIh44IevnI4n4cgHBiyg3+Q8Q6/YmZUE8jA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795274445;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=RGNZV1WddiEIKOXX92+o7s7I8KiRzoYOEAA3GVq946Q=;
-	b=vOkg8OxLBAujqG8cyxJXp16M88/NI92N0bQzWZ8XN706xAHzvV8AKBluPtTwFMh68v8y
-	 cLvwgwCucpLyenajfX3whN5gg0wDMKXwTCbEMjKGVnQEt/EMrqR/32en6s0AbY1DUMXC0
-	 mkou1qghOeko/CgnH7o87RrgmTn79fzcAQ0+zUne2uJrKqOqX2DfkaKRw7B069UaWJeMl
-	 drvo9tm50O7SWJWxlhj6pkxX7g5D/GbADtQ3Zoms0vrYkl98Y7Yky5CGGt7s5ZUD1rMZ2
-	 moLDVU5DouZtumVWkkix7J4dBy+WCFNp9io9ViBxaMLC6bMomuXABYVpWLgzvCqG3ow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795274514;
+	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
+	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
+	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
+	bh=nTnR/DTtdnpdahSsmowIXtQFOWYdejmSjHb2/8+t9nQ=;
+	b=h54CG4Wvrl8SIOPfyjMz7tuBLHRqVj4iMzB7vGz+a0DsSvQW5sJ80Afou+0zCA3ooQpK
+	 2ALiyn4xkWVOJZSWwYWIaXT6YaXF91bfDJ//241Vq5EUIgIDrXVKHDHG3I7hBmHvT9Fmt
+	 A/cbPHwsksb6DBRv5Q822ZL/gkfyveK8VroBUrPuIeqBQsaSSYwfgmiICvqB5qqGly4nu
+	 gYsUPaZzr7qsTAUypL5pNc8jvo3zrsRE85/IZQ/jtPn79X5e2ckppC3Rhbe9oGHURtA7/
+	 v2Dvsmb6GZrvZL1jWHOp2bIhFIkVYU4IV3dgYCT/vX+TAG0bvxYr1aZm5XHcnUWES2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.210.70
-Received: from mail-ot1-f70.google.com (mail-ot1-f70.google.com [209.85.210.70])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=roeck-us.net;
+	spf=fail smtp.mailfrom=roeck-us.net;
+	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=Ul3MfcOi;
+	arc=none smtp.remote-ip=44.202.169.37
+Received: from omta038.useast.a.cloudfilter.net (omta038.useast.a.cloudfilter.net [44.202.169.37])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A626606A330
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 15:20:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A626606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-ot1-f70.google.com with SMTP id 46e09a7af769-862bca06702so3759482a34.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:20:44 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795274444; x=1795879244;
-        h=content-type:to:from:subject:message-id:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RGNZV1WddiEIKOXX92+o7s7I8KiRzoYOEAA3GVq946Q=;
-        b=s/dA6WweCPEJF7Ey0Ba8YQxjeR2kvqxFvjbLP3jYG3TKdMKqhzWwSJbHuDeke4V/0h
-         4WxncaSQj5BX1mRk0lXxMeaZ627JJTog82fQz4ka/cuUjFRPzQXRP6fJNKHdySSWLd7M
-         0oHOb+mudCnVrE//kSJ3fznb5G835Ydy3ftCOlgjiFonMQgd41DkACUYHETvfYEDys2+
-         dDhxCnHSdaoVKmWexrPr+2gya5GX0MqOZv43aTTz7j+PKWG4d7TT8A8NZrfMI0ChV7c5
-         VJCNfx0R4YinaOw2Xc7saZ07cZW6iMfCaDCc4CgpTTwkYmeoSlIT4aPREgGL7mqz5KIs
-         kgiw==
-X-Forwarded-Encrypted: i=1; AL+hErH5Y7k5NrcL0d7X1ACLquemuL4A0IXG6lG+8YGKysrMe4Zr8/rcj/9LCj8SGXQb06jh4yXKgaXp9YArU2E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8zaWZQ07GBj5774d6GLbQebMea55MLSXYIHumSkEUAmq5O2Jxa
-	wepycsGgxLb0j30nsLbI/SSTjdXjinOcjZnFy4m2OrqyFwW28iITUwSILlFg+TtrgEt389qPlU1
-	y5SpPcxJF79CWsgBP61r/k++mWAi9YSnBxCXUxAiCUkCg5+r+csZWlYJHx5s=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5587606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 15:21:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5587606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=Ul3MfcOi
+Received: from eig-obgw-6003b.ext.cloudfilter.net ([10.0.30.175])
+	by cmsmtp with ESMTPS
+	id UUmBxjzwKV16IUmuRxdS0S; Sat, 21 Nov 2026 15:21:47 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id UmuQxWCNSGh2BUmuRxBAJC; Sat, 21 Nov 2026 15:21:47 +0000
+X-Authority-Analysis: v=2.4 cv=Aszu3P9P c=1 sm=1 tr=0 ts=6b01b70b
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=pGLkceISAAAA:8
+ a=PYxBTiidvRtoKjh98R0A:9 a=QEXdDO2ut3YA:10 a=KPbNTLLc3YvdawN95zVk:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=roeck-us.net; s=default; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
+	List-Archive; bh=nTnR/DTtdnpdahSsmowIXtQFOWYdejmSjHb2/8+t9nQ=; b=Ul3MfcOiabjk
+	1hPAoiG9Ipg5QZbxXN/A2QH/oLHgd3pCzRoqIxTlpXOQaZ52QIAbP8q8nXo/jZWzvqK4ziAlhUqHd
+	x3zeZQnIotbwfWfd/YHFiK90SbLPMbh+SbBht18+rhQvPmnXDTfkTBD6HYUfq45fNo9rTfdMH+B/w
+	4Bp3WehMn02LsIJHV7uXFUrysEtySgMqa3OChAmE7WizuNx2ufBONjmUQ2Pasc/nJIw1v6XSQdPLK
+	s+kZgI/uMlJFIA5QbndX69qL4m4ymelp2EmWokC4vLlC7abD1gP6bWGqt/2GlR7w9N/tUdBEJ6WFi
+	AkMJICJe8KoOatxCI3HBXg==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:54666)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xUmuQ-00000000zIN-2MLb;
+	Sat, 21 Nov 2026 20:51:46 +0530
+Message-ID: <5843b48e-0028-4358-bc20-a72742e49591@roeck-us.net>
+Date: Sat, 21 Nov 2026 07:21:45 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,121 +75,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:6615:b0:55c:844:9904 with SMTP id
- 5614622812f47-57a0950377amr6764358b6e.17.1795274444163; Sat, 21 Nov 2026
- 07:20:44 -0800 (PST)
-Date: Sat, 21 Nov 2026 07:20:44 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b01b6cc.44b41460.34b83f.000e.GAE@google.com>
-Subject: [syzbot] [jfs?] general protection fault in dbDiscardAG (2)
-From: syzbot <syzbot+29eda1328acf6cf2dbfb@syzkaller.appspotmail.com>
-To: jfs-discussion@lists.sourceforge.net, linux-kernel@vger.kernel.org, 
-	shaggy@kernel.org, syzkaller-bugs@googlegroups.com, yun.zhou@windriver.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8] watchdog: Add ARM TWD (MPCore private) watchdog driver
+To: filipp.dunsky@gmail.com, wim@linux-watchdog.org
+Cc: linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux@armlinux.org.uk
+References: <20261121-arm-twd-wdt-v8-1-8e89abebcf06@gmail.com>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
+In-Reply-To: <20261121-arm-twd-wdt-v8-1-8e89abebcf06@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xUmuQ-00000000zIN-2MLb
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net [108.223.40.66]:54666
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 3
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfNoMZi1FuNrPc07eAImKsYMLDhSrZNORPQkE3ooGlQeGeC7gTFm/mWwf6JtR5qroz6IvloDeP3hrVHpyZPEX9LEexPsohTGAPi4FQaqH88ci+xrlLtN8
+ awVIRg8fap6IugMHv5xubznMuOVRxP2Az5Qhc1VYCaXZHy7UiFTC8moA9PwGPLMh2QLM76HlqVfkAyUedN8MGMHe53FhGlaFZG1scxhDnr48ca0WqpWWUKiD
 
-Hello,
+Hi,
 
-syzbot found the following issue on:
+On 11/21/26 03:33, Fil Dunsky via B4 Relay wrote:
+> From: Fil Dunsky <filipp.dunsky@gmail.com>
+> 
+> ARM11 MPCore, Cortex-A5 and Cortex-A9 MPCore systems have a watchdog
+> next to the local timer of every CPU, banked at the same address. The
+> binding "arm,cortex-a9-twd-wdt" exists, but there has been no driver
+> since mpcore_wdt was removed in v3.11, among other reasons because it
+> only ever programmed the CPU that ran the ioctl.
+> 
+...
 
-HEAD commit:    c44104f3642d Merge tag 'drm-fixes-2026-11-21' of https://g..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-console output: https://syzkaller.appspot.com/x/log.txt?x=152232d5580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=d16c0eae9c338e3c
-dashboard link: https://syzkaller.appspot.com/bug?extid=29eda1328acf6cf2dbfb
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=178024ff980000
+> +		{
+> +			guard(mutex)(&wdt->lock);
+> +
+> +			if (wdt->freq_changing || seq != atomic_read(&wdt->freq_changes))
+> +				continue;
+> +			twd_wdt_call(wdt, twd_wdt_cpu_calibrate);
+> +			rate = wdt->sampled_rate;
+> +		}
+> +		if (!rate)
+> +			return dev_err_probe(dev, -EINVAL, "failed to calibrate watchdog clock\n");
+> +		if (cpufreq_get(TWD_WDT_CPU) != freq)
+> +			continue;
+> +		{
+> +			guard(mutex)(&wdt->lock);
+> +
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+29eda1328acf6cf2dbfb@syzkaller.appspotmail.com
+This looks like use cases for scoped_guard(). Is there a reason
+for not using it ?
 
-loop0: detected capacity change from 0 to 32768
-Oops: general protection fault, probably for non-canonical address 0xdffffc0000000003: 0000 [#1] SMP KASAN PTI
-KASAN: null-ptr-deref in range [0x0000000000000018-0x000000000000001f]
-CPU: 1 UID: 0 PID: 6036 Comm: syz-executor802 Not tainted syzkaller #0 PREEMPT_{RT,(full)} 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-RIP: 0010:dbDiscardAG+0x648/0x8f0 fs/jfs/jfs_dmap.c:1726
-Code: e2 cd 8b e8 ca d3 b4 fd 4c 89 f7 e8 b2 50 2e fe 4c 8b 74 24 10 49 83 c6 08 4c 89 f0 48 c1 e8 03 48 b9 00 00 00 00 00 fc ff df <80> 3c 08 00 74 08 4c 89 f7 e8 7a 97 c7 fe 49 c7 06 00 00 00 00 48
-RSP: 0018:ffffc900045dfcb0 EFLAGS: 00010206
-RAX: 0000000000000003 RBX: ffff888033c86000 RCX: dffffc0000000000
-RDX: 0000000000000001 RSI: ffffffff8dafc369 RDI: 00000000ffffffff
-RBP: 0000000000000001 R08: ffffffff90d5c8bf R09: 1ffffffff21ab917
-R10: dffffc0000000000 R11: fffffbfff21ab918 R12: ffffffffffffffff
-R13: 0000000000000001 R14: 0000000000000018 R15: ffff88805b83d7f0
-FS:  000055555cc9f400(0000) GS:ffff888124801000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 00007f8926b53000 CR3: 00000000416f4000 CR4: 00000000003526f0
-Call Trace:
- <TASK>
- jfs_ioc_trim+0x436/0x680 fs/jfs/jfs_discard.c:106
- jfs_ioctl+0x291/0x3b0 fs/jfs/ioctl.c:131
- vfs_ioctl fs/ioctl.c:52 [inline]
- __do_sys_ioctl fs/ioctl.c:598 [inline]
- __se_sys_ioctl+0xff/0x170 fs/ioctl.c:584
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7fc8f47440fb
-Code: 00 48 89 44 24 18 31 c0 48 8d 44 24 60 c7 04 24 10 00 00 00 48 89 44 24 08 48 8d 44 24 20 48 89 44 24 10 b8 10 00 00 00 0f 05 <89> c2 3d 00 f0 ff ff 77 1c 48 8b 44 24 18 64 48 2b 04 25 28 00 00
-RSP: 002b:00007fffcecef320 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
-RAX: ffffffffffffffda RBX: 0000000000000003 RCX: 00007fc8f47440fb
-RDX: 00007fffcecef380 RSI: 00000000c0185879 RDI: 0000000000000004
-RBP: 00007fc8f47a0c12 R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000246 R12: 00007fc8f47a0b8e
-R13: 0000000000000004 R14: 0000000200000004 R15: 0000000000000002
- </TASK>
-Modules linked in:
----[ end trace 0000000000000000 ]---
-RIP: 0010:dbDiscardAG+0x648/0x8f0 fs/jfs/jfs_dmap.c:1726
-Code: e2 cd 8b e8 ca d3 b4 fd 4c 89 f7 e8 b2 50 2e fe 4c 8b 74 24 10 49 83 c6 08 4c 89 f0 48 c1 e8 03 48 b9 00 00 00 00 00 fc ff df <80> 3c 08 00 74 08 4c 89 f7 e8 7a 97 c7 fe 49 c7 06 00 00 00 00 48
-RSP: 0018:ffffc900045dfcb0 EFLAGS: 00010206
-RAX: 0000000000000003 RBX: ffff888033c86000 RCX: dffffc0000000000
-RDX: 0000000000000001 RSI: ffffffff8dafc369 RDI: 00000000ffffffff
-RBP: 0000000000000001 R08: ffffffff90d5c8bf R09: 1ffffffff21ab917
-R10: dffffc0000000000 R11: fffffbfff21ab918 R12: ffffffffffffffff
-R13: 0000000000000001 R14: 0000000000000018 R15: ffff88805b83d7f0
-FS:  000055555cc9f400(0000) GS:ffff888124801000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 00007f4008a5d708 CR3: 00000000416f4000 CR4: 00000000003526f0
-----------------
-Code disassembly (best guess):
-   0:	e2 cd                	loop   0xffffffcf
-   2:	8b e8                	mov    %eax,%ebp
-   4:	ca d3 b4             	lret   $0xb4d3
-   7:	fd                   	std
-   8:	4c 89 f7             	mov    %r14,%rdi
-   b:	e8 b2 50 2e fe       	call   0xfe2e50c2
-  10:	4c 8b 74 24 10       	mov    0x10(%rsp),%r14
-  15:	49 83 c6 08          	add    $0x8,%r14
-  19:	4c 89 f0             	mov    %r14,%rax
-  1c:	48 c1 e8 03          	shr    $0x3,%rax
-  20:	48 b9 00 00 00 00 00 	movabs $0xdffffc0000000000,%rcx
-  27:	fc ff df
-* 2a:	80 3c 08 00          	cmpb   $0x0,(%rax,%rcx,1) <-- trapping instruction
-  2e:	74 08                	je     0x38
-  30:	4c 89 f7             	mov    %r14,%rdi
-  33:	e8 7a 97 c7 fe       	call   0xfec797b2
-  38:	49 c7 06 00 00 00 00 	movq   $0x0,(%r14)
-  3f:	48                   	rex.W
+Thanks,
+Guenter
 
-
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
