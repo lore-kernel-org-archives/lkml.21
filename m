@@ -1,89 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.48.52.25
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795277300;
-	b=eEL9mpro/VxIW5X+9gWABv1YN0d2XdpPUAXAneEX1ofKPIu8QlfiaPjpFnuSb8Ta+AZg
-	 k/UO4kvct3hf1qgOUtxa+3z/KdxwVPPTgZg98rNH4CwLY24OlFK3Cup7hqqHIj/h3vxyl
-	 8ioq5so/zEy/mafhJGEvPJejkPAImDYzpDt7D6usihUOccMcmpqnzKB/ARZOlS6z0/OVe
-	 v80Hw/7cGTkHdLkAizZNfwBflwcadMLIizD4H/zF3e94Zf2OTCdQcBra3qEKCj9K4snjd
-	 46hp0flsTp7NsFHA8LdG1ntr4fsCKVtO6eFDaNq9gGuXYZFM3qWfUvhl9FYmyJYLawg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795277300;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:Jabber-ID:X-GPG-Key:X-GPG-Fingerprint:X-GPG-URL:
-	 User-Agent:BIMI-Selector;
-	bh=T7QCWRyUzgCmXFFsU24+pNj6FeTn5AFMkdvpDZELwrU=;
-	b=iQkT6U/TYhmSlJeiyDV35tPB6Bm5AJ/EqprN02SHg7oHHb7EXpS5kgGkp/Y1LO3DucPU
-	 GpV4/2EV2tgPB7cNAZaGDxQCETqfa3aMjACLVI7gVI+XBn7+hQUOSaU6ndICWCiSMZNLo
-	 MyyuUstDBTJwkjtIh3yVkJmOq3bSZtnXbeyB6b1jlKcTKkX5AkTYJtCkOaYEFWHuRfvUn
-	 EZLqscWCwxoQn/zZuHY66gu8Qsl28BYKTk/oH6JYe9hpQosFD7uPD4OiFsb3iA3qL8O9V
-	 c7vmiV7auw9dGVgbXE36K8cfMa9dKiyfxbwhhDom2flbQb7Tfg+xlXh3rROXCZ4oEDg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=jacquin.bzh;
-	spf=pass smtp.mailfrom=jacquin.bzh;
-	dkim=pass header.d=jacquin.bzh header.i=@jacquin.bzh header.a=rsa-sha256 header.s=20240222.rsa header.b=FMF4jTAW;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.48.52.25
-Received: from mx.eu-west-1.pants-on.net (mx.eu-west-1.pants-on.net [52.48.52.25])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.12
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795277317;
+	b=E2of8Kef+clcHTpDDY1ZAeHXzpz+ZXcYP86wApaCy0YN7JCHIygWqYhalGvuDezWw77C
+	 MC01TVHx8udcDHC8NaES5ZU5paQtAUOnMkW/fyIvxK0g4QQHGxy4M7V9ut589qgrA8gmL
+	 Zr0/ldmIWhmYPsH4+UIRDqKBzcF+H7oQJ7p9Btno8VQ2O2t6osCKkPsSXGU6NRHU+kKD+
+	 cRLTEFf1Wwhp0AFmjR6fj9irn3DjPoiWSSjqn2H9GhhEluXHOTs3Tlo50IHggP1XZRDQd
+	 XwwUGBdPu088xZ/HssdVTVMCkqN2DB3aJeFXpG1Elbg8Qmz1FNUXQZ1l1lq3jTGtg5A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795277317;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
+	bh=gdRFgZq93ce0OMtSt+2s2NX7CxgDUr6XYee8t8HRuYw=;
+	b=Gf4RUc85hmGic5YKVgmWgCpBFJj+AD075xOpQRllahlyJfPwecYuI0aq759/ZyJ8+7kd
+	 nWLEN0b+h8FW5cZOgoI+c3NkyePB5QYbJip+9U28hSkK+EQ773SW2iw5rvTwet/dSCuhf
+	 3cYFNW7sdLZxaPwXhzxEJWGbIWEhqISzc3N3Zvs5BH6+cSG2CMyKt0ItZUfXLtXtvSLlQ
+	 inT7hSsi/Io0oNmZAcZyyePrenatXWF1Y2xFGz/DV2AYOZk4gN7KZsk+0L7+xjovqTAWC
+	 VKk6o469ph94ZJrUwMMrxbBIt64Fx+xutp0QWfb2AMTJnWkn8brfU9fG65tJfCVBHTw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=web.de;
+	spf=pass smtp.mailfrom=web.de;
+	dkim=pass header.d=web.de header.i=jan.claussen10@web.de header.a=rsa-sha256 header.s=s29768273 header.b=fk+TC3PW;
+	arc=none smtp.remote-ip=212.227.17.12
+Received: from mout.web.de (mout.web.de [212.227.17.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35848606A335
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:08:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35848606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=jacquin.bzh
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jacquin.bzh
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 167B2606A69E
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:08:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 167B2606A69E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jacquin.bzh header.i=@jacquin.bzh header.a=rsa-sha256 header.s=20240222.rsa header.b=FMF4jTAW
-ARC-Seal: i=1; cv=none; a=rsa-sha256; d=mx.eu-west-1.pants-on.net; s=20240827.rsa; t=1795277298;
-	 b=aeraqTG1hgmB2Altaterfl0m950IoV7V3k0Gtuk4w/KE2oAzhSKthjb4A/5GXQ5+WfPwUGRlqC
-	  7rDdDaUn46EzyTIs91SuvwHg8wn8Y07N1krXkunyPE1H1m5jwn1PvAjAf3rAsF/7ZybIrvd6W4
-	  5oHdrjGPvaBSYzf6Vuq3blFnyx41WKC5vgvlVA4EK/Hn+8iG9ObMs24jdEbkTFV60C2AHNzd82
-	  iVeivVsxVyFzIjbQdRNi0wJ2q3hkfNecgWusJ4cxaHlIbi6pkLeoT3zhF0JNtFMdyXf5QstHuB
-	  Klo2LdCPrIbhA4WcFqwS6WNQqQeBTwmyBTIjdOxCFDQ/Ow==;
-ARC-Authentication-Results: i=1; mx.eu-west-1.pants-on.net; smtp.remote-ip=2001:470:1b3f:100:1d9b:8401:5f90:f557;
-	iprev=fail smtp.remote-ip=2001:470:1b3f:100:1d9b:8401:5f90:f557;
-	auth=pass (LOGIN) smtp.auth=bertrand@jacquin.bzh
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=mx.eu-west-1.pants-on.net; s=20240827.rsa; t=1795277298; x=1797955698;
-	bh=58fm3CVXeRLG5UHErYGGTdUQJcERXxICyF2XTo1Ffts=;
-	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
-	  From:Date:DKIM-Signature;
-	b=PKxceUVknpWr7ZEO8v27EpLcLvPrSFtaEMx46FnDRBkhoCR43mgL6NiyuWQzRjiP2L9Gg5LayH
-	  XLd6+y3CtVnwVYbEwQt+yJgZulKSppLP5u6tiSWI9RymyNMfWZixPiSDsfcnjEdnk8Rl/ry7yw
-	  yY3s+6Lp7jxaEUKkyL+Libw7gkVYbd6zjxxOZT8nCFSK6JVWolR9+YJdj+xghKGJmakT0yf2l6
-	  qbcL+y5AGzvsDy2PXpQBxNHsLijBITBaSN+01LE7DQi18QTdQwbYrnQKsd3uJOuzRXxR+OO6Dy
-	  v8PswCZnK6vVK8DFG8YINEx4g5sNkGUwxoN29UzvrbV5dg==;
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=jacquin.bzh
-	; s=20240222.rsa; h=BIMI-Selector:In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:
-	List-Owner:List-Archive:Author;
-	bh=T7QCWRyUzgCmXFFsU24+pNj6FeTn5AFMkdvpDZELwrU=; i=@jacquin.bzh; t=1795277298
-	; x=1797955698; b=FMF4jTAW0OYIr19KhDCpCX7iyPX4DwX5Xc2T5cGuwPdL1tnNB06PFSyo+Uf
-	icnj005xez7v0pfRbpwgcorE3DtlLgIMrQ+poJTZfdP6Pmkz00Zi2lDpdo17zyU9717kDw2psYcdN
-	FOmVZu/NtPUs49vS9Mwn34dv7K6iKhvsXZUxlCAdYtA1WLl/O/u2iKPzNrFkqIXbnZO9LGMovVhPY
-	uFC223bwZHrNVUAuXfM9mGlVdqQTv0tS3cmxrfwR/jWD1IZHJxXmUw4ojx6saV0tV7HtVswa5P/KL
-	iZ2choLEiqO3yjo5VOauonL9r5ZN3MEySBUjSg+YczgBgfvAtmKQ==;
-Authentication-Results: mx.eu-west-1.pants-on.net;
-	iprev=fail smtp.remote-ip=2001:470:1b3f:100:1d9b:8401:5f90:f557;
-	auth=pass (LOGIN) smtp.auth=bertrand@jacquin.bzh
-Received: from lady-voodoo.lan ([2001:470:1b3f:100:1d9b:8401:5f90:f557])
-	by mx.eu-west-1.pants-on.net
-	with ESMTPSA (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
-	id 1xUndR-00000000Wbi-0100
-	(envelope-from <bertrand@jacquin.bzh>); Sat, 21 Nov 2026 16:08:17 +0000
-Date: Sat, 21 Nov 2026 16:08:13 +0000
-From: Bertrand Jacquin <bertrand@jacquin.bzh>
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: heikki.krogerus@linux.intel.com, venkat.jayaraman@intel.com,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] usb: typec: ucsi: Fix NULL pointer dereference in power
- level debugfs
-Message-ID: <awHB7a-zLM3GpC9C@lady-voodoo.lan>
-References: <20261010120357.4937-1-bertrand@jacquin.bzh>
- <2026112040-splashy-power-2d46@gregkh>
+	dkim=pass (2048-bit key) header.d=web.de header.i=jan.claussen10@web.de header.a=rsa-sha256 header.s=s29768273 header.b=fk+TC3PW
+DKIM2-Signature:  i=1; m=1; t=1795277307;
+ mf=PGphbi5jbGF1c3NlbjEwQHdlYi5kZT4=;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=web.de;
+ s=s29768273:rsa-sha256:WJ0puarCgOTzC/xbstx7JSBDXJGd
+   KZ/UOdY7IXLWJqfr0D1bJ5VZLNOFVryJhtjw+R9NJdOa4Eu7Cl3pZaL4peKPZnLhM+0KIO6T9lv
+   q6IG/QOjrbSGZXMgeS5YiQmcIuuk34X4VXEiuYAwmBtjjkKUToQyysaL17cB8+DaawkMQLeqo37
+   FvDlLmqyyEtWsK0I+O5SPYyCBxwlAA9fAdSXOYTzxMmqox7aN+QiDZ6tgXM0dY+aW3d6ywjj78B
+   OH2fq19PnAghdOZR9jmOvBcR3veO/F+DHLStbaW55PyD99jgMmsDNGK9jZ6KRwIoD6LzZHnujG1
+   eM1foJJFqB18HA==;
+Message-Instance:  m=1;
+ h=sha256:
+   2vwQxENCCvvaoNUVgIK1pSjuKcMPUUEr9FmHVdQBs6I=:
+   SrKq1AVUeR8tXN7oEMlGrENvvCesxJJOwn6jHWUO8bc=,
+  sha512:
+   POI8iEI4WXUiDuuaDPWqF7TbYof4cxVhLK86YErMCTttiTXDmoeqrrJATPGh55ipLe9unbSrEXm0kj5o9+e1CQ==:
+   LFAaS5xzmiaGVVXjqprZlmdefEK4BP8Gh3PsZlsIanIsn4pie5tYang8LPunZr35m3gLc9uKm3roiGzKuutUpA==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1795277251; x=1795882051; i=jan.claussen10@web.de;
+	bh=gdRFgZq93ce0OMtSt+2s2NX7CxgDUr6XYee8t8HRuYw=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=fk+TC3PWRDu1XIXwazkcbyBJyi1ParM1rCHujDlMelGiyTKix1v3K33UPsR2imUF
+	 tHKLZFiH5KM8xKAL9lbSk7S4tHjC9MziXpbWYaH7RVruxqw1XEsGmRaYq/f4G9bXS
+	 Sfmdx4kLoMEGq63+eg+526/jMn6oYemC6IbEFNAK4B4tZwEfH5WkkQN5Z+aE5IGi+
+	 w3PQIEU5PJfoBx5G0SPYdmP4H7JMpFmYnsiUT3roFnX4lGjTXCCyR8uePQ3Tmh9TY
+	 ezbQUsuE8EC/qnczVOEHw9/CLvcdKK1bqVCdrkLzFYf8qDPCAFu6Gc0wZtqUgzfrp
+	 KuvtElNNK7f3wWLewQ==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MidHZ-1y9ekv42dz-00kEhZ; Sat, 21
+ Nov 2026 17:07:31 +0100
+From: =?UTF-8?q?Jan=20Clau=C3=9Fen?= <jan.claussen10@web.de>
+To: Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Daniel Stone <daniels@collabora.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	=?UTF-8?q?Jan=20Clau=C3=9Fen?= <jan.claussen10@web.de>
+Cc: dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v6 0/8] drm: Add colorspace property support to the HDMI helpers
+Date: Sat, 21 Nov 2026 17:06:52 +0100
+Message-ID: <20261121160725.6344-1-jan.claussen10@web.de>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,110 +106,205 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="GYTIzekBzJjw16ds"
-Content-Disposition: inline
-In-Reply-To: <2026112040-splashy-power-2d46@gregkh>
-Jabber-ID: bertrand@jacquin.bzh
-X-GPG-Key: 0xA3B5C016618D9AAA
-X-GPG-Fingerprint: D71B FE62 F66F 3C8B 1A25 A461 A3B5 C016 618D 9AAA
-X-GPG-URL: https://keys.openpgp.org/vks/v1/by-fingerprint/D71BFE62F66F3C8B1A25A461A3B5C016618D9AAA
-User-Agent: All mail clients suck. This one just sucks less.
-BIMI-Selector: v=BIMI1; s=default;
-
-
---GYTIzekBzJjw16ds
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:/fmkgac1nzvp/3BKmHzxcsx2PT/VVR1CT8bt3JkAYDdAtl1KjBv
+ +rHKK4QRjyPyGNhZj/r8Zttot31IT+OV+H/59/KRELLB93IF5vODhe2mCts3LB617YiQQ+Z
+ DaNDmdyyULw0/PWCuFIWr4KkqpWrtEkvUyRjKLcOl1zmWjFONVgl7ageaxBQOgS7p4CZK5R
+ IbwoEhO9dr3ioAmwLRHrA==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:yuWMBkfQeO0=;FUT2bx2eBTHCRkcAR3SBxgmrSKf
+ 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
 
-Hi Greg,
+HDMI connectors set up through drmm_connector_hdmi_init() don't expose
+the colorspace property, so userspace can't signal BT.2020 colorimetry
+for HDR. KWin, for example, doesn't offer HDR without it.
 
-On Friday, November 20 2026 at 13:29:13 +0100, Greg KH wrote:
-> On Sat, Oct 10, 2026 at 01:03:57PM +0100, Bertrand Jacquin wrote:
-> > ucsi_register() creates the debugfs entries right away, but
-> > ucsi->connector is only set by ucsi_init(), which runs later from
-> > ucsi->work and only publishes the connectors once the PPM has been
-> > reset and all ports are registered. Until then, or for good if init
-> > fails, ucsi->connector is NULL, yet the peak_current, avg_current and
-> > vbus_voltage show callbacks dereference it unconditionally.
-> >
-> > On an Intel NUC13ANKi5 whose PPM never answers when CONFIG_ACPI_EC=3Dn,
-> > reading those files after the failed init oopses:
-> >
-> >   ucsi_acpi USBC000:00: error -ETIMEDOUT: PPM init failed
-> >   BUG: kernel NULL pointer dereference, address: 000000000000045c
-> >   #PF: supervisor read access in kernel mode
-> >   RIP: 0010:ucsi_debugfs_register+0x291/0x420 [typec_ucsi]
-> >   Call Trace:
-> >    <TASK>
-> >    seq_read_iter+0x1e4/0x4c0
-> >    seq_read+0x12b/0x160
-> >    full_proxy_read+0x9a/0x1f0
-> >    vfs_read+0xba/0x320
-> >    ksys_read+0x74/0x110
-> >    do_syscall_64+0x79/0x240
-> >    entry_SYSCALL_64_after_hwframe+0x71/0x79
-> >
-> > Return -ENODEV from those callbacks while no connector is available.
-> >
-> > Fixes: c851b71fd6cd ("usb: typec: ucsi: Add support for READ_POWER_LEVE=
-L command")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Bertrand Jacquin <bertrand@jacquin.bzh>
-> > ---
-> >  drivers/usb/typec/ucsi/debugfs.c | 9 +++++++++
-> >  1 file changed, 9 insertions(+)
-> >
-> > diff --git a/drivers/usb/typec/ucsi/debugfs.c b/drivers/usb/typec/ucsi/=
-debugfs.c
-> > index 77a0dd75edd3..911a151ac16a 100644
-> > --- a/drivers/usb/typec/ucsi/debugfs.c
-> > +++ b/drivers/usb/typec/ucsi/debugfs.c
-> > @@ -92,6 +92,9 @@ static int ucsi_peak_curr_show(struct seq_file *m, vo=
-id *v)
-> >  {
-> >  	struct ucsi *ucsi =3D m->private;
-> >
-> > +	if (!ucsi->connector)
-> > +		return -ENODEV;
->=20
-> What keeps connector from changing to NULL right after you read from it?
+This series lets drivers declare which colorspaces they support and has
+the HDMI helpers create the property and force a modeset when it
+changes. dw-hdmi-qp on RK3588 is the first user.
 
-ucsi->connector never transitions back to NULL. only ucsi_init() writes to =
-it
-through ucsi->work where it's assigned only once, after all ports are
-registered. Every failure path before that assignment leaves it NULL and ne=
-ver
-cleared afterwards.
+Tested on a Radxa Rock 5B (RK3588) with an LG OLED55B87LC in KDE
+Plasma 6.7.5. Only BT.2020 RGB is tested.
 
-The only end of its lifetime is ucsi_unregister(), which calls
-ucsi_debugfs_unregister() before kfree(ucsi->connector).
-debugfs_remove_recursive() waits for in-flight readers to drain (the
-full_proxy fops hold a debugfs_file_get() reference and
-__debugfs_file_removed() waits on active_users_drained). Any read
-after that fails with -EIO. So no show callback can run once the
-array is freed.
+Changes in v6:
+- vop2: Keep mapping the BT.601 colorimetries to the BT.601 matrix (Sashik=
+o)
 
-A reader can therefore only see NULL (init still pending, or failed
-for good, as in the reported oops) or a valid array, and the check
-handles the NULL case.
+Changes in v5:
+- Convert VOP2 from V4L2 colorspace values to enum drm_colorspace, so the
+  HDMI glue doesn't need a V4L2 translation (Cristian)
+- dw_hdmi_qp: Pass conn_state->colorspace directly and set it before the
+  early return, so a colorspace change alone is applied
 
-Cheers,
+Changes in v4:
+- Set the VOP2 color space from the connector colorspace, so YCbCr output
+  is converted with the matching matrix (Sashiko)
 
---=20
-Bertrand
+Changes in v3:
+- Move colorspace handling into the HDMI helpers (Maxime)
+- Let drivers declare supported colorspaces instead of exposing all
+- Split into a series
 
---GYTIzekBzJjw16ds
-Content-Type: application/pgp-signature; name=signature.asc
+Changes in v2:
+- Fix possible null pointer dereferencing requested by the Sashiko bot
 
------BEGIN PGP SIGNATURE-----
+v5: https://lore.kernel.org/all/20261121131126.3358-1-jan.claussen10@web.d=
+e/
+v4: https://lore.kernel.org/all/20261018143135.5745-1-jan.claussen10@web.d=
+e
+v3: https://lore.kernel.org/all/20261018123037.19560-1-jan.claussen10@web.=
+de
+v2: https://lore.kernel.org/all/20261011142733.7806-1-jan.claussen10@web.d=
+e
+v1: https://lore.kernel.org/all/20261011132024.2833-1-jan.claussen10@web.d=
+e
 
-iJEEABYIADkWIQSg5iBnnersLYwElb5VNIcfLi6T2gUCawHB7RsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMiwyLDIACgkQVTSHHy4uk9qw+AEAvZ8B18m9//IL7NJkDi/w
-pIafHYGz3lnNS0AO97123uQBALh65kt7IvInscJ3ksEIje2IoJiWyBmntSFLzBuw
-TzkN
-=KBWo
------END PGP SIGNATURE-----
+Jan Clau=C3=9Fen (8):
+  drm/connector: Fix typo in colorspace error messages
+  drm/display: hdmi-state-helper: Force modeset on colorspace change
+  drm/connector: hdmi: Create the colorspace property
+  drm/bridge-connector: Pass supported colorspaces to the HDMI helpers
+  drm/bridge: dw-hdmi-qp: Forward supported colorspaces from platform
+    data
+  drm/rockchip: vop2: Select the CSC matrix from the DRM colorimetry
+  drm/rockchip: dw_hdmi_qp: Set the VOP2 color space from the connector
+  drm/rockchip: dw_hdmi_qp: Advertise BT.709 and BT.2020 colorimetries
 
---GYTIzekBzJjw16ds--
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c  |  3 ++
+ .../gpu/drm/display/drm_bridge_connector.c    |  4 ++
+ .../gpu/drm/display/drm_hdmi_state_helper.c   |  3 +-
+ drivers/gpu/drm/drm_connector.c               | 17 ++++++--
+ .../gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c  |  3 --
+ drivers/gpu/drm/rockchip/dw_dp-rockchip.c     |  2 -
+ .../gpu/drm/rockchip/dw_hdmi_qp-rockchip.c    |  6 +++
+ drivers/gpu/drm/rockchip/rockchip_drm_drv.h   |  2 +-
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c  | 41 +++++++++----------
+ include/drm/bridge/dw_hdmi_qp.h               |  2 +
+ include/drm/drm_bridge.h                      |  7 ++++
+ include/drm/drm_connector.h                   |  7 ++++
+ 12 files changed, 64 insertions(+), 33 deletions(-)
+
+=2D-
+2.56.0
+
