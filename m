@@ -1,104 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795296475;
-	b=H1ur3x7Xu8uBzzsolT1jAqKcjYqSQXpMJb0MhVog4/g7dRowRxeIrdt6bZyy1l71a4WQ
-	 ewVDLkqRdo4k0vEyhTSEMD5iBxv1jaJdbW0OdW3J37fHk0jdJzmaZBlk46tdZRS24Nvqx
-	 HfbZ0dDwiRcTzoGO7vBULY4gZoMt0ysXNphC0seK6Sy5khwtJSZjsBTln+G1j1U0csled
-	 CIAEzo+8+vFPyPi7qk2AGi81Bf6pNCv7ijdd4hBqvhSSEv9rpaG6+S3K7INJjtTnk4i+j
-	 KzSHknXiHYiJRuSPdcYbHLgq6zEtqBA4pZiA107AzeK2ocm561KMp67Gx/DehjTe1og==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795296475;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=g56+Yp2TKqJ5xV2s8BFdZoIDvKQ0/BGu0qh6iDTvIhE=;
-	b=sRbwpX7hIm0+Nay1WlaUceK9nbGazHnCl6QOj4zz4z3lgahGsgs8JRPUje0OybdP3kYt
-	 t7pl23zc/ZH6VGa3M9mRLg3bvq1e4WCT+KCMWj5kI0vpPeHeGH8RmzTf6aZIMyfnHrMeW
-	 3j08ooOf7jRsHqlk3tkteFe0ygU7awLvmp18Kdii5NBm4+fkaa0p8Fs66JKroaLYyDDOo
-	 gfYOGlteqFXQZ9mnrpj37DPtGSSRMrJN8Dnoj2j2zuAASz0r7SSSfqPTZ4GuJbEBgK1Rf
-	 Ra5UOderjK2RTxGOG0Srh9ja6UMUHhThbqnqIh2/FoAaHGYZt7xZm7M3bj73ZqH/pKQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ySDkEIO0;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795296556;
+	b=YZvxHBCUutKPayfY8edgwND2g7h32CcfuVgMGyn+qc5Y5v6VTWaLr4x3CfjcooLJz7FB
+	 UMGUxha0tZHLW2MGTIjBAEJBUH77VcZkoIUwsOqc0cqs2rOG70PPrVmxxsuYiaAqaiRxj
+	 xwnT4zxV6qxjH0d4ogql5pQzYsZi4CUFaKnHpZ1K9xTZGPg0X3g59jvmPMMPigR3VDgUT
+	 oCe1Yv9tVJv8xsdid6IXt0qbpNZd/fjbr6qdop03IdWmWwEtxvP1PA4p35x6kW41mdwO3
+	 LWAR71K8mCIAuGQWvLOBjxrIFXgVSptEy+f1KSe75iEbvD2P5q3su2JO4wXT7E/pn/w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795296556;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=23sDc1ULNMm1ETHtvpZrl9E+BXwKGdL/Xa3E7VzeDL0=;
+	b=fL1DzZaKWbvUpYLXaveuOrs2McStyPSUFBdk8HtgHQhEn05kInPg0ipxw3hAwe4sAyXS
+	 wExGoVaMa2KQypgVRopwhY64y6OKdA7qEb2sxrxtQGQA3Qvgv6uTgy8BIE82b2ikz2LK+
+	 G4oab4W/i6CZtV4fRvnG6PgKj790BXUxMXDGndSvYYS6Tjs0AccXaYaRZOslfPDVv2yLI
+	 5HqNn7u2YUEijsQXBV+M7c34VyqqeEC/p7a+rI9OaUMCoZgXe5YNN5U9Ddsc90RFd2Tdt
+	 2UnH4QrW/ZYRqa6C8GfPAXlS6NmaH2gi3+gJdVGiZsy6I8ukociB4vg85jNj1+1h1hA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mZuJ4dw0;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B972606A320;
+	Sat, 21 Nov 2026 21:29:16 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mZuJ4dw0
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795296556;
+	b=jJjLmy+eLmZEv8lU7DDLaff9T02xDT8/z6Zad0qYOwSSQIbg5rapGIrQhMiX7g1wWiZQ
+	 SmH7deMdrOMzWId+6mOChHpY8Rrosx5odtUl6hy4WfDaOAwx64/BUrMkxTdjwYdSH/UnM
+	 8wpVjT82rRdMBmyYaG9/89bb4AholIzVH2pCdfJJV78N+EpiKaInKdnzf3zVi6xnpUG3X
+	 zhPVEJfqO+wpaoX2FI9ZwZ++ysz5RJzAHPjbl7jvQQpGBT7xqOknXiwwcYM1b81pR4Pj2
+	 B5ey7mbt+MRgXzu7pnROMZeFHiVeEBp09UVP/w2B3AOgAyrdJgfZfJM2Z59duBvDr+g==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795296556;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=23sDc1ULNMm1ETHtvpZrl9E+BXwKGdL/Xa3E7VzeDL0=;
+	b=CgMNS6LrBxVjl/HAAPHgL6Cc6PlbsU6jVmErIdkqEE98qQLFmYtuU+WBdDmaIpOlE39s
+	 tSoQ9xjum4EyxzrZFLhrKSeP1cwYi0vYLkXkzJHtJLbtDE/JdF+LCuDTGG+oBZgXsPMvG
+	 ECTnUwG3XROMRiw5258XwJIcLcoUlkk0UMTOKUmAh7zbJ45zwOX9hi4hX5w3L350S8ly7
+	 jSLZnHTzFtf2YGfxzLQoQZ8GgdvxFq18baVylmX9k0k29CzMxHnmjYU9SSqEiVWV1Jrjb
+	 uZS2N3h5LJCwsCkHNv7zLEn4xT++PrBQznrTcv/Rhn7w0nZthCwX5nOGBdVBNExSurw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAABF606A333
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:27:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BAABF606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ySDkEIO0
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb5b8ef642so16769865e9.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:27:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795296473; x=1795901273; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=g56+Yp2TKqJ5xV2s8BFdZoIDvKQ0/BGu0qh6iDTvIhE=;
-        b=ySDkEIO0wCb5tRjoqzeT+i/kWYSzCqfpvATi+OfIKwYVhTdRRWSAeHlqrDNGRPM3xX
-         ZZuOsJa2B+yh7fPT6s/9jHyWDwt2hF5PSCI8oyNIblpECewVmWqGBApD8nH4lVzGuOM7
-         A0JqY4dnkaXkn5qmNvG+t4Vkt8xxY5Cfv6wLktd3HeedX2SfBsqdYsJAt4AD/cszuAo8
-         f/zkUAidDg1iA0TlekOCEpwzniwRfxx+tPPQvAZELM1Nvt3hxgOeBjqAVIKPzoQoVb3w
-         Jdhad716cTUtELqrAsJsB+RpqasK5fXJaPE+lLCZ6AA7qw8xCgrbrbciXs4ll8+qY7S8
-         barg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795296473; x=1795901273;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=g56+Yp2TKqJ5xV2s8BFdZoIDvKQ0/BGu0qh6iDTvIhE=;
-        b=GH5jtcs0O9kPzTLVy93eHIHzY/Mko3EnLhj31ESSux5vveKcNeDgpcyCuGKLAhKi8s
-         UaGfE8o4wJvaekx/DmPZqe7u0lk8d//7sDt/Cs28pF4CpsN99sWv2PtifmLmFOBe0p1Q
-         Pi1dBmwJffC3SRomuDQBg36DiGsfsJnBKjfUQ4lptjuZgBuIdQDJor/+NKaf6eTWcVrS
-         vpl6HzoGuJ9ymNbdWhXTGxmxbKFym7BobkHVjmtAHUWPsI73jUPaTAcq10mn+ZkxKDEp
-         5RvjOIvXW8wKzcg/y3utUk2JK1n7KMLzq1n+VhfTasjyue4vQbyqooTq+B+s9CF1jUaf
-         5Jyw==
-X-Forwarded-Encrypted: i=1; AL+hErFHHxB1zV+y2/LtdCrEVje2H2/3FuO9WDRWk/nzAZRcLaHLBd0Q+4YE5HtD0vPeJG/R1euYzbWvStKlpuM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z84rdwg9mzskCnJHcrPelhr0BINig7sB+Gln7U6QIffSBSqII+p
-	3+ghIUSJnHp5x4ZgHl2gJ1df2rWvi9w0pR07GMvXqqPjlzt+nbSQg+P9
-X-Gm-Gg: AZFdTZflu5j1oUadKr70YMBGzyNVSoQvATHHnIfE8ElNrhcSDM8akV9WNaer9+2gwPb
-	VuMgf5s1ZFbpuFp2o65fLK53tgyYCRynthln6uu4bu8OToQZc3mVtgCvhMQaD7jzuvxf2wq+1m+
-	Agi+02D44A4ZmAesxsVF3MuqdUXbI3X5i8BR8VLySKS1kbKk3PD3u/Zg8oBIzYZv8an4Lyfx6gs
-	mHoXQtSJro32oowSxZYOA4GTTZoVjRxFVwjwVK40eQ+5m4pmyIPqz5+SVe4aEW5R0cfxZCE2j7j
-	YB6frseNaTcfjM/n++dHD2p6r/MK6r6FCN20jHBjtXzFqTlpFeA8lbbO1kqcvQeGDfmYl3eQ3Mh
-	LQUYc8n7rYzpB+dUAfzJRwN3gjQxePbaYN/kL1vAP8tt8SxwCm1bHwXDrH23KJy62NZuJANDuUR
-	ETbccbIr8N+FkuRPl5GIw6x8nRZQQq4pn4/aZJv0FpnALe64WTTfgwYaHLMTdX2WkbpcmPkt+Po
-	2QxL05vRIa7/YK/FFDLd7cwtHLlF298rf3tcPykR+Ks6dZBV/pqBSYEHSjefaPH/43y5RgFk92f
-	3F0pJTy+ktSQh7uIgWJDs9rcGp9nK6ppIOK0JASvFJ20Q3L1bzWJzrzELpqL2A7VBng75vTZAJS
-	2AplzY54VMpcMlD92VlTYoDmzNJu7uqLFtJ1pbidlUjA/8IJoFjU8N1lLuRiSqfKBxjtb3CWp
-X-Received: by 2002:a05:600c:4f10:b0:4a1:88de:9e8b with SMTP id 5b1f17b1804b1-4bb88807909mr163930255e9.5.1795296472996;
-        Sat, 21 Nov 2026 13:27:52 -0800 (PST)
-Received: from Ansuel-XPS24.localdomain (host-87-17-253-173.retail.telecomitalia.it. [87.17.253.173])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b3a7sm255668955e9.3.2026.11.21.13.27.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 13:27:52 -0800 (PST)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Felix Fietkau <nbd@nbd.name>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Christian Marangi <ansuelsmth@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v15 1/5] dt-bindings: clock: airoha: Document support for AN7583 clock
-Date: Sat, 21 Nov 2026 22:27:31 +0100
-Message-ID: <20261121212738.170775-2-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261121212738.170775-1-ansuelsmth@gmail.com>
-References: <20261121212738.170775-1-ansuelsmth@gmail.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 599C51F000C6;
+	Sat, 21 Nov 2026 21:29:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795296556;
+	bh=23sDc1ULNMm1ETHtvpZrl9E+BXwKGdL/Xa3E7VzeDL0=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=mZuJ4dw0vpIZSjgIBWNUGYc6UeRX63ZMt92Fz+da1TKVLxio6sIbr0SpPLQ+QgECW
+	 4Ozhfsd/1N2n/LmnVoTotAGkcTVLSvxjDKkqn4ugkTSep6ztsp2hUiLk2UtobQ2NMJ
+	 ITrYNlRXIwlOj5TH6B9z28sZPrlbYfdwudhJOiWlk5W6F/5Zrmb6P5bae5iblI3K84
+	 fg9Il7fq8fcughOfAQe30oYbdi1Tx9LisB87D9LnuIhoBrYCgZuU3esm2NZQFtm6jk
+	 ++bBkh4L/Gd2LJcQFPdOQb2T6BvNWJnjJ1igJ0lygP7SfGwUSi+ks1aJPOy5Fm141p
+	 p9dTz5p7xiMJg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id ACFE64BDCA;
+	Sat, 21 Nov 2026 21:29:14 +0000 (UTC)
+From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Date: Sat, 21 Nov 2026 21:29:15 +0000
+Subject: [PATCH] apparmor: don't sleep in unix peer checks for path sockets
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,173 +82,252 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261121-apparmor-unix-peer-v1-1-99dd1cdb1e27@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBG4avIrDtgIrrwKqWLmPzqCI1hUkUQ7
+ 27aLr/FeydlqCBTX52k2CXLGgvMoyI/uziBJRSTrW1njDXsUnL6XpW3KAcnQLn1ocEYuqF2LZU
+ wKUY5ftPn6++8DQv853ui67oBdLNkxXYAAAA=
+X-Change-ID: 20261121-apparmor-unix-peer-5cd3efd6b0a5
+To: John Johansen <john.johansen@canonical.com>, 
+ Georgia Garcia <georgia.garcia@canonical.com>, 
+ Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
+ "Serge E. Hallyn" <serge@hallyn.com>
+Cc: apparmor@lists.ubuntu.com, linux-security-module@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ Arun Iyengar <aiyengar1990@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795296554; l=8688;
+ i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
+ bh=A5OtpOORF1rmexmWn52E93grd3HwLsXwp4br7SvH2fw=;
+ b=j6rwvZp3KydRjXdqhSMSZ8F1s28gbIeK042Zcvm8g2r+RaqvcIpJ6fZGstSI0VM2QqZW2syz3
+ A+w1j4XLwyUBhBqbts6U3FAMV+h8dT492gm9aNEQQyDEag4tcayrgdd
+X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
+ pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
+X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
+ auth_id=1480
+X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
+Reply-To: aiyengar1990@gmail.com
+Content-Transfer-Encoding: 7bit
 
-Document support for Airoha AN7583 clock. This is based on the EN7523
-clock schema with the new requirement of the "airoha,chip-scu".
+From: Arun Iyengar <aiyengar1990@gmail.com>
 
-The register for clock and reset for normal system and PCIe are scattered
-between the "SCU" and "chip SCU" registers (they are 2 different register
-block, the name is taken from the programming guide)
+security_unix_may_send() and security_unix_stream_connect() run under
+unix_state_lock(), but the path check of a path-bound peer calls
+aa_path_perm(), which gets its buffer with aa_get_buffer(false):
 
-- Chip SCU provide register access to some clk gate and clk rate
-- SCU provide register for reset, PCIe clock, other clock gate and PHY
-  SERDES.
+  BUG: sleeping function called from invalid context at security/apparmor/lsm.c:2301
+   aa_get_buffer+0x348/0x3a0
+   aa_path_perm+0xdc/0x268
+   unix_fs_perm+0x1d8/0x1e8
+   unix_peer_perm+0x1d8/0x588
+   aa_unix_peer_perm+0xe8/0x150
+   apparmor_unix_may_send+0x108/0x260
 
-Upcoming and current airoha clock driver all follow this pattern of
-declaring one of the 2 register and use a sysconf for the other as the 2
-register block are tighlty coupled.
+Pass in_atomic down to aa_path_perm() and set it for peer checks.
 
-EN7581 internally handle the syscon with a direct reference by the use of
-syscon_regmap_lookup_by_compatible while AN7583 wants to make this
-explicit in DT with the new "airoha,chip-scu" phandle.
-
-Similar to EN7581, also AN7583 permit the selection of the serdes line.
-
-Add additional binding for additional clock and reset lines.
-
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Fixes: c05e705812d1 ("apparmor: add fine grained af_unix mediation")
+Cc: stable@vger.kernel.org
+Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 ---
- .../bindings/clock/airoha,en7523-scu.yaml     | 26 ++++++++
- include/dt-bindings/clock/en7523-clk.h        |  3 +
- .../dt-bindings/reset/airoha,an7583-reset.h   | 65 +++++++++++++++++++
- 3 files changed, 94 insertions(+)
- create mode 100644 include/dt-bindings/reset/airoha,an7583-reset.h
+Seen once on v7.3 (arm64, systemd-detect-virt sending to the journal
+socket). It needs an empty buffer pool, so I tested with a test-only
+knob that forces the kmalloc path: 189 splats without the patch, 0 with it.
 
-diff --git a/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml b/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
-index fc37786ac7ed..0d5f89187525 100644
---- a/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
-+++ b/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
-@@ -31,6 +31,7 @@ properties:
-   compatible:
-     items:
-       - enum:
-+          - airoha,an7583-scu
-           - airoha,en7523-scu
-           - airoha,en7581-scu
-           - econet,en751221-scu
-@@ -57,12 +58,37 @@ properties:
-       available serdes port.
-     const: 1
+Not fixed here: a chroot_relative profile still reaches path_put() in
+d_namespace_path() under the lock (from reading the code, not tested).
+
+Claude (AI) helped write this patch; I reviewed and tested it.
+---
+ security/apparmor/af_unix.c      | 19 ++++++++++---------
+ security/apparmor/file.c         |  5 +++--
+ security/apparmor/include/file.h |  3 ++-
+ security/apparmor/lsm.c          | 13 +++++++------
+ 4 files changed, 22 insertions(+), 18 deletions(-)
+
+diff --git a/security/apparmor/af_unix.c b/security/apparmor/af_unix.c
+index 58c638830afc..ff851ddd43b4 100644
+--- a/security/apparmor/af_unix.c
++++ b/security/apparmor/af_unix.c
+@@ -32,7 +32,8 @@ static inline struct sock *aa_unix_sk(struct unix_sock *u)
+ }
  
-+  airoha,chip-scu:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: phandle to the Chip SCU providing the registers required
-+      for configuring and read the base clock sources, dividers  and
-+      clock gates.
-+
- required:
-   - compatible
-   - reg
-   - '#clock-cells'
+ static int unix_fs_perm(const char *op, u32 mask, const struct cred *subj_cred,
+-			struct aa_label *label, const struct path *path)
++			struct aa_label *label, const struct path *path,
++			bool in_atomic)
+ {
+ 	AA_BUG(!label);
+ 	AA_BUG(!path);
+@@ -54,7 +55,7 @@ static int unix_fs_perm(const char *op, u32 mask, const struct cred *subj_cred,
+ 		};
  
- allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          const: airoha,an7583-scu
-+
-+    then:
-+      properties:
-+        reg:
-+          maxItems: 1
-+
-+      required:
-+        - airoha,chip-scu
-+        - '#reset-cells'
-+        - '#phy-cells'
-+
-+    else:
-+      properties:
-+        airoha,chip-scu: false
-+
-   - if:
-       properties:
-         compatible:
-diff --git a/include/dt-bindings/clock/en7523-clk.h b/include/dt-bindings/clock/en7523-clk.h
-index edfa64045f52..0fbbcb7b1b25 100644
---- a/include/dt-bindings/clock/en7523-clk.h
-+++ b/include/dt-bindings/clock/en7523-clk.h
-@@ -14,4 +14,7 @@
+ 		return aa_path_perm(op, subj_cred, label, path,
+-				    PATH_SOCK_COND, mask, &cond);
++				    PATH_SOCK_COND, mask, &cond, in_atomic);
+ 	} /* else implicitly delegated */
  
- #define EN7581_CLK_EMMC		8
+ 	return 0;
+@@ -240,7 +241,7 @@ static int profile_sk_perm(struct aa_profile *profile,
+ 		if (is_unix_fs(sk))
+ 			return unix_fs_perm(ad->op, request, ad->subj_cred,
+ 					    &profile->label,
+-					    &unix_sk(sk)->path);
++					    &unix_sk(sk)->path, false);
  
-+#define AN7583_CLK_MDIO0	9
-+#define AN7583_CLK_MDIO1	10
-+
- #endif /* _DT_BINDINGS_CLOCK_AIROHA_EN7523_H_ */
-diff --git a/include/dt-bindings/reset/airoha,an7583-reset.h b/include/dt-bindings/reset/airoha,an7583-reset.h
-new file mode 100644
-index 000000000000..433a5c6180bf
---- /dev/null
-+++ b/include/dt-bindings/reset/airoha,an7583-reset.h
-@@ -0,0 +1,65 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (c) 2024 AIROHA Inc
-+ * Author: Christian Marangi <ansuelsmth@gmail.com>
-+ */
-+
-+#ifndef __DT_BINDINGS_RESET_CONTROLLER_AIROHA_AN7583_H_
-+#define __DT_BINDINGS_RESET_CONTROLLER_AIROHA_AN7583_H_
-+
-+/* RST_CTRL2 */
-+#define AN7583_XPON_PHY_RST		 0
-+#define AN7583_GPON_OLT_RST		 1
-+#define AN7583_CPU_TIMER2_RST		 2
-+#define AN7583_HSUART_RST		 3
-+#define AN7583_UART4_RST		 4
-+#define AN7583_UART5_RST		 5
-+#define AN7583_I2C2_RST			 6
-+#define AN7583_XSI_MAC_RST		 7
-+#define AN7583_XSI_PHY_RST		 8
-+#define AN7583_NPU_RST			 9
-+#define AN7583_TRNG_MSTART_RST		10
-+#define AN7583_DUAL_HSI0_RST		11
-+#define AN7583_DUAL_HSI1_RST		12
-+#define AN7583_DUAL_HSI0_MAC_RST	13
-+#define AN7583_DUAL_HSI1_MAC_RST	14
-+#define AN7583_XPON_XFI_RST		15
-+#define AN7583_WDMA_RST			16
-+#define AN7583_WOE0_RST			17
-+#define AN7583_HSDMA_RST		18
-+#define AN7583_TDMA_RST			19
-+#define AN7583_EMMC_RST			20
-+#define AN7583_SOE_RST			21
-+#define AN7583_XFP_MAC_RST		22
-+#define AN7583_MDIO0_RST		23
-+#define AN7583_MDIO1_RST		24
-+/* RST_CTRL1 */
-+#define AN7583_PCM1_ZSI_ISI_RST		25
-+#define AN7583_FE_PDMA_RST		26
-+#define AN7583_FE_QDMA_RST		27
-+#define AN7583_PCM_SPIWP_RST		28
-+#define AN7583_CRYPTO_RST		29
-+#define AN7583_TIMER_RST		30
-+#define AN7583_PCM1_RST			31
-+#define AN7583_UART_RST			32
-+#define AN7583_GPIO_RST			33
-+#define AN7583_GDMA_RST			34
-+#define AN7583_I2C_MASTER_RST		35
-+#define AN7583_PCM2_ZSI_ISI_RST		36
-+#define AN7583_SFC_RST			37
-+#define AN7583_UART2_RST		38
-+#define AN7583_GDMP_RST			39
-+#define AN7583_FE_RST			40
-+#define AN7583_USB_HOST_P0_RST		41
-+#define AN7583_GSW_RST			42
-+#define AN7583_SFC2_PCM_RST		43
-+#define AN7583_PCIE0_RST		44
-+#define AN7583_PCIE1_RST		45
-+#define AN7583_CPU_TIMER_RST		46
-+#define AN7583_PCIE_HB_RST		47
-+#define AN7583_XPON_MAC_RST		48
-+/* RST_PCIC */
-+#define AN7583_PCIC_PERSTOUT0_RST	49
-+#define AN7583_PCIC_PERSTOUT1_RST	50
-+
-+#endif /* __DT_BINDINGS_RESET_CONTROLLER_AIROHA_AN7583_H_ */
--- 
-2.55.0
+ 		state = match_to_sk(rules->policy, state, request, unix_sk(sk),
+ 				    &p, &ad->info);
+@@ -302,7 +303,7 @@ static int profile_listen_perm(struct aa_profile *profile, struct sock *sk,
+ 		if (is_unix_fs(sk))
+ 			return unix_fs_perm(ad->op, AA_MAY_LISTEN,
+ 					    ad->subj_cred, &profile->label,
+-					    &unix_sk(sk)->path);
++					    &unix_sk(sk)->path, false);
+ 
+ 		state = match_to_cmd(rules->policy, state, AA_MAY_LISTEN,
+ 				     unix_sk(sk), CMD_LISTEN, &p, &ad->info);
+@@ -337,7 +338,7 @@ static int profile_accept_perm(struct aa_profile *profile,
+ 		if (is_unix_fs(sk))
+ 			return unix_fs_perm(ad->op, AA_MAY_ACCEPT,
+ 					    ad->subj_cred, &profile->label,
+-					    &unix_sk(sk)->path);
++					    &unix_sk(sk)->path, false);
+ 
+ 		state = match_to_sk(rules->policy, state, AA_MAY_ACCEPT,
+ 				    unix_sk(sk), &p, &ad->info);
+@@ -368,7 +369,7 @@ static int profile_opt_perm(struct aa_profile *profile, u32 request,
+ 		if (is_unix_fs(sk))
+ 			return unix_fs_perm(ad->op, request,
+ 					    ad->subj_cred, &profile->label,
+-					    &unix_sk(sk)->path);
++					    &unix_sk(sk)->path, false);
+ 
+ 		state = match_to_cmd(rules->policy, state, request, unix_sk(sk),
+ 				     CMD_OPT, &p, &ad->info);
+@@ -409,10 +410,10 @@ static int profile_peer_perm(struct aa_profile *profile, u32 request,
+ 
+ 		if (peer_path)
+ 			return unix_fs_perm(ad->op, request, ad->subj_cred,
+-					    &profile->label, peer_path);
++					    &profile->label, peer_path, true);
+ 		else if (path)
+ 			return unix_fs_perm(ad->op, request, ad->subj_cred,
+-					    &profile->label, path);
++					    &profile->label, path, true);
+ 		state = match_to_peer(rules->policy, state, request,
+ 				      unix_sk(sk),
+ 				      peer_addr, peer_addrlen, &p, &ad->info);
+@@ -775,7 +776,7 @@ int aa_unix_file_perm(const struct cred *subj_cred, struct aa_label *label,
+ 
+ 			last_error(error,
+ 				   unix_fs_perm(op, request, subj_cred, label,
+-						&peer_path));
++						&peer_path, false));
+ 			if (peer_path.dentry)
+ 				path_put(&peer_path);
+ 		} else {
+diff --git a/security/apparmor/file.c b/security/apparmor/file.c
+index baca370ddfc0..056b670894c5 100644
+--- a/security/apparmor/file.c
++++ b/security/apparmor/file.c
+@@ -281,13 +281,14 @@ static int profile_path_perm(const char *op, const struct cred *subj_cred,
+  * @flags: any additional path flags beyond what the profile specifies
+  * @request: requested permissions
+  * @cond: conditional info for this request  (NOT NULL)
++ * @in_atomic: whether allocations need to be done in atomic context
+  *
+  * Returns: %0 else error if access denied or other error
+  */
+ int aa_path_perm(const char *op, const struct cred *subj_cred,
+ 		 struct aa_label *label,
+ 		 const struct path *path, int flags, u32 request,
+-		 struct path_cond *cond)
++		 struct path_cond *cond, bool in_atomic)
+ {
+ 	struct aa_perms perms = {};
+ 	struct aa_profile *profile;
+@@ -296,7 +297,7 @@ int aa_path_perm(const char *op, const struct cred *subj_cred,
+ 
+ 	flags |= PATH_DELEGATE_DELETED | (S_ISDIR(cond->mode) ? PATH_IS_DIR :
+ 								0);
+-	buffer = aa_get_buffer(false);
++	buffer = aa_get_buffer(in_atomic);
+ 	if (!buffer)
+ 		return -ENOMEM;
+ 	error = fn_for_each_confined(label, profile,
+diff --git a/security/apparmor/include/file.h b/security/apparmor/include/file.h
+index 1614c07fc53e..aee493604333 100644
+--- a/security/apparmor/include/file.h
++++ b/security/apparmor/include/file.h
+@@ -90,7 +90,8 @@ int __aa_path_perm(const char *op, const struct cred *subj_cred,
+ 		   struct aa_perms *perms);
+ int aa_path_perm(const char *op, const struct cred *subj_cred,
+ 		 struct aa_label *label, const struct path *path,
+-		 int flags, u32 request, struct path_cond *cond);
++		 int flags, u32 request, struct path_cond *cond,
++		 bool in_atomic);
+ 
+ int aa_path_link(const struct cred *subj_cred, struct aa_label *label,
+ 		 struct dentry *old_dentry, const struct path *new_dir,
+diff --git a/security/apparmor/lsm.c b/security/apparmor/lsm.c
+index eaebc3c60c5a..8224529cfbba 100644
+--- a/security/apparmor/lsm.c
++++ b/security/apparmor/lsm.c
+@@ -229,7 +229,7 @@ static int common_perm(const char *op, const struct path *path, u32 mask,
+ 	label = __begin_current_label_crit_section(&needput);
+ 	if (!unconfined(label))
+ 		error = aa_path_perm(op, current_cred(), label, path, 0, mask,
+-				     cond);
++				     cond, false);
+ 	__end_current_label_crit_section(label, needput);
+ 
+ 	return error;
+@@ -421,12 +421,12 @@ static int apparmor_path_rename(const struct path *old_dir, struct dentry *old_d
+ 					     label, &new_path, 0,
+ 					     MAY_READ | AA_MAY_GETATTR | MAY_WRITE |
+ 					     AA_MAY_SETATTR | AA_MAY_DELETE,
+-					     &cond_exchange);
++					     &cond_exchange, false);
+ 			if (!error)
+ 				error = aa_path_perm(OP_RENAME_DEST, current_cred(),
+ 						     label, &old_path,
+ 						     0, MAY_WRITE | AA_MAY_SETATTR |
+-						     AA_MAY_CREATE, &cond_exchange);
++						     AA_MAY_CREATE, &cond_exchange, false);
+ 		}
+ 
+ 		if (!error)
+@@ -434,12 +434,12 @@ static int apparmor_path_rename(const struct path *old_dir, struct dentry *old_d
+ 					     label, &old_path, 0,
+ 					     MAY_READ | AA_MAY_GETATTR | MAY_WRITE |
+ 					     AA_MAY_SETATTR | AA_MAY_DELETE,
+-					     &cond);
++					     &cond, false);
+ 		if (!error)
+ 			error = aa_path_perm(OP_RENAME_DEST, current_cred(),
+ 					     label, &new_path,
+ 					     0, MAY_WRITE | AA_MAY_SETATTR |
+-					     AA_MAY_CREATE, &cond);
++					     AA_MAY_CREATE, &cond, false);
+ 
+ 	}
+ 	end_current_label_crit_section(label, needput);
+@@ -497,7 +497,8 @@ static int apparmor_file_open(struct file *file)
+ 
+ 		error = aa_path_perm(OP_OPEN, file->f_cred,
+ 				     label, &file->f_path, 0,
+-				     aa_map_file_to_perms(file), &cond);
++				     aa_map_file_to_perms(file), &cond,
++				     false);
+ 		/* todo cache full allowed permissions set and state */
+ 		fctx->allow = aa_map_file_to_perms(file);
+ 	}
+
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261121-apparmor-unix-peer-5cd3efd6b0a5
+
+Best regards,
+--  
+Arun Iyengar <aiyengar1990@gmail.com>
+
 
