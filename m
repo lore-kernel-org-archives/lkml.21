@@ -1,47 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795260764;
-	b=tMGceOkmd4h2qx6cQsG6xNOzPdlx3XKrhhDwjYbWBXBgP9PPoh3JXymGQTESN94/eASP
-	 biGD7+D1DU25nweUZUw8UaUMKH+PhUFAQm/EjBwlHFb6Hb39rLDjIYmEXUbnun9yrS/QH
-	 RCngBn9Nj8Uuhf4wLFWyKVxwr7Z0JBZ5m3+gfXlFev/m88FQhTmJ1jJhgiwmulaAcQFwX
-	 azJIlq9VYWHTObZErHaL0Swm89hDoAUkRP1qmH0+eXREajH0glpV1+dW7iUHCAEfMeMhi
-	 u2ye3mdQTa+ATBHyUSJ+V0SmhEA82PS7dUryOY5ainFsGk+nPliUWIVXrQ0L1jRAnhA==
+	t=1795260767;
+	b=uII3yAh9OI1MGPfn9glxCXGFDJu/w5gWHEFoLPEfuYtKbfoHywuxEgZs/fGZ2h1o3p/F
+	 zUFNG2htMAJsvUZ5qMpkMlJnh5ykYuzgMvijqwGgyZ3x7xPsR5QJ9C4wu3UyGTY/b+Hwc
+	 3ri7zWsDbjKDdOO/3iRr9evDXehJOHwNVv4NTQ9Hb2WRYiVP7ptRjZ8Y2nTWHJaWbFwDA
+	 wonLBgAR2pZpVwghKKFZd/F7SMdvyTQj1r2j5N5ytU8A/0vAkYHn9HdeoUKM4DOaNNv2m
+	 OP6M7bXVqf4q3I0ckiSJgtLegB5l9lXo8W9FKsYoVnRLgdDQmWvkJ2sKZ75qz3oiLHw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795260764;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=udx8SVT7V+liskpAQLw+2t29k/7bmiaKmr8jMYA6QnM=;
-	b=Clpl4tSs/10IdYsUzSaGwOQDf058GCwi6GyHgLjYtfIDBV3w6gbsynLiKbnHfI0AFM4I
-	 VcRoRuZE5P80dBtZYz2+n2dYQ3GG2UHTCLMtC95I/x35xSIAIApXE2OLi1QhOwrF649am
-	 mQU0pFINAu0GwOEXRIq1qXE6hbpFuREfKrHlZcXiYgwskka5ItFe9f527Z0HiqLZx67XT
-	 a9eKH/+zz/7UEFGHAHGvIDC6kG/2nHsEEnbJwY3uBlY0afnjm9ElO8XFMqWzYpCHVzdAT
-	 TvRqG7jSOANMa//jqp+6HLdxA6WjMto+MKjF5UxDhOROcD/a+f+UskP22LOQJP3TPiw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795260767;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=lysjra+VOPbhlR222yNxSQpcBXCtffSf2ZjTahRujcQ=;
+	b=WSfDypCaeOcnCnQ7J5ncSkrBP91ThdPklR/D9DogEyyzX5znwGponjpD9hPIT8g7SOgT
+	 woWqwhacTuE0VFbpQT+hqH1NYCyD1rwgE+usfjXLUH5ol9CRFV/ZJ584X2kHAZbgiaALC
+	 3mVyFGhrowB2bR8Ax2nQetNlUc8Cvg7w/DwYxr6AqonOWNiVOyKk+FzfX6aVr1X1+PHm7
+	 fg+BrDYmMTn9KHA8H3y0mIfGMAiZk9qK0I7DAIULevZNfjzZoPe2yJi7xfKszRtKUqsY9
+	 AvtP9mUsviB8nVlnqadbOaix2L8eAThuoyZpwWA3w+xWPyIo1nr0PWrZl3qkJfQSPXw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IxjgJO2J;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CsjPOwlM;
+	arc=none smtp.remote-ip=209.85.216.42
+Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CAB05606A325;
-	Sat, 21 Nov 2026 11:32:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51585606A331
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:32:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51585606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IxjgJO2J
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A2471F000C6;
-	Sat, 21 Nov 2026 11:32:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795260764;
-	bh=udx8SVT7V+liskpAQLw+2t29k/7bmiaKmr8jMYA6QnM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=IxjgJO2JARaXa318wA+5RmQgZb22aIRW76D9ixDXe/vBYQ9SGNddjmzoTteSClmsn
-	 0UbjTTybvvt/+eeGgQdh7bb45vTIhtQTMnrCoVXOGVy3rc4urPMLoD4Tg4N+6blQKU
-	 DvVtaMQ2/vP5r5m2wVE4Q9YJZBnmcaQsWen3cfHY3+5VFEeXVqljNIcs89Wl8zOBe/
-	 uSKFzBXW+Y+I2wx1i7RxxSoYfuDUCbn/xTfF7MP00N9zI4TILqlic3XLxdxencXfB5
-	 r5ixoK2t+CJOwEfwwwyeOglcb95p8dUBv8RzWYg+YoAlcdpFb5o7AnbMvv48fIThbp
-	 LvrX3ArWh+6wg==
-Message-ID: <7818fa09-8f9c-4d42-b746-0ec74ee1aa08@kernel.org>
-Date: Sat, 21 Nov 2026 12:32:34 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CsjPOwlM
+Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3b44bdcea8aso345356a91.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:32:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795260767; x=1795865567; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=lysjra+VOPbhlR222yNxSQpcBXCtffSf2ZjTahRujcQ=;
+        b=CsjPOwlMtyZ0snxemxi0/GG7ghVJ33snXWXHwQyyLiYEXu9TLyhjiRjR3GrDEmKfRD
+         7Tc/rFIsR8qUBdFQVDY1oAqR9bCAA6lXOMWLQ8a4qVzj5hTgzvNlODrfiGiB4wn7IU4y
+         D9RJCreg5RiEUx2HmjYlP4LduuNZhphZD3nYT3r7F0sLVkY+2xVj6StsdtqS50pGkgot
+         QIrBaZRgHQ4JQ4sSio8vmWIYNRUtgNBpwizwwb/72WWU/v1xoCPF8PXjZWJ9/FCsr32Q
+         zHuJCb9ueM+NN/LI//cQuF0v3/HuqQPrBjLFeYEu5IgdugUUjSTrDqddJUg7iVOYclVA
+         dAYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795260767; x=1795865567;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lysjra+VOPbhlR222yNxSQpcBXCtffSf2ZjTahRujcQ=;
+        b=KeJ/znuBUD5kb/K0VCVHyZu61rXNukgbxPQayw08MTcErE2D+ZZg+XLVfU6LqVl2Ya
+         5ZJZSNqEMdJKdxBo7HXapUjos1ArzVIC5VrLOlyRDDFnBYVTr+lUE87L43SPA5C3i1wI
+         4276+0MUWMQ+6R3mDI3QBwWUBOEo6LB4KmgkGqdcNL0bcOUpJ5CX8/yh6OlwlWH9s8oX
+         h0ezfkfea/XRt8Rb3EvMbd7nuApaVZBKPOJRtSaDLOxRN+S511RdoQKJAfOeIFYvHzbS
+         CbiRqrQVwmPVsf6QMEL6sXjeYxYB7f4O/GXB0JRkIlki9I94RSaQ6BN2kZ0hswP6nLsf
+         B31w==
+X-Forwarded-Encrypted: i=1; AL+hErFYRDhv+e/EhrUkjxQlYGqhlBqmeJIT52821qi9wUcL2td6srlc6NbxP79SA9K9qlWxZtFxXM56BnWS7F8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9kurUqhDc9PqBLNTVrFbln7rAq6OTtZmX89LkyqHtydaMsJQuz
+	ChjrsWlYuDEncZJeG0Mz1Pl4e6JGKq8Ie6olkV0VIGcRZGExREXEO90mHxwOpQ==
+X-Gm-Gg: AZFdTZfzZOAH2bZlyyo+yYjx10JkFirXhGodKGW+g4b1dmOS85bWmgx+lkbTKmwJcXs
+	Qx+vs6JZdaoq17hRpkngDATr2k11brSNA4pGKt1lads9xuYApi0ELI+s5S09N2F4j3zDn5s9OQT
+	sr84EiTdjM/wxmGp6uK9yLXI6G1bRuoJDt4+M4o7uWbsNez2zj/YvN0V3UzBeXe3HWU8nRMQeQk
+	9ABgq4mp7skQPD9rSSW8Nm9rvQQ0i320nPC4+NISobkKndHwUjKrgWKBJ6Qf1A89GW4xSGgEQ7d
+	2QXggTR3eyy9XCbj0K7tW6foVB0ZKdcs2P59vHxT/ZNfPzhAMVdkBHI7AU8c0t8WNSRSQWxC2Ot
+	Q8P//8ouxJfJ909+HZDQ1MNQqEK7Jqb7MECDGHD5oCAAFB3ittS0pTSJsCE62tPiIcneuaBtoJ/
+	cN2lGSuEEHl0TZDVDn7ydniJ8vLhRu/LD93pSK/iOf6P3SIWx0f9xdg/EXdx+y6cJi9POJ1qqLD
+	QHD9upBP/2U5Mnf3NSJSM66rieluJQCXgFzzzpi3iQUznJVQ/JZ8ALLNsS9hXqxEeuc3hMnCMmq
+	hiQIsrLNCmHC34ADoO9pgGEGfuXBjlPfU5vj9ZGIj/9XRR+bTlFglQYOUW6rZdapLQ==
+X-Received: by 2002:a17:90b:2e0e:b0:3b3:b9dc:7dcb with SMTP id 98e67ed59e1d1-3b40a5a4829mr5270772a91.13.1795260766477;
+        Sat, 21 Nov 2026 03:32:46 -0800 (PST)
+Received: from [127.0.1.1] ([2408:840d:6830:46f1:7c60:7a01:9164:e1a0])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cea748csm2458663a12.4.2026.11.21.03.32.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 03:32:46 -0800 (PST)
+From: Chaosheng Qu <chaosheng.qu.linux@gmail.com>
+To: linux-trace-kernel@vger.kernel.org
+Cc: Steven Rostedt <rostedt@goodmis.org>, Tomas Glozar <tglozar@redhat.com>, linux-kernel@vger.kernel.org
+Subject: [PATCH v3 2/2] rtla/tests: cover cleanup on abnormal exits
+Date: Sat, 21 Nov 2026 19:31:27 +0800
+Message-ID: <4ffc1e5176e9534d39401670907b4bdd700989c3.1795258353.git.chaosheng.qu.linux@gmail.com>
+In-Reply-To: <cover.1795258353.git.chaosheng.qu.linux@gmail.com>
+References: <cover.1795258353.git.chaosheng.qu.linux@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,125 +96,324 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 2/4] soc: qcom: add core driver for the Qualcomm
- Crypto Engine
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Thara Gopinath <thara.gopinath@gmail.com>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>,
- Stanimir Varbanov <svarbanov@mm-sol.com>,
- Eneas U de Queiroz <cotequeiroz@gmail.com>,
- Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
- Eric Biggers <ebiggers@kernel.org>,
- Demi Marie Obenour <demiobenour@gmail.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Russell King
- <linux@armlinux.org.uk>, Abel Vesa <abelvesa@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, brgl@kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Pankaj Patil <pankaj.patil@oss.qualcomm.com>,
- Abel Vesa <abel.vesa@oss.qualcomm.com>
-References: <20261120-qce-fix-self-tests-v12-0-b5a2a44bc5ae@oss.qualcomm.com>
- <20261120-qce-fix-self-tests-v12-2-b5a2a44bc5ae@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261120-qce-fix-self-tests-v12-2-b5a2a44bc5ae@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 
-On 20/11/2026 20:34, Bartosz Golaszewski wrote:
-> Add the core driver for the Qualcomm crypto engine. Its task is to bind
-> to the qce DT node, set up runtime PM for interconnect down-scaling and
-> register the auxiliary device using the crypto offloader driver.
+rtla creates a tracefs instance for each run and removes it on the way
+out.  Nothing verifies that, and a leaked instance only shows up as a
+confusing failure of the next run.
 
-I dislike the "core driver" in the commit msg and subject. It suggests
-there is some core feature or core stuff, but that's not true. You are
-adding STUB driver only to handle Linux RPM things (which have impact on
-interconnects, of course).
+Add a test for the paths users actually hit: SIGINT, SIGTERM, rtla's own
+-d timer, a failing --on-threshold action, and several interrupted runs
+followed by a normal one.  These need rtla running in the background
+while the test signals it, which engine.sh's check() cannot express, so
+cleanup.t drives a helper script and emits TAP itself.
 
-The Kconfig has it nicely explained, but here I see it as confusing.
+The test needs root, tracefs and CONFIG_OSNOISE_TRACER, and skips when
+tracefs is not writable.
 
-> 
-> Tested-by: Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>
-> Tested-by: Pankaj Patil <pankaj.patil@oss.qualcomm.com>
-> Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> ---
->  drivers/soc/qcom/Kconfig    | 11 ++++++
->  drivers/soc/qcom/Makefile   |  1 +
->  drivers/soc/qcom/qce-core.c | 92 +++++++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 104 insertions(+)
-> 
-> diff --git a/drivers/soc/qcom/Kconfig b/drivers/soc/qcom/Kconfig
-> index 535c8619197b3e889e536da072ab89d3bb729804..67d54d5211ff21bae77cd8408fa47af630060949 100644
-> --- a/drivers/soc/qcom/Kconfig
-> +++ b/drivers/soc/qcom/Kconfig
-> @@ -121,6 +121,17 @@ config QCOM_PMIC_GLINK
->  	  Say yes here to support USB-C and battery status on modern Qualcomm
->  	  platforms.
->  
+Signed-off-by: Chaosheng Qu <chaosheng.qu.linux@gmail.com>
+---
+ tools/tracing/rtla/tests/cleanup.t            |  70 ++++++
+ .../rtla/tests/scripts/check-cleanup.sh       | 211 ++++++++++++++++++
+ 2 files changed, 281 insertions(+)
+ create mode 100644 tools/tracing/rtla/tests/cleanup.t
+ create mode 100755 tools/tracing/rtla/tests/scripts/check-cleanup.sh
 
-...
+diff --git a/tools/tracing/rtla/tests/cleanup.t b/tools/tracing/rtla/tests/cleanup.t
+new file mode 100644
+index 000000000..176b1a96f
+--- /dev/null
++++ b/tools/tracing/rtla/tests/cleanup.t
+@@ -0,0 +1,70 @@
++#!/bin/bash
++# SPDX-License-Identifier: GPL-2.0
++#
++# Verify that rtla removes the tracefs instance it created on the abnormal
++# exit paths users actually hit:
++#
++#   - SIGINT during a run            (interactive Ctrl-C)
++#   - SIGTERM during a run
++#   - rtla's own -d/--duration timer
++#   - a failing --on-threshold shell action
++#   - several interrupted runs in a row, followed by a normal run
++#
++# A leaked instance pollutes the next invocation.
++source tests/engine.sh
++test_begin
++
++set_timeout 2m
++
++#
++# These cases need to run rtla in the background and signal it, which
++# engine.sh's check() (one foreground command) cannot express.
++#
++run_cleanup_cases() {
++	local helper="$testdir/scripts/check-cleanup.sh"
++	local out rc timeout_cmd skip
++
++	ctr=$((ctr + 1))
++	[ -z "$TEST_COUNT" ] && return
++
++	if [ ! -x "$helper" ]; then
++		echo "not ok $ctr - cleanup helper is not executable"
++		return
++	fi
++
++	# check() normally does this before every test. Do the same here, both to
++	# leave a clean tracer state and to make a hung helper terminate.
++	reset_osnoise || {
++		echo "ok $ctr - instances cleaned up on SIGINT, timeout and action failure # SKIP tracefs is not writable"
++		return
++	}
++	timeout_cmd=${TIMEOUT:-timeout -v -k 15s 2m}
++
++	out=$($timeout_cmd "$helper" "$RTLA" 2>&1)
++	rc=$?
++	if [ $rc -eq 0 ]; then
++		# "SKIP:" is what the helper prints when it could not run at all
++		# (no writable tracefs, or the binary is unusable); a per-case skip
++		# says "note:" instead. So the first SKIP: line means nothing ran.
++		skip=$(printf '%s\n' "$out" | sed -n 's/^SKIP: //p' | head -n 1)
++		if [ -n "$skip" ]; then
++			echo "ok $ctr - instances cleaned up on SIGINT, timeout and action failure # SKIP $skip"
++			return
++		fi
++		printf '%s\n' "$out" | sed -n 's/^note: /# note: /p'
++		echo "ok $ctr - instances cleaned up on SIGINT, timeout and action failure"
++	elif [ $rc -eq 124 ] || [ $rc -eq 137 ]; then
++		echo "not ok $ctr - instances cleaned up on SIGINT, timeout and action failure"
++		echo "# helper timed out after 2m"
++	else
++		echo "not ok $ctr - instances cleaned up on SIGINT, timeout and action failure"
++		echo "# helper exited $rc"
++		printf '%s\n' "$out" | while read -r line; do
++			echo "# $line"
++		done
++	fi
++}
++
++run_cleanup_cases
++
++test_end
+diff --git a/tools/tracing/rtla/tests/scripts/check-cleanup.sh b/tools/tracing/rtla/tests/scripts/check-cleanup.sh
+new file mode 100755
+index 000000000..c27db96cd
+--- /dev/null
++++ b/tools/tracing/rtla/tests/scripts/check-cleanup.sh
+@@ -0,0 +1,211 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0
++#
++# Verify that rtla removes the tracefs instances it created, even when it is
++# interrupted (SIGINT/SIGTERM), killed by its own timeout, or when a shell
++# action fails.
++#
++# This is a *test* for tools/tracing/rtla; it does not change rtla behaviour.
++#
++# Requires: root, tracefs mounted at /sys/kernel/tracing, CONFIG_OSNOISE_TRACER.
++# Usage: rtla_cleanup_test.sh /path/to/rtla
++
++RTLA=${1:-rtla}
++TRACEFS=${TRACEFS:-/sys/kernel/tracing}
++INSTANCES=$TRACEFS/instances
++FAIL=0
++PASS=0
++
++log()  { printf '%s\n' "$*"; }
++pass() { PASS=$((PASS+1)); log "PASS: $*"; }
++fail() { FAIL=$((FAIL+1)); log "FAIL: $*"; }
++cleanup_all() {
++	for i in osnoise_top osnoise_hist timerlat_top timerlat_hist hwnoise_top; do
++		[ -d "$INSTANCES/$i" ] && rmdir "$INSTANCES/$i" 2>/dev/null
++	done
++}
++
++# Wait up to $2 ms for $1 to disappear.
++wait_gone() {
++	_path=$1
++	_ms=${2:-5000}
++	_i=0
++	while [ -d "$_path" ] && [ $_i -lt $_ms ]; do
++		sleep 0.05
++		_i=$((_i+50))
++	done
++	[ ! -d "$_path" ]
++}
++
++# Wait until $1 exists (up to $2 ms).
++wait_present() {
++	_path=$1
++	_ms=${2:-10000}
++	_i=0
++	while [ ! -d "$_path" ] && [ $_i -lt $_ms ]; do
++		sleep 0.05
++		_i=$((_i+50))
++	done
++	[ -d "$_path" ]
++}
++
++if [ ! -d "$INSTANCES" ] || [ ! -w "$INSTANCES" ] ||
++   [ ! -d "$TRACEFS/osnoise" ]; then
++	log "SKIP: tracefs, writable instances or CONFIG_OSNOISE_TRACER unavailable"
++	exit 0
++fi
++
++# Leave nothing behind from the test before it starts, and make sure the
++# command under test is actually usable.
++#
++# rtla has no --version: main() only knows -h/--help and -usage, and anything
++# else falls through to rtla_usage(), which exits 129 after printing the
++# version banner. Probing --version therefore always failed and the whole test
++# suite silently reported SKIP. Accept 129 as "this binary works".
++cleanup_all
++if [ ! -x "$RTLA" ]; then
++	log "SKIP: $RTLA is not executable"
++	exit 0
++fi
++help_out=$("$RTLA" --help 2>&1)
++rtla_rc=$?
++if [ "$rtla_rc" -ne 129 ] ||
++   ! printf '%s\n' "$help_out" | grep -q 'rtla version'; then
++	log "SKIP: $RTLA is not usable (--help exited $rtla_rc, no version banner)"
++	exit 0
++fi
++
++# Kill a background rtla if a case fails before reaping it.
++stop_pid() {
++	[ -n "$1" ] || return
++	kill -KILL "$1" 2>/dev/null
++	wait "$1" 2>/dev/null
++}
++
++# Wait for an rtla instance and its signal handler.  The instance appears
++# before set_signals() runs, so wait for rtla to start its workload (or at
++# least for it to survive a short grace period) before sending SIGINT.
++wait_running() {
++	_path=$1
++	_pid=$2
++	wait_present "$_path" 10000 || return 1
++	sleep 1
++	kill -0 "$_pid" 2>/dev/null
++}
++
++# ---------------------------------------------------------------------------
++# 1. SIGINT during a long run
++# ---------------------------------------------------------------------------
++cleanup_all
++$RTLA osnoise top -q -d 30s -P F:1 >/dev/null 2>&1 &
++pid=$!
++if ! wait_running "$INSTANCES/osnoise_top" "$pid"; then
++	fail "SIGINT: instance was never created (rtla did not start?)"
++	stop_pid "$pid"
++else
++	kill -INT "$pid" 2>/dev/null
++	wait "$pid" 2>/dev/null
++	if wait_gone "$INSTANCES/osnoise_top"; then
++		pass "SIGINT: instance removed after interrupt"
++	else
++		fail "SIGINT: instance still present after interrupt"
++	fi
++fi
++
++# ---------------------------------------------------------------------------
++# 2. SIGTERM during a long run
++# ---------------------------------------------------------------------------
++cleanup_all
++$RTLA osnoise top -q -d 30s -P F:1 >/dev/null 2>&1 &
++pid=$!
++if ! wait_running "$INSTANCES/osnoise_top" "$pid"; then
++	fail "SIGTERM: instance was never created (rtla did not start)"
++	stop_pid "$pid"
++else
++	kill -TERM "$pid" 2>/dev/null
++	wait "$pid" 2>/dev/null
++	if wait_gone "$INSTANCES/osnoise_top"; then
++		pass "SIGTERM: instance removed after terminate"
++	else
++		fail "SIGTERM: instance still present after terminate"
++	fi
++fi
++
++# ---------------------------------------------------------------------------
++# 3. rtla's own -d timeout path
++# ---------------------------------------------------------------------------
++cleanup_all
++$RTLA osnoise top -q -d 2s -P F:1 >/dev/null 2>&1
++rc=$?
++if [ "$rc" -ne 0 ]; then
++	fail "self-timeout: rtla failed to start or run (exit=$rc)"
++elif wait_gone "$INSTANCES/osnoise_top"; then
++	pass "self-timeout: instance removed (exit=$rc)"
++else
++	fail "self-timeout: instance still present (exit=$rc)"
++fi
++
++# ---------------------------------------------------------------------------
++# 4. shell action failure (-a / --on-threshold shell,command=...)
++# ---------------------------------------------------------------------------
++# -S is the stop-total threshold and yields exit 2 when the action fails.
++# A shell action only runs if that threshold is crossed; an idle machine may
++# never do so.  Do not call the no-threshold case a pass.
++cleanup_all
++action_rc=0
++for n in 1 2 3; do
++	$RTLA osnoise top -q -d 5s -P F:1 -r 900000 -S 1 \
++		--on-threshold 'shell,command="/bin/false"' >/dev/null 2>&1
++	rc=$?
++	action_rc=$rc
++	[ "$rc" -eq 2 ] && break
++done
++if [ "$action_rc" -eq 0 ]; then
++	# Not a group-level skip: the other cases still ran. Prefix it so the
++	# TAP wrapper does not report the whole test as skipped.
++	log "note: action-failure: stop-total threshold was not crossed"
++elif [ "$action_rc" -ne 2 ]; then
++	fail "action-failure: unexpected exit=$action_rc (wanted 2)"
++elif wait_gone "$INSTANCES/osnoise_top"; then
++	pass "action-failure: instance removed (exit=$action_rc)"
++else
++	fail "action-failure: instance still present (exit=$action_rc)"
++fi
++
++# ---------------------------------------------------------------------------
++# 5. repeated interrupted runs must not poison the next run
++# ---------------------------------------------------------------------------
++cleanup_all
++for n in 1 2 3; do
++	$RTLA osnoise top -q -d 20s -P F:1 >/dev/null 2>&1 &
++	pid=$!
++	if ! wait_running "$INSTANCES/osnoise_top" "$pid"; then
++		fail "repeated interrupts: run $n never created an instance"
++		stop_pid "$pid"
++		continue
++	fi
++	kill -INT "$pid" 2>/dev/null
++	wait "$pid" 2>/dev/null
++	if ! wait_gone "$INSTANCES/osnoise_top"; then
++		fail "repeated interrupts: run $n left an instance behind"
++		cleanup_all
++	fi
++done
++
++$RTLA osnoise top -q -d 2s -P F:1 >/dev/null 2>&1
++rc=$?
++if [ "$rc" -eq 0 ]; then
++	pass "repeated interrupts: following run still succeeds"
++else
++	fail "repeated interrupts: following run failed (exit=$rc)"
++fi
++if wait_gone "$INSTANCES/osnoise_top"; then
++	pass "repeated interrupts: no leftover instance"
++else
++	fail "repeated interrupts: leftover instance"
++fi
++
++cleanup_all
++log ""
++log "SUMMARY: $PASS passed, $FAIL failed"
++[ "$FAIL" -eq 0 ]
+-- 
+2.43.0
 
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_DESCRIPTION("Qualcomm crypto engine core driver");
-> +MODULE_ALIAS("platform:" KBUILD_MODNAME);
 
-You should not need MODULE_ALIAS() in normal cases. If you need it,
-usually it means your device ID table is wrong (e.g. misses either
-entries or MODULE_DEVICE_TABLE()). MODULE_ALIAS() is not a substitute
-for incomplete ID table.
-
-
-> +MODULE_AUTHOR("Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>");
-> 
-
-
-Best regards,
-Krzysztof
