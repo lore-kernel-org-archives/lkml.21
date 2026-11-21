@@ -1,160 +1,46 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.36
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795221914;
-	b=vRp2yU+Mb8gM3vhWHy7rEZY0+Ob1V57+cqKJaZWXk1r/MmSTzHG/DzNRwvcNKtLWkBgb
-	 AdiJehtjWQIuiSDKnVL9nrVId0SN36zk4Yt8Dzsv957S6MyW4gN21yGrt2vOyys9zksoD
-	 Ur06Psg5q2PyZACxkixTDIhiGl/vpkTXNs5ZWzo3WpdleLIMmgYZWRbdE6jENeeYbfjUA
-	 +/S0qs/QMN7B09JWMjZPJqTRiavyet3JQfHHYYz8VoIDwMGvnNO1s2oIeQR7mEZJnU9+k
-	 DmbrYko7MPQZRsqQ8Kb3oPrSoejCfy0+nbylKiwMZAiZX4Q7hOaGIkbpzmRcWw+IdMg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795221914;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=cbn1L/HCWu3lgLqRPiWGt9oC+/qkSNbL/Sh8/laY37k=;
-	b=lr9/mrtetGQFYqq0zQOnkYnPbosdHXy6SvV4KC7pHPeiqHWK9GZ9MnZwstkqUOPPF7aP
-	 88Mpe4zhsyUAlp1TNCRiIUunuh0niKuoEckG/JdL6WRfXa0rv8so58Qd0JhoJTY2ULLGG
-	 8BYEYDcX/73KmXkVskvHjhj1mwqjoA0LQfxi1aaaqwYE96JDZ3umo5j1FgjraY3dE5kOy
-	 Ez8lbJ88fyXYbVWO6c0i7sGHpv1YmsiygSB0VD+GBcqaYA97yVHuGlbJdPNFbt6vGOBb0
-	 bKkvlpAYdXemIfZ9mtdmI4uNRSoqcB4t5bf57w1AVXY1ZX04HSO0dbRCs4ymlxose7A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=MI9XE9KM;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.36
-Received: from BYAPR05CU005.outbound.protection.outlook.com (mail-westusazon11010036.outbound.protection.outlook.com [52.101.85.36])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.204.34.130
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795221933;
+	b=VPlETBAE9GwsCKIZuOsZ1+5caYh0uo+RVNOtWRk+yrbjY0Dx7iW71akzlcuQ60TzBtH9
+	 JWifacl9zV4nEUpQxGkMT25h0yQH+dmhMQeMkjRf6xCW+Tm0/Me8wA5CznB4sJDp5/WTB
+	 nu0wQ+3KyDDyBLhYuItSyVuq/VjvcaGKOTqRiDgvVX4NrUOTO5XUr2iDVmYz0IW1T7/DA
+	 vuIfHNFlT2RaaZ7blO8XyN2Se1UAjeo9qvWX0FyRgMtLYvV7zJ1bn9Dh5zBPU52oh21bg
+	 WpI8/72MGxQ15qRqFVP//m0fwbNE7CNEhO88Vi/U3NuIW+NDwWI6p37rMacHs2Qt6ng==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795221933;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=wJW+40nF/GQo4qoIjCf6SARWpRHQ7H2pfRgqL2CtGG8=;
+	b=t+D3zxTspEIXp6suwteqdpiW6YSL/vyGTVtxC+htv9Tq8mw6SNa5/ZMWKqbukTa935hj
+	 JkgqJDXJeoOpH43KUpdNSCxl/pmjRM+Pi8UcV5k1zXvtduntgu2sRgFqCDJ2P0/EpCphp
+	 63Y+wSJ90vffJeF0Xk0oCyzxTfX4hSpe9uxwHjTd3Oqlh2JmS/9yFHNNcF9OlP6pQTyc5
+	 c7lQwWdyMpW8u+ss6z8xUlMGcwypCOlqlszhkjVr0V+E2VlE4Wj7z1QCRmNZcjUk3R404
+	 kmOb42DA1PLzrRQkP/u6a4C5HvqFlvgczuX8ioBTupDmymN4/RqsJHgp9MAm3MgEIpA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=kylinsec.com.cn;
+	spf=pass smtp.mailfrom=kylinsec.com.cn;
+	arc=none smtp.remote-ip=54.204.34.130
+Received: from smtpbguseast2.qq.com (smtpbguseast2.qq.com [54.204.34.130])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 251B6606A6A6;
-	Sat, 21 Nov 2026 00:45:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 251B6606A6A6
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=MI9XE9KM
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=K8XwN2fI57d726DPhd9O/x15UmOyo4tvOiavshPfAOQjL4wlFijmjFkOTGwroeMEyzqSOWFB0HixrMXwnoI6Oz5C2DSSBz03IPW6DKQK4C20S6WFa2tMvtTG6BJmkKcWJa4uXpwcigx/i8HCv6AtwOHgUvYIb+D9gOEzIE7La8y+HLZWR/uGfL66CFMwEcEjSPdt5+/KSQsIZ7v2HFjG9H2QPP9mK151gj7ACLd6dlJose6rYDTVI3J+MYPR+4fl77DPU+VWXAEPCnNX92jruZhVTYE/O6D3vOzD0/bjMicpNuDE7wAn57sR96pfof05i4Tmsf+K+b/RnrKD0dfIrg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cbn1L/HCWu3lgLqRPiWGt9oC+/qkSNbL/Sh8/laY37k=;
- b=jYen9VILrVmIjSgSaKxrLjfivJqhrJYw5dKivUZwJe2UIjXjxOsPQBWBzjuJUs4EJgEOlCwBL5cjidZF046c5NBTOGI9Ao7aEN+4mA2G2MbtzPUEB7trHCTpCDC8GHv1HHslABFRUOAvXOrL52Ck5XEtcwf2wyQBxa+a6Kyv39b9+bHZTQeJexBJRJEKMCmvE2JX0d+owBDw72hMFrqWRfdQ/K0TRYegq7APkMg/FerLHrT6czCg7j1QkxcWGyLcViLa9Ih14nz/+Ar5GcS29I7ecdSl3Ct/Sqq/mo14nUo8HSa3XQ9Q27DrXZinCts8sbp/kI8J5EN9kNmrYQ94UQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cbn1L/HCWu3lgLqRPiWGt9oC+/qkSNbL/Sh8/laY37k=;
- b=MI9XE9KMai2/SOUkq7sqBboeuck0QAbpzQxuCTHQDmyUVuNDspmgc0/UhYGsQO/evnkSkoQv3OJTyBZEIuYw0x3ohrqrJYVTQimDQdj36/8X+hfJY3sajFcEMX3QMR5rhae8fke6nxwnQd62Fi5jyYYAJvucBHVsd6H96/HF+yQgaWRGk1ruBjCTwLis6aZPAAQurbiiSCekB0TiTSBAru6m3qL73g9Y2JCjsXDOBP5flvF9jRXP1m3X9HWsD0admel6Tg28aahjSi3kxogV6vgh8ZyExGRWNYvmHJ7M6C/+M3Vgo1mlaLxgjqY9QQVTHE4EkKlcTLl3oprWvbkLcg==
-Received: from MN0PR12MB5786.namprd12.prod.outlook.com (2603:10b6:208:375::13)
- by CH3PR12MB9123.namprd12.prod.outlook.com (2603:10b6:610:1a4::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Sat, 21 Nov
- 2026 00:45:06 +0000
-Received: from MN0PR12MB5786.namprd12.prod.outlook.com
- ([fe80::ae61:c9b4:847b:4854]) by MN0PR12MB5786.namprd12.prod.outlook.com
- ([fe80::ae61:c9b4:847b:4854%5]) with mapi id 15.21.0639.011; Sat, 21 Nov 2026
- 00:45:05 +0000
-From: Brian Mak <bmak@nvidia.com>
-To: =?utf-8?B?UGFsaSBSb2jDoXI=?= <pali@kernel.org>
-CC: Hans de Goede <hansg@kernel.org>, =?utf-8?B?SWxwbyBKw6RydmluZW4=?=
-	<ilpo.jarvinen@linux.intel.com>, Kurt Borja <kuurtb@gmail.com>, Stuart Hayes
-	<stuart.w.hayes@gmail.com>, Matthew Garrett <mjg59@srcf.ucam.org>, Lyndon
- Sanche <lsanche@lyndeno.ca>, Armin Wolf <W_Armin@gmx.de>, Prasanth Ksr
-	<prasanth.ksr@dell.com>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
-	<skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>,
-	"platform-driver-x86@vger.kernel.org" <platform-driver-x86@vger.kernel.org>,
-	"Dell.Client.Kernel@dell.com" <Dell.Client.Kernel@dell.com>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 6/8] platform: dell: smbios: Add quirk for non-functional
- calling interface
-Thread-Topic: [PATCH 6/8] platform: dell: smbios: Add quirk for non-functional
- calling interface
-Thread-Index: AQHdeUxcJjeWavWmSUeVzbExQlxH3Lc3rq+AgAABz4A=
-Date: Sat, 21 Nov 2026 00:45:05 +0000
-Message-ID: <bba7e3b3-65fc-43dd-a9f0-b092c2cc0a32@nvidia.com>
-References: <20261121000556.173028-1-bmak@nvidia.com>
- <20261121000556.173028-7-bmak@nvidia.com>
- <20261121003835.uemb2uaqm6enjqrq@pali>
-In-Reply-To: <20261121003835.uemb2uaqm6enjqrq@pali>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MN0PR12MB5786:EE_|CH3PR12MB9123:EE_
-x-ms-office365-filtering-correlation-id: e7e8b7c7-3317-4fd6-9f55-08df4768af72
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|22082099003|18002099003|56012099006|11063799006|4143699003|261022105027099003|261028144727099003|261026140227099003|261021123027099003|38070700021|10067099003;
-x-microsoft-antispam-message-info:
- FlnZ39Mk30BgGJoN35+VMdixRf+pNA/lag5YWAanvsGaunQegYbdbqHkUhVmwvVubYIaIZGKus6JKt0vEgbssAocHYUZSi8ApVKdnyDhdu7zE4GE5JAFNdRXE9YNZi4xPM8G1SbubOpi5lm4uUltEwXRMDBbfs9pDEpNR9ZprJdNzrHAtm9z6oZlc8DKPTcavVKbNpKzu+Dm7UbNgrSxu+lo7OhZGiv3fZ3d4ZgLgwkl/aRN3NtGe1uxFfDYcSwSyTx9JKuNfgJEOzKpHK6fN2FcwIrnPLd49UoGsJgD7ZtQcIMd5MpYbFfX+B1kDBBRHJutKK+fGBr2zcImuCpy3ZPIc1UoIFR1kRfSz/G9LZcFkpP1tL4uxB732nJQ11GKEE1xbABEqsIYrvqLAWTawB5nBN16JKNZZr+swTWnf6ZkUZgf+0lo17YUQxyjwegDXbJSI+kE4/Yu8Ahrum+mwqDHqSAZnuDRIZB+d70LjW38ATAt2Jv814rySu5llPZLEArspLi7SC5SWWDsYNdD+iOSM7Xlad5vtwQKChR8jAMYA5byxw0pBRi6P5Sk7nRLVUp1+dDS5LhVA9pQ/ZxeDRbn6Z3cD6C819olYeIBKjTvF9+w5LLJ/FpF2+KJm3qbJ4GWaz+7qnkTM02HHQR6kTl3K4u2DZdqjtB3sjS4clCBQSOOTzDXp1YTCxXfxARYOFrRI6cMLfbylhTRFjasLHy7+LpfnzXomSR4Zn5p8+Q=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5786.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(22082099003)(18002099003)(56012099006)(11063799006)(4143699003)(261022105027099003)(261028144727099003)(261026140227099003)(261021123027099003)(38070700021)(10067099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?utf-8?B?ZE5hVTVjUktXRWh5ZVRERWJMbWt4QTdpOCtyTm1jbmdPMndBWVdjVlFrR2cy?=
- =?utf-8?B?KzZNeEdvOWdCZzZ0NUdoM01waDBMQWlXNjNuYTFZaVRoOFFDcldlcDlPUm95?=
- =?utf-8?B?U1lPcUVzY05TOXl2ZjhSUXRzaDRzVDB3Q3l2UkJzNDhwcVA5MkRzUU1LZlla?=
- =?utf-8?B?UmczUXltRjdOOFR1TzFJNHBJQWlsWUdBWFlqZ0tGS3gvZHpYczlHUERuS2tt?=
- =?utf-8?B?LzIwbStIZWpVNXJQVjVPeGRXaGpnK3Q2N2h1WlhBaVhKNURkeHVYVGV4MEI1?=
- =?utf-8?B?V0lIbGJScEMwa3R2WkhadTk3WTJMSlJsT291MGpucGlEbWVsZG52TVBvdTFv?=
- =?utf-8?B?eGhtVFJWOWg2TWpaNEsrTHJvbDNMSFY1VHZzbWtoajRzTlcyYjF0Vy9qNjMv?=
- =?utf-8?B?dk5CUEZvbkVCM0NtTkhwSlZwa3hoK01jZk5RTFpydzlHZlRjelBQdGl5RG5C?=
- =?utf-8?B?NzNITkIwUnVwSFZoZHd0SHRvQmRyeWZXem05Tnl0NmZFSW5Qa3NYK1JVc1RC?=
- =?utf-8?B?Sms4a3Y4MFRTWjZiYThYOEZzTUlJa0ZuazVtTVJ2V0RwSEJJOE53NDZoaTNZ?=
- =?utf-8?B?ekVpNEtrMnJ4NlY4UXZmRWJZeDdOK2JzMWJnUlRKK0x5cTFVUTZFV0NDbXNt?=
- =?utf-8?B?dk9XOUcxWCtxQUsrZWswNUs5ZFFvVlZiT29xYk9HdEg2V1M4UTMxY2xYSVFl?=
- =?utf-8?B?RmcxV2htSGRJRmlCWDhoNnR0N2MxelByNWRTWGlLUFBJKzE1SklWdnlaZHJj?=
- =?utf-8?B?OWJaYVl4Sm5FMk1oV3RNM3dQcWFPc0o3RTJjV3Aza1V5TGtFN01BSnk3MUhv?=
- =?utf-8?B?QW4vNGpmMElBbHptd0p4L3J1WmI1YWN3NkpuZ0J4UjFHTWREVTV1bFRpd2gr?=
- =?utf-8?B?QUE5ZjFVVk1jQS9yL0FtY1NoUWVsVERtRi9rY3VSUW40QmREOG4yQ1NkajQy?=
- =?utf-8?B?VVc3YVZ3WU5udzFzVHJhMUZtcEF3OFpyMnlpdUNlK250eUs1NVhrajQ1NUpt?=
- =?utf-8?B?VjVaOG9ERVQ1MVF3UTlHcWt5TlM2eW9HWng2MnRBb1d2RWliNHAzWFo4d2cx?=
- =?utf-8?B?ajRnelp5c2M2UzVNODRHVFNzcnZ2RkUyc2RaTXdWMXpjQ2hwTlpXMTNPVDBj?=
- =?utf-8?B?Slk5bWs3YXRuN3RRbU0xOWxVRDhvQTBkREFqL1hlZHU4WkRaTWZMc0p0TEVF?=
- =?utf-8?B?WU5NUmRQamhqUEl4bUZrWjN2LzNlK2lvOVhmNHhrcnJrV1dGakl6RWpHZ09u?=
- =?utf-8?B?MXMwL1RzejhvOUdSZStYbFZ3RXFKaE9hK2NHNU1qTElscjRSbDhmem9HaGRz?=
- =?utf-8?B?ZzhuNTF1TlZJcms2VzJVVWFxQVhUZHE2NDZvSWNYeG04NnJGNGhadXVIY2w5?=
- =?utf-8?B?K2V5dzNRMWxFbnNZZjlZRkFxYk8wMjVSdXpHZUZveEpGZkNpY0c3THkyZFhI?=
- =?utf-8?B?d3c5SkRkaVdrWlB3d3VJWGo3a3JHK1NnVGtPTjFVZWpWelUrNlYvRHJGd1Nk?=
- =?utf-8?B?bWdtcTk5ZkMxaW82ZktsNTYreGhGQXRVS0pWU1V5MWo3QmM0NWpyK0p4Y25y?=
- =?utf-8?B?WUlJcmhLQzFjbm1vWWt6dlNFZ3ZhaVhPTDBmOTBORVFIYkRPdVBzZE9xSjBL?=
- =?utf-8?B?cjg4dWxRQzJLL2VVZnBhK1BmZUxWbkdIZVJUcUdxR2NtZE9zT1NjbTVES25X?=
- =?utf-8?B?RTByazVHRlFxdmVJMkYzSnNkY2FZMEZlTzdZVVZGS0JnQzdJdWpIM2tUbUli?=
- =?utf-8?B?KzRQY0tqQk5zK3JYcmkweFZGdTFkblBhOGpyZ1o5WkFITkdBa1JVSjhGRWhh?=
- =?utf-8?B?VExsTGpjTzFrQXlHeURITEZuVWpKWjloK3ZCYWZjRENzV1dxcXhvR2Q3TlhN?=
- =?utf-8?B?d2dHaWx0aTE2VEFJNUttc1FPdUxNQkg2ZEltckJheUV6VjU2WVB1aGN3TWY3?=
- =?utf-8?B?NE1DUzkrUU1JdzQxSFRpeThBdGpMbVh1UkI4bzA3TkxqQkswenZ4c1lYcVBE?=
- =?utf-8?B?Q1dVaERVSENIYnN4MGVlaFBCcWdSYmRTcVNmdld1REkrODQrZzdDaXN6b2J1?=
- =?utf-8?B?MUp0THNTdm9UU3QxZ0NNcmRqQi9VQUtMN2xzcHNxVkFiQVczY0JSbExrKzAv?=
- =?utf-8?B?OWxlVlVEeUc5cWZ2MnZ0QkdvZ0x5R2pXdEFsamM1ZEVEL2VkSUlYdThjT25O?=
- =?utf-8?B?WjVJQXg3ZmU5Z0Zkb1pHZUZnS1BLMUZPbHdyRDQxeFJ1dUVrcUJjQkNIOTdY?=
- =?utf-8?B?d1UybW41cjVqUHpVK3RMMkNxamgwWFkzNENtWTR2Sk1FckdDUG01RVE3elc2?=
- =?utf-8?Q?GywS9CAF+GIH2DZB/1?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <B04A443A62B7AE4C985E05EB1BD4AD4E@namprd12.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11367606A337
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 00:45:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11367606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinsec.com.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinsec.com.cn
+X-QQ-mid: zesmtpgz5t1795221839t002b40ea
+X-QQ-Originating-IP: 7wS3+5A+uu5zsLmDUp+3xxbRo7iKjj7aXaBavT7rNPA=
+Received: from [10.20.30.2] ( [175.0.188.152])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Sat, 21 Nov 2026 08:43:57 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 15264283437573830944
+Message-ID: <6C1A5340F9F491C3+2f4be193-b25b-4386-89e5-654277569ad6@kylinsec.com.cn>
+Date: Sat, 21 Nov 2026 08:42:10 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -164,25 +50,187 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5786.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e7e8b7c7-3317-4fd6-9f55-08df4768af72
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Nov 2026 00:45:05.4662
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: qT5I4a8P53MrixX2TApyM64A4jHMfIs9Hc8WL9ZA7cJI0xmHkVmzWimUOB07lWYp
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9123
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] platform/loongarch: laptop: Fix backlight device lifetime
+ on unload
+To: Huacai Chen <chenhuacai@kernel.org>
+Cc: Jianmin Lv <lvjianmin@loongson.cn>, Yao Zi <ziyao@disroot.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>,
+ Zixing Liu <liushuyu@aosc.io>, loongarch@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <C3361EF435F90A22+20261119121937.2447021-1-luoqiu@kylinsec.com.cn>
+ <CAAhV-H7037=znoeU3+V086qGuDkRMVeSmt0PKe8DrdiFKcvF0A@mail.gmail.com>
+ <6ADB4C8146800DEE+635e4c74-fbd8-46bc-b1b7-670a35e62cb8@kylinsec.com.cn>
+ <CAAhV-H4PM0iPH0mBQy=Tj16b2o_5zNwzEyjd8LqMMQeRQpDxNg@mail.gmail.com>
+Content-Language: en-US
+From: Luo Qiu <luoqiu@kylinsec.com.cn>
+In-Reply-To: <CAAhV-H4PM0iPH0mBQy=Tj16b2o_5zNwzEyjd8LqMMQeRQpDxNg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NfykWmRlrd2oJY1f2fs5ltHdmHuJK7VVRQiTWSEBHnACtiWsX+WVI36A
+	0pxXnDFOf1FlJ+kRWUJJ36vtpXqwmj3xZAGJkkmY73pWKBl2ILIw84tsArFJD7yNocgu5Rj
+	y0GhcSDdLeZFVCD42uiOZxHkiAAMhDBpw4SzrTkFp4ObsQ+HkUelNzTs1xIZJcjxejjcj5T
+	gArf6dpAI0fOlvmMZA0gGtf7VnSMxYk2DZxyUQ78+i5yOObJy6/qbjy3cvq0TAmnbaodiXg
+	asu4gnW4AckIVVuDQkVHTU+H0QpnSik56TQ7x8r1xKLykrrxvuuynM/3j8sz0jv982wp5fh
+	w+R/ts4c5uIrf+UksGpXZhA+CIN5/p0HpzazxjmPPfd0qRNgI7ozBtMQslDZurPsMrFPoLP
+	XQcCsnbOkcK5ITIHJz0YORUE6/OQL3+E9x4K5gLxmQgCvMPAUHGhvzu7rQMwUhJSv/xF9OB
+	QnkHf3hnJrZVGQ643UctH/YT42o9MSzB0Orrr89FsLX075usteIywb5D6lnnPR4skwxw/hN
+	j9SmxZ6rQkvzTF+ebj2XS5gyBqIcM9pc7twpkQYO1kx/g7cNwHkskfI4KgTZZ6qPgplDnDJ
+	90iZ3XoiT4GHmEunqHMQ23X5aEh4dzyJFBRlH5XZy/BBwsDqq6XKxfaFv3cGJ1awgKccYo4
+	UObmcsGk6mXc7oRQLxl0VjCjs06boDFEb+5jm35xNlBrgk/3ELY302ZD82Sl51+2YlFmL88
+	nhmDjl1LyuOy8XfaWDbBpOYiFvwBt9Sqh/Vh+njRwCLKDyTcDJVpqlnNbJE9C4CKxg7i+xG
+	Ij/VTWFgIGBwhR8EVYlHVa19e7CCU4uxSR0o2Y6AtQtsbBTIB9NmVLW91ZxG1sWnYfbk2DH
+	99MsY+ZMHngbeNdHEnSYLCeR8aAjkiWXnKKDKM0qhkxgM3MP/o4aeLiuH+YPFjOXKCS+H1F
+	nvxKeY5Uy+pIdYtcw6BsScqv5iUwnA0b1WieU5lqKqYB05OblgPAsxUlZ4wUnbVmtaBv7Hv
+	bTxi0zvAfsnNNtTdPdwhUNLMbp1q8AIePgEKjyp6fcKBskFI4e+gz8WS4Walc=
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+X-QQ-RECHKSPAM: 0
 
-T24gMTEvMjAvMjYgMTY6MzgsIFBhbGkgUm9ow6FyIHdyb3RlOg0KPiBPbiBGcmlkYXkgMjAgTm92
-ZW1iZXIgMjAyNiAxNjowNTo1MiBCcmlhbiBNYWsgd3JvdGU6DQo+PiBPbiBEZWxsIFJUWCBTcGFy
-ayBsYXB0b3BzLCB0aGUgU01CSU9TIGNhbGxpbmcgaW50ZXJmYWNlIGNvbXBsZXRlcyBldmVyeQ0K
-Pj4gcmVxdWVzdCB3aXRoIGFuIGFsbC16ZXJvIGJ1ZmZlciwgZXZlbiBmb3IgcmVxdWVzdHMgdGhh
-dCBzaG91bGQgZmFpbC4NCj4+IERyaXZlcnMgdGhhdCByZWx5IG9uIGl0LCBzdWNoIGFzIGRlbGwt
-bGFwdG9wIGFuZCBkZWxsLXBjLCBlbmQgdXANCj4+IHJlcG9ydGluZyBib2d1cyBzdGF0ZSwgbGlr
-ZSBiYXR0ZXJ5IGNoYXJnZSBtb2RlcyBhbmQgdGhlcm1hbCBtb2Rlcy4NCj4gDQo+IEhlbGxvLCBp
-cyBEZWxsIGF3YXJlIG9mIHRoaXMgZmlybXdhcmUgaXNzdWU/IEFuZCBpdCBpcyBnb2luZyB0byBi
-ZSBmaXhlZD8NCg0KSSB3aWxsIGJlIHJlcG9ydGluZyB0aGlzIHRvIERlbGwgYW5kIHdpbGwgdXBk
-YXRlIGJhY2sgd2hlbiBJIGhlYXIgYmFjay4NCg0KVGhhbmtzLA0KQnJpYW4NCg==
+
+On 11/20/26 6:16 PM, Huacai Chen wrote:
+> On Fri, Nov 20, 2026 at 5:13 PM Luo Qiu <luoqiu@kylinsec.com.cn> wrote:
+>>
+>> On 11/20/26 4:16 PM, Huacai Chen wrote:
+>>> Hi, Qiu,
+>>>
+>>> On Thu, Nov 19, 2026 at 8:22 PM Luo Qiu <luoqiu@kylinsec.com.cn> wrote:
+>>>> The driver registers a platform backlight device during module init but
+>>>> discards the returned pointer. Consequently, the device is never
+>>>> unregistered when the module is removed, leaving its ops callbacks
+>>>> pointing into freed module text. After module removal, reading the
+>>>> backlight's actual_brightness attribute can call the stale callback and
+>>>> crash the kernel. Registration failures are also silently ignored.
+>>>>
+>>>> Store the returned pointer, use it for resume, and unregister it on
+>>>> module exit. Propagate registration failures to avoid silently
+>>>> continuing without a backlight device.
+>>>>
+>>>> Fixes: 6246ed09111f ("LoongArch: Add ACPI-based generic laptop driver")
+>>>> Signed-off-by: Luo Qiu <luoqiu@kylinsec.com.cn>
+>>>> ---
+>>>>    drivers/platform/loongarch/loongson-laptop.c | 19 +++++++++++++------
+>>>>    1 file changed, 13 insertions(+), 6 deletions(-)
+>>>>
+>>>> diff --git a/drivers/platform/loongarch/loongson-laptop.c b/drivers/platform/loongarch/loongson-laptop.c
+>>>> index 4ec56621db24..ec0742e5ed46 100644
+>>>> --- a/drivers/platform/loongarch/loongson-laptop.c
+>>>> +++ b/drivers/platform/loongarch/loongson-laptop.c
+>>>> @@ -56,6 +56,7 @@ static acpi_handle hotkey_handle;
+>>>>    static struct key_entry hotkey_keycode_map[GENERIC_HOTKEY_MAP_MAX];
+>>>>
+>>>>    static bool bl_powered;
+>>>> +static struct backlight_device *backlight_dev;
+>>>>    static int loongson_laptop_backlight_update(struct backlight_device *bd);
+>>>>
+>>>>    /* 2. ACPI Helpers and device model */
+>>>> @@ -194,13 +195,12 @@ static int loongson_hotkey_resume(struct device *dev)
+>>>>    {
+>>>>           int status = 0;
+>>>>           struct key_entry ke;
+>>>> -       struct backlight_device *bd;
+>>>>
+>>>> -       bd = backlight_device_get_by_type(BACKLIGHT_PLATFORM);
+>>>> -       if (bd) {
+>>>> -               loongson_laptop_backlight_update(bd) ?
+>>>> +       if (backlight_dev) {
+>>>> +               loongson_laptop_backlight_update(backlight_dev) ?
+>>>>                   pr_warn("Loongson_backlight: resume brightness failed") :
+>>>> -               pr_info("Loongson_backlight: resume brightness %d\n", bd->props.brightness);
+>>>> +               pr_info("Loongson_backlight: resume brightness %d\n",
+>>>> +                               backlight_dev->props.brightness);
+>>>>           }
+>>>>
+>>>>           /*
+>>>> @@ -409,6 +409,7 @@ static int laptop_backlight_register(void)
+>>>>    {
+>>>>           int status = 0, ret;
+>>>>           struct backlight_properties props;
+>>>> +       struct backlight_device *bd;
+>>>>
+>>>>           memset(&props, 0, sizeof(props));
+>>>>
+>>>> @@ -426,9 +427,12 @@ static int laptop_backlight_register(void)
+>>>>           props.power = BACKLIGHT_POWER_ON;
+>>>>           props.type = BACKLIGHT_PLATFORM;
+>>>>
+>>>> -       backlight_device_register("loongson_laptop",
+>>>> +       bd = backlight_device_register("loongson_laptop",
+>>>>                                   NULL, NULL, &backlight_laptop_ops, &props);
+>>>> +       if (IS_ERR(bd))
+>>>> +               return PTR_ERR(bd);
+>>>>
+>>>> +       backlight_dev = bd;
+>>>>
+>>>>           return 0;
+>>>>    }
+>>>> @@ -622,6 +626,9 @@ static void __exit generic_acpi_laptop_exit(void)
+>>>>                                   generic_subdriver_exit(&generic_sub_drivers[i]);
+>>>>                   }
+>>>>           }
+>>>> +
+>>>> +       backlight_device_unregister(backlight_dev);
+>>> backlight_device_register is called conditionally but
+>>> backlight_device_unregister() is called unconditionally, I think this
+>>> is wrong.
+>>>
+>>> Huacai
+>> Hi, Huacai.
+>>
+>> Thanks for the review. The unconditional call is intentional and is safe
+>>
+>> because backlight_device_unregister() explicitly accepts a NULL device:
+>>
+>>       void backlight_device_unregister(struct backlight_device *bd)
+>>       {
+>>           if (!bd)
+>>               return;
+>>           ...
+>>       }
+>>
+>> backlight_dev is statically initialized to NULL. It is only assigned after
+>> backlight_device_register() succeeds and the IS_ERR() check has passed. If
+>> registration is skipped or fails, the pointer remains NULL, so the call in
+>> the module exit path is a no-op rather than a NULL dereference.
+>>
+>> I can change it to `if (backlight_dev) backlight_device_unregister(...)` in
+>> a follow-up if you prefer that style.
+> Yes, I think that is better. And it is also better to put this block
+> before the "if (generic_inputdev)" block.
+Thanks for the suggestion. I would prefer to keep the backlight
+unregistration after the generic_inputdev cleanup block.
+
+loongson_hotkey_resume() accesses backlight_dev, and that resume callback
+belongs to loongson_hotkey_driver, which is only unregistered by
+generic_subdriver_exit(). If we unregister the backlight before that block,
+the PM callback remains reachable while its backlight_dev dependency may
+already have been released.
+
+The backlight device itself is independent of generic_inputdev. The
+ordering is required by the hotkey PM callback lifetime, rather than by a
+device dependency between the backlight and the input device.
+
+I think keeping the teardown order as:
+
+     generic_inputdev/generic_subdriver_exit()
+     backlight_device_unregister()
+
+is safer.
+
+Qiu Luo
+
+>
+> Huacai
+>
+>> Thanks.
+>>
+>> Qiu Luo
+>>>> +       backlight_dev = NULL;
+>>>>    }
+>>>>
+>>>>    module_init(generic_acpi_laptop_init);
+>>>> --
+>>>> 2.56.1
+>>>>
