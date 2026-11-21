@@ -1,65 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795295860;
-	b=4LWfZQGV8EAqUVMRwCg46djKp9KfTG0rNZ7tD3V05K+nef/dAIC0oTQ85KeydY8ojmxt
-	 0oSWw3yOOwdALv8YNHF1bKuPugWvFprAKInNXFrchjOo24YyVYggNFwNh0yzRAT2Aj3GM
-	 avA8l9IlHnknjxebTdxv05FiQevfxmdaDLbbPkFd95HfktQq1r9MAvXM9xn6ZMjGQEHZR
-	 YKdwK3T5MCxCWcowQ+9gJ1FDwuN4DsjnrHXV31jBfmK/TYBdJ74wUbRR7i0vpWpG67nDC
-	 rOdg+PbYHluIH0H6T7nc7bZvoSZR2QvMV3v+exGUtdy4wbglTOgh5TQLcoRuZYH1UHA==
+	t=1795295948;
+	b=UZkyF93vDTDaMvDwfYIsOk/v1yFRyH0dXiqOpMJlr9gjE/Yltf1xU0Z65iBsuG2DvlhD
+	 Vq5KChkfMw3qaLYfXI+p2L4L4Dw+3WaGRz6Ndm6a2AtWNi5X9K3zU/nrygclNWMQEAVkP
+	 RxIKeaMySyahMRSQTZGGsajYMa71ulAdf2YC2FL+ndWjgTKg0pgzwr5aGbDL+KJoUb3ie
+	 4A/MicM0um6aQzUaRn71jC6J2dgVuA0Dq7Nx0p4+xfrh62n39KZmcsruW9NPhBGyRcsws
+	 EJKGuipheF0UAhdBxDPeYcPSofm7rfDEWihLGq8m3flrKmVGAgsmmvlkhGoWsuRDu/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795295860;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=lt4/3eo5Ro++Q5zvwoZ/Jj9GGpOvoIsabAfw4HW8+cg=;
-	b=30Qi6bE8vJIExCjwgbuHPEa2YU2yz9uMioylW+ur0NPKOEXfw50EFkEYdedYX8a86HXW
-	 MV6IoCXCAAIyxNN8iSbOWDTR/T6r6ZoiG3pRIH7V8q2LIyB9y0omFR9D8fQHAongxg1pE
-	 dhw7BIuiff9RBwjbnDOKt1v9NlqxPcy/V9GHytO9jsSRYOPT9+1K6Hu2VljgXKxN1rJwY
-	 ALIeq1zYVLqKrIpw1oq7QmopyP/PleE2HeMvawD0wSd7YIvq/1F6U4cQTkEJWgIBya6E1
-	 TD/jCOgJMCvoUUhLusCJPGPUmuMMVOwezB27RBym3fBawdxJySfRSyCx/KypRoyv4/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795295948;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=nn4NLcCLn4UsidM4X4VaPvfR/4D6nJNXCDJVByzVWOA=;
+	b=4eHb++mhKgcqEXm35tizRZTCFWFLp1UMKeEmN3SJ62TctkCtrEZ39Ucer8lWLlR5IiFp
+	 gLFsR1Xpb9R8hRiagIKBeoVw84WfVHN8senb8UENeKelIt3tUq4ymKuk1f8pj05eO9s7p
+	 gPKvoCiI09NtwycrFUATEe8Lw6obiguWiEW70Q/mBts1TxsVYJyuSsxaHBCr29NXoaI4K
+	 Aer5bdxFqGbMhpKMr2N8ibagadnAsO8X1UqsuaE8JFnVYmSU+YCZ9Mn7/9z2S55qnjP9p
+	 2ZE8T3OX2BXx9DrR6E9Lp3Cs9A0dilQvfM/mSY+IYP5dvXp2UKK+nhdsu84oYLJf/MQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JpC8NfqZ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IbFJeKHn;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C950606A332;
-	Sat, 21 Nov 2026 21:17:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DAB7606A320;
+	Sat, 21 Nov 2026 21:19:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JpC8NfqZ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB0D31F000C0;
-	Sat, 21 Nov 2026 21:17:38 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IbFJeKHn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16A861F000C6;
+	Sat, 21 Nov 2026 21:19:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795295860;
-	bh=lt4/3eo5Ro++Q5zvwoZ/Jj9GGpOvoIsabAfw4HW8+cg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=JpC8NfqZMbRIt59udK2ewxT4+VudKYaomNTJjr3ivV8JDEcmcU/eFQBRE+Mt2zigO
-	 lNpTgrmGOSVGY5JHqmgZPyg0TyKPvbXkLBMVqNkcatw0Q32KDxymmz1t1bHd029nGV
-	 WWD9fUOyGPQ4wHz0MllqI70nkoh+VagD6j0Fc86E534CfAKmeJLjsrGJsStpaoPT+z
-	 W5+wOJgsBn7NDEA3QipKDFchGE619+KQC71jQoWfEZ9nU2ttDcqxD8ykXxUjOTeZSJ
-	 x/lsdqheW3s6LhbhSnw4R9PUUp3Iu1XCKF8QXcxq6HzKt96x0W9bPYqvv5n0cpl7du
-	 MbHcr8A9wWOPw==
-Subject: Re: [PATCH net v6 3/8] net: don't fragment decrypted skbs
-From: netdev-bot+sashiko@kernel.org
-To: toddfreed@meta.com
-Cc: netdev@vger.kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
- bjorn@kernel.org, borisp@nvidia.com, cratiu@nvidia.com,
- daniel.zahka@gmail.com, dsahern@kernel.org, dtatulea@nvidia.com,
- edumazet@kernel.org, idosch@nvidia.com, kuba@kernel.org,
- john.fastabend@gmail.com, leon@kernel.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-rdma@vger.kernel.org,
- mbloch@nvidia.com, pabeni@redhat.com, raeds@nvidia.com,
- rrameshbabu@nvidia.com, sd@queasysnail.net, saeedm@nvidia.com,
- shuah@kernel.org, horms@kernel.org, tariqt@nvidia.com, weiwan@google.com,
- willemdebruijn.kernel@gmail.com, stable@vger.kernel.org
-Date: Sat, 21 Nov 2026 21:17:38 +0000
-Message-ID: <179529585831.3135.9494126075737773087@kernel.org>
-In-Reply-To: <20261117203137.804424-4-toddfreed@meta.com>
-References: <20261117203137.804424-4-toddfreed@meta.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795295948;
+	bh=nn4NLcCLn4UsidM4X4VaPvfR/4D6nJNXCDJVByzVWOA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=IbFJeKHn+82+xBNewS+Rnj7D9lnu5h6zu042G5j/tT6AoFVixsjMERdu3lH2l5Uej
+	 QvKX+QZML9RR2UomvsxJAn+HlHeTeTDRjJ0A7EfzxginDH42hR6EITCgXzwnsye8zw
+	 NF9W/nnISJ/qpMgzE6Uc7ZvvxSf7z1EKbzCCpyq4afVKoSC5QtnbgI0xUyq2yxpm8Y
+	 YLf/T2wCrFFB9esQVS3NGdBhsI3H4yKdhkH0mC5WpOO0rzpHiM/TEz34VDepYvuQAS
+	 RD27YZ2fTsIFv0Q8Ia6lsJOOTz+ZfGM8vPMtPrTdvDD5NPzV0klbsNtnvegha2RLk8
+	 N5m+LWEO8H7cQ==
+Date: Sat, 21 Nov 2026 21:19:02 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Arnav Kapoor <kapoorarnav43@gmail.com>
+Cc: Zhu Jun <zhujun2@cmss.chinamobile.com>, dlechner@baylibre.com,
+ nuno.sa@analog.com, andy@kernel.org, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] tools: iio: Keep the buffer index separate from the
+ acquired fd
+Message-ID: <20261121211902.13a9f3ed@jic23-hlaptop>
+In-Reply-To: <20261120210317.184756-2-kapoorarnav43@gmail.com>
+References: <20261120061903.98141-1-zhujun2@cmss.chinamobile.com>
+	<20261120210317.184756-2-kapoorarnav43@gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,70 +62,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+On Sat, 21 Nov 2026 02:33:17 +0530
+Arnav Kapoor <kapoorarnav43@gmail.com> wrote:
 
-Low priority / nit picks for your consideration:
+> On Fri, Nov 20, 2026 at 02:19:03PM +0800, Zhu Jun wrote:
+> > IIO_BUFFER_GET_FD_IOCTL takes the buffer index as input and replaces
+> > it with a file descriptor on success. On failure, cleanup can mistake
+> > the unchanged index for an open fd and close a different file. Only
+> > assign the returned descriptor to buf_fd after successful acquisition.  
+> 
+> Checked against iio_device_buffer_getfd(): on every error path it
+> returns before copy_to_user(), so the argument keeps the index, and the
+> error: label then closes it because buf_fd >= 0. With the default
+> buffer index 0 that closes stdin, with -b 1 stdout. The patch fixes
+> that, buffer_idx is already rejected when negative, and it applies to
+> iio testing, builds without warnings and is checkpatch --strict clean.
+> 
+> Reviewed-by: Arnav Kapoor <kapoorarnav43@gmail.com>
 
-- [Low] In ip6_fragment() (net/ipv6/ip6_output.c), the new
-  skb_is_decrypted() refusal at lines 932-939 runs before the…
+Applied to the testing branch of iio.git. That means it is queued up
+for the next merge window.
 
---
+Thanks,
 
-net: don't fragment decrypted skbs
-
-This patch makes ip_do_fragment() and ip6_fragment() refuse to fragment
-skbs that have skb->decrypted set. Without it, the resulting fragments
-can be sent out in cleartext. In ip6_fragment() the new check sits after
-the existing too-big checks so that PMTUD for a local socket keeps
-working.
-
-[ ... ]
-
-> diff --git a/net/ipv6/ip6_output.c b/net/ipv6/ip6_output.c
-> index cb648c8394310..5b19683f08e03 100644
-> --- a/net/ipv6/ip6_output.c
-> +++ b/net/ipv6/ip6_output.c
-> @@ -929,6 +929,15 @@ int ip6_fragment(struct net *net, struct sock *sk, struct sk_buff *skb,
->  			mtu = IPV6_MIN_MTU;
->  	}
->  
-> +	/* PSP and TLS offload need the packet's L4 header, which non-initial
-> +	 * fragments do not have. Checked after the too-big checks above,
-> +	 * so that PMTUD for a local socket works.
-> +	 */
-> +	if (unlikely(skb_is_decrypted(skb))) {
-> +		err = -EMSGSIZE;
-> +		goto fail;
-> +	}
-> +
->  	if (np) {
->  		u32 frag_size = READ_ONCE(np->frag_size);
-
-[Severity: Low]
-This isn't a bug, but the commit message says:
-
-  in ip6_fragment(), check skb->decrypted after the too-big checks, so
-  that a local socket still gets PKT_TOOBIG for path mtu discovery.
-
-ip6_fragment() has one more too-big check after the np->frag_size clamp,
-and the new check now runs before it:
-
-	if (mtu < hlen + sizeof(struct frag_hdr) + 8)
-		goto fail_toobig;
-
-A decrypted skb that would have reached this check is now dropped with
--EMSGSIZE, and no ICMPV6_PKT_TOOBIG is sent.
-
-At this point mtu is at least IPV6_MIN_MTU. So the bypassed check only
-fires with about 1265 bytes or more of unfragmentable extension headers,
-and the packet is dropped in either case. The code comment says "the
-too-big checks above", which is accurate.
-
-Could the commit message say that the check comes after the ignore_df and
-frag_max_size too-big checks, so that it matches the code?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117203137.804424-1-toddfreed%40meta.com
+Jonathan
