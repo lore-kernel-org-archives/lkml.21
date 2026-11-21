@@ -1,73 +1,72 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795278968;
-	b=qSbbQMzOb38LWBzoIGGrz3FB40A7YWc8OuCjf4VolAEwZacqwYJdjjp+FA1g7E2JLDzF
-	 VpzNEiwYNoeXpJfSkG91UX0HdpC7bPNAoq+2u7FpHraIGF0RbWCf8Jg7B6zVlhBalvZLQ
-	 rsqKk0r5QSe6lT2TJ2WVFgiw8tn7vY04GxVfkMk2ySwlpnEzpo5ZfK2Cb5PV7eQA9hs3g
-	 4mEcG1CXBhnSGZvBfZSlQ5fw5x2RLuIiJVV3K6rhDt7ry+5sLp6P8KI7cgxe17W6ohuqy
-	 oebJMFjg7XimuTHps30kVapef/yNZljqe3ulCkUQtvQ+0QaUXXz/maJT+C0xfRf6ZNg==
+	t=1795278969;
+	b=dtk+mVfrXfWbcAujE95bVNT6PMAsWhkr13Cy0K+If0BeMPqOPqdmoyWpQbhaS3RnciSQ
+	 tc9rlupq3qXnPPu4nArLZr0A76nZjsHEB8wwDdEdveeB9HAreQlZgXjZsZ9a4LlH+ryCe
+	 rAZJmuurStwzuBLP1sHFXN9HpimUgXY2UpzDEkfhpQCtz9Vt/KwB/Za5aswhmXHCCvmGP
+	 g8hahLVGpLInd5+Ypp6mmrdzvfA403tUOKFD9RgwlN3osbSqvREW8vYsYRFTUlus6viGJ
+	 p/Lot/Vb9JXu6/g9qrLVNhpOOymhUHmzoG+2NpF+vOMgBAQceAnwf0ma9lZz1wbhKKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795278968;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795278969;
 	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:Date:
 	 Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=5x98UPaGgzT43cg9tAkkJmDC1rq7XTi3UWTY4DtEVEw=;
-	b=caGNqwvtQDfxoZl/J9Izyu3Che1WDLs6hvBTqiuWfmwhvqWRYrCTx+l/Bbf2PwxqlkyT
-	 d3tPcB1nS6PuZN8GUv/uP3K3EqP+oJMfXTRf3jvY2pc/foAvE5WYknBzqPtIAmOGL+Uv6
-	 leQQxHEVj/FTRZ1tlKp53Ctb7bYCHBJneodV3Ocbg4YmAeqJFCH83fHHX+KueRdpH6Krv
-	 ZwFJptJK+1Cos2Oew/9CXleqW6QHbrGQ0h1RRfYISY/rkMfKxTSG1zg7D5Z24w9j5TGhp
-	 XhOrwYIu80s1BdlVq7wuVJOilrhqZ1LDSrzHaSVovFRhVwKuI552AL3AxK1D7Si7DLw==
+	bh=ILE73Z/UnEl0gMfRkniLVVxlKd15VPR0om1ajlkgN3A=;
+	b=da1jWb3pg19Cpca66MXfq4LKlgqpV7KO+3sn9Jdd7/VQnSlfiznmy0Z3pG5M9C353N9E
+	 V1uvWyMKFulkshG9tIV4ppn5Q1nwz0+5uyk9VtoM/+yiuQzF5n+aunbEcvFQL8yJHEbQt
+	 od69MxhBwGqLlqR4YMgSZbebxon6Jn3lMDgW+U1ToFw4jtgoF+ZvSedjwWT/6mTxrSDns
+	 uNMiPBgJqWFpvK6JAq1aZCVnmvOgtBjNaSAf8zuGdeO7bPBM4fctr1HJ42J2D7645C8Uh
+	 WGgsc3MFIX/5oYiqhXVkLNGGb6ruaIK6YHC/n1/v3bWer2inyVuU4RdU8GlEaLF38OQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linutronix.de;
 	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=kx6TZRg6;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=78JkIfWX;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=HDq0ClSV;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=3XDE0eAW;
 	arc=none smtp.remote-ip=193.142.43.55
 Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49029606A33A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49007606A339
 	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:36:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49029606A33A
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49007606A339
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=kx6TZRg6;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=78JkIfWX
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=HDq0ClSV;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=3XDE0eAW
 From: John Ogness <john.ogness@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795278961;
+	s=2020; t=1795278960;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=5x98UPaGgzT43cg9tAkkJmDC1rq7XTi3UWTY4DtEVEw=;
-	b=kx6TZRg6nA64B73CSzJWQgOD3mtqu1KltFFGvhe36HB9M2+wVGjl8I6JzkqcUSZ0jKK6gp
-	bq19DYVm56vRSv2I9FdhX35ez0GYJjXWVYAlXabV/lMuPbjXNQqCs9J1lQWcIjk2Xg/5RO
-	1HQJNm6H36Ove0gaAua2HcfIO4rRW5yt+eDj6DE87LWrsA71ue69VqTlKXlPk1jM7OxO/s
-	M+aC923VG/JGZLQ67ZS/JpuBwzTqXLIKo0trQ5NBCoB8zkR++7/4bZ98OQdtcjrd+1HF9m
-	2Ca1t8ol0LoJ+JtrWan5lh9z1rnu6LpXFkopx3EZo6XGqdtYwCudXb6+9eKqiw==
+	bh=ILE73Z/UnEl0gMfRkniLVVxlKd15VPR0om1ajlkgN3A=;
+	b=HDq0ClSVoyCqPSBGTd9q1Qh++E6b3rEOizZ47NW8xP3FCGpZbMoGsw7uPlk4QhAZI9/raM
+	lp5oGeB9ewHScqJtRY0oBdaniCnlttcZLv0rVVkQiNBCAji1AfCIpaQmPwv0dUwuwxy8t6
+	V2mwRRNw8il9Uk3semRv+Xo+nWE3TNF26I3cw9B4zJaGVoAG6ceeDpzGVDaL146bKlO5m6
+	Dg6O6jxpceCbSHmtneKsItu0t7VsHNx+RXdYKdOVNF96idKyDuIgfr04Te2Vyt9CIDH2Vi
+	XlHjVVsQjFrNUAr4/jof/NULIDL9tfE00wcJUyXQ866U62TC7QdThm6Y5jlQzA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795278961;
+	s=2020e; t=1795278960;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=5x98UPaGgzT43cg9tAkkJmDC1rq7XTi3UWTY4DtEVEw=;
-	b=78JkIfWXtY9k/0EdeWPTr6vMlbm9Iq4d+ee5mTMLINNOC5Ju4WBmbkL4oLm5FqMrm9Sw7h
-	B/7awgQAhsy4BaDg==
+	bh=ILE73Z/UnEl0gMfRkniLVVxlKd15VPR0om1ajlkgN3A=;
+	b=3XDE0eAWYzITq59TNVo433XpmrDQMEzhNkD6mR0148fbnSJU/GwJBaZEBnO4Z1wfe5pAQ+
+	ETjqyB4i4iXmDfBQ==
 To: Petr Mladek <pmladek@suse.com>
 Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Ryan Roberts <ryan.roberts@arm.com>,
 	Breno Leitao <leitao@debian.org>,
 	printk@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: [PATCH printk v4 3/8] printk: Move unsafe takeover check out of console_is_usable()
-Date: Sat, 21 Nov 2026 17:41:51 +0106
-Message-ID: <20261121163557.963029-4-john.ogness@linutronix.de>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH printk v4 2/8] printk: nbcon: Move unsafe takeover check to higher level
+Date: Sat, 21 Nov 2026 17:41:50 +0106
+Message-ID: <20261121163557.963029-3-john.ogness@linutronix.de>
 In-Reply-To: <20261121163557.963029-1-john.ogness@linutronix.de>
 References: <20261121163557.963029-1-john.ogness@linutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -81,158 +80,122 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Change console_is_usable() to never claim a console with
-CON_NBCON_ATOMIC_UNSAFE is usable since that is the normal use
-case. This allows moving nbcon_allow_unsafe_takeover() out of
-console_is_usable().
+Commit 187de7c212e5 ("printk: nbcon: Allow unsafe write_atomic() for
+panic") introduced nbcon_allow_unsafe_takeover() to determine if
+unsafe takeovers are allowed based on the current context. The call
+was placed as deep as possible, in __nbcon_atomic_flush_pending_con(),
+to avoid passing down @allow_unsafe_takeover.
 
-To support unsafe atomic flushing, provide a variant of
-console_is_usable() called nbcon_is_unsafe_usable() that accepts
-CON_NBCON_ATOMIC_UNSAFE consoles as usable. However, this adds
-responsibility to the caller to determine if unsafe atomic printing
-should occur.
+Now a flush @reason is available and will be used as additional
+information to determine if unsafe takeovers are allowed. For
+this the placement of nbcon_allow_unsafe_takeover() is too deep.
 
-__nbcon_atomic_flush_pending() is the only function that enables
-unsafe atomic printing by calling nbcon_allow_unsafe_takeover().
-Rather that using console_is_usable() to select atomic printing
-consoles, use nbcon_is_unsafe_usable() and only select
-CON_NBCON_ATOMIC_UNSAFE consoles if the unsafe takeover is allowed.
+Move nbcon_allow_unsafe_takeover() up 2 call levels and restore some
+of the @allow_unsafe_takeover passing. This positions the call at an
+appropriate level for using the flush @reason.
 
-These changes effectively move the nbcon_allow_unsafe_takeover()
-check from console_is_usable() to __nbcon_atomic_flush_pending().
-This has no external functional change. Internally within
-__nbcon_atomic_flush_pending() it means that
-nbcon_allow_unsafe_takeover() is evaluated after the usable check
-rather than during. The result is the same.
-
-Since __nbcon_atomic_flush_pending() also knows the @reason for
-the flush, this opens the door for the unsafe atomic flushing
-policy to be enforced in __nbcon_atomic_flush_pending().
+No functional change.
 
 Signed-off-by: John Ogness <john.ogness@linutronix.de>
 ---
- include/linux/console.h | 40 +++++++++++++++++++++++++++-------------
- kernel/printk/nbcon.c   | 17 +++++++++++++++--
- 2 files changed, 42 insertions(+), 15 deletions(-)
+ kernel/printk/nbcon.c | 21 ++++++++++++++-------
+ 1 file changed, 14 insertions(+), 7 deletions(-)
 
-diff --git a/include/linux/console.h b/include/linux/console.h
-index df23148987eeb..227a7cf296f60 100644
---- a/include/linux/console.h
-+++ b/include/linux/console.h
-@@ -611,7 +611,6 @@ extern void nbcon_write_context_set_buf(struct nbcon_write_context *wctxt,
- extern bool nbcon_enter_unsafe(struct nbcon_write_context *wctxt);
- extern bool nbcon_exit_unsafe(struct nbcon_write_context *wctxt);
- extern void nbcon_reacquire_nobuf(struct nbcon_write_context *wctxt);
--extern bool nbcon_allow_unsafe_takeover(void);
- extern bool nbcon_kdb_try_acquire(struct console *con,
- 				  struct nbcon_write_context *wctxt);
- extern void nbcon_kdb_release(struct nbcon_write_context *wctxt);
-@@ -625,13 +624,8 @@ static inline bool nbcon_is_braille(struct console *con)
- 	return con && (con->flags & CON_BRL);
- }
- 
--/*
-- * Check if the given console is currently capable and allowed to print
-- * records. Note that this function does not consider the current context,
-- * which can also play a role in deciding if @con can be used to print
-- * records.
-- */
--static inline bool console_is_usable(struct console *con, short flags, bool use_atomic)
-+static inline bool __console_is_usable(struct console *con, short flags, bool use_atomic,
-+				       bool allow_atomic_unsafe)
- {
- 	if (!(flags & CON_ENABLED))
- 		return false;
-@@ -645,11 +639,7 @@ static inline bool console_is_usable(struct console *con, short flags, bool use_
- 			if (!con->write_atomic)
- 				return false;
- 
--			/*
--			 * An unsafe write_atomic() callback is only usable
--			 * when unsafe takeovers are allowed.
--			 */
--			if ((flags & CON_NBCON_ATOMIC_UNSAFE) && !nbcon_allow_unsafe_takeover())
-+			if (!allow_atomic_unsafe && (flags & CON_NBCON_ATOMIC_UNSAFE))
- 				return false;
- 		}
- 
-@@ -675,6 +665,29 @@ static inline bool console_is_usable(struct console *con, short flags, bool use_
- 	return true;
- }
- 
-+/*
-+ * Check if the given console is currently capable and allowed to print
-+ * records. Note that this function does not consider the current context,
-+ * which can also play a role in deciding if @con can be used to print
-+ * records.
-+ */
-+static inline bool console_is_usable(struct console *con, short flags, bool use_atomic)
-+{
-+	return __console_is_usable(con, flags, use_atomic, false);
-+}
-+
-+/*
-+ * Similar to console_is_usable(), but allows atomic unsafe consoles. This is
-+ * only interesting for nbcon unsafe atomic printing.
-+ *
-+ * Note: It is the responsibility of the caller to decide if unsafe printing
-+ *       should actually occur.
-+ */
-+static inline bool nbcon_is_unsafe_usable(struct console *con, short flags)
-+{
-+	return __console_is_usable(con, flags, true, true);
-+}
-+
- #else
- static inline void nbcon_cpu_emergency_enter(void) { }
- static inline void nbcon_cpu_emergency_exit(void) { }
-@@ -691,6 +704,7 @@ static inline
- bool nbcon_write_context_is_braille(struct nbcon_write_context *wctxt) { return false; }
- static inline bool console_is_usable(struct console *con, short flags,
- 				     bool use_atomic) { return false; }
-+static inline bool nbcon_is_unsafe_usable(struct console *con, short flags) { return false; }
- static inline bool nbcon_braille_try_acquire(struct console *con,
- 					     struct nbcon_write_context *wctxt) { return false; }
- static inline void nbcon_braille_release(struct nbcon_write_context *wctxt) { }
 diff --git a/kernel/printk/nbcon.c b/kernel/printk/nbcon.c
-index 7bc10dcaee7e5..9073d1f258a89 100644
+index 72fb49ade6fe5..7bc10dcaee7e5 100644
 --- a/kernel/printk/nbcon.c
 +++ b/kernel/printk/nbcon.c
-@@ -1468,7 +1468,7 @@ static bool panic_nbcon_allow_unsafe_takeover;
-  * This is also used by console_is_usable() to determine if it is allowed to
-  * call write_atomic() callbacks flagged as unsafe (CON_NBCON_ATOMIC_UNSAFE).
+@@ -1543,6 +1543,7 @@ bool nbcon_legacy_emit_next_record(struct console *con, bool *handover,
+  *					write_atomic() callback
+  * @con:			The nbcon console to flush
+  * @stop_seq:			Flush up until this record
++ * @allow_unsafe_takeover:	True, to allow unsafe hostile takeovers
+  *
+  * Return:	0 if @con was flushed up to @stop_seq Otherwise, error code on
+  *		failure.
+@@ -1561,7 +1562,8 @@ bool nbcon_legacy_emit_next_record(struct console *con, bool *handover,
+  * returned, it cannot be expected that the unfinalized record will become
+  * available.
   */
--bool nbcon_allow_unsafe_takeover(void)
-+static bool nbcon_allow_unsafe_takeover(void)
+-static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
++static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq,
++					    bool allow_unsafe_takeover)
  {
- 	return panic_on_this_cpu() && panic_nbcon_allow_unsafe_takeover;
- }
-@@ -1672,11 +1672,24 @@ static void __nbcon_atomic_flush_pending(enum pr_flush_reason reason, u64 stop_s
- 		if (!(flags & CON_NBCON))
+ 	struct nbcon_write_context wctxt = { };
+ 	struct nbcon_context *ctxt = &ACCESS_PRIVATE(&wctxt, ctxt);
+@@ -1570,7 +1572,7 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
+ 	ctxt->console			= con;
+ 	ctxt->spinwait_max_us		= 2000;
+ 	ctxt->prio			= nbcon_get_default_prio();
+-	ctxt->allow_unsafe_takeover	= nbcon_allow_unsafe_takeover();
++	ctxt->allow_unsafe_takeover	= allow_unsafe_takeover;
+ 
+ 	while (nbcon_seq_read(con) < stop_seq) {
+ 		/*
+@@ -1611,19 +1613,21 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
+  *					write_atomic() callback
+  * @con:			The nbcon console to flush
+  * @stop_seq:			Flush up until this record
++ * @allow_unsafe_takeover:	True, to allow unsafe hostile takeovers
+  *
+  * This will stop flushing before @stop_seq if another context has ownership.
+  * That context is then responsible for the flushing. Likewise, if new records
+  * are added while this context was flushing and there is no other context
+  * to handle the printing, this context must also flush those records.
+  */
+-static void nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
++static void nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq,
++					   bool allow_unsafe_takeover)
+ {
+ 	struct console_flush_type ft;
+ 	int err;
+ 
+ again:
+-	err = __nbcon_atomic_flush_pending_con(con, stop_seq);
++	err = __nbcon_atomic_flush_pending_con(con, stop_seq, allow_unsafe_takeover);
+ 
+ 	/*
+ 	 * If there was a new owner (-EPERM, -EAGAIN), that context is
+@@ -1657,6 +1661,7 @@ static void nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
+  */
+ static void __nbcon_atomic_flush_pending(enum pr_flush_reason reason, u64 stop_seq)
+ {
++	bool allow_unsafe_takeover;
+ 	struct console *con;
+ 	int cookie;
+ 
+@@ -1670,10 +1675,12 @@ static void __nbcon_atomic_flush_pending(enum pr_flush_reason reason, u64 stop_s
+ 		if (!console_is_usable(con, flags, true))
  			continue;
  
--		if (!console_is_usable(con, flags, true))
-+		/*
-+		 * Using variant of console_is_usable() to include consoles
-+		 * with unsafe write_atomic() implementations. They might be
-+		 * allowed depending on nbcon_allow_unsafe_takeover().
-+		 */
-+		if (!nbcon_is_unsafe_usable(con, flags))
- 			continue;
- 
- 		allow_unsafe_takeover = nbcon_allow_unsafe_takeover();
- 
-+		/*
-+		 * Since nbcon_is_unsafe_usable() was used, ensure @con does
-+		 * not have an unsafe write_atomic() if this context expects
-+		 * safe printing.
-+		 */
-+		if ((flags & CON_NBCON_ATOMIC_UNSAFE) && !allow_unsafe_takeover)
-+			continue;
++		allow_unsafe_takeover = nbcon_allow_unsafe_takeover();
 +
  		if (nbcon_seq_read(con) >= stop_seq)
  			continue;
  
+-		nbcon_atomic_flush_pending_con(con, stop_seq);
++		nbcon_atomic_flush_pending_con(con, stop_seq, allow_unsafe_takeover);
+ 	}
+ 	console_srcu_read_unlock(cookie);
+ }
+@@ -1934,7 +1941,7 @@ void nbcon_device_release(struct console *con)
+ 		 * using the legacy loop.
+ 		 */
+ 		if (ft.nbcon_atomic) {
+-			__nbcon_atomic_flush_pending_con(con, prb_next_reserve_seq(prb));
++			__nbcon_atomic_flush_pending_con(con, prb_next_reserve_seq(prb), false);
+ 		} else if (ft.legacy_direct) {
+ 			if (console_trylock())
+ 				console_unlock();
+@@ -2004,7 +2011,7 @@ void nbcon_kdb_release(struct nbcon_write_context *wctxt)
+ 	 * The console was locked only when the write_atomic() callback
+ 	 * was usable.
+ 	 */
+-	__nbcon_atomic_flush_pending_con(ctxt->console, prb_next_reserve_seq(prb));
++	__nbcon_atomic_flush_pending_con(ctxt->console, prb_next_reserve_seq(prb), false);
+ }
+ 
+ /**
 -- 
 2.47.3
 
