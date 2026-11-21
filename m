@@ -1,124 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.144
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795250293;
-	b=aq90x5hcPgQ7xHUgFpjaS8YzHVxKNH3NmqtxsY3dxqkEtznVX1V7s1QKQGAm9ymOFjcp
-	 NqCkWWqK8lmXdpXzt5x7LyAgv8IvX4cdrOUy60tIAJrdPtCRN18KHYdqiFwdJfZDlU0rL
-	 1NlQtLajQH8Ge4NhTCrGiYJBNq9ZFYMAPm9RnunVICQ80fvDeHqirf1m6ibkYVIPfHk9K
-	 yA4iu+cvBc4hj5bOlVeJGVjY4pEOAXKx7wVwU/DYH5LB/iZrwP6ggUVlMch5+m2ktsMVG
-	 o/ow04B7yvDFippxhHrjV4wy2Pjb8ovcSZV6wCFY/nNVYgq+j1JFqfqEf7udGR1dYxg==
+	t=1795250395;
+	b=HHJouJkiBup5s8pbP27M7EDivVogZC2jFYH33i+0vqT/Vjy8JlCvpxdynLS9g0M5e+R9
+	 QK/tPhXe7j4ZBSByOqFo7aWc6C+94VLY59OtFSrZeg2pj+u+XO0eCAQloY61BNJ/tKFfi
+	 XLMMt7/xNychXVL0SAXaFgrgR/Z1srd88HozHU/e2a/Q6ulqnOPMiINYxNUcxjHoBhdUv
+	 akslz4IwFUs/3OAsTWeA0pi8i7974pCBPY0IRp51ZUnU+I2NTi864CK6JdNTLJFOkR29I
+	 jucJFNU9LUJ0DrXmbZYy3J64Z4/OghRuKvEzHlfh15sP3jhhIabJc7TYRJ7EkLxEfCg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795250293;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=ONyMxX9vSJ8SY7VeS7y2lP74kEkT78GR7xzJRBQz01k=;
-	b=llgqSgmm3KUY9QIm1cqKoJ1JgnsDUdCpkLiSbN1efgO8Zeb7/MVTjrqWH9vdp+sXaKt9
-	 r3dZwPSPdD0f5tHoGfJCseP96SXqjRDzBcnCKYHvFUufDdGtwKrf7WL6plq/tLQelOEWo
-	 QjEfgtBlFH3skPK6TNnVLjJrHVl+jx6/q8gV5l9n5Ag9hkpNIN7GPFaaVIuHgCavbx5W9
-	 P++EHb2fb7zH3WdODQlvjhWcgW0sHBz/3bRqIE2HivKcLHr4ejPfYQ7Jqqqz12IFnJX9/
-	 GM0UxWHJk3qMQClccHrVphpPrHMAM41Pfxlcb28Ci4IhuZgFnRvgSn7xowgK9TcePWw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795250395;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=t3BVFC/95yek/PxTfrbxBSCvXUZXc+IwV23Y70sOBqs=;
+	b=y5rpgVGFU6gmweEnXfGiGjg1pYnMyWktA2kiOEIrlASlGOPSZTEpDICcgk2dHWbK5IGV
+	 kpjxIqH9fGAzFCwi4E6nlimVJ/a08qJtKz9cNvc3gHtZ7BMEtiNMJuu5jQnXyEueNjcTx
+	 /ihKpYuK8t/Rr9dAysPoYrvWJv7bXlXoDKgSL6GXJeZk7x4pWXVjBs6KNls0WRAFECm8c
+	 StzI8OhZXaVZ2X3HLM1V3iRdsPDAzlVB0hnRB/0lb/K3qSTWpVSIaYgVVN9xOSpGqgNEv
+	 RrOzBANHcmR3uiojiiqiDKq+sJ7bCywcXqZJAkqZD7qVIp3H4tsLP+RAor67YrC4SAA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ragnatech.se;
-	spf=pass smtp.mailfrom=ragnatech.se;
-	dkim=pass header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=yTBIcL0O;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=BPlKKHo3;
-	arc=none smtp.remote-ip=103.168.172.144
-Received: from fout-a1-smtp.messagingengine.com (fout-a1-smtp.messagingengine.com [103.168.172.144])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kniaV7DV;
+	arc=none smtp.remote-ip=74.125.82.178
+Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D597606A325
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 08:38:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D597606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ragnatech.se
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ragnatech.se
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11A8E606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 08:39:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11A8E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=yTBIcL0O;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=BPlKKHo3
-Received: from phl-compute-12.internal (phl-compute-12.internal [10.202.2.52])
-	by mailfout.phl.internal (Postfix) with ESMTP id 960A1EC0B6F
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:38:11 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-12.internal (MEProxy); Sat, 21 Nov 2026 03:38:11 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795250291;
-	 x=1795336691; bh=ONyMxX9vSJ8SY7VeS7y2lP74kEkT78GR7xzJRBQz01k=; b=
-	yTBIcL0OVTfkwK1O+Ziuw6by7/1he7UynoUnsw0zhUxa4dpS/XSkkT+7x8RfiSxl
-	GsG6KqO8zDf8Onr13YPeEiG7QA6jZw3CkJa0MwM3CBVqx611Htn+tIwfVMQXCXkQ
-	dHjCEUtdWtwmwbc5Mgodsk5j6Ic4hxW4Rzmq6pwBxENRFqCH+1b/SW2glfyw/8Q1
-	jpJl8e83Sq9BMq44sLgwK4x0cr7lJ40m+Md6W133DuB7UI7IfnIal0SYgVzVByEP
-	qSoNcbyG6K6hz+UVZbIZ0RXFNDjQurtNTS1b1TSoXx0FLSPitMYoFGJeIjm8BnMV
-	AvXfdoGWVBdJSsB2MIKpGA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795250291; x=
-	1795336691; bh=ONyMxX9vSJ8SY7VeS7y2lP74kEkT78GR7xzJRBQz01k=; b=B
-	PlKKHo3f5e5IjsPU/UoboA3FH9gfpeG7XJbV4SWe7YQ27QAsPWDoekoeoUjESBlm
-	Nx6x8f9wpAECBufTaZAgcDG/CjcjTzOKmCcq9nEqeQu2FWJuUMjMC1mOArwDt2fz
-	dOvZXSf8M5yVipaay0N6fJ1RaZFP3CcpmzvYdZZMG0bD9NkNjHlsSDo34B1p2Xwu
-	hq3SzKUfb0QcyH+oDVMjpR9+qzts/OYUWkrUAhjvGYHSmjs2SXZIEb82UVdXwYXX
-	mepOGynMti+K+c2QtQ6rGxQkwiAHcea7mNfv5FdGdX7HmqrtnoGKQhZptQaoNUdj
-	X2ErabDko1zLO6XpBR+6Q==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=ragnatech.se a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795250291; d=ragnatech.se;
-	mf=PG5pa2xhcy5zb2Rlcmx1bmQrcmVuZXNhc0ByYWduYXRlY2guc2U+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:D8r/Pn7zwtUTQwz1xjF5FHPN0f5tnLi+HIjpqmqiF0RtfB8
-	SHNq9Exu+Q0ZfOR2fYbog0olb0TIPzS9YHGJAWXIO8stg1WP1TwrXm3s7JV2lXDP
-	sjS90CsSigd3brDlbVRFIaYt1dUH9ClQoWRspIKkaeQ6RwcUPHvT/Fsc3CqCyBFa
-	m/GNbVmMOStepnQUb/cPQUe8c+CRzkLU4sReUc6fG18+9PB60o3qIaCrkFew9WJQ
-	hh4lgUp+JolS8nF1WdW/YIUp6DIekmM2RMUisfToXev1lBZ0HlQBAbWApDL+4qLX
-	RGvnGKq5jQw1aD1lnkCUZvpr+kf6G1jacDB82Nw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=13;
-	hn=cc,content-disposition,content-transfer-encoding,
-	content-type,date,feedback-id,from,in-reply-to,message-id,
-	mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:stQRC3wf2Mt1GCbs6g+MLavBHIPa6uwL6IZoF+DXH9o=:MfXNwx8swPnJ27cLVRpyGi5OnQwysva2fosK1YGKONg=;
-X-ME-Sender: <xms:c1gBa25mAHuA-5P8jiK4dMfVRMlTVDF8k2RBAsAfkj1dK6Xe2FVvmg>
-    <xme:c1gBa5_Q597HqvW3W__-NTjPFhcag3n51uUQ3JwLSFo6TJNs5FHa90TNRx0AohgAx
-    X8HPIpKZkfFH8SA_DUI2_9nM1UtdnJiUkBhseIlyU8VsK0B0WVA6rE>
-X-ME-Received: <xmr:c1gBa1UJkda1zCSdBHf9oMdyOJtG4l_NbUBPH_FqglhmXpRAYKuqUDV72vTF0viTorXIRc4Unk0yX74PVej5-CZyk2KXteQ>
-X-ME-Proxy-Cause: dmFkZTGATlhUHJGPMjy89lofXANpd99TT9hI1Tn/BqkjoEhOT0ebjQ9D9s857XRffav92Q
-    cCi2L188Pnbe1ErP6tuHv4sd2I7/aLAXkFZLu96lxVg+HmQVbGB37Imf0wk+mPV4aF4Syj
-    et0/jHpxPdGhUxpxs1Ha097qsDLsy/pcAIp7tuDvc9WV4gjmDao8tzlWyhgmPmlF4aQwCE
-    ZqemdzVvf0l8JQ1QANKTi/czpo8xMaRqVdGsK3/5sFGMxSRy6ZQ/sQCnZHRAyvIHfcPaO4
-    uV/AGmayK+RCGAvivuHNKgFVnfoaU0IeXT8ql1E920dKtVFZ2QpnW5XQQJD/jdHYO7uVpY
-    nhFNE9WEUU7bg2evZ72wn3n0u5U13DhlbCsMKGLHZ9bJ3XhPzqg8b8gz/OqMwf9R8VWBVW
-    WQvhzmSOyS0YavFXl33/pv3M3gJ47CEREPHxsN1F0euqWQaPB0TPsIg1OEpCvj2XU9QbS0
-    2s1jhPwAdG8f+c8WcEqtpmGw2QnpCtPXLjHyRq3lZWiOZVU6PSn6fVVWJ/XHTX9Qt9XDNx
-    Gl0bqmDbfTVo8f6uOb/aVnELHjUYpolBW33+iLkaKgWQOlYkt4RPFWB14D8VOcwofl7ij6
-    x62MfSOVjb8YirBEnqJrjrc/YJIOjPmm9SAbKSH21FXx/MdDChpjepWzrVSQ
-X-ME-Proxy: <xmx:c1gBa0pS6IiAyvwRYIZZN7Lxo8BsnKOuubUlwC5R1yQhwz3Rpdvu-A>
-    <xmx:c1gBa3lDnqAsKllzAD_alCo8DsSaYr75c8z0Q70Anj0f_nhzEhs7dg>
-    <xmx:c1gBa02OdipLbLRh-wvwNatvk44Opl87k95I_47SFoweoezdKhYxyg>
-    <xmx:c1gBa0RTjrX9Jp2_etaYAaiCvfXmJ9dfYpG30es40nru5lEqkQh7yA>
-    <xmx:c1gBa4NNh4D-duesFV_z8gT5LFaMgOB4W10tS2gRmh2PBp7fSA0kSKMV>
-Feedback-ID: i80c9496c:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 21 Nov 2026 03:38:10 -0500 (EST)
-Date: Sat, 21 Nov 2026 09:38:08 +0100
-From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>, linux-media@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: rcar-vin: Return unused buffers correctly
-Message-ID: <20261121083808.GC3363038@ragnatech.se>
-References: <20260828-vin-fix-vb2-v1-1-97eb1f4f75c9@ragnatech.se>
- <avrXFz3LNGShIT1K@zed>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kniaV7DV
+Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-3869f03af6aso257793eec.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 00:39:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795250394; x=1795855194; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=t3BVFC/95yek/PxTfrbxBSCvXUZXc+IwV23Y70sOBqs=;
+        b=kniaV7DVBnnPzOID5eDXiZeFp6Ebsh9Zmw30igykxMbZXXtJyjUIRMNWc2Peab73Yz
+         +rX9Bj1pYvJXWojcbGba+dQ9LCzGg01E2EAqpEsC1k7IpnqHO54c6+o26VcRmTw0CqAl
+         g6QNIO1b+ZWrg8akS94c85q3kHfOItEEiuKKsNNmmfx58FYKYUjfMYOXx8iQ+orRkNtN
+         uzf4WQu1Z5H/C88aU26XjQdJX7Ul9rUV9zOoP3Kr4LvuGK/b8bkcCTQlhk2hQ3wASd5K
+         Rn51iUCLvyzvQmd/HRcV2n6TpX8xKpJR54zsPqe+OHUwCH8WG2I4A+W8R3D3RkWF4oNF
+         dMCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795250394; x=1795855194;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=t3BVFC/95yek/PxTfrbxBSCvXUZXc+IwV23Y70sOBqs=;
+        b=PhWf+ZQfb8HAQoovVrweHtIWXqU/CO/ZsDNI2/7YPSZ3nyBDPGHUNChyq91gkRO0sN
+         2tHfFULsnIqSIF3ADQ7L+shrWUNQ++kro1sCGsRgpmje/XUVCAvdFo1DBFOZL4yQXkIh
+         wCIA+A5Qj0/CHbHGZRUv0m3+BXMHDvF1qjjKKLTGxQygm/Ne9pGO2mKWKhsF3GzYkuvZ
+         aUdM2Zp2++9v/Y5vPD8kfTYyB/SQk/XZTL8tzZq75lX8gEpLH98w7ecSfpnPLez9D+B/
+         eHa/ZT/TOPGxY69rvMXnJPzDJxIdjnt5zyj/K/lP5cC6wQJuDGA/goYn+bxOam1Z7A3f
+         eZgw==
+X-Forwarded-Encrypted: i=1; AL+hErGzzmUJP9XzD6DmYBq06cmB9Yw9evdPoWyZ3f6/yLsXCdOCqN3UYlvMY/Fo7XWYJUVK7F7cOcUB5Yzbp6w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/zwAVY9wMVN9XxJvR1ouZ8Zb4kT/HuyLSP5XVZpWNPIAGH3Mlz
+	Pl3j3ke+EaBRLTpr4unSJ+NZoJ6PSg+JvNYkJXxxIP2sEvKrjjj7CAv2
+X-Gm-Gg: AZFdTZfTOv9kHjaDICF2uO+IvBGUzb32sV+2F1I+EZt/OXF8Lm02s+TM7FB3EDQgi7M
+	i53oepry6UTO4nG5NxXLYCFrbz59w+YUNlRV2FTIs0WvlAXab3ku1r57W0tXoUnSBh89WsxmMt4
+	WZ8ohTNy+Hho7nMwQleNgx2O7sLGlN1PNPPogABJiLJUaOuSgmT1htY8iKhcE74Gt5OSSQ19gcV
+	wNBgJKNoHYb4D4EqtBnavcx8llXRxTYeIjAXq0iUofTm/cJLlvIgVjs19sJ1nzccGPF6PVFyEsu
+	FaiTW0am+U2U4FVpinLO950eM/tjZvTRKH/IDLkeTKh3+E6k/LvtSldPeiczL/tBwaz51lBhBgW
+	v6f1j8h1BHZfkrJLbr1zYLOVS1dlmAnhIGd5Hu+9mcaP+8LNBhFqtPvx91agJMhJ52a0imvhcs/
+	mFvPSwAn6yM3jWpt7cWx5aS4FyTEM9xdBTnhTa1bZIVjkGS8m2stZTDfqWMRAVYnpRbjhW7dR+u
+	/id3mvmT9RVmoeitWCfGtdbeV8Y/39eRWy18AgafoBOFv9kwYLttrCI3u5CMT4AlzygSmC3Rviy
+	GLLknaKrGZt6/pf78dgH
+X-Received: by 2002:a05:7300:d589:b0:386:9ff1:7f7d with SMTP id 5a478bee46e88-3869ff18213mr549553eec.4.1795250394091;
+        Sat, 21 Nov 2026 00:39:54 -0800 (PST)
+Received: from a1-free ([161.33.196.121])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3856456e6c6sm14113093eec.2.2026.11.21.00.39.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 00:39:53 -0800 (PST)
+From: TAKANO Mitsuhiro <takano32@gmail.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	linux-arm-kernel@lists.infradead.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	TAKANO Mitsuhiro <takano32@gmail.com>
+Subject: [PATCH v2 0/2] arm64: errata: Fix two Kconfig column entries
+Date: Sat, 21 Nov 2026 08:39:48 +0000
+Message-ID: <20261121083950.1957044-1-takano32@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,95 +101,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <avrXFz3LNGShIT1K@zed>
 
-Hi Jacopo,
+Documentation/arch/arm64/silicon-errata.rst names two Kconfig symbols that
+no Kconfig file defines.  I checked every Kconfig name in the table: these
+are the only two.
 
-Thanks for your review.
+The GIC-700 #2941627 entry names ARM64_ERRATUM_2941627; that workaround is
+a GIC driver quirk, matched at runtime against the GIC's IIDR and enabled
+through a static branch, so there is no symbol to name.  The Falkor E1041
+entry names QCOM_FALKOR_ERRATUM_1041; the symbol defined in the tree is
+QCOM_FALKOR_ERRATUM_E1041.
 
-On 2026-11-16 11:21:36 +0100, Jacopo Mondi wrote:
-> Hi Niklas
-> 
-> On Fri, Aug 28, 2026 at 12:37:44PM +0200, Niklas Söderlund wrote:
-> > Unused VB2 buffers should be returned with state DONE not ERROR when
-> > stopping.
-> 
-> Indeed
-> 
-> I think this is worth a fixes tag
-> 
-> I'll add, if you agree:
-> 
-> Fixes: 63a71dd813e2 ("media: rcar-vin: Break out hardware start and stop to new methods")
-> Cc: stable@vger.kernel.org
-> 
-> Not 100% sure what commit to use in the Fixes tag as unused buffers
-> were returned in ERROR state before that commit, possibily from the
-> very first commit that introduced the driver
+The two rows come from different commits, so they are kept separate and
+each carries its own Fixes: tag.  Both are documentation-only changes: the
+table keeps its column widths and no build was run.  I did not add a Cc:
+stable tag, as nothing outside Documentation changes.
 
-If a fixes tag is needed I indeed think it needs be be back to when the 
-driver was added. But is it worth the churn? I will leave it out for 
-now.
+v2: the change is the same as in v1; only the index and hunk line numbers
+moved with the rebase.  One changelog sentence is replaced in each patch:
+in 1/2 v1 called the table row the tree's only record of the erratum, but
+irq-gic-v3.c records it in gic_quirks[]; in 2/2 the sentence about the
+symbol is reworded to name arch/arm64/Kconfig.  Both changelogs now say
+that no build was run.
 
-> 
-> >
-> > Signed-off-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
-> > ---
-> >  drivers/media/platform/renesas/rcar-vin/rcar-dma.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/media/platform/renesas/rcar-vin/rcar-dma.c b/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
-> > index 73cda0e2d45a..f3003dd61890 100644
-> > --- a/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
-> > +++ b/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
-> > @@ -1449,7 +1449,7 @@ static void rvin_stop_streaming_vq(struct vb2_queue *vq)
-> >  	dma_free_coherent(vin->dev, vin->format.sizeimage, vin->scratch,
-> >  			  vin->scratch_phys);
-> >
-> > -	return_unused_buffers(vin, VB2_BUF_STATE_ERROR);
-> > +	return_unused_buffers(vin, VB2_BUF_STATE_DONE);
-> 
-> Does the same apply to buffers queued to the hardware and not
-> processed released in rvin_stop_streaming() ?
-> 
-> 	/* Return unprocessed buffers from hardware. */
-> 	for (unsigned int i = 0; i < HW_BUFFER_NUM; i++) {
-> 		if (vin->buf_hw[i].buffer)
-> 			vb2_buffer_done(&vin->buf_hw[i].buffer->vb2_buf,
-> 					VB2_BUF_STATE_ERROR);
-> 	}
+v1 was posted on 6 November 2026:
+https://lore.kernel.org/all/20261106234541.1474324-1-takano32@gmail.com/
+A duplicate submission went out the same night with different subjects on
+1/2 and 2/2 (20261106235616.1533003); please ignore it.
 
-Indeed it should.
+The changes and the changelog text were produced with an AI coding
+assistant (Hermes Agent, model deepseek-v4.1-flash) working from the tree
+and the git history.  I reviewed the diff and the reasoning, and I am
+responsible for the submission.
 
-> 
-> (nit: there is a stray empty line after this loop, if this hunk needs
-> to be patches as well, it might be a good occasion to remove it as
-> well)
+TAKANO Mitsuhiro (2):
+  arm64: errata: Set GIC-700 #2941627 Kconfig entry to N/A
+  arm64: errata: Fix Falkor E1041 Kconfig name
 
-Nice catch, this in itself is worth a respin ;-)
+ Documentation/arch/arm64/silicon-errata.rst | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-> 
-> Thanks
->    j
-> 
-> 
-> >  }
-> >
-> >  static const struct vb2_ops rvin_qops = {
-> >
-> > ---
-> > base-commit: 4900cad020c0580dfb1be27776ff10a4ef110cfa
-> > change-id: 20260828-vin-fix-vb2-28e1bb24a618
-> >
-> > Best regards,
-> > --
-> > Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
-> >
-> >
 
+base-commit: d0f871bfb831705d9f55479f5b2b40f636ea7b16
 -- 
-Kind Regards,
-Niklas Söderlund
+2.53.0
+
