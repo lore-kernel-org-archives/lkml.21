@@ -1,56 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=84.42.129.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795294763;
-	b=qRBC6BkdUF+vTJ8+mSO7ozIu59MxD5QfgqSNFZunV8cxISkiiz8Hg+eIcdF9rYtNjOm9
-	 7F/73K03d5vlNEEJQmRgMtdtwaIox1lmlAkq7bRwU0DhRPI6iKl4IcG/GJzjAA0464PxD
-	 qF+mknN7lnTDhxTQKUanQQ463BBDkLFMY5Icay9zXqRqdhoQULVCyGbKY4NNxIsv1+Ghy
-	 VloIUof8xd2RA0C/bp78GhZS6DIBWnMU98953m4ywpISL+cAOH+YmpbdpBcQTqw8zqopF
-	 GTsRacI9zxrQ1pcHgJACJdEOACNCkZVxo8OWTgvAeTl3se8px1H2pwUGB2hi27DxIZQ==
+	t=1795294803;
+	b=KzjP5Ot4kwRBwY+KW69J5MCOIyEO7KeL95VNz20FukQlEH+vTHMlMADlijl0+nZCJJtu
+	 5OZEvyNEhlkn7zLK9e/h0N5FL/zzGT3/kpOoJuIltDETG7HgUn8g7XKphsgSEpVJvFYDb
+	 pPc++jnynL91IL7qENZ1GkNliRtp8XMG1CI3pPEhQci79WHxbcuprAuRZjmvT1GuTnWxx
+	 g1lyu/lY9DlgRjflTgef9LQonrj59orjJD4NODtY+FWjbtK+4QyRDOKXSZKeiSqhqRDj9
+	 ONFQTPXS13Oshzx2epLXWIV2hsHpEFJjKEEDDxEex961ywXDsRqyEP/sCjZUiGN57wQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795294763;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=/DlhFtZZeVSJG9rk/GmS9dCDiNn4FCq66lBVAn8+8Dg=;
-	b=fRxseYpsXomDWZfbnQqdjBrH9qbL676SSWdMqEbUcyJdWBWSTsyPQXrgwqn9xLUK7qyW
-	 h/68Pmj10I0R0JCB65syumk7lCF7CdtZYlGvFsTEhLjC32tXUOVB97cmsmoDqWQC+kHjA
-	 5WqKkWtjTxQcBg/h6JdwjbbYru76t+XXAC2PFHT8C/UiCq7fPzu3jIjWbbwusvfhtMwns
-	 VDhWR6IDqyzr+r/X04+tJvPgTWfJD7TNwYatRg/qbuP/C9Og6crGW3OfCYcfagaI+iarN
-	 B4VuX41UbKKNxwiAdgLlln0bolIqPvOCQdODJna2XBnAPRPbWFtP3wXTKDNbxdGLuYQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795294803;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=URe94R238TU+IoDx/sw1PfxXVYgbhspV5wPkapxLInQ=;
+	b=QbJBb3iNtybVlCXF5kY3ht3cxEN0W8PH0P81/qF0vaCF3OdonqpmlEUeN6bHqemZET0+
+	 jg39mMm+vt5gd624hvAu1jfJ0FaQHsRcyJkrxVZsikH4p3OnN0KenEp0rEFKFSIZ5Mqoe
+	 rjJnstvnXq5/McNl7t8/ZpzH8BI25D5FhgPNl2CfXV2T41K2OqpmeJPK4JVMqqoQfIOnH
+	 flqSNbMlGy2jve51OZ/oQzi0bPK7CFHIxMJapa2YnMHPpp9LGptrJ9e8tvLRJYKSV0QPv
+	 5vcrRgjY+s+0wo1QKBoA5rNCDB3UUPHENSv1d3HMUgta9IkuNB4V1XqJskECDH7MtAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ixit.cz;
-	spf=pass smtp.mailfrom=ixit.cz;
-	dkim=pass header.d=ixit.cz header.i=@ixit.cz header.a=rsa-sha256 header.s=dkim header.b=kdyjWzTz;
-	arc=none smtp.remote-ip=84.42.129.46
-Received: from ixit.cz (ixit.cz [84.42.129.46])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oz12oVn+;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59EDE606A320;
-	Sat, 21 Nov 2026 20:59:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59EDE606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ixit.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ixit.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE17C606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:00:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE17C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=ixit.cz header.i=@ixit.cz header.a=rsa-sha256 header.s=dkim header.b=kdyjWzTz
-Received: from [IPV6:2a02:830a:f787:8f00:d622:eaa3:3dd6:8f5e] (unknown [IPv6:2a02:830a:f787:8f00:d622:eaa3:3dd6:8f5e])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id A8F095340517;
-	Sat, 21 Nov 2026 21:59:13 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1795294753;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=/DlhFtZZeVSJG9rk/GmS9dCDiNn4FCq66lBVAn8+8Dg=;
-	b=kdyjWzTzAwS83nKf6P8+RkxUYoluHIMADRci6qaL+yhlP63ZbPvsRFMl3t5CE86lm208TH
-	iBKIEayADJ5DKkEHFa4hsNA0zyGrlIa4wzoGVLJNjuwvnDOuPDbul5Ph9/rFtwqAizRPS7
-	wrIeyi/lirKaehOJKrIPCKL9sTubMh8=
-Message-ID: <2a7f984b-dfcd-4e39-92d8-127afaa17309@ixit.cz>
-Date: Sat, 21 Nov 2026 21:59:13 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oz12oVn+
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb70074ab2so19909615e9.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:00:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795294801; x=1795899601; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=URe94R238TU+IoDx/sw1PfxXVYgbhspV5wPkapxLInQ=;
+        b=oz12oVn+YvZq41jcYdXULQ0W/98XAI+4PAAp3qhsl+4K47IXf4QYhAfy7UVyN78Y6W
+         Y4Kbr1c+lha04BX+hx486YlmP5WEqHjYqweXairkkH6YqVlkF8aZZFERSOSDF3a8xMBD
+         VByTo1qiadeyTVaBK8dA2GmeodOndIf1VnY+Zn+nYkF5rh9tHufYd0o0fYvY2Glab4Bz
+         U+caSemnKw4HKuOhLjrHs3g3zCC+08SLUNZ+hWRJ3iV+eFpt0eKxBS3sTEYmjKQuWuyG
+         WTSM6sTruRLYYoDwH95IL6E1mqwQ3L8fXeFFdX7iw1gah3tZItBMLj7jYMYXO1+nC7z5
+         V2hw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795294801; x=1795899601;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=URe94R238TU+IoDx/sw1PfxXVYgbhspV5wPkapxLInQ=;
+        b=o4jtZXnZZHZqd8oaz1j9z6SVugM6tIm4jT7nWAOzcY3tUdMMgfN3h8YLwIY0XcMyGf
+         heLTU5tMG1jXZkevOI7HFog2C4lk0d3YcsM+N51/KSMoD3Vl4PoRZiIhok9UPvfPOiSF
+         V9qWQVtbaPXtheGlDJE+SpQTwjngU0rn5TAasogMcg4xIjFQyPAvn3GgyUJCvuXG0o8t
+         Rtrcsr5d9frLIgEurBvDPW7yihzeG2aDmrXkd3l49MvdcRoH34S6MvPdJufAFNsItgJs
+         l/ckyT49wxdVXoPb8nu/HCmRjD+yu7nuMWcc8lTWmwb3SsrdbHkg/uBFifyKYrwbutqo
+         cJLQ==
+X-Forwarded-Encrypted: i=1; AL+hErEadLzNyooVhb3gA/0dDHJkDf7yGQtPhdz+OeOOq/Q6I3JgnIF4axDyWePsanPpeyH0bgPUZBfIzEsshTo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ag+xyNfKfQFET3SN2ELSkHY7LhzF37s7PVRDcyTQJNEmcFYhY
+	K1X5zZhv1zOqLg3GbBtjODKjwc2OLtlq7ZihPgyDQ2+ac4e2hKboGwk8
+X-Gm-Gg: AZFdTZdgB0WAYFlDVwee72k30IHESsVAkI1p/FPfm5iDw8m0fTVt655ZhOSHoflP3C5
+	6rk7qikhsAe7FaCkPljG7aqp1AKV3XMuZTWA3MXCRRXAYJ7VHSvYXjg0r0TIEX+x8UbLc9EnyzB
+	IPR6s3IWk5QIVwvlEYoRFZV4QIp778Tchs8OcXd6kIb5z0pQzws8v26CIC1KwcarOnmy9UaGqSc
+	bvlHPB5LxjI7ANpJZabcKAy/Dp0cygIjxaV4SYPO1/LcmPmcYG6/X9s1Ji0Z7hun1a6emObj/VB
+	/SOI/p0MTAhsMtbLN3sp7fPhTVIEwMtJgi+9h7SLiQPw82VbtVAPO8HE21RSGd3QoQs+YTgPAGv
+	60N2aTf0CFxKSB24Y56t8gERHKohBgDNvzxkyAko5OX/o7YZrGGVLg/8QKdmBnC4JnjnS1pBR6G
+	upPbTCd+oMrlr5BrNKXVs3qdbsmwyQzxsc+8h3Jh2vacB++C3unsPgzYaYNkKck0YpKgs9/2PSg
+	kltSFveHAfv6iOPKJn8YMMxKx+dRqBC2exToNWy7mu2OWj81/arq+Q0dTl9+QQaWbi/tglAKlDM
+	+/Lr9rTwMXoHaDSfosDc2ZCkH3iaBDbUhhfIzfo0fhXyBRZj72R5DIwOVu9yABDtQdqkBCqXXt3
+	guDu7A8NJE2vvwU3ttVFs4n1ZJkyTum94rVYuwhP+q17wd+cVYWSPwljXXg==
+X-Received: by 2002:a05:600c:1c1b:b0:4a7:a5db:a93e with SMTP id 5b1f17b1804b1-4bb887e2677mr177415985e9.4.1795294800892;
+        Sat, 21 Nov 2026 13:00:00 -0800 (PST)
+Received: from localhost.localdomain (dynamic-078-054-132-179.78.54.pool.telefonica.de. [78.54.132.179])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b39b6sm181291265e9.12.2026.11.21.12.59.59
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 21 Nov 2026 13:00:00 -0800 (PST)
+From: Maxim Muzafarov <maxmuzaf@gmail.com>
+To: linux-mm@kvack.org,
+	Kairui Song <ryncsn@gmail.com>,
+	Tianyi Chen <hi@tychen.cc>
+Cc: Maxim Muzafarov <maxmuzaf@gmail.com>,
+	Kairui Song <kasong@tencent.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Qi Zheng <qi.zheng@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yuanchu Xie <yuanchu@google.com>,
+	Wei Xu <weixugc@google.com>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Yu Zhao <yuzhao@google.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	David Hildenbrand <david@kernel.org>,
+	Michal Hocko <mhocko@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 0/1] mm/mglru: MADV_RANDOM page cache never ages and thrashes the oldest generation
+Date: Sat, 21 Nov 2026 21:59:52 +0100
+Message-ID: <20261121205953.30737-1-maxmuzaf@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261119082441.196139-1-hi@tychen.cc>
+References: <20261101160427.85701-1-maxmuzaf@gmail.com> <179502478384.194898.8139869410612997037.streamfolio@tychen.cc> <av3vMMhFbiaop7zA@KASONG-MC4> <20261119082441.196139-1-hi@tychen.cc>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,250 +115,145 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] power: supply: smb347: Set the USB input current
- limit from APSD
-To: admin@tsv-stahl-riesa.de, Sebastian Reichel <sre@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Dmitry Osipenko <digetx@gmail.com>
-Cc: Svyatoslav Ryhel <clamor95@gmail.com>,
- Bruce Robertson <brucer42@gmail.com>,
- =?UTF-8?Q?Martin_J=C3=BCcker?= <martin.juecker@gmail.com>,
- Mithil Bavishi <bavishimithil@gmail.com>, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261121-upstream-smb347-apsd-v1-0-ca46b92bfd44@tsv-stahl-riesa.de>
-Content-Language: en-US, cs-CZ
-From: David Heidelberg <david@ixit.cz>
-Autocrypt: addr=david@ixit.cz; keydata=
- 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
-In-Reply-To: <20261121-upstream-smb347-apsd-v1-0-ca46b92bfd44@tsv-stahl-riesa.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-On 21/11/2026 10:30, Patrick Fischer via B4 Relay wrote:
-> The SMB347 driver programs the USB input current limit once at probe
-> from "summit,usb-current-limit-microamp". Boards either leave it at the
-> chip's NVM default, which is 900 mA on the Nexus 7 (2012), or set it to
-> 1800 mA (exynos4412-p4note, omap4-samsung-espresso10). The first makes
-> the original 2 A charger no faster than a PC port, the second loads PC
-> ports with 1.8 A.
-> 
-> The charger detects the port type itself (APSD). This series reads the
-> result after the input became valid, sets the limit for the port type
-> (SDP 500 mA, CDP 1.5 A, DCP the DT value or 1.5 A) and reports it as
-> POWER_SUPPLY_PROP_USB_TYPE. Patch 1 updates the binding text, patch 2
-> makes the registers readable, patch 3 does the detection.
-> 
-> Measured on a Nexus 7 (2012, E1565), median current into the battery
-> (bq27541) over 5-30 minutes, battery charge in brackets:
-> 
->                         before (NVM 900 mA)  this series
->    laptop port (CDP)    505 mA (84-89 %)     640 mA (85-90 %)    1.5 A
->    2 A charger (DCP)    561 mA (84-86 %)     968 mA (74-78 %)    1.5 A
->                                              972 mA (79-82 %)    1.8 A *
->    same, display off    596 mA (31-33 %)    1161 mA (37-39 %)    1.5 A
->                                             1147 mA (45-47 %)    1.8 A *
-> 
->    * with summit,usb-current-limit-microamp = <1800000> added to the
->      grouper DT for the test; it gives no gain over 1.5 A, so this
->      series does not touch the grouper DT.
-> 
-> The display was on unless noted.
-> 
-> The laptop port turned out to be a CDP. A PC port detected as SDP was
-> not available for testing. With 1800 mA in the device tree and without
-> this series, AICL ended once at the lowest step directly after boot at
-> the laptop port (the battery got 120 mA); with the series it did not
-> happen in seven boots and several reconnections. Directly after probe the
-> charger NAKs the write to CFG_VARIOUS_FUNCTION; patch 3 therefore does
-> the first detection 500 ms after probe, as after a new connection.
-> A quick move from the laptop port to the charger once left the driver
-> with the CDP limit (two interrupts, input state unchanged in the
-> driver), so patch 3 detects the port type after every USB input
-> interrupt; quick moves in both directions work with that.
-> 
-> There is no public datasheet with the register map that I could find.
-> The STAT_D, AICL and APSD bits are taken from the Android 3.1 kernel for
-> the Nexus 7 [1], which uses them the same way (900 mA for SDP, 1800 mA
-> for the other types). That is why only the SMB347 uses APSD, and
-> SMB345/SMB358 stay as they are.
-> 
-> Questions:
-> 
-> - Is 500 mA for an SDP acceptable? It is the USB 2.0 value, but less
->    than the NVM default of 900 mA on the Nexus 7 and than the 1800 mA
->    p4note and espresso10 use today at a PC port.
-> - APSD result "other" (non-BC 1.2 chargers) gets 500 mA here; the
->    Android driver uses the charger limit. Is someone able to check the
->    meaning of the remaining STAT_D values on SMB345/SMB358?
-> 
-> Bruce Robertson posted an RFC for a Rust SMB347 driver [2], which does
-> not handle interrupts or USB OTG yet. This series is for the existing C
-> driver; I am happy to test the Rust driver on the Nexus 7 as well.
-> 
-> Tested with v7.4-rc3 on a Nexus 7 (2012, E1565) at a laptop port (CDP)
-> and the original 2 A charger (DCP), including unplugging, replugging and
-> quick moves between them.
-> An SDP, chargers reported as "other" and USB host mode (OTG) were not
-> tested. The series is build tested on top of power-supply for-next.
-> 
-> Tool use (see Documentation/process/generated-content.rst): the patches,
-> their changelogs and this cover letter were prepared with an LLM coding
-> assistant (Claude Code). It compared the Android and mainline drivers,
-> wrote the code and drafted the texts from my measurements and
-> instructions. I reviewed the changes and ran all tests on the device.
-> 
-> [1] drivers/power/smb347-charger.c, branch
->      android-tegra3-grouper-3.1-lollipop-release of
->      https://android.googlesource.com/kernel/tegra
-> [2] https://lore.kernel.org/all/20260708214738.25008-1-brucer42@gmail.com/
-> 
-> ---
-https://sashiko.dev/#/patchset/20261121-upstream-smb347-apsd-v1-0-ca46b92bfd44%40tsv-stahl-riesa.de
+Hi Tianyi, Kairui,
 
-It's partly matching with Sashiko, but here is second LLM review:
+Sorry for the late reply. There was a lot of new information for me
+to digest.
 
-   Commits Reviewed (909ef7a9a30fa..HEAD on branch test-smb347)
-   1. b5983679ca5a1 dt-bindings: power: supply: summit,smb347: Clarify the USB 
-current limit
-   2. 94061e72ab31f power: supply: smb347: Make the APSD and AICL registers readable
-   3. * 375bda07de8ee power: supply: smb347: Set the USB input current limit 
-from APSD
-   Build & Validation Checks
+I've checked the reproducer you provided. It tests a slightly
+different scenario from the one I mentioned in my first email.
+However, I managed to adapt it [1] to my case and tested everything
+with the same setup (x86-64 VM), and I also reproduced your results.
 
-   • dt_binding_check on 
-Documentation/devicetree/bindings/power/supply/summit,smb347-charger.yaml: passed
-   • make ARCH=arm64 LLVM=1 W=1 drivers/power/supply/smb347-charger.o (in 
-temporary worktree): passed (0 warnings)
-   • scripts/checkpatch.pl --strict --git 909ef7a9a30fa..HEAD: passed (0 errors, 
-0 warnings, 0 checks)
-   • Reachability / Kconfig / Fixes tag: REACHABILITY: confirmed; no Kconfig 
-changes; not a bug-fix series (no Fixes: tag required).
-   ──────
-   Per-Commit Summary
-   • Patch 1 (b5983679ca5a1) — 
-Documentation/devicetree/bindings/power/supply/summit,smb347-charger.yaml:56-60: 
-No issues found.
-   • Patch 2 (94061e72ab31f) — drivers/power/supply/smb347-charger.c:1425-1469: 
-No issues found.
-   • Patch 3 (375bda07de8ee) — drivers/power/supply/smb347-charger.c: 5 issues 
-found, written in mailing-list format to review-inline.txt (and metadata in
-   review-metadata.json):
-   1. Unsynchronized CMD_A_ALLOW_WRITE and shared state (smb->usb_vbus_enabled, 
-smb->usb_online) (drivers/power/supply/smb347-charger.c:918-963,
-   drivers/power/supply/smb347-charger.c:545-589):
-       • smb347_set_writable() only toggles disable_irq()/enable_irq(), which 
-blocks smb347_interrupt() but does not exclude other process-context threads.
-       Previously, runtime callers were all VBUS regulator ops serialized by the 
-regulator core mutex.
-       • smb347_apsd_work() now holds CMD_A_ALLOW_WRITE across msleep(20) in 
-smb347_set_usb_current_limit(), allowing a concurrent VBUS regulator callback (or
-       smb347_remove()/smb347_shutdown()) to clear CMD_A_ALLOW_WRITE 
-mid-sequence, causing the subsequent CFG_VARIOUS_FUNCTION write to re-enable 
-AICL (or the
-       regulator's CFG_SYSOK/CFG_OTG writes in the reverse interleaving) to be 
-ignored by hardware.
-       • smb->usb_vbus_enabled is checked before the up-to-2 s 
-regmap_read_poll_timeout() loop without locking (TOCTOU if host VBUS is enabled 
-during polling),
-       and smb->usb_online is read without synchronization while 
-smb347_interrupt() updates it.
-   2. Missing 500 ms post-probe delay when booting unplugged (+ regmap cache 
-poisoning on NAK + use_apsd probe race)
-   (drivers/power/supply/smb347-charger.c:965-1005):
-       • smb347_apsd_init() calls smb347_apsd_schedule(smb) expecting the 500 ms 
-delay to avoid the post-probe CFG_VARIOUS_FUNCTION write NAK, but
-       smb347_apsd_schedule() sets delay = 0 whenever !smb->usb_online. When 
-booting on battery, smb347_apsd_work() runs immediately and still writes
-       CFG_VARIOUS_FUNCTION (to drop from 900 mA / 1800 mA to 500 mA).
-       • If that write NAKs, _regmap_write() in 
-drivers/base/regmap/regmap.c:1988-1998 updates the maple cache before 
-map->reg_write(), leaving
-       CFG_VARIOUS_FUNCTION_AICL cleared in cache while still set in hardware, 
-so future smb347_set_usb_current_limit() calls read aicl == false from cache and
-       stop toggling AICL.
-       • smb->use_apsd is also assigned after smb347_irq_init() has enabled the 
-IRQ and before CFG_CHARGE_CONTROL_APSD is written, allowing an early USBIN_UV_IRQ
-       to schedule apsd_work prematurely and race with smb347_apsd_init() on 
-CMD_A_ALLOW_WRITE.
-   3. Teardown / shutdown bugs with apsd_work and free_irq() 
-(drivers/power/supply/smb347-charger.c:1821-1863):
-       • smb347_shutdown() calls smb347_remove() without devres release (and 
-i2c_device_shutdown() skips disable_irq() when .shutdown is defined), so a 
-pending or
-       polling apsd_work is never cancelled on shutdown and can keep issuing I2C 
-transfers after smb347_shutdown() and parent I2C adapter shutdown.
-       • On detach, devm_delayed_work_autocancel() is registered before 
-devm_request_threaded_irq(), so free_irq() runs before 
-cancel_delayed_work_sync(). An
-       already-running smb347_apsd_work() finishing its STAT_D poll then calls 
-smb347_set_writable() -> disable_irq()/enable_irq() on a freed and deactivated IRQ.
-   4. POWER_SUPPLY_PROP_USB_TYPE exposed when APSD is disabled 
-(drivers/power/supply/smb347-charger.c:1747-1757):
-       • smb347_usb_desc unconditionally exposes usb_type advertising 
-SDP/CDP/DCP on SMB345, SMB358, and SMB347 boards without an interrupt (such as 
-exynos4412-
-       p4note), where smb->use_apsd is false and the property stays Unknown 
-permanently.
-   5. Commit message inaccuracy on exynos4412-p4note 
-(arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi:219-229):
-       • The commit message states that exynos4412-p4note changes behaviour to 
-draw 500 mA from a PC port, but exynos4412-p4note.dtsi (charger@6) has no
-       interrupts property, so smb->irq_unsupported is true and smb->use_apsd 
-remains false; only omap4-samsung-espresso10 is affected.
+The key difference [1] is that I added two new knobs:
+- SCAN_PASSES (default 1, your value), how many times each scan page
+  is touched
+- SCAN_MB (default 96, your value), the cold scan size in MiB
 
+This is important because 300 MiB scan forces reclaim to reach the
+pages during the first pass, which clears their accessed bits and
+evicts some of them. The second pass then gives the scan pages a
+second visible access. The reproducer from my first email also reads
+the cold data twice (--loops=2).
 
-   Ruled-Out Potential Regressions
+So the idea is to get the cold data promoted to newer generations
+and watch whether the workload recovers while the oldest generation
+is thrashing.
 
-   • Ruled out regression 1: smb347_apsd_work() calling 
-power_supply_changed(smb->usb) cannot dereference NULL because smb->use_apsd 
-requires smb->use_usb, which
-   registers smb->usb unconditionally in smb347_probe().
-   • Ruled out regression 2: smb347_usb_type_current_limit() with low DT values 
-(e.g. 300000 uA) or unset (0) always maps to a valid icl_tbl[SMB347] entry, and
-   invalid < 300000 uA DT values are already rejected in smb347_hw_init().
-   ──────
-   FINAL REGRESSIONS FOUND: 5
-   FINAL TOKENS USED: not exposed by runtime
-   Assisted-by: Antigravity:Gemini 4 Neon
+With a 300 MiB scan and 2 passes, neither MGLRU nor MGLRU-FG5 can
+recover. FG5 handles the 96 MiB scans and the 300 MiB single pass
+scan.
+
+The Patch
+---------
+
+Kairui,
+
+On Mon, Nov 02, 2026 at 02:02:33AM +0800, Kairui Song wrote:
+> This code snip:
+> + /* Set refault as active. */
+> + if (distance < total / 2) {
+> + folio_set_active(folio);
+[...]
+> That way, even a random folio will be put to the head directly instead
+> of keep thrasing on tail. And placing on head or newer gen will
+> trigger aging.
+
+As I understand it, the refault distance series will break this loop
+on tail. However, will the loop survive when the hot random set
+is much bigger than half of memory? E.g. when its refault
+distances exceed total / 2 and refaults land in the oldest
+generation again? Should we in this case use the aging logic from
+this patch as a fallback?
+
+Anyway I'd be happy to test the refault distance implementation as
+part of this work when it's ready.
+
+I also rebased the patch onto mm-new (25fee5b1762b) [2] and on top
+of the MGLRU-FG5 branch [3]. The patch applies unchanged to both.
+
+Please, let me know if I need to send v2 of the patch to this thread.
+
+Setup
+-----
+
+The same .config, and a fresh 4 vCPU x86-64 KVM guest per kernel.
+OpenSearch and a cold mmap scan (96/300 MiB, one/two passes)
+share a 1 GiB memcg with no swap. Median of 5 seeds,
+lru_gen enabled=7 vs 0.
+
+mmbase   7.4.0-rc1-mmbase+, mm-new (25fee5b1762b)
+fg5      7.4.0-rc1-fg5+, 25fee5b1762b with 17 MGLRU-FG5 patches [4]
+age2     7.4.0-rc1-age2+, mmbase with the patch on top
+fg5age   7.4.0-rc1-fg5age+, fg5 with the patch on top
+
+Results
+-------
+
+First, the good news. I can confirm that FG5 keeps .vec in memory
+with a 96 MiB scan and MGLRU doesn't. With passes=2 it also
+looks fine.
+
+My guess is that at 96 MiB reclaim never reaches the scan pages
+between the two passes, so their accessed bits stay set and the
+second pass is not seen as a new access? I haven't confirmed this.
+
+96 MiB scan:
+
+kernel passes LRU       p50   p99 refaults .vec scan .vec late
+fg5         1 MGLRU     1.1   2.6        2     117.2     117.2
+fg5         1 classic   1.1   2.4        7     117.2     117.2
+fg5         2 MGLRU     1.0   2.1        1     117.2     117.2
+fg5         2 classic   1.0   2.0        0     117.2     117.2
+mmbase      1 MGLRU    15.4  69.0   510691      75.3     102.2
+mmbase      1 classic   1.0   2.2        3     117.2     117.2
+mmbase      2 MGLRU    16.6  73.4   558370      70.1     100.0
+mmbase      2 classic   1.1   2.6        3     117.2     117.2
+
+With a 300 MiB scan, .vec is fully evicted during the scan on every
+kernel, so these runs show whether it comes back. With passes=2,
+MGLRU-FG5 is NOT able to recover, and this is where the refault
+distance implementation should help?
+
+300 MiB scan:
+
+kernel passes LRU       p50   p99 refaults .vec scan .vec late scan late
+fg5         1 MGLRU     1.0   2.2      413       0.0     117.2     115.8
+fg5         1 classic   1.1   2.4      409       0.0     117.2     104.5
+fg5         2 MGLRU   156.1 248.5 12548335       0.0       4.7     292.0
+fg5         2 classic   1.1   2.4      686       0.0     117.2     157.5
+mmbase      1 MGLRU   146.3 227.4 11247224       0.0      15.0     293.5
+mmbase      1 classic   1.0   2.3      409       0.0     117.2     102.0
+mmbase      2 MGLRU   150.2 248.9 11643192       0.0      11.3     295.0
+mmbase      2 classic   1.1   2.5      547       0.0     117.2     157.2
+
+The patch runs aging when the oldest generation is thrashing, so
+min_seq moves again, and both MGLRU and MGLRU-FG5 recover.
+
+300 MiB scan, with the patch:
+
+kernel passes LRU       p50   p99 refaults .vec scan .vec late scan late
+age         1 MGLRU     1.1   2.4      571       0.0     117.2     152.8
+age         1 classic   1.1   2.3      410       0.0     117.2     106.5
+age         2 MGLRU     1.1   2.3      565       0.0     117.2     150.8
+age         2 classic   1.1   2.5      866       0.0     117.2     153.8
+fg5age      1 MGLRU     1.1   2.3      410       0.0     117.2     112.1
+fg5age      1 classic   1.1   2.3      407       0.0     117.2     102.2
+fg5age      2 MGLRU     1.1   2.3      430       0.0     117.2     143.0
+fg5age      2 classic   1.1   2.6      955       0.0     117.2     154.5
+
+The full results are in the gist [5].
+
+Links
+-----
+
+[1] https://gist.github.com/Mmuzaf/263806a5bfae85e75c3331467f85353e/030e6f11096e1980303aa153da0a35b220b4eecc
+[2] https://github.com/Mmuzaf/linux/commit/cbd48001580bf1ad8a8767b1afd8e4ad969b3432
+[3] https://github.com/Mmuzaf/linux/commit/1e889df5c555e99d437c608e25c22ccb5286ff8f
+[4] https://lore.kernel.org/linux-mm/20261120103250.1241429-1-hi@tychen.cc/
+[5] https://gist.github.com/Mmuzaf/e87acbefc15acc2cac40c2181de984dd
+
+Thanks,
+Maxim Muzafarov
