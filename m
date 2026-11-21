@@ -1,53 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795233575;
-	b=j6kuOwrZqrENXah+GH6ampjEv/OQOcV20amzMC0gw+tTL+Oeq2UK0/w35Sert45JF87Z
-	 fyK09a7MEqkdv6PvlIVL85ROdD0wFm9Bs7KuKfUWG/ZksmF3IQK5kGcw5v5mQv8GWU1ve
-	 w2OH7o9quWO4sbJdLfXJy3dLdmWSFRwwqu7zVj0dVSE3hX+qQRDl1kZIGs3kRKSVt3n/W
-	 5UXBnvc6SZnQMhHf7/tJJL4YvLrfCXSIgphoRPeRxjvDGp+XU5wjtc2yYVFaRXoBiQo/R
-	 gHr+NdEkdaXrg+FBXl467E9t4qMbXdF5xoedZrH98YZYhqSSDcGPDQTiIZTsuVIsN1w==
+	t=1795233593;
+	b=5GshLUxUaOTSv7W2wrgD/Wi+l116iCcR4R8Vs57nOmM5Os/fuZ5hQiSoQfzLcIPE7UNb
+	 d08qnHw4Q1cVOVT+q2qAZSeFlPZLxWFl6nwcxnvm2OOg607BWjNOikRHWcS3OxIRIUlUX
+	 A405nh1GXfsGAQbzubNoNlHQ9m/a1WTyCiUXBjgGCFR61xlZN5PhpmZqsHbWBbEaWW5M4
+	 M94q0XT2elwnrxcu1IhcjZkPJY0cFkrDd9nvEfAelwXe1BI+AhZLpm6wtXDZKNg68Qp5m
+	 n5OFHOwrW+3K8f/DkgP2dhUIieZ7NUWpKpErPX1GBZqHcg6ZlXadHdQ4gxZyCOHyZNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795233575;
-	h=DMARC-Filter:DKIM-Signature:Subject:Reply-To:From:Date:User-Agent:
-	 Mime-Version:X-Original-From:References:Content-Transfer-Encoding:
-	 In-Reply-To:X-Lms-Return-Path:To:Cc:Received:Message-Id:Content-Type;
-	bh=Ecje+ICZ2y4kOi3FzWBZvMRUmxKj66g4Uste2s+ql6U=;
-	b=QLjtliu6FisYBpxA2EeBwzeiI89rAmxKJlA3MI0/kG0vYvHC4Bf3NgLFUkD9+HiwzIty
-	 rhDF6ekYWY6SAIb4K8wx7wRtX5Z0zeQhuZddUQ83AjuZGM84EIK1xvMfnlAQDvsnc5LrU
-	 9Ad7Dbh3X7NR9SCr/hMazfqc1ZJHDGB5lKZo0ZRPUIk4jqKxd9fIfO24ctiMt/WKMJC6R
-	 fVfC1eE/iyh7D1/7V9YyMnztooJarD7tKJSjxuOh6JruAc6iCHDMQrzdkCYL7B2AzRuOE
-	 MPegnf6+NvSF0rJGP27iu5/1d44pVCy1WtEHxIaqFvybrib9KvBPtrga52FBMW2rQ2Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795233593;
+	h=DMARC-Filter:DKIM-Signature:Reply-To:From:Subject:User-Agent:
+	 References:Content-Transfer-Encoding:To:Cc:Mime-Version:Content-Type:
+	 X-Lms-Return-Path:Message-Id:X-Original-From:Received:Date:
+	 In-Reply-To;
+	bh=uYJ3B2L2D69v88OInfKX1L2DKQpoFs57gobURfPgMOE=;
+	b=hQvDD8i++RFiqoV9aeXVtvmaogXiB+ZYYt1D/5LROVwWNitxp0UVTaVMJhGrjl2gwY3I
+	 ko77YQgPGHfubbhZCI4DljEtilb87G8xSwWFZ921vpmklH6IDfOktJHPC0V8JBXEcks7r
+	 tnAeWvvQAQEnDcBSXgBDAkntIVWljBLDvjKkoETjo0ccpPJAU5Gp8JltcUvhYbjbcZR/o
+	 5mAJhFZ0AYrXXQSQ1+9v4OySEs2asns72YpY+IWQsnd4dYzCk8rphqX7+QNsIeBhas+vU
+	 6rGPsADzA0Hkzu/mJ8zx6Qdljjrl+cCCLL4pN0gvjFndHbDOy+cXd3w8W/FCGPVKXDg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=fygo.io;
 	spf=pass smtp.mailfrom=fygo.io;
-	dkim=pass header.d=fygo-io.20200929.dkim.larksuite.com header.i=@fygo-io.20200929.dkim.larksuite.com header.a=rsa-sha256 header.s=s1 header.b=WmzBx7wX;
-	arc=none smtp.remote-ip=209.127.231.42
-Received: from va-2-42.ptr.blmpb.com (va-2-42.ptr.blmpb.com [209.127.231.42])
+	dkim=pass header.d=fygo-io.20200929.dkim.larksuite.com header.i=@fygo-io.20200929.dkim.larksuite.com header.a=rsa-sha256 header.s=s1 header.b=PRCyG509;
+	arc=none smtp.remote-ip=209.127.231.18
+Received: from va-2-18.ptr.blmpb.com (va-2-18.ptr.blmpb.com [209.127.231.18])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F09A5606A692
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:59:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F09A5606A692
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBB48606A6A9
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:59:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CBB48606A6A9
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fygo.io
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fygo.io
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=fygo-io.20200929.dkim.larksuite.com header.i=@fygo-io.20200929.dkim.larksuite.com header.a=rsa-sha256 header.s=s1 header.b=WmzBx7wX
+	dkim=pass (2048-bit key) header.d=fygo-io.20200929.dkim.larksuite.com header.i=@fygo-io.20200929.dkim.larksuite.com header.a=rsa-sha256 header.s=s1 header.b=PRCyG509
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=fygo-io.20200929.dkim.larksuite.com; t=1795233564;
+ s=s1; d=fygo-io.20200929.dkim.larksuite.com; t=1795233588;
   h=from:subject:mime-version:from:date:message-id:subject:to:cc:
  reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=Ecje+ICZ2y4kOi3FzWBZvMRUmxKj66g4Uste2s+ql6U=;
- b=WmzBx7wXxcoahtCOrfQ9kpQTdmlyTnrTuj5EnU1DR4uhRQDmyx58qA08GhdDOypHNztybW
- qi3h2xW6gVLaEydNTnJ8wTxh1xScjrsFxcukSlUyO3gLOvGDhw/39nkRjx9QKvWuJ/j3Wh
- UjfobUQvswd4b9VbFZb7QPBm4vVChcSokxPWn31OhcI+u/+F972+supTCABBh5MLSMAXq3
- 7GYFCkVCJbC7awFjAdthMyx+vGzTyy2r04qjr6Xhgo/d15uPabFxPkQnsBqVsEMV/AanRV
- 4+TsTrEpb2q+6LrJSaJsSXrl/uB/4xvsMdW2hjL/kaaBs8k4FZcV0OPu/5+93w==
-Subject: Re: [PATCH v2 0/2] md/raid5: fix PPL disk add and replacement removal
+ bh=uYJ3B2L2D69v88OInfKX1L2DKQpoFs57gobURfPgMOE=;
+ b=PRCyG509YldO6fnfrde4SCr5aadRI2vnxABn9f2/Gi99sZE2ofnieLTSUKXl/jGral1w60
+ KHB83oOlmC/ojmTMWSVefPSPpnG0nSI2WKF+bIkZ1Ywctm+/q7ifPWbIHS/444xnwrpwfm
+ n3hl7mCzNyYU4OF2jSqeNrpR0lnVAsooe7xrz1RcgLlaV+Aw7q2uholCXkE3O/6FA5+doa
+ /4zrntgmBxDVMc0q5qJvuTeyiQ6il0gqRD6RhNOGqGQADBDYsJQ+SkOnXZM56lqZHTDo+Z
+ xYKu21kyn9N7BosqlOGCZm8SX/b+H0l2vwHUjUE0jUb21IuV0mV/QtMPDdjlTw==
 Reply-To: yukuai@fygo.io
 From: "yu kuai" <yukuai@fygo.io>
-Date: Sat, 21 Nov 2026 11:59:19 +0800
+Subject: Re: [PATCH v4] md: don't leak MD_CLOSING when array_state write is interrupted
 User-Agent: Mozilla Thunderbird
+References: <20261112091533.145342-1-jinpu.wang@cloud.ionos.com>
+Content-Transfer-Encoding: quoted-printable
+To: "Jack Wang" <jinpu.wang@cloud.ionos.com>, "Song Liu" <song@kernel.org>, 
+	"yu kuai" <yukuai@fygo.io>
+Cc: "Li Nan" <magiclinan@didiglobal.com>, "Xiao Ni" <xiao@kernel.org>, 
+	<linux-raid@vger.kernel.org>, <linux-kernel@vger.kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,82 +63,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-X-Original-From: yu kuai <yukuai@fygo.io>
-References: <cover.1794555233.git.x-professor@outlook.com>
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <cover.1794555233.git.x-professor@outlook.com>
-X-Lms-Return-Path: <lba+26b01171b+e10d50+vger.kernel.org+yukuai@fygo.io>
-To: "Yingjie Wang" <x-professor@outlook.com>, "Song Liu" <song@kernel.org>, 
-	"yu kuai" <yukuai@fygo.io>
-Cc: "Li Nan" <magiclinan@didiglobal.com>, "Xiao Ni" <xiao@kernel.org>, 
-	"Artur Paszkiewicz" <artur.paszkiewicz@intel.com>, 
-	"linux-raid@vger.kernel.org" <linux-raid@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Received: from [192.168.1.104] ([39.182.0.159]) by smtp.larksuite.com with ESMTPS; Sat, 21 Nov 2026 03:59:22 +0000
-Message-Id: <dedbb4e5-3106-4e13-9f05-41d5de79d863@fygo.io>
 Content-Type: text/plain; charset=UTF-8
+X-Lms-Return-Path: <lba+26b011733+d45e67+vger.kernel.org+yukuai@fygo.io>
+Message-Id: <6f7562f8-4d04-4818-aea0-40cf0710840f@fygo.io>
+X-Original-From: yu kuai <yukuai@fygo.io>
+Received: from [192.168.1.104] ([39.182.0.159]) by smtp.larksuite.com with ESMTPS; Sat, 21 Nov 2026 03:59:47 +0000
+Date: Sat, 21 Nov 2026 11:59:43 +0800
+In-Reply-To: <20261112091533.145342-1-jinpu.wang@cloud.ionos.com>
 
-=E5=9C=A8 2026/11/15 15:39, Yingjie Wang =E5=86=99=E9=81=93:
+=E5=9C=A8 2026/11/12 17:15, Jack Wang =E5=86=99=E9=81=93:
 
-> This is v2 of the two independent PPL disk-transition fixes. The first
-> patch is unchanged. The second patch also handles a slot that remains
-> assigned above the current array width after a RAID5 shrink.
+> Writing "clear", "readonly", "inactive" or "read_auto" to array_state
+> calls mddev_set_closing_and_sync_blockdev(), which sets MD_CLOSING to
+> keep the array from being reopened while it is torn down. The flag is
+> only cleared again at the tail of array_state_store() (for readonly /
+> read_auto / inactive, or the failed-clear case).
 >
-> When a newly added disk fails PPL setup, raid5_add_disk() can publish the
-> private disk pointer before the caller rolls back raid_disk. A later
-> removal can then free the disk while RAID5 still references it. Patch 1
-> prepares the PPL log before publishing the pointer and restores the
-> previous state on failure.
+> Between setting the flag and reaching that tail there is an early return:
 >
-> Patch 2 keeps the active PPL log attached when an unpromoted replacement
-> is removed. It also skips log_modify() when removing an active device fro=
-m
-> a slot at or above the current raid_disks value. Such a slot has no PPL
-> child log after a shrink, but its device pointer still has to be cleared.
+> 	err =3D mddev_lock(mddev);
+> 	if (err)
+> 		return err;
 >
-> Changes in v2:
+> mddev_lock() is mutex_lock_interruptible() on reconfig_mutex. If the
+> writing task catches a signal while blocked there, it returns -EINTR and
+> MD_CLOSING is left set on a still-running array. do_md_stop() /
+> md_set_readonly() never ran, so the array keeps working internally, but
+> every subsequent md_open() now returns -ENODEV for all callers - the
+> device shows up in /proc/mdstat and sysfs is fully populated, yet cannot
+> be opened, and cannot be recovered without a reboot (all clear paths
+> either need the device open or re-enter test_and_set_bit(MD_CLOSING) and
+> bail with -EBUSY before the clear).
 >
->    * guard the active-device log update with number < conf->raid_disks;
->    * add a shrink test that leaves an extra slot blocked, enables PPL, an=
-d
->      compares the v1 and v2 removal results.
+> The window is easy to hit on a busy host: reconfig_mutex is held for long
+> stretches by a running resync/recovery, widening the interruptible wait,
+> and a userspace helper writing to array_state and then being killed or
+> timed out is enough to leak the flag.
 >
-> The v1 public thread is:
-> https://lore.kernel.org/r/cover.1794215128.git.x-professor@outlook.com/
+> Clear the flag directly in the interrupted-lock exit. Guard the clear
+> with a set_closing flag that records whether this write actually set
+> MD_CLOSING: the set call is skipped when the array is not running
+> read-write (or mddev->pers is NULL), and in that case this write must
+> not clear a MD_CLOSING it never set. This also tightens the pre-existing
+> tail clear, which had the same unconditional behaviour.
 >
-> Tested on x86_64 with KASAN, PROVE_LOCKING, DEBUG_ATOMIC_SLEEP, LOCKDEP,
-> MD, and RAID456 enabled:
+> Fixes: 99b902ac1725 ("md: sync blockdev before stopping raid or setting r=
+eadonly")
+> Signed-off-by: Jack Wang<jinpu.wang@cloud.ionos.com>
+> ---
+> v4: (Kuai) drop the Assisted-by tag, checkpatch does not accept it.
+>      Keep the set_closing guard at the tail clear but still skip it after=
+ a
+>      successful clear: md_clean() keeps MD_CLOSING set (except for legacy
+>      async del_gendisk with hold_active), so clearing it here would let t=
+he
+>      stopped array be reopened.
+> v3: (Kuai) clear MD_CLOSING directly at the mddev_lock() failure and
+>      return, drop the out_clear_closing label; reword the commit message.
+>      Keep the set_closing guard: the set call is skipped when the array
+>      is not rdwr or mddev->pers is NULL, so this write may not own the
+>      flag. Rebased on v7.4-rc1.
+> v2: guard the clear with set_closing.
 >
->    * per-commit W=3D1 builds for both commits;
->    * failed PPL disk addition, which reaches DONE on the v2 tip;
->    * unpromoted replacement removal, which reaches PASS and DONE on the
->      v2 tip, with tracing observing `ppl_write_stripe()` and a successful
->      return during a subsequent array write;
->    * the shrink comparison, where the sent v1 remains at slot 3 after
->      three remove attempts while v2 removes the slot on the first attempt=
-;
->    * empty-header `-EIO` injection while adding a spare, where `slot=3D0`
->      returns an error, leaves the slot unassigned, restores `ppl_size`, a=
-nd
->      leaves the degraded array writable.
->
-> The runtime tests use native metadata 1.2. IMSM external metadata was not
-> run. The empty-header failure uses a dedicated kernel with
-> `CONFIG_FAIL_MAKE_REQUEST` enabled; the separate page-allocation `-ENOMEM=
-`
-> injection was not run.
->
-> Yingjie Wang (2):
->    md/raid5: roll back failed PPL disk additions
->    md/raid5: preserve active PPL log when removing a replacement
->
->   drivers/md/raid5-ppl.c | 11 ++++++++++-
->   drivers/md/raid5.c     | 13 +++++++++----
->   2 files changed, 19 insertions(+), 5 deletions(-)
+>   drivers/md/md.c | 12 +++++++++---
+>   1 file changed, 9 insertions(+), 3 deletions(-)
 Applied
->
->
-> base-commit: 47e1b18f38d74015cb9fd30b5ff2a1eb88e77d31
 
 --=20
 Thanks,
