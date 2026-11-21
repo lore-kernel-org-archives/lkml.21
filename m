@@ -1,50 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.161
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.162
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795221258;
-	b=Kp4Fcf+LXt6T+sOql6Q3zgX119eji8OveteKt7/+ch8tuBHTuvZTXja6EKqfVI+fc9mZ
-	 86kwWy6AzLlxsZZ/4gngbK/7n8XmBeQkJf4n1ActyDiTlAubuZbsgQbUhlKv9UBgK8f/k
-	 XX2Dlphk6bBT9otjRh54rjEcS8sHvafQTGMj/gx927nxlm+CFpaPuoIT5voi2AtwmCZNN
-	 6oZzPrYMsjrhDGGViP8wgjRYZHi6MX38N5EbbRApqzv8mlBkb8NdmMeFYigjmkoPoG5K0
-	 FWaHESYc1aMdGxuGYAE5iTd891EAb5JXIQjcc6rKJYiVqlJercY/MMM3Au16Fd1cNng==
+	t=1795221261;
+	b=QVBQzJN5TWMRVYJXiqFY0pCXDNLt+1BeFcaMo+P7GRg8NfqdsewdHvAFKNTOpmx70+F9
+	 uV5rUR1OaCEtB2eLtB8nJHmh6HIwrycqejYNjBiUhd98sxDae8hSx6Cu79KF815UL5FsJ
+	 m8Q8dJuYm0N1Dr+XHkM4C/tx2ztSRICXFyHZUmB7iDxNmA2P72zdTDCd5xpMPjwdTuHH6
+	 cDn6o8Y3Wuxd5MTPIwx65crgqkA42mrDjgZT68zJh+ed3ybCjvsx22DRyd+FfL8yL32lc
+	 UENpceqa63L7Pkx/ylW0OKJguy2GAHdzyreOtoP8skDgzC6pkWBtnQtGL7WMHjpRBaQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795221258;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795221261;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=LVqfb6I1hyZommDgKkjQ68K5FsUedpZwA/p7WOx4ogk=;
-	b=bN7KtuIMN8HMVqSsJVezmH2qraEjC8LjtsMoT24w4HLkt0hl3oEiJMNc8eI4CCVx32dg
-	 DDcBmt/EOXSW4DYOrwzCfEEF7YI7rlw+Jk5ZKByBL9iAQcTBpZd30gX6KQFlztgv0CzoA
-	 ja7mzrYDpi5pdInr1IxSbvZxwzUZfeys4vJep5W5+B/BovlwLegOL9eXXRtOH5Excc4Cd
-	 ctrMAeaqAvx9hxttMwx1HaUPTIfQ9op+vUcT2eGOT9C5u+7jq5qLTEcrUnuib9oj+vv/r
-	 +aRhCmpDrU6G/fhgNI8aB58HVns9O6RN3R2Dt5XrhMwbexM4ghzQiQWYuaRW3mCED4Q==
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=/D+Zhad86wjuATsbT8ohg/50USn4bj0NsQs4iN//PK8=;
+	b=Eyql8VdDG8LikE0Nwyt9/acDnSm6cGEZZaFDujdenym9+dlY7KuKn1hxZ+hejzI++Gn+
+	 Xfn1Glfk6JO6CmBV4b9mWY4WJM2AFSbX6AnT/tJQD+TX/uRc3nbi2enPhb1qkfddhgEt0
+	 9DOgZ3vaWM9Ip/JTnCGOTt8bhWnqkT3/CbxKb40WwzWRC4QFK/02A4ssesV44VPjDv7kv
+	 p2kqd2jNT7BzY4yQt8f07uWgP+VuEnKoym91tOTJGJdYK075VacGDNTOd/2LAe7rFUYty
+	 cvCMqRxth5RzJKhZAfShun7Tzpl7th7kkbptITFrqDS9PzNUs/nHvXrT0YS2LNnB5uA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=AsY5sR9u;
-	arc=none smtp.remote-ip=91.218.175.161
-Received: from mta0.migadu.com (out-161.mta0.migadu.com [91.218.175.161])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=UbBL8BrQ;
+	arc=none smtp.remote-ip=91.218.175.162
+Received: from mta0.migadu.com (out-162.mta0.migadu.com [91.218.175.162])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6826606A6AB
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 00:34:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6826606A6AB
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 937C9606A6AD
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 00:34:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 937C9606A6AD
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=AsY5sR9u
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=UbBL8BrQ
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=/a8TPGHtim4W1Kp+5mddRIO0C+8W9McFTbcSGRi3Jys=;
+DKIM-Signature: a=rsa-sha256; bh=vUBLLFu7exKFaLVeWVP1e19lJwUEn1zEA0S7uIyAxXw=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795221254; v=1; x=1795826054;
- b=AsY5sR9u6zCUde8BmP5ld3dYcq7yXYHf6NRW5s32oJlwqZ93HCXZIOW+Gctql5dUmTQ0GsV+
- /18oHrvcGtzkwwnH/t2dpHkUB7CoIQ5hNTGQ664fS1GGthvMlA3T6EF2nj6Vlm5vVOJZvYlFdOm
- fbOe8mV743O6JM93NlQsqBx0=
+ t=1795221258; v=1; x=1795826058;
+ b=UbBL8BrQ8Ro/aOrRc0+d7EsvcSEmxoG3Y7vq9beiNk45QOMQuq/GcoWiR2Efu3VzkjnFmCGj
+ g2xTQ3yz4m5Opv9En7o5s79m6gblE9MA1XFub6xNFnc8OAgvmAaKLN2AjMJs6wTBTh4tgJyOreG
+ z52wuIXVqHlIHHZHE5gp+hEc=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id dc407b2e55f5ce0c;
-	Sat, 21 Nov 2026 00:34:14 +0000
-X-Mizu-Trace-ID: dc407b2e55f5ce0c
+Received: by mta11.migadu.com with ESMTPS id edff4338751dc96c;
+	Sat, 21 Nov 2026 00:34:18 +0000
+X-Mizu-Trace-ID: edff4338751dc96c
 X-Migadu-Flow: FLOW_OUT
 From: Ihor Solodrai <ihor.solodrai@linux.dev>
 To: Alexei Starovoitov <ast@kernel.org>,
@@ -61,10 +62,12 @@ Cc: Alan Maguire <alan.maguire@oracle.com>,
 	bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	sched-ext@lists.linux.dev
-Subject: [PATCH bpf-next v2 0/6] libbpf: Support kernel-side kfunc variants
-Date: Fri, 20 Nov 2026 17:33:57 -0700
-Message-ID: <20261121003403.2928928-1-ihor.solodrai@linux.dev>
+Subject: [PATCH bpf-next v2 1/6] libbpf: Separate interfaces shared with in-tree tools
+Date: Fri, 20 Nov 2026 17:33:58 -0700
+Message-ID: <20261121003403.2928928-2-ihor.solodrai@linux.dev>
 X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261121003403.2928928-1-ihor.solodrai@linux.dev>
+References: <20261121003403.2928928-1-ihor.solodrai@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,110 +79,231 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-A kfunc prototype change breaks BPF programs built against the old
-prototype. For example, 8fe4dc4f6456 ("bpf: change prototype of
-bpf_session_{cookie,is_return}") made this change in v7.0:
+resolve_btfids links libbpf statically and uses its BTF header
+accessor, field iterator and SHA-256 helper. libbpf_internal.h
+also defines logging macros and poisons kernel integer typedefs,
+so resolve_btfids wraps the hash helper in a separate source file.
 
-  before:  bool bpf_session_is_return(void);
-  v7.0:    bool bpf_session_is_return(void *ctx);
+Move the shared declarations to libbpf_tools.h and use them
+directly in resolve_btfids. The header is for in-tree tools and
+stays uninstalled. No shared-library symbols change.
 
-A program built before v7.0 declares bpf_session_is_return(void), and
-libbpf can't resolve it on v7.0. The kernel has no way to keep the old
-prototype available to such programs. sched_ext works around the same
-problem with ___v2___compat names in compat.bpf.h.
+No functional change.
 
-With this series, the kernel can keep the old prototype as a variant:
-
-  bool bpf_session_is_return(void *ctx);
-  bool bpf_session_is_return___v1(void);
-
-and libbpf binds each declaration to the function with a matching BTF
-prototype.
-
-The new lookup changes what some existing declarations resolve to.
-
-A replay of kfunc resolution against v6.18, v7.2 and bpf-next BTF
-covered 1302 BPF objects: 1174 sched_ext schedulers from Meta's
-internal builds, and 128 public objects from the scx repo,
-tools/sched_ext, the selftests and bpftrace. It also covered 16
-objects declaring every kfunc from each x86 vmlinux.h in the scx
-repo's history, counted here as public. No strong declaration
-changes. These __weak declarations change, counted in objects per
-kernel:
-                                                    public   Meta
-  lost on v7.2 and bpf-next, no candidate:
-    scx_bpf_dsq_insert___v2___compat                    36    136
-    scx_bpf_dsq_move_to_local___v2___compat             33     27
-    scx_bpf_reenqueue_local___v2___compat                9     44
-
-  lost on v7.2 and bpf-next, struct names differ:
-    bpf_io_uring_get_region(struct io_ring_ctx *)        1      0
-    bpf_io_uring_submit_sqes(struct io_ring_ctx *)       1      0
-
-  lost on bpf-next, struct names differ:
-    bpf_cpumask_populate(struct cpumask *)               8     88
-
-  lost on v6.18 and v7.2, struct names differ:
-    bpf_cpumask_populate(struct bpf_cpumask *)           4      0
-
-  gained on v7.2 and bpf-next:
-    scx_bpf_dsq_move_to_local___v2(u64, u64)             7    120
-    scx_bpf_dsq_insert___v2(...)                         8      0
-    scx_bpf_reenqueue_local___v2(void)                   8      0
-
-In-tree compat.bpf.h now tries the plain ___v2 names first. Objects
-that gain a ___v2 kfunc now call it instead of their fallback path.
-
+Signed-off-by: Ihor Solodrai <ihor.solodrai@linux.dev>
 ---
-
-v1->v2:
-  * Pick a kfunc by prototype among all funcs with the same essential
-    name, without preferring the exact name (Andrii, Eduard).
-  * Compare struct and union names, ignoring ___ suffixes, instead of
-    using bpf_core_types_are_compat(), so that variants can differ
-    only in a pointee type (Eduard, Andrii).
-  * Drop the alias exception that kept ___v2___compat names working
-    (Eduard). New patch 2 updates compat.bpf.h instead.
-  * resolve_btfids: check registered kfuncs within vmlinux or a module
-    with libbpf's new matcher and report every matching pair. New
-    patch #1 shares libbpf internals with it instead of wrapping them
-    (Eduard).
-  * Call kernel-side ___ functions "variants". "Flavor" stays CO-RE's
-    term for local suffixes.
-  * Rewrite the docs for the new rules.
-
-v1: https://lore.kernel.org/bpf/20261117192153.3384031-1-ihor.solodrai@linux.dev/
-
----
-
-Ihor Solodrai (6):
-  libbpf: Separate interfaces shared with in-tree tools
-  sched_ext: Prefer ___v2 kfunc names in compat.bpf.h
-  libbpf: Resolve kfunc variants by prototype
-  selftests/bpf: Test kfunc variant selection by prototype
-  resolve_btfids: Reject ambiguous kfunc variants
-  docs/bpf: Describe how to change a kfunc's prototype
-
- Documentation/bpf/kfuncs.rst                  |  96 ++++++++++++++
- tools/bpf/bpftool/Makefile                    |   9 +-
- tools/bpf/resolve_btfids/btf_colors.c         |  15 +--
- tools/bpf/resolve_btfids/btf_colors.h         |   4 -
- tools/bpf/resolve_btfids/main.c               |  74 ++++++++++-
- tools/lib/bpf/btf.c                           |  99 ++++++++++++++-
- tools/lib/bpf/libbpf.c                        | 117 ++++++++++++------
- tools/lib/bpf/libbpf_internal.h               |  32 +----
- tools/lib/bpf/libbpf_tools.h                  |  48 +++++++
- tools/sched_ext/include/scx/compat.bpf.h      |  39 ++++--
- .../selftests/bpf/prog_tests/verifier.c       |   3 +
- .../selftests/bpf/progs/kfunc_variants.c      |  32 +++++
- .../selftests/bpf/test_kmods/bpf_testmod.c    |  12 ++
- .../bpf/test_kmods/bpf_testmod_kfunc.h        |   3 +
- 14 files changed, 481 insertions(+), 102 deletions(-)
+ tools/bpf/bpftool/Makefile            |  9 +++---
+ tools/bpf/resolve_btfids/btf_colors.c | 15 ++-------
+ tools/bpf/resolve_btfids/btf_colors.h |  4 ---
+ tools/bpf/resolve_btfids/main.c       |  5 +--
+ tools/lib/bpf/libbpf_internal.h       | 30 +----------------
+ tools/lib/bpf/libbpf_tools.h          | 46 +++++++++++++++++++++++++++
+ 6 files changed, 58 insertions(+), 51 deletions(-)
  create mode 100644 tools/lib/bpf/libbpf_tools.h
- create mode 100644 tools/testing/selftests/bpf/progs/kfunc_variants.c
 
-
-base-commit: 82cc2b4383e3edfa1026c8612fb4e90a9329ba11
+diff --git a/tools/bpf/bpftool/Makefile b/tools/bpf/bpftool/Makefile
+index 49dabf2eded0..7e73e12af5b6 100644
+--- a/tools/bpf/bpftool/Makefile
++++ b/tools/bpf/bpftool/Makefile
+@@ -28,10 +28,11 @@ LIBBPF_BOOTSTRAP_INCLUDE := $(LIBBPF_BOOTSTRAP_DESTDIR)include
+ LIBBPF_BOOTSTRAP_HDRS_DIR := $(LIBBPF_BOOTSTRAP_INCLUDE)/bpf
+ LIBBPF_BOOTSTRAP := $(LIBBPF_BOOTSTRAP_OUTPUT)libbpf.a
+ 
+-# We need to copy hashmap.h, nlattr.h, relo_core.h and libbpf_internal.h
+-# which are not otherwise exported by libbpf, but still required by bpftool.
+-LIBBPF_INTERNAL_HDRS := $(addprefix $(LIBBPF_HDRS_DIR)/,hashmap.h nlattr.h relo_core.h libbpf_internal.h)
+-LIBBPF_BOOTSTRAP_INTERNAL_HDRS := $(addprefix $(LIBBPF_BOOTSTRAP_HDRS_DIR)/,hashmap.h relo_core.h libbpf_internal.h)
++# Stage private headers that bpftool uses and libbpf does not install.
++LIBBPF_COMMON_INTERNAL_HDRS := hashmap.h relo_core.h libbpf_internal.h libbpf_tools.h
++LIBBPF_INTERNAL_HDRS := $(addprefix $(LIBBPF_HDRS_DIR)/,$(LIBBPF_COMMON_INTERNAL_HDRS) nlattr.h)
++LIBBPF_BOOTSTRAP_INTERNAL_HDRS := $(addprefix $(LIBBPF_BOOTSTRAP_HDRS_DIR)/,\
++					     $(LIBBPF_COMMON_INTERNAL_HDRS))
+ 
+ $(LIBBPF_OUTPUT) $(BOOTSTRAP_OUTPUT) $(LIBBPF_BOOTSTRAP_OUTPUT) $(LIBBPF_HDRS_DIR) $(LIBBPF_BOOTSTRAP_HDRS_DIR):
+ 	$(QUIET_MKDIR)mkdir -p $@
+diff --git a/tools/bpf/resolve_btfids/btf_colors.c b/tools/bpf/resolve_btfids/btf_colors.c
+index 5d307d70e7f2..7374aa2f8963 100644
+--- a/tools/bpf/resolve_btfids/btf_colors.c
++++ b/tools/bpf/resolve_btfids/btf_colors.c
+@@ -1,18 +1,9 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+-#include <bpf/libbpf_internal.h>
++#include <errno.h>
++#include <stdlib.h>
++#include <bpf/libbpf_tools.h>
+ #include "btf_colors.h"
+ 
+-/*
+- * Functions in this file mainly exist to refer to functions from libbpf_internal.h,
+- * which can't be included in main.c because of the u32 poison and pr_warn macro conflicts.
+- */
+-
+-void btf_sha256(const void *data, size_t len,
+-		__u8 out[BTF_SHA256_DIGEST_LENGTH])
+-{
+-	libbpf_sha256(data, len, out);
+-}
+-
+ /*
+  * Marks `root_id` and local types reachable from it with `color`.
+  * `colors` is indexed by source ID; worklist has room for every local type.
+diff --git a/tools/bpf/resolve_btfids/btf_colors.h b/tools/bpf/resolve_btfids/btf_colors.h
+index 56a85a242d6b..9cea757cb356 100644
+--- a/tools/bpf/resolve_btfids/btf_colors.h
++++ b/tools/bpf/resolve_btfids/btf_colors.h
+@@ -11,10 +11,6 @@ enum btf_color {
+ 	BTF_COLOR_SHARED = BTF_COLOR_MAIN | BTF_COLOR_LOC,
+ };
+ 
+-#define BTF_SHA256_DIGEST_LENGTH	32
+-
+-void btf_sha256(const void *data, size_t len,
+-		__u8 out[BTF_SHA256_DIGEST_LENGTH]);
+ void btf_mark_reachable(struct btf *btf, __u32 root, enum btf_color color,
+ 			__u8 *colors, __u32 *worklist);
+ 
+diff --git a/tools/bpf/resolve_btfids/main.c b/tools/bpf/resolve_btfids/main.c
+index 0ac895222a14..0e193c3c73aa 100644
+--- a/tools/bpf/resolve_btfids/main.c
++++ b/tools/bpf/resolve_btfids/main.c
+@@ -93,12 +93,14 @@
+ #include <linux/limits.h>
+ #include <bpf/btf.h>
+ #include <bpf/libbpf.h>
++#include <bpf/libbpf_tools.h>
+ #include "btf_colors.h"
+ #include "fmodret.h"
+ #include <subcmd/parse-options.h>
+ 
+ #define BTF_IDS_SECTION	".BTF_ids"
+ #define BTF_LINK_MODULE_NAME_MAX	64
++#define BTF_SHA256_DIGEST_LENGTH	SHA256_DIGEST_LENGTH
+ #define BTF_ID_PREFIX	"__BTF_ID__"
+ 
+ #define BTF_STRUCT	"struct"
+@@ -1205,8 +1207,7 @@ static int patch_btf_link(struct object *obj, const struct btf_link *link)
+ 	}
+ 	memset(data->d_buf, 0, data->d_size);
+ 	memcpy(data->d_buf, link->module, strlen(link->module) + 1);
+-	btf_sha256(raw_btf_data, raw_btf_size,
+-		   (u8 *)data->d_buf + module_name_len);
++	libbpf_sha256(raw_btf_data, raw_btf_size, (u8 *)data->d_buf + module_name_len);
+ 	size = (u8 *)data->d_buf + module_name_len + BTF_SHA256_DIGEST_LENGTH;
+ 	if (obj->efile.encoding == ELFDATA2LSB) {
+ 		size[0] = raw_btf_size;
+diff --git a/tools/lib/bpf/libbpf_internal.h b/tools/lib/bpf/libbpf_internal.h
+index e90b5336bac0..0ab15b5589d6 100644
+--- a/tools/lib/bpf/libbpf_internal.h
++++ b/tools/lib/bpf/libbpf_internal.h
+@@ -18,6 +18,7 @@
+ #include <unistd.h>
+ #include <sys/syscall.h>
+ #include <libelf.h>
++#include "libbpf_tools.h"
+ #include "relo_core.h"
+ 
+ /* Android's libc doesn't support AT_EACCESS in faccessat() implementation
+@@ -247,7 +248,6 @@ struct btf_type;
+ struct btf_type *btf_type_by_id(const struct btf *btf, __u32 type_id);
+ const char *btf_kind_str(const struct btf_type *t);
+ const struct btf_type *skip_mods_and_typedefs(const struct btf *btf, __u32 id, __u32 *res_id);
+-const struct btf_header *btf_header(const struct btf *btf);
+ void btf_set_base_btf(struct btf *btf, const struct btf *base_btf);
+ int btf_relocate(struct btf *btf, const struct btf *base_btf, __u32 **id_map,
+ 		 __u32 **str_map);
+@@ -574,31 +574,6 @@ static inline void bpf_core_relo_bswap(struct bpf_core_relo *i)
+ 	i->kind = bswap_32(i->kind);
+ }
+ 
+-enum btf_field_iter_kind {
+-	BTF_FIELD_ITER_IDS,
+-	BTF_FIELD_ITER_STRS,
+-};
+-
+-struct btf_field_desc {
+-	/* once-per-type offsets */
+-	int t_off_cnt, t_offs[2];
+-	/* member struct size, or zero, if no members */
+-	int m_sz;
+-	/* repeated per-member offsets */
+-	int m_off_cnt, m_offs[2];
+-};
+-
+-struct btf_field_iter {
+-	struct btf_field_desc desc;
+-	void *p;
+-	int m_idx;
+-	int off_idx;
+-	int vlen;
+-};
+-
+-int btf_field_iter_init(struct btf_field_iter *it, struct btf_type *t, enum btf_field_iter_kind iter_kind);
+-__u32 *btf_field_iter_next(struct btf_field_iter *it);
+-
+ typedef int (*type_id_visit_fn)(__u32 *type_id, void *ctx);
+ typedef int (*str_off_visit_fn)(__u32 *str_off, void *ctx);
+ int btf_ext_visit_type_ids(struct btf_ext *btf_ext, type_id_visit_fn visit, void *ctx);
+@@ -772,8 +747,5 @@ int elf_resolve_pattern_offsets(const char *binary_path, const char *pattern,
+ 
+ int probe_fd(int fd);
+ 
+-#define SHA256_DIGEST_LENGTH 32
+-
+-void libbpf_sha256(const void *data, size_t len, __u8 out[SHA256_DIGEST_LENGTH]);
+ int probe_sys_bpf_ext(void);
+ #endif /* __LIBBPF_LIBBPF_INTERNAL_H */
+diff --git a/tools/lib/bpf/libbpf_tools.h b/tools/lib/bpf/libbpf_tools.h
+new file mode 100644
+index 000000000000..c590ea4312f2
+--- /dev/null
++++ b/tools/lib/bpf/libbpf_tools.h
+@@ -0,0 +1,46 @@
++/* SPDX-License-Identifier: (LGPL-2.1 OR BSD-2-Clause) */
++#ifndef __LIBBPF_TOOLS_H
++#define __LIBBPF_TOOLS_H
++
++#include <linux/types.h>
++#include <stddef.h>
++
++/* Internal interfaces for kernel tools that link libbpf statically. */
++
++struct btf;
++struct btf_header;
++struct btf_type;
++
++const struct btf_header *btf_header(const struct btf *btf);
++
++enum btf_field_iter_kind {
++	BTF_FIELD_ITER_IDS,
++	BTF_FIELD_ITER_STRS,
++};
++
++struct btf_field_desc {
++	/* once-per-type offsets */
++	int t_off_cnt, t_offs[2];
++	/* member struct size, or zero, if no members */
++	int m_sz;
++	/* repeated per-member offsets */
++	int m_off_cnt, m_offs[2];
++};
++
++struct btf_field_iter {
++	struct btf_field_desc desc;
++	void *p;
++	int m_idx;
++	int off_idx;
++	int vlen;
++};
++
++int btf_field_iter_init(struct btf_field_iter *it, struct btf_type *t,
++			enum btf_field_iter_kind iter_kind);
++__u32 *btf_field_iter_next(struct btf_field_iter *it);
++
++#define SHA256_DIGEST_LENGTH 32
++
++void libbpf_sha256(const void *data, size_t len, __u8 out[SHA256_DIGEST_LENGTH]);
++
++#endif /* __LIBBPF_TOOLS_H */
 -- 
 2.56.1
 
