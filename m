@@ -1,47 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795371340;
-	b=iSXBghfLW3bTqdqk2EvqsJoeMtO8VxF58zkHHmIuJyhR3TK8C3MUi5dPFPJ4Ct6QHglw
-	 ceVajcivYXff/ZH5EYiEKpsJYJHDJP0l95nCOdCH1iHj1TXyBLOJxexBgpbfoQSllcwLZ
-	 Uv8dz37qS4I+KcuSZVxXPc3nWh/Xm4MPxEhZZI7BU5mGd9r3DUW9/AmGi2UdSeEoHmmTU
-	 lNafB7uV5toiAo/nsLEJZ8QW31CCUQ51TU8u8AbwSM/aJwtwQLuADeeOxAFE8e54UP9bz
-	 3II6MYQQJaIBKHbP/ryN5S/K/aJ5Luf2PNEYOakRURpffkng0BlCsjKC+W8biT5Rp5A==
+	t=1795371346;
+	b=0Pb0tD/CxrumJF8Zz66Zs6BS2fPKlWAIFMxEREeYq+nvg+UMfKeEoIn8WNQ8IcLCpjWq
+	 c3gEu5SwsGL3nBwu8DK9Hw0k5704twtKIfTJDiMuSNuWX4YTx1mj69ciEo89f+WRwKu+E
+	 zRrXG+irAqRIzsa4VOzi16bU/6ds82TVJqWabGRqxEPRJVqYO1jXRFxfZ1l6Do7zlwJzf
+	 TbZ8dh70OA0F1VGwKIH+LW8vtV7m8cATAadcfOPRIHYysZod4X0esJAFCuR7aVnZNABOo
+	 6VXRhq4fOtGDzcn1leZOnxR3wvoWQuZHjlqQcLD0hk51HaBuTSKElbJ36NgDSpXospA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795371340;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=Ly0Qb7LtoPAwxIdNSlMhGXbiCyBmYz2wYY8MTMYeang=;
-	b=IYAd9ZZKYIYeW5ObYr7B7qFMJwvkh7OJ/soSbxNWAU0fqEM3+oDOPsE2xlqf8YbAED4k
-	 dPYan6zgyNvS2nd/yM8isWeHgM0N0wQEHSc3Qp2l39ZoCHyI/Ry25L/1BtYrWZxYN7TtE
-	 Qplz/JXdJ0yq0aHIDPSvcbp8ZiXyL8B993wy2TV+VnFe1Q90+SglIhMvr6UKcQGcziDE6
-	 vDUPRyJ6Ix3MUVdLBFqLYH/RDHdyilksDn6dOKB3Ybem/DnC1q8BB8G+qYMX0DfHmNHy2
-	 0jWhGWbx4+ILEbffEYqU3fE0ff2/Jzrw8VmB2qZEtM/OWy7WL6elNNrgG7ZjQr0TSyg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795371346;
+	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id;
+	bh=OAeEfc82oXr0CmPDTHNmwm//64q24Btd+FEWIEZhuNk=;
+	b=ZihTsdTv04yiMP+9ePdS2/gt72dbmetYDAmnsq0UCv9FiBp+MpsN7qpJGgU4fva+O9YI
+	 tIsfG5xflCDEqao8b/EZ+wlst/CCb8zBUTFAEJeGLVeR18AKXgJmoDzccSVDdDMo6G5FQ
+	 8Xv/pzo1K0E78Z1TlhZnmvzHZ5g1z6mjxDWRlDRKTVJubQgi/doxZH8c3GIHbEvL4Khzx
+	 dZopkObkK5kIGCqrS2reQ8XQ9EOFfWzmvV7r6SHWDvpOxKkyW9oiTfowAtBK5fP16eM87
+	 hvDVn+EIQg9sacf2jbaK29MHPj3LHpj6SEqtYFe9WMLtnOS0keLRl0Fip/NS646ZX7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=owuPPTBd;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Yrv+ueBU;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BBB7606A330;
-	Sun, 22 Nov 2026 18:15:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A055606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:15:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=owuPPTBd
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7793D1F000C4;
-	Sun, 22 Nov 2026 18:15:39 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Yrv+ueBU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C6411F000C4;
+	Sun, 22 Nov 2026 18:15:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795371340;
-	bh=Ly0Qb7LtoPAwxIdNSlMhGXbiCyBmYz2wYY8MTMYeang=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=owuPPTBdy3mYxA1P7qyCUk7OH/zCw+ch3NE4bxilYoIrx/hGHfvw8+ACUg8nnTODh
-	 IgJShCeTIxn/4nF73AorMZrGEo4vU6cs4HAirzO5u1D3sEmIkVCkxXLHjXmZBfxO+V
-	 y8m7kzqf/g4l/mTcg0zgEh9FddQ6SzB4ovx9aYTdxwfUClhdRabFzrTrsnor9DEWS4
-	 3NLgE7TM0t2AoC8xHVcth20jul8I/IY+QO0OSo2PMzyzWPSDfSAhXz5EtBnnRlpaVG
-	 zxXCpDJ9f8eElgaEm6wa0MYOln/bapLKRAlnABnG5sC4SyB7d6xspPJdSTk3p1q6Rf
-	 q4cwQ6jh1+xKQ==
-Message-ID: <1fafa3c2-3f8d-4672-bf84-c474d0e4f7f7@kernel.org>
-Date: Sun, 22 Nov 2026 12:15:37 -0600
+	s=k20260515; t=1795371345;
+	bh=OAeEfc82oXr0CmPDTHNmwm//64q24Btd+FEWIEZhuNk=;
+	h=From:To:Cc:Subject:Date;
+	b=Yrv+ueBUrRL0wroH9Wls97d6Nba9QlwdAkR+sOrykiM9OQFjuEz7v158GXGpQmo/i
+	 8jcD5fWYwE8eGWtelNFkKNocIPzn9iCqpDDRm964a+vRCeSrSjMf822i3HEFM/tK4U
+	 F3qylY0sSq6d8Ubzu9BStrMyeDYh47jPbhjKHvMvmcI2bhZoWkAaWuZJVcE0LtnEMV
+	 Rg/H5ubmpjdqcVqo0o2BVMtC2Mtr9dE2BqwRi7e+bWtmHI9hCY3DSVXF/SE8R5KOGS
+	 Jk9P56eThrO68Yb/w7Cww/PCXNlMZwrjSD3LSLmfJxL2gp9v+H4uM4FL8p1vJ43Siq
+	 R4Mra9xlNUCig==
+Received: by traversing.sirena.org.uk (Postfix, from userid 1000)
+	id B669F346436F; Sat, 21 Nov 2026 12:29:38 +0000 (GMT)
+From: Mark Brown <broonie@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+Subject: [GIT PULL] regulator fixes for v7.4-rc3
+Date: Sat, 21 Nov 2026 12:28:40 +0000
+Message-Id: <20261121122938.B669F346436F@traversing.sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -50,31 +54,37 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] drm/amdgpu: handle broken dGPU hotplug GPE on ASUS
- ROG Strix G513QY
-Content-Language: en-US
-To: Mike Lothian <mike@fireburn.co.uk>
-Cc: amd-gfx@lists.freedesktop.org, alexander.deucher@amd.com,
- christian.koenig@amd.com, dri-devel@lists.freedesktop.org,
- linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, rafael@kernel.org
-References: <8072db9e-0df4-4fc5-b86a-cc50ac7934a9@kernel.org>
- <20261122143557.2412982-1-mike@fireburn.co.uk>
-From: Mario Limonciello <superm1@kernel.org>
-In-Reply-To: <20261122143557.2412982-1-mike@fireburn.co.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-On 11/22/26 08:35, Mike Lothian wrote:
-> Mario,
-> 
-> Thanks for the CPM _L05 quirk. I've tested it on the G513QY (BIOS G513QY.335) with the dGPU runtime-resume patch on top. The boot log shows `CPM: \_GPE._L05 notifies missing \_SB.PCI0.GPP0.VGA, using \_SB.PCI0.GPP0.SWUS.SWDS.VGA instead`, and the external displays come up after a dock attach with the dGPU in D3cold
-> 
-> Feel free to add my Tested-by
-> 
-> Mike
+The following changes since commit aebb7274476403040d582c61478df8f4a7bf9cd3:
 
-OK I've sent that out for review separately.
+  Linux 7.4-rc3 (2026-11-15 14:30:11 -0800)
 
-https://lore.kernel.org/linux-acpi/20261122-fdo-gitlab-6061-v1-1-8380b1ec4e09@amd.com/
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git tags/regulator-fix-v7.4-rc3
+
+for you to fetch changes up to b544ca82abb46f2f870d32b3d7cae6ff9d9d1311:
+
+  regulator: mt6363: Serialize BUCK_TOP key access (2026-11-19 18:18:50 +0000)
+
+----------------------------------------------------------------
+regulator: Fixes for v7.4
+
+A few fairly routine fixes for device specific issues, incorrect
+information about the hardware and one case where some of the hardware
+register access needs more serialisation.
+
+----------------------------------------------------------------
+Alexandre Mergnat (1):
+      regulator: mt6363: Serialize BUCK_TOP key access
+
+Ben Grisdale (1):
+      regulator: tps65132: Fix incorrect bits for VNEG/VPOS discharge
+
+Jernej Skrabec (1):
+      regulator: axp20x: AXP313A: set ramp_delay
+
+ drivers/regulator/axp20x-regulator.c   | 12 ++++----
+ drivers/regulator/mt6363-regulator.c   | 53 ++++++++++++++++++++--------------
+ drivers/regulator/tps65132-regulator.c |  4 +--
+ 3 files changed, 39 insertions(+), 30 deletions(-)
