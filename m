@@ -1,108 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.38.64.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795267235;
-	b=VSG7xiv2zfCgM3KdA5EUlMUHhwr0xYfcmJo8+pN/+YippcwEFIQBp0nVsynAT83LDXpy
-	 XeyxsaQuNK3UnmsK/a9XlZbafKwijCKcMPWYAAI4naJAwefOfj20BHAxJihY15b5R09vq
-	 dWQxatpSqAg0IlJlO7HNSPVEaCishwPzs5wUsuyFOAmxPcMf4OugkvKVbMtoxiOMNhS4W
-	 dEjNR+j8C/fhnRGllhOyKEeQrm6yGEHo2xzZW1+0IMd+vJIKhxxAyHYCZctDtzmTWmOZ8
-	 5bgxzuOChy7OdpYLDFFvaGJKUAMQ18HUkLFPbbT4C7cwwSNKzBMZ8+xnDBwCfB+BiUw==
+	t=1795267241;
+	b=uCuMFngAlyqOvbUjgiBSvSH3kSDoNrD3y8k0aBjrKXqujVGzHSJM/1mrXOovH8RTtGW2
+	 2VjgfucIpRcyU5yYJc8fxVZ/HE7JExfdxCea/CwwwoxVAl73Cqpo9gbuv3vivGaSgiMCs
+	 iI2S2zz5zFJwrIvn/z3jbbVBuRVFGE7lL4zEuh4t3dIXSVubjMFvATwBSgAVOueAJ/XpA
+	 SDC8QD+sipldkNsYjQPSvMl6W995CpZBpOpAfA5Wgb6xsDRGneTG1cf3LeRjH8uT3uLWj
+	 75QkH+c9JYVNNt2DQHyvb9jldyTSsJRWomvEcDRW/B5oMdwfuCkSTq3D27A2xKpnNiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795267235;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=yYXjnQVpPSMLj7f5uOA7HPu6qPGK7Swn2BNPn8FKS1M=;
-	b=ESau+EwWiW3k0+lGMVPnDZn0tIYVtEr1bt88QX6qLQc0HPJPJTOAPOZ86LK0lLnvqgPV
-	 Q492DxFyzNa6GRJre6xxFhehUQwr3nlLXfkV9lHxZoEXtBYw2/bRhm5HH/fYO1u7x83HI
-	 Hm6h2sAvrMFdcOkH2tZdY+T8tEpINqY+9hyIhuDIIHI0ZjYNQPrlVWX61Evz4zs6cymct
-	 GI0p5qjzhRkNeB+JnjBKr5haQFJPVLehzFjdzIs1wqHouP8Zh8PXhbw/AFnHD90rCC7I+
-	 KykuKE0zA3oszyVHEeQIVRievz+IlkocJhETELFxggufe04V1r1Q0ajTUcPvA+fhy4A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795267241;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=4lLIbWKR0g2AGGIyo3/1zIWFjXUvApnp2wJj76lYKIM=;
+	b=RrEVh34SWivBlDsLn7dyELyxjGxr6bUF/OBATu6GpnEGkw0qd88gE66/LQRhYSQmhDOq
+	 2aGFOUu2/bQ0RUZzichXsSXFyrlSpE1m4sX4KLioHe/XnrMEf3yRIb7kosRmm2yGf7GIO
+	 lUMePKOehtTLPJogZZILdYiZN50EVJrXflBJWCqbFm37dWihvdKWgN3doczAMFNb5SkLn
+	 WQa+IfyDgVSceS9wadDV0CIEtOHLQQlmnwGlDuzrjYfM0lyMZSBoDVSj0LWfV+aKHOgph
+	 BHfFXHQx5bgz2FPx23uSwcCQu92g28LmOEywp+JDALDVBnxtGOMB5CXpKQnZbYhdYkw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uTiv2BYh;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE8E0606A338
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:20:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE8E0606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=mail.ustc.edu.cn;
+	spf=pass smtp.mailfrom=mail.ustc.edu.cn;
+	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=P3HUQ+KU;
+	arc=none smtp.remote-ip=202.38.64.46
+Received: from ustc.edu.cn (smtp.ustc.edu.cn [202.38.64.46])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 914C1606A337;
+	Sat, 21 Nov 2026 13:20:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 914C1606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.ustc.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.ustc.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uTiv2BYh
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb64c99d2fso18526565e9.3
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:20:34 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=P3HUQ+KU
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795267233; x=1795872033; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yYXjnQVpPSMLj7f5uOA7HPu6qPGK7Swn2BNPn8FKS1M=;
-        b=uTiv2BYhIVALSebJza+/ccmqYW+ppUZ5CD2AFsis1za/c1NyJtTG8AGn2xPVwxlGt3
-         nUdVY0wA66eNnijXsUppdE3dMI+XFyoZGnE4AOSgbbg5fQU7+ZTRFYmd0kRoU4ZM8VDn
-         GzajvxX/9I4ZPYogJyq0wpKZcq7X4NiNQRwKxDSHibFqi0i+OVIilpdq/WCKHYcGxWVD
-         f+rTFW64WIagn2xzD/rwD5Ovq+pBO6R8Q3C/kLEuwTk6VaucDtiZ6sp7jdWuNyYqntZs
-         4yHwQAJJ07hH0ZETM/l6cEBOsKm/skgVsKHykEaF37x3u2OhiJzXRlDENpL73Nneh/pP
-         YA4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795267233; x=1795872033;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yYXjnQVpPSMLj7f5uOA7HPu6qPGK7Swn2BNPn8FKS1M=;
-        b=bQsu4iRLqhUGHz3JXxYh5YF08O2q+Bm+tr5/qwVn+SjkWdXbg/S6LW3E9o+qfaWAMh
-         Hxk92frvtpvsWmd930MzdKWvlLGlKQSutBmbC6A4I9mm9jMdqg8mNeXMYT/z42oYAmZs
-         6ukii+T5CzXu14BvhIcLcfSdSd38G04JgfLbf4YtPTxYLx0h2Yan/0XT7pXAFELOLcgk
-         HkvPTm/FT4Gyd+JFH4x4mR+PS4P2ov6vvJVfu+csjZJBrYW50jwlOPM9/QfDzHIsSnkQ
-         yKgd5YM1LQV5ldHLRm5lp6UF75zNP00xf3UTVxzKcho0Mx7saotUfbrOsOnf6w+KhVfU
-         yKeQ==
-X-Forwarded-Encrypted: i=1; AL+hErFJchAF9tEUJwTHm4X/fUHsAeuysYLg3lIxuAPVUe21Rca4hBe6MgZDt4Q7XJ5dhXmcxkTtKQVlLfiBXdY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+BFhO+W04RsDXLk0oPX/PqB45l+0Cg5wMDRUoNlXSbPjERMoHb
-	Pn7UXO6FH2P1xNGTvUuvZzzg3j6QXrBbZhc71toBb9BigSUNyZlR+whb
-X-Gm-Gg: AZFdTZdEBqGQp519a/ue14znai8/4ZKS4wkEN36Ho4F5Drlj7EhBrNC2N7qWecyz38i
-	+swsVwEYCoAIgOOLK6x5hu/cpi+Sjh2zBS64Pls+tedqDCZTzB5NCLzpm7/T0SL2Q1WCVxs6Jsx
-	BNvuZsIUrShwRAJUr7RjaJj8g+90mls3Zz1yqIkWCpnB/SgFsKD95PD/wF65gnk6scJQvCxi6Dw
-	ki1TnJYnVnyRzbbmvMArH7HSrynaZntz4O/HgQSHgQUCrwR0IFW3/Z5GpAT6AXPOzUgGUnaoFsB
-	a8n26SlzVu6T1al5Ub/dlokZ2OvH8HdPl9ZTpQKMHe2VnQOD3TpsT7zBwJEvZC+YNQXpphk0MdO
-	gPpeb8U/hgGizMlQ6vitNpTFYrXFwJlyQ1vll0HfchezTy0/2gRqOkjcGeFnW3OWWM2dqpOGL6d
-	/B3Wqpt+1UKzjiyQQgpvkqWbEbDiTLzvSMMqTqbExhT0E3fjpsDTkV7vKkj9hJ0G+1vAlmPiH+H
-	/EjNq2hQsjEUknbZRjUgo1pMXl7NyKmgwByruL+imeq1ouTWaueOUPjqISDYyW5E2DjmXcXpNiw
-	3b45Vo4fLteKDQovqe3yizcg096uUTPdlLIEWE7H+GR4yO/NKGiZAfXLWJOe65EThf5BCCDxZPu
-	GiSh44/x0TaZF1sl4XLPeslf53CMC2zGQATzWKSawe3eMa5uO/2P3HzCXKBJ98qckJg/l5EPXTf
-	98qSBvs+rNZSUXvrWfOW8koK8lDKaWw9fmJUATR5dStDC9CkM=
-X-Received: by 2002:a05:600c:3b94:b0:4bb:6f41:39be with SMTP id 5b1f17b1804b1-4bb8880ca3cmr163969375e9.15.1795267232948;
-        Sat, 21 Nov 2026 05:20:32 -0800 (PST)
-Received: from MacBook-Pro-von-Karl.localdomain (dynamic-2a02-3100-aeb0-6801-ad74-bca0-dc5f-7242.310.pool.telefonica.de. [2a02:3100:aeb0:6801:ad74:bca0:dc5f:7242])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb42absm12397707f8f.1.2026.11.21.05.20.31
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 21 Nov 2026 05:20:32 -0800 (PST)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	syzbot <syzbot+6835d5c11145e4f77057@syzkaller.appspotmail.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Radu Rendec <radu@rendec.net>,
-	Ingo Molnar <mingo@redhat.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>
-Subject: Re: [PATCH v3] sched: Reset cpumask if __migrate_task() failed for migration_cpu_stop()
-Date: Sat, 21 Nov 2026 14:20:23 +0100
-Message-Id: <20261121132023.41237-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20261120171658.Cf9qIU-Y@linutronix.de>
-References: <20261120171658.Cf9qIU-Y@linutronix.de>
+	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-ID:In-Reply-To:References:MIME-Version:
+	Content-Transfer-Encoding; bh=4lLIbWKR0g2AGGIyo3/1zIWFjXUvApnp2w
+	Jj76lYKIM=; b=P3HUQ+KUYclzOLduPCTM2KRCfw4uoHevsLvc8h9M/QkDZzheGt
+	OCHGN4z6VUoaJNKeCkpv5IAvmAWEMOp3TjIUwm0udzPkV7e4eDoweMzIu405HiB6
+	VIU/MO0DxYi0md2knwsW/4wDd9mln7m+0P6JsI8FAbXLf/YL7tl5pUoEE=
+Received: from xuqianhui.ustc.edu.cn (unknown [114.214.187.147])
+	by mailimap2024 (Coremail) with SMTP id 3pYKCgCnKT6dmgFr9DfkAA--.3095S3;
+	Sat, 21 Nov 2026 21:20:31 +0800 (CST)
+From: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	linux-usb@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v11 1/3] dt-bindings: usb: snps,dwc3: describe two connectors on one HS data bus
+Date: Sat, 21 Nov 2026 21:20:27 +0800
+Message-ID: <20261121132029.2379449-2-xiaqinghuan@mail.ustc.edu.cn>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261121132029.2379449-1-xiaqinghuan@mail.ustc.edu.cn>
+References: <20261121022104.1507987-1-xiaqinghuan@mail.ustc.edu.cn>
+ <20261121132029.2379449-1-xiaqinghuan@mail.ustc.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,31 +68,198 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:3pYKCgCnKT6dmgFr9DfkAA--.3095S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxtFyrXF4xCw1rtw1rAr1fWFg_yoWxGw1DpF
+	ZxtFs7tF4vgryfZ3s2y3W8Cwna9F4kJrnrKryDGw1UZa13WryrXa13Kw1FgFyUCF92va4a
+	934DW3W8X3ZrCFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPYb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+	8067AKxVWUGwA2048vs2IY020Ec7CjxVAFwI0_JFI_Gr1l8cAvFVAK0II2c7xJM28CjxkF
+	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcV
+	CY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY
+	1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4
+	xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCa
+	FVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JMxkF7I0En4kS14v26r1q6r43MxkIecxEwV
+	AFwVW5GwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E
+	14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIx
+	kGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAF
+	wI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r
+	4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07bzb1nU
+	UUUU=
+X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/1tbiARESB2sAn9smxQBLsC
 
-On Fri, 20 Nov 2026 18:16:58 +0100, Sebastian Andrzej Siewior wrote:
->  		if (task_on_rq_queued(p)) {
->  			update_rq_clock(rq);
->  			rq = __migrate_task(rq, &rf, p, arg->dest_cpu);
-> +			if (rq != cpu_rq(arg->dest_cpu)) {
-> +				struct affinity_context ac = {
-> +					.new_mask  = cpumask_of(rq->cpu),
-> +				};
-> +
-> +				do_set_cpus_allowed(p, &ac);
-> +			}
+Some designs route two USB Type-C receptacles through one High Speed
+D+/D- pair with a GPIO multiplexer, so only one connector drives the
+controller at a time and the device tree has to say which role-switch
+input and which mux state belongs to each of them.
 
-do_set_cpus_allowed() updates the rq clock a second time here, through
-sched_change_begin() without DEQUEUE_NOCLOCK. With WARN_DOUBLE_CLOCK
-enabled:
+A mux'ed data stream on one bus is an endpoint of that port in the OF
+graph, not a port of its own, so the two connectors become endpoint@0
+and endpoint@1 of the High Speed port, next to the Super Speed port@1.
+Each endpoint carries "usb-role-switch" and the "mux-state" that
+reaches it, and the multiplexer is referenced with "mux-controls", so
+an existing "gpio-mux" controller is used as is instead of a private
+property.
 
-  WARNING: kernel/sched/core.c:881 at update_rq_clock+0x4c7/0x560, CPU#0: migration/0/22
-  Stopper: migration_cpu_stop+0x0/0xbe0 <- __set_cpus_allowed_ptr_locked+0xd1e/0x19c0
-   sched_change_begin+0x14d/0x660
-   migration_cpu_stop+0x5f6/0xbe0
-   cpu_stopper_thread+0x25e/0x3f0
+The High Speed port definition stays optional: a single-connector
+controller keeps describing one plain "endpoint", the two endpoints
+are required only when "mux-controls" is present, and the two states
+must be opposite so that the two connectors cannot both claim the same
+data path.
 
-Seen on v7.4-rc3 with this patch (RT and non-RT) with sched_setaffinity() loops
-while another loop writes off and on to /sys/devices/system/cpu/smt/control.
+*** AI-assistance disclosure ***
+This patch was prepared with the help of an LLM coding assistant.  The
+author reviewed every line and ran the gates quoted in the series notes.
 
-Thanks,
-Karl
+Signed-off-by: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
+---
+
+Changes since v10:
+ - the version posted as v10 still applied the two-connector definition to
+   every user of "port@0" through an unconditional "$ref", and required
+   "dr_mode" from a mux user.  Both are gone: "port@0" keeps the generic
+   graph port at the top level, and the two endpoints, their
+   "usb-role-switch"/"mux-state" and the address/size cells are required by
+   the "mux-controls" branch only, so existing single-connector controllers
+   such as qcom/sm8250.dtsi validate as before.
+ - the High Speed endpoint schema is inlined into "port@0" through
+   patternProperties; the local "$defs" section and the "$ref" to it are
+   dropped, as Rob asked for in v9.
+ - keep driver behaviour out of the binding: the "mux-controls" branch only
+   states what the device tree must contain, without naming driver
+   functions.
+ - do not list "dr_mode" in "required": omitting it already means "otg"
+   (usb-drd.yaml, and dwc3_get_dr_mode() for a role-switch controller), so
+   requiring it rejected trees that rely on the default.  It stays
+   "const: otg" when present, so "host" and "peripheral" are still rejected.
+ - require both "usb-role-switch" and "mux-state" on both endpoints, so a
+   tree cannot satisfy one branch of the oneOf while omitting the
+   properties the driver needs.
+ - describe the binding relative to the baseline tree instead of as a diff
+   against v8; the v8 changelog referred to a "port@2" and a
+   "port-select-gpios" property that never existed upstream.
+ .../devicetree/bindings/usb/snps,dwc3-common.yaml  |   99 ++++++++++++++++++++
+ 1 file changed, 98 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml b/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml
+index 6c0b8b653824..7a9cb5a115a6 100644
+--- a/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml
++++ b/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml
+@@ -26,8 +26,49 @@ allOf:
+       $ref: usb.yaml#
+     else:
+       $ref: usb-xhci.yaml#
++  - if:
++      required: [mux-controls]
++    then:
++      # A multiplexed High Speed bus only makes sense when the controller is
++      # dual-role and both connectors can switch their role independently.
++      required: [ports, usb-role-switch]
++      properties:
++        dr_mode:
++          const: otg
++        ports:
++          required: [port@0]
++          properties:
++            port@0:
++              required: ['#address-cells', '#size-cells',
++                         endpoint@0, endpoint@1]
++              patternProperties:
++                '^endpoint@[01]$':
++                  required: [usb-role-switch, mux-state]
++    else:
++      # Without a mux the High Speed port keeps the generic graph port
++      # binding, so single-connector controllers are described as before and
++      # the per-connector properties have no meaning.
++      properties:
++        mux-controls: false
++        ports:
++          properties:
++            port@0:
++              patternProperties:
++                '^endpoint@[01]$':
++                  properties:
++                    usb-role-switch: false
++                    mux-state: false
+ 
+ properties:
++  mux-controls:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    description:
++      Phandle to the multiplexer that selects which of the two connectors
++      drives the controller's shared High Speed data bus, e.g. a
++      "gpio-mux" controller.  Each connector is described by the endpoint@0
++      or endpoint@1 of "port@0", and the endpoint of that connector carries
++      its own role-switch input and the "mux-state" it is reached in.
++
+   extcon:
+     maxItems: 1
+     deprecated: true
+@@ -411,9 +452,65 @@ properties:
+ 
+     properties:
+       port@0:
+-        $ref: /schemas/graph.yaml#/properties/port
++        # The High Speed port carries the controller's HS data stream.  Two
++        # receptacles sharing one HS D+/D- pair are two mux'ed data streams of
++        # that one stream, so they are two endpoints of this port and not two
++        # ports.  A single-connector controller describes the plain "endpoint"
++        # of the graph binding and is unaffected.
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
+         description: High Speed (HS) data bus.
+ 
++        patternProperties:
++          '^endpoint@[01]$':
++            $ref: /schemas/graph.yaml#/$defs/endpoint-base
++            unevaluatedProperties: false
++
++            properties:
++              usb-role-switch:
++                type: boolean
++                description:
++                  This connector has its own USB role switch, registered
++                  against this endpoint.
++
++              mux-state:
++                $ref: /schemas/types.yaml#/definitions/uint32
++                enum: [0, 1]
++                description:
++                  State of the High Speed data bus multiplexer which connects
++                  this connector to the controller.  The two connectors of one
++                  controller must use different states.
++
++            required: [reg]
++
++            dependentRequired:
++              usb-role-switch: [mux-state]
++              mux-state: [usb-role-switch]
++
++        if:
++          required: [endpoint@0, endpoint@1]
++        then:
++          # The two connectors must claim opposite mux states.
++          oneOf:
++            - properties:
++                endpoint@0:
++                  properties:
++                    mux-state:
++                      const: 0
++                endpoint@1:
++                  properties:
++                    mux-state:
++                      const: 1
++            - properties:
++                endpoint@0:
++                  properties:
++                    mux-state:
++                      const: 1
++                endpoint@1:
++                  properties:
++                    mux-state:
++                      const: 0
++
+       port@1:
+         $ref: /schemas/graph.yaml#/properties/port
+         description: Super Speed (SS) data bus.
+
