@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795300703;
-	b=mA7dyFCSkBi1oZ1pyCaADq/7SDVRJyP6WcGgycWXmm0bTZebrCJn+emFXpj99dS4p82a
-	 WQbEFB0v3QFR/m0jioO6kLqi+cC/zW1o4rEkq5G5o9ksKBHq9s8MligayPq5N72WBHF/b
-	 PIESyi3cA58evA4OoumvBJrECXx5FIogbKVDxd4e99zWELjkNrs5JVg+xDsyqeHa5LXrn
-	 z7YExC4GUXJ5Dirx9Zfxhs9Zu1QaZQ81JC3IBkM8I5XO8Klx7rH+Cycm5BZWf3SqZKlak
-	 wRtIylR0+FZOBODhPkVWykU6sOODqBOdjGzY6WbaHxUqPDS8pFIpZbS3qBtKnHUXO6w==
+	t=1795300705;
+	b=XuRGomEHTqmmWeVFc1kAyaz12KXExgJMUCbmZ/tMSlE6iCH4RgD4fFjl43+vsWJ6ajhw
+	 6eujzZHeHD7ZstO6G/hGGnF/D7GMfwCOcW7LqCuT2d7xNHXGnxtEI5VkU8GoQwikheg1v
+	 TH1MlPODFMVB+OincSzWydGcEu3Z35P0BAM81VLRb9+nWVZ78KL92RZTiVGPhS2oe+JXA
+	 ZygJ3GNL2XY0lj88ucMx++QpcGQfoURIHvvb438oh1R9aJwb+NUM0DCse0IPMdDYEhKXG
+	 ezYOiopA08BbJd1c6Q+Siil/HzPs7IMF/gre+GpeCBG5MXP8r/0HR8qOctOdHm3cHsg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795300703;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795300705;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=YWo/ZlwwGh1F92uA0N4HboD19wiKvOaTYvLMFqTnUkw=;
-	b=tCaI2VO2hALSyY34J44+KbrKO9+wvvaOZvHH8j9SzB5D5T4g+Sw8llJha92rke5c2nF/
-	 H4va5AYelZeEVePvpHfKxt07KyvOXgIyFY4dilDdHNsPLGycV8blRXRxmLMoItxdtlmWt
-	 TuJGzzxytrRkjGhhnhlthcT+5fnJA83fkbfDdfXT4c4vkxyv56HTkJXWWtCTWlkW7R5nd
-	 D5GpYmg4UHaDcKKH5VMJaWL5GxO/SbIfkJF8XcclfYmR6NBSlxGzrw/AqWhNesbeErYyx
-	 ORK3qyk8jOcuD6hBiRzaVpCbf6bFVJ2OYMA65Q0kE+iiWOnjwtGsek1OSp6pu08pzFQ==
+	bh=4mkoX+OtXZlUYM2KdWyZuMLbP5nRS3AuI75xvEPjRPQ=;
+	b=mDXdr4XYOSMub63ya0UQIZbOOi64BH+mf5m6GP6phH1frr0IBsWyD6+wguBq1FfJ6cW+
+	 T4Rjsc+YB7Xs91Kj12k5TRxJzuOaBT/ZDvfe/F5RnNgsVaNXTc39UNnGgPbEW0xsFC878
+	 /T8pqYGVNxoZKdAlzl8JgcBERjrmNhLQf9KVxXmtStvRZ4A0mvsMXb/taYXQiHR9osDZz
+	 2VDupe42A2RSB66mJsKwT03CACl0xFBgVIe0NwWrbJDl64ZV4+E/vjMhCfdykGGpNXEfr
+	 bJMfJrsXlqOgFoBnhuIegu+XBW3RQoXCqWh+jYEYRuRLHd68IZHnwkvvKqe/q4puR7w==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Edjp2IeQ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BxFgV7bc;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A6F9606A680;
-	Sat, 21 Nov 2026 22:38:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5E3B606A68D;
+	Sat, 21 Nov 2026 22:38:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Edjp2IeQ
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BxFgV7bc
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795300703;
-	b=oPaT8GrzYqmDmvzW4ZfImBcLRuYXVWJ25YLNcbYRsUgdAy2GCGvQYn67vPmBKLL2Dm6c
-	 LPEK2RA1klZ/FRCHwJu3ZTTpCAMKzMytw4Csci47esLL4/vY4ahBw9dVkFJ7KErflWtwO
-	 TNiRRl4/oCj7raQ7su75H89XwF1naWosRf51BLST+EQHqMlx5GPshgjPMhFi7BP/nm49A
-	 tYt17zqQDR4fYMKx1AqtWz7eidBhGxXhDub+WgNj+QXBi7lwwNSPZT0rqnMvWGokRNiYJ
-	 Vx+VQ3Whkrsvc4DxJAWeImtOFLlGFeAZTmOrIN55xT3jbcpLH9y7ZqfGH872TudZ4pg==
+	t=1795300705;
+	b=tqFpFV0WALk2aZwXLAwOFyVQGwh9WeZBY30rHTJw2vNhBzzZ6rHTUYSLvThcYsvQCFoN
+	 aJuJCjqW3OoEPQJVB2RgCgw6ox0n0mFslbxv52bQu7FKiEmdrjO3spP4tlFielvngme0W
+	 JpppaNbSzXbmOL3pinmqMKAoihltq5nYXPdoc6cxmUWKNFHOKjcoLyJt1IJfj+lBThll5
+	 n55zbn2Kydsj7oL65PGPE2i1G/kJBiyZm0Zax+Fhg0f3Z7O9wa0wnLrFsJocbAUTTJR3B
+	 GZLjEwV7umOAe7ui2qD8DxdJLLkF7ih5tbiXIG858eHdlfoeBiOhiSLVk8PtBF026Bw==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795300703;
+	c=relaxed/relaxed; t=1795300705;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=YWo/ZlwwGh1F92uA0N4HboD19wiKvOaTYvLMFqTnUkw=;
-	b=gN6Sq56kcglhKobCWi0XhyF5bLMnvDKAm146q8EABDgi9pHYCSm+68A6iPWaPhIyWtWx
-	 6O5JYnt9OcKtkoo+UInBFiPzUg/eyo23s40lUdTVqqYvl/gOfd8m4uHBRqO0klKX5FvOr
-	 hzyq+IheA3aRIRF9eNJT7XSnEsYyw9IVPuEuok3U/QABK3qqX+IDLnU5q1sRR8WMPakx2
-	 cdeyXAfKt7Zrar90J1jefL56BbWj8nbkx81ElhHllUWMgTrBgiptoM7NmwywxQvv1fDTF
-	 Dfq+bqTscdxeo36Qnu1WIoyCmXD0NyzwQAPiZe828UuqeEMjs0vsKC9KlIA3TtyeeGQ==
+	bh=4mkoX+OtXZlUYM2KdWyZuMLbP5nRS3AuI75xvEPjRPQ=;
+	b=Pz2awlAE8ChieIzFAPTaRsRDTnrhJQHOzWdRj7w1sIG+so6NR4rFzHdMDEWq5KPTHj2Y
+	 1SPO485V6bOF6yW/35YZg5YVLMmBo4zxtc/eXY9TWpX8gmK2FjM3NzuuL+NdsQpn/VeTz
+	 UfRsvqBJXwdrC+sz+QEUvhsJ/uE6noAde1pdk8Uweb001IuXilFSvj23xVrZ10GZ84JS+
+	 CVsB8bGVnARWRpLBJ7lTMmbuxOZCXUAZxzk/CLsg+7jYcHG5yik466U6smjJHIEyIXCdF
+	 dSY6jIinewCkiS+ojX+QRnVG6LK43WwE/578KWDpMDJUukwqzmNbchVdSAJ42wLiPlg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 682AC1F000CA;
-	Sat, 21 Nov 2026 22:38:21 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id A06B81F000D4;
+	Sat, 21 Nov 2026 22:38:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795300703;
-	bh=YWo/ZlwwGh1F92uA0N4HboD19wiKvOaTYvLMFqTnUkw=;
+	s=k20260515; t=1795300705;
+	bh=4mkoX+OtXZlUYM2KdWyZuMLbP5nRS3AuI75xvEPjRPQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Edjp2IeQTHjrEUaMbRFLiZR9LgofP2Gih7+uyQZBvuf4Tf3j3d1nCaFoF9I9/A5NM
-	 k1LLuUzX/WIhHc6+zoUq4hIaKjFqxpd3mDuFsA71eH5XEkLaYDedL+7m6WGrQSF5yx
-	 sd9/K2puy97ftQdzlCqLEpyOUaq6Q0opbp2hENhzhK8bjXVZdCTc00QVj7VxoVjKEW
-	 7EHi05GjoTpVLSnP1SsTF9K5ryGGoGn2AAMQRPmUUEcSgVe/pQxHV4EZKu8W2tRrH7
-	 k23lStyD1GL74Ytff27hRuY1RgOVZvMpYEl4mWPOBoiy06fOp5KRfUfNRlAgFzdZgg
-	 siw4CkwbB/KWw==
+	b=BxFgV7bcpK2dAf7q5MRXYxG46mHWc9rWHr7ice8L2NaFZLwDtmG2fSjVYS77YlHoz
+	 hGYS9bL1H5xirS8X/Z5K7A1Z9HyyzzW8ZHa1UvbTH0u3sG3fSJ9eHttchnL81wrtoE
+	 tH+QmG6jfeeFWPfJ1JzmylzrsPGPzR5oR8Ds6eiZVelmBBKO1nWNQXUMFzYoHJcC0K
+	 IbymRRcZNuqpv4bSQoRmHPLfv7PmyR0s6yehMQHclAd77xrCoarudigMs/xt0HKxkp
+	 fwBYsEtilTgKJeiIeY/jAJYn7BxzHQ2FfLEBmQ/58eqJrx3e5ngQWQbLfBp5Fae8OY
+	 k3IPzouBN69dQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id E598B4BE2A;
-	Sat, 21 Nov 2026 22:38:20 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 61B6C4BE3A;
+	Sat, 21 Nov 2026 22:38:21 +0000 (UTC)
 From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Date: Sat, 21 Nov 2026 23:37:56 +0100
-Subject: [PATCH v3 02/12] regulator: qcom_usb_vbus: Fix the
- MODULE_LICENSE() string
+Date: Sat, 21 Nov 2026 23:38:00 +0100
+Subject: [PATCH v3 06/12] arm64: dts: qcom: pm660: Add node for PMIC VBUS
+ booster
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261121-pmi8998-vbus-v3-2-91ba2e61a877@ixit.cz>
+Message-Id: <20261121-pmi8998-vbus-v3-6-91ba2e61a877@ixit.cz>
 References: <20261121-pmi8998-vbus-v3-0-91ba2e61a877@ixit.cz>
 In-Reply-To: <20261121-pmi8998-vbus-v3-0-91ba2e61a877@ixit.cz>
 To: Abel Vesa <abelvesa@kernel.org>, 
@@ -103,21 +103,21 @@ Cc: Richard Acayan <mailingradian@gmail.com>,
  linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
  phone-devel@vger.kernel.org, David Heidelberg <david@ixit.cz>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1233; i=david@ixit.cz;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1176; i=david@ixit.cz;
  h=from:subject:message-id;
- bh=F79nBmxItmBKLY+5BEM13y1NDT1vp2palB3VbLLu0zM=;
- b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBrAh1afl3rcaq6g4wTWEwFc5CPeJ3e6HObeuEC9
- li6KnB8sT6JAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCawIdWgAKCRBgAj/E00kg
- coMcD/oCe2oRgElpBSGKInEhx2e7IDBu390+H5o9R7XOLrWmCdtAN954iUPufOnMmFauwcxTMWo
- QSb0/MTt2JoJ9QUXqMyg0wN0BHc6tODnmAwkhDBE0Ta/ivviYGNQdWpskEFb9NAViaWQw9BF2wc
- x4oLYEDtkopMivVuwTkYuMghDiXfm6woMsBu29Ju28C0WPGdBQjLX4vTWg1HswaCnYuAVBNAQbs
- BiLEeXIqAvZtfa0tMkqtAAfV0m8eSVQJCoeTeXUfa1rEMqVsoYo/tDuFfj4eUr4VfY/VZLk/DgK
- Hp90WoHufVh4+WH0ZMISXE7XHbMCFb4Y9yiaLFn+beTVCpCnkZmDP1g2Q0ClxbnEtX0QU6aNpZn
- lc3n/ltQ5o0qvXYgNf/kIS5eKBkHrAq1EOq6sacootAZdWzPfa6mcRHOn2xGa8pyI658Jyw40lK
- Mf3+1zlWfDN8Fwe5+JbiUIStwLIDQi/CsnTLpoMqvxnl/UuqadeE3vAt4ElI66d2acfuNd7/iqS
- ovv5338YMGo8RDM3kE4aaexBCM2Ka0dGmcwmAfmCYUx7EEB4THsCIahFvJ5vGeQuUvdhec/BpR5
- bTsr+/D9II5wEzuK+rdmjSwIDb7aaWTz1rQJLO1RSExxgNuT6jnUeQGWWjLFC83NzySkdcYXZ8f
- x7va73EyaUSbc5Q==
+ bh=YJAh5JKxsMmwh1tjGfME9pip1rZ2KokfphW0+tMoGZ0=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBrAh1buHGuUxmoIIzuGDVDXYwd52yGDl0BlJRVk
+ yNslinULPKJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCawIdWwAKCRBgAj/E00kg
+ cjxaD/950tAIkyPW4qo258AxR9vp7/L7FkyGsj5RyVfHV7xc0yCzkZq3FrR8RoTCTi/xP+S+d84
+ Ey4aEJw40nPGL2/1O9AveqW4IftRIq10ppkmziT/UkGtXyyomlrg3kHfdeeCih2SnU977PLvcmc
+ SafSfAZkiK4LQrvSnrL435MMHMHd3Ke6j6A3pq+eQciybEjxxg4uVWL1wfWQPzPRGmjEkoWOZCt
+ 6QjNkYvK+KUMs3M8chU1BkfQRSb5OLfhvq38f5802E4dwnSOMKf004uzsTc/dqwgIPj283LPe2w
+ CO98DtuVPxDsV7RBoda6XVqPxhOpxo/lULboNpYcpHusmp80yjaSDSAAXXHVjNASvUX4etDkxXV
+ I0wSPgN8vsSd5nQ0V4+aIFMSb7r6JxAVSq7T5j/xTP3lgGawEGWeISs0Ro+xI1jDs6ijkU21sDl
+ CVG0cdLITKmOC3EWXxRbuX5DEQlQb/bTTlW61NtXigJ9dEZI+1OHWrzshR45R24lm+gRgaiF+Dk
+ jEVD+OMgi5S8bjCbkSLfYqMKBjMJ14SLpAYQT7y74iqj9d9u59c3d/NFo/oodOhYpNdvaVBvxM2
+ oDUBInG5bFVoO/NBi+trlA8GgS4+/NUidcGZhOmhmnqfLtecYcfmTL3YpeeC9jUHOppaKxo7WW/
+ wtP53V1kEpTZTOw==
 X-Developer-Key: i=david@ixit.cz; a=openpgp;
  fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
 X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
@@ -127,34 +127,43 @@ Content-Transfer-Encoding: 7bit
 
 From: David Heidelberg <david@ixit.cz>
 
-Replace the bogus "GPL v2" with "GPL" as MODULE_LICENSE() string. The
-value does not declare the module's exact license, but only lets the
-module loader test whether the module is Free Software or not.
-
-See commit bf7fbeeae6db ("module: Cure the MODULE_LICENSE "GPL" vs.
-"GPL v2" bogosity") in the details of the issue. The fix is to use
-"GPL" for all modules under any variant of the GPL.
+Add the required DTS node for the USB VBUS output regulator, which is
+available on PM660. This will provide the VBUS source to connected
+peripherals.
 
 Signed-off-by: David Heidelberg <david@ixit.cz>
 ---
- drivers/regulator/qcom_usb_vbus-regulator.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/boot/dts/qcom/pm660.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/regulator/qcom_usb_vbus-regulator.c b/drivers/regulator/qcom_usb_vbus-regulator.c
-index d909a6f2b7f14..88f5a6ba79e6e 100644
---- a/drivers/regulator/qcom_usb_vbus-regulator.c
-+++ b/drivers/regulator/qcom_usb_vbus-regulator.c
-@@ -176,9 +176,9 @@ static struct platform_driver qcom_usb_vbus_regulator_driver = {
- 		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
- 		.of_match_table = qcom_usb_vbus_regulator_match,
- 	},
- 	.probe		= qcom_usb_vbus_regulator_probe,
- };
- module_platform_driver(qcom_usb_vbus_regulator_driver);
+diff --git a/arch/arm64/boot/dts/qcom/pm660.dtsi b/arch/arm64/boot/dts/qcom/pm660.dtsi
+index 156b2ddff0dcb..fe9ef304d64e7 100644
+--- a/arch/arm64/boot/dts/qcom/pm660.dtsi
++++ b/arch/arm64/boot/dts/qcom/pm660.dtsi
+@@ -85,16 +85,23 @@ pm660_charger: charger@1000 {
  
- MODULE_DESCRIPTION("Qualcomm USB vbus regulator driver");
--MODULE_LICENSE("GPL v2");
-+MODULE_LICENSE("GPL");
+ 			io-channels = <&pm660_rradc 3>,
+ 				      <&pm660_rradc 4>;
+ 			io-channel-names = "usbin_i", "usbin_v";
+ 
+ 			status = "disabled";
+ 		};
+ 
++		pm660_vbus: usb-vbus-regulator@1100 {
++			compatible = "qcom,pm660-vbus-reg", "qcom,pmi8998-vbus-reg";
++			reg = <0x1100>;
++
++			status = "disabled";
++		};
++
+ 		pm660_temp: temp-alarm@2400 {
+ 			compatible = "qcom,spmi-temp-alarm";
+ 			reg = <0x2400>;
+ 			interrupts = <0x0 0x24 0x0 IRQ_TYPE_EDGE_RISING>;
+ 			io-channels = <&pm660_adc ADC5_DIE_TEMP>;
+ 			io-channel-names = "thermal";
+ 			#thermal-sensor-cells = <0>;
+ 		};
 
 -- 
 2.55.0
