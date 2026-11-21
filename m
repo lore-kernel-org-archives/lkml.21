@@ -1,92 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795246396;
-	b=GXiDOdpju5afvuIDVqfl6Dakx3N4s65VjrwNKpPryMuDh54jNkEDtJd3gcXOaO0RuGYw
-	 FCCfapI9nyplkEINmAvAV1TAvuU3XW8sWhvhQgiI8Hx/J3G92OvhDDl2mCYjJ+qAAXEbJ
-	 k5M5rWfp4MoKmzpRXCJMAGdopYzu4w+lXfH/iorkIA3cl3CTibJVwA9l2OEzGiG+5XezV
-	 18/PW2Ocj8+GUf4aqIE7Xkzd5mtwlewt9o2dBwNZoK/PIktLYy1IfKPtwQ1u3Yn2bR0LE
-	 figlbK9ESSqCKqqv8MG0fwMArQU9zYDX4ODjByLotsgVKCwgbJUVrDljI4p/pIHqM9A==
+	t=1795246632;
+	b=ftN2nKAvvwCin55Lfb5/7qeqC3oFToGYBDF4CWggUX87VW3S0LpALMAsB/S26sRN1mTg
+	 ebbpRKXK6DFYePUw0dSyWNeNxBFdoeVGS/MoqFT+VqsHEOhwwVXmPgmsPP6S8Qvb4J6RI
+	 BMKXCt2GrJERQhoOhDqIyquniM1RpT0HGJ/3xPMl475rstyeCQoWpx3rb2lAJ/YNlHHA6
+	 gS2klzvaNvIoWMH95XynOla0wldhDZeIUQLCLsVB69q5no9dShjFtCp6yzoo4rccL1avz
+	 bj3VGfFWJM7HGfh3bvZdZDMmN3d1R0TuQTndQdiPkvIcE5IUVnWTP/IF7o46yQkbcNg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795246396;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795246632;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=YBrHrJ+Fi6ULgqrmNdXQFkJ1MFe995vz1lrt+TAu8xU=;
-	b=vXixkH1jt8at6lusdvjS6xLCQwTTO98dQfBTOl115MSJxHeAZqZxaX1JUso615eQiaaO
-	 weRTNPaaM6reO+dzIl4VtBtqmdRZrmZjQPSWtSHRkh0Mm7moYyTLc3q+gmD6MmT0QZ7vA
-	 kRbV21pqiyGoAUpAZNBsm9Mpur9D4l1bNFVxP7f4PqAqAQuo4btrJRu981EjNOwVhn9S9
-	 EmbWQVZW2JsZsIXnUo6t1+Kv8sAyicS3yNjhC26noxjTkF+1DV9zqvXPHuIlzOupwhQdC
-	 ewKzX+GevOxZYcnWIVkIvyej+dzyu3noGYIXdfbbwp/n49i+rG2eIV8rjL7kikYbnNw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=oKJbFsXVmFySjrD7iPV/I2lv8ymeZ/7zHMMUw+Z1AIk=;
+	b=VY65tvRbOflhUYBK/emwm0MdQ95Dla/IT0DXMo2vqtEagRkn7TejXICRUXGS1MWUwmjD
+	 Bmgo5B9ZLIe81PjMXOKdM7jFMGaHo26KQGRxE2naQmM5N1WSekF+99G1Dc1GhWlxujUS6
+	 pz5JaIIYC/wY2sBK/Rde7+Zsh/h2bgMY3ZDcuMbkvooMYmTS87Np2yeMLF7se7GT2XE0Q
+	 uf6ciMqwGPQlhiha/K2AGvXpjSRdc4Sfp/tMbSSSKofQE2N20bH2W/KlXnlRV8CROxapS
+	 Ne+mLzRz4VfWsw2vnozF6TrN2AEdeH7aGHZYqpiCMay4VqVovcBOruqeRAM1ZqsrFxw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g1KOuyd3;
-	arc=none smtp.remote-ip=209.85.214.179
-Received: from mail-pl1-f179.google.com (mail-pl1-f179.google.com [209.85.214.179])
+	dmarc=pass header.from=luxonis.com;
+	spf=pass smtp.mailfrom=luxonis.com;
+	dkim=pass header.d=luxonis.com header.i=@luxonis.com header.a=rsa-sha256 header.s=google header.b=Kc9Ib98R;
+	arc=none smtp.remote-ip=209.85.221.41
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FB2D606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:33:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FB2D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13397606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:37:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13397606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=luxonis.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=luxonis.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g1KOuyd3
-Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2efdb4499a3so1288865ad.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:33:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=luxonis.com header.i=@luxonis.com header.a=rsa-sha256 header.s=google header.b=Kc9Ib98R
+Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-48e09aa5264so880537f8f.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:37:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795246395; x=1795851195; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=YBrHrJ+Fi6ULgqrmNdXQFkJ1MFe995vz1lrt+TAu8xU=;
-        b=g1KOuyd39DbO1oJZCtZQXHAn3r83eoHFvdLOFAI6r1gcMgxhNE2+lmbsNryPqUR5AW
-         Kel2datY0J7UYUxZY6D4S6tgYPu6kSzulVufKRKEzqy7Tk/GmdNfulm7DdpnRd4QXKaY
-         2sSmceBXbDZfpb0UXzrHiIzTPW7AfIyBRpeFN0EBAfM1Ibu3dkiXiPZprw4HeTNOzZUl
-         GgBBCQMlbL4QE75HrX4LOp5N+YSwOlQcHm1pVcyidVVbBb/E2QLFlr8m6asAVNnJ4rA+
-         BmnzbmNp9JuNHsHAixgL5JBO/4HvBljTLUIOZDagJBcDJAz9UHhz75/L6ZBBVaXg546a
-         x0Dw==
+        d=luxonis.com; s=google; t=1795246629; x=1795851429; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=oKJbFsXVmFySjrD7iPV/I2lv8ymeZ/7zHMMUw+Z1AIk=;
+        b=Kc9Ib98RxwddyjrGkiLXxpmVqLPSynnLxtQ1LjdjQFRMM3prBT1tjJ1xxZx5fR1+lm
+         5mUEZt0AZ9XNhWQrIUj63WGkpsMuDsdJCO9HPeWg5N+muf+NvvLiww2zTY8s/vij88f/
+         EqbtOUzCsx7kmD++xYp7iQiUwO2L2W7/IiUYE2nqeQDNtE2Dwuj8FLr/exoP0CgMBhXv
+         RmsaXnmDwt9U9jYZivSrbeosy//TqgnWgV1vqn+95NDHKZIESF6yXA/m8mWy74C8722q
+         s/+peetHzFRt+DTUkpv8PMKyRQW5aPzfkqwfA6pk6rWh3ZGlVmh3qxSRGL9JPKqE9y/P
+         N7+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795246395; x=1795851195;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YBrHrJ+Fi6ULgqrmNdXQFkJ1MFe995vz1lrt+TAu8xU=;
-        b=AgOqXegZi3zVJvGw8LvwY/ydLRh9jQ0DwVOPWt5XXRO2MLM54AqIboSy6CclSi2fI0
-         v1LGId0x6SfZTe/Mv+DzIjUMfL0gns+iHhkbFiuHxNAX0oIkFhgGl87if6B524eIw1eG
-         9h2Dxi7FE9YD4dJkckAAO5MZ5ctd9wDiEvWscN618f8qj2FF/C7mp2I+MD45b/RW8shf
-         IkZ7+DLf+X+76Cj/kHGkpGemRGzMiSPqqeSBlEV7TCPIqGZWvB395m3IJ247xfrZ8uvo
-         hitSlNfY6BBUiZRVDOO/SQ8SUDNrq0KgqCDnQEtwG8Uhv2mjQlVAnVdIxq9hgbDz7NmQ
-         DtHQ==
-X-Forwarded-Encrypted: i=1; AL+hErGB/JaTZ19XA7FOAwF3HABjd5F4lBAgSpE5Eea3dU9az7tKoCLmGMrWcb2ftnXyAMRxw2fcVt0rxjXxE90=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9O1ZluRARU0Re6svG3j0bAqwlii1HcNDeLsqxh3HYfooUIZdw8
-	W9AEa+31FBDYVxezn61NZn53An47VuzsTQTyxQKmbd3mFekqiKM/pN8GPdYBBw==
-X-Gm-Gg: AZFdTZfcv2Uvb9Sn6PBC4qBEbE863Ij5hDm1bHX0bpZc5QbpmTcGxd1C2U4C1Eh3wZa
-	6ct5fNKNubFvnCcozStpaKKQB64LMpg2gYtWOOK82Cm9chfFBzXXmkkZYlK+OeOtcKCAkFLD91B
-	FBq+ozB2GYqaF7GOTpoVvE6Hi11wiBgT8xX1fnRekE+xwrRzz/H/EfgqMrm2e+Oe5Ml2qrIg40/
-	rlv5v260XrrEnk7vSQi2bE10G0Blm3/SpMgLVPBz6pv8BT5gYmpYtPYX1tPrLcGX4QIUsi6Zc9T
-	Emv1SMalsmPzq8O7+Hvy490wwIak4jJ8X1lcrmolpjkYYDQrBbgmwAD3FX98nehe7fvXu4esdpK
-	kWS/HeEg4ztgkPEsgXwilcMUO0OSj0Xs62TvJ8mdwQQ66sCJi8P8eZiyV9DEyvp4QKXsIA50zgw
-	DZ4WVDUI170zjQ4cxoR+zLp31EDhIVrV3OtYFO+BzdbQLMyaPtvggyqmyHVVTwkcUMwE5uLuaxY
-	y5xWtCM7enXhoOhzDYEdnPPUfuZF8nj48mFptEG32/w81H1j3zoVIw+KfGrNne97N7oleNpcjey
-	TFYRaLWHGqc7oWgnDc9iZbbU9340s8zGVNuK2Kam3PBW1pp6PWeNrw==
-X-Received: by 2002:a17:90b:57c6:b0:3b4:e3e:642 with SMTP id 98e67ed59e1d1-3b41c579226mr8216561a91.0.1795246394913;
-        Fri, 20 Nov 2026 23:33:14 -0800 (PST)
-Received: from [10.232.20.87] ([101.90.31.190])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecb486sm10344021a91.16.2026.11.20.23.33.12
+        d=1e100.net; s=20260707; t=1795246629; x=1795851429;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=oKJbFsXVmFySjrD7iPV/I2lv8ymeZ/7zHMMUw+Z1AIk=;
+        b=Uh9caEFMpgDlyubUzFEIA7OC9z1VzXCUmOhSyKwSrc9D4Jn7imlQLeW8c2JNd6BF3M
+         I5m4bgJGSE7kdRVJ6gZIqWkZZ+c9elHZipSK6CzEVttHn00dyTu69N8xBCkckS5O8V7J
+         43eU16S9SjGfV2elHiC5wZjzwcI9/GLrKozsKpewIWtR4WYT4FoxhqKZeZVp61u7W5uY
+         zz0PBRT8G/30qzaAhM2BpomlT9QIrfsQK7UujGDpD8fgQgfktfllqvZw0P3LmP5VqvSk
+         ncimkKkegH93JJ9Zu16w3ZV3NLy0T5BZZ6VbfeCzkT1T6b4dz4BYzE3SP9/I2eu4Zzpr
+         6GsQ==
+X-Forwarded-Encrypted: i=1; AL+hErH/8t9W600ctkx6j+rL4ZhQm7FdMzIml8iRiwxZrd2ze7/oS9sdQ0w2y0I5DiouuH12q9Z4bKz9ICBwzO0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+US5u8IT6L4o1W5Xw0MygnUhhSyJudYKBNrbXnkUKeZzU6nVkW
+	hfy6dpMNEtFE5cv3KJ5niy2eq/JSOmam3r5erCOU6fMtXXJ4/7y/8/1EeIfDKJNypsg=
+X-Gm-Gg: AZFdTZfX9Qvnzz7NFMbZ9y4F3DvG4rZdth2siwaYTd/NsJqXlpAOyGbpmlx4fc+LBIB
+	Nao+LKmkJEHT3RiSad7VnxeorKvAHxd9aVqx/dakIHcqzuIQKnua2mnxM2QXePgvb3ELx2ezita
+	x5aGYYcp0Wc5q2CH5s6EJzdw1itjH8whEg82GjpIAsW3WpC0i9DOzxmaJuZrAATiB0xXqa4ZtjK
+	eJr8hJhjHK9R/MJojJb60pSQm09ycjNkuNyq6tbZppX+e6q92lclt7ZTnKOwzfwfcLhP3Exc6Lj
+	jHI0RwsBygoQePnORCR3CWE29LUy7RUCeQo9eH/i2Aq8zzbSHo2Fjq4SvQA+dYVLBj2x8ttEtQe
+	1Ul9MO6ycY43J8yugVACFuE+BfoJB23MsyPyn4dO5s0Uy/1flgYf/KfTcRQLjtZnVW0v1Glc5LU
+	VcVMAOTae6iKQLG3Y5t+fSKSPXvv4Xfd03N/Eq0nFP+BE7mtnJBVNZvvaxhyD6kWY9GT+uAS0p+
+	oiAM2RYI2Ss8Q8ALitnB0vXqY0X3S3XVcWIT4pLiJwyJN2tz1Jx72kX6Gvs0/bfrPZDriVdXTdJ
+	pigXwZLT7gio0uPrtBzJq0tTCvmzG8/7f3STcg5iOj6jj/AhiWWUN9PFYKsBvrLfECSJSw==
+X-Received: by 2002:a05:6000:2602:b0:48a:f404:695e with SMTP id ffacd0b85a97d-4abb5518f07mr11610591f8f.50.1795246629309;
+        Fri, 20 Nov 2026 23:37:09 -0800 (PST)
+Received: from JureBuildPC (46-150-36-237.static.telemach.net. [46.150.36.237])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f281sm9508933f8f.22.2026.11.20.23.37.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 23:33:14 -0800 (PST)
-From: Anfernee Cao <anferneemelokc5@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Bin Liu <b-liu@ti.com>
-Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, Alan Stern <stern@rowland.harvard.edu>, stable@vger.kernel.org
-Subject: Re: [PATCH RESEND] usb: musb: fix double put of gadget device on setup failure
-Date: Sat, 21 Nov 2026 15:33:10 +0800
-Message-ID: <179524639094.16200.18023925953069130613@gmail.com>
-In-Reply-To: <2026112011-dingy-onyx-4d4e@gregkh>
-References: <179250629747.20696.17364135141613638741@gmail.com> <179419596286.2244.11782596409403661076@gmail.com> <2026112011-dingy-onyx-4d4e@gregkh>
+        Fri, 20 Nov 2026 23:37:09 -0800 (PST)
+From: Jure Rebernik <jure.rebernik@luxonis.com>
+To: Heiner Kallweit <hkallweit1@gmail.com>,
+	nic_swsd@realtek.com,
+	netdev@vger.kernel.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Sunil Goutham <sgoutham@marvell.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	linux-kernel@vger.kernel.org,
+	Jure Rebernik <jure.rebernik@luxonis.com>,
+	stable@vger.kernel.org
+Subject: [PATCH net v2] r8169: clear RxOverflow before unmasking interrupts
+Date: Sat, 21 Nov 2026 08:36:52 +0100
+Message-ID: <20261121073652.410916-1-jure.rebernik@luxonis.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,63 +104,118 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: 8bit
 
-musb_gadget_setup() calls usb_add_gadget_udc() and, when that fails,
-calls device_unregister(&musb->g.dev).  But usb_add_gadget_udc() already
-releases the gadget on failure: usb_add_gadget_udc_release() calls
-usb_put_gadget(), i.e. put_device(&gadget->dev), in its error path.
+When the RTL8125B runs out of RX descriptors it sets RxOverflow
+(RxDescUnavail in the vendor driver) and stops receiving. It does not
+start again when the driver returns descriptors to it, only when
+RxOverflow is cleared in IntrStatus. Since commit 6994520a3328 ("r8169:
+disable interrupt source RxOverflow") nothing may clear it:
 
-The device model documents the same rule in the kerneldoc of
-device_register() (drivers/base/core.c):
+ 1. The ring fills. The chip completes the last frames (RxOK), then
+    sets RxOverflow and stops receiving.
+ 2. rtl8169_interrupt() read IntrStatus before RxOverflow was set, so it
+    clears only RxOK.
+ 3. NAPI empties the ring and unmasks the interrupts.
+ 4. The stopped receiver raises no new RxOK, and RxOverflow is not an
+    interrupt source. Reception stays stopped, and every frame is
+    counted in rx_missed, until another event such as TxOK makes the
+    handler clear all status bits.
 
-    NOTE: _Never_ directly free @dev after calling this function, even
-    if it returned an error! Always use put_device() to give up the
-    reference initialized in this function instead.
+This was observed on a machine in real use: an RTL8125B (XID 641) on the
+PCIe bus of an arm64 Qualcomm QCS8550, running v7.2.6 and receiving UDP
+at 800 Mbit/s while sending nothing. Reception stopped for seconds and
+a single transmitted packet restarted it. During each stop, a debugfs
+dump added to a test build of the driver showed IntrMask 0x2f,
+IntrStatus 0x50, NAPI idle and all 256 RX descriptors owned by the NIC,
+and writing only RxOverflow to IntrStatus from user space, through the
+sysfs PCI resource mapping and with nothing transmitted, restarted
+reception in 17 of 17 stops. The order of steps 1 and 2 is inferred
+from that state, not traced. Reproducing the stall itself needs no
+kernel modification.
 
-The extra device_unregister() therefore runs device_del() on a device
-that was never added (or was already deleted) and drops the reference a
-second time, causing a refcount underflow.
+Clear RxOverflow in rtl8169_poll() once NAPI has emptied the ring, right
+before unmasking. This restarts reception without making the "ring
+empty" condition an interrupt source again.
 
-Drop the redundant cleanup and just return the error; the UDC core has
-already released the gadget.
+Testing, on v7.2.6 with an RTL8125B and inbound UDP at 800 Mbit/s in
+30 s runs:
 
-This issue was found by manual code inspection.
+ - A test build with a module parameter that switches between the old
+   and the new behaviour on the same boot, 75 runs each:
 
-Fixes: 3301c215a2bb ("USB: UDC: Expand device model API interface")
-Cc: stable@vger.kernel.org # v5.10+
-Signed-off-by: Anfernee Cao <anferneemelokc5@gmail.com>
+     old: 9 runs lost more than 1000 datagrams, 1041366 lost in total
+     new: no run lost more than 1000 datagrams, 846 lost in total and
+          at most 184 in one run
+
+   The 846 equal the NIC's rx_missed count over those runs. The NIC
+   dropped them while the default 256-entry RX ring was briefly full;
+   reception did not stop.
+
+ - This patch as written, without the module parameter: no run of 20
+   lost more than 1000 datagrams (166 lost in total due to the default
+   256-entry RX ring). With the unchanged driver on the same day, 3 of
+   10 runs did (237264 lost in total).
+
+On this tree the patch was only built, not run; rtl8169_poll() is the
+same here as in v7.2.
+
+The investigation was done with an AI coding assistant (Claude Code):
+it wrote the HIL test scripts, the debugfs instrumentation and the
+register tools used above, proposed this change and drafted this
+changelog. I reviewed the change and the evidence, and the test
+results above come from runs on our hardware.
+
+Fixes: 6994520a3328 ("r8169: disable interrupt source RxOverflow")
+Cc: stable@vger.kernel.org
+Signed-off-by: Jure Rebernik <jure.rebernik@luxonis.com>
 ---
 
-Resending in full because the original submission fell out of the queue
-during the merge window.  No changes from v1; Sashiko reviewed it and
-reported no issues.
+Notes:
+    v2:
+    - Clear RxOverflow in rtl8169_poll() instead of making it an interrupt
+      source again, as there should be no "ring empty" interrupt (Jakub)
+    - Describe the race step by step
+    - Same-boot A/B test results
+    
+    Keeping the v1 approach also fixes the stall: with RxOverflow in the
+    unconditional init of tp->irq_mask, as Jakub suggested for v1, 0 of 76
+    runs lost more than 1000 datagrams against 5 of 76 with the old mask.
+    I can send that version instead if it is preferred.
+    
+    With the RX ring raised to 1024 entries, which this patch does not do,
+    and v1 or v2 of this fix, 20 runs on two boards lost no datagrams at
+    all.
+    
+    The patch changes only rtl8169_poll(), the single-vector path that
+    RTL8125B uses. The multi-vector path added for RTL8127 after v7.3 has
+    its own poll handlers and is not changed.
+    
+    v1: https://lore.kernel.org/netdev/20261101102720.702600-1-jure.rebernik@luxonis.com/
 
-Link: https://lore.kernel.org/linux-usb/179250629747.20696.17364135141613638741@gmail.com/
+ drivers/net/ethernet/realtek/r8169_main.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
- drivers/usb/musb/musb_gadget.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
-
-diff --git a/drivers/usb/musb/musb_gadget.c b/drivers/usb/musb/musb_gadget.c
-index 016d3f3fc1e0..4bc4270088bc 100644
---- a/drivers/usb/musb/musb_gadget.c
-+++ b/drivers/usb/musb/musb_gadget.c
-@@ -1794,13 +1794,9 @@ int musb_gadget_setup(struct musb *musb)
+diff --git a/drivers/net/ethernet/realtek/r8169_main.c b/drivers/net/ethernet/realtek/r8169_main.c
+index f151ab681393..99b0a410f58e 100644
+--- a/drivers/net/ethernet/realtek/r8169_main.c
++++ b/drivers/net/ethernet/realtek/r8169_main.c
+@@ -5670,8 +5670,14 @@ static int rtl8169_poll(struct napi_struct *napi, int budget)
+ 	/* rtl8169_poll() is used only when there is a single RX ring. */
+ 	work_done = rtl_rx(dev, tp, &tp->rx_ring[0], budget, napi);
  
- 	status = usb_add_gadget_udc(musb->controller, &musb->g);
- 	if (status)
--		goto err;
-+		return status;
+-	if (work_done < budget && napi_complete_done(napi, work_done))
++	if (work_done < budget && napi_complete_done(napi, work_done)) {
++		/* After running out of RX descriptors the chip does not
++		 * receive again until RxOverflow is cleared. The ring is
++		 * empty now, so clear it before unmasking.
++		 */
++		rtl_ack_events(tp, RxOverflow);
+ 		rtl_irq_enable(tp);
++	}
  
- 	return 0;
--err:
--	musb->g.dev.parent = NULL;
--	device_unregister(&musb->g.dev);
--	return status;
+ 	return work_done;
  }
- 
- void musb_gadget_cleanup(struct musb *musb)
 -- 
-2.54.0.windows.1
+2.39.5
 
