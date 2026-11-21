@@ -1,49 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795221615;
-	b=tOWSCHkOtrolOOT8B2rPtXiySx8aOHQIcalZHkvcVObRhhbuclIVedrqnimQQW6BV6xS
-	 rZFBkRjgClFzKxg09uWMWgoCODVBTDgiuHblKEq5mQYTWi1jZBAoBm9AgvTYNBtQM8KvH
-	 6JHLdv83TiXXlEZpBIEd/jumbbVfzvXEKWk9te73Ssi2bR5cpgN9lCjftm7dBSyim32Me
-	 q0psYohJJ/hgVvp0NPBTsgTqFF53GdjHZUAJSnukIWZgsl9HMJp3dLpmDy9NhT1wIRsnT
-	 d43mbYcQn/UO0PC0wyVahTOu2Xj5A32Ge61nGB8+1pO1JorYQ8gTimOEi5smsH1ks1w==
+	t=1795221756;
+	b=GCbTLefu5y9olb7M9HzF1Imiue3Lu1EnhDSAQhtj4n/xOHrLhSlCtLq1z6dqKGeDr+tE
+	 Egv0d6G94ULxtuPmZlVltzD2mYFyAQO4UO2H/R4Z+gcnBTkp0KO/zoSSopE9c9nh/9/zx
+	 uvOm+8a5USp39FD8A4pjG6K0II5k5bfQgDeHT5HbGHOVaQjnfIIMJ7yi07d1+tspb6KG0
+	 2s2to0hQHTmYepjyEo9joOWs560sUTzrPtry8WMPMgu1PEiPTESe34Undrfx0ppQBpQ/c
+	 AhwrNVejMXkVrxo2iQPRuogCNJdDFVWueAzya5xlBI/+1ntEVB9vZ+OPcQ24DfpD6jw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795221615;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=VuKVXev8UIxrsWCdEYjjJ6A+0TY169PgQkoqU6UjXEQ=;
-	b=Q4DH25iTfvfMPOwL5xEzE0Ef8IazJHL7Za6Ezogkyw9Ga/4pNhc4BNYX/pgLCwpPMOLC
-	 EWrDMgLmGoRXub84XbaHCSE5mhThkCPLt5IImdDOljPZLto+kBbubAFAokOHWsttkA5X9
-	 W53up7XhBqO/BRrY3s5LwHq8qIPeqDln7xCB/ekSijPcVxFJaBZlJFnNGOzLEuiVG1xux
-	 N8FeNHB15Mqv0R65OqO9/YOeepaj/OWDO/QjOyt9yJVkAVrSN/WEqDYwAnOCJHijd7WDr
-	 ux0EJBO4LcSMX9ByajM4KrWJXUAzyBokVNffDVUlqXrAmGPtTVfTAoZZik1CL5oJi/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795221756;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=Js5N6yiXwXXSTzZ4KgFGwIMSCZDX/tKTz1lwaDrh2ys=;
+	b=FluPmZhiukHJGU+TVpy12I6ROdWncH0ShvGn+9ObxtL1C3nZEHPyjy3QpiShjx9Snp1d
+	 D6oNDzKMgd6EqZwjYrtUJYgFnix0TVSmy9JSu9hPLTcuM6OCK3GgG71FD/Pv+E+ik2X5r
+	 hDNNaYeRCYkIXzF44mkWc4ySMdOeE6fVZogNkHcqKa6o7MbdWwNjm6enUrr85DbRNISWY
+	 AewJyCdLFYMt7BAyii99vy/DSRf6Cgrpg0dJg9j/tanV8/eFFF7KVm9lx+f1q/gI+LVcn
+	 /FmcFMVp1/mnSw3kh1iqD1IKjVo68oqspLlFRMmO0VGxUcndhaofZ9XkiUCHbyPJ29w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YXZ8laQt;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pD4AmFXt;
+	arc=none smtp.remote-ip=74.125.82.176
+Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FF47606A335;
-	Sat, 21 Nov 2026 00:40:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DE10606A337
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 00:42:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1DE10606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YXZ8laQt
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80EA21F000D0;
-	Sat, 21 Nov 2026 00:40:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795221614;
-	bh=VuKVXev8UIxrsWCdEYjjJ6A+0TY169PgQkoqU6UjXEQ=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=YXZ8laQtv6e7vV48kw6IopHEDcFXxaysZ8DpSztti1dOXip2twXkvtE/Zo+gDfwK4
-	 V46syXyZgqR/0HTt8QMEVQkdH/RwaaTxbAJKA6Tv3Aug2paHP4UWWXGg5bmS4sJiGh
-	 dK6ZZG44KsBm7VgMAapp7+QVgUxF2cuvQsw3K6eAxr2h5HBULVAhSGZafMRtQvcc/+
-	 7iDwGd9QV9oyUcVBcGOHHjmjABuYb59GjQMQhgJgimKs/Bh0xXJqxfN9r4Ujsfl57j
-	 /x85hJ1sA+bS+BEm+/LqCAoV4mSbQG3fttzip3fdVM/Aab/4ym4BbSvdTjiHONJ7zg
-	 +Ij7Kihhtz9WQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 773CB380AA4D;
-	Sat, 21 Nov 2026 00:40:14 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pD4AmFXt
+Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-3863db981d4so1435080eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:42:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795221754; x=1795826554; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Js5N6yiXwXXSTzZ4KgFGwIMSCZDX/tKTz1lwaDrh2ys=;
+        b=pD4AmFXtEI4gcW8lq8jgkb4TQsgIV3/rLtjvPlKCyYdsJDnM+Zhcqgii1TYOrJgoEg
+         68QH0SXg5hfk3V3UukH3TNA6omD4Miw35AKisfch3ZeCi1bcWUEFHWVhKQFBenR4d/uT
+         PFVo9ZKRd8MNE9ce59HLBrRIZXQfzrDXwp88W6gcmp93e+7LmSWp/JUaImYP0bEpCPKk
+         6tqgTgqxEcGLlucCXJv1PzuFx9Yqt9WPeGxHvVFuV+Jy7dSJmrRs5k1OvQWJzkVegXfk
+         /o+CFNkY9vYecLaF55iDgXS/a0dzZuftjHafZCpoIZxy8MI8Lcx0nAf3II18bzFxbRtK
+         7fWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795221754; x=1795826554;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Js5N6yiXwXXSTzZ4KgFGwIMSCZDX/tKTz1lwaDrh2ys=;
+        b=qAyEqaEJMkF+ivVOQIV6MiOty/gS1m5esMrIDjxMfYJ9iVcKIMEevejGPkbRPGB2VM
+         YQ9pP1K+3DqO3otoaEtH71JD13UH8kGHrtmJeaRx+yAGdpHQ5664SzQgT0B+QYMz2hU4
+         I509CCUprUYYKJ5TyBHWwj5Ovrr/PJ3BC7FcUp6lVp5vu/egULs6r58tLMzcpzPTQDzN
+         aFETPPW5kKKC6PlPCU++Ap9xrxD8nTdBzfQC72pn5ebKLmoobcil4IRPGD03ueAoMMSG
+         izRoR9FDhUp1qtjQLryDuQBMjwBZUgVgDJoeCzDqO/oNWD7eYDvYkRLTV8TBsJVKtxID
+         n2bw==
+X-Forwarded-Encrypted: i=1; AL+hErFrScnQIpSV1giG9zhWh9uFlKPItdNbrZFrv90KbeJnm/JVn7IT5sZYMiGMmzsbZa7LeEvMimw9OjsECTQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+0DI6QRA13hzvbq7gRkdpsRJAKLISeBlbhtglZyoCRyoWTNr/V
+	e67U0rGV7Q4PJGrlxg24D2Zgg2grVMiBuu+QVK/4IwS/0w6/JyQZ6SQv
+X-Gm-Gg: AZFdTZdfbry53CIxUAAKY6saFYpVKiI7qjSUbCb+33xyID9QQgnTFhGdQUm0LSt8B/w
+	FrQ0Muwwdx2VfkmJEjcQcOd1/CflQjbZNt7MyjgjJOUoiG7rR1Tt2R+NEYoA7c+ICLJNVAoSX7J
+	/qvJcGIeyKsC2cOpyTkHneoHjCpW+WeJjU8SKwW+XsHtlH0dwt0q6P2S9pvDd6RlzcUVhIqlYHJ
+	kuqPZ1K7MoZNcgAFxaoKn+K62IDBkMY5GyMmhmVFXV1xJgHRf8UiDOHN26tRY7aLSEqJT8OxbJU
+	yUokq7W9OpRm4T8dSRCq/8yboB6n4freayJoI/p0j8SVCPuVEpM6N93zGnhr7T9/JG0xfD6W525
+	zJgGVGx4T3tJzadVoy7DqUIQmV158EG+oVvJMQkEllcKwUOpAYm5CiaGRqSI6qZMx6is7hEwTBh
+	5mk9ttkaEcnjboqiWIwZeIzxMotv7ikGbceOkf6/1KWpE/gDp6YC6PdYjYcksSqBKy4veNnXs0M
+	9iUhGjAh2MSDPJQ0kAN+Kx6zIi3X4CmMoz4z5FrW0VLF6P0VwpC9MY5dqRm2RNjknVCefEqldW/
+	3oNg5gUufYW+moaKkQR5WTkWqjyQElBf+Q==
+X-Received: by 2002:a05:693c:4091:b0:379:4197:5eef with SMTP id 5a478bee46e88-3856f65b3cfmr5387027eec.8.1795221754060;
+        Fri, 20 Nov 2026 16:42:34 -0800 (PST)
+Received: from localhost ([2408:840d:6820:1a1b:6def:d896:8796:4938])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567da4f85sm12699706eec.27.2026.11.20.16.42.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 16:42:33 -0800 (PST)
+Date: Sat, 21 Nov 2026 08:42:28 +0800
+From: Yao Yuan <yaoyuan0329os@gmail.com>
+To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Yao Yuan <yaoyuan@linux.alibaba.com>, 
+	Alex Williamson <alex@shazbot.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, "Rafael J . Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, David Lechner <dlechner@baylibre.com>, 
+	Armin Wolf <W_Armin@gmx.de>, Thierry Reding <thierry.reding@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Karl Mehltretter <kmehltretter@gmail.com>, "Paul E . McKenney" <paulmck@kernel.org>, 
+	Borislav Petkov <bp@alien8.de>, Dapeng Mi <dapeng1.mi@linux.intel.com>, 
+	Marco Elver <elver@google.com>, Ethan Nelson-Moore <enelsonmoore@gmail.com>, 
+	Jeff Layton <jlayton@kernel.org>, Bradley Morgan <brads@mainlining.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Petr Mladek <pmladek@suse.com>, 
+	Pnina Feder <pnina.feder@mobileye.com>, Mete Durlu <meted@linux.ibm.com>, 
+	Aaron Tomlin <atomlin@atomlin.com>, Rio <rioo.tsukatsukii@gmail.com>, 
+	Feng Tang <feng.tang@linux.alibaba.com>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-trace-kernel@vger.kernel.org, 
+	Mark Brown <broonie@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Yishai Hadas <yishaih@nvidia.com>, Longfang Liu <liulongfang@huawei.com>, 
+	Ankit Agrawal <ankita@nvidia.com>, Brett Creeley <brett.creeley@amd.com>, 
+	Giovanni Cabiddu <giovanni.cabiddu@intel.com>, =?utf-8?Q?Micha=C5=82?= Winiarski <michal.winiarski@intel.com>, 
+	Julian Ruess <julianr@linux.ibm.com>, Nipun Gupta <nipun.gupta@amd.com>, 
+	Nikhil Agarwal <nikhil.agarwal@amd.com>, Eric Auger <eric.auger@redhat.com>, 
+	Mostafa Saleh <smostafa@google.com>, Pranjal Shrivastava <praan@google.com>, 
+	Ioana Ciornei <ioana.ciornei@nxp.com>, qat-linux@intel.com, virtualization@lists.linux.dev, 
+	intel-xe@lists.freedesktop.org, kvm@vger.kernel.org
+Subject: Re: [PATCH] vfio: Allow untainted use of driver_override
+Message-ID: <awDok7Sm5Dgp-Ty-@sapienza>
+References: <DMYH4ED3GWDO.29DGXPK4M82VR@kernel.org>
+ <20261118235645.2907908-2-alex@shazbot.org>
+ <xzp5gljhburzbpol5bgnyyzwdrgpw3fj6ff3j23ein27raiidw@kti7moeuwvb5>
+ <awBUG7-QzXplEiUT@monoceros>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,62 +125,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v2 0/6] seg6: fix skb checksum updates with
- CHECKSUM_COMPLETE
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179522161302.860209.8175109356029301481.git-patchwork-notify@kernel.org>
-Date: Sat, 21 Nov 2026 00:40:13 +0000
-References: <20261118150251.65-1-andrea.mayer@uniroma2.it>
-In-Reply-To: <20261118150251.65-1-andrea.mayer@uniroma2.it>
-To: Andrea Mayer <andrea.mayer@uniroma2.it>
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- shuah@kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
- david.lebrun@uclouvain.be, daniel@iogearbox.net, m.xhonneux@gmail.com,
- dlebrun@google.com, hangbin.liu@linux.dev, justin.iurman@gmail.com,
- stefano.salsano@uniroma2.it, andrea@common-net.org
+In-Reply-To: <awBUG7-QzXplEiUT@monoceros>
 
-Hello:
+On Fri, Nov 20, 2026 at 03:10:38PM +0100, Uwe Kleine-König wrote:
+> On Fri, Nov 20, 2026 at 10:17:46AM +0800, Yao Yuan wrote:
+> > On Wed, Nov 18, 2026 at 04:56:44PM +0800, Alex Williamson wrote:
+> > > Driver overrides are the standard mechanism for binding vfio drivers
+> > > to devices.  With the introduction of the support_driver_override flag
+> > > in the core driver struct, it's now required for drivers to declare
+> > > themselves as driver_override compatible, otherwise driver_override
+> > > bindings will be denied or generate a kernel taint.
+> > >
+> >
+> > Hi Alex,
+> >
+> > > Set the support_driver_override flag on the driver struct across all
+> > > vfio drivers.
+> >
+> > LGTM.
+> >
+> > Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+>
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Hi Uwe,
 
-On Wed, 18 Nov 2026 16:02:45 +0100 you wrote:
-> This series fixes the skb->csum updates with CHECKSUM_COMPLETE when the
-> SRv6 code processes a received packet. In several places skb->csum is not
-> updated correctly:
->  - ipv6_srh_rcv() updates skb->csum with the wrong sign for the new
->    Segments Left and destination address, and not at all for the Hop Limit
->    decrement.
->  - advance_nextseg() and seg6_next_csid_advance_arg() in seg6_local do
->    not update skb->csum.
->  - The End.BPF program and seg6_bpf_has_valid_srh() can change the
->    packet without updating skb->csum.
->  - In L2ENCAP and L2ENCAP_RED mode, the MAC header put back in front of
->    the frame is not added to skb->csum.
-> 
-> [...]
+> I missed your reply when I sent the next revision of this patch. I had
 
-Here is the summary with links:
-  - [net,v2,1/6] seg6: fix skb checksum update helpers
-    https://git.kernel.org/netdev/net-next/c/47b2998b644c
-  - [net,v2,2/6] seg6: update skb checksum when ipv6_srh_rcv() decrements the Hop Limit
-    https://git.kernel.org/netdev/net-next/c/47f89dfc930b
-  - [net,v2,3/6] seg6: update skb checksum when SRv6 behaviors advance to the next SID
-    https://git.kernel.org/netdev/net-next/c/520989b4d32a
-  - [net,v2,4/6] seg6: discard CHECKSUM_COMPLETE after the End.BPF program
-    https://git.kernel.org/netdev/net-next/c/53e0a84a417d
-  - [net,v2,5/6] seg6: account for the MAC header in skb checksum on L2 encapsulation
-    https://git.kernel.org/netdev/net-next/c/e75bae5fcf5a
-  - [net,v2,6/6] selftests: seg6: add test for skb checksum with CHECKSUM_COMPLETE
-    https://git.kernel.org/netdev/net-next/c/612a37673567
+Thanks for your reminder, no big deal to me.
+Let me follow your link to have a look on v2 there :-)
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+> to trim the recipients of the v2 because gmail refused to send it with
+> everyone on Cc: who was emitted by get_maintainer.pl. So please see
+> https://lore.kernel.org/kvm/fb0df5c89336b77a373ae0f890f63427e4adbb28.1795171088.git.u.kleine-koenig@baylibre.com
+>
+> But also note, that if v2 is picked up using `b4 am`, your Reviewed-by:
+> is considered as the patch didn't change.
 
 
+>
+> Best regards
+> Uwe
