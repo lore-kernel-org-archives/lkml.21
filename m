@@ -1,55 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795270150;
-	b=qgKHL/jxIdSrVyp0kWy2bcFpmhJRWQqUQJTRXayAVsEE+8I2B5LZXxlHRlgOEDiY9xRo
-	 aCx8Tkn/UyxaHUx2bJJjwxGHKqhylPK2mhL5sULNpUzm+AqpFcsJhbEsjBdPZOKJAvhIV
-	 jUca+YlxNtfDcMxQOsFmhLmUyp6maKINBoh2Lalmqlta4lRjR2bR4AyLXNIJtMGXdBt6e
-	 GoOkuLFhl/xZD7/vym8l/+sZbvf9vXh8i7OLjHZ0L1MGgPXhqv4wR4u3Kp2cQuNOY6U0G
-	 lsI4/zc/AvNzwkZgBql7mKhPFE4LzAPJLgCUEiL3sVByfnXZY+6UTxDQRnERGJx4LoQ==
+	t=1795270176;
+	b=eKaXcIlQbHjCYFYHP7HhhI9BdSaUdAllOi/17Ithe4R8G9s5Hr77A7L+2+ldFJBxL37A
+	 OpP/3y0QGY/12kbPwYVpOuVqv99bHlI4Q1/lLiBnwl4hHXBZgWw6iFpp2n5U6KkOyMoDv
+	 pdYS8iFoDBzII4fA4fBpcKZRE8m16T+RVCJ9nm+1PdW/7hwN/RyhnjcNA7USkhBsNxAg+
+	 FpN7XV2NKG3q6hwqeItcQY4Ap6cD5aWS7RaSRzoIYUvTI/XgFkwCFZ5Nzdp+fNEbqvXwV
+	 S1tGK7LCoANLo6YDJzcmVXAfTmipDBdv+PUej3qXr+goJ1Vk6FGYk9iCydPREPpMu0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795270150;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795270176;
 	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
 	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
 	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=vHYiioNpF1NGJmY/P1Pd4vnFnoPCtbj+gizOvrXBmA4=;
-	b=Jsk5q5qiu0kPyFy0wic4WlvpzpU4c4xO11kanmA2IV/MA/SW8N8Btngv0mWzMEjCawud
-	 gKWjftKknRBLWEx4u2/8++xE0guBY3//WU292cq5dhfxHwGyaKQiQzj7POL6hBx4v1PjV
-	 XG5nPzKqdMaDhzIejI8Uka9YG7NzIN9Br71PY9rLwiVBHFMk5vS/VwkCSGn21xdpCK+3n
-	 IPNpoIbyhbugIiUHc+57uamle8gnmBoSoblvA0Rq4tHJf/HooCxjxPhya+7c7+ExHwISf
-	 rZYl6F277wjq0w6Qgup4nHAbYfqbwCJ8dwOi8KUpgAr6rFOAzi+gjRT7Wo4o1BfV1VA==
+	bh=xn+NzOAI51seqA5M9eZgYuYtYyEXJedApRaY9hQ4Hxo=;
+	b=j2GKsfQUMIUd8TKYG01D2pi2fL/76yEhmHHl7rjD8YDhQhxql8vWipNNwp1HDNhUJ8B0
+	 2VRhwzfXMou3+5x0ZAanHCmcY3CWh5jzmwLIxyccIZU+Ei6a/oXkmwJzLPk6dBbCG5vOb
+	 H7tkuhW8RnBasdzLurKDOAIk30u4DqQVoXogY9/DHdD8yKjFL9UCbK9fycP7mOqyChjQJ
+	 8VlzARG+BtWsH4Ko2SQwry+7lauA0pnal1VUuj4MoyprHuyyLyQAHfqUR552V3YnfOkJP
+	 PZG6L5noZR+Z24hAc58TrETV5k9yBM5q9BUW2RYD8e03RW+Mr9ozxX+ueeTYioXMUaA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oLlJPcLw;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gz0WixZ1;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13EA3606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 14:09:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBA31606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 14:09:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oLlJPcLw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E2AE1F000D1
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 14:09:09 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gz0WixZ1
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD6031F000D4
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 14:09:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795270149;
-	bh=vHYiioNpF1NGJmY/P1Pd4vnFnoPCtbj+gizOvrXBmA4=;
+	s=k20260515; t=1795270175;
+	bh=xn+NzOAI51seqA5M9eZgYuYtYyEXJedApRaY9hQ4Hxo=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=oLlJPcLwgUqmyDuXvILgBFW+uggSg2a39l91Emz31qIlaR9U6+GklY5Mmp9REhI+T
-	 rmFtBFSxfpviU2jyA5BlyoTn5DqbKMKzKgCNsImL4dekaZqQAClC503uFmiykI25v9
-	 Xw6ymwMADvVwMh+Jo2RgqO/Oh+tDnWLIKCSRa0wsBXASuKem9BE8cDojeRm/KNryxF
-	 Gyb7eZz+SLal+kJFFmNwlXtkMOXlX5VcEow98PRdvPu0MeACMSH0vHYkLRahYyADn7
-	 kUfLDWrqie0SQLjWRuqdk5H9pvmQ3clgQN44fkqMugK+OeK6XS444Rot6ZuZacl3cl
-	 /zjPcytSvFJMg==
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c5127c7abd5so307194866b.3
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:09:09 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHwR8kvyXvaE7IiBnTLjzrRiA2ds0bUgAn88Tn/1NbfPQARlewyctb26jmnF7n88CLs0WXvhiScQA/6si4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9HxexClbe18LjMpTNhwtx2VuDS6WxVWLZHNjDi0XP119AC4X2j
-	Uex35ZIzc7Rb1JFt6YSjZrmdXcPCG2pIop6lqCLbeMH0ZfC78tZXHJYzwssyJC+EFCF2XY0E9B5
-	BIP7oiGedttWU9izqdUVjdRYrzmmYDTc=
-X-Received: by 2002:a17:906:15c6:b0:c40:231:6eab with SMTP id
- a640c23a62f3a-c513a5eaa3emr444289066b.16.1795270148311; Sat, 21 Nov 2026
- 06:09:08 -0800 (PST)
+	b=Gz0WixZ11SWNLOMtkFXq+S7pUzvFK/qiGZEUPOPIdd2ZPKivdszZUHFr9kuH3zOIo
+	 NnjNd5gOmVsQZpT9rJJzgPkbYRbUzRM3NY+bBBjAXpyoNN/OM/Int02IlTwn06dCpr
+	 hN3uk65eJcshfIUhHwHtHsm+6Mcdg7HnOjTyVUmaAF8pwy0M6ebRH48J9ng0WtlPZK
+	 v3MOXDPZCQCgQZyapLMwiWoNSnrBtllIXXB/FgXRruhLlZNGuI/HnfSO/7w90g8KTC
+	 L4r44Y6diMApehoKHDnK1hNMFs2EYz195D2rrI0gfylFabi1uT3Ekh4DNYGhYpPx+u
+	 ymVA9+2rE9c/w==
+Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-6b408f2d936so2705872a12.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:09:35 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErF2tv3hSnCQLGOy0mET17yzhgH6PzLEXD8ff8T9tf1H74sZwhwSSFccxB9bQ/YlwtvV9rLpSIextwQkzPY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/n6u56E30533UqCf9BFI+9TPnrhLY5mKxNT03irs8B3k9Bv3x7
+	lLIaZVG/wcZOVvw3OOKcpx+wWTubRxgJrUG0ACCRGMSp5hObXURTL/+yzNsBdwLoc/QwaMZm4vb
+	p+Azx+k0j0G6oGalA9Ax/sMwXmtP2TdQ=
+X-Received: by 2002:a05:6402:a594:20b0:6b1:c7d9:b631 with SMTP id
+ 4fb4d7f45d1cf-6ba37e75977mr3576112a12.23.1795270174408; Sat, 21 Nov 2026
+ 06:09:34 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,15 +59,14 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118090701.1858849-1-wangxuewen_ky@163.com> <20261118090701.1858849-4-wangxuewen_ky@163.com>
-In-Reply-To: <20261118090701.1858849-4-wangxuewen_ky@163.com>
+References: <20261118090701.1858849-1-wangxuewen_ky@163.com> <20261118090701.1858849-9-wangxuewen_ky@163.com>
+In-Reply-To: <20261118090701.1858849-9-wangxuewen_ky@163.com>
 From: Namjae Jeon <linkinjeon@kernel.org>
-Date: Sat, 21 Nov 2026 23:08:55 +0900
-X-Gmail-Original-Message-ID: <CAKYAXd_-uG6Y+h6-=xkCBw1E24fSDAFeAWzKuK4qSm7Zr6g35g@mail.gmail.com>
-X-Gm-Features: Aa3M54oTJdzV2212nmgx90b7obSSvWMrC6fRe-ifuKwo-NflQJbozIao4xW-XkY
-Message-ID: <CAKYAXd_-uG6Y+h6-=xkCBw1E24fSDAFeAWzKuK4qSm7Zr6g35g@mail.gmail.com>
-Subject: Re: [PATCH v6 03/37] ntfs: handle source record removal failure
- during attribute moves
+Date: Sat, 21 Nov 2026 23:09:22 +0900
+X-Gmail-Original-Message-ID: <CAKYAXd9Yqdycqht1hCCMqZ_TtkeTGSy8LGYKMpny6j0=712OBA@mail.gmail.com>
+X-Gm-Features: Aa3M54pKzxUEDqWg31mFRVxfq_Xa_AjzTScws0XhhLNUiWZrGBxpxPPrJwyw6tw
+Message-ID: <CAKYAXd9Yqdycqht1hCCMqZ_TtkeTGSy8LGYKMpny6j0=712OBA@mail.gmail.com>
+Subject: Re: [PATCH v6 08/37] ntfs: preserve buffered fallback writeback errors
 To: Xuewen Wang <wangxuewen_ky@163.com>
 Cc: hyc.lee@gmail.com, liubaolin12138@163.com, ntfs@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, Xuewen Wang <wangxuewen@kylinos.cn>, 
@@ -75,27 +74,18 @@ Cc: hyc.lee@gmail.com, liubaolin12138@163.com, ntfs@lists.linux.dev,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 18, 2026 at 6:07=E2=80=AFPM Xuewen Wang <wangxuewen_ky@163.com>=
+On Wed, Nov 18, 2026 at 6:08=E2=80=AFPM Xuewen Wang <wangxuewen_ky@163.com>=
  wrote:
 >
 > From: Xuewen Wang <wangxuewen@kylinos.cn>
 >
-> ntfs_attr_record_move_to() ignores failure to remove the source attribute
-> after copying it. It can update the attribute-list reference and return
-> success with both copies present.
+> The buffered fallback of a direct write waits for writeback before
+> invalidating the written pages. It replaces any writeback failure with EI=
+O,
+> discarding more specific errors such as ENOMEM.
 >
-> Check source removal before changing the list entry. On failure, attempt
-> to remove the destination copy, dirty and unmap its record, and leave the
-> list pointing to the source. Record both failures with the existing volum=
-e
-> error bit and log messages after releasing the destination search context=
-.
->
-> Shrinking a record to zero needs no extra space, so failure indicates
-> inconsistent record accounting. Return EFSCORRUPTED even if cleanup fails=
-.
->
-> Fixes: 495e90fa3348 ("ntfs: update attrib operations")
+> Return the error from filemap_write_and_wait_range() through the existing
+> cleanup path.
 >
 > Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
 > Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
