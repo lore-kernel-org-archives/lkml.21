@@ -1,49 +1,68 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795226424;
-	b=4ARz5EHDn0VcfZs999E49cBcdqVEHDB2FEVBypmz+WQFx7asJ9pJlSK4bLJ1Q2oRiZ1A
-	 WcinM1dKfoO50O8SAa+ejMao2mP0gxNLSpmOdK9cDi8HAtzVpfOjzpwThEW6lLLTU5Vio
-	 5kFPzWOjpHWq7d7k0YOQRg2QXE4uef5QNLSIq6+/bHrB6KrihoJ2CoRTlbk/pkWQqga09
-	 PfGYRkQ0MKl0AhbR0fi9h8KaQeFkLlqk3KHTlJ2ndsk/f/4BtJ7RCQNS1b0+JT7SHFgek
-	 mwKiEI1nPLh75sp0aNdPnuCp+1e1URMOWX1oWrr2kjShW46Aw2jEvyztfvEjD1rM+bg==
+	t=1795226508;
+	b=dxXWQ29fqM5efuTiPclwJI0bsaM5r/L5BW20h9T3hw/h99a7V9fqpmCXIpwVL86hzkPr
+	 qrPS6VbGvR5dfjmP/JgwtmemWWNIZLi/VKOhT+iwP/ED3ZCSrOJYbpSgUWeaZMwkl6Os2
+	 4U9d5/RI2FIlnozNslUEyAu6F3SvHP1LzEPWofKPGdLIjjHrpLq824oF5wue8Sqe2tpQc
+	 xytJPzm5xiAqQTSD8GYz+v0jlFVjwFVb13BkXHm0xnnPBqkDJ46wex4nD7WVrjwREu7tK
+	 oIrkLPvdprcB3n7y8yB5y6Cja6uDbADFSXv4E+qFXqy52EN1xcbOcbNknF4+hyLzROg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795226424;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=NuNtmsSWc70a2v31dfF0pqkhP31lwrqr5DJP1OcjsAk=;
-	b=xL9XdRc9ag+tV1Q4NuSbHyVcPKXAUl0su1A4rJfmVOZSyl6OsA9FtXnEk2Ve0EYiP7Z7
-	 SPg3ZhHOyIuUDNVi5sQTGOsX45LkoKv+sT5UftgDSI/Ytyq8qLJVNbEzUlnJHq94v5V9m
-	 1L2kl2cUHT/eYNOKaBS7ldJtzmXv+CrFeQ47jK22QZbHOAnr3SKbCeTn4ni3fUfZD56T1
-	 MdUm8oRbmjaXUGUAg13xtknJFzs3BYubjoT/CKPuUFU7NAtkbZCgJOPHAdk1pipJP/SVY
-	 gBcm3Zi1i6QaMZEdPXLlOCF/YU3n3AQS74IenVeeIFE9g/oH0HiNYF2c0Voa1DO5jKA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795226508;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=kmMOA/JqT3+zTDvjZdA8gReRHgHGh2MTpTCnYqFH+JE=;
+	b=BLAUtR6qrk6PU0PA6/OlLvjq5pHLOOmFnCY2lsHnyFP/JDWL3P/+IBZ1Uo8pWhs6zSDr
+	 6lfbyg4zaI3SPHq2jHCAr5hXVathy98JKAMTm6wOYvJg3QLbMvvO6JFW7t0vaKRVKbcN5
+	 ojKI1Ao48C6wIxUKCm5jU6QnFV+nEUSdDPNN+Tw3lEyUMHXChGdVtMKS+Bd+WKhvm7Eup
+	 HBXeQVRURW6GhLDRJCZ0Syld2ooiTEdCKXkyfdyfweNaMJFIzbUVNyBRIZ4XTh1zGD1Mx
+	 6BkI6Bg2Z5HuGhAEGc0u7v079YTiTVp40PJuj3nYSyBIi2z2v0BiGR+UdkgFfJvN/nQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=clZrhczJ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A41pkW2b;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41638606A330;
-	Sat, 21 Nov 2026 02:00:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B069606A6A9;
+	Sat, 21 Nov 2026 02:01:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=clZrhczJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCF9E1F000C4;
-	Sat, 21 Nov 2026 02:00:23 +0000 (UTC)
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A41pkW2b
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D08F91F000C4;
+	Sat, 21 Nov 2026 02:01:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795226423;
-	bh=NuNtmsSWc70a2v31dfF0pqkhP31lwrqr5DJP1OcjsAk=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=clZrhczJPF3KCwAxHs6YM0s7sJgCo1etONB63qpAvkV99JqHlZCu0tzvqlxj5EjIl
-	 B+Bn7+/YXvXkNfcmHqlNzePcOCG1sIH4WnQx06TW8dReA3HMU2iTByRDkALFFtfqjF
-	 SbUAUabmHD1imf4xX9jxKmhcMojMaXxaMeYdWAEyKGH8P3XDe6fEsnG+a218b4O1EP
-	 wa6Q4E/CgWvNDDGhuSkw/Y5dsFh+IEhU/cjaNXVOzXvv0pRmVSM34owRMsi+ClxnsB
-	 kjG+P4+4BeGfba6LLi8OZEqwLN08nd4ePuwJEa755NJB133bZBLPwaVEMV8ENF8bcO
-	 7sRtvUkz+LrmA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4447380AA5E;
-	Sat, 21 Nov 2026 02:00:23 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1795226507;
+	bh=kmMOA/JqT3+zTDvjZdA8gReRHgHGh2MTpTCnYqFH+JE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=A41pkW2bWhSmi1hlpL2vzaJ0GGHTCNRR3mLQFcNGurTDhldf5Sh3Znnhatl2dlhPO
+	 rwL09/86rVqS3J9ScjQzbjoY7sU+CfNTbItL0zL5KzQVqkuIURLvQ34dPviNzW0h16
+	 SBxJ6jm3dvRf1+Qnt2trukxDSThDPWF7ECHtNC4erfXzh2dlxHQsVi/4FZmUWS6klB
+	 72adyelnlFJW3PXsyUfOrQ9z64W/6qeisT3GKMi7Th973AY7yDg7GrgHZ19jt9CA6C
+	 ehZ+c/AdEu4NkFRqAVOZseItsp8WAfeWRV4pPnrGMZDyK8q1J7KPRYHOuPejyW3Z8D
+	 Rpvg+GxXANJVw==
+Date: Sat, 21 Nov 2026 02:01:36 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Matti Vaittinen <mazziesaccount@gmail.com>, Matti Vaittinen
+ <matti.vaittinen@fi.rohmeurope.com>, Matti Vaittinen
+ <matti.vaittinen@linux.dev>, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Marcelo Schmitt
+ <marcelo.schmitt@analog.com>, Joshua Crofts <joshua.crofts1@gmail.com>,
+ Radu Sabau <radu.sabau@analog.com>, Janani Sunil <janani.sunil@analog.com>,
+ Salih Erim <salih.erim@amd.com>, Jishnu Prakash
+ <jishnu.prakash@oss.qualcomm.com>, Antoniu Miclaus
+ <antoniu.miclaus@analog.com>, Jakub Szczudlo <jakubszczudlo40@gmail.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] iio: adc: rohm-bd79112: Support ROHM BD79111
+Message-ID: <20261121020136.16f48636@jic23-hlaptop>
+In-Reply-To: <awBc1qFMhydEXo69@ashevche-desk.local>
+References: <cover.1795176984.git.mazziesaccount@gmail.com>
+	<4be17e339f768da93db2f42abd3cc5a21fea01ad.1795176984.git.mazziesaccount@gmail.com>
+	<awBc1qFMhydEXo69@ashevche-desk.local>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,47 +72,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v2] net: qrtr: ns: keep notifying local servers after
- a
- failed send
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179522642228.886068.11407811998748570053.git-patchwork-notify@kernel.org>
-Date: Sat, 21 Nov 2026 02:00:22 +0000
-References: 
- <20261114-upstream-qrtr-hello-gate-fix_b4-v2-1-2fb62c2853bb@oss.qualcomm.com>
-In-Reply-To: 
- <20261114-upstream-qrtr-hello-gate-fix_b4-v2-1-2fb62c2853bb@oss.qualcomm.com>
-To: Igor Opaniuk <igor.opaniuk@oss.qualcomm.com>
-Cc: mani@kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- linux-arm-msm@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, christopher.lew@oss.qualcomm.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Hello:
+On Fri, 20 Nov 2026 16:44:38 +0200
+Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Sat, 14 Nov 2026 13:46:11 +0100 you wrote:
-> ctrl_cmd_bye() and ctrl_cmd_del_client() forward the event to every
-> local server, but stop at the first failed send. Each send goes to a
-> different socket, so a single server with a full receive queue
-> (-ENOSPC) hides the event from all servers after it.
+> On Fri, Nov 20, 2026 at 02:28:28PM +0200, Matti Vaittinen wrote:
+> > 
+> > ROHM BD79111 is very similar to the BD79112. Both are ADC/GPIO devices,
+> > where pins can be configured to be either used as GPIO or ADC inputs.
+> > ADCs are 12-bit SAR ADCs and GPIOs support input/output but not being IRQ
+> > sources.
+> > 
+> > The main difference is amount of channels/GPIOs. The BD79112 has 32 pins
+> > for this use, the BD79111 has 16. Furthermore, the BD79111 data-sheet
+> > promises 0.5 MSPS sample rate with maximum of 10 MHz SPI clock,  whereas
+> > the BD79112 data-sheet mentioned 1MSPS rate with maximum of 20 MHz SPI
+> > clock.  
 > 
-> Log the failure and carry on. Likewise, keep notifying local lookups
-> when the NEW_SERVER broadcast fails, which can only happen on -ENOMEM.
+> ...
 > 
-> [...]
+> >  - Return -ENODATA instead of -ENODEV when SPI match data is not
+> >    available.  
+> 
+> I guess you were distracted by something, the error code is now introduced in
+> the very previous patch, fix it there.
+> 
+> ...
+> 
+> > -	tristate "Rohm BD79112 ADC driver"
+> > +	tristate "ADC/GPIO Driver for ROHM BD79112 et al."  
+> 
+> > - * ROHM ADC driver for BD79112 signal monitoring hub.
+> > + * ROHM ADC/GPIO driver for BD79112 and similar signal monitoring hubs.  
+> 
+> Can this text be modified to be closer to the other two?
+> Something like:
+> 
+>  * ADC/GPIO Driver for ROHM BD79112 and similar signal monitoring hubs.
 
-Here is the summary with links:
-  - [net,v2] net: qrtr: ns: keep notifying local servers after a failed send
-    https://git.kernel.org/netdev/net/c/925120216e6d
+I had nothing to add and nearly picked it up with tweaks. Given
+this is something you may well want to feedback on (or adopt as
+is!) I decided to ask for a v3.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Given this is small and in a clean state, send it whenever you are
+ready - no need to wait a week in this case.
 
+Thanks,
+
+Jonathan
+
+> 
+> > -MODULE_DESCRIPTION("Driver for ROHM BD79112 ADC/GPIO");
+> > +MODULE_DESCRIPTION("ADC/GPIO Driver for ROHM BD79112 et al.");  
+> 
+> ...
+> 
+> Otherwise LGTM,
+> Reviewed-by; Andy Shevchenko <andriy.shevchenko@intel.com>
+> 
 
