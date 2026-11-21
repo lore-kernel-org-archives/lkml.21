@@ -1,153 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.20.92
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795249905;
-	b=rT2hPuzep8A5Owm7pu06E03/E8UaWZSlcxXvqAWtrKw9BnNwb/NgGRh4kb6HL7csEUiF
-	 5ajrSxebKP/LvlAFbPQ4GWuNXzfCpt1wpfMfMq00vcz/BlX8m7sfOMJbgHDQP+H2p0Lqd
-	 S0Szo47QYh4M+sWeUfH+kDbFybT1UyOYPNjajny2c1pAAIDW2fkK3hdwketAEQ4fVs6aq
-	 jbANYpBTdP1Viz3l11vr0a4z3LblZUQCl6wXx+psgMkmKIa0AAknjsQwTNwfaoZwLw1AI
-	 uu0BTDlaCJ2/MIfSsV7y8xsyOY0ZbXLA7+dy5xwBvfyQnsBXT/bc85i12kn3AGh+8Cw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795249905;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:Accept-Language:
-	 Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:
-	 x-ms-exchange-slblob-mailprops:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:
-	 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=9hhaK+m4+JhqG3LefLs2B1Fo9ZX6tXtrncg6SPaUQ08=;
-	b=mbS8PUF8btohEOGyXdcNpFOlTZjqDjIaWNoOg4W2cmR3w3ZprTtrD7jzek6OogY7Mxw8
-	 XuvvB0eYgb8qeyKl6OgthpvMoPtGaoArxSinzspeU6/RV6k5XjE5UbcPlFci5f4Zm4K8O
-	 CDiJPxloiexXQDUUXruMpVChWHqbiOrBD1DGTsZ4nLdIPTuicAAFRkTbzz6/jwwFawIrf
-	 tkSGH7iWTnd0uMxSlIjdVc5cbwZ9+nOBWxGy409B40rcmmP80zasJ/hF47Fj7iQkrdh6Z
-	 tKs3h/59WQp6eJr1yIeHSJqMy6zvHREDBoS3sIB46iNL0290AUy2MNS52FUSbrhPDCg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=outlook.com;
-	spf=pass smtp.mailfrom=outlook.com;
-	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=Pe3Is7q8;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.20.92
-Received: from CH4PR04CU002.outbound.protection.outlook.com (mail-northcentralusazolkn19013092.outbound.protection.outlook.com [52.103.20.92])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.72.192.78
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795250015;
+	b=3ZO6bIbA/qCn7QejEYMgrqlJXWldR15q/9r8sz4lE6MC9Rl9LswyVAbkkcQ4N2qpj3QO
+	 mQ7uw9wEgsA0bc2HH5GI9kOvjRfLQeNKv+nUp5qdzEbbqSOR1SL1iHTVnEPIpgJlTtNXu
+	 W4WG+EVTMObgQutWXwR/gP/8x2TS2YBcWHPwIKMXvYBfRKOYTACBzvCEWzzWpPqXly/6P
+	 pNx+PFwnvwtfj7F6BzJobiVt7PKGRhiccM3zBodBtug4g3Ww3etqSI069jWQvPE4psRYD
+	 IiFNRi7sWgRa/P3lkRgboBGuevfZaNquWXoFXJY8B/JWDKF9+UWecsIERqBtEr+jeeA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795250015;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:To:
+	 Content-Language:Cc:From:Subject:Content-Type:
+	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
+	bh=PfdlcHJuF0PGL8Kd820cfaOlsW1sWpWcEpawFoM43ho=;
+	b=zvCGd2jhvKrCvEviyroT9+lDshHWdBS0ihD8Wc+95uAM5JIIEgsIrQQ2b1iRbE5RC4zS
+	 SBCUofhGsFyB0eW/+hgRpLTxfTKoEDD7T1RO/BrYMi9zBRBQ89uIHOlY4MIHgdL1iPcJq
+	 MGCkiZsxMvzgn46SzoFGRkmTBh+ephgzPqhUWKUbTOZo07jfchPrLiSluMkCGzB24XJjp
+	 KaGgtQyIT8CBClGNP9h22PRKFXOn/QzC8SeydGgcpQ+1SXtaGYl0gDfXEJw0JwQzQONuw
+	 ITc56j7JYy50KMeIWryA/n2SudP1IdjK7BgNVkubuM2cnEJdk64ofgW8KdJRc03uO+w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=web.de;
+	spf=pass smtp.mailfrom=web.de;
+	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=KYTvu16I;
+	arc=none smtp.remote-ip=217.72.192.78
+Received: from mout.web.de (mout.web.de [217.72.192.78])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADA3F606A320;
-	Sat, 21 Nov 2026 08:31:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ADA3F606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 368D2606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 08:33:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 368D2606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=Pe3Is7q8
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JbJVfYE0bWpg6uK/RQNiZ6vD1x+d+kg4jbeVTUw8iUkM5aZt99HchuGHBsexMcvzSoQzewIMQyKaS5RA7cjmvl9KOR/HLGapMWV+xKnvAJBPdBph+o9hBhUJvuJQDP7AQe9vME9qdU2zaYYtt0obBgvVCRAOzNWvJEJlRdCH1JXsUM2R+AgJyJKAU/Pd80XLI8q4poQ3hgOo7pbkgCbKzyi8x1KLkBsPu8fFjmvfbfQUIYS/RhgcCOyFLZdwkCActMJR6qldDsrHJxQNMvXr9dA3dy/Uzb97O5Hqkhwkzysqhc6WRBHgBAvJT9n+cfHuQEG3wbYhBZGG62HEtbK/LA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001; h=From:Date:Subject:Message-ID:MIME-Version;
- bh=9hhaK+m4+JhqG3LefLs2B1Fo9ZX6tXtrncg6SPaUQ08=;
- b=ld1scWnQYGbT31UVAdiap7QLj0+4WEpADIwj6f9Ag4syMriiBMFlbHtKXbTmNAGSjfqCxBEw7H1yKoeoMLSIdJaw6HUnqFllNAwiHa1Eq83Z7NPg3xwPhUPsfNOcNMYzMM5JKq/IwL3ZzDutO/8JbcdZ8ry9izp3GUmTyKPgTBgZZe3Mk6qNs7fIDFlZvwvWB5fVOwxxJqXDHVpdDIDuIjJv7X6b3fcs6FEeVZGuzgPNGEql2MkSVSezFbo41UzyZmDzbZdAdAp9xJZAlgIEoMq3oPp2jT/VayKm3Ftai4LtdDY6FvcKI52WPxu2Wzh2Va6uTW7gSHyymokLa09WHg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9hhaK+m4+JhqG3LefLs2B1Fo9ZX6tXtrncg6SPaUQ08=;
- b=Pe3Is7q8ShgtpeTLkOseoYRfRbMGWJK8/2fMyUmSZ2vRJK6G2asUkAnRHRswsz+Zau7uOaDCoSL3H9BiFVW8/Yt983qGi0odOXoMzADIT2egfnd24bc4Y0qfheU3MLVMiAdwZQi1K7o9sBz9CtIZia1/V+Tno1lt0BF7a2D8nUARDD17Bx0+aJIi3GOSAEc3cGNVpEwJxXNGWL6kPRYwMo03BQImTKUsbcbshCuwYK/BcrNJObQ2mNOKoFLf+FWF9E8s8PBaQXpfnFYWeJ74LwWcgqw+y7nQnXFbvk/s6/e7yHRqRsmT/SFQqfaJbZUu5QOEerS22yRmcNHxWfqpKQ==
-Received: from BN6PR05MB3281.namprd05.prod.outlook.com (2603:10b6:405:40::35)
- by SJ0PR05MB7838.namprd05.prod.outlook.com (2603:10b6:a03:2aa::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Sat, 21 Nov
- 2026 08:31:41 +0000
-Received: from BN6PR05MB3281.namprd05.prod.outlook.com
- ([fe80::5b9b:67c7:5397:c42]) by BN6PR05MB3281.namprd05.prod.outlook.com
- ([fe80::5b9b:67c7:5397:c42%5]) with mapi id 15.21.0639.011; Sat, 21 Nov 2026
- 08:31:41 +0000
-From: Yingjie Wang <x-professor@outlook.com>
-To: "Martin K. Petersen" <mkp@kernel.org>, Jens Axboe <axboe@kernel.dk>
-CC: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	"linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>, Bart Van Assche
-	<bvanassche@acm.org>, Yang Xiuwei <yangxiuwei@kylinos.cn>, James Houghton
-	<jthoughton@google.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, FUJITA Tomonori
-	<fujita.tomonori@lab.ntt.co.jp>, FUJITA Tomonori <fujita.tomonori@gmail.com>,
-	"linux-block@vger.kernel.org" <linux-block@vger.kernel.org>
-Subject: [PATCH v5 0/2] scsi: bsg: Release io_uring requests from end-I/O
-Thread-Topic: [PATCH v5 0/2] scsi: bsg: Release io_uring requests from end-I/O
-Thread-Index: AQHdeZK7udGfR+FNIUyr+P+yp9nEKQ==
-Date: Sat, 21 Nov 2026 08:31:41 +0000
-Message-ID: <scsi-pool-v5.1795249365940711260.0.x-professor@outlook.com>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN6PR05MB3281:EE_|SJ0PR05MB7838:EE_
-x-ms-office365-filtering-correlation-id: 96771470-d745-4048-858f-08df47a9de6e
-x-ms-exchange-slblob-mailprops:
- iS5pQZgsAQDZd5pLvsexcGXRgbvG27NWE/23ZhfMaHmrqer6NrAclKSSbOIDFX3GPdzCwViZb4skAE8M0mjLFxwlZC9e7Jb4jMQ7cXkKySlUQjWdvuNrahPf1nHshgzagDRx+71cSyS0M6Fm3IPOx0GSPG/pWyrLAOLiCQmGz0NSSzwQfq8azTZxLnk5oo5sInFv4LYF/SnyBAt4vaZ1nntYTinakewRffGZIbln6x6ok4y4MbcMp3Z4nsrOVXUsGYmfAlyqjBdxDO0GrXqr81Ze3KfSXiaGxMTfQS1tJD3+bL2e8qGrXx9Nsa1dYWrJwm1vwhp3RtGf5r1TQUuV4tEMkxoqfvgNmo4yHuEQ62d4CJDwpeJUn7A7PhXQ17q9shygBRf23iDYAgm3hb51io1bnATgXcGNK8FrQwYR4HrJN+fxS9Vb9EGOYZF/S1MUeMcjsAGPiIVAKNJnlNUZa1anjp3CpPLjMn6pr/tFprGO03/R/0VpNCtME78ehUI+5KHblbrQNBGjgT84L5oeRl+c3dFZQPGDUjasZlVUJ/rUj/2r8UHUqZFDXzglzZnGiF8i0Bf64LXDI/KPt1EK/4pUAvsKChjA003nvxBJhBZ5zQtAxuVMsBmOIxGl8w95Se9OSViLJ7zYOcaTYYL9HcBfPriYFVhssYD0wPdSsxSCaMadZpIpdDR5F8idMqBbZ/Pqr4+lOCdxOhkLYFsW1QPWdohkuZVvUUU9wvG2pXkXzHfgadXIA8Vf+FOSGI5JMSv2klhg65rjX0WAgccF82O6779P+6XUnt5OCnMIK79brLcqCm26cQ2K5NdCPhOA
-x-microsoft-antispam:
- BCL:0;ARA:14566002|24121999003|38102599003|41001999006|22091999003|15080799012|5062599005|19110799012|4140399003|25010399006|12121999013|16041099003|8062599012|8060799015|24021099003|31061999003|440099028|3412199025|4302099013|102099032|1602099012|12091999003|10035399007|40105399003|53005399003|26121999007;
-x-microsoft-antispam-message-info:
- =?iso-8859-1?Q?8FX6EVYLDYyKFPkvlQGetKdjwss4gmQ0qF42YT7fwtPKYE1gYqneO7kCcE?=
- =?iso-8859-1?Q?H4XL35HYr4TDo+56z0BqGYv1S0B27VRfe051nc/iFaZ2fU5MVQvHqRTsPY?=
- =?iso-8859-1?Q?RfLNgqARZiUrB8Y+K95IWSItxkIMeDFm1ghU/y1ZGaiyEgYqhAqg78F4Ey?=
- =?iso-8859-1?Q?AOzZl2R/cPsf80wgW2b97R2jfm4x4g+dDnU+kYndve2h+rn2ZkTnQDMixo?=
- =?iso-8859-1?Q?0pYo/zS1ccsd9UXOX0xgtBfAokhmJAp88s4Aub69SmsFEGSj3ImbF+CqbH?=
- =?iso-8859-1?Q?c5IeJB1XICQuxnFpc3l1amKXE+GKXy75tbk/+vzaRk65sQrXL82sReXjlW?=
- =?iso-8859-1?Q?HRTRGjrm0LYxiJGj+J7Tadu5YR9JNaw+SsfdzKZO/ZXXHxJnZwlKxfVknS?=
- =?iso-8859-1?Q?gQXMTqIKAVPmIKuMKiAIIpkEJ27RI6hvX2RIvDuaga0WPvPh69IKfsxbg5?=
- =?iso-8859-1?Q?c937+pZHniu1H4AAOxE2w/W2BbBN52Ri6uuNSnYe7taruOXYhhMfNBjcJS?=
- =?iso-8859-1?Q?tLlYymcqzm6uSK8K1a42ftE8b1ijGPoOnEhncOt8MfpherwfHYnbDYSvOx?=
- =?iso-8859-1?Q?hmMIryi/dLg7bgDE7sVIiZm5f7aTzERa8Go2TAIMpNEsVXlHXSHh8fLr9/?=
- =?iso-8859-1?Q?4BhMTGX7n1qGzEdrsNxrDsDEEV+DAzTC1St3pSNSto10MlYMG0JbEZLrse?=
- =?iso-8859-1?Q?K/CehhYKuYWIVhlsr3m0e/8dY7kufpsneCB/JjbcL7Z/xp0KXXq7rsuBEv?=
- =?iso-8859-1?Q?ZQysz/MvVSXEYC8rRk2cMp4Rv+4OL9tkgingU9FmsDGOEIjD+oqAxbwhbL?=
- =?iso-8859-1?Q?AUyzD8NwOePa+bQYQJmldvZQiqKw9Cdkv9PmoYzbo7r8FrqUl0eIu1oTQ8?=
- =?iso-8859-1?Q?ws7Nu1jNxY0IIfXy7sxZWNA/vz8dLvJS/knb5hIcPK9aKJntwU1T7qmKcZ?=
- =?iso-8859-1?Q?+PBAdQrTcvGhazlffhGpfpXVe34XzXpDhd4s5hKLxfvDUGcw5SKc0Qgvsa?=
- =?iso-8859-1?Q?XAFoayc8EoH1ZRxcjhbXarpcsAIUSE/K/7tyTtPz6+2Zz+Txg2M3WEIkRq?=
- =?iso-8859-1?Q?//2/AmlINaDa/+nvnPRBe/XuHWHxr9/aygQPq0J4ypZiQTbCaorUfVqJ58?=
- =?iso-8859-1?Q?rfl6b6U5PwddUYAMVg5MQ5EcPjADOjlZcPnJ26bDM4s82yU+sqTNxRPYJt?=
- =?iso-8859-1?Q?0ICJDSkjgh87SKVLSUEihvelEswtjyk9VB1abKr34m6ILyLjKOyaiZjrkU?=
- =?iso-8859-1?Q?8UEXTtVJmTmDQvvW5Wa/ZK0aI1S+SvgITJndqpFE2iRRE1XLo1sTchJ5n7?=
- =?iso-8859-1?Q?0lhs?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?iso-8859-1?Q?v0bidxpiJoJ9H9ktcmfrzofMelaVH3JMMkvPNDiN6KwzPwFuiBFWqJ1wJE?=
- =?iso-8859-1?Q?69bp0yUHneNmjtRkeYvCJj4oZiRU0do8K0nQl/WHU2VHh70C1V9SeN1CBw?=
- =?iso-8859-1?Q?Xj2CZXxbhecMQ+ePLZPFzlHDjag3OUWdoor+yhn4sYYVKKRWwtYZj856Cv?=
- =?iso-8859-1?Q?pGy67ccs874k19EilGol5ZcGdPiI5yJCKUMsr3As0YmEeVda2wWfIlKxWx?=
- =?iso-8859-1?Q?YSyQOWoSt8G+9/ogA+Eew38iRTaZyM1kxumRgTw/MkTbqsmx6bQgJwsVS6?=
- =?iso-8859-1?Q?t08oBHAnad6PFuDSmthI7wTSOvRwTV1nLFNVTNYXj7xkSOxjWhCdN9THXc?=
- =?iso-8859-1?Q?okHN1BdS9vG7NImN6rVQSvOGB7Z6ZHzUxPsr/K4R5a/gaZTAVJRL6l9Oo8?=
- =?iso-8859-1?Q?hhjcJ7T8Q5le/fFQaYhqPxCl3RODMqKVIe0c8Uti4K49onu0M9P53Ccixb?=
- =?iso-8859-1?Q?IRgyPD00Ww8spOR035/GZ6V00rsnl9qLcAcSIC0rT97ElkPGYSpwYpwSIf?=
- =?iso-8859-1?Q?LAeZtHDBWQKHNJQ8kkExqHrVCGgWP+P5ZmblvhYKYAsQZ67xg3FgXBUxoV?=
- =?iso-8859-1?Q?GIgBGWIJ6Bl+PBz7EBFZ77aOwN5b5eesfyQW2XiZh+npD4nQLwYE72zdx/?=
- =?iso-8859-1?Q?dDUBKBOEfwznA5yCRYBcBmoopuVJ8/K++76zKgKu+AuZCpAmqBL+ZStSR4?=
- =?iso-8859-1?Q?i8DWPPYrXkd8Y6kIUTnFPZbYnh5SMVeP7WIRw16SydRrB2rh66alM1PpDV?=
- =?iso-8859-1?Q?xL0U6F6JXUfiMFD5Q7Z7R1eez82K4Ia7sM5cHimQV5SL5DX5sYYvHLJIak?=
- =?iso-8859-1?Q?O8L9rmqunYTK+hWxknHN0GXguKFoxZJs55wdjzkiwaGDoUeXfrBGS1SSmN?=
- =?iso-8859-1?Q?KybhWNd4Qvte3cIByV66HIfq/j4RBCm7QADcp7WXpRcmZO4jgZlm+m9jO5?=
- =?iso-8859-1?Q?IjXhqnkRSPW6puVsPKzkOVgzsZTXT7nZFNPPovP5g9kHs+YdEomafQ7Vdf?=
- =?iso-8859-1?Q?iMBoqfqtu1GVn4BGi1y2U6v7EHDkfJTYP+flnobIo2rHaD4wUz4Wojdorx?=
- =?iso-8859-1?Q?UnYph8bZwUFeGhqzI0qoGNzpnJRnPNOh7m4CAAQ5mmbAUF45uQK8bEdxMn?=
- =?iso-8859-1?Q?Nze2Z5xfxtZv6Wr9wLTPtR9O+M3ltM5lhRB6EfXwMUjuByXGGXCuie5Reu?=
- =?iso-8859-1?Q?+HOD3w1OpgzNqCXF9AbVZrwgJ234VFvRzAVYldkZmhUb6u1yDJI5QZCl8u?=
- =?iso-8859-1?Q?dqUUelvczXsd4kXcE7Hicfl5uxkfm6G6unFqPDPReKB6AWJygi8S7EZCxT?=
- =?iso-8859-1?Q?cStwk/r1ARBwuhPz2WVFJePTRWT4uetVZnHC4C40L40Z6ki95ShlMkrQ5Z?=
- =?iso-8859-1?Q?KCkt3h4rsYJYYuzLwu1/DxtacYv1V+XM31SUzwUHExTYSD6zT065Ym3Xf7?=
- =?iso-8859-1?Q?5w0Br7Eh6yDX7Q4P?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=KYTvu16I
+DKIM2-Signature:  i=1; m=1; t=1795250012;
+ mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=web.de;
+ s=s29768273:rsa-sha256:QsCmBaoYs8Yb05odBGbhODDApX79
+   8CfdDb6+UYyrqyiunuHJn1l9iGyuTok9Vp7iZw4Is+XbDHGaDNyf6ffS35ZY71NCxbgezAzkZiM
+   I0IdrjvjNfpKr9XAps0rklZBnls0/gzBLjHqxgoKRZJ/6K9kzTcoquU2OCtbf1+esuIyuXzaQ2o
+   tTT3yAiZKGb0qTY0GchPUlFfgaSjs6+iY0/YiUuCb19mKYvY9L4ynp6wxUVuC0CvmPPybz/j/3k
+   exH7hYBAwm8q6q/FJ0Vc8IuVpgI8POeSoo/twUhP5tqmmDe4Pha3ThSy68249lpnjFtyfzBI4ze
+   tu+fUJDuXUoPIg==;
+Message-Instance:  m=1;
+ h=sha256:
+   tgp1iU4UpZT6oGMKAMnSzDfsTXaLr5ZOkXABfrCbRnM=:
+   rG7WbwjiISNSZ3ewrnvBFv2kJ83TCFir7rS9VlqlEMU=,
+  sha512:
+   DNGlV8EYSlYRyWcaJFCETQy9LhKgT73Tu0I3H9sW2gunueCTCjL1SjWTeFykez82WGCO9/EeclIJNcMPDKP2cA==:
+   EgGtdipRqNF0vsIfUCsDynb5RSlVEOA1xrxzcoNCvGmTXTtvhVC6kHmWZZsuJyIALJSXIvLi+6+zqSzevgdy0w==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1795249980; x=1795854780; i=markus.elfring@web.de;
+	bh=PfdlcHJuF0PGL8Kd820cfaOlsW1sWpWcEpawFoM43ho=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=KYTvu16IojgXt+qvcj5KCz5Y8I+/PzmDl6mIs3t+cyZguOdh9P9W/EzSCod8BbJ+
+	 ratMjiAlCKZwC4jZAXUc5hBbH3On32DxlEzBPKkYZK8CfP9PvkaLanUD1WVSwfm/x
+	 obHtr/OZCoiM6OWAqXdBBhrCL24XblYE/rSL5J49X3B+SHXeZphRtQPbRL48aV2U6
+	 pIhntBPYi+YYWNaM61C0ppK+EJu/rUtw4krHSU30pPnA/zJH6HB09XEuEUqQrUs1O
+	 OJajNvaqcSYt9MlG+2aq28kmwmCJJnQxyoAVv60On3e1lQEpGOLgN0DvhudWmviBh
+	 5U9J0TXkBHNZppv7tw==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MVrbz-1xvruj1UrV-00SYwG; Sat, 21
+ Nov 2026 09:33:00 +0100
+Message-ID: <357f5490-8920-4199-a4ac-3f105cabbc78@web.de>
+Date: Sat, 21 Nov 2026 09:32:49 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -157,136 +79,192 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN6PR05MB3281.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 96771470-d745-4048-858f-08df47a9de6e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Nov 2026 08:31:41.6497
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR05MB7838
+User-Agent: Mozilla Thunderbird
+To: dmaengine@vger.kernel.org,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Frank Li <Frank.Li@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Viresh Kumar <vireshk@kernel.org>
+Content-Language: en-GB, de-DE
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
+ Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+ Frank Li <Frank.li@oss.nxp.com>, Serge Semin <fancer.lancer@gmail.com>
+From: Markus Elfring <Markus.Elfring@web.de>
+Subject: [PATCH v3] dmaengine: dw: Use devm_clk_get_optional_enabled() in
+ dw_probe()
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:BNGa82SLznYD7luLmUeD7k2czRYen8JC522T48GKtSEzlXrXvvM
+ OyEnj4KH34vDM9IPDg2vMdyh4tdsidd7QGpKDW/zkNe2F6lq3n+IeIHif8fw6aH7SApqqo+
+ 3ksBDqSlg35OMSnj/ka9B7SNaR3XjTFepALwN6kbH+Zb0TTVId2Gp2JN8HLBERJ439CsDw2
+ ZDNgUaKRxYZlSi7PVoorg==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:z/ZwsT54tUY=;SwXzVLq6AZqe+WYXIAHlyRiN83y
+ ySv2OzpzMughBI9UdPcuMh1p+eTiqD2zUmGFSk5PT+lMVQ53v4JZIOwvo93DItYnXxaa1xREj
+ mJjVqtWnRHFiD/Lar0CXrow+hgsS2QoRtVEvHSGi7wZcJEVtvAcJO2YLmpMo7vmRxuI9DkNSn
+ uaAcTeH8Eajg2lULlhE0z7uUqfhqA40WfknQJTr2soJ+zUdaM+kNXH78TxIrFpMUiH+9mWUP4
+ 7EWa/Q2BrVtpaXqbVcr6xNPUHwHbhSP4U4yzWhbcxivAMGhBsIajPOVtgPDoGWX4pgdhcFJYU
+ W8FrdAYPeNjay6wzEVO6o+Ay42SPig68w4gTFZ/xFI0D2eZ6rNgVLDHLi1FzyW3ZvzIeiNwsO
+ u8+t8BI+DWzr2+mlC47QpUh3cr6UeDJgmDCAkmLKkodHdkhXjLH1Ef71XILa6WIunKTQf3hwy
+ W63ZBNI67ebap2QuKH3V9PWAEsZi+Br3xBrPDrT4ByQRPuu0TlcfT5JtoV8gMVaiHsKfk5yVu
+ ppCX7gs/Rh0cfp22/9SXYI5tcx2dvWCcz1+MzhtlexrIlugec4QvgnP4+nDlOof0Lert2vkCn
+ vlGGThx2un+Xnu7tyiUJut66iKerCb5BUUWz+8RRseSnsT0BAFCfULkQ51l8PQAHqWaBcKZT3
+ FADOZseMeTOJogCY0C+An5Z21K3TW8JkMNVOAicgCxLgoZ7eVqNcg0ncfhTsDC6JwbUyt7L34
+ LISyNtRGUn8uao+InpJlmsS1QdttOjbnrafNm4Zn+FD/AUyVqI5luSE9Fdxp+qhkVgoqROsNO
+ d97JHvTQdQipvrEqgSWCCOKs1Gkve67fqYXXe2oGvCqbDgZCw1jSE4WQKFhbRd0TfQTCKEvZo
+ dyxNBBaJo2Bu+ryLZw6PiiCH9H71ABu3dd5yLIoKkk7gO2zfM8tboK4pdU8qUw75KUz8Pvnmw
+ OoJHure0j5SwgM6u/dcEPZcesFBa7ZylYfcjKEFztVtHuU6BU8ZHp9udvnJXAXxU3XGHT5oVt
+ N4k7Ql0uhUrppwzd1cTI0ovbhbs3uwG/k63f9ueXkIMbXmo3iYKmVHIxXA52BMZnBCykKL01X
+ dOE03ZBvJiVRVzSqj/7aZ4EKWrwlPo/bEAGd4AWz1RxC/nuuoqKRvOWHVoAJcYliWOaJ9ZuX0
+ jniHrnnBXpVE0BPN63xVwk9IP0z/XHFGGinKNLq1qHMQ2kIclnedwgGbO6Jvtn4qs5oKtTJHL
+ MIKNpnOFB/Ww9CCL8X6sqLGyTE9NbAsl3Q6Rfe5GgrDPp4ngAPI3OY/NOLZqdw/BFX7+IbBnM
+ 2S9l1RH7tPw6/3OCbsOcVWKShnnhi/NfYBwMng78Hrj5NxhhQo8F9UxF2WfPQ2EKy3vxTD80b
+ AFSPQHhxMuoPAfwLarj3Lfl2klGFeiYGjmWSGXbyLzyKO6o+6CxuW1uL0+eXD02tbHglB8Egy
+ q9WT1HsvzG+9uFJUno+mbCdNsYgnX+cIrIyp4cxMglLLVJcEd52umQhlqDOTJngnlTYP0Y70Q
+ fdqFTCIWNVmwWe+kyDwvL75lI8oVVsu+6WjLn8a1HbAxD3jvcr2QZ53jcKjag6CxeevUBEg+t
+ o2f0u/ibREKyIJp70HJpzspZSVztursiFOn62W7n09eBENTADFKbISDJ2C2Ds6iPmj6gbdxbo
+ rGipy4PN3BhMQ0SDc5i1IXJAeM2ledX45ZfOG9xCdwh0tUDUCKi8RTNJ/ndjUiV3M1ffVqCgw
+ wNfnJd2tk2uhgY2aO4VS7JeadOkzGUm+ZpdgUfjan2nPMocfZXi61mINgkmLZc9GFoOusXfeB
+ 8AVPqQRVRWJ3OwZ5aBU4Gk8VwcUTpOsac/Qa2Npo6XLmncDOK0sRzVFgyuVk2wDpNi6/r2/FX
+ ot6wNHAgK+IGOrFQS56aIHSbeOLC+4egNXXz/g0I+lJR1XNUqFlno0R34D88N7Pgx9kPEG5yD
+ wIH/84wSrwYrjMhm+wc1k6u9copt8EKhi+SyCrHwayHCzgOOe5x8oPxGa5NP7Ffa8eT0dhblP
+ ONQUx/dVI9jjaTTEh9oqvioewDGzoD2GHEqUbs/mu2P5IN2iB0y/oZAz/f3Sf++X6WjOFd1tA
+ cIVd5uJwQ5LXyrDuTR4t7yRV7akTaG3FyrQBOhJYkOkN4tB0LwW12A14nNWXZdmcAKBhOclQh
+ Rv6mXBggJeOjy58CstyMekiYRJFqqsuDhwMcW6hasBBLql/46ZhD94Plqt4dK/h5BeeX24IuE
+ KfeUsYBo1g7T/CZLwaH/HnJk30fSOjRMDsEY8z4uz2int8esEcxR+IfuvkzfOfirZhV9yi1Jh
+ wpCbsE4oTJ6aRjb6qZ2MZ68JOs2UnjnzBv5hfjY4FLQ15oNS4zFnFI3HhaKVyeD0DS0Xm3uRT
+ s4KGWsI6WZ0x+uAP9jd3xOlZf5yaAGUjbrzbCe7xHcIhHwB7RTp7yaVsWjRTA+0RiRZ4yUw/4
+ IBdDLws+zkF5KwUibirZ0SDEZ0fb7/rTH0eb3tsAPLPqLOcj9ccntGdgtXZ9s8P5L/NrW9YEs
+ GDrvtdjYR6eR9UykbeS1S1wLkrRmlqGogr/CFC4xrtuyDgcAkvb6NsiSNjwuQcfKROpWFDd1f
+ 3Yap5O5Li2FDBpl0m/aN/v5ZVJCyHJjTnvJ65Ler/o26/+dfKCfha0nMvGVEcHe/UWj3cq+gv
+ b3s+fJyzWVwvKhs14x/1AvEhVO5sScHipDfnicMTGOpsqPKvc2Zu0NUGUkszafPxlU+zljexD
+ pt9CwItKR1oZeMs9zQ1j+PkMWpW6GUWMkk5izTr6BjSJXsJaKMP6KaWNKzq0X57VcmVhCR2t7
+ 4PSpIkGIhxB78EBeTBG1fwXnMOjqBuwb9R9MpQ47yLe9iQt/EOQ23Z6GE87r9i49rZKzmps12
+ b49NnQ1wyKUlY5KQonCL7h/fYC83ZjImwFPtysLg+mlwesjK48wapJFRQ+vKh+7qGWFLVbDfs
+ 2HQoBpv4GQiEC4tvm3cq+2olvTDyaAPM2TY/BsX/zhj9kzcRQZKQWLM3qLWdETfzlprXHnHUx
+ /cok8gOPsyzOu6Ob3+FqqA8Yr9atXU7LxhLOVs05Uo184NO/89GJ67mfL4rwLVs+cLNczO+nf
+ DOPaDCVa+EwfC2H8LHy6kyE5NnlHUR5xclp+TkPcjSUOgjJoQ8ztjCR83M5p57n2R53kC5Qiz
+ ft2/6U/TNxL28HBVC2/LJRPmZmT5tSWAtn0rbRjXr5a6Z3NBPIpvmNWgQPtOuW4cMy7ZldFGd
+ IrvN/OnuNef0yFNgcJaZs1sKK2Ehui5QGO4zxQffU1Qzhv1oTKnJDuAPvR7Wl4bEkCg0RVkn6
+ Ny0Ly6BHn9kNY0nsf/P9qtyZ6p/Y0ONpNb87B8vAXrOj4HpvvLZBZFMIEG/3d41fNiEz0Wiom
+ VArnsKAkYgHw6Mvh4SvhFSdP7UuXtUmplnVftlK7NmXPuPnJuZ2xlie3a876ywNZJhGZAY84W
+ AV55xWcvx/lNgASGmAkejKNBVJ/uEnCaLohUw3w1fukUqrKZHs5u6zaL9ukFJOGm8+M4ytHPa
+ OE4erIJ0VDKL7RB4Kkes27hDQDw5Pt/sduvE1c54o/0jCI0VjJjK3zKZK6So6cocSWHT1yl8c
+ +5u9URgM6e62X394dcl50QSu5jFwZor8ZnAiF3FWMqCFnxidtnfAVUbDTTgksAEN4p8ZaExI6
+ XkrpbNy3Dnjxyc16UlXo+UZtdcAYuRpz9g+HyXwaSwROQ3E46CCrxCYVliZiEoe1oX2qw6Lnk
+ 3ywKbw1+kht8blsZhuzzE/RFjtOdnOlvjJskVxzBBjafqBUKbet0uugJicaCfTqs6QNi6UOH6
+ AeeoDuopG4OokGKoexFm9jxXuaPfDvZk3epYRa4R7ojCv8h0t7u+SC7BvfhWltrAQs62p5eXG
+ Cnn8ig7kBzSimkxFp1jyWFr+Bq/nZ5m1DNRgTA5ekxD8TYMaz5pCx976LS9K5zizZZlrjr9S8
+ kUlFulZu1xaZZ+YFXiIcpy+OnduWcEi1Qq2j7vCJHHCEQW+07fAYScVHTXkehBgoQmvyhojMx
+ FU+jwdpiaqbxUS1eE7tDdNBSXPKE82oza4Bf3Fr9v30x+z2pUK7Xg1zopYqHxm+zduFknVGjI
+ DOZV9m+4dBPMVAHCirfKcaeQgswcwbRufEE0PwMMjHLpzW61Jy/mtOfm6mh5O9r/x9m0UCwaf
+ 5fbj90EiRrM7lSq0za9LdVTCqC1SxEy6MhOkv7aO3tU/v2xHCKOIgIM0wu+E2irOSaYTBX6Z+
+ Hl0LnV/OL+cRA7l3I9lEfH7mtjNz0FK5KsLUs5LFM4+7TXjEwro/iJ5DwjSNMa5viE3uDh9TQ
+ 96Mlid/SRFAh0yRzBjRROKEeCv3Xmy7h5vS2r+suq6pNVv6VFDHpu5v9LbWfjfun/y9QD/f+c
+ WS0w4CW2HX4D7erJrPCB36nh0pPdl5ljhHCozdVPSTEEIjrddSpvnWyQeavxn0R5VE5ir5Bpw
+ yYErgMkDtPjmH5/N9Wz8S+J3SNrq+gJcu99diwET07EVb2Yj3FnBykI9TaJ8NOO7BwawHdsvD
+ FVRPJ9lWkfSh3CetTbxsPMwnyNYo+wmkSZKc8rU970aoPgCOPbk2cab4Y6/jdPKhw1MNsVRl4
+ 6alrvn7qsaut25zUXfKBPlhhNX86uTpB+8QNSg9pX/Oee30wJQv5Gfgw7H57PAegPw/1NCZyo
+ +2fQ8NQp1Q44o0chNNK8T35YhOJLN8+HxfGKULwlUuH2ulMbvjsGsBDJ31zPvCIYOWV5EqC1I
+ h0QDl3RUCea285jjNFt+LVJvAhDxp5WFYZ4MQWYkwef42bPorQ5x3FdHr1vERslrNsJ6n78nn
+ TpIxiq7KvWyU/bbHrIDcOHwgd3bfEz0gVT8obDVgeWWuGVz35F1/SH/6QwpycvDxC0VD4l7Uz
+ 8Zq08P70EYjRHKjKHYPdRlqWwi4YDZNabg/5i6hwzyHMQ88HXOtwyLML8qfVs9JbXNTtlGXPm
+ WBFE7DsPL4vX4zsVm4pqL1Us5EX06qtOvgqyiWsRb+rAToYwohpZJcOFstHO3OgZnVxBW2bIH
+ 1HbfqTsUL9bJb7cR9irN/VUBSz/erBlmRTM8nTF+2t2cNuD6zy8vwatsmACu+JM4MmquRQzhN
+ AJQednSX/kLXvfIqGsh3/wCTp3NrSrvKzNZ3VFyML4/buM0BK1dIg1XNnwCww/scdPajJEGNr
+ UQtNysmLnnKkIFeVWJzExobU4NSTduzqypelq8NFF+2UKvU33/kIpKYfUyWoCPOVd+8nrrsP3
+ nxUxiBVueKvT08rCSiy/xg1WCwmWK8h1rThsOCYL8lHGaeSQKyyWVRJI8Twvbl1L0yKaTnY8b
+ gY81Ov21SSLB6rGMoWWgV5JWTsS8u4NMcv2vsDO1deaWLOPXcbWHKDK7O3sv4gTnDajiPNTnC
+ LQhzHvSgTtm30mNsiKDO32eaSYgJpJSBC/RMjHkZzxDNqbaACNaOUIjPLxe8ty9zOOM3pYWtP
+ gU7hi4RsXlz96EYYL5pNGhUXkg5u2ZELfojNc9Eo2MNJoDPoOrB3LyZoi5CIOQ8TxcWmXW5i9
+ O/7LTFvWq7ixIrkt2zBGPDMCVPmZuD47/yXQhLiP3OMVpj66x09K3vCARM+bv0uPDbBZiM1Sj
+ DzHjyVyiDTxs6d6TKBUcf4J0mxjuPDv13XGSiYFkNCbUwFkVbv6WqmYBqJSbcajSH9MvKFrr1
+ 8pTrGYG9jd/ugn5lP/5IC3uXEGvHOEtrKEDNqEo5j/FHQSPXG35J5vr9nAGM1sZUdmnSQvDyj
+ DVU/At+f9g749mSXxsZHslI7Zc/+SeYEcRpUQ9rnM7gaO4P5pQyXqLHB5nr6vGuSiCaHnbtJS
+ 97E/bwfldwuKVBbPi2aTSES029BhQ0/a02sH3GlaTrLN9KOiEwcMXabA6BjFXNIEeLFzlzQtf
+ ZXDAcSqDj7Lyf2U6KrSAUwM/WPRxH/R5C4gbcXriDSrkjHyWWvL+1GAMKZ6EGvawqIdrVHdzR
+ xdbUr9k/IZ/8DrhWixlKueaSgTc549h9L4eBR3xmtbq+wSDLBBWIUe5WvY9bAxzv657EZULhc
+ ZmqsWqlkZZTqmfIup9tFPDY/XhMIJDeql6TrxVFY2QF5+Dakg8TvAIB/APhc0AjvsJ/Xi6Ur6
+ weckocJ7YMMDTGKc2HrQWfgX0z6nqtJHUnhehaRbPp24y8UaBJfvgMkOvT8rmz5GvPvo8j7DU
+ a3Y5jSTcO1ltdnQSZu4av7pEnZ2thTPjU/IU5vEkNn0fHibxDAsnjM8DaxyHxeZCz2TtnK5JS
+ 3OX9fjhvQg24XTIXYUZwgzenq6c1HL6/7l6Q0jDb4AeA0zxoFBXgwqAKTDwxFlg64q82KJPSf
+ 3ktZ7Y54FoNtxIPq+IlljWYoJaQzuSIIq0w9wCAWRsa0ONt5xOAh6xE6m0rw8vnx7RKAwGlK1
+ 0aVJXQezZomEgvxDd5C7o17uT1Xi7FmhfQukCz0Sk43qIdBv3zSmzCU/v9f1aTT1mDubjVQKy
+ ZbaRsNxuC6KY5iIGsz44euTByWTIypPnkeNtyFMgZWeYaaZEC/iEdx1qRjFF3peIvV7a/bGlJ
+ rzYcf8eNC1w34/5Uuy+ht1DrU8SeKzXHUgDlAso1xMEP5Ez/UicPrSW6n7Uls9TurZ4d/jhFm
+ qIJeZf+tmOluGBtVJKbMYDM3lG8No+GgITuf309djOiN4cFPBs2FkUYfRslhCP/YeQnoc/aXI
+ f2kx5YwSuNKUITXEZ5ZiMqUdpvQ/F7mTDtkb8w9XPN319C/dQXboC+H2U9yNRAQy33Kf7G9kI
+ QRMl0TUhQNOvrkZz4GwvV2bJBpC1Jf8eVQWtYzI4497DVAnXQvMuw4iglKo8OWxnmYEZ69QXu
+ 9zAbAI8tABYAGIkJSl7Dq6LnV2IymQy6/P2zXdRCS/7grWzwdB9LrB+JpoDst89WZ4ZnCSjGv
+ qRh2FwXJhAJW4m3jx+CHcEr0xuNWTZvoMzOWCgFrEo50nwsM/3E/taoO8MDXKHYfizIGQNHOM
+ GVdlGdFeSL0PkJnNImWQXQriInIXoULfyd8Rf3/93SjIf489ytaGrtshXv2wvdCW2z8uk0t3f
+ wLu78axonkGdEKClUcNcoW64L78jHhoJzkSRzkEqNgNkB6G4/Eb1r2mPmLELSS/azD33pC1iS
+ nT3WHvYmqqWx8BDraeDXpxCJavXtOQnYnFa7vPOhCxLLJinnCWsr2NyA++9xcRAMRBAIO76LW
+ 36qZVGCJ6SGI1Ojob6OLgNKjRlK+cq0L0J52yKc1MszcIJgI/U9qG2kE7ypv9PdAOafS2xYD/
+ sAax/ZGtsbLgrFKQ5v4Xj/Svgi+tZw6Hokw41H0SLF6g5W1RyMcwRWcZ1mS2NKAfFQ5RhrQJS
+ MnNEZClu9UwufhXuff23/o3Zm+DToABB/C0F87rz4ArA/ylqqusl6rzBpNkdnStVIbrq8h1va
+ fJUmFCSwVovfciNVIX4FFOPYeBetz2d4bh20+/g46QNkgn/RrfWdu/ipcUkMZm+Ve3+u+iTiQ
+ OOZgnjMvxeIgde1/BjJgGkHG8vE7b2159iFdRZ5ew0bx9snIR2E7HOgQmCG8TPAWxH2XH4tss
+ DU+hRdywzD9elVJaW/UWwSmiC5ydPAdKixJ+eRgFxUexe7fJjSzNyTgZTw/6hi/6M7Lo9cf9T
+ DV/WjeEoQkPFt8dPMZxtkcHlC03sH8/n30Ouo0si1KAYkgM/nM/ny2fgMaGfkXOGS1AW1/81E
+ CmPAqr+k11U0g=
 
-The BSG io_uring path retains completed requests until task work copies=0A=
-sense data and unmaps the data buffer. With DEFER_TASKRUN, the submitter=0A=
-may fault on memory backed by the same queue before running that work.=0A=
-If completed requests hold all the tags, neither the fault's I/O nor=0A=
-the task work can progress.=0A=
-=0A=
-These two patches save completion state in end-I/O and release the=0A=
-request there. Task work uses the saved state, unmaps the independent=0A=
-BIO chain and completes the command. They apply on top of the four=0A=
-synchronous request-lifetime patches posted as v5:=0A=
-=0A=
-https://lore.kernel.org/r/scsi-sync-v5.1795249365940711260.0.x-professor@ou=
-tlook.com=0A=
-=0A=
-Patch 1 provides a BSG-owned pool of 64 sense buffers per device,=0A=
-allocated when its queue is registered and freed with the BSG device.=0A=
-The bitmap and 96-byte buffers use one allocation. Opening the device=0A=
-allocates no pool; transport BSG and CONFIG_IO_URING=3Dn allocate none.=0A=
-Patch 2 takes a slot before mapping user data and returns it in end-I/O=0A=
-when there is no sense data to deliver, or from task work otherwise.=0A=
-=0A=
-When the pool is empty, the command fails with -EAGAIN instead of waiting.=
-=0A=
-io_uring may retry a nonblocking attempt in io-wq. An io-wq attempt=0A=
-that finds the pool empty completes with -EAGAIN, requiring userspace=0A=
-to resubmit. Slots are shared across openers: one opener can retain=0A=
-all 64 with unreaped CHECK CONDITION completions, causing other openers=0A=
-to receive -EAGAIN. BSG nodes are normally accessible only to privileged=0A=
-users, and the series accepts this shared limit to avoid allocating a=0A=
-pool on every open. SG_SET_COMMAND_Q does not resize the pool.=0A=
-=0A=
-Changes in v5, following Yang Xiuwei's review and example patches:=0A=
-- Replace the per-file pool with a per-device pool and a bitmap.=0A=
-- Return buffers with no sense data in end-I/O; use irqsave locking.=0A=
-- Embed the bitmap and buffers in one allocation, remove the redundant=0A=
-  buffer-size field, and trim comments.=0A=
-- Return quietly on invalid get/put arguments while retaining range=0A=
-  checks, double-put and outstanding-buffer diagnostics.=0A=
-- Credit Yang's pool implementation with Co-developed-by and retain his=0A=
-  Signed-off-by from the posted patch.=0A=
-- Drop the unrelated multishot rejection and timeout snapshot.=0A=
-- Rebase onto synchronous v5.=0A=
-=0A=
-Tested in QEMU on 9f9e0b1e5399 plus synchronous v5, with KASAN and=0A=
-lockdep. The 960 regression checks and release-order tracing passed:=0A=
-completed io_uring requests no longer remained allocated before deferred=0A=
-task work ran. Cancellation, linked commands, 256-command pool exhaustion,=
-=0A=
-64-slot recovery and concurrent use through two opens passed. A rejected=0A=
-bounced READ through a second opener left its user buffer unchanged.=0A=
-128 successful commands returned all slots before running task work.=0A=
-No KASAN or lockdep reports were observed. These tests check ordering=0A=
-and behavior; they do not reproduce a same-device page-fault deadlock.=0A=
-=0A=
-Dropping the multishot rejection restores the base kernel's flag=0A=
-handling; the tested multishot-flagged commands completed once on both=0A=
-kernels with normal, DEFER_TASKRUN and IOSQE_ASYNC submissions.=0A=
-=0A=
-Each patch passed affected-object W=3D1 builds. Final configuration checks=
-=0A=
-also covered i386, CONFIG_IO_URING=3Dn and PREEMPT_RT with SCSI=3Dm. Kernel=
-=0A=
-selftests were not run.=0A=
-=0A=
-Successful INQUIRY batches were measured on non-debug kernels, with=0A=
-three interleaved boots per variant and five rounds per boot. Both v4=0A=
-and v5 used the same synchronous-v5 base. The table shows batch time=0A=
-divided by command count, in microseconds, with a 96-byte response=0A=
-buffer supplied. Retry time is included; base has no io_uring fix.=0A=
-These timings were measured before the multishot rejection and timeout=0A=
-snapshot were dropped, and were not rerun; pool allocation, locking and=0A=
-early return are unchanged.=0A=
-=0A=
-  mode    depth   base     v4     v5=0A=
-  normal     16  1.587  1.593  1.646=0A=
-  normal     64  1.158  1.165  1.195=0A=
-  normal     96  1.066  1.231  1.165=0A=
-  defer      16  1.582  1.589  1.643=0A=
-  defer      64  1.155  1.166  1.198=0A=
-  defer      96  1.065  1.228  1.161=0A=
-=0A=
-Compared with v4, v5 increased time per command by 2.6-3.4% at depths=0A=
-16 and 64, mainly due to irqsave locking in the control measurements.=0A=
-At depth 96, early buffer return reduced -EAGAIN completions from 32 per=0A=
-batch to about 9 and reduced time per command by 5.4-5.5%. These QEMU=0A=
-measurements do not establish performance on physical SCSI hardware.=0A=
-=0A=
-Both patches retain Cc: stable. Patch 1 is a prerequisite for patch 2,=0A=
-which fixes 7b6d3255e7f8 ("scsi: bsg: add io_uring passthrough handler").=
-=0A=
-A backport needs both patches, in order, on top of synchronous patch 4/4=0A=
-("scsi: bsg: Release synchronous request before user copyback"), which=0A=
-changes the same file. Both pool patches exceed the stable rules'=0A=
-100-line limit, including context; if that rules them out, I am fine=0A=
-with dropping the tags.=0A=
-=0A=
-v4: https://lore.kernel.org/r/cover.1795016239.git.x-professor@outlook.com=
-=0A=
-Yang's pool patch:=0A=
-https://lore.kernel.org/r/20261119031751.3471968-2-yangxiuwei@kylinos.cn=0A=
-Yang's follow-up:=0A=
-https://lore.kernel.org/r/20261120021604.2648220-1-yangxiuwei@kylinos.cn=0A=
-=0A=
-Yingjie Wang (2):=0A=
-  block: bsg: add a per-device pool of uring_cmd completion buffers=0A=
-  scsi: bsg: Release io_uring requests from end-I/O=0A=
-=0A=
- block/bsg.c             | 109 ++++++++++++++++++++++++++++++++++++++++=0A=
- drivers/scsi/scsi_bsg.c | 109 +++++++++++++++++++++++++++++-----------=0A=
- include/linux/bsg.h     |   3 ++=0A=
- 3 files changed, 192 insertions(+), 29 deletions(-)=0A=
-=0A=
-=0A=
-base-commit: 9f9e0b1e5399045982788a954d3461de894e40c7=0A=
-prerequisite-patch-id: ef4b390580d84500ee98fcddff0a34e5cd95e40c=0A=
-prerequisite-patch-id: 1b98fea4540409102179bfccd2905a686c7f1b5a=0A=
-prerequisite-patch-id: ce66c68fb99ef813e5506ba7f3de512c1fd0c832=0A=
-prerequisite-patch-id: 73942e82ea57898fb0af8ee1db909b0dfa8b2b77=0A=
--- =0A=
-2.43.0=0A=
-=0A=
+From: Markus Elfring <elfring@users.sourceforge.net>
+Date: Sat, 21 Nov 2026 09:16:47 +0100
+
+Reuse existing functionality from devm_clk_get_optional_enabled()
+instead of keeping duplicate source code.
+Clean up disable_unprepare() at error handling path and dw_remove().
+
+This issue was detected by using the Coccinelle software.
+
+Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+=2D--
+
+V3:
+Frank Li preferred another wording variation for the change description.
+
+V2:
+Andy Shevchenko and Frank Li requested further adjustments according to
+the proposed changes.
+
+
+ drivers/dma/dw/platform.c | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/drivers/dma/dw/platform.c b/drivers/dma/dw/platform.c
+index 7e76391475ac..13c44ee5e047 100644
+=2D-- a/drivers/dma/dw/platform.c
++++ b/drivers/dma/dw/platform.c
+@@ -64,12 +64,9 @@ static int dw_probe(struct platform_device *pdev)
+=20
+ 	data->chip =3D chip;
+=20
+-	chip->clk =3D devm_clk_get_optional(chip->dev, "hclk");
++	chip->clk =3D devm_clk_get_optional_enabled(chip->dev, "hclk");
+ 	if (IS_ERR(chip->clk))
+ 		return PTR_ERR(chip->clk);
+-	ret =3D clk_prepare_enable(chip->clk);
+-	if (ret)
+-		return ret;
+=20
+ 	pm_runtime_enable(&pdev->dev);
+=20
+@@ -87,7 +84,6 @@ static int dw_probe(struct platform_device *pdev)
+=20
+ err_dw_dma_probe:
+ 	pm_runtime_disable(&pdev->dev);
+-	clk_disable_unprepare(chip->clk);
+ 	return ret;
+ }
+=20
+@@ -106,7 +102,6 @@ static void dw_remove(struct platform_device *pdev)
+ 		dev_warn(chip->dev, "can't remove device properly: %d\n", ret);
+=20
+ 	pm_runtime_disable(&pdev->dev);
+-	clk_disable_unprepare(chip->clk);
+ }
+=20
+ static void dw_shutdown(struct platform_device *pdev)
+=2D-=20
+2.56.1
+
