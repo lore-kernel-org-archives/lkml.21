@@ -1,97 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795219781;
-	b=Ig9lcHFh9BmQxJZL4sB8IuajNV3abefIcd0qoZB+jVaSQ5BEvXdK0Bx9xhdZZxM/6pPl
-	 StpbFqFF/d/qKKZN+65GeLK25Z3xA9TVA1rMg9esb/HdzW/iV7JVtKD7cu3NqqexLWPG+
-	 LIj0KYGp+hI1j6ddiFokzRJbK42Zu33QzYSXNfho3dg/y/7kUhyY2BzlZ5sU+bFoiTBa2
-	 Y42QhDjLtQXyWb6czfpfcVYN1g2QZxUL4jEjtSyXBpsAHNIs2ediPWnnCE29eFVM14k5c
-	 mPzh4wvLep2JiUj3GFuu8w+VcDXx6zUs+CG7bvXxIRxa5basRPFdpHh5Rh/sRsshtdQ==
+	t=1795219786;
+	b=L7D461S6bBBBMq8PheL1VyqyDRgIIIExgGZ6hmaOEnGDYYq+lNtOQcd2a4pJLJGfOx8t
+	 e2/4YvqKmSW9TBIGcQXUoHv/yjEqpwi4I75JLjTEQaqu5O6beWV6NAqdaybDKru60BM3g
+	 PZov4n9foQw8c5LkG/Z1KLR5fj3E+qw74tsSxDYlGBuJYiFM5Oc0v385iDj6BCcB6nUd3
+	 SllkK784sD3RNV/YZc0juRc84GmILZuAhguVxpp9U07/vIVNZxLZnhrDdhYzLNn2vDaZJ
+	 Yr7pF2V/SijTo0997VBSPlX5Y1501WhamJG6qhupcT1WkvHqQ7VQayMmk19GS9+vpTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795219781;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=iEQX1pAJ7wtjY2/7daAaqxt4QQCiCe/GT1MXA+6yeBA=;
-	b=oxlJOZtccKhx6zjpWUVB1RbKLMIYXCOgKIacJl/BdxwPWM/puRzVte+GAodOT5TGrmFU
-	 rw8/Q/I5tPYPUyJS7HUAiAWequ0f+VTwvb008kpe99ttAjby99c7apv4orv2iyBJ9ySqU
-	 7NHRdeJOrdmsTzgZ/LKksHY83/vKGwuegs3zSWtNMQWLYJyl500T45ZmsikqZMu2aI4T4
-	 4cAlm0sPv5UuaFknvoyR0NtrP1wNhIjqeZIdCmFamhAjrWxHHnlnSrq6Nr7V9FXiehzh3
-	 uvBPVQpLHZxbbp8W4y8N2rLsDS/GKtBvDxp2FH4PqJM9ja4ktOq3HoGfpwf2tmUeKsg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795219786;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=GSFAa5q4pk8rKycfd2l1otknxN4x1Z6rfvdlMGDR0Hw=;
+	b=qHYu3CVLOMe1WReXk4L3ruNZuaox0BbqxOb6fjrVkOGzfnwYhmOBI6qaXn9VpcL3Kfa6
+	 1of5GsxBUybYWMD9Q6IpYeKhnm8MhYL7bp/tcNHc7W9IxPQ/uZ+Mfx0zF29FcHD8CnOfd
+	 wwPKUEypeEO37mXHVFURvSgarfeNoAtLkEe+eunwtUrhHjHyNPmyzJZXvxQGxyl7kfVFi
+	 JCY8mBTXk9JSZ5RqVaeVcqugVUuukkcrwY4vCDNP56hFQ4PUg4+XvQZOe8URgtnBqdIgH
+	 /dw99UdEgPROVJgUXLgAdOU6avw7b0OnW7/Rfzntn/cuUHy4NTrObSGxHYHlbn71SuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MRPohT2H;
-	arc=none smtp.remote-ip=209.85.216.47
-Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=exg0p9Fu;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 623F8606A33D
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 00:09:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 623F8606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id D0BBA60A2635;
+	Sat, 21 Nov 2026 00:09:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MRPohT2H
-Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3b41188c8b9so1109843a91.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:09:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795219780; x=1795824580; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=iEQX1pAJ7wtjY2/7daAaqxt4QQCiCe/GT1MXA+6yeBA=;
-        b=MRPohT2Hi7L9tT3edEUMdEHRH8uVyTlfpl1y8J1khVVswjkzvdcBSDNWQCF4sD3JHO
-         rATq1hmaMEoyMQj91ulv17dbBhnzMldAstC/89kbCIiVjbCIlhiEDxghw/G8DwhwThVf
-         erGDiNUKxs5bUvX2YW+Umo5wPHPJIRsu4Dd6Gzy1rRbd/nLZrMG2c1wY4SrpBn9hegix
-         71JFn7i8WkKEF6X+m/CzmZggZPmVW3eAmAPIab7MxSu/Ulag+n7g+FFf/hFhvipgLeON
-         Rqqdm0ACyOfGxjUJzE6jYGhkeODWbM62m+nm11h3gRzHfhFK1NWYGf3k53ZBskplDj2y
-         5a3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795219780; x=1795824580;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=iEQX1pAJ7wtjY2/7daAaqxt4QQCiCe/GT1MXA+6yeBA=;
-        b=am/ab+U/6JDMlbR/qpJtAUA7LRPLQ9dJOfUWrqKxEiwmtdKIiL1HQbS+yn70cIBGqe
-         vxGTMBdSOisSwi/kYLwLsBWglxj/UU1+TxWHg+p5Fxtmik2IPXwwnTkqiK+AGvJxpz0b
-         hH3CM/N4Ta1V0vxoBkMgKVUYzK2EdRm4+sw4DZxzPCt1QKmgQB6u5b0pSzqbFIx7vGEh
-         qFEuvWkguiZE8UCXAiVUxynBnqKNm/bd/2Z5CqSI3IGCNNP7MpCWNHkFA76Z0mDsOTgf
-         AItK3o+s9jSIcyPPzjuo1VSMlx+H8ct1CaZoTFZ+k3XyxHhc9po16IigrPs+T/zjGWGe
-         NvEA==
-X-Forwarded-Encrypted: i=1; AL+hErGkQDK5OOP2W03Yvk8G7uXCVp5gsK1n/rWAr1MIVish2RIdJBxy1NzD9EofAS4eKrDao6rL3IdNzGzZY/s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9BiyTYZpb4oSt19aTfTdDEFBXjrm03cMQm1bHlzh/jyIOQVLVZ
-	mjnxp24M4oPCc7WfaBS99KQ6uXL7/SYGHGP8ealXzJ8ZjBGTdcUbylKN
-X-Gm-Gg: AZFdTZe3NpuEsMgAmgp3yrqx2aUDeXXVAuwfJVqwvTssRoH2wIlQ00QJXlAnWyej6nT
-	2V/ANo1QkcGKFBlI6TDlLyqv6v2FrldMeMjQru1COpDWNkix9tU0LGDAbJ/qk/nFamVBfbHlmhX
-	kxKtwBfZI22l244mRve0vzgvVBo06KUjk5L7ezw9QDevBESa1l0uSAO7PHjpehZjSg7h31EfQJS
-	Xn2u10hnOXVa7P5f3C3iyR6yo0l0JV+LLkuNx8oeeZLhzrsC/3uzn/ixJaD19R5ylWLZfl94aKP
-	CkDKLNck2A0qN+H9DfdVInhiZejJHKOO9oLlqBTc0YEwPev5udS0+WuIeAp95AG08KeNPpa36QI
-	+sRLxXs8HhaDJLv/YHSLcBstV7F0rAXVEO2ny0N22sxHsMSSauYMwVdGTyN0DFtGMnX/942LjNq
-	gjVBhWL+ZJdOfqEeHZqms8eoADLZe7sLLCEIgKF/4E6jPzBcSi6hbbYiGgTZkCRIwW9xF6c4Uyw
-	immIXcDO2C/atzrVJCvFbNOhE/mnR5xsbX5gygWDbmMtxPDmVb1Egtrj1MDJYPqu86BBC/ZI23x
-	/f/1RuNTl5MtU+OCQS6QSB4Dfn6ZjN46tM3tjNWqKu/ds+K7GmyOOwlbLBxUHvUJuQI/kahUnhP
-	+3hfw8Ui1tXluFHGheN2SMolbzrP6UD3+fYj7ZwsnB4Ua06/1Ny4YGQpp8YNMzpA1jTqXdS8hAo
-	jfkw==
-X-Received: by 2002:a17:90a:d2cf:b0:3b3:ffb2:6ae3 with SMTP id 98e67ed59e1d1-3b41c902f49mr4198463a91.32.1795219779657;
-        Fri, 20 Nov 2026 16:09:39 -0800 (PST)
-Received: from ryzen.lan ([2601:644:8000:37f::e34])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfc613csm1920509a12.5.2026.11.20.16.09.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 16:09:39 -0800 (PST)
-From: Rosen Penev <rosenp@gmail.com>
-To: Matthew Garrett <mjg59@srcf.ucam.org>,
-	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
-	Hans de Goede <hansg@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Gabriele Mazzotta <gabriele.mzt@gmail.com>,
-	Darren Hart <dvhart@linux.intel.com>
-Cc: platform-driver-x86@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/3] platform/x86: dell-laptop: Fix keyboard backlight and charge threshold handling
-Date: Fri, 20 Nov 2026 16:09:28 -0800
-Message-ID: <cover.1795219225.git.rosenp@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=exg0p9Fu
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 2E03C1F000E6;
+	Sat, 21 Nov 2026 00:09:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795219786;
+	bh=GSFAa5q4pk8rKycfd2l1otknxN4x1Z6rfvdlMGDR0Hw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=exg0p9FuhSRg96Fa0UI64RNFn7ZEmCFC7qxHAngayMUiSbtTQnH76nPFzFtOAL7A7
+	 zPAZ2vovIXviQ4eu51V97EakgNUc5vWOvMRXXDEkabUKRj58n+KVe4FA1AcoNBXtpW
+	 HS5u7uspHEPetwIAqadQoDvIL8M1dqh7pieUdprMOYDKGWqpuAGTQ+PKcwXIoboaTJ
+	 JnoorEnBPLvkPlx9FqqIKfeVf2Fsu9uxfM+eJmOLf+ZFT5kDPBg7tS+jOmAPShcwyl
+	 oReAllMY36Tfc4KqCMgKO14KgoAkMK/zsyFQTBL9osh2Ksj4A4yQkOMnC97h5sz0p5
+	 yzM8okWgI4SFA==
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: Jarkko Sakkinen <jarkko@kernel.org>,
+	linux-api@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org,
+	Alexander Mikhalitsyn <alex@amutable.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Christian Brauner <brauner@kernel.org>,
+	David Howells <dhowells@redhat.com>,
+	Jan Kara <jack@suse.cz>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Josef Bacik <josef@toxicpanda.com>,
+	Kees Cook <kees@kernel.org>,
+	Neal Gompa <neal@gompa.dev>,
+	Paul Moore <paul@paul-moore.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: [RFC PATCH v5 12/25] rootns: Track init lifecycle via copy_process() and pid_namespace
+Date: Sat, 21 Nov 2026 02:08:31 +0200
+Message-ID: <20261121000844.1863324-13-jarkko@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261121000844.1863324-1-jarkko@kernel.org>
+References: <20261121000844.1863324-1-jarkko@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,44 +78,175 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Three fixes for dell-laptop: keyboard backlight timeouts that overflow
-during unit conversion were silently accepted, an unread keyboard state
-was used at init when the SMBIOS call failed, and the charge end
-threshold was parsed as unsigned into an int.
+A root namespace needs to record its init thread group's PID when
+bootstrapped and capture its exit status once all processes in the root
+namespace have terminated, without serializing normal fork() and exit()
+paths inside the container.
 
-These patches were developed with the help of an AI coding assistant
-(Claude Opus 5.5): it reviewed the drivers, found the issues and drafted
-the fixes and changelogs. I reviewed every change and I am responsible
-for them.
+Commit the bootstrap child reaper and bind pid_ns->rootns in
+copy_rootns() after attach_pid(PIDTYPE_PID), and invoke exit_rootns()
+from zap_pid_ns_processes() after the root namespace's PID namespace has
+killed and reaped all member tasks.
 
-All patches build cleanly with W=1.
+Co-developed-by: David Howells <dhowells@redhat.com>
+Signed-off-by: David Howells <dhowells@redhat.com>
+Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+---
+ include/linux/pid_namespace.h |  4 ++++
+ include/linux/rootns.h        | 15 ++++++++++++++
+ kernel/fork.c                 |  3 +++
+ kernel/pid_namespace.c        |  2 ++
+ kernel/rootns.c               | 37 +++++++++++++++++++++++++++++++++++
+ 5 files changed, 61 insertions(+)
 
-Tested on a Dell Precision M4800 running v7.2.15, using the equivalent
-backports built as out-of-tree modules:
- - writing 4424214d / 18989323d to stop_timeout set 4m / 2m before
-   patch 1 and is rejected with -EINVAL after it; 5m still works
-   (v1 of patch 1; v2 is compile-tested only)
- - charge_control_end_threshold rejects -1 and 101, accepts 85
-The kbd_get_state() failure path of patch 2 was not triggered.
-
-Changes in v2:
- - patch 1: convert to a u64 seconds value instead of failing
-   check_mul_overflow() on the int, so the unit selection below works
-   on the full value; retitled (review feedback)
- - patch 2: don't fail kbd_init_info() when kbd_get_state() fails;
-   fall back to level 0 / off mode so the existing code picks sane
-   defaults (review feedback)
-v1: https://lore.kernel.org/r/cover.1794633179.git.rosenp@gmail.com
-
-
-Rosen Penev (3):
-  platform/x86: dell-laptop: Fix keyboard backlight timeout overflow
-  platform/x86: dell-laptop: Don't use an unread keyboard state at init
-  platform/x86: dell-laptop: Parse the charge end threshold as an int
-
- drivers/platform/x86/dell/dell-laptop.c | 47 +++++++++++++++----------
- 1 file changed, 29 insertions(+), 18 deletions(-)
-
+diff --git a/include/linux/pid_namespace.h b/include/linux/pid_namespace.h
+index b20baaa7e62b..6fd959f4d0d4 100644
+--- a/include/linux/pid_namespace.h
++++ b/include/linux/pid_namespace.h
+@@ -15,6 +15,7 @@
+ #define MAX_PID_NS_LEVEL 32
+ 
+ struct fs_pin;
++struct rootns;
+ 
+ #if defined(CONFIG_SYSCTL) && defined(CONFIG_MEMFD_CREATE)
+ /* modes for vm.memfd_noexec sysctl */
+@@ -45,6 +46,9 @@ struct pid_namespace {
+ 	struct user_namespace *user_ns;
+ 	struct ucounts *ucounts;
+ 	int reboot;	/* group exit code if this pidns was rebooted */
++#ifdef CONFIG_ROOTNS
++	struct rootns *rootns;
++#endif
+ 	struct ns_common ns;
+ 	struct work_struct	work;
+ } __randomize_layout;
+diff --git a/include/linux/rootns.h b/include/linux/rootns.h
+index dcdba08cfaeb..6add4dd55550 100644
+--- a/include/linux/rootns.h
++++ b/include/linux/rootns.h
+@@ -14,6 +14,8 @@
+ struct file;
+ struct nsproxy;
+ struct pid;
++struct pid_namespace;
++struct task_struct;
+ struct user_namespace;
+ 
+ enum rootns_state {
+@@ -42,6 +44,9 @@ struct rootns {
+ struct rootns *get_rootns(struct rootns *c);
+ void put_rootns(struct rootns *c);
+ bool is_rootns_file(struct file *file);
++void copy_rootns(struct task_struct *tsk, struct pid *pid,
++		 struct rootns *rootns);
++void exit_rootns(struct pid_namespace *pid_ns, struct task_struct *tsk);
+ #else
+ static inline struct rootns *get_rootns(struct rootns *c)
+ {
+@@ -56,6 +61,16 @@ static inline bool is_rootns_file(struct file *file)
+ {
+ 	return false;
+ }
++
++static inline void copy_rootns(struct task_struct *tsk, struct pid *pid,
++			       struct rootns *rootns)
++{
++}
++
++static inline void exit_rootns(struct pid_namespace *pid_ns,
++			       struct task_struct *tsk)
++{
++}
+ #endif /* CONFIG_ROOTNS */
+ 
+ #endif /* _LINUX_ROOTNS_H */
+diff --git a/kernel/fork.c b/kernel/fork.c
+index 5efceb8d58a7..08fc28ad1eed 100644
+--- a/kernel/fork.c
++++ b/kernel/fork.c
+@@ -83,6 +83,7 @@
+ #include <linux/fs_struct.h>
+ #include <linux/magic.h>
+ #include <linux/perf_event.h>
++#include <linux/rootns.h>
+ #include <linux/posix-timers.h>
+ #include <linux/user-return-notifier.h>
+ #include <linux/oom.h>
+@@ -2576,6 +2577,8 @@ __latent_entropy struct task_struct *copy_process(
+ 					  &p->signal->thread_head);
+ 		}
+ 		attach_pid(p, PIDTYPE_PID);
++		if (thread_group_leader(p))
++			copy_rootns(p, pid, NULL);
+ 		nr_threads++;
+ 	}
+ 	total_forks++;
+diff --git a/kernel/pid_namespace.c b/kernel/pid_namespace.c
+index 127a5fd23e70..081c27aa85bd 100644
+--- a/kernel/pid_namespace.c
++++ b/kernel/pid_namespace.c
+@@ -24,6 +24,7 @@
+ #include <linux/sched/signal.h>
+ #include <linux/idr.h>
+ #include <linux/nstree.h>
++#include <linux/rootns.h>
+ #include <uapi/linux/wait.h>
+ #include "pid_sysctl.h"
+ 
+@@ -280,6 +281,7 @@ void zap_pid_ns_processes(struct pid_namespace *pid_ns)
+ 		current->signal->group_exit_code = pid_ns->reboot;
+ 
+ 	acct_exit_ns(pid_ns);
++	exit_rootns(pid_ns, me);
+ 	return;
+ }
+ 
+diff --git a/kernel/rootns.c b/kernel/rootns.c
+index 033e0aae386f..fd8ce59de61a 100644
+--- a/kernel/rootns.c
++++ b/kernel/rootns.c
+@@ -185,3 +185,40 @@ bool is_rootns_file(struct file *file)
+ {
+ 	return file->f_op == &rootns_fops;
+ }
++
++void copy_rootns(struct task_struct *tsk, struct pid *pid, struct rootns *c)
++{
++	if (likely(!c || !is_child_reaper(pid)))
++		return;
++
++	scoped_guard(spinlock, &c->lock) {
++		if (c->state != ROOTNS_FORKING)
++			return;
++		ns_of_pid(pid)->rootns = get_rootns(c);
++		WRITE_ONCE(c->init_pid, get_pid(pid));
++		WRITE_ONCE(c->state, ROOTNS_RUNNING);
++	}
++}
++
++void exit_rootns(struct pid_namespace *pid_ns, struct task_struct *tsk)
++{
++	struct rootns *c = pid_ns->rootns;
++	struct task_struct *leader;
++	int status;
++
++	if (!c)
++		return;
++
++	leader = tsk->group_leader;
++	status = (tsk->signal->flags & SIGNAL_GROUP_EXIT) ?
++		 tsk->signal->group_exit_code : leader->exit_code;
++
++	scoped_guard(spinlock, &c->lock) {
++		c->exit_code = status;
++		WRITE_ONCE(c->state, ROOTNS_DEAD);
++	}
++
++	pid_ns->rootns = NULL;
++	__wake_up(&c->waitq, TASK_NORMAL, 0, poll_to_key(EPOLLHUP));
++	put_rootns(c);
++}
 -- 
-2.56.1
+2.47.3
 
