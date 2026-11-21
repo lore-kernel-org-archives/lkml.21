@@ -1,98 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.9
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795285585;
-	b=JOKBPDDcPBB8pXKVbHLIqlR5AQX0qdO9wiCOeE1GDPQq7PoaPYWw3mgxdYpZjoMDBEBW
-	 ltvKL0GX2y9jJrClmnlcyE+VXz0Ngm9Kk85tPshutvdivPZhjhXLckmKiXHfuUjlPebfz
-	 kFgqvmk2lKcScQUzhsRi4zNl6aXH/FO+XTXG1yEMpQlnL8a5fGO32qPUu6STt64UDB4SI
-	 sWfEiiTbY9nMCoFxLzG3VUuyEVzsL73hqN35a9tJtZbxvRmqGCZVWZyxls0c7KgBXRyai
-	 7mdNaw3/xmxsFfqegZc8PtyGy1YHVxzFIejM/6nvJbxWyZKCXzdgTpmDQI348M9lCFQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795285585;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.42
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795285591;
+	b=kIKqGqO38coRILyT4pHor/XY7++2O4YDmTFD8qZx0/YNiQnqHipOfMc6b/JTSlb6WWRK
+	 0Iuig9jXpVA0J5uaM4FBI9NpMxO+Eg/mzLlOI0y8w+AJcyHJ6Blv336f58cljbRa8RMaZ
+	 OZ//36gAEiDzDLhtOratzm4oKxJNeu/vZlucCAmGPw2SA1zB4BLcZqDw3VOi9AyWk/jMY
+	 cu9Bv3m/e05212fHaXiRMrDmJpoyeKeOY9lL9eeCGvPLXSAhiLpUFRjjqmec1ExrcmpY9
+	 vbsP+eQpq2/L8UGSGauEv3rwmgjmCGWH0qc+m6sE+aOv+IUuSkrlxaXHig6r1Umx/Jg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795285591;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=yAYWGM+wOxQBk0PpmM5hBcytMWSDnG3ENBg6Zhdqtzg=;
-	b=uMFPbjj91f98RZIqdTdW1xvFGpT3prGvo8QOC5yxGmzjyImVUGpnMePahp/GZfdSm+KU
-	 RHPR9y69NiEH26rb2d524tRfyUA58cmwkcSFrkhWAJ4G3fyaxoePOXtd2cPHReuTA8IB2
-	 zfgWkorJraUamRWkzd4FQx2lOLgQFeZYD+RBMu5bWmR/GRQissAaawrdIBq64peaVlDFu
-	 jbF4HOPq530wrRSIAqa5luVaqEIIVkRbGcWhR5kcRnl7XbGey4ulGoNlCkesnww7uF+SE
-	 PV6/otXNEx9veJWPBR0fd9xoOxqndbsyvY2FnwkE+UJ75QCOsVzkbGeKQD96zvsZ2HA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=NK0wAqHXEIlA/czhGzDUZ2MUINpc+fMSx8E3XUBlpMQ=;
+	b=3sY3+7avmuwefIcqkwuC/vDhqQNdDJB70AtaFD8tpbllvbNu+8O0uWgVzz8qboKprKUB
+	 6oJVbwF6Rg2Y9uSnHCyBokEORLoZUmme31GzRB9gQHOuWK/DOW8PRQ9GBbnsFACEZah0I
+	 TBp2cXrS2up8gFUQYEZcuGF9il85V7X+W7I+qazY4juQgBJjJNcjmstbwRLQlkf09T2Vc
+	 K0EMrtE09NKja9MZ64BrfuS5dmM9NayK2aUvdWrlCEy4I+MTUy/KceZJdCit5c8+mLS26
+	 3LYp8LkiWZS5AUY/dxrfDqmqtCZVXS+mGEJkyVZityDNpTpPHnkHSl2ngPfmQBgfJIQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZKFalGLT;
-	arc=none smtp.remote-ip=74.125.229.9
-Received: from mail-dy2-f9.google.com (mail-dy2-f9.google.com [74.125.229.9])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PT9tRHXr;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.42
+Received: from mail-yx1-f42.google.com (mail-yx1-f42.google.com [74.125.224.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2337606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:26:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2337606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E40C606A331
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:26:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E40C606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZKFalGLT
-Received: by mail-dy2-f9.google.com with SMTP id 5a478bee46e88-384d0550c71so1202553eec.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:26:24 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PT9tRHXr
+Received: by mail-yx1-f42.google.com with SMTP id 956f58d0204a3-677d35fd1d2so1987340d50.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:26:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795285590; cv=none;
+        d=google.com; s=arc-20260327;
+        b=q7N+S5a++VfvKkDQ0a9dziBMJZZW8HXU2JUYBSOMwbp3rexc6UXsgJ4XrLTa/oAY8z
+         DrFBSL6Cgt6JygfU137ua4MIDI9Bkgek7EnPR/XTmp8j6S5blHpe8XHtG829x4A2QWY5
+         PfeqGsVraSbEGxgTGxKSP4MhWVkiL5YMw82BrIaRWCQZiOj3ERU1C9NEMYBdBRGf1fRF
+         T5/r222h9vUYzPwk9shcIJhmW+ozrueMGWexsQJUEuARzhGujbgEU1VP/L14D4mD5iAU
+         bpqxaVOKDHR9UxIhU066yvOhvFWUzvZjXw8W7/7RFTOuDkhxzt7TxBY6JTsdqs9scsu+
+         TxKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=NK0wAqHXEIlA/czhGzDUZ2MUINpc+fMSx8E3XUBlpMQ=;
+        fh=y3ekbhk4DALu6bCGtSfcoYf/H6FOg3mpIgWTOd/LBZU=;
+        b=Dyn5s6goos3fsc/Do+xIorT8rsM8XAbhVhQ0fkB+o3LExJ1Btt6pwNLtvIxuCuU2ZJ
+         IKLM0B5y28KbuBIb9zu5fvkr3ne3QdlUgFbFzqVo6xBoGAZiwm1Qwl2g9tLysNlO0TTE
+         4xIkDtCe80xPD3ABVn30c928Jaq9UWUZh6KfyZbW99piUyam/wZyq20edlB6YEN4+pK9
+         PQXw9+nLWvoefehjoZ4TzM2rElL/EfO8MPE+QEF+rCfND9NKR07rWdpRyYSveld4bvd0
+         ljgt4ELJFIhSTcp8jColM7hJWVv6GQwShHWhwahbTPI+i/TexuvFFYCoUE6gudQxc35S
+         wi5w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795285584; x=1795890384; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yAYWGM+wOxQBk0PpmM5hBcytMWSDnG3ENBg6Zhdqtzg=;
-        b=ZKFalGLT+aaXpivK/3Ypqu5a9Dkkhf0E1d8u50CSUyKOUx1qXxWWgYIjq5HL0qdJ3d
-         GszeRiIDfnLIuMzozueKOunkt3An+6RfLHfeJBnm4RsTur6dZjyT/WtcJYttI/tG9qTL
-         dBU1FMdSG6pOnscPKzCn3U6oI8nbAzb3EUHO2lnS+TJiyneWm//WuXqr3xFcPUGh2Id1
-         iacbneDDYY9d4znevKwusXbesbV5pK1s7Y/H0appouJ6HRBTq0X3j48Pg+tv+DGwR4An
-         SA387ljnRYGDGn4+ZcJupx4Yw18m4gGrQ3YVna5wda2zQTPeYCr607/VjQJaoYWvQbbU
-         PWOg==
+        d=gmail.com; s=20260707; t=1795285590; x=1795890390; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NK0wAqHXEIlA/czhGzDUZ2MUINpc+fMSx8E3XUBlpMQ=;
+        b=PT9tRHXr7x7H83fcvieRWtgZstS1pyRyHtdXUNAQLs5Bmk4GCH2oq4T6hSnMh0OmLA
+         4BI1AN1z4+tUeXcai8Z9zODYlfPLYCn8yOhF1WkMdsRAhAXzcSNAjbimF4uZBN9fPEVU
+         G9FgCmawCLS6nvEU+xq7WVfSXrZ9cfKFEUl4WAcYwo4L6eCZ3oNZKNPbU+HvZXBzP9wh
+         HgEGgmT0tGx+964974FzslwpIrpeR1eNylFw4MLf0hD5nYZe/PKVcWZtBpYmfRQS9TqC
+         nbkSVNKRbVIaGPZx5tXzcKI6rhjPhaNqlWRYZR5czTFCo6zjJ0PT8jtt2K170dw8Denm
+         L2qA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795285584; x=1795890384;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yAYWGM+wOxQBk0PpmM5hBcytMWSDnG3ENBg6Zhdqtzg=;
-        b=pyHPGewzL/T3M0tad7GdSJpxjqrQr27pUB153j5O9RaSZEwKAGAJqhyLIrkdbrmVzD
-         nElnbKCnNtHcuKLFUwLkLYjqQ1p0VV6u6SpKjV5pK2QgsoJliEZmedT6QPQU7nPoGWZg
-         uS3PEKx+NYJHC0ifvczlFVDUhmWlPrB9GcpLqT7/2B4kp4763wWL/XJQUM07KDPap4uN
-         QPHVoQX3vg0GU1pkZ7tySPLx/vYZpAwlIh4VaNo34dewlKv5MgLlRPtgzUfnIQ9kY/ie
-         N8O2hH8RVdj0EQ0jEBm1JqQUinSk6bmZrSz5NzkdqhhU7R+qJKOwRvQWNobFn+KZM9XK
-         onnQ==
-X-Forwarded-Encrypted: i=1; AL+hErG2T64r8eU4mjdTgrhRbqFc5TykpjjePe0wjHMDtYUBcuOE3qyV8tc1bMc/lrWNGrLiV2QkUHiaJxCHD7g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ZMpjuhRQml2hfQWeguo2gaH3DH/M5oQzX8AJL6VuDxkdxi3n0
-	W1gYXFJu65oFELt8Z7ZzvLWXeJy3s5un/0oy1UNySG/JQ0mhBGNJRcGe
-X-Gm-Gg: AZFdTZfrWakBuDFrSu6ROyhEAR3UyxLc7vcqkuXC+k/7BLwT726PHYJwNhci6UygMMA
-	cDiULTMpJ+M/w1drTcJh2XLIBYqldIsS9+lzI1Sr3wCZAmIv6dnZHQDCLK3E7QO0jrjondq2VBz
-	vxlpgdkA0I8rNLi/NCimoeu/eEOxS1OeOhqdZ/o6hKMOnSknwDJrisOI+lqtEb4yeqxxXluOHkl
-	kVZdOiUuKHyBUrdW0A3+7gClyA1VFgV5MgLz9kmwfN48vLkpBP/ia3al8BtHH2UGN+RhBmN3S5V
-	9uegYBS0Qg6YH2fgpzgKjyF2cJ/AtkA26xfeoW+zCq8gaZ6ZxYkPRc4S+Ma1SNEMvc32xKYsbdN
-	+Cd0Q7MtavRSAne1sHP1S6+Cme8iFcIiK0Q1MXAqedBJwhguirXhgKtATJqdVdomj4aoHwQ1xCk
-	migf2OFmltIl/Z6nyv1mlOzUrS0GFQTiopsCXDSOLSeNnHeGqVMUAhvy9qX/c80zl03obyk/R0o
-	ntSaOH2qcGaLcsr6c4S6nfyLHCUwMiHjtpOUBydd7LhOQHboLBxOLVSnVw44p279k6CxBKS3kfl
-	vN/0lr6RvwNlKxJHc51u5BEHycg920PRou94JM5eV6KOHOIJNArO2wKTuH1N0PbMnC843e2O1nX
-	pp1xj0ftyvL3iJmdOJJTJxpHSSPdi4AbFtYv5CQ==
-X-Received: by 2002:a05:7301:dd94:b0:36c:9afe:fcd8 with SMTP id 5a478bee46e88-3856f559cfemr6470210eec.30.1795285583855;
-        Sat, 21 Nov 2026 10:26:23 -0800 (PST)
-Received: from localhost.localdomain ([98.148.34.5])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm25583535eec.4.2026.11.21.10.26.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 10:26:23 -0800 (PST)
-From: Hungyu Lin <dennylin0707@gmail.com>
-To: linkinjeon@kernel.org
-Cc: senozhatsky@chromium.org,
-	tom@talpey.com,
-	chenxiaosong@chenxiaosong.com,
-	hyc.lee@gmail.com,
-	lsahlber@redhat.com,
-	icb@fastmail.org,
-	linux-cifs@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	dennylin0707@gmail.com
-Subject: [PATCH v2] ksmbd: refuse to open an append-only file for writing without O_APPEND
-Date: Sat, 21 Nov 2026 18:23:13 +0000
-Message-ID: <20261121182313.43201-1-dennylin0707@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20260707; t=1795285590; x=1795890390;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=NK0wAqHXEIlA/czhGzDUZ2MUINpc+fMSx8E3XUBlpMQ=;
+        b=QjfIPac8/Tdb2Fgzm9z7LL5G87iJMHOGTkp1929KfHDI3n5FzLQ9t56TtU/cFA+MjS
+         TC2XGyb11DlkW3Gk75tUlYeR/2r+HxJl9wh1cSNlY46Ou7BeJNYPhSoFusdw98Qa5c9D
+         6fC3rf9zIWg1Bq7/J/E4C0qNRUoqC5j7fpApMP8AWGTfl/2/UwesUGGl2x0ZOz11/gUN
+         04OCmNIXntLA9sS1+qS8VV4Kj/Yv/DxxaT6VohXAOs93QLelT1wDf/UBBRC0MW/Xl70k
+         ecEucZPjjmheE3HFY0OIbjk/O+nWxXbd17PzY1N9R2wc/sEAp5fUEPwJBiP0KB6U7sXe
+         JuUg==
+X-Forwarded-Encrypted: i=1; AL+hErH1HoyqVAozZhT9NYOEMpDOgpn7B1nbeskrm7KjZ4a36R6GdPIyzJoBe75nGp/GHjyJiuK6g2yDdgyIv/U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+/DLhOc5K1YKQVW+eJ9BUNt8Tgsittq5XSviAEVb3el4A8AjQB
+	UFOXz1q+YMutYdPitILK8yFTrEdl5+Di0sAsJ+/ya/NBWnHq7z0vAj03MmhAWz89t8AC5+K+7Qp
+	j7c7/Sr1Jpn06AftJY8SJWp74Yqu2Y5k=
+X-Gm-Gg: AZFdTZfVVMq2sxaegxx0mU7EiZr6D5Zr5vsP9J3VqgR2GzDHfqFhMpnLJGx6ObojErR
+	ynAmbzrFsZE9AV7VxEf5+wKrheYOlnEjeHSigV/D2+RjBqXS+aFCdgOQZbhr0cpQT9k6fXvJ4IW
+	Ppv2whKR52DwF6+RnPTRD767cDMoRZxbF39j1WSSlDw/h7b4m8AtrQEzpwDR1vCDUbxoYyJRQ8T
+	A6tq44GmvpGGtKaugSe5gegfjjrVn9eCyLu3pc761ygCRclO6DM53rhDA2qLbgFp0iAQv1U8EWi
+	WBiSXiKcfg7PB6zBpT+EjmQksAjIVTWwBD/8L52JysiYQALbWAcwJZZd7/VVsP3gKMS05PxKMlo
+	LFOlJWYMmAnnJqC9nzJ0gRfPCh3Co9ia55ruthcv6Ve+L6ANTWG5Ve0rlAePeYvxrNCKEHXPT
+X-Received: by 2002:a05:690e:1512:b0:67d:eb6d:7451 with SMTP id
+ 956f58d0204a3-67df4422c68mr2129437d50.33.1795285590320; Sat, 21 Nov 2026
+ 10:26:30 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,94 +103,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
+ <ca39376d-37b6-43e0-9dd5-7d431d335e63@yahoo.com> <1fb7feee-3e4b-4313-a596-29f2ad0de1dc@yahoo.com>
+In-Reply-To: <1fb7feee-3e4b-4313-a596-29f2ad0de1dc@yahoo.com>
+From: Gustavo Foletto Mora <gusfmora@gmail.com>
+Date: Sat, 21 Nov 2026 15:26:19 -0300
+X-Gm-Features: Aa3M54ofyQJPd_0cDwuIs6-tjlhNQxU7Th9d_h6ZqzQRuI8H1WEx1muDgV81y4A
+Message-ID: <CAK+kzgwqPfWv6uOPd2SmBZ2dFWp7jTpL1YiQ01Gft+KnZ=gjFA@mail.gmail.com>
+Subject: Re: [PATCH net-next v12 12/13] net: dsa: realtek: rtl8365mb: make
+ L2/LUT access work on family D
+To: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, 
+	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com, 
+	linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	alvin.sipraga@analog.com, kuncy7@gmail.com, fabianotassotti@gmail.com, 
+	gabonpivovich@gmail.com, contact@c127.dev
+Content-Type: text/plain; charset="UTF-8"
 
-smb2_open() opens the file with dentry_open(), which does not go through
-may_open(). inode_permission() refuses write access to an immutable
-inode, but nothing looks at S_APPEND. A client that has write permission
-on an append-only file can open it for writing and overwrite the data
-that is already there, which open(2) on the server and nfsd do not
-allow.
+Hi Mieczyslaw,
 
-Refuse the open like may_open() does, when the file is opened for
-writing without O_APPEND or the create disposition asks to overwrite
-it. smb2_create_open_flags() also selects O_WRONLY or O_RDWR for
-FILE_WRITE_EA and FILE_WRITE_ATTRIBUTES, so these opens are refused
-too.
+Tested v13-pre2's port-based FID on a TP-Link EX511 v2 (RTL8367S-VB),
+over loopback cables between bridge ports and standalone ports of the
+same switch:
 
-An open with MAXIMUM_ALLOWED is granted the write rights that the
-permission bits or the stored DACL allow and would be refused as well.
-Leave the write rights that the client did not ask for explicitly out
-of the access granted to such an open, so that it gets a handle for
-reading. The maximal access returned in the MxAc create context is not
-changed.
+- 0x07AC/0x07AD read back as intended: FID 1 on the ports of the
+  VLAN-unaware bridge (the uplink included), nothing on the standalone
+  ports or the CPU port, nothing in a VLAN-aware bridge, set and
+  cleared again by live vlan_filtering toggles, and cleared once the
+  ports leave the bridge.
+- What failed on v12 with the shared FID 0 now works: unicast between
+  two hosts on standalone ports through the VLAN-unaware bridge with
+  learning on (also when the bridge ports have a PVID, and with frames
+  tagged with a VID the bridge does not have), and static and group
+  entries without a VID no longer catch frames arriving on standalone
+  ports.
+- Everything else gives the same results as on v12.
 
-Directories are left alone: an append-only directory still takes new
-entries.
+One limitation remains in VLAN-aware bridges, unchanged from v12 as far
+as I can see: a frame tagged with one of the bridge's VIDs that enters
+a standalone port is looked up in that VLAN. With VLAN 50 tagged on two
+bridge ports and the hosts learned there, the frames that come back in
+through the hosts' own standalone ports are sent towards the bridge
+ports and dropped by the isolation; with learning off they reach the
+CPU. Untagged access VLANs are not affected. This needs the same MAC on
+a standalone port and in the bridge, so I think it is only a corner
+case.
 
-Fixes: e2f34481b24d ("cifsd: add server-side procedures for SMB3")
-Cc: stable@vger.kernel.org
-Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
----
-Changes in v2:
-- Refuse every open for writing without O_APPEND, not only the ones
-  that ask for FILE_WRITE_DATA or FILE_APPEND_DATA. A handle opened for
-  FILE_WRITE_ATTRIBUTES could still reach kernel_write() through
-  FSCTL_SET_SPARSE.
-- Refuse an overwrite disposition up front. The truncating ones used to
-  fail in vfs_truncate() after the oplocks were broken, with
-  STATUS_SHARING_VIOLATION.
-- Drop the write rights of a MAXIMUM_ALLOWED open in smb2_open()
-  instead of ksmbd_vfs_query_maximal_access(), so that a file with a
-  stored DACL is covered too and the MxAc reply stays as it is.
-- Keep the rights the client asked for next to MAXIMUM_ALLOWED. A POSIX
-  open for MAXIMUM_ALLOWED | FILE_APPEND_DATA can append again, as
-  reported by Ian Bridges.
+Family D seems to have a setting for it. The Realtek API in the stock
+firmware has dal_rtl8367d_l2_lookupHitIsolationAction_set(), with no
+family C counterpart, which writes bit 0 of 0x0A10. The reset value 0
+drops a frame whose lookup hits a port outside the ingress port's
+isolation mask. I tried two test-only changes on top of v13-pre2:
 
-v1: https://lore.kernel.org/linux-cifs/20261120071553.28739-1-dennylin0707@gmail.com/
+- 0x0A10 bit 0 set to 1: the case above works (20 of 20 replies), but
+  a frame for a host behind the port it came in on is flooded instead
+  of dropped, since the ingress port is not in its own mask. A static
+  entry or an MDB entry on the ingress port no longer cuts the traffic.
+- the same, plus each port in its own isolation mask: the switch still
+  never sends a frame back out of its ingress port (I checked that with
+  a single loop cable first), the case above works, and the static
+  entry and MDB tests pass again.
 
- fs/smb/server/smb2pdu.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+That was a focused run only: the cabling check, isolation between
+standalone ports, the VLAN-aware bridge tests (load included) and
+unicast with learning in the VLAN-unaware bridge. If you want to make
+this change, I will run the full set of tests on it.
 
-diff --git a/fs/smb/server/smb2pdu.c b/fs/smb/server/smb2pdu.c
-index 6bd63c5e7da3..bcd25c197ffa 100644
---- a/fs/smb/server/smb2pdu.c
-+++ b/fs/smb/server/smb2pdu.c
-@@ -5028,6 +5028,14 @@ int smb2_open(struct ksmbd_work *work)
- 		maximal_access = daccess;
- 	}
- 
-+	if (req->DesiredAccess & FILE_MAXIMAL_ACCESS_LE && file_present &&
-+	    IS_APPEND(d_inode(path.dentry)) &&
-+	    !S_ISDIR(d_inode(path.dentry)->i_mode)) {
-+		__le32 asked = smb_map_generic_desired_access(req->DesiredAccess);
-+
-+		daccess &= ~(FILE_WRITE_DESIRE_ACCESS_LE & ~asked);
-+	}
-+
- 	/* MAXIMUM_ALLOWED may not have granted the requested DELETE */
- 	if (req->CreateOptions & FILE_DELETE_ON_CLOSE_LE &&
- 	    !(daccess & FILE_DELETE_LE)) {
-@@ -5122,6 +5130,19 @@ int smb2_open(struct ksmbd_work *work)
- 		goto err_out;
- 	}
- 
-+	if (IS_APPEND(d_inode(path.dentry)) &&
-+	    !S_ISDIR(d_inode(path.dentry)->i_mode)) {
-+		if ((open_flags & O_ACCMODE) != O_RDONLY &&
-+		    !(open_flags & O_APPEND)) {
-+			rc = -EACCES;
-+			goto err_out;
-+		}
-+		if (open_flags & O_TRUNC) {
-+			rc = -EACCES;
-+			goto err_out;
-+		}
-+	}
-+
- 	rc = 0;
- 	filp = dentry_open(&path, open_flags, current_cred());
- 	if (IS_ERR(filp)) {
--- 
-2.43.0
+Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
 
+Thanks,
+Gustavo
