@@ -1,70 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.219
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.250
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795259438;
-	b=FkUzTpWqKRRqnFrvAc8f5SEnvvirbTrTuLBmpPHCRqprLM94dfBB4JKkuOrTvYwD2eu6
-	 vO1JfaiC2HEvy5s34JpesBrKnkSJpH2UG0s/lLdDWwFFfsiYdLlS0QY+w5T9Z0HiQjRFP
-	 ebt4ukc/c4YgYckmbRNE42+eYvp0ZNb8tjRPyjut2YY5VNgsyi6bAA8EKNgEL9J/ok0HE
-	 QRHO/FKVdUkw1nj18aux0WY23uaGiaHsQFChsx7Mv+KwNSuBahZPgkWwbXu4biiIKkNZY
-	 xNvF/SP6LP6k9oYoXaUJ1NI2oUMEBRnW9TFll8gGlQhCyl2GIXT4VBELqLCqSE9fi5A==
+	t=1795259445;
+	b=BlLTW1O6DFdx2vrCOrOD3ADOk7kEwuzJ1DxmQv7Q63ANN/eoi1OsvF3yfKXRrzvNZxnA
+	 X6GvI5u12yUC1j4LYWeQ6Uo/b745jSXT0Hc5DkpAx6BX46HEEZ+yvEQOakS4lgVtSKnM7
+	 Jk3ROtE4QTG+ZGyXB/WiLWYULEsYZx0zGeSJaCRyL2Vxvb4vkCcXBjfelgUeM3wZomyUl
+	 jgiA1mub27wbVnQ30Yns0C9NJ9kSkwu0szL5/AELUiEXPnAd0TG9XqVOxlLiuaN47APE9
+	 7YzT+LR4pVdz7a7MMW4nYLnonVeQZevOf8usRCn/kw0mH8GGZEuXcECqEuzZzjV9CSw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795259438;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=Ys3XKvaPTyX1fHC0lV0pst+tfGk0hnlCs8SXas4gV8I=;
-	b=hVTXgMpTh/zWRKSQm4aizydqmOaqqNJydEVorCXqHFJ0LOyXqvrW28pjkO/DM4eYmirB
-	 IHobbs8ycjyRHYC8Reei8J8A0brJYEoQGcwQ3KWhxQspO6Irib91sFlYds9Q5FaCxaqku
-	 oO8pGMZtM2coKqgUPKZDux1D15pbWd3dGbAJBxysGHNytdYLVVokj2+2H1qauFSTZD8Nm
-	 UEynlGJwSnJDdgeJripGvJEsMJnDgBiQW/V8IrEBO2Io49QzRPbU0WQadG1z8xcIfRjtT
-	 7DI2FaPB4OGfNgbmuNBzJNALeVLVpCAxme4zC8kvPJfDsvXVZnFa4TZ+jA9cjVOqQNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795259445;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=YbGsFuHzMPCucKqbbbZkf1QYXb3rREx6Caxd6NEAakw=;
+	b=drJUgzVgzSs1EY4Q1s5xQRehVlliGa5XNu7A8DC902ZY61lRz+0lSPLOnfo9AFYHCTAX
+	 nLupjb5/zqIPplc03Yk5wzRAP2wegmX8Vzh9b50/e9n7342UlnMBJ8t0Kv31wPM0jB8J5
+	 x184Y+76haHD86qmTm8dL6MKEKjKnW8uAU/Vn+0Lm+cAUUdY4vK4wZoe/7IGKfRcOFdOR
+	 TyaSzSS4oKOqch8S2tt/Vi3WoiYqQyQ5WPVZdvpZvyjPbc3c+Z60fi5JduViXkdw5vL5A
+	 BEhLsyWOFIdg8BqO7etLiTLUtV1z3RFgiJ/d/X1YBR21BAADsdmW0bZcZxNJySxrSTg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=h-partners.com;
-	spf=pass smtp.mailfrom=h-partners.com;
-	dkim=pass header.d=h-partners.com header.i=@h-partners.com header.a=rsa-sha256 header.s=dkim header.b=abr1Sa2Z;
-	arc=none smtp.remote-ip=113.46.200.219
-Received: from canpmsgout04.his.huawei.com (canpmsgout04.his.huawei.com [113.46.200.219])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sepxIr2q;
+	arc=none smtp.remote-ip=95.215.58.250
+Received: from mta1.migadu.com (out-250.mta1.migadu.com [95.215.58.250])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4437D606A320;
-	Sat, 21 Nov 2026 11:10:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4437D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=h-partners.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=h-partners.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD2C2606A680
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:10:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD2C2606A680
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=h-partners.com header.i=@h-partners.com header.a=rsa-sha256 header.s=dkim header.b=abr1Sa2Z
-dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Ys3XKvaPTyX1fHC0lV0pst+tfGk0hnlCs8SXas4gV8I=;
-	b=abr1Sa2ZDCOp+djgHKJwfTXizfPE4F8N0k1zXffDKOkRf8YayZhTlvrm8f5MIOE3k2rIO3eYF
-	JDE9OahmcFTufkhbCCmcHVStpNSkEtAclvCsU/7RBP25SIAdQa/lC5NquWyD+I/GbwL05XTOLxz
-	KegOQ86fmTMfoewnFN3On0g=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jWqHN2M3Vz1prKM;
-	Sat, 21 Nov 2026 19:10:08 +0800 (CST)
-Received: from kwepemr100001.china.huawei.com (unknown [7.202.195.168])
-	by mail.maildlp.com (Postfix) with ESMTPS id 10F8540579;
-	Sat, 21 Nov 2026 19:10:23 +0800 (CST)
-Received: from huawei.com (10.50.159.234) by kwepemr100001.china.huawei.com
- (7.202.195.168) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 21 Nov
- 2026 19:10:13 +0800
-From: xietangxin <xietangxin@h-partners.com>
-To: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-CC: Dmytro Linkin <dlinkin@nvidia.com>, Vlad Buslov <vladbu@nvidia.com>, Jiri
- Pirko <jiri@resnulli.us>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>,
-	<syzbot+bbd81e1e2276c534dea1@syzkaller.appspotmail.com>,
-	<gaoxingwang1@huawei.com>, <huyizhen2@huawei.com>, Xuanqiang Luo
-	<xuanqiang.luo@linux.dev>
-Subject: [PATCH net v2] netdevsim: fix rate node leak during reload and removal
-Date: Sat, 21 Nov 2026 19:08:58 +0800
-Message-ID: <20261121110858.1337003-1-xietangxin@h-partners.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sepxIr2q
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=lHOuyTOIwmr32upG1vX/kfSW8Fr2iMJ6LuKhLpVCBY8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795259443; v=1; x=1795864243;
+ b=sepxIr2qERY1IsZok2Iy++k0OuFKVmyasiXM7ZG9HUsIEjl75UToJkDG4M8IonlWrvukwFRu
+ +mqEjspSCpZA76YBEPeLAGZS0lebuCRBgHugUe5OdHUieahCaPvltuEaFryFrDLK1/U/FnSxhlO
+ thUpwrTC7PBKeXjkKA/oz9TY=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 9deb2bf611a5095e;
+	Sat, 21 Nov 2026 11:10:42 +0000
+X-Mizu-Trace-ID: 9deb2bf611a5095e
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <57ef6b0f-e9eb-4484-b07f-63c848ffde4e@linux.dev>
+Date: Sat, 21 Nov 2026 19:10:37 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,85 +58,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemr100001.china.huawei.com (7.202.195.168)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm: shrinker: stop counting when the seq buffer overflows
+To: Xuewen Wang <wangxuewen_ky@163.com>, akpm@linux-foundation.org,
+ david@fromorbit.com, roman.gushchin@linux.dev, muchun.song@linux.dev
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Xuewen Wang <wangxuewen@kylinos.cn>
+References: <20261120110538.3256962-1-wangxuewen_ky@163.com>
+From: Qi Zheng <qi.zheng@linux.dev>
+In-Reply-To: <20261120110538.3256962-1-wangxuewen_ky@163.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-netdevsim allows switching the eswitch mode to switchdev with zero VFs
-and creating rate nodes on such a device. However during device teardown
-nsim_dev_reload_destroy() only drops the eswitch back to legacy when VFs
-were configured, so the rate nodes are never destroyed and trigger the
-WARN_ON(devlink_rates_check()) in devlink_free():
 
-  WARNING: net/devlink/core.c:544 at devlink_free+0x18c/0x26c, CPU#2: bash/5032
-  Modules linked in: netdevsim ...
-  CPU: 2 UID: 0 PID: 5032 Comm: bash Not tainted 7.4.0-rc3+ #77 PREEMPTLAZY
-  Call trace:
-   devlink_free+0x18c/0x26c (P)
-   nsim_drv_remove+0x9c/0xb4 [netdevsim]
-   nsim_bus_remove+0x10/0x1c [netdevsim]
-   del_device_store+0x110/0x190 [netdevsim]
-   ...
 
-The rate nodes are also left behind on the devlink reload path, where
-they trigger the WARN in devlink_reload_reinit_sanity_check() instead:
+On 11/20/26 7:05 PM, Xuewen Wang wrote:
+> From: Xuewen Wang <wangxuewen@kylinos.cn>
+> 
+> The shrinker debugfs count file uses single_open(), so all memcg rows
+> belong to one seq_file record. When the buffer overflows, seq_file grows
+> it and retries the entire record. Queries for subsequent memcgs in
+> an overflowing pass cannot contribute to the final output.
+> 
+> Stop the traversal once seq_has_overflowed() is true, using the existing
+> mem_cgroup_iter_break() path to release the current memcg reference.
+> Leave the overflow state intact and return zero so seq_file can retry.
+> 
+> Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
+> ---
+> In a single-node KVM guest with 1024 cgroups each caching 16 ordinary
+> files on ext4, the 8865-byte output required three show attempts. Count
+> callbacks fell from 3075 to 2472 (19.6%). With probes disabled, six fresh
+> guests per variant each performed 101 full reads. The median of guest
+> medians fell from 128.2 us to 112.2 us (12.4%, about 16 us per read).
+> Small and sparse outputs had unchanged callback counts. Complete output,
+> small reads and seek-to-zero rereads matched; concurrent memcg deletion
+> and signal interruption checks also passed.
+> 
+> The successful pass still traverses the full list. Early exit skips
+> count queries for subsequent memcgs in overflowing passes.
+> 
+> When overflow coincides with a pending signal, the original code can
+> return -EINTR in the current pass. With early exit, seq_file attempts to
+> grow the buffer first. The retry can return -EINTR, or buffer allocation
+> can fail first with -ENOMEM.
 
-  WARNING: net/devlink/dev.c:437 at devlink_reload_reinit_sanity_check+0x110/0x148, CPU#3: devlink/5205
-  Modules linked in: netdevsim ...
-  CPU: 3 UID: 0 PID: 5205 Comm: devlink Not tainted 7.4.0-rc3+ #77 PREEMPTLAZY
-  Call trace:
-   devlink_reload_reinit_sanity_check+0x110/0x148 (P)
-   devlink_reload+0x218/0x228
-   devlink_nl_reload_doit+0x3dc/0x5b4
-   ...
+Would something like the following work instead?
 
-Evaluate the eswitch mode check unconditionally, so rate nodes are
-destroyed whether or not any VF was ever configured. Note this also
-resets a zero-VF switchdev device back to legacy mode on reload, like
-the existing VF case.
+  		if (!memcg_aware) {
+  			mem_cgroup_iter_break(NULL, memcg);
+  			break;
+  		}
 
-Reproduce by:
-  $ echo "10 1" > /sys/bus/netdevsim/new_device
-  $ devlink dev eswitch set netdevsim/netdevsim10 mode switchdev
-  $ devlink port function rate add netdevsim/netdevsim10/n1
-  $ echo 10 > /sys/bus/netdevsim/del_device
+  		if (signal_pending(current)) {
+  			mem_cgroup_iter_break(NULL, memcg);
+  			ret = -EINTR;
+  			break;
+  		}
 
-Replacing the last step with "devlink dev reload netdevsim/netdevsim10"
-hits the devlink_reload_reinit_sanity_check() WARN instead.
++		if (seq_has_overflowed(m)) {
++			mem_cgroup_iter_break(NULL, memcg);
++			break;
++		}
+  	} while ((memcg = mem_cgroup_iter(NULL, memcg, NULL)) != NULL);
 
-Fixes: 885226f5680e ("netdevsim: Implement support for devlink rate nodes")
-Cc: stable@vger.kernel.org
-Reported-by: syzbot+bbd81e1e2276c534dea1@syzkaller.appspotmail.com
-Closes: https://lore.kernel.org/netdev/6af9824c.920b2b3a.148c65.0009.GAE@google.com/
-Reported-by: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-Link: https://lore.kernel.org/all/17cc4251-04ae-41a7-a872-fc5cf525b58f@linux.dev/
-Signed-off-by: xietangxin <xietangxin@h-partners.com>
----
-v2: add reload path description
----
- drivers/net/netdevsim/dev.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+Thanks,
+Qi
 
-diff --git a/drivers/net/netdevsim/dev.c b/drivers/net/netdevsim/dev.c
-index c6b17b387327..b483c25dfecd 100644
---- a/drivers/net/netdevsim/dev.c
-+++ b/drivers/net/netdevsim/dev.c
-@@ -1700,11 +1700,10 @@ static void nsim_dev_reload_destroy(struct nsim_dev *nsim_dev)
- 		return;
- 	debugfs_remove(nsim_dev->take_snapshot);
- 
--	if (nsim_dev_get_vfs(nsim_dev)) {
-+	if (nsim_dev_get_vfs(nsim_dev))
- 		nsim_bus_dev_set_vfs(nsim_dev->nsim_bus_dev, 0);
--		if (nsim_esw_mode_is_switchdev(nsim_dev))
--			nsim_esw_legacy_enable(nsim_dev, NULL);
--	}
-+	if (nsim_esw_mode_is_switchdev(nsim_dev))
-+		nsim_esw_legacy_enable(nsim_dev, NULL);
- 
- 	nsim_dev_port_del_all(nsim_dev);
- 	nsim_dev_hwstats_exit(nsim_dev);
--- 
-2.43.0
+> 
+>   mm/shrinker_debug.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/mm/shrinker_debug.c b/mm/shrinker_debug.c
+> index cafb566301326..3022d103b0b1e 100644
+> --- a/mm/shrinker_debug.c
+> +++ b/mm/shrinker_debug.c
+> @@ -74,7 +74,7 @@ static int shrinker_debugfs_count_show(struct seq_file *m, void *v)
+>   			seq_putc(m, '\n');
+>   		}
+>   
+> -		if (!memcg_aware) {
+> +		if (!memcg_aware || seq_has_overflowed(m)) {
+>   			mem_cgroup_iter_break(NULL, memcg);
+>   			break;
+>   		}
 
