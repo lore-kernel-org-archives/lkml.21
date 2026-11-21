@@ -1,92 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.138
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795267526;
-	b=umw27yV/YIXS+7WD9xGmDUt8gkc36dsmhTWuSuS0Md6JKmX5XPXQgM+GfkBHkWfSoxWK
-	 JqPoFQXjT7ZbGbErIIXnxxYgTUMPiCbN7n+MldZpEOVcvNvn1ymdiUZTqnUlEIqML9b7w
-	 2yqj8d6DawPt39TzZWtv5szePZt0lU7GokbAVsFU7ghfUFjwFCE3wqpRovhGIJy/AMr57
-	 Yfz0wPIy6QQhvRcVVE1QO5X9xUNrLHV0c2+KaT1tmb2FUSflCl401NgeUhZUZXNPhOnWX
-	 4XmxdGS4eX4Re+Tb+FCpOnqNZYpkGAN6+tn9yoVeH6qQfF95oJhPxL2FF6d7UAZUQYw==
+	t=1795267552;
+	b=31WkukoPbswO5ithD2XAu0Qg0zKLdOW0f0VfyPus4S8m3hRjQ7MB1fAlHtDTjXrH8ig3
+	 NBrIPf0Jof2rfhNuc9l/8SgAa9mjDzkHqI4WYFl8KvYTw33VPrrk99w+ZbHwBqywjL5RF
+	 98MZbS6lMNnbhsR6xR/eLUdZ4lPhRsdA7kZJlNv5gohKGX051I9tn3lyNVzRnPgkZAtsE
+	 2CDn2id0Lyu3gtqs4yuvpEwbgtIeIE1gGlDCFtEq8kvU+M/humyHS6GoW3A560gui0z1k
+	 72dH0gTJIQ3Ehj86tbWTLnB3J3H3EhLG6MwuwOSwpMpLY05cmQQ534x60IA9ZJa0LZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795267526;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795267552;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Q64k/lxKzfUbYjglOjoXICquDEIU+gLL7GdLxP+v06A=;
-	b=uoGxvVmH6OedJDkWEK+KtEsfienBGgRrcVZIurQN44/5SLhH/vINdtO4kZSb78GEmPfh
-	 LglLJppR/nQOBnWX/f+fv5MfWBvlOreLPgSfOM+zzCA5dX5EqZpm4vUIRUXZqpkXnXPy4
-	 JZ3jJE9xjycgj/yjqGBP9LwJz9NW6arx5aGaUeaRm5ECuQ0awNRlZZTLEUEwxwSNLNojA
-	 xINrz2VYm6+iUH9XSXYpsbPqOZM8WPujxnBdDIoMj8Bk3kQhcXIuELEJPYDgMkBHVWG1n
-	 9XZYO7yXRRihttWvgg8baQhOOoRGrU8u1NzN7f/UKOuh8rbl5UedhUujxOclHYQlSng==
+	bh=RzZc1ZvHcmljMIW8GIop80TWAkL0ySLaO8QbZptWPdw=;
+	b=auPxlQ1bsB1tbR+KB8XdXWaBvGvo53ikdFirnrJqUADx2v82gzi8eErUzCNWPXGwWKZ6
+	 mdsZsqIBTazpV8muaKGyKtATgLgz6TYq/M/uLcvEjP0kOCMkhdrm3XoXAs1SAvkaUoVAz
+	 qT+M1oc26h0Mo9Z7hAzQPhHUssMpvTtziR9sp7VrjE1xEImCyh7Fa93IHXxT6/jYThUHC
+	 /Ob/iVitE3VaocUe/gY870qHDrj2wLTRavtjgYdBlzb6AI371hi3lRMjBC1cWYDL1i9hT
+	 eJaLrgrLjD+x1PA1X1zt0l2VDXhdpL+DRYZ5uMZH8BeTCZ+a7kXyyxjtH0myuMgVQUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NmXWtpkK;
-	arc=none smtp.remote-ip=74.125.82.48
-Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YqnWLLS4;
+	arc=none smtp.remote-ip=74.125.227.138
+Received: from mail-pj2-f10.google.com (mail-pj2-f10.google.com [74.125.227.138])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9144606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:25:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9144606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8241F606A332
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:25:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8241F606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NmXWtpkK
-Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-1b546061d58so3954285c88.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:25:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YqnWLLS4
+Received: by mail-pj2-f10.google.com with SMTP id d9443c01a7336-2effa00323fso6950435ad.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:25:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795267525; x=1795872325; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795267552; x=1795872352; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Q64k/lxKzfUbYjglOjoXICquDEIU+gLL7GdLxP+v06A=;
-        b=NmXWtpkKy+eQd4Ug8YEo0iveU0Xhzt7pU1BSWIyhbuDOibVbXGfXYo6zAMZ+8AF/p0
-         832gF4CNXO8aNvGRCgdoxwCr36AeynP11QOleUvX6jtUfgcd24b9v+nOtDnS0/L8URCe
-         iZe/ohatu1exz3j3DYA20a29tznHk1V6g3qI75cTiyjJ/jKwOrBnCyEYaQO8Akj6w2om
-         Q8ui349lmlnHJtAqOTtSUR7vwDnrMHyZe6EZ1Q4M0PJKD43QHun8oa5uIbFOB9NTlosz
-         W1SXH1g3zYEBbQazE4zoocw3TLCgHzCiftncS5zt+Qx6VxzVNCRv4p7NCV+35w7V6ZMk
-         oWqQ==
+        bh=RzZc1ZvHcmljMIW8GIop80TWAkL0ySLaO8QbZptWPdw=;
+        b=YqnWLLS4xwW+96B+d8I4pYLP3yTj7kADqb3LdxDnt4f9wJ6G6aey0lgseU/Ltggvil
+         H0MXEb+JNeCssA0Tegz3ys0KcMXZqk3StTi2gRgnxREPO7wGLkqXEpmad7Y+VjpNu5US
+         P9iiKLq4rmgLgjW4Z7GKMiJ7tQoa8oMF6gJL2uLgqsPpDUYWOp5HhDX5mfdEgnx32GWN
+         oZ3gJ2wjlZIsuJbVe/YwwFJhk+6T7vYhIS7BzeBVhHDmFs6h50s9Nen92z3VuYZfB+mJ
+         UOIidWtfUh0gPEH1lYcYNkJxucWVtDryDoaCa5nn87UOUB8+fAshQrLzJiVkFOVA1q0/
+         vWQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795267525; x=1795872325;
+        d=1e100.net; s=20260707; t=1795267552; x=1795872352;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Q64k/lxKzfUbYjglOjoXICquDEIU+gLL7GdLxP+v06A=;
-        b=SADcVRndZausV4TcrePmw6YnDVSAxpRHR0NXDzQfXWNJZ3QeSp/nGJraUdOs/2qAbv
-         b++jw0ukKnzjungFARUzvYDIU+pRMzXVFO0e82YvNLbGYrW3QuGjzpCVdxAk52jwy22o
-         gLpLxjwqgaRZVRGCkWH7Wd79h2uphz0gpce8bWI4YrzZV7maQEaan4ybIx97PkFMvsuM
-         9RCuuadJFynipMxgVxxYssqe1KwnyG6aXLLJVNDigrU1wlHEgfqCLqOLhK2JrU6MSqXX
-         OBMAJybPsAMxdVTE3bigiXRMi0xFJF2kGXOT6pOXN6ebjOtfaPVBZZmQ736c0HOQw/tE
-         6gEQ==
-X-Forwarded-Encrypted: i=1; AL+hErFQ6kPujjgLJA4reER+0DypPXXfQQjD1gwcq77S3N8UFhfuXwvuAP0Wd6VoZL7GQ6CRD76q69QYrTJNte4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/e0Ai0T2YvVh4uzWFi65bfg12KDMIHnMLe9qShEbYx91nWjLiz
-	xZ0ESxpTpGzX4XuZVPLuPzXqsARxeHYERmQ62LTTePWVyiiptoo+RYNO
-X-Gm-Gg: AZFdTZf5F0/BH8z0UiEbqiWx/LCy0Zv7ouUMMAu0dD8gsusBBeNgJ/mT8VbpFu4Gnh5
-	azACs5cG4nZ4QBn2NN8jjblEqTlxLiFDqA6EU4pUGB9iHU4cdo1lq8A7N+qqvbSvf2F9FGVQa3a
-	YuB7pzHDOzepDKOXvSweyyjMunkVTiCIAqCu7PVpZtqr2QIux+6Z2dBRACHAqAH6TlIOVOad0bc
-	i2jWyPt//vssO4V5W29IzN444DjmBAchwQQHXPx9x8owxTWblvRez2smKZYffjMIfU0Ej7L27TC
-	PX3ImDXo9f44wucTugQJYxoam/0ipNTb+y/wyBxusA8RZH2mx8Zgxi7iBSUChIJSygnDnvkqQg/
-	3YXPUWthTy0RgGWbdcf8cc/USAtDFd1X5Jq3dXy+2o5U7H9PJpUmVLW5dVcuSzOjVB/n6U7HbnO
-	Q8bYeuOYN76eeAGL678OVtcQSbasFReFL7mEuh0xB7gA09TQ//YU/C9avw5yflj1GeSqtwkfH6s
-	+a3+VnAqYiuLpFR+NY4GrR/VR4HAzR/HhwFgzCn33B7d7n6BuPtQzMh2mP9T44NHwzLkrY4GVg2
-	s60KXGYVNvTqulIrnQeGHY09iwqHW53Yq4G831Oh8uIoBBd8UUcumg3LdOHQPn2tTfJC
-X-Received: by 2002:a05:7022:b0c4:b0:1b3:b455:93db with SMTP id a92af1059eb24-1b5568eec9fmr6015203c88.24.1795267524795;
-        Sat, 21 Nov 2026 05:25:24 -0800 (PST)
-Received: from youngkk-vm.localdomain (67.216.200.102.16clouds.com. [67.216.200.102])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ff27bsm15112714c88.6.2026.11.21.05.25.22
+        bh=RzZc1ZvHcmljMIW8GIop80TWAkL0ySLaO8QbZptWPdw=;
+        b=N/SD7MWALmRCw9rOjpt86dHOpHDmPgi7kOwIIrYm9sblJ3YuWxOs7DltTJ8oE9MMQt
+         Wara7O0dxhsev5VOmnpf4hjZcDONIHm2d6PJxxMiVZ3OY1iMH72nV4PMpV/07FVVsoZd
+         cLq+tETZMbFYAvoI+b2jjEDa3NOO6rqM8mk+TsEq7xaTwEqC1o9oHlhaL9i+W9H5DLo0
+         Ywv63+4nlNP9//tFKVdWW7Pb73RB6myix0eKwt+0gZJnYN5QX27QDcxYEipy0Drfzaoi
+         ekGZuD3SF8krx3OqCu1BP06rS1nwk9tkK/1INJ3HkQqQI0rn63xljr6rw0LE97MvgJJT
+         29/w==
+X-Forwarded-Encrypted: i=1; AL+hErFiuoF1R5joMSY5ntKoLRUnUUcAZ/orZbue6gDFKfbp3kd01a6GTEmv9nErz7xT/0kuLt9LPaCgBXE3uxk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z84Pwdt9/IWWzuelBIKZfxtVNGND3WdlOXu86b0c9tGpdnkBa4e
+	LwgN/PIBnOTybnIMnYinT9As0gCxDhzOXtDNQyYwZJtolh5XCmP99XY=
+X-Gm-Gg: AZFdTZcuFiN5TVj36NuKGgPgAHTa9gyT/S9IAlX/9NGx0F33UyiA86mjA+8zJnohSS6
+	3BjZhaWJ73GH/1CESvgpYpErNIBVsLyWmaxOnNHsfEZF2JCc88rtVA9an7gMiAhbMJsLYQ71LQj
+	eX48j5SzmPlXeVHKBxB9PcGE74LPiPGQdYf7jTGTDPHNLS2XqUcivp7uEWZj0DNk9EL7jqE9skY
+	bC88Y6r18UbMpQ/MY7/aKJGBg1zzjCkPYR/IOzaEkVMJMv54/OEYWoj9os9RSkyE7IaNNeg7E5o
+	oPwoLNkJzUVTmna9OWq1tsmxIcqJvWtdh7H5pdgemXFKcDTYHP5F8JfD4e1Qv+sEL2Msyb97xhX
+	TiGmLr5EEDzwSuB4v0aPfdHWQARpldPGcANylTwVqn8hVjhmUC+OwkAhcc6XBuFBxAPVeNu6S/V
+	DV3UVce01gRIdAvMRQu95XGFems1nDVrH3Sn6upO0KddwBeJwbP2Fbci63m+5H10A2gmTT/fgK1
+	fkRgwXC9MMDQvwsLgAKQl1VIIbLrl/paQuF0BHij9yK7j2SewmNDv7Ve6KWN2vGIN7vQ7gYP/eW
+	rs8ODoG1hHHmqqtqwbjEJvGWHhRe2amOfUFcgRA=
+X-Received: by 2002:a17:902:c409:b0:2e8:1c7b:3b6e with SMTP id d9443c01a7336-2f03f1fe182mr61390525ad.26.1795267551719;
+        Sat, 21 Nov 2026 05:25:51 -0800 (PST)
+Received: from archlinux ([2405:201:ac01:5300:572c:c4c3:6927:1f87])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f105bb2sm26620525ad.45.2026.11.21.05.25.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 05:25:24 -0800 (PST)
-From: Cheng Yongkang <teel4res@gmail.com>
-To: David Sterba <dsterba@suse.com>
-Cc: Chris Mason <mason@kernel.org>,
-	Qu Wenruo <wqu@suse.com>,
-	linux-btrfs@vger.kernel.org,
+        Sat, 21 Nov 2026 05:25:50 -0800 (PST)
+From: Anvik Loitongbam <permissiontogallop@gmail.com>
+To: Alasdair Kergon <agk@redhat.com>,
+	Mike Snitzer <snitzer@kernel.org>,
+	Mikulas Patocka <mpatocka@redhat.com>,
+	Benjamin Marzinski <bmarzins@redhat.com>,
+	dm-devel@lists.linux.dev
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v5] btrfs: tree-checker: add more checks for file extent items
-Date: Sat, 21 Nov 2026 05:25:19 -0800
-Message-Id: <20261121132519.2182511-1-teel4res@gmail.com>
-X-Mailer: git-send-email 2.34.1
+Subject: [PATCH v2] dm-inlinecrypt: emit key type as an optional table argument
+Date: Sat, 21 Nov 2026 18:45:39 +0530
+Message-ID: <20261121131539.7519-1-permissiontogallop@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,163 +103,80 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-check_extent_data_item() only checks the alignment of most members of a
-regular or preallocated file extent. Add the following checks, based on
-what btrfs writes:
+inlinecrypt_status() emits ctx->key_type as a positional argument between
+the key and iv_offset:
 
-- An explicit hole (disk_bytenr == 0) must be an uncompressed regular
-  extent with zero disk_num_bytes. Its offset is not checked, as
-  btrfs_drop_extents() can trim the front of a hole extent.
+  <cipher> <key> <key_type> <iv_offset> <dev_path> <start>
 
-- A preallocated extent must not be compressed.
+but inlinecrypt_ctr() parses the base table as:
 
-- An extent with data on disk must have a non-zero disk_num_bytes. If it
-  is compressed, disk_num_bytes must not exceed BTRFS_MAX_COMPRESSED and
-  ram_bytes must not exceed BTRFS_MAX_UNCOMPRESSED, as compression and
-  encoded writes never create larger ones. Otherwise both must not
-  exceed U32_MAX. Uncompressed extents can be larger than 256MiB, for
-  example preallocated extents from kernels before v3.9, but they should
-  never get close to U32_MAX.
+  <cipher> <key> <iv_offset> <dev_path> <start>
 
-- offset + num_bytes of an extent with data on disk must not exceed its
-  ram_bytes.
+and keytype, is an optional feature argument parsed by
+inlinecrypt_ctr_optional(). Resulting in STATUSTYPE_TABLE output for every
+dm-inlinecrypt device to be not reloadable, the constructor reads
+key_type as iv_offset and shifts the remaining fields.
 
-Suggested-by: Qu Wenruo <wqu@suse.com>
-Signed-off-by: Cheng Yongkang <teel4res@gmail.com>
+Keep the base table in constructor order and emit a non-default key type
+as keytype:hw-wrapped in the optional feature list. Raw keys remain the
+default and are not emitted, preserving the existing table text for
+raw-key devices.
+
+The two dmsetup examples in the documentation acquired
+the same extra positional key-type field, so removed it there as well.
+
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://sashiko.dev/#/patchset/20260525121348.1321282-2-linlin.zhang%40oss.qualcomm.com
+Fixes: f9f57971da38 ("dm-inlinecrypt: add support for hardware-wrapped keys")
+Cc: stable@vger.kernel.org
+Signed-off-by: Anvik Loitongbam <permissiontogallop@gmail.com>
 ---
-Note that before v3.9, __btrfs_prealloc_file_range() reserved the whole
-fallocate range at once, so on a RAID0 or RAID10 filesystem with five or
-more data stripes a preallocated extent can be up to the 10G data chunk
-limit, above U32_MAX. Such a filesystem would fail the new check. If it
-should still be accepted, BTRFS_MAX_DATA_CHUNK_SIZE could be used as the
-uncompressed limit instead, as a data extent never crosses a chunk.
-
-Changes in v5:
-- Drop the crash reports from the commit message, the patch is a
-  tree-checker hardening.
-- Add a dedicated check for explicit holes: they must be uncompressed
-  regular extents with zero disk_num_bytes, as Sashiko pointed out on
-  v4 that a hole bypassed all the new checks.
-- Reject compressed preallocated extents, also pointed out by Sashiko.
-- Check offset + num_bytes against ram_bytes for uncompressed extents
-  too.
-- Only use preallocated extents from kernels before v3.9 as the example
-  of uncompressed extents larger than 256MiB. A direct I/O write
-  reserves its whole range, but each bio gets its own ordered extent, so
-  its file extents are only as large as its bios.
-- Change the subject, as the patch no longer only checks disk_num_bytes.
-
-Changes in v4:
-- Also check ram_bytes of uncompressed extents against U32_MAX, with
-  max_ram_bytes picked the same way as max_disk_num_bytes.
-- Reject a zero disk_num_bytes for extents with data on disk, and an
-  offset + num_bytes beyond ram_bytes for compressed extents, as
-  Sashiko pointed out on v2 and v3.
-- Skip holes for the new checks, as their ram_bytes is the hole size
-  without NO_HOLES.
-- Correct the commit message: direct I/O writes can also create
-  uncompressed extents larger than 256MiB.
-- Rebase onto misc-next.
-
-Changes in v3:
-- Relax the uncompressed disk_num_bytes limit from 256MiB to U32_MAX,
-  as preallocated extents created before v3.9 can be larger.
-- Also check ram_bytes of compressed extents against
-  BTRFS_MAX_UNCOMPRESSED.
-
 Changes in v2:
-- Use SZ_256M directly instead of adding a new macro, and leave
-  inode.c alone.
-- Shorten the comment.
+- Add Reported-by/Closes tags for the Sashiko review.
+- Emit the literal keytype:hw-wrapped after the non-raw check, dropping the
+  unreachable raw fallback.
 
- fs/btrfs/tree-checker.c | 64 +++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 64 insertions(+)
-
-diff --git a/fs/btrfs/tree-checker.c b/fs/btrfs/tree-checker.c
-index f021ac14babf..0a99e628d37c 100644
---- a/fs/btrfs/tree-checker.c
-+++ b/fs/btrfs/tree-checker.c
-@@ -244,7 +244,10 @@ static int check_extent_data_item(struct extent_buffer *leaf,
- 	struct btrfs_file_extent_item *fi;
- 	u32 sectorsize = fs_info->sectorsize;
- 	u32 item_size = btrfs_item_size(leaf, slot);
-+	u32 max_disk_num_bytes;
-+	u32 max_ram_bytes;
- 	u64 extent_end;
-+	u64 ram_end;
- 	u8 fi_type;
+diff --git a/Documentation/admin-guide/device-mapper/dm-inlinecrypt.rst b/Documentation/admin-guide/device-mapper/dm-inlinecrypt.rst
+index 8258a72f00a8..84dd2e6a1b26 100644
+--- a/Documentation/admin-guide/device-mapper/dm-inlinecrypt.rst
++++ b/Documentation/admin-guide/device-mapper/dm-inlinecrypt.rst
+@@ -119,11 +119,11 @@ using dmsetup
  
- 	if (unlikely(!IS_ALIGNED(key->offset, sectorsize))) {
-@@ -377,6 +380,67 @@ static int check_extent_data_item(struct extent_buffer *leaf,
- 		     CHECK_FE_ALIGNED(leaf, slot, fi, num_bytes, sectorsize)))
- 		return -EUCLEAN;
+ 	#!/bin/sh
+ 	# Create a inlinecrypt device using dmsetup
+-	dmsetup create inlinecrypt1 --table "0 `blockdev --getsz $1` inlinecrypt aes-xts-plain64 babebabebabebabebabebabebabebabebabebabebabebabebabebabebabebabe 0 0 $1 0 1 keytype:raw"
++	dmsetup create inlinecrypt1 --table "0 `blockdev --getsz $1` inlinecrypt aes-xts-plain64 babebabebabebabebabebabebabebabebabebabebabebabebabebabebabebabe 0 $1 0 1 keytype:raw"
  
-+	if (!btrfs_file_extent_disk_bytenr(leaf, fi)) {
-+		/* Explicit holes are uncompressed regular extents without disk space. */
-+		if (unlikely(fi_type != BTRFS_FILE_EXTENT_REG ||
-+			     btrfs_file_extent_compression(leaf, fi) != BTRFS_COMPRESS_NONE ||
-+			     btrfs_file_extent_disk_num_bytes(leaf, fi))) {
-+			file_extent_err(leaf, slot,
-+"invalid hole file extent, have type %u compression %u disk_num_bytes %llu expect type %u compression 0 disk_num_bytes 0",
-+					fi_type, btrfs_file_extent_compression(leaf, fi),
-+					btrfs_file_extent_disk_num_bytes(leaf, fi),
-+					BTRFS_FILE_EXTENT_REG);
-+			return -EUCLEAN;
-+		}
-+	} else {
-+		if (unlikely(fi_type == BTRFS_FILE_EXTENT_PREALLOC &&
-+			     btrfs_file_extent_compression(leaf, fi) != BTRFS_COMPRESS_NONE)) {
-+			file_extent_err(leaf, slot,
-+		"invalid compression for preallocated file extent, have %u expect 0",
-+					btrfs_file_extent_compression(leaf, fi));
-+			return -EUCLEAN;
-+		}
-+
-+		/*
-+		 * Compressed extents are at most 128K both on disk and
-+		 * uncompressed. Uncompressed extents should never get close to
-+		 * U32_MAX.
-+		 */
-+		if (btrfs_file_extent_compression(leaf, fi) != BTRFS_COMPRESS_NONE) {
-+			max_disk_num_bytes = BTRFS_MAX_COMPRESSED;
-+			max_ram_bytes = BTRFS_MAX_UNCOMPRESSED;
-+		} else {
-+			max_disk_num_bytes = U32_MAX;
-+			max_ram_bytes = U32_MAX;
-+		}
-+		if (unlikely(btrfs_file_extent_disk_num_bytes(leaf, fi) == 0 ||
-+			     btrfs_file_extent_disk_num_bytes(leaf, fi) > max_disk_num_bytes)) {
-+			file_extent_err(leaf, slot,
-+		"invalid disk_num_bytes for file extent, have %llu expect (0, %u]",
-+					btrfs_file_extent_disk_num_bytes(leaf, fi),
-+					max_disk_num_bytes);
-+			return -EUCLEAN;
-+		}
-+		if (unlikely(btrfs_file_extent_ram_bytes(leaf, fi) > max_ram_bytes)) {
-+			file_extent_err(leaf, slot,
-+		"invalid ram_bytes for file extent, have %llu expect <= %u",
-+					btrfs_file_extent_ram_bytes(leaf, fi),
-+					max_ram_bytes);
-+			return -EUCLEAN;
-+		}
-+		if (unlikely(check_add_overflow(btrfs_file_extent_offset(leaf, fi),
-+						btrfs_file_extent_num_bytes(leaf, fi),
-+						&ram_end) ||
-+			     ram_end > btrfs_file_extent_ram_bytes(leaf, fi))) {
-+			file_extent_err(leaf, slot,
-+	"invalid offset + num_bytes for file extent, have %llu + %llu expect <= ram_bytes %llu",
-+					btrfs_file_extent_offset(leaf, fi),
-+					btrfs_file_extent_num_bytes(leaf, fi),
-+					btrfs_file_extent_ram_bytes(leaf, fi));
-+			return -EUCLEAN;
-+		}
-+	}
-+
- 	/* Catch extent end overflow */
- 	if (unlikely(check_add_overflow(btrfs_file_extent_num_bytes(leaf, fi),
- 					key->offset, &extent_end))) {
-
-base-commit: 0e6c0a834a2329b3a2767a4485f9891348725c0b
--- 
-2.34.1
-
+ ::
+ 
+ 	#!/bin/sh
+ 	# Create a inlinecrypt device using dmsetup when encryption key is stored in keyring service
+-	dmsetup create inlinecrypt2 --table "0 `blockdev --getsz $1` inlinecrypt aes-xts-plain64 :64:logon:fde:dminlinecrypt_test_key 0 0 $1 0 1 keytype:raw"
++	dmsetup create inlinecrypt2 --table "0 `blockdev --getsz $1` inlinecrypt aes-xts-plain64 :64:logon:fde:dminlinecrypt_test_key 0 $1 0 1 keytype:raw"
+ 
+diff --git a/drivers/md/dm-inlinecrypt.c b/drivers/md/dm-inlinecrypt.c
+index 3479dfe5f708..c4a0501e7b9a 100644
+--- a/drivers/md/dm-inlinecrypt.c
++++ b/drivers/md/dm-inlinecrypt.c
+@@ -522,15 +522,18 @@ static void inlinecrypt_status(struct dm_target *ti, status_type_t type,
+ 		 * the returned table.  Userspace is responsible for redacting
+ 		 * the key when needed.
+ 		 */
+-		DMEMIT("%s %*phN %u %llu %s %llu", ctx->cipher_string,
+-		       ctx->key.size, ctx->key.bytes,
+-		       ctx->key_type, ctx->iv_offset,
++		DMEMIT("%s %*phN %llu %s %llu", ctx->cipher_string,
++		       ctx->key.size, ctx->key.bytes, ctx->iv_offset,
+ 		       ctx->dev->name, ctx->start);
+ 		num_feature_args += !!ti->num_discard_bios;
++		if (ctx->key_type != BLK_CRYPTO_KEY_TYPE_RAW)
++			num_feature_args++;
+ 		if (ctx->sector_size != SECTOR_SIZE)
+ 			num_feature_args += 2;
+ 		if (num_feature_args != 0) {
+ 			DMEMIT(" %d", num_feature_args);
++			if (ctx->key_type != BLK_CRYPTO_KEY_TYPE_RAW)
++				DMEMIT(" keytype:hw-wrapped");
+ 			if (ti->num_discard_bios)
+ 				DMEMIT(" allow_discards");
+ 			if (ctx->sector_size != SECTOR_SIZE) {
