@@ -1,80 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795224941;
-	b=LbbLKQDF58hF4Mh8Vg4k1iMX4idsrriHhRN4KywzycuKRWfjSH5G93AOaGi1XsdWHEcI
-	 eWPL5Fj/E3Ccrtd96zCdfjJMKY2L0nPwUS2TIhrLUYCpX1NVdnBMCLEkL3BpWljvDZHtT
-	 AVEcIIPFVSZJw5fjA2qqg6i+zll9N2MsiFMev1uYFF1IpL8JEnqYEmGLWG7+0iE8nbWI2
-	 pOFDdBzCg3CGKwTyM1AIdi9zXIXQhARgZ4HpTq5BLc9171jogIGtxSVNy2Kenkab8apOE
-	 pw+hZuJB+GU6JntYqIP7XT2KLr41Ks8d/D+aRfkYwFCaEyT1b0E60fZFQxOQMEDeQLw==
+	t=1795224986;
+	b=g3QuT++lduLWtTH48bjR1f++aFefi3u3MoLFXhQzy3v6r2qxl6kfJBjW5rQwHp85ltNs
+	 wI9arw3IEK+Tc7Q8qZCxyiNw6Ysj+RCrWTDaclXPKxIFXSSs2itnTDlNEzcS9ebBQk5ea
+	 WvqCCNdmbGBOCh66Q78OSjT4JGUQRHiqOa4CIq2Wp7ss7Np4BTZWCikFHyg7NFb9Ma8Iz
+	 jybofL0x5E3KmNL8AB3Sehr0J0rLPtU7IJ4E5Akj5cup9kUXAo4NYwIRrkpEV+NaeE50w
+	 +ntR8dd4SRLal8oBEddaCLvyRD9wuW+WgJ+3RGO/iKJOrgM67UjGaqAISdUcSttfQ2A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795224941;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:
-	 X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
-	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
-	 X-Local-Domain:X-CMAE-Envelope;
-	bh=EReTIrSV8j4ZDshh+rBWtwWgWDj+qs/gWLXl3ITv8i8=;
-	b=SAiRTBUc45MFGCNbflAYsR2zqPJI0Un1v1wM7yIYYF/nmwYe4cgN3l8mUlv4DMDwD0En
-	 Vb9bvgpBjlZUwXF7LHoTTIaG2IWvJQqU17ORF7yb4g8GvagHXFh+ZnI4MpzcStwAKpBY/
-	 m5PwxD4zVZph+F7R3c22S3GCfjq6e04ogvLSP6yQ1pCccBV0AzcJr/T/H4RRKpDWFLbdt
-	 oVK598mMzP/Sj7Flr9Pw4/h2xVqAHXkjbRXJ5ZLeOCDnBCZz//3nwqy3cPWeqMBmoVhh9
-	 fSX0sj+JW/59yqRg94OkiJPup2gyfj3r8+EwTVVdo6XTyX/TkWj3BGp+GlsHiASeoCg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795224986;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=nxpO5fwG+Mn4fh6sf6B4w9TOJPDDMQLf/nUrJV1rcTI=;
+	b=rwKHMs+1theB0EvbeA0ZT90+lkw6pusoGq/+24s4N0NFa3fXyiJrjq0Hc/3jVjoumVC5
+	 4XtwbVQ8MNPaO3n0Oo58ZUBc/U2BXyjq3wrbDoyEn5zlcnc5UmKhUkErV95IYZ1Zw2gRS
+	 UZS5pwhatRL8HEEHgwH395vdVWmtEwmzfaoQ/OUL7cBIzg6tyEggw4QHFWO0pCPAyPxHe
+	 CYKoxlEVJ8icXjPbu7oT8AMp0Ac5XZvhRX/6jihTZgBwTKLximd1SdzklPS78BObYV1J7
+	 QVJ10KstdkJKW2bpJMY4V23dM7fJ0aCIIiFetg4XfQNE2VlAcjaE6T2X55OInulywFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=roeck-us.net;
-	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b="DAh/S3bm";
-	arc=none smtp.remote-ip=35.89.44.33
-Received: from omta34.uswest2.a.cloudfilter.net (omta34.uswest2.a.cloudfilter.net [35.89.44.33])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cqdgWb0B;
+	arc=none smtp.remote-ip=198.137.202.133
+Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D58DB606A69D
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 01:35:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D58DB606A69D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A45AB606A338;
+	Sat, 21 Nov 2026 01:36:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A45AB606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=DAh/S3bm
-Received: from eig-obgw-5002b.ext.cloudfilter.net ([10.0.29.226])
-	by cmsmtp with ESMTPS
-	id UXaOxKQRXAR1iUa0xxJMmo; Sat, 21 Nov 2026 01:35:39 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id Ua0wxOCdQb2qJUa0xxuEb1; Sat, 21 Nov 2026 01:35:39 +0000
-X-Authority-Analysis: v=2.4 cv=A7tsP7WG c=1 sm=1 tr=0 ts=6b00f56b
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=pGLkceISAAAA:8
- a=0SxRSwYGAAAA:8 a=AcRjwwUwVOdtBLS5SPQA:9 a=CjuIK1q_8ugA:10
- a=evtWB9OUeeBtXImRToD_:22 a=KPbNTLLc3YvdawN95zVk:22
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cqdgWb0B
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
-	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
-	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=EReTIrSV8j4ZDshh+rBWtwWgWDj+qs/gWLXl3ITv8i8=; b=DAh/S3bmwEdXASQCyiiBoJgoV+
-	GmYTdYw4jWJtZJXfOTKsnNtMxlCFdqVy7SJ2Zm1ACla5NMLS/sr9LHBKWfwPwpDPENTCf6OigO7j8
-	rcpFycmqXASUrcYtJv038e426vUnMgWdMNrhFKuG6kc2E7dSlxHCDmxJ6NB9TigI0oPxSFav1aRd1
-	K5E03+P0hAjbLNLiCj7HXpaRtl6E+TRiQ7e0MKq/WSFZWjyWhMmwuFgwblM0I45UBW54+YcOu2O28
-	aykjcHFXTKE/Iqs0rauUNCOf82nD84q68DO00UTXTMDPmMFD5iVc/+PC8Mm+Ifvr2OEvUdwhgF3vY
-	GHHcpuDg==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:54034 helo=server.roeck-us.net)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xUa0w-000000043BZ-1Wxq;
-	Sat, 21 Nov 2026 07:05:38 +0530
-Date: Fri, 20 Nov 2026 17:35:37 -0800
-From: Guenter Roeck <linux@roeck-us.net>
-To: Sven Ulland <sven.ulland@gmail.com>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Florian Fainelli <f.fainelli@gmail.com>
-Subject: Re: [PATCH] watchdog: gpio: Keep GPIO level when taking over a
- running watchdog
-Message-ID: <6066c7ce-8119-459d-95f3-027a0d52e0d6@roeck-us.net>
-References: <20261119164841.1847870-1-sven.ulland@gmail.com>
+	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Sender:Reply-To:Content-ID:Content-Description;
+	bh=nxpO5fwG+Mn4fh6sf6B4w9TOJPDDMQLf/nUrJV1rcTI=; b=cqdgWb0Bq38ZqdL2gtfHgmmH4g
+	DXUUweeu+TgT7MpDFGung947/xhFyAqRBgPXVFAxRkmU8pvL1PHUb0i4XbPolY0aZ0makY3l2ZhoU
+	8MQgcFdHpxqXw1EQDjvTX5WriLzoHahX7GoM00MYSHcDumu60bjt/YvljRMqBQMPZrTG+XFq8apgD
+	MZbApVRfe6E+A2diZjZDOc5N92TIqE9CGYZp0GKSwJnwEcRfHIX6mKTIqsrySYEquY3ANf74LJJVq
+	SkazTLoQ58IB7Cg/G3c4RBbICfkDJhrKiWFX4P5z6cc+n3XVSsbnFm645uoNxc0CxsTNc1Jw+4bgO
+	mMELa5eQ==;
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xUa1Q-0000000GeN8-2otV;
+	Sat, 21 Nov 2026 01:36:09 +0000
+Message-ID: <740cd96a-0815-48d1-9442-9816944ad078@infradead.org>
+Date: Fri, 20 Nov 2026 17:36:07 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,147 +58,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119164841.1847870-1-sven.ulland@gmail.com>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xUa0w-000000043BZ-1Wxq
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:54034
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 11
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfGWHgA7a8xWkMdldpMIsiwmQ9poBF24Z7sEzQuKckvgfwJZkguKM9Jf9JTfiiVxVHmWQjjo2bruG6gyf/KLhlAMltCyOjZrbpf2UIi8bvJoG3HKI+fcq
- P1Fp2zrXsKt8PFlXdN6OWwjbuWk/nPOnyOu/a/7ngg69hUPtGCDjNlzsxKq3yRJ9IIvM5MhnPtfZA2SJBe2JJTqv0E4kTkgky8W27Yc4nSDpjXSao7MYDgg3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/8] platform/x86: dell: Make uart-backlight x86 only
+To: Brian Mak <bmak@nvidia.com>, Hans de Goede <hansg@kernel.org>,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: Kurt Borja <kuurtb@gmail.com>, Stuart Hayes <stuart.w.hayes@gmail.com>,
+ Matthew Garrett <mjg59@srcf.ucam.org>, =?UTF-8?Q?Pali_Roh=C3=A1r?=
+ <pali@kernel.org>, Lyndon Sanche <lsanche@lyndeno.ca>,
+ Armin Wolf <W_Armin@gmx.de>, Prasanth Ksr <prasanth.ksr@dell.com>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ platform-driver-x86@vger.kernel.org, Dell.Client.Kernel@dell.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261121000556.173028-1-bmak@nvidia.com>
+ <20261121000556.173028-2-bmak@nvidia.com>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20261121000556.173028-2-bmak@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 19, 2026 at 05:48:41PM +0100, Sven Ulland wrote:
-> For a watchdog with the always-running property, the driver takes over
-> at probe: it requests a toggle GPIO as input, and gpio_wdt_start()
-> then drives it low and toggles it. These level changes happen within
-> microseconds, and a watchdog that needs hw-min-interval-ms resets the
-> system when pinged that fast, so taking over from the bootloader can
-> trigger a reset.
+
+
+On 11/20/26 4:05 PM, Brian Mak wrote:
+> Make dell-uart-backlight x86 only, as it uses some x86 helpers.
 > 
-> The Aruba AP-305 access point (Qualcomm IPQ4029) has an external
-> watchdog that resets the board when its GPIO is toggled every 6 ms or
-> faster. Even with hw-min-interval-ms set to 100 ms, 7 of 10 boots
-> started from the bootloader still reset within two seconds of the kernel
-> starting.
-> 
-> If the watchdog has both always-running and hw-min-interval-ms, request
-> the GPIO as is and keep its current level. The watchdog core then sends
-> the first ping once the minimum interval has passed. Other watchdogs are
-> unaffected.
-> 
-> Tested on the Aruba AP-305 with this change backported to Linux 6.18,
-> and 10 of 10 boots survived.
-> 
-> Assisted-by: Claude:claude-opus-5-5
-
-This trailer is obsolete. Please stop using it.
-
-> Signed-off-by: Sven Ulland <sven.ulland@gmail.com>
-
-Applied (after dropping Assisted-by: trailer).
-
-Thanks,
-Guenter
-
+> Signed-off-by: Brian Mak <bmak@nvidia.com>
 > ---
-> This applies on top of watchdog-next, as it depends on Florian's commit
-> 2791c2bc6aca ("watchdog: gpio: Support watchdogs with a minimum
-> heartbeat interval").
+>  drivers/platform/x86/dell/Kconfig | 1 +
+>  1 file changed, 1 insertion(+)
 > 
->  drivers/watchdog/gpio_wdt.c | 31 +++++++++++++++++++++++++++----
->  1 file changed, 27 insertions(+), 4 deletions(-)
-> 
-> 
-> base-commit: 865c2d0f1dd3f0937865dd11819eeb59298a814c
-> 
-> diff --git a/drivers/watchdog/gpio_wdt.c b/drivers/watchdog/gpio_wdt.c
-> index 1c79498db69e..4f4f9e9a7031 100644
-> --- a/drivers/watchdog/gpio_wdt.c
-> +++ b/drivers/watchdog/gpio_wdt.c
-> @@ -79,6 +79,20 @@ static int gpio_wdt_start(struct watchdog_device *wdd)
->  	return gpio_wdt_ping(wdd);
->  }
->  
-> +/* Take over a running watchdog without changing the GPIO level */
-> +static int gpio_wdt_adopt(struct gpio_wdt_priv *priv)
-> +{
-> +	int level = gpiod_get_value_cansleep(priv->gpiod);
-> +
-> +	if (level < 0)
-> +		return level;
-> +
-> +	priv->state = level;
-> +	set_bit(WDOG_HW_RUNNING, &priv->wdd.status);
-> +
-> +	return gpiod_direction_output(priv->gpiod, priv->state);
-> +}
-> +
->  static int gpio_wdt_stop(struct watchdog_device *wdd)
->  {
->  	struct gpio_wdt_priv *priv = watchdog_get_drvdata(wdd);
-> @@ -112,6 +126,7 @@ static int gpio_wdt_probe(struct platform_device *pdev)
->  	enum gpiod_flags gflags;
->  	unsigned int hw_margin;
->  	const char *algo;
-> +	bool adopt = false;
->  	int ret;
->  
->  	priv = devm_kzalloc_obj(dev, *priv);
-> @@ -120,12 +135,17 @@ static int gpio_wdt_probe(struct platform_device *pdev)
->  
->  	platform_set_drvdata(pdev, priv);
->  
-> +	priv->always_running = device_property_read_bool(dev, "always-running");
-> +
->  	ret = device_property_read_string(dev, "hw_algo", &algo);
->  	if (ret)
->  		return ret;
->  	if (!strcmp(algo, "toggle")) {
->  		priv->hw_algo = HW_ALGO_TOGGLE;
-> -		gflags = GPIOD_IN;
-> +		/* Switching the GPIO to input could cause an edge */
-> +		adopt = priv->always_running &&
-> +			device_property_present(dev, "hw-min-interval-ms");
-> +		gflags = adopt ? GPIOD_ASIS : GPIOD_IN;
->  	} else if (!strcmp(algo, "level")) {
->  		priv->hw_algo = HW_ALGO_LEVEL;
->  		gflags = GPIOD_OUT_LOW;
-> @@ -168,8 +188,6 @@ static int gpio_wdt_probe(struct platform_device *pdev)
->  			return -EINVAL;
->  	}
->  
-> -	priv->always_running = device_property_read_bool(dev, "always-running");
-> -
->  	watchdog_set_drvdata(&priv->wdd, priv);
->  
->  	priv->wdd.info		= &gpio_wdt_ident;
-> @@ -184,8 +202,13 @@ static int gpio_wdt_probe(struct platform_device *pdev)
->  
->  	watchdog_stop_on_reboot(&priv->wdd);
->  
-> -	if (priv->always_running)
-> +	if (adopt) {
-> +		ret = gpio_wdt_adopt(priv);
-> +		if (ret)
-> +			return ret;
-> +	} else if (priv->always_running) {
->  		gpio_wdt_start(&priv->wdd);
-> +	}
->  
->  	return devm_watchdog_register_device(dev, &priv->wdd);
->  }
+> diff --git a/drivers/platform/x86/dell/Kconfig b/drivers/platform/x86/dell/Kconfig
+> index 9f0016056d7e..4c28d4c008fc 100644
+> --- a/drivers/platform/x86/dell/Kconfig
+> +++ b/drivers/platform/x86/dell/Kconfig
+> @@ -188,6 +188,7 @@ config DELL_UART_BACKLIGHT
+>  	depends on ACPI_VIDEO
+>  	depends on BACKLIGHT_CLASS_DEVICE
+>  	depends on SERIAL_DEV_BUS
+> +	depends on X86
+
+DELL_UART_BACKLIGHT already depends on
+X86_PLATFORM_DEVICES && X86_PLATFORM_DRIVERS_DELL, and
+X86_PLATFORM_DEVICES depends on X86, so this should not
+be needed.
+Have you found a problem that you are trying to solve
+with this?
+
+>  	help
+>  	  Say Y here if you want to support Dell AIO UART backlight interface.
+>  	  The Dell AIO machines released after 2017 come with a UART interface
+
+-- 
+~Randy
+
