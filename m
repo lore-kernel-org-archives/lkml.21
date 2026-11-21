@@ -1,69 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795303433;
-	b=CJer7Vo6w+cVO3mjimKaGkxqq24FbzVG8xTRqLoUXy4gOEwK5LpCl/3ogG0TOcWLoYoZ
-	 jc75E4sdLWHvWS4y4eqvLeYuq1IzinNq046bv07BiVktDGHxGg5k4t/IY+sIdTrVmiKKe
-	 NQfEtWV3/bh5NWpt0XsGMdfdEIwzVB2NEZGWV5t0wIQ/gg4mzE+Ya2vtaA0v19215iBdY
-	 5HGCo+0A+kDZU918H6lUs46EJ/fphDymkmQExXyOwIQjI1xiIjI0tSYhYKpVP+Y99h+NV
-	 QA/zQinI7CC+4pDU29ze+Anb5Nh0f6iSYyr1YEVjHoCMt3bMOPG9mAbB33NLzuYyqgQ==
+	t=1795303499;
+	b=pm6kmTBs4GysDa+3Rnz4BMEDv7UkPIn/GJJCd/1F4T4MnyTc/fRKCMSd5b706lIwDP28
+	 pN6sbybKGymf/K59JMJ25EVCZ410Wh79KyqY5O0RTaYt41nMpPFhD1cVzF0xI3Cu1AIfZ
+	 XILAgwYDRR6YDWFkDI8+Ob6Zy3VjIdgAaFtxvUQcfIh++cOGp6qfHRuWbMSVbrQ2HG6lq
+	 rCHN+4A8+FMmjL/kM9IYQn4XGzXHjjy7/+HQdgIBZBsc06bA4VlBYnp+GeWX5QqyPA8/Y
+	 vGPa5LqBEmxM3gxaSP4EaofRQBspBXF2qwP6OgeMoCr8SoRsjcXjoIvWdbp7mtAj83g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795303433;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spam-Status:X-Spam-Checker-Version;
-	bh=fiedK0LMLpg949+WbK0ZI33jcOksdkyv7tc4RWl8y2A=;
-	b=mZnpf2sJHN/BLHjN8L8Xw5IJHRi0K2okhcg/xrStlttF0zJTU9nD+OMG4olZRtghuR4Q
-	 OwV72FFLxrPDXffQ9h9L2lkoyoa6Rl/1DTlysuV/hqrHc91u0UMYVHZ6RVonVB2Et+dK1
-	 OXTjZJTR7+JS4eDzZPejGOrHr6z56fBa55HLw3b1A9gU/yOq9Y/gd6a3V+1y1RmXizEFo
-	 PWRvlhaCBGF3Ja3QX77eUzOvPeLUqu36uDtOhuNWb16/NLqxaUJ1jZp4eWJAmHi3rLSxJ
-	 AVtDlLLjhmyAyVxzQWFEMcD/ohvvv5Pvjp+poAGvYAD+UG/Wmd1nsjMSG6QBO8+FauQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795303499;
+	h=Received:DKIM-Signature:Received:Subject:From:In-Reply-To:References:
+	 X-PR-Tracked-List-Id:X-PR-Tracked-Message-Id:X-PR-Tracked-Remote:
+	 X-PR-Tracked-Commit-Id:X-PR-Merge-Tree:X-PR-Merge-Refname:
+	 X-PR-Merge-Commit-Id:Message-Id:Date:To:Cc;
+	bh=LoUzMfo0k61oI4vQs7dqYReT8l0FvW5rHD7+sXlGUN4=;
+	b=mRea0a+mO7199cI04sCyN14nowBpqDG0Po/nlewszgnbOGAvZEOZky4fpCc9vbs7XxdX
+	 ZETGPhtaZSLBWxEMa607ur/ZnEvcRJ15kDOfgqPnQpKPoXzC6jXHJECd2EbOaEhO6XKoK
+	 dbjPtORtfwFPcjC6bhVY3Pj/ze9d1U6H1rjnniAajIKr0G3SH4co+FHJoWbPeusXscTnh
+	 AVf1TTtVhOtRwSK+U0sOsJQHft1eF/3Ex7MaRFUJyVBzuW2X3IatRwOJugw8FhHgimM+2
+	 uMpRI3PTHVhOMViv1n8ApwSa3vsxNrPZlf2dVmaEaRchoUtAHO+RQei/ZEck9jQFI8A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=netfilter.org;
-	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=Mjx+VZY6;
-	arc=none smtp.remote-ip=217.70.190.124
-Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m0cIeL3Y;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id EF5C6606A320;
-	Sat, 21 Nov 2026 23:23:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF5C6606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AC7F606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 23:24:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=Mjx+VZY6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1795303430;
-	bh=fiedK0LMLpg949+WbK0ZI33jcOksdkyv7tc4RWl8y2A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Mjx+VZY6SWzg/KaoyDuuSmFdlq4sBo+hlSCL36KiOWf6n2mE/5L9B6niEydtAleOl
-	 EsRkJSahZ9cBoBznJ++9fso4zUqu6BZ/iqjMSKsfZKJ1GWhCAoQ5hPy9vEM2UV29wE
-	 16ONdISWmn/t6imvu/MYuKesEBeB7+o85WN37KlfeInE7FyGz4m03DjvqkiAe8IdYW
-	 9DmMOUDGQDjR5Q7oWjyo9qM8ThXajcpQgc4Z86OSyD1asAKrFyR4VdhvnMK5pXBYml
-	 OT30tEid/wmyGpU0rX2a7BLC91sgzqJlnyp1PbpaKW/mqbVBbYyj0LnUDUei+luow8
-	 QttcYlDqqSZqQ==
-Received: from netfilter.org (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with UTF8SMTPSA id 82C126005F;
-	Sun, 22 Nov 2026 00:23:50 +0100 (CET)
-Date: Sun, 22 Nov 2026 00:23:48 +0100
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: netdev@vger.kernel.org, Florian Westphal <fw@strlen.de>,
-	Phil Sutter <phil@nwl.cc>, "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Toshiaki Makita <toshiaki.makita1@gmail.com>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:NETFILTER" <netfilter-devel@vger.kernel.org>,
-	"open list:NETFILTER" <coreteam@netfilter.org>,
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH net 1/4] netfilter: flowtable: do not queue offload work
- after DESTROY
-Message-ID: <awIoBL3Rz5GbNs1l@chamomile>
-References: <20261118201250.2075007-1-florian.fainelli@broadcom.com>
- <20261118201250.2075007-2-florian.fainelli@broadcom.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m0cIeL3Y
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 444BE1F000C6;
+	Sat, 21 Nov 2026 23:24:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795303499;
+	bh=LoUzMfo0k61oI4vQs7dqYReT8l0FvW5rHD7+sXlGUN4=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc;
+	b=m0cIeL3YLXg8KqO6+YcyVaqf+2qfLapfH6sNor769257zWRT0s0pjdJLbQiGBDvVH
+	 6s4NsM/EY+QDMkSUBsFs8kyRupnqH4UzUR9B8XseTkH8e7zSj69mBVIcjKeyDpwNtd
+	 oF8gZQrcZu1rrhA2LU5LC1K1dM7SjhoLdPaS2XD8qnrsVslpkFhsgkJ7syfjtMshQk
+	 gd4XMwoP1J6bOI91uwZdhZiTM3UkofC+RRK5jH/1nmaz3Q2EjaczVADRKCXT2fgWo+
+	 PJmp6W5l6TBxUlE53pWRb1EM2kFdN2cFIWid7E/RugW1dS7VBTozsam0usbfxoiAt2
+	 of+E3KpQYmvsA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A66C391B08F;
+	Sat, 21 Nov 2026 23:24:59 +0000 (UTC)
+Subject: Re: [GIT PULL] tracing: Fixes for v7.4
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <20261121075739.3ad033bf@fedora>
+References: <20261121075739.3ad033bf@fedora>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <20261121075739.3ad033bf@fedora>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace.git trace-v7.4-rc3
+X-PR-Tracked-Commit-Id: 56ce4ed6316cae9536ea891d6686b92f1d930c00
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: e572847ee4d074c9947e8367d150b81775a7e903
+Message-Id: <179530349780.1207690.5348109516942334729.pr-tracker-bot@kernel.org>
+Date: Sat, 21 Nov 2026 23:24:57 +0000
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, LKML <linux-kernel@vger.kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Amit Machhiwal <amachhiw@linux.ibm.com>, "Baek Kyu, Kim" <pocj8ur4in@gmail.com>, Breno Leitao <leitao@debian.org>, Brian Norris <briannorris@chromium.org>, Chaosheng Qu <chaosheng.qu.linux@gmail.com>, Christian Aurich Zanettini Martins <christian.aurichzm@gmail.com>, David Carlier <devnexen@gmail.com>, Jaewon Jung <jaewon8868@gmail.com>, Kyle Zeng <kylebot@openai.com>, Pengfei Li <ljdlns1987@gmail.com>, Vincent Donnefort <vdonnefort@google.com>, Vineet Gupta <vineet.gupta@linux.dev>, Wenwu Hou <hwenwur@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,91 +67,16 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261118201250.2075007-2-florian.fainelli@broadcom.com>
 
-On Wed, Nov 18, 2026 at 12:12:47PM -0800, Florian Fainelli wrote:
-> nf_flow_offload_refresh() can be reached by a packet path reader which
-> looked the flow up before it was torn down. NF_FLOW_PENDING keeps the
-> DESTROY work from being queued while another work item is pending, but
-> once the DESTROY work has run and cleared the bit, a reader can take it
-> again and queue a REPLACE (or STATS) work for a flow which is already
-> being removed.
-> 
-> GC removes a hardware flow after NF_FLOW_HW_DEAD is set, and frees it after
-> an RCU grace period, which the reader can outlive in a preemptible RCU
-> read-side section. The queued work then dereferences a freed flow and
-> the flowtable, and can program the hardware again with a rule keyed by
-> the freed flow's cookie.
-> 
-> NF_FLOW_HW_DYING is set when DESTROY is queued, and DESTROY needs
-> NF_FLOW_PENDING, so a work item which holds the pending bit and finds
-> NF_FLOW_HW_DYING clear prevents DESTROY from being queued until it
-> completes. Check it after taking the pending bit, and do not queue
-> anything other than DESTROY when it is set.
-> 
-> Not reproduced: this is a race between a long RCU read-side section and
-> the GC and offload workers. Found by review of a related change.
-> 
-> Fixes: c29f74e0df7a ("netfilter: nf_flow_table: hardware offload support")
-> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> ---
->  net/netfilter/nf_flow_table_offload.c | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
-> 
-> diff --git a/net/netfilter/nf_flow_table_offload.c b/net/netfilter/nf_flow_table_offload.c
-> index 4365859220e6..62f460d38efa 100644
-> --- a/net/netfilter/nf_flow_table_offload.c
-> +++ b/net/netfilter/nf_flow_table_offload.c
-> @@ -1088,6 +1088,19 @@ nf_flow_offload_work_alloc(struct nf_flowtable *flowtable,
->  	if (test_and_set_bit(NF_FLOW_PENDING, &flow->flags))
->  		return NULL;
->  
-> +	/* GC only removes a hardware flow after its DESTROY work has run, and
-> +	 * NF_FLOW_PENDING keeps another one from being queued, so nothing can
-> +	 * free the flow while this work is pending, unless DESTROY was queued
-> +	 * before we took the pending bit. A reader which found the flow before
-> +	 * it was torn down must not queue more work then, as the flow could be
-> +	 * freed before that work runs.
-> +	 */
-> +	if (cmd != FLOW_CLS_DESTROY &&
-> +	    test_bit(NF_FLOW_HW_DYING, &flow->flags)) {
-> +		clear_bit(NF_FLOW_PENDING, &flow->flags);
-> +		return NULL;
-> +	}
+The pull request you sent on Sat, 21 Nov 2026 07:57:39 -0500:
 
-Maybe address by checking for the _CLOSING + _TEARDOWN flag? If those
-are set on, then hardware will be scheduled for removal soon.
+> git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace.git trace-v7.4-rc3
 
-I guess there is also another hypothetical case where _CLOSING is set
-on, but HW_DYING was not set on yet?
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/e572847ee4d074c9947e8367d150b81775a7e903
 
-Probably the HW_DYING bit can go away, _CLOSING was added for hw
-offload specifically, to schedule the removal in hardware while the
-flow still remains with IPS_OFFLOAD.
+Thank you!
 
-diff --git a/net/netfilter/nf_flow_table_offload.c b/net/netfilter/nf_flow_table_offload.c
-index 11434cfb105b..7104d332d98a 100644
---- a/net/netfilter/nf_flow_table_offload.c
-+++ b/net/netfilter/nf_flow_table_offload.c
-@@ -1132,7 +1132,8 @@ void nf_flow_offload_refresh(struct nf_flowtable *flowtable,
-        if (!offload)
-                return;
- 
--       if (test_bit(NF_FLOW_TEARDOWN, &flow->flags)) {
-+       if (test_bit(NF_FLOW_CLOSING, &flow->flags) ||
-+           test_bit(NF_FLOW_TEARDOWN, &flow->flags)) {
-                clear_bit(NF_FLOW_PENDING, &flow->flags);
-                kfree(offload);
-                return
-
-> +
->  	offload = kmalloc_obj(struct flow_offload_work, GFP_ATOMIC);
->  	if (!offload) {
->  		clear_bit(NF_FLOW_PENDING, &flow->flags);
-> -- 
-> 2.53.0
-> 
-> 
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
