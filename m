@@ -1,61 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.161
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795302501;
-	b=yTd3etO0gsVH5I+lwn6fSnDiy2kI8Ihy8qClYjD0eetjYJdp/vKeeNWjsBJnubSf8cdO
-	 X1eMlqxJ9pWW+20OX/KlFH4OqN4CccKjyXiWtLZbI59dlTrWD6BF+eMmTjj0eXdpbBBiM
-	 1F2qkJg0QaPunj7cbkBo8MMavEI4MIoq/wQq/7Xpkozy6vP4bZ/I8VYIHiQGBTnvJxOeN
-	 ry4kluIbJPMcaKbGvHoKiwXDfK5TtjvYocPtfgyNxIGl2D6torFWn0ht24UTNIQgttfVY
-	 I6qHuTSSOB3nLqpMgMlRbeTae1VScQDpYYRO84gts3ZbkwOJXK4E+90tHZbIaasSkiw==
+	t=1795302553;
+	b=wHX2gXdfSROXf8RKbeazBbRCbu1G+8Y/d/d+pOGGExNi4EfFwpH/5v5rX8Lcz/ZHHJPu
+	 w2jauHLjz1bHW0pDQ7pswGo/qLYJ5ycXD6K1ry9sRBDczWSQKCRvBctk9uiOvSe9IcE/v
+	 KcWFgcVeLOyprbjcjaCFkPo6KlMQExtICVWng0KFLYIFRgsFNi16m+sFlIXMLYwfLNJqj
+	 pnlX/ZRUxbNdKrnqkEC6l3btF6RV45VhRqjwJofML84ys64gvQvVkmKWjeebcNtcZiM5V
+	 +bbLjHUh2VcIgEccdxZNV/48jBYQ2/2sWJbXwf4G/HbRQUvdnxnLEbqqL9dGQOIk/gQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795302501;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=H/CBwGcnijyRu1LgxwMqIktWt8iJi1924oX4F9L6lNE=;
-	b=cZVDkDQzvy/ETKj+H/g5NgnPpc5XlNwCKexwx7yGc+bptKoudJdgL1t/l+SsoQx4vtzM
-	 QHANHX4gNSvGkU/WHjKbhm5EIEh1CZiVAvorQYeI27mQGzbRejVOr9FjfMSrI+gJR5Sdc
-	 Agut6nb9/+sHfBgDaIntnNzWx9eOKJ3Eegs1LIoxiwgs/keOM9MDXyUoRs+GyZHSQLVPM
-	 YVYMNqO3SUSJwkfl/fqahx4Lrmj92CARW+H8Oa1yWfCyCmiyG3IwOAICFvxsPlCvNlWWk
-	 pqb8YgCEVltNKx6/nwrrfiy9neTT++8FrA0pLOAFiua3ky9qaLoPqDaGcErI68L3+vw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795302553;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:In-Reply-To:
+	 References:Date:Message-ID:MIME-Version:Content-Type;
+	bh=2CErbQZuzOV4ZJyyX1YT65TNric+LUU4CVPhMFH/I08=;
+	b=yOHA/wWSo1/ljypJvdxEUdInKnSJFPdfU8hx8qet3fqcdYJx45nF0W1n55G0pJXL/yL/
+	 TAkm/cE21B/tzhhc5V7Ppw75dh/Bb8zMXRxblsA6fq8QHTvBuLd6YfjSceQyZGOG8YEDT
+	 l6FtQ2mFE6jognWZgZDMIL8BpgtXkxNP9KO5utaaMtqyDzojIjKIQYOkmjOnW0e+zPW89
+	 ENcWzQJRSlzpsrgHwEALXb/OZMf6biJf8ZeJ8EOhD5H7dJZALrk6TvayII6MDlzYHBdWn
+	 SMN5eSKGq5YzwAQfLKZHZjkmi5BTjckjBjOgnLyUrc+oLuS0LqgTC8iJRBigXnBB8Gg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GFcUDguT;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=ipvych.com;
+	spf=pass smtp.mailfrom=ipvych.com;
+	dkim=pass header.d=ipvych.com header.i=@ipvych.com header.a=rsa-sha256 header.s=key1 header.b=iOaruSix;
+	arc=none smtp.remote-ip=95.215.58.161
+Received: from mta1.migadu.com (out-161.mta1.migadu.com [95.215.58.161])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26C07606A330;
-	Sat, 21 Nov 2026 23:08:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81340606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 23:09:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81340606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ipvych.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ipvych.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GFcUDguT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CD641F000C0;
-	Sat, 21 Nov 2026 23:08:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795302500;
-	bh=H/CBwGcnijyRu1LgxwMqIktWt8iJi1924oX4F9L6lNE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=GFcUDguTktk0PmCr+SxS352kExTu+3RpYMZ316Z7fssWn9QGkqHksLFgvSuqfqmIw
-	 bwmVboVY7AfpS4V4E1b6wFwiLC8D8Ufte4kaClWE8OSG/UreoJftDO4dkMUyZ9f1j0
-	 PishGfgZUfoZo7lCQwdCoIFDHRlv5M96dT1UOpJHo9UXnCpieB8M6OUmRGj3gP5mUX
-	 iP53uoChhuI6IXG3dYBvc1gdiQuX8B2BgWxrfoNyJVIl1euoOM7ZKjfLts69Yi/x7M
-	 AbDWdmuE1BBPP1Nnd+2eFF9iTCgzMZn7wFqX4VkUNfenWnVQSeij6wZzYM3rqSiPC7
-	 prFg8McwGpUHw==
-Date: Sat, 21 Nov 2026 23:08:15 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Lee Jones <lee@kernel.org>, David Lechner <dlechner@baylibre.com>, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>,
- linux-arm-msm@vger.kernel.org, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 07/10] iio: adc: qcom-spmi-adc5-gen3: Free TM auxiliary
- device wrapper in release callback
-Message-ID: <20261121230815.5e49b4fc@jic23-hlaptop>
-In-Reply-To: <av8yO-0PUvvGsQgt@ashevche-desk.local>
-References: <20261119153151.1397003-1-lee@kernel.org>
-	<20261119153151.1397003-8-lee@kernel.org>
-	<av8yO-0PUvvGsQgt@ashevche-desk.local>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key, unprotected) header.d=ipvych.com header.i=@ipvych.com header.a=rsa-sha256 header.s=key1 header.b=iOaruSix
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=2CErbQZuzOV4ZJyyX1YT65TNric+LUU4CVPhMFH/I08=;
+ c=simple/simple; d=ipvych.com;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795302550; v=1; x=1795907350;
+ b=iOaruSix4dK4/HM3KN0wnG24PAg1Ibsg5/1zGFjEC67s8pVbuargfJjD/j3WQfLOONthisqv
+ VfRyCZXukagQxZBZEgcxL6+lPY7QZqIhiJCqumSkLJV8jjP4BvDBfjJnbbsSB4ASHVhM1+wTMJ5
+ SY9nfXkRkqOQUTNfGm+pO7GEk4Em8o4NXKSQtRsKVhtY7D0mxzSEmn81Gxf/+fioPoV9lTE164/
+ TQ1MIijL2MyDJQwxhfumyTJKgUPKxA8qE9LkLV5hwB3N68+hsR+ALpSDqEUorT6qvdcFlnS8O+u
+ yH19SBLyWsj5KVTCO5fjZ/i7RK0ff0nrcGoq4o7iVOb+w==
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id c2ce4d634fcc4153;
+	Sat, 21 Nov 2026 23:09:10 +0000
+X-Mizu-Trace-ID: c2ce4d634fcc4153
+X-Migadu-Flow: FLOW_OUT
+From: Ivan Popovych <ivan@ipvych.com>
+To: Armin Wolf <W_Armin@gmx.de>, linux-kernel@vger.kernel.org
+Cc: pali@kernel.org, linux@roeck-us.net, linux-hwmon@vger.kernel.org
+Subject: Re: [PATCH] hwmon: (dell-smm) Add Dell XPS 15 9550 to fan control
+ whitelist
+In-Reply-To: <e4e133c6-db41-4776-a73e-e8e051eadec4@gmx.de>
+References: <20261121193227.9408-1-ivan@ipvych.com>
+ <79f7bfaa-1cd0-4d44-818a-f080cf0168c5@gmx.de> <87v75paji6.fsf@ipvych.com>
+ <e4e133c6-db41-4776-a73e-e8e051eadec4@gmx.de>
+Date: Sun, 22 Nov 2026 01:09:09 +0200
+Message-ID: <87se0taiju.fsf@ipvych.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,93 +68,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 
-On Thu, 19 Nov 2026 19:30:35 +0200
-Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
+Armin Wolf <W_Armin@gmx.de> writes:
 
-> On Thu, Nov 19, 2026 at 03:30:40PM +0000, Lee Jones wrote:
-> > struct tm5_aux_dev_wrapper embeds a reference-counted struct
-> > auxiliary_device, whose memory must be released from its dev.release
-> > callback once the final device reference is dropped.
-> > 
-> > Allocating the wrapper with devm_kzalloc_obj() on the parent ADC device
-> > and providing an empty adc5_gen3_aux_device_release() causes parent
-> > devres teardown to free the wrapper immediately after
-> > auxiliary_device_uninit(), even if external references to the embedded
-> > struct device are still held.
-> > 
-> > Allocate the wrapper with kzalloc_obj(), release it from
-> > adc5_gen3_aux_device_release(), and unwind cleanly on early error paths
-> > in adc5_gen3_add_aux_tm_device().  
-> 
-> ...
-> 
-> >  #include <linux/platform_device.h>
-> >  #include <linux/property.h>
-> >  #include <linux/regmap.h>
-> > +#include <linux/slab.h>
-> >  #include <linux/types.h>
-> >  #include <linux/unaligned.h>  
-> 
-> > +static void adc5_gen3_aux_device_release(struct device *dev)
-> > +{
-> > +	struct tm5_aux_dev_wrapper *aux_device =
-> > +		container_of(dev, struct tm5_aux_dev_wrapper, aux_dev.dev);  
-> 
-> container_of() is also in a separate header, id est container_of.h.
-> 
-> > +	kfree(aux_device);
-> > +}  
-> 
-> ...
-> 
-> >  	ret = auxiliary_device_add(&aux_device->aux_dev);
-> > -	if (ret)
-> > +	if (ret) {
-> > +		devm_release_action(adc->dev, adc5_gen3_uninit_aux,
-> > +				    &aux_device->aux_dev);  
-> 
-> Oh, this is interesting... Usually the release devm_*() calls point
-> to a misdesign somewhere. But I haven't checked the twisted flow of
-> this code.
+> Am 21.11.26 um 23:48 schrieb Ivan Popovych:
+>
+>> Armin Wolf <W_Armin@gmx.de> writes:
+>>
+>>> Hi,
+>>>
+>>> can you check if the 30a3/31a3 pair also works?
+>>>
+>> Hello. Tried 30a3/31a3 and it works too. I submitted 34a3/35a3 because
+>> this was what is used by dell-bios-fan-control[1] tool that I use to
+>> disable fan speed control right now.
+>
+> AFAIK 30a3/31a3 are the commands used by the official Dell software, so
+> i would prefer using them.
+>
+> Thanks,
+> Armin Wolf
+>
 
-It's one of those complex / annoying cases where a driver uses devm but
-carries on with a subset of features if a particular bit doesn't work.
+Sent updated patch, hope that worked.
 
-Right answer here is probably a devres group.
-
-That is independent of the handoff dance done here.
-
-I'd move the auxiliary_device_init() earlier, stop messing
-with the memory being devm controlled at all except by adding
-a put_device() in a dev_add_action_or_reset().
-Actually that's already done by the auxiliary_device_uniit.
-
-Anyhow, whilst I haven't looked at this that closely looks
-like right clean answer is a dev_res group for the whole
-function (can be done at the caller if neater). That allows
-either handling the group over to normal devres cleanup on
-success, or cleaning it up on erorr.
-
-That plus the move of the kfree into release as Lee has done.
-Also smells like tm_props lifetime is probably wrong as well
-and should be part of the release rather than devm_kzalloc.
-
-Jonathan
-
-> 
-> >  		return ret;
-> > +	}
-> > +
-> >  	ret = devm_add_action_or_reset(adc->dev, adc5_gen3_delete_aux,
-> >  				       &aux_device->aux_dev);
-> > -	if (ret)
-> > +	if (ret) {
-> > +		devm_release_action(adc->dev, adc5_gen3_uninit_aux,
-> > +				    &aux_device->aux_dev);
-> >  		return ret;
-> > +	}  
-> 
-
+>> [1] https://github.com/TomFreudenberg/dell-bios-fan-control
+>>
