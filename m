@@ -1,87 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795267965;
-	b=KLzYPv2HFM+h5nYjECxl5sLP5R/JQCDwhxfctfrei8XE4w8mijv3lKJKqAetwAN890UG
-	 IXPCw19fKxUI5bqeuka00SACK3mL+isaQnKwhB0S1Jt2/rDZuT5sBeDe6y8vwp8ROBAEt
-	 7xIQht7lbPgTx+YdBoSkdJfJVdyYtIUBIHyI28hc59P8UeDiNFKNAuObQN0+NPp2JAdhV
-	 MdkNk8cSOhONPNDtxqQ4Om3rqoY07Z7Iicsrw0fxcZ3Ejhyg0w7DwoOuDGB0Y3T0fgRED
-	 HpzQ49/KZL1hzqO6/ObeVdjl2U77z3j+51MY52qKmuPpL0FrKLoCXlO0I/tPYA6kXsw==
+	t=1795267967;
+	b=he26gEGTq9TK6b637aF6UCUQ3z8cTh8V59/47SNoaGDhTnat+/Lwp7zL7iDdhSh4jv0G
+	 Q29GMrkJ45ODQFSBOst5CXY8bAx3jP1d1uyTjRemwY2+e5BSYIoB9gk/X32rEieOWUBkW
+	 jIX33XbhSrcNDd39I4UINF3AX+w1ZRWD/8f2V/neGdaxrhBo2bia9oReAWyiwATiiZab7
+	 ab0iPlINV5idPvl4rQkS6q6K4BwsyHy+rKn06HSVNsF/HQ8eBzDzA/RpFdFQiLKwY8Ffa
+	 YVdO4s0Tql2f6s59hS0eC6w1CXlUBFJyOuO9O8sCf5zmzFGTcw+of2eH6Pa8WSJQxdQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795267965;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795267967;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=c3DsBgVi8DrQQ4XXQEryKDQ1UHFWr4n3CZ7L7GxpMVg=;
-	b=iUIzS8C0XTKIyd4C+5FyEvVwiDQzvJktY82YT6IF4HzfrHYFDpu4RWs6J0lERu4zPfjl
-	 TQ1NJ5bB2AdSro8ji7/2ABTHkUOCm3KJLNTDf5gFBnbbDEn5ih/J4JdGbUxegDOcJipTB
-	 7ip61QueQec/ih9vXvSjIGk0yzJU34L1Ysl4pnDCqAowFRdkDqlhA1ODEFZ83zXHQ7QB6
-	 H145/8HuYTUN97h5LFL3zD96QOPrCNzWpEDQRX1bgUpWF7vCIaU3qPSYBvwj6RfN09UAE
-	 jpcz8BOI1eyoAM+hpFNQMxUT8stOMNQcnigS7F/af7SqneDWH4hmV5dO02zgYjUV80w==
+	bh=Utfdnddl3HrhLFxOssPYnL8n9jheBCeiU8VtWG/2YVE=;
+	b=Rxsj7VmbfRUmEL+43DJRH4OMrt4OWmGjhMU7j91APwHnDX2wU2kY2c1xee5sAmzyASem
+	 lsEuhJUtjdRzR2jgzYEmEi4UhuaVdVZTa6H4YBQ5dFrjFM6EeMkN9vlVezdJqtVbcwfCS
+	 jvUgz3Vc1RswoWypjAGvKRQyhYJMG+4Dw/VMfrTxqhRgO67lZvMZM1I9ukSlYoiAHelYY
+	 HIufw43rHLc5Y7gx7m6wndlREVrsVWsjkmyl4htQX3zESSq8PPvaBgY0pl1cmgAXdITCQ
+	 gun5fMJ9A4TzkTUTLz5orHllyYa1PJ1fsnw8do4gX9G3sOhJQmK9rGyE2qtrdvGA6Hg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VF81DN6q;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wR5b2LLC;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 066F0606A32C
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:32:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 066F0606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA9F1606A337
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:32:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA9F1606A337
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VF81DN6q
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a207b02a2cso12951955e9.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:32:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wR5b2LLC
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb77a462c6so22227125e9.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:32:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795267963; x=1795872763; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795267965; x=1795872765; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=c3DsBgVi8DrQQ4XXQEryKDQ1UHFWr4n3CZ7L7GxpMVg=;
-        b=VF81DN6qG7QAgQPzMK0294geDxWIXmfsjSXj4eBVPo+EgLmhA3oFLk6a4VTcClx2bs
-         q+pWa+urrqP9T1Q9Hrg+c3wim9GzgAdfZeCLtu0vi1ymqov05pFs4HA7Tw7h25109DZo
-         GdeQ6qfrWF7RIK+DhmpXvcNI9NVBL4sbEdc89chaxEBV3Q+OGedaol58zdEKvQd1nyPw
-         6W9UPKMKKyqA0dU98TyHSzxMwa53AOJTO8KkqSMehuo0FGFbQHE0YrDleaK9Kr5mAjfO
-         LCz9LU95qE+YhLsR4gsffYWTEkup14H0c3iycBPK+kjADcDVjvZUjeizXysfRdcTgNGr
-         11hQ==
+        bh=Utfdnddl3HrhLFxOssPYnL8n9jheBCeiU8VtWG/2YVE=;
+        b=wR5b2LLCowQ+DDbf9UqGMo7lcD/FqSxAmG8BysVugR+7eRbYaZ+SfVk8XWzm5ncx00
+         uW5Oirb0lWwrOq0de+K5KgDGnxgr/0G1HVrOQZIwD3BLu2aM5SdFpw7d3cnKFJgCDFYE
+         2uzmLnZWNfyeb8COKbsvduwqqQ9BzYix08bjoEmwZvHd86RCzWrzaIIONVLKQ//YsbLP
+         PEA0dHDYaz+BmT35dEQBsnJOKsP+NCjCFH5edYSyAHnvf0NSbQPC4x21Yi5Jo4+E+cuv
+         nzJLETz8Ct33yIUy2W4ep6LbL5dwFY8/6Yu6EuKHqG3KPd0qbPLdkVhXbe4Xmfp2Z8QE
+         Oo1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795267963; x=1795872763;
+        d=1e100.net; s=20260707; t=1795267965; x=1795872765;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=c3DsBgVi8DrQQ4XXQEryKDQ1UHFWr4n3CZ7L7GxpMVg=;
-        b=A6z1LNEVBy+fSPZT76ThjzzebDT9GRe5F2ZE8bzbTDeCX5dFscrjDBUCUo2kG/FOh6
-         lkNKyCfw79/K3Wzjdgbrzcs7fFydXBbVmMCaYYlQX7kqSPV0dBl9fShsRxhrgvXcHEKM
-         x0Pfe3Zgn4cygVzRAJAmIcKvrTlm2MmPyZ5Tb8CNrT03DzDS9L+MlM/SPe4fHHKvYNJL
-         Wjl5qNRKd8oJUYt2LGvSs4o8nNTRPndCD9OVACLbdP3zYRJfVFZRZd0qhpUq7suhNPPN
-         dVkQQi5eT4CUWhAw4HzuuNRuNs9L9fRCVNTGz76jJ/HH3/t7wKlP2nmEo5rR+ZPDxEZN
-         KgfQ==
-X-Forwarded-Encrypted: i=1; AL+hErFey91oTHzycFOu8bOHqgIt48jNGe0iudUsYMboxCjM7rMKUpvD0WPvi5T23wjHAJo1mjSV73uZ8HkqVWM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/zojtGgCVkOD0LW1P4dmiVwso/rUfPbAfnV5Bj7mXR932pwU3+
-	wGl84Layc0NXpYObMEZWKCUSEOMAyFC+CdD1XJ6ppo7fbdWiJF0LD+8K
-X-Gm-Gg: AZFdTZeD5W0kLBPT07FxM6xsfTTg/EP403Ny+Ai8JeldjCzyw/ACdCZW8fljqYxsksz
-	IZ+b6mEResiG08ufm5HemLdd5vDf72J+c53KvNsNBrnFNVZ6QNB0HWV7wcsKjoB1yOPQnU7dUl7
-	V7Ytl0dAsgyzBFnv3tsx694ycmHJthptV/Yv7LQFz8FVV5s5C39PhVm/ugk7ev/mwP+wTUo5M+j
-	BV3eaEoGUnki+w4SSui4KxvftpI384bmbHO4SvkTwABcqEWJtrijf69G8sLvsZi73mwLqoSH4EP
-	JHW90Tue3arR6aD9lyHmuym/yHBOSm7myOrmgQuoJ/NaGj6uv8BY5t3jsP3lax/ho0vN4JvoQfb
-	+plNwAUJ8p03M4+0KQDpIkYsjt/g2rM9yqCQ9mGhYBAybwAdW/62CswclYkVa4bb0dCgvF7lHvr
-	hp9b26cJiQ9AWp+bEoKj/Ntg8w30sn2vLLDwNAB4jQHtQ3r18CC6HmHj0DoQ1+foC57JTGgge3V
-	y5y+CYpLbpLKHyVnTV4QnbLlrk+kYL8cyYTCYSS2ZILbGQ6f/UqZI4T6G4i6b1ZTuvCqqDaQJNZ
-	kPctqF34X591V7bfMXoWgvh/vyHEK1InET4rsgIPXl/LOtBKbKSeOtDO+nqklUe+DZymwujnFpD
-	aSn7VLR6P1Eku
-X-Received: by 2002:a05:600c:4e0c:b0:4bb:875b:f23f with SMTP id 5b1f17b1804b1-4bb88827f0bmr130593125e9.33.1795267963076;
-        Sat, 21 Nov 2026 05:32:43 -0800 (PST)
+        bh=Utfdnddl3HrhLFxOssPYnL8n9jheBCeiU8VtWG/2YVE=;
+        b=T8JENxoyGraQit1zmQEYxQMGOs1XdFIQjRx8VaH0NptablhlO9wwpc/a0BIsATqpVN
+         KFLXQyJtc6foYbnSaIEm+/dB0vqIBT7KJOhFHNbSzKj/iYf4GAvv0ewBjL5qxpBk5rX4
+         90XdB06f+OH9sJbVaabo2xchQqBcH/Syedg2mHKu13bHIEXQgsQk8G/Fri3dvMzKrxYn
+         mOVXmvVvA7i8Ywn0n6YSq+9+Vlc3T4zI/Bx4R7V39WBOdrlZVTOXFGnudnD37rmwj0JD
+         dhHHV41dQ4p2+I/u1hqtWRxdWqtisAk2JNGMtpJjB/NxZ/WG8WRcAfdqWU0Vn7so/ywY
+         lRIA==
+X-Forwarded-Encrypted: i=1; AL+hErF8mx8JuRqUdP8qaOGncAUW5QBHOZMC/4hvXKZFBzF/JEPqa1kHCoZ8TiBXtBZGUUA7QQx7IgJ82ox6m+8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+aCX797F20wYZZQ8FS1IDTUONisTG8Iiz5S/4HjZdfgx+SP5+e
+	sxCyB/USv0PM2x6HPdl+3uG16T3P5LvJ8gGMenLL1kSfwe7eseTWOMdi
+X-Gm-Gg: AZFdTZeXVfcxovOF6IM7O47Cy8950Dq37925OEtxtwrNWozBh13+Iru57vChIV5MYgP
+	caeW6wEioq5zBWF/qsCIPWIUWktnj9/dd8WBNZMfFTg+TaChYZ+6NJnFeMLxXJ0YBl9brgp6/c9
+	uLyNLaDKQ71DTVLTCgQtYFSjPdKl5zLdXkqbDboNF7miyqp23IfnQHvedVHQ6KGNgEd1oLYmp/2
+	SA73lunYb8UWPyjbipxnV90eUgBqH94lmAPCsx68kW3P8Xcl2lfvnoVb6wXH0T9UnXcI9dijD8v
+	+ZEZ6QB7zPe7blQCdBGdQPRuCnn2osXzoxDStv9tyBv1YImAyF6WM1W0qgbfbAXWJiIPBdqRF9u
+	PaUI28RVQDvzktHM529V7rZ7KJNueJZRMcYvVt1loDGRjsICFSap8EQo7abKfUg0I3c0s7LRNGA
+	dvlfWB75jKLOh49/7VlsR4ssoXU8yxOFQ+gA0RwTxbLsN+V7cnu+ta9aTNivT9oGXTHjmhL36Sh
+	6noD3JUnlYsFL/2q3IHxVNW6tJ42RN5HP84qyWUYjqozm89Zlhl2M1gttf3U5gcNtu++3fc40Ha
+	gZ9mgj8zcoVvRovGl28Lr3hdcDwFH6on89LxRL5R+wJoRFjfznSGxLo7Gh85sZgo+ZjLL2u2DSP
+	2/o7YXWePXUzt
+X-Received: by 2002:a05:600c:37c6:b0:4a1:88df:8a2a with SMTP id 5b1f17b1804b1-4bb88812a84mr136284285e9.13.1795267965131;
+        Sat, 21 Nov 2026 05:32:45 -0800 (PST)
 Received: from 1Z10 ([2a02:b123:8010:295a:cf7a:d53b:95ce:c0e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm83345955e9.2.2026.11.21.05.32.40
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm83345955e9.2.2026.11.21.05.32.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 05:32:42 -0800 (PST)
+        Sat, 21 Nov 2026 05:32:44 -0800 (PST)
 From: Maurizio Casciano <mauriziocasciano7@gmail.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>,
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Sakari Ailus <sakari.ailus@iki.fi>
+Cc: Maurizio Casciano <mauriziocasciano7@gmail.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
 	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
 	Nicholas Roth <nicholas@rothemail.net>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
@@ -89,18 +92,17 @@ To: Sakari Ailus <sakari.ailus@linux.intel.com>,
 	Dan Scally <dan.scally@ideasonboard.com>,
 	Hans de Goede <hansg@kernel.org>,
 	Andy Shevchenko <andy@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Maurizio Casciano <mauriziocasciano7@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Andy Shevchenko <andriy.shevchenko@intel.com>,
 	linux-media@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-staging@lists.linux.dev
-Subject: Re: [PATCH v10 00/15] media: Add Lenovo Yoga Book camera support
-Date: Sat, 21 Nov 2026 14:31:28 +0100
-Message-ID: <20261121133148.1240789-1-mauriziocasciano7@gmail.com>
+Subject: Re: [PATCH v10 02/15] media: ov8858: support 19.2 MHz clock and manual white balance
+Date: Sat, 21 Nov 2026 14:31:29 +0100
+Message-ID: <20261121133148.1240789-2-mauriziocasciano7@gmail.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261002-submission-media-yogabook-v10-b4-final-v10-0-817ec765b257@gmail.com>
-References: <20261002-submission-media-yogabook-v10-b4-final-v10-0-817ec765b257@gmail.com>
+In-Reply-To: <20261112212234.GA699509@killaraus.ideasonboard.com>
+References: <20261002-submission-media-yogabook-v10-b4-final-v10-0-817ec765b257@gmail.com> <20261002-submission-media-yogabook-v10-b4-final-v10-2-817ec765b257@gmail.com> <avYp7y9Vvh2Oo5c6@valkosipuli.retiisi.eu> <20261112212234.GA699509@killaraus.ideasonboard.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,85 +115,65 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Hi all,
+Hi Sakari and Laurent,
 
-Thanks for the reviews. I made the following changes in the local
-test series after reviewing the Media CI reports.
+Thanks for the review. I split the OV8858 clock support out into a
+local test patch.
 
-The rebase drops the OV2740 ACPI initializer cleanup and the OV8858
-INT3477 match because both are already in media-next. The IPU bridge
-uses the existing INT3477 entry and Andy's shared Cherry Trail PCI ID.
-OV8858 19.2 MHz support is limited to four-lane R2A. I dropped both
-sensors' proposed red and blue balance controls. I have a separate
-reply on the clock register sources and the remaining 24 MHz testing.
+> Any others notices that should be added?
 
-The AtomISP CSI-2 timing code now uses div64_s64(). The i386 AtomISP
-object builds and links with the kernel division helper and has no
-compiler-supplied 64-bit division references.
+The 2017 Intel notice in v10 came from the OV5670 manual white-balance
+code, which I dropped from the clock-only change. The retained OV8858
+register table matches 18 of 23 address/value pairs in Intel's GPLv2
+OV8858 initialization table from the Yoga Book vendor kernel [1].
+One more pair, 0x3f08 = 0x08, is also present in the existing Linux
+OV8858 driver. I can trace the four changed PLL values (0x0300, 0x0302,
+0x030b and 0x030d) back to the first public Yoga Book patch. Their
+earlier source is still unverified. The revised clock-only patch
+cites [1], carries its 2014 Intel OV8858 notice and records where
+the four adjusted values first appeared. I removed the notice
+that came with the dropped OV5670 manual white-balance code.
 
-RAW format enumeration now checks all the sensor media-bus codes.
-RAW frame-size enumeration uses the requested bus code and leaves
-crop sizes unpadded. TRY_FMT uses the same conversion padding rule as
-S_FMT, including fallback to a native processed sensor format. I
-tested those format cases with simulated sensor responses.
+> The Assisted-by: tags are no longer used, please remove them.
 
-WV517S defers hardware access until first use and restores the last
-successful focus value directly on resume. It balances the runtime
-PM references and keeps its subdevice and control handler alive
-through final release. The lens exposes only FOCUS_ABSOLUTE. Its
-ringing-control mode is set internally. The actuator object built
-with CONFIG_PM disabled. The WV517S lifetime change depends on
-David Heidelberg's V4L2 subdevice release fix [1]. I used his
-original posted patch as a separate prerequisite since the
-media-next base lacks it.
+I removed those trailers from the local series and kept the description
+of Codex's contribution in the clock patch commit message.
 
-The revised x86-64 kernel image and modules built, and the focused
-Media objects passed Sparse. On the earlier 7.4.0-rc1 X91L build,
-front, rear and front raw capture each produced 30 distinct frames.
-RAW and processed TRY_FMT agreed with S_FMT. Compliance reported
-40 passes and the same seven failures as the earlier kernel.
+> The 24 MHz configurations are lane number (and variant) dependent.
 
-On the exact revised 7.4 image, both sensors and WV517S bound
-automatically. Each camera delivered 30 distinct RAW frames and
-20 distinct Preview YU12 frames before and after lens rebind.
-The capture and sensor nodes survived the rebind, the held lens
-descriptor closed cleanly after unbind, and focus writes worked
-after rebind. The actuator returned to runtime suspend.
+The only 19.2 MHz configuration I have is for an OV8858 R2A with four
+data lanes and a 360 MHz link frequency. The test patch rejects other
+revision and lane combinations at 19.2 MHz. At 24 MHz it retains the
+existing register values for R1A with two lanes and R2A with two or four
+lanes. I compared the table writes and final values for both modes in
+each configuration. The clock writes move later in the sequence, and
+24 MHz still needs a hardware test.
 
-The revised series also fixes the V4L2 helper's rollback so a
-failed lens registration preserves the existing sensor nodes.
-I reproduced the old behavior and verified the fix with simulated
-allocation, video-node registration and media-link failures.
+The Media CI review of v10 patch 02 flagged the same issue [2]. The
+unconditional 19.2 MHz table selection in v10 could replace the PLL
+settings chosen for a two-lane sensor. The revision and lane check in
+the local patch prevents that override.
 
-One boot needed a manual front sensor reprobe after the initial
-chip ID read returned -EREMOTEIO. On the next boot the front and
-rear probes both completed on the first attempt. On a separate
-boot, the front sensor read its chip ID before the rear driver
-was loaded. The startup condition behind the earlier error is
-still unresolved. The local OV2740 follow-up gives the chip ID read
-a 100 ms polling window when the initial transfer is not acknowledged.
-A wrong chip ID, an unrelated I2C error or a persistent NACK still
-fails probe. A fixture verified the retry with simulated I2C
-responses. On the X91L, both sensors bound automatically on three
-warm reboots and three boots after a full shutdown with the retry
-build. Each sensor delivered 30 distinct RAW frames and 20 distinct
-direct YU12 frames in Preview per boot. The retry message never
-appeared on the three cold boots or the two warm reboots with sensor
-debug enabled. The third warm reboot used normal parameters. I am
-keeping the retry out of the next revision pending evidence of the
-failure and recovery on hardware.
+Laurent wrote:
+> That's indeed not a good UAPI.
 
-The direct YU12 timeout occurred with AtomISP in Still capture.
-Both sensors returned one complete frame in that mode. Switching
-to Preview produced 20 distinct YU12 frames on each sensor, and
-front NV12 also produced 20. Both desktop camera endpoints
-produced 30 complete 1280x720 YUYV frames after a service restart
-in the earlier trial.
+I dropped the red and blue balance controls from both sensor changes
+in the local series. The existing scalar digital-gain control remains.
+Any proposal for per-component gain can be reviewed separately.
 
-The front-camera lane override remains scoped to the tested X91L.
-I still need X91F firmware and hardware data before broadening it.
+On the X91L with the local 7.4.0-rc1 integration kernel, raw capture
+produced 30 distinct frames on each pass in a front, rear, front test.
+The rear OV8858 ran with four lanes at a 360 MHz link frequency. On
+the front capture node, v4l2-compliance reported 40 passes, 7 failures
+and no warnings. The same seven checks failed with the same diagnostics
+on the 7.2 baseline using the same node, camera and tool version.
+I repeated the capture sequence with the AtomISP and WV517S fixes in
+place after retrying the front sensor probe.
+On the exact revised 7.4 image, OV8858 bound automatically and
+captured 30 distinct rear RAW frames before and after lens rebind.
 
-[1] https://lore.kernel.org/r/20260917-v4l2-release-fix-v1-1-acbac7f9b78e@ixit.cz/
+[1] https://github.com/jekhor/yogabook-linux-android-kernel/blob/574bae692716f1b14093497bfab8a007fe8e460b/drivers/external_drivers/camera/drivers/media/i2c/ov8858.h
+[2] https://linuxtv.org/mailman3/hyperkitty/list/media-ci@linuxtv.org/message/PWB2NAGYQ7EZVEDZNXK3R3UKZ7GGYAQY/
 
 With Best Regards,
 Maurizio Casciano
