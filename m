@@ -1,78 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795296184;
-	b=lJeJwFTEvYHzwC9E/ocHa0a306GvEYb6bXseTIJJXrfwRUV0vu6YQJhU/ljACRxHIbDm
-	 179vVbsSpsT0HqtukJcOtZbEtboV0T6rg2NJpppn4Wp7H3wuQXdtT81M11XX2TD2j5V97
-	 qfbSfd2HpwvXnAY/Q2fUI3k7EmYdGCFGoBgR7BWaO+xfvMmucLq8DAZC97gfuQKZ6gLiD
-	 WfHVrDZMmG+47DyXu8PAyWgRoMLY8zKh3HmqY5wSjOqGBeN+GMZsYTqy2LF9rv28uRHNe
-	 vk4yDKjZhFxMdphvWLHEMEHKC0VfDrf/FLeIM3zeMJLpedvd9SQDVjGqgXhwqHtYmTQ==
+	t=1795296183;
+	b=QcZH5i7uT8D7c6SSlbwek4pIlSa4quJJeYvmRi/4nMxOuDCSCylQZoGr1+4EpMcDfJXz
+	 QjhTJUlWLsuuUiFHbMpRhyXqoX/9n+FKRJkY5L9jEc6bnF24VOrqz0m7zBQDihb9AqbVp
+	 ZHAoHxwp8Er1Qvv/jL+qJC5u5jXltePRmTri93jT8lxfv0rDZ4+d0kTTjgnZ+5Yf7lhBb
+	 p7Nh46vrvoIANZKwd0AGFwnQ61IvZQQOnFt7q8hDgxkbPzxndui1OHG+QyWae8BTVzaYP
+	 VEjVzd+zH22UlOZVtfOMhNrA6sTFjVpcODCvyUZvCaun1KMEcwVuUYFVn5EcvOZyrBg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795296184;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795296183;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=yh5n9jWo/3W77LwmiI39asuVgN3yT8N8hYH+AL2o/iw=;
-	b=wZ+DsmNopuBI+RNfxZCQjbZhMf9SgsHjhtH2T2Oje7k5Q+GzE6JI/rp4sdaFYe7a0az9
-	 3g8rgOC+9Gg44QKCrwyzplCoZTyKXbaZS37S0eZKHPqje//NAPzF6sba6eGLDjzwEGQjD
-	 FaDaBw4z3xZJqLwBYb+SzqRwX6l17fxeIt0p7EcYg12jf4nB5CCvepkBvR699erCzH/kh
-	 7lJKQ78/1yAi3e3KQGcrCD9p5fAaiaaLo+VP4WDlpkqs+T/fO3rfpgBEX3NcjWrhhYDB8
-	 wkT6MUL9CTYpx9r6Tg+0fJdSTJD3pkDA/DzvFB1/70qUGRlj6SrcIrpBnFplJhNrElA==
+	bh=x4XRBq3Pn5wzsPC99XTIJw6bsLuCLk/3nxJnla9KLVw=;
+	b=hMWlvwogR+3hAnFEzN/SWcJMpBeZWSnH1rL9iW6WoUoToUHBnaTiUaP5Ou+SmBXZsMUX
+	 NJyz6Aa30998ogTx/zLE4H5Z24eNjV/xd9rw7RaE1trrKPlNj7KdonnvvAbhcWA36VdWS
+	 JyELFOa2JRA2JpajFgqJkWvgTrjec1ejrZBHZQFDppmofz+ufTKf8TGwKwQIV2XnEafIl
+	 ftcppubZSNTIRAKctH5+AugdGvR5JHBzo8VzNDjL5Jjv+fSlfEVG3N8DsXgDEj8v4jP/K
+	 N61lbEJTC2ejXra3uITbsmjiscPmB/BZ/Hufv56roAsbEDzPnffHYsScpIjg7Z4wCQA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SsBqPoLf;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A5PDbX27;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E441B606A695
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D702606A685
 	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:23:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SsBqPoLf
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A5PDbX27
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
 	t=1795296183;
-	b=lp4I8+LLbPPCo7mmeVhvSk0WUApGBOsAzQi0qgenP8Gx5G5MOtjCpkWA1UeThPO2FkTF
-	 OlMMqv0WARcwTy5V1AGMMN6dFKAa7pd/kaB2YLN0ucn2KxR6tKaVvBoZrAYSLYmH5EmVa
-	 R6RXShpI718+Ml2mELjWjFo8bMYk3LC0UY5QGsxVQFtQAzTF4/33HLHCqdBZnbRHwfGPt
-	 AwWtVK1pXDyKhSywBy/tdc/dIgbYQ45Mzwt0WfP7mYdydkT3u70tbxXhLA+r+jT6tmwUH
-	 kh4lYpV2p+Ku6IQUnthCQ2tkyu1aTuMjW3/k8Kj8/S9sukzEfnxVju29aSPbAJc9P1g==
+	b=XdAyp6YkuNwUPtcodWCgB00jSXu+/JzG2MyqtzX1jLoXkdxz5e/u6r9EvN+io1QXsjXz
+	 4seZzr39mPZ0vCZKK37RvA6KkEdNcbrdPfYIgI2wgIfgULJGrMOHZRWNR9e/QuacDIDZu
+	 RxQcNbD4PvH2AtHJ5JTPm0rmI3AztKV8vbbHq/494dENcqza1oohZ64E1DTiN+ql4VaKM
+	 NCtLI2ZSfzS22u9mCwK7fHIVntR0FdyeRmzum2OjMm81VqTKpb7E3TlVZNDHq867vkebi
+	 frvwoFckobFKvy0NVfk7PbCnPq5SOz9bi5mk+hY5ShADwAo7T8GDSAsKeF/3JhbjiaQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
 	c=relaxed/relaxed; t=1795296183;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=yh5n9jWo/3W77LwmiI39asuVgN3yT8N8hYH+AL2o/iw=;
-	b=YjDNPRf8yZxsx6wWukEW2ecmYSpytkF5V1D5ZeiLnqDPnPgpMTPk+ofO+ZkjYSTjMFGq
-	 moN6CdkGZCBFvWoE0R5fF/d/K2wojeTZPHXqxeMCVrIGvPhdudX8oB7UytC6ZI8i1d4/V
-	 4jGIJjehplStLYyh7ANW2tLyUk6eDbSqvFbFPvRbrlADFczKTBvfvBjKlNZZNIYaUefUs
-	 K6/Uv0+HJN5xXvQmoAq/r97NEoQl8UuKJCsr3nx6yUIToHOBVEBSXDBHXfBCBey+u2vd3
-	 L3lxEzKlsBN0JPAsFTpzC2keBMfcpb3y00FYXu5LrbosRk2jpphSM25/8//ix8VAf0A==
+	bh=x4XRBq3Pn5wzsPC99XTIJw6bsLuCLk/3nxJnla9KLVw=;
+	b=aBmz5aln8pRBHZZtiPiD0X594XOst1UbmIeUtNeuEYPuHldR1+VaAKKlKHURQkEIVDk6
+	 a+p8d/gUWv/Knl5heUP5u0F48cHddtnxnPkMmOkKO5th4qH2TXiiCgAVlDe51y6INZ96W
+	 xCzfYVUDrGtusIOMcPXjvku+jq0LJ4eByyKy32aQl2z+mE5yWENYO3qlhaHhHSEd7i0kH
+	 QwM57Xwq+pL13r4ZU+eBumJMX8Llc4MyINHv1Bzlsc/kzoq5G3iNiul/gNjqDy3AH0Uqw
+	 /5Lwb4CmhKXw8pk7PXXndk7eymxYqK2Gi4p4d2VRBTuABZukuT8JzXnULkgIq12CM6A==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id BAD7D1F000CF;
-	Sat, 21 Nov 2026 21:23:01 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 9C0E71F000D3;
+	Sat, 21 Nov 2026 21:23:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1795296183;
-	bh=yh5n9jWo/3W77LwmiI39asuVgN3yT8N8hYH+AL2o/iw=;
+	bh=x4XRBq3Pn5wzsPC99XTIJw6bsLuCLk/3nxJnla9KLVw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=SsBqPoLfELPgAHAFiP6D40AcMQ3jYb1hXizl0OTwxIo9bBaLwMPYdstiAtTE0Ddvx
-	 BtTY/HvjjTfnyUyJBtYrSE84pmUNHMn2n5LCD2g5ftMWU+F+owTcRHvRn62EOHd9Yz
-	 /V//B4uAgyUUDkpIRu5eFCOxYSMUndQjOYa0b9rlol5Gex6ir3veZEKFRU7y9X6bVP
-	 9EkAJhhuhjJ+Vtmei4NTyfT0Kx3KWWlmPiQsXK4VmGjPapIScbI6O9pcj8wx2pY2sn
-	 2OYDDxCOWT7TOFgPsM2BdaNcGBhMHWpgCCgAQ+j21e1scGI3DJCEakn4wpPwoNTsjA
-	 wU2M/ZJuNag7g==
+	b=A5PDbX27xNPku/5wBSaZel30n5lcgCLoGJRk17KiS2hMOf7yIf43aq+CHlXrWtE7F
+	 qq6iT/M1x4A8jnNW/4k8wW7RGYcIX4HM7j5ZqORO4AiNBL5jmpJfTQTGfnM4cFJdF2
+	 DiaAKu4Y/LvfOsWVTuNajdjoF3BiNOuQmLF/7gSWhikETTa2hHAJXKiB8Bu5hcoXPS
+	 GJ2dffyh6eIIH5jcP1ktwUAeKI1rjvYsaw2vtqkA9ERZCxE6E0o9ZxSf89/fdFgge6
+	 1BEBJEBrWGJURPFfu8pZbVBA3l+edD+mGDnL/KfZGICysqVUFeV3t/5pap8jlHEdvN
+	 hKa/lXM0+D3sw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 47A8B4BDDC;
+	by lkml.kernel.org (Postfix) with ESMTP id 788834BDE4;
 	Sat, 21 Nov 2026 21:23:01 +0000 (UTC)
 From: Jim Cromie via B4 Relay <devnull+jim.cromie.gmail.com@kernel.org>
-Date: Sat, 21 Nov 2026 14:22:57 -0700
-Subject: [PATCH v3 4/6] drm: fix config dependent unused variable warning.
+Date: Sat, 21 Nov 2026 14:22:59 -0700
+Subject: [PATCH v3 6/6] drm-dyndbg: drop BROKEN on DRM_USE_DYNAMIC_DEBUG
+ for testing (DONT_APPLY)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261121-rd-mostly-v3-4-89e74b23b491@gmail.com>
+Message-Id: <20261121-rd-mostly-v3-6-89e74b23b491@gmail.com>
 References: <20261121-rd-mostly-v3-0-89e74b23b491@gmail.com>
 In-Reply-To: <20261121-rd-mostly-v3-0-89e74b23b491@gmail.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -95,11 +96,11 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
  Jim Cromie <jim.cromie@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795296180; l=1091;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795296180; l=818;
  i=jim.cromie@gmail.com; s=20260203; h=from:subject:message-id;
- bh=WYqgqfdXOrDq4v0yuAR6MvaJ1SIWhEUIBbzt9NljjaM=;
- b=LMSMZPR+lY9Fh4RkwTCk2ofmqp14vTuIwkzmmaCGG/duE90zYP0v7KZGb+Pq1byuRkZBhopgp
- arQBWsUXqovABonxmNiwQrhkB+m3ufYqy+kLcpIULOmrloONwmSV14v
+ bh=FywBSQVzh/O/x8StOKw+M4F1py0iU1srNXGib4Mzet0=;
+ b=T8tjzcqYU8dNAr80WEMaNe5Y+y9n1HhIv7+/s+beMcEpAeBQQtcrMHIbFoI/02hVK1IH+Qu3T
+ 4lO67Oy2KlsAFVJgY6oaQ64wM2hUbJBOx4YTCCssztf9sXKlIesd6OO
 X-Developer-Key: i=jim.cromie@gmail.com; a=ed25519;
  pk=C6E5ODlPQo7ZBynATXH9wg7K6HxP0pIXyf4s38Qw0XE=
 X-Endpoint-Received: by B4 Relay for jim.cromie@gmail.com/20260203 with
@@ -110,36 +111,30 @@ Content-Transfer-Encoding: 7bit
 
 From: Jim Cromie <jim.cromie@gmail.com>
 
-__drm_printfn_dbg() does:
-      enum drm_debug_category category = p->category;
-then:
-      if (!__drm_debug_enabled(category))
+remove BROKEN from DRM_USE_DYNAMIC_DEBUG, to facilitate testing with
+it enabled.
 
-When CONFIG_DRM_USE_DYNAMIC_DEBUG=y, __drm_debug_enabled(category)
-expands to `true` without referencing `category`, causing an
-unused-variable warning/error.  Silence it by passing p->category
-directly.
+DO_NOT_APPLY - full functionality requires the (forthcoming) classmaps
+patchset, and drivers/accel/ uses drm_*dbg, and needs the ccflags
+additions like for drm/Makefile
 
 Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
 ---
- drivers/gpu/drm/drm_print.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/gpu/drm/Kconfig.debug | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/drm_print.c b/drivers/gpu/drm/drm_print.c
-index 50cdeb1b15e2..12b95901eb70 100644
---- a/drivers/gpu/drm/drm_print.c
-+++ b/drivers/gpu/drm/drm_print.c
-@@ -218,9 +218,8 @@ void __drm_printfn_dbg(struct drm_printer *p, struct va_format *vaf)
- {
- 	const struct drm_device *drm = p->arg;
- 	const struct device *dev = drm ? drm->dev : NULL;
--	enum drm_debug_category category = p->category;
- 
--	if (!__drm_debug_enabled(category))
-+	if (!__drm_debug_enabled(p->category))
- 		return;
- 
- 	__drm_dev_vprintk(dev, KERN_DEBUG, p->origin, p->prefix, vaf);
+diff --git a/drivers/gpu/drm/Kconfig.debug b/drivers/gpu/drm/Kconfig.debug
+index b909cd0a619f..b0aa56281413 100644
+--- a/drivers/gpu/drm/Kconfig.debug
++++ b/drivers/gpu/drm/Kconfig.debug
+@@ -1,7 +1,6 @@
+ config DRM_USE_DYNAMIC_DEBUG
+ 	bool "use dynamic debug to implement drm.debug"
+ 	default n
+-	depends on BROKEN
+ 	depends on DRM
+ 	depends on DYNAMIC_DEBUG || DYNAMIC_DEBUG_CORE
+ 	depends on JUMP_LABEL
 
 -- 
 2.56.1
