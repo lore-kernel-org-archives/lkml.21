@@ -1,103 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.240
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795246350;
-	b=tEacXC0rY/VER6sNa4QZxxT45vv2GMb0lrcG/0WvBKPWfkDkGAU54BCoLDr3LZzHEKv3
-	 JGdsuxjA1ZpFWIljEg+481bzv0qTijaOwylSvYHwDv43O8DcBae31U/+cpi4BW/fgnFq5
-	 kjaD3cjYcDmcKu1W98Y9cQWtyVG+LRPTJKP3GwgkC1VLkiDWVWmMcliGOM8+8EciHdX+x
-	 TPuegQ+MDj/49wk/0dYn5/YmdiwRXpmxo+IXt7M6KxeqN8KwYiKZKRC2wJJylyaNACvrb
-	 zSaIqFzHOnB5WboinLC0fgXXrpzN+OGdsU5OQQIdIyrKOc0VVm8u3Awfu4hC0vRULjA==
+	t=1795246375;
+	b=KTIMZhXSitOyMh2Srv9vLJ+iKX25G67YwqzWNA6/n9wQWtJD4yFUucp/02FO3e7D/ofv
+	 wwsIQK+0Gf1sgYb8sVCva/oks5m69U9VR04LRarb4g9cALBqlk+Ucd0vEdtQ8NxXRWlgw
+	 mQI3w3fFpwnl74drDgpoWaRfAXLiPLPU4g9qss3HYUkHoXsjHZJWftZ3i3oxB8C7wNY5+
+	 xQif8dONh0h2KnpOI1zAYPqAXKIf9ykqVhi9GTKqurhBJx3bahvSHjxeLFQcK86OchH07
+	 UPcMGp3MzOrjizRZflx0mN3gd/PJtRku/aOfQxF2S94TFMrKwyTJv1nrCxC97BYJTsw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795246350;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=vZXEIX5bRG+X47GzywXngypFAMMr6NGpMI+nKBGpwCc=;
-	b=khFWW+20iYsqN8nDDYWWhxBmV7/byH2UpZDH0PP2aEZR2pKGvWfdrcnP/8q5i1drcKRC
-	 oSve62g8fAdnIIZ/ByouiePmQZG68iM8Zi+Faeal3q0hk3+UB/Xyp2f4CbjwYShcjpDKg
-	 eMEklfTre0HRmWKhSJC+Y7cNVBO4rLe1nehx5Ht3xuR0w/2iT/VY0pXzn4FKzrmRi5jS1
-	 MjWMy1vhN+WdNBoN884w8mxxbev7LuG5tZDvS5AuCmQis2aWzyT7vq0JeVRJKqX1pieNM
-	 vLKBL4il41KY6rx6wCOr6Ci99Iz2HfxPwi0JeHiT/U8ryom3Hf37KRCDFPFgR9hJMGQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795246375;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=aW0ZGphEjqN9FBnq72DDJKV0boqgFU1NIIPhY/ErgW8=;
+	b=Qr1Oki3cXW3PMhNjrj2pCzU7aa4BV16Mbn5vpr4iGou4Tm+NsPj2H4NxfDp8guGP/aIU
+	 oFV2DWbjsXF8Cvh9NsxngQ0eBdj57uOPFGcbJg6JkuaLVzjAz7B1oVFmsdEIfE1OAU5wj
+	 0IWs2wagPvyaZYMEHJqYAW2kZszbHjoMIAvQaInjZpsy0hD4yJSeLT02TCp/4JRoPAXae
+	 8LJ3zlK4ro9zZG1hdTbDLG+tpiEdIULES3RvLzt95tcWXJne8zYL6jJjtk5EKAxgyqge1
+	 s4f+fxNOV+TQoIMwBrg9UvyyWB86RZ4J8khLKyIU3FxaIG80s1rL2IL+kRjBw/UJRmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qI5s+qRP;
-	arc=none smtp.remote-ip=209.85.214.171
-Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=QF7yKmYo;
+	arc=none smtp.remote-ip=203.205.221.240
+Received: from out203-205-221-240.mail.qq.com (out203-205-221-240.mail.qq.com [203.205.221.240])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 631A5606A325
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:32:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 631A5606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EE48606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:32:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3EE48606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qI5s+qRP
-Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2f04244c3d0so13939485ad.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:32:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795246350; x=1795851150; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vZXEIX5bRG+X47GzywXngypFAMMr6NGpMI+nKBGpwCc=;
-        b=qI5s+qRPc8lOrId2pgvo/2iBSN/HidJP3kKtKe5Ref0DOKJB8y9o6Sl6ruSIUVdTxu
-         luFddQp1/bbZokmYJs5Y4+QmshC+0KoM4JuTA/6kZ+qDbBUm5jLZlgeEJ71FuwES4Nre
-         bCnX1om5e4PhAUnuMy8IzexWQej5EpbWDk2rjFiMVnRsoKqQghq7LIPSG3QAW5t6SILv
-         cPTTgx8pC1Opcp2W4FJQbsFgdYRaB4I6nv8FwC1NPsKsy7SDwIiVTVISZRFpRzNJqBRl
-         fCfFi8vA55yD8RrU4uEeMRWOANIWukzcbubMKu9nKBFhAavfQH8i18W5yICVfo/PZwcV
-         91Dg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795246350; x=1795851150;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=vZXEIX5bRG+X47GzywXngypFAMMr6NGpMI+nKBGpwCc=;
-        b=lW/kNREUF+QUSG7rHVjTUELPmKgkAHS86PcbO4LZg4Ud1Y+YZQ8akw9Z3pZSNJwMD0
-         NLKPqhVzS+EP/6rG7+0arKYEX/zJMIKB7SSMSRvnMsGsc84QBip+rvIBJjeOmTG2jbJj
-         9gTIMSnxpn55bQAoCZEQ4FTWQLhmlmdqcOixTne/n8gEVh63jXaqzgTkjIwJjCkYoaIK
-         ZFVc9V7NEOXsu2jHo+ICl5utZUbsWXv0UpXGfuyJ6OGfGEiKZ/TdxQTmJTg8pYzcFpn/
-         QcYcuvHyZmqXDJ4bFfiKYzXF0pQN9Zax34xIHnBWxCxataByajEuKTunLy7eQppPEh9O
-         8sUg==
-X-Forwarded-Encrypted: i=1; AL+hErFwsYW9RDrwgXdINKgW3oc0Hn+oDnW+yUT2NQKgncraj5XyIEa0BWHHrJ3rKCSXWJh/5QxKrb00+Y3owlY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z96JmrIt6YhAUBrmGZ9r/L+984VeVL0Imsd+dN7XQ/eU16BhRrq
-	9wom+n72OMuVohOC+1guNblEzrdI/0xmwjr3HqppFbaBdi4P0XF3wREq
-X-Gm-Gg: AZFdTZc6FiXwSnH1mM4fMowRyYsHaHGqvBE7l8YpdnSOavAdEv4CbP2xrtV6VUBxk66
-	lY05wcuAoNm1FjgutnDHKdjLjQR7NHIZGIW6rTJ7WkVeiV1dOpLKLRJY7NheYVPBmLEMnUKRIrd
-	xKhCfJVS5Kamf1qxmNJ55mgxsLWXp8Kp3mCEBm2cgsPfduOX1FHl1Tt6DJjphTDHHT0qllIpv5y
-	HctEu6CRu18qGAIukO1yc/K+yKmpK75TNRYomwC2qt1M4i7b6oX0XRzfrg7tWFVDRGni3R2UIVw
-	xnkAjSRzISI9f7W0aI80FNjIyYphadvJXxovpaO4mdXTTruSuPFY4/oFm4+nGXfmTaShfyqOSbz
-	pi4CGfqHQNnOG3aNN54DK7r/MYZBDrtAeqU/yAl577bqjKgt9F8kqKTQILiGXE5IFMOBUvdDHMD
-	nFvo79DFlh9CCY3NbtGLenKzwqlXYULqYKs8xgOu1GU4ouB8U4X5U3Fah00UKQb7Osacq2QW6Qh
-	JMq3OEkYWduOIKeY3prNp5Qk8deb+qAZCG/RUet4CzVbpGp8dFWTj19wcy5vNXbkF4HmK6F9uY7
-	y79KpAFXOm1YJYIUy7bgqXt/PZakiy/MUY6aXsCxpgQ9ow==
-X-Received: by 2002:a17:902:dacc:b0:2ef:d54b:fb64 with SMTP id d9443c01a7336-2f03f16ca9amr57805835ad.47.1795246349410;
-        Fri, 20 Nov 2026 23:32:29 -0800 (PST)
-Received: from osman.mioffice.cn ([43.224.245.178])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0ddf40sm23423465ad.37.2026.11.20.23.32.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 23:32:28 -0800 (PST)
-From: Zhan Xusheng <zhanxusheng1024@gmail.com>
-To: akpm@linux-foundation.org
-Cc: hannes@cmpxchg.org,
-	mhocko@suse.com,
-	roman.gushchin@linux.dev,
-	shakeel.butt@linux.dev,
-	muchun.song@linux.dev,
-	penguin-kernel@i-love.sakura.ne.jp,
-	tj@kernel.org,
-	mkoutny@suse.com,
-	chris@chrisdown.name,
-	cui.tao@linux.dev,
-	cgroups@vger.kernel.org,
-	linux-mm@kvack.org,
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=QF7yKmYo
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795246371; bh=aW0ZGphEjqN9FBnq72DDJKV0boqgFU1NIIPhY/ErgW8=;
+	h=From:To:Cc:Subject:Date;
+	b=QF7yKmYoEcsPtnldjNL+r6jBJJXDIjJqvAhG4LHmsw8uUZyEdcu4dyBce1sGFpAwh
+	 YWJWHP1Uge3RYaqHrnZu7F/sSbxQUfwC4AzwetJalQ5ASZttRVsbvBMnNPbUCblOWS
+	 MTIs5Nz0/OmLV0skSH15mArLdJB+Me2GF2721kNM=
+Received: from jerry-PC.lan ([2408:8249:5f:7101:71a:8713:56b4:5043])
+	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
+	id 830284BE; Sat, 21 Nov 2026 15:32:48 +0800
+X-QQ-mid: xmsmtpt1795246368tcja22yf3
+Message-ID: <tencent_B239E24A7651B43AC21C4769D1E75FA0A505@qq.com>
+X-QQ-XMAILINFO: OQac6g2KrvnWJd/AjyKj6bp8/lqaADZ4cF9P/T5Q+g+QTWQyxOcvf4+h96Y1ky
+	 TzHie/FbERE7l3mL7TIEJIazVza8tUXUwS/Pg4YWwg66oGPjLd5P/6pVgnDDGEtNdCu89imhtdFe
+	 D6wD5v4pPEeMMib0CQx1IB2UIISfNTVKeQSQtYFgnJF5duT7a/W7sIptnWNpowHRaiL9lY+uNwiq
+	 hQjhniroPr3ihRqpqBBDCaRK1XsAthZ2DIKyhuQbKkKT4OqsOCwEHDnw0CkhxuA+iCQ7tCoeQaTK
+	 VH8nRSvdeV06xuMPR2moIrSGq1DbDcbmlahl+Kf0L9+9INom4LtettvFCML7IxwsXyDVHDFaafmr
+	 IPUNEm9y9NrGSCqp9mCFLGQGHOUmMDoGhMNTHxQiE1+uXw3fLZaP9PislaMc4d1c53Z6sG1ZEwB8
+	 szDxO4u1f2Hj1psNuaVmNh4yW8TEaAo9UIdLd5vxZ4/vVbUaicz9G6SSn8X1n/SAqFpFsyrMmQv7
+	 mmkb+c5oXHqXRZeT9zYA72F1hJ+XXkMWbz3i7/KNodra1M3XIz9MSRevBzQzceW7KN5pMcTuLKRv
+	 WzAqXRdO7/1tWZupMBgsEqdgGHMjC5bfjutlzZeQ0YR0stQabBu2ll+OH7ypVsdvon67u3PdPOZ+
+	 3biZ4LYxX7oqk7xt3L0NDFli5DylaFqU+fftq4mQsAxwD6GPm70xz/aHTByFkrNDWTeTuvlkMYrM
+	 4rsuuaTIOs2jvPhBJwbh/kf2Wf5lF924rMFcZw2ER2CdC/UgQVOOYN2FFSLG+xfQbE9srUonw0fh
+	 eLyjaM4tbO3b+f9htyCqwKWgD7x0/Wrb/uFo4YDx6w/Fk5820z5KWjTqALHuMhYx8QLKnCot24kU
+	 ky7AX90Y1F1TnJQRHKj0V93Myw4RQOzqEu8dJOF5ZzF72ot9pXgGara3nS2gT7RgEA99r7txK0Z7
+	 qrnDwB3ehnE+vA8GFOImK3YfJTal8CoE+Bfa5RMtsABeT5W9cTRzn28u8cUrPGGSDCX15ufYaTeC
+	 fVzdUz8kw2OhFwNoEFHqc9K+CkbGUCXb9IWBxYhiQPlTbFFQFAfh+cjbTVT0X+tfcOJQgvilwhWt
+	 d/T85TptX9BnD5/d+o8525s+IqQPeAP7pTXSGlg6Arl5pTCO0=
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+From: ZhuXiangyu <1194781887@qq.com>
+To: Mark Brown <broonie@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Chris Morgan <macromorgan@hotmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	zhanxusheng@xiaomi.com
-Subject: [PATCH v3] mm: memcontrol: don't miss processes whose leader has exited in OOM scans
-Date: Sat, 21 Nov 2026 15:32:22 +0800
-Message-ID: <20261121073222.834282-1-zhanxusheng1024@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	ZhuXiangyu <1194781887@qq.com>
+Subject: [PATCH 1/2] spi: rockchip-sfc: add RK3506 support
+Date: Sat, 21 Nov 2026 15:32:45 +0800
+X-OQ-MSGID: <20261121073246.1233736-1-1194781887@qq.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,130 +88,336 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Zhan Xusheng <zhanxusheng@xiaomi.com>
+The RK3506 SFC reports version 9 but is compatible with the version 6
+feature set. It needs a power-good handshake through the PMU GRF and
+DLL delay-line training for clock rates above 50 MHz.
 
-mem_cgroup_scan_tasks() walks with CSS_TASK_ITER_PROCS, so it sees only
-thread group leaders, plus a dying leader that still has live threads.
-Moving a process whose leader has exited, by writing its PID to
-cgroup.procs, moves the live threads but leaves the leader behind, as
-cgroup_migrate_add_task() skips exiting tasks.
+Add the version handling, DLL cell detection and training, and the
+optional power-good poll. Parse the rockchip,max-dll property so boards
+can limit the DLL training range.
 
-The destination's OOM killer then cannot see the process.  If it is
-alone there, every attempt ends with "Out of memory and no killable
-processes..." and the charge is retried indefinitely, and
-memory.oom.group kills nothing; otherwise another process is killed in
-its place.  The source's OOM killer still finds the leader, reaches the
-moved threads' mm through find_lock_task_mm(), and kills a process that
-has left the memcg.
+Tested on an RK3506B board with the on-board SPI-NAND at 80 MHz.
+DLL training selects cell 64; read and write are stable.
 
-Walk all tasks and let one task of each thread group in the memcg stand
-for it: the first one that is not exiting, the first one that has not
-exited yet once the whole group is exiting, or the leader once every
-thread has exited, so that an OOM victim stays visible until it is gone,
-as the leader does today.  Exiting threads left behind do not count
-while the group has live threads elsewhere.
-
-Tested in a VM with memory.max=64M: in each case above the process using
-the memory is now killed, and a process whose exited leader was not
-moved, or whose leader is alive, is killed as before, with and without
-memory.oom.group.
-
-Fixes: f168a9a54ec3 ("mm: memcontrol: use CSS_TASK_ITER_PROCS at mem_cgroup_scan_tasks()")
-Cc: stable@vger.kernel.org
-Signed-off-by: Zhan Xusheng <zhanxusheng@xiaomi.com>
+Tested-by: ZhuXiangyu <1194781887@qq.com>
+Signed-off-by: ZhuXiangyu <1194781887@qq.com>
 ---
-v3:
- - Rebase on "mm: memcontrol: don't lose track of exiting OOM victims"
-   in mm-hotfixes-unstable and keep CSS_TASK_ITER_WITH_DEAD
- - Let the leader stand for the group once every thread has exited, so
-   such a victim stays visible as it does with that patch alone
+ drivers/spi/spi-rockchip-sfc.c | 201 ++++++++++++++++++++++++++++++++-
+ 1 file changed, 199 insertions(+), 2 deletions(-)
 
-Moving the exited leader along with its threads came up on v1, and
-there has been no answer from the cgroup side.  cgroup.kill had the
-same case: da13e0e72a73 ("cgroup: fix cgroup.kill for exited thread
-group leader") walks all threads instead of the leaders, and
-5f4a3f743acc ("cgroup: don't kill migrated processes through their
-exiting threads") then had to keep an exiting thread left behind from
-standing for a process that has moved out.  This patch does the same
-for the memcg scan; the second case is what the live_elsewhere check
-covers.
-
-Retested on mm-hotfixes-unstable 2ba4d2c9ae3c: the cases in the
-changelog behave as described, and with the reproducer from the review
-of Chris's patch, memory.max=400M, 10 runs, oom_kill is 1 in every run
-with and without this patch.
-
-v2: https://lore.kernel.org/all/20261027144016.2582880-1-zhanxusheng1024@gmail.com/
-v1: https://lore.kernel.org/all/20261026120248.2188024-1-zhanxusheng1024@gmail.com/
-
- mm/memcontrol.c | 44 +++++++++++++++++++++++++++++++++++++++++---
- 1 file changed, 41 insertions(+), 3 deletions(-)
-
-diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-index afbb638e7e1c..3355341666db 100644
---- a/mm/memcontrol.c
-+++ b/mm/memcontrol.c
-@@ -1426,6 +1426,44 @@ static void invalidate_reclaim_iterators(struct mem_cgroup *dead_memcg)
- 						dead_memcg);
+diff --git a/drivers/spi/spi-rockchip-sfc.c b/drivers/spi/spi-rockchip-sfc.c
+index a85a260b..bfcad2fa 100644
+--- a/drivers/spi/spi-rockchip-sfc.c
++++ b/drivers/spi/spi-rockchip-sfc.c
+@@ -14,12 +14,14 @@
+ #include <linux/dma-mapping.h>
+ #include <linux/iopoll.h>
+ #include <linux/interrupt.h>
++#include <linux/mfd/syscon.h>
+ #include <linux/mm.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/pinctrl/consumer.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
++#include <linux/regmap.h>
+ #include <linux/slab.h>
+ #include <linux/spi/spi-mem.h>
+ 
+@@ -112,7 +114,9 @@
+ #define  SFC_VER_3			0x3
+ #define  SFC_VER_4			0x4
+ #define  SFC_VER_5			0x5
++#define  SFC_VER_6			0x6
+ #define  SFC_VER_8			0x8
++#define  SFC_VER_9			0x9
+ 
+ /* Delay line controller register */
+ #define SFC_DLL_CTRL0			0x3C
+@@ -168,23 +172,43 @@
+  * 150MHz. No minimum or average value is suggested.
+  */
+ #define SFC_MAX_SPEED		(150 * 1000 * 1000)
++#define SFC_DLL_THRESHOLD_RATE	(50 * 1000 * 1000)
++
++#define SFC_DLL_TRAINING_STEP		10	/* Training step */
++#define SFC_DLL_TRAINING_VALID_WINDOW	80	/* Valid DLL window */
+ 
+ #define ROCKCHIP_AUTOSUSPEND_DELAY	2000
+ 
++struct rockchip_sfc_powergood {
++	bool	valid;
++	u32	grf_offset;
++	u8	bits_mask;
++};
++
++struct rockchip_sfc_data {
++	struct rockchip_sfc_powergood powergood;
++};
++
+ struct rockchip_sfc {
+ 	struct device *dev;
+ 	void __iomem *regbase;
+ 	struct clk *hclk;
+ 	struct clk *clk;
+ 	u32 speed[SFC_MAX_CHIPSELECT_NUM];
++	u32 cur_speed;
++	u32 cur_real_speed;
+ 	/* virtual mapped addr for dma_buffer */
+ 	void *buffer;
+ 	dma_addr_t dma_buffer;
+ 	struct completion cp;
+ 	bool use_dma;
+ 	u32 max_iosize;
++	u32 max_dll_cells;
++	u32 dll_cells[SFC_MAX_CHIPSELECT_NUM];
+ 	u16 version;
+ 	struct spi_controller *host;
++	struct regmap *grf;
++	const struct rockchip_sfc_data *data;
+ };
+ 
+ static int rockchip_sfc_reset(struct rockchip_sfc *sfc)
+@@ -218,6 +242,33 @@ static u32 rockchip_sfc_get_max_iosize(struct rockchip_sfc *sfc)
+ 	return SFC_MAX_IOSIZE_VER3;
  }
  
-+/*
-+ * Let one task of each thread group in @memcg stand for the group: the
-+ * first one that is not exiting, or, once the whole group is exiting, the
-+ * first one that has not exited yet, so that an OOM victim stays visible.
-+ * The leader is not enough: a group whose leader has exited can be moved
-+ * without it.  Exiting threads left behind in @memcg do not count while the
-+ * group has live threads elsewhere.
-+ */
-+static bool mem_cgroup_scan_skip(struct mem_cgroup *memcg,
-+				 struct task_struct *task)
++static u32 rockchip_sfc_get_max_dll_cells(struct rockchip_sfc *sfc)
 +{
-+	struct task_struct *t, *dying = NULL;
-+	bool live_elsewhere = false;
++	if (sfc->max_dll_cells)
++		return sfc->max_dll_cells;
 +
-+	guard(rcu)();
-+	__for_each_thread(task->signal, t) {
-+		bool here;
-+
-+		if (READ_ONCE(t->exit_state))
-+			continue;
-+		here = mem_cgroup_from_task(t) == memcg;
-+		if (!(READ_ONCE(t->flags) & PF_EXITING)) {
-+			if (here)
-+				return t != task;
-+			live_elsewhere = true;
-+		} else if (here && !dying) {
-+			dying = t;
-+		}
-+	}
-+	/*
-+	 * Once every thread has exited, the leader stands for the group until
-+	 * it is gone, as with CSS_TASK_ITER_PROCS.
-+	 */
-+	if (!dying)
-+		return live_elsewhere || !thread_group_leader(task);
-+	return live_elsewhere || dying != task;
++	if (sfc->version > SFC_VER_4)
++		return SFC_DLL_CTRL0_DLL_MAX_VER5;
++	else if (sfc->version == SFC_VER_4)
++		return SFC_DLL_CTRL0_DLL_MAX_VER4;
++	else
++		return 0;
 +}
 +
- /**
-  * mem_cgroup_scan_tasks - iterate over tasks of a memory cgroup hierarchy
-  * @memcg: hierarchy root
-@@ -1456,10 +1494,10 @@ void mem_cgroup_scan_tasks(struct mem_cgroup *memcg,
- 		 * torn down. Keep it visible so oom_evaluate_task() can
- 		 * back off while there's still memory to free.
- 		 */
--		css_task_iter_start(&iter->css, CSS_TASK_ITER_PROCS |
--				    CSS_TASK_ITER_WITH_DEAD, &it);
-+		css_task_iter_start(&iter->css, CSS_TASK_ITER_WITH_DEAD, &it);
- 		while (!ret && (task = css_task_iter_next(&it))) {
--			ret = fn(task, arg);
-+			if (!mem_cgroup_scan_skip(iter, task))
-+				ret = fn(task, arg);
- 			/* Avoid potential softlockup warning */
- 			cond_resched();
- 		}
-
-base-commit: 2ba4d2c9ae3cfdad96ee925c92b14d7acd886954
++static void rockchip_sfc_set_delay_lines(struct rockchip_sfc *sfc, u16 cells, u8 cs)
++{
++	u16 cell_max = (u16)rockchip_sfc_get_max_dll_cells(sfc);
++	u32 val = 0;
++
++	if (cells > cell_max)
++		cells = cell_max;
++
++	if (cells)
++		val = SFC_DLL_CTRL0_SCLK_SMP_DLL | cells;
++
++	writel(val, sfc->regbase + cs * SFC_CS1_REG_OFFSET + SFC_DLL_CTRL0);
++}
++
+ static int rockchip_sfc_clk_set_rate(struct rockchip_sfc *sfc, unsigned long  speed)
+ {
+ 	if (sfc->version >= SFC_VER_8)
+@@ -321,6 +372,7 @@ static int rockchip_sfc_xfer_setup(struct rockchip_sfc *sfc,
+ {
+ 	u32 ctrl = 0, cmd = 0;
+ 	u8 cs = spi_get_chipselect(mem->spi, 0);
++	u32 voltage;
+ 
+ 	/* set CMD */
+ 	cmd = op->cmd.opcode;
+@@ -375,6 +427,15 @@ static int rockchip_sfc_xfer_setup(struct rockchip_sfc *sfc,
+ 	dev_dbg(sfc->dev, "sfc ctrl=%x cmd=%x addr=%llx len=%x\n",
+ 		ctrl, cmd, op->addr.val, len);
+ 
++	if (sfc->data && sfc->data->powergood.valid) {
++		if (regmap_read_poll_timeout(sfc->grf, sfc->data->powergood.grf_offset,
++					     voltage, voltage & sfc->data->powergood.bits_mask,
++					     1000, jiffies_to_usecs(HZ))) {
++			dev_err(sfc->dev, "wait for powergood failed\n");
++			return -EIO;
++		}
++	}
++
+ 	writel(ctrl, sfc->regbase + cs * SFC_CS1_REG_OFFSET + SFC_CTRL);
+ 	writel(cmd, sfc->regbase + SFC_CMD);
+ 	if (op->addr.nbytes)
+@@ -521,6 +582,109 @@ static int rockchip_sfc_xfer_done(struct rockchip_sfc *sfc, u32 timeout_us)
+ 	return ret;
+ }
+ 
++static int rockchip_sfc_exec_op_bypass(struct rockchip_sfc *sfc,
++				       struct spi_mem *mem,
++				       const struct spi_mem_op *op)
++{
++	u32 len = min_t(u32, op->data.nbytes, sfc->max_iosize);
++	int ret;
++
++	rockchip_sfc_adjust_op_work((struct spi_mem_op *)op);
++	rockchip_sfc_xfer_setup(sfc, mem, op, len);
++	ret = rockchip_sfc_xfer_data_poll(sfc, op, len);
++	if (ret != len) {
++		dev_err(sfc->dev, "xfer data failed ret %d\n", ret);
++
++		return -EIO;
++	}
++
++	ret = rockchip_sfc_xfer_done(sfc, 100000);
++
++	return ret;
++}
++
++static void rockchip_sfc_delay_lines_tuning(struct rockchip_sfc *sfc, struct spi_mem *mem)
++{
++	struct spi_mem_op op = SPI_MEM_OP(SPI_MEM_OP_CMD(0x9F, 1),
++						SPI_MEM_OP_NO_ADDR,
++						SPI_MEM_OP_NO_DUMMY,
++						SPI_MEM_OP_DATA_IN(3, NULL, 1));
++	u8 id[3], id_temp[3];
++	u16 cell_max = (u16)rockchip_sfc_get_max_dll_cells(sfc);
++	u16 right, left = 0;
++	u16 step = SFC_DLL_TRAINING_STEP;
++	bool dll_valid = false;
++	u8 cs = spi_get_chipselect(mem->spi, 0);
++
++	rockchip_sfc_clk_set_rate(sfc, SFC_DLL_THRESHOLD_RATE);
++	op.data.buf.in = &id;
++	if (rockchip_sfc_exec_op_bypass(sfc, mem, &op) ||
++	    (0xFF == id[0] && 0xFF == id[1]) ||
++	    (0x00 == id[0] && 0x00 == id[1])) {
++		dev_dbg(sfc->dev, "no dev, dll by pass\n");
++		rockchip_sfc_clk_set_rate(sfc, sfc->speed[cs]);
++		sfc->speed[cs] = SFC_DLL_THRESHOLD_RATE;
++
++		return;
++	}
++
++	rockchip_sfc_clk_set_rate(sfc, sfc->speed[cs]);
++	op.data.buf.in = &id_temp;
++	for (right = 0; right <= cell_max; right += step) {
++		int ret;
++
++		rockchip_sfc_set_delay_lines(sfc, right, cs);
++		ret = rockchip_sfc_exec_op_bypass(sfc, mem, &op);
++		if (!ret) {
++			dev_dbg(sfc->dev, "dll read flash id:%x %x %x\n",
++				id_temp[0], id_temp[1], id_temp[2]);
++
++			ret = memcmp(&id, &id_temp, 3);
++			if (dll_valid && ret) {
++				right -= step;
++
++				break;
++			}
++			if (!dll_valid && !ret)
++				left = right;
++
++			if (!ret)
++				dll_valid = true;
++		}
++
++		/* Add cell_max to loop */
++		if (right == cell_max)
++			break;
++		if (right + step > cell_max)
++			right = cell_max - step;
++	}
++
++	if (dll_valid && (right - left) >= SFC_DLL_TRAINING_VALID_WINDOW) {
++		if (left == 0 && right < cell_max)
++			sfc->dll_cells[cs] = left + (right - left) * 2 / 5;
++		else
++			sfc->dll_cells[cs] = left + (right - left) / 2;
++	} else {
++		sfc->dll_cells[cs] = 0;
++	}
++
++	if (sfc->dll_cells[cs]) {
++		dev_dbg(sfc->dev, "%u %u %u dll training success in %uMHz max_cells=%u sfc_ver=%u\n",
++			left, right, sfc->dll_cells[cs], sfc->speed[cs],
++			rockchip_sfc_get_max_dll_cells(sfc), rockchip_sfc_get_version(sfc));
++		rockchip_sfc_set_delay_lines(sfc, (u16)sfc->dll_cells[cs], cs);
++	} else {
++		dev_err(sfc->dev, "%u %u dll training failed in %uMHz, reduce the frequency\n",
++			left, right, sfc->speed[cs]);
++		rockchip_sfc_set_delay_lines(sfc, 0, cs);
++		rockchip_sfc_clk_set_rate(sfc, SFC_DLL_THRESHOLD_RATE);
++		mem->spi->max_speed_hz = SFC_DLL_THRESHOLD_RATE;
++		sfc->cur_speed = SFC_DLL_THRESHOLD_RATE;
++		sfc->cur_real_speed = rockchip_sfc_clk_get_rate(sfc);
++		sfc->speed[cs] = SFC_DLL_THRESHOLD_RATE;
++	}
++}
++
+ static int rockchip_sfc_exec_mem_op(struct spi_mem *mem, const struct spi_mem_op *op)
+ {
+ 	struct rockchip_sfc *sfc = spi_controller_get_devdata(mem->spi->controller);
+@@ -540,8 +704,16 @@ static int rockchip_sfc_exec_mem_op(struct spi_mem *mem, const struct spi_mem_op
+ 		if (ret)
+ 			goto out;
+ 		sfc->speed[cs] = op->max_freq;
+-		dev_dbg(sfc->dev, "set_freq=%dHz real_freq=%ldHz\n",
++		sfc->cur_speed = op->max_freq;
++		sfc->cur_real_speed = rockchip_sfc_clk_get_rate(sfc);
++		dev_dbg(sfc->dev, "set_freq=%uHz real_freq=%luHz\n",
+ 			sfc->speed[cs], rockchip_sfc_clk_get_rate(sfc));
++		if (rockchip_sfc_get_version(sfc) >= SFC_VER_4) {
++			if (sfc->cur_real_speed > SFC_DLL_THRESHOLD_RATE)
++				rockchip_sfc_delay_lines_tuning(sfc, mem);
++			else
++				rockchip_sfc_set_delay_lines(sfc, 0, cs);
++		}
+ 	}
+ 
+ 	rockchip_sfc_adjust_op_work((struct spi_mem_op *)op);
+@@ -657,6 +829,10 @@ static int rockchip_sfc_probe(struct platform_device *pdev)
+ 
+ 	sfc->use_dma = !of_property_read_bool(sfc->dev->of_node, "rockchip,sfc-no-dma");
+ 
++	device_property_read_u32(&pdev->dev, "rockchip,max-dll", &sfc->max_dll_cells);
++	if (sfc->max_dll_cells > SFC_DLL_CTRL0_DLL_MAX_VER5)
++		sfc->max_dll_cells = SFC_DLL_CTRL0_DLL_MAX_VER5;
++
+ 	ret = clk_prepare_enable(sfc->hclk);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "Failed to enable ahb clk\n");
+@@ -683,11 +859,23 @@ static int rockchip_sfc_probe(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, sfc);
+ 
++	sfc->data = device_get_match_data(dev);
++	if (sfc->data && sfc->data->powergood.valid) {
++		sfc->grf = syscon_regmap_lookup_by_phandle(dev->of_node, "rockchip,grf");
++		if (IS_ERR(sfc->grf)) {
++			ret = dev_err_probe(dev, PTR_ERR(sfc->grf),
++					    "failed to get grf\n");
++			goto err_irq;
++		}
++	}
++
+ 	ret = rockchip_sfc_init(sfc);
+ 	if (ret)
+ 		goto err_irq;
+ 
+ 	sfc->version = rockchip_sfc_get_version(sfc);
++	if (sfc->version == SFC_VER_9)
++		sfc->version = SFC_VER_6;
+ 	sfc->max_iosize = rockchip_sfc_get_max_iosize(sfc);
+ 
+ 	pm_runtime_set_autosuspend_delay(dev, ROCKCHIP_AUTOSUSPEND_DELAY);
+@@ -823,8 +1011,17 @@ static const struct dev_pm_ops rockchip_sfc_pm_ops = {
+ 	SYSTEM_SLEEP_PM_OPS(rockchip_sfc_suspend, rockchip_sfc_resume)
+ };
+ 
++static const struct rockchip_sfc_data rk3506_fspi_data = {
++	.powergood = {
++		.valid = true,
++		.grf_offset = 0x100,
++		.bits_mask = BIT(0),
++	},
++};
++
+ static const struct of_device_id rockchip_sfc_dt_ids[] = {
+-	{ .compatible = "rockchip,sfc"},
++	{ .compatible = "rockchip,rk3506-fspi", .data = &rk3506_fspi_data },
++	{ .compatible = "rockchip,sfc" },
+ 	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, rockchip_sfc_dt_ids);
 -- 
-2.43.0
+2.47.3
 
