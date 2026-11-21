@@ -1,49 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.38.64.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795227607;
-	b=qNXNJ7zUonZONi14T2o7RVWb/HGdbxsfzmAHw1/9W9kq3NoebR1uiBZrGic5LLcGmcfS
-	 xBcLubCnUhrDrdUhTWRV7FHPyqUBmHUvmNtKD8nQYL+qbkIZdW/4aCCFSbY+S1AHk05vC
-	 77LMkLeWptgCyFmvIkgxC89outxnCNvdTiDJ+X5yaYKfqyfSapMqw7w2U2oyLckWSSbLC
-	 NMQRuv4CV9M0h4fL3KMQdVSReFLpNRSJw1QOnmQuIr3gwd57UAV9onaME3BriHwr8ls94
-	 8PRDWNuJe9+LLBmNYcNzoQiQZrH+FcbSVFAs4NFiIvdy2dGETmsNJcV2Y9viIcoixHw==
+	t=1795227684;
+	b=uEcTAsPuFxS6vlZJI8H3EfwLNkYgkv9ChevGFltyboANX9zbA1dAk/HlgzBfJ7qNAlbw
+	 hpdaTrtvwOG7N94V/sU3vyBhY7i22u8ycRZ/1wn1Lt9Xi8MZXo+qPtPk9kqWE+Hjsbu0K
+	 loK95+6dgTsiYqtH9Hb1LeBuGLdmXN6I/shlcNYXzLwD74RU1MHxeYUIUC2UUKYSz7ISf
+	 lI+rJ4D6A3481WzE8BWHShvtrhtSOHYH32mYLOLmvVZ3hC95XuAN77iHre9kHH73EghTW
+	 HcEPvyrVpKBB6tvPEEHYQTRWMhRw5bqkFMOh0R+KCySCdilJ+onMIX0C3MQsKWHBLoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795227607;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=5bb5dXJJvw0JnaBAaPJTs5AX0PNe+223A/FD0MAQX1w=;
-	b=jFSbgX+chpPj+TcIJfVnbiDKG7sMcAsYVsH7KZeQg+DGBYYr2ye4syMhPkBbZxfWWlPA
-	 x7v/5i0NMfJcf+J0xECtNTHRDwewTfH1HpmP0Jf9RC/+Yvj5TP6pwAd1LxujJtfqipX74
-	 wUgALkxEhCbXF+6sAc+mx+RKTi0Jq+L9QbnUJ0vgloLEzxppTKcyR29tlUGU80E02NnAd
-	 gQZ4QbP8DE2AsCl5hpX5NW+tou/34RxDCXdoD8FVUuvCnAN0l9MZ7J2tQjhjq8bMpv/fE
-	 Y5woyLcLtq/cAOLu9XuAxNpMkx2tTOw2NkzczFZnq1pBokkt+bx62qTjJXqu6QY83lQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795227684;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=PgthCGcbTsSu+xKqJmo1y6zbPUQd7PIf0sBuLBlSOc4=;
+	b=KCyQvExNfwlm8O7xfMIbRvYxQ61vVO1HNYZXsjrxGrYKjVD9/vJoq0NPpl9bufcatVPh
+	 4Il3Uc5+D/OK1n+C9Hit+PZBSW8dMfxGky6AuYcnH5cDewTzuO3+BsgLKBGwXNsVsNa03
+	 rCTi1YFN7dtOiMiEPGaqb7G9NtLidF7KYXWsAs0FlxaIXYBD/hOBPXnpnU1JzING7+tRu
+	 7l22f/1k/8T+BKhUuwgXD05fWLCE5TxtdL9IjgkXqZeBrJWR5gAhmqhVOVTob5Vz3k/I6
+	 7JhWr6hBbdQ9G5MS9PWEd/+bUrReX5aYjnNdhb78sYcpI4BLO4jzRXECBeschmht/7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZTJMWXg;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E2CF606A683;
-	Sat, 21 Nov 2026 02:20:06 +0000 (UTC)
+	dmarc=pass header.from=mail.ustc.edu.cn;
+	spf=pass smtp.mailfrom=mail.ustc.edu.cn;
+	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=C5ipNjqi;
+	arc=none smtp.remote-ip=202.38.64.46
+Received: from ustc.edu.cn (smtp.ustc.edu.cn [202.38.64.46])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 7CEB7606A6A4;
+	Sat, 21 Nov 2026 02:21:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CEB7606A6A4
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.ustc.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.ustc.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZTJMWXg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF50D1F000C4;
-	Sat, 21 Nov 2026 02:20:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795227606;
-	bh=5bb5dXJJvw0JnaBAaPJTs5AX0PNe+223A/FD0MAQX1w=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=kZTJMWXgqlw65cUFpICIoXICOXWUKUeDM8Be5xQ+sRNM42jDRs8aIwBLOnmRn2+sm
-	 MARwLqaZlMJSNcfHMvP+lQNPdkG1gR6Cuazq3q17yUiTy5RnwIofUeYba6edWiqesz
-	 d4tPQOKiQ9LgDQYqLHngrgS+RkU4gjMy/IImOCCSJWfcGZCp9zD2J0RUZsc9ZPL2hV
-	 w+GzVVEMNlTe1Ceh5M+nSDvZthjyJThVgeYARbppih6rNhAD6EwmB1a8Emd/pVA4aq
-	 /sjUaIL/LgMiiRCHNibRo6AuxpGBODzqayIAjZiyFzXxhaunCSocVurRCBb+vNkH/V
-	 nnSGm57GK5X1g==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B45F6380AA5E;
-	Sat, 21 Nov 2026 02:20:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (1024-bit key, unprotected) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=C5ipNjqi
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-ID:In-Reply-To:References:MIME-Version:
+	Content-Transfer-Encoding; bh=PgthCGcbTsSu+xKqJmo1y6zbPUQd7PIf0s
+	BuLBlSOc4=; b=C5ipNjqiN92xxaQBv9XrVE12RGZlwMiS2OkieB1UVhtfiKVERA
+	8zxgx3tuRUIrg4NwAq5zSnkeODgDVLFagU55yeeE8v86tDPv9R+my4A0HPjl8CO3
+	7Xa1ydYf7vHRrFCNlHXPcRtgHNKFtx3D6yPf1ZJWRYE4Cl6bGU7zN0zng=
+Received: from xuqianhui.ustc.edu.cn (unknown [114.214.187.147])
+	by mailimap2024 (Coremail) with SMTP id 3pYKCgB3_EAQAAFrSyPiAA--.173S4;
+	Sat, 21 Nov 2026 10:21:10 +0800 (CST)
+From: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
+To: Thinh.Nguyen@synopsys.com,
+	linux-usb@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v10 2/3] usb: roles: look up role switches attached to a graph endpoint
+Date: Sat, 21 Nov 2026 10:21:03 +0800
+Message-ID: <20261121022104.1507987-3-xiaqinghuan@mail.ustc.edu.cn>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261121022104.1507987-1-xiaqinghuan@mail.ustc.edu.cn>
+References: <20261117052137.32833-1-xiaqinghuan@mail.ustc.edu.cn>
+ <20261121022104.1507987-1-xiaqinghuan@mail.ustc.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,46 +68,119 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2] net/mlx5e: kTLS,
- Simplify error unwind in mlx5e_ktls_set_feature_rx()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179522760553.891197.15403336647032541613.git-patchwork-notify@kernel.org>
-Date: Sat, 21 Nov 2026 02:20:05 +0000
-References: <20261118025846.3377199-1-xuanqiang.luo@linux.dev>
-In-Reply-To: <20261118025846.3377199-1-xuanqiang.luo@linux.dev>
-To: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-Cc: netdev@vger.kernel.org, tariqt@nvidia.com, horms@kernel.org,
- saeedm@nvidia.com, leon@kernel.org, mbloch@nvidia.com, borisp@nvidia.com,
- witu@nvidia.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org,
- luoxuanqiang@kylinos.cn
+X-CM-TRANSID:3pYKCgB3_EAQAAFrSyPiAA--.173S4
+X-Coremail-Antispam: 1UD129KBjvJXoWxJF4fZFy3ur1DCryDZr1kXwb_yoW5KF4rpr
+	yYkF1Fvr4DJFya9w4fGa1UAFWrWr4fGFWUJF4xt3WfC3Z3t3yrJr18ta43Ar1UCanIgw1Y
+	v348A3409a4DA3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPFb7Iv0xC_KF4lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+	8067AKxVWUXwA2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF
+	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcV
+	CY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIE
+	c7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I
+	8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCF
+	s4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4
+	vE14v_Gr1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG
+	67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MI
+	IYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E
+	14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJV
+	W8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUxpVb
+	DUUUU
+X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/1tbiARESB2sAn9sRNQAEsK
 
-Hello:
+usb_role_switch_get() and fwnode_usb_role_switch_get() look for a switch
+on the caller's parent device node or through device_connection.  That does
+not work when one controller exposes a role switch per connector endpoint:
+the switch is registered against the remote graph endpoint and the
+consumer, the connector, has no phandle to it.
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Add usb_role_switch_at_endpoint(), which walks the caller's OF graph
+endpoints and matches a switch registered on the remote endpoint, and try
+it after the existing parent lookup.  A switch that is described by the
+graph but not registered yet comes back as -EPROBE_DEFER, as the rest of
+the role-switch API does, so the caller retries instead of concluding that
+the connector has no role switch at all.  There is no behaviour change for
+existing users: if nothing is registered against an endpoint the lookup
+falls through to the previous paths.
 
-On Wed, 18 Nov 2026 11:58:46 +0900 you wrote:
-> From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
-> 
-> mlx5e_ktls_set_feature_rx() has become harder to follow: the error
-> handling is nested in the conditions and the main flow is conditional.
-> 
-> Handle the disable case first, handle the error cases in conditionals,
-> and keep the main flow unconditional. Use goto to unlock on the early
-> returns.
-> 
-> [...]
+This is needed by DWC3 designs where two Type-C receptacles share one High
+Speed data bus.
 
-Here is the summary with links:
-  - [net-next,v2] net/mlx5e: kTLS, Simplify error unwind in mlx5e_ktls_set_feature_rx()
-    https://git.kernel.org/netdev/net-next/c/d23de0bd0bfd
+Signed-off-by: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
+---
+ drivers/usb/roles/class.c | 45 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 45 insertions(+)
 
-You are awesome, thank you!
+diff --git a/drivers/usb/roles/class.c b/drivers/usb/roles/class.c
+index edec139b68..ee186d542a 100644
+--- a/drivers/usb/roles/class.c
++++ b/drivers/usb/roles/class.c
+@@ -157,6 +157,47 @@ usb_role_switch_is_parent(struct fwnode_handle *fwnode)
+ 	return dev ? to_role_switch(dev) : ERR_PTR(-EPROBE_DEFER);
+ }
+ 
++/*
++ * Look up a role switch registered against the remote endpoint of one of the
++ * caller's OF graph endpoints.  This is how a connector endpoint that shares a
++ * USB data bus with another connector (for example two Type-C receptacles on a
++ * single DWC3 controller, selected by a GPIO mux) finds its own role switch.
++ */
++static struct usb_role_switch *
++usb_role_switch_at_endpoint(struct fwnode_handle *fwnode)
++{
++	struct fwnode_handle *ep, *remote, *parent;
++	struct usb_role_switch *sw;
++	bool available;
++
++	fwnode_graph_for_each_endpoint(fwnode, ep) {
++		parent = fwnode_graph_get_remote_port_parent(ep);
++		if (!parent)
++			continue;
++		available = fwnode_device_is_available(parent);
++		fwnode_handle_put(parent);
++		if (!available)
++			continue;
++
++		remote = fwnode_graph_get_remote_endpoint(ep);
++		if (!remote)
++			continue;
++		sw = usb_role_switch_match(remote, "usb-role-switch", NULL);
++		fwnode_handle_put(remote);
++		/*
++		 * ERR_PTR(-EPROBE_DEFER) means the switch is described by the graph
++		 * but not registered yet: pass it up so the caller defers instead of
++		 * concluding that this connector has no role switch at all.
++		 */
++		if (sw) {
++			fwnode_handle_put(ep);
++			return sw;
++		}
++	}
++
++	return NULL;
++}
++
+ /**
+  * usb_role_switch_get - Find USB role switch linked with the caller
+  * @dev: The caller device
+@@ -169,6 +210,8 @@ struct usb_role_switch *usb_role_switch_get(struct device *dev)
+ 	struct usb_role_switch *sw;
+ 
+ 	sw = usb_role_switch_is_parent(dev_fwnode(dev));
++	if (!sw)
++		sw = usb_role_switch_at_endpoint(dev_fwnode(dev));
+ 	if (!sw)
+ 		sw = device_connection_find_match(dev, "usb-role-switch", NULL,
+ 						  usb_role_switch_match);
+@@ -192,6 +235,8 @@ struct usb_role_switch *fwnode_usb_role_switch_get(struct fwnode_handle *fwnode)
+ 	struct usb_role_switch *sw;
+ 
+ 	sw = usb_role_switch_is_parent(fwnode);
++	if (!sw)
++		sw = usb_role_switch_at_endpoint(fwnode);
+ 	if (!sw)
+ 		sw = fwnode_connection_find_match(fwnode, "usb-role-switch",
+ 						  NULL, usb_role_switch_match);
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.53.0
 
