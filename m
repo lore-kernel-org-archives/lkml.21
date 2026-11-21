@@ -1,90 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.113
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795223495;
-	b=RCUGS94OPR7ncAGGvJFePBMugldYFboK6rdNExUZlBkXH4dri0AMmFdXqG54ARrSwIa8
-	 XTXkep7J7FuVwTGQel0hRsb9gSzxdJSIsrT0I6QzRvevBX9xSg6Km3kSn1Bvntqc32r+W
-	 y+LPOOfKRkgMxfYI7XZDdXUvA1kGv1SrAi88iAMWaxG5nLd9az1oFWlLnQ5JKcyhqEsfO
-	 vcwsa8IoaTj8V0Ji+EGqZs4qvwTI+J6zDzX+3SJxMEy1+bna4P2UZN1RqB5Md69S//Zoe
-	 h25bJWLEmLwc/L8skVlx/KJP/QKsBUyw7Txg6+UbpcPfeJYKLzl4WKUuDcrcyQL71jA==
+	t=1795223570;
+	b=Sjqe2CVBOw65/Osnaw33RSVm2gip+G8bORuA+k/nM1r6PNnEz+4tG4BiNunECK7JcB9n
+	 40JqpUlnq0Lc1LIC0Oax8/msD0n3dJCnEnbp/QgP1atUkq3hlA1yvvBl+pJfhAfVRIfxL
+	 CDL4q1Q0hiL/GP+H3xvYCQcWur6csp4HcWKOj9SGWUIgaFewJsZGeWBonlY3go0DBkUl7
+	 wm3VgQpVpoyCnKGBccfQ1iTjF6C8nBz5Z5Mn+QA2rpynISJI1b3l1J0uUcFDMpJHXGOdj
+	 W61fjgMMPnDgAyk6BBuv2jVILoA9K8Js2mvcPpp3eWLZ1QJ7zxZk1Q5MVBY54ZMP+BA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795223495;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=0eYZ3HbDY5x5zovptu6rAgNNSCJghwXhmaa/sCZVI9o=;
-	b=4x5dPNcyynOGSdjsCkw122dLeys1keer6vv4ibMcrGOAcwB7UNZCGtTxqQdNdYoOOMpQ
-	 DyGwZUTh28djN+LeXQ0EJLz10EW9mG6yB2unXk3/htoTvBnjRK2dJzRCm0AlELLySUYm2
-	 iGrCbvMqg4bLh/ucXe7CE5bxnyhAMDaCzp56DfB7X63ai0Rx5Cs/CY1p6eagr+TbfOQ84
-	 PeTG9R6FrtS7hS6hiUHVXiF4aaAUO/9btE60QvOAIR0DxeMHidZLEnVzZjiXYtegRqvdG
-	 CVygDFqe7Dtc6vuOL/R6U119B+ESlgo3my3pRAFYjkhtBzSOVYH+p8Se5i0BGLJOtTA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795223570;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=/qfupq5+WODm/ujq3fTzSTlW7HQ0A1dmVFFP+PPYkjM=;
+	b=CbUSABEKXv8WsTE9qNaByCtP3OHh0ikrdmGAWHa613IxEqXAAocxZoaA3izZGY9M4LJp
+	 /MqqVDQ5Pwym5AVRfr0yzAvncBbm1rsD5eUil33wDmPIYuo930sYsxbMv5mNYptG02VAE
+	 UhEtnWPb4FpekZBSDo8wiY9ZXEVZyinIfvlnn10kdILe9PK9MS8vkotBfmpKg0LNgHpOc
+	 uiDyZwgML66Mqh6Q1VwHxq011mmVT5u8aOIKUqM0vm9M+8BvYQipIeFJZrf2N3s8gcMPb
+	 aiNPVk2I+V4aDB5snDrWxmJggpTHecy/aXROueMuPHALMUfBH6u+UsU7zXkESbueTWA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YNIJWlNY;
-	arc=none smtp.remote-ip=209.85.167.180
-Received: from mail-oi1-f180.google.com (mail-oi1-f180.google.com [209.85.167.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=hf9g7yaK;
+	arc=none smtp.remote-ip=115.124.30.113
+Received: from out30-113.freemail.mail.aliyun.com (out30-113.freemail.mail.aliyun.com [115.124.30.113])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EB19606AA3C
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 01:11:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6EB19606AA3C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6428E606A332
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 01:12:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6428E606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YNIJWlNY
-Received: by mail-oi1-f180.google.com with SMTP id 5614622812f47-5642e0910a3so742054b6e.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:11:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795223489; x=1795828289; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0eYZ3HbDY5x5zovptu6rAgNNSCJghwXhmaa/sCZVI9o=;
-        b=YNIJWlNYrZWMgThgHVAkvnAx6pGKGCaMz6jSW4hSVycXtY7uP1wmnPN5QamROLVjWu
-         NgHLGAm+KwdKOACZLrS4GUmNA5gQUEfTqFiL/aYjCaZjM8cMmW0Hgz3Q3EuGG378OS3b
-         bV8Zww7ReJBmEIJagsUBjEtLBIN9RMgTY9tZ/heVnql3yoOKG1ge11Ix3NOEScWqksIY
-         r0e0bI0ml70ibaCMVyU2J7NUV0QWUzXBUeFnHoppaWU4HCdYM4GDBOeItAXsULltrvIS
-         mBfbTYAw9MevtRfFgb1kyyNXuiEjb3XTDE4k1k/LrUJ0KVb7leQcBafjZdYeoPdKyyKh
-         jGsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795223489; x=1795828289;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0eYZ3HbDY5x5zovptu6rAgNNSCJghwXhmaa/sCZVI9o=;
-        b=VnC1shU0l/w2+7JCZIYg+CDq0Ts0SEAx1sR7NoJVIjpU5U1EqaOH8KfRLD31CWxnvh
-         zIpF/PM0uB5LNyJPzuRww3sRvbyQLAWBYH6gbKmINHPCk+Un1q+3WypxV5SMQpo3QxB5
-         tPIbarQ8dWvbu9GpIAn9A69SqDQWYNPycdOQUf2VwymxurAhMGHJKcZNQ+Mh9p1iF+h2
-         jvi5LsHbT4O7LWfzPJKV7L6jVgqCQHYyP+6a+Xn4BhKmmP+lZ3omsCSW9JQHBI/01s1M
-         GfAR43FVP3Dg7yQY1513bQQbwSVuUcmMoIIzrICNL3x06/UYmhdS5bVKogqp1SFDU6zQ
-         hLug==
-X-Forwarded-Encrypted: i=1; AL+hErEG3/IiRybhP+CVzjTbHbzI/ReEx/qk/NxjLRkyVmm/y7EfIRc7xEItgxj1KaKEuK9nVphJUeX78ZgNaQU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ARUyofaQmiCqHKLQrf0MH+orizwUx3U9U00cSruVn2Mocse0o
-	JpnL3ta0IWamKxhuhpphOR25BurieDyMopVMv9s9CIQZ0lKXLapEGIfx
-X-Gm-Gg: AYBFou0zZYnSHLAL7YkwcCOvdsRxFJ9nimie9/TiDOD6hn2xFoWQOSNTeXXJ7ChA/Jn
-	9ZDKdoZtN8hI4AK3tRHxsKEeRU3ZR6V4EyTL1YihDdnZUfuS+ftk7f17ok+MMOuAgFN3UtxdXqr
-	YdvRRFshvFxqDB+cN+B4heTaVtTD94VO2AP6QoelfCd8FFmmyL3XqVknf4aUNNmgieIW1MUhYT8
-	owKIN9EczcR1Pqplq8R9HeB1wsHqpOQPrBwBOmZn7P+izJx4f3Zagj2hvtVXOif+ChxYEyCFIGq
-	l1lUtdBIHbITmvxf/VP7DIJND4rELK19U8cDtdpAtLXkDhCM7LrtZB76idPqyOfGp80fmF+miLO
-	Fa1wOfcYvc4lfWae2am9Pygr4rxyQf6sN2PZ9++TE3zCKarWvSeGkMYS1B9As1kzlIy3cD732iR
-	nnpviEDWizoyZrQ+MH6hDlxaPX2wihdvUhriQbVOUpNwOrsdVkhiQFsB7jCjq2OyisNma39bHc0
-	byiVAz2VorYQNizb18wNkrwCboKz3rinmhz1Qba6mPVdx4TeK4HZE/+4+FLaQ52BIuKtmJwsKG3
-	Wwg3jcc/zsYulCzSJqEZewQHTD4UZQlSakbj7a32sOLlOFlVnk1KFkxExI5kFle4cET4sf0MtH6
-	Nvcr9sONYiWx1dLlMsNII341GNldGroglWuj9R9SE1wO/osBxRnxHMip3ixKNjGEqHDGyG/dmde
-	/V5Ei/L98XBThnIOkbVJ9mM5McFjULDro+nReGCpfrzZSvn/gAru7r
-X-Received: by 2002:a05:6808:4f1f:b0:4bc:fbd4:2a43 with SMTP id 5614622812f47-57a0bb6eea6mr5839190b6e.41.1795223489248;
-        Fri, 20 Nov 2026 17:11:29 -0800 (PST)
-Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a3485e3ecsm3291532b6e.9.2026.11.20.17.11.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 17:11:28 -0800 (PST)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Fri, 20 Nov 2026 18:10:47 -0700
-Subject: [PATCH v11 24/26] mtd: rawnand: sunxi: reset the H616 data path
- after DMA aborts
+	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=hf9g7yaK
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795223565; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=/qfupq5+WODm/ujq3fTzSTlW7HQ0A1dmVFFP+PPYkjM=;
+	b=hf9g7yaKLbgOqfh9hJk6vnqM2FXGncY+IH0sIK6rGvFbTz1mBSQa0kSs7q+sJV+98ZbfVoy1lgYRsDmETzd1kRy31egE65k0XMgztzg5DvyCHN7W9i07pLXcNYA2vjDXdhVB9HbzdgOTnTvRM2AepWOdOukw7Ot6aWMUR+GJEa8=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R911e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=joseph.qi@linux.alibaba.com;NM=1;PH=DS;RN=7;SR=0;TI=SMTPD_---0XF7UwFX_1795223563;
+Received: from 30.180.33.101(mailfrom:joseph.qi@linux.alibaba.com fp:SMTPD_---0XF7UwFX_1795223563 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sat, 21 Nov 2026 09:12:44 +0800
+Message-ID: <c57890bc-6085-461f-9f7c-47b72e104b65@linux.alibaba.com>
+Date: Sat, 21 Nov 2026 09:12:42 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,288 +53,173 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v9 0/3] migrate ocfs2 DIO from buffer_head to iomap
+To: Heming Zhao <heming.zhao@suse.com>, hch@lst.de,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: mark@fasheh.com, jlbec@evilplan.org, ocfs2-devel@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20261120060014.12087-1-heming.zhao@suse.com>
+From: Joseph Qi <joseph.qi@linux.alibaba.com>
+In-Reply-To: <20261120060014.12087-1-heming.zhao@suse.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-submit-sunxi-nand-vendor-oob-layout-v1-v11-24-9721b1905ef4@gmail.com>
-References: <20261120-submit-sunxi-nand-vendor-oob-layout-v1-v11-0-9721b1905ef4@gmail.com>
-In-Reply-To: <20261120-submit-sunxi-nand-vendor-oob-layout-v1-v11-0-9721b1905ef4@gmail.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- James Hilliard <james.hilliard1@gmail.com>
-Cc: Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
- Richard Genoud <richard.genoud@bootlin.com>, 
- Boris Brezillon <bbrezillon@kernel.org>, 
- Masahiro Yamada <yamada.masahiro@socionext.com>, 
- Brian Norris <computersforpeace@gmail.com>, linux-mtd@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
- devicetree@vger.kernel.org
-X-Mailer: b4 0.17-dev
 
-Resetting an active H616 MDMA read with NFC_CTL.RESET can leave the first
-1 KiB of the next read displaced. Both raw and ECC reads are affected,
-including reads for which ECC reports success. Reissuing the NAND read
-command and restoring the visible controller configuration do not correct
-the internal data-path state. The DMA read error path can therefore return
-incorrect data when it retries through PIO.
+Thanks for this work.
+I'll apply this series on top of next-20261119 and run a full test first.
 
-Pulse the controller's exclusive AHB reset after stopping an H616 DMA
-operation. Drain interrupts before resetting the registers and clear the
-pending events before accepting another command. The next operation
-selects its chip and restores the page layout and timings; reads retry
-from a fresh whole-page setup, while interrupted writes return an error.
+Thanks,
+Joseph
 
-Require the AHB reset at probe and exercise it before accepting
-transfers. An H616 device tree that omits the named reset will no longer
-probe, including for PIO reads and writes. Perform the AHB reset before
-releasing the DMA mapping. This relies on the H616 CCU reset callback,
-which asserts and deasserts the reset through register updates and
-returns success. The reset handle pins the provider module, and the CCU
-driver suppresses sysfs unbinding.
-
-If recovery fails, return the reset error without retrying the read in
-PIO. Leave the IRQ disabled and reject subsequent NAND commands before
-accessing the registers. Error propagation is not a substitute for
-stopping DMA if the supported reset provider contract is violated.
-
-Select the stronger recovery through H616 capability data, leaving older
-controllers' abort sequences unchanged.
-
-Fixes: 5ee37db34637 ("mtd: rawnand: sunxi: add H616 MBUS DMA support")
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
----
- drivers/mtd/nand/raw/sunxi_nand.c | 98 ++++++++++++++++++++++++++++++++-------
- 1 file changed, 81 insertions(+), 17 deletions(-)
-
-diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index abea2ab0cc42..a722636f2e15 100644
---- a/drivers/mtd/nand/raw/sunxi_nand.c
-+++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -318,6 +318,7 @@ struct sunxi_nfc_user_data_layout {
-  * @has_ecc_block_512:	If the ECC can handle 512B or only 1024B chunks
-  * @has_ecc_clk:	If the controller needs an ECC clock.
-  * @has_mbus_clk:	If the controller needs a mbus clock.
-+ * @needs_bus_reset:	Aborted DMA needs an AHB reset to restore data ordering
-  * @layout: protected user-data layout for the controller
-  * @reg_io_data:	I/O data register
-  * @reg_ecc_err_cnt:	ECC error counter register
-@@ -346,6 +347,7 @@ struct sunxi_nfc_caps {
- 	bool has_ecc_block_512;
- 	bool has_ecc_clk;
- 	bool has_mbus_clk;
-+	bool needs_bus_reset;
- 	const struct sunxi_nfc_user_data_layout *layout;
- 	unsigned int reg_io_data;
- 	unsigned int reg_ecc_err_cnt;
-@@ -389,6 +391,7 @@ struct sunxi_nfc_caps {
-  * @use_mdma: use an internal MBUS DMA backend
-  * @mdma_desc: H6-style MBUS DMA descriptor
-  * @mdma_desc_dma: DMA address of @mdma_desc
-+ * @recovery_failed: reject further operations after unsuccessful recovery
-  * @caps: NAND Controller capabilities
-  */
- struct sunxi_nfc {
-@@ -409,6 +412,7 @@ struct sunxi_nfc {
- 	bool use_mdma;
- 	struct sunxi_nfc_mdma_desc *mdma_desc;
- 	dma_addr_t mdma_desc_dma;
-+	bool recovery_failed;
- 	const struct sunxi_nfc_caps *caps;
- };
- 
-@@ -621,16 +625,50 @@ static void sunxi_nfc_dma_op_cleanup(struct sunxi_nfc *nfc,
- 				     struct scatterlist *sg)
- {
- 	dma_unmap_sg(nfc->dev, sg, 1, ddir);
-+	/* Do not access controller registers after failed recovery. */
-+	if (nfc->recovery_failed)
-+		return;
-+
- 	writel(readl(nfc->regs + NFC_REG_CTL) & ~NFC_RAM_METHOD,
- 	       nfc->regs + NFC_REG_CTL);
- }
- 
--static void sunxi_nfc_dma_op_abort(struct sunxi_nfc *nfc)
-+static int sunxi_nfc_dma_op_abort(struct sunxi_nfc *nfc)
- {
--	if (nfc->use_mdma)
--		sunxi_nfc_rst(nfc);
--	else
--		dmaengine_terminate_all(nfc->dmac);
-+	int ret;
-+
-+	if (!nfc->caps->needs_bus_reset) {
-+		if (nfc->use_mdma)
-+			sunxi_nfc_rst(nfc);
-+		else
-+			dmaengine_terminate_all(nfc->dmac);
-+		return 0;
-+	}
-+
-+	/* Drain the handler before resetting its registers. */
-+	disable_irq(nfc->irq);
-+	writel(0, nfc->regs + NFC_REG_INT);
-+	readl(nfc->regs + NFC_REG_INT);
-+
-+	/* A soft reset alone can leave the first subsequent read displaced. */
-+	sunxi_nfc_rst(nfc);
-+	ret = reset_control_reset(nfc->reset);
-+	if (ret)
-+		goto failed;
-+
-+	writel(0, nfc->regs + NFC_REG_INT);
-+	writel(NFC_INT_MASK, nfc->regs + NFC_REG_ST);
-+	readl(nfc->regs + NFC_REG_INT);
-+	enable_irq(nfc->irq);
-+
-+	/* The next operation selects the chip and restores its timing and layout. */
-+	return 0;
-+
-+failed:
-+	/* Keep the IRQ disabled and reject commands after failed recovery. */
-+	nfc->recovery_failed = true;
-+	dev_err(nfc->dev, "NAND controller recovery failed: %d\n", ret);
-+	return ret;
- }
- 
- static int sunxi_nfc_select_chip(struct nand_chip *nand, unsigned int cs)
-@@ -642,6 +680,9 @@ static int sunxi_nfc_select_chip(struct nand_chip *nand, unsigned int cs)
- 	u32 ctl;
- 	int ret;
- 
-+	if (nfc->recovery_failed)
-+		return -EIO;
-+
- 	if (cs >= sunxi_nand->nsels)
- 		return -EINVAL;
- 
-@@ -1464,8 +1505,14 @@ static int sunxi_nfc_hw_ecc_read_batch_dma(struct nand_chip *nand,
- 	       nfc->regs + NFC_REG_CMD);
- 
- 	ret = sunxi_nfc_wait_events(nfc, wait, false, 0);
--	if (ret)
--		sunxi_nfc_dma_op_abort(nfc);
-+	if (ret) {
-+		int abort_ret = sunxi_nfc_dma_op_abort(nfc);
-+
-+		if (abort_ret) {
-+			sunxi_nfc_dma_op_cleanup(nfc, DMA_FROM_DEVICE, &sg);
-+			return abort_ret;
-+		}
-+	}
- 
- 	sunxi_nfc_randomizer_disable(nand);
- 	sunxi_nfc_hw_ecc_disable(nand);
-@@ -1514,7 +1561,7 @@ static int sunxi_nfc_hw_ecc_read_chunks_dma(struct nand_chip *nand, u8 *buf,
- 	return ret;
- 
- err_stats:
--	/* The caller retries the whole read in PIO mode. */
-+	/* A PIO retry must not count completed DMA batches twice. */
- 	mtd->ecc_stats.corrected = corrected;
- 	mtd->ecc_stats.failed = failed;
- 	return ret;
-@@ -1648,6 +1695,7 @@ static int sunxi_nfc_hw_ecc_read_page(struct nand_chip *nand, u8 *buf,
- static int sunxi_nfc_hw_ecc_read_page_dma(struct nand_chip *nand, u8 *buf,
- 					  int oob_required, int page)
- {
-+	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
- 	int ret;
- 
- 	ret = nand_read_page_op(nand, page, 0, NULL, 0);
-@@ -1656,7 +1704,7 @@ static int sunxi_nfc_hw_ecc_read_page_dma(struct nand_chip *nand, u8 *buf,
- 
- 	ret = sunxi_nfc_hw_ecc_read_chunks_dma(nand, buf, oob_required, page, 0,
- 					       nand->ecc.steps);
--	if (ret >= 0)
-+	if (ret >= 0 || nfc->recovery_failed)
- 		return ret;
- 
- 	/* Fallback to PIO mode */
-@@ -1677,6 +1725,7 @@ static int sunxi_nfc_hw_ecc_read_subpage_dma(struct nand_chip *nand,
- 					     u32 data_offs, u32 readlen,
- 					     u8 *buf, int page)
- {
-+	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
- 	int first_step = data_offs / nand->ecc.size;
- 	int end_step = DIV_ROUND_UP(data_offs + readlen, nand->ecc.size);
- 	int ret;
-@@ -1686,7 +1735,7 @@ static int sunxi_nfc_hw_ecc_read_subpage_dma(struct nand_chip *nand,
- 		return ret;
- 
- 	ret = sunxi_nfc_hw_ecc_read_chunks_dma(nand, buf, false, page, first_step, end_step);
--	if (ret >= 0)
-+	if (ret >= 0 || nfc->recovery_failed)
- 		return ret;
- 
- 	/* Fallback to PIO mode */
-@@ -1828,9 +1877,10 @@ static int sunxi_nfc_hw_ecc_write_page_dma(struct nand_chip *nand,
- 		else
- 			ret = nand_prog_page_begin_op(nand, page, 0, NULL, 0);
- 		if (ret) {
--			sunxi_nfc_dma_op_abort(nfc);
-+			int abort_ret = sunxi_nfc_dma_op_abort(nfc);
-+
- 			sunxi_nfc_dma_op_cleanup(nfc, DMA_TO_DEVICE, &sg);
--			return ret;
-+			return abort_ret ?: ret;
- 		}
- 
- 		/* exec_op() restores the page's spare base during column changes. */
-@@ -1856,8 +1906,14 @@ static int sunxi_nfc_hw_ecc_write_page_dma(struct nand_chip *nand,
- 		       nfc->regs + NFC_REG_CMD);
- 
- 		ret = sunxi_nfc_wait_events(nfc, wait, false, 0);
--		if (ret)
--			sunxi_nfc_dma_op_abort(nfc);
-+		if (ret) {
-+			int abort_ret = sunxi_nfc_dma_op_abort(nfc);
-+
-+			if (abort_ret) {
-+				sunxi_nfc_dma_op_cleanup(nfc, DMA_TO_DEVICE, &sg);
-+				return abort_ret;
-+			}
-+		}
- 
- 		sunxi_nfc_randomizer_disable(nand);
- 		sunxi_nfc_hw_ecc_disable(nand);
-@@ -2794,11 +2850,18 @@ static int sunxi_nfc_probe(struct platform_device *pdev)
- 		}
- 	}
- 
--	nfc->reset = devm_reset_control_get_optional_exclusive(dev, "ahb");
-+	if (nfc->caps->needs_bus_reset)
-+		nfc->reset = devm_reset_control_get_exclusive(dev, "ahb");
-+	else
-+		nfc->reset = devm_reset_control_get_optional_exclusive(dev, "ahb");
- 	if (IS_ERR(nfc->reset))
--		return PTR_ERR(nfc->reset);
-+		return dev_err_probe(dev, PTR_ERR(nfc->reset), "failed to get AHB reset\n");
- 
--	ret = reset_control_deassert(nfc->reset);
-+	/* Exercise the recovery reset operation before accepting DMA transfers. */
-+	if (nfc->caps->needs_bus_reset)
-+		ret = reset_control_reset(nfc->reset);
-+	else
-+		ret = reset_control_deassert(nfc->reset);
- 	if (ret) {
- 		dev_err(dev, "reset err %d\n", ret);
- 		return ret;
-@@ -2908,6 +2971,7 @@ static const struct sunxi_nfc_caps sunxi_nfc_h616_caps = {
- 	.has_mdma_desc = true,
- 	.has_ecc_clk = true,
- 	.has_mbus_clk = true,
-+	.needs_bus_reset = true,
- 	.reg_io_data = NFC_REG_A23_IO_DATA,
- 	.reg_ecc_err_cnt = NFC_REG_H6_ECC_ERR_CNT,
- 	.reg_user_data = NFC_REG_H6_USER_DATA,
-
--- 
-2.53.0
+On 11/20/26 2:00 PM, Heming Zhao wrote:
+> This patch set migrates ocfs2 Direct I/O (DIO) from buffer_head mode
+> to iomap mode. It is based on commit aebb72744764 (v7.4-rc3), and
+> also incorporates Joseph's code and ideas from [1]:
+> 
+> V9 changelog:
+> 
+> Address sashiko's review comments [3] (all changes are in patch [3/3]):
+> 
+> ocfs2_file_write_to_iter():
+> - switch pr lock to ex when DIO falls back to buffered IO
+> - Fall back to buffered I/O for a direct write when block size is smaller
+>   than the page size and the write does not cover whole pages
+> - clear orphan when rw_lock is still held
+> 
+> ocfs2_dio_wr_map_blocks may use a value beyand u32 to call
+> ocfs2_clusters_to_blocks()
+> 
+> initialize oi->ip_dio_orphan_pid and oi->ip_dio_orphan_end in
+> ocfs2_inode_init_once()
+> 
+> --------------
+> # test report
+> 
+> This patch set has been tested on 7.4-rc3 kernel
+> 
+> ## ltp
+> 
+> runltp -f dio -d /mnt/ocfs2/
+> 
+> results: passed
+> 
+> ## xfstests
+> 
+> ./check -g quick -T -b -s ocfs2 -e generic/081 \
+> -e generic/266 -e generic/272 -e generic/281 \
+> -e generic/338 -e generic/347 -e generic/361 \
+> -e generic/628 -e generic/629 -e generic/648 -e generic/650 
+> 
+> OCFS2_MKFS_LOCAL_OPT="-b 2K -C 4K --fs-features=local --fs-feature-level=max-features"
+> Failures: generic/003 generic/056 generic/091 generic/094 generic/177
+> generic/211 generic/225 generic/263 generic/321 generic/322 generic/329
+> generic/331 generic/370 generic/376 generic/424 generic/448 generic/467
+> generic/477 generic/481 generic/498 generic/510 generic/512 generic/513
+> generic/534 generic/537 generic/552 generic/557 generic/563 generic/578
+> generic/588 generic/607 generic/620 generic/630 generic/755 generic/760
+> generic/771 generic/777 generic/779 generic/784
+> Failed 39 of 632 tests
+> 
+> OCFS2_MKFS_LOCAL_OPT="-b 4K -C 4K --fs-features=local --fs-feature-level=max-features"
+> Failures: generic/003 generic/056 generic/070 generic/091 generic/094
+> generic/177 generic/211 generic/225 generic/263 generic/321 generic/322
+> generic/329 generic/331 generic/370 generic/376 generic/424 generic/448
+> generic/467 generic/477 generic/481 generic/498 generic/510 generic/512
+> generic/513 generic/534 generic/537 generic/552 generic/557 generic/563
+> generic/578 generic/588 generic/607 generic/620 generic/630 generic/755
+> generic/760 generic/771 generic/777 generic/779 generic/784
+> Failed 40 of 632 tests
+> 
+> OCFS2_MKFS_LOCAL_OPT="-b 2K -C 8K --fs-features=local --fs-feature-level=max-features"
+> Failures: generic/003 generic/056 generic/075 generic/091 generic/094
+> generic/112 generic/177 generic/211 generic/225 generic/263 generic/321
+> generic/322 generic/329 generic/331 generic/370 generic/376 generic/424
+> generic/448 generic/467 generic/477 generic/481 generic/498 generic/510
+> generic/512 generic/513 generic/534 generic/537 generic/552 generic/557
+> generic/563 generic/564 generic/578 generic/588 generic/607 generic/620
+> generic/630 generic/755 generic/759 generic/760 generic/771 generic/777
+> generic/779 generic/784 ocfs2/001
+> Failed 44 of 632 tests
+> 
+> ## fio
+> 
+> (4k blocksize 4k clustersize, local mount)
+> 
+> fio --direct=1 --iodepth=32 --rw=write --ioengine=libaio --bs=128k --size=1g \
+> --numjobs=4 --runtime=100 --group_reporting --filename=/mnt/ocfs2/write.1g --name=tst
+> before patch: write: IOPS=32.2k, BW=4028MiB/s
+> after  patch: write: IOPS=38.6k, BW=4824MiB/s
+> 
+> fio --direct=1 --iodepth=32 --rw=read --ioengine=libaio --bs=128k --size=1g \
+> --numjobs=4 --runtime=100 --group_reporting --filename=/mnt/ocfs2/write.1g --name=tst
+> before patch: read: IOPS=49.1k, BW=6132MiB/s
+> after  patch: read: IOPS=50.9k, BW=6360MiB/s
+> 
+> fio --direct=1 --iodepth=32 --rw=randwrite --ioengine=libaio --bs=4k \
+> --size=1g --numjobs=4 --runtime=100 --group_reporting --filename=/mnt/ocfs2/write.1g --name=tst
+> before patch: write: IOPS=14.4k, BW=56.4MiB/s
+> after  patch: write: IOPS=14.4k, BW=56.1MiB/s
+> 
+> fio --direct=1 --iodepth=32 --rw=randwrite --ioengine=libaio --bs=4k \
+> --size=1g --numjobs=4 --runtime=100 --group_reporting --filename=/mnt/ocfs2/write.1g --name=tst
+> before patch: read: IOPS=382k, BW=1492MiB/s
+> after  patch: read: IOPS=419k, BW=1637MiB/s
+> 
+> ------
+> [1]:
+> https://gitee.com/anolis/storage-cloud-kernel/commit/ea3fe75e2060118ba093e90b1cd34fa382914b29
+> 
+> [2]:
+> https://sashiko.dev/#/patchset/20261103135605.22943-1-heming.zhao%40suse.com
+> 
+> [3]:
+> v1 patch set:
+> https://lore.kernel.org/ocfs2-devel/20260724052559.15409-1-heming.zhao@suse.com/
+> v2 patch set:
+> https://lore.kernel.org/ocfs2-devel/20260727061802.18485-1-heming.zhao@suse.com/
+> v3 patch set:
+> https://lore.kernel.org/ocfs2-devel/20261018143319.22329-1-heming.zhao@suse.com/
+> v3 sashiko review:
+> https://sashiko.dev/#/patchset/20261018143319.22329-1-heming.zhao%40suse.com
+> v4 patch set:
+> https://lore.kernel.org/ocfs2-devel/20261103135605.22943-1-heming.zhao@suse.com/
+> v4 sashiko review:
+> https://sashiko.dev/#/patchset/20261103135605.22943-1-heming.zhao%40suse.com
+> v5 patch set:
+> https://lore.kernel.org/ocfs2-devel/20261105071930.16399-1-heming.zhao@suse.com/
+> v5 sashiko review:
+> https://sashiko.dev/#/patchset/20261105071930.16399-1-heming.zhao%40suse.com
+> v6 patch set:
+> https://lore.kernel.org/ocfs2-devel/20261115154013.9379-1-heming.zhao@suse.com/
+> v6 sashiko review:
+> https://sashiko.dev/#/patchset/20261115154013.9379-1-heming.zhao%40suse.com
+> v7 patch set:
+> https://lore.kernel.org/ocfs2-devel/20261118002050.9019-1-heming.zhao@suse.com/
+> v7 sashiko review:
+> - https://sashiko.dev/#/patchset/20261117150053.18417-1-heming.zhao%40suse.com
+> - https://sashiko.dev/#/patchset/20261118002050.9019-1-heming.zhao%40suse.com
+> v8 patch set:
+> https://lore.kernel.org/ocfs2-devel/20261119064029.11910-1-heming.zhao@suse.com/
+> v8 sashiko review:
+> https://sashiko.dev/#/patchset/20261119064029.11910-1-heming.zhao%40suse.com
+> 
+> -----------------------
+> 
+> Heming Zhao (3):
+>   ocfs2: Add new ocfs2_map_blocks() to introduce iomap feature
+>   ocfs2: switch DIO read path from buffer_head to iomap
+>   ocfs2: switch dio write path from buffer_head to iomap
+> 
+>  fs/ocfs2/Kconfig      |    2 +-
+>  fs/ocfs2/aops.c       | 1685 ++++++++++++++++++++++++++++++++---------
+>  fs/ocfs2/aops.h       |   43 +-
+>  fs/ocfs2/extent_map.c |   34 +-
+>  fs/ocfs2/extent_map.h |    3 +
+>  fs/ocfs2/file.c       |  314 +++++++-
+>  fs/ocfs2/inode.h      |    9 +
+>  fs/ocfs2/mmap.c       |    2 +-
+>  fs/ocfs2/ocfs2.h      |   25 +-
+>  fs/ocfs2/super.c      |    3 +
+>  10 files changed, 1690 insertions(+), 430 deletions(-)
+> 
 
