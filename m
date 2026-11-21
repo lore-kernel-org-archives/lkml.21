@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795267969;
-	b=BFpgg/LAhA4sLpeke3r5+VbhBc/f9rF0z9WcJXe6LWGPmTXGNkL/U18AJYZQYyXCkimY
-	 HG3C+1/EIJBajOdjn8txpFWpAwLSgsMxu12+uXhZTdK6DNkMHpLlHVdZDxoq1cefQdkFy
-	 oT2Pj/UiKL8tNQEusGwx9XQeD8X2/5NBKDfU0TKL82a5lIFCGuLejlEtDxVDJyHnrc9Xo
-	 QuM8a+vBdQImU6E7K313T18Xro9vG+CyoonMWxvaJIyzwCiXzFMVLX1uE8BLmlxDdnlqp
-	 GA7a8Z89izZImO8sQl3oxe6AqggGI3GO9w4csPukhZT2bRiPbx6inB/7lzOL683GBqg==
+	t=1795267970;
+	b=DCJ/zeT0eMhB43JHGDTHMUvTv2UFTFt0DeKCMWGv46dA8QCSMPsQG0tZkgqDdM4VbZ59
+	 RREzl5OHt4hwseNz3r6+Lg6+GPgGzsuLPEPc7zsFZ4tBkz5TOai5FOmPF7gfxRDD6KImA
+	 1xa4Jds6i0cuVmNnFH/F5fX0uQWRYis9z/Zrf50AKt7FoZjQr7C6fR4EBzR51tsrwjNA2
+	 qGOTHwkHGJcvHl4hUqLxDCFwrhIo8K7lvNKhIl0R2RtKkSxZSJWF/QD4Ek3UPzHIAhUaR
+	 U3aRIal96pw21GkrPNDw+sPY7LTUF1J+0wj2xUDPEqPkxJzXSEud7naZOF+wVP4/qDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795267969;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795267970;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=yBWQYF06RzN0Kc5fo+W7LuMAcoYlzyHt2HwcS4GXu/s=;
-	b=samo16xKUg0XvoTT3x97k+bY8BE2MzQm/P1N3II26Rj7CMWAZOfRNHmgQlbxyRbOY9Qh
-	 WzXZ+NT+7FczxLTYitrz16qagl44siPfm5t6eMH7zqovG0Rz9bw9CkI8ktl3r7at3ZOxB
-	 9y+6AOyx9XTNgsOpNAu0dgtnlKyDeLmqZzhJ6QXrMoS/LXj2+BxE7QRq2BrhtNH/gMDWC
-	 Mv5OvGSb7mTJw5IrlKBU4AHTqfyOPoPkxjbaBuCkOFIQCgyPCZnlkS24eSYnvcspmcJmL
-	 dVskv+Aiv2ZeeaiXZTQGO87cF/fGXAygl2+zwFc6WE01YddAGx9Vajq41XAG0sgYupg==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=eKfSFsRRzq0LJey3f3z0sDE1jUJc6EIjO9xhjcKZVJU=;
+	b=EQDQFUrx4885jrjegPqpWGlurDHP0WRTerNgDgt1oIzKHBY2Vr6n5HNIrCqgWlB5mfZ0
+	 BsIm8deA26cr0AeZ+hlxq9ly34FptpX0UxdRXJPghazd9sBPxcCgoo/wH0qWYv+wFxyY1
+	 SbHrDQTPXxY/6jq8YfIlwDiJiPlr8KqOlID0bpPmJyK9MDCsJ5q3x2ovW/2faY+7zwnUK
+	 jRmFmLO9HYEcEcDFQ+KDcGl/yFcxOUeY2lFQhKWQjClP0/UWV/51rjYFp4TGKzjgCVYcY
+	 28Rvjd7g6pk7u3C1KoG7xy6+FJDxav0Jr/hFsrO2a54NT+Xo6DMKjB5PqvbOlbyd/Og==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QoWu65Ne;
-	arc=none smtp.remote-ip=209.85.128.47
-Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=km2s4lvd;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D3E1606A33C
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:32:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D3E1606A33C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9236F606A32C
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:32:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9236F606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QoWu65Ne
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4bb77a462c6so22227335e9.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:32:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=km2s4lvd
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-49d05d51553so12726095e9.2
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:32:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795267967; x=1795872767; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yBWQYF06RzN0Kc5fo+W7LuMAcoYlzyHt2HwcS4GXu/s=;
-        b=QoWu65NeGhSeAkEovw3/LCMVojAy7azK7BS9FdJzBCU3BwWwgbrk1XnqR1k8+CBcF0
-         OCrPc50SgPTHd4heTdC+WBRN5vbBL5YR0F4yN6TOHNA4sECpguKqfc/OPNdX9WGxkPcF
-         MK0/HZFN6KooROGZIOG6KWBycdKubcUUioanCuPslBJv3vGFnkXarTaXtCs2ElXAfhFQ
-         xiQclC7WUt/E9oFdTxWsvx9oc26QmUOXa99QA7m3s5ubxYDI6P19Xz+j8aSMmy8bcCl7
-         8hgGACmv6ip+PTxqMvo1U3ui7QOpIfhKUHea//euZDvvDNnBZ1sDl4Ji+0NlLEWWhyf9
-         zmLg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795267967; x=1795872767;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795267969; x=1795872769; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=yBWQYF06RzN0Kc5fo+W7LuMAcoYlzyHt2HwcS4GXu/s=;
-        b=2ZN/Ws2eqPcOstmFO+gEDa8I9YK/xG5tbaoKeIKBcl0YrE9Z2zqpegsUdCgHKhVQ0z
-         Chum32w850ucC5FFsn6721weAdnuRhslUPKBdMKbyr4z/a8DyNbiav5onyFby1AdBZ0Y
-         fzYE+7fFkkH67HgjbhYdkofRfLMg5mVgPGwvxqkAmzb6mS097b13FrX8X9UOlu+QjqiO
-         6/HOFxWw/mhgXP8ulp1IQUXKPXXiXnUgnRqHkkgy/S2RMssOBbhBtgE5216Dhc7h9q+W
-         pc2jiG084jh8rNVvU3VjHylbDqFM72DufnClXTEWM3O+icT1q/5/3YZmk6D+hQqp7TUU
-         V0jA==
-X-Forwarded-Encrypted: i=1; AL+hErGtZvPZy6yTvntE0kfmtvMDRlLxuVDUKUbbQ1ypjg4nc1Ok148Gm7474ZSDl5tGu06gOXdkI+ab4lCMiB4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Fn1e2FjtK5SCOID9aAwXvppngMd7E7XOx6U7J68kcO3sMLGTJ
-	se/4pBU2svHsFXWX+gvbWfUpo4kU+BlLdOQMimxAX3BSO25JD2OeoGLh
-X-Gm-Gg: AZFdTZd00Dlpc7ASn756hFmaJzWXoQX6VSpecJYCsT1jDhnChFNxj5bfuxlA7iqX1rg
-	DloxW1fO0/zBEVkPsk4Qb/ddp8n3lz4ac5Hb6cBqgIR3g1NrKCkVdB6lzoYjEF9T2BXJBG3G7ef
-	NfJYotkoTqdZpPZyeB/kTJO/xhl8OiD623ZFtbKGtjjbP+TF2unseCUd7mC618n18HbfqXTJIVk
-	X0iJJklCUouIQMhpBjCFu5xaQXjiHw0lpoL9VOR1zJCQU+xL11/vw6GsDFJt0LoBFHvVEFwt3I2
-	gvXBzUXAL+EJlDwzIxTxkgDtBvyC1bt9yx0fn6puzKYO76exqjEdHGOekuLnMWBGN7xU+UoM8Fb
-	2an5LYz4HA8oTum6Gt2JFWn2EM6VEgmuSIfkWtmUeLW/uoAxyFtxCmbWZYjMdpIipwjOcZVOPCR
-	SrpCxH+q0Iaoc/cF0fLXvMh2weWe+IjmDIfnrV2bmca69jnrw3O25z4VQuvoIc7R7ZfCur60cKL
-	R8K0wBcKsIu03nqNMSkROGU/uupA9/UMV8ajHEr4uCvphvXi9IpQ5vRhsnkUpLFbGJtu5CmNc31
-	minCdYO0F8eR8IN8PfPlaV1AUS57DCGzi6OIkuba/z8k//XM7+h1Ml/1RkE7DZKfjSF5mrPZTjj
-	MeBM0R/sRZaKk
-X-Received: by 2002:a05:600c:5303:b0:4ba:4928:8aec with SMTP id 5b1f17b1804b1-4bb88807d7cmr132597455e9.9.1795267967020;
-        Sat, 21 Nov 2026 05:32:47 -0800 (PST)
+        bh=eKfSFsRRzq0LJey3f3z0sDE1jUJc6EIjO9xhjcKZVJU=;
+        b=km2s4lvdtngUXUwRBoBtn6pONA/EYuNEtSCTGRJ7U1Mt8zZk1puZrUGQrsdqUycmPf
+         slEGwiriLbjoI29ddae8ge3XhCle6jBoYQj3hspcZs8MVjE9IEeMknf08hYFlinQFQvy
+         ki2Nrj0AhiWKOVOBxoao8RMY10Kvu4cW36smDhbU3M5slqGxcMFNtFMii86IfSHpirMq
+         SQvNtMNmDmdGkNGcl04b1+iSXdnLkdKaylOSl+9NckxmF+5xhUcM3/vgN2pxp3/pPN/h
+         Thg7aqfv11eIzw1qI9zgf8119BcmfUIVP8WvgLZ60bxAwY9OrobEdj9b/cYmmPvddFir
+         nP2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795267969; x=1795872769;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=eKfSFsRRzq0LJey3f3z0sDE1jUJc6EIjO9xhjcKZVJU=;
+        b=aelkFy1Hw3CMmpQ8aVy8Fp814uk3Nry35M1uKRzBstAebbGEVb+04nc8Swj+OSR3AI
+         8UK+Y1agX/cY6jXq3SqZdxZHN3GcTPrYwmBfdvHPIASDkvSBJug4fjIM5K0o0HS9GUKc
+         sA1LEbXCKeFC4o0EOOq6JAhCBwZ6XpCtqXwVWqoP9unLIAGgayRZD78lkVQCH0yFrfqO
+         FLu4mUNJMLy1zOsexBWeba8dW9xmAEs3K5XtkPkdIiiRTVY2fqYvDRrEwYLXc+gNXWm9
+         SE6ip+12bw6xj+QUwqVRdQbh1nFRQesBHfi45RSgK7Am0Os683hzTmi6s1w+UMDFiNRa
+         Nx3Q==
+X-Forwarded-Encrypted: i=1; AL+hErGWGHVSvnL3nAAgbvRCx5u6+P+82tuW7hEIDSNbXPlouFnsNsSWzRANJoRw9V9iBpEREFwFXVhHkEzh50o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+m3bczyneWPD7BrzlK3XQ6anITmc1FMC+npjmibZ3pg6cZc7FQ
+	Zo4NYLUSJVsB3nrDVKmN1ZrGJisoGGGFZXtNIcM+jXH8S7Njmp0iFn/9
+X-Gm-Gg: AZFdTZeLEW+CSy/7aMX1KWAYZES2cp8CC4zWCk3CXuQ+7Dh4jJ3MQNUPF3pTAhiShlM
+	O1ShHm2slxbb/uo9T+nWgAx4ROJMOSeDDsh7IiFgcRLhaIvyYPyAP6aBk6RXUrARH17DmKG23sU
+	L2r60Q5FOiBZNtNz9eHSZq9gd/vj1LAwe0jYhuKE283CmFARtLtSd3QXBwsR8/9HJyIPr0CuzVR
+	iSZoJivKuT1loK5DtFPOrPJEqB0wiIGyBx031nWioMDGaL/wL2ZNNBJnHYLYVm+uM71GUa6TmJk
+	nrq28O22G7ObcgfVJu58kP8yfebc03kT7NNrUJ/kk+UZ6Vz0c2033BSHUYQp87+vwWSuU84CYSm
+	Hur11vH9ghFdBuelUg28ylTJRyriidCd0evBSiDahljC4mjJ0Br2kfL7d1NpiPEAtGL75o263ud
+	DGTS3ranK/RsVcY5Zs0jfr13+Rh59bfDyWCeS/xh8k0JJ54oPFITSZiVmVgD6TDYhyEbI/1XI3C
+	YiXV99H9sarOSulN9J1TjrO3B+rh0kt6tH2FzSzNHQBCYOkVr4hj0VE6JxhHSAgfjVvrmZkNEyh
+	Cw+e2pmniLCVilowX7mO+irYpKtxu2DtfH+q+bercdVExB3ZQvpeWlfAOlGNDNuDLr37cU/CRWa
+	Fq6QBNNve0E34
+X-Received: by 2002:a05:600c:c09b:b0:4bb:665f:7e52 with SMTP id 5b1f17b1804b1-4bb8880995dmr101433245e9.10.1795267969099;
+        Sat, 21 Nov 2026 05:32:49 -0800 (PST)
 Received: from 1Z10 ([2a02:b123:8010:295a:cf7a:d53b:95ce:c0e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm83345955e9.2.2026.11.21.05.32.45
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm83345955e9.2.2026.11.21.05.32.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 05:32:46 -0800 (PST)
+        Sat, 21 Nov 2026 05:32:48 -0800 (PST)
 From: Maurizio Casciano <mauriziocasciano7@gmail.com>
 To: linux-media@vger.kernel.org
 Cc: Maurizio Casciano <mauriziocasciano7@gmail.com>,
@@ -94,10 +95,12 @@ Cc: Maurizio Casciano <mauriziocasciano7@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	linux-staging@lists.linux.dev,
 	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Subject: [PATCH v11 00/14] media: Add Lenovo Yoga Book camera support
-Date: Sat, 21 Nov 2026 14:31:30 +0100
-Message-ID: <cover.1795267528.git.mauriziocasciano7@gmail.com>
+Subject: [PATCH v11 01/14] media: v4l2-core: Preserve existing subdevice nodes on rollback
+Date: Sat, 21 Nov 2026 14:31:31 +0100
+Message-ID: <48240d57d86e78cce814822360c1b22cea80268b.1795267528.git.mauriziocasciano7@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <cover.1795267528.git.mauriziocasciano7@gmail.com>
+References: <cover.1795267528.git.mauriziocasciano7@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,92 +112,99 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add front and rear camera support for the Lenovo Yoga Book X91L.
-The front sensor is OV2740 and the rear sensor is OV8858 with a
-WV517S focus actuator. AtomISP ISP2401 can capture RAW Bayer from
-both cameras.
+Subdevice node registration skips nodes which already exist. On failure,
+however, it walks the subdevice list from the beginning and unregisters
+nodes regardless of whether the current call created them. On AtomISP
+this can remove the camera sensor nodes when a lens rebind fails.
 
-This review series is based on media-next. Apply David Heidelberg's
-posted V4L2 subdevice release fix first. The prerequisite patch ID
-below identifies that patch. WV517S needs it before the V4L2 core
-can release the actuator's final reference.
+Keep a list of the video devices registered by this call and unregister
+only those devices on failure. Record each device before creating its
+media interface link so a failure in that step rolls back the new node
+as well. Calls with no missing nodes need no bookkeeping allocation.
 
-Changes since v10:
+Codex drafted the change and tested allocation, registration and
+media-link failure using the registration helper with mocked operations.
 
-- Drop the upstream ACPI initializer and INT3477 ID changes. Reuse
-  the existing rear IPU bridge entry and shared Cherry Trail PCI ID.
-- Limit OV8858 19.2 MHz support to four-lane R2A. Carry the 2014
-  Intel OV8858 notice and record the sources of the register table.
-- Drop the per-component white-balance controls from both sensors.
-- Use div64_s64() for CSI-2 timing and make AtomISP RAW negotiation
-  and enumeration follow the sensor's advertised formats.
-- Defer WV517S I/O until use and hold its state through final release.
-  Preserve existing camera nodes if registration of a new node fails.
-- Keep the OV2740 probe retry as a separate diagnostic patch. The
-  cold-boot logs did not show a natural I2C failure or recovery.
+Fixes: db0f4691d974 ("[media] v4l: Allow calling v4l2_device_register_subdev_nodes() multiple times")
+Signed-off-by: Maurizio Casciano <mauriziocasciano7@gmail.com>
+---
+ drivers/media/v4l2-core/v4l2-device.c | 26 ++++++++++++++++++++------
+ include/media/v4l2-device.h           |  3 +++
+ 2 files changed, 23 insertions(+), 6 deletions(-)
 
-The revised sources built the full x86-64 image and modules. The
-focused Sparse checks, i386 AtomISP object link and WV517S build
-with CONFIG_PM disabled also passed.
-The mocked registration test reproduced the previous rollback and
-verified that existing nodes survive each simulated failure. The
-format and notifier fixtures also passed.
-
-On the X91L, the exact revised 7.4 image bound both sensors and
-WV517S at boot. Each camera delivered 30 distinct RAW and 20
-distinct Preview YU12 frames before and after lens rebind. The
-capture and sensor nodes survived rebind, focus controls worked,
-and the actuator returned to runtime suspend. Physical focus
-travel, 24 MHz OV8858 hardware and X91F lane configuration remain
-open.
-
-Codex drafted the rollback fix and cover text and consolidated the
-previously tested follow-ups. Individual commits describe its role.
-
-v10: https://lore.kernel.org/linux-media/20261002-submission-media-yogabook-v10-b4-final-v10-0-817ec765b257@gmail.com/T/
-V4L2 prerequisite: https://lore.kernel.org/r/20260917-v4l2-release-fix-v1-1-acbac7f9b78e@ixit.cz/
-
-With Best Regards,
-Maurizio Casciano
-
-Maurizio Casciano (14):
-  media: v4l2-core: Preserve existing subdevice nodes on rollback
-  media: ov8858: Extract digital gain programming
-  media: ov8858: Support a 19.2 MHz input clock on four-lane R2A
-  media: ov2740: Add OVTI2740 ACPI ID
-  media: intel: ipu-bridge: Add the Yoga Book OVTI2740 entry
-  media: atomisp: Add Yoga Book camera configuration
-  media: ov2740: support 288 MHz link frequency
-  media: intel: ipu-bridge: select OV2740 frequency by IPU ID
-  media: atomisp: Derive CSI-2 timing from the sensor link frequency
-  media: ov2740: release group hold after gain write errors
-  media: atomisp: Use struct v4l2_area for padding
-  media: atomisp: Allow raw Bayer capture
-  media: i2c: Add WV517S lens actuator driver
-  media: atomisp: Preserve the capture graph when a lens rebinds
-
- MAINTAINERS                                   |   1 +
- drivers/media/i2c/Kconfig                     |  11 +
- drivers/media/i2c/Makefile                    |   1 +
- drivers/media/i2c/ov2740.c                    |  65 +++-
- drivers/media/i2c/ov8858.c                    | 172 +++++++---
- drivers/media/i2c/wv517s.c                    | 320 ++++++++++++++++++
- drivers/media/pci/intel/ipu-bridge.c          |   9 +
- drivers/media/v4l2-core/v4l2-device.c         |  26 +-
- .../staging/media/atomisp/pci/atomisp_cmd.c   | 103 +++---
- .../staging/media/atomisp/pci/atomisp_cmd.h   |   6 +-
- .../staging/media/atomisp/pci/atomisp_csi2.c  |  24 +-
- .../media/atomisp/pci/atomisp_csi2_bridge.c   |  36 +-
- .../staging/media/atomisp/pci/atomisp_ioctl.c | 117 +++++--
- .../media/atomisp/pci/atomisp_subdev.c        |   4 +-
- .../media/atomisp/pci/atomisp_subdev.h        |   3 +-
- include/media/v4l2-device.h                   |   3 +
- 16 files changed, 748 insertions(+), 153 deletions(-)
- create mode 100644 drivers/media/i2c/wv517s.c
-
-
-base-commit: ccf78740d63813c452c035b57d17a650492562fa
-prerequisite-patch-id: def08de8e36aa31f6d2360428b29f6b0f4c8e1c8
+diff --git a/drivers/media/v4l2-core/v4l2-device.c b/drivers/media/v4l2-core/v4l2-device.c
+index b4036105c..8cfca95ce 100644
+--- a/drivers/media/v4l2-core/v4l2-device.c
++++ b/drivers/media/v4l2-core/v4l2-device.c
+@@ -191,10 +191,23 @@ static void v4l2_device_release_subdev_node(struct video_device *vdev)
+ int __v4l2_device_register_subdev_nodes(struct v4l2_device *v4l2_dev,
+ 					bool read_only)
+ {
++	unsigned int count = 0, registered = 0;
++	struct video_device **new_nodes;
+ 	struct video_device *vdev;
+ 	struct v4l2_subdev *sd;
+ 	int err;
+ 
++	list_for_each_entry(sd, &v4l2_dev->subdevs, list)
++		if ((sd->flags & V4L2_SUBDEV_FL_HAS_DEVNODE) && !sd->devnode)
++			count++;
++
++	if (!count)
++		return 0;
++
++	new_nodes = kcalloc(count, sizeof(*new_nodes), GFP_KERNEL);
++	if (!new_nodes)
++		return -ENOMEM;
++
+ 	/* Register a device node for every subdev marked with the
+ 	 * V4L2_SUBDEV_FL_HAS_DEVNODE flag.
+ 	 */
+@@ -228,6 +241,7 @@ int __v4l2_device_register_subdev_nodes(struct v4l2_device *v4l2_dev,
+ 			kfree(vdev);
+ 			goto clean_up;
+ 		}
++		new_nodes[registered++] = vdev;
+ #if defined(CONFIG_MEDIA_CONTROLLER)
+ 		sd->entity.info.dev.major = VIDEO_MAJOR;
+ 		sd->entity.info.dev.minor = vdev->minor;
+@@ -247,15 +261,15 @@ int __v4l2_device_register_subdev_nodes(struct v4l2_device *v4l2_dev,
+ 		}
+ #endif
+ 	}
+-	return 0;
++	err = 0;
++	goto out;
+ 
+ clean_up:
+-	list_for_each_entry(sd, &v4l2_dev->subdevs, list) {
+-		if (!sd->devnode)
+-			break;
+-		video_unregister_device(sd->devnode);
+-	}
++	while (registered)
++		video_unregister_device(new_nodes[--registered]);
+ 
++out:
++	kfree(new_nodes);
+ 	return err;
+ }
+ EXPORT_SYMBOL_GPL(__v4l2_device_register_subdev_nodes);
+diff --git a/include/media/v4l2-device.h b/include/media/v4l2-device.h
+index 25f69b1b8..6d8834d40 100644
+--- a/include/media/v4l2-device.h
++++ b/include/media/v4l2-device.h
+@@ -183,6 +183,9 @@ void v4l2_device_unregister_subdev(struct v4l2_subdev *sd);
+  * @read_only: subdevices read-only flag. True to register the subdevices
+  *	device nodes in read-only mode, false to allow full access to the
+  *	subdevice userspace API.
++ *
++ * Existing nodes are kept even if registration of a new node fails.
++ * The caller must serialize this operation with changes to the subdevice list.
+  */
+ int __must_check
+ __v4l2_device_register_subdev_nodes(struct v4l2_device *v4l2_dev,
 -- 
 2.53.0
+
 
