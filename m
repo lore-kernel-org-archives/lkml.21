@@ -1,82 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795244284;
-	b=YBUQC7Ks+WNLxnxhPZZqBQb6UbmJWPpfU/lKQet8mC3TyphIZTIN1t7DWYO0DvIoQ32t
-	 QMOqh1qikxvXIJXTt+Ggs9sVD6VUeqenLriuo7IS9wKYpuQnuuMcnRqqpF9q8iu3QKsbW
-	 YADdgV0FMnDScm93cyPKbwU/dP1pJ6JkbAkA8dQXBi/STMBT7ZdtFkXBtmLH7D/xo8Xw8
-	 CILaHaSCNFeuyByu2UIIsY+Rltk906fOI8jwlsKWWlWhsZMTgmOaoQBI/uTm/ksB+i+Ky
-	 DaOAFG1F4SEPoStekz8ViT5RCOZZn633r8jDc6xKQry+vu/DTlX7FFs8sKK7T3dzS1Q==
+	t=1795244288;
+	b=jZVD+7ZgTriD5j/usHcsK2frMYCZ0wVB/W8LdEJ76b8AyLFB90DsYA6lV9THc4MuHd1A
+	 IDJZs9YzYErsSjhqFhiILtET74rVfnC4WW7OKJ/llrQ0b/wftUDiMt5qIUYkEYxOjVlwU
+	 6OOrz6Db/l/Dpr4vcF1eDWWfmrmpvHNyPEegf6NBPE8thu7sqljn8c9fjDX95Zv5cVa8K
+	 uHzMsJKDGJyDIEYdf7kkBAcCMzmcGZlDio337nNgjHZQiQZJ/+oKYai3DLTobarJQeHGA
+	 83KNRWMXleKIJBg1jKVtevTeWgYbo2drRFa62e3/VixxEm+RZuw3Ul4bZfxEufuz/DA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795244284;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795244288;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=HJvLZtYqV9IRY5S+Gk4Obo3dupP4kEt47B2cXHjBvWw=;
-	b=3q7X2Tl7CfJOUNNwpJifYlq0+gKEEMwG5vyM9ivqdR3iOngJ5MheYJWv+jTsHgbMTkBJ
-	 7IZtJ5x0gpTJPqKkKAJ+noE9oMPScP6qu2h59lY/UHA92s77R+fcVLOAO41riIdY9oB0L
-	 79IlpVk5zGIDWNeH/3Cow34DB1SDIvF53nHkxuPFcS2RIueavY35lT86bRxhEW309kIt9
-	 F3kiySpfbx/co5p2HMAk6bVzzioUsEP/Ey+DZz9OB4bnbmDv9g81Le2pBkrKLkHf1iPz0
-	 gGVVKNT7NDX26uaqSMW3+tEy1wutBCGcrH+97dc9k7bm30scr7UgDdDN/bRTnrhMEwQ==
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=qD4SiGD7+6inf9ZHw34LzeHjuE/XCf9wmQd8TEJl1sE=;
+	b=iHlymYK1MB9LQ9dneao3b8h/Ao/Ayesk1m8lgttaasoUmyxJlsmc/yBxPI9LL0XlftuR
+	 nZV3WSaVMoO24Wm8mCkkt441+yLKX4t3RfvMrl4DF2+nU2pfu5swLB2H/dEiUxd+5vLM/
+	 eUpGrfPsoGkH8FOp2m0Efd6LergZodxHiv5Swfy3bY2ixFipSkM91kaKjcdmIh6xlqTb5
+	 TohFnBxaOSJsFP/ZqI5SxNLFIAbhfDl1nqC2HJRcvU2dYVeKvGnUB8NS0tET68tAWsS/c
+	 059f5LMJUBX6ayvsB0Q2D7qXEgAs+JzCBCrxDyYLEaY2DermsFSY2i7wiEHmJlsB7hw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SoeqgtS+;
-	arc=none smtp.remote-ip=209.85.214.176
-Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TEVhWSgA;
+	arc=none smtp.remote-ip=209.85.214.181
+Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 919A5606A325
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:58:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 919A5606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6361606A32C
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:58:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6361606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SoeqgtS+
-Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2f04fab527eso9548755ad.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:58:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TEVhWSgA
+Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2f041f88577so9543085ad.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:58:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795244284; x=1795849084; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HJvLZtYqV9IRY5S+Gk4Obo3dupP4kEt47B2cXHjBvWw=;
-        b=SoeqgtS+1h/2ImBq/UuEjf7ZubtLd/vVrYcv1kJZWXz+PiNQNVFZWNIBtR17VmMt8y
-         TfTkpCcECO8nHgS4VLKyTR/sUm3GwVWeqSjZP6lRWbxf638yFLhvtPGcWOxgkBB8gHUF
-         vNhothvTxK1Gt5lW9YmcEXlvpUWMpuzuzCfK62NrbgJ/dvceFbRp5cY7GfAdk76iXQYw
-         J12xwfMV1mizZvOMAbahnokRSDIE7zst+HAIz77OQRJNHn+ARhIj1hZcwzf6+cvi/tC/
-         cdptZ6gFZzRmRfFXR/sgRyNaPqE05qQef5yQEII+forAcqApeDrnKgqoE7wNRHgEarzu
-         9S0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795244284; x=1795849084;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795244287; x=1795849087; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=HJvLZtYqV9IRY5S+Gk4Obo3dupP4kEt47B2cXHjBvWw=;
-        b=ywAtwjTjvouqbjKE3fijUhrVLAQ7IJ08mffMIM40p3rJUUCc6vd/WzN5EAARODfmkR
-         nJtTyEHw0rhJKGZMA+EVYysaJQu6oej0LOb0lH08ONY8E9tmqQ11uX3aBK5VfbJKMKrv
-         chfI1B40WD3xNHFv+EgKsFQtZvB3Wh8PgweyUxsmWbSZ/om9N6G5sRX4dp8729rqDR7/
-         GrWOGmhQgRYoNB0B+/7A89RZfFyqDol3e0geVW4C7N6pAHFuX6fWYA6C9PH+mTzQ/HWL
-         W3V4VHfpLyfvdszO8wXK+oTF3iWpfrXbFUJw2aKOSrSUglC/PQk4AqrI6l+6t17EsaIE
-         5Xeg==
-X-Forwarded-Encrypted: i=1; AL+hErEIOUJx/N5k8Iyiw6iAzewGXuNI5O1Xp8/sX/4wlHxYn4LLR7xYVReJhhB3br5L0dHvsImRrnKP8/iF8Is=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8PLwOwM3LryiPMsxWF3G+oevo8CfH1c6iOmogC7NVXQv1nDSun
-	B6P//pnxeNoRwLlk7i9jriB3v9H6BttTwZwvJFbF4WlzKxWsxsu1jBVm
-X-Gm-Gg: AZFdTZcFm816ehbsNeVpMiQXDejtqrV4OZ7sEnuiXQ0WWs10/qkKZttgWuoMbryFvDk
-	Dt9ieACqW5Ia1N3ByQ6YiYsj6ulFDoBk2ydRR7hYd30fArdYjuPlPFVJru0CD+pUox4TKRXTHTm
-	FmyoXP4RgNJ7eUhnofEhZN4yy6CD33kSY3jmlr4w0z+F7yuNKpBlNFNU4TRd/sgnJoh75ZGQ34U
-	WjLrWI+rxOHGCsbZqJejvQ07QpCt2ZmcMmYYQBTo5D+jKDS7qDl4PL4gPGwA/BwgbpJG9dnKP4W
-	2XFz5lobOdYLSEAATBJDKheDzYodJn4ktZHC2XBhC1lM6z6bmbwSXxZK2zqda3RKKz18bWAhYPL
-	P2ApQiuoA3qxBCOe1qqZ16v1MhmyJ5QkPDxN7asWguTd77lv7Rmpx58zVhfuFx4kPV3d3ZFsleU
-	Oqo8vQsTD0dYp72z34v1BUvgOnN/YqnKDzerFvtXQUCISx+d/zyx9N6oi3CNkriFGT3Nf/uh8/Q
-	8Zi4fYN10XrvekFjMmHcsiqtoPUXSFV/WTZGTzVJvpwup8uhavC6QzNNXwECKBvmRCK4NWvMH42
-	rKXhPkJ9w7/qS/t2pWRm1RZj
-X-Received: by 2002:a17:90a:d2cf:b0:3b4:1714:5bfc with SMTP id 98e67ed59e1d1-3b41c9b9dc1mr4963449a91.61.1795244283752;
-        Fri, 20 Nov 2026 22:58:03 -0800 (PST)
+        bh=qD4SiGD7+6inf9ZHw34LzeHjuE/XCf9wmQd8TEJl1sE=;
+        b=TEVhWSgAGuY7CCQZxaEOzLobPzVd2h+9mPxgxvWU3fS4sKHd5GLMw28jYJGd3RyI6G
+         5Eool13k6ZGhFgECqcYB+i3bobP/abCc3+BA5YfPHuc5D6tv9bHZvNSqbr9Vt6wrZ87e
+         lfrPLmdb+FcoHJrCWLWL8gQ5AaUXSZiDDf2+Xn/VOMtjP2xpGfrdlNkJAd406EAtHB4b
+         pWiPXXl30r+KRZUbEwNZA3YVodDMlTnAZwPdejS274hSjtt2a9iH+tbhbTOeXf+uwKQ4
+         MDzQw0j12v9SiA7ETnQufI0f0JzQWxjCo03mcCARDRm/wxZzSDYQFSUU30MzKra/ZfcL
+         vgHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795244287; x=1795849087;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qD4SiGD7+6inf9ZHw34LzeHjuE/XCf9wmQd8TEJl1sE=;
+        b=k5DdcLizNa+anoZkCdUaoqXRpky8Smva/UcP48YvwqozRr2CWHMjCYNgF7CropuOBd
+         lCvclcw363/kkw+Ek9iAQBqJaOo+jgSUU2jxQj8miMyKnh649aQRe6kWC88QRjJB+53D
+         hwGWcy7VVAWuQKLjWdCfNUZdHBwiG2OoKBXiRHW3ziEoBIH4cj/KLCYMyk8xmvbiPHnE
+         m9EkXmT4OqMc02JUFyN+KP+s0Y/VwpHMWzOppM0T3856zbO+G6FmwU+Q9sMreEsUpO+Y
+         S4Ampukcr/QQO0AcCjeKZPav3U43tYfYqd1zey3B4y8Riw3zsrYKjWSLPCZ8phAGRxI8
+         aapw==
+X-Forwarded-Encrypted: i=1; AL+hErGWMNACx0EmlibhRrtcxWfoEOILz6HxwbmIEwRqMB7BSK5dIQ51ModyXU8ZqllVzCdaJWRNTBLkV3QuJqc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z91fdndOKi4pnv7MRwq3RK0Z5/VrFg8HiX1e74auswrgEHrtBw9
+	p9xvAHOOceDM5l6gxeh6dtKcANGTsh+ydStQrgt9/Qq1KO3C+2GSBmYj
+X-Gm-Gg: AZFdTZcW48NSN544pgRn1P7fB6vKnHAa7r+AAt3doIRr2UQ+8IeFtW1Jn7shIzwMlvF
+	kDlAJftFyZb7mF8+doeEzdqLb/MCam1t3zbXzXXO2HJfr/f7mkdkd+o18azowlVzdAEX/mj1MxO
+	giwY90DOyHVCfqkOFxXFT4+2ESpDb6oujuDPm9bC+VTqXmhpNmAHlDPP2/GrCR3SBB+FZ8Bdw6f
+	NpY+w0KkTLhq2aBjIEPLFxxIGJL7Z2LlpeM5yIAgQx6jlmQ+qOrhoU6QNAIrhPTJHZ+MlyeGLxu
+	Cyzy1PdIgBr0A8U50m411TDSpNMjE9DKwpiB+XvJxtex4hVeRJfDNydTJt2iTzY+XbNPOOo+shb
+	yFehVfMm9yq71vQ1J+XaVsfKZfIippuSl7Dk3lD3hJHKM/IzwmseiizCBA/ZeNA4swcB8Mz3f6w
+	WJb7HVWf+srTpO8QvufEDyxm8w6DgToCH2P9nftHicSKe5YSNJPkwvruzAZMnYVTDPfzFFsla9M
+	neYOkrsYMF7fJFVm3rkf1hEXYzREZrSowTL2Q+ex7rZig80nRbNNeXcASUDVGGSvNo9ZMTS/QVe
+	Zl9jLqlDDqyqNY3puE1/KO9s
+X-Received: by 2002:a17:90b:388b:b0:3b4:574:3bd6 with SMTP id 98e67ed59e1d1-3b41c982e09mr5031812a91.66.1795244287238;
+        Fri, 20 Nov 2026 22:58:07 -0800 (PST)
 Received: from localhost ([111.228.63.84])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad48786sm7447286a91.9.2026.11.20.22.58.00
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad48786sm7447286a91.9.2026.11.20.22.58.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 22:58:03 -0800 (PST)
+        Fri, 20 Nov 2026 22:58:06 -0800 (PST)
 From: Cen Zhang <zzzccc427@gmail.com>
 To: marcel@holtmann.org,
 	luiz.dentz@gmail.com
@@ -85,10 +86,12 @@ Cc: linux-bluetooth@vger.kernel.org,
 	baijiaju1990@gmail.com,
 	jjzuming@gmail.com,
 	zzzccc427@gmail.com
-Subject: [PATCH 0/2] Bluetooth: SMP: Avoid stale pairing key reads
-Date: Sat, 21 Nov 2026 14:57:54 +0800
-Message-Id: <pm-bluetooth-objects-candidate-0132-v9-b93d60723e48169ee3ae-0@gmail.com>
+Subject: [PATCH 1/2] Bluetooth: SMP: Use pairing state for the debug key check
+Date: Sat, 21 Nov 2026 14:57:55 +0800
+Message-Id: <pm-bluetooth-objects-candidate-0132-v9-b93d60723e48169ee3ae-1@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <pm-bluetooth-objects-candidate-0132-v9-b93d60723e48169ee3ae-0@gmail.com>
+References: <pm-bluetooth-objects-candidate-0132-v9-b93d60723e48169ee3ae-0@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,16 +103,162 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Management can reload a key registry while a pairing context is still
-alive. These changes use the pairing's own flags and identity data for
-the debug-key decision and IRK notification, avoiding reads through two
-saved registry pointers.
+A management LTK reload can reclaim the key saved in smp->ltk after
+notification and before the successful pairing destroys its context.
+load_long_term_keys() holds hdev->lock, but SMP receive processing runs
+after the ACL receive path drops that lock:
 
-Cen Zhang (2):
-  Bluetooth: SMP: Use pairing state for the debug key check
-  Bluetooth: SMP: Use pairing data for IRK notifications
+  SMP receive                       Management / RCU
+  save smp->ltk
+  notify the key
+                                    clear the LTK list
+                                    reclaim the saved key
+  smp_chan_destroy()
+    read smp->ltk->type
 
- net/bluetooth/smp.c | 21 +++++++++++++++++----
- 1 file changed, 17 insertions(+), 4 deletions(-)
+The destructor reads the key type even for an ordinary successful
+pairing which needs no key removal. Derive the debug-key decision from
+the pairing's Secure Connections and debug-key flags instead. Requiring
+both flags preserves legacy fallback behavior without reading the
+registry entry just to decide whether it is a debug key.
 
+The excerpt below retains the headline and stack traces.
+
+KASAN report as below:
+
+    BUG: KASAN: slab-use-after-free in smp_chan_destroy.isra.0+0xafd/0xe80
+    Read of size 1 at addr ffff88810c140928 by task kworker/u17:0/501
+
+    Workqueue: hci0 hci_rx_work
+    Call Trace:
+     <TASK>
+     dump_stack_lvl+0x93/0xd0
+     print_report+0xce/0x630
+     ? smp_chan_destroy.isra.0+0xafd/0xe80
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? __virt_addr_valid+0x20d/0x410
+     ? smp_chan_destroy.isra.0+0xafd/0xe80
+     kasan_report+0xe0/0x110
+     ? smp_chan_destroy.isra.0+0xafd/0xe80
+     smp_chan_destroy.isra.0+0xafd/0xe80
+     smp_distribute_keys+0xc57/0x29a0
+     ? __pfx_smp_distribute_keys+0x10/0x10
+     ? kasan_save_track+0x14/0x30
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? __kasan_kmalloc+0xaa/0xb0
+     ? smp_recv_cb+0x2feb/0x8970
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? __kmalloc_cache_noprof+0x251/0x610
+     ? smp_recv_cb+0x2feb/0x8970
+     ? smp_recv_cb+0x30de/0x8970
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     smp_recv_cb+0x30de/0x8970
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? __pfx_smp_recv_cb+0x10/0x10
+     ? __pfx___might_resched+0x10/0x10
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? find_held_lock+0x2b/0x80
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? __mutex_lock+0x182c/0x2590
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? l2cap_recv_frame+0x9ef/0x8830
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? _raw_spin_unlock_irqrestore+0x27/0x60
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? try_to_wake_up+0xf98/0x1b80
+     ? __pfx___mutex_lock+0x10/0x10
+     ? __pfx_try_to_wake_up+0x10/0x10
+     ? __lock_acquire+0x466/0x2260
+     ? __pfx_l2cap_chan_hold_unless_zero+0x10/0x10
+     ? l2cap_recv_frame+0x13cc/0x8830
+     ? __pfx_smp_recv_cb+0x10/0x10
+     l2cap_recv_frame+0x13cc/0x8830
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? __mutex_lock+0x182c/0x2590
+     ? __pfx_l2cap_recv_frame+0x10/0x10
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? find_held_lock+0x2b/0x80
+     ? l2cap_recv_acldata+0x1eb/0x10e0
+     ? __pfx___mutex_lock+0x10/0x10
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? __mutex_unlock_slowpath+0x147/0x920
+     ? __pfx_l2cap_conn_hold_unless_zero+0x10/0x10
+     ? __pfx_hci_conn_enter_active_mode+0x10/0x10
+     ? l2cap_recv_acldata+0x13d/0x10e0
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     l2cap_recv_acldata+0xe9f/0x10e0
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     hci_rx_work+0x5a6/0xf00
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     process_one_work+0x908/0x19c0
+     ? __pfx_process_one_work+0x10/0x10
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? lock_is_held_type+0x8f/0x100
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     worker_thread+0x65c/0xe40
+     ? __pfx_worker_thread+0x10/0x10
+     kthread+0x34f/0x460
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? __pfx_kthread+0x10/0x10
+     ret_from_fork+0x659/0x940
+     ? __pfx_ret_from_fork+0x10/0x10
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? __switch_to+0x74f/0xf80
+     ? __pfx_kthread+0x10/0x10
+     ret_from_fork_asm+0x1a/0x30
+     </TASK>
+
+    Allocated by task 502:
+     kasan_save_stack+0x33/0x60
+     kasan_save_track+0x14/0x30
+     __kasan_kmalloc+0xaa/0xb0
+     __kmalloc_cache_noprof+0x251/0x610
+     hci_add_ltk+0x1f5/0x3a0
+     sc_add_ltk+0x174/0x350
+     smp_recv_cb+0x62e8/0x8970
+     l2cap_recv_frame+0x13cc/0x8830
+     l2cap_recv_acldata+0xe9f/0x10e0
+     hci_rx_work+0x5a6/0xf00
+     process_one_work+0x908/0x19c0
+     worker_thread+0x65c/0xe40
+     kthread+0x34f/0x460
+     ret_from_fork+0x659/0x940
+     ret_from_fork_asm+0x1a/0x30
+
+    Freed by task 520:
+     kasan_save_stack+0x33/0x60
+     kasan_save_track+0x14/0x30
+     kasan_save_free_info+0x3b/0x60
+     __kasan_slab_free+0x5f/0x80
+     __rcu_free_sheaf_prepare+0x65/0x2a0
+     rcu_free_sheaf+0x1f/0xe0
+     rcu_core+0x661/0x1d10
+     handle_softirqs+0x201/0x930
+     __irq_exit_rcu+0x110/0x1e0
+     irq_exit_rcu+0xe/0x20
+     sysvec_apic_timer_interrupt+0x37/0x80
+     asm_sysvec_apic_timer_interrupt+0x1a/0x20
+
+Fixes: 923e24143efe ("Bluetooth: Fix SMP debug key handling")
+Signed-off-by: Cen Zhang <zzzccc427@gmail.com>
 ---
+This patch was written with assistance from Codex (OpenAI).
+
+ net/bluetooth/smp.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/net/bluetooth/smp.c b/net/bluetooth/smp.c
+index f8f86b8f73f05..ead1b8e3e361a 100644
+--- a/net/bluetooth/smp.c
++++ b/net/bluetooth/smp.c
+@@ -745,7 +745,8 @@ static void smp_chan_destroy(struct l2cap_conn *conn)
+ 	/* Ensure that we don't leave any debug key around if debug key
+ 	 * support hasn't been explicitly enabled.
+ 	 */
+-	if (smp->ltk && smp->ltk->type == SMP_LTK_P256_DEBUG &&
++	if (smp->ltk && test_bit(SMP_FLAG_SC, &smp->flags) &&
++	    test_bit(SMP_FLAG_DEBUG_KEY, &smp->flags) &&
+ 	    !hci_dev_test_flag(hcon->hdev, HCI_KEEP_DEBUG_KEYS)) {
+ 		list_del_rcu(&smp->ltk->list);
+ 		kfree_rcu(smp->ltk, rcu);
