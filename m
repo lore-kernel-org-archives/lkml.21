@@ -1,98 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.94
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795230868;
-	b=TteI7X0NYWJG8jdoPraVueC02LahznqD0ikyDZNbQ6DuOoMAbghUKuTXY+Wzx2XD1gXT
-	 6n48cT+/baMkkkVylI6Tna4mRuPRSAFgSo0ihjicwUBJznSAXNIqPJjcoO+DP9iMWkIXX
-	 +wJikCavwIhVV5iiyDJ1jcNzCioKSL+7DjKLxLIMgeYmDqffVgFjWSigRGD6Cs/dpKNtN
-	 zeGyfxqTfpi4tC1AqHrVbJuKeSvxcCSfSc8biN3BKVSd1/QsW/aBxAp49TrvrAgI5rlGd
-	 V7dr6Y1mN/uUBHfTOLGyXcGNuSsLW2Dez3K74ViNc9FyLhWSTygWT/o1GfPY8itCb1g==
+	t=1795230963;
+	b=pU1O65o7f4/1Tgv/Pp37ZHcLrMGNGKVyZJF2LUmgC8utWYgp+pndENwaZcK4akIf930t
+	 hOlFnGRKznnIOEOlBaOUQOpzDlXqx6TQbAdGyMsxryYSwLb1P035XJQXAVphk80/ddDHF
+	 ZRH07tBrD81Cln6yTrDml1KAKcs2G3GdmMeMlue97BH+AtWxQb/rgWZ0Hy8k+JjWNf8R0
+	 zd5fY+yJmmwpxu3JAS+geNis6MoKpomJC3s1WWxe5suk2UPR9Ea7Q8Yb9tsXSQDsRuMsn
+	 5dv+sXELJisdIy97WWeFQIru2jeC6c0wEjXAF3P2FgdnvP4FQlr9D0BOJBfPZxONYcA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795230868;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=Sr6Rs7BiVm3iRcZw5WL7frN+bAW/6De8CnaYgLnn05o=;
-	b=4g/lkL6HpGv31L17faYcTimaZ8xRXKLSBHkH7YTQoPDNK5O348DL3qQECdQMpnStMIUA
-	 vZPJ748L+IxasLlfZBWYEamEcqZX0MT4/mhRgRDqxakDUBDw9LiHsva3B9Navz2DCL0XC
-	 GaSGBqui6whVVT9nkv8OQYUZYkKb3Sbk2lNwHZX7SAbSU/40CClqGGB24gnd1naqom3QE
-	 VgMMBx3thmrrvwsUwbcV77aDJJ00L9gBj35tbQ2li7NGd/05SSX3RGFT4Q1LNR2NgATJ/
-	 JHg0TnSG7D8/qbvoklRpcS//AthI5mLnkdl53hhU8ActDbySlNRo2R0o7oveeir0CAw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795230963;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=pe+9DJtEfTEwm+v12jCwcsqOq+LU8TUrv8c2Fe3uTUg=;
+	b=3GAGf2n019X1HM/6XhqcR+Mg2BtRuI/gsQC7ANETrNGuFTe1SMtUeyDKQMOTtuG5kTfK
+	 GYSi5RP4uEWnTGNNyR+5XXHasQQpIqfy3nKYilpcUCSLn3U1s8HZf9eyThInMHWVjvgCF
+	 3QP6qeoui6nQm01gCz/euVPVLRKaHZhfGqv9e6vO7Xi9nuPIk7arDN8o2GtPiGLK8IVqp
+	 kSlRvXM9cVylcmbkhT82lB/hX4+Zdz3Nu4pF6TbeG5ONEHOdyBH/kJppNaRghRFCkcEFc
+	 F+ky7DPJixUtrQyFkvjosw3anRKHcy481vCtuCFsgnxsI8Elivkg/oT1mUNlyIM5d7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=jInxqCmV;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=F+tasD1K;
+	arc=none smtp.remote-ip=91.218.175.94
+Received: from mta0.migadu.com (out-94.mta0.migadu.com [91.218.175.94])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DE99606A698
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:14:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6DE99606A698
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDC00606A695
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:15:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDC00606A695
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=jInxqCmV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795230860;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Sr6Rs7BiVm3iRcZw5WL7frN+bAW/6De8CnaYgLnn05o=;
-	b=jInxqCmVJOkMVvKFRQ0+RVWS2kN5K31m4T/Ki4m5HXyRFEx114BVtpRMNviQBphiha+exV
-	dYquZJjQFxwtJjV/pNcfqRUUNm3H+an5sDS66cgyBDQkwuvUONTaBlNfIDtivtkbq8vwKf
-	goJWkuKsJ/58fW+44dTeyTUVSyDnzi0=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-554-P5HoySzzOeC7tXhP7yM_gw-1; Sat,
- 21 Nov 2026 03:14:15 +0000
-X-MC-Unique: P5HoySzzOeC7tXhP7yM_gw-1
-X-Mimecast-MFC-AGG-ID: P5HoySzzOeC7tXhP7yM_gw_1795230852
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9373A18004F9;
-	Sat, 21 Nov 2026 03:14:11 +0000 (UTC)
-Received: from llong-thinkpadp16vgen1.redhat.corp (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id AF82C1956087;
-	Sat, 21 Nov 2026 03:14:06 +0000 (UTC)
-From: Waiman Long <longman@redhat.com>
-To: Tejun Heo <tj@kernel.org>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	=?UTF-8?q?Michal=20Koutn=C3=BD?= <mkoutny@suse.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Ridong Chen <ridong.chen@linux.dev>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Anna-Maria Behnsen <anna-maria@linutronix.de>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>
-Cc: cgroups@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Guopeng Zhang <guopeng.zhang@linux.dev>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Waiman Long <longman@redhat.com>
-Subject: [PATCH-next 2/3] sched/isolation: Forbid the boot CPU from being isolated
-Date: Fri, 20 Nov 2026 22:13:28 -0500
-Message-ID: <20261121031329.240177-3-longman@redhat.com>
-In-Reply-To: <20261121031329.240177-1-longman@redhat.com>
-References: <20261121031329.240177-1-longman@redhat.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=F+tasD1K
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=GOhAz0HegWhbw4AYpNHVbhsgOGOUC7L0dYvhO6Ceht0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795230953; v=1; x=1795835753;
+ b=F+tasD1KmTqXYgHZJ0qjMFOuF5xKY23u28h8jLRGfhfIMxi6edg5kgp4BylshNHtlwGWduJD
+ JXk2PogyjrrbtnRrqtYKbF1ywSdEYAyZbzSEPYUBM72aXjbaIF8bxqSkSq4UZB6GKBKg0+GB3Qb
+ 4FqUJTXzFHfyjb2Dfz8P5U60=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 1b1de2d9703d52d3;
+	Sat, 21 Nov 2026 03:15:53 +0000
+X-Mizu-Trace-ID: 1b1de2d9703d52d3
+X-Migadu-Flow: FLOW_OUT
+From: Shakeel Butt <shakeel.butt@linux.dev>
+To: Corey Minyard <corey@minyard.net>
+Cc: openipmi-developer@lists.sourceforge.net,
+	Meta kernel team <kernel-team@meta.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ipmi:msghandler: Free queued requests of a destroyed user
+Date: Fri, 20 Nov 2026 19:15:49 -0800
+Message-ID: <20261121031549.3599823-1-shakeel.butt@linux.dev>
+X-Mailer: git-send-email 2.53.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,102 +65,120 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 
-It is reported that with CONFIG_CPUSETS=n, a kernel booted with
-isolcpus=domain,0 hits the BUG() in select_fallback_rq() during boot
-[1]. At boot time, cpu 0 is the only CPU online and an unbound kworker
-cannot be run on a domain isolated CPU causing kernel panic.
+In the Meta fleet we found hosts whose BMC had stopped answering IPMI
+requests while a power management daemon kept polling it:
 
-Sashiko also reports that domain isolating the boot CPU can break system
-suspend and trigger a BUG_ON() [2]. So it is problematic if the boot CPU
-is domain isolated.
+- the daemon runs "timeout 2 ipmitool raw 0x30 0x7e" every two seconds;
+- every run leaves one request and one closed IPMI user behind;
+- one host held over a million closed users after 25 days, using about
+  33 GiB and growing by 1.3 GiB a day.
 
-There may be other kernel subsystems that have problem if the boot CPU
-is domain isolated as most of them won't take into account the fact
-that boot CPU is currently allowed to be domain isolated. The current
-housekeeping code enforces the rule that if both isolcpus and nohz_full
-boot parameters are set, they should match each other. Given the fact
-that the boot CPU is likely to be disallowed from the nohz_full list,
-it makes sense that we should not allow the boot CPU from being set
-in the isolcpus boot parameter as well. This will also avoid the above
-problems due to boot CPU being domain isolated.
+ipmitool opens /dev/ipmi0, sends a request and waits for the answer.
+When timeout kills it, the file is closed and ipmi_destroy_user() runs.
+A request that is still waiting on intf->xmit_msgs or intf->hp_xmit_msgs
+stays there, and its receive message keeps a reference on the user.
+With a BMC that does not answer, the lower layer is slow to fail each
+request: about 15 seconds of retries for SSIF, and up to a minute for
+KCS on kernels without the hosed BMC handling from
+commit bc3a9d217755 ("ipmi:si: Gracefully handle if the BMC is non-functional").
+Requests arrive faster than they leave, so the queue, the users and
+their messages grow until the BMC answers again.
 
-Do that by clearing the boot CPU from the isolcpus range when it is
-specified in the boot command line. A warning will also be printed when
-that happens.
+Nobody can receive these responses once the user is destroyed. Free the
+user's requests that were not handed to the lower layer yet. Such a
+request is then never sent to the BMC. This only matters for a program
+that sends a request and closes the device without waiting for the
+answer, and with a working BMC a request waits in these lists only
+while another request is being handled.
 
-This is indeed a change in behavior which is customer visible. So the
-kernel-paremeters.txt is updated to mention the fact that boot CPU
-cannot be isolated.
+The request the lower layer is working on (intf->curr_msg) is left
+alone. IPMB and LAN commands do not point to their receive message, so
+they are not touched here. Their receive messages are freed by the
+sequence table loop just above, as before.
 
-[1] https://lore.kernel.org/lkml/20261117144817.265109-1-mathieu.desnoyers@efficios.com
-[2] https://sashiko.dev/#/patchset/20261108180849.1268263-1-longman%40redhat.com
+Tested in QEMU with a fake BMC that stops answering and four loops of
+"timeout 2 ipmitool raw 0x30 0x7e", with KASAN and lockdep enabled:
 
-Signed-off-by: Waiman Long <longman@redhat.com>
+- SSIF on linux-next: 465 closed users were held after 4 minutes,
+  growing by about 116 a minute. With this patch, 5 are held (the four
+  live callers and the request in flight), and the number stays flat.
+- KCS on v6.16, which lacks the hosed BMC handling, with this change
+  adapted: 476 held after 4 minutes without it, 5 with it.
+- KCS on linux-next: at most 5 held instead of up to 28.
+- With a working BMC, 1600 requests from 8 parallel ipmitool loops all
+  succeed over KCS and SSIF, and nothing is left held afterwards.
+
+QEMU needed small changes to behave like the failing BMC: ipmi-bmc-extern
+makes up a timeout reply after 4 seconds, its KCS keeps IBF set while
+the BMC has not answered, and smbus-ipmi returns the previous reply
+instead of NAKing the read.
+
+Fixes: 7ea0ed2b5be8 ("ipmi: Make the message handler easier to use for SMI interfaces")
+Signed-off-by: Shakeel Butt <shakeel.butt@linux.dev>
 ---
- Documentation/admin-guide/kernel-parameters.txt |  7 ++++---
- kernel/sched/isolation.c                        | 16 ++++++++++++----
- 2 files changed, 16 insertions(+), 7 deletions(-)
+ drivers/char/ipmi/ipmi_msghandler.c | 41 +++++++++++++++++++++++++++++
+ 1 file changed, 41 insertions(+)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 930cee4de79a..1c8bf3583b0b 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -2954,11 +2954,12 @@ Kernel parameters
+diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+index 152dd6b5bb27..52e95e1949b9 100644
+--- a/drivers/char/ipmi/ipmi_msghandler.c
++++ b/drivers/char/ipmi/ipmi_msghandler.c
+@@ -1339,6 +1339,45 @@ int ipmi_get_smi_info(int if_num, struct ipmi_smi_info *data)
+ }
+ EXPORT_SYMBOL(ipmi_get_smi_info);
  
- 			  You can move a process onto or off an "isolated" CPU via
- 			  the CPU affinity syscalls or cpuset.
--			  <cpu number> begins at 0 and the maximum value is
--			  "number of CPUs in system - 1".
-+			  <cpu number> begins at 0 and the maximum value
-+			  is "number of CPUs in system - 1". However boot
-+			  CPU (cpu 0) cannot be domain isolated as it
-+			  may cause problem with some kernel subsystems.
- 
- 			managed_irq
--
- 			  Isolate from being targeted by managed interrupts
- 			  which have an interrupt mask containing isolated
- 			  CPUs. The affinity of managed interrupts is
-diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
-index 18b50c0d807a..ef4aa5126dc5 100644
---- a/kernel/sched/isolation.c
-+++ b/kernel/sched/isolation.c
-@@ -232,6 +232,7 @@ static int __init housekeeping_setup(char *str, unsigned long flags)
- {
- 	cpumask_var_t non_housekeeping_mask, housekeeping_staging;
- 	unsigned int first_cpu;
-+	int boot_cpu = smp_processor_id();
- 	int err = 0;
- 
- 	if ((flags & HK_FLAG_KERNEL_NOISE) && !(housekeeping.flags & HK_FLAG_KERNEL_NOISE)) {
-@@ -254,14 +255,21 @@ static int __init housekeeping_setup(char *str, unsigned long flags)
- 
- 	first_cpu = cpumask_first_and(cpu_present_mask, housekeeping_staging);
- 	if (first_cpu >= nr_cpu_ids || first_cpu >= setup_max_cpus) {
--		__cpumask_set_cpu(smp_processor_id(), housekeeping_staging);
--		__cpumask_clear_cpu(smp_processor_id(), non_housekeeping_mask);
-+		__cpumask_set_cpu(boot_cpu, housekeeping_staging);
-+		__cpumask_clear_cpu(boot_cpu, non_housekeeping_mask);
- 		if (!housekeeping.flags) {
--			pr_warn("Housekeeping: must include one present CPU, "
--				"using boot CPU:%d\n", smp_processor_id());
-+			pr_warn("Housekeeping: must include one present CPU, using boot CPU:%d\n",
-+				boot_cpu);
- 		}
- 	}
- 
-+	if ((flags & HK_FLAG_DOMAIN) && cpumask_test_cpu(boot_cpu, non_housekeeping_mask)) {
-+		pr_warn("Housekeeping: Boot CPU must not be isolated, clearing %d from isolcpus range\n",
-+			 boot_cpu);
-+		__cpumask_set_cpu(boot_cpu, housekeeping_staging);
-+		__cpumask_clear_cpu(boot_cpu, non_housekeeping_mask);
-+	}
++static void move_user_xmit_msgs(struct list_head *from, struct list_head *to,
++				struct ipmi_user *user)
++{
++	struct ipmi_smi_msg *msg, *msg2;
 +
- 	if (cpumask_empty(non_housekeeping_mask))
- 		goto free_housekeeping_staging;
++	list_for_each_entry_safe(msg, msg2, from, link) {
++		if (msg->recv_msg && msg->recv_msg->user == user)
++			list_move_tail(&msg->link, to);
++	}
++}
++
++/*
++ * Free the requests of a user that are still waiting to be handed to the
++ * lower layer.  Once the user is destroyed, nobody can receive their
++ * responses.  If the BMC is slow or does not answer, they could otherwise
++ * stay queued for a long time, each one keeping the user and its own
++ * messages allocated.  A request that was already handed to the lower
++ * layer (intf->curr_msg) is not on these lists and is left alone.
++ */
++static void remove_user_xmit_msgs(struct ipmi_smi *intf,
++				  struct ipmi_user *user)
++{
++	int run_to_completion = READ_ONCE(intf->run_to_completion);
++	struct ipmi_smi_msg *msg, *msg2;
++	unsigned long flags = 0;
++	LIST_HEAD(msgs);
++
++	ipmi_lock_xmit_msgs(intf, run_to_completion, &flags);
++	move_user_xmit_msgs(&intf->hp_xmit_msgs, &msgs, user);
++	move_user_xmit_msgs(&intf->xmit_msgs, &msgs, user);
++	ipmi_unlock_xmit_msgs(intf, run_to_completion, &flags);
++
++	list_for_each_entry_safe(msg, msg2, &msgs, link) {
++		list_del(&msg->link);
++		ipmi_free_recv_msg(msg->recv_msg);
++		ipmi_free_smi_msg(msg);
++	}
++}
++
+ /* Must be called with intf->users_mutex held. */
+ static void _ipmi_destroy_user(struct ipmi_user *user)
+ {
+@@ -1375,6 +1414,8 @@ static void _ipmi_destroy_user(struct ipmi_user *user)
+ 	}
+ 	mutex_unlock(&intf->seq_lock);
  
++	remove_user_xmit_msgs(intf, user);
++
+ 	/*
+ 	 * Remove the user from the command receiver's table.  First
+ 	 * we build a list of everything (not using the standard link,
 -- 
-2.56.1
+2.53.1-Meta
 
