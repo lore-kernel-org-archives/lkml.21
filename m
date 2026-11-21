@@ -1,85 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795266998;
-	b=AzNbGvHHy1ehSFjcmkYJI6J220L/ZTJ+0SRP13j87L3UjO/V8YLcigQcLzpds0wpdlSY
-	 UaxdwytEU4nf++sDl3xEcaiGO01JjE2VTu3HhoK6MyOPz1UQq4eLehy/W/x6UI6J6z68J
-	 pq7BfFaQsB3v/niVOs0t1FNIdI9+fT6XbdDmIc10h7yW1rAjbvCSSm7nQxyahvdzK0/Yv
-	 8kYtSOv4maITplIF6ZhBk8eEPsHP3vIJOrx6xLWC8iyxth3tcyI05+bmOLLByLXw+coPl
-	 pKhbVh3Acn6v5qcgSObHzcumc77PVONxnpUIxhAkQgN4xC2H4YPBJ/4wP0XF8CSAABg==
+	t=1795267074;
+	b=E0h6U1q8vDWwO0nv6xKoMv2XaNqLilQMMj91dbY/J3BTG37SHfSeIHPcdohw7SR0YN8p
+	 hRzl8BO607OSIP6VtbrLNYRnB5flZCtV27M4G6YDFYlQzZ4apisTVq6YmBl52U5j1rcLH
+	 90G5Yk1rE8mETdegQO2O7+F7rnS+LG0y+HeA98EUnCY0+zRFUq7KHH+YSYt+72zhLHaJz
+	 gYANs0qGC405Z4CdoDYacaYWvuLwjzPr5AACtjIBG0gpJE1xIzMhhHvvTZ8oQaPcXSUxA
+	 R7IPx3zj8EEqiSJTTcCykm2aoMirImiJAUCoS9rQxnxWcB6eGH1caW6cH4yoneIYndQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795266998;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 Mail-Followup-To:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=TxW/RAptOpxLkind6FtvVROcaKbdd/cBMgMOKwStZeM=;
-	b=U3NkHpsa4qmmNgUoA1YsEvU/t4ZJL/1SaCrn3ACeq3Sxoi4J6NEwaQQmEpfCRvpWT0/P
-	 oBWHWR8mpxXCeZdCAUH/6H96dg6apN1nnPdKzk8JimjZJuFc8FMOHD8KBR22NaWX3egzF
-	 XBHgEwViFkiY8JcalCYdNicDMOLST997JAVwLSoy0eLyfq1OMw2/Or60lj16lL+rH+u47
-	 fXRiMXm4MKMjFEhWygN610iTsy08a5H2bGtw/fM3YUCbQnS4u1SKogBzaMNLDQp8DSMpT
-	 zb6ObHBgkBHAWSs6/Z3IHd1apupBTIGgbsBpEA0LgF/ZJy7hSO0+IjMF1toS7S3aEgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795267074;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=Rgt/byHJz73fVZB9npadRPJRCi06Zbw9U3jYPp0MPbc=;
+	b=AFMAWBkaXG6xgV3O6/vmQvdiCFV/JiokBpmodiXuolOOvx8KEvT8IfqwvkrBtbhgGc7g
+	 y3HaYqtoTygrP/Uk72IvGczDM7pvjUh2h3IkfMBiMhOmqhjEFSuz503FkLPTw/C/GyHGz
+	 cuqdIsqqr9ZkJWsr8CCwK5flWA5vZC9WPgFc7NMw82X1uYa+IvMha9GyTj0PSTFnREIHb
+	 28AWPH+LKeqDE+ML+t6Tmxpm5h+guB4+i/T65w7O1Y3/pFj55AOVG0yx15quLPPr5zW3j
+	 c/Ya86PlBFKyck3uxghQTwh2BKlMmpSNjzNUhEWSUK7mdSfanHkQwoYaroztcBohI4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bPAShBr7;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Z5292Tds;
+	arc=none smtp.remote-ip=209.85.160.181
+Received: from mail-qt1-f181.google.com (mail-qt1-f181.google.com [209.85.160.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 77793606A32C;
-	Sat, 21 Nov 2026 13:16:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB4E8606A330
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:17:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB4E8606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bPAShBr7
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 930CA1F000C0;
-	Sat, 21 Nov 2026 13:16:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795266998;
-	bh=TxW/RAptOpxLkind6FtvVROcaKbdd/cBMgMOKwStZeM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bPAShBr7KOOGPBKH+XTeVXkgXBPFn40auFQSlE9hM8FDZmc2VPBT8Pq0gw83FDHHz
-	 puDG/SloQy85d6f6pt40euCNXoB9KNLlbgkAg8nEZEwPv26NTv12dnjuIX1/hEkd7F
-	 Y+v34WLQW/heaHEZxlua+xB+3xcxWtK887Hdmb/5Kj5r/xUU7kORPO2reS/uCP5scj
-	 28VUcr02GlWxQzAWdy5DXSsAacKGZplfY7yTt8sxZ31jBcV/4+tI3snCWxj+0uAVEJ
-	 Hbjv/Gkh1sBmM/osurXObPF/vRMcavLbYjGrfmTZo2LL7YmOjGy/E0D83NqUxvDb/r
-	 +CjTnZ4TPRP7g==
-Date: Sat, 21 Nov 2026 13:51:44 +0100
-From: Nicolas Schier <nsc@kernel.org>
-To: kernel test robot <lkp@intel.com>
-Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Sasha Levin <sashal@kernel.org>, llvm@lists.linux.dev,
-	oe-kbuild-all@lists.linux.dev,
-	Harald Freudenberger <freude@linux.ibm.com>,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-kbuild@vger.kernel.org, linux-s390@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-kernel@vger.kernel.org, "kernelci.org bot" <bot@kernelci.org>
-Subject: Re: [PATCH] Move struct cpu_feature to a
- <linux/device-id/cpu_feature.h>
-Message-ID: <awGT4AhwcFcLsW0c@levanger>
-Mail-Followup-To: Nicolas Schier <nsc@kernel.org>,
-	kernel test robot <lkp@intel.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Sasha Levin <sashal@kernel.org>, llvm@lists.linux.dev,
-	oe-kbuild-all@lists.linux.dev,
-	Harald Freudenberger <freude@linux.ibm.com>,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-kbuild@vger.kernel.org, linux-s390@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-kernel@vger.kernel.org, "kernelci.org bot" <bot@kernelci.org>
-References: <20261120202712.3377691-1-nsc@kernel.org>
- <202611211941.G0rlpNpN-lkp@intel.com>
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Z5292Tds
+Received: by mail-qt1-f181.google.com with SMTP id d75a77b69052e-53644ab1f7bso16873621cf.3
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:17:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795267068; x=1795871868; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Rgt/byHJz73fVZB9npadRPJRCi06Zbw9U3jYPp0MPbc=;
+        b=Z5292TdssQirJ7anrgy/Ycj0wO1diReVT+xjqWqnvVpWW2hxPlSx6CnnlxSpqetc1z
+         +fddjESnGkA74Im6cQr17DvOW+VGIqruhO1KE5CwbJvPS54ALuMYtx4ha2VuyybUPXaT
+         reAh9DT5rV9fy+W//lI4WB/2FhxslsHRt8LxjfYv7VRLIEVwboWlnhQtGGPVYMmD6ihL
+         rqPFQZBMUV+gKP3QNnxGnSycOaF5ZFKfpghOCMHkZuVfrGH7y+3NT0bJUqPxS/JDH9QM
+         4l+csvlxSOav/F6ZIn19ywP7A8Me7D4xiu4/Fmr/Wb6uhFimbUOp/Inli4T67eYP/2Tt
+         /qYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795267068; x=1795871868;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Rgt/byHJz73fVZB9npadRPJRCi06Zbw9U3jYPp0MPbc=;
+        b=x/EsdhtXnU0Rul4TOgU97VXZhQrcmaacaZs4RUe+Vh/4PQaYPPXOaC/KmyBWTKCLjq
+         eKcvZFoz/hXvAXPDY5R8YMjT+jsm7k6O+q8BVPwqxzbTIVzz348zHATch5zRDS7sf57s
+         CBkJ/U5f/NjdR13wWl9JXHRh45vj2HpjKX/T8lxZu5cQog0t22EwBXKrCVBnr/cUoWjE
+         uoC7PNPwnZRMikizg0r3tCMKHF/CVguBHE69+tESoNcvIxSiZDOOogu3hhACHdNy9ljL
+         XDEcDz/Pp2iDBGThrE0/JY9q+9ZnihS1ll5uesxuPpT2ZJxv2CH3RhRwvGmu8Lskcm7I
+         N8OQ==
+X-Forwarded-Encrypted: i=1; AL+hErEuSvM9o6tnTQpCG0pR0m9k8+ObG22/4WGiTEQDIWeOGaWLdb+grCjK1L27OaqkXk334W1R0v1OluZvO8Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/x2/bX65j7kNGaD24R16Polpvvjoj2+6j1KVx93pLswcO2nlnS
+	ZghMzsehc/zCTcrf4v7VrQmfCuSDTkFkMA9o7StW+ZXnO4bbSGRdINQfT6nYNESt+bw=
+X-Gm-Gg: AZFdTZcAq6wJh+uT+2xQbKulhLrpI7bbeaeRAc0OHxEUgQ98vyTbfOzbiKqo95o8ESl
+	yhdY6SdUzN1K1YGIx3fFTEC9PsW+KdcvmZobVAyob3XC9AFnWennJNhlg08VFFuble+YqhIohd9
+	Qoiap9EcxbUerG00NiTfCxzEgLDj/nLkqBKzFFgL4voQ93MllEwFcB7NYtms3sw39x7WuSmQ4/s
+	uCAaKTUBqKFbtEiFnl4BqSp6T1c/Vg3sRpTuhCYIW0om3YILdtSHo5QoyvGHeBBjwoqyApiEuIM
+	CQQVDzZx8kOCxAqwVO4Wp2RMKrc30Y6q0HcsIeb1J9th7lKn4aW2l/bbKgQ1jfV8UxUdSIgNZZp
+	WrZ2O8BmNF4Rn4k+CvmVQotA17yFl0Lt6/B/iHI3VAz/TdjKsWjS5wXZvuD29dzn4RcWnLjCjKS
+	RdigJ5eI8DtVKqrWlQ3vsFYswWJJhN6kFX0zxvic0ZyKGBmdtCiu31BgREzd0vAguxp9hhLCllr
+	Da9+TwyUosCu7G3FbZ1mt1L+hgEBwtfhccHVc9VoE75mREWyCU0T6vaScdQYoszhlk667whR/QA
+	3qZLiIMKFr5Bcc/Gq1NDrWiVHXSJ+4ngyUd0sdaxJlZ5d7qrwSjbIWG1/68jlOZ2yOBVIQ6WTHS
+	1e9KVFrfsylKguyYFzzcCb1XU6Hd/QffIKIEAywLT7ctGs5Am9FT8iVSS9u2yeJNQjhRtoQ==
+X-Received: by 2002:ac8:5f85:0:b0:55d:2dd1:48ba with SMTP id d75a77b69052e-55d76aa2f7cmr111131171cf.60.1795267067663;
+        Sat, 21 Nov 2026 05:17:47 -0800 (PST)
+Received: from localhost ([204.244.107.52])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349b1e58sm53873266d6.12.2026.11.21.05.17.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 05:17:47 -0800 (PST)
+Date: Sat, 21 Nov 2026 08:17:46 -0500
+From: Ralph Siemsen <ralph.siemsen@linaro.org>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: khendry@reliablecontrols.com,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 2/6] clk: renesas: r9a06g032: Add reset controller
+Message-ID: <awGZ-nCCbCNEuyr7@maple.netwinder.org>
+References: <20261119-rzn1-miic-resets-v1-0-feee2bb28bb4@reliablecontrols.com>
+ <20261119-rzn1-miic-resets-v1-2-feee2bb28bb4@reliablecontrols.com>
+ <awATU_lyjPBxThwq@shikoro>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,57 +120,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=us-ascii; format=flowed
 Content-Disposition: inline
-In-Reply-To: <202611211941.G0rlpNpN-lkp@intel.com>
+In-Reply-To: <awATU_lyjPBxThwq@shikoro>
 
-On Sat, Nov 21, 2026 at 08:01:20PM +0800, kernel test robot wrote:
-> Hi Nicolas,
-> 
-> kernel test robot noticed the following build errors:
-> 
-> [auto build test ERROR on kvm/queue]
-> [also build test ERROR on kvm/next linus/master v7.4-rc3]
-> [cannot apply to kvm/linux-next next-20261119]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch#_base_tree_information]
-> 
-> url:    https://github.com/intel-lab-lkp/linux/commits/Nicolas-Schier/Move-struct-cpu_feature-to-a-linux-device-id-cpu_feature-h/20261120-212711
-> base:   https://git.kernel.org/pub/scm/virt/kvm/kvm.git queue
-> patch link:    https://lore.kernel.org/r/20261120202712.3377691-1-nsc%40kernel.org
-> patch subject: [PATCH] Move struct cpu_feature to a <linux/device-id/cpu_feature.h>
-> config: s390-allmodconfig (https://download.01.org/0day-ci/archive/20261121/202611211941.G0rlpNpN-lkp@intel.com/config)
-> compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 3b14d7c370558b46e5f0c6494a05c492e59bf32c)
-> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261121/202611211941.G0rlpNpN-lkp@intel.com/reproduce)
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202611211941.G0rlpNpN-lkp@intel.com/
-> 
-> All errors (new ones prefixed by >>):
-> 
-> >> drivers/s390/crypto/pkey_cca.c:22:45: error: array has incomplete element type 'struct ap_device_id'
->       22 | static struct ap_device_id pkey_cca_card_ids[] = {
->          |                                             ^
->    drivers/s390/crypto/ap_bus.h:158:9: note: forward declaration of 'struct ap_device_id'
->      158 |         struct ap_device_id *ids;
->          |                ^
->    1 error generated.
-> --
-> >> drivers/s390/crypto/pkey_ep11.c:23:46: error: array has incomplete element type 'struct ap_device_id'
->       23 | static struct ap_device_id pkey_ep11_card_ids[] = {
->          |                                              ^
->    drivers/s390/crypto/ap_bus.h:158:9: note: forward declaration of 'struct ap_device_id'
->      158 |         struct ap_device_id *ids;
->          |                ^
->    1 error generated.
+On Fri, Nov 20, 2026 at 10:30:59AM +0100, Wolfram Sang wrote:
+>> +static int r9a06g032_reset(struct reset_controller_dev *rcdev,
+>> +			  unsigned long id)
+>> +{
+>> +	r9a06g032_reset_set(rcdev, "reset", true, id);
+>> +	udelay(5);
+>
+>For future reference, please add a comment pointing to chapter in the
+>docs where it is saying 5us is needed.
 
-That is fixed by [1] which is to be applied before the patch referenced
-above.
+The reset duration could vary for each reset ID, since they refer to 
+different hardware. There's probably no "optimum" value here.
 
-[1]: https://lore.kernel.org/linux-kbuild/66e4ee9c7f9b4bc48fcee92a94b6bb6d92fe1ad2.1794233316.git.sashal@kernel.org/
-
--- 
-Nicolas
+Ralph
