@@ -1,58 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.218
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795253942;
-	b=Mu/ydcWkW7ZoyrNidb0MNjDwWZrO6pmqIGtkWe+2PkLqVgGJ07a2heirGzmHyWiG8uyU
-	 idLfw3eTdE6OGo3xEP20cgdCY82mJg0/2ZlK88wQIGpj18b0cBURzvqNJCpZ1MzeJoQqC
-	 F+OPirtqJy4fHq63Wg4qUVasxrki1cscvl/atCmam17yePny3zQXhoh0XHClyhbUBWGb3
-	 tEsrXuQFt+wZf72opUZcRPIrMhAyN3DbG6HzvbPDFYGHPJOcGrJhP52axHb6acqxYICIf
-	 Ix3fvJ2S+GAU1eDowzNX3WN/khuEb1v3Y49YB5HEThZzpyiGMeaq16z5gHDtSxuaufQ==
+	t=1795254225;
+	b=ZQUyW33Jjbeg0UtQFirLNycTkp3KS4c3CSEIKnHYUFfwh4TEuGsr7idcwclGa6CebpXW
+	 xFi6euVRTfvlA+hTe/t67W/nr97RaqkEF1WzaOU6J9ct3FU4XRBA9xTY0ZQiBIENi6jHv
+	 UgCNk77gujHjDE708Rc4nQHYeeweduR4PogC8qH2X+/iiHnfhGhkHhtmsNs1LrMu5T6Bt
+	 Oh21TUGa7HXVwXer4vHakQyl/crNhSg+KeRLrGmTZQa78V9KH2nsX27oaOm/Z0eOHQM1f
+	 cjlClgLXJIR4VcBoP3SlAQe1SUUO9rX+26Qmz8xug4+TS+vbyyJ13QfFyZMk63uk6zA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795253942;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:CC:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=onii5ZHNX8GZAZk6MiQXB1RSU4RcSBt2Z/EMxgNhA0U=;
-	b=l9vf8W4gwODU1ENhBl185/ZvDafh+KKlcEu4Xmfpv/ft2di5OPpUXFqEXporYCMoQ4XR
-	 e64TH07In4CHAXOI2LWTQWIZOqC7D1x1yup4jEeN17Mt/3FBV9D273YZS+YJKb3qvPpYy
-	 gAxNVVVd9RYdjX9aDxDowYVUZlUWRa3c73ImloP5DEj1TfHXvtbQLA9UxK75SxyyJd+b9
-	 Jev4CmvBPPvICqoZ/z/O4puGwndGRIu6LcGe6/pucEQ6al6y/p42LTIqwHV2ZZfT3iMi2
-	 N75h4SwOATknPKBy2OpsrHK/AwUfh4vdDsOHIOOYD/yLuOlWcDKpJySiH/+N3JhssNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795254225;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=z+aEWnt2ulJEOd/rZgLmfZW3wOAZN9sdeAZ+G9aUovU=;
+	b=4bx76QDzah51IRgg1HivWHtdh0oeQpSr0Qi5GJaW3HcUwqEHjWFINKNdkCj8ezJiuEfD
+	 t/kR+bqmx4E1MnWPWD3esboIooARongZTnvaPZo9rQUjulFzjumTyPpfNDXdVM+S+YV1u
+	 Ds9HZgLcF0f1ld+sSPG03EHE1Dl36KaVT4AGnBwn6aTvUnV13O1E7rW06q1ltTGS+TQ95
+	 SSpqRtfsxm/Ivc1zKkhNf8UIbzST5TdZoBgSi01mP+452siFv/bGy7CEiCzpBuTI9YDrN
+	 KObrIXR2TZ4x6rDTxHmfz2Vx46PTaP06FrtL6YoTnE6W78qJ+84L6BIMXnclUZ5bxmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=L1rdHUey;
-	arc=none smtp.remote-ip=113.46.200.218
-Received: from canpmsgout03.his.huawei.com (canpmsgout03.his.huawei.com [113.46.200.218])
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=uK1hPum3;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8198606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 09:39:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8198606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B668606A320;
+	Sat, 21 Nov 2026 09:43:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=L1rdHUey
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=onii5ZHNX8GZAZk6MiQXB1RSU4RcSBt2Z/EMxgNhA0U=;
-	b=L1rdHUeyLtCwunnNOYXmGJHWInoGMx5AjlFixjf1M7l4Az3X4RlwecRipLRlW8qE7XVbH0dUI
-	sD7v/Im6yj0FF3UO3fTtCUDc4uECd5o21m7fJYJSerXyHLhe8nd+42uhVhRgEHxVC5moQDEs821
-	c0X8NaPbJ1F+vMZXP+H+7Zo=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4jWnF46y6pzpSvf;
-	Sat, 21 Nov 2026 17:38:00 +0800 (CST)
-Received: from kwepemk200005.china.huawei.com (unknown [7.202.194.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3C54F4057A;
-	Sat, 21 Nov 2026 17:38:56 +0800 (CST)
-Received: from [10.159.167.44] (10.159.167.44) by
- kwepemk200005.china.huawei.com (7.202.194.71) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Sat, 21 Nov 2026 17:38:55 +0800
-Message-ID: <bb394ba3-180c-4f6c-8040-045afbfaaecd@huawei.com>
-Date: Sat, 21 Nov 2026 17:38:53 +0800
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=uK1hPum3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 413FD1F000C4;
+	Sat, 21 Nov 2026 09:43:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795254224;
+	bh=z+aEWnt2ulJEOd/rZgLmfZW3wOAZN9sdeAZ+G9aUovU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=uK1hPum3pMYBzlvfWRPwP61d7pQIohBnjhCMqdlt+OX8EQOQHt7SyyuofwfDEhF5D
+	 2dMo9NpumcCHVqD3Pi4+huBLer0jbQy6EK7skzdJYYhdtZILlXAbXRrJ9zp2N/zfh5
+	 PEGPv9wKWeBe7FRHJXaSH2cFA5FY1B17nFEvGrqs=
+Date: Sat, 21 Nov 2026 10:43:41 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Tanuj Sharma <ertanuj96@gmail.com>
+Cc: ntfs3@lists.linux.dev, almaz.alexandrovich@paragon-software.com,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] ntfs3: fix out-of-bounds write in do_action() bitmap
+ operations
+Message-ID: <2026112159-sampling-unmade-c123@gregkh>
+References: <CAAnb6FRwYjE0jXUxqFHKu8ZAmLyX_+hwpjSuuD1RHjKGVeAOcg@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,109 +54,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH for drm-misc-fixes v5 0/2] Fix some bugs in the hibmc DP
-To: Thomas Zimmermann <tzimmermann@suse.de>,
-	"dmitry.baryshkov@oss.qualcomm.com" <dmitry.baryshkov@oss.qualcomm.com>,
-	"tiantao (H)" <tiantao6@hisilicon.com>, "maarten.lankhorst@linux.intel.com"
-	<maarten.lankhorst@linux.intel.com>, "mripard@kernel.org"
-	<mripard@kernel.org>, "airlied@gmail.com" <airlied@gmail.com>,
-	"daniel@ffwll.ch" <daniel@ffwll.ch>, "kongxinwei (A)"
-	<kong.kongxinwei@hisilicon.com>
-CC: "Liangjian(Jim,Kunpeng Solution Development Dept)"
-	<liangjian010@huawei.com>, "Shuliubin(Turing&Kunpeng)"
-	<shuliubin@huawei.com>, Chenjianmin <chenjianmin@huawei.com>, "helin (T)"
-	<helin52@h-partners.com>, "shenjian (K)" <shenjian15@huawei.com>, shaojijie
-	<shaojijie@huawei.com>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, <shiyongbang@huawei.com>
-References: <20261117130056.272609-1-shiyongbang@huawei.com>
- <5418426d-2dfc-4dbe-a74c-47275c1fbbc0@suse.de>
-From: Yongbang Shi <shiyongbang@huawei.com>
-In-Reply-To: <5418426d-2dfc-4dbe-a74c-47275c1fbbc0@suse.de>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemk200005.china.huawei.com (7.202.194.71)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAAnb6FRwYjE0jXUxqFHKu8ZAmLyX_+hwpjSuuD1RHjKGVeAOcg@mail.gmail.com>
 
-> Hi
+On Sat, Nov 21, 2026 at 07:52:32AM +0530, Tanuj Sharma wrote:
+> Hi,
 > 
-> Am 17.11.26 um 14:00 schrieb Yongbang Shi:
->> From: Lin He <helin52@huawei.com>
->>
->> Fix some bugs in the hibmc DP driver.
+> This patch fixes an out-of-bounds heap write in the ntfs3 log replay
+> path triggered by mounting a crafted NTFS image. The buffer is sized
+> by bytes_per_index but bounds-checked against the larger lco, allowing
+> bitmap operations to write past the allocation.
 > 
-> I can't really comment on the hardware details, so
-> 
-> Acked-by: Thomas Zimmermann <tzimmermann@suse.de>
-> 
-> for the patch set. Please see my comments on using lock guards before
-> merging the series.
-> 
+> Thanks,
+> Tanuj Sharma
 
-Thanks for the Acked-by. I'll fix the lock-guard usage as commented and
-send a v6 before merging.
+None of this goes in the body of the email.
 
-Thanks,
-Yongbang
+> >From d6abed28f9eb5941da61bbe2b59876f93b4c75de Mon Sep 17 00:00:00 2001
+> From: Tanuj Sharma <ertanuj96@gmail.com>
+> Date: Sat, 21 Nov 2026 02:15:09 +0000
+> Subject: [PATCH] ntfs3: fix out-of-bounds write in do_action() bitmap
+>  operations
 
-> Best regards
-> Thomas
+Neither does this, just send the patch using git send-email or the like.
+
 > 
->>
->> ---
->> ChangeLog:
->> v4 -> v5:
->>     - Invalidate the link in the hardirq when an unplug is sampled, and
->>       stop clearing the latched HPD status in hibmc_dp_hpd_cfg().
->>       (sashiko-bot)
->>     - Serialize a whole AUX transfer with hibmc_dp_hpd_cfg().
->>       (sashiko-bot)
->>     - Append HIBMC_HPD_UNKNOWN to the enum instead of prepending it, so
->>       the existing HIBMC_HPD_OUT/HIBMC_HPD_IN values do not change.
->>     - Only set the enable flag when DP was initialized, clear it only when
->>       it was set, and do not request the DP interrupt if DP initialization
->>       failed. (sashiko-bot)
->> v3 -> v4:
->>     - Fix the data race on hpd_status between hardirq and process
->>       contexts with WRITE_ONCE()/READ_ONCE(). (sashiko-bot)
->>     - Delete the HPD_IN early return in encoder_enable that breaks KMS
->>       forced modesets. (sashiko-bot)
->> v2 -> v3:
->>     - Delete irq_status and use hpd_status directly for hotplug
->>       detection. (sashiko-bot)
->>     - Add debug logs when hpd_status is not HPD_IN in detect and
->>       encoder_enable.
->>     - Move hibmc_set_enable_flag() before drm_dev_register() and
->>       hibmc_set_disable_flag() after drm_dev_unregister() to narrow the
->>       race window. (sashiko-bot)
->>     - Add spinlock_t gpio_lock to hibmc_drm_private to protect all
->>       operations on 0x0802A4. (sashiko-bot)
->> v1 -> v2:
->>     - More states in HIBMC_DP_HPD_STATUS are added to the
->>       'hibmc_dp_get_hpd_status'.
->>     - The call to `hibmc_set_enable_flag()` has been moved before
->>       `drm_client_setup()`, specifically before the connector detection
->>       triggers the I2C bit operation. (sashiko-bot)
->>     - A read-modify-write operation has been implemented instead of directly
->>       writing to prevent clearing the I2C mask bits. (sashiko-bot)
->> ---
->>
->> Lin He (2):
->>     drm/hisilicon/hibmc: Modify the method of obtaining the hpd_status
->>     drm/hisilicon/hibmc: Add a flag to indicate whether the OS-side driver
->>       has been loaded
->>
->>    drivers/gpu/drm/hisilicon/hibmc/dp/dp_aux.c   | 11 +++-
->>    drivers/gpu/drm/hisilicon/hibmc/dp/dp_comm.h  |  2 +-
->>    drivers/gpu/drm/hisilicon/hibmc/dp/dp_hw.c    | 40 +++++++++-----
->>    drivers/gpu/drm/hisilicon/hibmc/dp/dp_hw.h    |  6 ++-
->>    .../gpu/drm/hisilicon/hibmc/hibmc_drm_dp.c    | 32 +++++------
->>    .../gpu/drm/hisilicon/hibmc/hibmc_drm_drv.c   | 54 +++++++++++++++++--
->>    .../gpu/drm/hisilicon/hibmc/hibmc_drm_drv.h   |  2 +
->>    .../gpu/drm/hisilicon/hibmc/hibmc_drm_i2c.c   | 19 +++++--
->>    .../gpu/drm/hisilicon/hibmc/hibmc_drm_regs.h  |  3 ++
->>    9 files changed, 129 insertions(+), 40 deletions(-)
->>
+> In do_action(), when replaying log records for ATTR_ALLOC attributes,
+> the buffer is allocated based on bytes_per_index (typically 4096 bytes,
+> kmalloc-4k) but bitmap operation bounds checking uses lco -- a larger
+> value derived from lcns_follow << cluster_bits (typically 8192).
+> 
+> This allows SetBitsInNonresidentBitMap and ClearBitsInNonresidentBitMap
+> opcodes to write past the allocated buffer into the adjacent slab object
+> when processing crafted NTFS images with malicious $LogFile records.
+> 
+> The bounds check compares against lco (the full LCN extent size) but
+> should compare against the actual buffer capacity. For ATTR_ALLOC, the
+> buffer is only bytes_per_index bytes, allocated here:
+> 
+>   if (attr->type == ATTR_ALLOC) {
+>       t32 = le32_to_cpu(oe->bytes_per_index);
+>       if (bytes < t32)
+>           bytes = t32;
+>   }
+>   buffer_le = kmalloc(bytes, GFP_NOFS);
+> 
+> But the bounds check uses the larger lco:
+> 
+>   if (cbo + (off + 7) / 8 > lco || ...)
+> 
+> With bytes_per_index=4096 and lco=8192, any bitmap_off >= 32768
+> (byte offset 4096) passes the lco check but writes past the buffer.
+> 
+> Fix this by computing the bounds limit as the minimum of the buffer
+> extent (cbo + bytes_per_index) and the LCN extent (lco). This ensures
+> bitmap operations cannot exceed either the allocated buffer or the
+> on-disk extent, and also prevents a crafted bytes_per_index larger
+> than lco from weakening the existing check.
+> 
+> Found by code audit and confirmed with a crafted NTFS image that
+> triggers the OOB write on mount.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: b46acd6a6a62 ("fs/ntfs3: Add NTFS journal")
+> Signed-off-by: Tanuj Sharma <ertanuj96@gmail.com>
+> ---
+>  fs/ntfs3/fslog.c | 20 ++++++++++++++++----
+>  1 file changed, 16 insertions(+), 4 deletions(-)
+> 
+> diff --git a/fs/ntfs3/fslog.c b/fs/ntfs3/fslog.c
+> index 1879d04e3cd05..85590f56587c2 100644
+> --- a/fs/ntfs3/fslog.c
+> +++ b/fs/ntfs3/fslog.c
+> @@ -3751,10 +3751,16 @@ static int do_action(struct ntfs_log *log,
+> struct OPEN_ATTR_ENRTY *oe,
+>   off = le32_to_cpu(((struct BITMAP_RANGE *)data)->bitmap_off);
+>   bits = le32_to_cpu(((struct BITMAP_RANGE *)data)->bits);
+> 
+> - if (cbo + (off + 7) / 8 > lco ||
+> -    cbo + ((off + bits + 7) / 8) > lco) {
+> + {
+> + u64 bmp_limit = attr->type == ATTR_ALLOC ?
+> + min(cbo + (u64)le32_to_cpu(oe->bytes_per_index), lco) :
+> + lco;
+> +
+> + if (cbo + (off + 7) / 8 > bmp_limit ||
+> +    cbo + ((off + bits + 7) / 8) > bmp_limit) {
+>   goto dirty_vol;
+>   }
+> + }
 > 
 
+The patch is corrupted and can not be applied :(
+
+thanks,
+
+greg k-h
