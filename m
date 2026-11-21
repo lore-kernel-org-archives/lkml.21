@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795234516;
-	b=zJy9T1ALfwEQbqccKUmOrjElbPJ5CoYbMk/ZqhcYw7qUwW+7dOi1RCklR8F5WqJ6/yXV
-	 gSqx2ySeWydZo9ZDAnkm5ptdojwu0tmuXNPA3lL8+1EjzmeDgJgBLNslf5EbrrcNDmgMD
-	 7k1GvOCwMPgbV/3l1qy6C3+IR8Z5zVnWHtTRIA0QOA3UXiRoF1c/4W6QffsHeOs9B0CNG
-	 IGiXQfaZroPVvZocDArEQeb+tHN7QIRKMM3bYSbqy4JK11K64j7952aRMHg3muv/H20Xj
-	 8vvrlcSbht8qPQtmxRWKPN7oKMdBaIIl38KKhnSBziX35YF7yOwm9MgfG0/5TkyQOwA==
+	t=1795234517;
+	b=RFSMhSplCG6Kyfm7VpWrjS4POeUUhYLebHxPqCqHlW2zNygy1Urpr6sPcVprtY6R5oNF
+	 /zBNlHSfTtXRJCNbZ4P59Fk8Lw2ChX0Sx++HnL549RMuEiMh9MX9GER7JSF9pSLfCdR1I
+	 ND4fJgMie/KsxxYnNz2P5065MivB3A4WLZMeoZa9E1+Zwz6/807RRHi0tzDTjp58lXdER
+	 +bQtNmkVVKuMhCwD1hyWagE0PxLNzATxc6Ihu3ve/onNUHqwzGIQ4I2i0T7joapNxyaS7
+	 G0DHAcfGvudF9z7ix8pHqexni93Lj5GdTBaGCqlYa7250TlRTObSEnVjB7SPs02OuNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795234516;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795234517;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=5TFNXkztMqdNL1xqF9e3pJY52o5WIsjk/FwNP+Xy6j8=;
-	b=mzVbgPtdUDKYsuIEwpnCGDyvS7nM1OpDnkSTvxcmPFjIwEm3CG2yEr/UIOLvxOyx/tvF
-	 IYk268RQLoMAWXc3Dp7C/gtQo3rEkZk7ICDmRpIre2Cmae32ssWngb/tRf+XjtGz0/3V7
-	 g4K2Ug4MNlG4IUhTX5bMUl1kn0KpIW9hoj+SM4Dg+XSSstW8O4DKyJH9pjrotmAJ/GEgp
-	 lMiymui/tsCxwu3uyRF1zWrU6GtaFwW0n/+dfDwJxoqnu37nVBbUK1RM0wVmZtZ29Ml07
-	 xKjOWrpKCBPROMiFS/d7ARtMHcRmjOSLOqO+ns+1w6RFP0sH+0Hm1LCuBnZT/hU9EgQ==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=hgHJBgvxGGFWiMpnIFalED87E2He5t3L7FJpRsCBKO8=;
+	b=f0ekoZnxUJmxBYKQ10inAQmW75IB1OjFapP38sdwowhMKzprcNVgx0JsJoWAJPm1G0uU
+	 LhB2IQ7DqUXZWqxRgpbLYg+XyqSHY0fMHI7pfs5Pb5iwWV/CHaj8rD/WJQoey6vvIlueJ
+	 oisngtjDFbk1n9QCOzPiiCoafl1v4nhDwsRDtsd55EleRuts8uwwRkC00lIIUVDcUQUFU
+	 49dvZKs8ydayl4Gccl3I9OkjcmhoiRkvQiHDKsu0gRZRF7bzM+fU//Q46vJ/ML+wI9rHJ
+	 C1AaQKdWBwstcnIIpEGqsZSVvTIJt3+Jv8fMr1GOtklH+OjHcvBlk1mYl8RNl0X8Lig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=layalina.io;
 	spf=pass smtp.mailfrom=layalina.io;
-	dkim=pass header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Y8MW1e8i;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	dkim=pass header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=X6483a2w;
+	arc=none smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DD56606A691
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 04:15:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DD56606A691
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA7F9606A335
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 04:15:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA7F9606A335
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=layalina.io
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=layalina.io
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Y8MW1e8i
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a5177d78c7so14790815e9.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:15:14 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=X6483a2w
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso13494055e9.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:15:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=layalina-io.20260707.gappssmtp.com; s=20260707; t=1795234513; x=1795839313; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5TFNXkztMqdNL1xqF9e3pJY52o5WIsjk/FwNP+Xy6j8=;
-        b=Y8MW1e8iuwCSfNs1oTKU34oU+BBSksqufTAz4dGSgVOjyjTgsCLUvMyJdyqCxxyAc6
-         sI+ZOhBj8UTfMDNbA1+J1pziSV+Kl7quV2U7PGFlFKhLjQpzIJSpMigvDqckGlTVxMQ/
-         iIFLXAlYuMjc8LxnATZj3Wa/BYOyxzcLm2hlA8X0SIcGVYp/GAhfvjfJMco9yaFmY0hJ
-         gMtaeNbFQC6hdvgUwOjsgX6RvHRPerWsqtQngOk1CZD31mJxG9BLRz4ROtqN6L2sWcBS
-         jbyaJD+qnSTiiuLg09lpbnrsZiYbMTpzb0CoVguOPT5J+FNSABCBNwaQUM0z4ItX+9cb
-         gXnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795234513; x=1795839313;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=layalina-io.20260707.gappssmtp.com; s=20260707; t=1795234515; x=1795839315; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=5TFNXkztMqdNL1xqF9e3pJY52o5WIsjk/FwNP+Xy6j8=;
-        b=Fl2o0ZiN8dtp50caCedEYHvcDKi0qlNfNlR+jAWJgZn2W7rTuLxtRPJiNMGX/qjEK+
-         0tTSv1/Bq1WTZKMq++RBfKsY+sjTKb9BlSsEPQbQfRhtmGtsRiBft2W4V/ARMem3jPgj
-         A/cgdCynpJpc1/bIAIiOF2hAMwsqxWtE1mfSvObHgNoAjTPPxpK3EqQe+ojB7qD4npd9
-         kuNIoMRSw7MEbgMuw17N9ABnVdO3hYakHUl5dUCOaDVlnFAGkaFvgqQNpCavpaZzC4EK
-         ZO1MXoA+LH/6J6f6SeKYboAyKgjiPhFT7z4FlMzdZzwI4bQogNkXcd0tCnMYnedX2tLH
-         Meyg==
-X-Forwarded-Encrypted: i=1; AL+hErE+JwuR6hBZaHeeVj2BJbhZ/Ok+Guyfjf3yze9zgvl1z6e7+gPCf8ZTRaWJYYzwJlF6menAZibDGJqcTSQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+tg4BUB7ImpFiuBNQ245oFzwoGZmbGj3rLNxXiSXKGBzlx39Bu
-	Xr1QM5Ji9Diugty1ZF80SOE1MdNxQIC+QS1+9dT8xeqPVpvMivNQzVm+Vo8DfSDIfNU=
-X-Gm-Gg: AZFdTZfvZOVTsg5k9ZBEnOXzn6h8YoHGwtKVPeoGtey1VXUVSR/RzPEoC64qHMizVb/
-	tgoVYZMLTKALEVhT4+GS4LYlrp4uKsN13+Hf0HOrtyYIM7/5fb7AW83abJB/fmOrm9ysS+4+ijc
-	bQztmyxsQbXufyn3OYc5AuAWeUBbgLMAwA0L5Jc00KtvAcrrNNUcTOe7hn3LBym13uPV+N8fs14
-	ve3EIB8KR6TPXjbG6NdWd9uUHrxqabihaDEdtmRMvuaD2lQrEcXXK9YQE9qxv2gezkPQVfcXvp8
-	eKa1nhHyJNMrXfLbv2mUb6EAb/elNmrLP3k6jKdiZvU/Yb+lqXqiRGWCJPQ8iAULAJl4T4YQLG8
-	mAs13z2rveh9Up5sd+de45+ab5sigzVl0cZQykxYOHakIROjukSmEsBN2k1IPiyuLki++kC+vwG
-	q1SKQiQSrDa3h13k50YA/7/Z5742K6EgH6zEgdM7yaNKjGq10/KM+v2MW9/BO97qtMHMxWMOPv0
-	RXcZRavfQdUiQjK9mX62MsmnjKg1tLCbeKiYbqZZT+tOJKV4p5SURsYP4q7ps4L4vIaNtCH0lcC
-	yw4Bkg46u/XQxEA8C/emRWtqLrKOMCltOwwmcb/a5maVFyXKWliy612Blr3V9B+M83y1IrJdlPZ
-	10w==
-X-Received: by 2002:a05:600c:1c1f:b0:4bb:6847:7943 with SMTP id 5b1f17b1804b1-4bb88814510mr134126455e9.26.1795234512460;
-        Fri, 20 Nov 2026 20:15:12 -0800 (PST)
+        bh=hgHJBgvxGGFWiMpnIFalED87E2He5t3L7FJpRsCBKO8=;
+        b=X6483a2w4p26Y9N6Mysj2tfp9KyKJPEiML1zXikOU1R+yVgpWP1DySOpvT8jtiQeAz
+         M+hf0qOOoLOi7tJl0Nkp5nsYSA2lYYxbqgWfrJutjKTy8Blfox2XR12aoeu+4e/DQuw4
+         ZgIfAWl8Ah2JdDowDUoJjjjfpXH4YAkM8slPHAgasr02u/s3jTcWyAQ/kYwpvD7c/7fm
+         AVO2oBEZtF2iv8SfeOWIi7GvTEuHLYAu2gTLnLHd9Exzz4cruYa9dLaoZZqkjODQudgY
+         eUNrAI3QlVfo2+uhC6O090w9pFFaPpRFnOkvvafqG/fr2A0X4eJv9vTfm4ElOU+364Ca
+         VbFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795234515; x=1795839315;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hgHJBgvxGGFWiMpnIFalED87E2He5t3L7FJpRsCBKO8=;
+        b=zQnIiuFKfVNZYPEx34+VHW1LKCT8n9nvqiBaGZHRJSAI/UKrWgxd6M8nISZLRsNmT7
+         zmf1vdVzJcZyP2KSQQ6Hh8pmEegqvC9hEd8Zf4J4wr83a5GX0clLgU+b5Iwfa042dhxV
+         cVTtgtj6FjWqFtb7Izd32rBv+pb8GDk4lHIYgaX8+75mgVLhc2XYR02NFoP3sSZ2DmKE
+         1aTAWKyqCkxWfsBhPq9MOxINzBuJRB7vKz0veR6Ss6jzY/5q5uuP60RmvbkAu1f2EeVL
+         XlN1l9bcc5Wjm2tp1HNogKbBWsYep4iIbmfmbkGfk5Hc5nmGFDm0pjWbZHPQTWu1bQUM
+         K9ow==
+X-Forwarded-Encrypted: i=1; AL+hErGITrgNqoq0VHTE+ADA7BXKRKvcS3fntO8DBV+NhS9k8xEI8nzQmeOerWNfUtXtPmt+/I8DsJAaxKLrs/c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+8eOTocMQ0nJicvoQ7USzaEnma03GT/fnkahg8y9zHi4TEouWR
+	LAYK1x7qky+U6pw9t/6nbfZSN6G6ezgxiuX0jtUB+dNDhS/0m+sw629YIGBjGV2yldQ=
+X-Gm-Gg: AZFdTZeGqniOZm9j5tG8FnLgb7yFjIvmMrAiQ+bdRlEPme8NXcBpz2rU6PFe//VRJnN
+	0Av0N50MJ0AzU+vpTIXVpLjM8SlOY3DjybIy9wElp4BPAYrFXS7J+Uvez09D4gkCYRzmm5enzwm
+	yRqV0BEv6+MbmnN+PrmGGoObBTJXBumxkn9WFSMyFEbKYTOheidO+LupEi2r7AzxLLP6DSB+Ssa
+	k96mycEvyqDObivveHUXJLsQYj6eQXoccHrJTCSChIJi5OfMGjtKP4KL4q8ngXMeHNqLKLCJduz
+	0YAMk4PMYsOyhSFAxHiUVBA6qxWAuNdamnpKaLBIW01CI01fj0Hv/jui6YmuvuaUXXOvBc2VOw2
+	btvkuoO3ZrsKSFTaolGALwHmdb9xlnHtU/B2WcS/FO89x+mp0UcLCtyWj2OAi7+O7CLAub2zYM+
+	PO9LJZeKQ2stOvvIUVjSni2sxr/w6d1/iN9pZlcwlika09rOJmdoZLL05jEpr1CGvsjbpy4oWii
+	iH6tB5k7hSmttX8N4/fZeQUGTjtudTofnT7AqWwYNLAFbHe/6ccrc62FaF/u5P9B+9BoCJ/c3v2
+	2p+grxiFHpvuUWY3uuRu1iU/xwQyaJ/jFSuOWjKDu8cSSO4aIRV5JorIpAk1WilHftq4xMLApoD
+	Gdg==
+X-Received: by 2002:a05:600c:530e:b0:4ba:eb:eb9b with SMTP id 5b1f17b1804b1-4bb8880aba2mr117488895e9.8.1795234515232;
+        Fri, 20 Nov 2026 20:15:15 -0800 (PST)
 Received: from aerith (host86-128-182-179.range86-128.btcentralplus.com. [86.128.182.179])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8d4f9aa8sm90032175e9.4.2026.11.20.20.15.11
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8d4f9aa8sm90032175e9.4.2026.11.20.20.15.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 20:15:11 -0800 (PST)
+        Fri, 20 Nov 2026 20:15:14 -0800 (PST)
 From: Qais Yousef <qyousef@layalina.io>
 To: Ingo Molnar <mingo@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
@@ -88,11 +89,14 @@ Cc: Christian Loehle <christian.loehle@arm.com>,
 	John Stultz <jstultz@google.com>,
 	linux-kernel@vger.kernel.org,
 	Kayra Cizmeci <kayracizmeci@gmail.com>,
-	Qais Yousef <qyousef@layalina.io>
-Subject: [PATCH v6 0/3] Fix uclamp race against non atomic static key enable
-Date: Sat, 21 Nov 2026 04:15:04 +0000
-Message-ID: <20261121041507.39582-1-qyousef@layalina.io>
+	Qais Yousef <qyousef@layalina.io>,
+	Wei Wang <wvw@google.com>
+Subject: [PATCH v6 1/3] sched/uclamp: Fix race condition leading to imbalanced uclamp_rq
+Date: Sat, 21 Nov 2026 04:15:05 +0000
+Message-ID: <20261121041507.39582-2-qyousef@layalina.io>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261121041507.39582-1-qyousef@layalina.io>
+References: <20261121041507.39582-1-qyousef@layalina.io>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,105 +108,95 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Latest version drops the partial revert (patch 3 in v5) as RT group
-throttling is going to be marked as broken and anyway a proper fix will
-require non trivial rewrite how dequeue happens for throttled tasks or
-full revert of subtracting nr_running added 10 years ago. Both of which
-is not appealing and with the proposal to mark this feature as broken,
-better leave it and hopefully just delete the problem area.
+Static keys are not guaranteed to be enabled atomically across CPUs.  Or
+across callsites on the same CPUs. Which means when sched_uclamp_used is
+enabled, some CPUs/callsites will return true for uclamp_is_used() while
+others won't, leading to asymmetric uclamp_rq_{inc, dec}_id. If we
+decrement without increment this is safe as documented in the code. But
+an increment without a decrement is a problem and will leave the
+uclamp_rq in a corrupt state.
 
-So in summary RT throttling is not fixed and being ignored. Fair
-throttling is fixed by pairing uclamp_rq_inc/dec with
-add/sub_nr_running. For RT, we do that in inc/dec_tasks() which are
-called when tasks are actually enqueued/dequeued - as stated will fail
-in RT throttling case. Given the minor severity of the problem and
-effort required to restructure part of RT group throttling that is being
-marked broken as we speak, I think this should do.
+The reported case seems to happen due to callsites on the same CPU not
+seeing the flipped state.
 
-Changes since v5:
-	- Drop patch 3 to partial revert subtracting rq->nr_running for
-	  RT throttling.
-	- Drop fixes tag from patch 1 as the series now is partially
-	  fixed and not suitable for LTS.
+Plugging the race is hard as discussed in [1]. Take it for granted and
+do correction actions on going to idle to guarantee this state is
+transient for a short period after uclamp_sched_used is enabled.
 
-Changes since v4:
-	- Fix problems in fair/RT throttling logic that were exposed by
-	  the original fix.
+[1] https://lore.kernel.org/lkml/CANDhNCqyXsZ6G77z+9s=rTO6BZifRG9+hVxMTah+tAv6pB6h3w@mail.gmail.com/
 
-Changes since v3:
-	- Fix Sashiko report about force_idle paths where
-	  rq->nr_running is not 0 highlighted by Christian
-	- Update patch 1 commit message to reflect jump_label call
-	  sites on the same CPU might not be updated atomically too
+Reported-by: Wei Wang <wvw@google.com>
+Signed-off-by: Qais Yousef <qyousef@layalina.io>
+---
+ kernel/sched/core.c  |  2 +-
+ kernel/sched/idle.c  | 19 +++++++++++++++++++
+ kernel/sched/sched.h |  3 +++
+ 3 files changed, 23 insertions(+), 1 deletion(-)
 
-Changes since v2:
-	- Use uclamp_rq_is_idle() instead of scanning buckets to detect
-	  imbalance
-	- Do some cleanup on accessing the flag as an additional patch
-
-Changes since v1:
-	- Fix kernel test robot report due to missing static inline in dummy
-	  definition of init_uclamp_rq()
-
-Tested with the patch below to force imbalance via sched_feat. I could see the
-warning appearing and frequencies spiking during imbalance. Correct behavior is
-restored when sched_feat is disabled where the idle entry reset fixes things
-up.
-
-I had a mix of uclamp_max mainly used in the system via schedqosd.
-
-	diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-	index a2035d66270b9..14f9f1e419e02 100644
-	--- a/kernel/sched/core.c
-	+++ b/kernel/sched/core.c
-	@@ -1889,6 +1889,11 @@ static inline void uclamp_rq_inc(struct rq *rq, struct task_struct *p, int flags
-		for_each_clamp_id(clamp_id)
-			uclamp_rq_inc_id(rq, p, clamp_id);
-
-	+       if (sched_feat(UCLAMP_IMBALANCED)) {
-	+               for_each_clamp_id(clamp_id)
-	+                       uclamp_rq_inc_id(rq, p, clamp_id);
-	+       }
-	+
-		/* Reset clamp idle holding when there is one RUNNABLE task */
-		if (uclamp_rq_is_idle(rq))
-			uclamp_rq_clear_idle(rq);
-	diff --git a/kernel/sched/features.h b/kernel/sched/features.h
-	index 8f0dee8fc4755..b59e532500fd9 100644
-	--- a/kernel/sched/features.h
-	+++ b/kernel/sched/features.h
-	@@ -142,3 +142,5 @@ SCHED_FEAT(LATENCY_WARN, false)
-	  */
-	 SCHED_FEAT(NI_RANDOM, true)
-	 SCHED_FEAT(NI_RATE, true)
-	+
-	+SCHED_FEAT(UCLAMP_IMBALANCED, false)
-	diff --git a/kernel/sched/idle.c b/kernel/sched/idle.c
-	index 84301fc49e699..dbc3f5e1a7e01 100644
-	--- a/kernel/sched/idle.c
-	+++ b/kernel/sched/idle.c
-	@@ -519,7 +519,7 @@ static void set_next_task_idle(struct rq *rq, struct task_struct *next, enum snt
-		 * are still queued.
-		 */
-		if (uclamp_is_used() &&
-	-           !rq->nr_running && unlikely(!uclamp_rq_is_idle(rq)))
-	+           !rq->nr_running && unlikely(WARN_ON(!uclamp_rq_is_idle(rq))))
-			init_uclamp_rq(rq);
-	 }
-
-Qais Yousef (3):
-  sched/uclamp: Fix race condition leading to imbalanced uclamp_rq
-  sched/uclamp: Use wrappers instead of open coding UCLAMP_FLAG_IDLE
-  sched/uclamp: Move uclamp_rq_{inc, dec}() from core.c
-
- kernel/sched/core.c    | 49 +++++++++++++++---------------------------
- kernel/sched/ext/ext.c |  6 ++----
- kernel/sched/fair.c    |  6 ++----
- kernel/sched/idle.c    | 19 ++++++++++++++++
- kernel/sched/rt.c      | 10 +++++----
- kernel/sched/sched.h   | 21 ++++++++++++++----
- 6 files changed, 63 insertions(+), 48 deletions(-)
-
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index d7c3b43158dea..c6780358a7975 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -2111,7 +2111,7 @@ static void uclamp_post_fork(struct task_struct *p)
+ 	uclamp_update_util_min_rt_default(p);
+ }
+ 
+-static void __init init_uclamp_rq(struct rq *rq)
++void init_uclamp_rq(struct rq *rq)
+ {
+ 	enum uclamp_id clamp_id;
+ 	struct uclamp_rq *uc_rq = rq->uclamp;
+diff --git a/kernel/sched/idle.c b/kernel/sched/idle.c
+index 76f3c84ca6846..84301fc49e699 100644
+--- a/kernel/sched/idle.c
++++ b/kernel/sched/idle.c
+@@ -502,6 +502,25 @@ static void set_next_task_idle(struct rq *rq, struct task_struct *next, enum snt
+ 	 * lost_idle_time of clock_pelt
+ 	 */
+ 	update_idle_rq_clock_pelt(rq);
++
++	/*
++	 * Due to a race condition when enabling sched_uclamp_used static key,
++	 * we can end up with imbalance where uclamp_rq_inc_id() has happened
++	 * on a CPU without uclamp_rq_dec_id() on another CPU that hasn't seen
++	 * the static key flipped. The race condition is unlikely, but ensure
++	 * the uclamp_rq() state is set properly on each entry to idle.
++	 *
++	 * The reset will cause the uclamp_max from uclamp_idle_value() to be
++	 * lost. Since we are imbalanced, hard to know what is right. So just
++	 * cleanup. This should be a transient error state once we recover
++	 * everything should work as expected.
++	 *
++	 * We need to be careful of some paths that can force idle with tasks
++	 * are still queued.
++	 */
++	if (uclamp_is_used() &&
++	    !rq->nr_running && unlikely(!uclamp_rq_is_idle(rq)))
++		init_uclamp_rq(rq);
+ }
+ 
+ struct task_struct *pick_task_idle(struct rq *rq, struct rq_flags *rf)
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index 7d2ec527b8a25..d87bdbd2121df 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -3704,6 +3704,7 @@ static inline unsigned long cpu_util_rt(struct rq *rq)
+ #ifdef CONFIG_UCLAMP_TASK
+ 
+ unsigned long uclamp_eff_value(struct task_struct *p, enum uclamp_id clamp_id);
++void init_uclamp_rq(struct rq *rq);
+ 
+ /*
+  * When uclamp is compiled in, the aggregation at rq level is 'turned off'
+@@ -3802,6 +3803,8 @@ uclamp_eff_value(struct task_struct *p, enum uclamp_id clamp_id)
+ 	return SCHED_CAPACITY_SCALE;
+ }
+ 
++static inline void init_uclamp_rq(struct rq *rq) {}
++
+ static inline bool uclamp_rq_is_capped(struct rq *rq) { return false; }
+ 
+ static inline bool uclamp_is_used(void)
 -- 
 2.53.0
 
