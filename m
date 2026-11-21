@@ -1,95 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.180
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795272595;
-	b=zmtGqnqxGGtWJ91c0jy7p3dGDdPAJD/yC9gFsEx/l20VGvG/bh8x95ZSjPWncESLwrbJ
-	 MPdHaaHzOI+nCDyMPfGj/P6FEY32FpkhcNaA1EW+PLhYinxI98OWf202Ow9cWiueVQ8GT
-	 jaofWigTT+qutCGo/PGZnP77iHL+3XlwWMHZBbkklsX7yDQWeysYMPOzWaQz/zOKRvecX
-	 2c3rr/AMtDzyM/PD5iU1dFAkDdtenkSSCC3BmWZfFxRwrdQ57PA2RmAWN0WAUtRq0Ip3W
-	 1HAjClcpLBlUSg5u59zOk+AqHMQ2S1nnaap4Ee6Ftf5IACMtrSmNCc//tu6A3jLe8nw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795272595;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
-	bh=KMleV59mDasfc9ZrDI02cJ4rVcYzhncPH8nN8fIqQw0=;
-	b=MUKmDgZqfuq6IRYLlVmucF+w4x5OjtmFZb/QhGsNbB9qUJb8hjYB7ngAubdaLONSZR5K
-	 0fPxgNhv0E+t0yuISiJ2MNb2irjHnScY8tKmynAuk2ULMlSmfwq+vnGsc6okSJIi5aoJu
-	 AVzYDlCTAbFjNzsyW23eyT1/NUM/eZAlD+fMWRl2ogGwSDLLzIluG2A2qUgk95FWf32Sz
-	 Yr/IM8RYqZ7Hev/1nw62nCZfN3ebKDQsckhrvYDyruRj5yQkL42KU5+NYH8O/TlJuh0RC
-	 RKS8rTKhyEI6Zp3PBOgeSLCKfWEKQDsfdYTd3+jkb1DCRR7ASb+SnPAbOv9oiEzw3Lg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MLkrnOPN;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.180
-Received: from mail-pg1-f180.google.com (mail-pg1-f180.google.com [209.85.215.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795273109;
+	b=pTd92bzfWys4wJC0O/9SHuXa/XHRwEL0um0SEvfzg1b3hdhyH6lqHe/tRiVBeXZZDCVv
+	 A4ZP/IVkefcxUbMNPy632fSsWTxDMENzcSSyPxgpltjGSYUnLqLimIm9pmdWI5ktobd1n
+	 3RfsSbTfLRTklKBx9MXB9BYbLDNaFXX9VrguHEc3Yw32QFhomSegEzxchHvh4jnV845Ld
+	 /QdmIbLq1bHEOlY2gM588IR7fuNRvbJBcC75ysSoH6+jK8Fw5YuMM06EmWv+GWzcMwtQ8
+	 6ZKmB/X6Lg2vSU/rVm+K1KqnjbJr5uzz60LPqScIybNvOFmMk4dJ4OqH0KRe/0+To4g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795273109;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 Organization;
+	bh=i3b3cLtt8G5/INJz756VDaB4GfRsAFuhpYGDkJwdzxI=;
+	b=VkDlon/+mBDdzICmMUmIzQajMol0R1d1G3SykpqubUvr/mA3fm0rtyEI5N7Sl1CA3XwR
+	 PCXvxT94JEjgASquOkfqnebBPr9hZ6KwHL6NPP4F49LFGRHNYFa+tr+rmRVktCquP/kms
+	 Lo+Zr9twgpMvn3ssfS9oeMoYhM+6u+K029Qb3uRn1LRZyqvppydOLu1FkgjGnd1LClokv
+	 aDSPujTv3+Uf8G9rFt4dF8a8+A1MNS0xyS/01K25J7ws0L/MQ0WB8iN5/ieNZez/Km5aF
+	 kDHQiqy5q3WeDS+Pqi06hsoMXy4SvqUvjUxc71fwIFYGWsa5MaNUtbWHKejkqrtRdNw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gsRsfpvD;
+	arc=none smtp.remote-ip=198.175.65.20
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 307AB606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 14:49:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 307AB606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8691A606A320;
+	Sat, 21 Nov 2026 14:58:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8691A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MLkrnOPN
-Received: by mail-pg1-f180.google.com with SMTP id 41be03b00d2f7-cde1479f76fso1212653a12.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:49:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795272594; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Jzf4xtflwBh81yIjhU2rwdIEKVKH8p3LW+H+J5fPHrz4ADQGlO/uDytC+j4nfV/vVv
-         W8BvNqIihMxbw7c/N0KspbJnByvjIjWBzHUDgcOVBQ27xsayHW8uk0aYLBiHfBvFWnx0
-         FFAfVhjJU86O+71z5yyhkBYxSEToxblDLhXXUrDaswYjehc8TpgvUsuayQC/06jlj3kn
-         ertmpa7fMyY8GH3jdWczIt9+bpDNc81+BB0boTEDldZAsauKQSthlyL/IeWst7oFYb7T
-         JXZAYEFBk9WCGA6CmVdivM+FL3Z8/E45wm8bHmXm9m1PkSpUJPq8DJcZWV5xyDLlIDCr
-         1XEw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=KMleV59mDasfc9ZrDI02cJ4rVcYzhncPH8nN8fIqQw0=;
-        fh=os4nU/7AohS66ITw3wNBnsPypIu0tKtisbHT/EFBogk=;
-        b=QebFsaHOVHO2YZWePQJw02EkWbIFN3OV1wsERp3AF0aUogYWjBqUgI5DeUt4i57Dj4
-         DM7ZXhaEVmWErTn2yBktMo3JmN9TsiUCzeZUO2Weq8+U3AOTqTHQHC4ztlnYp35zpIRQ
-         aFBhsgcbyOnBILcKsdEvKynVlwJu8D8ewfOrYxeyWGrnFGHg7pLTC2IX1U6iaRgvS4H1
-         UpyZtXrymMf8+fyfY6OV/iL74hIUrOF2GU4oK/RFQpXQEkQtUnEoYADDqKYWLZ+064iM
-         Q2ePJ/39yDr6FhQf8J3oql/gL+pysx/pBLGY/PWQCX12zG1fWmVGA27AXFwJtPuX2Wdd
-         YFkg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795272594; x=1795877394; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=KMleV59mDasfc9ZrDI02cJ4rVcYzhncPH8nN8fIqQw0=;
-        b=MLkrnOPNCstSi8svs6c1/FDow3Ugv34GJJ0zqaByDNgJM1EvDQpemdnCCYYuMQwuF6
-         Urp0eqa0oOqVX3ivri+0b6p+E2lyNnPCSeGULskaa8ObcP7L7xAmq03oROwvjZii4vqS
-         ZI4GLeDDHpdLzrnZEXJ2w/KqTHnShY/bOgs1/d/hMfvUeeXZjOaZ4zrE0+eGBNqaQZMQ
-         L2SmPBNvCZvGv7BPkez5dDF0XnuiqCXZylE+rCV0/1tiPmjkyYGf5b2b6m+k96lQYp91
-         Vb6Obz5nWK9Pna6LgIoOKH226aeqgnuSCN/srMhSdJFIKNaSFu35PcVK5LtiyMt815Cy
-         T0kw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795272594; x=1795877394;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=KMleV59mDasfc9ZrDI02cJ4rVcYzhncPH8nN8fIqQw0=;
-        b=rPsGvp/3wWguoRvkUPTMKe6YG26IHIZfw+H/Llk7fGlWtbkjKhRgibqP/KaQjY+ZsM
-         MW64uGDo/3R3IbRntgEGPZo4DtKOD/Zw43+rOjseZ0Xgl0Lp7hPgCoFRStwiKul8d4RM
-         SA8JUvVD61l6s3DIPEEEqM4SW8bFi07RjBVaW9YmrMqe61IBdJCvzILRPg4ZtJMzBOLi
-         G46OmseOIAKWbr9VSYJl3TdyaiO8L0ylfdpej9oEVG1Gz3aCOCw/W2j2MqNJ07iw4/Pu
-         ApxgqZc/mJd1pnP6PjQWVyzEZH5uPpct9jab7FrIhAqum9gsTf9rrivnAwZOzdy/1yFy
-         1xng==
-X-Gm-Message-State: APuU4Z92aEzpe7pCUTLkZ1gTSptY4Sz2B/UZNcohmR+7NUk0n+CmVoJV
-	O6/ArJS7rYuDPCLssTX90gE4IjSsmdLWWU8lUaFs8gatwa4N6+2gYdFcgbf8envp1EYmvjMPNfU
-	Q+SJhH/h499k/ZMZ+b7/fmgXx5J3TL1Y=
-X-Gm-Gg: AZFdTZc7Q8wumcy6OWtNessBYBwKPMWI9rCCKw+2mnHw76uC00oFXJBmeY9t11ppiHI
-	pQcnmi6kg3Lfsxj6ryNhre8To0EeKDnd0IQkWTN2128J8f+dNR9kFz6ra2EyJBn0sjPmIMeLfIf
-	4Msu7YPK7u+MMFyMA5p6p5nAK4Atu+ALWK3cFNPvpUtnJnSyOXkYki3ZDc8QwPLqJdvmFt47+ap
-	uYp3R43v8vNjg4wr56ybkvRmXLArL4lHgZzvZc1FsFQZkvpzMCC/YwiVf1xpRi1ZZUo4Won09iL
-	gE6duUsNscUxX/U4GlTyQt1c5SJhHhTqrGisqx1ouCiLSEYrn0sE49ojXsT3EzNmAuXuWmE19iP
-	GzDAkGirCtLIBEXnaWKPuq4XlY/YkdDdPCux/vyM=
-X-Received: by 2002:a05:6a21:6e04:b0:3e8:b7fd:6288 with SMTP id
- adf61e73a8af0-4014d159070mr6730389637.41.1795272594392; Sat, 21 Nov 2026
- 06:49:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gsRsfpvD
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795273109; x=1826809109;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=+2TVOJ7oWyeYgmNbI/7CjJduZ8iKEhMSXWBN6IhabsA=;
+  b=gsRsfpvD944MrXJqZmhmuH4U6fR66u86B5T08p+N42Fp8DUpIKuQCyt4
+   kgA66q1inP5fUL8EfvSml0BJets6ejwsPBJCrMEJECB+agfA6lISCsfGT
+   8vy0gZZ/cyIUrAzSRp6LtytXoYPTSJMy+OVmRsU9kak6hvKnQ0AjcCaW0
+   7VXZPdhQh/uphOv8rEjSQRlCC27yi0370qHO+sNuBG4kFHQeM0f7Z1WBw
+   SCX4KBrto59z+sL+B5qaUKSG9656G0zePKOgn8DpNJJiuTMv1HMWGeB9x
+   UCFjljjuuKzLoFADo271ISXdNKEm06NgtZjhvbrX2JmBMqpZ8TWWvp1Bm
+   A==;
+X-CSE-ConnectionGUID: 7xIHk65nT3md4TJN+No91w==
+X-CSE-MsgGUID: fhRY29ixSUeguhgKGUvALw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11973"; a="4176173"
+X-IronPort-AV: E=Sophos;i="6.27,225,1787036400"; 
+   d="scan'208";a="4176173"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2026 06:58:28 -0800
+X-CSE-ConnectionGUID: 6GiRcTiFThySDZbJz8JxEQ==
+X-CSE-MsgGUID: WFRzvSSJQ8WHjwrfWzIsNQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,225,1787036400"; 
+   d="scan'208";a="11338686"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.129])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2026 06:58:25 -0800
+Date: Sat, 21 Nov 2026 16:58:23 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Joe LeVeque <joe.l@reflexrobotics.com>
+Cc: jean-baptiste.maneyrol@tdk.com, jic23@kernel.org, dlechner@baylibre.com,
+	nuno.sa@analog.com, andy@kernel.org, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] iio: imu: inv_icm42600: return -EBUSY for
+ temperature reads when idle
+Message-ID: <awGxj7xP6oTlkUt0@ashevche-desk.local>
+References: <20261120020850.24318-1-joe.l@reflexrobotics.com>
+ <20261120020850.24318-2-joe.l@reflexrobotics.com>
+ <awAT-ofy0p_uhvGN@ashevche-desk.local>
+ <CAJLMkXafYtUx7gXE8g-sJ0keGW8eSrVGPc2ao5EzjkxZ-nN2cA@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,108 +84,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Yi Wen <shicenci@gmail.com>
-Date: Sat, 21 Nov 2026 22:49:43 +0800
-X-Gm-Features: Aa3M54o-c3umdLG_yLVUlZkiDbL2uREfVKI1Y1odDetEyJ0RRT4OIUMRc1PDQa4
-Message-ID: <CAPHJ_V+_=Av8pAM+N+oc4JRmtqBjhcimh3B_pSy_N+5qecm6Mg@mail.gmail.com>
-Subject: [BUG] mm/gup: WARNING: mm/page-writeback.c:2678 at __folio_mark_dirty
- on v7.4-rc3
-To: David Hildenbrand <david@kernel.org>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, linux-ext4@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAJLMkXafYtUx7gXE8g-sJ0keGW8eSrVGPc2ao5EzjkxZ-nN2cA@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-Hi,
+On Fri, Nov 20, 2026 at 10:32:52AM -0800, Joe LeVeque wrote:
+> Hi Andy,
+> 
+> The -EBUSY here is consistent with the existing invalid-data case in
+> inv_icm42600_temp_read(), which commit dfdc31e7ccf3 (“iio: imu:
+> inv_icm42600: change invalid data error to -EBUSY”) changed from
+> -EINVAL to -EBUSY for the same situation (both accel and gyro off).
+> Patch 1 returns the same error for the stale-data case, so userspace
+> sees one consistent response.
+> 
+> https://git.kernel.org/torvalds/c/dfdc31e7ccf3
 
-I am reporting a kernel WARNING triggered by a syzkaller reproducer on
-Linux v7.4-rc3.
+I see, but even if it's used otherwise, perhaps we need to consider to replace
+in both places (or rather replace existing one first).
 
-The reproducer triggers a WARNING in ext4_dirty_folio() when
-process_vm_writev() writes to a file-backed mapping.
+What about using ESTALE?
 
-The call trace shows that the warning occurs during the GUP page
-unpinning and dirtying path:
+> On Fri, Nov 20, 2026 at 1:33 AM Andy Shevchenko
+> <andriy.shevchenko@intel.com> wrote:
+> > On Thu, Nov 19, 2026 at 06:08:49PM -0800, Joe LeVeque wrote:
+> > > The temperature sensor only measures while the accel or gyro is on.
+> > > With both off, its data register keeps the last measurement, so a
+> > > temperature read returns stale data. On an ICM-42688-P, a value held at
+> > > about 52 C was returned while the chip was at about 62 C. The data only
+> > > reads as invalid before the first measurement after power-up.
+> > >
+> > > The temperature is the die temperature, used for accel and gyro
+> > > compensation, so return -EBUSY when both are off instead of stale data.
+> >
+> > Hmm... EBUSY means they are doing something and kinda hints user to come again.
+> > Would this condition change on its own if user comes again later with the same
+> > request?
 
-process_vm_writev()
-  -> process_vm_rw_core()
-    -> unpin_user_pages_dirty_lock()
-      -> folio_mark_dirty()
-        -> ext4_dirty_folio()
+...
 
-A second WARNING is subsequently triggered in __folio_mark_dirty() in
-mm/page-writeback.c.
+> > > +     /*
+> > > +      * The temperature sensor only measures while the accel or gyro is
+> > > +      * on; with both off, its data register holds a stale value.
+> > > +      */
+> > > +     if (st->conf.gyro.mode == INV_ICM42600_SENSOR_MODE_OFF &&
+> > > +         st->conf.accel.mode == INV_ICM42600_SENSOR_MODE_OFF) {
+> > > +             ret = -EBUSY;
+> > > +             goto exit;
+> > > +     }
+> >
+> > I would choose one from the below (they all have their pros and cons)
+> >
+> > ESTALE
+> > something like this, but error message is specific about file handle
+> >
+> > EL3HLT
+> > what is level 3? But we have the only user, and it is outside network
+> > and it sounds close to this case, but why not EL2HLT? (Also the users
+> > are outside network.)
+> >
+> > ENODATA
+> > also used a lot, so semantics not so clear, and data is there, but outdated
+> >
+> > Depending on the answer to the question at the top of my reply, the error
+> > codes may be EIO, ENXIO, EPROTO, EAGAIN (but if EAGAIN fits to the flow,
+> > EBUSY also fits).
 
-This appears to be related to the interaction between GUP-based page
-dirtying and filesystem-managed folio metadata. In particular, the GUP
-dirtying path may mark a file-backed folio dirty without ensuring that
-the filesystem-specific metadata required by its dirty_folio()
-implementation remains available.
-
-This may be related to the known issue where GUP-based page dirtying
-does not properly notify the filesystem through page_mkwrite(), as
-well as the interaction between GUP dirtying and
-filemap_release_folio().
-
-Before these warnings, all four ext4 loop devices also report delayed
-block allocation errors and abnormal free block accounting. These
-errors may indicate an additional filesystem inconsistency and are
-included in the console log for further investigation.
-
-Reproducer:
-
-C reproducer: https://pastebin.com/raw/VMwNSqrp
-console output: https://pastebin.com/raw/43Ne65Vu
-kernel config: https://pastebin.com/raw/dG24GcY1
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
-Kernel:
-
-HEAD commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-
-Kernel version: Linux v7.4-rc3
-
-Environment: QEMU virtual machine
-
-WARNING 1:
-
-WARNING: fs/ext4/inode.c:4527 at ext4_dirty_folio+0xe3/0x110
-
-Call Trace:
-
-  ext4_dirty_folio+0xe3/0x110
-  folio_mark_dirty+0xb9/0x120
-  unpin_user_pages_dirty_lock+0x588/0x6e0
-  process_vm_rw_core.isra.0+0x7ad/0x960
-  process_vm_rw+0x1c1/0x260
-  __x64_sys_process_vm_writev+0xe3/0x1b0
-  do_syscall_64+0xee/0x4f0
-  entry_SYSCALL_64_after_hwframe+0x4b/0x53
-
-WARNING 2:
-
-WARNING: mm/page-writeback.c:2678 at __folio_mark_dirty+0x644/0x780
-
-Call Trace:
-
-  __folio_mark_dirty+0x644/0x780
-  block_dirty_folio+0x149/0x1a0
-  folio_mark_dirty+0xb9/0x120
-  unpin_user_pages_dirty_lock+0x588/0x6e0
-  process_vm_rw_core.isra.0+0x7ad/0x960
-  process_vm_rw+0x1c1/0x260
-  __x64_sys_process_vm_writev+0xe3/0x1b0
-  do_syscall_64+0xee/0x4f0
-  entry_SYSCALL_64_after_hwframe+0x4b/0x53
-
-Relevant ext4 messages:
-
-EXT4-fs error (device loopX): ...
-EXT4-fs (loopX): Delayed block allocation failed
-EXT4-fs (loopX): This should not happen!
-EXT4-fs (loopX): Total free blocks count 0
-EXT4-fs (loopX): free_blocks=2415919104
-
-The issue is reproducible on Linux v7.4-rc3.
-
-The full console output and C reproducer are attached.
-
-Best regards
