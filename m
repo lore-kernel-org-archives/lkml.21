@@ -1,153 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.1.8
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795249646;
-	b=nNdhRPlE7eG5rjQag+c9EVgjwSf4PUdqp9KwWeX3rOTxRDJl2ujxcTP+a7F301h8JVp8
-	 Jv/gu9KNrSwH9QCB9vu8+4GJdmaCmvZmQMLH18tfZpZ9HtpHME/8vxYNPECH4havJGS5b
-	 8Rpo9ycQor4lOg+h1v1fjn4qb8zUy3tnGt4yjvKBjYpfSF/XA7xARRYcbrNf44j6VsCpq
-	 nI9rWc8sxE0X5lRwauiWpSD+J6tbnQvwUMMZQQWHotruZxsEtdyU5lb7FU6QhNp1ZdQ8W
-	 AFEdi+b8U93fQ0ZqEMr0vBOSn6gfSjCMuS5qQguf2jFf27YWqn8LLGl1TCEhelSI8pQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795249646;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:
-	 x-ms-exchange-slblob-mailprops:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:
-	 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=/t1EHJdgJObZ1uJWl2NyG1P65mK4WklQcAA6vyXd1Y0=;
-	b=Gemqyj+rdOAscJkYvS1IV9RkZaASnWY1i9mAT3UZU2pJdywiApgOkZ+xg9DKFz5mXFFG
-	 JF++ymVDY7GZgVQQU9r8ffEbuN3GE/Af4NRHDkR2o3OrhYkxbyzdXWp3K5FXTgevAYhW4
-	 fvcJxalVeSAA5Zcz1pAeVvJsFZZcViwN4dIX+oZpWD+tvZ52V4j0UZ5kLHxkbPXBFUPC2
-	 QWwbSxrE5zvZmiWxDtXZAwUqLdVNy/lSCyArxhNQvi+frsQ1JJ8vacsjnR7mlVarK1qfB
-	 hvAggcOQH9ekNirZOs+M4iQPNeB3BCvikjNJj4B+z1HkrImEHIwnC2SbIQdRCSd+oJQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=outlook.com;
-	spf=pass smtp.mailfrom=outlook.com;
-	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=ZYLR+zg3;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.1.8
-Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazolkn19011008.outbound.protection.outlook.com [52.103.1.8])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795249735;
+	b=OfDR82HakAKcfaWsAT/j+i/skh4NB37PjGoQLqprK4gCWt0EIHwEV8pmUIAJ7gMhqzP1
+	 19IeamLG4r1VcfI7iQ1CPE/G3cLGSvV35mu1ilhZD6+U2dkhjDUQF5lvg9Y0Ca7OgtGo3
+	 L2woZlPFc10GrKdgIdkwpROL13xWx7ER/amSkeNirby7cqDIF//tNSWXODnS6QDq5LeQg
+	 2V05DST4RojnQ6sm6WBsgLwCWfJ6UsIIYq+KYvtgH0MC9GnEX5EmOsqyy4cF/wtk2y8HA
+	 81kr9EzB08uzroc6fd71rEbv163ObXSvuGvjLfwWPGgab/MXFAIt1hSLeC5BvkQoaXA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795249735;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=vA0VgrN/AJbvlL7DFILZtRf61HlqOG1LXfr01uh4umc=;
+	b=t5TKynsXjnpUnmpYlY4Xkv+Quu1opDX1Jegc09QIBEcVIfGK1iOZEbC+G8Hz6dWOCpsF
+	 VdF735uVmdT3xBZzz0Pr7vGsIG/5BGK0oLkUFjzSm4jvkIDCv6NYVtDIlFOGUyQNZ7Blx
+	 K+GQd49os1KK1HUy4JiddnJA6Z06I7Il7eevscGghA33YQZxZ2/B/PU3/a4g0w3chpmTR
+	 OmKiVIyBzhKvO2SyOssxgTh22Z+gpcD1C6ao05sBUto3c/lv3XIkPhuC+grCVuU6NhKV8
+	 8KFrSEMtjEh3+peXQWiA8djIk6RQeKLz2P/mWziIj0Qs+kfN2bj7NQbIPC/we8BnSbg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JWTvHv2M;
+	arc=none smtp.remote-ip=209.85.221.50
+Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61C99606A333;
-	Sat, 21 Nov 2026 08:27:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61C99606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8666A606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 08:28:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8666A606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=ZYLR+zg3
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ovOl60OJ6NhlkzhUwb5LZwsSojJv0qbYB866eyan6fNejB/5W5UVJN48m5v+DNDJb6H6YRGQu0R+d3LEOCGuzs1T85d9zHgOyR2N5i1YdaIRgjlr7OKp9+RUJIKriX3JdOP5x1aN65O3NwAHHljSraLFqJ6w59VjNoVH9lC2hKzgk6oFHwEOm5jc6NqLJ4u501dJvcQGhNfV9WddiKMY/tqVhFBl92L++DNv/ATPP1R3X6qHQv5QAcKwIbRY1p6UK0gax5+zSgrkT7LFhbJgKu+NA0ao+Cn0/nYVcq0I5N3GzwyS+LQB77g9W/FYObddn3P20yZ8R8mGdIqaAIdvLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001; h=From:Date:Subject:Message-ID:MIME-Version;
- bh=/t1EHJdgJObZ1uJWl2NyG1P65mK4WklQcAA6vyXd1Y0=;
- b=HjBmnYeRHBflkAtIkrXUoAEPgdlU3tckyw7NFnAllZep2czG9/u4cuQbIyoswMRRmq8lDQsnoJB7+rDD5z/ANVpKmgdCihQYQBnRhWYgeIvxLOCfzCN6S7H4ZH3hkF5Cgh7mKl9+9Nq1d8ZMkrau2E6L+outlAlNklLc3BvzEGX8zgiZW5EhZdIXEVjgP7u3o+9djyhtRAdbyD2JOO23LDDP9Ocp1CTCfT29x62rF5BiQ0QqhKRNDX4x3ESqR/yimi9IYKYUpvMk/naMfojTsccNMbaZ2+wPciY0o8OBvzeQ7kDM/yeh/1suhdiBXb3v5y9r/82+QFlSWVh60vE43Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/t1EHJdgJObZ1uJWl2NyG1P65mK4WklQcAA6vyXd1Y0=;
- b=ZYLR+zg36oEMQlOL00ZgDzenU6O2LQYa7CwJsoKqTa7ciwHBn9BMnslFIX135gBxK4JrOFeKH+pt347/0RgNy1BHxrDGKw69IKrFKRVamQtWooRAddg7MHhS0D1kKM23vITzh20iCfQfwJfQ1U+Ds0A3h7C7m0P+uGu588pkIhghMPNNl8Jw0m4xdL3qDK17BQJaGCAhvOumM8BE68dU8XFcanajpdlJNl6F9TL9Cor6kuo+Zuf8nbHVPR2UzM32+G3FV9xAQNzUHsntCcKA66TFGn70YUBadofZiNr+xXMjLQT9hvQFWC5hZHkpjON8DpZY4n9k/u9g9k/4IVVOyw==
-Received: from BN6PR05MB3281.namprd05.prod.outlook.com (2603:10b6:405:40::35)
- by SJ0PR05MB7838.namprd05.prod.outlook.com (2603:10b6:a03:2aa::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Sat, 21 Nov
- 2026 08:27:23 +0000
-Received: from BN6PR05MB3281.namprd05.prod.outlook.com
- ([fe80::5b9b:67c7:5397:c42]) by BN6PR05MB3281.namprd05.prod.outlook.com
- ([fe80::5b9b:67c7:5397:c42%5]) with mapi id 15.21.0639.011; Sat, 21 Nov 2026
- 08:27:23 +0000
-From: Yingjie Wang <x-professor@outlook.com>
-To: "Martin K. Petersen" <mkp@kernel.org>
-CC: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	"linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>, Bart Van Assche
-	<bvanassche@acm.org>, Yang Xiuwei <yangxiuwei@kylinos.cn>, James Houghton
-	<jthoughton@google.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v5 4/4] scsi: bsg: Release synchronous request before user
- copyback
-Thread-Topic: [PATCH v5 4/4] scsi: bsg: Release synchronous request before
- user copyback
-Thread-Index: AQHdeZIipZD/R0faFUm/SAFXW9EXeQ==
-Date: Sat, 21 Nov 2026 08:27:23 +0000
-Message-ID: <scsi-sync-v5.1795249365940711260.4.x-professor@outlook.com>
-References: <scsi-sync-v5.1795249365940711260.0.x-professor@outlook.com>
-In-Reply-To: <scsi-sync-v5.1795249365940711260.0.x-professor@outlook.com>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN6PR05MB3281:EE_|SJ0PR05MB7838:EE_
-x-ms-office365-filtering-correlation-id: e01db54b-07d7-4349-6fde-08df47a944c1
-x-ms-exchange-slblob-mailprops:
- ZILSnhm0P3mCYd7/icPJlj+s+m08RC6krvOKtGwitgl6tTfBxXMO6992twiB4HxDAcUpgReX1k6FbDP/VixyBRyjc0ODCeS/RJ+HV1UpoCG6h2ZKyYc4mxz41qFKCnhCHoXD+zXQFKQ6jRsXXnoW0JXnyB6hgtv2VEV0mPrTWQ9svEY/GLVuU9Kd6kvXoPLNQoFj9UDrdb30n6DoUxPl3/xW1PK+dP17PsSOvnLdcw1eCBlcSDonjOfpWQyUYQzcOd/qnRV7rww5x+IE8dw86WTZGSRLrW5SCxn6pKICOu7lSdFqN8qvLoSEBESxrdLU0T0P3DJS7o2Q8XR36MIXmjE2zIp1Yr4i/8ToHqoYTvswEpn0vPJrFH3Ibh9TM2d1hn7PClDwZwe0yHoofQzgd3g38mn2Thd+XXYl29PN7SZ7TFITf5fcQCQs8yCAgOSmHtBQGUkLP71jgK178pFzYCZ8qmDHZAHwCou3wU6mOmmM33NSNaVBzBooD/ryd8ckqGrEOiSlR64a5I4nbanFgGlkg8pMKC5m7kGXnug6d9T9nD1IUiUIPYTX4AE+M/DRP9jAPLj/+rWYS5LbUeJacRCuQMszbo7y//gFk2mnwjlzXE5k9B1HSDi3EHuPSC04rqFi70QYQ/GpRhnIA0fej1BszH2XlVM2Ni3UJjL7aEW0RrKmgOJFkBgEIvkOOurt6hPjpT6iwJCf7h2pQESg3MoW7DJfY6mv/zy4gypbxrWkVRsP99m/xxv4BZ3hpKcbb0vthPQj6Cqxmlpgbcn6IeVfsuLUI65S
-x-microsoft-antispam:
- BCL:0;ARA:14566002|24121999003|38102599003|41001999006|22091999003|15080799012|19110799012|4140399003|25010399006|8062599012|8060799015|24021099003|31061999003|440099028|3412199025|4302099013|102099032|1602099012|12091999003|10035399007|40105399003|53005399003|26121999007;
-x-microsoft-antispam-message-info:
- =?iso-8859-1?Q?4RzNLD/sse6Ju7KmzqsCucMM4tFQqS6xyd6cEnt1EbfBTyP6Jg6lr79lEd?=
- =?iso-8859-1?Q?HpCdAJdVINyiraJqV3ZR3JliGh+oL1UGlSsny82nEdPO2cZC2LMMb3JIXa?=
- =?iso-8859-1?Q?bWM//bg5NUJoK2Sqoa8KFrlXQvRguhzLRNeF0KFUqB8JPVtgiKvkByAcpR?=
- =?iso-8859-1?Q?CceOZ0JrdfdiVsTJu7E6O7pxwjAYLWM1tmH2ct6IB6R4RmPFFM6nkZRy4Y?=
- =?iso-8859-1?Q?Id8kHzrLapJnELwTUqDKPsKjWLdybzR8wUiWGazHeVmW1OcDeGCwicrZOx?=
- =?iso-8859-1?Q?qrR4HmnPYHrgQKbfl5nZ7nCgI1fKtf7J7zRU1jMusWyuB4nwAUQ9Mjo9yp?=
- =?iso-8859-1?Q?DB/yCJHhoT5P89U13mhEoNL8CUTwK2XeE4RhWlfgGzpST/IFbntpAO9SAH?=
- =?iso-8859-1?Q?F3Uf2/JInXMtBrymD5FogSntxsrlCPMxtxX7XoNks/aCe6WNb2fhS584Vi?=
- =?iso-8859-1?Q?oIopTip28rXUro8/kjVAKxaUv8mGKvUdpw7SgzSZocaIAVnE5IIalLvAU/?=
- =?iso-8859-1?Q?vXFEwj8oJWZ+8BLQYqOSkzkslQylnsz5xE/Pg0K2rfHxzmKQaxWJgDpWEg?=
- =?iso-8859-1?Q?vZ5GRd2oHNOS8iE4pR4JnOny+ahO+TDxYPuX6WwKLe8GY/rCF8wfU7n23k?=
- =?iso-8859-1?Q?od6K2b+7EPU7ghsZakOHvgtGf5MXYlf79Gb5ncOOtbEhKB46ROHgciscrw?=
- =?iso-8859-1?Q?t5pj+KLfCusH7AlYWAgl+/mW6kYiTf9wFaNQmOK3O+dj6XQiuP/vj/f1u7?=
- =?iso-8859-1?Q?hGddmFdGnRLiNi1ZGmMcRbbbFSgteMF4ZUC2Oh837ZPfcsEJmWKhUEh0Rn?=
- =?iso-8859-1?Q?AMMowrGaIfBRqCkfM/mcVLolM4EVYp4iKepb2WVQAP7lG8M1gt0Lj7xbuG?=
- =?iso-8859-1?Q?Fyaic/YN8iBcwJ92HyHBWsfJ2PaCkzFqEJmH7LqznazafBD3lkBZNuNHJq?=
- =?iso-8859-1?Q?2l5eb1cqHBRABjjkV8nBdgrawXMoJpNJchRQvkuAKXDa39fHeQRezTGgeb?=
- =?iso-8859-1?Q?rkGS0bOOXppIkI7mhiWs3GcHJwF9bqVLvKcvKqi8r3eIKQldO8qfFCKzaB?=
- =?iso-8859-1?Q?bnR7mLyn5XP24TnWfPyAiKuhORW8ZjV8wNoxeirF0XHAJYk6zyojMe9/A0?=
- =?iso-8859-1?Q?HnOqEw3K8FkiBRvLYhD8l5XlnUS/1eBnyIpgWp4zZe3GqYK7xENFuEFmIQ?=
- =?iso-8859-1?Q?XlqSV07MZpFvKSATjkO/1BgAc1/mwl2qgnE=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?iso-8859-1?Q?+07pQ7uBjSMcc8zkVmJ+rH1Iyb/NwzFLzGR6qxHTAU0igtp0miZUGQvus+?=
- =?iso-8859-1?Q?3m57WDZkScHKe8l/k5q17ryOilq27gy7Op3Mz3b0QT3Ogv7Wu95s3hGpQL?=
- =?iso-8859-1?Q?HNMQMaKt0d9AqKKY792uKkRHS2DK39LcAX88fux0GNmJck11tFkcLiTCS8?=
- =?iso-8859-1?Q?fw+Zmi0NlbyfrEJodEyi5yUrE71e3GzY060kc4ZVVFK5a7QJPaIKODfwMC?=
- =?iso-8859-1?Q?P+apAc+uwnQztTc/8nbB1C2K0ALAauMXzwbodfn0696DBFXR8oVyv6SPGv?=
- =?iso-8859-1?Q?XLXcsYuHYzAcqFaJqYFGateVmQ3HJPad/Ipz6RyTrTKuFFbI1//+UQaHtj?=
- =?iso-8859-1?Q?8e/fGAGIBqGstwjORB6G2pcLpuGcMrmrs1iV0eHFI4ZP+U6f728a8f2VTu?=
- =?iso-8859-1?Q?ECxLrRDBmFcqoDLa8iZ5B7cbMTgUy69y1HmcQozDmX7GqIJEM0xWZInSCf?=
- =?iso-8859-1?Q?Rxnx7GrrweiKkfOI8iVe00fNKicH/UcBUN0riluBej0758Nn1Avm6j3SBY?=
- =?iso-8859-1?Q?gK5v6aaMv135lsixxEumxrqIicT6Tf3qyx/Q6XwZsWqR1Ux+nA2nxj7Bux?=
- =?iso-8859-1?Q?dEkX8QZIGwX49YhhTi/b0xXKby22LF1OJJCux+7SWsxkhzjdPZCoAmGAjq?=
- =?iso-8859-1?Q?eCTf2lTSS1qn9EC21U8kyA9hSIXFHqYQVSRrZ3J6YrG8buGyHDlkpcDZCV?=
- =?iso-8859-1?Q?ZtwW0q6DVZiF35G1bVN2NFhRF0vcT2mfdxTl2tLDa80INM4B8Z1j1r8Mxe?=
- =?iso-8859-1?Q?B6gJ+bFnNI1iyI7FEYbKveJghJ7TsQIfefyIoHLHIE5sLqxAKy1ep7Gis2?=
- =?iso-8859-1?Q?tONDGQoavSxv2HtaMr+5J2Mt3lEc+izl79Q4aNKTA1hf858uuyXLAPeDTJ?=
- =?iso-8859-1?Q?I9+wbfH6jCo86ISXJckNRkPDzxapYkpfApEQCqEY7LWhxmY+PQgFJz26vZ?=
- =?iso-8859-1?Q?6VZgr4SmE3WjCCv7uGY5pj1XoIOE1cStbV/Zj5Lrh7I2tSBZ0TnE0cDeVX?=
- =?iso-8859-1?Q?Ia6zdvmqZMK0c0sI+n9M06afiRH+nCaYFiOjoWoSsqQUtffGP1O4FF8PEl?=
- =?iso-8859-1?Q?zIhbMCYt51MOQPEK9d+Hbr4LvV1AiiWVdtbZ1rvHOceS1UwL/2j5J9oyHZ?=
- =?iso-8859-1?Q?HH0hffgMVR7z4BKiuUJ39VJM/Tg/1Frc8xuIEhihSiJj4JnwAbQQj1A0uy?=
- =?iso-8859-1?Q?F7mcEMPCaHd/fwUo5FbuhZ/0MIy4gdZLccr1PF8tPHN6742CR639Nk/6HM?=
- =?iso-8859-1?Q?Hixs5tzWfPli/x8ZqiBDSIuhU7wbYUYfuxC5Sdfno+F/GYd+SDnQ0HJ+8s?=
- =?iso-8859-1?Q?AWKWxRxaLSmyG8DALMCEpC6mUv/PktjseujDP5i29NzdPLV47pYxeY42Hu?=
- =?iso-8859-1?Q?SpPzFUERYnauG4lrfGqQxdSeEXzNn2Q6o9dneh+V2mYXIt4S+zz+e21Rla?=
- =?iso-8859-1?Q?IKee2UqxIuU7iLhr?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JWTvHv2M
+Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-492f0a1b685so1161247f8f.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 00:28:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795249733; x=1795854533; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=vA0VgrN/AJbvlL7DFILZtRf61HlqOG1LXfr01uh4umc=;
+        b=JWTvHv2MoSyG38P2ut6CGuOo+RMs6DecQiq+J9y9TQm+XNetpG7gWzCduF+1Dq+EcA
+         Y3FOLIeetVe7r6I7AkfF3FK/laIIZPksmjpIosdGBa3KNHqZUb+OZKE+yM+md43V29w2
+         sovrWZbaKaw9XEZHUAgcsp3KxNw5lz/6bbZZEGeXpRPcTr8OJMWGps9G3UBVpq/fZnXf
+         Els2ob3iY6686NjEuUwxO4w+d3OEy5z9s2KtJHmHa57HDi3rGQggnI0NaEjh365jLsnZ
+         V1namk7Gmdj0DXYajWjOCesPRxk5t7JckHbva5Y3AzE/T0AJmDsb7dApwqBH9cY66ciZ
+         rdzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795249733; x=1795854533;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vA0VgrN/AJbvlL7DFILZtRf61HlqOG1LXfr01uh4umc=;
+        b=p7zBrvwYCJ9lzvLNz8cCs3/guPj+6yXVnHdj6eLFw8HEo03Zi3fw4lvRP9AjMo/pOW
+         /hzm4NbsESHyr02mPXi+UDBXdQIjVTXen3qBCa6EFw5dHt+km9oq3bc/MrDGJf6byI9O
+         nRtGnkGV/X9bCWVmUkL3ryO9JxsSk9A3JArR0rRoLXNp874wZcyL81uukGyHBnr7QSNG
+         e6wzakRXqiX0LkuQqizPp4qozpTIQ6q8DrIx7cg7SctDU0czvEBAy1umpqbNdfIWneNU
+         6Z/JvKOfea8oZfbLy7R8gng1F9KOsSnIkUw5Bam+Us2vff8x2uzWn181pF6nXlFlWnfB
+         umhg==
+X-Forwarded-Encrypted: i=1; AL+hErGIDgrksebeynenP9msQFk1MkkSvexzTcI6o6JOBupNCUllxxEmedVzcnesQeeU74UDYZ9jHSNPZ2JMnwo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8VfvuN6PeaeQNySVT1PsGoAKwMNycpfmtGogO136BLMoHeHIuk
+	H21SjAazi+OmQQPHkgcDhZqhG2ooO75f6aX4zfd4pSsn2BLO5dKi3NO2
+X-Gm-Gg: AZFdTZe9eUVrjUTSkYvRJk8tESMDBKHhn3NDEgdzIf5xPL0xOvH4LU/+3cpj6YBIBeW
+	y6l0eyWyIzj+irItfkdYBT0xQjqNL1hFYQh+okU68OJ+DkvXof/Z7Ym+oA2qn2BJQUN0xSNtxUC
+	pCLq91XJXj2nwGlxKPZLwVuFH0hMqD6Db287Q0tq5TfXyOTsOi+R5qACyk9tiGebWMxlu70aaKb
+	QfeJ34/tJK1FVkUGgQwsVZpgLiojGq0FGdqX1G05agg6o1yXdvUqZUiYA8uVMEzvY0YKu+LgXGm
+	S4z2k3Kg6zCN6eH9+4gt7S+54LaF0dlZNKNGz9nZBG/S5jFFHZDueULkakEFP28QVdnxsy1zVdA
+	yA8AEZvk2XWNco6GkMUlK4J3zIPEG9tNj+rlfRc00rORlPbME7q2L/fPq4VHnpJmneEkrRSb1bE
+	THPXRCdOGvitFTZgAv/1ZVxXpHiTQ9EEJEy5d6rbf2sYQ8NsfVnLZwD1qMb/vNALiPIABmhPpDZ
+	IH6Jj7srJSePVm5JfvLrr1yMd+zwngF37q7DeajzjLi2b4cFfcpBcXMryn84HX9i97wxyT56cQd
+	Bz+xy9lhu8V4+kuhC50zUConb5mwdVPC04+Zjlr9wcKDYJXBnFIpq/lVcegIKTgKKNbfRZN/aA/
+	rIyQN+BQ22IaxrqwchMU7kH7b+QWt/kvcVF/oF9WW537FVORSu2SiJ/6NGLt38Gwm9gs53Qrofg
+	DNZbgfzHDAH9I10WEh5FQX/X1/RkG0mgrv
+X-Received: by 2002:a5d:59c9:0:b0:4ab:f5b0:a7fa with SMTP id ffacd0b85a97d-4abf5b0a975mr10806542f8f.33.1795249732684;
+        Sat, 21 Nov 2026 00:28:52 -0800 (PST)
+Received: from localhost.localdomain (dynamic-2a02-3100-aeb0-6801-ad74-bca0-dc5f-7242.310.pool.telefonica.de. [2a02:3100:aeb0:6801:ad74:bca0:dc5f:7242])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb4341sm10892378f8f.4.2026.11.21.00.28.51
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 21 Nov 2026 00:28:52 -0800 (PST)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: bpf@vger.kernel.org
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Shuah Khan <shuah@kernel.org>,
+	Tejun Heo <tj@kernel.org>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	=?UTF-8?q?Michal=20Koutn=C3=BD?= <mkoutny@suse.com>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Waiman Long <longman@redhat.com>,
+	Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	cgroups@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Subject: [PATCH bpf-next] selftests/bpf: Disable preemption around css_rstat_updated()
+Date: Sat, 21 Nov 2026 09:28:43 +0100
+Message-Id: <20261121082843.44614-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -157,100 +118,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN6PR05MB3281.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: e01db54b-07d7-4349-6fde-08df47a944c1
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Nov 2026 08:27:23.8017
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR05MB7838
+Content-Transfer-Encoding: 8bit
 
-The synchronous SCSI BSG ioctl copies sense data and unmaps its user=0A=
-data buffer while retaining the completed request. Copyback can fault=0A=
-and need I/O from the same queue, which cannot progress when completed=0A=
-requests retain the available tags.=0A=
-=0A=
-Fill the kernel-resident output fields and save the bounded sense data=0A=
-before releasing the request. Perform both user copies afterward, using=0A=
-the original BIO chain saved at mapping time. Preserve the copyback=0A=
-error precedence established by commit a52f2ad45726 ("scsi: bsg: Report=0A=
-synchronous data copyback failures").=0A=
-=0A=
-The SG_IO v4 implementation predates scsi-mq. The finite number of request=
-=0A=
-tags introduced by scsi-mq creates this dependency; moving the callback=0A=
-into scsi_bsg.c did not change its ownership ordering.=0A=
-=0A=
-Fixes: d285203cf647 ("scsi: add support for a blk-mq based I/O path.")=0A=
-Link: https://lore.kernel.org/r/20261022.scsi-copyback-review.31b8d6a70f4c@=
-outlook.com=0A=
-Cc: stable@vger.kernel.org=0A=
-Signed-off-by: Yingjie Wang <x-professor@outlook.com>=0A=
----=0A=
-No functional changes from v4. Clarify the tag dependency and name the=0A=
-existing copyback-error fix.=0A=
-=0A=
- drivers/scsi/scsi_bsg.c | 23 +++++++++++++++--------=0A=
- 1 file changed, 15 insertions(+), 8 deletions(-)=0A=
-=0A=
-diff --git a/drivers/scsi/scsi_bsg.c b/drivers/scsi/scsi_bsg.c=0A=
-index 3cf1caad02f7..c17cad798326 100644=0A=
---- a/drivers/scsi/scsi_bsg.c=0A=
-+++ b/drivers/scsi/scsi_bsg.c=0A=
-@@ -207,6 +207,8 @@ static int scsi_bsg_sg_io_fn(struct request_queue *q, s=
-truct sg_io_v4 *hdr,=0A=
- 	struct scsi_cmnd *scmd;=0A=
- 	struct request *rq;=0A=
- 	struct bio *bio;=0A=
-+	u8 sense_buffer[SCSI_SENSE_BUFFERSIZE];=0A=
-+	unsigned int sense_len =3D 0;=0A=
- 	int ret, unmap_ret;=0A=
- =0A=
- 	if (hdr->protocol !=3D BSG_PROTOCOL_SCSI  ||=0A=
-@@ -266,14 +268,9 @@ static int scsi_bsg_sg_io_fn(struct request_queue *q, =
-struct sg_io_v4 *hdr,=0A=
- 	hdr->response_len =3D 0;=0A=
- =0A=
- 	if (scmd->sense_len && hdr->response) {=0A=
--		int len =3D min_t(unsigned int, hdr->max_response_len,=0A=
--				scmd->sense_len);=0A=
--=0A=
--		if (copy_to_user(uptr64(hdr->response), scmd->sense_buffer,=0A=
--				 len))=0A=
--			ret =3D -EFAULT;=0A=
--		else=0A=
--			hdr->response_len =3D len;=0A=
-+		sense_len =3D min3(hdr->max_response_len, scmd->sense_len,=0A=
-+				 sizeof(sense_buffer));=0A=
-+		memcpy(sense_buffer, scmd->sense_buffer, sense_len);=0A=
- 	}=0A=
- =0A=
- 	if (rq_data_dir(rq) =3D=3D READ)=0A=
-@@ -281,9 +278,19 @@ static int scsi_bsg_sg_io_fn(struct request_queue *q, =
-struct sg_io_v4 *hdr,=0A=
- 	else=0A=
- 		hdr->dout_resid =3D scmd->resid_len;=0A=
- =0A=
-+	blk_mq_free_request(rq);=0A=
-+=0A=
-+	if (sense_len) {=0A=
-+		if (copy_to_user(uptr64(hdr->response), sense_buffer, sense_len))=0A=
-+			ret =3D -EFAULT;=0A=
-+		else=0A=
-+			hdr->response_len =3D sense_len;=0A=
-+	}=0A=
-+=0A=
- 	unmap_ret =3D blk_rq_unmap_user(bio);=0A=
- 	if (!ret)=0A=
- 		ret =3D unmap_ret;=0A=
-+	return ret;=0A=
- =0A=
- out_put_request:=0A=
- 	blk_mq_free_request(rq);=0A=
--- =0A=
-2.43.0=0A=
-=0A=
+cgroup_hierarchical_stats triggers a lockdep warning in
+__css_rstat_updated() on PREEMPT_RT. The counter runs at the
+cgroup_attach_task tracepoint under spin_lock_irqsave() on
+trace_cgroup_path_lock. On PREEMPT_RT this leaves preemption and
+interrupts enabled. On non-RT it masks interrupts, satisfying the
+assertion.
+
+Disable preemption around css_rstat_updated() so the updater can queue
+the update without being preempted.
+
+Fixes: 36df6e3dbd7e ("cgroup: make css_rstat_updated nmi safe")
+Reported-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+Closes: https://lore.kernel.org/r/20251119111402.153727-1-jiayuan.chen@linux.dev/
+Link: https://lore.kernel.org/r/fmey2ektwdk7l5aktjz3xb24x3pk3lxy3gfld7reazal6xa6u2@tmryedehqhql/
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+---
+Assisted by an LLM.
+
+Ran test_progs -t cgroup_hierarchical_stats on bpf-next 9867c61abbd4 in
+x86-64 KVM guests with lockdep. The test passed on all eight boots.
+
+  Boots with an rstat warning   Before   After
+  PREEMPT_RT                       2/2     0/2
+  PREEMPT (!RT)                    0/2     0/2
+
+ tools/testing/selftests/bpf/progs/cgroup_hierarchical_stats.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/tools/testing/selftests/bpf/progs/cgroup_hierarchical_stats.c b/tools/testing/selftests/bpf/progs/cgroup_hierarchical_stats.c
+index 8fc38592a..d4babda81 100644
+--- a/tools/testing/selftests/bpf/progs/cgroup_hierarchical_stats.c
++++ b/tools/testing/selftests/bpf/progs/cgroup_hierarchical_stats.c
+@@ -6,6 +6,7 @@
+ #include <bpf/bpf_helpers.h>
+ #include <bpf/bpf_tracing.h>
+ #include <bpf/bpf_core_read.h>
++#include "bpf_experimental.h"
+ 
+ char _license[] SEC("license") = "GPL";
+ 
+@@ -76,7 +77,9 @@ int BPF_PROG(counter, struct cgroup *dst_cgrp, const char *path,
+ 	else if (create_percpu_attach_counter(cg_id, 1))
+ 		return 0;
+ 
++	bpf_preempt_disable();
+ 	css_rstat_updated(&dst_cgrp->self, bpf_get_smp_processor_id());
++	bpf_preempt_enable();
+ 	return 0;
+ }
+ 
+
+base-commit: 9867c61abbd44f7053a871566b3d982f62c6d8dc
+-- 
+2.43.0
+
