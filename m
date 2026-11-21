@@ -1,92 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795240984;
-	b=EOVEDunoDEjFbhvw9Txiu/wBvePON/VLybQdM0aG94pDM5biuwj7sBgh9Ry9zu/9PbrC
-	 broTkA5zZ/TOHWXlXr0t/4kTX1XeZcCBpxgSmIwnceWUKsel21AJOPqQX44wNUREBtxmN
-	 FcCx7Wm5orJJnGrGAuYBnzsPKEBXPBwMO3oI+HcTLCq4sznuNHO1R8g5K1jMP49f2kDsQ
-	 JXK7OxM/7I8n2aEN3ScARFE4XYnVe7nywLZ1vQA3unUcFecwOCAny5RGRz3MtkXhVGo88
-	 j2tTQZ9tNGDoSqktiyq+7I4HiqsKImVWBIs8cmmUQQQpsPvF0+ni0n3hi5moMrntVQA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795240984;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.177
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795241025;
+	b=vP5bju/+YBynzvdQf/id+tDHhh+KbtL+8J7owCYBE8uXolY+uSPj/biK5Uo6HeuS21PD
+	 8nzWLg0UpP//vCB5CdP5UbY/dSYD6f9rkTwro/8lOrdsP53HBjC3HAqOi2P5cPQMWB6is
+	 uA8kyXtfKZuDjb+HWDM3Vwg3R9WZnOQS6tKXQvjB95NU5h+ofYChWBCPRKsn+CgmV2m73
+	 D01XmBJInAUQ1DEI8fsdktjDSVtdFFxxTltrYOiHRoJbD7XrjBfToNQgY3NjTOyEOboL9
+	 Vd8XMP96MPA2jjkKSeE8Ct+dCmUd1urjd37K48JVVr8SRphZhNrRAJnw2WuFy8pwDuw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795241025;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=iZeJgZydctjHQNPaqc1a3Pj1B2Wsau9GN69Um9z9RXU=;
-	b=wXb9fxYYZl8UcQpJDpZH7bpsa9/XBgs4/2jcZ48sjovypAIhZOL/pdk7wBOwt9+V3tvo
-	 0DoBNeEhRPd1BZQj8ky49+zA8+KhEu+aHmmcWSRMd+T5v8fb31HhnPVnnuKfaBtuX7KeP
-	 es+L+f2XwrTW5s2zgJHUiW+V8USysZSQ6RW8VSgVVB6oCgbNVBshRH6c7d4dbUUeuMjZq
-	 e+1sXT+zkNzE5XvzGYW5XiA2JNFIzdxvsUEQ2lehdZIxCyylJSJFrrGVx1ZseLSbyYEh0
-	 mtOHqEDJDIgK93qKvojaJZ797Kq1X0a4PANvPg9qVgKH/KhsnObCAK3RSGmUq0hwnoQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=lkIcDSC/bFxcu22I88GO2krkZZKs2yf41B/Zw2+/nk0=;
+	b=yzTFKd27T0Wq8InyZaULtJlqNUHnLvEceK5ZaCfHm2VPGISV64dDwI5GDmwX/8XDHpOl
+	 r5eN+44K/6Ij0vO2lS6d//uX4egHvZEMYzeNxVZpCAMOBCvANUTf/u9YUTfSy99HF2ani
+	 mH0jhR1AzGYcqrqe9MmJfFb2oYUy+lT47fT0IQfEmoKT9AE4T6XM8UAno1/m84fbK6nh3
+	 fk97fHnRlhwTPGO/kTFa/yY8m3XEqyDxZm8P00bA3KCFGhRusdu4UZ1Eh8esn/iOu3VW1
+	 UUzzYfXlrKwPz6aJm2sh3LM3MDK3M/2uJ76JYa7P3F573BxlNv3Mm4tEKOAaSkRnWkw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tU3Xrpc2;
-	arc=none smtp.remote-ip=74.125.82.172
-Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fkncotie;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.177
+Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27260606A68C
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:03:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27260606A68C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7625E606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:03:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7625E606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tU3Xrpc2
-Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-385c497bf94so3044268eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:03:03 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fkncotie
+Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-38564b4b017so1613281eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:03:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795241024; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ZhXoh3AjjDn3i35pd3AcjWETEUuOCrB8EMId+m2j5KYX9HL8erY8e34KIug/NTjIAO
+         scaWvT6iyZXXvv7I4+iMVJZ4pdYPnAGFk8LyhgUS5QMyRdhExfq9xZe03gN+6a8fsp/s
+         EJedorLFH0cNLz61qWqZSu4KFbbYM/VJbGN+6u0aD3pJM+DT8fZIvyFGOvvyEC6zE89T
+         N9/Wa1OJoZxcus+B36tAGUwd6JfYsnzYq+owF9dulfeoSb7m0HP9rmswd4eoXWql8YYW
+         d3dvMKPKe3eE2KVIz+KaPHDlqhxbOROcktyucOCv3kLnWCxkA8t0jflxyytaHxfPT7qF
+         aRTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=lkIcDSC/bFxcu22I88GO2krkZZKs2yf41B/Zw2+/nk0=;
+        fh=vDISmOTMa5NPeAN4cgKbKJFSh/v5EfqBBY1lO1z5MH8=;
+        b=XI2cJfF9MEGQAfgbjrOF3CYtyUITttIu4Lcay7u7oAQ4AbIqZ0EA1W2swUNzg1lDvJ
+         28I+WENE4Nh5b5lEbQyimG4bO+DOX8aqlJevZ0tYj5kVDko+tZ+4RMrz0F6UGY5Jcv2y
+         T2yn+CbVhMCJaOUtzfkaanUX1aTJ4iesZqLXtdmz7uQ0rKZnAJNNB+Mkh+Sax7FSJKgn
+         UKEMMA6kcp3jBR718soVJgIHr3kefUkV/lONv3xwo6iryO9D14RxmVZROiNdrAoWShp/
+         OUHu+CXAqOMm4BnzM2uwQWIsvgn6aBpwDI6gaJPOWiEb7mhRjqspA/NZ3+Jo1tAmlLEC
+         OKkQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795240983; x=1795845783; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1795241024; x=1795845824; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=iZeJgZydctjHQNPaqc1a3Pj1B2Wsau9GN69Um9z9RXU=;
-        b=tU3Xrpc2LADNz5f7aWTNLpRvwQ/S9G5uLAp3npomNvo+t7Y4BfLZ/kEigevsB7WkYC
-         gztEAJj8bvn/ZBg0SFLxAGC822obUtnaxOvWDwI5lfEUdn8+8j+Kzqywq6zQ8Uv1xR1z
-         9vcKgvLUk1pY2fyWmHUY1+h/SOwaKUFFOYOQ4JLf/jKGNwPzmNXE2s9gijNwmN8ytvF0
-         3omIwN9O/sZVP2gS4gQrwSjPXSJcr3oeORyNZP7hJeYGym8GNOVxLHeJM8g8RPw0oiLf
-         eLM3TPSAoyoD8u5BDWZGmBnQp/WW9/hHtJDUAWOh9ntSpE9TUs8lY2c2nDF5EIsGmcGH
-         4p8w==
+        bh=lkIcDSC/bFxcu22I88GO2krkZZKs2yf41B/Zw2+/nk0=;
+        b=fkncotieei3fyS8dWHzQm7M/AiGBj/CRGEBjdC2UYG1K6VO5O9PEVGFKKay9ckmx2z
+         zS1y7h/y5IxeZ3c8VwbcVrRA3fVJQZM0IhChkXi1Jcf6wHM4gdrHWTdnteCJFFq8zo0w
+         n8BTRduL63yAAFof8sanDkZWtT5UVPZsL9GrIebedHVQ7AXGV9w6BEEZqgblcJKX5xjJ
+         jJZqdlB2de/PLQzCNejdlU18JJJVQQ0yNkz49Ypy9sabDWehPHpH2m2620BjUoL8UfGg
+         5xugqW/nCm6pmHsgiOEnVtzjfSpmhpGmvx1U/cQXyj+xMuG0VuxXmQFXV2b7dI17fZZU
+         ZCtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795240983; x=1795845783;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795241024; x=1795845824;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=iZeJgZydctjHQNPaqc1a3Pj1B2Wsau9GN69Um9z9RXU=;
-        b=ZiWOkiWKVvZXOQr8VRoaXsOdQXYJsTBfCe5UBx+xBVG8qyGI5YzAPveL8rP79ikkHT
-         P1B9zumn5WHk+f+BdPBehfGKO5ywDgAvLVcwSikCRRYg3njLz7qkw+TJuDsEvjI++Vfa
-         V7sJ0Hrsdylh22reiX6fGh8hLv4353tlX7l0t06bfELTviSmcLsKMaz80mBXZneC/peR
-         1s2XWu8nfK4//NdUt0hV7BVkY7EolHUkCQoMt8imBRAfqTU+0OidwqFqpZdBFpyY5iaB
-         FGY8uhj/MPoPPhGO+BybO9WTc8h0G7OxbudAq6cmWybtBo6vaR9AS4BXgMtGootCj/X9
-         y0Mg==
-X-Forwarded-Encrypted: i=1; AL+hErEO3S1ASUwBRTShE2NpZM+W1ca+7T5h03bMa6WaVhv7/EbLgEJzaS78C5T3EaWOjotYz0nZIppYBZ0XsP4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z//khgvgDsg1aQLaswr9fq8IM0fBAgO5j4D2JBv59kK0zd7Nmpg
-	h4iXbT4TqWfB9eoWvih89+5PsAMcHRtjPIGtQCksWFXU5UZhQbtGA+wj
-X-Gm-Gg: AZFdTZdvbqQJdBjRpqosCKkxtsIoh7eJh1GYR0z6Z7ixwUzuAw0WlQmbeZr9iXIdHbO
-	NpKx46gksutHMbXL17oYOceapyYPoqWfY1MNDJYFZP9vs0RV0uFTlykSd1WUU6xo6djr7B8e4DC
-	kifazXeMVnVXycMeAi8MrPTEXNRmRZR+93o4mzq4MiGq7Ad62xUZnK/eeCsbNclGnyhAajs7qfT
-	6ASRgbzhgaigYXWkg1UGqbd2lRd+LQFvh1NTlIuSCyx69YOVqKWLaKlZQAXfj2DrxABZkdEKQ/4
-	R/9Vg9c0BmZtD3vib2cP1KQTVzOSUEfP33XE8oJsuJHin53eIb0/AUS28DY1BcEYw9N7UZDPcyt
-	e/u0vgD1D/K3f5w/CEwYC50iBf7B+vIExhw/uiV2bbsrLXY+lttHSk5AnemlXdNVgfj6lblf+9+
-	3h5pu/crspC+AmtOVD2TPxkAejKdCZLwcdONenqw4GczVakLEvE/Xl3Y57cz7/jXe6si7xMeGKU
-	YRDxRo/HwbXNEvdO+9W8Vv9EH5r8CvnuK0Kt0xGj5JdmX2T7ZTf7p12Hjcsa1EkSk4/F8p3yuer
-	4grDo4VnI/wVirgBKs5dX3bqh+OLLcoKvk1Z6yJEHsCuT7JsTbIHrcw/eZ98QU4wJ2c=
-X-Received: by 2002:a05:7300:8188:b0:382:61d0:f375 with SMTP id 5a478bee46e88-3856e63b050mr7522783eec.7.1795240982165;
-        Fri, 20 Nov 2026 22:03:02 -0800 (PST)
-Received: from eggarch ([2409:40c4:eb:2a8a:ac89:7bd3:9d62:35df])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm23226928eec.3.2026.11.20.22.02.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 22:03:01 -0800 (PST)
-Date: Sat, 21 Nov 2026 11:32:54 +0530
-From: Lovekesh Solanki <lovekeshsolanki00@gmail.com>
-To: dmitry.torokhov@gmail.com
-Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] Input: synaptics - make InterTouch quirks table driven
-Message-ID: <awEyv-5G0zfISfcJ@eggarch>
-References: <20261105042614.688312-1-lovekeshsolanki00@gmail.com>
- <20261107020751.3959748-1-lovekeshsolanki00@gmail.com>
+        bh=lkIcDSC/bFxcu22I88GO2krkZZKs2yf41B/Zw2+/nk0=;
+        b=NpCFjyEHkZthdD0XDIDj1vfLJ3RaeIOu3hfrT6RyhVqU4G5p6CrQkqThkMM9XJkvVp
+         Rr290oBd2mzLCd4iuqMTiHhY9FX4PmMvMOVqnNrXhtialkbSQGCqjO/p6A/xKCzxMNGk
+         ifAOS1Q5/Cdon4lvQXQvYHKMXHCNDUz+bVRYOIVCQmbY1XEv/5namRZmvATc/G65dqve
+         Avn61xJpFZb0r2LTGIdGPUaKhlXGEyrw2nrdxW5C3A9cXCt3bO6Rroe6uwcaoQmbeO8Y
+         3ZL5FjmH7ADHr/jPUGTzqzJGQItRmjJzkLQ5OdPRPV2tvzxSDY8VOy7nIUEfADmUEGyA
+         jnYg==
+X-Forwarded-Encrypted: i=1; AL+hErGP/cQGZyTjB68pghGZwF23qE9Rt1C7b0ZYlXNf79N70tRIXHcx5/o45v1j/uPRIhEcRe3IJ0IbnP9Tw3Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9e8bI1R6fy9LRNkIR7cgsFEXfWau+OUnDr/l6B3fPjcmTrUzGw
+	/Qq5hFEqMeaKbgza1rXqL/B6iK3owsP2PYpcyxdlKImf873/fjuiyQvIt1mb+XD9pdsJk7racIQ
+	kTHZFX33nJWeLvb1Yd+dyXZvEcphi02I=
+X-Gm-Gg: AZFdTZdYdXNbQ9u6q22ibd2c+bjDWckDnOmECDQ1wlfREovybgt/BF4d19upP+sDVJ1
+	+jN2JEzuPXcvhkcioGo9HjSq2/4fz2d83qVj4NB4yQS5M4EniKSnqbX8PUT7cYeX/IB5Fmmmyhq
+	Z2n5M80W+oaZNo/Pw1nEzIhakJWEugdNjDHxalHxLKDeAZqvmy0MkLQlHpPDdCdGwXbOPN+RG45
+	rtpHILkkAkjEh7PRP0RDDKYjza1VntHowYxyx5RIak2Pu6fiAJOJrJQo6hvW0rIPRIoDGvF8rhR
+	XkZYN17ZaclcSYFZqmFWulVnMRRwiJwSuTamGMet2GTVO6DN8E6DjSdLonYKIEwbksdXI+vqn3h
+	CPGfBN9P8LfiLAwvbSamQH1oAanfVrZrkDMKMK7smlHb2IwBJgM8kiza8B8gHFl1rF3HIYY/M7D
+	sYwacOpTYnXP4Uxd6kSu1k3n2POn2lDA==
+X-Received: by 2002:a05:7300:e9c4:20b0:383:6f73:eb34 with SMTP id
+ 5a478bee46e88-3856c6b00fdmr6323139eec.2.1795241023623; Fri, 20 Nov 2026
+ 22:03:43 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,16 +105,155 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261107020751.3959748-1-lovekeshsolanki00@gmail.com>
+References: <20261113161819.36847-1-clamor95@gmail.com> <20261113161819.36847-2-clamor95@gmail.com>
+ <20261120143147.GA2466366@killaraus.ideasonboard.com> <CAPVz0n3u3oe1+H_w9jE2afb9PQT0VLtYVqfHeVNc3D+tLN6NDQ@mail.gmail.com>
+ <20261120213116.GB2472094@killaraus.ideasonboard.com>
+In-Reply-To: <20261120213116.GB2472094@killaraus.ideasonboard.com>
+From: Svyatoslav Ryhel <clamor95@gmail.com>
+Date: Sat, 21 Nov 2026 08:03:31 +0200
+X-Gm-Features: Aa3M54qOnB5G9GXqLIL-lPBYx8eezPpq659tGJ_BSKM-GqCEY4niHx2BKUlkMTw
+Message-ID: <CAPVz0n0h6xd4DbnpNTW63agospeJFqoV8vnkPYdzB3NmgVRM5Q@mail.gmail.com>
+Subject: Re: [PATCH v1 01/10] staging: media: tegra-video: Move driver to media/platform/nvidia
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Thierry Reding <thierry.reding@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Sowjanya Komatineni <skomatineni@nvidia.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Mikko Perttunen <mperttunen@nvidia.com>, Hans Verkuil <hverkuil+cisco@kernel.org>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Cong Nguyen <congnt264@gmail.com>, 
+	Faisal Mukhtar <mukhtarfaisal03@gmail.com>, Dan Carpenter <error27@gmail.com>, 
+	Hungyu Lin <dennylin0707@gmail.com>, Hao-Qun Huang <alvinhuang0603@gmail.com>, 
+	Yury Norov <ynorov@nvidia.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+	linux-media@vger.kernel.org, linux-tegra@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hey Dmitry,
+=D0=BF=D1=82, 20 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE 23:3=
+1 Laurent Pinchart
+<laurent.pinchart@ideasonboard.com> =D0=BF=D0=B8=D1=88=D0=B5:
+>
+> On Fri, Nov 20, 2026 at 05:31:17PM +0200, Svyatoslav Ryhel wrote:
+> > =D0=BF=D1=82, 20 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE =
+16:31 Laurent Pinchart =D0=BF=D0=B8=D1=88=D0=B5:
+> > > On Fri, Nov 13, 2026 at 06:18:10PM +0200, Svyatoslav Ryhel wrote:
+> > > > The Tegra Video Input drivers are mature and developed enough to be=
+ moved
+> > > > from staging into the media subsystem. No other changes are introdu=
+ced.
+> > >
+> > > The driver should at least be converted to be MC-centric before being
+> > > moved out of staging. I haven't checked if other changes would also b=
+e
+> > > needed.
+> >
+> > Does the media subsystem deny video-centric devices from even being
+> > moved into it? I have not seen this restriction imposed; could you
+> > please point me to where this is stated in the media subsystem
+> > documentation?
+>
+> There's a consensus that devices that require control of camera sensors
+> (i.e. "MIPI" cameras) must be MC-centric. That's not documented, we
+> should probably fix that.
+>
 
-Just following up on this patch, it moves the Intertouch quirk into a
-dedicated table, to make it easier to exempt devices in the future.
+Yeah, stating this in documentation would simplify things.
 
-Please let me know if there are any concerns or changes are needed.
+> > I would like to convert this device, but that may take quite some time
+> > and may case regressions if not done carefully. This patchset apart
+> > from moving to media is mostly fixes to work correctly with mt9m114
+> > and tegra114 bring-up which is quite simple and straight forward
+> > change.
+>
+> Converting to the MC API will require some changes in userspace. That's
+> why it's important to make this change before destaging the driver.
+>
 
-Thanks,
-Lovekesh
+Noted, I will most likely drop destaging for now then.
+
+> > BTW, may you ack mt9m114 get_fwnode_pad change[1]. I have updated it
+> > to your liking, Sakari seems to ignore it.
+> >
+> > [1] - https://lore.kernel.org/lkml/20261006153619.304520-1-clamor95@gma=
+il.com/
+>
+> In the review of v1, I wrote in my last message
+> (https://lore.kernel.org/linux-media/20260721103845.GJ50424@killaraus.ide=
+asonboard.com/)
+> that the issue seems to come from a bug in the VI driver. Let's continue
+> the discussion there.
+>
+> > > > Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+> > > > ---
+> > > >  drivers/media/platform/nvidia/Kconfig                           | =
+2 ++
+> > > >  drivers/media/platform/nvidia/Makefile                          | =
+1 +
+> > > >  .../media =3D> media/platform/nvidia}/tegra-video/Kconfig         =
+| 0
+> > > >  .../media =3D> media/platform/nvidia}/tegra-video/Makefile        =
+| 0
+> > > >  .../{staging/media =3D> media/platform/nvidia}/tegra-video/TODO   =
+| 0
+> > > >  .../{staging/media =3D> media/platform/nvidia}/tegra-video/csi.c  =
+| 0
+> > > >  .../{staging/media =3D> media/platform/nvidia}/tegra-video/csi.h  =
+| 0
+> > > >  .../media =3D> media/platform/nvidia}/tegra-video/tegra20.c       =
+| 0
+> > > >  .../media =3D> media/platform/nvidia}/tegra-video/tegra210.c      =
+| 0
+> > > >  .../{staging/media =3D> media/platform/nvidia}/tegra-video/vi.c   =
+| 0
+> > > >  .../{staging/media =3D> media/platform/nvidia}/tegra-video/vi.h   =
+| 0
+> > > >  .../media =3D> media/platform/nvidia}/tegra-video/video.c         =
+| 0
+> > > >  .../media =3D> media/platform/nvidia}/tegra-video/video.h         =
+| 0
+> > > >  .../{staging/media =3D> media/platform/nvidia}/tegra-video/vip.c  =
+| 0
+> > > >  .../{staging/media =3D> media/platform/nvidia}/tegra-video/vip.h  =
+| 0
+> > > >  drivers/staging/media/Kconfig                                   | =
+2 --
+> > > >  drivers/staging/media/Makefile                                  | =
+1 -
+> > > >  17 files changed, 3 insertions(+), 3 deletions(-)
+> > > >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-vi=
+deo/Kconfig (100%)
+> > > >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-vi=
+deo/Makefile (100%)
+> > > >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-vi=
+deo/TODO (100%)
+> > > >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-vi=
+deo/csi.c (100%)
+> > > >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-vi=
+deo/csi.h (100%)
+> > > >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-vi=
+deo/tegra20.c (100%)
+> > > >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-vi=
+deo/tegra210.c (100%)
+> > > >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-vi=
+deo/vi.c (100%)
+> > > >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-vi=
+deo/vi.h (100%)
+> > > >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-vi=
+deo/video.c (100%)
+> > > >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-vi=
+deo/video.h (100%)
+> > > >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-vi=
+deo/vip.c (100%)
+> > > >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-vi=
+deo/vip.h (100%)
+> > >
+> > > --
+> > > Regards,
+> > >
+> > > Laurent Pinchart
+>
+> --
+> Regards,
+>
+> Laurent Pinchart
