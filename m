@@ -1,67 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.18.0.10
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.219
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795259379;
-	b=gUDIQM0lFA9Ne6izUsTtW4ZzXiJ4JpJXDeuAd1VzJKVAvM6106ULcUipoIj0tDM9wxGG
-	 IL+zQGzbMXHY73On7RUbKHrUusbXy8W8yY+t4+t/2BR9B+DZtCZpkwtPxUIGD99hWO6fY
-	 8ROQAQ5ULjpTt3XGG4JsNbDZHAj+0HMt3hHrt0l3996TD2oWrZiILrkrSYTeLpGkh5Eyx
-	 zcllveuoDuVMLun6jcMijY5mQtI/VU01iZaFUT/UBoYdsqA+cZ2Ei2ydv0z3k4/RhX+pE
-	 CbLu68L2Lm8DanWWv0tMYAj8/ZSdTAmimgSBQJhbu9INd8hTJKb4wANLLiH09N+51rQ==
+	t=1795259438;
+	b=FkUzTpWqKRRqnFrvAc8f5SEnvvirbTrTuLBmpPHCRqprLM94dfBB4JKkuOrTvYwD2eu6
+	 vO1JfaiC2HEvy5s34JpesBrKnkSJpH2UG0s/lLdDWwFFfsiYdLlS0QY+w5T9Z0HiQjRFP
+	 ebt4ukc/c4YgYckmbRNE42+eYvp0ZNb8tjRPyjut2YY5VNgsyi6bAA8EKNgEL9J/ok0HE
+	 QRHO/FKVdUkw1nj18aux0WY23uaGiaHsQFChsx7Mv+KwNSuBahZPgkWwbXu4biiIKkNZY
+	 xNvF/SP6LP6k9oYoXaUJ1NI2oUMEBRnW9TFll8gGlQhCyl2GIXT4VBELqLCqSE9fi5A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795259379;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:X-Auth-Info:
-	 X-Auth-Info:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=nIWCIl4xLmtB84iRieZH0tm1YRmVF/7wcnmyIAkVNjc=;
-	b=FstbbeqHwz7h1DdVz2CxYjPHyLeKdEpyDhClIjYPAJHI/r522fK9z9y34u9/FZ6i2F3L
-	 Vl2HfwOOYNrByEt44AWi22mZQpQ1gJTr4YyhN4Zg/Q2/ZKbpP3Bz1722rHL2ltz+UBLhI
-	 oYiB5j/+Fl3IT5VqaUoC55qGmJuensR2ILDrpDf6/kcR5UjRzOWBEgDNxNZe8BEIlIOnI
-	 cQEofntwoUR0MPvsIzLZhQZp7iugWaysVuxsFQM1hGPPOxILIIFRlnZ+q+vWR5fD5FYbT
-	 9zI5KAY88Na9a054LIF9jWnVde+QaUAZjO7+Ql0D73jk+0ZLTWAM2tAvyDJNxYhHseQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795259438;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=Ys3XKvaPTyX1fHC0lV0pst+tfGk0hnlCs8SXas4gV8I=;
+	b=hVTXgMpTh/zWRKSQm4aizydqmOaqqNJydEVorCXqHFJ0LOyXqvrW28pjkO/DM4eYmirB
+	 IHobbs8ycjyRHYC8Reei8J8A0brJYEoQGcwQ3KWhxQspO6Irib91sFlYds9Q5FaCxaqku
+	 oO8pGMZtM2coKqgUPKZDux1D15pbWd3dGbAJBxysGHNytdYLVVokj2+2H1qauFSTZD8Nm
+	 UEynlGJwSnJDdgeJripGvJEsMJnDgBiQW/V8IrEBO2Io49QzRPbU0WQadG1z8xcIfRjtT
+	 7DI2FaPB4OGfNgbmuNBzJNALeVLVpCAxme4zC8kvPJfDsvXVZnFa4TZ+jA9cjVOqQNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=muenchen-mail.de;
-	spf=pass smtp.mailfrom=muenchen-mail.de;
-	dkim=pass header.d=muenchen-mail.de header.i=@muenchen-mail.de header.a=rsa-sha256 header.s=r1 header.b=LH+tj7Lb;
-	arc=none smtp.remote-ip=212.18.0.10
-Received: from mail-out.m-online.net (mail-out.m-online.net [212.18.0.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02FE5606A32C;
-	Sat, 21 Nov 2026 11:09:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02FE5606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=muenchen-mail.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=muenchen-mail.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=muenchen-mail.de header.i=@muenchen-mail.de header.a=rsa-sha256 header.s=r1 header.b=LH+tj7Lb
-Received: from mail-out.m-online.net (localhost [127.0.0.1])
-	by mail-out.m-online.net (Postfix) with ESMTP id 4jWqGk3FJYz1sP1g;
-	Sat, 21 Nov 2026 12:09:34 +0100 (CET)
-DKIM-Signature: a=rsa-sha256; bh=nIWCIl4xLmtB84iRieZH0tm1YRmVF/7wcnmyIAkVNjc=;
-        c=relaxed/relaxed; d=muenchen-mail.de;
-        h=Date:From:To:Message-ID:Subject;
-        s=r1; t=1795259374; v=1;
-        b=LH+tj7LbDItWc7DNBhdW9+/bSdmoS4H6V/EtW4xY4l0PKcmd8pxZ8V/asx9PF/xW
-         eT9VJW0BWZE+GwT3hceILSvmLgCDIgWa7fuAo3ER2tROmPgMt8ah9i3lUy8wl2UT
-         yoEss4sik8tpMVUK9p4tMXxmKCESPcxRe8BsusCFQcqAbl1sAsoH7K1on+AcQyK6
-         FbZrk8jCyjHkSDSHWLk5i1yGdCD09UytxOybmc5e3cTvSsHqn59tcrJwFg1lIfQ9
-         nvjTP/gR85Fw1aUtlkP7IwEBDQa8V2XMdOO4PbiUb/v3obVxhDxcVR7h64dRgwc7
-         LEd9cjPAJ4Z4dnEpRhBgcg==
-Received: from frontend03.mail.m-online.net (unknown [192.168.6.182])
-	by mail-out.m-online.net (Postfix) with ESMTP id 4jWqGh1c3wz1sP22;
-	Sat, 21 Nov 2026 12:09:32 +0100 (CET)
-X-Auth-Info: IHaH2TR3WvIGRr5sxN7MbW9dpk6Rd4SEz0O6VTWDB3jm97DjI6gRwBmaT81pWHNE
-X-Auth-Info: IHaH2TR3WvIGRr5sxN7MbW9dpk6Rd4SEz0O6VTWDB3jm97DjI6gRwBmaT81pWHNE
-Received: from wiesel.intern (ppp-212-114-181-207.dynamic.mnet-online.de [212.114.181.207])
+	dmarc=pass header.from=h-partners.com;
+	spf=pass smtp.mailfrom=h-partners.com;
+	dkim=pass header.d=h-partners.com header.i=@h-partners.com header.a=rsa-sha256 header.s=dkim header.b=abr1Sa2Z;
+	arc=none smtp.remote-ip=113.46.200.219
+Received: from canpmsgout04.his.huawei.com (canpmsgout04.his.huawei.com [113.46.200.219])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by mail.mnet-online.de (Postfix) with ESMTPSA id 4jWqGf3l8Tz1qqlT;
-	Sat, 21 Nov 2026 12:09:30 +0100 (CET)
-Received: from [IPV6:fdea:9b79:8984:1:7c3b:4612:a548:c3c8] (unknown [IPv6:fdea:9b79:8984:1:7c3b:4612:a548:c3c8])
-	by wiesel.intern (Postfix) with ESMTP id E7C8879A0114;
-	Sat, 21 Nov 2026 12:09:29 +0100 (CET)
-Message-ID: <a1b47af8-72bf-4f3e-9ece-e2ceeb97a682@muenchen-mail.de>
-Date: Sat, 21 Nov 2026 12:09:29 +0100
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4437D606A320;
+	Sat, 21 Nov 2026 11:10:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4437D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=h-partners.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=h-partners.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=h-partners.com header.i=@h-partners.com header.a=rsa-sha256 header.s=dkim header.b=abr1Sa2Z
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Ys3XKvaPTyX1fHC0lV0pst+tfGk0hnlCs8SXas4gV8I=;
+	b=abr1Sa2ZDCOp+djgHKJwfTXizfPE4F8N0k1zXffDKOkRf8YayZhTlvrm8f5MIOE3k2rIO3eYF
+	JDE9OahmcFTufkhbCCmcHVStpNSkEtAclvCsU/7RBP25SIAdQa/lC5NquWyD+I/GbwL05XTOLxz
+	KegOQ86fmTMfoewnFN3On0g=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jWqHN2M3Vz1prKM;
+	Sat, 21 Nov 2026 19:10:08 +0800 (CST)
+Received: from kwepemr100001.china.huawei.com (unknown [7.202.195.168])
+	by mail.maildlp.com (Postfix) with ESMTPS id 10F8540579;
+	Sat, 21 Nov 2026 19:10:23 +0800 (CST)
+Received: from huawei.com (10.50.159.234) by kwepemr100001.china.huawei.com
+ (7.202.195.168) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 21 Nov
+ 2026 19:10:13 +0800
+From: xietangxin <xietangxin@h-partners.com>
+To: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+CC: Dmytro Linkin <dlinkin@nvidia.com>, Vlad Buslov <vladbu@nvidia.com>, Jiri
+ Pirko <jiri@resnulli.us>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>,
+	<syzbot+bbd81e1e2276c534dea1@syzkaller.appspotmail.com>,
+	<gaoxingwang1@huawei.com>, <huyizhen2@huawei.com>, Xuanqiang Luo
+	<xuanqiang.luo@linux.dev>
+Subject: [PATCH net v2] netdevsim: fix rate node leak during reload and removal
+Date: Sat, 21 Nov 2026 19:08:58 +0800
+Message-ID: <20261121110858.1337003-1-xietangxin@h-partners.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,186 +74,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] riscv: dts: thead: Enable bluetooth on
- BeagleV-Ahead
-To: Drew Fustini <fustini@kernel.org>
-Cc: Marcel Holtmann <marcel@holtmann.org>,
- Luiz Augusto von Dentz <luiz.dentz@gmail.com>, Guo Ren <guoren@kernel.org>,
- Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, linux-bluetooth@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org
-References: <20261020132604.90708-1-thomas.gerner@muenchen-mail.de>
- <20261020132604.90708-3-thomas.gerner@muenchen-mail.de> <awDZBiX1VoSkO6F3@x1>
-Content-Language: en-US
-From: Thomas Gerner <thomas.gerner@muenchen-mail.de>
-In-Reply-To: <awDZBiX1VoSkO6F3@x1>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemr100001.china.huawei.com (7.202.195.168)
 
-Am 21.11.26 um 00:34 schrieb Drew Fustini:
-> On Tue, Oct 20, 2026 at 03:26:04PM +0200, Thomas Gerner wrote:
->> On the BeagleV-Ahead the bluetooth module of the Ampak AP6203BM is
->> identified by the btbcm driver as BCM4362A2. The module is connected by
->> UART4, several gpio pins and an I2S interface. The I2S is currently not
->> used as there is currently no driver.
->>
->> Signed-off-by: Thomas Gerner <thomas.gerner@muenchen-mail.de>
->> ---
->> Changes in v2:
->> 	- use default pinctrl definition for bluetooth in and out pins
-> Thanks for sending v2. Sorry for the delay in review.
->
->> 	
->>   .../boot/dts/thead/th1520-beaglev-ahead.dts   | 85 +++++++++++++++++++
->>   1 file changed, 85 insertions(+)
->>
->> diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
->> index e16484a47653..7161a9d4c61f 100644
->> --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
->> +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
->> @@ -76,6 +76,23 @@ led-5 {
->>   		};
->>   	};
->>   
->> +	reg_vbat_1v8: regulator-vbat-1v8 {
->> +		compatible = "regulator-fixed";
->> +		regulator-boot-on;
->> +		regulator-max-microvolt = <1800000>;
->> +		regulator-min-microvolt = <1800000>;
->> +		regulator-name = "vbat-1v8";
->> +	};
->> +
->> +	reg_vbat_3v3: regulator-vbat-3v3 {
->> +		compatible = "regulator-fixed";
->> +		enable-active-high;
-> enable-active-high has no effect without a gpio.
->
->> +		regulator-boot-on;
->> +		regulator-max-microvolt = <3300000>;
->> +		regulator-min-microvolt = <3300000>;
->> +		regulator-name = "vbat-3v3";
->> +	};
-> Nothing can switch these two rails so regulator-always-on describes them
-> better than regulator-boot-on.
+netdevsim allows switching the eswitch mode to switchdev with zero VFs
+and creating rate nodes on such a device. However during device teardown
+nsim_dev_reload_destroy() only drops the eswitch back to legacy when VFs
+were configured, so the rate nodes are never destroyed and trigger the
+WARN_ON(devlink_rates_check()) in devlink_free():
 
+  WARNING: net/devlink/core.c:544 at devlink_free+0x18c/0x26c, CPU#2: bash/5032
+  Modules linked in: netdevsim ...
+  CPU: 2 UID: 0 PID: 5032 Comm: bash Not tainted 7.4.0-rc3+ #77 PREEMPTLAZY
+  Call trace:
+   devlink_free+0x18c/0x26c (P)
+   nsim_drv_remove+0x9c/0xb4 [netdevsim]
+   nsim_bus_remove+0x10/0x1c [netdevsim]
+   del_device_store+0x110/0x190 [netdevsim]
+   ...
 
-I see. With the next version I will consider this. The regulator 
-definitions are here only to
-prevent the hci driver form printing a message about missing regulator. 
-Once we have
-the final regulators for the AON subsystem we should check this 
-definitions and replace
-them if appropriate.
+The rate nodes are also left behind on the devlink reload path, where
+they trigger the WARN in devlink_reload_reinit_sanity_check() instead:
 
->
->> +
->>   	hdmi-connector {
->>   		compatible = "hdmi-connector";
->>   		type = "d";
->> @@ -152,6 +169,28 @@ led-pins {
->>   };
->>   
->>   &padctrl0_apsys {
->> +	bluetooth_pins: bluetooth-0 {
->> +		in-pins {
->> +			bias-disable;
->> +			drive-strength = <1>;
->> +			function = "gpio";
->> +			input-enable;
->> +			input-schmitt-enable;
->> +			pins = "GPIO2_30";
->> +			slew-rate = <0>;
->> +		};
->> +
->> +		out-pins {
->> +			bias-disable;
->> +			drive-strength = <3>;
->> +			input-disable;
->> +			input-schmitt-disable;
->> +			pins = "SDIO1_DETN",	/* GPIO2_29 */
->> +			       "SDIO1_WPRTN";	/* GPIO2_28 */
->> +			slew-rate = <0>;
->> +		};
->> +	};
->> +
->>   	gmac0_pins: gmac0-0 {
->>   		tx-pins {
->>   			pins = "GMAC0_TX_CLK",
->> @@ -268,6 +307,30 @@ reg-on-pins {
->>   	};
->>   };
->>   
->> +&padctrl1_apsys {
->> +	uart4_pins: uart4-0 {
->> +		rx-pins {
->> +			bias-disable;
->> +			drive-strength = <1>;
->> +			function = "uart";
->> +			input-enable;
->> +			pins = "UART4_RXD", "UART4_CTSN";
->> +			input-schmitt-enable;
->> +			slew-rate = <0>;
->> +		};
->> +
->> +		tx-pins {
->> +			bias-disable;
->> +			drive-strength = <3>;
->> +			function = "uart";
->> +			input-disable;
->> +			pins = "UART4_TXD", "UART4_RTSN";
->> +			input-schmitt-disable;
->> +			slew-rate = <0>;
->> +		};
->> +	};
->> +};
->> +
->>   &sdio0 {
->>   	bus-width = <4>;
->>   	max-frequency = <198000000>;
->> @@ -314,3 +377,25 @@ &uart0 {
->>   	pinctrl-0 = <&uart0_pins>;
->>   	status = "okay";
->>   };
->> +
->> +&uart4 {
->> +	pinctrl-0 = <&uart4_pins>;
->> +	pinctrl-names = "default";
->> +	uart-has-rtscts;
->> +
->> +	status = "okay";
->> +
->> +	bluetooth {
->> +		compatible = "brcm,bcm4329-bt";
->> +		device-wakeup-gpios = <&gpio2 29 GPIO_ACTIVE_HIGH>;
->> +		interrupt-parent = <&gpio2>;
->> +		interrupts = <30 IRQ_TYPE_EDGE_RISING>;
->> +		interrupt-names = "host-wakeup";
->> +		max-speed = <921600>;
->> +		pinctrl-0 = <&bluetooth_pins>;
->> +		pinctrl-names = "default";
->> +		shutdown-gpios = <&gpio2 28 GPIO_ACTIVE_HIGH>; 	/* BT-REG-ON */
-> This triggers checkpatch:
->
-> WARNING: please, no space before tabs
-> #230: FILE: arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts:397:
-> +^I^Ishutdown-gpios = <&gpio2 28 GPIO_ACTIVE_HIGH>; ^I/* BT-REG-ON */$
->
->> +		vbat-supply = <&reg_vbat_3v3>;
->> +		vddio-supply = <&reg_vbat_1v8>;
->> +	};
->> +};
->> -- 
->> 2.53.0
->>
-> Thanks,
-> Drew
+  WARNING: net/devlink/dev.c:437 at devlink_reload_reinit_sanity_check+0x110/0x148, CPU#3: devlink/5205
+  Modules linked in: netdevsim ...
+  CPU: 3 UID: 0 PID: 5205 Comm: devlink Not tainted 7.4.0-rc3+ #77 PREEMPTLAZY
+  Call trace:
+   devlink_reload_reinit_sanity_check+0x110/0x148 (P)
+   devlink_reload+0x218/0x228
+   devlink_nl_reload_doit+0x3dc/0x5b4
+   ...
 
+Evaluate the eswitch mode check unconditionally, so rate nodes are
+destroyed whether or not any VF was ever configured. Note this also
+resets a zero-VF switchdev device back to legacy mode on reload, like
+the existing VF case.
 
-Best regards
-Thomas
+Reproduce by:
+  $ echo "10 1" > /sys/bus/netdevsim/new_device
+  $ devlink dev eswitch set netdevsim/netdevsim10 mode switchdev
+  $ devlink port function rate add netdevsim/netdevsim10/n1
+  $ echo 10 > /sys/bus/netdevsim/del_device
+
+Replacing the last step with "devlink dev reload netdevsim/netdevsim10"
+hits the devlink_reload_reinit_sanity_check() WARN instead.
+
+Fixes: 885226f5680e ("netdevsim: Implement support for devlink rate nodes")
+Cc: stable@vger.kernel.org
+Reported-by: syzbot+bbd81e1e2276c534dea1@syzkaller.appspotmail.com
+Closes: https://lore.kernel.org/netdev/6af9824c.920b2b3a.148c65.0009.GAE@google.com/
+Reported-by: Xuanqiang Luo <xuanqiang.luo@linux.dev>
+Link: https://lore.kernel.org/all/17cc4251-04ae-41a7-a872-fc5cf525b58f@linux.dev/
+Signed-off-by: xietangxin <xietangxin@h-partners.com>
+---
+v2: add reload path description
+---
+ drivers/net/netdevsim/dev.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/net/netdevsim/dev.c b/drivers/net/netdevsim/dev.c
+index c6b17b387327..b483c25dfecd 100644
+--- a/drivers/net/netdevsim/dev.c
++++ b/drivers/net/netdevsim/dev.c
+@@ -1700,11 +1700,10 @@ static void nsim_dev_reload_destroy(struct nsim_dev *nsim_dev)
+ 		return;
+ 	debugfs_remove(nsim_dev->take_snapshot);
+ 
+-	if (nsim_dev_get_vfs(nsim_dev)) {
++	if (nsim_dev_get_vfs(nsim_dev))
+ 		nsim_bus_dev_set_vfs(nsim_dev->nsim_bus_dev, 0);
+-		if (nsim_esw_mode_is_switchdev(nsim_dev))
+-			nsim_esw_legacy_enable(nsim_dev, NULL);
+-	}
++	if (nsim_esw_mode_is_switchdev(nsim_dev))
++		nsim_esw_legacy_enable(nsim_dev, NULL);
+ 
+ 	nsim_dev_port_del_all(nsim_dev);
+ 	nsim_dev_hwstats_exit(nsim_dev);
+-- 
+2.43.0
 
