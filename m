@@ -1,13 +1,13 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.208.25
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795219693;
-	b=bVINFNF0aUeFuD5gGkXUCZRnJAn+bQIskUmWvG19AqNBABCpnDjs6XV9+GFm+173/0Jm
-	 3TcNyO+0xvEjinXQHUYDZxsAKYGS366r8U4Vbht3EmWeSP5TuVamuTL2c6sE7XCmfRrDK
-	 MnB9fIYbjazi1ql+YRy6NWPjrKmB5LXEsFqltdgk1A/PJhvGS9jdYSpPG87qlfLjSuSl9
-	 /gOpIDYYAXyuV5VU4WlRlO3LPUhFawws3I47W/RMH3/z2z5OCrwkljyJjD30id9YqxOIc
-	 yslHmopt0/zKdAIGdDxu81qcvXjYovA3DhLKJ4Zhtrw5Q1/XJMwBENQkXeoEqb8gROQ==
+	t=1795219698;
+	b=MPsrqikgxCthD9SHDuHAYF2eM3NdX5YSvQBezujrKA+IaVCXdC8oR4VCF9NFpqt9p7cC
+	 UdGufhJQynOa/RpKp3RHeUgupYUB8poCjEzjvpLMLjD+RYofwlTv/0r8eObmu8UXSVh9K
+	 X+M/VUWMq2PfH9FG3o9zWZmc82S7cXFuXuLdfJA/Ixs/UStwPdQcIUXpi+5+t+gd1Q2Mp
+	 E0rYUcTYoIAKRppkmE+LeydEebULoGyrJsvCOZCNnxwoLOkbaOH4qJJA/IZNOgikxHydT
+	 Vz/jjQbptaTBRKvkn4NfGfAXKgs7C7yYBRz8wYMw2SGSkDslNF19861HMuzvoiPAy+g==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795219693;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795219698;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
@@ -24,54 +24,54 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=fVO5bJef09cXu44UU2X8tb+YhtVL13157L9AKGqG/4Y=;
-	b=LZ8+7YcP3r96SRvfrX8mipUpsjiHLwPr0QJoeMunKM2bZeQ18YbV2uB/Dy7YxTmBJtrH
-	 GrsEoIlNYKLw6H42lXGc+eTNmSEDS9fuET0PRkna6Y2vCLt0sOcv4TmX9lYMxpfd4FiXp
-	 rGf2PC9PKI+6Dti4OiS+pU6H+5awMQTDpCVfyYxJupa8DGciuM3mYYVnhrgdk56qKcp1j
-	 lTxGA3m2UNkxM1MIBECBArL9Q1GndB3A0oiaSUuiZtA4X5XMWPHh3pf3C+Dy1xShw6rT/
-	 cy8Ln7zlNOhJ85PrxCO6Baa964+toxUNNi7EtXruN5K/Z8UzvkMaBvOymY+WkiXBnhw==
+	bh=BWgxnY4m4+2n4V9Fzz+vaYN4i01OB7aWR3zEXDgSV/E=;
+	b=HOWrlIa/s//UqR23eEh+erooIF06w7Gunv1OwSwJ8L+/aUj9z8d73jBTZlBUKVVDQVYJ
+	 7UkvR1PMIUXOWmRGFiOCzUVjK4HBCh8yWfSTP/64AJ1AoSBlJcZntK+s8aGf4oLTag4/e
+	 R4Dm1ZAtJ7hU8WkGET46wSdehf1pQKa843vBh5q501HrcjphVJDJHcUt23eycJtlaKjpT
+	 caC/D+AQMU0rHixtQBKkGJMHU7s2NawTwFSNDEw18AI5tOg67qZgObmaxDuc+YC2lBF6l
+	 zsG/BmHmHZ66MVIl8cmUOo93nidBA25ImxciB/L08uHf1647HrKd4C6hA351HCc0HhA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=nvidia.com;
 	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ruMJD2Z4;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=WC8zab3n;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.208.25
 Received: from PH0PR06CU001.outbound.protection.outlook.com (mail-westus3azon11011025.outbound.protection.outlook.com [40.107.208.25])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2939D606A6A0;
-	Sat, 21 Nov 2026 00:08:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2939D606A6A0
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 537F460A2606;
+	Sat, 21 Nov 2026 00:08:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 537F460A2606
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ruMJD2Z4
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=WC8zab3n
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=h8hOkJg6g2F0FCyKzr4SduckBbErfIoYM6fR7q/mZ+K19oXecKPOfKzjNBADCFgUjK3Lc+nW7QIjaPpkkD/Rx/g1FZ0FCPfAd7JS9QnyxDbYSckyeq/3dzT87TMm0iG+SpY+WwhKZvsiy4kzP29+hpUjvI1Ss4VJ46XXHS0nHDrjC2nQbNlYJelPFwWqpHgYHk6J6x5X5EMEU+U0j062GsCujavFExtMH8p3YGCQE5zGi3dI7K9LO7O8R3GpFHVytbVFcria1As9c882dyDgQwPJi/9KBnlT3++EUrw9vUmfzbDvyYQLj4GS4R9xuuWgBXIfw8AGJ02hjqWCswRRqg==
+ b=q4NdZ/SIhXeRdcBeRXkBe7W6GssAQnO6vt6xRy981BwXoVBF0sx6AneUnzMhzSc+8rCUF1ESPRjYTSmesTv8OFLUM67/ksTiIpFJfeKQxJWzV6cawj2yLItzIRFiyX4ZFPUtDuHYtQf5c45w896jVcnALhIFXky0P+tuRlcNOGs2p6PBAo0mZuTt2bqxd8XJ88WehEfcdvAOoDLtPWK8z/TER7AU+sjm0uGasE6Lq9IVIPsFwdZb+UILL4u19+RTeeSV/HmezocVHDzspEvhYxYu+PgZJLO3jzsrV5uw2KXLXznfBHoLMA62eb919pjP/VJUQS9tzn9Nw61TE+0qEA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fVO5bJef09cXu44UU2X8tb+YhtVL13157L9AKGqG/4Y=;
- b=t3ZmU1e6XFSdksf90I76h5zU1Xn9HWFFWGSDG1IG0ZhkaPPTrCu5zBVIEfwbQjQCWrI9mCbjz8os2r3ihn2T2XdG7DRuXNUL6NxM29yYFBYVuRv5AKl2J+oHqdzA40BfMkUjNSuRra91omPhoJMvFKTQS3Nxrzb5Vv8fDHCR6VUtZyB9XDKqQJ/dJ8O7j//ZWNeDv9q1beUOxGeLZ0kjJ4GsCTwh8tyVgBfMQ3knF9XVLjEDOrA/FGznNLQPEPhLf83J/pyUm8Zbs6TiAAsa7jt8yuDCj5HMsZnSiy/pgTY0YkvAX7WrmVE5hoQjjCwWZ05ApG5PgDyED0+VCWaETQ==
+ bh=BWgxnY4m4+2n4V9Fzz+vaYN4i01OB7aWR3zEXDgSV/E=;
+ b=KX2piO/pNWd79NMEd4dYx3gGVRyLP2lhFeXpC+rPcFJ0L3KdmXXg+QvRKYiGHrKtD5jSJtdBFlcZmHfrm8MutMqdYyHzRiMnix8nMAgdZlPhUV+iDnEe2EclFExGsOidJBB5eECg46xDoZ/p2NpSeMMc6dgVBBXyBzSMkR/OVFXkJMkk/lJbAts2AKiOUsImQAzD96fWKs5yi3WkTxpXnGt2pY2cwvwqy1Hd30ehDGisvtm+CE9HNPd8hrgWqTpGnYjMcFrqx/9p5qet5pcuP+VJrSJWF8ST6YFYmHN7/rNa4iLTxgjlqfqSgm5j5FYOHm7iPwc4iqY/3qgmr99jIA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fVO5bJef09cXu44UU2X8tb+YhtVL13157L9AKGqG/4Y=;
- b=ruMJD2Z4vW+uRDihKXwaaTuw4hjytrkbCJjIavBeWveylFgyixIDM0YShxrkDNCCtRJeJAnmJmTdMuzmwWNXj8tbyFIyzstBq/gkCSPaVjnYO9n47SsRco8H+PoLYLcTB5Eq3RwT4OCWb5ol9Wp+Qadb/8RQ3vSmRJTn7NwEUTAWkXsMfa3TvWSVd5vSnrKKkqWqb4e3HOvK/MRUcVXXjgcIkCM/uL60aXcbklul4eSVZBLhDGjusAP6JJrpY/WA7+SDsD84UTTGXgwY5d5xMVi5pyA9tCzJ5Nj92oZr4LpJ4cZn817AeK/h69224bfYwMcLR9jdfw6+e+up3dal4g==
+ bh=BWgxnY4m4+2n4V9Fzz+vaYN4i01OB7aWR3zEXDgSV/E=;
+ b=WC8zab3nOX4UBhPJH9tKJKX4cOcjCTFuS7gTDsRqIwO+ip/1H8YHFYowDNBUxii6EY2nNglSRijytx8rf8ITwU0p7mE+AVVvxSpCc/1KcgR4+nm547vkf6umvtiKKbiF8BxR8elbHDdxLPBF0qeHsnKmDTlt3JPSMBDvkgj0fQqWpi31ZYUPMiduGYUkHzX7+0m7y+smp0+by1FFyG055NiLNxYK+pkxbIlBqgVue0IhM5IAjk2fF9O9VI8HR6cT1RZyU30tde6qHAXZz3U08b0hb4JEMioOQovjtbiyfGrCXHlFKwE9GoOVvWL8uQZGMackYoIUy8gFgfHS9sClgQ==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from MN0PR12MB5786.namprd12.prod.outlook.com (2603:10b6:208:375::13)
  by SA0PR12MB4446.namprd12.prod.outlook.com (2603:10b6:806:71::18) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Sat, 21 Nov
- 2026 00:07:55 +0000
+ 2026 00:08:00 +0000
 Received: from MN0PR12MB5786.namprd12.prod.outlook.com
  ([fe80::ae61:c9b4:847b:4854]) by MN0PR12MB5786.namprd12.prod.outlook.com
  ([fe80::ae61:c9b4:847b:4854%5]) with mapi id 15.21.0639.011; Sat, 21 Nov 2026
- 00:07:54 +0000
+ 00:08:00 +0000
 From: Brian Mak <bmak@nvidia.com>
 To: Hans de Goede <hansg@kernel.org>,
 	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
@@ -90,9 +90,9 @@ Cc: Kurt Borja <kuurtb@gmail.com>,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Brian Mak <bmak@nvidia.com>
-Subject: [PATCH 5/8] platform: dell: smbios-wmi: Fix probe on RTX Spark
-Date: Fri, 20 Nov 2026 16:05:51 -0800
-Message-ID: <20261121000556.173028-6-bmak@nvidia.com>
+Subject: [PATCH 7/8] platform: dell: laptop: Don't load if SMBIOS calls are non-functional
+Date: Fri, 20 Nov 2026 16:05:53 -0800
+Message-ID: <20261121000556.173028-8-bmak@nvidia.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261121000556.173028-1-bmak@nvidia.com>
 References: <20261121000556.173028-1-bmak@nvidia.com>
@@ -112,139 +112,85 @@ Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: MN0PR12MB5786:EE_|SA0PR12MB4446:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5e680389-3a11-4b59-828a-08df47637dc1
+X-MS-Office365-Filtering-Correlation-Id: e8b93b2e-a519-4898-37c4-08df4763810e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|23010399003|366016|7416014|376014|18002099003|22082099003|261009223027099003|261021121427099003|11063799006|56012099006|261022075727099003|261028144727099003|261026140227099003|261021123027099003|261022105027099003|10067099003|261102123227099003;
+	BCL:0;ARA:13230040|1800799024|23010399003|366016|7416014|376014|18002099003|6133799003|22082099003|261009223027099003|261021121427099003|5023799004|11063799006|56012099006|261021123027099003|261026121527099003|10067099003|261102123227099003;
 X-Microsoft-Antispam-Message-Info:
-	VafdvQyyQ1ParL5ISr22TW3Xv/Iux79vs4x+CalSWnhMlfIwPLn3JaAkKm7hRcZaAnNsUB3iFIgd26/vSlPNn8zABHKjlLyx/n0KsQGus1pfhRr15tCPapHHi1kZzbTFdDyMOJse1MhfiS1o4QnG5vq9CxDrXwXKAnA3WtjfUggOU+/4eWHfUKir/b0v+ajc5TWowFkhZSpz6uaz3TvHSpPSx3tITzbD+DI7ytDvrgQgepR2aE+Kw4SG905QN7CiXPpeSKtojCocX1c6wQfnpun6gjDPsGk17zdIxKDWahC6pe3c1V4Nw8godNQJo0qUqq9Rs0YUnWDMU/kpPM8aSFGyQS3CKo26fk4RcTNVjv5nASmC1XjXcPtEdsegqpbJaeAZcq1CnxqwP/rDIQFMyfSGqpdq0u0Z1JNtn3E2mYqEsc0j5PP+RRTaTChzueLoI2k3vjoYlUoAj4dHO3nGi3GwDu1wesiSXeaUjDzA8n1Muv7K9rfyNVdWd9xYSbkd2v4bruWMgX0qo3JeWvYlqCN/9lDw4dLYzMqFmm93b6A2eJuSLmzVVbJYsflCoExUPeHxUtHet3im19PqkN9B+ph5jSNXIAuLpzd/2H+JIargy4U6stHBzxRH4CjBBUg+4a5eYD0+tG9k65q+DBlghUNFBFiKmo6J7keG07kcDbc=
+	f5YNBKcA1SJH7oFrnv4Jw9V9YfAB1hBtymsB7Yd8bgE9qL4So1FfZiEiKJ7aQzTp48gEEk9d8UOX2n8oQ90Cpu63V4hcI3QACzcpUoxEC+igO58YkBzKrVIhfYNUyMdgNU/NlEptmDwDRIZgF4J9cjAg4kDx32dQKW18sKtAYEQKaZ7oAU02bsLMrEDWqUl5A0Ffe65sA5dnOGzrAn5mSNzle7lTFDGugWJj+nabio6Fq9Gkihby1v/hHUWhiY2yjiua59ei5CUJhZ8Pp4fUcxGulssh0y5OTxawHWf921BVARfG0+tlaOAm5cPh8a6M0ClT6x4zE4dIxjA166IZuDBngSRMLcKsMqtAvg+g0btto9lDFUhRVBtA55nMSiicTC72Le3gj1L/YUZX5CqaFjnJREOhQlOR6j0i2Tu0u0tdhrBENOsGR8zuHnjUJxukLbmgD9Gk0omBi2mxq6Iz9fiolbQgvkW7WQes6+LxYBg6gA993D8v6Zw28XGXUGUo5D2qLFAkChVy0vp09X4wceqgEo9yVlUfzkKjvYScpdsZ4+oejvxEn7D7LF7xoa6iLyS47rYg/PJN22AWDTeZlFi/yprfU7318qqFYSMWvuEZFgbjcH+g69o/eR+S14U8KzIG/jhwoq6PWQ6Gv5bHxX6oUO+89MAXNakyY8exccA=
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5786.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(7416014)(376014)(18002099003)(22082099003)(261009223027099003)(261021121427099003)(11063799006)(56012099006)(261022075727099003)(261028144727099003)(261026140227099003)(261021123027099003)(261022105027099003)(10067099003)(261102123227099003);DIR:OUT;SFP:1101;
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5786.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(7416014)(376014)(18002099003)(6133799003)(22082099003)(261009223027099003)(261021121427099003)(5023799004)(11063799006)(56012099006)(261021123027099003)(261026121527099003)(10067099003)(261102123227099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?zg3AVHYfsjpbDRyzV4hKSAc/zOeNwzkBpVAK+GEkWpWCzHjUQswa5J976WZt?=
- =?us-ascii?Q?Ao7+KfLQXvGN7z3NrpK74GtVi+r8Yh7PwBo3It8XwxvezfzbKqnKH/fN+9A3?=
- =?us-ascii?Q?hmTGApZQjNjc6IzMzXeAwSm0TibVwKsgdJlIKQnV2DsrAG5MIDqWNI3FjxFi?=
- =?us-ascii?Q?eVk1PUvtQJJaPw2X+kAZmyDGPr4+yHH1uQDvuuW3KvbcdsxKQsTWeoaq6b38?=
- =?us-ascii?Q?mRtDgaI6obqOhFYERTvbd7cbnuMW4laF345tm0HRHy4qhC+Qj+KFnLEZSkMQ?=
- =?us-ascii?Q?y53R5p2t+00GaDw38rK1fCPRr43TLHDt/KqYQ5vPvfBzukQ/HqNfF7uh/y0L?=
- =?us-ascii?Q?ivODKRRFQA9wUH4trbD5lLUkIwM8URW8w/2xN3hkaXL3lG+igyNC4z74oLb+?=
- =?us-ascii?Q?+ZkZutA04D76FHRbXTOQ8YNAhQQFOs4nTKw16/mnMKaRNQ1PaoP6lIpaBzOi?=
- =?us-ascii?Q?sn5i2GwSAbVnLUvIdDwryiqr/qiB2MAz+uazSUvlV0UCRrQB3KU9Cc8S1T4Q?=
- =?us-ascii?Q?PGIVicyqpd3eeP5dJcik4taQLE8c93yXxcgivsZzbizL6NEevgiwd5BC2wpi?=
- =?us-ascii?Q?6ZjZco6CCSdcJyuLYfIQn5cPwHJB7zqqkTGVUlbPUBAGXSP60XyMiSmHOYgE?=
- =?us-ascii?Q?1HNtwOxdUm6J7/YRkXiiAmjLh1ANRCVDskSEEiv5UmVsZ11J1kJsJK/CJWDW?=
- =?us-ascii?Q?oWOCyqKwKKiVw6uejTUhd1EQVKt4Ue+Gwv1aaWQPXa6T2n0Celq7lrMDDy+V?=
- =?us-ascii?Q?9lpkLd663m6V0a4DY8grMawcO+1tll9R6Pn9npI0QSwHrvFuAsMPs1yTj+Dp?=
- =?us-ascii?Q?+EP7NWj2nA4E8xpGMIpXWaO8KNMuF3YFd3HPnOajjwV3lP6+ozff+tMNFvrw?=
- =?us-ascii?Q?v5gLLjlFuv7hOa4u5qCOuiCNMVzQk0ofqHbhdDVv0z75uD1vi5+Att+vpdjb?=
- =?us-ascii?Q?9AxUjPcNLnF1YMEsUYEO/AUHnbnvboM4/wG6Y2BaTgpRu4IJ0nJ+rAI5F1My?=
- =?us-ascii?Q?Pa+eV+B8xcjUZy6IaMXVcSTl9k7YA64gvT1D7TZy3beRZF9opdwL84KnUDhc?=
- =?us-ascii?Q?bkecz2w5CQkxD9NKhX3+VqvitnI9wm64iGxfS9D6JSbGiDEBz5bu7BIuEcrx?=
- =?us-ascii?Q?CZvFprZV061AkvmMvsDNGHI/6iPJ1C5mb9cdCg+gIgwwPAmRPvMqJ25EnZSk?=
- =?us-ascii?Q?PwGiLtnzq+mt+tz77waE+dE8JyPuBA4XmhY0ibnqVL2KEpNHwyqA4NVCfLu3?=
- =?us-ascii?Q?hXFP74L3sbPkAbk1IVsyJ3aSqPO8h7tllk7Z4Jzx1byaHVt/juZZy+rGPdFf?=
- =?us-ascii?Q?54Tir07RyeBfaJOiAcUq7SBoe2uia7FnQ1Gi4qUAkhi8axA4jIV9Q7Fos7D2?=
- =?us-ascii?Q?SXIIh5cK4AMTfn380s9lyitYCsONwGqqZ1enjDjMmtV/vTfZmJ6+nmh3rI5T?=
- =?us-ascii?Q?goUSEmIA0spE5AvuchfXheauTClXIgY4FKNeOgeAbn24F9vhKMzYidJru3Gv?=
- =?us-ascii?Q?7qtQjkKLg15E/E1D0fS4fpHnW0aHWi6Yj8dWFAEEkZjsiNL8I4LLK7VFhviJ?=
- =?us-ascii?Q?jmogmQPW42BbUMIXTKdn+18FVxgulZ9MLCgDf/cDFpeBp0lghQA95oOsg2ku?=
- =?us-ascii?Q?JbPQezTnBVwed4SNQai9ExXLZD1HtaPsVLQxTj9NJOvgEzNyBzagphePdUZV?=
- =?us-ascii?Q?U19qcYOQW6bvsThi0AjdtR1PHmIq/gVzsiWG9mmbvhNgbG9njuT07bXFbgnV?=
- =?us-ascii?Q?DqsCPJw8yQ=3D=3D?=
+	=?us-ascii?Q?FUFlea/OV///2EV1mx62SRQPWa5IDjiQcuJYiXajwdFlOjchGVDcA7NKbAGN?=
+ =?us-ascii?Q?78uKsekEgUKKy0mCazLfRIQJ//iglM9fy+PDShFFH2QyD0CxCk48efsJCU5S?=
+ =?us-ascii?Q?IN3BAKAZ5rCrx8gUsm52oyYrFfQz8SgTJ1qSHSvbDijZ6jbZdNJksrtziqRc?=
+ =?us-ascii?Q?ZaVgJWqJuLvXIQn/tIpv56Axs5EhrXivrka8q/k3zqcc9bTpAcbPqEF+TU+R?=
+ =?us-ascii?Q?Jg93HBXS6NO3dCz43iPOeDwpHLw+W6Zxov+hNEMmEL/LmDYdsLmikBbAhtgq?=
+ =?us-ascii?Q?wkbLNczQc+6cFXfm9zF4UGLTwbappbvXrEgXBzwRE6qnhr0tWo7Doiw3q7lZ?=
+ =?us-ascii?Q?rgK0ZgTqB6VDw4dUx3JVUwqkjGKOHQrwL6injFHoWVtoY9/Au2XfMb55Qob5?=
+ =?us-ascii?Q?5fkT0+h7NjiYQj7hGHlaXNsuSZHZKpTckiNMAwTmxij2PDq0iLaQWpdsqUqO?=
+ =?us-ascii?Q?xEmFjKL+lCyoGo/WAweVVjawc7Y+O3nng0j9LpBXaM4ga4kjk+zx+QKpBTN2?=
+ =?us-ascii?Q?EBnm538gpbSDRkpTyBXDSQD6l3EOJhRvKon3/R1RU4XZGNHkaoUfczgI3Ee7?=
+ =?us-ascii?Q?7xjeHTp+AfIe1Fq0vvHll6lIwOj5WxF47rOd/alOcLh99/UzrHYED9miWcym?=
+ =?us-ascii?Q?f8La2lIodvJe5lR+VzqSNRl55ZEHLdFWR4/x9isLpFvsjozH54u+5I8X8Rch?=
+ =?us-ascii?Q?x3y9QsL+Zfb/hOgZKlIJa3NyNVXWPe/0ffS8S+hCZ1DllN4WKQWJWpKF4q0T?=
+ =?us-ascii?Q?7KNijUSumZuGPjdlu98mTffzAcfhSRz4vmjCnjXSbAYfx13TV1fUzpqgDS5n?=
+ =?us-ascii?Q?8WYjGRluk3yoB/BjtMwNoBMZActPxisiTwljfxTmzMyHjWBebuPnj8IDgW2E?=
+ =?us-ascii?Q?SLJs46KQRBAL+bZa42IMYgBKKJb8MtGsa+rgHyJQ56+KdXOiwnPTAGXmkibc?=
+ =?us-ascii?Q?gFb/GzgnKlfa9Ka2Dy+zBx5y6HugiXc7A05l0sBmWDFqohJ10gljAUp8rRm9?=
+ =?us-ascii?Q?cNMVwmVCcZw5myaB/IwEdPsIpjR6hcVlBmR6+heGKVflapO+TaTrmtgQgRJv?=
+ =?us-ascii?Q?h79FNSfvIJ+b1q9bBKudy8tBtk9QVeL0f3O93foG7NqDNySzmg259G4TeZJl?=
+ =?us-ascii?Q?ViXWulQkPVLGFNWGMfaitaYwMw7cio6ZlzA3ZEDpfvYy6X7R3l9HO0ZeYL0I?=
+ =?us-ascii?Q?18faFBFRX4ZamCFF5DMUdzil+bDQvkmPPawqn/vmXvP3G5aqMkcgTbzs3spv?=
+ =?us-ascii?Q?EZ0HDjpdkC3ADGOmcQ0dcnePOqsAT9gOivpGvOYJ53mtJksduhw96rV9Q9+G?=
+ =?us-ascii?Q?THzu4WI1S+x8BR+WvVpf6ekBLj/VDqcLOAnAtIg/OMFfMOTV/PufUkKPaWPw?=
+ =?us-ascii?Q?RpFOMb2S47Xkgk2uoh/o1qGxwoAft+4q6oFphfX4keT6DY8KDWKIZ27zms3g?=
+ =?us-ascii?Q?IT5HqMvxzbIsYuNYkfDsTle+paH8BOlDU6GxFe7CgR4iXRZB87uR2Ep8x3WX?=
+ =?us-ascii?Q?oLVscLUjgLHctQoAQAlLkWbwuFKvPWA1tIjyXeIvTaZcX2mJwxRjXzGvSa8v?=
+ =?us-ascii?Q?v2QV0C4sJ/PC04EVRMTE4CC6eRAXm0O8//YNs3bZnLZTKIbskIvzl5XXkrW9?=
+ =?us-ascii?Q?xxL/Dd5BHd9mQD7x8l9kyiFyz6nqr5sTxkAuVpShPDpgsROmXcK/o6cVQXD2?=
+ =?us-ascii?Q?4DeJ9rIm3EkS3Crt+n8qKT3aAdRx/4jRyQcBCQGDxtQyMQyQubx36jvbWgX4?=
+ =?us-ascii?Q?QFqvgIApdA=3D=3D?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5e680389-3a11-4b59-828a-08df47637dc1
+X-MS-Exchange-CrossTenant-Network-Message-Id: e8b93b2e-a519-4898-37c4-08df4763810e
 X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5786.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2026 00:07:54.8316
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2026 00:08:00.4092
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: j0rT8pfJnPV0210U0FjrUW00Tv+tzcw1KgWtsq1oVEBnBmkD70cYkt6X7VFSHjzB
+X-MS-Exchange-CrossTenant-UserPrincipalName: EZHQeS59Nf/fw4x3qCKmVdX5eg1+Nbu7KBPUR4kQ3OT40T4XKLoiwZYevLv7n6iv
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4446
 
-dell-smbios-wmi fails to probe on RTX Spark due to a hardcoded SMBIOS
-handle (0xB100) of type 0xB1 (misc BIOS flags) that is numbered
-differently on Dell RTX Spark laptops. Instead, search for all SMBIOS
-handles of type 0xB1, and if there is just one, use that one. If handle
-0xB100 exists, always use that.
+dell-laptop relies on the SMBIOS calling interface for all of its
+functionality. On platforms where the interface returns all-zero
+buffers, dell-laptop reports bogus battery charge modes and thresholds,
+and registers mute and mic mute LEDs that do nothing.
 
-This fixes dell-smbios-wmi probe on Dell RTX Spark laptops.
+Don't load dell-laptop on these platforms.
 
 Signed-off-by: Brian Mak <bmak@nvidia.com>
 ---
- drivers/platform/dell/dell-smbios-wmi.c | 37 +++++++++++++++++++------
- 1 file changed, 29 insertions(+), 8 deletions(-)
+ drivers/platform/dell/dell-laptop.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/platform/dell/dell-smbios-wmi.c b/drivers/platform/dell/dell-smbios-wmi.c
-index 7a5c6d7730ab..ff859d9039b9 100644
---- a/drivers/platform/dell/dell-smbios-wmi.c
-+++ b/drivers/platform/dell/dell-smbios-wmi.c
-@@ -273,7 +273,13 @@ static const struct wmi_device_id dell_smbios_wmi_id_table[] = {
- 	{ },
- };
- 
--static void parse_b1_table(const struct dmi_header *dm)
-+struct b1_search {
-+	bool found_b100;
-+	unsigned int count;
-+	u16 flags0;
-+};
-+
-+static void parse_b1_table(const struct dmi_header *dm, struct b1_search *search)
- {
- 	struct misc_bios_flags_structure *flags =
- 	container_of(dm, struct misc_bios_flags_structure, header);
-@@ -281,17 +287,21 @@ static void parse_b1_table(const struct dmi_header *dm)
- 	/* 4 bytes header, 8 bytes flags */
- 	if (dm->length < 12)
- 		return;
--	if (dm->handle != 0xb100)
--		return;
--	if ((flags->flags0 & FLAG_HAS_ACPI_WMI))
--		wmi_supported = 1;
-+
-+	search->count++;
-+	if (dm->handle == 0xb100) {
-+		search->found_b100 = true;
-+		search->flags0 = flags->flags0;
-+	} else if (!search->found_b100) {
-+		search->flags0 = flags->flags0;
-+	}
- }
- 
--static void find_b1(const struct dmi_header *dm, void *dummy)
-+static void find_b1(const struct dmi_header *dm, void *data)
- {
- 	switch (dm->type) {
- 	case 0xb1: /* misc bios flags */
--		parse_b1_table(dm);
-+		parse_b1_table(dm, data);
- 		break;
- 	}
- }
-@@ -308,7 +318,18 @@ static struct wmi_driver dell_smbios_wmi_driver = {
- 
- int init_dell_smbios_wmi(void)
- {
--	dmi_walk(find_b1, NULL);
-+	struct b1_search search = {};
-+
-+	dmi_walk(find_b1, &search);
-+
-+	/*
-+	 * Dell x86 firmware places the misc BIOS flags at handle 0xb100. However,
-+	 * with RTX Spark, it is not at handle 0xb100, so fall back to the only type
-+	 * 0xb1 handle present if there is only one.
-+	 */
-+	if ((search.found_b100 || search.count == 1) &&
-+	    (search.flags0 & FLAG_HAS_ACPI_WMI))
-+		wmi_supported = 1;
- 
- 	if (!wmi_supported)
+diff --git a/drivers/platform/dell/dell-laptop.c b/drivers/platform/dell/dell-laptop.c
+index 89e85c7f7132..7bf51b9cb03b 100644
+--- a/drivers/platform/dell/dell-laptop.c
++++ b/drivers/platform/dell/dell-laptop.c
+@@ -2464,6 +2464,9 @@ static int __init dell_init(void)
+ 	if (!dmi_check_system(dell_device_table))
  		return -ENODEV;
+ 
++	if (!dell_smbios_calls_functional())
++		return -ENODEV;
++
+ 	quirks = NULL;
+ 	/* find if this machine support other functions */
+ 	dmi_check_system(dell_quirks);
 -- 
 2.53.0
 
