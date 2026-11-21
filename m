@@ -1,55 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795267712;
-	b=X4wvVm8+x3s65wq1ZRTvBpp+d+jyitTGtPPn+enGJobw7b4IzRP3pj/en1GP8QHNubN9
-	 3lBZ0pGY1iFZ+YtZB5PQX0mbx2Fppth9x2Y2owH70THl3mKpqJ6DkwgzYTCF3PzpTk4H3
-	 CP9rePbk5BNyKHtAs2MVt/OLV1pIxddxYjOMDIoag3EOxLkRcjemr4ydiTpfkavvHDMZl
-	 NzzAzG1/y0pIYfTFzfkuk3rk6o+11bLPuXurmWhiHRmyYI87L4WPB1ByWgdIBHR2Cmdl/
-	 QeBpkOX2SfJTH/PlU9zE3Km/zFCEemY69RSKI3vL9nDJ0aop+mP8v9QY5x/a8Bts6Nw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795267712;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=kDNbZxXOaisBTyYZgGVkrcz49v41G3fPzDPbhhCuzWk=;
-	b=0tDzH3XbF4aMqGFaZz36hifEHk+yYHh+Oh9xny2goOcDmB96mX5F/yprR0HZJ11aBCAs
-	 4EV6bhMjXNj7MNNjAw9x3/MF3dSILuJawiPwd5m1jdyWlKXbYMnrd4tRmNgaxQXhRlTbd
-	 7RvHnG2qev6d0abIL1pVwIcRNRjCXXu1RwtZ0WPrDVDVAle/PWmEQwz8Qaw7u1F2N8hDa
-	 HE7rs2jMeYicwd+wFj5wKVA7bB0LTtJgJFQCm+5aNOoYZpjOPJHY0Oekd+hCIaiCsmWtd
-	 Bp9hj6ul5hapjIo1ZWAjve9UevDhCSHafgWo+mif+Ll4uEQbJ5b7xOCMYuOai/ilzHg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f2qtp1le;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795267753;
+	b=FAVRJ4nd8HFO9kzcYTgtCJM4PexrnQOIuWPr87dCEbsRPMKRoOojRGRtdWXzeBgCkhxS
+	 9fXciasW0UHveELnrFqSOPSgnG1QVyaAzY7l0CwGTrJyXXwT3PP6kIN+svHKIFfNdAh8d
+	 Hkuyr56uiyBqKOXWoKR2ctMz/gE2fhvJbyrYD5PXNt0/LgDYBuPGMRi9PSGwbCqzk2C1h
+	 rB4TZeXtrNTYLEa1/yAqAslgE8B7xcelJrPwWkGaFWneOGiFseFVxOlFTXmsHu60ONCtx
+	 ncxUYcMwu99VeOSbsL4v8pOonyf3vFkP6pGZPXQRWf4drKzQ3uew4jo3BQGQrt85o4Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795267753;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=+ZOEQuS7xesMhb/aW5nh1HEJR6SjC6cprTjYlnqdZ5U=;
+	b=NMCcNy2t+afv5z6CYCPbfQKYQwOjyl2LHwQAV9EJd4mwrUlLTjif3hnhYEeRgOQy/G0b
+	 Hv2k9m8WHNg3ybSeu8jCLCb3+TzH3ibiPnREgQNak0o8cC5Y9tt5pcdeNKl+O2F5MM+J9
+	 DADFahcIj5CsJWjK5qjY/o3Eo7giOEW5EBN8xPgKxGKKr4qC/0WABJs1UirCSxjajncfR
+	 /5koNw0b9jsTWAJHqJ8CBo8aSk/vWIajN91B03mNULHkYXTA0OQeZcE+KjxFSsXbvox6Z
+	 jrElfgRadaNkH8zW0JbwqLggaFQuraOvRKyzDnneHiLw0SR6axEaiviR/M0Zf5tcObg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=egjJhwRc;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id A9F86606A320;
-	Sat, 21 Nov 2026 13:28:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F434606A320;
+	Sat, 21 Nov 2026 13:29:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f2qtp1le
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id E69F81F000C6;
-	Sat, 21 Nov 2026 13:28:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=egjJhwRc
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795267753;
+	b=wQMCAHww4Np3C7pZzLMO2BPkK137pjaI9uG7RTWDtTrUN2K6sRYJ916r2vpw4NjmhzVr
+	 4/3K7AyEXvWuAuFLQmCGTdUIY7GjEsYGLRQsmYrLqsvD/g0FnbpKYUPs6HwPvAw9mi4qv
+	 T8T5MlVchFPFk2KzuxCjXK/WSDSFtqiExPtf5LyBTi2s+YW6GFxkO9++3w0vR0I8j2STl
+	 kgGPemUkGo0NvHA36CLHMjLYe1FJs1h0y+Gs9k535FV6e1kk3v+s8g3l+VCJO+lTy1oDf
+	 y9lFccwUnklcCkPgm19iCIA4h2n5Ka8jaaAqzyiqBV5YSyGyfMaO9w5mWMLb2BIfn9A==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795267753;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=+ZOEQuS7xesMhb/aW5nh1HEJR6SjC6cprTjYlnqdZ5U=;
+	b=HGSEbgnmnKVb8qsI710mk/7bpMhmzMGWsL/Pv0KVKaw5h9MWKcb7bkO0co68nHVbUjOG
+	 k3FIsE3ovbJRW6SyONYiUE5En5OjgDq8uBGGVI2KOiP70VY0NZXubbetAnEjiBObT8wp1
+	 lFABGmgAqTdxnLDwry/yd/c4pA1kb03D6XaJ8Yy/iXosT9mMltfdjFEob+vh6P3PI3kv0
+	 tt36y0hj0xFM0N2XjaTAGsNGenC0hKt0pPqFKksKrOp9A3yeUsiSTF5X0QqXAqXM+PxYV
+	 PsPmT2SB3BfuH0UQOn54tReB33OzmwaxWxB0nkMXQxytE85S/OtWXMOWALB8CGXzoTQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 98D1B1F000C4;
+	Sat, 21 Nov 2026 13:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795267712;
-	bh=kDNbZxXOaisBTyYZgGVkrcz49v41G3fPzDPbhhCuzWk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=f2qtp1lemvblFmUy2qlArDDs1OdYxtd6qgLFU5qNkY4MgBdEMsuT0pCFq/dctZC+c
-	 S282KNo8jmbO6TSh+OD0AwTij4ZYtFprDCbEJ59U3lFi1YHKA7FrOIsOb7EuweIGrT
-	 qjv1XrslgPf4prUqreGjp14tRs5h1rX0TFVQXMenzaiWfrfrfCpwcyomyDqjPIE/Ej
-	 sI2kaxAXuqtkh53gyt1+EwYRDYv6eBGWiccrLean8ME1u/sBuA8xpqyZ9hpEOTfSAj
-	 wZvo/qlWIW9T2PhU8zNuO/qNSZq/t5Hs+CR8aDfM3kHaEc7KTNMJq4CG0dyRfYKClX
-	 vGnBU5uFh9Jcw==
-Date: Sat, 21 Nov 2026 15:28:28 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Sinan Turunc <enscrpt@pm.me>
-Cc: David Howells <dhowells@redhat.com>, paul@paul-moore.com,
-	jmorris@namei.org, serge@hallyn.com, keyrings@vger.kernel.org,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v3] keys: serialise key instantiation against
- keyctl_chown_key()
-Message-ID: <awGcfFldbGuXWBJL@kernel.org>
-References: <20261121111246.3478-1-enscrpt@pm.me>
+	s=k20260515; t=1795267753;
+	bh=+ZOEQuS7xesMhb/aW5nh1HEJR6SjC6cprTjYlnqdZ5U=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=egjJhwRcOLN90YiqTCq2hBfOWUFjUPTajYqUyN+RMNbwuoA4/hD8Nx9szR1pGknel
+	 6UK254CzvHqo1CqLdq/kBBl1U91JGW8ue/c99lg/t9c0E/xZXTaUCuIhF0IjxRobNF
+	 iuxFC9yHdmDNpInUQjrwgHkuLJoivRPv8gXnwSW1XsGErlSMwb3WlInDCvcOWq4PDp
+	 gpHSpwBAiemX0urIW9MGcZWLxQMfO5/2bgovIcF0DIzYvpIWYybj08Bruuo1KCx+LW
+	 nsrZ4TWv3Z502cYldyz4gfBC+PawnsoPlQDHuGam6sMOrxECc8kD+W+RwDhlVuxCBf
+	 hd6TMKBJWZUmw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 15E864BC83;
+	Sat, 21 Nov 2026 13:29:12 +0000 (UTC)
+From: Vyacheslav Yurkov via B4 Relay <devnull+V.Yurkov.EXT.bruker.com@kernel.org>
+Date: Sat, 21 Nov 2026 13:29:10 +0000
+Subject: [PATCH v11 1/2] dt-bindings: clock: Add gpio-enabled-clock
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,112 +82,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261121111246.3478-1-enscrpt@pm.me>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261121-feature-clock-guard-v11-1-00c633a667a2@bruker.com>
+References: <20261121-feature-clock-guard-v11-0-00c633a667a2@bruker.com>
+In-Reply-To: <20261121-feature-clock-guard-v11-0-00c633a667a2@bruker.com>
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Jyri Sarha <jsarha@ti.com>
+Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, Vyacheslav Yurkov <uvv.mail@gmail.com>, 
+ Vyacheslav Yurkov <V.Yurkov.EXT@bruker.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795267751; l=2434;
+ i=V.Yurkov.EXT@bruker.com; s=20260318; h=from:subject:message-id;
+ bh=L/yx9dJKtGg0GjfAwYLswzXF3aI/lmNqd+9Ff+w6nJc=;
+ b=tS6mRP0Ng/2822ikO24q6RInVSbb6kWtJ763ZtH8q/ubRMPNAyzU28ikNhptImNj433FgnmmZ
+ +aZDho1dteXBEFHrQYRB9wn7g/89V1qLxlGdPGW7wKQRrANHfkEwA0X
+X-Developer-Key: i=V.Yurkov.EXT@bruker.com; a=ed25519;
+ pk=snJmgYVOKlp7aQtK9tWnEI7QTYxpPpJJvxdVsnxA7Fk=
+X-Endpoint-Received: by B4 Relay for V.Yurkov.EXT@bruker.com/20260318 with
+ auth_id=686
+X-Original-From: Vyacheslav Yurkov <V.Yurkov.EXT@bruker.com>
+Reply-To: V.Yurkov.EXT@bruker.com
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 21, 2026 at 11:13:07AM +0000, Sinan Turunc wrote:
-> keyctl_chown_key() looks up the target key by calling lookup_user_key()
-> with the KEY_LOOKUP_PARTIAL flag. That flag lets a caller with
-> CAP_SYS_ADMIN change the UID of an uninstantiated key during construction.
-> When the UID changes, keyctl_chown_key() replaces key->user under key->sem
-> and drops the old reference with key_user_put().
-> 
-> __key_instantiate_and_link() and key_reject_and_link() hold
-> key_construction_mutex during instantiation, but neither function takes
-> key->sem. Both functions increment key->user->nikeys, and
-> __key_instantiate_and_link() also calls key->type->instantiate() without
-> holding key->sem. When a key is in quota and its size changes,
-> key_payload_reserve() reads key->user seven times without key->sem. Those
-> reads include spin_lock_irqsave(&key->user->lock, flags) at the start and
-> spin_unlock_irqrestore(&key->user->lock, flags) at the end.
-> 
-> If keyctl_chown_key() swaps key->user between those two calls,
-> key_payload_reserve() unlocks the new owner's spinlock and leaves the old
-> spinlock held. By source inspection, key_user_put() can also kfree() the
-> old struct key_user while instantiation still dereferences it. That struct
-> key_user use-after-free was found by reading the code and did not trigger
-> during our KASAN runs.
-> 
->   =====================================
->   WARNING: bad unlock balance detected!
->   7.4.0-rc2-g23c62304dde2 #3 Not tainted
->   -------------------------------------
->   request-key/163 is trying to release lock (&candidate->lock) at:
->   [<ffffffff82698fff>] key_payload_reserve+0x29f/0x370
->   but there are no more locks to release!
-> 
->   other info that might help us debug this:
->   locks held by request-key/163: 2, on CPU#3:
->    #0: ffffffff871c10a0 (key_construction_mutex){+.+.}-{4:4}, at: __key_instantiate_and_link+0x38/0x370
->    #1: ffff88800de4a8b8 (&candidate->lock){..-.}-{3:3}, at: key_payload_reserve+0x160/0x370
-> 
->   Call Trace:
->    lock_release+0x286/0x2e0
->    _raw_spin_unlock_irqrestore+0x1a/0x50
->    key_payload_reserve+0x29f/0x370
->    generic_key_instantiate+0x42/0x230
->    __key_instantiate_and_link+0xd7/0x370
->    key_instantiate_and_link+0x40d/0x4b0
->    keyctl_instantiate_key_common+0x2d2/0x450
->    keyctl_instantiate_key+0x167/0x180
->    __do_sys_keyctl+0x391/0x550
-> 
-> Take key->sem for write with down_write_nested(&key->sem, 2) inside
-> key_construction_mutex in __key_instantiate_and_link() and
-> key_reject_and_link().
-> 
-> Fixes: 5801649d8b83 ("[PATCH] keys: let keyctl_chown() change a key's owner")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Sinan Turunc <enscrpt@pm.me>
-> ---
-> In v3 I removed the tool paragraph and the two lockdep subclass sentences.
-> 
->  security/keys/key.c | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/security/keys/key.c b/security/keys/key.c
-> index 3f1f0fc..df31d10 100644
-> --- a/security/keys/key.c
-> +++ b/security/keys/key.c
-> @@ -441,6 +441,7 @@ static int __key_instantiate_and_link(struct key *key,
->  	ret = -EBUSY;
->  
->  	mutex_lock(&key_construction_mutex);
-> +	down_write_nested(&key->sem, 2);
->  
->  	/* can't instantiate twice */
->  	if (key->state == KEY_IS_UNINSTANTIATED) {
-> @@ -473,6 +474,7 @@ static int __key_instantiate_and_link(struct key *key,
->  		}
->  	}
->  
-> +	up_write(&key->sem);
->  	mutex_unlock(&key_construction_mutex);
->  
->  	/* wake up anyone waiting for a key to be constructed */
-> @@ -609,6 +611,7 @@ int key_reject_and_link(struct key *key,
->  	}
->  
->  	mutex_lock(&key_construction_mutex);
-> +	down_write_nested(&key->sem, 2);
->  
->  	/* can't instantiate twice */
->  	if (key->state == KEY_IS_UNINSTANTIATED) {
-> @@ -632,6 +635,7 @@ int key_reject_and_link(struct key *key,
->  			key_invalidate(authkey);
->  	}
->  
-> +	up_write(&key->sem);
->  	mutex_unlock(&key_construction_mutex);
->  
->  	if (keyring && link_ret == 0)
-> -- 
-> 2.56.0
-> 
+From: Vyacheslav Yurkov <V.Yurkov.EXT@bruker.com>
 
-Thank you looks good to me.
+Some clocks are switched on and off by hardware outside software
+control, which reports through a GPIO whether the clock is currently
+running. Software cannot enable such a clock, but its consumers must
+not use it before the GPIO indicates that it is running.
 
-Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
+Add a binding for a clock that passes its parent clock through
+unchanged and is considered enabled only while a GPIO signal is
+asserted. The parent clock determines the rate. The status GPIO is
+given by enabled-gpios, and poll-timeout-us bounds how long a consumer
+waits for the clock to become available.
 
-Br, Jarkko
+Signed-off-by: Vyacheslav Yurkov <V.Yurkov.EXT@bruker.com>
+---
+Our use case: peripheral clocks generated by FPGA PLLs, with the
+PLL-lock signals routed to GPIOs of the SoC.
+---
+ .../bindings/clock/gpio-enabled-clock.yaml         | 55 ++++++++++++++++++++++
+ 1 file changed, 55 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/clock/gpio-enabled-clock.yaml b/Documentation/devicetree/bindings/clock/gpio-enabled-clock.yaml
+new file mode 100644
+index 000000000000..4861c87ae5e0
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/gpio-enabled-clock.yaml
+@@ -0,0 +1,55 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/gpio-enabled-clock.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: GPIO Enabled Clock
++
++maintainers:
++  - Vyacheslav Yurkov <V.Yurkov.EXT@bruker.com>
++
++properties:
++  compatible:
++    const: gpio-enabled-clock
++
++  clocks:
++    maxItems: 1
++
++  "#clock-cells":
++    const: 0
++
++  clock-output-names:
++    maxItems: 1
++
++  enabled-gpios:
++    description: GPIO that indicates whether the clock is enabled or disabled.
++    maxItems: 1
++
++  poll-timeout-us:
++    description: Timeout in microseconds for waiting for a GPIO signal.
++    default: 10
++    minimum: 10
++    maximum: 1000
++
++required:
++  - compatible
++  - "#clock-cells"
++  - clocks
++  - clock-output-names
++  - enabled-gpios
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++
++    clock {
++        compatible = "gpio-enabled-clock";
++        #clock-cells = <0>;
++        clocks = <&pll>;
++        clock-output-names = "gpio-enabled-clock";
++        enabled-gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;
++        poll-timeout-us = <20>;
++    };
+
+-- 
+2.34.1
+
+
