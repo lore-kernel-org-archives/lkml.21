@@ -1,66 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795278576;
-	b=v84cYRTvc5EjUmc/MHr5e8fUgYSKWuNqcHqVcI7IvJrnehx5KyMEmAJKTtkVXW9tymck
-	 ilxXPAsOsqUBoJ7JCcuv4DjnR/gB4NwUGg1EuSR3j9S3BbDjJIChh3FFvmbpPQMZCbBtK
-	 AuV4RMTNPOBoLzRq6fZpQ5ubOFigWP81jlfEeW7wPQ6WdJbHuswkiKnkkK3G4My8jIURm
-	 wYr35fcuwvc6vaMHPWu//DoGX7tLBBdmpWFMbAtApW1ULdhPdtBm3EwZ5nz8yx+H1o3RW
-	 OkB4UQrCb4PGgDq4cDpqRK33QotOnVBDsiidb3jU12WCaCbOooolDV6ENTpwfn2G7Ow==
+	t=1795278797;
+	b=P9EUe+r3Z77+EMFESlMTawf6ksgMapV+fGv7REIen6qUK4mUMcE8IMbFTor9bcLnZMZr
+	 7Vhm6ftNJcX5OauBXxOAnwfYdVUYYTKEloS+HWQlynlVkiFsU1jPp4NLhUJUYLJIK99gS
+	 D6taLoaml7YAiPgFGZjd+h6Aew90VhA1QfQxFHUNzwLMnypb7PGa1kpuSemS2gFW7fj9m
+	 TNagAhkqwsSfI6kUakjjW2KBxEYaufuZjGG26wpDTDBddp8LnvQPeCqweemaoGY3WGpDS
+	 jCX0Tl2hBNLa06YIQc2oy1cHqljLl/HbhK/LHd2yWmqg3gkuvppTXBe6MmOd2mwSR+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795278576;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=7pTO9UUl+mG5YGWMBUjqicuNyqzAniAX0C4MOR49s3Y=;
-	b=2+k1Gum4veZne8K4Krv1wGddqrtKldvjMcimvP82+Qa97HcksW+5SR+mFecJJGr6CKCf
-	 e7Gt37EHz15H/tXLIxjrR2KAmmVDs5eryeEOPem7Mm3c2LeM480/YG2A8gbXQ+iLrZeuj
-	 3ux7V9KrXxoql2FL3itw8r/2j0vjTwubZ5DyXg+WrVZxMc8iR/cMfHB7eHWzZ/cpWJvjn
-	 6jZsdDM7F9WKxN5WubLt5dzgB6ihVtER9o89Cv4BLEFHrlKuAs86akbkANou/amQRkLZQ
-	 635EZXl8SjK7koM+t1BSJ2soSpWmMPQbcobLuwwvIoNf8xJBS1quNW2D9kEefwdz4yA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795278797;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Content-Language:To:From:Subject:Cc:Content-Type:
+	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
+	bh=auWbpWfPPFdjYS0sjeGkL+z83l0fOIuRwcMvAjF4Jc0=;
+	b=3tsNXwzbx/g05oJd+i7pUDl9jTjE7HBJMQA6Y1MTPW/tdG6+2NgPcfQqeGpOKAwKFtbL
+	 +ckzsTW29dsVt/mrG3W4ReGOs76YWK0DTYfU8Zk1+vzZrDLCUICve91vH/UpjZDylAESs
+	 n0/7o+o+hwQypOW7V3Rt6VBr11Rzy7+Vfiy+2JMBxitsrypg/vWlujcDYPvPpRkdUHAxO
+	 T3aT6KynJmmCT52MuQ2G08RQsTY5yAiuhegEAKEPFNVXmi4i36zcFiYx8Hk1YDxvQbkqz
+	 sR+gpZKdmSe1SbeyG++Rb3PWzYxqPe65Mn3NUWoqmcuMjvg1TQllmapap5uiL59h5zA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iWgawBs3;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=web.de;
+	spf=pass smtp.mailfrom=web.de;
+	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=VLbnCl77;
+	arc=none smtp.remote-ip=212.227.15.3
+Received: from mout.web.de (mout.web.de [212.227.15.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 241DD606A32A;
-	Sat, 21 Nov 2026 16:29:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7063E606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:33:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7063E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iWgawBs3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 882A71F000C0;
-	Sat, 21 Nov 2026 16:29:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795278575;
-	bh=7pTO9UUl+mG5YGWMBUjqicuNyqzAniAX0C4MOR49s3Y=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=iWgawBs3/Zp2tbpI81pY2gW2dgpQE3uAw5/DC42GeRQvSR8GhWuWPi0L2Vs+JMuZ7
-	 pYRzf6i1w8DF39/Px65tLsmlncfWdn/ZGfhaY0DS2JhIGQdQNj31lbYr0oCx1plyKY
-	 MLBiVGTsTcEUqL26E6frohWQ9bWN5rtYDDwDBiu0C3krXwjawc5pUQTvg+MiC+OjSO
-	 aKcyOipfVoaRQM9H6RawByV2fjZmAipgqURq79bO0tqe7dMlnbuKX3nF0MHtHGzgGu
-	 DIuMHsaHjI5Xan7KWBnSZmJsI0FqIY2HCNAG3erk4Yz6NoG0DCLTXvyV/3l1M3mn0i
-	 RqAFoOD4C8DSA==
-Subject: Re: [PATCH net-next v11 4/4] net: mana: add dynamic HWC queue depth
- with reinit path
-From: netdev-bot+sashiko@kernel.org
-To: weh@linux.microsoft.com
-Cc: longli@kernel.org, kotaranov@microsoft.com, kuba@kernel.org,
- davem@davemloft.net, pabeni@redhat.com, edumazet@google.com,
- andrew+netdev@lunn.ch, jgg@ziepe.ca, leon@kernel.org, haiyangz@microsoft.com,
- wei.liu@kernel.org, decui@microsoft.com, shradhagupta@linux.microsoft.com,
- horms@kernel.org, ernis@linux.microsoft.com, stephen@networkplumber.org,
- netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
- linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
- gargaditya@linux.microsoft.com, kees+treewide@kernel.org, kees@kernel.org,
- mawasthi@linux.microsoft.com, weh@microsoft.com, edumazet@kernel.org,
- shacharr@microsoft.com
-Date: Sat, 21 Nov 2026 16:29:34 +0000
-Message-ID: <179527857414.3135.3409829551491930106@kernel.org>
-In-Reply-To: <100c6b7a71e86c8d7afd0c55f6b231f01db184d5.1794751992.git.weh@linux.microsoft.com>
-References: <100c6b7a71e86c8d7afd0c55f6b231f01db184d5.1794751992.git.weh@linux.microsoft.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=VLbnCl77
+DKIM2-Signature:  i=1; m=1; t=1795278794;
+ mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=web.de;
+ s=s29768273:rsa-sha256:R6VVo7MnIcUmK8+bbnfuj4Uw9rCU
+   MF/zmIn92oe/d4uNzZSFdt8fb6Rp5T/xlQEKuLEampQZZSyTLrrh8K0U9v9QZlfg8s1e9oCnkk1
+   tfJv0i0ClabYyuLHKY2veXdc3/a52EkF7jFC49mpnlwk39jmKwfiigQAY0nUpmbaa+moKwLdAoy
+   lI87X0KGhDCB4n4Tzd2iuWi5lkSnOl0H2KTDiGZmYR3S/R2Jg7ZGKzwc/2ysgZIAKSvloeri1HZ
+   p3RKNaglwcFySADCPogoWdvCOqEIMXsVKOO+ytHDzynhmPQRepv8e1gTctaCORoSSp8DrYvdbh2
+   42IYxPzbrat7eQ==;
+Message-Instance:  m=1;
+ h=sha256:
+   +htYexGBTL2kBAPo9jTQRKIbUfRm1urwn+kdAc+VkEE=:
+   N7e3qNVbjjZchMqSISQgG5F1KkwW9NMwj1Xj5wWQ2As=,
+  sha512:
+   Sox2zYRxP8bZVGPkg7K8XJrMUgN7Mlt2fjgjmVv/5SVj7jSOITQEvnjJ0ytuImv3RGxZ1KMKpL1I2GTr10tj2A==:
+   GRrB3Lg4xoy7w2Xzuvvjt0Ly/F4OOdziDEX5aOcZPFhvNqvoqG9KR9RMFN7QoBnKc2RCBchiW+vH4YBC8th82w==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1795278790; x=1795883590; i=markus.elfring@web.de;
+	bh=auWbpWfPPFdjYS0sjeGkL+z83l0fOIuRwcMvAjF4Jc0=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:From:Subject:
+	 Cc:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=VLbnCl77bnDCskStlab/2GGRU3BGp4yGfEqo5XUOs+j+DdrT1tErU1JDwy/jSPGt
+	 ucnSVlsmt6W8BY7wfPztJ0dPkDMmcTxdJ6yR0dLL9EGfOwELoOtwI2ZQFDB7hJrFZ
+	 24VnlpbPJILNUm02e58OjBTDtR61fTuAcWkmuJ1Lsv2RTubCwh36zu8wsegNZxkdn
+	 QPhn6j1zKTq4oHUyedcQvTlU59xZfFvv6SLv/G178GJrlmAFE+uCulyUuW6ZDdE2G
+	 l2zvWjzc9qqWC//V12NvGm+cpdIYWe9XttntcGvJXBNaA2MwI+Mnr62vdNjOJZ9u7
+	 wpCE7zkRxNQm3kI/Eg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MA4bO-1xgOcO21gA-006a4Z; Sat, 21
+ Nov 2026 17:33:10 +0100
+Message-ID: <ab46a205-d1c4-48f2-8891-4de667f8ebf1@web.de>
+Date: Sat, 21 Nov 2026 17:33:06 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,264 +79,263 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Content-Language: en-GB, de-DE
+To: linux-usb@vger.kernel.org, openbmc@lists.ozlabs.org,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Avi Fishman <avifishman70@gmail.com>, Benjamin Fair
+ <benjaminfair@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Nancy Yuen <yuenn@google.com>, Patrick Venture <venture@google.com>,
+ Peter Chen <peter.chen@kernel.org>, Tali Perry <tali.perry1@gmail.com>,
+ Tomer Maimon <tmaimon77@gmail.com>
+From: Markus Elfring <Markus.Elfring@web.de>
+Subject: [PATCH v2] usb: chipidea: Use devm_clk_get_optional_enabled() in two
+ probe functions
+Cc: sashiko-reviews@lists.linux.dev, LKML <linux-kernel@vger.kernel.org>,
+ kernel-janitors@vger.kernel.org,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+ Florian Fainelli <f.fainelli@gmail.com>, Frank Li <Frank.Li@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:qa0Zm20PhwI+l7EB09aMt9rkzuTOEgQgcW0Iftqs/AYHOgeiq04
+ MffT33zE9VaZ7tMqgUW2F57LzyviXpi99fw+yiVdZKjUA3Ag6w237ngLe6UZ6tG0hOFI9jW
+ L0Hk+MJwQeBOlm+l5nlZ834Mu9VRrneSXxE2NLcnwkPbJ09FKwEmX3GWwS/iRz9JyuMkry2
+ PVg3BTL+wOcqkfeTMoLiw==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:mWywF0oAKec=;C/OPxiawL6H4zEC53h0jGwKUNeg
+ 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
+ oY9dLsljIkh2YH3MX4pCC+h8XeeCsoAWeF57+ug=
+
+From: Markus Elfring <elfring@users.sourceforge.net>
+Date: Sat, 21 Nov 2026 17:06:32 +0100
+
+* Reuse existing functionality from devm_clk_get_optional_enabled()
+  instead of keeping duplicate source code.
+
+* Omit a clk_disable_unprepare() call on error handling paths
+  and in the implementation of two remove functions.
+
+* Delete the label =E2=80=9Cclk_err=E2=80=9D.
+
+This issue was detected by using the Coccinelle software.
+
+Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+=2D--
+
+V2:
+Sashiko provided hints for further development considerations.
+https://sashiko.dev/#/patchset/6d2450cf-9bbc-47b6-9ea3-f91bc1b91371%40web.=
+de
+
+
+ drivers/usb/chipidea/ci_hdrc_npcm.c | 13 ++-----------
+ drivers/usb/chipidea/ci_hdrc_usb2.c | 15 ++-------------
+ 2 files changed, 4 insertions(+), 24 deletions(-)
+
+diff --git a/drivers/usb/chipidea/ci_hdrc_npcm.c b/drivers/usb/chipidea/ci=
+_hdrc_npcm.c
+index 75a0223b578a..4b608f2bb383 100644
+=2D-- a/drivers/usb/chipidea/ci_hdrc_npcm.c
++++ b/drivers/usb/chipidea/ci_hdrc_npcm.c
+@@ -47,14 +47,10 @@ static int npcm_udc_probe(struct platform_device *pdev=
+)
+ 		return -ENOMEM;
+ 	platform_set_drvdata(pdev, ci);
+=20
+-	ci->core_clk =3D devm_clk_get_optional(dev, NULL);
++	ci->core_clk =3D devm_clk_get_optional_enabled(dev, NULL);
+ 	if (IS_ERR(ci->core_clk))
+ 		return PTR_ERR(ci->core_clk);
+=20
+-	ret =3D clk_prepare_enable(ci->core_clk);
+-	if (ret)
+-		return dev_err_probe(dev, ret, "failed to enable the clock: %d\n", ret)=
+;
+-
+ 	ci->pdata.name =3D dev_name(dev);
+ 	ci->pdata.capoffset =3D DEF_CAPOFFSET;
+ 	ci->pdata.flags	=3D CI_HDRC_REQUIRES_ALIGNED_DMA |
+@@ -67,17 +63,13 @@ static int npcm_udc_probe(struct platform_device *pdev=
+)
+ 	if (IS_ERR(plat_ci)) {
+ 		ret =3D PTR_ERR(plat_ci);
+ 		dev_err(dev, "failed to register HDRC NPCM device: %d\n", ret);
+-		goto clk_err;
++		return ret;
+ 	}
+=20
+ 	pm_runtime_no_callbacks(dev);
+ 	pm_runtime_enable(dev);
+=20
+ 	return 0;
+-
+-clk_err:
+-	clk_disable_unprepare(ci->core_clk);
+-	return ret;
+ }
+=20
+ static void npcm_udc_remove(struct platform_device *pdev)
+@@ -86,7 +78,6 @@ static void npcm_udc_remove(struct platform_device *pdev=
+)
+=20
+ 	pm_runtime_disable(&pdev->dev);
+ 	ci_hdrc_remove_device(ci->ci);
+-	clk_disable_unprepare(ci->core_clk);
+ }
+=20
+ static const struct of_device_id npcm_udc_dt_match[] =3D {
+diff --git a/drivers/usb/chipidea/ci_hdrc_usb2.c b/drivers/usb/chipidea/ci=
+_hdrc_usb2.c
+index b0200c5937cd..0cff5486e9c0 100644
+=2D-- a/drivers/usb/chipidea/ci_hdrc_usb2.c
++++ b/drivers/usb/chipidea/ci_hdrc_usb2.c
+@@ -70,16 +70,10 @@ static int ci_hdrc_usb2_probe(struct platform_device *=
+pdev)
+ 	if (!priv)
+ 		return -ENOMEM;
+=20
+-	priv->clk =3D devm_clk_get_optional(dev, NULL);
++	priv->clk =3D devm_clk_get_optional_enabled(dev, NULL);
+ 	if (IS_ERR(priv->clk))
+ 		return PTR_ERR(priv->clk);
+=20
+-	ret =3D clk_prepare_enable(priv->clk);
+-	if (ret) {
+-		dev_err(dev, "failed to enable the clock: %d\n", ret);
+-		return ret;
+-	}
+-
+ 	ci_pdata->name =3D dev_name(dev);
+=20
+ 	priv->ci_pdev =3D ci_hdrc_add_device(dev, pdev->resource,
+@@ -90,7 +84,7 @@ static int ci_hdrc_usb2_probe(struct platform_device *pd=
+ev)
+ 			dev_err(dev,
+ 				"failed to register ci_hdrc platform device: %d\n",
+ 				ret);
+-		goto clk_err;
++		return ret;
+ 	}
+=20
+ 	platform_set_drvdata(pdev, priv);
+@@ -99,10 +93,6 @@ static int ci_hdrc_usb2_probe(struct platform_device *p=
+dev)
+ 	pm_runtime_enable(dev);
+=20
+ 	return 0;
+-
+-clk_err:
+-	clk_disable_unprepare(priv->clk);
+-	return ret;
+ }
+=20
+ static void ci_hdrc_usb2_remove(struct platform_device *pdev)
+@@ -111,7 +101,6 @@ static void ci_hdrc_usb2_remove(struct platform_device=
+ *pdev)
+=20
+ 	pm_runtime_disable(&pdev->dev);
+ 	ci_hdrc_remove_device(priv->ci_pdev);
+-	clk_disable_unprepare(priv->clk);
+ }
+=20
+ static struct platform_driver ci_hdrc_usb2_driver =3D {
+=2D-=20
+2.56.1
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
-
-Critical: 0 · High: 0 · Medium: 3 · Low: 1
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The only defect fix in this commit is the HWC doorbell
-  validation and MMIO suppression: mana_gd_is_valid_doorbell(), the…
-- [Medium] The rebuilt HWC gives the PF rings much larger than the
-  bootstrap rings, but ESTABLISH_HWC carries no size information.
-- [Medium] mana_hwc_finish_channel() maps the PF's
-  HWC_INIT_DATA_MAX_REQUEST report to the VF receive direction…
-- [Low] mana_hwc_rebuild_channel() saves `timeout_ms =
-  mana_hwc_timeout_read(hwc)` on entry.
-
---
-
-net: mana: add dynamic HWC queue depth with reinit path
-
-The HWC starts on depth-one bootstrap queues. This commit rebuilds it at
-the depth the PF reports (2 through 128), falling back to fresh bootstrap
-queues if the rebuild fails. It also applies the PF-reported message sizes
-as admission limits shared with the GDMA and RDMA request builders. It
-validates the device-supplied HWC doorbell index against BAR0 and skips
-doorbell MMIO while the doorbell is invalid.
-
-Link: https://lore.kernel.org/r/20260908035201.402424-5-longli@microsoft.com
-Link: https://lore.kernel.org/r/179196575846.434549.7933818740976196422@kernel.org
-Link: https://lore.kernel.org/r/179455240227.2199510.2666165032389090040@kernel.org
-
-> and suppress MMIO while it is invalid. The original driver accepted an
-> unchecked device-supplied index in its MMIO address calculation; this also
-> fixes that existing out-of-bounds MMIO path. Backports need the complete
-> ownership and validation dependencies, not the entire feature stack by
-> default.
-
-[ ... ]
-
-> Fixes: ca9c54d2d6a5 ("net: mana: Add a driver for Microsoft Azure Network Adapter (MANA)")
-
-[Severity: Medium]
-Should this be split into two patches?
-
-As far as I can tell, the only defect fix here is the HWC doorbell
-validation:
-
-  - mana_gd_is_valid_doorbell()
-  - the GDMA_EQE_HWC_INIT_EQ_ID_DB check in mana_hwc_init_event_handler()
-  - the INVALID_DOORBELL early return in mana_gd_ring_doorbell()
-  - invalidating gc->hwc.doorbell before every ESTABLISH_HWC
-
-Everything else is new behaviour:
-
-  - the depth rebuild in mana_hwc_prepare_channel() and
-    mana_hwc_rebuild_channel()
-  - the new -EMSGSIZE admission check in mana_hwc_get_msg_index()
-  - the new request budget in mana_gd_create_dma_region() and
-    mana_ib_gd_create_dma_region()
-  - power-of-two rounding in mana_hwc_alloc_dma_buf()
-  - new -EPROTO probe failures from mana_hwc_validate_report() when the
-    QUEUE_DEPTH, MAX_REQUEST or MAX_RESPONSE report is zero or missing,
-    even at depth one
-
-Before this patch, mana_hwc_establish_channel() read those reported
-values but nothing used them.
-
-With the Fixes: tag on this commit, stable selection could pull the whole
-feature into stable kernels, including the new probe failures. The commit
-message says the feature stack should not be backported by default.
-However, the fix can't be taken on its own while both are in one commit.
-
-Could the doorbell validation go into its own patch with the Fixes: tag,
-and the dynamic depth work be sent without one?
-
-> diff --git a/drivers/net/ethernet/microsoft/mana/hw_channel.c b/drivers/net/ethernet/microsoft/mana/hw_channel.c
-> index 8c2495ce5f526..cb73d0725206e 100644
-> --- a/drivers/net/ethernet/microsoft/mana/hw_channel.c
-> +++ b/drivers/net/ethernet/microsoft/mana/hw_channel.c
-
-[ ... ]
-
-> @@ -1175,32 +1256,169 @@ void mana_hwc_free_retained_channel(struct gdma_context *gc)
-
-[ ... ]
-
-> +static int mana_hwc_finish_channel(struct hw_channel_context *hwc,
-> +				   const struct mana_hwc_init_report *report)
-> +{
-> +	int err;
-> +
-> +	/* MAX_REQUEST sizes the RQ; MAX_RESPONSE sizes the SQ. */
-> +	hwc->rx_msg_size_limit = report->max_req_msg_size;
-> +	hwc->tx_msg_size_limit = report->max_resp_msg_size;
-
-[Severity: Medium]
-Are these two limits applied in the right directions?
-
-mana_hwc_get_max_req_size() returns:
-
-	return min(hwc->tx_msg_size_limit, hwc->max_resp_msg_size);
-
-So the PF's MAX_RESPONSE report caps outgoing VF-to-PF requests in
-mana_hwc_get_msg_index(), mana_gd_create_dma_region() and
-mana_ib_gd_create_dma_region(). MAX_REQUEST caps the response buffers.
-
-Before this patch, mana_gd_create_dma_region() and
-mana_ib_gd_create_dma_region() bounded outgoing requests by
-hwc->max_req_msg_size.
-
-The comment here seems to follow the stride naming in
-mana_hwc_init_queues(), where the RQ is created with
-HW_CHANNEL_MAX_REQUEST_SIZE. The old code never used the reported sizes,
-so nothing in the tree shows which direction the PF means.
-
-If the PF reports different sizes, the bootstrap channel is kept and
-these limits are used:
-
-  - MAX_REQUEST=2048 and MAX_RESPONSE=4096 would let the VF send
-    4096-byte requests the PF said it can't accept.
-  - MAX_REQUEST=4096 and MAX_RESPONSE=2048 would make CREATE_DMA_REGION
-    for larger queues fail with -EINVAL, and would shrink the RDMA
-    ADD_PAGES batches.
-
-Can the PF meaning of MAX_REQUEST and MAX_RESPONSE be confirmed here?
-
-> +
-> +	err = mana_hwc_test_channel(hwc);
-
-[ ... ]
-
-> +static int mana_hwc_rebuild_channel(struct hw_channel_context *hwc,
-> +				    u16 q_depth,
-> +				    struct mana_hwc_init_report *report)
-> +{
-> +	u32 timeout_ms = mana_hwc_timeout_read(hwc);
-> +	int cleanup_err;
-> +	int err;
-> +
-> +	err = mana_hwc_teardown_queues(hwc);
-> +	if (err)
-> +		return err;
-> +
-> +	err = mana_hwc_build_channel(hwc, q_depth, report);
-
-[Severity: Medium]
-Does the PF know that the rebuilt rings are larger than the bootstrap
-rings?
-
-mana_smc_setup_hwc_locked() packs only these into the 256-bit aperture,
-with no size fields:
-
-  - four page frame numbers (EQ, CQ, RQ, SQ)
-  - the EQ MSI-X index
-  - the protocol header
-
-The ring sizes grow with q_depth (mana_hwc_init_queues() passes
-q_depth * 2 for the CQ):
-
-mana_hwc_create_cq():
-	cq_size = roundup_pow_of_two(GDMA_CQE_SIZE * q_depth);
-
-mana_hwc_create_wq():
-	if (q_type == GDMA_RQ)
-		queue_size = roundup_pow_of_two(GDMA_MAX_RQE_SIZE * q_depth);
-	else
-		queue_size = roundup_pow_of_two(GDMA_MAX_SQE_SIZE * q_depth);
-
-At depth 128 that gives a 16 KiB CQ, a 32 KiB RQ and a 64 KiB SQ. Every
-bootstrap ring is 4 KiB.
-
-The same ESTABLISH_HWC message, with no sizes, is used three times: for
-the bootstrap, the rebuild, and the restored bootstrap.
-
-Existing kernels have run long-lived traffic on 4 KiB bootstrap rings
-while the PF reported a larger QUEUE_DEPTH. So the PF must already work
-with 4 KiB rings.
-
-If the PF keeps that geometry, would it disagree with the rebuilt rings
-after the first wrap?
-
-If the PF does change geometry on the rebuild, could the restore path in
-mana_hwc_restore_bootstrap() let the device write EQEs or CQEs past the
-4 KiB coherent allocations?
-
-mana_hwc_test_channel() posts N RX WQEs and raises one EQ test event. No
-ring wraps before the channel is published, so the test would not catch
-a mismatch.
-
-The commit message says:
-
-  the absence of VF size fields in ESTABLISH_HWC does not require
-  keeping the bootstrap geometry.
-
-Is there a documented PF or firmware contract, or a capability bit, that
-backs this up?
-
-> +	if (!err)
-> +		err = mana_hwc_validate_report(hwc, report, q_depth,
-> +					       true, true);
-> +	if (!err)
-> +		err = mana_hwc_finish_channel(hwc, report);
-> +	if (!err)
-> +		return 0;
-> +
-> +	dev_warn(hwc->dev,
-> +		 "HWC depth %u rebuild failed, restoring bootstrap: %d\n",
-> +		 q_depth, err);
-> +
-> +	cleanup_err = mana_hwc_teardown_queues(hwc);
-> +	if (cleanup_err)
-> +		return cleanup_err;
-> +
-> +	/* Do not carry the failed test's reduced wait into the retry. */
-> +	mana_hwc_timeout_update(hwc, timeout_ms);
-
-[Severity: Low]
-Can this overwrite a timeout that the PF set during the rebuild?
-
-timeout_ms is saved on entry to mana_hwc_rebuild_channel(). Once the
-rebuilt channel is established, its EQ is live with
-mana_hwc_init_event_handler() as the callback. A HWC_DATA_CFG_HWC_TIMEOUT
-reconfig event arriving then would do:
-
-	case HWC_DATA_CFG_HWC_TIMEOUT:
-		mana_hwc_timeout_update(hwc, val);
-
-If the establish validation or mana_hwc_test_channel() then fails, this
-unconditional update writes the old saved value over the firmware value.
-
-mana_hwc_timeout_update() only refuses to revive 0. It can't tell the
-fail-fast value of 1 set by mana_hwc_timeout_reduce() apart from a
-firmware update.
-
-The comment on hwc_timeout in struct hw_channel_context also says:
-
-	/* Zero permanently cancels waits for this channel instance. Firmware
-	 * and query updates may replace a live nonzero value; fail-fast may
-	 * only reduce a live value to one millisecond.
-	 */
-
-A driver-internal restore of an older value isn't one of the writers
-listed there.
-
-The effect looks limited, because mana_gd_verify_vf_version() queries
-the timeout again later when GDMA_DRV_CAP_FLAG_1_HWC_TIMEOUT_RECONFIG is
-set.
-
-> +
-> +	return mana_hwc_restore_bootstrap(hwc, report);
-> +}
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1794751992.git.weh%40linux.microsoft.com
