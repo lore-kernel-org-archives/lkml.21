@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795244288;
-	b=jZVD+7ZgTriD5j/usHcsK2frMYCZ0wVB/W8LdEJ76b8AyLFB90DsYA6lV9THc4MuHd1A
-	 IDJZs9YzYErsSjhqFhiILtET74rVfnC4WW7OKJ/llrQ0b/wftUDiMt5qIUYkEYxOjVlwU
-	 6OOrz6Db/l/Dpr4vcF1eDWWfmrmpvHNyPEegf6NBPE8thu7sqljn8c9fjDX95Zv5cVa8K
-	 uHzMsJKDGJyDIEYdf7kkBAcCMzmcGZlDio337nNgjHZQiQZJ/+oKYai3DLTobarJQeHGA
-	 83KNRWMXleKIJBg1jKVtevTeWgYbo2drRFa62e3/VixxEm+RZuw3Ul4bZfxEufuz/DA==
+	t=1795244292;
+	b=jGLlxFMUAK8NJMZp6t6rQgb80dQOArWSGv1Z11VTBTAwnS/9bZJu8/DKq029Wtn0F3QC
+	 VOfwM73OR3d9z4y/gL3CrFcFlQZIm5Z3jBCrQvHsLVnumdQ4unQ9zkAlb+LyWpQYhhQAo
+	 7poyLMJAP5epF7tLiWWFhPz01o8/39/TOeRy8rtkqVeptWfKLLD9As5PUxfbDl503QU7/
+	 zkLuZNaf0pcdGdIgLYZ/Ha9sQH8qKgVqkkPdBK32fpjhxUDiv2WQ2HAvXirkgyZr/gjLd
+	 ahAD/jRGG8P2tg9N/I0Z4AXrBSjqNFopM1t7D+iJYv+IO6qwcX4MIPmi5UGPwo6pvaw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795244288;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795244292;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=qD4SiGD7+6inf9ZHw34LzeHjuE/XCf9wmQd8TEJl1sE=;
-	b=iHlymYK1MB9LQ9dneao3b8h/Ao/Ayesk1m8lgttaasoUmyxJlsmc/yBxPI9LL0XlftuR
-	 nZV3WSaVMoO24Wm8mCkkt441+yLKX4t3RfvMrl4DF2+nU2pfu5swLB2H/dEiUxd+5vLM/
-	 eUpGrfPsoGkH8FOp2m0Efd6LergZodxHiv5Swfy3bY2ixFipSkM91kaKjcdmIh6xlqTb5
-	 TohFnBxaOSJsFP/ZqI5SxNLFIAbhfDl1nqC2HJRcvU2dYVeKvGnUB8NS0tET68tAWsS/c
-	 059f5LMJUBX6ayvsB0Q2D7qXEgAs+JzCBCrxDyYLEaY2DermsFSY2i7wiEHmJlsB7hw==
+	bh=Bh3t5yg3NE4QcOt8MQMnVSAHJr0oqaUhXBY7n3JAUmo=;
+	b=DbtJuWfLF7q2j6BRvi5Fb/Efn3OFP+0OgDWWS+BeihiQ71tiHDbnP4rVGbLZf8XMIUc7
+	 gHui7LExE2c+F2+6wJYSA9x6Ozw9aJjTcAhfw5WRb4fC3oVryn43pkg4AGk18T8ykTk4J
+	 Wp68dZdTnR69cqJt25o/RrCCntrkA6cPX2XfLR5154/NAZm7UDfssPYIZ6Rd3jC/A1kJj
+	 BKe18qZCMkg6OnJdvVEf7UhM08oGmhDsdLvvNl9SKO06UnbPUEYJCeXeYJsPWJyftQbaQ
+	 aYDlO00rLV+tTbRMZ48F6qN1aW9rOdjEc/WVz9IKoJ2aUlPPdvtF5tgdMUiiz7125Jg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TEVhWSgA;
-	arc=none smtp.remote-ip=209.85.214.181
-Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DqxB4oPi;
+	arc=none smtp.remote-ip=209.85.215.172
+Received: from mail-pg1-f172.google.com (mail-pg1-f172.google.com [209.85.215.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6361606A32C
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:58:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6361606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 211A7606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:58:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 211A7606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TEVhWSgA
-Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2f041f88577so9543085ad.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:58:07 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DqxB4oPi
+Received: by mail-pg1-f172.google.com with SMTP id 41be03b00d2f7-cc751eddf25so1241106a12.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:58:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795244287; x=1795849087; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795244291; x=1795849091; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=qD4SiGD7+6inf9ZHw34LzeHjuE/XCf9wmQd8TEJl1sE=;
-        b=TEVhWSgAGuY7CCQZxaEOzLobPzVd2h+9mPxgxvWU3fS4sKHd5GLMw28jYJGd3RyI6G
-         5Eool13k6ZGhFgECqcYB+i3bobP/abCc3+BA5YfPHuc5D6tv9bHZvNSqbr9Vt6wrZ87e
-         lfrPLmdb+FcoHJrCWLWL8gQ5AaUXSZiDDf2+Xn/VOMtjP2xpGfrdlNkJAd406EAtHB4b
-         pWiPXXl30r+KRZUbEwNZA3YVodDMlTnAZwPdejS274hSjtt2a9iH+tbhbTOeXf+uwKQ4
-         MDzQw0j12v9SiA7ETnQufI0f0JzQWxjCo03mcCARDRm/wxZzSDYQFSUU30MzKra/ZfcL
-         vgHw==
+        bh=Bh3t5yg3NE4QcOt8MQMnVSAHJr0oqaUhXBY7n3JAUmo=;
+        b=DqxB4oPiGPd3xYFj9mES2s8LJbdCIVok6EMy9v12mHgOWYe6i+3hkNU+HJ0/5U/qlG
+         vgGWOEeDayxt5ZEceRyEcNAZSH+HVxIpHmd4HBcSXakQIhYaU87dVhLbAmkLETNjt/8D
+         X13Qy3soO77Tl0GILRYuVGGpVeE3BgqKKCmTaTIeGIWgIxy5Bi9kLBuNvZHbwMqdUU2s
+         GZ2YMADJaBw0vI5BlneAgziCA4RvscQxI5ZqgBY4KtWO/dGaZ7JpkaLL+++34i+oe+nQ
+         myS2juzZ2CVUopJEdhBO2Dsy0wEu5OXjlqW8eI9Ou5AD2kb6r9J8wTUH12DxU7jT4LPp
+         E29Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795244287; x=1795849087;
+        d=1e100.net; s=20260707; t=1795244291; x=1795849091;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qD4SiGD7+6inf9ZHw34LzeHjuE/XCf9wmQd8TEJl1sE=;
-        b=k5DdcLizNa+anoZkCdUaoqXRpky8Smva/UcP48YvwqozRr2CWHMjCYNgF7CropuOBd
-         lCvclcw363/kkw+Ek9iAQBqJaOo+jgSUU2jxQj8miMyKnh649aQRe6kWC88QRjJB+53D
-         hwGWcy7VVAWuQKLjWdCfNUZdHBwiG2OoKBXiRHW3ziEoBIH4cj/KLCYMyk8xmvbiPHnE
-         m9EkXmT4OqMc02JUFyN+KP+s0Y/VwpHMWzOppM0T3856zbO+G6FmwU+Q9sMreEsUpO+Y
-         S4Ampukcr/QQO0AcCjeKZPav3U43tYfYqd1zey3B4y8Riw3zsrYKjWSLPCZ8phAGRxI8
-         aapw==
-X-Forwarded-Encrypted: i=1; AL+hErGWMNACx0EmlibhRrtcxWfoEOILz6HxwbmIEwRqMB7BSK5dIQ51ModyXU8ZqllVzCdaJWRNTBLkV3QuJqc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z91fdndOKi4pnv7MRwq3RK0Z5/VrFg8HiX1e74auswrgEHrtBw9
-	p9xvAHOOceDM5l6gxeh6dtKcANGTsh+ydStQrgt9/Qq1KO3C+2GSBmYj
-X-Gm-Gg: AZFdTZcW48NSN544pgRn1P7fB6vKnHAa7r+AAt3doIRr2UQ+8IeFtW1Jn7shIzwMlvF
-	kDlAJftFyZb7mF8+doeEzdqLb/MCam1t3zbXzXXO2HJfr/f7mkdkd+o18azowlVzdAEX/mj1MxO
-	giwY90DOyHVCfqkOFxXFT4+2ESpDb6oujuDPm9bC+VTqXmhpNmAHlDPP2/GrCR3SBB+FZ8Bdw6f
-	NpY+w0KkTLhq2aBjIEPLFxxIGJL7Z2LlpeM5yIAgQx6jlmQ+qOrhoU6QNAIrhPTJHZ+MlyeGLxu
-	Cyzy1PdIgBr0A8U50m411TDSpNMjE9DKwpiB+XvJxtex4hVeRJfDNydTJt2iTzY+XbNPOOo+shb
-	yFehVfMm9yq71vQ1J+XaVsfKZfIippuSl7Dk3lD3hJHKM/IzwmseiizCBA/ZeNA4swcB8Mz3f6w
-	WJb7HVWf+srTpO8QvufEDyxm8w6DgToCH2P9nftHicSKe5YSNJPkwvruzAZMnYVTDPfzFFsla9M
-	neYOkrsYMF7fJFVm3rkf1hEXYzREZrSowTL2Q+ex7rZig80nRbNNeXcASUDVGGSvNo9ZMTS/QVe
-	Zl9jLqlDDqyqNY3puE1/KO9s
-X-Received: by 2002:a17:90b:388b:b0:3b4:574:3bd6 with SMTP id 98e67ed59e1d1-3b41c982e09mr5031812a91.66.1795244287238;
-        Fri, 20 Nov 2026 22:58:07 -0800 (PST)
+        bh=Bh3t5yg3NE4QcOt8MQMnVSAHJr0oqaUhXBY7n3JAUmo=;
+        b=gveEyQ5D6mbayXQpCqyC/jNM13TscHZ+vpIJeLT4VnrmjIB6qHtaq6kFqF52aFgaG6
+         eKh0Q036s5636j85E2sRDLIYrcT85ON2d0ccRdJJ45GEfmdliUKz8yhKhlH05oIQMBaE
+         pLVWduCz+AAQkNG4PLBCfPLiEjGcG9DmYZDRb/63TpizFfAy5friNqsm29R7Oy04qQCO
+         +imL4ngc+1Gthpl1PS8w6vVNEaBeATmd43rhllhipnoxeRRXkuk1w+bn+eVBrTfMqkFq
+         2Fkin7tVZ9fSH0zu1xDS4VXKvGeMhGjLJsW6u888wMQnU/0spb1+23sP5dRQMze6KYpf
+         dJmA==
+X-Forwarded-Encrypted: i=1; AL+hErFUsQZbiAZ1cUEhSg7Cn85OhigbB4tdFa3sz5Z2/lY2xywD4/8hvqLPQJ3bLeMkJkRPUzNkihLWO7pY0rM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/+Snq4f/cwWSXv7dn3HWh0jusIlGeSZJIHHdjDLF/G8gv3YHuE
+	lSusYOnH2QiO0M1AwJ//2/oLZ6BXDyvGEMu7YxQ7qTvk30EUv4YPtpTU
+X-Gm-Gg: AZFdTZcr+McICHTL9yZyKYeD3TsS/0zk7Wn/YpGkFWE9e2AdeuvGxeYdkakCqDUIgcf
+	c7lnWBY1tANJGvk48w2DGVQbv6sgHD+fQJM+DUikAAopk4b77klJ4RiNi5g2hDK3YjKuhy+R292
+	wzsE/6RPN/xxf4lif8L4Jd5aN627cgN+fml7KQBGa1gzriqLEU+q26jNKe1CL2/W3ueVdSyPNxm
+	xQgGyOJL+vobbUmCU9eQnDSH/fd3ajnNVTkwHKBMcRhJq2hvQsnFoBLb6V6R6rGgo92nleEY/Mq
+	TKeTnXrZZggNaSW9Qjvs1eeCAlWoOCa3uLJj4UuFOe35788y0C4J+hKBancVtm5VxlC9uGO6K50
+	+KGa5ZTA3HKN0NRbkePxonwkhRjFLzKIErNokZQsXYFi0i+qV2nGNEjjVaU0TeqoEsAnZsKIDzf
+	VicfBz1QSpzYsLJbkQkBptodZxW8/VoteJLBBCH4XlqNZUtomDDNa5CLjJ7u1qS4NepSYTC95Oj
+	Drm/XbGP3vnNX/pHtADSIOW2MGZes0TBfMSNWKGzA7Qz81OJ/4mg0mv2pTDF0z51FiRdjLtraMi
+	MMi6TixHlIlGe8MRb1aO0b4s
+X-Received: by 2002:a17:90b:3f0e:b0:3b3:bf8f:9cce with SMTP id 98e67ed59e1d1-3b41c905c98mr4816434a91.35.1795244291358;
+        Fri, 20 Nov 2026 22:58:11 -0800 (PST)
 Received: from localhost ([111.228.63.84])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad48786sm7447286a91.9.2026.11.20.22.58.04
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad48786sm7447286a91.9.2026.11.20.22.58.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 22:58:06 -0800 (PST)
+        Fri, 20 Nov 2026 22:58:11 -0800 (PST)
 From: Cen Zhang <zzzccc427@gmail.com>
 To: marcel@holtmann.org,
 	luiz.dentz@gmail.com
@@ -86,9 +86,9 @@ Cc: linux-bluetooth@vger.kernel.org,
 	baijiaju1990@gmail.com,
 	jjzuming@gmail.com,
 	zzzccc427@gmail.com
-Subject: [PATCH 1/2] Bluetooth: SMP: Use pairing state for the debug key check
-Date: Sat, 21 Nov 2026 14:57:55 +0800
-Message-Id: <pm-bluetooth-objects-candidate-0132-v9-b93d60723e48169ee3ae-1@gmail.com>
+Subject: [PATCH 2/2] Bluetooth: SMP: Use pairing data for IRK notifications
+Date: Sat, 21 Nov 2026 14:57:56 +0800
+Message-Id: <pm-bluetooth-objects-candidate-0132-v9-b93d60723e48169ee3ae-2@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <pm-bluetooth-objects-candidate-0132-v9-b93d60723e48169ee3ae-0@gmail.com>
 References: <pm-bluetooth-objects-candidate-0132-v9-b93d60723e48169ee3ae-0@gmail.com>
@@ -103,79 +103,89 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-A management LTK reload can reclaim the key saved in smp->ltk after
-notification and before the successful pairing destroys its context.
-load_long_term_keys() holds hdev->lock, but SMP receive processing runs
-after the ACL receive path drops that lock:
+The IRK saved in smp->remote_irk can be reclaimed by Load IRKs before
+pairing completes. The management device lock does not serialize with
+the SMP receive callback, and the finder's RCU section has already ended:
 
-  SMP receive                       Management / RCU
-  save smp->ltk
-  notify the key
-                                    clear the LTK list
-                                    reclaim the saved key
-  smp_chan_destroy()
-    read smp->ltk->type
+  SMP pairing                       Management / RCU
+  save IRK A in remote_irk
+                                    clear A and reclaim it
+                                    allocate B at A's address
+                                    clear B and reclaim it
+  smp_notify_keys()
+    mgmt_new_irk(remote_irk)
 
-The destructor reads the key type even for an ordinary successful
-pairing which needs no key removal. Derive the debug-key decision from
-the pairing's Secure Connections and debug-key flags instead. Requiring
-both flags preserves legacy fallback behavior without reading the
-registry entry just to decide whether it is a debug key.
+The notification can read freed storage or report a replacement key.
+The later connection-address update also follows the saved pointer.
+
+Build a temporary IRK from the identity address, key and RPA already
+owned by the pairing context, and use that data for both the event and
+the connection-address update. No registry pointer is dereferenced by
+these notification operations.
 
 The excerpt below retains the headline and stack traces.
 
+Use a copy of the IRK for the later notification, as commit
+9ff737119177 ("Bluetooth: hci_sync: Copy the resolving-list IRK under RCU")
+does for the resolving list. The pairing context supplies the
+identity data and key used here.
+
 KASAN report as below:
 
-    BUG: KASAN: slab-use-after-free in smp_chan_destroy.isra.0+0xafd/0xe80
-    Read of size 1 at addr ffff88810c140928 by task kworker/u17:0/501
+    BUG: KASAN: slab-use-after-free in mgmt_new_irk+0x296/0x2b0
+    Read of size 6 at addr ffff888110c0b8a0 by task kworker/u17:0/495
 
-    Workqueue: hci0 hci_rx_work
+    Workqueue: hci1 hci_rx_work
     Call Trace:
      <TASK>
      dump_stack_lvl+0x93/0xd0
      print_report+0xce/0x630
-     ? smp_chan_destroy.isra.0+0xafd/0xe80
+     ? mgmt_new_irk+0x296/0x2b0
      ? srso_alias_return_thunk+0x5/0xfbef5
      ? __virt_addr_valid+0x20d/0x410
-     ? smp_chan_destroy.isra.0+0xafd/0xe80
+     ? mgmt_new_irk+0x296/0x2b0
      kasan_report+0xe0/0x110
-     ? smp_chan_destroy.isra.0+0xafd/0xe80
-     smp_chan_destroy.isra.0+0xafd/0xe80
-     smp_distribute_keys+0xc57/0x29a0
+     ? mgmt_new_irk+0x296/0x2b0
+     mgmt_new_irk+0x296/0x2b0
+     ? __pfx_mgmt_new_irk+0x10/0x10
+     ? __pfx_pmbd_probe_hit_cookie+0x10/0x10
+     smp_distribute_keys+0x54b/0x28a0
      ? __pfx_smp_distribute_keys+0x10/0x10
+     ? srso_alias_return_thunk+0x5/0xfbef5
      ? kasan_save_track+0x14/0x30
      ? srso_alias_return_thunk+0x5/0xfbef5
      ? __kasan_kmalloc+0xaa/0xb0
-     ? smp_recv_cb+0x2feb/0x8970
+     ? smp_recv_cb+0x4d31/0x8de0
      ? srso_alias_return_thunk+0x5/0xfbef5
      ? __kmalloc_cache_noprof+0x251/0x610
-     ? smp_recv_cb+0x2feb/0x8970
-     ? smp_recv_cb+0x30de/0x8970
+     ? smp_recv_cb+0x4d31/0x8de0
+     ? smp_recv_cb+0x4e24/0x8de0
      ? srso_alias_return_thunk+0x5/0xfbef5
-     smp_recv_cb+0x30de/0x8970
-     ? srso_alias_return_thunk+0x5/0xfbef5
-     ? srso_alias_return_thunk+0x5/0xfbef5
+     smp_recv_cb+0x4e24/0x8de0
      ? __pfx_smp_recv_cb+0x10/0x10
      ? __pfx___might_resched+0x10/0x10
      ? srso_alias_return_thunk+0x5/0xfbef5
-     ? find_held_lock+0x2b/0x80
+     ? stack_depot_save_flags+0x29/0x9a0
+     ? srso_alias_return_thunk+0x5/0xfbef5
      ? srso_alias_return_thunk+0x5/0xfbef5
      ? __mutex_lock+0x182c/0x2590
-     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? kasan_save_stack+0x42/0x60
      ? l2cap_recv_frame+0x9ef/0x8830
+     ? __kasan_slab_free+0x5f/0x80
+     ? kmem_cache_free+0x242/0x580
      ? srso_alias_return_thunk+0x5/0xfbef5
-     ? _raw_spin_unlock_irqrestore+0x27/0x60
-     ? srso_alias_return_thunk+0x5/0xfbef5
-     ? try_to_wake_up+0xf98/0x1b80
+     ? find_held_lock+0x2b/0x80
+     ? l2cap_recv_frame+0xaef/0x8830
      ? __pfx___mutex_lock+0x10/0x10
-     ? __pfx_try_to_wake_up+0x10/0x10
      ? __lock_acquire+0x466/0x2260
      ? __pfx_l2cap_chan_hold_unless_zero+0x10/0x10
      ? l2cap_recv_frame+0x13cc/0x8830
      ? __pfx_smp_recv_cb+0x10/0x10
      l2cap_recv_frame+0x13cc/0x8830
      ? srso_alias_return_thunk+0x5/0xfbef5
+     ? srso_alias_return_thunk+0x5/0xfbef5
      ? __mutex_lock+0x182c/0x2590
+     ? srso_alias_return_thunk+0x5/0xfbef5
      ? __pfx_l2cap_recv_frame+0x10/0x10
      ? srso_alias_return_thunk+0x5/0xfbef5
      ? find_held_lock+0x2b/0x80
@@ -209,24 +219,20 @@ KASAN report as below:
      ret_from_fork_asm+0x1a/0x30
      </TASK>
 
-    Allocated by task 502:
+    Allocated by task 802:
      kasan_save_stack+0x33/0x60
      kasan_save_track+0x14/0x30
      __kasan_kmalloc+0xaa/0xb0
      __kmalloc_cache_noprof+0x251/0x610
-     hci_add_ltk+0x1f5/0x3a0
-     sc_add_ltk+0x174/0x350
-     smp_recv_cb+0x62e8/0x8970
-     l2cap_recv_frame+0x13cc/0x8830
-     l2cap_recv_acldata+0xe9f/0x10e0
-     hci_rx_work+0x5a6/0xf00
-     process_one_work+0x908/0x19c0
-     worker_thread+0x65c/0xe40
-     kthread+0x34f/0x460
-     ret_from_fork+0x659/0x940
-     ret_from_fork_asm+0x1a/0x30
+     hci_add_irk+0x13e/0x2d0
+     load_irks+0x5bc/0x7d0
+     hci_sock_sendmsg+0x128b/0x22e0
+     __sys_sendto+0x425/0x470
+     __x64_sys_sendto+0xe5/0x1c0
+     do_syscall_64+0x115/0x6a0
+     entry_SYSCALL_64_after_hwframe+0x77/0x7f
 
-    Freed by task 520:
+    Freed by task 802:
      kasan_save_stack+0x33/0x60
      kasan_save_track+0x14/0x30
      kasan_save_free_info+0x3b/0x60
@@ -237,28 +243,49 @@ KASAN report as below:
      handle_softirqs+0x201/0x930
      __irq_exit_rcu+0x110/0x1e0
      irq_exit_rcu+0xe/0x20
-     sysvec_apic_timer_interrupt+0x37/0x80
+     sysvec_apic_timer_interrupt+0x6c/0x80
      asm_sysvec_apic_timer_interrupt+0x1a/0x20
 
-Fixes: 923e24143efe ("Bluetooth: Fix SMP debug key handling")
+Fixes: 95fbac8a8e45 ("Bluetooth: Add support for sending New IRK event")
 Signed-off-by: Cen Zhang <zzzccc427@gmail.com>
 ---
 This patch was written with assistance from Codex (OpenAI).
 
- net/bluetooth/smp.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ net/bluetooth/smp.c | 18 +++++++++++++++---
+ 1 file changed, 15 insertions(+), 3 deletions(-)
 
 diff --git a/net/bluetooth/smp.c b/net/bluetooth/smp.c
-index f8f86b8f73f05..ead1b8e3e361a 100644
+index ead1b8e3e361a..c758f7c927af6 100644
 --- a/net/bluetooth/smp.c
 +++ b/net/bluetooth/smp.c
-@@ -745,7 +745,8 @@ static void smp_chan_destroy(struct l2cap_conn *conn)
- 	/* Ensure that we don't leave any debug key around if debug key
- 	 * support hasn't been explicitly enabled.
- 	 */
--	if (smp->ltk && smp->ltk->type == SMP_LTK_P256_DEBUG &&
-+	if (smp->ltk && test_bit(SMP_FLAG_SC, &smp->flags) &&
-+	    test_bit(SMP_FLAG_DEBUG_KEY, &smp->flags) &&
- 	    !hci_dev_test_flag(hcon->hdev, HCI_KEEP_DEBUG_KEYS)) {
- 		list_del_rcu(&smp->ltk->list);
- 		kfree_rcu(smp->ltk, rcu);
+@@ -1045,15 +1045,27 @@ static void smp_notify_keys(struct l2cap_conn *conn)
+ 	}
+ 
+ 	if (smp->remote_irk) {
+-		mgmt_new_irk(hdev, smp->remote_irk, persistent);
++		struct smp_irk irk = {
++			.addr_type = smp->id_addr_type,
++		};
++
++		/* The IRK list may have been replaced during pairing.
++		 * Report the pairing data instead of the saved list entry.
++		 */
++		bacpy(&irk.bdaddr, &smp->id_addr);
++		memcpy(irk.val, smp->irk, sizeof(irk.val));
++		if (hci_bdaddr_is_rpa(&hcon->dst, hcon->dst_type))
++			bacpy(&irk.rpa, &hcon->dst);
++
++		mgmt_new_irk(hdev, &irk, persistent);
+ 
+ 		/* Now that user space can be considered to know the
+ 		 * identity address track the connection based on it
+ 		 * from now on (assuming this is an LE link).
+ 		 */
+ 		if (hcon->type == LE_LINK) {
+-			bacpy(&hcon->dst, &smp->remote_irk->bdaddr);
+-			hcon->dst_type = smp->remote_irk->addr_type;
++			bacpy(&hcon->dst, &smp->id_addr);
++			hcon->dst_type = smp->id_addr_type;
+ 			/* Use a short delay to make sure the new address is
+ 			 * propagated _before_ the channels.
+ 			 */
