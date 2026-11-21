@@ -1,63 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795289567;
-	b=JZ+CSRqFaPxdqUwKHZrTKGuZTnlNoh3iClLY0ED7xZVFRppk+gPRyzxG++oRiOgXzhbS
-	 P5rhmC9OiCgNmWxTnqR6Czf0EcYfkhj7H6zaJQnbiMyMr7Vgawhq07OgBhWhesDnN3O5I
-	 ewoI+X5pZY5bPcsBu6URAHS9RpG0XR208JIRF2c6L6UvLFcfVHItXIs2XrFZ/OL+BdYjZ
-	 GCaUa/xqRIMtHvebiHkvLr0rV8rLgogvipsmcFPAB4ZAy53NqAHn80kG6xe1U+MIW1V7F
-	 jYnFOtwewWHI5g42IG+pL9wb9UPfQ6IdZD0MZCAKrPKhVuZA65RnQJ5zcbnriVThTAw==
+	t=1795289622;
+	b=pw8nbiC8XRMNWJUKu6HTj95OH9oGIdDZOkL2H7tHwysAwx19dPT0+8cut9xuKaefGzt+
+	 F6unRMxpOOE0RKeD1veRS4ZFAVFySi3e6i4we+NOt5klcEKlIJku99bqGB2DeN5U251Uu
+	 /RYIenEiLi7v9v0nDKfmKa+cAj4FmMOMZ+WYQFu9b9m7SWMvRh66LRtecT+rLE3vfx70a
+	 KZRq+TcTJqM6Ou/70CYH8j5HglPLLlgPGlvLbiFo9msJOZY2wSGuP3DklSMCcrb0TaDmd
+	 sgQBDCxvRBNbjVD1kz0HAZ8PY8dHGNy4831EIA3paAbRbTyrwNA3s90cBzTKo8mWe1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795289567;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=cAnI0c9hFjCMwUmPlUPWn1Le7Jb1Y2BnchBdQ6mVz6Y=;
-	b=YPqHi9PsrhIkNDuecyGCCKrEBEyyS+aqEdrev9/Xt93ehuGPRw3UqTtZ5v6tiItpy4Ck
-	 JdZP1D+BTlcvOQmLyO60Iu/Z9XVg7hBmN7dSRSta/zJYaLCzjsS2AXIT0L/ABRNJA8VEh
-	 WcD4MlqszUXntqwiCr3/V49gDDVv7CWmquUrRXQYNAuAxYG4HNZ2dmhG7TyGmPi3BkR1v
-	 5QNFIZxF4FsdjSA5IwiFawON53y/C8bwikmjYZDhNBTVpw7b2wWLVRVMR9LSIjAbhKS/G
-	 x4jL+zGn/tqkwSvfvytM7cCvNgpVWrLjLEouXdcVs58VAgELtGRW7DtXzmP4jZEVLXg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795289622;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=2qZsGR/sLdn0qLTF/VW/uayeEPi0hmDXZwV0zU4xgig=;
+	b=gzMnG0tZmHnW3R7Toy9Kth7GJofn/TQd9gBfYId7cQW97G+8NAg14sJcL/L9yaBrW+1c
+	 IXE5qpExO5Lib0J8hRxEglG/Wm9KswoCywpgliInepqo93lNPdhcOGkqmNrAkYEm3gR7q
+	 ohELUtibIECA6e6NBECXBmwgV9EJ0a3uOddzfbY1LFm08Z3Ls1+tlQPG/UJLyJxgRiXQQ
+	 2Jpyl9YaB9s4DTZyc3bxerydlGJw1Muv6B0+FuvRll86iWRxuoaxs0YvEgzDc9XOz76eS
+	 rxwPLD7w4l0BDFYPJH/1t4lc7zMgf+85BOduV5VxEVVyRrO68dHZ+2cMVAacpUYNabQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ipvych.com;
-	spf=pass smtp.mailfrom=ipvych.com;
-	dkim=pass header.d=ipvych.com header.i=@ipvych.com header.a=rsa-sha256 header.s=key1 header.b=h9JzfjAc;
-	arc=none smtp.remote-ip=91.218.175.1
-Received: from mta0.migadu.com (out-1.mta0.migadu.com [91.218.175.1])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="DlA/uZOO";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0DA6606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:32:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0DA6606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ipvych.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ipvych.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6CAD606A320;
+	Sat, 21 Nov 2026 19:33:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ipvych.com header.i=@ipvych.com header.a=rsa-sha256 header.s=key1 header.b=h9JzfjAc
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=i2m/DFlMYzZ+rROkmhKoOHRI1qUFGH+RsFuOBgbVOsI=;
- c=simple/simple; d=ipvych.com;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795289563; v=1; x=1795894363;
- b=h9JzfjAcaxBpLxbeqHyOPBWgPvzufnokvfuQj7xWLnBhLHoMGBNjnoiWv4vRP0t+v9tmTWdM
- vjNOFRis1fTo3SBqUV4XHqauptvM6K3GTkJQ/qM4Q1dU3ee2HDaFX0jUVhpedlizfrtU289V3BA
- zNmmVUMFwHZ4D7TDLNw+CB6fY+htzrHPlYLf3oPyMxV1mgES9sUqGSJZPumRKbbaU/AbFRzF3YY
- 54W7wILpewwWU8tSpiOww5QwtX+tsgzfcFItA190tSxo7EFNJSSFD08PjArF954aMcz5Ix4o2QL
- NAJnp1MB0nzy94d60AZs75GurQtW9Y3C1+EYjhYkQ4JZQ==
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id ffd402e7f7cd30ea;
-	Sat, 21 Nov 2026 19:32:43 +0000
-X-Mizu-Trace-ID: ffd402e7f7cd30ea
-X-Migadu-Flow: FLOW_OUT
-From: Ivan Popovych <ivan@ipvych.com>
-To: linux-kernel@vger.kernel.org
-Cc: pali@kernel.org,
-	linux@roeck-us.net,
-	linux-hwmon@vger.kernel.org,
-	Ivan Popovych <ivan@ipvych.com>
-Subject: [PATCH] hwmon: (dell-smm) Add Dell XPS 15 9550 to fan control whitelist
-Date: Sat, 21 Nov 2026 21:32:27 +0200
-Message-ID: <20261121193227.9408-1-ivan@ipvych.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DlA/uZOO
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 438C61F000C0;
+	Sat, 21 Nov 2026 19:33:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795289621;
+	bh=2qZsGR/sLdn0qLTF/VW/uayeEPi0hmDXZwV0zU4xgig=;
+	h=From:To:Cc:Subject:Date;
+	b=DlA/uZOOmMwj7/yI/xq8L5MHTwnnPePC4ZNk7K9kI5dR+rAmqBDBa6Qi4GrTbRGhp
+	 b6b6Z16CZSWJSduDm9o3gEa+9WynORueGdk4d7m9cnhb5WDEvaQomnHTyOScvsn0v3
+	 S5NahacjGPWEh4dhbPtF986GYgcAc6F6EVU3pTY4+78vDMQvgKqOjfKCUxmFgJN4At
+	 4yM1aLJcfId44XVngK5Ux8D0dcSbNREpsrtY5npFjaLu/pyT0QfCDyz55mvyEGUG0U
+	 aFuAWQK0IbZuOjcw93+8XHpsHdo1Wo+QgI0J7/8FhiqIWDJfO59/kkcran1pKRF/8H
+	 tmIrDNVwEDPkg==
+From: SJ Park <sj@kernel.org>
+To: 
+Cc: SJ Park <sj@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	damon@lists.linux.dev,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: [RFC PATCH 0/4] mm/damon: update documents for mm-next onboarding
+Date: Sat, 21 Nov 2026 11:33:25 -0800
+Message-ID: <20261121193331.108587-1-sj@kernel.org>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,34 +66,34 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Confirmed on my own Dell XPS 15 9550 running BIOS version 1.14.0
-running "echo 1 > pwm1_enable" disables automatic fan control and
-"echo 2 > pwm1_enable" enables it back.
+Right after the 7.5-rc1 release, DAMON will onboard the mm-next
+transition [1].  The major change is that it will use mm/damon.git [2]
+and mm/linux.git [3] instead of sj/linux.git [4] and akpm/mm.git [5].
 
-Signed-off-by: Ivan Popovych <ivan@ipvych.com>
----
- drivers/hwmon/dell-smm-hwmon.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Update MAINTAINERS file to capture the change, via patch 1.  Further
+update DAMON maintainer-profile document for the change, step by step,
+via patches 2-4.
 
-diff --git a/drivers/hwmon/dell-smm-hwmon.c b/drivers/hwmon/dell-smm-hwmon.c
-index 5963f908972f..ba189b086b22 100644
---- a/drivers/hwmon/dell-smm-hwmon.c
-+++ b/drivers/hwmon/dell-smm-hwmon.c
-@@ -1640,6 +1640,14 @@ static const struct dmi_system_id i8k_whitelist_fan_control[] __initconst = {
- 		},
- 		.driver_data = (void *)&i8k_fan_control_data[I8K_FAN_30A3_31A3],
- 	},
-+	{
-+		.ident = "Dell XPS 15 9550",
-+		.matches = {
-+			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-+			DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "XPS 15 9550"),
-+		},
-+		.driver_data = (void *)&i8k_fan_control_data[I8K_FAN_34A3_35A3],
-+	},
- 	{
- 		.ident = "Dell Optiplex 7000",
- 		.matches = {
+[1] https://lore.kernel.org/bed81e01-7303-4957-bd7d-38e3a094e96f@kernel.org/
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/mm/damon.git/
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/mm/linux.git/
+[4] https://git.kernel.org/pub/scm/linux/kernel/git/sj/linux.git/
+[4] https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git/
+
+Huge thanks to Andrew for his tremendous mm.git works that raised DAMON
+up to the current state.
+
+SJ Park (4):
+  MAINTAINERS: change DAMON SCM tree to mm/damon.git
+  Docs/mm/damon/maintainer-profile: use damon.git for patch baselines
+  Docs/mm/damon/maintainer-profile: drop 'SCM Trees' section
+  Docs/mm/damon/maintainer-profile: update key cycle dates for damon.git
+
+ Documentation/mm/damon/maintainer-profile.rst | 57 ++++++++++---------
+ MAINTAINERS                                   | 36 ++++++------
+ 2 files changed, 46 insertions(+), 47 deletions(-)
+
+
+base-commit: b0ddc1203e3d7a63e712e8988a03f98dbb179904
 -- 
-2.56.1
-
+2.47.3
