@@ -1,61 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.104
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795284847;
-	b=ozXjVMB/DiJDRcSOK+9nZFH72lydOjgBtgLRw4FbwR0XzoDf+sn+vusy15o+ZpbOClEp
-	 7RUFo0fjzkMZ2fLxrfMxmfDXgmcdAYzdh9OChR/pTEn3ByhbHGs/adXV9ZSzBUBU/4S0o
-	 6UX/fSqynfpwo0ZmwY1FDvGJ7JNSw80gD/xdCOwjYurNQjBe1nx7ruebYD3mM88qG1R32
-	 FmHf+pTuB+s28MO+Zu5CLx0JntfYHcf1XPJEPEkwArmDcG5dJmyFSr6jT+Z68g4QZGq9V
-	 CNxnY+v1CHuGbR44DiWKdG7uXomSHIXQplvbcnAUy1OD1Bpy5XMj4ppH+Ah3k75j1aQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795284847;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-ZohoMailClient;
-	bh=6bkrtyevoYSQBBHxSmlCzsD0kdOIPCxJGVLyXOpEk/M=;
-	b=G/NfOR8vUNjDvVfxn4ptBjQ3UcTys721Ad8IJbkJoBLUvj/ldgE+A2BrUwNRrTJRU4Ux
-	 GWocA6aSpQ3jYhlXqI/+5DR2+oCo3nxGPMGL7ky9O0vdF0BuT7tJ2fXZDeF44NFUFDMVA
-	 PY5jQ7L+3zj83HmClNaasK29MSxVS8RCYorAmNKoL3TfRAhtFFitz1urA1J+i3rUAoOLX
-	 J9JIcxKOQvkau0JuxK5R8HSUgf4VLx/jqJUmmJlrcmUotFr6hm3LV6kyPOKNX1tuqfHGx
-	 Qh1CDxLtEA+ALpTiT+lGHj7soNgt0zLN55MaaQIsWzZzN5f6ZHU4RPztdwzKPwxGldg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=hanbings.io;
-	spf=pass smtp.mailfrom=hanbings.io;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.104
-Received: from sender6-pp-e104.zoho.com (sender6-pp-e104.zoho.com [165.173.180.104])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795284970;
+	b=MmNKLTqq7vTE94QXel7aCS4WxB9qUFYc3Sr06/XHPSgi3YV9Y1jPWygk55NVrR0q6or+
+	 WvF3FbErTNSdbhEHCKdj/v83dSTuZt5i6aP4AKvkEfYoSx6T9AHuo8yZCgvMMb2Id1atC
+	 J5LSwQ8OYlaq9mhRGfvTqY/hqkDdG+T04bCY2r0oJimm3ZAZuh3YAhylc8YqiJ1Dl9FKk
+	 aSybCH9H9gTOoWHoh/jZXK7yUIwmeBhIaXiKR85uG4sgnman+v1Z7G/kAUQTtnwb95cfA
+	 zQKz4HiuU4lp5Add1ZD2wirMaSVbwm0ykfY24rNSZ/zyJtQcRUKbs2OCgw4HNVjY+rQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795284970;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
+	 Subject:Content-Type:Content-Transfer-Encoding;
+	bh=1X5j7YQdcz6iEhlSddIVL1ix+zetO1vVrxlepqlUlLI=;
+	b=xWJOal1ouV4PmUsyfKWDXN63UwJkBieRGk4W3yQzEgrWmFUKhXVd6Cz4kGb0ToSiMeYs
+	 McnujS9IFC2Qo2LmuWDfYvg45o2cuNDkePrCEzbnojQ0Mies0n6dknaf06vBnEfYtniF3
+	 G9keemaVNBH8aFQsSrgJIs4t07b0aEA0tFDe12NTh7iwQ2Goa6EYmMwmwy/4wF0ZNecbE
+	 TS0z4SAgad8uSMI34/Z8fZXIu8qDLZpOh04QCCKZ9JTAeZ00sDQd151AJN4vf0lLyoYy2
+	 Rn274hrYuj2D3m5m7M1GDMncltZ3jBoMw7TI2BIPeHjiB46DGB2v/MxGEjurIWOPwmw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="OKi/CDxg";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F23B8606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:14:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F23B8606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=hanbings.io
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hanbings.io
-ARC-Seal: i=1; a=rsa-sha256; t=1795284822; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=i5xn0413XcAlCKFR6h0Far/q4Cibn5AlgfnomTmvA7pwBY7c5VExWj48Jd085c52PRkaz48w2bd/RcAbqsUPoU0Xa2nh3gD+e7bdKwY0qBfYYtwTh4nknzyN+GDsFqCylmb4bT1r8bQcxVX+yU+pFDtRkPFYZIzoznt2i+QJVIE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795284822; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=6bkrtyevoYSQBBHxSmlCzsD0kdOIPCxJGVLyXOpEk/M=; 
-	b=gwWPqfASjyX5frcbPCXn8ybbbF1VYRnvkx7PkigbW2oLqfGodu84YUyCO4fd+43U1tpW8MxK7M1H0Oc/Zbg8chOXlp8OFwvqTnzLq5PKuk1bsdsNtHGMYnfO3TjqhU/b7sVvxeG3Z4TQk4x1+BUVQyIPgMhOAucKjS7Ufuph9oU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=hanbings.io;
-	spf=pass  smtp.mailfrom=hanbings@hanbings.io;
-	dmarc=pass header.from=<hanbings@hanbings.io>
-DKIM-Signature: a=rsa-sha256; b=VB8jSN+1ucqZLzXMjWovN6Wt9dQe0vXHdMSFo3afwNKCq/3cIHg0oj6AFTn6JvOa2QXIi27Fngor46YrHFnBw7IWnC/m0Z1JRWv3YNU1oauWm0X56aIViBtedvTpvM1af7UYRI45+XmMzuIimvBTVwqElx4QZ5DtDF4pb6IHIAI=; c=relaxed/relaxed; s=zmail; d=hanbings.io; v=1; bh=6bkrtyevoYSQBBHxSmlCzsD0kdOIPCxJGVLyXOpEk/M=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795284817804675.349651293514;
-	Sat, 21 Nov 2026 10:13:37 -0800 (PST)
-From: hanbings <hanbings@hanbings.io>
-To: Tiezhu Yang <yangtiezhu@loongson.cn>
-Cc: Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	loongarch@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] LoongArch: Fix off-by-one in bt_address() exception vector check
-Date: Sun, 22 Nov 2026 02:13:28 +0800
-Message-ID: <20261121181328.1892266-1-hanbings@hanbings.io>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <575cc834-aca1-a38d-3db9-deea93d0d2f6@loongson.cn>
-References: <20261115193107.571674-1-hanbings@hanbings.io> <CAAhV-H6ww3dObKa3zNxj4jv7JWoB_fukX+b-HYnb_31_=sPbEw@mail.gmail.com> <575cc834-aca1-a38d-3db9-deea93d0d2f6@loongson.cn>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49802606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:16:10 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OKi/CDxg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24CBD1F000C6;
+	Sat, 21 Nov 2026 18:16:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795284969;
+	bh=1X5j7YQdcz6iEhlSddIVL1ix+zetO1vVrxlepqlUlLI=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=OKi/CDxghY1dqryAz4GUSP2DyKhjM/BKsCRf8IGiH5+r7CjEwEAXZnZel6KrM9ys7
+	 Juw3/sshAmYwBIyxRwd4pxzBr+FVOFEQFcaKZ7lUoNXV9Qr33hywKKY059ZZAOgEN9
+	 YKMtcKXfd5iCzHSD3w6EmkLW1AfJZhwDvxBDs+OmeluWryu61WQmMCS/duOqgWSNhe
+	 pnfBS8rZlNy/6+dnLtb3wOliz2YyVTnyC0xvl4wYEj6jKKKE/153ogOkVv+KOV4Eit
+	 c8gIhHXZci4mOwJ1y1pS+nW2p+EKTPox1+pQQ1SDlMHKwJkrXYe/kDSjUkUe1HKCTw
+	 cF88jC797CQ5A==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 3FACA198003A;
+	Sat, 21 Nov 2026 13:16:07 -0500 (EST)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Sat, 21 Nov 2026 13:16:07 -0500
+X-ME-Sender: <xms:498Ba5oRqe_6IRddTVKiT6LhTlnB8Y8L53p9D0szvXvP81pP2L5AYA>
+    <xme:498Ba2euU5ISwHA9xnw0ZCN5WNbnbT1FAIwjlRsBbAQqx1yvFtcdB0OVy1okW02AN
+    iRGMCtRP9YDLF7QprqrV-RRmYxMtUi8v2HJdwm0g5PHYT6urSoJZ2EO>
+X-ME-Proxy-Cause: dmFkZTEtnHGhzDjhdINsG+KI0AoS/50TK6i0wx1kQ//6c35E2ONVRFcccFQwcKMKtHY8mi
+    bpKgiKFvgyr5dJzeZ3i9+Wpo9GY7dsrP0B5Q7pRmFO8jNvkYwxDvX72jCnQhaXF/lbhLU7
+    cuhmg/0yG+L1AOBY58lznHtSzbcbrz8Tt5TrAGIrXp8x7mTuSDCEy8ZLJ7pQHLmHkCxoN4
+    9DNUcTVGGis4QgolqvOmcUwB0NDvIAxwlHDkhKpfEBJuN4KIk2oefdaWg4cVlCAsVFojwu
+    6elGZvjbiLHilZ+ggJVlCnal4RSLjOe34UQkgEPyiOQ/osegaaaVWWoJYnVLI5A4H0PPTE
+    tNyotbzbZ4WhPf9sGuZUNl3qfvmWh8Mht94TIVZWmom+eLXngnpGxMjmbNIGjC4JMC9Jwh
+    HhtxIJ4PxPMGTye2eEOCAqZL7aUeUKPr1nMmlPpxHPnTDiwbXyqcHDI8W+TH5ekEOfBs8h
+    tAjM52b23mFqW01Uj3K1WOIm525O/G1o5cbTxA9hwSPiU5Dv8MegKypFQUFCF/EUeyZ4xr
+    nOLSiNWkgfTq+Q+atQEShXQdnWnPStC57ECGtQZkhGgtUHCB4uf7XaKcwm81cxHRHOMUUT
+    VB5gf9jp2LMf99oh3KXve7qkvCCxRamQ6pvLQadt4w9adP7M/Cwf46VUXZQw
+X-ME-Proxy: <xmx:598Ba3oL8wJA71R9Zd8aIE4BGHiYeNHyJbs7NH7qBaM1Q78WegXW9w>
+    <xmx:598Baw63-SL2kR2AhznfEySyxH01iOH7gHwj0xlDswYKK5FqEej_3w>
+    <xmx:598Ba3B5ED4oSbUHDnx2vPMOjl_TLjH81RAGTI2SNZCbf1ThuNay3Q>
+    <xmx:598BayYsMMoatGidertwgS_KZQcP0M5yXhWLDSlWR_HcXVm0l-bnig>
+    <xmx:598Ba7I4gThabSsAzvM1bknYm5nzofGQadLXacyxdXTKmUfVLXMscH19>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 2505FF8008E; Sat, 21 Nov 2026 13:16:03 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,133 +77,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+Date: Sat, 21 Nov 2026 19:15:42 +0100
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Han Gao" <rabenda.cn@gmail.com>
+Cc: gaohan@iscas.ac.cn, "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
+ "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
+ "Atish Patra" <atish.patra@linux.dev>, "Stephen Boyd" <sboyd@kernel.org>,
+ "Brian Masney" <bmasney+clk@redhat.com>,
+ "Jerome Brunet" <jbrunet+clk@baylibre.com>,
+ "Chen Wang" <chen.wang@linux.dev>, "Inochi Amaoto" <inochiama@gmail.com>,
+ linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ sophgo@lists.linux.dev
+Message-Id: <9a94e434-13b8-4a45-bf3a-78f99a2435d9@app.fastmail.com>
+In-Reply-To: <20261121144848.1277368-1-rabenda.cn@gmail.com>
+References: <20261121144848.1277368-1-rabenda.cn@gmail.com>
+Subject: Re: [PATCH 1/2] riscv: efi: Map runtime MMIO with device attributes
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-Hi Tiezhu,
 
-Thanks for looking at this.  I can reproduce it deterministically on
-QEMU with vanilla v7.2.9; the machine here runs 7.2.9, so I used the
-same version for the test.
 
-The important detail is that vector 78 is a real, installed vector:
-trap_init() copies handle_vint into every slot from
-EXCCODE_INT_START (64) through EXCCODE_INT_END (78).  In the
-handle_vint generated by this build (GCC 16.2.0), the call to do_vint
-is at handle_vint + 0x154:
+On Sat, 21 Nov 2026, at 15:48, Han Gao wrote:
+> On Sat, 21 Nov 2026 13:42:20 +0100 "Ard Biesheuvel" <ardb@kernel.org> wrote:
+>
+>> 
+>> 
+>> On Sat, 21 Nov 2026, at 11:38, Han Gao via B4 Relay wrote:
+>> > From: Han Gao <gaohan@iscas.ac.cn>
+>> >
+>> > EFI_MEMORY_MAPPED_IO regions are mapped with PAGE_KERNEL, so device
+>> > registers end up mapped as normal memory.
+>> >
+>> > On Milk-V Pioneer, GetTime() reads the clock controller registers and
+>> > faults:
+>> >
+>> >   Oops - load access fault [#1]
+>> >   Workqueue: efi_runtime efi_call_rts
+>> >   status: 0000000200000120 badaddr: 0000007030012000 cause: 0000000000000005
+>> >
+>> > Use PAGE_KERNEL_IO for these regions.
+>> >
+>> > Fixes: b91540d52a08 ("RISC-V: Add EFI runtime services")
+>> > Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+>> > ---
+>> >  arch/riscv/kernel/efi.c | 2 +-
+>> >  1 file changed, 1 insertion(+), 1 deletion(-)
+>> >
+>> 
+>> Acked-by: Ard Biesheuvel <ardb@kernel.org>
+>> 
+>> I can take this as a fix via the EFI tree if you like.
+>
+> Yes, please take it through the EFI tree. Thanks!
+>
 
-    ...
-    jirl    $ra, $t0, 0        # handle_vint + 0x154
-    ...
-
-So when an interrupt enters vector 78 and do_vint is running, the
-return address left in $ra is:
-
-    eentry + 78 * VECSIZE + 0x154 + LOONGARCH_INSN_SIZE
-
-unwind_next_frame() subtracts LOONGARCH_INSN_SIZE and calls
-bt_address() with eentry + 78 * VECSIZE + 0x154, which is exactly the
-address the current range check rejects.
-
-To isolate this, I used the small out-of-tree module below.  It sets
-state.pc = 0 (which selects the NULL-IP ORC entry, so the unwinder
-consumes state.ra) and:
-
-    state.ra = eentry + vec * VECSIZE + 0x154 + LOONGARCH_INSN_SIZE
-
-then calls unwind_next_frame().  It checks three vectors:
-
-    77 (last - 1): must succeed on both kernels
-    78 (last):     must fail before the fix, succeed after
-    79 (last + 1): control, must fail on both
-
-The module returns -EINVAL from init on purpose, so it is discarded
-after printing; the results are in dmesg.
-
-Both kernels were built from the same v7.2.9 source and base
-configuration.  The only source code difference was the one-line
-patch.  The module was built separately against each kernel.
-
-Unpatched:
-    unwind: vec=77 ok=1 ...
-    cannot find unwind pc at ...
-    unwind: vec=78 ok=0 ...
-    cannot find unwind pc at ...
-    unwind: vec=79 ok=0 ...
-
-Patched:
-    unwind: vec=77 ok=1 ...
-    unwind: vec=78 ok=1 ...
-    cannot find unwind pc at ...
-    unwind: vec=79 ok=0 ...
-
-The patched vec=78 result maps to handle_vint + 0x154, i.e. the
-do_vint call site.
-
-To give some background: this issue shows up intermittently on a
-3B6000 machine that I run as a NAS.  In the end I only saw the kernel
-log line, without a stack trace or any other context, for example:
-
-    [470049.376195] cannot find unwind pc at 9000000004e09d54
-
-or, from journalctl -k:
-
-    Nov 14 12:19:30.400918 Lihuas kernel: cannot find unwind pc at 9000000004fc9d54
-    Nov 14 16:17:12.068835 Lihuas kernel: cannot find unwind pc at 9000000004fc9d54
-    Nov 15 03:53:19.899813 Lihuas kernel: cannot find unwind pc at 9000000004fc9d54
-    Nov 15 22:38:45.406173 Lihuas kernel: cannot find unwind pc at 9000000004fc9d54
-
-All of these addresses end in ...9d54, which is the vector-78 slot
-plus 0x154.  But the log lines do not identify which software
-triggered the interrupt, so the reproducer below simulates that
-return address instead of actually triggering an AVEC interrupt.
-
-On the real machine, which runs 7.2.9 with the fix installed since
-2026-11-15, I have not seen the "cannot find unwind pc" message
-again.
-
-If you want to run the exact QEMU A/B, I can send the kernel build and
-qemu-system-loongarch64 commands and the full logs.
-
-The test module follows.  It is test-only and not part of the patch.
-
-// SPDX-License-Identifier: GPL-2.0
-#include <linux/module.h>
-#include <linux/kernel.h>
-#include <linux/sched.h>
-#include <asm/unwind.h>
-#include <asm/loongarch.h>
-#include <asm/inst.h>
-#include <asm/setup.h>
-
-static int __init unwind_boundary_init(void)
-{
-	unsigned long base;
-	int i;
-
-	asm volatile("csrrd %0, %1" : "=r"(base) : "i"(LOONGARCH_CSR_EENTRY));
-
-	for (i = -1; i <= 1; i++) {
-		struct unwind_state state = {
-			.task = current,
-			.sp = (unsigned long)__builtin_frame_address(0),
-			.pc = 0,
-			.stack_info.type = STACK_TYPE_TASK,
-		};
-		bool ok;
-
-		state.ra = base + (EXCCODE_INT_END + i) * VECSIZE +
-			   0x154 + LOONGARCH_INSN_SIZE;
-		ok = unwind_next_frame(&state);
-		pr_info("unwind: vec=%d ok=%d pc=%px error=%d\n",
-			EXCCODE_INT_END + i, ok,
-			(void *)state.pc, state.error);
-	}
-
-	return -EINVAL;	/* Fail init intentionally so the module is discarded. */
-}
-module_init(unwind_boundary_init);
-MODULE_LICENSE("GPL");
-
-Thanks,
-hanbings
+OK, I've queued up patch #1
