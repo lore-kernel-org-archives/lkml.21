@@ -1,63 +1,70 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795289910;
-	b=MP3R60OMP1op5RLk/Cggq//ntJlYGfjF74f+/o3FMQifw1/iVRXXuBQoqR+bflP86myA
-	 MOz8k8S1/HVsJ4PQaWff5zbyY/wtv54dK/g6ROAJX4bqdTNdfvyH8xci4Vu/oxBr9j3j0
-	 nbO4jF0ymF+Pk/pP5v9vtpL1s8z0+QKmG3sistKfT3j0jxLph3hG7XUdrkXG5URNLiazi
-	 gf7ezC+fLY7nORNxWk/t2DTaUCCWtasWZE6iwY7Rw60Dm8HEWglLRMR/qDSnIobwX6MuL
-	 LK5By+w2i+l27yQP6emIMUERYWmWyqBzVGkAAiZeFZflFndqAgrMOXgkWUrUqO+zT9g==
+	t=1795290086;
+	b=3TUwYhgMVKEd4MUYg1bofiARZN67pRQc4gSzWs6FueTM/4KkQaPOZ2omOXTXuY3+//CE
+	 NA55BctjAhhQBAT2ionolDXhD3UcFRz98D1Xw8QzawAlrF86+PRyUZCjH2pxGtcrlh2tk
+	 GEvFmzmZA1fHyd4zNcti4jrGx7m5lTqKCcgptROY/hThZ07NJjb25Dd8MmEB97wP/F3nd
+	 fi4yGr3M3sOB4W0Ww9Qs4h1/kaKdtfD7lrCNw12nkG4AyNx72e12OI8H6PV4o6q+iWHuk
+	 LfZB+qvEGCxZrh2B3SryVogXHH1XV7HUbK8TxvhDDrh53aWA6xWAPjXa8DC1dvJQRWw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795289910;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
-	b=i8ffivDFz2m2OE2+NrxbFDq1JV4nfBGW1U4idyZoi3OOpQdvvWp96Mxj/nNdfuNi7+CC
-	 KvuU+q3wlPVIyMIl7n2vfHKF8RebuptS39fGvK6Z6Sz7Tj0yGFhOFjyHiKrJaWiQwpN2g
-	 QO4ORakK4uukpoSjj9m8cAov+S1ZLrxXtomHIYsLRFxyRnHUTVILg/ElqpFShNBPnmTse
-	 KjqC8YWieZM05Ht2x3D27MdwjgTFCbW3f1PIgfxdM37/IqSIWOdEenk6NjDkkCm8T+gyG
-	 zn+anB/9ozKZ/NQ6SmLnM6cHDxNeW9jT01x/8lPkpVdBguMUt6dcfZsxg3FlvfEHU/w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795290086;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:X-Patch-Reply:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=TA0IsQ5WZgrtFShBb0WWPjs6nBEnRi5bmxyzpqn+RUc=;
+	b=vaumNUO+Su+zdljbwfTt57g70L6agJoEuUlfCyOkjzrOkh8Q1/fYzdtfaAdqqbqyXkHM
+	 HTebaKZoiKaf74r6pAWtv9nWpGfIMqXGUO24/SJV1ql+wmVX3sunVC1+Z+H3LUSGR7aoN
+	 22m2Opmd7fR0CpVMJtK12nKotf7/qVnpSBZF8qNOaz6WPWC7poBM8C6mfBJhPWtWildjA
+	 HmIsqSKvm/hiYYGWkGd8awHjGAwK3E9FVibmGhRkz8XFAuE+1KyqVbe7JeBoxiMDjTe71
+	 5HLDhuZHSPMs3zw2e3VhDm6ZWwEqcQgihwj6huiMg0YNbUU3BBLmQhkZvRpRVwP4nww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lMEGNHQ0;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MJUJNVSj;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CFD0606A32A;
-	Sat, 21 Nov 2026 19:38:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E29B606A320;
+	Sat, 21 Nov 2026 19:41:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lMEGNHQ0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 633BC1F000C0;
-	Sat, 21 Nov 2026 19:38:29 +0000 (UTC)
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MJUJNVSj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BB4F1F000CA;
+	Sat, 21 Nov 2026 19:41:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795289910;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
+	s=k20260515; t=1795290086;
+	bh=TA0IsQ5WZgrtFShBb0WWPjs6nBEnRi5bmxyzpqn+RUc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=lMEGNHQ07oh2MwUfRgwkvZAZ27WeJo6vDD/l30AWPPpzJj5Q+NfMczzLMW8sfxzQ2
-	 S4pyJsc00F5CC8ChEwg9HqSdcKXUlnaSRaPcc+PfKz4E2SQ/ktqP6gkAbl5YmrP9zp
-	 tQdk8ujImGnzeOEELv3R6oy4k3Ku6FqcDAyXxKli2mxLjR/Jz3wuwS4/EYe3A7nse3
-	 q6zNUOAglc3+hvlWLqhelia66rFiXKv5uyUVKYzeX4IOaNsG1JZhw2v+D+nOqaOHVc
-	 73RfFZRDnZm/6Q5dwkV75tmV7wsAigidVFbsNq4pyfhtQ7GJrGoLPl23u1QH3WnoJ2
-	 cvWELJEQpL3OQ==
-From: netdev-bot+sinfo@kernel.org
-To: Piyus Kedia <piyus@iiitd.ac.in>
-Cc: alibuda@linux.alibaba.com, Dust Li <dust.li@linux.alibaba.com>,
- Sidraya Jayagond <sidraya@linux.ibm.com>,
- Mahanta Jambigi <mjambigi@linux.ibm.com>, netdev@vger.kernel.org,
- Tony Lu <tonylu@linux.alibaba.com>, Wen Gu <guwen@linux.alibaba.com>,
- linux-rdma@vger.kernel.org, linux-s390@vger.kernel.org,
- linux-kernel@vger.kernel.org, Kapil Vaswani <kapil@presceralabs.ai>
-Subject: Re: [PATCH net] net/smc: validate the peer's CDC cursors against our
- own buffers
-Date: Sat, 21 Nov 2026 19:38:28 +0000
-Message-ID: <179528990895.3294.1614564040906254045@kernel.org>
-In-Reply-To: <20261121193345.2148966-2-piyus@iiitd.ac.in>
-References: <20261121193345.2148966-1-piyus@iiitd.ac.in>
- <20261121193345.2148966-2-piyus@iiitd.ac.in>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	b=MJUJNVSj2PJwn3eSV8+OeIQAn0OiG/QXGWrv1JbNfS2t0n8/E9Uat3xr3rrWJP9gb
+	 KBh8YbrSWKW8Ju/m5O/vVtlM/lLgRC0OWCpBN2YBu6XcqwzJbeCVf5pgED6nMyFn82
+	 fzMUFGtPbRrwIE2s1ynBmW7bjLsLqpEM5/NCR3fC181CGK8k6+3oKrGK11IxNT9rz9
+	 v/w7/P6mQQqcVhfQ19sA8mbuymBT3Z/aIWC6bgGk3+IMib2ncrnIjXoptLinHba/nf
+	 LEtFOnRs2svMjh/QKvVP/MKZnIjMR4xyi4XAQ8U/AgtrURyiGn0KDzlRGEmVbHge/j
+	 ODOb0A520VcAg==
+From: Danilo Krummrich <dakr@kernel.org>
+To: Gary Guo <gary@kernel.org>
+Cc: Danilo Krummrich <dakr@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Trevor Gross <tmgross@umich.edu>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>,
+	driver-core@lists.linux.dev,
+	rust-for-linux@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] rust: doc: mark `Io` as notable trait
+Date: Sat, 21 Nov 2026 20:41:21 +0100
+Message-ID: <20261121194121.510969-1-dakr@kernel.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261019114811.1105192-1-gary@kernel.org>
+References: <20261019114811.1105192-1-gary@kernel.org>
+X-Patch-Reply: applied
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,22 +74,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Hi!
+On Mon, 19 Oct 2026 12:48:10 +0100, Gary Guo wrote:
+> [PATCH] rust: doc: mark `Io` as notable trait
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Applied, thanks!
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+  Branch: driver-core-testing
+  Tree:   git://git.kernel.org/pub/scm/linux/kernel/git/driver-core/driver-core.git
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+[1/1] rust: doc: mark `Io` as notable trait
+      commit: 4abd139a3f1f
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+The patch will appear in the next linux-next integration (typically within 24
+hours on weekdays).
+
+The patch is in the driver-core-testing branch and will be promoted to
+driver-core-next after validation.
