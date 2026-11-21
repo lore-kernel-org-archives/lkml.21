@@ -1,109 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.174
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795272537;
-	b=E6+w8ia454AUE5OuDhpZ/gNnoxkcnz1wd6cHVYX3W+aOt2XfNF51v5LH+Opu5hVnqMxV
-	 opO7EAF187Ya4LP7XdaicNW9scIOwF5+q8+R9wx+cxePPsFUvYveail2S4fO79e8Qi9O1
-	 YOrj8BAv4jLgPn06/Mx//V/kDFDDXx9JX5fTEgtx2mbmJM2xAs+b+9H+F5FZnXTrot9H1
-	 o9Ig0TNKvpqVmadeOkaN3xqLAl3VrZ+6Aop5lkZHVpl3sa5SgDt1uv7AxMNWwPWhKSW8s
-	 8JP7dJ4+CMO8Cmy5OOFIsF7DThuncTIKS7cM5WPGxRmZTdeB7vyLB6GkhXRyJ81ER3A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795272537;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.180
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795272595;
+	b=zmtGqnqxGGtWJ91c0jy7p3dGDdPAJD/yC9gFsEx/l20VGvG/bh8x95ZSjPWncESLwrbJ
+	 MPdHaaHzOI+nCDyMPfGj/P6FEY32FpkhcNaA1EW+PLhYinxI98OWf202Ow9cWiueVQ8GT
+	 jaofWigTT+qutCGo/PGZnP77iHL+3XlwWMHZBbkklsX7yDQWeysYMPOzWaQz/zOKRvecX
+	 2c3rr/AMtDzyM/PD5iU1dFAkDdtenkSSCC3BmWZfFxRwrdQ57PA2RmAWN0WAUtRq0Ip3W
+	 1HAjClcpLBlUSg5u59zOk+AqHMQ2S1nnaap4Ee6Ftf5IACMtrSmNCc//tu6A3jLe8nw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795272595;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=EdCe+8kSe9PjEo1XndTkJdrgn2vsntTF1WvbXrRZYxs=;
-	b=YgA/nAWSoHmpoPaD4jL/2RjhUMxA5TYb3qG6LAolPIwRVxTq02NlSq5wVTyvjR8d3u6x
-	 QGdzCtK6ijFA57cyTCkBqcwnNg+nkKeQkvSJSjbD9+bfEV7wgPANHfM9MzK6f1vDcl7Vr
-	 IQfKEaWOL3JPkuFh3nJCgAbBfsm/7UTbJX0SyEZFAyMCNCO1azaNwphqHkgr3s7WwQoqu
-	 ysb5j+BJuU7of1HDxxxPALoHWT2II+Nl0PJG8JWnFmYXBEU1lmjSf1Rtw3sHWQf1ZOI5X
-	 EYYM8Cz/wfUBl1PtsdR4jKfC+AD78Fh64YIkG0X3cH2taHb3kOxtRJ6uAhVs6H3QAwQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
+	bh=KMleV59mDasfc9ZrDI02cJ4rVcYzhncPH8nN8fIqQw0=;
+	b=MUKmDgZqfuq6IRYLlVmucF+w4x5OjtmFZb/QhGsNbB9qUJb8hjYB7ngAubdaLONSZR5K
+	 0fPxgNhv0E+t0yuISiJ2MNb2irjHnScY8tKmynAuk2ULMlSmfwq+vnGsc6okSJIi5aoJu
+	 AVzYDlCTAbFjNzsyW23eyT1/NUM/eZAlD+fMWRl2ogGwSDLLzIluG2A2qUgk95FWf32Sz
+	 Yr/IM8RYqZ7Hev/1nw62nCZfN3ebKDQsckhrvYDyruRj5yQkL42KU5+NYH8O/TlJuh0RC
+	 RKS8rTKhyEI6Zp3PBOgeSLCKfWEKQDsfdYTd3+jkb1DCRR7ASb+SnPAbOv9oiEzw3Lg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ddZnEjuz;
-	arc=none smtp.remote-ip=209.85.210.174
-Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MLkrnOPN;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.180
+Received: from mail-pg1-f180.google.com (mail-pg1-f180.google.com [209.85.215.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5365F606A330
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 14:48:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5365F606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 307AB606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 14:49:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 307AB606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ddZnEjuz
-Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8a06e79e152so919332b3a.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:48:57 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MLkrnOPN
+Received: by mail-pg1-f180.google.com with SMTP id 41be03b00d2f7-cde1479f76fso1212653a12.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:49:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795272594; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Jzf4xtflwBh81yIjhU2rwdIEKVKH8p3LW+H+J5fPHrz4ADQGlO/uDytC+j4nfV/vVv
+         W8BvNqIihMxbw7c/N0KspbJnByvjIjWBzHUDgcOVBQ27xsayHW8uk0aYLBiHfBvFWnx0
+         FFAfVhjJU86O+71z5yyhkBYxSEToxblDLhXXUrDaswYjehc8TpgvUsuayQC/06jlj3kn
+         ertmpa7fMyY8GH3jdWczIt9+bpDNc81+BB0boTEDldZAsauKQSthlyL/IeWst7oFYb7T
+         JXZAYEFBk9WCGA6CmVdivM+FL3Z8/E45wm8bHmXm9m1PkSpUJPq8DJcZWV5xyDLlIDCr
+         1XEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=KMleV59mDasfc9ZrDI02cJ4rVcYzhncPH8nN8fIqQw0=;
+        fh=os4nU/7AohS66ITw3wNBnsPypIu0tKtisbHT/EFBogk=;
+        b=QebFsaHOVHO2YZWePQJw02EkWbIFN3OV1wsERp3AF0aUogYWjBqUgI5DeUt4i57Dj4
+         DM7ZXhaEVmWErTn2yBktMo3JmN9TsiUCzeZUO2Weq8+U3AOTqTHQHC4ztlnYp35zpIRQ
+         aFBhsgcbyOnBILcKsdEvKynVlwJu8D8ewfOrYxeyWGrnFGHg7pLTC2IX1U6iaRgvS4H1
+         UpyZtXrymMf8+fyfY6OV/iL74hIUrOF2GU4oK/RFQpXQEkQtUnEoYADDqKYWLZ+064iM
+         Q2ePJ/39yDr6FhQf8J3oql/gL+pysx/pBLGY/PWQCX12zG1fWmVGA27AXFwJtPuX2Wdd
+         YFkg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795272536; x=1795877336; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EdCe+8kSe9PjEo1XndTkJdrgn2vsntTF1WvbXrRZYxs=;
-        b=ddZnEjuzbdWoUoW/4tbAOHS9vp1GkI8ol1D1jOZqCCmgvyVZuD/hITyx40rje6PmnO
-         L2bKPzDMD1Y8Rgl7HDxTiNdXliZI/LkEzkZxbz8gCfvYDsXS5OfUccZFb5s9VYhEeRKW
-         GpMoMHTzRtaI5orPzWEmwmbkvaVBKELWc9GPKYfta9p7ae7hj7N4G/kgB6LK6Q7zDtEt
-         IT6Ytp739R+9fTxXrl6VigiUBnTrvpJeu7GkmKvN7qB05yqbUi/NqOk6O7Onzq/u1Y7i
-         r63ag27vpXzFc7VRoLZeoob8+B1l7g0iEr02eR6Qb/I7NlWsfX79hPyYlXSHbYbW+ULb
-         80zQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795272536; x=1795877336;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=gmail.com; s=20260707; t=1795272594; x=1795877394; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EdCe+8kSe9PjEo1XndTkJdrgn2vsntTF1WvbXrRZYxs=;
-        b=T3fjwoEpQsCfuOM2E3tfNYgYvxi2g7ezTdzUDb1tPr+eDNs2QM4ww/VV38NnFDuQdK
-         ljhJUHNIkkPNoyjQtrkPU2BHIwAtaWgI8w30y8O5dreix3Eez1jaibdH31InrgLAm+6T
-         4RamRp2VBDts/H+TBYI7+E11ZhxtYDaMW10QvdU/jeg5iByoK4e7G9HF48i2xwE9jxhr
-         PauYDH/SGP6F7yT8LfdfAumfVEb/17wGylipgPby0ySh53XhZwAfylXcz0TLTzUh8Jv4
-         fGap4qK5c358haIjKJcUhM5bDsCqgCdGeBvYI1Lvw2TsLuehIqF6SPDVAY7WUzaQQo0E
-         33FA==
-X-Forwarded-Encrypted: i=1; AL+hErFIxytOtqduKqwBK3SK1TNtHMWvF8VJTk3d0mIxAHrtig1yyUw/P3XyTXHDqdpFKKBtnwF5cAHXngMIW8M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9biBI6yMN3zqo6l82BlkAOpy7iK+zg66WDQGTSxUMApoJCVuIO
-	lJdZ3ZaHcChKix1HsQ4GQFBOWdcIzWmitwGwgKVv3Ysw6jKyyeQ4uTRf
-X-Gm-Gg: AZFdTZdq8QCHVPdnGDBhifc5xHEzF9XnocmaQUQPpIQh/BvcQvVa4oFEA7/MdHB4noW
-	THKiwzgrqxSvlpWFi7Rfobuc1ZhH0uc7EU3wsy37e7P0boRMB+HsD12ggk9H/hd5mF9x27bkv5U
-	vDTmB7CZpg6bJUuwDm8Z2H/0ieU6UuI7HrFIhP4XrLs3sBdsNNqLznfZ/EWeBYS30froBQrBXgO
-	JZqh9X11EZSCDPKPsdB2E0JQX5qAmqLO/nQjP11mw02o03iZOTU3IsRPMmbgan+9vKLF8TK5IFg
-	/2q84Ro9MtLp4sLnH/NUbVtu0QLfL+InrTyWJq36HQQ/fb20+9pzSRlTawGfaNpz9/6mnrFhmNQ
-	ddz5JTExeBz4H1FgmOf/MfQDp8KDgVCkW2yKuThI7NH61dzFTann9UjIlPTwX0lGSCZgY4x0t4l
-	ghxw0jE3sFZej7NjqcQcEQR5cUckXqHM6HDtKMyuJ1HlPU3usxHx1V4LxBkD+UnIAVRIjD/Sz28
-	+0d/9Oe6r40b7i8cJvYCrJo+9yKuy5uaXnlNNPN1TTLZTG0OU0a3rNGusDhJZuBvjtE00skdSBs
-	0opeigYwNla2Wmk6P+SZaRDb6g7AifQ/PcF8DNS4Nssrse9GFrQAICtXtA==
-X-Received: by 2002:a05:6a20:244b:b0:3ed:bbab:9386 with SMTP id adf61e73a8af0-4014d35ab9cmr6017467637.42.1795272536129;
-        Sat, 21 Nov 2026 06:48:56 -0800 (PST)
-Received: from localhost ([2.27.148.107])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f726sm3048343b3a.36.2026.11.21.06.48.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 06:48:55 -0800 (PST)
-From: Han Gao <rabenda.cn@gmail.com>
-To: "Ard Biesheuvel" <ardb@kernel.org>
-Cc: Han Gao <rabenda.cn@gmail.com>,
-	gaohan@iscas.ac.cn,
-	"Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
-	"Paul Walmsley" <pjw@kernel.org>,
-	"Palmer Dabbelt" <palmer@dabbelt.com>,
-	"Albert Ou" <aou@eecs.berkeley.edu>,
-	"Alexandre Ghiti" <alex@ghiti.fr>,
-	"Atish Patra" <atish.patra@linux.dev>,
-	"Stephen Boyd" <sboyd@kernel.org>,
-	"Brian Masney" <bmasney+clk@redhat.com>,
-	"Jerome Brunet" <jbrunet+clk@baylibre.com>,
-	"Chen Wang" <chen.wang@linux.dev>,
-	"Inochi Amaoto" <inochiama@gmail.com>,
-	linux-efi@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	sophgo@lists.linux.dev
-Subject: Re: [PATCH 1/2] riscv: efi: Map runtime MMIO with device attributes
-Date: Sat, 21 Nov 2026 22:48:45 +0800
-Message-ID: <20261121144848.1277368-1-rabenda.cn@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <bb39f961-0589-4a3e-b649-888cf5edd3a1@app.fastmail.com>
-References: 
+        bh=KMleV59mDasfc9ZrDI02cJ4rVcYzhncPH8nN8fIqQw0=;
+        b=MLkrnOPNCstSi8svs6c1/FDow3Ugv34GJJ0zqaByDNgJM1EvDQpemdnCCYYuMQwuF6
+         Urp0eqa0oOqVX3ivri+0b6p+E2lyNnPCSeGULskaa8ObcP7L7xAmq03oROwvjZii4vqS
+         ZI4GLeDDHpdLzrnZEXJ2w/KqTHnShY/bOgs1/d/hMfvUeeXZjOaZ4zrE0+eGBNqaQZMQ
+         L2SmPBNvCZvGv7BPkez5dDF0XnuiqCXZylE+rCV0/1tiPmjkyYGf5b2b6m+k96lQYp91
+         Vb6Obz5nWK9Pna6LgIoOKH226aeqgnuSCN/srMhSdJFIKNaSFu35PcVK5LtiyMt815Cy
+         T0kw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795272594; x=1795877394;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=KMleV59mDasfc9ZrDI02cJ4rVcYzhncPH8nN8fIqQw0=;
+        b=rPsGvp/3wWguoRvkUPTMKe6YG26IHIZfw+H/Llk7fGlWtbkjKhRgibqP/KaQjY+ZsM
+         MW64uGDo/3R3IbRntgEGPZo4DtKOD/Zw43+rOjseZ0Xgl0Lp7hPgCoFRStwiKul8d4RM
+         SA8JUvVD61l6s3DIPEEEqM4SW8bFi07RjBVaW9YmrMqe61IBdJCvzILRPg4ZtJMzBOLi
+         G46OmseOIAKWbr9VSYJl3TdyaiO8L0ylfdpej9oEVG1Gz3aCOCw/W2j2MqNJ07iw4/Pu
+         ApxgqZc/mJd1pnP6PjQWVyzEZH5uPpct9jab7FrIhAqum9gsTf9rrivnAwZOzdy/1yFy
+         1xng==
+X-Gm-Message-State: APuU4Z92aEzpe7pCUTLkZ1gTSptY4Sz2B/UZNcohmR+7NUk0n+CmVoJV
+	O6/ArJS7rYuDPCLssTX90gE4IjSsmdLWWU8lUaFs8gatwa4N6+2gYdFcgbf8envp1EYmvjMPNfU
+	Q+SJhH/h499k/ZMZ+b7/fmgXx5J3TL1Y=
+X-Gm-Gg: AZFdTZc7Q8wumcy6OWtNessBYBwKPMWI9rCCKw+2mnHw76uC00oFXJBmeY9t11ppiHI
+	pQcnmi6kg3Lfsxj6ryNhre8To0EeKDnd0IQkWTN2128J8f+dNR9kFz6ra2EyJBn0sjPmIMeLfIf
+	4Msu7YPK7u+MMFyMA5p6p5nAK4Atu+ALWK3cFNPvpUtnJnSyOXkYki3ZDc8QwPLqJdvmFt47+ap
+	uYp3R43v8vNjg4wr56ybkvRmXLArL4lHgZzvZc1FsFQZkvpzMCC/YwiVf1xpRi1ZZUo4Won09iL
+	gE6duUsNscUxX/U4GlTyQt1c5SJhHhTqrGisqx1ouCiLSEYrn0sE49ojXsT3EzNmAuXuWmE19iP
+	GzDAkGirCtLIBEXnaWKPuq4XlY/YkdDdPCux/vyM=
+X-Received: by 2002:a05:6a21:6e04:b0:3e8:b7fd:6288 with SMTP id
+ adf61e73a8af0-4014d159070mr6730389637.41.1795272594392; Sat, 21 Nov 2026
+ 06:49:54 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,63 +99,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+From: Yi Wen <shicenci@gmail.com>
+Date: Sat, 21 Nov 2026 22:49:43 +0800
+X-Gm-Features: Aa3M54o-c3umdLG_yLVUlZkiDbL2uREfVKI1Y1odDetEyJ0RRT4OIUMRc1PDQa4
+Message-ID: <CAPHJ_V+_=Av8pAM+N+oc4JRmtqBjhcimh3B_pSy_N+5qecm6Mg@mail.gmail.com>
+Subject: [BUG] mm/gup: WARNING: mm/page-writeback.c:2678 at __folio_mark_dirty
+ on v7.4-rc3
+To: David Hildenbrand <david@kernel.org>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, linux-ext4@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Sat, 21 Nov 2026 13:42:20 +0100 "Ard Biesheuvel" <ardb@kernel.org> wrote:
+Hi,
 
-> 
-> 
-> On Sat, 21 Nov 2026, at 11:38, Han Gao via B4 Relay wrote:
-> > From: Han Gao <gaohan@iscas.ac.cn>
-> >
-> > EFI_MEMORY_MAPPED_IO regions are mapped with PAGE_KERNEL, so device
-> > registers end up mapped as normal memory.
-> >
-> > On Milk-V Pioneer, GetTime() reads the clock controller registers and
-> > faults:
-> >
-> >   Oops - load access fault [#1]
-> >   Workqueue: efi_runtime efi_call_rts
-> >   status: 0000000200000120 badaddr: 0000007030012000 cause: 0000000000000005
-> >
-> > Use PAGE_KERNEL_IO for these regions.
-> >
-> > Fixes: b91540d52a08 ("RISC-V: Add EFI runtime services")
-> > Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
-> > ---
-> >  arch/riscv/kernel/efi.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> 
-> Acked-by: Ard Biesheuvel <ardb@kernel.org>
-> 
-> I can take this as a fix via the EFI tree if you like.
+I am reporting a kernel WARNING triggered by a syzkaller reproducer on
+Linux v7.4-rc3.
 
-Yes, please take it through the EFI tree. Thanks!
+The reproducer triggers a WARNING in ext4_dirty_folio() when
+process_vm_writev() writes to a file-backed mapping.
 
-> 
-> 
-> > diff --git a/arch/riscv/kernel/efi.c b/arch/riscv/kernel/efi.c
-> > index 2d3cc57b4535..11e85d0ebc91 100644
-> > --- a/arch/riscv/kernel/efi.c
-> > +++ b/arch/riscv/kernel/efi.c
-> > @@ -22,7 +22,7 @@ static __init pgprot_t 
-> > efimem_to_pgprot_map(efi_memory_desc_t *md)
-> >  	u32 type = md->type;
-> > 
-> >  	if (type == EFI_MEMORY_MAPPED_IO)
-> > -		return PAGE_KERNEL;
-> > +		return PAGE_KERNEL_IO;
-> > 
-> >  	/* R-- */
-> >  	if ((attr & (EFI_MEMORY_XP | EFI_MEMORY_RO)) ==
-> >
-> > -- 
-> > 2.55.0
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+The call trace shows that the warning occurs during the GUP page
+unpinning and dirtying path:
 
-Sent using hkml (https://github.com/sjp38/hackermail)
+process_vm_writev()
+  -> process_vm_rw_core()
+    -> unpin_user_pages_dirty_lock()
+      -> folio_mark_dirty()
+        -> ext4_dirty_folio()
+
+A second WARNING is subsequently triggered in __folio_mark_dirty() in
+mm/page-writeback.c.
+
+This appears to be related to the interaction between GUP-based page
+dirtying and filesystem-managed folio metadata. In particular, the GUP
+dirtying path may mark a file-backed folio dirty without ensuring that
+the filesystem-specific metadata required by its dirty_folio()
+implementation remains available.
+
+This may be related to the known issue where GUP-based page dirtying
+does not properly notify the filesystem through page_mkwrite(), as
+well as the interaction between GUP dirtying and
+filemap_release_folio().
+
+Before these warnings, all four ext4 loop devices also report delayed
+block allocation errors and abnormal free block accounting. These
+errors may indicate an additional filesystem inconsistency and are
+included in the console log for further investigation.
+
+Reproducer:
+
+C reproducer: https://pastebin.com/raw/VMwNSqrp
+console output: https://pastebin.com/raw/43Ne65Vu
+kernel config: https://pastebin.com/raw/dG24GcY1
+
+
+Kernel:
+
+HEAD commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+
+Kernel version: Linux v7.4-rc3
+
+Environment: QEMU virtual machine
+
+WARNING 1:
+
+WARNING: fs/ext4/inode.c:4527 at ext4_dirty_folio+0xe3/0x110
+
+Call Trace:
+
+  ext4_dirty_folio+0xe3/0x110
+  folio_mark_dirty+0xb9/0x120
+  unpin_user_pages_dirty_lock+0x588/0x6e0
+  process_vm_rw_core.isra.0+0x7ad/0x960
+  process_vm_rw+0x1c1/0x260
+  __x64_sys_process_vm_writev+0xe3/0x1b0
+  do_syscall_64+0xee/0x4f0
+  entry_SYSCALL_64_after_hwframe+0x4b/0x53
+
+WARNING 2:
+
+WARNING: mm/page-writeback.c:2678 at __folio_mark_dirty+0x644/0x780
+
+Call Trace:
+
+  __folio_mark_dirty+0x644/0x780
+  block_dirty_folio+0x149/0x1a0
+  folio_mark_dirty+0xb9/0x120
+  unpin_user_pages_dirty_lock+0x588/0x6e0
+  process_vm_rw_core.isra.0+0x7ad/0x960
+  process_vm_rw+0x1c1/0x260
+  __x64_sys_process_vm_writev+0xe3/0x1b0
+  do_syscall_64+0xee/0x4f0
+  entry_SYSCALL_64_after_hwframe+0x4b/0x53
+
+Relevant ext4 messages:
+
+EXT4-fs error (device loopX): ...
+EXT4-fs (loopX): Delayed block allocation failed
+EXT4-fs (loopX): This should not happen!
+EXT4-fs (loopX): Total free blocks count 0
+EXT4-fs (loopX): free_blocks=2415919104
+
+The issue is reproducible on Linux v7.4-rc3.
+
+The full console output and C reproducer are attached.
+
+Best regards
