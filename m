@@ -1,71 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.65
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795293519;
-	b=R0jTdIAuFsUDW25Njqj/KSg+wJ5qzkKoJqumxWULUkFYjw1j8cuKzAkZwwOYgZjFMofV
-	 dJtf2rQRJc7L7XnFGdVeDB327Uj+3DsubdLmiVnPIXG5BRJL3GrRIB79u3lLBvn1N0CcC
-	 tHOJVeMVFK4DUR6bMh59YUHW1bxuXqSsXqwPk+oYTgK+OPeJVv6SndhHjBt9eOltGO7aP
-	 smJv8Ya7i5dXmFuSIFhBrG/mPNCmemAFTTfLUPwrgywbdDxLPW6MJy/yX9bBxDJVtcPsu
-	 KT7mO40N5LD+csgg9sAItBX/TFggDRkmHf44SCOXpmf3Aye49JadrXgOg0L96z9E96Q==
+	t=1795293610;
+	b=1xDzEL1SW2dP3wHIaNOyAtyEfvv9OIFja4u3tEJNnmnpuapiTCqfh/WsJI0q/3N5aX98
+	 CXvuQNxqRYFhE8uQRgpeoVUViXumQM53QLYDY3xCC5nJEb8nFk4b3iM8H0m6GqRgVdFZb
+	 KlQwjdGsAf1WYngLNIdMcdyXUrVkUpvfsFVnmSh/lJgl3Qx0F/642c9DphQLraDAsw+6c
+	 r4TdexWOldZgQ4PSaEEu248epPVEWSxLmTZfRdxCHyON4Ax5yY8tF6i8PUh94s9zlBNvQ
+	 KWAkoNrdlV/TT+VSBLm7tSAXCqezJjqqDol66jfFOxSU9ZmhWqFE6uznk0PzutTvOdA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795293519;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 MIME-Version;
-	bh=6FHwlCAX/DDPQXG3Am6fTEBu0QJ9hiclqgt5QIPJaAQ=;
-	b=4/Sli05ps9hjqM/9C+DPrLgtMtbW0ezqlloTArfQ/YJoEv/dYHTjctNWUmXavK9dopIS
-	 +blfO+pW2HhXHKWD6bpprS9ugt3SgPsnayh5XddSIFilU1WsLECMTCg22QYU6MUwngcvi
-	 /s/0UrQ+YBd2qJLIbog+DLI+CI0MMbrIECAK8X/OWs8Q7bBjC8kaXWD6fDS+G2qY16Pak
-	 m++ZnClTxRwXZDgvQnbRh7050UgJdezPf+qBJQeGj3uzzpJp7Sj/oEl1uwgW+WXcr5ugF
-	 L1GWL072k49s5gSsNwVIsEDN/1BN88zOERpF6cr/xcaBzR+UuzHPpO5iIlaj5lSFe6g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795293610;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=TBjlLLaSMdptS1qSf1sy2MeZrQefDkAIXeGwS3xNDrU=;
+	b=FaKbNd/hqN3R2zqt0+0lIYMIykEobq0clASTnkoZCtVlB2VQBWRUkByWjKf0JCOp7Tb/
+	 3XWPefPgGhDJhr29w/iUYXYmL9lR8Ofkw73rcgf+Qll5NUJxTCZc2pUBUMXTSE9nZ0Euv
+	 nVCBAjyEeM8RyAd6qpGtSn/5RmiLVBjybSvp/YapbZ9+nYm4BAAAwubepn8d/zDEsxIs4
+	 TIf0HYUPO9Wv4vYC3iTb3VeSzaZZYLAVOSc+ArwnAtasiA90ip0fbIQn03U7qFa9kjI7d
+	 er3StFkFkuOJplaFsX70qsRBKR8gMk402bMhnX3clWhOhlp4CJUzU/3c6MR9GzAoZ0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ZJYHzlzJ;
-	arc=none smtp.remote-ip=95.215.58.65
-Received: from mta1.migadu.com (out-65.mta1.migadu.com [95.215.58.65])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T2ICUGWl;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E82F606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:38:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E82F606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBC7B606A331
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:40:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ZJYHzlzJ
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=6FHwlCAX/DDPQXG3Am6fTEBu0QJ9hiclqgt5QIPJaAQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795293516; v=1; x=1795898316;
- b=ZJYHzlzJE326rGitO+pCAayWjpW0CFYeQfMhFOFf7ajEwkvCk2A3YmNAviUJFMiMzq/ooanI
- 1I0ud0kdvBsJ2S7z/TJjeb6tjXWtOPFbWD5bG3OQeHDezUShPjgPWqeWAS06rptcgj+lnq4zQ0B
- ZNQLqInD6/PXs3Dw3wvwslyI=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 45cd263349750bfa;
-	Sat, 21 Nov 2026 20:38:35 +0000
-X-Mizu-Trace-ID: 45cd263349750bfa
-X-Migadu-Flow: FLOW_OUT
-From: Igor Korotin <igor.korotin@linux.dev>
-To: Andrew Davis <afd@ti.com>, Danilo Krummrich <dakr@kernel.org>,
- Daniel Almeida <daniel.almeida@collabora.com>,
- Miguel Ojeda <ojeda@kernel.org>
-Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
- Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>,
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
- Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>,
- Onur =?utf-8?q?=C3=96zkan?= <work@onurozkan.dev>,
- rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] rust: i2c: Remove use of bindings::i2c_match_id
-Date: Sat, 21 Nov 2026 20:38:35 +0000
-Message-ID: <179529351558.12162.7808461205594973835@linux.dev>
-In-Reply-To: <20261118164404.237865-1-afd@ti.com>
-References: <20261118164404.237865-1-afd@ti.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T2ICUGWl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71D3D1F000E1
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:40:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795293610;
+	bh=TBjlLLaSMdptS1qSf1sy2MeZrQefDkAIXeGwS3xNDrU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=T2ICUGWlgRPchPUIQ+snZtdHmoEPJlYmXRuIWM2+7qMxZIlvBCJrzjTXVxZgCIuOS
+	 ygV5zB9T/a/BXUUN5D1Ua9irV1wgk8khz2Ed5wJG1l+tw/TKbLFs2TclDlVOHf4keG
+	 zhfeOIhuGmJyMd/6QgHDnCggwAPS8flD2uxh8EaQiq+++vVweWsOAru9rbf1EoRT0a
+	 YuCQw2jJ+hyvE4IWqe2nF6iVwkTRcIcJMdFwTaulrrTGzVzas9YmEswKX5Olu1Ps+C
+	 +nY64hZEYEW9UutqbeW1HSUfdJ1aE/GKm42Nie2xhlgdYGB7LcsoWyOYvc7GGe8Gca
+	 /3zyilDJuASkg==
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5be47aa555cso2467756e87.3
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 12:40:10 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEVsGMUpLNYKlN2pNxt+ttQR/WZn84lz6jaM3lnbm0uw8ZH8cmHKgjhZmUxAplm9a8c/0G/WsjQ523kUyM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9DyIVdtb/lwOZPqQQcna6C5GmQH67YrA8mwWMfoNqagL3YjZGR
+	hgoQhUy5TSooqvfIcUDohds+5wKy/18UXxacqf4LmQ8bunc60Pkpkxl7yCshmxto1E7knBrNhG+
+	ZBxMbZalrVnUTEkqydvfeKJZI7P4uZ2s=
+X-Received: by 2002:a05:6512:33ca:b0:5c1:57b6:5ffd with SMTP id
+ 2adb3069b0e04-5c1bc552d9emr2306559e87.0.1795293609072; Sat, 21 Nov 2026
+ 12:40:09 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,12 +59,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261112064957.1796975-1-dmitry.torokhov@gmail.com> <20261112064957.1796975-2-dmitry.torokhov@gmail.com>
+In-Reply-To: <20261112064957.1796975-2-dmitry.torokhov@gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Sat, 21 Nov 2026 21:39:57 +0100
+X-Gmail-Original-Message-ID: <CAD++jL=ww5ujTR8rL8htZ6APrbKqD0K+N6J6-LeMZsPSOhUtew@mail.gmail.com>
+X-Gm-Features: Aa3M54rUPZzCG9ojMkF6fiFvoquOOcY_PUVJLfl5nrRmYMblL1z9xSrx8VOuWKs
+Message-ID: <CAD++jL=ww5ujTR8rL8htZ6APrbKqD0K+N6J6-LeMZsPSOhUtew@mail.gmail.com>
+Subject: Re: [PATCH 1/5] Input: ads7846 - drop platform data support
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Aaro Koskinen <aaro.koskinen@iki.fi>, Daniel Mack <daniel@zonque.org>, 
+	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+	Arnd Bergmann <arnd@arndb.de>, Mark Brown <broonie@kernel.org>, 
+	"H . Nikolaus Schaller" <hns@goldelico.com>, Kris Bahnsen <kris@embeddedts.com>, 
+	Mark Featherston <mark@embeddedts.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, linux-input@vger.kernel.org, 
+	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Andrew,
+On Thu, Nov 12, 2026 at 7:50=E2=80=AFAM Dmitry Torokhov
+<dmitry.torokhov@gmail.com> wrote:
 
-Acked-by: Igor Korotin <igor.korotin@linux.dev>
+> Now that all in-tree board files (including board-nokia770, spitz, and
+> db1000) have been converted to Device Tree or software nodes, legacy
+> platform data support is no longer needed.
+>
+> Remove struct ads7846_platform_data and associated callbacks, parse
+> device properties directly without allocating a temporary structure,
+> and delete the unused header file.
+>
+> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 
-Taking this through rust-i2c-next.
+Good riddance!
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-Cheers
-Igor
+Yours,
+Linus Walleij
