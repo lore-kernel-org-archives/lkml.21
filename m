@@ -1,61 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.36.144.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795293705;
-	b=o3siQXvdG2O1TVUfWKlOgXijL4FJaay+yWFkoA2dBG+1YmJ4zJgMcvMZQQyH5oBoNGyP
-	 eU2zTdpsiqLYQgo4L3hI+UDH4jWC+5WjLTNErhqunKlFYIiLMhx3B+Sf4vRELM+6zt/Fq
-	 A+ZSWs3k4uQdeP15zWtzh3vAvJj8JM5njsufdiNTb2fMMx7JaMSKNrY8jsdt+mJFHq6ze
-	 fQ8/+ZBNeM5o0vKtAK7kaxM7Tzmx9p7kI2yH7fuMGAfSjcVnGahekLXMMAWcSC1EBPoWY
-	 5a85bWesfJzta3EK1kRwiZVGHL6zjgXCE/R34vbrE7m+CiIvO1nenCe3AwtZzgpdUnQ==
+	t=1795293719;
+	b=5nUORPNmYXx6D5MPW1FTiwPQSz1QuGyUXkxbzSNEZb8yaw/yMQwcSIomieK4douUb30m
+	 tEt9U0r3d7VSpoFJ3x2h1b+hZhR7jDVVIEcvdAGF+2oIYYzGWEarK3ESCJg1/2vBUFGd+
+	 8DQO/ww8Xr46fT6awyEU9sY5GIi/AiX6z/EjViyyHZ/dOnaNgO/vZUZ+OrhErzcEGf3Gw
+	 Mu6jyn2NQe9q4ZUIl5JgBEC5ZUTPsmYaIazS/kzU1+Iqyl7Ng56pPRKXxtN+NPGTqMoTB
+	 I05XUlPKW88lcoXq0NcRlFugcDg7QCCr9l8sK0jZ1Wc7FSFlHHN5GLfTkSRNUT5lJcw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795293705;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=qO/lDjAU8oXQuWFOSHzah7/JqbLGrQuaoNk2c0caW0s=;
-	b=3AiKmlRHx/6aRfpkF3/xAhGxiWooRsGxMVDTk9nTqoYEITkjYWB/B2hPOSDemTYJ2hGp
-	 pjYEiUCDNSHYLAT0ivk9DDHZofqDJNHCXwDYQi+5J1YQLbFcaeSXEYpNalcBFZo+Gejdz
-	 OtGETCksnUYq5DiFrZfwRC4APcbqFw4Nv2E2nL/0cFe/9nPKYp/7xKsR97rF2ylxe2jUD
-	 DgrGjyY6Kxk0umIx+2hBBp8zhCOLOGiIFy6uavZrY5ZOju1gb+OAIUAE07IjFqkqhV+f6
-	 MpTDGfaVJdgKpdki89dIrXIZSDsLYItIJ59ehB7m9ZkfrhMQaZIoNrMhu2dt1od8rFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795293719;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=S0KEtbQt8GRBQii0toPIaQocuYt1n+g/sLHZS8pvKLk=;
+	b=2iUHn15FUE9lvu9O/LNKr1sS4NmVftaxM3a+J38LDiMKzx+RgZvw97OVC0mCWPdovhvR
+	 41njxvaNbuOvxR907NWvfg5rIqDXh4GNN3fjQuL+B/JAkEjOlH1bNhEaK7oFQW8aEjJyJ
+	 3Iq6bfBZMoTWXh/D3GoDLg/j1dw2zoaRpyAnIS0YAg9Ja7Kfn1TWpOBvf/dOMHzzIiMDh
+	 KGo5TkP0d8fG5m/YEBstmTdDv+67pZE8I8qg2HW4dyyzVnuY7p4cq4VBHln+Vg8U6rCNz
+	 rW+T8UubvOu8D5GCO0ZHUyrh/00v8tVEOzyTgeKwkkakfUC9snOJySSxRPY9RolS9Jg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yoxcu.de;
-	spf=pass smtp.mailfrom=yoxcu.de;
-	dkim=pass header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=IpdCpZcO;
-	arc=none smtp.remote-ip=194.36.144.171
-Received: from morty.yoxcu.de (morty.yoxcu.de [194.36.144.171])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tzy8D86J;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A782C606A680;
-	Sat, 21 Nov 2026 20:41:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A782C606A680
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=yoxcu.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yoxcu.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C0FC606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:41:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=IpdCpZcO
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AE3F71D87262;
-	Sat, 21 Nov 2026 21:41:42 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yoxcu.de; s=dkim;
-	t=1795293703; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=qO/lDjAU8oXQuWFOSHzah7/JqbLGrQuaoNk2c0caW0s=;
-	b=IpdCpZcOWVcycutqYseU5wnSuDe2svkoSXPTxnInWUKn8NIdjZGtZCvCjT2/DCc4wQJj3P
-	FGkfggUf6RPU5SWOHCqDJfNa2x7gisx8Sk9g7Tvj8lYdWJ0bMUamJHrhPadvBxhnqgClh7
-	TkdENt1m62l9122QzY1jfVeYS9bojwA164Csr4XBub0uSmdbywF+3tuDwkQI4ijvc+5pd/
-	1QkkIOvqAOw0mV9seMt4OBSzEbhVL1GY7h2pIqLBisOiLtTFIUxbfAylKXLbUXl6XOlBGp
-	HipLSGP8jY3N5Q+zxjUM+u3/OMa1t6WECHa4OMsQHD/d9nTYwdMG6qET5lcF6w==
-From: Michael Auer <mick@yoxcu.de>
-To: Sebastian Reichel <sre@kernel.org>
-Cc: =?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Michael Auer <mick@yoxcu.de>
-Subject: [PATCH 3/3] power: supply: bq27xxx: keep the last values over a short read failure
-Date: Sat, 21 Nov 2026 21:41:37 +0100
-Message-ID: <20261121204137.848173-4-mick@yoxcu.de>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261121204137.848173-1-mick@yoxcu.de>
-References: <20261121204137.848173-1-mick@yoxcu.de>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tzy8D86J
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC3731F000ED
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:41:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795293718;
+	bh=S0KEtbQt8GRBQii0toPIaQocuYt1n+g/sLHZS8pvKLk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Tzy8D86JZar495yRQAG/65mVNGhyCfKZ5L+iBZCJ6QjFgum36aHL55ANEzOtPPdam
+	 I27chwcNdefUyX2zCTZS0nPR7luaQk5V/m+NJgvbO0DmYUlGxykZue07+Lfwz5/x/O
+	 Lt1coNjQvqDM+FNVRngzpuYv8VFp+uvQDRkZNOuZ8rSaRp29eXMp53mByE9daw0KRe
+	 AkhBeKePK67El9rbzIZkcjp/DpqqLU2UqCuO20+W9HCxpTZwrGWRpiVoKjV0J6PWOC
+	 +q2K6mauqv6d+Hsm6J/05vKBfV6s0AVUmo8J5djhkQqYaA53Q5zfi0vNkBePylYU45
+	 dQKCQqnJkfkcw==
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5c14f3dab66so1640116e87.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 12:41:58 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEKmzPmxwVkuafDZhq6HofrLfq5zgz8ZWWj7W0q1U0wCxCCalkacRhXVub+MnCQtrbwFB5O6A0wWEWzJg0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+fyxvEEZiiiR0rqjh+Od3zylHOhQ4fhvtXmjei1Dw1p5vHNucg
+	1OJFGtIkaiUeIqkYiM/eAFAPdbeFY1AUfkwmRICdTf3jGuPILa//UBMymQsRgFDaq7yzlXcGVYc
+	IwZa3wI8IIq+zbCNkI3IXzOkmf1dqyx4=
+X-Received: by 2002:a05:6512:2c9b:b0:5c1:ace3:12c1 with SMTP id
+ 2adb3069b0e04-5c1bc575979mr1899458e87.0.1795293717533; Sat, 21 Nov 2026
+ 12:41:57 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,128 +59,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20261112064957.1796975-1-dmitry.torokhov@gmail.com> <20261112064957.1796975-5-dmitry.torokhov@gmail.com>
+In-Reply-To: <20261112064957.1796975-5-dmitry.torokhov@gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Sat, 21 Nov 2026 21:41:45 +0100
+X-Gmail-Original-Message-ID: <CAD++jLnRGBk=kQ48AiR8nreGH5qqmgPpG9seh9nRdhsoQAO2XA@mail.gmail.com>
+X-Gm-Features: Aa3M54rjP1A51PecTmry92kFaSGq6HbI8P0tn6phUpG9qNi3VmLI5ZCflHpwjkw
+Message-ID: <CAD++jLnRGBk=kQ48AiR8nreGH5qqmgPpG9seh9nRdhsoQAO2XA@mail.gmail.com>
+Subject: Re: [PATCH 4/5] Input: ads7846 - remove unused code
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Aaro Koskinen <aaro.koskinen@iki.fi>, Daniel Mack <daniel@zonque.org>, 
+	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+	Arnd Bergmann <arnd@arndb.de>, Mark Brown <broonie@kernel.org>, 
+	"H . Nikolaus Schaller" <hns@goldelico.com>, Kris Bahnsen <kris@embeddedts.com>, 
+	Mark Featherston <mark@embeddedts.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, linux-input@vger.kernel.org, 
+	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-When the flags read of an update fails, the driver caches the error:
-"present" reads 0 and every other property returns the error until an
-update succeeds. Updates come from the poll work (every 360 s by
-default), a charger change, or a property read more than 5 s after the
-last update. So a gauge that misses one update makes the battery
-disappear for at least 5 s, and user space treats it as empty.
+On Thu, Nov 12, 2026 at 7:50=E2=80=AFAM Dmitry Torokhov
+<dmitry.torokhov@gmail.com> wrote:
 
-If a gauge that answered before fails an update, keep the last capacity
-and flags, so "present" stays 1, and re-check every second. Report the
-failure as before only once it has lasted 30 s. In that window a
-failed "status" read returns the status of the last good update.
--ENODEV (no I2C adapter, or a bq27000 without battery) is reported at
-once.
+> Remove the pwrdown_cmd member from struct ads7846_packet, unused since
+> commit 6965eece2a89 ("Input: ads7846 - convert to one message").
+>
+> Also remove the unused REF_OFF macro definition and drop the CS_CHANGE()
+> macro along with its sole call in ads7846_read12_ser(), since the
+> request structure is allocated with kzalloc_obj() and cs_change is
+> already zero.
+>
+> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 
-Start with cache.flags = -ENODATA instead of 0, so that a failure of
-the very first update is reported and not bridged with an all-zero
-cache.
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-A battery that disappears for good is now reported 30 s later.
-
-Signed-off-by: Michael Auer <mick@yoxcu.de>
----
- drivers/power/supply/bq27xxx_battery.c | 41 ++++++++++++++++++++++++++
- include/linux/power/bq27xxx_battery.h  |  2 ++
- 2 files changed, 43 insertions(+)
-
-diff --git a/drivers/power/supply/bq27xxx_battery.c b/drivers/power/supply/bq27xxx_battery.c
-index dccb0f84ea1d..6a0a916ec05c 100644
---- a/drivers/power/supply/bq27xxx_battery.c
-+++ b/drivers/power/supply/bq27xxx_battery.c
-@@ -1128,6 +1128,10 @@ module_param_cb(poll_interval, &param_ops_poll_interval, &poll_interval, 0644);
- MODULE_PARM_DESC(poll_interval,
- 		 "battery poll interval in seconds - 0 disables polling");
- 
-+/* Keep the last values this long when the gauge stops answering, re-check this often */
-+#define BQ27XXX_STALE_TIMEOUT	(30 * HZ)
-+#define BQ27XXX_STALE_RECHECK	HZ
-+
- /*
-  * Common code for BQ27xxx devices
-  */
-@@ -1968,6 +1972,35 @@ static int bq27xxx_battery_current_and_status(
- 	return 0;
- }
- 
-+/*
-+ * A gauge can fail a read for a moment, e.g. right after resume. Keep the last
-+ * values and re-check soon, and report the error only once it has lasted
-+ * BQ27XXX_STALE_TIMEOUT. -ENODEV is reported at once.
-+ * Returns true if the failed update was bridged and must not be applied.
-+ */
-+static bool bq27xxx_battery_bridge_error(struct bq27xxx_device_info *di, int flags)
-+{
-+	if (flags >= 0 || flags == -ENODEV || di->cache.flags < 0) {
-+		di->stale = false;
-+		return false;
-+	}
-+
-+	if (!di->stale) {
-+		di->stale = true;
-+		di->stale_since = jiffies;
-+		dev_warn(di->dev, "gauge read failed (%d), keeping the last values\n", flags);
-+	} else if (time_after(jiffies, di->stale_since + BQ27XXX_STALE_TIMEOUT)) {
-+		di->stale = false;
-+		return false;
-+	}
-+
-+	di->last_update = jiffies;
-+	if (!di->removed)
-+		mod_delayed_work(system_percpu_wq, &di->work, BQ27XXX_STALE_RECHECK);
-+
-+	return true;
-+}
-+
- static void bq27xxx_battery_update_unlocked(struct bq27xxx_device_info *di)
- {
- 	union power_supply_propval status = di->last_status;
-@@ -1977,6 +2010,8 @@ static void bq27xxx_battery_update_unlocked(struct bq27xxx_device_info *di)
- 	cache.flags = bq27xxx_read(di, BQ27XXX_REG_FLAGS, has_singe_flag);
- 	if (di->chip == BQ27000 && (cache.flags & 0xff) == 0xff)
- 		cache.flags = -ENODEV; /* bq27000 hdq read error */
-+	if (bq27xxx_battery_bridge_error(di, cache.flags))
-+		return;
- 	if (cache.flags >= 0) {
- 		cache.capacity = bq27xxx_battery_read_soc(di);
- 
-@@ -2192,6 +2227,11 @@ static int bq27xxx_battery_get_property(struct power_supply *psy,
- 	switch (psp) {
- 	case POWER_SUPPLY_PROP_STATUS:
- 		ret = bq27xxx_battery_current_and_status(di, NULL, val, NULL);
-+		if (ret < 0 && di->stale) {
-+			/* Status of the last good update, like the cached capacity */
-+			val->intval = di->last_status.intval;
-+			ret = 0;
-+		}
- 		break;
- 	case POWER_SUPPLY_PROP_VOLTAGE_NOW:
- 		ret = bq27xxx_battery_voltage(di, val);
-@@ -2304,6 +2344,7 @@ int bq27xxx_battery_setup(struct bq27xxx_device_info *di)
- 	di->unseal_key = bq27xxx_chip_data[di->chip].unseal_key;
- 	di->dm_regs    = bq27xxx_chip_data[di->chip].dm_regs;
- 	di->opts       = bq27xxx_chip_data[di->chip].opts;
-+	di->cache.flags = -ENODATA; /* nothing read yet: no values to bridge an error with */
- 
- 	psy_desc = devm_kzalloc(di->dev, sizeof(*psy_desc), GFP_KERNEL);
- 	if (!psy_desc)
-diff --git a/include/linux/power/bq27xxx_battery.h b/include/linux/power/bq27xxx_battery.h
-index 731ea837aac3..9c2a55f40f76 100644
---- a/include/linux/power/bq27xxx_battery.h
-+++ b/include/linux/power/bq27xxx_battery.h
-@@ -67,6 +67,8 @@ struct bq27xxx_device_info {
- 	int voltage_max_design;
- 	bool removed;
- 	unsigned long last_update;
-+	bool stale;			/* failed update(s) being bridged with the last values */
-+	unsigned long stale_since;	/* jiffies of the first of them */
- 	union power_supply_propval last_status;
- 	struct delayed_work work;
- 	struct power_supply *bat;
--- 
-2.43.0
-
+Yours,
+Linus Walleij
