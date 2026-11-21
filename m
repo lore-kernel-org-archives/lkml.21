@@ -1,95 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795261326;
-	b=MpkCx1BqVDbEJwapufUXHHoWJnrryUpgPqdwPqrwPNTBLHSfXXwBQBD4aMUAHaGtujYN
-	 +p7UR5K/mzWz8omcdhifLtffQafzQpV7NbzRsTze9vJGKjmjUUwa5eIkjbufRLqT9TzWb
-	 /RinIGxAWveIMdnpttihwHe87gyjFJNE5oI/AfZ/4hpjta5rrThY4B4r1921ybRAoCLFk
-	 N8LexZcF2OhYrHq/74mlQWrR+4mood3cxaJDsqmE0pMec55DkSkzAE+muaxpV8VrCwtH9
-	 2kuBU050+TeBL79nwp5ZJuwRkKgsi1np+PokjBQ1S0RK057hQq3aMXCvPCe53e3psOQ==
+	t=1795261460;
+	b=HEbOMX1qmOg7fKUxyZKQvll1rw8IabzThKvJE9C+woDAHsqqvoLpupEWVSpwq0AvRUVe
+	 GJoPzzomaLGtUGWKvNPg9dSpPP3QrZxgkyA1ySvkZVqUE2hPTWp6mS/fNTUGVGIrnG7fI
+	 JCvfWzhpCpueUo8PCZtnixY+637nagQ+3teK9qfDEzDpDOTAcApkVlNCXHYOJp1mbdsTl
+	 ltk8jTMKasKrwlOKxFOZ9sjoDSfF4anl0vpPnDxOISPClMIrYvg+dZLlgouKNZzULkxO2
+	 HsuTDsobHi7Ahy6RSNgERm2HADYsus/5kOf8XOoxaS7Bv4wt5dN9/RYh2cFOsuQSYaw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795261326;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795261460;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=GrCPnjv5Z6Dci31A0hwhpm1/xWI8LJ1YVMLpligaZfE=;
-	b=Wrc9fS/kLD5PRDG4TW6OMrVIYoKV7mbG/jcPHs4gLUQOM6H4fdK7qODGv1M0FlM/eFEM
-	 vFsRUw0AT04JL7fTEA9nmIRl63a2NPm0WJV6+j+ez5bXrH09DMXDzfme7BssOKrPa8rvA
-	 z94pdB6jmBkH0tnXmgImd6997yXJgsm80o1uNZHqBit5hrdGhMmjaMtJFCwh5JmrGKepG
-	 bFQEjDKFxzEYq7KkeL3ipYp/aehkHa3xt8lz5t514q8wlpmNlZPCB6gnGqAUEoVEVAC/k
-	 FIcL3SK8KdlRqSckk4MAfiNjX4zLGGllTxRpalD56eZhk4QYklGV0Fe33UhXLThA2dg==
+	bh=uJZf52C5SVOmAsQhxDSvrQ6mi3k6OZCc4lBLimUZnLg=;
+	b=zHB6HGa7A0nlOVfcNJqDtk2czkUW5o/2tpfiKJvkFlJwyoblQTNkpcE2heNGByz7b2qM
+	 1tw/ZC69n66rdDuMIO+lHIF4raXCAc4UpE4NmYLlid7Tds9K7lWgoD2MC+c8pn1xJ6un/
+	 6A+o5eHn+pSx7d9+TwoLeR243MbOs8Uvn9yPOnRwAfCa7LvHAkXyL23TWQkTX6lu1/T2s
+	 p/f6Zvu8PxuLPAmI9Q0ahmMDgRg4KCwpYXAVTBW4b7LFof5CheSpqXyipyXsAfY9tu+HR
+	 XwGAM0cEAfcmSldGAIa5C2DCGKRzH9n/HgbCWSteNCZrgV1Z2HPJ+YOluA5P3tsyzcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=efJ20zfi;
-	arc=none smtp.remote-ip=209.85.216.48
-Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com [209.85.216.48])
+	dmarc=none header.from=pardini.net;
+	spf=pass smtp.mailfrom=pardini.net;
+	dkim=pass header.d=pardini.net header.i=@pardini.net header.a=rsa-sha256 header.s=google header.b=TIkLjNiz;
+	arc=none smtp.remote-ip=209.85.208.54
+Received: from mail-ed1-f54.google.com (mail-ed1-f54.google.com [209.85.208.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C998606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:42:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C998606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55B89606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:44:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55B89606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pardini.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pardini.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=efJ20zfi
-Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-3b3fb193c03so844644a91.2
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:42:06 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=pardini.net header.i=@pardini.net header.a=rsa-sha256 header.s=google header.b=TIkLjNiz
+Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-6b8784a3284so2577561a12.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:44:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795261325; x=1795866125; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=GrCPnjv5Z6Dci31A0hwhpm1/xWI8LJ1YVMLpligaZfE=;
-        b=efJ20zfipgq6k0kSqXeU+p/Cc4qQGvJKUbY//GzAWBS2YcI6aL1HdvJceSvK5+S+A/
-         JAd/Nh5ddEaFqjxsg5cnBA3EIGGNlZ0Qj5RaiNow3mz6M7FqRj/IJhQxEd9xxAet+AIz
-         ojP04+eL57UvEW7rTZHD043dAzqIRk5I6BTbBOz+EIIjCHmSHDmcF280zPkUfQBksoJ8
-         /HnPKaeBZMMS8NOpLnPNcbACqPZa1cBIsqhgfAk1ir6W8EV8Ka9AeuST0WNYEPcPg1y2
-         pGD/Iow4Yom1Y3mS3ADzv7+Itjt1aVHUKpU9W4mPS+hcYqvvFik2aNfPb3AqNXJIOSwr
-         d5PA==
+        d=pardini.net; s=google; t=1795261459; x=1795866259; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=uJZf52C5SVOmAsQhxDSvrQ6mi3k6OZCc4lBLimUZnLg=;
+        b=TIkLjNiz8BhSYYZxkIh9xCzy9zMvVA08mLs6ao/qcFZ3oU9ph/SXkt+ejnty1JfEoA
+         myH9aRYhFDI8spBzsWj1t1pkJE4mAH4yjhiIrz4dWTEHyNunweJhT1NtEwkRxGTZ6tG7
+         Yi5RjqpyvmQnr3grY6oNUcRXIzdzOupXjmHEvm2KD/usBt39+XFFrpFkQ+jivbaO/8Ji
+         wOJEkezYyi5C+ZdRiOMpAGhIlQoaenqtNbWKAS0CPbSxLD7+Uugl17hY8zu5S/omOCo9
+         90D/iQnTsIsLtpKtdfniuySVjQt7auoEzQp4p01+2mTEC+HHBW14XXxdFPL8GWOc1aFH
+         z1Rw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795261325; x=1795866125;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795261459; x=1795866259;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=GrCPnjv5Z6Dci31A0hwhpm1/xWI8LJ1YVMLpligaZfE=;
-        b=IlYFp/OHENF3TFQvLiFGnEpgwBh+FlpJZpdLaoCm3sASHlfwo1/Qhwsq57hOjA9Ba9
-         Z6jcHIjXgfbREVh63LEJP4KAHd6VQg4TkgZ1rH6+gYD+6BzUiAtlfX42f3bzM5pwsu+O
-         LsCN+DxtadE6DUMdMtErwO+3ueb+n7N/4B6u+Sgo8Klp9lQGenvt9ujdXtF8GNjKIKmu
-         PpTmrNqCjwLTOjU3YM3P3jGD7ckH8G4ZYuWrHE+MZ9vvZMyJ1GGT6k0Au5kqWVH10zyA
-         Dr2VdT855agGmgvhtWecxyj1uimiiGeA3TPKK55ub4WhLYEHWQ7pcpn7/NGg7QacW3va
-         qlXA==
-X-Forwarded-Encrypted: i=1; AL+hErHTGUmTlS1E/mbl3LV5tMgY/FRWYNohBRbwNFiLk5eERpty14daiGvDb8vk7qZRlwDP//GKf0GmQgEkWFc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8k07PKM3HOLB4waXG5tEcfdfy5/KOqYPD26cPbwRRxDApIAtA2
-	XnSmg1hyjHZr+H733+0Hv97HSU+hc9ih8NlNK+hMRyr696Ed2MY7XFWjwP2jslYs
-X-Gm-Gg: AZFdTZfkwq4LiFoC3/TEHFQIm5KyYTc2RljZ/HSOQJkPICzP9E9Sj7aGlU+xRs0Y0Ec
-	a8hchfGADacZhqjFHybZXfKbHFQQxyfOE92GH1vmJfW2IMbFvnZATiwxZaaIvCV8GzKfV5UcgB3
-	HUJw2FkKeCb6TyrNJHnJjA12upt8OdKzhE2u4BKQ1yRqAzNp7xWeuaQ2Bmuzb/BCGtWIBRgvjmL
-	0Zhdd88pv7GiEJw4kaafZmI6D4kCvcxqznvA5Z2Si1o2AXAlSiS4fphPFTBjfsSRKPv/Ukb2UKM
-	SHU5bkC6pj1acYSh4fQ4gIyIh7YfxQhu8sVPlW04pCKWcbH7aRcTI3LBcvEMwViWUXpDiEK0fH3
-	1VZPIUefdGpTZnNM28aSlzi1JIADufSUp/UpK23SEQby+W0ZMjhCg4c4tzisS4h5W1o+t+kAhOu
-	tSNQ7CBYx6HvTaRE9g6FdBgVBXD9emYSE+ZZ3hW0OyShuV8/NUvhrG+xppo9CndONxk4CzKLGdB
-	DlXW/ydx1OxtKJ/guomluyMGYcAbLxslVPHQPa1c9uUYWvb7ALXrU94XgWrFkGL9iKx48c+qXri
-	Aqb3ZHyCuJYTGeoq4+eyGmNoMXBPo4Iw1UgaxKK+Ma3A8NUXeiCWaBQOmgGbChut3OBe7azOlfb
-	ZRUZX3vmjKFe7J20L/iTBHUx5IpaMpI9UY8QgwdBh0bsQRxjb0HFx9A+UfrlJrIW7U6JFqiPk9l
-	U32Vs=
-X-Received: by 2002:a17:90b:50:b0:3b4:1926:9eb5 with SMTP id 98e67ed59e1d1-3b41c98a1dcmr5092333a91.10.1795261325368;
-        Sat, 21 Nov 2026 03:42:05 -0800 (PST)
-Received: from EAIT-H54D9Q2FJQ.eait.uq.edu.au ([130.102.10.222])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cea7c29sm2439972a12.1.2026.11.21.03.42.01
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 21 Nov 2026 03:42:04 -0800 (PST)
-From: Yu Zhang <yuz08559@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Neill Kapron <nkapron@google.com>
-Cc: Aldo Ariel Panzardo <qwe.aldo@gmail.com>,
-	linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Yu Zhang <yuz08559@gmail.com>
-Subject: [PATCH v2] usb: gadget: f_ecm: serialize notification state with a spinlock
-Date: Sat, 21 Nov 2026 21:41:54 +1000
-Message-ID: <20261121114154.30274-1-yuz08559@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        bh=uJZf52C5SVOmAsQhxDSvrQ6mi3k6OZCc4lBLimUZnLg=;
+        b=Mwv0SMp7bXjX1qZp51NF2N8ktxiIeAhiMLm7t9WHqNIfKAA+jhUKA/5/FrX2Hq6fuo
+         1lSBp6NV7dYFBzSpVP5EUxIUk+sOCUK2jn84on3TGJQyx/c3zwccV7r7vUfJLSam6Th2
+         vAsSeSnZm1F/tg+qjBdwPj86lIPJpuaM2e7TtllbbMqnR6PvOC/G0NQl6Ka7W7RTa28M
+         yihNikvKmP1ZBqm/dc45eDN1zkGR+mysa+wZKSooAiCyQyi7LueyHRfi4q8QCbaBVfwF
+         Tb4fNoZQaIgURoWIsXI5ZB636hL4z4yBLSscJzIjCtPeVn6/ISLCOygX3tmSsW2Ti50A
+         JV/A==
+X-Forwarded-Encrypted: i=1; AL+hErGxoyO+wYY5v3HMGlpwdMqp6vO1NCkEQ0+ioDs6jaMMC1BjLSL5vilBvRKXqpJfxLZoTcuTsp6O9bGatUE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Tig602O+M7vYh7Nh0J5gRj8viBagrrStGER6xcXVeLEhINFOQ
+	dUo6JDVC+JZuutoM8dIkO9YYLedMkuihMXDYxPdxVXl3QBBX/cFMRpYmw6tAIZjolA==
+X-Gm-Gg: AZFdTZdxifu73hDGMKCsq2ieOgyzZ45l/8Vf+GTEJYlwi2dq0EzT+aPdpv+f+siIaKK
+	3kZ8K0nQWdhR01UvcvAQte1Z0PZM1m/NHzFeX/Rhfsmy4wDk+wPHDVV2CCrM6W6Gi+v+ZlZ7bYr
+	4i/hoUodYTsLYq3/gMVwca8wwFt86i85nJUn3BYVQ+Y0ggTy35MwDPK3L/4LUL3V+2h2ubkGn//
+	YOm2j1S7fvpoAiK5RQjL/mIxHn8MeQIR3KBxH4IVgFpyRABy7rb8ENNbMhOyyp7T8WlAB/NguQT
+	sO3sGJ4ryrLdQ4hrZxj+kBWelJ0KnWJtqijVLVXOfUqpQtcyouUS/q4DIp9DJA0njPZ9ZDi6mGX
+	9VTCUxYFMiQOuys04PDsR4+0kB2Zay5WqMN1ARTwyj8d59TWsbaqt2UnpT5LGB6TF0HZlMECila
+	OQV3/FpvRIZueWTOtD/9ZN3cPlKweb++DXhmRetXAHDb1Lmu9aBZTOUmr133XVp9MDZfH4NJCSj
+	d8vncriivZ8cdC6b4tjOElIGxdDuCbSmM6xUCixf/BYnDW2GNdRFIEnSSIuaY8608hvGypPHnmZ
+	0zLaYXG5PkbO0BSRFBbNodxYwnzZ+72K2/o7Mg0dqN8NfMs7FpxkCRQp9BrXi0wWaY7iRJDtUIM
+	QACczS5tHh6rxegDqWcnDB9VXFhLtJ+QYatuhqryB60w2jP/8E6m6EA36vy61Lamm9OZcUZE1My
+	GI
+X-Received: by 2002:a05:6402:2105:b0:6ba:3738:aa76 with SMTP id 4fb4d7f45d1cf-6ba37ec713emr4645637a12.28.1795261458717;
+        Sat, 21 Nov 2026 03:44:18 -0800 (PST)
+Received: from ?IPV6:2a02:a466:4d7a:0:409e:13f1:8f3d:aa19? (2a02-a466-4d7a-0-409e-13f1-8f3d-aa19.fixed6.kpn.net. [2a02:a466:4d7a:0:409e:13f1:8f3d:aa19])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fa8a4sm2294411a12.21.2026.11.21.03.44.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 21 Nov 2026 03:44:17 -0800 (PST)
+Message-ID: <acb17ca0-c814-4e41-91ba-10f28cdf9e00@pardini.net>
+Date: Sat, 21 Nov 2026 12:44:16 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,112 +94,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/8] usb: typec: fusb302: cleanup device driver probe
+To: Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Badhri Jagan Sridharan <badhri@google.com>
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kernel@collabora.com
+References: <20261113-fusb302-probe-cleanup-v1-0-e5c65a8c58c8@collabora.com>
+Content-Language: en-US
+From: Ricardo Pardini <ricardo@pardini.net>
+In-Reply-To: <20261113-fusb302-probe-cleanup-v1-0-e5c65a8c58c8@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-ecm_do_notify() guards re-entry only with an atomic_read() of
-notify_count, then fills ecm->notify_req, does atomic_inc() and
-usb_ep_queue().  This check-fill-inc-queue sequence is not atomic and
-runs from three contexts that share no lock: ecm_notify_complete(),
-ecm_open()/ecm_close() (netdev up/down via u_ether) and ecm_set_alt().
+On 13/11/2026 17:42, Sebastian Reichel wrote:
+> Move fusb302 to be fully converted to device managed resources
+> instead of having a mix risking leaks and clean up the interrupt
+> setup.
+[...]
 
-When the completion handler decrements notify_count to 0 and re-enters
-ecm_do_notify(), a concurrent ecm_close()/ecm_set_alt() can observe
-notify_count == 0 in the window between the atomic_dec() and the next
-atomic_inc(), and queue the same ecm->notify_req a second time.  The
-request is then added to the endpoint queue twice (list_add corruption),
-and notify_state is updated concurrently.
+Thanks for the series! Tested on a Mekotronics R58X-Pro (RK3588) on
+v7.4-rc3; the FUSB302 drives a source-only Type-C port there.
 
-struct f_ecm has carried a FIXME about this missing locking.  The sibling
-f_ncm already serializes the identical state machine with a per-instance
-spinlock.  Do the same in f_ecm: take ecm->lock across the is_open update
-and ecm_notify() in open/close/set_alt and across the state update in
-ecm_notify_complete(), dropping it only around usb_ep_queue().
+Probe, attach/detach and flips in both orientations, PD to SRC_READY
+and DP alt mode entry all work, with an RTL8156 2.5G USB NIC and an
+Apple USB-C Digital AV Multiport adapter (A2119).
 
-Signed-off-by: Yu Zhang <yuz08559@gmail.com>
----
-v2:
- - Take ecm->lock with guard()/scoped_guard() in ecm_open(), ecm_close(),
-   ecm_set_alt() and ecm_notify_complete() instead of explicit
-   spin_lock()/spin_unlock() pairs (Greg Kroah-Hartman).  The lock is
-   still dropped around usb_ep_queue() in ecm_do_notify(), as f_ncm does,
-   because the completion can run before usb_ep_queue() returns.  No
-   change to what is protected.
- - Sent as a new thread.
-v1: https://lore.kernel.org/all/20261026060031.60582-1-yuz08559@gmail.com/
+Tested-by: Ricardo Pardini <ricardo@pardini.net> # Mekotronics R58X-Pro 
+(RK3588)
 
- drivers/usb/gadget/function/f_ecm.c | 20 ++++++++++++++++----
- 1 file changed, 16 insertions(+), 4 deletions(-)
+mvg,
+Ricardo
 
-diff --git a/drivers/usb/gadget/function/f_ecm.c b/drivers/usb/gadget/function/f_ecm.c
---- a/drivers/usb/gadget/function/f_ecm.c
-+++ b/drivers/usb/gadget/function/f_ecm.c
-@@ -59,9 +59,8 @@ struct f_ecm {
- 	atomic_t			notify_count;
- 	bool				is_open;
- 
--	/* FIXME is_open needs some irq-ish locking
--	 * ... possibly the same as port.ioport
--	 */
-+	/* protects the notification state machine */
-+	spinlock_t			lock;
- };
- 
- static inline struct f_ecm *func_to_ecm(struct usb_function *f)
-@@ -414,7 +413,11 @@ static void ecm_do_notify(struct f_ecm *
- 	event->wIndex = cpu_to_le16(ecm->ctrl_id);
- 
- 	atomic_inc(&ecm->notify_count);
-+
-+	/* ecm_notify_complete() can run before usb_ep_queue() returns */
-+	spin_unlock(&ecm->lock);
- 	status = usb_ep_queue(ecm->notify, req, GFP_ATOMIC);
-+	spin_lock(&ecm->lock);
- 	if (status < 0) {
- 		atomic_dec(&ecm->notify_count);
- 		DBG(cdev, "notify --> %d\n", status);
-@@ -438,6 +441,8 @@ static void ecm_notify_complete(struct u
- 	struct usb_composite_dev	*cdev = ecm->port.func.config->cdev;
- 	struct usb_cdc_notification	*event = req->buf;
- 
-+	guard(spinlock)(&ecm->lock);
-+
- 	switch (req->status) {
- 	case 0:
- 		/* no fault */
-@@ -588,7 +593,8 @@ static int ecm_set_alt(struct usb_functi
- 		 * follow another (if the first is in flight), and instead
- 		 * just guarantee that a speed notification is always sent.
- 		 */
--		ecm_notify(ecm);
-+		scoped_guard(spinlock, &ecm->lock)
-+			ecm_notify(ecm);
- 	} else
- 		goto fail;
- 
-@@ -653,6 +659,8 @@ static void ecm_open(struct gether *geth
- 
- 	DBG(ecm->port.func.config->cdev, "%s\n", __func__);
- 
-+	guard(spinlock)(&ecm->lock);
-+
- 	ecm->is_open = true;
- 	ecm_notify(ecm);
- }
-@@ -663,6 +671,8 @@ static void ecm_close(struct gether *get
- 
- 	DBG(ecm->port.func.config->cdev, "%s\n", __func__);
- 
-+	guard(spinlock)(&ecm->lock);
-+
- 	ecm->is_open = false;
- 	ecm_notify(ecm);
- }
-@@ -942,6 +952,8 @@ static struct usb_function *ecm_alloc(st
- 	if (!ecm)
- 		return ERR_PTR(-ENOMEM);
- 
-+	spin_lock_init(&ecm->lock);
-+
- 	opts = container_of(fi, struct f_ecm_opts, func_inst);
- 	mutex_lock(&opts->lock);
- 	opts->refcnt++;
