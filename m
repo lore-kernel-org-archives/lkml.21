@@ -1,56 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=83.166.143.168
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795290710;
-	b=IvjTGZyTqsGTG+GQkbFqIaHHVPMmRV3gPie3NFCl9+FFjj3VbuUrrufKaRa4zJFvkZMq
-	 Iatmp6a1TkZ/Uo0AJvhtmHXu9EykbQugz13J9DTW7mJBOx9l8KFEgPGjl8+5mwos/Nbf5
-	 hutzLc8uJgEoct0wqNS/Ev+pNcUPnDp0i4ZvFQtQc000zgHws3tpzF2NiJ3dwkEMeG3Ih
-	 AIx0rh1LCape4fNCOK2QAkyu+Wz3mnCGkozLXp/57a5pd39NAikE/FHMp6V1X1NPl+CPj
-	 xsvLJ6zbxTAsShGScB1YY+4EG2Z/Il6naDrd8pymGxRkop+YUJ1NLtb7KbA5zIpDueg==
+	t=1795290870;
+	b=GdQll08AX5tsyi2Hvp/nMJbxQzsHf81xsDsS3i4A+fsXpPO6Pw1+GtVSybcUn+9Nsdm3
+	 yr3Ao9Lxea13DuyF5J1fvRfoYkWB2t9ihAokGXrz0cY4kvbtGikzlQVaQJ1NF2c83OvbO
+	 19zIGQdjLhzmirrV1YYFRMdDM8VJALxfxG0NVx3Fh3k53R1QFBrFepOT37G9zpYDd0iSG
+	 pi1xnDRjQEXSU8ixGAqK0KQeVLN48dMyTXenNBEcZt6PrOC53r32AABsbZuFUUmvXR7jv
+	 6dRckudV21BEPi8eJO75/OO8oF8X6X7t1qflhXVLRuWmB0PuNS4xum4XZ2BZ1zSYehQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795290710;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=GkqXyfKbYKFXj8J+3KPieMCEQRRKt19JWVxhhibgDIM=;
-	b=SbL7aKxNWOAVUO+Y0bmbtZZFSW3WYfnNKUVoAOpbmIdpEpvgUvh39SXDb/06MEwzW2y8
-	 eFx2VJyRd9Yo7W8pJViz62PBIAje//4e5KsF3uzPBf4c3PieliAgaV0Du44tacUiRXPeV
-	 hoZ/Tt9uPvhgNH1B9Z+OmSkJWGg7qlYQM6Tywa5AIQV+Q4+AZimp8auILptiorV3gx9D6
-	 rWRqfuCaKkMSCH7GqiqPIysfcKKAzAD3nfobJtiPWxr5PNORbigjECAI0zu92DuKQQFf8
-	 NYM47zI86/jyt0lfGrouUu259AbJddbw0hRqJiUjM8a8Ao2yMHQATpuLhoIHyC73SVw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795290870;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Infomaniak-Routing;
+	bh=Bcg6serWzzJut+m/VDVYqdkm+Bbwlucwp+T1gHr1Az4=;
+	b=GOR6r2nNEFiSGkaYvTt8hXSi+pcOUT/YZhyciLoH5AkUWsD1kIAEIUOwFLcCHOVcomN1
+	 omviH1b3XOuL5BAVAjzHTSZ3N5MzHLC2X7zguPrWb38bCAXhqckU24OP1jcDUaKWPGZfj
+	 2x1+Shg31gip/sUqbpo1IKvKTLUJUzvL7j9qkB0tDZMvzKWzRhJfN2Bz6Ch9PymrFRyvI
+	 HV7dQvrNv67D6kHW1Hal37B2eFVH6l/RyVovNa7M5T48BhHNaDWiyiCgZJ0YfzzovNFRq
+	 XoSlovwHQJ8T7dKMbOT5O+ikaF8SIuw2broutyGOI269R/8WK9su+XW9ps1U0FS6oMg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AvyzFRea;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=digikod.net;
+	spf=pass smtp.mailfrom=digikod.net;
+	dkim=pass header.d=digikod.net header.i=@digikod.net header.a=rsa-sha256 header.s=20191114 header.b=lrp1DGXF;
+	arc=none smtp.remote-ip=83.166.143.168
+Received: from smtp-8fa8.mail.infomaniak.ch (smtp-8fa8.mail.infomaniak.ch [83.166.143.168])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7C87606A320;
-	Sat, 21 Nov 2026 19:51:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE8A4606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:54:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AE8A4606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=digikod.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=digikod.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AvyzFRea
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38F411F000C0;
-	Sat, 21 Nov 2026 19:51:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795290710;
-	bh=GkqXyfKbYKFXj8J+3KPieMCEQRRKt19JWVxhhibgDIM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AvyzFReaeN9EfkHxN8epdHdZ5zSDOQIZjHmt0/xbb7llGgSixYgiyXcrD6tPiA1l9
-	 tNo9D7MaoEewNe0emO4Dl3Fp8rGBQ4iWhts2A5FD+t7A18MxbmSmAgjudb4hjVHEmm
-	 2s9xg9ERrdcPYjb5ZKDKx/zpYw2Qu7c77qsYI3QFKV0qRlaMiJBBw0CqOW3K3h5Bdn
-	 CvXEA66aGZhYvEm6qr040cu0plgra6Hr+pFiK7DgD+MghlGkFuusQsjyvYAPd1IBf6
-	 cvJW88B/eT9xlhYdIZLOH4wuxsBO/xPox19OUxjaOxy4WIBpPac24CECXCxmf/Gzsj
-	 MUBaCbrUpHF+Q==
-Date: Sat, 21 Nov 2026 11:51:48 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>, x86@kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] lib/crypto: x86/sha2: Drop one-off implementations for
- Sandy/Ivy Bridge
-Message-ID: <20261121195148.GC1975@quark>
-References: <20261115080900.216434-1-ebiggers@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=digikod.net header.i=@digikod.net header.a=rsa-sha256 header.s=20191114 header.b=lrp1DGXF
+Received: from smtp-4-0001 (smtp-4-0001.mail.infomaniak.ch [10.7.10.108])
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4jX2wC2ctHzJnk;
+	Sat, 21 Nov 2026 20:54:19 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=digikod.net;
+	s=20191114; t=1795290859;
+	bh=Bcg6serWzzJut+m/VDVYqdkm+Bbwlucwp+T1gHr1Az4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=lrp1DGXF4sMHXSB3dtPD0en1W8ZbNQqcUk0qSl+hXng2yaAiv4JfOL4HSkavI/gyp
+	 q20acMGCiabqFSv9uLS8PtZejk73WjxFCjde9H26R0qKwOKUikHKp9hQ4uoJwytvnB
+	 epYTtoDF8nBsb67W0+/F0YH2f7rWwLwn4lQC2iAU=
+Received: from unknown by smtp-4-0001 (Postfix) with ESMTPA id 4jX2wB2QdWzCSW;
+	Sat, 21 Nov 2026 20:54:18 +0100 (CET)
+From: =?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?= <mic@digikod.net>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: =?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?= <mic@digikod.net>,
+	Bart Van Assche <bvanassche@acm.org>,
+	Dwi Siswanto <me@dw1.io>,
+	=?UTF-8?q?G=C3=BCnther=20Noack?= <gnoack@google.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Tingmao Wang <m@maowtm.org>,
+	linux-kernel@vger.kernel.org,
+	linux-security-module@vger.kernel.org
+Subject: [GIT PULL] Landlock fixes for v7.4-rc4
+Date: Sat, 21 Nov 2026 20:54:04 +0100
+Message-ID: <20261121195404.2775730-1-mic@digikod.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,87 +67,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261115080900.216434-1-ebiggers@kernel.org>
+X-Infomaniak-Routing: alpha
 
-On Sun, Nov 15, 2026 at 12:09:00AM -0800, Eric Biggers wrote:
-> [ This is proposed to supersede my patch
->   "lib/crypto: x86/sha512: Partially roll up sha512_transform_avx()"
->   which was starting to clean up one of the files being dropped. ]
-> 
-> Currently, the kernel has SSSE3, AVX, and AVX2 implementations of each
-> of SHA-256 and SHA-512.
-> 
-> The AVX implementations of SHA-256 and SHA-512 run only on CPUs that
-> have AVX but do *not* have AVX2.  These are all the ones I could find:
-> 
->     - Intel Sandy Bridge and Ivy Bridge
->     - AMD Bulldozer, Piledriver, Steamroller, Jaguar, and Puma
->     - Zhaoxin KX-5000 and KX-6000 (possibly SHA-512 only, as these CPUs
->       might be able to run the PHE optimized SHA-256 code)
->     - Maybe some oddly configured VMs
-> 
-> Oddly enough, this "AVX" code doesn't actually have much to do with AVX.
-> The only AVX capability it uses is support for 3-operand VEX-coded
-> instructions, which is unlikely to make a huge difference.
-> 
-> Its actual purpose is mostly unrelated to AVX: it replaces the 'ror'
-> instruction with 'shld'.  This is entirely to work around a quirk
-> specific to Sandy Bridge and Ivy Bridge where the 'ror' instruction was
-> very slow for microarchitectural reasons, and 'shld' worked better.
-> 
-> This is documented in the contemporaneous paper "Speeding up SHA-1,
-> SHA-256 and SHA-512 on the 2nd Generation Intel Core Processors"
-> (https://ieeexplore.ieee.org/document/6209073).  There, the 'shld'
-> workaround was claimed to speed up SHA-256 and SHA-512 by about 20% on
-> Sandy Bridge.
-> 
-> However, that was a one-off quirk.  And even the paper itself warns
-> about using the 'shld' approach on other microarchitectures.
-> 
-> On AMD CPUs, and on Intel CPUs after Sandy and Ivy Bridge, the exact
-> opposite applies: ror is a fast single-cycle and single �op instruction,
-> while shld is either a slow microcoded or multi-�op instruction.
-> 
-> From what I can find, this is true even on the older AMD CPUs mentioned
-> above that run this code.  Thus this code has likely always been harmful
-> on AMD.  (I don't have such a CPU available to test, but for what it's
-> worth, on Zen 5 the AVX SHA-512 code is 58% as fast as the SSSE3 code.
-> Clearly, the 'shld' hack can be quite slow on CPUs it wasn't meant for.)
-> 
-> We generally shouldn't be carrying asm files that are one-offs for
-> single microarchitectures, as it's just not worth it.  This is
-> especially true when the code has been mistakenly targeted to other CPUs
-> on which it is likely harmful, and when it has other issues that would
-> require maintenance, such as excessive loop unrolling and spilling the
-> entire 640-byte SHA-512 message schedule to the stack.  (The SSSE3 code
-> has the same issues, but it's easier to fix it in one place.)
-> 
-> Therefore, let's drop sha256-avx-asm.S and sha512-avx-asm.S.
-> 
-> The CPUs that could have run this code will instead run
-> sha256-ssse3-asm.S and sha512-ssse3-asm.S.  SHA-256 and SHA-512 may get
-> around 20% slower on Sandy and Ivy Bridge, but they likely get
-> significantly faster on AMD CPUs from around the same time (2011-2014).
-> 
-> Everything with AVX2 continues to run the newer code and is entirely
-> unaffected by this cleanup.
-> 
-> Signed-off-by: Eric Biggers <ebiggers@kernel.org>
-> ---
->  lib/crypto/Makefile             |   2 -
->  lib/crypto/x86/sha256-avx-asm.S | 493 --------------------------------
->  lib/crypto/x86/sha256.h         |  12 +-
->  lib/crypto/x86/sha512-avx-asm.S | 421 ---------------------------
->  lib/crypto/x86/sha512.h         |  14 +-
->  5 files changed, 6 insertions(+), 936 deletions(-)
->  delete mode 100644 lib/crypto/x86/sha256-avx-asm.S
->  delete mode 100644 lib/crypto/x86/sha512-avx-asm.S
+Hi,
 
-Applied to https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=libcrypto-next
+This fixes several Landlock and LSM issues:
 
-Acks appreciated, but I think this is very well justified.
+ - prevent composed rulesets from denying link and rename operations
+   that each ruleset allows separately;
 
-- Eric
+ - close capability-mediation gaps for low-address mappings, inheritable
+   capabilities, the admin memory reserve, and PR_SET_SECUREBITS, so LSM
+   capability denials apply consistently;
+
+ - distinguish namespace creation from entry in denial records and
+   expose the checked capability context to BPF tracepoint consumers, so
+   they can interpret denials correctly.
+
+Tests and documentation are updated.  This also fixes clang-format's
+handling of guard() and a missing landlock_add_rule(2) error
+description.
+
+Please pull these changes for v7.4-rc4 .  These commits merge cleanly
+with your master branch.  Kernel changes have been tested in the latest
+linux-next releases.
+
+Test coverage for security/landlock is 91.8% of 2894 lines according to
+LLVM 23, and it was 91.8% of 2864 lines before this PR.
+
+Regards,
+ Mickaël
+
+--
+The following changes since commit aebb7274476403040d582c61478df8f4a7bf9cd3:
+
+  Linux 7.4-rc3 (2026-11-15 14:30:11 -0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/mic/linux.git tags/landlock-7.4-rc4
+
+for you to fetch changes up to 4feb6879b9ab42cacb905f27a44160b7f1f49d85:
+
+  landlock: Add missing EINVAL case in the doc for landlock_add_rule (2026-11-19 17:51:43 +0100)
+
+----------------------------------------------------------------
+Landlock fixes for v7.4-rc4
+
+----------------------------------------------------------------
+Günther Noack (5):
+      landlock: Fix layer composition of LANDLOCK_ACCESS_FS_REFER
+      landlock: Add KUnit test for landlock_get_fs_access_mask()
+      selftests/landlock: Test that layering does not break refer
+      landlock: Simplify landlock_get_fs_access_mask()
+      landlock: Clarify implicit handling of LANDLOCK_ACCESS_FS_REFER
+
+Mickaël Salaün (13):
+      landlock: Factor out capability denial checks
+      landlock: Mediate CAP_SYS_RAWIO for mappings below mmap_min_addr
+      landlock: Mediate CAP_SETPCAP for inheritable capabilities
+      landlock: Mediate CAP_SYS_ADMIN for the admin memory reserve
+      selftests/landlock: Test capability checks outside the capable hook
+      landlock: Fix capability restriction documentation
+      capabilities: Check PR_SET_SECUREBITS with ns_capable()
+      selftests/landlock: Test PR_SET_SECUREBITS mediation
+      landlock: Distinguish namespace creation and entry denials
+      landlock: Add capability objects to denial tracing
+      selftests/landlock: Test namespace denial operations
+      landlock: Document namespace denial operations
+      clang-format: Fix formatting of guard()
+
+Tingmao Wang (1):
+      landlock: Add missing EINVAL case in the doc for landlock_add_rule
+
+ .clang-format                               |   1 -
+ Documentation/admin-guide/LSM/landlock.rst  |  21 +-
+ Documentation/security/landlock.rst         |   8 +-
+ Documentation/trace/events-landlock.rst     |  26 +-
+ Documentation/userspace-api/landlock.rst    |  11 +-
+ include/trace/events/landlock.h             |  36 ++-
+ include/uapi/linux/landlock.h               |  24 +-
+ security/commoncap.c                        |  45 ++--
+ security/landlock/access.h                  |  11 +-
+ security/landlock/audit.c                   |  10 +-
+ security/landlock/cap.c                     | 130 ++++++++-
+ security/landlock/domain.c                  |  44 +++
+ security/landlock/domain.h                  |   9 +-
+ security/landlock/errata/abi-4.h            |  21 ++
+ security/landlock/log.c                     |   6 +-
+ security/landlock/log.h                     |  12 +-
+ security/landlock/ns.c                      |  10 +-
+ security/landlock/syscalls.c                |   1 +
+ security/landlock/trace.c                   |  12 +-
+ tools/testing/selftests/landlock/cap_test.c | 397 ++++++++++++++++++++++++++++
+ tools/testing/selftests/landlock/common.h   |   4 +-
+ tools/testing/selftests/landlock/fs_test.c  |  61 ++++-
+ tools/testing/selftests/landlock/ns_test.c  |  25 +-
+ tools/testing/selftests/landlock/trace.h    |   1 +
+ 24 files changed, 815 insertions(+), 111 deletions(-)
