@@ -1,66 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795253194;
-	b=om+FmdcENl35yuBRVdoZiUR1/y6aJgAn1bfd49dgoJ1uqAMw1MpsVc3H8N28e/pi+N8b
-	 hDgn/4Sg16s39fDjfl6fqYnnhL4dJlU6I9OQlKxYC9yts0Wo/176KI//iolgDVmFLxaEp
-	 hRnMq+EHV7rZcZYMw3Tt/i6+rL39uqgThnJamAOAy9ecjIXBG7lgU3a3mOvrkI47PdBIy
-	 hkDvwy+Zr4s8ImI2fZoIuZ0ASV0BsmM66snUZ1iAzolry/2Jwr8yC9MK24ZzDznCzE2ga
-	 quGHL3YsCMaArufRj44QOb58qJfBkr0inyIenm+gVqUPGZLEz+pJ60O/8rY2Uvj+iIQ==
+	t=1795253232;
+	b=1cmYRhk5HbNV0rUoyOvpC9J0uUwVH4V3RkKHlNmd3LpR0f6UdY02aDAc4en/X/t9FOt2
+	 LzWhU4A3VKatUcjJRcdK93nzteSm/zSdqQ0ONcMufd7wCYSg8VmV2qN5a7cgOpM3XcBjL
+	 NlhM+rh3+4gnGlXEYnvuCP6pXxXeMJOaKPw8hriIBX7DS6DGe/PAJzJd6rA0Fcf+ZzBZn
+	 AtY6zot78BaaFV3Aft1o8ALAct5XF7Dd0Svq9WDcTnIL64aS0ukaJ0luFc6rtgCtSzc4m
+	 UbcHe/UheKqpt67EToHUTtTqvfSQL3aBgm6DW9KwhWSWRKODq+qzLyFWf3vpZCcdD5g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795253194;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-MBO-RS-ID:X-MBO-RS-META;
-	bh=tkL/z/R0SbFY740pV47VxboaIE/TybpLhx8T/oqu5S0=;
-	b=ihelXoyziLbUr4srjRZPanvjEwbw6RjPt2Ul8A1DEFddll6g5VxzmcRQ5uWxoEvrvjhY
-	 p8rhXX/wUWYAUb1Fs8bh+pmNuNuPxL15+vRXgqpRsNN0I1NfALPrXNMs7GebH2EimsCF3
-	 lEdQj/HMQaZxdU4n5smUo1YGFslzsaMOqG62vhay8HCC1SVbNmXhxvB+uNF6pEnijn+5w
-	 qwZ8mH7J8GsnNXo1svoEVmqgPjefYFAd0AwpUEc++aBsR2zWNL9KmEKu/uyxyqPsRbyUq
-	 6KRfPvJdxeM5m+XlxkBWt/HcBgJ2tlOA4AJsV1Ys38THdgrhJgwqisSKbdN5rOKD15g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795253232;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=rET3kefZAMMGm5z84Ogk5S979dN/zqnTQfW5Uun5HJ0=;
+	b=qjbTNYGbUvEIT6XuLz/0aBrnWQ5TCLkpZYQbFiO9VztzdfeF0yMpsOKor9X71ygsqjap
+	 KT8Sishb7z6v0LC2gb7lTgyBQM59Xg1Gqqnvozbu1nUMM0VW/SnopnqIC/8qO4zZvaUVO
+	 T2KjDtu67/1RE3I1nYF7a0xgy2ntonSaJ2sL8sML7FvhvJm9FucbnCCXINDGXDe7wboZl
+	 42L7Y1U0zzH8swoI86Z67C0aFSi0eVhWwJL5Pn9oE3olwpARbq8zu0hSunyUXbCG04pf1
+	 II4ONJTsgGZUPtdA3Wz9xBcrlRede3zevO0Isk1/QmyngwPNs0x3xgyCda6Oz6mKqDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mailbox.org;
-	spf=pass smtp.mailfrom=mailbox.org;
-	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=AnMi+2nK;
-	arc=none smtp.remote-ip=80.241.56.172
-Received: from mout-p-202.mailbox.org (mout-p-202.mailbox.org [80.241.56.172])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kSEFpXo6;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB2B3606A325
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 09:26:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB2B3606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90861606A320;
+	Sat, 21 Nov 2026 09:27:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=AnMi+2nK
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4jWmzn3kHyzMlw5;
-	Sat, 21 Nov 2026 10:26:29 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1795253189;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=tkL/z/R0SbFY740pV47VxboaIE/TybpLhx8T/oqu5S0=;
-	b=AnMi+2nK0RFgSTGFjKtox94J8zDAMjABjkXSFHBauBDpBSjGXJskXuZleLUEmKew+OM4Qn
-	6Sw+WHNEorFrT8VaaV/i8PJrcEUO/8jxEL7AXHDC7GGulOooA3fL7A+mXOp2v7N4kOoMa+
-	Trd5yc0ZA9y4jQZ8n0KjG32N+Mj+XNgwyau02npXGb2DQSozEPkavD3FsdjRa/9xcnikc1
-	vuXtD7+RQj55LUQIiPCgN6ATgNtY61naMu/MXOk/DFOFh3co7Pwvq1gjMv3gAuYte4UApx
-	ywwyfQ18L1nSNcZFxYD4PrDxYXa3Gj3yS3f/x9+ps169DeD6bufCcuZcH4+pnQ==
-From: Manuel Ebner <manuelebnerli@mailbox.org>
-To: 
-Cc: Manuel Ebner <manuelebnerli@mailbox.org>,
-	Mike Waychison <mikew@google.com>,
-	Mike Waychison <mike@waychison.com>,
-	Jean Delvare <jdelvare@suse.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] Documentation: ABI: sysfs-firmware-dmi: fix bracket
-Date: Sat, 21 Nov 2026 10:25:58 +0100
-Message-ID: <20261121092558.1434057-2-manuelebnerli@mailbox.org>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kSEFpXo6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 227781F000C6;
+	Sat, 21 Nov 2026 09:27:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795253232;
+	bh=rET3kefZAMMGm5z84Ogk5S979dN/zqnTQfW5Uun5HJ0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=kSEFpXo6P+shEey8EWvZJFJ18UYQC/D1nxHXCtEQ5uJtSiAHu/N0UMT64xtAqOZmv
+	 w/DKjJ/4d4+M0hTOO74jYKlO0cspFCdflFCgmfGBEI4G27CWM2oBvoogwYzGX3cG9w
+	 zc2IHo83QddTHay4eD7rLY/Yukq/C4D6uQE1rqmx2a3a1KpAwbxv9DJne6Z3keWlze
+	 093nS+ug3Rn3ifSFhX4ngSloHstA9Ev9RiOkehqyQn5hoN4iq1ZIhmIoa9YufnEOEp
+	 ryQqxXxITGRO8FAU7+gs2BmcVT0Q3wenkLQiDaJvRF6inJFOUibQw39JaRG3fnS2ZZ
+	 6usW6lXDzY+Jg==
+Date: Sat, 21 Nov 2026 10:27:07 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Komal Bajaj <komal.bajaj@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Kumar Patro <bibek.patro@oss.qualcomm.com>, 
+	Jingyi Wang <jingyi.wang@oss.qualcomm.com>, Luca Weiss <luca.weiss@fairphone.com>, 
+	Shawn Guo <shengchao.guo@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-remoteproc@vger.kernel.org
+Subject: Re: [PATCH v7 1/5] dt-bindings: remoteproc: Move iommus constraint
+ to SoC-specific bindings
+Message-ID: <20261121-spectral-terrier-of-whirlwind-aee5b2@quoll>
+References: <20261120-shikra-el2-v7-0-9d9000eb50d4@oss.qualcomm.com>
+ <20261120-shikra-el2-v7-1-9d9000eb50d4@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,43 +64,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: e80d26bc4291b0e5a89
-X-MBO-RS-META: ri5pyt39gigsf8tmmjaszgupxp94pmjt
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261120-shikra-el2-v7-1-9d9000eb50d4@oss.qualcomm.com>
 
-Add a missing ')'.
+On Fri, Nov 20, 2026 at 06:50:49PM +0530, Komal Bajaj wrote:
+> qcom,pas-common.yaml limits iommus to a single entry for every PAS
+> remoteproc binding referencing it. This is too restrictive for SoCs
+> whose firmware uses multiple IOMMU streams, and a schema referencing
+> the common one cannot relax the inherited limit.
+> 
+> Drop iommus from qcom,pas-common.yaml. As this removes the property
+> from every binding referencing it, define it in the top-level
+> properties of each of them, with a description and the same
+> maxItems: 1 limit, so that SoCs needing a different limit can override
+> it in their own binding.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Komal Bajaj <komal.bajaj@oss.qualcomm.com>
 
-CC: Mike Waychison <mikew@google.com>
-CC: Mike Waychison <mike@waychison.com>
-CC: Jean Delvare <jdelvare@suse.com>
-Signed-off-by: Manuel Ebner <manuelebnerli@mailbox.org>
----
-[v3]
- Fix mishap with my e-mail address
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-[v2]
- Fix subject
- https://lore.kernel.org/all/20261121075733.1424749-1-manuelebnerli@mailbox.org/
-
-[v1]
- https://lore.kernel.org/all/20260612124528.185277-2-manuelebner@mailbox.org/
-
- Documentation/ABI/testing/sysfs-firmware-dmi-entries | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/Documentation/ABI/testing/sysfs-firmware-dmi-entries b/Documentation/ABI/testing/sysfs-firmware-dmi-entries
-index b6c23807b804..ed7d9d06a9ff 100644
---- a/Documentation/ABI/testing/sysfs-firmware-dmi-entries
-+++ b/Documentation/ABI/testing/sysfs-firmware-dmi-entries
-@@ -93,7 +93,7 @@ Description:
- 		  /sys/firmware/dmi/entries/15-0/system_event_log
- 
- 		and has the following attributes (documented in the
--		SMBIOS / DMI specification under "System Event Log (Type 15)":
-+		SMBIOS / DMI specification under "System Event Log (Type 15)"):
- 
- 		- area_length
- 		- header_start_offset
--- 
-2.54.0
+Best regards,
+Krzysztof
 
