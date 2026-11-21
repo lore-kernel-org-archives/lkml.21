@@ -1,54 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795289663;
-	b=ihlL1E7NP4yz9nS11gSGuQsE5BfDh+DvCAv+qrAmxKcxgtNF5fiOyekmHnA6ODkgiPn2
-	 hnSf0iF9KmcLIEEjVh/p0DlReqD6ZXjS0U2aU6UCfxLWy3q6RlUydl0sVpfwmebmsSY9S
-	 xv9Flqs3uIkmVGe82V9pflljIOHWbwuKL7QUYQlJOgH+SSbE91QOnlYEDJr/kk0HPWRiM
-	 FqDgKpTjLwWMRS2TcmsakafHZCYbU58qGlgW1iu5zt90MqgqUQrcmD0mgsGljjpPw2EMB
-	 4iLkORvHCoJjY3fzURuN8PooHbJI1JqpEpNThFVQFkznmqZBc0t/dXOgzoIARywgWeA==
+	t=1795289696;
+	b=SgCbXAzLH/k7A3m5kVd8cE5Yx0FHQrvvAL7mYqhxMnvo4ZWvp/VP/nHrmT5YbCD+cw6O
+	 IL9Z+1YbmOTjQb3NWcirx7PhOmz3G4tRD7U+MM6HSx16xjn2qyEQ3nQ46iBBvkK6PoDWs
+	 s2Rz/tuYs3HYMcJ5d1/ThOioAiWKu7N7CZ458aX+2yNBUNzI+fwOn9qrZ/uVz4mpNWwex
+	 X2rx4oAdJ9FtrfeTQNe/6xWJYtLOSg7OrsJkLbMA6WuRMyxAJpL+3Fd8KMcqmk6jko0m0
+	 sKIhaY0U5NhdyBaxxe/KUs0Mk/6D7Jmajm3xwo4Ss1HS/7hQ2cDmzRGMed12azqF5TA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795289663;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795289696;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=ORTW/L5hh1DC9F6jjZky2W0T49vigeZuL6otjngyggU=;
-	b=3C26KSCdXrGoUJKUh9neghMJjMsPNuU6fI+EaShx2m9Hxzc1HOyf9Q0JYlA6lkqERlAq
-	 nOpMlmmydGVpmesvB/9dTQXcqI5SvDLH7irTZ2aEy0G9DXYQ7u7hJ2I1TgtviEL2RkIaE
-	 fiE/1tc4cYe8BNNnrF3+N+hBtZo9x8V/xJgQqBuUXZrUOP8m0FJP6+awUspq39pHPc0IC
-	 M1p8fMMOcFtpHjKMVBSYJT7RPXjDrsG74UTyP1clo945xJdqBwVLxUGrb3jBaxnepLx+q
-	 GfZ/mXtK6oE2D2N1boIo49e8a78+yEHLLcx+jEdC3casJGHjRzEd2aVSDlKrF7I4EwA==
+	bh=n5ZnpCxALSpimlZbz+ysdwCQ7qxNjOgOx10w71IS4KQ=;
+	b=5S7tH8KTbsfjSKbQDyKUsZznbvLnxWewqldpDIAo2XTVQE4henE1ikEIEFeWOsP91mSa
+	 ph3HFWkROic/yntRFz6cupeb+oPsyUi1r9+PjyVH1LN6WCkKUn2Dw9IlL7T62i0YnVaZj
+	 v/FNsULW5piLZzcIpu0RrdOhKt1rnRbcreZeVfvXFP4HJMobaJfObFfrEqjRU6LWYl3gp
+	 BSoKQQi1hAowovGAFXNlnMhzBgvEX9paXcTQEhMgMu6H58qm70VDHb/SHw87n0wbB/CP3
+	 f4viF5yMJ3ii9B+z7uMr8y0424xGrmx3c8W2qCnBFAUQs2bATNGfFIkrSr0N2kar5PQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=DBB7aNQg;
-	arc=none smtp.remote-ip=95.215.58.118
-Received: from mta1.migadu.com (out-118.mta1.migadu.com [95.215.58.118])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jFfjWxj3;
+	arc=none smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CF96606A32C
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:34:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1CF96606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D832606A32C
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:34:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D832606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=DBB7aNQg
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=I9C/bgiJfXHgW926J6D3HYkewXOwJxbleb9jrP9kCpY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795289660; v=1; x=1795894460;
- b=DBB7aNQgauNKvIny4sl0fzklqH8l1slINVYmwr4Dvt7SIpQVqC7N3fR9hj8RwL+Or0EcXEW2
- bRX3vKqgJ4HCaHdlj7PhB7H8WKtY8x/j+g8tnWL/+TlSnLvTNUeBnXsLb/hls7uhRk3WJoRXa4J
- pOIKgax3y+odp8A9btAkFVsQ=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 0be58bc518feca3e;
-	Sat, 21 Nov 2026 19:34:20 +0000
-X-Mizu-Trace-ID: 0be58bc518feca3e
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <3a58ba4f-fd64-4144-8635-4b99983f7640@linux.dev>
-Date: Sat, 21 Nov 2026 11:34:12 -0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jFfjWxj3
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4ac95761c85so14890595e9.2
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:34:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795289694; x=1795894494; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=n5ZnpCxALSpimlZbz+ysdwCQ7qxNjOgOx10w71IS4KQ=;
+        b=jFfjWxj3Yvj4oNqD7D+livIIw1prdztnBFVWXeISH05y72ksTpXjmPM0Z05gSL+Mu8
+         whT/jP3IRkvo8MpCsIqeIZzyDDG5A/ewg09CW1cZGaGa1sNKOK5nQ2VnHkkepxvv5d0z
+         9QICjsYFNotjwblXS3EybXhYxR4ynCk92SdOVHZJbbmWYnp5knlfcJeDQKIplLVe3q5G
+         9QPRamiXuXSYLbLio5MQTG3ADwDZzglS4+6TUWlwRx+3otCncuwMHiNS3izRx6uGWWpF
+         kkqrbFZPfC48f5QvLGrQNKxisZjyUYKcMUk2/t4OlCcvjJ7dnrvJCrZTgLaTyMcYzJeI
+         qdnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795289694; x=1795894494;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=n5ZnpCxALSpimlZbz+ysdwCQ7qxNjOgOx10w71IS4KQ=;
+        b=K8Y53hXj8m4Ep2Uc+DpCJGM/AmLB656ta/0Ob1MJDfhHeDyzvCaNGdSG1UsM5Dn9jr
+         4tp69cu40O8zR/Bg2eJXa/FRXH6SlL1wNURcImjju1xoNqOmwxbu2gDVNF96LwH7ngS/
+         dF+7KjTqk66/4DCZRlqhN9Miv80hn+h/NHQdbstqFMnIebbSxuW25MlkfDz8cQZlVY/p
+         HGrUIx19Rx6K7zxRTBWjkb+WfGlVfnA7JSSvl5q1MOF6/BXI0DOeiMVSX944LpZzkJg4
+         3SwlrfauyKOR86goHAxa7SG2pujweq6gkXO7iTjZjAxlNPnsxK4uhrOInyHb0FdT3UQl
+         ANOQ==
+X-Forwarded-Encrypted: i=1; AL+hErHhYOyFw+GpHya5zY8cIk0rPvaY3vUJaZ0U87eD2p3X68eCQ8akqCJJQKoA3jp6DzwIwG4YCqpUu7bExpI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9voG3JYduQcUEYnYICXbQKKT3LegO/UxFU4r9HKxbHJQs0vEeJ
+	xS0TnnDBurFSf27bWPZAF+gprM4kiLZZAILkiauzjATLLRARy2MC2du6
+X-Gm-Gg: AZFdTZezox5OLh2bbHs0sSTpcvEWICULIjo+pUTjA5CRcNQRWaGPPpKhVemixFKOAA2
+	8iqfqbewXGjobg8mDQOGa3/fdNkrtPiy0NMoScQc3A3LqDOi60+xBl3ZCgPnyrvKQy6h7zNAli9
+	ZtI1SuPMpz5vcv/e5b4wvYKWGldJDcwbi1w0r4F1GKOtToPR+osWvNx4f1jpnyCNS/j9S4XTnQE
+	PF92OL75mz2ABAYWmzxLN6PCXUX2jCEKXrvsbf3+Q6+TSmYO7ww0DWVxC74568423Jf7zPF4qkF
+	Mgy0G6FT/mf8PQYqaoOOXtS54E/wymrggD7I57u/3W2fXsYJeRJzzVCw7XOTioWIr3Fne7DO3r1
+	biHZFqmJzPqU8addFHnA8DvthLQHCYz6YyCuJy3ERKuJNaF7pnRG4vZQYixBvbK9CQ/hoOXhom2
+	eVWPfmaS50PKIek/SAEzTXIK5ifDBnO97Ugqx7/kVV1a1YRq7x34+3a+qztHryJtdN007B+tNYp
+	r5/sJk8rGYOw7DSMkrcXYyNvXIzwUCNeLz/fvnvxwjbLQEaJT/2AqYg6rTvBFeDuLBURmbwRs8k
+	cTPbhh0+5C9MdGVJTz4NdtBAT1bEkmJv+J5j7PJ092vGXM1sEw==
+X-Received: by 2002:a05:600c:4e0b:b0:4bb:6f45:2a79 with SMTP id 5b1f17b1804b1-4bb88817920mr169852215e9.22.1795289693852;
+        Sat, 21 Nov 2026 11:34:53 -0800 (PST)
+Received: from NullSecurityX.localdomain ([178.244.203.55])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906635c7sm69591845e9.2.2026.11.21.11.34.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 11:34:53 -0800 (PST)
+From: =?UTF-8?q?Ozan=20A=C4=9Fdepe=20=28NullSecurityX=29?= <agdepeozan@gmail.com>
+To: brauner@kernel.org,
+	viro@zeniv.linux.org.uk
+Cc: jack@suse.cz,
+	corbet@lwn.net,
+	linux-fsdevel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Ozan=20A=C4=9Fdepe=20=28NullSecurityX=29?= <agdepeozan@gmail.com>
+Subject: [PATCH] Documentation: failfs: setns() back out needs no privileges
+Date: Sat, 21 Nov 2026 22:34:46 +0300
+Message-ID: <20261121193446.105396-1-agdepeozan@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,117 +100,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH rdma-next v2] RDMA/rxe: Mask the SQ producer index read
- from user space
-To: Shuai Liu <847807867@qq.com>, linux-rdma@vger.kernel.org
-Cc: zyjzyj2000@gmail.com, jgg@ziepe.ca, leon@kernel.org,
- rpearsonhpe@gmail.com,
- syzbot+fef38133c495aeb48297@syzkaller.appspotmail.com,
- syzkaller-bugs@googlegroups.com, linux-kernel@vger.kernel.org,
- sashiko-reviews@lists.linux.dev, "yanjun.zhu@linux.dev"
- <yanjun.zhu@linux.dev>
-References: <tencent_5B9FB1BCC8EF36C5E2128B7D4D54B867480A@qq.com>
- <tencent_BEE58D9BBE7109C47C2796DDF5A4B958F609@qq.com>
-From: Zhu Yanjun <yanjun.zhu@linux.dev>
-In-Reply-To: <tencent_BEE58D9BBE7109C47C2796DDF5A4B958F609@qq.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-在 2026/11/20 19:46, Shuai Liu 写道:
-> The send queue producer index of a user space QP is stored in the
-> queue buffer which is shared with and written by user space. The
-> requester reads it without any validation in req_retry() and
-> __req_next_wqe() and compares it against its own local index which
-> is always masked.
-> 
-> The requester stops processing WQEs when its local WQE index equals
-> the producer index. If user space writes an out of range producer
-> index into the queue buffer, that comparison can never become true.
-> Once the QP is put into the error state, rxe_requester() then keeps
-> flushing WQEs forever: the flush path advances the WQE index with the
-> masked queue_next_index() but the producer index stays out of range,
-> and each pass calls rxe_qp_error() which reschedules the send task,
-> so the loop never converges. The send task holds a reference to the
-> QP for as long as this lasts, so ib_destroy_qp() waits for the QP
-> reference to drop until it times out after 50 seconds and the
-> WARN_ON(!ret) fires in __rxe_cleanup():
-> 
->    WARNING: drivers/infiniband/sw/rxe/rxe_pool.c:212 at __rxe_cleanup
->    Call Trace:
->     __rxe_cleanup
->     rxe_destroy_qp
->     ...
->    rxe0: qp#17 rxe_destroy_qp: cleanup failed, err = -110
-> 
-> Fix this by masking the producer index with q->index_mask when reading
-> it in queue_get_producer() for QUEUE_TYPE_FROM_CLIENT. This restores
-> what producer_index() did before commit ae6e843fe08d ("RDMA/rxe: Add memory
-> barriers to kernel queues") replaced it with queue_get_producer() and
-> dropped the mask, and keeps the requester, the completer and the queue
-> helpers, which all compare the difference of the two indices modulo
-> index_mask, consistent. rxe_qp_init_req() also initializes
-> qp->req.wqe_index from this value so it gets validated as well.
-> 
-> Masking the index in queue_get_producer() instead of checking it at
-> the two requester call sites was suggested by the Sashiko AI review of
-> v1 of this patch.
-> 
-> Verified with the syzbot reproducer in QEMU: without this patch every
-> destroy_qp hangs for 50 seconds and hits the WARNING above; with this
-> patch the reproducer runs cleanly.
+The "Leaving" section says the remaining way out of failfs is setns()
+with a mount namespace file descriptor and that it requires
+CAP_SYS_ADMIN over the target mount namespace as well as CAP_SYS_CHROOT
+and CAP_SYS_ADMIN in the caller's user namespace. That reads as if an
+unprivileged task in failfs that holds no namespace file descriptor
+cannot get out.
 
-Thanks for the patch. A couple of questions/comments on this:
+It can. A pidfd names the namespaces of another task without a path
+lookup. create_user_ns() refuses chrooted callers, but userns_install()
+does not, and the caller owns every user namespace created by its
+effective uid below its own. setns(pidfd, CLONE_NEWUSER | CLONE_NEWNS)
+on a task that runs in such a user namespace and in a mount namespace
+owned by it passes validate_nsset(), userns_install() and
+mntns_install(), and mntns_install() resets root and working directory
+to the root of that mount namespace. Rootless containers, bubblewrap
+and browser sandboxes all run such tasks.
 
-The commit message mentions that this fix was verified with the syzbot 
-reproducer in QEMU, but I didn't see any corresponding verification 
-email or test report thread on the list. Could you please share the 
-link/reference to that email or provide a bit more detail on the test 
-setup and baseline kernel used for verification?
+Verified on v7.3 with an unprivileged caller: after
+fchroot(FD_FAILFS_ROOT) open("/etc/passwd") and unshare(CLONE_NEWUSER)
+fail as documented, and after setns(pidfd, CLONE_NEWUSER | CLONE_NEWNS)
+open("/etc/passwd") succeeds.
 
-In queue_get_producer(), there are also other queue types such as 
-QUEUE_TYPE_TO_CLIENT, QUEUE_TYPE_FROM_ULP, and QUEUE_TYPE_TO_ULP. Have 
-you checked whether any of those types could suffer from a similar 
-out-of-range producer index issue? If so, please let us know and include 
-any necessary fixes (either here or in a follow-up patch, as appropriate).
+The section already says leaving is not a guaranteed interface and that
+seccomp has to restrict setns() among others, so only describe the path
+accurately.
 
-Thanks a lot.
-Yanjun Zhu
+The issue was found during an AI-assisted review of fs/ and
+kernel/user_namespace.c. The reproducer, the documentation text and
+this changelog were drafted with the assistant and reviewed and tested
+by the submitter.
 
-> 
-> Reported-by: syzbot+fef38133c495aeb48297@syzkaller.appspotmail.com
-> Closes: https://syzkaller.appspot.com/bug?extid=fef38133c495aeb48297
-> Fixes: ae6e843fe08d ("RDMA/rxe: Add memory barriers to kernel queues")
-> Signed-off-by: Shuai Liu <847807867@qq.com>
-> ---
-> Changes since v1:
-> - Mask the producer index in queue_get_producer() for
->    QUEUE_TYPE_FROM_CLIENT instead of checking it at the two requester
->    call sites, as suggested by the Sashiko AI review of v1. This also
->    covers rxe_qp_init_req(), which initializes qp->req.wqe_index from
->    the same value, and keeps the requester, the completer and the queue
->    helpers consistent with each other.
-> - Point Fixes at commit ae6e843fe08d, which dropped the mask that
->    producer_index() had, instead of commit 5bcf5a59c41e.
-> - Reword the commit message: the flush loop never converges because
->    the WQE index is advanced with the masked queue_next_index() while
->    the producer index stays out of range; the req_retry() reset detail
->    in the v1 description was inaccurate.
-> - Update the subject to describe the actual mechanism.
-> 
->   drivers/infiniband/sw/rxe/rxe_queue.h | 1 +
->   1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/infiniband/sw/rxe/rxe_queue.h b/drivers/infiniband/sw/rxe/rxe_queue.h
-> index c711cb98b9496..fe65aecc60464 100644
-> --- a/drivers/infiniband/sw/rxe/rxe_queue.h
-> +++ b/drivers/infiniband/sw/rxe/rxe_queue.h
-> @@ -106,6 +106,7 @@ static inline u32 queue_get_producer(const struct rxe_queue *q,
->   	case QUEUE_TYPE_FROM_CLIENT:
->   		/* used by rxe, client owns the index */
->   		prod = smp_load_acquire(&q->buf->producer_index);
-> +		prod &= q->index_mask;
->   		break;
->   	case QUEUE_TYPE_TO_CLIENT:
->   		/* used by rxe which owns the index */
+Fixes: a45a6605cd04 ("Documentation: add failfs documentation")
+Signed-off-by: Ozan Ağdepe (NullSecurityX) <agdepeozan@gmail.com>
+---
+ Documentation/filesystems/failfs.rst | 19 ++++++++++++++-----
+ 1 file changed, 14 insertions(+), 5 deletions(-)
+
+diff --git a/Documentation/filesystems/failfs.rst b/Documentation/filesystems/failfs.rst
+index 21ff2db79..c34e29403 100644
+--- a/Documentation/filesystems/failfs.rst
++++ b/Documentation/filesystems/failfs.rst
+@@ -65,9 +65,18 @@ implementation, not a guaranteed interface, and may be loosened later.
+ For now a process that entered failfs counts as chrooted, so it cannot
+ create user namespaces to regain ``CAP_SYS_CHROOT``, and ``chroot(2)``
+ or ``fchroot(2)`` back out require ``CAP_SYS_CHROOT``. The remaining way
+-out today is ``setns(2)`` with a mount namespace file descriptor, which
+-requires ``CAP_SYS_ADMIN`` over the target mount namespace as well as
++out today is ``setns(2)`` into a mount namespace, which requires
++``CAP_SYS_ADMIN`` over the target mount namespace as well as
+ ``CAP_SYS_CHROOT`` and ``CAP_SYS_ADMIN`` in the caller's user namespace
+-and resets both root and working directory. A process that holds no such
+-file descriptor and restricts ``*chdir()``/``*chroot()``/``setns()`` via
+-seccomp cannot currently get back out.
++and resets both root and working directory.
++
++That way out does not need privileges or a namespace file descriptor. A
++pidfd names the namespaces of another task without a path lookup, and
++joining an existing user namespace is not refused for a chrooted task
++the way creating one is. An unprivileged caller can thus leave with
++``setns(pidfd, CLONE_NEWUSER | CLONE_NEWNS)`` on any task it may access
++in ``PTRACE_MODE_READ`` mode that runs in a user namespace owned by the
++caller's effective uid and in a mount namespace owned by that user
++namespace. A process that restricts
++``*chdir()``/``*chroot()``/``setns()`` via seccomp cannot currently get
++back out.
+-- 
+2.53.0
 
