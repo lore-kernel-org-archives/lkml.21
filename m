@@ -1,88 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.153
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795255014;
-	b=arr9otPHISqWK3ThQQ9lV3q6KqWKmd1hywG9zXow8UpWgZJne6KvVtEzB2G+RpMND5ku
-	 aWOwpLb01I9lSB5tyR7Kll/+/Sa6z4Zg11uHxpnysstr99lEMaiqhodzE292lh9vx4dWb
-	 YLQOv4xvZ2+PD6iPucJssr2Zz9MwitZW7S/SFx9P9kUM0tIxtNLI1DIZm9dB8aitjBRwa
-	 8OXyknepv9PxgJhmotw6io4uTV2enXaW9BPRhfC0Vd+r9+SJBGyd7P5lnzvM2xl53lZx8
-	 PEPvb6uucJMuF8dNiXakIAqFyhMuW2lCW+TI9aBZA3IkIKVBx98lxwBXLoEm7xoiZcQ==
+	t=1795255033;
+	b=bv3eDoulXnGbd1M//bhx9qiuTAxR97oXC78/0NiLFp0i2hWoM83tgoXa6WY0FjnO357l
+	 JsnTP5+JXO0SpTh0Jo21fAR+HxqDUVAfRioRcCOLMxTSaD8mVrttobd+w+vEi+bUD1YIr
+	 kNCnxHGGmKbZB2qYCI8UKrMe2ObkTuAyy4lpJS0iV7NkaO+JazffKRotEXZ+orqnQWzJ2
+	 4/9apAXoWEUmv34elbmHZnKCaqIgPACBW3wNw8ICWy911aDNWWB5XKssAFk9vt2glgzI9
+	 riub0MV0+OIjxHFqI0F50TzlvRveQI7ZkJUV+fiAAjdURyg4wjULzFlvf3b7+5Tm1oQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795255014;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:X-ME-Sender:
-	 X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:Date:
-	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
-	 Content-Type;
-	bh=u9tsFDPxYmUVPDyHv2cJaPACOxPRNY4LUQNXciLBaiM=;
-	b=BPMF0a0cu+Y9/yVnnystrMTnjLwzlMv/Bb3qyiVv9EMwBqXw+ZeeDuE+bvnCnoxwao+E
-	 AA56+aS9guoSR7yVMpHL9s+YuZwBkEsXc1euTGOcDZlfyjuIz2XtpYIuA+HNIYUAUQjFD
-	 qO4qp/QC4tWHczwDL2V1r/XOsY+b3pDVt1kC/naKKtK6ZXY1RVrDoiJNwGzxGPE2/FCA/
-	 DqXv3u+MZ42mBhzDVZwe3U/7hUw+A7G6irj5KyCc4s9Sv50q+hIwpqDswFAMafjOPv2Ib
-	 EaeRVxNKZ8PLj832uCZOjuBTxoNtKAJMOKFWbCoy0DUUQhxOVgFCqv05u/FdJmXsF4g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795255033;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=Fg0BrQ2AmWJzVUSo6unSAaTvw32B62rJbYlFXw4O8BQ=;
+	b=BvSUdV6xQV7O7o7WNT9w6S+S3/zcFDwoGckHAvsSZ9jo+Xzz/gKLbYaT0AhwkzXM16FW
+	 hhSHTa9dGEZ4Wo0fzFMBz+FFtVOs+gw7+U7HDcGgM+VxVhUhNGsFqg1NP6l0P6o0VLYm6
+	 kc4ohPmPUWtSFm5/dTmV9tcKobmcq5HEFXJh/zRI/+zh67HRRpW85yrt0Hcnv0tWSZ/27
+	 qIzwDjT4yLRPMO/1ZUePMB6ArYIiHWREqaYZUKScQEPbbnlDMHwQCwGUsMckEIcirSWOZ
+	 KIwDRQFBnTwmi5hqm47yNLZstBAQlBE6CZFA8+ez6olqHPxdKeXIRet7hwW2kjQdl1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=linux-m68k.org;
-	spf=none smtp.mailfrom=linux-m68k.org;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=Du9v7uSL;
-	arc=none smtp.remote-ip=103.168.172.153
-Received: from fhigh-a2-smtp.messagingengine.com (fhigh-a2-smtp.messagingengine.com [103.168.172.153])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A41C3606A325
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 09:56:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A41C3606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=linux-m68k.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=Du9v7uSL
-Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 92A0714003BA;
-	Sat, 21 Nov 2026 04:56:52 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-10.internal (MEProxy); Sat, 21 Nov 2026 04:56:52 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795255012; x=1795341412; bh=u9tsFDPxYmUVPDyHv2cJaPACOxPRNY4LUQN
-	XciLBaiM=; b=Du9v7uSLjVRDtjReFbzqveaidXjfL2Ud5a13Ykfr9WtupLLdfM7
-	HmlOaE3dcplgZ0Cqpub4d734GKaqfyjC+QYVZOLzOwjqiETLLVtosRbaJ+j+ysb9
-	HbiA4/2fRrR2iazO3/sGfAwYx29kWMW0ZjSKJ6Am/weAa8CpGCGHHkSv+ZlU6UiE
-	gk/psyoCl0BbBB+bFO7cHp5UDTTfszpDW6uVSMPpb1/JVe/b2FwteggNhXbP8icC
-	o3SLvwkhy26/9DQDJl8eLzshovFIn8sNtanltT+k7ou2iPOrNOcifuUfBRMc+gL/
-	0UmSRluXnxTb9mrX6knO23XEqHhxPElv2qw==
-X-ME-Sender: <xms:5GoBayRvCICMIsZid4PaFzXZm-mVngBxgRJUDKBryfk2Y12-aQIjdw>
-    <xme:5GoBa1m4wZ0xULH3f2kU7I_BNYwFFk5_ZR1T9wmmiMS7LoUVmHAfexbEIc5hN1zWp
-    mM3KnHLcJP-HUOr9yaf3gW2tB9bJeCnFRGNmYaqzakWV6dviZLE98zd>
-X-ME-Received: <xmr:5GoBa6SpaAQfkopQBjI51sfsjWyn0PG0dcg5xArPkxvpMfmyKLEudpQItXp-_p690H02BsTbzZ_wpGFE1rFvN2v3t47_y5T_Qd8>
-X-ME-Proxy-Cause: dmFkZTEtuqN4aEX2fWu0pFKG1gRgAbhoGxyUReBIRrdnFNp+JbGDGFdf/qtyE2MJLSuDpa
-    q6XS8AdEoRoC1m2DLzQ4ZOtlR0e4El4sbHrd7Vjd9wk7yNYLrGMDK4cez2CxyD2TKFV9F2
-    mVi9UpO+u6TnXNiQIXZDJHUzMXHikivct9ltn5z2S/EQwyTsOYymc7TxXzS6iuWa41aged
-    rCN743BK8rq7fmUZbm9EnR5MMgQBQOwMriOrL9yfo6VyRuHmTTU6LMzuJJa4SX/Kr4zONe
-    v8Rb0Na2bvJ6R6ijXYzhsGRzFq1IBh+TxwVjlvDJq+N0w48qUtWatv+D4uqLBrejzj3GXy
-    eRc3r95SlQ+zSAJHByZGuuM4SnnCbf9mkZGeZBC83O+Goy1pY3/Bnm10JhOp0lCZ3NfQOL
-    WQxn1uzECo4Zb60oxtXKBcvKcsuHDRUqcA7+RWPpHl7Zx3ZFAegiAxO55+Dxxt74li4d3B
-    9kIdGVtPton7OtVNuooPlp5V2UeH/BUTjQYTKhjlQcFmsl6k+oqACGLyiGpBYkeM0YOXU6
-    YG/wd+Gh/cu3JZjQT+ojDIydhtvYPy+4GOM+GBIKnP4aWk1bOGztaCwTId1mRdUZpCxq6D
-    pWXhf/huicEP67iKELxQZYSgqJTN0eS0cvWhksQm+GH9iZdEjzT9AjpJcsHQ
-X-ME-Proxy: <xmx:5GoBa7Pgv9IGrMFNFEHq_6p8osKGV5XKmIM6y8RMX7DUINALtvpahg>
-    <xmx:5GoBa7WRggairNDxFfpcFooNvOGiOYd70j-OZ45Megc847DJi0WjaQ>
-    <xmx:5GoBa6eOiXjgExTe-f357N77chMQ3B1f0plY_xpc-rXO0sVZmb6ZtA>
-    <xmx:5GoBa_tZwt_EPCZwlpZIGdT3ebAdOGKVVms6ooGbUhWjur6SknFguw>
-    <xmx:5GoBawADN0TXqa57I6_bnPqgPwQ7pJQG-QrxbzQ0hheIeFMVGyZujD09>
-Feedback-ID: i58a146ae:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 21 Nov 2026 04:56:50 -0500 (EST)
-Date: Sat, 21 Nov 2026 20:56:42 +1100 (AEDT)
-From: Finn Thain <fthain@linux-m68k.org>
-To: Graeme Harker <graeme.harker@gmail.com>
-cc: geert@linux-m68k.org, linux-m68k@lists.linux-m68k.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] m68k: delay: Fix rounding of short udelay() and
- ndelay()
-In-Reply-To: <20261120164322.1034075-1-graeme.harker@gmail.com>
-Message-ID: <31cf41a9-a2c2-6ae6-b12e-50e54875d0d1@linux-m68k.org>
-References: <5783b448-b34a-58a5-0bc0-98b1a806f182@linux-m68k.org> <20261120164322.1034075-1-graeme.harker@gmail.com>
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id B484A606A320;
+	Sat, 21 Nov 2026 09:57:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B484A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=Fg0BrQ2AmW
+	JzVUSo6unSAaTvw32B62rJbYlFXw4O8BQ=; b=r5MVXTc9aLtHbl3zX69ZROw8Sd
+	2o4QdKqNhp7SR38QZDu0R5H/CX8xLeiuIVLZAjfX2yvy/fZoMLHTH/wN6rxCC+lI
+	sGn2NZpkClUZdamHz2vY1/0xiWOQ9NH31asL68ylSXr1816qMJHDwumDaJNZo65z
+	tUrqHtwrBzt4tbKmA=
+Received: from user-virtual-machine.localdomain (unknown [113.200.174.70])
+	by hzbj-edu-front-4.icoremail.net (Coremail) with UTF8SMTPA id BrQMCkCmxfvcagFrVH0AAg--.46391S2;
+	Sat, 21 Nov 2026 17:56:44 +0800 (CST)
+From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+To: Takashi Iwai <tiwai@suse.de>,
+	Jaroslav Kysela <perex@perex.cz>
+Cc: linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Bin Yu <byu@xidian.edu.cn>,
+	Cheng Wen <wencheng@xidian.edu.cn>
+Subject: [PATCH v2] ALSA: line6: Kill URBs before releasing the PCM buffer
+Date: Sat, 21 Nov 2026 17:56:43 +0800
+Message-Id: <20261121095643.8196-1-25031212351@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,180 +58,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:BrQMCkCmxfvcagFrVH0AAg--.46391S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxGw1xXrW7uF17GrW7Gr4DArb_yoWrJFykpF
+	95Wa4YyFZ8JF4IkrW7Jws3Ww1Sva1kXFnrGF1UAryrAa13G3Z8Xa4aqF45Wr4UCan2vaya
+	vF45tw4rGry5Ca7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9vb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
+	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r
+	15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vI
+	r41lc7CjxVAaw2AFwI0_JF0_Jw1lc2xSY4AK67AK6r4fMxAIw28IcxkI7VAKI48JMxC20s
+	026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_
+	JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14
+	v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xva
+	j40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JV
+	W8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU5QSdJUUUUU==
+X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAgUED2sAZMnEuAABs3
 
+line6_buffer_release() frees the stream buffer after
+line6_wait_clear_audio_urbs() gave up waiting for the URBs that are still
+active.  The buffer is still referenced by those URBs, and the completion
+callback of such an URB resubmits it from submit_audio_out_urb() with
+line6pcm->out.buffer already set to NULL, which ends up in a NULL pointer
+dereference in the memset() in submit_audio_out_urb().
 
-On Fri, 20 Nov 2026, Graeme Harker wrote:
+While the URBs remain queued, the host controller can also write the
+received isochronous data into the freed buffer.  Such a write does not go
+through the KASAN checks, so it silently corrupts the freed slab object;
+the corruption was observed as a bogus KASAN quarantine entry that later
+led to a general protection fault in qlist_free_all().
 
-> > test_ndelay(40)	 191E-09 -> 17.0E-09
-> 
-> I think this one has wrapped the timer as well. 400000 calls only fit in 
-> T2's 83.7 ms if each takes less than 209 ns, and 17 ns is less than one 
-> clock on the LC040. With one wrap it would be 226 ns, which is longer 
-> than before, as ndelay(400) now is. 40000 calls should show it.
-> 
+The active_urbs bitmap cannot prove that the URBs are gone:
+line6_unlink_audio_urbs() is called outside the stream lock and only marks
+the URBs that are active at that moment, so an URB resubmitted by a
+completion callback right after the scan is never unlinked and keeps being
+resubmitted after the stream was stopped.
 
-Well, the problem with 40 ns x 40000 calls (or 1.6 ms) is that such a 
-short interval will usually encounter no tick interrupt, and the 
-measurement would be erratic (if interrupts were enabled).
+Set the unlink bit for every currently active URB under the stream lock,
+so that the completion callbacks cannot resubmit them, and then kill them
+synchronously.  usb_kill_urb() waits for the giveback, hence the buffer is
+no longer referenced by any URB when it is freed.
 
-The measurements below were made with interrupts disabled so add 4% if you 
-want to account for the tick interrupt.
-
-test_udelay(10)	    10.8E-06  ->  11.8E-06
-test_udelay(20)	    19.7E-06  ->  21.5E-06
-test_udelay(40)	    37.8E-06  ->  41.1E-06
-test_udelay(100)    92.3E-06  ->  99.7E-06
-test_udelay(200)     192E-06  ->   198E-06
-test_udelay(400)     392E-06  ->   393E-06
-test_udelay(1000)    973E-06  ->   980E-06
-
-test_ndelay(20)	     401E-09  ->   612E-09
-test_ndelay(40)	     401E-09  ->  1.06E-06
-test_ndelay(100)    2.49E-06  ->  1.17E-06
-test_ndelay(200)    2.55E-06  ->  1.22E-06
-test_ndelay(400)    2.75E-06  ->  1.50E-06
-test_ndelay(1000)   3.30E-06  ->  2.14E-06
-test_ndelay(2000)   4.24E-06  ->  3.33E-06
-test_ndelay(4000)   6.07E-06  ->  5.63E-06
-test_ndelay(10000)  11.6E-06  ->  12.5E-06
-test_ndelay(20000)  20.8E-06  ->  23.9E-06
-test_ndelay(40000)  39.2E-06  ->  46.9E-06
-
-> > test_ndelay(40000) 38.7E-06 -> 46.5E-06
-> > test_ndelay(400000) 366E-06 -> 456E-06
-> 
-> These show a real problem with the patch: long ndelay()s now run about 
-> 15% long.
-> 
-> The 5 I took from x86 is 2^32 / 10^9 rounded up, but 2^32 / 10^9 is 
-> 4.295, so every ndelay() asks for 16.4% more loops than it should. 
-> Combined with your udelay(1000) of 979 us (2% short), that predicts 453 
-> us for ndelay(400000), and you measured 456 us. The old code was short 
-> instead, from rounding loops_per_jiffy down to a multiple of 2048.
-> 
-> I can't explain the old ndelay(4000) of 6.03 us without knowing 
-> loops_per_jiffy. What does your machine calibrate to?
-> 
-
-It logs "Calibrating delay loop... 21.55 BogoMIPS lpj=107776)".
-
-> I can see three ways to go, and I'd like to know which you and Geert 
-> would prefer:
-> 
-> 1. Keep 5, as x86 does. Delays are never short, but up to 16% long.
-> 
-> 2. Use a closer constant, e.g. __xdelay(nsec * 4 + ((nsec * 1209) >> 
->    12)), which is 4.29517, within 0.005% of 2^32 / 10^9 and still never 
->    short. It costs another multiply and a shift on every call, and the 
->    second term overflows for delays above 3.5 ms, which ndelay() should 
->    not be asked for anyway.
-> 
-> 3. Leave ndelay() as it is and fix only udelay().
-> 
-> Option 2 seems the most accurate, but ndelay() is mostly used for short 
-> delays, and for those the call overhead you measured matters more than 
-> the constant.
-> 
-
-I note that the API documentation warns callers that "ndelay(), udelay() 
-and mdelay() may return early for several reasons". So I think I'll defer 
-to the arch maintainers on this one.
-
+Fixes: 63e20df1e5b2 ("ALSA: line6: Reorganize PCM stream handling")
+Cc: stable@vger.kernel.org
+Co-developed-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Bin Yu <byu@xidian.edu.cn>
+Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
 ---
+v2:
+- Rebased on sound/for-next.  v1 was generated against v7.3.1 and no longer
+  applied, because line6_buffer_release() gained the prev_fbuf clearing
+  block in the meantime.  No code change.
+---
+ sound/usb/line6/pcm.c | 27 ++++++++++++++++++++++++++-
+ 1 file changed, 26 insertions(+), 1 deletion(-)
 
-diff --git a/arch/m68k/mac/config.c b/arch/m68k/mac/config.c
-index b745cf20a71f..9e3547698619 100644
---- a/arch/m68k/mac/config.c
-+++ b/arch/m68k/mac/config.c
-@@ -65,6 +65,90 @@ static void __init mac_sched_init(void)
- 	via_init_clock();
+diff --git a/sound/usb/line6/pcm.c b/sound/usb/line6/pcm.c
+index d17baf7761c6..6a8983507a39 100644
+--- a/sound/usb/line6/pcm.c
++++ b/sound/usb/line6/pcm.c
+@@ -134,6 +134,31 @@ static void line6_wait_clear_audio_urbs(struct snd_line6_pcm *line6pcm,
+ 			"timeout: still %d active urbs..\n", alive);
  }
  
-+#define GET_VIA1_TIMER2() \
-+({ \
-+	unsigned long flags; \
-+	local_irq_save(flags); \
-+	u8 high = via1[vT2CH]; \
-+	u8 low = via1[vT2CL]; \
-+	torn = via1[vT2CH] != high; \
-+	local_irq_restore(flags); \
-+	1 + low + (high << 8); \
-+})
-+
-+#define DELAY_LOOP(n, arg) \
-+do { \
-+	int d, i, I = n / 40; \
-+	u16 t1, t2; \
-+	bool torn; \
-+	do { t1 = GET_VIA1_TIMER2(); } while (torn); \
-+	for (i = 0; i < I; ++i) { \
-+		arg; arg; arg; arg; arg; arg; arg; arg; arg; arg; \
-+		arg; arg; arg; arg; arg; arg; arg; arg; arg; arg; \
-+		arg; arg; arg; arg; arg; arg; arg; arg; arg; arg; \
-+		arg; arg; arg; arg; arg; arg; arg; arg; arg; arg; \
-+	} \
-+	t2 = GET_VIA1_TIMER2(); \
-+	d = t1 - t2; \
-+	if (d < 0) d += 0x10000; \
-+	if (torn) pr_info("torn\n"); \
-+	else pr_info("%10d, %20s, %10d\n", I * 40 , #arg, d); \
-+} while (0)
-+
-+static inline void test_udelay(unsigned long t)
++/*
++ * Mark all currently active URBs for unlinking and kill them.
++ *
++ * The unlink bit is set under the stream lock, so the completion
++ * callbacks cannot resubmit these URBs any longer; usb_kill_urb() then
++ * waits until each of them is given back and hence the stream buffer is
++ * no longer referenced by the host controller.  This function must be
++ * called from a sleepable context.
++ */
++static void line6_kill_audio_urbs(struct snd_line6_pcm *line6pcm,
++				  struct line6_pcm_stream *pcms)
 +{
-+	volatile unsigned long vt = t;
++	int i;
 +
-+	udelay(vt);
++	scoped_guard(spinlock_irqsave, &pcms->lock) {
++		for (i = 0; i < line6pcm->line6->iso_buffers; i++)
++			if (test_bit(i, &pcms->active_urbs))
++				set_bit(i, &pcms->unlink_urbs);
++	}
++
++	for (i = 0; i < line6pcm->line6->iso_buffers; i++)
++		if (test_bit(i, &pcms->active_urbs))
++			usb_kill_urb(pcms->urbs[i]);
 +}
 +
-+static inline void test_ndelay(unsigned long t)
-+{
-+	volatile unsigned long vt = t;
-+
-+	ndelay(vt);
-+}
-+
-+static void measure_delays(void)
-+{
-+	// Given ECLK is 783360 Hz, the 16 bit counter can measure up to 80 ms.
-+	// Loops of 40ms of udelay() calls:
-+	DELAY_LOOP(4000, test_udelay(10));
-+	DELAY_LOOP(2000, test_udelay(20));
-+	DELAY_LOOP(1000, test_udelay(40));
-+	DELAY_LOOP( 400, test_udelay(100));
-+	DELAY_LOOP( 200, test_udelay(200));
-+	DELAY_LOOP( 100, test_udelay(400));
-+	DELAY_LOOP(  40, test_udelay(1000));
-+	// Loops of 1.6ms of ndelay() calls:
-+	DELAY_LOOP(80000, test_ndelay(20));
-+	DELAY_LOOP(40000, test_ndelay(40));
-+	DELAY_LOOP(16000, test_ndelay(100));
-+	DELAY_LOOP( 8000, test_ndelay(200));
-+	DELAY_LOOP( 4000, test_ndelay(400));
-+	DELAY_LOOP( 1600, test_ndelay(1000));
-+	DELAY_LOOP(  800, test_ndelay(2000));
-+	DELAY_LOOP(  400, test_ndelay(4000));
-+	DELAY_LOOP(  160, test_ndelay(10000));
-+	DELAY_LOOP(   80, test_ndelay(20000));
-+	DELAY_LOOP(   40, test_ndelay(40000));
-+}
-+
-+static int __init measure_delays_init(void)
-+{
-+	unsigned long flags;
-+
-+	via1[vACR] &= ~0x20; // free running T2 with no port B output
-+
-+	local_irq_save(flags);
-+	measure_delays();
-+	local_irq_restore(flags);
-+
-+	return 0;
-+}
-+
-+subsys_initcall(measure_delays_init);
-+
- /*
-  * Parse a Macintosh-specific record in the bootinfo
-  */
+ static inline struct line6_pcm_stream *
+ get_stream(struct snd_line6_pcm *line6pcm, int direction)
+ {
+@@ -172,7 +197,7 @@ static void line6_buffer_release(struct snd_line6_pcm *line6pcm,
+ {
+ 	clear_bit(type, &pstr->opened);
+ 	if (!pstr->opened) {
+-		line6_wait_clear_audio_urbs(line6pcm, pstr);
++		line6_kill_audio_urbs(line6pcm, pstr);
+ 		if (pstr == &line6pcm->in) {
+ 			/* prev_fbuf points into the capture buffer we are about
+ 			 * to free; drop it while no capture URB is in flight.
+-- 
+2.34.1
+
