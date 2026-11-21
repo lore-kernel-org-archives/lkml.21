@@ -1,59 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.224
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795257194;
-	b=OVcYdqxFNnatauQH1rXdV1W76hKwvWhcFMOHH2slx5h0UykqsEl5NkcOTkoe2UP08r63
-	 3xqH15RkH/6Zd3bT7v68MLC025ZdELPoH6BA5nFzTua4mj8gh4qTiIUHp7OQT6MzfI5y8
-	 a9i6Qp7VHCs4u72adtwjCANAdT25RJwV9Gdr8z39zdQ+ctjtwe7na6anUwsfisyjeW9a7
-	 5Wwy8SHCzMbimaUjs1h+CrbJ89rtTz50ZHidFCwSdvhYkmW3PxY2tHelok1nutZ0lyeI7
-	 BCIkNfPympXlorQ8mgibAgwJXaI55WSwJNHFUfNvRRxwryyiW8r9f/s3zsbIEtzhLJw==
+	t=1795257215;
+	b=dd6Z5HlcVH+0bZtZjjXlOH2bIpER38Qg6R3SYjmeZ+E/kvyXks9vUU7I2TPlqrd3RYlJ
+	 3DPRPkAdjxSB/8rKMlnPiM+jkf6fY9/JJ0wLDxs6/h8EaODIFL9a3zf4GljAw7mZfBBI3
+	 ckhOgwACeWAET4u923hdmSRojVzdh1uk1i7P1zkFtg8eaVmHxfqPJBxCveEgKPLFJpWqA
+	 +rke8d0zc1yYVh6x43kBYqjqwonS+qc1JRaD7PBzQto/6xO2CNO02FQwzBR1RSMx3pRxY
+	 u9Oi7myh6nNSSwVbUCXgUb5U0raJodMrkXJTFb5x78fdLIIoSA/b9QV0fD+fG1gwmLQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795257194;
-	h=DMARC-Filter:DKIM-Signature:In-Reply-To:Content-Type:Message-Id:Cc:
-	 Mime-Version:X-Lms-Return-Path:References:Content-Transfer-Encoding:
-	 Date:To:Subject:From;
-	bh=T59pDsr6tSYSA2/xk2S6/po3pnlTyL9A/hY0kf/Q/p8=;
-	b=Ys1RjRf4dqB0lsTrWDnhKN3V62Tx0FRJrGfeY1Cajxog870RzRJpolOYSaU00jDoV748
-	 9QGRbBtZ32CJjV+lPFhOKQTLwH0CrwPUZlvUNBc6QzV/6Zu8gtviVtf7vxTY6rTqdQW4i
-	 I8EMPz8dnUvRVUP4HARe07D3hnGFsnxGsivAhm6Zf/ZtGK4RZHFzKDUM7EPceX6nhLQdk
-	 vEVp32XdCxXsDYvFCVRW//9Rgc/MUiTDUzeWziN6aKb0m0E1jbG0WCl3QzBZp1eH6mQaL
-	 Cw/k259P+ycvljjUn0WWGk3+O6rYUJDqliACgrGJzBNzbR9bdKvSvLU9nBOioJdR1ZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795257215;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=qDFe3Eb/sDf2oY9Rdx9A18lPKXa/58lnLDoXACH0uNE=;
+	b=J1okbfHsd6k1P9RnkfXijq/9JyGsyWhlIxIfjGbJwHSIleNU0cMfyA32WqJ97nBdKia1
+	 PLT2dhSqRl1UnTxKROU9SrGVFbTrmFB5CFFjyOecsJOMhxU8GoCjicm3D7XAg2gN8XxPX
+	 kYV2T3wtcT1H3Ryelc5BoROnUg1deE+0a+k6HAolNTsToigK83csd0X2iaRVZ1945Y2id
+	 RwhbSjZo7HTaB7pBRS+DYz8huFXlPNEcq8NPTmbYBBDqy1nMV3+ubcJc7E5vJ+Ev/fgRP
+	 stnhTci8Ea8M820WIURxPXQlkmfFzDR+prdSXYwtIL/voaWvAihvrwi2TntzrkUsNQA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=bedmex.com;
-	spf=none smtp.mailfrom=bedmex.com;
-	dkim=pass header.d=bedmex-com.20200927.dkim.feishu.cn header.i=@bedmex-com.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=E5NitpAC;
-	arc=none smtp.remote-ip=209.127.231.47
-Received: from va-2-47.ptr.blmpb.com (va-2-47.ptr.blmpb.com [209.127.231.47])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=lKuWbaHF;
+	arc=none smtp.remote-ip=91.218.175.224
+Received: from mta0.migadu.com (out-224.mta0.migadu.com [91.218.175.224])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11EA7606A68D
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:33:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11EA7606A68D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=bedmex.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=bedmex.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37FFB606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 10:33:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37FFB606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bedmex-com.20200927.dkim.feishu.cn header.i=@bedmex-com.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=E5NitpAC
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=bedmex-com.20200927.dkim.feishu.cn; t=1795257188;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=T59pDsr6tSYSA2/xk2S6/po3pnlTyL9A/hY0kf/Q/p8=;
- b=E5NitpACBHpbIfleIJ52idQAsKM2EfO7caNmKjpZuPBA4O5ZMcDOzq7d4IJRKEON3kjG3X
- 6IYULIq/oEVbYk69WrvrTFFeESWaWJm0wvx7VtlYU6Y6oLLM6FV9dlmCxABH6c+6AOrqqZ
- 01M1DPx2YdwPH7XJQPe4TJahvt1lXJWiByIO/sXWcy7HM19DsdavpvmERKSjweYFpBVFLm
- qV/VJl5Y9bns4F6YMKDmxImhztQKgpQ33Zc4hfo7PBkEVrFX6mOZUwZ6V95wx+OlQT1zaK
- 6mdHUaYq3Jj/kis0rLlbKSP11Ks5qlBm2RpRYR5o+Yb1PUqu6SoFogtrcQbifA==
-In-Reply-To: <20261116-pygmy-partridge-of-defense-e039a8@quoll>
-Content-Type: text/plain; charset=UTF-8
-Message-Id: <0c6903be00b92ecb18f2e74fdd9f8cb39e4db47b.a32caef0.2b0a.4db2.8079.1f11d8d5855d@feishu.cn>
-Cc: <linux-wireless@vger.kernel.org>, 
-	"Johannes Berg" <johannes@sipsolutions.net>, 
-	"Rob Herring" <robh@kernel.org>, 
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
-	"Conor Dooley" <conor+dt@kernel.org>, <devicetree@vger.kernel.org>, 
-	<linux-kernel@vger.kernel.org>, "Zhirun Liu" <zhirunliu@aicsemi.com>, 
-	"Dijia Xu" <dijiaxu@aicsemi.com>, "Chunqiu Liu" <chunqiuliu@aicsemi.com>, 
-	"Liheng Wei" <liheng.wei@bedmex.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=lKuWbaHF
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=WaciBSPn9XkFGrkKUG3od0QibHtMUzNPcJXcuG/0Z10=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795257212; v=1; x=1795862012;
+ b=lKuWbaHF8W8C8Vwpn34DiFVNkMK0Mk7oISvohWvuctGB/MwnU0i90uK4y3I8SWaHEB+4QwAx
+ 9iUoj43fAcjDYioGdWVCTmU54iiQ8TCPhdcSVYXE4disH4vnfxXdpJYyG5ZUkKjEwCQtsCseuhN
+ Gu3tBIlB0lKKYNS/RvRsJewM=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 8c1c28370649b49c;
+	Sat, 21 Nov 2026 10:33:32 +0000
+X-Mizu-Trace-ID: 8c1c28370649b49c
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: bpf@vger.kernel.org,
+	ast@kernel.org
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Jakub Sitnicki <jakub@cloudflare.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Neal Cardwell <ncardwell@google.com>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Shuah Khan <shuah@kernel.org>,
+	Sechang Lim <rhkrqnwk98@gmail.com>,
+	Mattia Meleleo <mattia.meleleo@coralogix.com>,
+	Michal Luczaj <mhal@rbox.co>,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH bpf 02/11] selftests/bpf: Add test for unread SK_PASS data with strparser
+Date: Sat, 21 Nov 2026 18:30:03 +0800
+Message-ID: <20261121103222.88209-3-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261121103222.88209-1-jiayuan.chen@linux.dev>
+References: <20261121103222.88209-1-jiayuan.chen@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,137 +92,126 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Lms-Return-Path: <lba+16b017362+4df84e+vger.kernel.org+yanli.yang@bedmex.com>
-References: <179481380235.4.7388336477392853157@bedmex.com> <179481380242.4.1693438763870948060@bedmex.com>
-	<20261116-pygmy-partridge-of-defense-e039a8@quoll>
-Content-Transfer-Encoding: quoted-printable
-Date: Sat, 21 Nov 2026 18:33:05 +0800
-To: "Krzysztof Kozlowski" <krzk@kernel.org>
-Subject: Re: [PATCH wireless-next v5 4/4] wifi: aic: Integrate the AIC8800 SDIO driver
-From: =?utf-8?q?=E6=9D=A8=E5=BD=A6=E7=AB=8B?= <yanli.yang@bedmex.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thanks for the review.
+Send two packets and wait for each to reach ingress_msg before sending
+the next, so that the parser runs once per packet with the first one
+still unread. Read both, then send a third packet and expect it to be
+delivered.
 
-> So all these five people will be providing reviews, right? Just don't
-> add random managers names?
+Without the fix the third packet is never read: copied_seq has passed
+rcv_nxt after the first recv(), so the parser is not woken anymore.
 
-Yes, all five people listed here are technical engineers who will actively =
-review patches and maintain this driver. No non-technical managers are adde=
-d.
+Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+---
+ .../selftests/bpf/prog_tests/sockmap_strp.c   | 86 +++++++++++++++++++
+ 1 file changed, 86 insertions(+)
 
-> Bindings as well
+diff --git a/tools/testing/selftests/bpf/prog_tests/sockmap_strp.c b/tools/testing/selftests/bpf/prog_tests/sockmap_strp.c
+index 1d7231728eafd..18eb0c791e492 100644
+--- a/tools/testing/selftests/bpf/prog_tests/sockmap_strp.c
++++ b/tools/testing/selftests/bpf/prog_tests/sockmap_strp.c
+@@ -364,6 +364,88 @@ static void test_sockmap_strp_pass(int family, int sotype, bool fionread)
+ 	test_sockmap_strp__destroy(strp);
+ }
+ 
++static int sockmap_strp_wait_fionread(int fd, int expected)
++{
++	int err, avail = 0;
++
++	while (1) {
++		err = ioctl(fd, FIONREAD, &avail);
++		if (!ASSERT_OK(err, "ioctl(FIONREAD) error"))
++			return -1;
++		if (avail >= expected)
++			break;
++		usleep(10000);
++	}
++	return ASSERT_EQ(avail, expected, "ioctl(FIONREAD)") ? 0 : -1;
++}
++
++/*
++ * Let the parser run twice before the reader reads anything. Each round
++ * must keep the SK_PASS bytes of the earlier rounds out of copied_seq,
++ * otherwise copied_seq runs past rcv_nxt and the stream stalls.
++ */
++static void test_sockmap_strp_pass_unread(int family, int sotype)
++{
++	int zero = 0, one = 1, pkt_size = STRP_PKT_FULL_LEN, sent, recvd;
++	int err, map, i;
++	int c = -1, p = -1;
++	struct test_sockmap_strp *strp = NULL;
++	char rcv[STRP_PKT_FULL_LEN * 2 + 1] = "0";
++
++	strp = sockmap_strp_init(&map, true, true);
++	if (!ASSERT_TRUE(strp, "sockmap_strp_init"))
++		return;
++
++	err = create_pair(family, sotype, &c, &p);
++	if (err)
++		goto out;
++
++	err = bpf_map_update_elem(map, &zero, &p, BPF_NOEXIST);
++	if (!ASSERT_OK(err, "bpf_map_update_elem(p)"))
++		goto out_close;
++
++	err = setsockopt(c, IPPROTO_TCP, TCP_NODELAY, &one, sizeof(one));
++	if (!ASSERT_OK(err, "setsockopt(TCP_NODELAY)"))
++		goto out_close;
++
++	/*
++	 * wait for each packet to reach ingress_msg before sending the
++	 * next one, so that the parser runs once per packet
++	 */
++	for (i = 1; i <= 2; i++) {
++		sent = xsend(c, packet, pkt_size, 0);
++		if (!ASSERT_EQ(sent, pkt_size, "xsend(c)"))
++			goto out_close;
++		if (sockmap_strp_wait_fionread(p, pkt_size * i))
++			goto out_close;
++	}
++
++	recvd = recv_timeout(p, rcv, sizeof(rcv), MSG_DONTWAIT, IO_TIMEOUT_SEC);
++	if (!ASSERT_EQ(recvd, pkt_size * 2, "recv_timeout(p)") ||
++	    !ASSERT_OK(memcmp(packet, rcv, pkt_size), "memcmp, data mismatch") ||
++	    !ASSERT_OK(memcmp(packet, rcv + pkt_size, pkt_size),
++		       "memcmp, second data mismatch"))
++		goto out_close;
++
++	/* the next packet must still wake the parser */
++	sent = xsend(c, packet, pkt_size, 0);
++	if (!ASSERT_EQ(sent, pkt_size, "xsend(c) after read"))
++		goto out_close;
++
++	recvd = recv_timeout(p, rcv, sizeof(rcv), MSG_DONTWAIT, IO_TIMEOUT_SEC);
++	if (!ASSERT_EQ(recvd, pkt_size, "recv_timeout(p) after read") ||
++	    !ASSERT_OK(memcmp(packet, rcv, pkt_size),
++		       "memcmp, data mismatch after read"))
++		goto out_close;
++
++out_close:
++	close(c);
++	close(p);
++
++out:
++	test_sockmap_strp__destroy(strp);
++}
++
+ /* Test strparser with verdict mode */
+ static void test_sockmap_strp_verdict(int family, int sotype)
+ {
+@@ -470,6 +552,10 @@ void test_sockmap_strp(void)
+ 		test_sockmap_strp_pass(AF_INET, SOCK_STREAM, true);
+ 	if (test__start_subtest("sockmap strp tcp v6 pass fionread"))
+ 		test_sockmap_strp_pass(AF_INET6, SOCK_STREAM, true);
++	if (test__start_subtest("sockmap strp tcp pass unread"))
++		test_sockmap_strp_pass_unread(AF_INET, SOCK_STREAM);
++	if (test__start_subtest("sockmap strp tcp v6 pass unread"))
++		test_sockmap_strp_pass_unread(AF_INET6, SOCK_STREAM);
+ 	if (test__start_subtest("sockmap strp tcp verdict"))
+ 		test_sockmap_strp_verdict(AF_INET, SOCK_STREAM);
+ 	if (test__start_subtest("sockmap strp tcp v6 verdict"))
+-- 
+2.43.0
 
-I will add the binding to the MAINTAINERS entry:
-
-F: =C2=A0 =C2=A0 =C2=A0=C2=A0 Documentation/devicetree/bindings/net/wireles=
-s/aicsemi,aic8800d80-fmac.yaml
-
-> Why this cannot be previous patch? Why Makefile entry has to be a
-> separate commit?
-
-Agreed. The intention was to keep the driver unselectable until all
-sources were present, but folding this patch into patch 3 achieves
-the same result. Patch 3 already adds the remaining implementation
-and the driver-local Kconfig and Makefiles.
-
-I will fold this patch, including the MAINTAINERS entry, into patch 3
-in v6 and update the cover letter accordingly.
-
-Best regards,
-Yanli
-
-> From: "Krzysztof Kozlowski"<krzk@kernel.org>
-> Date:=C2=A0 Mon, Nov 16, 2026, 19:10
-> Subject:=C2=A0 Re: [PATCH wireless-next v5 4/4] wifi: aic: Integrate the =
-AIC8800 SDIO driver
-> To: "Yanli Yang"<yanli.yang@bedmex.com>
-> Cc: <linux-wireless@vger.kernel.org>, "Johannes Berg"<johannes@sipsolutio=
-ns.net>, "Rob Herring"<robh@kernel.org>, "Krzysztof Kozlowski"<krzk+dt@kern=
-el.org>, "Conor Dooley"<conor+dt@kernel.org>, <devicetree@vger.kernel.org>,=
- <linux-kernel@vger.kernel.org>, "Zhirun Liu"<zhirunliu@aicsemi.com>, "Diji=
-a Xu"<dijiaxu@aicsemi.com>, "Chunqiu Liu"<chunqiuliu@aicsemi.com>, "Liheng =
-Wei"<liheng.wei@bedmex.com>
-> On Mon, Nov 16, 2026 at 03:23:22PM +0800, Yanli Yang wrote:
-> > From: Zhirun Liu <zhirunliu@aicsemi.com>
-> >=C2=A0
-> > Connect the AIC vendor directory to the wireless Kconfig and Makefile
-> > so the complete AIC8800D80 and AIC8800D80N FullMAC driver can be select=
-ed.
-> >=C2=A0
-> > Add the driver maintainers, reviewers and linux-wireless mailing list t=
-o
-> > MAINTAINERS. Keep the parent build integration last so that intermediat=
-e
-> > patches do not expose an incomplete driver configuration.
-> >=C2=A0
-> > Signed-off-by: Chunqiu Liu <chunqiuliu@aicsemi.com>
-> > Signed-off-by: Zhirun Liu <zhirunliu@aicsemi.com>
-> > Signed-off-by: Yanli Yang <yanli.yang@bedmex.com>
-> > ---
-> > =C2=A0MAINTAINERS =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 | 10 ++++++++++
-> > =C2=A0drivers/net/wireless/Kconfig =C2=A0| =C2=A01 +
-> > =C2=A0drivers/net/wireless/Makefile | =C2=A01 +
-> > =C2=A03 files changed, 12 insertions(+)
-> >=C2=A0
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 7336600952c8..4e327fd62b26 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -746,6 +746,16 @@ L: =C2=A0 =C2=A0 =C2=A0 =C2=A0linux-scsi@vger.kern=
-el.org
-> > =C2=A0S: =C2=A0 =C2=A0 =C2=A0 =C2=A0Maintained
-> > =C2=A0F: =C2=A0 =C2=A0 =C2=A0 =C2=A0drivers/scsi/aic7xxx/
-> > =C2=A0
-> > +AIC8800 WIRELESS DRIVER
-> > +M: =C2=A0 =C2=A0 =C2=A0 =C2=A0Zhirun Liu <zhirunliu@aicsemi.com>
-> > +M: =C2=A0 =C2=A0 =C2=A0 =C2=A0Dijia Xu <dijiaxu@aicsemi.com>
-> > +M: =C2=A0 =C2=A0 =C2=A0 =C2=A0Chunqiu Liu <chunqiuliu@aicsemi.com>
-> > +R: =C2=A0 =C2=A0 =C2=A0 =C2=A0Liheng Wei <liheng.wei@bedmex.com>
-> > +R: =C2=A0 =C2=A0 =C2=A0 =C2=A0Yanli Yang <yanli.yang@bedmex.com>
->=C2=A0
-> So all these five people will be providing reviews, right? Just don't
-> add random managers names?
->=C2=A0
-> > +L: =C2=A0 =C2=A0 =C2=A0 =C2=A0linux-wireless@vger.kernel.org
-> > +S: =C2=A0 =C2=A0 =C2=A0 =C2=A0Maintained
-> > +F: =C2=A0 =C2=A0 =C2=A0 =C2=A0drivers/net/wireless/aic/
->=C2=A0
-> Bindings as well
->=C2=A0
-> > +
-> > =C2=A0AIMSLAB FM RADIO RECEIVER DRIVER
-> > =C2=A0M: =C2=A0 =C2=A0 =C2=A0 =C2=A0Hans Verkuil <hverkuil@kernel.org>
-> > =C2=A0L: =C2=A0 =C2=A0 =C2=A0 =C2=A0linux-media@vger.kernel.org
-> > diff --git a/drivers/net/wireless/Kconfig b/drivers/net/wireless/Kconfi=
-g
-> > index f4f969fdbc02..964e633898ca 100644
-> > --- a/drivers/net/wireless/Kconfig
-> > +++ b/drivers/net/wireless/Kconfig
-> > @@ -19,6 +19,7 @@ menuconfig WLAN
-> > =C2=A0if WLAN
-> > =C2=A0
-> > =C2=A0source "drivers/net/wireless/admtek/Kconfig"
-> > +source "drivers/net/wireless/aic/Kconfig"
-> > =C2=A0source "drivers/net/wireless/ath/Kconfig"
-> > =C2=A0source "drivers/net/wireless/atmel/Kconfig"
-> > =C2=A0source "drivers/net/wireless/broadcom/Kconfig"
-> > diff --git a/drivers/net/wireless/Makefile b/drivers/net/wireless/Makef=
-ile
-> > index fa3100ff3bf7..47b999e8014c 100644
-> > --- a/drivers/net/wireless/Makefile
-> > +++ b/drivers/net/wireless/Makefile
-> > @@ -4,6 +4,7 @@
-> > =C2=A0#
-> > =C2=A0
-> > =C2=A0obj-$(CONFIG_WLAN_VENDOR_ADMTEK) +=3D admtek/
-> > +obj-$(CONFIG_WLAN_VENDOR_AIC) +=3D aic/
->=C2=A0
-> Why this cannot be previous patch? Why Makefile entry has to be a
-> separate commit?
->=C2=A0
-> > =C2=A0obj-$(CONFIG_WLAN_VENDOR_ATH) +=3D ath/
-> > =C2=A0obj-$(CONFIG_WLAN_VENDOR_ATMEL) +=3D atmel/
-> > =C2=A0obj-$(CONFIG_WLAN_VENDOR_BROADCOM) +=3D broadcom/
->=C2=A0
