@@ -1,60 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.192
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795224151;
-	b=3rwfMmw4eus3s9pSQZqB8rOuNsH21394hyIrdBTlpDA+NTUj+MuIOTUk00r5PUbqH0cQ
-	 /sE4ySo+00jBFU6EK6ppfSbK1ZSvy7X7z2CXFm0j1aeHqS1alc3VLLKQWs6RhDJDXoqwF
-	 lauFdY7BJp10ipxDLsA39AP55dnSbz4VhbekRYgvomZtzUnU1qchdjUc7e7ITGIPHvdV3
-	 qKgqsQE/HS12G5mdbF9llDllLFKx/5fyFIUTX/yXrsQKxqNMyQUVcGLa5opHnZt28MBe4
-	 u6dIjs/4ShDPFN77BTOutqYNCKmsXcutbZTi3ZCs3fcqPhAPdM0QX+9DF7KPawWnw8Q==
+	t=1795224235;
+	b=DMvAnIF9SHd3FbvnyT5DhYXNaA9OOTJ6o6HmECbMRmH7dq2Hoyp122Z26Cs9Qqqk00b3
+	 1iPh55xyJ2n+er9soaVN95kMYdk9XqjcWik0VKHPvylXs2r5NpEFe8tWtMWSPTx9uXtrw
+	 wUb5weeLhVbSFP+HUcszKrYh2NznAMMD8QjSTt2PHUpXOFivxBQH7yxvzFL/qezCArX2b
+	 HJ89AqmBaBqVH+P/ZK6q+CSUMVGwO7HmiHAaAdW4lKK5QqE6feN1UC0G8WQ2WMbso9E2b
+	 s/aHpPSqlHSBesvoQD8m1golzfh/eRpnwBC+fCkfa2qJVVqxXr+LdT4Vucc2CrZNBkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795224151;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795224235;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:CC:Subject:In-Reply-To:
-	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=jj9ufaU9aq+HcELA26/VricNQmbSV36azmb5TUev+oE=;
-	b=B4z+VvHbFfzMz/rqg1O7vLKYN7Lw+cCO7WtwWu+N7Btkdm5nvwzTjLonbbSh3IR1dDpN
-	 9Un92A1xlw2YTmGqJaUXfgwEsBfkEgnnjkBW7P9zkkHJH2AqDKRAZBLBBrNclqOOjpbIY
-	 xOh2yl70o261e6C4Sdm5XuJenATIXtxEi0oWGpikYC0qjvRP7fkMVVAG1kJW/tXq9ubC+
-	 JJ9orrYigTfGQZQhG2Aot0BONCKw3Vkrn++P6qCdfRHLei0xDsV8OUW+TcYz+X6ZyaoTn
-	 jPYQ6oOoGm4+IjUgzfj2X7tVp4sBihyHKi9x0qd0qEqzdxzqr5yNcl2sRQPRB8cW9gw==
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=Xz5cC2O8b4PhD3G6RP3szPC99+TsfFt+jwewiS/quyI=;
+	b=CNQredhI2pxioqx8Hw65Ff5PxRNadjFXRWSWHbV2USgWWmacHKVPxIHGccZengzlW62F
+	 PtsdgRgWvjxOKoxesWk/B3+S1v631p0G35Pvqm8DLdklD60cptg9d8LZBV7wLMWzXeP2E
+	 YKQYxxfXGrS8AgDjaf1Z10wybfEPl+EOuolD+u0jvioEYmsN32BwKfhpNFsa5id8Y3DyX
+	 uLhG0Hjc6LOcuC3+Az3o6dI7pyGtmtY6/0a1wuTT369j6pbZfPmuxf1NJtwXF9T67IlQO
+	 O43c8mbuB5emlyK+hAOOo2s+R8CGfOoNzpKe592dFVF4lEsEyGX6mENEXaN9Kx7b8LQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=C8Bs8CJA;
-	arc=none smtp.remote-ip=91.218.175.179
-Received: from mta0.migadu.com (out-179.mta0.migadu.com [91.218.175.179])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bKCr41IE;
+	arc=none smtp.remote-ip=91.218.175.192
+Received: from mta0.migadu.com (out-192.mta0.migadu.com [91.218.175.192])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B25E9606A69A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 01:22:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B25E9606A69A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA87D606A683
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 01:23:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA87D606A683
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=C8Bs8CJA
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bKCr41IE
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=GB4Cp/R6VnakhXV0P6BPENiPNWGa3q/lPoUJcR4Uy2I=;
+DKIM-Signature: a=rsa-sha256; bh=dx6Spe2vDjy+a5xjpfUPvPXuaxBXphqlSthJWpmUnwg=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795224146; v=1; x=1795828946;
- b=C8Bs8CJAhJNhmnKBuPN6HNclpqF3IapE3rBSlstlEGZmbfrt+b2lWnmIn/BpqH8maNw9VlU4
- O26CQzlK6Q74g07vX6typpd3eknlPLLz86X1RPNS1X2L4ntUExijWM+5gHjHDf2pQhVxy3XWRAv
- bTpoQ5eNUuVCPj9VBtLAs7sI=
+ t=1795224222; v=1; x=1795829022;
+ b=bKCr41IELwfn3Z45mSvylQXfnL3015HXb9GK96avk2/HTfTmNTzbhJRUkzaOvA7Xv1y7c/Sb
+ HkSXeueAMFlXgKJRADmPAcsKqnfvyeP9SzmeuV9SrejlSdaYDi2E1UIs/4KWKfL0fMiYbMDYEDq
+ 6yub7YMlszO24BUozCca6MVU=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id f3cbd5c8c722fcd7;
-	Sat, 21 Nov 2026 01:22:26 +0000
-X-Mizu-Trace-ID: f3cbd5c8c722fcd7
+Received: by smtp.migadu.com with ESMTPS id ecbfa4d686ec920a;
+	Sat, 21 Nov 2026 01:23:42 +0000
+X-Mizu-Trace-ID: ecbfa4d686ec920a
 X-Migadu-Flow: FLOW_OUT
-Date: Sat, 21 Nov 2026 01:22:26 +0000
-From: Bradley Morgan <bradley.morgan@linux.dev>
-To: petr.pavlu@suse.com
-CC: atomlin@atomlin.com, da.gomez@kernel.org, linux-kernel@vger.kernel.org,
- linux-modules@vger.kernel.org, mcgrof@kernel.org, samitolvanen@google.com
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH=5D_module=3A_Clarify_purpose_and_?=
- =?US-ASCII?Q?description_of_elf=5Fvalidity=5Fcache=5Fcopy=28=29?=
-In-Reply-To: <20261119-module-elf-validation-v1-1-69a74a84552c@suse.com>
-Message-ID: <A862E988-8886-430B-B32B-901723DA8B05@linux.dev>
+Message-ID: <e9ec7734-6cbe-4bc8-8ee1-d7347640fb8e@linux.dev>
+Date: Fri, 20 Nov 2026 18:23:34 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,98 +58,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 8bit
-
-On 19 November 2026 16:25:27 GMT, Petr Pavlu <petr.pavlu@suse.com> wrote:
->With the advent of LLM agents, a number of recent patches and bug reports
->for the module loader focus on its validation of module ELF metadata.
->However, many of them are misguided.
->
->Loading a module is a privileged operation. The ELF metadata can normally
->be trusted, just as the module code itself is expected to be correct. The
->checks in elf_validity_cache_copy() are intended to catch accidental
->corruption and basic violations of the ELF format, rather than to provide
->exhaustive validation. The only requirement is that enough of the ELF data
->is validated for the module loader to safely reach the blacklist check
->without crashing on a corrupted module file. This allows a broken module
->to
->be blacklisted and prevented from loading.
->
->Clarify the purpose of elf_validity_cache_copy() and otherwise clean up
->its
->description. Hopefully, LLM agents will take this into account and the
->number of validation-related reports will decrease.
->
-
-thxthx
-
-Reviewed-by: Bradley Morgan <bradley.morgan@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] mm/balloon: fix NR_BALLOON_PAGES accounting during
+ page migration
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Jerrin Shaji George <jerrin.shaji-george@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: linux-mm@kvack.org, virtualization@lists.linux.dev,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Shao Mingyin <shao.mingyin@zte.com.cn>
+References: <20261120-b4-balloon_nr_pages-v1-0-d8944b587819@kernel.org>
+ <20261120-b4-balloon_nr_pages-v1-1-d8944b587819@kernel.org>
+Content-Language: en-US
+From: Nico Pache <nico.pache@linux.dev>
+In-Reply-To: <20261120-b4-balloon_nr_pages-v1-1-d8944b587819@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
 
->Signed-off-by: Petr Pavlu <petr.pavlu@suse.com>
->---
-> kernel/module/main.c | 37 +++++++++++++++++++++++--------------
-> 1 file changed, 23 insertions(+), 14 deletions(-)
->
->diff --git a/kernel/module/main.c b/kernel/module/main.c
->index 34e0204ea37c..0c204f07ca68 100644
->--- a/kernel/module/main.c
->+++ b/kernel/module/main.c
->@@ -2421,24 +2421,33 @@ static int elf_validity_cache_strtab(struct load_info *info)
-> }
+
+On 11/20/26 3:34 AM, David Hildenbrand (Arm) wrote:
+> balloon_page_migrate() doesn't update NR_BALLOON_PAGES in two scenarios:
 > 
-> /*
->- * Check userspace passed ELF module against our expectations, and cache
->- * useful variables for further processing as we go.
->+ * Check the ELF module passed in from userspace against our expectations, and
->+ * cache useful variables for further processing as we go.
->  *
->- * This does basic validity checks against section offsets and sizes, the
->- * section name string table, and the indices used for it (sh_name).
->+ * Loading a module is a privileged operation. The ELF metadata can normally be
->+ * trusted, just as the module code itself is expected to be correct. These
->+ * checks are intended to catch accidental corruption and basic violations of
->+ * the ELF format, rather than to provide exhaustive validation. The only
->+ * requirement is that enough of the ELF data is validated for the module loader
->+ * to safely reach the blacklist check without crashing on a corrupted module
->+ * file. This allows a broken module to be blacklisted and prevented from
->+ * loading.
->  *
->- * As a last step, since we're already checking the ELF sections we cache
->- * useful variables which will be used later for our convenience:
->+ * The checks cover the ELF header, section offsets and sizes, section-name and
->+ * symbol string tables, offsets into those tables, and selected
->+ * section-specific constraints.
->  *
->- * 	o pointers to section headers
->- * 	o cache the modinfo symbol section
->- * 	o cache the string symbol section
->- * 	o cache the module section
->+ * While validating, cache the following for later use:
->  *
->- * As a last step we set info->mod to the temporary copy of the module in
->- * info->hdr. The final one will be allocated in move_module(). Any
->- * modifications we make to our copy of the module will be carried over
->- * to the final minted module.
->+ * * pointers to the section headers and section-name string table
->+ * * indices of relevant sections, including .modinfo, the symbol table, the
->+ *   symbol string table, the module section, and version sections
->+ * * a pointer to the symbol string table
->+ *
->+ * Finally, set info->mod to point to the temporary module struct within
->+ * info->hdr. The final copy of the module struct will be allocated in
->+ * move_module(). Any modifications to the temporary copy will be carried over
->+ * to the final one.
->  */
-> static int elf_validity_cache_copy(struct load_info *info, int flags)
-> {
->
->---
->base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
->change-id: 20261119-module-elf-validation-a5a0e28e6dcb
->
->
+>   (1) If the new page is on a different node than the old page.
+> 
+>   (2) If the old page was deflated but the new page could not be
+>       inflated, effectively deflating the balloon.
+> 
+> Consequently the "Balloon" values in /proc/meminfo, the per-node meminfo
+> etc. will be wrong.
+> 
+> Fix it by adjusting the "Balloon" counters accordingly just after
+> conditionally adjusting the manage page counts.
+> 
+> This has low urgency.
+> 
+> Fixes: 4d689474e1b2 ("balloon_compaction: update the NR_BALLOON_PAGES state")
+> Cc: stable@vger.kernel.org
+> Reported-by: Shao Mingyin <shao.mingyin@zte.com.cn>
+> Closes: https://lore.kernel.org/r/20261115004708909xx05JgB9nXnOCG0zL7h_K@zte.com.cn
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 
---- Thanks!
+Acked-by: Nico Pache <nico.pache@linux.dev>
+
+> ---
+>   mm/balloon.c | 5 +++++
+>   1 file changed, 5 insertions(+)
+> 
+> diff --git a/mm/balloon.c b/mm/balloon.c
+> index 96a8f1e20bc66..b31543dd4d4d2 100644
+> --- a/mm/balloon.c
+> +++ b/mm/balloon.c
+> @@ -310,12 +310,17 @@ static int balloon_page_migrate(struct page *newpage, struct page *page,
+>   			adjust_managed_page_count(page, 1);
+>   			adjust_managed_page_count(newpage, -1);
+>   		}
+> +		if (page_pgdat(page) != page_pgdat(newpage)) {
+> +			dec_node_page_state(page, NR_BALLOON_PAGES);
+> +			inc_node_page_state(newpage, NR_BALLOON_PAGES);
+> +		}
+>   	} else {
+>   		/* Old page was deflated but new page not inflated. */
+>   		__count_vm_event(BALLOON_DEFLATE);
+>   
+>   		if (b_dev_info->adjust_managed_page_count)
+>   			adjust_managed_page_count(page, 1);
+> +		dec_node_page_state(page, NR_BALLOON_PAGES);
+>   	}
+>   
+>   	b_dev_info->isolated_pages--;
+> 
+
