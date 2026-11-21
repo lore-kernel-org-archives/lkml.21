@@ -1,95 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795250162;
-	b=EnKRkiA/OLVCzqih5EAaWapNRDJTvT/A44QMvbiJdPwyFs7P4IiKpMD7/BUVoAtvKqq7
-	 bDP8EQgtm7ELeij72KoLBr6+93V/zfHiLoimk368UUy1jSj6R8cBSESm8rWnypPOMDF3b
-	 lJzlsFmMPja+Q3ykR+gIxEHJfAW0iUk3bmGb2ZrB19Pp2OgmQhs1OxoSW+51ZlCCUXHwd
-	 U0fuqyQQW47z7KPGPo32IkNX+fPXw81a0kFSSzZQHCtyl1DmQvi3tpVTICD/OL8Oc8xy1
-	 ZJy5X06hCV+s27oNH8yke+OD4x8VH+eYhOckb/UScUUIiCf/ZOxwpXcUjPmDvhm8T9w==
+	t=1795250252;
+	b=y0sZEeUWVnDjx13i23UC4UMKIHBDDA0d5s/b/6IbRLnemMigwayU4Ses/wB3B2GGoEZl
+	 s5Y+MGeZ9eTLnjJkr1tVIMXCyeo8Ops4VMJOzP3bu2LNz4a2/PCkCkk0IZtIZ5WfaCjs+
+	 qM5jXAzRfRSmnzlIqhXA4xSwk9f38BGdEc7jXsocfFsKV44i2cTIXb5M+cvuBhnLTZzNe
+	 Lp3EMEZMcp6FZGtqt0z+u1digQDlfsO2kk659XTuhjmZs9rKRQJ82Y2CuNqvnqGeJPs11
+	 T12arhUfXUm2O+zP4YEILRidemdizkW0aK+sO4G8QF3bmZ81aTuziNtLXkh1I5Y5gDw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795250162;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=q1d44l4EB5ZU0oAa814zHpO0T89XFHbgu/Aqd5GidKs=;
-	b=UelLBh9RggyHz/LCQmcyEyKHvteIT9Q5hxl5XCKjT5jqWLXxvq4b2rYR/U/wcCNHGLr2
-	 RH77jBDfMHfvTo4GXwPKPAnFp5lFd+o8KUmj3ZQmYd8pmfxNQzN01wZfTAuy4j0tgf4Hs
-	 BEVO3pN0XXjAtyqPpgVGJR5Ir5jlrjDObIQ+OVzqc7TWfoUYo69HBz4OA5Mo7b4JpvXbz
-	 0G28jd3hUWY8FSFAXPPOpYOP3Z4IqrMGE8jM5oZcGZgMkZI8TSO8CgiyBe+R4MZJt25IB
-	 +GyO6PcneRZC1FtwPbWPddX/ONzzw9Bvxq1nKPwcQThPHqILjUoe4zlZyF5DYO2xwIA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795250252;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=k91HK40mTtE/BmAJ1Mcvc81qH3uQcXvyFodm9y1hP/w=;
+	b=Z0eLUr7MHut0j3RvuLvcyAoTqnV15N0vvkpO/goIX7e3Ug8zTRJQMoaAWNyVPi4HBXqX
+	 q2uKOjDB+HC/edkSKgXYsPDUItlao/y9OVaGRrf522+YQVuYoTffHYJAlY1EL62fQoYT/
+	 WPSwqxin/E+O3H+/aZeuoaM0QksiA3xGAVHBdYsIWmS9ytkVMyVOY7IwQvkPeOifbwDI/
+	 PvMkq9szC/639IleAjW8KjwS1/D+Ntid8g/R9pdWpxK3xV5kp0ATjgnCzrdLSTWXktrYO
+	 5pHRzr5kdZ6Nwza7HgravRgGOCaAw6RLeezuCfCDlIxXToUyeLNHh64DfpWQS68NfiQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=fylOpPWO;
-	arc=none smtp.remote-ip=209.85.216.49
-Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q4kJ3hp9;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14D0B606A334
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 08:36:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14D0B606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66C5D606A320;
+	Sat, 21 Nov 2026 08:37:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=fylOpPWO
-Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b3d4d3bba3so945939a91.3
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 00:36:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795250160; x=1795854960; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=q1d44l4EB5ZU0oAa814zHpO0T89XFHbgu/Aqd5GidKs=;
-        b=fylOpPWOfbB8Mrzaa8jy6O6PqZYCt9WZPTMsgYGA4VPpsQ1Mv1UgBsovjDm+hc71OY
-         KZzdpWzTAstESQ8MR6iPswzIo6xcJm2mqUKn7R5liNiKfGLEcJh4re82835A2RzTv9V8
-         MSjXeTNCtlafTTYoQyO6X5xMQOdkhDVqBHLJE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795250160; x=1795854960;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=q1d44l4EB5ZU0oAa814zHpO0T89XFHbgu/Aqd5GidKs=;
-        b=UECACymkved7NoZWFO1ciQTG8cNdvFLV9gsf17cNiMbZnEby1CR/LF4JupkbJBh1G9
-         SD0nUuB/8NQAOgy4dzApxXd9AwKFwm1h6pmi/P8J85Wxren1w007XvP0WufmJMJcdIVu
-         2kTyGuvt1ZXHxFzmAuiNqjyv4S0dRwyX/nhrYKykzqoj9GGko4PVCoNIbaN2sPTIRWq0
-         lckQCOHGgPI6hosXLSxoq39KcfFMfUG6FkcetDRlGHZKOcfdXfq1Uj9yTAGBUvG9xW6l
-         ZdPKRX6MGriBFN6SBVreVagINbBiqSlSaTAbnjYI9ESCbZqJHA6vT8I8NIPQHohXwsbe
-         I3KQ==
-X-Forwarded-Encrypted: i=1; AL+hErGn93Uv9cGWoV8BAQ8/+UFNfEfodfKCgP3SGzNfpES6RYDBlaRuCSbTJkqAe5f5PXkWzlnpUIX+4BjEj3k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8YpjLltI1/HZWJswy0QIda6/gNKZ0p//RVkWSxkKpQShsICknW
-	H13w6QvFCUYBO2wjGOMjNGhVW17yJ9/lNTIkgdBYVlJHVlHfc6sdgtz4ECp9EOBJfA==
-X-Gm-Gg: AZFdTZdyP9P4bBO2NBm9TNbpnuOvS3mldukmKZZkc0No/S0fTABqxGr0EMRd2E3q653
-	+IijfMasTAEOpVcDPR2NP8Ghtm985DImCwxfrYX+xEcuv2eT9xsPi7uVnvNJw+aRCKe4Gnamci2
-	Fiqrz51ajzP8tac1VN48ZtjsvKaHRFg/rrUXAWxW9DisR29yHpbzpuRSoqnCbN5OL4lowEHOEQu
-	bK/w+WOTlnWfR4eYzOHUo9gDaExj/pdurtbJWZjU6n6cMStW29TnZss2T1FuNuKAT1rHl9E3B0k
-	BrGj1Wxt5V2cgx+DstPvkdCD4WFVWqvUaAYhcdbp4FMUd5UY9eGBas61/cc8hOyQVpZMnWsRZKh
-	a1lCruJaJa3bQlr8+xbwtQSlR+EBoE41q8cw8kyWun32Nc84+vjunVhC22Sotbakqzjv8+qTCVC
-	Sze2mlhxe6KnXmGZT6628mx5wUqcRmjVZ4GQkyoFWH3pfl1r9/6XhqvlKgZiSC16nCz9VlZBWUD
-	VK0tZyh/eXD2OPEirAYm4tR10aX7EionbWuKcIv8ULQmGnrq91KI29Kk97jU0zxO8HfklbsuPS1
-	meumlWY+KSj7uc0gImzdHrtqBHMzteTABPQ/1MUEzit1v6+4kNYcVjWkXWozddJ3Dibdqg==
-X-Received: by 2002:a17:90b:1a90:b0:3b0:9941:8d42 with SMTP id 98e67ed59e1d1-3b41c92a1c0mr5014603a91.33.1795250160405;
-        Sat, 21 Nov 2026 00:36:00 -0800 (PST)
-Received: from google.com ([2a00:79e0:2031:6:2f43:ed99:516b:8dcd])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c42b1sm24237865ad.17.2026.11.21.00.35.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 00:35:59 -0800 (PST)
-Date: Sat, 21 Nov 2026 17:35:54 +0900
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: Hongfeng Chen <hongfengchen@xiaomi.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	Barry Song <baohua@kernel.org>, Chengming Zhou <chengming.zhou@linux.dev>, 
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>, 
-	Minchan Kim <minchan@kernel.org>, Nhat Pham <nphamcs@gmail.com>, 
-	Sergey Senozhatsky <senozhatsky@chromium.org>, Yosry Ahmed <yosry@kernel.org>, 
-	Wenchao Hao <haowenchao@xiaomi.com>, Wenchao Hao <haowenchao22@gmail.com>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, linux-block@vger.kernel.org, chenhongfeng0212@gmail.com
-Subject: Re: [RFC PATCH v4 2/2] zram: keep the hot statistics per cpu
-Message-ID: <awFXOyeELHgLfy_D@google.com>
-References: <20261016120927.3191690-1-hongfengchen@xiaomi.com>
- <20261017031542.3504947-1-hongfengchen@xiaomi.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q4kJ3hp9
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC6541F000C0;
+	Sat, 21 Nov 2026 08:37:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795250252;
+	bh=k91HK40mTtE/BmAJ1Mcvc81qH3uQcXvyFodm9y1hP/w=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Q4kJ3hp9MJdTqS0w3N6iqenk9ff9yLPLt19Aj4YCaUxEFxFTKqW7MJ5d1111H8aPo
+	 N0MjvteCaWfDHkRnC3EPR+bNF72NsQyczNgtlfn9jP5S6vCIqRhpZQI38gX3zb/vQV
+	 wHDrHDgPCq0Pfy8BkMfY/mtkgJml/tTA9KbnmHRl5deTLTuRRirTADeQ2GwbMI3unv
+	 MzQBhNMyvQvtWfJY9jQiGk0edycdJNAlULRfK3Jxz7a59cX/ifaFtJ3jQ8qaJCZjQZ
+	 FRcziVpG+QBvNPY32h2i18LhlW1AeruE/+m9PF5khB9vgVm7O9JOWHl6WguYaW1pEp
+	 /ZktjJLIYQK3A==
+Subject: Re: [PATCH net v3] net/rds: defer CM id destruction to a workqueue
+From: netdev-bot+sashiko@kernel.org
+To: chenaibing@cmss.chinamobile.com
+Cc: achender@kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, netdev@vger.kernel.org,
+ linux-rdma@vger.kernel.org, rds-devel@oss.oracle.com,
+ linux-kernel@vger.kernel.org
+Date: Sat, 21 Nov 2026 08:37:31 +0000
+Message-ID: <179525025125.3135.10066600297379507793@kernel.org>
+In-Reply-To: <20261117082145.1737-1-chenaibing@cmss.chinamobile.com>
+References: <20261117082145.1737-1-chenaibing@cmss.chinamobile.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,84 +63,121 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261017031542.3504947-1-hongfengchen@xiaomi.com>
 
-Once again, recovered from the SPAM folder.  Sorry for the delay.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-On (26/10/17 11:15), Hongfeng Chen wrote:
-[..]
-> +#define zram_pcpu_add(zram_dev, field, val)					\
-> +do {									\
-> +	struct zram *__zram = (zram_dev);				\
-> +	struct zram_pcpu_stats *__stats;				\
-> +									\
-> +	__stats = get_cpu_ptr(__zram->pcpu_stats);			\
-> +	u64_stats_update_begin(&__stats->syncp);			\
-> +	WRITE_ONCE(__stats->field, __stats->field + (val));		\
-> +	u64_stats_update_end(&__stats->syncp);			\
-> +	put_cpu_ptr(__zram->pcpu_stats);				\
-> +} while (0)
-> +
-> +static void zram_pcpu_sum(struct zram *zram, struct zram_stats_sum *sum)
-> +{
-> +	int cpu;
-> +
-> +	memset(sum, 0, sizeof(*sum));
-> +
-> +	for_each_possible_cpu(cpu) {
-> +		struct zram_pcpu_stats *stats;
-> +		unsigned int start;
-> +		s64 pages, bytes, same, huge;
-> +		u64 notify;
-> +
-> +		stats = per_cpu_ptr(zram->pcpu_stats, cpu);
-> +		do {
-> +			start = u64_stats_fetch_begin(&stats->syncp);
-> +			pages = READ_ONCE(stats->pages_stored);
-> +			bytes = READ_ONCE(stats->compr_data_size);
-> +			same = READ_ONCE(stats->same_pages);
-> +			huge = READ_ONCE(stats->huge_pages);
-> +			notify = READ_ONCE(stats->notify_free);
-> +		} while (u64_stats_fetch_retry(&stats->syncp, start));
-> +
-> +		sum->pages_stored += pages;
-> +		sum->compr_data_size += bytes;
-> +		sum->same_pages += same;
-> +		sum->huge_pages += huge;
-> +		sum->notify_free += notify;
-> +	}
-> +}
-> +
->  #ifdef CONFIG_ZRAM_WRITEBACK
->  #define INVALID_BDEV_BLOCK		(~0UL)
->  
-> @@ -919,6 +969,8 @@ static void zram_account_writeback_submit(struct zram *zram)
->  static int zram_writeback_complete(struct zram *zram, struct zram_wb_req *req)
->  {
->  	unsigned long index = req->pps->index;
-> +	struct zram_pcpu_stats *stats;
-> +	s64 huge, size;
->  	int err;
->  
->  	err = blk_status_to_errno(req->bio.bi_status);
-> @@ -947,9 +999,14 @@ static int zram_writeback_complete(struct zram *zram, struct zram_wb_req *req)
->  	}
->  
->  	clear_slot_flag(zram, index, ZRAM_IDLE);
-> -	if (test_slot_flag(zram, index, ZRAM_HUGE))
-> -		atomic64_dec(&zram->stats.huge_pages);
-> -	atomic64_sub(get_slot_size(zram, index), &zram->stats.compr_data_size);
-> +	huge = test_slot_flag(zram, index, ZRAM_HUGE) ? -1 : 0;
-> +	size = get_slot_size(zram, index);
-> +	stats = get_cpu_ptr(zram->pcpu_stats);
-> +	u64_stats_update_begin(&stats->syncp);
-> +	WRITE_ONCE(stats->huge_pages, stats->huge_pages + huge);
-> +	WRITE_ONCE(stats->compr_data_size, stats->compr_data_size - size);
-> +	u64_stats_update_end(&stats->syncp);
-> +	put_cpu_ptr(zram->pcpu_stats);
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-Thanks for reminding me that I actually looked into per-CPU stats a while
-ago.  And I had much less code, IIRC, let me find and rebase that patch,
-these WRITE_ONCE()-s, etc. are hard to maintain.  Let me find my patch.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] Each call to rds_ib_laddr_check_cm() (net/rds/ib.c) now
+  allocates a work item (kzalloc_obj(*w, GFP_KERNEL), line 439) and an…
+
+--
+
+net/rds: defer CM id destruction to a workqueue
+
+This commit moves the rdma_destroy_id() call in rds_ib_laddr_check_cm()
+to a work item on rds_wq, so rds_trans_sem is released before
+handler_mutex is taken. The work item is allocated before the CM id is
+created, and the address check fails with -ENOMEM if that allocation
+fails. rds_ib_exit() now flushes rds_wq after unregistering the transport.
+
+Closes: https://syzkaller.appspot.com/bug?extid=ccdb5058c3df2d94811c
+
+> diff --git a/net/rds/ib.c b/net/rds/ib.c
+> index 4ea9838d090c3..44b46defa1ae0 100644
+> --- a/net/rds/ib.c
+> +++ b/net/rds/ib.c
+
+[ ... ]
+
+> @@ -411,14 +425,28 @@ static int rds_ib_laddr_check_cm(struct net *net, const struct in6_addr *addr,
+
+[ ... ]
+
+> +	w = kzalloc_obj(*w, GFP_KERNEL);
+> +	if (!w)
+> +		return -ENOMEM;
+> +
+>  	/* Create a CMA ID restricted to IB devices and try to bind it. */
+>  	cm_id = rdma_create_id(&init_net, rds_rdma_cm_event_handler,
+>  			       NULL, RDMA_PS_TCP, IB_QPT_RC);
+
+[ ... ]
+
+> @@ -484,7 +512,9 @@ static int rds_ib_laddr_check_cm(struct net *net, const struct in6_addr *addr,
+>  		 cm_id->device ? cm_id->device->node_type : -1);
+>  
+>  out:
+> -	rdma_destroy_id(cm_id);
+> +	INIT_WORK(&w->work, rds_ib_destroy_id_work);
+> +	w->cm_id = cm_id;
+> +	queue_work(rds_wq, &w->work);
+>  
+>  	return ret;
+>  }
+
+[Severity: Medium]
+Is there anything that limits how many of these destroys can be pending?
+
+Before this change, rdma_destroy_id() ran synchronously. The number of
+live cm_ids could never exceed the number of threads inside bind() at
+that moment.
+
+Now each call keeps two objects allocated until the krdsd worker gets to
+the item: the work item and the rdma_id_private from rdma_create_id().
+The caller returns right away, so the producer gets no backpressure.
+
+An unprivileged user can reach this by calling bind() in a loop on an
+AF_RDS socket, using an address that no IB device owns:
+
+rds_bind()
+  rds_trans_get_preferred()
+    rds_ib_laddr_check()
+      rds_ib_laddr_check_cm()
+        kzalloc_obj(*w, GFP_KERNEL)
+        rdma_create_id()
+        ...
+        queue_work(rds_wq, &w->work)
+
+A failed laddr_check leaves the socket unbound, so the same socket can
+call bind() again at once. The rds_rdma module has to be loaded, but it
+can be autoloaded through SO_RDS_TRANSPORT.
+
+Neither allocation uses __GFP_ACCOUNT. Could the pending objects pile up
+as kernel memory that is never charged to the caller's memcg?
+
+rds_threads_init() creates rds_wq with
+create_singlethread_workqueue("krdsd"). That leaves one ordered worker to
+drain items that can be queued from many CPUs.
+
+The same workqueue also handles other RDS work:
+
+- the cp_wq for RDS IB and TCP connection paths
+- the TCP accept worker
+- message unpin work
+- rds_ib_dev_free()
+
+Could a backlog of destroy items hold up connection, accept and teardown
+work for every RDS user on the system?
+
+When rdma_bind_addr() succeeds (for example IPv6 on IPoIB), each pending
+cm_id also holds an RDMA_PS_TCP port until its destroy runs.
+
+There are a few possible ways around this:
+
+- return the cm_id to the caller and destroy it after
+  up_read(&rds_trans_sem)
+- limit the number of in-flight destroys
+- use a dedicated unordered workqueue and add __GFP_ACCOUNT
+
+Would one of these work here?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117082145.1737-1-chenaibing%40cmss.chinamobile.com
