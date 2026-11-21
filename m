@@ -1,78 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.192
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795296431;
-	b=0nVg+gg77vC0BeUrjq9cGYUHGBrRS3IKkYhQKMckBAQcSS8hEJvHTuP7wAU3nE2oYE6Z
-	 6yKgC7oHffZDn4CXWkCYfpgr+5m/pCp2fZAGqDii56Dj5Zr5M2rHvHx/AVs8uxXblfXzb
-	 1XznA0n80pmmBPSHZVL6BpmsdafIYdYs70NLkyFKDKdNhEFoDkwKnp329VwVkZ71RIn+H
-	 vGZqZshHcFCuklouQ2+Y+89XMUubKZAAThR+uwhjjXhcYP61mMzdIaOCdX50Kaxo0kpQd
-	 ahz4KXrbFZDMT5CnW5wsNevkDebqBIbFzi644aJlDbL2e/GOHU2Yjb5+Qlh+vlQI6PA==
+	t=1795296432;
+	b=wirZTk1lFTFWzjD+BLkimsMmY+mlnb1rubcsVrpwOJPFpD3ZjHQPnvjN3HNcNS7DSJF5
+	 l1mNSco6UNocrZRuMkE48VmRcN6ss/TAgIBrVqDx/tHQJgUzRwSOOGPtqToec9PPTmVv4
+	 uYTovU1qoADvreibi5WCdnO8EhLnEmXaf/zvQMIMWhTgJvJtrkwKcn7Q7QjjhazWW/nRx
+	 TN8Cn4kxcmfpCtw+qhsk/M799FYeysK9J5jkY7j8Ig+rwlr2fCVDJdZfBk7CqCDUtXkaT
+	 g/oQ0+jGoYDlrZjn10v4KaRY7NaQe72NXXihh3cM8tTVs6z2HvTPelyGTJRgIc2X8dQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795296431;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
-	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
-	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=vLPdwXc/aJvHEChEYmLlCcJA1K0ap0UNibPU2Yd3+IU=;
-	b=jeb+DH7WGriS+au/01EsXqzZzHkM/E9vfpEfNbOUfS4dCYPHadB1uc8f2mi48Fpjd1GO
-	 YnN9TUiNVfBOfbsGUzx3y0n7Ra5twF4nfCstcA3gti2TUxb4gS4b1SP8o7YjDFq+lp7Zh
-	 9JyCG+1a+7bjBREerc0JeiozVbe03OfxS6vq+HfHspXzCz+phXfpYu6RmyMbtMfrnUrhJ
-	 Umr5CqJdyH+axVmNVmjjO+4OpFWdKzaeQWNIu434xKz6CB1bPfhtRrwcXr41w5Z16lJXM
-	 ed2oVhbkQVerh4Q3UB7BwSERmFH1Ed4mXh2qKQ3JNjAb+JpVx/0B8dsUquJYszvKoyQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795296432;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=wTQhRjOCjFPLMuMZMUIfh4QWuDPBy9MWRjMzD2TViXQ=;
+	b=KLnCvlxT0vkDq8BIekPFBShlPNmvwuLHXYznenhgOql/idMNmLCW1R3M9f1L3iSJaZ2F
+	 J2nhqQKeEq9E3/OiXpHdKFGOQgL4A/eLC/ckeqaaObaJpEykihKhH/660n+m+grkCvN6l
+	 iDFV7HVbI7mtveX2ucI/zlHGgRCVKgFmzoG0Jivb7LByRKK1sB+tHmvW4hxmpy7tflFSS
+	 Hk7RQ/9/h5gVJp4EB0fq9kMAUH2jCReQ0TL2UkTo7NF8WCjBUMZ2StVyX24sGFlIUGh75
+	 Upvu+DA6Ewq/yqzuctUgorGF2QQjd1lvXDg+FBOKjM1WcbTVNtF9fEr/v7ooCN10r7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=linux.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=74.125.224.53
-Received: from mail-yx1-f53.google.com (mail-yx1-f53.google.com [74.125.224.53])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mHTXDwTh;
+	arc=none smtp.remote-ip=91.218.175.192
+Received: from mta0.migadu.com (out-192.mta0.migadu.com [91.218.175.192])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E82C1606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18325606A32A
 	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:27:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E82C1606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-yx1-f53.google.com with SMTP id 956f58d0204a3-677d35fd1d2so2062559d50.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:27:10 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795296430; x=1795901230;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vLPdwXc/aJvHEChEYmLlCcJA1K0ap0UNibPU2Yd3+IU=;
-        b=yoAgVFGWzSf6iMaUDz13qB4el8TpMSjp0D9a9FNFAiG4/JH98Bhcm1HK7TTniWNbHI
-         Rmtgl58bnHVID8o4D504wXjlAX5c7aDeMxQj97P6HI+2QwV28YOVd34/j//IhEmhILpm
-         lotQ5/k5sfEVly9LTMAiwC0iVvbicdRt7QZZEjy4y+Ghh6fQvyrXwxYH6uptUbetzm80
-         Ialf9f+2vMzY9jDmf2VOPQ/zVjn5RAnH2kjRG8mfHb8ph90pqgJ+5++pxs4Ot1XgE6Bm
-         oAQ9UhAXpvad8vLSPZBmNf3c+N1pAtlaFOHlFP2eoii7hx7lHlTar+M0VOoPuuLJfNUE
-         vWHQ==
-X-Forwarded-Encrypted: i=1; AL+hErFnKMJAoVR7kTjboM8RbJ6fnDDzHFW3whIZJ7hO7SNmJTVsgA1dM3YVb2KTZi2K5cvI57kVCRd/YnNV7F0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8bQGUFDdEm6DuJ6HHvvP6AA3peI3PoktsExj2V//YcBAr7WCSh
-	ZgZ25syGjMG1w6T8d1XxYZNwmUCoNoPdGimEmJEwH46XlfPMuMxi5AxGC2H5b63l
-X-Gm-Gg: AZFdTZe+oMQODHH56eR01LOngCAGYlv9Q9XDzVtKL0GE0TMoLMM3qIWldRi/2lqiaj/
-	QAlAi5PtS6MJk50i8QRgsGu4S7Qyuwo7vKQi+4QWE899ufTk1ehEIPjx/0otcwBPs204kMbRJrq
-	7vYFV9l2KxNfmrx9fff1l2YVtui4jLrOEKiA45gYgxaotaAmm9V2KP8U63PO5ej0n1GNa5SvDsP
-	8FhUUVEGEydXF1n3RU7GhHzV40V5thQsQEKYqy6xvUtLq/cciMc4Ntad7059r0Jppm8/68NJVK1
-	iHlBmU9k28wz4DYlB/PO0QFyMi3uWaMq2BRFK5fZDP4FtdPiAU+O8De92n93tpQNeDfF8xP+mok
-	rwLoCs3Xy1ct0sAy8NZlKmM2lHncHTzfGRtn/gkX0zONNh+0+1yWSlHCrM6K/rmBWcSDfOyXYka
-	u4xchW999xQqJ3U72NT+Xi0ARJbIYTxirQrfEC74sWnXq+cUD5PpWKjCBfIEyBJo5Tols4k4pF8
-	Ro1xlagibB/SgqhvshfqdTYpeSeMKRD11Ki3qBRpWDMmbNDJn9izU2i0rN9x2P7K0ZVQba2btYw
-	a/UVkasAP9D2MMbxnZOIB2m/VLj8BaBrv0hIJ0Aa9XypWCUrl03pb3zRi1IQRioKNiPRYZAbD/V
-	Ny4if8kZQt0fg7riwl21jfoEs9Te+nGwl0/w8/H0hNIX9vcduQLKo90jIaQ==
-X-Received: by 2002:a05:690e:bc7:b0:67d:bdf4:f432 with SMTP id 956f58d0204a3-67df42ccf49mr2112881d50.11.1795296429901;
-        Sat, 21 Nov 2026 13:27:09 -0800 (PST)
-Received: from mail-yw1-f176.google.com (mail-yw1-f176.google.com. [209.85.128.176])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df3378f59sm3283206d50.14.2026.11.21.13.27.09
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 21 Nov 2026 13:27:09 -0800 (PST)
-Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-8b360828905so17462307b3.2
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:27:09 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErE6MOgyR7YuqeOy/1akYL3ZqWy8rfzGgRnZyWSIOLePKvKCoMSe1SfGJ3nrKdT2A5ZqEPeINHLX9/BsLEw=@vger.kernel.org
-X-Received: by 2002:a05:690c:6c92:b0:8b3:7782:675f with SMTP id
- 00721157ae682-8b5204bb6b2mr23239647b3.66.1795296429324; Sat, 21 Nov 2026
- 13:27:09 -0800 (PST)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18325606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mHTXDwTh
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=3x2ckrVI3z3NW2CiWPXuClHX9YfabFhGAYUL/kc5S9Y=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795296428; v=1; x=1795901228;
+ b=mHTXDwThfaWQ+Y/UjT8R4P7zqZZZ1HKtPhsuUa+YaNy+gLwv92kzqaTjRAKvANRRQL+32twq
+ LXAUw9Gt4DkL9gdt3JQ3A0Qn78eUE+iSMcEAxc6kxksVMI6w2/OYQ/U5pHv/auN3FV8pT4LA9YP
+ Nz9m0us4b/fpy2BpSN4eLR/g=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 79f3b7fd43fc4ced;
+	Sat, 21 Nov 2026 21:27:08 +0000
+X-Mizu-Trace-ID: 79f3b7fd43fc4ced
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <6462f655-303b-4df1-9ef0-b82bc482b55f@linux.dev>
+Date: Sat, 21 Nov 2026 13:27:01 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,47 +58,129 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261113121852.334604-1-tanure@linux.com> <20261113121852.334604-7-tanure@linux.com>
- <CAFBinCBFfs85ZgYLq0Hbx-E22twLYMZztk3inRuRLaBB+MXsOg@mail.gmail.com>
-In-Reply-To: <CAFBinCBFfs85ZgYLq0Hbx-E22twLYMZztk3inRuRLaBB+MXsOg@mail.gmail.com>
-Reply-To: tanure@linux.com
-From: Lucas Tanure <tanure@linux.com>
-Date: Sat, 21 Nov 2026 21:26:57 +0000
-X-Gmail-Original-Message-ID: <CAJX_Q+3eB5K3UjfPHnsD8OrCg6GA8zOLWVdfFONFT_aociTCrw@mail.gmail.com>
-X-Gm-Features: Aa3M54q0-4I4quSKRWB1j7w8Nv6x5L8DyHdNe8I0CVnAIjNuxS8ecYBkoD_MhLQ
-Message-ID: <CAJX_Q+3eB5K3UjfPHnsD8OrCg6GA8zOLWVdfFONFT_aociTCrw@mail.gmail.com>
-Subject: Re: [PATCH v7 6/7] arm64: dts: amlogic: t7: add the ethernet controller
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] RDMA/rxe: reject ODP accesses that wrap the iova space
+To: Yiran Qiu <eritque-arcus@ikuyo.dev>, zyjzyj2000@gmail.com, jgg@ziepe.ca,
+ leon@kernel.org, "yanjun.zhu@linux.dev" <yanjun.zhu@linux.dev>
+Cc: linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20261120060000.302440-1-eritque-arcus@ikuyo.dev>
+From: Zhu Yanjun <yanjun.zhu@linux.dev>
+In-Reply-To: <20261120060000.302440-1-eritque-arcus@ikuyo.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Sun, Nov 15, 2026 at 6:02=E2=80=AFPM Martin Blumenstingl
-<martin.blumenstingl@googlemail.com> wrote:
+
+在 2026/11/19 22:00, Yiran Qiu 写道:
+> rxe_check_pagefault() decides whether an ODP access needs a page fault
+> by walking its pages, and bounds the page index against the umem inside
+> that walk. When iova + length wraps past 2^64 the loop does not run, so
+> neither that bound nor the HMM_PFN_VALID and HMM_PFN_WRITE checks apply,
+> and no fault is taken. __rxe_odp_mr_copy() and the atomic write and
+> flush helpers then index map.pfn_list[] with (iova - ib_umem_start()) >>
+> page_shift, which the registrant controls: ib_uverbs_reg_mr() only
+> requires the MR's iova to share the page offset of the user address. The
+> entry read past pfn_list[] goes to hmm_pfn_to_page(), and that page is
+> copied to or from the peer.
 >
-> On Fri, Nov 13, 2026 at 1:18=E2=80=AFPM Lucas Tanure <tanure@linux.com> w=
-rote:
-> [...]
-> > +                       eth_phy: mdio-multiplexer@28000 {
-> > +                               compatible =3D "amlogic,g12a-mdio-mux";
-> I think this has to get a T7 specific compatible string (dt-bindings
-> only, no driver change needed):
->   compatible =3D "amlogic,t7-mdio-mux", "amlogic,g12a-mdio-mux";
+> rxe_check_pagefault() also keeps the index in an int, so an index of
+> 2^32 or more can be truncated to a value that passes the bound, while
+> the flush and atomic write helpers use the full unsigned long.
 >
-> If we find differences in T7's mdio-mux compared to G12A then we'll be
-> able to manage them.
+> Reject a wrapping range in rxe_odp_map_range_and_lock(), before the
+> fault path, whose umem range check wraps the same way, and keep the
+> index in an unsigned long.
+>
+> Found with afb-afl, an LLM-driven kernel audit/repro pipeline; the fix
+> and this changelog were also drafted with LLM assistance. Reproduced on
+> an unmodified KASAN build of mainline by an unprivileged user with a
+> self-connected rxe QP. An RDMA READ at the end of a two-page ODP MR
+> whose iova range ends at 2^64:
+>
+>    BUG: KASAN: slab-out-of-bounds in rxe_odp_mr_copy+0x35f/0x410
+>    Read of size 8 at addr ffff8881037a2210 by task kworker/u16:0/13
+>    The buggy address is located 0 bytes to the right of
+>     allocated 16-byte region [ffff8881037a2200, ffff8881037a2210)
+>    Oops: general protection fault, maybe for address 0xffff888103d0c04a: 0000 [#1] SMP KASAN NOPTI
+>    RIP: 0010:memcpy+0xc/0x30
+>
+> An ATOMIC WRITE to an MR whose iova is 2^44 above the umem start:
+>
+>    BUG: unable to handle page fault for address: ffffed11202b3194
+>    RIP: 0010:rxe_odp_do_atomic_write+0x131/0x2f0
+>
+> With this patch both are NAKed with no report, and an in-range READ and
+> ATOMIC WRITE return the same results as before. The wrap was not tried
+> on the flush path. The rdma-core v65.0 tests, ODP included, pass on rxe
+> with and without this patch.
+>
+> Fixes: 2fae67ab63db ("RDMA/rxe: Add support for Send/Recv/Write/Read with ODP")
+> Cc: stable@vger.kernel.org # 6.15.x: 7797bbb0e86f: RDMA/rxe: bound the ODP page index against the umem in rxe_check_pagefault()
+> Signed-off-by: Yiran Qiu <eritque-arcus@ikuyo.dev>
+> ---
+> Tested on mainline 4405c18c95d2 (v7.4-rc3+) in QEMU. Applies to
+> rdma.git for-rc and for-next.
+>
+> This completes commit 7797bbb0e86f, whose bound sits in the loop that
+> a wrapping range skips; stable trees need that commit first.
+>
+> Without KASAN, an RDMA READ or WRITE at the end of the range reads or
+> overwrites a physical page the registrant chooses. On a lab kernel with
+> CONFIG_RANDOMIZE_BASE=n this was taken from an unprivileged user to
+> uid 0; with KASLR the chain also needs an address leak. The rxe link
+> has to be created by an administrator; the trigger needs only the
+> uverbs device. A reproducer and the test logs are available on request.
+>
+>   drivers/infiniband/sw/rxe/rxe_odp.c | 5 ++++-
+>   1 file changed, 4 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/infiniband/sw/rxe/rxe_odp.c b/drivers/infiniband/sw/rxe/rxe_odp.c
+> index 9d27244f89bc..2ab64f128e57 100644
+> --- a/drivers/infiniband/sw/rxe/rxe_odp.c
+> +++ b/drivers/infiniband/sw/rxe/rxe_odp.c
+> @@ -125,7 +125,7 @@ static inline bool rxe_check_pagefault(struct ib_umem_odp *umem_odp, u64 iova,
+>   	bool need_fault = false;
+>   	u64 access = HMM_PFN_VALID;
+>   	u64 addr;
+> -	int idx;
+> +	unsigned long idx;
+>   
+>   	if (write)
+>   		access |= HMM_PFN_WRITE;
+> @@ -171,6 +171,9 @@ static int rxe_odp_map_range_and_lock(struct rxe_mr *mr, u64 iova, int length, u
+>   	if (unlikely(length < 1))
+>   		return -EINVAL;
+>   
+> +	if (unlikely(iova + length < iova))
+> +		return -EFAULT;
 
-Done in v8: a new first patch adds "amlogic,t7-mdio-mux" to
-amlogic,g12a-mdio-mux.yaml with the G12A string as fallback, and the
-node uses both. No driver change.
+Using the followings instead of the above.
 
-Thanks,
-Lucas
+"
+
+u64 end;
+
+if (check_add_overflow(iova, (u64)length, &end))
+
+     return -EFAULT;
+
+"
+
+makes the 64-bit wrap-around check explicit and avoids ambiguity from 
+implicit integer promotions.
+
+Except that, I am fine with this commit.
+
+Reviewed-by: Zhu Yanjun <yanjun.zhu@linux.dev>
+
+Zhu Yanjun
+
+> +
+>   	mutex_lock(&umem_odp->umem_mutex);
+>   
+>   	need_fault = rxe_check_pagefault(umem_odp, iova, length, write);
+
+-- 
+Best Regards,
+Yanjun.Zhu
+
