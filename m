@@ -1,93 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.12
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795266828;
-	b=U+OZB9kqKosaMo6LLYms9HBqw1zM3t/NdAfxn96b0EYwwNfnHTAJRcoOFqnTwafrm/jH
-	 4frnP0N7qSOviCkqHOlsOpm+OwnyPDfJ69WkrL1Mq83U7LS2FB/XurUJZXCygr6HRuzZv
-	 bW73z/cubqfdwGf/bJOnJp8dL/P+0QxS7GMtPRBtTuv+sjoojhpzY7Fh8fYpD2HuflcmN
-	 BrlZc981gw7RmJPRQ5TRs4x5yxHTHAbrG6qo3bqoGJ6wdyJb9+Qld4SoQVGpoaBhQSg4g
-	 +C8C0PIx4q2lhindUiohl7WaEthR9AzxgGre9dUoCpt9qNrrZytUQAdg99w3fs42mig==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795266828;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
-	bh=/zhVvWZ62jF7UBsDV3xQAhNXtpMVfMUCFkx1iqxGM/k=;
-	b=q9Ssk0MM9sG0pUYRXNej1FgrR+AGB0b8B3QTnGFnMnbKFqIbhLnumlCTCABWhW4Yx2uJ
-	 Xqhk2iqkslQKJSEl5QBmdkq3lYa/u/E6kXbwespNdZ4l+jUCF9aMpg6nM0Xbq+p0AGl9U
-	 JU9K9vamLAaWWhGWIL8ipcOJje1veUq8LCgqqcA3rL9/5bo8sVyMbxXOEJIPquunvD4Zb
-	 b2v2WllTeVYzi2KO0hHzXRe11FcD5bSERI+lpUGb94utCg0bIRWMJt+Cy21vvOQGoRRm0
-	 IPF9ncBUZ/6Xy/4TlAr/3nYfrsi8EqPt8Lm1bu6KvHZifMD67MMhwscIiLMmbtNG5uQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=web.de;
-	spf=pass smtp.mailfrom=web.de;
-	dkim=pass header.d=web.de header.i=jan.claussen10@web.de header.a=rsa-sha256 header.s=s29768273 header.b=RgyvUy8P;
-	arc=none smtp.remote-ip=212.227.17.12
-Received: from mout.web.de (mout.web.de [212.227.17.12])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795266973;
+	b=bLQFYjChVRMzDdZBrdvW2E/MTo3BKBwVhNsIIkdhZuO0nuGiRYm/dWRd9QaS7MV3xDyU
+	 h2/E3UFJbiyOSL9R206FJ2i8TLF0TwsPLK38ubqXHr8eo5OVYGq01qRu6kIrWm1MI+/fV
+	 fic10baEBPYQd109eTglnAyzLxmlyh8OdrRu8qTkxp9zUfVr9fVtEwk9qD7AVkeI3YXVX
+	 4m6jYiUt1H+mw2cEALuK6upakLfUI0M3yzsI7sTX02kdpthURdCGimDHoZNDV/2pa41Mz
+	 nhHuGeC/xYdup3H+GHNad2m5igZABlUkyvL3LwhS2VSrPMu/kkV1d/Gx8E6eJKcOq3w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795266973;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=2rjHx0npkNlQCl5Q3rzIWUxsAZs79EZZOBMmAFuK5Eo=;
+	b=LWyVNpZXx2sCno0+FFi+AUPi4WFydgNUZfnjmY3A86yAK8ZiyHlVEno6tQ86RKWCL7MV
+	 EPa/6JvWRbnz7ayYFwu8XA3vFFlMksSt6AfVEDpU5LkvGggulX6NBERZqKVpsb2ERWTVM
+	 rPdjCIA7wxG+uLrIENY/nh7G9pds30TJpA4TwZdJx9swJpCuFpnMyYlYZ04UdZakLoZ39
+	 H609GB7S1qn61Jf3rr7u8IpS3k2cPIbVoUPWVcHWjBbErBGvb+otauEefpoZM62xUMEr1
+	 3iFKRrvlPPFde1gh0BpIbdm+Tb28DcBLIS3U/rTwKVvXBx41ps/Pui3mlKQtTPyjDgA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n9vg81Ne;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2F3C606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:13:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2F3C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33DD6606A32C;
+	Sat, 21 Nov 2026 13:16:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=web.de header.i=jan.claussen10@web.de header.a=rsa-sha256 header.s=s29768273 header.b=RgyvUy8P
-DKIM2-Signature:  i=1; m=1; t=1795266825;
- mf=PGphbi5jbGF1c3NlbjEwQHdlYi5kZT4=;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=web.de;
- s=s29768273:rsa-sha256:uy1obwQgUgyj383VaKhD6CwtvNsG
-   I2UmeieGvBZGGH10S57d2HGl2SxMCY1n/tcYkvmr3QIXxkSdnC1aC91u3YOdmSf+nN9lCklv/1b
-   lQHVUhArBos6t6Kln0qvoTMouOU1elLtphBco4Z/q4AFHMkuoiFg/7XpXLALEhQaFD9TK0+D3/P
-   U9Zk4nQ9nSPkz3sDZrep2P2nFwjqbAZxS0MSsrSvoJsp7Qa2O/AZFRdNMZSqn0xm9hRPEiWadMS
-   4giZwI/vzAQE9N54F9Fwub25kFEpZI2B7W/D8OyY3vcoRwzctqmWJ+SU3nxrvVnyDWKhf9bdNzn
-   NSOFK4EkoAGOoA==;
-Message-Instance:  m=1;
- h=sha256:
-   bcOe9DcryW1J9i0IBf440w7dmAV5ABqSz4fSDGSblpA=:
-   MNbnlroO+oZ5zmIfAVPHadYbENFiYq51a9WsJeA6l2U=,
-  sha512:
-   GiVZ/3yK3599FIEeGZfOGuLknM0pBN7B7/WziM6iMblLFvasZbOam7SKfSG/4Lr10AkiYO3N8eC8y1qNpID90A==:
-   RmlLb4dBOeAe9hINFH0pkE/TQkv0qU5v65L6DPFgdNVQYwxuf277J8pZJHUbmwdf5yaZ6UVxPi0jvN72K7CxIw==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1795266799; x=1795871599; i=jan.claussen10@web.de;
-	bh=/zhVvWZ62jF7UBsDV3xQAhNXtpMVfMUCFkx1iqxGM/k=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
-	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=RgyvUy8P1bqKeuy+Q8bLEh+HTD1qA9to/sHyYBlKAcwpgXzmNZAXPYaYIZXJMHdS
-	 L8Ibnm+f1fdYLoH2FTbyJVQNXDOsYhlt9PsolhosnWsapZz8Wb1E9JZUczdkbwHlC
-	 xz4ipQt8tGf88hzZ1xHykCxZS7DWFQphBwMm6N6Omps7sVMoPlqaSgcGeH1YxI4Q3
-	 JF+paatYSX+ROqBypvvzTeiD8MzWtu0zVwDmDTkgnvMJ3SHCv0g9ZUypCoPC5OZ8Z
-	 0Oh2o7trvj2HTiRIE0XiIwIvbwOzr9a4jWb6oeEMb9OUJCsAFvC3967R6oJzOnsFl
-	 7sKoo3ZJc9nz9mY2zA==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MiuOk-1y9Imw3p3c-00l5L4; Sat, 21
- Nov 2026 14:13:19 +0100
-From: =?UTF-8?q?Jan=20Clau=C3=9Fen?= <jan.claussen10@web.de>
-To: Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>
-Cc: =?UTF-8?q?Jan=20Clau=C3=9Fen?= <jan.claussen10@web.de>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 8/8] drm/rockchip: dw_hdmi_qp: Advertise BT.709 and BT.2020 colorimetries
-Date: Sat, 21 Nov 2026 14:11:02 +0100
-Message-ID: <20261121131126.3358-9-jan.claussen10@web.de>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261121131126.3358-1-jan.claussen10@web.de>
-References: <20261121131126.3358-1-jan.claussen10@web.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n9vg81Ne
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795266972;
+	b=m5tIxbONI029vDSXgXsNTaJvoeGyPfulVDizEFWolKgG1M8mxBHWQYOzcKGmBKCokr3y
+	 pfbsK9PFtklvWSjL/LYww0lNLjbBrGCkTAjdpujP/HPH8KTgjTn5YRUfptXgjALud8mf8
+	 waDj5SM4mYqtNX5DI2LOMGtMdi4Zsz9Yn4O16S7u4Qa3WzWd5rZ8HEpvlcP+dulSY4tEA
+	 m5VKQxb4++sShr44UzrLvxQKoWfNG+KqzjbwWl2PcTWN7JFS+7UZlDmXP94lsV8KussTz
+	 lTHmswB1xWKK8eWRgo2h/QD3tTFbsi49BcnF8EoJCrc6Ed2znDEzJ690Ex5xjjUqPfg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795266972;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=2rjHx0npkNlQCl5Q3rzIWUxsAZs79EZZOBMmAFuK5Eo=;
+	b=ylGPd1ZTtxDgzjfBzFdDqfi9CUhzPA4c1sT9LNUFYScqkRy80OytWYEE+DZZMKtnam7X
+	 RIktLdTVHWJMJotb0SWfnI0+J+Vg2Ji9NGbASMYgg3m3TTw+50v28pZuEXs3hzycLzCg+
+	 aWyNlsHkRzdF/ZrvDihr73I9IFHsOH6PZwtKEOCdsTsETvY5jzgFbwEzkZahMyRQVk2gY
+	 cFrX7Fue6Av9ZPATz+HzrAkeCo0Wt5toPm7tsNKL+oV5HdUscJbGDVgvgP/AqZC2kwTu7
+	 nVPl/bGjQqMcCEHZYmbigJGcE3zUt0+CjvvC+eY5R1UEwbvrLo997WJOyYctpukq2cQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 4D11B1F000C4;
+	Sat, 21 Nov 2026 13:16:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795266972;
+	bh=2rjHx0npkNlQCl5Q3rzIWUxsAZs79EZZOBMmAFuK5Eo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=n9vg81NefybWSjSVRtOrYaeBy0MeTcJjoJyAiA94s+94xc9eTqqYDwsUb45DEu9jL
+	 I1WbCx/phmJ8felDzRnUN9h53ejNfKUQZYWV2KriWCNjG9NEAsQnmAuPCMOgkuKSIr
+	 ObvnVIMzmnuNq9BZl8Q5sBJmArhuOlgYLiGVdB+bM7xEE2wTV6wK9tjc7Oa8hljjs6
+	 qpMgFBWcOeJ/w0jGRK56uEYnJlB8tnBwkIuKNl7uzOKZx7PqvXVJvPRgYVvfeOJ2IP
+	 BdZoUTQDjaVrVVngQjRnfFCWto85yKjJbK2I0A3QAyFDSI8TUh8hsbaf/Mtq9i9ugQ
+	 VOgzarwF8jjDA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id BE8AF4BC74;
+	Sat, 21 Nov 2026 13:16:11 +0000 (UTC)
+From: Vyacheslav Yurkov via B4 Relay <devnull+V.Yurkov.EXT.bruker.com@kernel.org>
+Date: Sat, 21 Nov 2026 13:16:08 +0000
+Subject: [PATCH v10 1/2] dt-bindings: clock: Add gpio-enabled-clock
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,160 +82,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:9t17UPhC9K6QoVESTJHwYxsnK2Iv8NbFvgD7dQUOZO7ywyBNr8O
- 5sTr+3pXnpQvridgI3H2Rnk8CozGyCBXCUjW8Lg4mBQ2diJ8/IUV1SdGPmtQ8c6zp/sY/UN
- FtUHmnJcm0dOnTcRlber1SNkcqZSjytZbXQi4kL4pVuBDeRjy2rrPg3n0UeFTGuMgV/+Crq
- SlHNwKZA7VyTxUop/jklQ==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:+5Vs5NatdWE=;M3zp/A5cRlPVX7ujTKKgzl18kp2
- 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
- CPX6VAQY7rQ==
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261121-feature-clock-guard-v10-1-5d449739bb8c@bruker.com>
+References: <20261121-feature-clock-guard-v10-0-5d449739bb8c@bruker.com>
+In-Reply-To: <20261121-feature-clock-guard-v10-0-5d449739bb8c@bruker.com>
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Jyri Sarha <jsarha@ti.com>
+Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, Vyacheslav Yurkov <uvv.mail@gmail.com>, 
+ Vyacheslav Yurkov <V.Yurkov.EXT@bruker.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795266970; l=2434;
+ i=V.Yurkov.EXT@bruker.com; s=20260318; h=from:subject:message-id;
+ bh=f2PidYUyBCdaFNNQ/BVDjkj78Q6/18FvhAsIhyBPoqs=;
+ b=vgFxCE6QHrKkg/j54aiPLhL0g1OfACPu4/bea/ppMvC/e3XKHbJnFjRqG5BCwJbAZQWRlWu7P
+ hlawHWPlvmbAHfXz9lkrQWQcJhFtGnBZpOQ1tgaRjAb4R58wAS9wWo5
+X-Developer-Key: i=V.Yurkov.EXT@bruker.com; a=ed25519;
+ pk=snJmgYVOKlp7aQtK9tWnEI7QTYxpPpJJvxdVsnxA7Fk=
+X-Endpoint-Received: by B4 Relay for V.Yurkov.EXT@bruker.com/20260318 with
+ auth_id=686
+X-Original-From: Vyacheslav Yurkov <V.Yurkov.EXT@bruker.com>
+Reply-To: V.Yurkov.EXT@bruker.com
+Content-Transfer-Encoding: 7bit
 
-Expose BT.2020 RGB and YCC colorimetry so userspace can enable HDR
-output. Also explicitly expose BT.709 YCC as it is listed in the
-Rockchip RK3588 TRM V1.0-Part2 20220309 data sheet.
+From: Vyacheslav Yurkov <V.Yurkov.EXT@bruker.com>
 
-Tested on a Radxa Rock 5B (RK3588) with an LG OLED55B87LC in KDE
-Plasma 6.7.5: enabling HDR switches the colorspace to BT.2020, and
-disabling it restores the default.
+Some clocks are switched on and off by hardware outside software
+control, which reports through a GPIO whether the clock is currently
+running. Software cannot enable such a clock, but its consumers must
+not use it before the GPIO indicates that it is running.
 
-Signed-off-by: Jan Clau=C3=9Fen <jan.claussen10@web.de>
-=2D--
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 4 ++++
- 1 file changed, 4 insertions(+)
+Add a binding for a clock that passes its parent clock through
+unchanged and is considered enabled only while a GPIO signal is
+asserted. The parent clock determines the rate. The status GPIO is
+given by enabled-gpios, and poll-timeout-us bounds how long a consumer
+waits for the clock to become available.
 
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/=
-drm/rockchip/dw_hdmi_qp-rockchip.c
-index 24a28b5f4576..890791c5277d 100644
-=2D-- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -644,6 +644,10 @@ static int dw_hdmi_qp_rockchip_bind(struct device *de=
-v, struct device *master,
- 				      BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444) |
- 				      BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422);
-=20
-+	plat_data.supported_colorspaces =3D BIT(DRM_MODE_COLORIMETRY_BT709_YCC) =
-|
-+				      BIT(DRM_MODE_COLORIMETRY_BT2020_RGB) |
-+				      BIT(DRM_MODE_COLORIMETRY_BT2020_YCC);
+Signed-off-by: Vyacheslav Yurkov <V.Yurkov.EXT@bruker.com>
+---
+Our use case: peripheral clocks generated by FPGA PLLs, with the
+PLL-lock signals routed to GPIOs of the SoC.
+---
+ .../bindings/clock/gpio-enabled-clock.yaml         | 55 ++++++++++++++++++++++
+ 1 file changed, 55 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/clock/gpio-enabled-clock.yaml b/Documentation/devicetree/bindings/clock/gpio-enabled-clock.yaml
+new file mode 100644
+index 000000000000..76c1425931d2
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/gpio-enabled-clock.yaml
+@@ -0,0 +1,55 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/gpio-enabled-clock.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- 	encoder =3D &hdmi->encoder.encoder;
- 	encoder->possible_crtcs =3D drm_of_find_possible_crtcs(drm, dev->of_node=
-);
-=20
-=2D-=20
-2.56.0
++title: GPIO Enabled Clock
++
++maintainers:
++  - Vyacheslav Yurkov <V.Yurkov.EXT@bruker.com>
++
++properties:
++  compatible:
++    const: gpio-enabled-clock
++
++  clocks:
++    maxItems: 1
++
++  "#clock-cells":
++    const: 0
++
++  clock-output-names:
++    maxItems: 1
++
++  enabled-gpios:
++    description: GPIO that indicates whether the clock is enabled or disabled.
++    maxItems: 1
++
++  poll-timeout-us:
++    description: Timeout in microseconds for waiting for a GPIO signal.
++    default: 10
++    minimum: 10
++    maximum: 1000
++
++required:
++  - compatible
++  - clocks
++  - "#clock-cells"
++  - enabled-gpios
++  - clock-output-names
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++
++    clock {
++        compatible = "gpio-enabled-clock";
++        #clock-cells = <0>;
++        clocks = <&pll>;
++        clock-output-names = "gpio-enabled-clock";
++        enabled-gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;
++        poll-timeout-us = <20>;
++    };
+
+-- 
+2.34.1
+
 
