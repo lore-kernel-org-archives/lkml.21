@@ -1,79 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795287921;
-	b=Ao55OMwDxTGcRh6ECrdnjzI7vEIbrGN/gIn6WEV4EO4+Udp2ql41lpo12P1kRvQsquEu
-	 /hEHEsUdx3iJM6T13/1TbO07C3O3BtEg8S0pH019GhsCxvoGioj9mzfy8apkwwDLtFCHo
-	 AHFnefx6FLPGHODvsS9VdFmVCIIrOX+JksTyfrTdHS7Y5Y2lp6jhWgCPn9pQKmK6S6KwZ
-	 z4xpppDXxrZR4z7AU16H6vpfIaoxuyrI6NhXPIxHlLYqqaD1d6LLn9uyj1y34AePVqvIY
-	 8juw5Y9n17anTh/o9oDE47sh3z6t5wyy6g2KQW42snEa8pror7mOf/LmscXfCazxA2Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795287921;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=gFdpcHGX3wO4L3lzPGqtUvwZbaMQ0FLlfOj30IvG9Rc=;
-	b=KfAxzDw9V1FcKKrGuxCwFnNXqzetCFZNOpr4C0+i2IbxFb1ud48+W9U29/F9gn1InCFn
-	 DCB3kANhy9WZhVjPBaisNjKkBUNTMHX1CDeMI38A2yYNo5yQ+62Eh+Xqxky44PWa4FlKf
-	 jWbpSwrowz1fYd4YEjRNWdRAwW19u3AKf0gqMQLhUYyNQ7QZSuO5TTCPegY0ge4MqX5GQ
-	 EQPWvhdXbl+UMyt6jUbVORrYcs3BlSXNGqjWljPnwrcpMycTfzjmuH8oMIjAWV8TiEvBx
-	 4Y4X50qbvCshNLg5A154jOq+UltSKadeES+cmRtaGMbLp9q2lZfIknDEN3McS/hunpA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T2UGLRaA;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C64AC606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:05:21 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T2UGLRaA
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795287921;
-	b=Ug00dmNEfsejWWHabICnqB0v2hGnaTcREKeOOPeQTfvc2NTpORem32myhTzxDlSlBRlK
-	 RWVO4J6Udt662dBGuTIYiU5+paE/xL1FNMl7V11OuLTa1jnqUsjnJIIN4VUkZqMwSWwPY
-	 1q+K9MwJfUNRDeVn9ciaC3O+n1tI6dnNE7I8Q6wpYSZymqMQ2y7N8lv047gtZpjvYP3T5
-	 w4HyZ3NF3RnI3qJaUegCF4PyA8HYpcLKR7xXaJWA+27sdgegMxcFPi3WhTfYUgYYk2nig
-	 CfqHc80Ljzi6f/2KoHI+2Bl4pNRfhwmCYCFQOiLdCs0b9bx1SgpTDtazUnkDPWOIv6Q==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795287921;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=gFdpcHGX3wO4L3lzPGqtUvwZbaMQ0FLlfOj30IvG9Rc=;
-	b=CyV5IRrp+0rsHPGm/ZNisqUsvtqX6Fg2L8ji1bECkMnxz56OF4z3aKBiJ5ZQXrQsnuwc
-	 I+y0neuOBiZeEKQ+0RtkpQH5KkvZy2E3kg7vYZFXopOfPFcd9uVsORHBqSieVLg/Oziru
-	 YIf4ltN6EVv01sNNd72oL5jjQTQL+sBuPS29kQb5N7uyjuWpwAZAqJ0CKrkcDWBxtdbNd
-	 Y8U/cIv4tsFGT4KSaVPwZmThs9k9JkJiH0Mz0VATkw3Q+cRVczlUAPQ/x83l62JfIIeLQ
-	 xA1PYVX1QOX1Zyrh+hHVYrt4D8XVvOdBWa2g3JIadrqMUdFL9M3ltqxtGm+HMfwduJQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795287973;
+	b=UGDd7CBZ/4Ar5HNxyqt91NFWVF+RkFs9acP+XvGD4jrKHWnd6aWhusQRpeRbfFhRVzFw
+	 q7WSQWu4PBfBwR75bEezRYEChcB/kT0eCEA69Pc0ULUvqyFAYKu0BXjKp9FiXzcqLc+V+
+	 mVKyJq/ZbRA0PLajC6oUeGCc9z3z+qovphvakZQ7JpfKYDljZJuCM5Bm47HvnORs2wYwj
+	 uhUgbPsO9TK04yF47LNsS2Y/M5PKgUB5MnggS/to3aXuhA4qSfli3x8N2NR7wJGxUREec
+	 xA1/N+z4bR6jS1iCI25vk4t2pFnrlfR3s7pom7s+WQ8qm+0txrUQ+E8LLc8nFKCvBQQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795287973;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=FpKHiV2uYxe7Ki0iO3VWKGByi0ydeGzhGSrgX6lNY+s=;
+	b=dpTeN15Rqnc/UwK8LKGAQkHjxtnf8qD0P3evV3VKzKnlOFVGugnWuyaBaU/9+asPlTUw
+	 w92yL2GUp5TTMvqNQf2HST1PpmjYI0s/6VszvWW2mY63df4zR3qySLEUqiZMICfjBC0hp
+	 GyvKzdYwb/B0Q88SR2ERDw1DhmlRsR8CqIR5Y5s87S4qj3AOTynMj6D2CBhQqOEet/YLL
+	 tlyGrEE4FO+mzQptpyKRghxYRCKt68Bh3BG1W+APKsDyqnUjAhez2b1WCCN1vt/ASYEuP
+	 +rTwyv7nNpfqdzR1POKZCL8DqaLsSyM3aPmGXAY2U9REFGn/2tZy6wZ65cKa+KG6c/Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dRUFuQH8;
+	arc=none smtp.remote-ip=209.85.128.54
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id D435A1F000C4;
-	Sat, 21 Nov 2026 19:05:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795287921;
-	bh=gFdpcHGX3wO4L3lzPGqtUvwZbaMQ0FLlfOj30IvG9Rc=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=T2UGLRaAGpW6f/LUr9krhI2jg17QH3TG4usqslRYn/LOZUD6b5TPD+2I7LlF0N/hN
-	 sMfvPB8tuoSxsx/Zo7ZH0lEQzg7qkjrtWXwQHjIp/UTfOLhapnwMqsqyej5/Tfi6c+
-	 XbOIVwnQGPDvvEz7G4o2RSs5TyYLyKbULuLTO/9a+Uj5FUSiOLtEn2KexXh4h5d9yb
-	 FAe8rxOwypp7Q6MrMWFfql1TjbdQzX7NYGZKhh937BpPvvPOotj1ri4IhiBSPy+Ul8
-	 We11mGsYHZmlbr9bPJUONryc7tlyUolmDUQgLzwJTvjU2YUtLOElQ4J8tYM6QsDv/t
-	 4YNUnDVf6sXwQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 31DD84BD56;
-	Sat, 21 Nov 2026 19:05:20 +0000 (UTC)
-From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Date: Sat, 21 Nov 2026 19:05:20 +0000
-Subject: [PATCH] drm/panfrost: Unmask the interrupts of a re-enabled
- address space
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81451606A331
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:06:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81451606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dRUFuQH8
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb69f5b161so12525975e9.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:06:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795287972; x=1795892772; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=FpKHiV2uYxe7Ki0iO3VWKGByi0ydeGzhGSrgX6lNY+s=;
+        b=dRUFuQH8w4MMSrEuc/tUiHbAWm2e8J0TZVBrfHQOSMQQc0vMhH6D331bHZwmWI0nW2
+         lOwdSLLGhfXzgXbQEBKpcvr4+PI3b7XJh4mhRWqOQcNiR7cWa5aPNcNWAzqLnO4DfizM
+         opphh1/ieNCtEuzXfWV6VbBhb4yO6YmMnc8jznq9GO072dx30HONa2zs+cUSQbS8TJxV
+         m+4h+3WjdKBDkuVYBJ3KduUxejxMzvESrVOUs2AqVsUZ5dslRzyepHS7zppw82DxZaO1
+         rw9OiPKIfdAJwSEUOwttDjkpvJ5P6XfNisG/ZtDNOADkU2kxZdvnT4Ieor0Vy+9lLbUP
+         RBRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795287972; x=1795892772;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FpKHiV2uYxe7Ki0iO3VWKGByi0ydeGzhGSrgX6lNY+s=;
+        b=fIndNEUlU0owLPDeGKogYrNuxPj0MNqHwoqtRe/8hfP5trV5Y7HuocxBToHU4sqNYO
+         JyT0HtEzUg5lUuDXBuuDK2kxj8K2vMrE/lNhwzm/QYmSiREEkiRokwTtm++5q7aNrtNn
+         4wClulvLEWrJO0Xp71PoQ9RBWy0nTqdzmlRjLibO2zCU3Z6Su9cXmDc/WScjkXva1DSv
+         Bik2Y+L1p+FD1k2RSJmVc1lsXcQYibU2IbytDiBARdvXhaxHzhnVCoRKKYRfcJTgXnmJ
+         NOt8CXNX9ziRIM4nfEzKNT8pmZvBAwUaKJEpdzMNj5yHQPlbeYnk8MFatenftgFV/8sX
+         cpGA==
+X-Forwarded-Encrypted: i=1; AL+hErHTq+3APxC/gGXVhT/EDJ3pp9aqcTtOOGrlPdWNIVbYrjt7rLgFIWeT8oe+MqgZLZIXdDGVqBX6Y1kZnNg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8BgwHHbLqVnAg+cONX9FGbgId5HfVcqB94GoX+L7nWqZJT4Ahg
+	oCy8bIpCt7mkVROjAmmyIcCI+JQR5NIAcvNILNTjbE6FCECdNxTltIRj
+X-Gm-Gg: AZFdTZeIi4iJi26CU6vzLWNZbgHk+r0mt+tYVfIn16tAhbS7vNnMTNaUDwiKYAbfPMA
+	SHXOZKC1pwhDb9GhWhRj3ZJV1JOGFiZtX07YFlBGtbGaW34w20Z3qXkWAM+QPGN5EeuCVg3nqz8
+	Y/E7srT6TqcE0MRszyKnT3jbLqHXv9OmZ/gvLzSMYY8qA4F6KcRGCUqNbCCxS+KqI1UmAoVuCVA
+	FKwVEyeO0JawYApzQnx1TFxUH8sgyxd0OaOji6ck3myouNfIoy3ngU/rpFJDmdhW2lDQnjRAISC
+	nHwx83armayjnouDLUYXuUc0/9bIDyjgnxv5G70vyT11jB2uZdUiyyVamL5wGRcgpOEHcRk4ork
+	FGeBnFzvULExTXmMu3+RUcLP4Hpyw1WB3uMgLcuS4YqkHhMK3YvhtcxUU55u7UeDQhyczSYo5xl
+	GPSGqnf+uCib/nP9umomXT+JXicp+8qMiqnBQWFK9Pv+LYJeRYMg3DQhlJxuSihcyzEac/9C0Q0
+	3mBoESHDX0yS1L/dlC+GLtSd01W5SK4MJFnnfJgcYC5QflhL/dy3KNP+9JiAbeUA6ZbSF3Op1is
+	ntLUnMSGfjk25Evvrxb1bCZWxmpvQPkJB5K1bslonO4mRMp7kpEohwUP4zcZCjF8Qxuj0X8LwYF
+	G3G1zrYQznKa8IUHkp7VFIlVI/Mkueg==
+X-Received: by 2002:a05:600c:46c4:b0:4bb:6a5a:7834 with SMTP id 5b1f17b1804b1-4bb888106damr154232025e9.20.1795287971698;
+        Sat, 21 Nov 2026 11:06:11 -0800 (PST)
+Received: from [192.168.0.10] (catv-78-139-0-46.catv.fixed.one.hu. [78.139.0.46])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8d4f9aa8sm148595925e9.4.2026.11.21.11.06.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 11:06:11 -0800 (PST)
+Message-ID: <6937fed688e4bf1d7cb81b004c179cc4912cf6e2.camel@gmail.com>
+Subject: Re: [PATCH 0/6] Add USB support for Exynos7885 and enable USB and
+ FG on gta3xllte
+From: David Virag <virag.david003@gmail.com>
+To: umer.uddin@mentallysanemainliners.org, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam
+ <mani@kernel.org>, Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski	
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Marek Szyprowski	
+ <m.szyprowski@samsung.com>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Peter Griffin
+ <peter.griffin@linaro.org>, Alim Akhtar	 <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org
+Date: Sat, 21 Nov 2026 20:06:10 +0100
+In-Reply-To: <20261119-gta3xllte-usb-battery-v1-0-0cf5f763522e@mentallysanemainliners.org>
+References: 
+	<20261119-gta3xllte-usb-battery-v1-0-0cf5f763522e@mentallysanemainliners.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.62.1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,82 +111,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261121-panfrost-mmu-as-mask-v1-1-13ffb84d5562@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0avIrDtggm1Jr1K6mOhEpyVRMiqCe
- HfTdvkW/++gnIUVHtUOmVdRGVOBuVTQDpR6RumKwdb2Zow1OFEKedQZY1yQFCPpB8OV755q5xr
- voKRT5iDbb/t8/a2Lf3M7f19wHCddOqdMeAAAAA==
-X-Change-ID: 20261121-panfrost-mmu-as-mask-f5e7ba0994b9
-To: Boris Brezillon <boris.brezillon@collabora.com>, 
- Rob Herring <robh@kernel.org>, Steven Price <steven.price@arm.com>, 
- =?utf-8?q?Adri=C3=A1n_Larumbe?= <adrian.larumbe@collabora.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- Arun Iyengar <aiyengar1990@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795287919; l=1936;
- i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=K0pQ9F7/VC+mXmqa5mrb5ZLu5JBV43cmtWNL0qBRLk8=;
- b=UTi0Pl9F3glZ6ZBQdexj6k4QpYeIH3xdTWKCxQwZRzr2XU/a/JTVxlvc7B02k0uyoGWKrATcT
- g+FcGFgPdCNDTEHA+NQjKMyEW6LFejD0V9/42nHHqn7aCUM0ZctiwOG
-X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
- pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
-X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
- auth_id=1480
-X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
-Reply-To: aiyengar1990@gmail.com
-Content-Transfer-Encoding: 7bit
 
-From: Arun Iyengar <aiyengar1990@gmail.com>
+On Thu, 2026-11-19 at 19:49 +0000, Umer Uddin via B4 Relay wrote:
+> Hi guys, this patch series adds support for USB on Exynos7885. This
+> series
+> is based on David Virag's work[1] I had rebased it onto krzk's for-
+> next
+> tree and tested it on gta3xllte. This series also enables S2MU005 FG
+> on gta3xllte, which is also tested.
 
-Sashiko reported this in a review of an unrelated patch.
+Hi, thanks for reviving my old patches
 
-After an unhandled fault the AS is in as_faulty_mask and its interrupts
-are masked. panfrost_mmu_as_get() re-enables the AS but writes
-MMU_INT_MASK before it clears the AS from as_faulty_mask, so the
-interrupts stay masked and the next fault on the AS hangs the job until
-the scheduler timeout. Clear the bit first.
+I actually have sent the patches before [1], got some reviews, but only
+ended up with the clock patches submitted and applied, and never
+actually got to submitting these patches with fixes based on the
+reviews (which have been sitting on my PC for quite a while).
 
-Fixes: ed7a34c57def ("drm/panfrost: Disable the AS on unhandled page faults")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260811215454.A1C8D1F000E9@smtp.kernel.org/
-Cc: stable@vger.kernel.org
-Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
----
-Tested on a Mali-G31 (H616), 7.3.5 with 8a597d099b8b and e9672bf9382f:
-a heap fault after an unhandled fault got no MMU interrupt and the job
-timed out; with this patch as the only change it is handled at once.
+I think I will submit my fixed up patches (the ones you submitted still
+have some problems), and then your gta3xxlte patches can sit on top.
 
-Claude (Anthropic) wrote the patch and the commit message; I reviewed
-them and tested as above.
----
- drivers/gpu/drm/panfrost/panfrost_mmu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+[1]
+https://lore.kernel.org/linux-samsung-soc/20240804215458.404085-1-virag.dav=
+id003@gmail.com/
 
-diff --git a/drivers/gpu/drm/panfrost/panfrost_mmu.c b/drivers/gpu/drm/panfrost/panfrost_mmu.c
-index faa62643c..98d52aca4 100644
---- a/drivers/gpu/drm/panfrost/panfrost_mmu.c
-+++ b/drivers/gpu/drm/panfrost/panfrost_mmu.c
-@@ -283,9 +283,9 @@ int panfrost_mmu_as_get(struct panfrost_device *pfdev, struct panfrost_mmu *mmu)
- 			 * disabled. We need to re-enable the MMU after
- 			 * clearing+unmasking the AS interrupts.
- 			 */
-+			pfdev->as_faulty_mask &= ~mask;
- 			mmu_write(pfdev, MMU_INT_CLEAR, mask);
- 			mmu_write(pfdev, MMU_INT_MASK, ~pfdev->as_faulty_mask);
--			pfdev->as_faulty_mask &= ~mask;
- 			panfrost_mmu_enable(pfdev, mmu);
- 		}
- 
+>=20
+> Please note, I did drop enabling USB on jackpotlte, this is because I
+> don't have the device myself to test the changes personally and I
+> didn't
+> want to risk a regression on jackpotlte.
 
----
-base-commit: c408466a4dfaee4b12587e926c5b85e68c8b3c40
-change-id: 20261121-panfrost-mmu-as-mask-f5e7ba0994b9
+I can confirm it does still work properly on jackpotlte.
 
 Best regards,
---  
-Arun Iyengar <aiyengar1990@gmail.com>
-
-
+David
