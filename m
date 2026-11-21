@@ -1,89 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795240521;
-	b=iYFSq8dNjIPXosBOVyZE8DWnm0jz3f0TemOVNiTaUoTfjblOB5tKr9boHbbsbh4K3eve
-	 2dYFWmAnQWY/e5eV3wvPOCXV/Hcb18ut1r70u+lZP/frIZC+nxDe5UnE+Dt4Jd7PgIlI+
-	 EKl1ka6UDGEWomM13zrrvV/AycYm7esFwdR0+2UgJOkPIDRf/oEdzSFJYOhWrl4ettwQV
-	 zamMGlxHOB5XeOabh6aJihgwQ5SRcr3wbJ4vmGWHZyQG6ZnmPDMuM7sTazJhr+XekXeJP
-	 sAZIUmSZbGldqWiz1lPTWQAVUftqDxXcZm4bJXnmDOY6Lu2DqXWDYOmnWemzUTd7GoA==
+	t=1795240525;
+	b=UKdi3YRu7sVm9e01pvDjYPl8y5GJPL8TwJ8mt6SiMGDCejYwJ3CV5FSP+yEaoeL604yZ
+	 Osd2Lv0YCoG4UzWm1ay+uvnmQS8tPIWpOJfMPARR5dMDrvUfXO47xVn6qPieUWHGK+pWL
+	 zycjxv+MRgmiM6nf3uYOVVnS4N2pS6R/27Xbvt1jehtBtQR2frsBxDV7AToMt4u+WqgzC
+	 44Z5Kc6oHpAb1dPX933UPKTQSOUm1t3T+L0OUSVG4aYmLT1EDhDFUNTl0+r/xmMsIr+LN
+	 Z40TANjmVUpNYCxJDgbwjJrA3Ts7k+iJkFBwRJRIoTDOr94aj4zw/v4gVsPX6rXySrg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795240521;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795240525;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:To:Cc:X-Mailer:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=VRkzVDCu4h7OOw62wkfxEZaIQL0l0jarNYsHxjBjg4s=;
-	b=kEzegj6nCKFeOs2ZeYGCoLtWpDfGoC+FsX5YkMSu4mQQD9WKbYAjJg3OgcJ8mB+2DIte
-	 NGAo3rCmHm/E0wK/7mCSWJw9dqeOHBvmDSRxAs262ipVXZKsKIUKjZ/CsZvalZaxi3OYe
-	 jssNYGcd5oppe/qwziU0XK9agzLp/7r1AEnIHZ0NdKZ8a/btPauBwplRkpZU0O32h1mL+
-	 TO95yEsQo/vCG0T0sDy2J9RQlOD/f/FtoKLNN9Js3wo7YJ+FH7t8XLWFpy9u0vo1yi6iz
-	 iD+DJL5ApqWRIWlG3CrDSrVs/7vML0L6/O4tbz/cKE/CJzyWAIGZgRBV5HKkGi+P/nQ==
+	bh=NPYFuPEgu44jhRwl9AuTqHxhKDURTNdBQkYhdhcmNfk=;
+	b=ELNHHAFhAvRq6xbAyf6Z6Vt53IK1fP66Yw61SkhpusEt2OIuqsVwks7twG9Ib7q3JAhV
+	 jXnenOyxUUUDGdg1tMhwznnk41jU8+wMB6f47ODA193dsegxaNwQrUDPcZJukT4gCoTrr
+	 iLhdB0+qiMphkbveMYFwpM3KPaMhriH4M+C22qG+xwXym/NasOOTwp8L/wSG40/peXK4t
+	 kGsqczyXXQBhf/cv5zhFcVESPVVnvsiEensgUaKdj+Y7VEXpRqRqlvPa6urcA4nq84eTE
+	 azbe9dQu5Psx9T3Ot6BvFAvBRLerWJ1flApFwVWHAKGAN8uqneOF5ArQ6bp33m5d07g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o3UW+XKk;
-	arc=none smtp.remote-ip=74.125.82.179
-Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z5FMl4lK;
+	arc=none smtp.remote-ip=74.125.82.180
+Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC9FC606A693
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:55:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC9FC606A693
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DACDA606A6A6
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:55:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DACDA606A6A6
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o3UW+XKk
-Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-382f4710a17so2689405eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:55:19 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z5FMl4lK
+Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-3863db981d4so1676919eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:55:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795240519; x=1795845319; darn=vger.kernel.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=VRkzVDCu4h7OOw62wkfxEZaIQL0l0jarNYsHxjBjg4s=;
-        b=o3UW+XKk9Ru8xXN6/wgel/cgId1/iPY/5oSeQ6xcb7HJ7ifn3GBm2KCQGnOufJ5yBy
-         d5cFcM8H0KgyLPrf3Gta+p+VnJ5TJf30/nn3oC1HlLgNCvnOsZHKf8/NUl04WIuG12ci
-         pCOiBfP4/Pd/jX4DxDfDFY79qmvBO7VCm4941fWAU4eAfxb8drp5e2fDlQu4rtnCYvco
-         Es9CZ5VqbInjKmjsACH5dlrbB5u24Zx1Fsl+FWlRMKaW7D0M4WJgry8S4hz/bB+IHElb
-         bUA5MdfvvDwkZRUHhOk9wxo8klI5KW3DWiaPjwVHB5Wwoi5Ek36i9k6Y8TNDeMvZY971
-         xmsA==
+        d=gmail.com; s=20260707; t=1795240524; x=1795845324; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NPYFuPEgu44jhRwl9AuTqHxhKDURTNdBQkYhdhcmNfk=;
+        b=z5FMl4lKPo5jDTZak4fyIIWTlt6W2K8PrGOgBBb8aEWjMSRIocc4vo6nRWZHfxm4L7
+         Vgu2oKjOnuyXSxGT3D5Rz+YHuulKC+fzS6Tno0D4BI1du5okq/NMQMv7fqeaqG2kUteT
+         6XgEvlTuzx8ljPCOd/eZQRIIL53MQkpjEKQzlg5UpJwAb+MaG70OgnXP1I/F07zRylL2
+         Wxsn93eQrAesTmNKM7DXtUiXhkRq1kO76tskmDfLeFlIdss4d5gQ8QBWuGncc7rWwtQ/
+         dzx0IppAUmcaz/pcwFYhxnRaxAgaH94uMrfZfIoN6NP9xAgPipogFd8mLwMpOjQRcFnN
+         ODFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795240519; x=1795845319;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=VRkzVDCu4h7OOw62wkfxEZaIQL0l0jarNYsHxjBjg4s=;
-        b=mMK/t/koG7PVusbMZbuk1w4wJD0ks10Fq/RUg/S7ImEeAS5ONbIcJa7Js26MZasGK8
-         t41wRfCXl2zj5tPMuJwW7KJSE0pKQ2YiH1PNRXP4Y+ieVsqIkUaK6jGhrczaqrAo9p4m
-         SnIa1ISTC7MQ38SfArylIIl4w29IBKwIRlemJCK6vG/g6T7Xde7GYKn8z2f/jEZSw1X0
-         YEPPQGCt3HoigB0OvCe7vTETVmOtycC7pOPo1q/d7P1KZCqCYJwRDt6cjbwoufWa7Wl9
-         E9b41mPf3EPvaQSAWN2FX6G119HQN7RyNQOgvs+CLUMInCYlICSGxK9KvCJF92x36Jjh
-         5puQ==
-X-Forwarded-Encrypted: i=1; AL+hErEjSCfgKiDgqgi2StGC1G8dpgKqkj/CIz1VlE+x9sxZa28qZHGZXxNm5y+xkfIT3ASpYgEa1TDWQmZpJ5c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Ryk60jmZC/I1OavRf5M1MBLVo6W8rawOXnWR6WSQRRXkzjpjO
-	Fl8X1RUZUlpjBppu5HAkW806+2ISVLtWbNcNqyrNVC0eJZ/TcnKI4Dvc
-X-Gm-Gg: AZFdTZc6znK12lydC0y0P+MeKJvQZt+4bt01Yh41KjNelXPPuLCQ3kk2INe/AKQANig
-	5NG9akXvDBuPx1h3Qha6kTl4ZLDwTEi+NOXKxNJAKJtDa6NPSbRbPbbGSBu115rlL5lLuHF455c
-	tO11q89FQtIZ7ZX4iYQnTCbebWQdVPiEhngvS6hPXU5bMcOpHX3Sp1rFgrpBSUxNWu7Qxlvl6jB
-	bhf9n15fmUAVJ+NUnNw47rljk5gCs6uUm8LArDWcEh3VtEGhkPFbs3TYY1805QKNdzh76ir+zbe
-	qlAMVI393kXtwpxswzSLpFVBGWc0v2dv6U49GAWekRbgv17mVQjwe7UsjEnP3TyuFYSJc31RmgD
-	zWIJq5t98O3JTwmNBWFL3gOnu6zvIYzjDZ2lXEVKSHkRdUKN0lD3f2upvYdJ6v7D/sQYP3TrNfU
-	gdGSLFy617P2pMad4+GCDoY1lSZ6EdtFylBEh8PMQVW+QqR2bZERTjB8ZGnanTodM7xUCjiA0qx
-	ZntffV3tTZgrqTsBa7Yw2so8H2ssEQ1P02h/9FKif0uXfApY8mVo92Yb4WBNXbEYVkLJJhr/iCp
-	04OQmxxlkEAd7wqs7eu3hHEr+XtX8r4=
-X-Received: by 2002:a05:693c:20c8:20b0:381:53ed:1c4b with SMTP id 5a478bee46e88-38571518db2mr5440311eec.34.1795240518911;
-        Fri, 20 Nov 2026 21:55:18 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795240524; x=1795845324;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NPYFuPEgu44jhRwl9AuTqHxhKDURTNdBQkYhdhcmNfk=;
+        b=1XMbbg1jDDM/fuOIagXG0MuTPKJOrGTyfGlw+93UMy0Q7jkWIamJ306iVy8lYpVSBx
+         7LwtEqpt05Wr9IV0J7uTWaMJtwt1DHU4OGNuK+5Ax+c4Ax1yz1PYZI7ZGppR54efPlwh
+         oQlFsbjmJDkukJDz7XQJGOEo+8rNAFk+/ul8yc4JiBi0F/xjHLPi/5njMeSMtPdvik7t
+         wyx7DsuJ7Yv0KR6b54Dh+Nc9SE11Nvh+LcDSTJEOc6n+GP/2rXMEMTzqIlMJGsP7c02g
+         2TWvoVr9lFrfXibH4Wfd0dOVnKgfiAfLl4YpzQo7LcSrvcf8RTeVai5ieLWgIb0PV036
+         IWKA==
+X-Forwarded-Encrypted: i=1; AL+hErFopUk367YHCWzivuipkLCZnEjt9fDFpqd+Rb1EshFecuiskZ5H5YBaFpVoJCEnh0nlU2r9mwHelrUEF0E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9/KloF8LbXI2G6hTqIwF1IVxad4loymTS8q0B2FfJAiIijnaOH
+	OYdqlD5OvyVXOdwNjPtNzC7OfdfG73WgTplIMJi3O+q9faoMB9GxoVftXx3qjfP4ySc=
+X-Gm-Gg: AZFdTZeyWrdSyJhz6ePrThHjVW/yjCPMJt2YaYbzKXkBeuovu+6fGoYfwp//MAuH46F
+	hNDjuNIxQeSU8M4gw4np3a7WVBM7ePcQDdRc4fBUDoP++yl8cTusAqgvPhy4PAcaa6T40DZxdQn
+	F9NlKWF+ZvkEl6bp9SUTdYDQ5XLa3VDVmwE9UIwcXfitY2BdmPV5rSLPfmPAn8Z63Ju2ce9qm5v
+	P4hlfS3xBQwAAgzlI5puvAwCV4tak55cPJS4pM56VA4YR7Ju8vf1ge+UYnyAF+qdXJQ34E+VBtr
+	uCny8iRnnrsWtvnSKBVQRvCwfyc0U8uxk9116eJoUY4xk665tg8/BuSVzjVt1gryj7x9Ks25Hz9
+	K7lQDQiXyB1ErkGEA83izVao/ldG7OmdDvZzIhv5axsixzj7jkww1AHSJ6X5pVAwB0bfoYoA1ib
+	zqv0gTEndt0T/px751bWxObHM1HfmRbMdCzp1oWh0y02mF63sDil7WgF7A+Vba4G/lm9DRfCeRP
+	max9xX9XfdEFuLl/7khkyNE1Sg1BEtqMMbNmGn3N5xsHfaY8BOs32P+TcP4zS9so5K1AuR8Xehn
+	VDu+rLcLRLnEeoKBk9Rv1ELdF5LrsC4=
+X-Received: by 2002:a05:7301:6408:b0:383:1bfc:f1c0 with SMTP id 5a478bee46e88-38570f27a56mr5280716eec.32.1795240523983;
+        Fri, 20 Nov 2026 21:55:23 -0800 (PST)
 Received: from [127.0.1.1] ([2405:201:201e:8863:a72d:7d80:d674:e22b])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c0c1dsm14423662eec.21.2026.11.20.21.55.13
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c0c1dsm14423662eec.21.2026.11.20.21.55.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 21:55:18 -0800 (PST)
+        Fri, 20 Nov 2026 21:55:23 -0800 (PST)
 From: Viral Patel <viral8854@gmail.com>
-Subject: [PATCH v2 0/2] iio: magnetometer: add Infineon TLE493D-W2B6
- support
-Date: Sat, 21 Nov 2026 11:25:09 +0530
-Message-Id: <20261121-tle493d-v2-0-92d7e57cec89@gmail.com>
+Date: Sat, 21 Nov 2026 11:25:10 +0530
+Subject: [PATCH v2 1/2] dt-bindings: iio: magnetometer:
+ infineon,tlv493d-a1b6: add TLE493D-W2B6
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,9 +95,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAD0yAWsC/z3Myw6CMBCF4Vchs7amM61IXfkehgXCAJNwS0saD
- eHdrZi4/E9Ovg0Ce+EAt2wDz1GCzFMKOmVQ99XUsZImNZCmHDUVah3YOtMotLUpWno2dDWQ3ov
- nVl6H9ChT9xLW2b8POOJ3/RmoL38jotLKkM3ZIefG2Xs3VjKc63mEct/3D2YzTYmeAAAA
+Message-Id: <20261121-tle493d-v2-1-92d7e57cec89@gmail.com>
+References: <20261121-tle493d-v2-0-92d7e57cec89@gmail.com>
+In-Reply-To: <20261121-tle493d-v2-0-92d7e57cec89@gmail.com>
 To: Jonathan Cameron <jic23@kernel.org>, 
  David Lechner <dlechner@baylibre.com>, 
  =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
@@ -108,154 +108,82 @@ Cc: Victor Chernyakin <chernyakin.victor.j@outlook.com>,
  linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Viral Patel <viral8854@gmail.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795240513; l=6963;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795240513; l=2626;
  i=viral8854@gmail.com; s=20261014; h=from:subject:message-id;
- bh=MzBc98Zhhkw57lEqQQOcbrGAiY+LY9quSwYv0/7I6Lo=;
- b=R3gSSlYhITz002ctFfK4fCNua+wTP/43nqOmJwcU81rGA+YxNxN8UZ/8msebgErAA4NnonkJ+
- ZsLoJzsoV90DZupZAyu2k128jG7xFwNkV7VY+kouACszroaUan7DYyT
+ bh=Pve1oOphWw1Q9mky6K/7lRz/7nV3rjbiYSeFFIY8C8Y=;
+ b=J8EEItayLygRxFy9STgBbIyjsITUuMWIJso9ogNh4CKPbukNCbAccJU8+yftE3Vsfi+Y6hc4o
+ hSYCLL1HvMxDTho2NS1PE4hwBu4nq4kctiybNI5ekR9sPV9xvVxzBk0
 X-Developer-Key: i=viral8854@gmail.com; a=ed25519;
  pk=UC+UDB53t70pTK4wncXf3tfh0hsYMCqpxYnTaKX3MYA=
 
-This series adds support for the Infineon TLE493D-W2B6, a 3D
-Hall-effect sensor with an I2C interface, 12-bit X/Y/Z data and an
-integrated temperature sensor. It was tested with the TLE493D-W2B6
-Shield2Go board (variant A0, I2C address 0x35) on a Raspberry Pi 5.
+Add the Infineon TLE493D-W2B6, a 3D Hall effect magnetic sensor with
+12-bit resolution per axis and an integrated temperature sensor,
+accessed over I2C. It is a second-generation sibling of the
+TLV493D-A1B6 with a different register interface, so it gets its own
+compatible, but it has the same supply range and the same /INT output
+sharing the SCL pin, so it fits the existing binding.
 
-Why a new driver
-================
-The TLE493D-W2B6 is a second-generation sibling of the TLV493D-A1B6
-(drivers/iio/magnetometer/tlv493d.c). Only the X/Y/Z bit packing is
-shared; everything else differs, so this adds a new driver rather than
-extending tlv493d.c, as agreed with Andy in the RFC [1]:
-
- - Writes: the byte after the I2C address is a register address that
-   also carries ADC trigger bits; tlv493d writes a raw stream starting
-   at write register 0.
- - Reads after reset: the sensor starts in a 2-byte read protocol that
-   Linux cannot drive, so the first access must be a write that sets
-   the PR bit to switch to plain reads starting at 0x00.
- - Register map: a single unified map, 0x00-0x16.
- - Mandatory odd parity bits (FP, CP). A wrong FP makes the sensor
-   release the bus until it is reset, so FP is recomputed on every
-   mode register write.
- - Data validity: a Diag register (PD0/PD3, frame counter, bus parity)
-   instead of the channel bits tlv493d polls in register 3.
- - Temperature: 10-bit, with a different encoding and scale/offset.
- - Different power modes and update rates, and a selectable short
-   range (X2); the A1B6 has a single range.
- - A dedicated I2C reset sequence.
-
-The other Hall-effect drivers in drivers/iio/magnetometer (tmag5273,
-als31300, si7210) were also checked; none share the register map, the
-write format or the parity scheme.
-
-Scope
-=====
-The driver supports master-controlled single-shot measurements of
-X/Y/Z and temperature at full range, via sysfs and a triggered buffer
-with a soft timestamp.
-
-The temperature has 10 bits of resolution. It is reported as the
-12-bit aligned register value, so in_temp_raw moves in steps of 4 and
-the scale and offset follow the datasheet's 12-bit LSB.
-
-Not supported yet (possible follow-ups): wake-up thresholds, the
-built-in self-tests, low-power and fast modes, sampling-frequency
-control, and the short range.
-
-Testing
-=======
-The series is based on iio.git togreg and build-tested there. Hardware
-testing was done on a Raspberry Pi 5 running the downstream
-rpi-6.18.y kernel (6.18.59). For v1 both patches were applied there
-unchanged apart from a Makefile context fix-up; for v2 the driver from
-this series was built as a module against that kernel and re-tested.
-
- - Probe: the module autoloads from the DT compatible and the Version
-   and ID registers match the A0 variant. With the sensor disconnected,
-   probe fails cleanly with -EREMOTEIO (v1).
- - Reset: the Pi's DesignWare adapter advertises I2C_FUNC_SMBUS_QUICK.
-   An i2c/smbus trace of probe shows two Quick reads from 0x7f and two
-   Quick writes to 0x00, each NACKed as expected, followed by the MOD1
-   write to 0x35.
- - Raw reads via sysfs: with no magnet nearby, X/Y/Z read within
-   +/-3 LSB of zero; temperature reads about 30-33 degC at room
-   temperature, matching a userspace bring-up tool.
- - Triggered buffer with an hrtimer trigger at 10, 100 and 500 Hz: no
-   missed samples (20/20, 200/200 and 1000/1000 over 2 s). In v1 the
-   mean period at 100 and 500 Hz was 10.000 ms and 2.000 ms with at
-   most 3 us jitter.
- - sysfs reads from four processes in parallel, and sysfs reads while
-   streaming, work.
- - 10 rmmod/modprobe cycles and unbind/bind: no errors.
- - W=1, sparse, checkpatch --strict and dt_binding_check are clean
-   apart from the Datasheet: tag line-length/link warnings.
-
-Known limitation
-================
-After a sensor power-on reset while the driver is bound, reads return
--ETIMEDOUT until the driver is rebound. The reset clears PR, so the
-sensor is back in its 2-byte read protocol, plain reads return 0xff,
-the frame counter never changes and the driver times out waiting for
-a new frame. Recovery is planned as a follow-up.
-
-Use of AI tools
-===============
-Claude (Anthropic), used through Claude Code, assisted with this
-series. I gave it a specification of the hardware (register map, parity
-rules, I2C protocol, conversion constants and test vectors) based on the
-User Manual, together with the v1 scope and IIO style requirements. From
-that it produced the initial drafts of the driver, the binding and a
-userspace bring-up tool, and it reviewed my later changes. I did the
-hardware bring-up and the v1 testing on the Pi 5, including the device
-tree overlay and boot setup, analysed the power-loss behaviour, and
-fixed up and reviewed every patch.
-
-For v2 I went through the review with Jonathan and Victor and decided
-how to address each point, including checking the TLV493D datasheet to
-confirm that its /INT also shares the SCL pin, which is what allows the
-binding to be merged. Claude then made the code changes and ran the
-re-test above on my Pi 5 setup. I reviewed every change and the
-results, and re-tested v2 on the Pi 5 myself: probe, and the triggered
-buffer at 100 Hz (200/200 samples, 10.000 ms period). I take
-responsibility for all of it.
-
-[1] https://lore.kernel.org/linux-iio/atyPf0msZ85z2m19@ashevche-desk.local/
+The A0 to A3 variants of the part only differ in their default I2C
+address, so a single compatible covers all of them.
 
 Signed-off-by: Viral Patel <viral8854@gmail.com>
 ---
-Changes in v2:
-- Rebased onto current togreg
-- dt-bindings: add the compatible to infineon,tlv493d-a1b6.yaml instead
-  of a new file. interrupts is allowed as for the TLV493D, since both
-  parts have /INT on SCL and Infineon recommends wiring it up (Jonathan)
-- Use FIELD_GET() for the single-bit Diag flags (Jonathan)
-- Comment on why Diag is cached before the error checks (Jonathan)
-- Use guard() in read_raw() and mutex_lock()/mutex_unlock() in the
-  trigger handler (Jonathan)
-- Send the reset as SMBus Quick commands and skip it if the adapter
-  lacks I2C_FUNC_SMBUS_QUICK (Jonathan)
-- Declare the reset loop counter in the for statement (Jonathan)
-- Comment on IICadr and on the 7-bit vs 8-bit addresses (Jonathan, Victor)
-- Link the user manual in the driver commit message (Victor)
-- Link to v1: https://lore.kernel.org/r/20261105-tle493d-v1-0-3246e91e6394@gmail.com
+ .../bindings/iio/magnetometer/infineon,tlv493d-a1b6.yaml   | 14 ++++++++++++--
+ MAINTAINERS                                                |  6 ++++++
+ 2 files changed, 18 insertions(+), 2 deletions(-)
 
----
-Viral Patel (2):
-      dt-bindings: iio: magnetometer: infineon,tlv493d-a1b6: add TLE493D-W2B6
-      iio: magnetometer: add Infineon TLE493D-W2B6 driver
+diff --git a/Documentation/devicetree/bindings/iio/magnetometer/infineon,tlv493d-a1b6.yaml b/Documentation/devicetree/bindings/iio/magnetometer/infineon,tlv493d-a1b6.yaml
+index dd23a9370a71..3f0058cbf538 100644
+--- a/Documentation/devicetree/bindings/iio/magnetometer/infineon,tlv493d-a1b6.yaml
++++ b/Documentation/devicetree/bindings/iio/magnetometer/infineon,tlv493d-a1b6.yaml
+@@ -4,17 +4,27 @@
+ $id: http://devicetree.org/schemas/iio/magnetometer/infineon,tlv493d-a1b6.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+-title: Infineon Technologies TLV493D Low-Power 3D Magnetic Sensor
++title: Infineon Technologies TLV493D and TLE493D 3D Magnetic Sensors
+ 
+ maintainers:
+   - Dixit Parmar <dixitparmar19@gmail.com>
++  - Viral Patel <viral8854@gmail.com>
++
++description: |
++  3D Hall effect magnetic sensors with an I2C interface. The /INT output
++  shares a pin with SCL.
++
++  The A0 to A3 variants of the TLE493D-W2B6 only differ in their default
++  I2C address (0x35, 0x22, 0x78 and 0x44).
+ 
+ properties:
+   $nodename:
+     pattern: '^magnetometer@[0-9a-f]+$'
+ 
+   compatible:
+-    const: infineon,tlv493d-a1b6
++    enum:
++      - infineon,tle493d-w2b6
++      - infineon,tlv493d-a1b6
+ 
+   reg:
+     maxItems: 1
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 02015eaec312..c3004f683e78 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -13117,6 +13117,12 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/sound/infineon,peb2466.yaml
+ F:	sound/soc/codecs/peb2466.c
+ 
++INFINEON TLE493D-W2B6 DRIVER
++M:	Viral Patel <viral8854@gmail.com>
++L:	linux-iio@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/iio/magnetometer/infineon,tlv493d-a1b6.yaml
++
+ INFINEON TLV493D Driver
+ M:	Dixit Parmar <dixitparmar19@gmail.com>
+ L:	linux-iio@vger.kernel.org
 
- .../iio/magnetometer/infineon,tlv493d-a1b6.yaml    |  14 +-
- MAINTAINERS                                        |   7 +
- drivers/iio/magnetometer/Kconfig                   |  13 +
- drivers/iio/magnetometer/Makefile                  |   1 +
- drivers/iio/magnetometer/tle493d.c                 | 572 +++++++++++++++++++++
- 5 files changed, 605 insertions(+), 2 deletions(-)
----
-base-commit: 903941a9b06ae445c70646ab061b604c2dea17d3
-change-id: 20261028-tle493d-14c38f2bd273
-
-Best regards,
 -- 
-Viral Patel <viral8854@gmail.com>
+2.43.0
 
