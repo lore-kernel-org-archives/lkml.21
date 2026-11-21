@@ -1,103 +1,128 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795234481;
-	b=jq4JZJtQPXST/Indy2+OO2MTWq90Xvt/a5Nt2vraHTMaLh9zfY+4vRdvR/Xzg1c8FMbO
-	 I+44HkoqdIbNo0epDUP6KgfRBjohrncB/tqQsdaKG0odaSKYZfetPQBdlaJvIlO9I32Ld
-	 oiBDv1LosCYLrH/h4TlXTeA7gytq0Ts7dbFjhQLjL7+qrcO2q0rf0J+KLJnZ0U7G3UIAd
-	 BISbVJ9HPLgtTOzmMBViIR18ozYhWARIvHmmXn0zRBSk1XVMtu7ujGbWWmrY/wxkau38B
-	 KSzoziSlDUD7e9XiZoWYm6yraqMfVrk2G+XcXJ2ijNL2dNTyvAoGXYSOQ4Zldy3+dfw==
+	t=1795234505;
+	b=sgKMqZL0bUDq5QiotILq35JaB4d9IEn8g0WxTFTYVQhkbdQemwwEayCBR+ixPAYIdGPB
+	 yfhM2FrMYNWDzMCGLeTgSImRTLPR4otzMP3JSdPf85AOSM/noI2hrHjpE8Xi7i3JAyuM4
+	 w30vvLCaIzFejIWxQEsr+zNiXla3+qeFKmahAt5ZF/Ovn7olFZObbVwGwRTaFTrZmhA6g
+	 IbVoOi1XNhPiB7+WaVAcaMxvSpF+QXjXum3HpINH5m1ul+cj8Bmwq3Nu0jaZy2oyMdJn+
+	 Qm9i3Me2zqQH+0arwb4b+aqbaai0om7ctqQ9/q7oeeqTLrjDdbHTNgqmo9yCWMNVt1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795234481;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=g0XEzBGmvwOkW39Vxp4j0TIiOhGg5iVLxt1dqiFm15c=;
-	b=pn1xZAnagbCuCU6Ze2JMvKKooO+CyQGkSqOj/pVGr6Rr32StiGyhpn7q06pcZ3v9jrvy
-	 +kRW85WCdmjtZGT4rcVWiKCiqRCyx3LzQxgKegIFjlxYsof+jhIg5Zfb7HWRoN4jlj5og
-	 dtpytEXUS70jYvW4MioiTgZhDGSrslux4PlNmVETWQ66MH1i3Al3NRbAcEmCOPYaTbLWX
-	 c8jaiHyyBXfuABv0OQk4csUp/dWZ9W860rzraCfOorr4kn39Yh4EDwSXvAKsUqxdSg6+e
-	 C2tMqWIUIWrLWh1wY9fK4mzVOqxUQ93KZROgznhikvceWSRT4RD6b+91lUYQQvU+b+A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795234505;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=OIMcSFsrYZPx5tM1ZfU2cFMDo/op/ylNmm2WEOSFOdY=;
+	b=qWu0dZrP9lIfwarLu3GTBeSExHNNCLzO0r30Lk5iIBNpmLQVswa+SJUrLF8AIyjYRecR
+	 1j2zzSr9jmi9eEe147flEXJoWRDgWmXxNixkjR6B6DlBdfvqjVcu76V4mZrIAj/mBcvm3
+	 V1glL3K0iqjHNe2osrc+rybw9Eg2FdP0bVla3GzgnakhzcHllCmbKZTfLoFWSd5z8Ei3p
+	 AWlzlSognmE+degkjvFUtsuL1L20/7Ai8N0ma8kXaul9HD6+FeoeuRojc+u2xl0ICY7dJ
+	 Bzc9xhuYyeNuzutZheU+wyfcM+5ybeiJFPAyUO60FECVRcsmULWlcskGl/JxyH7u8Ow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eu1zg4Ip;
-	arc=none smtp.remote-ip=74.125.82.174
-Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=daK0dHOR;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=QZnOcfih;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AC17606A33D
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 04:14:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0AC17606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7AE4A606A6A8
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 04:14:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7AE4A606A6A8
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eu1zg4Ip
-Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-380c28f9e35so2478261eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:14:36 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=daK0dHOR;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=QZnOcfih
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AL4Au62188209
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 04:14:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=OIMcSFsrYZPx5tM1ZfU2cFMD
+	o/op/ylNmm2WEOSFOdY=; b=daK0dHOR/AMPZH8w3KYSsDYAnHcLNrCRWu8rTXse
+	dqMsh1bXfzQNTHZ5rADsOuQoAVYZJ+azjPH6Mn+lP9EQDDMrZfYKpp/y13o+b2/a
+	tDa+yiE8ZVTP/RsqY98EmFX/SqQeNJuFq1J8gACd55YFitmw/ten/rPyQUg9w0D4
+	iafHes1duRP4ZIyVoIlaXX0zXhq1i3LZhNiJRh3bNzPIxgqf4sAcLuyTXxqPaGPx
+	EXAtaZGTh/kVGRUdlcKnPdwQ9ywQhi8tI5V9c997L5/vBL4vJJtZ3q3w9LQfMFST
+	hHP/w0WjMFdsm8KN+YTqmwKirKuTfAlTeGJKanYAHL4Liw==
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j32a6g7mr-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 04:14:57 +0000 (GMT)
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-38531c1a566so3828793eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:14:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795234476; x=1795839276; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=g0XEzBGmvwOkW39Vxp4j0TIiOhGg5iVLxt1dqiFm15c=;
-        b=eu1zg4Ipa014dVky2VWTh84Ro9EtH92eTWuXAixz3coODaa71l1ZqB4X6WyvUAboRC
-         VYNPEuX30WqixyPmt4tN/b5gtyuVQC6I5Up88PySLAMWGCQlxarZivc/fOn874rnotL/
-         njDlq6TaVM0vPdOw+rhxkQbii+FtA4Cv32inZ7AJyHtIUFbzo5DGKuwaFTuO46kikSeu
-         LpbIehL55AdPuNuSF0fl48D4OuW3EI0ZebWcLVIEYHnOuDBllW96YxR4dj6Xfepj9foN
-         sKSKzer90maOTHkLhj1dYCHPuvI0OjyJWnJ8QHjjTFBq3lnM42IbUUbYW9Y7NHFbPeAr
-         OhOw==
+        d=oss.qualcomm.com; s=google; t=1795234496; x=1795839296; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=OIMcSFsrYZPx5tM1ZfU2cFMDo/op/ylNmm2WEOSFOdY=;
+        b=QZnOcfihsdD/themipSR2a/Ejr86FGw0pUuAnfk7FubyfVPjINcY6MOqepTftH2MZW
+         /GsC7WZPncCADF4baB7ZhbAaRPl49uYi6O8CJggE3YgRd8Xyg3bEJLGV7p9dz3BKjnab
+         04Lyx5d7vhcRCzivGpb8Dyt0m89lUSvBWNNvzg4XyNa7QjxAn4soVw0sQDpgq9dXwruo
+         uLK9hO7y07kQ2f3sFPGs2kjCJugcdvVJZc9hV6VdiqD2Z09S1ZyrSWNe1FEadzLMU5hN
+         w7tGB0s0UFaVw4+7274UGAYeew8HKuwuGGoD59cR13ZWpGJgmd+vDmaL1p4VnnIozuyg
+         lfZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795234476; x=1795839276;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=g0XEzBGmvwOkW39Vxp4j0TIiOhGg5iVLxt1dqiFm15c=;
-        b=nm0+Y192XP7Ixsp5UiIC2W8dqN42I26No/wOJh6+atWhuQdhhjQ8pCD+KwJ9idrXFp
-         qaByoiSxonDZ0bz/eR1DUwaYTClTJ1XwhtPlPyni5YPH4mRAW4rutyA6vcINmwkrdTZQ
-         6ry9STbUw7IL+iTCV03F5iIp53XDl5cfjhfxJWNpem6eBi4h5hcwdDkD3+4tG3Jhjc9d
-         P7YU4VnWd2lWvSedstecnResRU3XYf/x/7NO1jKSW3jcGvXyJG0JnMqlOqbwAOy2gH+J
-         RH3MVSWUehqBaRhWRtRxlckd5l9fkMubKcCjmv1Vv3byaVWHQP5n15Qq9c1M0EIe42v7
-         bmfA==
-X-Forwarded-Encrypted: i=1; AL+hErHT2eHjHhadMA0KTuAwz03/xU4Cmj3dMCOGJeCUJquwu+9skiH6mD1Cj7VLMfkS8MqjnnHM8neipt/tGxE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+WbXZJN464dZVAhuRNHWRYnP5w5r08ow/QiOEZHnqfuWNqRpB/
-	bnQrKG0XVeKdeMLuo2Wok+INObVWJsXWnv/5A12Jku/5jIAMCXv25OvvLqbm1oyg
-X-Gm-Gg: AZFdTZeIHR5SXUadnbA7IVcCUP5jYlN5pZKYgucTU70XnFXjWQOkagT1M8YDLtKyO5j
-	WzQWqJLuEpNpBDSWEseOX3FkiovQkQ5IhSys16S9HsMD9c6JH6Jp4n+4iQEIPaZkwLPrLER45nc
-	UrqvsH2dooxKOcE11FZ8PVbuHbNvKTPDRX2gJd6fTNIW8vJDzyu3d724dsgJloEjzO4/wDV7IIh
-	9fjRjjN5Y222nfF3BO/BLVYepuMpejFScaiyD2xy+JbHNI8af9KAVJ6USZzbRXEZt+nCMaG4FQr
-	NWlSzsnpCfKpt2nf88P//U+DOG23Uz0dzAN5nhyuSKBPxZibiZarKu7vpz7ODYdtS/BGL/YNEHX
-	TPFLZbXj4sKBHIl/RZPRAoitQXWw/xUArbMpwxpUN6pqDUutgngfHl9g3LZCah4LnrzPGjMX4sN
-	2KmPTuM2Wl8UyU8gl7pKaWjNTBLxubvD9BS2EOHJdzwu7fXswQdlc5UqskiR+3rKZTTySVIKxay
-	SxbCjFUM2fl+zTcw5ztQfOrBHHvngJfBqchdv5ee3x6h6lRuQEStkzvxnUrPDTyGUNVh2+S7cjm
-	/IlxQMEdIUwQOWNvEPyw
-X-Received: by 2002:a05:7022:5f0b:b0:196:b805:9546 with SMTP id a92af1059eb24-1b5568c4890mr4499639c88.10.1795234475899;
-        Fri, 20 Nov 2026 20:14:35 -0800 (PST)
-Received: from a1-free ([161.33.196.121])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c1142sm10379603c88.2.2026.11.20.20.14.33
+        d=1e100.net; s=20260707; t=1795234496; x=1795839296;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=OIMcSFsrYZPx5tM1ZfU2cFMDo/op/ylNmm2WEOSFOdY=;
+        b=eVye6t31YR3zaM3LRAbI1jBr/wSmYKUjJO9fnnQfwuPQ45L7+/0GQweEzCPBbvHt61
+         sbypTURLb+4kGRbkIzAtH7tfFDAa7A15PYnwMebx1zvGThrXh+l/XN6tLxhHM7bsTPRI
+         ZhEHdbI30u5kHbji7bezb0VpbJW1FywRlPsLUs/kH1fGmILecdV/sFRP2b8if7wr0Pv5
+         u0zCupLydmuwmxfLAdndUlVILUMsCkc4JEY7XR1OSpBBHKH88t7biIlh1Bt8+QWey4pV
+         GyIwu5PRL1KsmerR95aRhrWyWd75X8s0C8tg4INY8dewBFCr1GOKv6s8IEy3FT6BAX8i
+         l5bQ==
+X-Forwarded-Encrypted: i=1; AL+hErHA1JDxnI0yC/JVj+woLhV12AnK3QXXixidTJMMGLNuyAS6xn0EG4D7vua0Hyjp0+zvnrCWMOJaPxK9Xbc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9WFiKXEy4jCB0jdqIoBZ7znDPDs4Su3e6K5f4yZ58uqGpmyj7H
+	KFTQTxi/WpVS1OOedgzWDCMHzOcWd+6ggBPb05T6tg3iPrujvU4JB7zYzBZXgK9MI+O5eP26Eis
+	PF3fElb7qoQO9Kyx1WzwWMT5Our92aM7Z2pHUqE1timnFgYt8d43TQMBL1oJBd4avXrU=
+X-Gm-Gg: AZFdTZe4sY2ldX4Wket37cx9cwuHKNzyO5elufDQr3Gf91YHFMaxRIj3FTlWMG1TZod
+	4Su+QkcWJqer6/SLzS+MnJjeHRj+0GaeH0lyC8Lrc6lp32fEGgc3tGBNCF/j5D/BLYASLgTif6R
+	RcPL1Kh1f4dzzIT1qYOSuTF738HPpvmwUf/xa/UIEGoZyUGgl6JvjJQU9X75Bz5C5OgdwcczGts
+	X5hiSQf+tTWLgyDVfAsoVcMQqpEZGX/UVso5OvDW1PPtbNrip3RMVvscq1v4ObI86+M1808mIFy
+	psszSe2vutIOM4qVVchLNCzruh3Q2Z/2xUgVNVK1+Rwk9vxkgWFfj3eodiXH1lrsPbFPU8qBoye
+	furs5paVKz6kxn/g+jVB+fdmynkJTFSh1EusvScHO8EBgX6SuWJTV01aXTqPSpFNhFZavfwQSri
+	ek4OmAEVCWpqzPTnBWbKJrZQ==
+X-Received: by 2002:a05:701b:4502:10b0:1b2:539b:496c with SMTP id a92af1059eb24-1b5569050c8mr5657072c88.35.1795234495912;
+        Fri, 20 Nov 2026 20:14:55 -0800 (PST)
+X-Received: by 2002:a05:701b:4502:10b0:1b2:539b:496c with SMTP id a92af1059eb24-1b5569050c8mr5657031c88.35.1795234495249;
+        Fri, 20 Nov 2026 20:14:55 -0800 (PST)
+Received: from hu-ashoraj-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567e2bd1sm10388581c88.3.2026.11.20.20.14.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 20:14:35 -0800 (PST)
-From: TAKANO Mitsuhiro <takano32@gmail.com>
-To: amd-gfx@lists.freedesktop.org,
-	Harry Wentland <harry.wentland@amd.com>,
-	Leo Li <sunpeng.li@amd.com>,
-	Alex Deucher <alexander.deucher@amd.com>
-Cc: Rodrigo Siqueira <siqueira@igalia.com>,
-	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Thomas Huth <thuth@redhat.com>,
-	Weijie Yuan <wy@wyuan.org>,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	TAKANO Mitsuhiro <takano32@gmail.com>
-Subject: [PATCH 2/2] drm/amd/display: Document max_gamut_remap_coeff
-Date: Sat, 21 Nov 2026 04:14:27 +0000
-Message-ID: <20261121041427.1743954-2-takano32@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261121041427.1743954-1-takano32@gmail.com>
-References: <20261121041427.1743954-1-takano32@gmail.com>
+        Fri, 20 Nov 2026 20:14:54 -0800 (PST)
+Date: Fri, 20 Nov 2026 20:14:52 -0800
+From: Ashok Raj <ashok.raj@oss.qualcomm.com>
+To: Ahmed Azeem <ahmed.azeem@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+        Sudeep Holla <sudeep.holla@kernel.org>,
+        Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <skhan@linuxfoundation.org>,
+        Randy Dunlap <rdunlap@infradead.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-api@vger.kernel.org,
+        linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Divin Raj <divin.raj@arm.com>,
+        Bertrand Marquis <Bertrand.Marquis@arm.com>,
+        jithu.joseph@oss.qualcomm.com, Borislav Petkov <bp@alien8.de>,
+        Tony Luck <tony.luck@intel.com>,
+        Ashok Raj <ashok.raj@oss.qualcomm.com>,
+        Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Subject: Re: [PATCH RFC 1/4] uapi: firmware: arm: Add PFDI userspace ABI
+Message-ID: <awEavIhFldTD2k46@hu-ashoraj-lv.qualcomm.com>
+References: <20261119-topics-ahmaze01-upstream-pfdi-rfc-v1-0-4772d18b9115@arm.com>
+ <20261119-topics-ahmaze01-upstream-pfdi-rfc-v1-1-4772d18b9115@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,40 +132,185 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261119-topics-ahmaze01-upstream-pfdi-rfc-v1-1-4772d18b9115@arm.com>
+X-Proofpoint-GUID: itaxfWMoOQ0-GMF6XFqyskDrUyi5phr_
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIxMDAxNiBTYWx0ZWRfXyzX6IU0ZJZhv
+ Zp7JPcUn0e2pyUJIB29JO3RYVqENtA2dzS9+Mi7ETamnXz/pvnK0i7D6uaV1QYfc4EUlCHuuoae
+ Ec2hobihFmz9IMoEYInGzIsHLnhUhA0=
+X-Proofpoint-ORIG-GUID: itaxfWMoOQ0-GMF6XFqyskDrUyi5phr_
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIxMDAxNiBTYWx0ZWRfXx5iMGm4RPDu7
+ jlvh9PAL3SN6LglHNaFvtme5U2UwQYfgY5sfnoW7YTkXQwRzdiVSHQ8l6yrbZaRZhcdSJEc6Kco
+ md/EPlG1CSzfnadmZygIwaVLrHlRZSUf2zggtBIEot9gwPdflW7+tKjzEXhOcxbdjtELCuQGM8G
+ rNU101poeBmVrpzAk8uqBlUNbNbpvzDFzedwjCkbpcEqyiKm1+Ml6LUKjKGL/gyMszm57MtvCfu
+ Xxu6U/RAJnCRzC4NOLfDqRuKKqBZQioYmyl0lDZTCJjDh3kQqwlw0FOjkPp61QeBjjKXtyIz9ut
+ x1/N6YPoYvLt3ktB3E7hKmuTBPtwAh0AWZZLhHTZtV3Mo8trnra5KJ36j6B9M5ixwFQBmjtlJKk
+ wPwLB0cjD3yNfyfvuAxnNLeSApmMPgXlJmoS8I5HqmTN4fpmbwqWHFsQn6wRp1WanfNaAQSHT9n
+ Iy/ID2ANcLILXo0xk0g==
+X-Authority-Analysis: v=2.4 cv=UbHE26SN c=1 sm=1 tr=0 ts=6b011ac1 cx=c_pps
+ a=Uww141gWH0fZj/3QKPojxA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=7CQSdrXTAAAA:8 a=JfrnYn6hAAAA:8 a=ibG3jk6wdz103AFF48AA:9 a=QEXdDO2ut3YA:10
+ a=PxkB5W3o20Ba91AHUih5:22 a=a-qgeE7W1pNrGK8U0ZQC:22 a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-21_01,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 bulkscore=0 phishscore=0 malwarescore=0 impostorscore=0
+ adultscore=0 lowpriorityscore=0 priorityscore=1501 clxscore=1015 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611210016
 
-kernel-doc reports:
+On Thu, Nov 19, 2026 at 03:36:03PM +0000, Ahmed Azeem wrote:
+> From: Divin Raj <divin.raj@arm.com>
+> 
+> Define the userspace ABI for the Arm Platform Fault Detection
+> Interface (PFDI).
+> 
+> Subsequent commits introduce a driver that exposes a per-CPU misc
+> device. The ioctl definitions, data structures, and return codes
+> must therefore be shared with userspace. Add these definitions to
+> a UAPI header and document the ABI for /dev/cpu/<cpu>/pfdi.
+> 
+> Placing the interface under include/uapi ensures availability via
+> headers_install and clearly identifies it as a userspace contract.
+> 
+> Link: https://developer.arm.com/documentation/110468/1-0alp0
+> 
+> Signed-off-by: Divin Raj <divin.raj@arm.com>
+> Signed-off-by: Ahmed Azeem <ahmed.azeem@arm.com>
+> ---
+>  Documentation/ABI/testing/dev-cpu-pfdi             | 103 +++++++++++++++++++++
+>  Documentation/userspace-api/ioctl/ioctl-number.rst |   1 +
+>  MAINTAINERS                                        |   7 ++
+>  include/uapi/linux/pfdi.h                          |  89 ++++++++++++++++++
+>  4 files changed, 200 insertions(+)
+> 
+> diff --git a/Documentation/ABI/testing/dev-cpu-pfdi b/Documentation/ABI/testing/dev-cpu-pfdi
+> new file mode 100644
+> index 000000000000..e07ed6baa7f8
+> --- /dev/null
+> +++ b/Documentation/ABI/testing/dev-cpu-pfdi
+> @@ -0,0 +1,103 @@
+> +What:		/dev/cpu/<cpu>/pfdi
+> +Date:		May 2026
+> +KernelVersion:	6.18
+> +Contact:	Linux ARM Kernel Mailing list <linux-arm-kernel@lists.infradead.org>
+> +Reference:	Arm Platform Fault Detection Interface, document 110468,
+> +		version 1.0 ALP0
+> +Description:	Per-CPU Arm Platform Fault Detection Interface (PFDI) misc
+> +		device nodes. Each node targets the CPU encoded in its
+> +		path and exposes the PFDI service implemented by firmware.
+> +		PFDI uses the Arm SMCCC SMC64 calling convention and is
+> +		PE-local. Userspace is therefore expected to bind itself to
+> +		the target CPU before opening or issuing ioctls on the
+> +		matching device node. Each node is single-open: only one
+> +		userspace owner at a time may hold /dev/cpu/<cpu>/pfdi for a
+> +		given CPU. Additional open attempts fail with -EBUSY while the
+> +		device is already open.
+> +
+> +		The ABI is defined in <linux/pfdi.h>. The following ioctls
+> +		are supported:
+> +
+> +		* PFDI_IOCTL_VERSION
+> +		  Read the PFDI version for the target CPU. On success the
+> +		  ioctl returns 0 and copies a 32-bit version value to
+> +		  userspace with the following layout:
+> +		  Bits[30:16] PFDI major version
+> +		  Bits[15:0] PFDI minor version
+> +
+> +		* PFDI_IOCTL_FEATURES
+> +		  Query whether a PFDI function ID is supported on the
+> +		  target CPU. Userspace passes a 32-bit PFDI function ID.
+> +		  The ioctl returns 0 when the function is supported,
+> +		  and -EOPNOTSUPP when it is not supported on the target
+> +		  CPU, reserved by the specification, or otherwise not
+> +		  recognized by firmware.
+> +
+> +		* PFDI_IOCTL_PE_TEST_ID
+> +		  Read the test engine identifier for the target CPU.
+> +		  On success the ioctl returns 0 and copies a 64-bit value to
+> +		  userspace with the following layout:
+> +		  Bits[63:32] reserved and zero
+> +		  Bits[31:24] vendor ID
+> +		  Bits[23:20] reserved and zero
+> +		  Bits[19:16] vendor-defined implementation ID
+> +		  Bits[15:8] major version
+> +		  Bits[7:0] minor version
+> +
+> +		* PFDI_IOCTL_PE_TEST_PART_COUNT
+> +		  Read the number of available test parts for the target
+> +		  CPU. On success the ioctl returns 0 and copies a signed
+> +		  64-bit count to userspace. The smallest schedulable unit is
+> +		  a test part, and valid test part indices are in the range 0
+> +		  to count - 1.
+> +
+> +		* PFDI_IOCTL_PE_TEST_RUN
+> +		  Run a requested inclusive test part range on the target
+> +		  CPU. struct pfdi_test_run.range.start and .end are signed
+> +		  64-bit values.
+> +		  Passing start = -1 and end = -1 requests execution of all
+> +		  available test parts on the target CPU. Any mixed use of
+> +		  -1, reversed ranges, out-of-range indices, or non-zero
+> +		  reserved arguments is rejected with -EINVAL, either by the
+> +		  kernel before the request is issued or by firmware.
+> +		  If firmware reports PFDI_RET_FAULT_FOUND, the ioctl returns
+> +		  -EFAULT and copies a signed 64-bit failing test part
+> +		  identifier to struct pfdi_test_run.ft_id. If the failing
+> +		  part cannot be identified, ft_id is set to
+> +		  PFDI_RET_UNKNOWN.
 
-  dc.h:329 struct member 'max_gamut_remap_coeff' not described in
-  'mpc_color_caps'
+Hi Ahmed, Divin,
 
-The 17 resource files that set dc->caps.color.mpc.gamut_remap to 1 also
-set the member to dc_fixpt_from_fraction(S3D12_MAX, DIVIDER); the other
-ten leave it at zero, and the comment of mpc_color_caps does not mention
-it.  Describe it.
++ Tony, Boris, Jithu
 
-Written with Hermes Agent, an LLM assistant; the author reviewed it and
-ran kernel-doc on the file with and without the change.
+A few UAPI/design comments below.
 
-Fixes: 1c5e6cd8291f ("drm/amd/display: adjust floating point format for gamut remap when needed")
-Link: https://lore.kernel.org/all/ec4d7cff-d23a-46d1-b245-921f442b9a7b@redhat.com/
-Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
----
- drivers/gpu/drm/amd/display/dc/dc.h | 1 +
- 1 file changed, 1 insertion(+)
+The range-based PFDI_PE_TEST_RUN operation has a reasonable case for a
+structured interface: it takes an inclusive start/end range and can return a
+failing test-part ID.  Encoding that in a sysfs write would establish a
+permanent text grammar and still require a separate result-retrieval
+mechanism.
 
-diff --git a/drivers/gpu/drm/amd/display/dc/dc.h b/drivers/gpu/drm/amd/display/dc/dc.h
-index debdd69bbe4e..32bf87fed40d 100644
---- a/drivers/gpu/drm/amd/display/dc/dc.h
-+++ b/drivers/gpu/drm/amd/display/dc/dc.h
-@@ -314,6 +314,7 @@ struct lut3d_caps {
-  * @mcm_3d_lut_caps: HW support cap for MCM LUT memory
-  * @rmcm_3d_lut_caps: HW support cap for RMCM LUT memory
-  * @preblend: whether color manager supports preblend with MPC
-+ * @max_gamut_remap_coeff: largest gamut remap coefficient the MPC supports
-  */
- struct mpc_color_caps {
- 	uint16_t gamut_remap : 1;
--- 
-2.53.0
+However, it would be useful to explain why all of the interface is exposed
+through per-CPU ioctls.  Intel IFS, for example, uses sysfs for simple
+control and persistent status: run_test, status, details, image_version, and
+current_batch.  That does not necessarily mean PFDI should copy IFS, but a
+hybrid design may be worth considering:
 
+  - sysfs for stable scalar discovery/status such as PFDI version, test
+    engine ID, test-part count, and power-on test status; and
+
+  - a typed interface for the range-based test execution request and its
+    structured result.
+
+Also, before struct pfdi_test_run becomes stable UAPI, please consider
+adding explicit flags and reserved fields.  The structure currently leaves
+no ABI growth space, despite already having a special -1/-1 all-tests
+encoding and likely needing a structured test-result field.
+
+Finally, PFDI_PE_TEST_RESULT reports the result of tests executed at
+power-on, before system software booted; it is not the result of the most
+recent PFDI_PE_TEST_RUN.  Could the naming or ABI documentation make the
+power-on semantics more prominent?  The current name is easy to read as
+the result of the runtime run ioctl.
+
+
+> +
+> +		* PFDI_IOCTL_PE_TEST_RESULT
+> +		  Fetch the stored out-of-reset test result for the target CPU.
+> +		  If firmware reports PFDI_RET_FAULT_FOUND, the ioctl returns
+> +		  -EFAULT and copies a signed 64-bit failing test part
+> +		  identifier to userspace. If the failing part cannot be
+> +		  identified, the copied value is PFDI_RET_UNKNOWN. If no
+> +		  power-on tests were executed on the target CPU, the ioctl
+> +		  returns -EAGAIN.
+> +
+
+Hope this helps.
+
+
+Cheers,
+Ashok
