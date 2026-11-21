@@ -1,47 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795263506;
-	b=hP60cmzPDUi277yxh5oqP5MpWQSKlvzt7DbAuh4t7O/MItudQZ1svt1oEY8CNOXcQD7P
-	 6Ewa7Wl9ci0XUL8Dqbb7hCXNnfllUPOHpcdjNTv8jR5XJJ2an6WnDHWOpz9J5GNa+gMMg
-	 8OnrxwT44MgF+Dxlkq2ZqGduyq2cVc3bNdsW1emEXcU8tAq4nK+lKrmfG1VbfCCJmCsij
-	 7NI2muM7LTSpCEH+FPvEZNOBdSkDKvwf8zCuvOFWo4xERZMP3S5ch36WeDhOm3OhBZqJL
-	 ryMeYHnuBFIA5N3qMkazORoX7//sndlmMu2WJti/wT9yjJPs+4LcFzVEy1EtVdEouxQ==
+	t=1795263554;
+	b=H6Qyj3s4vAA+eJGvmIWoyXsOHSFwoNDQnYlvqZ4mbbzkihv7isMqsPI16t22Uq3hemao
+	 DMvgQJbjKXIhOwiEfYpCF2DWzXUM4Q4xvtCDJASa+g8mVNu0WM0kEMhGnNG0qryG73JdZ
+	 I7guYx5I8N9mcwiuWkkPheQLFPfChY6BaPNV3PsrOeUKRv1WBKNsVp5eYe3ldQVt+YnmK
+	 F4A6zpceO9rULisALnXn64GFGAiJCCg/V8i3ZpgEkIwJdEb+KpOPeOhp9K63b6262Df0G
+	 M1Bd2MgoVXzedPW/+h6kjyt3v8Se4X3ZmMLjrnPoV7a59nIUZuWP8OdkZgWT9iYt8kg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795263506;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=MXE0yFyM2nPGBUmYcfo1AgqMBNHr7JrwKQ1QcX5JXK4=;
-	b=nBkLrtBeJFs0tA+DwtUOfMlNgFWoF5o05im+HK6z4MuTbkdGgK3cqj4RAyZck4K/fAk7
-	 6KRwEiBCgJ1oY02o1dqrjwd0iewsJ8CAl3y71NO+L4zsErbqYmDPO/OtdrvY325eRsqQj
-	 vTZVZ8IVXm6GVzv/2wU/r8XLbgpUPD5GRTEQd4H7RkAHvTGbu41l9YFoD1PEjGHdkV7RL
-	 Vuk6p564Cr0YEA8ZLMEO5gF+TM5hQg1oQolRYKUJjNml0UOTyNXwrdA5/PnV27rEz3r7L
-	 Mgc6mp33TmxD9FfhuWxqPuJYqd6UBKysbJJiaB/wGroA9aV4lfFA99EseWvny/wCyyQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795263554;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
+	bh=CNOgHxo5rImaeobDkKQY9LyeNIWGKW6ZbfIQZ7DKocM=;
+	b=BVINzN9FbPcnQkv5bgj+3JF3bRh9SuYGT47tzIpMVbA6O0JETh9uxtV5/cp2aYvmk8jL
+	 0QrkkX/4JUky8Y52xQtELNlQacN1EaFTaRWIfhXzwSnl3qwsGex0nX25VtVuWZGfTduw7
+	 gx1Ex2EyTK6IIOl1KOls7P3P1axcCBZFCYj6f3Phyh/xoHIJcl6Ns2/TZ8uDSAQ+67Ej5
+	 IspDlyVnIm0W7myo+VNdXrNlfbFz6fScbUmhvgfzguBoM7eHt9Q4UtlC4WaWFlUyeLNOv
+	 uNBWRr4dFFIu2qQBTzfPECuZA+i7GAeA8+gFJBy16wiS7UCMY+oRtYJZxhazYwj6Hgw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XQ7TMYA6;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=cq1CjJDR;
+	arc=none smtp.remote-ip=117.135.210.2
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79AC3606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 12:18:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC50F606A320;
+	Sat, 21 Nov 2026 12:19:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC50F606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XQ7TMYA6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D90C61F000C6;
-	Sat, 21 Nov 2026 12:18:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795263506;
-	bh=MXE0yFyM2nPGBUmYcfo1AgqMBNHr7JrwKQ1QcX5JXK4=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=XQ7TMYA6RpfeWUXBIXAPyd3LFzGzxRwqTIuaIaBAFXSEU/hYmLSjyUa7XbgZbCtd3
-	 Y3K8wklLzp7hVai4J+S0Cs5U23WAMwmwwpJ6K+ju+tuXckTUkvSDvadsn31G5flcd8
-	 6gYaLfTokedz0R2yGS2vy6YYtrU9pY2ayPqtSHQ7vv/yFru7rLWyJ67M+m+aSdZDaE
-	 CZDSYESkpQlV2Xc8arqkgTOjZH8UQWtO58Amiy68XWrJal5HDt0fM0+A9nKYeiIAa2
-	 pxV24kEsxrFrwQMQccZ6uP8bziy6hw28gPlZh0CcZIbD8nk42ENPB7iLMyy3zndkjv
-	 cIxQSrF2lF2iA==
-Message-ID: <292d17ff-068e-4848-ab14-90f0a0a0c5b9@kernel.org>
-Date: Sat, 21 Nov 2026 13:18:20 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=cq1CjJDR
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=CN
+	OgHxo5rImaeobDkKQY9LyeNIWGKW6ZbfIQZ7DKocM=; b=cq1CjJDRaAWnm0XYWy
+	a8fJsL9VvGAWc6zkse02fxZ5WzLuz7/NPiwfXqYfuAUCXnLnDW+DLB3QfTfhjDAy
+	PoHv8Z+2YxE8IJVsZLBCsk2h5VahD6isI/qUf7FoN0G1u7sXmaQAUmYT4yt7DVaJ
+	AUWuzK4hze13VlA+bhpcv4FCU=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wDnH3EujAFrIwoWIg--.17676S2;
+	Sat, 21 Nov 2026 20:18:56 +0800 (CST)
+From: Haoxiang Li <haoxiang_li2024@163.com>
+To: mchehab@kernel.org,
+	hverkuil+cisco@kernel.org
+Cc: linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Haoxiang Li <haoxiang_li2024@163.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] media: cx23885: Fix a potential leak in snd_cx23885_hw_params()
+Date: Sat, 21 Nov 2026 20:18:10 +0800
+Message-Id: <20261121121810.523554-1-haoxiang_li2024@163.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,101 +62,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/1] mm/shmem: don't use the memcg of an uncharged
- folio
-To: Chris Mason <mason@kernel.org>, hughd@google.com,
- baolin.wang@linux.alibaba.com, akpm@linux-foundation.org,
- qi.zheng@linux.dev, qinyuntan@linux.alibaba.com, shakeel.butt@linux.dev,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20261120195057.50031-1-mason@kernel.org>
- <20261120195057.50031-2-mason@kernel.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261120195057.50031-2-mason@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wDnH3EujAFrIwoWIg--.17676S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7ArWfAF1xWw1rXr18GF13twb_yoW8XrWUpF
+	43Ar98WFWxJF4rAas5Jw12kas8Gws5tayIgFW3Gwnav3WY9F18tFWIq34UWr4UGFW0vrW5
+	WF4DZw17Kr1FkrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pir-BtUUUUU=
+X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbC7RBKuGsBjDDb0QAA3T
 
-On 11/20/26 20:50, Chris Mason wrote:
-> The shrinker for unused huge tmpfs folios can dereference a NULL memcg
-> if it races with the migration of the folio at the end of a file.
-> 
-> folio_memcg_list_lru_alloc() assumes that folio_memcg() is never NULL.
-> But it is NULL until the folio is charged, and a migration target can be
-> in the page cache before charging.
-> 
-> shmem_unused_huge_shrink() looks the folio up without the folio lock,
-> so we can race with migration:
-> 
->     __migrate_folio()               shmem_unused_huge_shrink()
->     =================               ==========================
->     __folio_migrate_mapping()
->       xas_store(newfolio)
->                                     filemap_get_entry()
->                                       returns newfolio
->                                     folio_trylock() fails
->                                     shmem_unused_huge_requeue()
->                                       folio_memcg_list_lru_alloc()
->                                         folio_memcg() is NULL
->                                         memcg->kmemcg_id
->     folio_migrate_flags()
->       mem_cgroup_migrate()
->         commit_charge(newfolio)
-> 
-> Fix it by keeping the original objcg around while the inode is isolated.
-> 
-> Fixes: 743e7d025d2f ("mm: shmem: make unused huge shrinker memcg aware")
-> Suggested-by: Qi Zheng <qi.zheng@linux.dev>
-> Signed-off-by: Chris Mason <mason@kernel.org>
-> ---
+Add an error path to free the memory allocated by cx23885_alsa_dma_init().
+Also move cx23885_alsa_dma_unmap() to the goto label to unify the error
+handling.
 
-Thanks! I'll wait for more review and will then queue this as a hotfix.
+Fixes: 9529a4b0cf49 ("[media] cx23885: drop videobuf abuse in cx23885-alsa")
+Cc: stable@vger.kernel.org
+Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+---
+ drivers/media/pci/cx23885/cx23885-alsa.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
 
+diff --git a/drivers/media/pci/cx23885/cx23885-alsa.c b/drivers/media/pci/cx23885/cx23885-alsa.c
+index 29f6df0e6de4..515aba9fb384 100644
+--- a/drivers/media/pci/cx23885/cx23885-alsa.c
++++ b/drivers/media/pci/cx23885/cx23885-alsa.c
+@@ -388,14 +388,12 @@ static int snd_cx23885_hw_params(struct snd_pcm_substream *substream,
+ 
+ 	ret = cx23885_alsa_dma_map(chip);
+ 	if (ret < 0)
+-		goto error;
++		goto error_free;
+ 
+ 	ret = cx23885_risc_databuffer(chip->pci, &buf->risc, buf->sglist,
+ 				   chip->period_size, chip->num_periods, 1);
+-	if (ret < 0) {
+-		cx23885_alsa_dma_unmap(chip);
+-		goto error;
+-	}
++	if (ret < 0)
++		goto error_unmap;
+ 
+ 	/* Loop back to start of program */
+ 	buf->risc.jmp[0] = cpu_to_le32(RISC_JUMP|RISC_IRQ1|RISC_CNT_INC);
+@@ -408,6 +406,10 @@ static int snd_cx23885_hw_params(struct snd_pcm_substream *substream,
+ 
+ 	return 0;
+ 
++error_unmap:
++	cx23885_alsa_dma_unmap(chip);
++error_free:
++	cx23885_alsa_dma_free(buf);
+ error:
+ 	kfree(buf);
+ 	chip->buf = NULL;
 -- 
-Cheers,
+2.25.1
 
-David
