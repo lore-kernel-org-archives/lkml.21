@@ -1,65 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795289002;
-	b=48KbiA0cqO+ZngWZ4McQOry1gsgZ0s1vhfN+Sk9ZWGANa+iON38HteUrURMuQrIjKnri
-	 iNzQL7zKGo7orYdEobmze4jyEkisNZpw9m1C7tZ7pX0E/o1S3/DI3A1bQfo6b2X02qNf4
-	 hgtE3LUxMpLmtTuXz1D8aXcHpp39XjmTt8KU9RAcTZtS28ZEv/6Pr0FAJ2eNiBdZ5zG8d
-	 WTXG1ywgx3XfYipwULlQGUfmx6H4qYvs1Kb7+dOouUEoRA6heSZjrreVMTDxESNVIjT9q
-	 ENp185Mb9yg1o65OrwDU9LlFloZ8yB+XzKXQx4GQZYX8AhuQyoUBXiNMwMWTlaUCtIw==
+	t=1795289339;
+	b=KN4jHIhp/aNoEuJPWQ0bqGfaPoiCGw+xLlvqzdDDCdMONISg8pKEfyd3bXfGIgl3HJf+
+	 U5TfG11Bx12sY2l3bSP5cmXsazH7OPzCMLy0ZirO5w/o5voZE9Zalbeackg7WZe62TjZT
+	 /3EdP4hFxbzpEuKP8HkGLzEqaC/8opDgyXgNsVLN7kWL/jksnV+UhFGDswqq5m2PGApzz
+	 XtX2rSDPFgttB/+spymajyH8kj4t9/lQsnaKf1B3K7Z6frb2FypfhBzAtpeHxzzheX0tn
+	 eaeDjlF1iIzlv6i2WmfgA/n4NVYB79+BFIYzMIgiYlAzCgTRjI4p5etjRmudTuzAIeg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795289002;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=6bhYiTt8wscg2ZrolxCieoNLNuP/Q0vhDX28mXlNHno=;
-	b=YSvn9zZ88XT0QfeBZJDO/sHUWv2GzqKDjtR7Q0kNGtHa0NrxBxYfL+Tvih8gbF7iPu5n
-	 yWPZQ7a4iA3vkqhzNGvCa1DuSfENJeoLO2Tpol7fDSG73BmUU2ZUgajzZlYmTmnF73hI2
-	 Dypn8oZgyDvJb+MnagRb+yDfm96nMl2gvj7wkfCepkXuHSU5XWEDmc8nVTImKRdHB50BX
-	 W/WJl9IxYs7dxHka/N3zeNdUJNSUUPQuPYaU4JGWN+xZsI/Hhcj8jX3C/cxb1m2Xc8EAZ
-	 wNdefxK59eaJ1jFvd1PAfhsV2T40RUq86NdDq+QX3yWhbiHBTcXITNrsquyjQu48GBg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795289339;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=ohB/e9rrmoUW18TlMcMuisQ3OjBltSZAwbjlv2zhJHQ=;
+	b=49aP26tJreuGxV2cdOPOo0iM/yY5fHrQGVAAzLfX1Py6oPcWjsCx2ScEA54+NKxe2oyL
+	 ZwS2qGNGwBBR48oVvIZEj++jK0JFNHttnwq0rZOpUEZPP2wBBgBUFec9dXobeGJnr4E+W
+	 6r5te+xrlAbqVAnbtCYyfR2HE2J8dF3sLA6a8CwtfMaSj8nrkA2E+qf+kLRNIMOBeV2Vq
+	 1LOKp1MmMXRhtwJYMXz6bxBIYJSNIgWPu6ySjdWwH1MQgB9dOBx9SvEakj9v55qBWqW4/
+	 lWICBPpIbtjGTm3YpV8Ut6ZID+gAbY21NLWU6rOIPBsepy+g+Kh7pdQZS54KAFouSfQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pWwqCbOo;
-	arc=none smtp.remote-ip=198.137.202.133
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=oLqujUKl;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5C49606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:23:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5C49606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15189606A320;
+	Sat, 21 Nov 2026 19:28:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15189606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pWwqCbOo
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=6bhYiTt8wscg2ZrolxCieoNLNuP/Q0vhDX28mXlNHno=; b=pWwqCbOoIhkYbup30GzLYz2SYP
-	p9RJxKPtXyWQA7hX+VeNphIXgUR4YMwRKbu9F0eRZib5GmkoAiTeZkA8xAOXb5h0iHVlIl5RvxGIn
-	MRRNvXnbkyj1WeP4QctPbVNveGI7SRvmtGU3ux7bMgdAXiZvHkb3xZNDvuLjB1NTVONDLyAJG9TB4
-	YSImHhpdtZdW2GhpJSqjIPrX4mz1fLTsOgafJvc4gGkOmuCysI0aDHnahdX7yM9dBFWOpsMxvU2jg
-	ajUzVtBbc9A60WzYLddn1OAGg6OyW/LNAJf/0KKtW+IuTeQCQIVr9RH4T5m6woujN2ks4uCLcj18N
-	mFW088RA==;
-Received: from [50.53.43.113] (helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUqgC-000000006jM-0gIS;
-	Sat, 21 Nov 2026 19:23:20 +0000
-From: Randy Dunlap <rdunlap@infradead.org>
-To: linux-kernel@vger.kernel.org
-Cc: Randy Dunlap <rdunlap@infradead.org>,
-	linuxppc-dev@lists.ozlabs.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>
-Subject: [PATCH] macintosh: ans-lcd: add missing MODULE_DESCRIPTION()
-Date: Sat, 21 Nov 2026 11:23:19 -0800
-Message-ID: <20261121192319.930162-1-rdunlap@infradead.org>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=oLqujUKl
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=ohB/e9rrmoUW18TlMcMuisQ3OjBltSZAwbjlv2zhJHQ=; b=oLqujUKlQhmBa6VdqknYna0FGU
+	HeILxjYk2V8L97X4aO7SFp5pTZCr0d3CGYqRv9z9WxPUTljkjY5qDWIkvT+5TO63ZDJlfxYRIIuye
+	YGL/IN2teCHbHQyQjssktiDkcUudkS3pe6+Y0cfiiGn1z6pcY/4VCU8vd9KPfggboXzw=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xUqlU-000U6E-0g; Sat, 21 Nov 2026 20:28:48 +0100
+Date: Sat, 21 Nov 2026 20:28:48 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Bastian Germann <bage@debian.org>
+Cc: hkallweit1@gmail.com, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, linux@armlinux.org.uk,
+	olteanv@gmail.com, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2] net: mdio: handle broken-turn-around for
+ non-PHY MDIO devices
+Message-ID: <06addff8-09b0-4b76-aac7-11717fbdd9f9@lunn.ch>
+References: <20261121092933.186731-1-bage@debian.org>
+ <40db2715-55cd-46cd-a2fb-8ee11b571911@lunn.ch>
+ <ee0baf58-5795-424b-9a41-feb9a2e766fe@debian.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,30 +66,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ee0baf58-5795-424b-9a41-feb9a2e766fe@debian.org>
 
-Add missing MODULE_DESCRIPTION() that is now required.
+On Sat, Nov 21, 2026 at 08:07:34PM +0100, Bastian Germann wrote:
+> Hi Andrew,
+> 
+> On 11/21/26 18:06, Andrew Lunn wrote:
+> > > Parse the property in of_mdiobus_register_phy() and
+> > > of_mdiobus_register_device() instead, so it is handled in one place for
+> > > both PHYs and other MDIO devices, and drop it from
+> > > fwnode_mdiobus_phy_device_register().
+> > This seems odd. "handled in one place", yet you do it in two?
+> > 
+> > Is there a reason not to do it in __of_mdiobus_parse_phys() ?
+> 
+> Yes. My v2 draft was exactly that (which is the reason for the commit
+> message oddity) but I noticed that children with empty reg that are handled
+> in the auto-scan loop would then not get the bit mask set, which is an
+> unnecessary behavior change for PHYs.
 
-WARNING: modpost: drivers/macintosh/ans-lcd.ko: missing MODULE_DESCRIPTION()
+Ah, O.K. I never liked that scan code filling in missing devices. It
+has a warning not to do that. So i don't know if it is actually used.
 
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+Also, i could not find any in kernel dt blobs using
+broken-turn-around. So we are not going to break anything.
+
+    Andrew
+
 ---
-Cc: linuxppc-dev@lists.ozlabs.org
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Nicholas Piggin <npiggin@gmail.com>
-Cc: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
-Cc: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-Cc: Shrikanth Hegde <sshegde@linux.ibm.com>
-
- drivers/macintosh/ans-lcd.c |    1 +
- 1 file changed, 1 insertion(+)
-
---- linux-next-20261118.orig/drivers/macintosh/ans-lcd.c
-+++ linux-next-20261118/drivers/macintosh/ans-lcd.c
-@@ -202,4 +202,5 @@ anslcd_exit(void)
- 
- module_init(anslcd_init);
- module_exit(anslcd_exit);
-+MODULE_DESCRIPTION("/dev/lcd driver for Apple Network Servers");
- MODULE_LICENSE("GPL v2");
+pw-bot: cr
