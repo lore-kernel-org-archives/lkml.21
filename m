@@ -1,67 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.239
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795269240;
-	b=zEkkX+uDUy/8PLMSTknp9t21f2FysoQt26jXohcZcumFMHdSjyo4RxAcGbPyVLvTaDR2
-	 V/in03mCB/yTtYCcEuP9+TqWwLfhO44Y4vgdd9k5SlJ6wg/MAUWz2chLRmVXMcJw74s2f
-	 vhOOJbToBb9RcoNhOG2GtEHexlguJg/SFxdx4vPSMD/0zYiR/CzwcZ9r+vthlJt1j2GaJ
-	 uwTZ6R0LMtSzkfVYme/rSAmDGqGeTyOavHkt9s2DEAUVZ3mJ/ORrlrYapgYXRBqI1zZib
-	 c2SWg7hetQlGbB+ShGPgj+tp4aLfialYhIv1CNYdA2VSE7og2ZcBf5SP8jNQae9sPNA==
+	t=1795269464;
+	b=D1DYazMEDaq4hmc+71KdPJ1+e69pn2TVZ0NjNdpy6LXdOcMROWVDu9sQqjRjj3m3+xGe
+	 b8jqSNT+hNS4Ne+zm2sZKNLft/Iwq5ydLTpXhZOizwz37mhxsuNd3nsurinYCYaOi/URZ
+	 rWbmqxrfO4KZcgGLcfhI+5+PYlr0Frm45FS+4NUoxKA5YsW4u+y08tho2H1ma/F8oxP84
+	 f3XEGQ+K3vaq5mCUJMZIP8eLe4C7lScXWzFI8b9cHkoTGyYUWW+fk6sWnmykEAYS6gGmS
+	 W0r3CEzwuguUlObE4JjDi3VhBEc6F1n07ys2Bd0pl5Y6w3wGGnJ+N8oQJde4erUz4og==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795269240;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=rT38pic7oKYghostUyNggCTZ2Q1aSdkOMOeJYyd/5wQ=;
-	b=maT6KGhKfkAGNbX3CoBfqds4iW2tlPGrMUnnfa1zZXpAaRJEzC0SBewmKjGoAfsnp6bP
-	 1uOWUXXSLfUS/ym6zPgtKYzJyD1dp96hC61msjRS5CBZk8wyqPncTa9gaBfQhsgT3C13D
-	 DacTsB/oEw9AOXK8lQw5lcaxpgl1gupAL2yJ3wha7XUEbfoid/8Fqfs22dWXNh5gqco9b
-	 8lJHr+88N7hf7bECeFfF6jjhWNdsav/gJZ+j+Lky3/srQU3hdKCe/kSLhcGuVUfYfeHs8
-	 yfEyOMS8YvEO+stYbdi+j/He/MtjIa2KGE5isA+IHe6V/AnDchiQ+W0HtXAbD1lUqKQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795269464;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=18/Vs9GqpUyKpNSmHJAMt/cDQkuDqfrI75+lCyBsTo0=;
+	b=hMnvsHRo3T539LbxPDMrmeo+8/fV7tmqYNC8N7YPez+WdvcHG6WrAiODTtVx+L4PGSBG
+	 gYJ2pE78uWB71FMvrn5bFhrf7wQRQZGEr4NlNOa8b4aSvdwUGBVfiSIYyOMwP+fC+7t1M
+	 4bxA4DrjLXl4RjEMatBVuEWFLpvshaNts6N2Oto+TsNJaNamraUE3JWXnVXjuwjh028e+
+	 zoVOrqHo1t1cZL1+Ld0H0b3eoF0RxooMAav5S/JIroe2yAikfqqUNq6mGKsHKEqmvyBwS
+	 dGfBLFzVJ7ZmsHPnXFVGZmdXgZ7gHJYSxaOBo6rxZBj3Ib4XvC+CSj6yyh68wrItoRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ideasonboard.com;
-	spf=pass smtp.mailfrom=ideasonboard.com;
-	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=DkfWeY+H;
-	arc=none smtp.remote-ip=213.167.242.64
-Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="w/uS1uJG";
+	arc=none smtp.remote-ip=91.218.175.239
+Received: from mta0.migadu.com (out-239.mta0.migadu.com [91.218.175.239])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48856606A32A;
-	Sat, 21 Nov 2026 13:53:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48856606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58367606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:57:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58367606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=DkfWeY+H
-Received: from killaraus.ideasonboard.com (2001-14ba-7086-3000--a06.rev.dnainternet.fi [IPv6:2001:14ba:7086:3000::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4E275447;
-	Sat, 21 Nov 2026 14:51:20 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1795269080;
-	bh=5L9zvO8/SgC+bhCcxTzFqCD3dBJU7r/zCmGy5kQ2BPg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DkfWeY+HgF4lhMgNzSv4ZZ3lZXb4iGjyNiyTqiWALo26sePZxI1tyxbFmWSOxUHvJ
-	 gGDxGQJ5TivJIdQ/N3h4+5p6lBezptRP+p1+bcIPdMfHqrPAyhzr/UkajRbOa7peWB
-	 YQYbe9q399U3FHreW/HjGs4kHiMMEqkQ6nFerG4Q=
-Date: Sat, 21 Nov 2026 15:53:49 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Maurizio Casciano <mauriziocasciano7@gmail.com>
-Cc: linux-media@vger.kernel.org,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Nicholas Roth <nicholas@rothemail.net>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Bingbu Cao <bingbu.cao@amd.com>,
-	Dan Scally <dan.scally@ideasonboard.com>,
-	Hans de Goede <hansg@kernel.org>, Andy Shevchenko <andy@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev
-Subject: Re: [PATCH v11 01/14] media: v4l2-core: Preserve existing subdevice
- nodes on rollback
-Message-ID: <20261121135349.GE2472094@killaraus.ideasonboard.com>
-References: <cover.1795267528.git.mauriziocasciano7@gmail.com>
- <48240d57d86e78cce814822360c1b22cea80268b.1795267528.git.mauriziocasciano7@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=w/uS1uJG
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=2dvE1j/J7GOZSLNpwQfYKuzbzCKoIpTpgn7v4dkyvXc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795269461; v=1; x=1795874261;
+ b=w/uS1uJGXlgVzwAbgvs47kIIknHR2IigKYDN9/OMhSBKszCBKBoajtWDm00P4Fjt/scwk1fc
+ LrEXhsgGwTvaCgGVXqOjNa78PcB9tyeS48yy9BVZPoU/VpQqAqgqVoCXRshDpOPhjI92u2DvzAu
+ gWRt25czL6xEtmRYJanz/PME=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 2e59e907da1d8a68;
+	Sat, 21 Nov 2026 13:57:41 +0000
+X-Mizu-Trace-ID: 2e59e907da1d8a68
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <ee4847f9-53ba-4f0a-9297-7ca8b6408f7f@linux.dev>
+Date: Sat, 21 Nov 2026 13:57:39 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,112 +58,138 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <48240d57d86e78cce814822360c1b22cea80268b.1795267528.git.mauriziocasciano7@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] x86/kstack_erase: Use REP STOSQ for large stack fills
+To: David Laight <david.laight.linux@gmail.com>
+Cc: tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, x86@kernel.org, kees@kernel.org, hpa@zytor.com,
+ gustavoars@kernel.org, ardb@kernel.org, hca@linux.ibm.com,
+ nathan@kernel.org, ndesaulniers@google.com, morbo@google.com,
+ justinstitt@google.com, linux-hardening@vger.kernel.org,
+ llvm@lists.linux.dev, linux-kernel@vger.kernel.org, riel@surriel.com,
+ shakeel.butt@linux.dev, kernel-team@meta.com, rkeilty@meta.com,
+ atish.patra@linux.dev, dgreid@meta.com
+References: <20261119213147.1094488-1-usama.arif@linux.dev>
+ <20261119213147.1094488-3-usama.arif@linux.dev>
+ <20261120185513.0445f0b1@pumpkin>
+Content-Language: en-US
+From: Usama Arif <usama.arif@linux.dev>
+In-Reply-To: <20261120185513.0445f0b1@pumpkin>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 21, 2026 at 02:31:31PM +0100, Maurizio Casciano wrote:
-> Subdevice node registration skips nodes which already exist. On failure,
-> however, it walks the subdevice list from the beginning and unregisters
-> nodes regardless of whether the current call created them. On AtomISP
-> this can remove the camera sensor nodes when a lens rebind fails.
-> 
-> Keep a list of the video devices registered by this call and unregister
-> only those devices on failure. Record each device before creating its
-> media interface link so a failure in that step rolls back the new node
-> as well. Calls with no missing nodes need no bookkeeping allocation.
-> 
-> Codex drafted the change and tested allocation, registration and
-> media-link failure using the registration helper with mocked operations.
 
-And you didn't understand the change, because this is clearly not right.
-NAK.
 
-> Fixes: db0f4691d974 ("[media] v4l: Allow calling v4l2_device_register_subdev_nodes() multiple times")
-> Signed-off-by: Maurizio Casciano <mauriziocasciano7@gmail.com>
-> ---
->  drivers/media/v4l2-core/v4l2-device.c | 26 ++++++++++++++++++++------
->  include/media/v4l2-device.h           |  3 +++
->  2 files changed, 23 insertions(+), 6 deletions(-)
+On 20/11/2026 10:55, David Laight wrote:
+> On Thu, 19 Nov 2026 13:31:08 -0800
+> Usama Arif <usama.arif@linux.dev> wrote:
 > 
-> diff --git a/drivers/media/v4l2-core/v4l2-device.c b/drivers/media/v4l2-core/v4l2-device.c
-> index b4036105c..8cfca95ce 100644
-> --- a/drivers/media/v4l2-core/v4l2-device.c
-> +++ b/drivers/media/v4l2-core/v4l2-device.c
-> @@ -191,10 +191,23 @@ static void v4l2_device_release_subdev_node(struct video_device *vdev)
->  int __v4l2_device_register_subdev_nodes(struct v4l2_device *v4l2_dev,
->  					bool read_only)
->  {
-> +	unsigned int count = 0, registered = 0;
-> +	struct video_device **new_nodes;
->  	struct video_device *vdev;
->  	struct v4l2_subdev *sd;
->  	int err;
->  
-> +	list_for_each_entry(sd, &v4l2_dev->subdevs, list)
-> +		if ((sd->flags & V4L2_SUBDEV_FL_HAS_DEVNODE) && !sd->devnode)
-> +			count++;
-> +
-> +	if (!count)
-> +		return 0;
-> +
-> +	new_nodes = kcalloc(count, sizeof(*new_nodes), GFP_KERNEL);
-> +	if (!new_nodes)
-> +		return -ENOMEM;
-> +
->  	/* Register a device node for every subdev marked with the
->  	 * V4L2_SUBDEV_FL_HAS_DEVNODE flag.
->  	 */
-> @@ -228,6 +241,7 @@ int __v4l2_device_register_subdev_nodes(struct v4l2_device *v4l2_dev,
->  			kfree(vdev);
->  			goto clean_up;
->  		}
-> +		new_nodes[registered++] = vdev;
->  #if defined(CONFIG_MEDIA_CONTROLLER)
->  		sd->entity.info.dev.major = VIDEO_MAJOR;
->  		sd->entity.info.dev.minor = vdev->minor;
-> @@ -247,15 +261,15 @@ int __v4l2_device_register_subdev_nodes(struct v4l2_device *v4l2_dev,
->  		}
->  #endif
->  	}
-> -	return 0;
-> +	err = 0;
-> +	goto out;
->  
->  clean_up:
-> -	list_for_each_entry(sd, &v4l2_dev->subdevs, list) {
-> -		if (!sd->devnode)
-> -			break;
-> -		video_unregister_device(sd->devnode);
-> -	}
-> +	while (registered)
-> +		video_unregister_device(new_nodes[--registered]);
->  
-> +out:
-> +	kfree(new_nodes);
->  	return err;
->  }
->  EXPORT_SYMBOL_GPL(__v4l2_device_register_subdev_nodes);
-> diff --git a/include/media/v4l2-device.h b/include/media/v4l2-device.h
-> index 25f69b1b8..6d8834d40 100644
-> --- a/include/media/v4l2-device.h
-> +++ b/include/media/v4l2-device.h
-> @@ -183,6 +183,9 @@ void v4l2_device_unregister_subdev(struct v4l2_subdev *sd);
->   * @read_only: subdevices read-only flag. True to register the subdevices
->   *	device nodes in read-only mode, false to allow full access to the
->   *	subdevice userspace API.
-> + *
-> + * Existing nodes are kept even if registration of a new node fails.
-> + * The caller must serialize this operation with changes to the subdevice list.
->   */
->  int __must_check
->  __v4l2_device_register_subdev_nodes(struct v4l2_device *v4l2_dev,
-> -- 
-> 2.53.0
+>> With KSTACK_ERASE, every return to user space poisons the part of the
+>> task stack that was used since the previous return. The generic
+>> __stackleak_poison() does that one word per loop iteration, so a syscall
+>> that went 1-2 KiB deep pays for 128-256 separate stores. On Meta hosts
+>> running many small VMs, stackleak_erase() accounts for about 1.5% of
+>> non-idle host kernel cycles.
+>>
+>> Override __stackleak_poison() on x86-64, as s390 already does, through
+>> the hook added by commit 491a78663e03 ("stackleak: allow to specify arch
+>> specific stackleak poison function"). Fill spans larger than 512 bytes
+>> with REP STOSQ and keep the word loop for shorter ones, where the fixed
+>> startup cost of REP STOSQ does not pay off. REP STOSQ starts to win at
+>> about 300-400 bytes on Zen 5c and Cooper Lake, so on both no span gets
+>> slower.
 > 
+> As a matter of interest (and separately from the exact code) how did you
+> measure the performance to get the 300-400 byte gain point?
 > 
 
--- 
-Regards,
+With a userspace benchmark pinned to one CPU. Each sample is one fill of
+a stack buffer straight after a getppid() syscall, with
+lfence;rdtsc;lfence around the fill only, an empty call subtracted, and
+the mean of 15 times taken. The size stayed fixed for a whole run,
+so the branches were well predicted. The plain loop and REP STOSQ
+cost the same at about 430 bytes on Zen 5c and 320 bytes on
+Cooper Lake.
 
-Laurent Pinchart
+> If the count is variable - likely in real life, you'll get a branch
+> misprediction penalty (about 20 clocks on zen5) every time you change
+> between the two choices.
+> The copy loop will have another mispredict penalty for the loop itself.
+> 
+> So you are likely to get an overall improvement if you use 'rep stos'
+> for all lengths - even the ones for with it is slightly slower.
+> Unless, that is, you know at compile time that most of the length
+> will be short.
+
+
+I timed every stackleak_erase() in a Zen 5c guest running a
+futex, epoll, procfs and unix socket mix, with the variants switchable
+at runtime and alternated over 15 rounds:
+
+  Unpatched                     68.3 ns per erase
+  REP STOSQ for all lengths     47.3 ns
+  v1 / v2.1 (loop up to 512 B)  46.6 ns
+  v2.2 (4 stores/iteration)     43.7 ns
+
+The spans aren't random. Unix socket and /proc/self/stat exits were over
+1 KiB every time, while getppid(), epoll_wait(), read() and write() exits
+were under 128 bytes almost everytime.
+
+My preference still is v2.1 because of the simplicity.
+
+> 
+> David
+> 
+>>
+>> The fill is inline asm, so the noinstr function still makes no calls.
+>> memset64() would be the same instruction, but it is only static inline,
+>> and with KMSAN it is an out-of-line function.
+>>
+>> In a Zen 5c KVM guest, stackleak_erase() got about 35% cheaper per return
+>> to user space (71 ns to 46 ns, scan included) over a futex, epoll, procfs
+>> and Unix socket syscall mix. Same-vCPU futex wake/wait and Unix socket
+>> sendmsg()/recvmsg() ping-pong round trips got 5-8% faster.
+>>
+>> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+>> ---
+>>  arch/x86/include/asm/processor.h | 25 +++++++++++++++++++++++++
+>>  1 file changed, 25 insertions(+)
+>>
+>> diff --git a/arch/x86/include/asm/processor.h b/arch/x86/include/asm/processor.h
+>> index 77488ff5eb8c7c..049231d484ad0e 100644
+>> --- a/arch/x86/include/asm/processor.h
+>> +++ b/arch/x86/include/asm/processor.h
+>> @@ -580,6 +580,31 @@ static __always_inline bool on_thread_stack(void)
+>>  			       current_stack_pointer) < THREAD_SIZE;
+>>  }
+>>  
+>> +#ifdef CONFIG_X86_64
+>> +#define __stackleak_poison __stackleak_poison
+>> +static __always_inline void __stackleak_poison(unsigned long erase_low,
+>> +					       unsigned long erase_high,
+>> +					       unsigned long poison)
+>> +{
+>> +	unsigned long count;
+>> +
+>> +	/* Short spans do not amortize the startup cost of REP STOSQ. */
+>> +	if (erase_high <= erase_low + 512) {
+>> +		while (erase_low < erase_high) {
+>> +			*(unsigned long *)erase_low = poison;
+>> +			erase_low += sizeof(unsigned long);
+>> +		}
+>> +		return;
+>> +	}
+>> +
+>> +	count = (erase_high - erase_low) / sizeof(unsigned long);
+>> +	asm volatile("rep stosq"
+>> +		     : "+D" (erase_low), "+c" (count)
+>> +		     : "a" (poison)
+>> +		     : "memory");
+>> +}
+>> +#endif
+>> +
+>>  #ifdef CONFIG_PARAVIRT_XXL
+>>  #include <asm/paravirt.h>
+>>  #else
+> 
+
