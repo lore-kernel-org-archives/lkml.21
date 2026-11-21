@@ -1,59 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795244645;
-	b=ug+Nc/FNTevIBq8UpSg5lbUzrJ+4+mDAk01G2onFSxpDGYLq3EpuM9jw3QDxH5+QDNyl
-	 wjvfndlGIrJj4LFVSqVhgFynM/KgIfRqIhVQJxrCLmCfLxXtwXbuPHW2QTrCbiy2YFhiS
-	 JGjUMGPzFoCxaXG0SEBZvfbjzixx2sUh5cUy6B1eOoc5uo8VgDBlazRzy8H4GhhK3lN5Y
-	 hLrYtNtxO4+Wnp+lcRByGe5apL4GFIUvO3xpFRvehYnk/rRxSlEveYpCt5lluBgi2hBw/
-	 FtTF3/GYLE1NnVrYoe152goQDP1OUJkAZIxJGm9RzmJCh5Z3+u6WIWfiz+n9mFK38Kg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795244645;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=GFxDU06BIZgGtUARWc9NeV60iSzeoOF/g56o3TTy0ac=;
-	b=Chl2Z0+vx471XOxJdBHBBE8xg1B7KSsFnVFGgDhAXSK9rAXSZGRqcrV//O50XhNPbXwS
-	 2Zub4wTV7IW05figVUelO8td1xF+D/ArEgRKvjPG3EQ8gZMLCPVeK3HwpGWHa1nX5zkYN
-	 ahSlWgb+ar0CaN0yAdwF6jrSBENpxnkntJrsQI+ySgU3MrCpRLHpxp9ZGRIQlde18ghkB
-	 rLbU8UG6jgs1cV1tpWrcNpUfpHjqFzF/p8JA4Nb7NGakNxAg3QvIabEtGSM3HfumvVX0q
-	 hlFei4R9vMA9BMtRHV11kglY3+/RrdsFJFJmzl8Jd5+cjOfcL8qmdFPP528YxRLzvgw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fquC+A7F;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.13.4
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795244752;
+	b=II6dSzXphPB732iMvbAydibxrKr9AbUkydYq0pRCrS72V5H1rxzQuSYW7v97TnQDKp3T
+	 ZiZtsxW/AhNxgOC/5NUYLcNjRePgyqmg4w8WrWVHRtlbeil9EOVygZd8W4tgmAq+xMnYA
+	 8ruCuQIu9xBHzp5AM37sDYvdFFpA+yEEEWM+YL42fBASILrXstqMCx3VTdoo+HyQ4YikU
+	 QNdEmYbNt1H56p5E3iR9hf0msB4N+B4NH9GQgQ3nZKS8rNPIg8lTfP/YgLp20dHuVwWsV
+	 PiYyddpXXYuafho1Em+IdN7QMC6HPx7WZnfmzDBTyMcaWSog/YMDmN8O1ZV3dWNDPog==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795244752;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
+	 X-ClientProxiedBy:X-Microsoft-Original-Message-ID:MIME-Version:
+	 X-MS-Exchange-MessageSentRepresentingType:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=F+yva2Vv4P1sEJOns8MsaKnMdRPWFReUfvBYwMKHoGk=;
+	b=Wu6q3oXKcVMm3ad0WR6E4I7m+k9Hhl6QyG6KCAYbcpiU6caMIpjFrCQowbkE1nQxTlAR
+	 kuzSLlVr7XV7lp6s4pZceW+So8kOd5KJwEIXDu6GS/C99PjaGfq76aU1pUuo0lp+jI/iy
+	 BuA+Q3R2+4TJYKXROyd76dkBCTTHZMuMCyGMEH1MsPb0M8syMXUQw6MqdOmdAQB+86Kg+
+	 5vW1wRzk2e28SwfQS+CgPV0CNlPLKgyO3c6fS9dOj8dDOvjkkK9uMG4CAqNiKYt6ZTAOe
+	 MPGb5l9hs3s3AXlwxdoIH0o3KJgZglN7YMY4D5tBgUKpqLCQz0anM5HjJYFN+o7stMA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=outlook.it;
+	spf=pass smtp.mailfrom=outlook.it;
+	dkim=pass header.d=OUTLOOK.IT header.i=@OUTLOOK.IT header.a=rsa-sha256 header.s=selector1 header.b=UwrNMxqi;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.13.4
+Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazolkn19010004.outbound.protection.outlook.com [52.103.13.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3322606A687;
-	Sat, 21 Nov 2026 07:04:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE53E606A325;
+	Sat, 21 Nov 2026 07:05:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE53E606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.it
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.it
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fquC+A7F
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D19341F000C4;
-	Sat, 21 Nov 2026 07:04:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795244645;
-	bh=GFxDU06BIZgGtUARWc9NeV60iSzeoOF/g56o3TTy0ac=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=fquC+A7Fhgtqb+CScyvmiFeYox1t6JQkXLbvabOQ4J+2TtqORKZsou6ukvAf2/r9c
-	 zIc8Ntrf2dXV5n29ci/0xCinrj8+SVfhZG0EzP8d8eEPO1l7LflPA2Q+8OHUf1U/Q7
-	 +GSToeFepjhSlP8rHDoQ8ZbOBSYjGMB4vbmOgnXMIloYRlSJ1nABGOmny1dGSwoCkr
-	 whQGF03OmgBE+iS+cw1TPT8kUxTk4NVxj95gdbRxbAkQvlBiUiu7+4unFppAu6mO17
-	 NeJZCFwsZDW2nFoRrmODgsXrDiq/wSP+1jVQf1WU38Uz0uSnQJQFeY+wLjVK/AsCax
-	 ggPJ8OK6UPRUg==
-Subject: Re: [PATCH net v5 5/5] net: qualcomm: rmnet: Resize endpoints with
- dev_set_mtu() and restore on failure
-From: netdev-bot+sashiko@kernel.org
-To: subash.a.kasiviswanathan@oss.qualcomm.com
-Cc: sean.tranchetti@oss.qualcomm.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Sat, 21 Nov 2026 07:04:04 +0000
-Message-ID: <179524464443.3135.11939584752095940965@kernel.org>
-In-Reply-To: <20261117060737.2764327-6-subash.a.kasiviswanathan@oss.qualcomm.com>
-References: <20261117060737.2764327-6-subash.a.kasiviswanathan@oss.qualcomm.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key, unprotected) header.d=OUTLOOK.IT header.i=@OUTLOOK.IT header.a=rsa-sha256 header.s=selector1 header.b=UwrNMxqi
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xZ2VD6uGoczh8GvSGPnToShknEXcq1bSF+BPgXum3wKftV8s0FkgJYMljCHRWExAYh969Cg5WIgUcJ8H7xR9N0y0agt+KRtWkl03Vnuh+T2PWxvh9lWeROQJk7qcQJiwbwHwYjPQ4Gtw7PSL9I6yKAcbfVNduOjPYXHYrcg+mRW5StfknKNnnWJFp7atAbcqLgPm+RnXDoSGibCLKsZwJXZHnVKjMyuB/hBnmd/eGNX7oixOPC0wlOXFXoSDg7H9/82GLvhkCNtbMu3N2opYB0wZI37E75Jfou6WbzOZzeJ7UqjiRegg8f/QDpiI6sGSmqHHEtzmk+OEpRIphyrJKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F+yva2Vv4P1sEJOns8MsaKnMdRPWFReUfvBYwMKHoGk=;
+ b=gOH0ECLpMOJODnZdOF5BxVpXqxdd9PhSDrzt4fW9kgxD4py4rxJAdtecoGQFUCaC3Z2Fdlf6EPdUZjaVrYM83CvgrxUv17iAas+Nty7owvOlxi9+280DIEnEonKz2yy63bztK1kt/eYPTRAkpdTXG9frzShnwdjA+CS6oJsPPg8T963Q18Ia76CENlvU+5RGc9x1GarK7z2Gc9jA87VomHlYKudXZUtosFKXOf+jSD2iFmWXfQQZl2dPyam1aDXaKSGzJPoHuj/jq9rbJB3tIw1Cbo4sOkAlGvTbhxyFFnKbZrOfPwpUFNxOsbQPtzWTStr44MLge4oXvoMtY9gfqQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=OUTLOOK.IT;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F+yva2Vv4P1sEJOns8MsaKnMdRPWFReUfvBYwMKHoGk=;
+ b=UwrNMxqiSawmUXRfSnfyLqnUlfrHThR+K6MJrsE6Kw3agkVGvDQbHjUvMcrP71sU0cq80k8+Qu3m2INj1eTgmMv0Jkds8bMs7rX+7sb6qKgepAoF3LwZK/QEaST+m5U0FVZvtLdTPluaKebWvlXdeEyC5HxnT0EnNw44LCry/reez1veN7HjxTtgEe/xZFh5iEWiEzxEkjmsU56h0AHBt5grX6iYFy0Kf80fNTZ/JEUjxQzFpB3kD7K6dXHvqpbQSuNYacG0PqD3wkqBWNHI20opR8j1Ian2VYdQ/1QmWW3AcOK6B5IQLzNkFd4ySAen8d5gayNxQpLUSaC/xVGz2w==
+Received: from SN6PR19MB2303.namprd19.prod.outlook.com (2603:10b6:805:56::19)
+ by PH7PR19MB6505.namprd19.prod.outlook.com (2603:10b6:510:1fb::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Sat, 21 Nov
+ 2026 07:05:26 +0000
+Received: from SN6PR19MB2303.namprd19.prod.outlook.com
+ ([fe80::805c:7f80:c69f:876a]) by SN6PR19MB2303.namprd19.prod.outlook.com
+ ([fe80::805c:7f80:c69f:876a%4]) with mapi id 15.21.0639.011; Sat, 21 Nov 2026
+ 07:05:26 +0000
+From: Marco Giunta <marco_giunta@outlook.it>
+To: Mark Brown <broonie@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Marco Giunta <marco_giunta@outlook.it>
+Subject: [PATCH] ASoC: aw88399: fix register used to disable I2S TX
+Date: Sat, 21 Nov 2026 08:05:10 +0100
+Message-ID:
+ <SN6PR19MB23038B66A212CA32A4B6B3CCFC472@SN6PR19MB2303.namprd19.prod.outlook.com>
+X-Mailer: git-send-email 2.56.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MI1PEPF00000AD5.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:298:1::4af) To SN6PR19MB2303.namprd19.prod.outlook.com
+ (2603:10b6:805:56::19)
+X-Microsoft-Original-Message-ID:
+ <20261121070510.7202-1-marco_giunta@outlook.it>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,168 +97,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN6PR19MB2303:EE_|PH7PR19MB6505:EE_
+X-MS-Office365-Filtering-Correlation-Id: b12efa1e-e249-40a7-3639-08df479dd08f
+X-Microsoft-Antispam:
+	BCL:0;ARA:14566002|23021999003|24021099003|5062599005|51005399006|15080799012|5072599009|8060799015|19110799012|260925184616899003|25010399006|55001999006|3412199025|440099028|10035399007|40105399003|1710799026;
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?rnMK4SNNecOYcdjsy04mZoCteMe9xd5kNL8erIAbvmd4NtMFA3r3bE4W4Uio?=
+ =?us-ascii?Q?vFiioj5fpAi6fKNy7+qf+xQl014GCx6XJelF39zs+EvxPGtED+RxwemL7+2h?=
+ =?us-ascii?Q?fm6EO0Y0oHrjd64aa2/I3MI9y1nJVvbj/hdARwNEpcQ+DIOcfNf5QQ6KJ13Q?=
+ =?us-ascii?Q?4h+q45+2i+z0cUIRnJZf5O+PIWgW54zw2xi0FavZgbFhMo4EeUQoyjiUHZVM?=
+ =?us-ascii?Q?pDrrzQUh49GoVJHzVzyJppwC+jAy2fjNnMVLTpopSTI74wiRxQvyZGOpAQLH?=
+ =?us-ascii?Q?fKIwBRivNLo189ZAltjyZzPdpDZzOTbLWVVUuPZdrUnWbGqGRMoLwv5jqXNe?=
+ =?us-ascii?Q?9qFc4zveJ3eOwJE8qcMNSw9y5gf2J9hnbJjKfvq+8pPlEYlBrf0uBhPDOWoQ?=
+ =?us-ascii?Q?DQB00ZHgTpR1xrTdKzgCLV+SU2+1Dm73OXVoDgyOi2wTiuDulbhZst602ZyB?=
+ =?us-ascii?Q?ag6dDYDHB8N//oX3DF/HovUYHMzwyWyandguMz8Q5ewVaSbbzAWXC2q+4lnk?=
+ =?us-ascii?Q?d1fhn5lFYv2vAh4Q+98Ing/70N0SmZXZL78yL20rVJlNBNLqzZ1dOSa2heQA?=
+ =?us-ascii?Q?TDx4W43T1pkoz7JFXewEceuqRMlC6oVM4V/rtMRYthvjZGef58GgmGSqqOb4?=
+ =?us-ascii?Q?DYyrz994UK5nNF/xEtmQaUIm8x8BT1jVRS4nxAajr3TJsfsiDYrSMb1hIga7?=
+ =?us-ascii?Q?KIiW2X7m3W43Bhsn258/Qm1MWrveUwZiQg0BANRjOoDNcUZSpWQKRhqEEi3J?=
+ =?us-ascii?Q?BgBFtMc/Je3ra+n5WDoutfE5QlrSydnOLYszSqO4yQl7KGylEkaN77rz1qK7?=
+ =?us-ascii?Q?B7NRBG3I7CbKs84Ss/YwUloJVZSzC22gSXfDhjyRGbVonFac7RPJyKeNx38T?=
+ =?us-ascii?Q?HSmKRiR24IoeaxaiZjv3pGJc7lxPUFZJqse9z8QOdo18oieBgRI8UAk7ww7P?=
+ =?us-ascii?Q?YhqH/+HVP8mZfgLJE9FuyKqQfmxvh4s0ndlm7UzZvrPu0zTdU2VgaXiEWHF4?=
+ =?us-ascii?Q?efK3?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?0YCnS7t+bwha/FF693ZxjQuAuNsqdFndXW1fGKKfQ9nPg8/moAQlUkEEb8Xa?=
+ =?us-ascii?Q?JRDK8pdmuiRPj8LexOtYBKxmq3cN7cmR9s0gjrK8hGuWmSFoQS5u6H9ClmHz?=
+ =?us-ascii?Q?fFl/pT2Ryl4kdr3QJeoIpbv/SB4BG4OPneoaJ8mCGKJy9+AU35XmrNu4cMG4?=
+ =?us-ascii?Q?F/KCaxRAb+eM+2/Dgf31r+LQQ0Qn5T9aXPrEpbyWuvMWjDgYdINUCGHYdFxl?=
+ =?us-ascii?Q?XmJz49iC/qIOuy+adoeCAeTpWEOZFo996wqhQ/doa+YN47Ff1nX8bYpLaKfv?=
+ =?us-ascii?Q?x9vI3I4qY9GOE2yCGaS5R4LrX79jBrZe86JxHK1yucGv5lvPc8rMXtcyWGSX?=
+ =?us-ascii?Q?af7t0kbfYBBbex6tnz9G8d1Kf8KeTVYeZg9SKiwdriiivqkyQvmHeGtN+Z7d?=
+ =?us-ascii?Q?OoqfZLc5jutVXb9uScR3pu7n499Z1ev6kosMDlAb7Yy+EvD/7KqdzIimh0Sb?=
+ =?us-ascii?Q?VOxwkJGNCVMEAPXJHYwXEgls0vUeaxi/TFxvY/y2HLLV0iPgVB3X73m9cQRt?=
+ =?us-ascii?Q?rAGGVPvawdIuzPHa0IZtRDDCsc9p5+OyighLhNzVwn38b8L7hxOgZOl+BJ8H?=
+ =?us-ascii?Q?LQ0MMG1IF/VcGDrtc4eSemxe3nYujw3ndVc+5X9wvT28jeu0saODw2zCPbe+?=
+ =?us-ascii?Q?v21L3gcNYc8PoP4N4IlX2FCxbb/vmS/K/IdiRKWr6z01mPxyYkLQWlJVtkY6?=
+ =?us-ascii?Q?vU+l7X/TGFekFjXKGMourPMxoZCqUTH9DwsNTjFQH+kaTqXxwx5p+wrYzVs2?=
+ =?us-ascii?Q?QBvKIzWo4SDB6KFPas4rUuVq3M6doyxfRdDC2sP7mA3MTPzWaDmBw2k/b/7B?=
+ =?us-ascii?Q?8eFdf6g6kQlyVr/SNiHzdrieuOfOjQa7BKQB/Fthm6CnL7x9RpMkJZsflg9q?=
+ =?us-ascii?Q?nF12GFcphCO60fyoJ/mkI18+DG66k8f8ppg3ytI4rgHM5YAS+a0PrfN72CMQ?=
+ =?us-ascii?Q?h6CF/yRdo2cZJx+JvVng06eMSzVFF5LXc9Hz3H1S39QwNRKJQrqc2+Kya67c?=
+ =?us-ascii?Q?7TrnUeOSPeMDf5W6VCLENF19+mYOW2xOQVEqEUhx1ikyVCx0k4mm4NIID6Aq?=
+ =?us-ascii?Q?owxwLLqyIStnQU5iWaZKFhDIwVEgJbSqWtxcxOsjJIlV8uUdWJnb/jXEg6h7?=
+ =?us-ascii?Q?Ky6OZxBttGVMPz/zaxvEFSEng5sBtUXlnWZGBs7wCtczgpeOjvn26KY+irXJ?=
+ =?us-ascii?Q?fve1W55fJYlcNdQ3m6d5YDKnZa6cUcF66nt5W7GaJaPT+Sc2zrQYI2WRc/J4?=
+ =?us-ascii?Q?rrw38qEHn9p7ZDzvDMMC4XKOMaBsaaUWgxwV1/ox5acwmOyoDx7DUngzqUd8?=
+ =?us-ascii?Q?3f4m8iFpY9lMq6CeBmXiKgSbgjn+ZCabdOVLP9N3urnIeqiDCdi8s4dL6fqs?=
+ =?us-ascii?Q?Z11HvlE=3D?=
+X-OriginatorOrg: sct-15-20-9412-4-msonline-outlook-990eb.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: b12efa1e-e249-40a7-3639-08df479dd08f
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR19MB2303.namprd19.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2026 07:05:26.1195
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR19MB6505
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+aw_dev_i2s_tx_enable() uses I2SCTRL3 when enabling the I2S transmitter
+but I2SCFG1 when disabling it. Per the datasheet, the I2STXEN bit lives
+in I2SCTRL3.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+As a result, the I2S transmitter is never disabled when the device is
+stopped.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Use I2SCTRL3 in both cases, as the vendor Android driver (aw883xx) and
+aw88166 (which is also derived from aw883xx) do.
 
-- [Medium] rmnet_vnd_update_dev_mtu()
-  (drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c:447-473) now shrinks…
-- [Low] The commit message opens with "When the real device MTU or the
-  data format requires a smaller MTU, existing endpoints are shrunk by…
+Fixes: 8ade6cc7e261 ("ASoC: codecs: Add aw88399 amplifier driver")
+Signed-off-by: Marco Giunta <marco_giunta@outlook.it>
+---
+Tested on a Lenovo Legion Pro 7 16AFR10H by reading I2SCTRL3 via
+regmap debugfs: without the fix bit 9 (I2STXEN) in register 8 (I2SCTRL3)
+remains set after playback ends and the device returns to idle;
+with this patch, it is cleared once playback stops.
 
---
+Link to aw883xx: https://www.awinic.com/en/driver/AW88399QNR/832
 
-net: qualcomm: rmnet: Resize endpoints with dev_set_mtu() and restore on failure
+ sound/soc/codecs/aw88399-lib.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-This commit changes rmnet_vnd_update_dev_mtu() so it shrinks existing
-endpoints with dev_set_mtu() instead of calling the ndo directly. As a
-result, MTU notifiers and link notifications are now delivered. If resizing
-an endpoint fails, the endpoints already resized are put back to their
-saved MTU, and the original error is returned.
+diff --git a/sound/soc/codecs/aw88399-lib.c b/sound/soc/codecs/aw88399-lib.c
+index f2e2c88f5ec0..a6303f32e2cf 100644
+--- a/sound/soc/codecs/aw88399-lib.c
++++ b/sound/soc/codecs/aw88399-lib.c
+@@ -552,7 +552,7 @@ static void aw_dev_i2s_tx_enable(struct aw_device *aw_dev, bool flag)
+ 		ret = regmap_update_bits(aw_dev->regmap, AW88399_I2SCTRL3_REG,
+ 			~AW88399_I2STXEN_MASK, AW88399_I2STXEN_ENABLE_VALUE);
+ 	else
+-		ret = regmap_update_bits(aw_dev->regmap, AW88399_I2SCFG1_REG,
++		ret = regmap_update_bits(aw_dev->regmap, AW88399_I2SCTRL3_REG,
+ 			~AW88399_I2STXEN_MASK, AW88399_I2STXEN_DISABLE_VALUE);
+ 
+ 	if (ret)
 
-> When the real device MTU or the data format requires a smaller MTU,
-> existing endpoints are shrunk by writing dev->mtu directly. No MTU
-> notifiers run and userspace gets no link notification.
-
-[Severity: Low]
-Is the part about the real device MTU accurate?
-
-rmnet_vnd_update_dev_mtu() has only two callers, rmnet_newlink() and
-rmnet_changelink(). The changelink call only happens when IFLA_RMNET_FLAGS
-is present, which means a data format change.
-
-When the real device MTU changes, rmnet_config_notify_cb() only validates
-the new value and vetoes it if needed:
-
-drivers/net/ethernet/qualcomm/rmnet/rmnet_config.c:rmnet_config_notify_cb() {
-    ...
-	case NETDEV_CHANGEMTU:
-		if (rmnet_vnd_validate_real_dev_mtu(real_dev))
-			return NOTIFY_BAD;
-    ...
-}
-
-So endpoints are never shrunk on that path, either before or after this
-patch.
-
-Could the commit message be limited to the data format case? As written,
-it suggests this fix also covers the real device MTU path.
-
-> diff --git a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
-> index 8bf87c5ecb43b..dce436e4c6305 100644
-> --- a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
-> +++ b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
-> @@ -433,24 +433,42 @@ int rmnet_vnd_validate_real_dev_mtu(struct net_device *real_dev)
-
-[ ... ]
-
->  	hash_for_each_safe(port->muxed_ep, bkt_ep, tmp_ep, ep, hlnode) {
-> -		if (ep->egress_dev->mtu <= new_mtu)
-> +		ep->saved_mtu = ep->egress_dev->mtu;
-> +		if (ep->saved_mtu <= new_mtu)
->  			continue;
->  
-> -		err = rmnet_vnd_change_mtu(ep->egress_dev, new_mtu);
-> -		if (err)
-> -			return err;
-> +		err = dev_set_mtu(ep->egress_dev, new_mtu);
-> +		if (err) {
-> +			fail_ep = ep;
-> +			break;
-> +		}
->  	}
->  
-> -	return 0;
-> +	if (!err)
-> +		return 0;
-> +
-> +	/* Restore the endpoints which were already resized. Failures here
-> +	 * are ignored since the original error is the one to report.
-> +	 */
-> +	hash_for_each_safe(port->muxed_ep, bkt_ep, tmp_ep, ep, hlnode) {
-> +		if (ep == fail_ep)
-> +			break;
-> +
-> +		if (ep->egress_dev->mtu != ep->saved_mtu)
-> +			dev_set_mtu(ep->egress_dev, ep->saved_mtu);
-
-[Severity: Medium]
-Does this restore undo everything the earlier dev_set_mtu() calls did?
-
-Now that the shrink goes through dev_set_mtu(), netif_set_mtu_ext() runs
-the NETDEV_PRECHANGEMTU and NETDEV_CHANGEMTU notifier chains for each
-endpoint.
-
-A PRECHANGEMTU notifier can now veto the shrink. For example,
-team_device_event() does this:
-
-drivers/net/team/team_core.c:team_device_event() {
-    ...
-	case NETDEV_PRECHANGEMTU:
-		/* Forbid to change mtu of underlaying device */
-		if (!port->team->port_mtu_change_allowed)
-			return NOTIFY_BAD;
-    ...
-}
-
-Before this patch, the direct rmnet_vnd_change_mtu() call could not fail
-here, because new_mtu < ep mtu <= real_dev->mtu - old headroom. So a
-newlink or changelink with IFLA_RMNET_FLAGS that used to succeed can now
-return an error.
-
-If the veto happens on a later endpoint, the CHANGEMTU notifiers have
-already run on the earlier ones. If the temporary new_mtu was below
-IPV6_MIN_MTU, addrconf_notify() tore down IPv6 on those endpoints:
-
-net/ipv6/addrconf.c:addrconf_notify() {
-    ...
-	case NETDEV_CHANGEMTU:
-		/* if MTU under IPV6_MIN_MTU stop IPv6 on this interface. */
-		if (dev->mtu < IPV6_MIN_MTU) {
-			addrconf_ifdown(dev, dev != net->loopback_dev);
-			break;
-		}
-    ...
-}
-
-In the same way, inetdev_event() falls through to inetdev_destroy() when
-the MTU is below the IPv4 minimum.
-
-Restoring saved_mtu only creates a new, empty inet6_dev or in_device. The
-configured addresses, routes and per-device sysctls are still lost, even
-though the request returned an error.
-
-For example, take a real_dev MTU of 1284 with no checksum offload (4 bytes
-of headroom). Endpoint A has a lower mux_id, has IPv6 configured and is at
-1280. Endpoint B has a higher mux_id, is a team port and is also at 1280. A
-changelink that sets CKSUMV5 (8 bytes of headroom) gives new_mtu = 1276:
-
-  dev_set_mtu(A, 1276)  -> addrconf_ifdown(A, true)
-  dev_set_mtu(B, 1276)  -> vetoed by team_device_event(), -EPERM
-  dev_set_mtu(A, 1280)  -> A comes back with no IPv6 addresses
-
-Userspace also gets a shrink-then-grow pair of RTM_NEWLINK events for A,
-for a request that failed.
-
-The commit message says a failed request "does not leave some of them
-shrunk". That holds for the MTU values but not for the L3 state.
-
-Is this partial rollback intended? If so, should the commit message
-mention the new veto failures and the lost L3 state on endpoints that were
-already resized?
-
-> +	}
-> +
-> +	return err;
->  }
-
+base-commit: 7884221ca9857a317bf4bd81ac3bf5528f266feb
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117060737.2764327-1-subash.a.kasiviswanathan%40oss.qualcomm.com
+2.56.1
+
