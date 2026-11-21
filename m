@@ -1,68 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795226508;
-	b=dxXWQ29fqM5efuTiPclwJI0bsaM5r/L5BW20h9T3hw/h99a7V9fqpmCXIpwVL86hzkPr
-	 qrPS6VbGvR5dfjmP/JgwtmemWWNIZLi/VKOhT+iwP/ED3ZCSrOJYbpSgUWeaZMwkl6Os2
-	 4U9d5/RI2FIlnozNslUEyAu6F3SvHP1LzEPWofKPGdLIjjHrpLq824oF5wue8Sqe2tpQc
-	 xytJPzm5xiAqQTSD8GYz+v0jlFVjwFVb13BkXHm0xnnPBqkDJ46wex4nD7WVrjwREu7tK
-	 oIrkLPvdprcB3n7y8yB5y6Cja6uDbADFSXv4E+qFXqy52EN1xcbOcbNknF4+hyLzROg==
+	t=1795226551;
+	b=nPOx35VteRpf/AvK++xSIL9yKWybb0cxP2x2+TbXpkUnZkB8GLgs0/Iack8KsYLG5kPY
+	 zhyd/9WYCPONJBS2b06mR5KROilFT321WYX33b/w3T1mRaoelOE1SejfCZFa6ymB0NjeC
+	 lsfFdI6WXYZxEJ+Z9RDNaUWNECCvnxRUKHbuQXIQU1O2Jb0ZY+1ABVzUpnLfT3pdPQItg
+	 V0uHPRLkeY/vdKj6KZDNCPFiQGOopELJ0fqALKpweN3xU2bH+fNc/9TnKHKZPeNfDV9Ai
+	 KtvZOQPvhbpvam0ljlgmSCn7cJ9brpMMjd4ZwUBbajSFsXmO91sazlPQWNFZNvm2GKw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795226508;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=kmMOA/JqT3+zTDvjZdA8gReRHgHGh2MTpTCnYqFH+JE=;
-	b=BLAUtR6qrk6PU0PA6/OlLvjq5pHLOOmFnCY2lsHnyFP/JDWL3P/+IBZ1Uo8pWhs6zSDr
-	 6lfbyg4zaI3SPHq2jHCAr5hXVathy98JKAMTm6wOYvJg3QLbMvvO6JFW7t0vaKRVKbcN5
-	 ojKI1Ao48C6wIxUKCm5jU6QnFV+nEUSdDPNN+Tw3lEyUMHXChGdVtMKS+Bd+WKhvm7Eup
-	 HBXeQVRURW6GhLDRJCZ0Syld2ooiTEdCKXkyfdyfweNaMJFIzbUVNyBRIZ4XTh1zGD1Mx
-	 6BkI6Bg2Z5HuGhAEGc0u7v079YTiTVp40PJuj3nYSyBIi2z2v0BiGR+UdkgFfJvN/nQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795226551;
+	h=Received:DKIM-Signature:To:Cc:Subject:From:In-Reply-To:Message-ID:
+	 References:Date:MIME-Version:Content-Type;
+	bh=xGeNNwI1eCRUe5FOk7ifTfTOPmFtOLejs3yFItHPzhs=;
+	b=a5t0Bqzm8fHOInlyNiDeQQBL32vUW5YagiAC7aLOe4BunF/fKH39J99Pq/5+PWw1v2ow
+	 rclUzRHnJMltrjBHjUccH3zSH+SrOGLvjCT7xgfYaLZHpv3Qpw8WJUHN39GJ76EWlWKsU
+	 s5a7S5ezTXO/J5skj+PWQoOP9s8rKHBRaJ9XxnfuZ6HF3q9Puu+DM2v90mz0hTdvo9Imd
+	 SBgG0gTAXRjV9Cm7sUNYlNP0Hgm4zRwxYHFsFb3SbyU/w+AcFZC+siHpNdBS74AfBpgQA
+	 IusK5HjI9flmkf6lC0wCxS95sIPKPZFrCUk6ga5Fy2ZG8CL9qvcs8ZQZGtxN89vT9DA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A41pkW2b;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nR3oVbRF;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B069606A6A9;
-	Sat, 21 Nov 2026 02:01:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28E3E606A690;
+	Sat, 21 Nov 2026 02:02:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A41pkW2b
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D08F91F000C4;
-	Sat, 21 Nov 2026 02:01:43 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nR3oVbRF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49CF21F000C6;
+	Sat, 21 Nov 2026 02:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795226507;
-	bh=kmMOA/JqT3+zTDvjZdA8gReRHgHGh2MTpTCnYqFH+JE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=A41pkW2bWhSmi1hlpL2vzaJ0GGHTCNRR3mLQFcNGurTDhldf5Sh3Znnhatl2dlhPO
-	 rwL09/86rVqS3J9ScjQzbjoY7sU+CfNTbItL0zL5KzQVqkuIURLvQ34dPviNzW0h16
-	 SBxJ6jm3dvRf1+Qnt2trukxDSThDPWF7ECHtNC4erfXzh2dlxHQsVi/4FZmUWS6klB
-	 72adyelnlFJW3PXsyUfOrQ9z64W/6qeisT3GKMi7Th973AY7yDg7GrgHZ19jt9CA6C
-	 ehZ+c/AdEu4NkFRqAVOZseItsp8WAfeWRV4pPnrGMZDyK8q1J7KPRYHOuPejyW3Z8D
-	 Rpvg+GxXANJVw==
-Date: Sat, 21 Nov 2026 02:01:36 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Matti Vaittinen <mazziesaccount@gmail.com>, Matti Vaittinen
- <matti.vaittinen@fi.rohmeurope.com>, Matti Vaittinen
- <matti.vaittinen@linux.dev>, David Lechner <dlechner@baylibre.com>, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Marcelo Schmitt
- <marcelo.schmitt@analog.com>, Joshua Crofts <joshua.crofts1@gmail.com>,
- Radu Sabau <radu.sabau@analog.com>, Janani Sunil <janani.sunil@analog.com>,
- Salih Erim <salih.erim@amd.com>, Jishnu Prakash
- <jishnu.prakash@oss.qualcomm.com>, Antoniu Miclaus
- <antoniu.miclaus@analog.com>, Jakub Szczudlo <jakubszczudlo40@gmail.com>,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] iio: adc: rohm-bd79112: Support ROHM BD79111
-Message-ID: <20261121020136.16f48636@jic23-hlaptop>
-In-Reply-To: <awBc1qFMhydEXo69@ashevche-desk.local>
-References: <cover.1795176984.git.mazziesaccount@gmail.com>
-	<4be17e339f768da93db2f42abd3cc5a21fea01ad.1795176984.git.mazziesaccount@gmail.com>
-	<awBc1qFMhydEXo69@ashevche-desk.local>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1795226550;
+	bh=xGeNNwI1eCRUe5FOk7ifTfTOPmFtOLejs3yFItHPzhs=;
+	h=To:Cc:Subject:From:In-Reply-To:References:Date;
+	b=nR3oVbRFun7ehT7RVv7u/h9Gx1x6+59rtKwaVSpdo54oGsBsDa7sFF8uOtaG7lo2h
+	 TDka7N8BE2uCwT2MytW5HFwTgebsqavpTHdSIcojjz3hMQo1+rXXPEkQ4l1ug81XtU
+	 tc+al4TupfUIVZ+a3O+2Nzn4oUtZ/gZ3//MOOTaqRNHTTrCAhVgzExuSP50OUmyVJH
+	 pIs1Sou929Sl7yHdYhtz4m7cj4oYxWy2SDBESAsMnrVyBBEIdTDx7yNBNuoaJruyQ0
+	 ZxLtOwX1CNpWMATK/fQSgR4FqjmDK01tLy7ThUaMPqAhQzOB87lHoQaP++7nqs9+U1
+	 6r2uIaMsc654w==
+To: Ian Rogers <irogers@google.com>
+Cc: Jack Wang <jinpu.wang@cloud.ionos.com>,  "James E.J. Bottomley"
+ <James.Bottomley@HansenPartnership.com>,  "Martin K. Petersen"
+ <mkp@kernel.org>,  linux-scsi@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  llvm@lists.linux.dev,  Elkin Cruz
+ <elkin@google.com>
+Subject: Re: [PATCH] scsi: pm8001: Fix abort completion status in
+ pm8001_mpi_task_abort_resp()
+From: "Martin K. Petersen" <mkp@kernel.org>
+In-Reply-To: <20261119170905.1530613-1-irogers@google.com>
+Message-ID: <yq14idbosba.fsf@mail.kernel.org>
+References: <20261119170905.1530613-1-irogers@google.com>
+Date: Fri, 20 Nov 2026 21:02:29 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,64 +61,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 
-On Fri, 20 Nov 2026 16:44:38 +0200
-Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
 
-> On Fri, Nov 20, 2026 at 02:28:28PM +0200, Matti Vaittinen wrote:
-> > 
-> > ROHM BD79111 is very similar to the BD79112. Both are ADC/GPIO devices,
-> > where pins can be configured to be either used as GPIO or ADC inputs.
-> > ADCs are 12-bit SAR ADCs and GPIOs support input/output but not being IRQ
-> > sources.
-> > 
-> > The main difference is amount of channels/GPIOs. The BD79112 has 32 pins
-> > for this use, the BD79111 has 16. Furthermore, the BD79111 data-sheet
-> > promises 0.5 MSPS sample rate with maximum of 10 MHz SPI clock,  whereas
-> > the BD79112 data-sheet mentioned 1MSPS rate with maximum of 20 MHz SPI
-> > clock.  
-> 
-> ...
-> 
-> >  - Return -ENODATA instead of -ENODEV when SPI match data is not
-> >    available.  
-> 
-> I guess you were distracted by something, the error code is now introduced in
-> the very previous patch, fix it there.
-> 
-> ...
-> 
-> > -	tristate "Rohm BD79112 ADC driver"
-> > +	tristate "ADC/GPIO Driver for ROHM BD79112 et al."  
-> 
-> > - * ROHM ADC driver for BD79112 signal monitoring hub.
-> > + * ROHM ADC/GPIO driver for BD79112 and similar signal monitoring hubs.  
-> 
-> Can this text be modified to be closer to the other two?
-> Something like:
-> 
->  * ADC/GPIO Driver for ROHM BD79112 and similar signal monitoring hubs.
+Ian,
 
-I had nothing to add and nearly picked it up with tweaks. Given
-this is something you may well want to feedback on (or adopt as
-is!) I decided to ask for a v3.
+> In pm8001_mpi_task_abort_resp(), the IO_NOT_VALID branch assigns
+> TMF_RESP_FUNC_FAILED (enum tmf_resp, 5) to ts->resp (enum
+> service_response) instead of ts->stat, leaving ts->stat at 0. In
+> addition, switch (status) has no default case, so any other non-zero
+> firmware abort failure status leaves both ts->resp and ts->stat at
+> their zero-initialized values (SAS_TASK_COMPLETE and
+> SAS_SAM_STAT_GOOD), causing sas_execute_internal_abort() to falsely
+> treat a failed abort as TMF_RESP_FUNC_COMPLETE.
 
-Given this is small and in a clean state, send it whenever you are
-ready - no need to wait a week in this case.
+Applied to 7.5/scsi-staging, thanks!
 
-Thanks,
-
-Jonathan
-
-> 
-> > -MODULE_DESCRIPTION("Driver for ROHM BD79112 ADC/GPIO");
-> > +MODULE_DESCRIPTION("ADC/GPIO Driver for ROHM BD79112 et al.");  
-> 
-> ...
-> 
-> Otherwise LGTM,
-> Reviewed-by; Andy Shevchenko <andriy.shevchenko@intel.com>
-> 
-
+-- 
+Martin K. Petersen
