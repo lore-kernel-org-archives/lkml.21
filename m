@@ -1,20 +1,20 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.57.82
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795244492;
-	b=Zb4V3s1ry/5wMMpMwmC20odsqzlvr8aOyeHOT/Xi4wPtJnAzSjpfvGnZCNmwl+yJyVAq
-	 nB+4XrD2fiEAh9wTPq2WmwxdM0BsnliWPlbDhZHxb2EC3N+FRqYTqr3FFOvEptQrIz1sL
-	 eFCC/JMP1Gp2Pev9YkerMpSLvl0d2MrkwRkgJGUYcefS/4P86OpfQR+BGAkJ9D8sOLgzn
-	 0DVn4pcZAkw5WybKisIHRG2KwyWNvEKJi209d3J3TdlfY0kCk7mcaVirt0mXC6Iw0T9Kz
-	 2mtCyGX6oFJL2rMMfoS6p+hNLvaKeB0zWIRdOWTUzcbqbzlukIBURtPEMTWKVV19Luw==
+	t=1795244493;
+	b=zsGxrBpw1xrx/IrcEu/MLnlNwm1yybRh1TgDLNTm014a8Xazj6xzDABNHd0SItn1dpyK
+	 sWPBHwUuHWRPvJdzpJYQw1IY5aVrTZPejBvKWi7SF4STOyssTm6MWcPucJVcow4YmcAOz
+	 0WkvgVaI91o/n1wJlQqnCv6E873mj3I72l2VyG56qS0PqtucnOkJ5bzjTxqVTS5Ffivfa
+	 ZeE+o+/9kTTmaQEAKeVX/n4X6AvGdRypRPuZllu+3x0NvFnKDmNFgInPSgFYObSmzhtD0
+	 0HGpgtaMyu/lraGYRZXoNnHC0Zt/5sBmgF9toZXcDXRe9Pq2BgB6yiZMtVD67ry1eFA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795244492;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795244493;
 	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:
-	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
+	 X-Mailer:In-Reply-To:References:Content-Transfer-Encoding:
+	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-LD-Processed:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
 	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
 	 X-MS-Exchange-CrossTenant-Network-Message-Id:
@@ -24,12 +24,12 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=DO5AxPUX8McmlNq/EmEmROr2EnAqWBuOKK4Wod3kWmU=;
-	b=AZmqIUAO0d6p9PdfgbRevAdNqpu7qsKul6mqp4GYRx2ODnu/Iv3H/RY7ByQd1pVLY5JY
-	 P9m9EPwfNIjFSeA/qsU4ChLwdjtGNbr/mutB8SpEEUkB6BLtz2DWtZxbh145MbT2C38Hy
-	 eTi9cJUxP7d88A2XjUIZFownXAwmIDmDgTnEHRlMQrgpKSvQOjwd1LEWwk5Q7gZkqE9QR
-	 F6xHBhYwp9qaYq5Fpres6BudY19EtR1FtosxbbbF7HVkbp680YwFhqXuz+Qh1g6i39rWN
-	 KJEeKSf0+K7pqtn6+Bybq1VYmxGhuXkLgjSgSyQbxhvi1K6rN70vE2oeJDVv1o/ne+Q==
+	bh=D6FvhZ5+At1ZrRQr11bWTfcW5PI/WkQqodL9x0y200M=;
+	b=NGhB2oZTKe7lGMBQFnElJe6rLeGi6h9Z3OrPsmMMETtsGMZScRgEMjvPonqKI2nR5sJn
+	 pS3PS1aDSfE5z+yT3R3SGGuUMCsKD7NcjpCW2iOvJg3iFe9A7IpTOYCKB9VoG5Ikzlsie
+	 SNugr2F/CljW/VDIJyyFQTwlZsXv1ymgqm4Y4MRRQ2tRT4OoismOrLeirMLykJSpWq4ml
+	 30Zr0vPsQ4FTNin1TK9NZh/qv7gYsFO2ImnGd6VyYV6SPKxI/b8d7LgFFmM+3paCC9rEg
+	 uf9ppMXpLsfDsolHwYaxIryph6GZ59hpE2ssmVy1MBTp+tOSRfXq/CN371HP1muvWIA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=siliconsignals.io;
 	spf=pass smtp.mailfrom=siliconsignals.io;
@@ -38,18 +38,18 @@ Received: from MA0PR01CU012.outbound.protection.outlook.com (mail-southindiaazon
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FF8D606A320;
-	Sat, 21 Nov 2026 07:01:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FF8D606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9012B606A331;
+	Sat, 21 Nov 2026 07:01:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9012B606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=siliconsignals.io
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=siliconsignals.io
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=K5mvV9dPcJZJolv3k+Sm/O4EmlVeKiIO5MlsfbS4gWBvEOiGbu/Qfb4Zls61/57WOAKAJfhAGAHmyI1uG04auIdpzoBzXXKc/OobS3IvDY8hztPTJMHBjsCY+dPyZSZy18ZTkOQc1yYdd/QAFGo+bGShEaHrW6Ss/D99z0Nd0ljYdDA8OW0Kvtx0hzDQpLdgvU5zbZxQBLi4KLqo1/6VOor0Nw9sPw9UHiOCuu4NanGLG4liccHmZPw41mCoJYYPiZzzOU2/lOIiMFM/2bvTpJQfeM5vgZ+/sXcutOm1wVanes4h3YiLaiSqmkrol/KwukYDPBLe/TtzBONDMI8keQ==
+ b=V9ptl3bl0fny9p6ooaeIbp92UmRZNFGZeZkYeJsrW3rrWJj7AASto8SvuFJBuKQrZLjuBdegyIRonliB3dCoC+5lCja/lhxs19L0Zw4YvbUN55gWsEqBjwzihSwz98ZQLKK64FnIxmZtTucftWWMbKdLp7LOJbm/DWNLQHOnbvd/gZ+ciWmVzCFY626r0wIrsY2Wh4bfnPlErJO4Uv2ubyGVzstXI2mqo6J1LhbWPl2h4+7/QglPfPsxvCw4ceQQMNPrDoGAWF5baeUdkFAsWUfVCgS/PjN4O4ThpwOEf1TfBxsJsusgFGjN/fN3Y4H69AstbCg01z2jc6cflrvHNQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DO5AxPUX8McmlNq/EmEmROr2EnAqWBuOKK4Wod3kWmU=;
- b=Siij2vrp7jsPMr5HOyza0tBYCmlfTIeWtqsYPEk2IiUhMCdBTW2um8HVChsP2yYrZgeT+JpQcId1hHtVcIZpg8ajhNZjYYHV0oFwRMEPrxnO/H7rczh66vOCoE8kuyCAnAteaJT1wJYhsx+TxBh2X3WXwOJ+x1yAulltFvouplnQIlkAGfIIP3u6DxYdRML3z7C9gRE8zAuIRPlHyF9v2vst6muJnLBxSb31UBYwu7JZGUzb7RGtOlpdLtyRFvpyU/7EPtXILEwRTXRjsCAs0wbRSQqeLc0bQfIllCMeNSb21UjkxY1mlcLFgKc4kFmtP2mxFtSm0alFEN3+f9Mz7A==
+ bh=D6FvhZ5+At1ZrRQr11bWTfcW5PI/WkQqodL9x0y200M=;
+ b=WtZtqhdMKTe4YqvzpIDXUMwOJb8pnWMxAvqJcoC8CCBWTkc1qoArdM4ouNKUUxPjk8m+NHE7AVnCT6enr05CIHrFe6cn7zyPhdXpgu8XW3ZudmMil7ohB+7KumovP+bdWHnq0tpFAvMaAe08gS//xJ0MYTk4zc+VnIVjuw7AufeRsr9UrWZK+lwduKPaOgE0srwq6H+iqRXsRoUDRDwNJiINrG9FqlUuSMggciC6uSLlz1tnv4ihqGDiIis4GxCL3eHzMyFepptAMPOWXBr/6rFoy+a/gAk6kff6HrtRyQaScuEKeeJo6j4lU2Cf32EKblc6gj4W1UDv0A8c4JeMaQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=siliconsignals.io; dmarc=pass action=none
  header.from=siliconsignals.io; dkim=pass header.d=siliconsignals.io; arc=none
@@ -59,28 +59,31 @@ Received: from PN3P287MB1829.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:199::7)
  by PN3P287MB1492.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:19e::8) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Sat, 21 Nov
- 2026 07:01:27 +0000
+ 2026 07:01:29 +0000
 Received: from PN3P287MB1829.INDP287.PROD.OUTLOOK.COM
  ([fe80::ce63:5749:b390:508b]) by PN3P287MB1829.INDP287.PROD.OUTLOOK.COM
  ([fe80::ce63:5749:b390:508b%4]) with mapi id 15.21.0639.011; Sat, 21 Nov 2026
- 07:01:27 +0000
+ 07:01:29 +0000
 From: Tarang Raval <tarang.raval@siliconsignals.io>
 To: sakari.ailus@linux.intel.com
 Cc: jai.luthra@ideasonboard.com,
 	Tarang Raval <tarang.raval@siliconsignals.io>,
+	Mehdi Djait <mehdi.djait@linux.intel.com>,
 	Himanshu Bhavani <himanshu.bhavani@siliconsignals.io>,
 	Elgin Perumbilly <elgin.perumbilly@siliconsignals.io>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Mehdi Djait <mehdi.djait@linux.intel.com>,
 	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
 	linux-media@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 00/15] media: i2c: os05b10: Refactor driver and Add new features
-Date: Sat, 21 Nov 2026 12:30:50 +0530
-Message-Id: <20261121070107.1768-1-tarang.raval@siliconsignals.io>
+Subject: [PATCH v6 01/15] media: i2c: os05b10: drop unused group-hold programming
+Date: Sat, 21 Nov 2026 12:30:51 +0530
+Message-Id: <20261121070107.1768-2-tarang.raval@siliconsignals.io>
 X-Mailer: git-send-email 2.34.1
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20261121070107.1768-1-tarang.raval@siliconsignals.io>
+References: <20261121070107.1768-1-tarang.raval@siliconsignals.io>
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-ClientProxiedBy: PN4P287CA0020.INDP287.PROD.OUTLOOK.COM
  (2603:1096:c01:269::13) To PN3P287MB1829.INDP287.PROD.OUTLOOK.COM
  (2603:1096:c01:199::7)
@@ -95,170 +98,127 @@ Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: PN3P287MB1829:EE_|PN3P287MB1492:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2e62b1aa-6c7e-4f32-af06-08df479d4303
+X-MS-Office365-Filtering-Correlation-Id: 0d0c083e-680c-4a61-1169-08df479d445d
 X-LD-Processed: 7ec5089e-a433-4bd1-a638-82ee62e21d37,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
- BCL:0;ARA:13230040|1800799024|366016|376014|52116014|23010399003|6133799003|18002099003|13003099007|56012099006|10067099003|261028144727099003|261026140227099003|261021121427099003|261102123227099003|261021123027099003|261022075727099003|261022105027099003|261026121527099003|261009223027099003|261009221227099003|38350700014;
+ BCL:0;ARA:13230040|1800799024|366016|376014|52116014|23010399003|22082099003|18002099003|56012099006|10067099003|261028144727099003|261026140227099003|261021123027099003|261022075727099003|261022105027099003|261009223027099003|38350700014;
 X-Microsoft-Antispam-Message-Info:
- E1sqfROPgvN4n5nX7DGH/J+YL/PbMRTxtWJ+w7LTINxc7ZUFKQHRhFIJo2MVC0grzEL/h7HJQXgC6BJgxqtAP0GyIBBFHAkTE+ch8ZPqPmQxbjJ6vaBaT8cW6Hxg9RfFbETRvkKqRmRW1aJvPlIOJTmygKebnt4JdK97AMkEZUBMUkAUS4X4NXFTxSirIguXm622xMTjcvpWnWjQqiUGOTnU5NgS/lwvub+2/En8Iznspg1UrquGYusAnmlNed2S46KnTRZ+I9ybFBexqtAaGnbSQUHBK1YXaxgTJT0QoQcE21M1JExT7mgsXk0qWmDq9u1DUzdX3osD1MARhUs6DMR5RUCVk/imCdGYG6sYmnFKZE4aWq7IVTBsCo0+dt2VztkK6uSwX7Gh0vZha4ejrfGjwNaX8dP8HGhBNC3fs8nrvAozH4WgbSLk0Rt8uCV597NdHi6rLLa/ZwERemtQPpT3AwcwMkwbdjAVAkBVlNSzzjK5O7+OI3qMOsj7VLkJGORbE1btSmyCqhs8Gm7P0j6LckvzWX0xJoJMhNHvl5OZqeIe1dNDUIOi3vMyVTRmoIaZFGlkL7gf1jQjY9RTfwq2ODAZbcTo7Hx9sGKO3KSPu+68vQgHkztLLa6LJyxsCJqo1bD9YZ7E5w8Zx6xk1cim2ubeIu2R1bC2ZeX0rOw=
+ zySLXcvIJUX7TQuBNErvKVAU1v8TL5ThXBLq+JO0peHEihuhvir5Je/AbhzrxkBsZ0u8ggXfEhE6bibLpN+ReggJMb4LRruGrzbp8OaTvIhgWRw3o5MgE6egNDbPdhv1GeIerl2FnKQP4VbrwOy4vCVavpNBVj0zjjnysqjlGeNsjyvuHQMx2SX949HfKhN7+Qf3lYUxdChX4wIhgCSUXuBXXbfyleB4YJVgKngOLNvtC/S8qEb0Dlg0YrpU4d/yJoDmFTVnAsbuKnS0N2VSFlTKWtf/sFBHqN+4oMfZ9fAQehaSNhYC0h8+xoE361MTsLI6C4HF0lqnjFdiFIVaMMwSw0H8tAGmKX987oZRFfd30j/+hiK0fn+5TdDBJLhXy+Ahu7JAlHzR+cMpChqMVyNHKAsDJvKOOxEUn5GYO0rCHDJHVY/E56JqES/lB1I0zB0LK5BxelS0BsdVgFoBU6eRgiXbrbRww0TY0mYk95mqP8BfmuP38hx2DoqEQvvZyaNr+hTwaX4Vhw89SwoVxZRYHfBHNCQG0Frk3axU/BEsNivvUkbyuxTFDgt9DWqXyUbQJCHpjPT7mJjOv05u/k+V1fo6xFCzO6FzYMashguuR844EUqPiaI98KivmzMujm9icOuZ6u62eGaiTq/KGAbeT64y9EtGhD+thXSPfWwjelLF8mGewU7GNrA6QDyfH2ESGsguBzP+T/jabquy6XWdm3oMjpX3Zk4PGVdOfD0=
 X-Forefront-Antispam-Report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN3P287MB1829.INDP287.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(23010399003)(6133799003)(18002099003)(13003099007)(56012099006)(10067099003)(261028144727099003)(261026140227099003)(261021121427099003)(261102123227099003)(261021123027099003)(261022075727099003)(261022105027099003)(261026121527099003)(261009223027099003)(261009221227099003)(38350700014);DIR:OUT;SFP:1102;
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN3P287MB1829.INDP287.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(23010399003)(22082099003)(18002099003)(56012099006)(10067099003)(261028144727099003)(261026140227099003)(261021123027099003)(261022075727099003)(261022105027099003)(261009223027099003)(38350700014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
- =?utf-8?B?eEx6dWdVbVJaTjZUaDJLbkF6b3ZxeHQrd0lKU2tnYUVGQ0Z2VTlKYmN0N01D?=
- =?utf-8?B?U3dHMWdudG9uWHBxMGxPVVlNWmM4cXhlNGtoVUIweDlIVHZ0MlFiZCswK016?=
- =?utf-8?B?NVFudENrVmwxZ2pMM29jR1hTTVBPWE9ZNnBkYi9iY1VHeHpuVmp1NUxpVVU1?=
- =?utf-8?B?VEpYS0IrSGw2ZFJiUTM2VjJ6WjlkT1RnYnNUcHU0N2pGbTE4Uy9Wb1BKSXAr?=
- =?utf-8?B?UWhwNVhhMWI4VHMzN0tFaHZpamRvckk2WUk1bFIwK3RtblpIMXJiUEZIV1FJ?=
- =?utf-8?B?VWZPb0JLT05iVXJHVitoM3NNY3h1U2oydzBYVU9WY2lnUXVMbFpXNkVRNGIr?=
- =?utf-8?B?aDhJT1dhWjhkWmRESGVLUi9UOEE4MGJYMERDRUpNeUNmTmw3cVljTkduWVJU?=
- =?utf-8?B?OUgzZHQ5MXNTNkE1cjBHMHdoVFdPR0hJVnVyUFBUWHM2NVl6bFRxT1F1WVNk?=
- =?utf-8?B?YWtrbTIreElxV1A3WnBPcDNGVkNiV3hNM2MwbUF1dnBoZ0RPR016VWJvSGxX?=
- =?utf-8?B?b1pZWGdYMlRWUGF6YlArWjYyL3RveUlDNjZPM25xb3dWSFFDM3gyT3JDai9J?=
- =?utf-8?B?RHVQTi9RQjRBRXlMYnZwNjk4SEtZdTYxR0dNYm9QaFkrZ09hK25Id3dSTk5V?=
- =?utf-8?B?dlRBWTVDZFU1dG9EWDZ3ZlArMVBtQWlBUEp1bDVPcDgyVEtlOFZGZ1pybjBZ?=
- =?utf-8?B?OEI5VDdjb0hUUFdoTEVXTFB6bzBWenl2T2VsVTJwZy9vdXNHclQ3OENHWGJG?=
- =?utf-8?B?S29IZlFRbzFrQ2RZS2FLeTNXb1R2YXdMWUlUcVVVbEIyalp0QjczQU5NZlVy?=
- =?utf-8?B?Y2FNajlZN21DdnVBNEwvK2NQeEQxTFBSUUs1YXJ2Y0lhVTZ2YndPTFBDbEI0?=
- =?utf-8?B?MGR0akZkemNYOVU2RmZrOXJ1OEFzZVVtdkVpYWduNTV2bWtWdStjdXh1WHRO?=
- =?utf-8?B?Um0zK2ZSUllYRDJkdVN1ZlNzcW9oZWhTeGl2WE1URDZqSEQ4SkdnNzdXY0Fh?=
- =?utf-8?B?SUlXTmlJSGtBb29Fc2tEQmdpeTNKZFVpZ29tSjdNQUFGdG5SL09ocVF4TXZE?=
- =?utf-8?B?ZVltRGE3UEpRUzJVR2swZjhTZkZ3c1NlTjRTMld3dXVSMnFJWW82MXNFRUk1?=
- =?utf-8?B?Zy9zT0gvdVYwZFduUTFJV3d3bXJUK1NHSnVobXROVnpZMldkZUtuOHBlYXpk?=
- =?utf-8?B?Q29IL3BQdkd3Mm1va0k2aVg5MEdrTnRVSWJESFpmV3B2L2tTdjA5WXJGc04r?=
- =?utf-8?B?NE13TkFjSlRmWm84a3g4VWZwcURpMlJkTk43ME1mcklOT3o4VWxUNmQrakZ6?=
- =?utf-8?B?aDYzakpuRktCS3hUOXBKRVo3eGc2ZzJ0a21ydElHcGs5ckVYQW1mV0RkMGRV?=
- =?utf-8?B?MDRYTE9ZOVpGZFF1ZEFwcVJyL3lZanJQa3FZMS9WTjRNMUo5cjJnQ1MzNGZl?=
- =?utf-8?B?STJuVzh4ZXdqZzNMYWxLU1IvWXMxUWI4VC9rRC8zNnNxdFVXd1VMWDVLVDBI?=
- =?utf-8?B?SS9ueXpoZjB1d1F3Rzg0TUNrV25rRFNHY2lObEtaMFpCV0ZmUnl2OEt4UE1F?=
- =?utf-8?B?ZW80VTM4NEpyTGJkdThNNThpY0NReHMzMmFSR1U5UUJlTnhpcENrZVVIeCtx?=
- =?utf-8?B?ZWNab3o3aHdqSU0vQUZsWXB1eHR3aGpSeDI5eGkvMDZmanVOMDdkSFgxV3c0?=
- =?utf-8?B?NVhadk4vMmJTeDE1YzN1M1JlS085MUZpSzJVRDlnVlZDcFFSU28rc3V4aWU5?=
- =?utf-8?B?ZUdxeU0ya1hDRThvRjRCRHVhYjlGejVKSWM4b0E1dExXWWF4NlV2K1d0bmg4?=
- =?utf-8?B?aFJGNzJ3cXZSZml2Y0Z0UTAwQ3dYSnAxTHRpVkpLbmpINVdJSWdEa1BZMUs3?=
- =?utf-8?B?QWZJN2dISWhGN01KQUpEQktCTGtjaWJRN3dtYUZXTkxyYWNpNGRvSG5lNGtU?=
- =?utf-8?B?eFFqdS8xbnFhYXE2WER4MmdRT205OStlRXFKeC80S0RKaVkvdnpaQ21INi9V?=
- =?utf-8?B?YzZFclo3eFFQbC83SHNhY2owcWpiZFJaVkFmR25jTDVnZHZJdGx3OUJGZXF0?=
- =?utf-8?B?bjhwQVNxTHo3a09YRFVWbzQ0eHU3Q3F5bkJXSzZjcHU0Sjdnbldxbjd5OTN4?=
- =?utf-8?B?cDJZTmFRV3FXZ2RxektoM01JR1pGc3Q2dWN1dkMxbWNpUHgxOVN6aGhPRXZE?=
- =?utf-8?B?YjFUZHdRS1ZyL1pFQmw5K2ExYTlCbHlra1dKRnJzY2JtSXpkbGw0TDFUNmRE?=
- =?utf-8?B?TGpJUEd3dTBqdGFPKzNrcDNCTnYxVVM3citWNTZqZnBQdkFjOWdrekVMaVA4?=
- =?utf-8?B?aU5OUFFIV2hlQUR4cStJSXdnVUlUdDNsd29kL2s0dHM2RCtGNGtKeDBwQTZS?=
- =?utf-8?Q?J5aMgHq5TdeOQbSw=3D?=
+ =?us-ascii?Q?dikEC97riqG8BmCDKuQ5BIQpJNnIJS05DKRNTZ5RJBLpBS7SSeLGqUPOmx0m?=
+ =?us-ascii?Q?7t0T8CTOEArQlwTXxRRax/trl2jBVwvjonTNUNkjq7d3QsI+Fs3+2qlXMNhY?=
+ =?us-ascii?Q?Nnc7hX0foJvC32XH12G4OoLQOwk37LgevuHGiUn/2JmqVo83AYEq72xNaHgO?=
+ =?us-ascii?Q?r7OsfVb0lOgDl19/fs41CxXz+EynCcLA6x+8Shno8h9HvYlko+4l6jT1Y3Xf?=
+ =?us-ascii?Q?37++/VGr81wOjf7hD6DcydmclfCAMCPqZGiaoJJ2ZmainqUNFkxJkMwPMkBo?=
+ =?us-ascii?Q?Bma7dHDO/yEIUhG6Ahyo6odCm22ruwpjlr6i3i5vU7GcM7Q6uFaSpIDdJx8A?=
+ =?us-ascii?Q?knIGubCjbomy2J079PAz/gbJdi/wPBkowzF2TTHDXI5LEu6RGJq3rLpn9e5E?=
+ =?us-ascii?Q?APN9e7rWbUTtLxh9OcZkBG07qYn/xFIBD+KnXU+Vyd5f72Njgn9mi1lTNGTc?=
+ =?us-ascii?Q?fG0s0IpjqjdRwcFppZcPV/BxRju8cMOTBrfJTn8G6mCwNWo7nCca9gaVqDyj?=
+ =?us-ascii?Q?TfwbLy0gLyWNzOxVqWkxkTKW+2zbE2UC2I8DUDqLsa/Pnxrx8Lj7xsNraciL?=
+ =?us-ascii?Q?dPjmSuoCfPnyAvD1a0bn9T2lUdF57VvChck3/LMNTknA9L8B+YgqHnw3eN+z?=
+ =?us-ascii?Q?ptQ1DH9/GspjsdUaKPRNHvzi8dsA1gOnkNfr/iQq8m3FWmD31UJX/Paw/QDM?=
+ =?us-ascii?Q?qmejKByvFKa/YCKH/GRMCO0ONfQqyjgv01s4MqhTHVXwVkZyfCJb5YffuzeF?=
+ =?us-ascii?Q?eivIRIpfv0viurVGSAFhqym2l8sDGNWmvU99BMZynfmLE/O64vAgGGHErGQ5?=
+ =?us-ascii?Q?D6Tl/Qngd5X5smpnSubAQv0Cjf/TR+QyEAHM38JUSCOXCiu//JUSEhduE8M4?=
+ =?us-ascii?Q?DnT+IIb2UTF9ONg+x+USunjBMVz3WLP8eYyUnoiqCgYNEZWEVrkmy3CBgG3j?=
+ =?us-ascii?Q?k4ODAH5myf2CReKOdzXgOu5jC3Ht0dU5snZPGIxNjwskV92dIwFjhlUg0uUR?=
+ =?us-ascii?Q?SUDOlexHaZsNb023peAKH7JoHZqNSrUXLtGeQrmxfQovI956IYNLgyhgXSww?=
+ =?us-ascii?Q?4JKhy1ULQB2Pzddja9JJPWmOogxlrAzJm8lI+qznfga1klTcgUPv3e5AR5O1?=
+ =?us-ascii?Q?zbpY+r7exfRjKgqocfJ2HUmgOba937pFJL8i/ImI3KubFECkmecPlCDfK7pA?=
+ =?us-ascii?Q?YLbvegNp1NaY3sU5LqisH6ZvCRfAaDW2oknznu6uB6HVUTkI1SG9RYaxNUxz?=
+ =?us-ascii?Q?qrdrwLAmfUyntseH01q9hbTqxPUhsVTQXJfTcAo2d/QvspiU8N/W9y7IU+Vn?=
+ =?us-ascii?Q?618PQojNI9X4O9HRp8kV2eBf6zkNgPgU9fok2SUmKLt+0EnqSAVtYa0lz1iT?=
+ =?us-ascii?Q?w2UdBya/T5/X17g1in0O0wihppsuk3LyZ7ZFS8K4ZaWl3xnzul7iWSG3crYE?=
+ =?us-ascii?Q?jg5Hl9Qk3Rf9xEXPOgNBlW5EiTc9q7O1kWhSRHiZ48+SjHwsIV1DL9pAfKPI?=
+ =?us-ascii?Q?Q34ady8HD0pa6/INO+WisBE3zP+7BS3hLtcj8wgTpHyNq6712LFs+rE2xgxZ?=
+ =?us-ascii?Q?r7DrgI6CSNU9xSKNWgWZSJ5zClA0ZWS5GQ0b/ka9EGDd3SjmkYbyT3AOOFwx?=
+ =?us-ascii?Q?zup2elHFCqiIntBbOaU5t1IAmeXSVgfLIBFuBJiMmJ0D8fQbWB85tObkJWpK?=
+ =?us-ascii?Q?7iiDSov0pcyEbGtWm878bVO5nekdErmeJ84DqO5Eq2PDfotyDekII5h+00RI?=
+ =?us-ascii?Q?zGC4Fwia569hsHKXLh0heSLbSF9MWeo=3D?=
 X-OriginatorOrg: siliconsignals.io
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2e62b1aa-6c7e-4f32-af06-08df479d4303
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0d0c083e-680c-4a61-1169-08df479d445d
 X-MS-Exchange-CrossTenant-AuthSource: PN3P287MB1829.INDP287.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2026 07:01:27.1378
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2026 07:01:29.3453
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 7ec5089e-a433-4bd1-a638-82ee62e21d37
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QDgAEUIiCBBtk6XGmvpcYEVKJWrJOdVpbLviAPUM1yQzmHRKgf6T82Gaf515U6nBn4/28O92JkCZpPSoXZmhxT8C2uqabae1H3BUfXE1lbM=
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4OWZVNpoxr6eN74g5UPkE7FmIrg4WXmXQq5hd696yW6YAAdCrhUnC4S/8b3zEopvw/KZ6Zw1/fj6XIXf0C9/jpanSyhzdmz9glt+rPAzeb4=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN3P287MB1492
 
-This series improves the OS05B10 sensor driver with cleanup,
-refactoring, additional controls, and support for new modes.
+Register table included group-hold (0x3208) sequences for
+groups 6/7/8/9 that only stage alternative tuning values in SRAM but are
+never launched by the driver. Remove these group-hold blocks.
 
-Patches 1–4 are small, self-contained fixes and cleanups. Unused
-group-hold programming is removed, the vmax variable used by the
-VBLANK control is renamed to vts, the active format is updated before
-adjusting framing controls, and runtime PM autosuspend is enabled.
+Also remove a duplicate register entry for 0x37bf.
 
-Patches 5–7 refactor the driver. Register definitions are introduced,
-the initialization tables are reorganized by splitting common and
-mode-specific registers, and unused control fields are removed with
-simplified error handling in control init.
+Signed-off-by: Tarang Raval <tarang.raval@siliconsignals.io>
+Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
+---
+ drivers/media/i2c/os05b10.c | 37 -------------------------------------
+ 1 file changed, 37 deletions(-)
 
-Patches 8–10 add additional V4L2 controls including digital gain,
-horizontal/vertical flip, and test pattern support.
-
-Patches 11–12 extend the driver with 12-bit RAW support and add new
-operating modes including 1080p and 2x2 binned 720p.
-
-Patch 13 keeps the exposure range and default in sync with the active
-mode on VBLANK and mode changes.
-
-Patch 14 adds support for 2-lane MIPI CSI-2 operation.
-
-Patch 15 fixes the horizontal blanking calculation and reports the
-sensor's real internal pixel rate.
-
-All patches were tested on the Debix Model A board running
-Linux kernel v7.2.0-rc4.
-
-Changelog:
-
-v5 -> v6 
-
-- Addressed Sakari's review comments.
-
-v4 -> v5
-
-- A few patches were mistakenly sent from an older version.
-
-v3 -> v4
-
-- Reorder the series: simple fixes first, then refactoring, then features.
-- Drop v3 patch 1/17 (Use pm_runtime_get_if_active() when applying controls).
-- Drop v3 patch 9/17: pixel rate does not depend on bpp.
-- Patch 4/15: Call pm_runtime_dont_use_autosuspend() on probe error and remove.
-- Patch 5/15: Add OS05B10_REG_PLL_CTRL(n); use named values in the init table.
-- Patch 9/15: Chain cci_*() errors; update active format on flip change.
-- Patch 11/15: os05b10_get_format_code() takes the mbus code instead of bpp.
-- Patch 15/15: HTS counts 4 pixels; fixed 420 MPix/s pixel rate; add Fixes: tag.
-- Collect Reviewed-by tags.
-
-Link to v3: https://lore.kernel.org/linux-media/20260718200912.16001-1-tarang.raval@siliconsignals.io/
-
-v2 -> v3
-
-- Patch 1/17: Drop Fixes:/Cc: stable tags; use "if (!pm_runtime_get_if_active(...))"
-- Patch 3/17: Drop unused HDR define; use GAIN_DEFAULT macro;
-  DIGITAL_GAIN_STEP 16 -> 1 (tested, not in datasheet)
-- Patch 4/17: Drop unrelated cosmetic reordering
-- Patch 6/17: Use OS05B10_MIRROR/OS05B10_FLIP macros instead of GENMASK
-- Patch 7/17: Clarify 0x5080 removal in commit msg; fix test_pattern_menu[]
-  casing
-- Patch 8/17: Merge codes_12/codes_10 into one table; handle NULL mode list
-- Add new Patch 16/17 & 17/17: Enable runtime PM autosuspend; remove unused
-  control fields/simplify
-
-Link to v2: https://lore.kernel.org/linux-media/20260325114404.95188-1-tarang.raval@siliconsignals.io/T/#t
-
-v1 -> v2
-- Added a separate patch to fix the use of pm_runtime_get_if_active().
-- Modified patch 11 Remove unneccery exposure range update now just modifiyng one time only instead of twice.
-- Add One patch for fix negative hblank calculation
-
-Link to v1: https://lore.kernel.org/linux-media/20260306123304.76722-1-tarang.raval@siliconsignals.io/T/#t
-
-Tarang Raval (15):
-  media: i2c: os05b10: drop unused group-hold programming
-  media: i2c: os05b10: Rename vmax variable in VBLANK control
-  media: i2c: os05b10: Update active format before adjusting framing
-    controls
-  media: i2c: os05b10: Enable runtime PM autosuspend
-  media: i2c: os05b10: add register definitions and use them in init
-    table
-  media: i2c: os05b10: split common and mode-specific init registers
-  media: i2c: os05b10: remove unused control fields, simplify error
-    handling
-  media: i2c: os05b10: add V4L2 digital gain control
-  media: i2c: os05b10: Add H/V flip support
-  media: i2c: os05b10: Add test pattern options
-  media: i2c: os05b10: add 12-bit RAW mode support
-  media: i2c: os05b10: Add 1080p and 2x2 binning 720p modes
-  media: i2c: os05b10: keep exposure default in sync with the active
-    mode on VBLANK changes
-  media: i2c: os05b10: add 2-lane support
-  media: i2c: os05b10: fix horizontal blanking calculation
-
- drivers/media/i2c/os05b10.c | 733 +++++++++++++++++++++++++++---------
- 1 file changed, 558 insertions(+), 175 deletions(-)
-
+diff --git a/drivers/media/i2c/os05b10.c b/drivers/media/i2c/os05b10.c
+index a46cfa513e98..d5f573b1614a 100644
+--- a/drivers/media/i2c/os05b10.c
++++ b/drivers/media/i2c/os05b10.c
+@@ -250,7 +250,6 @@ static const struct cci_reg_sequence os05b10_common_regs[] = {
+ 	{ CCI_REG8(0x37ab), 0x0e },
+ 	{ CCI_REG8(0x37ac), 0xa0 },
+ 	{ CCI_REG8(0x37be), 0x0a },
+-	{ CCI_REG8(0x37bf), 0x05 },
+ 	{ CCI_REG8(0x37bb), 0x02 },
+ 	{ CCI_REG8(0x37bf), 0x05 },
+ 	{ CCI_REG8(0x37c2), 0x04 },
+@@ -415,42 +414,6 @@ static const struct cci_reg_sequence os05b10_common_regs[] = {
+ 	{ CCI_REG8(0x5820), 0x00 },
+ 	{ CCI_REG8(0x5821), 0x00 },
+ 	{ CCI_REG8(0x3222), 0x03 },
+-	{ CCI_REG8(0x3208), 0x06 },
+-	{ CCI_REG8(0x3701), 0x1d },
+-	{ CCI_REG8(0x37ab), 0x01 },
+-	{ CCI_REG8(0x3790), 0x21 },
+-	{ CCI_REG8(0x38be), 0x00 },
+-	{ CCI_REG8(0x3791), 0x5a },
+-	{ CCI_REG8(0x37bf), 0x1c },
+-	{ CCI_REG8(0x3610), 0x37 },
+-	{ CCI_REG8(0x3208), 0x16 },
+-	{ CCI_REG8(0x3208), 0x07 },
+-	{ CCI_REG8(0x3701), 0x1d },
+-	{ CCI_REG8(0x37ab), 0x0e },
+-	{ CCI_REG8(0x3790), 0x21 },
+-	{ CCI_REG8(0x38be), 0x00 },
+-	{ CCI_REG8(0x3791), 0x5a },
+-	{ CCI_REG8(0x37bf), 0x0a },
+-	{ CCI_REG8(0x3610), 0x87 },
+-	{ CCI_REG8(0x3208), 0x17 },
+-	{ CCI_REG8(0x3208), 0x08 },
+-	{ CCI_REG8(0x3701), 0x1d },
+-	{ CCI_REG8(0x37ab), 0x0e },
+-	{ CCI_REG8(0x3790), 0x21 },
+-	{ CCI_REG8(0x38be), 0x00 },
+-	{ CCI_REG8(0x3791), 0x5a },
+-	{ CCI_REG8(0x37bf), 0x0a },
+-	{ CCI_REG8(0x3610), 0x87 },
+-	{ CCI_REG8(0x3208), 0x18 },
+-	{ CCI_REG8(0x3208), 0x09 },
+-	{ CCI_REG8(0x3701), 0x1d },
+-	{ CCI_REG8(0x37ab), 0x0e },
+-	{ CCI_REG8(0x3790), 0x28 },
+-	{ CCI_REG8(0x38be), 0x00 },
+-	{ CCI_REG8(0x3791), 0x63 },
+-	{ CCI_REG8(0x37bf), 0x0a },
+-	{ CCI_REG8(0x3610), 0x87 },
+-	{ CCI_REG8(0x3208), 0x19 },
+ };
+ 
+ struct os05b10 {
 -- 
 2.34.1
 
