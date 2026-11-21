@@ -1,94 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.45
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795231934;
-	b=dTGiWfB+wFwI2N/eUhjKcc1rue8E1AjhU/AP4tgu6dELVrEdkcjX1m4CF7FrWIIQkmQO
-	 GJmQAY6+36xIeFeYo+L1ek6VLykcQi4Ul3h8dyFDV7ntTkcyLGWVWlEI4Jt93e986Sgex
-	 IFQUVfR53K3651tW/5Lqoxtz3evb7zkYs7l9LD3KONqQEQWuKWt7nBOc0KQn97VbTrZp7
-	 yIaKwyIvYiJ6VS1Nmvy2elyFTLIUsy6ddl+oih7+aVcp814FVf0XDL9BYoA42KkLdLL8S
-	 XLhEuIEiPiEQ60oXUZPdtnX2GNxdX5ITLIOcsjP5ELHzuHRg729A3NssbHGSCKi7PFg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795231934;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=TAKJX2eFfbSxexSFrpKVYNT5rJCAgJ+amarkA8wMwcg=;
-	b=LkC3DmFqZDgEXtTx7ZkUVqvOsHzEK9qercC6m6/Zu3x/BpX3WMTfUL7abODZN686RmI2
-	 wZFdm4YuIfEfkdOmHwlN9+mfV5COrE66DmJuNRw+hQXO1faMlFICvYh9R77Vwva7hAvlh
-	 5i2W4KYvLzRG8tG7akhVypKpuyTznqBup6h0AL34qxoyPelfD/5w5BLApu4WXLKcn53P6
-	 6FveDHu24sYp0093Sn67tuavIjQ4Sp5AfA2vgrXCO1CyiJmGTC70bW7MzpKawFtJ/ZevJ
-	 M53IY9jAfInju28jJ+mrdXGMCW0v/9Zg6rWVbZ0NIa0GvBnQiKDkeiF9+EO5U8bIdPw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lx0rH40W;
-	arc=none smtp.remote-ip=209.85.222.45
-Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com [209.85.222.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.16
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795232016;
+	b=hX5L5A5wJduRerygEMrgNKIys6Ml2TCiVkJkEHgJr3tNqDaqgldrRMan8AFIp/H7gArp
+	 Tlify9BnQqC1McIxCUfsgBGXoC95MI8klBPyf+bw8rMI4J9McGKt5dxbRGjqFQMCUDhL0
+	 Up+oawPGzgHnhso5d9OATKcvr74gsO2gbgEmomjzdPoHr8im/QEARqDRz71NgvEkyH4EZ
+	 WJObn/kgBvtVynvb+eJAKZHAjC9ttkjcF+NZqc2HC1DainZpRwfib+xTKgtUteV5ASu7K
+	 nGiNL3Xdt7paP1Mu+DpfaDyTL72RWFReUS+wadaA0pfW02ABRImJPJN4O3xjU+6UW7g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795232016;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=W972IKMY/jD83La9+pmc3KmSzPNgoNp921AA4HsZHmA=;
+	b=aFaI0TQ6g62MJ8zBaGr8fBTvdqvfwI/GizKXRonZelEHICQfdeUIRWg6swTpC9WUuvVH
+	 kupLB4ixg1q3XUR1AuW2FU72YXHEYY9B5yC1TZD/YAkSV70BUlWtDFzZgTU3qYfWIhR2t
+	 gL0ZU0zl/XKpJVIqxWtGdUzT2Zr1IPtgk6I+sSNQlmnDXbcBNY4hPMaYhGruqmzIhh8B0
+	 IP41piWRs92SDXu/wB4bFVV4cAE5eQrEziE/LVW0YGG6shqUKR8j0Wt5+wx6aCK+VD4Xd
+	 oYAY2MpdjSv2uMzpAr5MymCVazjQLmASeX7BOgZn8wyx5nvOHlfOH3rqOr6w2SGFPbQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=iGiBgirM;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.16
+Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazon11012016.outbound.protection.outlook.com [52.101.43.16])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6152606A6AA
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:32:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6152606A6AA
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1661606A6A5;
+	Sat, 21 Nov 2026 03:33:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1661606A6A5
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lx0rH40W
-Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-99071945aa7so891620241.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:32:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795231932; x=1795836732; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TAKJX2eFfbSxexSFrpKVYNT5rJCAgJ+amarkA8wMwcg=;
-        b=lx0rH40WjAZuTpjzdSg282pS+q3j+eAu9Cy0K+veOkU0tDtEMXN41uf313jmctXIhQ
-         fdxevo5fL5v+L3Sl13PZnFrKz6VejvKgVUn8MoXflglOvT51hxXQ26wpnkVRmw40JWst
-         a7FdJ1mA7L0jBqsDyvZC3/dh9PyHqXNh1Ql01CZSCEOTEcn3OZwvFsOU5jb4mNDA4k8L
-         scV6vMXBTeKplGq2iX7PS8Z4xMic8sIhapOXqR73taxxVE+0dx5fJ6es4zPI9xwxNjOl
-         prPZk4Et9LNMc1/Jx1WVKh4I92PFC0V1WHU/F/21xUE6xr/NbIVXlPGoV8JNJViccL+B
-         xxzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795231932; x=1795836732;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TAKJX2eFfbSxexSFrpKVYNT5rJCAgJ+amarkA8wMwcg=;
-        b=OaObaI8z4zuwG2nFU10fMY6afMHKd+3T6i0kgwSGpZ3js0fKMF4Kig42OE88M6yGCv
-         o9s9FIyzVaKhURrrFcVkW3TwisThS26BE1cY6DFmMFpSscF/j5M0Do7LkwoIXOguU/4J
-         fDfIVUeJ3kNOQ4Cun8CFqk9AyK2YlusVbj5S2UBh1Af2fjQHzlY9FaAgcMFORMMdDz73
-         tYWCsUfLOm4JLRuxBILJtvJMQKc5OtQyz8TNDBPccGMVXJ2MUdGl9JlxYZUeHlbjX4fx
-         W0dn2NrrUPCreszV0tWdMN+NTnh93bENJKmkPHTeelORkDmVqOFPMZgsHkX6+5jnVlsq
-         3DQg==
-X-Forwarded-Encrypted: i=1; AL+hErFs0zUsG5x+mBMGrWUqbDe9DQcogM82E4qmG97zRSJkJUAXAF1YWhlDUr2b/XIubgWK1GCxgAN/+0OsCZI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8G5/DrzHl27E03FquGnCbUJ37KTvtsS93ALkTGD13z+UhNq54s
-	I/Fe9Hj2b4+JxInorAsJjqmKFB/ai9ljaJASZemvMIWzwxUPh8hsYsD8o14soEBPokA=
-X-Gm-Gg: AZFdTZfBc0+D4wVWliYs+SQVXoJja5NiqqMCzCCF85hA/djAAEte/upqU6SxPUtfl2A
-	WveaniUoPP6NPZgywyg6gokVcjzQn/MR/8MOcQcEr2uO2HN+mWemoy0I0vRZnggtsdfqpGCFAQ6
-	5K5z/ys+4aCW+OGJVjKa+2qC2iyif4Fv5qTFlChPsFz7Kdznja0WTtZ1tg9YzJYarKWevDaRmeg
-	GigfG1qdiL2ftK/JKpzHyfARpM95KM80eh1c6FPUUwBe0Id25/yloPGg/KUzGGpwFV4gxOlk6kQ
-	7lITDwI8HSY7xhI9swY35IUv0+lAUDi7xC8RIre5Fqb3APULahDo/Rq4dg5YWN3EXIoiW5QDnci
-	dlmMhHwFTfudkfQ4A3PJ9O8RUBVDcGeIhFm29Eu1JTuSAhQXBdJgyX6SeYMdsmVOdIPSemPaUH5
-	B9y69qqQ7Yg4++5IxpdqAXHNQbV+32YFxPo6fBO0nQZBGeLH1PuagAtjs/sichiXySCW6NPjBe0
-	6ofxhx3uo697nr/GRqEKpGsah4MwPt/bdDCLSvAuwVNZkSCi1zI7RgTpmKFQiLgzygUpf2vBYu8
-	YV5bqmnvet2zmY9bCxUMzBKV/MT891HWCyfNOmGqo5EeQDGCT0fhFg==
-X-Received: by 2002:a05:6102:508f:b0:7cc:94e0:ad23 with SMTP id ada2fe7eead31-7d73967085bmr2738629137.31.1795231932385;
-        Fri, 20 Nov 2026 19:32:12 -0800 (PST)
-Received: from shine.local ([168.196.221.52])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e7f3d7bcsm4871081137.4.2026.11.20.19.32.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 19:32:12 -0800 (PST)
-From: "Andrei A. Bykov" <andreiab9019@gmail.com>
-To: linux-bluetooth@vger.kernel.org
-Cc: marcel@holtmann.org,
-	luiz.dentz@gmail.com,
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=iGiBgirM
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Zp0Lmo7PjWNDtO59qvpwJysrcBH/1Kt98ThqOJnWFbNp2pef7dCESwWL7suvwRM4oSr/eUHxS+KASEO5BaTvdHVq19jJTHvpWG69V/B5x/tAI3dNveZiK5kWt+znruaCPwST8Cud4yu1sUvHRFmRTvDje7UtT8Bj9ZPu/gFa8FqEjQMqDxcPLc6AJxVvy/oarZi5GvM7t5+vvmiyH43wL21Ht/UAlJmbBziZyS26Ry8P0O6PByR9+CytVguLaQBKn6a8zZ5zX5CPUrXIoYK0oNaik7RPeKZND2q9UZOpsy4bA0tcw13P9gnsI5ZzGhEBtfxMhpIzNWStbX88X6uu7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=W972IKMY/jD83La9+pmc3KmSzPNgoNp921AA4HsZHmA=;
+ b=njPG7VsQhVb5VW4hhewC7XO6fZpFdAraSQHkvkvsi1JWcIcpArHgE0DQJwoiPwaiAe8kHbDK2ugBO7szmVgUgnrFfEfdCe/t9Ln9IPTSAfE4hfJL6SWIJha4r/uL8YtYpcriu/a7WFAUrPOI7EL6ivPTxBCXlYzynYDWk5xWpImnarIDFlobA/bvP93p94Xe0Saye/UJYxEH3vr8+dtYYSIUqfNW2HqjdNJf9qjwXUF5p0Kq03OXjC3lgJyTUYZr8oLl+awRpzcu5lyDyt2krlvuQ90i1B9T4SQoV21LtcHLvQF4UfGwK9vS/52OsiukOlJ6Y5CBisE4/474U9Jp4g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=W972IKMY/jD83La9+pmc3KmSzPNgoNp921AA4HsZHmA=;
+ b=iGiBgirMbOFC50NTCLqeE947QM6+b43quKlvZBvHrid6i8ntdq0xe2YT/iSlDecBlZwHtzlW4UnDfzSOOeQrXlMMdLo9hDcXHhnjR2jlMp65EaV+M5QPY6ZdK4H2TB7VYtkMHjiIFZXa4I+mCeOoUYyXnmjEBaNhZgFOYRGss5Or6c2821pEL9os5OGMLSOMmeAdspnsMOYOYX88Q/QbVmcwgDeQ/AA64Dw/T3Ea5u2jIj3JEGu+m/tGFZmqPd5ssHn3xbIdunuG8tl80f1qWpcqI9VJQwzhqWZspkMqxOjOz/cGg+Yer2WOtKIrU3IqEb6SXboseRyDLhHxA8DT4A==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH0PR12MB5089.namprd12.prod.outlook.com (2603:10b6:610:bc::8)
+ by DM4PR12MB8522.namprd12.prod.outlook.com (2603:10b6:8:18f::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Sat, 21 Nov
+ 2026 03:33:28 +0000
+Received: from CH0PR12MB5089.namprd12.prod.outlook.com
+ ([fe80::cb31:7ebf:51e3:d9f6]) by CH0PR12MB5089.namprd12.prod.outlook.com
+ ([fe80::cb31:7ebf:51e3:d9f6%4]) with mapi id 15.21.0639.011; Sat, 21 Nov 2026
+ 03:33:28 +0000
+From: David Cemin <dcemin@nvidia.com>
+To: hansg@kernel.org,
+	ilpo.jarvinen@linux.intel.com,
+	W_Armin@gmx.de
+Cc: mpearson-lenovo@squebb.ca,
+	derekjohn.clark@gmail.com,
+	xy-jackie@139.com,
+	i@rong.moe,
+	marco_giunta@outlook.it,
+	ldemarchi@nvidia.com,
+	platform-driver-x86@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] Bluetooth: hci_core: keep the LE feature hold until completion
-Date: Sat, 21 Nov 2026 00:31:04 -0300
-Message-ID: <20261121033104.441146-3-andreiab9019@gmail.com>
+Subject: [PATCH v3 0/3] platform: lenovo: architecture independent home for the Lenovo WMI drivers
+Date: Fri, 20 Nov 2026 19:33:19 -0800
+Message-ID: <20261121033322.974635-1-dcemin@nvidia.com>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261121033104.441146-1-andreiab9019@gmail.com>
-References: <20261121033104.441146-1-andreiab9019@gmail.com>
+In-Reply-To: <20261119022719.3089229-1-dcemin@nvidia.com>
+References: <20261119022719.3089229-1-dcemin@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BYAPR05CA0048.namprd05.prod.outlook.com
+ (2603:10b6:a03:c0::38) To CH0PR12MB5089.namprd12.prod.outlook.com
+ (2603:10b6:610:bc::8)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,52 +104,179 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR12MB5089:EE_|DM4PR12MB8522:EE_
+X-MS-Office365-Filtering-Correlation-Id: 853bb449-9981-4856-16b5-08df478034b9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|366016|7416014|23010399003|261022105027099003|10067099003|11063799006|56012099006|261026140227099003|261028144727099003|261022075727099003|261021121427099003|261026121527099003|261021123027099003|261102123227099003|261009223027099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	8BZ6iePbxBx0qvFI8CKIs/bIl2ZHFz4dIw9cwm0AR01VwXVbf0PhmF/nqosfA0SX/QSe0IC0hDKDYzXE1AuWbXjGjPpB2oEBuYMIXkyS/iiuMkGYwVrrBUc5SFFi58Lz9uuPMnr/LK7wnqCk9NGm+N77vEdsbzxgRXe9WdzZoQ7xHfcTrAU6JtxvvXY9q8SEOPo+EjbBOi+4PA3JYpijnhKHwdwsSbkGeSa1upb4npmkBSmfX4+DdV732yeilBi4gujgSyYmf9BDQyjPrVV6nNPmdcbU9AZRuzYaOxPlbFnrpfHrDOTUsnAtQJ7Hrb3B6E0FBLP5DR9lr9Sr00kxaMnoFATqXUGc87qqf7BhMBNBMVRpgYcx/hQsv7s+E3O+niRBuNKFqCvc1ILdQqHd9cClh7q5u+EQMgacl6QEhXrLCBYU9yEr/e70P5eUL/jz7FU4Xg5hf5JaG2VCoi5JyOJx2FI0kuncyk6jyNK4fl0nRAX1HdLgwdxfYW5kRNEu5foAXAnVLf4zdx3saJ5zkUPOCEzTvQtM2VbRl66eiSC1udSYoEbvhIM7Y1ecVjDGe7ZRiboveExLd/PgK0kbvDe0N5WICoI33md8Ga2VBw2cXwDw/TQbJZnEqz6wdfhG9bQFK5rZYyPZfRAeT7xme1SsScmaNsFUwN5MEnUxbJg=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR12MB5089.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(23010399003)(261022105027099003)(10067099003)(11063799006)(56012099006)(261026140227099003)(261028144727099003)(261022075727099003)(261021121427099003)(261026121527099003)(261021123027099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?In/8DuNSBXRUOoTJUA7q74slVatLmDoPvumgv6fXHhPevkBquUiLAwrcBiXo?=
+ =?us-ascii?Q?b0rFPK6VxxHCT/GMAjfgYCOgkj8A0WAIfFJ9dBrAgQgf97lzAOe8jmUBFDQ6?=
+ =?us-ascii?Q?vh32EG9Y5SkzM6uR3LmLizsJwawWw2GUfsuLLaPH3cD5PQvEGEe65bE0VWQA?=
+ =?us-ascii?Q?0YTbklK4HqahIql9sBLv1cxejX+lMMMGQRTzQwoO2j8RI6bO0xuu0Uu6903d?=
+ =?us-ascii?Q?a779fb9vXAoTFBSGJGukjJ5qIUneV180oMbbeaaXRENRSXpLTVBpkAQfHJUY?=
+ =?us-ascii?Q?MuGbHABvYj7mqGpmkFLYFr9+PH1qkKeOhXkt+SFF6B3OUoNvmMrPBgWCcbXf?=
+ =?us-ascii?Q?uOJ2UJOAYB/wYKKhxbRAl1CakRbFBoc64tcLAQ3Bo+U0gbGR7hMxXVDpS1E6?=
+ =?us-ascii?Q?e3m1rwrqo2UN0hx6meIsjJjeKED5uROc1k4YlogrzAPuK6K5YaQ7qd7j0qhA?=
+ =?us-ascii?Q?LNSXwB+H4suBAjJ2DjFvT+jlQT7bU3UTXv9IZCruUmCos99fnFYyhzGV3VAU?=
+ =?us-ascii?Q?spDgjOuZiZ5uRuUyCbP6OAGuYlEl+TPWSuvT3ddpY1XuSHh80sWgmrzeALpy?=
+ =?us-ascii?Q?LiOm9+gDKKKH2RhqXtcwMqpiYVS9QkWCzOa4GnMYe6FOEnJV4K5HhiYoFoY7?=
+ =?us-ascii?Q?Z7JeZpsPJC7YEfxoEOyuGqgnnmTkPLf6y2AT3fn2d0oHA77ibg4A9acaUAe/?=
+ =?us-ascii?Q?/Wdl+kHBHAbtE0dOMsIgVGH6MbJcojIsLXuGUCfkPNHG1S6fMV8iqCOxPCUM?=
+ =?us-ascii?Q?5hgpdOLMXZKWZOU6IAXku4rH09vWQ4y+yZu80l6VRztZGkYvPpO9LSLZzSeS?=
+ =?us-ascii?Q?oarjngRnw8x2BfPojo2vEmRBqbL+rC5yCv0CVTXzmPfIe9cRrV1YrVlqu52p?=
+ =?us-ascii?Q?iqnGwj5AbmI6VSgd+Qd771MGUuWFoD/NstoyH8+IJrEduAkIAXKhxmpk+UXD?=
+ =?us-ascii?Q?O8b1TI4vgs0kEB7ZBV0jXzQ64zZXjhjWgEjEgnDzT/kwhMxftXaNr8kvsB9l?=
+ =?us-ascii?Q?40DiPAbRqroWaA+a9Je1zQmgsRmCXCHhNFCiYfaBuN1BJ7AbGxVo8dlbHCvw?=
+ =?us-ascii?Q?DYKZZqpLroxPF4AUStyGehcQS3TR3nz3ldBunCNTPL0/ULaB7f7WtGfvLSIh?=
+ =?us-ascii?Q?dtTP0nrgpfNefeYa7LvtHsUUAr9PdmyQHvFSGUui/fhTz7r/k7uYDBqx1Cis?=
+ =?us-ascii?Q?VOGxFknRIVGqvSGi1MnCTCDc47HeI2VRNIF2In5PsymOKEKANpgZ7RPtyBev?=
+ =?us-ascii?Q?8ILRd3mrycfsyv7c9gQQYXgNDQ+nwlscVWpJw7rwmcmvbJ/s2OwuSCBQkyuT?=
+ =?us-ascii?Q?W64js8wvxDEJNkSwDPQdJ2ZYZALgjMvD28F6a3Q3QEeLGVNiLtSuwcBJyQxE?=
+ =?us-ascii?Q?V41Rj5nF//hYmvACCFHZ4xWK8LGB8qrdXmQyi9nKhSSKJo9cC94yoHGLvvtQ?=
+ =?us-ascii?Q?AtESDsIPlD710s0O69r8SRCB307yDglArtm0QiPGSnuOPA/XU7zTtJt5jN9J?=
+ =?us-ascii?Q?jSY259HKPyfUkC2MpNINgc39wJvDnKdeBcPoHL0SIqCVTCFsbNuVqE07zpdZ?=
+ =?us-ascii?Q?AkUWb9XaUir3U9uSqIaXfMzfUZSkL+auf+p+p82pEtLd0uxIiXzfDSz3FyzX?=
+ =?us-ascii?Q?PtHn3sveGbRqubJmbv2INqRZNv6DBpKAs41LrCp1w79/U564cKMJiH9uwW5i?=
+ =?us-ascii?Q?ORlT5mHjf4+GMNFbpK8+LgCEaiiVASdIKp7mr+Puz9smpokc?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 853bb449-9981-4856-16b5-08df478034b9
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR12MB5089.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2026 03:33:27.8818
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zC92/6i2QGbEXpgXvXxdNl8jYtP0FXNQp3gOhIXUCCl5dr4rUgMWpuwK/CqTr98itmL61jzFDAKyTPLLhSA5Lg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB8522
 
-LE feature discovery owns a connection hold until
-le_read_features_complete() runs. If encryption finishes while the
-connection is in BT_CONFIG, hci_encrypt_cfm() also drops a hold after
-notifying the upper layers.
+Lenovo now ships ACPI based arm64 laptops whose firmware exposes the
+same ACPI-WMI interfaces as the x86 IdeaPad and Legion machines: the Fn
+key event GUID consumed by ideapad-laptop, the hotkey utility GUID used
+for the microphone mute LED, and the GameZone, Other Mode and capability
+data GUIDs behind the thermal operation modes. Since 884d53763d30
+("platform/wmi: Remove dependency on CONFIG_X86") the ACPI-WMI core
+builds on arm64, but the Lenovo WMI drivers still live under
+drivers/platform/x86, which is gated by X86_PLATFORM_DEVICES.
 
-When an ATT socket has taken its own hold, the sequence is:
-  feature discovery:        0 -> 1
-  ATT connection:           1 -> 2
-  encryption confirmation:  2 -> 1
-  feature completion:       1 -> 0
+This series:
+  1. moves the architecture independent Lenovo WMI drivers into a new
+     drivers/platform/lenovo directory, following drivers/platform/surface;
+     ideapad-laptop, thinkpad_acpi, think-lmi and the Yoga tablet drivers
+     stay under x86 because they need i8042, port I/O or x86 only devices;
+  2. adds a WMI Fn keys driver that owns the Fn key and Fn+Esc event
+     GUIDs on every architecture, reports the keys through the keymap
+     taken over from ideapad-laptop, and offers a notifier chain to
+     drivers with platform knowledge; ideapad-laptop drops its WMI event
+     driver in the same patch and subscribes to that notifier for its
+     Fn lock LED and DYTC performance mode handling;
+  3. adds the keyboard backlight level events seen on the arm64 Yoga as
+     ignored entries.
 
-The final drop arms the incoming connection's disconnect timer despite
-the open ATT socket. After applying the event-waiter fix, four hardware
-attempts showed the same sequence and a local disconnect approximately
-four seconds later.
+The series applies on top of Rong Zhang's "platform/x86: ideapad-laptop:
+Trigger the EC on YMC events" (20261116-ymc-82yl-v1-0-fac1a2b01a84@rong.moe)
+because both touch the ideapad-laptop WMI code and that series
+modernizes the lenovo-wmi-events helper.
 
-Restrict the drop in hci_encrypt_cfm() to non-LE links. BR/EDR connection
-setup takes its configuration hold in hci_conn_complete_evt() and still
-needs this drop. LE feature discovery releases its hold in its own
-completion callback, including error paths. Keep the state transition
-and upper-layer confirmation when encryption finishes first.
+Rong offered to co-maintain the new driver and is listed in the
+MAINTAINERS entry; Rong, please shout if you would rather I drop that
+until the driver is in.
 
-With both fixes on Linux 7.3.5, a hardware trace leaves the ATT hold at
-one after feature completion and drops it to zero only when the test
-explicitly closes the connection.
+Patch 2 was tested on a Lenovo Yoga 9 2-in-1 16 (arm64): microphone
+mute, airplane mode, the Smart Key, the Smart Connect key and the Fn+Q
+performance key report input events with the same scan codes as before.
+The Fn+Esc GUIDs are not exposed by that firmware, and the ideapad-laptop
+side is compile tested on x86_64 only; a test on a Yoga 3 or Yoga 700
+(Fn+Esc) and on a machine where ideapad-laptop handles the Fn lock LED
+or DYTC would be appreciated.
 
-Fixes: a106e50be74b ("Bluetooth: HCI: Add support for LL Extended Feature Set")
-Signed-off-by: Andrei A. Bykov <andreiab9019@gmail.com>
----
- include/net/bluetooth/hci_core.h | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Changes in v3:
+  - driver renamed to wmi-fn-keys (LENOVO_WMI_FN_KEYS, lenovo-wmi-fn-keys)
+    so it is not confused with wmi-hotkey-utilities (Jackie); header
+    moved to include/linux/platform_data/lenovo-wmi-fn-keys.h (Rong)
+  - patches 2 and 3 of v2 merged, so both drivers never bind the same
+    WMI devices between the two (Rong)
+  - lwmi_fn_keys_ prefix, per GUID struct lwmi_fn_keys_info with phys
+    name, event size, scan code base and keymap, dedicated keymap for the
+    Esc GUIDs, MODULE_AUTHOR (Rong)
+  - keymap taken over from ideapad-laptop with its scan codes (Fn keys
+    offset by 0x100, Fn+Esc 128) and comments unchanged, so userspace
+    and the hwdb mappings see the same events; the new 0x40 to 0x43
+    entries moved to their own patch (Rong)
+  - notifier: the event type is the action and the Fn key code the
+    data, ideapad-laptop keeps its switch statement; the notifier is
+    unregistered before the DYTC and LED teardown instead of devm (Rong)
+  - ideapad-laptop: imply LENOVO_WMI_FN_KEYS and IS_REACHABLE() instead
+    of a depends on, so existing configurations keep the Fn keys (Rong);
+    dropped the ACPI_WMI dependency (Armin); #else/#endif comments
+  - collected Rong's Reviewed-by on patch 1
 
-diff --git a/include/net/bluetooth/hci_core.h b/include/net/bluetooth/hci_core.h
-index 4aa0b49..227830f 100644
---- a/include/net/bluetooth/hci_core.h
-+++ b/include/net/bluetooth/hci_core.h
-@@ -2335,7 +2335,9 @@ static inline void hci_encrypt_cfm(struct hci_conn *conn, __u8 status)
- 			conn->state = BT_CONNECTED;
- 
- 		hci_connect_cfm(conn, status);
--		hci_conn_drop(conn);
-+		/* LE feature discovery releases its own hold asynchronously. */
-+		if (conn->type != LE_LINK)
-+			hci_conn_drop(conn);
- 		return;
- 	}
- 
+Changes in v2:
+  - dropped the WMI core Kconfig patch, 884d53763d30 covers it (Armin)
+  - notify_new with the wmi_buffer, devm_kzalloc_obj, drvdata set before
+    input registration, KEY_PERFORMANCE for 0x3d (Armin)
+  - notifier chain called before the keymap lookup, NOTIFY_STOP
+    suppresses the key (Hans, Armin); input device named like the
+    ideapad-laptop one so the hwdb mappings keep applying (Hans)
+  - camera lens cover switch and Fn+Esc GUIDs handled by the new driver
+    so ideapad-laptop registers no WMI event driver at all (Armin)
+  - 0x48 (Smart Connect) stays KEY_LINK_PHONE as in ideapad-laptop since
+    ccc8c8481c1f (Marco Giunta)
+  - collected Mark's and Jackie's Reviewed-by on patch 1
+
+
+David Cemin (3):
+  platform: lenovo: move the architecture independent WMI drivers out of
+    x86
+  platform: lenovo: add WMI Fn keys driver and use it from
+    ideapad-laptop
+  platform: lenovo: wmi-fn-keys: ignore the keyboard backlight level
+    events
+
+ MAINTAINERS                                   |  11 +-
+ drivers/platform/Kconfig                      |   2 +
+ drivers/platform/Makefile                     |   1 +
+ drivers/platform/lenovo/Kconfig               | 102 +++++++
+ drivers/platform/lenovo/Makefile              |  23 ++
+ .../platform/{x86 => }/lenovo/wmi-camera.c    |   0
+ .../platform/{x86 => }/lenovo/wmi-capdata.c   |   0
+ .../platform/{x86 => }/lenovo/wmi-capdata.h   |   0
+ .../platform/{x86 => }/lenovo/wmi-events.c    |   0
+ .../platform/{x86 => }/lenovo/wmi-events.h    |   0
+ drivers/platform/lenovo/wmi-fn-keys.c         | 288 ++++++++++++++++++
+ .../platform/{x86 => }/lenovo/wmi-gamezone.c  |   0
+ .../platform/{x86 => }/lenovo/wmi-helpers.c   |   0
+ .../platform/{x86 => }/lenovo/wmi-helpers.h   |   0
+ .../{x86 => }/lenovo/wmi-hotkey-utilities.c   |   0
+ drivers/platform/{x86 => }/lenovo/wmi-other.c |   0
+ drivers/platform/x86/lenovo/Kconfig           |  69 +----
+ drivers/platform/x86/lenovo/Makefile          |   7 -
+ drivers/platform/x86/lenovo/ideapad-laptop.c  | 227 +++-----------
+ .../linux/platform_data/lenovo-wmi-fn-keys.h  |  32 ++
+ 20 files changed, 508 insertions(+), 254 deletions(-)
+ create mode 100644 drivers/platform/lenovo/Kconfig
+ create mode 100644 drivers/platform/lenovo/Makefile
+ rename drivers/platform/{x86 => }/lenovo/wmi-camera.c (100%)
+ rename drivers/platform/{x86 => }/lenovo/wmi-capdata.c (100%)
+ rename drivers/platform/{x86 => }/lenovo/wmi-capdata.h (100%)
+ rename drivers/platform/{x86 => }/lenovo/wmi-events.c (100%)
+ rename drivers/platform/{x86 => }/lenovo/wmi-events.h (100%)
+ create mode 100644 drivers/platform/lenovo/wmi-fn-keys.c
+ rename drivers/platform/{x86 => }/lenovo/wmi-gamezone.c (100%)
+ rename drivers/platform/{x86 => }/lenovo/wmi-helpers.c (100%)
+ rename drivers/platform/{x86 => }/lenovo/wmi-helpers.h (100%)
+ rename drivers/platform/{x86 => }/lenovo/wmi-hotkey-utilities.c (100%)
+ rename drivers/platform/{x86 => }/lenovo/wmi-other.c (100%)
+ create mode 100644 include/linux/platform_data/lenovo-wmi-fn-keys.h
+
+-- 
+2.56.1
+
