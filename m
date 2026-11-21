@@ -1,61 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795233618;
-	b=thHeD4Ol7vAagVsGuG/iOfcKxL0oNlilvWmBTwY1eu91AM/Bgs6k2p0O2RBD9pczrGSi
-	 xEacp4fYOy+pu5yuXEI3HcjlIAX2JG4m0lGRIgEUwzgvoVXKZQoWX1Q9dA0yLn1MCxI3D
-	 NX6Uxv3XG71b9aE9QXSx1cv+rhFTUSmBpcBS4fkkDsX2Z96p8oKXEH+NhQxNP2/bE3p0y
-	 MPgyzYS73Blgnyv+fJ7CvnrOS8PH3r4ZUXAu09tWXd2BbtOjecnrTte4WN0m3mvScQKr4
-	 FB7C04DVjRvlM6vq9NTZq+JQyKh4HVvQ4xum4SRD+foMo7Suum6Oc63KTzBN727nMRQ==
+	t=1795233650;
+	b=J/iRgqg9Msrzc+Y/9JzNcTJLGV6kwz8dJIT3mQOacW7qDAul49YKcdwzV+ICg1Kfhrbu
+	 zhKEmcvOwSjXcgE+cm7KLYcpHpkjInXayzyC8QFScHK6isTNNOZDahlyltyOWS4OybvNF
+	 xIqQDm1DnOyP7fDZfzcVP3el0mWS8GJnImB8pab2g/W4LTfQRHxPRYgWy9YV3zt7OC++B
+	 K2xwpuqrbzTgXidM+d3dRY+FGvjdoh0lbm4nUmz8XuC4UFqs8rCjmfUygZYFV4wRLLe+s
+	 0lMdFuErNcQncp4XtFCexXl09+k9HrgzRe8FhrkX/wP0a3xKrSxgJwP+Qun8AlDZPzQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795233618;
-	h=DMARC-Filter:DKIM-Signature:Reply-To:Cc:From:X-Original-From:
-	 X-Lms-Return-Path:Received:Subject:Message-Id:References:Date:
-	 Mime-Version:User-Agent:To:Content-Transfer-Encoding:In-Reply-To:
-	 Content-Type;
-	bh=TD4DOOWtXLG4XrTTuyoATbkrW2K9xh29mQrnzRVMTDs=;
-	b=diogyamJMiHAzZlrFGM6nFCSDpG4cn8w1Qzww5e7GG068Schl0JAvhNvz7PXx8QQk0E2
-	 BCLQOddZfjlCu8G3/Cmc0I/ZNyYNM/wLFqauDLnSnfsKKhLQnY5HJG+iIxFuGGhp53h7D
-	 A07vTGeMnfmUdrQc83NP7Lx6gpWixouy3FhRzNGLyHsBmM5t1UlB8IrVHH/zZDJ5acgM9
-	 lFstgN0rPaw4VAhYlxlbredSq0cNLgEJcfcQnaNLvkzD1nCm5uIENX+e58n7BR4tARRjm
-	 ksH3Q7YFAnqw0+2edQDQ+HlXCbmssQbnjXvUvuSIMf0WU3oR+DHzYs9GTN9ZWctrQ6g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795233650;
+	h=DMARC-Filter:DKIM-Signature:From:Date:X-Lms-Return-Path:Reply-To:
+	 Mime-Version:User-Agent:Content-Type:Received:In-Reply-To:Subject:
+	 Message-Id:References:Content-Transfer-Encoding:X-Original-From:To:
+	 Cc;
+	bh=Ue/qTbgiiS+ZMmgtnggCZDbrFBa+GKo3ui6r8iEPkao=;
+	b=FQkYjEF3xv5jtanMeIHomQZFPLFTCPBNu3wzsmxUoM3g0DlrhNRe0cK5YwjQhIW2jqpz
+	 Cm4DoVMDqOwFoys1d5iz2G93bK2J+2FSKSRqCxcItM3r8IjgAPp+kAYCqSnOdQHEomTKb
+	 kcFbdqGnaprcGvyvfC/pdv2S9Xt1nQlZOh+k4tr4O8eQhxZfU5peYIhspliygjSfjsQCi
+	 xA+Ge9lgLUUUB4UukUbqaqRIZVbB0bnYaR2S15R3u3vZyRZzRjAMOkpAo8P+l+sbeLBw3
+	 34p/GwDxWlTdfKQac2uEeI8dJfVL1l/TiAozs65LQA/Pbk7wLgK9kA/tHRro8VLAeFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=fygo.io;
 	spf=pass smtp.mailfrom=fygo.io;
-	dkim=pass header.d=fygo-io.20200929.dkim.larksuite.com header.i=@fygo-io.20200929.dkim.larksuite.com header.a=rsa-sha256 header.s=s1 header.b=Y4F+6kEn;
-	arc=none smtp.remote-ip=209.127.231.45
-Received: from va-2-45.ptr.blmpb.com (va-2-45.ptr.blmpb.com [209.127.231.45])
+	dkim=pass header.d=fygo-io.20200929.dkim.larksuite.com header.i=@fygo-io.20200929.dkim.larksuite.com header.a=rsa-sha256 header.s=s1 header.b=ki+HEpkA;
+	arc=none smtp.remote-ip=209.127.231.18
+Received: from va-2-18.ptr.blmpb.com (va-2-18.ptr.blmpb.com [209.127.231.18])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58135606A6AA
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 04:00:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58135606A6AA
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DD19606A337
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 04:00:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8DD19606A337
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fygo.io
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fygo.io
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=fygo-io.20200929.dkim.larksuite.com header.i=@fygo-io.20200929.dkim.larksuite.com header.a=rsa-sha256 header.s=s1 header.b=Y4F+6kEn
+	dkim=pass (2048-bit key) header.d=fygo-io.20200929.dkim.larksuite.com header.i=@fygo-io.20200929.dkim.larksuite.com header.a=rsa-sha256 header.s=s1 header.b=ki+HEpkA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=fygo-io.20200929.dkim.larksuite.com; t=1795233613;
+ s=s1; d=fygo-io.20200929.dkim.larksuite.com; t=1795233637;
   h=from:subject:mime-version:from:date:message-id:subject:to:cc:
  reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=TD4DOOWtXLG4XrTTuyoATbkrW2K9xh29mQrnzRVMTDs=;
- b=Y4F+6kEnXA+q6SWPQd0nkmO/yr3dcRinJviMiuBNwn3N9mjHJXy5oOInTFQM2jkZMT3nV9
- /r2Xkt0RC5Q4uhcMdHz8GnjqzqXONd4p8k8fajmORTffLFcGlFDEl+GgnJrXN8mq+vIq3k
- H0XVXsLdz4G25n+46l7YiKIk0mjyVASeeX9CiHpqofY6RMKf0afZIBKOty5XIa7FQdDExf
- hsc9Uhwer0Zxqa0oXKa3GqBw+r07q4E2TE4Yz62p6g1GNn/kiOmPVavf4PfzyCz0/I/LbZ
- +L6nVBu1TQTveeY6AFzd3FQhNllTfrerur6VmJeVWs0ixxob4aN9yEEVPCPOSw==
-Reply-To: yukuai@fygo.io
-Cc: <magiclinan@didiglobal.com>, <xiao@kernel.org>, 
-	<linux-raid@vger.kernel.org>, <linux-kernel@vger.kernel.org>, 
-	"Li Youhong" <liyouhong@kylinos.cn>, <stable@vger.kernel.org>
+ bh=Ue/qTbgiiS+ZMmgtnggCZDbrFBa+GKo3ui6r8iEPkao=;
+ b=ki+HEpkAZBa9ZinqOYpRQbDp32xiXdGm2HN27jqcU5fh8GDNelAvp9t718no/ZI4Zf9aHo
+ wD0wTNGhEELLM0Rr/v858crfRDhwNYc4gCsOU1rjDXtfXDrk1Hqe+1L3SfPYLpylgMQ5Yn
+ Hgo0GMi7cGas/VbAXy5jkfBkKmot2Rh/BroRR0saHi+UDwSznzDnrPHjFFBPISKn6wxTlz
+ Sn6aQj07CgOl2Da7bWYGhjMhDgECT9/0My9BJE7b6a/rnp+z6exEdkVWNCfPvykXzE/2BY
+ w0qGYwhOxueORlsjjQrEeIUJi351FFSaEI6Qt59DtzQIdcyCFfJ1+SbCJHLKWw==
 From: "yu kuai" <yukuai@fygo.io>
-X-Original-From: yu kuai <yukuai@fygo.io>
-X-Lms-Return-Path: <lba+26b01174d+504b6f+vger.kernel.org+yukuai@fygo.io>
-Received: from [192.168.1.104] ([39.182.0.159]) by smtp.larksuite.com with ESMTPS; Sat, 21 Nov 2026 04:00:12 +0000
-Subject: Re: [PATCH v2] md: fix stop_sync_thread() hang on new sync in idle path
-Message-Id: <df8d28a5-5455-416e-aa72-ddfe5027f9f7@fygo.io>
-References: <20261113010909.30324-1-dayou5941@163.com>
-Date: Sat, 21 Nov 2026 12:00:08 +0800
+Date: Sat, 21 Nov 2026 12:00:32 +0800
+X-Lms-Return-Path: <lba+26b011764+a6a3e7+vger.kernel.org+yukuai@fygo.io>
+Reply-To: yukuai@fygo.io
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,44 +58,63 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 User-Agent: Mozilla Thunderbird
-To: "Li Youhong" <dayou5941@163.com>, <song@kernel.org>
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20261113010909.30324-1-dayou5941@163.com>
 Content-Type: text/plain; charset=UTF-8
+Received: from [192.168.1.104] ([39.182.0.159]) by smtp.larksuite.com with ESMTPS; Sat, 21 Nov 2026 04:00:35 +0000
+In-Reply-To: <20261114224636.34362-1-mc@raidlab.org>
+Subject: Re: [PATCH] md/raid5: fix write stalls when a write is queued during a drain
+Message-Id: <9148d522-b6cc-462a-841b-52c2a0e9a5e9@fygo.io>
+References: <20261114224636.34362-1-mc@raidlab.org>
+Content-Transfer-Encoding: quoted-printable
+X-Original-From: yu kuai <yukuai@fygo.io>
+To: "Miroslav Cimerman" <mc@raidlab.org>, "Song Liu" <song@kernel.org>, 
+	"yu kuai" <yukuai@fygo.io>
+Cc: "Li Nan" <magiclinan@didiglobal.com>, "Xiao Ni" <xiao@kernel.org>, 
+	"Tejun Heo" <tj@kernel.org>, "NeilBrown" <neil@brown.name>, 
+	<linux-raid@vger.kernel.org>, <linux-kernel@vger.kernel.org>, 
+	"Anton Gavriliuk" <antosha20xx@gmail.com>
 
-=E5=9C=A8 2026/11/13 9:09, Li Youhong =E5=86=99=E9=81=93:
+=E5=9C=A8 2026/11/15 6:46, Miroslav Cimerman =E5=86=99=E9=81=93:
 
-> From: Li Youhong<liyouhong@kylinos.cn>
+> With continuous O_DIRECT writes to a RAID-5/6 array that uses
+> read-modify-writes, a few 4k writes can take seconds to complete, up
+> to the length of the run.
 >
-> stop_sync_thread() waits for either MD_RECOVERY_RUNNING to be cleared,
-> or (when MD_RECOVERY_FROZEN is clear) for mddev->sync_seq to change.
-> The sync_seq counter is only incremented when a sync thread is reaped
-> in md_reap_sync_thread(), not on the md_start_sync() not_running path.
+> The pre-read permission (STRIPE_PREREAD_ACTIVE) belongs to a stripe.
+> A REQ_SYNC write queued while an earlier write on the same stripe is
+> being drained finds the bit set and gets no count of its own in
+> preread_active_stripes. handle_stripe() clears the bit when the drain
+> result is handled, so the queued write gets STRIPE_DELAYED, and the
+> stripe goes to delayed_list together with the completion of the
+> drained write. raid5_activate_delayed() only moves it on once
+> preread_active_stripes is below IO_THRESHOLD, which with other
+> REQ_SYNC writes in flight may happen until the load stops.
 >
-> If the previous sync attempt took the not_running path, sync_seq does
-> not advance. If mddev->thread then queues and runs a new sync in the
-> window between flush_work() and wait_event(), that new sync may start
-> a real sync thread, leaving MD_RECOVERY_RUNNING set while sync_seq is
-> still unchanged. md_idle_sync_thread() then waits until that new sync
-> thread is reaped and sync_seq finally changes, even though it only
-> needs to wait for the current sync attempt to finish.
+> Check for writes queued on the stripe, under stripe_lock, after
+> clearing the bit, and keep the bit and its count if there are any.
+> A write queued later tests the bit after the clear and either takes
+> the permission itself or finds it kept. Do this for any queued write:
+> a queued buffered write would otherwise hold back the completion of
+> the drained write the same way.
 >
-> Fix this by incrementing sync_seq on the not_running path as well, so
-> that the wait condition correctly observes the current sync attempt has
-> completed.
+> md-7.4, RAM disks, 4k random writes, io_uring, QD64, 20 s, slowest
+> write without -> with this patch, md defaults (1 job) and
+> group_thread_cnt=3D8 (16 jobs):
 >
-> Fixes: f52f5c71f3d4 ("md: fix stopping sync thread")
+>    RAID-6 4+2 (rmw_level=3D2) 18.0 s -> 2.0 ms  19.3 s -> 5.8 ms
+>    RAID-6 8+2               13.4 s -> 2.2 ms  13.0 s -> 7.0 ms
+>    RAID-5 5+1               16.9 s -> 1.8 ms  18.3 s -> 4.9 ms
+>    RAID-5 9+1               17.4 s -> 2.2 ms  12.0 s -> 5.8 ms
+>
+> IOPS are unchanged with md defaults and within a few percent with 8
+> workers. Buffered writes are not affected.
+>
+> Fixes: e9c7469bb4f5 ("md: implment REQ_FLUSH/FUA support")
 > Cc:stable@vger.kernel.org
-> Signed-off-by: Li Youhong<liyouhong@kylinos.cn>
+> Signed-off-by: Miroslav Cimerman<mc@raidlab.org>
 > ---
-> v2:
-> - Fix the Fixes: tag to reference the upstream commit f52f5c71f3d4
->    instead of the stable backport a17d1bca5aba.
-> - v1:https://lore.kernel.org/all/20261112092634.1700963-1-dayou5941@163.c=
-om/
->
->   drivers/md/md.c | 1 +
->   1 file changed, 1 insertion(+)
+>   drivers/md/raid5.c | 41 +++++++++++++++++++++++++++++++++++++++--
+>   drivers/md/raid5.h |  4 +++-
+>   2 files changed, 42 insertions(+), 3 deletions(-)
 Applied
 
 --=20
