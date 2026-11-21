@@ -1,54 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795225123;
-	b=zsTCjL5vMvbvvfjt4/+cxiRd4hG4IVdeIiu7gKeCi33KXZzdyhEVTpiWu2cy/pJIvMK3
-	 GCP1Zj7CjraGTDh3cO5YDyCnv0hlH/qvai8/mrHD8ChiEOc9JZo9R8Jp9J88MTD09stRg
-	 A2xK3lpqhjgpyVaTAZxQ5CJkAhA9IXYK/8qTEHyIbseiuDVWeOAGaqR3eK11fQSpq6pMC
-	 +e4gG6Ojy1iwovm5pjMuLZaiGRA/auJdSK6ypRrmSYURadl2td3/74uSAC0vsoUfcpCSP
-	 XFxlqZI75sqhCd8c2Kw71tWmDaY9x4H2Rp2ItTshvjB1rZ+s4lkTReXgP5a6a3riupQ==
+	t=1795225155;
+	b=3fPjgBvT11SRxry5/qHBwNsm+mS4GJsFZL2zFYzPjyu65dZIqVyY3nyqHZ8l6AaISrJz
+	 2ZjBL+hXsZtip1+a537KR1HGMr4QguJY5Dm5bt8vIyuQRPNeizuscazG4TQLRHrHixwSA
+	 Ae169ngphascCv6H3V/lyw6PrdO0bWVLqi5mDPYYD42rUxl9S2aomTcyqpWWmbM65muXO
+	 WjUC3lAU4SUADX7WupT5vk/yauMnxWdlualgavFFB2808rlhdeHoWiCvl/ePUufNOSYpO
+	 UwIEp/Ifkgr2lL8G0WAccHt1DEuCyug5BCfNBCEQomXmdh4qcsW6ad/7aVHlu2W/hSw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795225123;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=KSHGXjTTOohXyR/j3uJ9ZXhmiZzvyVcAO3qAmI7l2vU=;
-	b=XirFDMozC32zAdHS2h4nHaxUwzeX55pUA+o1IPrZXUfIv2LYz8CBEGWk4IRn2r6Qnfb+
-	 nktJesT/9jR+RiqPui8MPZklOFYcdpEDjIlGyBO5H/Z5dxWnOHtpTuP+3wnJps8lMQZLD
-	 AqA7/QyqcAQjmxjYj/POEWNHglFBfvfdXtwr8zVr4JXqVi+r/Oq0ofHDMfqi4Oyj+6Kuj
-	 PxxVNLOdnBqTJnu3s1tSwH7dlS9JUUgi9e8tmKPk907+yRKrUqrXIH6A3ubJb0G0c9cwI
-	 aV9/3HbPdo5CYoxdHjy/bi1IKt6iUPt0d1jA4ZoTNaug5tKV/ZZa82uGWwcjBRy4jNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795225155;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=xkIFUE3rSguA2k8pPYGYGiPVAWdD1uXdPaRAnWcMV+A=;
+	b=2qSZpDsEDCBJaK83HswsPOLoEQmYMDkqZ0pU1R074T0rl7OpM8FRaywndJwPNle7N+wQ
+	 RGgM0PWm5G0ffEaUkoSYLYtpgy68dJTF/1MOdyOSd6Ul7mqx0nu8XPljE41WTSTRzSj0a
+	 XtFmSEzTpD73heJEcZ/jOd8CoIlfN31XZHVujEbYvGafoHvvmEvtdNW04fwjFPhkffYRB
+	 b1kaucN5RHah4HYNhIDsCilqAfyr9wjxNZXAbDMJvZbUNv5FJlaSXn9u99VBx+oS0Oa+2
+	 Ecx1xmtRLQqaUqxoQGdzMormzr1LsEYyeEmuFYwx2eoCtFjjhszAp0hFTs//NZrHyZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Xg479fwh;
-	arc=none smtp.remote-ip=198.137.202.133
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hh6OG1vv;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C97E3606A6B7;
-	Sat, 21 Nov 2026 01:38:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C97E3606A6B7
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72FE1606A6A2;
+	Sat, 21 Nov 2026 01:39:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Xg479fwh
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Sender:Reply-To:Content-ID:Content-Description;
-	bh=KSHGXjTTOohXyR/j3uJ9ZXhmiZzvyVcAO3qAmI7l2vU=; b=Xg479fwhpUYGws90zNBTptf7yd
-	oHNWntv6SBtyl9RaJ6HKCE9tYNN8KrhKYmn4Db6MaCpM0QZA725b/p/H1KN3ze7XBZJO8pQ0nYAN1
-	7oPV6juKPArlDMAvmj/pFoKkRMJinAev5PiGW89AcaWNASJlSvIWb6rrjjGcj8YCb09xho5tuDoG7
-	ydA7tlGzTBAlpDlUttAG1OKkCJimBWPesgtkEx3zLrzKfIN8bchXDQ7ttLnW9KVwzg7Hs4lBAMnnB
-	YYNdI+DOvKSwTbHTTk2lzEXC5HUHPGkqq7+o1R7IvXkvomk3Nmqp79YrrJ8NQPVyOE+fpa78R2zKC
-	fZrE/uRw==;
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUa3i-0000000GeUk-3FnK;
-	Sat, 21 Nov 2026 01:38:30 +0000
-Message-ID: <a87b9450-dc36-422d-a897-12248004ef3b@infradead.org>
-Date: Fri, 20 Nov 2026 17:38:30 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hh6OG1vv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61E721F000C0;
+	Sat, 21 Nov 2026 01:39:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795225155;
+	bh=xkIFUE3rSguA2k8pPYGYGiPVAWdD1uXdPaRAnWcMV+A=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=hh6OG1vv6ngyV+s4Axqcx+NBUjziANO9mnX+pIscR4RFOSGUnnsZSsPW2vtsZ23f9
+	 m4yKtHrKAtdNU4z5ePD/nVrR5ezOIZ0iAnwZzXimatu0tgqHadAS8posYHCoAGH3TI
+	 f3LZEXq6+q/Y79Pfs6uQx6Hc0tTsXe7le+p4pUGi742mgagMd163ECLtx3s1EvinYk
+	 Werkwwb5JF2ZnrmWXtRqsZzj5PwrUrd0fVmShbUmarMCJqQ51s4JxGoU+AhLp2F0NK
+	 oncE/+kstCuoj35Xyra4MWEF3w6d2lD+79YwxsVM+4onPqYwz7hemtAcPVe7n9Ea9G
+	 wDzkbRXFv8ncw==
+Date: Sat, 21 Nov 2026 01:39:07 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Rodrigo Alencar via B4 Relay
+ <devnull+rodrigo.alencar.analog.com@kernel.org>
+Cc: rodrigo.alencar@analog.com, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, David Lechner <dlechner@baylibre.com>, Andy
+ Shevchenko <andy@kernel.org>
+Subject: Re: [PATCH RFC 0/5] iio: split struct iio_dev_attr into typed core
+ attributes
+Message-ID: <20261121013907.5e15d2b1@jic23-hlaptop>
+In-Reply-To: <20261120-iio-core-attr-review-v1-0-05b41f8133c2@analog.com>
+References: <20261120-iio-core-attr-review-v1-0-05b41f8133c2@analog.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,56 +62,16 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/8] platform: dell: Allow DELL_LAPTOP to be
- arch-independent
-To: Brian Mak <bmak@nvidia.com>, Hans de Goede <hansg@kernel.org>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: Kurt Borja <kuurtb@gmail.com>, Stuart Hayes <stuart.w.hayes@gmail.com>,
- Matthew Garrett <mjg59@srcf.ucam.org>, =?UTF-8?Q?Pali_Roh=C3=A1r?=
- <pali@kernel.org>, Lyndon Sanche <lsanche@lyndeno.ca>,
- Armin Wolf <W_Armin@gmx.de>, Prasanth Ksr <prasanth.ksr@dell.com>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- platform-driver-x86@vger.kernel.org, Dell.Client.Kernel@dell.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261121000556.173028-1-bmak@nvidia.com>
- <20261121000556.173028-5-bmak@nvidia.com>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20261121000556.173028-5-bmak@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 
+On Fri, 20 Nov 2026 18:03:56 +0000
+Rodrigo Alencar via B4 Relay <devnull+rodrigo.alencar.analog.com@kernel.org> wrote:
 
+This is missing key thing for an RFC.  Sentence at the top that tells
+us 'why?'  To me this looks like nice work with no obvious outstanding
+questions so not RFC material.  
 
-On 11/20/26 4:05 PM, Brian Mak wrote:
-> CONFIG_DELL_LAPTOP is currently not available on ARM64, due to a
-> dependency on CONFIG_SERIO_I8042. This dependency is actually not
-> necessary, as there is a fallback. Make it optional.
-> 
-> Signed-off-by: Brian Mak <bmak@nvidia.com>
-> ---
->  drivers/platform/dell/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/platform/dell/Kconfig b/drivers/platform/dell/Kconfig
-> index 7030f817b6af..0223e2373508 100644
-> --- a/drivers/platform/dell/Kconfig
-> +++ b/drivers/platform/dell/Kconfig
-> @@ -77,7 +77,7 @@ config DELL_LAPTOP
->  	depends on ACPI_VIDEO || ACPI_VIDEO = n
->  	depends on RFKILL || RFKILL = n
->  	depends on DELL_WMI || DELL_WMI = n
-> -	depends on SERIO_I8042
-> +	depends on SERIO_I8042 || SERIO_I8042 = n
+So unless I missed something, drop the RFC for v2!
 
-Could also be
-	depends on SERIO_I8042 if SERIO_I8042
-
->  	depends on DELL_SMBIOS
->  	select POWER_SUPPLY
->  	select LEDS_CLASS
-
--- 
-~Randy
-
+J
