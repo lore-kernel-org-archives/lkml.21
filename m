@@ -1,51 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.61
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795280396;
-	b=hz1Q81AzGiHHgsqk9OVGYGge9ao00Wg/7YxDYZSS6KwMMKAWKlNE2LqZaFIZtdQB4xcx
-	 Relf1QtwnsCfMa69GhDFeHK7K0b9iCFsKQySbXA+fWi1Zp2/TJTanJLEKv7ruLsqrgqLh
-	 3DnG2dOHmSnbe/RDyruUsigfqac1+9gyupc4cYKxwfdXmd6eD+ddPVdcwiFqVf+6PuvQi
-	 0tjHYIaNv6jtGO3431DdW1Q4M+YYqlwiYnu/9Bz3H4O7yAlHc2/VvjeZ6EBqu26yskZh6
-	 tTVVaj459hiV+xRGunju0qhud3lY1VYeLf9Nme4PJu20C/+eqGtfmiBtOl77YlhYhBA==
+	t=1795280543;
+	b=Ehp5VE6OZ+pklGGfrmTuiUxKHUDZbzaMVHeoADIZawkqPH5yh8TWihX/z8QxRSPkjvNv
+	 9JKpfPeL426DDAbCOkluJxmJs02l++hKXG7pkOdPbeKHuRJy/vaupCW0GkOqDEFngwoJm
+	 EKEOswv10tl+sManq8GVTupQZ0OZXuiTjKOryFoTYKB8xNmaN/TAXyAwgesjsbfL+28n+
+	 Adei3y6m/tDZhcN3M7fEhR+e+EI1poE8cMZlrFZsswMGoiHDknyL2JgDtbv32VX1jFCab
+	 LzzxA1EOHp7sl5hSRBCWsSyXI3xrzcV2nIYw+1h6y1GPNTmkYajOdubmS817LUnhhbA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795280396;
-	h=Received:DKIM-Signature:Date:From:To:Subject:Message-ID:MIME-Version:
-	 Content-Type:Content-Disposition;
-	bh=HxFQ2qa/MmVsd7tMIBT1v4526ip7d+VB96nm/kUeU0c=;
-	b=R5uY6aNjsxN9XRAeLUrsrOAct0jWQ81XjMZTg0Us6+j/TEaO++I9PlN40SpzmHqyBJGn
-	 l41MiQLmh6zxYXroQ9dpJf3Mgpbw74R/ieQ2qcUeNROvSzSAO4cab5wvBxNCE6CYRPmyQ
-	 9OoT6+JAruqpegmDESjz9VyX+/NDEp4xRfEPynid6j8yIesDlpdRtyozLy4D8+FJJAKHf
-	 yM+OBCgK9bnvlagyYxRvWQbm/2UBw6Z2JYVWy2hBJ+HD1FbzhZjSTAZgiUR1tTEBgenKM
-	 1KPIxQuw9QMrLj1HlWyuW3G/7lOpAaOOXYqtTHwuMrZH/e/YdVlZoVg2F4Qqq7pnKxQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795280543;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=dMtaAY/RAlKbBtwNvRopdcHPdD6orOkNe2lC7iDdMNw=;
+	b=eIYaPREJJCKLCf8bBIobyeu1GA0r1ZnsCLWd3vdQDg+59TIogKcNcyyYX3nWF7UJuJ+U
+	 6NcOXoANfMgeEpVBsgC3ziSTdC90JYTEWeeQ125+EFbKBbMdxljrfBvhkdTDy/pGGBEt9
+	 rNBoS0EAnx/eqACYFR6Nu7w/vPp+uW3vaEbIGPPllDEVtJbnaPYygeLpYV86Jk11aFCvp
+	 OEUOpmLvI/MAmr/P4zvZbCRf1+I06gi9nIvqkMtlNhmK5JBP5DMG2lRiauZLYWtOO29c4
+	 r5mPNDtrOFbZm8ff6cu/oN7vbMyEcwWnu1Crj3420j80czabvJna/axgSshyxzCTTSA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XrA1lHl4;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BdeUELnF;
+	arc=none smtp.remote-ip=95.215.58.61
+Received: from mta1.migadu.com (out-61.mta1.migadu.com [95.215.58.61])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 427CD606A32C;
-	Sat, 21 Nov 2026 16:59:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E41ED606A32C
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 17:02:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E41ED606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XrA1lHl4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FBE31F000C6;
-	Sat, 21 Nov 2026 16:59:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795280395;
-	bh=HxFQ2qa/MmVsd7tMIBT1v4526ip7d+VB96nm/kUeU0c=;
-	h=Date:From:To:Subject;
-	b=XrA1lHl4gnn2kw/Bz9DfiQwty3vdVgUUmcCpbnNE5YokCOeCyK9ut/VNAUd+/LI7F
-	 ny/GwGPeF9RR/9wExG7twav6NXRbpAVE9dxPYHoC5nRWVY9bQgZbN5g/3CkH2smJg5
-	 Tpzf8iGI/7pKH0AiQiuxl4D7IBRPe7mvJQ4hgcAddeG4J9e6bqRd+H0H/mx3gAYd8+
-	 CGAkSDk7YlsxZXLi0yCdMivpTQUzIquIFlm2QT8+VHu4XNE8E2fFWYqxx1S20Ry17p
-	 WmMcSIWogeY2Uu1Gppxt6mmwjbPSGil5+hTpKK3UJm0/Poub821WFMZtWmNGPzAhmE
-	 R17rjA13cn9NA==
-Date: Sat, 21 Nov 2026 17:59:51 +0100
-From: Helge Deller <deller@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
-Subject: [GIT PULL] fbdev fixes for v7.4-rc4
-Message-ID: <awHOB8hdCRXVd--I@carbonx1>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BdeUELnF
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=120vruIvVuVMsi4eadSo5mQWHm7BqnKtIE9tM2dix/Y=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795280539; v=1; x=1795885339;
+ b=BdeUELnFusdi4TW9ZcGg2IqmMKk+d2Lx+lb15psooUk/UHZRLaRFZHQAKz7A3vAYT39yaa7s
+ xSiAlEk6skdrxvRoG+dnpjUlpMu1f5zECSw6No1SkbS6Opvr6igsAVgSIbbuAQ/fvUU8DBZbOmU
+ XFB2QttYodDmae0e4merQxus=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 66ce02f06bdb1801;
+	Sat, 21 Nov 2026 17:02:19 +0000
+X-Mizu-Trace-ID: 66ce02f06bdb1801
+X-Migadu-Flow: FLOW_OUT
+Date: Sat, 21 Nov 2026 18:01:46 +0100
+From: Andrew Jones <andrew.jones@linux.dev>
+To: Gong Shuai <gong.shuai@sanechips.com.cn>
+Cc: andrew.jones@oss.qualcomm.com, anup@brainfault.org, 
+	atish.patra@linux.dev, fangyu.yu@linux.alibaba.com, iommu@lists.linux.dev, 
+	jgg@nvidia.com, jgg@ziepe.ca, joro@8bytes.org, kvm-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	palmer@dabbelt.com, pjw@kernel.org, robin.murphy@arm.com, tglx@kernel.org, 
+	tomasz.jeznach@linux.dev, will@kernel.org, zhangzhanpeng.jasper@bytedance.com, 
+	zong.li@sifive.com, gsh517025@gmail.com
+Subject: Re: [RFC PATCH v3 04/14] iommu/riscv: Reject live S2 replacement
+ with forwarded IRQs
+Message-ID: <awHLO6bWYw5V0k4p@orel>
+References: <20260928143113.49838-5-andrew.jones@oss.qualcomm.com>
+ <202610090914.6999EfSj006317@mse-fl1.zte.com.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,81 +72,98 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <202610090914.6999EfSj006317@mse-fl1.zte.com.cn>
 
-Dear Linus,
+On Fri, Oct 09, 2026 at 05:05:30PM +0800, Gong Shuai wrote:
+> Hi Drew,
+> 
+> > MSI forwarding state is tied to the S2 domain MSI table. Replacing a
+> > device's S2 domain while one of its IRQs is forwarded would leave the
+> > IRQ state referring to the detached table.
+> > 
+> > Reject direct S2-to-S2 replacement when the moving device has forwarded
+> > IRQs. Introduce a per-device nr_forwarded_irqs counter, rather than
+> > domain-wide accounting, so other devices in the same IOMMU group can
+> > still move and can be rolled back if a later device fails.
+> > 
+> > Later patches which introduce interrupt remapping support will manage
+> > the newly introduced nr_forwarded_irqs counter.
+> > 
+> > Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
+> > ---
+> >  drivers/iommu/riscv/iommu.c | 36 ++++++++++++++++++++++++++++++++++++
+> >  1 file changed, 36 insertions(+)
+> > 
+> > diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> > index 57f2884dec42..d48667112cd9 100644
+> > --- a/drivers/iommu/riscv/iommu.c
+> > +++ b/drivers/iommu/riscv/iommu.c
+> > @@ -872,6 +872,7 @@ PT_IOMMU_CHECK_DOMAIN(struct riscv_iommu_domain, riscvpt.iommu, domain);
+> >  /* Private IOMMU data for managed devices, dev_iommu_priv_* */
+> >  struct riscv_iommu_info {
+> >  	struct riscv_iommu_domain *domain;
+> > +	unsigned int nr_forwarded_irqs;
+> >  };
+> >  
+> >  static struct riscv_iommu_msi_table *riscv_iommu_domain_msi_table(struct iommu_domain *iommu_domain)
+> > @@ -1432,6 +1433,36 @@ static int riscv_iommu_msi_table_alloc(struct riscv_iommu_domain *domain,
+> >  	return 0;
+> >  }
+> >  
+> > +static bool riscv_iommu_can_attach_paging_domain(struct iommu_domain *iommu_domain,
+> > +						 struct device *dev,
+> > +						 struct iommu_domain *old)
+> > +{
+> > +	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
+> > +	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
+> > +	bool new_is_s2 = domain->gscid;
+> > +	struct riscv_iommu_msi_table *new_msi_table, *old_msi_table;
+> > +
+> > +	if (iommu_domain == old)
+> > +		return true;
+> > +
+> > +	new_msi_table = riscv_iommu_domain_msi_table(iommu_domain);
+> > +	old_msi_table = riscv_iommu_domain_msi_table(old);
+> > +
+> > +	if (new_msi_table)
+> > +		lockdep_assert_held(&new_msi_table->lock);
+> > +	if (old_msi_table)
+> > +		lockdep_assert_held(&old_msi_table->lock);
+> > +
+> > +	/*
+> > +	 * Per-device accounting allows other devices in the same IOMMU group
+> > +	 * to move or roll back while this device has forwarded interrupts.
+> > +	 */
+> > +	if (new_is_s2 && old_msi_table && info->nr_forwarded_irqs)
+> 
+> This check might miss one case. old_msi_table comes from this
+> attach's old domain, so only a direct S2 to S2 swap is caught.
+> A device with live forwarded IRQs can still be moved to blocking
+> and then to a different S2 domain, and on that second attach old
+> is the blocking domain, so old_msi_table is NULL and the check
+> passes. This is only from reading the code, I have no test program
+> that triggers it.
+> 
+> If you think this is a real gap, one idea would be to record the
+> table the forwarding was set up on in riscv_iommu_info(a pointer to
+> riscv_iommu_msi_table), set when the first IRQ of the device is
+> forwarded and cleared when the last one is unforwarded. The pointer
+> survives the blocking hop, since attaching to blocking domain only
+> clears info->domain. Then can_attach here will reject when the new
+> domain's table differs from it. That covers both the direct and the
+> blocking case, and the PCI reset path still works because the device
+> returns to the same S2 domain. The unforward path can use the pointer
+> instead of info->domain. Note that the S2 domain owning the table
+> must not be freed while a device still points at that table.
+> 
 
-please pull some more fbdev fixes for kernel v7.4-rc4.
+Hi Shuai,
 
-Thanks!
-Helge
+Yes, this is a gap and I agree we should track and check the association
+for the fix. For v4, I'm looking at moving the MSI table configuration
+into a VM-wide object which S2 domains reference, similar to GICv4's
+its_vm. The recorded pointer would then be to that object, which the
+hypervisor keeps alive until every forward is undone.
 
-----------------------------------------------------------------
-The following changes since commit 7475ea8b58616b33c04afb976cf0fbaad9dd63fb:
-
-  Linux 7.4-rc2 (2026-11-08 16:22:20 -0800)
-
-are available in the Git repository at:
-
-  http://git.kernel.org/pub/scm/linux/kernel/git/deller/linux-fbdev.git tags/fbdev-for-7.4-rc4
-
-for you to fetch changes up to b3f1631d362539cfe14571ccfd7db919ffbc08c7:
-
-  fbdev: radeonfb: reject a zero pixclock in radeonfb_check_var() (2026-11-19 17:57:11 +0100)
-
-----------------------------------------------------------------
-fbdev fixes for 7.4-rc4:
-
-Various small fixes, all scheduled for backport, which fix out-of-bound
-accesses, improves the parameter checks or fix use-after-free accesses in
-fm2fb, radeonfb, cobalt_lcdfb, valkyriefb, sstfb.
-vgacon now falls back to the dummy console if mapping the VGA memory
-fails, which fixes a crash on Alpha, and fix one sleep-in-atomic-context
-bug which is triggered by the blinking cursor.
-
-----------------------------------------------------------------
-Jianqiang Zou (1):
-      fbdev: radeonfb: reject a zero pixclock in radeonfb_check_var()
-
-Matt Turner (1):
-      vgacon: Fall back to the dummy console if mapping VGA memory fails
-
-Miro Kropacek (1):
-      fbdev: atafb: Restrict SuperVidel handling to the Falcon
-
-Steffen A. Mork (1):
-      fbdev: fm2fb: Fix iomem access
-
-Suyuan Wang (1):
-      fbdev: cobalt_lcdfb: Don't read info after framebuffer_release()
-
-Tim Douglas (2):
-      fbdev: macmodes: compare the pixel clock of each candidate mode
-      fbdev: valkyriefb: keep the framebuffer mapping size fixed
-
-Weiming Shi (1):
-      fbdev: vfb: Validate framebuffer geometry and memory size
-
-Xue Haolin (1):
-      fbdev: sstfb: Error out if pixclock equals zero
-
-Yao Yiqi (1):
-      fbcon: Avoid cancel_delayed_work_sync() in atomic context
-
-YuanZhe Liu (3):
-      fbdev: smscufx: don't free registered framebuffer on probe error
-      fbdev: smscufx: keep the usb_device alive while ufx_data is in use
-      fbdev: smscufx: allocate the size advertised in smem_len
-
- drivers/video/console/vgacon.c        |  2 ++
- drivers/video/fbdev/atafb.c           | 18 ++++++++++-----
- drivers/video/fbdev/aty/radeon_base.c |  3 +++
- drivers/video/fbdev/cobalt_lcdfb.c    |  3 ++-
- drivers/video/fbdev/core/fbcon.c      | 41 ++++++++++++++++++++++++++++++-----
- drivers/video/fbdev/core/fbcon.h      |  1 +
- drivers/video/fbdev/fm2fb.c           |  2 +-
- drivers/video/fbdev/macmodes.c        |  2 +-
- drivers/video/fbdev/smscufx.c         | 26 +++++++++++++++++-----
- drivers/video/fbdev/sstfb.c           |  3 +++
- drivers/video/fbdev/valkyriefb.c      |  3 +--
- drivers/video/fbdev/vfb.c             | 18 +++++++++++++--
- 12 files changed, 99 insertions(+), 23 deletions(-)
+Thanks,
+drew
