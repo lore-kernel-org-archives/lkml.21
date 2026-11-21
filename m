@@ -1,54 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.192
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795296432;
-	b=wirZTk1lFTFWzjD+BLkimsMmY+mlnb1rubcsVrpwOJPFpD3ZjHQPnvjN3HNcNS7DSJF5
-	 l1mNSco6UNocrZRuMkE48VmRcN6ss/TAgIBrVqDx/tHQJgUzRwSOOGPtqToec9PPTmVv4
-	 uYTovU1qoADvreibi5WCdnO8EhLnEmXaf/zvQMIMWhTgJvJtrkwKcn7Q7QjjhazWW/nRx
-	 TN8Cn4kxcmfpCtw+qhsk/M799FYeysK9J5jkY7j8Ig+rwlr2fCVDJdZfBk7CqCDUtXkaT
-	 g/oQ0+jGoYDlrZjn10v4KaRY7NaQe72NXXihh3cM8tTVs6z2HvTPelyGTJRgIc2X8dQ==
+	t=1795296473;
+	b=YEWx2v5qkAdufxFjLLNeytYjrP4dsnyAk3iyHjV4tbvsogyV7aHi5mUAI8KBEnnqYT/s
+	 arpSccSgEE6iuuTbUuvlejNEN+0MuDjLqdYLA+AjaqqcSbvfLaCx+6ixEzk+OlfJth+KS
+	 LDK4IOW0PPhvNDgUiWob8yfQN+1eziDrq7PasxP4dWRfuLhNZ1JBXC2BZSSpWuUDjDR1I
+	 bHmDR+7SW4GejNwneUrTlAAzWs05Z80qPSWhAauK+mVRhoFM9OPL4pJBt0rIVIoS1hRfW
+	 BqBE1HCojmZy3h2T0iNJn+3a6n/d004p5QSJ82HAhdQtDB6ZGKgJG9Uvm1gU6cFEBBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795296432;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795296473;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=wTQhRjOCjFPLMuMZMUIfh4QWuDPBy9MWRjMzD2TViXQ=;
-	b=KLnCvlxT0vkDq8BIekPFBShlPNmvwuLHXYznenhgOql/idMNmLCW1R3M9f1L3iSJaZ2F
-	 J2nhqQKeEq9E3/OiXpHdKFGOQgL4A/eLC/ckeqaaObaJpEykihKhH/660n+m+grkCvN6l
-	 iDFV7HVbI7mtveX2ucI/zlHGgRCVKgFmzoG0Jivb7LByRKK1sB+tHmvW4hxmpy7tflFSS
-	 Hk7RQ/9/h5gVJp4EB0fq9kMAUH2jCReQ0TL2UkTo7NF8WCjBUMZ2StVyX24sGFlIUGh75
-	 Upvu+DA6Ewq/yqzuctUgorGF2QQjd1lvXDg+FBOKjM1WcbTVNtF9fEr/v7ooCN10r7w==
+	bh=8iFoRCsnLXiwnHCHjY4cuqwaLaLe2pBEmp7x1xjf4qc=;
+	b=0G4CWq7fUrbzI4MrulwsGxCXjvVwpuRelGeBmIg2vTUCLykvERzSBbLTmdbhIUorqe9u
+	 GMqz7QvpWDc0PXuZSUG2tJboILBM1VvU23hro6OP9LdnhQzWWIDnYLFtrpRVG1qWlmlZS
+	 rhGtMUJN39oSLesjEsnA6//8DXwrNocDYRvgKGsP2oLDIH909RXhr3KQ7OcwTE0HY6MpU
+	 G87bhhlfsPD0bYvtLcyAa9vZfrLMBEYWpijyAnnC4TkEKosM0fzklC15pLUo3wChPYXlO
+	 pN2bwMkg6poNQoivfxWFEz7y2qcUoxbrEwkVXl0qr/fdKTG2AENlurCelkrj8MXzMmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mHTXDwTh;
-	arc=none smtp.remote-ip=91.218.175.192
-Received: from mta0.migadu.com (out-192.mta0.migadu.com [91.218.175.192])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=al8q8kIV;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18325606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:27:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18325606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0094606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:27:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0094606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mHTXDwTh
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=3x2ckrVI3z3NW2CiWPXuClHX9YfabFhGAYUL/kc5S9Y=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795296428; v=1; x=1795901228;
- b=mHTXDwThfaWQ+Y/UjT8R4P7zqZZZ1HKtPhsuUa+YaNy+gLwv92kzqaTjRAKvANRRQL+32twq
- LXAUw9Gt4DkL9gdt3JQ3A0Qn78eUE+iSMcEAxc6kxksVMI6w2/OYQ/U5pHv/auN3FV8pT4LA9YP
- Nz9m0us4b/fpy2BpSN4eLR/g=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 79f3b7fd43fc4ced;
-	Sat, 21 Nov 2026 21:27:08 +0000
-X-Mizu-Trace-ID: 79f3b7fd43fc4ced
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <6462f655-303b-4df1-9ef0-b82bc482b55f@linux.dev>
-Date: Sat, 21 Nov 2026 13:27:01 -0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=al8q8kIV
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb77a462c6so23637565e9.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:27:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795296471; x=1795901271; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8iFoRCsnLXiwnHCHjY4cuqwaLaLe2pBEmp7x1xjf4qc=;
+        b=al8q8kIVCmw6MiMt65Iueza+XABxhPxX2xNL4nlblp71fgfW7crmFSA8Hp3q8CmhtF
+         DIM1fpexXucynuyKElHILyjLatX8my/uTR6lEvTpUWGmFBxAw45nsRNmF0ZJ6Gc4zLL6
+         58lE30ykrI7kQ5mKTQsiX9dvy92N+KI+an2nAkRwh66/tWiKXf/hSMykEJMMMHM/Ts32
+         fawEkD+1Md1nVfYU5hk4hcZ67G4hxrGxrgVvOZ1SXoLBekwtHtL9FefZKNEIII4YDaU1
+         wZEx6XmMfheqEiFvBim/U7PZ35vnAhHz2GdCd2z980XD1TzQ+o8fe3EsbROUnJWg66q1
+         4ysQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795296471; x=1795901271;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8iFoRCsnLXiwnHCHjY4cuqwaLaLe2pBEmp7x1xjf4qc=;
+        b=hFres0k9r0Ef4kQHM3+yhBaBVU57BVlWv9dTUnAbNDI9mNEQ/aG4pbCgbDg0wPd/M4
+         ncpKhWmSCroDoVJAzZvXNG0pBWfv9LEjBt6K0buyJXromTWn6sn2H+LVa2XMRLCTP6rg
+         rolbyxyf+DK4kN3Qi4Tue8OZHwZLkliQKI9RYGgj0iSn2fGBTzPD0HIj16e998zHO65C
+         7g/CXWcqPBsWt7fTgxrX/3YA+l9gJ8A3vpGgcj7A4NZzzIdBxbR67xb5Paz3uUPeBuqC
+         mc/QtE2fzDlmGUZlJSfHaVl5fut/cHiTO5W8qy0dpfquq5FHeY0FrfKwDYYa7EgJedXE
+         mtKw==
+X-Forwarded-Encrypted: i=1; AL+hErF5eJuHWkbWwo/ZBGHGSHlMtCpO0Rs+U5C/lTM1rz2/YqaSl2sydaP+GcS+2dmJ6bLlt+RLra3RBcrDC54=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9OCfc+pcjksiC8Dyka8RIDWSje5QMawasFpj24+cNSuv0lUUgz
+	p+sdoOukSJyKVZqcNxYnfhcHGqhHaHQTvrAiAq9simsYB0YmDoUk0CbL
+X-Gm-Gg: AZFdTZenNwQM9pNSkRPCxvcKPpkLtJXjsaoqgSLn2MICKrNR9Zu+sMzNbEdCBjCE90O
+	W5PiGFD8FotiS1L7NUSUPxpHp+W7i2NkYcMK9j/939Q8/mdeCpE9OYoxUlbD++d30Et9df/Cp7z
+	abR32Nx2KS/Q3OVCu1cPrpLClbJuBytD2goVbxJGjkn32Vj597uk8YxK2QpkPjqm1SsHnL6Tfdi
+	vnONxmdcYU3iTgFn6oRQZ7qznx4FObWN2gHqcXOB2y47SMYyDC7Xvp5R2EtiDUKLh2LqShzkpyp
+	8JyNTk+Mfdj/EGzv4o1hDv4DaaV5pw7e+eTkg1MSCM91qzl0ybg3JwCnc/xCj2tE9MP0eQCHSQu
+	lMS/Gj0BYCXIKJS1e746EkKATzr8drrPoPAZXaoMOw3tkmOlYw5xVXOEEnMAL0Xi/DU/oC2OGbV
+	ruXCXH0qUSd8Jf53BdyiVIx6WAW6hXCx9USd8t2T9zR/QsEPszaRpNPuiUgkWjVMWHcknWEJLtR
+	iuXTzwNS70Vm5cCwOyet4r/OFUVzsLm5rHQgrdI1BiS4hSQYftgjGVRCys6LdRsFuYhToqPW2ZI
+	XN3d+zkeoBpDTwbrmLFEEiaFEfKEqpZ6dh1/6UBOKl2jnRCpxpae59PWtTjrNvxHIrEdO1uo84M
+	LaZjgMhB4Chjw/oyRrMKTCQWlfK+pwxxnug4HiDn1envH2rDs9Yg=
+X-Received: by 2002:a05:600c:4e0b:b0:49e:65f2:db64 with SMTP id 5b1f17b1804b1-4bb887fb66cmr168468595e9.5.1795296471125;
+        Sat, 21 Nov 2026 13:27:51 -0800 (PST)
+Received: from Ansuel-XPS24.localdomain (host-87-17-253-173.retail.telecomitalia.it. [87.17.253.173])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b3a7sm255668955e9.3.2026.11.21.13.27.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 13:27:50 -0800 (PST)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Felix Fietkau <nbd@nbd.name>,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Christian Marangi <ansuelsmth@gmail.com>
+Subject: [PATCH v15 0/5] clk: add support for Airoha AN7583 clock
+Date: Sat, 21 Nov 2026 22:27:30 +0100
+Message-ID: <20261121212738.170775-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,129 +104,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] RDMA/rxe: reject ODP accesses that wrap the iova space
-To: Yiran Qiu <eritque-arcus@ikuyo.dev>, zyjzyj2000@gmail.com, jgg@ziepe.ca,
- leon@kernel.org, "yanjun.zhu@linux.dev" <yanjun.zhu@linux.dev>
-Cc: linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20261120060000.302440-1-eritque-arcus@ikuyo.dev>
-From: Zhu Yanjun <yanjun.zhu@linux.dev>
-In-Reply-To: <20261120060000.302440-1-eritque-arcus@ikuyo.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
+This small series introduce some cleanup and support for
+clock and reset of Airoha AN7583.
 
-在 2026/11/19 22:00, Yiran Qiu 写道:
-> rxe_check_pagefault() decides whether an ODP access needs a page fault
-> by walking its pages, and bounds the page index against the umem inside
-> that walk. When iova + length wraps past 2^64 the loop does not run, so
-> neither that bound nor the HMM_PFN_VALID and HMM_PFN_WRITE checks apply,
-> and no fault is taken. __rxe_odp_mr_copy() and the atomic write and
-> flush helpers then index map.pfn_list[] with (iova - ib_umem_start()) >>
-> page_shift, which the registrant controls: ib_uverbs_reg_mr() only
-> requires the MR's iova to share the page offset of the user address. The
-> entry read past pfn_list[] goes to hmm_pfn_to_page(), and that page is
-> copied to or from the peer.
->
-> rxe_check_pagefault() also keeps the index in an int, so an index of
-> 2^32 or more can be truncated to a value that passes the bound, while
-> the flush and atomic write helpers use the full unsigned long.
->
-> Reject a wrapping range in rxe_odp_map_range_and_lock(), before the
-> fault path, whose umem range check wraps the same way, and keep the
-> index in an unsigned long.
->
-> Found with afb-afl, an LLM-driven kernel audit/repro pipeline; the fix
-> and this changelog were also drafted with LLM assistance. Reproduced on
-> an unmodified KASAN build of mainline by an unprivileged user with a
-> self-connected rxe QP. An RDMA READ at the end of a two-page ODP MR
-> whose iova range ends at 2^64:
->
->    BUG: KASAN: slab-out-of-bounds in rxe_odp_mr_copy+0x35f/0x410
->    Read of size 8 at addr ffff8881037a2210 by task kworker/u16:0/13
->    The buggy address is located 0 bytes to the right of
->     allocated 16-byte region [ffff8881037a2200, ffff8881037a2210)
->    Oops: general protection fault, maybe for address 0xffff888103d0c04a: 0000 [#1] SMP KASAN NOPTI
->    RIP: 0010:memcpy+0xc/0x30
->
-> An ATOMIC WRITE to an MR whose iova is 2^44 above the umem start:
->
->    BUG: unable to handle page fault for address: ffffed11202b3194
->    RIP: 0010:rxe_odp_do_atomic_write+0x131/0x2f0
->
-> With this patch both are NAKed with no report, and an in-range READ and
-> ATOMIC WRITE return the same results as before. The wrap was not tried
-> on the flush path. The rdma-core v65.0 tests, ODP included, pass on rxe
-> with and without this patch.
->
-> Fixes: 2fae67ab63db ("RDMA/rxe: Add support for Send/Recv/Write/Read with ODP")
-> Cc: stable@vger.kernel.org # 6.15.x: 7797bbb0e86f: RDMA/rxe: bound the ODP page index against the umem in rxe_check_pagefault()
-> Signed-off-by: Yiran Qiu <eritque-arcus@ikuyo.dev>
-> ---
-> Tested on mainline 4405c18c95d2 (v7.4-rc3+) in QEMU. Applies to
-> rdma.git for-rc and for-next.
->
-> This completes commit 7797bbb0e86f, whose bound sits in the loop that
-> a wrapping range skips; stable trees need that commit first.
->
-> Without KASAN, an RDMA READ or WRITE at the end of the range reads or
-> overwrites a physical page the registrant chooses. On a lab kernel with
-> CONFIG_RANDOMIZE_BASE=n this was taken from an unprivileged user to
-> uid 0; with KASLR the chain also needs an address leak. The rxe link
-> has to be created by an administrator; the trigger needs only the
-> uverbs device. A reproducer and the test logs are available on request.
->
->   drivers/infiniband/sw/rxe/rxe_odp.c | 5 ++++-
->   1 file changed, 4 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/infiniband/sw/rxe/rxe_odp.c b/drivers/infiniband/sw/rxe/rxe_odp.c
-> index 9d27244f89bc..2ab64f128e57 100644
-> --- a/drivers/infiniband/sw/rxe/rxe_odp.c
-> +++ b/drivers/infiniband/sw/rxe/rxe_odp.c
-> @@ -125,7 +125,7 @@ static inline bool rxe_check_pagefault(struct ib_umem_odp *umem_odp, u64 iova,
->   	bool need_fault = false;
->   	u64 access = HMM_PFN_VALID;
->   	u64 addr;
-> -	int idx;
-> +	unsigned long idx;
->   
->   	if (write)
->   		access |= HMM_PFN_WRITE;
-> @@ -171,6 +171,9 @@ static int rxe_odp_map_range_and_lock(struct rxe_mr *mr, u64 iova, int length, u
->   	if (unlikely(length < 1))
->   		return -EINVAL;
->   
-> +	if (unlikely(iova + length < iova))
-> +		return -EFAULT;
+The implementation is similar to EN7581 but AN7583 introduce
+new reset and more clock divisor support.
 
-Using the followings instead of the above.
+Changes v15:
+- Fix num_clocks with new implementation for AN7583
 
-"
+Changes v14:
+- Fix wrong definition for chip-scu
+- Use scoped guard and guard API in reset
+- Rework for better num_clocks handling
+- Address some forma impovement suggested by Brian
 
-u64 end;
+Changes v13:
+- Use guard API
+- Drop spinlock on read operation
+- Use enabled/disabled now that they don't sleep anymore
+- Rebase on top of linux-next
 
-if (check_add_overflow(iova, (u64)length, &end))
+Changes v12:
+- Fix dereference on pcie early unprepare
 
-     return -EFAULT;
+Changes v11:
+- Move to global spinlock
+- Move pci ops to sleepable prepare/unprepare
 
-"
+Changes v10:
+- Fix whitespace in include patch
+- Add reset and phy cell as required
+- Add additional patch for devm variant
+- Add additional patch for lock for clock and reset access
 
-makes the 64-bit wrap-around check explicit and avoids ambiguity from 
-implicit integer promotions.
+Changes v9:
+- Fix compilation error for priv (again) (this time fixed)
 
-Except that, I am fine with this commit.
+Changes v8:
+- Add ACK tag by Connor
+- Fix missing priv->base assign
 
-Reviewed-by: Zhu Yanjun <yanjun.zhu@linux.dev>
+Changes v7:
+- Add further info for DT patch
+- Add serdes selection support
+- Rebase on top of linux-next
+  Link: https://lore.kernel.org/all/20261009070725.13196-1-ansuelsmth@gmail.com/
 
-Zhu Yanjun
+Changes v6:
+- Address bot suggestion for DT patch
+- Add further information on chip-scu phandle
+- Add dedicated PERSTOUT reset and PCIE_HB reset
+  Link: https://lore.kernel.org/all/20260819221458.30040-1-ansuelsmth@gmail.com/
 
-> +
->   	mutex_lock(&umem_odp->umem_mutex);
->   
->   	need_fault = rxe_check_pagefault(umem_odp, iova, length, write);
+Changes v5:
+- Rebase on top of linux-next
+- Drop even more patch to reduce patch delta
+- Make chip-scu specific to AN7583
+  Link: https://lore.kernel.org/all/20260528190000.9164-1-ansuelsmth@gmail.com
+
+Changes v4:
+- Add review tag for DT patch
+- Fix clock patch to use en7581-chip-scu compatible
+- Drop PCIE SCU SSR write
+
+Changes v3:
+- Drop .set_rate patch (will be proposed later)
+- Drop chip-scu binding and related patch
+  Link: https://lore.kernel.org/all/20251106195935.1767696-1-ansuelsmth@gmail.com
+
+Changes v2:
+- Add .set_rate support
+- Rework DT to EN7581 implementation (clock driver is parent)
+- Add additional cleanup patch
+- Merge binding with schema patch
+- Add chip_scu phandle
+
+Christian Marangi (5):
+  dt-bindings: clock: airoha: Document support for AN7583 clock
+  clk: en7523: use devm variant for clk_hw_register and fixed clock
+  clk: en7523: protect concurrent access to reset and PCI register
+  clk: en7523: generalize register clocks function
+  clk: en7523: add support for Airoha AN7583 clock
+
+ .../bindings/clock/airoha,en7523-scu.yaml     |  26 ++
+ drivers/clk/clk-en7523.c                      | 389 ++++++++++++++++--
+ include/dt-bindings/clock/en7523-clk.h        |   3 +
+ .../dt-bindings/reset/airoha,an7583-reset.h   |  65 +++
+ 4 files changed, 447 insertions(+), 36 deletions(-)
+ create mode 100644 include/dt-bindings/reset/airoha,an7583-reset.h
 
 -- 
-Best Regards,
-Yanjun.Zhu
+2.55.0
 
