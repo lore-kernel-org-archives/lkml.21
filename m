@@ -1,78 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795246862;
-	b=m0FlJu2ZLTuLoJ+1wEk6VY7BF7Jsy/3zA47DACDgiYBhb2Rh7lMDH/LBfIAJ+RmEu+vO
-	 l41gr5vzIXAufD/X849Y78M7PlK2q8L8OziRYqfZarAxEe2KfN0X+HI1KPjpNbpvCDdI9
-	 MPT4gbU/zFuBv/nRNWePQ2722j4wQ0ARZCKRKcrZCJICsr3/pzfQHmc05k/LursUW0sbw
-	 Tp/SJUEMuydsDDCFTkgD08IJVZM4iuasILfswTWBvbDg95B9uHY5GzB1m5Q5Pyqp4QCaH
-	 NU3fMBBF9uocVHpIk4R1eKSNYQtNVWwN5Qlh8OB64aoMSx4F7N3OGZ5r2lAqJnc7l1Q==
+	t=1795246858;
+	b=UaBwNpCk8IG38FdoRNKsntnuMFt+21zg6cZ0OQ6zsn0/20Nrdw1UwHBsOO+QaxVsMIke
+	 rwJAEOz9fGooqxHXpf4rNd9zRqi22b1nYDSIhtSwLV0E47/o7jedcbLU0OsWVcpv3Ninc
+	 INdYl6MU6FrX8fvjj/55ggRcWuNeqQ7GW3b1UegdEb7sSp/7XxGP3JYQxMYk+z+vAmp2g
+	 0QsjpKFyLtq5ySiIye/rTcfk9H1Hnvd+L/Tibn9gSwPYKWEbjTQD/8YYFkxvwTvR8fe/U
+	 0pbZXCTtIWafAG30R4e9IgzymatQdJp85xTiaIApmQoDZd0XHxkpiLEgi5BvQi0njVA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795246862;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795246858;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
 	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
 	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=knBV86Q5FiXjXVG2W+ZEgSUEQlgIpJm2XykazWaZvzY=;
-	b=0+ztdZkFjrsccu5+ImQKB8zHRuW3lVBX25gCi5LiOhIdbt+gILYxxS9QKeCT5rfovIEb
-	 1QCSoXjUWwf73KBE/yTrf+LmEw0LFZ/qkZaBaen7a5DHDbWomxyhn/Vp9LC1MQUVGjpzI
-	 IpbT0TX4zOjWk4xMinZF8nnFpQGk9mOFsbPtz8TjynqLqVKaYZT+qjvgN8S9fsm2i3HSf
-	 DYftUAVDojzIq23tnbBGtnCGyKVSkElLjHxfSe4nolBEnj2heBBfugDruLi8FJJ+wU/Ez
-	 GfI5EEjwCfVVXO7yvqOFtJL8LS+4gDbU3/Y0vtHu3DsqgCEqIFNxNHCa1oVYV8jMCpQ==
+	bh=xTal5ga/GuUlZ1OXm8uu1wgssnVvijP3/pLDN+JzAVQ=;
+	b=gf1d5FYuW8X0IVBs3sPhU7rzYG6n7QkVewnzXqs3Anpxgff7nEihLazWJLPO537KKVDj
+	 kH49muTvt35ODoiOVUI4KI5pxQvwDo8EXGuoKDNPz6fncaM0xceAz/lmH+eWnsco4uTzc
+	 nOjEOv+dqPcuUfUXYUMQugKErw3sy0mZUnkU4qXOpkbxZgPNbjB1I1/Hnel41SAvbFSiW
+	 gOtjJsmCWlsFZ1ONBoM9Qn4qWLuMuR1hBXLZvICIi6qERHvpITQ56Sb6PJAwSFNlgguY/
+	 t8+Bb7F91TOVZ1uS+PARCk7Jw+xX7KT8RrfreKNiVzus1E0eaQMdtq3P36p5th00gGA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BAW5ntxr;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LoNvNfMH;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8870606A680;
-	Sat, 21 Nov 2026 07:41:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9E15606A68E;
+	Sat, 21 Nov 2026 07:40:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BAW5ntxr
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LoNvNfMH
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795246861;
-	b=NKHwadUQ1dcymoFGjCAKW/YcaYGTADsJRsl/c+9F0Pbv77RJnpwAK6zv9tExvS/2U6Pw
-	 1Tr5dpgTL3OrsLX+LYKyQzLlrcTqCNJkDi3NhwPMlUowkWNaLIlZYRN8XHgSzCQy/LzmZ
-	 m9024udJfIKZClaHlipU1lMCLsk2hkeu/AXhTSmUGbXK9zsd86biidWMjGM5UbUyNCo9W
-	 sCgQfsFoQLaw3VOSutQXmexV3yh+rRwPkW4LqKi2nROPhMnMLPS50mt/oDED26FtvrGA2
-	 yvDPk9n1Q+WX99rJ3lJx8XvORBQ/1Qlp7YWyQALkfGfvd3Q8PWSjxXA+jQjWdcIqq7g==
+	t=1795246858;
+	b=eoNU/iq1cYMgwQ2R2z0Ijfa+hepndE+nFqb0OIeApgBQDA/HAet+lYNZzh0IfRrOOyXn
+	 JG9sPNe14s1QcH/5CABQwl/yqhl+W6uLpJuQ2FI5FekGbJHY+os9OXiQ/9A2z15f1ppU1
+	 we67twVmP1dybT4imtrtlh6LJKZQUbgfBXEAiBYPR1rEO+nTLsRNvmLqsqaA5h7ngsMb+
+	 iC3pVXBmHdpJIEO7SAkQRSUx5jzOlonVhKVPztbpwwBS9jyH9HCb3yWyqXDyUcHBQOpV9
+	 dIixDca2+MG4bQ/TOyiqpM+aUPY31wxutWEaPYNBMX50kfw2EOO1C/RD0Vcv7AKJ+bQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795246861;
+	c=relaxed/relaxed; t=1795246858;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To;
-	bh=knBV86Q5FiXjXVG2W+ZEgSUEQlgIpJm2XykazWaZvzY=;
-	b=tTb0PDtUwe28QgrlCUyf2/jani9UOHRShXsQJy8luGSMB02/vqMZJ4YUK42FQ42TOTto
-	 QJcGWJo+uyuhnjRCDi3y57H5fxwlOFsPUKh17gNVqUgD86dR+2s0TKqeEQrZ0Lzjrtp7s
-	 wyz/P997kDQr+I7KTB7oFzE1cpWrAeF4L1F5piOjOjHXylqIK6gWGIUKqfyCWt58wWPI7
-	 ho31L0EQCCd8A3MOPAtYeGI8nlF/IZOO0At6CY8Usph1aOiz7aUTMJ1CW56jlen5wSIAO
-	 4lPSzmqYp8WzK0+4aoReRg00zuGohP3muizz0AfoSNiOBm6MdTqPjt0dQEzjFHDl2jQ==
+	bh=xTal5ga/GuUlZ1OXm8uu1wgssnVvijP3/pLDN+JzAVQ=;
+	b=wOBXsbPfsTkFM+t6wsqMLZcwqzb12LLRLPn6LXWQO18II8RZvgHBUcmtBZaYU9buI/Jl
+	 gpdht1IwMaVMZcZjxvUNnAiQ7W6WQtqhRDH7TaTwsDZOWJn3gkHCl2ktZ8oikNnhmhy8H
+	 +6lEe37Ujx7h6EsVCG4QWnpi6OercMP2aWHErFXBWgqI+lVVZHuU1G2F7YlyM7clPpXjI
+	 ppKa8gGw3fZPARPmAuWkcWE4MH/VLfhccbYMDG7S06aqaueCKiNnh+4axoHAvYsdKZw2m
+	 cJiAhCnQrO6YK1+yzP7LPatfDYfM0ZyiPKZRaGRIOmSraHJn4or1x3G5g6jIRrSrYyA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 1318B1F00A03;
+	by smtp.kernel.org (Postfix) with ESMTPS id 0F8CF1F000D3;
 	Sat, 21 Nov 2026 07:40:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795246861;
-	bh=knBV86Q5FiXjXVG2W+ZEgSUEQlgIpJm2XykazWaZvzY=;
+	s=k20260515; t=1795246858;
+	bh=xTal5ga/GuUlZ1OXm8uu1wgssnVvijP3/pLDN+JzAVQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=BAW5ntxrJOUwGpzLIgx2G+o09j4tLmctXwK98DJFK1dMyWYeHYLEzSs7qBQc/SX6w
-	 dylb1og4aZIQT/BhhdVDwSVGtLUd0ddsnQkE2lHGxWF/ZyV46XS/leg5tlFgMpa4rO
-	 cg8EXGme4ooiD7IJDMa3vpWKRC8C+3V2X+wAJbxtoQOrgIFTlfemNPz4XazPbeYB/Q
-	 PK8nOZdytr32pkBohPo1uO+LWf+Hl4Um0ajWqvfqKHj6sECWDJrwXvEL4JKmE3WkqY
-	 TlPqqlNdeCqmigq3D3M+8fBn32eVy/dPxpn0flkLaRg1ClerM/RKsnafpRmGYbcbUD
-	 jolYL5xH+SLvA==
+	b=LoNvNfMHWZTmBHF7WjtEkVrJGW2/aJ/IUsSd7qhwyxqEN+m1/ezl/lDH7XE94+0Fp
+	 qpwyVKocRSx78K7u79b7ALM8m18Sp0ssCDIEXbJYbqSxvWq3hHGZ7mxftXCpDspB/c
+	 CHW7wFqwWCX8WWXocjjCFNd8srxG1XF7K1gsd70uYm2KBRWer3KIiRvW27nKZu96XP
+	 LN7gD6tw4r4CXseZYWSD0vhoRfI5bgWV555XC2TOG4ZIeoJrjte7aS+IPTSEutaEDJ
+	 1qK32lIBnF5XjA1NBnNrYLt9+4M+ZGjHA+N4otK03Q3rTj+Im8vX0FyndXHVWCMjQm
+	 CT9N2GYQBvwig==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 1CAC54BB87;
+	by lkml.kernel.org (Postfix) with ESMTP id 0394A4BB83;
 	Sat, 21 Nov 2026 07:40:52 +0000 (UTC)
 From: Cody Kang via B4 Relay <devnull+codykang.hk.gmail.com@kernel.org>
-Date: Sat, 21 Nov 2026 15:40:55 +0800
-Subject: [PATCH v3 16/17] riscv: dts: spacemit: k3-com260-ifx: enable the
+Date: Sat, 21 Nov 2026 15:40:54 +0800
+Subject: [PATCH v3 15/17] riscv: dts: spacemit: k3-pico-itx: enable the
  DisplayPort output
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -85,7 +85,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261121-k3-display-v3-16-ec419e8e96b8@gmail.com>
+Message-Id: <20261121-k3-display-v3-15-ec419e8e96b8@gmail.com>
 References: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
 In-Reply-To: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
 To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
@@ -111,11 +111,11 @@ Cc: Cody Kang <codykang@vsit.ai>, dri-devel@lists.freedesktop.org,
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
  linux-phy@lists.infradead.org, linux-clk@vger.kernel.org
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795246844; l=2262;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795246844; l=2008;
  i=codykang.hk@gmail.com; s=codykang; h=from:subject:message-id;
- bh=E78ySXuc7cskakorLvfTKi4q+Aj5tLnVas7172iViS8=;
- b=+l50UcVZTidzyMw5IfVtxsgruvr+qucZeTZdrIakHSuASGpLlWMuz53votn1rMk41mdq+AJcS
- Tip6sDvTE3vAA6fbTQP9FnGI+FyOl3lltKHH3tbERd4D25Yn9IX64lU
+ bh=MoqCFqqlUXTvshGeYEd8HbhhAB7iUB4488Rgem2ZH74=;
+ b=AB0I96oNgFVfRozLOxYB2bk3Z8WxUwp8/VeoyxhlP6U/hW7FFRPg2UcHllruGl8ucRYfDzD5U
+ IHiLflbIWRNDabyyChOBgNOaCVnYCHYptoRN3ZihzPh5WceQcqfTLJR
 X-Developer-Key: i=codykang.hk@gmail.com; a=ed25519;
  pk=Osn6/cs9Su/mHHw4P19cmVc3v2FMQfiWahjsN0vEkuk=
 X-Endpoint-Received: by B4 Relay for codykang.hk@gmail.com/codykang with
@@ -125,56 +125,39 @@ Reply-To: codykang.hk@gmail.com
 
 From: Cody Kang <codykang@vsit.ai>
 
-CoM260-IFX carries a single DisplayPort output. Enable the second DPU
-and the DisplayPort controller it feeds.
+Pico-ITX brings the second DPU's output to a USB Type-C receptacle,
+as DisplayPort alternate mode. The mux and the PD controller in
+front of the receptacle are run by the on-board EC and the SoC only
+gets the HPD line back, so there is no connector node to link the
+output to. Enable that DPU and the DisplayPort controller it feeds.
 
 Signed-off-by: Cody Kang <codykang@vsit.ai>
 
 ---
 v3:
-- describe the HPD pad at the 1.8 V it runs at
-- commit message: reworded
+- commit message: the output is the Type-C receptacle's DP alternate
+  mode, not a DisplayPort connector (Icenowy Zheng)
 v2:
-- describe the DP receptacle (dp-connector) and link it to dp1 port@1
-  (Rob Herring, on patch 03)
+- no change
 ---
- arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts | 27 ++++++++++++++++++++++++++
- arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi   | 11 +++++++++++
- 2 files changed, 38 insertions(+)
+ arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 11 +++++++++++
+ arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi | 11 +++++++++++
+ 2 files changed, 22 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
-index fadcf28389be9..321715d455865 100644
---- a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
-+++ b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+index dda420900aa2c..da042d7c30328 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
++++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
 @@ -6,6 +6,7 @@
- #include <dt-bindings/phy/phy.h>
+ #include <dt-bindings/gpio/gpio.h>
  
- #include "k3-com260.dtsi"
+ #include "k3.dtsi"
 +#include "k3-display.dtsi"
+ #include "k3-pinctrl.dtsi"
  
  / {
- 	model = "SpacemiT K3 CoM260 IFX";
-@@ -20,6 +21,18 @@ chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
- 
-+	connector {
-+		compatible = "dp-connector";
-+		label = "DP1";
-+		type = "full-size";
-+
-+		port {
-+			dp1_connector_in: endpoint {
-+				remote-endpoint = <&dp1_out>;
-+			};
-+		};
-+	};
-+
- 	reg_hub_5v: regulator-usb3-hub-5v {
- 		compatible = "regulator-fixed";
- 		regulator-name = "USB30_HUB";
-@@ -129,3 +142,17 @@ &sdhci0 {
- 	sd-uhs-sdr104;
+@@ -368,3 +369,13 @@ &usb3d {
+ 	phy-names = "usb2-phy", "usb3-phy";
  	status = "okay";
  };
 +
@@ -184,29 +167,25 @@ index fadcf28389be9..321715d455865 100644
 +
 +&dp1 {
 +	pinctrl-names = "default";
-+	pinctrl-0 = <&dp1_3_cfg>;
++	pinctrl-0 = <&dp1_1_cfg>;
 +	status = "okay";
 +};
-+
-+&dp1_out {
-+	remote-endpoint = <&dp1_connector_in>;
-+};
 diff --git a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-index a3188ca0ceb36..ea88ec95b9136 100644
+index cb4f4f4e33aff..a3188ca0ceb36 100644
 --- a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
 +++ b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-@@ -22,6 +22,17 @@ dp1-pins {
- 		};
- 	};
+@@ -11,6 +11,17 @@
+ #define K3_GPIO(x)	(x / 32) (x % 32)
  
+ &pinctrl {
 +	/omit-if-no-ref/
-+	dp1_3_cfg: dp1-3-cfg {
++	dp1_1_cfg: dp1-1-cfg {
 +		dp1-pins {
-+			pinmux = <K3_PADCONF(72, 4)>;	/* dp1 hpd */
++			pinmux = <K3_PADCONF(24, 6)>;	/* dp1 hpd */
 +
 +			bias-disable;
 +			drive-strength = <25>;
-+			power-source = <1800>;
++			power-source = <3300>;
 +		};
 +	};
 +
