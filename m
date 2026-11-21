@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795295864;
-	b=qovaG4/rxu/iENdI8wgmoxQ+lWVuQQ1a1x2LM0Jt29v+ubznvx+1hizH1/gIrs1U6nxy
-	 NtKGrC5nlxAizO3ZQy3qYRU/vdzb7ibVMIT71763ZhUC3tdzckyrgcJ59D+ln/+wkpWlS
-	 1CEHpQVenjqweyNhDETbMn17Kq5otPhaW3ufvMGmMVVtutVG+tIZZPv+6nnukvqUWmybS
-	 2eR9FpFe+YMwfyUkoiEpIzm8xhH/lFtUMkgjyMrDPQhG/E7Rzj9FEep13KvBQS4eP59Ao
-	 CFwq9qrAd0nx/QsfRon5XAx5m4zZGHoebQFeOWx3YAIA3jzH3ycAKdyladUYhJX8RBg==
+	t=1795295858;
+	b=27WkOz3q4G7YAbuhXk/+4e8Tyf6LuCxdthCs82QfJaJUflS3B5MbsQA+VQQAxhp8/ngT
+	 pzomrxxi8iJq4azfqH1CwPLEQvsT2KYIr7bh+k6m04lPwmHLLem7C7wrPsL8z5Z2dIC1x
+	 hxj4KpRmCbCO11ICO1komN1SEnYz2xGM/bFH9Only6JgZl679Exc4KZWiE5JZ/HPzks1i
+	 Ck+yu5g7knTJWKjDn00RsUQRlaek+gQftm98dk+Q/KSzGzhALrBY9kyBaJAAFHgo9YtxC
+	 tNN+Tb7XeicsDbB1LBiSduyeQMFHL1/2fuhvRPh3nfHtfGZivMAUDqfdR5hHoKXGMhg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795295864;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795295858;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=tcvRTnOwn9O3TTbSJaDM4Da7hwCv/Q3I4UX7KXPCWZQ=;
-	b=wrmvZiukxOpw+SwFbHQxrC/cHvohNAvOPc33xqT4J6AQZ3seN87cL8aIl9iWRxT2I7D6
-	 D5QuacekTcmw+do++rlUi9Cz4qG1G1/skHG/D5jLukQql3aZ3BwrAaNGc2/Xvzv7e/VJi
-	 pHBxJnsYb+Gcx42//+KSKId9vPxPrX5ylllc2F1Hieql267IfZWHooBa/6kENOt+x4uum
-	 B5qgDA4tuxLrZeN+64m7O2DtYREcOQXiAxm4s8ZlD4ZlVgQsXbhEgU6wI63iqYa0s+plv
-	 5e7C6rUO/lR8IW1G1s7zEr43ktBvkiUnDRbOieenA6txUhjehM5B2Q+9+3N9ovvaJRA==
+	bh=ygaWC6fgtJ0AI6XqKUC+g0lmWjmeS9cByt38tmYUkoo=;
+	b=OneohYNGlT3x9aeezKfPSuls3agC2Aaoiu57VLL8dwIQW6zFUXD9CrZ829pKKcnOePLh
+	 nXYVrRYQ89gBvNEGpwJjlO4GDAG7z2i0LJIpqatNXupB79RP0hS3hnsTQA2JkpTjFPXfF
+	 cqYhvp+s+rUrWAtdmtYYKq9fm2HlCi9SA6ShrrU6uXr57qckc28p5jjAVD/4d6cLR0tKG
+	 JgaATAskirqHleJUhmi55RQ+4lab3W144j8L63CB5pTLemOHNQUu2AoWb9C0mjXsn3sPb
+	 oBf8e6QiT+Wa0+aae6YcZ8xEy00nOd6tiLjYClrcO8jwUzg4K1Dj3WfPE9uUwq9WITA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="GTJa/YqV";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YxLAt8xf;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5E70606A334;
-	Sat, 21 Nov 2026 21:17:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84234606A320;
+	Sat, 21 Nov 2026 21:17:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GTJa/YqV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B35B1F000CF;
-	Sat, 21 Nov 2026 21:17:42 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YxLAt8xf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86BA01F000C4;
+	Sat, 21 Nov 2026 21:17:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795295864;
-	bh=tcvRTnOwn9O3TTbSJaDM4Da7hwCv/Q3I4UX7KXPCWZQ=;
+	s=k20260515; t=1795295858;
+	bh=ygaWC6fgtJ0AI6XqKUC+g0lmWjmeS9cByt38tmYUkoo=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=GTJa/YqVEp4Gt0S+Fx0JQjrXfuKdmeejH3MqQfeQrJjiaONe+UCxzDKqJ6CSJGRFh
-	 OC/LyocHpo735f0ArPe438Y+fBXOnWNMaMSkJXgx/E7VUJEa/iX3Y/eOwynIAIuL7R
-	 xRvWoNnILZFElNfVAoyoayMrTCUEQ7fz1g8OuJNm9nHi+/gsV1i2nRZkyItzNEpjvV
-	 DL3mOvK5EDtbXb7Rj90JvpZKDXKbfm6sIWPiFE7HdcF/TXahV0cw82qa/eTWKrwynu
-	 9D4RMSAQ9J+GyPxwTR4rpqAmDMq26fijY79LBxG2NsVz8eSPJkBHvxfNJkn3loFzrg
-	 VqZBOpnRZEKEA==
-Subject: Re: [PATCH net v6 5/8] ipv6: icmpv6: don't quote decrypted payload in
- icmpv6 errors
+	b=YxLAt8xfR5Vy1T3842E1byod408YGAEvPTYO8bGB8k/Dk5SqMeKT9O+9sDAc7OVXn
+	 wm//mgLp6rGzxqRexTXiy/jwAthqJQkLwhCldUUvlpzMimgP0bmLSi7ZUpuCq06RaY
+	 CDbrQSQKcNq1Sa69s/0Qeh3oHoJq5VSMLhupZa/cfTVfZuJkoy3eHOm8TkdV4+w6W+
+	 /ttByNLZ/Hi7TRXXNYZD82Cw5c5irkrx9/p0NVo48TuwQZggqsuRIo4MNjPWj3CTJu
+	 9nOpA4DCbIOIJ9V1OsdxlndQGUdErg5EYeDjwJZ09u8bfDmT10CRK3mrjHtDONU17z
+	 mr9M9EOBV6T3w==
+Subject: Re: [PATCH net v6 1/8] net/mlx5e: ring the tx doorbell when an accel
+ offload drops a packet
 From: netdev-bot+sashiko@kernel.org
 To: toddfreed@meta.com
 Cc: netdev@vger.kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
@@ -54,11 +54,11 @@ Cc: netdev@vger.kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
  rrameshbabu@nvidia.com, sd@queasysnail.net, saeedm@nvidia.com,
  shuah@kernel.org, horms@kernel.org, tariqt@nvidia.com, weiwan@google.com,
  willemdebruijn.kernel@gmail.com, stable@vger.kernel.org
-Date: Sat, 21 Nov 2026 21:17:42 +0000
-Message-ID: <179529586258.3135.12190616828136497053@kernel.org>
-In-Reply-To: <20261117203137.804424-6-toddfreed@meta.com>
-References: <20261117203137.804424-6-toddfreed@meta.com>
-X-sashiko-severity: High
+Date: Sat, 21 Nov 2026 21:17:36 +0000
+Message-ID: <179529585606.3135.5694313033561024003@kernel.org>
+In-Reply-To: <20261117203137.804424-2-toddfreed@meta.com>
+References: <20261117203137.804424-2-toddfreed@meta.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -71,116 +71,111 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] The fix is incomplete on IPv6.
+- [Low] The new mlx5e_tx_check_stop() call in mlx5e_tx_flush()
+  (drivers/net/ethernet/mellanox/mlx5/core/en_tx.c:368) can count one…
 
 --
 
-ipv6: icmpv6: don't quote decrypted payload in icmpv6 errors
+net/mlx5e: ring the tx doorbell when an accel offload drops a packet
 
-This commit stops icmp6_send() from sending an error about a received skb
-that the device has decrypted (skb->decrypted). An error about a locally
-originated decrypted skb is still sent, but only if its route goes to a
-local address (RTF_LOCAL). This follows the earlier IPv4 patch for
-__icmp_send().
+When mlx5e_accel_tx_begin() drops an skb, this patch makes mlx5e_xmit()
+call mlx5e_tx_flush(). That closes any open mpwqe session, posts a nop
+and rings the doorbell that earlier xmit_more skbs had deferred. It also
+adds a stop_room check to mlx5e_tx_flush() after the nop is posted.
 
-> diff --git a/net/ipv6/icmp.c b/net/ipv6/icmp.c
-> index d8203ebad8827..574a42d279e03 100644
-> --- a/net/ipv6/icmp.c
-> +++ b/net/ipv6/icmp.c
-> @@ -778,6 +778,15 @@ void icmp6_send(struct sk_buff *skb, u8 type, u8 code, __u32 info,
->
->  	np = inet6_sk(sk);
->
-> +	/* Don't send parts of a decrypted skb onto the network, see
-> +	 * __icmp_send(): no error about a received skb. Before the rate
-> +	 * limit, so that such an error costs no credit. The check of a
-> +	 * locally originated skb below needs the route of the error, which
-> +	 * is looked up after the rate limit.
-> +	 */
-> +	if (unlikely(skb_is_decrypted(skb) && skb->skb_iif))
-> +		goto out_unlock;
-> +
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c
+> index 14479da98f427..006bf976def1a 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c
+> @@ -365,6 +365,7 @@ static void mlx5e_tx_flush(struct mlx5e_txqsq *sq)
+>  	};
+>  
+>  	wqe = mlx5e_post_nop(&sq->wq, sq->sqn, &sq->pc);
+> +	mlx5e_tx_check_stop(sq);
 
-[Severity: High]
-Does this cover the NDISC Redirect sent from ip6_forward()? That path also
-quotes the invoking packet, but it never goes through icmp6_send():
+[Severity: Low]
+Can this count a single queue stop twice in sq->stats->stopped?
 
-net/ipv6/ip6_output.c:ip6_forward() {
+mlx5e_tx_flush() starts with mlx5e_tx_mpwqe_ensure_complete(). If an
+MPWQE session is open, that goes into
+mlx5e_tx_mpwqe_session_complete(), which already runs a stop check:
+
+mlx5e_tx_mpwqe_session_complete() {
     ...
-	if (IP6CB(skb)->iif == dev->ifindex &&
-	    opt->srcrt == 0 && !skb_sec_path(skb)) {
-    ...
-		if (peer && inet_peer_xrlim_allow(peer, 1*HZ))
-			ndisc_send_redirect(skb, target);
+	sq->pc += wi->num_wqebbs;
+
+	session->wqe = NULL;
+
+	mlx5e_tx_check_stop(sq);
     ...
 }
 
-None of these conditions look at skb->decrypted. ndisc_send_redirect()
-then copies up to about 1200 bytes of the original packet into a new skb
-from ndisc_alloc_skb(), and that skb is not marked decrypted:
+If closing the session leaves less than sq->stop_room free, the queue
+is stopped and stopped is incremented. The nop then advances sq->pc by
+one more, so free room has only gone down, and the new check also
+fails. mlx5e_tx_check_stop() does not test whether the queue is
+already stopped:
 
-net/ipv6/ndisc.c:ndisc_send_redirect() {
-    ...
-	rd_len = min_t(unsigned int,
-		       IPV6_MIN_MTU - sizeof(struct ipv6hdr) - sizeof(*msg) - optlen,
-		       skb->len + 8);
-    ...
-	if (rd_len)
-		ndisc_fill_redirect_hdr_option(buff, skb, rd_len);
-
-	skb_dst_set(buff, dst);
-	ndisc_send_skb(buff, &ipv6_hdr(skb)->saddr, &saddr_buf);
-    ...
+mlx5e_tx_check_stop() {
+	if (unlikely(!mlx5e_wqc_has_room_for(&sq->wq, sq->cc, sq->pc, sq->stop_room))) {
+		netif_tx_stop_queue(sq->txq);
+		sq->stats->stopped++;
+	}
 }
 
-ndisc_fill_redirect_hdr_option() calls skb_copy_bits() starting at the
-network header of the original skb. The decrypted L3/L4/payload bytes
-would then go out in cleartext inside the Redirected Header option.
+When the nop completes, mlx5e_txqsq_wake() wakes the queue once and
+increments wake once. That leaves stopped one higher than wake. These
+counters are reported as the qstats tx stop/wake values and as
+tx_queue_stopped/tx_queue_wake in ethtool.
 
-sk_validate_xmit_skb() drops the forwarded packet itself ("unencrypted skb
-with no associated socket"). That leaves the redirect as the only way this
-plaintext gets out of the host.
+This can be reached from the new accel drop path below. It can also
+now be reached from the existing DMA error paths in
+mlx5e_sq_xmit_mpwqe() and mlx5e_sq_xmit_wqe(), since they call the same
+helper.
 
-On IPv4, the call chain ip_forward()->ip_rt_send_redirect()->icmp_send()->
-__icmp_send() reaches the check from the previous patch, because skb_iif
-is set. The commit message says:
+The PTP path in mlx5e_txwqe_complete() already avoids this:
 
-  as in the previous patch for icmp, don't send an error about a received
-  decrypted skb at all
+	if (!netif_tx_queue_stopped(sq->txq) &&
+	    mlx5e_ptpsq_metadata_freelist_empty(sq->ptpsq)) {
+		netif_tx_stop_queue(sq->txq);
+		sq->stats->stopped++;
+	}
 
-For redirects, though, IPv6 does not match IPv4. Nothing later in the
-series seems to change this.
+Would a similar netif_tx_queue_stopped() guard work here?
 
-As for how a decrypted skb gets to ip6_forward(): the mlx5 PSP RX decrypt
-rule in setup_fte_udp_psp() matches only on ip_protocol == IPPROTO_UDP and
-the UDP dport. It does not match on the destination address.
-mlx5e_psp_offload_handle_rx_skb() then sets skb->decrypted. With
-forwarding enabled, a PSP packet sent to a non-local IPv6 address would be
-decrypted and then forwarded.
+Only the statistics are affected. The queue still wakes when the nop
+completes, and no packets are lost. The normal mlx5e_xmit() path can
+already skew these counters the same way, through
+mlx5e_tx_mpwqe_ensure_complete() followed by mlx5e_txwqe_complete().
+Later patches in the series do not touch en_tx.c, so this is still
+present at the end of the series.
 
-kTLS RX offload can also produce a decrypted skb whose destination is no
-longer local. One example is when the local address is removed while the
-offload is still active.
+>  	mlx5e_notify_hw(&sq->wq, sq->pc, sq->uar_map, &wqe->ctrl);
+>  }
+>  
+> @@ -672,8 +673,13 @@ netdev_tx_t mlx5e_xmit(struct sk_buff *skb, struct net_device *dev)
+>  	}
+>  
+>  	/* May send SKBs and WQEs. */
+> -	if (unlikely(!mlx5e_accel_tx_begin(dev, sq, skb, &accel)))
+> +	if (unlikely(!mlx5e_accel_tx_begin(dev, sq, skb, &accel))) {
+> +		/* The skb was dropped: ring the doorbell which the previous
+> +		 * ones may have deferred to it
+> +		 */
+> +		mlx5e_tx_flush(sq);
+>  		return NETDEV_TX_OK;
+> +	}
 
-The !skb_sec_path() condition already keeps redirects from quoting frames
-decapsulated by IPsec. Would a similar skb_is_decrypted() check make sense,
-either in the redirect condition in ip6_forward() or in
-ndisc_send_redirect()?
-
->  	if (!icmpv6_xrlim_allow(sk, type, &fl6, apply_ratelimit))
->  		goto out_unlock;
->
+This is the new caller that reaches the double count above. It needs a
+PSP, IPsec, MACsec or kTLS drop while an MPWQE session is open and the
+SQ is close to full. The commit message says the next patch makes the
+PSP drop reachable from user space.
 
 [ ... ]
 
