@@ -1,90 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795262619;
-	b=0gXFlpG3fLBzNNI5zTOy8gR2Ahq9sWQDpkhcLirc/LimXeJDANS9VxbEwKUkVWddyhbQ
-	 oOkJi3JoGnwZGibdbgf9x2yyYOTTayqTlbTGSAftA6LLsiTEDLlD74WDz92pJonow1SqJ
-	 d131Bj5jpvgOtb+FthLz5QVaRD+u9e+FjIHOXKs7q6QexQt58ttbfDsJR80uiT4EhTAU9
-	 QYcPyFY1UiTQPl8OeyTE5U+6NmuNtW5anbpRQ+MVF9snAVikh2tusSio4qv2ZgkjIec1i
-	 b3iFDcex4i0J7YR/YbESTtDEVVC3gTUv4h2rIDzIwPr0sAakzPHbZrnBO0PAc+TRSwA==
+	t=1795262629;
+	b=sFOHTdMbYWo7fdgeQHLLS2bsbDTEJXMo7MNsYE6gWysTRZc2qOKzWzmbjRB1tDhWxqxq
+	 FjqcCtriPGhA1eZcwkFR02ws83yOH7lUmiGgciTbxqDJ8zJsxPLtj1XbujJWx3vTS+HyN
+	 HbXn3WNHkzSLWCaH7ixar0AMNiauL38Qce6aAhawEQZhhNtPnCKSy1s/FzkQAFEP64zE+
+	 Ugh9PkQ0cl03x2CKlRF1L18F6Sp0xgZSifzE77j3rQVRq8UnlPfpVmVmH0ulA/gVir0Gi
+	 Nf1Dj71ku6Bc0mfnyC/tLaAVZBmTIvkPIPqzR/KzJeW5S1FpFL31MsK3/LG3VIOq6Tg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795262619;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795262629;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=8S5/KqNfuIt27SJJNZdfEe4DOCxa4rr3UivWTDl1Z8Y=;
-	b=KoMHFaF1pWw2xujDOl1RbqUkOBIBEedu123DbTxoZjvPzbeM46jkn+3lEF3ib6KClCTc
-	 PI1D3r2OniNVB9pJu7aCuKxpwNya0vi56H15dXOvWOICMEmaK6KqXqi+FQIygiy7EMZgL
-	 /7cNnitylMVMLwjpeC3wYytN9H9BBGrauT//5YPk47mOHq24hBw7Kqf5LN0IUA9mjVxL4
-	 hKQiF43o6/MDC8tzOoDV/S9vrWtp+4AicKJhrw9f/49omMqXxOwRKkDUd2CKalcJaAb5f
-	 dvpsL7+uPKV8XoJQ/esspZg71VuN/ugGNNEVrPtg4RGXk/8UAulKcxJslH14/sW9Wpw==
+	bh=xlERfHkwv+Eq27YYXsuIGMemTUjwXXg/4bcGMx9ZKIs=;
+	b=MJyYyLuqo3lEXpr6f94U+PRyyNyHnwXmxzPgaG0TlyzVIwCTJNovt5aYPXLobCNNpCGo
+	 ezZUEN5gLDK2JQ/L6ZwXXBxlEwk5BPh9tT4T/u9hQQE4yYJv3M4YYSEnhA2lK6k3sRsZP
+	 b6lpsrsDyHZuclaF94DqiN2UwLEBM0u6hlKLP1W6Dw/SFOPULgfH94tJl6VWd4Fi+Ys/X
+	 O7IjYjQ4tpSMAxV+9xuC9VR8uFRdLXh/rTxhvN8STwzZksUifQnLXHyP9L+6tR3CRImQ+
+	 rOAa/leRzMReRm+Jlyrnw4IX6IPGubb8il7F7liZ8mzSzckwaOnqDxoW0QV00hnZtrA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nVihNDy8;
-	arc=none smtp.remote-ip=209.85.214.176
-Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gjK+S5Ua;
+	arc=none smtp.remote-ip=209.85.215.178
+Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com [209.85.215.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1578A606A32A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 12:03:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1578A606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75C57606A32C
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 12:03:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75C57606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nVihNDy8
-Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2e9e53d011eso14899435ad.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 04:03:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gjK+S5Ua
+Received: by mail-pg1-f178.google.com with SMTP id 41be03b00d2f7-cdadf7e248aso759699a12.3
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 04:03:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795262618; x=1795867418; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795262629; x=1795867429; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=8S5/KqNfuIt27SJJNZdfEe4DOCxa4rr3UivWTDl1Z8Y=;
-        b=nVihNDy87HH1roi01mqOIvZ3A0P1CyQdsBF5oW+nMAaJbFW29GlWliLncjPJfM36ML
-         CPLZ7TRrDufMD4vRRsQguJBPbSNNQNUPpRUnWSqwBRTetjMbfExEnvLA4xljAFDhd0KM
-         uMP3keTZLAXh1xAuOXhjbdnKStCqM/X34BTLq6m8u5931YiG0SpFKL4XYwo4LlOhG2R1
-         6jwtck+XLxot766E5D1oQ8Y0fCLHaXShxvoEINR1+ra0cVWVhzEsuccfFf8aG3YrSaNW
-         mnGVRcvYdr7bBJPlsso4WuJLbSAU++xJyBQwyU+7ZZBu8vx+MglChEYiY7QmQ6VyMeaf
-         jKvA==
+        bh=xlERfHkwv+Eq27YYXsuIGMemTUjwXXg/4bcGMx9ZKIs=;
+        b=gjK+S5Ua1jtiQGqKlMw4wr6DfWGqn0c6QBCz2tuauevl6W/3kSJ4jJIiTstdgUXrII
+         Chda75Z8Tubl+j6HqY0xof9G+q917nW8KCrPuYEuGV8j+oXiRIz9Xq32VCYzF29nQSgi
+         PHTFK3Lv6ofHoGNKyfIjXobRTpgy7aij47uG8W2uEdn4cBv7l53AwsLyAJ7osn5L9S54
+         4+Rcc0qNxUtURafdrwPfrE5owBYpKiE6kkChhvMMPGKXHAjiitpgZ9w06YDuxK4FJqhu
+         sNIMQKb+8ivxXe0MnlpdNzjUc9H3+kSJDDAmPiBmjrSd1Iz/otMsbix6rDo7NlrxWF4o
+         ruHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795262618; x=1795867418;
+        d=1e100.net; s=20260707; t=1795262629; x=1795867429;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=8S5/KqNfuIt27SJJNZdfEe4DOCxa4rr3UivWTDl1Z8Y=;
-        b=Bf1Q6KAkqJ0dNADpfySsw5okYKiMerHzwyfhpX/yCEytY0R3rv6GWoqBk9/GNK78K/
-         TBILu6WrRF+CFwVDqFM5prP1GIM873CfE/c3dEJ7l0U0UXSn4S/i9UcfWn/BibgOWAyf
-         Lwo0gSR3A7p9hgBrhBkozgM+vYXUjPvtSPnFJWLjtGOC7/1ELz/iIt91XsOlSdaHYPcV
-         c0Et8uUZlmSa4TrBKqFo/nPvS2OUCu3Th/rze5j1fNBJXJsZhiaTDHPvWbM2hS9LJ8pD
-         1mNZ4mS6XklhKe+fXqy7nabuXOp2A3O5KerLTdtQcd3911dTJuONLW8/mu1LlXTcYfmw
-         ljRQ==
-X-Forwarded-Encrypted: i=1; AL+hErFFSLc+0wj14j7h6UrQk7plyFu3yZWOYVPfP/Bf85oVeBJONgn/qNHBuAbo9lT1VaAx2qvpX9Vlr9bEUGo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+MQSRs++Bu6CeveBpBRQoaYEMS+jfTWFViObeuMTZusnL1YUqi
-	DPjRuqLI/aYtmL5N9llUC8aN4BAMQXbgheAcoe2DWvTm3VM8pPdo9UB0
-X-Gm-Gg: AZFdTZdM7mhjJ5K4NkJFmFEOWIq9iLFUKKbDpDwVtEtUtyN6a3nQgZpawJbd+paG/Lu
-	yt6uYkm/qmxYpJFuZVhKAOvKqNY9gd+ELmFVAC0WfkdDdJQmnpUESCbkS0psIXSPvXnkmGW5pIW
-	D+iXet6c7S47sfp2u0U/f0FsLReDf15PwCru4pwAV4a1x7gzOUnBsEJHq6MMPxC8kECYZKk/yRL
-	3FB0S+TNCqHAsqB7vbrQHzvYSgYh2OLNDudlD2x06V1Y171RyjiPQbZWIIJuzhf/0V5y/qj5YhU
-	tLxEkEh3KmmgcdLy7PqA1r/G3jCG1pAP8r0kb8KLWf06Abw5ek+p5QNvNZHX2q6fMIJMWk9E/2b
-	UTIVbuFF3azWeZ+WSnyPvlhEYLjE/psMU//hT+AWDjIXlYk65iuaooFZ80Zg8FkFhpSjW+pYsbz
-	+Rn5h91avy7c31YoltYHNk+Uf36F17Lmg5aA45SLeIR7bBTybJVfRniQlzeJ9sPK6YRWP4x3WWm
-	Waf1IZrwKrXixJL8yJ1ohCBjNtI7jjb8Wk+tfwJjmIUEERCoYJSZSRKnZxLJqYXIfii/nO6jomK
-	4+P2aqUJx4vSqGkecFnrkJNTNLFFN+L612EemgD8ig==
-X-Received: by 2002:a17:903:2b0f:b0:2ef:d981:9576 with SMTP id d9443c01a7336-2f03f181ee6mr61370735ad.54.1795262618383;
-        Sat, 21 Nov 2026 04:03:38 -0800 (PST)
+        bh=xlERfHkwv+Eq27YYXsuIGMemTUjwXXg/4bcGMx9ZKIs=;
+        b=kjcj8hVA89zZ7ljqhaX4RCOLxszvdDAZZTZNn9Y2OZVFpljwiU+NF/DtcntTO/+RLH
+         IyRXYJ1PHRRvmrQV45Hj7DWWKKySHB6W/7Ho0j/yF9CqF6YEB2HxJHW6+Zu8JI7s/8bz
+         zdgTcpU6v/UkBx3TGUVbTo3FIB+81DvM8HYBwJALxQYi6hjJb/hLP8zNAGntvcMl/lJ6
+         WpJiU4xJk6nQVnA6PeNiig5vLeCkqYPIJgzNOd0GhiSW1i53gBh8eNuQFSti7p2Zo9Zj
+         1JXxUHa0clDTtn1JK3lpwru4VID8y/aVME8c6QdznP+ZArH+SBLFiL8XZFGldlr1OERl
+         YjKA==
+X-Forwarded-Encrypted: i=1; AL+hErHazJS7XQ0rLz/zujtURSQp898PWpuqIg/xIflDR9/yVt4TpmfAss3Xboe9kw/I/I4luEzS57O9dFfNPds=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+XtVnb5JQAVpfiL0mQ912Hf9he6j4PxGytgcgRro/oW0Pu3Uoi
+	B/8oD9i+TGYuKlQc3xBux7Q/5VTrlpjt5kWuErDt6gM8hfkgz1LFkVIr
+X-Gm-Gg: AZFdTZfBNv4xHgZYaClLQUrJT2edxSVFw8c2sOfcTF6Su6gUiN+s7GPIJxsHZH3Cq/o
+	1j5lYNtCUVeOH7Vx0izczHj+OE8bNTCgdn3eGZWnqvazg+96dkgGc0iec53h6qgkeOHkjQWgpe6
+	dsIHwNBPsX58HI7PwzTtOhDT5y/iczqsJ0oybLJSxP6jenVboEU5uwpGuH6WYwOz9qufz1ECIEZ
+	HIPDpz00xFuwbCc03jYjKqN7o5iXRj9BLSuljEjDRPV5/6tUtX6whTs8RxsZ/JWCIRuBWaDhWrH
+	fU/01j3Abwj3Jwk1u9jNLgDBRpcQRoi/9TMkehaR3iE4vGygQsDW5ud9chPuWHZXqGayMlaOzG7
+	oahP52eyCljLLGkGDsKcU4cRE2Rlqc5YWap/0MQvxXFyvM5ZQAC+OfRm+69SWRB/BdLcOlrzIcK
+	cAdcrbrQIWWaJUqcyG6KGgoybb1iXKHo6tgsaMgex8EFddYt1tmA6ce8XFMdLQsp87Mf0ulQfjX
+	j/Pr/Xuk/E0gBqW9jpNPv2K9MkA9exbD1TMZEgzutnUQ5jxPYMx+y0KBzkH1km0g3IaB4sVVvPg
+	PlPfQi8nbZKKyeBePm4GlnxlUs+2nl2yMkUjdTKWaQ==
+X-Received: by 2002:a17:90b:4b85:b0:3ac:9d26:5532 with SMTP id 98e67ed59e1d1-3b41c7b5fa8mr6071117a91.3.1795262628636;
+        Sat, 21 Nov 2026 04:03:48 -0800 (PST)
 Received: from [127.0.1.1] ([220.196.193.21])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c2ab7sm25475535ad.15.2026.11.21.04.03.35
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb1b66sm8767549a91.1.2026.11.21.04.03.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 04:03:36 -0800 (PST)
+        Sat, 21 Nov 2026 04:03:48 -0800 (PST)
 From: Chaosheng Qu <chaosheng.qu.linux@gmail.com>
 To: linux-trace-kernel@vger.kernel.org
 Cc: Steven Rostedt <rostedt@goodmis.org>, Tomas Glozar <tglozar@redhat.com>, linux-kernel@vger.kernel.org
-Subject: [PATCH v4 1/2] rtla: handle SIGTERM during a run
+Subject: [PATCH v4 2/2] rtla/tests: cover cleanup on abnormal exits
 Date: Sat, 21 Nov 2026 20:03:22 +0800
-Message-ID: <328ecfadb98649f317985124b6b49bae2d356bcf.1795262546.git.chaosheng.qu.linux@gmail.com>
+Message-ID: <b52251473d0f5f87e7041d2d2de7a7db8319cff2.1795262546.git.chaosheng.qu.linux@gmail.com>
 In-Reply-To: <cover.1795262546.git.chaosheng.qu.linux@gmail.com>
 References: <cover.1795262546.git.chaosheng.qu.linux@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -99,41 +99,332 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
-rtla installs a handler for SIGINT, and for SIGALRM when a duration is
-given, but not for SIGTERM.  A run stopped by the system - a shutdown or
-a service manager - therefore dies without going through the cleanup
-path and leaves its tracefs instance behind, so the next invocation
-finds the instance name in use.
+rtla creates a tracefs instance for each run and removes it on the way
+out.  Nothing verifies that, and a leaked instance only shows up as a
+confusing failure of the next run.
 
-Install the same handler for SIGTERM, and restore the default
-disposition in unset_signals().
+Add a test for the paths users actually hit: SIGINT, SIGTERM, rtla's own
+-d timer, a failing --on-threshold action, and several interrupted runs
+followed by a normal one.  These need rtla running in the background
+while the test signals it, which engine.sh's check() cannot express, so
+cleanup.t drives a helper script and emits TAP itself.
 
-Fixes: 2f3172f9dd58 ("tools/rtla: Consolidate code between osnoise/timerlat and hist/top")
+The instance directory is created before set_signals() runs, so the
+helper waits until /proc/<pid>/status reports SIGTERM in SigCgt before it
+signals; waiting for the directory alone races startup.
+
+The test needs root, tracefs and CONFIG_OSNOISE_TRACER, and skips when
+tracefs is not writable.
+
 Signed-off-by: Chaosheng Qu <chaosheng.qu.linux@gmail.com>
 ---
- tools/tracing/rtla/src/common.c | 2 ++
- 1 file changed, 2 insertions(+)
+ tools/tracing/rtla/tests/cleanup.t            |  70 ++++++
+ .../rtla/tests/scripts/check-cleanup.sh       | 219 ++++++++++++++++++
+ 2 files changed, 289 insertions(+)
+ create mode 100644 tools/tracing/rtla/tests/cleanup.t
+ create mode 100755 tools/tracing/rtla/tests/scripts/check-cleanup.sh
 
-diff --git a/tools/tracing/rtla/src/common.c b/tools/tracing/rtla/src/common.c
-index 8c7f5e75b..b86a60076 100644
---- a/tools/tracing/rtla/src/common.c
-+++ b/tools/tracing/rtla/src/common.c
-@@ -39,6 +39,7 @@ static void stop_trace(int sig)
- static void set_signals(struct common_params *params)
- {
- 	signal(SIGINT, stop_trace);
-+	signal(SIGTERM, stop_trace);
- 	if (params->duration) {
- 		signal(SIGALRM, stop_trace);
- 		alarm(params->duration);
-@@ -51,6 +52,7 @@ static void set_signals(struct common_params *params)
- static void unset_signals(struct common_params *params)
- {
- 	signal(SIGINT, SIG_DFL);
-+	signal(SIGTERM, SIG_DFL);
- 	if (params->duration) {
- 		alarm(0);
- 		signal(SIGALRM, SIG_DFL);
+diff --git a/tools/tracing/rtla/tests/cleanup.t b/tools/tracing/rtla/tests/cleanup.t
+new file mode 100644
+index 000000000..176b1a96f
+--- /dev/null
++++ b/tools/tracing/rtla/tests/cleanup.t
+@@ -0,0 +1,70 @@
++#!/bin/bash
++# SPDX-License-Identifier: GPL-2.0
++#
++# Verify that rtla removes the tracefs instance it created on the abnormal
++# exit paths users actually hit:
++#
++#   - SIGINT during a run            (interactive Ctrl-C)
++#   - SIGTERM during a run
++#   - rtla's own -d/--duration timer
++#   - a failing --on-threshold shell action
++#   - several interrupted runs in a row, followed by a normal run
++#
++# A leaked instance pollutes the next invocation.
++source tests/engine.sh
++test_begin
++
++set_timeout 2m
++
++#
++# These cases need to run rtla in the background and signal it, which
++# engine.sh's check() (one foreground command) cannot express.
++#
++run_cleanup_cases() {
++	local helper="$testdir/scripts/check-cleanup.sh"
++	local out rc timeout_cmd skip
++
++	ctr=$((ctr + 1))
++	[ -z "$TEST_COUNT" ] && return
++
++	if [ ! -x "$helper" ]; then
++		echo "not ok $ctr - cleanup helper is not executable"
++		return
++	fi
++
++	# check() normally does this before every test. Do the same here, both to
++	# leave a clean tracer state and to make a hung helper terminate.
++	reset_osnoise || {
++		echo "ok $ctr - instances cleaned up on SIGINT, timeout and action failure # SKIP tracefs is not writable"
++		return
++	}
++	timeout_cmd=${TIMEOUT:-timeout -v -k 15s 2m}
++
++	out=$($timeout_cmd "$helper" "$RTLA" 2>&1)
++	rc=$?
++	if [ $rc -eq 0 ]; then
++		# "SKIP:" is what the helper prints when it could not run at all
++		# (no writable tracefs, or the binary is unusable); a per-case skip
++		# says "note:" instead. So the first SKIP: line means nothing ran.
++		skip=$(printf '%s\n' "$out" | sed -n 's/^SKIP: //p' | head -n 1)
++		if [ -n "$skip" ]; then
++			echo "ok $ctr - instances cleaned up on SIGINT, timeout and action failure # SKIP $skip"
++			return
++		fi
++		printf '%s\n' "$out" | sed -n 's/^note: /# note: /p'
++		echo "ok $ctr - instances cleaned up on SIGINT, timeout and action failure"
++	elif [ $rc -eq 124 ] || [ $rc -eq 137 ]; then
++		echo "not ok $ctr - instances cleaned up on SIGINT, timeout and action failure"
++		echo "# helper timed out after 2m"
++	else
++		echo "not ok $ctr - instances cleaned up on SIGINT, timeout and action failure"
++		echo "# helper exited $rc"
++		printf '%s\n' "$out" | while read -r line; do
++			echo "# $line"
++		done
++	fi
++}
++
++run_cleanup_cases
++
++test_end
+diff --git a/tools/tracing/rtla/tests/scripts/check-cleanup.sh b/tools/tracing/rtla/tests/scripts/check-cleanup.sh
+new file mode 100755
+index 000000000..7bd5b1233
+--- /dev/null
++++ b/tools/tracing/rtla/tests/scripts/check-cleanup.sh
+@@ -0,0 +1,219 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0
++#
++# Verify that rtla removes the tracefs instances it created, even when it is
++# interrupted (SIGINT/SIGTERM), killed by its own timeout, or when a shell
++# action fails.
++#
++# This is a *test* for tools/tracing/rtla; it does not change rtla behaviour.
++#
++# Requires: root, tracefs mounted at /sys/kernel/tracing, CONFIG_OSNOISE_TRACER.
++# Usage: rtla_cleanup_test.sh /path/to/rtla
++
++RTLA=${1:-rtla}
++TRACEFS=${TRACEFS:-/sys/kernel/tracing}
++INSTANCES=$TRACEFS/instances
++FAIL=0
++PASS=0
++
++log()  { printf '%s\n' "$*"; }
++pass() { PASS=$((PASS+1)); log "PASS: $*"; }
++fail() { FAIL=$((FAIL+1)); log "FAIL: $*"; }
++cleanup_all() {
++	for i in osnoise_top osnoise_hist timerlat_top timerlat_hist hwnoise_top; do
++		[ -d "$INSTANCES/$i" ] && rmdir "$INSTANCES/$i" 2>/dev/null
++	done
++}
++
++# Wait up to $2 ms for $1 to disappear.
++wait_gone() {
++	_path=$1
++	_ms=${2:-5000}
++	_i=0
++	while [ -d "$_path" ] && [ $_i -lt $_ms ]; do
++		sleep 0.05
++		_i=$((_i+50))
++	done
++	[ ! -d "$_path" ]
++}
++
++# Wait until $1 exists (up to $2 ms).
++wait_present() {
++	_path=$1
++	_ms=${2:-10000}
++	_i=0
++	while [ ! -d "$_path" ] && [ $_i -lt $_ms ]; do
++		sleep 0.05
++		_i=$((_i+50))
++	done
++	[ -d "$_path" ]
++}
++
++if [ ! -d "$INSTANCES" ] || [ ! -w "$INSTANCES" ] ||
++   [ ! -d "$TRACEFS/osnoise" ]; then
++	log "SKIP: tracefs, writable instances or CONFIG_OSNOISE_TRACER unavailable"
++	exit 0
++fi
++
++# Leave nothing behind from the test before it starts, and make sure the
++# command under test is actually usable.
++#
++# rtla has no --version: main() only knows -h/--help and -usage, and anything
++# else falls through to rtla_usage(), which exits 129 after printing the
++# version banner. Probing --version therefore always failed and the whole test
++# suite silently reported SKIP. Accept 129 as "this binary works".
++cleanup_all
++if [ ! -x "$RTLA" ]; then
++	log "SKIP: $RTLA is not executable"
++	exit 0
++fi
++help_out=$("$RTLA" --help 2>&1)
++rtla_rc=$?
++if [ "$rtla_rc" -ne 129 ] ||
++   ! printf '%s\n' "$help_out" | grep -q 'rtla version'; then
++	log "SKIP: $RTLA is not usable (--help exited $rtla_rc, no version banner)"
++	exit 0
++fi
++
++# Kill a background rtla if a case fails before reaping it.
++stop_pid() {
++	[ -n "$1" ] || return
++	kill -KILL "$1" 2>/dev/null
++	wait "$1" 2>/dev/null
++}
++
++# Wait until rtla has installed its SIGTERM handler.  The instance directory
++# appears before set_signals() runs, so signalling as soon as the directory
++# exists races startup; the signal disposition is visible in /proc.
++wait_running() {
++	_path=$1
++	_pid=$2
++
++	wait_present "$_path" 10000 || return 1
++	_i=0
++	while [ "$_i" -lt 200 ]; do
++		_cgt=$(sed -n 's/^SigCgt:[[:space:]]*//p' "/proc/$_pid/status" 2>/dev/null)
++		[ -n "$_cgt" ] && [ $((0x$_cgt & 0x4000)) -ne 0 ] && return 0
++		kill -0 "$_pid" 2>/dev/null || return 1
++		sleep 0.05
++		_i=$((_i + 1))
++	done
++	return 1
++}
++
++# ---------------------------------------------------------------------------
++# 1. SIGINT during a long run
++# ---------------------------------------------------------------------------
++cleanup_all
++$RTLA osnoise top -q -d 30s -P F:1 >/dev/null 2>&1 &
++pid=$!
++if ! wait_running "$INSTANCES/osnoise_top" "$pid"; then
++	fail "SIGINT: instance was never created (rtla did not start?)"
++	stop_pid "$pid"
++else
++	kill -INT "$pid" 2>/dev/null
++	wait "$pid" 2>/dev/null
++	if wait_gone "$INSTANCES/osnoise_top"; then
++		pass "SIGINT: instance removed after interrupt"
++	else
++		fail "SIGINT: instance still present after interrupt"
++	fi
++fi
++
++# ---------------------------------------------------------------------------
++# 2. SIGTERM during a long run
++# ---------------------------------------------------------------------------
++cleanup_all
++$RTLA osnoise top -q -d 30s -P F:1 >/dev/null 2>&1 &
++pid=$!
++if ! wait_running "$INSTANCES/osnoise_top" "$pid"; then
++	fail "SIGTERM: instance was never created (rtla did not start)"
++	stop_pid "$pid"
++else
++	kill -TERM "$pid" 2>/dev/null
++	wait "$pid" 2>/dev/null
++	if wait_gone "$INSTANCES/osnoise_top"; then
++		pass "SIGTERM: instance removed after terminate"
++	else
++		fail "SIGTERM: instance still present after terminate"
++	fi
++fi
++
++# ---------------------------------------------------------------------------
++# 3. rtla's own -d timeout path
++# ---------------------------------------------------------------------------
++cleanup_all
++$RTLA osnoise top -q -d 2s -P F:1 >/dev/null 2>&1
++rc=$?
++if [ "$rc" -ne 0 ]; then
++	fail "self-timeout: rtla failed to start or run (exit=$rc)"
++elif wait_gone "$INSTANCES/osnoise_top"; then
++	pass "self-timeout: instance removed (exit=$rc)"
++else
++	fail "self-timeout: instance still present (exit=$rc)"
++fi
++
++# ---------------------------------------------------------------------------
++# 4. shell action failure (-a / --on-threshold shell,command=...)
++# ---------------------------------------------------------------------------
++# -S is the stop-total threshold and yields exit 2 when the action fails.
++# A shell action only runs if that threshold is crossed; an idle machine may
++# never do so.  Do not call the no-threshold case a pass.
++cleanup_all
++action_rc=0
++for n in 1 2 3; do
++	$RTLA osnoise top -q -d 5s -P F:1 -r 900000 -S 1 \
++		--on-threshold 'shell,command="/bin/false"' >/dev/null 2>&1
++	rc=$?
++	action_rc=$rc
++	[ "$rc" -eq 2 ] && break
++done
++if [ "$action_rc" -eq 0 ]; then
++	# Not a group-level skip: the other cases still ran. Prefix it so the
++	# TAP wrapper does not report the whole test as skipped.
++	log "note: action-failure: stop-total threshold was not crossed"
++elif [ "$action_rc" -ne 2 ]; then
++	fail "action-failure: unexpected exit=$action_rc (wanted 2)"
++elif wait_gone "$INSTANCES/osnoise_top"; then
++	pass "action-failure: instance removed (exit=$action_rc)"
++else
++	fail "action-failure: instance still present (exit=$action_rc)"
++fi
++
++# ---------------------------------------------------------------------------
++# 5. repeated interrupted runs must not poison the next run
++# ---------------------------------------------------------------------------
++cleanup_all
++for n in 1 2 3; do
++	$RTLA osnoise top -q -d 20s -P F:1 >/dev/null 2>&1 &
++	pid=$!
++	if ! wait_running "$INSTANCES/osnoise_top" "$pid"; then
++		fail "repeated interrupts: run $n never created an instance"
++		stop_pid "$pid"
++		continue
++	fi
++	kill -INT "$pid" 2>/dev/null
++	wait "$pid" 2>/dev/null
++	if ! wait_gone "$INSTANCES/osnoise_top"; then
++		fail "repeated interrupts: run $n left an instance behind"
++		cleanup_all
++	fi
++done
++
++$RTLA osnoise top -q -d 2s -P F:1 >/dev/null 2>&1
++rc=$?
++if [ "$rc" -eq 0 ]; then
++	pass "repeated interrupts: following run still succeeds"
++else
++	fail "repeated interrupts: following run failed (exit=$rc)"
++fi
++if wait_gone "$INSTANCES/osnoise_top"; then
++	pass "repeated interrupts: no leftover instance"
++else
++	fail "repeated interrupts: leftover instance"
++fi
++
++cleanup_all
++log ""
++log "SUMMARY: $PASS passed, $FAIL failed"
++[ "$FAIL" -eq 0 ]
 -- 
 2.43.0
 
