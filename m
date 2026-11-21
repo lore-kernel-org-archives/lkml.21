@@ -1,101 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.48
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795283680;
-	b=GecLr0l9m3OXjWFOd0o6OoFZGrhcaljFtZgnrx3AC7ROEAA5DFM5K4jPOMe9p5L4Wppp
-	 yLLPDJPqK++UOECvC11d4AaQnnZecOLj6p3ObGF623ENC4Z+9xQuLg6w3qy+NjE9/LU8a
-	 HMhmQEVaYGNCce5J7ESFMVXXfd8mjSOkPyUcdTQ3PDRZAWvVpmeSEcS0OywnwXMsubRnB
-	 +HMcOHjR19DAjqiHbL5a/0XT8HxY7Eibw5bl31OeczfsvB0s+z0pxPouLySgObWuZH2iS
-	 TM/O/GuruL28tvEmZQZ/tx61Sng4YUy3zSGxRHsfuBy/zJhoM/ueIzhA0ei69g1Ry3g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795283680;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=ZkJ0e/W/n/O5onpPBZJsAZoVPMj2UkOY9Tvk5edCPPM=;
-	b=JNPdaeiyVcduzv3HM7ojVzC4Y1JOqWjyNyfgykz5dem+7ABMcer2cQrO2GbVTdJ72Dzn
-	 DXcowix50tVyFVk2ZcjfZc9oeAE+wLSTLgVfUvdakfyB4JIRekEkCkmRltyBkmvTY9evp
-	 8gX18oUwehNAYL8+AgUNZZp45BwGSh28CxOSdohCuGECR0kvZqdFQVPB6HJsMOSiyBZOA
-	 IeIKObNsIgZGd4LBXETh+AIh3tAK5CAPBnf1JqFAnjAGcBMKev/1jsL4f21GG9YwNhZgW
-	 HAWwQuzbNvAVTPCbsMEO070RE35FNiKgTOqZGMc5s2m/6YHwDxX0vO5L9S5PYwdbWfA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bairaktaris.de;
-	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=w7YMfurZ;
-	arc=none smtp.remote-ip=209.85.218.48
-Received: from mail-ej1-f48.google.com (mail-ej1-f48.google.com [209.85.218.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795283769;
+	b=h7TH14mIJM3Tpk9RdiGPASGDPOKCIQidqJ9ppEiP61XMBWQjklb4UXfsA9p+niSljI0S
+	 RA+zbQOG/X05BKIj4I0yx1unqLd6qUWZMXoOqSDjBq5JGdUqYWes4T8+RPIfvAVklqgP9
+	 QaiCl2qctRx/rh6/ekbJl9SHR77nURJE31rflFyAL9jiz/JwUpLzWBPD8v466HpDJsFC2
+	 JUStbesrQX85E8gYtvvlkapzOCKkXaNQ/WmsG4NhpUroE3ENtdOkl/s5r3BavUj+5uLxe
+	 BeNKxrL8TFwFXmXdVPjx2Xqz62Fh9Ghlt7bVboJtamHcK8BVXhzs5InW2Fq7o56mzcQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795283769;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=md8GbRzRNRYozgNCXp9C52wGnVSgk6I5/bfSCAjMp6I=;
+	b=iqZZ2LIZZJWlUUx0gVHYGEAwoMa8NStKXqpEyZZ8jIHWiNFqPm7IS+/J22scZVkxb6Ff
+	 OwxDo5iL+kZxzsUHq04jMMBagcQulgqghIv1HwBcd4j4g7hIxXSIhLmijsrcPvhFF07sO
+	 Gf947ZHyif7BZyKcIN2796I9TgVfN5KJxlCG4gqS83yX1EqvdES83pvfX4v8kL65GvEUX
+	 HHfbbWTH71ovO9l+22Zk/nAB9P8LVlfWpnmGoBwFCvsowjXWKp0suuh2PCeYiBl6pEWFR
+	 MfGPAOj0WPQyF9COO0YaRSC8Om37hoEhWZvrsi5a55xm5yqEKReQx/P/epHrOa8RtyQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Imk7jC9S;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E687B606A320;
+	Sat, 21 Nov 2026 17:56:08 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Imk7jC9S
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795283768;
+	b=O6+fmCkAjdi1VhJNVPqpmo6Gg+r2jd2IaGMY9w6TJSfVZjLKuPzn6EK6/dI7pyBtDC2u
+	 m/W7icIjETwSpIcn5FqXpkFP9wzQKv9Z9Vn5EBVhPQmk9l51Ji34ayOdN9iNhIFInuZt9
+	 e0uupMcmS+TaUFZQrkmzkYJhNE9kAq4muAU6HH4vugnImYIJklJs9GzxPfZ/O2AI3WXsO
+	 ul9RkAOx7z2UsHjVGzgn36Itv8gj8s3xDDF8WwhJhg6AsOMwAh2bpPPo+lGPQV6iel5Zs
+	 NtRdBcqjBuxQwiRL5JjP+2DnCIJgfJMhLgH+nmLFxvVksjLbTHkQwVlFyT+TlvVXkaw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795283768;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=md8GbRzRNRYozgNCXp9C52wGnVSgk6I5/bfSCAjMp6I=;
+	b=lBfGKucgIAsxAZCzTS4ndulxyxE73cV9r2P+ApMAVrtLMW/dJisy8jPrQCD2ftcp2zps
+	 /0liGNffMmTFXbBSJUrEzhXJyoo+S3hOTpq1nb6RNJcumC1rl9+ohG+FLgZ79MDWoujNK
+	 epD6A5eLJF/RarNH2K9eEct3533uQ6Bki5uQUbmClORj01n+dJcLY1uSWfOsC4NHCcPbL
+	 jDyo7wEOaqF6frAUEmjdVFHvQ2BSCBcxcwAHx0UfQD1JmaRmmNM2kXGHdTiXIdJPa6AXs
+	 28EJ3eVoKavVuu4GR9xPAQVHzgbfMO2S5U81S0XNjk+vTR3fPZcpwGnmnkqM9IP7q2g==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9A24606A335
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 17:54:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9A24606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=w7YMfurZ
-Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c505b2e1cb9so360150466b.2
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 09:54:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795283678; x=1795888478; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ZkJ0e/W/n/O5onpPBZJsAZoVPMj2UkOY9Tvk5edCPPM=;
-        b=w7YMfurZY/rK8hrr8RSamu6tow1zgVjhLVjEyzxMuQS9kCpt+b2VysZBGUuURdXQsN
-         hpz77FcVNlDZ2ZcfgIQiGk2x9SrxN0EsqyGa6zOKnU8sps1RnnSFWvhCGQHqBpdjEIcs
-         AV/pM8QQTVdynp0IK9sVvq3r2RnG9hWBgGBVyXDIeoGv9ybPmEvB4SIMXyY2FWpNDN8N
-         nsHaojyv34BVbvc4x225BHtcrxjpu48bO+h3KZI6oTm2k0ASo0ZW3/6Aw+YslqETsR1/
-         wQlE7IBD7jmfob8ozeg+6nZaNQ5vfZbXlixilzo1FU3VKLObRR2M97FW52i7HqI7bPAA
-         ws0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795283678; x=1795888478;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZkJ0e/W/n/O5onpPBZJsAZoVPMj2UkOY9Tvk5edCPPM=;
-        b=rSCk5+4ocmUiU+jkP9QxgMfoy+8iB8zzUhr9DIs6OZsRJFQ4Ar5eLOW626xrzS4M06
-         /0G4S5+hNRlIQ2QcTslcpiHQooowquteAGPMYEJzHj0Ug+R6QueEED8I/34d6N3WE4d7
-         OuqNE5IpGBi8AxkdDOg6m0CHnZjk5qrGRQz4j0gMPY1tQ/VRiVTg7ANJfRAzcDJ6F0Ef
-         tb6Uha5SpkSv7F7FOLB33itoVJAqoEt8/FTM92GgsxqJvcGo4OkJwqOzeq4hNNJLsB0D
-         Iq0LGlHW4SYB8eF3votCbSzl6Wf4EQRjgBS4uXKnBkvaX26NwFgXG2az1Eo6Mu05J92l
-         tPPA==
-X-Forwarded-Encrypted: i=1; AL+hErGcLD12saJR47owP9a9euSBvVjBVtjcaG85nC++N1la+w7HDCN8vn0EK5JhW/4Sn6PDoZWak6LW45QuRyQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8WjKLQKNC2A3jLAKCC6mxN65YtHfMgf+gWeuIweCVsAbG5iq49
-	0TaR33hcmfB4+zhP2c8MA535EDblNgmDI8ZvogG65omDlcx+ZTPXnZwbw4WWJPKaOw==
-X-Gm-Gg: AZFdTZdKKV6hBL/7KnQXm5Wfp9pEu2gXw19rrzEIhCvvYkrALBAOYPgJGikm5Z8fusb
-	xn3b6aTqHgTWFQ4hOD49IELnV7/U6EUvblC7W6qGkgZWfPnAe/67/JfoWa5yhhxyTMh0YbF6hRM
-	dlziwKvNCdcZJVKuSZ/2jx0PokponpCtxSV5wPsgh9n5KoHokBYXWOd52vVPK8uJW816e58f//Z
-	vm1cTVScKTlQzb9OtKw3C0KU4jn7DB6sXuu2e52EMWPd2gRVeEFzC/BuIL4AyKKcVhIHodKD5RC
-	J5jRljlBoIDWNWmKB5GxfSFbyEnJFn/eSYdN2MYaAReFb46sHbpfCBIbrbalON7Zo1f7vCCXEZV
-	jAtvTX5RN5P161oiPXk8iiqlOA097MkULGIjVJEXSZKbqGleZDFrQNO2EZz4hq21xEmICoPfv1c
-	T+SC/lrURYkxEHfvYRn6dDsQg3gFsnvXOVV78j9L6rwTf+ZyK3+JlCvDInSUHeKJQDeOAkmwaDI
-	7/Wdi5jVdq2RGLBn6DZ9/A32Q+v5hzs91pIxihxop8wSOWK8fdCjAe5rm5MuNgiUfoXUiVkLaGg
-	zao89Wp85Uf1W+0uCs/0qMJ2bFovKWzxhwkIVFRvEneY1MgUyJWHgErBZE8AO1IYrfsMH88xlEy
-	QvvUz1sS9w5o5nEioAPx3+/Wm7MD/YBUUfHLanHAYUNogDoSeY7Yaydf8Q2e3RGGtR1v8A2jN44
-	rbAyrLA68kMFcn1qXnnFpbNxG0900SVYajmaKM5RMFnCG0+N4HQETwUrDmDEOetv+aRUAGX8PcL
-	j9v43FXVlYbi3D5l9eVj05XgpfkQV8WvAd9itzJqUja8vqJfcQMR9y1Y6x3okVVhLJDXPIC7ZWb
-	QFiMVCC0oh2NxFItj+KCyoROqn6m3G6IkQlfqrdsNaY+1atquSYPbr7FGYzcZRmwg6B/QLvwe6K
-	O
-X-Received: by 2002:a17:907:6e89:b0:c51:59c8:a4ec with SMTP id a640c23a62f3a-c5159c8dc3bmr179230966b.1.1795283678143;
-        Sat, 21 Nov 2026 09:54:38 -0800 (PST)
-Received: from Desktop.tail070c67.ts.net (p200300f2470dfa000000000000000a27.dip0.t-ipconnect.de. [2003:f2:470d:fa00::a27])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513aea3537sm213191666b.36.2026.11.21.09.54.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 09:54:37 -0800 (PST)
-From: Julius Bairaktaris <julius@bairaktaris.de>
-To: loic.poulain@oss.qualcomm.com
-Cc: jjohnson@kernel.org,
-	ath10k@lists.infradead.org,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	baochen.qiang@oss.qualcomm.com
-Subject: Re: [PATCH ath-next] wifi: ath10k: spread the PCI copy engine interrupts over the CPUs
-Date: Sat, 21 Nov 2026 18:54:37 +0100
-Message-ID: <20261121175437.648605-1-julius@bairaktaris.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <CAFEp6-0nEWKrKXx0A7dHuzFU_=NZfzjNZQzKp2nfk+gr_SDvag@mail.gmail.com>
-References: <20261101164247.258200-1-julius@bairaktaris.de> <CAFEp6-3iq_Pc0UgeCi7x16w6J-VwgGQ37QaP=dXp_OaTEi+esg@mail.gmail.com> <20261114210506.787342-1-julius@bairaktaris.de> <CAFEp6-0nEWKrKXx0A7dHuzFU_=NZfzjNZQzKp2nfk+gr_SDvag@mail.gmail.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id E37DD1F000C0;
+	Sat, 21 Nov 2026 17:56:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795283768;
+	bh=md8GbRzRNRYozgNCXp9C52wGnVSgk6I5/bfSCAjMp6I=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=Imk7jC9SbEpGJAwppV5RF8Dt92jjD8SJkGQTV+kMeKAuXi+W4aLPugMl3WLw/t4yP
+	 S4zNkXSYisDdPFjWxWO1z97GULzaLAg+mJyzZeX83GP+28skCB8SjbJ5JsWWI2uVsP
+	 azMXROl5Y78ph4mZqpZ8QdY4V6a7/08RPZAteaahh/mvw/ptjGq94IzOopXNm5HFbv
+	 9NIsYC8sTOYopPw0+dolB/xCa1T0HMcHKuojJk2WYIlT7W620UKcD+Wufd8vMDvZoR
+	 xE6Uq+uGF1fvXNSdg+wOqH3uSkKxFPfeOSvEvT3GCUeHsh3vJc2U1SS08WjRmJFM35
+	 g4SyRmf+wgfvQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 448ED4BD31;
+	Sat, 21 Nov 2026 17:56:07 +0000 (UTC)
+From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+Date: Sat, 21 Nov 2026 19:55:54 +0200
+Subject: [PATCH v2] dt-bindings: gpu: arm,mali-utgard: add mt6572
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,32 +82,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261121-6572-dt-mali-v2-1-1c3925ec7ad1@protonmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNyw6CMBBFf4XM2jFtCS9X/Idh0ZZBxgAlbSUaw
+ r8LuHZ5knPPXSGQZwpwS1bwtHBgN+2gLgnYXk8PQm53BiVULkopMM8KhW3EUQ+MpalSI7NKC0u
+ wT2ZPHb/P3L35cXiZJ9l4NA6j5xCd/5x/izy8P+lFosTOVKLMVWE6ldazd9FNo+bhat0IzbZtX
+ z4eTkK/AAAA
+X-Change-ID: 20260810-6572-dt-mali-8b93b159a0ce
+To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Roman Vivchar <rva333@protonmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795283760; l=1233;
+ i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
+ bh=yarHUuGiHB5XDU5bIl2bWj8HreokggBNwjoTqcPSgT4=;
+ b=aJF+XCEDjuAMvu1RDuLpBiDhOE3GNfJOGS8hGr/Vthvh9jCrPLfytowdDMsZZYu2JMsUjnYUt
+ jcgdVQwbtEkDUvOJi/KLujbbBe5DSGFPRFwrlMSUrdInKFA/Sh+RBPX
+X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
+ pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
+X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
+ auth_id=777
+X-Original-From: Roman Vivchar <rva333@protonmail.com>
+Reply-To: rva333@protonmail.com
+Content-Transfer-Encoding: 7bit
 
-On Mon, Nov 16, 2026 at 4:25 PM Loic Poulain wrote:
-> So, from what you say I understand pci_alloc_irq_vectors_affinity() is
-> the wrong API here because it sizes the allocation around CPUs,
-> whereas your goal is to size the allocation around device
-> CE/capability (8 vectors).
+From: Roman Vivchar <rva333@protonmail.com>
 
-Yes.
+Add a compatible string for the mt6572 Mali-400 MP1 GPU.
 
-> Can you mention cfe9011a05a8 ("ath10k: remove MSI range support").
-> And why we re-introduce MIS support and how is it different from
-> previous implementation?
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+---
+Changes in v2:
+- Pick Krzysztof's ack, resend
+- Link to v1: https://patch.msgid.link/20260810-6572-dt-mali-v1-1-fb908627bf23@protonmail.com
+---
+ Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Agreed. The v2 2/2 message names it, gives its reasons, and says that
-its per copy engine handlers and tasklets do not come back: every
-vector gets ath10k_pci_interrupt_handler(), which schedules the one
-NAPI, so only the CPU of the HTT copy engine's interrupt changes.
+diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml
+index c8d0d9192d92..6bdbab82126c 100644
+--- a/Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml
++++ b/Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml
+@@ -27,6 +27,7 @@ properties:
+               - allwinner,sun8i-h3-mali
+               - allwinner,sun8i-r40-mali
+               - allwinner,sun50i-a64-mali
++              - mediatek,mt6572-mali
+               - rockchip,rk3036-mali
+               - rockchip,rk3066-mali
+               - rockchip,rk3128-mali
 
-> Also, you should update the comment/kdoc for
-> ath10k_pci_per_engine_handler() which says MSI interrupts are not
-> handled there.
+---
+base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
+change-id: 20260810-6572-dt-mali-8b93b159a0ce
 
-Agreed. That function went with cfe9011a05a8; the stale comment sits
-above ath10k_pci_interrupt_handler(), and v2 rewrites it.
+Best regards,
+--  
+Roman Vivchar <rva333@protonmail.com>
 
-v2: https://lore.kernel.org/all/20261121175402.644803-1-julius@bairaktaris.de/
 
-Julius
