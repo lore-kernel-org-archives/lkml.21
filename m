@@ -1,88 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.238.174.39
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795237733;
-	b=T7zbUlcOElz9vkDzHdYrUwd/P7rQUQs+TQtUfWkr4YtD8PvfoIZwnaok8YMwSQwyNzMp
-	 xfvwiVEMq5WeacM1XaDQnPUNSZA/5Fp/yglxgJmOkycsPEhHFzGBrNL/QC6pRNIKOr88R
-	 haTj44HImDqF+XIKRhvS85nweU3P4Hy+/EILMshVukRgtNkrqJFR/nENMgWlNkz1IH8ew
-	 lpell1ZoZAmdQLAy7Jq+xb/3zOGiv0nKxCOmCcO6/nr/iyZyDzr7NYLRVKdOt1LuEbOL9
-	 StM3/YE5fhydOjXths7Vg0i5felJfMoA4p3nDbrbVA+32nr7eVe13JI0HDPA6DkqyWA==
+	t=1795237898;
+	b=SdJHKLKlvS8r3+x7rU+yy5IOoLE/ecSPbI9Jy4RvwpvISRVw8uviIEl1/mdfAyVG7NVk
+	 HIfKBPBApf7CIv5SAKBWQTbtf8qVVPhS2LHA2TFJZC2s6xt+XUelIgvvLtjoO5rDnoYWd
+	 /PzAqHmCnqb6oieNXZR5rFcHl0HQQXt/ff9V1tE3VQhhtygx8XWwfHQEj+onh6Wck0CVX
+	 T4PATsoT2wRW4rWCbbVTfenRyBsmfqRRKdjnhupXyVZhtWbeIlkLdl6lPbBhWCv6eNXJh
+	 a48gfNmOkpGagEQ2ESelKWfnTdxQDqPHgqmrYPWOoTMsC9HBq1zNqC/kDB0BkDCeOFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795237733;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
-	 Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=zq35YXCPx2V3r1wIC+O3B5GGrUsSEAAKs34AuDkQiBE=;
-	b=LfuRHKYuf8rICqpQ/ga6oRmaBhkCj7DP1hlblNbCoHa84onPmWlwKy26pMvH/2TMyYzP
-	 pRgmT/ZYpRj07B7BFpKU2cBVkXNyTfi6LQVMbEzmJc4wEFxXB0b49NbcTeGgwgtkjaSbq
-	 a+/SNIZdrRmfx6ecpuoL/LfWtqWfOkQBcQ1dvVl2mb3xLMjJX0ogb/XDO4QuJVKdS+vZ2
-	 VkohLj1LZev+2EHE9UNPorG1942watX0rgGpP2JuzjY4jWJKH+SyG26JsDu+MD856Zopw
-	 2ISyfA0BOoQfUq7XUJ/DQlmd4UZbTcASli9uWWn8LcBjYvQyOHnFpNcY+v7hqeJzPbw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795237898;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:Date:
+	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
+	 Content-Type;
+	bh=kRQ0W4a0EM2TYF/Rr39Y65umfvFk2BHxJmx2nTsJCs0=;
+	b=vRkBqYapZtWF5I3IuxHZey7mVDz1gOwdOBqo1ADZmAJrNIVBO9fOF6QgppUZHllsifwC
+	 T/5Q4C+tvrLKwGVhqYpzbkeAwQMjf88qlndcBCs64zq0g1jwTDQZ4rqMwVWhwLMmHNGKp
+	 aBtpGu+oN2aUMj5QlsqBHUJsQEBwFpPn8KdRrUArdcL2ZuTxOKpeQmBKCEf207ffgQskO
+	 EHslE9+ClxSRzYotC4ISgHcSv59Ktr/yXtfV0HcszsHTvtaWHoSaEIfpI7+CEzzWj7ZPz
+	 myv6J4z+MtLSDZIe1x0JfuDNWg4JrcsuAgW7r568lY7bQa9NNHZco0Q/wm1nGJMknvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=googlemail.com;
-	spf=pass smtp.mailfrom=googlemail.com;
-	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b="tZnt/4Y7";
-	arc=none smtp.remote-ip=209.85.128.46
-Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=ssi.bg;
+	spf=pass smtp.mailfrom=ssi.bg;
+	dkim=pass header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b="O8BJ/oIC";
+	arc=none smtp.remote-ip=193.238.174.39
+Received: from mx.ssi.bg (mx.ssi.bg [193.238.174.39])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 695FC606A68A
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:08:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 695FC606A68A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA7AE606A68E;
+	Sat, 21 Nov 2026 05:11:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA7AE606A68E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ssi.bg
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ssi.bg
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=tZnt/4Y7
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb6c7b6dbdso14985125e9.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:08:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20260707; t=1795237732; x=1795842532; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zq35YXCPx2V3r1wIC+O3B5GGrUsSEAAKs34AuDkQiBE=;
-        b=tZnt/4Y7RYchW/Xv/P+nub5RSq7O10Uz2tD8QGAgo4NiWxcY8xgsVNfH/37JZWuFaD
-         xUiz2wRoOW4b0n36yr7cAhTbOuBnPedxhBwdaXgxSeDyL7RbmNzgv0H1MtrzQqbcUSwk
-         xHFlluzBeM10rRkwdul+NCCEadwZY50g4MCOIdGaBQwI32P5gY5IX6WOzxrZhtNhCcPo
-         JeQ/6C6AFaAEZswEAUISzl9WWYdYiF1x+qBH9pZYsh+ZiOyP7DI5nQl/qqWgiJaqTb9+
-         IiGaVZ1cz4pJ2ILrirF1cnCldLrUqqAa1tv4kKrH4KhtDijozRSQLGAPkUHr7jsJZHjF
-         LKRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795237732; x=1795842532;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=zq35YXCPx2V3r1wIC+O3B5GGrUsSEAAKs34AuDkQiBE=;
-        b=qZ9hal1QhdZ+Dvjm9QyvM32ja4royVwu381vBZI3T707wMBu6s75HrrxanmcQf3Tmq
-         xdpSO4lk5Du7AW9h9qp6jsMUeVUZ9/Yz67tbXLgKH3miJQRjnbVEp9KVIYbWW8uFGxCK
-         iiBtDzMYl9kr7JmUf5605z+3KnjRQ1GSiJbrTl5lxeOYTYASjBTAHhgfbSlAAufl8hfQ
-         b/iyI1ZniwwlvMe3LE2b7Q0akTVxj/UZpRPfoy51nxPHsPvpToDMqxWkp9LObBpSwYee
-         qEC7/5ycuGA2tdanK2s43j6c6xJvOvZWkHXeMcYuU/deJYISgKdbgtS/s9vDA2xXgrq0
-         qG6Q==
-X-Forwarded-Encrypted: i=1; AL+hErHmXlsxcIlOCArUeEBIkIeeL02dKKrtop4etFg+6196npXZRXRKyc+e9ReUeHwtjXSfs6md2zcAxqT2CKc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z84lydzFrCcmH2JRPhoSKKcgKPHnKNCjp6mIfMsR58LBYoqH1QB
-	sQ3sgcK+qKaWfm1PMGSRETVTYZUAK53DhMGLK8glAGGM0wun3l34Uyg=
-X-Gm-Gg: AZFdTZfDdartgVWULS17UnrUPQh95qkhBc8nAiDUwJ1LWqizsB2ajC+FUJHjI6cAtGw
-	ThsYMjTwqaov3jZ3rNITDueu/q+8NVi/8ZqMZzh+YSP5Qkkkn5fvnEDWK94m9D0SzQgM88ONmow
-	0yDLjoHL0IX+fisCOIwrIVWTWfZWnoPvQf9rvGOHqWhFFFcNTMuhyQpYHyM7ZwwEfVjpghGdeCV
-	hiKnkjtWF2Jng7bWuy0bFsVOZGFiWZCunQlswID2vx8qQSdj0dcTSHGZ2Ip6GLRuDm00G8mG1Ha
-	529w0SxO9aOIzNRJe0b/BwZXmWaN4cRuVFp8VTlnd5YOqgHeUIaAL7TOQl4vsWZhVMco9JXI+1M
-	3mAc/zpfwoaPCex0DRPZC+U1HVFDdbkxN/Jexz/TbLAE8+c7xho099CGr3M6Ly6ER1GpT8M8iPU
-	8/LsASkGlFZm4v+Jkv3H9m0YMcRd3pAomm81sKQ8vX6SJ7pKzMCHPPnG1545O6UNWs0T9HnRtEB
-	aiIP9rOPJwPUl6zrsS3OMzmZiCuZUY6mioje1HN4yp+SotnsvUPdZooPKF7YhV1yRJFvK6cPN85
-	BbEdsqukl601oMTL9dpSJobtIpvzfC0IgymGXcHhJQ3huyIK7EeOtTYD4e2clDMBATi8cSopqW+
-	3ixfoZw==
-X-Received: by 2002:a05:600c:34c9:b0:4a3:5d64:df91 with SMTP id 5b1f17b1804b1-4bb88810d28mr123194735e9.18.1795237731809;
-        Fri, 20 Nov 2026 21:08:51 -0800 (PST)
-Received: from [192.168.1.3] (p5b2ac65d.dip0.t-ipconnect.de. [91.42.198.93])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b8429sm222372595e9.14.2026.11.20.21.08.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 21:08:51 -0800 (PST)
-Message-ID: <4d8acddd-10ca-4630-95e2-ce2adb76c689@googlemail.com>
-Date: Sat, 21 Nov 2026 06:08:50 +0100
+	dkim=pass (4096-bit key, unprotected) header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=O8BJ/oIC
+Received: from mx.ssi.bg (localhost [127.0.0.1])
+	by mx.ssi.bg (Potsfix) with ESMTP id 7A90021FDB;
+	Sat, 21 Nov 2026 07:11:30 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ssi.bg; h=cc:cc
+	:content-type:content-type:date:from:from:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=ssi;
+	 bh=kRQ0W4a0EM2TYF/Rr39Y65umfvFk2BHxJmx2nTsJCs0=; b=O8BJ/oICgH47
+	4/WHhWhrDYwRQ6UuTZevX5MTb8cBKDfIHHE7MuOeH5PsSiIy4elD9iCD4eXorxkF
+	3UjaDEkqlwZdD5cLKUPPFL7tBsJmUIcDnJ4juyOg3zUXpyMHFRQvtklCKihOLaDn
+	lE3N/Q+s+2F6edm+REC7DKqMG86kuEzo4Y4DCWzqaEwQ+nGrhhI4ovEjpa1OZ2WD
+	gDOnTWo+6Mi1LQl99EJAbYXzeMtf16ReLdCrqhD6uDjmXmfjE6zIR2nC2EIqFFz+
+	zrt2c5NuLy0IYyFqTWgJYEWafEajYe+xvUThQsS2Bbk05ih7cojfT62N4886wB1I
+	tujsUqQ7IJfTr5bRS2Kj15tmZJb571xoJpX8oz7/ns6IyoKhVFtqyJ4+hGWOSlvi
+	iEwavgXsBctEwy+0MRmRFgfypp4UOVNmlvClmJAvYo1T+E5Da2gXZHKCx+pXHAYV
+	KW0ged29gZGat5wkgSc2zyhk+Gz88VrxEDu8o/dk7TSxgx/8Ds2h0ZF2Jutjd/6Y
+	s88oaqyfRswuRYhDQqjHgI5tQYsjKwT+/jVC3QSBgyTmRz3h8Wyf9giO3NgPoCB6
+	ARVvZB7rOWr6m5d5ClvF7kMe5m3hNFPp+/P0RRJkpqUWjYN6SXy8bIhDPXXXGVm0
+	gITun8MFtWLgKKJpZKVQIriMnlLlPBE=
+Received: from box.ssi.bg (box.ssi.bg [193.238.174.46])
+	by mx.ssi.bg (Potsfix) with ESMTPS;
+	Sat, 21 Nov 2026 07:11:30 +0200 (EET)
+Received: from ja.ssi.bg (unknown [213.16.62.126])
+	by box.ssi.bg (Potsfix) with ESMTPSA id D18EB60453;
+	Sat, 21 Nov 2026 07:11:29 +0200 (EET)
+Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
+	by ja.ssi.bg (8.18.2/8.18.2) with ESMTP id 6AL5BM9J005997;
+	Sat, 21 Nov 2026 07:11:23 +0200
+Date: Sat, 21 Nov 2026 07:11:22 +0200 (EET)
+From: Julian Anastasov <ja@ssi.bg>
+To: Star Chang <starchang@google.com>
+cc: johannes@sipsolutions.net, netdev@vger.kernel.org, dsahern@kernel.org,
+        idosch@nvidia.com, davem@davemloft.net, edumazet@google.com,
+        kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+        linux-kernel@vger.kernel.org, wangroger@google.com
+Subject: Re: [PATCH net v4] net: Fix Hole-196 vulnerability by dropping
+ unicast ARP/IP in L2 BMC
+In-Reply-To: <20261116133734.607866-1-starchang@google.com>
+Message-ID: <4022cbce-2f7b-2dd7-9c87-6b54e94d3a4b@ssi.bg>
+References: <20261026150539.1357037-1-starchang@google.com> <20261027015619.1745984-1-starchang@google.com> <5c1fe870-39ff-e83e-e479-0e1f0fed6a83@ssi.bg> <20261028061644.2997812-1-starchang@google.com> <f631e178-d9ec-f335-9163-c44a9e6c58af@ssi.bg>
+ <20261030030715.604215-1-starchang@google.com> <65cf2338-7bb4-3151-f3b1-ef171bb5723b@ssi.bg> <c2780bb291244cf32c1dbda63f0dcf594d22da30.camel@sipsolutions.net> <20261102070552.3516567-1-starchang@google.com> <0f9ce5de-4e1c-52a3-1bee-aecb1cd836db@ssi.bg>
+ <20261116133734.607866-1-starchang@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,43 +83,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH 7.3 0000/2642] 7.3.6-rc2 review
-Content-Language: de-DE
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com
-References: <20261120055248.913352689@linuxfoundation.org>
-From: Peter Schneider <pschneider1968@googlemail.com>
-In-Reply-To: <20261120055248.913352689@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-
-Am 20.11.2026 um 06:58 schrieb Greg Kroah-Hartman:
-> This is the start of the stable review cycle for the 7.3.6 release.
-> There are 2642 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
-
-Builds, boots and works on my 2-socket Ivy Bridge Xeon E5-2697v2 server. No dmesg oddities or regressions found.
-
-Tested-by: Peter Schneider <pschneider1968@googlemail.com>
+Content-Type: text/plain; charset=US-ASCII
 
 
-Beste Grüße,
-Peter Schneider
+	Hello,
 
--- 
-Climb the mountain not to plant your flag, but to embrace the challenge,
-enjoy the air and behold the view. Climb it so you can see the world,
-not so the world can see you.                    -- David McCullough Jr.
+On Mon, 16 Nov 2026, Star Chang wrote:
 
-OpenPGP:  0xA3828BD796CCE11A8CADE8866E3A92C92C3FF244
-Download: https://www.peters-netzplatz.de/download/pschneider1968_pub.asc
-https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@googlemail.com
-https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@gmail.com
+> Hi Julian,
+> 
+> You are right, any broadcast request with sip = GW can do it, not only
+> GARP, so drop_gratuitous_arp does not help here.
+> 
+> Following your suggestion, when drop_unicast_in_l2_multicast is set, ARP
+> received in L2 BMC frames skips neigh_event_ns() and neigh_update(), so
+> it cannot create or change any neighbour entry. Requests for us are
+> still answered. Something like:
+> 
+> --- a/net/ipv4/arp.c
+> +++ b/net/ipv4/arp.c
+> @@ -714,6 +714,7 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+>  	struct neighbour *n;
+>  	struct dst_entry *reply_dst = NULL;
+>  	bool is_garp = false;
+> +	bool bmc_no_override;
+>  
+>  	/* arp_rcv below verifies the ARP header and verifies the device
+>  	 * is ARP'able.
+> @@ -791,6 +792,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+>  	    (!IN_DEV_ROUTE_LOCALNET(in_dev) && ipv4_is_loopback(tip)))
+>  		goto out_free_skb;
+>  
+> +	bmc_no_override = (skb->pkt_type == PACKET_BROADCAST ||
+> +			   skb->pkt_type == PACKET_MULTICAST) &&
+> +			  IN_DEV_ORCONF(in_dev, DROP_UNICAST_IN_L2_MULTICAST);
+> +
+>   /*
+>    *	For some 802.11 wireless deployments (and possibly other networks),
+>    *	there will be an ARP proxy and gratuitous ARP frames are attacks
+> @@ -850,14 +855,19 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+>  			if (!dont_send && IN_DEV_ARPFILTER(in_dev))
+>  				dont_send = arp_filter(sip, tip, dev);
+>  			if (!dont_send) {
+> -				n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
+> -				if (n) {
+> -					arp_send_dst(ARPOP_REPLY, ETH_P_ARP,
+> -						     sip, dev, tip, sha,
+> -						     dev->dev_addr, sha,
+> -						     reply_dst);
+> -					neigh_release(n);
+> +				n = NULL;
+> +				/* Do not learn the sender from a BMC frame */
+> +				if (!bmc_no_override) {
+> +					n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
+> +					if (!n)
+> +						goto out_consume_skb;
+>  				}
+> +				arp_send_dst(ARPOP_REPLY, ETH_P_ARP,
+> +					     sip, dev, tip, sha,
+> +					     dev->dev_addr, sha,
+> +					     reply_dst);
+> +				if (n)
+> +					neigh_release(n);
+>  			}
+>  			goto out_consume_skb;
+>  		} else if (IN_DEV_FORWARD(in_dev)) {
+> @@ -866,9 +876,11 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+>  			     arp_fwd_pvlan(in_dev, dev, rt, sip, tip) ||
+>  			     (rt->dst.dev != dev &&
+>  			      pneigh_lookup(&arp_tbl, net, &tip, dev)))) {
+> -				n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
+> -				if (n)
+> -					neigh_release(n);
+> +				if (!bmc_no_override) {
+> +					n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
+> +					if (n)
+> +						neigh_release(n);
+> +				}
+>  
+>  				if (NEIGH_CB(skb)->flags & LOCALLY_ENQUEUED ||
+>  				    skb->pkt_type == PACKET_HOST ||
+> @@ -887,6 +899,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+>  		}
+>  	}
+>  
+> +	/* ARP received in L2 BMC frames must not change the neighbour table */
+> +	if (bmc_no_override)
+> +		goto out_consume_skb;
+
+	This deserves to be 'goto out_free_skb;' but also 
+dst_release(reply_dst) is needed. Or we can add 'out_drop_dst:'
+before 'out_free_skb:' where we will call dst_release:
+
++
++out_drop_dst:
++	dst_release(reply_dst);
+ 
+ out_free_skb:
+ 	kfree_skb(skb);
+
+
+> +
+>  	/* Update our ARP tables */
+>  
+>  	n = __neigh_lookup(&arp_tbl, &sip, dev, 0);
+> 
+> If this looks OK I will send v6.
+
+	The main part looks good to me.
+
+Regards
+
+--
+Julian Anastasov <ja@ssi.bg>
+
