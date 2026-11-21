@@ -1,58 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.36.144.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795293704;
-	b=e5lIHULY1hfPXgRH6fvz8YEjmO+uf844hhuz8vvIfKw/GG+TdcrDqrWvKnMUP8vNFz0Y
-	 3h+Lv7+uRElseqiqo7h6sDByh9OWzBFMveuunvaTw2VUsLAqBkH/bBkk3mpo/uDN25nix
-	 JB/osCMmxLja8wYn93hWzHxFPQWn2uTIQi6rHv/bPY5dwp3vciMmZi8f1U1YWI25/54dG
-	 p2bN5a75r5IBiDZ+w3rZC8vx4bNUNXGKzrlI7HMpFLXB6xwV/yDt/syxzKFypvfZXXTzp
-	 hdcqLT2in9bRsvthNzXouGaHXHjrv32adqndq+SgSdqZEDaZuuMWU5wqvmDUo1ENGAQ==
+	t=1795293705;
+	b=o3siQXvdG2O1TVUfWKlOgXijL4FJaay+yWFkoA2dBG+1YmJ4zJgMcvMZQQyH5oBoNGyP
+	 eU2zTdpsiqLYQgo4L3hI+UDH4jWC+5WjLTNErhqunKlFYIiLMhx3B+Sf4vRELM+6zt/Fq
+	 A+ZSWs3k4uQdeP15zWtzh3vAvJj8JM5njsufdiNTb2fMMx7JaMSKNrY8jsdt+mJFHq6ze
+	 fQ8/+ZBNeM5o0vKtAK7kaxM7Tzmx9p7kI2yH7fuMGAfSjcVnGahekLXMMAWcSC1EBPoWY
+	 5a85bWesfJzta3EK1kRwiZVGHL6zjgXCE/R34vbrE7m+CiIvO1nenCe3AwtZzgpdUnQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795293704;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795293705;
 	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=hxznbjStejhZ+qN3tZXdcsjGqDjQRxYMb8Gmd/IAPqs=;
-	b=BvW30LKREx/3BrNJ0jiIw5DCSlXF2uQy20C7PrXOT0VrFUrB5fNT4omgIy+LP5GYXhf0
-	 Aok0F6RorwYelw7vmZH2lJwWOGeO9L5c9SqqrW01Lmve1Iz3Umjwu2+laA3HrouAVhlNi
-	 qv0hDzUZD46W+PbgD2dfgi5tfOM0RO4NhsrnLYb2p69xBmEvaRy2RosNyg7Yu9QGEyjAW
-	 BtYB1FS1NRfBf+PDY71z9CxsjfyOG5p6boRXyc1RxFnuFokt2SwKh6EKft+eEodZ6wXHB
-	 LnTbEmAxe7FeYDI4MGNeO1DRC1PNLggZT6oksDyA5kDc3JHMz8bCP6XUAoKqspU9XvQ==
+	bh=qO/lDjAU8oXQuWFOSHzah7/JqbLGrQuaoNk2c0caW0s=;
+	b=3AiKmlRHx/6aRfpkF3/xAhGxiWooRsGxMVDTk9nTqoYEITkjYWB/B2hPOSDemTYJ2hGp
+	 pjYEiUCDNSHYLAT0ivk9DDHZofqDJNHCXwDYQi+5J1YQLbFcaeSXEYpNalcBFZo+Gejdz
+	 OtGETCksnUYq5DiFrZfwRC4APcbqFw4Nv2E2nL/0cFe/9nPKYp/7xKsR97rF2ylxe2jUD
+	 DgrGjyY6Kxk0umIx+2hBBp8zhCOLOGiIFy6uavZrY5ZOju1gb+OAIUAE07IjFqkqhV+f6
+	 MpTDGfaVJdgKpdki89dIrXIZSDsLYItIJ59ehB7m9ZkfrhMQaZIoNrMhu2dt1od8rFg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=yoxcu.de;
 	spf=pass smtp.mailfrom=yoxcu.de;
-	dkim=pass header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=J4qe7ogC;
+	dkim=pass header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=IpdCpZcO;
 	arc=none smtp.remote-ip=194.36.144.171
 Received: from morty.yoxcu.de (morty.yoxcu.de [194.36.144.171])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 338DE606A339;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A782C606A680;
 	Sat, 21 Nov 2026 20:41:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 338DE606A339
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A782C606A680
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=yoxcu.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yoxcu.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=J4qe7ogC
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2C6071D87240;
+	dkim=pass (2048-bit key) header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=IpdCpZcO
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AE3F71D87262;
 	Sat, 21 Nov 2026 21:41:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yoxcu.de; s=dkim;
-	t=1795293702; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1795293703; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=hxznbjStejhZ+qN3tZXdcsjGqDjQRxYMb8Gmd/IAPqs=;
-	b=J4qe7ogCK0yswDjkhHFZpPpMnWuspeDWi8esEl69I+QG/Dit8PNPn/iAWxVCukFRZQ/JkN
-	W5sfm0nwm/xv3GGYWF+KE+A+4MjMNFv+42z9xUPA6eEUnSVuXmXXjWTib9NpNcWr2qaPcr
-	EcN+dKkarcRnAUFAqvRVxaAOfbPzp5jZiegxP57BOb+DDSdrNXxwaOE8CX1Zxj57g6HKqQ
-	5CTQWiQzuBDgui3+xGw/Kl+F9QZg4JDAui7j6XHCQUsK3Il6BtXCZkq8pjfnmEiJXaXlVq
-	uMFEBVucOn+Pvb6ayGApY+u6MVXAGaAUc830gq7OCewq84PKAro16xsBsR0Xyw==
+	bh=qO/lDjAU8oXQuWFOSHzah7/JqbLGrQuaoNk2c0caW0s=;
+	b=IpdCpZcOWVcycutqYseU5wnSuDe2svkoSXPTxnInWUKn8NIdjZGtZCvCjT2/DCc4wQJj3P
+	FGkfggUf6RPU5SWOHCqDJfNa2x7gisx8Sk9g7Tvj8lYdWJ0bMUamJHrhPadvBxhnqgClh7
+	TkdENt1m62l9122QzY1jfVeYS9bojwA164Csr4XBub0uSmdbywF+3tuDwkQI4ijvc+5pd/
+	1QkkIOvqAOw0mV9seMt4OBSzEbhVL1GY7h2pIqLBisOiLtTFIUxbfAylKXLbUXl6XOlBGp
+	HipLSGP8jY3N5Q+zxjUM+u3/OMa1t6WECHa4OMsQHD/d9nTYwdMG6qET5lcF6w==
 From: Michael Auer <mick@yoxcu.de>
 To: Sebastian Reichel <sre@kernel.org>
 Cc: =?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
 	linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Michael Auer <mick@yoxcu.de>
-Subject: [PATCH 2/3] power: supply: bq27xxx: retry a failed register read once
-Date: Sat, 21 Nov 2026 21:41:36 +0100
-Message-ID: <20261121204137.848173-3-mick@yoxcu.de>
+Subject: [PATCH 3/3] power: supply: bq27xxx: keep the last values over a short read failure
+Date: Sat, 21 Nov 2026 21:41:37 +0100
+Message-ID: <20261121204137.848173-4-mick@yoxcu.de>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261121204137.848173-1-mick@yoxcu.de>
 References: <20261121204137.848173-1-mick@yoxcu.de>
@@ -68,51 +68,125 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 
-A bq27541 on a OnePlus 6 now and then NAKs an I2C read right after
-system resume (-ENXIO on i2c-qcom-geni). If that is the flags read of
-the update queued at resume, the driver caches the error: for the next
-5 s "present" reads 0 and every other property fails. UPower then
-reports the battery as missing at 0 %, and the desktop starts its
-critical battery action on a battery that is at 25 %:
+When the flags read of an update fails, the driver caches the error:
+"present" reads 0 and every other property returns the error until an
+update succeeds. Updates come from the poll work (every 360 s by
+default), a charger change, or a property read more than 5 s after the
+last update. So a gauge that misses one update makes the battery
+disappear for at least 5 s, and user space treats it as empty.
 
-  power_supply bq27541-0: driver failed to report `status' property: -6
+If a gauge that answered before fails an update, keep the last capacity
+and flags, so "present" stays 1, and re-check every second. Report the
+failure as before only once it has lasted 30 s. In that window a
+failed "status" read returns the status of the last good update.
+-ENODEV (no I2C adapter, or a bq27000 without battery) is reported at
+once.
 
-The I2C read already retries -EBUSY. Retry any other failed read once
-after 10 ms, in the bus independent read helper, but not -ENODEV (no
-I2C adapter). A gauge that does not answer at all now costs 10 ms more
-per read.
+Start with cache.flags = -ENODATA instead of 0, so that a failure of
+the very first update is reported and not bridged with an all-zero
+cache.
+
+A battery that disappears for good is now reported 30 s later.
 
 Signed-off-by: Michael Auer <mick@yoxcu.de>
 ---
-I did not put the retry into the I2C read next to the -EBUSY retry,
-because the error code for a NAK differs between adapters (-ENXIO,
--EREMOTEIO, -EIO).
-
- drivers/power/supply/bq27xxx_battery.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ drivers/power/supply/bq27xxx_battery.c | 41 ++++++++++++++++++++++++++
+ include/linux/power/bq27xxx_battery.h  |  2 ++
+ 2 files changed, 43 insertions(+)
 
 diff --git a/drivers/power/supply/bq27xxx_battery.c b/drivers/power/supply/bq27xxx_battery.c
-index 032eea030f2f..dccb0f84ea1d 100644
+index dccb0f84ea1d..6a0a916ec05c 100644
 --- a/drivers/power/supply/bq27xxx_battery.c
 +++ b/drivers/power/supply/bq27xxx_battery.c
-@@ -1141,6 +1141,17 @@ static inline int bq27xxx_read(struct bq27xxx_device_info *di, int reg_index,
- 		return -EINVAL;
+@@ -1128,6 +1128,10 @@ module_param_cb(poll_interval, &param_ops_poll_interval, &poll_interval, 0644);
+ MODULE_PARM_DESC(poll_interval,
+ 		 "battery poll interval in seconds - 0 disables polling");
  
- 	ret = di->bus.read(di, di->regs[reg_index], single);
-+	if (ret < 0 && ret != -ENODEV) {
-+		/*
-+		 * The gauge can miss a single transfer, e.g. right after system
-+		 * resume (bq27541 NAKs it). Without the retry the whole update
-+		 * fails and userspace sees the battery as absent.
-+		 */
-+		dev_dbg(di->dev, "failed to read register 0x%02x (index %d): %d, retrying\n",
-+			di->regs[reg_index], reg_index, ret);
-+		usleep_range(10000, 11000);
-+		ret = di->bus.read(di, di->regs[reg_index], single);
++/* Keep the last values this long when the gauge stops answering, re-check this often */
++#define BQ27XXX_STALE_TIMEOUT	(30 * HZ)
++#define BQ27XXX_STALE_RECHECK	HZ
++
+ /*
+  * Common code for BQ27xxx devices
+  */
+@@ -1968,6 +1972,35 @@ static int bq27xxx_battery_current_and_status(
+ 	return 0;
+ }
+ 
++/*
++ * A gauge can fail a read for a moment, e.g. right after resume. Keep the last
++ * values and re-check soon, and report the error only once it has lasted
++ * BQ27XXX_STALE_TIMEOUT. -ENODEV is reported at once.
++ * Returns true if the failed update was bridged and must not be applied.
++ */
++static bool bq27xxx_battery_bridge_error(struct bq27xxx_device_info *di, int flags)
++{
++	if (flags >= 0 || flags == -ENODEV || di->cache.flags < 0) {
++		di->stale = false;
++		return false;
 +	}
- 	if (ret < 0)
- 		dev_dbg(di->dev, "failed to read register 0x%02x (index %d)\n",
- 			di->regs[reg_index], reg_index);
++
++	if (!di->stale) {
++		di->stale = true;
++		di->stale_since = jiffies;
++		dev_warn(di->dev, "gauge read failed (%d), keeping the last values\n", flags);
++	} else if (time_after(jiffies, di->stale_since + BQ27XXX_STALE_TIMEOUT)) {
++		di->stale = false;
++		return false;
++	}
++
++	di->last_update = jiffies;
++	if (!di->removed)
++		mod_delayed_work(system_percpu_wq, &di->work, BQ27XXX_STALE_RECHECK);
++
++	return true;
++}
++
+ static void bq27xxx_battery_update_unlocked(struct bq27xxx_device_info *di)
+ {
+ 	union power_supply_propval status = di->last_status;
+@@ -1977,6 +2010,8 @@ static void bq27xxx_battery_update_unlocked(struct bq27xxx_device_info *di)
+ 	cache.flags = bq27xxx_read(di, BQ27XXX_REG_FLAGS, has_singe_flag);
+ 	if (di->chip == BQ27000 && (cache.flags & 0xff) == 0xff)
+ 		cache.flags = -ENODEV; /* bq27000 hdq read error */
++	if (bq27xxx_battery_bridge_error(di, cache.flags))
++		return;
+ 	if (cache.flags >= 0) {
+ 		cache.capacity = bq27xxx_battery_read_soc(di);
+ 
+@@ -2192,6 +2227,11 @@ static int bq27xxx_battery_get_property(struct power_supply *psy,
+ 	switch (psp) {
+ 	case POWER_SUPPLY_PROP_STATUS:
+ 		ret = bq27xxx_battery_current_and_status(di, NULL, val, NULL);
++		if (ret < 0 && di->stale) {
++			/* Status of the last good update, like the cached capacity */
++			val->intval = di->last_status.intval;
++			ret = 0;
++		}
+ 		break;
+ 	case POWER_SUPPLY_PROP_VOLTAGE_NOW:
+ 		ret = bq27xxx_battery_voltage(di, val);
+@@ -2304,6 +2344,7 @@ int bq27xxx_battery_setup(struct bq27xxx_device_info *di)
+ 	di->unseal_key = bq27xxx_chip_data[di->chip].unseal_key;
+ 	di->dm_regs    = bq27xxx_chip_data[di->chip].dm_regs;
+ 	di->opts       = bq27xxx_chip_data[di->chip].opts;
++	di->cache.flags = -ENODATA; /* nothing read yet: no values to bridge an error with */
+ 
+ 	psy_desc = devm_kzalloc(di->dev, sizeof(*psy_desc), GFP_KERNEL);
+ 	if (!psy_desc)
+diff --git a/include/linux/power/bq27xxx_battery.h b/include/linux/power/bq27xxx_battery.h
+index 731ea837aac3..9c2a55f40f76 100644
+--- a/include/linux/power/bq27xxx_battery.h
++++ b/include/linux/power/bq27xxx_battery.h
+@@ -67,6 +67,8 @@ struct bq27xxx_device_info {
+ 	int voltage_max_design;
+ 	bool removed;
+ 	unsigned long last_update;
++	bool stale;			/* failed update(s) being bridged with the last values */
++	unsigned long stale_since;	/* jiffies of the first of them */
+ 	union power_supply_propval last_status;
+ 	struct delayed_work work;
+ 	struct power_supply *bat;
 -- 
 2.43.0
 
