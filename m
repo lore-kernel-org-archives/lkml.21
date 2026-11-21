@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795245081;
-	b=hznyQDidzUMKd7AR0yfOE0zLn0r7e9YmEkz+i2ViVNg0/3jHtSAkM+geW3GWYDKHucEb
-	 HL29wVI9C4Pg1J/yHByQNRsBfuzNKvO1BSKt1TNMz1koFBvGp6EuHE4Y2oqKijaJ0uEl4
-	 fbNX5CYAB18QXBWH5ZD1qsJXL/YgjJ88d6L2ZCZ70SIKITe60xFGTdZHvs6H+xrHoHnDc
-	 7P6ICOdxT7QwW9r2PkHlvtiKcq5oQrSwJ3pKbbHtyMoRnrRCkiVtO1KEFhs+uoS6d3aB3
-	 nLanwB5rFtNGDGsjt5/J6GmIMizjzfy+UMImUSbJnHCHkV5oRmiECHCXChBnw3U7R5A==
+	t=1795245085;
+	b=g4VRZLPas5inTLSdX/d3ZIxlvtYv7fIwP8PazXpvbXoGqF18WjY3SCWtto7TnDUNMmvb
+	 A2dXbcDB3AAPSG2Oe3Djuf+Pj0YET879sGnTmPEuihr96N6rDR5Qc13IXCmsY3TK/Zo89
+	 jyWwAZ+bhpw4P1zuyhYrAPkAR3cHKqCIGVx/djRnUHDExoIAseEkBnpHsX6CyPMaqiSyk
+	 UNBvHpeTnN/2SBDn/Q1sPtUEpTkxYTtzIvAkI1eD4x7EN9lXw9sovNBrZTs0LOHV2u+FY
+	 Gd0mAWAwCHA3LnwwUQngHZd+PNZwUjky0UVc9IaHDZvScWfDAI8VlffVTgTXDeYt0eA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795245081;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795245085;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=Mna01FbMGtAeqEvxV+09r17BXVHQSxvuerCcr1g0HpI=;
-	b=4FtYxirbVxMBNfSn1wBsOHDQCYURR9EpiC4yXfDrK+mrQgJhNQWpNh9eOVvWzLicc+K8
-	 dDcDejrqU9YlCBsKDh/Ig2kVk+57O8y4aVta2AIS3p1LW/SsFiPTPNqtFLWv4xoY7ARNP
-	 405b7TvKV2kVF0XLXRGCsU2uf9hgnOltRdCT0cXe8ZxvvxC8fRdhqhoydnJQuOLPxPfRT
-	 CXJbfMnCz7jZeBf99Lal6bzBOWAuz15JAO0PJW7HkRuWJG+EwajnaHacvj1Jh8jhQanKy
-	 m0vdZJHfxcAKU9PEmPLZFnuR3y1ikYsPj0FzItFycqHBESS4isv8AlalGcLPfwfgTgw==
+	bh=LHVGDWh/sS50wYe3wF1hYQAVIGOU8i5LOcYT/8mME6Q=;
+	b=U26SeojBQ+Sf/EBJ3FhnY85FlT/asAz2As1b0KlUonTPDkA0trbR+b+kZMFEZcgmlW7Y
+	 Ta+VSREaesgKToYlr0elyD9367HeZnY+bMtM53WtMBzA/yZWPIRalUnTQ6ON6N9k6bUF1
+	 BgE7+JtV8qcKih/KXySVji1eWwTx+oBkY3I5Rm0n3aaQ6pi9ooLDLr0GaYXUCteOGmEAw
+	 Q5tKekg7eGvtkXEN6o5I9HCwoGp6wLMNgH6Ut0uQsvgeTcJocJFLfGcA7e/xLhjhNQoAs
+	 c9dPJNGV2ehCpRfFLBT6RHjsONfRy46hKYDoEZaIdHJJYPgZ+aW49BqLfSeJQI5d1Ag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xTIGyOY1;
-	arc=none smtp.remote-ip=209.85.215.176
-Received: from mail-pg1-f176.google.com (mail-pg1-f176.google.com [209.85.215.176])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rFXBpNZO;
+	arc=none smtp.remote-ip=209.85.215.172
+Received: from mail-pg1-f172.google.com (mail-pg1-f172.google.com [209.85.215.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0732A606A325
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:11:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0732A606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F22EB606A325
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:11:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F22EB606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xTIGyOY1
-Received: by mail-pg1-f176.google.com with SMTP id 41be03b00d2f7-cc4be0e5351so1663207a12.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:11:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rFXBpNZO
+Received: by mail-pg1-f172.google.com with SMTP id 41be03b00d2f7-cde7e8abf9cso105820a12.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:11:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795245080; x=1795849880; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795245084; x=1795849884; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Mna01FbMGtAeqEvxV+09r17BXVHQSxvuerCcr1g0HpI=;
-        b=xTIGyOY1M1QQyKYB6+vKmsIqR09C4ArDOBpdjvFpj5R4B6lT5BkAisOoewu5yCsOiC
-         6EbbIW0ip6aRnor6T7pFJjzPt3go8R2PcelYiuP9+L3CBpFXercz37+qYwZcnsmQhSj+
-         kh5rRaCSlEYqpVeTF9pCGFfDNFyQJ/j0hPA1XHVHz6ac3j36f/4U6bY8YsjHOQNXsYm9
-         ho7mlG/oANSdbrKswxiZERDWC2In8wvTtu4s1L4JHRLZ5juCxvHkbP3yVMlcr5GPUy9G
-         So2ZyWQu2DjksCgIA8b0+c0rA4l5N1YF84ASPb5D+tJRhE/UmTkHqSaHRKuZe9rwjRYX
-         kJWA==
+        bh=LHVGDWh/sS50wYe3wF1hYQAVIGOU8i5LOcYT/8mME6Q=;
+        b=rFXBpNZOFLOly12r8x3SMfVJrgLh8ga5krVEA9J+19fIPWpDyZZkEJN1EH9mSzejR2
+         OW2GXCrM1TeQ35SHBaE+YV2bDvbh1lgnqbYymFsvOaGgsEPV1qHNpQJ1A3CE1JFYR/OJ
+         bmQTdiSERS2Q7b7Vo3JCAnm2FobQYHt+Ra5PteDqAzkZ4eOaONfHi+qgHoDzicU4G+Xh
+         MjfumGI3g3Ic0NFPJ56NJvnWD/X/3KG+SxIBQ9B9mcJ3MBdXmyhJ5snlCC7Hy9112xur
+         8lzKEkgLm3Nj26MQ0wQ5M9kM9y2zOOKexKpamaw4E5xucyCJth3yZakW9TQ0nFZLU6pe
+         d0PQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795245080; x=1795849880;
+        d=1e100.net; s=20260707; t=1795245084; x=1795849884;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Mna01FbMGtAeqEvxV+09r17BXVHQSxvuerCcr1g0HpI=;
-        b=mnZQwGyz2DjKRM9GjEylFXn2sONaFWdKgghMjv91zjHCfb9QNwAMU77sLwrCBuD3qg
-         zcfFDb2jgwEWWN0dzkEDl22/OoKUw75zG9BPLpnvBeTmx2NYfYpi1cNzhlLDfE6Oa92g
-         A5Dw97naALSwo/gkBycHnIPIKNdsIm5E/OagM3UDl/sIxcP0jB/Z6iNkwfdMrwirUrs/
-         JcxTavoELKVEgyMi9umIa8LX8dfyCD3nori0Ukh2/ge1TQXuvwHRhvygXIX2Kaa7IXfG
-         ztxMbGvTnu5Mrf70XJacM1YIfqbXeBS8/NyhS76ABOuJ6HR+UwStNZzcPGxHFzRA+Gba
-         DW/Q==
-X-Forwarded-Encrypted: i=1; AL+hErGwvKDwoXSKIj2krt0bL0rPjKqGRVzJoyMGgzakKchNqXW1Bd7F2SS3uiYNMBszdGGY97CiKyRfvZJnvmY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8yg9OWYEnKc0N/WLxF+rvSg92r/aSWzVqHHkTQJP2hJIgf8v8D
-	kIrJiK7qA7leWVgjVTEDeiHKn//arWj+Mt5WJhn36h6fsf/t8xmaEGcI
-X-Gm-Gg: AZFdTZfA55xD3EeJ3x4B08xAxkR1M8O8QJHuY0M67kktggjHT5MHOGlrG778ldGJZBC
-	qd7VCpu0kZSwhVtBMGsIGIFnB0qxbhXB6+D8nyx4jn1PvtIy7iZvtM6I2wzJYZWTKl0beBPsc7j
-	wu20OoBX7s8pFzHCs3EHEU39HcJONh4CVFZkMaZHYxe0upghBA9mDGRIf9ZloW4LS1BGB1RdOvF
-	FTYVgg7GXsDbMonKd481IGCNGk2CAwMWn339xEV4BhJ+yrvtMzeNJ3ME/FUcTDDTqI8EQins+xw
-	Ne1WCkp3PgVMtoB4JTq3/5QAU0Bc68vGM7hYw4ruRvczuP9mDA7Inm3+ZWne3RGXb9Q4oAVykrg
-	6HDJ5nxzJiLqfnFFanS96CMGqa/nnSTrxi27SP4KYFmvzH9Y2hE390Gbv8zs9Dr26GeW2Q4HPui
-	euDH7VL5BNa/nVLyg5sXKTjANRPHcy+gENzbLfYBBBTC0F6f1pfSZNieRtRxtUCc+mOUcJv4W4p
-	GzAeZh/CVyhGi3iWvRCQUS2agPq9NlqnVoovKUP2dqXOUs3eFb0mH+CtDH/GDJEmUR3xq6K4ECb
-	I5VX5CMs7Pmr622/5PyzeWOc
-X-Received: by 2002:a17:90b:5289:b0:3ac:c005:cf07 with SMTP id 98e67ed59e1d1-3b41c92c416mr5762251a91.42.1795245080324;
-        Fri, 20 Nov 2026 23:11:20 -0800 (PST)
+        bh=LHVGDWh/sS50wYe3wF1hYQAVIGOU8i5LOcYT/8mME6Q=;
+        b=ISmBWPBJvgQj5M7VI6gHfhT7lkXGTwL+fe0WjuvWyk2tSb2r444HoCvL4UgO1gxPyl
+         SqWayuMi5/MHgTzl2AIb2RXqyAO4VpMtKARTgEPH/YAkd7uDWdzeT3GlSwbgh1in1buf
+         7Gimcne4jtSf6oq41zzD39p8Ix/sVn9R1cGszRck0a28OcUJCK+QSrphBUroCvU+8c4p
+         AFLpNP6OSMf0F5Hcj21pxzQXObjCu0Vlf82ZE3USGP1AXllbgiZ1VBX9Lcndi6KnANfk
+         iCf454lIaIIDs0wzCQZuN5JY8NIHnzRSPfFzfxUZ5jmumMLoS+p7hqvGS5j8xcd8Czyn
+         I6gA==
+X-Forwarded-Encrypted: i=1; AL+hErGtgBVl4C2JlkIcT/DuWNzGGfebQxwhg9SCLI0pQFcgbO3Ut7xkVgLPMr6kADE6gEEJcTlh3KFWYS3Jr5Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+zFclSoeC+gLZNr6BOeSaOw8xp+1S4OIDU4fEm/LX6tMv4F7M5
+	NT2kvT1OF5G9yiP5MD7oSdIjo00uoux5Lnia/JvkyeHaklCh7OLP5a4n
+X-Gm-Gg: AZFdTZfYZHuZl1JbJ0kopMVSAGZGuRFlIDC0gk+HdduGKixw/sh2pRt1rrnxS1+FbdS
+	tzRmipwTKOoyNkPBiwViiwUp4nHSuIu7Y7YNBS0MZu2OZEukxFex6EFeX5C6TuxHz5cF7Hlfr0E
+	qwm53232vNL29CVtlFxNSDyf2ZGWXRWfGlECGgozP6o1V6DTnVYkXNOPcX6h1EWyDiiDvExNCVQ
+	Mu8M0jXt6hLRz/VabJrIBlt6meNs7g5KoB0lwU6bz3R9tCG6a6BdtXasUWPowbRPg1m48Sl1lc9
+	oGOJdL5LhF1o17rmtZ74rMx2lDgjfS2sgcpOa4Bkh6h2TYl6fScWH/3ZepXumsq10HVg1JmmW1n
+	XbGrZzTeFMLv4pZhUcn/90O+ow1LD0WsI7V2SWym/oyEhcAKSjzdh9CFrTVRNN5+8FcFU/wiAwv
+	Ihv4z2371Ebw3jfZxWWZ1iBXba2ZzWSBm8N+e3ijTGnWu9y8redpdGQ2Y0AxIUnd2WW9VvWr+w/
+	MFJwc0v/ndO35ssWyXis5LZbEIip1Lt0MDgeKv3tBs2ICM4IoqsJZbWg4GlD+NgvWBN0zuxfcNK
+	N7lud/fhbmF7wYVIY+PhPAuA
+X-Received: by 2002:a17:90b:390c:b0:3a7:9e3d:b3 with SMTP id 98e67ed59e1d1-3b41c9beafamr4862865a91.66.1795245084275;
+        Fri, 20 Nov 2026 23:11:24 -0800 (PST)
 Received: from localhost ([111.228.63.84])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d11753sm10614548a91.5.2026.11.20.23.11.16
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d11753sm10614548a91.5.2026.11.20.23.11.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 23:11:20 -0800 (PST)
+        Fri, 20 Nov 2026 23:11:24 -0800 (PST)
 From: Cen Zhang <zzzccc427@gmail.com>
 To: marcel@holtmann.org,
 	luiz.dentz@gmail.com
@@ -86,9 +86,9 @@ Cc: linux-bluetooth@vger.kernel.org,
 	baijiaju1990@gmail.com,
 	jjzuming@gmail.com,
 	zzzccc427@gmail.com
-Subject: [PATCH 1/2] Bluetooth: 6lowpan: Hold RTNL across adapter lookup and use
-Date: Sat, 21 Nov 2026 15:11:09 +0800
-Message-Id: <pm-bluetooth-objects-candidate-0228-v10-f6ced931e2322aa5c7b3-1@gmail.com>
+Subject: [PATCH 2/2] Bluetooth: 6lowpan: Disable notify_peers before netdev deletion
+Date: Sat, 21 Nov 2026 15:11:10 +0800
+Message-Id: <pm-bluetooth-objects-candidate-0228-v10-f6ced931e2322aa5c7b3-2@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <pm-bluetooth-objects-candidate-0228-v10-f6ced931e2322aa5c7b3-0@gmail.com>
 References: <pm-bluetooth-objects-candidate-0228-v10-f6ced931e2322aa5c7b3-0@gmail.com>
@@ -103,75 +103,52 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-lookup_dev() returns a borrowed adapter after dropping RCU. The last
-peer's asynchronous deletion can unregister and free its netdevice while
-a later ready callback uses that pointer:
+The last-peer close path cancels notify_peers and queues adapter
+deletion. Before deletion removes the adapter from the list, another
+ready callback can find it and queue the embedded delayed work again:
 
-  Ready callback                    Deletion worker
-  lookup_dev()
-  leave RCU
-                                    lock RTNL
-                                    unregister the netdevice
-                                    remove the adapter from the list
-  ifup(): wait for RTNL
-                                    unlock RTNL and release storage
-  open the stale netdevice
+  Last-peer close                   Later ready / deletion work
+  cancel notify_peers
+  queue delete_netdev
+                                    add_peer_chan()
+                                      requeue notify_peers
+                                    unregister and free the adapter
+                                    notification timer uses freed work
 
-Take RTNL before lookup and retain it through peer publication and
-device open. Use lowpan_register_netdevice() because registration now
-runs with RTNL held, and remove the nested lock from ifup(). Deletion
-cannot revoke the adapter between its lookup and last ready-callback use.
+Disable the delayed work synchronously instead of only cancelling it.
+This both drains an existing callback and rejects later queue attempts
+for the adapter which is already being deleted.
 
 The excerpt below retains the headline and stack traces.
 
+Use disable_delayed_work_sync() before teardown, as commit
+d236517c264e4 ("Bluetooth: coredump: Quiesce dump work on unregister")
+does before freeing the Bluetooth coredump state.
+
 KASAN report as below:
 
-    Oops: Oops: 0000 [#1] SMP KASAN NOPTI
+    BUG: KASAN: slab-use-after-free in do_notify_peers+0x63/0x70
+    Read of size 8 at addr ffff888117711030 by task kworker/3:1/50
 
-    Workqueue: hci1 hci_rx_work
-    RIP: 0010:dev_addr_check+0x4e/0x260
-
+    Workqueue: events do_notify_peers
     Call Trace:
      <TASK>
-     __dev_open+0xa8/0x6d0
-     ? __pfx___dev_open+0x10/0x10
-     netif_open+0xde/0x140
-     ? __pfx_netif_open+0x10/0x10
-     dev_open+0xb9/0x180
-     chan_ready_cb+0x420/0xf90
-     ? __pfx_chan_ready_cb+0x10/0x10
-     ? lockdep_init_map_type+0x5c/0x230
+     dump_stack_lvl+0x93/0xd0
+     print_report+0xce/0x630
+     ? do_notify_peers+0x63/0x70
      ? srso_alias_return_thunk+0x5/0xfbef5
-     ? l2cap_chan_put+0x48/0x3a0
-     l2cap_le_connect_req+0xccd/0x11a0
-     ? __pfx_l2cap_le_connect_req+0x10/0x10
-     l2cap_recv_frame+0x467f/0x8830
-     ? kfree_skbmem+0x15e/0x1d0
-     ? srso_alias_return_thunk+0x5/0xfbef5
-     ? srso_alias_return_thunk+0x5/0xfbef5
-     ? __mutex_lock+0x182c/0x2590
-     ? srso_alias_return_thunk+0x5/0xfbef5
-     ? __pfx_l2cap_recv_frame+0x10/0x10
-     ? srso_alias_return_thunk+0x5/0xfbef5
-     ? find_held_lock+0x2b/0x80
-     ? l2cap_recv_acldata+0x1eb/0x10e0
-     ? __pfx___mutex_lock+0x10/0x10
-     ? srso_alias_return_thunk+0x5/0xfbef5
-     ? __mutex_unlock_slowpath+0x147/0x920
-     ? __pfx_l2cap_conn_hold_unless_zero+0x10/0x10
-     ? __pfx_hci_conn_enter_active_mode+0x10/0x10
-     ? l2cap_recv_acldata+0x13d/0x10e0
-     ? srso_alias_return_thunk+0x5/0xfbef5
-     l2cap_recv_acldata+0xe9f/0x10e0
-     ? srso_alias_return_thunk+0x5/0xfbef5
-     hci_rx_work+0x5a6/0xf00
-     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? __virt_addr_valid+0x20d/0x410
+     ? do_notify_peers+0x63/0x70
+     kasan_report+0xe0/0x110
+     ? do_notify_peers+0x63/0x70
+     do_notify_peers+0x63/0x70
      process_one_work+0x908/0x19c0
      ? __pfx_process_one_work+0x10/0x10
      ? srso_alias_return_thunk+0x5/0xfbef5
-     ? lock_is_held_type+0x8f/0x100
-     ? srso_alias_return_thunk+0x5/0xfbef5
      worker_thread+0x65c/0xe40
+     ? srso_alias_return_thunk+0x5/0xfbef5
+     ? __kthread_parkme+0x175/0x220
+     ? srso_alias_return_thunk+0x5/0xfbef5
      ? __pfx_worker_thread+0x10/0x10
      kthread+0x34f/0x460
      ? srso_alias_return_thunk+0x5/0xfbef5
@@ -184,81 +161,58 @@ KASAN report as below:
      ret_from_fork_asm+0x1a/0x30
      </TASK>
 
-    RIP: 0010:dev_addr_check+0x4e/0x260
+    Allocated by task 500:
+     kasan_save_stack+0x33/0x60
+     kasan_save_track+0x14/0x30
+     __kasan_kmalloc+0xaa/0xb0
+     __kvmalloc_node_noprof+0x353/0x930
+     alloc_netdev_mqs+0xa0/0x1250
+     chan_ready_cb+0x4ec/0xeb0
+     l2cap_le_connect_req+0xccd/0x11a0
+     l2cap_recv_frame+0x467f/0x8830
+     l2cap_recv_acldata+0xe9f/0x10e0
+     hci_rx_work+0x5a6/0xf00
+     process_one_work+0x908/0x19c0
+     worker_thread+0x65c/0xe40
+     kthread+0x34f/0x460
+     ret_from_fork+0x659/0x940
+     ret_from_fork_asm+0x1a/0x30
+
+    Freed by task 11:
+     kasan_save_stack+0x33/0x60
+     kasan_save_track+0x14/0x30
+     kasan_save_free_info+0x3b/0x60
+     __kasan_slab_free+0x5f/0x80
+     kfree+0x307/0x580
+     device_release+0xd7/0x280
+     kobject_put+0x1ad/0x610
+     netdev_run_todo+0x91c/0x13a0
+     unregister_dev+0x82/0x280
+     process_one_work+0x908/0x19c0
+     worker_thread+0x65c/0xe40
+     kthread+0x34f/0x460
+     ret_from_fork+0x659/0x940
+     ret_from_fork_asm+0x1a/0x30
 
 Fixes: 18722c247023 ("Bluetooth: Enable 6LoWPAN support for BT LE devices")
 Signed-off-by: Cen Zhang <zzzccc427@gmail.com>
 ---
 This patch was written with assistance from Codex (OpenAI).
 
- net/bluetooth/6lowpan.c | 17 ++++++++++++-----
- 1 file changed, 12 insertions(+), 5 deletions(-)
+ net/bluetooth/6lowpan.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/net/bluetooth/6lowpan.c b/net/bluetooth/6lowpan.c
-index 68ca2f49dadc9..f01eb68cbf5a9 100644
+index f01eb68cbf5a9..f3f4e4b2c5f46 100644
 --- a/net/bluetooth/6lowpan.c
 +++ b/net/bluetooth/6lowpan.c
-@@ -597,11 +597,11 @@ static void ifup(struct net_device *netdev)
- {
- 	int err;
+@@ -824,7 +824,8 @@ static void chan_close_cb(struct l2cap_chan *chan)
+ 	if (!err && last && dev && !atomic_read(&dev->peer_count)) {
+ 		spin_unlock(&devices_lock);
  
--	rtnl_lock();
-+	ASSERT_RTNL();
-+
- 	err = dev_open(netdev, NULL);
- 	if (err < 0)
- 		BT_INFO("iface %s cannot be opened (%d)", netdev->name, err);
--	rtnl_unlock();
- }
+-		cancel_delayed_work_sync(&dev->notify_peers);
++		/* Prevent a later ready callback from requeueing work. */
++		disable_delayed_work_sync(&dev->notify_peers);
  
- static void ifdown(struct net_device *netdev)
-@@ -706,7 +706,7 @@ static int setup_netdev(struct l2cap_chan *chan, struct lowpan_btle_dev **dev)
- 	list_add_rcu(&(*dev)->list, &bt_6lowpan_devices);
- 	spin_unlock(&devices_lock);
+ 		ifdown(dev->netdev);
  
--	err = lowpan_register_netdev(netdev, LOWPAN_LLTYPE_BTLE);
-+	err = lowpan_register_netdevice(netdev, LOWPAN_LLTYPE_BTLE);
- 	if (err < 0) {
- 		BT_INFO("register_netdev failed %d", err);
- 		spin_lock(&devices_lock);
-@@ -735,12 +735,16 @@ static inline void chan_ready_cb(struct l2cap_chan *chan)
- 	struct lowpan_btle_dev *dev;
- 	bool new_netdev = false;
- 
-+	/* Protect the device lookup and use against unregister. */
-+	rtnl_lock();
-+
- 	dev = lookup_dev(chan->conn);
- 
- 	BT_DBG("chan %p conn %p dev %p", chan, chan->conn, dev);
- 
- 	if (!dev) {
- 		if (setup_netdev(chan, &dev) < 0) {
-+			rtnl_unlock();
- 			l2cap_chan_del(chan, -ENOENT);
- 			return;
- 		}
-@@ -748,10 +752,13 @@ static inline void chan_ready_cb(struct l2cap_chan *chan)
- 	}
- 
- 	if (!try_module_get(THIS_MODULE))
--		return;
-+		goto out;
- 
- 	add_peer_chan(chan, dev, new_netdev);
- 	ifup(dev->netdev);
-+
-+out:
-+	rtnl_unlock();
- }
- 
- static void unregister_dev(struct lowpan_btle_dev *dev)
-@@ -763,7 +770,7 @@ static void unregister_dev(struct lowpan_btle_dev *dev)
- 	 *
- 	 * rtnl_lock -> put_device(parent) -> hci_release_dev ->
- 	 * destroy_workqueue -> hci_rx_work -> l2cap_recv_acldata ->
--	 * chan_ready_cb -> ifup -> rtnl_lock
-+	 * chan_ready_cb -> rtnl_lock
- 	 *
- 	 * However, hci_rx_work is disabled in hci_unregister_dev, so this
- 	 * should not occur. Make lockdep happy by postponing hdev release after
