@@ -1,114 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.150
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795262123;
-	b=pBhOKe04iXVMlNC5m/Um4ul5KktZyrgKz3qlXWqpiBoQEGCjyz381BQi0sfaczwhhR+g
-	 6Njn7BvPJKPotL37E42YMDjnHjXf4GRArwte4r1lEsugXfRaexsmY41x32bK7YO0IjiGW
-	 u1AYNcI3p30r2f6JIMMPL80h3TOlyD486BBGJq1NHuJcwMSxlS4QEyhB45jOIkMIS1cO1
-	 k910lhr4/cSlxvIQ6CO5lMJ+BracIti0Ta6PW78kC0T/QwqbvEzRW+VoUvPIPSTv2HOU1
-	 YNYeZ73muFIZm9Q4oAr4ac+dBwEe2FHNZzftBpbF9hfXbaRaRbQWsPkmcIyP3O9GfyA==
+	t=1795262134;
+	b=YIVClromHdqbgj5DE5JrvmJPpggM8LBbbFudtxSDDzIghOgm1iiQRhF3IATQgGowUo+K
+	 U5wRNC4v6YAwyLvMihZuQ1VO6bYIUpLEkP8JAy6v8HHFInpDxniYdUb92w+fTRRk3fo41
+	 Lx9Jp45lQ2saWZZAw+Lr8VOvy5bq/bxg1kSq9Ignpj9/WRTeoUa8qhp5bTjOYjZHvW8O4
+	 bTFpsg+qLMv1so7nJ40ZJltwM2JbcVbdS6eLToTwnRxPlynhkDhBiqoJ5EsQcr0XSYIkD
+	 ddZR4UXClX24lUn6n7MsXRYRxiXZUO6io/GHI8sLbjrRkpcPS8x8ENmThKbFGNgTyOA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795262123;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=dVICqIJ5zW3htHU6bK76kpvRAK5XFcaQeHCRH3i7ebE=;
-	b=riwFQr92KGgLvBPB0JqTdbBMqRTfOhXnyjTs8pLQoTFJ5gFSM0Tqk/6j8r8PtYNkTpnl
-	 Ln1JTevU3SmzBu6uHKfnIw3oiHkQkOUj57OLiNihk3KqEmionorP3fio/C+QnfKvgusSk
-	 xliOygevm42FDB25fBlwa1066zllKJWwhLyVOE8En8wWMKeHN+BpufBse/MZ4kwARSLPY
-	 g+zrs5e25yUFeDDvM6gZUMPINFoqAWjPNbRrLYg+soYTsaj/lP/af8gaWzYF6o73VRGP1
-	 Icx9sk1pg02Iq9ssh4PNmoNjDxOU3nZpKP6dBhwz5wZlw6eNq8JfqEcfAoTk244rYKA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795262134;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:From:To:Cc:Subject:In-Reply-To:References:
+	 Content-Transfer-Encoding:MIME-Version:Content-Type;
+	bh=Udl+/K1uwpei4wEZthYxSyLuxFRGO3vhDmEacUQwYcU=;
+	b=SOg9siidfO8Pe1TtoSqYj+MTLgzqLoFmscU27iWSWkijF+216WAWWHRShE4iCxwqWwU7
+	 afaQzPpcy4nd66t1Te2CreAsRbdP1chLDX+yLTb8o2MYnEXFdgl5cLpZiAGC61Xyae3zL
+	 i0tOu14KNSP8P7hZxAv4d6uQsy4MXgxqHFfNVF/m5PNb6ggctAGJEscVTKuWPZHZMdciZ
+	 d5yvKYHiiTN+mnASMiW5rDYYRmmjd+krL/U53zv30ypJm7kH3NvdWTR39heiRPnXNL6O3
+	 H2V0I0/nS+e73yd9vdPbsRc/ThKh9XA1ZnmAJCABJJEO2hTayPz+DCTc8alH+2DvEqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ragnatech.se;
-	spf=pass smtp.mailfrom=ragnatech.se;
-	dkim=pass header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=tRGhujpv;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=RLYk5YWP;
-	arc=none smtp.remote-ip=103.168.172.150
-Received: from fout-a7-smtp.messagingengine.com (fout-a7-smtp.messagingengine.com [103.168.172.150])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0k+YJBUH;
+	arc=none smtp.remote-ip=74.125.82.178
+Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4632D606A325
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:55:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4632D606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ragnatech.se
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ragnatech.se
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9191606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:55:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9191606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=tRGhujpv;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=RLYk5YWP
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfout.phl.internal (Postfix) with ESMTP id 1E083EC0AE9
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 06:55:21 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-02.internal (MEProxy); Sat, 21 Nov 2026 06:55:21 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm2; t=1795262121; x=1795348521; bh=dV
-	ICqIJ5zW3htHU6bK76kpvRAK5XFcaQeHCRH3i7ebE=; b=tRGhujpvQvIP5foq1K
-	b74ljqwV2nta3YSI2v+L01tAAmw1JKm4lxyEv072pT7hwqbB6r5PscshIhhRVubx
-	7CDP+Q/WmhYRhGizr4FcP2L4Vd3tmQI9SJLORfAp0MHae5GU97Ddcjjm0kH7rfQo
-	y+jUwwLRMpx3Odf8E39keppfz+zO2pdwgSFRTripJNOxiw4BN5yf3O73HJ9HFEIX
-	EcfYRngN+tcVtvyyqkj/jSx8M9puCObZ6EtmN05aB6xlqBQiHwIRykTXhoZEYT2S
-	0b8xFaLhoVOrlz0XaMoMxlKgcZoMTZ6jh0WUkeeTveXIqTkPMTHfRSPTEp5LvngQ
-	2sAg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm3; t=1795262121; x=1795348521; bh=dVICqIJ5zW3htHU6bK76kpvRAK5X
-	FcaQeHCRH3i7ebE=; b=RLYk5YWPqdO7TBm0japvS+ficlihwTSgbshKvETG01gI
-	ZrbkgrZqeMgqlQ7hfiCW1+xm4h3L9y/UKR0ayzqTU6FDjV+/jN4lw0BrIvTISw3a
-	kYTewDmNB3N2AuvxSx4oBnXxk04QIV7aNWBpwP9/EzxsrildMX6ttxRgLM8P3F17
-	IcRmK+tLL5nRD3zzuolT8RuN6/8ayUw64B9p0I0BOzAaLJCldc39YSJJLj7PjdAQ
-	xFichONXPLSPCJO031N5jwFNyoPEbsu9uyHm7m7qdRCu0FZZ2wy7p2XIw6ydlFC2
-	7aEa03JJtCOjAFfensBrG7Ga/8KB53tKru/rdYv7OA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=ragnatech.se a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795262121; d=ragnatech.se;
-	mf=PG5pa2xhcy5zb2Rlcmx1bmRAcmFnbmF0ZWNoLnNlPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:GCyOQGIKC4vFapWQuxSym0OLM8nw1Whd0jQAtM1YDoDVdn9
-	eLcH++Oq1oxIo0ipbinb3WN156ZxxtvKHd9/n/mmIhl4wEUmPZ/8E9THFScGLWHP
-	Sc9f4jSL2rqzuRmMyDgeVkvQjrA0X0b3S1Nw8W5YY9lYeyrK0jVIm4LTbkOSI1/S
-	Rk7JrakjfFBDM/Om3sbYXPXfSSFNKa4WEh8HqvKE4lYFA21uxAmurpSwzNqBoHNq
-	+HeJiQIgoWvYRnvUGEK+zt+226nt5LDOtmB51f3Ue/mKtR50yBMZTeGxikbj+Dbr
-	NPEEaGYhkh75+uzIqsDaXnB9AX3wbRXyZd4R/+Q==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=10;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,message-id,mime-version,subject,to;
-Message-Instance: m=1; h=sha256:k75Lbqr2aptnmP7uvf/rvhh3qgUcTsN/Zc3kWBC6fwU=:8x0hF+wkjYDw5ltkamw4MuqQUv0aAsAeETkZeQggL08=;
-X-ME-Sender: <xms:qIYBaxcRgE8pyUBNEv-Bs3kJP4xNCSRiBp-IEmZVh3lPnIrmqjaTxw>
-    <xme:qIYBa_qmt61fr4xv9qUNJEGur_vvFveeGjPoApMdCRq93Ccr7YH2ocK_KEJaBrxVU
-    8niQylDywgaS3NcPFrB1TixBMHWz5WfOR3puZTaclbpIBBPp_BVSaoM>
-X-ME-Received: <xmr:qIYBa7OwtXpIXQQFGaVoUTa9XZkfseH24jVzNGd2D9XeNUjOTksLu8ZGvoScAtvx4ZuNNkj1v4f3tLx6FWN-tl9J8LaFkBw>
-X-ME-Proxy-Cause: dmFkZTEKe1GzsAlymTs/w9XW2L2vFYNarLnQj5xO2bQE+sZGJy3roUZsHHtT3VjtiT45ZG
-    Yj5b4wQoN25GgfnB9UfAXaRa4+Fl8TPJpF7i2IKUwwmdIE5CnaOemfLBTtsJO2VeKO/Kr8
-    5X62fLGt2FQeaMPIUs99VQWaO7sa884Eedv4gQkxyfV/Dcc33IXZ7mxOocw5IdGZKQsjSi
-    09Jhaa8TvmjxUQu0S1QFqHkuxyGjFx5d9ojfKBm3VBioxi70bBzMduDQ8awe11DifVXrOQ
-    O6dnm/sAaczRwshrc2h2m6/KDI1MzqVwe9ccZ6BrvI2er3rL77VwoOEHaz+GZRRaM2oqpn
-    lRKjzFOY6vL31oFABitet7AY2tGv+jobdCDckK303PXJRgISjW4cryEE0JG6vBkmOKUVBA
-    1r01kIK4Lyyyit+E9MCjtOMlRORMiypgD67xx3UKST2KEIne8QCPHxI71u/bh3ipHW3rbt
-    5Bk/UV4vurpFaLJPk/M8u/okDxy5y/ecaUy0mV7uBdONOgJJSVwkgEsVEIg9Z55CtcUq1Y
-    DsbDezuyIc87QWR7jtgFsDCEOCr0Un7kOWFktLAIhEymMR9vB00i/XhHB4XNC1DW7rorRz
-    0k/2nkBbYvRGbpTeR8IY9LeE269DlIWaIYPiNr/EqKtQBC+W6LEwEGn33hdg
-X-ME-Proxy: <xmx:qIYBayj17BI-hHXLPDXN3CalRjbwMAZ5MxDZM37YSFlbsPh1eR1Epw>
-    <xmx:qIYBa-uKrBdnqFl3waiEiAQ5MCl8hSMDgWj43m2JIxC08o4fe6fifw>
-    <xmx:qIYBa2hJXyTe3CyW5EntHdBPhxpOG1Du1x-Rka6hcCA3goNa5m6zHQ>
-    <xmx:qIYBa0aJg1AvT_b33Kxy7G6WrpM9IYXIIP0hTnJN9FBIJijnyZKIGA>
-    <xmx:qYYBa1FgUwWUIPiJQYr43a7jHMoZDO1DLgIEZrRDOQOZ2ZXnWLzcdsNo>
-Feedback-ID: i80c9496c:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 21 Nov 2026 06:55:20 -0500 (EST)
-From: =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
-Date: Sat, 21 Nov 2026 12:54:59 +0100
-Subject: [PATCH v2] media: rcar-vin: Return unused buffers correctly
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0k+YJBUH
+Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-382f4710a17so3009251eec.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:55:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795262133; x=1795866933; darn=vger.kernel.org;
+        h=content-type:mime-version:content-transfer-encoding:references
+         :in-reply-to:subject:cc:to:from:date:message-id:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Udl+/K1uwpei4wEZthYxSyLuxFRGO3vhDmEacUQwYcU=;
+        b=0k+YJBUHmdNpld/JWXvrBrKQuGuyaLGNv3sxg43FeN8rrDSQ4s066Skzh/9L7bR3yC
+         1IZqCBZz8ikuGIAebBgi1vCiSPFarzz7syzVNBvi3h4KusKVoQryvGBmPxJHnseTA/WL
+         Dvl9WLqU4BcUiaFeEOe54dbE5E4cpDXgsHc5cvz72kSnPB2WFbkdF4eEAM1c6+UMWn9w
+         6zu8kPnFmVmhe3iCdCDm6JEflXLETJTrW6NEhHuZ2ui1LXOUpC1KIp73tXusjZkTq7E5
+         /nJGiiJR3ogrKwP0sflp2r2J4DXc3TDupzRJlONF0NTg6yTWJ6jrzG3NIOumNQHSCeDH
+         LNRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795262133; x=1795866933;
+        h=content-type:mime-version:content-transfer-encoding:references
+         :in-reply-to:subject:cc:to:from:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Udl+/K1uwpei4wEZthYxSyLuxFRGO3vhDmEacUQwYcU=;
+        b=Hd/jqJ2fIOmb40cNuN905LwWZE8x4kp7JV1D0YzX6HO9lCqz8eW+YmX7C2x43WodcX
+         jcZpKilTrFvs6KB009VJ3mpwTRMGvRjzsqG/XBOt6jutSrduLp0crivzytpi9Qh26Kap
+         /5xhcuu93pJMc8mPlsvEX5axgU5h4I2JoYtupqcARjXGbbKIE3rlB18YnPhhwMCrPRat
+         BwHZJz32/FukQuXOkXNnhyHS9cOw2D38ch4hppLTbFBqSelB9qnj8SVGni89XSMX4oa4
+         hzmZ2HwfECU9E8tNNmLlYdSHC4Qjb7/hStkemAS4cAVoPAY6S74pzHCpybA4M/T05vG/
+         PHVw==
+X-Forwarded-Encrypted: i=1; AL+hErFUQuHeHT3FAy76h/kxTN1ToZ3ON+LAdeH689K7UPE5t3tTrW6vtxNX7ECbB8VmfwR4vObScil5G9eNpiY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+l+DIH+Mu5IpGBFtwsHXXsQCykXptaGdvyQ0PP57d2ZvmHxdUp
+	BTOtPQCZrOW7JitWDJm3xWIWQUwPSpM/1ROXFtwIe+TeucvIisMhLRe4
+X-Gm-Gg: AZFdTZcBKASAA8Eik7Joh02FwWenfKrbZmp6jBL+wsQbhVl5EZhxbL2u8VWLn/ilzM9
+	AenDeRKrrmRdBfFAAI1upRatHlhjfxu4R6jM05eCg/F0ZRUj2ZmOiD/Up+RE42VLxN+HX6FJZRM
+	3o3VPpxOIfWLGMvhb46m+pGF8QpzkA21jI56DNMgLBarowTVFH+FSbQLcOc9+l3vCQvMaMBHel1
+	GVzjkoRLiuaoCg2CnQPLPTTE85gc/E/jPqjem7pie274tibD5xGErEkP9hxtoe7f1wdUuFBbysJ
+	yob2z6uHa6M08XdU0UixKw3TWMASvjuTdGb3ixMzNpBilQUOtC/XAdJUJH/fmlYZ9+aRB9J5ge9
+	2vLEBCvlSqql69OTAnhUW+OWtVKieoPcASC/BvDOkqScWSUZg2GQT71eTopM8urA3Suv3r+KHxt
+	vg0T7XGAu1KEoC+ZdcZtHX0jiUJH/HRjo0GJkuqFd3gpdLkuHULedmTLUC1puph0lgWtBkLi2KZ
+	HzYfD8jC2/zuWaWzR1Nn4WP1dtqOYJVdURoEaRPUpGXamcZEh7BYoqNRRG9tQ68X6/Zw1ixLEm4
+	x72gZirC5CZXXIoYujyLEVLKfLczbeNrpDB5Wc32LIjr8hGXSSA=
+X-Received: by 2002:a05:7300:bf11:b0:36a:15cb:30bf with SMTP id 5a478bee46e88-3856fe5971amr6534175eec.13.1795262132618;
+        Sat, 21 Nov 2026 03:55:32 -0800 (PST)
+Received: from ip-192-168-31-150.ap-south-1.compute.internal ([2409:40d2:10d7:e30e:302e:83a2:5a33:afcc])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm22261925eec.4.2026.11.21.03.55.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 03:55:32 -0800 (PST)
+Message-ID: <6b0186b4.6dbf942f.174087.451e@mx.google.com>
+Date: Sat, 21 Nov 2026 03:55:32 -0800 (PST)
+From: Tanuj Sharma <ertanuj96@gmail.com>
+To: ntfs3@lists.linux.dev
+Cc: almaz.alexandrovich@paragon-software.com, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, gregkh@linuxfoundation.org
+Subject:
+ [PATCH v2] ntfs3: fix out-of-bounds write in do_action() bitmap operations
+In-Reply-To: <2026112159-sampling-unmade-c123@gregkh>
+References: <2026112159-sampling-unmade-c123@gregkh>
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,83 +99,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261121-vin-fix-vb2-v2-1-602a3d876853@ragnatech.se>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22NwQ6CMBBEf4Xs2TV0g1A88R+GQ1sXWA/FtNhoC
- P9uwavHl5l5s0LkIBzhWqwQOEmU2WegUwFuMn5klHtmoJLqUpPGJB4HeWOyhKRZWUuVqZWGvHg
- GztFhu/U/ji/7YLfsir0xSVzm8Dnuktp7/81JocK2YauGamguru2CGb1Z2E3nyNBv2/YFRdYQ1
- LsAAAA=
-X-Change-ID: 20260828-vin-fix-vb2-28e1bb24a618
-To: =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>, 
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1550;
- i=niklas.soderlund+renesas@ragnatech.se; h=from:subject:message-id;
- bh=8x0hF+wkjYDw5ltkamw4MuqQUv0aAsAeETkZeQggL08=;
- b=owEBbQKS/ZANAwAKAQm0/3kE+U0kAcsmYgBrAYafR4cljYFsvw9CBk9hPyZGDeQEinQPTtzYf
- 0KFRZACqdSJAjMEAAEKAB0WIQRwy9J0OLNPX3a0+3gJtP95BPlNJAUCawGGnwAKCRAJtP95BPlN
- JGyKD/9w7UomngTaGPHnXNxVPV9gxFnNchUp2UBiurm/5FfDIg+rMhVuye8T6me+fJ8ZcuTyJFV
- RlT+bNzsp+QjmUQ0nGZ1NCM+igiqxq9yGmrFTauYrexPUrU6R1NnNhVtwwdZ1pW+NE4dEuNtRhW
- MztvKqH5MgfSN1wvWPXrJGrFILnc/AaUNSxbFj+H8rM4PpRZhzk9Rq3y5yqHC0qlnXOEgxVYION
- ephQwXq7fu1OBo0QmW/+0y2rGBmAt9/kqJvUHqJ0jak1kcM0IpGZgJFyxAo/9IkWMXECmH1nOkj
- T6ICqJW1uEBo99kArfqat8qQVfZYSVZEb/GUTeqbrUV6DHC8fDBL3heRNv47ieo7UF2Iap6reci
- gJMehHmMQ8eWNjP8ZNwYcs+Xg3nBSBjN95wCj4JIXh2swyaQd95V3Qi95VOSI1RaPnMR62fqC1q
- 1l93hGozHRUiOhTSNowRzohYvBg8YMGc3S82FzPb+sskb8pBDbni2FAQVA7by6V+U6NTug4QRUD
- BO+0s9ndYosn7YgTjz6uMR2pGbKlxU4PElSzCKgLgWokCcbbcE6PiUQlbJKWerKO+Xpwu7Kr7Z6
- HW2o7ou/sFWwrxv/+Q87YIOEOgnnK7L/E4bJPPKEqR29XoteobI+B3VGY+O4kL114nArEb1mY6h
- iotuSRgvk9J6L1g==
-X-Developer-Key: i=niklas.soderlund+renesas@ragnatech.se; a=openpgp;
- fpr=9976695FE98693307BF360A2F1591ABD9588DA5F
+Content-Type: text/plain; charset="us-ascii"
 
-Unused VB2 buffers should be returned with state DONE not ERROR when
-stopping.
+In do_action(), when replaying log records for ATTR_ALLOC attributes,
+the buffer is allocated based on bytes_per_index (typically 4096 bytes,
+kmalloc-4k) but bitmap operation bounds checking uses lco -- a larger
+value derived from lcns_follow << cluster_bits (typically 8192).
 
-Signed-off-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+This allows SetBitsInNonresidentBitMap and ClearBitsInNonresidentBitMap
+opcodes to write past the allocated buffer into the adjacent slab object
+when processing crafted NTFS images with malicious $LogFile records.
+
+The bounds check compares against lco (the full LCN extent size) but
+should compare against the actual buffer capacity. For ATTR_ALLOC, the
+buffer is only bytes_per_index bytes, allocated here:
+
+  if (attr->type =3D=3D ATTR_ALLOC) {
+      t32 =3D le32_to_cpu(oe->bytes_per_index);
+      if (bytes < t32)
+          bytes =3D t32;
+  }
+  buffer_le =3D kmalloc(bytes, GFP_NOFS);
+
+But the bounds check uses the larger lco:
+
+  if (cbo + (off + 7) / 8 > lco || ...)
+
+With bytes_per_index=3D4096 and lco=3D8192, any bitmap_off >=3D 32768
+(byte offset 4096) passes the lco check but writes past the buffer.
+
+Fix this by computing the bounds limit as the minimum of the buffer
+extent (cbo + bytes_per_index) and the LCN extent (lco). This ensures
+bitmap operations cannot exceed either the allocated buffer or the
+on-disk extent, and also prevents a crafted bytes_per_index larger
+than lco from weakening the existing check.
+
+Found by code audit and confirmed with a crafted NTFS image that
+triggers the OOB write on mount.
+
+Cc: stable@vger.kernel.org
+Fixes: b46acd6a6a62 ("fs/ntfs3: Add NTFS journal")
+Signed-off-by: Tanuj Sharma <ertanuj96@gmail.com>
 ---
-Changes in v2:
-- Link to v1: https://patch.msgid.link/20260828-vin-fix-vb2-v1-1-97eb1f4f75c9@ragnatech.se
----
-* Changes since v1
-- Fix unused buffers returned in rvin_stop_streaming() too.
----
- drivers/media/platform/renesas/rcar-vin/rcar-dma.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ fs/ntfs3/fslog.c | 20 ++++++++++++++++----
+ 1 file changed, 16 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/media/platform/renesas/rcar-vin/rcar-dma.c b/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
-index 5e515d16c164..d3d1af47f8b1 100644
---- a/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
-+++ b/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
-@@ -1434,7 +1434,7 @@ void rvin_stop_streaming(struct rvin_dev *vin)
- 	for (unsigned int i = 0; i < HW_BUFFER_NUM; i++) {
- 		if (vin->buf_hw[i].buffer)
- 			vb2_buffer_done(&vin->buf_hw[i].buffer->vb2_buf,
--					VB2_BUF_STATE_ERROR);
-+					VB2_BUF_STATE_DONE);
- 	}
- 
- }
-@@ -1449,7 +1449,7 @@ static void rvin_stop_streaming_vq(struct vb2_queue *vq)
- 	dma_free_coherent(vin->dev, vin->format.sizeimage, vin->scratch,
- 			  vin->scratch_phys);
- 
--	return_unused_buffers(vin, VB2_BUF_STATE_ERROR);
-+	return_unused_buffers(vin, VB2_BUF_STATE_DONE);
- }
- 
- static const struct vb2_ops rvin_qops = {
-
----
-base-commit: aa0f4c41d4870a18e65772a1817af16427200371
-change-id: 20260828-vin-fix-vb2-28e1bb24a618
-
-Best regards,
---  
-Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+diff --git a/fs/ntfs3/fslog.c b/fs/ntfs3/fslog.c
+index 1879d04e3cd05..85590f56587c2 100644
+--- a/fs/ntfs3/fslog.c
++++ b/fs/ntfs3/fslog.c
+@@ -3751,10 +3751,16 @@ static int do_action(struct ntfs_log *log, struct OPE=
+N_ATTR_ENRTY *oe,
+ 		off =3D le32_to_cpu(((struct BITMAP_RANGE *)data)->bitmap_off);
+ 		bits =3D le32_to_cpu(((struct BITMAP_RANGE *)data)->bits);
+=20
+-		if (cbo + (off + 7) / 8 > lco ||
+-		    cbo + ((off + bits + 7) / 8) > lco) {
++		{
++		u64 bmp_limit =3D attr->type =3D=3D ATTR_ALLOC ?
++			min(cbo + (u64)le32_to_cpu(oe->bytes_per_index), lco) :
++			lco;
++
++		if (cbo + (off + 7) / 8 > bmp_limit ||
++		    cbo + ((off + bits + 7) / 8) > bmp_limit) {
+ 			goto dirty_vol;
+ 		}
++		}
+=20
+ 		ntfs_bitmap_set_le(Add2Ptr(buffer_le, roff), off, bits);
+ 		a_dirty =3D true;
+@@ -3764,10 +3770,16 @@ static int do_action(struct ntfs_log *log, struct OPE=
+N_ATTR_ENRTY *oe,
+ 		off =3D le32_to_cpu(((struct BITMAP_RANGE *)data)->bitmap_off);
+ 		bits =3D le32_to_cpu(((struct BITMAP_RANGE *)data)->bits);
+=20
+-		if (cbo + (off + 7) / 8 > lco ||
+-		    cbo + ((off + bits + 7) / 8) > lco) {
++		{
++		u64 bmp_limit =3D attr->type =3D=3D ATTR_ALLOC ?
++			min(cbo + (u64)le32_to_cpu(oe->bytes_per_index), lco) :
++			lco;
++
++		if (cbo + (off + 7) / 8 > bmp_limit ||
++		    cbo + ((off + bits + 7) / 8) > bmp_limit) {
+ 			goto dirty_vol;
+ 		}
++		}
+=20
+ 		ntfs_bitmap_clear_le(Add2Ptr(buffer_le, roff), off, bits);
+ 		a_dirty =3D true;
+--=20
+2.43.0
 
