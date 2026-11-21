@@ -1,78 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795296556;
-	b=YZvxHBCUutKPayfY8edgwND2g7h32CcfuVgMGyn+qc5Y5v6VTWaLr4x3CfjcooLJz7FB
-	 UMGUxha0tZHLW2MGTIjBAEJBUH77VcZkoIUwsOqc0cqs2rOG70PPrVmxxsuYiaAqaiRxj
-	 xwnT4zxV6qxjH0d4ogql5pQzYsZi4CUFaKnHpZ1K9xTZGPg0X3g59jvmPMMPigR3VDgUT
-	 oCe1Yv9tVJv8xsdid6IXt0qbpNZd/fjbr6qdop03IdWmWwEtxvP1PA4p35x6kW41mdwO3
-	 LWAR71K8mCIAuGQWvLOBjxrIFXgVSptEy+f1KSe75iEbvD2P5q3su2JO4wXT7E/pn/w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795296556;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=23sDc1ULNMm1ETHtvpZrl9E+BXwKGdL/Xa3E7VzeDL0=;
-	b=fL1DzZaKWbvUpYLXaveuOrs2McStyPSUFBdk8HtgHQhEn05kInPg0ipxw3hAwe4sAyXS
-	 wExGoVaMa2KQypgVRopwhY64y6OKdA7qEb2sxrxtQGQA3Qvgv6uTgy8BIE82b2ikz2LK+
-	 G4oab4W/i6CZtV4fRvnG6PgKj790BXUxMXDGndSvYYS6Tjs0AccXaYaRZOslfPDVv2yLI
-	 5HqNn7u2YUEijsQXBV+M7c34VyqqeEC/p7a+rI9OaUMCoZgXe5YNN5U9Ddsc90RFd2Tdt
-	 2UnH4QrW/ZYRqa6C8GfPAXlS6NmaH2gi3+gJdVGiZsy6I8ukociB4vg85jNj1+1h1hA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mZuJ4dw0;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B972606A320;
-	Sat, 21 Nov 2026 21:29:16 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mZuJ4dw0
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795296556;
-	b=jJjLmy+eLmZEv8lU7DDLaff9T02xDT8/z6Zad0qYOwSSQIbg5rapGIrQhMiX7g1wWiZQ
-	 SmH7deMdrOMzWId+6mOChHpY8Rrosx5odtUl6hy4WfDaOAwx64/BUrMkxTdjwYdSH/UnM
-	 8wpVjT82rRdMBmyYaG9/89bb4AholIzVH2pCdfJJV78N+EpiKaInKdnzf3zVi6xnpUG3X
-	 zhPVEJfqO+wpaoX2FI9ZwZ++ysz5RJzAHPjbl7jvQQpGBT7xqOknXiwwcYM1b81pR4Pj2
-	 B5ey7mbt+MRgXzu7pnROMZeFHiVeEBp09UVP/w2B3AOgAyrdJgfZfJM2Z59duBvDr+g==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795296556;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=23sDc1ULNMm1ETHtvpZrl9E+BXwKGdL/Xa3E7VzeDL0=;
-	b=CgMNS6LrBxVjl/HAAPHgL6Cc6PlbsU6jVmErIdkqEE98qQLFmYtuU+WBdDmaIpOlE39s
-	 tSoQ9xjum4EyxzrZFLhrKSeP1cwYi0vYLkXkzJHtJLbtDE/JdF+LCuDTGG+oBZgXsPMvG
-	 ECTnUwG3XROMRiw5258XwJIcLcoUlkk0UMTOKUmAh7zbJ45zwOX9hi4hX5w3L350S8ly7
-	 jSLZnHTzFtf2YGfxzLQoQZ8GgdvxFq18baVylmX9k0k29CzMxHnmjYU9SSqEiVWV1Jrjb
-	 uZS2N3h5LJCwsCkHNv7zLEn4xT++PrBQznrTcv/Rhn7w0nZthCwX5nOGBdVBNExSurw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795296666;
+	b=xToSqnSvwJJToBtzN5Uvh3swxlte24kBg+8CUsU6S1Ft6ZpPWtW94TrYphqphBZVhI4v
+	 S8uFNO8AypgCLnCqdTzYdhJBvkjJ0Qcyd/rDjsTfQ/B2iZGyVdBiUowDhcTjI4yXQ35PZ
+	 Dqck/m/XFWd3WR+UGkUxT//cYaWqoBhiduOwME84jsuKUj2Zo/sc/J0IZY2Vr4v/knEzJ
+	 fmFQ+n/MsNtvirT+uXyRLdBZldiK3rjML9R474uUFWxjjrkpFOL8YYnkuJkjzE1xifq+d
+	 VInEXFAh23NW9m2xIQYS+aVji5Go874mAiCANXtgtRNhHNgcA0PatyUPY3BwwUh8cNQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795296666;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=C93fQcPXxnOGbGKaXQAkMtOoh58jzuHpLH1rCb798RU=;
+	b=g4C+S6oyllxHs7bgjmKYGC55e1fzH02Njy3ZwvlKRRZ5k7oPw+R1gJNkeaAUq12VPMdk
+	 RaJg+ah7gvLpzMMQ9VjSL5fo7fU6X5bwJUgHa/pU6aJl2SuptVjCbS6lHgkqNoM5hUe92
+	 O8XSGZjfv2Qm6PbYbEgJDjgBUa0IwQylN6uwk2O0ci4rQ1qi7RqaeQ2X4llQHosWQoKQZ
+	 cPMMEesfCcNmTMfv8OIm9iRMimHE7ASb0kgHQIkUvKgI0FWsmw1HijeYzlRLBN+768zpO
+	 RLZ1161wUhK2wpRIyFxUZ51p28y0lljWvdeXK8UlxbeOAmOgvpdOe5z8PaeXtJRShTA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=fail header.from=linux.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	arc=none smtp.remote-ip=209.85.128.47
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 599C51F000C6;
-	Sat, 21 Nov 2026 21:29:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795296556;
-	bh=23sDc1ULNMm1ETHtvpZrl9E+BXwKGdL/Xa3E7VzeDL0=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=mZuJ4dw0vpIZSjgIBWNUGYc6UeRX63ZMt92Fz+da1TKVLxio6sIbr0SpPLQ+QgECW
-	 4Ozhfsd/1N2n/LmnVoTotAGkcTVLSvxjDKkqn4ugkTSep6ztsp2hUiLk2UtobQ2NMJ
-	 ITrYNlRXIwlOj5TH6B9z28sZPrlbYfdwudhJOiWlk5W6F/5Zrmb6P5bae5iblI3K84
-	 fg9Il7fq8fcughOfAQe30oYbdi1Tx9LisB87D9LnuIhoBrYCgZuU3esm2NZQFtm6jk
-	 ++bBkh4L/Gd2LJcQFPdOQb2T6BvNWJnjJ1igJ0lygP7SfGwUSi+ks1aJPOy5Fm141p
-	 p9dTz5p7xiMJg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id ACFE64BDCA;
-	Sat, 21 Nov 2026 21:29:14 +0000 (UTC)
-From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Date: Sat, 21 Nov 2026 21:29:15 +0000
-Subject: [PATCH] apparmor: don't sleep in unix peer checks for path sockets
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3722B606A333
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:31:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3722B606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4a1fbd52ab6so14094405e9.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:31:06 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795296665; x=1795901465;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=C93fQcPXxnOGbGKaXQAkMtOoh58jzuHpLH1rCb798RU=;
+        b=RgzsYvTT3zqZSN3Wn4KRRgtX74pHVFCcvrcZ7HctHWE0lE3/Csd+hed6MerN3Ops0O
+         Psxn9+siKZmwnaoE9QCSzakLn06m/MWwElwOpQKfwmEjUFeabFt6Y1KL0cQIuMCU+hna
+         HdQqS3hw+WfoJXNYI0zGQ11E/4BSHJXJoRhM0DDfkmiCS6n656pedPJb1rW77LeJaBHd
+         yLU21K+X3jLYn8nPAAm8Q0Cn6yc0OBod+g5aqIvvfhdwh1/PXGnF3OUnuv1he2IweuyZ
+         mWmldJfjo/4WP5SAAFF6kf15kffwbkfVJ8xyM8S4xsrwF6ogypiBjF8tt7kMpQR9jFVN
+         bliA==
+X-Forwarded-Encrypted: i=1; AL+hErGNMwIVdsIZkiFhRI3iTge5ZCKm2RCxRaJL0V2Fhp6c7MtfvGM3i6DIc1E3PCzM+W0z7thvHJn4m+vrRgA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/qrxUXxyVGgW2uW+Xzv+7YMh+Be7V//WGLjLsgSR8EK132HwGq
+	ykfi1rLXXYIwImdi3t+dPhf2Tyj4dI/YzwKTkZnRwnC/2Imam6Ax7l1q
+X-Gm-Gg: AZFdTZf29Te3r/3K0M2dRLn9D7RWdIOPC23otZQzRQ3C6wztMqIkDe7VUnKbAZ4CRAs
+	VfEmuZPlMQ6pTvA7p5K4RrrLPNB6CPqwj90n5lKXXPa+81kX138vWM2dsbgDeOym8eWIujOnCFL
+	gyI+x+pZCjM2460367rwoU2MNk6nGcP5Dnj/1APOqkKmClbOmLjsZUPlWegzfeUXodOsJ2UzCf5
+	oGaum7vXOycvvFXLSqp6BpPt9tWgVJMfDU5A8ybur0JjaNFMbX4AIXjps5qqX7ecXEWfKT4+Nit
+	kWMg2bgXG26HYHBtZK5KSgAez1Yi05CMPF4m4Q5OSrFu2K9AGkALEWwwWCWlUtqSCWOyvGVP9zO
+	XPeyYi3D5uiAPS7rhraVEUgK2mX03ZIz6aaeJ7whfJKA+yVopzSO7WHI3oilyim4biWlaLb0AnD
+	SPR7F4DdZcCbPio6XsCbTjjExYTDNLvb3Y1witsVFLnGNkWMNgehKD3jLbdGxm+h9pX8hy95Sk+
+	xudExiKah6pOUJjN2PKc+9Rj7lXUgaIj2n7sk004XqKGd2eL+2264DYskZ8fQoWKkQnFTM6d7Cd
+	Ags7b+89SAcy0VghrejT579eN0M5uLyBQucvyhaIDkJcSXGkWDLbUpxEX6Zwlh6d8z+bLLlrMk4
+	BkAcmeGaRCyh50SqNykBOMu0=
+X-Received: by 2002:a05:600c:5246:b0:4bb:60ba:49e0 with SMTP id 5b1f17b1804b1-4bb88930707mr167527095e9.26.1795296664478;
+        Sat, 21 Nov 2026 13:31:04 -0800 (PST)
+Received: from threads.localdomain ([84.70.136.3])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fec7sm12445954f8f.26.2026.11.21.13.31.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 13:31:03 -0800 (PST)
+From: Lucas Tanure <tanure@linux.com>
+To: xianwei.zhao@amlogic.com,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v8 0/4] Add ethernet support for the Amlogic T7
+Date: Sat, 21 Nov 2026 21:30:58 +0000
+Message-ID: <20261121213102.143130-1-tanure@linux.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,252 +98,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261121-apparmor-unix-peer-v1-1-99dd1cdb1e27@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBG4avIrDtgIrrwKqWLmPzqCI1hUkUQ7
- 27aLr/FeydlqCBTX52k2CXLGgvMoyI/uziBJRSTrW1njDXsUnL6XpW3KAcnQLn1ocEYuqF2LZU
- wKUY5ftPn6++8DQv853ui67oBdLNkxXYAAAA=
-X-Change-ID: 20261121-apparmor-unix-peer-5cd3efd6b0a5
-To: John Johansen <john.johansen@canonical.com>, 
- Georgia Garcia <georgia.garcia@canonical.com>, 
- Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
- "Serge E. Hallyn" <serge@hallyn.com>
-Cc: apparmor@lists.ubuntu.com, linux-security-module@vger.kernel.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- Arun Iyengar <aiyengar1990@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795296554; l=8688;
- i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=A5OtpOORF1rmexmWn52E93grd3HwLsXwp4br7SvH2fw=;
- b=j6rwvZp3KydRjXdqhSMSZ8F1s28gbIeK042Zcvm8g2r+RaqvcIpJ6fZGstSI0VM2QqZW2syz3
- A+w1j4XLwyUBhBqbts6U3FAMV+h8dT492gm9aNEQQyDEag4tcayrgdd
-X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
- pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
-X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
- auth_id=1480
-X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
-Reply-To: aiyengar1990@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Arun Iyengar <aiyengar1990@gmail.com>
+Patches 1 to 4 of v7, the bindings and the driver, are in net-next:
 
-security_unix_may_send() and security_unix_stream_connect() run under
-unix_state_lock(), but the path check of a path-bound peer calls
-aa_path_perm(), which gets its buffer with aa_get_buffer(false):
+  2297f88ce0b8 dt-bindings: net: amlogic,meson-dwmac: list the compatible combinations
+  18029931478b dt-bindings: net: add amlogic,t7-dwmac
+  c4c851a3325e net: stmmac: dwmac-meson8b: add support for the Amlogic T7
+  4fdc7da7e13d net: stmmac: dwmac-meson8b: follow the generic RGMII delay rules on the T7
 
-  BUG: sleeping function called from invalid context at security/apparmor/lsm.c:2301
-   aa_get_buffer+0x348/0x3a0
-   aa_path_perm+0xdc/0x268
-   unix_fs_perm+0x1d8/0x1e8
-   unix_peer_perm+0x1d8/0x588
-   aa_unix_peer_perm+0xe8/0x150
-   apparmor_unix_may_send+0x108/0x260
+This version carries the rest: a new binding patch for the MDIO
+multiplexer, and the three device tree patches. Patch 1 is for netdev,
+patches 2 to 4 for the Amlogic tree; the device tree patches build
+without the driver part.
 
-Pass in_atomic down to aa_path_perm() and set it for peer checks.
+The T7 has the same ethernet glue as the G12A. The glue registers sit
+in a block gated by sys_ethphy, so the controller node lists that
+clock as "pclk", and the pipeline stage between the controller and the
+DRAM has a gate of its own, listed as well. The MDIO multiplexer gets a
+T7 compatible with the G12A one as fallback. The VIM4 is plain
+rgmii-id, with the PHY at the address its pins strap.
 
-Fixes: c05e705812d1 ("apparmor: add fine grained af_unix mediation")
-Cc: stable@vger.kernel.org
-Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
----
-Seen once on v7.3 (arm64, systemd-detect-virt sending to the journal
-socket). It needs an empty buffer pool, so I tested with a test-only
-knob that forces the kmalloc path: 189 splats without the patch, 0 with it.
+Tested on v7.4-rc2 on the Khadas VIM4 with the PHY at address 1:
+941/944Mbit/s with iperf3, no error. A scan of the bus shows the
+PHY at 0 and at 1 and nothing else.
 
-Not fixed here: a chroot_relative profile still reaches path_put() in
-d_namespace_path() under the lock (from reading the code, not tested).
+Overlaps with Xianwei Zhao's "[PATCH v2 0/3] t7: add some nodes for
+Amlogc t7."; I will drop or rebase whatever overlaps once we agree.
 
-Claude (AI) helped write this patch; I reviewed and tested it.
----
- security/apparmor/af_unix.c      | 19 ++++++++++---------
- security/apparmor/file.c         |  5 +++--
- security/apparmor/include/file.h |  3 ++-
- security/apparmor/lsm.c          | 13 +++++++------
- 4 files changed, 22 insertions(+), 18 deletions(-)
+Changes since v7:
+ - patches 1 to 4 of v7 are in net-next and are not resent; the
+   numbers below are the new ones
+ - new patch 1: the MDIO multiplexer binding gets "amlogic,t7-mdio-mux"
+   with the G12A compatible as fallback, and patch 3 uses it in the
+   multiplexer node (Martin)
+ - patch 4: the VIM4 PHY node uses address 1, where the PHY is strapped;
+   address 0 only worked through the RTL8211F broadcast address (Martin)
+ - patch 2: Martin's Reviewed-by
 
-diff --git a/security/apparmor/af_unix.c b/security/apparmor/af_unix.c
-index 58c638830afc..ff851ddd43b4 100644
---- a/security/apparmor/af_unix.c
-+++ b/security/apparmor/af_unix.c
-@@ -32,7 +32,8 @@ static inline struct sock *aa_unix_sk(struct unix_sock *u)
- }
- 
- static int unix_fs_perm(const char *op, u32 mask, const struct cred *subj_cred,
--			struct aa_label *label, const struct path *path)
-+			struct aa_label *label, const struct path *path,
-+			bool in_atomic)
- {
- 	AA_BUG(!label);
- 	AA_BUG(!path);
-@@ -54,7 +55,7 @@ static int unix_fs_perm(const char *op, u32 mask, const struct cred *subj_cred,
- 		};
- 
- 		return aa_path_perm(op, subj_cred, label, path,
--				    PATH_SOCK_COND, mask, &cond);
-+				    PATH_SOCK_COND, mask, &cond, in_atomic);
- 	} /* else implicitly delegated */
- 
- 	return 0;
-@@ -240,7 +241,7 @@ static int profile_sk_perm(struct aa_profile *profile,
- 		if (is_unix_fs(sk))
- 			return unix_fs_perm(ad->op, request, ad->subj_cred,
- 					    &profile->label,
--					    &unix_sk(sk)->path);
-+					    &unix_sk(sk)->path, false);
- 
- 		state = match_to_sk(rules->policy, state, request, unix_sk(sk),
- 				    &p, &ad->info);
-@@ -302,7 +303,7 @@ static int profile_listen_perm(struct aa_profile *profile, struct sock *sk,
- 		if (is_unix_fs(sk))
- 			return unix_fs_perm(ad->op, AA_MAY_LISTEN,
- 					    ad->subj_cred, &profile->label,
--					    &unix_sk(sk)->path);
-+					    &unix_sk(sk)->path, false);
- 
- 		state = match_to_cmd(rules->policy, state, AA_MAY_LISTEN,
- 				     unix_sk(sk), CMD_LISTEN, &p, &ad->info);
-@@ -337,7 +338,7 @@ static int profile_accept_perm(struct aa_profile *profile,
- 		if (is_unix_fs(sk))
- 			return unix_fs_perm(ad->op, AA_MAY_ACCEPT,
- 					    ad->subj_cred, &profile->label,
--					    &unix_sk(sk)->path);
-+					    &unix_sk(sk)->path, false);
- 
- 		state = match_to_sk(rules->policy, state, AA_MAY_ACCEPT,
- 				    unix_sk(sk), &p, &ad->info);
-@@ -368,7 +369,7 @@ static int profile_opt_perm(struct aa_profile *profile, u32 request,
- 		if (is_unix_fs(sk))
- 			return unix_fs_perm(ad->op, request,
- 					    ad->subj_cred, &profile->label,
--					    &unix_sk(sk)->path);
-+					    &unix_sk(sk)->path, false);
- 
- 		state = match_to_cmd(rules->policy, state, request, unix_sk(sk),
- 				     CMD_OPT, &p, &ad->info);
-@@ -409,10 +410,10 @@ static int profile_peer_perm(struct aa_profile *profile, u32 request,
- 
- 		if (peer_path)
- 			return unix_fs_perm(ad->op, request, ad->subj_cred,
--					    &profile->label, peer_path);
-+					    &profile->label, peer_path, true);
- 		else if (path)
- 			return unix_fs_perm(ad->op, request, ad->subj_cred,
--					    &profile->label, path);
-+					    &profile->label, path, true);
- 		state = match_to_peer(rules->policy, state, request,
- 				      unix_sk(sk),
- 				      peer_addr, peer_addrlen, &p, &ad->info);
-@@ -775,7 +776,7 @@ int aa_unix_file_perm(const struct cred *subj_cred, struct aa_label *label,
- 
- 			last_error(error,
- 				   unix_fs_perm(op, request, subj_cred, label,
--						&peer_path));
-+						&peer_path, false));
- 			if (peer_path.dentry)
- 				path_put(&peer_path);
- 		} else {
-diff --git a/security/apparmor/file.c b/security/apparmor/file.c
-index baca370ddfc0..056b670894c5 100644
---- a/security/apparmor/file.c
-+++ b/security/apparmor/file.c
-@@ -281,13 +281,14 @@ static int profile_path_perm(const char *op, const struct cred *subj_cred,
-  * @flags: any additional path flags beyond what the profile specifies
-  * @request: requested permissions
-  * @cond: conditional info for this request  (NOT NULL)
-+ * @in_atomic: whether allocations need to be done in atomic context
-  *
-  * Returns: %0 else error if access denied or other error
-  */
- int aa_path_perm(const char *op, const struct cred *subj_cred,
- 		 struct aa_label *label,
- 		 const struct path *path, int flags, u32 request,
--		 struct path_cond *cond)
-+		 struct path_cond *cond, bool in_atomic)
- {
- 	struct aa_perms perms = {};
- 	struct aa_profile *profile;
-@@ -296,7 +297,7 @@ int aa_path_perm(const char *op, const struct cred *subj_cred,
- 
- 	flags |= PATH_DELEGATE_DELETED | (S_ISDIR(cond->mode) ? PATH_IS_DIR :
- 								0);
--	buffer = aa_get_buffer(false);
-+	buffer = aa_get_buffer(in_atomic);
- 	if (!buffer)
- 		return -ENOMEM;
- 	error = fn_for_each_confined(label, profile,
-diff --git a/security/apparmor/include/file.h b/security/apparmor/include/file.h
-index 1614c07fc53e..aee493604333 100644
---- a/security/apparmor/include/file.h
-+++ b/security/apparmor/include/file.h
-@@ -90,7 +90,8 @@ int __aa_path_perm(const char *op, const struct cred *subj_cred,
- 		   struct aa_perms *perms);
- int aa_path_perm(const char *op, const struct cred *subj_cred,
- 		 struct aa_label *label, const struct path *path,
--		 int flags, u32 request, struct path_cond *cond);
-+		 int flags, u32 request, struct path_cond *cond,
-+		 bool in_atomic);
- 
- int aa_path_link(const struct cred *subj_cred, struct aa_label *label,
- 		 struct dentry *old_dentry, const struct path *new_dir,
-diff --git a/security/apparmor/lsm.c b/security/apparmor/lsm.c
-index eaebc3c60c5a..8224529cfbba 100644
---- a/security/apparmor/lsm.c
-+++ b/security/apparmor/lsm.c
-@@ -229,7 +229,7 @@ static int common_perm(const char *op, const struct path *path, u32 mask,
- 	label = __begin_current_label_crit_section(&needput);
- 	if (!unconfined(label))
- 		error = aa_path_perm(op, current_cred(), label, path, 0, mask,
--				     cond);
-+				     cond, false);
- 	__end_current_label_crit_section(label, needput);
- 
- 	return error;
-@@ -421,12 +421,12 @@ static int apparmor_path_rename(const struct path *old_dir, struct dentry *old_d
- 					     label, &new_path, 0,
- 					     MAY_READ | AA_MAY_GETATTR | MAY_WRITE |
- 					     AA_MAY_SETATTR | AA_MAY_DELETE,
--					     &cond_exchange);
-+					     &cond_exchange, false);
- 			if (!error)
- 				error = aa_path_perm(OP_RENAME_DEST, current_cred(),
- 						     label, &old_path,
- 						     0, MAY_WRITE | AA_MAY_SETATTR |
--						     AA_MAY_CREATE, &cond_exchange);
-+						     AA_MAY_CREATE, &cond_exchange, false);
- 		}
- 
- 		if (!error)
-@@ -434,12 +434,12 @@ static int apparmor_path_rename(const struct path *old_dir, struct dentry *old_d
- 					     label, &old_path, 0,
- 					     MAY_READ | AA_MAY_GETATTR | MAY_WRITE |
- 					     AA_MAY_SETATTR | AA_MAY_DELETE,
--					     &cond);
-+					     &cond, false);
- 		if (!error)
- 			error = aa_path_perm(OP_RENAME_DEST, current_cred(),
- 					     label, &new_path,
- 					     0, MAY_WRITE | AA_MAY_SETATTR |
--					     AA_MAY_CREATE, &cond);
-+					     AA_MAY_CREATE, &cond, false);
- 
- 	}
- 	end_current_label_crit_section(label, needput);
-@@ -497,7 +497,8 @@ static int apparmor_file_open(struct file *file)
- 
- 		error = aa_path_perm(OP_OPEN, file->f_cred,
- 				     label, &file->f_path, 0,
--				     aa_map_file_to_perms(file), &cond);
-+				     aa_map_file_to_perms(file), &cond,
-+				     false);
- 		/* todo cache full allowed permissions set and state */
- 		fctx->allow = aa_map_file_to_perms(file);
- 	}
+Changes since v6:
+ - no Assisted-by trailer (Krzysztof)
+ - patch 2: the T7 gets a binding file of its own (Rob, Sashiko); the
+   pclk description names the glue registers (Krzysztof);
+   rx-internal-delay-ps as constraints, default 0, maximum 3000,
+   multipleOf 200 (Rob); tx-internal-delay-ps stays false, the
+   meta-schema refuses "not" on a top-level property, so the reason is
+   a comment above it (Rob); "snps,dwmac" dropped from the compatible
+   list (Rob)
+ - patch 6: "snps,dwmac" dropped from the node (Rob)
+ - patch 4: Andrew's Reviewed-by
 
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261121-apparmor-unix-peer-5cd3efd6b0a5
+Changes since v5:
+ - patch 2: the T7 block follows the Meson8b..G12A block instead of
+   splitting it in two; default: 0 for rx-internal-delay-ps on the T7
+   (Sashiko). The explicit false lines stay, as asked in review.
 
-Best regards,
---  
-Arun Iyengar <aiyengar1990@gmail.com>
+Changes since v4:
+ - patch 4: the old delay code is left untouched; the T7 only gets a
+   callback of its own, and the probe parsing it shares validates the
+   RX value (Andrew); no NULL check on the callback (Martin)
+ - 0 accepted for rx-internal-delay-ps, the T7 joins the G12A list
+   (Andrew)
+ - comment on the deprecated vendor delay properties (Andrew)
+ - the MDIO mux and the on-chip PHY bus start disabled in the dtsi; the
+   VIM4 enables the mux (Sashiko)
 
+Changes since v3:
+ - phy-mode untouched, the PHY adds the 2ns, rx-internal-delay-ps is
+   tuning only, tx-internal-delay-ps not valid for the T7 (Andrew)
+ - 0 dropped from rx-internal-delay-ps (Martin); vendor delay
+   properties explicitly false for the T7 (Andrew)
+ - init_delays callback; patch 4 renamed (Martin, Andrew)
+ - VIM4 without tx-internal-delay-ps, the PHY TX delay works (Martin)
+ - Meson8m2 moved to the dwmac-3.70a list; its boards warn in
+   dtbs_check until Martin's dtsi patch lands (Martin, Conor)
+ - the delay table in ethernet-controller.yaml dropped
+ - Martin's Reviewed-by on patch 3
+
+Changes since v2:
+ - T7-only delay path (Andrew), PHY mode from
+   phy_fix_phy_mode_for_mac_delays() (Maxime)
+ - tx-internal-delay-ps checked against the hardware values (Sashiko)
+ - vendor delay properties not valid for the T7 (Neil, Andrew)
+ - no max-speed on either PHY (Andrew); VIM4 PHY interrupt on GPIOH_6
+   (Sashiko)
+ - the T7 node owns sys_ethphy as "pclk"
+ - no longer RFC; Conor's Ack dropped from patch 2 and Neil's R-b from
+   patch 6
+
+Changes since v1:
+ - the driver honours the generic delay properties; VIM4 moved to
+   rgmii-id with tx-internal-delay-ps = <2000>, Neil's R-b dropped
+
+Lucas Tanure (4):
+  dt-bindings: net: amlogic,g12a-mdio-mux: add the T7 compatible
+  arm64: dts: amlogic: t7: add the ethernet pinctrl nodes
+  arm64: dts: amlogic: t7: add the ethernet controller
+  arm64: dts: amlogic: t7: khadas-vim4: enable the ethernet port
+
+ .../bindings/net/amlogic,g12a-mdio-mux.yaml   |  6 +-
+ .../amlogic/amlogic-t7-a311d2-khadas-vim4.dts | 23 +++++
+ arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi   | 88 +++++++++++++++++++
+ 3 files changed, 116 insertions(+), 1 deletion(-)
+
+
+base-commit: 7e1392a42ea288d70a266f6553fe06f57f8647ea
+-- 
+2.56.1
 
