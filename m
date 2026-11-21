@@ -1,49 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.99.196.166
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795300207;
-	b=5MNPjAGodcaGmVNGsElPBBg5ttRz3aX9jzGkP0g2N0BSuFGMNtgS684seDNxRfq6mLM6
-	 4g2mNdCRCANI+ik0F0Yh4kLJoWAO9XVnr3TfmC70A1J9Mj2BXt+WdVnizqX5WzHnUS5+D
-	 01Xbz+a8/4oBU6d+4bC48MCnxWlY036AI0rdF4tGvfRBx5bp9Sml92i+/1Zt/yeETJjHn
-	 vDsqtqxpZ2vzgTJ6yRBp9smWx80TmkRhW28JFRFF7PMF5V/QYZTjoRzHyEg5lgW/WdS2Q
-	 GFeXuXYmeurZOOG9zqqJvOkga7xmHhWyCT6zpjfw08RXLjIkno32sOiIpbjf6AxQu6A==
+	t=1795300241;
+	b=4vtLHfICE83433Dw2Z2ywHEYIIJRGWKnzs6G2exZshDnXGV9k+M9tTbBj7AhPjTefoC2
+	 ztDQfaiP1XTw6t56CSTQ2bWXG4RbXtQeZkFp7DMmtDLsG4xYWSPAUCLY2tbFm0N/WvaOt
+	 Ly4p7i7hoACg9nMRbeO1SLzarrx0JBA08LLYlKnRPwfSm+ms+oSf8lELWo2IQzLGk0uXc
+	 IWc5vZardyNJ95kBlMUkpb18XBJcCZ3ciryuRqymhO8WsbWFG5m4E+nXJUuhdj/eSnljy
+	 tfO1WigofDvKRejgcJZAlSlg52H7adu33tb4neVT3Ev/m9dfIhYIcakx9PeZeaW1hig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795300207;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=5JWJEVm5ycxocJaBKUv1x27gdNjptbNYtP5TvAZBP64=;
-	b=DfLHhxmRi4yNUkU1y7qEZ/AeZFOwrWyNgu7JTtJAVTDyvotaQyu2fB2pP0BBrXCLpG33
-	 SZc0GLtZkVfp10nTA1V+h/XChpZbgjPUxKpfD5wMwb0ijOWjFkVtcBoIyvtRfDXAKnpZZ
-	 dbeHxr51RlXDeyg/QrB16ynYdxy3ejPGoJ0ZRH4qt5/bZDSvhYoM6fYYUtru5yQ+nflUC
-	 2sjgg9MPToGhNQbygTcMZYep/7iIyqmbbLIVAeBIFQk1PSb8OwF4mPOBqlwlkM4Gg9fJ2
-	 v/OiBUiIgX86Ou3OGkgSYMDxw41RHYOVs6OeVyzNMkmeL0qIS/OFiYwD5/NvhMriFWw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795300241;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Date:From:To:cc:
+	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
+	bh=JoGtzXNX8mE3lqvZL9nk/SscIkHaSe9K3EceYJcW6oU=;
+	b=RWI7dC2BXM62DAg2huq7F3XK8Y4dMq1ETYwG+buj+1xCUgniib9agFrlOOuUzlCk1gSS
+	 KmLQZD8Zn8gT1AHF+8A6EtgKjG1B0jhLmJBCgxHjh7zGGS30lPYA7DrcRIgNp0d2rua5g
+	 BkvZTOk4sb7gCHxuhYnCN2HaIj9a7xqz1vUp7Bdpkzl4G4qqtqidau+hh54zmuVXP1M9v
+	 CU/4qAFRLO0nxNznqKh05tgupxvLyFH8o5cgs65UdGXEYzordef1tIbjlW2hCndYZ/P8u
+	 C7A28MKUHVLygBLLlWNU3Ld5MUsQ2PUklqE+3robTWFQYMyAPOCi6xOdtrpaQClfyUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XjUs8Ohg;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=namei.org;
+	spf=pass smtp.mailfrom=namei.org;
+	dkim=pass header.d=namei.org header.i=@namei.org header.a=rsa-sha256 header.s=2 header.b=yo0oewSs;
+	arc=none smtp.remote-ip=65.99.196.166
+Received: from mail.namei.org (namei.org [65.99.196.166])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30976606A32C;
-	Sat, 21 Nov 2026 22:30:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8698D606A32C;
+	Sat, 21 Nov 2026 22:30:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8698D606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=namei.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=namei.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XjUs8Ohg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07E3C1F000C4;
-	Sat, 21 Nov 2026 22:30:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795300207;
-	bh=5JWJEVm5ycxocJaBKUv1x27gdNjptbNYtP5TvAZBP64=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=XjUs8OhgGTwy90ejxwmUS83s/sNS0aa6x0gUtNvoNTr1teNMHoKQhfJOWGzm47xLk
-	 YtJgKAuX8XX2C8L0ZCCT5HaebHnV7vxE5akI349CHbqFvpzwnm/z8T5sKvAx19eeRy
-	 ctq5Za2Y+l0LbCa3PZg1H98AZGGLPjCdIOPfsmPT3NoatfH/wUT2O4iJ82rwwee8E/
-	 nJHr1jL56JpGS3CTCmclstUMWJJN+s2Fo3vpd04+vMUHiXx7g828tDqLZUUXt1r0XL
-	 bDL2WQmlKRkED1QIVX/2NmGTfWf6FJaY6TnFQ9KXokrcgSXI13GXQd+DggicOnh1mD
-	 aLqNmDFc/V4IA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F18B0391B081;
-	Sat, 21 Nov 2026 22:30:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (1024-bit key) header.d=namei.org header.i=@namei.org header.a=rsa-sha256 header.s=2 header.b=yo0oewSs
+Received: from localhost (localhost [127.0.0.1])
+	by mail.namei.org (Postfix) with ESMTPS id 49AFE171;
+	Sat, 21 Nov 2026 22:30:33 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.namei.org 49AFE171
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=namei.org; s=2;
+	t=1795300233; bh=JoGtzXNX8mE3lqvZL9nk/SscIkHaSe9K3EceYJcW6oU=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=yo0oewSsZ6gAINhCLOn50OL4sTg/O66t7BlHx0hoHfqNlKfn5+EamjZvn7hCG5ttW
+	 FCkDBTTYsgS8H/+UC37gDbV/fWxCejidMv8Q1T5KShZXFTYKmO0BXtN8FkcwBbQbzU
+	 XA5Fp/P8l2Zh1NWesox0aS7dq7+2aieFMrfynyak=
+Date: Sat, 21 Nov 2026 14:30:33 -0800 (PST)
+From: James Morris <jmorris@namei.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+cc: stable@vger.kernel.org, patches@lists.linux.dev, 
+    linux-kernel@vger.kernel.org, torvalds@linux-foundation.org, 
+    akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org, 
+    patches@kernelci.org, lkft-triage@lists.linaro.org, pavel@nabladev.com, 
+    jonathanh@nvidia.com, f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, 
+    rwarsow@gmx.de, conor@kernel.org, hargar@microsoft.com, broonie@kernel.org, 
+    achill@achill.org, sr@sladewatkins.com
+Subject: Re: [PATCH 7.3 0000/2642] 7.3.6-rc2 review
+In-Reply-To: <20261120055248.913352689@linuxfoundation.org>
+Message-ID: <5154b570-ea6e-ef21-f0e9-cc54fc6bfc25@namei.org>
+References: <20261120055248.913352689@linuxfoundation.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,52 +65,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v3 0/2] net: do not run out of frags in
- alloc_skb_with_frags()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179530020578.1192635.2530675311737257518.git-patchwork-notify@kernel.org>
-Date: Sat, 21 Nov 2026 22:30:05 +0000
-References: <20261116115620.18151-1-yanhaishuang@cmss.chinamobile.com>
-In-Reply-To: <20261116115620.18151-1-yanhaishuang@cmss.chinamobile.com>
-To: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, almasrymina@google.com,
- daniel@iogearbox.net, willemb@google.com, willemdebruijn.kernel@gmail.com,
- mst@redhat.com, jasowangio@gmail.com, eperezma@redhat.com,
- narcisav.kernel@gmail.com, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset=US-ASCII
 
-Hello:
+Tested-by: James Morris <jmorris@namei.org>
 
-This series was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Assisted by an LLM.
 
-On Mon, 16 Nov 2026 20:56:18 +0900 you wrote:
-> alloc_skb_with_frags() can fail with -ENOBUFS for a data_len that passed
-> its size check. Patch 1 fixes it, patch 2 adds a KUnit test.
-> 
-> The issues were found with the help of an AI coding assistant.
-> 
-> Changes in v3:
-> - Patch 1: check the frags left only after a failed allocation, with a
->   shift (Eric).
-> - Patch 1: say that the allocation still fails if the retry fails.
-> - Patch 2: skip only if MAX_SKB_FRAGS - 1 order-3 pages can't be held
->   at once; one page was nearly always available (netdev AI review).
-> - Shorter changelogs (Eric).
-> 
-> [...]
+Stock 7.3.6-rc2 (d6a022cc5dc8) boots on a SpacemiT K3 CoM260 IFX 
+(riscv64). U-Boot loaded the kernel, DTB and initramfs from NVMe; Linux 
+ran from RAM with clk_ignore_unused.
 
-Here is the summary with links:
-  - [net,v3,1/2] net: do not run out of frags in alloc_skb_with_frags()
-    https://git.kernel.org/netdev/net/c/5924465bb4e9
-  - [net,v3,2/2] net: add a KUnit test for the alloc_skb_with_frags() tail split
-    https://git.kernel.org/netdev/net/c/e8c39bfac24d
+DLDO4 stayed enabled at 1.8 V after unused-regulator cleanup. All eight 
+harts came online, timer interrupts advanced, and the supervisor IMSIC and 
+KVM initialized. With QEMU 10.2.2, KVM guests on the PLIC booted and shut 
+down with 1, 2 and 8 vCPUs, and the virtio block and network guests 
+passed. I saw no lockups, RCU stalls, oopses or panics.
 
-You are awesome, thank you!
+One problem: dtbs_check now warns on all three K3 DTBs. 7.3.5 is clean.
+
+  /soc/interrupt-controller@f1810000: failed to match any schema with 
+compatible: ['spacemit,k3-aclint-mswi']
+  /soc/timer@f1814000: failed to match any schema with compatible: 
+['spacemit,k3-aclint-mtimer']
+  /soc/interrupt-controller@f181c000: failed to match any schema with 
+compatible: ['spacemit,k3-aclint-sswi']
+
+The queue has two patches from Junhui Liu's ACLINT series:
+
+  5397ba147c28 ("dt-bindings: timer: sifive,clint: Remove 
+spacemit,k3-clint")
+  cc6371a7f519 ("riscv: dts: spacemit: k3: Replace incorrect CLINT node 
+with ACLINT nodes")
+
+It does not have the three that add the new compatibles:
+
+  73329198cdc2 ("dt-bindings: timer: thead,c900-aclint-mtimer: Add 
+SpacemiT K3")
+  c9bae665035f ("dt-bindings: interrupt-controller: 
+thead,c900-aclint-mswi: Add SpacemiT K3")
+  08257b5b3d38 ("dt-bindings: interrupt-controller: 
+thead,c900-aclint-sswi: Add SpacemiT K3")
+
+Those three apply cleanly to 7.3.6-rc2, and the check is clean with
+them. I saw no runtime effect.
+
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+James Morris
+<jmorris@namei.org>
 
