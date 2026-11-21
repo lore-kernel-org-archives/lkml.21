@@ -1,74 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.190
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795249385;
-	b=AZPNBnG1Ie/5wggRLRwE6TxvAMhDvim95Rd1WGIhvQ7KApEFa5OM8/CVo7envzcMzlcN
-	 nIUMUdzaHYkxmlGh/RsBqUofzdpbRS7PcSJBL/DN21CglNfhE0b/wxK91i7cJvNLcwjlK
-	 SgPiN4WHvSu1TVuKzVmifsm3q8HHJKhCSerUvQlo8M9f1yZiaGgcv5qCBUH25Frs4Js4A
-	 GC9LjCyKn5CPXvShqBlV4HJF6TDWvmlE7Yp9XHKMYmlpSXtieuVq3/78nzczCQnaE9dUc
-	 lQ7kWIsErCqa/7Bg7vQsuscn7efEBrqNI2P9E1M1Y4gMH5ACTgI8LBUjqZoNk4gD83w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795249385;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:MIME-Version:
-	 X-OQ-MSGID:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=fKGTplSFuZkys6Gs/DIwLD2p5FEp65r/thrub/uWGhA=;
-	b=eJ6vrGk23mG30iB6lY0W3tk3u8QP2kcf5aVLAyzYaHYV2frv4qNItoyIHYNCfVkOlMV5
-	 oyCtlVsnFQznrE/Bq0Xk9QHjVS4uZgCWw3AgETgsD/r1pqIAgMROAQW3+qmwiYjZ1tvCr
-	 +vCV9Y/HOfbw9awt99e0ARO5joG+Bl+SfozNmVFyEKigTLui5oZ5DSg6ZLbghQFtRUuEh
-	 jY1JvphW6oVVl4S7Wf37zwL3aVX5JaMydQQbQYxGicB6Ho70NBi97gpmgPBChwqKs9uNy
-	 u4BwKL99v/3Vwf59Lucd1yGfhbH8gF6OY+FzdZUjLVPmqZczZz1NS/SY5HmAhPyRwwQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=pAWWG7IJ;
-	arc=none smtp.remote-ip=203.205.221.190
-Received: from out203-205-221-190.mail.qq.com (out203-205-221-190.mail.qq.com [203.205.221.190])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.81
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795249472;
+	b=acnlHNLKidzp8TKP5XF+56qQIz/S7xLkO/MrRgy4hg4/J2rF3XHw18LzvONAVw4qIrOW
+	 bHR8R+o8m8tZG5fih8uWDkZc5n40x4tZlPOfgOGOx+0iqHSRsWOnmZIe4KbavBAQUGXRE
+	 OYRmoHy6w8ydHkfbJvWqcST4xQPOWi7XRezSXCEPWNmn4LuqktLwJwnbxVXNfDAKUhfIh
+	 2kDz/leINhB05EMtM7Ft0KDPq+ep+B2IiJHPa0THAxh8C41v7hF6fxsmaAcjXlELRPlOw
+	 jEGxiLuOBaTomZsJ6D9Ec9vAuPgAewo5HS6zOov0YmTDKsNcdoT16rArvN1jUzuiT5A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795249472;
+	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:Content-Type;
+	bh=fn6MA5wvwdgU/LQGq+H1dBRC+v3xURWQDakqTLJM3PY=;
+	b=UQjcEaDgaWQAoqhZ+iG+QW4Vuk7Uig5Pyfk6UzfV+Q7KZ9Y6S2Yx0UUi37C0+qmWfRdx
+	 snwqQpApNPVLaWwYhsssIp0SoM1FT6zSUBhtoEiBEev4Z91BIYISYZUXfsmiUf5kYtVch
+	 cT5sOgj+/ZiqX0x96PV5zSIxJZypWCmxqyL5usv3IGqIPwKv77YA3+HUxb2HsLZPScoDO
+	 +QJNjZd0KVRARqo1WAIClU0dQgf//uBfvUfk4CRqy+z6qlJXAbuB3RJSD/dG59c0W4Sv2
+	 4QF2dp+OPKu92I8HbelV+fXtIY/HWonq16wmAhh3Yj9RL9PFWLqucaK5v0Kcuzy5SCw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=ommer.net;
+	spf=fail smtp.mailfrom=ommer.net;
+	dkim=pass header.d=ommer.net header.i=@ommer.net header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=HTbEj4zx;
+	dkim=pass header.d=ommer.net header.i=@ommer.net header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b="ZgTH/9ff";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.81
+Received: from mo4-p02-ob.smtp.rzone.de (mo4-p02-ob.smtp.rzone.de [85.215.255.81])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D6F9606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 08:23:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D6F9606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF7FC606A330;
+	Sat, 21 Nov 2026 08:24:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF7FC606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ommer.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=ommer.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=pAWWG7IJ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795249375; bh=fKGTplSFuZkys6Gs/DIwLD2p5FEp65r/thrub/uWGhA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=pAWWG7IJw3ooaTTZU9aZvSXfTjvcnsieB3EoQMrcdtRz+WE8DsHXWCY/3vCw1VsQr
-	 sqZFU4jUXtWEwfSjAsLG/YvH+BbblxrCnp7MOGFZnOLGpJKqOZzmUAExKj80jPxexo
-	 O7DrSTO+WGKGejvPhcHws76SYX3jhgj7kGEbTy0s=
-Received: from [172.18.4.77] ([202.113.185.209])
-	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
-	id 5B5A06F5; Sat, 21 Nov 2026 16:22:53 +0800
-X-QQ-mid: xmsmtpt1795249373tkdbr3ijf
-Message-ID: <tencent_BB8EEFED1178A776D3B5A8151FED28F55407@qq.com>
-X-QQ-XMAILINFO: MNnlw0eqe4ZE/SrzUrZCmkJAqD5g8jDXfNiRiQLEJUxqea48RP1KkA4gbys0kA
-	 mnOIs2tsxKPsAjr71CaXYGSc8+ghRsynrKbknElAtCXSiO4wwpcdQa52HjFN31K/0SCs3WD8LAtD
-	 zRz28uQIRJ8jrDT8k9Z6b/f6FLyUZ8wAJGAeEfWJmy3MYoVMGrJ3sWfnaC94hMtUgHhTUpfmBJW6
-	 jBY48R1aZV2Gu/uCViF6mPqvHZenWhoFNDifqa6yEtGiNG0y6EerrVAXUdaR5Xjrug5kNh83RNsI
-	 MApBIv8wZyhzyMi6iQK76F+YBDhC0TAp1TwO1wd9AUVj5XKaj8JAdDLFvNLN1e2nQiW76OeqqsuH
-	 hnueTItdhwkPLxX1zT3AnPfREtU1HIYdWLtvxxSGsOfSJ56seYyzc51sFlH99ZOrD1/kQXFGr4Un
-	 TuUpEDaHpY8nMA69bpMAKXygzslS0ZdIqR7UeZtDxxlQ6TG/uZ5zlzxUH+EbGYb1cA6BSRmHEIYg
-	 THTUL2jZhP9PMDit69yY7dElpB1l06R+ui5MUi5qafsHh8ubqtkRuB2Oq2cKTucJkKrXfglVe7gQ
-	 K4LeSaONMk71CRRwS9TigiN0v957YGEDqCeE+vc+uSnxm1whfLNF+anjRRvB96pGjG+ofAx8JcgY
-	 fenV3GtVQ767TlXhA8TrS5w6cNmAUnWYIWT9BOvNPedxde72jk/NBgt5CjUQl/Fjz9EpQYlEvEjP
-	 b8liqqA6MhpNyWGoCuB4Uy446nOoHLw+y73OWRGFZhmpjqNarCsM3uoQkXcKGf7wXMDPWeM1nr7B
-	 AF2fEhD/wBRyhdszlBkAna1T8heAFjSPQ6jopMcYIoI/Ub3Mh6LmgXLN2N6siawwxfl1XjVMaUnV
-	 y3XEBl2qtIFJWRymz3ZesrWiKOpbXY0T1cbHbKtwbwSNxdbEvWErx2JQEGdytsTk072b8m61GrwG
-	 iZbFrZtn5VbFCFlsjmhi9JI0MGRYqddgcjdqcCfQWmu/h86l91L19F3ILlcdN4XFctXRQl7xZfim
-	 c3yUH0ivCm9HRCxptEZdREFyiH8JPlR3rsdegJo9FB4oxUIUyXkk91seUJUEpKKZyNuwVlJTl+yR
-	 KnVyHwuOo/Fo0ihfoZ9G8Hdb5bxEso3NGf6ePoGL4YsOM/8rBEEhdCNjZRJPYHzir5Tlp8KyMHXt
-	 mHhB+s6me1mOasnw==
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
-From: Guikun Yang <yangguikun19@qq.com>
-To: Jaegeuk Kim <jaegeuk@kernel.org>
-Cc: Chao Yu <chao@kernel.org>, linux-f2fs-devel@lists.sourceforge.net,
- linux-kernel@vger.kernel.org
-Subject: f2fs: a same-name dirent whose target inode has no NAT entry hits
- WARN_ON(1) in recover_dentry() at mount - kernel panic with panic_on_warn
-Date: Fri, 20 Nov 2026 22:00:00 +0800
+	dkim=pass (2048-bit key) header.d=ommer.net header.i=@ommer.net header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=HTbEj4zx;
+	dkim=pass header.d=ommer.net header.i=@ommer.net header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=ZgTH/9ff
+ARC-Seal: i=1; a=rsa-sha256; t=1795249464; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=bRHHXpPKKpTAiFh4USQ3abSzOtk/zA1iCYuILzKYfv10cpRO43ym+Sh1iyzVztDYfI
+    4g2skXdBBmdlaq91JfcF3z1e9IyQa558HRhf0oQodX2Ndztqq6MzeJZu/EFBYuhmgjDe
+    +1MAv2rPFQrOp/+e5oC7DP++uMqreaWyT2xxJ2pc5RzX9DHn+zB80LP72W09mNx7ZPZS
+    Y1aXMQXfd1xYYidkbJnTdPvFloIF0mAf//cPLgT+3fAd5kKYhesHzSqDyytON+FQj2VU
+    BaZaqJfSt403hl4y3whl0Id7KtewT1DfctNDSsNbLPj8dMLDPL1U5s4j5cIKhrA48+KA
+    XcKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1795249464;
+    s=strato-dkim-0002; d=strato.com;
+    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
+    From:Subject:Sender;
+    bh=fn6MA5wvwdgU/LQGq+H1dBRC+v3xURWQDakqTLJM3PY=;
+    b=tdyUrEKZcP9rICygyLAdsePgVRTi7RVQAlrSPs6Gs8hfILIfzPcP8PTDGyOibPPd9o
+    +q3tddhvOOhI/Y1gKGvtxXn/V0eue7aYZLa+dxm1K4vYm0GJ1jqR38hUkmkcwokv0NM9
+    JBHtC4ZA/WXO1glMjR/UXl2yClQPAbPZLy1jDPINobATAsKlwo0haLoyEu3Yo700NcYQ
+    CrrNOLnxColPg7hGz+0DQQtZO4qPlMbBMF7i7asv7xBzGdSkvLOwLh1hgM74enoBtyDE
+    1YVuqt6njzuKz9oPQAYgVTc/SLBxuVv9XImGTbSOsx1zkV7s8x4QYSVf+hFvOgXdPrg+
+    Mo1A==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo02
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1795249464;
+    s=strato-dkim-0002; d=ommer.net;
+    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
+    From:Subject:Sender;
+    bh=fn6MA5wvwdgU/LQGq+H1dBRC+v3xURWQDakqTLJM3PY=;
+    b=HTbEj4zxCoHraKrSczsj4QWiZAcO/3M5QqBuxMdiKYprkSbsXZBcz7tKa03VRjYzCu
+    3a+pSld5rfVMtb8MYa/EUHrw7uAjAz/KHkHqADgjM8RTgqTqAsJF3inIeqpbe3KXLM3K
+    2HYgjYVGBbOBxXc5VfT4tqOR9Apgj9kpzjRjOu2EI9CdkvQpWcq9GfzQzd4KcKiXisdL
+    TF6pR6TTV0trm0IpPvdKOZDop9KNJdntV0ZuLGkAEwBs3BiMxkNmt8LOODrm0/8gefqP
+    fNWGK18FOHyIdYV8zkz1sDBb7iOd9ggpCuHXLZk+T9A2FI/Zi+6o6poWI8kpJ+EbbNZr
+    ia0w==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1795249464;
+    s=strato-dkim-0003; d=ommer.net;
+    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
+    From:Subject:Sender;
+    bh=fn6MA5wvwdgU/LQGq+H1dBRC+v3xURWQDakqTLJM3PY=;
+    b=ZgTH/9ffWHkssfYVXa2qCVsnMk7qWf6QL+FpU4JieT+c8MJPHcDsC6kahzuTUlCiBP
+    HMTrsSBpAE/qNeg+n+BQ==
+X-RZG-AUTH: ":JGkKZ0mIdPJLfj3rk5MOrv6kH/tvwFubxUqMvsWOyVXJkOABZnPqvKUstHY8FQgi4y8Fiu3j5HL2zuVyTQ9NDYXzNSFFaQ=="
+Received: from localhost.localdomain
+    by smtp.strato.de (RZmta 55.6.3 AUTH)
+    with ESMTPSA id n2f42d2AL8ONV5C
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
+	(Client did not present a certificate);
+    Sat, 21 Nov 2026 09:24:23 +0100 (CET)
+From: Henri Ommer <henri@ommer.net>
+To: krzk+dt@kernel.org,
+	peter.griffin@linaro.org,
+	alim.akhtar@samsung.com,
+	robh@kernel.org,
+	conor+dt@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Henri Ommer <henri@ommer.net>
+Subject: [PATCH 2/2] arm64: exynos: Add support for Samsung Galaxy A20e
+Date: Sat, 21 Nov 2026 09:24:04 +0100
+Message-ID: <20261121082404.24864-3-henri@ommer.net>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261121082404.24864-1-henri@ommer.net>
+References: <20261121082404.24864-1-henri@ommer.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,100 +109,173 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OQ-MSGID: <f2fs-recover-dentry-warn-list-20261121@qq.com>
-In-Reply-To: <f2fs-recover-dentry-warn-20261120@qq.com>
-References: <f2fs-recover-dentry-warn-20261120@qq.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
 
-(Resending to the list: my previous mail used a nonexistent
-list address linux-f2fs-devel@lists.linux.dev and was rejected;
-the correct address from MAINTAINERS is lists.sourceforge.net.
-The report below is unchanged.)
+This initial bringup consists of
+- memory
+- internal MMC
+- GPIO keys (volume and power)
 
-Hi Jaegeuk, Chao,
+The device boots into LightDM on Nura/postmarketOS
 
-Mounting a crafted f2fs image with fsync data to recover ends in a
-WARN_ON(1) during mount-time recovery, before any syscall beyond
-mount(); with panic_on_warn the box panics at boot.
+Signed-off-by: Henri Ommer <henri@ommer.net>
+---
+ arch/arm64/boot/dts/exynos/Makefile           |   1 +
+ .../arm64/boot/dts/exynos/exynos7885-a20e.dts | 132 ++++++++++++++++++
+ 2 files changed, 133 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/exynos/exynos7885-a20e.dts
 
-  F2FS-fs (vda): f2fs_recover_fsync_data: recovery fsync data, check_only: 0
-  F2FS-fs (vda): recover_dentry: inode with [ino:xxx] has invalid encrypted name
-  ------------[ cut here ]------------
-  WARNING: fs/f2fs/recovery.c:223 at f2fs_recover_fsync_data+...
-  Kernel panic - not syncing: kernel: panic_on_warn set ...
-
-## The path
-
-fs/f2fs/recovery.c, recover_dentry():
-
-	de = __f2fs_find_entry(dir, &fname, &dentry_blk);
-	if (de && inode->i_ino == le32_to_cpu(de->ino))
-		goto out_put;
-
-	if (de) {
-		einode = f2fs_iget_retry(inode->i_sb, le32_to_cpu(de->ino));
-		if (IS_ERR(einode)) {
-			WARN_ON(1);                       /* :223 */
-			err = PTR_ERR(einode);
-			if (err == -ENOENT)
-				err = -EEXIST;
-			goto out_put;
-		}
-
-The recovered inode's filename is looked up in the parent directory.
-When a same-name dirent exists but points at a different ino whose NAT
-entry is missing (blk_addr == NULL_ADDR), f2fs_iget() returns -ENOENT
-and the function hits WARN_ON(1). Nothing on the way to the assertion
-checks that the dirent target exists: the name lookup and the inode
-lookup read two independent on-disk structures, and a corrupted or
-fuzzed image can leave them inconsistent.
-
-The mount is enough: no post-mount syscall is needed, the recovery
-walk reaches the entry as soon as the last checkpoint carries fsync
-data for the crafted dentry.
-
-## Related but distinct reports
-
-This is a third independent spot in the same recovery walk:
-
- - recover_orphan_inode() had f2fs_bug_on(PTR_ERR(inode) == -ENOENT)
-   for an orphan whose NAT entry is missing; fixed by treating the
-   missing inode as fs corruption (downgrade to f2fs_err +
-   SBI_NEED_FSCK) - that fix does not touch recover_dentry().
- - do_recover_data() cross-checks ni.ino against the node footer and
-   hits f2fs_bug_on at recovery.c:698 - reported separately.
-
-Same family: an ino read from one on-disk structure does not resolve
-through the NAT, and the recovery code asserts instead of treating it
-as corruption.
-
-## Reproducer
-
-A crafted image where the fsync dentry entry to recover names a file
-whose dirent in the parent block points at an ino with no NAT entry;
-mounting the image reproduces the WARNING (3/3 runs with
-panic_on_warn=0, panic at boot with panic_on_warn=1). A control image
-identical except that the dirent points at an existing inode mounts
-and recovers normally.
-
-The image builder and the run script are available on request.
-
-## Versions
-
-Reproduced on 7.3.0 (self-built, panic_on_warn=1 for the panic
-demonstration). The WARN_ON(1) at recovery.c:223 is unchanged in
-current mainline. No report found on the syzbot dashboard for
-recover_dentry/f2fs_iget_retry, and no list thread found for this
-assertion.
-
-## Possible fix direction
-
-Treat the missing dirent target like the orphan case: log f2fs_err,
-set SBI_NEED_FSCK, skip the dentry (the recovered inode keeps its
-name from the fsync entry) or fall back to -EEXIST handling, instead
-of WARN_ON(1).
-
-Thanks,
-Guikun Yang
+diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
+index f1946a95c..f359b5776 100644
+--- a/arch/arm64/boot/dts/exynos/Makefile
++++ b/arch/arm64/boot/dts/exynos/Makefile
+@@ -12,6 +12,7 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
+ 	exynos7870-j6lte.dtb		\
+ 	exynos7870-j7xelte.dtb		\
+ 	exynos7870-on7xelte.dtb		\
++	exynos7885-a20e.dtb		\
+ 	exynos7885-gta3xllte.dtb	\
+ 	exynos7885-jackpotlte.dtb	\
+ 	exynos850-a217f.dtb		\
+diff --git a/arch/arm64/boot/dts/exynos/exynos7885-a20e.dts b/arch/arm64/boot/dts/exynos/exynos7885-a20e.dts
+new file mode 100644
+index 000000000..61f6e5c53
+--- /dev/null
++++ b/arch/arm64/boot/dts/exynos/exynos7885-a20e.dts
+@@ -0,0 +1,132 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Samsung Galaxy A20e (a20e/SM-A202F) device tree source
++ *
++ * Copyright (c) 2026, Henri Ommer <henri@ommer.net>
++ */
++
++/dts-v1/;
++#include "exynos7885.dtsi"
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/input/input.h>
++
++/ {
++	model = "Samsung Galaxy A20e";
++	compatible = "samsung,a20e", "samsung,exynos7885";
++	chassis-type = "handset";
++
++	chosen {
++		ranges;
++		#address-cells = <2>;
++		#size-cells = <1>;
++		bootargs = "console=tty0 clk_ignore_unused pd_ignore_unused regulator_ignore_unused pmos.nosplash";
++
++		framebuffer0: framebuffer@ec000000 {
++			compatible = "simple-framebuffer";
++			reg = <0x0 0xec000000 (720 * 1560 * 4)>;
++			width = <720>;
++			height = <1560>;
++			stride = <(720 * 4)>;
++			format = "a8r8g8b8";
++		};
++	};
++
++	gpio-keys {
++		compatible = "gpio-keys";
++		pinctrl-0 = <&key_volup &key_voldown &key_power>;
++		pinctrl-names = "default";
++
++		power-key {
++			gpios = <&gpa1 7 GPIO_ACTIVE_LOW>;
++			label = "Power";
++			wakeup-source;
++			linux,code = <KEY_POWER>;
++		};
++
++		voldown-key {
++			gpios = <&gpa1 6 GPIO_ACTIVE_LOW>;
++			label = "Volume Down";
++			linux,code = <KEY_VOLUMEDOWN>;
++		};
++
++		volup-key {
++			gpios = <&gpa1 5 GPIO_ACTIVE_LOW>;
++			label = "Volume Up";
++			linux,code = <KEY_VOLUMEUP>;
++		};
++	};
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x0 0x80000000 0x3bc00000>,
++		      <0x0 0xc0000000 0x40000000>,
++		      <0x8 0x80000000 0x3fffffff>;
++	};
++
++	reserved-memory {
++		ranges;
++		#address-cells = <2>;
++		#size-cells = <1>;
++
++		cont_splash_mem: framebuffer@ec000000 {
++			reg = <0x0 0xec000000 (720 * 1560 * 4)>;
++			no-map;
++		};
++	};
++};
++
++&mmc_0 {
++	bus-width = <8>;
++	cap-mmc-highspeed;
++	card-detect-delay = <200>;
++	clock-frequency = <800000000>;
++	mmc-hs200-1_8v;
++	mmc-hs400-1_8v;
++	mmc-hs400-enhanced-strobe;
++	non-removable;
++
++	pinctrl-0 = <&sd0_clk &sd0_cmd &sd0_rdqs &sd0_bus1 &sd0_bus4 &sd0_bus8>;
++	pinctrl-1 = <&sd0_clk_fast_slew_rate_1x>;
++	pinctrl-2 = <&sd0_clk_fast_slew_rate_2x>;
++	pinctrl-3 = <&sd0_clk_fast_slew_rate_3x>;
++	pinctrl-4 = <&sd0_clk_fast_slew_rate_4x>;
++	pinctrl-names = "default",
++			"fast-slew-rate-1x",
++			"fast-slew-rate-2x",
++			"fast-slew-rate-3x",
++			"fast-slew-rate-4x";
++
++	samsung,dw-mshc-ciu-div = <3>;
++	samsung,dw-mshc-ddr-timing = <2 4>;
++	samsung,dw-mshc-hs400-timing = <0 2>;
++	samsung,dw-mshc-sdr-timing = <0 4>;
++
++	status = "okay";
++};
++
++&oscclk {
++	clock-frequency = <26000000>;
++};
++
++&pinctrl_alive {
++	key_power: key-power-pins {
++		samsung,pins = "gpa1-7";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_F>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
++	};
++
++	key_voldown: key-voldown-pins {
++		samsung,pins = "gpa1-6";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_F>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
++	};
++
++	key_volup: key-volup-pins {
++		samsung,pins = "gpa1-5";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_F>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
++	};
++};
+-- 
+2.56.0
 
