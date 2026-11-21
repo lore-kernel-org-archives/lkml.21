@@ -1,162 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.53.34
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795260368;
-	b=5KcwbQCawGKb3u3sCHIqI50Tu6lffPUIXXyb+9HfE7sgz8Y0xkkOU0TvN6yXuKBE31Wl
-	 S9pWrqOAUZ7XZrPsz2qsqPoXqbC4BC9+ZdMBsB4xYH2w05itWKhYt4LzJqFcdy5Ssly+O
-	 DzsWNlX1nCJ2T5REONdBE7M4dONqSbxOL9skcVpRyHPWAt+vty68h2mEmofY3PbN/TaBv
-	 jPyT1aMXNTapZejvcpn2WIoA1/8MZmQElR5ssOPosSus2pmSPbWhnbyLK0Z18uRew8Ppa
-	 Rvwqd+1j1RpvAZVroCcDQcLJ/irpheMvEl0qBtpnoyquJz/rDiy5v03lX0tEZtdlQvg==
+	t=1795260387;
+	b=rW0bdvTu88+TATe16s7UvAfV5fxRd65JWtdCSZQK+XYwb8PM6QSpUEjKOsjc8yl1EfTC
+	 V9HV7H0irJAHRAjT56473TUsVy8FHNNYMHhJ8w0HZE74/FRT2sLGst8/5MDr18j5pz333
+	 XQ+pKnRHxbg0mfMUtgscl2J+oWVZEZca6SIGbvcklIRXmodaBDEJ3ABYMilIgLb/e9Afz
+	 QJbvO23Q3ZfgdSb3EiZVOXu3Oc7hJtsuPYsN1VquabliTrt//OxANW4I5K6Suu//dzBUY
+	 HAapJ0LvcVb5uAJ/gYlApjx+PwLXKJfo449DYpsQ9jc4wFXi1cJx7QhGOjHCZ2fux7w==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795260368;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:
-	 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=qRSrf0oi/i+17wMow74Gb6wuiZjtiEVyLDOPBKExg0I=;
-	b=QoUAsjEKc6iNPYoUZhdELV58jtLK91il5zdYS8fBssWkRofARp8M8shUcgr1ldv3DnXY
-	 TSgVXLvunVdTY8ANqldoShByM3abzuGafp+pP1NmyB5/5La+RMftHLkiEmagPDDzQa2zb
-	 lGdTEwIl5rZhZBrmRYn74Wvc9ZXyJvfsl7oiSlqDQZZBndBeLXK9L3cc/9Fs0/Kl1L2g7
-	 t9l0nenbN8QWd97gYcr9nmPiXNUbWuovHezOvrXA+hBqxhjQNUA85PaEFxC/byp19t4UF
-	 fYheO0ekUDKkOiempno2lxkXCSzOfu53PrpE7brnzI0TXwrJiiwdaSWu/6w845GUy4w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795260387;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:
+	 MIME-Version:User-Agent:X-ZohoMailClient;
+	bh=WvQDY/6XJyxZ6Kpv8z5j97OZsE+oBbUMKjQCg9UF338=;
+	b=yXEWxzfpLJm6NAD8/wDorU3A2G1PzuNt2kzM3q7Jyr8gRqq9rNSG/ML4PXvlG2ZNOARu
+	 NrxBACGQzsO4FuXR7cU3b3x/04hVvCTZ5ZH6lcVYMqFfVxNhRxYI1f0ssALg3aCWQ2vVp
+	 pceTt8Z7E4vEs7wNCYsA1+mFKMMV4niFJmWrknUS/KU6K4fMjbvYfX0w87EU3EgT2FHof
+	 nKvNcHnrGf12yWBMNV+cl6hiIF3ktvlR3pQqpA+j17G0es60LNpQZPqAvbKwt7nEfx87Y
+	 7g4QhCf64R27VVW29TLIyVVsAv1lVtq+5UbBae368t/tVNEk2SQm0p4v1y5yt48CnzQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hotmail.com;
-	spf=pass smtp.mailfrom=hotmail.com;
-	dkim=pass header.d=hotmail.com header.i=@hotmail.com header.a=rsa-sha256 header.s=selector1 header.b=eiNztnC4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.53.34
-Received: from WA1P291CU003.outbound.protection.outlook.com (mail-polandcentralazolkn19011034.outbound.protection.outlook.com [52.103.53.34])
+	dmarc=pass header.from=rong.moe;
+	spf=pass smtp.mailfrom=rong.moe;
+	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b="O7txkv/7";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EFA0606A32A;
-	Sat, 21 Nov 2026 11:26:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3EFA0606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hotmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25D75606A320;
+	Sat, 21 Nov 2026 11:26:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25D75606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=hotmail.com header.i=@hotmail.com header.a=rsa-sha256 header.s=selector1 header.b=eiNztnC4
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pqtSD+yjxMMPFQrJl2F+dmBQ7VVx5VafabTTjyjushtJgNgN7jORuftfAd3/G6Hn7gGzMPN2+txKf398Bc5mXgwkvrRysuqnSuHVw3aDBCkgRw9JyCmagwh58vGcSmO0WXEx6HE6T2YK9u7e1BbF9aNW3k3/I+60nLjHLNwBZQZAWts1iRjmzuj/byZaKqLJ3BXzhcbIVoGTWHi7UNMM2PJaxAH4EhMWa9JeSJYBF7BO6RzLoj8CZrRJ65ph4YR7M9W3RTGCVCLcJimHjq+8hBeZFNpr4oIvt6eN3Sld1Cp5l+9c+Ev7Ce23iVq2/PVHBg1mX3lqdYgTNJcOvlwjUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qRSrf0oi/i+17wMow74Gb6wuiZjtiEVyLDOPBKExg0I=;
- b=EZQqO5Qa0W6sfRdPPN5hRvg7tTOb4jlOgKgobwG6x0aRaJS4Rzvgexq4sja4K3REssui7lBoB28Jd05rVSTzaoRV0QRDarHIlw+W7pfau0J/ridL3wW6U5TEtiwpakf1GlsnGR2DeeUPXso+b40GzmAfTZ92AvbHN7WUYFwDX3UHYU9ZJh8Ducb55EJP9cdtwfaVYw5nYK/Sul1p6hC+uY3EvG8cQX99HMltHS1dvf54DSrZXk0QrldnDmHAaTFVcT6o1v/TnNiBioD34fBOSJ0+aqNhxLuqc715AYz35yVCfF9OhNGRaQKyyiJHoi6c4zSqAntkic+NgPUDQk5tJg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qRSrf0oi/i+17wMow74Gb6wuiZjtiEVyLDOPBKExg0I=;
- b=eiNztnC44khbLZCc6+WdFg5jLEkMu/7Dia+fTpQroKOpPgmvefRoiW2o74fOAU7W57iNO0POVc2pV98g5O5gDZDSeUqA4GBzvfZCRyl4tGiZv+cPWZGwfg9/ex6DmcyWgYG5xB3OoT++6E24zXHwew06WyvLMH26bWPqEu3fXaiHBrQBxHLb3vRb/jsHPsdiWHIx1o993I3p6iYmAKSrbsI7hqszVsxoF5dMNxcj56S6JgWBfNiHdCGtN05418CtMfIjpiy8KIc0wOdG52/uz5MWpNQ8ludHLwb/W1U41VA6kNIdlup6GpYy8eGo0C67a5cOqY+DwWSAWmAojGT1RA==
-Received: from WA2P291MB0187.POLP291.PROD.OUTLOOK.COM (2603:10a6:1d0:26::11)
- by WA2P291MB0115.POLP291.PROD.OUTLOOK.COM (2603:10a6:1d0:26::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Sat, 21 Nov
- 2026 11:26:05 +0000
-Received: from WA2P291MB0187.POLP291.PROD.OUTLOOK.COM
- ([fe80::996b:1617:ce96:404]) by WA2P291MB0187.POLP291.PROD.OUTLOOK.COM
- ([fe80::996b:1617:ce96:404%6]) with mapi id 15.21.0639.011; Sat, 21 Nov 2026
- 11:26:05 +0000
-From: =?utf-8?B?SGFiaWwgRXJlbiBUw7xya2Vy?= <habilerenturker@hotmail.com>
-To: "andriy.shevchenko@intel.com" <andriy.shevchenko@intel.com>
-CC: "bhelgaas@google.com" <bhelgaas@google.com>, "bp@alien8.de"
-	<bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	=?utf-8?B?SGFiaWwgRXJlbiBUw7xya2Vy?= <habilerenturker@hotmail.com>,
-	"hpa@zytor.com" <hpa@zytor.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "mingo@redhat.com" <mingo@redhat.com>,
-	"tglx@kernel.org" <tglx@kernel.org>, "x86@kernel.org" <x86@kernel.org>
-Subject: Re: [PATCH v2 3/4] PCI: Convert quirks.c to pci_power_t helpers
-Thread-Topic: [PATCH v2 3/4] PCI: Convert quirks.c to pci_power_t helpers
-Thread-Index: AQHdeDNFCSkt0YnohU+kbfy3sJ7a1bc1oYCAgALEPoA=
-Date: Sat, 21 Nov 2026 11:26:05 +0000
-Message-ID: <20261121112604.42689-1-habilerenturker@hotmail.com>
-References: <av8tpQO7KYGUXQmN@ashevche-desk.local>
-In-Reply-To: <av8tpQO7KYGUXQmN@ashevche-desk.local>
-Accept-Language: tr-TR, en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: WA2P291MB0187:EE_|WA2P291MB0115:EE_
-x-ms-office365-filtering-correlation-id: 1dc9c525-b1c1-45c5-505f-08df47c23b4f
-x-microsoft-antispam:
- BCL:0;ARA:14566002|19110799012|8062599012|8060799015|25010399006|15080799012|51005399006|38102599003|31061999003|55001999006|24021099003|40105399003|102099032|440099028|3412199025|1710799026;
-x-microsoft-antispam-message-info:
- =?utf-8?B?Qld2dkZhaWhYYm9LZWR3ajF2S2wySTZBU25XK3AzVVhWWXBqMEFEanFyQlZX?=
- =?utf-8?B?VWtHbCtsdmxWK3NlZGxIUUt1QmhlU2NqWGNydnJnVW1OQWxrQTFzTUhWeERi?=
- =?utf-8?B?N2Q4MVNzV0J3akxlQ1UzTTh2RjVNZ3NkZWw5NE1uWEVsVlBQSjhOb1hGUmoy?=
- =?utf-8?B?enFnV2Y5UnRxTDl4RGJsNVdsaFFXclBPeGtJODVHRXUrREErMUt6RkxiMis0?=
- =?utf-8?B?Z2N2cVNpZWFnNEpKT21EcUx4MzVGUVh0SVRRMktDc2dsUFRKV2w1YzI5NTJr?=
- =?utf-8?B?N1hMMEVWRXREWm8vRkJacEtMeDN4V1VQbEV5SWFJTmx0SWhBTDEwYWMvT0s5?=
- =?utf-8?B?UWpFRDg5UjkyZHNjZDRKSUFLVUlZQlJKbFY5OTNKU1EyQlViV1k2TkV1ZUdx?=
- =?utf-8?B?UTZRUjVxcVZXMGFnQ0hrZklEa0s5cS9BRXdEZUhoMGFONWRIMkJ3bmhtYTc3?=
- =?utf-8?B?aFN2cElZTkxtUjZCWlc1Sk1EdFQyRkpqeFZYbXU2TVlqSkJlTzlOekZuTzI5?=
- =?utf-8?B?L1pERmRpSnNJTUlLdWppWmFVcEJQSW4zbzh5N1RpSXh0d1VjWnIzL1RDdGxw?=
- =?utf-8?B?eGZUdkJLN0hScnp6L1Q3VGp0ditJWWNjdWU0QU1uNGg1S1I4c2V0OENIaEcx?=
- =?utf-8?B?VU1pSXByVlV3b1RxYjJkVFdFSERDUUtES2Exa1drWmRTWk5TSVRycVhiOXpN?=
- =?utf-8?B?ekNoUzRkdEIrWjhDWlRoLzVNN0dYVE9lNGs0R0RiUW4vRlVOTDFqVGNBaGQ3?=
- =?utf-8?B?OVVTMFpDTDA4WmRlQ3MydmQzb3JLcGhWbUwrRmNrcFJHK2QzaDBSMW9QbHNG?=
- =?utf-8?B?RlZrSzNqd0MyOFFUQytyeTFqNUpwd0tMeExYSnhyYVM3MWlUQlNFanRhb0c1?=
- =?utf-8?B?MUxiZ2Q2U0R3VUxJdTdxNkduM3EvSnhGbVVKZUZiNkoxNG5zN0xOUmhHM2My?=
- =?utf-8?B?ZER3TGoxSFlNODJQMWYwa243Tm9peGlFZ0FLMmlYQkNudk15S1R5bVh4SXg5?=
- =?utf-8?B?RTlwZCsyTEFKbWUzZmE0bEo1eWFKbk1BbmRoVFRwYXB0b2FQSDVGRnhHZ1Z1?=
- =?utf-8?B?eXR2OW01YVJuWkQ5RkJ2UXA4K1NWTnVONWJaL0RVSDBYem9MMGFKOTRCU05q?=
- =?utf-8?B?cFFPLzVCKzlkZWNsS05weElMS3ZkSC96Y2ZCTW01dUZ6MFV4Q3VQdjdzV2lJ?=
- =?utf-8?B?eTJSNUJHdjJ2Ym5jUTkvd2FoSnVqaDVHdkMyd2k0cm9aSVgxWlhOZUxiaHRI?=
- =?utf-8?B?OEZLUE9UQUVHdkgzdW55dzllRTMrSmJsSXJKNFJVYUhHaUlQZ0lEUmpRQVIw?=
- =?utf-8?B?REFneExPSVAyR2ZWdFhrR29PTkxOR0xxRGQxRXpmWlRtY2hnaUhtazhiSmZt?=
- =?utf-8?B?ZlQ1WEM4d2dIYnc9PQ==?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?utf-8?B?WUJEcUlkTXY1NmF1MEozNU9XRVdJOUFWNk9KSmIzd0lFc3JEcGlGeXo1YUkx?=
- =?utf-8?B?WFdlU3BPWGUvQVM0d3dlK2E1S2dYcDIzcHNodnZtNlZMUU1IUE11MVl3SHlp?=
- =?utf-8?B?SVp5SUNUS2gwb1B4Rk5MQUlicENGdkkrZWg2YUtNQzQzSjh2S0RBazhzK0xj?=
- =?utf-8?B?TEZqZkIrY2ZuakNIY3Y4MkVaYitHNU5xQ2V0N0duZmMrTDNkeTUxL3NBZVFZ?=
- =?utf-8?B?RmlPbkFjSnNpSG0xbWFidUc5WGVWbnNKblljc1MvMTI4ZnJDeXR3ZHZwTk1X?=
- =?utf-8?B?c01vS0VKU1k0VTJiZUduNlV5WGkxRVZqU0lZeWp2R2pnb05uc2JiK04rdjlk?=
- =?utf-8?B?NHlnZVYwT2U4NzRwR3haemFCY1dRQnJRd3FXMnd2ZUpaYU5KUERrcEhQRkRp?=
- =?utf-8?B?aFRlamkxcS9RU0dYYnN0VytwRWw2SXRQQVJuQURIcmRGMzEwUTAyUVk4WE40?=
- =?utf-8?B?YklNQStnMk5nUFZEK0VsYlg3cmk1eHZFYmJrK3JDRTdyYVl2V1FuSSs3blBV?=
- =?utf-8?B?b2VlN2RqN2RSbmRJNklXa21HckpOTHRubElzTGxua3lJRDd3aWkzSGFOSW1T?=
- =?utf-8?B?aFRjWlRETjU0ZWl2MURCMU9IVWMyU1d3N1BjK2ZDb05ScTh3QjlNSmtzSTBm?=
- =?utf-8?B?UzlRQjh6RzVVcUF3OEFuZUY4czc4SXo4bUJUTHM1K1NqMjV1QnpmcXp3WmRt?=
- =?utf-8?B?ZGpnOG9MSWtXTlo3ekhmSWhid0FrWDlaaVhIOUk0bjl6RTRib3dZeEtqRzZn?=
- =?utf-8?B?VlFwdmNyc3VvaFFLcnpOVVIrYnEvM29kaGY3UTFRV3h5ZUQreDdNa1RnMTFC?=
- =?utf-8?B?elFKSUYxdDRWWWUxSUVIRUxnSGVzbXhnbkY3UlpnZ3lBYlRBOTBsd0FZZ0NE?=
- =?utf-8?B?Ty9DOXFFS09lYWRNVUpzVENHcnRrRE1Hbk5LMU1ESXJQdGh2Z1FlZ3ZmTFJF?=
- =?utf-8?B?Mk1nYno4WW5QNkhxekJEVVJxQkJSYmU4OVpuUWRkeVFjTnlLS3R4ZWVaYXl4?=
- =?utf-8?B?Z3R6WTY0eXF5Uzg5RE9BRUNoakFwbHFsSlo2dHcxNVU1c29VTVY2QzJsRzkx?=
- =?utf-8?B?VWswc1M3bFVlYWdkbE5YM0RQNW5IbWVBNFZKbXFHTE96RTQ5ZU1YK2l0OGdI?=
- =?utf-8?B?TEV3bXNzaTVUaStkcUhXMWVKQUE1cUZ6aVpVbFRBamw3YnVaQk4weHZkM3Y1?=
- =?utf-8?B?VkxFME53YS9pam5Cd0JaQS9CWlRjcVdGTmJvemNxcU9BckgwL0l1QkxhbTJR?=
- =?utf-8?B?WVRyTEFWYlJwYi92K2wxY1BDR1YxZDh6ZzRjdEM5clVlUmowemI1UHJReHlY?=
- =?utf-8?B?eWhFL0RHQno2YU1USU5NYTVVNFlocjVod1NGa2dPT2hMWlExNWdHeDNwZHJS?=
- =?utf-8?B?eEsyUVhBQWhsZzZuNldpVkJUK2ZCN09ROWV6K0RpS1VBVktQMnU5MW9oalJZ?=
- =?utf-8?B?ZjNXZFRnNGMzWU9odTNTcnhVdEM2emRlald1aUsrNlZ5cnRiZUppQlJwMjFP?=
- =?utf-8?B?L3VQRk1wNDVZWUxGeWExakhRUHc5VW55aVg1MUpYNTR1cmxTVldJSC9SaVVO?=
- =?utf-8?B?RGoxSDlwWlJ2OHlNUGxDdWhyenFrQXUzNHlXWmg3N1pzbWtzUkpPM0luSjBa?=
- =?utf-8?B?VmRUbzhLYlVxdHBPaVlZMThHY1Jqd20wakJrVGdKb2U3dlBETVhKZFYzYTVQ?=
- =?utf-8?B?aTRyVjZLbzhpdm1rZzZJcWF2NXRhcTgvUEdVOVprUGlaanFNZHhnY2lpblFK?=
- =?utf-8?B?NFFzaTVnTFBiVlB0NlJiZTVYcjJOcHpYV3hDYVhmVDFFcEZQS0lVWm9ORTFn?=
- =?utf-8?B?R3RHbW01dnJzSjZ2MjZVdzExRXBiOWtFUHFOcjkwbFAwd1Y1bkc5R2s4Yy9B?=
- =?utf-8?Q?fpalfFc1t1sTk?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <D86D6E9F384FE24B84B5FF10FEA0A5EF@POLP291.PROD.OUTLOOK.COM>
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key, unprotected) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=O7txkv/7
+ARC-Seal: i=1; a=rsa-sha256; t=1795260383; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=LfnecYbJB3tiXd3+OdXcW4xfTeDsckeWNW3jE+dQxIvpjOXJzBt4d2VTihl2eucF2IPvNfv6Awb/0avpl5IFokbJTzeMgVZza2eEqwhnGRE3EbIiiw7Hl+dy+/Rc1o2azmQ6cZmnsrzk4gZCn3IbqNTlVAsvpHW/1y46YzscIWo=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795260383; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=WvQDY/6XJyxZ6Kpv8z5j97OZsE+oBbUMKjQCg9UF338=; 
+	b=nn3hbXXjvHa1R4KhwVoEK3WLQeX3u/wrU5lLYnOXj4LlBrBhp+yXJ3v3HB5zjZUq4LMF+D2Lp+NBDPqM1bpcLhMhPpCxdNmjOXzZCGun4q5yeEOphGCz/zBB2zAsAN2GE7QNH4/9tyKwrWKM9hHXdoVuoSOjWlERERbn7+VM4QQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: a=rsa-sha256; b=O7txkv/76duCn9RR421LaI50xLXgTkaThBMrWJtHHOm+tpF+oHWRYRyk9OSNGCCNUPSXVR1c2bSokMBV3eUVS/e898xW+AqJX1SqcQ70xVO6LyXgOoWxWAWXQXGpJPa+U53NfI+XDvvEbpoiPvGiRdVmBWN2rh5h3E5UKt1nk3lq83PR8p2jBVXn4kLrTgPtmKo6vYGn2jxCizRJOgtyHYepquVMhBV08IJZnGQc5D28jd6TiURnwn/yDJD996I9fRr24Nf4bTkfTgwZE+GjLkhNz2+2Rn87VOBIbjLYpR6XQg3X1uYzc9yVEHjgOPCVDrxrWS1QB2K+TVB8ukEpRA==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=WvQDY/6XJyxZ6Kpv8z5j97OZsE+oBbUMKjQCg9UF338=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795260379820428.61296969080024;
+	Sat, 21 Nov 2026 03:26:19 -0800 (PST)
+Message-ID: <77c77dd13a1cc44416ceb28ee4dacfab51c7c220.camel@rong.moe>
+Subject: Re: [PATCH v3 00/11] leds: class: Support custom sysfs groups on
+ multicolor and flash LEDs
+From: Rong Zhang <i@rong.moe>
+To: Armin Wolf <W_Armin@gmx.de>, lee@kernel.org, pavel@kernel.org
+Cc: linux-leds@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261120212431.152081-1-W_Armin@gmx.de>
+References: <20261120212431.152081-1-W_Armin@gmx.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Sat, 21 Nov 2026 19:21:11 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -166,18 +67,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: sct-15-20-9412-4-msonline-outlook-2112e.templateTenant
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: WA2P291MB0187.POLP291.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1dc9c525-b1c1-45c5-505f-08df47c23b4f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Nov 2026 11:26:05.3941
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: WA2P291MB0115
+User-Agent: Evolution 3.62.1-3 
+X-ZohoMailClient: External
 
-SGkgQW5keSwKCkkgYWRkZWQgYSBvbmUtbGluZSBleGFtcGxlIG9mIHRoZSByZXNvbHZlZCBTcGFy
-c2Ugd2FybmluZyB0byB0aGUKY29tbWl0IG1lc3NhZ2UgaW4gdjMuCgpUaGFua3MgZm9yIHRoZSBz
-dWdnZXN0aW9uLgoKUmVnYXJkcywKVMO8cmtlcgo=
+Hi Armin,
+
+On Fri, 2026-11-20 at 22:22 +0100, Armin Wolf wrote:
+> Until now drivers are unable to atomically register custom sysfs
+> groups below multicolor and flash LED class devices, because the
+> led_cdev->sysfs_groups field is being overwritten inside the
+> associated initialization functions. This patch series tries to
+> fix this.
+>=20
+> The first three patches constify the sysfs attributes of all three
+> LED flavors, while the next four patches fix various unrelated issues
+> affecting LED device initialization. The next two patches migrate
+> the multicolor and flash LEDs to use struct device_type for
+> registering their sysfs attributes, so that led_cdev->sysfs_groups is
+> not touched anymore. The last patch contains a minor optimization
+> for multicolor LEDs.
+>=20
+> All patches have been tested on real hardware, with the flash LED
+> interface being tested using a custom kernel module.
+
+The series looks good to me (except for PATCH 10, as I am not familiar
+with that driver).
+
+FWIW, for PATCH 1-9,11:
+
+Reviewed-by: Rong Zhang <i@rong.moe>
+
+Thanks,
+Rong
+
+>=20
+> Changes since v2:
+> - fix issue inside KTD202X driver
+>=20
+> Changes since v1:
+> - use READ_ONCE() inside brightness_hw_changed_show()
+> - fix possible deadlock in led_classdev_notify_brightness_hw_changed()
+> - set led_cdev->dev to NULL when initialization fails
+> - call device_set_node() after device_add()
+>=20
+> Armin Wolf (11):
+>   leds: class: Constify sysfs attributes
+>   leds: multicolor: Constify sysfs attributes
+>   leds: flash: Constify sysfs attributes
+>   leds: class: Create "brightness_hw_changed" attribute atomically
+>   leds: class: Fix race condition when creating the device
+>   leds: class: Access brightness_hw_changed exactly once
+>   leds: class: Use correct type for brightness_hw_changed field
+>   leds: class: Split led_classdev_register_ext()
+>   leds: Support custom sysfs groups on multicolor and flash LEDs
+>   leds: rgb: ktd202x: Initialize max_brightness before registering LED
+>   leds: multicolor: Adjust maximum subled intensity during
+>     initialization
+>=20
+>  drivers/leds/led-class-flash.c      | 153 +++++++++---------
+>  drivers/leds/led-class-multicolor.c |  76 ++++-----
+>  drivers/leds/led-class.c            | 233 +++++++++++++++++++---------
+>  drivers/leds/leds.h                 |   3 +
+>  drivers/leds/rgb/leds-ktd202x.c     |   4 +-
+>  include/linux/led-class-flash.h     |   5 -
+>  include/linux/leds.h                |   2 +-
+>  7 files changed, 278 insertions(+), 198 deletions(-)
