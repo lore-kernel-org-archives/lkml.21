@@ -1,87 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.149
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.153
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795247924;
-	b=lQ0/UDsXhb4+932lCvhtQQOZxDT4ekhj/vdmPFipllosdlEgJExo488MR9eV9ErPgcY5
-	 0PnKwVahtOrTP6vYFxe5dv2UCYf2GjeAUbh46vnnZb6kmIgNPTuiJnqBF2nBuLGC8EnaR
-	 t4gCedRTtUJgj5Mu2ckGR/WyXSuS3f8DNTmdYksPMmXajnP1ucjgbsXWDZNqqJI1C22vy
-	 xeKIT9SnKse8nEC85x7WiAG6sv13RLmJZwtlexw23O8L44oV5e2RdX89rQPTNwWzo3wWB
-	 0A7vVx5Fa6ig8vBol2OmGn2qhWx4Jh3eNUMxYlElC3KA4ef7dQZDOa204O5RzRaJs9A==
+	t=1795248066;
+	b=HVYpA6zxfvXTqbAA072BjRZV2y44RLodiKsEWZOosQc9z+45fhED0oVRYKW/9MEmPjuo
+	 1ffSLwaLy9d7bS5IdDY5yT4kB33hiT+j5Cz9MndJ1JEE3a8/Dwj6HiLH1s6q90d6mUb1K
+	 DjVtvE3hrt0yLYKyPdyY3EIRcaTXLBzz3CDtoEyLxkg3tcNhGBKCWwzEw7An81u+CHJKy
+	 mFJ9spJp7xn0fmybC4qQ943Cj8zHyn3AtobfLyVRpPpj6HaDeqobzA3Ept6i80I7wtemL
+	 thwbKRTjmEI/Pv/tnNZuDUy1x6K6+inby4AwcDhvYYjumtWr8isdaorDpFwCVmdahJA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795247924;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=Xmt8jo7oKKzTvhYcY6f1b8Zs3I9/GqGJBF3qAGH80D4=;
-	b=xvwzic5fCdNNEAdot3nii+Qz4mwXt/qjolGw8UzHSr6J28+B/eSv40VpYkb7JF6yWfXG
-	 F4HYPF3Nsz6Cl0xdlb3WsU18IIOqO4B0Qh7qwzoNHD0weYmUjdsfCcGdPW9ssacnWIfA3
-	 dqcjudAXcHPL6DnW+hOHU0hqYHtft3hKa2zRRrUjaJty8+PFFJy7c2po6BJkE5XO+Pcjq
-	 XrN+isCBJNs8aJdkewHN3xRn9TztLc+1wS5QOE15gn0rOJNRfkEnnGIKz+Y2V0IFF+8ME
-	 /Phr5o9d+80bKN/fOK0z5ROtBzsDJsXZIvD4640HvIKefMkw+/Ss3kyGnWauH0bbrgg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795248066;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=PffWv6+YUHHcok31J2UuOOEjqWyo2w3KUslXYa2N0D4=;
+	b=fk7STykYL3LvP36UuDv/t7zh+Os2jRicEE8sJHc5KQC8sDSx0qmfKmS39zr5OQ7lHt7i
+	 xUf2BjP9LHzAgKLQfo92JdfzfyZqj6TeYdYJ6UUG/BRecIdyif2SjLoenBuQy0UYxaks+
+	 GnyH6aXyR/tRgx155V43J9U4nKvmLKu6C+skX6Mx+t7DnuoCOZ2E6kKXsC6O+t7vHFyXA
+	 /y2EnanyEPMPwqOltGJ7Jx6wZESmTqs4Sm8qmnN6gMWcpNP1ameYe+r1HBE4NLTAc7IZQ
+	 7o+g0uC7QjNISvOeVGG4UhF0UhT0VKjHb72ANvGMeOCUhg5hFtZiWjhmxobEcBYgzgw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=Ispycg+a;
-	arc=none smtp.remote-ip=203.205.221.149
-Received: from out203-205-221-149.mail.qq.com (out203-205-221-149.mail.qq.com [203.205.221.149])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=pobox.com;
+	spf=pass smtp.mailfrom=pobox.com;
+	dkim=pass header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=FRvzMYNr;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=J5A6RNF+;
+	arc=none smtp.remote-ip=202.12.124.153
+Received: from fhigh-b2-smtp.messagingengine.com (fhigh-b2-smtp.messagingengine.com [202.12.124.153])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9397D606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:58:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9397D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C3F9606A32A
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 08:01:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C3F9606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=pobox.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pobox.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=Ispycg+a
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795247921; bh=Xmt8jo7oKKzTvhYcY6f1b8Zs3I9/GqGJBF3qAGH80D4=;
-	h=From:To:Cc:Subject:Date;
-	b=Ispycg+a3sAa1WU5PXGrZMh41is5LNCwzCByGkiY+g934KrMoGXybO5ibYIyrQ/dh
-	 Q0o4F/c9CiyI4TSnKEd/AkTk8QCld7LgW/yGhuvAp78eYPz3X8bL4SL5ONFKJHCdj9
-	 954UKaKLVuD07iljE3JER49pDrXVSMpM5fT6IaUM=
-Received: from jerry-PC.lan ([2408:8249:5f:7101:71a:8713:56b4:5043])
-	by newxmesmtplogicsvrszb51-1.qq.com (NewEsmtp) with SMTP
-	id EA517A94; Sat, 21 Nov 2026 15:58:37 +0800
-X-QQ-mid: xmsmtpt1795247917t4zunjgeo
-Message-ID: <tencent_6F7C9E04169BCBAE4E162DAA3DCD5395B209@qq.com>
-X-QQ-XMAILINFO: OKquegeHeYmF6WbOtyTZ71BnVYmwKY+O+h3/k7lMB2BxYQi7WXNhMgPMUkX+yU
-	 ZCE4V++4VafBpe1iwLqDPTPTg1Wv6ymcQF1C6JbjYVrVE8JnEkhfekICSFy5FjjcDxecxUgc6CQU
-	 4AoGiyLmhRlrgW+Q0M869OZ8zDBOubihez9mMiPgn+y440PqxBuPCl/5uXnG4Hzg5TALEjAr3xYE
-	 PgoJLCCZByOC08JaiWJ1e5TFGndH7es9ddWW1cGgbd0yxd0CenwdSsEiY8n45vUsCBfqJ2b7xghU
-	 Y7P/6zc4qVy/qmgtv4jKX4dcXBiypHOFkXQDrEIwexVNXYk62xANcB4XVOPz1SaBMdCmDogogcsP
-	 D2IrT5iB9ewcttnvuRdFQzasuoPRN1B3SgKESL3K7GvZTap3TgZeycssYAxRbU+Od9VuDMxsEbMi
-	 kxXmavRFNNaeVPDJzDwkRXfPMXAjOksopKsPylcTNIA7op2oeMm6abMGwjV2hXhAzoxzmAxh2ZA6
-	 a73em9asBUV2l+i5ocTEix35BYQWd/TPqmgwR3qw+UvEQmcRk8pHipBHXhC1DhD3TNtnrOFcGC5m
-	 WzoDvZ3S3Bf3Lxkd+mtk2WZOr/8/vXGzl2U9IVkN5qDbgfJJbmR80EZIfvviPaXxE+8Vt9rBpsKG
-	 EWfX4Dfit8weSJ9dc9hWyqpjHf105dDuO29bw91qV/F6EeCS6ZHEkPIPvZZf3LJaEw7UYOgmWql9
-	 FIXQoim0jTA920ASZHS81/IiukCfZvZ06PHsar8SC6Jtg1Dds1zQFstpTSjDSO+jS36ILMkUEdrb
-	 t9GA25xozqMtINC3Tt56zrmthO315pz4btUyNtua6sJGMySbRmjBSmgKq+3o/DTUDScDWv820Tl4
-	 DzFzeaVO0iFHFgf6RF8zoftqpqW4qFuX5/Lfne8CqaE3OXDmQEOJ4i9PVd1Zkj/oGtfjvuL/smOt
-	 3gRwAkgpema9W0UkzyuPWqfnRLnsCtCbpnpnoRU5f4zlyr0432CkI2GGJhGPskcTrok8gW/z/Ltc
-	 LY0RT/tLEi1gA9r4q45pwdvXuIJvpo8x/TANfndVJh8JQY5InapQpm4SPhJ8VmQOm67IkE1GUnJx
-	 lM/yhLQvHO4Ky67e3hZMYxzOr/MBAlMfoBE7X7DrhUJ2n+JLp+q9tAWMLuZPVPiqGYdgD1
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-From: ZhuXiangyu <1194781887@qq.com>
-To: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sandy Huang <hjc@rock-chips.com>
-Cc: Andy Yan <andyshrk@163.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	linux-phy@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	ZhuXiangyu <1194781887@qq.com>
-Subject: [PATCH] drm/phy: rockchip: fix RK3506 DSI low-power command handling
-Date: Sat, 21 Nov 2026 15:58:35 +0800
-X-OQ-MSGID: <20261121075835.1283525-1-1194781887@qq.com>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key, unprotected) header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=FRvzMYNr;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=J5A6RNF+
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 08F647A0342
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 03:01:06 -0500 (EST)
+Received: from phl-frontend-01 ([10.202.2.160])
+  by phl-compute-01.internal (MEProxy); Sat, 21 Nov 2026 03:01:06 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pobox.com; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795248065;
+	 x=1795334465; bh=PffWv6+YUHHcok31J2UuOOEjqWyo2w3KUslXYa2N0D4=; b=
+	FRvzMYNrh3eUdREOvv3W0i2S+SDC+/+81e2o4kMkLaPj1cAh9C2uR1P7q+mhVTh3
+	cVbxBXcF1RKwOthCwbua3CfxwyeHs/1xk5u77eSHC+Y7vzwZ6xY99AjmL0qxlmwn
+	eooLoyVxBVin5F/8RahFzAZBu6XHtg3sQT6P4Zu8wA5Tn10cJuedU34f31sbc/I6
+	7nMc/6au6tfW0V4CQHMNlEiVSqf7XKGhqwwqRU2L973hs+pj3vokSVOaUaa1Ag79
+	NOXIPTd/PVjutdVgjFLwtiRZfAXPhJqnR9O0a9eF64YnL3YwVaClRyb3GRSYKE82
+	T+FGmM7Pso4IorlHn9i7ZQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795248065; x=
+	1795334465; bh=PffWv6+YUHHcok31J2UuOOEjqWyo2w3KUslXYa2N0D4=; b=J
+	5A6RNF+XjdatSDLKp37IfTSog/4N4jsla7zlHXcPtRg75e1NDY4Uubf6WnZjlSyJ
+	5HCDRT4RzreHHe6GqOAYyK73+1cS+L4fCq+iX911cBjCPuAHKNPnl0bFZoW0tZm5
+	uinOF9gxeWPQdQ/8DqAN4Ya/kxMQaaaiCSTi0FvqsNbjhreRbgQRqqlboaHexsYy
+	9SHcOci+oD7PXXLdNooTvpRvKAPMkIRgkrXPE6WT2I+xM3CaokU9+t73PRwUU/9P
+	a42vj27C/9syD/q9ucK1hazIqTsbSx2vlQU5JM6hlMVJoTDfkoHWKkBOQE/4HdZm
+	V//XebFlSr+jtO5tRPaTQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=pobox.com a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795248065; d=pobox.com;
+	mf=PGJhcnJ5bkBwb2JveC5jb20+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:imLHK9z+73Okz+XKxU8rAcKAnXOMJPgfl0E16IeZ/QeiYcH
+	68qUsmaOC45PyljQmAMg/1dp5AN5Ad/hC0WQKQ9T7+TQAIsD6eF8XOf18O4O/dkH
+	DTAXWyEmzErIVRvr/qNfC4L/B9qr2KwN9u45IXrlXbeePPfqadBiMphmQBkPzusZ
+	W9EcnMaYNJjoCMzZKNKDYDxakrN48V265wYKffciv0LDCQYTi5kUVZHldMgT5Rii
+	ni1jbdI5pLO6OLx72riBf0zy5o9MwQHZUZDDGWxrhoyv4c0KDgm6v0EFg12PbZ9e
+	w18p+ygEGOhwxpq63r/6OD0diogUxxd9O2kHj0w==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=14;
+	hn=cc,content-language,content-transfer-encoding,content-type,
+	date,feedback-id,from,in-reply-to,message-id,mime-version,
+	references,subject,to,user-agent;
+Message-Instance: m=1; h=sha256:i+QXPEs0MRPiOPcsjBN0YrAQ3sJkUTSmj8BA+SSwO3M=:ulyu3f5OdmXBIoGwTOoUtZsK1JnCHpefXqGCBmCUJqM=;
+X-ME-Sender: <xms:wE8Bayjyy8xrmtUavpFVC1Vy2zCE4uThWejfTUbbBu9y3Jv-qKQmfg>
+    <xme:wE8Ba-5ZSTfMwjhgodSSd_4xZ84EHqwlWUaM2n93F7jRUxQk3N8L3N1sBTXe42xXq
+    JUX4DL6pzhpOFfjtVO5b0_evatitV9UoW0ZxcGSCai1cFu7ybEMt4w>
+X-ME-Received: <xmr:wE8Ba1kFg8Xf8MGd0uBtVK1L2gWpJXizMDIN6YYlu75iMTcaz2x1AlKwkcXKlSrAR88IJmauPZFmzATDJ2Neg72K9wzPqB4h>
+X-ME-Proxy-Cause: dmFkZTEf7U8oxoU8QhLJrSFZXuzPGT4cfvjlOjsUjZrkYniHAqk0qh3llwueVv7AmnMlV1
+    /0P6p+J2klLQAvjvp9izGsExVveH6iPUBs6XRppxoIWzOcF7TPVvDjkHoNJW9hALU1wUno
+    6XtfssAKk9OYH7az41HKoBGQQV4FLhq/haSh2maPvC18Kp6+xmE3yKG2JPIk5LrSjfWWoB
+    UaeFOyDy5fg5JahZG3no4HlsV2yIicFtEGW8N0bPw6E3pwEj/ZYUOOuLrX/uBZWzc1d3Hx
+    gFfPRokSBJJitgHcDPLxFiAu3leq/liuvCQUkbGpQRVTdIM8k/1MTNgGE5Y/T7uAjHWzCb
+    WlcA94mBZ0i9TBiKCNXGu2If24CDwRalRyimntMsSSJrx3uELJQY+qhTtbyp1zR+lxzETj
+    Un/RYIW7IMuPfEuasw+/St4hA/aOy7k657t0ll9c0SAzxf8EJKM437y1OdohH0mV17Q6/Y
+    9wweopZW2eJghQNiRdF4rNoLrz/J91/YX/JKjzQfG82zk+VPT7dljzYGdaC99rgz/s+3SL
+    D1B4Q78PlenPDUQjzp8jssP3zPY3pG036IF9MkAGXJu1GALr+PaBzBEryZR4Lz12L4FeKT
+    O/4QM7RF84Wyape1wdnigMUB0owN/XAevoBr/g7bmvANh/hheervi0LSxg8Q
+X-ME-Proxy: <xmx:wE8Ba_MmFj9JJtuxWJS5Nx86OzYaYnNBQnXbMF9PVhCbG4MsM7q4Mg>
+    <xmx:wE8Ba3qg3OC3siZ-PtNRgsDfDvVMEf-2epzPWNY_bgnqmKPsK_PtyA>
+    <xmx:wE8Ba4uG8XLQ67cgGLJw2INpMM26NZs4JYrrZxCDley7LwcnTD1EIQ>
+    <xmx:wE8Ba75MpYsSsa51S_MLRFexS-iBXkDPADY4uXZ1E9CZPtcqo3g5iA>
+    <xmx:wU8Bax1lGEPRRT_Di0XlNSABL_lVQ7Y_Use4okngHViaqzaq-auNPbl6>
+Feedback-ID: i6289494f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
+ 21 Nov 2026 03:01:02 -0500 (EST)
+Message-ID: <36db0135-e58b-45a5-ae95-b8e425419ed4@pobox.com>
+Date: Sat, 21 Nov 2026 00:01:01 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,104 +119,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6.6 0000/3308] 6.6.163-rc2 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
+ conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ achill@achill.org, sr@sladewatkins.com
+References: <20261120055324.975889935@linuxfoundation.org>
+Content-Language: en-US
+From: "Barry K. Nathan" <barryn@pobox.com>
+In-Reply-To: <20261120055324.975889935@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Two bugs keep the RK3506 MIPI-DSI link from initialising a panel: the
-DPHY programs the wrong high-speed timing entry, and the PHY data lanes
-are never enabled in the GRF.
+On 11/19/26 9:57 PM, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 6.6.163 release.
+> There are 3308 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+> 
+> Responses should be made by Sun, 22 Nov 2026 05:44:39 +0000.
+> Anything received after that time might be too late.
+> 
+> The whole patch series can be found in one patch at:
+> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.6.163-rc2.gz
+> or in the git tree and branch at:
+> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.6.y
+> and the diffstat can be found below.
+> 
+> thanks,
+> 
+> greg k-h
 
-1. phy-rockchip-inno-dsidphy picks the wrong HS timing entry
+I took 6.6.162 and applied the current stable-queue (commit
+3dd4b2d3c1f7915277082781d6dfbe71d7d41800). So this includes
+the changes that were made after 6.6.163-rc2.
 
-   The 1.5 GHz inno DSI PHY timing table stores its rates in Mbps while
-   the other tables and the lookup use Hz. The mode enable code compares
-   inno->pll.rate in Hz (e.g. 372000000) against timings[].rate in Mbps
-   (e.g. 400), so the comparison never matches. The loop runs to the end
-   and the last, fastest entry is used, which programs a TLPX/LPX
-   counter that is far too large. The panel then cannot decode the
-   low-power DCS commands and stays in sleep mode, so the display stays
-   black even though the LP packets are visible on the data lane.
+Tested on an amd64 laptop (Lenovo ThinkPad T14 Gen 1). Working
+well, no regressions observed.
 
-   Convert the 1.5 GHz timing table rates to Hz so that the lookup
-   selects the correct entry.
+Tested-by: Barry K. Nathan <barryn@pobox.com>
 
-2. The RK3506 DSI GRF lane enable bits are never written
-
-   rk3506_chip_data only clears the turnaround / force-stop fields, so
-   the PHY data lanes stay disabled unless the boot loader happens to
-   enable them. Program RK3506_DSI_PHY_ENABLE_LANE0/1 as well.
-
-Tested on the RK3506B JerryTech board: the panel now receives the init
-sequence over LP and the framebuffer console is visible.
-
-Signed-off-by: ZhuXiangyu <1194781887@qq.com>
----
- .../gpu/drm/rockchip/dw-mipi-dsi-rockchip.c   |  6 +++-
- .../phy/rockchip/phy-rockchip-inno-dsidphy.c  | 28 +++++++++----------
- 2 files changed, 19 insertions(+), 15 deletions(-)
-
-diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-index 30d6f83c..116cc140 100644
---- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-@@ -199,6 +199,8 @@
- 
- #define RK3506_SYS_GRF_SOC_CON6		0x0018
- #define RK3506_DSI_FORCETXSTOPMODE	(0xf << 4)
-+#define RK3506_DSI_PHY_ENABLE_LANE1	BIT(9)
-+#define RK3506_DSI_PHY_ENABLE_LANE0	BIT(8)
- #define RK3506_DSI_TURNDISABLE		BIT(2)
- #define RK3506_DSI_FORCERXMODE		BIT(0)
- 
-@@ -1727,7 +1729,9 @@ static const struct rockchip_dw_dsi_chip_data rk3506_chip_data[] = {
- 		.lanecfg1_grf_reg = RK3506_SYS_GRF_SOC_CON6,
- 		.lanecfg1 = (FIELD_PREP_WM16_CONST(RK3506_DSI_TURNDISABLE, 0) |
- 			     FIELD_PREP_WM16_CONST(RK3506_DSI_FORCERXMODE, 0) |
--			     FIELD_PREP_WM16_CONST(RK3506_DSI_FORCETXSTOPMODE, 0)),
-+			     FIELD_PREP_WM16_CONST(RK3506_DSI_FORCETXSTOPMODE, 0) |
-+			     FIELD_PREP_WM16_CONST(RK3506_DSI_PHY_ENABLE_LANE0, 1) |
-+			     FIELD_PREP_WM16_CONST(RK3506_DSI_PHY_ENABLE_LANE1, 1)),
- 		.max_data_lanes = 2,
- 		.max_bit_rate_per_lane = 1500000000UL,
- 		.dphy_get_timing = dw_mipi_dsi_phy_px30_get_timing,
-diff --git a/drivers/phy/rockchip/phy-rockchip-inno-dsidphy.c b/drivers/phy/rockchip/phy-rockchip-inno-dsidphy.c
-index 6ad04b0c..fcf7aa17 100644
---- a/drivers/phy/rockchip/phy-rockchip-inno-dsidphy.c
-+++ b/drivers/phy/rockchip/phy-rockchip-inno-dsidphy.c
-@@ -282,20 +282,20 @@ struct inno_mipi_dphy_timing inno_mipi_dphy_timing_table_max_1ghz[] = {
- 
- static const
- struct inno_mipi_dphy_timing inno_mipi_dphy_timing_table_max_1_5ghz[] = {
--	{ 110, 0x02, 0x7f, 0x16, 0x02, 0x02},
--	{ 150, 0x02, 0x7f, 0x16, 0x03, 0x02},
--	{ 200, 0x02, 0x7f, 0x17, 0x04, 0x02},
--	{ 250, 0x02, 0x7f, 0x17, 0x05, 0x04},
--	{ 300, 0x02, 0x7f, 0x18, 0x06, 0x04},
--	{ 400, 0x03, 0x7e, 0x19, 0x07, 0x04},
--	{ 500, 0x03, 0x7c, 0x1b, 0x07, 0x08},
--	{ 600, 0x03, 0x70, 0x1d, 0x08, 0x10},
--	{ 700, 0x05, 0x40, 0x1e, 0x08, 0x30},
--	{ 800, 0x05, 0x02, 0x1f, 0x09, 0x30},
--	{1000, 0x05, 0x08, 0x20, 0x09, 0x30},
--	{1200, 0x06, 0x03, 0x32, 0x14, 0x0f},
--	{1400, 0x09, 0x03, 0x32, 0x14, 0x0f},
--	{1500, 0x0d, 0x42, 0x36, 0x0e, 0x0f},
-+	{ 110000000, 0x02, 0x7f, 0x16, 0x02, 0x02},
-+	{ 150000000, 0x02, 0x7f, 0x16, 0x03, 0x02},
-+	{ 200000000, 0x02, 0x7f, 0x17, 0x04, 0x02},
-+	{ 250000000, 0x02, 0x7f, 0x17, 0x05, 0x04},
-+	{ 300000000, 0x02, 0x7f, 0x18, 0x06, 0x04},
-+	{ 400000000, 0x03, 0x7e, 0x19, 0x07, 0x04},
-+	{ 500000000, 0x03, 0x7c, 0x1b, 0x07, 0x08},
-+	{ 600000000, 0x03, 0x70, 0x1d, 0x08, 0x10},
-+	{ 700000000, 0x05, 0x40, 0x1e, 0x08, 0x30},
-+	{ 800000000, 0x05, 0x02, 0x1f, 0x09, 0x30},
-+	{1000000000, 0x05, 0x08, 0x20, 0x09, 0x30},
-+	{1200000000, 0x06, 0x03, 0x32, 0x14, 0x0f},
-+	{1400000000, 0x09, 0x03, 0x32, 0x14, 0x0f},
-+	{1500000000, 0x0d, 0x42, 0x36, 0x0e, 0x0f},
- };
- 
- static const
 -- 
-2.47.3
-
+-Barry K. Nathan  <barryn@pobox.com>
