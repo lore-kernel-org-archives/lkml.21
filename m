@@ -1,88 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.14
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795277297;
-	b=J8p7r40jI5JZB0zuOw4kID4fIuwUQVF45LvAue0lNAoV7Run0qhRd2sDaqMX/lU+wYCl
-	 hwhdjOPOh5/MFKGXpuYM17SUGg3kLBiOsx0jji4jTRfQbEp+d/lyFJRry7/YhJh5clWCR
-	 nnBeABQdqccT0tnna7oi84h+oSw5yMAtXw3/ghpO+RADOK9i5Ex/WJiAcjjk4FEdia58E
-	 xqK4MVddtlJ3DGeqU8lFXelcGAPZLElipXGgBtdgO4ZkyFMwphq0jHkMkAIzJEXpj8Nfr
-	 UHhsg9UmBTEeFvzvczLU2o213Il7zRsOn4x8/cGpCyDQoto4gaLGqYc50BQPEMLCc7A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795277297;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
-	bh=BF/1P4AvrIIFA9XMFtkI38tLivXVyi3Hsju2semGjjo=;
-	b=zpCahc3m+CA5XZbkv7xuslxssJaLaRmppurDfq76aMEx5GlnhFG83kyvBWWD/PWXdwy1
-	 NIvKmEg4JgGN4pfTkjhgcK5et+KrklZPFD97XIQNG6TCszhik0rmi5elQgFTv9JAN9K+q
-	 JzKdf4TmXpRf1Torc9SdfsjgQMAoRGWU5ACHl0HYgTUa/gAaP9TSI9YWPHn1C2YB91z0k
-	 aA/0QrSAqBL/eR3eZMjGltnLPUMSj1En8fDZWL18icAT1edFMmmU5RvCY4yNtO23JpXKx
-	 cG7jHmG6dod7WsAVjIwiTdkwfYEbP/7hEQ6pD3Idax2Vl/o6nhQfXINUYaU1nxin2XA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=web.de;
-	spf=pass smtp.mailfrom=web.de;
-	dkim=pass header.d=web.de header.i=jan.claussen10@web.de header.a=rsa-sha256 header.s=s29768273 header.b=ASqcE82w;
-	arc=none smtp.remote-ip=212.227.15.14
-Received: from mout.web.de (mout.web.de [212.227.15.14])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.48.52.25
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795277300;
+	b=eEL9mpro/VxIW5X+9gWABv1YN0d2XdpPUAXAneEX1ofKPIu8QlfiaPjpFnuSb8Ta+AZg
+	 k/UO4kvct3hf1qgOUtxa+3z/KdxwVPPTgZg98rNH4CwLY24OlFK3Cup7hqqHIj/h3vxyl
+	 8ioq5so/zEy/mafhJGEvPJejkPAImDYzpDt7D6usihUOccMcmpqnzKB/ARZOlS6z0/OVe
+	 v80Hw/7cGTkHdLkAizZNfwBflwcadMLIizD4H/zF3e94Zf2OTCdQcBra3qEKCj9K4snjd
+	 46hp0flsTp7NsFHA8LdG1ntr4fsCKVtO6eFDaNq9gGuXYZFM3qWfUvhl9FYmyJYLawg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795277300;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:Jabber-ID:X-GPG-Key:X-GPG-Fingerprint:X-GPG-URL:
+	 User-Agent:BIMI-Selector;
+	bh=T7QCWRyUzgCmXFFsU24+pNj6FeTn5AFMkdvpDZELwrU=;
+	b=iQkT6U/TYhmSlJeiyDV35tPB6Bm5AJ/EqprN02SHg7oHHb7EXpS5kgGkp/Y1LO3DucPU
+	 GpV4/2EV2tgPB7cNAZaGDxQCETqfa3aMjACLVI7gVI+XBn7+hQUOSaU6ndICWCiSMZNLo
+	 MyyuUstDBTJwkjtIh3yVkJmOq3bSZtnXbeyB6b1jlKcTKkX5AkTYJtCkOaYEFWHuRfvUn
+	 EZLqscWCwxoQn/zZuHY66gu8Qsl28BYKTk/oH6JYe9hpQosFD7uPD4OiFsb3iA3qL8O9V
+	 c7vmiV7auw9dGVgbXE36K8cfMa9dKiyfxbwhhDom2flbQb7Tfg+xlXh3rROXCZ4oEDg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=jacquin.bzh;
+	spf=pass smtp.mailfrom=jacquin.bzh;
+	dkim=pass header.d=jacquin.bzh header.i=@jacquin.bzh header.a=rsa-sha256 header.s=20240222.rsa header.b=FMF4jTAW;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.48.52.25
+Received: from mx.eu-west-1.pants-on.net (mx.eu-west-1.pants-on.net [52.48.52.25])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3273E606A336
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:08:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3273E606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35848606A335
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:08:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35848606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=jacquin.bzh
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jacquin.bzh
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=web.de header.i=jan.claussen10@web.de header.a=rsa-sha256 header.s=s29768273 header.b=ASqcE82w
-DKIM2-Signature:  i=1; m=1; t=1795277294;
- mf=PGphbi5jbGF1c3NlbjEwQHdlYi5kZT4=;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=web.de;
- s=s29768273:rsa-sha256:ezh41dlFmoZjIJsYgJuB0ztwP5Av
-   0inEUHIcuC3FvfS7S5dAxnSEC5Qnkoa95N4mECxIMXYvxAb4daQhOwKsgb7T1/MG/dBdGtWIiRo
-   ca99rQY5L5b7MtTCxExZal3ehoA70Z7sQYxExJSi3S4Drwwd8gzYxPYwJ9PG9BRvF3/vKIo/8VD
-   kBzrdUK6bvw3wEL4DhFaXxujOQWtHmLq7kEZzsm7WxTLJFbwok1tmcknzAzkqZIdhmlPY+SFl8T
-   Y7pqGWBkVoPX/reMKa3KDqwCyeLAvvsR382wxYxGPDTeo7NI2Av+XV2ylGQcoVnA8C1Jm+kzMYb
-   OJII8b6edwhxTA==;
-Message-Instance:  m=1;
- h=sha256:
-   WcMJ5MwSAhMoCRa5SSaFvRkw4sJ9bgIOJbtxf08S54w=:
-   PKJTlDVAjSSCiZ4sse/d9hXP8acgrgKHHDNHT4z8ufs=,
-  sha512:
-   6ed5b2fKQIUgilgoGbzeIylsWdw94evcoWuiiAodGmszUGO9Tta57KzsHTjXJDJ+wG3BI+LrC7ZfJzmp741Oog==:
-   kxEhs3sBeGin3ImfvbGwY3cAWoXY9Mv5uGE8zqt1f4IISor7I7lq4g00Q7V44AXY32hA+/pNe6A2WbqWAlrW8A==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1795277294; x=1795882094; i=jan.claussen10@web.de;
-	bh=BF/1P4AvrIIFA9XMFtkI38tLivXVyi3Hsju2semGjjo=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
-	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=ASqcE82wMJ8vBxDaAdddg5lxutRvhSijJzATLisKXzgWiEwVudBE4lgg9H6ufw69
-	 EepwXjhwbEgpp/gP6Xacds4Yoh1sM9HjRfkWBhwV4WHa5wBQKL4c0RP8ZD7/+0BNK
-	 NueEUUfiNtDtgEX+VknrBYH41CGBSdzDU3R6qepZtgo+5BkuhQ84aC7s00CmE/ORm
-	 IBX9FJMYvwjaFbXzppKY/twkCHdD8smnXbMce//BAHhcMHAA87fglJxkaDYnnHgLK
-	 AJjFKfhaeM//orP7Dou22xjwfzlMhGnwtk7sdC8nFdcFnwZwKDMUsCH908t4dhjbJ
-	 qer8KIkjssAPluIhVg==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb006
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1Mcpuw-1y4PZH3GHy-00aSb4; Sat, 21
- Nov 2026 17:08:13 +0100
-From: =?UTF-8?q?Jan=20Clau=C3=9Fen?= <jan.claussen10@web.de>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>
-Cc: =?UTF-8?q?Jan=20Clau=C3=9Fen?= <jan.claussen10@web.de>,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 3/8] drm/connector: hdmi: Create the colorspace property
-Date: Sat, 21 Nov 2026 17:06:55 +0100
-Message-ID: <20261121160725.6344-4-jan.claussen10@web.de>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261121160725.6344-1-jan.claussen10@web.de>
-References: <20261121160725.6344-1-jan.claussen10@web.de>
+	dkim=pass (2048-bit key, unprotected) header.d=jacquin.bzh header.i=@jacquin.bzh header.a=rsa-sha256 header.s=20240222.rsa header.b=FMF4jTAW
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=mx.eu-west-1.pants-on.net; s=20240827.rsa; t=1795277298;
+	 b=aeraqTG1hgmB2Altaterfl0m950IoV7V3k0Gtuk4w/KE2oAzhSKthjb4A/5GXQ5+WfPwUGRlqC
+	  7rDdDaUn46EzyTIs91SuvwHg8wn8Y07N1krXkunyPE1H1m5jwn1PvAjAf3rAsF/7ZybIrvd6W4
+	  5oHdrjGPvaBSYzf6Vuq3blFnyx41WKC5vgvlVA4EK/Hn+8iG9ObMs24jdEbkTFV60C2AHNzd82
+	  iVeivVsxVyFzIjbQdRNi0wJ2q3hkfNecgWusJ4cxaHlIbi6pkLeoT3zhF0JNtFMdyXf5QstHuB
+	  Klo2LdCPrIbhA4WcFqwS6WNQqQeBTwmyBTIjdOxCFDQ/Ow==;
+ARC-Authentication-Results: i=1; mx.eu-west-1.pants-on.net; smtp.remote-ip=2001:470:1b3f:100:1d9b:8401:5f90:f557;
+	iprev=fail smtp.remote-ip=2001:470:1b3f:100:1d9b:8401:5f90:f557;
+	auth=pass (LOGIN) smtp.auth=bertrand@jacquin.bzh
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=mx.eu-west-1.pants-on.net; s=20240827.rsa; t=1795277298; x=1797955698;
+	bh=58fm3CVXeRLG5UHErYGGTdUQJcERXxICyF2XTo1Ffts=;
+	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
+	  From:Date:DKIM-Signature;
+	b=PKxceUVknpWr7ZEO8v27EpLcLvPrSFtaEMx46FnDRBkhoCR43mgL6NiyuWQzRjiP2L9Gg5LayH
+	  XLd6+y3CtVnwVYbEwQt+yJgZulKSppLP5u6tiSWI9RymyNMfWZixPiSDsfcnjEdnk8Rl/ry7yw
+	  yY3s+6Lp7jxaEUKkyL+Libw7gkVYbd6zjxxOZT8nCFSK6JVWolR9+YJdj+xghKGJmakT0yf2l6
+	  qbcL+y5AGzvsDy2PXpQBxNHsLijBITBaSN+01LE7DQi18QTdQwbYrnQKsd3uJOuzRXxR+OO6Dy
+	  v8PswCZnK6vVK8DFG8YINEx4g5sNkGUwxoN29UzvrbV5dg==;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=jacquin.bzh
+	; s=20240222.rsa; h=BIMI-Selector:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:
+	List-Owner:List-Archive:Author;
+	bh=T7QCWRyUzgCmXFFsU24+pNj6FeTn5AFMkdvpDZELwrU=; i=@jacquin.bzh; t=1795277298
+	; x=1797955698; b=FMF4jTAW0OYIr19KhDCpCX7iyPX4DwX5Xc2T5cGuwPdL1tnNB06PFSyo+Uf
+	icnj005xez7v0pfRbpwgcorE3DtlLgIMrQ+poJTZfdP6Pmkz00Zi2lDpdo17zyU9717kDw2psYcdN
+	FOmVZu/NtPUs49vS9Mwn34dv7K6iKhvsXZUxlCAdYtA1WLl/O/u2iKPzNrFkqIXbnZO9LGMovVhPY
+	uFC223bwZHrNVUAuXfM9mGlVdqQTv0tS3cmxrfwR/jWD1IZHJxXmUw4ojx6saV0tV7HtVswa5P/KL
+	iZ2choLEiqO3yjo5VOauonL9r5ZN3MEySBUjSg+YczgBgfvAtmKQ==;
+Authentication-Results: mx.eu-west-1.pants-on.net;
+	iprev=fail smtp.remote-ip=2001:470:1b3f:100:1d9b:8401:5f90:f557;
+	auth=pass (LOGIN) smtp.auth=bertrand@jacquin.bzh
+Received: from lady-voodoo.lan ([2001:470:1b3f:100:1d9b:8401:5f90:f557])
+	by mx.eu-west-1.pants-on.net
+	with ESMTPSA (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
+	id 1xUndR-00000000Wbi-0100
+	(envelope-from <bertrand@jacquin.bzh>); Sat, 21 Nov 2026 16:08:17 +0000
+Date: Sat, 21 Nov 2026 16:08:13 +0000
+From: Bertrand Jacquin <bertrand@jacquin.bzh>
+To: Greg KH <gregkh@linuxfoundation.org>
+Cc: heikki.krogerus@linux.intel.com, venkat.jayaraman@intel.com,
+	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] usb: typec: ucsi: Fix NULL pointer dereference in power
+ level debugfs
+Message-ID: <awHB7a-zLM3GpC9C@lady-voodoo.lan>
+References: <20261010120357.4937-1-bertrand@jacquin.bzh>
+ <2026112040-splashy-power-2d46@gregkh>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,177 +93,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="GYTIzekBzJjw16ds"
+Content-Disposition: inline
+In-Reply-To: <2026112040-splashy-power-2d46@gregkh>
+Jabber-ID: bertrand@jacquin.bzh
+X-GPG-Key: 0xA3B5C016618D9AAA
+X-GPG-Fingerprint: D71B FE62 F66F 3C8B 1A25 A461 A3B5 C016 618D 9AAA
+X-GPG-URL: https://keys.openpgp.org/vks/v1/by-fingerprint/D71BFE62F66F3C8B1A25A461A3B5C016618D9AAA
+User-Agent: All mail clients suck. This one just sucks less.
+BIMI-Selector: v=BIMI1; s=default;
+
+
+--GYTIzekBzJjw16ds
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:+nm0LK7kCAkHVO56fj0ddSmi+HIPuoYMISCC/M08HaV/59uhKWE
- dgNllmTjeOSFAtGdTsImON3dhK+bdJ5T16+7bDF2YZnPkvPORpnZFkGVQ8fZoX4n4T90zSY
- NgqCkJfJt20aYewyEVPYXslqFoldjGh9mw21ME3UQBICd4xuklAXC59M54cRr740BDreIbU
- mu0IpOzGVKE6JmBRU5xuw==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:mNlEyL10uRU=;q7/D7T+j7oz1xpY626w5i0dYoFr
- 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
- ZKamcHgOZbmSB0vOSTZ1Ns4LbI/xzYEdP0
 
-HDMI connectors initialised through drmm_connector_hdmi_init() do not
-expose the colorspace property, so userspace cannot signal colorimetry
-such as BT.2020 for HDR output. KWin, for instance, does not offer HDR
-without it.
+Hi Greg,
 
-Add a supported_colorspaces bitmask to struct drm_connector_hdmi_funcs.
-If a driver sets it, create and attach the colorspace property with
-the colorspaces it lists, next to the other HDMI properties.
+On Friday, November 20 2026 at 13:29:13 +0100, Greg KH wrote:
+> On Sat, Oct 10, 2026 at 01:03:57PM +0100, Bertrand Jacquin wrote:
+> > ucsi_register() creates the debugfs entries right away, but
+> > ucsi->connector is only set by ucsi_init(), which runs later from
+> > ucsi->work and only publishes the connectors once the PPM has been
+> > reset and all ports are registered. Until then, or for good if init
+> > fails, ucsi->connector is NULL, yet the peak_current, avg_current and
+> > vbus_voltage show callbacks dereference it unconditionally.
+> >
+> > On an Intel NUC13ANKi5 whose PPM never answers when CONFIG_ACPI_EC=3Dn,
+> > reading those files after the failed init oopses:
+> >
+> >   ucsi_acpi USBC000:00: error -ETIMEDOUT: PPM init failed
+> >   BUG: kernel NULL pointer dereference, address: 000000000000045c
+> >   #PF: supervisor read access in kernel mode
+> >   RIP: 0010:ucsi_debugfs_register+0x291/0x420 [typec_ucsi]
+> >   Call Trace:
+> >    <TASK>
+> >    seq_read_iter+0x1e4/0x4c0
+> >    seq_read+0x12b/0x160
+> >    full_proxy_read+0x9a/0x1f0
+> >    vfs_read+0xba/0x320
+> >    ksys_read+0x74/0x110
+> >    do_syscall_64+0x79/0x240
+> >    entry_SYSCALL_64_after_hwframe+0x71/0x79
+> >
+> > Return -ENODEV from those callbacks while no connector is available.
+> >
+> > Fixes: c851b71fd6cd ("usb: typec: ucsi: Add support for READ_POWER_LEVE=
+L command")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Bertrand Jacquin <bertrand@jacquin.bzh>
+> > ---
+> >  drivers/usb/typec/ucsi/debugfs.c | 9 +++++++++
+> >  1 file changed, 9 insertions(+)
+> >
+> > diff --git a/drivers/usb/typec/ucsi/debugfs.c b/drivers/usb/typec/ucsi/=
+debugfs.c
+> > index 77a0dd75edd3..911a151ac16a 100644
+> > --- a/drivers/usb/typec/ucsi/debugfs.c
+> > +++ b/drivers/usb/typec/ucsi/debugfs.c
+> > @@ -92,6 +92,9 @@ static int ucsi_peak_curr_show(struct seq_file *m, vo=
+id *v)
+> >  {
+> >  	struct ucsi *ucsi =3D m->private;
+> >
+> > +	if (!ucsi->connector)
+> > +		return -ENODEV;
+>=20
+> What keeps connector from changing to NULL right after you read from it?
 
-Signed-off-by: Jan Clau=C3=9Fen <jan.claussen10@web.de>
-=2D--
- drivers/gpu/drm/drm_connector.c | 9 +++++++++
- include/drm/drm_connector.h     | 7 +++++++
- 2 files changed, 16 insertions(+)
+ucsi->connector never transitions back to NULL. only ucsi_init() writes to =
+it
+through ucsi->work where it's assigned only once, after all ports are
+registered. Every failure path before that assignment leaves it NULL and ne=
+ver
+cleared afterwards.
 
-diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connect=
-or.c
-index 66f53e155342..eea27bb6557c 100644
-=2D-- a/drivers/gpu/drm/drm_connector.c
-+++ b/drivers/gpu/drm/drm_connector.c
-@@ -672,6 +672,15 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
- 	/* TODO: remove after conversion to new drmm_connector_hdmi_init() */
- 	connector->max_bpc =3D hdmi_funcs->max_bpc;
-=20
-+	if (hdmi_funcs->supported_colorspaces) {
-+		ret =3D drm_mode_create_hdmi_colorspace_property(connector,
-+							       hdmi_funcs->supported_colorspaces);
-+		if (ret)
-+			return ret;
-+
-+		drm_connector_attach_colorspace_property(connector);
-+	}
-+
- 	if (hdmi_funcs->max_bpc > 8)
- 		drm_connector_attach_hdr_output_metadata_property(connector);
-=20
-diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
-index 2ee7c59329aa..9d2d133463ba 100644
-=2D-- a/include/drm/drm_connector.h
-+++ b/include/drm/drm_connector.h
-@@ -1521,6 +1521,13 @@ struct drm_connector_hdmi_funcs {
- 	 */
- 	unsigned long supported_formats;
-=20
-+	/**
-+	 * @supported_colorspaces:
-+	 *
-+	 * Bitmask of &enum drm_colorspace listing supported color spaces.
-+	 */
-+	unsigned long supported_colorspaces;
-+
- 	/**
- 	 * @max_bpc: Maximum bits per char the HDMI connector supports.
- 	 */
-=2D-=20
-2.56.0
+The only end of its lifetime is ucsi_unregister(), which calls
+ucsi_debugfs_unregister() before kfree(ucsi->connector).
+debugfs_remove_recursive() waits for in-flight readers to drain (the
+full_proxy fops hold a debugfs_file_get() reference and
+__debugfs_file_removed() waits on active_users_drained). Any read
+after that fails with -EIO. So no show callback can run once the
+array is freed.
 
+A reader can therefore only see NULL (init still pending, or failed
+for good, as in the reported oops) or a valid array, and the check
+handles the NULL case.
+
+Cheers,
+
+--=20
+Bertrand
+
+--GYTIzekBzJjw16ds
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iJEEABYIADkWIQSg5iBnnersLYwElb5VNIcfLi6T2gUCawHB7RsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMiwyLDIACgkQVTSHHy4uk9qw+AEAvZ8B18m9//IL7NJkDi/w
+pIafHYGz3lnNS0AO97123uQBALh65kt7IvInscJ3ksEIje2IoJiWyBmntSFLzBuw
+TzkN
+=KBWo
+-----END PGP SIGNATURE-----
+
+--GYTIzekBzJjw16ds--
