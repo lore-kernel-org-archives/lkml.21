@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795266066;
-	b=0oFbvy1JZmvHO88xVrTA6FJnuAMC91BfBRMoCi6DsmOHtNMhuoetTrvZDNOWhITPyFMW
-	 XyfEsxhUsKEobE/Vew60iQX4Y4Xm4V/nnUYnEgCAmLKydy/IFjks4Uwkuk1kAMtVHerfu
-	 FxgI7a0qIxXj9IfLHOOUPcrbHiB2+hFRxvIfmW9WZORhTubT8UXoMtD5ZbQBGNn8azIr9
-	 eaMN4dxmschtcYU6dlqqP/G4CuBXON7TrYTo7a2Yl0zerQV23Mp5APfAy8RC1wC3x3lqe
-	 joMFDsQ/rgZ+5+Y0cwVaGnMwNkpbA/B7C+UPj1TPnGYj4mRLZnhsxjDj7yWyw8302dw==
+	t=1795266107;
+	b=Xod0CCzjvv4XEvh4xxmZ5RPASirQa119SHZJLBF+Yo2YEYS0rnNIlVjaM75hON1DGExu
+	 ZByYw4mYRmFQQlki9/z6G64TNVyQe+0Yy0TbAf4OW1OaNQAh6N7IaK44oHHasRceRACnr
+	 BU4e/x5TLi9dhmKWt/XELbbCyr3XcFuan5lsQKSW9sDo3kfGGSGaKuzMOyngU5+EFsftb
+	 hQWGNcPae4c6WCRFA5UsRkHc5pudFkg4rAi0BLq71to26lFPu+3xEGBqImMdsVQ/FToON
+	 YXp0dMrAPO3zqWFrA70+AwJt56OkrVKF9+GsYYtJ+IQWHOL4L5DQ9bJNP1fKMM4dcCg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795266066;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795266107;
 	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Subject:From:To:Cc:References:Content-Language:Autocrypt:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=LBTcxjD/jP+a0J14fwq37AGdaxbLVWZgFPI61idAJ0Q=;
-	b=0F0oY+0Z/UyUOwsBm0UI8UmAd6ueiBZVjMfgBew1XW+86cYKG3GcJCNsSepx9KKEH8Q0
-	 m4GvzdoA+qDnalaxJrN2sMSuU4crr9mOAdOOWXFml3BWk+Q4kJ9a+dyBDM4+GWqBeyO46
-	 5kTnLgNXpJQp88U/LV63/dsQBRegyp7tTYQBP/IdCh8njbfMB7gCV09M5+L8jOF3tGl6P
-	 IY8i5bJNgg2slASLZHhJjtAUg0KmKXCXqpywxwIorUsbMeMCPzMLVOnhUxcrMBYXebX+Z
-	 9zrnqTYo9Zh+rAVbDmrtlAtDigSIkmC4IzBkPf8Ln0p/x/+WxC+MdQeVpgEd+M2JnmA==
+	bh=FzaSLVmKPBX31jKxTVwHESe0dN4GEJWpEBij/w3vhM0=;
+	b=QgyadY/nPj9S/9l54gefdbVVx8KI5IkALYvdmaf6ykUICtpjtg+MmwZicVzeUbBkX9oA
+	 jkm810E++WbteTLNc2JFPAQdxfA1cH3fMk99doYN+Y9kTc2fEYbuTh/MTy/PkKKmovMME
+	 x29JbvkGbNP9DvgAnsR5vfd2noEWKClSNYBDnL8sK6SiqZmFL3N54MJiw5JWy8xpm2ELU
+	 UMvEsF5ibAHZffcDqn5mxysbr3lnDTziLsJiXBPxUE8g+/h1/dONHY268uIM3aef4P7TF
+	 6wP2vvqWuksW0UzHJ+cOAZI1t45GKw5eRZc7qJ9p4fo92ZoUGu6Ug9Gy6xXu46yCPMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jUbivFcs;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JTTm8uV7;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 132B8606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:01:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BC47606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:01:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jUbivFcs
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 634321F000C0;
-	Sat, 21 Nov 2026 13:01:03 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JTTm8uV7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFBD01F000C4;
+	Sat, 21 Nov 2026 13:01:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795266065;
-	bh=LBTcxjD/jP+a0J14fwq37AGdaxbLVWZgFPI61idAJ0Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=jUbivFcs9cry91XPTkbT/185do1RnL/TsUv2YpsKCeGHMENOPk5uOtW2fKgEn6LGX
-	 RSBA2skOWiqcl0JNo4ebQjVsqRa51JHe7MyLNvwcnLtYysT3vRpOcAYqGDJEoVYoEm
-	 nJTVlMtRQcFUNfcdulMWSAc+77f63HfGakiwjzDVQKbXxBc5XBShcFJKwmndyhbGAf
-	 Ct3QTLhAG4UJdConrNgEwZ36H16ygilJ9DQvg6dMUoR/APkIuJFecFMwXbhHgNUTrK
-	 lHG+9GZBtWf3SG8CoxkFSbSXii8qLXlATOlxi6cgKsj6cLD7Q6pnZB98b7DlwmFK4I
-	 yokHJT3Ysh2oA==
-Message-ID: <960b4568-9d20-4eb0-b0e4-67e60f8274d4@kernel.org>
-Date: Sat, 21 Nov 2026 14:00:59 +0100
+	s=k20260515; t=1795266107;
+	bh=FzaSLVmKPBX31jKxTVwHESe0dN4GEJWpEBij/w3vhM0=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=JTTm8uV77whsPPyhAo95fT6LNhKi3Lml8Y8zUNkmQroCJKNkyQ7u1kuCP713GMosk
+	 /6ubb7d6L3+8YkTDNpplB7bGleM/iXHAFFLxntgn9DzJEJxYAh05PhKuPc6LpfQ2YJ
+	 yjghQGC1DcPCHOMsEQu2zAi94JheY6vGio8H1qdWgLPT6PhYkZ6nDc7kaBxBSaDE2E
+	 iRFAJgmhSvVigPEwpP22TOBgD20XiSSWn0Rb7TRznTkbhT1p1bLmbYcch8lR5steua
+	 nQ7dTUenG1j6WvAfM4UhtrklkjDOn5lbawivbi2QKOsfiY7c/5AJIxfnimFxh5JKFO
+	 yuBoj6qUv9bYw==
+Message-ID: <037fc749-cc74-48cd-ae64-6b01889fec77@kernel.org>
+Date: Sat, 21 Nov 2026 14:01:42 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,6 +54,7 @@ MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 1/1] mm/shmem: don't use the memcg of an uncharged
  folio
+From: "David Hildenbrand (Arm)" <david@kernel.org>
 To: "Gregory Price (Meta)" <gourry@gourry.net>, Chris Mason <mason@kernel.org>
 Cc: hughd@google.com, baolin.wang@linux.alibaba.com,
  akpm@linux-foundation.org, qi.zheng@linux.dev, qinyuntan@linux.alibaba.com,
@@ -61,7 +62,7 @@ Cc: hughd@google.com, baolin.wang@linux.alibaba.com,
 References: <20261120195057.50031-1-mason@kernel.org>
  <20261120195057.50031-2-mason@kernel.org>
  <179526598180.412063.14973682472309530978.b4-reply@b4>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+ <960b4568-9d20-4eb0-b0e4-67e60f8274d4@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -107,46 +108,49 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <179526598180.412063.14973682472309530978.b4-reply@b4>
+In-Reply-To: <960b4568-9d20-4eb0-b0e4-67e60f8274d4@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 11/21/26 13:59, Gregory Price (Meta) wrote:
-> On 2026-11-20 14:50 -0500, Chris Mason wrote:
->> The shrinker for unused huge tmpfs folios can dereference a NULL memcg
->> if it races with the migration of the folio at the end of a file.
+On 11/21/26 14:00, David Hildenbrand (Arm) wrote:
+> On 11/21/26 13:59, Gregory Price (Meta) wrote:
+>> On 2026-11-20 14:50 -0500, Chris Mason wrote:
+>>> The shrinker for unused huge tmpfs folios can dereference a NULL memcg
+>>> if it races with the migration of the folio at the end of a file.
+>>>
+>>> folio_memcg_list_lru_alloc() assumes that folio_memcg() is never NULL.
+>>> But it is NULL until the folio is charged, and a migration target can be
+>>> in the page cache before charging.
+>>>
+>>> shmem_unused_huge_shrink() looks the folio up without the folio lock,
+>>> so we can race with migration:
+>>>
+>>>     __migrate_folio()               shmem_unused_huge_shrink()
+>>>     =================               ==========================
+>>>     __folio_migrate_mapping()
+>>>       xas_store(newfolio)
+>>>                                     filemap_get_entry()
+>>>                                       returns newfolio
+>>>                                     folio_trylock() fails
+>>>                                     shmem_unused_huge_requeue()
+>>>                                       folio_memcg_list_lru_alloc()
+>>>                                         folio_memcg() is NULL
+>>>                                         memcg->kmemcg_id
+>>>     folio_migrate_flags()
+>>>       mem_cgroup_migrate()
+>>>         commit_charge(newfolio)
+>>>
+>>> Fix it by keeping the original objcg around while the inode is isolated.
+>>>
+>>> Fixes: 743e7d025d2f ("mm: shmem: make unused huge shrinker memcg aware")
+>>> Suggested-by: Qi Zheng <qi.zheng@linux.dev>
+>>> Signed-off-by: Chris Mason <mason@kernel.org>
 >>
->> folio_memcg_list_lru_alloc() assumes that folio_memcg() is never NULL.
->> But it is NULL until the folio is charged, and a migration target can be
->> in the page cache before charging.
->>
->> shmem_unused_huge_shrink() looks the folio up without the folio lock,
->> so we can race with migration:
->>
->>     __migrate_folio()               shmem_unused_huge_shrink()
->>     =================               ==========================
->>     __folio_migrate_mapping()
->>       xas_store(newfolio)
->>                                     filemap_get_entry()
->>                                       returns newfolio
->>                                     folio_trylock() fails
->>                                     shmem_unused_huge_requeue()
->>                                       folio_memcg_list_lru_alloc()
->>                                         folio_memcg() is NULL
->>                                         memcg->kmemcg_id
->>     folio_migrate_flags()
->>       mem_cgroup_migrate()
->>         commit_charge(newfolio)
->>
->> Fix it by keeping the original objcg around while the inode is isolated.
->>
->> Fixes: 743e7d025d2f ("mm: shmem: make unused huge shrinker memcg aware")
->> Suggested-by: Qi Zheng <qi.zheng@linux.dev>
->> Signed-off-by: Chris Mason <mason@kernel.org>
+>> Reproduced and validated the fix. Changes look ok.
 > 
-> Reproduced and validated the fix. Changes look ok.
+> Thanks, I'll throw this into for-next-fixes right away and cc stable.
 
-Thanks, I'll throw this into for-next-fixes right away and cc stable.
+scrap the latter ... just a hotfix.
 
 -- 
 Cheers,
