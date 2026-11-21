@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795267976;
-	b=SFyiTzLsF9mGHnDW7wyD+6CpafQoJQrGFSLrN6fgue/rsc/nkxOKUFi43YkUKoxQoHwG
-	 3F2jk1wLrfvHivIbK+t1XFQXvRYffl3r68UTZF5bdH755f1BZ5Sa58uRojNP4Fph4CfBk
-	 cpANJB8jXXFday6F2RbtMV0CiDd+bpAixxul0O+z1xyI3bEbKUNWxmlMGZrpd4bF6XGQV
-	 eHPaSvIQwXCoCJnwpRAInTCDVu8w+nnTxwBpCmNviH6gRpC2uF0SdnqelxqwH0PvbKViE
-	 ny8KYT4PaN8yHs/j/DdPV+53K1CuXYHHVK1hSdZwQTPGR8KhAJEU0tVSHDxhAIBz3Og==
+	t=1795267978;
+	b=oyExniz3HNcI4yqlZRj+qesICbO7SfDQwAkR65L9zpHbOnZYK9TgJjSygCTOwsZFKVDC
+	 yZkVr08EeHaGpxYFdSHFUoY6whSdMVEBofzptPrFkY4vtukbvk4x2jMeBKkABlgv5aysB
+	 mmNBGyuSsnCi5+YZJ0CAsjXwFxcALzdD9KWlI1ERRtI/rjO4Wb9ezZh3mftICviQWIZja
+	 /5dcQtXUYtLVJ846GRqu/rG9jzHfOQ9z7txuvwKDkeJE7yj5UGRQSkScXi2QEsP4CLQ/J
+	 6CNdIfc/OYuglzjHBXJN6/zmdSUskAoonk6NrbFrJCH0l8f/kcf2x+37VzJDK+9LHJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795267976;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795267978;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=hj7yNn3putJz4DcthZJ/vjPhR/zNcYHIbbwffyr61oc=;
-	b=kv0ydtxu6vSqWKLx5Tyzw2TPDH11GBNG7HkN3LiBXpd8B0XhxjXWZ4sqf2xdNpTLbH2h
-	 dO5HZRU/eBb7yufIBB2+JzkNG8hpWKb40D+pXKN7fBYRpnsDL6iU3RTVYKEexOZoZspAF
-	 fWtAG2TbxHRyqlkvAbD6CFRpU6E+/AMBrOnw82X+JboEyNCqfn8cLaZVn8BG/Ql818eji
-	 7gXUwo2z/kQ1ytBDCWs+PyqpHAb+k2XzCj1OTsTs3hkzoHbd6fyLQ1YfnfLOl/mA2cd/a
-	 uhVgyEMYoKTM8ilX21WskQJZzGQVbcGxw2kTce/hhrt5eXm0iKdgimgE51jOYCTBmZA==
+	bh=54HoHtyBCmpZ6kkP9mnsCMJlZYb74fsAgesBBR9Cid0=;
+	b=SFUZpg1vGlDX0W+XWZnOiX40etQUiPsHE9dihckti2OmS5wxh37n1oSKpoFKYU0tW6MV
+	 nyZkML+GHX4skLcd96ljMzKgOiSOeafv9Tayb/SXumCpliS1jBb/2UxFiruEpFi+EWUUg
+	 cTekZ5aTF+Ou6gVZz/Cu+Wh4GAqYEi1+EjArJVWBPuHQLh+Kb3SNAf4f+88ypPCAGkDPr
+	 cqB0JKYNANOtPqBMNx0P09RXjrTJd84EAR8ok7fviBn1mC9JnOVhsZTVilWa7tqPHjEHm
+	 1q5GQERuV+E5+RgOEOBVxHdRDub3WeS479ykbkio7jexlWdaiQ5PKSVOY/Sl62qJmTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=epp9LbF3;
-	arc=none smtp.remote-ip=209.85.221.47
-Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o4FSYklA;
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61C64606A6A7
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:32:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61C64606A6A7
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F632606A685
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 13:32:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F632606A685
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=epp9LbF3
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-4ac109a8a12so984612f8f.3
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:32:56 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o4FSYklA
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4a5b2be99a8so15553285e9.2
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 05:32:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795267975; x=1795872775; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795267976; x=1795872776; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=hj7yNn3putJz4DcthZJ/vjPhR/zNcYHIbbwffyr61oc=;
-        b=epp9LbF3MGxPn/LkJ1X8nf7p3j7pUc0fmmllGahYu01SqwRSXrjKl9gq8hCP1fUlwZ
-         NqDYv6ImgisD5PS6cxJSvCeVXcdwWAOq7k9G9M6ZBrxynhvxSTmCbkVV0Fs9VXrySSTu
-         mFMLhhPqYlP888Jj0vGEMchrph1qDhZbMm5XoqbnyXuuN2/zsb09wSm3XkwsCDpjmgRH
-         CblPpEF0wlC8l2oPA90YdjMuHYJs2VPE6TtL4T93AId9MCHP8NooTfJpuseZDZt+/9P9
-         Spe++gV/NH9M4SUu5T5MjoorqhkXafmVLP6BPJ/g2FZUnmzNR2KD3iRhgR8uukQOp0j8
-         fwqA==
+        bh=54HoHtyBCmpZ6kkP9mnsCMJlZYb74fsAgesBBR9Cid0=;
+        b=o4FSYklAFTz2MCeYPLpS/6EMK0P7m2UZ8gmkwXhHcI6T0QNTTe2NzKMKuAF3wubeYw
+         MCIE31sJVJH0+ih5gbPlUOhtfVFO9zaThOnxFWMtgV7KQfkfuG5dkBTR8Av92hflocdG
+         7S4cfW6GaAyU7kZyI85R37D/wXHVSxtbRFaRmUiRu6Oxxe3IIiTxF97xBRKnLNRhGlPM
+         xBNC/EXU9nL7mzEpB6Y2pNZXwVP2T/0Qy5HkL2CG0MPcrzLpjwE0OXvftsYIh8GWiXFQ
+         sEYj0b+wrmwrIn1JwE+mzuP/hS5h1FNQ+aXT/Wk4SX6LWRSXDjkyTE9CNRt1fHGvuNZD
+         YeEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795267975; x=1795872775;
+        d=1e100.net; s=20260707; t=1795267976; x=1795872776;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hj7yNn3putJz4DcthZJ/vjPhR/zNcYHIbbwffyr61oc=;
-        b=hlh9IwsB1rWiK8KzxZ4YRA0dS+NA3NAgSWQr6O+yujTw35GszJUqk/lhzRuGpFGXd9
-         qEMS6wOeLrlbV/HxT9+F0i+mcbTDylzotlTv3CgEd1OHJ+B5pCo11sgfS8QWuGa8sOtx
-         dczjZymTlKwUT4unUJ4gcsWqd9GT5bku2mD4IU16/fFLP1XGUatB1SSf/QCEo1eJGM82
-         7gvc4/oFXYcmcBC4nHz8I5EQCJU3u/7e9hzezbhwzPK3/U/phFSl60i81wYDFBFeWhhp
-         oiLd+yGCAd0UBdv9IQoczkZIyfZMUgBSCpYC+CtneD9tzH405eOzdQGSrtlZ4i8yDW3F
-         Vv4Q==
-X-Forwarded-Encrypted: i=1; AL+hErGQwGdiD9neQlw0flg/VyFHqSfRbPMK59FIoMr+gxrSgpxju1GSpccqS5XmJcaoFX+O0WRNb0h7FpRGF2Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8VQqR7+arUqp9QLsvkyJ2RzpuspUBTXZHFu3/ORmQQEuHZpHmp
-	mfXTTYHwCvnDaSz248aaROGQqF83IdEG5ezVB4JzuwNEX1BuHiQAfD/K
-X-Gm-Gg: AZFdTZejlHuVsV3n4mDT9Pd/YwGSJEcKD4qClgsWouZWfX0h5Am5bvzUyd3eKiZjjAG
-	6bgLv75EATl1OkDE5zUsVbTtgrvyq7KXVpVhfhAi1yfYdn5HHKB1Oti9BABwd0g4Y9IYEMEYg65
-	/i/cIqUHSKX11P3cW/1eurwYX5dsEX+JvSp61BsR/0IU1RWFVMIwPpP1x4N7bKDUXObyHW4E8Hp
-	L5/eAsvpEzRVuAtqTGKLx1TQVKldwP298TVgXADktOP1Tt/fMzCny5mQoOmsRsH/FSdc0DdXQax
-	BSUt4/c0qD4AdzpzlUUrCLhDy/U8jYln10qG10LIC6EpU3JXKxCNb9XqN4VQWAcu6U2y3iblwPN
-	6++3wUiVcL+aKkPzSjZm67j/oNFg+5Un97K6pxKko+1mOHOMLq1/wfvHscVSYpBS7ROrO0VettM
-	OlOlRdNZBeKXLzyaWgb3IZFcKn20d1/l2mZSmjRtdAXJJtNAohFgbVfQFjLVnpMrrHlJGr6vJ75
-	WeMJbRVdztmpeIMIU1nOoKxWLMXlIJzxm1LeTSmuXTdnMZ4UClDAqGk7E2MfhveflsHRxVZTI8D
-	Bb70OvwHcbETlVNPK2htTUIHdYHub+5Xfw+aon7cYpzzKCQVFaL6Dm7GYge+Ee180bJQeWG2BKM
-	zV0zdZGd8yMxt
-X-Received: by 2002:a05:600c:5303:b0:4a2:1a:a11d with SMTP id 5b1f17b1804b1-4bb88785d24mr132851145e9.0.1795267974678;
-        Sat, 21 Nov 2026 05:32:54 -0800 (PST)
+        bh=54HoHtyBCmpZ6kkP9mnsCMJlZYb74fsAgesBBR9Cid0=;
+        b=uHpaVAGApYMpICEtYe8OAaH4SQVCb9yO9A1m8koHJHOGwVcIOeeV5hJP7TOVTMLHhi
+         9q8Bd/gmagdGJyhpdgqIdwNO7fijd8ADGkqYeCszn9mqKg7JAqPJ2rCRNecKD7htmX10
+         1BU7UomI0HnF0tDlmK7totjkButSX39Lmbhzs0tQDB/FUNIQePLOs9wWGNnUX+laTkSy
+         hsONVilhJxjn8JJ6N8Wa5k4yhRH36Tn54ElOa4nFIvu5DikajqVb/eiCDFS1J/Y3Mqx5
+         R1yssmRLn4/aiYe9QFnHuWnT7NzihDSeHqnGBUd6LembxAzeHMgMFVlXzCKWQxsvfaE8
+         58OA==
+X-Forwarded-Encrypted: i=1; AL+hErGluyAV2jTcV6433mtM0hYhGLavDw1Sc9eTLO1BTzJEUV2zGkNxYpMQjYLyS52jOMdSX2ursc3pLe2XzSY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9OkLdtHulARK6yB6s8Jv3zwz5h3zNuIYcCqfEysGfu7WD5+4Ap
+	SYHCb+w1zeyM3oCOv2KZ/i/5A//nIIlTj/tktdblHVf0Y0p/GpWjlvxp
+X-Gm-Gg: AZFdTZevEKPI6mI5EogfCLIyZRHBxPIM4QkpNXlUjGpYrsOmLk7pz7IYVLVQL5b+f29
+	KsFH5FtuolANytICOrWlYdJdWGA2LFCsj4p6PpBohEjXchyDr4Yhy/nGEHKCTMc68lhTNbnSAoX
+	9/PFwnwWLco+nfLyOgD5Xj5F80i/dH4E/ctjlH4ZmA72Adpu5ipQSuVyEUYeTiEcFvaqA6/pQA7
+	JIOmlD4UBNjpQ0Qcp35sXM+u4x/kTMI5Th/G4qf54o9m0of6+80Ts0HAt59iICMXj/YERxm6yHP
+	1l0pnynhipHWlzhVhA/wVJ8onWywdxtYemcmrfH6aJCfgoL9gknScTQAtyqZAJL/JAhQMZ7uC1Z
+	oIkXJgj+nkeh2OusMsjzD++hgZtJtyZ2c2em3wEL2i3J40fxW5/Q/Jrkshp79yA4YNauLfg7ne/
+	bdA4B/m6xwtikIeGJ37A6+JicQpJjDVfCN/bohbccn8lW22B9l11sJcKLv2rD5f8cFu6U0zs4gv
+	bgb7WaXpQ17gKswwdOwPHx4qomtWjZYaNv838XiQNJUonKDoLTsIs5ez1JalM9MxCyT69EHleAJ
+	ofBlssCYQOhtqdKth6ZJrELTUzt6q4IUUQ4/OXPikuNoOmsFpYyBefItkmASoI6jgKJZmMKMnMs
+	qynDnYbs57xPN
+X-Received: by 2002:a05:600c:a088:b0:4bb:6473:cde9 with SMTP id 5b1f17b1804b1-4bb8880f2d8mr120065625e9.6.1795267976558;
+        Sat, 21 Nov 2026 05:32:56 -0800 (PST)
 Received: from 1Z10 ([2a02:b123:8010:295a:cf7a:d53b:95ce:c0e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm83345955e9.2.2026.11.21.05.32.52
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm83345955e9.2.2026.11.21.05.32.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 05:32:54 -0800 (PST)
+        Sat, 21 Nov 2026 05:32:56 -0800 (PST)
 From: Maurizio Casciano <mauriziocasciano7@gmail.com>
 To: linux-media@vger.kernel.org
 Cc: Maurizio Casciano <mauriziocasciano7@gmail.com>,
@@ -95,9 +95,9 @@ Cc: Maurizio Casciano <mauriziocasciano7@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	linux-staging@lists.linux.dev,
 	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Subject: [PATCH v11 04/14] media: ov2740: Add OVTI2740 ACPI ID
-Date: Sat, 21 Nov 2026 14:31:34 +0100
-Message-ID: <1c093a6c4acfa46ea1c4b159ea0d5eb2f3085f14.1795267528.git.mauriziocasciano7@gmail.com>
+Subject: [PATCH v11 05/14] media: intel: ipu-bridge: Add the Yoga Book OVTI2740 entry
+Date: Sat, 21 Nov 2026 14:31:35 +0100
+Message-ID: <48564c62d0c08d66023a40b6cdc175e5af88fbe4.1795267528.git.mauriziocasciano7@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1795267528.git.mauriziocasciano7@gmail.com>
 References: <cover.1795267528.git.mauriziocasciano7@gmail.com>
@@ -112,27 +112,29 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Firmware may enumerate OV2740 image sensors using the OVTI2740 ACPI ID.
-Add it to the existing ACPI match table.
+The Yoga Book YB1-X91 uses OVTI2740 for its OV2740 front sensor. Add
+its default link frequency so the IPU bridge can construct the software
+endpoint. The existing INT3477 entry covers the rear sensor.
 
 Signed-off-by: Maurizio Casciano <mauriziocasciano7@gmail.com>
 Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 ---
- drivers/media/i2c/ov2740.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/media/pci/intel/ipu-bridge.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/media/i2c/ov2740.c b/drivers/media/i2c/ov2740.c
-index b7c0f2890..7d786d09f 100644
---- a/drivers/media/i2c/ov2740.c
-+++ b/drivers/media/i2c/ov2740.c
-@@ -1463,6 +1463,7 @@ static DEFINE_RUNTIME_DEV_PM_OPS(ov2740_pm_ops, ov2740_suspend, ov2740_resume,
- 
- static const struct acpi_device_id ov2740_acpi_ids[] = {
- 	{ .id = "INT3474" },
-+	{ .id = "OVTI2740" },
- 	{ }
- };
- 
+diff --git a/drivers/media/pci/intel/ipu-bridge.c b/drivers/media/pci/intel/ipu-bridge.c
+index 2a38c4bd8..5f6baac2c 100644
+--- a/drivers/media/pci/intel/ipu-bridge.c
++++ b/drivers/media/pci/intel/ipu-bridge.c
+@@ -115,6 +115,8 @@ static const struct ipu_sensor_config ipu_supported_sensors[] = {
+ 	IPU_SENSOR_CONFIG("OVTIDB10", 1, 560000000),
+ 	/* Omnivision OV2680 */
+ 	IPU_SENSOR_CONFIG("OVTI2680", 1, 331200000),
++	/* Omnivision OV2740 */
++	IPU_SENSOR_CONFIG("OVTI2740", 1, 360000000),
+ 	/* Omnivision OV5675 */
+ 	IPU_SENSOR_CONFIG("OVTI5675", 1, 450000000),
+ 	/* Omnivision OV5693 */
 -- 
 2.53.0
 
