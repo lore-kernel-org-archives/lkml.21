@@ -1,101 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795220194;
-	b=cxzXJst4fhP6hpE5F4EAVVxA8MeEd7iAtwWOKrej9LO4+sqQKoktvCAggzadDBLzHUVz
-	 /E95yfErUzN8w4fSD7trJNdSiXnF0QUWLHhB3Iq7Pq0uZERu8LLV2G+RHnLZNmKbQGPtU
-	 htirYv28MQTlxm6hjVtftL4yBG0cYp6j+ypJqHRvn9LuE+IyjkMVNxHwPYc5QretTjzY2
-	 MovgT+Vq4fzm1f8aaCvhCeP+xO86VzOSV96T0zKAR9DrFZsfJ36JDOq1MfT9p3Qs/70Pp
-	 b6i9yymaAP5Xm6upYy7Izbfl09227OAvEVsdAOXut5YKbYjHEfwmXNQTD7VZuRCJO7g==
+	t=1795220240;
+	b=PW84MX+h+ULsm9wVpNYY/R0K+3cfRlZTCQolQPoAoFUmYDaw8aRNlqH5/Rh0sw0niX14
+	 +I8BvjRVSWeddbTQyDzjMv9WS3WKPuzVdd3tXYaixGeaV/ftI6UzqUMhA53Q0ESrYySia
+	 tlk88CQfp19QtzsImY8hcs5y4J2mW/KVbQjT4GL9uA8Z4DZXY3n9FRusKc1R1tYidmh2t
+	 xIF41FbpvUjV4nUiJDhdrRu2FKHri9v0+a0t2wslKcbT5tlXdnl0kTayGdsa2vGQSvstR
+	 9Xaw0908BSZQbaYLM5T7Zof4iTJA1gfTlKABf9fvE0G2pBU850Zerguf46eUg6lIsCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795220194;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=74mngtbu0bh2Wb5wAzXvu9Way1o05aGhqD03WL1B//I=;
-	b=r2D268eFKMLMNRw+pDwHtBsX/thOzjxs9BfPzo2fZiYzOWxDmkh1ndhhkx1FByygWGiK
-	 1ZSgrecAJva2UcR0TvsmVkdDfiKVgAhDTbm61mpkhVZNxYnGOokIIiXfIv4OW709751aG
-	 ZtKpPzpdYXMxudjcNxCTNq4cACGoir6ceBus30vAe1YU8YVikB3MLnbznR8qVWFECUSH0
-	 X+ra+rMftEosRMBCai3ZMi7/Gz2qZWPbvfeoGgrJDvgMNc+G//uF1CgpaQ09KB7JBukJY
-	 wuPsRVa69U4LyeFrT7CeLyNnVU7eyFtQIda18uy/e48hunPucqaVlfkmKPnI5AQ9vPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795220240;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=FEn70tv1tCk2ukkH1jBhHBKffDpYRYRuAeEkGin2NqU=;
+	b=25EqLXewxMc7Zc7HsQuUoHr0CGuLCecp9tw/XNMHBumuNIIv1eLkYWiY8eGcHyVLpGPM
+	 p1vzvD7Pb+HVUdBPF/rxZWrCFNWDTP3Ueib1MJEnnUlZR5nxdt3lDo/NfacNjSyemQJ2I
+	 xU0D5K+p1rYq1Es2ZM5u86lQVs81pY6/kL6WjWXg6FNebpF5Z2VDPk0gMBFtQclO7pQgO
+	 lm7XDoUocvVeA5V73KsPFLqmInJU/Oqto/ixVwBJshGnmbL7WsL6Ccp5btEgX+HEiqHos
+	 GPmKsSmAav4IUt7PXRhEkTiG1VYfMWL4Jhsxkx42wdhD9jo4OPnRgLRNMHaH1y7qGNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vsEY7aZL;
-	arc=none smtp.remote-ip=209.85.218.41
-Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ETsWsP6A;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21028606A6AB
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 00:16:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21028606A6AB
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id E98C7606A6AC;
+	Sat, 21 Nov 2026 00:17:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vsEY7aZL
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c505b2e1cb9so255680166b.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:16:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795220190; x=1795824990; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=74mngtbu0bh2Wb5wAzXvu9Way1o05aGhqD03WL1B//I=;
-        b=vsEY7aZLbfG4aR+YOrrvDrHTqcmqaMe2zCRckmgtEst56/mRWDnX9GixIyJYZZ81ll
-         wZoTufJSdYzFDGoaugULowvXnK6Kuw79k7WM94qssKr7pGgNgl13bcYrC2tK93dBZFr4
-         cVCTTmnWeqAJc1sM7zirDtOnNI8x4yrWuiyVS0zyB9g8uHd1EIaK0DFt+w7Ztbb1fOD1
-         X4anmSGfTJzXyxUTxIn0dGE6/xG6IcdVcTq4Vzs6aWnVV3C1ll4FKG5BIvREQK7X77SW
-         Isdt0xmMU0BeZBshzkWVpeRBlY40dzKEE5qWfzTPmL3eKO96E/mIPwta/RvW83VYCySG
-         DVxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795220190; x=1795824990;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=74mngtbu0bh2Wb5wAzXvu9Way1o05aGhqD03WL1B//I=;
-        b=RCNxOMYLkitI5wdTM8uhDcUkVtvDQKVke+B6zvU+sciHFwyuOt+9DOXZ1prbNY4UYq
-         3l/QgpvuGUoouoctVIk+hZQ3enGBaTURL3jQn/YPohzmL8anuM7b9L8Lz2cXiO0za3HU
-         T9FtSdJV54uNR7Jo8fWizzzggFEP28H1zsDLdN4RljeoSTZwRIAr/Uk3CdT/pdr3rgEF
-         Fd01Ek8Verj2LleIi4Cqu7hRCQ02rbO+0pANrgDZRfsWrpdHFB+BovO+bR0ZjipekuTY
-         BDdR/g7oahjpXlPx5DAoe42Pl2GxFxAQ9HYp+BHOysh1K1dIzurqBdSV29/n39ZSo9wX
-         pz3A==
-X-Forwarded-Encrypted: i=1; AL+hErEOM4Yh+qMtzkN49VU+uZy0/eNhgGRVOy/musKSjpHEEFxBaQov7+0wXPbuCt0QPON6pIs8bconxWuMzik=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8hMgSH4eF/AQMfrhPDgX6Vb7o92GMK56gT0rvzCDWeB3p92pQ0
-	Z7uyj4038gueJseucYVjg9ew2VasdYVSw2dUgP4wzjX5QCnpM6VxEqQ=
-X-Gm-Gg: AZFdTZfJ2EUxecTCQIeBmywtcn5nc+4ayQXYuULAbj015NBqcg48CuapK1dZm+GQK5t
-	0tsB/mcQTJ2FgPVE5IfyRkdiwrpYyggxWykFuEaguTk0MbAPmGTFvj+S++Lcz1HWFJFqies+B6l
-	F42wy3fD9hNz22m6MJB9+d6lOIMllIGuDcxrQyf0WD1uQLzm/5Ys7UjZfgT0/9eQoNzsbT2zVz0
-	hy4NonOen5I15XLywYNdlbJBW9+EHeTkcHYoCL7+yrF9fv+fJFZ5dzbMZkBm29TEGWhR7+doWCH
-	s8IziCYhnRxTbvmNV7AiyKr6I3BWIEKS1+Yy3TA0KThSJ9S2BizALElkPAuMxd+zY6vkDQ2MSrn
-	djQwWG42OlnHZFSgriQx6FyzZqK7TzgQZ1y38Js7pbhnt9p8m9wK71s41ORkRIdzs/4TIziYIqn
-	UEyPHVhatAmKhSOaAn5oLihocsO529JwHDcaUWvNamXJU123jc/Trsvnk6OIxoWRRa4ylBJ5fJV
-	Rx+geIdS87e5t/SP+JKd2BbYl1xZKUfJ5U1pgb9/9GKZy+Hw4Bqo/YmR5qxGu1w2IgdCCguMidZ
-	yiCEzQOzR2iwvjUclPT6LJs0f89rVSyRMikyCcOWDM89CfYV2w6+JATxNsN8REgkODtBaNFsSAd
-	XqPicFkvZesfgWZzZCZ7zWVUoZgi3IluuQfN9h3TODi2VpA==
-X-Received: by 2002:a17:907:ea94:b0:c50:aa10:d888 with SMTP id a640c23a62f3a-c513acab9d6mr426725766b.40.1795220190364;
-        Fri, 20 Nov 2026 16:16:30 -0800 (PST)
-Received: from sohrab-omarchy.fritz.box (2a02-a44e-4ae7-1-c0e-6d5a-8ae2-915.fixed6.kpn.net. [2a02:a44e:4ae7:1:c0e:6d5a:8ae2:915])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae6663esm146454466b.21.2026.11.20.16.16.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 16:16:29 -0800 (PST)
-From: Majid Hajiheidari <majidhhdri@gmail.com>
-To: Nizat Mikayilli <nacht@dxdmail.cc>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>
-Cc: Rob Clark <robin.clark@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	iommu@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iommu/arm-smmu-qcom: Add SM8550 MDSS compatible
-Date: Sat, 21 Nov 2026 01:16:27 +0100
-Message-ID: <20261121001627.4091340-1-majidhhdri@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261107-b4-smmu-sm8550-v1-1-777d0a41170b@dxdmail.cc>
-References: <20261107-b4-smmu-sm8550-v1-1-777d0a41170b@dxdmail.cc>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ETsWsP6A
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 9CB651F000C0;
+	Sat, 21 Nov 2026 00:17:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795220239;
+	bh=FEn70tv1tCk2ukkH1jBhHBKffDpYRYRuAeEkGin2NqU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ETsWsP6AHNHJbGwRscL2DvfHX26AYuoh1QNquJp7jVI5sMeKpNtDKz2tAKn5J3Zud
+	 JXfLk36uOX4UHBL4JWqqA/Nx0rJZQlCxFi1lkQHtnEouytFMhUV88/2cwtZvvnc1EW
+	 nL7LyVSfmtnN0dQ9rb+1lfeQJJa4XxRUJmu/4reYQlTdvxGVSZRxcFGEGXHCZa0AOA
+	 K/h0ycJYeU3AYzhoTmbI9Es1yLLl8XRItcMKjCh87MgFbiMKo+UyQWX4EIL9TqqqOE
+	 wgvWDMIPEi6CVs5ybIRFSa03/mO34Ruo7GCtRFy4z1mH34uhMx7vnC01H8tst2nIKR
+	 6tgJNMo0prJlA==
+Date: Sat, 21 Nov 2026 02:17:15 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+	Alexander Mikhalitsyn <alex@amutable.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Christian Brauner <brauner@kernel.org>,
+	David Howells <dhowells@redhat.com>, Jan Kara <jack@suse.cz>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Josef Bacik <josef@toxicpanda.com>, Kees Cook <kees@kernel.org>,
+	Neal Gompa <neal@gompa.dev>, Paul Moore <paul@paul-moore.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: Re: [RFC PATCH v5 14/25] rootns: Add ROOTNS_WAIT ioctl
+Message-ID: <awDjC9hcKSRnCPgJ@kernel.org>
+References: <20261121000844.1863324-1-jarkko@kernel.org>
+ <20261121000844.1863324-15-jarkko@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,23 +68,160 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261121000844.1863324-15-jarkko@kernel.org>
 
-Hi Nizat,
+On Sat, Nov 21, 2026 at 02:08:33AM +0200, Jarkko Sakkinen wrote:
+> wait4() and waitid() only allow a parent or subreaper to collect exit
+> status, so an external manager holding a rootns file descriptor cannot
+> wait on a rootns init process forked by another process or observe exit
+> status multiple times across observers.
+> 
+> Add the ROOTNS_WAIT ioctl and struct rootns_wait_args to wait freezably
+> and interruptibly on a rootns file descriptor until its init thread group
+> exits and report the recorded wait status. Return the init TGID
+> translated into the caller's active PID namespace, 0 for WNOHANG while
+> running, or -ECHILD if init was never started or is not visible to the
+> caller.
+> 
+> Co-developed-by: David Howells <dhowells@redhat.com>
+> Signed-off-by: David Howells <dhowells@redhat.com>
+> Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+> ---
+>  include/uapi/linux/rootns.h | 26 +++++++++++++++++++++
+>  kernel/rootns.c             | 46 +++++++++++++++++++++++++++++++++++++
+>  2 files changed, 72 insertions(+)
+> 
+> diff --git a/include/uapi/linux/rootns.h b/include/uapi/linux/rootns.h
+> index bd643bdfb43c..3fd215185398 100644
+> --- a/include/uapi/linux/rootns.h
+> +++ b/include/uapi/linux/rootns.h
+> @@ -8,6 +8,7 @@
+>  #define _UAPI_LINUX_ROOTNS_H
+>  
+>  #include <linux/ioctl.h>
+> +#include <linux/types.h>
+>  
+>  /**
+>   * enum rootns_flags - Flags for rootns()
+> @@ -24,6 +25,16 @@ enum rootns_flags {
+>  	ROOTNS_ALL_FLAGS	= 0x00000003,
+>  };
+>  
+> +/**
+> + * struct rootns_wait_args - Arguments for %ROOTNS_WAIT
+> + * @flags: Wait options (0 or %WNOHANG).
+> + * @status: Output wait status of rootns init in waitpid(2) format.
+> + */
+> +struct rootns_wait_args {
+> +	__u32 flags;
+> +	__s32 status;
+> +};
+> +
+>  #define ROOTNS_IOCTL_MAGIC	0xB9
+>  
+>  /**
+> @@ -41,4 +52,19 @@ enum rootns_flags {
+>   */
+>  #define ROOTNS_GET_NSFD		_IO(ROOTNS_IOCTL_MAGIC, 0x01)
+>  
+> +/**
+> + * DOC: ROOTNS_WAIT
+> + *
+> + * ``ioctl(rootnsfd, ROOTNS_WAIT, &args)`` waits interruptibly (unless
+> + * ``WNOHANG`` is set in ``args.flags``) until ``rootnsfd`` reaches
+> + * ``ROOTNS_DEAD``, then writes the recorded exit status of ``rootns`` init
+> + * into ``args.status``.
+> + *
+> + * Returns the caller-visible TGID of ``rootns`` init on success, ``0`` if
+> + * ``WNOHANG`` is set and the ``rootns`` has not terminated, or ``-1`` with
+> + * ``errno`` set to ``ECHILD`` if init was never started or is not visible in
+> + * the caller's active PID namespace.
+> + */
+> +#define ROOTNS_WAIT		_IOWR(ROOTNS_IOCTL_MAGIC, 0x02, struct rootns_wait_args)
+> +
+>  #endif /* _UAPI_LINUX_ROOTNS_H */
+> diff --git a/kernel/rootns.c b/kernel/rootns.c
+> index 5d59fc9a591d..cb74ddc8363c 100644
+> --- a/kernel/rootns.c
+> +++ b/kernel/rootns.c
+> @@ -117,6 +117,47 @@ static long rootns_get_nsfd(struct rootns *rootns, unsigned long nstype)
+>  	return nsproxy_open_namespace(rootns->ns, rootns->user_ns, nstype);
+>  }
+>  
+> +static long rootns_wait(struct rootns *rootns, void __user *uarg)
+> +{
+> +	struct pid_namespace *pid_ns = task_active_pid_ns(current);
+> +	struct rootns_wait_args args;
+> +	long ret;
+> +
+> +	if (!uarg)
+> +		return -EINVAL;
+> +	if (copy_from_user(&args, uarg, sizeof(args)))
+> +		return -EFAULT;
+> +	if (args.flags & ~WNOHANG)
+> +		return -EINVAL;
+> +	if (!pidns_is_ancestor(rootns->ns->pid_ns_for_children, pid_ns))
+> +		return -ECHILD;
+> +	if (READ_ONCE(rootns->state) == ROOTNS_INIT)
+> +		return -ECHILD;
+> +
+> +	if (!(args.flags & WNOHANG)) {
+> +		ret = wait_event_freezable(rootns->waitq,
+> +					   READ_ONCE(rootns->state) == ROOTNS_DEAD ||
+> +					   READ_ONCE(rootns->state) == ROOTNS_INIT);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	scoped_guard(spinlock, &rootns->lock) {
+> +		if (rootns->state == ROOTNS_INIT)
+> +			return -ECHILD;
+> +		if (rootns->state != ROOTNS_DEAD)
+> +			return 0;
+> +		ret = pid_nr_ns(rootns->init_pid, pid_ns);
+> +		if (ret <= 0)
+> +			return -ECHILD;
+> +		args.status = rootns->exit_code;
+> +	}
+> +
+> +	if (copy_to_user(uarg, &args, sizeof(args)))
+> +		return -EFAULT;
+> +	return ret;
+> +}
+> +
+>  static long rootns_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+>  {
+>  	struct rootns *rootns = file->private_data;
+> @@ -124,6 +165,8 @@ static long rootns_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+>  	switch (cmd) {
+>  	case ROOTNS_GET_NSFD:
+>  		return rootns_get_nsfd(rootns, arg);
+> +	case ROOTNS_WAIT:
+> +		return rootns_wait(rootns, (void __user *)arg);
+>  	default:
+>  		return -ENOIOCTLCMD;
+>  	}
+> @@ -134,6 +177,8 @@ static long rootns_compat_ioctl(struct file *file, unsigned int cmd,
+>  				unsigned long arg)
+>  {
+>  	switch (cmd) {
+> +	case ROOTNS_WAIT:
+> +		return rootns_ioctl(file, cmd, (unsigned long)compat_ptr(arg));
+>  	case ROOTNS_GET_NSFD:
+>  		return rootns_ioctl(file, cmd, arg);
+>  	default:
+> @@ -328,3 +373,4 @@ SYSCALL_DEFINE1(rootns, unsigned int, flags)
+>  
+>  	return fd;
+>  }
+> +
+> -- 
+> 2.47.3
+> 
 
-On Sat, 07 Nov 2026 21:00:50 +0100, Nizat Mikayilli wrote:
-> Add the SM8550 MDSS compatible to the clients list, as it also needs an
-> identity domain at boot. Otherwise the scanout of the bootloader's
-> splash screen causes unhandled context faults and the screen goes
-> black.
+Ought to be dropped but seemed too irrelevant detail for the time
+being.
 
-Same on a OnePlus 11 (SM8550), booted from the bootloader's splash on
-next-20261120: without this patch there are ten unhandled context faults
-from the MDSS stream (SID 0x1c00) at addresses inside the splash buffer
-before msm takes over; with it there are none, and the panel comes up
-normally.
-
-Tested-by: Majid Hajiheidari <majidhhdri@gmail.com> # OnePlus 11
-
-Thanks,
-Majid
+Br, Jarkko
