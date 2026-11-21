@@ -1,61 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795289715;
-	b=qgYCVUCSyBETEdbM9ddtPkBB/BypOoKMDw9qMXxrwPFGpMwdFYEcVcsIBbDIE/vutNK9
-	 7ydfSWJ/MDHgrYXhuuG15muvJcHb9ea0fkqjrRHhxaLPBQ5z2IEpE8ZdEtzY5Z2RNvuOu
-	 dOgynMHWMLbEjbM9zuQvvyElq5yfJtftiv7MWsDSP61WEMpEULiQhH0Rb9dPLmH4pV0WM
-	 J4qXtOC8D4pggK+qHli4Kmy7/YRPnw0u/Q2s3x3HW+d//T+vqAZiPEjNGJKQgy7DfaUgR
-	 AGi1cYOK0tMUzQfDnKM++WqqNKYOcXMrSSriqeHyAn3DKIpmwvuKDIrqX7iUgN6PgEA==
+	t=1795289810;
+	b=GRP3Pq7grWyUfNcoPQolykCHa3Mh369YNQvDQM3aGwwbb9WTSBFRb9VNS6Z30OkkHTy1
+	 i0xNUKr9Agq/vW79qtiVdTZAjHY8ngQYOSKevasGmsBoerbpnEH7jjc9+zQIxDpeGfrwU
+	 /3OOFBSptIjX52CiMn5L4WA5K5kmLAmybpFLvttuSXevePWrUDcZmki1dLjfAsnfA5EcT
+	 KxmL4yUEmpkN6zHtOM0YjNo8/Pg1pVv95geNK9E4iWVHpT58kjTwe7R+M2cPXhWcdXzOd
+	 BqvpkoUvRqbWlr+ZNVhVqGIhP6C+ifgPJAjpGVfH05DQ0fY/Hb465GNge6qRgaVG9hw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795289715;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=JH+iXlWaf0QYvuXeZ5FGygsDHzmcBZZQOeinMNmsuMo=;
-	b=ugnaMMzhIW6SppZk8o3QZqKpToGaRyVmR0Ri3oT7GXPoMGwKew3z7PMuORY/K0+68Xvk
-	 LSISrQo9yshJCLjDOColgu1w7oIHwfCgczFyGVWJMw6RskWBMRnpsUNRFzOYMRuFGXsM3
-	 uSyUFkDCGBBZPwTjgQ8g1tAGDStqgYOBMSXSoNn+5N9oFY2mqj9wGQzMEajSovABTaBus
-	 3WStCRkVlqF/ZVi0wW39zGm6mBBewgcZk20l6d4iQo5kLH+veDoXa0Hhmr3JN8iydL+xM
-	 6l0KEdMis/iDjLA+0uWHdGTmjiEwrAo1/PiFknVEbrOrtFGyhTPU1uGGvcdZ4t3N3Ug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795289810;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=fO2eIe95VRSOU1KijFAbx5NDCPAQZnU3pyzGbtCTNiU=;
+	b=ZqFEmQnteU7fz6szhBMXadv2qVZmPyjZBZG2YRIss4yjCCiOxXsSV/J3s1i7/4RBq5SG
+	 pcCQntdhxOw789Nm7SCgX0Yfll+e/dF4YQC6qVVEO6tFyM56vQLkP05vhvJGtha5cHZLk
+	 bQj4tVBmKrE0NkFGv9+i7YCUf+lvSUwP9UGgsK+hcnKMPCER+il+T4cbJwiFCZnvHDT06
+	 3nJIjMfeeOIaOBwRseE5fnXrfyokyT7ZnAgMzaQ9GDhdfx5y+FhuGlz48Rze292yz9yYn
+	 SB6UhkPruY3IMUi/eP12xDYg6YD3//3We1w1IisWVIW1hx5Hb4GvaTxX4/b6YkqTAUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f32ag3IC;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SwixXAk+;
+	arc=none smtp.remote-ip=209.85.222.177
+Received: from mail-qk1-f177.google.com (mail-qk1-f177.google.com [209.85.222.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FCDB606A320;
-	Sat, 21 Nov 2026 19:35:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C52E606A33D
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:36:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C52E606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f32ag3IC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA9B71F000C0;
-	Sat, 21 Nov 2026 19:35:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795289715;
-	bh=JH+iXlWaf0QYvuXeZ5FGygsDHzmcBZZQOeinMNmsuMo=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=f32ag3IC/vl5IywST6f+vJ0yHzSYwOZFQP0PowGjHdAFvmry7mgIj3EqIOz1DJ7Ah
-	 gcS/2i2r+AcuvZW/v8aMtUXyK9G4kqk3eSrh6z/sYdhRpneE6LIOIk2yHSNWzMpk7o
-	 5e4z+mqGJRpazfiRXTz25oABoXbfbzS4n1fa2HbT1oGphZmtYKdwSM9dMwUYmcBZ6Y
-	 awzrqOGBNJmI/0Wc4Sgq0yARum1GKhplCFWzj0cwwbcy3FidY/zqf+8intUbAe6Mx5
-	 HY0b11DSRfrcEmJ/5XmmZjSYpHG3bIHt9+BU5nRoKqJR6vVqBgOnEbnnbt0ZF14mxn
-	 JAqkogyS0WOEQ==
-Subject: Re: [PATCH net-next v2 1/2] tcp: document black hole detection for
- tcp_mtu_probing
-From: netdev-bot+sashiko@kernel.org
-To: echoowall@gmail.com
-Cc: corbet@lwn.net, edumazet@kernel.org, davem@davemloft.net, kuba@kernel.org,
- shuah@kernel.org, pabeni@redhat.com, rdunlap@infradead.org,
- linux-doc@vger.kernel.org, horms@kernel.org, ncardwell@google.com,
- kuniyu@google.com, skhan@linuxfoundation.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Date: Sat, 21 Nov 2026 19:35:14 +0000
-Message-ID: <179528971425.3135.11498750682572420334@kernel.org>
-In-Reply-To: <20261118-tcp-mtu-probing-doc-v1-v2-1-e795f20b8cfe@gmail.com>
-References: <20261118-tcp-mtu-probing-doc-v1-v2-1-e795f20b8cfe@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SwixXAk+
+Received: by mail-qk1-f177.google.com with SMTP id af79cd13be357-9495e8ae23aso179517185a.2
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 11:36:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795289809; x=1795894609; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fO2eIe95VRSOU1KijFAbx5NDCPAQZnU3pyzGbtCTNiU=;
+        b=SwixXAk+ZetlhyVtXtXfp0VCRquNQkJstma/w/otvw5nOHlLH1DV0NHlPjAzxNfTkZ
+         fSPOtLHgNCVCutXTRd8sIbHKuZDvBvLb8MasuOnAeuEStL8ZTNs6TqqAMCEKsP08GltW
+         98NS6Ulnj2Ev+CUuc9U5ab2bSV54WZH7EdTsE0DtlBGeSw/P+EUOpFxUqE1zG+vW0oPI
+         /rHNk9jlGdWqvgLvzYN+9U3+cs4zI5xGCdpPH6vm3tIc/uFTM9QqfyXAAKkRGr7zrnC9
+         kDo4fohc9UUcZNB900rnlgHWbiIensp6W4+IqpEf0F2kLCDW92s8LP0bxmVWT+juCZux
+         nF0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795289809; x=1795894609;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=fO2eIe95VRSOU1KijFAbx5NDCPAQZnU3pyzGbtCTNiU=;
+        b=tavRQjOa83sbeEtBOgnG2dREdHetHApaqv3xH+PJi+TS+RtHfRlJ1LU+mN/q5MkEvZ
+         RFUc5498M3xGriYOEg2/fw9+v+m/IIfX0cjNC74ZNn6RZNOn5Ygn5+o1ZJsbwxjtTHLd
+         Bh31ZVSKgmVT8rdNL0Z5Jfiux8nFFelydesaXJqXIJrwFZU9TtTrzFc9ZHRWxO138Ht8
+         0RfBXfehRYjCTY/rRtw8oQW5mnmsn4VgPG4ogFOHvWFhw57C6XFIokWFxIH4M+V3a5Uz
+         kInY4HuAqW0cRZVyEs5ZadAKrL0f1WPjXvg7R4njbisdo586b4ePF4RLa3IGfXp/X4eH
+         gUPw==
+X-Forwarded-Encrypted: i=1; AL+hErFi/zmFygeYC8tgbgAbMjmdbcOIsuYOaK1W7GDFC5yZ01mm/cN4gBni2mIY2YtWr/MadoixOBwU8hPcF6w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9MpYjnOgV+8e0lugCmtvoX9D1/CqzIHs64p9R87YqCGLYOtnbs
+	VadYBX0Zgv4at73NkscJofQwyEQLVLJPFNeBS9BzVgApJ1pNy5dmhMJduOk4+g==
+X-Gm-Gg: AZFdTZcvHdOrBhRUEEx99qTE5DS5HD1BPeEJqmLhaFSm2k++xg87CYIcjYIdNV/f9Li
+	CNL9tazQx9JEeYH3oKzy55zQoHBcJbm1NZ8y1U1AJcppRzTj4KKpYJsh5iQ/3K422qh23AlnOjp
+	E5M/clJIsyfZp9KUq2vmNFtMdlq6UJg6sSIYi4Ix+yZVggmD8vFiMGfJejC236bBf7asUG/uHpW
+	fCf1pyEOjZL6TuXlD0emzQwe/EiTjwKj+BWUrL+7JYrPOcE23SkqZ+mTEPuJ+jkdo13jZHbyEQ9
+	STtGAg4kqRB3jtEw/fForeiUNpV/qqNBCc4EI7gP5mnkKonPRhkD5bKVLs0W2Jws9yICnQ20enC
+	yy99bZY/18+9xbOIUQVkobS5NaVvG0RbAPtb7oF1iWvbZrQWvHhqZPWDfxhuC/75sTId3srlvJh
+	OyTWw9ExXL1jxWT+c7F9O+Ng9uc/bLEqYLtXcZPglDRhCt05D6zN2wRAZK4+VcTuDOyU+Vs+j8o
+	Pc1HinOXwE4iaFaObtqgEJuX0QSKCJbYSwVsRc2/Or4S7mKQ58ZwMqpNsEdbx4IRrLjUWU/5n1I
+	Gcf4bWjvoZscuk7PEpct4ZSS1SDzYJO3+oA=
+X-Received: by 2002:a05:620a:199b:b0:949:7502:69c with SMTP id af79cd13be357-949bab7ee59mr1204791585a.73.1795289808980;
+        Sat, 21 Nov 2026 11:36:48 -0800 (PST)
+Received: from deb05.proceq.com ([213.160.61.66])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb427388sm466931785a.42.2026.11.21.11.36.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 11:36:48 -0800 (PST)
+From: Mehmet Fide <mehmet.fide@gmail.com>
+To: Ping-Ke Shih <pkshih@realtek.com>
+Cc: Luka Gejak <luka.gejak@linux.dev>,
+	Bitterblue Smith <rtl8821cerfe2@gmail.com>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	mehmet.fide@screeningeagle.com
+Subject: [PATCH rtw-next v14 1/3] wifi: rtw88: download the beacon the reserved page was built with
+Date: Sat, 21 Nov 2026 20:36:42 +0100
+Message-ID: <20261121193644.603289-2-mehmet.fide@gmail.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261121193644.603289-1-mehmet.fide@gmail.com>
+References: <20261121193644.603289-1-mehmet.fide@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,192 +100,181 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+From: Mehmet Fide <mehmet.fide@screeningeagle.com>
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 3
+rtw_fw_download_rsvd_page() downloads the beacon twice: as part of the
+reserved page, and again on its own so that the firmware gets a TX
+descriptor for the beacon instead of the whole page. The second
+download fetches a new beacon from mac80211 instead of the one in the
+page.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Each fetch advances the DTIM count and, during a channel switch, the
+CSA countdown. Two fetches per update step a countdown of 2 past 1,
+and mac80211 warns "beacon TX faster than countdown". Keep the beacon
+from the page build and download that one. The hw scan, which downloads
+the beacon without a page build, still fetches its own.
 
-- [Medium] The new tcp_mtu_probing text in Documentation/networking/ip-
-  sysctl.rst (lines 725-731) says: "From then on, and from the first…
-- [Low] The new detection-time text (ip-sysctl.rst lines 716-723) says
-  the threshold is the time tcp_retries1 retransmissions would take…
-- [Low] The new text (ip-sysctl.rst lines 728-729) says search_low is
-  kept "at most tcp_base_mss and at least tcp_mtu_probe_floor and…
-- [Low] The new text (ip-sysctl.rst lines 716-718) says "A black hole is
-  detected when the retransmission timer fires after the handshake and…
+The hardware writes the DTIM count of an AP beacon itself
+(BIT_TCR_UPDATE_TIMIE), so nothing on the air changes without a channel
+switch, and this is not marked as a fix.
 
---
+Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
+Reviewed-by: Luka Gejak <luka.gejak@linux.dev>
+Acked-by: Ping-Ke Shih <pkshih@realtek.com>
+---
 
-tcp: document black hole detection for tcp_mtu_probing
+Notes:
+    Changes in v14:
+    - dropped two comments that repeated the commit message, reworded
+      the commit message; rebased on the rtw88 firmware recovery fixes v4
+    
+    Changes in v13:
+    - none, rebased on rtw-next
+    
+    Changes in v12:
+    - the commit message says why this is not marked as a fix and what
+      mac80211 reports for the double fetch (Sashiko); no code change, the
+      tags are kept
+    - rebased on patches 1-4 of the rtw88 firmware recovery fixes v3
+    
+    Changes in v11:
+    - none, rebased on rtw-next
+    
+    Changes in v10:
+    - none, rebased on rtw-next
+    
+    Changes in v9:
+    - none
+    
+    Changes in v8:
+    - none
+    
+    Changes in v7:
+    - none, rebased on rtw-next
+    
+    Changes in v6:
+    - none
+    
+    Changes in v5:
+    - none
+    
+    Changes in v4:
+    - none, rebased on rtw-next
+    
+    Changes in v3:
+    - the beacon out-pointer is initialised in the caller
 
-This commit extends the tcp_mtu_probing entry in ip-sysctl.rst. It
-describes when an ICMP black hole is detected and how TCP adjusts the MSS
-afterwards, based on tcp_write_timeout() and tcp_mtu_probing(). It also
-adds the default values of tcp_mtu_probing and tcp_base_mss.
+ drivers/net/wireless/realtek/rtw88/fw.c | 32 +++++++++++++++----------
+ 1 file changed, 19 insertions(+), 13 deletions(-)
 
-> diff --git a/Documentation/networking/ip-sysctl.rst b/Documentation/networking/ip-sysctl.rst
-> index 0b7bfbd98a923..6ac8b3fb9aae8 100644
-> --- a/Documentation/networking/ip-sysctl.rst
-> +++ b/Documentation/networking/ip-sysctl.rst
-
-[ ... ]
-
-> @@ -711,6 +713,25 @@ tcp_mtu_probing - INTEGER
->  	- 1 - Disabled by default, enabled when an ICMP black hole detected
->  	- 2 - Always enabled, use initial MSS of tcp_base_mss.
->  
-> +	A black hole is detected when the retransmission timer fires after
-> +	the handshake and retransmissions have stayed unacknowledged for as
-
-[Severity: Low]
-Should this also cover the zero window case? In tcp_retransmit_timer(),
-if the peer advertises a zero window and the socket is not orphaned, the
-timer takes a separate branch and never gets to tcp_write_timeout():
-
-net/ipv4/tcp_timer.c:tcp_retransmit_timer() {
-    ...
-	if (!tp->snd_wnd && !sock_flag(sk, SOCK_DEAD) &&
-	    !((1 << sk->sk_state) & (TCPF_SYN_SENT | TCPF_SYN_RECV))) {
-		...
-		tcp_enter_loss(sk);
-		tcp_retransmit_skb(sk, skb, 1);
-		__sk_dst_reset(sk);
-		goto out_reset_timer;
-	}
-
-	__NET_INC_STATS(sock_net(sk), LINUX_MIB_TCPTIMEOUTS);
-	if (tcp_write_timeout(sk))
-		goto out;
-    ...
-}
-
-While the window stays at zero, no black hole is detected and the MSS is
-not lowered, however long the retransmissions stay unacknowledged.
-
-> +	long as tcp_retries1 retransmissions would take with an RTO starting
-> +	at 200 ms and doubling each time, which is 3 seconds with the
-
-[Severity: Low]
-Does the RTO keep doubling when tcp_rto_max is not the default?
-tcp_model_timeout() stops doubling at tcp_rto_max(sk):
-
-net/ipv4/tcp_timer.c:tcp_model_timeout() {
-	...
-	linear_backoff_thresh = ilog2(tcp_rto_max(sk) / rto_base);
-	if (boundary <= linear_backoff_thresh)
-		timeout = ((2 << boundary) - 1) * rto_base;
-	else
-		timeout = ((2 << linear_backoff_thresh) - 1) * rto_base +
-			(boundary - linear_backoff_thresh) * tcp_rto_max(sk);
-	...
-}
-
-icsk_rto_max comes from net.ipv4.tcp_rto_max_ms, which can be set as low
-as 1000, or from the TCP_RTO_MAX_MS socket option.
-
-Take tcp_rto_max_ms=1000 with the default tcp_retries1=3.
-linear_backoff_thresh is then ilog2(5) = 2, so the threshold is
-7 * 200 + 1 * 1000 = 2400 ms, not 3 seconds.
-
-The flow's own RTO is also capped at 1 s, so timeouts fire at 0.2, 0.6,
-1.4, 2.4 and 3.4 s. Detection then happens about 3.4 s after the original
-transmission, not about 6 s.
-
-With the default 120 s rto_max, a tcp_retries1 above 9 also makes the
-threshold grow linearly in 120 s steps instead of doubling.
-
-Could the text say that the doubling is capped at tcp_rto_max_ms, and
-that the 3 and 6 second figures assume the default?
-
-> +	default tcp_retries1. This time is counted from the first
-> +	retransmission and only checked when the timer fires, so a flow
-> +	with a 200 ms RTO detects the black hole at the fifth timeout,
-> +	about 6 seconds after the original transmission.
-> +
-> +	With value 1, the first detection enables MTU probing and lowers
-> +	the MSS to tcp_base_mss if it is larger. From then on, and from the
-> +	first detection with value 2, each further retransmission timeout
-
-[Severity: Medium]
-Does every further retransmission timeout really lower search_low? In
-tcp_write_timeout(), tcp_mtu_probing() is only called while the
-tcp_retries1 condition holds:
-
-net/ipv4/tcp_timer.c:tcp_write_timeout() {
-	...
-		if (retransmits_timed_out(sk, READ_ONCE(net->ipv4.sysctl_tcp_retries1), 0)) {
-			/* Black hole detection */
-			tcp_mtu_probing(icsk, sk);
-
-			__dst_negative_advice(sk);
-		}
-	...
-}
-
-retransmits_timed_out() returns false whenever icsk_retransmits is zero:
-
-net/ipv4/tcp_timer.c:retransmits_timed_out() {
-	...
-	if (!inet_csk(sk)->icsk_retransmits)
-		return false;
-	...
-}
-
-tcp_ack() resets that counter as soon as snd_una advances:
-
-net/ipv4/tcp_input.c:tcp_ack() {
-	...
-	if (after(ack, prior_snd_una)) {
-		flag |= FLAG_SND_UNA_ADVANCED;
-		WRITE_ONCE(icsk->icsk_retransmits, 0);
-	...
-}
-
-Once the connection recovers, for example after the first halving lets
-packets through, a later isolated RTO does not halve search_low again.
-Only timeouts during a new stall that lasts past the tcp_retries1
-threshold do.
-
-The commit message says the text describes the behaviour "as implemented
-in tcp_write_timeout() and tcp_mtu_probing()". Could this sentence be
-reworded, for example to "each further timeout at which the black hole
-condition still holds"?
-
-> +	lowers search_low to half its MSS, keeping it at most tcp_base_mss
-> +	and at least tcp_mtu_probe_floor and tcp_min_snd_mss, and lowers the
-
-[Severity: Low]
-Can search_low end up above tcp_base_mss? tcp_mtu_probing() applies the
-cap first and the floors after it, so the floors win:
-
-net/ipv4/tcp_timer.c:tcp_mtu_probing() {
-	...
-		mss = tcp_mtu_to_mss(sk, icsk->icsk_mtup.search_low) >> 1;
-		mss = min(READ_ONCE(net->ipv4.sysctl_tcp_base_mss), mss);
-		mss = max(mss, READ_ONCE(net->ipv4.sysctl_tcp_mtu_probe_floor));
-		mss = max(mss, READ_ONCE(net->ipv4.sysctl_tcp_min_snd_mss));
-	...
-}
-
-tcp_base_mss uses plain proc_dointvec with no bounds, while
-tcp_mtu_probe_floor accepts 48..65535. Two settings that put search_low
-above tcp_base_mss:
-
-  tcp_mtu_probe_floor=1200 with tcp_base_mss=1024
-  tcp_base_mss set below tcp_min_snd_mss
-
-Could the text say that the floors take precedence over the tcp_base_mss
-cap?
-
-> +	MSS to match if it is larger. Once MTU probing is enabled, the
-> +	connection also probes for a larger MSS, as with value 2.
-
+diff --git a/drivers/net/wireless/realtek/rtw88/fw.c b/drivers/net/wireless/realtek/rtw88/fw.c
+index 09b5836540c4..4575073d0149 100644
+--- a/drivers/net/wireless/realtek/rtw88/fw.c
++++ b/drivers/net/wireless/realtek/rtw88/fw.c
+@@ -1622,7 +1622,8 @@ static int  __rtw_build_rsvd_page_from_vifs(struct rtw_dev *rtwdev)
+ 	return 0;
+ }
+ 
+-static u8 *rtw_build_rsvd_page(struct rtw_dev *rtwdev, u32 *size)
++static u8 *rtw_build_rsvd_page(struct rtw_dev *rtwdev, u32 *size,
++			       struct sk_buff **beacon)
+ {
+ 	const struct rtw_chip_info *chip = rtwdev->chip;
+ 	struct ieee80211_hw *hw = rtwdev->hw;
+@@ -1702,13 +1703,14 @@ static u8 *rtw_build_rsvd_page(struct rtw_dev *rtwdev, u32 *size)
+ 	list_for_each_entry(rsvd_pkt, &rtwdev->rsvd_page_list, build_list) {
+ 		rtw_rsvd_page_list_to_buf(rtwdev, page_size, page_margin,
+ 					  page, buf, rsvd_pkt);
+-		if (page == 0)
++		if (page == 0) {
+ 			page += rtw_len_to_page(rsvd_pkt->skb->len +
+ 						tx_desc_sz, page_size);
+-		else
++			*beacon = rsvd_pkt->skb;
++		} else {
+ 			page += rtw_len_to_page(rsvd_pkt->skb->len, page_size);
+-
+-		kfree_skb(rsvd_pkt->skb);
++			kfree_skb(rsvd_pkt->skb);
++		}
+ 		rsvd_pkt->skb = NULL;
+ 	}
+ 
+@@ -1723,11 +1725,11 @@ static u8 *rtw_build_rsvd_page(struct rtw_dev *rtwdev, u32 *size)
+ 	return NULL;
+ }
+ 
+-static int rtw_download_beacon(struct rtw_dev *rtwdev)
++static int rtw_download_beacon(struct rtw_dev *rtwdev, struct sk_buff *beacon)
+ {
+ 	struct ieee80211_hw *hw = rtwdev->hw;
+ 	struct rtw_rsvd_page *rsvd_pkt;
+-	struct sk_buff *skb;
++	struct sk_buff *skb = beacon;
+ 	int ret = 0;
+ 
+ 	rsvd_pkt = list_first_entry_or_null(&rtwdev->rsvd_page_list,
+@@ -1744,7 +1746,8 @@ static int rtw_download_beacon(struct rtw_dev *rtwdev)
+ 		return -EINVAL;
+ 	}
+ 
+-	skb = rtw_get_rsvd_page_skb(hw, rsvd_pkt);
++	if (!skb)
++		skb = rtw_get_rsvd_page_skb(hw, rsvd_pkt);
+ 	if (!skb) {
+ 		rtw_err(rtwdev, "failed to get beacon skb\n");
+ 		return -ENOMEM;
+@@ -1754,18 +1757,20 @@ static int rtw_download_beacon(struct rtw_dev *rtwdev)
+ 	if (ret)
+ 		rtw_err(rtwdev, "failed to download drv rsvd page\n");
+ 
+-	dev_kfree_skb(skb);
++	if (!beacon)
++		dev_kfree_skb(skb);
+ 
+ 	return ret;
+ }
+ 
+ int rtw_fw_download_rsvd_page(struct rtw_dev *rtwdev)
+ {
+-	u8 *buf;
++	struct sk_buff *beacon = NULL;
+ 	u32 size;
++	u8 *buf;
+ 	int ret;
+ 
+-	buf = rtw_build_rsvd_page(rtwdev, &size);
++	buf = rtw_build_rsvd_page(rtwdev, &size, &beacon);
+ 	if (!buf) {
+ 		rtw_err(rtwdev, "failed to build rsvd page pkt\n");
+ 		return -ENOMEM;
+@@ -1782,13 +1787,14 @@ int rtw_fw_download_rsvd_page(struct rtw_dev *rtwdev)
+ 	 * the beacon again to replace the TX desc header, and we will get
+ 	 * a correct tx_desc for the beacon in the rsvd page.
+ 	 */
+-	ret = rtw_download_beacon(rtwdev);
++	ret = rtw_download_beacon(rtwdev, beacon);
+ 	if (ret) {
+ 		rtw_err(rtwdev, "failed to download beacon\n");
+ 		goto free;
+ 	}
+ 
+ free:
++	dev_kfree_skb(beacon);
+ 	kfree(buf);
+ 
+ 	return ret;
+@@ -2346,7 +2352,7 @@ int rtw_hw_scan_offload(struct rtw_dev *rtwdev, struct ieee80211_vif *vif,
+ 	rtw_fw_set_scan_offload(rtwdev, &cs_option, rtwvif, &chan_list);
+ out:
+ 	if (rtwdev->ap_active) {
+-		ret = rtw_download_beacon(rtwdev);
++		ret = rtw_download_beacon(rtwdev, NULL);
+ 		if (ret)
+ 			rtw_err(rtwdev, "HW scan download beacon failed\n");
+ 	}
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118-tcp-mtu-probing-doc-v1-v2-0-e795f20b8cfe%40gmail.com
+2.56.0
+
