@@ -1,57 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795271681;
-	b=Gxql8QISNulGVdRBXnvR+5sYFDpKpRTTjwMwzHQWlQMTRmzUQEjSt31/z48PQNiVWygV
-	 nnaeK/YRXevIMCsNwRgSMON7aHajpF10MwCCQjK8M+sqLwOwFuR/OnUcv8bbgl4CH7hJd
-	 8CmVBW6pzJsP+NxE+e/WnbVBdaL0tPRzqxkgiG+Uy+aSJUfEO8fBN0cQx3/Kx3+ovOrbB
-	 OCUw1Nn/HBKLAUGMwnY2s6eswWIlAl8l8jbqY2/UFqDsHaf/vzyLmPCfxE/RZ3Jdxcmk1
-	 xYdJ5cwqVW5RN8iYV/2POguSqh2iwtaOw6VyEdgCMo6YQBV74mza4fymUKac5xtGXpQ==
+	t=1795271782;
+	b=5EV3MJhlD6OMQa8xjwJtmSmD3UdCSDPpI0L1U+CGw7cUMdYh/O3A7mowDW9QG+oOFA/h
+	 OP9p2U9vIY3tFSdmnW9DjdjI4npcSLLhx9nAwi6MgVF8O8R6Q3XI7qUIVWq1GZhseTz2Q
+	 JP6aSVZhIimPWTTmmucguaObDFNJqu18K7HVPlgTpC/4CoTGCMPikferbeEyJoeMNhNiD
+	 lSDnpfo03KzQ0yZmemXwF++VZ05luR3s8OlqZqODd7rjT+TIwxi8XZ7qwfnnilwvGTL+i
+	 fzYcQpxEHRuRMFWB3il2nmY1lUujEcqDCfn34QrkzWSMo9nCpzU7QMRVUNPj/ZlawAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795271681;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=gk4bcxgmxdSY9ejOoEcFMk08C5Rxt5ij1zkHy2OJ554=;
-	b=ROApoz4Mpc5USipwTfC7UKt8FUoZitY1MLR/+iqu70jjuazZkvEBtlpVlUB1rrNwIX6S
-	 orbZDrAVxgBA/K+WrMrWp/OYwOxIY0dnK4plQ8LTRiwfsoS971mSFv1AcM+g6f/Tq9L93
-	 uNEtf0ndEFM+2vV1Gk150Hy7OsVVqzDCvYHN5E6dxs2sFkkrWRz5GArp4D/StGryI093z
-	 /ZinzCNGuh2AeCmIaTvfksSY+r4eHl60U1FGRnOlGhpHkImdYsL1rtCSCN1fN7La8KgKM
-	 aAeWiN1Gq8FiBjqPhzGubxFAw3LyaPgK9gOShilNwSVpJz52X5T+2A9jWmqMislJpOg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795271782;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=9nQN9/l1aeG2iZov/Qhemo8zZWreFmt6kut8e31XMuE=;
+	b=O8n+crEVPg6yRgx21SKvqYMwZNbHRr0ZqbRVhzC76RWXaqhiW6qQUNUrRqj4ZMlb6YrT
+	 H/ZsTNWLO3Q8VbedGfv649eK1ORAsXrvJKVIs0NRB3d2u773LQH3Smk0LCDJT4yfSAY+E
+	 TElF0Yf3mB7rTayEBzti16INzibUNBIaMC/OkSOSj1+tsmgoeD3K2Y/QAxVgxtAb4Mu7n
+	 uuSgRL4BW/JiWn1prLCgPiqI4WcQqyyMNXrXx8h3Z3F3IVjdBysqIKPd77tx0VghJ9wCN
+	 UdrKb5yl2+i5kh1nQu02J2f9mG1/og5odzE2gKxCKDjqkbg2f0q+tY4SJwqLFszMTLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ch8U8Ex8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YI1C9cQV;
+	arc=none smtp.remote-ip=198.175.65.21
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id AEED2606A33A;
-	Sat, 21 Nov 2026 14:34:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76E6F606A320;
+	Sat, 21 Nov 2026 14:36:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76E6F606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ch8U8Ex8
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id E7ACD1F000C0;
-	Sat, 21 Nov 2026 14:34:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795271681;
-	bh=gk4bcxgmxdSY9ejOoEcFMk08C5Rxt5ij1zkHy2OJ554=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ch8U8Ex8Z3d7tTAsAv0hNDRYwYR3Wgsk34slfCp7n6Q4N3RVOCsPrEwUd2KnDZ5c9
-	 KIcP9l4L6X5arUKEOpmoidwWDkAwVZvgbLgqc9KfNn5N5LL8LreL8MONZPnQ9t1mFG
-	 QUQhFF9l48V6Nf47cI+wydTvoH6yGcmScrBwQoe7RhZfsSva5QkIHJmrnWxwJY+kC+
-	 zF0GAOxr6SJVdUKLqBausPFj8g+JkB5hER1TrqY0G1h7Vb/wO0nC0iYc8Vxs49aleR
-	 FEyeZVhXxKedfgaWQYMZLNA8kn87jNvEwjLQfT4iPUxz/X1eaJ1/BA5+vUhUY1hnRn
-	 QVc/K5iUvI2Bw==
-Date: Sat, 21 Nov 2026 16:34:38 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Rustam Mustafin <rmustafin@cloudlinux.com>
-Cc: Peter Huewe <peterhuewe@gmx.de>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Shuah Khan <shuah@kernel.org>, Jaewon Yang <yong010301@gmail.com>,
-	linux-integrity@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] selftests: tpm2: test that io_uring reads ignore
- the file offset
-Message-ID: <awGr_tB3QXwnW1G2@kernel.org>
-References: <20261120121614.978396-1-rmustafin@cloudlinux.com>
- <20261120121614.978396-3-rmustafin@cloudlinux.com>
- <awGq_L-ZjRhM0rMK@kernel.org>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YI1C9cQV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795271781; x=1826807781;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=xL0K9+vP4paEUFHi3kZBlqtEBtHHC2I2LVqXj1ogESQ=;
+  b=YI1C9cQVRWEefACB+yUM5x7upnxL7/PSWAagA9gtdm3pKotC9YDIjVDm
+   DwVbghp1QVHM3aV+vPZvS6hx38u2iaE6V0KOT5CWLPjQigsSUNIf/k7VM
+   HNo3plraVSqWSaZ5U/V0DbZuKFYn3+WF3IfxDOP9nMIXqn/24uxuKlnHC
+   /Z7GnNsuvtjy3wbo6/D/tfdoYMrvEDczMcbCu8kJg87wMFXHar+eA1r8G
+   CtD4p/yu0pcZfbA+l7NU3zHabp9JMttJoyWfVlU6+flkkmNjxmMd5fPj4
+   rdQr7opHJGXSFDXvJyt8SI1ShPH27e121Jmlrez5UeX1tTSC1mSfVV0GJ
+   w==;
+X-CSE-ConnectionGUID: 80EpGjQaQcOS3ZEcprHHPw==
+X-CSE-MsgGUID: H8FjuDpuQO+/P5Biqi7s4w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11973"; a="4218603"
+X-IronPort-AV: E=Sophos;i="6.27,225,1787036400"; 
+   d="scan'208";a="4218603"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2026 06:36:21 -0800
+X-CSE-ConnectionGUID: 1axwqobeQn2jJjEb45OZyw==
+X-CSE-MsgGUID: vPr88j40SBuTdy5qzWllUw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,225,1787036400"; 
+   d="scan'208";a="12748062"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa011.fm.intel.com with ESMTP; 21 Nov 2026 06:36:18 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xUmCN-00000001K8t-1GOx;
+	Sat, 21 Nov 2026 14:36:15 +0000
+Date: Sat, 21 Nov 2026 22:35:14 +0800
+From: kernel test robot <lkp@intel.com>
+To: Hilda Wu <hildawu@realtek.com>, marcel@holtmann.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	luiz.dentz@gmail.com, linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org, alex_lu@realsil.com.cn,
+	jason_mao@realsil.com.cn, zoey_zhou@realsil.com.cn,
+	max.chou@realtek.com, kidman@realtek.com, arunr@valvesoftware.com
+Subject: Re: [PATCH v10 1/2] Bluetooth: btrtl: Add firmware format v3 support
+Message-ID: <202611212209.wBWI3Z2q-lkp@intel.com>
+References: <20261120082636.3834168-2-hildawu@realtek.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,208 +87,38 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <awGq_L-ZjRhM0rMK@kernel.org>
+In-Reply-To: <20261120082636.3834168-2-hildawu@realtek.com>
 
-On Sat, Nov 21, 2026 at 04:30:25PM +0200, Jarkko Sakkinen wrote:
-> On Fri, Nov 20, 2026 at 07:16:14PM +0700, Rustam Mustafin wrote:
-> > Test that an IORING_OP_READ request on /dev/tpm0 and /dev/tpmrm0
-> > returns the whole pending response from its start, although sqe->off
-> > points past the response header. The offset stays inside
-> > priv->data_buffer, so an unpatched kernel fails the test on the
-> > returned header without an out-of-bounds access.
-> > 
-> > Signed-off-by: Rustam Mustafin <rmustafin@cloudlinux.com>
-> > ---
-> >  tools/testing/selftests/tpm2/.gitignore  |   1 +
-> >  tools/testing/selftests/tpm2/Makefile    |   4 +
-> >  tools/testing/selftests/tpm2/tpm_uring.c | 131 +++++++++++++++++++++++
-> >  3 files changed, 136 insertions(+)
-> >  create mode 100644 tools/testing/selftests/tpm2/tpm_uring.c
-> > 
-> > diff --git a/tools/testing/selftests/tpm2/.gitignore b/tools/testing/selftests/tpm2/.gitignore
-> > index 6d6165c5e35d..d2324bd0eca2 100644
-> > --- a/tools/testing/selftests/tpm2/.gitignore
-> > +++ b/tools/testing/selftests/tpm2/.gitignore
-> > @@ -1,3 +1,4 @@
-> >  # SPDX-License-Identifier: GPL-2.0-only
-> >  AsyncTest.log
-> >  SpaceTest.log
-> > +tpm_uring
-> > diff --git a/tools/testing/selftests/tpm2/Makefile b/tools/testing/selftests/tpm2/Makefile
-> > index a9bf9459fb25..67f346f4cdef 100644
-> > --- a/tools/testing/selftests/tpm2/Makefile
-> > +++ b/tools/testing/selftests/tpm2/Makefile
-> > @@ -1,4 +1,8 @@
-> >  # SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
-> > +CFLAGS += $(KHDR_INCLUDES) -idirafter ../../../include -Wall
-> > +
-> > +TEST_GEN_PROGS := tpm_uring
-> > +
-> >  include ../lib.mk
-> >  
-> >  TEST_PROGS := test_smoke.sh test_space.sh test_async.sh
-> > diff --git a/tools/testing/selftests/tpm2/tpm_uring.c b/tools/testing/selftests/tpm2/tpm_uring.c
-> > new file mode 100644
-> > index 000000000000..9caa3cba5bf0
-> > --- /dev/null
-> > +++ b/tools/testing/selftests/tpm2/tpm_uring.c
-> > @@ -0,0 +1,131 @@
-> > +// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
-> > +/*
-> > + * An io_uring read chooses its own file offset. The TPM character devices
-> > + * must ignore it and return the response from its start.
-> > + */
-> > +
-> > +#include <endian.h>
-> > +#include <errno.h>
-> > +#include <fcntl.h>
-> > +#include <poll.h>
-> > +#include <signal.h>
-> > +#include <io_uring/mini_liburing.h>
-> > +#include "../kselftest.h"
-> > +
-> > +#define RING_ENTRIES	4
-> > +#define BUF_LEN		4096
-> > +#define POLL_TIMEOUT_MS	10000
-> > +#define TPM_VERSION_FILE	"/sys/class/tpm/tpm0/tpm_version_major"
-> > +struct tpm_header {
-> > +	uint16_t tag;
-> > +	uint32_t size;
-> > +	uint32_t return_code;
-> > +} __attribute__((packed));
-> > +
-> > +/* TPM2_GetCapability(TPM_CAP_TPM_PROPERTIES, TPM_PT_FIXED, 1) */
-> > +static const unsigned char cmd[] = {
-> > +	0x80, 0x01,		/* TPM_ST_NO_SESSIONS */
-> > +	0x00, 0x00, 0x00, 0x16,	/* command size */
-> > +	0x00, 0x00, 0x01, 0x7a,	/* TPM_CC_GetCapability */
-> > +	0x00, 0x00, 0x00, 0x06,	/* TPM_CAP_TPM_PROPERTIES */
-> > +	0x00, 0x00, 0x01, 0x00,	/* TPM_PT_FIXED */
-> > +	0x00, 0x00, 0x00, 0x01,	/* property count */
-> > +};
-> > +
-> > +static void test_read(struct io_uring *ring, const char *path)
-> > +{
-> > +	static char buf[BUF_LEN];
-> > +	const struct tpm_header *hdr = (const void *)buf;
-> > +	struct pollfd pfd = { .events = POLLIN };
-> > +	struct io_uring_sqe *sqe;
-> > +	struct io_uring_cqe *cqe;
-> > +	int fd, ret, res;
-> > +
-> > +	fd = open(path, O_RDWR);
-> > +	if (fd < 0) {
-> > +		if (errno == ENOENT)
-> > +			ksft_test_result_skip("%s: not present\n", path);
-> > +		else
-> > +			ksft_test_result_fail("%s: open: %s\n", path,
-> > +					      strerror(errno));
-> > +		return;
-> > +	}
-> > +
-> > +	if (write(fd, cmd, sizeof(cmd)) != sizeof(cmd)) {
-> > +		ksft_test_result_fail("%s: write: %s\n", path, strerror(errno));
-> > +		goto out;
-> > +	}
-> > +
-> > +	pfd.fd = fd;
-> > +	if (poll(&pfd, 1, POLL_TIMEOUT_MS) != 1) {
-> > +		ksft_test_result_fail("%s: no response to the command\n", path);
-> > +		goto out;
-> > +	}
-> > +
-> > +	sqe = io_uring_get_sqe(ring);
-> > +	memset(sqe, 0, sizeof(*sqe));
-> > +	sqe->opcode = IORING_OP_READ;
-> > +	sqe->fd = fd;
-> > +	/*
-> > +	 * Inside the response buffer: an unpatched kernel returns the response
-> > +	 * without its header instead of reading out of bounds
-> > +	 */
-> > +	sqe->off = sizeof(*hdr);
-> > +	sqe->addr = (unsigned long)buf;
-> > +	sqe->len = BUF_LEN;
-> > +	ret = io_uring_submit(ring);
-> > +	if (ret != 1) {
-> > +		ksft_test_result_fail("%s: io_uring_submit: %d\n", path, ret);
-> > +		goto out;
-> > +	}
-> > +	ret = io_uring_wait_cqe(ring, &cqe);
-> > +	if (ret) {
-> > +		ksft_test_result_fail("%s: io_uring_wait_cqe: %d\n", path, ret);
-> > +		goto out;
-> > +	}
-> > +	res = cqe->res;
-> > +	io_uring_cqe_seen(ring);
-> > +
-> > +	/* the offset is ignored: the whole response, from its start */
-> > +	ksft_test_result(res >= (int)sizeof(*hdr) &&
-> > +			 be32toh(hdr->size) == res && !hdr->return_code,
-> > +			 "%s: io_uring read %d\n", path, res);
-> > +out:
-> > +	close(fd);
-> > +}
-> > +
-> > +/* the command is TPM2 only; test_smoke.sh skips the same way */
-> > +static int tpm_version_major(void)
-> > +{
-> > +	FILE *f = fopen(TPM_VERSION_FILE, "r");
-> > +	int major = 0;
-> > +
-> > +	if (f) {
-> > +		if (fscanf(f, "%d", &major) != 1)
-> > +			major = 0;
-> > +		fclose(f);
-> > +	}
-> > +	return major;
-> > +}
-> > +
-> > +int main(void)
-> > +{
-> > +	struct io_uring ring;
-> > +
-> > +	ksft_print_header();
-> > +	if (tpm_version_major() != 2)
-> > +		ksft_exit_skip("no TPM 2.0 device\n");
-> > +	if (io_uring_queue_init(RING_ENTRIES, &ring, 0)) {
-> > +		/* not built in, or disabled by kernel.io_uring_disabled */
-> > +		if (errno == ENOSYS || errno == EPERM)
-> > +			ksft_exit_skip("io_uring_setup: %s\n", strerror(errno));
-> > +		ksft_exit_fail_msg("io_uring_queue_init: %s\n", strerror(errno));
-> > +	}
-> > +	ksft_set_plan(2);
-> > +
-> > +	test_read(&ring, "/dev/tpm0");
-> > +	test_read(&ring, "/dev/tpmrm0");
-> > +
-> > +	io_uring_queue_exit(&ring);
-> > +	ksft_finished();
-> > +}
-> > -- 
-> > 2.52.0
-> > 
-> 
-> Thanks. I applied them.
-> 
-> Sorry for few igorant responses I was doing too many things.
-> 
-> 
-> Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
-> 
-> Br, Jarkko
+Hi Hilda,
 
-Second thoughts on 2/2 but I'll apply 1/2.
+kernel test robot noticed the following build errors:
 
-checkpatch.pl --strict:
+[auto build test ERROR on bluetooth/master]
+[also build test ERROR on bluetooth-next/master]
+[cannot apply to linus/master v7.4-rc3 next-20261119]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-WARNING: Prefer __packed over __attribute__((packed))
-#74: FILE: tools/testing/selftests/tpm2/tpm_uring.c:23:
-+} __attribute__((packed));
+url:    https://github.com/intel-lab-lkp/linux/commits/Hilda-Wu/Bluetooth-btrtl-Add-firmware-format-v3-support/20261120-162635
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/bluetooth/bluetooth.git master
+patch link:    https://lore.kernel.org/r/20261120082636.3834168-2-hildawu%40realtek.com
+patch subject: [PATCH v10 1/2] Bluetooth: btrtl: Add firmware format v3 support
+config: i386-randconfig-1003-20261121 (https://download.01.org/0day-ci/archive/20261121/202611212209.wBWI3Z2q-lkp@intel.com/config)
+compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261121/202611212209.wBWI3Z2q-lkp@intel.com/reproduce)
 
-WARNING: ENOSYS means 'invalid syscall nr' and nothing else
-#171: FILE: tools/testing/selftests/tpm2/tpm_uring.c:120:
-+               if (errno == ENOSYS || errno == EPERM)
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611212209.wBWI3Z2q-lkp@intel.com/
 
-Also, this cannot be in C.
+All errors (new ones prefixed by >>):
 
-Br, Jarkko
+>> ld.lld: error: undefined symbol: btrtl_recv_event
+   >>> referenced by btusb_main.c:2995 (drivers/bluetooth/btusb_main.c:2995)
+   >>>               drivers/bluetooth/btusb_main.o:(btusb_recv_event_realtek) in archive vmlinux.a
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
