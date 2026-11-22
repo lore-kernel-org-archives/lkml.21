@@ -1,11 +1,11 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.167.75
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.188.98
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795373033;
-	b=jJww3iK/SnKEmbV31OXWgCmMUdr5cUo52khalUptclM/bYseVhd+P6RwCDRXCCHuhhu6
-	 7xcb2PnGMMmh6Ima79Adx6SLTbT1So9Jr/NcDsLKTWYeae5YMEDxUi5KAAuypKnAizyES
-	 Kb7Ny/hcdVTzLdrb5egq9z46sjdxQ+U8ahjcG+5kIoeyBAjFR2tsXG0dD8VsiH+ASsRkd
-	 e3l/+gCtNCFY5Q46TLcPXHhwr1i2yOMhl7snOLN4Yrl53FeFeJWh4wOanfOILA+0rqn9L
-	 mwRWtjb9t5KQIiFQ+BfLItjgVkpWaX5+qd0ZXPSrkWb+xy6GCyMFRmIpo0BGlhTWOXA==
+	b=Hy7rUzxuifX9P6J7O54ld2gt+siPJIARi3jnx5bVPpe0TFd02GQYjg5gKq9a0Ghd48aR
+	 h90TntwsIVHcXmHXkvFnXqlqyA0ZavlLWuGQh9z5mGTdArqFXDxFFjAGhW1Kjtr5BVK5L
+	 NfoXydKGU3RGEHjtQI2Oep/TCvLl6LJbXdiXBa5qwW+1pDMxSESyvzq1z3fjtFnic+mD4
+	 D8gM8DwVPD43RZTqokfW2u9L9E+lfZDjlizutUv7+YlF5ms+GXogb4e9v3LoJGok4P/i4
+	 z6gauAXKEfu4TGIz9Rn2ppgpPvNAA3yeN6c90GIO9eOYSluVu+xeuN73RAzcmVVj4nQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795373033;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
@@ -34,55 +34,54 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=hyYx6K9VFX0ULcaj6jInSgavSYk7f/R1Qex8ek7uJgk=;
-	b=IPwhJ1KdCB1+H56jyXD4KibiSIRMsiKaU0zD2rzV7i5e4WBg3nfpFSq2GFkm7vnUn2UY
-	 VjLk7dfGFie25hwoeScPwUFzkhGwfmDL9/PHrtgg4tEd34x6F4/qniVE4AU1md16XdlP9
-	 A+KUNeEXawT0Y1sV6KhyqcMS/Imkq4yl/f03CAk33DECHK8p90Agfqjxu2F2V4HKbbeB4
-	 z/B5WLwPaJLSQXOlauDm9rt4CR87xHcWfzIm9Jcuf3bBbyif7MMsTEVYkAJqV4trZ1Mho
-	 n8YzQoek0Uy9nOAYgkCmDOCDfpGandw0apjltVsNmj+xvOaKuJpj/Em2Ol9NTcI/9hg==
+	bh=JBkxNZTUwI8mjUinCS2nZiCOMCBe5A8vkSsF38IQhnA=;
+	b=DuK6xWmUs104O+kPCvSnVE4WjBvt4lrUMcidCD+VKg1uUcIvVPcleiY3cPDjKzU8bJJ2
+	 8lmwgMl0vT85u4cE8rn50pZYNPpoTsyhzC1ABZmzFcRLMbG3dnNVxJWQFBZk1uIONh2w4
+	 fn68568vC83dFE9Co7Zfse/fuBNvR9Vcw4oy2FaLD5VlYqZdPi8NqN3X33CQs6BO0PBd4
+	 5BYuuFoomstm45pXfcIsdSurCXDwe4V93baWMIBEQ8EkY2b26sWrR8eqJYzyEI5lF+6+o
+	 dQf4BikHgDLn2ZozyhwbbnVE2a8w9aj+bAz4hceUNRBk1/CR8lO8J0RTQu7lulKYZdg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=cern.ch;
 	spf=pass smtp.mailfrom=cern.ch;
-	dkim=pass header.d=cern.ch header.i=@cern.ch header.a=rsa-sha256 header.s=selector1 header.b=FmIuhIXN;
-	dkim=pass header.d=cern.ch header.i=@cern.ch header.a=rsa-sha256 header.s=selector1 header.b=FmIuhIXN;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.167.75
-Received: from ZRZP278CU001.outbound.protection.outlook.com (mail-switzerlandnorthazon11021075.outbound.protection.outlook.com [40.107.167.75])
+	dkim=pass header.d=cern.ch header.i=@cern.ch header.a=rsa-sha256 header.s=selector1 header.b=syDBGTZZ;
+	dkim=pass header.d=cern.ch header.i=@cern.ch header.a=rsa-sha256 header.s=selector1 header.b=syDBGTZZ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.188.98
+Received: from GVAP278CU002.outbound.protection.outlook.com (mail-switzerlandwestazon11020098.outbound.protection.outlook.com [52.101.188.98])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FE18606A330;
-	Sun, 22 Nov 2026 18:43:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FE18606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52128606A32A;
+	Sun, 22 Nov 2026 18:43:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52128606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cern.ch
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cern.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cern.ch header.i=@cern.ch header.a=rsa-sha256 header.s=selector1 header.b=FmIuhIXN;
-	dkim=pass (1024-bit key) header.d=cern.ch header.i=@cern.ch header.a=rsa-sha256 header.s=selector1 header.b=FmIuhIXN
+	dkim=pass (1024-bit key, unprotected) header.d=cern.ch header.i=@cern.ch header.a=rsa-sha256 header.s=selector1 header.b=syDBGTZZ;
+	dkim=pass (1024-bit key) header.d=cern.ch header.i=@cern.ch header.a=rsa-sha256 header.s=selector1 header.b=syDBGTZZ
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KsKP77o67+WWB8KTQkhQbg9NPNRLCEP9+ktmt7TnT4AjpiYU1gxp1SKjvVte2vZtGd4DpKp6Pvhm5aWD47kSj/3Ql29EVAlzoWgrPwShiw3oF5/mpiFrHC2ezVhY1nfo4xNsYj5WzqrNFtISBVeHviLeDJIGWV95dILnas64x8UPVVqGsJpAjnOdTVcAuzPYFj4lN1tIpqFIFEpwsDvwcSpzwHbEvNea4pDG7Zy9Gqe5ctaYotYgaERNWlYvpdE0WTdi6SM2n9Wo+GJqQxoJmrgiJ25LxKoGnlmDUYjRFvcK6Ltx5UtIHku24yLQ4TJx9HxOgDd7kYWIOUbD7pK2Dw==
+ b=w06sI5RMQe62XNq/pds8nIbGJR/ydVqudOaShccmMZy2WPmOHG7I3ejMSw/mQbRTpNgwpoiLg3dJn224Ljj5eYwD1Ye+5gQa75TX7SvaOvDZSS5bWEVVvfek+XcJmpuuQSsfE4S7AU1M2PgyVVVVsAb1B3wXhR78dlzShLkpjG3vYMjaEV5fXwFpO8vYdUGp1MI5Hhc/6hnit4E01zzC+zJeTRMiOhL8RPxr2zmpMejiE0Yhv3VIfTNkw6CCSNDTWU0uDMRnIqZM9/unjpqk6y3XcnYkDAXTim1MBYXwejUi/WpX89ylRzsEMLXSoD7W8n2EbwXMPdM/R9RbGCkBFA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hyYx6K9VFX0ULcaj6jInSgavSYk7f/R1Qex8ek7uJgk=;
- b=XdpjQgjMV1wSv+P0jhV8GUFxnI/xRsh7rTbM20bADTTX3MXx0Zur3kYLARPPxgFmUyvZjb0+lgEcbB1m5/CkOZplajmSDn/IkGZ/loBMMCash8eF316rqFHogC5yssVsux/CWKwXPnAUk5x/qIL4c5w94iiorK7iLFzGD7KPBkwyW2hsLiBgH/DLhZXwSsVUFnHGYg2wRD+oz03g+7kc934Z0H85eOv6ZhqnBnCgy970v/bNOwoEN/qcQJmC2aOHCmPFMQaOcBOn+btQaJAT2QnD5dKKzDInJF+lNB3ZnbYo8TeQdbtbzHmQPzCftxIJG7pu67Ug6swabMIVmJPmbw==
+ bh=JBkxNZTUwI8mjUinCS2nZiCOMCBe5A8vkSsF38IQhnA=;
+ b=cUiFu4O0aT6hYS5n4aklnMIYK10OUocHYIZ4mZ2ZOUMiZIKJbiJUkNOhK4uUyzdX+qMgBlSgzQ+p5gFaVfzkWLV1MrO4TN10Uc7u5elAkPnr73b4a7z3k5OepMDQr0g//OqDpLJSvQ3zAc+yuJLEYb7z3/fNec52iQlfSH/neiKU9BKY2MpqF1Xzh1w959L1CHPX2wQfoWsdiDxgEDrply4ONsFGvEVmjgHrFZR2xGOtAMq9+s1I31F0wcdpfeq+rO1kF3Noh71KVkkMLOcRdWfB0ALh94SH8OnTdi3pNw7OMG/5cBqZ2/eF5ttLegW3amSXZ46x5vjZS6uANudm7g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  20.208.138.155) smtp.rcpttodomain=antheas.dev smtp.mailfrom=cern.ch;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=cern.ch;
  dkim=pass (signature was verified) header.d=cern.ch; arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cern.ch; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hyYx6K9VFX0ULcaj6jInSgavSYk7f/R1Qex8ek7uJgk=;
- b=FmIuhIXNOq1TKMbmbGcqTZONz96nolARY10AbryxTvFj9T+5G6W8OCIZ92Y6979bUqGPzKsqDiTYBRH4LuRIEQyBflLKIwCdl79erOz7fZv63xJbfR6w1AKA25b05zJUMBdMRqwkp5Y8zaVwkh7+Vu/hay8LFX6vcGN5Zbf8aQQ=
-Received: from AM0PR02CA0157.eurprd02.prod.outlook.com (2603:10a6:20b:28d::24)
- by GV0P278MB1365.CHEP278.PROD.OUTLOOK.COM (2603:10a6:710:5c::7) with
+ bh=JBkxNZTUwI8mjUinCS2nZiCOMCBe5A8vkSsF38IQhnA=;
+ b=syDBGTZZhtBPVtfMBqJT97XM6VNsG+SVf0+11TDLzj1gnSx639B2Ey7BZh5quWjU8ERKctc6EbHUKhQRHc65RKp09PIr9ZQ2YiUqC7VbS5WwN5vSjyxMm3Kh4oueqG8D2TuWHG1wSh6Q/UyfRQcTGN+UePU3dYHUmFwSJZWbcU0=
+Received: from MI3PEPF00008BF9.ITAP293.PROD.OUTLOOK.COM (2603:10a6:298:1::475)
+ by GV0P278MB1244.CHEP278.PROD.OUTLOOK.COM (2603:10a6:710:5a::14) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Sun, 22 Nov
  2026 18:43:48 +0000
-Received: from DB3PEPF0000885D.eurprd02.prod.outlook.com
- (2603:10a6:20b:28d:cafe::51) by AM0PR02CA0157.outlook.office365.com
- (2603:10a6:20b:28d::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Sun,
- 22 Nov 2026 18:43:47 +0000
+Received: from MI3PEPF00008485.eurprd02.prod.outlook.com (2603:10a6:298:1::44)
+ by MI3PEPF00008BF9.outlook.office365.com (2603:10a6:298:1::475) with
+ Microsoft SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id
+ 15.21.639.14 via Frontend Transport; Sun, 22 Nov 2026 18:43:47 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 20.208.138.155) smtp.mailfrom=cern.ch; dkim=pass (signature was verified)
  header.d=cern.ch;dmarc=pass action=none header.from=cern.ch;
@@ -90,19 +89,19 @@ Received-SPF: Pass (protection.outlook.com: domain of cern.ch designates
  20.208.138.155 as permitted sender) receiver=protection.outlook.com;
  client-ip=20.208.138.155; helo=mx3.crn.activeguard.cloud; pr=C
 Received: from mx3.crn.activeguard.cloud (20.208.138.155) by
- DB3PEPF0000885D.mail.protection.outlook.com (10.167.242.8) with Microsoft
+ MI3PEPF00008485.mail.protection.outlook.com (10.167.240.132) with Microsoft
  SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.5
  via Frontend Transport; Sun, 22 Nov 2026 18:43:47 +0000
 Authentication-Results-Original: auth.opendkim.xorlab.com;	dkim=pass (1024-bit
  key; unprotected) header.d=cern.ch header.i=@cern.ch header.a=rsa-sha256
- header.s=selector1 header.b=FmIuhIXN
+ header.s=selector1 header.b=syDBGTZZ
 Received: from GVAP278CU002.outbound.protection.outlook.com (mail-switzerlandwestazlp17010004.outbound.protection.outlook.com [40.93.86.4])
-	by mx3.crn.activeguard.cloud (Postfix) with ESMTPS id AE82180181;
+	by mx3.crn.activeguard.cloud (Postfix) with ESMTPS id 263AB80181;
 	Sun, 22 Nov 2026 19:43:46 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cern.ch; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hyYx6K9VFX0ULcaj6jInSgavSYk7f/R1Qex8ek7uJgk=;
- b=FmIuhIXNOq1TKMbmbGcqTZONz96nolARY10AbryxTvFj9T+5G6W8OCIZ92Y6979bUqGPzKsqDiTYBRH4LuRIEQyBflLKIwCdl79erOz7fZv63xJbfR6w1AKA25b05zJUMBdMRqwkp5Y8zaVwkh7+Vu/hay8LFX6vcGN5Zbf8aQQ=
+ bh=JBkxNZTUwI8mjUinCS2nZiCOMCBe5A8vkSsF38IQhnA=;
+ b=syDBGTZZhtBPVtfMBqJT97XM6VNsG+SVf0+11TDLzj1gnSx639B2Ey7BZh5quWjU8ERKctc6EbHUKhQRHc65RKp09PIr9ZQ2YiUqC7VbS5WwN5vSjyxMm3Kh4oueqG8D2TuWHG1wSh6Q/UyfRQcTGN+UePU3dYHUmFwSJZWbcU0=
 Authentication-Results-Original: mx.microsoft.com 1; dkim=none (message not
  signed) header.d=none;dmarc=none action=none header.from=cern.ch;
 Received: from GVAP278MB0007.CHEP278.PROD.OUTLOOK.COM (2603:10a6:710:22::8) by
@@ -128,9 +127,9 @@ Cc: lkml@antheas.dev,
 	johan@kernel.org,
 	konradybcio@kernel.org,
 	kirill@korins.ky
-Subject: [PATCH v9 2/3] firmware: qcom: scm: Allow QSEECOM on the Samsung Galaxy Book4 Edge
-Date: Sun, 22 Nov 2026 19:43:19 +0100
-Message-ID: <20261122184337.6551-3-mstoretv@cern.ch>
+Subject: [PATCH v9 1/3] dt-bindings: arm: Add Samsung Galaxy Book4 Edge
+Date: Sun, 22 Nov 2026 19:43:18 +0100
+Message-ID: <20261122184337.6551-2-mstoretv@cern.ch>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261122184337.6551-1-mstoretv@cern.ch>
 References: <20261122184337.6551-1-mstoretv@cern.ch>
@@ -149,65 +148,79 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 X-MS-TrafficTypeDiagnostic:
-	GVAP278MB0007:EE_|ZR3P278MB1324:EE_|DB3PEPF0000885D:EE_|GV0P278MB1365:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0c22b293-afad-4a97-d3f2-08df48c88b55
+	GVAP278MB0007:EE_|ZR3P278MB1324:EE_|MI3PEPF00008485:EE_|GV0P278MB1244:EE_
+X-MS-Office365-Filtering-Correlation-Id: bb66386f-7a92-48e5-2710-08df48c88b34
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam-Untrusted:
- BCL:0;ARA:13230040|19092799006|23010399003|1800799024|786006|366016|376014|7416014|261021121427099003|261102123227099003|11063799006|56012099006|10067099003|261009223027099003|18002099003|22082099003;
+ BCL:0;ARA:13230040|19092799006|23010399003|1800799024|786006|366016|376014|7416014|261026121527099003|261021121427099003|261102123227099003|11063799006|56012099006|10067099003|261009223027099003|18002099003|22082099003;
 X-Microsoft-Antispam-Message-Info-Original:
- /AejW2RJSZvgJDppS8RZ8pS5tmrbZwxTcztV6SlxT6slQK3gm/cm+UB1BeyvPwBycSemh1TdPSSmodRl3ICR0uIomcrrN96mzbiuWrCe7wc6G68/tzMPPJvu0uabtp/UQRLqLx8nOMm20ApV8dlK07x5wbnIlvcV8tE5RQLP2eQPaH7wMhjx5T4LCGG/wtM+xg233eK6dMo9L/AP1GTCWpwHhzw72XgoeKyZav6r66mgN0zbcS+f4YzdQ0sF76ZvEaJm+h19CEhiBsjms4BWgLRCbBLusaRluksWhUTM2tAVf+/V3xLZUzHlVgwvQWBGDSM2R1GcrcgTeUl/biRr+JX96Dn3j2mgMoA+1u/YhWR7iUN4Y6JbxHmjs9yu8ADDghB6fEFuy8nNTvbmnMk770NvTjlKgiQY9mq7lRUvIJwgx6fn6S2K1BdyiQWK3nkgo1Ht4F3/SkH38ASxg1QwYRMVOuaxXyKy1NUGXSN0MBJFvklFNSlH+zR19MpPWs5d/TI5yg2CmiZWL0sv0htlRdsol48EicQuR1i8dSmlaX6J0IVurcb8qVbBoPQ9AdnuC8w+9WbFoOQX/2s8+hlNASJ4Ch8F/UcSHtdyqXdd+C9s9yLv2kMAfsD9H9SxFlIgOGKsDlsoFzBE3Rh3xNDdRYG1Z4N06U8Jt4q2rnGcZR4=
+ yARlN6+lTAfbwG0E4qu+84s+VYSamN8Mx68HM4vicMyhIVjaSAXJTKZVceKOS/ljTcm9bxCbrQhgVXR7p9rxSPIqWfzi3dyQrsOTnaWqwygpZdZhqvl3nnvwnIQU8ie36sk8hCnAhBIpPBuQzB4cvlZJ7/RPBea8GWesMXo2/ykN+FfyKzXmAPv2lSkqqEMyI0gCcfXNYSXdxOyWWpXdwtklMBNxjyYkWSBDG2BnlS5188Wyhs/ZIhruor1RzctI6z1u5TzzSL0afDquQYQ2KJzmUUFJKDEaFkJwuvNRyaQfpRtn5aHsoyjrd/vtbSKrZ9zEVCjrUf1OsD4RBSiqYH3+bsIkH472OR2YyKvFbJVys0IrYO/cjxRDgncvJHuiGQSm4CtDKmN+AxE24Jcep8UaQZiPZOn8wwNyF+5B/hwWNLtnhmEnlviNF4j5oRBvm70seUCok6KVIusa9oLxkKo+6zY4kdO+fqKqMGl7PCsRXxDNsvRhRiVllHrZqaS6/R5NdP0HvvRsOx27MewQySmg/OPCnpOqAcq0OCmuHK3ZzMnIIEvmwjo8HeXvgP1c91Vy0VOgnI21SGGF2GaaCAdHSAnhSWMrCwHAhKe6cbGieG/m4YZJkVKyRlO180/oF5RXu0C6wg9Xi4sEkf0fdcjlY36iN6Hlx2zpXDBechQ=
 X-Forefront-Antispam-Report-Untrusted:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVAP278MB0007.CHEP278.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(1800799024)(786006)(366016)(376014)(7416014)(261021121427099003)(261102123227099003)(11063799006)(56012099006)(10067099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVAP278MB0007.CHEP278.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(1800799024)(786006)(366016)(376014)(7416014)(261026121527099003)(261021121427099003)(261102123227099003)(11063799006)(56012099006)(10067099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
 X-Exchange-RoutingPolicyChecked:
- ei2g6BsZhK76IeKPDm+QSLjolEoB45zChzi4IoZqJHYl66qAp0Q6wTLp+V6oPv7M8gIoF4KXkuzb3rx+wvKNNcpDpW8aTT/pXFJTDgq22P94UQURhd18q19kK5MbAzAVFt5zqftxOKRHw7u0ArJSjI3Hk5/trvXZQbFkDA0Y2ddfM7AElEfMn2kDMQIX9FSl42fUXGUeF26ISETbgGLTdIwOvi+Dw8viw7s5F1rejab027FzZj0DqbYmW3UhAckPfc5W515sl/kPodoetlmsZxeG/+SvbP2CYqN3y8MzcDDtsyikqMnZMOhVMKJ0XWf5GHq6agCPZ/spU2eq7vcOvw==
+ NqP7PwqnrSXN6+K7j+wCORrLV6CxDmBI8K+GFzJFSBMHt2pFGeNEZ4pAJ9Vucbc0jxsZO/d++T9+g5CQK3jnUc/3f6bmmRMhElV4OI7oYhlc1ICqxNMg4PITXRIUc0vQ5BvayQWR0fqDbJWPnMDfRTDoMuozRUTBp6dR2BGD95EO14f7CqmAhS4PulMRpMthgeE6nyiqRH6o9En5n5pOeyTYmiTNvJ0Mb3UpKav9F2Sg59k4WY/Je9w3JQ1baEFuZ0YN0NnJyfkmYaOMC/cpEPQ6d8BGkE5fINQqU0416nDs71hHxkU6NuHudefWdu6fAynyIsmZzbZ6Gg5ntzKkaA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR3P278MB1324
 X-EOPAttributedMessage: 0
 X-MS-Exchange-Transport-CrossTenantHeadersStripped:
- DB3PEPF0000885D.eurprd02.prod.outlook.com
+ MI3PEPF00008485.eurprd02.prod.outlook.com
 X-MS-PublicTrafficType: Email
 X-MS-Office365-Filtering-Correlation-Id-Prvs:
-	fe2fd248-92f1-42ac-8442-08df48c889f4
+	52516045-0ce7-4714-5be3-08df48c8898b
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|14060799003|786006|1800799024|7416014|376014|35042699022|36860700016|30052699003|23010399003|19092799006|82310400026|10067099003|11063799006|56012099006|261021121427099003|261009223027099003|261102123227099003|18002099003|22082099003;
+	BCL:0;ARA:13230040|786006|35042699022|36860700016|23010399003|14060799003|30052699003|1800799024|82310400026|19092799006|7416014|376014|10067099003|56012099006|11063799006|261026121527099003|261021121427099003|261102123227099003|261009223027099003|18002099003|22082099003;
 X-Microsoft-Antispam-Message-Info:
-	cEBI4qsKNI4DywAHu5HT0FeRqBXXcZmQ41grTJem1FffQ7mvRIW6rop+DWbhRZMh4zPIhG5ALxHFzIByTjvq01ml2HbbLjAqJ7j4iBd/ZWN+poDEC/6D8No3zKHc2Dq1K3552qkw4CaQGZCnn3L56T+mTGJ9srl00Z8OzsudUuNmgL3iUqDFJ+CbjVcJTlD4s3N1TzKDKKbS9hwrXfT6On7Ci8XbQYBSIVcEkkKjLG2Mc3aPOZX2y+BtwuqkVCDmSUg4h8Yn4hkYtv296SIRAVbl6w79vVizn3onYFSKvRIvButjgaQ3X/QsbNV/Z3T909/dqnKWocMGStXwVMtqabL1xF+iafSyQBQBaBOPqM6oSCgGS2CnwL8JXn2teRPhiXwNbLKykhdAj8EGxLniKtYAHdgV439PKlr/fhCMZtQIVrUhTKd4/65o+LuQFgb49p89U5v5p/m9ceYytFZzebQAfgxtmD63aTDKcZDnnrnJ1FFdiG7bHrPOYProahZussTpFKDdn//GlVZHOB4qfo4tk+9i9XvI51HGTIu3dW+Ce2VxZPO6NL8APvydv34zGUDZNFw70hQtDeJtK/19fenrB6lp+PMjSLA1II1ci7CibXjZBydMTBgewSTEewkpqffOTOuGQ5j/aPK4VpS/J9m/4OmqS2C/MextOk3TlGl15b9F8yDHhLFPkAbjK1BXKR12aLFQSgztO6+aEXxYMw==
+	NBLQ9OZXQ+o9KhU0iewHVtAqLBUI0fQDNOn8JAsF9AVJPj1tFxf86w37g7Gv2upWIDdhFs4423YC3HZr0WI9K/1xUp7Pc3I56i+tA5oi1iokLJMUA7dU8jfzWDK1MdjwPzsjyz5CHz6TEblx2PJJT8dAnesNXR2eiYL/+gr6/iGtd+Qe8Pxg9xp+ajWjNds+VHuqYzK4KjyIyP5pxqs5ojO5WvwFVZiQJHy9NI3TDKeQpmpYp5PrrIwPnkjb0raK0hSIKLUHAa8TSMLb7QCKVaQ5UiZhc+eLTTI87SCzvBYa7JhWZVhW755O9tAelxO2eDm3GyG+W2aoVz9YMyTZAWLKqgYifkxSWJbeW0HDjk6KyOOZTw0EH4ekzqn86ipAiMAZqWBis44IR1MgPF5Dufa/YPNM2ck8ZFtqXCieitbRRDxVdpbICvwMu+4vVqmK001GT5f5Skw0b2FLdUAAQjnzRlko/ZCt8ADFZrcXn8h1Qh6p7vDLveWozmO8dihwfRpEh1NCSENT3OXs9CYwpRQsTt78zmUS4tjWnlzPZ4cDDAsCJD/tVeulFwXdBRlBYjiBpihGwGFp+4ulNZ/sNRsPectZGUww0z7Ds9+yierkuNuU5iZeOZPMlzfqjqILU0v1KGhJfakSwDpsov5qFIOg3ECCmeuYx7cnyEjqhUxoOGF6NKbdj/HznSEkuQrbLfcziEhrzzLgqsxNS35ang==
 X-Forefront-Antispam-Report:
-	CIP:20.208.138.155;CTRY:CH;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:mx3.crn.activeguard.cloud;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(786006)(1800799024)(7416014)(376014)(35042699022)(36860700016)(30052699003)(23010399003)(19092799006)(82310400026)(10067099003)(11063799006)(56012099006)(261021121427099003)(261009223027099003)(261102123227099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+	CIP:20.208.138.155;CTRY:CH;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:mx3.crn.activeguard.cloud;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(786006)(35042699022)(36860700016)(23010399003)(14060799003)(30052699003)(1800799024)(82310400026)(19092799006)(7416014)(376014)(10067099003)(56012099006)(11063799006)(261026121527099003)(261021121427099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	A+4zmI1YZKFGzEcwmNZRLvX5ze5MyNC/epZPjj7Z8GtYnN3qD2OyvdEUZITktBAtzfculdYSn2mW2vQ01SfqaThNxUBiIB7H4iet01ET073expuFvHzReey8MDyTlGcS4DLGdA+nHZukHyark3X4nG1jx7vd960U1unPL0tn/j4jxenaLc66RToKG1orqSeGSi+qfpy2YP8mKioeQ3kMd3YF24UjOCpHxKXkM7VX2LEZBW6FKPhNMZ0OhSJoBeTffN3cM+EwJjdL8hiO+c/d1rEHJxDm/wXW1IMbAfEM3M3e5SdgQYAuhBSZ3YcaKzjPoVEl5m1zUYaj0N9krHwhJVXhOCPJU9py3ylTxAe5BHef/6nJoFYtEVsjlrWQcZyVcYztKxn3+Rmw9yjeyW4WQK+KD4NtXIzxBgEcYrDMlCsR9LvCynPdn7a4QxKSUQFZ
+	gp2sGznHjQ+P+kDnfo5yhc8C0TnEF4w9ZbtBf4x2/rRtkvT6bilaP9IvvKj7zePYnPeNsjvyXRGB4TXSDEt89e7H//ag6TvpFhd0Gp3q7GLJ+ivWyBnyDju6sQQ4XttMhU0AA58jgcsVcgb6q+y/Qg9Ifmmr9qOYuuM8U4U9EIxDF9JTp67rxRh2uNdodxauLgdjSFqOWjkN+E8twDZ1zzKlzG6n2JPXuqNqrGlyQGrtjUraqq8BguLkm08mF/tPfectqvBpMqD/WBhM4EDWpx5DJD8IpXcF9GMBAXltHe9ff2WyPuNcLFZu0zMvP5r4Xumq6peNQqB0B0k9UU0ktVZeVJyHgjie1Ko8lvDJBaapNOQPkirCrI87gGQuEn/TTNpStAFX+Cg2cUEKD2HIl6iRlf11pKDrjAOD5D5v7L8cAs32rhbKsao8SbArE+AB
 X-OriginatorOrg: cern.ch
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2026 18:43:47.6947
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2026 18:43:47.5427
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0c22b293-afad-4a97-d3f2-08df48c88b55
+X-MS-Exchange-CrossTenant-Network-Message-Id: bb66386f-7a92-48e5-2710-08df48c88b34
 X-MS-Exchange-CrossTenant-Id: c80d3499-4a40-4a8c-986e-abce017d6b19
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=c80d3499-4a40-4a8c-986e-abce017d6b19;Ip=[20.208.138.155];Helo=[mx3.crn.activeguard.cloud]
 X-MS-Exchange-CrossTenant-AuthSource:
-	DB3PEPF0000885D.eurprd02.prod.outlook.com
+	MI3PEPF00008485.eurprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV0P278MB1365
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV0P278MB1244
 
-Required for EFI variable access on this device
+Add the Samsung Galaxy Book4 Edge compatibility bindings.
+
+These were previously a single entry, but split to accommodate for the
+two common 14- and 16-inch SKUs, which differ in several areas.
 
 Signed-off-by: Maxim Storetvedt <mstoretv@cern.ch>
 ---
- drivers/firmware/qcom/qcom_scm.c | 1 +
- 1 file changed, 1 insertion(+)
+Changed in v7: the single compat binding became the two 14/16inch
+entries below, one for each of the two common SKUs. Re-review
+requested, as the tag received by Marcus was for the
+previous single-entry version.
 
-diff --git a/drivers/firmware/qcom/qcom_scm.c b/drivers/firmware/qcom/qcom_scm.c
-index 030e4ba90..dd929fc06 100644
---- a/drivers/firmware/qcom/qcom_scm.c
-+++ b/drivers/firmware/qcom/qcom_scm.c
-@@ -2270,6 +2270,7 @@ static const struct of_device_id qcom_scm_qseecom_allowlist[] __maybe_unused = {
- 	{ .compatible = "qcom,x1e80100-crd" },
- 	{ .compatible = "qcom,x1e80100-qcp" },
- 	{ .compatible = "qcom,x1p42100-crd" },
-+	{ .compatible = "samsung,galaxy-book4-edge" },
- 	{ }
- };
+ Documentation/devicetree/bindings/arm/qcom.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/qcom.yaml b/Documentation/devicetree/bindings/arm/qcom.yaml
+index 7ffa4f699..41c9cecb5 100644
+--- a/Documentation/devicetree/bindings/arm/qcom.yaml
++++ b/Documentation/devicetree/bindings/arm/qcom.yaml
+@@ -1312,6 +1312,13 @@ properties:
+               - qcom,x1e80100-qcp
+           - const: qcom,x1e80100
  
++      - items:
++          - enum:
++              - samsung,galaxy-book4-edge-14
++              - samsung,galaxy-book4-edge-16
++          - const: samsung,galaxy-book4-edge
++          - const: qcom,x1e80100
++
+       - items:
+           - enum:
+               - qcom,hamoa-iot-evk
 -- 
 2.43.0
 
