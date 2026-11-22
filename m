@@ -1,112 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795339906;
-	b=E4btxeOGpG9Z+SRFE+mHr2keI9eGIvx0qhHohoQZuZz3nTZ+dEHIHsG+WKMcJtTYZelZ
-	 CSFPJCS143xuz3Gp+lCvFLdtJlHIc0U6Eq0S44S0Qevpf6+dU04I2AnJi3n+mPzuOsixb
-	 v1+Fdpxyb2RK59PMSmJkHb7UqmWl0pmId51IKy3P/QwcNJUDbHYzfOTHRKjJL26FrDL+h
-	 CD/oRBMavPjR1c0y3syljuo5NOL5eGO8fiS7ZlL50LJ3z5sY32f0vc+yupFf0vaNu48AE
-	 AyNCytpjAN1SxAxQUy1Y5s+UNgTRT0upccElXCsErS9eYFZMytDo5zFSL9QvMA51Ycg==
+	t=1795340056;
+	b=e164c5xoM5buG1uhnViyYCfA41YitTSXDS448AmeBWH9bHwCHbNBipwWosVx4f1QyLxs
+	 KVYbbpPmIQiQMBqTf/EbI3HnvK+C60r65z9Ai2U2yPqKy2sSyHeIPuqn6kZJO9f/+fHEB
+	 ggjRhy8nwPEQhMx8f/Ze7FJ9GG6Ae7HGnzttL8kC9k6zAw6LPVY2TSyqikIeYppsDsOO9
+	 tSfzOs359IaCSnveThaUupeAn5S7XF4NEj3mzHYZrJGpSzRow7FTlYQCxiL3GewgGNQnm
+	 LVqVVEn+K65+XKnvaEORrfo0M+2Oj0S/6xFuDsnQ3vWWb4SXxkbKBM8nEeswvCOJqsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795339906;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795340056;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Date:Message-ID;
-	bh=R5GY9TTuofYTaa/ZejIza37Mpjz95YygMJZxjVzg2k8=;
-	b=J4k9w/KykHS06kHE2T08jU9i1mILpeha6CJYD2FZFgJkQLU5RDp7YSbAOBahq69fnk4W
-	 kpopv/UjHtzjuqJ6b1OcrjqmRUNr1UxtfQfU/U+GYlBF6JFAEtMnVyEcGqWLBttx3a6Dz
-	 dzTHY80VPy6ZqpUwsCpSi7/vaDis/MhzbSVDKncph1DAPi6ZURS/Ei0E+cDr0X68irHCK
-	 TZ/RhbGQHRPqM15BGDlC1pEbfViK77d6lwwOPOTmcN6z1JFrxbXQadu3pI5dxoeLkUiwZ
-	 F+DrkF4AezIduMw9UoiIcc5erlyAglBMlqXmqIHJXFnsAX7vtrauswK2c6CYS48CWkA==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=+2xrspYuu+FL47jccjzdtxpgEf6qiE/xXRLpMfETdrM=;
+	b=noAlHjah6WY4b8c66FxB5iIAYc4F+e65/8VrDsjeesNkrjycrpcnY+JbmaEq1mem4SB+
+	 r2U3oYj55DoVvIl5MamnL4jH4NiXdCyjgzYnuPA1tSNxz7XRambK2olDYOG/+Dah4pWSf
+	 lhB8xLhyN55NyBTD2nIkI9c1FJLJxkS9c+GdIQ39OJ+6ml7/pURzx4cAFnvH0QGE+COLy
+	 XYLftvUAes30BiRZF8AqVFQkflaqWrIGobgGh+bi9gvLL8057OnvYqFFTS51aYhvwL/cV
+	 gaXf65Yx65VR0zJ8Psd6P8v+xxdptq7TuU5JuzIpzg3GKicBndG3OD955chPbq5N9sg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qkqpt50t;
-	arc=none smtp.remote-ip=209.85.216.42
-Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
+	dmarc=none header.from=teslabs.com;
+	spf=fail smtp.mailfrom=teslabs.com;
+	dkim=pass header.d=teslabs-com.20260707.gappssmtp.com header.i=@teslabs-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=bmjpe7XS;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4947606A32A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:31:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4947606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37C2C606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:34:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37C2C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=teslabs.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=teslabs.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qkqpt50t
-Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3b403511a3eso308440a91.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 01:31:45 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=teslabs-com.20260707.gappssmtp.com header.i=@teslabs-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=bmjpe7XS
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a35a60499eso17340275e9.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 01:34:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795339905; x=1795944705; darn=vger.kernel.org;
-        h=message-id:date:content-transfer-encoding:content-type:mime-version
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=R5GY9TTuofYTaa/ZejIza37Mpjz95YygMJZxjVzg2k8=;
-        b=qkqpt50t0NjfJe5lLV1jyXQ6XtjZBa5eV9qYMkjLE6ts7F2JKg9eIElrgOosmXUhd/
-         ngDz7NoWTZAOtPYbr45LkRO3oWyDLtP/qWTK6PgaoxXwJuqSY4GY/O+GM5YYsYGq+Nzb
-         46zQJ/+DdVf9gJGabH/ZJ9npegdlShBSKRrU0ZwpUVfrSV6Aj0kWijXJ7ztvPgcYeeRK
-         bhrofAXgGyQ6YiRBRHQoIf4og4GFvMuWR/Qp9obZL64esaPDhzQUKyj1Z27gYTI5bZ4M
-         7dNiV+eB1cH5w5ayLnW7QjuYGZAc94qgA09dHFfuynNq3AoWY5uOaCZKrgfnZDKj/Iq8
-         R51A==
+        d=teslabs-com.20260707.gappssmtp.com; s=20260707; t=1795340054; x=1795944854; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+2xrspYuu+FL47jccjzdtxpgEf6qiE/xXRLpMfETdrM=;
+        b=bmjpe7XSigsNo/RmiY/EbMiiQNhopFLdUm/1jAJvD+kMQAWiRIwUHz+tmo3w/+zYHr
+         fMQDJYRSqoj1mI8kaASKDRaoyWIZboEO/enrNzaavHO4BbahVNAYjcWCsi0W3WCSDfcX
+         XYFmLk9tITHWlRWyb8N9hQ7IklRjgIn9NdQLI6Oykom4Z4uPKXNpvk1PQCDIheMkbO6k
+         3u8YwMJyYsZxnoR1h5HB+DeGrSW2cHlLfueuH+kWJ1VlbF59wMtBehHTL3tS8SUL9rPo
+         gylPAHC/ETCivXluHRfK6894vm6BwUy+sfxydJT6fGfoLnye3Ze42R6+UfXwtRJZ5zNf
+         beVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795339905; x=1795944705;
-        h=message-id:date:content-transfer-encoding:content-type:mime-version
-         :references:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=R5GY9TTuofYTaa/ZejIza37Mpjz95YygMJZxjVzg2k8=;
-        b=zS7FHD8DyU/vF9vjOtPHwgB5Yh5+BrnPTv4ynJqlYDtp5jylylOpMH2AJGY9G+Tm0V
-         cfcf5r4QUw9Q5hu9UfmP7uKzwSrF1U2yx/vu6UU9Y0N7KOpVuRtz/DAqUMt4uDmYydbW
-         /J+d+mtsrwJC/wno4cRk/AEDob7JOGy0aS8zkC6i3ZcP+Wwaimp9mx6f3H1e7PRAl7WM
-         AlKVixcYNjvZvDFHRfhNX6zKRl1IP0RE5zUP1PzGOKZyIOCvmmbiJuVLPbQ3vIjF7LSX
-         f8QlaHUZwAwsczK6MB09L0gejclhXlwV6oP6ELRfPAb4LN0JQ53sG6kSww+ZqAuozm4P
-         458g==
-X-Forwarded-Encrypted: i=1; AL+hErHs4sn5UAFTSRUmSO4HyfKGH5bb9Hl+5RqvItyn04J7bxQkm4pNIqssjNsOMmWHoU6hPG3lgqKw6VR3AaE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9p0C5vdjX8EMFsY/q9Bnhlw1CxYt8B3XkA8Qx6hUEZI3dRo5qY
-	6GljX/u/4kOwsq35qSjJn+7TD3OTEhhofKWudOZvZUBccOZ8gKtd+q+T
-X-Gm-Gg: AZFdTZdur3heghYEk/qT/8vDygd+bS2GtIfHJqnxZnlI6Vikx9qUHDDNdQNqI+E8Owm
-	uKDxe+ISGh2cgjIcQwCDerdiHNL7fH+4ZewAahS8VQq6L2YkfEvOUc21x219ee1WcDrZ4Q/VLY4
-	J+wsZf7riKgtt1Bv0h3Eq9Cx7ehSu6cJAoT9HPw/fZDFrPoJyNaxG8lJpjfEw4hAHNe+rxhbYfM
-	x/CfCh+keR+y6Ork16XnnFDyTiVGShThPKHKtAfR6Nhb1L3YDqZX0zzYkJdg+02EurHx8NN49S2
-	FsR/do7EAKv+FU0eHknInw+Gz9IUsSZy3EhTcDsTg+9zir08G+Tod3MAf+ubcsZGZJ1MEhpiddU
-	AyBcKqXAyEiY5q46XNavstUlEdgpAaVtjnRq7x07D4cpZ4dMqg/mJgVf5+vrDYcs93jyEHDlZzj
-	FnDYX16G+yG0wTCp3LgQG/K67OzRnhLnE/AEmYZwJ9KKQY0mviaqRvkDk7U0l5nHSTj7L49K8tL
-	6eI3A9ZES2T3nxl0H9npnG+OiEeDks8q87Ay9Ec8kvDK04XIXBJXdGSQ7b+/7o/kRSSIQJK5Tf3
-	ajuNAyt0GmYWejEm7P1L48qqlNKxDB4AKE5O2QyIv/y3gh5etD80m7XAAVYaTrdx9xQwPkZWrsE
-	7ixvpvGLQdpd8DRda2hHAKxrtuAo=
-X-Received: by 2002:a17:90a:e705:b0:3ac:9c37:9422 with SMTP id 98e67ed59e1d1-3b41c7e4cf5mr11892464a91.2.1795339905049;
-        Sun, 22 Nov 2026 01:31:45 -0800 (PST)
-Received: from claudebox.iyengar.cloud ([50.39.139.68])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ffa98esm14795295a91.17.2026.11.22.01.31.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 01:31:44 -0800 (PST)
-From: Arun Iyengar <aiyengar1990@gmail.com>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Andy Yan <andyshrk@163.com>,
- Heiko =?utf-8?q?St=C3=BCbner?= <heiko@sntech.de>,
- Sandy Huang <hjc@rock-chips.com>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Damon Ding <damon.ding@rock-chips.com>, Alexey Charkov <alchark@flipper.net>,
- Igor Paunovic <royalnet026@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Dmitry Baryshkov <lumag@kernel.org>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, kernel@collabora.com
-Subject: Re: [PATCH v12 06/23] drm/bridge: synopsys: dw-dp: Fix AUX transfer
- timeout race condition
-In-Reply-To:
- <20261114-synopsys-dw-dp-improvements-v12-6-d42d3dc5bdd4@collabora.com>
-References:
- <20261114-synopsys-dw-dp-improvements-v12-6-d42d3dc5bdd4@collabora.com>
+        d=1e100.net; s=20260707; t=1795340054; x=1795944854;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+2xrspYuu+FL47jccjzdtxpgEf6qiE/xXRLpMfETdrM=;
+        b=2jou6aO74yeInW0UIacNNOScfWCqHEUkUiw2Lq0uw9LqrBt7FxooE7A2OfWx6eWyuz
+         rg+OPCVbFK3PqISZ4nf9sCh5fn25wqmG2pwizlrLAmq6SzU3DIolfg8xX5c5HAdu+dzI
+         EyW3qX2ruGnEfaHj5lY8rdl9xexpBNzfYNm9+IDenrmhlYN05rHb+zMfztWF1tzEi4AA
+         iwxhHT1nOcc5rLJzjkQuvZkT0uNFEqdzlShN98bzTAkB1mftikrb0KOLdrYWmb+vTMo8
+         mD5S/ZQsah/jR82MWaw8/Awawdql1mBxP+dlvf1uVMlfY/DUihRVptRXJ8dVRlb9YwWG
+         zT5g==
+X-Forwarded-Encrypted: i=1; AL+hErEzu0cxkWisdm4txfX37LJllsrM80thRReGyO4fanlnD0g6hme4ZYDcR0F1q6KxL7uKeKLkv0ttZaZs/DQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/GLvrpUSLQAqGE1tnz+DgXRHA/BP4RfVL5fEJLK8tTmPzpjAgA
+	mbpG3UDHrhtlrx7DDs6G87yOObYpANdOtluXJPzWNcsdKeCR8jyg0SwWn+JeJjdjmiM=
+X-Gm-Gg: AZFdTZeqoa/fWAKBYlH7LM+JVWKukT5PaoucfrbXNRvCL/tqokxtfKn8rTfny8fhPWf
+	HffFmYn3NvCM9plQCliwrlK9Q4S/DhAyJp50drQ1764CjXTOwrdPqTkuwZo6K1zQG7pEptjdagH
+	D370d/R7seEjEi9r03+mmgb7KQa4mDXhxz0q4cXOR08erDWMNN73bMhzbcF62yxFZw2H3cX6Ev6
+	0sr43yX/sO0zWdVPWTIStXjAnmjuiFCGY1Y4sgzeWRlTPPwmPU8CZX0MKHDXWXmdvSn6ne0GQsJ
+	iCNPjywwY1FaPMazJVTMtaNa9uQkqEt2Lg+EkVGnFounWWKjb/528nMnxg0bi9UpIqkeKLd2AfS
+	oj5STOxQSTxEoqfak6DNGYTpkWqpoCqzbwsRbNtAcAG5X+YLniWKJZxQUZ84p/lwf5kOp/wJgzK
+	O2gOa1Msif2kAmJ46M2n7GpPCjkBKaYirzUi40B0pTE2R52z5RrI8qBgVrC2/Fx6mfql0Po9/9H
+	zqBVNDjt+ArF2YcraS5WUXbfRQJVY/WD+LI56wxBQGu+Cr5O07nrQhpm7VYIzOeQl21xRM1HTCt
+	2MB2yBPQlLKfMHusIRToG70MULqqRlFIPRE0TKqMWu9FuUNlkHXTSA1NB/ieVFKdc65aX1BvnGt
+	aME31U3mBz/g=
+X-Received: by 2002:a05:600c:530f:b0:4bb:68b9:f615 with SMTP id 5b1f17b1804b1-4bb88810b22mr173144325e9.17.1795340054581;
+        Sun, 22 Nov 2026 01:34:14 -0800 (PST)
+Received: from localhost.localdomain ([139.47.121.129])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884911e3sm291475195e9.6.2026.11.22.01.34.13
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 22 Nov 2026 01:34:14 -0800 (PST)
+From: Gerard Marull-Paretas <gerard@teslabs.com>
+To: Jonathan Cameron <jic23@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dt-bindings: iio: magnetometer: Add MEMSIC MMC5603
+Date: Sun, 22 Nov 2026 10:34:12 +0100
+Message-ID: <20261122093412.71604-1-gerard@teslabs.com>
+X-Mailer: git-send-email 2.45.2
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,36 +102,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Date: Sun, 22 Nov 2026 09:31:43 -0000
-Message-ID: <179533990370.107225.5765165679182115805@gmail.com>
 
-On Sat, Nov 14, 2026 at 06:00:39AM +0100, Sebastian Reichel wrote:
-> @@ -1491,6 +1493,12 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,
->  	status = wait_for_completion_timeout(&dp->complete, timeout);
->  	if (!status) {
->  		dev_err(dp->dev, "timeout waiting for AUX reply\n");
+The MMC5603NJ is listed in trivial-devices.yaml, which allows no
+properties besides the register address and interrupts. Boards need to
+describe how the sensor is oriented, and the supply it runs from, which
+is often switched on wearables.
 
-This still drops a reply the sink did send when the IRQ thread runs
-more than 10 ms late. On RK3588 (7.3, KASAN on, v11 of this series:
-same 06/23), with a SCHED_FIFO hog at the IRQ thread's priority on its
-CPU (busy 40 ms of every 200 ms), 1410 DPCD reads gave 183 timeouts.
-Checking for the reply once more before giving up gave 0 timeouts,
-with 127 late replies taken:
+Give it a binding of its own with a mount-matrix and its single VDD
+supply, the package having no separate I/O supply pin.
 
---- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -1493,2 +1493,6 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,
- 	status = wait_for_completion_timeout(&dp->complete, timeout);
-+	if (!status) {
-+		synchronize_irq(dp->irq);
-+		status = try_wait_for_completion(&dp->complete);
-+	}
- 	if (!status) {
+Signed-off-by: Gerard Marull-Paretas <gerard@teslabs.com>
+---
 
-Feel free to fold it in.
+Notes:
+    Checked with dtschema 2026.9: the steps of dt_binding_check run by hand (host make too old), yamllint and dt-check-style --mode=strict.
 
-Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+ .../iio/magnetometer/memsic,mmc5603.yaml      | 45 +++++++++++++++++++
+ .../devicetree/bindings/trivial-devices.yaml  |  2 -
+ 2 files changed, 45 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/iio/magnetometer/memsic,mmc5603.yaml
 
-Claude (Anthropic) wrote this change; I reviewed and tested it.
+diff --git a/Documentation/devicetree/bindings/iio/magnetometer/memsic,mmc5603.yaml b/Documentation/devicetree/bindings/iio/magnetometer/memsic,mmc5603.yaml
+new file mode 100644
+index 000000000000..039f53a5f912
+--- /dev/null
++++ b/Documentation/devicetree/bindings/iio/magnetometer/memsic,mmc5603.yaml
+@@ -0,0 +1,45 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/iio/magnetometer/memsic,mmc5603.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MEMSIC MMC5603NJ 3-axis magnetic sensor
++
++maintainers:
++  - Gerard Marull-Paretas <gerard@teslabs.com>
++
++properties:
++  compatible:
++    const: memsic,mmc5603
++
++  reg:
++    maxItems: 1
++
++  vdd-supply:
++    description: Regulator that provides power to the sensor
++
++  mount-matrix:
++    description: an optional 3x3 mounting rotation matrix.
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    i2c {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        magnetometer@30 {
++            compatible = "memsic,mmc5603";
++            reg = <0x30>;
++            vdd-supply = <&vdd_1v8_reg>;
++            mount-matrix = "-1", "0", "0",
++                           "0", "1", "0",
++                           "0", "0", "-1";
++        };
++    };
+diff --git a/Documentation/devicetree/bindings/trivial-devices.yaml b/Documentation/devicetree/bindings/trivial-devices.yaml
+index a8b2b9deade4..17a32dd8772e 100644
+--- a/Documentation/devicetree/bindings/trivial-devices.yaml
++++ b/Documentation/devicetree/bindings/trivial-devices.yaml
+@@ -261,8 +261,6 @@ properties:
+           - meas,tsys01
+             # MEMSIC magnetometer
+           - memsic,mmc35240
+-            # MEMSIC 3-axis magnetometer
+-          - memsic,mmc5603
+             # MEMSIC 3-axis magnetometer (Support I3C HDR)
+           - memsic,mmc5633
+             # MEMSIC 3-axis accelerometer
+
+base-commit: c44104f3642da720164042623e4832836aefdd8e
+-- 
+2.45.2
+
