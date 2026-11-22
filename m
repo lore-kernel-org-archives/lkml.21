@@ -1,88 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795344926;
-	b=MyfAO8AAJ3z20DE9AzhMJI5/pOWiqWdSnTdcqmE2NkdcoyThuW+JhOO5GczvP3P1Gniq
-	 aGdW2q9JY9Hb+mXdkbREehPn4KSJfbxp1sLeGi06TCI+s5qZuI991sEWcOgRZeBcZIgtb
-	 dmt5Zh8Iyn0tymNrVet+iwdGDhgkDyDBxPvoQUr5rDY420sYNFafODaXhVGZ/BmmoeLIC
-	 PD3zy6l8l8ZhlB6cudA9POEfS1SW3hf7Eq7gpnL4n3uRBi/tDNGESLDC8FVCG3uchN+NJ
-	 MQRxzM26QMCXNmb6HM1+iN9e0AgKtTsYnxfTQyF20NW7gzBdfQCEX5tDcD9oF2TCKBQ==
+	t=1795344952;
+	b=JnKaLm93MvoJY9qiiIQpR1WjwvNwe0jRnR/TRls0RWkn2TCKMWeCY+Czwz8ZxJK1H2hf
+	 Cb8E+fgTxl6VvNSc8mWXtuyn9y/ybr90/0BGeuEEssoHIKCvt6WTB4ZKjCqfQnS8CNz+r
+	 n9keRq7mmVL9TCHRl0cA1q23DPQOLDvCO7uxfnJMikutJz4gCcs92FS0jQ+N3p7u/fbNm
+	 w0FG4KYDWMMYIoCHc88Sni1IvrvqzAV0Ta7//QhKhVUbbC8DXlTT6uHDB+xuI4pBv4/RV
+	 olOT835P5NwjJq4ZhiOIKGXxw28pqC6ADWlIYHcVCvX4IWyTnN/fkZIZWlMRDiu0S9w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795344926;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=htlF7oEfA9CRHLcQDE/3KmaHb2HDiaLlK6R0vwijegk=;
-	b=3c+PTp+mBgACxYKP3s3RZR7FJuIMb1Mt8bFoSi8oxRoLUwIlEWFGKMzaHSEm46N4TfVQ
-	 U9gC6UwxHjPj9Ugw7gLTBopf0oISn7wi7gcqyTJm54GsP5ShFH3g+S4911lfL5yDKhnMn
-	 0USW0QnDalipzpeSKKlq+rsx6CzBf1eYaWzPhvQKKH3yjYBu+v3VqM2CiNrKLWa117Cty
-	 0NQmYwgx8a/TydzgHw83inN4jwApak15GLlDmIyILTi6PLx5i1w62yKO9K4MJTggMYutM
-	 YugpJAfg6pxG0yCOL4Y6Yp/aLgj8RNisiYHM5X8Yln+xTwqccVbVv/vTNMAjQJEW3dw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795344952;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=a0xLo14PtGxycyywLArSvreFVvadM6xesLJdfHk84UI=;
+	b=uYtK7GPyqbHSEIJiwkip2ve/+5JAJ9cMIcwKT0f5APqvMZxb6exPbZdbDE+WjlZLzHXc
+	 zMaSiqudkNY26C1AmCSVgv6Hbw7QZRuvdqlVOsMX8j2khXOXIZWfcmnNNnnfkoXpGr0NH
+	 aCC2rtLmX8XK9PbxfgER7ZC9nonEcwE7hGx4LbovOSWFiT7gD24i9wQjWdK+c4izLnvue
+	 QmsMTAF30KF79OzwxNCzbYw4D3rDL3rKtbJq2UP64bM4+UgFCY8sU9lYZHMVhzXe5klm2
+	 SquLPOKLPcnXX592bEtkVGCKvgRCgfKa/1DLif1UFLrmh7mI2em09ljQ9wWIQXiLX2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="LTUoQoV/";
-	arc=none smtp.remote-ip=198.175.65.17
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lNwXHh3z;
+	arc=none smtp.remote-ip=209.85.128.44
+Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81B3D606A32A;
-	Sun, 22 Nov 2026 10:55:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81B3D606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CB38606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:55:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CB38606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LTUoQoV/
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795344926; x=1826880926;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=qOh3V320T7Lr+wqFp+bxyvJuZr+uXw9iFnWVu0o0WVU=;
-  b=LTUoQoV/XqRzqNur2lFaVtJNZEppou7bcw3WLC2r4WhESqOQ24QVYwrV
-   RXGRs0yridDSZm5rMn9zejZ2QROLRnX87u+CfYzLUpniK7b0oqdKVQbQ0
-   3SoZ8rIqarTkIdJMld2R28HwTtNS3KY1OZhdKxxHBFHHfgTGHMNqKNWNF
-   m5nhnWJDlb/QL4go0fn7D2GZ3uzSXKpmFgCYcQ5foTX+JoMn1lZNJ+z9L
-   wn3HynkSxkUDrFu2DIUwcXLQtpNfmGgx0PB6L13+QgwXXloFYSO0pFdn0
-   rmWkrDCV7IOIipJLRmF1h2NXKRIRxQv+KYWdTQQFbkwcBOBrt9Fn4Qc5X
-   A==;
-X-CSE-ConnectionGUID: dLpWQncXRWWHjcirvBCuww==
-X-CSE-MsgGUID: livIUt5eTuWBH+M+aoZboA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11973"; a="4176362"
-X-IronPort-AV: E=Sophos;i="6.27,226,1787036400"; 
-   d="scan'208";a="4176362"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 02:55:25 -0800
-X-CSE-ConnectionGUID: 2zpbDEdLSnuxhKe+aV/kbA==
-X-CSE-MsgGUID: UOKUGlJpR3CgkcuknrzOPw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,226,1787036400"; 
-   d="scan'208";a="10943927"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa003.jf.intel.com with ESMTP; 22 Nov 2026 02:55:22 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xV5E7-00000001LN4-1jX6;
-	Sun, 22 Nov 2026 10:55:19 +0000
-Date: Sun, 22 Nov 2026 18:54:55 +0800
-From: kernel test robot <lkp@intel.com>
-To: Fredric Cover <fredric.cover.lkernel@gmail.com>,
-	Paulo Alcantara <pc@manguebit.org>,
-	Namjae Jeon <linkinjeon@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev,
-	ChenXiaoSong <chenxiaosong@chenxiaosong.com>,
-	Tom Talpey <tom@talpey.com>,
-	Ronnie Sahlberg <ronniesahlberg@gmail.com>,
-	Shyam Prasad N <sprasad@microsoft.com>,
-	Bharath SM <bharathsm@microsoft.com>, linux-cifs@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Fredric Cover <fredric.cover.lkernel@gmail.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] smb: client: convert DFS target node name from cache
- charset on mount
-Message-ID: <202611221813.BN4gUWsn-lkp@intel.com>
-References: <20261122045841.99012-1-fredric.cover.lkernel@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lNwXHh3z
+Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4b467581b98so21024585e9.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:55:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795344951; x=1795949751; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=a0xLo14PtGxycyywLArSvreFVvadM6xesLJdfHk84UI=;
+        b=lNwXHh3zfzPpw14YDlTSjgh96AJTrYHkCnLo3alU9+ngcDECBYfnlr9sN2twL4XXRq
+         5BpWoBEW9iQyBtOdg2ePB0/U5/KmWdyWCikXzhI4gFdqjxYUm6Es/jArPFjIjMlB+e63
+         T1QtX7M5+4S+8Wyj+2+XkGy/tbeBtnNdGC+6AQWadwWHVrGlWae6XSGhLDhLrYvJL6FX
+         9EpeJMucXzoiamGcmtCV9qG/WyjssRQvlUbkVnPl9wjSyrE1YBiWXZ5DZRYkdPNIA3My
+         jKrmVb1Tag8Bzx+Gs754REQY1i2xrCG5AWORrYS05HS4HFr7AQ368jHdaRnkdluWY9Ln
+         nLeQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795344951; x=1795949751;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=a0xLo14PtGxycyywLArSvreFVvadM6xesLJdfHk84UI=;
+        b=mYi7+Sk8XirWRQLNX3y/WnEw001pQcYLNhuEn4GUdz3xjYDxQa8T3cHhNgEIAK/qGF
+         ujD3cO4lv/HEvS85As1Cfr//iKzRnqoBZTUPmBS1nvx5G/LAjSjNqQxr2QKS6Ke6J9qW
+         RGpv1KRFfSjjx0Xxxn+cHiuqAyw5LhMc7fCw/tKzFdSwm3sqrheYN3VwE5IuD0Ykh3ur
+         pNVAarVTT8Dzf7tvjYib65+3s5Rveckq/LUvuVpyGdy2ipRpX2NhemqXV/pNkw2gDgxD
+         Hy9ly17BKDZgyBcdSFfg0tSb9+oQ3FXLbh2SZAVJaJtblJCqBQA5bhuTzRpNWVbQnUUK
+         nEiQ==
+X-Forwarded-Encrypted: i=1; AL+hErEAbSgnCjqKyuoXRUYb07FRp1YjtKohEzDwk+otDZUoMZ4Y7577AUDnTIBYuxG2QMz6c4Pw37xe0xGI6gU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/LXt/CrwHkmk3Fneby5Jzn7KGIiICrPM892gzEc5nJjHLRqsZp
+	k2X9t1YxP8/O3KVlF2zkAj4aFg+t+y/x9+7lY08N8rYBnip4qV7cwpX/6CQNEA==
+X-Gm-Gg: AZFdTZeIxhk6Dc+bXlkv2FgQgeYWei2vdc0aStKBiTcB8ujIsevGflpeeKyU+7ICw6C
+	xSeTg9DtkcgGSsR6HiFWr/SKP6t/2SGcWERe2iinSibcb7HFVQLq8cpJc8DntQJLDcViMRUu0MI
+	J1C/dBuuWO0L/ixqzeRxE6adfcGd5fqOwmI6xnTEJvloiGENJ/lgVslImmDuYXz2s0JS3Djf0nl
+	3ZN9ludWJu8hYWAWxe4GazcBiXchUei5HWGlazcWrgSSmHOx4QUXHCRSBQRd1AdNtEey1b+R8QY
+	a+UwZ3alKloN7a/DPzGhYhynDxWXJj4hEH4pY7rLaK9NUD68uJXYj4BZd+K1aWWwMjF9BVPpyyl
+	p/lICIOL4mR8X5kxQdYnt7DndG627fPTqisTzxjdFQu6Ml85qEaA8+kzjjd5liffQSvpCrO9nFM
+	z4BUBg8zkarI0YGHfpFRTz4+QtK6+ig6VMXG+VwagLFk0+kWW5vt312J2GfSIlrdX45JY/CTW+x
+	4o+GAw+ERwjAmy/CV+XVuzQxRBWJf6sOwAe/SNoCv7JqfO/ZUMTiHI/40VYhbHcotCK26lZ8Pq0
+	rTRqdknjGUvBWILIrA2PBlbTAJdYM5s4yP/Iu6+tKm3lSFWM4mQ5yZ813v4r74QhCuxJRikvL3o
+	qcwhMQlBzfW10
+X-Received: by 2002:a05:600c:674b:b0:4bb:6947:3e1d with SMTP id 5b1f17b1804b1-4bb8892c0fcmr167070605e9.20.1795344950469;
+        Sun, 22 Nov 2026 02:55:50 -0800 (PST)
+Received: from gmail.com ([2a01:e11:1403:8620:a189:e169:38a5:6f86])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90655f5asm111316355e9.1.2026.11.22.02.55.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 02:55:50 -0800 (PST)
+From: Paolo Pisati <p.pisati@gmail.com>
+To: Daniel Palmer <daniel@0x0f.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+	Greg Ungerer <gerg@linux-m68k.org>,
+	linux-m68k@lists.linux-m68k.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/4] m68k: Add 060 PCR info to /proc/cpuinfo
+Date: Sun, 22 Nov 2026 11:55:49 +0100
+Message-ID: <20261122105549.84343-1-p.pisati@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261119123558.2108296-1-daniel@0x0f.com>
+References: <20261119123558.2108296-1-daniel@0x0f.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,100 +101,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261122045841.99012-1-fredric.cover.lkernel@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Hi Fredric,
+Hi Daniel,
 
-kernel test robot noticed the following build warnings:
+On Thu, Nov 19, 2026 at 09:35:54PM +0900, Daniel Palmer wrote:
+> Apparently the rev6 060 can overclock to ~100MHz
+> but mine seems to only manage ~60MHz (I wonder if some part
+> of it that other OSes don't use doesn't actually like
+> overclocking...).
+>
+> I started to wonder if I actually had a rev6 and noticed
+> you can't see this info from /proc/cpuinfo right now.
 
-[auto build test WARNING on manguebit/cifs-next]
-[also build test WARNING on manguebit/cifs-fixes linus/master v7.4-rc3 next-20261120]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Tested on v7.4-rc3 plus this series, with a multi-platform config
+and with a 060-only one. Both kernels build without
+warnings, boot to userspace and run fine.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Fredric-Cover/smb-client-convert-DFS-target-node-name-from-cache-charset-on-mount/20261122-045840
-base:   https://git.manguebit.org/linux.git cifs-next
-patch link:    https://lore.kernel.org/r/20261122045841.99012-1-fredric.cover.lkernel%40gmail.com
-patch subject: [PATCH] smb: client: convert DFS target node name from cache charset on mount
-config: xtensa-randconfig-1000-20261122 (https://download.01.org/0day-ci/archive/20261122/202611221813.BN4gUWsn-lkp@intel.com/config)
-compiler: xtensa-linux-gcc (GCC) 8.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261122/202611221813.BN4gUWsn-lkp@intel.com/reproduce)
+# cat /proc/cpuinfo
+CPU:            68060
+MMU:            68060
+FPU:            68882
+Clocking:       49.1MHz
+BogoMips:       98.20
+Calibration:    491008 loops
+PCR:            0x04300601 (ID 0x0430, revision 6, superscalar)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611221813.BN4gUWsn-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   fs/smb/client/dfs.c: In function 'dfs_parse_target_referral':
-   fs/smb/client/dfs.c:44:14: error: implicit declaration of function 'dfs_cache_local_path'; did you mean 'dfs_cache_canonical_path'? [-Werror=implicit-function-declaration]
-     node_name = dfs_cache_local_path(ref->node_name, ctx->local_nls);
-                 ^~~~~~~~~~~~~~~~~~~~
-                 dfs_cache_canonical_path
->> fs/smb/client/dfs.c:44:12: warning: assignment to 'char *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-     node_name = dfs_cache_local_path(ref->node_name, ctx->local_nls);
-               ^
-   cc1: some warnings being treated as errors
-
-
-vim +44 fs/smb/client/dfs.c
-
-    13	
-    14	/**
-    15	 * dfs_parse_target_referral - set fs context for dfs target referral
-    16	 *
-    17	 * @full_path: full path in UNC format.
-    18	 * @ref: dfs referral pointer.
-    19	 * @ctx: smb3 fs context pointer.
-    20	 *
-    21	 * Return zero if dfs referral was parsed correctly, otherwise non-zero.
-    22	 */
-    23	int dfs_parse_target_referral(const char *full_path, const struct dfs_info3_param *ref,
-    24				      struct smb3_fs_context *ctx)
-    25	{
-    26		int rc;
-    27		const char *prepath = NULL;
-    28		char *node_name = NULL;
-    29		char *path;
-    30	
-    31		if (!full_path || !*full_path || !ref || !ctx)
-    32			return -EINVAL;
-    33	
-    34		if (WARN_ON_ONCE(!ref->node_name || ref->path_consumed < 0))
-    35			return -EINVAL;
-    36	
-    37		if ((size_t)ref->path_consumed < strlen(full_path)) {
-    38			prepath = full_path + ref->path_consumed;
-    39			/* skip initial delimiter */
-    40			if (*prepath == '/' || *prepath == '\\')
-    41				prepath++;
-    42		}
-    43	
-  > 44		node_name = dfs_cache_local_path(ref->node_name, ctx->local_nls);
-    45		if (IS_ERR(node_name))
-    46			return PTR_ERR(node_name);
-    47	
-    48		path = cifs_build_devname(node_name, prepath);
-    49		kfree(node_name);
-    50		if (IS_ERR(path))
-    51			return PTR_ERR(path);
-    52	
-    53		rc = smb3_parse_devname(path, ctx);
-    54		if (rc)
-    55			goto out;
-    56	
-    57		rc = dns_resolve_unc(DFS_DOM(ctx), path,
-    58				     (struct sockaddr *)&ctx->dstaddr);
-    59	out:
-    60		kfree(path);
-    61		return rc;
-    62	}
-    63	
-
+Tested-by: Paolo Pisati <p.pisati@gmail.com>
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+bye,
+p.
