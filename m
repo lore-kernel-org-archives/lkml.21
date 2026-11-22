@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.206
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.215
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795315687;
-	b=jBZnYpMVLPsnjlLv/dM8U2nZGKKeV4Yxc9nQqrYm/p7m9igOm+DeCiy2SAP5HDktoob3
-	 4VHBHGABDmPn9BPV6dPmwmexNhaxClXyNnAMBxgKoL0LIVdysiv7e5QNp3n3r6Gnj6YUK
-	 g5FJN3PRwSxztuQOOopvwUvBFqX7djyFgd2+i+z4mosaTBjw04bYZjKSn62kRcXvPuiVd
-	 +hvfh9x6SH3HTd5qWrzobGr+nEIPsXPe2p5n9QkXuaQFBYl2tBh5jxNExAAn9LxJn6X/D
-	 z+4VIteze/8r2R2HdmQ8WLLBfi2kaQmEcNyX6aPtCW71gjOcTXJObZ8FWfd1k9jpsgA==
+	t=1795315692;
+	b=x0VpjsMEyaiTE+bAOybN7yvAkzREhPviFvXtelrx57ULb2d0mihDts3cyUUbJ3v3xn54
+	 6RzJh3DoUinl6KspQVvqQOEWQAIHxolgAZO6jeuJukQEGV/vgkTRTEXMD3GhGPJ0zJ1id
+	 5ujaT0q/CsJ7Ik1sgEyFBFHe13Exmwq55HeR0njool4VdkZt7LvI716g5f+N7SCZjuwtV
+	 NJxSCadjTnVOihC3kacZwNZJOZT0baxeAywK7DqMEy/0FBZeu09s4Cf0fBTnGTbm4vueh
+	 d/6gj5KnDULW9OcO87vAnnT8i9/TUMi3C7VkQqgy5sbH0OoaHJWTMnpW1drHhLWC5Bg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795315687;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795315692;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=kkxhsd+wNZ5decktFmYFGStmSBxY5/td+insSo0Xag0=;
-	b=2/x+ZJgeVWWfJk8/d78h3J6xTz0P8ck264roQpqnADbWVI3DFQxKQJt9UIczu1dKTQut
-	 +QUKsKAuS1JQYS2jLS6+ON18yEOl801O2QWUn5pjw1cR+mv1sjIRGAskra3v5tVDQEkw+
-	 jZ0Gg7I3n3Zt8k2xu/Mtu7KiF7V15m9RuV/3c01/doKjlZkCe9nLJUZbHGoAQHdArldOM
-	 J59om3pNUxD1HKNw9hwYyaT38CvPCJWzI3GgjoAlCSyGS0tmmiJt+jH8t6qy8FnAJSCCV
-	 zriO+W4lCV029lXKSPn3tDtN27giZpyVhlsz+1ynTbcxpgBF3Ai+lAgvRZg6Jxq5P0Q==
+	bh=kAE5NOdIS0At3Jh5k02AXwppwZhtnhWNnu4TdJThSWc=;
+	b=XNkze3ipbeBXOCl1Gtrl8fJ9qC1InXbpaT98AYcEArvcw6SsAiOg9je/aVTf0L1ZHhAl
+	 micsqNTieYSMOhBRHoDNUwf+jpppglyaf5dLvMjhJQJ88R+P/JF2qsIgSsKZN9nmA95wO
+	 6Yq+9PyRZIEGmxkPj8WJD5H0sg/rCS9PNhf//SB3Pdw8Tbime63SZHi0Q/eNh7j8zAVou
+	 ebAVgRj3YJVPc+rFCsuTEXU+Hxj1tqjNBXNlImC6/3BUVKiThtC7Fu+YiSMvjvciDF+AH
+	 yL7H6rJl6/G7glpQ8ahzVZ6+pMincnoNlRHVPX4wtjO0IT+DwiVWAwKsROt9tjbXnzg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="rgR3igk/";
-	arc=none smtp.remote-ip=91.218.175.206
-Received: from mta0.migadu.com (out-206.mta0.migadu.com [91.218.175.206])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IVKicsEJ;
+	arc=none smtp.remote-ip=91.218.175.215
+Received: from mta0.migadu.com (out-215.mta0.migadu.com [91.218.175.215])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC666606A682
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:48:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC666606A682
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A273E606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:48:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A273E606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=rgR3igk/
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IVKicsEJ
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=fU97LFAIirxa+/rlTWHr0TmU8aBTzCwdMVuMHL65nxA=;
+DKIM-Signature: a=rsa-sha256; bh=rf+KgpXOB1eGgKM+XYvnpxenhFFTGz2oUtU9DXBh1Sk=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795315685; v=1; x=1795920485;
- b=rgR3igk/I/weVpqc719mO0amIqbu5Bush6VykTQXIVP7Hgc6xYXHbkpsGvoi0e8PXlKMmskc
- wQdTm2EqLYCt8t7wde+FHoBhXbwDaHyBuIBzk4FnIWu9L8GpEI68nbKF/y/Xtc3ZMBAXReQVpyE
- heYqth8DiLAG0CF6RyGa4ueA=
+ t=1795315689; v=1; x=1795920489;
+ b=IVKicsEJXNAKfxno/Kp7uAN9lKaGVXM31V/OlAcTkNUiqcInsY9HcohqbaruKBNUi59YoWv6
+ zIOyfH+lX2pgNiAwJAGNPhTPpqhisrnSDlyGT1D3S1ZquOINWJW5B00/nY10cB+fXoN0GrAuF50
+ swEwHjvAR5ChboOv1dFubP9o=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 7007ba29080ecc76;
-	Sun, 22 Nov 2026 02:48:05 +0000
-X-Mizu-Trace-ID: 7007ba29080ecc76
+Received: by smtp.migadu.com with ESMTPS id 0558d52f41647cbc;
+	Sun, 22 Nov 2026 02:48:09 +0000
+X-Mizu-Trace-ID: 0558d52f41647cbc
 X-Migadu-Flow: FLOW_OUT
 From: Shakeel Butt <shakeel.butt@linux.dev>
 To: Tejun Heo <tj@kernel.org>,
@@ -73,9 +73,9 @@ Cc: Johannes Weiner <hannes@cmpxchg.org>,
 	linux-fsdevel@vger.kernel.org,
 	linux-btrfs@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 4/7] mm/shmem: handle memory.high overage in fallocate and reads
-Date: Sat, 21 Nov 2026 18:47:34 -0800
-Message-ID: <20261122024737.2741569-5-shakeel.butt@linux.dev>
+Subject: [RFC PATCH 5/7] mm/khugepaged: handle memory.high overage in MADV_COLLAPSE
+Date: Sat, 21 Nov 2026 18:47:35 -0800
+Message-ID: <20261122024737.2741569-6-shakeel.butt@linux.dev>
 X-Mailer: git-send-email 2.53.1
 In-Reply-To: <20261122024737.2741569-1-shakeel.butt@linux.dev>
 References: <20261122024737.2741569-1-shakeel.butt@linux.dev>
@@ -90,130 +90,47 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-fallocate() on tmpfs or memfd allocates the whole range in one call,
-and a read can copy almost 2GiB, faulting in the user buffer and
-swapping the file back in. Without swap, this memory can't be
-reclaimed, and the internal mount behind memfd_create(),
-MAP_SHARED|MAP_ANONYMOUS and SysV shm has no size limit. Today the
-charge path throttles both for memory.high, except huge page charges,
-which can't block under the default defrag setting. Writes go through
-generic_perform_write(), which the previous patch covers.
+MADV_COLLAPSE doesn't limit empty PTEs, so it can turn a PMD range with
+one resident page into a 2MiB THP. Over a large sparse range, one
+madvise() call can charge far more than the range used before. Today
+the charge path throttles it for memory.high.
 
 A later patch stops enforcing memory.high in the charge path, where
-the task may hold locks other tasks need. Handle the overage after each
-fallocate iteration, where only inode_lock is held, and after each
-folio a read copies, where no locks are held. This covers huge pages
-too. Reclaim doesn't need inode_lock: shmem_writeout() reads i_private
-under i_lock. As in filemap_read(), reads into kernel buffers and
-IOCB_NOWAIT or IOCB_WAITQ reads skip it. Reclaim uses the mapping's gfp
-constraint.
+the task may hold locks other tasks need. Handle the overage right
+after each collapse that dropped mmap_lock instead:
+collapse_single_pmd() drops it to allocate and charge the THP. This
+also covers the last PMD of each call, so madvise() over many small
+VMAs, or a process_madvise() vector of small ranges, is throttled too.
 
-With swap, this reclaim finds the folios the fallocate added.
-shmem_writeout() won't swap them out and counts each try in
-nr_unswapped, and once there are more tries than new folios, the
-fallocate fails with -ENOMEM. memory.high should throttle the call, not
-fail it, so tries made by the fallocating task's own memory.high
-reclaim don't count. Tries by other reclaim still count. In a VM with
-swap, a 512M tmpfs fallocate under memory.high=64M fails with -ENOMEM 3
-times out of 3 today with small pages, and would with huge pages too if
-this reclaim's tries counted. With this patch it is throttled instead.
+process_madvise() on another process charges that process's cgroup.
+If the caller is in that cgroup or below it, the caller handles the
+overage here. Otherwise high_work reclaims it and no task is
+throttled, as before.
 
 Signed-off-by: Shakeel Butt <shakeel.butt@linux.dev>
 ---
- mm/shmem.c | 37 ++++++++++++++++++++++++++++++++++---
- 1 file changed, 34 insertions(+), 3 deletions(-)
+ mm/khugepaged.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/mm/shmem.c b/mm/shmem.c
-index 951bb3c8f837..fad86c96170f 100644
---- a/mm/shmem.c
-+++ b/mm/shmem.c
-@@ -110,6 +110,8 @@ struct shmem_falloc {
- 	pgoff_t next;		/* the next page offset to be fallocated */
- 	pgoff_t nr_falloced;	/* how many new pages have been fallocated */
- 	pgoff_t nr_unswapped;	/* how often writeout refused to swap out */
-+	/* set while the fallocating task handles memory.high overage */
-+	struct task_struct *high_reclaimer;
- };
+diff --git a/mm/khugepaged.c b/mm/khugepaged.c
+index 2dc4245814df..1ede7d30853d 100644
+--- a/mm/khugepaged.c
++++ b/mm/khugepaged.c
+@@ -3306,6 +3306,14 @@ int madvise_collapse(struct vm_area_struct *vma, unsigned long start,
  
- struct shmem_options {
-@@ -1918,10 +1920,13 @@ int shmem_writeout(struct swap_io_ctx *ctx, struct folio *folio,
- 			if (shmem_falloc &&
- 			    !shmem_falloc->waitq &&
- 			    index >= shmem_falloc->start &&
--			    index < shmem_falloc->next)
--				shmem_falloc->nr_unswapped += nr_pages;
--			else
-+			    index < shmem_falloc->next) {
-+				/* See the memory.high comment in shmem_fallocate() */
-+				if (READ_ONCE(shmem_falloc->high_reclaimer) != current)
-+					shmem_falloc->nr_unswapped += nr_pages;
-+			} else {
- 				shmem_falloc = NULL;
-+			}
- 			spin_unlock(&inode->i_lock);
- 			if (shmem_falloc)
- 				goto redirty;
-@@ -3567,6 +3572,7 @@ static ssize_t shmem_file_read_iter(struct kiocb *iocb, struct iov_iter *to)
- 	struct file *file = iocb->ki_filp;
- 	struct inode *inode = file_inode(file);
- 	struct address_space *mapping = inode->i_mapping;
-+	gfp_t high_gfp = mapping_gfp_constraint(mapping, GFP_KERNEL);
- 	pgoff_t index;
- 	unsigned long offset;
- 	int error = 0;
-@@ -3675,6 +3681,15 @@ static ssize_t shmem_file_read_iter(struct kiocb *iocb, struct iov_iter *to)
- 			error = -EFAULT;
- 			break;
- 		}
+ 		result = collapse_single_pmd(addr, vma, &mmap_unlocked, cc);
+ 
 +		/*
-+		 * A large read can charge a lot, for faulting in the buffer
-+		 * and swapping in the file. Handle memory.high overage here,
-+		 * where no locks are held. As in filemap_read(), reads into
-+		 * kernel buffers and reads that must not block skip this.
++		 * collapse_single_pmd() drops mmap_lock to allocate and charge
++		 * a THP. Handle memory.high overage before taking it again,
++		 * including after the last PMD.
 +		 */
-+		if (user_backed_iter(to) &&
-+		    !(iocb->ki_flags & (IOCB_NOWAIT | IOCB_WAITQ)))
-+			mem_cgroup_over_high_throttle(high_gfp);
- 		cond_resched();
- 	}
- 
-@@ -3883,6 +3898,7 @@ static long shmem_fallocate(struct file *file, int mode, loff_t offset,
- 	struct inode *inode = file_inode(file);
- 	struct shmem_sb_info *sbinfo = SHMEM_SB(inode->i_sb);
- 	struct shmem_inode_info *info = SHMEM_I(inode);
-+	gfp_t high_gfp = mapping_gfp_constraint(inode->i_mapping, GFP_KERNEL);
- 	struct shmem_falloc shmem_falloc;
- 	pgoff_t start, index, end, undo_fallocend;
- 	loff_t aligned_end;
-@@ -3962,6 +3978,7 @@ static long shmem_fallocate(struct file *file, int mode, loff_t offset,
- 	shmem_falloc.next  = start;
- 	shmem_falloc.nr_falloced = 0;
- 	shmem_falloc.nr_unswapped = 0;
-+	shmem_falloc.high_reclaimer = NULL;
- 	spin_lock(&inode->i_lock);
- 	WRITE_ONCE(inode->i_private, &shmem_falloc);
- 	spin_unlock(&inode->i_lock);
-@@ -4031,6 +4048,20 @@ static long shmem_fallocate(struct file *file, int mode, loff_t offset,
- 		folio_mark_dirty(folio);
- 		folio_unlock(folio);
- 		folio_put(folio);
++		if (mmap_unlocked)
++			mem_cgroup_over_high_throttle(GFP_KERNEL);
 +
-+		/*
-+		 * Handle memory.high overage here, where only inode_lock is
-+		 * held; reclaim doesn't take it. shmem_writeout() won't swap
-+		 * out the folios added so far, and counts each try toward the
-+		 * -ENOMEM check above. memory.high should only throttle the
-+		 * fallocate, so tell shmem_writeout() not to count tries made
-+		 * by this reclaim.
-+		 */
-+		if (mem_cgroup_over_high_pending()) {
-+			WRITE_ONCE(shmem_falloc.high_reclaimer, current);
-+			mem_cgroup_handle_over_high(high_gfp);
-+			WRITE_ONCE(shmem_falloc.high_reclaimer, NULL);
-+		}
- 		cond_resched();
- 	}
- 
+ 		switch (result) {
+ 		case SCAN_SUCCEED:
+ 		case SCAN_PMD_MAPPED:
 -- 
 2.53.1-Meta
 
