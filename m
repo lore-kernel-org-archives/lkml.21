@@ -1,85 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795368949;
-	b=fFmdkf2yy3b5MJogfAk8yUnRZLnNB0KqT7JadNDf4B+Lm43oDw3JFPVYm49SrK2KO1OE
-	 tb4JIRQczD0eP+4Qboqc8EvZT0h+Bhjg8nxro0I7y2xK9RcPBGA23YoDam7Fsi1eRCyi8
-	 xrbhLY6l8rxcRcOq3eWsLAg07enN/hkBaZVAmML81EAqog+s2+/h/bIvuT0yEv+TkVs6j
-	 K0wnoeOl5bT/1olOp2Bf2KtxJq5HPt0OdUnUkM0u/q+kFE6XBjrH5Ubndia7UNEgFme7s
-	 F7ax0+Sw0BoN+mkuvZPHkgzo9bDLiJRNhN80rGoxLyLm4OIx89mgSIMYvwiuFxDHpXg==
+	t=1795368956;
+	b=e2bCdqLc8Uh/JY+t/7CsybvmrcqlVfldwZfo8moAhGSDrwt542p2+PuPLcNpC/LyTGpu
+	 QTmPqloNn18baboQA+WjVBOA/C1rW30NjopEbw0e++C5YhIFUUIjsFK0i/VAumfPn1I8Q
+	 D/DjT4JMLcNckCLKQt5w02leyikWvENKpTAmclDF8BgZ3keRcsB4JI9TqPmvcV4Y1YG7K
+	 ImvfQy5bFDYBdh57Ka+hMa8FigbnzjTduqHXn8EiMnfoYRg0pcmDnVtoEkVKjyEuUx7Yw
+	 fjs1rxpXOoSE6H4tWlXrx3sdmklcoCIowIwjF/KjXX3wwHkvzLp9amNHJxt3fmSHIng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795368949;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795368956;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=akBEH5Mu5RKcJOqX+P3AWfnGfbksoU5XtkoXP6m3PJU=;
-	b=YzliEliCGXlap4Cnv7olYaJiy5lnf/eOlgGFH/YpiPmjSqw6m2xPUL6zj/HjQYq5o44o
-	 XPQUOkSYJlMuHsam3hrsQ1myEQjTjwzN1ogCB4QkETMnZnISRi9Knr2JDmtpFysxysiUc
-	 zep845QFWtH3vG4bG1kPPYEV29cwW6FDaASNmv2pUz5XhxupvC/SfSfZ6ObIWH4bxyId8
-	 mBFhd3eBY7m/i3r9A1nWKrPrSyBNQKbJOiYiMimWCb1UyCGkzFyav1QYPBvNphhYynrzx
-	 AREaL/sJuRebnW5xvVTYhk1mwjb21KzCLxxSfE8KZIs25NWA/L6L1T5D+FnW+7pFiiw==
+	bh=t+GouGnPJfECXmIJYX78k/uwgPhvZezU2VNMojKprrM=;
+	b=j4CYkOolg0fuMn1gtmvJzQdUWJr/YRVBfZKxI2Vdb50D2kp7XRcmGqfG4Muhd/eAGzAJ
+	 uEp+2IBpbQq2MNz7YcwirCaYYfOLKfdLYJbRM9zpKE8o8daSL1ap4m9jW4UbCdXN3U25s
+	 h61wFZt3xKZqKVrJbVnqpx7gQa4gZhpjhblh/oEsV75h42nbVd7S8cVG8UeIbO/CIwl0X
+	 tw3jf99Mu24/tZHQmLZjwBTKvxt/hHDM7L8Vl+oZxr/+kG/lG3AGI4VLX18nEnK9pRAyw
+	 +OHVqOsgLtWr2qb68KhwZjCItznkXqJsa9w0KYTSDSQazzGgpfFFxr2z5A8wjRrJtzg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RUAGvOS4;
-	arc=none smtp.remote-ip=74.125.82.51
-Received: from mail-dl1-f51.google.com (mail-dl1-f51.google.com [74.125.82.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CCy30Koj;
+	arc=none smtp.remote-ip=74.125.82.45
+Received: from mail-dl1-f45.google.com (mail-dl1-f45.google.com [74.125.82.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0ED4F606A331
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:35:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0ED4F606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3691606A331
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:35:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3691606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RUAGvOS4
-Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-1a2761c69fbso547795c88.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:35:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CCy30Koj
+Received: by mail-dl1-f45.google.com with SMTP id a92af1059eb24-1a2af4c8d00so4562890c88.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:35:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795368948; x=1795973748; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795368955; x=1795973755; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=akBEH5Mu5RKcJOqX+P3AWfnGfbksoU5XtkoXP6m3PJU=;
-        b=RUAGvOS424fngzXVXGnBDW25yR6ASDwqNP4nBG6P0RkE9ctSrz2XI5dWkla9yQdNRU
-         8bc+GZlnNJmIL+GnPOD5i/FJh16cvhqcLYZIkG5s/IkqkrVNbUlWzbaclMWsw5QGc6Qd
-         yT2/i3zW+d70nhhLwUMIP11m73mOojUYl0aXoDYXwtqEmJhKXxzb7ppUZSOP1TCZoMUa
-         zFpsiJE8TN7BQ5GCwoYiz1+ILN3lGf1t4zBTybBd0aFdLHXrkrS6miH8A9n+WXnX9q1t
-         tx+eDUcBs7EJU9tDABYma36Kjm9TPSCLgU1cAeRSx/G9t3CuwamMijnomdFYbGBUmUWH
-         H6+A==
+        bh=t+GouGnPJfECXmIJYX78k/uwgPhvZezU2VNMojKprrM=;
+        b=CCy30Koj3yGMktI7EOf5/TKNz7iYG67TRpkRh4+WyGd767qqOqi2odsV0Kj9RgzdpR
+         0MSArWOqWa+qgM+DG05fmhi9iCLdhsBgQjyWvfKvR6CvHw0Kw1swCXgJC/I/7YZCBFAx
+         RZsTHUXrF++DcIHmfu48ehUSD7lTQd/teBhoG7/svuDH6wVGUUZoRzezr2+ICHNgB+xA
+         7B5kvhbXX+rswGCJVvdZwKkoJksBx01YiTcQfMMqQbNarj8hGRVzKxYKOSZ4BfgjxYel
+         89B5N+j/zhAHZO5DrKcXigl4LPA6/fMZ8gt8HzA39nE2qNvNiOa8oD5wwUHgzPz4oTWv
+         z3xw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795368948; x=1795973748;
+        d=1e100.net; s=20260707; t=1795368955; x=1795973755;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=akBEH5Mu5RKcJOqX+P3AWfnGfbksoU5XtkoXP6m3PJU=;
-        b=1V+o8K5cbHHAmJHVr2xHKvFghpyIWyV1SoWyEvcVp96G5utnWNU402F5qXVBcAe7ul
-         Tit2HJd2h8qKgOK7gFb2JoYVynLY+FhmPa9nL1f0+n6ITCxIbAMFBIW01qKn/BYVnFJD
-         YyGHyA0O3SS5mPsb1uGDVeEwE0mFIH7aw4e06H+iL8U3Ln8jq0t/x+cJ17+rD5QuKzAq
-         fUGaSOCjQmNUHii5f6MJUhqWwkI9OkywOYzk0YOebB4n1u+MT4+MUxGd7CdDi5cbEJ2x
-         ztRzEx+bR16amqaTuO1GwKI5V98Qe3478UaYcCglLfVfkDEPXxGYJOnvIHbISNnZky8r
-         GLQg==
-X-Forwarded-Encrypted: i=1; AL+hErEIEcW+GC+oWDK4dhw3MT1yz9kyQnYQ1R/NItK6ayUzVyGBxIbVU+TsPnvrZDwDS+DlUluNfPWllmDpR1Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/K5RVm8NVAzSLS3FiYw5cYjVISV2aZsrjA2fXxOZiAX5GZMZNL
-	wgAHeRSKy8SOtWLcx+MkOX63E1MMIPSPwUOTYl1UY9oEjNxOton5+dTTnXb2jft3G6Y=
-X-Gm-Gg: AZFdTZeEcNl9wHn9lWBFFpp5vSKN6QyJahZ3R3tYc5dE2c/Hc/TYqmavn3pcouTvLV7
-	2b6LEcgkUgHNmZM3Xuij6fRneURRIDiLYdLDRHlOD61eruagQp6vtaLielk0fDEMe+eAnM0Qxqc
-	EKyA2/3bvBKz1P8afyB7EzksJ06cWI8MUk9/nXqlG/nVLp9WQGzwk0ati39GVTYgrxugpF7gmar
-	/SgpD7bkVtAmg+ykcBY9NOboqsPc+GmQCVpWbcHkOPPjttXj5K49cwyuYSiHSlA+UHwTkhKn1Pq
-	DVbtds+ciFGAvYkXjg43T47Y75AqCXC3on7Xt8/DfwnROgfArW9GxmrQ6kWEZGpWYsABWmORJ60
-	gEL+iL7eQHgXy0gjAD5uYmeQYeDbO9DE/ChR2SdwWpwkBYTmkBbeMTCBH8xGz4XYDECCa8DbfNR
-	HcWyo3EK1F3EaPNoBLD29ZdNyQUXtErXPvSWJkdja2STMdjPwIT5nWoUpKsrnkO8Kf8o+DFatbG
-	oPzXE0DaDdwM3CKhFqG85LcSLeHh/KaqkkJM8PSF8AMgXngFPJGQXc5ZPWatDfU/R+ZJLzUgU71
-	FV96+Ic0TtBokmBOE9jl/OmyFnGOl458llZo9SSXVbyS+n9Gh1jFZBqy/4dUWqz053kwL86UmlR
-	J3mtHJtBK77UNZWIXe38n1IYg1FsT5mrDlKohFggEk429TXrrsad0Lk2fJ/0sgsxUgMACP/w9fQ
-	1o7bPrbRWToB63eZeajFA3Gwtl4g==
-X-Received: by 2002:a05:7022:ed02:b0:167:d73a:e994 with SMTP id a92af1059eb24-1b5568f335cmr9548851c88.24.1795368948100;
-        Sun, 22 Nov 2026 09:35:48 -0800 (PST)
+        bh=t+GouGnPJfECXmIJYX78k/uwgPhvZezU2VNMojKprrM=;
+        b=VIRtCNWJISQi854t4uIKq2SRsTOip68jLn5zbPwwmR8v1G88ZIKMBhP8f82Huc2vig
+         CbgkqQvOT+Id+UnDJLLhRUTX9THonP8yoPD6anTK03HvUzJ75HJMNwcO722SEKoCGQb5
+         +5cUSohDk0/8Ir+2qm4shVnxFXdIjlLLfeGRqczRdlYDUY/3SenI9Qpd3Ojgqzf0SE7H
+         EGTfR9zbPC17aCk3gy++Ic5DND93DjIvg8cITjYdBfKGybFS32x2eWbdO3IXDSoA5A7R
+         Xx0gHOVatIkPkmtSkEQk6mKW4SbsOveoGPnWQJj6VNb5YNfdWYQOx8ms8MBh90OGyQX7
+         Xm3Q==
+X-Forwarded-Encrypted: i=1; AL+hErEHF4EigJsGsf2pnZVg+x7yxmrR3KzHyobvZhXwT8lAJVtLDtCAAQxrYhsn1KfTpeDnQRMNwrpRN9ESIlQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+EAKRzMN+cigMENuisrR2moDRMYr/TVuHs80A3LG2+8fU7kcMo
+	24OOa1xjZcB88tgQgtYNINGwwM1ta5KK4omdbDwKxdnmRG1t5t4Y6yi7
+X-Gm-Gg: AZFdTZfacYfBNxCUCNmM2WCs65h/MbUCNI6+V9w/2zXhfMqa0wPlDpq+bwLpSdKDsN6
+	wjPi0Hmca5noi3w043V+N193wREAa5yb3gvI71XjpSaB4kasIQ1pR0YjBb+jlfbb9jTjh6HQioX
+	nNsOVZWUEcn/x1VMfZuBJ/DsCmEf4dbPWJ0zQWnK5MkIHOAnbqv1iYz9lEjseVvOEEdgyIGQQcA
+	OzmjhjE7EWGAyZZ+4y3+8wX4ms2VjvHEPzENMtOG/eeJGFNn4/VP4Dj5UdwB3UlPYrI9Qhhyqw5
+	uncsPnmr+tmlGx/r01QbV1HO9Ul1/y9rRRIIsesOEgYfqsKDv90i2UAQZQQVpZ9HLqv5chPFD+b
+	YBFXtAS7ENRp6gj/ohhZBOmLDC29mR5q8EvdjFvI6/Ahz9kNVlGuRzbqwyRi48tpuuCNmzhprA7
+	HlMIqlCycedjsWeyanjEz08IW3Rww6eHXCZ1O5nxpAt2C365PjEFRKHpT5YR5HGYHj7jIUccBTz
+	DRVbuSG/TCsAcN38KGICFBP3VrefLuHJQf2YLAaidTRNeSZ2ynOWHOequnyFPdeih7ZEKuuSqiI
+	oFU7ioo0WgshAxkMHlbqU41v/aI1WGcCveqmNpmES67qKGOHBAKChc9s0E+3W/aCv/4e8q6scp8
+	KauXXgT1pgPpM9ZUv/lh5jg/cwxCQgvx4kE2p6suMxSE7oszvdaVmmkXFTYo1I4z7iykhv+RS/k
+	3XIPgVaSxjxeEMjzNvdo8DwIav6w==
+X-Received: by 2002:a05:701b:260e:b0:1a9:c52f:655c with SMTP id a92af1059eb24-1b556900476mr10503800c88.36.1795368954863;
+        Sun, 22 Nov 2026 09:35:54 -0800 (PST)
 Received: from suraj-HP-Laptop-15s-fq2xxx.tailee6f87.ts.net ([2402:a00:163:3509:b842:8324:ef7c:136d])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b56ef9fd16sm6419485c88.4.2026.11.22.09.35.43
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b56ef9fd16sm6419485c88.4.2026.11.22.09.35.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 09:35:47 -0800 (PST)
+        Sun, 22 Nov 2026 09:35:54 -0800 (PST)
 From: Suraj Sonawane <surajsonawane0215@gmail.com>
 To: Bjorn Andersson <andersson@kernel.org>
 Cc: Bartosz Golaszewski <brgl@kernel.org>,
@@ -94,9 +94,9 @@ Cc: Bartosz Golaszewski <brgl@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Suraj Sonawane <surajsonawane0215@gmail.com>
-Subject: [PATCH v3 1/2] dt-bindings: pinctrl: qcom,sc7280-lpass-lpi: add ext_mclk1_c
-Date: Sun, 22 Nov 2026 23:04:49 +0530
-Message-Id: <20261122173449.21009-2-surajsonawane0215@gmail.com>
+Subject: [PATCH v3 2/2] pinctrl: qcom: sc7280-lpass-lpi: add ext_mclk1_c function
+Date: Sun, 22 Nov 2026 23:04:50 +0530
+Message-Id: <20261122173449.21009-3-surajsonawane0215@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261122173449.21009-1-surajsonawane0215@gmail.com>
 References: <20261122173449.21009-1-surajsonawane0215@gmail.com>
@@ -111,28 +111,59 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-LPASS LPI gpio5 can mux EXT_MCLK1_C. Allow function = "ext_mclk1_c"
-in the SC7280 LPASS LPI pinctrl binding so DT can select that mux
-once the driver exposes it.
+LPASS LPI gpio5 can mux EXT_MCLK1_C, but that function slot is left
+unnamed, so a device tree cannot select it. SC8280XP already names the
+same slot ext_mclk1_c.
 
+Name the slot on SC7280 and assign it to gpio5. The third slot stays
+empty; on SC8280XP it is qua_mi2s_data.
+
+This file also provides the SM8350 LPASS LPI driver, which uses the
+same pin table, so the function becomes available on SM8350 as well.
+
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 Signed-off-by: Suraj Sonawane <surajsonawane0215@gmail.com>
 ---
- .../bindings/pinctrl/qcom,sc7280-lpass-lpi-pinctrl.yaml         | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/qcom,sc7280-lpass-lpi-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/qcom,sc7280-lpass-lpi-pinctrl.yaml
-index bc7b8dda8..5f7870fa6 100644
---- a/Documentation/devicetree/bindings/pinctrl/qcom,sc7280-lpass-lpi-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/qcom,sc7280-lpass-lpi-pinctrl.yaml
-@@ -64,7 +64,7 @@ $defs:
-                 qua_mi2s_data, swr_rx_clk, swr_rx_data, dmic1_clk, i2s1_clk,
-                 dmic1_data, i2s1_ws, dmic2_clk, dmic2_data, i2s1_data,
-                 i2s2_clk, wsa_swr_clk, i2s2_ws, wsa_swr_data, dmic3_clk,
--                dmic3_data, i2s2_data ]
-+                dmic3_data, i2s2_data, ext_mclk1_c ]
-         description:
-           Specify the alternative function to be configured for the specified
-           pins.
+diff --git a/drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c b/drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c
+index a61df10d4..278d5fac8 100644
+--- a/drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c
++++ b/drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c
+@@ -34,6 +34,7 @@ enum lpass_lpi_functions {
+ 	LPI_MUX_swr_tx_data,
+ 	LPI_MUX_wsa_swr_clk,
+ 	LPI_MUX_wsa_swr_data,
++	LPI_MUX_ext_mclk1_c,
+ 	LPI_MUX_gpio,
+ 	LPI_MUX__,
+ };
+@@ -77,6 +78,7 @@ static const char * const i2s1_data_groups[] = { "gpio8", "gpio9" };
+ static const char * const wsa_swr_clk_groups[] = { "gpio10" };
+ static const char * const wsa_swr_data_groups[] = { "gpio11" };
+ static const char * const i2s2_data_groups[] = { "gpio12", "gpio13" };
++static const char * const ext_mclk1_c_groups[] = { "gpio5" };
+ 
+ static const struct lpi_pingroup sc7280_groups[] = {
+ 	LPI_PINGROUP(0, 0, swr_tx_clk, qua_mi2s_sclk, _, _),
+@@ -84,7 +86,7 @@ static const struct lpi_pingroup sc7280_groups[] = {
+ 	LPI_PINGROUP(2, 4, swr_tx_data, qua_mi2s_data, _, _),
+ 	LPI_PINGROUP(3, 8, swr_rx_clk, qua_mi2s_data, _, _),
+ 	LPI_PINGROUP(4, 10, swr_rx_data, qua_mi2s_data, _, _),
+-	LPI_PINGROUP(5, 12, swr_rx_data, _, _, _),
++	LPI_PINGROUP(5, 12, swr_rx_data, ext_mclk1_c, _, _),
+ 	LPI_PINGROUP(6, LPI_NO_SLEW, dmic1_clk, i2s1_clk, _,  _),
+ 	LPI_PINGROUP(7, LPI_NO_SLEW, dmic1_data, i2s1_ws, _, _),
+ 	LPI_PINGROUP(8, LPI_NO_SLEW, dmic2_clk, i2s1_data, _, _),
+@@ -118,6 +120,7 @@ static const struct lpi_function sc7280_functions[] = {
+ 	LPI_FUNCTION(swr_tx_data),
+ 	LPI_FUNCTION(wsa_swr_clk),
+ 	LPI_FUNCTION(wsa_swr_data),
++	LPI_FUNCTION(ext_mclk1_c),
+ };
+ 
+ static const struct lpi_pinctrl_variant_data sc7280_lpi_data = {
 -- 
 2.34.1
 
