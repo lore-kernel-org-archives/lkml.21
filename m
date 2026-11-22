@@ -1,84 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.211
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795373480;
-	b=0IzzWdYASjNuAAa9D28NrYdpPqLV7DxXNsCoRNHdLKRgA/Me5Ovsiquw6Tops5n3Eje0
-	 EfGEhmSd9bN1EoeofNWRN9FdcwwODEp/bPnbLasGt1RqJbz7fm4ZJHyxoz/rdEU3FeSYP
-	 PHXw3f0Jj6BqV62wJKfIsqulx+X23+L4NOARnh5Z4GpwQvw5+g8Ee68X0x9b/OZ2DG426
-	 R1tGh3zYz5uSxiUCGKfvIRrw3IM601c/xkAs1EV6+sf9mxlU9YGciIeImXeFi29aa+Lxe
-	 qnd9GzIRZSdcZl/ezpTQ3qgrrxl6boP18gDO4qgmoxANi/+wRnJSsz3o2szdmWaDYDg==
+	t=1795373677;
+	b=Pl8A8OzXMkc+Ebh5wR3pv3H5IcK9SJc32C06/KA94ZSCRRWHdlTeak15J1v/7J23lMsc
+	 gA6w3ChaDSbFkOiBvlBfkWn8pD6CRA7xU6fzSadMdIEHomhWsLdgzt/8C3xw2tgz9Orsg
+	 Skk4GBc/C1uGLiR+QHu2LlVmJmoezLRrwieBNv0CVFnW65vPfRc3EV4xHmyy1p5r1jbCW
+	 0I5bSiw1aTGgOvPYUIaVy25mB8c4bn9f9YWBQy0gQqlvBjTCNJ0H9FgY8QaIpsVillxN6
+	 wrCa97B5zFzouxSQ6azjhojnTLTLSOUf7END3NrvmlYZVJl9p9UVxppWZJoUO/AeNPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795373480;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=tBD687EIYEUvkIrpnbGGfnzsILSIPeHgGqT6hWEefwg=;
-	b=p8dgSdQ5jDUmClbPNULpC2g0FmsATBSQ40Zsn2oL/32ujADXRN2bvXQJxWNmoPIy7X+K
-	 VPDs412XmKv46O5bYFCQPYJ9Y68/unSn6Lfg/pJFfZJfKHfVqAqXy2zEd095n+XAiITdd
-	 zipGH2JJqgDsMUycdMox0uqFr6KfrnDtHnsc9ErOEM+cbFuDnNDfFi8ZqpJwJzg7wK5R5
-	 JxWESx4Rd2t+duAkOGNMDED6/kGY/BzC9cuHiRARjviPFJ13vu2l7SXw36LMHJqn9nZco
-	 IC+aMnjXKT/NsEa2pLJeLliHRoCZYmjcImZFJNJCLcyTgC765eb+A3n5FG2yv6rLTvQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795373677;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=Uf40K/pvodARX4TFG1e6YUSwIbzlkO0+M9Bn1ppfz2s=;
+	b=3QtT22jxSAnQrR3p46NH7T3W5inItsjQdspsI47XTE8JI7zFo/pe1vrtFH+zsA4X+nyG
+	 5bReOq1YEn1hWH0jIXx6U0N5tJSCg40nLsIHqZkSr0tkeoHwSgyhxCupmENdN2qM5PFId
+	 P0dnM1g6pRSzHAWUXo3HzNK/NdTK63XrWRZV0rB7sSDCByqK+/Jnn5Ce6IPLCKzCPWjtT
+	 yjwPVCyhIGVoOzf9AGZ4pAXqhGQ3nlldVSVBh3tAripAZGiRSrrH2ltmmFWw/dKa2zEa6
+	 0VU/sA0zNl0ApB8WZwWm1RSXpVsZvn4yNkPAxQJcFoyWl4k5j5l5r0MnMirTyhSUIvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=lWWwPPca;
-	arc=none smtp.remote-ip=95.215.58.211
-Received: from mta1.migadu.com (out-211.mta1.migadu.com [95.215.58.211])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Iaef/p1i";
+	arc=none smtp.remote-ip=209.85.208.46
+Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com [209.85.208.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2CDF606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:51:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2CDF606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A6AA606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:54:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A6AA606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=lWWwPPca
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=tU3pIbFxSg5klEZ/exx9wdGBs2UPDs6YWG2Y6wCAkFY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795373478; v=1; x=1795978278;
- b=lWWwPPcaygF+KMV0Jpyo6Asm1l4dHw+k8qc2naIHqOgY1VYiHUjB8dHdrctxT8STVzJBNHY4
- aBsE5Rn5+drGg8uSqLWDQ/rjz3dCpNmzHymiHY/ASBo/yvCt8w69RFx4tR6yj7kcgZL8S966cbk
- r3n7iJrmnX7m4PmuHxkv6B+8=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id e4ed702f020cbf52;
-	Sun, 22 Nov 2026 18:51:17 +0000
-X-Mizu-Trace-ID: e4ed702f020cbf52
-X-Migadu-Flow: FLOW_OUT
-From: Usama Arif <usama.arif@linux.dev>
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Usama Arif <usama.arif@linux.dev>,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	kees@kernel.org,
-	hpa@zytor.com,
-	gustavoars@kernel.org,
-	ardb@kernel.org,
-	hca@linux.ibm.com,
-	nathan@kernel.org,
-	ndesaulniers@google.com,
-	morbo@google.com,
-	justinstitt@google.com,
-	linux-hardening@vger.kernel.org,
-	llvm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	riel@surriel.com,
-	shakeel.butt@linux.dev,
-	kernel-team@meta.com,
-	rkeilty@meta.com,
-	atish.patra@linux.dev,
-	dgreid@meta.com
-Subject: Re: [PATCH 2/2] x86/kstack_erase: Use REP STOSQ for large stack fills
-Date: Sun, 22 Nov 2026 10:51:13 -0800
-Message-ID: <20261122185114.1025845-1-usama.arif@linux.dev>
-X-Mailer: git-send-email 2.53.1
-In-Reply-To: <20261121182208.19594445@pumpkin>
-References: 
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Iaef/p1i
+Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-6bab10842f8so526147a12.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:54:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795373676; x=1795978476; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Uf40K/pvodARX4TFG1e6YUSwIbzlkO0+M9Bn1ppfz2s=;
+        b=Iaef/p1imBWOYDmFzHXqlV2pxfpBABeFA3v8p4Ao3xWCNO/2WMkjIK7UFKLAhGbkHQ
+         POed4MhGLKUu+6WzHKcEYOMAiZGIVKDdsXbgRwFtg2SHdsDPHWxeyWalcdAD9kuW/EHa
+         fLWSGH4J3uVWyTPAMWv1VATk9VdtjOeKAPfUKTV19sQ+Ksi88M6REDfSGrWMI2//5o3P
+         aQCBEHFmcqwOjQAUvvpM/hm3+UIs1vrw6rkhSgjoHSbMyZ1O5mrJRs7D0VOj58zirupa
+         iVsYC2JQTx5oJtocVzDklyBNANhQMYjhcFbv2lxkTH+D5wK5q02dgXjHcFavYOTM5zR9
+         OOSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795373676; x=1795978476;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Uf40K/pvodARX4TFG1e6YUSwIbzlkO0+M9Bn1ppfz2s=;
+        b=or8UU0nicifLGEdMvk5Il+wg3J81DfTKTilQgb8izMJel69QdGMHvyfU3d7D//Wr9V
+         +YD7WIkJpeH0ZBVmuPCuumkECDCtKDII0XMSO49kGEhMSIQtJ1oHUiCt0iSk0cloDT6x
+         fxI7KaHxgeOuZtPABmdPGmU1cH3vKsto0x56I+He2onXrGT58sQCUXq9Y/1jIiODl9Vj
+         SjRRy7mboUh3cWCpYqkSlNK1XMtVkn+yFGcZtC7OJv1RWk/bZrItB2+eP1T6jHboH5yZ
+         m19tONRDSq4j5eifT3k7qmEjpemb11Ij8GVY05pPr0IVRL0Sf+xkwH609978FDBxUWlK
+         SUyw==
+X-Forwarded-Encrypted: i=1; AL+hErHbc6O5liIdT1VDJUAXkx0a2TSSbKIV/hHwO0QR1UTvznQ4cpTsBNcBxfj9gx/tqk0dFK8N2JQdO+t/PMI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z85iI4B9EoVGmJAiC87Sy1xSUPKcvt9GWjjit/JpTtDDr0PkQTm
+	6HUj//BQ7do1RHyAVuRuh1URuiu9ipzyaJb5J7Xt8rMAp1slRv98YLHc
+X-Gm-Gg: AZFdTZfCqIZM7IjMb5cPS3PypXzTzN+BD6hp9toB1WmqPEvU17cNOAA2gp1EQoxiCUp
+	kv2LiLqVx2H51u5sRFHNJdSZXy7OpueVMlnV28MmkMxa2HQRHPPDDtyPtWOT0tNwciApxo8cTpO
+	MBLOFCFF+zzEMA79FLJhRU9wVTJBsqtWJeKxN7keE0M/HgsDotwbXhbY6yBYEo0QIvu01nlty47
+	FRsyZU1gZXwaT5EapKulhIBIZitE2rzeSxgQr05iM+EYKIyo7xDr7Nd0oZrOqSN9r2R5W6cVWcW
+	yCTX5P3LmT13+D+ZtNyyx7e802EcpS4glFOo4qV/otw4xTRFJHf8ZdKnIK5sAKB+JohMMA8JkIS
+	3R6mwFwpKeRa8nappVoVeeS8XsoZMNa+AVULNPm+ydaFbIFP5jgODFfjF33NAIboJZywkQSxVSi
+	4cLrgYlbc0AM2bbW2Uv65QWVZi6oEMdYCKUx8XEqChsytVqdHg+Ke5Ru2iDocFxV2ICG5nGCGTP
+	e+wxTfyqdz2Nv3UpyuUqWPjnMM5ojtdOCOcfvVJ+xLOyltlJtixnsZImr3L3FVoxyxHqtB+hiYa
+	AnEqDdrKVyWOHrfoO10kWPfrOw==
+X-Received: by 2002:a05:6402:22ed:b0:6b1:c285:f8d8 with SMTP id 4fb4d7f45d1cf-6ba1fb0ff8cmr5919856a12.11.1795373675341;
+        Sun, 22 Nov 2026 10:54:35 -0800 (PST)
+Received: from dl360p ([195.155.168.55])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba7b9570e9sm2385762a12.36.2026.11.22.10.54.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 10:54:33 -0800 (PST)
+From: =?UTF-8?q?Adil=20H=C3=BCsrev=20Tepe?= <tadilhusrev@gmail.com>
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Sebastian Reichel <sre@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yassine Oudjana <y.oudjana@protonmail.com>,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 0/3] power: supply: s2mu005-battery: add S2MU106 (Samsung Galaxy XCover5)
+Date: Sun, 22 Nov 2026 21:54:30 +0300
+Message-ID: <20261122185429.557309-2-tadilhusrev@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <DN05PYTW4NV6.SOA0NRNOJBAR@disroot.org>
+References: <20261116074000.355176-1-tadilhusrev@gmail.com> <6afc2f77.2bb6edcb.1518d5.5d4f@mx.google.com> <DN05PYTW4NV6.SOA0NRNOJBAR@disroot.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,250 +104,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-On Sat, 21 Nov 2026 18:22:08 +0000 David Laight <david.laight.linux@gmail.com> wrote:
+On Fri, 20 Nov 2026 21:22:14 +0530, Kaustabh Chakraborty wrote:
+> Actually, this one was just fine. I didn't look at the patches
+> meticulously but it seems like it does belong here. The correct approach
+> would be to adjust the driver correctly so that it accepts both.
+>
+> The compatible patch is, in fact incorrect. The driver clearly uses two
+> separate compatibles for the two devices, so there should not be any
+> fallback.
 
-> On Sat, 21 Nov 2026 13:57:39 +0000
-> Usama Arif <usama.arif@linux.dev> wrote:
-> 
-> > On 20/11/2026 10:55, David Laight wrote:
-> > > On Thu, 19 Nov 2026 13:31:08 -0800
-> > > Usama Arif <usama.arif@linux.dev> wrote:
-> > >   
-> > >> With KSTACK_ERASE, every return to user space poisons the part of the
-> > >> task stack that was used since the previous return. The generic
-> > >> __stackleak_poison() does that one word per loop iteration, so a syscall
-> > >> that went 1-2 KiB deep pays for 128-256 separate stores. On Meta hosts
-> > >> running many small VMs, stackleak_erase() accounts for about 1.5% of
-> > >> non-idle host kernel cycles.
-> > >>
-> > >> Override __stackleak_poison() on x86-64, as s390 already does, through
-> > >> the hook added by commit 491a78663e03 ("stackleak: allow to specify arch
-> > >> specific stackleak poison function"). Fill spans larger than 512 bytes
-> > >> with REP STOSQ and keep the word loop for shorter ones, where the fixed
-> > >> startup cost of REP STOSQ does not pay off. REP STOSQ starts to win at
-> > >> about 300-400 bytes on Zen 5c and Cooper Lake, so on both no span gets
-> > >> slower.  
-> > > 
-> > > As a matter of interest (and separately from the exact code) how did you
-> > > measure the performance to get the 300-400 byte gain point?
-> > >   
-> > 
-> > With a userspace benchmark pinned to one CPU. Each sample is one fill of
-> > a stack buffer straight after a getppid() syscall, with
-> > lfence;rdtsc;lfence around the fill only, an empty call subtracted, and
-> > the mean of 15 times taken. The size stayed fixed for a whole run,
-> > so the branches were well predicted. The plain loop and REP STOSQ
-> > cost the same at about 430 bytes on Zen 5c and 320 bytes on
-> > Cooper Lake.
-> 
-> The lfence (or mfence - which is the one you really need) take long
-> enough that they don't give meaningful timings for anything short.
-> I think they manage to overlap with the setup times for 'rep xxx'.
-> You also get the problem that the tsc doesn't measure clocks and a lot
-> of benchmarks run long enough that the cpu speed changes.
+Hi Kaustabh,
 
-I redid it your way (user rdpmc on the cycles counter, no fences, data
-dependencies in and out), and also with lfence and with mfence around
-the rdpmc. Where REP STOSQ starts to win, in bytes:
+Thanks for taking a look. To be precise about what I was reacting to: the
+unsoundness wasn't that the same driver matches two compatibles -- patch 3
+did add a distinct match entry for each, with has_monout set correctly per
+chip. It's that patch 1's binding declared the S2MU106 compatible as a
+fallback to the S2MU005 one:
 
-                          plain loop   2 stores per loop
-  Zen 5c, your method         384            877
-  Zen 5c, lfence              429            821
-  Zen 5c, mfence              424            829
-  Cooper Lake, lfence         277            320
-  Cooper Lake, mfence         358            358
+compatible = "samsung,s2mu106-fuel-gauge", "samsung,s2mu005-fuel-gauge";
 
-With fences the loop and REP STOSQ both read a few cycles lower, so
-the crossovers move by about 50 bytes. The fenced cycle counts match
-my TSC numbers.
+That pattern exists so a kernel with no S2MU106-specific knowledge still
+binds correctly via the old compatible alone. It doesn't hold here: a DT
+node that lists only the old compatible (no S2MU106 string at all) still
+matches s2mu005-battery.c's existing entry and takes the has_monout=true
+path, reading MONOUT registers the S2MU106 doesn't have.
 
-On Cooper Lake your method gives the plain loop the same crossover as
-the fences, but has the two-store loop filling 512 bytes in 38 cycles
-on a core that does one store per clock (60 with lfence, 66 with
-mfence). The second rdpmc only waits for the loop pointer, which is
-ready while the last stores are still queued.
+You're right that the actual fix is narrower than what I did: drop the
+fallback from the binding (require samsung,s2mu106-fuel-gauge on its own),
+keep extending s2mu005-battery.c as patches 2-3 did. I went further and
+withdrew the whole series for a standalone driver, partly because I'd also
+talked myself into a chip sharing three register offsets and their scaling
+with another, on its own I2C address, not really belonging in that other
+chip's device tree node/driver file. That's a shape preference more than a
+bug fix, and I should have said so as a separate point rather than folding
+it into the same withdrawal.
 
-> 
-> I've updated my benchmark code and run some tests on zen5.
-> This uses the PERF_COUNT_CPU_CYCLES counter but directly executing rdpmc.
-> I then use data dependencies from the original count to the test code,
-> and from the test result to the second rdpmc (which nicely has a register
-> number) to get a time that includes the test function with little overhead.
-> The clock count for an empty test function is 25, 32 with a memory read.
-> 
-> Each test is run 10 times and the clock count for each shown separately.
-> The first column includes the cost of the I-cache loads and any branches
-> that get mispredicted because (in these cases) the length changes.
-> This is most obvious for the libc calls.
-> 
-> memset() to 4k aligned buffer
-> 0: len   16 ok  445   32   32   32   32   32   32   32   32   32 no_memset
-> 5: len   16 ok 10538  107   52   52   52   52   52   52   52   52 libc
-> 6: len  256 ok  193  101   48   48   51   44   51   44   44   44 libc
-> 7: len  512 ok  120   83   51   51   51   51   51   51   51   51 libc
-> 8: len 1024 ok  111   56   56   55   56   55   56   55   56   56 libc
-> 9: len 2048 ok  117   71   72   72   72   72   72   72   72   72 libc
-> 10: len   16 ok   90   78   74   55   54   55   54   55   54   55 stosb
-> 11: len  256 ok  112   78   78   78   78   78   78   78   78   78 stosb
-> 12: len  512 ok   80   80   80   80   80   80   80   87   80   80 stosb
-> 13: len 1024 ok   90   95   89   95   89   88   89   95   89   95 stosb
-> 14: len 2048 ok  105  111  104  104  104  111  104  111  104  111 stosb
-> 15: len   16 ok  104   88   84   58   58   58   58   58   58   58 stosq
-> 16: len  256 ok  125   80   80   80   80   80   80   80   80   80 stosq
-> 17: len  512 ok   82   83   83   90   82   82   83   83   82   82 stosq
-> 18: len 1024 ok   90   91   91   98   91   98   91   98   91   91 stosq
-> 19: len 2048 ok  106  113  106  113  106  113  106  106  106  113 stosq
-> 20: len   16 ok  133   65   57   33   33   26   26   26   26   26 longs
-> 21: len  256 ok  159  152   80   42   42   42   42   42   42   42 longs
-> 22: len  512 ok  187  115   88   58   56   57   57   57   57   57 longs
-> 23: len 1024 ok  146  211  167   89   88   88   88   88   88   90 longs
-> 24: len 2048 ok  213  213  209  167  153  155  153  153  155  152 longs
-> 
-> memcpy() between 4k aligned buffers
-> 0: len   16 ok  119   63   59   33   33   33   33   33   33   33 no_copy
-> 5: len   16 ok 7333  103   51   51   51   51   51   51   51   51 libc
-> 6: len  256 ok  447  105   51   51   51   51   51   51   51   51 libc
-> 7: len  512 ok  405   56   56   56   56   56   56   56   56   56 libc
-> 8: len 1024 ok  421   96   66   65   64   66   64   70   64   70 libc
-> 9: len 2048 ok  406  139   81   83   81   85   81   83   83   81 libc
-> 10: len   16 ok   91   81   76   56   56   56   56   56   56   56 movsb
-> 11: len  256 ok  115   77   76   77   76   77   76   77   76   77 movsb
-> 12: len  512 ok   80   81   80   81   80   81   81   81   80   81 movsb
-> 13: len 1024 ok   90   89   90   89   90   89   90   89   90   89 movsb
-> 14: len 2048 ok  112  106  105  106  105  106  105  106  105  106 movsb
-> 15: len   16 ok  108   87   85   65   57   65   57   65   57   65 movsq
-> 16: len  256 ok  119   78   78   78   79   78   79   78   79   78 movsq
-> 17: len  512 ok   81   83   82   83   82   82   82   83   82   82 movsq
-> 18: len 1024 ok   91   91   91   91   91   91   91   91   91   91 movsq
-> 19: len 2048 ok  107  107  107  107  107  107  107  107  107  107 movsq
-> 20: len   16 ok  110   62   56   32   32   32   32   32   32   32 longs
-> 21: len  256 ok  203  128   58   57   57   57   57   47   47   47 longs
-> 22: len  512 ok   97  152  190   95   65   63   65   63   65   63 longs
-> 23: len 1024 ok  226  185  155  100   99   98  100   98   99   98 longs
-> 24: len 2048 ok  201  262  260  179  171  166  170  169  171  166 longs
-> 
-> I added enough barrier() and OPTIMIZER_HIDE_VAR() to get the 'longs'
-> loop to be sane - it sets/copies two 64bit locations each iteration.
-> Both tests manage a loop iteration every clock (on zen5).
-> 
-> The cutoff for 'rep stos' is pretty much 1k.
+The standalone series (dt-bindings: power: supply: add
+samsung,s2mu106-fuelgauge + power: supply: s2mu106-fuelgauge: add standalone
+driver) is already out and hasn't had review yet. If you still think
+reusing s2mu005-battery.c (minus the fallback) is the better shape, I'd
+rather hear that case on that thread than have it settled by default --
+I don't have a strong attachment either way beyond not wanting the MONOUT
+bug back.
 
-For a loop with two stores per iteration, yes. But clang emits the
-v2.1 loop with one store per iteration, which crosses at about 400
-bytes on Zen 5c; your numbers give about 450 for a loop doing one
-store per clock. gcc 15 unrolls it by two, which moves that to about
-850. With the fences, Cooper Lake crosses at 280-360 bytes whatever
-the loop shape, and a 1 KiB cutoff would make 512-1023 byte spans up
-to 53 cycles slower there. 512 is in between and IMO the best comprimise.
+(Resent for the lists: my two earlier copies of this reply went out as
+HTML and vger rejected both, so only you received them. Sorry for the
+duplicate.)
 
-
-> For memcpy() it is a bit lower.
-> 
-> 'rep movsq' is slightly slower than 'rep movsb' because of the 'len /= 8'.
-> But it is much slower for counts of 1 (included above) and 0.
-> 
-> I need to boot up one of my other systems to see how older Intel cpu fair.
-> 
-
-The poison is -0xBEEF, so it has to be STOSQ, and memset64() only sees
-spans over 512 bytes, never a count of 0 or 1.
-
-In the kernel the fill hardly matters any more. Timing
-stackleak_erase() over the same syscall mix, the fill is 7-8 ns of a
-44 ns erase (37 ns with the generic loop), and REP STOSQ for
-everything, Duff's device, 2x and 4x unrolling and v2.2 all land
-within 1.2 ns of each other. About 37 ns is the search for the poison.
-
-Over here I am testing on an AMD server less than 2 years old (Zen 5c)
-and an Intel one that is 6 years old (Cooper Lake). IMO 512 bytes plus
-memset64() (v2.1) is a good compromise between them.
-
-> David
-> 
-> > 
-> > > If the count is variable - likely in real life, you'll get a branch
-> > > misprediction penalty (about 20 clocks on zen5) every time you change
-> > > between the two choices.
-> > > The copy loop will have another mispredict penalty for the loop itself.
-> > > 
-> > > So you are likely to get an overall improvement if you use 'rep stos'
-> > > for all lengths - even the ones for with it is slightly slower.
-> > > Unless, that is, you know at compile time that most of the length
-> > > will be short.  
-> > 
-> > 
-> > I timed every stackleak_erase() in a Zen 5c guest running a
-> > futex, epoll, procfs and unix socket mix, with the variants switchable
-> > at runtime and alternated over 15 rounds:
-> > 
-> >   Unpatched                     68.3 ns per erase
-> >   REP STOSQ for all lengths     47.3 ns
-> >   v1 / v2.1 (loop up to 512 B)  46.6 ns
-> >   v2.2 (4 stores/iteration)     43.7 ns
-> > 
-> > The spans aren't random. Unix socket and /proc/self/stat exits were over
-> > 1 KiB every time, while getppid(), epoll_wait(), read() and write() exits
-> > were under 128 bytes almost everytime.
-> > 
-> > My preference still is v2.1 because of the simplicity.
-> > 
-> > > 
-> > > David
-> > >   
-> > >>
-> > >> The fill is inline asm, so the noinstr function still makes no calls.
-> > >> memset64() would be the same instruction, but it is only static inline,
-> > >> and with KMSAN it is an out-of-line function.
-> > >>
-> > >> In a Zen 5c KVM guest, stackleak_erase() got about 35% cheaper per return
-> > >> to user space (71 ns to 46 ns, scan included) over a futex, epoll, procfs
-> > >> and Unix socket syscall mix. Same-vCPU futex wake/wait and Unix socket
-> > >> sendmsg()/recvmsg() ping-pong round trips got 5-8% faster.
-> > >>
-> > >> Signed-off-by: Usama Arif <usama.arif@linux.dev>
-> > >> ---
-> > >>  arch/x86/include/asm/processor.h | 25 +++++++++++++++++++++++++
-> > >>  1 file changed, 25 insertions(+)
-> > >>
-> > >> diff --git a/arch/x86/include/asm/processor.h b/arch/x86/include/asm/processor.h
-> > >> index 77488ff5eb8c7c..049231d484ad0e 100644
-> > >> --- a/arch/x86/include/asm/processor.h
-> > >> +++ b/arch/x86/include/asm/processor.h
-> > >> @@ -580,6 +580,31 @@ static __always_inline bool on_thread_stack(void)
-> > >>  			       current_stack_pointer) < THREAD_SIZE;
-> > >>  }
-> > >>  
-> > >> +#ifdef CONFIG_X86_64
-> > >> +#define __stackleak_poison __stackleak_poison
-> > >> +static __always_inline void __stackleak_poison(unsigned long erase_low,
-> > >> +					       unsigned long erase_high,
-> > >> +					       unsigned long poison)
-> > >> +{
-> > >> +	unsigned long count;
-> > >> +
-> > >> +	/* Short spans do not amortize the startup cost of REP STOSQ. */
-> > >> +	if (erase_high <= erase_low + 512) {
-> > >> +		while (erase_low < erase_high) {
-> > >> +			*(unsigned long *)erase_low = poison;
-> > >> +			erase_low += sizeof(unsigned long);
-> > >> +		}
-> > >> +		return;
-> > >> +	}
-> > >> +
-> > >> +	count = (erase_high - erase_low) / sizeof(unsigned long);
-> > >> +	asm volatile("rep stosq"
-> > >> +		     : "+D" (erase_low), "+c" (count)
-> > >> +		     : "a" (poison)
-> > >> +		     : "memory");
-> > >> +}
-> > >> +#endif
-> > >> +
-> > >>  #ifdef CONFIG_PARAVIRT_XXL
-> > >>  #include <asm/paravirt.h>
-> > >>  #else  
-> > >   
-> > 
-> 
-> 
+Adil
