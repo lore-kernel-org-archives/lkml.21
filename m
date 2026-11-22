@@ -1,45 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795325201;
-	b=bWL47eD4fei/BwzxISNwFtbcBxTp9fM7qQ5rKyxYaqQrGosUNjPpc9wVZZFpnN/6B+C8
-	 D+hTnKmujb8xPZHzWMS4FjRbqYw9zrTgT138lSlktZNw8ryRZm+wGI+Ox/2kGB2YElG8u
-	 seTM2NYyRbS4vQGPHLd/8hOx8nn3GfcxjOoQTzGWsR9Xqy/7KZvJLg7iUYYKFm2gTM9qA
-	 RuuO2gW/SZWwWlvOueDG1gNYaOJhfAM4OqjLvGzL+De++JNp8b5cyIRG7iDl22ClHL6am
-	 s2aXUNuAx6U9ZK0X3xdnxEcUUEc6GElmz+J9SS1upmGyb+tYKHSvevaqhPfycn6n97w==
+	t=1795325557;
+	b=OGXj/4WlBlUtdto2jD0CYjfl8giNrl4K/ZuD35x4O70fww8vrsZcs9sCXPfigyMpkLNq
+	 kPlzVL7tE17Ft9T3DjhOUdEYEFGcuwRg9ugI2NqknmLUw9/Pnwz4r3KGPMerEqF7DdbXK
+	 0lZuyzAmbJq4ITthcM5ZwRcQFbwFUD/OthJ6DHdhalP0tHKnn/ZWKGV4foeCarMvaNrOL
+	 lZlW/JxrTg9MBAPRwskOZ053HqYAwIesFPa6d1aJORRT0uA8xwdz8KUZU9MuAw6GN4wdw
+	 q0ZSegUn0MQ0Q0Dk5XrIVzH9/jRyaLPonxOmo/vYGUVvrECfpl3tIM+grWp5YlgKbhg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795325201;
-	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
-	 In-Reply-To:References:Subject:From:To:Cc:Date;
-	bh=WSnfBOApNbDPGY48k9YGggczifS4bUOcX4lLr98nel0=;
-	b=btQ3QaIx6FsRi/7GBQRlFpzdHRmOGE7oQ6UGTelZhethz4xj4mSo/TDliH8strh5ztfb
-	 Vj1Fd4vC7aw6gJkWFiIZTbSmmE9jd04zqnpICWSOKR3tYm+rJEFIVLzaq4GwKtoYXzIKi
-	 ZXHP4jy8Gl5cstoe6aEqWrrRHhCwstEoVlZ/cSC6WQ8va14uSUXJ7fIcGj7I8Cobpzz6Z
-	 mu9ExhnS86xT3U6bBcByuU8eP2e3RdGH6o/t+U7fBbUcK83x8bVTYX6v6wt3FpzV0JXvd
-	 nNUuMYCGlGvD3VSSvAT6aO8xErXk/TrIIRpX2fNQFJXeWkkN5r/FnYKnB/3rFfc6aog==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795325557;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=me3WsNLpXOGi8AyO4bI1Q8J5wDfbd+89c9dLbnje7nk=;
+	b=VfmTkrOjLdCBgMEVqdeHgrPAiyjF9BkQQZAn320w+gYRrdwKojYV4jpgX3fnSPPYGK2c
+	 bpbPo16DrzrEiIa7VIYu5QljhBjWwjtfMp8SRcs6Brbg/xCjSUTXgHU3zCD0rmpRcxj3+
+	 nbRJFt/kqHr/12L0OJQh1SfmPHzmUN2fenr4foQ5C8h21invT+Ydv6RWGUqCmNLMMCR5k
+	 jl7jFf6aQKwX9x5aqJ94x0tWHj1oiuDZBzbk3+pqEWK1XiUhl4ibRjiXLF7N3qF8OzVQJ
+	 ATbneOhdeGTRLJHt8EHKKipVZ9TW6N/VtUwszcKT5Gqcc5bIqU0EtjcFFuIGYaMe3Nw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HJItbHDv;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=iiitd.ac.in;
+	spf=pass smtp.mailfrom=iiitd.ac.in;
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b="I0/L9b2N";
+	arc=none smtp.remote-ip=209.85.215.169
+Received: from mail-pg1-f169.google.com (mail-pg1-f169.google.com [209.85.215.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF3FB606A320;
-	Sun, 22 Nov 2026 05:26:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3ED8E606A682
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 05:32:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3ED8E606A682
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HJItbHDv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF2751F000C0;
-	Sun, 22 Nov 2026 05:26:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795325200;
-	bh=WSnfBOApNbDPGY48k9YGggczifS4bUOcX4lLr98nel0=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=HJItbHDvxHdHNGEPigBjrg7fcjQSOd8PgOf7vuO+6yBqH4tB7RipP96RU6pFQozl3
-	 pGEPRYhoDmFS+ppu5C1unEChsx7GLJg8aVuE9t7wSdsWl/7aULMhVeFeCXQ6SbIjNM
-	 qX8RCByQKeyixmKo0d+RciosMXerwxInMCuL60HHJi4obdjmmM4XJJ7OY9YbU44IwD
-	 5Mwqje+QOCJTnjYV09Ul58Y3+SctZQdKbcflU8NvdeWKtGpJMQybuuW0S7zDvobBtY
-	 0GdLVXMU0a3mnktHlL8d8E13Z0ZqZLGPs7hR3JNU+TURzE7b6d5cVTfPkHL9G12Nc1
-	 KdAd8v4L3MrwQ==
-Content-Type: multipart/mixed; boundary="===============8672382131251748710=="
+	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=I0/L9b2N
+Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-cc4be0e5351so2127306a12.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:32:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=iiitd.ac.in; s=google; t=1795325555; x=1795930355; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=me3WsNLpXOGi8AyO4bI1Q8J5wDfbd+89c9dLbnje7nk=;
+        b=I0/L9b2NAEt9spob3UTfZkfqR7v0oKiQ3pwcYAoqWy/eyYJhdrShvSaa9i3f7TqQW8
+         qVMEC0hzQhmJcnnWDIfjNwe3BuEw43U8pqnvODNXrs89EAZ9UGThfCVncEul77NQcZek
+         VaQ0cWDFpdxNKnAWqAU+gtQAsNPvqr+ErR3OU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795325555; x=1795930355;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=me3WsNLpXOGi8AyO4bI1Q8J5wDfbd+89c9dLbnje7nk=;
+        b=GzSnM2DC5X+WKR6lM5vjOu/+nFL5QdJZRiO70MzigRUJRmm/aZ5yBZmTDggtA4AeGA
+         phsQlQvKUmY142+RQerVDpx4yXHdLN/pqyvSwa7AH3Nfq5XmN3IMPSHsx461wt/zArga
+         zLgjI/RC9Qg/tPpNiHlLJCohrxeANzsmlBY/wVubtAB1BYG/GMFW1PHdYV8FcerQ+/sg
+         QaQRUOSdJ+c9Z/YZ901mWJSen0Syfcg8656KuJLDeplOsV7zxDhDGioO7/Gi7F//Fjfd
+         ThnwcbdPKY0nIBmpoWBQk+DpeEY13tHSHT+9ngtGgK1G9Ysfn7WJt0lrC0Vf/DFNMFbo
+         nhgQ==
+X-Forwarded-Encrypted: i=1; AL+hErGFyM3ysvfCDbNnBI/HWFO2ylNFgYlcbShFe4pD9cVz6GOjuglYKGAriKDowZ5T/jMe2MYF/fqSB2FMHm8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9MG0OdrmYAABILDXSxQohXmHDfdaxaxSgo5kGiapDlDQ+kxron
+	EtBqbSeIhDkbKw/wqz4USCcPCvfCzNmIIaAbwbp9ZKVJL69uLn36jSb76Ys+zeJUe2Y=
+X-Gm-Gg: AZFdTZfR/sAjrlXi5Pi1dK8w0m8ZBBOdUmxLl7Mqxc8JzpOOIwK/N9pn7BmRQ/kzlO5
+	6KYMtqZ68DieE9ssduAURN0SeQQz1E9ms078yRtMs7CMf3O6Rrw+xPjW1BZoXdshw15kUTHIFeA
+	hydp77IOdRL5o/JLYdGTLkQK2A6dY0/E8q5K7q/xNmNY1tgnBykRK+Uu769Rp8uH5VUhbeKUvJk
+	H6LSKXdBQ/QBFhoB6+ThJZHJ8tHruL4HbLzRKigdGu5xDLkmZ0GoVu3xCG6SxjIGgLJwRjsxKHF
+	gJJnJ7iwNDxj4hTZOQz3DZtxwhJKxzYAvwQLKnROhk6jUevuEH7gDy8I5Par0RKnikRcOcNhuly
+	02zmxSTQ2ZNy0hdjNwkSCEe4VgCGw5EiNoaPLlcp5rkYBlva+czmQYtgHjiGPdPLox3EnnUuot5
+	FfRpoTCLTE7AvG+1/bxiCDUsSdAjmCjUe4cIxQNfWNSrCUkawQe2K6TT4pklSXcqn9a63HTZmAx
+	NzyO/w/LG+UYbxEH/zvUhRdUELnmvF2642KZvYk8n62/6sscFUH+cW8OvCWGbNPDLhoIyys8UwT
+	qqaAJdRmQeFXj/fjEzEtX9iIrQVTcDvc2b2rLPV0pEI6OMEDcTt48a/EzEwMRjVfjHN5Wl1ZZ0x
+	w6ZEdv+D4Ky9p4evu/pdiPr5L/fmwZO5UkjKYoD9WbEy2bmTOY4603ugZNl8jRnGy
+X-Received: by 2002:a17:90b:268f:b0:3b3:a421:7e00 with SMTP id 98e67ed59e1d1-3b41c8d4831mr6844074a91.16.1795325555557;
+        Sat, 21 Nov 2026 21:32:35 -0800 (PST)
+Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d135e9sm14076748a91.4.2026.11.21.21.32.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 21:32:35 -0800 (PST)
+From: Piyus Kedia <piyus@iiitd.ac.in>
+To: alibuda@linux.alibaba.com,
+	Dust Li <dust.li@linux.alibaba.com>,
+	Sidraya Jayagond <sidraya@linux.ibm.com>,
+	Mahanta Jambigi <mjambigi@linux.ibm.com>,
+	netdev@vger.kernel.org
+Cc: Tony Lu <tonylu@linux.alibaba.com>,
+	Wen Gu <guwen@linux.alibaba.com>,
+	linux-rdma@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Kapil Vaswani <kapil@presceralabs.ai>,
+	Piyus Kedia <piyus@iiitd.ac.in>
+Subject: [PATCH net] net/smc: bound a send by the send buffer, not by the peer's credit
+Date: Sun, 22 Nov 2026 11:02:23 +0530
+Message-Id: <20261122053223.2497832-2-piyus@iiitd.ac.in>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261122053223.2497832-1-piyus@iiitd.ac.in>
+References: <20261122053223.2497832-1-piyus@iiitd.ac.in>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,107 +104,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-Id: <86a108a3441c8160bcf73fe92b8ff79dd6562d3313c80e65489607f3d737d50b@mail.kernel.org>
-In-Reply-To: <20261122-b4-03-bpf-arena-vmalloc-oob-v2-5f6209c1a20e-v2-1-b2a9906e9676@pm.me>
-References: <20261122-b4-03-bpf-arena-vmalloc-oob-v2-5f6209c1a20e-v2-1-b2a9906e9676@pm.me>
-Subject: Re: [PATCH bpf v2] bpf: bound arena allocations to the user VMA
-From: bot+bpf-ci@kernel.org
-To: fadouse@pm.me,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com
-Cc: martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,bpf@vger.kernel.org,linux-kernel@vger.kernel.org,stable@vger.kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Sun, 22 Nov 2026 05:26:38 +0000 (UTC)
+Content-Transfer-Encoding: 8bit
 
---===============8672382131251748710==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+smc_tx_sendmsg() decides how much to copy from the sendmsg() iterator with
 
-> bpf: bound arena allocations to the user VMA
+	writespace = atomic_read(&conn->sndbuf_space);
+	copylen = min_t(size_t, send_remaining, writespace);
 
-TL;DR: Commit message page counts don't add up and its "can never be mapped
-without wrapping" claim is questionable; the new -ERANGE check in
-arena_adjust_tree() looks unreachable and its comment seems inaccurate.
+and then splits the copy into the two chunks of the ring.  The first chunk
+is
+clamped against the buffer:
 
-> A program that first allocates 287 pages and
-> then asks for 288 more receives pgoff = 287, uaddr32 = 0xfffff000,
-> and arena_alloc_pages() maps 288 pages at kern_vm_start + 0xfffff000:
-> one page inside the VMA, then the arena's upper guard pages, and then
-> 258 pages into the vmalloc area past the end of the arena's own
-> vmap area - installing PTEs into address space the arena does not own
-> and returning a "success" pointer to the caller.
-[ ... ]
-> Fix this on both sides.  On the first mmap() of a map created without
-> map_extra, mark [vma_pages, max_entries) as allocated in the range
-> tree, because nothing outside the VMA can ever be freed or mapped
-> without wrapping;
+	chunk_len = min_t(size_t, copylen, conn->sndbuf_desc->len - tx_cnt_prep);
 
-The page counts do not seem to add up here.  GUARD_SZ is
-round_up(1 << 16, PAGE_SIZE << 1), so kern_vm_start is offset by 32 KiB
-into the area and the upper guard above kern_vm_start + 4 GiB is 32 KiB,
-which is 8 pages with 4 KiB pages.
+but the second is not - it is simply the remainder:
 
-Mapping 288 pages at kern_vm_start + 0xfffff000 would then be 1 page in
-the 4 GiB band and 8 upper guard pages, leaving 279 pages past the end of
-the arena's vm area, and 1 + 8 + 258 is 267, not 288.  Could the numbers
-be corrected?
+	chunk_len = copylen - chunk_len;	/* remainder */
+	chunk_off = 0;
 
-Also, is "nothing outside the VMA can ever be freed or mapped without
-wrapping" accurate?  Pages outside the VMA can never be freed because
-arena_free_pages() clips to user_vm_end, but they only wrap when the VMA
-ends close to a 4 GiB boundary.  For a 4 GiB aligned user_vm_start,
-uaddr32 = pgoff * PAGE_SIZE stays inside the arena's own kernel area.
+and each chunk is written with memcpy_from_msg(sndbuf_base + chunk_off,
+msg,
+chunk_len).  So the write is bounded only by sndbuf_space.
 
-> diff --git a/kernel/bpf/arena.c b/kernel/bpf/arena.c
-> --- a/kernel/bpf/arena.c
-> +++ b/kernel/bpf/arena.c
+That counter is not always a value this side computed.  On the SMC-D
+DMB-nocopy path smc_cdc_msg_recv_action() credits it from the peer's
+consumer cursor:
 
-[ ... ]
+	diff_tx = smc_curs_diff(conn->sndbuf_desc->len, &conn->tx_curs_fin,
+				&conn->local_rx_ctrl.cons);
+	smp_mb__before_atomic();
+	atomic_add(diff_tx, &conn->sndbuf_space);
+	/* guarantee 0 <= sndbuf_space <= sndbuf_desc->len */
 
-> @@ -758,8 +787,19 @@ static int arena_adjust_tree(struct bpf_arena *arena, long uaddr, long page_cnt,
->  	ret = range_tree_find(&arena->rt, page_cnt);
->  	if (ret < 0)
->  		return ret;
->
-> +	/*
-> +	 * The range tree spans max_entries pages, but when map_extra was
-> +	 * not given at arena creation time the user VMA, and hence the
-> +	 * range whose lower 32 bits do not wrap past the 32-bit boundary,
-> +	 * can be smaller.  A pgoff past the VMA would wrap uaddr32 past
-> +	 * the 32-bit boundary, be mapped past the end of the arena's
-> +	 * kernel vm area, and could never be freed, so reject it.
-> +	 */
-> +	if (ret > page_cnt_max - page_cnt)
-> +		return -ERANGE;
-> +
->  	*pgoff = ret;
+The comment states the invariant that smc_tx_sendmsg() relies on; the code
+does not establish it, because local_rx_ctrl.cons arrives from the peer.  A
+peer that reports an oversized consumer cursor therefore inflates
+sndbuf_space, and the unclamped second chunk writes sendmsg() data past the
+end of the send buffer - which under DMB-nocopy is the DMB the peer
+published, so the overflow runs off the end of that mapping.
 
-This isn't a bug, but does this comment match the code after this patch?
+Clamp copylen to the buffer.  This bounds the write regardless of how the
+credit was arrived at, which is the property smc_tx_sendmsg() needs and the
+one a reader of the second chunk currently has to take on trust.  A correct
+peer never credits more than the buffer holds, so this changes nothing for
+one.
 
-The comment says "The range tree spans max_entries pages", but
-arena_map_mmap() now clips the tree on the first mmap():
+Capping the credit itself at the atomic_add() would also enforce the stated
+invariant, and we would be glad to send that instead or as well; we chose
+the
+clamp because it bounds the copy at the point the copy is made.
 
-    ret = range_tree_clear(&arena->rt, vma_pages(vma),
-                           map->max_entries - vma_pages(vma));
+Reproduced.  A hostile peer needs an ISM device we do not have, so the peer
+was stood in for by a debug patch that overrides the consumer cursor after
+validation, on an SMC-D connection over the loopback-ISM device.  The
+credit then reads
 
-Since page_cnt_max is 0 until user_vm_start/user_vm_end are stored, and
-arena_alloc_pages() returns early when page_cnt > page_cnt_max, the tree
-already spans at most page_cnt_max pages whenever arena_adjust_tree()
-runs.  That would make the -ERANGE branch unreachable today, with the
-clip in arena_map_mmap() being what enforces the bound.
+  SMC2DBG diff_tx=1000000 space_before=65504 sndlen=65504 cons=1000000
 
-The claim that "a pgoff past the VMA would wrap uaddr32" also only holds
-when the VMA ends near a 4 GiB boundary.  For a VMA starting at a 4 GiB
-aligned address, uaddr32 = pgoff * PAGE_SIZE < 4 GiB for every pgoff <
-max_entries, so those pages land inside the arena's own kernel area.
+- sndbuf_space 1065504 on a 65504-byte buffer - and one sendmsg() of 4 MB
+turns that into an oversized copy, with the second chunk written at offset
+0:
 
-Could the comment say that the mmap-side clip enforces the bound and that
-this check is only a backstop, and drop the universal "would wrap" claim?
-Alternatively, could the check be removed if the clip alone is the
-intended invariant?
+  SMCTXDBG chunk=0 off=0 len=65504  sndlen=65504  in bounds
+  SMCTXDBG chunk=1 off=0 len=869056 sndlen=65504  past the end
 
+  BUG: KASAN: use-after-free in _copy_from_iter+0x197/0xfd0
+  Write of size 869056 at addr ffff888057980020 by task b/9467
+   _copy_from_iter+0x197/0xfd0
+   smc_tx_sendmsg+0x1011/0x12c0
 
+With this patch applied and the same injected credit, every chunk stays
+within the buffer (len 65504 or less, no second chunk past the end), KASAN
+is silent, and an 8 MB transfer over the same connection completes with its
+contents verified.  The injected cursor is the only thing the debug patch
+changes; the fault and the fix are in the code above.
+
+How this was found: by AI-driven fuzzing built on top of syzkaller, while
+it was working on the receive-side cursor bugs fixed by "net/smc: validate
+the peer's CDC cursors against our own buffers".  Its analysis was then
+checked by hand against the code, and the credit inflation above measured.
+
+Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
+Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
 ---
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+ net/smc/smc_tx.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/44987264909
---===============8672382131251748710==--
+diff --git a/net/smc/smc_tx.c b/net/smc/smc_tx.c
+index 0f0c6df3b..5dc489bf6 100644
+--- a/net/smc/smc_tx.c
++++ b/net/smc/smc_tx.c
+@@ -235,6 +235,13 @@ int smc_tx_sendmsg(struct smc_sock *smc, struct msghdr *msg, size_t len)
+ 		writespace = atomic_read(&conn->sndbuf_space);
+ 		/* not more than what user space asked for */
+ 		copylen = min_t(size_t, send_remaining, writespace);
++		/* and never more than the send buffer holds.  sndbuf_space is
++		 * credited in smc_cdc_msg_recv_action() from the peer's
++		 * consumer cursor on the SMC-D DMB-nocopy path, so it is not a
++		 * value this side computed, and the second chunk below is not
++		 * clamped against the buffer the way the first one is.
++		 */
++		copylen = min_t(size_t, copylen, conn->sndbuf_desc->len);
+ 		/* determine start of sndbuf */
+ 		sndbuf_base = conn->sndbuf_desc->cpu_addr;
+ 		smc_curs_copy(&prep, &conn->tx_curs_prep, conn);
