@@ -1,102 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795368923;
-	b=u3u2nobKKGv6YEWeEDnEgl8ud6boizGkXzwUvISvClJ2QlAUhPo0tVinqr3BZQREJbwA
-	 eFNYP0dRcniwO/x0/0u2ZGo2T0WKfx+o5pbzel6MXgftqktNCFPlAwfixbLLEfgN9CxC6
-	 rSIbdlaYknfN5LPFkDM5wMcz7HVGTjtAzZnK2Qaa/0nE+GD/Ex3Jn5ah7LCcrmPIKvaMP
-	 cneSrgHiGHZOON2+iMXColVTBPdU6Ip3627aR9/i2ne7v0ldyTlh5QrAaE9RDLCkI6RSJ
-	 fPNlcdyYOCrkOgaOwqX7MR8u57bDF/nGAZd93Zbsp0YDIG3fxR35VuVywOu2hh0hS+g==
+	t=1795368928;
+	b=a21dbrmCCK97R14QduboRLfkqpKaDkueXciDelvYU5hk1gd1GHnLfkjENRjp70tekHuN
+	 9uXv6sge2x1wJWjslqb5GAXAtssWptCYFf5jX+TeJb6BsEvYxt2OV/B/nqCr3INMe3rnX
+	 dANPMS/mI9mmIaZyZwfBSfSjhJuwCb17OnR0yjNiS7lhl5qVtHpHEp8jS0iQQO2fr4OAG
+	 8PiNhFdjW8GsIQy2wh0b0+/tkMmR8TgEiC+1jp2tyuFJtNIZQPdYRElUiJYnIoCRl8byL
+	 GxhIblvScBqeBjmR8Qsmov1UYe0UxZxr3bfMoNksmDhh+YjqcTBuP0N0itJLtZvbdag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795368923;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=NR3IF3W9rPY84O5okCDlPMWK4xLZD4rHGc1s940WQoY=;
-	b=NsDeTutNHIo31osRicM01cfvP9E0LxBYIquWD2m+48/KLqBrtCKmLnSfmL788GGsFaE4
-	 EkZWYUMFCSdR/7xZrzzKqnIos+xo3v/5BH+qoAhroFAGLI9oDbDfA5NnVYJuDa0KvYItM
-	 GcMqPuDyJ/TwvjMsxlOKmcQFR3phl50r/2Ij+LhDGKr6Gy+v9P6bZUWtg4L1ApzOBFn3U
-	 o4HpjvFeEaOQKe3vVSPvXJFCrl1Cqk+fH2dYiHkZ9juMZziu6FETqQJf7B6HZKY7dDTh7
-	 Fyp9tinhkxr1rbz76eUEKmUuvABLhr0Q/+XHx5b9faE4v/nkguzNrCwTjfuKWtNZvHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795368928;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=LaFUW1FwoGNlZJgmSu4oNHIToLGpfe4LYC35AWNKoIc=;
+	b=gm7QaKgiNnjWLdMMoJcp2RtSGnXidTPl2yXzvP95H0k/ledPV0q2mlCEl+PWU6fSom5n
+	 39CyN9fNBkUzAOGF5ol32w+Pu8a8fnjquGKTaXyGm54NHiGe1cCKDK0adx06cJ6wabGnq
+	 2sMUKHAw2A2GRP/mnS37gTZ8tscY2Z/ez3aMUHCDKlObJwHWCnugCdPPR9IAuHiDbc7AQ
+	 v6pCPpLEx8SGwkepY/O3LuUw4l2FO9+WOnmviVit+9o3zSxF/Imojj2gpcjibv4ppW+QH
+	 n80YACckQv7FeHlico2nGp3GAB0q+SjdGAKTCt6TVpXWHnZqsvHG3oltHQIY/JDTwig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=W4qC68+X;
-	arc=none smtp.remote-ip=74.125.82.41
-Received: from mail-dl1-f41.google.com (mail-dl1-f41.google.com [74.125.82.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=c0ZPCe7n;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D82B606A330
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:35:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D82B606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E278F606A338;
+	Sun, 22 Nov 2026 17:35:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E278F606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=W4qC68+X
-Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-1b3beeaf6f9so2982903c88.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:35:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795368922; x=1795973722; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NR3IF3W9rPY84O5okCDlPMWK4xLZD4rHGc1s940WQoY=;
-        b=W4qC68+XpfqvfpwyUVqGzy3qdQukJLa8vbARoxPiUyULgvpMdOLwWZ9mdNp7Y+q1S/
-         a2fmnkWbUQ4g3PDmBD2Xi+MVOCf2H3+KwoihsgGiI7itQbQQB35TEA47qniEOyOA9qZU
-         fW3nC8iru80q1ix8yEct1+VqIWJEeD94z6WUOs27OvHaulTz3Kv+7Jn6/lNkTOkLGDde
-         /5NAWSb/AoExQZo3VKznyWbOCIHfqdIC/+3Z7mPBw3mqJoMXBOOLa7D4Ud9zUSgp3jnF
-         29MLaCjxJOAS/3R/0vMjJWRGqddVakOkvd0y8p2F58PDKuc9jgJYBZzwQjZUcaWQUHDi
-         QNOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795368922; x=1795973722;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NR3IF3W9rPY84O5okCDlPMWK4xLZD4rHGc1s940WQoY=;
-        b=Me93CAjVdp3HqNUCmj1D8hUzZ30z6Sq/etOBVoxON7f7kBdaB3ah6nA9GhTSvE667/
-         chZfI1yXiFlGZZw+UxiGrRO35gTRhY5lmGWZ3gbNepr2jXjnVxiRJU78ZKJcDVSaxnli
-         DO443vyRWdd4LIP5g/Y1FwbceR0gX/uwRNN2JGT4r72bHtPXeQnW2TQK3q3B6z00iBNI
-         fMaRHwFC4gshq6v3zZgNqOw5TiJpTnqezbZupDVMlbQ0qc4ZZrQJl3dADT/87/CtfJwP
-         +BSpjvucXGRBC8lC6Up+uyQkG1m6IPzhXX+gsUgDZzit9VmaoDa6IDSiX2uxfu3qPHw1
-         5n5A==
-X-Forwarded-Encrypted: i=1; AL+hErGkWb/KBIGUcouSHFOVQvy9w96R4SpOWpFMJC+VEXbrnSfYdbfmDHrQvb26vwQrvjZXKSLggqwdgofe5RI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+8FYUM872h4RJlasfPVs3w4wCE3RoK7F/ejeCnz35zoQF9TGLs
-	u9CrN9cy4ViftGsbTnDE8a+OopUDXkb7UHbd5upUxtqnhE4zHqaFU6gK
-X-Gm-Gg: AZFdTZfmIwOIGVpH+oErHTCStuCj9ihbVk77Kkfs1E708fiFKPEHqzFes1iDOvomE0N
-	HfNMhc0pxvMVLfqREnVjh/CeONEABXQm3aNJUH4yjGHNjwf+KF35i/XzUMkgjF1Ipe5tDHdTeXA
-	9xqGguxUe9oCkrdoMG25G6vtX+mLO9Dpv3srUV1OzIvE1IChDN/xpOCFEyuBpgF9cmyH72UvfUY
-	Hmuy29b8vbJEZbNm7izV/dO7aLpgo7MLh83CQnk/iSyEUCQPrMpJ56C9hrdPfOkGuquUz1G179c
-	IOmD79wrWqsIe33gzzEYtMq/Zi5DQZa6AQJwcs+3KdkRa6/sbQWg/mY+ZZV8qFszECEFfMVzBIw
-	mu4yoqXpCHSScIWxcVM6QW8jW52PqqpVROrCiYmfzZnzwQXJFYM2I/H8GHtYerh9dtyT2Z9JlTT
-	3PCN6pO60cOfTpF/jBCCixkyQ9LMmfmpTfp+pX9e67CsgCIr9MGhZzvutR2gh8gkXM3QK8kQ0/F
-	HgDqdbpv5KKfECWFzkHOvcccO7w7K5jabtRgC+Zlf5LRB6XkvXa26hVbTIef20sGpd6NvBLAHuI
-	lYWla4pW8ZqoN9/k+ku8b8+HkndUeby3RYvRlomIiuGjtKz7ubCl+notfv6LS8NhHPF1ImYkp3+
-	tBOZg+PnrcEV0FH2DCAboDZvnTPn42yfRC2Kse+BXysX+DXbbOkMkWAmbDhlL/EpZbB+jSN3WrK
-	fB+6Cm6444/FgGhYGiST1QHg9Dvw==
-X-Received: by 2002:a05:693c:37c8:b0:386:a0d1:1b41 with SMTP id 5a478bee46e88-386a0d136aemr7108384eec.34.1795368922569;
-        Sun, 22 Nov 2026 09:35:22 -0800 (PST)
-Received: from suraj-HP-Laptop-15s-fq2xxx.tailee6f87.ts.net ([2402:a00:163:3509:b842:8324:ef7c:136d])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b56ef9fd16sm6419485c88.4.2026.11.22.09.35.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 09:35:22 -0800 (PST)
-From: Suraj Sonawane <surajsonawane0215@gmail.com>
-To: Bjorn Andersson <andersson@kernel.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-arm-msm@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Suraj Sonawane <surajsonawane0215@gmail.com>
-Subject: [PATCH v3 0/2] pinctrl: qcom: sc7280-lpass-lpi: add ext_mclk1_c
-Date: Sun, 22 Nov 2026 23:04:47 +0530
-Message-Id: <20261122173449.21009-1-surajsonawane0215@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=c0ZPCe7n
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 53A221A1786;
+	Sun, 22 Nov 2026 17:35:26 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1D03C60512;
+	Sun, 22 Nov 2026 17:35:26 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C2A4911E61B2A;
+	Sun, 22 Nov 2026 18:35:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795368924; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=LaFUW1FwoGNlZJgmSu4oNHIToLGpfe4LYC35AWNKoIc=;
+	b=c0ZPCe7nPcWduyfPg/JBixjwZW7G1+N+4DOYFmZDsSnGep8AQm9XDUKhtSbWOR88w/KS/L
+	WLGoDoQBsCYt2vypVckzcj/z+0Ton4ugvrL2NhVXfhN407c8GK1imgVVApTNuiYuL1nQgS
+	WwPOyYX+/ac2tr1FdPy7q4Jq8ipihAOW8l8vDav1aGOzkFhuFot2ZKIyfY3s9cP3nwVBDe
+	qyRjNg6wn+Z6feFPVaRhNgl+qSPo1+c9lA/kLv6icus/QhmXRkDEmwBmmISWzA3dwWkdyj
+	XUo90C442YG1j1LORXueQxeSfTxDnANLuoj4vFVuWghNNKyClde54Hzwz+TmVA==
+Message-ID: <7de5e572-dba5-4429-90fa-3cddb2e5cad8@bootlin.com>
+Date: Sun, 22 Nov 2026 18:35:11 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,29 +62,146 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v4 5/5] net: stmmac: dwmac-sun8i: Register the
+ MDIO mux in the MDIO setup
+To: aiyengar1990@gmail.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
+ linux-kernel@vger.kernel.org
+References: <20261120-sun8i-emac-mux-uaf-v4-0-57eba8915f25@gmail.com>
+ <20261120-sun8i-emac-mux-uaf-v4-5-57eba8915f25@gmail.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20261120-sun8i-emac-mux-uaf-v4-5-57eba8915f25@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-SC7280 LPASS LPI gpio5 can mux EXT_MCLK1_C, but the function slot was
-unnamed and the binding did not allow it. Name the slot and allow
-ext_mclk1_c in the DT schema.
+Hi,
 
-Changes in v3:
-- Fix commit message: do not claim existing SC7280 driver ABI.
-  The driver patch adds ext_mclk1_c; the binding allows it.
-- No change to the code diffs.
+On 11/20/26 11:45, Arun Iyengar via B4 Relay wrote:
+> From: Arun Iyengar <aiyengar1990@gmail.com>
+> 
+> Both PHYs sit behind the mux, but the mux is registered only after
+> stmmac_pltfr_probe() has registered the netdev, so an early open does
+> not find the PHY. On remove, the mux goes away before
+> unregister_netdev(), and unbinding with the link up oopses in
+> phy_stop().
+> 
+> Register and unregister the mux through the new mdio_init() and
+> mdio_exit() hooks.
+> 
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 
-Changes in v2:
-- Add the DT binding as patch 1, as requested by Linus Walleij and
-  Konrad Dybcio.
+Looks good, I tested that on Allwinner H2+, the mux probes fine. This
+has run on the stmmac netdevCI anyways and no breakage reported on
+other plaftorms.
 
-Suraj Sonawane (2):
-  dt-bindings: pinctrl: qcom,sc7280-lpass-lpi: add ext_mclk1_c
-  pinctrl: qcom: sc7280-lpass-lpi: add ext_mclk1_c function
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
- .../bindings/pinctrl/qcom,sc7280-lpass-lpi-pinctrl.yaml      | 2 +-
- drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c              | 5 ++++-
- 2 files changed, 5 insertions(+), 2 deletions(-)
+Maxime
 
--- 
-2.34.1
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 41 ++++++-----------------
+>  1 file changed, 10 insertions(+), 31 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> index 4acfda235394..0ec25ae0b77e 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> @@ -17,7 +17,6 @@
+>  #include <linux/of_platform.h>
+>  #include <linux/phy.h>
+>  #include <linux/platform_device.h>
+> -#include <linux/pm_runtime.h>
+>  #include <linux/regulator/consumer.h>
+>  #include <linux/regmap.h>
+>  #include <linux/stmmac.h>
+> @@ -941,6 +940,13 @@ static int sun8i_dwmac_register_mdio_mux(struct stmmac_priv *priv)
+>  	return ret;
+>  }
+>  
+> +static void sun8i_dwmac_unregister_mdio_mux(struct stmmac_priv *priv)
+> +{
+> +	struct sunxi_priv_data *gmac = priv->plat->bsp_priv;
+> +
+> +	mdio_mux_uninit(gmac->mux_handle);
+> +}
+> +
+>  static int sun8i_dwmac_set_syscon(struct device *dev,
+>  				  struct plat_stmmacenet_data *plat)
+>  {
+> @@ -1133,8 +1139,6 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+>  	struct stmmac_resources stmmac_res;
+>  	struct sunxi_priv_data *gmac;
+>  	struct device *dev = &pdev->dev;
+> -	struct stmmac_priv *priv;
+> -	struct net_device *ndev;
+>  	struct regmap *regmap;
+>  	int ret;
+>  
+> @@ -1217,6 +1221,9 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+>  		ret = get_ephy_nodes(dev, gmac);
+>  		if (ret)
+>  			return ret;
+> +
+> +		plat_dat->mdio_init = sun8i_dwmac_register_mdio_mux;
+> +		plat_dat->mdio_exit = sun8i_dwmac_unregister_mdio_mux;
+>  	}
+>  
+>  	ret = sun8i_dwmac_set_syscon(&pdev->dev, plat_dat);
+> @@ -1227,33 +1234,8 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		goto dwmac_syscon;
+>  
+> -	ndev = dev_get_drvdata(&pdev->dev);
+> -	priv = netdev_priv(ndev);
+> -
+> -	/* the MAC is runtime suspended after stmmac_dvr_probe(), so we
+> -	 * need to ensure the MAC resume back before other operations such
+> -	 * as reset.
+> -	 */
+> -	pm_runtime_get_sync(&pdev->dev);
+> -
+> -	/* The mux must be registered after parent MDIO
+> -	 * so after stmmac_dvr_probe()
+> -	 */
+> -	if (gmac->variant->soc_has_internal_phy) {
+> -		ret = sun8i_dwmac_register_mdio_mux(priv);
+> -		if (ret) {
+> -			dev_err(&pdev->dev, "Failed to register mux\n");
+> -			goto dwmac_remove;
+> -		}
+> -	}
+> -
+> -	pm_runtime_put(&pdev->dev);
+> -
+>  	return 0;
+>  
+> -dwmac_remove:
+> -	pm_runtime_put_noidle(&pdev->dev);
+> -	stmmac_pltfr_remove(pdev);
+>  dwmac_syscon:
+>  	sun8i_dwmac_unset_syscon(gmac);
+>  dwmac_ephy:
+> @@ -1269,9 +1251,6 @@ static void sun8i_dwmac_remove(struct platform_device *pdev)
+>  	struct stmmac_priv *priv = netdev_priv(ndev);
+>  	struct sunxi_priv_data *gmac = priv->plat->bsp_priv;
+>  
+> -	if (gmac->variant->soc_has_internal_phy)
+> -		mdio_mux_uninit(gmac->mux_handle);
+> -
+>  	stmmac_pltfr_remove(pdev);
+>  	reset_control_put(gmac->rst_ephy);
+>  	clk_put(gmac->ephy_clk);
+> 
 
