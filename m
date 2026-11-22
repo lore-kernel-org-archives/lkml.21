@@ -1,99 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.22
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795343788;
-	b=XK7zjCjwDV7FS9IsOM2oeWsN+l3KQqfBxAMSDZse4v895V/GqjNLD23dJAJroYGh4Gq7
-	 QRoNg70+WiSx44TDdD3y6ewOpZ1IKngokif9kXCwMj9dHrityG3s9TfUGkOcvtfuRRLlA
-	 b1908I1qGw8p/R0JZ/pJXVDoHEsJzIFBZJk49B0pANnRTL6kyiaewJ1bEt5apH3xr7RWW
-	 MsfBpcxSdOb+53m2OnUibXD7CIdHI8zH4HFoy/Po3lA3lRRS4SQd8hAk8oYaxrpuCtrV4
-	 grGADSsKUMjT2E9PcD8v8Yj+Z3mgLcgAz0WDg9CJguMMTMu6Xbmn0oYSO6+L/6jBWNA==
+	t=1795343847;
+	b=5cNu3q+rSxmlwsK0TrCgIVKaCLj3aDG2p9kbMoNS//0qhegVZMUWMrjP6xAuJhJadqOt
+	 ApQz+pqCJ1BI3GiEMq+D6bTrlYBIkq9/F+K2UKUGgVgtstO2LOCrMG0xKu3rQ3HkIgv79
+	 aVf4CGgDiQZr74Pl5hKINdM8QYfzmD110Dh7RPa2DBWzT989xqyrogtrevkfAu3LiyBYY
+	 1M6eLcqww20WoNErilKr4NbcyWGbtpQWN+XHqW2mxpNes9OaXQPbWhkkSaDDfg4obCUIL
+	 wGdWLOvkTtFrLyUQoDGYrRlRI+0qY+dQ2Y5knIkTZ/jBUh5vdyOJ332wGkH7+A+K50g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795343788;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=/jvXQi6RIlt7Mtlnt0QbS4ARuJGb7qPHJ6+jlWg3p4k=;
-	b=KAY5UK2mOOxXXhd+kB6Y81L09VPh5pnEx5GsaLfqIYRz7B8AOAeikE4inkspw5irNyOD
-	 7beHt30XvBcQnjf4dgJLaxoQDPCXivV2GNkQXtNw90ezdzP62Oupfr6B1O0WCEFYbXotx
-	 OBcLfHRx6eGjDbRbYi4tCfR2n2nccQ72FRpgPrzTv2ALxJrL0+vxJCPRhVmv6hmBJOE7Y
-	 2YjwI3iuRsy8lT+9CW0Fqqe+cEvMYprRgwWM33RUpoGjoDyioXJ680XZdUDeriHVtHQEj
-	 7283suul1mYCkZ1V0Hl9goYRyDsAxVnP5Jfi56ZfLk8VqkAgAvAvspi7pjTL2vtKRNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795343847;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=rR8mVZg1RTbtY+DPUPqTofyFY6a0VQAk2vhrLev7VdY=;
+	b=DEE7KRwsP0AsFlbOHNYzmXaWPboDF1ef8/yLufUvNn2P04G18Sq4rpFJ4+Kw2NnL9xo7
+	 oimU+WlDtnSU/myDaGXwNJjxirqbCsUWbYuhHDl0hXvtpdk0nbMHm+Wxra3Vmv9m/PDOh
+	 i7cYC1EOged6R2HcBL85rzPjERAhzSoc0VJfK9n6RMbfBQ3fgBiWWJt6NJDGqqObz0voo
+	 QB168DEQ81bZRbiJVOglTQjTHTXoiHXjhO+TRpxJ7KdSxFIGHijfFND7jCV7flgl+KFv8
+	 MXrQJEGWMg1YTfeGaTqhqF0hIcsvh8COSLRDyOZo4fdy/RWTWKQaA9zxgTNbRm5j9Bg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OTrB9kG+;
-	arc=none smtp.remote-ip=74.125.82.172
-Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=jaeyeong.cc;
+	spf=pass smtp.mailfrom=jaeyeong.cc;
+	dkim=pass header.d=jaeyeong.cc header.i=@jaeyeong.cc header.a=rsa-sha256 header.s=protonmail2 header.b=ihRz5VLQ;
+	arc=none smtp.remote-ip=109.224.244.22
+Received: from mail-24422.protonmail.ch (mail-24422.protonmail.ch [109.224.244.22])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C441606A33F
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:36:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C441606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA300606A32C;
+	Sun, 22 Nov 2026 10:37:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA300606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=jaeyeong.cc
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jaeyeong.cc
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OTrB9kG+
-Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso5202846eec.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:36:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795343787; x=1795948587; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/jvXQi6RIlt7Mtlnt0QbS4ARuJGb7qPHJ6+jlWg3p4k=;
-        b=OTrB9kG+zDwFTQehuRLEAcN1WkieTn0pOHRiTB9/eh53c3uJmmO09751vH6i/+gOLu
-         pgG7l2wyutG7jRl56gYC/AautEwNenET3+/Iapran3yZtODUegFhZG1V9/94yKeRr5FY
-         Z4UqzyQ1JB+XAG/8SZByFJKP3WYfZx0dk0uWCqfuv7LYPyXnkVEY81BYhYsILQDZiuGt
-         aB4Wwr4b0XCYkS+6oJ5rN0rhgLbtkHLCBODVy9bsmXvayQIsjdD5V3VJHNA1VCjMMCO4
-         gYCFWQnb/bWBLN5VNuSdPgfqTQ8pC9kBnXx4gPoRiPbVFFVnx6F9ed8/bROlhoEeYlkm
-         HNJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795343787; x=1795948587;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/jvXQi6RIlt7Mtlnt0QbS4ARuJGb7qPHJ6+jlWg3p4k=;
-        b=dYEeDxGZo2O+kH67usdUMPkqj0gUe777EJVcyFa90L5DsCpsucVoNNNnyFjcUm71xX
-         vv/hhVZ0oo1yBaovgBO38CCaNCbhtUvPyaVDaU3js8Yk/N2XH5CfbN0uVnbRDWT2PfhR
-         zmnQWL2Yei51nZGl8NPIShMWrZ6aDUsGmX3V6JRJIAxVYy+LJZ2b1Qb4hQComchTVN8k
-         Ys/A7Kke4c5thXHbpHGI7ChTIp+NVFJAJ7x271PhVmlPURSUa4fC6KXvK1P+E+Ie/UPB
-         fWkkg8G9WTbDdjo1jVwf4KfRFBY/+LUkqN6FIFL3nCeh55TplfwUHl3p2T1vHFaJPuyF
-         kWMA==
-X-Forwarded-Encrypted: i=1; AL+hErE/kbW3gSNZrUEpFssptpjlpP/vjxVvjtkv/n/EPVdk7uGMXwFKJvlvPkAMSpGFqyubAYjVSGtWEX5VpB0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z84SjZ3nenMzDyh08J48ABc4/AdhCDYEH5s3IhL5rJz+ZM/Vzkx
-	q/Q/WnS43UpfMQYW2mYarThhoW0LLQkjduVOsCJN7VbEQcvwTmn5Fqdm
-X-Gm-Gg: AZFdTZcQ9uGYgsmENp2kdQsTrLURB41Ss7R8HxEwyNZGakv4GfYPZeogMitW6j1q8rh
-	IT31VeMCoypsq98Diq9aTI8g/QQMXAmhjEiin2feeibu9+H5iKPbiVMq94+hLsA2KvFRfQl7040
-	gOc+5hsJYqojka+7NhRaXgG2UYlHtJd3cl8YKX4uK03yf6NOESPsJve6ADNciYt3e98auafNElP
-	pExUM4mqcM8KA+GUtHEBPAr/BGO5ZFe8qNoYPcrUQDu1O5ijjrkJgyTms67jJQVgxeJ4fDyydSf
-	Vm1UkSK5U3343AzHR+XLi7xs/k+VVzR9fmO33ahSQAEishWBMeTyxzF6GmhQ5T7HR/aRWIGXHDz
-	pppSPhdc8vwHy9zOSCySEfTa/JmisohdkgHOF0lymr01Dh6acaRNTpcZFYG5SwUo3vDC0/xtOfL
-	k78H01J+LzALnwlAoVVEU1yoH+6wczALXap7/l2jZ4pBxnkzGs7ApG/Hu4nFInNjddpt4jd187Y
-	wgSd0EVcFKiMDgXx8BcYwk6eihA5hOJb/Z/6M1kUHQwTMZzUw81vVd1TvkJF6g1MYsy7oeVr2Ug
-	C3q8JeZbMvvCTF5V298tgl35/6jnyINSauBkXnbk8/J+P4U6G5LgvNYHRRQfXEmdwSPvoWfMoAG
-	H9VCk51zH1P4i1ZxLggEBuYL0Y92is7WMUzvaACfM
-X-Received: by 2002:a05:7300:bf27:b0:36d:3c0f:cc6f with SMTP id 5a478bee46e88-3856c9a7dd1mr10341532eec.3.1795343786729;
-        Sun, 22 Nov 2026 02:36:26 -0800 (PST)
-Received: from nugod-NUC15CRHU5.tail9f095a.ts.net ([218.237.104.87])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385667decc2sm26176803eec.9.2026.11.22.02.36.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 02:36:26 -0800 (PST)
-From: HyeongJun An <sammiee5311@gmail.com>
-To: Takashi Iwai <tiwai@suse.com>
-Cc: Jaroslav Kysela <perex@perex.cz>,
-	Mark Brown <broonie@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-sound@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	HyeongJun An <sammiee5311@gmail.com>
-Subject: [PATCH 2/2] selftests/alsa: Test the sequencer UMP MIDI 2.0 RPN conversion
-Date: Sun, 22 Nov 2026 19:36:11 +0900
-Message-ID: <20261122103611.3264343-3-sammiee5311@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261122103611.3264343-1-sammiee5311@gmail.com>
-References: <20261122103611.3264343-1-sammiee5311@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=jaeyeong.cc header.i=@jaeyeong.cc header.a=rsa-sha256 header.s=protonmail2 header.b=ihRz5VLQ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jaeyeong.cc;
+	s=protonmail2; t=1795343844; x=1795603044;
+	bh=rR8mVZg1RTbtY+DPUPqTofyFY6a0VQAk2vhrLev7VdY=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=ihRz5VLQMFyA8VfbjCeqdmYl/lu4GHmlUZbPenBX4RdduWaPFRyjC1CkZuP55qmtV
+	 b/hinkPDcyy9k2tUJrHQ9d1/DRJTCG6knT+fBAccmAmpNIZF6K6ZzPP+hwhcMqJ8DO
+	 nmWBi6/aW5NLTy85ZKpS5Sl9dJI+bySmobX2YZwYs1YzKF2M6H98TJ8tGm2czY2oop
+	 a2iIMv0Dvm8VvB4SPhuZ+nevuMezRy1G5Tshep3B5nxzw6FmQ/SOc8RPn7o3ViuuVr
+	 xiEGTjZSudp/4folDeM9NxPmaJIT4RNd0qNibv3fL27iDTU+dAlRCDoCCQOClNJiil
+	 nilVs6rJTvu0w==
+Date: Sun, 22 Nov 2026 10:37:21 +0000
+To: Leon Romanovsky <leon@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>
+From: Jaeyeong Lee <lee@jaeyeong.cc>
+Cc: Artemy Kovalyov <artemyko@mellanox.com>, Yishai Hadas <yishaih@mellanox.com>, linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: [PATCH v2] RDMA/mlx5: Preserve DEVX objects after failed output copy
+Message-ID: <20261122103715.51731-1-lee@jaeyeong.cc>
+In-Reply-To: <20261115135123.GD42525@unreal>
+References: <20261111105346.3220427-1-lee@jaeyeong.cc> <20261115135123.GD42525@unreal>
+Feedback-ID: 177356447:user:proton
+X-Pm-Message-ID: 74f9f4dc1e82908e201ed1dabfc4e3b3c26b5def
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,46 +64,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Check that an RPN and an NRPN from a UMP MIDI 2.0 client reach a UMP
-MIDI 1.0 client as the four CCs that select and set them. The NRPN data
-has low bits set, so CC 38 is checked as well.
+A DEVX create can successfully create and publish a hardware object
+before uverbs_copy_to() returns an error. The error path currently
+destroys the object directly and frees struct devx_obj without checking
+whether destruction succeeded.
 
-Signed-off-by: HyeongJun An <sammiee5311@gmail.com>
+This is unsafe for DCTs. mlx5_core_destroy_dct() returns immediately if
+the DRAIN_DCT command fails, leaving core_dct in qp_table.dct_xa. A later
+DCT_DRAINED event retrieves the stale entry and completes the embedded
+completion after devx_obj was freed.
+
+The failure was reproduced by forcing DRAIN_DCT to fail and then
+delivering a DCT_DRAINED event:
+
+  BUG: KASAN: slab-use-after-free in complete+0x1a7/0x1b0
+  Write of size 4 at addr ffff88800b112ca8 by task insmod/77
+  Call Trace:
+   complete+0x1a7/0x1b0
+   rsc_event_notifier+0x1fc/0x410
+   init_module+0x454/0xff0 [mlx5_dct_repro]
+
+Initialize the object ID and indirect mkey bookkeeping before marking
+the uobject as holding a valid hardware object. Mark it valid immediately
+before copying the output. On a copy failure, the uverbs abort path now
+invokes devx_obj_cleanup(). If destruction fails,
+rdma_alloc_abort_uobject() commits the uobject, keeping its wrapper alive
+for another cleanup attempt at file close.
+
+Keep the direct unwind path for indirect mkey setup failures because
+those occur before the uobject is marked valid. This avoids running
+generic cleanup against partially initialized mkey bookkeeping.
+
+The issue was found by NSCV static analysis.
+
+Fixes: c5ae1954c47d3 ("IB/mlx5: Use mlx5 core to create/destroy a DEVX DCT"=
+)
+Cc: stable@vger.kernel.org
+Signed-off-by: Finder16 <nakamurajames123@gmail.com>
+Signed-off-by: Jaeyeong Lee <lee@jaeyeong.cc>
 ---
- tools/testing/selftests/alsa/seq-ump-test.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+Changes in v2:
+- Include the KASAN reproducer trace and describe the failed DCT destroy
+  path.
+- Initialize obj_id and indirect mkey state before finalizing the uobject.
+- Keep the direct unwind path for failures before uobject finalization.
 
-diff --git a/tools/testing/selftests/alsa/seq-ump-test.c b/tools/testing/selftests/alsa/seq-ump-test.c
-index 55bb7ea5b02f..7030d061dfae 100644
---- a/tools/testing/selftests/alsa/seq-ump-test.c
-+++ b/tools/testing/selftests/alsa/seq-ump-test.c
-@@ -620,4 +620,24 @@ TEST_F(seq_pair, ump_midi2_to_midi1_note)
- 			  { 0x20913c01, 0 }, { 0x20813c00, 0 });
- }
- 
-+TEST_F(seq_pair, ump_midi2_to_midi1_rpn)
-+{
-+	int skip = 0;
-+	int err;
+ drivers/infiniband/hw/mlx5/devx.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/infiniband/hw/mlx5/devx.c b/drivers/infiniband/hw/mlx5=
+/devx.c
+index 5ba783bc7f9b7..fd41104fe42fe 100644
+--- a/drivers/infiniband/hw/mlx5/devx.c
++++ b/drivers/infiniband/hw/mlx5/devx.c
+@@ -1614,10 +1614,6 @@ static int UVERBS_HANDLER(MLX5_IB_METHOD_DEVX_OBJ_CR=
+EATE)(
+ =09=09=09=09   &obj_id);
+ =09WARN_ON(obj->dinlen > MLX5_MAX_DESTROY_INBOX_SIZE_DW * sizeof(u32));
+=20
+-=09err =3D uverbs_copy_to(attrs, MLX5_IB_ATTR_DEVX_OBJ_CREATE_CMD_OUT, cmd=
+_out, cmd_out_len);
+-=09if (err)
+-=09=09goto obj_destroy;
+-
+ =09if (opcode =3D=3D MLX5_CMD_OP_CREATE_GENERAL_OBJECT)
+ =09=09obj_type =3D MLX5_GET(general_obj_in_cmd_hdr, cmd_in, obj_type);
+ =09obj->obj_id =3D get_enc_obj_id(opcode | obj_type << 16, obj_id);
+@@ -1627,6 +1623,14 @@ static int UVERBS_HANDLER(MLX5_IB_METHOD_DEVX_OBJ_CR=
+EATE)(
+ =09=09if (err)
+ =09=09=09goto obj_destroy;
+ =09}
 +
-+	err = open_pair(&self->dst, SNDRV_SEQ_CLIENT_UMP_MIDI_1_0,
-+			&self->src, SNDRV_SEQ_CLIENT_UMP_MIDI_2_0, &skip);
-+	if (skip)
-+		SKIP(return, "UMP sequencer client unavailable: %s",
-+		     strerror(-err));
-+	ASSERT_EQ(0, err);
++=09uverbs_finalize_uobj_create(attrs,
++=09=09=09=09    MLX5_IB_ATTR_DEVX_OBJ_CREATE_HANDLE);
++=09err =3D uverbs_copy_to(attrs, MLX5_IB_ATTR_DEVX_OBJ_CREATE_CMD_OUT,
++=09=09=09     cmd_out, cmd_out_len);
++=09if (err)
++=09=09return err;
 +
-+	SEND_UMP(0x40210001, 0x80000000);
-+	SEND_UMP(0x40310203, 0x12345678);
-+	EXPECT_MT_PACKETS(2, { 0x20b16500, 0 }, { 0x20b16401, 0 },
-+			  { 0x20b10640, 0 }, { 0x20b12600, 0 },
-+			  { 0x20b16302, 0 }, { 0x20b16203, 0 },
-+			  { 0x20b10609, 0 }, { 0x20b1260d, 0 });
-+}
-+
- TEST_HARNESS_MAIN
--- 
+ =09return 0;
+=20
+ obj_destroy:
+
+base-commit: 7404c82cbf1246e0e84e2ec21834d23c26f9a8ed
+--=20
 2.43.0
+
 
