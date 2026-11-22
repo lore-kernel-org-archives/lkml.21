@@ -1,124 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.144
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795391139;
-	b=qk6Nyg82+bXfO1+1v3HYMasSyT99kQ14TpdSHt3SWcI3esk0ulKBk0YRqRtl8rQlWvp8
-	 XOX+lpZVy9zJCIUF8o5NbRajPgDKqbTJQ8Xg4eh/Ms6xJQJfLi3OcwLkL84mFz+BexteD
-	 yHiYmdDHL673oJe+KrqhPsfCj7jb9X3d5vDxNvaSHHfPQ0kBntt/B9cXss7ERZwWPUjLT
-	 sxTEBmQsWwySaD5KTvs+aygDzsmVYtWKN67/T2vZz1MxIIK3FLzB4a3NV9ar7T3jUw7Qs
-	 7dGCF9uLceN9LxOqE+AzFus95Pxq6RSAzXLdx+dPQdcXj86rLK1npPk/Woz/yqEDuJw==
+	t=1795391218;
+	b=1vxZt2LEGLFtv040F0fVzjff+sYkSHGJMbnQQPBfPy4oM/J12KDr2Csw125YOhnbyLXP
+	 bNtXTWagNeaV+2EDdSevNi/3Gs6RO4VcyTOT5LI0REbp7mbuMNrf8f1/6I31iwkqOUHen
+	 XpzvuMj8A7r6IDXq/8MhRRdA/kOZ52zOaDv3mtE/ijbDdk9OxmQneu3ZRyoV/49l6aVjM
+	 kiyMUXKu/RCdhVUc5dyK5IrCWctUWdeFgrcr/gsWydl2Hzn+tzp1ygg3jE4seNypTBDw6
+	 U2SADPq/dhOMI9wgueoawt7xkqEpDOMzEIpejhaWlildSqg5sjjjmxTtQSeiryXKHfw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795391139;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=1fjKKCEnZwYosmBHPEBZrD2de+0UdG6NDmDLNg2rOq4=;
-	b=03e6Jo86GFRKLPFMrI2qQEmfmfY5SdOF1KI6V+6MqzEL+jNK2tJVMPr52gMJI6Nx3y0Y
-	 5bHiLT5JW2hTX4CaMUO4AtqJEi9lOrjck/8heAIVL1p+dVcQbAUVlqBNlGDVVQxBScW9J
-	 eb34IvznHbr7TeCJxNOeFWYJTFFOmIoZGWOG2Y0huuYmhxFS8BipYzb5cLsPu+YEon5c3
-	 hS404Yg8WyDEyRyJmE+WL1I0HnnHoTfSTlRgps5BAiaunQdJD5zC3XBhzXmRQsf7ISXPm
-	 nimG1bQrBnirMJBNOzE4a8NDMkOjJKMFYCVHkfkQDp/fEanoHZbD8FK4ohoqh7IcVzQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795391218;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=5SMUhQZLvGIWMEWzTIwqLJCO1x/4SePRxnBTKofe0h8=;
+	b=1rdQMGGj03KvWjPDSsaXHa/Z9KROo14pGF77eUdbJHiusC7GTu3nz27M+glXKJ3AR8Mu
+	 4Sck/gqMwIEK46SA1I6pK22n/M587WSQBukIUxjMkqlGC9G4vk+EtM8rsfllZ41eAzthL
+	 1Ww8LjVVOSIsXzQo0P0NgQxujVoryq1a/1b3EHy3zqgmCh8z3FOSP/fC6RkeMbp1ypAPU
+	 HSEZCSS+wHNY9WIEMVhCtGGJ51tGW/ZiMZX+lvtIUOBikZAs2LiRzSvZm7tcNpya2BTwF
+	 l9YEL8XfB38zwiiQK6d2HubeKcA4w2kSJsxCXqt/ea8u/LrjaLZdSKCroARIzvOjoug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=exultantmonkey.co.uk;
-	spf=pass smtp.mailfrom=exultantmonkey.co.uk;
-	dkim=pass header.d=exultantmonkey.co.uk header.i=@exultantmonkey.co.uk header.a=rsa-sha256 header.s=fm2 header.b=cli9yrWu;
-	dkim=temperror header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=fVumczo+;
-	arc=none smtp.remote-ip=103.168.172.144
-Received: from fout-a1-smtp.messagingengine.com (fout-a1-smtp.messagingengine.com [103.168.172.144])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FelwzqAP;
+	arc=none smtp.remote-ip=209.85.215.176
+Received: from mail-pg1-f176.google.com (mail-pg1-f176.google.com [209.85.215.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F5AD606A31A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 23:45:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F5AD606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=exultantmonkey.co.uk
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=exultantmonkey.co.uk
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51AA4606A31A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 23:46:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51AA4606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=exultantmonkey.co.uk header.i=@exultantmonkey.co.uk header.a=rsa-sha256 header.s=fm2 header.b=cli9yrWu;
-	dkim=temperror header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=fVumczo+
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfout.phl.internal (Postfix) with ESMTP id C04DCEC08DC
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:45:37 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-01.internal (MEProxy); Sun, 22 Nov 2026 18:45:37 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	exultantmonkey.co.uk; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to; s=fm2; t=1795391137; x=1795477537; bh=1fjKKCEnZwYosmBHPEBZr
-	D2de+0UdG6NDmDLNg2rOq4=; b=cli9yrWucWhH9/2waEFmvQGC+WTRzXvnEAgu6
-	iYvtYv0xiDYuM69gBjKfrDtVBTP0qVTCmpbM7ixjvpkzlb17k3m+doSrCBFgiRjn
-	GTDYzAagGNzFApNWqx+MWH7NjoYvw9WxmTvMcqAFJlK2u04nFr1Vu4EF9WHIeg/3
-	j42ZwX3nu5i8HFsAwFvFk1YmGMIG1iD6fHFa7Fr0LEh2vtgZiJmqL5eWwe2RXExZ
-	JGImyDBQgiJ3KYLEf5VXcCIF1+73NrD1ujfp1Uwsj71NGflDm0Bq9T0orWvQMJqF
-	3bg5zQbJ6oeJJIGqlbthntrXslfrdp2aTgwUhjCjh0Nothe8w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1795391137; x=1795477537; bh=1
-	fjKKCEnZwYosmBHPEBZrD2de+0UdG6NDmDLNg2rOq4=; b=fVumczo+eHO912pw0
-	kbM3CuxBk46E1Pz/TEzqbB8/5Qdh4SBcuvN7EdhHZJtowNru51W0KV/1Vx2bnNGw
-	uWkJfJBhXY+apGlbkNAl9j2ZM4PShUGTegSDGKj6sWhAB54oWKN5kw2JIQTy+ffW
-	6yhjgDfj+ZhYADYGYcmrNQNaTdjHesHPUbZeO7j04ubIdjuH+W47vZr+bZdfCxXX
-	PfOtBS0OhVnYJDqyQPeMUjJrZVACcB+3NKuAHnhxhErvWUbziJ/4QVhqDwtR4djM
-	hWQWGWoNCkVm4O4tJXqhr5OMSIWRs3dU600AGd1i+P56k6zVOL+5rQAJwfJpmLCC
-	KXT0w==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=exultantmonkey.co.uk a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795391137; d=exultantmonkey.co.uk;
-	mf=PGRhdmlkQGV4dWx0YW50bW9ua2V5LmNvLnVrPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:FAXmrBkF4fLXktch7QJ4d40Puv2A4DjK2u4Ne93IAKjAZEA
-	Wk9Z9vPHQmeCupMSYOQ8x60mkBAByVD+E0LCvwTXgYEZ6g8eVxg6IIx4Bo/TZd45
-	m+7DloBXSjVqvt6vWxQpyiHVFMDoYYTkHPnpfJ6f8PrSocEB4bsIm0Imkzc2rPhQ
-	E8o2tMT25iX4t4vVbAgdIw8pUUVQc+vb0uAGlPBKv3ELT/e0/aDuYmJlT3Vq/WIT
-	cNbQFrULAjjoutH/7Y1CvAqzUQhh700pQ5vZy7UnFpCL7TnsApsMt8e0mbl/4lbH
-	ogkaIpP4L3QkA9G5gjZz5qq1HK+jcU9O8bMfCBQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=11;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:G0GCyGbexGc/D8VW5PXNRPAiCnzCwSi2m7sH+nN0ibk=:1fjKKCEnZwYosmBHPEBZrD2de+0UdG6NDmDLNg2rOq4=;
-X-ME-Sender: <xms:oX4DaxINla0HgcZeYwOI0l-yr_w9pQEYDXxtpw-EhrpTsjBevlKtSQ>
-    <xme:oX4Da_bAmnn-dOA6kjQ6KgtFb0fqldZIx4SgwcU7bHuPjXe2lB7fBynIXdbo03ETF
-    SP2tH2w3ap7gw5gGctIU1wCZ4Px0aBAcXBoB7bZK-ZzxkjAHNcxsgV1>
-X-ME-Received: <xmr:oX4Da78ITfIu0qYFSuwhfIzlR0SZvYuavN_wBb6oxYx1C4UA6FWT2GalDSyTitQpNTkI42o>
-X-ME-Proxy-Cause: dmFkZTGLo4htkBeGweAzxLoOR8g74zf4vF4R/EJ7bPJfkEMuMPo52T+7HEdJdeljAsumUs
-    yy1F2//hSMakJVv2yxrqfiWB1WhmFUbJx+bAqRcrRgKjRQ18acWCt3paLYUl7x0wet92un
-    iRrKYtXDlfWBCYdzg6B3STRM4rLcMaspN4tBvnDdL6jgbPCTn4MA8UKYzW+ufDWlpBBUMT
-    YGL9NXPzdUAQTfy5fhHjvZa7TA7OCXzrHE6ydTDWftrZ1OEMW0inw0NKz7mgCc6Xhos7uz
-    N5tvgff6gTQHuWavIrAkWPxwliuLVp8xSBG35zHVDa355qr+I6lHQqMMoJzQS2l6r78dct
-    U+ZFaC9VzeEDwsPfVLrgE0bGjOYdOIX1oKI6Qs4Gc9mHLxE0eSORoiHZ73Dq6XQfTDljPM
-    xQ8AspQNdbWc9+HAC73bCPwjTIqLM6HxSeyIQLcU/GHv9qPqTukB6ZC8e2R5xZXoiBwaDC
-    hgweP0q2a9DiTCZgQsgcB3sKc1JoN/+frIbHpN7f0UtmcoYOMqxUdOR+d2RuTf25bmDLWE
-    rfFKX8f1Y5j0VHNxvYCSpZFzE51Wdi2ZfoU72j+jSdbRCySo6rfbAaSSa1JZMubjbeTtUE
-    h6OUCn434I5twvn8qxPnumB94CdcLO30yBruaGUw94F/F2EZwNlKnhIjQp9g
-X-ME-Proxy: <xmx:oX4Da4bBa6FEdJFCsenfFwvj8GAovRLoMF2YF-Wfrtg0QOVpq3INEw>
-    <xmx:oX4Da3Oe_G2vop2rLMab8SKhBDmLwNQVt7eljH3hbV76f6j3FGwOMQ>
-    <xmx:oX4Da8AoPOkrNr4SenJBMN5ewlZbFWN3mB_jvhZJwKRrx6n4PiGZgg>
-    <xmx:oX4Da2I1FOB7SCI_OSjT_VAhUbEW3ln00-5C4caHcVvehIwPf9x9pA>
-    <xmx:oX4Da4VDKJgssMvliq7Uq0gJ21FHEZWC_LhO5YR-x3DnT9U-ot-Zz02n>
-Feedback-ID: i8d5147ae:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 22 Nov 2026 18:45:36 -0500 (EST)
-From: David William Richmond Davies-Jones <david@exultantmonkey.co.uk>
-To: Krishna Chomal <krishna.chomal108@gmail.com>
-Cc: Hans de Goede <hansg@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	platform-driver-x86@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FelwzqAP
+Received: by mail-pg1-f176.google.com with SMTP id 41be03b00d2f7-ccca948203aso2658446a12.3
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 15:46:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795391218; x=1795996018; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5SMUhQZLvGIWMEWzTIwqLJCO1x/4SePRxnBTKofe0h8=;
+        b=FelwzqAPtTFCbjVrrO+tp0DLyT+8WMkuEr+5+drt7XHK+6+huy4f9a7NNvcGXWndWf
+         yOfE/ljy2SETkZATyB+6IExeU8K5LdpdmQvHIRrnBvWfQH3wd13V2oXfl/bHJ1P7Urcb
+         zTS2TBP4GqJBS1JKAs/46GegA0+6qvMocvNHEIe1nXmUJdAE6Peh2nHYhqi1eulnMyFA
+         MkOr5FeuCVqbD0OKTCikwHucX0GNQ0NHQsaCAR3kNwZFLiDez9an9hqcBKfbA9Gbnv05
+         FDINlUM2Tq2MWDJYOgGqlxlVDnrBF68/icPcqWqBMH+E8n28H0ElWzaE4I/9Xq9w037V
+         DcbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795391218; x=1795996018;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5SMUhQZLvGIWMEWzTIwqLJCO1x/4SePRxnBTKofe0h8=;
+        b=MOsGNRvVWYt57pVKuf8lsu2tOKt3a6+Yqneyn41khB3qexMi15Iijm9LWAZYOn7PyO
+         zFj0MMWggFtXG1PL26bjjz3fzX2X71bqnpXnO9mVVkHfUoqAScqCbJSPcv/3n57fhZsb
+         ajDdr/1BHo3ykW7PEJftZeoDYxYqus4CpVPpK4Cb+t7u8MEyqsyogV8jfVjxbZtbQ6EF
+         Mgs5EG/KLz+W030h5leSCBr8cXQboB4I5+1BUXLmx6gVWVdyXOhYR+Xn7aKtduNFBWkC
+         0HTiI/PMrrlME53Fg3M3dojKiRBeykVmukeyt/5FsZzF9BExkOUQe+3Lq4BzUkfhKczy
+         deJQ==
+X-Forwarded-Encrypted: i=1; AL+hErF21lickQCGiLlcMrjZTByp6yT6D4sG1vY1T89zd1rslA0GAnaZdvyjf9tHG+deSwT23eye+bhTvucisb4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/+fGpx3lrt6d+98c5PC7u0EdZkxxrC5gMg52b3PWF8W4MYfWif
+	7HO4+75zQTStUi2l4EGpgTXxk5z78J/t6ISpK/Z00kqx6/vDeTkC5M2K
+X-Gm-Gg: AZFdTZeX3vku76q9fhEHDfg0jJIk8I/Co2/rb0cR1uFOKG9LXMgA/PzKSd1zWBDTM1Z
+	fG+pqpqrv3NhGashVm1mL0FjVJ1R0hl3x+FaQhgk1/aV+gcQnvGSaihdU/KkGgBmqcNmURZjZOc
+	MWKXTzG9cBJ8zq2s5LCSki/51NLx0wUaINt/FWKKhX/QAHb3xGnolr6IpNRmtQttCW5IIxWzsnC
+	t4Ge2aw3NhZA/VwWtJTfpMPF/+0RA5Y9Hcwa/92P5Gcroq8SmT2zpPm6r9NSz0vldPR+GXMYqPv
+	0Pk+UYwYA0GzU1HMQPOXQLtnSAlOyrpHmQHl/Kwb3nWxIZ7CMzBTFsaLMCIJrHn8CSCW7bPW2+6
+	OU0w4Y5FBqe6K1ImWjXgSIGSGi6Y3K8PbusXU4eurbwpLB7Dgc8XnGQ1UbsFB6rdQDoYSVlc62Q
+	yfdCDoYdSlbRUo83zEwE+fkcGxGAwYQnOPrVgq1peqxtEmtN9gABAIWNuXESERTrarv0c5giPZt
+	YFqo10MGem70r0xFag4z+1E4Jec59Qg/4oP86zjbGsFEXZ7QV54o0I19xujhsqQixAyScYDNtUN
+	OAM6i/ZuxTNr9Osu3FrhJayt7mEUiuxwGBPVgDysA0Kwx9swrziPS0XlBxb51yqZB6kyZ27ag7M
+	Rad2epEAFR1Ofb1E9AVPoda7A6ISKDfXN+64mKJ1Pv1kOFk6ZYPZ1oz/WFahHwd2lzTRpyRgeS4
+	/3
+X-Received: by 2002:a17:90b:4b05:b0:3a0:516d:9f88 with SMTP id 98e67ed59e1d1-3b41c911c9emr8676680a91.26.1795391217624;
+        Sun, 22 Nov 2026 15:46:57 -0800 (PST)
+Received: from localhost.localdomain (180.36.101.34.bc.googleusercontent.com. [34.101.36.180])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad47091sm15052556a91.10.2026.11.22.15.46.53
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 22 Nov 2026 15:46:57 -0800 (PST)
+From: Yifan Feng <evanfengff@gmail.com>
+To: SJ Park <sj@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	damon@lists.linux.dev,
+	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: Re: [PATCH] platform/x86: hp-wmi: Enable cTGP in performance mode on OMEN 15-en1xxx
-Date: Sun, 22 Nov 2026 23:45:16 +0000
-Message-ID: <20261122234516.279112-1-david@exultantmonkey.co.uk>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <awMir9K1nuO772x4@archlinux>
-References: <awMir9K1nuO772x4@archlinux>
+Subject: Re: [PATCH] mm/damon/core: do not overwrite wmarks.activated in damos_commit()
+Date: Sun, 22 Nov 2026 15:46:32 -0800
+Message-Id: <20261122234633.89529-1-evanfengff@gmail.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20261122012222.148520-1-sj@kernel.org>
+References: <20261122012222.148520-1-sj@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -130,75 +104,28 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi Krishna,
+On Sat, 21 Nov 2026 17:22:22 -0800 SJ Park <sj@kernel.org> wrote:
 
-Thanks for the review. You were right on all points. I've sent v2 as a
-new thread, "[PATCH v2 0/2] platform/x86: hp-wmi: Fix cTGP and power
-limits on OMEN 15-en1xxx (88D2)".
+[...]
+> > Do not restore
+> > it for DAMOS_WMARK_NONE, because nothing sets it again in that case and
+> > the scheme would stay off.
+>
+> Is this really necessary?  If not, I'd prefer restoring it always for
+> simplicity.
 
-On Sun, Nov 22, 2026 at 11:29:12PM +0530, Krishna Chomal wrote:
-> So perhaps policy v1 is not entirely wrong? The HPCM == 1 check in GM1A
-> only tells us how this particular method handles the performance mode
-> value. Have you checked the other consumers of HPCM, particularly GM22
-> and the NVIDIA-related SSDT methods?
+Thanks for the quick review.
 
-Policy v1 is correct for this board. I went through the DSDT and all the
-SSDTs, and GM1A is the only consumer of HPCM. GM22 doesn't look at HPCM
-at all: it writes NPCF.CTGP and NPCF.DTGP directly from bytes 0 and 1 of
-its input, notifies NPCF, then applies the D-state (byte 2) and GPST
-(byte 3). GM21 reads them back. NPCF only reports the cTGP offset (ACBT)
-when CTGP == 1, and only reports Dynamic Boost when DTGP == 1. So on v1
-this firmware expects cTGP to be set with SET_GPU_THERMAL_MODES, and the
-HPCM check in GM1A looks like the v0 route.
+I think it is needed.  With DAMOS_WMARK_NONE, damos_wmark_wait_us()
+returns 0 before it touches 'activated'.  So if the scheme is
+deactivated when the metric is changed to none, nothing activates it
+again.
 
-> However, have you considered adding an entry to hp_wmi_feature_boards[]
-> and using the corresponding omen_v1_legacy_thermal_params mapping
-> instead?
-
-Done. v2 drops 88D2 from omen_thermal_profile_boards[] and adds it to
-hp_wmi_feature_boards[] with the omen_v1_legacy thermal parameters. GM1A
-stores the mode in EC 0x95, which matches
-HP_OMEN_EC_THERMAL_PROFILE_OFFSET. The new list is gone.
-
-> If I'm not mistaken, board 88D2 should also support fan curves, right?
-
-Yes. GM2D, GM2E and GM2F are implemented on this BIOS. GM2F returns a
-2-fan, 15-entry table with a maximum of 5900 rpm. With v2, manual PWM
-goes from 1200 to 5900 rpm, and max and auto modes work.
-
-> Why enable Dynamic Boost unconditionally when the firmware would almost
-> certainly disable it in case of low-power/equivalent modes? Wouldn't it
-> be better to make PPAB follow the selected platform profile instead?
-
-Agreed. On the Victus S path PPAB now follows the profile: enabled in
-performance and balanced, disabled in low-power. For what it's worth,
-GM1A on this firmware never touches DTGP, so it stays at its default of
-1 unless GM22 clears it.
-
-Moving the board to the Victus S path turned up one more problem, which
-is the new patch 1 in v2. When the power source changes in performance,
-victus_s_powersource_event() sends SET_POWER_LIMITS with PL1 = PL2 = 0.
-That was added for the 8C9C as "restore the defaults". On this AMD
-firmware GM29 multiplies both values by 1000 and passes them to ALIB as
-the SPPT and FPPT limits whenever the EC power level (OCPC) is 0. Under
-full CPU load on battery that held the CPU at 399 MHz and below 5 W.
-This firmware already sets these limits itself from the EC power-source
-event (_Q20): 25 W on battery and up to 54 W on AC. So v2 adds a
-per-board flag to skip the refresh and sets it for 88D2. With it the
-CPU holds about 25 W on battery and recovers to about 50 W on AC.
-
-Other AMD boards in hp_wmi_feature_boards[] may have the same GM29.
-I've only been able to test 88D2, so I set the flag for that board
-alone. It may be worth checking the others.
-
-One user-visible change: on 88D2 the profile choices go from
-cool/balanced/performance to low-power/balanced/performance. That's
-consistent with the other feature boards, and I've noted it in the
-commit message.
-
-Tested on 88D2 (BIOS F.20, Ryzen 7 5800H, RTX 3070 Laptop GPU): 100 W GPU
-limit in performance and 80 W in balanced and low-power, correct profile
-readback in each, and the fan and power-source results above.
+I tried restoring it always.  I deactivated a scheme by the watermarks
+(free memory rate above high), then set the metric to none and
+committed.  After that update_schemes_tried_regions never returned on
+my test kernel (it does not have the damos_walk() fix yet).  With the
+check, the scheme is applied again after the commit.
 
 Thanks,
-David
+Yifan
