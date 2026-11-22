@@ -1,80 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795310367;
-	b=4C/S2iFzvbCYZC2hiHDpOBEb5Av9Tq2a3c1OSurlBoGpbiziGdD+sBFZ4B3cTQpjAQna
-	 N+aWX4Y9lWA9tHDCpaAY/WrYZby/LWLnp+BGVIn96b99ENgeIoC3+3VCfqzToAqkrhYj4
-	 vnDJ4QIzurWkGjvnPBkBFI61ql9/MROi6y+KRlaTWX9DU1z7e3MclkL/R9klGGbh4Kmdt
-	 TUztByTemUpaXg4+0/hp8PjBXbxESsbVzFXSp/TW/OHrOH9N/UNYL315NQHqFYA4TSiYj
-	 RtYE7K1+/ofmG7sAcsAYWrxbIkcMHoniJNSd6XPilZNXtM1n/FSnO8nM4Nd19eY1nng==
+	t=1795310358;
+	b=hxWglghyw9rPGwsSJe5HLtrDyLOJsQAUpnwQUq7HAYagz2xDRBicRix5ftjv6d+XPkK2
+	 eeZODoBInlZh/a6FLxx70YaycebNtwVVVwiocc7ct/8iZ6NlT54HKSwOBgzpDqaGvjekD
+	 zZVyZJQX3aQMwVLMhMWthjSqNe66/GjZbQ3vrT56+gp8/jMAV3Wgf+EJezaYv1u6MNdEr
+	 /55R1T3S8fValAKFhrc+jijYJQaZ/AsHvEY5xl5jpNXB5efP2lG8GsWhN0iKY8Mwaytau
+	 XwmHC91W3T50AzTDsNc51TMoMMZi/jzu+9X3f8LXeNqh6/gqfGNiHvynH6vZ75WIsHg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795310367;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=fWJHdnp4YwCtWnVVzUop7dWReDiuHEz0dyfLuLn6Ww4=;
-	b=uBJhQssX+F8Ep1j4o6MWkPzFBMvC6xudN5i5LCg/I5L3lI+JfRH4cKjgXUtvuocu9FMm
-	 XrlWorD//bCgxKpF6gYJ3VdeAkab2rA0r52Uhb/XIzut8l53a7S+BSD6eOFTp1NWWZ7+a
-	 Z0uXm9KTklSCPeUAnR2ZUzKegf3k3jltLDlIQwzws3gCu3saBV23l19W4WUrBaTSlb20A
-	 IR7nxo26VWNNbKN38f94EL3cRx3QfF1QLNTdF0taIvsYKeBXeS4zZNGXAgghpQ+3rmi6f
-	 d87G0tJ+jNtW7755Nr/Y1D1LJxNsKEhwonmh1Bw4D8sUZG+kVt0pkrSU2dnvnsARxPg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795310358;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=Bc4KCqTCCvqKRhvZx+lV6nXL57V09zR0YOdKWGFcYhA=;
+	b=mz8tZLIL+QJmBh1vLSg7aYphHld3ITX1SLC5Wb+1hHiylBcMm7Dzjtb6FJ3fXfDPwye5
+	 e9OJPQQLJiOLwNN9J+l5iHHZ5LgHFVJ3M0a47PjmCQmB8q7KIF70wWR1izIeLM63x55XX
+	 L1nB3BmIsBWV63hiLqeJL553PwXV0D+r0K9wx4L3uoMtcci9NyK1rANHqkdz9ZZY0SspG
+	 Pg8XJd6jSUt01CDY5e6I9gtBxriIJ36wQtieknMJ1fnQJeg4miV7rYKtWLHaano6AIJ4R
+	 dFJ9Jzh0O/CsEkBdnFLApcg1daul7FsZkHs3iFoURMmwAHEaPMtZ2DjEhy85qOoOxTQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=RlOgVTX+;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e2GoX14N;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99B77606A698
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 01:19:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99B77606A698
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 08DB5606A330;
+	Sun, 22 Nov 2026 01:19:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=RlOgVTX+
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795310365;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fWJHdnp4YwCtWnVVzUop7dWReDiuHEz0dyfLuLn6Ww4=;
-	b=RlOgVTX+7Jq2wHEkpVQ3LxOSllkBxDTJGHrhF3K7mkbrTThRqE7CFT1SJLJW2fVMyVKhIV
-	D1ez64OKOopTaGOsc9gzSMYSZQMBTaysoRZp4Ov0pfoGcDoYs2wTaS4D73/eEm0SjHK72W
-	b124rnnm+e7lAm0+D1Lyxh/5d1rw5BE=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-448-e156JmlfNfOY5triLT84SA-1; Sun,
- 22 Nov 2026 01:19:21 +0000
-X-MC-Unique: e156JmlfNfOY5triLT84SA-1
-X-Mimecast-MFC-AGG-ID: e156JmlfNfOY5triLT84SA_1795310359
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3737E1955F18;
-	Sun, 22 Nov 2026 01:19:19 +0000 (UTC)
-Received: from snishika-thinkpadp16vgen1.tokyo.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 553073003EBE;
-	Sun, 22 Nov 2026 01:19:15 +0000 (UTC)
-From: Seiji Nishikawa <snishika@redhat.com>
-To: Keith Busch <kbusch@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>
-Cc: Hannes Reinecke <hare@suse.de>,
-	Chris Leech <cleech@redhat.com>,
-	Seiji Nishikawa <snishika@redhat.com>,
-	linux-nvme@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 1/2] nvme-tcp: remove the direct send path
-Date: Sun, 22 Nov 2026 10:18:25 +0900
-Message-ID: <20261122011826.1959697-2-snishika@redhat.com>
-In-Reply-To: <20261122011826.1959697-1-snishika@redhat.com>
-References: <20261122011826.1959697-1-snishika@redhat.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e2GoX14N
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id F09711F000CA;
+	Sun, 22 Nov 2026 01:19:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795310357;
+	bh=Bc4KCqTCCvqKRhvZx+lV6nXL57V09zR0YOdKWGFcYhA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=e2GoX14NlATm1xCe8kfL8b13V3o4ev026JjDpzRUVhQrAW4ge8mPmgOt0siXlM53b
+	 GOCBuE3fvx+EN1DyFout1BBt4pYYKtUBG/u7HDwO8xEx9AwajQcgXyYHooNTFr+894
+	 nh5vlspqdYtceJfowBfHcHkr0qq6ytTqL+4PE9Aj0RiQ7h4qJU3JsEMiSPGJ4kFbOy
+	 7EpswnvEAO+OhQ/TYe2KgiIU8Mf/OdD3IAdY/5WNty+4i9MqtSdCp0VHRlq+mKuT5v
+	 XVkYiSbeufsxkHrL9yM/gJYkBEPaL+cMURtT5/HuKJuvB4QsYmeoxn5CPKYBxCKVUo
+	 5KDKoRMg8HVvw==
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: Jarkko Sakkinen <jarkko@kernel.org>,
+	bpf@vger.kernel.org,
+	containers@lists.linux.dev,
+	linux-api@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org,
+	Aleksa Sarai <aleksa@amutable.com>,
+	Alexander Mikhalitsyn <alex@amutable.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Christian Brauner <brauner@kernel.org>,
+	David Howells <dhowells@redhat.com>,
+	Giuseppe Scrivano <giuseppe@scrivano.org>,
+	Hugh Dickins <hughd@google.com>,
+	Jan Kara <jack@suse.cz>,
+	Jeff Layton <jlayton@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Josef Bacik <josef@toxicpanda.com>,
+	Kees Cook <kees@kernel.org>,
+	KP Singh <kpsingh@kernel.org>,
+	Lennart Poettering <lennart@poettering.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Paul Moore <paul@paul-moore.com>,
+	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: [RFC PATCH v6 15/26] exit: Support P_USERLAND in waitid()
+Date: Sun, 22 Nov 2026 03:17:58 +0200
+Message-ID: <20261122011809.2667684-16-jarkko@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261122011809.2667684-1-jarkko@kernel.org>
+References: <20261122011809.2667684-1-jarkko@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,100 +90,202 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 
-nvme_tcp_queue_request() sends the request directly from the submitting
-context when it runs on the io_cpu of the queue, the queue is empty and
-it can take send_mutex. Commit db5ad6b7f8cd ("nvme-tcp: try to send
-request in queue_rq context") added this to skip the workqueue hop when
-the queue is idle.
+wait4() and waitid() only allow a parent or subreaper to collect exit
+status, so an external manager holding a userland file descriptor cannot
+wait on a userland init process forked by another process or observe
+exit status multiple times across observers.
 
-Since then this path has needed a series of fixes for races and
-priority inversions between it and io_work. These are
-commit 5c11f7d9f843 ("nvme-tcp: Fix possible race of io_work and direct
-send"), commit a0fdd1418007 ("nvme-tcp: rerun io_work if req_list is
-not empty"), commit 70f437fb4395 ("nvme-tcp: fix io_work priority
-inversion"), commit 08acb54b063a ("nvme-tcp: defer TLS inline send to
-io_work") and commit 5db358f3a7f9 ("nvme-tcp: fix io_work priority
-inversion when send_mutex is held").
+Add P_USERLAND to waitid() and wire kernel_waitid() to userland_waitid()
+to wait freezably and interruptibly on a userland file descriptor until
+the userland reaches USERLAND_DEAD and populate siginfo_t with init's
+caller-visible TGID, munged UID, and exit status without consuming it.
 
-All of them come from having 2 contexts that send on the same queue and
-coordinate through send_mutex, while io_work runs on a high priority
-workqueue and the submitting task does not.
-
-Remove the direct send path and always send from io_work. TLS queues
-already work this way since 08acb54b063a. With a single sender, io_work
-has to be queued whenever the last request of a batch is added, so the
-has_pending check in nvme_tcp_queue_request() goes away too, and
-nvme_tcp_send_all() has no caller left.
-
-Suggested-by: Hannes Reinecke <hare@suse.de>
-Assisted-by: LLM
-Signed-off-by: Seiji Nishikawa <snishika@redhat.com>
+Co-developed-by: David Howells <dhowells@redhat.com>
+Signed-off-by: David Howells <dhowells@redhat.com>
+Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
 ---
- drivers/nvme/host/tcp.c | 33 ++-------------------------------
- 1 file changed, 2 insertions(+), 31 deletions(-)
+ include/linux/userland.h  | 10 +++++
+ include/uapi/linux/wait.h |  1 +
+ kernel/exit.c             |  4 ++
+ kernel/userland.c         | 79 +++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 94 insertions(+)
 
-diff --git a/drivers/nvme/host/tcp.c b/drivers/nvme/host/tcp.c
-index 62a594b8ab9b..2b832ac3068a 100644
---- a/drivers/nvme/host/tcp.c
-+++ b/drivers/nvme/host/tcp.c
-@@ -213,7 +213,6 @@ struct nvme_tcp_ctrl {
- static struct workqueue_struct *nvme_tcp_wq;
- static const struct blk_mq_ops nvme_tcp_mq_ops;
- static const struct blk_mq_ops nvme_tcp_admin_mq_ops;
--static int nvme_tcp_try_send(struct nvme_tcp_queue *queue);
+diff --git a/include/linux/userland.h b/include/linux/userland.h
+index ec74eed6de1d..1bab10d931b5 100644
+--- a/include/linux/userland.h
++++ b/include/linux/userland.h
+@@ -16,8 +16,10 @@ struct file;
+ struct nsproxy;
+ struct pid;
+ struct pid_namespace;
++struct rusage;
+ struct task_struct;
+ struct user_namespace;
++struct waitid_info;
  
- #ifdef CONFIG_DEBUG_LOCK_ALLOC
- /* lockdep can detect a circular dependency of the form
-@@ -420,16 +419,6 @@ static inline void nvme_tcp_advance_req(struct nvme_tcp_request *req,
- 	}
+ enum userland_state {
+ 	USERLAND_INIT		= 0,
+@@ -45,6 +47,8 @@ bool userland_is_file(struct file *file);
+ void userland_copy(struct task_struct *tsk, struct pid *pid,
+ 		   struct userland *userland);
+ void userland_exit(struct pid_namespace *pid_ns, struct task_struct *tsk);
++long userland_waitid(int upid, struct waitid_info *infop, int options,
++		     struct rusage *ru);
+ #else
+ static inline void userland_put(struct userland *c)
+ {
+@@ -64,6 +68,12 @@ static inline void userland_exit(struct pid_namespace *pid_ns,
+ 				 struct task_struct *tsk)
+ {
+ }
++
++static inline long userland_waitid(int upid, struct waitid_info *infop,
++				   int options, struct rusage *ru)
++{
++	return -EINVAL;
++}
+ #endif /* CONFIG_USERLAND */
+ 
+ #endif /* _LINUX_USERLAND_H */
+diff --git a/include/uapi/linux/wait.h b/include/uapi/linux/wait.h
+index 85b809fc9f11..edd39c2cab96 100644
+--- a/include/uapi/linux/wait.h
++++ b/include/uapi/linux/wait.h
+@@ -18,6 +18,7 @@
+ #define P_PID		1
+ #define P_PGID		2
+ #define P_PIDFD		3
++#define P_USERLAND	4
+ 
+ 
+ #endif /* _UAPI_LINUX_WAIT_H */
+diff --git a/kernel/exit.c b/kernel/exit.c
+index d5e7bc2af804..5b0bd3a9187c 100644
+--- a/kernel/exit.c
++++ b/kernel/exit.c
+@@ -71,6 +71,7 @@
+ #include <linux/unwind_deferred.h>
+ #include <linux/uaccess.h>
+ #include <linux/pidfs.h>
++#include <linux/userland.h>
+ 
+ #include <uapi/linux/wait.h>
+ 
+@@ -1803,6 +1804,9 @@ static long kernel_waitid(int which, pid_t upid, struct waitid_info *infop,
+ 	struct wait_opts wo;
+ 	long ret;
+ 
++	if (which == P_USERLAND)
++		return userland_waitid(upid, infop, options, ru);
++
+ 	ret = kernel_waitid_prepare(&wo, which, upid, infop, options, ru);
+ 	if (ret)
+ 		return ret;
+diff --git a/kernel/userland.c b/kernel/userland.c
+index efac9e4f2fa5..c118defcff01 100644
+--- a/kernel/userland.c
++++ b/kernel/userland.c
+@@ -8,6 +8,7 @@
+ #include <linux/wait.h>
+ #include <uapi/linux/wait.h>
+ #include <linux/file.h>
++#include <linux/freezer.h>
+ #include <linux/fs.h>
+ #include <linux/anon_inodes.h>
+ #include <linux/userland.h>
+@@ -33,6 +34,8 @@
+ #include <linux/idr.h>
+ #include <uapi/linux/userland.h>
+ 
++#include "exit.h"
++
+ void userland_put(struct userland *c)
+ {
+ 	if (!c || !refcount_dec_and_test(&c->usage))
+@@ -208,6 +211,82 @@ static long userland_share_nsfd(struct userland *c, unsigned long arg)
+ 	return 0;
  }
  
--static inline void nvme_tcp_send_all(struct nvme_tcp_queue *queue)
--{
--	int ret;
--
--	/* drain the send queue as much as we can... */
--	do {
--		ret = nvme_tcp_try_send(queue);
--	} while (ret > 0);
--}
--
- static inline bool nvme_tcp_queue_has_pending(struct nvme_tcp_queue *queue)
++/**
++ * DOC: P_USERLAND
++ *
++ * ``waitid(P_USERLAND, userland_fd, &infop, options, NULL)`` waits freezably until
++ * ``userland_fd`` reaches ``USERLAND_DEAD`` (unless ``WNOHANG`` or ``O_NONBLOCK`` is
++ * set) and writes init's exit information into ``infop`` without consuming it.
++ * ``options`` must include ``WEXITED`` and may include ``WNOHANG`` and
++ * ``WNOWAIT``; ``rusage`` must be ``NULL``, and the caller must run in an
++ * ancestor active PID namespace.
++ */
++long userland_waitid(int upid, struct waitid_info *infop, int options,
++		     struct rusage *ru)
++{
++	struct pid_namespace *pid_ns;
++	unsigned int f_flags;
++	struct userland *userland;
++	bool nonblock;
++	int status;
++	kuid_t uid;
++	long ret;
++
++	if (upid < 0 || ru)
++		return -EINVAL;
++	if (options & ~(WEXITED | WNOHANG | WNOWAIT))
++		return -EINVAL;
++	if (!(options & WEXITED))
++		return -EINVAL;
++
++	CLASS(fd, f)(upid);
++	if (fd_empty(f) || !userland_is_file(fd_file(f)))
++		return -EBADF;
++
++	f_flags = READ_ONCE(fd_file(f)->f_flags);
++	nonblock = (options & WNOHANG) || (f_flags & O_NONBLOCK);
++	userland = fd_file(f)->private_data;
++	pid_ns = task_active_pid_ns(current);
++
++	if (!pidns_is_ancestor(userland->ns->pid_ns_for_children, pid_ns))
++		return -ECHILD;
++	if (READ_ONCE(userland->state) == USERLAND_INIT)
++		return -ECHILD;
++
++	if (!nonblock) {
++		ret = wait_event_freezable(userland->waitq,
++					   READ_ONCE(userland->state) ==
++					   USERLAND_DEAD ||
++					   READ_ONCE(userland->state) ==
++					   USERLAND_INIT);
++		if (ret)
++			return ret;
++	}
++
++	scoped_guard(spinlock, &userland->lock) {
++		if (userland->state == USERLAND_INIT)
++			return -ECHILD;
++		if (userland->state != USERLAND_DEAD)
++			return (options & WNOHANG) ? 0 : -EAGAIN;
++		ret = pid_nr_ns(userland->init_pid, pid_ns);
++		if (ret <= 0)
++			return -ECHILD;
++		status = userland->exit_code;
++		uid = userland->init_uid;
++	}
++
++	if ((status & 0x7f) == 0) {
++		infop->cause = CLD_EXITED;
++		infop->status = status >> 8;
++	} else {
++		infop->cause = (status & 0x80) ? CLD_DUMPED : CLD_KILLED;
++		infop->status = status & 0x7f;
++	}
++	infop->pid = ret;
++	infop->uid = from_kuid_munged(current_user_ns(), uid);
++	return ret;
++}
++
+ static long userland_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
  {
- 	return !list_empty(&queue->send_list) ||
-@@ -446,28 +435,10 @@ static inline void nvme_tcp_queue_request(struct nvme_tcp_request *req,
- 		bool last)
- {
- 	struct nvme_tcp_queue *queue = req->queue;
--	bool empty;
- 
--	empty = llist_add(&req->lentry, &queue->req_list) &&
--		list_empty(&queue->send_list) && !queue->request;
--
--	/*
--	 * if we're the first on the send_list and we can try to send
--	 * directly, otherwise queue io_work. Also, only do that if we
--	 * are on the same cpu, so we don't introduce contention.
--	 *
--	 * TLS kTLS send takes ctx->tx_lock while blk_mq holds set->srcu.
--	 * lockdep reports circular locking via elevator_lock.  Defer TLS
--	 * sends to the io workqueue instead of inline from this path.
--	 */
--	if (queue->io_cpu == raw_smp_processor_id() &&
--	    !nvme_tcp_queue_tls(queue) &&
--	    empty && mutex_trylock(&queue->send_mutex)) {
--		nvme_tcp_send_all(queue);
--		mutex_unlock(&queue->send_mutex);
--	}
-+	llist_add(&req->lentry, &queue->req_list);
- 
--	if (last && nvme_tcp_queue_has_pending(queue))
-+	if (last)
- 		queue_work_on(queue->io_cpu, nvme_tcp_wq, &queue->io_work);
- }
- 
+ 	struct userland *userland = file->private_data;
 -- 
-2.56.1
+2.47.3
 
