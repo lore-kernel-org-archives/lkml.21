@@ -1,45 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795379284;
-	b=lhRwsbBcE8CC3oEG9PlmejTlLgoK633nzCvnUmrowSDyUnMPBvLmiIUuA1EVMusuqxCP
-	 GmWrqo3craAJoZYcxHY/yzTF5/xh8tiPWyFpGQdUU+R7H5UTy6JQuSQRGUwkkF9kLLi+x
-	 5ypVMBkymtdS2aAcPEnf/lYSn9QC16FHONMtYDmWpt9NjD0nKBU/DjlPnT8z/fpdWxBOZ
-	 4aGntLO6OBp9QX1toPOlCKU5sPTc3gsx2GGHrcOMrDq3BRuiLo1detYMLmd73nKE057YY
-	 xvqn6BGvrQmL7x5RitS1Xj7sMvG7dZOTD4EYVjJZtJ3RNwpx+/7/Eco8dqrvutkw4vg==
+	t=1795379296;
+	b=ZUkAPqSFJcOUaO3r8axWGw+aoI+deFmK1QhBTEWg8hdsFAtlMAo5VwZAD/eaQpOOIUoj
+	 ei3VLNaaQlEwJP7aCpW7QrmullvpsiTcXE0ALjrpjbLfxnluBXdZAqgy0vOOdOg5yyXIm
+	 tPj/vJ1Zwkyb8CeleO3M/cSvLz+pL49ITCo0WTAA3IpfTc4rduMzhipXXqXObo55P7yB8
+	 d3fb9fGA8/TV+hiVgKEYWCgFk10Zh9Z6Br/gaVCRmL3n/j8z+yr4Sw3JHG/2P0PmOWfFn
+	 UzV5ALskJ1c/2nm9vMFSp5ytFIINI1hGZfFoFEVRMPBzSieL7g1Vo5AC6zspmUqFycA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795379284;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795379296;
 	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
 	 In-Reply-To:References:Subject:From:To:Cc:Date;
-	bh=hX4n2ELcNNj0/4nHT8RN7SbsIUQvyFqPuov+TG5Nv9g=;
-	b=0PpT/jxKVddrsw+T1qelY5W5A9EGWH4NJQaZtQadGNIVNi9Y8FoLwpaRMUhV/bmeYU0z
-	 GHca0wBngnckJ9HMvGta6cpXHZqQ27HSp6J2ikpTPkmO6ydDsQL/xtLh6KrhgxYZNXCB7
-	 CBcqHfwRKXRZqS4aAVZyCXodvcjcA7eEKmmBpRj86g57ZTQgLiiGZW9lBJe0U3//aEINd
-	 v016eNA1pinA6kIzPE67EnLq7+aIZC4zhvKCsKjkrD7w/6tPsEiwHFhnbygHY/EB7YeGp
-	 ydGrGBCstSienFbSGrrvRo4aUpFGRxW2zs/O1QSDbPgEzA0ZcV5pFQABGAulSj2hytA==
+	bh=2rwax2wpP896bdTS8rm+H3FuFS+cnVXOxY0nVpujxFo=;
+	b=fHs/csSMIXTZLVMV8lg/DVFaDDBBQp3RvQ0OqSgK6yA13gXrc4n0svcEl6eSa79JHdmS
+	 Y3pDHFPiLDA1+TfEGEmxB1LqMJCHWZepdVFT87KmadnXApSXXNcWVjYfvo1Sjqs0uQCqZ
+	 /S0afEYTYjd5kx7DWUK3THhjmgQk+WFJFCJeWc8mqmNpx7JOwa5ByO0CSn7/95lQeOY9J
+	 QJ23Pd07LpyvqVDPZMe1vTEu+T9XBCbHTV1r37WyBVt2GGOf8fwmndksdPFEm5hAiY+sq
+	 O6J2L0Ce5Jq4swW3XXJ9fmD5aYdz0Kyo2XJCVo6ZI6m/2olTrLAs12VYMB2dBC9fDpg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="DtQFC/+B";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZTwy6TCa;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9D14606A31A;
-	Sun, 22 Nov 2026 20:28:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF39E606A33C;
+	Sun, 22 Nov 2026 20:28:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DtQFC/+B
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 579341F000C0;
-	Sun, 22 Nov 2026 20:28:00 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZTwy6TCa
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEAD11F01568;
+	Sun, 22 Nov 2026 20:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795379283;
-	bh=hX4n2ELcNNj0/4nHT8RN7SbsIUQvyFqPuov+TG5Nv9g=;
+	s=k20260515; t=1795379295;
+	bh=2rwax2wpP896bdTS8rm+H3FuFS+cnVXOxY0nVpujxFo=;
 	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=DtQFC/+BjIVL35yRIkQAYiez++FX6dq1X7g9+U5wiM9l5aQa2bCiQa0lA2KTXkgKO
-	 2GT1VmmiI5zeFd1FOhAPus/+fS4ofCKzqBssX2tUSpnCu5DOjAqzn3puJ0tq8KB9t4
-	 GpNPbpdGJuuLtuJfgKRWiznvitvtiWUv388C8tOsf0YN4/CfgUZ1IiMn3x35uwU0Mn
-	 1Ao9M5lEIvKdmb/YeWSZ7g4sl3nh/deToqadEqFwGkeoAk1OyDwjyExdU9l/1PjW8N
-	 jHMgktO+4YczGQbKoF+Q9d+vLGJmsYwWWN9aZj/3h6aCyWyoR5o2gpSdRDOswa7+zR
-	 QEgyW1cP1w0QQ==
-Content-Type: multipart/mixed; boundary="===============7306649944735902366=="
+	b=ZTwy6TCa0eRPwX35Jv2r1gWjHUFr+6zJNZuqCB+5gMbCBfHTJOqoFO0JEUJ3n6c3i
+	 hvRA4rO6cbOI/xv7KdGe5i45tt+WGyr2G+fc0jVk5lQCOO8SEjpnYjsV7SuhkNlDpv
+	 WDE8jeg1ZDRc3EKFBcysidI36X1hR5pVW5gO5lveRLa2Pqnda8eYGj1QzyZaUcCTc/
+	 kgiiaWwyupBvbh8ZuG+lkQB9sYKi+kyAJkOYdvKjvEnOiwEpjb3M8DrmykD8Xu5ha0
+	 AkNAF5I006DgFO4JQzCTy7wBnGLV5pV24QmD0mCPaVVRuwTIx5F7dyVfKHstZVVU24
+	 YnYQInMXwm/bg==
+Content-Type: multipart/mixed; boundary="===============4659356257046684705=="
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,65 +49,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-Id: <b6da91bd7d0e63cbf8a3d96298191544d46afbc7d0ba1a7fa55b996f7d7cd7c3@mail.kernel.org>
-In-Reply-To: <20261122193539.3334213-11-jarkko@kernel.org>
-References: <20261122193539.3334213-11-jarkko@kernel.org>
-Subject: Re: [RFC PATCH v7 10/26] userland: Add core infrastructure
+Message-Id: <cac1fa0b133e15e7c67629319df17a0d25747093535aa246f44a75cb1073e2ed@mail.kernel.org>
+In-Reply-To: <20261122193539.3334213-8-jarkko@kernel.org>
+References: <20261122193539.3334213-8-jarkko@kernel.org>
+Subject: Re: [RFC PATCH v7 07/26] mount: Support MOVE_MOUNT_CLONE with MOVE_MOUNT_T_MNTNS
 From: bot+bpf-ci@kernel.org
 To: jarkko@kernel.org,linux-fsdevel@vger.kernel.org
 Cc: jarkko@kernel.org,bpf@vger.kernel.org,containers@lists.linux.dev,linux-api@vger.kernel.org,linux-arch@vger.kernel.org,linux-doc@vger.kernel.org,linux-kernel@vger.kernel.org,linux-kselftest@vger.kernel.org,linux-mm@kvack.org,linux-security-module@vger.kernel.org,aleksa@amutable.com,alex@amutable.com,viro@zeniv.linux.org.uk,luto@amacapital.net,arnd@arndb.de,brauner@kernel.org,dhowells@redhat.com,ebiggers@kernel.org,giuseppe@scrivano.org,hughd@google.com,jack@suse.cz,jlayton@kernel.org,corbet@lwn.net,josef@toxicpanda.com,kees@kernel.org,kpsingh@kernel.org,lennart@poettering.net,neal@gompa.dev,oleg@redhat.com,paul@paul-moore.com,ptikhomirov@virtuozzo.com,sergeh@kernel.org,skhan@linuxfoundation.org,zygmunt.krynicki@canonical.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Sun, 22 Nov 2026 20:28:00 +0000 (UTC)
+Date: Sun, 22 Nov 2026 20:28:11 +0000 (UTC)
 
---===============7306649944735902366==
+--===============4659356257046684705==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
 
-> userland: Add core infrastructure
+> mount: Support MOVE_MOUNT_CLONE with MOVE_MOUNT_T_MNTNS
 
-TL;DR:
-- USERLAND_ALL_FLAGS in the uapi header becomes fixed ABI; adding flags later
-  may break rebuilt programs, so consider keeping it kernel-internal
-- USERLAND_CLOSE_ON_EXEC naming nit: other flags use *_CLOEXEC
+TL;DR: MOVE_MOUNT_CLONE is reported to LSMs as a plain move, so AppArmor may
+mediate it as MS_MOVE rather than a bind and could allow or refuse the clone
+wrongly; should LSMs be told it is a clone?
 
-> diff --git a/include/uapi/linux/userland.h b/include/uapi/linux/userland.h
-> new file mode 100644
-> --- /dev/null
-> +++ b/include/uapi/linux/userland.h
+> diff --git a/fs/namespace.c b/fs/namespace.c
+> --- a/fs/namespace.c
+> +++ b/fs/namespace.c
 
 [ ... ]
 
-> +enum userland_flags {
-> +	USERLAND_KILL_ON_CLOSE	= 0x00000001,
-> +	USERLAND_CLOSE_ON_EXEC	= 0x00000002,
-> +	USERLAND_ALL_FLAGS	= 0x00000003,
-> +};
+> @@ -3842,6 +3840,36 @@ static int do_move_mount(const struct path *old_path,
+> +		if (flags & MNT_TREE_CLONE) {
+> +			unsigned int copy_flags;
+> +
+> +			if (!check_mnt(old) || old->mnt_ns == target_mnt_ns ||
+> +			    (old->mnt.mnt_sb->s_flags & SB_NOUSER))
+> +				return -EINVAL;
+> +			src_user_ns = old->mnt_ns->user_ns;
+> +			copy_flags = (target_mnt_ns->user_ns != src_user_ns) ?
+> +				     (CL_SLAVE | CL_COPY_UNBINDABLE) :
+> +				     CL_COPY_MNT_NS_FILE;
+> +			cloned = __do_loopback(old_path, true, copy_flags);
 
-Should the USERLAND_ALL_FLAGS mask be exported in the uapi header?  The
-later userland_open() syscall validates with:
+With MOVE_MOUNT_CLONE this makes a recursive bind of old_path, but the only
+LSM hook on this path is still security_move_mount(from_path, to_path) in
+vfs_move_mount().  LSMs get no indication that the operation is a clone
+rather than a move.
 
-  if (flags & ~USERLAND_ALL_FLAGS)
-          return -EINVAL;
+The clone branch requires check_mnt(old), so from_path is always attached
+to the caller's namespace.  AppArmor's aa_move_mount() chooses between its
+cases on exactly that property:
 
-Once released, the value of this mask is fixed ABI.  If a later kernel adds
-a flag and grows the mask, a program rebuilt against the new header that
-uses USERLAND_ALL_FLAGS would get -EINVAL on older kernels.  If the mask is
-left unchanged, the in-kernel check stops covering the new flag.
+    if (!our_mnt(from_path->mnt))
+        /* moving a mount detached from the namespace */
+        from_path = NULL;
+    ... match_mnt(profile, to_path, ..., from_path, ..., MS_MOVE, ...)
 
-fanotify hit this: include/uapi/linux/fanotify.h marks FAN_ALL_CLASS_BITS,
-FAN_ALL_INIT_FLAGS and FAN_ALL_MARK_FLAGS as "Deprecated - do not use this
-in programs and do not add new flags here!", and the valid masks live in
-include/linux/fanotify.h (FANOTIFY_INIT_FLAGS).  Other fd-returning
-syscalls keep their valid-flag masks kernel-internal, for example
-CLONE_LEGACY_FLAGS in include/linux/sched/task.h and VALID_RESOLVE_FLAGS in
-include/linux/fcntl.h.  Would it make sense to move the mask to
-include/linux/userland.h?
+So AppArmor will evaluate this as an MS_MOVE of an attached mount at
+from_path, the same check it makes for a real move.  But nothing is moved
+here.  A copy of the source and of everything mounted below it is attached
+at to_path, and since path_mounted() is no longer required, any directory
+can be the source.
 
-Also, this isn't a bug, but should USERLAND_CLOSE_ON_EXEC be spelled
-USERLAND_CLOEXEC?  The other close-on-exec flags under include/uapi all use
-the *_CLOEXEC form (FSOPEN_CLOEXEC, FSMOUNT_CLOEXEC, OPEN_TREE_CLOEXEC,
-MFD_CLOEXEC, EFD_CLOEXEC, ...), and the name cannot be changed after the
-ABI is released.
+With open_tree(OPEN_TREE_CLONE) followed by move_mount(), AppArmor sees a
+detached source (from_path == NULL) and applies its detached-move rules.
+Can a profile that allows moving the mount at /src (an MS_MOVE rule with
+/src as the source) now also clone /src, or any directory below it, into
+another mount namespace?  Conversely, could a profile that only allows
+detached moves refuse an operation that is equivalent to open_tree() plus
+move_mount()?
+
+Should the clone be reported to LSMs as a bind, for example through a
+separate hook, a flag passed to security_move_mount(), or a call to the
+bind-mount mediation?
 
 
 ---
@@ -115,4 +126,4 @@ AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
 See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
 
 CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45063222848
---===============7306649944735902366==--
+--===============4659356257046684705==--
