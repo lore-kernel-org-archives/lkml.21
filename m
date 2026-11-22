@@ -1,85 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795361255;
-	b=J4NDvZSQsbnwKXfKfXRoFoHpz0+sjNtvpBQJR1cuXzPgfbdzJprzj8+ot5RaWX7F7o94
-	 ADe2MWrYtwIt7q97TKzu2wIO2JPMwZt11bksDBdTfiNr0bhH5aGw9gZ/aTUK69cWLLY1+
-	 isqAM6KdzYnluUiNZqiQmjyQK6HE34wEKtMtjny8JZlVitlHV4Nuo5AZYK8KVd7L2yMR8
-	 ypuzsmOeP4wo2wHm0wVBQJSsVyWEq5XVr0g6YiF0H5sGyWPH40y1b0uQVTjV3BTu3sgTs
-	 zctErfu/KilhyjA6n/GQ0qyqFavgCdqu1iypvBsNY/4kejudU0KpSFWI9molmJMD8FQ==
+	t=1795361327;
+	b=5ONn+7PBa8BUljipYTXjmfPau8Sr9gANh2n58E3wQzMUwFwWWXTYJWiSEDxpD8aNyj5r
+	 QL19RREP0O2Z/68lQ/c/GXx4pYF3WQcABexv70QINwj37EzDqBemosxZ0SmnEd+m/k4ZL
+	 NinPbWKLjqw1FrLhfQbLaJ7w/vjMKCPhryDVf9xgRFBMLPdfz/pkZVFuE2DCnaJKfRJs3
+	 Xnx4QAG5YDdWkeB3gib4IOR7YhrIpIYjnRyk9OCX3r9UkqeUCBBy+c/49Kl6Wt5hPidtQ
+	 5WEDd+pRNfAiiQN+IB22dpoiX4UI+VnRYOL8KjyN0JliWa1d6avldmhlK7m7ZEom37Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795361255;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
-	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=ot0zJlzFbVCe62Kvau5YPtTDd6GdHkdbEpE1vxuLRFc=;
-	b=UOsOPv1P1i5jAprqdX4QCRXavXrdSRy0NQedKnKOh+0QyHCNZtK3O2hy5pj0H8E3hhLT
-	 FxybiC67iG5j5MlxrNczXmshqqRM/5s3amX/mCdBnjoKa/fJOsS0mYQcy0IJAmhi+TTUO
-	 KxM6n4DMCzYq3Gp1HXGLjZNL53k+hqefojtojubG0u2aDxNB5EIcwAK8XZTLvx9ckZ9ho
-	 3z5QN1elxkGUDUAv3rN/8IXb13lkyRzqDcJxSirA4B8ioyb9Ned1k2pJr/9cNJpBWzqLZ
-	 KBn4EhbPGJxzj+16XAN8g2LSQyU57jZhA7C6Iz+z9ChQZGzvEP48cJ0HCOif4+KIU5w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795361327;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=WhuQ7hE/REZTdcs/A7QYXERFZiJw/aybGfvWFONrpf8=;
+	b=QdpZ4eSRc1buGkCVM0aq2jZwTkc7/og461xcUEv3K0HNGl9Rg+vnwPRRQrAK7YCN//KN
+	 flLOg4ZPLSNPzht0ton0HUWZQnELOwC/DqdSFQjULvRAPZ3IP+xojhYdgJVhdyyxW7BMx
+	 TGVz2JKaCulePZ6N9GTqKWyxuoXtCbrXMxMLEsZPFyYmFZIdbIlIOgEZnpLhoc2aVbf5s
+	 dfq7gikXblucbGOEdX5+OlXRJBhlU8i3TI7nZJ3KfprhwbedGBUpKw1hcvGLmh/yRAORD
+	 zsWO07g72j/zPWS+g6+1qjyfUGaAvh0PuBD8QpCqBZ3Q8QNqJ1zXz9Ga4OOtcLFdXdg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=PnH7L7Dn;
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B0pIIYnY;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B90D3606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 15:27:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B90D3606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75FB2606A320;
+	Sun, 22 Nov 2026 15:28:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=PnH7L7Dn
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4a140e7405dso23644015e9.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 07:27:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795361253; x=1795966053; darn=vger.kernel.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=ot0zJlzFbVCe62Kvau5YPtTDd6GdHkdbEpE1vxuLRFc=;
-        b=PnH7L7DnBZ4AlNcEALOd6IOWa4irex/1Lm5oBthjpFyAhqmWwFFq8gIKqMkc4sqGoW
-         HZlmoeW9uEUJziypoQHvEs+htAfo14e0038YSI0qZcFUEN1YmHPo2vXvrwkwK0/ZRiIg
-         s60LnC3AzzZ2/EP3O7uMQZKYXOqKoHOBdcFDf5P4FZLhoE48mW8jrd0wcmXWBuzFmd5c
-         wGeJPggdzFaVNQgOgumC6ZRyP49nAyG1BTwikpiQ9hxPbH5n4Oo/ZF+Z884wMqNdlqpV
-         PUHG3ggKOybXoTSLMdvYgc/2CvGFHEAbBmDXfMlmMX02d1R551xSH7XAfBWi2jC+8ZLL
-         A6aw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795361253; x=1795966053;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ot0zJlzFbVCe62Kvau5YPtTDd6GdHkdbEpE1vxuLRFc=;
-        b=NM7rx07zR1DLhPTKYgvJvk3+cYH10YlWsJB9jt1vqFP6lAzNua45UroM6VDk8XFDyF
-         H9uQN2qE33tln9NaGkEZwujb6xyFUvlJy/NIz6f2jQrrAWOegZIZ7tZvQvGP0DGNIpgK
-         Tl6ShWhX+4UUumCPq78AhiHXy+LiHOk0g1QQHMTWD2iHP5WZRdBWQgqDH/bJuQwnE4/L
-         OPtYVihF+w184IFnZlZBqvFqZjX22KknItVxYdmCXNwWX5vuinARdpQfnI4HYw0d/JVz
-         cgiDCjTqIpj5wNbd93cIT4F5nZ2hVxIqv7qG3eQ6AESnVJCv4YlbmpCeCSC3d7U2u9vX
-         pC3g==
-X-Forwarded-Encrypted: i=1; AL+hErGGq6hBcIhTB+GWRqYyh16yMIlWjH9Eq1Q0KVb/Q12ezu9mVqPK02OCZnZYU+NtH/TiZ/6+rYapJE+I6nQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ZMaQY7Pg2d4yYiwHQZfYfo7a/VlGk6T9H1m15Gkom4KcNUjfh
-	/XRZClCTXuLGOuUV2oqpzxT2r7ePyjiLobkX8+iyJAEM5/h1N243uPYiyN3U6y2gA34=
-X-Gm-Gg: AZFdTZfmS8lH4zS4Ru4U6Z66qE2wZ10yz48CuziLWBhJgptfIxKaiIQILodSrZuUU12
-	U5MxdV+zM/MsUezKFKx0J9/YGRnXNA0Vz+Iwz+BXtoo10RFEbEvel+OGKOkvXU9kvb3lN/dHhy9
-	+Ap6sHdQ+cLhGFxjPeoBQRaRtJJOIU/9GdwY0i2xZueYGyJcU0GqjyEFXJFDxjLsNu7r7STUEr/
-	TZr6AGMEfxStgD452UNtyb119QLCS9nLEig38RYfDTwtNCF+907Sk1kjMnMDh8jRItvMdgQ0Z+6
-	nQRTbCL1w2U8+zOuhlDDoyHXqmTrPNpr4W93c2w/2GPqv7GaDfBK346/0jHphX3invFJdGkzmVC
-	s4GErW+2uZT7h3kI7cabf8zbuJvIcAQ6BvxvSkrk24XtS5BMopNNhnbrbQL9/8nNpos3koDQCxY
-	cJLK9KjsIEErzaZIGv7/k5ndjan8ePrsWTXX/J7uPIZFsjAMkhikDlWEzE6RRjPud1KNHVeF2ys
-	KV3NXEUz3Nz6SsaZ94m9lFXirku9CxtcN0kp5IF+yG7w4xaVnknd20fzNIJO7+B78xTGmiqj8Ka
-	vWRQuOyu57Crvly+VaGKGZgCWdZM2xzGROEn1XIuufcmoW8FGg==
-X-Received: by 2002:a05:600c:3555:b0:4a1:f377:5c68 with SMTP id 5b1f17b1804b1-4bb8881da76mr187712165e9.34.1795361253164;
-        Sun, 22 Nov 2026 07:27:33 -0800 (PST)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853c9170sm324114005e9.14.2026.11.22.07.27.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 07:27:32 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B0pIIYnY
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25E1A1F000C6;
+	Sun, 22 Nov 2026 15:28:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795361326;
+	bh=WhuQ7hE/REZTdcs/A7QYXERFZiJw/aybGfvWFONrpf8=;
+	h=From:To:Cc:Subject:Date;
+	b=B0pIIYnYzq7frzK2W0KhwRU5NSYN1aQc3RsG63CyS6ZCPriCybXfZbfSNIVJiA4fn
+	 x8rZmJb/5Mpt8UoICEURkLj0ItHXjt49+7WlrtgC8EosmUMZ5BIYrteO9RcrzVNsV8
+	 Yc22YFyItot7L67tUE+vfLOhla7bUt/c9BHUZwrmkrVtwIs8lJIQfMMG7epSSBjR2R
+	 xObUOZm768khxIUKK6H1kmheMmYKB42pMqAyUqX/l5T4vAjP4m7l/VDbpb2LrvrVfd
+	 ha8xa9KRBD6VEm5raa7Wq+cqY7HiYmqNZIU9ooVMuHkZ9mrf8EApYSqyd+aaS8wv9f
+	 A605bQAMoRI0g==
+From: Sasha Levin <sashal@kernel.org>
+To: Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Julian Braha <julianbraha@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Sumit Garg <sumit.garg@oss.qualcomm.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] firmware: qcom: Build the TrustZone memory allocator into qcom-scm
+Date: Sun, 22 Nov 2026 10:28:43 -0500
+Message-ID: <20261122152843.1113882-1-sashal@kernel.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,57 +64,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v8 0/5] Add support for S4 audio
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Jiebing Chen <jiebing.chen@amlogic.com>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, linux-sound@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-clk@vger.kernel.org, jian.xu@amlogic.com, shuai.li@amlogic.com, 
- zhe.wang@amlogic.com
-In-Reply-To: <20261110-audio_drvier-v8-0-1489241e4c83@amlogic.com>
-References: <20261110-audio_drvier-v8-0-1489241e4c83@amlogic.com>
-Date: Sun, 22 Nov 2026 16:27:28 +0100
-Message-Id: <179536124894.2728475.16240917993133855473.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=753; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=SakUBu+Tj3UYj69tUpTC/fsgrcNkMteoX+Lt2iuPgXc=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNnMnE/+NymUzd4hva7CSmxX3dxLJ27tYynZy6qYorFaU
- uexikFzRykLgxgXg6yYIksNd7X4O0mtL7Om69yGmcPKBDKEgYtTACbCdIThv9fc1off4xQusP20
- lhVaw60es6lqQ/uRSbU8X05aMdusWMXwP980O55/ScYJq4WsZ3SZNh+93vxsmyBL/v8zj3qqwxS
- YuAE=
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+Content-Transfer-Encoding: 8bit
 
-> This series completes the end-to-end audio support
-> for S4 SoC from hardware bindings to driver implementation
-> and system integration.
-> 
-> 1 Device Tree Bindings Updates 
-> Added audio power domain and S4 audio clock support for S4 SoC.
-> Added S4 audio tocodec binding support.
-> 
-> 2 Driver Implementation
-> Implemented S4 tocodec driver for G12A architecture.
-> Added S4 audio clock support in AXG audio clock 
-> 
-> 3 Device Tree Integration
-> Add Amlogic S4 audio subsystem support in arm64 DTS.
+With QCOM_TZMEM_MODE_SHMBRIDGE=y, qcom_tzmem.ko calls
+qcom_scm_shm_bridge_enable(), qcom_scm_shm_bridge_create() and
+qcom_scm_shm_bridge_delete() in qcom-scm.ko, and qcom-scm.ko calls
+qcom_tzmem_alloc() and friends. With QCOM_SCM=m the two modules depend
+on each other, neither can be loaded first, and modules_install fails:
 
-A clock immutable branch is going to be necessary to handle the dependencies
-in this series. Please re-submit with clock changes only and a proper cover letter
-so I can merge apply this and provide the IB. Thanks
+  depmod: ERROR: Cycle detected: qcom_scm -> qcom_tzmem -> qcom_scm
+  depmod: ERROR: Found 2 modules in dependency cycles!
 
+This has been possible since SHM Bridge mode was added. Since commit
+35abc3cd8ab6 ("tee: remove TZMEM_MODE_GENERIC") it also happens for
+every QCOMTEE=m build with QCOM_SCM=m, because QCOMTEE's select of
+QCOM_TZMEM_MODE_SHMBRIDGE now takes effect.
+
+QCOM_TZMEM is selected only by QCOM_SCM, so the two always have the
+same value. Build qcom_tzmem.o into qcom-scm.ko, and drop the
+MODULE_DESCRIPTION() and MODULE_LICENSE() that qcom-scm already has.
+
+Fixes: f86c61498a57 ("firmware: qcom: tzmem: enable SHM Bridge support")
+Reported-by: Nathan Chancellor <nathan@kernel.org>
+Closes: https://lore.kernel.org/all/20261122051636.GA2630332@ax162/
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+
+Tested on arm64 with allnoconfig plus: Nathan's fragment; ARCH_QCOM=y
+QCOM_SCM=m SHMBRIDGE=y; ARCH_QCOM=y QCOM_SCM=m QCOMTEE=m; QCOM_SCM=y
+QCOMTEE=m; QCOM_SCM=m SHMBRIDGE=n. All build without warnings and pass
+modules_install. Without the patch, Nathan's fragment and the QCOMTEE=m
+QCOM_SCM=m config fail depmod with the cycle above.
+
+ drivers/firmware/qcom/Makefile     | 3 +--
+ drivers/firmware/qcom/qcom_tzmem.c | 2 --
+ 2 files changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/drivers/firmware/qcom/Makefile b/drivers/firmware/qcom/Makefile
+index 88ce74d74c3e2..74c655856b0c2 100644
+--- a/drivers/firmware/qcom/Makefile
++++ b/drivers/firmware/qcom/Makefile
+@@ -4,9 +4,8 @@
+ #
+ 
+ obj-$(CONFIG_QCOM_SCM)		+= qcom-scm.o
+-qcom-scm-objs += qcom_scm.o qcom_scm-smc.o qcom_scm-legacy.o
++qcom-scm-objs += qcom_scm.o qcom_scm-smc.o qcom_scm-legacy.o qcom_tzmem.o
+ CFLAGS_qcom_scm-smc.o := -I$(src)
+-obj-$(CONFIG_QCOM_TZMEM)	+= qcom_tzmem.o
+ obj-$(CONFIG_QCOM_QSEECOM)	+= qcom_qseecom.o
+ obj-$(CONFIG_QCOM_QSEECOM_UEFISECAPP) += qcom_qseecom_uefisecapp.o
+ obj-$(CONFIG_QCOM_PAS)		+= qcom_pas.o
+diff --git a/drivers/firmware/qcom/qcom_tzmem.c b/drivers/firmware/qcom/qcom_tzmem.c
+index e1d944d0eb63f..9330cd428205e 100644
+--- a/drivers/firmware/qcom/qcom_tzmem.c
++++ b/drivers/firmware/qcom/qcom_tzmem.c
+@@ -522,6 +522,4 @@ int qcom_tzmem_enable(struct device *dev)
+ }
+ EXPORT_SYMBOL_GPL(qcom_tzmem_enable);
+ 
+-MODULE_DESCRIPTION("TrustZone memory allocator for Qualcomm firmware drivers");
+ MODULE_AUTHOR("Bartosz Golaszewski <bartosz.golaszewski@linaro.org>");
+-MODULE_LICENSE("GPL");
+
+base-commit: 4843f6873f7c4835e62f2c73ba0fd538e57a2f22
 -- 
-Jerome
+2.53.0
 
