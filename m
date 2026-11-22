@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795383689;
-	b=BR04OY2m/342zsRMwIfDlY1QHKhHIhtin5w1eUPQS+cpVbQu/yGh/bpJqRxW9tVxLN2k
-	 k1lwPANk6eykoRSTuhBFfjhNfUl7ZLqPSSqNamfGpoacyOkk3KJnREe1crTgO86e2onn5
-	 drNP9J071QXkM5+Fx68PJknMhtoSKFACPJImPaKg5KNey0obDKF0NC03NstRjS9y+U2bg
-	 GESQxWG3NzjGcc/hiYA72Wf8EWSW2z1juEPg0fl6KGHYNPTWeEgArvj7tGgSi8gx5r2qK
-	 MhhNuefUtVz90h93elKL1oMrgQNCRvKFDwAvHk9Ec+8y9DF6fU+SqLMoLrOzfdAJJuA==
+	t=1795383692;
+	b=4HqPAQrft4YBryoOt8kCpVEVyyuJc+/xkMl1RgvsExJbeq73G+lLJSLU/2uWUlX58R2d
+	 /SW+z64tBa9T424enO3AKHwKyuLY6jtLlShcyikF937xGp2W30biPvq1bCx0SPwsb9Kut
+	 U3gCi7PnunIgYhM6v09Req+6KtdtUZPv7QxeSrJJUVTFiR8/H+xkFecDfPTSTopNnFhFB
+	 7YypfeTKKOhCfrHSU0fAnOxIrUSJTteQetXibFtH5gAmGW18AvaOhEtg3Lj1uCv/40Dtb
+	 NtVfBSQDk98zAGqc1/u+aOUI6mlF47A2agju1ghtvfmd0ANbwEvis7ggQlZrwZIyqpg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795383689;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795383692;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=NpIDyUQRBSope1I9jsX63rj+ZdZarurWt83uR7hSslo=;
-	b=wfiWBqneK73DjA/9vh/EturwdvKAZEAOqhyGwTxYnL/JfeDF4WRiM/Pg4YW7f+4kVgow
-	 oZzVfDCLIvjb6JxPa4WWiHdIjuiBHO5W6UMXkVpd+Dqi5QUtoeliLdF4/Wh1TpQ2TJvjM
-	 aBO4kNQzladoMkyBbPfVet5L8VxJ1XJgY/QKqigw+4HY1gFyKhmyrmTTkvy86CMcKONSp
-	 faccI7GHZJ2o7ABaf4DIb3dWMAsPIq9dmqDefK2oWseA4ZLY4T5oWG8xd/+KZgBpcdyWt
-	 ET2tmI0Dfvcxi5RQqclxi1sw2ADbqJ2TGMCZhRqz0OeOWR9UEeEGxdaDNuNEfZrpmcQ==
+	bh=JZCH1WDOcfMsn+B645g6CmxiN6dgXP9BgX4hZ1VxRqw=;
+	b=y3rkXsF+xts5EjyymROtdr/t8RUpQui3HaVXoSdWWox9fR7cA7lBEC0JmYeAYlmUNqfQ
+	 v47T2P1EjV2RkDcRFOAC/1HLh2pjpayB5ZGUMqit02ImnY7zbiXgbryI7bZAoaqDL9B/6
+	 1Bo1yJvCYqrA9AA3pGH5eqSt8FQXflb6Ebstbn3rtXNt0sxhoTMMp2IVS979awIrnVFtu
+	 rzkQW9g8joQVCRJLss7Ynxykr613WKllEqQDQwA/ynzVlN++VUBQpxhCqMbOCnS0bg02G
+	 QPa4pxcYO4Stch8p8mbUwsuCMyETQOuhBIk/8KOxR/afbum31+R+lRDhTBISlFpEJxQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TmAE1rue;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jgoG5UTX;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24779606A31A;
-	Sun, 22 Nov 2026 21:41:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AACBC606A31D;
+	Sun, 22 Nov 2026 21:41:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TmAE1rue
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25C291F000D2;
-	Sun, 22 Nov 2026 21:41:25 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jgoG5UTX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 837011F000CF;
+	Sun, 22 Nov 2026 21:41:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795383688;
-	bh=NpIDyUQRBSope1I9jsX63rj+ZdZarurWt83uR7hSslo=;
+	s=k20260515; t=1795383692;
+	bh=JZCH1WDOcfMsn+B645g6CmxiN6dgXP9BgX4hZ1VxRqw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=TmAE1rueBk3scdbSwYDalEI8z69TuuBlKH6IzCFLJtAreTBUr5lbE/vgp/XDx8Ukc
-	 Mv6tUTn+HXgG07sESzfaG5Krky6kxI3ImspqvM2bPUGSfNVBDrU9Z0GzOvvm5E6mNN
-	 MYLy+WAqM+eTdjZLMnYeglYk78cFiA9QNXpa93nHklgTBTVw/xfSt3zOozNO+zX6yG
-	 WfGrQ+TAymUAUqEAXEr3n3C7eb7uR0ns6CGYfzlinrGJF7uUGE7BLG9BdyG1ZPrNe8
-	 zZOXZX2OIsg8JTRkg+MtMcT/AgTTbujdNlyM8n9mB32J9rVwddn1eOCY2B2OsY/1aC
-	 Dq26UeC0KR1hg==
+	b=jgoG5UTXG0ry30FTzQbtsht4Yiwk4X71hv0KkmZLonAY3pE3vxeih7y88ZqFEh0vR
+	 QJ8hIM7pur/jfosDKZLVzLimXpwZaU2nUtRUoln02iwitkKCFngu8zvFR62M/j9whG
+	 CwmmhgM6e6ZkW7OeKMq5hscboFE66kE4Y8ad9l99YXTlCV5s+YtcDFkJ6gGQG+FiRJ
+	 zRJexJI4VqMpjAbkG1Laf/R2Nj+ok8f0t0a/nM5Pv/X0JVQsvmJOuH3m1PJ0HrOGFa
+	 7TbUWMcVwsYHfxDu0nA3UoHx+ohw2rHROPdQ7QVhqJXaqIwDbbY8ftMY/WHjBfK4ii
+	 aOKYYqkUzRxvA==
 From: Arnaldo Carvalho de Melo <acme@kernel.org>
 To: Namhyung Kim <namhyung@kernel.org>
 Cc: Ingo Molnar <mingo@kernel.org>,
@@ -51,9 +51,9 @@ Cc: Ingo Molnar <mingo@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-perf-users@vger.kernel.org,
 	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: [PATCH v11 16/19] perf test: Skip the trace summary BPF tests without kernel BTF
-Date: Sun, 22 Nov 2026 18:40:22 -0300
-Message-ID: <20261122214025.16769-17-acme@kernel.org>
+Subject: [PATCH v11 17/19] perf test: Avoid online CPUs in the offline stat test
+Date: Sun, 22 Nov 2026 18:40:23 -0300
+Message-ID: <20261122214025.16769-18-acme@kernel.org>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261122214025.16769-1-acme@kernel.org>
 References: <20261122214025.16769-1-acme@kernel.org>
@@ -70,43 +70,61 @@ Content-Transfer-Encoding: 8bit
 
 From: Arnaldo Carvalho de Melo <acme@redhat.com>
 
-The --bpf-summary tests need BTF in the running kernel; perf check
-feature bpf only tells whether perf was built with libbpf.  Without
-CONFIG_DEBUG_INFO_BTF the skeleton fails to load and the test fails
-instead of skipping.
+find_offline_cpu() treats a missing cpuN/online file as an offline CPU,
+but kernels without CPU hotplug also lack it for online CPUs.  The test
+then expects "No supported events found." from a working CPU.
 
-The /sys/kernel/btf/vmlinux file indicates that the running kernel has
-BTF available for the tp_btf programs.  Do not use an on-disk vmlinux
-image for this check: it can be readable even when the running kernel
-has no BTF loaded.
+Treat a present CPU as offline only if its online file reads 0.  Keep
+the absent cpuN case to exercise an invalid CPU, and skip if neither
+exists.
 
-Fixes: 2d099ccaadf623d3 ("perf test: Add perf trace summary test")
+Fixes: 5123509628e1ebe7 ("perf tests stat: Add test for error for an offline CPU")
 Cc: Ian Rogers <irogers@google.com>
 Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 ---
- tools/perf/tests/shell/trace_summary.sh | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ tools/perf/tests/shell/stat.sh | 21 ++++++++++++++-------
+ 1 file changed, 14 insertions(+), 7 deletions(-)
 
-diff --git a/tools/perf/tests/shell/trace_summary.sh b/tools/perf/tests/shell/trace_summary.sh
-index 0e603addb2a99d4d..154f85f16e6528f9 100755
---- a/tools/perf/tests/shell/trace_summary.sh
-+++ b/tools/perf/tests/shell/trace_summary.sh
-@@ -63,6 +63,15 @@ if ! perf check feature -q bpf; then
-     exit 2
- fi
+diff --git a/tools/perf/tests/shell/stat.sh b/tools/perf/tests/shell/stat.sh
+index ac9e031831daca9c..7cd9999fd526bbd6 100755
+--- a/tools/perf/tests/shell/stat.sh
++++ b/tools/perf/tests/shell/stat.sh
+@@ -43,21 +43,28 @@ test_null_stat() {
+ }
  
-+# The tp_btf programs need BTF in the running kernel.  A vmlinux image
-+# on disk is not sufficient: it can be readable even when the kernel has
-+# no BTF loaded.
-+if [ ! -r /sys/kernel/btf/vmlinux ]; then
-+    echo "Skip --bpf-summary tests as kernel BTF is missing"
-+    rm -f ${OUTPUT}
-+    exit 2
-+fi
-+
- # summary only for system wide - per-thread summary with BPF
- test_perf_trace "-as --summary-mode=thread --bpf-summary"
+ find_offline_cpu() {
+-  for i in $(seq 1 4096)
++  for i in $(seq 0 4096)
+   do
+-    if [[ ! -f /sys/devices/system/cpu/cpu$i/online || \
+-          $(cat /sys/devices/system/cpu/cpu$i/online) == "0" ]]
++    if [[ ! -d /sys/devices/system/cpu/cpu$i ]]
+     then
+       echo $i
+-      return
++      return 0
++    elif [[ -f /sys/devices/system/cpu/cpu$i/online && \
++            $(cat /sys/devices/system/cpu/cpu$i/online) == "0" ]]
++    then
++      echo $i
++      return 0
+     fi
+   done
+-  echo "Failed to find offline CPU"
+-  exit 1
++  return 1
+ }
  
+ test_offline_cpu_stat() {
+-  cpu=$(find_offline_cpu)
++  if ! cpu=$(find_offline_cpu)
++  then
++    echo "Offline CPU stat command test [Skipped - no offline CPU]"
++    return
++  fi
+   echo "Offline CPU stat command test (cpu $cpu)"
+   if ! perf stat "-C$cpu" -e cycles true 2>&1 | grep -E -q "No supported events found."
+   then
 -- 
 2.56.1
 
