@@ -1,101 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795342691;
-	b=RFSAK7vRIlYvPkvdtHqtIw6vfgBzMy/znDxHyHbbVdJWuqAPoREve2tSCx1WvgohlNfa
-	 1BsFTcMAEMrlFbYxSMkDu0q3fBK4OOMzzv12Kc2zAa7vR6vUrv8Li407H77M7WEWpcH9N
-	 gu06rcrs8V10K3lcJHe40Qhq9PROMIFzCNXQVPs2h7hlAVMNF/KyakVaFfiP3aQRuLGjH
-	 pTm5uG7DXfQtwGGIbB9zBi12vYfKsleHYxzG5rt8cU0FuAB7CIL4RmnzmhDRxro5Hanwz
-	 JzLhNlMakOxIx41IsJye+uOy9L7uVqz/67cvCDZsKfzq/YX4qcaHCsjz0QVa46TpWCg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795342691;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=oCpV49nOga8AoZMY7yHg06vfkscs7oJjLDcTlwIf7nA=;
-	b=ZvCyNpoVvN3VNeyfsQtI6c+RmCclsTc7o3B7aUN6/fkIoLYmbImlJKYilX5hilMhO63s
-	 tbZjfYdX0lvOkhIskEttXn11ux2wDG5WGm5q5MWni20asp3LTcd5pW7e50KP+2sLYbLl0
-	 hgjVs2eWtOp0Kn9nOJC3cMHPE+wF2MKcM2OqeDSbMIaVmH1humyzJ/3QJ13jOBMVj2ZOG
-	 MiiwzBrep2rIAR4263ds/NADnyysYkctdHuznaecFdWa+Jfx1MNxYI38PSbreNMbyUOzx
-	 o5N5NpTrLQo/xmLZTveRi2efkJjSxRLv6n7PXFPabci0v5l6tY/zKpDMu3H9C5oEcow==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g7G7xhn6;
-	arc=none smtp.remote-ip=209.85.215.182
-Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795342804;
+	b=WjPmFQPwZR4UcdlMgZP6ahGxwy6is5ewcXMi60PeIwEIsowY/PbhJyiKX2cwsE4cqL8C
+	 CLmWgBqFV1NrNAnqngf/M4CTOfclUR+DvkRigk2ranVDNTLy9QCpxJHntt5OGAQr6217/
+	 fHhiJUe7xNf6m64TP7c6a0aibbKQ6tN3zVNnPCHodHUf2of6nyqoXRC+lNKvEvYybAkLF
+	 2ElQJGALnIc83KXNOkTsXB2c2y6xF6UZScEXacT9ZRkgBl/jLGCLHOzbnw0E6OAkiW0ZM
+	 b4sbcd1u8mRT/p/bvY1MI/StlOSg1d9GqrNXsfWLGcS9b8pliUIBWVULWgMPyDKBsdw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795342804;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=91gqtW4A9hjSh5iScq2FZO46j4FBUtpr76vY0eFs1hM=;
+	b=TloayYlB7B/gTAc4Avzi7DBnYInc404DcC7FZ01+eUxjYaNuwHf8yQAiT011In75BpGy
+	 B0rxQzz+dnM5u1hBhhPzzqEheYuV06E0cJDXPjShk9/gqC2GN+SCKvT5jdX2wRU65UIkY
+	 850tzore9IIHWMck7+H30IJowpxQ49DsfkTztdv+1RXkjt2FhFdb7t32RxRlMARUr+8a8
+	 h81paG/8joZBYD8Z/Sk+Oqh8VR4urTGnjU45QlN1cdsUWI/T1aNGR50tvwtSZnbjc+BbS
+	 +Xt7PL4LI+yE+DdMQfkStkOoTbjn/hIHv1+KjVMX0VgR2kzRxNmmZCk9F8Iomjk1dRA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mRn+WBiQ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13C76606A320;
+	Sun, 22 Nov 2026 10:20:03 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mRn+WBiQ
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795342803;
+	b=WQcdzKeIk5/68DvQlToAuO/roer+sl2zMWAAfGe1Ejgaf2sKbcNG42lxdQjfjX54909K
+	 D5Z+mkTCqlf6zuS6WDyGvgITrPm8N6FgWbJSmTFznt7aEIiOEpInoJ7HE99deBc2sxrMI
+	 fIo7+1B0iOJ8CgCYTbhr61WaBTUQCcBUwm1IOtT2957E9AxMe6vIQw5ZxCXXsuUNnZRoS
+	 3pTI6pH4bYkMWeCRxBOm+Rg2VhAP6HvTVf5dbw1OF0vBI8reFa/kcV8kh2ljghkG3hCrk
+	 XV+Y9wdPkULJF91880+mgcLFA9nr+qPdaeEHS0SU0OQxqwEEa9c7BxJBuhsMmKWj6ig==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795342803;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=91gqtW4A9hjSh5iScq2FZO46j4FBUtpr76vY0eFs1hM=;
+	b=EbYtYQjlvmI8xDhZH2JI8wEcip7J0t6+cy8UJHWm/sAXvIehNW+wgdBxTpBOk0YBwN0A
+	 OdSs7DtaT9WWqFwZtYcdeu9SLfFVCV4fj8L4cTB9TiFResXHaUfBJMjkhATZ1iP4Rf+Qf
+	 MMUMA9qDRg3+IpQWYBLl/qpPVX9iCqWY6o6qacK8dMWr96ND2D/sw9/AbboBPFCRpxZfq
+	 92WtrpyQ3LhowD8Zl3ZoTg033lItTobTQBk2SmY2VB+iYCrzBQi6qsbAJXNhAV8W+7HmY
+	 EtERaIjKz5ZZVWS41TwaPjyUN4ADyqScFe5NUm34xLjdKfqfHiViikpvmPTVidZQ3CA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2082B606A33B
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:18:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2082B606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g7G7xhn6
-Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-ccca948203aso2400353a12.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:18:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795342690; x=1795947490; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=oCpV49nOga8AoZMY7yHg06vfkscs7oJjLDcTlwIf7nA=;
-        b=g7G7xhn6BKkNkLuaikWbY4K22jSt2/x180ZFzhvcAu/sv1xzTxeyrGpK3uy5TAcEz9
-         jo8tUHVY/xpcRGQmCDnDPmHTw5ECPKoRT92POP28b5TGwVooKlgruSWjKTTMZiin1dfE
-         x1JUFKigPR9z+HTPfW8SJkNnJJdvuWWF8RmHmzkKn9bperFFO+JzuzmIHmDD9SAO48t/
-         +kHUa4j+CTYyGm503MCTnVdRPAj8W06BluKIwYy7wct9gDf32xUtQx9xQgc0lTzYLRY2
-         /Vm2thBE5zOWl921kN4UHXSEiWENojKWKLKfVqS3qc845F5GY1djR4ASXZSC+Vhzgj3l
-         dbOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795342690; x=1795947490;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=oCpV49nOga8AoZMY7yHg06vfkscs7oJjLDcTlwIf7nA=;
-        b=QfIAyG1Dz91r6RgmVmvrQ7pC1R+xqOnzEQ0oY33jHCmsiMQaG6Mp8ZluZcZEpYGhoF
-         5GAjnU1m5wEx6lWmM1eEV9TlR4Sunjs3f3rZ1peamAQiASlP4m2HR9RqDYeiqr2BWrmT
-         ZSd+NBRse5yqpmfdZ6MJSs/ithRq4Kb/UyVcuda9COcAApT+8idGeGWk+ug6cCPeUZ3C
-         LCgjhc63QM0ZuLDLq4DNsPc3HKYs3ssJnxLjLZZbQtefhgxN3vcKTs2ubj2AFzQRw5S1
-         C5lGUcw3aj2ZSrMXBz08C+s14NpL0yCqrIOkPUrPnT/URDJ0aMpItGRubks4sp5YIAcB
-         8qlA==
-X-Forwarded-Encrypted: i=1; AL+hErFPaVp8QC4q84iqBCU0sqLnD7sq3qoA/T6m6K/ML5srra56oHiJ9hAZ7D9DJ+hc4xKRGw2jX8jtQZAO6o0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9WHpi2tUwM9oAEk0XGOwBhlalMjgD/fw1LQNNiqikC64hCb/Lv
-	+aaZSjZwq8PZf0Vu/rCx3jAiSeum6/rwK4WSVDAAxjp4x4sMxSalF1wr
-X-Gm-Gg: AZFdTZdAU99T1UBlm/kk3OZzD/Y1mQLrfLCbtAD+gcC+pki5REf9y3mdX+/1Mt4hHwb
-	9ba26zILVO+BJE3x3Ajqy//Ni0iE2QgSOxeTJ6iZzAmUnf1g41tIgTIN7Zii6m3pIFN0D2ILTuT
-	04Pfh91bSXMoDvoMSI6vNRl0QwhRhAqXkDHJUpt5nc4AmmXrNEFOahk7cAInCDSqJsDLIZyyrSR
-	XPNpKXxI6VTSPxRFUzINJDxpUK4DsCoCSDQQu10a05Kz5naGwxJmzPAYSSqFp9UN0GvguBs5Enw
-	QH1ncyFVGLx7rrb1wbuAdlbfdkTQf9d33b9iNT0Yjw7F4XJBXXetstyN6GBPhEzinYScxL2oxmO
-	08XvfxjU1zqf2Ycl1p554UKODGV0zCAGi7tnEf/beAXiQyn04l73OakSKAQXhZ+PIM0zx7Rum31
-	MjTUHhTFInV9QqK7a1UMyjgBfIrVgxKgNPajEgYBmUdbwHOMriEre5+U72hIJ4zl4xa9eJ1rR2A
-	95zYTHRHUDTon/wPHkxdp95uPWmT7MLhxK1UD2FYG9JNsUtcJamW7UKQMUTBNDaXRghjmZ0hru6
-	eT6ovLJmVnRorpPUPy0n40VL79jogl/HFshsdz3uT3vr5OGjWHU=
-X-Received: by 2002:a17:90b:1fc4:b0:3ac:6e91:3f22 with SMTP id 98e67ed59e1d1-3b41c98a43amr7026493a91.52.1795342690497;
-        Sun, 22 Nov 2026 02:18:10 -0800 (PST)
-Received: from fedora.tailc1fb0a.ts.net ([134.82.71.171])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ffa98esm14953787a91.17.2026.11.22.02.18.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 02:18:09 -0800 (PST)
-From: Artem Novak <artem122novak@gmail.com>
-To: florian.fainelli@broadcom.com
-Cc: bcm-kernel-feedback-list@broadcom.com,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	robh@kernel.org,
-	Artem Novak <artem122novak@gmail.com>
-Subject: [PATCH v2 2/2] ARM: dts: bcm2835: replace deprecated LED fragment on Raspberry Pi Model B
-Date: Sun, 22 Nov 2026 04:17:59 -0600
-Message-ID: <20261122101759.206056-3-artem122novak@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261122101759.206056-1-artem122novak@gmail.com>
-References: <20261122095225.200916-1-artem122novak@gmail.com>
- <20261122101759.206056-1-artem122novak@gmail.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 297471F000C6;
+	Sun, 22 Nov 2026 10:20:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795342803;
+	bh=91gqtW4A9hjSh5iScq2FZO46j4FBUtpr76vY0eFs1hM=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=mRn+WBiQa31nxxO9VffIBelOWrPuMHwuIryYFMWZLQxS3CeLuVCyDAa5yYuA0qiw8
+	 zOtTr9wsbkf8N1paU+HlVCfI3/LHNyG/qX/56es3kgpJ9mAzHfgYwhDiXsyFyKfbgs
+	 OZFJlPhbTowGkUhF0D1pfDs34OlKaeMx8Ueduz00nlTEQMl+BQ4T47JVadE52Li0uF
+	 uF7JugDhDzWyrb5K6qYrtlMu0CmUPIDJyMZrvNqLnp/9q49lDb6c1AMx4ToQ8JoFzU
+	 O2TepBmuWLavw2Q9Uxo8IQrzymiGkdiPMNOpTEqsvT61hBDcLHJJ01g6HqNJzQ58vG
+	 RfBoxj1G/iyLA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 7C8994BFF3;
+	Sun, 22 Nov 2026 10:20:02 +0000 (UTC)
+From: =?utf-8?q?Omar_Yi=C4=9Fitcan_Meng=C3=BC_via_B4_Relay?= <devnull+menguomary.gmail.com@kernel.org>
+Date: Sun, 22 Nov 2026 13:20:02 +0300
+Subject: [PATCH] jfs: fix integer overflow in dbDiscardAG() and validate
+ dn_agfree
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,51 +83,101 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261122-jfs-fix-dbdiscardag-overflow-v1-1-c3b3230242dc@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/yXMwQrCMAwA0F8pOS9gg1Ttr4iHrk1mhqzSzDkY+
+ 3dRj+/yNjBuygbRbdB4UdM6QXS+c5DvaRoYtUB0QAcK3hPhKIaiK5a+qOXUShqwLtzkUd94PFO
+ Q4BNd5ASdg2dj0fXXX29/26sfOc/fE/b9A5fMHyCAAAAA
+X-Change-ID: 20261122-jfs-fix-dbdiscardag-overflow-4826f61a29f7
+To: Dave Kleikamp <shaggy@kernel.org>
+Cc: jfs-discussion@lists.sourceforge.net, 
+ Christian Brauner <brauner@kernel.org>, linux-fsdevel@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, 
+ syzbot+29eda1328acf6cf2dbfb@syzkaller.appspotmail.com, 
+ stable@vger.kernel.org, 
+ =?utf-8?q?Omar_Yi=C4=9Fitcan_Meng=C3=BC?= <menguomary@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795342801; l=2536;
+ i=menguomary@gmail.com; s=20261121; h=from:subject:message-id;
+ bh=hMHH4yTPBHZUdEF0MQBMA04GLD3DPYMcNION+cySEUY=;
+ b=kFsqLNKFTA0bRSTpgK1ZizBPkY3/f3o5uFzQfSnERdVJVQeHu8RAQUcJumcVCIJDH3fcg7nxg
+ EkbDzhuT90/B3FTj/M3cuwHSXd3FU+dqk0eFGzUfN9R6zORfLYpM7Um
+X-Developer-Key: i=menguomary@gmail.com; a=ed25519;
+ pk=dgRbAFBMBZdJfvBTw9RBcE3WxXn6Yt7GOZFPRpQqpkY=
+X-Endpoint-Received: by B4 Relay for menguomary@gmail.com/20261121 with
+ auth_id=1595
+X-Original-From: =?utf-8?q?Omar_Yi=C4=9Fitcan_Meng=C3=BC?= <menguomary@gmail.com>
+Reply-To: menguomary@gmail.com
 Content-Transfer-Encoding: 8bit
 
-Preserve the leds and led_act labels when replacing the deprecated
-LED fragment with a board-local gpio-leds node.
+From: Omar Yiğitcan Mengü <menguomary@gmail.com>
 
-These labels are exported as device tree symbols and may be referenced
-by overlays.
+If a corrupted JFS image has a negative per-AG free block count such as
+dn_agfree[agno] == -1, dbMount() currently accepts it without validation
+and stores -1 in bmp->db_agfree[agno].
 
-Signed-off-by: Artem Novak <artem122novak@gmail.com>
+When FITRIM later calls dbDiscardAG() with minlen == 1, the signed s64
+value nblocks = -1 is implicitly converted to u64 max_ranges = U64_MAX.
+After do_div(max_ranges, minlen), max_ranges + 1 overflows u64 to 0,
+causing range_cnt to be 0 and kmalloc_objs(struct range2trim, 0, ...)
+to return ZERO_SIZE_PTR (0x10). Since totrim != NULL and the while loop
+(nblocks >= minlen) is skipped, tt->nblocks = 0 dereferences 0x18 and
+triggers a general protection fault.
+
+Fix this in two places:
+1. Validate bmp->db_agfree[i] >= 0 in dbMount() to reject corrupted
+   on-disk metadata at mount time with -EINVAL.
+2. Return early in dbDiscardAG() when nblocks < minlen, preventing any
+   negative nblocks (for example from runtime corruption) from
+   overflowing max_ranges + 1 and avoiding an unnecessary allocation
+   when an AG has fewer than minlen free blocks.
+
+Reported-by: syzbot+29eda1328acf6cf2dbfb@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=29eda1328acf6cf2dbfb
+Fixes: b40c2e665cd5 ("fs/jfs: TRIM support for JFS Filesystem")
+Cc: stable@vger.kernel.org
+Signed-off-by: Omar Yiğitcan Mengü <menguomary@gmail.com>
 ---
- arch/arm/boot/dts/broadcom/bcm2835-rpi-b.dts | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
+ fs/jfs/jfs_dmap.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm2835-rpi-b.dts b/arch/arm/boot/dts/broadcom/bcm2835-rpi-b.dts
-index 72764be75a79..660814ce851b 100644
---- a/arch/arm/boot/dts/broadcom/bcm2835-rpi-b.dts
-+++ b/arch/arm/boot/dts/broadcom/bcm2835-rpi-b.dts
-@@ -3,7 +3,6 @@
- #include "bcm2835.dtsi"
- #include "bcm2835-rpi.dtsi"
- #include "bcm2835-rpi-common.dtsi"
--#include "bcm283x-rpi-led-deprecated.dtsi"
- #include "bcm283x-rpi-smsc9512.dtsi"
- #include "bcm283x-rpi-usb-host.dtsi"
+diff --git a/fs/jfs/jfs_dmap.c b/fs/jfs/jfs_dmap.c
+index a841cf21d..94542ed93 100644
+--- a/fs/jfs/jfs_dmap.c
++++ b/fs/jfs/jfs_dmap.c
+@@ -293,8 +293,13 @@ int dbMount(struct inode *ipbmap)
+ 		goto err_release_metapage;
+ 	}
  
-@@ -93,8 +92,17 @@ &hdmi {
- 	status = "okay";
- };
+-	for (i = 0; i < MAXAG; i++)
++	for (i = 0; i < MAXAG; i++) {
+ 		bmp->db_agfree[i] = le64_to_cpu(dbmp_le->dn_agfree[i]);
++		if (bmp->db_agfree[i] < 0) {
++			err = -EINVAL;
++			goto err_release_metapage;
++		}
++	}
+ 	bmp->db_agsize = le64_to_cpu(dbmp_le->dn_agsize);
+ 	bmp->db_maxfreebud = dbmp_le->dn_maxfreebud;
  
--&led_act {
--	gpios = <&gpio 16 GPIO_ACTIVE_LOW>;
-+/ {
-+	leds: leds {
-+		compatible = "gpio-leds";
-+
-+		led_act: led-act {
-+			label = "ACT";
-+			gpios = <&gpio 16 GPIO_ACTIVE_LOW>;
-+			default-state = "keep";
-+			linux,default-trigger = "heartbeat";
-+		};
-+	};
- };
+@@ -1677,6 +1682,10 @@ s64 dbDiscardAG(struct inode *ip, int agno, s64 minlen)
+ 	IWRITE_LOCK(ipbmap, RDWRLOCK_DMAP);
  
- &pwm {
--- 
-2.56.1
+ 	nblocks = bmp->db_agfree[agno];
++	if (nblocks < minlen) {
++		IWRITE_UNLOCK(ipbmap);
++		return 0;
++	}
+ 	max_ranges = nblocks;
+ 	do_div(max_ranges, minlen);
+ 	range_cnt = min_t(u64, max_ranges + 1, 32 * 1024);
+
+---
+base-commit: 4843f6873f7c4835e62f2c73ba0fd538e57a2f22
+change-id: 20261122-jfs-fix-dbdiscardag-overflow-4826f61a29f7
+
+Best regards,
+--  
+Omar Yiğitcan Mengü <menguomary@gmail.com>
+
 
