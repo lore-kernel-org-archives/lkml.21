@@ -1,85 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.100
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795361124;
-	b=YZ9V0YGHgRvQzaRxTqhyAd15e5eC9ICJ2JGxA7bn8ii94djXzW+CZ42sMNZEYkYeHLEx
-	 NQiav03MGj5gCQr8KyUrXbWc3RaBvGrUpm/H3blnE7zGqLub24y3S2eppsDFq3Z4COo0y
-	 V/lWXml3DkcjJKYUNyvquRM/oSd2/k2JnKDAlKlkPxyNZpM433aljVph3E4LPdXyjhe+5
-	 VXxLT2xtSC+nF5uP2ziqrL7+8YCstdDI73cjK5O+WKd9foI7pvwg/5xhtQ3n2GF7kT0tK
-	 8lhgyn6dQ3D/MnqJb3egQgGuSTYZP4i6p3kY4SEnFV+VAXc79IcYG5dRN0TyhG72VVQ==
+	t=1795361162;
+	b=btBltwfTStV0C6NGFuSdE/x4EWkdONCbz3I/5KE0RB0y0Qba3/BkqqRKuAejvmRIK5Gs
+	 qfJzjToG099KtVpjGEg0SnvwZiCmpGRNMnehjsBEtzC/TK70MNgD4A/pwHhsc2uCV2wN8
+	 DwxpZ7BIXILJfKTM71sHQYi1Eut5BcQoTDfcsayLKjt9RT5grHZl4HNAlkbcw28WCQ5/p
+	 ZHEKUVadWCtjnXtgOSNspdkw3DlG50HgxCqcTph3G3vC6teT9I2ENSMhhUEnFiU3TGWaH
+	 al1Iyr7N/lukSKEncFSycEWo4bFuORqDasQdekmsvg9WOgg64fPwxBjLyvW4XGMxN5g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795361124;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
-	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=GNHxpl/UQde3/iMNVri3Fkhz/8Z7fKwj6N11BqGjFJg=;
-	b=MEJNvQmXMezFQnvKwUVSytn+9FVul/F5mJsY8t2RxPm1lcwA3vPPbR0NHe3H8oBobkMt
-	 6NzoWtpxWhl9pu2o+g1VY0q5KBZPOKVBUc6vg41aTGiefznRm9Jhxa8mOxqT8Q1hcFOuM
-	 tUPoSb37tczTCQ4ZQ2XBcaYp+PgSQFxn0KDuWVUxaQCxaPheDa6iC3G/W3jN3t3uI55ys
-	 3P1/Xvrp0HoVXiIr64FAIKVjkNv7GE5ABlE2TOH6d8CqNyhqqX3lfbmlsYEf+XmtSsUoL
-	 YVTsQQqE9asuO1aEMgtseNMBC7Im825xYiFJFItNDRzhFIwaGNhKGt/ngeypmcKSjrA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795361162;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=gMQttSAKRMtW0cW3S3mXFuyL3kR87s+2b//SCKbommw=;
+	b=EveuhYioEwKSbzCOHzs7hr8yLj5aPu5BMrc/kM0YMm3G+O7DBhduyRW2B76xn1KEDh+3
+	 U6J+Ch8kWuYq6asjZDZzLCYeVscOfVADgXB4LDjGVSBokcaabivNDjxqilcWkA0LS+Q+6
+	 Kwu7WqqC6YA9IwTER0EsgH3NPXVGGtL+IHSK2rtloxptktpYJjlr94xdoUlE8OKuWvbIR
+	 p5ZTL8B8IFL4Y6+vN54T8Y9wsl0mU6kyeVJUCaCzHrUn5d6SDaaP44gIfKCPpHkSAfjwW
+	 ANlch9fX1Couufh8//sGwl6PXlZUUqjrk8Rm6OL4aVIJuP5DaFRTbt3e42D1jNmHBnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=hefhoLX0;
-	arc=none smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=proton.me;
+	spf=pass smtp.mailfrom=proton.me;
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=LLMpfnGw;
+	arc=none smtp.remote-ip=185.70.43.100
+Received: from mail-43100.protonmail.ch (mail-43100.protonmail.ch [185.70.43.100])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E213606A32A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 15:25:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0E213606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4212A606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 15:26:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4212A606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=hefhoLX0
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb6adaf0f1so20865325e9.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 07:25:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795361121; x=1795965921; darn=vger.kernel.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=GNHxpl/UQde3/iMNVri3Fkhz/8Z7fKwj6N11BqGjFJg=;
-        b=hefhoLX0g0Vs13uUzBDieJb6xDttsUz2cyUIj/E8sBZasAJposoxP1u7cgaEG5pmDr
-         +RISHjuUpyPmnYNyah/30wVzGxlPIXhEcfh9io2MjKeXRGcVaNnWGmQhQYistA/gGGw5
-         4yA/gDBDMC2fmZ2Bp4s7ZJR4ngQr8j7R4bNNCU7dj9HPj/T7cy/NdANJLHwfgw/LvfGp
-         HGYqx2ga84EJQiHz7yoeatAxc0EbCkNq9J9A8PGLw/PDTOjIUHoSlIMTV50num92tfKm
-         Z8XtCpYa7ulllvaiSCG+J0tOCBrZpN77xd5PU2TQ9/B7uJmKHeldAHDYjZ4tYfUKCZoB
-         50YA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795361121; x=1795965921;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GNHxpl/UQde3/iMNVri3Fkhz/8Z7fKwj6N11BqGjFJg=;
-        b=hw64cD1rnylmXTxJawVzz/GCusR0zphjoaCHH6r+JeAowkspNJCO1usMXMPfdn2swX
-         m3xRecXOf+dmne60uu/GWz7LbR+awht0jLhcnkv5GZe8iQE4hsoFdKo6Qua7u89kkqeQ
-         ssV6OUVgnfD4+I7MO/TO/M2ogJ8x/E6B0kcBaGpc5BRqXIhvKZSPV9BezchtJJwkQARG
-         YHa1GErnHlStzxsymFsJlRFhNomyfxzlNhKWVwSUdF2JAvVh5vcLnoBlBVrL8cTPpzBv
-         6OZFBAsuvXwzg74I0AAEL41chjyM9SKJFHGiUPC+rG4JV42Ym9s2GOW8jf/6AuTIJM5+
-         fbgQ==
-X-Forwarded-Encrypted: i=1; AL+hErFcvlC5/i5Loz93/JHndOMbPl/FWlhIX7Xak3NlRzXCeNrJdYE13tiXUOwmk6BEgDKBK5UFBuVVG+mYRcI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9cu5Kde7vNFJCXyP7W9KvE2usx0s3QjkDNHmaNFCnglm0T0GTp
-	IWoNM0iJaFwPFx52I8w2ennmy34R07ewXAqPvEGHXGZE2tZo4gdKzDYwBfQfTCxSQN0=
-X-Gm-Gg: AZFdTZceEik/IkIm+gGYC1lxPB7b6Vroy7HPzodqnDran7OfzGWc93w/mmMrqhQM77v
-	3ypnGrJsTAjJIl3C0BKy9c3+7mQRXjgExWp5LmFe5f/okzkxbB7VhLEUNsZXRXOvs2Qw8UptZf/
-	jIm8fnFjvGsSOniAudJfZMLp1uN2oaEhERAqp77hC2qrq7Sbqf8fv+jjGdzOYaUyIjqLlbPeGPm
-	HlYuc5s2UGS5s+mG4eqb4hhAZERQaLT1bvWpWw+TKs54087ZnSfWd8xS7WSX4NDXJBGY8VPfz+Z
-	+8Oq0L/KY/uNRGLqjWQb/AKtw9bb1alOz02VDP8C5v5SxNxKPX677uYv58Kdicx3JiNL1eGVd+F
-	0TQ9nJpOl6IdSirX1CHdCdRDtFgUGhOM5DzYTf1kazhCN59k9MbIutAYPUkdjJCKlJgtHpBsqwr
-	4SprXELU6kn1hvgNisfNJREzGC7qTqIKG6bjvaCfkhZ4t/5HNj5WqC8Zzt9QqoxU5vZho4/Id3P
-	xVvcZdwvbyunXB51UugcoiRVEjoiFGwc4HCuwiggBjiTGnBbOpeZLwDe9tbfyMhD/t4jf84jm2w
-	Gp6OLhcR+FJZzGoCfKwH3IRTNF9ZBYlWEYwuBVhXKexAGs2i
-X-Received: by 2002:a05:600c:46d3:b0:4bb:5c92:ce12 with SMTP id 5b1f17b1804b1-4bb88812200mr202639425e9.17.1795361121451;
-        Sun, 22 Nov 2026 07:25:21 -0800 (PST)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9687sm313799095e9.10.2026.11.22.07.25.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 07:25:20 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=LLMpfnGw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1795361159; x=1795620359;
+	bh=gMQttSAKRMtW0cW3S3mXFuyL3kR87s+2b//SCKbommw=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=LLMpfnGw4CysvgJE/5RHm1CKJiC9K+HGx2O1l2d9P94YxsT0L23aFOP3cBYo2Zzaa
+	 O0c3Rp5WIEaBQHyg8wEuI3EG1+Dj9H1syVwy1swS+1SwOhOn0l/oShhln2fdyhRGAJ
+	 tXYVuAsBW55C602/p1cMMPEu/V5buySsL5GdweqAT/Iol2vzvhMa9WaLDDkMonNrcC
+	 WbxLYoXMrFXctYukFgmCBgKybBBfZMicXhh4av0Tl3B2ta14XV3ZqkfNpwgRTpbygR
+	 QXfSaCS6P1lnQkT4VKxxqb/oz0W5QURmU+VLWCMPhvrh6HfLgpVli4D0ThTZvcIfUR
+	 9WVYkddr0dkgQ==
+Date: Sun, 22 Nov 2026 15:25:56 +0000
+To: Miklos Szeredi <miklos@szeredi.hu>
+From: Yun Wang <7z0423arsenova@proton.me>
+Cc: Bernd Schubert <bernd@bsbernd.com>, Joanne Koong <joannelkoong@gmail.com>, Shuah Khan <shuah@kernel.org>, fuse-devel@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/5] fuse: don't wait for a sync-init mount where nothing should wait
+Message-ID: <20261122152514.467423-1-7z0423arsenova@proton.me>
+Feedback-ID: 227066774:user:proton
+X-Pm-Message-ID: bf74e8fcf5c6afe03560bb8645e9b95de873142a
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,320 +61,143 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v8 5/5] arm64: dts: amlogic: Add Amlogic S4 Audio
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Jiebing Chen <jiebing.chen@amlogic.com>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, linux-sound@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-clk@vger.kernel.org, jian.xu@amlogic.com, shuai.li@amlogic.com, 
- zhe.wang@amlogic.com
-In-Reply-To: <20261110-audio_drvier-v8-5-1489241e4c83@amlogic.com>
-References: <20261110-audio_drvier-v8-0-1489241e4c83@amlogic.com>
- <20261110-audio_drvier-v8-5-1489241e4c83@amlogic.com>
-Date: Sun, 22 Nov 2026 16:25:15 +0100
-Message-Id: <179536111581.2728475.9919460533427781841.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7779; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=pV/1UXNxA/LpQP+cFIdmAq4U0LBxmofpDDOb6Try3Jk=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNnMnPFPjy9z2xljcWfG5SXGe9i5r+8W9JhgmxZ8YcO8N
- NYJCt/DOkpZGMS4GGTFFFlquKvF30lqfZk1Xec2zBxWJpAhDFycAjCRk9MYGU6HMU6PO7XnVt/l
- NTJXfj985xqYztH0uLfJ5WXb7nUK1coMf7gOcW6rrOlnORf6dFrkmQ7RA0F3Lr1WXTlHsy1eToz
- flB8A
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-> Add basic audio driver support for the Amlogic S4 based
-> Amlogic AQ222 board.
-> 
-> Signed-off-by: Jiebing Chen <jiebing.chen@amlogic.com>
-> ---
->  .../boot/dts/amlogic/meson-s4-s805x2-aq222.dts     | 311 ++++++++++++++++
->  arch/arm64/boot/dts/amlogic/meson-s4.dtsi          | 396 +++++++++++++++++++++
->  2 files changed, 707 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts b/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
-> index 0a3f81ea0fb0..334b57bde4de 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
-> +++ b/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
-> @@ -75,6 +75,17 @@ vddio_ao1v8: regulator-vddio-ao1v8 {
->  	       regulator-always-on;
->  	};
->  
-> +	vcc5v_reg: regulator-vcc-5v {
-> +		compatible = "regulator-fixed";
-> +		vin-supply = <&main_12v>;
-> +		regulator-name = "VCC5V";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		gpio = <&gpio GPIOH_7 GPIO_ACTIVE_HIGH>;
-> +		startup-delay-us = <7000>;
-> +		enable-active-high;
-> +	};
-> +
->  	/* SY8120B1ABC DC/DC Regulator. */
->  	vddcpu: regulator-vddcpu {
->  		compatible = "pwm-regulator";
-> @@ -129,6 +140,207 @@ vddcpu: regulator-vddcpu {
->  				<699000 98>,
->  				<689000 100>;
->  	};
-> +
-> +	dioo2133: audio-amplifier-0 {
-> +		compatible = "simple-audio-amplifier";
-> +		enable-gpios = <&gpio GPIOH_8 GPIO_ACTIVE_HIGH>;
-> +		VCC-supply = <&vcc5v_reg>;
-> +		sound-name-prefix = "Analog_PA";
-> +	};
-> +
-> +	spdif_dir: audio-spdif-in {
-> +		compatible = "linux,spdif-dir";
-> +		#sound-dai-cells = <0>;
-> +		sound-name-prefix = "DIR";
-> +	};
-> +
-> +	spdif_dit: audio-spdif-out {
-> +		compatible = "linux,spdif-dit";
-> +		#sound-dai-cells = <0>;
-> +		sound-name-prefix = "DIT";
-> +	};
-> +
-> +	sound {
-> +		compatible = "amlogic,axg-sound-card";
-> +		model = "aq222";
-> +		audio-widgets = "Line", "Lineout";
-> +		audio-aux-devs = <&tdmout_a>, <&tdmout_b>, <&tdmout_c>,
-> +				 <&tdmin_a>, <&tdmin_b>, <&tdmin_c>,
-> +				 <&tdmin_lb>, <&dioo2133>;
-> +		audio-routing = "TDMOUT_A IN 0", "FRDDR_A OUT 0",
-> +				"TDMOUT_A IN 1", "FRDDR_B OUT 0",
-> +				"TDMOUT_A IN 2", "FRDDR_C OUT 0",
-> +				"TDM_A Playback", "TDMOUT_A OUT",
-> +				"TDMOUT_B IN 0", "FRDDR_A OUT 1",
-> +				"TDMOUT_B IN 1", "FRDDR_B OUT 1",
-> +				"TDMOUT_B IN 2", "FRDDR_C OUT 1",
-> +				"TDM_B Playback", "TDMOUT_B OUT",
-> +				"TDMOUT_C IN 0", "FRDDR_A OUT 2",
-> +				"TDMOUT_C IN 1", "FRDDR_B OUT 2",
-> +				"TDMOUT_C IN 2", "FRDDR_C OUT 2",
-> +				"TDM_C Playback", "TDMOUT_C OUT",
-> +				"SPDIFOUT_A IN 0", "FRDDR_A OUT 3",
-> +				"SPDIFOUT_A IN 1", "FRDDR_B OUT 3",
-> +				"SPDIFOUT_A IN 2", "FRDDR_C OUT 3",
-> +				"SPDIFOUT_B IN 0", "FRDDR_A OUT 4",
-> +				"SPDIFOUT_B IN 1", "FRDDR_B OUT 4",
-> +				"SPDIFOUT_B IN 2", "FRDDR_C OUT 4",
-> +				"TDMIN_A IN 0", "TDM_A Capture",
-> +				"TDMIN_A IN 1", "TDM_B Capture",
-> +				"TDMIN_A IN 2", "TDM_C Capture",
-> +				"TDMIN_A IN 3", "TDM_A Loopback",
-> +				"TDMIN_A IN 4", "TDM_B Loopback",
-> +				"TDMIN_A IN 5", "TDM_C Loopback",
-> +				"TDMIN_B IN 0", "TDM_A Capture",
-> +				"TDMIN_B IN 1", "TDM_B Capture",
-> +				"TDMIN_B IN 2", "TDM_C Capture",
-> +				"TDMIN_B IN 3", "TDM_A Loopback",
-> +				"TDMIN_B IN 4", "TDM_B Loopback",
-> +				"TDMIN_B IN 5", "TDM_C Loopback",
-> +				"TDMIN_C IN 0", "TDM_A Capture",
-> +				"TDMIN_C IN 1", "TDM_B Capture",
-> +				"TDMIN_C IN 2", "TDM_C Capture",
-> +				"TDMIN_C IN 3", "TDM_A Loopback",
-> +				"TDMIN_C IN 4", "TDM_B Loopback",
-> +				"TDMIN_C IN 5", "TDM_C Loopback",
-> +				"TDMIN_LB IN 3", "TDM_A Capture",
-> +				"TDMIN_LB IN 4", "TDM_B Capture",
-> +				"TDMIN_LB IN 5", "TDM_C Capture",
-> +				"TDMIN_LB IN 0", "TDM_A Loopback",
-> +				"TDMIN_LB IN 1", "TDM_B Loopback",
-> +				"TDMIN_LB IN 2", "TDM_C Loopback",
-> +				"TODDR_A IN 0", "TDMIN_A OUT",
-> +				"TODDR_B IN 0", "TDMIN_A OUT",
-> +				"TODDR_C IN 0", "TDMIN_A OUT",
-> +				"TODDR_A IN 1", "TDMIN_B OUT",
-> +				"TODDR_B IN 1", "TDMIN_B OUT",
-> +				"TODDR_C IN 1", "TDMIN_B OUT",
-> +				"TODDR_A IN 2", "TDMIN_C OUT",
-> +				"TODDR_B IN 2", "TDMIN_C OUT",
-> +				"TODDR_C IN 2", "TDMIN_C OUT",
-> +				"TODDR_A IN 3", "SPDIFIN Capture",
-> +				"TODDR_B IN 3", "SPDIFIN Capture",
-> +				"TODDR_C IN 3", "SPDIFIN Capture",
-> +				"TODDR_A IN 6", "TDMIN_LB OUT",
-> +				"TODDR_B IN 6", "TDMIN_LB OUT",
-> +				"TODDR_C IN 6", "TDMIN_LB OUT",
-> +				"Analog_PA INL", "ACODEC LOLP",
-> +				"Analog_PA INR", "ACODEC LORP",
-> +				"Lineout", "Analog_PA OUTL",
-> +				"Lineout", "Analog_PA OUTR";
-> +		clocks = <&clkc_pll CLKID_HIFI_PLL>,
-> +			 <&clkc_pll CLKID_MPLL0>,
-> +			 <&clkc_pll CLKID_MPLL1>;
-> +		assigned-clocks = <&clkc_pll CLKID_HIFI_PLL>,
-> +				  <&clkc_pll CLKID_MPLL0>,
-> +				  <&clkc_pll CLKID_MPLL1>;
-> +		assigned-clock-rates = <1179648000>,
-> +				       <270950400>,
-> +				       <393216000>;
-> +
-> +		dai-link-0 {
-> +			sound-dai = <&frddr_a>;
-> +		};
-> +
-> +		dai-link-1 {
-> +			sound-dai = <&frddr_b>;
-> +		};
-> +
-> +		dai-link-2 {
-> +			sound-dai = <&frddr_c>;
-> +		};
-> +
-> +		dai-link-3 {
-> +			sound-dai = <&toddr_a>;
-> +		};
-> +
-> +		dai-link-4 {
-> +			sound-dai = <&toddr_b>;
-> +		};
-> +
-> +		dai-link-5 {
-> +			sound-dai = <&toddr_c>;
-> +		};
-> +
-> +		dai-link-6 {
-> +			sound-dai = <&tdmif_a>;
-> +			dai-format = "i2s";
-> +			dai-tdm-slot-tx-mask-0 = <1 1>;
-> +			mclk-fs = <256>;
-> +			codec-0 {
-> +				sound-dai = <&tohdmitx TOHDMITX_I2S_IN_A>;
-> +			};
-> +			codec-1 {
-> +				sound-dai = <&toacodec TOACODEC_IN_A>;
-> +			};
-> +		};
-> +
-> +		dai-link-7 {
-> +			sound-dai = <&tdmif_b>;
-> +			dai-format = "i2s";
-> +			dai-tdm-slot-tx-mask-0 = <1 1>;
-> +			mclk-fs = <256>;
-> +			codec-0 {
-> +				sound-dai = <&toacodec TOACODEC_IN_B>;
-> +			};
-> +			codec-1 {
-> +				sound-dai = <&tohdmitx TOHDMITX_I2S_IN_B>;
-> +			};
-> +		};
-> +
-> +		/* 8ch HDMI interface */
-> +		dai-link-8 {
-> +			sound-dai = <&tdmif_c>;
-> +			dai-format = "i2s";
-> +			dai-tdm-slot-tx-mask-0 = <1 1>;
-> +			dai-tdm-slot-tx-mask-1 = <1 1>;
-> +			dai-tdm-slot-tx-mask-2 = <1 1>;
-> +			dai-tdm-slot-tx-mask-3 = <1 1>;
-> +			mclk-fs = <256>;
-> +			codec-0 {
-> +				sound-dai = <&tohdmitx TOHDMITX_I2S_IN_C>;
-> +			};
-> +		};
-> +
-> +		/* spdif hdmi and coax output */
-> +		dai-link-9 {
-> +			sound-dai = <&spdifout_a>;
-> +
-> +			codec-0 {
-> +				sound-dai = <&spdif_dit>;
-> +			};
-> +
-> +			codec-1 {
-> +				sound-dai = <&tohdmitx TOHDMITX_SPDIF_IN_A>;
-> +			};
-> +		};
-> +
-> +		/* spdif hdmi interface */
-> +		dai-link-10 {
-> +			sound-dai = <&spdifout_b>;
-> +
-> +			codec {
-> +				sound-dai = <&tohdmitx TOHDMITX_SPDIF_IN_B>;
-> +			};
-> +		};
-> +
-> +		/* spdif coax input */
-> +		dai-link-11 {
-> +			sound-dai = <&spdifin>;
-> +
-> +			codec {
-> +				sound-dai = <&spdif_dir>;
-> +			};
+From: Yun Wang <arsenova@a7snv.com>
 
-Was this tested ? ...
+Since commit dfb84c330794 ("fuse: allow synchronous FUSE_INIT"), a
+/dev/fuse fd with FUSE_DEV_IOC_SYNC_INIT waits in fuse_get_dev() until
+the mount installs the channel.  That suits a blocking read, but other
+callers of fuse_get_dev() must not wait, and before the mount they
+sleep until the mount or a signal:
 
-> +		};
-> +
-> +		dai-link-12 {
-> +			sound-dai = <&toacodec TOACODEC_OUT>;
-> +
-> +			codec {
-> +				sound-dai = <&acodec>;
-> +			};
-> +		};
-> +	};
->  };
->  
->  &pwm_ef {
-> @@ -235,3 +447,102 @@ &ethmac {
->  	phy-handle = <&internal_ephy>;
->  	phy-mode = "rmii";
->  };
-> +
-> +&acodec {
-> +	AVDD-supply = <&vddio_ao1v8>;
-> +	status = "okay";
-> +};
-> +
-> +&arb {
-> +	status = "okay";
-> +};
-> +
-> +&clkc_audio {
-> +	status = "okay";
-> +};
-> +
-> +&frddr_a {
-> +	status = "okay";
-> +};
-> +
-> +&frddr_b {
-> +	status = "okay";
-> +};
-> +
-> +&frddr_c {
-> +	status = "okay";
-> +};
-> +
-> +&spdifin {
-> +	status = "okay";
+ - The last fput of an fd that was opened with O_ASYNC, which turns
+   fasync off through ->fasync.  In a kworker, which no signal wakes,
+   it never returns, and every later delayed fput waits behind it.
+   /dev/fuse is 0666, so any user can do this.  (patch 1)
+ - read(2) and splice(2) with O_NONBLOCK.  (patch 2)
+ - IORING_OP_URING_CMD, with the ring's uring_lock held, so any other
+   thread that submits to the ring waits in D state.  (patch 3)
+ - ->poll: poll(2) even with a zero timeout and with an eventfd in the
+   set, epoll_ctl(2) with ep->mtx held, and io_uring reads and polls
+   with uring_lock held.  libfuse's sync-init worker ran into this [1].
+   (patch 4)
 
-... as sashiko pointed out, you are indeed missing a pinctrl for it.
+Patch 5 adds a selftest for all of them.
 
-With sashiko remarks handled
+v1 [2] had patches 2 and 3, and announced the ->poll fix.  Patch 1 is
+new.  I put it first because it is the one that matters most for
+stable, and because it applies on its own: the same change, with
+fud->fc instead of fud->chan, also fits v6.18 to v7.1.  The others only
+apply from v7.2 on; older trees would need their own version.
 
-Reviewed-by: Jerome Brunet <jbrunet@baylibre.com>
+Patch 1: the wait goes back to dfb84c330794 and needs
+FUSE_DEV_IOC_SYNC_INIT, except in v7.1: from a8dd5f1b73bc ("fuse:
+create fuse_dev on /dev/fuse open instead of mount") until
+9f6f44aa5a58 ("fuse: don't block in fuse_get_dev() for non-sync_init
+case"), which came to 7.1.y in 7.1.4, any fd that wasn't mounted yet
+waited.  As an unprivileged user, with the last fput coming from the
+unix socket garbage collector, I got the stuck kworker on 6.18.64 and
+7.4-rc2 with sync init, and on 7.1.3 also without; 6.18.64 without
+sync init doesn't wait:
 
--- 
-Jerome
+  kworker/3:1+events  state S
+  fuse_get_dev <- fuse_dev_fasync <- __fput <- delayed_fput <-
+  process_one_work <- worker_thread <- kthread
+
+Nothing then drains the global delayed_fput work: an unrelated tmpfs
+umount(2) fails with EBUSY, and succeeds again with the series.
+
+Patches 2 and 3: as Bernd pointed out on v1, patch 3 means a server
+that sends REGISTER before the mount has to retry it, and -EAGAIN
+doesn't say when.  Before the patch such a REGISTER sometimes went
+through after the mount woke it up, but only by timing (12 of 20 runs
+here); and a REGISTER sent before FUSE_INIT has been answered on an
+async-init connection already gets -EAGAIN today.  libfuse sends
+REGISTER only once the connection is initialized, with sync and async
+init, so it isn't affected.  Waiting for FUSE_INIT in io-wq instead
+would hold a bounded io-wq worker per early REGISTER, which can starve
+the task's other punted work.  The details are in the v1 discussion
+[3].
+
+Patch 4: ->poll can't just stop sleeping, since a poller that registers
+before the mount has no fiq->waitq to wait on, and poll(2), epoll and
+io_uring don't register again later.  It gives struct fuse_dev a wait
+queue for that window and passes the wakeups of fiq->waitq on to it
+once the device is installed; the changelog explains why pollers that
+race with the mount don't miss a wakeup.  The other way I can see is to
+give a sync-init fd its channel when FUSE_DEV_IOC_SYNC_INIT is called,
+so that it polls the same wait queue before and after the mount.  That
+avoids the forwarding, but the channel belongs to the connection that
+fuse_get_tree() creates and a failed mount frees, so I kept the change
+local for a fix.  If you'd rather go that way, I can try it.
+
+Tested in QEMU (virtme-ng, 4 vCPUs) on 7.4-rc2 (067c5c24cef2), with
+the selftest from patch 5 (24 tests):
+
+  without the series        11 of 24 pass
+  with patches 2 and 3      15 of 24: fasync_close, poll,
+                            poll_eventfd, epoll, ring_lock_poll and
+                            the four mount tests still fail
+  with patches 1 to 4       24 of 24, also with KASAN, lockdep and
+                            DEBUG_ATOMIC_SLEEP, and nothing in dmesg
+
+With the forwarding taken out of patch 4, or done only once, the four
+mount tests fail.  With the series, the kworker from patch 1 no longer
+gets stuck, SIGIO for requests after the mount still works, my other
+/dev/fuse tests give the same results as before, with and without
+KASAN, and a test that arms pollers while the mount installs the
+device passed 200 runs, and 100 more with KASAN.
+
+The patches are against 7.4-rc2 (067c5c24cef2) and also apply to
+fuse.git for-next (7f7b822d09c5).
+
+Changes since v1:
+ - new patch 1, fasync.
+ - patch 2 (v1 1/2): renamed as Bernd suggested: the O_NONBLOCK-aware
+   lookup is now fuse_get_dev(), the waiting one _fuse_get_dev(), and
+   the callers that still wait call _fuse_get_dev(), so only read and
+   splice change behaviour.  _fuse_get_dev() sits next to
+   __fuse_get_dev(), which doesn't wait and returns NULL; if that is
+   too easy to confuse, I can use fuse_get_dev_wait() instead.  I kept
+   the rename in the fix rather than a separate patch, so that a stable
+   backport needs only the one patch.  Added Bernd's Reviewed-by.
+   Rebased onto the new patch 1, which renames the lookup in fasync too,
+   and one sentence of the changelog now says that ->poll and
+   fuse_uring_cmd() are fixed in the next patches.
+ - patch 3 (v1 2/2): the changelog said the command "returns -EAGAIN
+   anyway" until FUSE_INIT has completed, which suggested the wait
+   gained nothing; it now says that a REGISTER sent before the mount
+   could still go through after the mount woke it up, by timing, and
+   that the sleep holds the ring's uring_lock.  No code change.
+ - new patches 4, ->poll, and 5, the selftest.
+
+[1] https://github.com/libfuse/libfuse/pull/1633
+[2] https://lore.kernel.org/r/20261117075632.59959.p12-0-arsenova@a7snv.com
+[3] https://lore.kernel.org/r/7bb720d9-30ef-4d3f-8ab8-81c5fe2e0fe1@bsbernd.=
+com
+
+Yun Wang (5):
+  fuse: don't wait for a sync-init mount when turning off fasync
+  fuse: don't wait for a sync-init mount in non-blocking reads
+  fuse: don't wait for a sync-init mount in fuse_uring_cmd()
+  fuse: don't sleep in ->poll before a sync-init mount
+  selftests/fuse: test a sync-init device before the mount
+
+ fs/fuse/dev.c                                 |  95 +++-
+ fs/fuse/dev_uring.c                           |  10 +-
+ fs/fuse/fuse_dev_i.h                          |  39 +-
+ .../selftests/filesystems/fuse/.gitignore     |   1 +
+ .../selftests/filesystems/fuse/Makefile       |   2 +
+ .../filesystems/fuse/fuse_sync_init_test.c    | 532 ++++++++++++++++++
+ 6 files changed, 665 insertions(+), 14 deletions(-)
+ create mode 100644 tools/testing/selftests/filesystems/fuse/fuse_sync_init=
+_test.c
+
+
+base-commit: 067c5c24cef23d913b67eaaf71ae67e7169a6620
+--=20
+2.56.1
+
 
