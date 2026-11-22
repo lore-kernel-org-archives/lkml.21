@@ -1,68 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.240.48.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795364903;
-	b=mNdJ6a6+VRcZEnZUxDBb0a9wJsNgnl29ccztGtOPgwjErJdqBGxIcMr4gGUL2pM4omY7
-	 fwQoTQTqfNXSTcJWDtgosCHc7PCoe0nYC63Py/Fkt4QsEkJWyeJFswVkocbeFT5ID9xrz
-	 kpx6k50T0MK1B0tnQCwOx0jHHEpXxoaNGnTAzJ+jDed1Q9cvb+z3QTS20bCBjrlPT6uYD
-	 aGVgyxx5UUFs4fckMhR3vKOPw5DGiZGzznFL5UnJwxn7cOumzI9IScikt0LIWZPHjXyjw
-	 CqjBEYuemH7XV109xWLf1Vdc67cbg/a9OAdG+SmmOBneDNMbxiPdh4xvOjYuZ1YLaug==
+	t=1795364909;
+	b=ESfXXc6a8LwS8zpNPrwj8IBilkhSJz/aSVs6yrGVSyDXyhRPKXkA2q3AH+fXOI9GjhAt
+	 wCCbyDodJngfY529cWx9fe6w8csZzTE8cYRZMO0D8YeE6UuTycjOjgtG1ji2cZHknFVsU
+	 k4e8rYbfvTHnfQ+fMG5oC3Eun/TMh7k1HIBk8nZNB1Ad3G7s29Taz+ph7pv/du/ao5lFG
+	 518Se07K2q4JYSiTlEqGZ990CMjB/9c7QuCXgRWUqt+ktCS+ONRdSNEGPCg4ZJDzrW60d
+	 kRJD+luaaD7k7SeSxqxTCZyQ1q6z/IfnTByn4DkOGMKs0L34fhSC1BscDgoynmstn1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795364903;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:In-Reply-To:References:
-	 From:To:Cc:Subject:Message-ID:Content-Transfer-Encoding:Date:
-	 MIME-Version:Content-Type:Feedback-ID:X-SES-Outgoing;
-	bh=Y6J9BBnU4fABb83GyABeux2c6o/ibtAfqfZDo8SSL4s=;
-	b=LXfh0PZxM5hOMek4ksrWRtfkXUXCKGbLL+aGA9iiFHZH+Ftf7+crlBiLyM18Oc1hZlAt
-	 c3jB1QR2kzWz8lTP6WUtQeGtqBGyiVKzDaJ2f6KlJjWUTWaGPRbATCyTuWGyAGrAIIDlb
-	 fVUuWdrb21wgv1vaPvgICNHVAiuyIjg2VYHCUVA/+Aal5xEJS+up4nmY1J6Pl3SHcqCVZ
-	 2cXoBmosHBipsqBulnSNfuxSbnDB11ICfyNM+8vAlcgn9fR7KokVqsW2XlJV3mji1vQKt
-	 EC6TqvrTfK6qkiGSxYRXd3r86sQmDBKggMDMCtOMREgoooJobnbcMsbVi7JeeK+tm6Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795364909;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=40ClnSdafu9GjCIqCxo5bRhBPDPdsGWMGd+K027J65g=;
+	b=0LPmQl1rO7tFASgdYDo9hp2IwyZbkfmbVCUQ2Xo3OIUB3l/6HWhffj5AjHhkK1l5ru9d
+	 GhL/00PnAopyry1uUuazASTWUFXEO4HTOqHnNHBV01+m095qG9NFXGI0pxTnTPjjfJj9A
+	 44r0Une8r7RhAEDvjTkmoDC7LBgwI+LPd4qiWvC7z0Q7/1D0U4wqNJiSo6a1mE5BQ4nQc
+	 9DGO4XCsbkHBDgzXGFqzbq36bZ982LGg/KDQvEnHpvBJ6OpYw0b2xbpw6tVnU+wfmBV92
+	 roTmHi5zWJeDyZJFu8MA1a9XqReuBaBJH2U6NtjX0EBmkfvAg3UCfUvPCRcDH5P4+aw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ahmedabdelfattah.dev;
-	spf=pass smtp.mailfrom=send.ahmedabdelfattah.dev;
-	dkim=pass header.d=ahmedabdelfattah.dev header.i=@ahmedabdelfattah.dev header.a=rsa-sha256 header.s=resend header.b=ox2fG0Wi;
-	dkim=pass header.d=amazonses.com header.i=@amazonses.com header.a=rsa-sha256 header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=At2+Qnn1;
-	arc=none smtp.remote-ip=54.240.48.56
-Received: from a48-56.smtp-out.amazonses.com (a48-56.smtp-out.amazonses.com [54.240.48.56])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qf0VW35p;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49AC7606A320;
-	Sun, 22 Nov 2026 16:28:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49AC7606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ahmedabdelfattah.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=send.ahmedabdelfattah.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 605CE606A320;
+	Sun, 22 Nov 2026 16:28:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=ahmedabdelfattah.dev header.i=@ahmedabdelfattah.dev header.a=rsa-sha256 header.s=resend header.b=ox2fG0Wi;
-	dkim=pass (1024-bit key, unprotected) header.d=amazonses.com header.i=@amazonses.com header.a=rsa-sha256 header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=At2+Qnn1
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=resend;
-	d=ahmedabdelfattah.dev; t=1795364902;
-	h=In-Reply-To:References:From:To:Cc:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type;
-	bh=r+rqUyXdaNAvzuO9p5Cq/rai/19+eqNqPr0AEDhIax8=;
-	b=ox2fG0WiK7+yU4D/y6qiYVnobJh3b4OQqyYs60rvbWNpFt+E1q9aw1mvvoXC7Jpe
-	Dm+c3Miz7iMBnF3Rf2RBddYlhXAnTZ5uCMyXrrq+LVn0Wz78yst/9BzLWDdj81+I0g3
-	1WFG/3A24yT2zu2noxbrmODOcnDbT4QD3x/r2sYU=
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
-	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1795364902;
-	h=In-Reply-To:References:From:To:Cc:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type:Feedback-ID;
-	bh=r+rqUyXdaNAvzuO9p5Cq/rai/19+eqNqPr0AEDhIax8=;
-	b=At2+Qnn1OXArw9u2ztbrCBCWCYu+ZXkgDQKX1BwnJANojrvWykmU3AsVDeSKGGOY
-	UiWDQ8xsbucUxgtHLUV5uurpRpMwUWDzXUlrOFKof6KUOT2St4Rqjyk9Wcud+fv/bmj
-	Nxq4pWClvI+XODQ8Eigh4I2vQuaxeGpGWJDCvK5Q=
-In-Reply-To:
- <CY8PR12MB729059D6B66095F842FD470FD1462@CY8PR12MB7290.namprd12.prod.outlook.com>
-References:
- <20261119-edac-ie31200-rank-stride-v1-1-3514fcccb130@ahmedabdelfattah.dev>
- <CY8PR12MB729059D6B66095F842FD470FD1462@CY8PR12MB7290.namprd12.prod.outlook.com>
-From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
-To: "Qiuxu (Leo) Zhuo" <qzhuo@nvidia.com>
-Cc: Jason Baron <jbaron@akamai.com>, Borislav Petkov <bp@alien8.de>, 
-	Tony Luck <tony.luck@intel.com>, linux-edac@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] EDAC/ie31200: Give each DIMM two chip selects again
-Message-ID: <010001a204165494-b76809e7-e171-4a1e-8da4-a1dcd2df4f6b-000000@email.amazonses.com>
-Content-Transfer-Encoding: 7bit
-Date: Sun, 22 Nov 2026 16:28:22 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qf0VW35p
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 582851F000C4;
+	Sun, 22 Nov 2026 16:28:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795364909;
+	bh=40ClnSdafu9GjCIqCxo5bRhBPDPdsGWMGd+K027J65g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Qf0VW35pxlfhSwIUl8Yu6FaYKS7Um63Qojtwl1KmeEktxADjPWlimxyXka8Y4227b
+	 ps4DU+7B6Jvy0Nqkth7EcJGi2eoDaAiLV8uUY9lkWs1dRd25UTNbp0nMJY6D7WnYsa
+	 Ppf4w5Ulo4e/Jro+R7zqLR/ZL23oexQYN4Q7bzJmGrzpfaGXjcxaSm6MOlyyH+DL3b
+	 maJJzPtTs4jQZ9OVfhnQp9xG7DDUFHQVuMtYAXhkpYcufV3s2hJBhyleZby4x2+717
+	 MoY1v1bJv3836fh/fujc67YsrBTbBZ18dAIjhjlnbpj10nWFRfKPV2J4idGbyDJdq/
+	 WMbqUrzBGtWyg==
+Date: Sun, 22 Nov 2026 17:28:25 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+	Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Christophe Roullier <christophe.roullier@foss.st.com>, patrick.delaunay@foss.st.com, yannick.fertre@foss.st.com, 
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/6] dt-bindings: arm: stm32: Add clock inputs to
+ STM32MP2 SYSCFG
+Message-ID: <20261122-benevolent-industrious-deer-0c8bbe@quoll>
+References: <20261118-ups_mp25_clk_syscfg-v3-0-935de791a4ce@foss.st.com>
+ <20261118-ups_mp25_clk_syscfg-v3-1-935de791a4ce@foss.st.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,28 +65,33 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Feedback-ID: :1.us-east-1.uCKvsN4fow5iTxhgdfCiLkD52dLS8e5zeZeNIHIyObThYgWj6io55JEpA9Lr59BibvMHOQwybONW0pi/CZ0koY1A1i17AG2yWEV8SeTaUDUkRN5zlcaoQEhviEafOoOqtPZhQs319GE3nsx7+JZeBdmAUyq6td6+kg0Qy2oXHvo=:1.us-east-1.pAEstvQcjyhQNKGKcgSlzI7SVR8ZSG5wSmKwiz/A8Dg=:AmazonSES
-X-SES-Outgoing: 2026.11.22-54.240.48.56
+Content-Disposition: inline
+In-Reply-To: <20261118-ups_mp25_clk_syscfg-v3-1-935de791a4ce@foss.st.com>
 
-On Sun, Nov 22, 2026 at 04:02:12PM +0000, Qiuxu (Leo) Zhuo wrote:
-> For comparison, Intel Ice Lake servers decode the per-channel rank ID
-> from MCi_MISC as
->
->   DIMM 0: ranks 0, 1, 2, 3
->   DIMM 1: ranks 4, 5, 6, 7
+On Wed, Nov 18, 2026 at 12:59:06PM +0100, Gabriel Fernandez wrote:
+> The SYSCFG of the STM32MP23x and STM32MP25x SoCs is the provider of the
+> LTDC pixel clock, which it selects in its DISPLAYCLKCR register among
+> the LTDC kernel clock, the LVDS PHY pixel clock and the DSI PHY byte
+> lane clock.
+> 
+> Describe these inputs with the clocks and clock-names properties. The
+> LVDS and the DSI don't exist on STM32MP231/233 and STM32MP251/253, which
+> use the same SYSCFG compatibles as STM32MP235 and STM32MP255. So the
+> inputs are listed in the "ltdc", "lvds", "dsi" order, and the missing
+> ones are omitted at the end of the list.
+> 
+> The inputs are required, the LTDC kernel clock being always an input of
+> the mux. This doesn't break the users of existing devicetrees: no driver
+> registered the SYSCFG clock so far, and the clock driver doesn't need
+> these properties to probe.
+> 
+> Signed-off-by: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+> ---
+>  .../bindings/arm/stm32/st,stm32-syscon.yaml        | 28 +++++++++++++++++++++-
+>  1 file changed, 27 insertions(+), 1 deletion(-)
 
-Thanks, that is a useful comparison. With a fixed block per DIMM on the
-server side, 0-1 and 2-3 looks like the natural layout here too, even
-with the RPL-S encoding unconfirmed.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-> The change looks good to me.
->
-> Reviewed-by: Qiuxu Zhuo qzhuo@nvidia.com (qzhuo@nvidia.com)
+Best regards,
+Krzysztof
 
-Thank you for the review. The angle brackets got lost from the tag on
-the way, so b4 does not pick it up. If I send a v2 I will carry it as
-
-  Reviewed-by: Qiuxu Zhuo <qzhuo@nvidia.com>
-
-Thanks,
-Ahmed
