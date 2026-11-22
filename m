@@ -1,76 +1,76 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795387765;
-	b=Z81Gh5rVlt4m7lS7JozukeN4+tLLiCy8Sa//3Eyl+bukFr/kxSaLTlQpyBs7ElaxVRs5
-	 +hQVxcTJOoIK8vWKjErX5HsanlbeJULHqCqIjHYeM4o9/CxOlGqMZfX8U6a2Fj+/snCjG
-	 F/xkbEUQ+Tp+ICT6ZdDJkHbBKhLyszEX87WQe88D8TFKTI1jzhTpAMiqMlvke4P9tSUn2
-	 Ztqh0G1VaaSgCM/0DoW/dpMwOTfZuP+Ab1c6i1+ra/lEMh00MNFodMFZFQ9VwUcW1vpc4
-	 C2fAOgQrcZJhS8uXVJgQuSG3sGJ26BM/F1P7izhfp+hyWwSctrJHmqc5DEbOea1A3tg==
+	t=1795387766;
+	b=NJdYk8AVEf+jBpO8YECZvcnqu82/w1h1MqUY5g246caiGC421gp/uNtX8Me0BSAeUkzS
+	 +2IHzQEFHcTsW7SGyNxU8cBCHgEx8uAI4kPF4D15xzie+pJeMKq8HfzmQYtH5UPfNY0sB
+	 /wle7oTOjU2Pdln6/K1t9WLu4uUrKZbWcdpXRYIonC3W/oI6c/i022Q/9cbGBZky5NCKY
+	 4NbUuDJQJ3GIM2JPRo089thQCRp7tEMBjr0pTeunZpE9w50ZDQPmE7YB1s2ywHiT4QDMu
+	 srf6F8dK8ieGQW0kNbQKrY+ElctzXh0YSPmA2It7GrV63/kzvMD17FNhj9kn5ovfaUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795387765;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795387766;
 	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
 	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
 	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=1ziqjZyBRuRS+qQHLrvDG2XayzAfuXbvU4in4BrFOjQ=;
-	b=sMRE2UjDiqo1+peW7BEChpdPqSQ+Y0HM4UlGwLqbvoYiglnTd9VUcjN5f/NM8QtsUOGx
-	 UalBl4EKElHcrzFpJuY9QEq5IG3Ee1cj/OrUR1Yf7g/CJ3k2+irU1GIT6VXL9YD0JltoM
-	 tsCq/RzpS8umYyLQVZTlXaB8nOM8jCj0VOZeTADfRoDnmsMV7+ppoLj9FMqIHYkq+Dasq
-	 BGIsKB1sUOlJzTeiedPeWeokKFGoqslPx3+au/6AknD+zd+IYxGHk1r7Z20BGeB06KYEA
-	 RCyW4xm8mRWGzF2PQ1B/4h3cWlxZaGzJTqYKCm+o84+a51naS+LwBabtqXL9rc2jTdA==
+	bh=BJnA/jJMIwrgGXMJrI1daqmrBMQlWcFEETcA+fI4vbo=;
+	b=15qR4GXhsK5TQtnyUp7FW62Bh86XEZhCsxOaOpZ/0M6upLhUGpt2NK2WbEwtYt9B3MjL
+	 DE7RCTnF2bc/FBG5fzJk9hPIsaXbY/Ycp5X3+r5Y+8FJyQVaRm3Z75r1i99T731tk5bvL
+	 s6DzMMhPeZNyl/rnj3jj0je0Xj9VP4bNSqR09xYU3TT2hDybVu6g1qnJedLBXGSmmBDZX
+	 wGJlc2mHIpaRvfiIeAffbXp8Fc0GbHznxQmSVpOj1lUtQBsWuopejlSdxLmib65XT3JAf
+	 GcBADnYvHvkBMteyfUj3twerShsfAK3+nmLYabPqCZGQOyandfTd9eVjpaYJ8jb3yAQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linutronix.de;
 	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=iPsjVZYz;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=s44ofxmV;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=OLctnsug;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=eLuWD2sL;
 	arc=none smtp.remote-ip=193.142.43.55
 Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B4A2606A6AC;
-	Sun, 22 Nov 2026 22:49:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B4A2606A6AC
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4822606A69A;
+	Sun, 22 Nov 2026 22:49:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4822606A69A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=iPsjVZYz;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=s44ofxmV
-Date: Sun, 22 Nov 2026 22:49:20 -0000
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=OLctnsug;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=eLuWD2sL
+Date: Sun, 22 Nov 2026 22:49:22 -0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795387763;
+	s=2020; t=1795387764;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=1ziqjZyBRuRS+qQHLrvDG2XayzAfuXbvU4in4BrFOjQ=;
-	b=iPsjVZYzeomiE4NUbYOjSo2V2A5IrFYjM6KEqK816gdiE97K4i5q/TnoNOZQGm+BiwDXEr
-	C89h8yYitTRvXU4rJOVeFK/59tTqZF3G6fAqATBLyEE/NeJduaylVgv65h461Unw57BGwx
-	tuS0y89Xxb1mKRpEoh0+TV9l9yEDQdeUGsK1sr90eVJFQPwU8WOE5s9z32/95H7dR+pvw2
-	l0lw6IOc0AQ0xRQyKrGic/ZvlHpZEwZ/WIVCnCBXO13wv0qlcowlfB5xapqM5ejYKrX6v/
-	SchneuRQPShpBnRelT4HAJd/Rlf35OBKXrDs32++CHocyMQ+b12RrKiJOvXJsw==
+	bh=BJnA/jJMIwrgGXMJrI1daqmrBMQlWcFEETcA+fI4vbo=;
+	b=OLctnsugB60B+/sr/lTtaoR7Li2Hi/a7RzzapkQkd2xSS4XR7OY9C64uMaGXgaWHvxyq/M
+	zRdOND8ZNduVJff4eFlvmppJI2ZAVQu0gy50hN148wRvVnnArF/rSdmL7inRlfWD5AY53k
+	bJlLDQi24nueoUFvxDjiC5ZUPRCyihOKwuoah41ADukeBVmDM7fY6ShKCH3d5j9Cy6rK2L
+	2fB+d4EYinQIj190Gmb9jseNKh3zhj5Y7tOEWGzJX+z0EafrGSlDl/Z3qMYgdm8qDPWeZT
+	sCSM86894S1M2oXpNoTxQKvQPBnuUrhRcEAAy7YJ6Fbd2s30GMV+VV3Rgo/ABg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795387763;
+	s=2020e; t=1795387764;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=1ziqjZyBRuRS+qQHLrvDG2XayzAfuXbvU4in4BrFOjQ=;
-	b=s44ofxmVUWpuXxe+WfBUqxnqfuNyzT6aS/027r8B19sYOUDZ2OE7YO1whAb0OEtI9zAY7v
-	XczBheLSTn+9hlAA==
-From: "tip-bot2 for Fushuai Wang" <tip-bot2@linutronix.de>
+	bh=BJnA/jJMIwrgGXMJrI1daqmrBMQlWcFEETcA+fI4vbo=;
+	b=eLuWD2sLTo6ndZeJwiEb5Pxw3LFRXC32CuoommwO25PLnJr1tBU+RdSit3fWos3et7r1pZ
+	YEp0t4ZvVOL1e8Dw==
+From: "tip-bot2 for Ibrahim Elshahed" <tip-bot2@linutronix.de>
 Sender: tip-bot2@linutronix.de
 Reply-to: linux-kernel@vger.kernel.org
 To: linux-tip-commits@vger.kernel.org
-Subject: [tip: sched/urgent] sched/core: Fix a TOCTOU bug in
- sched_non_preferred_cpu_push_stop()
-Cc: Peter Zijlstra <peterz@infradead.org>,
- Fushuai Wang <wangfushuai@baidu.com>, Ingo Molnar <mingo@kernel.org>,
- Shrikanth Hegde <sshegde@linux.ibm.com>, x86@kernel.org,
+Subject: [tip: sched/urgent] sched/core: Don't take the idle fast path while
+ the core is forced idle
+Cc: Roman Kagan <rkagan@amazon.de>, Ibrahim Elshahed <lshahed@amazon.de>,
+ "Peter Zijlstra (Intel)" <peterz@infradead.org>,
+ Ingo Molnar <mingo@kernel.org>, stable@vger.kernel.org, x86@kernel.org,
  linux-kernel@vger.kernel.org
-In-Reply-To: <20261120051625.50133-1-fushuai.wang@linux.dev>
-References: <20261120051625.50133-1-fushuai.wang@linux.dev>
+In-Reply-To: <20261120105822.7770-3-lshahed@amazon.de>
+References: <20261120105822.7770-3-lshahed@amazon.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,7 +80,7 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <179538776083.92412.4311246927428883759.tip-bot2@tip-bot2>
+Message-ID: <179538776239.92412.16308910403211370026.tip-bot2@tip-bot2>
 Robot-ID: <tip-bot2@linutronix.de>
 Robot-Unsubscribe:
  Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
@@ -90,107 +90,115 @@ Content-Transfer-Encoding: quoted-printable
 
 The following commit has been merged into the sched/urgent branch of tip:
 
-Commit-ID:     caf089159ed2852e935f4481e6e20ab9fddb7609
-Gitweb:        https://git.kernel.org/tip/caf089159ed2852e935f4481e6e20ab9fdd=
-b7609
-Author:        Fushuai Wang <wangfushuai@baidu.com>
-AuthorDate:    Fri, 20 Nov 2026 13:16:25 +08:00
+Commit-ID:     cf2126c9b989d11d42e95e5f5c7fdcfe43914eae
+Gitweb:        https://git.kernel.org/tip/cf2126c9b989d11d42e95e5f5c7fdcfe439=
+14eae
+Author:        Ibrahim Elshahed <lshahed@amazon.de>
+AuthorDate:    Fri, 20 Nov 2026 10:58:21=20
 Committer:     Ingo Molnar <mingo@kernel.org>
 CommitterDate: Sun, 22 Nov 2026 16:16:44 +01:00
 
-sched/core: Fix a TOCTOU bug in sched_non_preferred_cpu_push_stop()
+sched/core: Don't take the idle fast path while the core is forced idle
 
-sched_push_current_non_preferred_cpu() is called in IRQ context. It
-checks is_migration_disabled() before queuing the stopper.
+Since v6.12, with commit 3dcac251b066 ("sched/core: Introduce SM_IDLE
+and an idle re-entry fast-path in __schedule()"), an idle CPU with an
+empty runqueue skips pick_next_task() when it is rescheduled. Under
+core scheduling that pick also ends or re-examines the core's forced
+idle.
 
-migrate_disable() sets p->migration_disabled in preempt_disable() section.
-An IRQ can hit after preempt_disable() but before p->migration_disabled=3D1.
-After the IRQ returns, the task cannot be preempted by stopper because
-preemption is disabled, so it finishes setting p->migration_disabled=3D1
-before the stopper runs.
+A core-wide selection chooses a task for an idle sibling and reschedules
+it. If the chosen task is migrated away before the sibling schedules
+and it was the sibling's only task, the sibling goes back to idle
+through the fast path. When that selection also forced the other
+sibling idle, because its runnable tasks did not match the chosen
+task's cookie, the core stays forced idle with nothing running on it,
+and two things go wrong:
 
-It may be like:
-    task context:                       IRQ context:
-    migrate_disable()
-        preempt_disable()
-                                        is_migration_disabled()
-        migration_disabled =3D 1
-        preempt_enable()
+- Without the previous patch, the idle sibling's rq->core_pick keeps
+  pointing at the migrated task, and with schedstats enabled the forced
+  idle accounting keeps writing through it, even after the task and its
+  cgroup are freed:
 
-So recheck is_migration_disabled() in sched_non_preferred_cpu_push_stop()
-before calling __migrate_task().
+  BUG: unable to handle page fault for address: ffff8d6b205f7018
+  #PF: supervisor write access in kernel mode
+  #PF: error_code(0x0002) - not-present page
+  RIP: 0010:__cgroup_account_cputime_field+0x3c/0x70
+  Call Trace:
+   __sched_core_account_forceidle+0xd8/0x140
+   __schedule+0x1390/0x18d0
+   schedule_idle+0x1a/0x30
+   cpu_startup_entry+0x29/0x30
+   start_secondary+0x11e/0x140
 
-The stack may be like:
-   WARNING: kernel/sched/core.c:3432 at set_task_cpu+0x1b8/0xdf0, CPU#21: mig=
-ration/21/152
-   CPU: 21 UID: 0 PID: 152 Comm: migration/21 Tainted: G        W  O        7=
-.4.0-rc1 #3 PREEMPT(lazy)
-   Stopper: sched_non_preferred_cpu_push_stop+0x0/0xb10 <- sched_push_current=
-_non_preferred_cpu+0x6a6/0x9a0
-   RIP: 0010:set_task_cpu+0x1b8/0xdf0
-   Call Trace:
-    <TASK>
-    ? set_task_cpu+0x5/0xdf0
-    move_queued_task+0xfc/0x650
-    ? is_cpu_allowed+0x341/0x820
-    ? __this_cpu_preempt_check+0x13/0x20
-    sched_non_preferred_cpu_push_stop+0x7b7/0xb10
-    ? __this_cpu_preempt_check+0x13/0x20
-    ? __pfx_sched_non_preferred_cpu_push_stop+0x10/0x10
-    ? __pfx_sched_non_preferred_cpu_push_stop+0x10/0x10
-    ? sched_non_preferred_cpu_push_stop+0x5/0xb10
-    ? __pfx_sched_non_preferred_cpu_push_stop+0x10/0x10
-    cpu_stopper_thread+0x205/0x410
-    ? smpboot_thread_fn+0x307/0xa60
-    ? __pfx_cpu_stopper_thread+0x10/0x10
-    smpboot_thread_fn+0x352/0xa60
-    ? __pfx_smpboot_thread_fn+0x10/0x10
-    kthread+0x3a6/0x4d0
-    ? __pfx_kthread+0x10/0x10
-    ret_from_fork+0x68e/0xb40
-    ? __pfx_ret_from_fork+0x10/0x10
-    ? __kasan_check_read+0x11/0x20
-    ? __switch_to+0x592/0x1210
-    ? __pfx_kthread+0x10/0x10
-    ret_from_fork_asm+0x1a/0x30
-    </TASK>
+- The forced-idle sibling keeps waiting with runnable tasks until some
+  unrelated event reschedules the core. Likewise, when the forced-idle
+  CPU itself loses its last task, the reschedule that
+  sched_core_dequeue() sends to end the forced idle also ends in the
+  fast path.
 
-Fixes: 74699f56ebcf ("sched/core: Push current task from non preferred CPU")
-Suggested-by: Peter Zijlstra <peterz@infradead.org>
-Signed-off-by: Fushuai Wang <wangfushuai@baidu.com>
+Take the SM_IDLE fast path only when the core is not forced idle. A
+pending rq->core_pick needs no check of its own: the previous patch
+clears it when the picked task is dequeued, so a CPU with an empty
+runqueue has none.
+
+Fixes: 3dcac251b066 ("sched/core: Introduce SM_IDLE and an idle re-entry fast=
+-path in __schedule()")
+Co-developed-by: Roman Kagan <rkagan@amazon.de>
+Signed-off-by: Roman Kagan <rkagan@amazon.de>
+Signed-off-by: Ibrahim Elshahed <lshahed@amazon.de>
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 Signed-off-by: Ingo Molnar <mingo@kernel.org>
-Reviewed-by: Shrikanth Hegde <sshegde@linux.ibm.com>
-Link: https://patch.msgid.link/20261120051625.50133-1-fushuai.wang@linux.dev
+Cc: stable@vger.kernel.org
+Link: https://patch.msgid.link/20261120105822.7770-3-lshahed@amazon.de
 ---
- kernel/sched/core.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+ kernel/sched/core.c | 19 +++++++++++++++++--
+ 1 file changed, 17 insertions(+), 2 deletions(-)
 
 diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index b2f6b99..c9890ed 100644
+index 4b1d36c..b2f6b99 100644
 --- a/kernel/sched/core.c
 +++ b/kernel/sched/core.c
-@@ -11354,7 +11354,8 @@ static int sched_non_preferred_cpu_push_stop(void *ar=
-g)
- 		rq->npc_push_work_pending =3D false;
- 		update_rq_clock(rq);
+@@ -347,6 +347,15 @@ void sched_core_dequeue(struct rq *rq, struct task_struc=
+t *p, int flags)
+ 		resched_curr(rq);
+ }
 =20
--		if (task_rq(p) =3D=3D rq && task_on_rq_queued(p)) {
-+		if (task_rq(p) =3D=3D rq && task_on_rq_queued(p) &&
-+		    !is_migration_disabled(p)) {
- 			struct rq *dest_rq =3D __migrate_task(rq, &rf, p, cpu);
++/*
++ * An idle CPU with an empty runqueue must still call pick_next_task() while
++ * the core is forced idle. Only that pick ends or re-examines the forced id=
+le.
++ */
++static inline bool sched_core_idle_needs_pick(struct rq *rq)
++{
++	return sched_core_enabled(rq) && rq->core->core_forceidle_count;
++}
++
+ static int sched_task_is_throttled(struct task_struct *p, int cpu)
+ {
+ 	if (p->sched_class->task_is_throttled)
+@@ -550,6 +559,7 @@ void sched_core_put(void)
+ static inline void sched_core_enqueue(struct rq *rq, struct task_struct *p) =
+{ }
+ static inline void
+ sched_core_dequeue(struct rq *rq, struct task_struct *p, int flags) { }
++static inline bool sched_core_idle_needs_pick(struct rq *rq) { return false;=
+ }
 =20
- 			if (rq !=3D dest_rq)
-@@ -11395,6 +11396,11 @@ void sched_push_current_non_preferred_cpu(struct rq =
-*rq)
- 		if (rq->npc_push_work_pending)
- 			return;
+ #endif /* !CONFIG_SCHED_CORE */
 =20
+@@ -7290,8 +7300,13 @@ static void __sched notrace __schedule(int sched_mode)
+ 	 */
+ 	prev_state =3D READ_ONCE(prev->__state);
+ 	if (sched_mode =3D=3D SM_IDLE) {
+-		/* SCX must consult the BPF scheduler to tell if rq is empty */
+-		if (!rq->nr_running && !scx_enabled()) {
 +		/*
-+		 * Racy: is_migration_disabled() isn't stable in IRQ
-+		 * context and can race with migrate_disable(). The stopper
-+		 * should recheck it.
++		 * SCX must consult the BPF scheduler to tell if rq is empty,
++		 * and core scheduling may need pick_next_task() to end forced
++		 * idle.
 +		 */
- 		if (is_migration_disabled(push_task))
- 			return;
-=20
++		if (!rq->nr_running && !scx_enabled() &&
++		    !sched_core_idle_needs_pick(rq)) {
+ 			next =3D prev;
+ 			rq->next_class =3D &idle_sched_class;
+ 			goto picked;
