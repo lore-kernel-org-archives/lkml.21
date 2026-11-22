@@ -1,84 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795330686;
-	b=Fh2ixamSp/tD4Mukb2wnVW7993g6qLQpSBeAvnr1SXs73hTHwsEpwy6zfpkUo3SxEpCh
-	 Ue7WmCF1FGRKFe2nKgXiPrAIu09eHd+LaNz95HrVBMwHtS6FaXzZLPnQXs/RwGykx6rpq
-	 hKtB0tivGghUvr4pfq+E8fxnThLFEi5fPVUPGOD6YQ+3WtWjFNoeIUQ4Yb09yEqbnfLr0
-	 KHvLkefSe9Y4ytN1ZU/hRxmVf7KBC2yKn+zkL/LywQbnmrJBtYekzL3GP4GbaIfrcN+rv
-	 jFReR55xhT+xU9FaTPQGo6itztuMJEkaXG8slQaZaDJOdo/6KQMdZFE9AnJrvpYt6Jw==
+	t=1795330691;
+	b=gbf/Q2JiENRBsEUVX960twOgQvsf7xJYgQ/ouYJZOYOo55L6bmnF3OEZkou+q32iv+vU
+	 NzX5X1ZsCYOEeP2e1RNyR0xNI7/ZPIn2mb1Bs7DilIlgRnAx2OLb+16a7dXany10fUm1n
+	 bX+UldVksWnlyllugawGfdFl+Q4uA9XjNw++ghvFUIpuFqafqn7lEuRg4anv75GH/Rlr1
+	 u1SZ7sfNa9fZEkqtT+mnBxPv1MTfwjaQj7oYLeFzIrDNoNYe/tMbAcOaaXFOsJVJzADHl
+	 6OFtgOw8IPEKgipFaIZ0Jen0otgvz5IReF6JvRI0eK8h7X+yoZ+IAfqf3vQBw4cIhVA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795330686;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795330691;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=uzgThVtz5FyRtzpWhXy/XQBj1yMgQbdQfAysHaetNR4=;
-	b=EbjgXC6gNRL26V98O2TYS6g22+Yo1kPs8TkKI1QAZCZiSmzOnGsQnYEAHrLms3d5//F3
-	 LG4C5UFNpSwqBEJUg9NeJ2VG6VxVzq5/n5vGxFiVlOd+3XqQ80lbvyvTZMKYmJ6AA/vQG
-	 Va6lYv2TP/EI95jGr5d87/gDvgAwduZeujT7rn05tNBUEF3LJKnGzJIGRunknRT2GsP+o
-	 sVK4yI+P7y1cf8jOU0MS3rQXYrLhjk9bK1l4hA43xyrXnxOXwo3Ddc1A3Xugiblc8tCBP
-	 S66lUHXqje09ik7bPpgHJ+CAqK0WrP6vOP3WKEMDfYuIyPCh59PhHfmaPJwrcrYBU8w==
+	bh=w+PnSLxKsJCEKZh3Ds403ivdl+AA4FlpjzNhhNO09oY=;
+	b=Qu2YBCXaHBYmC3kBNo7uJ9WG1Y3IsbLHlBHAJhSqaugOr0zrTmwbC17ecWYNwoas5qAx
+	 sogN3Qee5h5tb7mv43N2jL7sDl0hQFG81dH0Tkw/TrmkZulWQ+i27j9i3ttv9Fk3yBFb2
+	 Y2FKzMTPZp5euGp4m/WYDumL11q6JMEhpK/j7JUa015EHnDDUftVBxZ+djiNPG1f/8W4u
+	 tYMOJpIMzyNN05EJF9ET3T4fE7Jd0aldSgSPHAfjPwkLatL8RJiWanM/JLgtCZZTYWn2y
+	 sGarB7lSCDp/nKiTOaYu1qU7pdY2htgF5bwEGNXUSjrPXRBwx6LIhWPQlx3MXxEWW/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GGnsl5ob;
-	arc=none smtp.remote-ip=209.85.214.181
-Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oKY8UVpz;
+	arc=none smtp.remote-ip=209.85.214.178
+Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A88E606A331
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 06:58:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0A88E606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93146606A330
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 06:58:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93146606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GGnsl5ob
-Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2f046b0adc0so10138235ad.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 22:58:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oKY8UVpz
+Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2f04b676219so10782995ad.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 22:58:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795330685; x=1795935485; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795330691; x=1795935491; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=uzgThVtz5FyRtzpWhXy/XQBj1yMgQbdQfAysHaetNR4=;
-        b=GGnsl5obNSAzL9JzBsJqbnJfphbo/yKRmtuO93/mO2oOHN51qy2xcn3vCmoci4ikgX
-         QzykZFk/BDowePozc8O/V1gurohLuy66GvPn2Yk/QgoJtNPCJ50QcWmW3hjyGTOccIcy
-         lZxaYgseFAQEn2MUiZaBpiC4iGoMQSKj8hajJ1675YxvfZhAEO5PnPNe8KRBVdQ1FNhp
-         Gsb5KoOy6WOR8aFDcQmO+BAS6Nu7z3kVwOJyqBkJvYQuJbZNamDrfH5BQy3v9x2sEZJk
-         N03YDny6w56HsUoifAV8Pbsg5Y0bWn3SOhkZz/bRvYt6+XDnqCV3HUBf4NQlyR3SPq8/
-         59Fw==
+        bh=w+PnSLxKsJCEKZh3Ds403ivdl+AA4FlpjzNhhNO09oY=;
+        b=oKY8UVpzKhjVKafswLUERPYGhhuJRjrxLQQvx/ETBnU7BjQ2U1eW5Eec82p9yUZSQM
+         69uRrRN49rT5ki6eGLZdjWpK0iFa9hFcu4wc9nXn/Bp8SqlS5ABwSjJmy/8SKLjMcNSN
+         E45Kc9P9FXDD8FCZB3Mse459Ccr+1VPgxJPHu5mX2h+V5P9u7qGOFfTVZx8K/aAkuydZ
+         g3ubIm4r9b91xF+Qu40r4Ubh2J3pqSOdr9cABqN+bT+F6GnzohxpwXn/mB+bDsF4hX18
+         jSuFLH9ww06Mwg+e8v0l+jJ+6Vqdg5L2tEdLXp+P0a5oEa7Sq73XhcG8d2SVKjJI9B4u
+         vPGQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795330685; x=1795935485;
+        d=1e100.net; s=20260707; t=1795330691; x=1795935491;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=uzgThVtz5FyRtzpWhXy/XQBj1yMgQbdQfAysHaetNR4=;
-        b=q4MBHaCLQYwvEl/cMf2vMZs028P8CH0NjH6tpcelMl/qRiOpmBEItqGyLY89Q/Ye3d
-         mREHBln2qWGqzZHVc8ZnIhS78oFjRbrYqKDsFUzw62Z3fCbNgT1llqfnW8Q/QrzZqiHC
-         JJuKhlK/7WzaKkcJ8DHcNpsYOulc9fq3QyJO3Aujo6KdZO2wB4DXMD9jkh5ZOGe4rugN
-         iQI6pEsGf5rUK2MNGACXWWQqj/kf/yVjpYN6CQDqKn1QvbO6uPFvAjBUq/hRMMrj6iKI
-         HveqPlKV9/ZHglAiI0Ixif6eDDdy2pZ/QY1iagni4ncX+/xJHd6+SBMcbT9XCmB54Kra
-         KV9Q==
-X-Forwarded-Encrypted: i=1; AL+hErHB4+MceEhMsMk7KiwQpDVPIEZjtxt6GNLYbpizwzRkLo8BpPp7lBMQwhOGIFSKjIlspfdLzNSbUvpfdk8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8lzNABrUJAeTrY1cLnQV4ndua3oRJElBR+GNUAlYWO58fydbgu
-	p1Y8k+Pf+k7z5gAGCQojbPADcydk3V/h9iZz8EB9aZcCEdrHb3iWKcso
-X-Gm-Gg: AZFdTZcqOYTKTz/bG+xttHdPa6F3QaTvjFIpJgqJ4JNG7QWkD+zTkLQgwLKUOKVq1FZ
-	pj4Q4qwJ7gpjkB3wn1IOaGYtPTP3n27AyViOSZ7XnGzJmU7ijdG7IEirgVuwjVv5+BHJvFvIZLE
-	xXTpCNhF0fb9u8pOE2ugKUS+QZsJRVNZv9blbt0aspb0n9+7YbxIhFLNi4uUGwCrDSHcVJejt4t
-	b+xz24HnKKWkX2us8atAUkRbX0VGbPKz3Fh1AqfY0RA8ZlDBy/wFCCmPrPP0p03KWUbZbEbHcpQ
-	28UM3m40GXrtNCz1DyE7tD+kEKEU/uw0rTZdG8opHWbaDmw7LpXwpuGmrh8fco2TV7EiEzGsyPs
-	lxbPnUVck5lENnZw9fyeAvk2enxoppYG6FP7K+1ys86g/8o6R1H2pQjbzWu4xDgn0K9dxV1SLoj
-	KQrKR3KR++T/LwlU5oI1UqumKlg79iotqw1qlaki3876UESWqwu85WCCZdWkJeQ6qHTMyvKNIXQ
-	MYGMKelOrTGxtAzKNo1Ofzclg+FfZz9FsJqGZDjUqs8T4GH+o03Es2qV/Zahixe0SNYwPXwawtb
-	cJyLA8ZAXGuuq9R/wWAhzSM8n8uhsBKkTL9CbJTQZPLr+JLq0FD5Sr13M+JBUL9iDskr2keXCw=
-	=
-X-Received: by 2002:a17:902:ce85:b0:2ed:1350:59ff with SMTP id d9443c01a7336-2f03ef594c0mr76278785ad.3.1795330685150;
-        Sat, 21 Nov 2026 22:58:05 -0800 (PST)
+        bh=w+PnSLxKsJCEKZh3Ds403ivdl+AA4FlpjzNhhNO09oY=;
+        b=xxutK7ch2dQtM9ENQmmkX3bae4b5XAWz/tDoyItuDoOQqUCGKYyVsdclPxiI3xyYDQ
+         nzdZzJthWkX/z0fSyzkSVHDC8Sb//Nd9PpVCQrsHV7jGxV3bmqJ+lvwDo0yLaw2COqA5
+         FYxp0H9YbecSVddePfQTaJ84bn1GRv3ca/JYDNXCEAPi3vsgu8kp+b7FdweNvO2b6FiR
+         pXp9Xt1ANNFeE7Oki29IXWUYCaaBDhStji21vL4Zi3o/w7bOc1YsyXQ83XBm4RnQijOY
+         1IZBGmZC34E/OEtbedjvPHycB2aXX4Ykk7EsbKnfCfZ1t8vktE+1Z3adstZnzkM0JdE0
+         UPmw==
+X-Forwarded-Encrypted: i=1; AL+hErHm+lTwyW3FLxyr4UytgXP/1ILPT2QnqQSXEDQQRtoY7gphZgLGoNvuTuVuuluu0idKwQR1MXIBkrp++fA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z99dQTp0QCBXNUWHsPJE/ldSp0Jh3dAopK/ccmYcm4knDxz0MWv
+	+O166rUrmUAfYJACKf6Fm54qOUg1fdCt1jNiYzczDK1A88KcLzARCKhH
+X-Gm-Gg: AZFdTZdzC2xmprhcQDHEz50Za2pr4jAT2VZfV1+0AiaJzMucvidkTCRjumZludXS+ab
+	YrTB9PUgo8Gw6WISQY8um3R64GPmnb0a1H/VXp9OiXkJx0mqMtoyVgEpKCmnTvfQ9tUw3IcHAcd
+	SJlehxjHQVPm/JxnN5ijoJjZeuQ0sCxdBZvsrJUkg3YN7ZdH9a2eWY6/FMiVjk6E9lu29oCp7ba
+	jv7ijbNMBp2fi+fNNUKACPWZBPQcfL3l67w+hklTgUT3ti+ZinvknROtm+TMNdggZi2gZEI3cm4
+	abimBg+RafcYSeozYhh2oe+xHSc4oRanEo5mWgwe0BR277D8BHlp3PigdGy1E08r1gIjCk9jrJR
+	/3ZUpehfuD6HH2DS/+xyFXOleJvM0IJms71ii9WRjuqfgwGnxVtDnG9RCSrud2VuQSRdhD21XDQ
+	tUV31lxpnZCfjZ/LwzGNmhGYqzhNwuUF6qeLFwxTXeIPntaKh4xuWqdYWtOQi7TDDo4P+O9HDNs
+	aWbNROQ3dVBC8Ra5JtmH8xRqplR0sdE0s9pFugsFm1gtaUtVdGoXaMCcuDT/T78be8jbt/oR8Sb
+	RLsJ0wA1PiSb+gVn1+DJUN1PrSmlsaBPKm78oJwY0qDqkiiACxBC
+X-Received: by 2002:a17:903:240c:b0:2f0:3382:cf52 with SMTP id d9443c01a7336-2f03f156ddemr67246795ad.15.1795330690792;
+        Sat, 21 Nov 2026 22:58:10 -0800 (PST)
 Received: from d.home.yangfl.dn42 ([2a09:bac5:6213:28::4:379])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120016sm34287345ad.58.2026.11.21.22.58.01
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120016sm34287345ad.58.2026.11.21.22.58.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 22:58:04 -0800 (PST)
+        Sat, 21 Nov 2026 22:58:10 -0800 (PST)
 From: David Yang <mmyangfl@gmail.com>
 To: linux-watchdog@vger.kernel.org
 Cc: David Yang <mmyangfl@gmail.com>,
@@ -91,9 +90,9 @@ Cc: David Yang <mmyangfl@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 3/4] arm64: dts: hisilicon: hi3798cv200: Add watchdog node
-Date: Sun, 22 Nov 2026 14:55:22 +0800
-Message-ID: <20261122065549.3265519-4-mmyangfl@gmail.com>
+Subject: [PATCH 4/4] MAINTAINERS: Add HiSilicon STB drivers entry
+Date: Sun, 22 Nov 2026 14:55:23 +0800
+Message-ID: <20261122065549.3265519-5-mmyangfl@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261122065549.3265519-1-mmyangfl@gmail.com>
 References: <20261122065549.3265519-1-mmyangfl@gmail.com>
@@ -108,33 +107,33 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add the on-chip watchdog controller node to hi3798cv200.dtsi,
-backed by the new hisilicon,histb-wdt platform driver.
+Add a MAINTAINERS entry for the HiSilicon STB platform drivers, covering
+the histb-wdt watchdog driver and the existing histb-rng hardware RNG
+driver.
 
 Signed-off-by: David Yang <mmyangfl@gmail.com>
 ---
- arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ MAINTAINERS | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi b/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi
-index e5010c9d4c39..169a919bb282 100644
---- a/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi
-+++ b/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi
-@@ -254,6 +254,14 @@ range: gpio-range {
- 			};
- 		};
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 2ac5128b756e..f248a04b925c 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -12187,6 +12187,13 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/mfd/hisilicon,hi6421-spmi-pmic.yaml
+ F:	drivers/mfd/hi6421-spmi-pmic.c
  
-+		watchdog0: watchdog@8a2c000 {
-+			compatible = "hisilicon,hi3798cv200-wdt", "hisilicon,histb-wdt";
-+			reg = <0x8a2c000 0x1000>;
-+			interrupts = <GIC_SPI 29 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&crg HISTB_OSC_CLK>;
-+			status = "disabled";
-+		};
++HISILICON STB DRIVERS
++M:	David Yang <mmyangfl@gmail.com>
++S:	Maintained
++F:	Documentation/devicetree/bindings/watchdog/hisilicon,histb-wdt.yaml
++F:	drivers/char/hw_random/histb-rng.c
++F:	drivers/watchdog/histb_wdt.c
 +
- 		uart0: serial@8b00000 {
- 			compatible = "arm,pl011", "arm,primecell";
- 			reg = <0x8b00000 0x1000>;
+ HISILICON TRUE RANDOM NUMBER GENERATOR V2 SUPPORT
+ M:	Weili Qian <qianweili@huawei.com>
+ S:	Maintained
 -- 
 2.53.0
 
