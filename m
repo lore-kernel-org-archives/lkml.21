@@ -1,95 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.225.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.161.220
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795355677;
-	b=HuKYD+CSwyYDsGF2lRky8nJNJd+/HkX6gzUwmF0FLZfeS+DCbqlWRyU2YNYx/QRY2lYw
-	 U0M2CQ1/v/GkHsaORtPSggpoNNbjv3/C3Qku/2sObxfdBianavnIg1I6wd9+HfJOXtlbu
-	 RFZk2NuImkvCmmChvQtqaa9RxICuNCHcoFtgUfObG+SJOzGJ9dki0b/wy2GKz1HJ1LaWk
-	 EBRxaLi9zO5PEUFAQkLZ8mG6JYuF77DceO6Z+eRb5Ss4XkMqRm+UsY+3vD/oXbLjcXmE0
-	 yXR+C/6vT3Tt4LAyA30AtpJj0MOx/1jQd6qTcEXNzDuTAY9nQivaZW0fUE5PBMXel6w==
+	t=1795355770;
+	b=G/XcS5O5CBYLk50i63QxBUHQYaALQ0LEeuTYAWva73crQfKJLIooxqTCEXwV0838HuwA
+	 HfZPegoJ5zViOXJB2BrGlWisub3Yhw4zUNAn9BOT5p2A9f4zhVJ5VAb/ilgsEvinUB8jz
+	 ZSLMhUjvVDQeURNLJD0fJRGlGgZGka5RDc7E58wzgdqUEsOQrkiO0OZlCW9tSYEngYQta
+	 mwEEQtEsPcOzFXoQoZf4tSHF7NehZMIegmC7huukmFNNFicCwxcHOQ98Vl2SaBr1AII8d
+	 w3zmSiOf655EbcqMUOsnoSRY/8FOFfY/MFbC7sBUZQdZPKWzQv4MvoUisJIzFE6wQWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795355677;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=nZw1kMwP9fH2O45yvl78uLJ7cEROYRLhfKonQzWVgKc=;
-	b=jdWKBEwoyohAghnPQz5pqsyp9qg3DluTdYa6uCImodrTPKHBMdiUDkZ3E9NoGKU18SU1
-	 XD8bhy0XWqy3M4zKX8RCBoxLKJ1A5fBX4VlTvjTcFpg/qcn4vm9hpKUjoAWC+U82sW0Z6
-	 RywwQsE8tZO2riM8gfOFfq+1n9DM88ttJltT7kgBg/1JzEI/VTLDKrKQC1jepiGsyIjSJ
-	 SonL/HDfgd2/iLECGlJ4ce+fL5nziNjUVLKob7cjZpuGKh+mAi2YGTsJC/2+hWG5wWa7h
-	 G17sP9wiITa6FuecxVz9eOB7XCccBNY/+GzV74cPt4toqBAh6hyMp/3n2KWou6Yxavw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795355770;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-CM-DELIVERINFO:X-Coremail-Antispam;
+	bh=1hVZoLQbpumNWQB/Db+U+qcRPvEbe/nKL4FLHJv3bQo=;
+	b=VlscKw9JZ6KpX8sTV8vSApVwaa5DiQxJSIp6p7ev9k4LpG/A+JV7z3urjPXIiFlEYjxf
+	 b1/R8NbwPEa8BcuCmJYWHg/AddNloRDCl1B+7XhtmEMUfSayeyDTf+p8YZKMN3/4+GaDz
+	 HGxg4JrHlorcJRyGMXpMGo3cstAGI1yfdqEzLhFxbZRNLhuMUjTkUmV/2Hj9qLvg+0IBh
+	 iOSPxEujSPBQZLlbGS9uJzkXMVoOcjgZAAY3AB3DbjdZPlrxAiPpcIJxb3Wd9wtAPK5tF
+	 sFdt4XgmgUfpQ/vCqruOZ05jvCa3Alqzj6/9defCjSoKLZ1MImUscjfBuLJUO3LOewQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="E/LMX/r8";
-	arc=none smtp.remote-ip=74.125.225.137
-Received: from mail-wm2-f9.google.com (mail-wm2-f9.google.com [74.125.225.137])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43F6F606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:54:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43F6F606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E/LMX/r8
-Received: by mail-wm2-f9.google.com with SMTP id 5b1f17b1804b1-4bb5b21feccso4704635e9.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 05:54:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795355676; x=1795960476; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nZw1kMwP9fH2O45yvl78uLJ7cEROYRLhfKonQzWVgKc=;
-        b=E/LMX/r8h+vcgcz8NTkmTAUqO5bvVA9u3NlSp/+SKFrXbUBsIZs3pqcJRfEntXSemG
-         /TitcHwe87DkbcGMXW28wmp7qEN7oykPVOsf+FL+BwlCEf9Od2EhiXoARBocsAGTkhb1
-         nUivqTkV6sp5Hwo5ZOATk3Jkuz8sxkjQ3pfKeGeLZVKv9upyKy9DX0GfAguG05u8CtBA
-         cSReoMIQ4EkNmmkx8deuNUsj6NCOIwUqAPJdXlwzuipfnHsLwl0ycLgkM1zDV+c677CE
-         M3UNq9oY0tdyxrxqI7gfBopbKVNzItQecV5YlDo4wCOFyrUX8UzVQVd2hxTWaG3IcvFp
-         Jz1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795355676; x=1795960476;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=nZw1kMwP9fH2O45yvl78uLJ7cEROYRLhfKonQzWVgKc=;
-        b=kLIvCm/sqJYXdW20n/AqWD0zK1FLyCyoVbR8dJjfVM9fvR4bxq9DbPOVdGMKGsgzz7
-         EALHxuN4qiixDXMgxrsiMGVL1FPjeU8MPR3NCsgL33QqM9rzqnLmD0CLVih0BlUsvc3f
-         B8rqnPMxE+Du9ccRXkr1YGFPf4920w38WpKKUHkUee+9F7dQGfjEeqTmwISvKoOa/rYu
-         ic5XJlmuLHiCe23ioyi5e3ITMmZOeSUEs0i07n1F1/eehdKOYKG9SGYE/KM/Gum6RPz+
-         bhyD8hZGsoq9311mEKDFvC2y9x0YLUqe2wWvgulF+P8sDOCg5kXKuGi1CZrp6NtO9GUL
-         RWoA==
-X-Forwarded-Encrypted: i=1; AL+hErGWWKhREzXMcR8RzUMPgu+d89B6PjPg1cJCn97ykiLXGq7gwodeA3jxJZZuuAuTy1yh4Qbl3Mx2Y5uDqjA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ka3P7CuAsQeVPZME92j0Yb10lp4pQSXgskYa/99sbSspPAWcd
-	mnuEGwBbRMxrnfJn5yTbvK2BrS02t+AOYlnP3Sxl5P23wxQ/yZrYUe9u
-X-Gm-Gg: AZFdTZcCdRO0Uwp0A79SxzFi0ihHBpsGsHIiSUX+6p06H6SxK9uNeljrS6q4hp9jBg8
-	xEjsxLJC95xsmyYPbDSa8HTAyQT78SH4jvvvDN9S5WnLzjVTCD8mwLMloloVQHWaXPUxm7Nmt62
-	soahALd1v6znw2m+XqG2Cc99box2j5Wj8B2HebV6UQZjM6GylVfk1V/CrB0nPK2xjWvcUq8usuH
-	KTkO78qXzTpWDyAsEDk5FaQVWemrx1C2egnwmvxl0tg6dfcx6nJ4VOB/oSRkaTq1EXJTKaJy2/A
-	HewhL0y/a4jJr7cvjqIlHZmoCLRdU3Q+32KO821nsgyzkCx3oIrJawigTX6iHtt9bVoL4ZSE6fY
-	jg3ynJLZbmN7bsKxxTH4ECyxb3ixAiKgFEQ/vp6jMYMT2s9Gu6Wa04ioueI8u3vaHR9mdMreCYa
-	C4Klk2THPr8d8TrbKQbp1Kc+clFYNe5qT/kz6iHsDmIgWdJdVj30jmAGb9N1W3jGkhR4cuAPcSx
-	4wdqHnriz7MIasxshxNTFs2Oqt60gK0vIBebz4pHs5PIbMN9T/tNHpYDgf1kVgdnoJ4ckwOBIXj
-	uhboi7DtDKy7jHpbO4I/8xzqB1utS6593xc3Ee6kc5el
-X-Received: by 2002:a05:6000:4028:b0:4a6:bc53:246c with SMTP id ffacd0b85a97d-4abb3956374mr18211349f8f.42.1795355675529;
-        Sun, 22 Nov 2026 05:54:35 -0800 (PST)
-Received: from serhat-ubuntu.home ([212.253.223.71])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d55sm16662164f8f.5.2026.11.22.05.54.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 05:54:35 -0800 (PST)
-From: Serhat Kumral <serhatkumral1@gmail.com>
-To: linux-rdma@vger.kernel.org,
-	Potnuri Bharat Teja <bharat@chelsio.com>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>,
-	Leon Romanovsky <leon@kernel.org>,
-	Roland Dreier <rolanddreier@rivian.com>,
-	Steve Wise <larrystevenwise@gmail.com>,
+	dmarc=none header.from=zju.edu.cn;
+	spf=pass smtp.mailfrom=zju.edu.cn;
+	arc=none smtp.remote-ip=162.243.161.220
+Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net (zg8tmtyylji0my4xnjeumjiw.icoremail.net [162.243.161.220])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4A663606A320;
+	Sun, 22 Nov 2026 13:56:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A663606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=zju.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zju.edu.cn
+Received: from zju.edu.cn (unknown [123.60.231.41])
+	by mtasvr (Coremail) with SMTP id _____wDnQX109AJravYrAg--.9476S3;
+	Sun, 22 Nov 2026 21:56:04 +0800 (CST)
+Received: from ubuntu2404-234226.. (unknown [123.60.231.41])
+	by mail-app4 (Coremail) with UTF8SMTPSA id zi_KCgCXZ5xy9AJrZy7rAA--.47434S4;
+	Sun, 22 Nov 2026 21:56:03 +0800 (CST)
+From: Lin Ma <linma@zju.edu.cn>
+To: David Howells <dhowells@redhat.com>,
+	Marc Dionne <marc.dionne@auristor.com>
+Cc: netdev@vger.kernel.org,
+	linux-afs@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Serhat Kumral <serhatkumral1@gmail.com>
-Subject: [PATCH] RDMA/cxgb4: Unmap BAR2 when c4iw_rdev_open() fails
-Date: Sun, 22 Nov 2026 16:54:13 +0300
-Message-ID: <20261122135413.93813-1-serhatkumral1@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Lin Ma <linma@zju.edu.cn>
+Subject: [PATCH net] rxrpc: Fix missing lower bound in rxrpc_resend_tlp()
+Date: Sun, 22 Nov 2026 21:55:15 +0800
+Message-ID: <20261122135515.3989708-1-linma@zju.edu.cn>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,35 +54,58 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:zi_KCgCXZ5xy9AJrZy7rAA--.47434S4
+X-CM-SenderInfo: qtrwiiyqvtljo62m3hxhgxhubq/1tbiAwAMEmryeh4flAAksO
+X-CM-DELIVERINFO: =?B?9lThCwXKKxbFmtjJiESix3B1w3tPqcowV1L23Bze5QtIr9Db75bEBiiEybVhThS0pI
+	APHnkvfpsecr7gZmVpD/pedGd92A4lLsgoh9d9G8k0bpHiXESS7/P/JOrwuG5vkaigPSf5
+	J9xy+UDTstPT+2Y2s+2sMKpJUmxLph7ArZOOW9k3qDOJcZRMuJQjBWDLCVot+w==
+X-Coremail-Antispam: 1Uk129KBj93XoW7uw4DXF4kGFyxCr4fZrWrJFc_yoW8Gw1xp3
+	95ArsxKF97Kr4ayFs2yws7Aw18Z3WrJryjqr18uwsak393G34I9FWxGayYgF1rCw48JrWY
+	yFWYya43A3yDJrgCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUvvb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
+	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI0UMc
+	02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAF
+	wI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0Y48IcxkI7V
+	AKI48G6xCjnVAKz4kxMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I
+	3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxV
+	WUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8I
+	cVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aV
+	AFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuY
+	vjxU72NtDUUUU
 
-c4iw_alloc() maps BAR2 on T5/T6 devices or its on-chip queue region
-on T4 devices. If c4iw_rdev_open() fails, c4iw_alloc() releases the
-IB device but leaves the mapping in place.
+The fast path in rxrpc_resend_tlp() checks that tx_transmitted is before
+the end of the tail Tx queue segment, but doesn't check that it is at or
+after the segment's base.  If it is below the base, the wrong slot can be
+selected and rxrpc_retransmit_data() may dereference a NULL txbuf.
 
-Unmap the mapped region before releasing the IB device.
+This can happen when rxrpc_send_data_packet() fails to allocate its wire
+header after rxrpc_transmit_fresh_data() has advanced tx_qtail and tx_top
+but before tx_transmitted is updated.  A subsequent TLP probe can then
+enter rxrpc_resend_tlp() in that state.
 
-Fixes: c6d7b26791a2 ("RDMA/cxgb4: Support on-chip SQs")
-Fixes: fa658a98a2d0 ("RDMA/cxgb4: Use the BAR2/WC path for kernel QPs and T5 devices")
-Signed-off-by: Serhat Kumral <serhatkumral1@gmail.com>
+Add the missing lower-bound check, matching the slower queue walk.  The
+reporter triggered this at runtime.
+
+Fixes: 7c482665931b6 ("rxrpc: Implement RACK/TLP to deal with transmission stalls [RFC8985]")
+Signed-off-by: Lin Ma <linma@zju.edu.cn>
 ---
- drivers/infiniband/hw/cxgb4/device.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ net/rxrpc/call_event.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/infiniband/hw/cxgb4/device.c b/drivers/infiniband/hw/cxgb4/device.c
-index 24ac9871ce67..35dacf379294 100644
---- a/drivers/infiniband/hw/cxgb4/device.c
-+++ b/drivers/infiniband/hw/cxgb4/device.c
-@@ -1046,6 +1046,10 @@ static struct c4iw_dev *c4iw_alloc(const struct cxgb4_lld_info *infop)
- 	ret = c4iw_rdev_open(&devp->rdev);
- 	if (ret) {
- 		pr_err("Unable to open CXIO rdev err %d\n", ret);
-+		if (devp->rdev.bar2_kva)
-+			iounmap(devp->rdev.bar2_kva);
-+		if (devp->rdev.oc_mw_kva)
-+			iounmap(devp->rdev.oc_mw_kva);
- 		ib_dealloc_device(&devp->ibdev);
- 		return ERR_PTR(ret);
- 	}
--- 
-2.53.0
+diff --git a/net/rxrpc/call_event.c b/net/rxrpc/call_event.c
+index fec59d9338b9..4fca790a007f 100644
+--- a/net/rxrpc/call_event.c
++++ b/net/rxrpc/call_event.c
+@@ -141,6 +141,7 @@ void rxrpc_resend_tlp(struct rxrpc_call *call)
+ 	/* There's a chance it'll be on the tail segment of the queue. */
+ 	req.tq = READ_ONCE(call->tx_qtail);
+ 	if (req.tq &&
++	    after_eq(call->tx_transmitted, req.tq->qbase) &&
+ 	    before(call->tx_transmitted, req.tq->qbase + RXRPC_NR_TXQUEUE)) {
+ 		rxrpc_retransmit_data(call, &req);
+ 		return;
 
