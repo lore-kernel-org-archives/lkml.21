@@ -1,104 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795381996;
-	b=cFsm53y9+Fl+QApzHrBnHzQfs9CUr2i56Da9/hoxCRgjHyZWtgzvT7TygSC2fIYilQN+
-	 bU60ZrPKBjtgLpR+7yHpLFZVmF2yotLjJNgUG6uHyqT1tD7ha12KscVnQUEHx5ZGD+Gnj
-	 ILJF5nMTDiImclBUcDkOPYL7ZeOCtdcPFmpOLXsU3lp4oCOQHSQnuQOlIWB2dMlxKym1R
-	 6DXSy86cgAbfdptKcPiG6kApHPjOkGD2KhSu+xWuvdJiqRCOtHVv8UXxq/Xb4NpCe7yc+
-	 Yn9puA7oo7YNYPMjAKNKqsLbfVVti5gAZ2Pt/GhqlwLkZ/mPoDF3bYJxsFI8JkDDLHw==
+	t=1795382246;
+	b=P7Wxl6byJkFlvZQaUCgRZ47MlAL4ZSPCvWgMNnPAHj5afWr8/tCFj0MxXOUerOhQE22L
+	 Zd07LIocIxNJX6/2Q7/aX9dU2iiBxb6KIbGxSEy6yO510QCbDaQ83YZhkZd+ARcEeLQzO
+	 H4/l/8Yo+5ZZzRrtMVMZlvuGzGlqkrqsnqFMIh+4+2Pp4taDYLkK0ovWn8I6vFVgi/lNc
+	 x9AXo9f/bwzHeJG0qjbjd1wUDmoszXWdtoQyozBXa6C8m9vkTXO9TbXlhbvBJFE90gH+k
+	 cu/y4PZG6NUNfO1fRBeA7uuBQx2tfuaDhmwoh50FYVkZJNBvmYJ9WUg1nlNEQ6rPZNw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795381996;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=0u79eAm9SL7rzpcixzShk17KsyWw74s1ML6HOCwCaJA=;
-	b=l3m2nYVgVK6zX1VMj2O3aICPNZjKPMl1x4aFnvzKIXMQNi0Hun1jnd/UqbhSsSZlEN5c
-	 vZuGg0JWae4tX5INQC0K7tJq2xaEMUR22Lir55h6p4JM+OLtfP4qxKpvABKf1AUXcS9nX
-	 VUAdFtgMTLKqt7YhV1newBKA1Z6Rmx0Ar2J6FNvcToldbMWk0Y67T0aPh3pXwVgbZk/Q1
-	 EUAEnvkdW0GZ+T7KwlNx7IC6KUvRmIu2SSEfh4PW3H86DmAjCYx40vzMyNs1GfVrmostz
-	 NbXb1R6Zg445aDJhirdmRmAZGibm7xOI/7B2pEOEaoe4Z7XFij2MchAEhaHjfMu8sTg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795382246;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=wRYkt/8bNJ83BACxmsyULTPzgzoASxC6Ha6Jh0WjC7A=;
+	b=djIljtAJTsGhxpRYWLZekoajM/KDERRdjYwY2v7NDLlCdRC0+vzDaNBPIikzWlyu7ijm
+	 FjlxSU9dMLKPDzzE8NxQkMrXEMOgkPhWyBd693DIbTluMzkm/noDdqizx3HPicw7Dxo2q
+	 tMe5qec1gVUsaE6Sxv2fWqHjnxRyt1evB/FWietT8dB+rcjTIpYSEJanVVP4LowyIkw2m
+	 LztGlsuSGmEkOn6cF+tfUvBrvG8PyVLkKXD3F/hPbOFagRHcUDoIXU4vcJ/F7LDktWhaf
+	 6VtGuPMd4ZVvGDun83a+WF/H9lZDT/O+kjtKWS2cGilhHCQFSae14WITpu5J9DzV3Mg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bairaktaris.de;
-	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=hyoEPemf;
-	arc=none smtp.remote-ip=209.85.208.49
-Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com [209.85.208.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WIuYE0bU;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C120606A31D
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:13:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C120606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E158A606A31A;
+	Sun, 22 Nov 2026 21:17:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=hyoEPemf
-Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6bab10842f8so648475a12.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:13:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795381994; x=1795986794; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0u79eAm9SL7rzpcixzShk17KsyWw74s1ML6HOCwCaJA=;
-        b=hyoEPemfLzhtTLhIa0+BnYLQasi653Aeqcex26eZEtEAp4XpEg38aA4qQIDG4nQAOY
-         YM+ohOHl1gYtdTDffqfXmNIJ01AO3MGfhcPGVtuEoUOBOHmPQisGgUNLWOs/uAoI5n2P
-         OLeHtDFG6PgdsgdtuvS0Vlr+ALRh/8VtMcDXbyobL38ssMzkLr0+NPxvpWAJIXHd/4rI
-         oKCh7w9Vd4HwoSO6vgOdBkM3SaAg7vlKlaAHIUayOozRgQcmlmsVIKbbNafYF3uaA0Va
-         SSSoqLLYL6M6wKOUzeAqMtFxKhQHXSAEDU5oLsbIrZc2Nc0gYGN1v4yjdCtPixoW9zWH
-         vvjA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795381994; x=1795986794;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0u79eAm9SL7rzpcixzShk17KsyWw74s1ML6HOCwCaJA=;
-        b=Ts4wJW45ahPyroKLrq/zAkPOv93/d7uahWnyJjiiM+XfelcAqf6kSx049vBIlGVAZl
-         nb+/mnAl32raBN6Y2QSxu1+h9VaH+q6z3CWBsj+gZTlyFF+vmGKAKq7R/HZdXOgFTPih
-         g/nH8CRcK60zb1VC5SB3tWcbUMXuSZzMRU/d4SaMuZM6EkNdHXFy9hr0FoJmGtFL0a73
-         3nJWplGs/Exq39ZryWXdszKtfw3Fd0SzbsLEXj0gJS5U2TcytMgV4G40az4lE4pgAPIN
-         H2FrhkwXw4/WADw7CdoeDgBx4g8O5aMsdmGhnQFbILZ1P8IanNLOASCSs6hWWTZUAkqZ
-         E/oA==
-X-Forwarded-Encrypted: i=1; AL+hErHPnfTSifAmSXGrgAqh+vDSTiCV4TQHYnqZlUqCs/5s4hCKNeNzxCxuVpW6C8jxrxw4KNomQ7OoTLPclYo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8vu8/VNoeFHCquZbcnPnnxqLzDU5mBD00O6/fz7TggKVteKRHE
-	a8k183/Cbn+8Z7byFfAiaJeXPp+NUwIQWZy+O9k9sHg+cKnfq9Y3oEIaEGJQGKRTog==
-X-Gm-Gg: AZFdTZeovfaoeuhTiHrVJBazXyUE30tkQTUlwjZ+bfTcFsP3Xc+n7szKnIItu6mMrBy
-	+ZwhzPV+xYPhkwAJkFxTy2jSLFltqAjVpFQOo2BYB7+wq9qXfeyvwcKHDj3OD8tuq4KweMrLJwd
-	lQIOJ+YxQ7yORcEajV6hMNslA05PYNr13hz+k0+Z5GAVS2mfUcvDnz6aaw0mM6mRAg6o90EbZ1B
-	Frt6DLmSTHwa0SfDWf4LMf0gjOAYbv36aF8zIvbRHnt+nBNF/tdAuoioFcIxUnfXRMxmNa3KKQ+
-	qdM5huQeunE1DC3kXwe42yuE2eCIORNcvbka5FtR1M2/clA1NKCQCqTcgC7bNUDkA5AMLfS9AQZ
-	4sH9lCjwDXT4Cxqt3B7alf1c1gom43ZTuTtix7r01bK4PkPV4SlTKzlhqSPAsJmRKiOTnQhEGiv
-	ufetPfrRWC7smZMASbJKgKLdsTj4AU6+ek9HqNDIbN6YfolfWIvSv9SxHxRv+Fys2RvoQ1ZdWNG
-	HPCjnOgLooc0iCA33rgHqDbEVvibWmjZBkbJ2QFJLpsfO6SVyYGfUjhjXDC4fZlF3Oc5+7iSPSZ
-	hxMs/olY5QOaeECKMoh7IOWTGOv8unPGLtzagikPQTw685qb5lClfqmRsMuDwOuhjByHqEvB6bg
-	LrFfOGS8c9fhlS/+sf7Nn1PaJ8CaLIgkwVVOP6WQ+l9z0j+3npl6lGDx4uvpnHKvyLvahvxXqGe
-	B35v+wj/wU0A8XbYV1MzDwHA5SN8K5j3mSNcjgBZ0zikiV2i51z4Ag2j5ZDczCqZRw96lJhye4f
-	t120Fk6k2JS5GXhZFz4krUMXvSRBKY1O0WNAAgH9xaul5tfujZN8kkr9v9sZafb/dzfEoS1KwSb
-	6zhcSt2u8hyuXBgzzCy4DZjkyGKR9xOYXW2/ev89ZaNMEIJrQ286nYLVcps5Wfz1BdsUuKhnhg=
-	=
-X-Received: by 2002:aa7:da58:0:b0:6b8:6d68:23dc with SMTP id 4fb4d7f45d1cf-6ba37d51f47mr4295989a12.7.1795381994095;
-        Sun, 22 Nov 2026 13:13:14 -0800 (PST)
-Received: from Desktop.tail070c67.ts.net (p200300f24713d50069697652bafd0866.dip0.t-ipconnect.de. [2003:f2:4713:d500:6969:7652:bafd:866])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba37109b55sm4245663a12.32.2026.11.22.13.13.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 13:13:13 -0800 (PST)
-From: Julius Bairaktaris <julius@bairaktaris.de>
-To: jjohnson@kernel.org
-Cc: linux-wireless@vger.kernel.org,
-	ath11k@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	baochen.qiang@oss.qualcomm.com,
-	rameshkumar.sundaram@oss.qualcomm.com,
-	john@phrozen.org,
-	kvalo@kernel.org,
-	nico.escande@gmail.com
-Subject: Re: [PATCH ath-next] wifi: ath11k: report TX retries in station statistics
-Date: Sun, 22 Nov 2026 22:13:14 +0100
-Message-ID: <20261122211314.2143272-1-julius@bairaktaris.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261018171803.1545946-1-julius@bairaktaris.de>
-References: <20261018171803.1545946-1-julius@bairaktaris.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WIuYE0bU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D50C81F000CA;
+	Sun, 22 Nov 2026 21:17:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795382245;
+	bh=wRYkt/8bNJ83BACxmsyULTPzgzoASxC6Ha6Jh0WjC7A=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=WIuYE0bUeVh7j/c1tgbS8K7qmz+PGL4nSuV/JONTuW33K7yFbi2NGfmizYXYOwafi
+	 JA+MwHWxErlgc6mrZyIqiGsgfk3I2U4B5VjWTH+vaSi2vvsMZybYLWWhLL/UC/QzHk
+	 YlHwcmLGb14znJdpbxCyPXT0kh0Gz/VgpcN9+ThZj1PNL7vPXwYM/SFRyfF8rGuZk6
+	 5OilF8sZ+iWuAd7Us//Utc027aBFPDob3yimedL8MaIghJ+codIQTo1sfC8TFAXwLN
+	 6P/fpcBrLX2vxr43cAR/Em08metddXH4ctFZZe1WF3OxTbEfZ8EGOXczhmuBiMNO9/
+	 9sXw1OITOSvnw==
+Subject: Re: [PATCH net 1/4] netfilter: flowtable: do not queue offload work
+ after DESTROY
+From: netdev-bot+sashiko@kernel.org
+To: florian.fainelli@broadcom.com
+Cc: netdev@vger.kernel.org, pablo@netfilter.org, fw@strlen.de, phil@nwl.cc,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, shuah@kernel.org, toshiaki.makita1@gmail.com,
+ linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
+ coreteam@netfilter.org, linux-kselftest@vger.kernel.org
+Date: Sun, 22 Nov 2026 21:17:24 +0000
+Message-ID: <179538224441.3135.6950839726802616846@kernel.org>
+In-Reply-To: <20261118201250.2075007-2-florian.fainelli@broadcom.com>
+References: <20261118201250.2075007-2-florian.fainelli@broadcom.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,14 +65,159 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-On Sun, Oct 18, 2026 at 07:18:03PM +0200, Julius Bairaktaris wrote:
-> ath11k does not fill NL80211_STA_INFO_TX_RETRIES, and mac80211's TX
-> status accounting leaves it at zero because the driver reports no
-> per-rate try counts.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Jeff, the patch still applies to ath-next 1983b40acfcb. Is anything
-missing before it can be taken?
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
-Julius
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] The new NF_FLOW_HW_DYING guard in nf_flow_offload_work_alloc()
+  (net/netfilter/nf_flow_table_offload.c) does not close the bug class…
+- [Low] The commit message describes the race mechanism and the affected
+  work types imprecisely.
+
+--
+
+netfilter: flowtable: do not queue offload work after DESTROY
+
+This patch makes nf_flow_offload_work_alloc() refuse to queue any work
+other than FLOW_CLS_DESTROY once NF_FLOW_HW_DYING is set. The goal is to
+stop a packet path reader from queueing REPLACE work for a flow that GC
+is already removing, because the offload worker could then use the flow
+after it has been freed.
+
+> once the DESTROY work has run and cleared the bit, a reader can take it
+> again and queue a REPLACE (or STATS) work for a flow which is already
+> being removed.
+
+[Severity: Low]
+Is the STATS part accurate? The packet path only reaches
+nf_flow_offload_refresh() through flow_offload_refresh(), and that queues
+FLOW_CLS_REPLACE.
+
+nf_flow_offload_stats() has a single caller, nf_flow_offload_gc_step(),
+and GC skips any flow that has NF_FLOW_PENDING set:
+
+	if (test_bit(NF_FLOW_PENDING, &flow->flags))
+		return;
+
+GC also never runs concurrently with itself. So STATS work that GC queues
+cannot race with GC freeing the same flow.
+
+For STATS, the only effect of this patch is that GC stops queueing STATS
+for CLOSING && HW && DYING flows whose hardware rule DESTROY has already
+removed.
+
+> GC removes a hardware flow after NF_FLOW_HW_DEAD is set, and frees it after
+> an RCU grace period, which the reader can outlive in a preemptible RCU
+> read-side section.
+
+Could this be worded more precisely? A reader cannot outlive a grace
+period that started while it was inside its read-side section, because
+the call_rcu() in flow_offload_free() waits for it.
+
+What outlives the grace period is the REPLACE work that the reader queued
+on nf_flow_offload_add_wq before rcu_read_unlock().
+
+> diff --git a/net/netfilter/nf_flow_table_offload.c b/net/netfilter/nf_flow_table_offload.c
+> index 4365859220e6a..62f460d38efa2 100644
+> --- a/net/netfilter/nf_flow_table_offload.c
+> +++ b/net/netfilter/nf_flow_table_offload.c
+> @@ -1088,6 +1088,19 @@ nf_flow_offload_work_alloc(struct nf_flowtable *flowtable,
+>  	if (test_and_set_bit(NF_FLOW_PENDING, &flow->flags))
+>  		return NULL;
+>  
+> +	/* GC only removes a hardware flow after its DESTROY work has run, and
+> +	 * NF_FLOW_PENDING keeps another one from being queued, so nothing can
+> +	 * free the flow while this work is pending, unless DESTROY was queued
+> +	 * before we took the pending bit. A reader which found the flow before
+> +	 * it was torn down must not queue more work then, as the flow could be
+> +	 * freed before that work runs.
+> +	 */
+> +	if (cmd != FLOW_CLS_DESTROY &&
+> +	    test_bit(NF_FLOW_HW_DYING, &flow->flags)) {
+> +		clear_bit(NF_FLOW_PENDING, &flow->flags);
+> +		return NULL;
+> +	}
+
+[Severity: High]
+Does the claim that "nothing can free the flow while this work is pending"
+hold for flows that GC frees through its software-only branch?
+
+flow_offload_add() publishes both tuples in the rhashtable before
+nf_flow_offload_add() sets NF_FLOW_HW:
+
+net/netfilter/nf_flow_table_core.c:flow_offload_add() {
+    ...
+	err = rhashtable_insert_fast(&flow_table->rhashtable,
+				     &flow->tuplehash[FLOW_OFFLOAD_DIR_ORIGINAL].node,
+				     nf_flow_offload_rhash_params);
+    ...
+	nf_ct_refresh(flow->ct, NF_CT_DAY);
+
+	if (nf_flowtable_hw_offload(flow_table))
+		nf_flow_offload_add(flow_table, flow);
+    ...
+}
+
+In that window, nf_flow_offload_gc_step() can decide to tear the flow
+down while NF_FLOW_HW is still clear. The teardown can come from a dying
+ct, a stale dst, or NF_FLOW_TEARDOWN set by another CPU after a FIN/RST
+arrives on the already-published REPLY tuple. GC then takes this branch:
+
+	if (teardown) {
+		if (test_bit(NF_FLOW_HW, &flow->flags)) {
+			...
+		} else {
+			flow_offload_del(flow_table, flow);
+		}
+
+That path removes the rhashtable entries, releases the dsts and calls
+call_rcu() on the flow. It never takes NF_FLOW_PENDING and never sets
+NF_FLOW_HW_DYING.
+
+The creating CPU then carries on:
+
+CPU1 (creator)                       CPU2 (GC)
+flow_offload_add()
+  rhashtable_insert_fast(REPLY)
+  rhashtable_insert_fast(ORIGINAL)
+                                     nf_flow_offload_gc_step()
+                                       teardown, NF_FLOW_HW clear
+                                       flow_offload_del()
+                                         flow_offload_free()
+                                           call_rcu()
+  nf_flow_offload_add()
+    set_bit(NF_FLOW_HW)
+    nf_flow_offload_refresh()
+      nf_flow_offload_work_alloc()
+        test_and_set_bit(NF_FLOW_PENDING) succeeds
+        NF_FLOW_HW_DYING clear, new check passes
+      queue FLOW_CLS_REPLACE
+
+Suppose the work runs after CPU1 leaves its RCU read-side section and the
+grace period ends. Would flow_offload_work_handler() then use the freed
+flow in flow_offload_work_add(), in nf_flow_offload_alloc(), in
+set_bit(IPS_HW_OFFLOAD_BIT, &flow->ct->status), and in
+clear_bit(NF_FLOW_PENDING, &offload->flow->flags)?
+
+If the work runs earlier, it seems it would still install a hardware rule
+for a flow that is no longer in the table. GC would never DESTROY that
+rule.
+
+That is the same use-after-free and stale rule outcome the commit message
+describes. As far as I can tell, no later change in this series touches
+this path.
+
+Would it make sense for GC's non-HW branch to claim NF_FLOW_PENDING, or
+set a dying marker, before freeing the flow? Another option would be to
+set NF_FLOW_HW before the flow is published.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118201250.2075007-1-florian.fainelli%40broadcom.com
