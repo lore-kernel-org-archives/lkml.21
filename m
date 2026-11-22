@@ -1,62 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795361688;
-	b=AHOuhvIUDzFocsy1YvDL5fZfgFAtNZn0psx77zRGfV7wE5lMZUl1V1RprDyoTvzyOtMQ
-	 ipkwLNReRaFKPwjYl+WYqGKdgwcKqCbkic2yBo/1Y7mOE4WHWVr0kyl2C7aODQYW+TknU
-	 idIVvss3DsincI/CgvkQEwr4MQ4n1IhLL7gQZqj97fJyYPBb4zyuMCCK/k6r5+eRUekPN
-	 B04Ciozn3HsMWowyTulkIbdKmJFQTgPTLoLEsuzJsS0EPyPWu/nkiwSz4ea2WmJ50fWhY
-	 5kFdx8mXw9/fKRj+o0Yba9rRQTJAZLgpNEqo8iEBDGLq9AWI+v5lDCj2tLzF50VOqPg==
+	b=tSlGPI7ca3q84AD1HschN73qon2j8e17ULj0A6Pw/9ItBRAgJ3kuaMSydyinxCLkDcq4
+	 vLJatuxQesI1I5AuDlstPBISljiha4Poh8lP+zt2tq5dL3y3RjUncnN/nFS7aefqo9bvK
+	 nb7MjkRrteYN6qJ10NnzVYI/iix2v78wb3eAKeK0uErmA+Nrvz57+TYgWZ+l641Dyh06S
+	 R9EVj7YHOTrpwk8I/IC0JIf3mctlZhtmy3G7Ti10tnut4ku5zLA8ZcudgsLG1R08ksSVl
+	 YD4jEOTFidf4PO0G5kr7/yntLtWPnynfy/hF8izkUJspao1JwDNOkhf9VE2B6xRHq1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795361688;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=KDBbuF5ql8/IVe5UKKYnyAQX4+XIz2LwiSFaHGaN3XY=;
-	b=QItTWt6kwUsQvHu2ndWs1oHp5LO+ANk0vKyfTP4J6L3MSniXN1I7RZdb/lgnfZ9Lqh1r
-	 Nh/J4nxKJYRjgXfi7Vc7qdMac+adsXu1lZMcXf/BShXM+ilC25SllHqcNz+DflB9u8vxq
-	 2J+3ef7LFUDpv121Y99Y/1UCykWEy+fR7ATmXO7DnnTnQSKVIeSx+0qHkRyP5iOosLAhG
-	 Rrg4rtgH/pyK0KQfoXNl65b1+xtMbg5CT797fdMeV+NKUMOl2W/OR8ehI4YxVXGuVCyEr
-	 THI4iIXR9JCKgDuJAROx7Up6L37QQ+7gog8vD3iq8OexEyQtzpnA8udSP0L8vdueuNQ==
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=L43f1kBqOYb+3obxiloeu9TGeNNR8aeSo1E51+NquNQ=;
+	b=SvVGzRQyQAWJ1e4Lgt0fuwOmpSLqBHYgP42pugbebCSS/l0yJEaVkqDdF1rXjCpSOwvO
+	 SaGJeaJVQjjSsVrRRpe++lkBnS5kHJ/d9KqWTx0AUU4qPxTwLXyPrb/jHjyCzBfzlTfCl
+	 m+UB6X5Y+IhQAibiBxSq28qPM9txnde7mu0uHF6wKGrbHJ3VvN0gZjdwSqKVFgLdh4BQ/
+	 Lr0lq70Ha14l9GT66cc08L/SdtwZLPsDLYMZU93XxNYvP+cDEwClCWBJETNMV5A0bvXp5
+	 l43DXLWVGjNmTj0xJMeLU/nNFRgievYwwjqPQ1EE1djE48G5PLopp7FqZDCweld9EkQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=5bsoI5TT;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=hQ2bx52H;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B0C4606A320;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35F62606A32A;
 	Sun, 22 Nov 2026 15:34:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B0C4606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=5bsoI5TT
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=KDBbuF5ql8/IVe5UKKYnyAQX4+XIz2LwiSFaHGaN3XY=; b=5bsoI5TTnSlGRfAQrt5wg0M5wh
-	Aikl7hDAxg6CJoCVgzRLZi72pNs2Ud7GDcc58pccxgWaQso04K+K+hC+FBFjq/IkkVT7poV5aYGBT
-	GvEGratV5V9mGmw7808uMHBMIEkprb+Xp0gZjlSBxJSbDVk19C9v0duMdLoV0IamY788=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xV9aM-000aTg-8q; Sun, 22 Nov 2026 16:34:34 +0100
-Date: Sun, 22 Nov 2026 16:34:34 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/8] ARM: dts: rockchip: Add Luckfox Lyra and Lyra
- Plus boards
-Message-ID: <99694488-727e-4004-8f80-f48871862cb7@lunn.ch>
-References: <20261122060114.773624-1-jonas@kwiboo.se>
- <20261122060114.773624-5-jonas@kwiboo.se>
+	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=hQ2bx52H
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F6A81F000D1;
+	Sun, 22 Nov 2026 15:34:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795361687;
+	bh=L43f1kBqOYb+3obxiloeu9TGeNNR8aeSo1E51+NquNQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hQ2bx52HR2OhOL0XHQLuCkn1fsTOISQ1wU5RgGZprSRVAL59Y7e/mvD0Fc4+o6nzH
+	 vLIHtFoGUadgT8gFeHnpsELbqx2h9FKUK+9J1BpcJizhDyYOfFnJPuigVmbiCfcyfT
+	 O8MPJ3SWx7B03hopO0qr9ewbRJarJKzdAaekmWoY=
+Date: Sun, 22 Nov 2026 16:34:43 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: EMCP333 <emcp@enser.io>
+Cc: Laxman Dewangan <ldewangan@nvidia.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Krishna Yarlagadda <kyarlagadda@nvidia.com>,
+	linux-serial@vger.kernel.org, linux-tegra@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] serial: tegra: do the baud tolerance math in 64 bits
+Message-ID: <2026112258-hesitancy-passable-902c@gregkh>
+References: <20261122-b4-serial-tegra-baud-tolerance-v1-1-39907382281f@enser.io>
+ <2026112253-salute-epilogue-67b4@gregkh>
+ <CAOY-3nCEb=fMMwHyecpvs5jVTod90tG7L8HvbDWZ+OgBfSJY0A@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,30 +62,35 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261122060114.773624-5-jonas@kwiboo.se>
+In-Reply-To: <CAOY-3nCEb=fMMwHyecpvs5jVTod90tG7L8HvbDWZ+OgBfSJY0A@mail.gmail.com>
 
-> +&gmac1 {
-> +	assigned-clocks = <&cru CLK_MAC1>;
-> +	assigned-clock-rates = <50000000>;
-> +	phy-handle = <&rmii_phy1>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&eth_rmii1_miim>, <&eth_rmii1_tx_bus2>,
-> +		    <&eth_rmii1_rx_bus2>, <&eth_rmii1_clk>;
-> +	clock_in_out = "output";
-> +	status = "okay";
-> +};
-> +
-> +&mdio1 {
-> +	rmii_phy1: ethernet-phy@1 {
-> +		compatible = "ethernet-phy-ieee802.3-c22";
-> +		reg = <1>;
-> +	};
-> +};
 
-It is unusual to not have a phy-mode property.
+A: http://en.wikipedia.org/wiki/Top_post
+Q: Were do I find info about this thing called top-posting?
+A: Because it messes up the order in which people normally read text.
+Q: Why is top-posting such a bad thing?
+A: Top-posting.
+Q: What is the most annoying thing in e-mail?
 
-What is the MAC capable of? Can it do RGMII? Does it default to rmii?
+A: No.
+Q: Should I include quotations after my reply?
 
-It is not required, but it would be nice to have a phy-mode.
+http://daringfireball.net/2007/07/on_top
 
-   Andrew
+On Sun, Nov 22, 2026 at 07:07:00AM -0800, EMCP333 wrote:
+> Hi Greg
+> 
+> It's Erik Peterson
+> 
+> Been my first attempt to work on the kernel with NURA (formerly
+> postmarketOS, which doesn't take AI submissions directly) and I think it
+> clearly stated when to indicate AI use which I believe I did.
+
+The issue is you need to sign off and put From: using your real name,
+there was not any issue with using a LLM here at all.
+
+Please fix up and resend.
+
+thanks,
+
+greg k-h
