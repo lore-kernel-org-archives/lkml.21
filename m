@@ -1,76 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795337957;
-	b=ETUABN4caRPB4Du6fk23JfpopGIAsFepOn94UPbUdR0NtmgyuuoQ6mj1B+7HNQAibIV2
-	 Xvi0pO0FM1SWJvtFN5i8CGMI3FpINElYeIDQpktDU0LPyfYVJH8JUuw/gyNb8fx1kO5ZH
-	 5Nh7GHPRBj+rsnapZxFG3O4s1xknNncxip4wyO1T95QK0P4P6nH+kI7pcIoQWw5hlvNmj
-	 4Rb9bibe+uPGPtoPrtv3Og3KPtv24opth5CLIdtTI0BpbSHm2DhYWSFZMhZCrXpPfxUHT
-	 X8AA2lPWTz+Gbk+7wg04Dod0Qtnzr1LllnoCp40KImvlJPt3FI1R+4VsGBgthNCXqiQ==
+	t=1795337958;
+	b=WealLLQChRbYqCXLItBjyz+8ZVCrScQx3Zii1a3qg7ya/66ADiGFkK79j3cupuQU1uwq
+	 IiRAm8EiZ1G+F2745NImWEMCG1Hcpt4GpmatoJvgqCzGZ56mB+WTeRqpIoXKuhGhQcnhB
+	 SYKT6eHWBxNh6VDgRxjN2wQ3BuQHg9DPZGpZFNveGJ/luU1XO3EOYay0rPpnT9fXmpNm3
+	 Hb1J+y1iTs6vUbt3hliUsVa+VMK4hbkiFsnrFIFxatXxgruQ99H6IL/EK/GK4C8N40VWs
+	 cWRwSww+pvAhhFmsF5keORTQQVI1D+oxTOLH7LxfMlnZJ69kOSjpEtn98L9BfKWQ6aw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795337957;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795337958;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=bt+vNC5Ck7Tec+thZqwOgrn1YnZYE8U6h78l2ePZXOA=;
-	b=1O6pXxreLYjN9CIDBEKz3elsE1YkY5CelCqbG+9chDLDjIlK1XfuVhY5NjmA3PBCyWxv
-	 iQKqtuJAThYObMZJ6/C0ftCOPfKb5gyIEfY79HxS1ztyfciyk7j/45kqmVOKtG1V+Hqnu
-	 1aOxFAiPdV1i4H7QwVsSU3pAqMjkZTpHi4btpX2fC+nXi5Z5B6pZmrA5uzJmpJd0VAPJ1
-	 lbJCaq0mDawEPIBpzU86Da4lBcQRmu6/n3lk970bSYGXPOeD/LDLOgv9Oq9M1GeYq4aPK
-	 ccyZDgGTcbobs5mwpVhiJs+RXoGuNnz+xajgb3v+Q0+gEselb0KFgZAo2B7iVV9O6Kg==
+	bh=G2sUKEpp9UCq//DjZnGDoTE+Lw96P7JUYjiRFoz38Vk=;
+	b=Z/Z6rROqiFdC5yEtGtraWHDuWhBzw6GQPxnJZwtS8rC+S2Ry4c8JyFxN06STVugHKl6K
+	 3N7EWcAdB5YSZTsEKRTyyd/Jrovys7ihEoF+7riR+JetWkvutOZpH/1kyNMQ+wMr9Jdxa
+	 9IGBFV+qAfRNCoo3rEJsXLikx2dT1mZowKJyaqxq2VabJNY7x9axGRTJXpEiq4jAaJqx4
+	 kN2KWbScIqge+IwfFV1Jr5amq6gcRhqsiDvEW3hh0lYXlazfclqluymZAnDjHVpUXz5mF
+	 7fyRGxVLotyp132icjyNhsLjvXw4TR8cBAoO4ZZhCwKkaHP3RGEK4UMQYLSGV9yud6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="QFzXp/q7";
-	arc=none smtp.remote-ip=209.85.221.69
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com [209.85.221.69])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="M/DA+iUE";
+	arc=none smtp.remote-ip=209.85.128.71
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com [209.85.128.71])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C7D1606A32A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 08:59:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C7D1606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 769AC606A33A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 08:59:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 769AC606A33A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=QFzXp/q7
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-499ca65ae87so937559f8f.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 00:59:16 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=M/DA+iUE
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4ba01393800so13974775e9.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 00:59:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795337955; x=1795942755; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795337957; x=1795942757; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:from:subject
          :message-id:references:mime-version:in-reply-to:date:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=bt+vNC5Ck7Tec+thZqwOgrn1YnZYE8U6h78l2ePZXOA=;
-        b=QFzXp/q7PjWMZ28Y5Lr1/zoEik8SAq7sQPaC2qab1BUi7I8P8CErBtSXnqgJ6bfcAn
-         qlWesCnZGgYG57AyXZcqgnUxXJCjdDOpHNcpbxl/crBBZHC3M99jWrlapZoLe9ovnPZs
-         D6UBasDTgAbTtS+SMr8QHOAYbjrxluF3EXNkd/fUhlAYuXV7JagRA/4PGB52eijAHMxm
-         hME/U6XOSwQBdF7nlokjH+HzR8KP96cNyzFc3c1F6hcqcMslUh/CVAatsXUvBuV2jR2N
-         KXq41sSuZdGvpOpHW799q+JV5dKhtf1kRMALmBRee64ppY9+zrXrsnS/L2auAvu116Vp
-         V/Cw==
+        bh=G2sUKEpp9UCq//DjZnGDoTE+Lw96P7JUYjiRFoz38Vk=;
+        b=M/DA+iUEfZH/RTuJV4mophhfeAOFmY/wKP2WaYyLAjRtxbEjeZ1kirf2SBA88/0aUo
+         YSypVD//LfRhnXdqjJNjNX8Fkoh2uYvp2lLQ/EaQMk3TpksjRn/2XUlc1HVrQkRwZ/zS
+         FvJwEcIPOXcdw+VLcg9/DWchUzU0IatILZ6uM2PFc8GokZkAX+Zeo3ZfJw9rBv+5Tgpk
+         ELcn0+BQdXRghiesPne1hWUo5WCRqAK/9azw9J5g8ah0CDnLRYWS08NIkx0pFm16z8wl
+         naRKHqKSYI3B9fdsqf1kAK+p2Hqbxkler90om1+RqtiJW84NmRnYPCvzdhj2x4pLYXkD
+         x5JA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795337955; x=1795942755;
+        d=1e100.net; s=20260707; t=1795337957; x=1795942757;
         h=content-transfer-encoding:content-type:cc:to:from:subject
          :message-id:references:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=bt+vNC5Ck7Tec+thZqwOgrn1YnZYE8U6h78l2ePZXOA=;
-        b=vgnIPHwIE64qk435M2Zrlc/GVI+2l5MREKSt9S6+x5RO3fLibovrgGwjulw79JCQSt
-         gJkQhT37bsPrWw1+fw5glds6OeG8QPmzsB6yMplolm5FkLKxoXuer7h+GL1eMrMSqzXT
-         gIdzSmyMsF5TGVcY7xLEI5lXokyNhuZnlsJGXWLKotUBogTVuXsRDVghfhqYTbyHTqMW
-         LiWasd1EpgxD6U/sE5TGs3sQZ+nuxxLp+q5tlQ9l+BczDGyxA8oCa6Xa76IIuoLw97KB
-         FbvH56wVt6zbpml0XJeUMRsS9pdfW6zMxF9YyL+G6AzBUqYERD+A1QT6Yd8/lkGRZqwl
-         URDA==
-X-Forwarded-Encrypted: i=1; AL+hErG6Jvr3CD7z5hPc6I4XyCuszCmuH8rZtDSdo1+OVla7+uXNdEGjfJn695Lcm49upyB5aDZmDHYq28wyhyk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+sN+ncswGm1//tyILjDtwhbzMUTYBQN6KCj0fswPhClZPC44eT
-	peqqmerojP0FgClnyl2eG50LnIG2+zT/0kJpX/dqZRv2vEyPIjodCGMQ483gUPMWnY223XL1mJy
-	Vq6Y0l3hF5Kr7LfQ6xw==
-X-Received: from wrrv2.prod.google.com ([2002:a5d:43c2:0:b0:48c:4566:c9eb])
+        bh=G2sUKEpp9UCq//DjZnGDoTE+Lw96P7JUYjiRFoz38Vk=;
+        b=ny+cxBLezZNn0WgoxDd8JzrT7P+ZSX6lnKEuysNxdQ9MPvprtlrmqravYPe9bihisq
+         TRomTMyERC7EOUS9VzA99q9fYde6ELPqYZgrW0uZY5atETsu++eqLsgFKkKMVC5Prxlf
+         M93WUWFqAyRefmbPIVb7L3HuDTksLCIYy4kmuxEP27+xPvZFlWvmgRfyJxKaggZcnEzK
+         P1YGZywG9OvGwTCrHNNcw+gQVoKa+e/Edi45Hb30BXSf7U48uNpKreK0YME+qCy/GZRP
+         JDws5L0hvZ1U4cmev305RVPZr2F0Baus9BQm2EZ5PND8yIX7ok9Se8c+xSvGzht0Ya2Z
+         eg6w==
+X-Forwarded-Encrypted: i=1; AL+hErH6vHTt73ciPzFEyJvYPxWoRXIHmiWAIO4AoqvsGMYMtvFr7iLnq8FLsvJy69NTKWN76iYV054hQr1v0mU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9fJgzALcIE47FZU+93RI2LupTOhKgAZZqVcpPmXmS72+jXSTga
+	pXrvrnsGbJFMIPpdv3O4/qigIuztYjVPooWvbo/b5UDo+uF0oxmrTXRCxfMmtmqI+nHKpmF2xV2
+	LNJxuBBGg4TgwHtFnmQ==
+X-Received: from wrsv4.prod.google.com ([2002:a5d:4a44:0:b0:4a5:aaa3:3335])
  (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:1e50:b0:48e:60a7:e0bd with SMTP id ffacd0b85a97d-4abb2ecf9afmr12805799f8f.17.1795337955311;
- Sun, 22 Nov 2026 00:59:15 -0800 (PST)
-Date: Sun, 22 Nov 2026 08:59:14 +0000
-In-Reply-To: <20261122-tyr-reset-impl-v9-1-ed42d8f513ec@onurozkan.dev>
+ 2002:a05:600c:4f0d:b0:4bb:5c97:f4b1 with SMTP id 5b1f17b1804b1-4bb8881941bmr192603305e9.24.1795337956685;
+ Sun, 22 Nov 2026 00:59:16 -0800 (PST)
+Date: Sun, 22 Nov 2026 08:59:15 +0000
+In-Reply-To: <20261122-tyr-reset-impl-v9-2-ed42d8f513ec@onurozkan.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,10 +80,10 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261122-tyr-reset-impl-v9-0-ed42d8f513ec@onurozkan.dev> <20261122-tyr-reset-impl-v9-1-ed42d8f513ec@onurozkan.dev>
+References: <20261122-tyr-reset-impl-v9-0-ed42d8f513ec@onurozkan.dev> <20261122-tyr-reset-impl-v9-2-ed42d8f513ec@onurozkan.dev>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261122085914.1094403-1-aliceryhl@google.com>
-Subject: Re: [PATCH v9 1/2] drm/tyr: add GPU reset infrastructure
+Message-ID: <20261122085915.1094533-1-aliceryhl@google.com>
+Subject: Re: [PATCH v9 2/2] drm/tyr: put iomem behind the hardware gate
 From: Alice Ryhl <aliceryhl@google.com>
 To: "=?UTF-8?q?Onur=20=C3=96zkan?=" <work@onurozkan.dev>
 Cc: Alice Ryhl <aliceryhl@google.com>, linux-kernel@vger.kernel.org, 
@@ -95,24 +95,20 @@ Cc: Alice Ryhl <aliceryhl@google.com>, linux-kernel@vger.kernel.org,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Sun, Nov 22, 2026 at 08:40:32AM +0300, Onur =C3=96zkan wrote:
-> Add support for scheduling GPU resets on a dedicated workqueue. Track
-> the reset state to avoid queueing another reset while one is already
-> pending or in progress.
+On Sun, Nov 22, 2026 at 08:40:33AM +0300, Onur =C3=96zkan wrote:
+> Move iomem mapping into HwGate and pass Arc<HwGate> to components that
+> access hardware. Callers obtain HwAccessGuard before accessing the iomem
+> so the reset worker waits for ongoing accesses.
 >
-> Use an SRCU based gate with mutex-protected reader admission to block
-> hardware accesses while reset work runs and wait for current users
-> before resetting.
+> Acquire the gate once per address-space operation and pass the guarded
+> iomem reference to its helpers. This prevents nested gate acquisition
+> from deadlocking with reset and keeps each operation protected throughout=
+.
+> Clone the gate Arc before acquiring the guard so mutating helpers can
+> retain their mutable self receivers.
 >
-> Stop new reset requests during teardown and drain any queued or running
-> reset work before releasing the device resources.
->
-> This is the initial reset infrastructure only. It is not wired to a reset
-> source yet as those will follow in separate work.
->
-> Link: https://gitlab.freedesktop.org/panfrost/linux/-/work_items/28
+> Suggested-by: Daniel Almeida <daniel.almeida@collabora.com>
 > Reviewed-by: Daniel Almeida <daniel.almeida@collabora.com>
-> Tested-by: Daniel Almeida <daniel.almeida@collabora.com>
 > Signed-off-by: Onur =C3=96zkan <work@onurozkan.dev>
 
 Reviewed-by: Alice Ryhl <aliceryhl@google.com>
