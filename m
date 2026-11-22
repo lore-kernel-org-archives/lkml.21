@@ -1,92 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795323350;
-	b=jo8PTpamcx7rJ+i9YesIEbivooysGP8smWEsIEwW5RDPPeDbP/5hKEFdXQBr13/f39RJ
-	 PkT3d3rAVjUQKSSt0a6X8De2QyLbzfS3Lg88RoPUP81ks7PBFzo9HP0qiuXCzW3SrF+oo
-	 BsuzChDsfjb6AMtD2xcgPtJBzhKXSQbqtmZNX0BBd6SBmPtv76f2HPh1LpatMEr/QelT9
-	 6Y8DC8102Dejs89hNoTwVpBaPZP2uh7Y0Fr7+52v5l+2pNKBuOnsIpgw7fVFIo2HQNWN2
-	 U/UqiFlLLz5nbkSegWEMlZLqIWycMZP3BsYDCrgQxMhBhlerUAG4wiaYhijFnab/bxQ==
+	t=1795323528;
+	b=yI8w9/JZaxTGHJ3nMzRsibrEYpI+Zrtwj/k6rpA3CRt9/2g38raLq9+NmjzH9jB4O5Hx
+	 ibEAVlj/fCiPsQfQvwz9tujIbyg+wR47ZyN9goMLMN68irad1FH6UVSzcUb8QF9QKzDMo
+	 iAcJ/A+iX6jcQm1tJdW8dn5NjjVzrYJGbWPN06NmBLOYlGBW0nvvhz7Ruc7OYYTx5Q6pa
+	 9yYMrXHDE4dJBmc44QywzI0jDJlf1sOeFblZf5e7sv3242/q9mvQCu7Fe91QCtvJup0dF
+	 0yni7R8HRW5Xd4j3R5yuETs8g6diHfcUoZrG5yMhhbs6vY+OUsvbNK+jpSRWguqQdJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795323350;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=KewcbK56oZjNmCRF93X2jQ9HTPDY+IubXbrWyxoc+jw=;
-	b=FcoFmIAAdn1tW4DL/HKD37WCID+/kQeNoGNms6N4MZ2zxBatkxQrC+1hDcYhoW4hg4CN
-	 nQfFV47njs1ic6lXoj1et1W/Gq74ziHfxdfbar8l6Blg+ZphFLZFMQQWqG9Pkg0AIfwGg
-	 XlNLNgmWsp9RXrz1vnVKdMPr/lCLVFAD1dLkK5SBxBb9W5jkjcuuMDhd5K8U5/RL2qgYC
-	 TSYPhi2uvvF/Rs2aKp1SX1Cd8Gh2r9AQI8cRG6MIa8hUXy96cIZDX+CU+YSQHEZT6QByj
-	 uwSr8rcbX/zMVUqg4NMUX1JsvVVcWNCBmuFWHnbnqiaqBjiXIX2QKKHGDjrqhQODovQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795323528;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=F3QLio3AscsLh+2pvh7N6KImPKdVE87TLT/zX5+h2pQ=;
+	b=leZf6F2FuqvDJuOAb3eBoDRWs7iBmU0+Y2hrAyRkeJ+mqJaz1fDgLRbb9NA+2LWrnXAO
+	 wbZqfqRSM/CEPRQqTvmPtAy/AXBQII3pjs86ZyeqjCQls13uHz1R0fiqZgJOIwsFZObaz
+	 JUfbVo9gbw5i6ONraZv3BTB6+Dx7u9bVdtXkNXBSNdvOV4UvVOQiTb2TA6/vqSdPj7b2n
+	 RwT1D8BpMCP4Sv84hBXIYMeSsRpRIecPEmgMHCnjZ2BcYrEtl4hRbyjrO8R7rbGA422GN
+	 jwJ+0pqt8GhPl20043mfGR7ak2fdw492JojWssCGaaoNT+pC3Uj1Bn4uOBgOt9VKHrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=XwLamNMf;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iynhWeN4;
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BA7B606A320;
-	Sun, 22 Nov 2026 04:55:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BA7B606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E3C7606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:58:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E3C7606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=XwLamNMf
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AM44oX63672982;
-	Sun, 22 Nov 2026 04:55:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=KewcbK
-	56oZjNmCRF93X2jQ9HTPDY+IubXbrWyxoc+jw=; b=XwLamNMf87+ta/lbVmPRAO
-	OKfQUc7gQF9SokjYt5kI7cdaZRPOpJaf6e3l4+gUi/dYzzidnia4CJOxTf1hnSXS
-	yYRaxVHHFui8sAEv0JPsbRSLIE0YbjqBTMqOl1j3d/5nOoGhcaaBgldazGR2A9ie
-	BuL7Vqf4FPdNux+TxxaurtoVOW+ZRoLS1+paW/qM9+JBFyNz+4Lo+Tl7HAMtXt4A
-	ALJ85afqBq8wt1TE21zyNEjC+MIDIavebeN7qKSOnzsmF5+gGL+fVBVuFCFgW8E8
-	gk0QRz6dMmtZo0mkxzqz62Qtq7QSkE1jVVKKsxBB4sT7+vDiMTKv52rHYO00P5gQ
-	==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34guvumc-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sun, 22 Nov 2026 04:55:32 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AM3nJfv2766997;
-	Sun, 22 Nov 2026 04:55:31 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j3qufgegd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 22 Nov 2026 04:55:31 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AM4tTx645613436
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 22 Nov 2026 04:55:29 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BDE7020043;
-	Sun, 22 Nov 2026 04:55:29 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1B34920040;
-	Sun, 22 Nov 2026 04:55:27 +0000 (GMT)
-Received: from Linuxdev.ibmuc.com (unknown [9.43.90.96])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Sun, 22 Nov 2026 04:55:26 +0000 (GMT)
-From: Madhavan Srinivasan <maddy@linux.ibm.com>
-To: Michael Ellerman <mpe@ellerman.id.au>,
-        Gaurav Yadav <yadavgaurav386@gmail.com>
-Cc: Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>,
-        linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: PPC: BookE: Use vcpu_err() instead of printk() in kvmppc_dump_vcpu()
-Date: Sun, 22 Nov 2026 10:25:25 +0530
-Message-ID: <179532322375.92012.11986007993512084245.b4-ty@linux.ibm.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20260807084050.25216-1-yadavgaurav386@gmail.com>
-References: <20260807084050.25216-1-yadavgaurav386@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iynhWeN4
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-38699cf08dfso1572021eec.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:58:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795323527; x=1795928327; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=F3QLio3AscsLh+2pvh7N6KImPKdVE87TLT/zX5+h2pQ=;
+        b=iynhWeN4gpV9WpcFJKJKQzv0Npt/bxr3E+iEa25Y2BjgaoxbpHvQdMsIBpsXUqerDj
+         hedLrg/AhtkD8omOXtvSx7eH54EXEEu12XQ176IdCTDFkwdup6Ugwtlpx8L5Ds8O8N29
+         rDnXCcVlQVR/yFB5Q7X06MJj/jRhFN7wjwzhNd8Mne7eo9zwXwMaTj+Ah6I+6voLT0By
+         2wy/oBR6HE+fgXhNtfQl3qPammeOevGEP9NTMhkKDpOh0pOr3uipEG+CLTOK85gQGfcb
+         7lDGq5aiVc1Z5IG9fkwyPybbcCKKC35L6dgifD9POJBeyFs1l7e8TxpwHNdoSuFejvKp
+         2FrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795323527; x=1795928327;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=F3QLio3AscsLh+2pvh7N6KImPKdVE87TLT/zX5+h2pQ=;
+        b=f4e7V5NknG8eXGpJtIUOC2fApzK024FtcXdYobUtfgM1FkEceUn7vb4D2oshH3e4Xi
+         svk5OddIecCi3ISj6+78jmjq7qJG93j14036j7iJBr0tJ3oJCYxe+NRZQ3/BCqfGdjZ2
+         DYjf/24kkkJmUqnMwzWOLVekQytxkQZohne9kabbvTC5u/DooxGAt5QP9nUmR5l1SOMX
+         CdD4uUPClflZjQydJS7DZfP7AKIN2evoSnpmQfow6T9VuXDzdajt+3U7IhCYbnaFDPAk
+         K6HRNOeqnKEMjWnVtXS1WCpinrVKYSPVrOQaxIwLHHRmu00+OYUtq1MC9mTXAfmMqvMe
+         04ZA==
+X-Forwarded-Encrypted: i=1; AL+hErH5/Mga9IQtMJjJkh5YUXiC8chcjwR8wm85rvhzDGsQKScbj1zZAsYbBMGz/0lxTCDWvI5dhT6Luyz14Qc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+dZiS+6Svld9T+7qcVZKU6eRhzjwIYladlkTSVO/lfD25QbBRy
+	KNdYJR50TG4SvfkgVsYje6A2mUnzRZvXE1DAMFjJVcowt6DvxR+XsoCD
+X-Gm-Gg: AZFdTZcY7AynG6gkNQtbXl3vCIokcZ13axypdUlv3vPL9+EmucundYymqMaAOC9WR+4
+	q5hGpYfVFnijcboUA+mtoKS49/Gu7N0xYNx1NIvQ2WVt7ePUhdM/QbDkLhdOB9rma/2oE6j5P2k
+	L6r3hHxLzDTmJSjODptA4uJeOc22tzZEcSJ7xyFAZFjnONvHV3bdq0mNnq3OkgUtIfPnXnBaNuv
+	j07ZNVdVjVLgytQwDtQ0HwJEebeBRI6RH9b6f5aDcbTjeP70FwGJtvewXro2Afokf5bkeRcnto4
+	HVN2rtWIYe5GmwrjIdNusZ8P5a6jC43cGjcjAABzQRtxrGaxvMfiWicO3l7GfHbOac9W0PB1CP6
+	6o6LURIWXRt6BKxk1f8QkVWbqiH+YvuR+JCt3cygANay9zbvzjoqpAi+U1P9c83hXPn/HeWbVoe
+	YZrXmc9QVoHxVMwTPR8gziOerA2yVVwa/ttsV87iCG2EXoqwWckrUAhD+1DDxe0xHx8fpTEW3cb
+	JEdgVxksm1HrBI3ZIm4e27NRrWAOBcGXoAXIDzcQoR1wfH0FEu6qQs2MouV69Lu0GjRiSHkdh/a
+	uBQwEayTp22ly0sSyRg4Fk319PloI0z2AgzqApLJJ8vxF2UGBIml
+X-Received: by 2002:a05:693c:4001:b0:370:d6e4:e8aa with SMTP id 5a478bee46e88-38570b34fecmr8521946eec.41.1795323526357;
+        Sat, 21 Nov 2026 20:58:46 -0800 (PST)
+Received: from fred-server.tail1cd3ef.ts.net ([2600:381:4c20:1067::7ff])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm38865118eec.3.2026.11.21.20.58.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 20:58:45 -0800 (PST)
+From: Fredric Cover <fredric.cover.lkernel@gmail.com>
+To: Paulo Alcantara <pc@manguebit.org>,
+	Namjae Jeon <linkinjeon@kernel.org>
+Cc: ChenXiaoSong <chenxiaosong@chenxiaosong.com>,
+	Tom Talpey <tom@talpey.com>,
+	Ronnie Sahlberg <ronniesahlberg@gmail.com>,
+	Shyam Prasad N <sprasad@microsoft.com>,
+	Bharath SM <bharathsm@microsoft.com>,
+	linux-cifs@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Fredric Cover <fredric.cover.lkernel@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] smb: client: convert DFS target node name from cache charset on mount
+Date: Sun, 22 Nov 2026 04:58:40 +0000
+Message-ID: <20261122045841.99012-1-fredric.cover.lkernel@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,51 +102,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=CYCdd7rl c=1 sm=1 tr=0 ts=6b0275c4 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VwQbUJbxAAAA:8
- a=MdpIrRKBePn9w66PKCMA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIyMDAxOCBTYWx0ZWRfXz/YxoQvCypfA
- ceWttOwK0ZFOPx2R/Q+7pzuCBMA3yYhzTVQ3k2IpRZ5ZSASF+jJiooZYT9wFKlspFITe7KFU4Zo
- 17zR3lhPQUlkRf8dVoFTvfunF2+WdKE=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIyMDAxOCBTYWx0ZWRfX9h7479ulO/dX
- LHJx//TeCYVofoXUCaDxS37dnl/QR3qeIyimrW+Jp1pW0xa5RSHFk3q3VkS2N2fIcYu70RTwZuj
- 071G/nFDbH35ejfezkQpVUF+E4XIkY39D+Pmufd4YE5AQso3w8V94lI6F1JF4zUitQlNcIyEdUX
- 4whawB4NlL3ZEPRPqWXrl2XplO74v3j3CrGBFdcE7c8ZRpxpKXNy1KJhPJcQyMYN9GbSaAMydKk
- Tstno5/3/Awk6/uSQ+/cNsJOGuxDUN0adwLAVdUBrFPx4bRY4MvW61kpnOXqdUKrDWPRWJNYWCy
- w0nXoWq/3WRidDtMMEnBiLHKXa/1umXlk0/EuDBnx2paFNf0enbpyPJMtvr9yBWPyxzBuI9t047
- U8xRdInKRiuwQzlFeYbUIl7RPx/sj5oufOtC4VJHykZtLIcwRJyQNJYzmGjsUdP7wjMQ6c4ho38
- XowrPnrz+w8SNezBb3w==
-X-Proofpoint-ORIG-GUID: 8ayBAf8X8rEvDU0NCMa86urG__PzPvtf
-X-Proofpoint-GUID: N2uqNbXCFFjR_JRDdvaJ3IFDov1BhLGO
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-22_01,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 priorityscore=1501 lowpriorityscore=0
- clxscore=1015 spamscore=0 bulkscore=0 impostorscore=0 adultscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611220018
 
-On Fri, 07 Aug 2026 14:10:50 +0530, Gaurav Yadav wrote:
-> Replace generic printk() calls in kvmppc_dump_vcpu() with vcpu_err()
-> and remove the corresponding TODO comment.
-> 
-> Using vcpu_err() provides vCPU-aware logging context, making it easier
-> to associate register dumps with specific vCPU instances in logs.
-> 
-> 
-> [...]
+parse_dfs_target() converts @path_consumed to the mount charset using
+dfs_consumed_to_local(), but @ref->node_name from the DFS referral cache
+is still encoded in UTF-8 (cache_cp).
 
-Applied to powerpc/fixes.
+In dfs_parse_target_referral(), passing @ref->node_name directly to
+cifs_build_devname() and smb3_parse_devname() copies UTF-8 bytes into
+ctx->UNC and ctx->prepath (and mixes encodings when @prepath from
+@full_path is also non-empty). On mounts using a non-UTF-8 iocharset
+such as iso8859-1, subsequent path checks re-encode these strings to
+UTF-16LE using local_nls, corrupting non-ASCII characters on the wire
+and causing initial mount to fail with -ENOENT.
 
-[1/1] KVM: PPC: BookE: Use vcpu_err() instead of printk() in kvmppc_dump_vcpu()
-      https://git.kernel.org/powerpc/c/54efc2e1e9af9e3a14264db5686330e4fd477286
+Convert @ref->node_name from cache_cp to ctx->local_nls with
+dfs_cache_local_path() before building the device name so ctx->UNC and
+ctx->prepath stay in the mount charset.
 
-cheers
+Tested against Samba with iocharset=iso8859-1 and iocharset=utf8 for
+both DFS link referrals with a non-ASCII target subpath and mounts with
+an additional non-ASCII prepath, including reconnects.
+
+Fixes: c870a8e70e68 ("cifs: handle different charsets in dfs cache")
+Cc: stable@vger.kernel.org # depends on: smb: client: convert DFS prefix from cache charset on reconnect
+Signed-off-by: Fredric Cover <fredric.cover.lkernel@gmail.com>
+---
+Note: Applies on top of "smb: client: convert DFS prefix from cache charset on reconnect".
+---
+ fs/smb/client/dfs.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/fs/smb/client/dfs.c b/fs/smb/client/dfs.c
+index efef00c33321..6b212e49cf92 100644
+--- a/fs/smb/client/dfs.c
++++ b/fs/smb/client/dfs.c
+@@ -25,6 +25,7 @@ int dfs_parse_target_referral(const char *full_path, const struct dfs_info3_para
+ {
+ 	int rc;
+ 	const char *prepath = NULL;
++	char *node_name = NULL;
+ 	char *path;
+ 
+ 	if (!full_path || !*full_path || !ref || !ctx)
+@@ -40,7 +41,12 @@ int dfs_parse_target_referral(const char *full_path, const struct dfs_info3_para
+ 			prepath++;
+ 	}
+ 
+-	path = cifs_build_devname(ref->node_name, prepath);
++	node_name = dfs_cache_local_path(ref->node_name, ctx->local_nls);
++	if (IS_ERR(node_name))
++		return PTR_ERR(node_name);
++
++	path = cifs_build_devname(node_name, prepath);
++	kfree(node_name);
+ 	if (IS_ERR(path))
+ 		return PTR_ERR(path);
+ 
+-- 
+2.53.0
+
