@@ -1,115 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.89.141.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795364307;
-	b=isHyECE2gqrMrbxr4S1cG9RI9Ns7nQ6ccpZhl8+VBRyReK8FJcHKYRMr5W1qSn74XLaS
-	 spOjFrYsuVs1p9jq6UB1cQrXj2xSj5Yrl2viRwi6tlrbkTl+UD7SboZnYeO0zdmKAEGdt
-	 0iOBgmnjrbn9HW9i1vti3PmRud0Q4Y+dDbCvUbBD1JeDf8WreT6lWMw5FvZx3dsHSGYJv
-	 sAHlR80pBMA2KGN4yuBnzVG5IDPTUw9+DHCtWhNkgmPg5OiyZMREA4Q2rlQ2yFT5+Zdex
-	 N6HL7RO69/PGAngoFnH7npP3ocSoLhq6jup70u3sM93zHL5KRc2fc/Gmrq6flC54UrQ==
+	t=1795364418;
+	b=zDjfPbtddh/olnJEAIeUJbv3V52GSINbS0i6690+NMByvInkDzAkPWdO6zUCdWdt4far
+	 KkrRzlOyc16dYYxq/zyqS/g1yIcRxbHkPL1/sKF6Ibk+tEkARGh/wD75yNwdpI1GyBKpX
+	 0kxPJqzGn1XVCWv1ANPN1mRHEIs9l27pALHOKPtpandJ8giE3SS69jBWvLPlM3QJtIZWh
+	 Qo3232fB8jSW/55flBJ7yvbxWy71p+eb/hW9tI6ZL2R2Mv2XSP3E2q00Wpm5GnmlW2MHf
+	 Tyt5rwuF0ok1EWQz8vEcbpKPAeohPV0zEeCU7oQ10k+KKKa/jkr8DipXiE7cA2ZsQxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795364307;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:In-Reply-To:References:Subject:Message-Id:Date:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=8ZiEeOYhVKS03CHr35HdwHPjYPpUXJNlNyaUVNFPqXQ=;
-	b=BUAKzBsOBMHvt4XUhXDTDidmXtuUIIKMuuJLBrOdZvyQwOYQrsrV8Zlspa0HE9wdWQcL
-	 2f+TA4eGndZANfffCwxrn7Egu+0Uu2WeTV31VmVoN1/zi0d3mA/rhr7val908jBG55vei
-	 SH80VJvaXOhHqv+XQzLOoSMV6DHnSbbeM8jYviGcvut4/KvbjybW1bWVoGwMsFwmAAlGi
-	 CSyZe7R7J8auPXre9WrQgMDTGwRFnNSG7u0+SEd2t+qMR0mIWYOIssIse9RSRPu0qPRuH
-	 LYFuzWOLiNiaaLoiDV/t6G3HCxJqtQr9l9rTN44xcsjUORiu5QjJpM6wSfrqhak4nxg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795364418;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:Sender;
+	bh=3DbqJp0X7Ve7PIo1s2t06ZLb4Fsl6YMV0xgxf3cnB+E=;
+	b=TDzPrce87ZxD0vwxZHZzf90pqz7TbVjtsHka9mOn5s6R7Dwq+nCpVajmZw/jXMmnWiDi
+	 nIx5kYtgkAv/TW/4uMDFCzVTvjo85GlufVyMSKSkMbf2XqlUCBtc2eyXB0khz3GaOiqph
+	 Yph9yY/9/S0QEnMob6WIC4tcMXNP78IoPY0nGDbN1aBTVU0aEWX7iCM8psXbxlcEJfBHv
+	 5LqwFN2UbPba6zSsWq9VDKILMHXDZOXywP1keyptVap6w+kvnLfP4eHW0cvgc+hAQbpFs
+	 kh8FGA/VHCjfvGQr0yPr76kUlRnMfnGcu7llYzUb5rHcPGz2Ix51TrVJH9dLe8t/Y0g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=UYuil1Jp;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=zeniv.linux.org.uk;
+	spf=none smtp.mailfrom=ftp.linux.org.uk;
+	dkim=pass header.d=linux.org.uk header.i=@linux.org.uk header.a=rsa-sha256 header.s=zeniv-20220401 header.b=ZS2gWTBJ;
+	arc=none smtp.remote-ip=62.89.141.173
+Received: from zeniv.linux.org.uk (zeniv.linux.org.uk [62.89.141.173])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B332606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 16:18:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B332606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D309A606A320;
+	Sun, 22 Nov 2026 16:20:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D309A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=zeniv.linux.org.uk
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=ftp.linux.org.uk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=UYuil1Jp
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb77a462c6so26414175e9.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 08:18:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795364304; x=1795969104; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8ZiEeOYhVKS03CHr35HdwHPjYPpUXJNlNyaUVNFPqXQ=;
-        b=UYuil1JpVqZHpLxVePXNnzpVNmOMyOztBX7FDXfW8NAitnVCbIxeiJVUZP8fTAxjog
-         p11G/SEqtyxEyjc7Qjj/QOTXD6zCXJwOznL7B8zU3HHPJAVnZpaNnqJOIiu5KcJDlTrs
-         frvOwTGOHCkK8xrymAFRlWKA/3TxJNyiDi54/+y9N4TGp8opnzglrF3wlcieWPILpWZu
-         PC5w+smuXMZNQ3lJ/Z6Oze4Rr1CG0S+AJSiCvXZy5eUKnHhNZJ+wVmwGskY+o2qizl3+
-         VGszQjxr7HnsyUkhkhVrahUmPO+ieu2zNKrSGh4NGp1MhG6sSsu5KWbqgp49DHoE9Q44
-         7/Xw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795364304; x=1795969104;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8ZiEeOYhVKS03CHr35HdwHPjYPpUXJNlNyaUVNFPqXQ=;
-        b=XLNBIlpSjcLFHsyMmojR9eHPiX1C+WzUHuEbTMbTPZvISjwpN0Zj8/n1Jj+PRa4rNV
-         3R8A9CyDdzFbpI/bt1yrsIVmhBTFNPxVjTPEMkYaxiMF7Wc7JXTiEZbiZMZHwqI/OU/X
-         swjZ6cwsHJp7HrhkWNq1p2y2UPGQCmwuBZBqFkHamfuVjdw2Vor/JmyvCNqJ/fxNA74y
-         lieqbL2mUVojxDdYoPiC8HmtNjnyWIQrRZO0Vrx8o79G9J6+rcRaU7guO0TdhyQlvHSA
-         kHX/x1jTKzUJy5YqXr0P/PSaRiRd+0Jb2CvFRZVzf49+Le/foDHT+So5HNDLcQv2NgT9
-         QGEw==
-X-Forwarded-Encrypted: i=1; AL+hErEnt551hKIVXu3LcdK1/nYgyQ7Q0qI9/dTcm5RmJhcYTjspr1npOu3YJG+AcfpWyULmvhnq2qw3UF1BV2I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8nJoONXgKIx4X5SXvnwwP6y8dXcD69kLWwQlprCd846K6tZtcP
-	3wZYDcKLFFREHU+EgIYz/di+2EqvGqfP3Y+jizRMwZqXyHBKcy9KBaA8HYkuessSBqQ=
-X-Gm-Gg: AZFdTZd6tisqJrVQArhy7Y3MUbo4yGH1Pm9zxGMlU9ZYhuviPbxF92ya59mVaMmlo5W
-	30UG7HVNYh0/o0xJ94M/MTAX+jMfdSmOidX+kKbqjWw9syO3Rut0eFp0npxmk5JmNl/KZArfmG3
-	0dvJVnRNV2x7jISwBp4pFiBd5ZcRhqSk70zffe1sl1WUD8p6lHRelyXAydKokAMCaOqWBn5SdIM
-	7SgGlw9Lnrg6JKRdVHeOlkNo4A2OdlAKeae9kGdkxY9LNDXR/trx9BawMHAK0Jf8MOPFmK+wk4U
-	wCTvJftz3NfTvf3KPi8zYgmWLjTPMkI9Mqyxy7J0JvnoQgRpn9BVq7woroaqKJ6PE6N14cNIXpY
-	objQp0d1HfPLli3OiLDqdvu7IEJhLQvLDjHZihwY1BXB5tkCe/1yf3vdKPpIoK5fqRn0wNDvEDv
-	+VXLG/1X6MqdgzdPD+jS+tffdQXHqbIo1qQ1KRLYKhchdLmkx2zswGP6EOKVNp/m3TsErOKvIqA
-	3UDeeh33a77N07sgfRhdPDfvFgnoibLdv26w6TzvsxyVv0rM4du0khmPaGmqm6k1uwPsp070Ct4
-	F1nJvC5bbyhLwU1yEy90nzSqFFClZp0kEfLU9oipFan0oyCE
-X-Received: by 2002:a05:600c:e553:b0:4bb:9457:3c93 with SMTP id 5b1f17b1804b1-4bb94573c9amr46862925e9.2.1795364304705;
-        Sun, 22 Nov 2026 08:18:24 -0800 (PST)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8d4f9aa8sm226037545e9.4.2026.11.22.08.18.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 08:18:24 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Haylen Chu <heylenay@4d2.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Yao Zi <me@ziyao.cc>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
- Guodong Xu <docular.xu@gmail.com>, Icenowy Zheng <uwu@icenowy.me>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Sarah Emery <sarah.emery@canonical.com>, 
- Ze Huang <ze.huang@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Cody Kang <codykang.hk@gmail.com>
-Cc: Cody Kang <codykang@vsit.ai>, dri-devel@lists.freedesktop.org, 
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- linux-phy@lists.infradead.org, linux-clk@vger.kernel.org
-In-Reply-To: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
-References: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
-Subject: Re: (subset) [PATCH v3 00/17] drm/spacemit: add SpacemiT K3
- display support
-Message-Id: <179536429642.2728475.2044119204203952258.b4-ty@b4>
-Date: Sun, 22 Nov 2026 17:18:16 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=linux.org.uk header.i=@linux.org.uk header.a=rsa-sha256 header.s=zeniv-20220401 header.b=ZS2gWTBJ
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=linux.org.uk; s=zeniv-20220401; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=3DbqJp0X7Ve7PIo1s2t06ZLb4Fsl6YMV0xgxf3cnB+E=; b=ZS2gWTBJzykWsmG5LVmWZttcK3
+	3SJwQsFsbVVgjAyjc5UXa4bWBY11SEvfuhmEvYUR1fb9qP/hIstmGDYyBQh+hMuQVi7wtwmrtm6Pr
+	Rifqqyw+AmKrzjmKVckCJhMaNKAzNnWp3yG7huyZR1LqQvoLHXGGZ+rJ2bU57nsB9jkgpKiyAplQp
+	GDl6Sd9xnwH9QL/HKZgQ0T9qhZ5GTwGj5GtdLCk5etaPTl90uXLo6tzrgw2YqHy2A8mMnJa2uD1vT
+	8SSwDeszZzn22s9H4HG+3maQLAVxWe9FECYGkrtI4VPD/kPn8iv8nwRxUVEfskpz95VbT1Mfh6usj
+	fgWpX0jg==;
+Received: from viro by zeniv.linux.org.uk with local (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xVAIX-000000029ZQ-2UK0;
+	Sun, 22 Nov 2026 16:20:13 +0000
+Date: Sun, 22 Nov 2026 16:20:13 +0000
+From: Al Viro <viro@zeniv.linux.org.uk>
+To: Matheus Alves de Almeida <matheus.aalmeida@inf.ufrgs.br>
+Cc: Christian Brauner <brauner@kernel.org>, linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	syzbot+5585f47221c0de04168d@syzkaller.appspotmail.com
+Subject: Re: [PATCH] ufs: validate block and fragment shifts
+Message-ID: <20261122162013.GA453747@ZenIV>
+References: <20260925043337.87879-1-matheus.aalmeida@inf.ufrgs.br>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,24 +64,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=207; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=v3hfU9UHf+Kw6j8mPInDkRCmcdQcn/tFYuhWer9PVLA=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNnMouffLtac7bcg5TPvFslVKz/IiM43L2d2W3La8FzzF
- i6bCx9Xd5SyMIhxMciKKbLUcFeLv5PU+jJrus5tmDmsTCBDGLg4BWAim44zMmxxe2hesHqmrEzE
- C5a4iu+CTLL9sfqpvwrzRPpPFr2X/8XwPyhe6sxK569/On8WiM9u/vRjfl5c4ZyfsjXJvPYlub7
- z2QA=
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260925043337.87879-1-matheus.aalmeida@inf.ufrgs.br>
+Sender: Al Viro <viro@ftp.linux.org.uk>
 
-Applied to clk/linux.git (clk-spacemit), thanks!
+On Fri, Sep 25, 2026 at 01:33:37AM -0300, Matheus Alves de Almeida wrote:
 
-[06/17] clk: spacemit: k3: parent eDP/DP pixel clock to the PHY PLL
-        https://git.kernel.org/clk/linux/c/dd010f2b662d
+> +	if (uspi->s_fshift != ilog2(uspi->s_fsize)) {
+> +		pr_err("%s(): fragment size shift %u does not match fragment size %u\n",
+> +		       __func__, uspi->s_fshift, uspi->s_fsize);
+> +		goto failed;
+> +	}
 
-Best regards,
---
-Jerome
+That's an odd way to do it:
+	if fsize is not a power of 2
+		fail
+	if fsize is below 512 or above 4096
+		fail
+	if fshift is not equal to ilog2(fsize)
+		fail
 
+Why not
+	if fshift < 9 || fshift > 12
+		fail
+	if fsize != (1 << fshift)
+		fail
+and, while we are at it,
+	if fmask != fsize - 1
+		fail
+is also missing there...
