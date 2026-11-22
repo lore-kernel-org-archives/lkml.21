@@ -1,119 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795379245;
-	b=q5fdY9xTLpj7NeD2NuuKL0gAGLaBrpW3+4zpRPFGuPhaj69wSfAPrpviU/C3ZOBhonvy
-	 Zi6p2URQocwUsbnqMsR+FqiFtASgy9ai6Pi6wR1YHnTDiabbt/EXdYNLzjJM2uQATp6hf
-	 R7A8XEMrER7qSnWOBxdpteEw0Tnf7oUKsKeK3edBUA244ZRm5TERlxobHbgImOSyRqXlk
-	 pNJGWGtfybQkdUUwtJGpZTs4X2mdGSidVBgwPDOkwfz1ZMmkCSETktks0qi/MgXCZ/wcW
-	 b+sv9VFSrQaw0agcjQAaypHusovjYlpDizpU1RMuZo9Yy51d1lJu/z2bJB5Nemmb5Xw==
+	t=1795379290;
+	b=TM3rK5wsjJctdVZvhAae09zHyW9OQp3z3dEnG7FStV0Ii5ZY1gZwsBnl/XVGkzew4lfw
+	 AUoZMCcVnclJ/AEtzTNe7brg0KfZGNcAW2rIWRsqHtmTeVoKTjjnZr3I1i3GS+NjBYy1i
+	 qtl4PNOTqIuLNzN+IsjWDQcpBbyYftNY2LrWLkbUrRlEBpshTGV3EwGJAvs97h79bsDMh
+	 cWSck+jJLrpscqkkv36TplSHtfNkfsoeBnrcP49gH3suqMQBUBDINfaEuNm326uFfznw+
+	 NAuPLD70vTDOcDipnd4ntA+SUmJoRNZ6HS90pLACuJtN/HzMJ2w+/FIegnu8J0A9ifA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795379245;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=sQDVuZluf8hD6XSUePZUWArQRh9PmFlRuzSAFyE+NUg=;
-	b=TkrbTlDIsvX1nHapE8YMQeZKquStIXDjx3mwO3s3iGbzW70HQPLIkRQq3rsJckVXaO7P
-	 jONIiG5Mr4S+l1YvDtkGphMtWsggNXx5EK5RYHPqI0orhOQM7C7V2hfSubxMxDR9NL9No
-	 RsWVHdsWPItT17e9MxDZyo1Y99ZpnyBUYnTVq7SzLI2o/TJ7Fx0cZIfinVIrlOITg30dq
-	 cfzZ8XG3J7uLb4h/nYVC7OvTv3n33VSdsq5kjQZ0qrFTY1E6FHisoIzti/DtFDadf16oV
-	 o+or+8/SCxUAmun0Ek3LjCUjZNpg5Iyk8yYK0tCut4lc5XkK3NpJRlTGjmhzQtl431g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795379290;
+	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
+	 In-Reply-To:References:Subject:From:To:Cc:Date;
+	bh=g5BSMgQQGkCT/g88ue+zmET8GWlmL1qSQjkUJLeU+lc=;
+	b=M+sY79Fu7nlrlF1ZJ8mAVZdpXr789NDzLxWiPvFE+OT9cPdAJXnZW6xCV8uQrvgeDEvv
+	 lN5r/+mv7WlD1qnR1oNj3u0XtzJ0S6ykWKUvRYOaPPEnUdUD+1iXAh+weaTJT7usA7wlb
+	 J8hORGbyUDFETi+UnejsjgW6zNYxuHQWt0trLYhA7NQapjS6fatDOeWvnB2y4BQgoVTw5
+	 +KxLe6iastF0Q1r1NiMSMM7hsK4Gh8Y4VHshEI38UcIXc9ew9rmxdHPFQc6sZ2gAZA2eo
+	 wp/CUnvWMAXwh2eJjEley23vqCUB24u6FHSkRYBqiJ4UlwKTWxU1ncXJeparmpnl9rw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=YYDKzCWt;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="LRGcPHw/";
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UTfB8wPx;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B853606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:27:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B853606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65124606A32E;
+	Sun, 22 Nov 2026 20:28:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=YYDKzCWt;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=LRGcPHw/
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795379244;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sQDVuZluf8hD6XSUePZUWArQRh9PmFlRuzSAFyE+NUg=;
-	b=YYDKzCWtCuJ8q89nat5eQDhJYCYXkIxaa4bBj+kSFepP2eTd6dEhLqzyarD/5vmG3NWp8N
-	WXgw1HM3iduALpzl3y+Fl/M/P1EbrRs7nxh7sjDk7W1bmkJdjgswpAyIc74KBK3aY8KF5L
-	NsE3WQrYqIxZ87zPwiNujUWW4Na+S+I=
-Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
- [209.85.218.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-208-bXvRKcvZOiSqYfH52OxopA-1; Sun, 22 Nov 2026 20:27:21 +0000
-X-MC-Unique: bXvRKcvZOiSqYfH52OxopA-1
-X-Mimecast-MFC-AGG-ID: bXvRKcvZOiSqYfH52OxopA_1795379240
-Received: by mail-ej1-f71.google.com with SMTP id a640c23a62f3a-c508bafaddfso199062766b.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:27:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795379240; x=1795984040; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=sQDVuZluf8hD6XSUePZUWArQRh9PmFlRuzSAFyE+NUg=;
-        b=LRGcPHw/H4+m+odH3yKftlntTxHBu04oyLIpjZx/2Ho5eCVeNY5YZoMJAjCIkYr/53
-         KJtbsrzSc3mKURMiXc7JrtDFpyhzpqhKoVkmnoVdf/nrqMWNDhmidY9kRmDNlczYw8f/
-         Y829P8WUiNouvqkVr2ip6Tr0r6h+eGcBkEP/rdyNu9MFwYM20e6WwdlDOllE5vEhxBuY
-         gbJGpxNBvHBPuzKaMsTf5a8zWsqN1DDAn/7V4nBXFH5dSSVUYDw9vnW+pEgtlm2myjbT
-         GpkIJLXWDz8WGZAfz949octZuTgAR3PMZlWnJNhawSXZBKWDjHtKzLbpxzDtFW07Lxge
-         TELg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795379240; x=1795984040;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=sQDVuZluf8hD6XSUePZUWArQRh9PmFlRuzSAFyE+NUg=;
-        b=BvV4oXZQLjsqjxF6aHxjp2Jj4bVcuw3FXG5TzS45J1+9VRQ+1p43rnuN4Y/9BLe3K9
-         LKpCFHQTT0RFoovxvP0C6rrqPyf+h/RnTal1Y9ClxFVLWWH0f1UJEGhJyYXaW6w5HR7J
-         KaQ5TWBXSCMu9cGK4zvnIgC9CMLTPJ3WbIOyCPZSb/dICKFDahBmoQIcLRamxEOZULyj
-         DnfwwwusoP9inAtRr/xbJ50MvzvIAYPsJcpGD07ehvqF9PRJ6JfMyv5gFCoCodkPPiZg
-         ET8fQI3XZ0t2/Jms/Ay/GbmumPTO3j/dqh60GfeD5DbZmb8M92EQNdqyTglPECu286rW
-         T78w==
-X-Forwarded-Encrypted: i=1; AL+hErEdWiEHkUfETMKOZOhfLnEZIXxeFKhwE0VHI+/pk1atgeEl0tqaORdHbkOGONH/XWpL87A/fJkNhb5ts2M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Bktn5zcM9K7nr0Zssd8oExLLoFAfzaeYQvL7POQS5MBXZPjVO
-	sAnjHxUU1BwxK/IMVV+hK3SAsL2VbaIQZbw2mCz4c/xhcdhmalMTolsmO6ufXOu07x7AFuhXELQ
-	Wev9o2jlh9QGWrfr5usD7x+NQoSjQ0XneKDWwVy15e2QfUtd3bBa3eVIHGo1GcKPLIw==
-X-Gm-Gg: AZFdTZen0P063BWKHqXen35gdrDrQuJUcoIYzASLFrxUT5KXGqXHzGOtUDSSGsCNao9
-	zRZJQMNqb8P6KB9CeDi3dLWr8bgUjn11R183B5QrALLN7slil/3femmMib7xjBZur+0y8ulpc6y
-	qr5Ya41VVHvXNmhWgsu8m42NawgVcHDck6MtLXwk8oRgoo2K0CLG3/A860r+EVVKea/NN0gs57Y
-	2nIs7WLAVDEaIGyPQ1HfGZon0rEfvUShPt6BWQ/W8wbAciQpMKFX5P0U5hyEN9MRaRCLCJgwboI
-	u+FsbwK7rV73u+ImubbzVoSzMC3l+7g5Jq2VBWBRdSXX+cqDRDgUumnHDIL0ggh2OLNG4EA9l4w
-	OlQmqDtttOJ3mwRpQ5sBysaOS6PE/Hev03px51Vac27gGE6rmqKr0OsUYu+hWzEbqL/T1s2RgcC
-	3bI1vWyzwpeAbttzTZWqGNr8TEhdJ+4HyXum+NBccO7zQKDiioCEOZZHJphTGC6xS4TZs2Va9UH
-	NiHEI5wmbG5sDdGvDT1RXjBQpEfWVFuowCAjArLFPTl1kvLyyUL
-X-Received: by 2002:a17:906:3588:b0:c41:6de7:7dee with SMTP id a640c23a62f3a-c513a3ab1a7mr548910466b.7.1795379240276;
-        Sun, 22 Nov 2026 12:27:20 -0800 (PST)
-X-Received: by 2002:a17:906:3588:b0:c41:6de7:7dee with SMTP id a640c23a62f3a-c513a3ab1a7mr548909566b.7.1795379239939;
-        Sun, 22 Nov 2026 12:27:19 -0800 (PST)
-Received: from cluster.. (4f.55.790d.ip4.static.sl-reverse.com. [13.121.85.79])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae9f705sm342880666b.42.2026.11.22.12.27.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 12:27:19 -0800 (PST)
-From: Alex Markuze <amarkuze@redhat.com>
-To: Ionut Nechita <ionut.nechita@windriver.com>
-Cc: Ilya Dryomov <idryomov@gmail.com>,
-	Viacheslav Dubeyko <slava@dubeyko.com>,
-	Viacheslav Dubeyko <Slava.Dubeyko@ibm.com>,
-	Xiubo Li <xiubo.li@clyso.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	ceph-devel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/7] ceph/libceph: bound sync waits and speed up recovery after network disruption
-Date: Sun, 22 Nov 2026 20:27:17 +0000
-Message-Id: <20261122202717.1341108-1-amarkuze@redhat.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261120073431.53636-1-ionut.nechita@windriver.com>
-References: <20261120073431.53636-1-ionut.nechita@windriver.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UTfB8wPx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AD491F000D0;
+	Sun, 22 Nov 2026 20:28:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795379289;
+	bh=g5BSMgQQGkCT/g88ue+zmET8GWlmL1qSQjkUJLeU+lc=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=UTfB8wPxS/LlttWVeNSAmOOn251pAFPKGOJAcNLbwE1FGdHIcbaDIJ2IvUdtupMPd
+	 dVZ/mn2vHW/KnjNOIpN97gq2cSGqu7M0JJ7oIgH4pcIL+p3DRTxxQwz5d9lM+xhEAc
+	 t4C5W8b0v4yWMiU6OY4tMqGjjcWnXhTe7Rtu98duTLm64VZeuMOafAONH4HwD5JVwm
+	 VOUO+1QknJoLeQm1nU95gshjNy2lOFYLCcb80kTTZrKO4Zub+F/TNLKwGxI62ZGtaa
+	 jZxpasS6M1LGE5d7L28NozicCEpV1qDnqfvd4iiQAxR94A4eNPX0gXsT0lgKuiQ6+f
+	 4dvRXHczFhgoA==
+Content-Type: multipart/mixed; boundary="===============7258520623913429804=="
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -123,28 +49,201 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Message-Id: <ceb256f2afc7fa8c469f5f235f1e77aed593945868918788bc32ad76dee810ae@mail.kernel.org>
+In-Reply-To: <20261122193539.3334213-26-jarkko@kernel.org>
+References: <20261122193539.3334213-26-jarkko@kernel.org>
+Subject: Re: [RFC PATCH v7 25/26] selftests/userland: Add userland test suite
+From: bot+bpf-ci@kernel.org
+To: jarkko@kernel.org,linux-fsdevel@vger.kernel.org
+Cc: jarkko@kernel.org,bpf@vger.kernel.org,containers@lists.linux.dev,linux-api@vger.kernel.org,linux-arch@vger.kernel.org,linux-doc@vger.kernel.org,linux-kernel@vger.kernel.org,linux-kselftest@vger.kernel.org,linux-mm@kvack.org,linux-security-module@vger.kernel.org,aleksa@amutable.com,alex@amutable.com,viro@zeniv.linux.org.uk,luto@amacapital.net,arnd@arndb.de,brauner@kernel.org,dhowells@redhat.com,ebiggers@kernel.org,giuseppe@scrivano.org,hughd@google.com,jack@suse.cz,jlayton@kernel.org,corbet@lwn.net,josef@toxicpanda.com,kees@kernel.org,kpsingh@kernel.org,lennart@poettering.net,neal@gompa.dev,oleg@redhat.com,paul@paul-moore.com,ptikhomirov@virtuozzo.com,sergeh@kernel.org,skhan@linuxfoundation.org,zygmunt.krynicki@canonical.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Sun, 22 Nov 2026 20:28:05 +0000 (UTC)
 
-Hi Ionut,
+--===============7258520623913429804==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-The timeouts in 2/7 and 3/7 can make ceph_sync_fs() return while
-requests are still outstanding. syncfs() can report the error, but
-global sync() ignores the sync_fs return value. It can therefore return
-normally while an unsafe metadata request is still waiting for its safe
-reply. Both paths call sync_fs with wait=1, so returning an error from
-that callback is not enough for global sync(). Please preserve global
-sync's completion guarantee when adding these timeouts.
+> selftests/userland: Add userland test suite
 
-The default timeout in 5/7 also applies to the interrupt request for a
-blocking lock. On the v2 base, if the MDS has already granted the lock,
-the interrupt does not remove that grant. If the grant reply is delayed
-and the interrupt request times out, the syscall can return an error
-without installing the granted lock locally. The MDS can still hold the
-lock and block other clients. The underlying grant-versus-interrupt race
-predates this series; the default timeout adds another way to return
-before the replies arrive. Please exclude interrupt requests from the
-new default timeout.
+TL;DR:
+- Selftest run as root may propagate a tmpfs over the host's /tmp and leave it
+  mounted
+- Python 3.9-3.11 fails instead of skipping (os.unshare/setns need 3.12)
+- E2BIG check may fail on 64K-page kernels
 
-Thanks,
-Alex
+> diff --git a/tools/testing/selftests/userland/test_smoke.sh b/tools/testing/selftests/userland/test_smoke.sh
+> new file mode 100755
+> --- /dev/null
+> +++ b/tools/testing/selftests/userland/test_smoke.sh
+> @@ -0,0 +1,10 @@
+> +#!/bin/sh
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +# Kselftest framework requirement - SKIP code is 4.
+> +ksft_skip=4
+> +
+> +command -v python3 >/dev/null 2>&1 || exit $ksft_skip
+> +
+> +DIR="$(dirname "$(readlink -f "$0")")"
+> +exec python3 "$DIR/userland_test.py" "$@"
 
+Does this wrapper need to check for more than the presence of python3?
+
+userland_test.py calls os.unshare() and os.setns() at many sites, and both
+functions first appeared in Python 3.12.  Documentation/process/changes.rst
+gives Python 3.9 as the minimum.  On a 3.9 to 3.11 interpreter, with a
+kernel that has CONFIG_USERLAND=y, the tests that reach those calls raise
+AttributeError.  Inside Userland.run() the child does:
+
+    except BaseException:
+        os._exit(126)
+
+so the test only reports assertEqual(126, 0), KtapRunner.main() exits with
+KSFT_FAIL, and the run is recorded as "not ok" rather than skipped.  Since
+the Makefile change adds userland to the default TARGETS, a default
+"make kselftest" would show these failures on such hosts.
+
+Would a check like this be more appropriate:
+
+    python3 -c 'import os, sys; sys.exit(not (hasattr(os, "unshare") and hasattr(os, "setns")))' || exit $ksft_skip
+
+or an equivalent hasattr() check in KtapRunner.main() that exits with
+KSFT_SKIP?
+
+[ ... ]
+
+> diff --git a/tools/testing/selftests/userland/userland_test.py b/tools/testing/selftests/userland/userland_test.py
+
+[ ... ]
+
+> +    @classmethod
+> +    def enter_foreign_pidns(cls, rns: Userland) -> None:
+> +        with cls.closing_fd(rns.get_nsfd(CloneFlag.NEWUSER)) as ufd:
+> +            os.setns(ufd, CloneFlag.NEWUSER)
+> +        os.unshare(CloneFlag.NEWPID)
+
+A subsystem pattern flags this as potentially concerning: a selftest should
+not exit with a failure status when a prerequisite is missing, and should
+skip instead.
+
+os.setns() and os.unshare() are only available from Python 3.12, so on
+Python 3.9 to 3.11 these calls raise AttributeError even though the kernel
+is fully configured.  enter_foreign_pidns() is reached from
+test_clone_flags_and_pidns_ancestry() through check_exdev(), and
+check_dead_ancestor_pidns() calls os.unshare(CloneFlag.NEWPID) directly.
+Both run under run_forked(), whose "except BaseException" turns the
+AttributeError into a failure payload, so the result is "not ok" and a
+KSFT_FAIL exit instead of a skip.
+
+The kernel-side prerequisites are handled through SKIP_ERRNOS and
+probe_pre_idmap_mkdir(), and the interpreter requirement is the only gap.
+The Sys helper already calls the other syscalls through ctypes, so would
+routing setns and unshare through libc the same way, for example
+Sys._LIBC.setns and Sys._LIBC.unshare, remove the 3.12 dependency?  The
+alternative is to skip when hasattr(os, "setns") is false.
+
+[ ... ]
+
+> +            def check_child_src_slave_locking() -> None:
+> +                self.enter_userns_if_unpriv()
+> +                os.unshare(CloneFlag.NEWNS)
+> +                with self.closing_fd(self.make_plain_mount("tmpfs")) as tfd:
+> +                    os.mkdir("sub", 0o755, dir_fd=tfd)
+> +                    Sys.move_mount(
+> +                        tfd,
+> +                        "",
+> +                        Sys.AT_FDCWD,
+> +                        "/tmp",
+> +                        MoveMountFlag.F_EMPTY_PATH,
+> +                    )
+
+Can this leave a tmpfs mounted over the host's /tmp when the suite runs as
+root?
+
+When euid is 0, enter_userns_if_unpriv() returns without creating a user
+namespace:
+
+    def enter_userns_if_unpriv(cls) -> None:
+        if os.geteuid() == 0:
+            return
+
+so os.unshare(CloneFlag.NEWNS) creates a mount namespace in init_user_ns.
+copy_mnt_ns() only adds CL_SLAVE when the user namespace changes:
+
+    if (user_ns != ns->user_ns)
+        copy_flags |= CL_SLAVE;
+
+Without CL_SLAVE the copied mounts remain peers of the host mounts.  On a
+systemd host / is shared and /tmp is usually a separate shared mount, and
+nothing in the runner or setUp() makes the mounts private.
+
+The move_mount() onto /tmp then reaches attach_recursive_mnt() with a shared
+dest_mnt:
+
+    if (IS_MNT_SHARED(dest_mnt)) {
+        err = invent_group_ids(source_mnt, true);
+        ...
+        err = propagate_mnt(dest_mnt, dest_mp, source_mnt, &tree_list);
+    }
+
+so a copy of the tmpfs is propagated on top of the host's /tmp.  The
+cleanup at the end of the helper is only:
+
+    Sys.umount2("/tmp/sub", UmountFlag.DETACH)
+
+and when the run_forked() child exits, put_mnt_ns() calls
+umount_tree(ns->root, 0) without UMOUNT_PROPAGATE, so the propagated copy
+stays in the host namespace.  After one root run, the real /tmp contents
+(for example /tmp/.X11-unix/X0 or tmux and ssh-agent sockets) would be hidden
+behind an empty tmpfs until it is unmounted by hand.  If the test fails
+between the T_MNTNS move_mount() and the final umount2(), a propagated
+/tmp/sub is left behind as well.
+
+check_standalone_mntns() in test_pivot_root_and_standalone_mntns_hot_mount()
+already guards against this:
+
+    os.unshare(CloneFlag.NEWNS)
+    Sys.set_mount_propagation("/")
+
+Should check_child_src_slave_locking() call Sys.set_mount_propagation("/")
+(MS_REC|MS_PRIVATE) right after os.unshare(CloneFlag.NEWNS)?  The later
+set_mount_propagation("/tmp", MountFlag.REC | MountFlag.SHARED) would then
+create a peer group local to the test namespace, and the slave locking
+scenario would still be exercised.
+
+[ ... ]
+
+> +            big_buf = ctypes.create_string_buffer(65536)
+> +            with self.assertRaises(OSError) as cm:
+> +                Sys.userns_set_idmap_raw(
+> +                    userns_fd, ctypes.addressof(big_buf), size=65536
+> +                )
+> +            self.assertEqual(cm.exception.errno, errno.E2BIG)
+
+Does this oversized-struct check assume PAGE_SIZE is below 64 KiB?
+
+sys_userns_set_idmap() only returns -E2BIG when size is larger than
+PAGE_SIZE:
+
+    if (unlikely(size > PAGE_SIZE))
+        return -E2BIG;
+
+On 64K page kernels (PPC_64K_PAGES is the default for PPC_BOOK3S_64, and
+arm64 has ARM64_64K_PAGES), size == PAGE_SIZE, so that branch is skipped.
+copy_struct_from_user() then finds the trailing bytes zeroed, req is all
+zeros, and the syscall returns -EINVAL from the check on
+nr_uid_extents, nr_gid_extents and nr_projid_extents.  The
+assertEqual(..., errno.E2BIG) would then fail on those systems, which
+Sys._build_syscall_numbers() explicitly supports.
+
+Would a size derived from the runtime page size, for example
+mmap.PAGESIZE + 1 with a buffer of that size, hit the E2BIG branch on every
+page size?
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45063222848
+--===============7258520623913429804==--
