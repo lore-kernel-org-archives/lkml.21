@@ -1,46 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795382246;
-	b=P7Wxl6byJkFlvZQaUCgRZ47MlAL4ZSPCvWgMNnPAHj5afWr8/tCFj0MxXOUerOhQE22L
-	 Zd07LIocIxNJX6/2Q7/aX9dU2iiBxb6KIbGxSEy6yO510QCbDaQ83YZhkZd+ARcEeLQzO
-	 H4/l/8Yo+5ZZzRrtMVMZlvuGzGlqkrqsnqFMIh+4+2Pp4taDYLkK0ovWn8I6vFVgi/lNc
-	 x9AXo9f/bwzHeJG0qjbjd1wUDmoszXWdtoQyozBXa6C8m9vkTXO9TbXlhbvBJFE90gH+k
-	 cu/y4PZG6NUNfO1fRBeA7uuBQx2tfuaDhmwoh50FYVkZJNBvmYJ9WUg1nlNEQ6rPZNw==
+	t=1795382249;
+	b=enWpcqL+vBVzBPNqzy1Jw35GVu+3HJMas1XkSabCzwWGwK8h3XumQ+y29tB6HU125+ux
+	 6Br0sKXyfhL5FxdAsGWgz9aIQVppYkpmHrL4qkNkF8FAtVZHJA+KY5To77aMuofoBCmHv
+	 fJ442ZDNreDCqE3kxW37Zy42rZ44aXNydrHHH9nSR/QCcu2jCMirI116SgobIPduAD/TZ
+	 AbsBWzhTDF7B8w8EviHoE0EiDY5vukjufYQxVJXvEEUp1zE46cfK5eJBNIFGsKUw1ZpqT
+	 NoBKxhOXuTG6vH0xYGiKbjMYXTisOYRcdx9j1F6Yj1TNpbFaXcyANFFdfDrMfEZ+Ejg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795382246;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795382249;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=wRYkt/8bNJ83BACxmsyULTPzgzoASxC6Ha6Jh0WjC7A=;
-	b=djIljtAJTsGhxpRYWLZekoajM/KDERRdjYwY2v7NDLlCdRC0+vzDaNBPIikzWlyu7ijm
-	 FjlxSU9dMLKPDzzE8NxQkMrXEMOgkPhWyBd693DIbTluMzkm/noDdqizx3HPicw7Dxo2q
-	 tMe5qec1gVUsaE6Sxv2fWqHjnxRyt1evB/FWietT8dB+rcjTIpYSEJanVVP4LowyIkw2m
-	 LztGlsuSGmEkOn6cF+tfUvBrvG8PyVLkKXD3F/hPbOFagRHcUDoIXU4vcJ/F7LDktWhaf
-	 6VtGuPMd4ZVvGDun83a+WF/H9lZDT/O+kjtKWS2cGilhHCQFSae14WITpu5J9DzV3Mg==
+	bh=o0NKp8HiOP98FuBUmNxS8Y3b7MBHfe1gOi9fjsinfFY=;
+	b=lwA10hyCXroObVDVXH+MHL5mjlVru32dCWP3Vx84aIAbD31RECIzlKti9+DpikcWCiwQ
+	 pdzGXBmokVtuBHdhrAdvli1BspFQieil//mHZXSV1oVrkWxEE6USfhP0vvYUe8nUXfBWd
+	 4RRDiGWef/MtiNI2mlL35MEvu5g+EkZdUD9YJFqg8MCZEibd4pYQ7fNobamdf66BrFhzV
+	 51sCN24CCgCGG+/o+X6qkCTBd/lR418NCqHKuaAI4gOROAOKTXr8KdMjUi1cLPHO12wxe
+	 PV50/UGm+TX2hDcd6VZMTFxs8ocD1jnqwONclVCG7+eldqgQGM5AZCz/2O7ZzT8icrQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WIuYE0bU;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fuLw+ba5;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E158A606A31A;
-	Sun, 22 Nov 2026 21:17:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA586606A31E;
+	Sun, 22 Nov 2026 21:17:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WIuYE0bU
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D50C81F000CA;
-	Sun, 22 Nov 2026 21:17:24 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fuLw+ba5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FD101F000F2;
+	Sun, 22 Nov 2026 21:17:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795382245;
-	bh=wRYkt/8bNJ83BACxmsyULTPzgzoASxC6Ha6Jh0WjC7A=;
+	s=k20260515; t=1795382249;
+	bh=o0NKp8HiOP98FuBUmNxS8Y3b7MBHfe1gOi9fjsinfFY=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=WIuYE0bUeVh7j/c1tgbS8K7qmz+PGL4nSuV/JONTuW33K7yFbi2NGfmizYXYOwafi
-	 JA+MwHWxErlgc6mrZyIqiGsgfk3I2U4B5VjWTH+vaSi2vvsMZybYLWWhLL/UC/QzHk
-	 YlHwcmLGb14znJdpbxCyPXT0kh0Gz/VgpcN9+ThZj1PNL7vPXwYM/SFRyfF8rGuZk6
-	 5OilF8sZ+iWuAd7Us//Utc027aBFPDob3yimedL8MaIghJ+codIQTo1sfC8TFAXwLN
-	 6P/fpcBrLX2vxr43cAR/Em08metddXH4ctFZZe1WF3OxTbEfZ8EGOXczhmuBiMNO9/
-	 9sXw1OITOSvnw==
-Subject: Re: [PATCH net 1/4] netfilter: flowtable: do not queue offload work
+	b=fuLw+ba5nnp+s7zAFut5zjj87O8lowSNE/sOTamaaE3vy5HLQtIjKiV0dbl7WXZJa
+	 /BegfcIoz9BIt4+RwOwuTLL4IEn95P+PneCjd1QkFyWGzL9b6GWzbjx8fW6QJkL+hz
+	 ZG0/BW/sN78NLQa48z7JtWxh0NVTCIfLyqNZPzpvvPLSoqWyK2JeDhIFI69bT9lI0Z
+	 63vfGLdEBxtPhCLdKF5lkBphtt8Bm5R0ypyVQ3OZPM0+/Xdc4GEFPRGZh8mwdHtY85
+	 79vdEwMZZ7Bmk7TQCHrPlr+6m50mdPDwOqRv96x+7wG4AjagvvlTTMFCEM/zsBhpLb
+	 3o6aTwCUSq3SA==
+Subject: Re: [PATCH net 3/4] selftests: netfilter: check hardware offload work
  after DESTROY
 From: netdev-bot+sashiko@kernel.org
 To: florian.fainelli@broadcom.com
@@ -49,11 +49,11 @@ Cc: netdev@vger.kernel.org, pablo@netfilter.org, fw@strlen.de, phil@nwl.cc,
  horms@kernel.org, shuah@kernel.org, toshiaki.makita1@gmail.com,
  linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
  coreteam@netfilter.org, linux-kselftest@vger.kernel.org
-Date: Sun, 22 Nov 2026 21:17:24 +0000
-Message-ID: <179538224441.3135.6950839726802616846@kernel.org>
-In-Reply-To: <20261118201250.2075007-2-florian.fainelli@broadcom.com>
-References: <20261118201250.2075007-2-florian.fainelli@broadcom.com>
-X-sashiko-severity: High
+Date: Sun, 22 Nov 2026 21:17:27 +0000
+Message-ID: <179538224794.3135.4220034619044485875@kernel.org>
+In-Reply-To: <20261118201250.2075007-4-florian.fainelli@broadcom.com>
+References: <20261118201250.2075007-4-florian.fainelli@broadcom.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -66,10 +66,10 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 7 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+Critical: 0 · High: 0 · Medium: 3 · Low: 4
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -77,147 +77,254 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The new NF_FLOW_HW_DYING guard in nf_flow_offload_work_alloc()
-  (net/netfilter/nf_flow_table_offload.c) does not close the bug class…
-- [Low] The commit message describes the race mechanism and the affected
-  work types imprecisely.
+- [Medium] The new test nft_flowtable_hw_destroy.sh uses the top-level
+  tracefs instance, which the whole system shares, and draws conclusions…
+- [Medium] nft_flowtable_hw_destroy.sh never deletes the four netdevsim
+  devices it creates.
+- [Medium] nft_flowtable_hw_destroy.sh reports SKIP instead of FAIL when
+  no DESTROY work is seen, even though every prerequisite has already…
+- [Low] nft_flowtable_hw_destroy.sh sets
+  net.netfilter.nf_flowtable_tcp_timeout at line 105, before anything…
+- [Low] In nft_flowtable_hw_destroy.sh, `tmpfile=$(mktemp)` runs at line
+  19, but `trap cleanup EXIT` is only installed at line 40.
+- [Low] nft_flowtable_hw_destroy.sh starts the socat TCP listener in ns2
+  in the background (line 131) and then just does `sleep 1` (line 132)…
+- [Low] selftests: netfilter: CONFIG_FTRACE=y alone does not enable
+  CONFIG_TRACING
 
 --
 
-netfilter: flowtable: do not queue offload work after DESTROY
+selftests: netfilter: check hardware offload work after DESTROY
 
-This patch makes nf_flow_offload_work_alloc() refuse to queue any work
-other than FLOW_CLS_DESTROY once NF_FLOW_HW_DYING is set. The goal is to
-stop a packet path reader from queueing REPLACE work for a flow that GC
-is already removing, because the offload worker could then use the flow
-after it has been freed.
+This adds a netdevsim based selftest. It closes a TCP flow in a hardware
+offload flowtable, then uses the workqueue_queue_work tracepoint to check
+that no STATS or REPLACE offload work is queued after the DESTROY work. It
+also adds CONFIG_FTRACE to the netfilter selftest config.
 
-> once the DESTROY work has run and cleared the bit, a reader can take it
-> again and queue a REPLACE (or STATS) work for a flow which is already
-> being removed.
+> diff --git a/tools/testing/selftests/net/netfilter/nft_flowtable_hw_destroy.sh b/tools/testing/selftests/net/netfilter/nft_flowtable_hw_destroy.sh
+> new file mode 100755
+> index 0000000000000..c0675378bd86f
+> --- /dev/null
+> +++ b/tools/testing/selftests/net/netfilter/nft_flowtable_hw_destroy.sh
+> @@ -0,0 +1,162 @@
+> +#!/bin/bash
+
+[ ... ]
+
+> +ret=0
+> +tracing=/sys/kernel/tracing
+> +trace_mounted=0
+> +tmpfile=$(mktemp)
+> +nsim_ids=""
+> +
+> +checktool "nft --version" "run test without nft tool"
+> +checktool "socat -h" "run test without socat"
 
 [Severity: Low]
-Is the STATS part accurate? The packet path only reaches
-nf_flow_offload_refresh() through flow_offload_refresh(), and that queues
-FLOW_CLS_REPLACE.
+Is the temporary file leaked when nft or socat is missing?
 
-nf_flow_offload_stats() has a single caller, nf_flow_offload_gc_step(),
-and GC skips any flow that has NF_FLOW_PENDING set:
+checktool() in netfilter/lib.sh runs exit $ksft_skip when the tool is
+missing. The trap cleanup EXIT line is only installed further down, so the
+rm -f "$tmpfile" in cleanup() never runs on that path.
 
-	if (test_bit(NF_FLOW_PENDING, &flow->flags))
-		return;
+Could the mktemp be moved after the trap is installed?
 
-GC also never runs concurrently with itself. So STATS work that GC queues
-cannot race with GC freeing the same flow.
+[ ... ]
 
-For STATS, the only effect of this patch is that GC stops queueing STATS
-for CLOSING && HW && DYING flows whose hardware rule DESTROY has already
-removed.
+> +nsim_new() {
+> +	local id="$1" ns="$2" name
+> +
+> +	echo "$id 1" > /sys/bus/netdevsim/new_device || return 1
+> +	nsim_ids="$nsim_ids $id"
+> +	name=$(ls /sys/bus/netdevsim/devices/netdevsim"$id"/net)
+> +	ip link set "$name" name "nsim$id" netns "$ns" || return 1
+> +	echo "nsim$id"
+> +}
 
-> GC removes a hardware flow after NF_FLOW_HW_DEAD is set, and frees it after
-> an RCU grace period, which the reader can outlive in a preemptible RCU
-> read-side section.
+[ ... ]
 
-Could this be worded more precisely? A reader cannot outlive a grace
-period that started while it was inside its read-side section, because
-the call_rcu() in flow_offload_free() waits for it.
+> +base=$((256 + RANDOM % 128 * 4))
+> +a1=$(nsim_new "$base" "$ns1") || exit $ksft_skip
+> +a2=$(nsim_new $((base + 1)) "$nsr1") || exit $ksft_skip
+> +b1=$(nsim_new $((base + 2)) "$nsr1") || exit $ksft_skip
+> +b2=$(nsim_new $((base + 3)) "$ns2") || exit $ksft_skip
 
-What outlives the grace period is the REPLACE work that the reader queued
-on nf_flow_offload_add_wq before rcu_read_unlock().
+[Severity: Medium]
+Are the four netdevsim devices ever deleted?
 
-> diff --git a/net/netfilter/nf_flow_table_offload.c b/net/netfilter/nf_flow_table_offload.c
-> index 4365859220e6a..62f460d38efa2 100644
-> --- a/net/netfilter/nf_flow_table_offload.c
-> +++ b/net/netfilter/nf_flow_table_offload.c
-> @@ -1088,6 +1088,19 @@ nf_flow_offload_work_alloc(struct nf_flowtable *flowtable,
->  	if (test_and_set_bit(NF_FLOW_PENDING, &flow->flags))
->  		return NULL;
->  
-> +	/* GC only removes a hardware flow after its DESTROY work has run, and
-> +	 * NF_FLOW_PENDING keeps another one from being queued, so nothing can
-> +	 * free the flow while this work is pending, unless DESTROY was queued
-> +	 * before we took the pending bit. A reader which found the flow before
-> +	 * it was torn down must not queue more work then, as the flow could be
-> +	 * freed before that work runs.
-> +	 */
-> +	if (cmd != FLOW_CLS_DESTROY &&
-> +	    test_bit(NF_FLOW_HW_DYING, &flow->flags)) {
-> +		clear_bit(NF_FLOW_PENDING, &flow->flags);
-> +		return NULL;
-> +	}
+nsim_new() appends to nsim_ids, but every call here is a command
+substitution, and each one runs in a subshell. The update is lost and the
+parent's nsim_ids stays empty. So this loop in cleanup():
 
-[Severity: High]
-Does the claim that "nothing can free the flow while this work is pending"
-hold for flows that GC frees through its software-only branch?
+	for id in $nsim_ids; do
+		cleanup_netdevsim "$id"
+	done
 
-flow_offload_add() publishes both tuples in the rhashtable before
-nf_flow_offload_add() sets NF_FLOW_HW:
+never writes anything to /sys/bus/netdevsim/del_device.
 
-net/netfilter/nf_flow_table_core.c:flow_offload_add() {
+netdevsim's rtnl_link_ops has no netns_refund. When cleanup_all_ns deletes
+the namespaces, default_device_exit_net() moves the netdevs back to
+init_net, and the netdevsim$base..netdevsim$((base+3)) bus devices stay
+registered. This happens on every run that gets past device creation,
+whether it ends in PASS, FAIL or SKIP.
+
+base can only take 128 values. A later run that picks the same base would
+fail new_device and report SKIP.
+
+Could nsim_ids be updated in the parent shell after each successful call
+instead?
+
+[ ... ]
+
+> +# The statistics of a flow are polled once a tenth of its timeout went by, and
+> +# the flow must stay around for longer than that after it is closed.
+> +ip netns exec "$nsr1" sysctl -q net.netfilter.nf_flowtable_tcp_timeout=20
+> +
+> +if ! ip netns exec "$nsr1" nft -f - <<EOF
+
+[Severity: Low]
+Does this sysctl exist yet at this point?
+
+nf_conntrack registers net.netfilter.nf_flowtable_tcp_timeout in
+nf_ct_sysctl_table in nf_conntrack_standalone.c. The selftest config has
+CONFIG_NF_CONNTRACK=m, and nothing before this line loads the module. The
+first thing that loads it is the ct state rule in the nft -f ruleset below.
+
+On a fresh boot, or when this test runs on its own, the write fails with
+only a stderr message, and its exit status is ignored. The flow then keeps
+the default 30 second timeout, not the 20 seconds the comment above relies
+on. The current sleep values still give the right result, but the test is
+not running with the timeout it configured.
+
+Could the sysctl move after the ruleset is loaded, or could nf_conntrack be
+loaded with modprobe first?
+
+[ ... ]
+
+> +ip netns exec "$ns2" socat -u TCP-LISTEN:12345,reuseaddr /dev/null &
+> +sleep 1
+
+[Severity: Low]
+Is a fixed sleep 1 enough to be sure the listener is bound?
+
+On a slow or loaded machine, the client below can connect before port 12345
+is listening. The connection is then refused, no flow is added to the
+flowtable, no DESTROY is queued, and the test exits with SKIP.
+
+Other tests in this directory, such as nft_flowtable.sh, nft_nat.sh and
+nft_queue.sh, use wait_local_port_listen or busywait for this. Could the
+same be used here?
+
+> +
+> +echo 1 > "$tracing/events/workqueue/workqueue_queue_work/enable"
+> +echo > "$tracing/trace"
+> +
+> +# Send data for the flow to be offloaded, then close the connection.
+> +(for _ in 1 2 3 4 5 6; do echo data; sleep 0.3; done) | \
+> +	ip netns exec "$ns1" socat -u - TCP:10.0.2.2:12345
+
+[ ... ]
+
+> +destroy=$(grep -n "workqueue=nf_ft_offload_del" "$tmpfile" | head -n 1 | cut -d: -f1)
+> +if [ -z "$destroy" ]; then
+> +	echo "SKIP: the hardware rule of the flow was not destroyed"
+> +	exit $ksft_skip
+> +fi
+
+[Severity: Medium]
+Should this be a FAIL rather than a SKIP?
+
+By this point the test has already shown that the offload flowtable loaded
+and that forwarding works through the netdevsim devices. If no
+nf_ft_offload_del work shows up, there are two possible causes. Either the
+TCP connection never happened, or the kernel path that should queue DESTROY
+for the closed flow is broken:
+
+net/netfilter/nf_flow_table_core.c:nf_flow_offload_gc_step() {
     ...
-	err = rhashtable_insert_fast(&flow_table->rhashtable,
-				     &flow->tuplehash[FLOW_OFFLOAD_DIR_ORIGINAL].node,
-				     nf_flow_offload_rhash_params);
-    ...
-	nf_ct_refresh(flow->ct, NF_CT_DAY);
-
-	if (nf_flowtable_hw_offload(flow_table))
-		nf_flow_offload_add(flow_table, flow);
+	} else if (test_bit(NF_FLOW_CLOSING, &flow->flags) &&
+		   test_bit(NF_FLOW_HW, &flow->flags) &&
+		   !test_bit(NF_FLOW_HW_DYING, &flow->flags)) {
+		nf_flow_offload_del(flow_table, flow);
     ...
 }
 
-In that window, nf_flow_offload_gc_step() can decide to tear the flow
-down while NF_FLOW_HW is still clear. The teardown can come from a dying
-ct, a stale dst, or NF_FLOW_TEARDOWN set by another CPU after a FIN/RST
-arrives on the already-published REPLY tuple. GC then takes this branch:
+Reporting either case as a skip could hide a regression in the very path
+this test covers.
 
-	if (teardown) {
-		if (test_bit(NF_FLOW_HW, &flow->flags)) {
-			...
-		} else {
-			flow_offload_del(flow_table, flow);
-		}
+The exit status of the socat client pipeline above is never checked
+either, so a refused or failed connection goes unnoticed. Would it make
+sense to check that too?
 
-That path removes the rhashtable entries, releases the dsts and calls
-call_rcu() on the flow. It never takes NF_FLOW_PENDING and never sets
-NF_FLOW_HW_DYING.
+> +
+> +late=$(tail -n +"$((destroy + 1))" "$tmpfile" | grep -c "workqueue=nf_ft_offload_\(stats\|add\)")
 
-The creating CPU then carries on:
+[Severity: Medium]
+Can unrelated flowtables make this fail on a fixed kernel?
 
-CPU1 (creator)                       CPU2 (GC)
-flow_offload_add()
-  rhashtable_insert_fast(REPLY)
-  rhashtable_insert_fast(ORIGINAL)
-                                     nf_flow_offload_gc_step()
-                                       teardown, NF_FLOW_HW clear
-                                       flow_offload_del()
-                                         flow_offload_free()
-                                           call_rcu()
-  nf_flow_offload_add()
-    set_bit(NF_FLOW_HW)
-    nf_flow_offload_refresh()
-      nf_flow_offload_work_alloc()
-        test_and_set_bit(NF_FLOW_PENDING) succeeds
-        NF_FLOW_HW_DYING clear, new check passes
-      queue FLOW_CLS_REPLACE
+nf_ft_offload_add, nf_ft_offload_del and nf_ft_offload_stats are single
+module-global workqueues created in nf_flow_table_offload_init().
+flow_offload_queue_work() uses them for every flowtable in every netns.
+The workqueue_queue_work output only carries the work struct, function and
+workqueue name. Nothing in it identifies the flow or the netns.
 
-Suppose the work runs after CPU1 leaves its RCU read-side section and the
-grace period ends. Would flow_offload_work_handler() then use the freed
-flow in flow_offload_work_add(), in nf_flow_offload_alloc(), in
-set_bit(IPS_HW_OFFLOAD_BIT, &flow->ct->status), and in
-clear_bit(NF_FLOW_PENDING, &offload->flow->flags)?
+If any other hardware offload flowtable is active during the run, its GC
+STATS work lands after this flow's DESTROY and gets counted here. The
+DESTROY line picked by head -n 1 above may also belong to a different
+flow.
 
-If the work runs earlier, it seems it would still install a hardware rule
-for a flow that is no longer in the table. GC would never DESTROY that
-rule.
+The test also uses the top-level tracefs instance, which the whole system
+shares. The enable and the buffer clear before the client connects both
+act on it. On top of that, cleanup() runs:
 
-That is the same use-after-free and stale rule outcome the commit message
-describes. As far as I can tell, no later change in this series touches
-this path.
+	if [ -d "$tracing/events/workqueue" ]; then
+		echo 0 > "$tracing/events/workqueue/workqueue_queue_work/enable"
+		echo > "$tracing/trace"
+	fi
 
-Would it make sense for GC's non-HW branch to claim NF_FLOW_PENDING, or
-set a dying marker, before freeing the flow? Another option would be to
-set NF_FLOW_HW before the flow is published.
+This always disables the event and wipes the global buffer, even on early
+exits that never enabled it, and the previous enable state is never
+restored. Wouldn't that throw away the trace data and event setup of any
+other ftrace user?
+
+Would a private instance under $tracing/instances/ work better, removed in
+cleanup() and filtered on the workqueue name? Telling flows apart would
+still need some per-flow way to identify the work.
+
+[ ... ]
+
+> diff --git a/tools/testing/selftests/net/netfilter/config b/tools/testing/selftests/net/netfilter/config
+> --- a/tools/testing/selftests/net/netfilter/config
+> +++ b/tools/testing/selftests/net/netfilter/config
+> @@ -16,6 +16,7 @@ CONFIG_DUMMY=m
+>  CONFIG_FAIL_FUNCTION=y
+>  CONFIG_FAULT_INJECTION=y
+>  CONFIG_FAULT_INJECTION_DEBUG_FS=y
+> +CONFIG_FTRACE=y
+>  CONFIG_FUNCTION_ERROR_INJECTION=y
+>  CONFIG_INET_DIAG=m
+>  CONFIG_INET_ESP=m
+
+[Severity: Low]
+Is CONFIG_FTRACE=y enough to get the workqueue_queue_work event?
+
+In kernel/trace/Kconfig, FTRACE is the "Tracers" menuconfig. It only
+opens the if FTRACE block and does not select anything by itself.
+TRACING is the hidden symbol that pulls in EVENT_TRACING, TRACEPOINTS
+and tracefs. Only a tracer selects it, either FUNCTION_TRACER and
+friends through GENERIC_TRACER, or ENABLE_DEFAULT_TRACERS. Nothing
+else in this config fragment selects it. FTRACE also already defaults
+to y with DEBUG_KERNEL, so this line adds little on its own.
+
+Suppose a kernel is built from this fragment on top of a base config
+that has no tracer enabled. It then has no tracefs and no
+events/workqueue directory. nft_flowtable_hw_destroy.sh takes the
+"workqueue tracepoints are not available" exit and reports SKIP, so a
+CI setup that relies on the fragment never actually runs the test.
+
+Would adding CONFIG_ENABLE_DEFAULT_TRACERS=y here pull in TRACING the
+way you need? The landlock selftest config does this. Or is there
+another tracer option you would rather depend on?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118201250.2075007-1-florian.fainelli%40broadcom.com
