@@ -1,75 +1,75 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795323205;
-	b=A1stovjYEkBaww6GP72dxgZhe5EBMz4F9X0qkjGKKrOy0T8PD4h7gCxNBToDfLj70Ya1
-	 gC9VjVI9tAxBQzqhTsf3yvbTsT/0/023jOGpKc7Y0zmIqFKQZng7T1bJTJgbDKYUpE6dt
-	 5FNXwm5GIUsvbWHGbjZ5XOJUpvb0e0yhcg7If8Qdo5IPta2Aadf/R8i9jD9QcWGLjtJhb
-	 LVL8gIDnS65AWHc0T4IJa52oHi6ekqOpYInPEaxI7oqgKWmv0kdFu7Li9CtxTR81/U5VM
-	 6ml7nh/ykXLWHFiZN8MXrNKh91jr4cMm6554mV09CE1faUESc4LjUxbESuqdUt2fJJA==
+	t=1795323208;
+	b=qEaJPJdkd6tDPnsLtQ4QO31HTwWP+924bEzPiE9GOtgrhhw4q87fkoYXmnkAsEfDNIYj
+	 vG3ZDRlJ0kdWglwT6TFXNRwFof38g1DbavhPVN9cbll79NWqMOcouQCaJvsleXvAfrXwP
+	 PoZ6DWkecqJV84MZKVjKgGobpWPQQG1JYDffWIsF12WZoj0cdZZg9/MEqwFo/aPDCKYDy
+	 4uQfyQLzfAm/o3ck4SNu2K+wpW1sbGFWIxLQPgKsj58kX1PEzqCoy50y0Xop5L10Aaqye
+	 I6LTObxqjEm2WRtVXR8C/RmL5QpNKw7moXaTc4KIXdYZCHJDSiKMRXzwGIBqQR1VjrQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795323205;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795323208;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=pPZfXzdtdV8nq8V6brmrCDHD0rHVJANG6b7lQmazwt0=;
-	b=NVvdJuCSG5jTErfTtidKWxw2paBro1u6BIecxR64DX25HoRDdolv1ErkY+NWybdwXdaV
-	 VdHw4s3o3ilycRNJLJaT3n2OcrfNNlZ9eyfO4Hld514BF5cvy1ZitVFeLGvBGMnOV0946
-	 FiIVp7zKLH819FKAA/U1xqIp4qKrKluTOVwJ5RQfD8J1rBnRA0jGixqkBfNYlCcTj07q+
-	 QC+VmlGYGVL8DKc8tizT/9aNHZHd78ioHss19dX372LTSUY4xXTMW/gdn+++UAjg0HYhR
-	 ARVubMw8LXDCnR+UAf8PBbePUSgGTOP6akFMIucR0UN9epsCQAL/pWxejlHUuI+88Dg==
+	bh=R+8LakRjMdDQ9LrYjApbpVrM7y/vhgkxVS30t5HKZuE=;
+	b=y4xjNH5C7A4mL9e6T2/eDzeSfb7gsbJmaPU8emZKA0/ESkjiiJfRBq/GP60IpJrCXZva
+	 Z+oR7kcxJESzYJfJCHHU4H0qKvMAcsaphkxqCV3LicZczN19ju/h2uJPrZbcN7229UksP
+	 Z42RG7lzGMUz3HF4pZFNsLTnAjY2EGTiupUjvtyCcnT/06UlHvnEZooRG34oUVy98bmX+
+	 kiqa1o9QQDhOc6V4BG82z/IMksmZQyWpUbQptkFL4bA1w/z5D25uoG7EIK4vYpl4qkGYy
+	 yZgcoGB4usEY8CM3OvhqYpvMogfPL51cNj+mu2QYU59vQmZQblQf+rCsquTQ75wSBxg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=K4iMf1M6;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pX6EuxDD;
 	arc=none smtp.remote-ip=74.125.82.197
 Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93058606A334
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:53:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93058606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48F4D606A339
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:53:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48F4D606A339
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=K4iMf1M6
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-383ec96a7deso2590104eec.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:53:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pX6EuxDD
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-382af5cfc58so6709201eec.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:53:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795323204; x=1795928004; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795323206; x=1795928006; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:from:subject
          :message-id:references:mime-version:in-reply-to:date:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=pPZfXzdtdV8nq8V6brmrCDHD0rHVJANG6b7lQmazwt0=;
-        b=K4iMf1M6q6FfyHzWYGk7iVifuz22T3uz7hpCMrB3yJqVIVrtVNuWaFcvzeyA5vSDei
-         rBjCS6zQKpDyWucMjCjXnko1Jab8GtJb+hmla3k6cL9aQVwaXV37ogvEd/zqpCMoDAdq
-         /xMdTha3xHU7a4TlyZuFZr6/m4QjaAN8ctgWkAzuCk/2hqRsXl43wLa1NEGTuKnZw/F0
-         E/S87OchXXL0c66hNVbBfhU2lqzb1lWTRrVocEnGJ7J6Xeu5hDo1gcM6rM3gt1nSLnNB
-         7iJSEdygbCWHGx435/33GTdgRXlDWHAfIIIri61zSr57VWiOET+kQv6F2Jvm3xL7fosv
-         Rq7Q==
+        bh=R+8LakRjMdDQ9LrYjApbpVrM7y/vhgkxVS30t5HKZuE=;
+        b=pX6EuxDDH0Ys18jiyCaxzaWvZaozaHYjsrzEBLW+b10wT8Vaxjf7inpy7niBolsu9i
+         TZn6TAxx8aC+7VdxvaUJxCYTfa/7MNWvj5OhvNWWabLPNmsgCiQ9B4UAA+5e6m1kpvaA
+         6UxFDjxHI6TlJHiUtX7AA/jzFM5DS5vGom9NCB99eW1o+3K0Ku93jHjEmqcqcOPxNntY
+         vXSMq06ZH6fJlXnIvr7M25FWmtzCRvi8liuTK+KyGq/w/ffEp9fxwqhsmCdKG9iwvC6s
+         GpfiD3RTFS56C7q/UNGDFL/M25ztFp6o4/lJi+MV1kgpqO+3ERGZR0dT/jlAjbgZuwsA
+         X7wg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795323204; x=1795928004;
+        d=1e100.net; s=20260707; t=1795323206; x=1795928006;
         h=content-transfer-encoding:content-type:cc:to:from:subject
          :message-id:references:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=pPZfXzdtdV8nq8V6brmrCDHD0rHVJANG6b7lQmazwt0=;
-        b=PO2fIPFsGakEL4ejWfUxEfTx/RccM2geesaAVB4kUfhdtcgyj/WdgBrOtZYVTH3xpj
-         a8XZXKYKAUdhE8ff09WLGzty+PK8TEaatfHjz1nKy3kYuQjwPqOHG1E0KddEM25yqC3X
-         qbACApf8VIYO3zHoeyRg4LwB01albGopPhPNGLbN1kd9ReX9lWuyr1H76hQQqpJH7K8j
-         O+SvhHMwNw+S9yfkbr7FVdjuigJ5rDHg1ajHmVtLn44gF5rMAYzxQcX4UgqovhMJMoIJ
-         JchuXDjUJRonHRgEpRltT+/5gelyrNjZCRTHf8YNlvtuj9eTe810ndvqQBwvyZ7jESUf
-         XCgQ==
-X-Forwarded-Encrypted: i=1; AL+hErEqp1O/jxZp4kMh0VAvdbNG7AgKutDDUnL2LWw74ULZ3TayRjcPXTxeCTvB87AKxujzAfbvEP2Efz/zN5Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9DS/QUcppCSMpc14Aw7Mz5KkEsc80ZzlFsXDF9dElVPX9L4P1p
-	uta7wR9dx+AEUOWI2pq7tpn2XiCNtR51X7D351jlSPVQjFiEC+86XvNJnehpPEMl+CAcMvTrmgN
-	fkq5llxpLUQ==
-X-Received: from dycac15.prod.google.com ([2002:a05:7301:550f:b0:384:b800:2ab4])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:1486:b0:383:6eb6:5730
- with SMTP id 5a478bee46e88-38570e24c0fmr9359658eec.32.1795323204068; Sat, 21
- Nov 2026 20:53:24 -0800 (PST)
-Date: Sat, 21 Nov 2026 20:53:16 -0800
+        bh=R+8LakRjMdDQ9LrYjApbpVrM7y/vhgkxVS30t5HKZuE=;
+        b=uuS9rpRBH0Tiij5JCOzILO6MgPzZGZcvqdbrCUUVL+PNFaE0zyebfHELkY/uE1X2OC
+         z34M3WG8kKxN9LSfVh40VC0jcj8qFWEMJ30OVUmFKLDNz+sbn4R4vXIbQD3NkMu7bPUO
+         4jnjSA7t28vrq6IrOZlE1dlgbL/Z2PM6KG2eKwCuJrKjKF3wOLdvtC2TTHfjN3NPZcat
+         Qyj0PnvqSBtgz0JaVtxCLn42DExIq7l/iEigEyydPfw4VQerX+3Ik3h2rAxxPFDfmZyo
+         eUG3jKXXiIBng+//8qLJgMOC1WMA/NoxmlM7uMjdbC7FjaH92e8a2iiWZLKGf+6qRXIG
+         E2ww==
+X-Forwarded-Encrypted: i=1; AL+hErEVOcRT9AI4AuXxnFmIe5JfSG6FT0bz71KfiR9fQiQvnC2MLhL7X02VDF9h3PvSl0LXJeBx3ayjcgnTjlY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Swz2x6c26XEKW2qy3AiLUsUDAZhbNrdvq/Tb8hAuUAW+PTllb
+	JmdVZQydFFiP3pS2CwlyQ74upw7GZXVPgk398ifN3b78+h4A9eJtM7HTyKZAjgG9QPDKKR8ubUX
+	hO5cGqIFXAg==
+X-Received: from dyvp7.prod.google.com ([2002:a05:693c:8847:b0:386:9ad3:91d])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:fd06:b0:369:f05d:6c5c
+ with SMTP id 5a478bee46e88-3856f549471mr8286070eec.28.1795323206053; Sat, 21
+ Nov 2026 20:53:26 -0800 (PST)
+Date: Sat, 21 Nov 2026 20:53:17 -0800
 In-Reply-To: <20261122045319.18651-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -82,8 +82,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261122045319.18651-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261122045319.18651-2-irogers@google.com>
-Subject: [PATCH v2 1/2] drm/amdgpu: initialize r in amdgpu_vm_bo_update()
+Message-ID: <20261122045319.18651-3-irogers@google.com>
+Subject: [PATCH v2 2/2] drm/amdgpu: initialize r in amdgpu_ttm_clear_buffer()
 From: Ian Rogers <irogers@google.com>
 To: Alex Deucher <alexander.deucher@amd.com>, 
 	"=?UTF-8?q?Christian=20K=C3=B6nig?=" <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
@@ -94,48 +94,46 @@ Cc: amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Commit bc566781845b ("drm/amdgpu: stop syncing PRT map operations") added
-an 'else if (!bo)' branch in amdgpu_vm_bo_update() that does not assign
-'r'. Because fpriv->prt_va has bo =3D=3D NULL and is updated on every comma=
-nd
-submission, userqueue validation, and KFD VM restore, calling
-amdgpu_vm_bo_update(adev, fpriv->prt_va, false) when bo_va->invalids is
-empty skips the mapping loop and returns uninitialized stack variable 'r'.
+In amdgpu_ttm_clear_buffer(), 'r' is declared uninitialized. When
+consider_clear_status is true (such as AMDGPU_GEM_CREATE_VRAM_CLEARED
+allocations) and all backing buddy blocks already have DRM_BUDDY_CLEARED
+set, every iteration of the cursor loop hits 'continue' without assigning
+'r', returning uninitialized stack memory to amdgpu_bo_create().
 
-Set 'r =3D 0' in the 'else if (!bo)' branch.
+Set 'r =3D 0' after the cursor loop directly before the 'error:' label.
 
 Found via an x86_64 LLVM=3D1 (Clang 21.1.8) allyesconfig audit with
 -Wconditional-uninitialized enabled; fix and changelog drafted with an AI
 coding assistant. Build-tested under LLVM=3D1 W=3D1 (-Werror) and
 -Wconditional-uninitialized; not runtime-tested on AMD GPU hardware.
 
-Fixes: bc566781845b ("drm/amdgpu: stop syncing PRT map operations")
+Fixes: 23bd7e67961e ("drm/amdgpu: get rid of amdgpu_ttm_clear_buffer")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
 
 Notes:
     v2:
-      - Set 'r =3D 0;' in the 'else if (!bo)' branch instead of initializin=
-g 'r'
-        at declaration (Christian K=C3=B6nig).
+      - Set 'r =3D 0;' directly before the 'error:' label instead of
+        initializing 'r' at declaration (Christian K=C3=B6nig).
 
- drivers/gpu/drm/amd/amdgpu/amdgpu_vm.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_vm.c b/drivers/gpu/drm/amd/a=
-mdgpu/amdgpu_vm.c
-index 82b9b2d5d0cf..d36ce2748f72 100644
---- a/drivers/gpu/drm/amd/amdgpu/amdgpu_vm.c
-+++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_vm.c
-@@ -1323,6 +1323,7 @@ int amdgpu_vm_bo_update(struct amdgpu_device *adev, s=
-truct amdgpu_bo_va *bo_va,
- 		}
- 	} else if (!bo) {
- 		mem =3D NULL;
-+		r =3D 0;
+diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c b/drivers/gpu/drm/amd/=
+amdgpu/amdgpu_ttm.c
+index 0f86777250fc..693f25285f2f 100644
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c
+@@ -2711,6 +2711,8 @@ int amdgpu_ttm_clear_buffer(struct amdgpu_ttm_buffer_=
+entity *entity,
 =20
- 		/* PRT map operations don't need to sync to anything. */
-=20
+ 		amdgpu_res_next(&dst, cur_size);
+ 	}
++	r =3D 0;
++
+ error:
+ 	mutex_unlock(&entity->lock);
+ 	*out_fence =3D fence;
 --=20
 2.56.1.750.gf70dc682cf-goog
 
