@@ -1,69 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=168.119.145.117
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795382701;
-	b=XzUhMWj7JOWiBBQj+uO1TXjduXniSSgO1oPN28a85gWUO05k3o7E5A6WMpCz6bpxPTS4
-	 jvZWNLViO0abb1ZxKWHjKmYRtCdwEEP6ejNnPvJE9OLtNByfkwmDbZR6FKT+MIz50Wb8T
-	 +Mw7qXQxes0frflaM3CMVUa/Fz0vH2zZ2Ar+u8xxX7/7qCPE/FVJZpvVrJTipTSg4VL/z
-	 W/UYex6H5OWWsMYIu+smF9doO/38Vr5ZOdsJ29IjmVJHAMnohrWSRtk6E+1Qq28yol3c6
-	 WHHh5nQk/fdotXAsDMzw8jgZsuIHL9McNhjTDulLZcXLj+i3A+0VJYSuVv11/b8WTzg==
+	t=1795382797;
+	b=eNw+tVPoad3X9CCWDYRw1bKi86mD+EwK8IekktQiGtxRMUkv1y+4q5mmFWE5Y8ffSy+z
+	 KOS2CNIEZlVyv6VUhPv27fK1nHzwlZ3hxNU0dqU072pceQjSFAxPaEvRVZ8VCmRiTkspH
+	 HKZNWN5OzelwrBeHRaNQOC3hZ1i4YCGBtp1sKm/owSe0QCQEc4N/Pkcj8M/PgUZ3F9gQT
+	 W0OYy8sUVzOpoNRBUrhl02NmsovkAmNIvAV7vdo8frdiMpuuXbuI++EAyOvRaRRMbmZmu
+	 HajgHvfcbbt5Mb4f/qDP8eKrF2HNmrfjxCE0o+1aF8ehe1L4p7mINWDGe8RE1g0K+5w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795382701;
-	h=DMARC-Filter:From:DKIM-Signature:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:MIME-Version:Autocrypt:
-	 Content-Transfer-Encoding:Content-Type;
-	bh=mVOxxf5mYPV0D0EQ9CCc8NZCE2661FlwEeATv7pgK/o=;
-	b=oAQRQ7qNmYILd+jGRULb0v4oP7VXbTTbtsm83mFyCZI8GDzvXWloOzKbHnmUGZwFA/0J
-	 ZjlS1PShTZODUBTCJz79gfy849LCmIGWyZZ4vmxUW4HkuLNzZwgdFodhhbTZwFjbbXhNI
-	 55bZpliKteDO7xOOm1BFDjCgmKZiVdlgT9lEW0FJbwRB5VTGnXK03byu+qf3mDz7bN4/j
-	 fSKtNG2HeHK7IEYiDHsvfK/nT05MJJDvTFPjYOm8EbK5CA11+gt7u4L3X8XdUtsuWJJTZ
-	 H9kg13ZuutmNyWJ/2cO7annm1110NOMlR4oGfyrUdK0+oyZ+4wEaTt7JbjoYxz74Atg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795382797;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=zDkNd/IWhSnULT+KvqUUgCRMP4X1FHRb70XY3l6zLiw=;
+	b=X14bzWIFriALguZpBA/WN+ysEbZGq5zle+dwzd7xdRW7HLhSF/17OgI/OWQ8Iq34SemC
+	 DT2jOCUk8gfjiL/KXRxqd6NTR0wHLBtURFCg1bv8ynqARA1Abu7u+AP/1jx4sWMawTdn1
+	 um2wvHVqR498H0H7/QvxW6eK6Qn4hZxQpxwVAxZu+dIpqQHnrdVmVi4Jv8MZaPbZPSNx8
+	 OP+7AHqkrhZWBCuiMzlRIBalOqV6y3OHANmWOmtMfEcn30TT3zLTcyaIoD8KLH2RoobSq
+	 tWMUSmAHtUD8LGFryX7NkaUoafWrJDeyP2pE3GgNurAW2WdozGssyWdxhDMmgX6OmmQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=0x0.st;
-	spf=pass smtp.mailfrom=0x0.st;
-	dkim=pass header.d=0x0.st header.i=@0x0.st header.a=rsa-sha256 header.s=modoboa header.b=F6K+UmeW;
-	arc=none smtp.remote-ip=168.119.145.117
-Received: from srsfckn.biz (0x0.st [168.119.145.117])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kWNJpJbT;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F19C8606A31D;
-	Sun, 22 Nov 2026 21:24:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F19C8606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=0x0.st
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=0x0.st
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 818F0606A31A;
+	Sun, 22 Nov 2026 21:26:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key, unprotected) header.d=0x0.st header.i=@0x0.st header.a=rsa-sha256 header.s=modoboa header.b=F6K+UmeW
-From: Mia Herkt <mia@0x0.st>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=0x0.st; s=modoboa;
-	t=1795382690;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=mVOxxf5mYPV0D0EQ9CCc8NZCE2661FlwEeATv7pgK/o=;
-	b=F6K+UmeWbj2s+QhW1RCGwaSoJV0nfcuZxIiJuWUcp8BsSBy4rs7EZz6pz9+ouDcCNYQhPk
-	P8pbrsZW1LIbEldvneGsBx6H9wdS1/LICQR/PciYphhlzYqLeFZt+AYqmwQE7sHsC2bCrg
-	XUaNblZkVja+S1COnGMVHWZo6R5nsU1YYEZprwSivt4hMsSQcH2YEZ2/DZf0Sx8FG5Cqmy
-	v3ewA0dmn1vgHKMT68/4uPgu+dX0oggCG3wqXxsvQixdFn3LoeMfWZ30P5paxwTtSsyfdn
-	Lf5SyTbmVFaI4kpK7dkrqi/lU6tSY5igTScLbgFCBechrWyjOOk8dbuQlKRn5MqFCwyEvR
-	ldG2XgIhh7xQQ9KtlkuvNspIq8bMtRbqt66vLq7TLVrPgfbIBum+paQnrYMvRfR5rakJoa
-	Axx2QUKupj6ZUQBR+LPwvBCKQnW8R7egkhTNM/v5a/uI54XM9ZsHbjir0MrR4j/6IZF6Q7
-	7OJxF7JckWkr2e0A/c1/LRhwBoLO0aRiPazYR/yCnykXGv7fLdyZaj5dGEIozXrNTJi+eb
-	5hfpn9kchuUnedZW0mhpzoNaYZBrV84qkMvU/MPlOBjeNoewbQo10mb7fjEvg1qtj3doag
-	4jXhp6KHJdZN491tP+jYsK2v3K2FLBs6eYtM65z5Rdrqd+jzaGtOo=
-To: Zane Hunt <git@turtledev.nz>
-Cc: "Luke D. Jones" <luke@ljones.dev>, Denis Benato <denis.benato@linux.dev>,
- Hans de Goede <hansg@kernel.org>,
- Ilpo =?UTF-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>,
- platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org,
- Corentin Chary <corentin.chary@gmail.com>
-Subject:
- Re: [PATCH v5] platform/x86: asus-wmi: Add support for
- ASUS_WMI_DEVID_CAMERA_LED_NEG
-Date: Sun, 22 Nov 2026 22:24:48 +0100
-Message-ID: <nHv94wFvQJyCt2jjVWdO5A@0x0.st>
-In-Reply-To: <20261117-asus-wmi-camera-led-v5-1-41c47653758b@turtledev.nz>
-References: <20261117-asus-wmi-camera-led-v5-1-41c47653758b@turtledev.nz>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kWNJpJbT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5C831F000CA;
+	Sun, 22 Nov 2026 21:26:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795382796;
+	bh=zDkNd/IWhSnULT+KvqUUgCRMP4X1FHRb70XY3l6zLiw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=kWNJpJbTkbddwCAK7kW3l4EWCa8AQRcJpL+RX8sh7ZIAvWLrH5Y1Y1hdrjkUYEXej
+	 u77Cvh0rRfNY9gsTOA8f2ozgOh+TWYLGNfdfGKV8BPUHpZmNJb/JeDvwyeBbPnWo5w
+	 LBoypvZmCWnnc6MFFX49whB8IrbPaDY8Zy433kKjoVzk66aLWupTnd2wvhK6PRid2q
+	 Sw21kho76+bPoiQV4AI+MqyFclViCyvCFk6HC5tMudKYMLM79Ts/BWWpdvd/0g9gTi
+	 vN4EtCoON9B5nwjauBIie7X0a4eQrGWx5vDsJWMGQsCO8XWHiHIakZgQHVh9QbpWf+
+	 OJ9wDo32b7LAQ==
+Subject: Re: [PATCH net 1/2] tls: don't hide a queued KeyUpdate from poll()
+From: netdev-bot+sashiko@kernel.org
+To: v0idpwn@gmail.com
+Cc: john.fastabend@gmail.com, kuba@kernel.org, sd@queasysnail.net,
+ davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
+ shuah@kernel.org, netdev@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Date: Sun, 22 Nov 2026 21:26:35 +0000
+Message-ID: <179538279534.3135.17423952957860887247@kernel.org>
+In-Reply-To: <20261118-v0idpwn-tls-poll-parked-keyupdate-v1-1-8e25101e7be6@gmail.com>
+References: <20261118-v0idpwn-tls-poll-parked-keyupdate-v1-1-8e25101e7be6@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,32 +64,114 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Autocrypt: addr=mia@0x0.st;
- keydata=
- mDMEXmvDmhYJKwYBBAHaRw8BAQdAP4VA8yQB34TJEzZaYygdNeelk/2sUvOpVSK5Mg/gVee0Fk1
- pYSBIZXJrdCA8bWlhQDB4MC5zdD6IlgQTFggAPgIbAwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgB
- YhBM1dSFDmB4CO/P9NbHLhVLhiLsGRBQJqIFOLBQkMzGwZAAoJEHLhVLhiLsGRmtcA/3cUO4U/k
- iYaBPxIHREmltd2Nly4e1bTHcq10yoiSjIGAP9hYHlhYfkORUVcHLkaVCD/Z+2TQEWZUFQO0KPb
- K6IjCLg4BF5rw5oSCisGAQQBl1UBBQEBB0BASQVMxF6j1EExV6BkhCyslvJmW1leTgw4fnyleI0
- QIwMBCAeIeAQYFggAIAIbDBYhBM1dSFDmB4CO/P9NbHLhVLhiLsGRBQJiXuuHAAoJEHLhVLhiLs
- GRnF0BALFShluzTqHUgZOoQJQRf39TTJEKs3mrNp7zhMLkHZ4VAP0cAICVm9XkTrg0jfsbXj7ok
- Sjp/rwOFaGaFxmxIFxwDw==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
 
-On Monday, November 16, 2026 7:37:38=E2=80=AFPM Central European Standard T=
-ime Zane=20
-Hunt via B4 Relay wrote:
-> From: Zane Hunt <git@turtledev.nz>
->   The key event already resyncs the LED, and skyedryv's s2idle test
->   showed nothing gets missed while suspended (Jos=C3=A9, Rong)
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Unfortunately, on my Zenbook S16 (firmware UM5606GA.307), the camera can be=
-=20
-toggled in s2idle, but this does not wake up the device and no key events=20
-arrive after waking up via other methods.
-So with v5, [disable -> s2idle -> enable -> resume] results in the LED stay=
-ing=20
-on while the camera is in fact not disabled.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
+- [Medium] Lost wakeup: a KeyUpdate that is moved onto rx_list while
+  another task is polling stays hidden from that poller.
+
+--
+
+tls: don't hide a queued KeyUpdate from poll()
+
+This commit changes tls_sk_poll() so that records already decrypted
+onto rx_list show up as readable even while a rekey is pending. Records
+still held by the strparser stay hidden until the new key is provided.
+The documentation is updated to match.
+
+[ ... ]
+
+> diff --git a/net/tls/tls_main.c b/net/tls/tls_main.c
+> index b8d5a843f7617..4c4c2801ae065 100644
+> --- a/net/tls/tls_main.c
+> +++ b/net/tls/tls_main.c
+> @@ -414,9 +414,9 @@ static __poll_t tls_sk_poll(struct file *file, struct socket *sock,
+>  	tls_ctx = tls_get_ctx(sk);
+>  	ctx = tls_sw_ctx_rx(tls_ctx);
+>  
+> -	if ((skb_queue_empty_lockless(&ctx->rx_list) &&
+> -	     !tls_strp_msg_ready(ctx)) ||
+> -	    READ_ONCE(ctx->key_update_pending))
+> +	if (skb_queue_empty_lockless(&ctx->rx_list) &&
+> +	    (!tls_strp_msg_ready(ctx) ||
+> +	     READ_ONCE(ctx->key_update_pending)))
+>  		mask &= ~(EPOLLIN | EPOLLRDNORM);
+
+[Severity: Medium]
+Can a poller that is already waiting still miss the KeyUpdate here?
+
+tls_sk_poll() takes no lock. The KeyUpdate only lands on rx_list at the
+very end of the tls_sw_recvmsg() step that decrypts it:
+
+tls_sw_recvmsg()
+  tls_rx_one_record()
+    tls_check_pending_rekey()
+      WRITE_ONCE(rx_ctx->key_update_pending, true);
+  tls_record_content_type()      /* returns 0, record type differs */
+  tls_rx_rec_done(ctx);          /* clears msg_ready / msg_announced */
+  __skb_queue_tail(&ctx->rx_list, darg.skb);
+
+A tls_sk_poll() from another task can run between the point where
+key_update_pending is set and __skb_queue_tail(). It can also run in the
+earlier gap, after the data record is consumed and before the KeyUpdate
+is parsed, when msg_ready is 0. Either way it sees an empty rx_list and
+clears EPOLLIN.
+
+Nothing seems to wake the socket after the KeyUpdate is queued. The
+deferred wakeup in tls_rx_reader_release() doesn't fire in this state:
+
+net/tls/tls_sw.c:tls_rx_msg_maybe_announce() {
+	...
+	if (!READ_ONCE(strp->msg_ready) || strp->msg_announced)
+		return;
+	strp->msg_announced = 1;
+	...
+	ctx->saved_data_ready(strp->sk);
+}
+
+The same reader already consumed the KeyUpdate from the strparser, so
+msg_ready is 0 at that point. The only other wakeup, in
+tls_finish_key_update(), runs after userspace installs the new key.
+
+One way to hit this is several threads sharing one level-triggered
+epoll instance on the TLS fd:
+
+T1 gets the event and enters recvmsg().
+The LT item is re-queued and T2 is woken.
+T2's ep_item_poll() lands in the window above, gets no events and
+  drops the item from the ready list.
+T1 queues the KeyUpdate on rx_list, returns the data and calls
+  epoll_wait() again. The ready list is empty, so it sleeps.
+
+No task reads the KeyUpdate, so no new key is installed. The connection
+then stalls until the peer sends more data. That may never happen if the
+peer is waiting for a reply, for example when update_requested is set.
+The same wakeup is lost when a poller thread signals a separate reader
+thread.
+
+The commit message says:
+
+    A reader that waits for a read event before each recv()
+    never reads it, never provides the new key and receives nothing more.
+
+That fix seems to hold only when the same task polls again after
+recvmsg() returns. This matches the single-threaded LT reader described
+here and the selftest added in "selftests: tls: add a poll test for a
+queued KeyUpdate".
+
+Would it make sense to also call ctx->saved_data_ready(sk)? One place
+would be where the KeyUpdate is queued on rx_list. Another would be in
+tls_rx_reader_release() when rx_list is not empty and key_update_pending
+is set.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118-v0idpwn-tls-poll-parked-keyupdate-v1-0-8e25101e7be6%40gmail.com
