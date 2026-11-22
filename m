@@ -1,62 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795339180;
-	b=cjl2NZt7MnHZVzClBj/zZqFBFAtx3kSqsk5lbtC3UCKrJBIeWcvl4JfU4YSVPKqjjLzf
-	 VD0Z0CnbPT0JoxNkbnC8YL0MWQjR8dvfm+y2KKTNn++5TIBwIVC5tP0WAzIrvN4sl5cHQ
-	 C5McSEIoSrkPBws8TKIQLefExGvzBXx6NLeyZaJMuKuOw31nBAkP4MgxKBvqEHcWJbygX
-	 U+FK/gYTMh3iup2fn3zXqn8DEGCZAAxGL0WgN63OCOEsefWoMfU9AmY6wtw+HVmkty3jz
-	 n9gSoITR6QFMqhSCo+VpejgPmyp9WWSEzN+XD/TIFhhy/rqbFKEqIoqG+4KZNnwrL4Q==
+	t=1795339230;
+	b=UKtckMpM98wOyqXHuasnCM7gSs5Kc5RI2BENBgH03h8sgdP5qFRDpys25InU7s09t+u9
+	 nNIavKoJbtlhsT5ul6gpMLSBU+A1YPfDMH1YN+orNDmdaQ0u4fH4D5WocyP1B/A+y/HQG
+	 2SQKdg+lEHE1OLkQTf4FoUQpxd+MwM9J8+kq7YCk29CF4tc8oD4Jzj5elrDs+BIe+SSaP
+	 qDP655hJQCDla1yWiIufJFGlnKzCP/J5+Lz+E9oL4N6Q2OEo1Q87ubk8OFcuUo6RfVHf/
+	 3UrViR53m+V8Gm9ETMUslVZxUjlaWGcrgPNV4GzCYeMJRMTRuvmOJf0oYJqOnw1XVcw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795339180;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=1XyftV8GVsZDOcq2i3DlqyLQd8hIM8BmGNI2WNlBAD0=;
-	b=KXN7A9xl/R+CpNuAVRZs5EGKHMxzLxuIKOUvi43VBF7fmqcs5kg7wbdeKBxlLnl1rhDX
-	 N5Wcjkwk6a1/uMU7dx8Ksqx6duiwbSIiMHS4iaGxdJCU7hHVQTc7vZ1DRVBvK7Q29FRlH
-	 vXrymzqCOnRzBLA8LdDciPjX4ARmmV7bCbba+2DPVofKiIC4/GopxkrqEe3jvaMG2sd8E
-	 tGIkQaIDbgI0wZfbKSiSZjBjSKJWZbXrt7hMANbPPr8FJWqkE7cJ7ynx4M9oGk8p+ZJMv
-	 2tgX5BsiUMWKiEwjbj5M+PrmKNeXTbHbtxYhL34KPbkNcAOn42VEBhhHzGjOhJlp0BQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795339230;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=PwKnB8vusFC38NidYGeXP/OvxcdHiXBlFXmxsUk5hIU=;
+	b=5b/2o4us5UEdzbVo7Xwd+nDyMAKkoCO+wSt/Kb06DgLfyDEBl803RvtbLYbHp6qhTlzT
+	 hOPcqrnVsG34zrjcRcpzrBvo2GDnX7K478t2Zh5PmHSa0ECY2YOboo0G+MDrtxTaxOUCK
+	 QJRMnCIjtYY1g6NwJbZB33Iq1zMgsWobOTsBD/CJHSJhqV39MmP2xGTLBlGtnzfGgclrv
+	 PVqYwWnAhYqhrwx0qznnwvlmVXNbfJKybfwxmJcnv3dMczpuEJM9AZ0hBatjky26PMgqR
+	 l+of90Hxu/XcSFaxeu8gHyMySZpgsNoySZKDnVriz83lXlmIfazeF50Df8zipWofiug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Arb4mkNQ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=VsvbYdwq;
+	arc=none smtp.remote-ip=95.215.58.9
+Received: from mta1.migadu.com (out-9.mta1.migadu.com [95.215.58.9])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FE2B606A336;
-	Sun, 22 Nov 2026 09:19:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77FFB606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:20:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77FFB606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Arb4mkNQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37DC41F000C0;
-	Sun, 22 Nov 2026 09:19:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795339180;
-	bh=1XyftV8GVsZDOcq2i3DlqyLQd8hIM8BmGNI2WNlBAD0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Arb4mkNQaABokJfYXMRZnv2NqMcuJKpcQBj6I/4FGp27aVCu0NZSNC0R4vWvcgtxS
-	 yc3rvMtUORDGJhG7CWNWLPhUuWuULrlkESeOGkHqg5nC1dTLzB618EqkzC818N9xST
-	 cS423e5R7/apM9xz5/i39cVPfPoGBDWTkAlcGpPB/uWQ0la4eaF3+WMdl7FO4/wHIQ
-	 zuPAzWslFOsZb3mZApQjof+vIhnjInvSkYtm1bLlQFMG3O8Co7XYo5PdvGpOPcerAF
-	 0TiBtrOA+SJr8UKGGfuV/FR10MjHn5OxYNUBkzZbA/UzleKV4z5DRzHaSwO2qjAoOJ
-	 m7QYTWqBSaHsw==
-Subject: Re: [PATCH net 3/4] net: skbuff: limit folio refcount when splicing
- pages into skbs
-From: netdev-bot+sashiko@kernel.org
-To: david@kernel.org
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, akpm@linux-foundation.org,
- kas@kernel.org, songliubraving@fb.com, hannes@cmpxchg.org, riel@surriel.com,
- willy@infradead.org, ncardwell@google.com, kuniyu@google.com,
- pfalcato@suse.de, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, stable@vger.kernel.org
-Date: Sun, 22 Nov 2026 09:19:38 +0000
-Message-ID: <179533917877.3135.7884614269284288545@kernel.org>
-In-Reply-To: <20261118-skb_refcount_overflow-v1-3-5551b4954c3f@kernel.org>
-References: <20261118-skb_refcount_overflow-v1-3-5551b4954c3f@kernel.org>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=VsvbYdwq
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=L2PQO1Eu8Zh0yQOhKwsxf82gavxb5aNtEP6JzcghrxY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795339227; v=1; x=1795944027;
+ b=VsvbYdwqMl6RHdxshCYtsDW9cnuRG6M2BulTppJyRtjYyQTmJ9tzZ+eO1eqYIO/rwKLPeS30
+ wA/tP6XA6NTJ3YJT3RFmXmnW1A00G8Ux4L6PmVJblnE/f6lduXOvXHI5fk+ziUDPtniQZh1b+Ns
+ iPQscOgpciU6RfVMMChCs9lA=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id dcd1cfd034329e6a;
+	Sun, 22 Nov 2026 09:20:25 +0000
+X-Mizu-Trace-ID: dcd1cfd034329e6a
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <a527bf36-80d2-43d7-ab36-93f51e39fd02@linux.dev>
+Date: Sun, 22 Nov 2026 10:19:49 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,154 +58,230 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] soundwire: protect the slave IRQ mapping during alert
+ dispatch
+To: Jizhou Tong <fqwqf@fqwqf.xyz>, vkoul@kernel.org,
+ yung-chuan.liao@linux.intel.com
+Cc: rf@opensource.cirrus.com, ckeepax@opensource.cirrus.com,
+ srini@kernel.org, linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <010601a20218c3b5-523b454f-b8b0-4259-9b20-524c1d435465-000000@ap-northeast-1.amazonses.com>
+Content-Language: en-US
+From: Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>
+In-Reply-To: <010601a20218c3b5-523b454f-b8b0-4259-9b20-524c1d435465-000000@ap-northeast-1.amazonses.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On 11/22/26 08:11, Jizhou Tong wrote:
+> sdw_irq_create_mapping() publishes slave->irq before it registers the
+> devres action. If devm_add_action_or_reset() fails, it disposes the
+> mapping but leaves its number in slave->irq. sdw_bus_probe() then
+> calls the peripheral driver's probe() with that stale number.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
+Maybe I am thick and didn't get the problem, but if any error occurred
+in sdw_irq_create_mapping(), a simple way to prevent the driver probe
+from happening would be to change the prototype and return an error
+code, e.g.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+	/* Create IRQ mapping now so the driver can get it in probe() */
+	ret = sdw_irq_create_mapping(slave);
+	if (!ret)
+		return ret;
 
-- [High] The fix leaves the kTLS MSG_SPLICE_PAGES paths unchecked.
-- [Medium] The new -EFAULT from skb_append_pagefrags() can turn a
-  refcount near the limit into a persistent loop of NFS connection…
+	ret = drv->probe(slave, id);
 
---
+> Clearing the number on release alone also leaves a window for the alert
+> handler to pick up the old IRQ before its mapping is disposed. Keep the
+> mapping private until cleanup is registered. On teardown, take a
+> per-slave write lock to drain active dispatches and clear the number
+> before disposing the mapping. Hold the read side across the nested IRQ
+> handler, which runs in thread context and can sleep.
 
-net: skbuff: limit folio refcount when splicing pages into skbs
+not following either. Presumably on a release, the interrupts are masked
+in the codec driver prior to cleanups at the bus level. In what case
+would an interrupt handler start *after* the resources are released?
 
-The patch changes skb_append_pagefrags() to take its page reference with
-try_get_page() instead of get_page(). If the folio refcount limit has been
-reached it returns -EFAULT, so in-kernel MSG_SPLICE_PAGES users such as
-sunrpc can no longer push pagecache folios past the limit.
+And last the 'irq_lock' is confusing, existing ASoC/SoundWire codec
+drivers already use a 'disable_irq_lock' - stored as a private resource
+to avoid polluting the sdw_slave struct.
 
-> diff --git a/net/core/skbuff.c b/net/core/skbuff.c
-> index bed1c8c4c6b99..c937d74eed6ac 100644
-> --- a/net/core/skbuff.c
-> +++ b/net/core/skbuff.c
-> @@ -4714,8 +4714,13 @@ int skb_append_pagefrags(struct sk_buff *skb, struct page *page,
->  	if (skb_can_coalesce(skb, i, page, offset)) {
->  		skb_frag_size_add(&skb_shinfo(skb)->frags[i - 1], size);
->  	} else if (i < max_frags) {
-> +		/*
-> +		 * Don't use -EMSGSIZE, as callers would just retry with a new
-> +		 * skb.
-> +		 */
-> +		if (!try_get_page(page))
-> +			return -EFAULT;
+> The lock is independent of sdw_dev_lock so nested handlers continue to
+> run outside the peripheral callback lock. Peripherals that can operate
+> without an IRQ can still probe if mapping setup fails. Return early on
+> a zero mapping so there is no cleanup action to register for IRQ 0.
+> 
+> Fixes: a5fef9baa87f ("soundwire: bus: Move irq mapping cleanup into devres")
+> Link: https://lore.kernel.org/r/d7761226-31b0-4d0f-bc56-9c4d5e42bfba@opensource.cirrus.com
+> Signed-off-by: Jizhou Tong <fqwqf@fqwqf.xyz>
+> ---
+> This came up while moving WCD938x to SoundWire domain IRQs. Richard
+> previously pointed out the stale IRQ on release.
+> 
+> The rwsem lets overlapping alerts run and keeps per-slave state small.
+> Reusing sdw_dev_lock would bring it into nested handlers. A per-slave
+> SRCU domain would also have to drain readers during teardown. On this
+> base, mapping setup precedes the peripheral probe and sdw_dev_lock.
+> Unbind still holds the device mutex while draining readers. Do any
+> domain IRQ handlers depend on work that needs that same device mutex?
+> 
+> Built soundwire-bus.o with ARCH=arm64 W=1. In a four-vCPU arm64 guest
+> with PROVE_LOCKING and DEBUG_ATOMIC_SLEEP enabled, an emulated peripheral
+> ran three rounds of 200 driver-core bind/unbind cycles under concurrent
+> alert dispatch. Removal started with an active handler in 514 of the 600
+> cycles. To exercise lock ordering against sdw_dev_lock, the test handler
+> acquired that lock and slept while holding it. Lockdep remained enabled
+> and reported no warnings in any run.
+> The physical codec and runtime PM paths still need coverage.
+> 
+>  drivers/soundwire/bus.c       |  4 ++--
+>  drivers/soundwire/irq.c       | 36 +++++++++++++++++++++++++++++++----
+>  drivers/soundwire/irq.h       |  5 +++++
+>  drivers/soundwire/slave.c     |  1 +
+>  include/linux/soundwire/sdw.h |  3 +++
+>  5 files changed, 43 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/soundwire/bus.c b/drivers/soundwire/bus.c
+> index aeaae5a57c89d8af05cadd6fe55d44856600e781..0bc0ad9e9934e790c27526ff4c736e8d5a2bebaf 100644
+> --- a/drivers/soundwire/bus.c
+> +++ b/drivers/soundwire/bus.c
+> @@ -1781,8 +1781,8 @@ static int sdw_handle_slave_alerts(struct sdw_slave *slave)
+>  
+>  		/* Update the Slave driver */
+>  		if (slave_notify) {
+> -			if (slave->prop.use_domain_irq && slave->irq)
+> -				handle_nested_irq(slave->irq);
+> +			if (slave->prop.use_domain_irq)
+> +				sdw_irq_handle(slave);
+>  
+>  			mutex_lock(&slave->sdw_dev_lock);
+>  
+> diff --git a/drivers/soundwire/irq.c b/drivers/soundwire/irq.c
+> index f18be37efef8e0ef63bad159cc0d9ebb619a89bf..1f13e1093d94863012fb966b555682826f051cb6 100644
+> --- a/drivers/soundwire/irq.c
+> +++ b/drivers/soundwire/irq.c
+> @@ -2,10 +2,13 @@
+>  // Copyright (C) 2023 Cirrus Logic, Inc. and
+>  //                    Cirrus Logic International Semiconductor Ltd.
+>  
+> +#include <linux/cleanup.h>
+>  #include <linux/device.h>
+>  #include <linux/fwnode.h>
+> +#include <linux/interrupt.h>
+>  #include <linux/irq.h>
+>  #include <linux/irqdomain.h>
+> +#include <linux/rwsem.h>
+>  #include <linux/soundwire/sdw.h>
+>  #include "irq.h"
+>  
+> @@ -49,15 +52,40 @@ void sdw_irq_delete(struct sdw_bus *bus)
+>  static void sdw_irq_dispose_mapping(void *data)
+>  {
+>  	struct sdw_slave *slave = data;
+> +	unsigned int irq;
+>  
+> -	irq_dispose_mapping(slave->irq);
+> +	scoped_guard(rwsem_write, &slave->irq_lock) {
+> +		irq = slave->irq;
+> +		slave->irq = 0;
+> +	}
+> +
+> +	irq_dispose_mapping(irq);
+>  }
+>  
+>  void sdw_irq_create_mapping(struct sdw_slave *slave)
+>  {
+> -	slave->irq = irq_create_mapping(slave->bus->domain, slave->index);
+> -	if (!slave->irq)
+> +	unsigned int irq;
+> +
+> +	irq = irq_create_mapping(slave->bus->domain, slave->index);
+> +	if (!irq) {
+>  		dev_warn(&slave->dev, "Failed to map IRQ\n");
+> +		return;
+> +	}
+> +
+> +	if (devm_add_action(&slave->dev, sdw_irq_dispose_mapping, slave)) {
+> +		irq_dispose_mapping(irq);
+> +		dev_warn(&slave->dev, "Failed to register IRQ mapping cleanup\n");
+> +		return;
+> +	}
+> +
+> +	guard(rwsem_write)(&slave->irq_lock);
+> +	slave->irq = irq;
+> +}
+> +
+> +void sdw_irq_handle(struct sdw_slave *slave)
+> +{
+> +	guard(rwsem_read)(&slave->irq_lock);
+>  
+> -	devm_add_action_or_reset(&slave->dev, sdw_irq_dispose_mapping, slave);
+> +	if (slave->irq)
+> +		handle_nested_irq(slave->irq);
+>  }
+> diff --git a/drivers/soundwire/irq.h b/drivers/soundwire/irq.h
+> index 86e2318409dab8b8137df45586029a6312ee61ff..93e949ec10ca37abea6f0fb8f88e4f016e83259a 100644
+> --- a/drivers/soundwire/irq.h
+> +++ b/drivers/soundwire/irq.h
+> @@ -16,6 +16,7 @@ int sdw_irq_create(struct sdw_bus *bus,
+>  		   struct fwnode_handle *fwnode);
+>  void sdw_irq_delete(struct sdw_bus *bus);
+>  void sdw_irq_create_mapping(struct sdw_slave *slave);
+> +void sdw_irq_handle(struct sdw_slave *slave);
+>  
+>  #else /* CONFIG_IRQ_DOMAIN */
+>  
+> @@ -33,6 +34,10 @@ static inline void sdw_irq_create_mapping(struct sdw_slave *slave)
+>  {
+>  }
+>  
+> +static inline void sdw_irq_handle(struct sdw_slave *slave)
+> +{
+> +}
+> +
+>  #endif /* CONFIG_IRQ_DOMAIN */
+>  
+>  #endif /* __SDW_IRQ_H */
+> diff --git a/drivers/soundwire/slave.c b/drivers/soundwire/slave.c
+> index a7d2938b031d0f2d32986e93ffb2bd85e7d73520..ffe21bb04ff70e71af681b26cc475ea65c188c68 100644
+> --- a/drivers/soundwire/slave.c
+> +++ b/drivers/soundwire/slave.c
+> @@ -65,6 +65,7 @@ int sdw_slave_add(struct sdw_bus *bus,
+>  	slave->probed = false;
+>  	slave->first_interrupt_done = false;
+>  	mutex_init(&slave->sdw_dev_lock);
+> +	init_rwsem(&slave->irq_lock);
+>  
+>  	for (i = 0; i < SDW_MAX_PORTS; i++)
+>  		init_completion(&slave->port_ready[i]);
+> diff --git a/include/linux/soundwire/sdw.h b/include/linux/soundwire/sdw.h
+> index f710e5932b4b23c025579b3c8346fe4b5e5f2624..d8c8eae7aed67ae02a140656432a561b28876575 100644
+> --- a/include/linux/soundwire/sdw.h
+> +++ b/include/linux/soundwire/sdw.h
+> @@ -15,6 +15,7 @@
+>  #include <linux/lockdep_types.h>
+>  #include <linux/device-id/sdw.h>
+>  #include <linux/mutex.h>
+> +#include <linux/rwsem.h>
+>  #include <linux/types.h>
+>  #include <sound/sdca.h>
+>  
+> @@ -643,6 +644,7 @@ struct sdw_slave_ops {
+>   * @id: MIPI device ID
+>   * @dev: Linux device
+>   * @index: internal ID for this slave
+> + * @irq_lock: protects the IRQ mapping during nested interrupt handling
+>   * @irq: IRQ number
+>   * @status: Status reported by the Slave
+>   * @bus: Bus handle
+> @@ -676,6 +678,7 @@ struct sdw_slave {
+>  	struct sdw_slave_id id;
+>  	struct device dev;
+>  	int index;
+> +	struct rw_semaphore irq_lock;
+>  	int irq;
+>  	enum sdw_slave_status status;
+>  	struct sdw_bus *bus;
+> 
+> base-commit: afd88e7ad78170040612f608203734156b8a9eb1
+> 
 
-[Severity: High]
-Does this cover all of the in-kernel MSG_SPLICE_PAGES users that the commit
-message is aimed at? Both kTLS sendmsg paths handle MSG_SPLICE_PAGES without
-ever calling skb_append_pagefrags(). They still take an unchecked reference
-on every spliced page.
-
-For software kTLS the path is
-tls_sw_sendmsg_locked()->tls_sw_sendmsg_splice()->sk_msg_page_add():
-
-include/linux/skmsg.h:sk_msg_page_add() {
-    ...
-	get_page(page);
-	sge = sk_msg_elem(msg, msg->sg.end);
-	sg_set_page(sge, page, len, offset);
-    ...
-}
-
-The only check in tls_sw_sendmsg_splice() is this one, and it does not look
-at the refcount limit:
-
-		if (WARN_ON_ONCE(!sendpage_ok(page))) {
-
-For device offload kTLS the path is tls_push_data()->tls_append_frag():
-
-net/tls/tls_device.c:tls_append_frag() {
-    ...
-		++record->num_frags;
-		get_page(pfrag->page);
-    ...
-}
-
-These references stay in offload_ctx->records_list until
-tls_tcp_clean_acked() runs, so they last until the peer ACKs.
-
-The sunrpc example from the commit message appears to take this route.
-svc_tcp_sendmsg() sets MSG_SPLICE_PAGES and calls sock_sendmsg(). On
-XPT_TLS_SESSION transports, set up by
-svc_tcp_handshake()->tls_server_hello_x509(), that socket is a kTLS socket.
-So nfsd pagecache pages would reach sk_msg_page_add() or tls_append_frag()
-and never skb_append_pagefrags().
-
-No later patch in the series touches net/tls/ or include/linux/skmsg.h,
-including "net: skbuff: limit folio refcount when splicing from sockets".
-
-Should the spliced-page references in sk_msg_page_add() and
-tls_append_frag() also go through try_get_page()?
-
-[Severity: Medium]
-Can this new -EFAULT cause nfsd connections to be torn down over and over?
-
-nfsd threads are kthreads, and folio_ref_count_over_limit_slowpath()
-refuses them at FOLIO_REF_COUNT_LIMIT, with no admin headroom:
-
-	/* Background threads must not consume admin reserves. */
-	if (current->flags & PF_KTHREAD)
-		goto over_limit;
-
-On the read side the limit is checked only once, when
-filemap_splice_read()->splice_folio_into_pipe() calls folio_get_checked().
-After that, nfsd_splice_actor()->svc_rqst_replace_page() takes an unchecked
-get_page() for rq_respages, and the pipe reference is dropped. With this
-patch, sending the reply needs a second, checked reference per page here.
-
-Let k be roughly the number of pages from the folio in the reply. Suppose a
-local user holds the folio refcount between FOLIO_REF_COUNT_LIMIT - k and
-FOLIO_REF_COUNT_LIMIT. The read stage succeeds and fills the refcount up to
-the limit. The send then fails:
-
-skb_append_pagefrags()
-  try_get_page() fails, returns -EFAULT
-skb_splice_from_iter()
-  iov_iter_revert(), returns -EFAULT or a short count
-tcp_sendmsg_locked()
-  returns a short count
-svc_tcp_sendto()
-	if (sent < 0 || sent != (xdr->len + sizeof(marker)))
-		goto out_close;
-    ...
-	svc_xprt_deferred_close(xprt);
-
-This closes the connection together with every other RPC in flight on it.
-The client reconnects and retransmits the same READ. Nothing clears the
-condition, so the cycle repeats for as long as the refcount stays in that
-window.
-
-Mappings are checked against the same limit. An unprivileged user can
-therefore put the count in that window by mapping until refused and then
-unmapping a few pages.
-
-Before this patch the send succeeded. At or above FOLIO_REF_COUNT_LIMIT, the
-pipe-stage check makes nfsd return an NFS read error rather than close the
-connection.
-
-The commit message says:
-
-    The only caller, skb_splice_from_iter(), handles that.
-
-For sunrpc, though, the error ends in connection teardown, and nothing falls
-back to copying the data into frags. Would a copy fallback be better here,
-or is the teardown intended?
-
->  		skb_zcopy_downgrade_managed(skb);
-> -		get_page(page);
->  		skb_fill_page_desc_noacc(skb, i, page, offset, size);
->  	} else {
->  		return -EMSGSIZE;
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118-skb_refcount_overflow-v1-0-5551b4954c3f%40kernel.org
