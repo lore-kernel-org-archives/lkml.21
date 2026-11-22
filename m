@@ -1,78 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795354449;
-	b=cCpI+YFO2ieL2O1Y+jrfa9tsMwHX8WyyFsmRTyTuecO7UeWe+Ea8wRRT7tqRl2HiyEtC
-	 GsikoRSFDQWa/sn1oeZW9vYnavXgmXOiQNKGeIOaqfjjmZveXq1FSqW/pIW0CJsAHHwhs
-	 TFpmhcE1K2Awj/LmAdzcc1Si7eLnyHOdBTfSSSzczShDDR6yvyz6AiIqEQoF4GxuhkTE0
-	 EsI2kBLWGpk9PdRzEf7XHZBy8+uSzi09CU6ACOLTADtoB04NaQWmNeUmXJvL0kq2SgMDi
-	 g2hawrgYTGTx0y9syh3LleAMhSRdzqiDR5d8NQ166LAauABsKx2L6nTsPpKk35JIqyg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795354449;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=6gKdivfkDsuonkEKXD54e3FJFyho7ssO1p7f34zC4sc=;
-	b=uOpw5BKb+/DSNlhJXdAzLWUvBKyrMcqu4Hsd6QtSoCKZnCfAz2VEfyGqV/KyI29PQoAL
-	 jkZtPa96KnpnfF7shMofWyUJsTMVXqqIUw+zrjr2uV35ky3m2+bsRCUn4iVAQnMEXoLnB
-	 nnUDGDQWNf/JETTpy1fQjNWJvD1rVBjiXg8rs22OzGuEBq6zcLzYE6vcWYsvPBLmPHEIi
-	 9jI/7yYAxpUpoLTBdGk/9Ar26Hq9V7mYdhttr8vEJz7qNt6ljheMvSA7xeFimPA9vWAhG
-	 3I6VP3AF40CgM9kLDB9ejHIp81rApOGRUHkQXR8utf3vPpf5c48uEgvXnHC205B6S/g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j6ubBjpE;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35D38606A333;
-	Sun, 22 Nov 2026 13:34:09 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j6ubBjpE
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795354449;
-	b=dR4c3IbOXTh8suB+rkifGzrLzJMg3FCj13idiWiKWvCE64GchHxtvrxM2t5JY26S4R+f
-	 Ob7C8g07AwLaVM7TUL7Ro08ACkNcSeWyMcBMH5oDtJ0Du3jPfUmcN/KH6YdQpHW2jKKT2
-	 glNN1opUIVwkM5APVUwvQwYkBpK069zCXcSrTmGdC5tR1Odub5ShJEir9/MfjEr0X/jCA
-	 nU390SPi4or/i2irMiYUrV+DqHuH7rv4liTksqGSEXRGHnJEjWA66PYFeT9aCmVKQM9Pk
-	 gm/39YxGstgX6mEsEvjDPbxQWm9Q1Phu87RV+0k40CvtySN8asriByMTsDmBkUKbwsQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795354449;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=6gKdivfkDsuonkEKXD54e3FJFyho7ssO1p7f34zC4sc=;
-	b=NSz44hxRApW3N5OcgeQdyx6gQTmRVTuExs+QDvtRopcal37Rg0hwsTIfpVp4tI4yXb20
-	 60xRNCzQWK0Kiqz1gntU93z3FWnqcD54NaELKvI8EOWba7CUcAzXX7IEwTxtdpBtIktMl
-	 sbzecyiboW0NAZQpOxEAdHkAOqOBSbgOaJd/pz2w41pjNuenFmrwYbSmNfAbBZvc8kqdi
-	 uJ9Y3+CZ69xDaH+elMBLpGE3AXHvh2afWUotRD2mr9JUOrhXVeYHSPtSVZ7DYudv6dU6m
-	 ufVaZXbSzjzwa+jTvawv8uJeLjv8kzHcll8rcnp0ckekPgzvuctYToIcfTWt8Nj8cnw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795354677;
+	b=rCu5FkGWBH/8VHsl4kzoX8cDBrutbbLpWT0YZDfe8fazcnwQ2wEy7JJR9BwW3Renm6Oz
+	 I0eQIj9DjtCmpLv4m5T0uSyBE4xJ8SH0jSEDL3WJkoqPOKIEZaBFIRsfOOc/nAx8BG7K7
+	 Js9cPEvKi1cY4DIINO7BLsHXATXw/zQnES/tvWeFhoU7PtCEMEV933kB2aYV7TXFZm2T6
+	 IN3FbOglVnKckm5t+Cxp2/WwWOtLJ37XNA+2s/HGGBsWxxTxf0NtpC0P674faJC3rjlY6
+	 XvU+NF+5BBayLaYu30pifnLnN9Kn+UC/5kjPOR4/LHJQDRfzUcPuzthx1zfetpu684w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795354677;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=MaLZ/5e/yperaGiOGWV6z+zK2FhbvcWBhbuuohCNTlQ=;
+	b=0lq/ceRefxYwxNSa+DVji1M+Iucmwt6aHwDisf7FWg/1yad+Gg2szQ9BOBM4J/lVk6aa
+	 f0gxBnDxKG0ecKIjj6gqCfv/hLAL+pukE6pPj41+s6KO54oC9xm8IMn0/G9K/FZt+cnn7
+	 XZ5jn9h0bFKPxeUXPUtb2GNOpZzSSvPDE705ZeM7CA8yjY0IFJZkmpb+AJSFQscCEy+Ky
+	 YRtQbe5R+3c9MG+H3K2QUGoH11b/TWkTpbLc3jcZSg5cnnxVCNemt+dVwxtxUobxDT0X+
+	 qDXDw1Abkc0oas6LamU123m9mmuGp1itD9wTITUvX4BO6QeOm0jBIf0eBoz/UNGa15A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=OTAiH7yl;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id AEBB41F000CF;
-	Sun, 22 Nov 2026 13:34:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795354448;
-	bh=6gKdivfkDsuonkEKXD54e3FJFyho7ssO1p7f34zC4sc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=j6ubBjpE1Di561SNA2s9h/kbXL7cjk8KGbIFotssHdQJfdSEBvqhBxsyWudkUS5wN
-	 oKnK9rBNQEg1uzcYj+43LR9liFy6JwisI+Pfc/FVReBAfY4Zmjmdu7bXNowd5LsxTw
-	 ttq+5xbPL2DkfB1E5/E/49O1CKYGW+vVVxW+FrQGf1uSyG08ugD82eVm03fqDmItdr
-	 YsBH/ZlQD8Pi2weETXkfO4tHIHQhppR3VNQLBWkU/nacgJQbNgkyb1cSxkdHkMePWJ
-	 +074xkCYUobitkqUQBDRj7ioV2ACwzUfWszqWK0BxgaewhSLfzUqfYfHb2hwopUV4t
-	 jS+oRYLWe8T7A==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 3E39A4C097;
-	Sun, 22 Nov 2026 13:34:00 +0000 (UTC)
-From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Sun, 22 Nov 2026 21:33:52 +0800
-Subject: [PATCH 2/2] riscv: dts: sophgo: Enable the RTC on SG2042 EVB v2
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BDBF0606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:37:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BDBF0606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=OTAiH7yl
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 91A95C6223D;
+	Sun, 22 Nov 2026 13:38:00 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D86E560512;
+	Sun, 22 Nov 2026 13:37:53 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 834F5102F0DBA;
+	Sun, 22 Nov 2026 14:37:47 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795354673; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=MaLZ/5e/yperaGiOGWV6z+zK2FhbvcWBhbuuohCNTlQ=;
+	b=OTAiH7ylWvXXaSMCBYUk3oXEHf74GJpwwQtyHazm4tDKGVHo10dbTK5TvQus76lRYafMRS
+	a2CW0F4Hk+WGDNNPjzGCf4l6fPWDDAEtFP0xHap3JrwoAFKXO2qXBPkqzKZbvOE1IrbilP
+	uAbIgAKtSG7MO3IuzvMNePc/WdPBsPVbWnQQ1ikX5WwApjEVd1mdHdlr6cjPfJVhhcUIJX
+	xhTbJaP/kmapXYZaS54LbyZXn4/ZuMl1GuNn6puJc8q4WpY8w8taX7DCkMrurdqWbRKxO3
+	wtkxjnaw2udj1NFl1H5YUfKfBjDZjaVu2P6HKrBkvJx7xXnUjTOvqiZjjzTLmg==
+From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+Date: Sun, 22 Nov 2026 14:37:40 +0100
+Subject: [PATCH] pmdomain: rockchip: fix warning when deferring probe
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,82 +63,108 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261122-sg2042-evb-rtc-v1-2-f222c64cc7b9@iscas.ac.cn>
-References: <20261122-sg2042-evb-rtc-v1-0-f222c64cc7b9@iscas.ac.cn>
-In-Reply-To: <20261122-sg2042-evb-rtc-v1-0-f222c64cc7b9@iscas.ac.cn>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Chen Wang <chen.wang@linux.dev>, 
- Inochi Amaoto <inochiama@gmail.com>
-Cc: Han Gao <rabenda.cn@gmail.com>, devicetree@vger.kernel.org, 
- sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795354439; l=1232;
- i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=dsm+CVwClowTlroI3X7kDbQ0hyzBtl6KTIdw4zXB9XQ=;
- b=qwqJvbtq8jL/cGsYM8JQ5HPgmkdDxYsgXikkAtQRg+8ODgaUl/jaCYQw+zMP2WMCqCC0RHIFp
- 3TSfMaGnVjbCUT8AKnKw9LwtrktPsPZ5cbSA1MNiai9u+pAYm1mpbSj
-X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
- pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
-X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
- auth_id=1262
-X-Original-From: Han Gao <gaohan@iscas.ac.cn>
-Reply-To: gaohan@iscas.ac.cn
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Message-Id: <20261122-rockchip-pm-defer-v1-1-5b41635e3410@bootlin.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0auEWXfAScCFV5EuTDLRUaph0kpBv
+ HtTXb7F/wcUVuECnTlAeZci21pBDwNhGtaRUWI12Ma2RNaibmEJk2TML4ycWHGI3jlHLhE1ULu
+ snOR7Pfvn7fLxM4f3fwTn+QP6EtXCdQAAAA==
+X-Change-ID: 20261122-rockchip-pm-defer-adb33313f110
+To: Ulf Hansson <ulfh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Shawn Lin <shawn.lin@rock-chips.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 
-From: Han Gao <gaohan@iscas.ac.cn>
+When the PMU probe fails because a clock can't be acquired, the
+pm-domains driver raises a warning in kernel logs:
 
-The SG2042 EVB v2 has a PT7C4307 RTC at 0x68 on I2C0. Enable I2C0
-and add the RTC node.
+  [...] power-domain: failed to get clk at index 0: -517
+  ------------[ cut here ]------------
+  WARNING: drivers/clk/clk.c:4831 at __clk_put+0xf8/0x130, CPU#0: swapper/0/1
+  Modules linked in:
+  CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.3.5-00004-g552d0d1e09f2 #103 PREEMPT
+  Hardware name: FriendlyElec NanoPi Zero2 (DT)
+  pstate: 20000005 (nzCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+  pc : __clk_put+0xf8/0x130
+  lr : clk_put+0x10/0x20
+  sp : ffff80008192b750
+  x29: ffff80008192b750 x28: ffff80008147aee0 x27: ffff8000813400bc
+  x26: 0000000000000000 x25: ffff800080e5d5c0 x24: ffff00000074f280
+  x23: ffff00007fbe6bc8 x22: 0000000000000000 x21: 0000000000000000
+  x20: ffff0000004f78b0 x19: fffffffffffffdfb x18: 0000000000000006
+  x17: 70203a72656c6c6f x16: 72746e6f632d7265 x15: 0720075207450746
+  x14: 07450744075f0745 x13: 0720075207450746 x12: ffff8000816ee830
+  x11: 0000000000000058 x10: 0000000000000018 x9 : ffff8000816ee830
+  x8 : 000000000000005d x7 : 3ffffffffffff000 x6 : ffff800081746830
+  x5 : 0000000000017fe8 x4 : 0000000000000000 x3 : ffff0000004f78b0
+  x2 : 0000000000000010 x1 : ffff0000004f78c0 x0 : fffffffffffffdfb
+  Call trace:
+   __clk_put+0xf8/0x130 (P)
+   clk_put+0x10/0x20
+   clk_bulk_put+0x3c/0x60
+   rockchip_pm_add_one_domain+0x298/0x4a0
+   rockchip_pm_domain_probe+0xd4/0x310
+   platform_probe+0x5c/0xb0
+   really_probe+0xc0/0x3e0
+   __driver_probe_device+0x164/0x1d0
+   driver_probe_device+0xb4/0x120
+   __device_attach_driver+0xbc/0x190
+   bus_for_each_drv+0x88/0xf0
+   __device_attach+0xa0/0x1e0
+   device_initial_probe+0x50/0x70
+   __bus_probe_device+0x38/0xb0
+   bus_probe_device+0x10/0x20
+   device_add+0x604/0x850
+   of_device_add+0x44/0x60
+   of_platform_device_create_pdata+0x94/0x160
+   of_platform_bus_create+0x198/0x520
+   of_platform_bus_create+0x1f8/0x520
+   of_platform_bus_create+0x1f8/0x520
+   of_platform_populate+0x58/0x170
+   of_platform_default_populate_init+0xe8/0x100
+   do_one_initcall+0x60/0x1d0
+   kernel_init_freeable+0x204/0x288
+   kernel_init+0x2c/0x130
+   ret_from_fork+0x10/0x20
+  ---[ end trace 0000000000000000 ]---
 
-Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+The warning is due to rockchip_pm_add_one_domain passing pd->num_clks to
+clk_bulk_put, but pd->num_clks does not reflect correctly how many
+clocks are correctly acquired (it is systematically set to the _known_
+number of clocks, before attempting to get them).
+
+Only pass the number of retrieved clocks to clk_bulk_put by setting
+pd->num_clks to the number of correctly processed clocks. The value will
+be dropped anyway in case of failed probe.
+
+Fixes: d8b384777066 ("pmdomain: rockchip: fix clock leak on domain probe failure")
+Signed-off-by: Alexis Lothoré <alexis.lothore@bootlin.com>
 ---
- arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ drivers/pmdomain/rockchip/pm-domains.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts b/arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts
-index d8c5814f22581076e6b5114f762d4fd090681b80..0dcc53b519971396a5ce734108ea0386fb186726 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts
-+++ b/arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts
-@@ -124,6 +124,17 @@ &emmc {
- 	status = "okay";
- };
- 
-+&i2c0 {
-+	pinctrl-0 = <&i2c0_cfg>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	rtc@68 {
-+		compatible = "dallas,ds1307";
-+		reg = <0x68>;
-+	};
-+};
-+
- &i2c1 {
- 	pinctrl-0 = <&i2c1_cfg>;
- 	pinctrl-names = "default";
-@@ -189,6 +200,16 @@ sdhci-emmc-rst-pwr-pins {
- 		};
- 	};
- 
-+	i2c0_cfg: i2c0-cfg {
-+		i2c0-pins {
-+			pinmux = <PINMUX(PIN_IIC0_SDA, 0)>,
-+				 <PINMUX(PIN_IIC0_SCL, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <26800>;
-+			input-schmitt-enable;
-+		};
-+	};
-+
- 	i2c1_cfg: i2c1-cfg {
- 		i2c1-pins {
- 			pinmux = <PINMUX(PIN_IIC1_SDA, 0)>,
+diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
+index e193f978d5f3..adc3bebcd928 100644
+--- a/drivers/pmdomain/rockchip/pm-domains.c
++++ b/drivers/pmdomain/rockchip/pm-domains.c
+@@ -854,6 +854,7 @@ static int rockchip_pm_add_one_domain(struct rockchip_pmu *pmu,
+ 			dev_err(pmu->dev,
+ 				"%pOFn: failed to get clk at index %d: %d\n",
+ 				node, i, error);
++			pd->num_clks = i;
+ 			goto err_put_clocks;
+ 		}
+ 	}
 
--- 
-2.47.3
+---
+base-commit: 988117cc1bb17338c586a4e21ade88b5397eac33
+change-id: 20261122-rockchip-pm-defer-adb33313f110
 
+Best regards,
+--  
+Alexis Lothoré <alexis.lothore@bootlin.com>
 
