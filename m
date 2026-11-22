@@ -1,54 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.202
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795376554;
-	b=3mN64adPkdq0g87sBrqrlR1MlDHOlxxgrr3bRUkLOLIFVMRzjjoSN3LmjP7gnBNlx2bi
-	 xqHpANDXE34SyE5SxCao+8dETNvZWr5ifW+MF02dFZmBgJ5ZNWSBc67ZnDY6cYhZLuDwU
-	 nsEK0FCjlJQ1+1UjluXWtVtMoAQITVzzHFctl8beNd+gTKWkci+sMSdbVOpLvD+BujE9r
-	 CbURK1GsQbbFEa1RAFL1pVht/fI/lpR/BvpFeRPx7MUH6lLRA/X3efSV1UeZa66HPt+40
-	 BzLH3C6qbvESv1MyXx9gTSfKl7F40KhX5r6OKapcJcm15iZyXxyQ404D+PnBa+CkDzA==
+	t=1795376645;
+	b=CiHnPXH9Up3W/gkd0/K/Y8HS8tEwOdMtahkbkdPh6yefNvyChAt8MSJlqQkCz4DoTsSp
+	 oYeSSBmuONQWQhrpnxmP280wgZsYgqiDjceIKPFn1ETBKS+3QiF1Zu25uVZuQL7SyXOUY
+	 QzOhrJmNYtHbUi1g3FIUwnI7KnqP2uPJBMAWj1xdw/secvfp1mIosIhfw5T05RidOu4GS
+	 sbrEENHF6eb029pVkjdUPxqu/1Rbi+DvTKihC8/4eBzxOumxuQT54aiv9ZRhvTYgXvXSp
+	 9Rv5A7GT8D9uL2C9L7w5NHaa1MlOZSooIxtiMKqoINb6SsDyRGOHIwgKBY+IviTSl1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795376554;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=u7aJQPEkk1MXoO+1vj7a5E+2bixK8uiORNo00q/fjE8=;
-	b=0RSsmEpN6V8Mr3sxv9t+dQei3q3JgnJeyl3+qzguaOjHRwkx+FbM33cKQsjd98/X94Te
-	 ffrOGWgkvX7pXgAcUNNMfmbdHF1S1NSVcApHqWrdo6iWz05Ng2H8yKrPLKKmA7Dcx0H5J
-	 ia9ZhEwRipiXEFSc4bfsozunO9N2i5l72BScmk1+sLqqerpT/et7t3gO5EIdnGFOUS8AF
-	 Ir+hnKSlUIpaBVwoFsIJ3ueBM0kBJYwDKuZ+iq6RR0crLgbZCD0/tSzR1mfIsQ7PmJVC0
-	 4/Vb89aeKiYBggalqrhUSXDLuICgpovGtzcCJRZBuGL4JlfOQgJmZ7Zd71yUmCjcfmg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795376645;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Scanned-By;
+	bh=z02xL6rhzWs1+mp5ZR35iPApHnvpXIYD37Zbf7HihCk=;
+	b=XuAZv4CNGXp1zWuhNvnkJfVzqsOcxAM5V4Vz8oAv29+rr5w+R6qzYbeA72h0HGiO6vu8
+	 bus0u1uPOyG0xEzJ3VbzJ8FOFGXBL4GdSg/BaSsiR8/qKlUJzSc7kAoQIS1lE0EaOPHkq
+	 zUpqCTaVwRvshHXZbzFAXb/C033nkntmMGIBJd8sgAj3vQ8qvvgsxvmp3mXY8xLWrqVar
+	 5QfVnt0nACQXS/Jkntor/m7qKJP0nzyyA/FDv7DRfp5FrA7VdcqdRqHF3bukAjm1h+zC4
+	 sRnOD/T+KubEQ8hmrQBnqDsZEVQqrrR6GnlRpXfDbywRhcbOC+UU7fvZEKybRQ/aPOg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jTIuWHpt;
-	arc=none smtp.remote-ip=95.215.58.202
-Received: from mta1.migadu.com (out-202.mta1.migadu.com [95.215.58.202])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dPsD8zaz;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F23DE606A31A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:42:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F23DE606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A76E3606A31D
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:44:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A76E3606A31D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jTIuWHpt
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=A+Nq3QPurMldwnh5piZQ+zljAbZ0+xg1hBlzTGvD0cc=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795376551; v=1; x=1795981351;
- b=jTIuWHptalClz6NQJqnA+yBkDSw+UELgYqlzuG31X4ct7firXKO48NIneDWiQME16nG1m0LY
- I/uD/TDlPEbb4bNbF7YJudnwMiVAwcQMtivVcROaEYihOK/lI9JTDXBAUiOEPP2ctGh8R4G8OK4
- wP8ZoCXGtVjdrJGbs1xkJKcU=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id bc5ce082725462f8;
-	Sun, 22 Nov 2026 19:42:30 +0000
-X-Mizu-Trace-ID: bc5ce082725462f8
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <59e93766-fb4f-43de-a721-4ad544264730@linux.dev>
-Date: Sun, 22 Nov 2026 11:42:27 -0800
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dPsD8zaz
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795376643;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z02xL6rhzWs1+mp5ZR35iPApHnvpXIYD37Zbf7HihCk=;
+	b=dPsD8zazn/ZhhiwS5KqmSx7Loc8otjoiRoJBB+lV2u42nbhSj4x9i5ni38KWK2AeNfLxxT
+	lR3Uvjw0al7PruC5pYWgfJwwRVH6lvTLDjA0m5h5MflNK4hKB0C9jK5e8uF9F6lznL5W7h
+	bPeZtzZPrPfO60ODHau3nXHja/j6EBc=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-26-17unz2fnOhWuvboYSM5Fww-1; Sun,
+ 22 Nov 2026 19:43:59 +0000
+X-MC-Unique: 17unz2fnOhWuvboYSM5Fww-1
+X-Mimecast-MFC-AGG-ID: 17unz2fnOhWuvboYSM5Fww_1795376637
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DEAF81956064;
+	Sun, 22 Nov 2026 19:43:56 +0000 (UTC)
+Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (bmarzins-01.fast.eng.rdu2.dc.redhat.com [10.6.23.12])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 480711800550;
+	Sun, 22 Nov 2026 19:43:55 +0000 (UTC)
+Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (localhost [127.0.0.1])
+	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.17.1) with ESMTPS id 6AMJhs8G2805339
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Sun, 22 Nov 2026 14:43:54 -0500
+Received: (from bmarzins@localhost)
+	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.18.1/Submit) id 6AMJhrRd2805338;
+	Sun, 22 Nov 2026 14:43:53 -0500
+Date: Sun, 22 Nov 2026 14:43:53 -0500
+From: Benjamin Marzinski <bmarzins@redhat.com>
+To: Christoph Hellwig <hch@lst.de>
+Cc: Jens Axboe <axboe@kernel.dk>, Hannes Reinecke <hare@suse.de>,
+        Keith Busch <kbusch@kernel.org>,
+        "Martin K . Petersen" <mkp@kernel.org>, linux-block@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] block: stack max_user_discard_sectors
+Message-ID: <awNF-dV2TacxpUqf@redhat.com>
+References: <20261109193927.595104-1-bmarzins@redhat.com>
+ <20261120154040.GB28611@lst.de>
+ <awCi_9_Xykc_Mmk-@redhat.com>
+ <20261121001334.GA13058@lst.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,215 +88,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH rdma-next v2] RDMA/rxe: Require a responder resource for
- FLUSH
-To: Andrew Stellman <astellman@stellman-greene.com>,
- Zhu Yanjun <zyjzyj2000@gmail.com>,
- "yanjun.zhu@linux.dev" <yanjun.zhu@linux.dev>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>,
- linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261122170551.19582-1-astellman@stellman-greene.com>
-From: Zhu Yanjun <yanjun.zhu@linux.dev>
-In-Reply-To: <20261122170551.19582-1-astellman@stellman-greene.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261121001334.GA13058@lst.de>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 
-在 2026/11/22 9:05, Andrew Stellman 写道:
-> process_flush() keeps its state in a responder resource from
-> rxe_prepare_res(), as READ and ATOMIC requests do. check_resource()
-> refuses those requests when max_dest_rd_atomic is 0, but it does not
-> check FLUSH. With max_dest_rd_atomic 0, qp->resp.resources is
-> ZERO_SIZE_PTR, and rxe_prepare_res() writes through it in
-> free_rd_atomic_resource().
+On Sat, Nov 21, 2026 at 01:13:34AM +0100, Christoph Hellwig wrote:
+> On Fri, Nov 20, 2026 at 02:43:59PM -0500, Benjamin Marzinski wrote:
+> > > I don't think we should take the underlying max_user_discard_sectors
+> > > into account here, just max_discard_sectors.
+> > 
+> > Is that to handle devices that call blk_queue_disable_discard()? I
+> > didn't think about that. Makes sense.
 > 
-> A FLUSH sent to an RC QP with max_dest_rd_atomic 0 oopses the
-> responder:
-> 
->    Oops: general protection fault, probably for non-canonical address 0xdffffc0000000002: 0000 [#1] SMP KASAN NOPTI
->    KASAN: null-ptr-deref in range [0x0000000000000010-0x0000000000000017]
->    CPU: 0 UID: 0 PID: 13 Comm: kworker/u8:0 Not tainted 7.4.0-rc3-gaebb72744764 #1 PREEMPT(lazy)
->    Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
->    Workqueue: rxe_wq do_work
->    RIP: 0010:free_rd_atomic_resource+0x15/0x50
->    Code: 00 00 00 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 0f 1f 40 d6 48 b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 <0f> b6 04 02 84 c0 74 04 3c 03 7e 0b c7 07 00 00 00 00 c3 cc cc cc
->    RSP: 0018:ff110000013479f8 EFLAGS: 00000202
->    RAX: dffffc0000000000 RBX: 0000000000000010 RCX: ff110000059f9760
->    RDX: 0000000000000002 RSI: 0000000000000000 RDI: 0000000000000010
->    RBP: 0000000000000001 R08: ff110000024a2180 R09: ffe21c0000268f2c
->    R10: 0000000000000003 R11: ff110000059f9298 R12: ff1100000592dc00
->    R13: 0000000000000040 R14: ff110000059f9000 R15: ff110000024a2168
->    FS:  0000000000000000(0000) GS:ff110000e18da000(0000) knlGS:0000000000000000
->    CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->    CR2: dffffc0000000002 CR3: 00000000052ca000 CR4: 0000000000751ef0
->    PKRU: 55555554
->    Call Trace:
->     <TASK>
->     rxe_receiver+0x5f6e/0x9a20
->     ? flush_workqueue_prep_pwqs+0x1a4/0xe80
->     ? kthread+0x2b0/0x3b0
->     ? __pfx_rxe_receiver+0x10/0x10
->     ? update_cfs_rq_load_avg+0x5a/0x560
->     ? pick_task_fair+0x468/0x1a60
->     ? __pfx_rxe_receiver+0x10/0x10
->     ? _raw_spin_lock_irqsave+0x86/0xe0
->     ? __pfx_rxe_receiver+0x10/0x10
->     do_work+0x144/0x470
->     process_one_work+0x6fc/0x1180
->     ? __pfx___schedule+0x10/0x10
->     ? __pfx_process_one_work+0x10/0x10
->     ? _raw_spin_lock_irq+0x81/0xe0
->     ? __pfx_do_work+0x10/0x10
->     ? assign_work+0x11d/0x410
->     worker_thread+0x45b/0xd10
->     ? __pfx_worker_thread+0x10/0x10
->     kthread+0x2c8/0x3b0
->     ? recalc_sigpending+0x15c/0x1e0
->     ? __pfx_kthread+0x10/0x10
->     ret_from_fork+0x36e/0x5a0
->     ? __pfx_ret_from_fork+0x10/0x10
->     ? __switch_to+0x572/0xdc0
->     ? __switch_to_asm+0x33/0x70
->     ? __pfx_kthread+0x10/0x10
->     ret_from_fork_asm+0x1a/0x30
->     </TASK>
->    Modules linked in:
->    ---[ end trace 0000000000000000 ]---
->    RIP: 0010:free_rd_atomic_resource+0x15/0x50
->    Code: 00 00 00 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 0f 1f 40 d6 48 b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 <0f> b6 04 02 84 c0 74 04 3c 03 7e 0b c7 07 00 00 00 00 c3 cc cc cc
->    RSP: 0018:ff110000013479f8 EFLAGS: 00000202
->    RAX: dffffc0000000000 RBX: 0000000000000010 RCX: ff110000059f9760
->    RDX: 0000000000000002 RSI: 0000000000000000 RDI: 0000000000000010
->    RBP: 0000000000000001 R08: ff110000024a2180 R09: ffe21c0000268f2c
->    R10: 0000000000000003 R11: ff110000059f9298 R12: ff1100000592dc00
->    R13: 0000000000000040 R14: ff110000059f9000 R15: ff110000024a2168
->    FS:  0000000000000000(0000) GS:ff110000e18da000(0000) knlGS:0000000000000000
->    CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->    CR2: dffffc0000000002 CR3: 00000000052ca000 CR4: 0000000000751ef0
->    PKRU: 55555554
-> 
->    ------------[ cut here ]------------
->    WARNING: drivers/infiniband/sw/rxe/rxe_pool.c:212 at __rxe_cleanup+0x21b/0x290, CPU#0: t028/87
->    Modules linked in:
->    CPU: 0 UID: 0 PID: 87 Comm: t028 Tainted: G      D             7.4.0-rc3-gaebb72744764 #1 PREEMPT(lazy)
->    Tainted: [D]=DIE
->    Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
->    RIP: 0010:__rxe_cleanup+0x21b/0x290
->    Code: f7 fe ff ff 4c 89 e7 e8 43 99 ad fd 84 c0 0f 85 6f ff ff ff be 50 c3 00 00 4c 89 e7 e8 9e 22 f3 00 85 c0 0f 85 5a ff ff ff 90 <0f> 0b 90 eb 04 90 0f 0b 90 bd 92 ff ff ff e9 48 ff ff ff 90 0f 0b
->    RSP: 0018:ff110000053f78f8 EFLAGS: 00000246
->    RAX: 0000000000000000 RBX: ff110000059f9160 RCX: ffe21c0000a7ef08
->    RDX: 0000000000000000 RSI: ff110000053f7860 RDI: ff110000059f9190
->    RBP: 0000000000000001 R08: 0000000000000001 R09: ffe21c0000a7eef5
->    R10: 0000000000000003 R11: ffffffff89c14700 R12: ff110000059f9188
->    R13: ff110000059f9170 R14: ff11000004794ea0 R15: 1fe2200000a7ef1f
->    FS:  0000000000000000(0000) GS:ff110000e18da000(0000) knlGS:0000000000000000
->    CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->    CR2: dffffc0000000002 CR3: 000000001b872000 CR4: 0000000000751ef0
->    PKRU: 55555554
->    Call Trace:
->     <TASK>
->     ? __pfx___rxe_cleanup+0x10/0x10
->     ? rxe_qp_chk_destroy+0x61/0xc0
->     rxe_destroy_qp+0x2f/0x180
->     ib_destroy_qp_user+0x30f/0x4f0
->     ? __pfx_ib_destroy_qp_user+0x10/0x10
->     ? stack_trace_save+0x8e/0xc0
->     uverbs_free_qp+0x7c/0x150
->     ? put_files_struct+0x181/0x310
->     destroy_hw_idr_uobject+0x7e/0x130
->     ? entry_SYSCALL_64_after_hwframe+0x77/0x7f
->     uverbs_destroy_uobject+0xdf/0x770
->     __uverbs_cleanup_ufile+0x18b/0x390
->     ? __pfx___uverbs_cleanup_ufile+0x10/0x10
->     ? __pfx_down_write+0x10/0x10
->     uverbs_destroy_ufile_hw+0x6d/0x260
->     ib_uverbs_close+0x46/0x270
->     __fput+0x2f8/0x9e0
->     fput_close_sync+0xe2/0x190
->     ? __pfx_fput_close_sync+0x10/0x10
->     filp_close_sync+0x18/0x30
->     put_files_struct+0x181/0x310
->     do_exit+0x6ab/0x25f0
->     ? __pfx_do_exit+0x10/0x10
->     ? zap_other_threads+0xb9/0x300
->     ? __pfx_zap_other_threads+0x10/0x10
->     ? handle_mm_fault+0x13d/0x420
->     do_group_exit+0xab/0x220
->     __x64_sys_exit_group+0x39/0x40
->     x64_sys_call+0x1962/0x1970
->     do_syscall_64+0xdf/0x4c0
->     entry_SYSCALL_64_after_hwframe+0x77/0x7f
->    RIP: 0033:0x7f34f928a21d
->    Code: Unable to access opcode bytes at 0x7f34f928a1f3.
->    RSP: 002b:00007ffeed584088 EFLAGS: 00000202 ORIG_RAX: 00000000000000e7
->    RAX: ffffffffffffffda RBX: 00007f34f93a0fa8 RCX: 00007f34f928a21d
->    RDX: 00000000000000e7 RSI: ffffffffffffff88 RDI: 0000000000000000
->    RBP: 00007ffeed5840e0 R08: 00007ffeed584030 R09: 0000000000000000
->    R10: 000055d8b71c93e0 R11: 0000000000000202 R12: 0000000000000001
->    R13: 0000000000000000 R14: 0000000000000000 R15: 00007f34f93a0fc0
->     </TASK>
->    ---[ end trace 0000000000000000 ]---
-> 
-> The responder task dies, and when the test exits, destroying the QP
-> warns on a timeout in __rxe_cleanup() (the WARNING above) and then
-> hangs.
-> 
-> Add RXE_FLUSH_MASK to the check, so a FLUSH gets the same Invalid
-> Request NAK a READ would, and the requester sees IB_WC_REM_INV_REQ_ERR.
-> 
-> The issue was found by Claude Opus 5.5 running Quality Playbook, an
-> LLM-driven code review tool:
-> https://github.com/andrewstellman/quality-playbook
-> The fix and this changelog were drafted with Claude Opus 5.5 and
-> reviewed by me.
-> 
-> Fixes: ea1bb00ee9a5 ("RDMA/rxe: Implement flush execution in responder side")
-> Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
-> ---
-> 
-> v2: the full kernel log of the oops and the later WARNING, as Leon
-> asked (timestamps removed). The code change is the same as v1.
-> v1: https://lore.kernel.org/r/20261119151332.95466-1-astellman@stellman-greene.com
-> 
-> Tested in QEMU with KASAN on v7.4-rc3, and on v7.4-rc3 with the RDMA
-> code from rdma for-next (7404c82cbf12). The reproducer is a short
-> libibverbs program; I can send it off-list.
-> 
->   drivers/infiniband/sw/rxe/rxe_resp.c | 3 ++-
->   1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/infiniband/sw/rxe/rxe_resp.c b/drivers/infiniband/sw/rxe/rxe_resp.c
-> index 1b7f31737225..38b5b0c2abe3 100644
-> --- a/drivers/infiniband/sw/rxe/rxe_resp.c
-> +++ b/drivers/infiniband/sw/rxe/rxe_resp.c
-> @@ -340,7 +340,8 @@ static enum resp_states check_resource(struct rxe_qp *qp,
->   {
->   	struct rxe_srq *srq = qp->srq;
->   
-> -	if (pkt->mask & (RXE_READ_OR_ATOMIC_MASK | RXE_ATOMIC_WRITE_MASK)) {
-> +	if (pkt->mask & (RXE_READ_OR_ATOMIC_MASK | RXE_ATOMIC_WRITE_MASK |
-> +			 RXE_FLUSH_MASK)) {
+> That too.  But also because user limits on lower devices shouldn't
+> really affect upper devices for consistency, as new updates on the
+> lower device after the upper one was created don't get picked up
+> either.
 
-This looks sensible to me—adding RXE_FLUSH_MASK here avoids 
-rxe_prepare_res() / free_rd_atomic_resource() touching ZERO_SIZE_PTR 
-when max_dest_rd_atomic == 0 and returns the expected Invalid Request NAK.
+Um... Now it doesn't make sense again. 
 
-Just worth confirming:
-(1) RXE_FLUSH_MASK takes the same error/NAK path here without later 
-responder states assuming a valid qp->resp.res or non-ZERO_SIZE_PTR 
-qp->resp.resources, and
+If I do something like:
 
-(2) no other RXE_READ_OR_ATOMIC_MASK / RXE_ATOMIC_WRITE_MASK checks in 
-rxe_resp.c for max_dest_rd_atomic or responder resources missed 
-RXE_FLUSH_MASK.
+t->max_user_discard_sectors = min(t->max_user_discard_sectors,
+                                  b->max_discard_sectors);
 
-Thanks a lot.
+That mean that changes to underlying device user limits can effect upper
+device user limits (since adjusting max_user_discard_sectors
+via sysfs automatically adjusts max_discard_sectors).
 
-Zhu Yanjun
+Also, while this does make blk_stack_limits() disable discards on upper
+devices that have a lower device that dissabled discards with
+blk_queue_disable_discard(), it doesn't disable discards on upper
+devices that have lower devices that have discards disabled normally
+(since blk_validate_limits() sets discard_granularity to 0 for devices
+that set max_discard_sectors to 0, and this part of blk_stack_limits()
+only runs if the bottom device has discard_granularity != 0). That
+seems wrong. So perhaps handling blk_queue_disable_discard() isn't the
+right answer. Alternatively, blk_stack_limits() could disable discards
+on upper device is any of the lower device has max_discard_sectors. But
+I assume there's a good reason why it currently doesn't.
 
->   		/* it is the requesters job to not send
->   		 * too many read/atomic ops, we just
->   		 * recycle the responder resource queue
-> 
-> base-commit: 7404c82cbf1246e0e84e2ec21834d23c26f9a8ed
+Additionally, if we use max_user_discard_sectors to clamp the upper
+device's max_discard_sectors to the lower device's. It allows users to
+just override it by changing max_user_discard_sectors to something that
+doesn't work with the underlying device. That also seems wrong.
+
+So what do you think about doing this instead:
+
+t->max_hw_discard_sectors = min(t->max_hw_discard_sectors,
+                                b->max_discard_sectors);
+
+This doesn't handle blk_queue_disable_discard(), but like I said, the
+other patch didn't handle it well either. It also keep users from being
+able to send too large discards by setting max_user_discard_sectors too
+high on stacked devices. I'll send a v2 that does this.
+
+-Ben
 
