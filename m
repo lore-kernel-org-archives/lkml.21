@@ -1,55 +1,152 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795382950;
-	b=Ca+3eHzlfV1le9O/mYqMfwxZEMthwqcpHbtECilC3QMP6ivA8q2kWTyBiDu7QCSEkk5r
-	 aWWGLsVHEq54BEw+/E33A62Co9jY7/honmtCD8kdB66NiyVC6+bSktmTkYOI/42J2jOiW
-	 qp7XW+2OdUw6h0K15aDjX1acsz5BehwbRKWhMN40wsWomKQKbF29Ze7C0qay2DLpDMkZ+
-	 n12CgET9MFalvvALlMRa1CG0GRhPzlfbZnStTZln3UVWmTEnmJB1JJ+mNGm1TLK7B1TFv
-	 yrd7yCMqzxhT+2h+4vRRO4F7pe90ZUgojjnFtTEqXvVNy7cA8nHsHMNzRYeLFvuTV0g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795382950;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=BTV0zF8Ij6zUMNBE+Oz8/N1ZVrqV9XG9B7wmhsB51vI=;
-	b=Yk/0m6VbLFlYeJaenvRfzU9TvZIrJRk+dfhY46nqiWoEr8Ae4QtIHA7Fsy10m2UEfGyC
-	 FxnEKYMBWL9Jio8lagGibvTD2uVJueoG2ahLoixQi50LAt6KaP+Q2pXEv+ewtZXRDAVfL
-	 IOK4O8KISj1bXMNK8wlprX2CSpa8by5IEOwwcKMYk15SyqsBDljOVzOKJmfF9YaoG63vZ
-	 ILKoF/TMxDsivQ68jHbubVeJMtZGd3a9MfqYEaInkRjlnp1hqk+pJYfbB7rvWPhqJifzN
-	 E3RdeQ1/fSKNcRu/7R50bVgYMuNPI3T61JQKG9YebgKi1jAj4hn2HtEIQ7+yJwZvEwA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WG54opzt;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.20.85
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795383019;
+	b=rqJMPB4+6Sj0lAEUroA2rQPaKLxuVmYdzVLiklR9DcbppScbZzAsaPcQyAuyfgCDzBdn
+	 M+HHOemN0qSGUD1wl9qprZNZ6jFEI8izeQZ0aafwbA703e1IMSa0Vd+vAhSGhkcUYHMqj
+	 YO0zZfTloxlPM/s93+gJBTEr7710k7v9GYVG4r9z1uw0jdA19LDxqvn+v4lAshPZpzAw3
+	 LpKePJRjc5HiUeSUrhdBrB3RQun7kJHo5op3LH/q7fNtYyL0L96v3sb0JJTOCa2la46ab
+	 0v+yMqDY4pLGJL2mhOYCwT0oOjCyd6oO5kZ0LOiHKIkGg1mVS64ONr+ZGgXYCCDR7LA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795383019;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:
+	 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=aa2iVhqn0OHezWmfk7g613/N7MjtEWM0wDkg5g8d7G4=;
+	b=DE1M4tUYYBzgcN6kYOSGLHoDsx9jGec0x7B5pJHtP5VKi40yj3VpTW0HRkHmgkpcQXOe
+	 4H5VQ8ZdM6Q4w+mZoDqG7UOMB/MAiaG7HqkgzL9134lpfxU4ic4mKDFmGWXgn8LMZD9RB
+	 0yIB6WenCN48PnfMRcbzJsRxhDjwhLifiMuZhvZ17POTczw3YOQo7briuNyUOn9C0meuS
+	 u8HFoY2ymgsJzPcvjOuo1ZbQ7l6U68457QRB9KbxKvC9OPLL4cSt+blgEqNYaOA2EoP1r
+	 p5IhR/F/SgzAvJCnxM7d6ANiYiko/etLU3p2YRXKSbi4sGsr8xnqkBG3hNFqNS2XqSQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=outlook.com;
+	spf=pass smtp.mailfrom=outlook.com;
+	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=Ayb8QvPX;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.20.85
+Received: from CH5PR02CU005.outbound.protection.outlook.com (mail-northcentralusazolkn19012085.outbound.protection.outlook.com [52.103.20.85])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA1F7606A327
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:29:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57257606A31D;
+	Sun, 22 Nov 2026 21:30:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57257606A31D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WG54opzt
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 037C21F000D8
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:29:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795382949;
-	bh=BTV0zF8Ij6zUMNBE+Oz8/N1ZVrqV9XG9B7wmhsB51vI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=WG54opztWi+ll7+PUc6eBXqw494LZjxIVJ0DKsOEfPBVjJTxRSg1R7ywaqbRHIXza
-	 VazTaVz5alcKWtxPjpyt9HYyPuJTofmTz+8e/maD+l2IpS8DqfZjP0zUXVTezJDte0
-	 SjZsXl9DSYkB8/hove8ERjgLKOc+ZHNEs6IDjDzHL7NxRuWchw69iLDkGo0NLU2xdo
-	 8Hzau6EhHX6AhVk1259DZeOfEqoymIG0dhHjJsBRCeEcaYjJk3ioWBZwitbEi/yBjj
-	 IA20Phq6/J8wU/WfLd6OgMcWvRFunqG5FUMxAlFCKFdiywCWLU+exJ7jprSB+jKsuv
-	 X2O/DctYxrKAA==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5bccecba199so2491920e87.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:29:08 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHJC1RhItz+UZ0S+OUy0qrLMZEudCkyTqpmiknkVWnssbXnpwT3bykBHxLRNs+xfItTkBfgbXfz+mJS9PU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+f5IpzK/GNBemLnhjYOgm6DoLz5WrrmmtplpitR9nRq4eMaQFc
-	vEfQe7zF42cr84mwspfTuuuaeBdYpXmI6kOW1ocTgFzw+u2J9ZTkiQrAB9SPrlkPTEI1TGf1hlM
-	HBIrqBarfT5Q0Kk1UvMC+QBSIBNfQhf8=
-X-Received: by 2002:a05:6512:4207:b0:5bf:ce41:b440 with SMTP id
- 2adb3069b0e04-5c1bc7d6de5mr2517796e87.31.1795382947589; Sun, 22 Nov 2026
- 13:29:07 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=Ayb8QvPX
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=URPZbTgZqWmv32Y7TDCVRtNMeZ7Mxo1YJtGdsMYnU2CksWjW7Ngs0a+1sTUZgr1Suq8WDKq+s9oPVk0YUC9tjlihtcFQAXx4ie8057zaz/CLeUdFCGtt/bsD0s3a9M3xbLhaVRChQEY61dWQsO64OQ0CeaBK2dQ2U1wT6F8r5TREyp19bopKz6n52L3AIsl8R0ZlGB+uQy8ZjD1rNGwtvA+6T5e8DAWlpLeBFzne0AzN6kY8poLx4X064NTvVFoKMHeSrCmRwpWFBk2qcWB4T5NAinjGwonOObcfYYnJoSk7e/zJ2zNW7PAczcPHWl6hHkyGsQRuNM2MDC94ji3KbA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aa2iVhqn0OHezWmfk7g613/N7MjtEWM0wDkg5g8d7G4=;
+ b=eZstxbm5TQTceXyq61hg1sSEGkLsJWOZLL04ciZECbAMxb+hT4uM8R9ORog+b1ipM3vDvO+u91Q1Z6gOUq6eqhskqSzDRS6aQaP48i+xetNPZCyjkcUzrJgVrJ5aic5XjCefm2F07PvdOBs/KbnCs9hy6YNDtS8pdHSvsG+VuVEpL8Dc5DaG69T61RMDYlv5ggBUgGpVggT6gu0OKgx8p/q3uOFx6z5wqzys4VIrHwt3slz28y9idcm0a9D7FDG9BKYIIUUbuPRAHq0XdqLfb/c5C6DdzsvFr7bB5zrW7xzL2wTK3+RpeunU0J/PrPqfV9nRhjkAAsYvj14bZuAyHA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aa2iVhqn0OHezWmfk7g613/N7MjtEWM0wDkg5g8d7G4=;
+ b=Ayb8QvPXk6cm5EsuW0ZCxy1CnfWduKIj71oOXwA9Wrbu9rARNE+2gcdj9j95gyJ8Bura3nf6R8XdxKmiqQysffujSNQowMIgUWmk++jZTg6gLxZT0R4Azn6YnFZx5ppeEAOetGXzqwOHE7R6hQio4RB2HVw/ASx020HPOOLTR/DPInQ9xWnF0Z68VUCSeCw70J0BXoUVp3CbDGD23IM9UOV5/FOpiBdUT4RRLCtDJM1VfFxzYCS+ahhOJqKdDm+THNyEBRlnKggz790z5wSpK7AfaZNbD3ATSXTHodnD32tTeeoEnz86si12LTae+AgK5//ZtiiBoyIOpgpByih/hg==
+Received: from MN2PR02MB6863.namprd02.prod.outlook.com (2603:10b6:208:1d7::20)
+ by SJ0PR02MB8813.namprd02.prod.outlook.com (2603:10b6:a03:3d6::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Sun, 22 Nov
+ 2026 21:26:46 +0000
+Received: from MN2PR02MB6863.namprd02.prod.outlook.com
+ ([fe80::da67:fd0f:d96d:ac53]) by MN2PR02MB6863.namprd02.prod.outlook.com
+ ([fe80::da67:fd0f:d96d:ac53%4]) with mapi id 15.21.0639.012; Sun, 22 Nov 2026
+ 21:26:45 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Frederic Weisbecker <frederic@kernel.org>, LKML
+	<linux-kernel@vger.kernel.org>
+CC: Daniel Lezcano <daniel.lezcano@kernel.org>, Dexuan Cui
+	<decui@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Marco
+ Crivellari <marco.crivellari@suse.com>, Peter Zijlstra
+	<peterz@infradead.org>, Phil Auld <pauld@redhat.com>, Thomas Gleixner
+	<tglx@kernel.org>, Waiman Long <longman@redhat.com>, Wei Liu
+	<wei.liu@kernel.org>, "linux-hyperv@vger.kernel.org"
+	<linux-hyperv@vger.kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>
+Subject: RE: [PATCH 39/47] clocksource: hyper-v: Move
+ CPUHP_AP_HYPERV_TIMER_STARTING post stop_machine()
+Thread-Topic: [PATCH 39/47] clocksource: hyper-v: Move
+ CPUHP_AP_HYPERV_TIMER_STARTING post stop_machine()
+Thread-Index: AQIdf9UHAmip996qXxPi71vThFyn6AHjQZaGtqtebcA=
+Date: Sun, 22 Nov 2026 21:26:45 +0000
+Message-ID:
+ <MN2PR02MB6863BD8055B08CA905B85980D4462@MN2PR02MB6863.namprd02.prod.outlook.com>
+References: <20261105163045.38862-1-frederic@kernel.org>
+ <20261105163045.38862-40-frederic@kernel.org>
+In-Reply-To: <20261105163045.38862-40-frederic@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN2PR02MB6863:EE_|SJ0PR02MB8813:EE_
+x-ms-office365-filtering-correlation-id: 14f8c0bd-446b-4f92-071d-08df48df4f8f
+x-microsoft-antispam:
+ BCL:0;ARA:14566002|24021099003|55001999006|13091999003|25010399006|51005399006|15080799012|8062599012|8060799015|19110799012|37011999003|31061999003|40105399003|102099032|440099028|3412199025;
+x-microsoft-antispam-message-info:
+ =?us-ascii?Q?5CW8X5gM949i4I2K9hT2BHYAnHgMNpjtDXuRi8snVWO3w8B8Z9k4ILY4DDnD?=
+ =?us-ascii?Q?fwXq4by32TZLOxE85ftclB+9O/OHeMg92XfvmMY7SnrrXf74IjfSL0G1h0BT?=
+ =?us-ascii?Q?pbmyD9n8y0sEyOQzmhNwQa65rpjETXdHENQWm9Z1NGooAFvGGBW3f0dcUJ7t?=
+ =?us-ascii?Q?lCCOgPRkN2BWFR2eAxrv7Q16vxXin1jE2PnO1AzLBrc1/XMO4Lirhx1dQWDc?=
+ =?us-ascii?Q?P0L6SanS2ZekGz3j6SBRhyMs67N28KY2icG0QouPLS24coyJnwaw+Bk5d4+i?=
+ =?us-ascii?Q?dtdKQ5eivx9syaQGlH/UHZDN5Qqf/RgoV4CMkRa+HsB26LKGq8gpNX2WW0Ek?=
+ =?us-ascii?Q?GGNsIlwYphAmQ9VTvV0A3ef/pXYurPn8L1CguFKcn1GrDjZWhQjNh48dXxy7?=
+ =?us-ascii?Q?z1c7gvj6r8gGrwPDbL1JEdod/86j5OovGS3+ASKFB8oYmgyxPeVYttTV711P?=
+ =?us-ascii?Q?kyCXH9LgbYXkav1Wp+UC5O2tmnm3C5cyFfY32OApofE5FOjuFaOaA5C0dNQM?=
+ =?us-ascii?Q?paEMCYgJJ+ew5UHux5ZVCpNJxLrPIojbYY/7m6u5A/GcDc+gK7J2U+2DIYq7?=
+ =?us-ascii?Q?FirQkJ0yUFX05dtUO42V5Dok6wbAx5STf3KSRpDn7LwFRByti1dIq/iekdvM?=
+ =?us-ascii?Q?1PO7dpGD2Yt9uvUZquYk0mMW6BRqDhTgZwuK0bZ4JNArd0xat5lWwtf1oifH?=
+ =?us-ascii?Q?AaFzxn74h4ucjK2bOxAHRXTftk5TNWwxsbTzyP3Sd17H/02pWgLPJyrmZ1rQ?=
+ =?us-ascii?Q?BNAov7wEggRlw3lISFfhFRMcn6rLZyN7TeKGNgIUz7eVv8tY9OHD+Og5QwPy?=
+ =?us-ascii?Q?kMaWrmKXDFL/MPdlX8tY73/6+B6tuDVwwEaFqgspkLU3134V0/CIyjSR6Vlw?=
+ =?us-ascii?Q?OvXD/AwbvDpbGxmJ80fDAtPhDctyZ2QeRUpYEsyh3qMs5ygT0haEtsK0OYem?=
+ =?us-ascii?Q?nZ1Gul9PYU/i3aN1xgbbbk4lDMkD6RilcyvAbKraJqfpbcBibwAJf0izJYbu?=
+ =?us-ascii?Q?9FP+sQn4XfFfozLw8pGD8GDuc8ocd3icfJ43hL8eOCG8AUo=3D?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?65TRTaCWk21nwUnturHNHv1x1tdZ0PAiFRFZDCkDSmMwamt0KFOLD9uYd8nm?=
+ =?us-ascii?Q?BzvBxBLt+rmQaW+8b76TWk7326iAI1F+ywQQeItjTCJ53ibnCb82w0UzMIL+?=
+ =?us-ascii?Q?ie/4L0xnshY5s+MbvV70aap23TmwwVyICXcQ+72DGng1TN0dUc/npK87px8J?=
+ =?us-ascii?Q?iYVzVrMKryojhM9WgtDhewSomi3vr82oef8aLBl6Y1qLxxJ1w/BbdEfJK55g?=
+ =?us-ascii?Q?igjq7kUWKryYR+gG5Dv4sB3+YiBV0uPHWJ6b0N0DGNvx93kjjDt+afcxFT0n?=
+ =?us-ascii?Q?S4qG95dHuS3PNHDwdUWcMTiGW1Up6LHR8zXNaRbVa5CbnhRbfFDYSJ9jplcp?=
+ =?us-ascii?Q?0od52Kh5NlnSo0SKSdugKbkqAKQodCottzkjPxGGdkfe3BnwCWCN99I3LU9u?=
+ =?us-ascii?Q?FBl0othEfuwrh7i7JQGLwacBNJ7hVKqkIMHqis0clsU1OpziKued99RVLFIp?=
+ =?us-ascii?Q?D4QxMQATRWL9g3Oemk0vab2vZg/fxqJP2MFXCOdVgAm4EvViZWyeInknIlcw?=
+ =?us-ascii?Q?+B8FAxXiEbXmvFuwSS/IDv3s7TCcWqrTCRiMmrPcOg9iHR2od5OAWLfnDfXI?=
+ =?us-ascii?Q?DMWIw6WJ1Is/qBM04oYpMe7nydaEqc/fGOPcJK5Rqqd583NulRm+54LeQq14?=
+ =?us-ascii?Q?NkbcjvGkuAM+0JbrUf5ruz2UbxRaHkY+I0D2jYhl+C+qrw+hHGmyuBTeZWlN?=
+ =?us-ascii?Q?aKvEAtbNKquXLvuvlS3vtA+00XPBSnvMftPBQbo5ApNXRfCI/LJWwkuJUMlx?=
+ =?us-ascii?Q?FEwZV65sqaWUOhN9TKOjZ0pQxXtHQ8X/buA6uvktIWuuUASodQ3pbfdG2nwE?=
+ =?us-ascii?Q?X8HXT7G5IyEeF31UXWv+JptUMjbSj4yItLsF/OXX6ZiPnMY6Lwejm6vIDyfN?=
+ =?us-ascii?Q?L72fpCXe8pTUDcMl0f8q8H5g/2qIYl0SAkkBZbVBj26X+YpIAyTNufQ9fW7s?=
+ =?us-ascii?Q?kjJiRnpN1ms2ObqnfbxCHtdlPzEaitFtiEt22mixDOKC9r/Layub9pAlwJZD?=
+ =?us-ascii?Q?899qwMFbDwc/LxgzssSwiJWHOjMd1EV1iuYwyY64dt4PAZrv3ZMeN2i24t1b?=
+ =?us-ascii?Q?d5u8k92Xf/lB/qRzcGph7WUxSDPPTQq4QbZP9G2mutClHk3aIiw8r+bTK9KZ?=
+ =?us-ascii?Q?1Qn1211xAGMSQu7mXIaACBLoyBDFj7BgEH0qMeNq1SMM1U+NYADz1Q93BS8L?=
+ =?us-ascii?Q?HjKDxLA+RZkGMCfhsCF+O1EyVU6LctbnhyA0ai/ZcHwWtqr25TrRFvJJ8u/S?=
+ =?us-ascii?Q?HCjRZD5w6V39I/ldkenysEJ9GjeEQ9kV8mSyU5edhMPzLbWn2S0TpLZF97h0?=
+ =?us-ascii?Q?Q0CTydyuepfRZUtErHGsNBUWqR882SI/8D7WsWzL2W57PLlSDSIW2Drm9RfN?=
+ =?us-ascii?Q?yYx9wDI=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,436 +156,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261015142552.4128028-1-ryan.roberts@arm.com> <20261015142552.4128028-9-ryan.roberts@arm.com>
-In-Reply-To: <20261015142552.4128028-9-ryan.roberts@arm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Sun, 22 Nov 2026 22:28:54 +0100
-X-Gmail-Original-Message-ID: <CAD++jLnY3dagTQDzBa5e=g3fJ1rDOvyRHPKVtpadV4c0nXYV4Q@mail.gmail.com>
-X-Gm-Features: Aa3M54r6B7e9BLC1UO5yqTkRPrBtuKJXzOWhi_mL44xox65BnkoSkli_lYPdSwU
-Message-ID: <CAD++jLnY3dagTQDzBa5e=g3fJ1rDOvyRHPKVtpadV4c0nXYV4Q@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 08/15] misc/arm-cla: Manage domain contexts
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Alex Williamson <alex@shazbot.org>, Jason Gunthorpe <jgg@nvidia.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jean-Philippe Brucker <jpb@kernel.org>, Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, devicetree@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR02MB6863.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 14f8c0bd-446b-4f92-071d-08df48df4f8f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Nov 2026 21:26:45.9097
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR02MB8813
+
+From: Frederic Weisbecker <frederic@kernel.org> Sent: Thursday, November 5,=
+ 2026 8:31 AM
+>=20
+> Between CPUHP_TEARDOWN_CPU and CPUHP_AP_OFFLINE, stop_machine executes
+> all the teardown callbacks while stopping all CPUs in the system. This
+> doesn't mix-up well with running RT or isolated tasks.
+
+s/mix-up/mix/
+
+"mix-up" usually denotes some kind of confusion or miscommunication,
+and I don't think that's what you mean here.
+
+The first sentence here talks about "stopping" all CPUs in the system.
+It took me some investigation to realize that you meant "stopping"
+in the sense that stop_machine() temporarily pauses all the CPUs,
+and not permanently "stopping" the CPUs during a shutdown, as
+x86 native_machine_shutdown() does when it calls stop_other_cpus().=20
+Unfortunately, the word "stop" is overloaded and is used for both
+cases. Maybe something like this would help clarify:
+
+"... while temporarily stopping/pausing all CPUs in the system."
+
+Michael
+
+>=20
+> In order to transition smoothly from global stop_machine to finer
+> grained synchronization between teardown callbacks and the other CPUs,
+> a new stop machine post function has been introduced to be executed
+> after the main one with IRQs still disabled while other CPUs can exit
+> stop_machine().
+>=20
+> The teardown callback here simply performs timer and IRQ disablement,
+> both of which can run concurrently with other CPUs.
+>=20
+> Move it to post stop_machine() accordingly.
+>=20
+> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> ---
+>  kernel/cpu.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/kernel/cpu.c b/kernel/cpu.c
+> index 93b8498e26c4..b49b67ef5ecb 100644
+> --- a/kernel/cpu.c
+> +++ b/kernel/cpu.c
+> @@ -1275,7 +1275,7 @@ void clear_tasks_mm_cpumask(int cpu)
+>  static int take_cpu_down(void *_param)
+>  {
+>  	struct cpuhp_cpu_state *st =3D this_cpu_ptr(&cpuhp_state);
+> -	enum cpuhp_state target =3D max((int)st->target, CPUHP_AP_TI_GP_TIMER_S=
+TARTING);
+> +	enum cpuhp_state target =3D max((int)st->target, CPUHP_AP_HYPERV_TIMER_=
+STARTING);
+>  	int err, cpu =3D smp_processor_id();
+>=20
+>  	/* Ensure this CPU doesn't handle any more interrupts. */
+> @@ -1303,7 +1303,7 @@ static int take_cpu_down_post(void *_param)
+>  	enum cpuhp_state target =3D max((int)st->target, CPUHP_AP_OFFLINE);
+>  	int cpu =3D smp_processor_id();
+>=20
+> -	WARN_ON(st->state !=3D CPUHP_AP_TI_GP_TIMER_STARTING);
+> +	WARN_ON(st->state !=3D CPUHP_AP_HYPERV_TIMER_STARTING);
+>  	/*
+>  	 * Invoke the former CPU_DYING callbacks. DYING must not fail!
+>  	 */
+> --
+> 2.53.0
+>=20
 
-Hi Ryan,
-
-thanks for your patch!
-
-On Thu, Oct 15, 2026 at 4:27=E2=80=AFPM Ryan Roberts <ryan.roberts@arm.com>=
- wrote:
-
-> A CLA domain cannot be used by multiple address spaces concurrently
-
-Which address space? The physical one? The virtual address
-space of the CPU for a certain CLA? The virtual address space
-of the CLA on a certain CPU, as found from it's TTBR0/1?
-I suspect the last one, but it needs clarifying.
-
-And so the domain is definied in hardware but there is
-a footgun waiting to be fired by not defining the virtual
-address space exactly the same on all CLA:s in the domain?
-
-Please elaborate.
-
-> because its devices share a memory translation context and may
-> communicate without isolation.
-
-Again I stumble here. "without isolation". So this kind of resoning
-implies I know of some isolation that I cannot have. But I don't
-know that, I have no idea what kind of isolation I would want here.
-
-This needs to be explained differently.
-
-> Represent each user of a domain with a
-> context keyed by the mm_struct and device file description, and track
-> contexts in a per-domain hash table.
-
-This I understand.
-
-> Add a domain scheduler that queues contexts for assignment
-
-Are these contexts the software abstraction of hardware
-constraints (such as the virtual memory space)
-around a certain domain, and since they are scheduled,
-these constraints are then applied over a certain time window?
-
-> and gives
-> each one a fixed time slice. Before switching, revoke the outgoing
-> context's mappings from all VMAs for the device file. Then save its
-> accelerator state and remove its MTC, before installing the incoming
-> context's MTC and restoring the incoming accelerator state.
-
-I think I start to understand a little...
-
-> Run hardware operations through CPU-bound kthread workers, since each
-> CLA can only be accessed from its local CPU. Coordinate the per-device
-> workers with a domain worker so that every CLA in the domain is switched
-> as a single assignment unit.
->
-> Treat a failure on any device as a failure of the whole domain. Stop
-> further assignments and wake all waiters when a domain becomes unusable.
->
-> Co-developed-by: Jean-Philippe Brucker <jpb@kernel.org>
-> Signed-off-by: Jean-Philippe Brucker <jpb@kernel.org>
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-
-OK this is some kind of scheduler let's look, but right before we
-start you should probably define the principles of this scheduler?
-FIFO? round-robin? Something else?
-
->  extern struct xarray cla_domains;
-
-Nice use of xarray
-
-
-> +static inline void cla_ctx_get(struct cla_ctx *ctx)
-> +{
-> +       kref_get(&ctx->refcnt);
-> +}
-> +
-> +static inline void cla_ctx_put(struct cla_ctx *ctx)
-> +{
-> +       kref_put(&ctx->refcnt, cla_ctx_free);
-> +}
-
-Rename these something like _addref/_dropref or just inline
-the kref calls. These names upsets the kernel conventions
-for _get()/_put() of resources, see below.
-
-> +/**
-> + * cla_ctx_create - Create a context or increase its user count
-
-Something that creates or increase a context should be named
-cla_ctx_get() to avoid ambiguousness.
-
-> +/**
-> + * cla_ctx_destroy - Drop a context user
-
-No it drops the reference and drops the context (destroy it) if the
-usecount =3D=3D 0.
-
-Name it cla_ctx_put() to follow kernel patterns.
-
-> +       /* Release initial reference from cla_ctx_create(). */
-> +       cla_ctx_put(ctx);
-
-So this needs a different name.
-
-> +++ b/drivers/misc/arm-cla/cla-sched.c
-
-I wanna spend some time here since this is RFC and we are looking
-more at design than code details.
-
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Arm CLA driver - domain scheduling
-
-In this header explain the principles for the scheduling, as well as in the
-commit message.
-
-> +#include <linux/cpuhplock.h>
-> +#include <linux/rhashtable.h>
-> +
-> +#include "arm-cla.h"
-> +
-> +static struct cla_ctx invalid_ctx;
-> +
-> +static const struct rhashtable_params ctxs_rht_params =3D {
-> +       .head_offset =3D offsetof(struct cla_ctx, node),
-> +       .key_offset =3D offsetof(struct cla_ctx, key),
-> +       .key_len =3D sizeof(((struct cla_ctx *)0)->key),
-> +       .automatic_shrinking =3D true,
-> +};
-
-Neat!
-
-> +static int __cla_domain_switch_ctx(struct cla_domain *domain,
-> +                                  struct cla_ctx *prev_ctx,
-> +                                  struct cla_ctx *next_ctx)
-
-Is this one of those "__ means __inner_function()"?
-
-Name it for exactly what it does instead.
-
-> +static int cla_domain_switch_ctx(struct cla_domain *domain,
-> +                                struct cla_ctx *prev_ctx,
-> +                                struct cla_ctx *next_ctx,
-> +                                struct cla_ctx **assigned_ctx)
-
-Looks OK.
-
-> +/*
-> + * Run on the cla's local CPU, either in its worker or a CPU hotplug cal=
-lback.
-> + * Work submitters hold cpus_read_lock() until completion, excluding hot=
-plug
-> + * callbacks and keeping the worker bound. Hotplug callbacks hold domain=
-->lock
-> + * to protect the assigned context. Other devices may switch concurrentl=
-y.
-> + * On failure, mark the device broken; the caller handles domain failure=
-.
-> + */
-> +int cla_dev_switch_ctx(struct cla_dev *dev, struct cla_ctx *prev_ctx,
-> +                      struct cla_ctx *next_ctx)
-
-Good explanation and name, easy to understand.
-
-> +void cla_dev_switch_ctx_work(struct kthread_work *work)
-
-Here too
-
-> +static inline struct cla_ctx *cla_domain_get_next_ctx(struct cla_domain =
-*domain)
-> +{
-> +       return list_first_entry_or_null(&domain->queued_ctxs, struct cla_=
-ctx,
-> +                                       queue_node);
-> +}
-
-This looks like a FIFO thing?
-
-> +static inline struct cla_ctx *cla_domain_get_prev_ctx(struct cla_domain =
-*domain,
-> +                                                     struct cla_ctx *nex=
-t_ctx)
-> +{
-> +       if (domain->assigned_ctx && (next_ctx || cla_ctx_is_dying(domain-=
->assigned_ctx)))
-> +               return domain->assigned_ctx;
-> +       return NULL;
-> +}
-> +
-> +static void cla_vma_zap_domain(struct vm_area_struct *vma, struct cla_do=
-main *domain)
-
-"zap" is a very ambiguous word. This function needs to have
-a name that express exactly what it does.
-
-It looks like it should rather be infixed _initialize_?
-
-cla_domain_initialize_vma()?
-cla_domain_reinitialize_vma()?
-
-> +{
-> +       unsigned long vma_start =3D vma->vm_pgoff;
-> +       unsigned long vma_end =3D vma_start + vma_pages(vma);
-> +       unsigned long domain_start =3D domain->pg_offset;
-> +       unsigned long domain_end =3D domain_start + domain->nr_devs;
-> +       unsigned long start =3D max(vma_start, domain_start);
-> +       unsigned long end =3D min(vma_end, domain_end);
-> +       unsigned long addr;
-> +       unsigned long size;
-> +
-> +       if (start >=3D end)
-> +               return;
-> +
-> +       addr =3D vma->vm_start + ((start - vma_start) << PAGE_SHIFT);
-> +       size =3D (end - start) << PAGE_SHIFT;
-> +       zap_special_vma_range(vma, addr, size);
-
-That goes for that function too by the way. Two wrongs does not
-make one right.
-
-It might be that everyone in memory management disagree with
-me and think this is crystal clear, then I can have other opinions.
-
-> +static void cla_domain_zap(struct cla_domain *domain, struct cla_ctx *ct=
-x)
-
-And this one.
-
-cla_domain_init()?
-cla_domain_reinit()?
-
-> +static void cla_domain_reassign(struct kthread_work *work)
-
-What about a comment above this function explaining
-what is being reassigned to what?
-
-> +       /*
-> +        * Exclude cpuhp until assigned_ctx reflects the hardware again. =
-cpuhp
-> +        * callbacks use it to save/restore the local device and must not=
- see
-> +        * invalid_ctx. Take before domain->lock, also used by cpuhp call=
-backs.
-> +        */
-> +       cpus_read_lock();
-> +       mutex_lock(&domain->lock);
-> +       if (domain->broken)
-> +               goto out_unlock;
-> +
-> +       /* Figure out prev_ctx and next_ctx. NULL indicates don't [un]ass=
-ign. */
-> +       next_ctx =3D cla_domain_get_next_ctx(domain);
-> +       prev_ctx =3D cla_domain_get_prev_ctx(domain, next_ctx);
-> +
-> +       if (!prev_ctx && !next_ctx)
-> +               goto out_unlock;
-> +
-> +       /* prev_ctx already holds its assignment reference. */
-> +       if (next_ctx)
-> +               cla_ctx_get(next_ctx);
-> +
-> +       /*
-> +        * We need to grab mmap_lock, but can't do so while holding the d=
-omain
-> +        * lock (since cla_vma_fault() grabs the domain lock while holdin=
-g
-> +        * mmap_lock). The queue may change and contexts may be killed by
-> +        * cla_ctx_destroy() while the lock is dropped.
-> +        *
-> +        * No user is allowed to access CLA while we are reassigning. Dis=
-able
-> +        * assigned_ctx before zapping so cla_vma_fault() won't re-map th=
-e
-> +        * domain during reassignment. The sentinel also defers broken-do=
-main
-> +        * cleanup until we know which context hardware may still access.
-> +        */
-> +       WRITE_ONCE(domain->assigned_ctx, &invalid_ctx);
-> +       mutex_unlock(&domain->lock);
-> +
-> +       /* Prevent prev_ctx from accessing any device in the domain. */
-> +       cla_domain_zap(domain, prev_ctx);
-> +
-> +       /* cpus_read_lock() ensures workers remain cpu-bound and alive. *=
-/
-> +       ret =3D cla_domain_switch_ctx(domain, prev_ctx, next_ctx, &assign=
-ed_ctx);
-> +
-> +       mutex_lock(&domain->lock);
-> +       WRITE_ONCE(domain->assigned_ctx, assigned_ctx);
-> +
-> +       /* Also handle failure reported by another thread during the swit=
-ch. */
-> +       if (ret || domain->broken) {
-> +               cla_domain_set_broken(domain);
-> +               goto out_unlock;
-> +       }
-> +
-> +       /*
-> +        * Remove next_ctx from the queue and wake up all waiters so that=
- the
-> +        * fault handler can map the domain into the newly assigned proce=
-ss.
-> +        * assigned_ctx must have been updated prior to waking the waiter=
-s.
-> +        *
-> +        * If next_ctx was killed while we were assigning it, schedule an=
-other
-> +        * reassignment to deassign it.
-> +        */
-> +       if (next_ctx) {
-> +               if (cla_ctx_is_dying(next_ctx)) {
-> +                       cla_domain_schedule_reassignment(domain);
-> +                       goto out_unlock;
-> +               }
-> +               list_del_init(&next_ctx->queue_node);
-> +               wake_up_all(&next_ctx->waitq);
-> +       }
-> +
-> +       /* If there are more queued ctxs, schedule the next reassignment.=
- */
-> +       if (!list_empty(&domain->queued_ctxs))
-> +               cla_domain_schedule_reassignment(domain);
-> +
-> +out_unlock:
-> +       mutex_unlock(&domain->lock);
-> +       cpus_read_unlock();
-> +
-> +       /* Deliberately put references outside of the locks. */
-> +       if (next_ctx && next_ctx !=3D assigned_ctx)
-> +               cla_ctx_put(next_ctx);
-> +       if (prev_ctx && prev_ctx !=3D assigned_ctx)
-> +               cla_ctx_put(prev_ctx);
-> +}
-
-This function contains a bunch of comments that are hard for me
-to understand without context (ha!) but it's probably all right,
-I bet they are helpful once you get the hang of it.
-
-> +int cla_domain_sched_init(struct cla_domain *domain)
-
-OK.
-
-> +/**
-> + * cla_domain_sched_exit - Tear down scheduling for a CLA domain
-> + * @domain: CLA domain
-> + *
-> + * Drain final deassignment, destroy the domain worker, and destroy the =
-context
-> + * table. All context users must have exited before calling this.
-> + */
-> +void cla_domain_sched_exit(struct cla_domain *domain)
-
-OK.
-
-> +void cla_domain_set_broken(struct cla_domain *domain)
-
-OK.
-
-> +struct cla_ctx *cla_domain_lookup_ctx(struct cla_domain *domain,
-> +                                     struct cla_ctx_key *key)
-(...)
-> +int cla_domain_insert_ctx(struct cla_domain *domain, struct cla_ctx *ctx=
-)
-(...)
-> +void cla_domain_remove_ctx(struct cla_domain *domain, struct cla_ctx *ct=
-x)
-
-Clever use of rhashtable, good names.
-
-> +/**
-> + * cla_domain_schedule_reassignment - Schedule domain reassignment
-> + * @domain: CLA domain
-> + *
-> + * The caller must hold the domain lock. If a live context is currently
-> + * assigned, schedule with a delay (CLA_SLICE_MS), otherwise reassign
-> + * immediately. Do nothing if the domain is broken or a switch is in pro=
-gress;
-> + * the running switch handles new requests before returning. If reassign=
-ment is
-> + * already scheduled, the delay is modified.
-> + */
-> +void cla_domain_schedule_reassignment(struct cla_domain *domain)
-
-Schedule reassign of the domain to ... what?
-
-This use of verbs is really confusing me, I understand for example
-"assign timeslice to process" then I know a timeslice is assigned to
-a process. There is something implicit here making this really
-hard to understand.
-
-> +void cla_domains_sched_exit(void)
-
-OK.
-
-But where is the cla_schedule() function in this scheduler
-akin to Linux' schedule() call? It feels like this is implicit
-in some call order semantic, and the function
-cla_domain_get_next_ctx() implements an implicit
-FIFO scheduling principle.
-
-Alternatively the scheduling isn't actually driven here
-but from somehwere else, like userspace. Then that
-needs to be explained. Then this file doesn't actually
-implement any scheduling, it's a scheduling context
-library nothing more.
-
-This kind of stuff needs to be explained so I can review the
-patch properly.
-
-Yours,
-Linus Walleij
