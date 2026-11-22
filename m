@@ -1,93 +1,96 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795335925;
-	b=4s3AMn8mSoxRH1A2dNY8wmTfd3KTu2doQ3TDcd9xHvrru5QuoPMRBkiLK8E01MBpjHdk
-	 SjldRLgwaom2BSBwoKGVvSycsQPpamQwEhy396+0hLZu7LzmG1kZgY7DZLyhmH4rp6vY6
-	 5q/F5abTXq3Sf5vjsl3jNQ29KfHYU/+1XQ8QuucYvs5tb+U2L4dVRD0I6lb0LM7O4EWn0
-	 64mOdK8fn7Uyqe85znbl3Cb899anzj4tdyzDukh3axxzKSbgS6BlqfjY3RBDnS5P9cu1+
-	 y6kzaeEANfS0tgfrR+OeH+biPCi1CuKb6y+vjpOZ9ti1ShY+8qCd13IntHCJbLH2Pwg==
+	t=1795335929;
+	b=Bk5B+EcR54QLC+AKdngzHblw2wLmayF1Mv+m5V3dfNGiXJpuNCFiAVMrDujpk0W9Cwmt
+	 OR7NM6cSAtOqgYM5MlCa/bclidhvcfn0wMJzcm3MLRWh+wwjeDC08pZthVp96308uyQKi
+	 3iACdyjIulgw9e4YvPlwHy1s5YO8oFYoKtZcIJDoYXW1EhupYd2yJBzhRJNHa3G0wOiUQ
+	 9UvrGiQweJNKDbJxDHuUpf/1t5l6fLk9NsTlJDT3723+TFuSEsGlj+H3SSvAr7iDjFtz3
+	 q1O1Ui7tZnfz2xWANGuQ5XaMmG9gKQi9lbb1+F3EWDf2XPnf74+UZW8k/X0yIcGFvdA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795335925;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795335929;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=PHr5lMNgh4e1muETwY9dGYxImK1kdVOuIl14a1lxYrc=;
-	b=imeSGsr2rgTgVUnAjiL1GgHEslk/doTnRvvolerH8uXiQT5JVVeto39K+N8ZOZfUHDjP
-	 xIW8d4uRURdXjKJakTt3W35mivuvtsW963PfmAoyc7R/tk7vGTJHG3FA3JQXq6KBMkmLD
-	 QhnryAHxoiui70mvi9kysCFLSKdzuU7SsYh35bfi6NkarUOp/BeDugKc7upVN42EM7sXX
-	 g/fEUFEF0+oxCcjphfrgJK1fNoFKYwA5NrULjhBB9slmC4CdSi81JHZSiEc0DMU0WRTQh
-	 fDhUJ+tQRyjII/c0OAvsScqG1w1NcNok/mF8yUtLEUD4Ug6+6AZMwP/OdJatf2tWcsg==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=9C8VrUUMQ052sNkqdlVlnIUSUE4gVO3LQI5iweO8Mtc=;
+	b=38Btjh6fGNOUpsApYiZv/YhH18BSamPpE0PnbuoxgOtwFnpwQLuk5mcd1JPckHWCoM4D
+	 XziAp1UAfl7NxMZ81qNZrUAQGTYHelmKLQplFsAu2aue71HIcOOm8j0fxrIOn+Vln7Ifq
+	 fzfZusGf9nTRWZg3MXWezP1mISpooSKbXfMrvdIZYr0e+1JzdaAW+uL4sm2eZvZDWqxIp
+	 vbFbhITmQ0glwxqeY6GERhd/yfmB8IwzHZZ2/RtGmALs9RELDVG312sbbufcgQvVJuI1I
+	 0HJSIGaG3km7PHzGSfUm0aB+Yx/7Cro6LUEfQg9QNjcF2qkWJ1BlrIcz2iiFopjyAYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OXWiRVYG;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xqi9qO2g;
 	arc=none smtp.remote-ip=209.85.208.53
 Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com [209.85.208.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 358FB606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 08:25:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 358FB606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0341606A330
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 08:25:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0341606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OXWiRVYG
-Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-6b596afb4c5so2463780a12.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 00:25:24 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xqi9qO2g
+Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-6b47c1a3c74so3005377a12.3
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 00:25:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795335923; x=1795940723; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=PHr5lMNgh4e1muETwY9dGYxImK1kdVOuIl14a1lxYrc=;
-        b=OXWiRVYGiuGA5K4EINKm8QimzDFoI77PPgLGFz1wa8QIvfBbZwQ8BkSsar8q4DJZUG
-         o9rionaxNbTyKqP2/JwxKcAwWs501r/puu15KyMlP5Pe19y1Z+cQpO7LAUh9t92YpDGz
-         B5dwvUM8AgICmcMfyysnF846s3vs/lso8hu0mtnJPi1mZuvYSmNefiUj4TGxr0dGtxQU
-         uzraSTgeHM/9ATnvNgs/UpjM309E4QfT1GNGW9Q8/ZZGE8rXVCAi4oJsRSNLmizJMCpd
-         3x5ZOXRD7WbliGV4Xy7i2WaOdOzid2pI3TsUWwTNAI655ixiBmAh9dmbLPL9ehrewadV
-         F8Yw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795335923; x=1795940723;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795335927; x=1795940727; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=PHr5lMNgh4e1muETwY9dGYxImK1kdVOuIl14a1lxYrc=;
-        b=CFF8VVR+Q0PjeQNBJy6Xf3XDW1l3YwDPVjZa4jBf9AUns3p/nmN0hKwJbOl8975DIJ
-         vNXeaVz7MMfL6ooWnVcOCZx+Xd9OF9jQDuv9W14lx0gxo6uZOo18X+AtgUSxlcR6v9Yl
-         NFO4gV4aJt/sn5UnX8OxDIBy1AP3fUN240siNj35cKY+ZXp3Xoxr00J3IrBJpif7ZbW0
-         TNsuMVi7YbvDXWJVjFPqZaos/N5snburNindkB4ehuGAQYD8+g6gk1m5AeQAZEMg3TdN
-         hlxfGZ96YNTCcOKbnK9B8rrVltE/SvM/VCPgf1l/psfg4Uo7KWA57gOumKOfPafBTdOx
-         d3xQ==
-X-Forwarded-Encrypted: i=1; AL+hErFO3Mi+LSSkcPPwHmSXse3OYAV7/MGAmR2uWG9fWBxEUAyHxh9sk81Oypihb3dhA5x+USI01v10VUo+MuU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8dnfRPj5TEgZLF0+4eKhyE+Y/cagbAMhLqosZbwrPEzEgtMsOj
-	+6UaH3dwRY44QzKP74/RdIOl1bWUr7NJCXWTqeoqwT+U4p044pGlf5y1xHclrg==
-X-Gm-Gg: AZFdTZfvQhGotHbqMIke6cT1vUGzWp6ykOuO0Hbanj2JgPEyAjUInCbWNV7wr3ULGcc
-	LgZQqQJdb1/kt5i9GA5pKSIy7grbYHGc2dynvvQk5avvYh3VpO4CZbvDbWLg4lq8keqyqO7cC+h
-	k5FPSXclGFApkrYfySvNz1XPTvqywFxdC+imWse5i71rDNFUgCBnjhMmyAjbHL6N+b0fSUeKDyA
-	8/aKSPY7Q9cmDp3PzCDSphjugI6h6b+pZGP36hLoGPstpW52bh5DqTzetu76jXJTc0KK5CcpOW1
-	3DhSc1WmHDO0xQDT/8B9Em63pjDBT59E7DaGX9SOkF/P/xsWgMsC4HEsf+yNQitg3PNw7qRfTGZ
-	2I9YC2PW5ghh8mGLSvpV7j2ydYwd9zuAZQKa9nOyUvFGYHKvTsWBK0MXgM+fxpZSvwTmswG4JRG
-	I3VotgoVobp3dNNRj/1mJ+QpwxOQSdHO+w8GtZ7YVDx2zc8a6g3A4q0JCQTehjBsmaOQbhN2AA9
-	/zT9JoZJRgOs6MRPvwyXRBXsTq/7cLt3A3Xcw/4hoZBdeiK84auVeJPufBIHA80mXlKu57jKsNB
-	pWUEk1LDnOBIVK/UMh6fpK5SXsVEWSxKfh3rDtT3WeYL4qRpvMCM5449vWtkCNwwLoqyLJ16bvT
-	g1EhIJU+8Rg==
-X-Received: by 2002:aa7:d351:0:b0:6b4:86e1:cc67 with SMTP id 4fb4d7f45d1cf-6ba37ea0b91mr3954141a12.27.1795335923506;
-        Sun, 22 Nov 2026 00:25:23 -0800 (PST)
+        bh=9C8VrUUMQ052sNkqdlVlnIUSUE4gVO3LQI5iweO8Mtc=;
+        b=Xqi9qO2gn9gR0YkDVq1lPCaXmr3v6MxF8ivf8UKDfRYNlLV7b9pQFoW7W2T9UBwyG8
+         6q6UD0I3kucveel+jM0PgeXwfik5bmxlnxLoJhuphijYs6mZH3RmwuzL4xopRsbXvo49
+         oCKEoxA+FUsACKuGNDZ+gjZIB+gAf68y445IGcbsxn3sMNqsvu8RMxF7UNZCIGhArRIr
+         GLjfu/CCnVz82xUcaWCEwuF/wfz2fcRpkocktfyUIqNHGMBuJKE6sXlfLpTV/wl5wg49
+         fnW3Sf5EBQSaXEsuZwmSxKik8JW6zyjM3mM7lLiYV1yaDjy++010wCG7EyAuS3EJYV3M
+         nqUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795335927; x=1795940727;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9C8VrUUMQ052sNkqdlVlnIUSUE4gVO3LQI5iweO8Mtc=;
+        b=hQVMC7+c4xhjBAmrkjR+U3rnljyazJO1wWVWliMadIotG1s5xO3/ukXlmISVevM1h1
+         pGvH5gym/GzcwDhiPX1OyAg9MGM5hD/4QaTVapGHuXE1fueCp17Sp1vw+iW+iyz5NvV3
+         N7n3ukGM+XNP9375Cbe48VcV7PSXw+PnziCVG96VxA3VUonu3dtPnfc8/OYGPbrx0uDM
+         sb7WoXv+e1KPkPIf7qu4aQQKj8mWtlWqhsF7QevJCZjH1VbotqXvqdulcaJ4HvzLCLt6
+         n0fJ2cBTLIsvIkY4HNXN3D50xnt2EWqWNZqIN20rO4MAe3gQfGjGHhqic00DdC+IyIjL
+         q5Zg==
+X-Forwarded-Encrypted: i=1; AL+hErFURarvm1NbruX/hVBuYK8kkBUJdmXowJ+BlPRFT8NE11na7j3FBopL1LGswTbQ7Q8eONPVw9eU6BXj7pc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+8r7kJHdFRLttfGWaIMq/QMcq+0/p9ulwk7i77HgNQHTnLTOIk
+	r69HOD4zoxGP3xWf7DoBJvX70ULAiGn3oLjktPOSz+6t8x5Mmdh8ue7v
+X-Gm-Gg: AZFdTZeodlZicEsZxXnICjIuWLZA10YBfI3pqfryHtvy+suOyKO1yeltHH+lmytd0nO
+	GLI9KSHVK3XxXGLRnk/IXja7muPWafVJ3/u3TzVPYy0NM8ZoC6ZE2rE6rYGyC3hG8CxpqAkvp9Q
+	9pd9S0VTzLHZQ6bZzMEY5nDAm9gKRrTNFR3mE6Z6M/O2AqM33pqWyjVhTYEIwonOyt7NdM5EmbA
+	gcmvgb4x5lOgGyP+j0cVFuX8n+18gGq54iXBGlHX8echcYkD+E/DVYW+/cJwZg/1rJQWbmYTS0X
+	08Ybm2DxlnD6Bb+N/RH28ShtSK03KJh9TFOxgZVWu8OdhaxhI9rqFNpvTG2tZMdCgs3llDx8KOT
+	5hcFQmAhOlqyYHKwT9o1Ty7l+ie8rUgihliwP2RcuMtOpgJ18/zqH7tJ/C/ZWnO00RSgk4fTjUZ
+	KlwGmSOjr8/e+TiLSCSlFiR4BpUjE3Wf1QJ/4DSH+AgBDJh2DcyyYmyO7bn9w83o1WuvkvfYLjd
+	F34Ylt3BN2M529x5HfCg5ToHqOBp0heUrHmDC4ZIMHYn0TC3mhBkbfahdULZ2hF+sgGI19MqoNu
+	wfPCs4ihIL6CIn8scfvP7aiY/fvTIXGxCZ1CuCnQEKyJEcnbiCqPX1Nmxcic52xhThgi7lc7lP1
+	oiuRgzGvNL7s=
+X-Received: by 2002:a05:6402:1cc9:b0:6ba:a614:2fa6 with SMTP id 4fb4d7f45d1cf-6baa6145b71mr370609a12.43.1795335926933;
+        Sun, 22 Nov 2026 00:25:26 -0800 (PST)
 Received: from xeon ([188.163.112.62])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba6f8fa5b9sm2116187a12.37.2026.11.22.00.25.20
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba6f8fa5b9sm2116187a12.37.2026.11.22.00.25.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 00:25:21 -0800 (PST)
+        Sun, 22 Nov 2026 00:25:25 -0800 (PST)
 From: Svyatoslav Ryhel <clamor95@gmail.com>
 To: Matthias Kaehlcke <mka@chromium.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Svyatoslav Ryhel <clamor95@gmail.com>
 Cc: linux-usb@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 0/2] usb: misc: onboard_usb_dev: Add devices used by ASUS AiO P1801-T
-Date: Sun, 22 Nov 2026 10:25:10 +0200
-Message-ID: <20261122082512.64304-1-clamor95@gmail.com>
+Subject: [PATCH v1 1/2] usb: misc: onboard_usb_dev: Add Chicony USB2.0 HD UVC WebCam support
+Date: Sun, 22 Nov 2026 10:25:11 +0200
+Message-ID: <20261122082512.64304-2-clamor95@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261122082512.64304-1-clamor95@gmail.com>
+References: <20261122082512.64304-1-clamor95@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,18 +102,48 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-ASUS AiO P1801-T has 2 built-in devices linked via USB which require
-basic configuration (reset and power supply). Add them to onboard_usb_dev.
+The Chicony USB2.0 HD UVC WebCam is built in Asus Portable AiO P1801-T and
+attached on the USB controller via integrated Genesys Logic 4-port USB2.0
+Hub. Add the support for this device for the power supply and reset.
 
-Svyatoslav Ryhel (2):
-  usb: misc: onboard_usb_dev: Add Chicony USB2.0 HD UVC WebCam support
-  usb: misc: onboard_usb_dev: Add USBest Technology SiS HID Touch
-    Controller support
+Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+---
+ drivers/usb/misc/onboard_usb_dev.c | 2 ++
+ drivers/usb/misc/onboard_usb_dev.h | 1 +
+ 2 files changed, 3 insertions(+)
 
- drivers/usb/misc/onboard_usb_dev.c |  4 ++++
- drivers/usb/misc/onboard_usb_dev.h | 10 ++++++++++
- 2 files changed, 14 insertions(+)
-
+diff --git a/drivers/usb/misc/onboard_usb_dev.c b/drivers/usb/misc/onboard_usb_dev.c
+index 0606d405c16f1..f846d7fe331ea 100644
+--- a/drivers/usb/misc/onboard_usb_dev.c
++++ b/drivers/usb/misc/onboard_usb_dev.c
+@@ -565,6 +565,7 @@ static struct platform_driver onboard_dev_driver = {
+ /************************** USB driver **************************/
+ 
+ #define VENDOR_ID_BISON		0x5986
++#define VENDOR_ID_CHICONY	0x04f2
+ #define VENDOR_ID_CORECHIPS	0x3431
+ #define VENDOR_ID_CYPRESS	0x04b4
+ #define VENDOR_ID_GENESYS	0x05e3
+@@ -651,6 +652,7 @@ static void onboard_dev_usbdev_disconnect(struct usb_device *udev)
+ 
+ static const struct usb_device_id onboard_dev_id_table[] = {
+ 	{ USB_DEVICE(VENDOR_ID_BISON, 0x1198) }, /* Bison Electronics Inc. Integrated Camera */
++	{ USB_DEVICE(VENDOR_ID_CHICONY, 0x0b354) }, /* Chicony USB2.0 HD UVC WebCam */
+ 	{ USB_DEVICE(VENDOR_ID_CORECHIPS, 0x6241) }, /* SL6341 2.0 HUB */
+ 	{ USB_DEVICE(VENDOR_ID_CORECHIPS, 0x6341) }, /* SL6341 3.0 HUB */
+ 	{ USB_DEVICE(VENDOR_ID_CYPRESS, 0x6500) }, /* CYUSB330x 3.0 HUB */
+diff --git a/drivers/usb/misc/onboard_usb_dev.h b/drivers/usb/misc/onboard_usb_dev.h
+index 3523f8f8a1496..10f010fb57c07 100644
+--- a/drivers/usb/misc/onboard_usb_dev.h
++++ b/drivers/usb/misc/onboard_usb_dev.h
+@@ -150,6 +150,7 @@ static const struct of_device_id onboard_dev_match[] = {
+ 	{ .compatible = "usb4b4,6504", .data = &cypress_hx3_data, },
+ 	{ .compatible = "usb4b4,6506", .data = &cypress_hx3_data, },
+ 	{ .compatible = "usb4b4,6570", .data = &microchip_usb424_data, },
++	{ .compatible = "usb4f2,b354", .data = &bison_intcamera_data, },
+ 	{ .compatible = "usb5e3,608", .data = &genesys_gl850g_data, },
+ 	{ .compatible = "usb5e3,610", .data = &genesys_gl852g_data, },
+ 	{ .compatible = "usb5e3,620", .data = &genesys_gl852g_data, },
 -- 
 2.53.0
 
