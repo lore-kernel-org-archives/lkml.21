@@ -1,69 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795318755;
-	b=2bSwABZL9g1wyC3h329/hza0vSR3XCM+taWwoAsn0868pVYlplnv6/PJIkurATZKAo9O
-	 ap8nSO2qZxB/cVeKu/Q/Sl7HFPG1W1LLPPEGeb5QvdPPZpPVaAwiZCsOwxL9jMF3xI6m0
-	 ZQeKi65nTTkQBKutiXXHlu1mNP0IMLe5j/gjDwXdgjNBXPUpNPN2bvrLG63K0slPrfdYx
-	 P95EU/meq+Ub/M4neWNHiHINQc5cwAdoerQ80Jm0PRZW69JoZZ2Aoq4z6/vnuxtaLWUxU
-	 WCSE7vvui1/yW4LS1WQeal+PXCs+bXE2xay2XlrWDgCN3Nxzumm/nsehIDIuzlzvmEg==
+	t=1795318774;
+	b=mSEdStDjDNJcYFZrxm7jXU1vyYQdTqm0gJqzAeERd6ElqqZer4BSsN5HE4QM8JEY7SkP
+	 76bwQm+wKuhN/JZv3fCpvaTTtb+uvAt+uATkiyzoO0uYTAdjmV+VKFvN9VlBT4oLbTjXu
+	 7QWnM53h8XkGYNm/mP+L9mcg9r5g7dgdePopxMGUClUw2auK7kHJf05SFPVPT52Hnz3n6
+	 JuKRCQQeLpy8V/jdcOtOOwA7J0TxYbNGGI4QMf1mTAlAl5ueD0qkizq3QQpTlUSHNSqTl
+	 gWEF4WvGCM4hglLN/hu13F2D5LI/81ew4LCpVjXUyaFkECzSY5T7KHsv4gB7uCKTmUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795318755;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:From:To:CC:Subject:In-Reply-To:References:Message-ID:Date:
-	 MIME-Version:Content-Type;
-	bh=HEYcFEWeFsdkgLqj3xWRe/mK38G0Up7q46zxa/fcKfI=;
-	b=O+bxesrOO5IyT9/4dVTCE75O9eFNvCrEtwTVrhOS+Ae861/GnonOreqZ7vXVbo31XC7y
-	 rn3JvcTmBcX3Ccakcv4OiCoKpxUwsE/u5wcMMRL+Wz0e1ZD7kWiKBJ1/YuOlw6hF78PQC
-	 a/VZU1UpBjnwVjhDILclELhSZjmNb5lwojwxFO1EgEXAhVe2rl/Heeoelx4Ka4oS1JyOO
-	 0bPOpL3WeUxiTCj7GLDrc7XSnAbSU9KRM362EnDv+xaClyRntJ+Ou+pIzJJDw+UyV1yY5
-	 Tb0RSTQWewzRyydViDb+0T2cXGnffW3gICpMbc2/+kOfXkg8Up7ko3/kjhnya/jcpRA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795318774;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=occo9dmY9azL7oPYwH1MqRhtp5Aj4CF/oE6zq/Au7GE=;
+	b=THx/CQKr0bIBoGLFb6w8Z5BkWFgM2fgMlM18M2+kooY45NXi+EytGDuXwq1MNgdgEE6i
+	 7lCt0K29i4yS51TDIHnTb1te8eetx2CQjcFIVoZ4AZxporwgOGwvf1YrN0Bq3x2E4MiyD
+	 P0UhiQF5CnlabUXHolNHukYBEZQqGyoUtzvJXr+D9siPwL9RoIQY81ZONrOYbzaE1Gvzv
+	 6ggtp1FMoOKp7+x1teTktcROup4ibdWK5HJnszFzpoDQTogUwjWsJfAHt/qzxaZU9MzfA
+	 tpG60DDxwX9Fx+fp2eghxBRU8kVox0BkZyKaTyHZbYXruis+vEj3e7W20nCO8Wyzfcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=Lq9e3LKx;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q5BPggL8;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20737606A320;
-	Sun, 22 Nov 2026 03:39:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20737606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AC57606A32A;
+	Sun, 22 Nov 2026 03:39:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=Lq9e3LKx
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AM3d98c9543774, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795318749; bh=HEYcFEWeFsdkgLqj3xWRe/mK38G0Up7q46zxa/fcKfI=;
-	h=From:To:CC:Subject:In-Reply-To:References:Message-ID:Date:
-	 MIME-Version:Content-Type;
-	b=Lq9e3LKxMJuPNlKCmrBaqE2PYYk/r4uChVq9tNNP2S+eKyR428eaUVwXcmwlylaWG
-	 YzojgJ2ZyLLAOpm8y+AwOy7BwNQQaXISk1H0QbEtseB4duWts6+4XVTO/JWyF8pOAT
-	 HrkCT2aDMmbWinl1ZUv+193QFGaUuLYnTBRybDt1466IaDiBbXc+OBWheMZ3dUPRix
-	 fYpzjZf+Yt07GHIZFkUOQpXeptRaBmcZJQiNDZ6T/samxFMie72mDFFzZWNPAzqhkx
-	 6UsqYmjULAf5XzCxO68kc3gS6UTWEbA21NMMAqFan/jlBsjpTmYXRFwLOiQbbG6hPQ
-	 MLxBJuYkNf7Jg==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AM3d98c9543774
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sun, 22 Nov 2026 11:39:09 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Sun, 22 Nov 2026 11:39:08 +0800
-Received: from [127.0.1.1] (172.21.40.75) by RTKEXHMBS05.realtek.com.tw
- (10.21.1.55) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56 via Frontend
- Transport; Sun, 22 Nov 2026 11:39:08 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Abhishek Tamboli <abhishektamboli9@gmail.com>, <pkshih@realtek.com>
-CC: <linux-wireless@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] wifi: rtw89: 8852au: Add support for Mercusys MA72XH
-In-Reply-To: <20260710030055.57438-1-abhishektamboli9@gmail.com>
-References: <20260710030055.57438-1-abhishektamboli9@gmail.com>
-Message-ID: <1e060d68-141b-4246-aba0-9558d64d6ae0@RTKEXHMBS05.realtek.com.tw>
-Date: Sun, 22 Nov 2026 11:39:08 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q5BPggL8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85D8D1F000CA;
+	Sun, 22 Nov 2026 03:39:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795318773;
+	bh=occo9dmY9azL7oPYwH1MqRhtp5Aj4CF/oE6zq/Au7GE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Q5BPggL8KC2Ur5S19ZHL0hk/V3udBJy/5sIVB40zVot73ammCPTFQdQuURuXOHWNR
+	 Puvp49gX09JcLNwj9NjztC3c5E60I884p/7h4yfmYw+rUow0At/qXqWL1vWJWGF0EN
+	 PJ5dU3/hTPet0GOfUzzQX6MoOtjijcCyjrIEtay9QiOgoXWaX0biArsuPBqTn2VjTp
+	 pM6u6AzcywagZ0JzTJ5ZsOEQMSisctH6JgeUNcBfLUMxGZs5IZGXhvEVC+dvBTkYwJ
+	 c8krQvk8qKf10aKYc+/sFVu6qcmbDQtMEZ2BzFyYVd0DtJty8xrbxf3eTsX8USprzP
+	 X6z5HtUEZy4gg==
+From: Sasha Levin <sashal@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Sasha Levin <sashal@kernel.org>,
+	stable@vger.kernel.org,
+	patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	torvalds@linux-foundation.org,
+	akpm@linux-foundation.org,
+	linux@roeck-us.net,
+	shuah@kernel.org,
+	patches@kernelci.org,
+	lkft-triage@lists.linaro.org,
+	pavel@nabladev.com,
+	jonathanh@nvidia.com,
+	f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com,
+	rwarsow@gmx.de,
+	conor@kernel.org,
+	hargar@microsoft.com,
+	broonie@kernel.org,
+	achill@achill.org,
+	sr@sladewatkins.com,
+	James Morris <jmorris@namei.org>
+Subject: Re: [PATCH 7.3 0000/2642] 7.3.6-rc2 review
+Date: Sat, 21 Nov 2026 22:38:59 -0500
+Message-ID: <2026-11-21-2-daily-reply-0016@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <5154b570-ea6e-ef21-f0e9-cc54fc6bfc25@namei.org>
+References: <5154b570-ea6e-ef21-f0e9-cc54fc6bfc25@namei.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,21 +77,20 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 
-Abhishek Tamboli <abhishektamboli9@gmail.com> wrote:
+> It does not have the three that add the new compatibles:
+>
+>   73329198cdc2 ("dt-bindings: timer: thead,c900-aclint-mtimer: Add
+> SpacemiT K3")
+>   c9bae665035f ("dt-bindings: interrupt-controller:
+> thead,c900-aclint-mswi: Add SpacemiT K3")
+>   08257b5b3d38 ("dt-bindings: interrupt-controller:
+> thead,c900-aclint-sswi: Add SpacemiT K3")
 
-> Add the ID 2c4e:0124 to the rtw_8852au_id_table to
-> support the Mercusys MA72XH usb adapter.
-> 
-> Link: https://bugzilla.kernel.org/show_bug.cgi?id=221738
-> 
-> Signed-off-by: Abhishek Tamboli <abhishektamboli9@gmail.com>
+Queued the three for 7.3, together with b424b3b0ab92 ("irqchip/aclint-sswi:
+Add support for SpacemiT K3"), thanks.
 
-1 patch(es) applied to rtw-next branch of rtw.git, thanks.
-
-ca84bddd1fe1 wifi: rtw89: 8852au: Add support for Mercusys MA72XH
-
----
-https://github.com/pkshih/rtw.git
-
+-- 
+Thanks,
+Sasha
