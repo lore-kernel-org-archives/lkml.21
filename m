@@ -1,123 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.152
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795344721;
-	b=eORoPtT1cx55lxYDnxlRiKr2bhriDUgQi6MDIN4Z5lnQkRXZMXY78uoWty6jMKjSJYcL
-	 jlToAUIYL/yC1Co2PVDGlWFOPP/ceN4RlWR81YqKOd51T7Ee1CawbOPRkhF0bOqdZZj9e
-	 3LveAV2LCfnAf2x+FLFZ2L89H5bOI5PzjD2bWd/JeLqIHrMJUfyadthbPALvKRdrSil6f
-	 QqoQH6FBZU0bVrlSs8+4eTgbWAlA6mvB9klGV7iOhZPJKCZ+jWXZadcGJ0vhtLewVjgXk
-	 1qahrZg1Zm5aKC5KImRz5rlNBdFrMgIj6E9x8pSnjOW8diYJRAyt+pbB0jCwHpvvkcA==
+	t=1795344750;
+	b=wGlaaXb1fADcKMHL6W/pfGapFki99jNg273tPO/Rjny2XkuNaW9SBtoCCsAIniWc39v6
+	 lESiZbF83LdOrazporF61jgfIJ12hsnvuGIyYBFojv1GT567I3g6kwaZagF3S8USFFaES
+	 Yccf27hDzbqDyGKow8wxpT1r6Ywic+WLXzklUrUaQu/eR4k5o3pCwVvdNhstyWQOh/5vi
+	 Tpz+7WqmLSEaaKxyxJo+4e9DffcSIIUinCF8+Xs9FqHQAFEc9sli3q376AujvxVDJDwMA
+	 f8NNSAoLxqB7Dh8A6D/1Nnlmxg5ReB4Zoe0w37k9ky0Natb0PT0vmLe3pp1V/EvtMRg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795344721;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=Wt/0ZYl14mZIZDfmDwgyA7tOvkpPpdq59BUQnUEDeqo=;
-	b=hTupyguIZYi27dLZ/llhbpIVBrt3Vw2emerp0hwVrvbUvyBhlsrSJU7DCVnTly010gfH
-	 15G/o9H2VFFUcbr1qQY3DVkimXRy84T7uNGlcq45Tp0lHaWc3O0RG92HKUtUnA0aBakWh
-	 KEvR7i4+dvUyC2j8wn0dViLEcpYeZaKPlBaQZMp1XnvJkBYeRYlPXCRuWrTaXSyxRe1cc
-	 EkOI91dQTXJVBwodWsFToGik2onXuTUxZ9M3G+DFSB8nblOTlBCSEG08z55v1BHGn//fg
-	 38L/v9Ne87RDxpsS2nb3sFSQLRKnBZxSgGw0PIql5WDaaBLMu7T4bBW8HKKYnDbZgQQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795344750;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=UAqUUG+uJGPdeDnCBEIvoKUTIOnssMLWS4UgPSuy47Q=;
+	b=DmkSzFvfyZ4cpgsfXOdPpZLSCR4hd8xIHcN1JJjnZvsqkNzRONXEWSYz64Azp3tRYo+e
+	 M4X9oCR2zneKKFetdoGWVHsmnjRzlsFUzioL46ePGyX88NHbvGL4fJFmjIUWu7eNo65eh
+	 hJ7TxB7kAyEGq91La2s1dkktTbQ97kRgKDloxEGlHQE9UBKvSGJyBU4L+sH7dTyt3xVmx
+	 ueQfuFpPtk1caC0cYnDm2FoKpvJ2Qirg+uBl4DROrG1n+bl2aixzQsUwzyezGwVMK0eEn
+	 gRxsq9FVmiQ80MTOhjV5JKv+71tcFophIrY5QE2bb3sqNEnu7q6QroW3X7CFU1guq9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=sakamocchi.jp;
-	spf=pass smtp.mailfrom=sakamocchi.jp;
-	dkim=pass header.d=sakamocchi.jp header.i=@sakamocchi.jp header.a=rsa-sha256 header.s=fm3 header.b=lk9lWSen;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=dLYLBOlQ;
-	arc=none smtp.remote-ip=103.168.172.152
-Received: from fhigh-a1-smtp.messagingengine.com (fhigh-a1-smtp.messagingengine.com [103.168.172.152])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 221BE606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:51:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 221BE606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=sakamocchi.jp
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sakamocchi.jp
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=sakamocchi.jp header.i=@sakamocchi.jp header.a=rsa-sha256 header.s=fm3 header.b=lk9lWSen;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=dLYLBOlQ
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id B65D6140025E
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 05:51:58 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-06.internal (MEProxy); Sun, 22 Nov 2026 05:51:58 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sakamocchi.jp;
-	 h=cc:cc:content-type:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm3; t=1795344718; x=
-	1795431118; bh=Wt/0ZYl14mZIZDfmDwgyA7tOvkpPpdq59BUQnUEDeqo=; b=l
-	k9lWSenb2A7K61GD9i/W+xDm8oy65RjsUvwU6lC6auX6sL6vEYXjSKUjsCrLc3wy
-	DQWpeephrzGLCp7TNA2gbUub14gDTQNNELfQqTPlNua+89CvHIPq1P975/jwieSU
-	Iwn1A6SXCa3VpPkqUrs6aIOsZC+TN/6NXUzK3msKt9pPcMFZ5MI4wBHaa0AlyApL
-	RtJBx956+6OhpACFeTNDUrO58HRt7xY4N6id1yqQP62JKZjAOzGtTJ6EOlRQnTH/
-	PA1ESpjS1RmxJBspavwI595b5tEVU9q/DBagNXS8bXuuL4UjXFufPmZ66395C8Xd
-	56HN+mJuJi1DhWYOrEaqg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795344718; x=1795431118; bh=Wt/0ZYl14mZIZDfmDwgyA7tOvkpPpdq59BU
-	QnUEDeqo=; b=dLYLBOlQB+01hPGmj4n7CCc1v2xmMxjFUqEE031jLlLHfausmgl
-	j+LDvhqzuUnGHyAHYwzqm4eVLid3YmO3ihN057ZA/LtYERKpfNc2XcBc465hP438
-	dDMw4a+9a1xwPJdmtBdF+GK9pMp8UzqWcTzZKS3zdkWMKmXmdYCYHdmXKQkmS6r8
-	Vr0He6nHl9E39f1d+R3NrwIXxrqZO21H4rKGytulITYIfjyOYP4fHYLzLlzIUEOb
-	a2dnY4GSHEN1RYbGeIu87qbm95iaI4zHxdObUqFw3D1ka6fsfN3dRPn1oo63GRTY
-	I5LmepiwGYBfBLfpOS/Jx77T4cSPxdoudrA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=sakamocchi.jp a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795344718; d=sakamocchi.jp;
-	mf=PG8tdGFrYXNoaUBzYWthbW9jY2hpLmpwPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:ZRMz/Vg0qbW1rQYU5/kTJdzDIxHhjwt4/F+/t2NebRXC2AU
-	D7aoickJSyg/wryLtYrqkUODqm4gJsBeuBLiKSD6F9Ae7AGj8vuHz67U10cCK0k0
-	kHkxk4KWvwAYkg+7D41YenRbFR6yaLWMtqAiDIrVMRwL/e67AUaYtCtFxP/D6eYb
-	vIUTSwDMDEvyrtwNFz04aP+bf1YTEBMT2+aQPPJ/UwUBzwFqlUKFZAAOhgvXM/gM
-	hieo5CWNw3/m1NUfstVEMrxuhcpuCNKwfu3z2CXtSYaPaTE+BLFP8kMT0+WhYddE
-	i9lpBrmqfgEpXAzgnqXL3uvttedzVVpZfSeJYZg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=13;
-	hn=cc,content-disposition,content-type,date,feedback-id,from,
-	in-reply-to,mail-followup-to,message-id,mime-version,references,
-	subject,to;
-Message-Instance: m=1; h=sha256:b0XcX6tgg5+3EgH/4IEfIjcPAtZvtlQmra5sM4bvGsk=:S0/FaFeE3lIwVB5ICtz3b9uvITmZQS5+p0lZrMTjo5w=;
-X-ME-Sender: <xms:TskCa6Z5BOxA9VnTfbXUuvWdfigktu-tbWI31R-0qyENeIJ6tX1pYQ>
-    <xme:TskCa2VJN6BqOyq1DSNuFdgpgzr3ceZcvof9fnVfZTbSFilF8OKcYco7ZbNbFASug
-    V2z2wHCd6gGfTq0_YaDi6YMBq2y_RXu8q9Vaq7Ketbqlp6_l_N732o>
-X-ME-Received: <xmr:TskCawhG0HhUashzTZTSGGZDoDmmt_pA6Ov87PhqXt5SPAR0iLwSxceAkgoS37A6UsQjPTX1VZxr4f3gSaaYp4U6Kqpv-w>
-X-ME-Proxy-Cause: dmFkZTEha3FN2Rsg8jyRUnzt1CM14thpz5e0SQ8cPX9cgw9YANuj6Cqz59naeW0O+hF/io
-    bUmWg/8UtLiT22z1bH8O6BdHS2BizwLs8a+QTGcW2D9vgp2BoxpGBV7p6CYk7pWjYr9vOj
-    CXouNXKvE1gMQxXW6ELVqIHRpifIrSEOOPhsrMwVZ/2oA8BQw7PZnJdLNWgdah5dMzKacd
-    X4qzRbOhOOqQMu1wWb4BfhEn9Qi3upPZmrJhWTl6ZV/yjgXo5muKq86OQ9ve4+I2je6dAS
-    WuG+3IPLY1vvMucJttYMrlPLO2zMc7Mku7tz/oEGTQsqjzznKcriU9UBHY/smfdOAwHfJP
-    bgcNlgEOYWlQP2llE55gAnhaBfo0KOrZkJPRgByVaXClQF11f5Av0P3ZTF/bFzTHR76J2g
-    6BnbrK/ciJw0Fs10aeXUO9jKaKEbVrjGd5Dx3boV7/5om0+uwJ/zvVl8aDA3KXnSssMGcE
-    0kzcQFXKM9nDw7u6HavFz56Vld6Gfxc1yVX9pyHZSAJ6aREjcnvBUSR8MAA9kAtGQKSSxX
-    GGM6HLabIPxtxOgQlC1gGHwdGeHo344BzyIY+h6C9oQr/PHdqnDG9AUJu0Jvsu7kB7QuEh
-    JDCYkvPWmkqYWX23sgJthGxcz/WvPjRDZ5i/3Bze3NULcAPzyP/PWg3iwziQ
-X-ME-Proxy: <xmx:TskCa8tCagYIFRyuXNYZ8i1YF09KVtvNt7bS0siGzEDCAbvvqOoPCw>
-    <xmx:TskCax4tKBlpmEGC8o2jSHWvjyb4ZQC6TH9jxFI0HFlYGgTN-k1I3Q>
-    <xmx:TskCa4OZOU58Kdl2YHNyvPliuICwRTbZ3s77vJbQSRdgiVweLCCnqg>
-    <xmx:TskCa_vdq5Ni93Z9EAh15ib5dF9dw34sXRhlaBCbisYJnhfShCmZ2w>
-    <xmx:TskCa_IMSJzM5sUHx8jtmXJbTXwHYjCQxcHr6jwerSuF2GNwftzdnE2T>
-Feedback-ID: ie8e14432:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 22 Nov 2026 05:51:56 -0500 (EST)
-Date: Sun, 22 Nov 2026 19:51:54 +0900
-From: Takashi Sakamoto <o-takashi@sakamocchi.jp>
-To: Ian Rogers <irogers@google.com>
-Cc: linux1394-devel@lists.sourceforge.net, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>
-Subject: Re: [PATCH] firewire: core: widen fw_node max_depth and max_hops to
- u8
-Message-ID: <20261122105154.GA470151@sakamocchi.jp>
-Mail-Followup-To: Ian Rogers <irogers@google.com>,
-	linux1394-devel@lists.sourceforge.net, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>
-References: <20261119170747.1525767-1-irogers@google.com>
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id EC6A9606A32A;
+	Sun, 22 Nov 2026 10:52:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC6A9606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:In-Reply-To:References:MIME-Version:
+	Content-Transfer-Encoding; bh=UAqUUG+uJGPdeDnCBEIvoKUTIOnssMLWS4
+	UgPSuy47Q=; b=FW6C89H526SNi/DA58Fz5h5PVjnoKEgr8PiA4Hp2KyUSu04pk3
+	4bgGXNLoE/JPeU5xRFkEBEs9acKN6xytlTWDy4czgj2oCD6uyCwlHcf0LLdaHqCI
+	s+TflVy6w2KQ9tG5lXM984ErqDt+4SEbP6cKn+QyOuNKnEMKVn2k8WAg0=
+Received: from user-virtual-machine.localdomain (unknown [113.200.174.70])
+	by hzbj-edu-front-2.icoremail.net (Coremail) with UTF8SMTPA id BLQMCkAGRfpeyQJru3oPAg--.38485S2;
+	Sun, 22 Nov 2026 18:52:15 +0800 (CST)
+From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+To: Sean Young <sean@mess.org>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	=?UTF-8?q?David=20H=C3=A4rdeman?= <david@hardeman.nu>,
+	linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Bin Yu <byu@xidian.edu.cn>,
+	Cheng Wen <wencheng@xidian.edu.cn>
+Subject: [PATCH v4] media: rc: fix use-after-free of rc_map.name on register error path
+Date: Sun, 22 Nov 2026 18:52:13 +0800
+Message-Id: <20261122105213.10146-1-25031212351@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261122092155.11550-1-25031212351@stu.xidian.edu.cn>
+References: <20261027014144.9144-1-25031212351@stu.xidian.edu.cn>
+ <20261027021718.14264-1-25031212351@stu.xidian.edu.cn>
+ <20261030.pref-04.ec83d43911ee476d@stu.xidian.edu.cn>
+ <auRsPM9YO4aXd8qL@extorris.mess.org>
+ <20261030130535.2921-1-25031212351@stu.xidian.edu.cn>
+ <awIShD1k89rEsIc5@extorris.mess.org>
+ <20261122092155.11550-1-25031212351@stu.xidian.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,81 +69,130 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119170747.1525767-1-irogers@google.com>
+Content-Transfer-Encoding: quoted-printable
+X-CM-TRANSID:BLQMCkAGRfpeyQJru3oPAg--.38485S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxAr15Ary5ZFWDtF1xJFy8Grg_yoWrWr47pa
+	98KFW5t3yDKF4jqws8XF47Wa45uw4fAan8ury8J3yjgw45uryftFW5JFyUWa4DAr97CFy7
+	tF98J3y8CrWUCaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9vb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
+	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r
+	15McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vI
+	r41lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r4DMxAIw28IcxkI7VAKI48JMxC20s
+	026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_
+	JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14
+	v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xva
+	j40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8JV
+	W8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8-tx3UUUUU==
+X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAgUFD2sBtklaRwAAsF
 
-Hi,
+If rc_register_device() fails after device_add() - for example when=0D
+ir_raw_event_register() cannot create its kthread - the unwind path=0D
+frees the keymap via rc_free_rx_device() while the device is still=0D
+visible in sysfs.=0D
+=0D
+A userspace reader of the uevent attribute then enters rc_dev_uevent(),=0D
+passes the registered check under dev->lock and dereferences the already=0D
+freed dev->rc_map.name:=0D
+=0D
+  BUG: KASAN: slab-use-after-free in string+0x483/0x4c0=0D
+  lib/vsprintf.c:737=0D
+  Read of size 1 at addr ffff888007ca9d80=0D
+   rc_dev_uevent+0xd7/0x1d0 drivers/media/rc/rc-main.c:1628=0D
+   dev_uevent+0x28d/0x570 drivers/base/core.c:2709=0D
+   uevent_show+0x1af/0x380 drivers/base/core.c:2756=0D
+=0D
+Clearing dev->registered before the teardown is not enough: it makes=0D
+rc_dev_uevent() return -ENODEV, dev_uevent() fails and kobject_uevent_env()=
+=0D
+drops the event, so the KOBJ_REMOVE of device_del() is never delivered.=0D
+The device has already been announced with KOBJ_ADD, so the remove event=0D
+has to be sent as well, and it needs the keymap and the driver strings.=0D
+=0D
+Keep the keymap alive until device_del() has been called instead: only=0D
+unregister the input device at out_rx, since it is a child of dev->dev,=0D
+and let out_free_table free the keymap afterwards, as it already does for=0D
+the other error paths.  device_del() drains the sysfs readers, so=0D
+rc_dev_uevent() cannot run once it has returned and the keymap can be=0D
+freed there.=0D
+=0D
+dev->registered is still cleared so that open lirc file descriptors=0D
+cannot reach the driver callbacks, but only after device_del() has sent=0D
+the remove uevent.=0D
+=0D
+Fixes: f56928abaa6d ("[media] rc-core: cleanup rc_register_device")=0D
+Cc: stable@vger.kernel.org=0D
+Co-developed-by: Bin Yu <byu@xidian.edu.cn>=0D
+Signed-off-by: Bin Yu <byu@xidian.edu.cn>=0D
+Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>=0D
+Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>=0D
+Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>=0D
+---=0D
+=0D
+Hi Sean,=0D
+=0D
+this is a rebase of v3 on the media tree: media-ci rejected v3 because it=0D
+was not based on a media-committers branch.  I have based it on fixes;=0D
+the function names and the structure follow what is there now, so the=0D
+helper from v2 is gone and the clear after device_del() folds into the=0D
+existing scoped_guard.=0D
+=0D
+The rest of the media-ci report (coccinelle, smatch, sparse and the rc=0D
+keymap checks) comes from the tree itself, none of it touches rc-main.c.=0D
+=0D
+Thanks,=0D
+YuanZhe=0D
+=0D
+v4:=0D
+ - Rebased on the media-committers fixes branch, as media-ci requires a=0D
+   media tree ancestor (v3 was based on v7.2.10).=0D
+ - The keymap is kept until device_del() has sent the remove uevent, so=0D
+   the KOBJ_REMOVE is not suppressed by rc_dev_uevent() returning -ENODEV.=
+=0D
+=0D
+v3:=0D
+ - Keep the keymap until the remove uevent has been sent instead of=0D
+   clearing dev->registered before freeing it.=0D
+ - Clear dev->registered after device_del() on the register error paths.=0D
+ - Rename the helper to set_unregistered() and drop the explanatory=0D
+   comment (Sean Young).=0D
+---=0D
+ drivers/media/rc/rc-main.c | 15 ++++++++++-----=0D
+ 1 file changed, 10 insertions(+), 5 deletions(-)=0D
+=0D
+diff --git a/drivers/media/rc/rc-main.c b/drivers/media/rc/rc-main.c=0D
+index a867bf9e8416..a2a6ad2a7b0c 100644=0D
+--- a/drivers/media/rc/rc-main.c=0D
++++ b/drivers/media/rc/rc-main.c=0D
+@@ -2013,14 +2013,19 @@ int rc_register_device(struct rc_dev *dev)=0D
+ 	return 0;=0D
+ =0D
+ out_rx:=0D
+-	rc_free_rx_device(dev);=0D
++	/*=0D
++	 * The input device is a child of dev->dev, so it has to be=0D
++	 * unregistered before device_del(); the keymap is still needed=0D
++	 * by the uevent attribute until then.=0D
++	 */=0D
++	if (dev->input_dev)=0D
++		input_unregister_device(dev->input_dev);=0D
+ out_lirc:=0D
+-	scoped_guard(mutex, &dev->lock)=0D
+-		dev->registered =3D false;=0D
+-=0D
+ 	lirc_unregister(dev);=0D
+ 	device_del(&dev->dev);=0D
+-	/* registered already cleared above */=0D
++=0D
++	scoped_guard(mutex, &dev->lock)=0D
++		dev->registered =3D false;=0D
+ 	goto out_free_table;=0D
+ out_rx_free:=0D
+ 	scoped_guard(mutex, &dev->lock)=0D
+-- =0D
+2.34.1=0D
+=0D
 
-On Thu, Nov 19, 2026 at 09:07:47AM -0800, Ian Rogers wrote:
-> In bm_work(), FireWire bus management checks
-> 'root_node->max_hops < ARRAY_SIZE(gap_count_table)' (16) so that IEEE 1394
-> topologies with 16 or more hops (up to 63 nodes / 62 hops per IEEE 1394a)
-> fall back to expected_gap_count = 63. However, struct fw_node declares
-> max_depth and max_hops as 4-bit unsigned bitfields (0..15). On topologies
-> with >= 16 hops, update_hop_count() truncates max_depth and max_hops
-> modulo 16 (for example 19 hops wraps to 3), causing bm_work() to program a
-> too-small gap count (8 instead of 63) and trigger arbitration failures.
-> 
-> Change max_depth and max_hops from 4-bit bitfields to u8. Because both
-> fields occupy existing alignment padding ahead of struct kref in
-> struct fw_node, sizeof(struct fw_node) is unchanged.
-> 
-> Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
-> -Wtautological-value-range-compare enabled; fix and changelog drafted with
-> an AI coding assistant. Verified with an ASan/UBSan C struct-size and
-> 19-hop topology test, and build-tested under LLVM=1 W=1 (-Werror) and
-> -Wtautological-value-range-compare; not tested on physical IEEE 1394
-> hardware.
-> 
-> Fixes: 83db801ce8c6 ("firewire: Implement gap count optimization.")
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  drivers/firewire/core.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-
-The wrap-around in the 16-hop case is intentional and works correctly: the
-resulting index is zero, which points to the first entry (63) in
-gap_count_table in bm_work(). Therefore, we only need to check for hop
-counts of 17 or greater.
-
-According to the IEEE 1394 specification, the 16-hop limit is derived from
-the worst-case timing constraints for copper cable media. It is not a
-general requirement for IEEE 1394 topologies, which can also use other
-transmission media, such as optical fiber and unshielded twisted pairs.
-
-In practice, most Linux users connect just one device, or two or three at
-most. IEEE 1394 is now primarily used for peripherals such as legacy audio
-equipment, rather than as a mass-storage or networking backend.
-
-Moreover, the limited bus bandwidth (400 or 800 Mbps) is itself a
-constraint: even a few streaming devices can consume most of the available
-bandwidth. This makes it difficult to see a practical need for connecting
-a large number of devices in the first place.
-
-Considering these practical usage patterns, I don't think this patch is
-justified by realistic use cases. Nevertheless, the change does not
-increase the size of structure, and removing the bit fields is preferable
-in itself. I've applied it to for-next.
-
-> diff --git a/drivers/firewire/core.h b/drivers/firewire/core.h
-> index 8b49d7480c37..ca2150f75174 100644
-> --- a/drivers/firewire/core.h
-> +++ b/drivers/firewire/core.h
-> @@ -207,8 +207,8 @@ struct fw_node {
->  	u8 phy_speed:2;	/* As in the self ID packet. */
->  	u8 max_speed:2;	/* Minimum of all phy-speeds on the path from the
->  			 * local node to this node. */
-> -	u8 max_depth:4;	/* Maximum depth to any leaf node */
-> -	u8 max_hops:4;	/* Max hops in this sub tree */
-> +	u8 max_depth;	/* Maximum depth to any leaf node */
-> +	u8 max_hops;	/* Max hops in this sub tree */
->  
->  	struct kref kref;
->  
-> -- 
-> 2.56.1.708.g77570a6a1d-goog
-
-Thanks
-
-Takashi Sakamoto
