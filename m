@@ -1,66 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795376063;
-	b=w1uWnK3BFqtKB3ctpp/G6ebqYRhRXeQQk/sP8VArv8gIyXLPAnQgC0m05z3osezKJH+n
-	 jBeuaC3L0s98e/+bmWDdlf4O4oi+GVpN0Xzi46MEHoh1yysrViICVPPAQHbDqcXBVa6oL
-	 OjOQLxl1gTWz1ddFpjicGziK7xMqnJhaJo63tNVk8UPJm0hcbu6+sXgPLd2isCIPKmw86
-	 QUs0xWOBTPZs4Nzi5A7VViIKdd2SAkmitKYYTSLhpP3OxhL4mn/RRJKbt8e1fdsbEY5ZE
-	 Esej7MfCekFOUyOauQNjbR2kgV4JYeo1Z6gRx6kbbX2KlDZ3hMF90TFVFqANcsCymhg==
+	t=1795376064;
+	b=lL9HUl5jAKYBggKq57TUXp0oLBRUBUPAYZHi4q9SUYWwU0WsqINUO2PZZearo8sUwaGY
+	 4F2VBRC2Il4UJeKE+fUWCVZ1T1Wi0IOW6fx1Ld4yLeeyteYUixL5Aop2BPpVunHfz9qWF
+	 TZuL4xlHW3b87Jg2s3fT5ZqM+qj0ThyYOfXY1Pq9yo0br/hPUBs4xNLw7Nk4luQjlVkZB
+	 0s6Q0oNoATQ2Ez7unxWVZZlfCN/yIH/4Mq+yViCiwanJTNKcd9DRi3XYcAfh2CuHiHkVD
+	 lvrLkvU88kVeicht4Jn4LR/JkGfxYAPLwPBpCrccxYG3vHnWWBCblIKXJUr4ptKB6hg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795376063;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795376064;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Yt76KQlD640Muqv2+yYVkgsdhiZxjiGfT2O2endhm3o=;
-	b=zktMl0g/Q+xCBCys06AaotKGyBvduJ65mtD8yy1tNmf2btU/tyA0TPXUix+1KHSFBk7n
-	 FlWUvWZYNpS7CsKeStwzlZqvhn0lHTKh8vhkKYgZ31KWySkTL64XB75sYAzykvzaBFmgy
-	 yEbf0NCALSGR8Ssoqw347K/oitBwlLumz1FDNLcIOuT7jb+NPl+LHB9Ozn4dV3SfA9Jnc
-	 oF+WgjfJf+OO+MeuhRh4Py75bypTyyJEBAm90cFkYcG23snv0jmKdwn1e9R0C9YekBifl
-	 w/Wib0u7XLIGDhfqBGWne5r9gSi0Fzt3D5mJgT2DVhFhkYj0JwiQtXRfQhBt261FXHA==
+	bh=PGUuGOQnjR3rfIadjBjNpVzEj/lo15ufRHraqrJBqvo=;
+	b=x99BtZxQG6LWK02PEHuk2iFLdxVW4ecJBEkF0wJCBE8/jt89GBEvySUOFD0xoyqghgXk
+	 bDn30zYXNrTy9jcyaPCYPX+kV/vlSpWo9WbJPB40NLqmF32nemgNyi/6HzIQuaYkM1Ofl
+	 ojVmbC0pb2OgOMoD33RWJN1WTzeVSCPQ7EKglh6plMBuC7bSVNYB6CtQ34aJURXw00cLH
+	 huc2dFwMy1cDBQC9+8ZSupAdZqtiJhMOZyB4ZhLPsPCk3qrrEr5lHFErs7M1Eq2d9L9FW
+	 as2rgbYokmfnN31Ht2Vr6HsbmWFyjA2526RjOAi7ihZOg5ilhen3qoL5r+fiz+tTSVQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.intel.com;
 	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Dy7Ma3YK;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lD9s+QnC;
 	arc=none smtp.remote-ip=192.198.163.18
 Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A37B1606A69E;
-	Sun, 22 Nov 2026 19:34:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A37B1606A69E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A586C606A68C;
+	Sun, 22 Nov 2026 19:34:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A586C606A68C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Dy7Ma3YK
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lD9s+QnC
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795376062; x=1826912062;
+  t=1795376063; x=1826912063;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=NF4LDqLI5TNwz2MEuGNyEjN81+EUAaFBq/cTEkWdjww=;
-  b=Dy7Ma3YKln9a4dkDg/TkKeVO4ktFNqnj9cRTGEOeagveZTLn+PuopI+g
-   ta9XM/DnZAbvwj/ZuvA5mtPpL1gunJfRaCNyuqQkUPSTCIN3skThlzw2W
-   z8gZKHQnugFoAudoxtOMJ8baIWh5m9yiXISzMp4mEgkqB+VTyXPUnI6/6
-   37p68Y2fjuyebDnwF3SeU+mI6NBXROL7+udu9jevnlLPk6iarENF9GXxM
-   obxLfUCd0vgHhCWTZIiA9nFU1UMov6H+7j0tYgHidEgKi05pNN6PGx5rH
-   Yv0bmArOl0haenRm9StCJUlvDXyulRhGfAZ8kXC5WkaMqbEuGasao0AUo
-   w==;
-X-CSE-ConnectionGUID: wXCEp4x+T6WNpl0zPZWTYg==
-X-CSE-MsgGUID: s1SEJ5yhTqqQRBZsNWfsgA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4217522"
+  bh=7vI5DusgjmMbcxjb2F44Of9/jzy9vzRwrfnvmHO2wSg=;
+  b=lD9s+QnCHgspHvjXPn0O+mLkkrUij5Nm9AyqmCBnA8TDy7CY3VbHcQwx
+   jB0/xL2aAA9UY3wXEXXcs7QBwf2UzN3srMyI4CarmvOAHIXKJ8DiSEjA7
+   rEdk1nsteORke6Ojoma8Vdyg5vYvHvLAJE2drkTTGXKfV3c18FoaFFFgH
+   VzSZ5Vy+yqNrxunHnJ4jb8pzHGqOp/fq7z9RkjnDZU1zFLg5FCjP2aIo+
+   MMwtwYEBCkofkTDD8vmBb1jf26cTejOzxgySsTAykrTXexMm/HYCcgHC6
+   kOw8h5Cq4Mg37QxO0m4yh278yiuqC4GxZ/iU22lnQQOCSkyYzkNP/vAi/
+   A==;
+X-CSE-ConnectionGUID: pdsTMaQJQtSsfwe+OhFzQg==
+X-CSE-MsgGUID: 2R+mZIevQkS48FsvUzzWag==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4217527"
 X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4217522"
+   d="scan'208";a="4217527"
 Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 11:34:22 -0800
-X-CSE-ConnectionGUID: 3Sk0wfhsRsuwnI2f4MG9Ug==
-X-CSE-MsgGUID: nchoBspaSF2QnW1lxGtG1w==
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 11:34:23 -0800
+X-CSE-ConnectionGUID: 11PmWD0uS72idJWn3JbXmg==
+X-CSE-MsgGUID: F7kQqovbTLe6mEIhv/JCNg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11109805"
+   d="scan'208";a="11109809"
 Received: from debox1-desk4.jf.intel.com (HELO localhost) ([10.54.77.98])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 11:34:23 -0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 11:34:24 -0800
 From: "David E. Box" <david.e.box@linux.intel.com>
 To: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
 	Hans de Goede <hansg@kernel.org>
@@ -68,9 +68,9 @@ Cc: "David E. Box" <david.e.box@linux.intel.com>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	platform-driver-x86@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 10/12] tools/arch/x86/pmtctl: Add README
-Date: Sun, 22 Nov 2026 11:34:05 -0800
-Message-ID: <00e4e34485ad03a608a20b199264111c1cc5116f.1795374925.git.david.e.box@linux.intel.com>
+Subject: [PATCH v2 12/12] tools/arch/x86/pmtctl: Add MAINTAINERS entry
+Date: Sun, 22 Nov 2026 11:34:07 -0800
+Message-ID: <1260e5fdfeb2a6326ac1ba4fb9ab942fa3ff3002.1795374925.git.david.e.box@linux.intel.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1795374925.git.david.e.box@linux.intel.com>
 References: <cover.1795374925.git.david.e.box@linux.intel.com>
@@ -85,124 +85,42 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 
-Add a README that describes how to build and install pmtctl, how to
-get the metric definitions from the Intel-PMT repository, and how to
-use the 'list' and 'stat' commands, including the privileges they need
-and the exit status.
+Add tools/arch/x86/pmtctl/ to the INTEL PMT DRIVERS entry, so that
+patches to the tool reach the maintainer of the drivers it uses.
+
+Also list platform-driver-x86@vger.kernel.org in the entry. The PMT
+driver files already reach the list through X86 PLATFORM DRIVERS, but
+tools/ is not covered by it, so without this the tool's patches would
+not be sent to the list where the drivers are reviewed.
 
 Signed-off-by: David E. Box <david.e.box@linux.intel.com>
 ---
 V2 changes:
-  - Replaces v1 16 (README.md), rewritten for v2 as plain text like the
-    other READMEs in tools/.
+  - Replaces v1 01, moved last so the path exists. The section is now
+    INTEL PMT DRIVERS.
+  - Also lists platform-driver-x86, which tools/ otherwise doesn't
+    reach.
 
- tools/arch/x86/pmtctl/README | 96 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 96 insertions(+)
- create mode 100644 tools/arch/x86/pmtctl/README
+ MAINTAINERS | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/tools/arch/x86/pmtctl/README b/tools/arch/x86/pmtctl/README
-new file mode 100644
-index 000000000000..7d9a57cf3925
---- /dev/null
-+++ b/tools/arch/x86/pmtctl/README
-@@ -0,0 +1,96 @@
-+pmtctl
-+=3D=3D=3D=3D=3D=3D
-+
-+pmtctl lists and samples the telemetry of Intel Platform Monitoring
-+Technology (PMT) devices. The pmt_telemetry driver registers a telemetry
-+device, telemN, for each telemetry region of a platform. Its data is an
-+array of 64-bit samples, and its GUID identifies the layout: which bits
-+of which sample hold which metric. pmtctl uses metric definitions
-+generated from the layouts Intel publishes to name and decode the data.
-+
-+
-+Building
-+--------
-+
-+    make
-+
-+This needs libjansson and its development files (libjansson-dev on
-+Debian and Ubuntu, jansson-devel on Fedora and RHEL).
-+
-+    make install
-+
-+installs pmtctl to /usr/sbin, and the metric definitions, if they were
-+fetched, to /usr/share/pmtctl. BINDIR and DEFSDIR change the locations,
-+and DESTDIR is prefixed to both.
-+
-+
-+Metric definitions
-+------------------
-+
-+The layouts are published as XML in the Intel-PMT repository
-+(https://github.com/intel/Intel-PMT). scripts/pmtxml2json.py converts
-+them into one JSON file per GUID:
-+
-+    make defs-json-fetch    # clone Intel-PMT once and convert it into def=
-s/
-+    make defs-json-pull     # update the clone and convert again
-+    make defs-clean         # remove defs/
-+
-+These targets need Python 3 with lxml, and are not part of the default
-+build, so a plain 'make' never accesses the network. The clone is kept in
-+~/.cache/pmtctl (PMT_CACHE_DIR). The JSON format and how event names are
-+derived from the XML are described in scripts/pmtxml2json.md.
-+
-+pmtctl reads the definitions from the installed directory, or from the
-+file or directory given with -J:
-+
-+    pmtctl -J defs list
-+
-+
-+Usage
-+-----
-+
-+    pmtctl [global options] <command> [command options]
-+
-+'list' shows the metrics of the telemetry devices on the system, grouped
-+by GUID. 'list --summary' shows the GUIDs and their devices instead:
-+
-+    pmtctl list
-+    pmtctl list --summary
-+
-+'stat' samples metrics at an interval, once a second by default. -i sets
-+the interval in milliseconds and -c the number of samples:
-+
-+    pmtctl stat -e package_energy
-+    pmtctl stat -e package_energy -i 500 -c 10
-+
-+The default layout has one row per device. More than one value needs
-+--vertical, which prints one line per device and value:
-+
-+    pmtctl stat --vertical -e package_energy,pch_temp
-+
-+--raw samples a bit range of a sample by its position, without metric
-+definitions. --hex prints values in hex:
-+
-+    pmtctl stat --raw id=3D2,lsb=3D16,msb=3D31
-+    pmtctl stat --raw id=3D0,msb=3D31 --hex
-+
-+--guid and --device restrict both commands to the devices with a GUID
-+or to one device:
-+
-+    pmtctl list --guid 03086000
-+    pmtctl stat -e pch_temp --device telem3
-+
-+The telemetry data files can only be read by root, so 'stat' must run
-+as root; 'list' doesn't need to.
-+
-+'pmtctl --help' and 'pmtctl <command> --help' describe all options.
-+
-+
-+Exit status
-+-----------
-+
-+  0  success
-+  1  the request is wrong: an invalid option or value, or nothing
-+     matches the selection
-+  2  something failed while carrying it out, such as reading the devices
-+     or the metric definitions
+diff --git a/MAINTAINERS b/MAINTAINERS
+index bd31e734669e..7d70fb0ef0d3 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -13716,10 +13716,12 @@ F:	include/linux/mfd/intel_soc_pmic*
+=20
+ INTEL PMT DRIVERS
+ M:	David E. Box <david.e.box@linux.intel.com>
++L:	platform-driver-x86@vger.kernel.org
+ S:	Supported
+ F:	Documentation/ABI/testing/sysfs-class-intel_pmt
+ F:	Documentation/ABI/testing/sysfs-class-intel_pmt-features
+ F:	drivers/platform/x86/intel/pmt/
++F:	tools/arch/x86/pmtctl/
+=20
+ INTEL PRO/WIRELESS 2100, 2200BG, 2915ABG NETWORK CONNECTION SUPPORT
+ M:	Stanislav Yakovlev <stas.yakovlev@gmail.com>
 --=20
 2.53.0
 
