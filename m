@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795375126;
-	b=4s+B50TYNTH2DZs/6re4zPSpLbKmlPASoUR6rgQjUN9YvhZBIB66okdrNM7Rp4ToD+cR
-	 09mzhDJPeeHsvI0mhCWnyKfWEV4j2pFc/6gcppi3dkANgD3+emOMIlxrFiJGxDRDx3L0Y
-	 ZIiNXCUANoawDQtr7eAAywxWq9fg2ttAOOOu3YUiqOC3PP4BrKu9e8B7/Gi2GBrG35VoC
-	 SlZV2igM2fPqlwlcN6JvCjexrAnnNLRfrNI35QEspkZr6qItZrmGp5gtpkaQVoCHkwndE
-	 7kHTeSuxNICNeOCljhLKCfEw4v0MgukiCfSrPRLTbsLkuQYEnUkPHVBcOnegT3atsUg==
+	t=1795375139;
+	b=aUkWeflRm2O4+RJ6hcP1ShOMbEwNSqq9F5cDXZruGuI7T4ZLl/1YaQUroBQyhJY7XRAW
+	 HvVI5O7RjD7UjyAA/lOLbmljk++YNPUC6QLkga/j62zuXY2F8z4rPrEBHuYnjq5wulKjs
+	 pD4T+DjSVIZKp3g9THqdfwB7EkKDTj4XX4q2VM7paO2DxtdD+e3SYIUuP9Plgf3xexRPd
+	 ZzZmyByB4YXnNKDebhEPnJLls+ZPC3FLkDAflP+gwh4S37vXw4YPRjFDLELN8pBxvZ7GN
+	 bOR9fXafXSnDbWDcN1dKpgJlW/5aWLRvOpYjvbn1nYVm0m9DAlEJSeedtOYJeezGP7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795375126;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795375139;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=+Uqhop9ybLEnfZjiktNvan2dFW98Stkgcu+CDpZ9vF0=;
-	b=wHiAJC9uLWk9iK5mszbyWHhFotBvnI+MtfGXHFzFLj929+paK7UFOybf8lfXewZUyAzY
-	 JE/45Y3BRfPOBc+kGmLb7rI7ihGAlbLth6kqSxhN/5E1jol5ODdsm6R0+FZoaUcjAuALS
-	 OVwfuRQJvmpKQlZXCT+UlFJWTGq8ifZlCgdPzwWe5Z2ruvl01nLq2oH6Ij7uAtMqF856E
-	 wmpQe2EAtmC4WzQZ698FlZBT4Gb3KGWn4Txr8br930R508+QKT3U82I1/szo2wepiAUvo
-	 QOayXD/mZamo5JVSIUB9E5gCqKuMBRZ7Qh5+8a5tEQ97OJKvPRHz/hS5Rdc1C8Rl/Dw==
+	bh=JgVB/O5hBKCdOeqZ2JLGG3q/f4KIK1fx085LNchkx34=;
+	b=siE8s/TYr/9HrN01OteBJduN/oEW1SEeoSlxki7htS/RwOkkJysm8XWY8I7+g8sv0Zbs
+	 o4+TB2iT4eUjtr3tNRga2OkOAhTaosZE0jHIbI3Xc945poly3PvmU5P9uH2PI3kXNp1vS
+	 64pDNTysMFw2FcvDxHKzAw1CMOm5eqF29K9xJZWIMSV1D0ngXapb64cT+hXdmQBJ5lc0x
+	 bgWuL8oBSvyb8S0jfTGZJCsmsIYL0xWEwmmxE5kryV0F4LQ/oCijmwYoaIKGCHtHI0sF+
+	 yRHMLUSSMom2RSEsHwkSO3Mci/EDMxN2HWDMWKkp7Ag7xtXqFuwL9il8yUvbahe1tbQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kTMlfTU8;
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O3UjBH3C;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20A1C606A31A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:18:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20A1C606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FF76606A31E
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:18:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FF76606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kTMlfTU8
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb606491faso14108045e9.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:18:45 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O3UjBH3C
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a35ac4475dso18813595e9.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:18:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795375124; x=1795979924; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795375137; x=1795979937; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=+Uqhop9ybLEnfZjiktNvan2dFW98Stkgcu+CDpZ9vF0=;
-        b=kTMlfTU8geprJcn3SJfoU8Olz/H633H5rA98cCtRissMONe5M8J3YEH/E5oj67UV+I
-         fLcqmahmop+FsUy6WJEPQ2fHZm0tckySeUiMtBaEDjJ9lXKNqJ2/b2e/egAn6p4g7L2w
-         6N7+IMRqEKxPJaDCAnNHiWEBk2RuIc4THzlLdlbNNTmoX/RynpxEboaweYHUdfkbwC6O
-         vSUwArT6PYJsO1NFckFoyECFS/ynxv1H1yyQQ/EN2dgjq3Up43KmiFRnGLBBfzLvZnFU
-         kv6mO+lpVd/S1w06eivjWMTLr01IllIOwEKyOJ+hXmrvPJVEqj2Z+AlBzTnK9gTvuB/Y
-         Bprg==
+        bh=JgVB/O5hBKCdOeqZ2JLGG3q/f4KIK1fx085LNchkx34=;
+        b=O3UjBH3CmNWhcmGEJhbSQHkXs5PNu0jtbxwsuPUdWbYk7HhTLqUQCZVRasMZgp1kjv
+         KSBaZEyIvEJ4mxlaMSVnEuZf+DLpxMU/XKVPPkZfy1Y35+CnkvifWZf8TqhkE4zGEJk9
+         R5ieUAlv4aqfeP+ncJ1fIhK0aCwtizM756ibsGNChZmUkb0i63l00NI64vNo0akhcQpn
+         i3CK4KrtHXExRUTQ2/xvOcxl6EDgLx5Z0wbUXODLYyx9OoPZMJ8oX4QI+gB9TumKtHpj
+         XqmmkOxo8RVqcXnVO+JR/1tjk7vjPWNboEesTNetWxR7w5fjJwVkdrrBiSWUV+D14hc2
+         h11A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795375124; x=1795979924;
+        d=1e100.net; s=20260707; t=1795375137; x=1795979937;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=+Uqhop9ybLEnfZjiktNvan2dFW98Stkgcu+CDpZ9vF0=;
-        b=jWKztvMEWrlOLobdiH7H1FGj/c6TacfAmBuTwtHJqKXj8+zWev2RK0b3g/Bdb2+ZDx
-         DFTXlBls81oYLK1zu8gVGvEoRJ5tlnUfnP+x1FxXde6RM4XhseFiDa7EpOYwQOrUsotP
-         PtZnIep+QagnK/ZAblKGTJ87GKNmFlaoAoq8v8gfFTIR3+Jk3Usn9HhcbvVk5DA4o0ea
-         diLbkmrXDhg/F74fxl0eis587FNr/b1oYBFMhTRJUFkFEZLFZ3WofLuwK9szsLw6GLSx
-         vzlStKF8WH0Rj6GvJ7k9HcLcGNPYFoWRcE7UuG2mEJklxC01H/bDCT6S5WvqaTluhSvZ
-         wBYg==
-X-Forwarded-Encrypted: i=1; AL+hErGk1ZYfhoIMxUWq++ChgXs7L9xmjUq69bFvVuQIwwSU+ToaYtcqTtcwhXXR+/bncdtpoSvyU3rbMUhA33Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+1LFb/7w9a11nn1heZxI6pCsRaOv0v1WuShAwFWKPbId5x/VIg
-	KlfbJaCKb9DfxNTfy0g17SCPdCzCJPW+LNh0Bz7yEpT+2TVIreVo23ZU
-X-Gm-Gg: AZFdTZdPiaw9AQp7Q6EtUzSQYmDMybf99ZiSJ38SOEpnVYnqpeZ9Jx4dL8/v7H+J2GF
-	LXmrjzuE/EV63lybDJTsvfiP42dKQ17oFg5x6JuNKeT/I5g9Pw2jrpzV/3RRdL0LCsYjN5YqB1f
-	rFeqpf/Lq2kW5Ja8q93cnqeHarrfgzThPp6YhiNyw/2g+kDlo2Ja3Tp7hTPosIKLi8hLx6WELvg
-	tQkdlSJaUbANDZ8KzL+J0A/tJgEOXw7PPPcNMa04G1RUTs2yTuBMQHy+EqZLRp42BHDj5DhNd3H
-	CWimsSoKNBqz84wnqB/73cui5df9rzYv/b/4JiO5IOhbFm7I0d4HBSN7GOedl2C85qctca3YqT7
-	kM+phPmL5V1mRFnDknNWkzYYkC6XjD3PT0d23ozicwV5yHdPQq7NwdDAL9iO43kjvmngcLIEx/j
-	wEz1B9RSPmSm0McD8cRDGTkOo04PaLa7XCL3EPSjSYLQqXXGAiiEttowC9P0ddjAbAkKTaVoDJn
-	0tFsZaWQY3cRjfA8dqEFVkqeGvi3XEVBie0919Ik9QRu4JAb8AcvKchTFc4GjrvG1RMxh1G/50X
-	rbgUtG39DtlnGiyZho+MXmDL0hQiVd0LMaA9NSpWj22H
-X-Received: by 2002:a05:600c:4e0d:b0:4a5:e6fd:65e5 with SMTP id 5b1f17b1804b1-4bb88922a67mr196302675e9.31.1795375124413;
-        Sun, 22 Nov 2026 11:18:44 -0800 (PST)
+        bh=JgVB/O5hBKCdOeqZ2JLGG3q/f4KIK1fx085LNchkx34=;
+        b=D6zODnk2kGLtOGLIIbtuEkxt+a9GO+xXrjC0RTBIUvpQfC7Cr+u3lc2dZAmYej6ggL
+         cNvhp3Tutz1yHmBSO5v4m67cr5+K/3Vb3WMhvWwP7hK3kVHquBGdmSMHA93OcPkOZDUV
+         DbuvqsJgdE+6YquiB4dlX6Lh3oVS1Y76/pwtrLuQ681rBrfVsToUA9WdH3/7Z2froWr+
+         dkX8WyX3pvu4FGjSYUmQwTlR9wWYMRNQ+LLnSYF5rzwc0vOXVp+QvDbfscg+l5JUTdIX
+         lRwtNvC1tEhpoBSlbFSNrcw7bNWV1utjlPzaF5A0hBVN1fFWApkck3g/4blZBQDwPUa/
+         bdNQ==
+X-Forwarded-Encrypted: i=1; AL+hErEOtP9d6XdE6GyOUGt8mMqdl5qjujXV9IfsqOSF/6xJi/44vNvbCI//pQ/1245vh9C+EBsoDpzDPu89OFw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+u3uiTwRVrwWtQAcbRZtZDfp/9j2KGqZgFD9m22K6uWtLKXfCC
+	emtf7fyphpYdyhWyvriJVdaKbWSlPRAe4pRu/H7bG7cLtYt170fABCzJ
+X-Gm-Gg: AZFdTZcdZMHz5TCNts0m9r3EwTjHs8xlubTmBsPVLVdU8ceL4GT88p9ZBKuK0SN1ZXX
+	1j4hyE3wHHK0b0FxALpqWThN80n/Xbp6yfY+/0IFbitcUUeH6soVno+edecWPm7XMBSO94uuHdj
+	WF2P3SAm9b/KxkCF6AF9kiB0dqlxQXyChK+6tHdjadEQ68tlxCqPm5DCNeZbcJy1n2Y7n83eBPE
+	pzohALtvwhfulFiigdgZd5EWfg0xZ4k/k8a1kKxibyOFRfBJ7l6EE6EQO0zdx7+cXYzP1hrAJU9
+	2D7KVvb2uAt8DvRvSKyIDv2EIHwIq/kpPAg6hJadpPDmwQ0cEUeC2IdrPsFhLN8lkXxIowA1Bab
+	dQC04CIi7HneLk+Co8pvJLqkUckMH1Az+zjHUW5ql9SeOcnEdWbVt6OnZ7ESo5PcymngpUUwnWG
+	JYjuiUnco4Jvd+7If8AT9q8KRTUDIVnpsJp2trKn/r2J2WwkKAiJasxv5WVeab0nlr1W108jGQn
+	f+4FEqV3WBuKOJFrnpJLDds+EuQ1mXI3v0xdAA28IPP4tunCJip/w7cySrFNNCNQ+vbY8mqGzty
+	O+myHPoy+HcBSWFwGl8JVQsaV+W76qRtXofjMJWbenLmDlmmIxVzy2jcvIoygCnFHg==
+X-Received: by 2002:a05:600c:1549:b0:4bb:6f45:2a77 with SMTP id 5b1f17b1804b1-4bb8880abf7mr193493515e9.11.1795375137482;
+        Sun, 22 Nov 2026 11:18:57 -0800 (PST)
 Received: from cachyos-x8664.aetlocal ([2001:bb6:e78e:9100:cdb3:c7ee:74a4:5189])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf62f7sm19437148f8f.13.2026.11.22.11.18.43
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm199176045e9.2.2026.11.22.11.18.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 11:18:44 -0800 (PST)
+        Sun, 22 Nov 2026 11:18:57 -0800 (PST)
 From: Mervyn Pretorius <mervynpretorius.oss@gmail.com>
 To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
 Cc: Rob Herring <robh@kernel.org>,
@@ -99,12 +99,12 @@ Cc: Rob Herring <robh@kernel.org>,
 	Samuel Holland <samuel.holland@sifive.com>,
 	Darshan Prajapati <darshan.prajapati@einfochips.com>,
 	Pritesh Patel <pritesh.patel@einfochips.com>
-Subject: Re: [PATCH v5 0/7] riscv: eswin: eic7700: Add support for clocks, resets, pinctrl, HSP bus, I2C and watchdog
-Date: Sun, 22 Nov 2026 19:18:42 +0000
-Message-ID: <20261122191842.2183685-1-mervynpretorius.oss@gmail.com>
+Subject: Re: [PATCH v5 1/7] riscv: dts: eswin: add reset generator for EIC7700 SoC
+Date: Sun, 22 Nov 2026 19:18:55 +0000
+Message-ID: <20261122191855.2183827-1-mervynpretorius.oss@gmail.com>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261015125454.1381941-1-pinkesh.vaghela@einfochips.com>
-References: <20261015125454.1381941-1-pinkesh.vaghela@einfochips.com>
+In-Reply-To: <20261015125454.1381941-2-pinkesh.vaghela@einfochips.com>
+References: <20261015125454.1381941-1-pinkesh.vaghela@einfochips.com> <20261015125454.1381941-2-pinkesh.vaghela@einfochips.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,49 +117,7 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Hi,
+Tested on a DeepComputing FML13V03 (EIC7702X), on top of v7.4-rc3;
+details in my reply to the cover letter.
 
-I tried this series on a DeepComputing DC-ROMA RISC-V Mainboard II
-(FML13V03). It uses an EIC7702X, i.e. two EIC7700X dies, with 32 GiB.
-
-Setup: v7.4-rc3 (4843f6873f7c) + this series + a minimal local board dts
-that includes eic7700.dtsi and eic7700-pinctrl.dtsi and describes die 0
-(4 of the 8 harts, uart0, the firmware reserved-memory regions). Boot
-chain: OpenSBI v1.3, U-Boot 2024.01, GRUB (EFI); the kernel takes its
-memory from the EFI memory map, so it also uses die 1's RAM. Initramfs
-only, no storage.
-
-Config: defconfig + PINCTRL_EIC7700, DW_WATCHDOG and RISCV_SBI_V01 (the
-firmware's SBI is v1.0, so earlycon=sbi needs the legacy console call).
-
-With clk_ignore_unused, the non-I2C parts of this series probe cleanly:
-eic7700-clock, eic7700-reset, pinctrl-eic7700 (with a fixed 3.3 V vrgmii
-supply; no pinmux consumers yet), the four dw_wdt instances and the hsp
-simple-pm-bus. The console, interrupts, timer and SBI reboot work. I
-left the I2C controllers disabled, so patches 5/7 and 6/7 are only
-build-tested here, and for patch 3/7 none of the pinmux states in
-eic7700-pinctrl.dtsi were exercised. I'm therefore replying with
-Tested-by only to patches 1/7, 2/7, 4/7 and 7/7 rather than to this
-cover letter.
-
-Without clk_ignore_unused, the board hangs during/after
-clk_disable_unused(). That looks like an issue in the already-merged
-drivers/clk/eswin/clk-eic7700.c rather than in this series (I don't
-have a single-die EIC7700X to see whether it is EIC7702X-specific), so
-I'm reporting it separately to linux-clk and the clock driver
-maintainers ("clk: eswin: eic7700: EIC7702X hangs when disabling unused
-D2D/PVT gates").
-
-One build note on patch 6/7: eic7700.dtsi now references i2c0_pins ..
-i2c11_pins, which are defined in eic7700-pinctrl.dtsi. A board dts must
-therefore include eic7700-pinctrl.dtsi too (as the P550 dts does),
-otherwise dtc fails with:
-
-  ERROR (phandle_references): /soc/i2c@50950000: Reference to non-existent node or label "i2c0_pins"
-
-Is that intended, or should eic7700.dtsi include eic7700-pinctrl.dtsi
-itself (or the pinctrl-0 properties move to the board files) so that
-the SoC dtsi stays self-contained?
-
-Thanks,
-Mervyn Pretorius
+Tested-by: Mervyn Pretorius <mervynpretorius.oss@gmail.com>
