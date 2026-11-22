@@ -1,113 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795357549;
-	b=1BxRaKyFcu0ryHJEItuM6TE8mbnKgl5sd/UuZixemYTW08JJg+6Zuc2T4KX8/omi6xpv
-	 nplsmPVZn5a9nBQebS6LTXmnGrUto0d2Zh/xy9h0AZvGkBPvjdc+BA6HrQykB0d1SlOAY
-	 HoDbMrrQNrCd7P3arFDRMgX1+olnJ4PjPhnJt7bdZYykIsCxjMHOKZesvagdf8+TQJrBG
-	 sUoowZ8ZL44mxHfY9BbPG6kN0pSuq6HmKZ2t+8vGfn5oKFKjH6WB1uDw9swgtm33X/CQt
-	 pV9TmY7q93sjfLXEjK2oSXfuyp3bUTdmNFfmmbN9Og8b/lLDKuZPdVMhVSg3bC0Pq9g==
+	t=1795357755;
+	b=t2EzDi/NYWkBSdg3bfEN1DjgaQ3xRzNnKSDYQyZ+B57eyc4r62Nr8efh//MR4VaGpLaY
+	 M0ZNDqhw9FgGf/F1rwJh6CRPGOp4kPMSM+w+UI5nmHHs4YB4sNWWwxm4e+s+1cDR7DPi3
+	 yTo9nZYJY86pemub41c+xVDSYCVs15WtIXggNHjGrpKNBhEufAM36h5+v+37TfPGemqsE
+	 m2nlpKljrdQNOD8wvSFzxFMoqCPeKDMRfJB+u9GYkuqWhTo4JoW7alDXj2UQoij6oWRtR
+	 kfHg/fLwu01EbAMmU+6Gty9sIEWLJZ046LF0LSp6Y8c9TYiJRNtNePogTxZ2KYMEw7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795357549;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=LW2QjvXtN8ArARJ6Dwfn7ixNOLbHAf2rUk+OEdDzONU=;
-	b=nNKt8P5/J2YR7fnoavgvf+kaMcUCUsoATAKh+YP7FTF04gG6joq/mpsLFUim6VdgraKi
-	 Q04XEpqpMxGp6R2IC2wQS3uI7K72tEeF+nR7qWzpDcx0YLrc7z1gcse8UCTQBI/XfjwBc
-	 TazMJI3yEn1i838K7/Zk2hY47ZLeURFxYrQFds2tOeRg5wMqBseGJT6/nd4zJdFWEePHO
-	 AL7kyM5xoBc3ENT6XAZi9GjDaAnN5hZJcuvl10bqHJgemmwN4SM4KWBsqQZXTvtDmQWAQ
-	 km50iL030CgDkGi2gapYiDC6nLRMX3a+msySV+0cOEdGC0Mp6GHfWLCPWt0Z6CwpAtg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795357755;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=gWqmUjLgWcC7CA4bGukXCIfetYhnHSufytFvIvJZj/w=;
+	b=AVcgQUGq10mIZ9AP+2FQKrB/zN2PEM7p2+7MumcmPBavMNKeq4gvEFuwIO4dj2amzTCb
+	 t9nESciTqica16a8nzM6mFunbkKXOGMqc+0QjYqQNsqoaqDnBX/HOMMh20aWdgYVvQJ6Z
+	 TPh82V7QgmGUXYcXWQVy/4mw7Q50fgsf+qAc3WUvbigeFz4JHouKKhiiUztcEz+JT4k4A
+	 kpiE8ngCOAAtsfKfs+55mli60TYrxvKQ5lVNqqWFs/NOpQxcGdXLAdlHarHrHm5M9f2Ok
+	 AhgbH+M8YyHf8pw2rlD0y0Y7M6Mgue31AC51a0MXTcfQQnhMLyJ/QaVe3fZe5XArV3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="UR/qljh+";
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=RjmK1+iP;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=cNcWsEY2;
+	arc=none smtp.remote-ip=115.124.30.130
+Received: from out30-130.freemail.mail.aliyun.com (out30-130.freemail.mail.aliyun.com [115.124.30.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85A63606A680
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 14:25:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85A63606A680
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB9AD606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 14:29:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB9AD606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=UR/qljh+;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=RjmK1+iP
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795357547;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LW2QjvXtN8ArARJ6Dwfn7ixNOLbHAf2rUk+OEdDzONU=;
-	b=UR/qljh+xe96Qc+Fq3q91Ogousi2qq3xe7raEAwZteqqqlCwCUfhxb9C57CGIcmc2krnOl
-	3qG1+9eMPIiO9m0+O/qsvpbwEr8LafaV2v4fS+PJhLfuw1nMaMYbymDL08mL7P8l7fnS2o
-	66yQszYSh56ou+iA5XheK6DNvoGObkY=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-428-UUXVY9aDNi6k3rkYIh3uew-1; Sun, 22 Nov 2026 14:25:43 +0000
-X-MC-Unique: UUXVY9aDNi6k3rkYIh3uew-1
-X-Mimecast-MFC-AGG-ID: UUXVY9aDNi6k3rkYIh3uew_1795357542
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-48e29c25101so976095f8f.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 06:25:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795357542; x=1795962342; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=LW2QjvXtN8ArARJ6Dwfn7ixNOLbHAf2rUk+OEdDzONU=;
-        b=RjmK1+iPYSd7kHyy0tJDRj9S17VyfTcMukIkM7MzAGf2d0rRNITym1te3WevtWlhHr
-         HbckHHwtnTn9i+Q+NMshydqHWZhd+dztbwjqS8rC/dVB4C+ePqN+IGCHKG18hFg53fL3
-         e0FaV/WQGpI0ShjPDMqqdEW8Lx2wYDmQSBreD6L9ukv346GRG+pkZfbNxHIjtwGJZikN
-         98LM84lB5wbpFLeIeBjR2AjfxscgodYM32ZSXr/xdTGHkRnNiJDZ2DH5oc9IURrak1Kd
-         rAdClAtGndNIUE4uZoU7cLoJgtuhX14HctSnCAhm4XhzSP1ONXkfYM1+/6mKpfEtmDHR
-         8c5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795357542; x=1795962342;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=LW2QjvXtN8ArARJ6Dwfn7ixNOLbHAf2rUk+OEdDzONU=;
-        b=NXpVf/nguh2rs+lSsPmDjiZPUC+H4slGskvdIs/oRzlTcx2RbsqntE/2dFZAYuf6c7
-         faVyKrru3vU8cibaNYnNoub4dTb3rZ8081cdcfAePerBIQFmiQ0/LckJDEoxthWEsoBi
-         JdwtSQIH+Wj4jqGstCP+aNpBu+S71qw6xf/d3DB0a+MuDpE4lRCSp1/w6A5xFP/7AJEn
-         xuP8+BGlinKA533lUQGMy8moV92OYrBQyZIK591V130Ntt2NAgqw/j2gBIIBMIutLtUd
-         D7qlBJ5rtjK55Xf5ITFrz0eaTftOWxVCSdnOTss0Nr8I4eUE1xAr+C/TtOti/2v5H/Xv
-         Eg/g==
-X-Forwarded-Encrypted: i=1; AL+hErHAlcw9jZ/m0a5RQjv8PbGw6dbvfYUwYJ1tBtOMzSh/t/YW64guCEJ6GcaKM+cPSugDgwuAwkIKiKXF1D0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/t4ZEXkW1qxLLcINy5GlEEIHsVPem0VUc/OKR7wyBVm+QoqLoD
-	KyeHOeDBKFhMyRCqIByJZOseMCZez1Ku/oKCvwOr4rP/k4G9SRzzM/Pxdoenr67fuSqiMi3si+H
-	B38Mfza5cP4LIZEp5J0lwI84JTBNUGpNTtgGeBHtsf9/qQgiy6BPGajnU/WG7HEhuOw==
-X-Gm-Gg: AZFdTZckl0C8onxDycoOwfOgAZnJ5jGKyfG3qEQAEfdkj4WFPNP3Ew3LfLotvHH6JPE
-	K05VQsPiBYnRH2mCpEVouRtLkxFZ8gI6gdvmD4j3ssL6jvbvZzPX5i/R4YQQ1LRKAEBpaQmdgBZ
-	UmdaTjTJQZAAk7v/TcdXXiTTgB0DqQ/91nlXUVrnJp7O4M3YTtVxQ203URlSTH3u76TeLr4RR4e
-	3KVDlNyTnIUY+EMSpG/guFUuGwYFQat1ZWtK6N+ix8N9xBsTkoRF1uUvVbd3xHsF+RlRmJNkGd2
-	VBJ+EdRuN/7R4AriNFTsAqwRAtefhiD0gWiCbTCsHyg/abndbsxKv6LDQ5DzuRURQ9XfS8dW45j
-	5xhyVs+UmJk1oIW2z+OcWJQJXMop2Y4OG9HWdvwT2
-X-Received: by 2002:a05:600c:1d86:b0:4a1:fa27:df7c with SMTP id 5b1f17b1804b1-4bb88922972mr184853425e9.34.1795357542243;
-        Sun, 22 Nov 2026 06:25:42 -0800 (PST)
-X-Received: by 2002:a05:600c:1d86:b0:4a1:fa27:df7c with SMTP id 5b1f17b1804b1-4bb88922972mr184852965e9.34.1795357541679;
-        Sun, 22 Nov 2026 06:25:41 -0800 (PST)
-Received: from redhat.com ([2a0d:6fc0:1524:9e00:c39b:a740:e7:3fcf])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884c3063sm271466675e9.15.2026.11.22.06.25.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 06:25:40 -0800 (PST)
-Date: Sun, 22 Nov 2026 09:25:37 -0500
-From: "Michael S. Tsirkin" <mst@redhat.com>
-To: Hengyu Liang <hengyul@cs.unc.edu>
-Cc: Jason Wang <jasowangio@gmail.com>,
-	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
-	Paolo Abeni <pabeni@redhat.com>, kvm@vger.kernel.org,
-	virtualization@lists.linux.dev, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] vhost/net: bound the count of VHOST_SET_FEATURES_ARRAY
-Message-ID: <20261122092235-mutt-send-email-mst@kernel.org>
-References: <20261122120919.1718445-1-hengyul@cs.unc.edu>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=cNcWsEY2
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795357745; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=gWqmUjLgWcC7CA4bGukXCIfetYhnHSufytFvIvJZj/w=;
+	b=cNcWsEY2oUntrkRtXezTRjoastgMTQCLYDVeAZe+UXGvNmM2+a7vHbyPh+ap4/NWfntusGB0CtFApddorbg/nQYrcc+DGEW8D3bN7XQf+De4xhLTlvvc2yWVydnT1jhWA+FxDr5RCk0WaiSGL7HijMLfH9p0/FLkrrGlDn4TLQM=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=joseph.qi@linux.alibaba.com;NM=1;PH=DS;RN=6;SR=0;TI=SMTPD_---0XFB1Vv5_1795357744;
+Received: from 30.180.33.101(mailfrom:joseph.qi@linux.alibaba.com fp:SMTPD_---0XFB1Vv5_1795357744 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sun, 22 Nov 2026 22:29:04 +0800
+Message-ID: <85cd5f2f-5b08-4aa5-9b4d-7e271d021c1e@linux.alibaba.com>
+Date: Sun, 22 Nov 2026 22:29:03 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,82 +53,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261122120919.1718445-1-hengyul@cs.unc.edu>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v9 1/3] ocfs2: Add new ocfs2_map_blocks() to introduce
+ iomap feature
+To: Christoph Hellwig <hch@lst.de>, Heming Zhao <heming.zhao@suse.com>
+Cc: mark@fasheh.com, jlbec@evilplan.org, ocfs2-devel@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20261120060014.12087-1-heming.zhao@suse.com>
+ <20261120060014.12087-2-heming.zhao@suse.com> <20261120183415.GA2450@lst.de>
+From: Joseph Qi <joseph.qi@linux.alibaba.com>
+In-Reply-To: <20261120183415.GA2450@lst.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Sun, Nov 22, 2026 at 07:09:19AM -0500, Hengyu Liang wrote:
-> Commit 333c515d1896 ("vhost-net: allow configuring extended features")
-> added VHOST_SET_FEATURES_ARRAY. The ioctl reads the number of feature
-> words from user space and checks that every word above the supported
-> ones is zero, one word at a time in a loop.
+
+
+On 11/21/26 2:34 AM, Christoph Hellwig wrote:
+> On Fri, Nov 20, 2026 at 02:00:11PM +0800, Heming Zhao wrote:
+>> As part of migrating OCFS2 DIO read/write code paths towards the modern
+>> and performant iomap framework, here introduces ocfs2_map_blocks() to
+>> replace the legacy, high-overhead buffer_head based block mapping
+>> routines.
 > 
-> However, the loop has no upper bound and no scheduling point. As of now,
-> a caller can pass a count of U64_MAX and a pointer into a large
-> zero-filled mapping. The ioctl then stays in the kernel for as long as
-> the mapping is readable, and a fatal signal is not handled until it
-> ends. On a v6.18 debug kernel booted with preempt=none, two such calls
-> from a non-root user, each on a 4 GiB mapping, froze a 2-CPU VM for
-> 56 s with soft lockup reports.
+> Do you have numbers to antiy the high overhead?  Or should this be toned
+> down a bit?
 > 
-> Interfaces that take an extensible structure from user space limit it
-> to one page (openat2, clone3, sched_setattr).
+>> In addition, OCFS2_MAP_* flags are defined to gridge OCFS2 internal block
+>> mapping flags with the iomap API requirements.
 > 
-> On a KASAN kernel with a 1 GiB mapping: before commit 333c515d1896
-> ("vhost-net: allow configuring extended features"), the ioctl does not
-> exist and the call fails with EPERM at once. After that commit, it
-> fails with EFAULT after 26.0 s. With this patch, it fails with E2BIG at
-> once. A reproducer is available on request.
+> "gridge"?
 > 
-> This patch will reject counts above one page of words (512 on a 4 KiB
-> page, or 32768 feature bits; 128 are defined today) before the walk
-> starts.
+
+I think it is a typo for "bridge".
+
+> Otherwise looks good:
 > 
-> Fixes: 333c515d1896 ("vhost-net: allow configuring extended features")
-> Cc: stable@vger.kernel.org # v6.17+
-> Signed-off-by: Hengyu Liang <hengyul@cs.unc.edu>
-> ---
-> I found this while comparing the behavior of different kernel versions.
-> I used an LLM to analyze the problem and to draft the patch and this
-> message, and I analyzed the result myself.
-> 
-> Tested on the vhost tree at 44293796526f with KASAN and lockdep: counts
-> of 0, 2, 3 and 512 words still succeed, a nonzero word above the
-> supported ones still gives EOPNOTSUPP, and VHOST_GET_FEATURES_ARRAY is
-> unchanged.
->  drivers/vhost/net.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/drivers/vhost/net.c b/drivers/vhost/net.c
-> index 631855064b3d..22e06b44d2ed 100644
-> --- a/drivers/vhost/net.c
-> +++ b/drivers/vhost/net.c
-> @@ -1795,6 +1795,8 @@ static long vhost_net_ioctl(struct file *f, unsigned int ioctl,
->  	case VHOST_SET_FEATURES_ARRAY:
->  		if (copy_from_user(&count, featurep, sizeof(count)))
->  			return -EFAULT;
-> +		if (count > PAGE_SIZE / sizeof(u64))
-> +			return -E2BIG;
->  
->  		virtio_features_zero(all_features);
->  		argp += sizeof(u64);
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
 
-????
-this is followed by:
-
-                virtio_features_zero(all_features);
-                argp += sizeof(u64);
-                copied = min(count, (u64)VIRTIO_FEATURES_U64S);
-                if (copy_from_user(all_features, argp, copied * sizeof(u64)))
-                        return -EFAULT;
-
-copies at most 8 bytes.
-
-
-did you test that this patch actually helps anything?
-
-
-> base-commit: 44293796526f4343639f87b2acc53811c78b5d54
-> -- 
-> 2.53.0
+Reviewed-by: Joseph Qi <joseph.qi@linux.alibaba.com>
 
