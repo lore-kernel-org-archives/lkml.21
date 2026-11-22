@@ -1,47 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795380069;
-	b=yQv+c2wt4/Z8PD/WTAv44EBJR7Ud60g6me28IxZrsdYnXZZYW3Wxsm5GYItktjVH84uD
-	 T3D0738Fzr/9vbsx0zvyDdwi7YsTi9ZLOgXchU+4UN6ah76J8ptS1RPuIHoRa8wPc7ari
-	 affMEBqirieCmpi9HT3TuZbIguR2QmRTgS701zDB6qPJmR+cTycSDrusZ1H/8T7kXW93z
-	 GP5ghBeLXRqP/vrIx3qR7nLxmh5pZkT/pfKloS02/z3/KyYAKUYzYkuSA33QKy/uztLoW
-	 MVDot6aFUpwVGqh7kLTuTcq4o9JqsG7y1xG7EqNdyTjOxlGDhxfs++73wPqDKNgmIKw==
+	t=1795380072;
+	b=JbGa1hPVNdAoW4I2i/oBhVW3V77ck7RGEeoDkQTipDqDmMT8TXE3N1jE+beQS6jezPyY
+	 PdYxbSmI5HwAEx3H3YZYl5iSGHx2MUGtryAEhXRcY8QLyPhRfvc9Vl5B1JXFx7lP1jKOL
+	 jONUvMEaAdlUYrefjQrIX/kDH88/c1Z1BCiFlLQOokPkvacFJsVKATzUo1tzScTlTjvfD
+	 Q1mJcksm0f27wHxxuGjkqODS/iSoisfOV/EoJnck01icxxrZ5D2zFuTbamYya0Gkhh/LA
+	 Qw3Z+93YQC3gqpdTn/TkEmeL4Xcgr0GYS+AJyjfnpPLuq395SKAzVol9pWZeHn7iMcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795380069;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795380072;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=jY1YA6TtVOdv5RNG1Xq9oOiUJTyNDkuqwgtxjcAS01Q=;
-	b=deXi4qSzWo3MMPyRaEEG3JechcRzEqaryca5ylehK+6vTphI3fO1cHWnVZPKpO47SBaW
-	 1VTrXLIAO9OUSLNEUjqivuvJu9Tl5DlPL0kr6hRlXzQOk5kc+4dvx2Q3mtvQZNG7lJk7C
-	 B6MRQRkOLRgsVvoMQzXIZ+iHM7T1jjGYmEBTPVT5v8FnUJxo7YAbgBO6ytmhIVdk2fCp0
-	 cRAmSz511Xqn+slQj/crk/nuRqZJQXw2vg3go+wLwxC3lPJIGgX914+G9d9aA3n3vGtn7
-	 7Q4zH1PaALAJT1MWAUzKeM4JtcUCB9E3U9ZkXzhM2EVrZFmloZryozLIq9zcCxmgI8g==
+	bh=636q6jaM7rA0Po/eBymCLEAcqrcFwRC63tZr1LwICak=;
+	b=fDqEr1Tk/UGzqWqg+RfHOHsj+9uD+wjVJbCqJse2dV2zl/ZcNQHKIJa7xguQcjEZT2ng
+	 hy+ocbFm3fJrGFsU4w3zed0Shl55hE1Zfr96QQpn43udQlnlM/X9GJUEnbrRoGXzhZMO1
+	 9f4qZkNNKueZhzbVuQEJb+pJBsvA175nKPwsyXHh0H6ZOZ/G6lOZ23W6jsk0TdQhHaZZP
+	 Oax0Q4EqHyjlT6TGcp2MbcrOBxE4itDT/MBF7abJ7LEpO1C1lhWPAeJM/6V9EXmZvdULk
+	 UEF56BiSn4lC9VUJo9tt3h+tuXCKysYi6S1e+5qiblnfpdkub2R33XRjS8UC1awSvwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nz+Ub0iR;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OYHMYAq1;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 386D3606A338;
-	Sun, 22 Nov 2026 20:41:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D1B0606A683;
+	Sun, 22 Nov 2026 20:41:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nz+Ub0iR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2545E1F000CF;
-	Sun, 22 Nov 2026 20:41:08 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OYHMYAq1
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2081B1F000D1;
+	Sun, 22 Nov 2026 20:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795380068;
-	bh=jY1YA6TtVOdv5RNG1Xq9oOiUJTyNDkuqwgtxjcAS01Q=;
+	s=k20260515; t=1795380071;
+	bh=636q6jaM7rA0Po/eBymCLEAcqrcFwRC63tZr1LwICak=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Nz+Ub0iRILd7o2nsmH6f5OVO0Zk+GpSx7+DjXGzhcLbHSkUh25D83ZqCRtoEht+B7
-	 Mds0EhJnh876LezUiI0a1XTxOWTUrpDDx04C3yfNd+vnc5e2pWlS+i1WW4FHggNpbN
-	 upZPbys7m2sk/RJ6BIxcN1+/88YUPx/He5gP3FRdld6IJIb2LdM7aU7Tt62ce37lm4
-	 MT41VTDzp/XH8DN8ScmrGH1EjnebBQPsgPgkEgE6vMemyTNVocWeV39+flAPYrojhG
-	 OiFfhHNnSWZtd6GbTbN2cLCs5H3owrlRgaS3d1HEnFbu4AkELaXRghBwK9umDSJiD6
-	 rkFDGvOs74idQ==
-Subject: Re: [PATCH net 2/4] ptp: ocp: use hardware selectors in DPLL
- frequency operations
+	b=OYHMYAq1FzhUzEKyGNNA0mjs+OH548HJdp8oOXqfDG6VNXjo0s/GhLuMt6XMBstYU
+	 ePoL6/SJdW+bsbjRbSIPN4ugeK8kYJoPKdeISQLM2w3r4LMK6rRywsrqs74D0dbszx
+	 cNEQR/GwZdOfg7jSBKmTKbRyWULweLgA+4isqCgTxPgjuovqmn45KnItLe4e9BiSk2
+	 RuEATIezj3rDGHttqE+xxLK3dX5FBvgVKlLPecPSBZoIqj8ErQs78fIBBpmmmfCXF7
+	 i8NsTRriRx8u0ZPfMtK//E+ddBvbqJpzZWeUXbrKCr/UCrJ3CNIjqyElnRJYfxuqeE
+	 Idfsx9M4/RBLA==
+Subject: Re: [PATCH net 4/4] ptp: ocp: correct the DCF output frequency
 From: netdev-bot+sashiko@kernel.org
 To: ahmadexp@gmail.com
 Cc: netdev@vger.kernel.org, vadim.fedorenko@linux.dev,
@@ -49,11 +48,11 @@ Cc: netdev@vger.kernel.org, vadim.fedorenko@linux.dev,
  arkadiusz.kubalewski@intel.com, davem@davemloft.net, edumazet@kernel.org,
  jiri@resnulli.us, kuba@kernel.org, linux-kernel@vger.kernel.org,
  pabeni@redhat.com
-Date: Sun, 22 Nov 2026 20:41:07 +0000
-Message-ID: <179538006772.3135.15875996486888374193@kernel.org>
-In-Reply-To: <20261118-timecard-common-301f823ddd-2-ahmadexp@gmail.com>
-References: <20261118-timecard-common-301f823ddd-2-ahmadexp@gmail.com>
-X-sashiko-severity: High
+Date: Sun, 22 Nov 2026 20:41:10 +0000
+Message-ID: <179538007070.3135.8275620503580456948@kernel.org>
+In-Reply-To: <20261118-timecard-common-301f823ddd-4-ahmadexp@gmail.com>
+References: <20261118-timecard-common-301f823ddd-4-ahmadexp@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -66,10 +65,10 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -77,132 +76,76 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] ptp_ocp_dpll_frequency_get() (drivers/ptp/ptp_ocp.c) still fails
-  with -EINVAL for an enabled, direction-configurable SMA input that has…
-- [Medium] The patch says index passing makes DPLL frequency_set "fail on
-  ART" and fixes that by choosing the table entry by frequency and…
+- [Medium] The patch fixes one bad entry in a selector table from commit
+  09eeb3aecc6c, the one named in its Fixes: tag.
 
 --
 
-ptp: ocp: use hardware selectors in DPLL frequency operations
+ptp: ocp: correct the DCF output frequency
 
-This commit changes ptp_ocp_dpll_frequency_set() to pass the selector
-table value instead of the table index to ptp_ocp_sma_store_val(). It
-also masks the direction enable bit in ptp_ocp_dpll_frequency_get()
-before the table lookup, so enabled pins whose direction can be changed
-find a matching entry.
+The patch changes the DCF entry in the ptp_ocp_sma_out[] selector table
+from 77000 Hz to 77500 Hz. That brings it in line with the input table
+and the DPLL supported frequency list, so the advertised DCF77 frequency
+can be set and read back on an output pin.
 
 Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
 
 > diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-> index 478f7012b23e2..d449ed8ca2d8a 100644
+> index 650047581fd41..aa950cae68f46 100644
 > --- a/drivers/ptp/ptp_ocp.c
 > +++ b/drivers/ptp/ptp_ocp.c
-> @@ -5900,7 +5900,8 @@ static int ptp_ocp_dpll_frequency_set(const struct dpll_pin *pin,
->  	tbl = bp->sma_op->tbl[sma->mode];
->  	for (i = 0; tbl[i].name; i++)
->  		if (tbl[i].frequency == frequency)
-> -			return ptp_ocp_sma_store_val(bp, i, sma->mode, sma_nr + 1);
-> +			return ptp_ocp_sma_store_val(bp, tbl[i].value,
-> +						     sma->mode, sma_nr + 1);
+> @@ -1376,7 +1376,7 @@ static const struct ocp_selector ptp_ocp_sma_out[] = {
+>  	{ .name = "GNSS1",	.value = 0x0004,  .frequency = 1 },
+>  	{ .name = "GNSS2",	.value = 0x0008,  .frequency = 1 },
+>  	{ .name = "IRIG",	.value = 0x0010,  .frequency = 10000 },
+> -	{ .name = "DCF",	.value = 0x0020,  .frequency = 77000 },
+> +	{ .name = "DCF",	.value = 0x0020,  .frequency = 77500 },
 
 [Severity: Medium]
-The commit message says passing the index can "fail on ART". Can a
-10 MHz request on an ART input reach this line?
+Should the ART input table get the same kind of fix? Commit 09eeb3aecc6c,
+the one in the Fixes: tag, also added this entry to ptp_ocp_art_sma_in[]:
 
-The ART input table lists the 10Mhz entry at 1 MHz:
-
+drivers/ptp/ptp_ocp.c:
 static const struct ocp_selector ptp_ocp_art_sma_in[] = {
-	...
+	{ .name = "PPS1",	.value = 0x0001,  .frequency = 1 },
 	{ .name = "10Mhz",	.value = 0x0008,  .frequency = 1000000 },
+	{ }
+};
 
-ART pins advertise ptp_ocp_sma_freq (1PPS, 10MHz, IRIG-B, DCF77). So
-dpll_pin_freq_set() accepts 10000000 and rejects 1000000.
+The entry is named "10Mhz" but has a frequency of 1 MHz. The "10Mhz"
+entry in ptp_ocp_art_sma_out[] uses 10000000.
 
-A PIN_SET of 10000000 on an ART input passes the core check. It then
-matches no entry in this loop and returns -EINVAL, so the corrected
-tbl[i].value is never passed on. With this patch, it looks like PPS1 is
-the only input function that can be programmed on ART through DPLL.
+ptp_ocp_art_sma_init() registers the ART pins with ptp_ocp_sma_freq
+as their supported list:
 
-The same entry also affects ptp_ocp_dpll_frequency_get(). By default
-ART SMA1 selects 0x08:
+	.freq_supported_num = ARRAY_SIZE(ptp_ocp_sma_freq),
+	.freq_supported = ptp_ocp_sma_freq,
 
-ptp_ocp_art_sma_init() {
-	...
-	bp->sma[0].default_fcn = 0x08;	/* IN: 10Mhz */
+That list contains DPLL_PIN_FREQUENCY_10MHZ but not 1 MHz.
 
-For that pin, the getter reports 1000000 Hz, which is not in the
-advertised frequency list.
+This seems to give the same two symptoms the commit message describes
+for DCF, but on ART input pins.
 
-The table entry predates this patch, but the ART fix depends on
-tbl[i].frequency being correct. The later patch "ptp: ocp: correct the
-DCF output frequency" fixes a similar table mismatch for DCF but leaves
-this entry unchanged.
+On set, a DPLL netlink request for 10000000 passes
+dpll_pin_is_freq_supported() in the core. It then reaches the
+exact-match loop in ptp_ocp_dpll_frequency_set():
 
-Should ptp_ocp_art_sma_in[] list the 10Mhz input as 10000000 as part of
-this fix?
+	for (i = 0; tbl[i].name; i++)
+		if (tbl[i].frequency == frequency)
+			return ptp_ocp_sma_store_val(bp, tbl[i].value,
+						     sma->mode, sma_nr + 1);
+	return -EINVAL;
 
->  	return -EINVAL;
->  }
->  
-> @@ -5918,6 +5919,7 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
->  	int i;
->  
->  	val = bp->sma_op->get(bp, sma_nr + 1);
-> +	val &= SMA_SELECT_MASK;
->  	tbl = bp->sma_op->tbl[sma->mode];
->  	for (i = 0; tbl[i].name; i++)
->  		if (val == tbl[i].value) {
+Nothing in the table matches, so the call returns -EINVAL.
 
-[Severity: High]
-Does this still return -EINVAL for an enabled input that has more than
-one destination?
+On get, ptp_ocp_dpll_frequency_get() reports 1000000 for an ART input
+that selects 0x08. That value is not in the pin's advertised set. Fixed
+pins hit this too, because sma[0].default_fcn is 0x08 ("IN: 10Mhz").
 
-The commit message says that without the mask "an enabled,
-direction-configurable pin has no matching table entry and its DPLL get
-or dump fails". The sysfs ABI allows several input destinations, and
-sma_parse_inputs() ORs them into one selector:
+Would it make sense to change that entry to 10000000 in this patch, or
+in a follow-up?
 
-sma_parse_inputs() {
-	...
-	ret |= ptp_ocp_select_val_from_name(tbl[dir], argv[idx]);
-
-For example, writing "IN: TS1 TS2" to smaN gives 0x000C. After
-ptp_ocp_sma_store_val() adds SMA_ENABLE, 0x800C is written to the GPIO
-map.
-
-On readback, sma_op->get() returns 0x800C, and the new mask turns it
-into 0x000C. Each entry in ptp_ocp_sma_in[], ptp_ocp_adva_sma_in[] and
-ptp_ocp_adva_x1_sma_in[] has a single bit set. Nothing matches
-val == tbl[i].value, so the function returns -EINVAL.
-
-The sysfs reader for the same register treats it as a bitmask:
-
-ptp_ocp_show_inputs() {
-	...
-		if (val & tbl[i].value) {
-
-The -EINVAL reaches the DPLL netlink code:
-
-dpll_nl_pin_get_dumpit()
-  dpll_cmd_pin_get_one()
-    dpll_msg_add_pin_freq()
-      ptp_ocp_dpll_frequency_get()  -> -EINVAL
-
-dpll_nl_pin_get_dumpit() only skips -ENODEV and -EMSGSIZE, so this
-error stops the global pin dump. Pins after this one, including pins
-from other DPLL drivers, are not reported.
-
-dpll_pin_freq_set() also calls frequency_get first and returns early
-with "unable to get old frequency value". As a result, the pin cannot be
-recovered through DPLL frequency_set.
-
-The later patch "ptp: ocp: report disabled SMA inputs consistently over
-DPLL" only adds the disabled-input override, so this remains at the end
-of the series.
-
-Should this lookup match selector bits the way ptp_ocp_show_inputs()
-does, instead of requiring an exact match?
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118-timecard-common-301f823ddd-0-ahmadexp%40gmail.com
