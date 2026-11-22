@@ -1,52 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.76.78.106
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795333426;
-	b=2320PfLZ7aa23wwRfKuHagECOhQrxwDaT9LdavQFVEbnQy8928gZMSmCq0Ri0conjxKV
-	 WqYJsLvgTYsvu6vc6PBFZtyxBAEkO9W4D4KsZZF6NmBJC4XmYAQo61hXvPKJ5+Af2xjsS
-	 sciK9Xx94XBC4hfCVaHq3KmsS28VJ+f0ZiSFZJFoKKbMl3/bA8WYSPFao7tMd1PyBUpt0
-	 bEmKx082qULFldggYgZro/QSQSoXrTTqo5v+WZr8SGNlp0/ls7Y1J0jR/gXhbllth53my
-	 zQsLTui/GBBpz1ICjhVVsC79xEWYPkHkcChDnWSGy5q1wSpnkLSiKQ69rM5h/7V4qOA==
+	t=1795333492;
+	b=tBkQ9c87qYFJdUTqvw8pkVMNKx4j+kAIUEN8f/aXlU55/757mL9FsVc9kpMyb6hC0+ZS
+	 kXmb1257Npzxm2uXgULAeGROV38HTzpTOLk/QOsulKJ3zDhdSUhHT1fntWIbgXJ/8hclK
+	 6DfAEhkJQLxIyjSNbDTuFuIBKJWLqfNb+PtV2BYvHAsKayEjlUuGe0/wd7rehdm+tVj0i
+	 CZ3PNX7KDJnOuWwhKZhBFme6D9adj/FfxdYdZa872gprz36NLrcmw5Ay1bYY28AfgQAZR
+	 LYkmKJfdEtjHblOYqGxa+stavbOYVeGrm0INxvtTmlCacgBCBhT//I22XXwvWfaUThw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795333426;
-	h=DMARC-Filter:Received:X-Originating-IP:Date:X-CM-HeaderCharset:From:
-	 To:Cc:Subject:X-Priority:X-Mailer:In-Reply-To:References:
-	 X-CM-CTRLMSGS:Content-Type:MIME-Version:Message-ID:X-Coremail-Locale:
-	 X-CM-TRANSID:X-CM-SenderInfo:X-Coremail-Antispam;
-	bh=HRiiE5TdN3ihvKcpPc4JsrK6iG5oD1BpJ232e3N3BrE=;
-	b=BxZ1E27BA+dGmlYZw/VBKE/Fm9MuuI0WVhCPgma4Doxejm/7p6iQmGjqtaZpF3UBU7Xz
-	 Bd02pN1RTEWMw6xgavr2UXqFGUIESt77UvWyicPjOsNBy2/3c1jd7q2yjHkmr+DTdBwuY
-	 131I3lpr95eafNyx3qp9/2kz1DtZi+eGrauB18SoN9wUBamUZ2tcgnAvUM5Vxcum81vy9
-	 EmVnBP8cPikFrWoUrglDSjhZyfL728cZQKlGEl+MvWBp1AyelpqzPmwDC4bwP1RP2gxzx
-	 q0WKaUw+0nT3YIh/4D+C91xgIbPGVXjFDgbCkZH7j/25x+p+U/CS4Idl327sBmf25Bg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795333492;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Content-Type:Mime-Version:Subject:From:In-Reply-To:Date:Cc:
+	 Content-Transfer-Encoding:Message-Id:References:To:X-Mailer;
+	bh=41aq7Q/odxYWtRll/Ido8PrmDSMYdlxmstPU7VScg2I=;
+	b=KWQuetHeZFeLRkPESZdg8s5UZCKprCt0CvM99qNEOaOoo+crdr2lwhw6Su00iHreEZyE
+	 5Rn1i0Ue+sOyzbhlGeJhmaakPfYD7dP5uMUH7QJx+hoNWAd5i6aOsaHRFbMjxexLuJSFO
+	 8LsBXaxRLxrAFWykjGHmbBjSk7dOffy8/TFKlMUDyGwB6d1bLcKA5j8z3noTjD+JiulvB
+	 QgYC4BhFHKjPKLKRpnyVhkDL7BLFmcSW0BomZynava9cWz4Pu5DzR7uiYtm/QnvNo+51/
+	 OxhxuH3YwUluQTnPiwcQFBNHRO3NXji8WZxh2cSd5Yga4Hn3394Ass4oI/aU83jlVaQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=hust.edu.cn;
-	spf=pass smtp.mailfrom=hust.edu.cn;
-	arc=none smtp.remote-ip=13.76.78.106
-Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [13.76.78.106])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 19C8D606A320;
-	Sun, 22 Nov 2026 07:43:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19C8D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=hust.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hust.edu.cn
-Received: from xuhx$hust.edu.cn ( [10.11.175.146] ) by ajax-webmail-app2
- (Coremail) ; Sun, 22 Nov 2026 15:43:32 +0800 (GMT+08:00)
-Date: Sun, 22 Nov 2026 15:43:32 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: =?UTF-8?B?5b6Q5pmX57+U?= <xuhx@hust.edu.cn>
-To: vkoul@kernel.org, perex@perex.cz, tiwai@suse.com
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	lgirdwood@gmail.com, broonie@kernel.org
-Subject: sound: core: compress offload fd does not pin card or module, so
-  card removal leaves a live fd pointing at freed snd_compr (KASAN UAF)
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2025.3-cmXT6 build
- 20260810(6c94e3b5) Copyright (c) 2002-2026 www.mailtech.cn hust
-In-Reply-To: <2026102727-data-sequel-ce41@gregkh>
-References: <4c7f9772.192e1.1a17d5c2ed5.Coremail.xuhx@hust.edu.cn>
- <2026102727-data-sequel-ce41@gregkh>
-X-CM-CTRLMSGS: =?B?bNtOyjiH6nJ5xwDR7hwMki1N8jM=
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_586060_143037616.1795333412174"
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z7X5Rd+p;
+	arc=none smtp.remote-ip=209.85.167.45
+Received: from mail-lf1-f45.google.com (mail-lf1-f45.google.com [209.85.167.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EA1F606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 07:44:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6EA1F606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z7X5Rd+p
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5c07c7306e1so2114834e87.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 23:44:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795333490; x=1795938290; darn=vger.kernel.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:content-type:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=41aq7Q/odxYWtRll/Ido8PrmDSMYdlxmstPU7VScg2I=;
+        b=Z7X5Rd+pQJxXdbBxIt936qFnWyPHuZgv6ToTZF9o8i+7fW9lCeef/XVlFnGFRZ6n/2
+         1S5VVrmZavWKUoqektKnCEzteboKGyHsdMExO1by03lEiGuRtdiyV/k66OsYPABnr1C+
+         qCr53b4W4CvGKfdw/ZPb8sAFzGQkgdaXr2kLNCI4j+JY4RuBeG1KoPdLFz3YyGbTeqJb
+         Akl2YpqK0Grak4BrAsTnsr6od8g82cigTnxr63Uss8i1YRfweMFxPU9Vah/GeXd0Yr/w
+         sRPVXzV9c5x14MTRtKpBEdWmrsbtL91zNUqAGH8LgJGXx0LoKXfoshnzR93tse9OvO7j
+         4ZRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795333490; x=1795938290;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=41aq7Q/odxYWtRll/Ido8PrmDSMYdlxmstPU7VScg2I=;
+        b=n1+dJBwYlDJXCPHZ/YN0y0o0nKXm/uHCIuQVk58eo/X5tX3oYpOIwobuqxCY4W3mDf
+         YKLla+1V6a5vHB2ywTpoGNL0bg5desG5GuT5GsyeEPD5MVG2W5VBfMCY92/3LCz97D+o
+         /BO3PU2iWf7DUz1191PmA1wT6kCgdIj7GK/QZxFO4ibjcBnd5ltaGF6zHtNXx6BH8/ad
+         zmM4bZmiz6URaUFELwaF0ku33TelzgLdp3NU7rW/rJ//UaoPsIYhyHS9KllZTy/TkgB4
+         v/hD0srTRalS6Zj72amlcYoXgf/b4kuVZBmlDwZRhAENFoYXxAK4N8trHohzOEfSAVyZ
+         62tQ==
+X-Forwarded-Encrypted: i=1; AL+hErFDo3UodSVwl8LYkEIVdy4rM6pUBpbDl6zztXhg/EGG0uOBXUFC3t78Z5KeoVfqdZEMwen0FpjdcsKLdlQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8xFXK+tSoJW2XloU6bDWSpp4Da30P0nlCo6UZByxiaKSYDm4xa
+	msWmuSYF5bLKA99sbFIjmmUV5UF67EvbUcOo+GweZ8YyfUjx1qTUVRNU
+X-Gm-Gg: AZFdTZfi21aiFOntMTT7oHWBSn0yMFqeMmXFeJ4seQDx4W0v0ms0UpT9e+I/UTE4x7E
+	RnX2tQ95uBcv9BBS8KZ50SfaCv3yjONkpvm6+5/Uv47Jjw/dbaz1Zg9VwGhqCeQKJs1uLeJPeD2
+	TQjPbwDLNs20BfwbcM/jxA0H7u219yZ1Rf4VVCRH13jbx8Q4YFTqMjL3fv9WW718TxcEPj2X/L7
+	1fgf3XgJnoCyLZ1QrjA/PAR9ZKEYTiJVEUqI7Y/yvidhRjDmxfw7X0i47mmGLdQxrAWZVfFRGFa
+	C+Q8fYpZ3YNlqCW9NioSEDSBNJOvlpaQy856BSyDW6qT+K8HrjutEhJmloylfodprzmTmtDAucP
+	HEBvMsnPqJWC5bI9LEZnMwNKyVO0bJJxmzZEbVj/K9y0r2fYSWQ+t3bkl0uKyYQJJuWPGctYe+9
+	J6xbHnrFQU1sCMo+UJTQgBLOVOou8wTBjwkcG9TLyvAKiUHxncXt91BpQ++t2OWOUVmQ3tsiPMi
+	rLdqucVaVCY+JuD1AYl+yDQ17/WHxbGYjz8UTO81G4uhlt59+wXpp/pmGJnfzLA/a753dHBr/lS
+	4Z3wP9LbwDgVEc1k91GovAFG+ZRBoLLEg8JDcLHll/oicii9Q0xo8CBLyekT
+X-Received: by 2002:a05:6512:ba0:b0:5c1:c107:7477 with SMTP id 2adb3069b0e04-5c1c107755cmr1942269e87.43.1795333490191;
+        Sat, 21 Nov 2026 23:44:50 -0800 (PST)
+Received: from smtpclient.apple ([87.200.95.144])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd07bfdcsm2022134e87.82.2026.11.21.23.44.45
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 21 Nov 2026 23:44:49 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,262 +89,232 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Message-ID: <60230a17.2ad11.1a20235d54e.Coremail.xuhx@hust.edu.cn>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID:IQEQrMDW_cUknQJrfo0oAA--.27538W
-X-CM-SenderInfo: bgsqjkayqyjmo6kx23oohg3hdfq/1tbiAQoTB2sBxG5DCgABsX
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
+Subject: Re: [PATCH v5 0/5] media: rockchip: rkvdec: add support for the
+ VDPU346 variant
+From: Christian Hewitt <christianshewitt@gmail.com>
+In-Reply-To: <cover.1795191822.git.daniel@makrotopia.org>
+Date: Sun, 22 Nov 2026 11:44:32 +0400
+Cc: Detlev Casanova <detlev.casanova@collabora.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>,
+ Shawn Lin <shawn.lin@rock-chips.com>,
+ Michael Riesch <michael.riesch@collabora.com>,
+ David Heidelberg <david@ixit.cz>,
+ Marc Zyngier <maz@kernel.org>,
+ linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Hans Verkuil <hverkuil+cisco@kernel.org>,
+ Jonas Karlman <jonas@kwiboo.se>,
+ Diederik de Haas <diederik@cknow-tech.com>,
+ Dang Huynh <dang.huynh@mainlining.org>,
+ Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <E8475BAC-F137-493E-B7AC-9C81FB158610@gmail.com>
+References: <cover.1795191822.git.daniel@makrotopia.org>
+To: Daniel Golle <daniel@makrotopia.org>
+X-Mailer: Apple Mail (2.3901.200.71.1.16)
 
-------=_Part_586060_143037616.1795333412174
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: base64
+> On 20 Nov 2026, at 9:36=E2=80=AFpm, Daniel Golle =
+<daniel@makrotopia.org> wrote:
+>=20
+> This series adds the VDPU346 decoder of the RK3566 and RK3568 to the
+> rkvdec driver, for H.264 and HEVC. It continues Christian Hewitt's v3
+> [1]; in the v2 cover letter he offered to pass the series on. The
+> previous posting [2] carried no version in its subject and counts as
+> v4.
 
-c25kX2NvbXByX29wZW4oKSBvcGVucyAvZGV2L3NuZC9jb21wckMqRCogd2l0aG91dCBhZGRpbmcg
-dGhlIGZpbGUgdG8KY2FyZC0+ZmlsZXNfbGlzdCwgd2l0aG91dCB0YWtpbmcgYSBwZXJzaXN0ZW50
-IGNhcmQgZGV2aWNlIHJlZmVyZW5jZSBhbmQKd2l0aG91dCB0YWtpbmcgYSBtb2R1bGUgcmVmZXJl
-bmNlOyBpdCBldmVuIGRyb3BzIHRoZSBsb29rdXAgcmVmZXJlbmNlCndpdGggc25kX2NhcmRfdW5y
-ZWYoKSBiZWZvcmUgcmV0dXJuaW5nLiAgVGhlIEFTb0MgY2FyZCBjYW4gdGhlcmVmb3JlIGJlCnVu
-Ym91bmQgYW5kIGZyZWVkIHdoaWxlIHRoZSBjb21wcmVzcyBmZCBpcyBzdGlsbCBvcGVuLCBhZnRl
-ciB3aGljaAppb2N0bC9yZWFkL3dyaXRlL3BvbGwvY2xvc2UgZGVyZWZlcmVuY2UgZnJlZWQgc3Ry
-dWN0IHNuZF9jb21wciBhbmQKc25kX3NvY19wY21fcnVudGltZSBvYmplY3RzLiAgSSByZXByb2R1
-Y2VkIHRoaXMgb24gYSBMaW51eCA3LjMgS0FTQU4Ka2VybmVsIHdpdGggYSBzbWFsbCB0ZXN0IG1v
-ZHVsZTogb3BlbiB0aGUgY29tcHJlc3MgZGV2aWNlLCBjYWxsCnNuZF9jYXJkX2ZyZWUoKSwgdGhl
-biBpc3N1ZSBpb2N0bCgpIG9uIHRoZSBzdGFsZSBmZDsgdGhlIGlvY3RsIGVudHJ5CmFscmVhZHkg
-cmVwb3J0cyBzbGFiLXVzZS1hZnRlci1mcmVlIGluIG11dGV4X2xvY2soJnN0cmVhbS0+ZGV2aWNl
-LT5sb2NrKQppbnNpZGUgc25kX2NvbXByX2lvY3RsKCkuCgpUaGlzIGlzIG5vdCBhIHRoZW9yZXRp
-Y2FsIGxvc3QtcmVmZXJlbmNlIGlzc3VlLiAgVGhlIHVwc3RyZWFtIGNvbXByZXNzCm9mZmxvYWQg
-Y29kZSBoYXMgYW4gZXhwbGljaXQgb3Blbi1maWxlIGxpZmV0aW1lOiBzbmRfY2FyZF9maWxlX2Fk
-ZCgpIHBsdXMKdHJ5X21vZHVsZV9nZXQoKSBhdCBvcGVuLCBhIGRhdGEtPmxpc3Qgbm9kZSBsaW5r
-ZWQgaW50byBjb21wci0+b3Blbl9saXN0LApsaXN0X2RlbF9pbml0KCkgKyBtb2R1bGVfcHV0KCkg
-KyBzbmRfY2FyZF9maWxlX3JlbW92ZSgpIGF0IGZyZWUsIGFuZCBhCmRldl9kaXNjb25uZWN0IGNh
-bGxiYWNrIHRoYXQgd2Fsa3Mgb3Blbl9saXN0LCBzdG9wcyBSVU5OSU5HL0RSQUlOSU5HLwpQQVVT
-RUQgc3RyZWFtcywgc2V0cyBTTkRSVl9QQ01fU1RBVEVfRElTQ09OTkVDVEVEIGFuZCB3YWtlcyB3
-YWl0ZXJzLgpUaGUgY3VycmVudCB0cmVlIHJlbW92ZWQgYWxsIG9mIGl0IGF0IHRoZSBzdHJ1Y3R1
-cmUgbGV2ZWw6IHN0cnVjdApzbmRfY29tcHJfZmlsZSBubyBsb25nZXIgaGFzIGEgbGlzdCBub2Rl
-IGFuZCBzdHJ1Y3Qgc25kX2NvbXByIG5vIGxvbmdlcgpoYXMgb3Blbl9saXN0LiAgQ29uc2VxdWVu
-dGx5IHNuZF9jYXJkX2Rpc2Nvbm5lY3Rfc3luYygpLCB3aGljaCB3YWl0cyBmb3IKY2FyZC0+Zmls
-ZXNfbGlzdCB0byBkcmFpbiwgcmV0dXJucyBpbW1lZGlhdGVseSB3aXRoIHRoZSBjb21wcmVzcyBm
-ZCBzdGlsbApvcGVuLCBhbmQgdGhlIHN1YnNlcXVlbnQgc25kX3NvY19yZW1vdmVfcGNtX3J1bnRp
-bWUoKSAvIHNuZF9jYXJkX2ZyZWUoKQpmcmVlcyB0aGUgb2JqZWN0cyB0aGUgZmQgc3RpbGwgcG9p
-bnRzIHRvLgoKVGhlIGRldGFpbGVkIGRlc2NyaXB0aW9uOgoKKiBUZXN0IGVudmlyb25tZW50IC8g
-YWZmZWN0ZWQgdmVyc2lvbgoKICBMaW51eCB2ZXJzaW9uIDcuMy4wIChnY2MgMTMuMy4wLCBHTlUg
-bGQgMi40MikgIzYgU01QIFBSRUVNUFRfRFlOQU1JQywKICB2YW5pbGxhIDcuMyBzb3VyY2UgdHJl
-ZSB3aXRoIEtBU0FOIGFuZCBRRU1VL0tWTSB4ODZfNjQgKDQgdkNQVSwgNCBHQikuCiAgVGhlIG9u
-bHkgYnVpbGQtdGltZSBjaGFuZ2VzIHdlcmUgdGVtcG9yYXJ5IEtjb25maWcgcHJvbXB0cyB0byBi
-dWlsZAogIHNuZC1jb21wcmVzcy5rbyBhbmQgc25kLXJhd21pZGkua28gYXMgbW9kdWxlczsgbm8g
-ZnVuY3Rpb25hbCBzb3VyY2UKICBjaGFuZ2Ugd2FzIG1hZGUgZm9yIHRoaXMgY2FzZS4gIFRoZSBl
-eGFjdCB2ZXJzaW9uIGxpbmUgaXMgaW4KICBldmlkZW5jZS9rZXJuZWwtdmVyc2lvbi50eHQuCgoq
-IFJvb3QgY2F1c2UgYW5kIG9iamVjdCBsaWZldGltZQoKICBUaGUgb3BlbiBwYXRoLCBzb3VuZC9j
-b3JlL2NvbXByZXNzX29mZmxvYWQuYzo3NS0xNDMsIGRvZXMgb25seToKCiAgICBjb21wciA9IHNu
-ZF9sb29rdXBfbWlub3JfZGF0YShpbWlub3IoaW5vZGUpLCBTTkRSVl9ERVZJQ0VfVFlQRV9DT01Q
-UkVTUyk7CiAgICAuLi4KICAgIGRhdGEgPSBremFsbG9jX29iaigqZGF0YSk7CiAgICBydW50aW1l
-ID0ga3phbGxvY19vYmooKnJ1bnRpbWUpOwogICAgZGF0YS0+c3RyZWFtLmRldmljZSA9IGNvbXBy
-OwogICAgZi0+cHJpdmF0ZV9kYXRhID0gZGF0YTsKICAgIHNjb3BlZF9ndWFyZChtdXRleCwgJmNv
-bXByLT5sb2NrKQogICAgICAgIHJldCA9IGNvbXByLT5vcHMtPm9wZW4oJmRhdGEtPnN0cmVhbSk7
-CiAgICBzbmRfY2FyZF91bnJlZihjb21wci0+Y2FyZCk7CgogIFRoZXJlIGlzIG5vIHNuZF9jYXJk
-X2ZpbGVfYWRkKGNvbXByLT5jYXJkLCBmKSwgbm8KICB0cnlfbW9kdWxlX2dldChjb21wci0+Y2Fy
-ZC0+bW9kdWxlKSwgYW5kIG5vIGxpc3RfYWRkX3RhaWwoKSBpbnRvIGFuCiAgb3BlbiBsaXN0LiAg
-VGhlIHN0cnVjdHVyZSBkZWZpbml0aW9ucyB3ZXJlIGNoYW5nZWQgdG9vOgogIHNvdW5kL2NvcmUv
-Y29tcHJlc3Nfb2ZmbG9hZC5jOjQ0LTQ5IGhhcwoKICAgIHN0cnVjdCBzbmRfY29tcHJfZmlsZSB7
-CiAgICAgICAgdW5zaWduZWQgbG9uZyBjYXBzOwogICAgICAgIHN0cnVjdCBzbmRfY29tcHJfc3Ry
-ZWFtIHN0cmVhbTsKICAgIH07CgogIHdoaWxlIGluY2x1ZGUvc291bmQvY29tcHJlc3NfZHJpdmVy
-Lmg6MTk0LTIxMCBoYXMgbm8gb3Blbl9saXN0IG1lbWJlcgogIGluIHN0cnVjdCBzbmRfY29tcHIu
-CgogIFRoZSBmcmVlIHBhdGgsIHNvdW5kL2NvcmUvY29tcHJlc3Nfb2ZmbG9hZC5jOjE0NS0xNzAs
-IGNhbGxzCiAgY2FuY2VsX2RlbGF5ZWRfd29ya19zeW5jKCksIG9wdGlvbmFsbHkgdHJpZ2dlcihT
-VE9QKSwgdGFzay1mcmVlLAogIG9wcy0+ZnJlZSgpIGFuZCBrZnJlZSgpIC0tIGJ1dCBubyBsaXN0
-X2RlbF9pbml0KCksIG5vIG1vZHVsZV9wdXQoKSBhbmQKICBubyBzbmRfY2FyZF9maWxlX3JlbW92
-ZSgpLgoKICBUaGUgZGlzY29ubmVjdCBjYWxsYmFjaywgc291bmQvY29yZS9jb21wcmVzc19vZmZs
-b2FkLmM6MTQzMi0xNDQ3LCBpcwogIG9ubHk6CgogICAgY29tcHIgPSBkZXZpY2UtPmRldmljZV9k
-YXRhOwogICAgc25kX3VucmVnaXN0ZXJfZGV2aWNlKGNvbXByLT5kZXYpOwogICAgcmV0dXJuIDA7
-CgogIEl0IGRvZXMgbm90IHdhbGsgb3BlbiBzdHJlYW1zLCBkb2VzIG5vdCBzdG9wIHRoZW0sIGRv
-ZXMgbm90IHNldAogIFNORFJWX1BDTV9TVEFURV9ESVNDT05ORUNURUQgYW5kIGRvZXMgbm90IHdh
-a2UgcG9sbC9yZWFkIHdhaXRlcnMuCgogIFVwc3RyZWFtIGJ5IGNvbnRyYXN0IGhhcyBhbGwgb2Yg
-dGhlc2U6IHNuZF9jYXJkX2ZpbGVfYWRkKCkgYW5kCiAgdHJ5X21vZHVsZV9nZXQoKSBpbiBzbmRf
-Y29tcHJfb3BlbigpLCBkYXRhLT5saXN0IGxpbmtlZCBpbnRvCiAgY29tcHItPm9wZW5fbGlzdCwg
-bWF0Y2hpbmcgbGlzdF9kZWxfaW5pdCgpL21vZHVsZV9wdXQoKS8KICBzbmRfY2FyZF9maWxlX3Jl
-bW92ZSgpIGluIHNuZF9jb21wcl9mcmVlKCksIGFuZCBhIGRldl9kaXNjb25uZWN0IHRoYXQKICB0
-YWtlcyBjb21wci0+bG9jaywgc3RvcHMgYWN0aXZlIHN0cmVhbXMgYW5kIHNldHMgRElTQ09OTkVD
-VEVELgoKKiBXaHkgY2FyZCByZW1vdmFsIHJlYWNoZXMgdGhlIGZyZWVkIG9iamVjdHMKCiAgVGhl
-IEFTb0MgY2xlYW51cCBvcmRlciBpcyBpbiBzb3VuZC9zb2Mvc29jLWNvcmUuYzoxOTQ0LTE5ODE6
-CiAgc29jX2NsZWFudXBfY2FyZF9yZXNvdXJjZXMoKSBjYWxscyBzbmRfY2FyZF9kaXNjb25uZWN0
-X3N5bmMoKSBmaXJzdCwKICB0aGVuIGZvcl9lYWNoX2NhcmRfcnRkc19zYWZlKCkgLT4gc25kX3Nv
-Y19yZW1vdmVfcGNtX3J1bnRpbWUoKSwgdGhlbgogIHNuZF9zb2NfY2FyZF9yZW1vdmUoKSwgdGhl
-biBzbmRfY2FyZF9mcmVlKCkuICBzbmRfY2FyZF9kaXNjb25uZWN0X3N5bmMoKQogIChzb3VuZC9j
-b3JlL2luaXQuYzo1NzEtNTgyKSB3YWl0cyB1bmRlciBmaWxlc19sb2NrIGZvciBmaWxlc19saXN0
-IHRvCiAgYmVjb21lIGVtcHR5LiAgQSBjb21wcmVzcyBmZCBpcyBub3QgaW4gZmlsZXNfbGlzdCwg
-c28gdGhpcyB3YWl0IGlzIGEKICBuby1vcCBmb3IgaXQuICBzbmRfc29jX3JlbW92ZV9wY21fcnVu
-dGltZSgpIHRoZW4gcmVsZWFzZXMgcnRkIHZpYQogIGRldmljZV91bnJlZ2lzdGVyKHJ0ZC0+ZGV2
-KSwgd2hpbGUgdGhlIGZkIHN0aWxsIGhhcwogIGRhdGEtPnN0cmVhbS5kZXZpY2UgPSBjb21wciBh
-bmQgZGF0YS0+c3RyZWFtLnByaXZhdGVfZGF0YSA9IHJ0ZC4KICBzbmRfY29tcHJfaW9jdGwoKSwg
-c25kX2NvbXByX3JlYWQoKSwgc25kX2NvbXByX3dyaXRlKCkgYW5kCiAgc25kX2NvbXByX3BvbGwo
-KSBhbGwgYmVnaW4gd2l0aAogIGd1YXJkKG11dGV4KSgmc3RyZWFtLT5kZXZpY2UtPmxvY2spLCBp
-LmUuIHRoZXkgbG9jayBhIG11dGV4IGluc2lkZQogIGZyZWVkIHN0cnVjdCBzbmRfY29tcHIgYmVm
-b3JlIGxvb2tpbmcgYXQgc3RyZWFtLT5ydW50aW1lLgoKKiBUcmlnZ2VyIG1vZGVsCgogIC0gQSBj
-b21wcmVzcyBvZmZsb2FkIGRldmljZSBtdXN0IGV4aXN0IChyZWFsIEFTb0MgY29tcHJlc3MgZHJp
-dmVyLCBvcgogICAgdGhlIGF0dGFjaGVkIHRlc3QgbW9kdWxlKTsKICAtIGEgdXNlciB3aXRoIGFj
-Y2VzcyB0byAvZGV2L3NuZC9jb21wckMqRCogb3BlbnMgaXQ7CiAgLSB0aGUgY2FyZCBpcyByZW1v
-dmVkL3VuYm91bmQgKGRyaXZlciB1bmJpbmQsIGNhcmQgdW5yZWdpc3RlciwgbW9kdWxlCiAgICB1
-bmxvYWQsIG9yIHRoZSB0ZXN0IG1vZHVsZSdzIGZyZWUgcGFyYW1ldGVyKTsKICAtIHRoZSBzYW1l
-IGZkIGlzIHVzZWQgYWdhaW4gKGlvY3RsL3JlYWQvd3JpdGUvcG9sbCkgb3IgY2xvc2VkLgoKICBU
-aGUgY2FyZC1yZW1vdmFsIHN0ZXAgbm9ybWFsbHkgbmVlZHMgYSBwcml2aWxlZ2VkIGFjdGlvbiwg
-YnV0IHRoZSBmZAogIGFuZCB0aGUgcmVtb3ZhbCBjYW4gYmVsb25nIHRvIGRpZmZlcmVudCBwcm9j
-ZXNzZXMgYW5kIHRoZSBrZXJuZWwgbXVzdAogIG5vdCBmcmVlIG9iamVjdHMgdGhhdCBhbiBvcGVu
-IGZpbGUgc3RpbGwgcmVmZXJlbmNlcy4gIE5vIGhhcmR3YXJlIGlzCiAgcmVxdWlyZWQgZm9yIHRo
-ZSByZXByb2R1Y2VyLgoKKiBSZXByb2R1Y2VyIChhdHRhY2hlZDogc25kY29yZV9jb21wcmVzcy5j
-LCBzbmRjb3JlX3Rlc3QuYykgYW5kIHJlc3VsdHMgb24gNy4zCgogIHNuZGNvcmVfY29tcHJlc3Mu
-YyByZWdpc3RlcnMgb25lIGNhcmQgd2l0aCBvbmUgY29tcHJlc3MgZGV2aWNlIGFuZCBhCiAgbWlu
-aW1hbCBzdHJ1Y3Qgc25kX2NvbXByX29wczsgdGhlIGNhcmQgcHJpdmF0ZV9mcmVlIGZ1bmN0aW9u
-IGtmcmVlKClzCiAgdGhlIHN0cnVjdCBzbmRfY29tcHIsIG1hdGNoaW5nIEFTb0MncyBkZXZtX2t6
-YWxsb2MgbGlmZXRpbWUuICBUaGUKICB1c2Vyc3BhY2UgcHJvZ3JhbSBzbmRjb3JlX3Rlc3QuYyBv
-cGVucyAvZGV2L3NuZC9jb21wckMwRDAsIHdyaXRlcyB0aGUKICBtb2R1bGUncyAiZnJlZSIgcGFy
-YW1ldGVyIHRvIGNhbGwgc25kX2NhcmRfZnJlZSgpLCB0aGVuIGNhbGxzIGlvY3RsKCkKICBvbiB0
-aGUgc3RhbGUgZmQuCgogIE9ic2VydmVkIChldmlkZW5jZS9tcjAzLWthc2FuLXVhZi5sb2cpOgoK
-ICAgIGZyZWU6IGNhbGxpbmcgc25kX2NhcmRfZnJlZSguLi4pCiAgICBCVUc6IEtBU0FOOiBzbGFi
-LXVzZS1hZnRlci1mcmVlIGluIG11dGV4X2xvY2srMHg3Mi8weGUwCiAgICBXcml0ZSBvZiBzaXpl
-IDggYXQgYWRkciAuLi4gYnkgdGFzayBzbmRjb3JlX3Rlc3QvODgKICAgIENhbGwgVHJhY2U6CiAg
-ICAgbXV0ZXhfbG9jaysweDcyLzB4ZTAKICAgICBzbmRfY29tcHJfaW9jdGwrMHhkMi8weGZmMCBb
-c25kX2NvbXByZXNzXQogICAgIC4uLgogICAgQlVHOiBLQVNBTjogc2xhYi11c2UtYWZ0ZXItZnJl
-ZSBpbiBtdXRleF91bmxvY2srMHg2Yy8weGQwCiAgICAgc25kX2NvbXByX2lvY3RsKzB4MWQzLzB4
-ZmYwIFtzbmRfY29tcHJlc3NdCiAgICBLQVNBTiBidWcgY291bnQ6IDIKCiAgVGhlIGJ1ZyBjb3Vu
-dCBpcyB0aGUgbnVtYmVyIG9mIEtBU0FOIHJlcG9ydHMgY29sbGVjdGVkIGluIHRoYXQgcnVuOwog
-IHRoZSBmaXJzdCByZXBvcnQgaXMgdGhlIG11dGV4X2xvY2soKSBpbnNpZGUgdGhlIGlvY3RsIGVu
-dHJ5LgoKCgoqIFN1Z2dlc3RlZCBkaXJlY3Rpb24gCgogIFJlc3RvcmUgdGhlIHVwc3RyZWFtIGxp
-ZmV0aW1lIGluIG9uZSBzZXJpZXM6CiAgLSBzbmRfY29tcHJfb3BlbigpOiBzbmRfY2FyZF9maWxl
-X2FkZCgpLCB0cnlfbW9kdWxlX2dldCgpLCBsaW5rCiAgICBkYXRhLT5saXN0IGludG8gY29tcHIt
-Pm9wZW5fbGlzdDsKICAtIHNuZF9jb21wcl9mcmVlKCk6IGxpc3RfZGVsX2luaXQoKSwgbW9kdWxl
-X3B1dCgpIGFuZAogICAgc25kX2NhcmRfZmlsZV9yZW1vdmUoKSwgd2l0aCB0aGUgZXJyb3IgcGF0
-aHMgdW5kb2luZyBpbiByZXZlcnNlOwogIC0gc25kX2NvbXByZXNzX2Rldl9kaXNjb25uZWN0KCk6
-IHdhbGsgY29tcHItPm9wZW5fbGlzdCB1bmRlcgogICAgY29tcHItPmxvY2ssIFNUT1AgUlVOTklO
-Ry9EUkFJTklORy9QQVVTRUQgc3RyZWFtcywgc2V0CiAgICBTTkRSVl9QQ01fU1RBVEVfRElTQ09O
-TkVDVEVEIGFuZCB3YWtlIHdhaXRlcnM7CiAgLSByZXN0b3JlIHN0cnVjdCBzbmRfY29tcHJfZmls
-ZS5saXN0IGFuZCBzdHJ1Y3Qgc25kX2NvbXByLm9wZW5fbGlzdC4KCgogIFBsZWFzZSBrZWVwIG1l
-IGluIENjOyBJIGFtIG5vdCBzdWJzY3JpYmVkIHRvIHRoZSBsaXN0cy4KClJlZ2FyZHMsCkhhbnhp
-YW5nIFh1Cnh1aHhAaHVzdC5lZHUuY24K
-------=_Part_586060_143037616.1795333412174
-Content-Type: text/plain; name=sndcore_test.c
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="sndcore_test.c"
+The original offer was directed at Detlev based on conversations with
+other Collabora folks who were hinting that he would be able to (and
+it would even be desirable to) fold VDPU346 patches into his work on
+VDPU381/383 which was in-flight at the time. However he didn=E2=80=99t =
+take
+the bait and it didn=E2=80=99t happen. The comment is also pre-Claude =
+when my
+coding abilities were more rudimentary. The main reason for the long
+delay in following up has been the length of time it took for Detlev=E2=80=
+=99s
+and related DRM series that permit wider testing to land; a vacation
+over the summer, and then Claude distracting me with a deep dive into
+the Amlogic and Rockchip media stacks that=E2=80=99s resulted in 300+ =
+patches
+that need a proper plan for upstreaming else I=E2=80=99m going to annoy =
+the
+already-overworked media/drm maintainers.
 
-Ly8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAKI2RlZmluZSBfR05VX1NPVVJDRQoj
-aW5jbHVkZSA8c3RkaW8uaD4KI2luY2x1ZGUgPHN0ZGxpYi5oPgojaW5jbHVkZSA8c3RyaW5nLmg+
-CiNpbmNsdWRlIDxmY250bC5oPgojaW5jbHVkZSA8dW5pc3RkLmg+CiNpbmNsdWRlIDxlcnJuby5o
-PgojaW5jbHVkZSA8cHRocmVhZC5oPgojaW5jbHVkZSA8c3lzL2lvY3RsLmg+CiNpbmNsdWRlIDxz
-b3VuZC9hc291bmQuaD4KCnN0YXRpYyBpbnQgd3JpdGVfZnJlZShjb25zdCBjaGFyICptb2QpCnsK
-CWNoYXIgcGF0aFsyNTZdOwoJaW50IGZkOwoKCXNucHJpbnRmKHBhdGgsIHNpemVvZihwYXRoKSwg
-Ii9zeXMvbW9kdWxlLyVzL3BhcmFtZXRlcnMvZnJlZSIsIG1vZCk7CglmZCA9IG9wZW4ocGF0aCwg
-T19XUk9OTFkpOwoJaWYgKGZkIDwgMCkgewoJCWZwcmludGYoc3RkZXJyLCAib3BlbiAlczogJXNc
-biIsIHBhdGgsIHN0cmVycm9yKGVycm5vKSk7CgkJcmV0dXJuIC0xOwoJfQoJaWYgKHdyaXRlKGZk
-LCAiMVxuIiwgMikgIT0gMikKCQlmcHJpbnRmKHN0ZGVyciwgIndyaXRlICVzOiAlc1xuIiwgcGF0
-aCwgc3RyZXJyb3IoZXJybm8pKTsKCWNsb3NlKGZkKTsKCXJldHVybiAwOwp9CgpzdGF0aWMgaW50
-IGRvX2h3ZGVwKHZvaWQpCnsKCXN0cnVjdCBzbmRfaHdkZXBfZHNwX2ltYWdlIGltZzsKCWludCBm
-ZDsKCglmZCA9IG9wZW4oIi9kZXYvc25kL2h3QzBEMCIsIE9fUkRXUik7CglpZiAoZmQgPCAwKSB7
-CgkJZnByaW50ZihzdGRlcnIsICJvcGVuIGh3ZGVwOiAlc1xuIiwgc3RyZXJyb3IoZXJybm8pKTsK
-CQlyZXR1cm4gMTsKCX0KCW1lbXNldCgmaW1nLCAwLCBzaXplb2YoaW1nKSk7CglpbWcuaW5kZXgg
-PSAwOwoJaW1nLmxlbmd0aCA9IDA7CglpbWcuaW1hZ2UgPSAwOwoJZm9yIChpbnQgaSA9IDA7IGkg
-PCA0OyBpKyspIHsKCQlpZiAoaW9jdGwoZmQsIFNORFJWX0hXREVQX0lPQ1RMX0RTUF9MT0FELCAm
-aW1nKSA8IDApCgkJCWZwcmludGYoc3RkZXJyLCAiaW9jdGwgZHNwX2xvYWQ6ICVzXG4iLCBzdHJl
-cnJvcihlcnJubykpOwoJfQoJY2xvc2UoZmQpOwoJcHJpbnRmKCJIV0RFUDogaW9jdGwgZG9uZSAo
-bWF4X2FjdGl2ZSBzaG91bGQgYmUgPj0gMilcbiIpOwoJc2xlZXAoMSk7CglyZXR1cm4gMDsKfQoK
-c3RhdGljIHZvaWQgKmh3ZGVwX3RocmVhZCh2b2lkICphcmcpCnsKCWludCBmZCA9ICooaW50ICop
-YXJnOwoJc3RydWN0IHNuZF9od2RlcF9kc3BfaW1hZ2UgaW1nOwoKCW1lbXNldCgmaW1nLCAwLCBz
-aXplb2YoaW1nKSk7CglpbWcuaW5kZXggPSAwOwoJaW9jdGwoZmQsIFNORFJWX0hXREVQX0lPQ1RM
-X0RTUF9MT0FELCAmaW1nKTsKCXJldHVybiBOVUxMOwp9CgpzdGF0aWMgaW50IGRvX2h3ZGVwX3Jh
-Y2Uodm9pZCkKewoJcHRocmVhZF90IHRoWzRdOwoJaW50IGZkOwoKCWZkID0gb3BlbigiL2Rldi9z
-bmQvaHdDMEQwIiwgT19SRFdSKTsKCWlmIChmZCA8IDApIHsKCQlmcHJpbnRmKHN0ZGVyciwgIm9w
-ZW4gaHdkZXA6ICVzXG4iLCBzdHJlcnJvcihlcnJubykpOwoJCXJldHVybiAxOwoJfQoJZm9yIChp
-bnQgaSA9IDA7IGkgPCA0OyBpKyspCgkJcHRocmVhZF9jcmVhdGUoJnRoW2ldLCBOVUxMLCBod2Rl
-cF90aHJlYWQsICZmZCk7Cglmb3IgKGludCBpID0gMDsgaSA8IDQ7IGkrKykKCQlwdGhyZWFkX2pv
-aW4odGhbaV0sIE5VTEwpOwoJY2xvc2UoZmQpOwoJcHJpbnRmKCJIV0RFUDogNCBjb25jdXJyZW50
-IERTUF9MT0FEIGlzc3VlZFxuIik7CglzbGVlcCgxKTsKCXJldHVybiAwOwp9CgpzdGF0aWMgaW50
-IGRvX2NvbXByZXNzKHZvaWQpCnsKCWludCBmZDsKCglmZCA9IG9wZW4oIi9kZXYvc25kL2NvbXBy
-QzBEMCIsIE9fV1JPTkxZKTsKCWlmIChmZCA8IDApIHsKCQlmcHJpbnRmKHN0ZGVyciwgIm9wZW4g
-Y29tcHJlc3M6ICVzXG4iLCBzdHJlcnJvcihlcnJubykpOwoJCXJldHVybiAxOwoJfQoJcHJpbnRm
-KCJDT01QUkVTUzogZmQgb3BlbiwgZnJlZWluZyBjYXJkXG4iKTsKCXdyaXRlX2ZyZWUoInNuZGNv
-cmVfY29tcHJlc3MiKTsKCXByaW50ZigiQ09NUFJFU1M6IGNhcmQgZnJlZSByZXR1cm5lZCwgaXNz
-dWluZyBpb2N0bCBvbiBzdGFsZSBmZFxuIik7CglpZiAoaW9jdGwoZmQsIDB4NDMwMCwgMCkgPCAw
-KQoJCWZwcmludGYoc3RkZXJyLCAiaW9jdGwgc3RhbGUgZmQ6ICVzXG4iLCBzdHJlcnJvcihlcnJu
-bykpOwoJcHJpbnRmKCJDT01QUkVTUzogaW9jdGwgcmV0dXJuZWQgd2l0aG91dCBLQVNBTiByZXBv
-cnRcbiIpOwoJY2xvc2UoZmQpOwoJc2xlZXAoMSk7CglyZXR1cm4gMDsKfQoKc3RhdGljIGludCBk
-b19yYXdtaWRpKHZvaWQpCnsKCWludCBmZDsKCglmZCA9IG9wZW4oIi9kZXYvc25kL21pZGlDMEQw
-IiwgT19SRE9OTFkpOwoJaWYgKGZkIDwgMCkgewoJCWZwcmludGYoc3RkZXJyLCAib3BlbiByYXdt
-aWRpOiAlc1xuIiwgc3RyZXJyb3IoZXJybm8pKTsKCQlyZXR1cm4gMTsKCX0KCXByaW50ZigiUkFX
-TUlESTogZmQgb3BlbiwgbGV0dGluZyBmbG9vZCB0aHJlYWQgcnVuXG4iKTsKCXNsZWVwKDIpOwoJ
-cHJpbnRmKCJSQVdNSURJOiBjbG9zaW5nICh0cmlnZ2VyL2NhbmNlbC9mcmVlIHdpbmRvdylcbiIp
-OwoJY2xvc2UoZmQpOwoJc2xlZXAoMyk7CglwcmludGYoIlJBV01JREk6IGNsb3NlIHJldHVybmVk
-LCBmcmVlaW5nIGNhcmRcbiIpOwoJd3JpdGVfZnJlZSgic25kY29yZV9yYXdtaWRpIik7CglzbGVl
-cCgxKTsKCXJldHVybiAwOwp9CgppbnQgbWFpbihpbnQgYXJnYywgY2hhciAqKmFyZ3YpCnsKCWlm
-IChhcmdjIDwgMikgewoJCWZwcmludGYoc3RkZXJyLCAidXNhZ2U6ICVzIGphY2tmcmVlfGNvbXBy
-ZXNzfHJhd21pZGl8aHdkZXB8aHdkZXAtcmFjZVxuIiwgYXJndlswXSk7CgkJcmV0dXJuIDI7Cgl9
-CglpZiAoIXN0cmNtcChhcmd2WzFdLCAiamFja2ZyZWUiKSkKCQlyZXR1cm4gd3JpdGVfZnJlZSgi
-c25kY29yZV9qYWNrIik7CglpZiAoIXN0cmNtcChhcmd2WzFdLCAiY29tcHJlc3MiKSkKCQlyZXR1
-cm4gZG9fY29tcHJlc3MoKTsKCWlmICghc3RyY21wKGFyZ3ZbMV0sICJyYXdtaWRpIikpCgkJcmV0
-dXJuIGRvX3Jhd21pZGkoKTsKCWlmICghc3RyY21wKGFyZ3ZbMV0sICJod2RlcCIpKQoJCXJldHVy
-biBkb19od2RlcCgpOwoJaWYgKCFzdHJjbXAoYXJndlsxXSwgImh3ZGVwLXJhY2UiKSkKCQlyZXR1
-cm4gZG9faHdkZXBfcmFjZSgpOwoJZnByaW50ZihzdGRlcnIsICJ1bmtub3duIG1vZGUgJXNcbiIs
-IGFyZ3ZbMV0pOwoJcmV0dXJuIDI7Cn0K
-------=_Part_586060_143037616.1795333412174
-Content-Type: application/octet-stream; name=sndcore_parent.h
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="sndcore_parent.h"
+I don=E2=80=99t object to someone upstreaming my patches. I do object to =
+the
+lack of outreach to check on my plans and patch status before blindly
+(and wrongly) assuming there were none. You will find later versions
+of my patches with fixes for changes in surrounding code (as I work
+on something broadly equivalent to drm-tip not Linux 6.18) and from
+further testing in my not-very-abandoned development tree:
 
-LyogU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAgKi8KI2lmbmRlZiBTTkRDT1JFX1BB
-UkVOVF9ICiNkZWZpbmUgU05EQ09SRV9QQVJFTlRfSAoKI2luY2x1ZGUgPGxpbnV4L2RldmljZS5o
-PgojaW5jbHVkZSA8c291bmQvY29yZS5oPgoKc3RhdGljIHN0cnVjdCBkZXZpY2UgKnNuZGNvcmVf
-cGFyZW50OwoKc3RhdGljIGlubGluZSBpbnQgc25kY29yZV9jYXJkX25ldyhzdHJ1Y3Qgc25kX2Nh
-cmQgKipjYXJkLCBjb25zdCBjaGFyICpuYW1lKQp7CglpbnQgZXJyOwoKCXNuZGNvcmVfcGFyZW50
-ID0gcm9vdF9kZXZpY2VfcmVnaXN0ZXIobmFtZSk7CglpZiAoSVNfRVJSKHNuZGNvcmVfcGFyZW50
-KSkgewoJCWVyciA9IFBUUl9FUlIoc25kY29yZV9wYXJlbnQpOwoJCXNuZGNvcmVfcGFyZW50ID0g
-TlVMTDsKCQlyZXR1cm4gZXJyOwoJfQoJZXJyID0gc25kX2NhcmRfbmV3KHNuZGNvcmVfcGFyZW50
-LCAwLCAic25kY29yZSIsIFRISVNfTU9EVUxFLCAwLCBjYXJkKTsKCWlmIChlcnIgPCAwKSB7CgkJ
-cm9vdF9kZXZpY2VfdW5yZWdpc3RlcihzbmRjb3JlX3BhcmVudCk7CgkJc25kY29yZV9wYXJlbnQg
-PSBOVUxMOwoJfQoJcmV0dXJuIGVycjsKfQoKc3RhdGljIGlubGluZSB2b2lkIHNuZGNvcmVfcGFy
-ZW50X3B1dCh2b2lkKQp7CglpZiAoc25kY29yZV9wYXJlbnQpIHsKCQlyb290X2RldmljZV91bnJl
-Z2lzdGVyKHNuZGNvcmVfcGFyZW50KTsKCQlzbmRjb3JlX3BhcmVudCA9IE5VTEw7Cgl9Cn0KCiNl
-bmRpZgo=
-------=_Part_586060_143037616.1795333412174
-Content-Type: text/plain; name=sndcore_compress.c
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="sndcore_compress.c"
+https://github.com/chewitt/linux/commits/rockchip-7.4.y
 
-Ly8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAKI2luY2x1ZGUgPGxpbnV4L21vZHVs
-ZS5oPgojaW5jbHVkZSA8bGludXgva2VybmVsLmg+CiNpbmNsdWRlIDxsaW51eC9zbGFiLmg+CiNp
-bmNsdWRlIDxzb3VuZC9jb3JlLmg+CiNpbmNsdWRlIDxzb3VuZC9jb21wcmVzc19kcml2ZXIuaD4K
-I2luY2x1ZGUgInNuZGNvcmVfcGFyZW50LmgiCgpzdGF0aWMgc3RydWN0IHNuZF9jYXJkICpjYXJk
-OwpzdGF0aWMgc3RydWN0IHNuZF9jb21wciAqY29tcHI7CgpzdGF0aWMgaW50IGNfb3BlbihzdHJ1
-Y3Qgc25kX2NvbXByX3N0cmVhbSAqc3RyZWFtKSB7IHJldHVybiAwOyB9CnN0YXRpYyBpbnQgY19m
-cmVlKHN0cnVjdCBzbmRfY29tcHJfc3RyZWFtICpzdHJlYW0pIHsgcmV0dXJuIDA7IH0Kc3RhdGlj
-IGludCBjX3RyaWdnZXIoc3RydWN0IHNuZF9jb21wcl9zdHJlYW0gKnN0cmVhbSwgaW50IGNtZCkg
-eyByZXR1cm4gMDsgfQoKc3RhdGljIHN0cnVjdCBzbmRfY29tcHJfb3BzIGNvbXByX29wcyA9IHsK
-CS5vcGVuID0gY19vcGVuLAoJLmZyZWUgPSBjX2ZyZWUsCgkudHJpZ2dlciA9IGNfdHJpZ2dlciwK
-fTsKCnN0YXRpYyBpbnQgZnJlZV9zZXQoY29uc3QgY2hhciAqdmFsLCBjb25zdCBzdHJ1Y3Qga2Vy
-bmVsX3BhcmFtICprcCkKewoJaWYgKGNhcmQpIHsKCQlwcl9pbmZvKCJmcmVlOiBjYWxsaW5nIHNu
-ZF9jYXJkX2ZyZWUoJXApXG4iLCBjYXJkKTsKCQlzbmRfY2FyZF9mcmVlKGNhcmQpOwoJCWNhcmQg
-PSBOVUxMOwoJfQoJcmV0dXJuIDA7Cn0Kc3RhdGljIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW1f
-b3BzIGZyZWVfb3BzID0geyAuc2V0ID0gZnJlZV9zZXQgfTsKbW9kdWxlX3BhcmFtX2NiKGZyZWUs
-ICZmcmVlX29wcywgTlVMTCwgMDIwMCk7CgpzdGF0aWMgdm9pZCBjYXJkX3ByaXZhdGVfZnJlZShz
-dHJ1Y3Qgc25kX2NhcmQgKmMpCnsKCXByX2luZm8oImNhcmQgcHJpdmF0ZV9mcmVlOiBrZnJlZShj
-b21wcj0lcClcbiIsIGNvbXByKTsKCWtmcmVlKGNvbXByKTsKCWNvbXByID0gTlVMTDsKfQoKc3Rh
-dGljIGludCBfX2luaXQgc25kY29yZV9jb21wcmVzc19pbml0KHZvaWQpCnsKCWludCBlcnI7CgoJ
-ZXJyID0gc25kY29yZV9jYXJkX25ldygmY2FyZCwgInNuZGNvcmVfY29tcHJlc3MiKTsKCWlmIChl
-cnIgPCAwKQoJCXJldHVybiBlcnI7CgoJY29tcHIgPSBremFsbG9jKHNpemVvZigqY29tcHIpLCBH
-RlBfS0VSTkVMKTsKCWlmICghY29tcHIpIHsKCQlzbmRfY2FyZF9mcmVlKGNhcmQpOwoJCWNhcmQg
-PSBOVUxMOwoJCXNuZGNvcmVfcGFyZW50X3B1dCgpOwoJCXJldHVybiAtRU5PTUVNOwoJfQoJY29t
-cHItPm9wcyA9ICZjb21wcl9vcHM7CgljYXJkLT5wcml2YXRlX2ZyZWUgPSBjYXJkX3ByaXZhdGVf
-ZnJlZTsKCgllcnIgPSBzbmRfY29tcHJlc3NfbmV3KGNhcmQsIDAsIFNORF9DT01QUkVTU19QTEFZ
-QkFDSywgInNuZGNvcmUiLCBjb21wcik7CglpZiAoZXJyIDwgMCkgewoJCWtmcmVlKGNvbXByKTsK
-CQljb21wciA9IE5VTEw7CgkJc25kX2NhcmRfZnJlZShjYXJkKTsKCQljYXJkID0gTlVMTDsKCQlz
-bmRjb3JlX3BhcmVudF9wdXQoKTsKCQlyZXR1cm4gZXJyOwoJfQoJZXJyID0gc25kX2NhcmRfcmVn
-aXN0ZXIoY2FyZCk7CglpZiAoZXJyIDwgMCkgewoJCXNuZF9jYXJkX2ZyZWUoY2FyZCk7CgkJY2Fy
-ZCA9IE5VTEw7CgkJc25kY29yZV9wYXJlbnRfcHV0KCk7CgkJcmV0dXJuIGVycjsKCX0KCXByX2lu
-Zm8oImNvbXByZXNzIGNhcmQgcmVnaXN0ZXJlZFxuIik7CglyZXR1cm4gMDsKfQoKc3RhdGljIHZv
-aWQgX19leGl0IHNuZGNvcmVfY29tcHJlc3NfZXhpdCh2b2lkKQp7CglpZiAoY2FyZCkgewoJCXNu
-ZF9jYXJkX2ZyZWUoY2FyZCk7CgkJY2FyZCA9IE5VTEw7Cgl9CglzbmRjb3JlX3BhcmVudF9wdXQo
-KTsKfQoKbW9kdWxlX2luaXQoc25kY29yZV9jb21wcmVzc19pbml0KTsKbW9kdWxlX2V4aXQoc25k
-Y29yZV9jb21wcmVzc19leGl0KTsKTU9EVUxFX0xJQ0VOU0UoIkdQTCIpOwpNT0RVTEVfREVTQ1JJ
-UFRJT04oInNvdW5kL2NvcmUgTVItMDMgY29tcHJlc3Mgb3Blbl9saXN0IHZlcmlmaWVyIik7Cg==
+=C2=AF\_(=E3=83=84)_/=C2=AF=20
 
-------=_Part_586060_143037616.1795333412174--
+> Patches 1, 2 and 4 are Christian's, with two fixups folded in that v4
+> carried as separate patches. Patches 3 and 5 are new since v3 and come
+> out of a comparison of the driver with the vendor kernel driver
+> (rockchip-linux/kernel develop-6.6, drivers/video/rockchip/mpp) and
+> the Rockchip MPP library, followed by conformance runs on hardware.
+>=20
+> Fluster on a NanoPi R5C (RK3568B2), GStreamer 1.28.7 v4l2sl decoders:
+>=20
+>  JCT-VC-HEVC_V1   142/147
+>  JVT-AVC_V1       129/135
+>  JVT-FR-EXT        65/69
+>=20
+> HEVC failures: PICSIZE_A/B/C/D_Bossen_1 are coded at up to 8440 luma
+> samples in one dimension, beyond the 4096x2304 limit of the decoder.
+> TSUNEQBD_A_MAIN10_Technicolor_2 has unequal luma and chroma bit depth,
+> which the driver rejects for every variant.
+>=20
+> H.264 failures: CVFC1_Sony_C, FM1_BT_B, FM1_FT_E, SP1_BT_A, sp2_bt_b
+> and FM2_SVA_C fail in JVT-AVC_V1; the Hantro G1 of the same board
+> fails the same six with the same GStreamer. In JVT-FR-EXT
+> Hi422FREXT17_SONY_A, Hi422FREXT19_SONY_A, HPCAMOLQ_BRCM_B and
+> HPCVMOLQ_BRCM_B fail; the two BRCM vectors fail on the Hantro G1 as
+> well, the two Hi422 intra profile vectors are not understood yet.
+>=20
+> SAODBLK_A/B_MainConcept_4 and FREH10-1/2 are counted as passes: they
+> decode correctly and exceed the default 60 s fluster timeout only
+> because the checksum is computed from an uncached mapping of the
+> capture buffers.
+>=20
+> Patch 3 is what makes the score deterministic. With the read caches
+> left in their reset state, RAP_B_Bossen_2, WPP_D_ericsson_MAIN_2,
+> WPP_D_ericsson_MAIN10_2, WPP_E_ericsson_MAIN_2 (HEVC) and
+> CAPM3_Sony_D, MR8_BT_B, MR9_BT_B, NRF_MW_E (H.264) produce wrong
+> output in three runs out of three; with the patch they pass in three
+> out of three. This is likely the source of the artefacts reported
+> against v3. The function is shared with the VDPU381, where the cache
+> block is mapped by the binding already. The series has been run on
+> the RK3588 as well as on the RK3568.
+>=20
+> Decode rates with the series: HEVC Main 2160p 92 fps, Main10 2160p
+> 77 fps, Main 1080p 380 fps, H.264 High 1080p 197 fps.
+>=20
+> Patch 5 is kept apart from the node it modifies because the existing
+> Tested-by tags were given at the v3 clock rates, and so that it can be
+> dropped on its own.
+>=20
+> On the row and column buffer sizes raised in the v3 review [3]: the
+> MPP library uses one vdpu34x HAL with one set of size formulas for the
+> RK356x and the RK3588, so the variant keeps vdpu381_rcb_sizes.
+>=20
+> Known limits, none of them introduced here:
+>=20
+> - FFmpeg's v4l2-request hwaccel does not set the HEVC EXT_SPS_ST_RPS
+>  and EXT_SPS_LT_RPS controls, so HEVC through FFmpeg decodes wrongly
+>  on this decoder as on the VDPU381 ("Long and short term RPS not
+>  set"). The handling of these controls is also the subject of [6].
+> - A decode error on such a stream ends in the IOMMU page faults and
+>  the oops reported against v3 [4]. The cause is in the error path
+>  shared by all variants: the interrupt handler restores the IOMMU
+>  while the watchdog is still armed, and the watchdog starts the next
+>  job while the IOMMU is detached. "media: rkvdec: Handle interrupts
+>  without a current context" [5] covers the oops; the remainder will
+>  be addressed separately.
+> - The Sashiko review of v4 points out that rkvdec_probe() takes the
+>  SRAM pool without a device link to its provider. This predates the
+>  series, affects all variants with an sram property and will be sent
+>  as a separate fix.
+
+FFmpeg: https://github.com/chewitt/FFmpeg/commits/armsoc-9.0.2/
+
+This contains Jonas' current v4l2_request series plus Detlevs patch
+and relevant work on deinterlacing and fixes for issues found from
+testing on Allwinner/Amlogic/RPi/Rockchip implementations. We even
+started work on UAPI for VC1. Unfortunately we are in a holding pattern
+waiting patiently for Jonas to resume his series and fold fixes in
+(rather than shanghai the series).
+
+> Patches 3 and 5 were written with the help of an LLM coding assistant,
+> which also performed the comparison with the vendor sources. It was
+> asked to review the v3 series against the vendor driver and to
+> complete it, and for v5 to go through the v4 feedback, fold the fixups
+> and revise the commit messages. The conformance and A/B runs above
+> were done on the board with builds of v4 on Linux 6.18; v5 differs
+> from v4 in the order of two writes to the device tree source and in
+> one node name, the driver code is unchanged.
+
+IMHO there is way too much word-salad and blogging the journey in this
+cover-letter. Concise text and brevity is a virtue. You should also be
+working against a current kernel.
+
+> Changes since v4:
+> - Fold "media: rkvdec: vdpu346: Limit HEVC EXT SPS RPS dimensions"
+>  into "media: rkvdec: Add support for the VDPU346 variant", so that
+>  no commit registers 65 element controls
+> - Fold "arm64: dts: rockchip: rk356x: Order vdec regs by address" into
+>  "arm64: dts: rockchip: Add the vdpu346 Video Decoders on RK356X"
+> - Name the SRAM pool node codec-sram as on the RK3588
+> - Read caches: shorten the commit message and state that the cache
+>  block is mapped for the VDPU383 as well
+> - 400 MHz: state that the rate applies to all streams
+> - Cc the reviewers and testers of v3
+>=20
+> Changes since v3:
+> - Add "media: rkvdec: vdpu381: Program the read caches"
+> - Add "arm64: dts: rockchip: rk356x: Clock the vdec at 400 MHz"
+> - Register the HEVC EXT SPS RPS controls with 64 and 32 elements
+> - List the vdec register blocks as link, function, cache
+> - Add fluster scores and failure analysis
+> - Add Tested-by from Diederik de Haas
+>=20
+> v4: =
+https://lore.kernel.org/r/cover.1794654074.git.daniel@makrotopia.org
+> v3: =
+https://lore.kernel.org/r/20260110053727.2295260-1-christianshewitt@gmail.=
+com
+> v2: =
+https://lore.kernel.org/r/20251226113140.573759-1-christianshewitt@gmail.c=
+om
+>=20
+> [1] =
+https://lore.kernel.org/r/20260110053727.2295260-1-christianshewitt@gmail.=
+com
+> [2] =
+https://lore.kernel.org/r/cover.1794654074.git.daniel@makrotopia.org
+> [3] =
+https://lore.kernel.org/r/DFL5TY0QQNMN.1RS04UM9D1V8S@cknow-tech.com
+> [4] =
+https://lore.kernel.org/r/DFRU6ODDM71P.3NQGLRK8IVDUY@cknow-tech.com
+> [5] =
+https://lore.kernel.org/r/20261026124808.642373-1-a.kazinsky@ideco.ru
+> [6] =
+https://lore.kernel.org/r/cover.1794645268.git.daniel@makrotopia.org
+>=20
+> Christian Hewitt (3):
+>  media: dt-bindings: rockchip: Add RK3568 Video Decoder bindings
+>  media: rkvdec: Add support for the VDPU346 variant
+>  arm64: dts: rockchip: Add the vdpu346 Video Decoders on RK356X
+>=20
+> Daniel Golle (2):
+>  media: rkvdec: vdpu381: Program the read caches
+>  arm64: dts: rockchip: rk356x: Clock the vdec at 400 MHz
+>=20
+> .../bindings/media/rockchip,vdec.yaml         |   2 +
+> arch/arm64/boot/dts/rockchip/rk356x-base.dtsi |  49 +++++++
+> .../rockchip/rkvdec/rkvdec-vdpu381-h264.c     |   2 +
+> .../rockchip/rkvdec/rkvdec-vdpu381-hevc.c     |   2 +
+> .../rockchip/rkvdec/rkvdec-vdpu381-regs.h     |   9 ++
+> .../media/platform/rockchip/rkvdec/rkvdec.c   | 121 ++++++++++++++++++
+> .../media/platform/rockchip/rkvdec/rkvdec.h   |   2 +
+> 7 files changed, 187 insertions(+)
+>=20
+>=20
+> base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
+> --=20
+> 2.56.1
 
