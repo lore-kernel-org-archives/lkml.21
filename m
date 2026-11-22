@@ -1,76 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795323208;
-	b=qEaJPJdkd6tDPnsLtQ4QO31HTwWP+924bEzPiE9GOtgrhhw4q87fkoYXmnkAsEfDNIYj
-	 vG3ZDRlJ0kdWglwT6TFXNRwFof38g1DbavhPVN9cbll79NWqMOcouQCaJvsleXvAfrXwP
-	 PoZ6DWkecqJV84MZKVjKgGobpWPQQG1JYDffWIsF12WZoj0cdZZg9/MEqwFo/aPDCKYDy
-	 4uQfyQLzfAm/o3ck4SNu2K+wpW1sbGFWIxLQPgKsj58kX1PEzqCoy50y0Xop5L10Aaqye
-	 I6LTObxqjEm2WRtVXR8C/RmL5QpNKw7moXaTc4KIXdYZCHJDSiKMRXzwGIBqQR1VjrQ==
+	t=1795323211;
+	b=mFWgzheD8OnF3B6sTz83v+VIPYpX/yVrtPx7qCU2XTKH748lvJoCIRbrnjiumBK5Bcz9
+	 5FkC+vBghfunxame+ZaxK9SgcFrOOCewsSA5Cer6B/HBOh0LyFjDrSluopWLUY6qm8Dnh
+	 /b+9mSeOdeGtokc7eoJrqt0Asp/ZEhWVNhCIxv2Qsbw2Hmfrz+Pz0QWcKcLNicV/dsplT
+	 bMc/FjRVHqtOKvMKDZtiRPDiFGUeBnovq5gwnvkNinsP53g03o3V0UyQQwEg4LV5SlBK4
+	 ugOSCSNmlQnOXLTgKPyv8wEsOlm4GLQGf/N89QtMewA3ViEOuG8admU90YU7PtkPZ3g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795323208;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795323211;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=R+8LakRjMdDQ9LrYjApbpVrM7y/vhgkxVS30t5HKZuE=;
-	b=y4xjNH5C7A4mL9e6T2/eDzeSfb7gsbJmaPU8emZKA0/ESkjiiJfRBq/GP60IpJrCXZva
-	 Z+oR7kcxJESzYJfJCHHU4H0qKvMAcsaphkxqCV3LicZczN19ju/h2uJPrZbcN7229UksP
-	 Z42RG7lzGMUz3HF4pZFNsLTnAjY2EGTiupUjvtyCcnT/06UlHvnEZooRG34oUVy98bmX+
-	 kiqa1o9QQDhOc6V4BG82z/IMksmZQyWpUbQptkFL4bA1w/z5D25uoG7EIK4vYpl4qkGYy
-	 yZgcoGB4usEY8CM3OvhqYpvMogfPL51cNj+mu2QYU59vQmZQblQf+rCsquTQ75wSBxg==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=pDpU6PvkkR9T5YMpWrxr6Vm8fDQspCIPlW5JeeJkxnA=;
+	b=AsZWRFB+N5tEpNo4E5VaYL24uIrNp8MO/Bb+I+Ycw8FNTQAMEgB6ocmRhM+a8wAf7BuF
+	 o1/W2J1p2+axxsq5l9T7/7BOYEOJ2+iBVqJl5NlBoz1PZ5Y5l/RSnNAUcUBMXL+xTp0NF
+	 fdHiUL3UPwhIZeGmsvkrPi96QR8vHmMA15cnm/2nXsld0ijLmJf0X2UwF5hkPo6LcOE3e
+	 JtjjNd5BjgJM6MZWaiZGjAjJj9u9ScB/Unm+qFwr5nQOORsThg6VSoVYshGRGHndgPE5b
+	 rtPAux73rF+s8cudzrYcOzZNjlB7hAHWH73vWgyB9bB3hD6eTzo50kCFdjRLS1AGoDg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pX6EuxDD;
-	arc=none smtp.remote-ip=74.125.82.197
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=RNqyiKh3;
+	arc=none smtp.remote-ip=74.125.82.199
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48F4D606A339
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:53:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48F4D606A339
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 593EB606A338
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:53:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 593EB606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pX6EuxDD
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-382af5cfc58so6709201eec.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:53:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=RNqyiKh3
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-384c78aa0dbso3202513eec.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:53:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795323206; x=1795928006; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=R+8LakRjMdDQ9LrYjApbpVrM7y/vhgkxVS30t5HKZuE=;
-        b=pX6EuxDDH0Ys18jiyCaxzaWvZaozaHYjsrzEBLW+b10wT8Vaxjf7inpy7niBolsu9i
-         TZn6TAxx8aC+7VdxvaUJxCYTfa/7MNWvj5OhvNWWabLPNmsgCiQ9B4UAA+5e6m1kpvaA
-         6UxFDjxHI6TlJHiUtX7AA/jzFM5DS5vGom9NCB99eW1o+3K0Ku93jHjEmqcqcOPxNntY
-         vXSMq06ZH6fJlXnIvr7M25FWmtzCRvi8liuTK+KyGq/w/ffEp9fxwqhsmCdKG9iwvC6s
-         GpfiD3RTFS56C7q/UNGDFL/M25ztFp6o4/lJi+MV1kgpqO+3ERGZR0dT/jlAjbgZuwsA
-         X7wg==
+        d=google.com; s=20260707; t=1795323210; x=1795928010; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pDpU6PvkkR9T5YMpWrxr6Vm8fDQspCIPlW5JeeJkxnA=;
+        b=RNqyiKh3LlN9xhq9jphMzBVO1T+UboaR0iWld1TeuvzSCSfci4yP1E8BCwOl7QtIy1
+         qRj9AibZlaL01lX3HvTncb+JCjAlfm1nggMgvK2XwW1+rfRKOqrDHYOKoSCXepACFk8I
+         kdcFYwow33B8QEhDb7MHuXyswa57cl1Kx8OEgorox1LiXBbKhTZySsi6KW0xWo1W0sc6
+         yAGRNvFMmDJv/kkbU9X1L4RtEurmf8Vouf6DX2QB1oJ22YEpcnONi2V1y8r1UkwovzVW
+         Le5bUxIeS3XNO/rr1VI0LYR9a11JMz416iKUK5fLZcdxql8TqqL2HocuFWPxxWoQBVFT
+         pROw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795323206; x=1795928006;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date
+        d=1e100.net; s=20260707; t=1795323210; x=1795928010;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=R+8LakRjMdDQ9LrYjApbpVrM7y/vhgkxVS30t5HKZuE=;
-        b=uuS9rpRBH0Tiij5JCOzILO6MgPzZGZcvqdbrCUUVL+PNFaE0zyebfHELkY/uE1X2OC
-         z34M3WG8kKxN9LSfVh40VC0jcj8qFWEMJ30OVUmFKLDNz+sbn4R4vXIbQD3NkMu7bPUO
-         4jnjSA7t28vrq6IrOZlE1dlgbL/Z2PM6KG2eKwCuJrKjKF3wOLdvtC2TTHfjN3NPZcat
-         Qyj0PnvqSBtgz0JaVtxCLn42DExIq7l/iEigEyydPfw4VQerX+3Ik3h2rAxxPFDfmZyo
-         eUG3jKXXiIBng+//8qLJgMOC1WMA/NoxmlM7uMjdbC7FjaH92e8a2iiWZLKGf+6qRXIG
-         E2ww==
-X-Forwarded-Encrypted: i=1; AL+hErEVOcRT9AI4AuXxnFmIe5JfSG6FT0bz71KfiR9fQiQvnC2MLhL7X02VDF9h3PvSl0LXJeBx3ayjcgnTjlY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Swz2x6c26XEKW2qy3AiLUsUDAZhbNrdvq/Tb8hAuUAW+PTllb
-	JmdVZQydFFiP3pS2CwlyQ74upw7GZXVPgk398ifN3b78+h4A9eJtM7HTyKZAjgG9QPDKKR8ubUX
-	hO5cGqIFXAg==
-X-Received: from dyvp7.prod.google.com ([2002:a05:693c:8847:b0:386:9ad3:91d])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:fd06:b0:369:f05d:6c5c
- with SMTP id 5a478bee46e88-3856f549471mr8286070eec.28.1795323206053; Sat, 21
- Nov 2026 20:53:26 -0800 (PST)
-Date: Sat, 21 Nov 2026 20:53:17 -0800
-In-Reply-To: <20261122045319.18651-1-irogers@google.com>
+        bh=pDpU6PvkkR9T5YMpWrxr6Vm8fDQspCIPlW5JeeJkxnA=;
+        b=KUZtk1x1Tg4FCFBJYuf8jMpZJKhoDpvzM3GjqUHy67/dSQBDwM2bIXwlK2NqSVNW+T
+         61uDhUcBOUpCpbu1W8KkakwpzcZoQ9LxSzealR+w2ivopGfzrvQT47Uma/i0dGfnYfh6
+         PdSY2RinT2MDzLyQSW81UzgXzD1SabdcrFp8Y82JgM1cDHBsjgvRvOjLZeDgwjt5mLnb
+         lxbaKqSF+xbN8OI1ozHFi5cApbOLaOuxntyhPkgL2DRcB8OUzn8zS/2iYoLJdjAAoIsF
+         NIS+jaD8IOsiCNMgXTLFrrjuTtaqQlVUqY6ZJqlR6xBx8aE4GlNPU/A9zTvivd7zzfGz
+         VqEA==
+X-Forwarded-Encrypted: i=1; AL+hErFmnbL6p/vJfTyz7xe+TabubKa0LpchjDTq7zlBDERIKT+vtlE0sNXLtv/8+sQX+Ep84/wHcB/j+NnlYtU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9+MoHZSszZNbltVVKkbvJo+tSfvjcq7XxRksYKEblS24vl2wew
+	BIT2Tu1XCBr/KN99SsFlcdtR835KesHSYDP03mA1l5wi6cvF2vNTkLxTOfz2EGe4XMYrjTOVlbr
+	j4odX2bq/sw==
+X-Received: from dlbtu1.prod.google.com ([2002:a05:7022:3c01:b0:197:f679:f62d])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:290:b0:1b5:dc3:209b
+ with SMTP id a92af1059eb24-1b5568ac6b0mr7480933c88.22.1795323210085; Sat, 21
+ Nov 2026 20:53:30 -0800 (PST)
+Date: Sat, 21 Nov 2026 20:53:26 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,60 +76,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261122045319.18651-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261122045319.18651-3-irogers@google.com>
-Subject: [PATCH v2 2/2] drm/amdgpu: initialize r in amdgpu_ttm_clear_buffer()
+Message-ID: <20261122045326.19641-1-irogers@google.com>
+Subject: [PATCH net-next v2] tg3: Propagate PHY reset retry failures in tg3_phy_reset_5703_4_5()
 From: Ian Rogers <irogers@google.com>
-To: Alex Deucher <alexander.deucher@amd.com>, 
-	"=?UTF-8?q?Christian=20K=C3=B6nig?=" <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>
-Cc: amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+To: Pavan Chebbi <pavan.chebbi@broadcom.com>, Michael Chan <michael.chan@broadcom.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
 	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-In amdgpu_ttm_clear_buffer(), 'r' is declared uninitialized. When
-consider_clear_status is true (such as AMDGPU_GEM_CREATE_VRAM_CLEARED
-allocations) and all backing buddy blocks already have DRM_BUDDY_CLEARED
-set, every iteration of the cursor loop hits 'continue' without assigning
-'r', returning uninitialized stack memory to amdgpu_bo_create().
+In tg3_phy_reset_5703_4_5(), the 10-iteration retry loop discards the
+return value of both tg3_readphy() calls on continue and never checks
+err after the loop terminates. If MDIO reads fail across all 10
+retries, phy9_orig is never initialized before being written back to
+MII_CTRL1000; if tg3_phy_write_and_check_testpat() fails across all 10
+retries, the function silently continues as if the PHY test pattern
+succeeded.
 
-Set 'r =3D 0' after the cursor loop directly before the 'error:' label.
+Record err on both tg3_readphy() calls and return err if the retry
+loop finishes with an error so dead MDIO hardware fails probe cleanly
+via tg3_phy_probe(), and zero-initialize phy9_orig since Clang's
+value-insensitive -Wconditional-uninitialized check does not correlate
+the earlier continue on err != 0 with the post-loop 'if (err)' check.
 
-Found via an x86_64 LLVM=3D1 (Clang 21.1.8) allyesconfig audit with
--Wconditional-uninitialized enabled; fix and changelog drafted with an AI
-coding assistant. Build-tested under LLVM=3D1 W=3D1 (-Werror) and
--Wconditional-uninitialized; not runtime-tested on AMD GPU hardware.
+Found via Clang -Wconditional-uninitialized on an x86_64 allyesconfig
+build with AI coding assistant help. Verified by building
+drivers/net/ethernet/broadcom/tg3.o with LLVM=1 W=1 (-Werror) and
+-Wconditional-uninitialized; not runtime-tested on BCM5703/5704/5705
+hardware.
 
-Fixes: 23bd7e67961e ("drm/amdgpu: get rid of amdgpu_ttm_clear_buffer")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
 
 Notes:
     v2:
-      - Set 'r =3D 0;' directly before the 'error:' label instead of
-        initializing 'r' at declaration (Christian K=C3=B6nig).
+      - Target net-next and drop the Fixes tag (Andrew Lunn).
+      - Also zero-initialize phy9_orig so Clang's value-insensitive
+        -Wconditional-uninitialized check sees no uninitialized CFG path across
+        the earlier 'continue'.
+    
+    v1: https://lore.kernel.org/r/20261119171021.1535172-1-irogers@google.com
 
- drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/net/ethernet/broadcom/tg3.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c b/drivers/gpu/drm/amd/=
-amdgpu/amdgpu_ttm.c
-index 0f86777250fc..693f25285f2f 100644
---- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c
-+++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c
-@@ -2711,6 +2711,8 @@ int amdgpu_ttm_clear_buffer(struct amdgpu_ttm_buffer_=
-entity *entity,
-=20
- 		amdgpu_res_next(&dst, cur_size);
- 	}
-+	r =3D 0;
+diff --git a/drivers/net/ethernet/broadcom/tg3.c b/drivers/net/ethernet/broadcom/tg3.c
+index 95827df4cf6a..4d375328621c 100644
+--- a/drivers/net/ethernet/broadcom/tg3.c
++++ b/drivers/net/ethernet/broadcom/tg3.c
+@@ -2544,7 +2544,7 @@ static int tg3_phy_reset_chanpat(struct tg3 *tp)
+ 
+ static int tg3_phy_reset_5703_4_5(struct tg3 *tp)
+ {
+-	u32 reg32, phy9_orig;
++	u32 reg32, phy9_orig = 0;
+ 	int retries, do_phy_reset, err;
+ 
+ 	retries = 10;
+@@ -2558,7 +2558,8 @@ static int tg3_phy_reset_5703_4_5(struct tg3 *tp)
+ 		}
+ 
+ 		/* Disable transmitter and interrupt.  */
+-		if (tg3_readphy(tp, MII_TG3_EXT_CTRL, &reg32))
++		err = tg3_readphy(tp, MII_TG3_EXT_CTRL, &reg32);
++		if (err)
+ 			continue;
+ 
+ 		reg32 |= 0x3000;
+@@ -2569,7 +2570,8 @@ static int tg3_phy_reset_5703_4_5(struct tg3 *tp)
+ 			     BMCR_FULLDPLX | BMCR_SPEED1000);
+ 
+ 		/* Set to master mode.  */
+-		if (tg3_readphy(tp, MII_CTRL1000, &phy9_orig))
++		err = tg3_readphy(tp, MII_CTRL1000, &phy9_orig);
++		if (err)
+ 			continue;
+ 
+ 		tg3_writephy(tp, MII_CTRL1000,
+@@ -2587,6 +2589,9 @@ static int tg3_phy_reset_5703_4_5(struct tg3 *tp)
+ 			break;
+ 	} while (--retries);
+ 
++	if (err)
++		return err;
 +
- error:
- 	mutex_unlock(&entity->lock);
- 	*out_fence =3D fence;
---=20
+ 	err = tg3_phy_reset_chanpat(tp);
+ 	if (err)
+ 		return err;
+-- 
 2.56.1.750.gf70dc682cf-goog
 
