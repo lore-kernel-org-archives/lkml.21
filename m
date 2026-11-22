@@ -1,95 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795350022;
-	b=BvPRdWwkPq0QoLJicVFMMCBxpJoNxZwmsktmf8IDSVJhsmvMnB/ykq46hccWH5OjNqd6
-	 vevzg2Yq1fhuKV2u2IV8LpxT/FFEuefHkrzGX+sFr9fjmLeqbAQUf4rBTBAbLsgb6uhaK
-	 VNr7jhyhvU9OGTLTXa+PoBHJN+I+fDXOi515XGH2C/5eQwma3xlf5tgRfcLtmAUMufCMR
-	 6fnCiIeg13ihB9dUJXXT4ShV4XyiRXbLDFJYKMovvHMJQbGBOGV5ucT1qHEflD89hneyU
-	 f7z4bOzAXYjWNHxTwbUxTmLqav3aeJiFLOEukeDM7w+SurFTAxa+H72XkXTPqNY4E0A==
+	t=1795350346;
+	b=kfunKNm++1Qz4AvU9xJFJqfKzeiKdVk0MjLegtYm5UeNn1lHOeGjEecuHNkFuDiWP9VR
+	 TTJ20s0XmZVJED1tbRT9KCPre2xY8KyHwF5YyQzVJqJCjkRI77tIzUBEh06vT3dAxZhs/
+	 6a9vvRV+WTxiU7roAq13BL/XU1EEYcmop5G8c82twc41/DLUi7NZ9FvRBC8tHq+jLfEne
+	 I/GS6E8v6XlvJT8Q+skpFuh5tNG9/Yl3/LRcfPWR/mpVCXomK+P9z7QfbZUDqoTcPfhwr
+	 jx1XlKSlim75BMEhlqp0cLfYx0YBmtl7jKIlHNLXU+nkZ+tksj88Xg6nTVoB6sxnCcA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795350022;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=HBuf3DEB5ZqlJpvGsQMe7eJ7vutfXuN9J2TgjKjXyjY=;
-	b=fJjcyjitcBPLT6OqjVziY77ymdCuwQ2ebi+aDO/ava2XQuzGL76j3cudLWiIZlPwAXVM
-	 LZF1rRBnMoOeteo4ujO0bRCpuknA/vlxUowdAJVtcn1Qw5cJ/XdOv9nHnRVmrcmlLhAsz
-	 3mERw30eVS+aHN0/worN7glU7X9ufn0tcCkdPOBoHn9Q7W4ifpzx93X5YfPWiceobYcxm
-	 NybDR1V6/CixyBtYxzzrbZc4z5xoZrz3mK0ARlz3hDnzLDoWVxTX22UNtMGraDbYVJMDL
-	 ws8o9eK/oAOb3bAYbmPud/phl0/Uc6W6cP850opi16mFEMwg6/f1et5Vjxxs+y6D3jQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795350346;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=pJB7tJzn9xEnQukbyKifEkc3rdZ7N4F140lGpT0ocOk=;
+	b=QiRNPV1cs4aH+qBHkRJSOGnnge0mRN7ItFO7MQrRDZ8d4KRP1lqmsLdZfk4BHkZaWdxW
+	 2tVeIDeT1b/HMl0re7EsGnNBB0I0v0pYbf+LySeND2RvH7gXeh0pj6QJnnFn7PqnQXUxZ
+	 8wixUbvoZbnDeIq+7g5TQKPr4F+KnYLhMD6HPXOdezrSzD88nfgx+btyx5Up+FWuThKBC
+	 c1LDc1J3Rq1gBBcs0HATcmjf7OMymVaOguSa8Gh28sZ936EAVckeO8Sr3f68UVTkDGakh
+	 LyBdeqB3XtJVktXjnrWP6Zc7IcU+uxTpgggA4gSaqNYzwm6Mhybk62ELhdNxrgwjy+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uf90EpJA;
-	arc=none smtp.remote-ip=209.85.210.45
-Received: from mail-ot1-f45.google.com (mail-ot1-f45.google.com [209.85.210.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=llE4Xxag;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BEB3606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:20:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7BEB3606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5B5B606A320;
+	Sun, 22 Nov 2026 12:25:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uf90EpJA
-Received: by mail-ot1-f45.google.com with SMTP id 46e09a7af769-8631e07b756so1166557a34.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:20:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795350021; x=1795954821; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HBuf3DEB5ZqlJpvGsQMe7eJ7vutfXuN9J2TgjKjXyjY=;
-        b=uf90EpJAVSpFRpRE5y7+9rDwPqPb5Z0mfYHI5ulJumfzGF+f4CzcJBY/iKu29fmAYd
-         UzFmdgG09XFVXEf95GCeOBfPb3L3LXOBG1jN2s8uAnj9Oro4r+8fVUOV3LR5hy7uZVxW
-         0Bv1oR0Ahmv8AkBbOrsADBOKhYGSBC1TrH9WWIfc4cR1hSaj3iEqcfOYc5yfrvjZtRYI
-         1MDwWwn29HdCcWLOp0EgmJEFdRuAaVWD6gBaLdxN4dB7kNDtKL5aWxnVnFxEEItnahr+
-         liy1sgoP2IXMG8UEDXeFXHm5ONhZ29R+1D7P4vO4xzUcX1Y4uwCOyv255cOwXZmYGK0d
-         BW7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795350021; x=1795954821;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HBuf3DEB5ZqlJpvGsQMe7eJ7vutfXuN9J2TgjKjXyjY=;
-        b=i9CMaNfOmAMIucP1mpxzL3JbshxqtxAuI56cCDOj6Kt8IwYLbVCRk87q7y3Qb13Q0W
-         8PfByczQqJSUZcvWqpcXL/WfWr3VNCR8KPam+I4nLB+DPh6WmBxRu6N4Nb7TQjgwE9MV
-         Z6190ZIeHJeg4EYHSmNzGdIPZB6s4rDsoBHChedaXPjOMSQctZ5vLZsD3z4jqsOudEnl
-         Zttg2uLak3cBiEjOAzjDjL5vmwqJyAz4MVB7S+3d1lLnZXWc1Lufc5/dpC8aWNCzz3bo
-         XxRVIKmav2oiK8GdQV41nmXx8rIX/fiSJMtm4sOh2g4K67NLTp19KkV75C1jzaPzYGsi
-         53lQ==
-X-Gm-Message-State: APuU4Z+sgLbqMr1HUmnnNzMuqb0mySujx7BphOICpAW95HyTXAGRL0Ge
-	NW+bExf5PHEwzZHN96AUEAosvFbO/xVl3QlEBSvc80/0gOcMwbWHoXEm
-X-Gm-Gg: AZFdTZc5O+92W2HAAAsYlLw6FLNO9NXoWUCzP7XUgkcGdC7NPuX3RBptCOsxGK2Zmop
-	KUyUTZXBQY8sBp58rP2BxGVCL/L4ogJMzkIRBOgQqaVsJGYtc7KhTt6x5fbDo96OAKJGbnkUgG1
-	zMTCxNoRWTNW7ez4E0CoFHXSKBF1yOjGXde/LNPE0aWcu/V5fHdAeiSOhA2JSQIPJF8sPR8QiRi
-	so+wJOpdwd3IslJ/qgODff+/pdioK21Gke3Ot2dVr9dJ/00Kx+DvBsS5qAuI0B2JONZo1l25+o9
-	zWg65B3KMqcsuI1GIjf3cA6/ONs4kDlh9kkoN4axYwViVLtcJOtBnUqSd9iX27qD7AE8LZZm8zo
-	TjO4nkgxY9KdtnYuIoDwSXeut/QDvXQfUBZJpncosKJHdgEPkyswgRzIMaUAuR2JXcHezrJUF97
-	NX28yQrEgUM6ae43g5bY8FWo6Ki9CbK3Rxo7PvLGRMVi+VT6XHX09mtGY8h1Q2Op/uo8PgtQ8RN
-	XL5bRGaBecK163CmLoyjNFuBWj7nWO8eRcAdmn3SGXGXrJCYR8+A7TomyapSmEsmwlKdI2+6BaA
-	4XH7vPV/d3qe3XVPMRQqfZS4CbKpCauinwR2QHQ7Y9w=
-X-Received: by 2002:a05:6808:1305:b0:4c4:d8a0:2773 with SMTP id 5614622812f47-57a0a9142cfmr9672467b6e.32.1795350021271;
-        Sun, 22 Nov 2026 04:20:21 -0800 (PST)
-Received: from localhost.localdomain ([121.134.184.225])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a35655a5bsm6734024b6e.13.2026.11.22.04.20.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 04:20:20 -0800 (PST)
-From: Unsung Lee <unsung0317@gmail.com>
-To: linux-cxl@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Dave Jiang <dave.jiang@intel.com>,
-	Alison Schofield <alison.schofield@intel.com>,
-	Vishal Verma <vishal.l.verma@intel.com>,
-	Dan Williams <djbw@kernel.org>,
-	Ira Weiny <iweiny@kernel.org>,
-	Li Ming <ming.li@zohomail.com>
-Subject: [PATCH] cxl/port: Do not queue a memdev detach when the memdev unbinds itself
-Date: Sun, 22 Nov 2026 21:20:14 +0900
-Message-Id: <20261122122014.2194208-1-unsung0317@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=llE4Xxag
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D8671F000C0;
+	Sun, 22 Nov 2026 12:25:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795350346;
+	bh=pJB7tJzn9xEnQukbyKifEkc3rdZ7N4F140lGpT0ocOk=;
+	h=From:To:Cc:Subject:Date;
+	b=llE4XxagBGO2ugmhGTd2lKhOpZP5l2mhEPIpeDG3Fs4msmQGj5yxp6e63lAEPVnxD
+	 zbJGunB5YwBvR6HSu1Y7P8VzhD/xLto1Ko1DTKxBWDp4c1bgopxDpCu0ORPBef2jmp
+	 6jX68sYGy/nvn2RAgPFhaQ5HqRwl7NmAfE+0cK49WdUGieiSUNE30WXv3GFNEo9Pj7
+	 NlZPgNei20sZ26li2YRJTTVYp/kAr1GJFVZtQl78ijuitKo1SZUG07MjgcTG+/GcXs
+	 8RT3Z6yjoWfXbaS1kWRFLaaEk0YvCAAFpm14cFsYRyHMj78+TGPmeEO03XDOHjKQKw
+	 A+OZK78YRcXDg==
+From: Miguel Ojeda <ojeda@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>,
+	rust-for-linux@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] Rust fixes for 7.4 (4th)
+Date: Sun, 22 Nov 2026 13:25:25 +0100
+Message-ID: <20261122122525.71959-1-ojeda@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,143 +70,77 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Binding a memdev to cxl_mem right after unbinding it often fails: the
-probe returns -EBUSY, or the bind succeeds and the memdev is unbound
-again a few milliseconds later. In the second case the bind write
-returns success, so nothing tells userspace that the device ended up
-unbound.
+Hi Linus,
 
-cxl_endpoint_port_probe() registers schedule_detach() as a devm action
-of the endpoint port, so that a memdev whose endpoint port, or a port
-above it, goes away is detached. Unbinding cxl_mem deletes the endpoint
-port itself (delete_endpoint()), which runs that action too and queues
-cxlmd->detach_work although the memdev is already going away.
-detach_memdev() later calls device_release_driver(&cxlmd->dev), which
-takes the device lock and releases whatever driver is bound at that
-point. A bind that runs before the work makes cxl_mem_probe() fail its
-work_pending(&cxlmd->detach_work) check with -EBUSY. A bind that is in
-progress when the work runs is released by it as soon as it completes:
+Please pull these fixes for Rust.
 
-  bash     echo mem0 > unbind: cxl_mem removes endpoint2 and its decoders
-  kworker  detach_memdev(): device_release_driver(mem0) waits for the lock
-  bash     echo mem0 > bind: cxl_mem_probe() returns 0
-  kworker  releases mem0 again, endpoint2 and its decoders go away
+They have been in linux-next for two rounds or more.
 
-Mark the memdev while delete_endpoint() removes the endpoint port and
-skip the detach in schedule_detach() then, dropping the reference the
-work would have dropped. A memdev with ->attach still gets the detach,
-since there it releases the parent device, which depends on the
-memdev being attached. Losing the endpoint port or a port above it
-otherwise still detaches the memdev as before.
+No conflicts expected.
 
-The problem was found by an automated test harness driven by an LLM
-coding assistant. The analysis and the fix are my own.
+Thanks!
 
-Fixes: 8dd2bc0f8e02 ("cxl/mem: Add the cxl_mem driver")
-Signed-off-by: Unsung Lee <unsung0317@gmail.com>
----
-Question: is the detach meant to be queued on a cxl_mem unbind too? For
-memdevs with ->attach the patch keeps it, as there it releases the
-parent; I have no such device to test.
+Cheers,
+Miguel
 
-Reproducer, as root in a QEMU guest with one type3 device
-(-M q35,cxl=on,cxl-fmw.0.targets.0=cxl.1,cxl-fmw.0.size=8G
- -object memory-backend-ram,id=vmem0,share=on,size=8G
- -device pxb-cxl,bus_nr=12,bus=pcie.0,id=cxl.1
- -device cxl-rp,port=0,bus=cxl.1,id=root_port13,chassis=0,slot=2
- -device cxl-type3,bus=root_port13,volatile-memdev=vmem0,id=cxl-vmem0):
+The following changes since commit aebb7274476403040d582c61478df8f4a7bf9cd3:
 
-  M=mem0; D=/sys/bus/cxl/drivers/cxl_mem
-  for i in $(seq 40); do
-          [ -e /sys/bus/cxl/devices/$M/driver ] || { echo $M > $D/bind; sleep 1; }
-          echo $M > $D/unbind
-          echo $M > $D/bind 2>/dev/null; rc=$?
-          sleep 1
-          [ -e /sys/bus/cxl/devices/$M/driver ] && s=bound || s=unbound
-          echo "bind rc=$rc $s"
-  done | sort | uniq -c
+  Linux 7.4-rc3 (2026-11-15 14:30:11 -0800)
 
-Without the patch 7/40 and 11/40 fail on cxl/next 32af781935 (2 of
-the 11 with the bind returning 0 and mem0 unbound after), 14/40 on
-v7.3.1.
+are available in the Git repository at:
 
-With the patch on cxl/next (release and KASAN/lockdep builds) and on
-v7.3.1 (KASAN/lockdep): 120/120 stay bound on each kernel, unbinding
-the endpoint or host bridge port still unbinds the memdev, and 3
-minutes of racing memdev and port unbind/bind gave no warnings.
+  https://git.kernel.org/pub/scm/linux/kernel/git/ojeda/linux.git tags/rust-fixes-7.4-4
 
-Not tested: memdevs with ->attach, switches, real hardware. Regions were
-only checked on v7.3.1: cxl/next creates no root decoder for QEMU's
-CFMWS (restrictions 0x2f, "cannot have both HDM-H and HDM-DB").
+for you to fetch changes up to 73bdf8773de4af2c2b7f49370191ae6d5aeddea5:
 
- drivers/cxl/core/port.c |  3 +++
- drivers/cxl/cxlmem.h    |  2 ++
- drivers/cxl/port.c      | 14 +++++++++++++-
- 3 files changed, 18 insertions(+), 1 deletion(-)
+  kbuild: rust: disable function merging unconditionally (2026-11-19 11:28:42 +0100)
 
-diff --git a/drivers/cxl/core/port.c b/drivers/cxl/core/port.c
-index fffcb9954d..4960a288a1 100644
---- a/drivers/cxl/core/port.c
-+++ b/drivers/cxl/core/port.c
-@@ -1514,9 +1514,12 @@ static void delete_endpoint(void *data)
- 
- 	scoped_guard(device, host) {
- 		if (host->driver && !endpoint->dead) {
-+			/* @cxlmd is going away, see schedule_detach() */
-+			WRITE_ONCE(cxlmd->unbinding, true);
- 			devm_release_action(host, cxl_unlink_parent_dport, endpoint);
- 			devm_release_action(host, cxl_unlink_uport, endpoint);
- 			devm_release_action(host, unregister_port, endpoint);
-+			WRITE_ONCE(cxlmd->unbinding, false);
- 		}
- 		cxlmd->endpoint = NULL;
- 	}
-diff --git a/drivers/cxl/cxlmem.h b/drivers/cxl/cxlmem.h
-index 4cf8a0f6cf..0d566b8e32 100644
---- a/drivers/cxl/cxlmem.h
-+++ b/drivers/cxl/cxlmem.h
-@@ -41,6 +41,7 @@
-  * @cdev: char dev core object for ioctl operations
-  * @cxlds: The device state backing this device
-  * @detach_work: active memdev lost a port in its ancestry
-+ * @unbinding: the endpoint goes away because this memdev is being unbound
-  * @cxl_nvb: coordinate removal of @cxl_nvd if present
-  * @cxl_nvd: optional bridge to an nvdimm if the device supports pmem
-  * @endpoint: connection to the CXL port topology for this memory device
-@@ -58,6 +59,7 @@ struct cxl_memdev {
- 	struct cdev cdev;
- 	struct cxl_dev_state *cxlds;
- 	struct work_struct detach_work;
-+	bool unbinding;
- 	struct cxl_nvdimm_bridge *cxl_nvb;
- 	struct cxl_nvdimm *cxl_nvd;
- 	struct cxl_port *endpoint;
-diff --git a/drivers/cxl/port.c b/drivers/cxl/port.c
-index 96fade0299..092b138827 100644
---- a/drivers/cxl/port.c
-+++ b/drivers/cxl/port.c
-@@ -26,8 +26,20 @@
-  * PCIe topology.
-  */
- 
--static void schedule_detach(void *cxlmd)
-+static void schedule_detach(void *data)
- {
-+	struct cxl_memdev *cxlmd = data;
-+
-+	/*
-+	 * A detach queued while @cxlmd unbinds itself would run after it
-+	 * and could release the next binding instead. With ->attach the
-+	 * detach releases the parent, which still has to happen. Read
-+	 * without the host lock when the endpoint port is unbound directly.
-+	 */
-+	if (READ_ONCE(cxlmd->unbinding) && !cxlmd->attach) {
-+		put_device(&cxlmd->dev);
-+		return;
-+	}
- 	schedule_cxl_memdev_detach(cxlmd);
- }
- 
--- 
-2.34.1
+----------------------------------------------------------------
+Rust fixes for v7.4 (4th)
 
+Toolchain and infrastructure:
+
+ - Disable function merging in all cases to fix broken MODVERSIONS
+   information with gendwarfksyms, wrong backtraces and possibly issues
+   with pahole/BTF due to lost debug information.
+
+ - x86: emit the expected 'cs' prefix for RETPOLINE builds by passing
+   the '-Zindirect-branch-cs-prefix' flag we added to 'rustc', which
+   fixes boot failures (with 'spectre_v2=retpoline,lfence') and code
+   corruption (with paranoid FineIBT).
+
+ - Fix objtool warnings for the upcoming Rust 1.101.0 (expected
+   2026-12-24) by adding more 'noreturn' functions.
+
+'kernel' crate:
+
+ - 'str' module: fix soundness issue in 'Formatter::new()' by tying the
+   returned formatter to the lifetime of its backing buffer.
+
+ - 'iov' module: fix soundness issue in 'copy_from_iter_raw()' by tying
+   the returned slice to the lifetime of the output buffer.
+
+   I suggested upstream Rust to introduce a lint for this case of the
+   lifetime elision rule, to avoid repeating this sort of mistake.
+
+----------------------------------------------------------------
+Alice Ryhl (1):
+      kbuild: rust: disable function merging unconditionally
+
+Marwan Mohamed Zein (1):
+      rust: iov: fix return lifetime of `copy_from_iter_raw()`
+
+Miguel Ojeda (2):
+      objtool/rust: add more `noreturn` Rust functions for Rust 1.101.0
+      x86/rust: use `-Zindirect-branch-cs-prefix` for RETPOLINE builds
+
+Peder Bergan (1):
+      rust: str: tie Formatter to its backing buffer
+
+ Makefile              | 4 ++--
+ arch/x86/Makefile     | 1 +
+ rust/Makefile         | 2 +-
+ rust/kernel/iov.rs    | 2 +-
+ rust/kernel/str.rs    | 4 ++--
+ tools/objtool/check.c | 4 ++++
+ 6 files changed, 11 insertions(+), 6 deletions(-)
