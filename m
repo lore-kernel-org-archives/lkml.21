@@ -1,99 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795358169;
-	b=QlP58bHhSRGHLQZ2O/Ey1vH0QsP54CWgppgVeS+KXH61j51XGRlSXyI6eY9bCo3T402m
-	 BfSJfi8U8GAi+6nshmy9HxURtTGBvLerSBI5qCbwOckulIAKfUAm1UqxG/u6bYYmEEX1n
-	 sTHk/MQvRnjy9epIVATZed6zA8muGyOu92FnbOFsILVQPcQk9JZticBtdNNTTD/sylRnG
-	 gyPL2leAjFC0HUE9Lp9tX24oOJvGQo7ZRh+gG092U6BV49emPne3IXYe4aDI+VibA/0Qf
-	 PNt1HwHHvM369DxqEdaAqQLnOcEXU9v11leOvo2XPjQKv/+tjt1BN0POZdruFPumQ+g==
+	t=1795358228;
+	b=ZqXsK463nFciIpkGjeIRqsFW435/mODaFUMunmBvEb0Hg/+JYTyb/rk3FutPQa2JHu38
+	 rQEJokYHAwuwOfpCRkzyD5QU2vqBeXpGqP7B8sAwrTI0qFRQP5rGhp2eQVCTU+imKPV/5
+	 QmQOtst2mNt6Ij/zQljVGOJK4ohDkkfGh/rdzmFuvIQOou1Puor+LV0UH0szKSUCRUTNe
+	 7b2MZDII3gFfub+2dVzYg8L81WhVq0H7N4BSFioJe4hnochfwek4mXbO4S1G3+2g6VvZe
+	 pZ+xX7S17dB4MvwzFMs3iBi4mI9qidruGNItXRajGF3zYHCMfaiTWDL/NyWNb0Z7SzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795358169;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=UwlgMhtfF4zQkD33jes8kjf3uie033JQr05RFNboNL4=;
-	b=X/I32KzR5iAa9T0YxmJ0KczGULYNichYQWK2cr4c4GGu+V5B6hkZ7PvUAtlvPumPKPJ1
-	 STNQAtm0pfmlJBLDu+oWDcDZkjc8YPBjk6QvXatuoqDKejKm91uqzOvERHn5pc68VCLXe
-	 0w/lDd34XXkD18fceNYXgKCk6iayZJ1hw9hj0RFYeec0caSrIIDABSjpac8uUdFIN2u+t
-	 gdXAu7dEjAg5mZvIbpm91c4QTJzyBphKzOowucS0c/uHjoiwh+tB4FOgbI8mv97kS4dAy
-	 1k0PzoO1tBLIoD7063mWIn3XCZFmV/HqT3EkCisypBOxKW+C3/MmZIr66MyAEqHIeJg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795358228;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=kuR2Kw8cNv8RIOa+h6iOlsgOXA09fvFgvUja95wPB5g=;
+	b=KTEI1DVGbdNml33w4XlvpRfpHJhUo2qLXPuavT5l34qe+qfethSp9k1E3L0FjYAxxKsw
+	 fz5dhl7gdEyUfovM5GajqhtMxJ/2f7pPg3N/Z/l5qpjxWZ+nG3RLUFksye0UF0Nw4DyAF
+	 +1M/gvx7NK5u3KpqespRI4/sJKZ3dvZnZbyemXIP8aPaVn+kf2cYC7SK7Fh27jdcBijug
+	 L0zrJMBcGnC3USbYYfYKdkGHyd8rQfPWTbxcsfiHiuRWa8Spb9pSmxGZscCZO4RfxH9oE
+	 uoBNupEhWLLB0Gt/FqDuHflLmHr4FETsODBSMsbTEXvoukuGGKD3fZOJqQXjOpnw1rw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=fireburn.co.uk;
-	spf=none smtp.mailfrom=fireburn.co.uk;
-	dkim=pass header.d=fireburn-co-uk.20260707.gappssmtp.com header.i=@fireburn-co-uk.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=I3PtcBJ0;
-	arc=none smtp.remote-ip=209.85.221.46
-Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Xa5/Fa4i";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B31DF606A330
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 14:36:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B31DF606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=fireburn.co.uk
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=fireburn.co.uk
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7ECD606A320;
+	Sun, 22 Nov 2026 14:37:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=fireburn-co-uk.20260707.gappssmtp.com header.i=@fireburn-co-uk.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=I3PtcBJ0
-Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so1847679f8f.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 06:36:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fireburn-co-uk.20260707.gappssmtp.com; s=20260707; t=1795358167; x=1795962967; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=UwlgMhtfF4zQkD33jes8kjf3uie033JQr05RFNboNL4=;
-        b=I3PtcBJ0exH2ZGLGqWA4fG7e53pi9gjgl9qRJVQMT5ixEAMFvDJ4uQcVCan8Ca4k4A
-         in0gcxUzdJ4ne86ycH0ppigAdD74BYWiyB1Fj1YhHQG74AXBw2gkHGBZpq6Dh/cH3Q7P
-         MGKZ+znutUY3HuxokIqmOzI6mObUYb4vpgkuFhgg5vMOovO1lUORdDtqsFuBMLKH4zmf
-         JqTjxQvu5PAZZc3O8BSzk+KDgEZPB2NydQJoSA9wosjG362XgqiFItafV6KqRvZfhoME
-         Wpq/pt6GVmnxc49G/iPPLwIpSO1qZkDLqqNxwmSADfWhtuYfJjHJ6VQl1rqZj3y63LoD
-         HhAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795358167; x=1795962967;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=UwlgMhtfF4zQkD33jes8kjf3uie033JQr05RFNboNL4=;
-        b=NOJqZff3pESVGbDCnK+Ky0xmRCx/SAslrMLrFqQ51CHq7W5XSOqbkdeKkP0fwCa7fq
-         bgDv7cW4fT8px2+xI0PSwUQoAI83vmCwVkfuuuMa98yu0W6fDJ9o2YByW2u6xvZTR6my
-         4wq8aZBNLV2ctVGrzdGdTgkqxcJlr5NKQdcmyxD3f1sbiJ7VUnJCkB2hVqrH0Wht+v/C
-         Q7g6ulY1xws1WufIwcioXUkVcQ8Td/nfA192c9qzr/XxDprAebA6PD+sO6ZjyVTUZUGV
-         cqHY0fMYMYpCCT2An09wxGYLodXT0Yr7TFcMPzKgbQnPXR01m4uVP8vOdm//jWH1j3y8
-         1hHg==
-X-Forwarded-Encrypted: i=1; AL+hErFsr09EJ9nzBZec15zH4zzHEj0pkprvNWKOJWJMaToQHyaiEPLd+7YRXBVPIxWOnYIoKQqPaMR7nWmcHV0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+9K1s8ZvMMMVgSIiIFwp+ecmbr+DZ1xGwbRRU0bPzyWwTPKQv4
-	ftOaO9mwekHgNRI+KSyT4OIopXoJQKIeKmxBUYDUY9ficEw4uBquv2+oOKSKwVNKJw==
-X-Gm-Gg: AZFdTZc6pDiSHPUqSCbbCEKI7KBeNrxet3HNnCHjRuYmBTs2dP7VutfNHWlNqQJ9mjH
-	GEa/bzfYhezmwt+ofXAeE6riC0kpkDJNyrqoYyYQOvLo2lg0KNkOAntEkyn7KR9hRVTJbAavB0G
-	fEA1NbQL46yQ5bGHKlvo/bOzjVzvqo9AZZGU0jL/x9kGD6+1RgYrXYnOeestFgMhsRVW3ZdfQq9
-	oIRrgGRBRnTM49MviT5YDmlvK6Xf84cpNvWSlvNpYMlcAbBZrpqdWnYQ1D7p1Vl8Z6ks5ndcY7T
-	6OiPOzvbUE2kZl7twCu4kZOrKr5JnPM1lmOOvRllQMHXHUrPinW0AndwinhzylbEPgOz2dwvjF5
-	c4d7lBKVSrslUdfB6cRM66SqC6xh77LCGCO2D2nPKDtnat/Wri80W03t3lnarNcDs1r3OsPJ47p
-	9aWmuTSya/5B9HBhOmEd2YKchypWiKWro5/GbO6HoUqZv8NrmSPvKKjnFjFXGx2QoPZhNBtVxSk
-	BDrQ6n1wPtIygUSBKtQiIrswhQXB6iUKU6D+vWP9CLgIjanIpP7QxqeoL4e7KIgDKrGnHkhK9O4
-	4v8XpkgC3Z/mlknbXb1WSqiIgcJohRaQT3vWm6nIV+IoVGTDhozhHLzq/pKGtA6fS7KVyNjOmXf
-	r
-X-Received: by 2002:a05:6000:4616:b0:4a8:cf12:6f34 with SMTP id ffacd0b85a97d-4abaab6318fmr18378688f8f.4.1795358166624;
-        Sun, 22 Nov 2026 06:36:06 -0800 (PST)
-Received: from axion.fireburn.co.uk ([2a01:4b00:d309:1c00:caf1:6b20:8531:818c])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fe75sm18945409f8f.24.2026.11.22.06.36.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 06:36:04 -0800 (PST)
-From: Mike Lothian <mike@fireburn.co.uk>
-To: superm1@kernel.org
-Cc: amd-gfx@lists.freedesktop.org,
-	alexander.deucher@amd.com,
-	christian.koenig@amd.com,
-	dri-devel@lists.freedesktop.org,
-	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	rafael@kernel.org
-Subject: Re: [PATCH 2/2] drm/amdgpu: handle broken dGPU hotplug GPE on ASUS ROG Strix G513QY
-Date: Sun, 22 Nov 2026 14:35:57 +0000
-Message-ID: <20261122143557.2412982-1-mike@fireburn.co.uk>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <8072db9e-0df4-4fc5-b86a-cc50ac7934a9@kernel.org>
-References: <8072db9e-0df4-4fc5-b86a-cc50ac7934a9@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xa5/Fa4i
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE5D71F000C4;
+	Sun, 22 Nov 2026 14:37:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795358227;
+	bh=kuR2Kw8cNv8RIOa+h6iOlsgOXA09fvFgvUja95wPB5g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Xa5/Fa4i8Nya/+TGNN40OP18fEPPcLRHOHVQkJRWXiOgxFK59Tcniu1NNqblz2Zj3
+	 NliIu84K4Ra0qPTS7aSkN0hxc8zB1Xrc8txLbHESWmXKGBMCWQW0+TjGdnu0S9qWz5
+	 Juv7gTFCaE4qNh+Q5W7lgoMXbE5ePF2G0dY10S2dn0OLSFJh5PlbEIN/b8l2UWFe5x
+	 P1k+LP0yxaGmXDAyqR5+KlK/8hY8zKsHAq06IowIYejHkFia6tqfPll98eTthxUgEG
+	 r+eb8sGZ5MPgw+JdvQ2nrPef2rRn1MypzqgtXYy6a0+wedBWs7GNvCFkLTWoAglSfX
+	 Kr3IXnX2GzoAg==
+Date: Sun, 22 Nov 2026 15:37:04 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Lucas Tanure <tanure@linux.com>
+Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	davem@davemloft.net, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 1/4] dt-bindings: net: amlogic,g12a-mdio-mux: add the
+ T7 compatible
+Message-ID: <20261122-brass-raven-of-serendipity-6cacb2@quoll>
+References: <20261121213102.143130-1-tanure@linux.com>
+ <20261121213102.143130-2-tanure@linux.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,12 +65,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261121213102.143130-2-tanure@linux.com>
 
-Mario,
+On Sat, Nov 21, 2026 at 09:30:59PM +0000, Lucas Tanure wrote:
+> The T7 has the same management bus multiplexer as the G12A, in front
+> of the same on-chip 100M PHY, and the G12A driver runs it unchanged.
+> But a device tree that names only the G12A string leaves no way to
+> tell the two apart later: if a difference between the two blocks
+> turns up, every T7 board would have to change its compatible to get
+> the fix.
+> 
+> Give the T7 a compatible of its own with the G12A one as fallback, so
+> the existing driver keeps binding and a T7-specific match can be added
+> without touching the boards.
 
-Thanks for the CPM _L05 quirk. I've tested it on the G513QY (BIOS G513QY.335) with the dGPU runtime-resume patch on top. The boot log shows `CPM: \_GPE._L05 notifies missing \_SB.PCI0.GPP0.VGA, using \_SB.PCI0.GPP0.SWUS.SWDS.VGA instead`, and the external displays come up after a dock attach with the dGPU in D3cold
+Drop paragraph, no need to explain obvious schema and driver is
+irrelevant here.
 
-Feel free to add my Tested-by
+> 
+> Signed-off-by: Lucas Tanure <tanure@linux.com>
+> ---
+>  .../devicetree/bindings/net/amlogic,g12a-mdio-mux.yaml      | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
 
-Mike
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Best regards,
+Krzysztof
+
