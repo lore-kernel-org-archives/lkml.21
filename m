@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795335555;
-	b=g/NQXjjmE+zjR3GFR60BN++RW7EmiaCJ0sKgqxO8fN1cKt4Bt5zsCU/JMUEL0d9s8egQ
-	 jrnSwosEnA/x6B4ITafG94WoBIOAnAga9zL8d1g6e33YTXL72i+eEFpCjPruIntmcSnKi
-	 H4YqgrHi5K3Alfcg5rpIlrboG4PXnm3JkHNKpgLU23W+GSeKwBC5FSY6effjXITzj7H3U
-	 I8muAHdg6EPgVgKlerwShrgWXvbvwOA4O/kSXEWciECqNTIHWSovv+rQWUDJAq4whVg4u
-	 NAFtuX2goE1NwtfKGnB9g8FWHmPxBLocLrO8/bvwM5+0ccySR4Iv9ttg4BUHXVClm3g==
+	t=1795335560;
+	b=q8BD7bW/ATUYyadrzKDZnXhdVQGiYmyYjDX+sge/oGoFLT55eIm8Op5BCqZxV0uIBNcx
+	 V3CvlzKl9oFkTJDXHf9ogpp6dqcTUmklhYLGRq3TdAlDmvWX1qcPWSmNm4lX1yCSm9RDZ
+	 oM/o0NhCo0QiUjEXtvSqayKkhxp8wOY9a4vggQntBGbOmv+h6MW9xYOjfbZVdJZ786jBa
+	 /Grw/XITS//+D1QC6SftZZjfq3z11Fjxe0ZUMb9NLodRiNUQb7mIKR7P7VgrCOsdgGawE
+	 1/xt2AzWW23/kICY1NYw8RmU05eovdP8k3GRd/2jakIpKo0VW3SlZJdnxDRwGR+RcVQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795335555;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795335560;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=1z7RmYK1NjDMEO9+xJDI+w73bgLEkLKZ4jmIOyAvUDw=;
-	b=u+jn8o/DUCsWomMNNSJ02CPkhQBRm8QqB1qZn9RjhX81NwUW5+2JAxUfeGbmnWDC2DhZ
-	 KmSHrT17y9vhTX0gOi/0yFaTLkZkvIM29U9lCQ9z9bezbkG5MioWI0jmQhisOGDpGbqsV
-	 617twpiPtZC8dvwjd5fZGGb75SXKUG7Am7StUkwjiVXMxrXoWsA5OrmLR8iWYKBpM7tW7
-	 vztbLuoTYDLl9LmSD42+3bJSlOrYUsce7Pm02XCqgybcMJvEhgwAoq7oGUoI3prHzlQ6U
-	 e7BcZuBTv/5c1djSIO1rdCFU0IpZ5veSsVVntH0cBGq72LaC6Z4kqN+r92j1QGqSo0Q==
+	bh=hjyur12ajqhoFXJ325tL59HYNwtHGwILqnM2WTVg2j4=;
+	b=IEv5SbiQhJMRxJo+7FoF2HQRp8fw47rVcY+ltfitRZ1HrFQb21EXkeSn8ELxx3a2cmXx
+	 1yjxS1GjXqzmgenCeTgjjmjzrtLeCt1NH8EsUnAzhheXlLVjNjBgs48GIibzAl135NHAt
+	 a+j4i1noUCa4Z0jXaHcLzP5r+T6xGYdYFzPode4x/Es73NVZ7AnDW2bM5U93Iw+lTcb9q
+	 rAQbvv3/x3yfYbnKvW7s2B0DWBkacjldXFgrTRMksPYaQeo3VkHGIkzvoJId32irDblLk
+	 mZ2x1h2LV/n/5Idn6c5tyfbymmwq34pR1bvnBYdFs5hx9VqYw25IomjnJp8vb1WnGKA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S6I0jWd4;
-	arc=none smtp.remote-ip=209.85.218.42
-Received: from mail-ej1-f42.google.com (mail-ej1-f42.google.com [209.85.218.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Nq6uOaCS;
+	arc=none smtp.remote-ip=209.85.208.42
+Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com [209.85.208.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76F46606A339
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 08:19:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76F46606A339
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52A33606A331
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 08:19:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52A33606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S6I0jWd4
-Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-c515369b627so176604066b.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 00:19:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Nq6uOaCS
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6bab10842f8so2956a12.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 00:19:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795335554; x=1795940354; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795335558; x=1795940358; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=1z7RmYK1NjDMEO9+xJDI+w73bgLEkLKZ4jmIOyAvUDw=;
-        b=S6I0jWd46JjblZGAlLs4RFsDKuFGeS94c9BZRRtzar8dwKM+p//r8lstUq4/YNmlwr
-         9lPnMQcLJO0UKcvMGbq8uv2TtdnPjflX2QXaq5BgdORQTlv0qzyY0T9l3ND/nIcMJKZy
-         qGYQ1m/qdGRKlMrAgCIm/zPTzsW2wxUwWJIDjnY/M6TOtpwgeiwoDoxx7NU8CfEvYKT0
-         WU9KY7Qd9u7Sb4q66kCmmkIAPXtjdKBGl0MObZYSTMZZeCBKHhXL5lQMq2wivfdYkvKZ
-         7Woaev+4t5Zo2IMK4uf4/dUonjt5ZdB9S77OY1/XEau2iuABQVddDxCTqxDAKG5zz609
-         63nQ==
+        bh=hjyur12ajqhoFXJ325tL59HYNwtHGwILqnM2WTVg2j4=;
+        b=Nq6uOaCS5I9GqGdXQCNXWUxTtCGew5/huqskBTd8wchbKCNbmE77nDbEAyTLA4QkJ4
+         nLumtzsryVpXb/4JloGNLhPjnQRAeFNRy92De0NkaqaB8uIS3C+RCMCTxnMLWS/ZSpaV
+         FosyMGX7YPGL+EAqJdh+NDE6bLGT9lWxju7bGvr8GvrItyWLML190mP/ocFNljyG8HyC
+         y1UG5fjyjj+U7y9SFrIGDMvSicky87RfyILc/0Oq6ZNeFwh0QuiZfv1s+rpxMOSE2wBv
+         1Pj48eJOnGGaLzSJN6ZDdkyvgGoDvHB90vsq0SsLE3lqTXu/jEj94iX67GB7LSqq3WDt
+         uQfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795335554; x=1795940354;
+        d=1e100.net; s=20260707; t=1795335558; x=1795940358;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1z7RmYK1NjDMEO9+xJDI+w73bgLEkLKZ4jmIOyAvUDw=;
-        b=it619da2aK79VVAXavytB0nXIb7Pd/Br2UyNIVfAM4dgkYT+iKnW51AGht+elESQOw
-         5Z5Joq+dYx+9txsMOccpED4HQ0vKTO4hNkWxhDCWChFzliWQoPT5TAE9Pbj15Kua9ty3
-         asBijbBnnSQUEGWZfDGSW55w4SrEGgXyDZnkiL9upPv+sLHIHIkNWKgZ7zIr1BK0M0cA
-         YV7W+9b8tfAAWBKJtFwttXcVyKy7NXGLEFq0difXUzZW8u6r9iI2vHrgVD04iXHHk8au
-         CskkgvgzoqY3ysFbSuDE7y6ovsBpHsxvqBNTdVKdshYZPXbfVNJfAb9ex1Syr5BbGOsY
-         vb8Q==
-X-Forwarded-Encrypted: i=1; AL+hErH9X4Y4zZXLYxoEmzssX2x1ZIrIgYr3FxsuBZd/4DE5fKOmmAa2b9fGeUU7HYGQs2yxA73/bOg7RXvOa4E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/5+43GXbEpmdTghj0YyLUHd6onxF2HUmyBi0EekVVI9ObDHE27
-	JbhnkHU/mKfQKNsrjuoFO+REGSUaIIujm0F/JASRWzHDnB94pdUVG4lA
-X-Gm-Gg: AZFdTZcATM8U9UfMLjhSftPnEnlGivye4+A5ijCLqcRrKHdV3iP7W0UoVj6t4e2YFor
-	CFhVMwpti3VbgIed9/qBNcg3WtSCNDMYWMSGLoFk/b3ed5P6/bFt3t4M9DOl5zU2zV5dkGFIfsz
-	HCcqYAPNKv+QnnAZX7RPdhUE9cahuCyMLIVNaEVMXGhvagrytbibuEOjSEGBozThVOlYnQaEiBo
-	+czxg2hpfj+FCJLtg6l1j2WQB5VQocASQWBZwfwLyFSKmupOIbVskZ9GuLAvqHxQmGKiUB7jecW
-	s9n0zfawIaSzv7q2Fv90ex0255Icn0mWXTvUE3dsptMeIoBpCZokjwOROUkEquDS9u5HL1uyNDU
-	Vs9EY9ryiWFPJH4EzQye4Jc/zlR1tA/37vMUN++Q7N/IypHxDyVtID5NQ7X/U8WnpyfgPK2btlG
-	aTR17z7AkUSdvFyDr8R41xQeGJ9gQ2bpMUAWwYJ/XR9z6PKPGlo/8faG2TsZ4Ck9yvo7pXkQPP9
-	QQKsyh8u1TQQfR19bEA9nvAvyxHZozGeGGf0i9g8wwTCyHkwMYGeykxAqwrfn2Z2NlGlvN+EF/L
-	fx9Mo/LjnDa6LPf6kOYc8CrPSW/JVXH44UbUec0LEqsA2mFbmuaK58/kOA6z7DtgpaqQLGbG0TC
-	VcCHACOHkTxA=
-X-Received: by 2002:a05:6402:13cb:b0:6ba:4bf3:4a2 with SMTP id 4fb4d7f45d1cf-6ba4bf305c0mr4401281a12.17.1795335553806;
-        Sun, 22 Nov 2026 00:19:13 -0800 (PST)
+        bh=hjyur12ajqhoFXJ325tL59HYNwtHGwILqnM2WTVg2j4=;
+        b=qD+WM8JA4r7q+hnAc2JNtWDu5DObsqjsIXihWwNh3Xj1ZGEaXE7PhcmVy2846z7Pl+
+         SOQ6E6asYaYoP+xCP+iqXW0WqV8Sg/75LILWMcAHlrjJ+VcYyPb8Uz2rd+7MSfXaUSKL
+         BvpqyrTa7DTcKmtozhVitzc4iuH+dlLA/fwPbx6FAkZvBhSgaUS/QaUaBR+5AHO0QEYu
+         a2CoxtFPLDxUTT1jnOD1KfowCldFv5TPGpMyPN9uECMFMCMV7agq/kqp9eRSqXBt4P9k
+         ahEsPR9ljJUoA/tZbFt0KBohXasZT2uuSZYIpVbR81PyrknFi+vcfd2QkPgyMbZhag6h
+         CMeA==
+X-Forwarded-Encrypted: i=1; AL+hErGDzZwrE4j0ZFIcnD8hD7H/CjoBdsorLtl3SqI9rBaTMd01xs6PhxBht9UtQVil3PU9ih781w2BT5w9OSs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9hpUTTXPePBC7r1XHkn/Hw9unl6bxYv1JYJ2wKItyk0QYTxXmU
+	dGNWlZtwBJk0f11QtAHWpdcRlneOOSZ+M5tT+nxm4sGSmFcYIgnVHNez
+X-Gm-Gg: AZFdTZeCZlWm6vMTGdSDDAfefS32oNMv6GUe+y8ebafUUI37862cXPcoEbcWtXXQgGJ
+	0DM97ODSNqYeNab5AqBzyTpwNis1BbjBEBNWYe65vx8tLD/OluIwWGF3nHCguRetY7wW9QJtLLt
+	K3G0nyTZDNZiDfdWvw3yyzEcP6g9m+X26o3wRTENwEhBLYVnHRgxwIs/LwMf1eSNYzkXKANcLEY
+	S4YUeA0Rl2nxKDQScEDWoTSOq9Z0UiYhwqGjhOrAimNHZjFehjvTPDuJ0za6nkn9V4qclNLqWv2
+	+jtmB5D8hlEyqJq9j10tECk4hoglJxQYyn19SgTHgRVrAUyf6Iu4M7OTCuFD82GInTvirDuqtSq
+	fdX5qqkEUZxpfGYf07VtFJifv9gIX7eIALuo0dhOAQSejWxhCWIwfmVttdEeFoWVkheyisM9K1g
+	n52lnCyX20ebD/d7ojYxYTMf0GX77lvQp3k8wDwd+AVVBrFaosVTDkoFY2JzL2tVyIkDGYzx0wU
+	H1sZFTUHmdjz+3LxZ+3OXH7R3+asE9XefWh9peW25rvENLAtDS0HQ+4ImVhD+nv0lANlWEnFk3n
+	b3pQd4vIBmy7EKWwe6CwtxSzyJYRO0rTuxHrZFELTVmgwU00Z3/GRWPX+A5EWNLJJ7XOKAQ+ETl
+	TQD3p/9Kb+g==
+X-Received: by 2002:a05:6402:4505:b0:6ba:a799:d9c9 with SMTP id 4fb4d7f45d1cf-6baa799dc56mr236336a12.2.1795335557570;
+        Sun, 22 Nov 2026 00:19:17 -0800 (PST)
 Received: from xeon ([188.163.112.62])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370e8ad0sm3617167a12.18.2026.11.22.00.19.10
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370e8ad0sm3617167a12.18.2026.11.22.00.19.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 00:19:12 -0800 (PST)
+        Sun, 22 Nov 2026 00:19:15 -0800 (PST)
 From: Svyatoslav Ryhel <clamor95@gmail.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
@@ -98,9 +98,9 @@ Cc: dri-devel@lists.freedesktop.org,
 	devicetree@vger.kernel.org,
 	linux-tegra@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v8 11/12] dt-bindings: display: tegra: Document 8-bit CPU parallel interface
-Date: Sun, 22 Nov 2026 10:18:19 +0200
-Message-ID: <20261122081820.53199-12-clamor95@gmail.com>
+Subject: [PATCH v8 12/12] drm/tegra: Add support for 8-bit CPU interface
+Date: Sun, 22 Nov 2026 10:18:20 +0200
+Message-ID: <20261122081820.53199-13-clamor95@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261122081820.53199-1-clamor95@gmail.com>
 References: <20261122081820.53199-1-clamor95@gmail.com>
@@ -115,164 +115,678 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Document 8-bit CPU parallel MIPI DBI Type B interface provided by
-Tegra20/30 SoCs display controller.
+The display controller in Tegra20/30 SoCs features an 8-bit SPI interface
+that closely resembles the MIPI DBI Type B protocol and is referred to as
+'8-bit CPU'. Each display controller provides two such interfaces, which
+can be used to send MIPI DCS commands to initialize and control the panel
+while image data is transmitted via 16/18/24-line RGB.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+The '8-bit CPU', although being the DC interface, is modeled using a
+bridge framework for flexibility and convenience. This implementation does
+not change the existing codebase besides registering the bus.
+
+Suggested-by: Mikko Perttunen <mperttunen@nvidia.com> # DC command transfer
 Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
 ---
- .../display/tegra/nvidia,tegra20-dbi.yaml     | 108 ++++++++++++++++++
- .../display/tegra/nvidia,tegra20-dc.yaml      |  15 +++
- 2 files changed, 123 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-dbi.yaml
+ drivers/gpu/drm/tegra/Kconfig  |   1 +
+ drivers/gpu/drm/tegra/Makefile |   1 +
+ drivers/gpu/drm/tegra/dbi.c    | 592 +++++++++++++++++++++++++++++++++
+ drivers/gpu/drm/tegra/dc.c     |   4 +
+ drivers/gpu/drm/tegra/dc.h     |   3 +
+ 5 files changed, 601 insertions(+)
+ create mode 100644 drivers/gpu/drm/tegra/dbi.c
 
-diff --git a/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-dbi.yaml b/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-dbi.yaml
+diff --git a/drivers/gpu/drm/tegra/Kconfig b/drivers/gpu/drm/tegra/Kconfig
+index 8a3b16aac5d68..6f57fd3985edc 100644
+--- a/drivers/gpu/drm/tegra/Kconfig
++++ b/drivers/gpu/drm/tegra/Kconfig
+@@ -12,6 +12,7 @@ config DRM_TEGRA
+ 	select DRM_BRIDGE_CONNECTOR
+ 	select DRM_DISPLAY_DP_AUX_BUS
+ 	select DRM_KMS_HELPER
++	select DRM_MIPI_DBI
+ 	select DRM_MIPI_DSI
+ 	select DRM_PANEL
+ 	select FB_DMAMEM_HELPERS if DRM_FBDEV_EMULATION
+diff --git a/drivers/gpu/drm/tegra/Makefile b/drivers/gpu/drm/tegra/Makefile
+index e399b40d64a1d..ae7fccb3d6421 100644
+--- a/drivers/gpu/drm/tegra/Makefile
++++ b/drivers/gpu/drm/tegra/Makefile
+@@ -18,6 +18,7 @@ tegra-drm-y := \
+ 	hdmi.o \
+ 	mipi-phy.o \
+ 	dsi.o \
++	dbi.o \
+ 	sor.o \
+ 	dpaux.o \
+ 	gr2d.o \
+diff --git a/drivers/gpu/drm/tegra/dbi.c b/drivers/gpu/drm/tegra/dbi.c
 new file mode 100644
-index 0000000000000..6a34202f80765
+index 0000000000000..8929f0013462a
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-dbi.yaml
-@@ -0,0 +1,108 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/tegra/nvidia,tegra20-dbi.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/gpu/drm/tegra/dbi.c
+@@ -0,0 +1,592 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Nvidia Tegra20/30 MIPI-DBI Type B host driver
++ *
++ * Copyright (C) 2026 Svyatoslav Ryhel <clamor95@gmail.com>
++ */
 +
-+title: Nvidia Tegra Display Controller based MIPI DBI Type B interface
++#include <linux/bitfield.h>
++#include <linux/cleanup.h>
++#include <linux/delay.h>
++#include <linux/device.h>
++#include <linux/err.h>
++#include <linux/iopoll.h>
++#include <linux/kernel.h>
++#include <linux/media-bus-format.h>
++#include <linux/module.h>
++#include <linux/of_platform.h>
++#include <linux/property.h>
++#include <linux/platform_device.h>
++#include <linux/string.h>
 +
-+maintainers:
-+  - Svyatoslav Ryhel <clamor95@gmail.com>
++#include <drm/drm_atomic_helper.h>
++#include <drm/drm_bridge.h>
++#include <drm/drm_drv.h>
++#include <drm/drm_mipi_dbi.h>
++#include <drm/drm_mipi_dbi_bus.h>
++#include <drm/drm_of.h>
 +
-+description: The display controller in Tegra20/30 SoCs features an
-+  8-bit SPI interface that closely resembles the MIPI DBI Type B
-+  protocol and is referred to as '8-bit CPU'. Each display controller
-+  provides two such interfaces, which can be used to send MIPI DCS
-+  commands to initialize and control the panel while image data is
-+  transmitted via 16/18/24-line RGB.
++#include <video/mipi_display.h>
 +
-+properties:
-+  nvidia,interface:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      Number of DBI interface used, 0 - primary, 1 - secondary. If
-+      property is not set, primary will be used.
-+    enum: [ 0, 1 ]
++#include "dc.h"
 +
-+  panel:
-+    type: object
-+    description: Node of supported panel driven by the bridge.
++enum tegra_dbi_dc_signal {
++	TEGRA_DBI_COMMAND,
++	TEGRA_DBI_DATA
++};
 +
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
++#define TEGRA_DBI_DATA_PINS_MAX			8
++#define TEGRA_DBI_DEFAULT_BUS_WIDTH		24
 +
-+    properties:
-+      port@0:
-+        $ref: /schemas/graph.yaml#/$defs/port-base
-+        unevaluatedProperties: false
-+        description: Video port for RGB input.
++static const u32 tegra_dbi_pin_regs[] = {
++	DC_COM_PIN_OUTPUT_ENABLE(0),
++	DC_COM_PIN_OUTPUT_ENABLE(1),
++	DC_COM_PIN_OUTPUT_ENABLE(2),
++	DC_COM_PIN_OUTPUT_ENABLE(3),
++	DC_COM_PIN_OUTPUT_POLARITY(0),
++	DC_COM_PIN_OUTPUT_POLARITY(1),
++	DC_COM_PIN_OUTPUT_POLARITY(2),
++	DC_COM_PIN_OUTPUT_POLARITY(3),
++	DC_COM_PIN_OUTPUT_DATA(0),
++	DC_COM_PIN_OUTPUT_DATA(1),
++	DC_COM_PIN_OUTPUT_DATA(2),
++	DC_COM_PIN_OUTPUT_DATA(3),
++	DC_COM_PIN_OUTPUT_SELECT(0),
++	DC_COM_PIN_OUTPUT_SELECT(1),
++	DC_COM_PIN_OUTPUT_SELECT(2),
++	DC_COM_PIN_OUTPUT_SELECT(3),
++	DC_COM_PIN_OUTPUT_SELECT(4),
++	DC_COM_PIN_OUTPUT_SELECT(5),
++	DC_COM_PIN_OUTPUT_SELECT(6),
++};
 +
-+        properties:
-+          endpoint:
-+            $ref: /schemas/graph.yaml#/$defs/endpoint-base
-+            unevaluatedProperties: false
++struct tegra_dbi_priv {
++	struct device *dev;
++	struct tegra_dc *dc;
 +
-+            properties:
-+              bus-width:
-+                enum: [ 16, 18, 24 ]
++	struct mipi_dbi dbi;
++	struct mipi_dbi_host dbi_host;
 +
-+      port@1:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Video port for DBI output (panel or connector).
++	struct drm_bridge bridge;
++	struct drm_bridge *next_bridge;
 +
-+    required:
-+      - port@0
-+      - port@1
++	const struct tegra_dbi_interface *interface;
++	u32 com_pin_backup[ARRAY_SIZE(tegra_dbi_pin_regs)];
 +
-+required:
-+  - panel
-+  - ports
++	u32 bus_width;
++	bool active;
++};
 +
-+unevaluatedProperties: false
++struct tegra_dbi_pin {
++	u32 reg;
++	u32 pos;
++};
 +
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
++struct tegra_dbi_interface {
++	struct tegra_dbi_pin dc;
++	struct tegra_dbi_pin rw;
++	struct tegra_dbi_pin cs;
++	struct tegra_dbi_pin data[TEGRA_DBI_DATA_PINS_MAX];
++	void (*init)(struct tegra_dbi_priv *priv);
++};
 +
-+    dbi {
-+        nvidia,interface = <0>;
++static inline struct tegra_dbi_priv *mipi_dbi_to_tegra_dbi(struct mipi_dbi *dbi)
++{
++	return container_of(dbi, struct tegra_dbi_priv, dbi);
++}
 +
-+        panel {
-+            compatible = "hit,tx10d07vm0baa";
++static inline struct tegra_dbi_priv *dbi_host_to_tegra_dbi(struct mipi_dbi_host *host)
++{
++	return container_of(host, struct tegra_dbi_priv, dbi_host);
++}
 +
-+            reset-gpios = <&gpio 175 GPIO_ACTIVE_LOW>;
++static inline struct tegra_dbi_priv *bridge_to_tegra_dbi(struct drm_bridge *bridge)
++{
++	return container_of(bridge, struct tegra_dbi_priv, bridge);
++}
 +
-+            avci-supply = <&vcc_2v8_lcd>;
-+            iovcc-supply = <&iovcc_1v8_lcd>;
++static void tegra_dbi_pin_set(struct tegra_dc *dc, const struct tegra_dbi_pin *pin, bool value)
++{
++	u32 val = PIN_UNMASK(pin->pos);
 +
-+            backlight = <&backlight>;
++	if (value)
++		val |= BIT(pin->pos);
 +
-+            port {
-+                panel_input: endpoint {
-+                    remote-endpoint = <&bridge_output>;
-+                };
-+            };
-+        };
++	tegra_dc_writel(dc, val, pin->reg);
++}
 +
-+        ports {
-+            #address-cells = <1>;
-+            #size-cells = <0>;
++static void tegra_dbi_write(struct tegra_dbi_priv *priv,
++			    enum tegra_dbi_dc_signal signal, u8 value)
++{
++	struct tegra_dc *dc = priv->dc;
++	const struct tegra_dbi_interface *interface = priv->interface;
 +
-+            port@0 {
-+                reg = <0>;
++	tegra_dbi_pin_set(dc, &interface->dc, signal);
 +
-+                bridge_input: endpoint {
-+                    remote-endpoint = <&dpi_output>;
-+                    bus-width = <24>;
-+                };
-+            };
++	tegra_dbi_pin_set(dc, &interface->cs, 0);
++	tegra_dbi_pin_set(dc, &interface->rw, 0);
 +
-+            port@1 {
-+                reg = <1>;
++	for (int i = 0; i < TEGRA_DBI_DATA_PINS_MAX; i++)
++		tegra_dbi_pin_set(dc, &interface->data[i], field_get(BIT(i), value));
 +
-+                bridge_output: endpoint {
-+                    remote-endpoint = <&panel_input>;
-+                };
-+            };
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-dc.yaml b/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-dc.yaml
-index 69be95afd5627..a014bf0dd508d 100644
---- a/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-dc.yaml
-+++ b/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-dc.yaml
-@@ -76,6 +76,9 @@ properties:
-     $ref: /schemas/types.yaml#/definitions/phandle-array
-     description: A list of phandles of outputs that this display controller can drive.
++	tegra_dbi_pin_set(dc, &interface->cs, 1);
++	tegra_dbi_pin_set(dc, &interface->rw, 1);
++}
++
++static int tegra_dbi_dbi_command(struct mipi_dbi *dbi, u8 *cmd, u8 *param, size_t num)
++{
++	struct tegra_dbi_priv *priv = mipi_dbi_to_tegra_dbi(dbi);
++	u8 command = *cmd;
++
++	/* Blocks all commands when interface is not active */
++	if (!priv->active)
++		return -ENODEV;
++
++	tegra_dbi_write(priv, TEGRA_DBI_COMMAND, command);
++
++	for (int i = 0; i < num; i++)
++		tegra_dbi_write(priv, TEGRA_DBI_DATA, param[i]);
++
++	return 0;
++}
++
++static int tegra_dbi_host_attach(struct mipi_dbi_host *host, struct mipi_dbi_device *dbidev)
++{
++	struct tegra_dbi_priv *priv = dbi_host_to_tegra_dbi(host);
++	struct drm_bridge *bridge;
++	struct device_node *ep;
++
++	bridge = of_drm_get_bridge_by_endpoint(priv->bridge.of_node, 1, -1);
++	if (IS_ERR(bridge))
++		return PTR_ERR(bridge);
++
++	bridge->type = DRM_MODE_CONNECTOR_DPI;
++	priv->next_bridge = bridge;
++	priv->bus_width = TEGRA_DBI_DEFAULT_BUS_WIDTH;
++
++	/* get input ep (port0/endpoint0) */
++	ep = of_graph_get_endpoint_by_regs(priv->bridge.of_node, 0, 0);
++	if (ep) {
++		of_property_read_u32(ep, "bus-width", &priv->bus_width);
++		of_node_put(ep);
++	}
++
++	return 0;
++}
++
++static void tegra_dbi_host_detach(struct mipi_dbi_host *host, struct mipi_dbi_device *dbidev)
++{
++	struct tegra_dbi_priv *priv = dbi_host_to_tegra_dbi(host);
++
++	drm_bridge_clear_and_put(&priv->next_bridge);
++}
++
++static const struct mipi_dbi_host_ops tegra_dbi_host_ops = {
++	.attach = tegra_dbi_host_attach,
++	.detach = tegra_dbi_host_detach,
++};
++
++static void tegra_dbi_atomic_enable(struct drm_bridge *bridge,
++				    struct drm_atomic_commit *state)
++{
++	struct tegra_dbi_priv *priv = bridge_to_tegra_dbi(bridge);
++	struct drm_bridge *next_bridge = priv->next_bridge;
++	struct tegra_dc *dc = priv->dc;
++	void __iomem *disp_cmd = dc->regs + (DC_CMD_DISPLAY_COMMAND << 2);
++	u32 value;
++	int ret;
++
++	value = tegra_dc_readl(dc, DC_CMD_DISPLAY_COMMAND);
++	value &= ~DISP_CTRL_MODE_MASK;
++	tegra_dc_writel(dc, value, DC_CMD_DISPLAY_COMMAND);
++
++	/* Disable all options except cursor if enabled */
++	value = tegra_dc_readl(dc, DC_DISP_DISP_WIN_OPTIONS);
++	value &= CURSOR_ENABLE;
++	tegra_dc_writel(dc, value, DC_DISP_DISP_WIN_OPTIONS);
++
++	tegra_dc_commit(dc);
++
++	/* Ensure the DC is fully idle before reconfiguring pins */
++	tegra_dc_writel(dc, READ_MUX, DC_CMD_STATE_ACCESS);
++
++	ret = readl_relaxed_poll_timeout(disp_cmd, value,
++					 !(value & DISP_CTRL_MODE_MASK), 1000,
++					 100000);
++
++	tegra_dc_writel(dc, 0, DC_CMD_STATE_ACCESS);
++	if (ret) {
++		dev_err(priv->dev, "timeout waiting for DC to become idle\n");
++		return;
++	}
++
++	tegra_dc_writel(dc, V_PULSE1_ENABLE, DC_DISP_DISP_SIGNAL_OPTIONS0);
++	tegra_dc_writel(dc, PULSE_POLARITY_LOW, DC_DISP_V_PULSE1_CONTROL);
++
++	tegra_dc_writel(dc, PULSE_END(1), DC_DISP_V_PULSE1_POSITION_A);
++	tegra_dc_writel(dc, 0, DC_DISP_V_PULSE1_POSITION_B);
++	tegra_dc_writel(dc, 0, DC_DISP_V_PULSE1_POSITION_C);
++
++	value = 1 << FRAME_INIT_SEQ_CYCLES_SHIFT |
++		DC_SIGNAL_VPULSE1 << INIT_SEQ_DC_SIGNAL_SHIFT |
++		INIT_SEQUENCE_MODE_PLCD | SEND_INIT_SEQUENCE;
++	tegra_dc_writel(dc, value, DC_DISP_INIT_SEQ_CONTROL);
++
++	/* Init cycle 1: WRITE_MEMORY_START, set LCD_PCLK and COMMAND */
++	tegra_dc_writel(dc, MIPI_DCS_WRITE_MEMORY_START, DC_DISP_SPI_INIT_SEQ_DATA_A);
++	tegra_dc_writel(dc, 0x0, DC_DISP_SPI_INIT_SEQ_DATA_B);
++	tegra_dc_writel(dc, 0x0, DC_DISP_SPI_INIT_SEQ_DATA_C);
++	tegra_dc_writel(dc, BIT(12) | BIT(14), DC_DISP_SPI_INIT_SEQ_DATA_D);
++
++	/* Set LDC pin to V Pulse 1 */
++	value = tegra_dc_readl(dc, DC_COM_PIN_OUTPUT_SELECT(6));
++	value &= ~PIN_OUTPUT_SELECT_MASK(PIN_OUTPUT_SELECT_LDC);
++	value |= PIN_OUTPUT_SELECT_F4(PIN_OUTPUT_SELECT_LDC);
++	tegra_dc_writel(dc, value, DC_COM_PIN_OUTPUT_SELECT(6));
++
++	value = SC1_H_QUALIFIER(SC_H_QUALIFIER_NONE) |
++		SC0_V_QUALIFIER(SC_V_QUALIFIER_VACTIVE) |
++		SC0_H_QUALIFIER(SC_H_QUALIFIER_HACTIVE);
++	tegra_dc_writel(dc, value, DC_DISP_SHIFT_CLOCK_OPTIONS);
++
++	value = tegra_dc_readl(dc, DC_DISP_DISP_COLOR_CONTROL);
++	value &= ~BASE_COLOR_SIZE_MASK;
++
++	switch (priv->bus_width) {
++	case 16:
++		value |= BASE_COLOR_SIZE_565;
++		break;
++	case 18:
++		value |= BASE_COLOR_SIZE_666;
++		break;
++	case 24:
++		value |= BASE_COLOR_SIZE_888;
++		break;
++	default:
++		WARN(1, "%u bus width not supported\n", priv->bus_width);
++		value |= BASE_COLOR_SIZE_888;
++		break;
++	}
++
++	tegra_dc_writel(dc, value, DC_DISP_DISP_COLOR_CONTROL);
++
++	/*
++	 * Backup registers before unshadowing since actual register values
++	 * may differ and their state backed up now is the correct one.
++	 */
++	for (int i = 0; i < ARRAY_SIZE(tegra_dbi_pin_regs); i++)
++		priv->com_pin_backup[i] = tegra_dc_readl(dc, tegra_dbi_pin_regs[i]);
++
++	/* Unshadow to set up command and data pins */
++	tegra_dc_writel(dc, WRITE_MUX | READ_MUX, DC_CMD_STATE_ACCESS);
++
++	priv->interface->init(priv);
++	priv->active = true;
++
++	/*
++	 * DBI requires that the next bridge be enabled here in order to
++	 * send DCS commands, since the interface pins will subsequently be
++	 * reconfigured for video data.
++	 *
++	 * Using the prepare_prev_first flag in the panel will not work,
++	 * because the DBI bridge requires the panel to be enabled beforehand
++	 * for proper configuration.
++	 */
++	if (next_bridge->funcs && next_bridge->funcs->atomic_enable)
++		next_bridge->funcs->atomic_enable(next_bridge, state);
++
++	tegra_dbi_pin_set(dc, &priv->interface->cs, 0);
++
++	priv->active = false;
++
++	tegra_dc_writel(dc, 0, DC_CMD_STATE_ACCESS);
++
++	for (int i = 0; i <  ARRAY_SIZE(tegra_dbi_pin_regs); i++)
++		tegra_dc_writel(dc, priv->com_pin_backup[i],
++				tegra_dbi_pin_regs[i]);
++
++	tegra_dc_commit(dc);
++
++	value = tegra_dc_readl(dc, DC_CMD_DISPLAY_COMMAND);
++	value &= ~DISP_CTRL_MODE_MASK;
++	value |= DISP_CTRL_MODE_C_DISPLAY;
++	tegra_dc_writel(dc, value, DC_CMD_DISPLAY_COMMAND);
++}
++
++static void tegra_dbi_atomic_disable(struct drm_bridge *bridge,
++				     struct drm_atomic_commit *state)
++{
++	struct tegra_dbi_priv *priv = bridge_to_tegra_dbi(bridge);
++	struct drm_bridge *next_bridge = priv->next_bridge;
++	struct tegra_dc *dc = priv->dc;
++
++	for (int i = 0; i < ARRAY_SIZE(tegra_dbi_pin_regs); i++)
++		priv->com_pin_backup[i] = tegra_dc_readl(dc, tegra_dbi_pin_regs[i]);
++
++	tegra_dc_writel(dc, WRITE_MUX | READ_MUX, DC_CMD_STATE_ACCESS);
++
++	priv->interface->init(priv);
++	priv->active = true;
++
++	/*
++	 * DBI requires that the next bridge be disabled here in order to
++	 * send DCS commands, since the interface pins will subsequently be
++	 * reconfigured for video data and tegra_rgb_encoder_disable() will
++	 * be called before drm_panel_unprepare() runs in post_disable.
++	 */
++	if (next_bridge->funcs && next_bridge->funcs->atomic_disable)
++		next_bridge->funcs->atomic_disable(next_bridge, state);
++
++	priv->active = false;
++
++	tegra_dc_writel(dc, 0, DC_CMD_STATE_ACCESS);
++
++	for (int i = 0; i <  ARRAY_SIZE(tegra_dbi_pin_regs); i++)
++		tegra_dc_writel(dc, priv->com_pin_backup[i],
++				tegra_dbi_pin_regs[i]);
++
++	tegra_dc_commit(dc);
++}
++
++static int tegra_dbi_atomic_check(struct drm_bridge *bridge,
++				  struct drm_bridge_state *bridge_state,
++				  struct drm_crtc_state *crtc_state,
++				  struct drm_connector_state *conn_state)
++{
++	struct drm_display_mode *adjusted_mode = &crtc_state->adjusted_mode;
++
++	/* Set safe default bus flags if panel does not specify them */
++	if (!bridge_state->input_bus_cfg.flags)
++		bridge_state->input_bus_cfg.flags = bridge->timings->input_bus_flags;
++
++	/* Default to positive sync */
++	if (!(adjusted_mode->flags &
++	      (DRM_MODE_FLAG_PHSYNC | DRM_MODE_FLAG_NHSYNC)))
++		adjusted_mode->flags |= DRM_MODE_FLAG_PHSYNC;
++
++	if (!(adjusted_mode->flags &
++	      (DRM_MODE_FLAG_PVSYNC | DRM_MODE_FLAG_NVSYNC)))
++		adjusted_mode->flags |= DRM_MODE_FLAG_PVSYNC;
++
++	return 0;
++}
++
++static int tegra_dbi_attach(struct drm_bridge *bridge,
++			    struct drm_encoder *encoder,
++			    enum drm_bridge_attach_flags flags)
++{
++	struct tegra_dbi_priv *priv = bridge_to_tegra_dbi(bridge);
++
++	if (!priv->next_bridge)
++		return -EPROBE_DEFER;
++
++	return drm_bridge_attach(bridge->encoder, priv->next_bridge, bridge,
++				 flags);
++}
++
++static enum drm_mode_status tegra_dbi_mode_valid(struct drm_bridge *bridge,
++						 const struct drm_display_info *info,
++						 const struct drm_display_mode *mode)
++{
++	if (mode->hdisplay > 800)
++		return MODE_H_ILLEGAL;
++
++	if (mode->vdisplay > 800)
++		return MODE_V_ILLEGAL;
++
++	return MODE_OK;
++}
++
++static const struct drm_bridge_funcs tegra_dbi_funcs = {
++	.attach = tegra_dbi_attach,
++	.mode_valid = tegra_dbi_mode_valid,
++
++	.atomic_enable = tegra_dbi_atomic_enable,
++	.atomic_disable = tegra_dbi_atomic_disable,
++	.atomic_check = tegra_dbi_atomic_check,
++
++	.atomic_create_state = drm_atomic_helper_bridge_create_state,
++	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
++	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
++};
++
++static void tegra_dbi_init_primary_interface(struct tegra_dbi_priv *priv)
++{
++	struct tegra_dc *dc = priv->dc;
++	u32 value;
++
++	value = tegra_dc_readl(dc, DC_COM_PIN_OUTPUT_ENABLE(3));
++	value &= ~(BIT(PIN_LCSN) | BIT(PIN_LDC));
++	tegra_dc_writel(dc, value, DC_COM_PIN_OUTPUT_ENABLE(3));
++
++	/* Set LSC0/LCSN/LDC output polarity HIGH */
++	value = tegra_dc_readl(dc, DC_COM_PIN_OUTPUT_POLARITY(1));
++	value &= ~BIT(PIN_LSC0);
++	tegra_dc_writel(dc, value, DC_COM_PIN_OUTPUT_POLARITY(1));
++
++	value = tegra_dc_readl(dc, DC_COM_PIN_OUTPUT_POLARITY(3));
++	value &= ~(BIT(PIN_LCSN) | BIT(PIN_LDC));
++	tegra_dc_writel(dc, value, DC_COM_PIN_OUTPUT_POLARITY(3));
++
++	value = PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LD0) |
++		PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LD1) |
++		PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LD2) |
++		PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LD3) |
++		PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LD4) |
++		PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LD5) |
++		PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LD6) |
++		PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LD7);
++	tegra_dc_writel(dc, value, DC_COM_PIN_OUTPUT_SELECT(0));
++
++	value = tegra_dc_readl(dc, DC_COM_PIN_OUTPUT_SELECT(3));
++	value &= ~PIN_OUTPUT_SELECT_MASK(PIN_OUTPUT_SELECT_LSC0);
++	value |= PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LSC0);
++	tegra_dc_writel(dc, value, DC_COM_PIN_OUTPUT_SELECT(3));
++
++	value = tegra_dc_readl(dc, DC_COM_PIN_OUTPUT_SELECT(6));
++	value &= ~PIN_OUTPUT_SELECT_MASK(PIN_OUTPUT_SELECT_LCSN);
++	value &= ~PIN_OUTPUT_SELECT_MASK(PIN_OUTPUT_SELECT_LDC);
++	value |= PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LCSN) |
++		 PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LDC);
++	tegra_dc_writel(dc, value, DC_COM_PIN_OUTPUT_SELECT(6));
++}
++
++static void tegra_dbi_init_secondary_interface(struct tegra_dbi_priv *priv)
++{
++	struct tegra_dc *dc = priv->dc;
++	u32 value;
++
++	value = tegra_dc_readl(dc, DC_COM_PIN_OUTPUT_ENABLE(2));
++	value &= ~(BIT(PIN_LDI) | BIT(PIN_LPP));
++	tegra_dc_writel(dc, value, DC_COM_PIN_OUTPUT_ENABLE(2));
++
++	value = tegra_dc_readl(dc, DC_COM_PIN_OUTPUT_SELECT(3));
++	value &= ~PIN_OUTPUT_SELECT_MASK(PIN_OUTPUT_SELECT_LPW0);
++	value &= ~PIN_OUTPUT_SELECT_MASK(PIN_OUTPUT_SELECT_LPW2);
++	value &= ~PIN_OUTPUT_SELECT_MASK(PIN_OUTPUT_SELECT_LSC1);
++	value |= PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LPW0) |
++		 PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LPW2) |
++		 PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LSC1);
++	tegra_dc_writel(dc, value, DC_COM_PIN_OUTPUT_SELECT(3));
++
++	value = tegra_dc_readl(dc, DC_COM_PIN_OUTPUT_SELECT(4));
++	value &= ~PIN_OUTPUT_SELECT_MASK(PIN_OUTPUT_SELECT_LHP0);
++	value &= ~PIN_OUTPUT_SELECT_MASK(PIN_OUTPUT_SELECT_LHP1);
++	value &= ~PIN_OUTPUT_SELECT_MASK(PIN_OUTPUT_SELECT_LVP0);
++	value &= ~PIN_OUTPUT_SELECT_MASK(PIN_OUTPUT_SELECT_LVP1);
++	value |= PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LHP0) |
++		 PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LHP1) |
++		 PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LVP0) |
++		 PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LVP1);
++	tegra_dc_writel(dc, value, DC_COM_PIN_OUTPUT_SELECT(4));
++
++	value = tegra_dc_readl(dc, DC_COM_PIN_OUTPUT_SELECT(5));
++	value &= ~PIN_OUTPUT_SELECT_MASK(PIN_OUTPUT_SELECT_LM0);
++	value &= ~PIN_OUTPUT_SELECT_MASK(PIN_OUTPUT_SELECT_LM1);
++	value &= ~PIN_OUTPUT_SELECT_MASK(PIN_OUTPUT_SELECT_LDI);
++	value &= ~PIN_OUTPUT_SELECT_MASK(PIN_OUTPUT_SELECT_LPP);
++	value |= PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LM0) |
++		 PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LM1) |
++		 PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LDI) |
++		 PIN_OUTPUT_SELECT_OUT(PIN_OUTPUT_SELECT_LPP);
++	tegra_dc_writel(dc, value, DC_COM_PIN_OUTPUT_SELECT(5));
++}
++
++static const struct tegra_dbi_interface tegra_dbi_idx[] = {
++	/* Nvidia Primary 8-bit CPU interface configuration */
++	{
++		.dc = { DC_COM_PIN_OUTPUT_DATA(3), PIN_LDC  },
++		.rw = { DC_COM_PIN_OUTPUT_DATA(1), PIN_LSC0 },
++		.cs = { DC_COM_PIN_OUTPUT_DATA(3), PIN_LCSN },
++		.data = {
++			{ DC_COM_PIN_OUTPUT_DATA(0), PIN_LD0 },
++			{ DC_COM_PIN_OUTPUT_DATA(0), PIN_LD1 },
++			{ DC_COM_PIN_OUTPUT_DATA(0), PIN_LD2 },
++			{ DC_COM_PIN_OUTPUT_DATA(0), PIN_LD3 },
++			{ DC_COM_PIN_OUTPUT_DATA(0), PIN_LD4 },
++			{ DC_COM_PIN_OUTPUT_DATA(0), PIN_LD5 },
++			{ DC_COM_PIN_OUTPUT_DATA(0), PIN_LD6 },
++			{ DC_COM_PIN_OUTPUT_DATA(0), PIN_LD7 },
++		},
++		.init = tegra_dbi_init_primary_interface,
++	},
++	/* Nvidia Secondary 8-bit CPU interface configuration */
++	{
++		.dc = { DC_COM_PIN_OUTPUT_DATA(2), PIN_LVP0 },
++		.rw = { DC_COM_PIN_OUTPUT_DATA(1), PIN_LSC1 },
++		.cs = { DC_COM_PIN_OUTPUT_DATA(2), PIN_LM0  },
++		.data = {
++			{ DC_COM_PIN_OUTPUT_DATA(2), PIN_LHP1 },
++			{ DC_COM_PIN_OUTPUT_DATA(2), PIN_LM1  },
++			{ DC_COM_PIN_OUTPUT_DATA(2), PIN_LDI  },
++			{ DC_COM_PIN_OUTPUT_DATA(2), PIN_LPP  },
++			{ DC_COM_PIN_OUTPUT_DATA(1), PIN_LPW0 },
++			{ DC_COM_PIN_OUTPUT_DATA(1), PIN_LPW2 },
++			{ DC_COM_PIN_OUTPUT_DATA(2), PIN_LVP1 },
++			{ DC_COM_PIN_OUTPUT_DATA(2), PIN_LHP0 },
++		},
++		.init = tegra_dbi_init_secondary_interface,
++	},
++};
++
++static const struct drm_bridge_timings default_tegra_dbi_timings = {
++	.input_bus_flags = DRM_BUS_FLAG_PIXDATA_SAMPLE_POSEDGE |
++			   DRM_BUS_FLAG_SYNC_SAMPLE_NEGEDGE |
++			   DRM_BUS_FLAG_DE_HIGH,
++};
++
++int tegra_dc_dbi_probe(struct tegra_dc *dc)
++{
++	struct device *dev = dc->dev;
++	struct device_node *dbi_np __free(device_node) =
++		of_get_available_child_by_name(dev_of_node(dev), "dbi");
++	struct mipi_dbi_device *dbidev;
++	struct tegra_dbi_priv *priv;
++	struct device_node *np;
++	u32 interface = 0;
++	int ret;
++
++	/* Missing node means that DBI is not used, continue DC probe */
++	if (!dbi_np)
++		return 0;
++
++	of_property_read_u32(dbi_np, "nvidia,interface", &interface);
++	if (interface != 0 && interface != 1)
++		return dev_err_probe(dev, -EINVAL, "Wrong interface value: %d\n", interface);
++
++	priv = devm_drm_bridge_alloc(dev, struct tegra_dbi_priv, bridge,
++				     &tegra_dbi_funcs);
++	if (IS_ERR(priv))
++		return PTR_ERR(priv);
++
++	priv->dc = dc;
++	priv->dev = dev;
++	priv->interface = &tegra_dbi_idx[interface];
++
++	/* Initialize MIPI DBI interface */
++	mutex_init(&priv->dbi.cmdlock);
++	priv->dbi.command = tegra_dbi_dbi_command;
++
++	priv->dbi_host.dev = dev;
++	priv->dbi_host.dbi = &priv->dbi;
++	priv->dbi_host.ops = &tegra_dbi_host_ops;
++
++	priv->bridge.of_node = dbi_np;
++	priv->bridge.timings = &default_tegra_dbi_timings;
++
++	ret = devm_drm_bridge_add(dev, &priv->bridge);
++	if (ret)
++		return ret;
++
++	np = of_graph_get_remote_node(dbi_np, 1, -1);
++	if (!np)
++		return -EINVAL;
++
++	dbidev = devm_mipi_dbi_device_register(dev, &priv->dbi_host, np);
++	of_node_put(np);
++	if (IS_ERR(dbidev))
++		return dev_err_probe(dev, PTR_ERR(dbidev),
++				     "Failed to register DBI device\n");
++
++	return 0;
++}
+diff --git a/drivers/gpu/drm/tegra/dc.c b/drivers/gpu/drm/tegra/dc.c
+index c9df14544ced0..b491aa00bd101 100644
+--- a/drivers/gpu/drm/tegra/dc.c
++++ b/drivers/gpu/drm/tegra/dc.c
+@@ -3381,6 +3381,10 @@ static int tegra_dc_probe(struct platform_device *pdev)
+ 		}
+ 	}
  
-+  dbi:
-+    $ref: /schemas/display/tegra/nvidia,tegra20-dbi.yaml#
++	err = tegra_dc_dbi_probe(dc);
++	if (err)
++		return dev_err_probe(&pdev->dev, err, "failed to probe DBI\n");
 +
-   rgb:
-     type: object
+ 	err = tegra_dc_rgb_probe(dc);
+ 	if (err < 0 && err != -ENODEV)
+ 		return dev_err_probe(&pdev->dev, err,
+diff --git a/drivers/gpu/drm/tegra/dc.h b/drivers/gpu/drm/tegra/dc.h
+index e8913c5530a2d..2847affa2532f 100644
+--- a/drivers/gpu/drm/tegra/dc.h
++++ b/drivers/gpu/drm/tegra/dc.h
+@@ -177,6 +177,9 @@ void tegra_dc_rgb_remove(struct tegra_dc *dc);
+ int tegra_dc_rgb_init(struct drm_device *drm, struct tegra_dc *dc);
+ int tegra_dc_rgb_exit(struct tegra_dc *dc);
  
-@@ -155,6 +158,18 @@ allOf:
-             - const: wind
-             - const: wint
- 
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - nvidia,tegra114-dc
-+              - nvidia,tegra124-dc
-+              - nvidia,tegra210-dc
-+    then:
-+      properties:
-+        dbi: false
++/* from dbi.c */
++int tegra_dc_dbi_probe(struct tegra_dc *dc);
 +
- additionalProperties: false
- 
- required:
+ #define DC_CMD_GENERAL_INCR_SYNCPT		0x000
+ #define DC_CMD_GENERAL_INCR_SYNCPT_CNTRL	0x001
+ #define  SYNCPT_CNTRL_NO_STALL   (1 << 8)
 -- 
 2.53.0
 
