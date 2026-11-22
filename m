@@ -1,57 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795324601;
-	b=jmsjuggInVKqSy3Yb53fpkjoZxwyoO6/W9NAy8R37z1t/QVZ75+S5iL4/UMsTBpbJM8R
-	 QdhbjDrpN4mNUte5xUQLYaos6M+xQq9cY8ljekqX5DCOdc4RnATUonVDnG32wRlrjvzFL
-	 yv91TrT7gLb+TWn9ZUTzNDjOSYN/Y9Jn5X8LM0fqRQPpFCy3VKU3pBC9ENigbfi0crJVr
-	 xrrBHeqxONZHhIZSp5KnP6+3vwzAiiTow9Ui75e85iF16/GndN+6CuJq5Q6YwR5Ghs93J
-	 FVRgE5hO96Iu7uu1fWiBfp3hF9fEj05/Ktxeh2jtK2nDuJMSElSAldpOYNTuM2fE9eQ==
+	t=1795325201;
+	b=bWL47eD4fei/BwzxISNwFtbcBxTp9fM7qQ5rKyxYaqQrGosUNjPpc9wVZZFpnN/6B+C8
+	 D+hTnKmujb8xPZHzWMS4FjRbqYw9zrTgT138lSlktZNw8ryRZm+wGI+Ox/2kGB2YElG8u
+	 seTM2NYyRbS4vQGPHLd/8hOx8nn3GfcxjOoQTzGWsR9Xqy/7KZvJLg7iUYYKFm2gTM9qA
+	 RuuO2gW/SZWwWlvOueDG1gNYaOJhfAM4OqjLvGzL+De++JNp8b5cyIRG7iDl22ClHL6am
+	 s2aXUNuAx6U9ZK0X3xdnxEcUUEc6GElmz+J9SS1upmGyb+tYKHSvevaqhPfycn6n97w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795324601;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=wMqUtbghx+AfUwNzZIx35GF0oZl4GX6WxEfgfxHEO/A=;
-	b=PfQzbYkS6ph5+QEn8ImuV5cBwCDlmqIUVI+QxvqfugSbDIhSyMF2RraaYNJoa7YUx9lV
-	 ApKfQM1Y2rQtgvnwyp3oCpDbUh6qQ/rjDIWGI8/Q/Ekz7T4geUWbcSxTNOoo39PzfH4z5
-	 kKDFpqb7X09OEuXWCx8tO1jlcO5x6nCkFUgTfEnr0fWfrFyaYB9nXWPi1J7wzPmZBLEom
-	 wZVq3b9fXFs1DHd3jv0qTCX7DRRtLZ1sigoWCCU/3NImweQReLXj2MiHbvKt6b5oXuZRx
-	 pNsCdtqRbfLtGA4ktwN/xh+NCTFUQsniNEzKrqA4OExGo/bTFbO8htgGFA24ADiab6Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795325201;
+	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
+	 In-Reply-To:References:Subject:From:To:Cc:Date;
+	bh=WSnfBOApNbDPGY48k9YGggczifS4bUOcX4lLr98nel0=;
+	b=btQ3QaIx6FsRi/7GBQRlFpzdHRmOGE7oQ6UGTelZhethz4xj4mSo/TDliH8strh5ztfb
+	 Vj1Fd4vC7aw6gJkWFiIZTbSmmE9jd04zqnpICWSOKR3tYm+rJEFIVLzaq4GwKtoYXzIKi
+	 ZXHP4jy8Gl5cstoe6aEqWrrRHhCwstEoVlZ/cSC6WQ8va14uSUXJ7fIcGj7I8Cobpzz6Z
+	 mu9ExhnS86xT3U6bBcByuU8eP2e3RdGH6o/t+U7fBbUcK83x8bVTYX6v6wt3FpzV0JXvd
+	 nNUuMYCGlGvD3VSSvAT6aO8xErXk/TrIIRpX2fNQFJXeWkkN5r/FnYKnB/3rFfc6aog==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=afCOKP6R;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HJItbHDv;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FCD4606A32A;
-	Sun, 22 Nov 2026 05:16:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF3FB606A320;
+	Sun, 22 Nov 2026 05:26:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=afCOKP6R
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38A171F000C0;
-	Sun, 22 Nov 2026 05:16:39 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HJItbHDv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF2751F000C0;
+	Sun, 22 Nov 2026 05:26:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795324601;
-	bh=wMqUtbghx+AfUwNzZIx35GF0oZl4GX6WxEfgfxHEO/A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=afCOKP6R9quPVesuVvAvKr6Ti0miKQn6DY3/Qh1fzBnYgLdWQrUlG5I1J1rdie6I1
-	 moLEWWkUke5whAmi3M2lEk7JeBxgNBaaWgIHbFT+l0cYPc+oz0WRzLeAilmYLXTCee
-	 qtuOk6cstNrjpP1DOuECKEEEug/STTFqQYEaoHVCpiuK5HZXgZfTbkCLJ5qfEV3fNh
-	 bUTJSB7aR+Fy2YMDeie/yZCneE9Gk6J/hL5V+uFD1ZYo6tqAUeGWJ27s1GagrF5mos
-	 O3my0UFj1KIs6XMqtZuWn/7xJ62smBV+irS+k6vpIyvZnNRVwJoRktblyf2miHG8Wa
-	 mDJNitkNFQmLw==
-Date: Sat, 21 Nov 2026 22:16:36 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Sasha Levin <sashal@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>
-Cc: Sumit Garg <sumit.garg@oss.qualcomm.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	kernel test robot <lkp@intel.com>, Abel Vesa <abelvesa@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] firmware: qcom: scm: Hide QCOM_SCM instead of depending
- on ARCH_QCOM
-Message-ID: <20261122051636.GA2630332@ax162>
-References: <20260913173049.1168963-1-sashal@kernel.org>
+	s=k20260515; t=1795325200;
+	bh=WSnfBOApNbDPGY48k9YGggczifS4bUOcX4lLr98nel0=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=HJItbHDvxHdHNGEPigBjrg7fcjQSOd8PgOf7vuO+6yBqH4tB7RipP96RU6pFQozl3
+	 pGEPRYhoDmFS+ppu5C1unEChsx7GLJg8aVuE9t7wSdsWl/7aULMhVeFeCXQ6SbIjNM
+	 qX8RCByQKeyixmKo0d+RciosMXerwxInMCuL60HHJi4obdjmmM4XJJ7OY9YbU44IwD
+	 5Mwqje+QOCJTnjYV09Ul58Y3+SctZQdKbcflU8NvdeWKtGpJMQybuuW0S7zDvobBtY
+	 0GdLVXMU0a3mnktHlL8d8E13Z0ZqZLGPs7hR3JNU+TURzE7b6d5cVTfPkHL9G12Nc1
+	 KdAd8v4L3MrwQ==
+Content-Type: multipart/mixed; boundary="===============8672382131251748710=="
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,111 +49,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260913173049.1168963-1-sashal@kernel.org>
+Message-Id: <86a108a3441c8160bcf73fe92b8ff79dd6562d3313c80e65489607f3d737d50b@mail.kernel.org>
+In-Reply-To: <20261122-b4-03-bpf-arena-vmalloc-oob-v2-5f6209c1a20e-v2-1-b2a9906e9676@pm.me>
+References: <20261122-b4-03-bpf-arena-vmalloc-oob-v2-5f6209c1a20e-v2-1-b2a9906e9676@pm.me>
+Subject: Re: [PATCH bpf v2] bpf: bound arena allocations to the user VMA
+From: bot+bpf-ci@kernel.org
+To: fadouse@pm.me,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com
+Cc: martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,bpf@vger.kernel.org,linux-kernel@vger.kernel.org,stable@vger.kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Sun, 22 Nov 2026 05:26:38 +0000 (UTC)
 
-Hi Sasha and qcom folks,
+--===============8672382131251748710==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-On Sun, Sep 13, 2026 at 01:30:49PM -0400, Sasha Levin wrote:
-> imx_v6_v7_defconfig fails to link:
-> 
->   arm-linux-gnueabihf-ld: drivers/firmware/qcom/qcom_scm.o: in function
->   `qcom_scm_pas_init_image':
->   qcom_scm.c:(.text+0xecc): undefined reference to `qcom_tzmem_alloc'
->   qcom_scm.c:(.text+0x2b0): undefined reference to `qcom_tzmem_free'
->   qcom_scm.c:(.text+0x1514): undefined reference to `qcom_tzmem_to_phys'
-> 
-> QCOM_SCM gained a "depends on ARCH_QCOM || COMPILE_TEST", but it is
-> selected from 20 places in the tree and several of those are reachable
-> without ARCH_QCOM. DRM_MSM is one of them, via SOC_IMX5, which is how
-> imx_v6_v7_defconfig ends up here:
-> 
->   WARNING: unmet direct dependencies detected for QCOM_SCM
->     Depends on [n]: ARCH_QCOM [=n] || COMPILE_TEST [=n]
->     Selected by [y]:
->     - DRM_MSM [=y] && ... && (ARCH_QCOM [=n] || SOC_IMX5 [=y] ||
->       COMPILE_TEST [=n]) && ...
-> 
-> kconfig still honours the select and sets QCOM_SCM=y, but it does not
-> propagate the selects of a symbol whose own dependencies are unmet, so
-> QCOM_TZMEM is left unset, qcom_tzmem.c is not built, and the
-> unconditional qcom_tzmem_*() calls in qcom_scm.c and qcom_scm-smc.c
-> have nothing to bind to.
-> 
-> The point of the dependency was only to stop asking the user about
-> Qualcomm firmware interfaces when configuring a non-Qualcomm kernel.
-> Express that as a prompt condition, which is what the same commit
-> already did for QCOM_PAS: the symbol stays invisible, but it no longer
-> carries a dependency that silently drops its selects.
-> 
-> Found by KernelCI builds of the linus-next tree.
-> 
-> Fixes: 8fecd3194de3 ("firmware: QCOM interfaces should depend on ARCH_QCOM")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202609120634.g0HMAp3g-lkp@intel.com/
-> Assisted-by: LLM
-> Signed-off-by: Sasha Levin <sashal@kernel.org>
-> ---
->  drivers/firmware/qcom/Kconfig | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/drivers/firmware/qcom/Kconfig b/drivers/firmware/qcom/Kconfig
-> index 691db0ded8e8c..b50e1309ced5f 100644
-> --- a/drivers/firmware/qcom/Kconfig
-> +++ b/drivers/firmware/qcom/Kconfig
-> @@ -26,8 +26,7 @@ config QCOM_PAS_TEE
->  	  by the firmware TEE implementation as the backend.
->  
->  config QCOM_SCM
-> -	tristate "Qualcomm PAS SCM interface driver"
-> -	depends on ARCH_QCOM || COMPILE_TEST
-> +	tristate "Qualcomm PAS SCM interface driver" if ARCH_QCOM || COMPILE_TEST
->  	select QCOM_PAS
->  	select QCOM_TZMEM
->  	default y if ARCH_QCOM
+> bpf: bound arena allocations to the user VMA
 
-This now allows
+TL;DR: Commit message page counts don't add up and its "can never be mapped
+without wrapping" claim is questionable; the new -ERANGE check in
+arena_adjust_tree() looks unreachable and its comment seems inaccurate.
 
-  # CONFIG_ARCH_QCOM is not set
-  CONFIG_QCOM_SCM=m
-  CONFIG_QCOM_TZMEM=m
-  # CONFIG_QCOM_TZMEM_MODE_GENERIC is not set
-  CONFIG_QCOM_TZMEM_MODE_SHMBRIDGE=y
+> A program that first allocates 287 pages and
+> then asks for 288 more receives pgoff = 287, uaddr32 = 0xfffff000,
+> and arena_alloc_pages() maps 288 pages at kern_vm_start + 0xfffff000:
+> one page inside the VMA, then the arena's upper guard pages, and then
+> 258 pages into the vmalloc area past the end of the arena's own
+> vmap area - installing PTEs into address space the arena does not own
+> and returning a "success" pointer to the caller.
+[ ... ]
+> Fix this on both sides.  On the first mmap() of a map created without
+> map_extra, mark [vma_pages, max_entries) as allocated in the range
+> tree, because nothing outside the VMA can ever be freed or mapped
+> without wrapping;
 
-which breaks the build (or install if depmod is postponed until then)
-for me. I ran into this slimming down platform support from my aarch64
-Fedora kernel, as I don't have any Qualcomm platforms.
+The page counts do not seem to add up here.  GUARD_SZ is
+round_up(1 << 16, PAGE_SIZE << 1), so kern_vm_start is offset by 32 KiB
+into the area and the upper guard above kern_vm_start + 4 GiB is 32 KiB,
+which is 8 pages with 4 KiB pages.
 
-  $ cat allno.config
-  CONFIG_ATH12K=m
-  CONFIG_ATH12K_AHB=y
-  CONFIG_CFG80211=m
-  CONFIG_MAC80211=m
-  CONFIG_MODULES=y
-  CONFIG_NET=y
-  CONFIG_NETDEVICES=y
-  CONFIG_PCI=y
-  CONFIG_QCOM_TZMEM_MODE_GENERIC=n
-  CONFIG_QCOM_TZMEM_MODE_SHMBRIDGE=y
-  CONFIG_REMOTEPROC=y
-  CONFIG_WLAN=y
-  CONFIG_WLAN_VENDOR_ATH=y
+Mapping 288 pages at kern_vm_start + 0xfffff000 would then be 1 page in
+the 4 GiB band and 8 upper guard pages, leaving 279 pages past the end of
+the arena's vm area, and 1 + 8 + 258 is 267, not 288.  Could the numbers
+be corrected?
 
-  $ make -skj"$(nproc)" \
-         ARCH=arm64 \
-         CROSS_COMPILE=aarch64-linux-gnu- \
-         KCONFIG_ALLCONFIG=1 \
-         INSTALL_MOD_PATH=$PWD/rootfs \
-         clean allnoconfig all modules_install
-  depmod: ERROR: Cycle detected: qcom_scm -> qcom_tzmem -> qcom_scm
-  depmod: ERROR: Found 2 modules in dependency cycles!
+Also, is "nothing outside the VMA can ever be freed or mapped without
+wrapping" accurate?  Pages outside the VMA can never be freed because
+arena_free_pages() clips to user_vm_end, but they only wrap when the VMA
+ends close to a 4 GiB boundary.  For a 4 GiB aligned user_vm_start,
+uaddr32 = pgoff * PAGE_SIZE stays inside the arena's own kernel area.
 
-One way around this is turning CONFIG_QCOM_SCM into a bool but that
-would end up building more code into the kernel image that may or may
-not run. The proper solution is probably doing what Geert suggested and
-only selecting these symbols with ARCH_QCOM but I did not explore this.
+> diff --git a/kernel/bpf/arena.c b/kernel/bpf/arena.c
+> --- a/kernel/bpf/arena.c
+> +++ b/kernel/bpf/arena.c
 
--- 
-Cheers,
-Nathan
+[ ... ]
+
+> @@ -758,8 +787,19 @@ static int arena_adjust_tree(struct bpf_arena *arena, long uaddr, long page_cnt,
+>  	ret = range_tree_find(&arena->rt, page_cnt);
+>  	if (ret < 0)
+>  		return ret;
+>
+> +	/*
+> +	 * The range tree spans max_entries pages, but when map_extra was
+> +	 * not given at arena creation time the user VMA, and hence the
+> +	 * range whose lower 32 bits do not wrap past the 32-bit boundary,
+> +	 * can be smaller.  A pgoff past the VMA would wrap uaddr32 past
+> +	 * the 32-bit boundary, be mapped past the end of the arena's
+> +	 * kernel vm area, and could never be freed, so reject it.
+> +	 */
+> +	if (ret > page_cnt_max - page_cnt)
+> +		return -ERANGE;
+> +
+>  	*pgoff = ret;
+
+This isn't a bug, but does this comment match the code after this patch?
+
+The comment says "The range tree spans max_entries pages", but
+arena_map_mmap() now clips the tree on the first mmap():
+
+    ret = range_tree_clear(&arena->rt, vma_pages(vma),
+                           map->max_entries - vma_pages(vma));
+
+Since page_cnt_max is 0 until user_vm_start/user_vm_end are stored, and
+arena_alloc_pages() returns early when page_cnt > page_cnt_max, the tree
+already spans at most page_cnt_max pages whenever arena_adjust_tree()
+runs.  That would make the -ERANGE branch unreachable today, with the
+clip in arena_map_mmap() being what enforces the bound.
+
+The claim that "a pgoff past the VMA would wrap uaddr32" also only holds
+when the VMA ends near a 4 GiB boundary.  For a VMA starting at a 4 GiB
+aligned address, uaddr32 = pgoff * PAGE_SIZE < 4 GiB for every pgoff <
+max_entries, so those pages land inside the arena's own kernel area.
+
+Could the comment say that the mmap-side clip enforces the bound and that
+this check is only a backstop, and drop the universal "would wrap" claim?
+Alternatively, could the check be removed if the clip alone is the
+intended invariant?
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/44987264909
+--===============8672382131251748710==--
