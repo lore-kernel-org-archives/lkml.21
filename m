@@ -1,69 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.88.97.239
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795344960;
-	b=q88OZo4sEVkQbFjQI5QJpmH4K+Xqmp79KaV+chDKBJA+HOAFGX8PHPEGcI3NrnCF1oLv
-	 Ra2TJTJMof2Ek6NZhY+4tX+1xAb7GxKJLq8XGFsgLgGs0DxjaY3uUO3U/Fbc+pOWbg6DS
-	 dYrCJ7ZKsfjN6InRHig/+D8punPrJRNTchucl1FZlxutm/QPr72V9RJ8c0wfpeEb+ntzy
-	 3Hx3eaF3dlPfGWwaJ3eSoDdNa44iG2KodF5Iq13PPt0arotFpKrUhqD0xM6HU1guGHlN0
-	 QwYpfLFx8vi6XHza4XUYOBRHPpobzZp+KNEk9iVoaqfoCVu5Jd3ryEZbk6kO2CmXbhg==
+	t=1795345013;
+	b=g0hr6zleTI0qlh6PBOK/Uplpngy+2kxfCEdccku66h4WLcN0CIRmkTNOOCHvxjobo3Ay
+	 5AET+VjC8vLAUn/BF3Dgz2yAyOuC8mtDaBBUnRpg0J8saE4fDif34l8v4ybf/QZtif37Y
+	 cegw4efRq3BBLmq0mUKYO498gYKh8CLwGQJcbcslGbPK0vvTICuXBI/eGEbzIEQF5Ep/o
+	 2rV2rPYsPNL5k8RBxvSaYeD+trFZYHwRupExuAkRKR2x2mjPXjq55/ZCX66bbKnlDRhN9
+	 os4PeN9+GNd5F/fMx+wtJ62mZ8FbJubwTLX8m4vcT7GAEIfZ0iCvuhYHczr0YcYkkDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795344960;
-	h=DMARC-Filter:DKIM-Signature:Received:X-Spam-Checker-Version:
-	 X-Spam-Level:X-Spam-Status:DKIM-Signature:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=H6PLSHBCppuIJbDfjpgsQ31eOv68QnQOgp6JlsgD8/8=;
-	b=K9xkw1KVs7Qv3xSaHAs07IjTsGPSkGVdh+sRrmg7/GLWrcB8OICtnt3p/rQLGB6YBPWK
-	 JGE1pqhiF5vTtxc8eHBgkZZR9ygTK0S+AyLQAs6HK/siNjFsdKu1jkrZCK9fg/fv7f+x1
-	 QggKwZUW4jjmkqOvbD6cyCu/fnTL8sMmhSJH56iTRlhrxfwO/TfLPjaulRofvEdY9DLTg
-	 6Gn4samMA9xONm5wjcBkzLC54Z8na49SxHSzUeyFlh7w+KiDkSiWU/mw6L2ZYZZPFQd72
-	 mAWmk8+86mAPmCeKag3eRITW/Gd6Ce377yDO/PfUbUesRhvWPjVuC1ZLBvxxtXSFOkg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795345013;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Developer-Key:
+	 X-Developer-Signature:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=TBdQn4iaXs4K3IS08zgLB1njZ8472GlpmHn+HZOS+/M=;
+	b=YkzcAKurUF7XWZFKK6Lt4htrOAWhJRWjvkEn2Uj4Sj8IyAbzw2fxKGDR2ZGNuH7OX31s
+	 3XCHolcYEfjdpYGKfZMQfhOzccHKOud1c7WlZVa97omOT3udHLmQ4YcPxDjUEu+ihhYyf
+	 Gbv6KzJqTuAEpm6xVn/CKeDehKL+yf+GQ0ffqhemHr2sI1L7BZGJ/G8STTtblh/X01xAY
+	 v1BSFQnywVixiQg+GDVoonDOAbxwtKAi5ysln1HefyVRLOpR4Mqj+/ie0SwhiZokhcr+d
+	 Qbd9BHuRidktlswaF8IvX/rRC+fY2vsCldGmpyxuOPVWohnFVwxb251R0iaArrCqOyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=birger-koblitz.de;
-	spf=pass smtp.mailfrom=birger-koblitz.de;
-	dkim=pass header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=mAPn7ct7;
-	dkim=pass header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=j3yzXMNe;
-	arc=none smtp.remote-ip=23.88.97.239
-Received: from bkemail.birger-koblitz.de (bkemail.birger-koblitz.de [23.88.97.239])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--ardb.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=oXtOugmu;
+	arc=none smtp.remote-ip=209.85.128.70
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49781606A320;
-	Sun, 22 Nov 2026 10:56:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49781606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=birger-koblitz.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=birger-koblitz.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28231606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:56:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28231606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--ardb.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=mAPn7ct7;
-	dkim=pass (2048-bit key) header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=j3yzXMNe
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=birger-koblitz.de;
-	s=default; t=1795344958;
-	bh=3ACaoL9PZS9jkgQWfykiNuYcNcvJU/UPaeZmhzEbc0k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mAPn7ct7AvkqSYb6k18vxq/Gu87QvibFADN4bDnNx1depkkd3h6+fvqbGaDo1S6EZ
-	 QcfMwEpAVB+/UJ8j6NgZ/e71eslxCF28nB2JBfSwavHc9waH/yZWvk6aYAB8IZsqFZ
-	 h6hgRAX4EMaGkJ9FUcSfyy2CGAcW2PyEAHFBmShKmGIxLcCgzIolRo10jfBTwvdJn1
-	 IslaSiIxDgpFyjv2ajA+ifgfdcOGOajMNC8KYPt7UeQdWB2cZARQx6jbv6uhUY+S3v
-	 eeLWRISiVh4UDu7PIu+458LoCLA9rekFd5rhnD6xYhOU5o9Yiu05wI37jHsm9N0XH8
-	 GLDTfjitWgCOg==
-Received: by bkemail.birger-koblitz.de (Postfix, from userid 109)
-	id 7332D495A8; Sun, 22 Nov 2026 10:55:58 +0000 (UTC)
-X-Spam-Level: 
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=birger-koblitz.de;
-	s=default; t=1795344957;
-	bh=3ACaoL9PZS9jkgQWfykiNuYcNcvJU/UPaeZmhzEbc0k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=j3yzXMNevJMYuk+s7ws/PZHI8tBxmxx216BEyzb+VBDW9g6etESZhj8hMbDlIHseY
-	 wNF/SwwLw81nNb/BwnMFamoKOJLhx4j/UclLDueYX3X11TcURjByR/TMU84sg3J2Cs
-	 GgpNuRF8jwQGsYwQfil9arw6WJpq4cxE9xoNxpSNWd+tcrcFn/thXXWY6B1pBCJ7Ni
-	 MmvzN4XJpE5t0iXNk4f4cgQvS3r6QNsdxfgdmGVNb32PNUMroWd//Nw86SfmdU23HH
-	 WwX1+P1Wq1C/Y2ZaTwuY3z+GJ2WDSuap+X0A2QZ+sZH9MUjza6RGegll6NjXrUSL0y
-	 N8ZpmOxeBqrGQ==
-Received: from [IPV6:2a00:6020:47a3:e800:271c:c6c5:9fde:77cb] (unknown [IPv6:2a00:6020:47a3:e800:271c:c6c5:9fde:77cb])
-	by bkemail.birger-koblitz.de (Postfix) with ESMTPSA id 23E304869D;
-	Sun, 22 Nov 2026 10:55:57 +0000 (UTC)
-Message-ID: <a6cac285-5df6-4440-bd58-99e29c71b0df@birger-koblitz.de>
-Date: Sun, 22 Nov 2026 11:55:57 +0100
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=oXtOugmu
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4bb68d624baso19173225e9.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:56:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795345011; x=1795949811; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TBdQn4iaXs4K3IS08zgLB1njZ8472GlpmHn+HZOS+/M=;
+        b=oXtOugmuHOFHmburj9SdXa8ZkbrkIgAB4CMd7Nx9R8Ckwt98ZJS+P4TQuz7HQjCse/
+         vgjNra6fDGMnqvw70Vp+CsT3XZIxEK+YSgwlBewcvJ/MRX1l9UOIj4xL7fuNtMBC6B8t
+         d9cAWue5SLn2EkyPu0E83SutPxQfMjwXGlDlP+ogQlBAZEbeNWE6cNlBSBvZxIJxFkn/
+         DYLRstpxQXgGbQSQkZEoew6TvHnPlVX44wwsr+Mo+Bn0B5ikVSuWrJwpYl2TvPrs+6Ff
+         t+FFevAoaevv1QKR4L+orL+MoMQp7HkUnFzxy0Yf+vVIbKWzmJE8XANB+DpYEsmr4bE0
+         jKPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795345011; x=1795949811;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=TBdQn4iaXs4K3IS08zgLB1njZ8472GlpmHn+HZOS+/M=;
+        b=B6Pz88hB9nfw+tJy8sxsZW3i2JUMNqNjJBr4U4CptQ8O5T9bQGbXq2tiXoO55WiXxx
+         jL/oEZn7hvwvAyyl9yPnZaoLOqri0KKlFDqZYFWg92vu+z0yrhS8tuEEqJHxly3nH1ea
+         ixbl5imcgpsdef61186IH291XpbGaD62ObkRjDwFHJSHVKJBGrvgOa3292nXSY8gdnSH
+         NtdJQPM5h2FHJjZcauZIAdX6iYfsZogFtVi409zVXdbkqPiJQAF2UMxCb96+tCMMjRxI
+         HO32/q9akV51+4d+Omdyi8vjeefgw3hLW2ks0fLK68q1qJhQxjOFlS6mJOIW2enia4yu
+         s1HA==
+X-Gm-Message-State: APuU4Z/3BCqUlF+94gSoOskg9ZdlvNNI1bj6OvicEYRXNQhyeEg6Wl8G
+	AezTI67YZYmU1tO6xZCvZk4OvfwkY+PHGYDM7eugv8vktNfz3AzVw872opoUVP0+wtaaIOqRY/k
+	vR/tAa1CZ4P5SyflRXwOIqIMKFh1FM/v18H1hMbsRekymnxKp62Hnjtwtz1ylxIiAtwBd5Gnr94
+	ZTbj/GXdXLqx0Eojg5Ob14Vhubh42AcDIIcA==
+X-Received: from wmej22.prod.google.com ([2002:a05:600c:42d6:b0:4bb:4bbf:7120])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1548:b0:4a3:59c9:a756
+ with SMTP id 5b1f17b1804b1-4bb88800013mr196849355e9.6.1795345011084; Sun, 22
+ Nov 2026 02:56:51 -0800 (PST)
+Date: Sun, 22 Nov 2026 11:56:47 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,222 +76,172 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] aqc111: Correct endianness handling in
- rx/tx_fixup
-To: netdev-bot+sashiko@kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, linux-usb@vger.kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261117-aqc111-v1-1-27a54c4b54ca@birger-koblitz.de>
- <179515614261.3136.9007298128427052621@kernel.org>
-From: Birger Koblitz <mail@birger-koblitz.de>
-Content-Language: en-US
-In-Reply-To: <179515614261.3136.9007298128427052621@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5956; i=ardb@kernel.org;
+ h=from:subject; bh=DWnBtyBokAGUqkZ0KDweRYYnMpGBh6VqAzR3FDs49SA=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIZvpVP6UqzMkdP+Izn0/J3SjuelRjrdn5m1ZJ/Go1n5/9
+ 4MrXtH9HaUsDGJcDLJiiiwCs/++23l6olSt8yxZmDmsTCBDGLg4BWAiIt8ZGaYLHvKZNzvbQr92
+ 6g3Ztupb+3YoL5ric0lI+Mqe87p/U9MZGRbKZ0gd825UltvOclL1weJb/caNf0J+6Ac7ttSz78y bxAkA
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261122105646.2223131-2-ardb+git@google.com>
+Subject: [PATCH] locking/local_lock: Don't evaluate the per-CPU lock pointer
+ if unused
+From: Ard Biesheuvel <ardb+git@google.com>
+To: linux-kernel@vger.kernel.org
+Cc: Ard Biesheuvel <ardb@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>, 
+	Boqun Feng <boqun@kernel.org>, Waiman Long <longman@redhat.com>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 
-On 20/11/2026 7:29 am, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 (1) · Medium: 1 · Low: 2
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] The new `skb_cloned(skb) ||` term in aqc111_tx_fixup()
->    (drivers/net/usb/aqc111.c:1223) sends every cloned TX skb to…
-> - [Low] The commit message misdescribes the change.
-> - [Low] The patch fixes real runtime bugs but has no Fixes: tag and no
->    stable Cc, and its message reads like a sparse cleanup.
-> 
-> Pre-existing issues:
-> - [High] This problem wasn't introduced by this patch, but
->    aqc111_rx_fixup() takes pkt_len from the device-controlled per-packet…
-> 
-> --
-> 
-> aqc111: Correct endianness handling in rx/tx_fixup
-> 
-> This commit moves the RX and TX descriptor accesses in aqc111_rx_fixup()
-> and aqc111_tx_fixup() to __le64 pointers with get_unaligned_le64() and
-> put_unaligned_le64(), to address sparse warnings. It also makes
-> aqc111_tx_fixup() always copy cloned skbs via skb_copy_expand().
-> 
->> aqc111: Correct endianness handling in rx/tx_fixup
-> 
-> [Severity: Low]
-> Does "endianness handling" accurately describe what changes here?
-> 
-> The old code already got the byte order right. le64_to_cpup() is
-> le64_to_cpu(*p), and the TX path stored cpu_to_le64(tx_desc). Sparse was
-> only complaining about the missing __le64 annotations.
-> 
-> The runtime changes in the patch are different, and the message doesn't
-> describe them:
-> 
-> - Plain 64-bit loads and stores become get_unaligned_le64() and
->    put_unaligned_le64(), which is an alignment fix. aqc111 never sets
->    EVENT_NO_IP_ALIGN, so RX skbs carry the NET_IP_ALIGN offset, and
->    desc_offset is a multiple of 8. On NET_IP_ALIGN=2 architectures, the
->    trailing descriptor header and the descriptor array both sit at 2 mod 8.
->    On TX, skb->data - 8 is normally 2 mod 4.
-> 
-> - aqc111_tx_fixup() now always copies cloned skbs, and the message covers
->    that with only this sentence:
-> 
->> Fix these problems and additionally also make sure that cloned
->> skbs are always copied for expansion.
-> 
-> Could the subject and body describe the alignment change and the
-> cloned-skb change, so the patch isn't mistaken for a cosmetic sparse
-> cleanup?
-I will adapt the commit message and subject and make sure this is not 
-misunderstood as cosmetics.
+From: Ard Biesheuvel <ardb@kernel.org>
 
+When lock debugging is disabled, local_lock_acquire() and friends are
+empty, and so the per-CPU lock pointer that is passed to them, which is
+usually computed using this_cpu_ptr(), is not used at all.
 
-> 
-> [Severity: Low]
-> Should this carry Fixes: tags, and maybe be split into an alignment fix and
-> a cloned-skb fix?
-> 
-> Two problems are fixed here. The 64-bit descriptor accesses in
-> aqc111_rx_fixup() and aqc111_tx_fixup() are misaligned. aqc111_tx_fixup()
-> also writes the TX descriptor and padding in place into the headroom and
-> tailroom of cloned skbs. Both go back to the original aqc111 RX/TX data
-> path commits.
-> 
-> Without Fixes: tags or a stable Cc, these fixes may not reach stable
-> kernels, and the patch may go to net-next instead of net.
-> 
->> diff --git a/drivers/net/usb/aqc111.c b/drivers/net/usb/aqc111.c
->> index dd53f413c38f6..39d8755ca8e7b 100644
->> --- a/drivers/net/usb/aqc111.c
->> +++ b/drivers/net/usb/aqc111.c
-> 
-> [ ... ]
-> 
->> @@ -1116,10 +1116,10 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
->>   		goto err;
->>   
->>   	/* Get the first RX packet descriptor */
->> -	pkt_desc_ptr = (u64 *)(skb->data + desc_offset);
->> +	pkt_desc_ptr = (__le64 *)(skb->data + desc_offset);
->>   
->>   	while (pkt_count--) {
->> -		u64 pkt_desc = le64_to_cpup(pkt_desc_ptr);
->> +		u64 pkt_desc = get_unaligned_le64(pkt_desc_ptr);
->>   		u32 pkt_len_with_padd = 0;
->>   		u32 pkt_len = 0;
-> 
+However, on x86, when the compiler does not support named address spaces
+(i.e., Clang), this_cpu_ptr() is based on inline asm with a memory
+operand, and Clang does not discard such inline asm even if its result
+is unused. So the computation of the per-CPU address of the lock is
+emitted regardless, e.g., on every local_lock_nested_bh() in
+process_backlog() and on every local_lock() in the folio batching code.
 
-I will keep this together but describe the fix better. The fix comprises 
-very few spot changes and should also be understandable as is.
+This was addressed before by commit
 
-> [Severity: High]
-> This is a pre-existing issue, not one introduced by this patch, but is
-> aqc111_rx_fixup() missing a lower bound on pkt_len?
-> 
-> pkt_len comes from the device-supplied descriptor, and only an upper bound
-> is checked:
-> 
-> drivers/net/usb/aqc111.c:aqc111_rx_fixup() {
->      ...
-> 		if (pkt_desc & AQ_RX_PD_DROP ||
-> 		    !(pkt_desc & AQ_RX_PD_RX_OK) ||
-> 		    pkt_len > (dev->hard_mtu + AQ_RX_HW_PAD)) {
->      ...
-> 		skb_put(new_skb, pkt_len);
-> 		memcpy(new_skb->data, skb->data, pkt_len);
-> 		skb_pull(new_skb, AQ_RX_HW_PAD);
->      ...
-> 		usbnet_skb_return(dev, new_skb);
->      ...
-> }
-> 
-> A malicious or broken USB device can report a pkt_len below
-> ETH_HLEN + AQ_RX_HW_PAD and still keep pkt_total_offset equal to
-> desc_offset. When pkt_len < 2, the skb_pull() above silently fails.
-> 
-> The runt skb then goes through usbnet_skb_return()->eth_type_trans(), which
-> doesn't check the length. The 14 byte ethhdr is read from bytes that were
-> never written, so skb->protocol and pkt_type come from uninitialized
-> memory. The skb is then passed to netif_rx() without ETH_HLEN having been
-> pulled.
-> 
-> If the device is bridged, br_dev_queue_push_xmit() calls
-> skb_push(skb, ETH_HLEN) into headroom that was never written. That could
-> transmit about 12 bytes of stale kernel memory on another port. An
-> AF_PACKET reader could also get uninitialized bytes in sll_addr.
-> 
-> Would rejecting pkt_len < ETH_HLEN + AQ_RX_HW_PAD in the drop condition
-> above prevent this?
-> 
-I will add this fix.
+  9983a9d577db ("locking/local_lock: Make the empty local_lock_*() function a macro.")
 
-> [ ... ]
-> 
->> @@ -1220,7 +1220,8 @@ static struct sk_buff *aqc111_tx_fixup(struct usbnet *dev, struct sk_buff *skb,
->>   	headroom = skb_headroom(skb);
->>   	tailroom = skb_tailroom(skb);
->>   
->> -	if (!(headroom >= sizeof(tx_desc) && tailroom >= padding_size)) {
->> +	if (skb_cloned(skb) ||
->> +	    !(headroom >= sizeof(tx_desc) && tailroom >= padding_size)) {
->>   		new_skb = skb_copy_expand(skb, sizeof(tx_desc),
->>   					  padding_size, flags);
->>   		dev_kfree_skb_any(skb);
-> 
-> [Severity: Medium]
-> Does this new skb_cloned() check force a full payload copy for every TCP
-> data skb?
-> 
-> TCP transmits clones from __tcp_transmit_skb(), so skb_cloned() is true
-> for these skbs by the time they reach ndo_start_xmit. TCP also marks them
-> nohdr, so skb_header_cloned() is false. Writing the 8 byte descriptor into
-> their headroom was therefore already allowed.
-> 
-> skb_copy_expand() allocates a new linear buffer of
-> 8 + skb->len + padding_size using the caller's GFP flags. It then copies
-> the whole payload, including the frags.
-> 
-> This bites hardest when usb_device_no_sg_constraint() sets can_dma_sg in
-> aqc111_bind() and AQ_SUPPORT_FEATURE enables NETIF_F_SG and NETIF_F_TSO.
-> In that case the skb_linearize() call earlier in aqc111_tx_fixup() is
-> skipped.
-> 
-> Before this patch, a nonlinear TSO skb with padding_size == 0 went straight
-> to skb_push(). Now it gets a linearizing copy of up to about 64KB. That
-> needs a high-order atomic allocation, and the packet is dropped if the
-> allocation fails.
-> 
-> Linear cloned skbs are copied too, for example every packet while an
-> AF_PACKET tap is active. Nonlinear skbs that need padding were already
-> copied before this patch, because skb_tailroom() returns 0 for them.
-> 
-> The sibling ax88179_tx_fixup() only unshares the head:
-> 
-> drivers/net/usb/ax88179_178a.c:ax88179_tx_fixup() {
->      ...
-> 	if ((skb_header_cloned(skb) || headroom < 0) &&
-> 	    pskb_expand_head(skb, headroom < 0 ? 8 : 0, 0, GFP_ATOMIC)) {
->      ...
-> }
-> 
-> Would skb_header_cloned() plus pskb_expand_head(), sized for the
-> descriptor and the padding, be enough here?
-The change fixes a definite error in case the skb was cloned. The fix 
-may be relatively resource-intensive in case it is triggered, however it 
-is preferable for the code to be correct. I cannot further optimize this 
-code as I do not have actual hardware to test.
+but that change was reverted by commit
 
-> 
-> The commit message also doesn't say which problem the cloned check fixes.
+  2d2f8f083ef2 ("Revert "locking/local_lock: Make the empty local_lock_*() function a macro."")
 
-I will add this.
+once commit
+
+  1c1e7e3c23dd ("x86/percpu: Remove volatile from arch_raw_cpu_ptr().")
+
+had dropped the volatile qualifier from the inline asm, on the basis that
+the compiler no longer emits the unused per-CPU reference in that case.
+This is true for GCC, but not for Clang.
+
+So implement the !CONFIG_DEBUG_LOCK_ALLOC versions of these helpers as
+macros that only reference their argument in dead code, so that it is
+type checked but never evaluated. Referencing it only in an unevaluated
+context instead, as the typecheck() in the original macros did, makes
+Clang complain about per-CPU locks that are only used via these helpers
+(-Wunneeded-internal-declaration), which is what commit
+
+  a4812d47deff ("mm/page_alloc: mark pagesets as __maybe_unused")
+
+had to work around at the time.
+
+Also, only evaluate the lock pointer in __local_lock_acquire() and
+__local_lock_release() when it is actually needed, i.e., for
+local_trylock_t.
+
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Boqun Feng <boqun@kernel.org>
+Cc: Waiman Long <longman@redhat.com>
+Cc: Nathan Chancellor <nathan@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Bill Wendling <morbo@google.com>
+Cc: Justin Stitt <justinstitt@google.com>
+Cc: llvm@lists.linux.dev
+Fixes: 2d2f8f083ef2 ("Revert "locking/local_lock: Make the empty local_lock_*() function a macro."")
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+---
+ include/linux/local_lock_internal.h | 47 +++++++++++++-------
+ 1 file changed, 30 insertions(+), 17 deletions(-)
+
+diff --git a/include/linux/local_lock_internal.h b/include/linux/local_lock_internal.h
+index 234be7f12c15..7c3191438c90 100644
+--- a/include/linux/local_lock_internal.h
++++ b/include/linux/local_lock_internal.h
+@@ -69,10 +69,21 @@ static inline void local_lock_debug_init(local_lock_t *l)
+ #else /* CONFIG_DEBUG_LOCK_ALLOC */
+ # define LOCAL_LOCK_DEBUG_INIT(lockname)
+ # define LOCAL_TRYLOCK_DEBUG_INIT(lockname)
+-static inline void local_lock_acquire(local_lock_t *l) { }
+-static inline void local_trylock_acquire(local_lock_t *l) { }
+-static inline void local_lock_release(local_lock_t *l) { }
+ static inline void local_lock_debug_init(local_lock_t *l) { }
++
++/*
++ * The argument passed to these is usually a this_cpu_ptr() expression, which
++ * is implemented using inline asm when the compiler lacks support for named
++ * address spaces (e.g., Clang). Clang may fail to discard such inline asm
++ * even if its result is never used, so only reference the argument in dead
++ * code, which type checks it without evaluating it. (Referencing it only in an
++ * unevaluated context such as sizeof() would make Clang complain about per-CPU
++ * locks that are only used via these helpers being unneeded.)
++ */
++static inline void __local_lock_typecheck(local_lock_t *l) { }
++# define local_lock_acquire(l)		({ if (0) __local_lock_typecheck(l); })
++# define local_trylock_acquire(l)	({ if (0) __local_lock_typecheck(l); })
++# define local_lock_release(l)		({ if (0) __local_lock_typecheck(l); })
+ #endif /* !CONFIG_DEBUG_LOCK_ALLOC */
+ 
+ #define INIT_LOCAL_LOCK(lockname)	{ LOCAL_LOCK_DEBUG_INIT(lockname) }
+@@ -105,20 +116,23 @@ do {								\
+ 	local_lock_debug_init(lock);				\
+ } while (0)
+ 
++/*
++ * Only evaluate @lock if it is actually used, i.e., for local_trylock_t, or
++ * when lock debugging is enabled (see local_lock_acquire() above).
++ */
+ #define __local_lock_acquire(lock)					\
+ 	do {								\
+-		local_trylock_t *__tl;					\
+-		local_lock_t *__l;					\
+-									\
+-		__l = (local_lock_t *)(lock);				\
+-		__tl = (local_trylock_t *)__l;				\
+ 		_Generic((lock),					\
+ 			local_trylock_t *: ({				\
++				local_trylock_t *__tl = (local_trylock_t *)(lock); \
++									\
+ 				lockdep_assert(__tl->acquired == 0);	\
+ 				WRITE_ONCE(__tl->acquired, 1);		\
++				local_lock_acquire((local_lock_t *)__tl); \
+ 			}),						\
+-			local_lock_t *: (void)0);			\
+-		local_lock_acquire(__l);				\
++			local_lock_t *: ({				\
++				local_lock_acquire((local_lock_t *)(lock)); \
++			}));						\
+ 	} while (0)
+ 
+ #define __local_lock(lock)					\
+@@ -181,18 +195,17 @@ do {								\
+ 
+ #define __local_lock_release(lock)					\
+ 	do {								\
+-		local_trylock_t *__tl;					\
+-		local_lock_t *__l;					\
+-									\
+-		__l = (local_lock_t *)(lock);				\
+-		__tl = (local_trylock_t *)__l;				\
+-		local_lock_release(__l);				\
+ 		_Generic((lock),					\
+ 			local_trylock_t *: ({				\
++				local_trylock_t *__tl = (local_trylock_t *)(lock); \
++									\
++				local_lock_release((local_lock_t *)__tl); \
+ 				lockdep_assert(__tl->acquired == 1);	\
+ 				WRITE_ONCE(__tl->acquired, 0);		\
+ 			}),						\
+-			local_lock_t *: (void)0);			\
++			local_lock_t *: ({				\
++				local_lock_release((local_lock_t *)(lock)); \
++			}));						\
+ 	} while (0)
+ 
+ #define __local_unlock(lock)					\
+-- 
+2.56.1.750.gf70dc682cf-goog
 
