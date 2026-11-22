@@ -1,90 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795368164;
-	b=fGnwN3+1NkHTCZ9krnaTniWlf1BASCXTKH6SlPcgaMUPINI0kq4Ck9CXOZOqFO2yDCRD
-	 ncPECOdb+OLLv1BBqDfarmY8zMKnPJvn9ER4ByiALBNQa5Box86VP24ejAB6/S/7DRqPY
-	 QEh581ZcHBMzZjlHlXDSQNxYB7RQVSE3LCg9Dj5FGDyAT/SShckpoe3fkEobzc5OMrDyP
-	 7EaH7TKLz0jpyv19w4qmYK3BSxP1em++nYwUEY7O1g/XfuZ8vbzLiueFoFZ2NQsu+uM9C
-	 UNMufjDvQ34BA5Mcc7eFfLbrz29dJO/+Nxz5SnCkKCQ0Q3OSK1Kj+UYigHtKw3TUXaA==
+	t=1795368842;
+	b=0TXsPf1Sf77V1xzx3XvSOT+aZVKFvfguHe8foxcun2YfWGvQ7zqP36Gzi9xQwvZF7b5J
+	 cIlp0lt8P7SX2h5HpswsPOY2ZzBxGJcQmzRKY5AWfIsZpUThlFey21Q1slEz1+ZBkrV3b
+	 hY2fr5Ekf4vwzKilmjtY0KFfaenQXvGLEykJqdwRhqv7xncBlUqIirn/wDy+lND2HeHO/
+	 u1SRCBE5W8vZPAKF2i+KXKyvIwNoSE2RKHwieBJIOr+q6OynIFzGpqpE3OimAm8LT+w/F
+	 k2a0J0p9i3e3MNRHNo0bsotCLy6SVmUs/LDcgt07Ug5+uGw/dtqwX04ZjDwQL5IKLhg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795368164;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795368842;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-Id:
+	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=576Qvl2ypTDD9yrAIj4YAh6P34TjGSq1gM/j9EPcq4Y=;
-	b=Fn2HaOz0COvcC1BIXPf2G+DvVRpEZ1K203kgYIB80Aw5jD+7xsre2W1BOG9VRvdxu0+A
-	 OH4u+vmlkGO0I+xZ3WqHMiQnnGjCNvCy8cfmoDai/HktmHagdNheh81S3NqTQyVgsDfmB
-	 dy09cbbiNY9urV2J0czYzht5A6G6ieFp87IkHmrvymhEfl3JqxQLc8OLgt17Hs2syl78u
-	 ztKuL1RI9sAPlu8JgIng4LH/oObzuosz5cxva89Ze4//MzPsYdBbBThZ5ncwXzTYgPwCt
-	 EbwgUy0swmiSvW129hYdR/EYxCOb1xdQ0qVVuiZQ6YQktx9fVolaHqIldk+SluqC02g==
+	bh=XWnVSfSExq5MyZwecuVJFn6QnpHkUPdEUEl9atXATPE=;
+	b=MkLDzIvZkcL+iKs/2IQVS15JaSGBzXsj8TKiJnMpvHzLX6U1+JiahUKunQnXnQgUUGM6
+	 c3QLm4KawEQCZHWflUsT7zc7eOxPDCZQRAus9t9Db0qSsEVvLvY3eHtakEYpYgzf91AfB
+	 XYUna/7Cx/Fs5mE4D5Dd0w/zXxZFAArFN5pg8fg4i42+CRY303to1ZO+CLrkCM/o4npcj
+	 BlKQ1hvogryF4qDyK53FUJeIH2dH/yVWucJMdPF/GPOv/jSJPZc1H3BKSoWASN8QEiWQH
+	 jVk9WvANyvraf/YATHV4DfiKO+vZRq49yliYDb/lq0uFMSWQ7YOHvWolJVhjo0hAeKg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="rdMN/uuh";
-	arc=none smtp.remote-ip=74.125.82.181
-Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=lDRvUtNm;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D38F7606A330
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:22:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D38F7606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D2A0606A320;
+	Sun, 22 Nov 2026 17:34:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rdMN/uuh
-Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-3866a784546so3084256eec.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:22:43 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=lDRvUtNm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6746D1F000C6;
+	Sun, 22 Nov 2026 17:34:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795368163; x=1795972963; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=576Qvl2ypTDD9yrAIj4YAh6P34TjGSq1gM/j9EPcq4Y=;
-        b=rdMN/uuh37VKObF52K9+lcme53bqcVhzqmpmYe9zYf4xuf7IMBHBGOWYyCDpwozQem
-         HWXEws9rArjqW8P+BJrs8nA5WqwClIUasxOguhVLwHBAfr+1EfGiWqdYOGJcP3CtmHI0
-         gFM2LT3VrFa+7Y1gdLeG9WA6HQpTTkVWY35gj/quFUOILDjm/CiPqDGJ91U16Z19CGBl
-         KUK3EdQL3TDOO5ADOUiFXPerabn7IEcmxNlrpheQJPGdqhsKbS5g6fctTEQ8Xc8PYA1C
-         8gAFgyUBNZoud48/lrvtNYJu2wAHKjInCOYGYtovVezXg95EEZqg2FGRsu8+8BtEPE3j
-         PHuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795368163; x=1795972963;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=576Qvl2ypTDD9yrAIj4YAh6P34TjGSq1gM/j9EPcq4Y=;
-        b=TwIbZJqQBDC9uPZqnfqoVdlFSDo+PTAsF3GVACTotucIAaxrJX1UHUSZosRuAMiYFO
-         cbtFnLUO4qMxCqeNBpKZQ9LcIh6n063JzfyJNao/ktoYHGK4vhNC88Wtoz7e1+0pTPll
-         D9I5BwL8RUMGqBLiD4Mcw16yMIgFknR059UG4mL9s5ZXURg+FpQx3sYOCExo1GnDVgwA
-         ax6yqpF9rXNfgbO42HijEULKzdsi/ir5A34MToCqfpTKE6UqC9iWW4SqIEfVp5utU9lq
-         HLl4AaWj9GvJLyPoY9rDlo20MYORXeiilD0ht8mSIjKUr93xHeIuqqyfPfOW1JLKiZ/H
-         PxJg==
-X-Forwarded-Encrypted: i=1; AL+hErGAEN1iIr7L4iZCQBOpO5Zj0shGjepCYGuNF+jK2zl4uxRISk8f4cw+pnl2xI6MSEth4qt8p73jeYLpD4E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z82bVjGbQOh6RHPdUcC0m1vTRW0HCN9/iE+mBaXIgVkNw719Cwz
-	8CQ7gkfGB8qhidmkQdGJOkO9v+DmroA6kr5aETT26iBrQm7WZf6dDGql
-X-Gm-Gg: AZFdTZeSgPgznO9FtxEeCj/wXTdzrEFzZffDCMTe1C9dY/jWofXBh4oeF+xXym0rYi9
-	UxexLjY1PezkheUNxlPMRgF7tji+XJotZgDpXJGWgj/0jMAYQnxh09uxuf9m3sS7/lBIaJQiiA0
-	B1I8vZ6Ep5oPB+5nrWfkT+fdy4zrCMp8AFg5sa3BucacfRIbg5XX4z0xbw4c4rm7rlDiDsuMia9
-	hpZWmIds4UCAJBSsmzAvqti3eF9owFvar2q8HYyro0CkI9lCv+u1b0LZQ3t8RkJPDYsaxVmB1zt
-	BpoWkMzO58eN4XZjvCw6uyRFlJkT870oyxh0y3vOnkgC0QzlHOjqRbL89rK0sjPcPPTiJbkFMdq
-	5ZACbLpn/Udg6ok19YjrUagUhRqa2xA+U8SeEk8pdbX9IkKnwMZ31/79qu94LsvkYnMQaCqyndy
-	FY/bBOG5mBoTsBkN94ukthuzvu7V2LCkReUZp/37oJ5ZR6+WXb18+uHzW9c7B0vJvS16Mky8VdU
-	kSCJuNFZXUPpQk2QwNxldRGwv8+nLgJaern9tOFrlj3snwRaN7i5MOFlQXBdcJYBa4ll3BIzFtV
-	SWLe4a4gRdZ3gV+0AZzW6zoNtC+bNdEqPjSbvZsLr4776Bs9Degoh684m5xPevYeA0xvBcnRhpd
-	urBMZlImovc8IxHm68pvVPUEHyc4XrrtMkRbC9TArrJ2nievUZmO+TvEjiL05YQeJ4n6/I3XvyT
-	EgFwTs5tV2jjvFAOLzcFB646HOOMuiFdIaANSDnCpj72q9T4Y=
-X-Received: by 2002:a05:693c:6010:b0:385:849b:7899 with SMTP id 5a478bee46e88-385849b7adamr10817054eec.4.1795368162901;
-        Sun, 22 Nov 2026 09:22:42 -0800 (PST)
-Received: from ?IPV6:2402:a00:163:3509:b842:8324:ef7c:136d? ([2402:a00:163:3509:b842:8324:ef7c:136d])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566fdce48sm30943866eec.14.2026.11.22.09.22.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Nov 2026 09:22:42 -0800 (PST)
-Message-ID: <9997e6c6-2e5e-4314-88b2-a8547ab035f2@gmail.com>
-Date: Sun, 22 Nov 2026 22:52:36 +0530
+	d=linux-foundation.org; s=korg; t=1795368841;
+	bh=XWnVSfSExq5MyZwecuVJFn6QnpHkUPdEUEl9atXATPE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=lDRvUtNmFyLxBJaqt31nIeuOZphWp5s9y/xLwIyUsJzMobBm86z+onHMNWXcerfBd
+	 vuIYiGP5sE6v4kCI9pJ48EBxnD8yOs72taYaTv+Bu18jP3RCT7AjnWzJh7NnEHQqfg
+	 2FV6QItq0raHeExsRANnGX9Tb73Y1HLfdk5CVrRY=
+Date: Sun, 22 Nov 2026 09:34:00 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: syzbot <syzbot+38fdbb551940270021f1@syzkaller.appspotmail.com>
+Cc: heming.zhao@suse.com, jlbec@evilplan.org, joseph.qi@linux.alibaba.com,
+ linux-kernel@vger.kernel.org, mark@fasheh.com, ocfs2-devel@lists.linux.dev,
+ syzkaller-bugs@googlegroups.com, zzzccc427@gmail.com
+Subject: Re: [syzbot] [ocfs2?] possible deadlock in shrinker_free
+Message-Id: <20261122093400.b726ecddf154f493dec1c892@linux-foundation.org>
+In-Reply-To: <6b0257ca.6ccd1e40.868ea.001a.GAE@google.com>
+References: <6b007186.91c4c7f9.2424d6.0003.GAE@google.com>
+	<6b0257ca.6ccd1e40.868ea.001a.GAE@google.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,63 +57,154 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: pinctrl: qcom,sc7280-lpass-lpi: add
- ext_mclk1_c
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Srinivas Kandagatla <srini@kernel.org>,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
- linux-arm-msm@vger.kernel.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261115174237.48908-1-surajsonawane0215@gmail.com>
- <20261115174237.48908-2-surajsonawane0215@gmail.com>
- <20261116-nondescript-buffalo-of-whirlwind-6a5008@quoll>
-Content-Language: en-US
-From: Suraj Sonawane <surajsonawane0215@gmail.com>
-In-Reply-To: <20261116-nondescript-buffalo-of-whirlwind-6a5008@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 
+On Sat, 21 Nov 2026 18:47:38 -0800 syzbot <syzbot+38fdbb551940270021f1@syzkaller.appspotmail.com> wrote:
 
-
-On 16/11/26 18:10, Krzysztof Kozlowski wrote:
-> On Sun, Nov 15, 2026 at 11:12:36PM +0530, Suraj Sonawane wrote:
->> LPASS LPI gpio5 can mux EXT_MCLK1_C. The SC7280 driver names that
->> function ext_mclk1_c, matching SC8280XP, but the binding enum does
+> syzbot has found a reproducer for the following issue on:
 > 
-> I do not see it in the driver, so are you sure you used correct reason
-> for the patch? Mentioning driver means you document existing ABI being
-> used.
-You are correct, thank you. In mainline, gpio5 in
-drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c is currently:
+> HEAD commit:    f802b6558eb8 Merge tag 'xfs-fixes-7.4-rc4' of git://git.ke..
+> git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+> console output: https://syzkaller.appspot.com/x/log.txt?x=141d98e9580000
+> kernel config:  https://syzkaller.appspot.com/x/.config?x=3cc6a7ee2d24d208
+> dashboard link: https://syzkaller.appspot.com/bug?extid=38fdbb551940270021f1
+> compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+> C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=10918a03580000
+> 
+> The issue was bisected by AI to:
+> 
+> commit f277230d002d03ed98b814b735f9d3d01b42020a
+> Author: Cen Zhang <zzzccc427@gmail.com>
+> Date:   Fri Oct 30 04:48:56 2026 +0000
+> 
+>     ocfs2: serialize inode journal access with shutdown
 
-   LPI_PINGROUP(5, 12, swr_rx_data, _, _, _),
+#syz test
 
-so ext_mclk1_c is not implemented for SC7280 yet. I described it
-wrongly as existing ABI.
+From: Andrew Morton <akpm@linux-foundation.org>
+Subject: ocfs2: unregister the JBD2 shrinker before journal shutdown
+Date: Sat, 21 Nov 2026 19:34:56 -0800
 
- >> not allow it.
- >
- > Entire sentence is clear here - there is ABI and binding does not allow
- > it. Please point me to that implementation.
+sysbot reports a lockdep cycle through shrinker_mutex, filesystem reclaim
+and osb->journal_shutdown_sem.  Unmount holds the superblock's s_umount
+exclusively, while the OCFS2 reclaim path must first get its read side
+with super_trylock_shared().  That excludes the two paths for the same
+superblock; the report does not establish a runtime deadlock.  Still, the
+lock ordering is visible to lockdep and produces the warning.
 
-There is no such implementation in SC7280. The same mux position is
-exposed as ext_mclk1_c on SC8280XP, in
-drivers/pinctrl/qcom/pinctrl-sc8280xp-lpass-lpi.c:
+The write side of journal_shutdown_sem must cover all of
+jbd2_journal_destroy(): ocfs2_clear_inode() can otherwise release a JBD2
+inode through a journal that is being destroyed.  Move only the JBD2
+shrinker unregister operation before taking the semaphore. 
+shrinker_free() waits for active shrinker users, so the journal and its
+checkpoint counter remain alive while they finish.  A successfully
+initialized JBD2 journal always has a checkpoint counter.  Destroy it
+after unregistering the shrinker, whether unregistering happened here or
+before taking the OCFS2 semaphore.  The semaphore continues to protect
+JBD2 destruction, removal of osb->journal and freeing the OCFS2 journal.
 
-   LPI_PINGROUP(5, 12, swr_rx_data, ext_mclk1_c, qua_mi2s_data, _),
+The userspace-visible result is removal of this lockdep warning during
+OCFS2 unmount; the report does not demonstrate a hung unmount.
 
-On Vicharak's Axon Mini SBC (QCS6490, sc7280-compatible LPI) we need 
-LPASS gpio5 as
-EXT_MCLK1_C for the audio codec MCLK. Patch 2/2 adds ext_mclk1_c to the
-SC7280 LPI pinctrl driver, and patch 1/2 updates the binding so
-function = "ext_mclk1_c" is valid.
+Fixes: f277230d002d ("ocfs2: serialize inode journal access with shutdown")
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+Reported-by: <syzbot+38fdbb551940270021f1@syzkaller.appspotmail.com>
+Closes: https://syzkaller.appspot.com/bug?extid=38fdbb551940270021f1
+Link: https://lore.kernel.org/6b0257ca.6ccd1e40.868ea.001a.GAE@google.com
+Tested-by: Andrew Morton <akpm@linux-foundation.org>
+Cc: Cen Zhang <zzzccc427@gmail.com>
+Cc: Mark Fasheh <mark@fasheh.com>
+Cc: Joel Becker <jlbec@evilplan.org>
+Cc: Joseph Qi <joseph.qi@linux.alibaba.com>
+Cc: Heming Zhao <heming.zhao@suse.com>
+Cc: Theodore Ts'o <tytso@mit.edu>
+Cc: Jan Kara <jack@suse.cz>
+Cc: <stable@vger.kernel.org>
+---
+Tested with CONFIG_PROVE_LOCKING=y in x86-64 QEMU guests. A omitted
+this patch; B added it alone. OCFS2 and JBD2 were built in.
 
-I will send a v3 with a corrected commit message that says we are adding
-the missing function and binding, not documenting pre-existing ABI.
-Thanks,
-Suraj
+Syzbot's C reproducer mounted a local OCFS2 image, accessed 200 files,
+exercised reclaim and unmounted it. A reproduced the reported circular
+locking warning: shrinker_free() ran from jbd2_journal_destroy() while
+ocfs2_journal_shutdown() held journal_shutdown_sem. The unmount
+completed; this test did not show a runtime deadlock.
+
+B completed the same sequence without a warning. Three further
+mount/reclaim/unmount cycles on B also completed without warnings.
+An ext4 read/write/unmount control passed on both kernels.
+
+Both builds needed the same temporary correction for an unrelated
+mm/util.c compile error in another queued patch. The correction was
+removed after testing. The test did not force an active JBD2 shrinker
+callback to overlap unmount or exercise failed-mount cleanup.
+
+ fs/jbd2/journal.c    |   17 +++++++++++++----
+ fs/ocfs2/journal.c   |    1 +
+ include/linux/jbd2.h |    1 +
+ 3 files changed, 15 insertions(+), 4 deletions(-)
+
+--- a/fs/jbd2/journal.c~ocfs2-unregister-the-jbd2-shrinker-before-journal-shutdown
++++ a/fs/jbd2/journal.c
+@@ -75,6 +75,7 @@ EXPORT_SYMBOL(jbd2_journal_check_availab
+ EXPORT_SYMBOL(jbd2_journal_set_features);
+ EXPORT_SYMBOL(jbd2_journal_load);
+ EXPORT_SYMBOL(jbd2_journal_destroy);
++EXPORT_SYMBOL(jbd2_journal_unregister_shrinker);
+ EXPORT_SYMBOL(jbd2_journal_abort);
+ EXPORT_SYMBOL(jbd2_journal_errno);
+ EXPORT_SYMBOL(jbd2_journal_ack_err);
+@@ -2100,6 +2101,16 @@ int jbd2_journal_load(journal_t *journal
+ 	return 0;
+ }
+ 
++void jbd2_journal_unregister_shrinker(journal_t *journal)
++{
++	struct shrinker *shrinker = journal->j_shrinker;
++
++	if (!shrinker)
++		return;
++	journal->j_shrinker = NULL;
++	shrinker_free(shrinker);
++}
++
+ /**
+  * jbd2_journal_destroy() - Release a journal_t structure.
+  * @journal: Journal to act on.
+@@ -2173,10 +2184,8 @@ int jbd2_journal_destroy(journal_t *jour
+ 		brelse(journal->j_sb_buffer);
+ 	}
+ 
+-	if (journal->j_shrinker) {
+-		percpu_counter_destroy(&journal->j_checkpoint_jh_count);
+-		shrinker_free(journal->j_shrinker);
+-	}
++	jbd2_journal_unregister_shrinker(journal);
++	percpu_counter_destroy(&journal->j_checkpoint_jh_count);
+ 	if (journal->j_proc_entry)
+ 		jbd2_stats_proc_exit(journal);
+ 	iput(journal->j_inode);
+--- a/fs/ocfs2/journal.c~ocfs2-unregister-the-jbd2-shrinker-before-journal-shutdown
++++ a/fs/ocfs2/journal.c
+@@ -1119,6 +1119,7 @@ void ocfs2_journal_shutdown(struct ocfs2
+ 	 * Exclude the final JBD2 inode cleanup in ocfs2_clear_inode() while
+ 	 * the journal is destroyed and freed.
+ 	 */
++	jbd2_journal_unregister_shrinker(journal->j_journal);
+ 	down_write(&osb->journal_shutdown_sem);
+ 
+ 	/* Shutdown the kernel journal system */
+--- a/include/linux/jbd2.h~ocfs2-unregister-the-jbd2-shrinker-before-journal-shutdown
++++ a/include/linux/jbd2.h
+@@ -1566,6 +1566,7 @@ extern void	   jbd2_journal_clear_featur
+ 		   (journal_t *, unsigned long, unsigned long, unsigned long);
+ extern int	   jbd2_journal_load       (journal_t *journal);
+ extern int	   jbd2_journal_destroy    (journal_t *);
++extern void	   jbd2_journal_unregister_shrinker(journal_t *);
+ extern int	   jbd2_journal_recover    (journal_t *journal);
+ extern int	   jbd2_journal_wipe       (journal_t *, int);
+ extern int	   jbd2_journal_skip_recovery	(journal_t *);
+_
+
