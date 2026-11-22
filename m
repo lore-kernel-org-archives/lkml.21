@@ -1,54 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.223
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795352783;
-	b=01W3DPS5z98bHPJVOJNNknDFtZQ4sUecslWqiooa8ibqBwdoFUCzWq6BJ/YVS3Vl4ZBe
-	 754WcbqXAqH9SbbOIln81VXxBVwUOJFUfEVQLDuSoJDYHAqwcDzdmdqqhGo/EyhHQHDIE
-	 lBy5YMbJlQEvJ5snsIZoFdZ5FkP9uBzAXh3J67w6vdkVhqm+kLBI/XmHp9OQxI1gJ7txB
-	 AVph5KzDvok6bZ1OZ6JSOUfjHedrLRCdh/JxzRDLlECcxFcO7ujJyw4UES98UfaXbDuBX
-	 teemTV92D9IR3pam6UtoO1Yb1tNGqhWsDKqWjiNvIJHoRC2QmpcULm18EHw0HD7dXfg==
+	t=1795352963;
+	b=syHnZQdLgU7lvvWt6FGUuG6WR4XJWGjxPBeGoO7aIFiXJ0UjQgfnj919a/zm3A9E20ZY
+	 28yQjTYsS112IVmGwYdG5uZ1sKkmHZsbDMqgKNipiIbe1RzGIBodYFClVAYo4mwCVIR75
+	 m78Imd2ihNp0Lkr+L6xtr3wFHIadWjLiSt84eaKSWbrqbVdnIgnG7tiScJ9iD+LYg+dMR
+	 ERvo3x6ej2FxW6hdDagpSijOW7+oJCnzmViqXcJggOTTINRgO8PFb5J0uheBMgo37Rkus
+	 mBOGfRZ72jrHGK9EXVRVXOJME9V0C2Tw8N64XNYm5TYhabOJo0TGidEAhZIy5pe7IcA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795352783;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Ifz1Dp9uyM5CrWMMO7DuqpBxTzYZ145mPZwwugOI68I=;
-	b=QcabU4ukgL1DbXo8nHF9aqXBStvNBFV9SfJAChHO+LL8bmN7GBUPLC+OOGzzcDgKYETj
-	 4EmGnjsZj+y8GBVLksdL4PqyYelWQGjVXbkfVIgqMTpcNNGrSyjmRFC9OfANXU0WoNdQv
-	 Nkh+pYwkudeeilajHjUTN+9nHlqrrafBCUFkSVZT1fKsehFQ20BRG5fI98ELAToLhRiO4
-	 mdnBF5G3otjDW8ai8vp7tSjOlTY3QYUhu3RWKMqZDidmtvKkEFFGOyFxg69L4MaEfsRR7
-	 6ewh/Mdi7yUdYNQ0zLWQBpTORvDdgwVoBZx0Xub3AvHAngf995BEXfkfbmBNJiGFLYA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795352963;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=sZ1PDNEi5E6ogIgtuYs0TfJyc0Jc2h1FjIxlhYKU2LE=;
+	b=n29xMHZNKu8rmZVI8ah90MnuJ4uYOo9jkRK/+djtgK5keeKDk8k+U7CF+mNgC3ytdSpC
+	 B8i9sj6ZFD6z+lZVe+o2fqILbBK8JBdrd8Go+TaaD3JExMEYqYwP8kXOIiEnPYqafmFyD
+	 75PTxyK/9l6uc15awHwW/C7lw4TRqVi0CUAhp2ee2KS8HKMLlDjFkgWg/0I8k0qiUzM9E
+	 aLf4j1pHNb44/PKpYQmEkAnBsoX1dYWSj9/MnsqU68N+L2P4oXqlrMTdV6L5xq1n3kuI4
+	 EGttDo3fA+Uy0KlT834Sq1Ca/aSizkZcyVX4j2tqSIij5Ffy7ZKYTGL/O71mmR/Z/OQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=MMhuyXJZ;
-	arc=none smtp.remote-ip=91.218.175.223
-Received: from mta0.migadu.com (out-223.mta0.migadu.com [91.218.175.223])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mgmnpsdm;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F168606A330
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:06:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F168606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CF05606A320;
+	Sun, 22 Nov 2026 13:09:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=MMhuyXJZ
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=GsSR9hboazddPWhsCVcs48+xXK/0gjFvPNjGYm6kikM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795352779; v=1; x=1795957579;
- b=MMhuyXJZsESJe8bjoWZ+M0UXEf+4AhQiQ620/w4mCmT7vVx3fxVGiZRRwvCpHeptzNYh1coO
- mOKjuX57/nO+zt9y2xIEb5/55B1owuMvzwQzy95ourNDRl3ZKrA/XbBTL1pbuEjaeCHmf22Z2Y3
- cDtMZj8JwunT11dRyW8jzVfo=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id bd40fb4aff8af176;
-	Sun, 22 Nov 2026 13:06:19 +0000
-X-Mizu-Trace-ID: bd40fb4aff8af176
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <5cfb9f90-6bd3-4f31-be7b-841c8e7c826a@linux.dev>
-Date: Sun, 22 Nov 2026 14:06:11 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mgmnpsdm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA2BA1F000C6;
+	Sun, 22 Nov 2026 13:09:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795352962;
+	bh=sZ1PDNEi5E6ogIgtuYs0TfJyc0Jc2h1FjIxlhYKU2LE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=MgmnpsdmpI8dKngcWDxf/i1/dekLkMZ2De7V0Wp7NwOxb/sVkZ4OePmkHiIELKEpa
+	 cPWS0rtaesk1AabINYYcc3VIlO51S2kqO54ck4doH7CSVnMIpuHqfD+ZhOXSyTLcqx
+	 Dq9/tVrWNsDJ3Gmgc/f2MHEZwusB+3StI9cV7w8DzC2j7Af6p8bmrq+qrCe15LlHXs
+	 AQu3EG1WdODB6xNa2+hS5GtW7fM3B1YPLPEjGWhB+CKUXmhIq66pqZXFnZ/kvsk9r9
+	 aYN8A/RQV9FtwKYp4ncaePyxAcmO5nsoUoaPlQIwvN2y6VWpQVTIGAiJWXDpvWW+xX
+	 2lZIBaHD+02gA==
+Message-ID: <aa3821a5-6459-4845-8255-00a26bf243d3@kernel.org>
+Date: Sun, 22 Nov 2026 14:09:15 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,249 +52,167 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH rdma-rc v2] RDMA/siw: Reject opcodes a user send queue may
- not use
-To: Andrew Stellman <astellman@stellman-greene.com>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>,
- linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261120140605.62810-1-astellman@stellman-greene.com>
-From: Bernard Metzler <bernard.metzler@linux.dev>
-In-Reply-To: <20261120140605.62810-1-astellman@stellman-greene.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH net 4/4] net: skbuff: limit folio refcount when splicing
+ from sockets
+To: netdev-bot+sashiko@kernel.org
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, akpm@linux-foundation.org,
+ kas@kernel.org, songliubraving@fb.com, hannes@cmpxchg.org, riel@surriel.com,
+ willy@infradead.org, ncardwell@google.com, kuniyu@google.com,
+ pfalcato@suse.de, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, stable@vger.kernel.org
+References: <20261118-skb_refcount_overflow-v1-4-5551b4954c3f@kernel.org>
+ <179533918041.3135.8460911693239501161@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <179533918041.3135.8460911693239501161@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On 20.11.2026 15:06, Andrew Stellman wrote:
-> A user QP's send queue is mapped into the process, and
-> siw_activate_tx_from_sq() only checks that an SQE's opcode is below
-> SIW_NUM_OPCODES. siw-abi.h marks SIW_OP_INVAL_STAG and SIW_OP_REG_MR as
-> valid for in-kernel clients only, but a user process can still post
-> them. For SIW_OP_REG_MR, siw_fastreg_mr() then uses the user supplied
-> base_mr value as a kernel pointer to a struct ib_mr.
+On 11/22/26 10:19, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in case
+> you want to address the nit picks below when you respin.
 > 
-> The uverbs device is mode 0666, so once an administrator has created a
-> siw device any local user can trigger this. With an unmapped base_mr,
-> as an unprivileged user under KASAN:
+> Low priority / nit picks for your consideration:
 > 
->    Oops: general protection fault, probably for non-canonical address 0xe000042828282002: 0000 [#1] SMP KASAN NOPTI
->    KASAN: probably user-memory-access in range [0x0000414141410010-0x0000414141410017]
->    CPU: 1 UID: 65534 PID: 116 Comm: siw003 Not tainted 7.4.0-rc3-gaebb72744764 #16 PREEMPT(lazy)
->    Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
->    RIP: 0010:siw_qp_sq_process+0x38b/0x3c10
->    Code: 0f 85 fe 36 00 00 8b b5 8c 02 00 00 48 85 db 0f 84 15 26 00 00 48 b8 00 00 00 00 00 fc ff df 48 8d 7b 14 48 89 fa 48 c1 ea 03 <0f> b6 14 02 48 89 f8 83 e0 07 83 c0 03 38 d0 7c 08 84 d2 0f 85 d9
->    RSP: 0018:ff1100000559f860 EFLAGS: 00000203
->    RAX: dffffc0000000000 RBX: 0000414141410000 RCX: ffffffff98233fb5
->    RDX: 0000082828282002 RSI: 0000000093e50e00 RDI: 0000414141410014
->    RBP: ff11000005786000 R08: 0000000000000001 R09: 000000000000000b
->    R10: 0000000000000000 R11: 00000000c8f9259d R12: ff110000057df400
->    R13: dffffc0000000000 R14: ff1100000565a000 R15: ff1100000578628c
->    FS:  00007f1b60b7d740(0000) GS:ff110000caf2e000(0000) knlGS:0000000000000000
->    CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->    CR2: e000042828282002 CR3: 0000000005732000 CR4: 0000000000751ef0
->    PKRU: 55555554
->    Call Trace:
->     <TASK>
->     ? __pfx_siw_qp_sq_process+0x10/0x10
->     ? siw_activate_tx_from_sq+0x865/0xc20
->     siw_post_send+0xecf/0x20b0
->     ? kasan_save_track+0x14/0x30
->     ? uverbs_try_lock_object+0x51/0xa0
->     ? rdma_lookup_get_uobject+0x1ea/0x360
->     ? __pfx_siw_post_send+0x10/0x10
->     ib_uverbs_post_send+0xf28/0x1610
->     ? nbcon_get_cpu_emergency_nesting+0x5/0x30
->     ? __pfx_ib_uverbs_post_send+0x10/0x10
->     ? __pfx__raw_spin_lock_irqsave+0x10/0x10
->     ib_uverbs_write+0x899/0xd30
->     ? __pfx_ldsem_down_read+0x10/0x10
->     ? __pfx_ib_uverbs_write+0x10/0x10
->     ? _raw_spin_lock_irqsave+0x86/0xe0
->     ? __pfx__raw_spin_lock_irqsave+0x10/0x10
->     ? mutex_unlock+0x7b/0xd0
->     ? file_tty_write.isra.0+0x4f8/0x8f0
->     ? selinux_file_permission+0x373/0x540
->     vfs_write+0x227/0xcd0
->     ? do_sys_openat2+0xd1/0x170
->     ? kmem_cache_free+0xba/0x3a0
->     ? __pfx_vfs_write+0x10/0x10
->     ? __pfx_do_sys_openat2+0x10/0x10
->     ? fdget_pos+0x53/0x4b0
->     ksys_write+0x17c/0x1c0
->     ? __pfx_ksys_write+0x10/0x10
->     ? __hrtimer_rearm_deferred+0x156/0x450
->     do_syscall_64+0xdf/0x4c0
->     entry_SYSCALL_64_after_hwframe+0x77/0x7f
->    RIP: 0033:0x7f1b60d4f574
->    Code: c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 f3 0f 1e fa 80 3d d5 ea 0e 00 00 74 13 b8 01 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 54 c3 0f 1f 00 55 48 89 e5 48 83 ec 20 48 89
->    RSP: 002b:00007fffd2b4e098 EFLAGS: 00000202 ORIG_RAX: 0000000000000001
->    RAX: ffffffffffffffda RBX: 000055859422a180 RCX: 00007f1b60d4f574
->    RDX: 0000000000000020 RSI: 000055859422a238 RDI: 0000000000000004
->    RBP: 000055856deca0d4 R08: 0000000000000078 R09: 0000000000000000
->    R10: 0000000000000000 R11: 0000000000000202 R12: 000055859422a180
->    R13: 00007f1b60b7d6b8 R14: 000055859422a000 R15: 000055859422a0c0
->     </TASK>
->    Modules linked in:
->    ---[ end trace 0000000000000000 ]---
->    RIP: 0010:siw_qp_sq_process+0x38b/0x3c10
->    Code: 0f 85 fe 36 00 00 8b b5 8c 02 00 00 48 85 db 0f 84 15 26 00 00 48 b8 00 00 00 00 00 fc ff df 48 8d 7b 14 48 89 fa 48 c1 ea 03 <0f> b6 14 02 48 89 f8 83 e0 07 83 c0 03 38 d0 7c 08 84 d2 0f 85 d9
->    RSP: 0018:ff1100000559f860 EFLAGS: 00000203
->    RAX: dffffc0000000000 RBX: 0000414141410000 RCX: ffffffff98233fb5
->    RDX: 0000082828282002 RSI: 0000000093e50e00 RDI: 0000414141410014
->    RBP: ff11000005786000 R08: 0000000000000001 R09: 000000000000000b
->    R10: 0000000000000000 R11: 00000000c8f9259d R12: ff110000057df400
->    R13: dffffc0000000000 R14: ff1100000565a000 R15: ff1100000578628c
->    FS:  00007f1b60b7d740(0000) GS:ff110000caf2e000(0000) knlGS:0000000000000000
->    CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->    CR2: e000042828282002 CR3: 0000000005732000 CR4: 0000000000751ef0
->    PKRU: 55555554
+> - [Low] The new comment above skb_splice_bits()
+>   (net/core/skbuff.c:3295-3300) says the function "Returns the number of…
 > 
-> The task is killed. When its files are closed on exit, uverbs warns:
+> Pre-existing issues:
+> - [Medium] skb_splice_bits() still returns 0, which callers report as
+>   EOF, when nothing was spliced because linear_to_page() failed to…
 > 
->    ------------[ cut here ]------------
->    WARNING: drivers/infiniband/core/rdma_core.c:956 at __uverbs_cleanup_ufile+0x2cc/0x390, CPU#0: siw003/116
->    Modules linked in:
->    CPU: 0 UID: 65534 PID: 116 Comm: siw003 Tainted: G      D             7.4.0-rc3-gaebb72744764 #16 PREEMPT(lazy)
->    Tainted: [D]=DIE
->    Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
->    RIP: 0010:__uverbs_cleanup_ufile+0x2cc/0x390
->    Code: 00 65 48 2b 05 3d a0 a0 03 0f 85 ca 00 00 00 8b 44 24 04 48 81 c4 f8 00 00 00 5b 5d 41 5c 41 5d 41 5e 41 5f c3 cc cc cc cc 90 <0f> 0b 90 e9 3a ff ff ff 48 b8 00 00 00 00 00 fc ff df 4c 89 ea 48
->    RSP: 0018:ff1100000559fb38 EFLAGS: 00000202
->    RAX: 0000000000000001 RBX: ff1100000575b640 RCX: ffffffff981e7f19
->    RDX: 00000000ffffffff RSI: 0000000000000004 RDI: ff1100000575b640
->    RBP: dffffc0000000000 R08: 0000000000000001 R09: ffe21c0000aeb6c8
->    R10: ff1100000575b643 R11: 00000000846d9113 R12: 0000000000000001
->    R13: ff1100000575bd70 R14: ff1100000575b600 R15: ff1100000575b700
->    FS:  0000000000000000(0000) GS:ff110000cae2e000(0000) knlGS:0000000000000000
->    CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->    CR2: 000055859422a0b8 CR3: 0000000074c72000 CR4: 0000000000751ef0
->    PKRU: 55555554
->    Call Trace:
->     <TASK>
->     ? __pfx___uverbs_cleanup_ufile+0x10/0x10
->     ? __pfx_down_write+0x10/0x10
->     uverbs_destroy_ufile_hw+0x6d/0x260
->     ib_uverbs_close+0x46/0x270
->     __fput+0x2f8/0x9e0
->     fput_close_sync+0xe2/0x190
->     ? __pfx_fput_close_sync+0x10/0x10
->     filp_close_sync+0x18/0x30
->     put_files_struct+0x181/0x310
->     do_exit+0x6ab/0x25f0
->     ? ksys_write+0x17c/0x1c0
->     ? __pfx_do_exit+0x10/0x10
->     ? __hrtimer_rearm_deferred+0x156/0x450
->     make_task_dead+0xf2/0x2a0
->     rewind_stack_and_make_dead+0x16/0x20
->    RIP: 0033:0x7f1b60d4f574
->    Code: Unable to access opcode bytes at 0x7f1b60d4f54a.
->    RSP: 002b:00007fffd2b4e098 EFLAGS: 00000202 ORIG_RAX: 0000000000000001
->    RAX: ffffffffffffffda RBX: 000055859422a180 RCX: 00007f1b60d4f574
->    RDX: 0000000000000020 RSI: 000055859422a238 RDI: 0000000000000004
->    RBP: 000055856deca0d4 R08: 0000000000000078 R09: 0000000000000000
->    R10: 0000000000000000 R11: 0000000000000202 R12: 000055859422a180
->    R13: 00007f1b60b7d6b8 R14: 000055859422a000 R15: 000055859422a0c0
->     </TASK>
->    ---[ end trace 0000000000000000 ]---
+> --
 > 
-> The exit never finishes. Thirty seconds later, sysrq-w shows the task
-> blocked in siw_destroy_qp():
+> net: skbuff: limit folio refcount when splicing from sockets
 > 
->    task:siw003          state:D stack:25848 pid:116   tgid:116   ppid:93     task_flags:0x40010c flags:0x00080801
->    Call Trace:
->     <TASK>
->     __schedule+0x18da/0x4c00
->     ? __pfx___schedule+0x10/0x10
->     schedule+0x70/0x1f0
->     schedule_preempt_disabled+0x11/0x20
->     rwsem_down_write_slowpath+0x47c/0x13a0
->     ? make_task_dead+0xf2/0x2a0
->     ? __pfx_rwsem_down_write_slowpath+0x10/0x10
->     down_write+0x10b/0x130
->     ? __pfx_down_write+0x10/0x10
->     ? siw_destroy_qp+0x1a3/0x410
->     ? kfree+0x121/0x390
->     siw_destroy_qp+0x1b2/0x410
->     ? __pfx_siw_destroy_qp+0x10/0x10
->     ? __pfx___wait_for_common+0x10/0x10
->     ? complete+0x1d/0x230
->     ib_destroy_qp_user+0x30f/0x4f0
->     ? __pfx_ib_destroy_qp_user+0x10/0x10
->     ? handle_bug+0x11c/0x2a0
->     uverbs_free_qp+0x7c/0x150
->     destroy_hw_idr_uobject+0x7e/0x130
->     uverbs_destroy_uobject+0xdf/0x770
->     __uverbs_cleanup_ufile+0x18b/0x390
->     ? __pfx___uverbs_cleanup_ufile+0x10/0x10
->     ? __pfx_down_write+0x10/0x10
->     uverbs_destroy_ufile_hw+0x6d/0x260
->     ib_uverbs_close+0x46/0x270
->     __fput+0x2f8/0x9e0
->     fput_close_sync+0xe2/0x190
->     ? __pfx_fput_close_sync+0x10/0x10
->     filp_close_sync+0x18/0x30
->     put_files_struct+0x181/0x310
->     do_exit+0x6ab/0x25f0
->     ? ksys_write+0x17c/0x1c0
->     ? __pfx_do_exit+0x10/0x10
->     ? __hrtimer_rearm_deferred+0x156/0x450
->     make_task_dead+0xf2/0x2a0
->     rewind_stack_and_make_dead+0x16/0x20
->    RIP: 0033:0x7f1b60d4f574
->    RSP: 002b:00007fffd2b4e098 EFLAGS: 00000202 ORIG_RAX: 0000000000000001
->    RAX: ffffffffffffffda RBX: 000055859422a180 RCX: 00007f1b60d4f574
->    RDX: 0000000000000020 RSI: 000055859422a238 RDI: 0000000000000004
->    RBP: 000055856deca0d4 R08: 0000000000000078 R09: 0000000000000000
->    R10: 0000000000000000 R11: 0000000000000202 R12: 000055859422a180
->    R13: 00007f1b60b7d6b8 R14: 000055859422a000 R15: 000055859422a0c0
->     </TASK>
+> This patch uses try_get_page() in spd_fill_page() so that splicing from
+> sockets into pipes cannot push a folio refcount past its limit. On
+> failure it returns -EFAULT, and the error is propagated as an int
+> through __splice_segment() and __skb_splice_bits(). skb_splice_bits()
+> returns the error when nothing was spliced, so the callers don't report
+> EOF.
 > 
-> Posting an unsupported atomic or SIW_OP_RECEIVE instead hits the
-> WARN(1, "undefined WQE type") in siw_qp_sq_process() and leaves the
-> memory region named in the SQE pinned after the process exits.
+>> diff --git a/net/core/skbuff.c b/net/core/skbuff.c
+>> index c937d74eed6ac..b73fef7a1b460 100644
+>> --- a/net/core/skbuff.c
+>> +++ b/net/core/skbuff.c
 > 
-> No opcode from SIW_OP_FETCH_AND_ADD up is valid on a user send queue,
-> so reject them all.
+> [ ... ]
 > 
-> The issue was found by Claude Opus 5.5 running Quality Playbook, an
-> LLM-driven code review tool:
-> https://github.com/andrewstellman/quality-playbook
-> The fix and this changelog were drafted with the same tool and reviewed
-> by me.
+>> @@ -3284,7 +3294,9 @@ static bool __skb_splice_bits(struct sk_buff *skb, struct pipe_inode_info *pipe,
+>>  
+>>  /*
+>>   * Map data from the skb to a pipe. Should handle both the linear part,
+>> - * the fragments, and the frag list.
+>> + * the fragments, and the frag list. Returns the number of bytes spliced,
+>> + * or an error if we could not splice anything because we could not take
+>> + * a page reference.
+>>   */
 > 
-> Fixes: f29dd55b0236 ("rdma/siw: queue pair methods")
-> Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
-> ---
-> v2: Include the full dmesg trace, as Leon asked, with the uverbs warning
-> and the blocked task that follow the oops. No code change.
-> v1: https://lore.kernel.org/linux-rdma/20261120000211.63217-1-astellman@stellman-greene.com/
+> [Severity: Low]
+> This isn't a bug, but is this return description complete?
 > 
-> Tested in QEMU with KASAN on v7.4-rc3. The patch applies unchanged to
-> rdma for-rc. With this patch the post returns -EINVAL for REG_MR,
-> INVAL_STAG, FETCH_AND_ADD and RECEIVE from a user QP, user SEND and RDMA
-> WRITE still complete, and rping over siw works.
-> A reproducer is available on request.
+> When spd.nr_pages is non-zero, skb_splice_bits() returns whatever
+> splice_to_pipe() returns. splice_to_pipe() in fs/splice.c can fail for
+> reasons that have nothing to do with page references:
 > 
->   drivers/infiniband/sw/siw/siw_qp.c | 6 ++++++
->   1 file changed, 6 insertions(+)
+> 	if (unlikely(!pipe->readers)) {
+> 		send_sig(SIGPIPE, current, 0);
+> 		ret = -EPIPE;
+> 		goto out;
+> 	}
+> 	...
+> 	if (!ret)
+> 		ret = -EAGAIN;
 > 
-> diff --git a/drivers/infiniband/sw/siw/siw_qp.c b/drivers/infiniband/sw/siw/siw_qp.c
-> index bb780e3904a2..10876cefc0bb 100644
-> --- a/drivers/infiniband/sw/siw/siw_qp.c
-> +++ b/drivers/infiniband/sw/siw/siw_qp.c
-> @@ -869,6 +869,12 @@ static int siw_activate_tx_from_sq(struct siw_qp *qp)
->   		rv = -EINVAL;
->   		goto out;
->   	}
-> +	/* No opcode from FETCH_AND_ADD up is valid on a user SQ */
-> +	if (!rdma_is_kernel_res(&qp->base_qp.res) &&
-> +	    wqe->sqe.opcode >= SIW_OP_FETCH_AND_ADD) {
-> +		rv = -EINVAL;
-> +		goto out;
-> +	}
->   	if (wqe->sqe.flags & SIW_WQE_INLINE) {
->   		if (wqe->sqe.opcode != SIW_OP_SEND &&
->   		    wqe->sqe.opcode != SIW_OP_WRITE) {
+> The reverse case also exists. If linear_to_page() fails in
+> spd_fill_page(), nothing gets spliced, yet skb_splice_bits() returns 0
+> and not an error.
 > 
-> base-commit: e7732ec135b501e87ab060d992b3b5f2ec4396c9
-Excellent finding! Thank you very much.
+> Could the comment also mention the -EPIPE and -EAGAIN cases that come
+> from splice_to_pipe()?
 
-Acked-by: Bernard Metzler <bernard.metzler@linux.dev>
+I guess we can just make it simpler by saying
+
+"... or an error if splicing failed."
+
+I assume that could be fixed up when applying.
+
+> 
+>>  int skb_splice_bits(struct sk_buff *skb, struct sock *sk, unsigned int offset,
+>>  		    struct pipe_inode_info *pipe, unsigned int tlen,
+>> @@ -3299,14 +3311,14 @@ int skb_splice_bits(struct sk_buff *skb, struct sock *sk, unsigned int offset,
+>>  		.ops = &default_pipe_buf_ops,
+>>  		.spd_release = sock_spd_release,
+>>  	};
+>> -	int ret = 0;
+>> +	int ret;
+>>  
+>> -	__skb_splice_bits(skb, pipe, &offset, &tlen, &spd, sk);
+>> +	ret = __skb_splice_bits(skb, pipe, &offset, &tlen, &spd, sk);
+>>  
+>>  	if (spd.nr_pages)
+>> -		ret = splice_to_pipe(pipe, &spd);
+>> -
+>> -	return ret;
+>> +		return splice_to_pipe(pipe, &spd);
+>> +	/* Returning 0 would make callers report EOF. */
+>> +	return ret < 0 ? ret : 0;
+> 
+> [Severity: Medium]
+> This is a pre-existing issue, not one introduced by this patch. Can the
+> spurious EOF that this new comment describes still happen when
+> linear_to_page() fails?
+
+Sounds like something for net people to investigate.
+
+-- 
+Cheers,
+
+David
