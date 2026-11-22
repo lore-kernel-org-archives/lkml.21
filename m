@@ -1,84 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.122
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795316368;
-	b=M9mGSjHsCSzB/3e8KXMEOnDM0ypF6CGOmNHtf/PFeXKS6/7LE+sKqY1jWhDAci1xjkyB
-	 Znyupu6Bbk7ZhN7S3HtATz5l0Pk63+VgYLEQLCOpQXL5N8R4aZ/qwrjAtcUkGO10daxHV
-	 J4rstW57h47RnzNz0/neNCF1KpLAugChsBcAAxutTC0xVOKN3xyKroYT2IZ5tcM0K0z9V
-	 5U8K4mohcj4gPfs+CFBRADks37lQcMW9ptS0D5+wSrKJBgwRqNPY/2+vwX0IbqvEYp2zd
-	 wMNFfsLzYogZmvOTp6+K/MeX/Kjk0el6NJ+UMMxqwCYh5Bh6hlWJMSNGMkBFw4dkpkg==
+	t=1795316476;
+	b=WhiLlBPnvoHqdixV98pTDvzAmkxLv+ze5zkFNcZuWtb5KIewJqSzI0nVSlPJm1sr/OeW
+	 iVczDLOAyayVkCGCnoJDj7nEajtI99+J33sI6AOEompxKPEDYskYZ7JFwooIpKqQmrayE
+	 x/kdRdEoMsEcWvOU668EyBIGNbfm2TO2xW8PAmGTYimfh8X/3URCQP7jiUYFLJNwrpfnR
+	 ALR4octs9rL4VD/X4RdUwPe0Z5IaA9dPWH58weE8jB1ARIK8eVLVcnpj/iNprH0NQj+KC
+	 T8/5uH1DBOMZq5ZZ69LvdELdVg0Yv0g7uhlw3sDxG0qFMPbuZuOT1EzKAS+kYibChCg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795316368;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
-	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=yYeJQEscc2TA+KV1k2VlRtn2U3s34MESL1yXvefpdxU=;
-	b=estfsIvlUorcT1h2pg4s5DAob1LqT5nAjF30dnyaZjGBQFd5YCHxIr8/7qvJtjsjsbZu
-	 6GpxcoHUIUlqj/4hKjvB+1ibTdZIYzME84A6lXnBoUrfJkTOxXu10iNtFQ7cnLlTlbPXk
-	 7qnWj2alFx0pamukAXbJG1TYzqOweJFM2QsU3anHS5202eamhQfvaYqMK3ZEWLg2j2G38
-	 7uxxj14lUe7Y/SY+m4VxPkEVJyFOcGPecYoMnXDbb5EaLWh0xIVkQQvp1EBTce61aFBVU
-	 JyHHux6XcbomAl8BnVJu8DVodGoZhKewZf3CKQnUg+2GKxn3mhnVn28iPKReWSyC41w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795316476;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type;
+	bh=xpRj4OFJd9HB7VdTZ4Si8PRH53tOWMzd7fQbdHzZUy8=;
+	b=ARhRZt1H+LVBE1CbTqj1L46VtLQQPUiUXvvTDUytd3j6pWdahXv5vXf+J1kSuBtyC6iX
+	 mqpWIKHpAXSIgntgcw15ee0f0jgn0Kh0d1JoixCag4Il5Hbmn6dh1oX8DHDlLGX7Zf/no
+	 jCVVC6b+qOtdzdYIP9b0gLa6Sn70i+F7DGVxqiECyFgalvX63TTbnbRAekdFyLCfvUf/F
+	 KFIwunS02Ln8JmycERzk8IVh6q/jsxh/VrYXgLH1Mjo6kzMfcBfvTYxUwzYzPpnUAAXZ8
+	 65rruIH9ZP4/a7mX2vl36Ias6ASvIA2F6pGr6N9oAsZyhzNtFUG1jIQnqQYryFvhrcA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=DNGSLDUz;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	dmarc=pass header.from=pm.me;
+	spf=pass smtp.mailfrom=pm.me;
+	dkim=pass header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=aEpErZdT;
+	arc=none smtp.remote-ip=109.224.244.122
+Received: from mail-244122.protonmail.ch (mail-244122.protonmail.ch [109.224.244.122])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B451F606A320;
-	Sun, 22 Nov 2026 02:59:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B451F606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07F6F606A320;
+	Sun, 22 Nov 2026 03:01:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07F6F606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pm.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pm.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=DNGSLDUz
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AM2wsAY3533307, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795316334; bh=yYeJQEscc2TA+KV1k2VlRtn2U3s34MESL1yXvefpdxU=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=DNGSLDUzcSMPNfbNJMM2JtvGbRJURWUmoJR6TtBlA2r7q8KDNOM/LAlBxx0SlM6I5
-	 RfuEwm+AzQUWkPmRkmPQhkqFRR1l6mJCiNNhjp6VrNGV4ZEPTe0xZz9dPfHIJnBhgr
-	 HaWNL+9+7LAvNV1JmGwhnBWe1O9ytrmLyeOQ5Igv2eXSm6QVO8sjFAvMsoLDkCbLWe
-	 /yPJC/ljNYxB58Zy0lZ9lfDSaW0nOqY7A6FE5sYrQVyck0jFHg4RScm00ZGHYCjwfj
-	 uUwAC3wkYxNT7tifTKNYu6Sgnvn+2ChQZhGcKnigwHR7pmvYJxH14M0aTihryGjg/F
-	 eQb+H1m9Ykm9w==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AM2wsAY3533307
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sun, 22 Nov 2026 10:58:54 +0800
-Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Sun, 22 Nov 2026 10:58:54 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Sun, 22 Nov 2026 10:58:54 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Sun, 22 Nov 2026 10:58:54 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: "niko3x@proton.me" <niko3x@proton.me>, Jes Sorensen
-	<Jes.Sorensen@gmail.com>
-CC: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH rtw-next 2/2] wifi: rtl8xxxu: report real TX status on
- RTL8188CU/RTL8192CU
-Thread-Topic: [PATCH rtw-next 2/2] wifi: rtl8xxxu: report real TX status on
- RTL8188CU/RTL8192CU
-Thread-Index: AQHdeHMhg+5NsNHWPEW0tvIoEIFEvrc5XnCQ
-Date: Sun, 22 Nov 2026 02:58:54 +0000
-Message-ID: <87a031c8ede14efd9c83bc8206fd2aac@realtek.com>
-References: <20261120-b4-tx-status-v1-0-abdab21c77fe@proton.me>
- <20261120-b4-tx-status-v1-2-abdab21c77fe@proton.me>
-In-Reply-To: <20261120-b4-tx-status-v1-2-abdab21c77fe@proton.me>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key, unprotected) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=aEpErZdT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
+	s=protonmail3; t=1795316472; x=1795575672;
+	bh=xpRj4OFJd9HB7VdTZ4Si8PRH53tOWMzd7fQbdHzZUy8=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=aEpErZdTkuQP/ZfIlfknNYW/6ACAyS9eZihti34nqdJIqSV/vxEDYrDM+kSWwZIKP
+	 lQNAqvekmGF4GtRWI92ScS7WYwmEKoMJ6li7wEuKIwCuK7dlj1Bp2uFx4RDPfpfHfF
+	 PnTuf1oX1C3AC8xsXwLHkKBDVJ8wu9ww1qoPySebIvOeh5RLSWNj26J4LlKUOtVZ8e
+	 RmX3BFQtmTYtRn1RcTDGmsiPB1K1R7sbXq3BSIR5Hueb422Rgdbh1bCj7Nk/JT/WK/
+	 9HWEJFTd13iezFz50SbQNSQo4dDpgAbVMlPM98GvEKrfydZqOkdvnikXSlsAZe7WWl
+	 nnyBMsYC93EXw==
+Date: Sun, 22 Nov 2026 03:01:04 +0000
+To: Gao Xiang <xiang@kernel.org>, Chao Yu <chao@kernel.org>
+From: YanXin Li <fadouse@pm.me>
+Cc: Yue Hu <zbestahu@gmail.com>, Jingbo Xu <jefflexu@163.com>, Sandeep Dhavale <dhavale@google.com>, Hongbo Li <hongbohbli@tencent.com>, Chunhai Guo <guochunhai@vivo.com>, Sheng Yong <shengyong@oppo.com>, Wang Shuai <wangshuai@vivo.com>, linux-erofs@lists.ozlabs.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: [PATCH] erofs: validate fsoffset alignment and bound page reads
+Message-ID: <20261122030055.8408-1-fadouse@pm.me>
+Feedback-ID: 173252840:user:proton
+X-Pm-Message-ID: d03e577baa4adf089be24332b70f4d53cd10d283
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,149 +60,243 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; protocol="application/pgp-signature"; micalg=pgp-sha256; boundary="------3f70be30fccd01ebfa0f03cfdbb2b7ee21873dc0913c09d884dcccc2d6b93eb7"; charset=utf-8
 
-QWhtZXQgWmVyZW4gdmlhIEI0IFJlbGF5IDxkZXZudWxsK25pa28zeC5wcm90b24ubWVAa2VybmVs
-Lm9yZz4gd3JvdGU6DQoNClsuLi5dDQoNCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbmV0L3dpcmVs
-ZXNzL3JlYWx0ZWsvcnRsOHh4eHUvODE5MmMuYw0KPiBiL2RyaXZlcnMvbmV0L3dpcmVsZXNzL3Jl
-YWx0ZWsvcnRsOHh4eHUvODE5MmMuYw0KPiBpbmRleCA1MDgzMjJhOGYzLi40MDFjYzFmNmRhIDEw
-MDY0NA0KPiAtLS0gYS9kcml2ZXJzL25ldC93aXJlbGVzcy9yZWFsdGVrL3J0bDh4eHh1LzgxOTJj
-LmMNCj4gKysrIGIvZHJpdmVycy9uZXQvd2lyZWxlc3MvcmVhbHRlay9ydGw4eHh4dS84MTkyYy5j
-DQo+IEBAIC03MjYsNiArNzI2LDcgQEAgc3RydWN0IHJ0bDh4eHh1X2ZpbGVvcHMgcnRsODE5MmN1
-X2ZvcHMgPSB7DQoNCm1vdmUgLmhhc19jMmhldnRfdHhfcmVwb3J0IGhlcmUgdG8gYmUgYWxtb3N0
-IHRoZSBzYW1lIG9yZGVyIGFzDQpkZWZpbml0aW9uIGluIHN0cnVjdCBydGw4eHh4dV9maWxlb3Bz
-Lg0KDQo+ICAgICAgICAgLmh3X2ZlYXR1cmVfcmVwb3J0ID0gMCwNCj4gICAgICAgICAubWF4X21h
-Y2lkX251bSA9IDMyLA0KPiAgICAgICAgIC5tYXhfc2VjX2NhbV9udW0gPSAzMiwNCj4gKyAgICAg
-ICAuaGFzX2MyaGV2dF90eF9yZXBvcnQgPSAxLA0KPiAgICAgICAgIC5hZGRhXzF0X2luaXQgPSAw
-eDBiMWIyNWEwLA0KPiAgICAgICAgIC5hZGRhXzF0X3BhdGhfb24gPSAweDBiZGIyNWEwLA0KPiAg
-ICAgICAgIC5hZGRhXzJ0X3BhdGhfb25fYSA9IDB4MDRkYjI1YTQsDQo+IGRpZmYgLS1naXQgYS9k
-cml2ZXJzL25ldC93aXJlbGVzcy9yZWFsdGVrL3J0bDh4eHh1L2NvcmUuYw0KPiBiL2RyaXZlcnMv
-bmV0L3dpcmVsZXNzL3JlYWx0ZWsvcnRsOHh4eHUvY29yZS5jDQo+IGluZGV4IGFiMjgxODk4NmMu
-LjM2ZjBhMjY2YWYgMTAwNjQ0DQo+IC0tLSBhL2RyaXZlcnMvbmV0L3dpcmVsZXNzL3JlYWx0ZWsv
-cnRsOHh4eHUvY29yZS5jDQo+ICsrKyBiL2RyaXZlcnMvbmV0L3dpcmVsZXNzL3JlYWx0ZWsvcnRs
-OHh4eHUvY29yZS5jDQo+IEBAIC01MTQ4LDYgKzUxNDgsMTA1IEBAIHN0YXRpYyB2b2lkIHJ0bDh4
-eHh1X2ZyZWVfdHhfdXJiKHN0cnVjdCBydGw4eHh4dV9wcml2ICpwcml2LA0KPiAgICAgICAgIHNw
-aW5fdW5sb2NrX2lycXJlc3RvcmUoJnByaXYtPnR4X3VyYl9sb2NrLCBmbGFncyk7DQo+ICB9DQo+
-IA0KPiArLyoNCj4gKyAqIEdlbjEgY2hpcHMgY2FuIHJlcG9ydCB0aGUgQUNLIHN0YXR1cyBvZiBh
-IGZyYW1lIHRocm91Z2ggdGhlIEMySCBldmVudA0KPiArICogbWFpbGJveC4gVGhlcmUgaXMgbm8g
-d2F5IHRvIHRlbGwgd2hpY2ggZnJhbWUgYSByZXBvcnQgYmVsb25ncyB0bywgc28NCj4gKyAqIG9u
-bHkgb25lIGZyYW1lIGF0IGEgdGltZSBhc2tzIGZvciBvbmUsIHVudGlsIGl0cyByZXBvcnQgYXJy
-aXZlcy4gVGhlDQo+ICsgKiByZXBvcnQgY29tZXMgd2hlbiB0aGUgZnJhbWUgaXMgZG9uZSwgd2hp
-Y2ggY2FuIHRha2Ugc2Vjb25kcyB3aXRoIG1hbnkNCj4gKyAqIHJldHJpZXMsIHNvIHdhaXQgZm9y
-IGl0IHJhdGhlciB0aGFuIHJpc2sgdGFraW5nIGl0IGZvciB0aGUgbmV4dCBmcmFtZS4NCj4gKyAq
-Lw0KPiArI2RlZmluZSBSVEw4WFhYVV9UWF9SRVBPUlRfVElNRU9VVCAgICAgbXNlY3NfdG9famlm
-ZmllcygxMDAwMCkNCj4gKw0KPiArc3RhdGljIGJvb2wgcnRsOHh4eHVfdHhfcmVwb3J0X2NsYWlt
-KHN0cnVjdCBydGw4eHh4dV9wcml2ICpwcml2LA0KPiArICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgc3RydWN0IHNrX2J1ZmYgKnNrYikNCj4gK3sNCj4gKyAgICAgICBzdHJ1Y3Qg
-aWVlZTgwMjExX3R4X2luZm8gKnR4X2luZm8gPSBJRUVFODAyMTFfU0tCX0NCKHNrYik7DQo+ICsg
-ICAgICAgc3RydWN0IGllZWU4MDIxMV9oZHIgKmhkciA9IChzdHJ1Y3QgaWVlZTgwMjExX2hkciAq
-KXNrYi0+ZGF0YTsNCj4gKyAgICAgICB1bnNpZ25lZCBsb25nIGZsYWdzOw0KPiArICAgICAgIGJv
-b2wgY2xhaW1lZCA9IGZhbHNlOw0KDQpJbiByZXZlcnNlIFgnbWFzIG9yZGVyLg0KDQo+ICsNCj4g
-KyAgICAgICBpZiAoIXByaXYtPmZvcHMtPmhhc19jMmhldnRfdHhfcmVwb3J0IHx8DQo+ICsgICAg
-ICAgICAgICEodHhfaW5mby0+ZmxhZ3MgJiBJRUVFODAyMTFfVFhfQ1RMX1JFUV9UWF9TVEFUVVMp
-IHx8DQo+ICsgICAgICAgICAgICh0eF9pbmZvLT5mbGFncyAmIElFRUU4MDIxMV9UWF9DVExfTk9f
-QUNLKSB8fA0KPiArICAgICAgICAgICBpc19tdWx0aWNhc3RfZXRoZXJfYWRkcihoZHItPmFkZHIx
-KSkNCj4gKyAgICAgICAgICAgICAgIHJldHVybiBmYWxzZTsNCj4gKw0KPiArICAgICAgIHNwaW5f
-bG9ja19pcnFzYXZlKCZwcml2LT50eF9yZXBvcnRfbG9jaywgZmxhZ3MpOw0KPiArICAgICAgIGlm
-ICghcHJpdi0+dHhfcmVwb3J0X3NrYikgew0KPiArICAgICAgICAgICAgICAgcHJpdi0+dHhfcmVw
-b3J0X3NrYiA9IHNrYjsNCj4gKyAgICAgICAgICAgICAgIGNsYWltZWQgPSB0cnVlOw0KPiArICAg
-ICAgIH0NCj4gKyAgICAgICBzcGluX3VubG9ja19pcnFyZXN0b3JlKCZwcml2LT50eF9yZXBvcnRf
-bG9jaywgZmxhZ3MpOw0KPiArDQo+ICsgICAgICAgcmV0dXJuIGNsYWltZWQ7DQo+ICt9DQo+ICsN
-Cj4gK3N0YXRpYyBib29sIHJ0bDh4eHh1X3R4X3JlcG9ydF9yZWxlYXNlKHN0cnVjdCBydGw4eHh4
-dV9wcml2ICpwcml2LA0KPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBz
-dHJ1Y3Qgc2tfYnVmZiAqc2tiKQ0KPiArew0KPiArICAgICAgIHVuc2lnbmVkIGxvbmcgZmxhZ3M7
-DQo+ICsgICAgICAgYm9vbCBjbGFpbWVkOw0KPiArDQo+ICsgICAgICAgc3Bpbl9sb2NrX2lycXNh
-dmUoJnByaXYtPnR4X3JlcG9ydF9sb2NrLCBmbGFncyk7DQo+ICsgICAgICAgY2xhaW1lZCA9IHBy
-aXYtPnR4X3JlcG9ydF9za2IgPT0gc2tiOw0KPiArICAgICAgIGlmIChjbGFpbWVkKQ0KPiArICAg
-ICAgICAgICAgICAgcHJpdi0+dHhfcmVwb3J0X3NrYiA9IE5VTEw7DQo+ICsgICAgICAgc3Bpbl91
-bmxvY2tfaXJxcmVzdG9yZSgmcHJpdi0+dHhfcmVwb3J0X2xvY2ssIGZsYWdzKTsNCj4gKw0KPiAr
-ICAgICAgIHJldHVybiBjbGFpbWVkOw0KPiArfQ0KPiArDQo+ICtzdGF0aWMgdm9pZCBydGw4eHh4
-dV90eF9yZXBvcnRfd29yayhzdHJ1Y3Qgd29ya19zdHJ1Y3QgKndvcmspDQoNCkknZCBwb2ludCBv
-dXQgdGhpcyBpcyBhIHBvbGxpbmcgd29yay4gSG93IGFib3V0IG5hbWluZyBydGw4eHh4dV90eF9y
-ZXBvcnRfcG9sbF93b3JrKCk/IA0KDQo+ICt7DQo+ICsgICAgICAgc3RydWN0IHJ0bDh4eHh1X3By
-aXYgKnByaXYgPSBjb250YWluZXJfb2Yod29yaywgc3RydWN0IHJ0bDh4eHh1X3ByaXYsDQo+ICsg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdHhfcmVwb3J0
-X3dvcmsud29yayk7DQo+ICsgICAgICAgc3RydWN0IGllZWU4MDIxMV90eF9pbmZvICp0eF9pbmZv
-Ow0KPiArICAgICAgIHVuc2lnbmVkIGxvbmcgZmxhZ3MsIGVsYXBzZWQ7DQo+ICsgICAgICAgdTgg
-cmV0cnkgPSAwLCBzdGF0dXMgPSAwOw0KPiArICAgICAgIGJvb2wgcmVwb3J0ZWQgPSBmYWxzZTsN
-Cj4gKyAgICAgICBzdHJ1Y3Qgc2tfYnVmZiAqc2tiOw0KPiArDQo+ICsgICAgICAgaWYgKHJ0bDh4
-eHh1X3JlYWQ4KHByaXYsIFJFR19DMkhFVlRfQ0xFQVIpID09IEMySF9FVlRfRldfQ0xPU0UpIHsN
-Cj4gKyAgICAgICAgICAgICAgIHU4IGlkID0gcnRsOHh4eHVfcmVhZDgocHJpdiwgUkVHX0MySEVW
-VF9NU0dfTk9STUFMKTsNCj4gKw0KPiArICAgICAgICAgICAgICAgaWYgKChpZCAmIEMySF9FVlRf
-SURfTUFTSykgPT0gQzJIX0VWVF9DQ1hfVFhfUlBUKSB7DQo+ICsgICAgICAgICAgICAgICAgICAg
-ICAgIHJldHJ5ID0gcnRsOHh4eHVfcmVhZDgocHJpdiwgUkVHX0MySEVWVF9NU0dfTk9STUFMICsg
-MiArDQo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgQ0NYX1RYX1JQVF9SRVRSWSk7DQo+ICsgICAgICAgICAgICAgICAgICAgICAgIHN0YXR1cyA9
-IHJ0bDh4eHh1X3JlYWQ4KHByaXYsIFJFR19DMkhFVlRfTVNHX05PUk1BTCArIDIgKw0KPiArICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBDQ1hfVFhf
-UlBUX1NUQVRVUyk7DQo+ICsgICAgICAgICAgICAgICAgICAgICAgIHJlcG9ydGVkID0gdHJ1ZTsN
-Cj4gKyAgICAgICAgICAgICAgIH0NCj4gKyAgICAgICAgICAgICAgIHJ0bDh4eHh1X3dyaXRlOChw
-cml2LCBSRUdfQzJIRVZUX0NMRUFSLCBDMkhfRVZUX0hPU1RfQ0xPU0UpOw0KPiArICAgICAgIH0N
-Cj4gKw0KPiArICAgICAgIGVsYXBzZWQgPSBqaWZmaWVzIC0gcHJpdi0+dHhfcmVwb3J0X3N0YXJ0
-Ow0KPiArICAgICAgIGlmICghcmVwb3J0ZWQgJiYgZWxhcHNlZCA8IFJUTDhYWFhVX1RYX1JFUE9S
-VF9USU1FT1VUKSB7DQo+ICsgICAgICAgICAgICAgICAvKiBNb3N0IGZyYW1lcyBhcmUgZG9uZSB3
-aXRoaW4gYSBmZXcgbXMsIHBvbGwgb2Z0ZW4gYXQgZmlyc3QgKi8NCj4gKyAgICAgICAgICAgICAg
-IGllZWU4MDIxMV9xdWV1ZV9kZWxheWVkX3dvcmsocHJpdi0+aHcsICZwcml2LT50eF9yZXBvcnRf
-d29yaywNCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZWxh
-cHNlZCA8IG1zZWNzX3RvX2ppZmZpZXMoMjApID8NCj4gKyAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgMSA6IG1zZWNzX3RvX2ppZmZpZXMoMTApKTsNCj4gKyAgICAg
-ICAgICAgICAgIHJldHVybjsNCj4gKyAgICAgICB9DQo+ICsNCj4gKyAgICAgICBzcGluX2xvY2tf
-aXJxc2F2ZSgmcHJpdi0+dHhfcmVwb3J0X2xvY2ssIGZsYWdzKTsNCj4gKyAgICAgICBza2IgPSBw
-cml2LT50eF9yZXBvcnRfc2tiOw0KPiArICAgICAgIHByaXYtPnR4X3JlcG9ydF9za2IgPSBOVUxM
-Ow0KPiArICAgICAgIHNwaW5fdW5sb2NrX2lycXJlc3RvcmUoJnByaXYtPnR4X3JlcG9ydF9sb2Nr
-LCBmbGFncyk7DQo+ICsNCj4gKyAgICAgICBpZiAoIXNrYikNCj4gKyAgICAgICAgICAgICAgIHJl
-dHVybjsNCj4gKw0KPiArICAgICAgIHR4X2luZm8gPSBJRUVFODAyMTFfU0tCX0NCKHNrYik7DQo+
-ICsgICAgICAgaWVlZTgwMjExX3R4X2luZm9fY2xlYXJfc3RhdHVzKHR4X2luZm8pOw0KPiArICAg
-ICAgIGlmICghKHR4X2luZm8tPmZsYWdzICYgSUVFRTgwMjExX1RYX0NUTF9JTkpFQ1RFRCkpDQo+
-ICsgICAgICAgICAgICAgICB0eF9pbmZvLT5zdGF0dXMucmF0ZXNbMF0uaWR4ID0gLTE7DQo+ICsg
-ICAgICAgdHhfaW5mby0+c3RhdHVzLnJhdGVzWzBdLmNvdW50ID0gKHJldHJ5ICYgQ0NYX1RYX1JQ
-VF9SRVRSWV9DTlQpICsgMTsNCj4gKyAgICAgICBpZiAoc3RhdHVzICYgQ0NYX1RYX1JQVF9QS1Rf
-T0spDQo+ICsgICAgICAgICAgICAgICB0eF9pbmZvLT5mbGFncyB8PSBJRUVFODAyMTFfVFhfU1RB
-VF9BQ0s7DQo+ICsNCj4gKyAgICAgICBpZWVlODAyMTFfdHhfc3RhdHVzX2lycXNhZmUocHJpdi0+
-aHcsIHNrYik7DQo+ICt9DQo+ICsNCj4gIHN0YXRpYyB2b2lkIHJ0bDh4eHh1X3R4X2NvbXBsZXRl
-KHN0cnVjdCB1cmIgKnVyYikNCj4gIHsNCj4gICAgICAgICBzdHJ1Y3Qgc2tfYnVmZiAqc2tiID0g
-KHN0cnVjdCBza19idWZmICopdXJiLT5jb250ZXh0Ow0KDQpbLi4uXQ0KDQo+IGRpZmYgLS1naXQg
-YS9kcml2ZXJzL25ldC93aXJlbGVzcy9yZWFsdGVrL3J0bDh4eHh1L3J0bDh4eHh1LmgNCj4gYi9k
-cml2ZXJzL25ldC93aXJlbGVzcy9yZWFsdGVrL3J0bDh4eHh1L3J0bDh4eHh1LmgNCj4gaW5kZXgg
-OGNiYWRjZjcxOS4uMzg3ZmZkYzk3MCAxMDA2NDQNCj4gLS0tIGEvZHJpdmVycy9uZXQvd2lyZWxl
-c3MvcmVhbHRlay9ydGw4eHh4dS9ydGw4eHh4dS5oDQo+ICsrKyBiL2RyaXZlcnMvbmV0L3dpcmVs
-ZXNzL3JlYWx0ZWsvcnRsOHh4eHUvcnRsOHh4eHUuaA0KPiBAQCAtMTU0Niw2ICsxNTQ2LDE3IEBA
-IGVudW0gYzJoX2V2dF84NzIzYiB7DQo+ICAgICAgICAgQzJIXzg3MjNCX0ZXX0RFQlVHID0gMHhm
-ZiwNCj4gIH07DQo+IA0KPiArLyogR2VuMSBDMkggZXZlbnRzIGFyZSByZWFkIGZyb20gdGhlIFJF
-R19DMkhFVlRfTVNHX05PUk1BTCBtYWlsYm94ICovDQo+ICsjZGVmaW5lIEMySF9FVlRfSE9TVF9D
-TE9TRSAgICAgICAgICAgICAweDAwDQo+ICsjZGVmaW5lIEMySF9FVlRfRldfQ0xPU0UgICAgICAg
-ICAgICAgICAweGZmDQoNCm1vdmUgdGhlc2UgdG9nZXRoZXIgd2l0aCBSRUdfQzJIRVZUX0NMRUFS
-DQoNCj4gKyNkZWZpbmUgQzJIX0VWVF9JRF9NQVNLICAgICAgICAgICAgICAgICAgICAgICAgR0VO
-TUFTSygzLCAwKQ0KPiArI2RlZmluZSBDMkhfRVZUX0NDWF9UWF9SUFQgICAgICAgICAgICAgMw0K
-DQptb3ZlIHRoZXNlIHRvZ2V0aGVyIHdpdGggUkVHX0MySEVWVF9NU0dfTk9STUFMDQoNCj4gKy8q
-IE9mZnNldHMgaW4gdGhlIENDWCBUWCByZXBvcnQgcGF5bG9hZCwgYWZ0ZXIgdGhlIDIgYnl0ZSBl
-dmVudCBoZWFkZXIgKi8NCg0KQWRkIGEgZGVmaW5pdGlvbiBmb3IgMiBieXRlcz8NCg0KPiArI2Rl
-ZmluZSBDQ1hfVFhfUlBUX1JFVFJZICAgICAgICAgICAgICAgMA0KPiArI2RlZmluZSAgQ0NYX1RY
-X1JQVF9SRVRSWV9DTlQgICAgICAgICAgR0VOTUFTSyg1LCAwKQ0KPiArI2RlZmluZSBDQ1hfVFhf
-UlBUX1NUQVRVUyAgICAgICAgICAgICAgNw0KPiArI2RlZmluZSAgQ0NYX1RYX1JQVF9QS1RfT0sg
-ICAgICAgICAgICAgQklUKDYpDQoNCldpdGggaGllcmFyY2h5Og0KDQojZGVmaW5lIFJFR19DMkhF
-VlRfTVNHX05PUk1BTAkJMHgwMWEwDQojZGVmaW5lICBDMkhfRVZUX0lEX01BU0sJCQlHRU5NQVNL
-KDMsIDApDQojZGVmaW5lICAgQzJIX0VWVF9DQ1hfVFhfUlBUCQkzDQovLyB0aGUgbW9kaWZpZWQg
-bmFtaW5nIGlzIHN0aWxsIG5vdCBnb29kLiBBY3R1YWxseSBpdCBpcyBvZmZzZXQgZnJvbSAweDAx
-YTANCiNkZWZpbmUgIEMySEVWVF9NU0dfQ0NYX1RYX1JQVF9SRVRSWQkJMA0KLy8gdGhlIG1vZGlm
-aWVkIG5hbWluZyBpcyBhbHNvIG5vdCBnb29kLiBDYW4geW91IHRoaW5rIG9mIGl0IGEgYml0Pw0K
-I2RlZmluZSAgIENDWF9UWF9SUFRfUkVUUllfQ05UX01BU0sJCUdFTk1BU0soNSwgMCkNCg0KPiAr
-DQo+ICBlbnVtIGJ0X2luZm9fc3JjXzg3MjNiIHsNCj4gICAgICAgICBCVF9JTkZPX1NSQ184NzIz
-Ql9XSUZJX0ZXID0gMHgwLA0KPiAgICAgICAgICBCVF9JTkZPX1NSQ184NzIzQl9CVF9SU1AgPSAw
-eDEsDQo+IEBAIC0xOTE5LDYgKzE5MzAsMTEgQEAgc3RydWN0IHJ0bDh4eHh1X3ByaXYgew0KPiAg
-ICAgICAgIHN0cnVjdCB3b3JrX3N0cnVjdCBjMmhjbWRfd29yazsNCj4gICAgICAgICBzdHJ1Y3Qg
-c2tfYnVmZl9oZWFkIGMyaGNtZF9xdWV1ZTsNCj4gICAgICAgICBzdHJ1Y3QgZGVsYXllZF93b3Jr
-IHVwZGF0ZV9iZWFjb25fd29yazsNCj4gKyAgICAgICAvKiBGcmFtZSB3YWl0aW5nIGZvciBpdHMg
-VFggcmVwb3J0IGluIHRoZSBDMkggZXZlbnQgbWFpbGJveCAqLw0KPiArICAgICAgIHN0cnVjdCBz
-a19idWZmICp0eF9yZXBvcnRfc2tiOw0KPiArICAgICAgIHNwaW5sb2NrX3QgdHhfcmVwb3J0X2xv
-Y2s7IC8qIHByb3RlY3RzIHR4X3JlcG9ydF9za2IgKi8NCj4gKyAgICAgICBzdHJ1Y3QgZGVsYXll
-ZF93b3JrIHR4X3JlcG9ydF93b3JrOw0KPiArICAgICAgIHVuc2lnbmVkIGxvbmcgdHhfcmVwb3J0
-X3N0YXJ0Ow0KDQpQdXQgaW4gYSBzbWFsbCBncm91cCBsaWtlIHNwaW5sb2NrX3QgdHhfdXJiX2xv
-Y2svcnhfdXJiX2xvY2suDQoNCj4gICAgICAgICBzdHJ1Y3QgcnRsOHh4eHVfYnRjb2V4IGJ0X2Nv
-ZXg7DQo+ICAgICAgICAgc3RydWN0IHJ0bDh4eHh1X3JhX3JlcG9ydCByYV9yZXBvcnQ7DQo+ICAg
-ICAgICAgc3RydWN0IHJ0bDh4eHh1X2Nmb190cmFja2luZyBjZm9fdHJhY2tpbmc7DQo+IEBAIC0y
-MDA5LDYgKzIwMjUsNyBAQCBzdHJ1Y3QgcnRsOHh4eHVfZmlsZW9wcyB7DQo+ICAgICAgICAgY2hh
-ciByeF9kZXNjX3NpemU7DQo+ICAgICAgICAgdTggaGFzX3MwczE6MTsNCj4gICAgICAgICB1OCBo
-YXNfdHhfcmVwb3J0OjE7DQo+ICsgICAgICAgdTggaGFzX2MyaGV2dF90eF9yZXBvcnQ6MTsNCj4g
-ICAgICAgICB1OCBnZW4yX3RoZXJtYWxfbWV0ZXI6MTsNCj4gICAgICAgICB1OCBuZWVkc19mdWxs
-X2luaXQ6MTsNCj4gICAgICAgICB1OCBpbml0X3JlZ19yeGZsdG1hcDoxOw0KPiANCj4gLS0NCj4g
-Mi41Ni4xDQo+IA0KDQpwdy1ib3Q6IGNyDQoNCg0K
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------3f70be30fccd01ebfa0f03cfdbb2b7ee21873dc0913c09d884dcccc2d6b93eb7
+Content-Type: multipart/mixed;
+ boundary=9dd49c951877bc2f15475bccc600003fa0719722f6c6236636b44ccc6c99
+From: YanXin Li <fadouse@pm.me>
+To: Gao Xiang <xiang@kernel.org>,
+	Chao Yu <chao@kernel.org>
+Cc: Yue Hu <zbestahu@gmail.com>,
+	Jingbo Xu <jefflexu@163.com>,
+	Sandeep Dhavale <dhavale@google.com>,
+	Hongbo Li <hongbohbli@tencent.com>,
+	Chunhai Guo <guochunhai@vivo.com>,
+	Sheng Yong <shengyong@oppo.com>,
+	Wang Shuai <wangshuai@vivo.com>,
+	linux-erofs@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] erofs: validate fsoffset alignment and bound page reads
+Date: Sun, 22 Nov 2026 11:00:55 +0800
+Message-ID: <20261122030055.8408-1-fadouse@pm.me>
+X-Mailer: git-send-email 2.54.0
+MIME-Version: 1.0
+
+--9dd49c951877bc2f15475bccc600003fa0719722f6c6236636b44ccc6c99
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+erofs_fc_parse_param() stores an arbitrary 64-bit fsoffset= mount
+option into sbi->dif0.fsoff without checking alignment, and
+erofs_fc_fill_super() calls erofs_read_superblock() before checking
+whether fsoffset is aligned to sb->s_blocksize.
+
+In block-device mode, erofs_init_metabuf() sets buf->off to
+sbi->dif0.fsoff, and erofs_bread() maps a single PAGE_SIZE page via
+kmap_local_page() and returns buf->base + ((buf->off + offset) &
+~PAGE_MASK).  erofs_read_superblock() calls erofs_read_metabuf(&buf,
+sb, 0, false) and adds EROFS_SUPER_OFFSET (1024) to the returned
+pointer.  When (fsoffset & ~PAGE_MASK) + 1024 + sizeof(*dsb) exceeds
+PAGE_SIZE (including a valid 1024-byte-aligned fsoffset=3072 on a
+1 KiB-block image, or an unaligned fsoffset=4095), dsb points past
+the end of the mapped page.  On a 1 KiB-block EROFS image mounted
+at fsoffset=3072, Generic KASAN reports:
+
+  BUG: KASAN: use-after-free in erofs_fc_fill_super+0x2b04/0x36c0
+  Read of size 4 at addr ffff88800f8c
+1000 by task test_erofs_fsof/102
+  ...
+  erofs_fc_fill_super
+  get_tree_bdev_flags
+  erofs_fc_get_tree
+  vfs_get_tree
+  fc_mount
+  path_mount
+  __x64_sys_mount
+
+The KASAN classification reflects that the adjacent physical page was
+free; the source-level operation is an out-of-page read at offset
+0x1000 past the mapped folio page.  Two related out-of-page reads
+occur on the same path: erofs_superblock_csum_verify() checksums up
+to (1 << blkszbits) - 1032 bytes past dsb->checksum before fsoffset
+alignment is checked (reading up to 2048 bytes past the page for a
+4 KiB-block image at fsoffset=2048), and erofs_read_metadata() bounds
+each memcpy() chunk by sb->s_blocksize - erofs_blkoff(sb, *offset)
+without accounting for buf->off (reading past the mapped page during
+z_erofs_parse_cfgs() even for a valid block-aligned fsoffset=2048).
+
+Mounting EROFS on a block device requires CAP_SYS_ADMIN in the
+initial user namespace.  A relevant boundary is a privileged image
+mounte
+r or container runtime passing a caller-influenced fsoffset=
+option or mounting an EROFS image embedded at a sub-page block
+offset.
+
+Reject fsoffset values that are not 512-byte aligned in
+erofs_fc_parse_param(), read the superblock via
+erofs_read_metabuf(&buf, sb, EROFS_SUPER_OFFSET, false), verify
+fsoffset alignment against (1UL << sbi->blkszbits) in
+erofs_read_superblock() before erofs_superblock_csum_verify(), pass
+dsb directly to erofs_superblock_csum_verify(), and clamp each copy
+in erofs_read_metadata() by PAGE_SIZE - offset_in_page(buf->off +
+*offset).  With this change, a valid 1 KiB-block image at
+fsoffset=3072 and a valid 2 KiB-block compressed-config image at
+fsoffset=2048 mount cleanly without KASAN reports, while misaligned
+fsoffset=2048 (4 KiB blocks) and fsoffset=4095 are rejected with
+-EINVAL before any checksum or out-of-page access.  Z3 SMT checking
+confirms all three out-of-page conditions are unreachable for any
+valid block size and offset after th
+e fix.  A test case and full
+validation logs are available on request.
+
+The vulnerable code is present in upstream mainline v7.4-rc3.
+Runtime verification and fix validation were performed in an x86-64
+QEMU/KVM guest running v7.4-rc3 with Generic KASAN, UBSAN, and
+lockdep.
+
+Fixes: c36ec00d7f67 ("erofs: add 'fsoffset' mount option to specify filesystem offset")
+Cc: stable@vger.kernel.org
+Signed-off-by: YanXin Li <fadouse@pm.me>
+---
+ fs/erofs/super.c | 28 ++++++++++++++++------------
+ 1 file changed, 16 insertions(+), 12 deletions(-)
+
+diff --git a/fs/erofs/super.c b/fs/erofs/super.c
+index e92a7fa90ae..66ba9dbd8ff 100644
+--- a/fs/erofs/super.c
++++ b/fs/erofs/super.c
+@@ -38,9 +38,9 @@ void _erofs_printk(struct super_block *sb, const char *fmt, ...)
+ 	va_end(args);
+ }
+ 
+-static int erofs_superblock_csum_verify(struct super_block *sb, void *sbdata)
++static int erofs_superblock_csum_verify(struct super_block *sb,
++					struct erofs_super_block *dsb)
+ {
+-	struct erof
+s_super_block *dsb = sbdata + EROFS_SUPER_OFFSET;
+ 	u32 len = 1 << EROFS_SB(sb)->blkszbits, crc;
+ 
+ 	if (len > EROFS_SUPER_OFFSET)
+@@ -109,7 +109,7 @@ void *erofs_read_metadata(struct super_block *sb, struct erofs_buf *buf,
+ 	*lengthp = len;
+ 
+ 	for (i = 0; i < len; i += cnt) {
+-		cnt = min_t(int, sb->s_blocksize - erofs_blkoff(sb, *offset),
++		cnt = min_t(int, PAGE_SIZE - offset_in_page(buf->off + *offset),
+ 			    len - i);
+ 		ptr = erofs_bread(buf, *offset, true);
+ 		if (IS_ERR(ptr)) {
+@@ -268,16 +268,14 @@ static int erofs_read_superblock(struct super_block *sb)
+ 	struct erofs_sb_info *sbi = EROFS_SB(sb);
+ 	struct erofs_buf buf = __EROFS_BUF_INITIALIZER;
+ 	struct erofs_super_block *dsb;
+-	void *data;
+ 	int ret;
+ 
+-	data = erofs_read_metabuf(&buf, sb, 0, false);
+-	if (IS_ERR(data)) {
++	dsb = erofs_read_metabuf(&buf, sb, EROFS_SUPER_OFFSET, false);
++	if (IS_ERR(dsb)) {
+ 		erofs_err(sb, "cannot read erofs superblock");
+-		return PTR_ERR(data);
++		return PTR_E
+RR(dsb);
+ 	}
+ 
+-	dsb = (struct erofs_super_block *)(data + EROFS_SUPER_OFFSET);
+ 	ret = -EINVAL;
+ 	if (le32_to_cpu(dsb->magic) != EROFS_SUPER_MAGIC_V1) {
+ 		erofs_err(sb, "cannot find valid erofs superblock");
+@@ -289,6 +287,11 @@ static int erofs_read_superblock(struct super_block *sb)
+ 		erofs_err(sb, "blkszbits %u isn't supported", sbi->blkszbits);
+ 		goto out;
+ 	}
++	if (sbi->dif0.fsoff & ((1UL << sbi->blkszbits) - 1)) {
++		erofs_err(sb, "fsoffset %llu is not aligned to block size %lu",
++			  sbi->dif0.fsoff, 1UL << sbi->blkszbits);
++		goto out;
++	}
+ 	if (dsb->dirblkbits) {
+ 		erofs_err(sb, "dirblkbits %u isn't supported", dsb->dirblkbits);
+ 		goto out;
+@@ -296,7 +299,7 @@ static int erofs_read_superblock(struct super_block *sb)
+ 
+ 	sbi->feature_compat = le32_to_cpu(dsb->feature_compat);
+ 	if (erofs_sb_has_sb_chksum(sbi)) {
+-		ret = erofs_superblock_csum_verify(sb, data);
++		ret = erofs_superblock_csum_verify(sb, dsb);
+ 		if (ret)
+ 			goto out;
+ 	}
+@@ -56
+9,6 +572,10 @@ static int erofs_fc_parse_param(struct fs_context *fc,
+ 			clear_opt(&sbi->opt, DIRECT_IO);
+ 		break;
+ 	case Opt_fsoffset:
++		if (result.uint_64 & (SECTOR_SIZE - 1))
++			return invalfc(fc,
++				       "fsoffset %llu is not 512-byte aligned",
++				       result.uint_64);
+ 		sbi->dif0.fsoff = result.uint_64;
+ 		break;
+ 	case Opt_inode_share:
+@@ -758,9 +765,6 @@ static int erofs_fc_fill_super(struct super_block *sb, struct fs_context *fc)
+ 			return -EINVAL;
+ 		}
+ 	}
+-	if (sbi->dif0.fsoff & (sb->s_blocksize - 1))
+-		return invalfc(fc, "fsoffset %llu is not aligned to block size %lu",
+-			       sbi->dif0.fsoff, sb->s_blocksize);
+ 
+ 	if (test_opt(&sbi->opt, DAX_ALWAYS) && sbi->blkszbits != PAGE_SHIFT) {
+ 		erofs_info(sb, "unsupported blocksize for DAX");
+-- 
+2.43.0
+
+
+--9dd49c951877bc2f15475bccc600003fa0719722f6c6236636b44ccc6c99
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="publickey - fadouse@pm.me -
+ 0x99485AA3.asc"; name="publickey - fadouse@pm.me - 0x99485AA3.asc"
+Content-Type: application/pgp-keys; filename="publickey - fadouse@pm.me -
+ 0x99485AA3.asc"; name="publickey - fadouse@pm.me - 0x99485AA3.asc"
+
+LS0tLS1CRUdJTiBQR1AgUFVCTElDIEtFWSBCTE9DSy0tLS0tCkNvbW1lbnQ6IGh0dHBzOi8vZ29w
+ZW5wZ3Aub3JnClZlcnNpb246IEdvcGVuUEdQIDIuMTAuMAoKeGpNRWFVdU9NUllKS3dZQkJBSGFS
+dzhCQVFkQXRuWWxTekhUTEhBMkl6dU5FMUF5OEpyS1VDeDZoUCsvdGM0TApEWENucmV6TkhXWmha
+RzkxYzJWQWNHMHViV1VnUEdaaFpHOTFjMlZBY0cwdWJXVSt3c0FSQkJNV0NnQ0RCWUpwClM0NHhB
+d3NKQndrUXVaMWd0K1htMlhSRkZBQUFBQUFBSEFBZ2MyRnNkRUJ1YjNSaGRHbHZibk11YjNCbGJu
+Qm4KY0dwekxtOXlaem0wQnAzZUVYUldrbklnQ2xXd3ZkeFptbzFYblZiNkZrYWpYVFZNMUIvakF4
+VUtDQVFXQUFJQgpBaGtCQXBzREFoNEJGaUVFbVVoYW8zWi9BbkJJNExCWXVaMWd0K1htMlhRQUFM
+cTJBUUQ3OEs2cGVkU1gzbGROCnlxZDNPSDF1TWpPM3Y3TFlNaE8rbDdjblNMV3JFQUQrT0NTcTEx
+U2VhS29ic1ZHckxlalRNc21Nc1BCOGpueGYKaWQzaENOK3Bld1RPT0FScFM0NHhFZ29yQmdFRUFa
+ZFZBUVVCQVFkQXdYZHpWSXFFSC94OEhaalIvUE90MkFpRgpiRW02WXFYWDJqMnYyaUtEc1FNREFR
+Z0h3cjRFR0JZS0FIQUZnbWxMampFSkVMbWRZTGZsNXRsMFJSUUFBQUFBCkFCd0FJSE5oYkhSQWJt
+OTBZWFJwYjI1ekxtOXdaVzV3WjNCcWN5NXZjbWRkS05RWURGV2NFVmQzeE9IZVFwNnMKeW43OU5G
+cE5xa0h6K2l6cElMQm5VZ0tiREJZaEJKbElXcU4yZndKd1NPQ3dXTG1kWUxmbDV0bDBBQUR6UWdE
+LwpjSUowODlKa25vZ1RzNnZ2UVorSjNMUklEYUk5K1FtK1Q1cU9tTms0eVhFQkFMUElsSkNTOGFo
+NWRCWVphOUwrCkhxamJEbWVTZ0RvNTh1U3graVd3KzZVTAo9TXVzVAotLS0tLUVORCBQR1AgUFVC
+TElDIEtFWSBCTE9DSy0tLS0t
+--9dd49c951877bc2f15475bccc600003fa0719722f6c6236636b44ccc6c99--
+
+--------3f70be30fccd01ebfa0f03cfdbb2b7ee21873dc0913c09d884dcccc2d6b93eb7
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wqsEARYIAF0FgmsCWu8JELmdYLfl5tl0NRQAAAAAABwAEHNhbHRAbm90YXRp
+b25zLm9wZW5wZ3Bqcy5vcmeEvm8zizGPBQQzOwWuSv7KFiEEmUhao3Z/AnBI
+4LBYuZ1gt+Xm2XQAABfJAP983pfy4jsiclrJeMQnaxPnAiH2ATIBgttVn8hz
+B+W6GQD/WtmwMvX7Tx5zaZ+aUwoP+g4j3H/Uaoj3aSTckKJLwQs=
+=Hbg+
+-----END PGP SIGNATURE-----
+
+
+--------3f70be30fccd01ebfa0f03cfdbb2b7ee21873dc0913c09d884dcccc2d6b93eb7--
+
