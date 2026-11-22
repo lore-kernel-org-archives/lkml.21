@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.204
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.104
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795351706;
-	b=AsGdF8o3/DMF1eWx/NYklbyxgt0wC7upm7ty3AnAFNAH7QUDD5ZAPUdiiYe8RVDIdOzH
-	 Wzo+kjdj0kaP4ecETSrr5he5+DWg6lUJbzVNwz1pSOtv7SEJdV7nf6ASbZy04n+hvYcY2
-	 RWYStxjayFPh0R6PheUQIcF97Kwt+bYWe9bnkhbvmlYHf4i1udO4XjCLhFR8/83+zGZr1
-	 Z1/Xp0spIHH+b6BxTQ/5UPga/6Y1W3AQrp14SODJ/HQwSYnYtecpi4c3nTdG0CBjJoHou
-	 H8CX/AhaFxnEVqNyvoTg/yR1rHGEZR7cRppGZsUhQdyjPWLsVukNAaD9v+tDIyKQBqA==
+	t=1795351713;
+	b=0JEsoiInaJ5x+aRgML/DvOjY5QxN8TCCxhuQaKYFffgH95RujJlC3bmgDu6xKaMIKfDl
+	 L9CbzecJbi0/w5yZeCkkD81b844DOD7eJbozHNUbJbigqpRJTeEEiTaablkvR2mcVCvPw
+	 LLxeCCbdtIycMetqXo+FJQYtHxEI9mTaE5X5ET8EzQTX3dUnXjICpjQZltWkOIWmuBm6j
+	 CM/DSrnciLZziQ9T20CnEBNj8hskBZJpoY03SnZG6LELywL/3M3b+E8jSp7rZwBkO2wfT
+	 QZlhbkrNK8HNOb8pmwNOkstfaUCnT071jjrv4rTN7Os0uYdBu+oitp6XGYKt5vtOjOA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795351706;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795351713;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:Content-type:
 	 Content-Transfer-Encoding;
-	bh=SKq4d78n01SVC2VW19hE1ndR5ln/BxTtcRQujOEifIQ=;
-	b=J69jBA6CEY6gwSnRK9L7RhzPCFZ+UfcMFC0YFdv0BMWV1oBevMyE1dLcn54yM+lT2yJo
-	 AnFqf91Yw4hCSutPrUvOv/fitgnaDayqMMWTyJZSFJWQsyQBZCm0oBveFHHkSkT66qMr5
-	 dbgctIFQVeixWcD11jM3eZFc1tbokLIlwxye4J+UqQV1tjtW6+OJ+9b3VZ4gICyQrsCeT
-	 wLt0iQOrXBTmB9Bi55uucgqSEIHSEMl2oJNpK7ug0H9IPBMYfjjJWKZrxyvCG5f5b0dLV
-	 yKecsRFJSfnXEpapLvGEvCylULrDsNN3p+im1rzYkXl6LIjqv5mzcYTRYk6dSwP1ohw==
+	bh=fWpHC929BGRiYzSAL7uFn6Yn75mqyH04ZOQRNnEh5E4=;
+	b=uNOWvq9KcUain99erzvurr62R7NhB60OBjNvcIMe+HdPcmJIbaLi9fJmmFtRVbrqpAnH
+	 fqql9E9Linv8xAskwIhTsSMhedTkjzLSth4a4NwMG3aP7+ZAhZwcDwtNnwM1yB1obTZtk
+	 GIDSi3T8tdAx8P290dInarv6xeuKKDvLOT8z6kcOT85IvAockMtM1R6zjP6LZD6fb+ACU
+	 k3TFYTVgGD9w/5EzawW6TD0AZ5YhOgnD6scpveWSn4MJvh5tZuILfxj97KTL3PLgdvM+t
+	 E6wns/ZyDYAGJdrZWaZB2Hvn9grG3rxtC7lWerSUG5toCgbgd99s7WjqMYBcMIPJnHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=SvdpW7rk;
-	arc=none smtp.remote-ip=95.215.58.204
-Received: from mta1.migadu.com (out-204.mta1.migadu.com [95.215.58.204])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sqoBuSux;
+	arc=none smtp.remote-ip=91.218.175.104
+Received: from mta0.migadu.com (out-104.mta0.migadu.com [91.218.175.104])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33A94606A684
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:48:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33A94606A684
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CFF9606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:48:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CFF9606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=SvdpW7rk
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sqoBuSux
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=ujquToUOLxKJlHHoO0pZiNh3GDpoieF8dRRQL2lLvKg=;
+DKIM-Signature: a=rsa-sha256; bh=6v8sTTf6pcb85Lo4OtoCE2QJ+satgIKb50EQR+2ySec=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795351703; v=1; x=1795956503;
- b=SvdpW7rk2TsOJZhrK1pwrudM8iJbm3T238k/Cdbw82s6bz5PRZde/dfs+MTaYrCy45CBwXHj
- 31DsW/LdjeHmm7AwpsFD6OSdxtnRAqwjiyIjqRtGMkkssLKmIB00dxMtTLNZ1gb0g8eRLump2pd
- bahFe4WtbcyRaKVLgUwe7n6Q=
+ t=1795351710; v=1; x=1795956510;
+ b=sqoBuSux8Js1l1iFt02kPszQ1/xsLzn1M0RlCTmyNjqog8l3SdbUabO2IA2gfwQMZ0m8BNB1
+ AI38qLrYfjZ/LYu9y+lDsia6A/F7/KhO4mC9h7WbDLdJGyFKvUGoYZR+cL/4UWYTW5gzoTHKDVv
+ KPcp6MPlfGvMdihBLgH27uRk=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id 92e1b5d813bb7811;
-	Sun, 22 Nov 2026 12:48:23 +0000
-X-Mizu-Trace-ID: 92e1b5d813bb7811
+Received: by mta11.migadu.com with ESMTPS id adc6a1e29aeff931;
+	Sun, 22 Nov 2026 12:48:30 +0000
+X-Mizu-Trace-ID: adc6a1e29aeff931
 X-Migadu-Flow: FLOW_OUT
 From: Baoquan He <baoquan.he@linux.dev>
 To: linux-mm@kvack.org
@@ -67,12 +67,13 @@ Cc: akpm@linux-foundation.org,
 	linux-kernel@vger.kernel.org,
 	baoquan.he@linux.dev,
 	Baoquan He <hebaoquan@kylinos.cn>
-Subject: [PATCH v6 10/14] mm, swap: add CONFIG_XSWAP_DEFAULT_MAX
-Date: Sun, 22 Nov 2026 20:48:10 +0800
-Message-ID: <20261122124814.3489077-1-baoquan.he@linux.dev>
+Subject: [PATCH v6 11/14] mm, swap: add xswap grow trigger on cluster allocation
+Date: Sun, 22 Nov 2026 20:48:11 +0800
+Message-ID: <20261122124814.3489077-2-baoquan.he@linux.dev>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261122123918.3486916-1-baoquan.he@linux.dev>
+In-Reply-To: <20261122124814.3489077-1-baoquan.he@linux.dev>
 References: <20261122123918.3486916-1-baoquan.he@linux.dev>
+ <20261122124814.3489077-1-baoquan.he@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,150 +88,215 @@ Content-Transfer-Encoding: 8bit
 
 From: Baoquan He <hebaoquan@kylinos.cn>
 
-Add a build-time default for the size of a new xswap device.  The value
-can be a percentage of RAM, a size in bytes, or "max".  "max" means the
-largest size the device can address.  xswap.max= on the command line
-overrides this default.
+Grow the mapped xswap range before it runs out. When usage reaches 85%
+of the mapped range, map more clusters from cluster_alloc_swap_entry().
 
-The build-time default is clamped to the device limit.  An explicit
-xswap.max= that is too large is refused.
+Grow to about 65% usage. This leaves free space in the mapped range
+before the next grow at 85%, so one grow is not immediately followed by
+another.
 
-If the build-time default cannot be parsed, or is a byte size below one
-cluster, use 200% instead.  A percentage default can still be below one
-cluster after RAM is known.  In that case, device creation fails.
+Mapping pages can sleep. Grow before the allocation that needs them,
+not after it fails.
 
 Signed-off-by: Baoquan He <hebaoquan@kylinos.cn>
 ---
- .../admin-guide/kernel-parameters.txt         |  6 ++--
- mm/Kconfig                                    | 11 ++++++
- mm/swapfile.c                                 | 34 ++++++++++++-------
- 3 files changed, 37 insertions(+), 14 deletions(-)
+ include/linux/swap.h |   1 +
+ mm/swapfile.c        | 124 ++++++++++++++++++++++++++++++++++++++++---
+ 2 files changed, 118 insertions(+), 7 deletions(-)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 9928f0937514..06d37212399f 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -8733,8 +8733,10 @@ Kernel parameters
- 			off	xmon is disabled.
- 
- 	xswap.max=	[KNL,SWAP]
--			Maximum size of a new xswap device. The value is a
-+			Maximum size of a new xswap device, which is created
-+			with swapon(2) and the spec "xswap". The value is a
- 			size in bytes with an optional KMGTPE suffix, a
- 			percentage of RAM, or "max" for the largest size
--			the device can address.
-+			the device can address. The default is set by
-+			CONFIG_XSWAP_DEFAULT_MAX.
- 			Format: <size>[KMGTPE] | <percent>% | max
-diff --git a/mm/Kconfig b/mm/Kconfig
-index a8707bbd8d62..f13639a811e2 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -131,6 +131,17 @@ config XSWAP
- 	  array is backed by a sparse vmalloc area that is mapped lazily
- 	  in chunks, avoiding static pre-allocation overhead.
- 
-+config XSWAP_DEFAULT_MAX
-+	string "Default maximum size of a new xswap device"
-+	depends on XSWAP
-+	default "200%"
-+	help
-+	  The maximum size of a newly created xswap device. It accepts a
-+	  percentage of RAM (for example "200%"), a size (for example "2T"),
-+	  or "max" for the largest size the device can address.
-+
-+	  xswap.max= on the kernel command line overrides this value.
-+
- config ZSMALLOC
- 	tristate
- 
+diff --git a/include/linux/swap.h b/include/linux/swap.h
+index 02c3861a336d..5d9e5b6f2bd6 100644
+--- a/include/linux/swap.h
++++ b/include/linux/swap.h
+@@ -246,6 +246,7 @@ struct swap_info_struct {
+ 	unsigned long		nr_clusters_max;/* total clusters in the xswap address space */
+ 	unsigned long		nr_clusters_mapped; /* currently mapped cluster count */
+ 	struct mutex		xswap_lock;	/* serialize map/unmap operations */
++	atomic_long_t		xswap_grows;	/* grow operations so far */
+ #endif
+ 	struct list_head free_clusters; /* free clusters list */
+ 	struct list_head full_clusters; /* full clusters list */
 diff --git a/mm/swapfile.c b/mm/swapfile.c
-index 6ce5dbb3b103..074c5114d129 100644
+index 074c5114d129..213b66bb1d6d 100644
 --- a/mm/swapfile.c
 +++ b/mm/swapfile.c
-@@ -77,9 +77,9 @@ static int xswap_destroy_by_name(const char *name);
- static DEFINE_MUTEX(xswap_ctl_lock);
+@@ -68,6 +68,21 @@
+ #define XSWAP_GROW_CLUSTERS \
+ 	max_t(unsigned long, PAGE_SIZE / sizeof(struct swap_cluster_info), 16)
  
- /*
-- * Size of a new device: xswap.max= if given, otherwise the built-in
-- * default.  A percentage unless bytes is set; "max" asks for the largest
-- * size the device can address.
-+ * Size of a new device: xswap.max= if given, otherwise
-+ * CONFIG_XSWAP_DEFAULT_MAX.  A percentage unless bytes is set; "max" asks
-+ * for the largest size the device can address.
-  */
- static unsigned int xswap_size_pct = 200;
- static unsigned long xswap_size_bytes;
-@@ -87,9 +87,12 @@ static bool xswap_size_max;
- static bool xswap_size_set;	/* xswap.max= was given */
++/*
++ * Grow thresholds, as a percentage of the mapped range in use.  The target
++ * sits below the next grow trigger, so a grow that follows a rise in usage
++ * does not immediately trigger another one.
++ */
++#define XSWAP_GROW_UNTIL	65
++#define XSWAP_GROW_WHEN		85
++#define XSWAP_GROW_CHUNKS	4
++
++static bool xswap_should_grow(struct swap_info_struct *si);
++static unsigned long xswap_grow(struct swap_info_struct *si);
++static int xswap_map_clusters(struct swap_info_struct *si,
++			      unsigned long start_idx, unsigned long nr,
++			      bool link_free);
++
+ static int xswap_create(int prio);
+ static int xswap_create_by_name(const char *name, int swap_flags);
+ static int xswap_destroy(void);
+@@ -1325,6 +1340,13 @@ static unsigned long cluster_alloc_swap_entry(struct swap_info_struct *si,
+ 	if (order && !(si->flags & SWP_BLKDEV))
+ 		return 0;
  
- /*
-- * Parse "200%", "2T" or "max".  @str is not modified.
-+ * Parse "200%", "2T" or "max". @str is not modified. @cmdline tells an
-+ * explicit xswap.max= from the build-time default, which is clamped
-+ * instead of refused when it is too large.
-  */
--static int __init xswap_parse_size(const char *str, const char *what)
-+static int __init xswap_parse_size(const char *str, const char *what,
-+				   bool cmdline)
- {
- 	const char *pct;
- 	char buf[16];
-@@ -118,12 +121,16 @@ static int __init xswap_parse_size(const char *str, const char *what)
- 		bytes = memparse(str, &end);
- 		if (*end || bytes < PAGE_SIZE)
- 			goto bad;
-+		/* A default below one cluster would fail every create. */
-+		if (!cmdline && bytes < (unsigned long)SWAPFILE_CLUSTER * PAGE_SIZE)
-+			goto bad;
- 		xswap_size_bytes = bytes;
- 		xswap_size_pct = 0;
- 		xswap_size_max = false;
++#ifdef CONFIG_XSWAP
++	/* Grow before allocating: mapping pages can sleep. */
++	if ((si->flags & SWP_XSWAP) && (si->flags & SWP_WRITEOK) &&
++	    xswap_should_grow(si))
++		xswap_grow(si);
++#endif
++
+ 	if (!(si->flags & SWP_SOLIDSTATE)) {
+ 		/* Serialize HDD SWAP allocation for each device. */
+ 		spin_lock(&si->global_cluster_lock);
+@@ -1397,6 +1419,12 @@ static unsigned long cluster_alloc_swap_entry(struct swap_info_struct *si,
+ 		if (found)
+ 			goto done;
  	}
- 
--	xswap_size_set = true;
-+	if (cmdline)
-+		xswap_size_set = true;
- 	return 0;
- bad:
- 	pr_err("xswap: bad %s=%s\n", what, str);
-@@ -132,7 +139,7 @@ static int __init xswap_parse_size(const char *str, const char *what)
- 
- static int __init xswap_max_setup(char *str)
- {
--	xswap_parse_size(str, "xswap.max");
-+	xswap_parse_size(str, "xswap.max", true);
- 	return 1;
- }
- __setup("xswap.max=", xswap_max_setup);
-@@ -4175,11 +4182,7 @@ static int setup_swap_clusters_info(struct swap_info_struct *si,
++
++#ifdef CONFIG_XSWAP
++	/* A concurrent free or grow may have added clusters; retry once. */
++	if (!found && (si->flags & SWP_XSWAP))
++		found = alloc_swap_scan_list(si, &si->free_clusters, folio, false);
++#endif
+ done:
+ 	if (!(si->flags & SWP_SOLIDSTATE))
+ 		spin_unlock(&si->global_cluster_lock);
+@@ -3986,8 +4014,39 @@ static unsigned long read_swap_header(struct swap_info_struct *si,
  }
  
  #ifdef CONFIG_XSWAP
--/*
-- * Create the file-less xswap device, sized by xswap.max= or the built-in
-- * default.  Called from swapon(2) with SWAP_FLAG_XSWAP; there is at most
-- * one device per system.
-- */
-+/* Create the file-less xswap device from swapon(2). */
- static int xswap_create(int prio)
- {
- 	struct swap_info_struct *si;
-@@ -4694,6 +4697,13 @@ static int __init swapfile_init(void)
- {
- 	swapfile_maximum_size = arch_max_swapfile_size();
- 
-+#ifdef CONFIG_XSWAP
-+	/* xswap.max= on the command line overrides the build-time default. */
-+	if (!xswap_size_set)
-+		xswap_parse_size(CONFIG_XSWAP_DEFAULT_MAX,
-+				 "CONFIG_XSWAP_DEFAULT_MAX", false);
-+#endif
++/*
++ * Link the new clusters and publish the larger range in one si->lock
++ * section: linking first makes a cluster visible to an allocator only
++ * after it is on the free list.  @link_free is false for the first
++ * chunk, whose free list is not initialized yet.
++ */
++static void xswap_publish_clusters(struct swap_info_struct *si,
++				   unsigned long start_idx, unsigned long nr,
++				   bool link_free)
++{
++	unsigned long i;
 +
- 	/*
- 	 * Once a cluster is freed, it's swap table content is read
- 	 * only, and all swap cache readers (swap_cache_*) verifies
++	spin_lock(&si->lock);
++	if (link_free) {
++		for (i = start_idx; i < start_idx + nr; i++) {
++			struct swap_cluster_info *ci = &si->cluster_info[i];
++
++			/* A concurrent grower cannot take these: xswap_lock. */
++			if (ci->flags != CLUSTER_FLAG_NONE)
++				continue;
++			list_add_tail(&ci->list, &si->free_clusters);
++			WRITE_ONCE(ci->flags, CLUSTER_FLAG_FREE);
++			ci->order = 0;
++		}
++	}
++	/* Pairs with the smp_load_acquire() in the readers of the range. */
++	smp_store_release(&si->nr_clusters_mapped, start_idx + nr);
++	spin_unlock(&si->lock);
++}
++
+ static int xswap_map_clusters(struct swap_info_struct *si,
+-			      unsigned long start_idx, unsigned long nr)
++			      unsigned long start_idx, unsigned long nr,
++			      bool link_free)
+ {
+ 	/* vm_area_grow_pages() takes an offset into the area, not an address. */
+ 	unsigned long vm_end = PAGE_ALIGN((size_t)(start_idx + nr) *
+@@ -4023,14 +4082,62 @@ static int xswap_map_clusters(struct swap_info_struct *si,
+ 	for (i = start_idx; i < start_idx + nr; i++)
+ 		spin_lock_init(&si->cluster_info[i].lock);
+ 
+-	/*
+-	 * Publish the new mappings and cluster lock initialization before
+-	 * the count; walkers without xswap_lock use smp_load_acquire().
+-	 */
+-	smp_store_release(&si->nr_clusters_mapped, start_idx + nr);
++	/* The mappings and the locks are in place; make them visible. */
++	xswap_publish_clusters(si, start_idx, nr, link_free);
+ 	mutex_unlock(&si->xswap_lock);
+ 	return 0;
+ }
++static bool xswap_should_grow(struct swap_info_struct *si)
++{
++	unsigned long mapped = READ_ONCE(si->nr_clusters_mapped);
++
++	if (mapped >= READ_ONCE(si->nr_clusters_max))
++		return false;
++
++	return swap_usage_in_pages(si) * 100 >=
++	       mapped * SWAPFILE_CLUSTER * XSWAP_GROW_WHEN;
++}
++
++/*
++ * Map more of the cluster_info array, up to GROW_UNTIL in use.  The caller
++ * holds percpu_swap_cluster.lock, which this drops while it sleeps.
++ */
++static unsigned long xswap_grow(struct swap_info_struct *si)
++{
++	unsigned long mapped = READ_ONCE(si->nr_clusters_mapped);
++	unsigned long nr_new, want;
++	int ret;
++
++	lockdep_assert_held(&this_cpu_ptr(&percpu_swap_cluster)->lock);
++
++	want = DIV_ROUND_UP(swap_usage_in_pages(si) * 100,
++			    XSWAP_GROW_UNTIL * SWAPFILE_CLUSTER);
++	if (want <= mapped)
++		return 0;
++
++	nr_new = rounddown(want - mapped, XSWAP_GROW_CLUSTERS);
++	if (!nr_new)
++		nr_new = XSWAP_GROW_CLUSTERS;
++	if (nr_new > XSWAP_GROW_CHUNKS * XSWAP_GROW_CLUSTERS)
++		nr_new = XSWAP_GROW_CHUNKS * XSWAP_GROW_CLUSTERS;
++	nr_new = min(nr_new, READ_ONCE(si->nr_clusters_max) - mapped);
++	if (!nr_new)
++		return 0;
++
++	/*
++	 * Mapping pages can sleep.  The lock only guards the per-cpu
++	 * cluster cache, which this path does not touch.
++	 */
++	local_unlock(&percpu_swap_cluster.lock);
++	ret = xswap_map_clusters(si, mapped, nr_new, true);
++	local_lock(&percpu_swap_cluster.lock);
++	if (ret)
++		return 0;
++
++	atomic_long_inc(&si->xswap_grows);
++	return nr_new;
++}
++
+ #endif /* CONFIG_XSWAP */
+ 
+ static int setup_swap_clusters_info(struct swap_info_struct *si,
+@@ -4060,7 +4167,8 @@ static int setup_swap_clusters_info(struct swap_info_struct *si,
+ 		mutex_init(&si->xswap_lock);
+ 
+ 		err = xswap_map_clusters(si, 0, min_t(unsigned long,
+-					XSWAP_GROW_CLUSTERS, nr_clusters));
++					XSWAP_GROW_CLUSTERS, nr_clusters),
++					false);
+ 		if (err)
+ 			goto err_free_vm;
+ 
+@@ -4252,6 +4360,8 @@ static int xswap_create(int prio)
+ 	 */
+ 	si->ops = &swap_bdev_ops;
+ 
++	atomic_long_set(&si->xswap_grows, 0);
++
+ 	error = setup_swap_clusters_info(si, NULL, maxpages);
+ 	if (error)
+ 		goto bad_swap;
 -- 
 2.54.0
 
