@@ -1,63 +1,170 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.154
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795329175;
-	b=h6Lxey+gi/Kr5cayBhjreGzM95Hy9vfvaFdJs5br68TV6/vAJLof+jz57aaD+5MirDC3
-	 Ko+YjWOJRIlWTraPIFCzZncZoL8YzOpTCt8ARKdtUMOs87si5FC0fQapSSxucYeP3yvln
-	 zQmqPfVKqiTkufHNaKqhoBSgGh2SnozqyJ43kvR9xrb80BjBjmelspmlD8yphA82ZP3zg
-	 Mc/AOmkVzllLYht37y/t50wylLRhXkpYnC67LJrwv1hKPBq5WPif83tG9Jt15A0nQbs3c
-	 M7Gicm/lXZxDGR5XLZV+EVSeOC1aeEIcLAJgMyfQUh9EADkqE98hU73nOzQG86rr8Bg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795329175;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=P0nN2SWiKGZJM5hZ4aJ+VFJksbcfu6U88YHPYPXMZYU=;
-	b=3m9zPZAoofE/V2hNSXAEXbRuLL3+bGbI+PeQY/XaAa5B8qX0d+L5X8Tu64n8pI35b0Nr
-	 d/XZ8n+JndwJe4PE86iS0Hras+a78uFUJl3WyNPorVquOirbA+ecxrWBp6fNR6dOuGyFd
-	 U14mCZvML34EV3qjJG//qQNwVqDkQvcPCzfOAMCOt9zwj2snxa/tCY0aNEouRHWKIiX16
-	 pTaufOmoQxfgBiRLbLG2LLUbmwYou2hlK835ETLF8LNOKUx7LNHGBRpXAUEFIr7FVBWwg
-	 iiviw358j8mWjeQ48z8FQnVgGIyT6EHI8XE8yWmNfPMPLd1i8EJ8wyDhccKxhN5G/Xg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="Rjz/q934";
-	arc=none smtp.remote-ip=95.215.58.154
-Received: from mta1.migadu.com (out-154.mta1.migadu.com [95.215.58.154])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.148.174
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795329342;
+	b=heK55VJkuTseIjxFYDUEuwCf6UOmUm2b4vLZkBXayHOhruSL5zKBcVqo55VZLXKbjgVc
+	 kiPx2qXkIUCaVNiz4ekY5zoHhjam9qOwm9lZ6FJYN1OnWtIt3cwEQi6Ka0tO759L2u8Lz
+	 FW5ATSBdtKko2P8p7e2Ijm2o7RFLg0GT/KUd4odLcPDX0S0gbYtHy690RWJ1QJPpUOW7Y
+	 X+NMLHr6Nm7jb/NC2wKRkfbJ7C6L1wFHasfOly8JJFZZF7RMUs8QOO/1CY+Bc4NKWWtKa
+	 HvxRJSnTRZWSeYuBlkRogtDCdv7cpAp6QrDTx/D/ezRIFFtj6dw0rVCGXTmA0OM2obQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795329342;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:From:
+	 To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:References:
+	 In-Reply-To:Accept-Language:Content-Language:X-MS-Has-Attach:
+	 X-MS-TNEF-Correlator:x-ms-publictraffictype:
+	 x-ms-traffictypediagnostic:x-ms-office365-filtering-correlation-id:
+	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
+	 x-microsoft-antispam:x-microsoft-antispam-message-info:
+	 x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:
+	 x-ms-exchange-antispam-messagedata-1:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:
+	 X-Exchange-RoutingPolicyChecked:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version;
+	bh=DNHyYMc9vHD1vdEnF03jjEpLl21EJ/s/rYS/anhGGvQ=;
+	b=PCufH8EekLNCG4jMLrzAZ6yq2wQzbmVW6cvueFajtiBlvrB+7JlWCoc8iLJk8ciXiHBW
+	 OnifrrqG0VyVv+bQA90uNPDSotS4+YdK3J96jTurZehEMGJiPBsSYVMYW8MNFbyEajWaC
+	 iTJf5Oa+InFimocu8BtFu6t1ycFVUuR0ouZgtxoYeU45/emJ/9wT8QWXGUZ/wUGJwUJP6
+	 EYyF+gyBJUd999bYQk7EZjf11NyuutVaknsxv07aDFVCfmUrMhxqc9/Y7lGgMrxuvG+s9
+	 4t5BHt8kZ0Lym3TAJoYngiVb2vqWQTEgPJtXECyvWFy4P38Nif+W1oYlu5BZD3mSeCA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=marvell.com;
+	spf=pass smtp.mailfrom=marvell.com;
+	dkim=pass header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=selector1 header.b="cqaz/yKR";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.148.174
+Received: from mx0b-0016f401.pphosted.com (mx0a-0016f401.pphosted.com [67.231.148.174])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AC58606A32A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 06:32:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AC58606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD5F7606A320;
+	Sun, 22 Nov 2026 06:35:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD5F7606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=marvell.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=marvell.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Rjz/q934
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=p4MAVBJ/9Qo+GOQni+AFsXx5dg/8xxOFELEHbWDxpZA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795329172; v=1; x=1795933972;
- b=Rjz/q934G4BfNRu5mcLcvQw8LH1JaCgvn5XRCB10H0/teIWCc9pSPrHa7gEpW86sgVrY8DSZ
- KJVlSUY9duSycPMRZE26lItzKEOeyVLC+j44FZyDELs+yRJwmrGY2EqD/+YWXcOhPHg4Fak8cn+
- ZKjgix+B0eK1DLTgnusuYQhk=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id b1f45693e1e80040;
-	Sun, 22 Nov 2026 06:32:51 +0000
-X-Mizu-Trace-ID: b1f45693e1e80040
-X-Migadu-Flow: FLOW_OUT
-Date: Sun, 22 Nov 2026 06:32:46 +0000
-From: Akhilesh Patil <akhilesh.patil@linux.dev>
-To: jic23@kernel.org, andy@kernel.org, krzk+dt@kernel.org, robh@kernel.org,
-	dlechner@baylibre.com, nuno.sa@analog.com, conor+dt@kernel.org,
-	joshua.crofts1@gmail.com, maxwell@maxwelld.cc,
-	u.kleine-koenig@baylibre.com
-Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, akhileshpatilvnit@gmail.com,
-	akhilesh@ee.iitb.ac.in
-Subject: [PATCH 2/2] iio: chemical: acd10: Add driver for ACD10 CO2 sensor
-Message-ID: <07fe3a575ad86493076d5061ed71c15e7b837a10.1795326744.git.akhilesh.patil@linux.dev>
-References: <cover.1795326744.git.akhilesh.patil@linux.dev>
+	dkim=pass (1024-bit key, unprotected) header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=selector1 header.b=cqaz/yKR
+Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AM59u8v2369979;
+	Sat, 21 Nov 2026 22:35:14 -0800
+Received: from ch5pr02cu005.outbound.protection.outlook.com (mail-northcentralusazon11022107.outbound.protection.outlook.com [40.107.200.107])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4j3t0h04pw-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Sat, 21 Nov 2026 22:35:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BwfukPztclSwcbDPhrAn74SSW+Va5cRXjWXNI8cqRD08PE38Ixct32n+JEkPdNXOWteaCBwUa3Mq1n25XkFgDzRc8FReK8+QCJLcakXKsIbeKDxb4H4falGrPx988ejfQ0cW5HZcfYtPbyKkYY/Cbj4Rd0boqvJddL3AjVth0EZ86r/DoZ47a5M5VzeyhhgzrZqsHoLeNlqr+SKtis+PzmqqA9BaUhBlAqaoMtRipoYsTxLQILKraaGusL2Fv2fJWKAfPrnLaPENZ728h7ppaPW1PwrZjzDTeKzyywdJ8Q76RFpHk4dSTlW16u+OFeXrnk6iCaipIzRTIeye4cfkiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DNHyYMc9vHD1vdEnF03jjEpLl21EJ/s/rYS/anhGGvQ=;
+ b=b0v/SQ2hdydkf82FwoOVLjQWdR4xtzsIbzlW7VZQcLLH/mEfSVGuzNx98Grtzv9Tx9pqm1lxkA3IxtSzZ9edeVz8/5hA/ISZYeEeXWnPXwyzVpBm4Kf7ZakFiayDHKFQ7DmYSHEI8ALvBgzeNeXOOyA4TS2274jZLho0f9wdQBemDZp7N7EKWXM1VOGD9uYoaNMeH2KH4t+vKK9KJiMJb9/POGhRIhyTWbPGgPClwQkTe6tnSVsKqolKwyL6KC4Tl7u8/RhHpfhD7iuDSrfEns2z5jWleHqmPNDDXAiyntmDSNe5C7/k4qNeIAoRU1J0+XjAlii5zHSt8KHsG9ZUcQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=marvell.com; dmarc=pass action=none header.from=marvell.com;
+ dkim=pass header.d=marvell.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DNHyYMc9vHD1vdEnF03jjEpLl21EJ/s/rYS/anhGGvQ=;
+ b=cqaz/yKRg/SN7eXOOf9BbBCPdBofKYiAbAr6UR3AsVIuSXNTxGl24Y1nyWU2BdGsWx+0d/80vhL3IcGatQiU18PrCIESjEiucBKtT1S4UbCUhnY1huizJHjaCE7zWCVFHdq8pv2o5JC9qsMpCCnwgmdrVfawHgGGRumsCj8nABQ=
+Received: from BL1PPFB0715B38B.namprd18.prod.outlook.com
+ (2603:10b6:20f:fc04::dbb) by IA4PR18MB641219.namprd18.prod.outlook.com
+ (2603:10b6:207:14b::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Sun, 22 Nov
+ 2026 06:35:11 +0000
+Received: from BL1PPFB0715B38B.namprd18.prod.outlook.com
+ ([fe80::4ebf:8c2a:aee9:bcf3]) by BL1PPFB0715B38B.namprd18.prod.outlook.com
+ ([fe80::4ebf:8c2a:aee9:bcf3%4]) with mapi id 15.21.0615.013; Sun, 22 Nov 2026
+ 06:35:11 +0000
+From: Elad Nachman <enachman@marvell.com>
+To: Ian Rogers <irogers@google.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>
+CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "llvm@lists.linux.dev" <llvm@lists.linux.dev>,
+        Elkin Cruz <elkin@google.com>
+Subject: RE: [EXTERNAL] [PATCH net v2] net: marvell: prestera: Fix skb leak on
+ error in prestera_rxtx_xmit()
+Thread-Topic: [EXTERNAL] [PATCH net v2] net: marvell: prestera: Fix skb leak
+ on error in prestera_rxtx_xmit()
+Thread-Index: AQHdej1iUHh03UYfxkar90npjrAOprc5oNgA
+Date: Sun, 22 Nov 2026 06:35:11 +0000
+Message-ID:
+ <BL1PPFB0715B38B24E65E36EDB38D1A4E4FDB462@BL1PPFB0715B38B.namprd18.prod.outlook.com>
+References: <20261122045305.17511-1-irogers@google.com>
+In-Reply-To: <20261122045305.17511-1-irogers@google.com>
+Accept-Language: en-US, he-IL
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=marvell.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BL1PPFB0715B38B:EE_|IA4PR18MB641219:EE_
+x-ms-office365-filtering-correlation-id: 6fd9b6cb-386b-41b0-0c37-08df4862c264
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|23010399003|10070799003|1800799024|366016|376014|7416014|261026135527099003|261026121527099003|261026140227099003|261026130827099003|261022113327099003|261022115727099003|261022075727099003|261022105027099003|261028144727099003|261021133027099003|261021130227099003|261021123027099003|261021121427099003|261021135927099003|261102123227099003|38070700021|11063799006|5023799004|56012099006|10067099003|261009223027099003|18002099003|22082099003|6133799003|4133799003;
+x-microsoft-antispam-message-info:
+ UUe2n1mLoAnK3JoNd+KJXRI5zDWsvMjtmLSMOVybSdHIrgXeL6EaIlsvwT8DqBimyNVUSvxFJg+E2E618uxH42ttjTXSg3a01qpF7yyaYYZwHxpZBQ8iWZ2RSrfd1PekxSYs32Js9cRHOaG2A9H78VLSfTb4uGGUcgRoVW7nqkSWiD6nuwzohrZz8QpinrR3omo3d+I7Z3nbrfiOB19/m7XHLY9aA4btupmXzWGZmPpct95HAa47ELySQezxGj57bhhhhx0/avB8UFIDdgyqvFuNZTHiWHV2NyjmAsaF98dsGGV9HHqV6S+M/C4/wIdjfQtcaBM7o2iCuhq2e4SG+BUf86nYB0064ONFJqv1oQIAQ3TyVNI/66SSs6MT6BFve9Rq4mx+garrAXg73k55BPhLBnbPRmNrJKHenJVzSzCFn3ZotU826WtRDhLwApf0gBu4JPgRh3R1U0YhbFsflnvtPeqDiU2ljgZ1QsMnc0whwBZYxOMw/fyNhj7xqAes87cTrOMQ1v3Ona8w9HLIVeFa+QnDCm88dBX8Bzh2gi4REr4mJVSmL6kBH42TaUNG4JpQJFK6IdBJ6qUUv/gH3YGkRy3nFBw1SoEf9w+yYlr9Vin0RIdxx1Cv1j0h91cVQ1p99Uk+fc9ItL6A/CiLZ4bbRS9fAW9t2XUl7WZauy8=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PPFB0715B38B.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(10070799003)(1800799024)(366016)(376014)(7416014)(261026135527099003)(261026121527099003)(261026140227099003)(261026130827099003)(261022113327099003)(261022115727099003)(261022075727099003)(261022105027099003)(261028144727099003)(261021133027099003)(261021130227099003)(261021123027099003)(261021121427099003)(261021135927099003)(261102123227099003)(38070700021)(11063799006)(5023799004)(56012099006)(10067099003)(261009223027099003)(18002099003)(22082099003)(6133799003)(4133799003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 2
+x-ms-exchange-antispam-messagedata-0:
+ =?utf-8?B?OVYwejJqbUprVDlja2NnSkhUcjFmNWtWQUZZZFZHVGFpNStERkl3c3VzditR?=
+ =?utf-8?B?andHc1B5U3lOZzJZcS9Qc0xKbzU2eTRnUjJuVGt3ZExycmEzbG1Qcm92RGkv?=
+ =?utf-8?B?THdyb2xNLzBRN3hhak5YNGhHVVpFVUlZdWlHZjlJUTkrOFgyMm90MjBtK1ZL?=
+ =?utf-8?B?MWVRcnhVUlh3cFdKREFYMzQwVFdycE5RUEY1RlQ4V2VMYW1WRjNoamhBamFR?=
+ =?utf-8?B?d2VyMytmdy9mTElXU0Z5ZHAvNXVXWUJtWllmTWZvUllFSVFrc1ZLc3FrZGNB?=
+ =?utf-8?B?UXdaaytKZi9Pc0RBNW5vcUpUa0pVRGJKMGxSSXpwcmREb3hNc3Y0bkxHQk0v?=
+ =?utf-8?B?UVdGcmNJZWlRbmRPaUlHQmh4OXlVUXRsbk1lMXZOc251NU1wTG1IZFhacSta?=
+ =?utf-8?B?cXRXaktSQWhJd205UUpTMzhIS1M2ZWlGaHhaR1Z6czJPZVdBQ3FlSEJGZ0Zv?=
+ =?utf-8?B?QVJMOWd0dEdENXBmdHlkMTZtdTRRYlMvSXk0UUplVlY2dm5DZWR6ei9pTjN2?=
+ =?utf-8?B?a2pvL2pVYlhzRnlPSTZTdjR4VHV2ZUJ3RzdXRVZmckYxVzRyOXM2eEFoUmhj?=
+ =?utf-8?B?cmZIaERFbmxFZ0U4YTdGRyt4Vk5UV3YxSEtTN2UyM2FsZXhFV3hEZzZmVkpi?=
+ =?utf-8?B?UjkxdkkxZWdaUTVMdElYTmJuTXU2bkNxSUV0aEV4c3plSm5PRlFhMmptYjU5?=
+ =?utf-8?B?K2RTbHVIUkFabDFsckRWazgvWktzS0wrZXhlYXNnalVBYTNBRGVWazhEekpP?=
+ =?utf-8?B?TGFuVHVISmpJZ2FDTzRQMmJ4U2NSaisyOVJueWt3YTlPNVN2M2hTWTVyMUN0?=
+ =?utf-8?B?NU9SckI4a2M3ZFllTSthWisyUFBZQldQMmM4Y2pURE52aWFNV0sydXZHNXVL?=
+ =?utf-8?B?elVSdFZMeVZPQUd4ZFV1NFk4c0NYajFwUGFDeFFmL1h5WllWelNxR3k0blo0?=
+ =?utf-8?B?SzRrNHQxZ2ttVDg2d0hKelVQL0RuUGZwZVNpeFhnaGdWRDFwOUgvc2JQZ3E2?=
+ =?utf-8?B?aEErcnJUNEh3TklpZUtvL3BiY1VoZE45eENJdTUxT0xCQ294RWIwQ0lQT0I0?=
+ =?utf-8?B?NWNueDBOcnpwSEhzVnpZQTVOTnNVSVRCc0xRNHlFMm0reTJ4WWdPTVQycVh5?=
+ =?utf-8?B?ZytrMjhNMEExd08xV1NCc1lISWVXZ1VUcTR3V2dnME0zcHd1SndwYjhrNWhy?=
+ =?utf-8?B?Y0VKVkpEMTNWbE5wV3hDczdDNkRGKzFhbUdiaVpjc2wrSXpERkVPQ3ZxVWlm?=
+ =?utf-8?B?TS94aVdlSCt5Q1lYZHljVWdvRTRPNTZDVjJWWkRyNzlKUUxyb3hCU2o2bzBr?=
+ =?utf-8?B?eHcrS3UwSGVkcEFQQ2dacGt1NXhiR2ROQ0sxT3FHN1N3VGlHVEtkbVZ4Wmlj?=
+ =?utf-8?B?TnZDNVkwNDE0MnovRTgvTjg1NDRJTWpiWEpwOUU1OEIySyt6cC8rc09jWlJm?=
+ =?utf-8?B?a3JkTWxJRWwraUNHcGFmLzR1WjBZMTdOQ1hhZjVzNzdtdE5tQWFVbUYvV1lp?=
+ =?utf-8?B?UlB2dVd1ak5pdHU0OFh5cWlib0doV1U4blF0WjM2azg4djRrUFc0MjJJNUhr?=
+ =?utf-8?B?ZmZ1ZVp2RVdhamx3SG5oZUZBQytXeUg4QnozcCtlS1ZCZVVLSTIxMmxyLzhF?=
+ =?utf-8?B?bUhJWXlQM0I4eDRFMXJ2MDAvbWZmQWpHZ2RVSGRibVNTSyt2c09BaTFvZUx0?=
+ =?utf-8?B?RFY3N2xQWVBvcjczKzh2dmFVeWVOdy85cDRld2YrYlZPSVNScVErVEh0di9P?=
+ =?utf-8?B?cngrb1ROZlp1aml1cmtKTm5UdElQRmx6cm5wakRwVVo0Y01Ja1Jwb28zdTRC?=
+ =?utf-8?B?RVlWOVhmOG5rL3JBdXBDUG8rU3REdEZwMTJ2M2VBU0hUZ2JlWmlVMUNSSlBR?=
+ =?utf-8?B?NkdGaXkzSVB4TlBTOU1DQ2ovbEgySUJQTngwWENvQmxGVkU0NUhJVWhMcEVT?=
+ =?utf-8?B?bGMvQk12d2Q2WGttMldHVUNMZXRkVzN6OUErTGJmOW9mRmFFd3ZMd3VINlVG?=
+ =?utf-8?B?TytqWnBMQVBuRWdEbFhZY29hWlp0VkpjS2xBMm9BbmFYUW9RTTNHc2wxZFdU?=
+ =?utf-8?B?b0w3bWs2cHhFUHFueWQwN2w0VHVTcmtSazlqL1psWnc3WXEzZDNtdFNFOHJo?=
+ =?utf-8?B?ZHc4UXN5VjRIQllBekdJSm1UMXNuZ2Q3UmJGNG5YVFlVams5bldERlJCTkJs?=
+ =?utf-8?B?MDlpclNTUWpBbGZPRkN1TDg1VkhBS2RhMmI3a2N1YXI0YXIrdWhpNFJzZ05V?=
+ =?utf-8?B?ajlMUkpyUnBrV1gxVmg4SXVMTXFKTUFRUThtVzgxRUhMbS9wOS9GUE9JRDlF?=
+ =?utf-8?B?THh5ZnB6VHBUK2ZUZmhNU0pSRTBENm05L2ZOWXY3aDNuWTlmTTQ1S1ZqTDc5?=
+ =?utf-8?Q?Q/QPTYLWJL/03qx9q1WqeLr1YvLevH3rItjx63yHNyXSj?=
+x-ms-exchange-antispam-messagedata-1: Zq4OBZyOI9FFFg==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,448 +174,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1795326744.git.akhilesh.patil@linux.dev>
+X-Exchange-RoutingPolicyChecked:
+	pWJPTAyRZbAHY/OCRnWqgIhD0EWkoDEGY6EKZ/VfiIVm3+xexZvFQ+ER0W1/oqEQXOTiONWQqezi0iCpgqH1Mb6xJnDrbsX/QVoctH1swT0AdfUcttvNZfypFfiAZ4OgZUcEv+Xd7UImM2x8AfPiwucssvkNJNeQ3MydwdJwycN7fo+yxfjBd0IQDSSedeg2t8CyehBi/kWq/53JkA6DEkT3ex6ALInabD1Ul6pFauDf8PaI6P6cckycTAKjwOjZGeF6syuEt8srvQQ2fC2ybe+Aj7mA9l6H9Bz/ZnNms/acd77lP6Kt6baQ4aM3bs+R1ncPL8ldUYjMefRDvGRl+g==
+X-OriginatorOrg: marvell.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BL1PPFB0715B38B.namprd18.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6fd9b6cb-386b-41b0-0c37-08df4862c264
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Nov 2026 06:35:11.4847
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 70e1fb47-1155-421d-87fc-2e58f638b6e0
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 5wVxmMBaxrPwYKeM0gKDFlu5A9hzYgf8GvHQWPnIy+cXIokaLlfh7FKPRtqrQKQ9vxCJX0GE3vnZxYR+R7fmWQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR18MB641219
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIyMDAyNSBTYWx0ZWRfX8aXzms5g9lpD
+ O3DHDqrMcBE0etj6a78nV09eH7aqayTD+mY1j0gQX7fnA2mf2wxm2wkmD10wq5lJoeRM1BQjW9t
+ Rw7bx3xY4NPxmWzHiIodUHI8hHxRGSmq/1mqTOpBd5Vbw03pVrlxesqtUxwEJUmGA6XwJbH65RL
+ dGr66oFA1igz5P6eU8+YIGS+1jCXsc0Ze2pEJDIDX9DnbyJjQQ58+W5V9PY+la51DgzS0OeNtyo
+ fQAkj8uMLz2gZY9JaORs3mB8vFOCLUsU02DyAKU0gYDXBBp1XB2ZI+opRK4zGJfSBZVD2MNPunu
+ 9soVh35ItBuCbPsgTczQoYhXGIo8kTsZ4cnZo1yyLDUY+epPt0TCQhRuLg0aoV7Kr3pS0oSCLDo
+ CkNhCpYFSSs6ncjKC2yaw511ua8cHPSmJZNwYQMLPHEtowAW9tuaYtS+w7P9hsUIel5dB+MKqvX
+ yFUMqc/s4hDWgwKiOcA==
+X-Proofpoint-ORIG-GUID: uxCvI3TRceMxhz5mSIwy4VtDU-GizxgM
+X-Proofpoint-GUID: uxCvI3TRceMxhz5mSIwy4VtDU-GizxgM
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIyMDAyNSBTYWx0ZWRfXyJ8XcgriIljF
+ AuVDDEkd9xLQp0daDcDCoqXIVY1dMxneVLeFcuVqb7W8z8h3iN0UDW7wJqO8LPDbZWrbIYJ3b/C
+ /MJrvFLJWw2j1+hZRvDlUgnZ3M0sWtI=
+X-Authority-Analysis: v=2.4 cv=aO9lOr9m c=1 sm=1 tr=0 ts=6b028d22 cx=c_pps
+ a=TrU/2LxE+ZX2LRvKjn0IHQ==:117 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=zJRp6_cAMcgA:10 a=-AAbraWEqlQA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=l0iWHRpgs5sLHlkKQ1IR:22 a=EAYMVhzMl8SCOHhVQcBL:22 a=1XWaLZrsAAAA:8
+ a=VwQbUJbxAAAA:8 a=M5GUcnROAAAA:8 a=xRccjw1Ftl68BvmghbUA:9 a=lqcHg5cX4UMA:10
+ a=QEXdDO2ut3YA:10 a=OBjm3rFKGHvpk9ecZwUJ:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-22_01,2026-11-19_01,2025-10-01_01
 
-Add driver for Aosong ASAIR ACD10 carbon dioxide sensor.
-Use serdev interface to communicate with sensor over UART.
-Implement read co2, get software revision, get instrument number
-commands.
-
-Tested on TI am62x sk board on UART5 with 1200 baud rate.
-
-Signed-off-by: Akhilesh Patil <akhilesh.patil@linux.dev>
----
- MAINTAINERS                   |   7 +
- drivers/iio/chemical/Kconfig  |  10 +
- drivers/iio/chemical/Makefile |   1 +
- drivers/iio/chemical/acd10.c  | 365 ++++++++++++++++++++++++++++++++++
- 4 files changed, 383 insertions(+)
- create mode 100644 drivers/iio/chemical/acd10.c
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e8f06145fb54..a5d70cd11dda 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3743,6 +3743,13 @@ S:	Supported
- W:	http://www.akm.com/
- F:	drivers/iio/magnetometer/ak8974.c
- 
-+AOSONG ACD10 CARBON DIOXIDE SENSOR DRIVER
-+M:	Akhilesh Patil <akhilesh.patil@linux.dev>
-+L:	linux-iio@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/iio/chemical/aosong,acd10.yaml
-+F:	drivers/iio/chemical/acd10.c
-+
- AOSONG AGS02MA TVOC SENSOR DRIVER
- M:	Anshul Dalal <anshulusr@gmail.com>
- L:	linux-iio@vger.kernel.org
-diff --git a/drivers/iio/chemical/Kconfig b/drivers/iio/chemical/Kconfig
-index b22afa1f6d59..2bbf49135997 100644
---- a/drivers/iio/chemical/Kconfig
-+++ b/drivers/iio/chemical/Kconfig
-@@ -5,6 +5,16 @@
- 
- menu "Chemical Sensors"
- 
-+config ACD10
-+	tristate "Aosong ACD10 CO2 gas sensor"
-+	depends on SERIAL_DEV_BUS
-+	help
-+	  Say Y here to build Aosong ASAIR ACD10 CO2 (carbon dioxide)
-+	  sensor driver.
-+
-+	  To compile this ACD10 driver as a loadable kernel module,
-+	  choose M here: the module will be called acd10
-+
- config AOSONG_AGS02MA
- 	tristate "Aosong AGS02MA TVOC sensor driver"
- 	depends on I2C
-diff --git a/drivers/iio/chemical/Makefile b/drivers/iio/chemical/Makefile
-index 2287a00a6b75..29937988cbfe 100644
---- a/drivers/iio/chemical/Makefile
-+++ b/drivers/iio/chemical/Makefile
-@@ -4,6 +4,7 @@
- #
- 
- # When adding new entries keep the list in alphabetical order
-+obj-$(CONFIG_ACD10)	+= acd10.o
- obj-$(CONFIG_AOSONG_AGS02MA)	+= ags02ma.o
- obj-$(CONFIG_ATLAS_PH_SENSOR)	+= atlas-sensor.o
- obj-$(CONFIG_ATLAS_EZO_SENSOR)	+= atlas-ezo-sensor.o
-diff --git a/drivers/iio/chemical/acd10.c b/drivers/iio/chemical/acd10.c
-new file mode 100644
-index 000000000000..b92f01e7bf4a
---- /dev/null
-+++ b/drivers/iio/chemical/acd10.c
-@@ -0,0 +1,365 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * ACD10 CO2 gas sensor driver
-+ *
-+ * Copyright (c) 2026 Akhilesh Patil <akhilesh.patil@linux.dev>
-+ *
-+ * Datasheet:
-+ * https://www.es.co.th/Schemetic/PDF/ACD10.PDF
-+ *
-+ * TODO additional features:
-+ *	1) single-point calibration feature.
-+ *	2) Sensor preheat wait feature.
-+ */
-+
-+#include <linux/array_size.h>
-+#include <linux/bits.h>
-+#include <linux/cleanup.h>
-+#include <linux/completion.h>
-+#include <linux/dev_printk.h>
-+#include <linux/device.h>
-+#include <linux/errno.h>
-+#include <linux/iio/iio.h>
-+#include <linux/iio/types.h>
-+#include <linux/jiffies.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/serdev.h>
-+#include <linux/string.h>
-+#include <linux/types.h>
-+#include <linux/unaligned.h>
-+
-+#define ACD10_SERIAL_BAUDRATE		1200
-+#define ACD10_SERDEV_TIMEOUT		msecs_to_jiffies(500)
-+#define ACD10_FRAME_START		0xFE
-+#define ACD10_FRAME_FIXED_CODE		0xA6
-+#define ACD10_FRAME_DATA_START		4U
-+#define ACD10_FRAME_DATA_LEN_IDX	2U
-+#define ACD10_FRAME_DATA_LEN_MAX	11U
-+#define ACD10_FRAME_CMD_CODE_IDX	3U
-+
-+struct acd10_state {
-+	struct serdev_device *serdev;
-+
-+	/* Lock to acquire during CMD/RESP sequence */
-+	struct mutex lock;
-+	struct completion buf_ready;
-+
-+	/* Single buffer to hold tx and rx data */
-+	u8 buf[16];
-+	u8 buf_idx;
-+	u8 rx_expected_len;
-+
-+	u8 sw_rev[16];
-+	u8 inst_num[16];
-+};
-+
-+enum acd10_cmds {
-+	ACD10_CMD_READ_CO2 = 0,
-+	ACD10_CMD_CAL,
-+	ACD10_CMD_READ_SWREV,
-+	ACD10_CMD_READ_INS_NUM,
-+};
-+
-+struct acd10_cmd_info {
-+	u8 cmd_code;
-+	u8 tx_frame_len;
-+	u8 tx_data_len;
-+	u8 rx_frame_len;
-+};
-+
-+static const struct acd10_cmd_info cmd_info[] = {
-+	[ACD10_CMD_READ_CO2] = {
-+		.cmd_code = 0x01,
-+		.tx_frame_len = 5,
-+		.tx_data_len = 0,
-+		.rx_frame_len = 9,
-+	},
-+
-+	[ACD10_CMD_CAL] = {
-+		.cmd_code = 0x03,
-+		.tx_frame_len = 7,
-+		.tx_data_len = 2,
-+		.rx_frame_len = 5,
-+	},
-+
-+	[ACD10_CMD_READ_SWREV] = {
-+		.cmd_code = 0x1E,
-+		.tx_frame_len = 5,
-+		.tx_data_len = 0,
-+		/*
-+		 * Note: datasheet says sw rev response is D1-D11 with D11 reserved.
-+		 * However, sensor actually sends only D1-D10 (10 bytes).
-+		 * Hence, rx_frame_len is 15 and not 16.
-+		 */
-+		.rx_frame_len = 15,
-+	},
-+
-+	[ACD10_CMD_READ_INS_NUM] = {
-+		.cmd_code = 0x1F,
-+		.tx_frame_len = 5,
-+		.tx_data_len = 0,
-+		.rx_frame_len = 15,
-+	}
-+};
-+
-+static u8 acd10_get_checksum(u8 *buf, u8 len)
-+{
-+	u8 checksum = 0;
-+
-+	for (u8 i = 1; i < len - 1; i += 1)
-+		checksum += buf[i];
-+
-+	return checksum;
-+}
-+
-+/*
-+ * Do transfer based on command and fill drv_state->buf with received data.
-+ * Caller of this function should use mutex drv_state->lock.
-+ */
-+static int acd10_serdev_transfer(struct iio_dev *indio_dev, enum acd10_cmds cmd)
-+{
-+	struct acd10_state *drv_state = iio_priv(indio_dev);
-+	struct serdev_device *serdev = drv_state->serdev;
-+	struct device *dev = &indio_dev->dev;
-+	int ret;
-+
-+	/* Prepare transmit buffer along with checksum */
-+	drv_state->buf[0] = ACD10_FRAME_START;
-+	drv_state->buf[1] = ACD10_FRAME_FIXED_CODE;
-+	drv_state->buf[ACD10_FRAME_DATA_LEN_IDX] = cmd_info[cmd].tx_data_len;
-+	drv_state->buf[ACD10_FRAME_CMD_CODE_IDX] = cmd_info[cmd].cmd_code;
-+	drv_state->buf[cmd_info[cmd].tx_frame_len - 1] =
-+		acd10_get_checksum(drv_state->buf, cmd_info[cmd].tx_frame_len);
-+	drv_state->buf_idx = 0;
-+	drv_state->rx_expected_len = cmd_info[cmd].rx_frame_len;
-+	reinit_completion(&drv_state->buf_ready);
-+
-+	/* Transmit the buffer over serdev */
-+	ret = serdev_device_write(serdev, drv_state->buf, cmd_info[cmd].tx_frame_len,
-+				  ACD10_SERDEV_TIMEOUT);
-+	if (ret < 0)
-+		return ret;
-+	if (ret != cmd_info[cmd].tx_frame_len)
-+		return -EIO;
-+
-+	/* Read the received bytes in buffer */
-+	ret = wait_for_completion_interruptible_timeout(&drv_state->buf_ready,
-+							ACD10_SERDEV_TIMEOUT);
-+	if (ret < 0)
-+		return ret;
-+	if (!ret)
-+		return -ETIMEDOUT;
-+
-+	/* validate frame header */
-+	if (drv_state->buf[0] != ACD10_FRAME_START ||
-+	    drv_state->buf[1] != ACD10_FRAME_FIXED_CODE) {
-+		dev_err(dev, "RX frame invalid\n");
-+		return -EIO;
-+	}
-+
-+	/* Maximum data len can be max 11 */
-+	if (drv_state->buf[ACD10_FRAME_DATA_LEN_IDX] > ACD10_FRAME_DATA_LEN_MAX)
-+		return -EIO;
-+
-+	/* Validate command echo */
-+	if (drv_state->buf[ACD10_FRAME_CMD_CODE_IDX] != cmd_info[cmd].cmd_code)
-+		return -EIO;
-+
-+	/* Validate checksum */
-+	if (drv_state->buf[cmd_info[cmd].rx_frame_len - 1] !=
-+	    acd10_get_checksum(drv_state->buf, cmd_info[cmd].rx_frame_len)) {
-+		dev_err(dev, "Checksum error\n");
-+		return -EIO;
-+	}
-+
-+	return 0;
-+}
-+
-+static int acd10_get_sw_rev(struct iio_dev *indio_dev)
-+{
-+	struct acd10_state *drv_state = iio_priv(indio_dev);
-+	struct device *dev = &indio_dev->dev;
-+	int ret;
-+
-+	ret = acd10_serdev_transfer(indio_dev, ACD10_CMD_READ_SWREV);
-+	if (ret)
-+		return ret;
-+
-+	memcpy(drv_state->sw_rev, &drv_state->buf[ACD10_FRAME_DATA_START], 10);
-+	drv_state->sw_rev[10] = '\0';
-+
-+	dev_info(dev, "Software revision: %s\n", drv_state->sw_rev);
-+
-+	return 0;
-+}
-+
-+static int acd10_get_instrument_num(struct iio_dev *indio_dev)
-+{
-+	struct acd10_state *drv_state = iio_priv(indio_dev);
-+	struct device *dev = &indio_dev->dev;
-+	int ret;
-+
-+	ret = acd10_serdev_transfer(indio_dev, ACD10_CMD_READ_INS_NUM);
-+	if (ret)
-+		return ret;
-+
-+	memcpy(drv_state->inst_num, &drv_state->buf[ACD10_FRAME_DATA_START], 10);
-+	drv_state->inst_num[10] = '\0';
-+
-+	dev_info(dev, "Instrument number: %s\n", drv_state->inst_num);
-+
-+	return 0;
-+}
-+
-+static size_t acd10_receive_buf(struct serdev_device *serdev,
-+				const u8 *data, size_t len)
-+{
-+	struct iio_dev *indio_dev = serdev_device_get_drvdata(serdev);
-+	struct acd10_state *drv_state = iio_priv(indio_dev);
-+	size_t consume = len;
-+	int i = 0;
-+
-+	while (drv_state->rx_expected_len && (consume > 0)) {
-+		drv_state->buf[drv_state->buf_idx++] = data[i++];
-+		consume -= 1;
-+		drv_state->rx_expected_len -= 1;
-+	}
-+
-+	if (drv_state->rx_expected_len == 0) {
-+		drv_state->buf_idx = 0;
-+		complete(&drv_state->buf_ready);
-+	}
-+
-+	return len;
-+}
-+
-+static int acd10_read_raw(struct iio_dev *indio_dev,
-+			  struct iio_chan_spec const *chan,
-+			  int *val, int *val2, long mask)
-+{
-+	struct acd10_state *drv_state = iio_priv(indio_dev);
-+	int ret;
-+
-+	switch (mask) {
-+	case IIO_CHAN_INFO_RAW:
-+
-+		/* Read CO2 sensor value*/
-+		scoped_guard(mutex, &drv_state->lock) {
-+			ret = acd10_serdev_transfer(indio_dev, ACD10_CMD_READ_CO2);
-+			if (ret)
-+				return ret;
-+
-+			*val = get_unaligned_be16(&drv_state->buf[ACD10_FRAME_DATA_START]);
-+		}
-+
-+		return IIO_VAL_INT;
-+
-+	case IIO_CHAN_INFO_SCALE:
-+		*val = 0;
-+		*val2 = 100;
-+		return IIO_VAL_INT_PLUS_MICRO;
-+
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
-+static const struct iio_info acd10_info = {
-+	.read_raw = &acd10_read_raw,
-+};
-+
-+static const struct iio_chan_spec acd10_channels[] = {
-+	{
-+		.type = IIO_CONCENTRATION,
-+		.channel2 = IIO_MOD_CO2,
-+		.modified = 1,
-+		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW) |
-+				      BIT(IIO_CHAN_INFO_SCALE),
-+	},
-+};
-+
-+static const struct serdev_device_ops acd10_ser_ops = {
-+	.receive_buf = &acd10_receive_buf,
-+	.write_wakeup = serdev_device_write_wakeup,
-+};
-+
-+static int acd10_probe(struct serdev_device *serdev)
-+{
-+	int ret;
-+	struct device *dev = &serdev->dev;
-+	struct iio_dev *indio_dev;
-+	struct acd10_state *drv_state;
-+	unsigned int baudrate;
-+
-+	indio_dev = devm_iio_device_alloc(dev, sizeof(struct acd10_state));
-+	if (!indio_dev)
-+		return -ENOMEM;
-+
-+	indio_dev->name = "acd10";
-+	indio_dev->channels = acd10_channels;
-+	indio_dev->num_channels = ARRAY_SIZE(acd10_channels);
-+	indio_dev->info = &acd10_info;
-+
-+	serdev_device_set_drvdata(serdev, indio_dev);
-+
-+	drv_state = iio_priv(indio_dev);
-+	drv_state->serdev = serdev;
-+
-+	init_completion(&drv_state->buf_ready);
-+	ret = devm_mutex_init(dev, &drv_state->lock);
-+	if (ret)
-+		return ret;
-+
-+	serdev_device_set_client_ops(serdev, &acd10_ser_ops);
-+	ret = devm_serdev_device_open(dev, serdev);
-+	if (ret) {
-+		dev_err(dev, "ACD10: serial device open failed\n");
-+		return ret;
-+	}
-+
-+	baudrate = serdev_device_set_baudrate(serdev, ACD10_SERIAL_BAUDRATE);
-+	dev_info(dev, "baud rate set to: %u\n", baudrate);
-+	if (baudrate != ACD10_SERIAL_BAUDRATE) {
-+		dev_err(dev, "baud rate expected: %u, got: %u\n",
-+			ACD10_SERIAL_BAUDRATE, baudrate);
-+		return -EIO;
-+	}
-+	serdev_device_set_flow_control(serdev, false);
-+	ret = serdev_device_set_parity(serdev, SERDEV_PARITY_NONE);
-+	if (ret)
-+		return ret;
-+
-+	ret = acd10_get_sw_rev(indio_dev);
-+	if (ret)
-+		return ret;
-+
-+	ret = acd10_get_instrument_num(indio_dev);
-+	if (ret)
-+		return ret;
-+
-+	ret = devm_iio_device_register(dev, indio_dev);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id acd10_of_match_table[] = {
-+	{ .compatible = "aosong,acd10", },
-+	{ }
-+};
-+
-+static struct serdev_device_driver acd10_driver = {
-+	.driver = {
-+		.name = "acd10",
-+		.of_match_table = acd10_of_match_table,
-+	},
-+	.probe = acd10_probe,
-+};
-+module_serdev_device_driver(acd10_driver);
-+
-+MODULE_AUTHOR("Akhilesh Patil");
-+MODULE_DESCRIPTION("ACD10 CO2 gas sensor driver over serdev interface");
-+MODULE_LICENSE("GPL");
--- 
-2.47.3
-
+Pg0KPiBwcmVzdGVyYV9yeHR4X3htaXQoKSBpcyBpbnZva2VkIGRpcmVjdGx5IGZyb20gcHJlc3Rl
+cmFfcG9ydF94bWl0KCksIHRoZQ0KPiBkcml2ZXIncyAubmRvX3N0YXJ0X3htaXQoKSBjYWxsYmFj
+aywgd2hvc2UgcmV0dXJuIHR5cGUgaXMgbmV0ZGV2X3R4X3QuDQo+IFdoZW4gc2tiX2Nvd19oZWFk
+KCkgb3IgcHJlc3RlcmFfZHNhX2J1aWxkKCkgZmFpbHMsIHByZXN0ZXJhX3J4dHhfeG1pdCgpDQo+
+IHJldHVybnMgTkVUX1hNSVRfRFJPUCAoMHgwMSkgd2l0aG91dCBmcmVlaW5nIHNrYi4NCj4NCj4g
+QmVjYXVzZSBORVRfWE1JVF9EUk9QICgweDAxKSBpcyBsZXNzIHRoYW4gTkVUX1hNSVRfTUFTSyAo
+MHgwZiksDQo+IGRldl94bWl0X2NvbXBsZXRlKCkgcmV0dXJucyB0cnVlIGFuZCBkZXZfaGFyZF9z
+dGFydF94bWl0KCkgYXNzdW1lcyB0aGUNCj4gZHJpdmVyIGhhcyBhbHJlYWR5IGNvbnN1bWVkIG9y
+IGZyZWVkIHRoZSBza2IsIGxlYWtpbmcgdGhlIHBhY2tldCBidWZmZXIuDQo+DQo+IEZyZWUgdGhl
+IHNrYiB3aXRoIGRldl9rZnJlZV9za2JfYW55KCksIGluY3JlbWVudCB0aGUgY29yZSB0eF9kcm9w
+cGVkDQo+IGNvdW50ZXIgdmlhIGRldl9jb3JlX3N0YXRzX3R4X2Ryb3BwZWRfaW5jKCkgKHNvIC5u
+ZG9fZ2V0X3N0YXRzNjQgcmVwb3J0cw0KPiB0aGUgc29mdHdhcmUgZHJvcCksIGFuZCByZXR1cm4g
+TkVUX1hNSVRfRFJPUC4NCj4NCj4gRm91bmQgYnkgZW5hYmxpbmcgQ2xhbmcncyAtV2Fzc2lnbi1l
+bnVtIG9uIGFuIHg4Nl82NCBhbGx5ZXNjb25maWcgYnVpbGQsDQo+IHdpdGggQUkgY29kaW5nIGFz
+c2lzdGFudCBoZWxwIHRvIGF1ZGl0IHRoZSB3YXJuaW5nIGFuZCBwcmVwYXJlIHRoZSBmaXguDQo+
+IEJ1aWxkLXRlc3RlZCB3aXRoIExMVk09MSBXPTEgKC1XZXJyb3IpOyBub3QgcnVudGltZS10ZXN0
+ZWQgb24gUHJlc3RlcmENCj4gc3dpdGNoIGhhcmR3YXJlLg0KPg0KPiBGaXhlczogNTAxZWYzMDY2
+Yzg5ICgibmV0OiBtYXJ2ZWxsOiBwcmVzdGVyYTogQWRkIGRyaXZlciBmb3IgUHJlc3RlcmEgZmFt
+aWx5IEFTSUMgZGV2aWNlcyIpDQo+IFNpZ25lZC1vZmYtYnk6IElhbiBSb2dlcnMgPG1haWx0bzpp
+cm9nZXJzQGdvb2dsZS5jb20+DQo+IC0tLQ0KPg0KPiBOb3RlczoNCj4gICAgIHYyOg0KPiAgICAg
+ICAtIEtlZXAgcmV0dXJuaW5nIE5FVF9YTUlUX0RST1AgYXQgZHJvcF9za2IgYW5kIGZpeCB0aGUg
+Y29tbWl0IG1lc3NhZ2UNCj4gICAgICAgICBkZXNjcmlwdGlvbiBvZiBkZXZfeG1pdF9jb21wbGV0
+ZSgpIC8gZGV2X2hhcmRfc3RhcnRfeG1pdCgpIChFbGFkDQo+ICAgICAgICAgTmFjaG1hbikuDQo+
+DQo+ICAgICB2MTogaHR0cHM6Ly91cmxkZWZlbnNlLmNvbS92My9fX2h0dHBzOi8vbG9yZS5rZXJu
+ZWwub3JnL3IvMjAyNjExMTkxNzAzNTQuMTUwOTU4OS0xLWlyb2dlcnNAZ29vZ2xlLmNvbV9fOyEh
+Q1JWbVhrcVchVVZ1QXJqcU9kX3NIa256YzAxYzV1T1VzM3QwSzA1eWpjM3IyazlLMGk4Y1hMZnYx
+ZDVwYVN6c3JIa0pMQnNDQXdNMjZma1JpU3hFUExaYyQNCj4NCj4gIGRyaXZlcnMvbmV0L2V0aGVy
+bmV0L21hcnZlbGwvcHJlc3RlcmEvcHJlc3RlcmFfcnh0eC5jIHwgOSArKysrKysrLS0NCj4gIDEg
+ZmlsZSBjaGFuZ2VkLCA3IGluc2VydGlvbnMoKyksIDIgZGVsZXRpb25zKC0pDQo+DQo+IGRpZmYg
+LS1naXQgYS9kcml2ZXJzL25ldC9ldGhlcm5ldC9tYXJ2ZWxsL3ByZXN0ZXJhL3ByZXN0ZXJhX3J4
+dHguYyBiL2RyaXZlcnMvbmV0L2V0aGVybmV0L21hcnZlbGwvcHJlc3RlcmEvcHJlc3RlcmFfcnh0
+eC5jDQo+IGluZGV4IGM0ZWEyNDdkMjQ3MC4uZTYyMzc4YWJjZmZjIDEwMDY0NA0KPiAtLS0gYS9k
+cml2ZXJzL25ldC9ldGhlcm5ldC9tYXJ2ZWxsL3ByZXN0ZXJhL3ByZXN0ZXJhX3J4dHguYw0KPiAr
+KysgYi9kcml2ZXJzL25ldC9ldGhlcm5ldC9tYXJ2ZWxsL3ByZXN0ZXJhL3ByZXN0ZXJhX3J4dHgu
+Yw0KPiBAQCAtODE3LDEzICs4MTcsMTggQEAgbmV0ZGV2X3R4X3QgcHJlc3RlcmFfcnh0eF94bWl0
+KHN0cnVjdCBwcmVzdGVyYV9wb3J0ICpwb3J0LCBzdHJ1Y3Qgc2tfYnVmZiAqc2tiKQ0KPiAgICAg
+ICBkc2EucG9ydF9udW0gPSBwb3J0LT5od19pZDsNCj4NCj4gICAgICAgaWYgKHNrYl9jb3dfaGVh
+ZChza2IsIFBSRVNURVJBX0RTQV9ITEVOKSA8IDApDQo+IC0gICAgICAgICAgICAgcmV0dXJuIE5F
+VF9YTUlUX0RST1A7DQo+ICsgICAgICAgICAgICAgZ290byBkcm9wX3NrYjsNCj4NCj4gICAgICAg
+c2tiX3B1c2goc2tiLCBQUkVTVEVSQV9EU0FfSExFTik7DQo+ICAgICAgIG1lbW1vdmUoc2tiLT5k
+YXRhLCBza2ItPmRhdGEgKyBQUkVTVEVSQV9EU0FfSExFTiwgMiAqIEVUSF9BTEVOKTsNCj4NCj4g
+ICAgICAgaWYgKHByZXN0ZXJhX2RzYV9idWlsZCgmZHNhLCBza2ItPmRhdGEgKyAyICogRVRIX0FM
+RU4pICE9IDApDQo+IC0gICAgICAgICAgICAgcmV0dXJuIE5FVF9YTUlUX0RST1A7DQo+ICsgICAg
+ICAgICAgICAgZ290byBkcm9wX3NrYjsNCj4NCj4gICAgICAgcmV0dXJuIHByZXN0ZXJhX3NkbWFf
+eG1pdCgmcG9ydC0+c3ctPnJ4dHgtPnNkbWEsIHNrYik7DQo+ICsNCj4gK2Ryb3Bfc2tiOg0KPiAr
+ICAgICBkZXZfa2ZyZWVfc2tiX2FueShza2IpOw0KPiArICAgICBkZXZfY29yZV9zdGF0c190eF9k
+cm9wcGVkX2luYyhwb3J0LT5kZXYpOw0KPiArICAgICByZXR1cm4gTkVUX1hNSVRfRFJPUDsNCj4g
+IH0NCj4gLS0NCj4gMi41Ni4xLjc1MC5nZjcwZGM2ODJjZi1nb29nDQo+DQoNClJldmlld2VkLWJ5
+OiBFbGFkIE5hY2htYW4gPGVuYWNobWFuQG1hcnZlbGwuY29tPg0K
