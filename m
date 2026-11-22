@@ -1,54 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.104
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795354458;
-	b=WC8Q4dz87T4WRCjIgttcpe4/6+HAibKbhdveDm56rvpVhsmyPAUkzoibzao9SfCJB+LJ
-	 Kce0CVEIPs2WXVr/HQjP/rZScO2R6yajnU3CVQDWUW3e5t+TGnldGhPaTEvC80NVw1jMl
-	 iClSmBmAqAXscJAAu/zMELR7w+iSk1zTgxL92w+HTCqPxLHTQQPNDrDEbGAXhrXIkdtj2
-	 0BIOuYW8TdbggjhvelzHlMxR4aIPnVl4bY+A2fsm5w7CL8SzwUnfRScO9hxj79oNISyqI
-	 zLJ0i7ILbs6SLTu2W+RE5T78MwG1q+guBUEd9v6eOS5LWP6Y9CIT01qPpdNN1heaCeQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795354458;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Mime-Version:Content-Transfer-Encoding:
-	 Content-Type:Date:Message-Id:To:Cc:Subject:From:X-Mailer:References:
-	 In-Reply-To;
-	bh=HMMC0LB5IhYegJWToan1YqcEUtKAc3112EBRFHGcsc8=;
-	b=iYhPBZrGBVRnhu5Nn3f8IRc6CpLTFWJ/wov90hnk/zc2+kLH+oVGJX4lUUMBmBSh/27A
-	 z7WcCl+dyVfjLypQdDKWTRI/k78wh3rSyNVuZ2JRtzAoqxso3KAC1YLeIuxiFEjjIvyIj
-	 jKFD0PU7TmCHvFPMjrR6zZfyUoRe17+oY08on9xszCVx/+eLM4VcLNaZPEiQKtvbBOmPU
-	 id/EG6K1agYp5RNeoxlW09NS0Wlb1pDMk/G5JJgfYP7NEPcNf1QFB/6rqf+PTaUcxNb/X
-	 0QplwSPloonTBAlX+xJDpu+uV2G5VRT5Wd4h33LHzOpgIMIR+DnsX2gorV2E1IKC2nw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cknow-tech.com;
-	spf=pass smtp.mailfrom=cknow-tech.com;
-	dkim=pass header.d=cknow-tech.com header.i=@cknow-tech.com header.a=rsa-sha256 header.s=key1 header.b="dM857/fu";
-	arc=none smtp.remote-ip=91.218.175.104
-Received: from mta0.migadu.com (out-104.mta0.migadu.com [91.218.175.104])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795354449;
+	b=cCpI+YFO2ieL2O1Y+jrfa9tsMwHX8WyyFsmRTyTuecO7UeWe+Ea8wRRT7tqRl2HiyEtC
+	 GsikoRSFDQWa/sn1oeZW9vYnavXgmXOiQNKGeIOaqfjjmZveXq1FSqW/pIW0CJsAHHwhs
+	 TFpmhcE1K2Awj/LmAdzcc1Si7eLnyHOdBTfSSSzczShDDR6yvyz6AiIqEQoF4GxuhkTE0
+	 EsI2kBLWGpk9PdRzEf7XHZBy8+uSzi09CU6ACOLTADtoB04NaQWmNeUmXJvL0kq2SgMDi
+	 g2hawrgYTGTx0y9syh3LleAMhSRdzqiDR5d8NQ166LAauABsKx2L6nTsPpKk35JIqyg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795354449;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=6gKdivfkDsuonkEKXD54e3FJFyho7ssO1p7f34zC4sc=;
+	b=uOpw5BKb+/DSNlhJXdAzLWUvBKyrMcqu4Hsd6QtSoCKZnCfAz2VEfyGqV/KyI29PQoAL
+	 jkZtPa96KnpnfF7shMofWyUJsTMVXqqIUw+zrjr2uV35ky3m2+bsRCUn4iVAQnMEXoLnB
+	 nnUDGDQWNf/JETTpy1fQjNWJvD1rVBjiXg8rs22OzGuEBq6zcLzYE6vcWYsvPBLmPHEIi
+	 9jI/7yYAxpUpoLTBdGk/9Ar26Hq9V7mYdhttr8vEJz7qNt6ljheMvSA7xeFimPA9vWAhG
+	 3I6VP3AF40CgM9kLDB9ejHIp81rApOGRUHkQXR8utf3vPpf5c48uEgvXnHC205B6S/g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j6ubBjpE;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35D38606A333;
+	Sun, 22 Nov 2026 13:34:09 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j6ubBjpE
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795354449;
+	b=dR4c3IbOXTh8suB+rkifGzrLzJMg3FCj13idiWiKWvCE64GchHxtvrxM2t5JY26S4R+f
+	 Ob7C8g07AwLaVM7TUL7Ro08ACkNcSeWyMcBMH5oDtJ0Du3jPfUmcN/KH6YdQpHW2jKKT2
+	 glNN1opUIVwkM5APVUwvQwYkBpK069zCXcSrTmGdC5tR1Odub5ShJEir9/MfjEr0X/jCA
+	 nU390SPi4or/i2irMiYUrV+DqHuH7rv4liTksqGSEXRGHnJEjWA66PYFeT9aCmVKQM9Pk
+	 gm/39YxGstgX6mEsEvjDPbxQWm9Q1Phu87RV+0k40CvtySN8asriByMTsDmBkUKbwsQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795354449;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=6gKdivfkDsuonkEKXD54e3FJFyho7ssO1p7f34zC4sc=;
+	b=NSz44hxRApW3N5OcgeQdyx6gQTmRVTuExs+QDvtRopcal37Rg0hwsTIfpVp4tI4yXb20
+	 60xRNCzQWK0Kiqz1gntU93z3FWnqcD54NaELKvI8EOWba7CUcAzXX7IEwTxtdpBtIktMl
+	 sbzecyiboW0NAZQpOxEAdHkAOqOBSbgOaJd/pz2w41pjNuenFmrwYbSmNfAbBZvc8kqdi
+	 uJ9Y3+CZ69xDaH+elMBLpGE3AXHvh2afWUotRD2mr9JUOrhXVeYHSPtSVZ7DYudv6dU6m
+	 ufVaZXbSzjzwa+jTvawv8uJeLjv8kzHcll8rcnp0ckekPgzvuctYToIcfTWt8Nj8cnw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D578C606A335
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:34:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D578C606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cknow-tech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cknow-tech.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=cknow-tech.com header.i=@cknow-tech.com header.a=rsa-sha256 header.s=key1 header.b=dM857/fu
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=hFEdDqcg2ZlHkL5dY5J1x4B25r/X63b0yKh+YIcEB7A=;
- c=simple/simple; d=cknow-tech.com;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795354454; v=1; x=1795959254;
- b=dM857/fuS3J9FM3yaYV3If+rrr3xntoEZlPeYVNoNZH6mji5DEIeqNPMvEcpwaNdRFbf1vxb
- HyJWDPSCZsa0WfpVwiP/3muYzhaoq/kFSky8jwxba+SGW0bRkn8tgAHYgR2YyUu6LTG8iVsr7Zl
- +9Zc2LPSCiCRcwPGQsM0XJ8+1mc7HrpYDGHu/rWTd54mV3+fk9DqYuZ4yQEGc3tiohYhT3rrbue
- rgroDhkv1/XaKKbHxgWA2z+I7nIt3cn49yISUhkem+4z6kutvx7KnYdJ26o4YrjvcDfBRXgSBzS
- on7SqQBV8Rx8VGpv5sVoRoLZhDA78FU48MPQtfOcmxa2w==
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 5d2907f0ba893942;
-	Sun, 22 Nov 2026 13:34:14 +0000
-X-Mizu-Trace-ID: 5d2907f0ba893942
-X-Migadu-Flow: FLOW_OUT
+	by smtp.kernel.org (Postfix) with ESMTPS id AEBB41F000CF;
+	Sun, 22 Nov 2026 13:34:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795354448;
+	bh=6gKdivfkDsuonkEKXD54e3FJFyho7ssO1p7f34zC4sc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=j6ubBjpE1Di561SNA2s9h/kbXL7cjk8KGbIFotssHdQJfdSEBvqhBxsyWudkUS5wN
+	 oKnK9rBNQEg1uzcYj+43LR9liFy6JwisI+Pfc/FVReBAfY4Zmjmdu7bXNowd5LsxTw
+	 ttq+5xbPL2DkfB1E5/E/49O1CKYGW+vVVxW+FrQGf1uSyG08ugD82eVm03fqDmItdr
+	 YsBH/ZlQD8Pi2weETXkfO4tHIHQhppR3VNQLBWkU/nacgJQbNgkyb1cSxkdHkMePWJ
+	 +074xkCYUobitkqUQBDRj7ioV2ACwzUfWszqWK0BxgaewhSLfzUqfYfHb2hwopUV4t
+	 jS+oRYLWe8T7A==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 3E39A4C097;
+	Sun, 22 Nov 2026 13:34:00 +0000 (UTC)
+From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
+Date: Sun, 22 Nov 2026 21:33:52 +0800
+Subject: [PATCH 2/2] riscv: dts: sophgo: Enable the RTC on SG2042 EVB v2
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,52 +81,84 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sun, 22 Nov 2026 14:34:12 +0100
-Message-Id: <DN1S1D7FIF6B.2WHLNV11LRJ6B@cknow-tech.com>
-To: "Diederik de Haas" <diederik@cknow-tech.com>, "Daniel Golle"
- <daniel@makrotopia.org>, "Detlev Casanova" <detlev.casanova@collabora.com>,
- "Ezequiel Garcia" <ezequiel@vanguardiasur.com.ar>, "Mauro Carvalho Chehab"
- <mchehab@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Heiko Stuebner" <heiko@sntech.de>, "Shawn Lin" <shawn.lin@rock-chips.com>,
- "Michael Riesch" <michael.riesch@collabora.com>, "David Heidelberg"
- <david@ixit.cz>, "Christian Hewitt" <christianshewitt@gmail.com>, "Marc
- Zyngier" <maz@kernel.org>, <linux-media@vger.kernel.org>,
- <linux-rockchip@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Cc: "Nicolas Dufresne" <nicolas.dufresne@collabora.com>, "Hans Verkuil"
- <hverkuil+cisco@kernel.org>, "Jonas Karlman" <jonas@kwiboo.se>, "Dang
- Huynh" <dang.huynh@mainlining.org>, "Piotr Oniszczuk"
- <piotr.oniszczuk@gmail.com>
-Subject: Re: [PATCH v5 0/5] media: rockchip: rkvdec: add support for the
- VDPU346 variant
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-X-Mailer: aerc 0.22.0-31-g5c1c510d2b65
-References: <cover.1795191822.git.daniel@makrotopia.org>
- <DN0BCGELZCSC.G0MWCPQU85UO@cknow-tech.com>
-In-Reply-To: <DN0BCGELZCSC.G0MWCPQU85UO@cknow-tech.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261122-sg2042-evb-rtc-v1-2-f222c64cc7b9@iscas.ac.cn>
+References: <20261122-sg2042-evb-rtc-v1-0-f222c64cc7b9@iscas.ac.cn>
+In-Reply-To: <20261122-sg2042-evb-rtc-v1-0-f222c64cc7b9@iscas.ac.cn>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Chen Wang <chen.wang@linux.dev>, 
+ Inochi Amaoto <inochiama@gmail.com>
+Cc: Han Gao <rabenda.cn@gmail.com>, devicetree@vger.kernel.org, 
+ sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Han Gao <gaohan@iscas.ac.cn>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795354439; l=1232;
+ i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
+ bh=dsm+CVwClowTlroI3X7kDbQ0hyzBtl6KTIdw4zXB9XQ=;
+ b=qwqJvbtq8jL/cGsYM8JQ5HPgmkdDxYsgXikkAtQRg+8ODgaUl/jaCYQw+zMP2WMCqCC0RHIFp
+ 3TSfMaGnVjbCUT8AKnKw9LwtrktPsPZ5cbSA1MNiai9u+pAYm1mpbSj
+X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
+ pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
+X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
+ auth_id=1262
+X-Original-From: Han Gao <gaohan@iscas.ac.cn>
+Reply-To: gaohan@iscas.ac.cn
+Content-Transfer-Encoding: 7bit
 
-On Fri Nov 20, 2026 at 9:16 PM CET, Diederik de Haas wrote:
-> On Fri Nov 20, 2026 at 6:36 PM CET, Daniel Golle wrote:
->> This series adds the VDPU346 decoder of the RK3566 and RK3568 to the
->> rkvdec driver, for H.264 and HEVC. It continues Christian Hewitt's v3
->> ...
->> Known limits, none of them introduced here:
->>
->> - FFmpeg's v4l2-request hwaccel does not set the HEVC EXT_SPS_ST_RPS
->>   and EXT_SPS_LT_RPS controls, so HEVC through FFmpeg decodes wrongly
->>   on this decoder as on the VDPU381 ("Long and short term RPS not
->>   set"). The handling of these controls is also the subject of [6].
->
-> FWIW and IIUC, Detlev has a patch for that here:
-> https://gitlab.collabora.com/detlev/ffmpeg/-/commits/v4l2-request-ext-sps=
--rps-n8.1
+From: Han Gao <gaohan@iscas.ac.cn>
 
-FWIW, I submitted and made a minor update to that patch here:
-https://github.com/LibreELEC/LibreELEC.tv/pull/11686
+The SG2042 EVB v2 has a PT7C4307 RTC at 0x68 on I2C0. Enable I2C0
+and add the RTC node.
 
-which updates the comment that kernel 7.1+ is needed for those controls=20
-and added the EXT_SPS_ST_RPS and EXT_SPS_LT_RPS split with 64 and 32.
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+---
+ arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts b/arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts
+index d8c5814f22581076e6b5114f762d4fd090681b80..0dcc53b519971396a5ce734108ea0386fb186726 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts
++++ b/arch/riscv/boot/dts/sophgo/sg2042-evb-v2.dts
+@@ -124,6 +124,17 @@ &emmc {
+ 	status = "okay";
+ };
+ 
++&i2c0 {
++	pinctrl-0 = <&i2c0_cfg>;
++	pinctrl-names = "default";
++	status = "okay";
++
++	rtc@68 {
++		compatible = "dallas,ds1307";
++		reg = <0x68>;
++	};
++};
++
+ &i2c1 {
+ 	pinctrl-0 = <&i2c1_cfg>;
+ 	pinctrl-names = "default";
+@@ -189,6 +200,16 @@ sdhci-emmc-rst-pwr-pins {
+ 		};
+ 	};
+ 
++	i2c0_cfg: i2c0-cfg {
++		i2c0-pins {
++			pinmux = <PINMUX(PIN_IIC0_SDA, 0)>,
++				 <PINMUX(PIN_IIC0_SCL, 0)>;
++			bias-pull-up;
++			drive-strength-microamp = <26800>;
++			input-schmitt-enable;
++		};
++	};
++
+ 	i2c1_cfg: i2c1-cfg {
+ 		i2c1-pins {
+ 			pinmux = <PINMUX(PIN_IIC1_SDA, 0)>,
+
+-- 
+2.47.3
+
+
