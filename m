@@ -1,63 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795371329;
-	b=ZyUwiB4JXoQb65AO6KY2pGavv9JeJQ4OMFmNJ6yXFyO2klK7LIcppWokeTBwsOhSExTz
-	 pAPdF1s8IHLcPqx0ea2wykTjlWWmDwhXIp133j46gFex/GBrKXlL3wdP4wHX+g0W1acfX
-	 sj6dYN74jOxV4b9DZ98JZV4JWPomVdBRb/NM+HjyjN4s69VrqSKvrowGsDnwGQs+3uX8+
-	 8yKxJVkj7FBc8ub8hjgQ3okUtTmQxp9cCo7gCOONjTiFXxUWnNdoBOU5EhIqC+3MoZHex
-	 Z+p7m7DZ2fKODza40VjGSUxSBFKBJxCLGrunlhnB3zU8Wy71IPSCY1BL0HYfS1MhzEQ==
+	t=1795371340;
+	b=iSXBghfLW3bTqdqk2EvqsJoeMtO8VxF58zkHHmIuJyhR3TK8C3MUi5dPFPJ4Ct6QHglw
+	 ceVajcivYXff/ZH5EYiEKpsJYJHDJP0l95nCOdCH1iHj1TXyBLOJxexBgpbfoQSllcwLZ
+	 Uv8dz37qS4I+KcuSZVxXPc3nWh/Xm4MPxEhZZI7BU5mGd9r3DUW9/AmGi2UdSeEoHmmTU
+	 lNafB7uV5toiAo/nsLEJZ8QW31CCUQ51TU8u8AbwSM/aJwtwQLuADeeOxAFE8e54UP9bz
+	 3II6MYQQJaIBKHbP/ryN5S/K/aJ5Luf2PNEYOakRURpffkng0BlCsjKC+W8biT5Rp5A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795371329;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=7imwDZep1dEobON0aQ81I9AKr9UQW/+yihI1vaQHUcc=;
-	b=aDEkSmQFAMB3p3CdMcXZHLqsrWzRsmepntzHcLHu0kTmvao7sIZLsRjaao6+4mQLXsLl
-	 yXRhgoA1lf5KJy5tsX8Cp+Ngk0gMizcjFIzlaxDoNMHWx1WQM8DT7KBaxutYyv3WNpWTk
-	 MeDzLCk5oqFwxGbHIuCwhk3WsjWy9JSfpN4V8GTgw+T7CeJqK28kT3HIh30cKoZ9xtRR2
-	 FFGaRHNfTdw4bwhGSYucEjS5hWGttnr76LC7hbGbz+zsWyHNRjucHUYgzuDxKDCPpgsWH
-	 YuWDfagjJe71eb4MnKzNuGosH2MhlUzZZrZV0Qr4FrZNLbVlO7xkvRy2dC/uxQL69tQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795371340;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=Ly0Qb7LtoPAwxIdNSlMhGXbiCyBmYz2wYY8MTMYeang=;
+	b=IYAd9ZZKYIYeW5ObYr7B7qFMJwvkh7OJ/soSbxNWAU0fqEM3+oDOPsE2xlqf8YbAED4k
+	 dPYan6zgyNvS2nd/yM8isWeHgM0N0wQEHSc3Qp2l39ZoCHyI/Ry25L/1BtYrWZxYN7TtE
+	 Qplz/JXdJ0yq0aHIDPSvcbp8ZiXyL8B993wy2TV+VnFe1Q90+SglIhMvr6UKcQGcziDE6
+	 vDUPRyJ6Ix3MUVdLBFqLYH/RDHdyilksDn6dOKB3Ybem/DnC1q8BB8G+qYMX0DfHmNHy2
+	 0jWhGWbx4+ILEbffEYqU3fE0ff2/Jzrw8VmB2qZEtM/OWy7WL6elNNrgG7ZjQr0TSyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MTGaeXjk;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=owuPPTBd;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36F39606A32A;
-	Sun, 22 Nov 2026 18:15:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BBB7606A330;
+	Sun, 22 Nov 2026 18:15:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MTGaeXjk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E62511F000CA;
-	Sun, 22 Nov 2026 18:15:26 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=owuPPTBd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7793D1F000C4;
+	Sun, 22 Nov 2026 18:15:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795371328;
-	bh=7imwDZep1dEobON0aQ81I9AKr9UQW/+yihI1vaQHUcc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=MTGaeXjkB4AktJqB/0JgjiPmflQEHvTUcsVtsMHT7AjGLXcf0JJrdH5W8Ci4pSBTy
-	 zH5TeUpxvE5LKEsN5uozV4m32lryVAjjP5C8loPqVBt8QQHr07IN6jmp9wUyU8YZak
-	 b3mgQs3bTdrB3wKEpgAhds7gcJN8bKuVj5ptUJYmAISVKB5LP3NkQ5PYA4oyvAX3E3
-	 X3mHdEzW8P9Gyx9Hi67wTRtbSuMnrW/ttX4mESdb5cBzLKSQPqUcwexcatpFPv1xDg
-	 VhmU+Q0a29VwqNBUjrbShL9zISpZAuJ3eU0Btq39BhnZLMMelmp137o+zkF9B1nLWE
-	 ipuspYw80iyyg==
-Date: Sun, 22 Nov 2026 18:15:17 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Adil =?UTF-8?B?SMO8c3Jldg==?= Tepe <tadilhusrev@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, David Lechner <dlechner@baylibre.com>, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Joshua Crofts <crofts@kernel.org>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] dt-bindings: iio: proximity: add Imagis ISG5320A
-Message-ID: <20261122181517.49972bd2@jic23-hlaptop>
-In-Reply-To: <20261122075245.2916935-1-tadilhusrev@gmail.com>
-References: <20261116074013.355363-1-tadilhusrev@gmail.com>
-	<20261117173333.1853986-1-tadilhusrev@gmail.com>
-	<20261117173333.1853986-2-tadilhusrev@gmail.com>
-	<20261121-arrogant-viridian-swift-fb8001@quoll>
-	<20261122075245.2916935-1-tadilhusrev@gmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1795371340;
+	bh=Ly0Qb7LtoPAwxIdNSlMhGXbiCyBmYz2wYY8MTMYeang=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=owuPPTBdy3mYxA1P7qyCUk7OH/zCw+ch3NE4bxilYoIrx/hGHfvw8+ACUg8nnTODh
+	 IgJShCeTIxn/4nF73AorMZrGEo4vU6cs4HAirzO5u1D3sEmIkVCkxXLHjXmZBfxO+V
+	 y8m7kzqf/g4l/mTcg0zgEh9FddQ6SzB4ovx9aYTdxwfUClhdRabFzrTrsnor9DEWS4
+	 3NLgE7TM0t2AoC8xHVcth20jul8I/IY+QO0OSo2PMzyzWPSDfSAhXz5EtBnnRlpaVG
+	 zxXCpDJ9f8eElgaEm6wa0MYOln/bapLKRAlnABnG5sC4SyB7d6xspPJdSTk3p1q6Rf
+	 q4cwQ6jh1+xKQ==
+Message-ID: <1fafa3c2-3f8d-4672-bf84-c474d0e4f7f7@kernel.org>
+Date: Sun, 22 Nov 2026 12:15:37 -0600
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,37 +51,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] drm/amdgpu: handle broken dGPU hotplug GPE on ASUS
+ ROG Strix G513QY
+Content-Language: en-US
+To: Mike Lothian <mike@fireburn.co.uk>
+Cc: amd-gfx@lists.freedesktop.org, alexander.deucher@amd.com,
+ christian.koenig@amd.com, dri-devel@lists.freedesktop.org,
+ linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, rafael@kernel.org
+References: <8072db9e-0df4-4fc5-b86a-cc50ac7934a9@kernel.org>
+ <20261122143557.2412982-1-mike@fireburn.co.uk>
+From: Mario Limonciello <superm1@kernel.org>
+In-Reply-To: <20261122143557.2412982-1-mike@fireburn.co.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Sun, 22 Nov 2026 10:52:45 +0300
-Adil H=C3=BCsrev Tepe <tadilhusrev@gmail.com> wrote:
+On 11/22/26 08:35, Mike Lothian wrote:
+> Mario,
+> 
+> Thanks for the CPM _L05 quirk. I've tested it on the G513QY (BIOS G513QY.335) with the dGPU runtime-resume patch on top. The boot log shows `CPM: \_GPE._L05 notifies missing \_SB.PCI0.GPP0.VGA, using \_SB.PCI0.GPP0.SWUS.SWDS.VGA instead`, and the external displays come up after a dock attach with the dGPU in D3cold
+> 
+> Feel free to add my Tested-by
+> 
+> Mike
 
-> On Sat, Nov 21, 2026 at 01:23:42PM +0100, Krzysztof Kozlowski wrote:
-> > Do not attach (thread) your patchsets to some other threads (unrelated
-> > or older versions). This buries them deep in the mailbox and might
-> > interfere with applying entire sets. =20
->=20
-> Understood, sorry. v4 will be sent with b4 as a new thread, not as a
-> reply to v1.
->=20
-> > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>=
- =20
->=20
-> Thank you. One thing up front: Jonathan's review of the driver makes
-> the vdd supply required, so in v4 vdd-supply moves into "required"
-> here. Since that changes the binding, I'll leave your tag off this
-> patch and say why below the ---, unless you're happy for me to keep it.
+OK I've sent that out for review separately.
 
-Whilst I agree it should be required in the binding make sure you fully
-understand what the difference between the optional and normal
-requests for regulators are.  It is not about whether they are in
-the dt-binding or not!  Code can work without it being their using
-either of those interfaces.
-
-Jonathan
-
->=20
-> Thanks,
-> Adil
-
+https://lore.kernel.org/linux-acpi/20261122-fdo-gitlab-6061-v1-1-8380b1ec4e09@amd.com/
