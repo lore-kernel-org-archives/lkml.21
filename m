@@ -1,78 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795367801;
-	b=pAoxs8nUho2Ount0Xh/AByqCd7xpGTq+2XbT5kd9Vh3U39s5bveGwfUkEngh+HHNsMT+
-	 cdny4XGZbHwZdndY/iQ7gCfdrTxu3RSs3ubCX8LvMRrGAUgTj8zqHaMoxKoR/3e3tVOn+
-	 d/fW8YScYOYC2Fz6iez1y/RY0HVmu1AUNBzZLiCNsMlv66WsNIguQYhx0bomnqwRqcFbK
-	 Vpu4sGAD00HfxU83cxRDql+RXZ4KjxWZJm3Il8vwt83PwGAd4F3cS/vmJdcmR07j5iq6m
-	 IOMmY1MS7DveEvRUDaWThPuldU7ibyk8HdcTcF9tQc85RevhzTzzPBXI2sQTnxEPlsQ==
+	t=1795367807;
+	b=eWmj6LNOiOF/z8z0yDrolsVB07fhzl5QFVt5+Hl7qE5dw1WBILWZOvApM2pA717btt7F
+	 rZ8aPbD8o7ogSMfaZhjZB4OoWPPpILUP7yWrUUsN/XSxWcjnjmDbYl1fmjge2Nc+joLSG
+	 vKFgv0M4TPsqUsI/CGJrmsjlQjcUbKtDOSibZZp+N02DSfsXX+1OmHusA9OM+lErITSOT
+	 z6tvfKz1H6qm2Ng3nue8rdKfbmS/uswQLo20jGI1eZj0iSa5emt8wkGz4tkU7wHHp3vhU
+	 QvTMWLIwkfTjEtmWOW49i2esLeJQ9VKSE3ACgn9Z5wgM3cLw/M/b4n7LdEySpB2oyiA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795367801;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795367807;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=8BX4qMtkXZZEEur5iCL9/lu6vNU0NV7vJc4oUC//V5I=;
-	b=VRlEauN3KGg5gZ+Ec0hEM2jSnRaQLk73fxZGraAMEjQCiqnLaCeJca7zH6WqGc0qe2PZ
-	 mTMBNIlXvsXgGff5kHhyzVrWZVCTUBX2JoSWQnAeWKKgvVt3hbpiKBVmHKo419HfrxbHy
-	 Ms2TUqttiKD1bXl2RtpvXbWKk5+ykD70i4TdCf3iAi37gt3jjCiHCBty3iMJJVfIJoZY4
-	 c72mnbGu6q0aA8x6bzsGkL0XQWgmIEs/y8hAqYZqJ/19UDPP1T7D2MCY1r6nD/EMs6i7a
-	 7zbUkm8g51fgbnr0Y/Ej44XIrFp6RC/g4zhSX++3kX9Jnoj+56vNPmuxL/LlMwSPYQg==
+	bh=vhgz+iXG+urC0DlryxtVmZDNjZwOyHtUcSI6Pec5kmA=;
+	b=bKLa4cu2bKXgv79wjxeFMN0gkZU2YupGHUcE8EGMlW0+DAwZS7o8aMcxobn9YuKz5wJo
+	 QeNJS5GitRo3ZLma0kEVXMnYB3c4QOttzfnetv8Cb057Dh6uvo1i1lCB0qUCvpxWWuvtt
+	 /CenD18fY4r5Dg3cv2/x8pmKgXtY1X/Ird1VgCQKHBA4WuNEvo8QMkc3PqtdKPhAFizZE
+	 VyYjh2U++kwq2Q8fBfeW7WHEXrlOoPyorYusmSiat06TvvNLt74AfKB73NADWKm3EBNAb
+	 b3i3Y1NS0opXM6VETEFpmeN7VMIvIe2IDUAU0I11T23kPchb+a03BHuqZ94LfeaJ3aw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="m71UZ2E/";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W6H4qbSH;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84329606A330;
-	Sun, 22 Nov 2026 17:16:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC37F606A33C;
+	Sun, 22 Nov 2026 17:16:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m71UZ2E/
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W6H4qbSH
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795367800;
-	b=bMrzJfyKnii93x2Pm8Qf1jHI7chrSzNe+Au9o6mV8m8dwuQJXFob/+auAn6YoV7lOqYz
-	 j9kjT0FaInwLp0Ut7nVXbU0j5sJ2aHrQaNmZvPKfE+NSRsZr0IYxUOJWVd6PxkD6LWHPc
-	 UPdyDb6NEX2kb+7FuItTaqgO1K/nqOzvIubaM0b3DoBqtHae4klQqxlQ9/Ffr2AWycStX
-	 dWjUH0gtIM7EE9KmeNNBemwqG0Spx6Iue6bISWzKDvqHT1gcy1uUsskIctpdTmMTAZoyj
-	 /635NehWCxyDMrds0BnkuxEcTvWpYCnHxZgdem8kwbwi18Q64Bd4aNICvZeVkEY1SoA==
+	t=1795367807;
+	b=bMmWEDqOs2sUOZkeVBcA7VGecI9nhfRcNufbSvDxWGvBobbeq6xrDqtZOfbz9vl2mCuC
+	 gw2SFpqLLAxtPl4cfCJhsLqRMUL2gzbiqNds2p3W3FLAI5OFcc7znX6JbQ4KmZokGReP3
+	 8dilYODIhVA2AmFfzktXhxcIFoxukvC8uIoHXJ586Ikx9Eub46M58HiTVJ2a05aWLEXoe
+	 mX9CPqKP1qwJBWbU763gD+xWI6xX/FnTQGFs9ZRsJTV9gbPggBoX3p+laE771OjQuUxmr
+	 wFeUGbuFdVLOvOffOjPNOLfPN460qbtEw261A8OwZH8jI7sbQPoF+DwIiJv8tHgaaeg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795367800;
+	c=relaxed/relaxed; t=1795367807;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=8BX4qMtkXZZEEur5iCL9/lu6vNU0NV7vJc4oUC//V5I=;
-	b=bb/x9UjPIQP/JS3RpC7odRVLXsqRW9QIcZm+aUOBmaJZEUctwWuNiV2nAU6VoG44Qqel
-	 aRyYCbOKPiOopeZhcZv2+dwSscaqDms0B29vn1pXrLshhYo7gFS2Gy9ik0U2ErXy7jjkA
-	 gq6FRguulqfw0UCl8m5zP0fgaQODgOUQD+47xDmROdY1OvsF5Yh25rEey/qnMg6cgqevf
-	 kbh6z+9Ok4BidiMTeKZ21KYN7lj+l2XbyhE58mMCYgcS8U39Rh3kO3w8sy5ngON8+vJ3N
-	 sdUdDbqgS4wj6LX00sntrNMEdEiXIWF3zOOKUhQDHnVfGBBsPNHpjvc5M0C7xfd6tYw==
+	bh=vhgz+iXG+urC0DlryxtVmZDNjZwOyHtUcSI6Pec5kmA=;
+	b=AaEHcGgvhthFjeToW3zSLj61CKIbXyVTjwfCo8JeR4xW0i0LSrT7uDx/4GomNLjMdv5P
+	 recmLM1MUkdaHX4Ri0fwVw1Emv9AH5+5+K7Pw+PtB72lKmlyFTocV9EclcMHqwTwZ0Msh
+	 cS8VQlTeQC+K5jL5LkPnPtbAoeJqcnha+w8idM9DJ81lMviCI4eUeyL9qjyU76hej63/g
+	 buQ6SXPuF4QUG481xBpuOPLOaG9RehGN3X8s5tT/A1al4p/YdwsUcLiajP/8zbZ4mcOnM
+	 8SbdfPKaPFt/TErRalP4DV92zEdcLlUIWUcdUw6XThJ2oLApTD4eiKFqEurxVjRCuEQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id CF3E91F000C4;
-	Sun, 22 Nov 2026 17:16:36 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id B43C21F000E6;
+	Sun, 22 Nov 2026 17:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795367800;
-	bh=8BX4qMtkXZZEEur5iCL9/lu6vNU0NV7vJc4oUC//V5I=;
+	s=k20260515; t=1795367807;
+	bh=vhgz+iXG+urC0DlryxtVmZDNjZwOyHtUcSI6Pec5kmA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=m71UZ2E/5aBaP+aV30ARKfpgHJS+o3xHumrXMyRakaNRLBCYjx1dXckTjVx/IIdNO
-	 3a/eNwaHNKgRQytGo7cfEfLiJReUB05tmRyKSmBnPuJndr1ge3aOKvSf89xXzWDGrq
-	 bMp+gUExg9NA5DY6XCnFvnxh623WXYkMHlkxtDD0Dkp9sL7P0U+n3PdnG62yoKzpWk
-	 8eOiRcp7rCZ2cOrewc9jnl9D+53HZatWEjP1Kf28glaqj6T4PLhM2KU1wXk+NLUlx/
-	 uSDnmKd46tn7vXINi6bx008CUPuk3isLSaNu4p0I+pme48RA3dpAdCg+DvXm8h3aAs
-	 vdYcYEFwlBl4w==
+	b=W6H4qbSHVDI5o5PXYV/5e/jaUPrqfGInnYUhwPPV0MYgHjSoB7JxCWrQjpGmsR5N2
+	 jtxnPmuX2mFmQU2YWFnVYHRSZH+aokXrMlZ892jk1E030Tai9W6Cgtk3MpbSHl6wQ8
+	 99ipu8U3r6muG1iPwhEou2bwiByPH3HoxYk7WL63xGY7dZCw+bg56JTM94raMDwjkO
+	 2YONPnPuRzfwB8VXUX8M1sA6Lo3rLQvAjkaTXxm0lt+9PvA22b+oQaesG9RPUK/p3C
+	 UpY3OYu65HgahUxjnpX6k58f4fZ0he+bVAiio0JyfmKK1sMtSSZVkkttTp2tCWF2HV
+	 5f91Lby+WvaVg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 509614C133;
+	by lkml.kernel.org (Postfix) with ESMTP id BF2274C151;
 	Sun, 22 Nov 2026 17:16:36 +0000 (UTC)
 From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Sun, 22 Nov 2026 19:15:42 +0200
-Subject: [PATCH v3 1/7] iio: light: stk3310: migrate to devm_* API
+Date: Sun, 22 Nov 2026 19:15:46 +0200
+Subject: [PATCH v3 5/7] iio: light: stk3310: add stk3337 support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,7 +83,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261122-6768-stk3337-v3-1-b0d0a924e843@protonmail.com>
+Message-Id: <20261122-6768-stk3337-v3-5-b0d0a924e843@protonmail.com>
 References: <20261122-6768-stk3337-v3-0-b0d0a924e843@protonmail.com>
 In-Reply-To: <20261122-6768-stk3337-v3-0-b0d0a924e843@protonmail.com>
 To: Jonathan Cameron <jic23@kernel.org>, 
@@ -96,11 +96,11 @@ Cc: Joshua Crofts <crofts@kernel.org>, linux-iio@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Roman Vivchar <rva333@protonmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795367795; l=2793;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795367795; l=3029;
  i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=0op2+wuVDhpkZWTj316+uOP3iudK90lB8euvzogwbR4=;
- b=cvgOwMN/d6emckerpitU2MxglfwkIlCCY1/WLT0l6KbFxqr4uRSz2yYqdqKk6YRgXLmnnmqph
- OIv64uYaL07BuLZMfjC15q3NWx5Q/3/mlLD2Gd+f6KTs0Zzosqbj+iS
+ bh=QUiW+L2tM0373vjEf++AB6l0cThgF9C/jzPhxhIiPQE=;
+ b=+q97PVWCB3zoSXuGW9bwT5cJT3dDeEZVrrOKqSipIu/q0EVeJnGSNeTg4ZHarRTg3tlrId1ev
+ lOOjolsem2TCo5WH3IHmsh+Z4KSTdZQBj40tc4yKdS/l9XA/Y8OHyrx
 X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
  pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
 X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
@@ -111,102 +111,82 @@ Content-Transfer-Encoding: 7bit
 
 From: Roman Vivchar <rva333@protonmail.com>
 
-Replace manual .remove() and mutex_init() with devm_* helpers for
-consistency with existing devm_request_threaded_irq().
+Add support for the stk3337 sensor, found in the Xiaomi Redmi Note 9
+phone.
 
-Suggested-by: Joshua Crofts <crofts@kernel.org>
+The stk3337 is a subset of the stk36c61. It provides the stk3310 ambient
+light and proximity channels along with the clear intensity channel from
+the stk36c61, but lacks the red, green, and blue intensity channels.
+
+Datasheet: https://www.bestmodulescorp.com/en/amfile/file/download/file/1699/product/1048/
+Reviewed-by: Joshua Crofts <crofts@kernel.org>
 Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
- drivers/iio/light/stk3310.c | 37 +++++++++++++++++--------------------
- 1 file changed, 17 insertions(+), 20 deletions(-)
+ drivers/iio/light/stk3310.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
 diff --git a/drivers/iio/light/stk3310.c b/drivers/iio/light/stk3310.c
-index e751e7c97bc1..708ac0503be0 100644
+index 828c3404215e..83f40714b972 100644
 --- a/drivers/iio/light/stk3310.c
 +++ b/drivers/iio/light/stk3310.c
-@@ -10,6 +10,7 @@
- #include <linux/array_size.h>
- #include <linux/bits.h>
- #include <linux/dev_printk.h>
-+#include <linux/device/devres.h>
- #include <linux/err.h>
- #include <linux/i2c.h>
- #include <linux/interrupt.h>
-@@ -594,6 +595,11 @@ static int stk3310_set_state(struct stk3310_data *data, u8 state)
- 	return ret;
- }
- 
-+static void stk3310_standby(void *data)
-+{
-+	stk3310_set_state(data, STK3310_STATE_STANDBY);
-+}
-+
- static int stk3310_init(struct iio_dev *indio_dev)
- {
- 	int ret;
-@@ -617,6 +623,10 @@ static int stk3310_init(struct iio_dev *indio_dev)
- 		return ret;
- 	}
- 
-+	ret = devm_add_action_or_reset(&client->dev, stk3310_standby, data);
-+	if (ret)
-+		return ret;
-+
- 	/* Enable PS interrupts */
- 	ret = regmap_field_write(data->reg_int_ps, STK3310_PSINT_EN);
- 	if (ret < 0) {
-@@ -745,7 +755,9 @@ static int stk3310_probe(struct i2c_client *client)
- 	device_property_read_u32(&client->dev, "proximity-near-level",
- 				 &data->ps_near_level);
- 
--	mutex_init(&data->lock);
-+	ret = devm_mutex_init(dev, &data->lock);
-+	if (ret)
-+		return ret;
- 
- 	ret = stk3310_regmap_init(data);
- 	if (ret < 0)
-@@ -769,28 +781,14 @@ static int stk3310_probe(struct i2c_client *client)
- 						IRQF_ONESHOT,
- 						"stk3310_event", indio_dev);
- 		if (ret)
--			goto err_standby;
-+			return ret;
- 	}
- 
--	ret = iio_device_register(indio_dev);
--	if (ret < 0) {
--		dev_err(&client->dev, "device_register failed\n");
--		goto err_standby;
--	}
-+	ret = devm_iio_device_register(dev, indio_dev);
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "device_register failed\n");
- 
- 	return 0;
--
--err_standby:
--	stk3310_set_state(data, STK3310_STATE_STANDBY);
--	return ret;
--}
--
--static void stk3310_remove(struct i2c_client *client)
--{
--	struct iio_dev *indio_dev = i2c_get_clientdata(client);
--
--	iio_device_unregister(indio_dev);
--	stk3310_set_state(iio_priv(indio_dev), STK3310_STATE_STANDBY);
- }
- 
- static int stk3310_suspend(struct device *dev)
-@@ -896,7 +894,6 @@ static struct i2c_driver stk3310_driver = {
- 		.acpi_match_table = stk3310_acpi_id,
- 	},
- 	.probe =        stk3310_probe,
--	.remove =           stk3310_remove,
- 	.id_table =         stk3310_i2c_id,
+@@ -61,6 +61,7 @@
+ #define STK3311S34_CHIP_ID_VAL			0x1E
+ #define STK3311X_CHIP_ID_VAL			0x12
+ #define STK3335_CHIP_ID_VAL			0x51
++#define STK3337_CHIP_ID_VAL			0x5F
+ #define STK36C61_CHIP_ID_VAL			0x95
+ #define STK3310_PSINT_EN			0x01
+ #define STK3310_PS_MAX_VAL			0xFFFF
+@@ -112,6 +113,7 @@ static const u8 stk3310_chip_ids[] = {
+ 	STK3311X_CHIP_ID_VAL,
+ 	STK3311_CHIP_ID_VAL,
+ 	STK3335_CHIP_ID_VAL,
++	STK3337_CHIP_ID_VAL,
+ 	STK36C61_CHIP_ID_VAL,
  };
  
+@@ -234,6 +236,12 @@ static const struct iio_chan_spec stk3310_channels[] = {
+ 	STK3310_PROXIMITY_CHANNEL,
+ };
+ 
++static const struct iio_chan_spec stk3337_channels[] = {
++	STK3310_LIGHT_CHANNEL,
++	STK3310_PROXIMITY_CHANNEL,
++	STK36C61_INTENSITY_CHANNEL(CLEAR, STK36C61_REG_CLEAR_DATA_MSB),
++};
++
+ static const struct iio_chan_spec stk36c61_channels[] = {
+ 	STK3310_LIGHT_CHANNEL,
+ 	STK3310_PROXIMITY_CHANNEL,
+@@ -261,6 +269,12 @@ static const struct stk3310_chip_info stk3310_chip_info = {
+ 	.num_channels = ARRAY_SIZE(stk3310_channels),
+ };
+ 
++static const struct stk3310_chip_info stk3337_chip_info = {
++	.name = "stk3337",
++	.channels = stk3337_channels,
++	.num_channels = ARRAY_SIZE(stk3337_channels),
++};
++
+ static const struct stk3310_chip_info stk36c61_chip_info = {
+ 	.name = "stk36c61",
+ 	.channels = stk36c61_channels,
+@@ -868,6 +882,7 @@ static const struct i2c_device_id stk3310_i2c_id[] = {
+ 	{ .name = "stk3310", .driver_data = (kernel_ulong_t)&stk3310_chip_info },
+ 	{ .name = "stk3311", .driver_data = (kernel_ulong_t)&stk3310_chip_info },
+ 	{ .name = "stk3335", .driver_data = (kernel_ulong_t)&stk3310_chip_info },
++	{ .name = "stk3337", .driver_data = (kernel_ulong_t)&stk3337_chip_info },
+ 	{ .name = "stk36c61", .driver_data = (kernel_ulong_t)&stk36c61_chip_info },
+ 	{ }
+ };
+@@ -886,6 +901,7 @@ static const struct of_device_id stk3310_of_match[] = {
+ 	{ .compatible = "sensortek,stk3310", .data = &stk3310_chip_info },
+ 	{ .compatible = "sensortek,stk3311", .data = &stk3310_chip_info },
+ 	{ .compatible = "sensortek,stk3335", .data = &stk3310_chip_info },
++	{ .compatible = "sensortek,stk3337", .data = &stk3337_chip_info },
+ 	{ .compatible = "sensortek,stk36c61", .data = &stk36c61_chip_info },
+ 	{ }
+ };
 
 -- 
 2.56.1
