@@ -1,85 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=121.127.44.66
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795373140;
-	b=lcfDvKo+gFC9qjMyq089DA3CxQcmjC8fDN8vsBhXzl1oi3IFtaHysiXk6pKFA+c7R+ow
-	 S17G2K/XA7h3yndYpTCs/DNg0P7o+eRLL8iX8Qq2L3y9IhmgXJmW5CYl46wouGesCj/nn
-	 jk7UQQoxPpZWD0SCgKiObtVmp6w8r+FLoj3c9WMTbg6IhyxrFxW9mVZeZ0CefrjlwKhGo
-	 OhmF6nwwLDqOLLe2LOCfDozh+ffuEzH4+er25PABYTu7ZgkKMDUJT/iAOB4R24ACA5W1s
-	 aNjtX0iQME0SM02fKbKdZoHfx/Mx6V55cHC8bE02c3SzXtKWOABZoqLPFTBQ8Jwhtug==
+	t=1795373170;
+	b=j5R05QBIoaCfe9b/p6JLoSgdTeEdi9dSUGCHTDAt6M7U+dcKVSWh6NaufGxxj7GjPBtR
+	 N+yfv5wcRvYgpAQ7kHsQoPcvPfkO1DXnkHn324LRlTeGRq8y33074WsDkCmUwIQBlrIOj
+	 sT9zUOEPBEt51kcrlzuNpVZ/CJsNoxQ5nqCn6HTY4FvTmoXiISZwG94NfhYejo2kC2XC3
+	 7NjR/HwKLlGEEhBYiiMFc0gj+xO7w5j/hZRKDKSPJBQH6eA5W8cmWA/uFY0cCs8BIODeX
+	 u3zwxzmEurVaJXDU0AizPo6v0KWyTPoudLAF7AUYCx/8k2/mE6v0pT9vPHPNBRkPrdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795373140;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
-	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
-	bh=QIe+i9eK2zr3QCsqOe2BUenoQBuWEgVrfsYe7q090kc=;
-	b=YxJX0IZ9N3qNu/jtHEX/bPMiBAdSnzyhgI9gMWyWxO9ho0d9OI6vzrgo0OPk9hbzERJ+
-	 3iiqod1EYc+SLx3NhdzDu/9f35HeEyYyYbWREhuBQPaaAFQ8lyqcEFxbOG4gShVsCThNH
-	 UUcFjuLaZbds2UbGrhDlzpTsDGBBggBhIiCMJ+tXLXx1u37M51u43lzKOdEtyok5SR8Uf
-	 Dv3WDjn0Sv1ZcwyNQvBa7Cee3AVOdyPyJGax+F2ose03OrguFBTPVnOovBdDbc1dIZbqf
-	 bIp0pxtBMA/PqVVKmIALV3o4PmRDq6lSYaP8/HtN2BUusF8ISkL6KkWcQD/phVR1f0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795373170;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
+	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
+	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
+	 X-Report-Abuse:X-Report-Abuse-To:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=gscY0sCC1WoiWDN2vAv1igyxFvaLaq2UHt5YxYmxJrU=;
+	b=hCh/ln0pBmqtRQ+hlnQaMGLa7f8HiCrywiYUT/aj5e0LD87Adm4bGivgNTRRhVEivq/k
+	 fA1NugZ54aGhkZQTHDRZHQNN4dKriJwNpdHtZb8f92EbOVhb1w0Lo9kDBsrq4WOwfuFwU
+	 jxaWEgmc1fmeXcspcwSlEdosynZG1j2cMYrr6/JDXSTFno//Na4M5Xn1eesH9MC318I3Z
+	 AY6BN6fsVvpBiZe7gtuRMuUR2BdA4gz/QxgVfHK9ZGyrc05WcwXqrhh17pZq2nk6rc3gY
+	 pwJW8KNR+n1L87RbaRNV73h3m26WTenVAWOxnX+WYj8oLgDJgm2Em1eQIHdFSW6dU4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=gourry.net;
-	spf=pass smtp.mailfrom=gourry.net;
-	dkim=pass header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=SKt6GUBb;
-	arc=none smtp.remote-ip=209.85.219.49
-Received: from mail-qv1-f49.google.com (mail-qv1-f49.google.com [209.85.219.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=kwiboo.se;
+	spf=pass smtp.mailfrom=fe-bounces.kwiboo.se;
+	dkim=pass header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=AtZS4dWo;
+	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=eqcAiHU3;
+	arc=none smtp.remote-ip=121.127.44.66
+Received: from smtp.forwardemail.net (smtp.forwardemail.net [121.127.44.66])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE643606A331
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:45:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AE643606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=gourry.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gourry.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1DBB606A331
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:46:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1DBB606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kwiboo.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.kwiboo.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=SKt6GUBb
-Received: by mail-qv1-f49.google.com with SMTP id 6a1803df08f44-92107df3f13so26783986d6.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:45:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gourry.net; s=google; t=1795373138; x=1795977938; darn=vger.kernel.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=QIe+i9eK2zr3QCsqOe2BUenoQBuWEgVrfsYe7q090kc=;
-        b=SKt6GUBbJZTKooquJ6nfl9arvRO8GXxSLDi8p6QeT0+hMYxpuhQH6lLhqmmDEs+Mf/
-         PE7vo/iGTFHiCj2jd93g3ynRWxftNOKCrcM2nHhrKRiPeifteLIv+XrymmEIOVA6VRRO
-         4JBXBnMQpZyaPkdBHLHgSAQJn4uc8+CHf66g9QOcOUDqJH+268QwCjELLpnrIuLS1QSo
-         v11XUhcERxLox7wrQWp4pM2ifd1uI2RfHBZI8d+nZDcL5fiPH0xziABlsNxg71wpq1a/
-         YxU15i2OR82XnWu/GNUYbzoIxjsvR2f1VHl30hsnjFziVUz3lKLrxb8l94Ix8I7Gph8u
-         BuQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795373138; x=1795977938;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QIe+i9eK2zr3QCsqOe2BUenoQBuWEgVrfsYe7q090kc=;
-        b=M5IvIv6aLvAgi9+yzrqY3nXQxUdbLmUePDUlIl8gAk6UTr/q3gaMtY4k5yX3jrXFQB
-         yiNK0CmWO8q7ekN0gc7lvUh1qJn3yMUusZ19dfbv31Jyiao7erYY9wTpDQsTVwRfjGTW
-         fApbcwNGRMU6wKDT3EC5RQGOmjmapBxL7oSrrfL/caZ4M4XRyi7oOVFr4LNpM3WwfoCB
-         Wxs/XWZCvgLGW7RDCHoKOOu26VhussSu1qbbJ4GaMcoHrUrp94kPd0MdGY1c90eEIqLZ
-         1LsnrTVD8Ve33D2T2VX0DawQB/v9BEy425k7ivuB541c1aXWKIqZ0At7OyzxrG07Qblq
-         Zmmg==
-X-Forwarded-Encrypted: i=1; AL+hErEg6JHmYFTtlc3tio51U7bknmNU6x/W2a/yAixwiuEyGd53P6raSIq+oHxmfsFq8CCic5yje3EHPxbW7NQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9XFjbrq1UFdjeJQyryP5Qs8pfrVsWeYyznAFINWYvUjTAgMMRy
-	y3uDY6VSaESauizYzzHwzgV8BB3PEfvysiolUXTCGIeTTjxkK+Ml7A6rGWdiqtZFumo=
-X-Gm-Gg: AZFdTZeMnl0CLCXZdP0vMuWEtIaFFuIBau0GzAyJKOBvqZejR2AWRzH1gtsxdRt4314
-	kviQFGaDhsDqMbieUoQYnuVd4tB72RGI7ZScRkxfw9cmnQbcGGcQf+V2iTG1fuV28bj1iAJyrHX
-	nDoVr+iFaj1I4V8dkMhKpwI8TZalfsQWk62LdtwJd2pG3mYqdtCjn22bsSC8GHJ4eVkMLwiwxor
-	7uBD2yBv5tsUSTA52b9PwMTOt7pz7iwbhdMB/3WIR56rk6qQRRcMo4RCaWFTDleaKsGMmNooBlA
-	LgCNslyhXHJU51ynUXT6MVQPWfTH0FlxwiolOBsq/cqEcRbOOdm+d1k3+/U35JxvaPTg3rfOOyZ
-	yWpwdi/wf2hQNFEKIKZO5iK92SzE5PGP+Px5mPTMNcW74H2wJyMvyMe4cuf7dQ2D4uM0wLdy3JC
-	iwMAIKAVSEkLA8PPlmcUao979qj8rDM/cBnbo3sFuorSMqMt0WHE6gG/GH1N19M6Vy0TYRNwnNw
-	Sl14aVvB5s65hLVtKPILnFEgB/5Wd+nYUn0phJjpjBmmBnrIcisSpIaKzpdPwB8EyYiwCszrFJs
-	e7iUagC9JVo19YetVZodztta9AaQtMhLzD7Z1UlAf2ScMm5+I632gV7Hj0ibkIfIR8uqI/wVT+Z
-	FCdoULjc=
-X-Received: by 2002:a05:6214:ac3:b0:921:3a0b:673f with SMTP id 6a1803df08f44-9213a0b67admr141234506d6.7.1795373138655;
-        Sun, 22 Nov 2026 10:45:38 -0800 (PST)
-Received: from [192.168.50.231] (pool-71-191-145-202.washdc.fios.verizon.net. [71.191.145.202])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349cd592sm86571036d6.16.2026.11.22.10.45.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 10:45:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=AtZS4dWo;
+	dkim=pass (1024-bit key) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=eqcAiHU3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: MIME-Version: References:
+ In-Reply-To: Message-ID: Date: Subject: Cc: To: From: CFBL-Address:
+ CFBL-Feedback-ID; q=dns/txt; s=fe-e1b5cab7be; t=1795373167;
+ bh=gscY0sCC1WoiWDN2vAv1igyxFvaLaq2UHt5YxYmxJrU=;
+ b=AtZS4dWoAcVbTc3BClme64ODxdL6Q1tfsdWRaLVSDg9dyyTREVbGX5mNCaYGepyHYvXvh9p8B
+ z8h4waruf1ld7ZOfitt98z+plk49Ra3dYejFOi8ThgD078Q+/YODGyLLwDD+wYPqj3wQIhN1DnC
+ eeGh0IMZbUGrBU11133Y5p3IGoprCQRzsXHVjRlmcol2C9g0SWTBbFty7JkrNzhM0oouqOyvaPo
+ JQxvWJXwVE5s1YAILeNNmVsRDfQiG/K+/U8G4IasIZWqE/AcnObwmxLqwRQlj4jrmx/iKkYhcjd
+ D9TzGUoGIn5f/SK3qU3OY5erq+9JnpArsZpxmsA8skFQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
+ h=Content-Transfer-Encoding: Content-Type: MIME-Version: References:
+ In-Reply-To: Message-ID: Date: Subject: Cc: To: From: CFBL-Address:
+ CFBL-Feedback-ID; q=dns/txt; s=default; t=1795373167;
+ bh=gscY0sCC1WoiWDN2vAv1igyxFvaLaq2UHt5YxYmxJrU=;
+ b=eqcAiHU3ZWJOqIknxq/752Wl8AB7CIq5+d3cQe0uB7WQBtqlmz4MrAkw18MBfqwGguKf1SDhn
+ sg2IH5CKtazS0mZXBFFM6mm67k1jd65yWVx2NLIvDOEcGH/Hv5liAUQWsGdh7HivENSZnPWz2Tk
+ eL+YzxIdk4XsJQEN61tRBfQ=
+CFBL-Feedback-ID: 6b0338544432eb7754305b54:ad3e4cfbfe76785972b8dba368657c3d
+CFBL-Address: abuse@forwardemail.net; report=arf
+X-Forward-Email-ID: 6b0338544432eb7754305b54
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.66
+X-Forward-Email-Version: 2.19.37
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Jonas Karlman <jonas@kwiboo.se>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 2/2] ARM: dts: rockchip: Add ArmSoM Forge1 board
+Date: Sun, 22 Nov 2026 18:45:30 +0000
+Message-ID: <20261122184532.1300004-3-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261122184532.1300004-1-jonas@kwiboo.se>
+References: <20261122184532.1300004-1-jonas@kwiboo.se>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,98 +91,271 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH 1/2] mm/huge_memory: use NOFS when allocating while
- splitting folios
-From: "Gregory Price (Meta)" <gourry@gourry.net>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>, 
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
- Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
- Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
- William Kucharski <william.kucharski@oracle.com>, 
- Heiko Carstens <hca@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Claudio Imbrenda <imbrenda@linux.ibm.com>, 
- Johannes Weiner <hannes@cmpxchg.org>, 
- "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, 
- Matthew Brost <matthew.brost@intel.com>, 
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
- Gregory Price <gourry@gourry.net>, 
- Ying Huang <ying.huang@linux.alibaba.com>, 
- Alistair Popple <apopple@nvidia.com>, 
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
- Miklos Szeredi <miklos@szeredi.hu>, Joanne Koong <joannelkoong@gmail.com>, 
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- linux-fsdevel@vger.kernel.org, stable@vger.kernel.org, 
- Chris Mason <mason@kernel.org>
-In-Reply-To: <20261122-migrate_reclaim_deadlock-v1-1-83c56185b0fb@kernel.org>
-References: <20261122-migrate_reclaim_deadlock-v1-0-83c56185b0fb@kernel.org>
- <20261122-migrate_reclaim_deadlock-v1-1-83c56185b0fb@kernel.org>
-Date: Sun, 22 Nov 2026 13:45:37 -0500
-Message-Id: <179537313704.412063.6683001223228002260.b4-reply@b4>
-X-Mailer: b4 0.17-dev
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On 2026-11-22 13:42 +0100, David Hildenbrand (Arm) wrote:
-> Various callers (migration, memory-failure, s390_wiggle_split_folio) split
-> locked folios without holding a reference on the folio's inode.
-> 
-> Splitting a file folio might allocate memory for the xarray and call
-> filemap_release_folio(). If either ends up in direct reclaim with
-> __GFP_FS, reclaim can evict the inode through the dcache shrinker, and
-> wait in truncate_inode_pages_final() for the folio that we hold locked:
-> 
->     try_split_folio()
->       folio_lock(A)
->       split_folio_to_list(A)
->         xas_split_alloc()
->           try_to_free_pages()
->             super_cache_scan()
->               prune_dcache_sb()
->                 iput_final()
->                   evict()
->                     truncate_inode_pages_final()
->                       folio_lock(A)
-> 
-> This requires that nothing else holds a reference on the inode, and can
-> be triggered most easily with FUSE, which evicts inodes on the last
-> reference.
-> 
-> Further, xas_split_alloc() charges the XArray nodes to the memcg, and on
-> cgroup v1, memcg reclaim waits for file folios under writeback if
-> __GFP_FS is set. That can deadlock if writeback waits for a folio lock
-> that we hold, for example with ext4.
-> 
-> Let's fix it by splitting folios in a NOFS scope, so callers don't have
-> to care. A NOFS scope also covers allocations that filesystems make with
-> their own gfp flags, for example in filemap_release_folio().
-> 
-> On NFS, splitting folios with pending writes or ongoing writes to
-> fscache might now fail slightly more often, until these writes have
-> completed. On netfs, only folios that are being written to fscache are
-> affected. All fairly irrelevant.
-> 
-> This has medium urgency.
-> 
-> Fixes: 6b24ca4a1a8d ("mm: Use multi-index entries in the page cache")
-> Fixes: eef88fe45ac9 ("s390/uv: Split large folios in gmap_make_secure()")
-> Fixes: 789763523fb4 ("xarray: honor XA_FLAGS_ACCOUNT in xas_split_alloc()")
-> Cc: stable@vger.kernel.org
-> Reported-by: Chris Mason <mason@kernel.org>
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+ArmSoM Forge1​​ is an industrial-grade product powered by the ​​RK3506J
+triple-core Cortex-A7 application processor​​. It is specifically designed
+for industrial gateways, HMIs, PLCs, handheld POS devices, and home
+appliance display/control applications.
 
-Reproduced the hang determnistically.
-Base deadlocked.
-With patch 1: -ENOMEM (safe)
-With patch 2: split succeeds
+Link: https://docs.armsom.org/armsom-forge1
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+---
+As mentioned in cover letter, unclear if this should use
+rockchip,rk3506b instead of rockchip,rk3506.
+---
+ arch/arm/boot/dts/rockchip/Makefile           |   3 +-
+ .../dts/rockchip/rk3506j-armsom-forge1.dts    | 229 ++++++++++++++++++
+ 2 files changed, 231 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm/boot/dts/rockchip/rk3506j-armsom-forge1.dts
 
-Tested-by: Gregory Price (Meta) <gourry@gourry.net>
-Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
-
+diff --git a/arch/arm/boot/dts/rockchip/Makefile b/arch/arm/boot/dts/rockchip/Makefile
+index faebeb20f467..ef11b2b95ae4 100644
+--- a/arch/arm/boot/dts/rockchip/Makefile
++++ b/arch/arm/boot/dts/rockchip/Makefile
+@@ -49,4 +49,5 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += \
+ 	rk3506-luckfox-lyra-plus.dtb \
+ 	rk3506-luckfox-lyra.dtb \
+ 	rk3506b-luckfox-lyra-ultra.dtb \
+-	rk3506b-luckfox-lyra-zero-w.dtb
++	rk3506b-luckfox-lyra-zero-w.dtb \
++	rk3506j-armsom-forge1.dtb
+diff --git a/arch/arm/boot/dts/rockchip/rk3506j-armsom-forge1.dts b/arch/arm/boot/dts/rockchip/rk3506j-armsom-forge1.dts
+new file mode 100644
+index 000000000000..6520fa700f64
+--- /dev/null
++++ b/arch/arm/boot/dts/rockchip/rk3506j-armsom-forge1.dts
+@@ -0,0 +1,229 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++
++/dts-v1/;
++
++#include <dt-bindings/input/input.h>
++#include <dt-bindings/leds/common.h>
++#include "rk3506.dtsi"
++
++/ {
++	model = "ArmSoM Forge1";
++	compatible = "armsom,forge1", "rockchip,rk3506";
++
++	aliases {
++		ethernet0 = &gmac0;
++		ethernet1 = &gmac1;
++		mmc0 = &sdmmc;
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = "serial0:1500000n8";
++	};
++
++	adc-keys {
++		compatible = "adc-keys";
++		io-channels = <&saradc 0>;
++		io-channel-names = "buttons";
++		keyup-threshold-microvolt = <1800000>;
++		poll-interval = <100>;
++
++		button-maskrom {
++			label = "MASKROM";
++			press-threshold-microvolt = <0>;
++			linux,code = <KEY_SETUP>;
++		};
++	};
++
++	leds {
++		compatible = "gpio-leds";
++
++		led-0 {
++			color = <LED_COLOR_ID_GREEN>;
++			default-state = "on";
++			function = LED_FUNCTION_HEARTBEAT;
++			gpios = <&gpio4 RK_PB3 GPIO_ACTIVE_HIGH>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&run_led>;
++			linux,default-trigger = "heartbeat";
++		};
++	};
++
++	vdd_0v9: regulator-0v9 {
++		compatible = "regulator-fixed";
++		regulator-name = "vdd_0v9";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <900000>;
++		regulator-max-microvolt = <900000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vcc_1v8: regulator-1v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_1v8";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		vin-supply = <&vcc_3v3>;
++	};
++
++	vcc_3v3: regulator-3v3 {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_3v3";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vcc5v0_sys: regulator-5v0-sys {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc5v0_sys";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++	};
++
++	vcc5v0_usb20_otg1: regulator-5v0-usb20-otg1 {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpios = <&gpio1 RK_PD0 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&usb20_otg1_drv_h>;
++		regulator-name = "vcc5v0_usb20_otg1";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++	};
++
++	vcc_ddr: regulator-vcc-ddr {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_ddr";
++		regulator-always-on;
++		regulator-boot-on;
++		vin-supply = <&vcc5v0_sys>;
++	};
++};
++
++&fspi {
++	status = "okay";
++
++	flash@0 {
++		compatible = "spi-nand";
++		reg = <0>;
++		bootph-pre-ram;
++		bootph-some-ram;
++		spi-max-frequency = <80000000>;
++		spi-rx-bus-width = <4>;
++		spi-tx-bus-width = <1>;
++	};
++};
++
++&gmac0 {
++	assigned-clocks = <&cru CLK_MAC0>;
++	assigned-clock-rates = <50000000>;
++	phy-handle = <&rmii_phy0>;
++	phy-supply = <&vcc_3v3>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&eth_rmii0_miim>, <&eth_rmii0_tx_bus2>,
++		    <&eth_rmii0_rx_bus2>, <&eth_rmii0_clk>;
++	clock_in_out = "output";
++	status = "okay";
++};
++
++&gmac1 {
++	assigned-clocks = <&cru CLK_MAC1>;
++	assigned-clock-rates = <50000000>;
++	phy-handle = <&rmii_phy1>;
++	phy-supply = <&vcc_3v3>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&eth_rmii1_miim>, <&eth_rmii1_tx_bus2>,
++		    <&eth_rmii1_rx_bus2>, <&eth_rmii1_clk>;
++	clock_in_out = "output";
++	status = "okay";
++};
++
++&mdio0 {
++	rmii_phy0: ethernet-phy@1 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <1>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&rmii0_rstn>;
++		reset-assert-us = <20000>;
++		reset-deassert-us = <100000>;
++		reset-gpios = <&gpio0 RK_PC2 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&mdio1 {
++	rmii_phy1: ethernet-phy@1 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <1>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&rmii1_rstn>;
++		reset-assert-us = <20000>;
++		reset-deassert-us = <100000>;
++		reset-gpios = <&gpio1 RK_PC7 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&pinctrl {
++	ethernet {
++		rmii0_rstn: rmii0-rstn {
++			rockchip,pins = <0 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		rmii1_rstn: rmii1-rstn {
++			rockchip,pins = <1 RK_PC7 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	leds {
++		run_led: run-led {
++			rockchip,pins = <4 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	rtc {
++		rtc_int: rtc-int {
++			rockchip,pins = <0 RK_PB5 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
++
++	sdmmc {
++		sdmmc_det_l: sdmmc-det-l {
++			rockchip,pins = <0 RK_PA3 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
++
++	usb {
++		usb20_otg1_drv_h: usb20-otg1-drv-h {
++			rockchip,pins = <1 RK_PD0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++};
++
++&saradc {
++	vref-supply = <&vcc_1v8>;
++	status = "okay";
++};
++
++&sdmmc {
++	cap-mmc-highspeed;
++	cap-sd-highspeed;
++	cd-gpios = <&gpio0 RK_PA3 GPIO_ACTIVE_LOW>;
++	disable-wp;
++	no-sdio;
++	pinctrl-names = "default";
++	pinctrl-0 = <&sdmmc_bus4>, <&sdmmc_clk>, <&sdmmc_cmd>, <&sdmmc_det_l>;
++	vmmc-supply = <&vcc_3v3>;
++	vqmmc-supply = <&vcc_3v3>;
++	status = "okay";
++};
++
++&uart0 {
++	status = "okay";
++};
 -- 
-~Gregory
+2.56.1
 
