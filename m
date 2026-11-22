@@ -1,85 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.132
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795359223;
-	b=Sb18pTwIk4HESJU0Me4qM+nHuhA3Bq4Huk1USGLkCxJKckVkUsmCQrdEfy+Cn8FzMkxQ
-	 1CYntM6dYyOHp+HQ1GQOLyvan/7npXYLBQU1r57gDiojIt6BW82g83ffmFYxwZlFEOhf2
-	 zM8r6JRHjGT3TVuYcTj2njT7XINIuWs2nysC/iC99xz273qrYingMlPjn6RJ5pHQ2Yzdq
-	 BhAddjVyzePwo2JR3zYbxv26HUA0aG3CyBu8vudXdthmI2gpHoSBb3ji33qnCQk6/UEVR
-	 dtP4B4d+Yb7n93sL6Ii3gqMxWWAhis9t4/yIyZABLAy0tQbwF0/45qQbbE9tPskFNhA==
+	t=1795359264;
+	b=heK0qfXTkba7eGdrUt2lWQr66T+BDuSlm/lizSfHd5MrNfs+HgJ9ogGKWbG3AeHl0MMg
+	 xjLvcH5PuX4GQkw02+9Wh5WJWOR4+5YV1VGX5jrNGumBvtfbZs35iNkqmssVhLYaJoSM/
+	 EAT4EQ2abAfaRPhUVr67AUDFQvl0tb9RXJSd30Xprs6V4wY2yZP4Iuu1fWfo17g1cYR1p
+	 2qbqW3Etrvs0KCWbd7lC3CdyrS0lRTBO9vCzP6d7MPpP23rX127PJ+t54GurSG2200b+M
+	 5nlw/G6ne/Dl5WzVxeWyOOvD8Sk8/9GhJ5rs22x37mfWxxwFFxGCwN7sVyDFFLvvX0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795359223;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795359264;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:Date:
-	 Message-Id:To:Cc:In-Reply-To:References:X-Mailer;
-	bh=RMgj1FiPWOfcno2Rg3daraUU1yDv6jWsUnElDClVHG0=;
-	b=Dj9PfnfW2gDDEvX3MxwPrQacshzbOxd8qkNVRC6F9BhrN+L3PYAs2wVDcz3TLdeRLDKN
-	 fOepgsjlk8lAstXCasUEih4I4ZEPyBhuojDzNh8plKFSnrwC4R6EfRQoWnDRvV1x1dLut
-	 Q67g02n23L6IGjH29HOnlzBy8sEFBH0gNIc0dFnZdd4ITOaFljbjFnB5eq7pRDEdPXdth
-	 cMivXoFU4D2YFwR+ngXr9CXqjg813jB3FT0z0JCx+M+7Lr39rNOgadPGBxYHdcc/M6iEl
-	 3kF4A5qSGh96aMLv2IzKRPfe86hG4rSo8uWfpt408CWZ0wnB5k/BijF6Mkq9TZs7YmQ==
+	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=BLuKTBBJtTtRTcmaK0xkcTceOMHbrjEKndUknDgiKJ0=;
+	b=iSkAbP7RkPtKVldEwgZo3p4kUp237BMvoY9qvpUuRKcw0J+imK2Flx+zBft+DGDq6wfJ
+	 Ht0CBeWp8zLEgv4jhyJi0/QX0WwVEtNk5qf69TV0ODP722YQUNJhwZOObK7kaaXzt0HMf
+	 HFeNEqwLGX5Xb5MOykf5XOsSm2ZZhHrhQUB81efSegjBKNgDyYG1aDgW64NFdboEX+S2M
+	 lUtYptai+Vr2qLQcdaAOSiOST3muJy7De1vZsVbx85TSJBb/OR2nJbpKNgY6L8uQuGrl9
+	 lEF2zVfhLaS2HRGw//krHm2MbyO0kv923UobAM43E0Bdvcnvbx3fPH23VuWWtxScTFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rB+Fu4J8;
-	arc=none smtp.remote-ip=74.125.227.132
-Received: from mail-pj2-f4.google.com (mail-pj2-f4.google.com [74.125.227.132])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Etck9mxF;
+	arc=none smtp.remote-ip=209.85.218.53
+Received: from mail-ej1-f53.google.com (mail-ej1-f53.google.com [209.85.218.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2F97606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 14:53:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2F97606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDDBE606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 14:54:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CDDBE606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rB+Fu4J8
-Received: by mail-pj2-f4.google.com with SMTP id 98e67ed59e1d1-3b497279c25so39638a91.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 06:53:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Etck9mxF
+Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-c4395d31228so391951766b.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 06:54:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795359222; x=1795964022; darn=vger.kernel.org;
-        h=references:in-reply-to:cc:to:message-id:date:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=RMgj1FiPWOfcno2Rg3daraUU1yDv6jWsUnElDClVHG0=;
-        b=rB+Fu4J8PRCHdsRpQdHo3CD3HVntEncnLqumTBmdgp9V0ixAvzirDoaXw6nsGK/Sz2
-         dx9kPJNY/9Ubx5IxzgdR36DPnCBSbgewi33uYn3ihJT2LD1kALU3hRP/IJKAB4X9EUrf
-         IGNwACUVWwQ0YAEUESnCB+QG6LWn0B33+3K+Q+L5q3rEZB53NE9f9D7qI6DE6+LlPCME
-         3nY14TLtlUW8EwFT9GxwGjuq+MnE8zXcgWGNHxlannh1OhNnHV+LWuhbUMSG6R4ScOJu
-         xJ/JHsIKm4SpUrO7nzE6eAfa0ZJQNvcYNPg0r1buJIBc2NlhC5/n9qtpq9VdwzRqNy/0
-         8jvg==
+        d=gmail.com; s=20260707; t=1795359262; x=1795964062; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=BLuKTBBJtTtRTcmaK0xkcTceOMHbrjEKndUknDgiKJ0=;
+        b=Etck9mxF/QaMZSJYD0VgQM21xOPiTBZubmVAiMRNUYGSpqGh6qywbjT3s3oRJpwir1
+         X19Jm9yoQesj2bU17qcnFxpJrJMxs6G7nEFHRNt6Sdye6I1Mm35l7PqZNeB6DiS9ALv+
+         uuRzOy7F1xqqMt4qM7xdrDIaev3eBR+ACNERzzsP3ceFacvh7nwNa/Lxw1NZE0bKa39F
+         CtlANzNO1iH6fztlFc3rCH2Q33XQsChsgs86uDOhN/RG8SSvbA5KB6TozwDdictQEMLw
+         CTRiUS82NIxzzBVR6dvKUng/Q/Nb3eqIaccYrHZ4M4KHJIGl1T0n5nE4NhKyx3N06fiR
+         PulQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795359222; x=1795964022;
-        h=references:in-reply-to:cc:to:message-id:date:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795359262; x=1795964062;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=RMgj1FiPWOfcno2Rg3daraUU1yDv6jWsUnElDClVHG0=;
-        b=ZaT36Nqqc/RHrAUv6su46ur+ZtEazDcpFIeDaSlYmJT3ytkAFkVVYxR5mT0SVxSikU
-         OFnEU4nhgXIir8bYiUQtX1wxu8Zu6wjMSFfldYomB/KVuxN6ilg91m9JzNVyXVO82fmh
-         ge9dI/ICTJD6F6UMDXDF8EC/+OKxkMXTk3Q7HgO0q1JtUiiR+NXwhhUfQT44p54AbgFZ
-         fzu/YestmEytba8jvSzyeuZWyyFKXofvo2ARVlSARKx8qDobGKirgDtfqNioBtdfIkvb
-         cKnLJYTb1UPBDPQ/wg2LbgkXaas/bumknZDLpLdEIV3gAkPaJLGBMjTb0gMall3HsUEA
-         BW4g==
-X-Forwarded-Encrypted: i=1; AL+hErFrKpmQ6tDQY7GXFd6m465P0U6MfzJJ6mg43ENm/441i56qMMOILng9YMUiyf+E6/PcnqTMIgj+CmsUq0g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+sD0PZVAWUtDrjvGId/7tvdsISwFxVLp6oVrZqA4cF5n/vtqmi
-	yynrpL3p2iM0lrPU0KJrRvvKdPs6PaIp1Xorn6qUEobilawmSXBz9pF0
-X-Gm-Gg: AZFdTZduWYN6W6s/xk6wFu5ewF48i/G+kUwFW0CF5mH1IS61s20VctI6XA0w5c+GG39
-	JGDEGlW+iv7zX5vp/vG+FK/nzRTOYa5KFE6ooFCKUTEnQH1EHyXtp4mNQ3JwUU4SFmglHsQnYqr
-	xIl+Jl89W+QinwZAYyQMZmdyRTLEYI7Ahcy1BurDWuju/7GDL7r1pMOayKf1UCzEcRgI6pUNOoV
-	o1eAu2mq6rw+IcjShi2SUE3nWNZ9MX0y2BXBrcMeZOjPqa5AE4DCU/KzLi+qIJ//r71OPT4U6Cy
-	Td1Bj8vEeJHWxASz1II3S5ClfjoAnV2Fj38LhyClK2JKa88k5N94bMlJhyb3wVZ9PkiXqqFIrM3
-	BAMuaZCDK9nu4C7y5P1vjOaWRkEo5cOc1QJs31F7Bw1bca8RWUDpDQghNwkKgsvBdD+JJdHxkf0
-	I9a6gbg0qmMD8FaZY5GZINHSQUs1Bi8uw0+86o9NhVfwwEYI2MTyBugM+KjkkNYrxm7fYfIpLOB
-	oD/FibaHNbaJiF4fzVTP9JDlvV2XOVuqkcJlskqJylBU5SP1CMm5Po7G37ovYUeER+vjbUqkkms
-	q4NXIueGtlNsWZYIwl8PzZuirs7brHtvqHLswwrVzEEyIJ/61WYaEeU5s7jSZASQVabJfjr2/fg
-	50BoY+PkgRj0/ym/VlUQeWBjGZTbc2bNYjzpfNf4xMEvD5BSyuOm2cX4VJoJpf4KXbDit6/I=
-X-Received: by 2002:a17:90b:3d4d:b0:3ab:36c4:b502 with SMTP id 98e67ed59e1d1-3b41c90329emr8542890a91.30.1795359222086;
-        Sun, 22 Nov 2026 06:53:42 -0800 (PST)
-Received: from [10.131.38.181] (n106-71-19-159.sun21.vic.optusnet.com.au. [106.71.19.159])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b75f2a4sm4545959a91.2.2026.11.22.06.53.22
+        bh=BLuKTBBJtTtRTcmaK0xkcTceOMHbrjEKndUknDgiKJ0=;
+        b=MuzkggfjS1J6+fCcirKpgx0pBF4bFgpVbQ1Tyvp84gY8BhprVZVhIBzh1jqvTqeW8j
+         yImMoQ6tq6gJ7FnnQ+SqEfXiY6RliMBc0ypq0HwFQS+LgV7C/OWTuD9zVNdiAkiGvOpM
+         IBOq3XWVFcj3CfVoo9lLyTj2H/mnuJV9s9ohtfnkhi52rjUkMXCft7fMwZMQfu9+oDAD
+         WjlyP9vq19slYsoP4pb80xM7wZUnczVUdzQiX6AIXDAbwWV3JLIrJhJ35aFmlRARONLL
+         VK5EVDfVLUVpuIloB2nW4vaAUpmCWY4YbdEtcXVFQ/O6dxeJLygAWgg1LGQHTDKaaxfk
+         m5Qw==
+X-Forwarded-Encrypted: i=1; AL+hErHC/zvOcghbeL883ouyMkbMzpXjIc//1DJQB8Cz54wC4aGbzCft/J71f8RqGLSuUMa/kgLXJHcHx6wjR2g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/4xBL6BFGmjYfFhLHOdJvYl3Tng4IRgkF4F+JVVp6T8nlswVyw
+	6vwzjW4rk8hSV/Pr0WPCrOYnzfIYBQ/7pwQHXM2N0FyXLIlPmKGARy6+
+X-Gm-Gg: AZFdTZcTpWh1OrObrdELQToEvMQEdV5ikwXqjOJyQ08Ykb5GAt6SpeBlw7SW+kvwtCN
+	BEqVO50AXrn9jnfrmBBjqDObn6Vvx05TJRED0SUcYBpNhyjYJbbz05nwAW8D92hYHVeW10Bqu3U
+	Ru5Vl1iz4QaGKJAf3jC7j3GK3t+kvehxKcFXu6v9XAJGsDaif6wGk95qHjkxVmF1z7johGz4tkm
+	C/2vxF6GFhe2u9BwSsNKyys13H8c77RsYTPt47+046FHdT1LAFJHd0iZ46fxPEmtwSCMbdBFFaL
+	QUqxZIa8ldvqBFwI+jnUIKUt78w3BtOcNhKtvrVw9SybUyVGm5rtdjjqdKRSqKVYOaG3KuQaGfe
+	KQdUZPqQh0tidSsitwDiSt6urP4bPRDrSK8+q+iBgrslHD7Ja+gAzT1T1JXDAWTl2UDVERJ51qe
+	DLN20IE6ZUbjObq/c3e+djEAOxf4WihvWSwfVECl5NCX6VhA5EKFWJeWPuK55d8ZkpjTaiHDx4c
+	zG3/SQcBQ5sbxth7wXTM824eUd/UCuB9qdo4qFTcV/aegsh3kkeWBj1MWuTUYvY0hqWRw==
+X-Received: by 2002:a17:906:5006:b0:c50:5e10:71ae with SMTP id a640c23a62f3a-c513a5e2124mr612735266b.17.1795359262076;
+        Sun, 22 Nov 2026 06:54:22 -0800 (PST)
+Received: from milan ([2001:9b1:d5a0:a500::24b])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afec08asm319529566b.73.2026.11.22.06.54.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 06:53:41 -0800 (PST)
+        Sun, 22 Nov 2026 06:54:21 -0800 (PST)
+From: Uladzislau Rezki <urezki@gmail.com>
+X-Google-Original-From: Uladzislau Rezki <urezki@milan>
+Date: Sun, 22 Nov 2026 15:54:19 +0100
+To: Ye Liu <ye.liu@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, Ye Liu <liuye@kylinos.cn>,
+	"Jose A. Perez de Azpillaga" <azpijr@gmail.com>
+Subject: Re: [PATCH v2 2/2] mm/vmalloc: reject NULL pages in
+ remap_vmalloc_range_partial
+Message-ID: <awMCG7g-oWkqeog1@milan>
+References: <20261029-vmalloc_remap-v2-0-c4705cbf26c2@linux.dev>
+ <20261029-vmalloc_remap-v2-2-c4705cbf26c2@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,55 +100,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] mm/hmm: account for subpage offsets in device-private
- PMDs
-From: Aveline Noir <jm5905938@gmail.com>
-Date: Mon, 23 Nov 2026 01:45:21 +1100
-Message-Id: <179535872126.34.4789080961796247940.b4-reply@b4>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: airlied@gmail.com, apopple@nvidia.com, balbirs@nvidia.com, 
- christian.koenig@amd.com, dri-devel@lists.freedesktop.org, 
- Francois Dugast <francois.dugast@intel.com>, intel-xe@lists.freedesktop.org, 
- jgg@nvidia.com, jgg@ziepe.ca, leon@kernel.org, leonro@nvidia.com, 
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
- Matthew Brost <matthew.brost@intel.com>, mm-commits@vger.kernel.org, 
- =?utf-8?q?Mika_Penttil=C3=A4?= <mpenttil@redhat.com>, 
- Patchwork <patchwork@emeril.freedesktop.org>, Shuah Khan <shuah@kernel.org>, 
- SeongJae Park <sj@kernel.org>, thomas.hellstrom@linux.intel.com, 
- Vlastimil Babka <vbabka@suse.cz>, ziy@nvidia.com
-In-Reply-To: <20261122015246.d8b6b98ff5a8157168156339@linux-foundation.org>
-References: <179342234355.4.16705453209886955762@gmail.com>
- <20261121160037.1a479f3c8b4e860bc23c106d@linux-foundation.org>
- <36be0904-168d-4813-82ff-27ecced464e3@redhat.com>
- <20261122015246.d8b6b98ff5a8157168156339@linux-foundation.org>
-X-Mailer: b4 0.16.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261029-vmalloc_remap-v2-2-c4705cbf26c2@linux.dev>
 
-Hi Andrew,
+On Thu, Oct 29, 2026 at 05:19:08PM +0800, Ye Liu wrote:
+> From: Ye Liu <liuye@kylinos.cn>
+> 
+> remap_vmalloc_range_partial() passes vmalloc_to_page()'s result to
+> vm_insert_page() unchecked, oopsing via page_folio() on a NULL page.
+> The NULL case cannot happen today because VM_USERMAP areas keep every
+> page mapped, but nothing enforces that invariant. Warn once and fail
+> the mapping with -EINVAL instead of oopsing if it is ever broken.
+> 
+> Suggested-by: Jose A. Perez de Azpillaga <azpijr@gmail.com>
+> Signed-off-by: Ye Liu <liuye@kylinos.cn>
+> ---
+>  mm/vmalloc.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index a888eca016a8..dabef40ea88b 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -4906,6 +4906,9 @@ int remap_vmalloc_range_partial(struct vm_area_struct *vma, unsigned long uaddr,
+>  		struct page *page = vmalloc_to_page(kaddr);
+>  		int ret;
+>  
+> +		if (WARN_ON_ONCE(!page))
+> +			return -EINVAL;
+> +
+>  		ret = vm_insert_page(vma, uaddr, page);
+>  		if (ret)
+>  			return ret;
+> 
+> -- 
+> 2.43.0
+> 
+LGTM
 
-On Sun, 22 Nov 2026 01:52:46 -0800 Andrew Morton wrote:
+Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
 
-> Store the corresponding RAM backing page instead.
-
-This avoids the oops on the first read through the second descriptor,
-but leaves a stale backing page pointer after CPU faultback.
-
-Since the mirror XArray entries don't take a page reference, they rely
-on invalidation.  When the CPU later faults the page back to RAM,
-dmirror_interval_invalidate() skips MMU_NOTIFY_MIGRATE for the same
-mdevice, and dmirror_devmem_fault_alloc_and_copy() only clears the
-migrating descriptor's entry before the backing folio is freed.  The
-second descriptor still points to that freed backing page.
-
-Reading the same page again through the second descriptor in QEMU
-triggers a KASAN use-after-free in dmirror_do_read(), and the read
-returns the stale data instead of what the CPU wrote.
-
-The second descriptor's entry probably needs to be invalidated before
-the backing page is freed, and it'd be nice to cover a second read
-after faultback in the selftest too.
-
-Thanks,
-Aveline Noir
+--
+Uladzislau Rezki
