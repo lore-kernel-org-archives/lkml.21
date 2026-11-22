@@ -1,51 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=85.13.135.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795340522;
-	b=hBu//+a5FtN/d4/jsfVzZlJ0ElYYQAKcTwFuvyu9j4p5D0gYDzADLdG7phg3n9jfoFVk
-	 gmqBzahfnZh2/tVSApXbeCRZ9JGiKH1SVTtJ1op3/6TzL5HvDv2v07gqHLpbtId5j9QbC
-	 kqzKkuKn4tfjTiNaBzDB9vc7xUok2TjEHb0iCAzFedAweFXHQ1T1VV7HJCHRCqAZflKUw
-	 1jvrxw9iSHxWSYowtYUeK6Amm9v5AlbzQGeMspDDTmWEWvjXnNOVECnAPhUpLDQFoHc0Q
-	 pRYuZ/r36YFvM1fU7sB08nF8L/EoMU5NmjMEyDcBRKfWTbU/fFu3nWQvZZA2/mLtT7A==
+	t=1795340557;
+	b=mnRxZ2nBF5fSGu1Op5OKJ2tr82330pmuAHjwh9rNkvkqdv+BMKQz7J8pETLkpsT2Euaq
+	 2mLxlAaCEP+1CTewhbwhBUYKY4uUCBVwpJKhdJmxObmYc0K0kGM15bj6EoxE0o3cnjB4H
+	 q5S26NUFnlzuhoFf+nkFV+NmYzjKRvMOWBR3Z6MZePlfa1yy17VVPVlhry2qKm+PsDQS9
+	 l0f4NtGg1n67GySiQrtZzdwETSOdNpbiV+958O3Z0hsN7pBCQA5LkBZl5xRgrEPBaagJa
+	 ciO/+VrKn+If5z0zQkVLL9U81dqi/ioyB5UQSQX/bzSjPPPXcINryyJ6GmakVWsESQw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795340522;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=/P+JQaHCo/Br2LpfJL5PdETIpzHgzrdeE7jnOGhuAzE=;
-	b=FgsBrJ9E09mMDhkG6nZNa/i387fpp/B+/bcMFtIY4pSBdfrEF9FJyyOMQx5le0RVFtaj
-	 iGESn9ztL4fQKgw+k1/ZnT1fqJC8vCYJkl3rNQuKK7BSt4cDjxn3gFVyb2A6rZdpBZXz6
-	 Y4RRGqo3DkgaskBLT0H29u0F2KugB1lnpo0fhoVxI7UOE0MUBRTqC3rtLrzQGMBXcWej2
-	 ALfKqSxt5fU0nmGPu/SQvx4JafK8hQkAT15xr3F3RcdI+fjzQ2Xy4VI/s6Owgo1RaUuXZ
-	 ZHIelMFKTsyukBUsm0++J5IEVK9tzYt7GrDM2bEljUorarAfq9zs6EcHaDSX3ZXE9RQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795340557;
+	h=DMARC-Filter:DKIM-Signature:X-KAS-Sym:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spamd-Bar;
+	bh=7mXN9E5McDZalj6nJGIdEL3qJ/LKcow/He3TKSmJO6Q=;
+	b=IVlU7DROgequzHRpC6hqpfvzUrX/53Lb+d+4AYY6CJsARjcvm+HNfgQml/dSV9f39eCe
+	 i/5xe/DHTLgwzK9KR0HdIUSsc8gJvEqfIUJG+0NbPe8VF9ocl/qZbZdeLEwdSXYZIM5q8
+	 rnRHSX7zQ3hj+u/bqfXsPbK6nJQKfYBpKpyp1Wl3A0TQv/pngttiAks4W9SeGRCbFxTfF
+	 yAYzE/2Q8I9zpusk70dOFOE1eJJ/5Fwjyl+sevUUcKv3uBHgjzVehfV1Gxp/jWzlz+qVI
+	 14YSmEtaQTXNphJZMGf5x+ztMK16l7yFusupvMZvn8lm3YlabZgOhcS7p4uAn/fYHxw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=V20elDSc;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=tsv-stahl-riesa.de;
+	spf=pass smtp.mailfrom=tsv-stahl-riesa.de;
+	dkim=pass header.d=tsv-stahl-riesa.de header.i=@tsv-stahl-riesa.de header.a=rsa-sha256 header.s=kas202608160020 header.b=ftWfv10p;
+	arc=none smtp.remote-ip=85.13.135.14
+Received: from dd13108.kasserver.com (dd13108.kasserver.com [85.13.135.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EBD8606A320;
-	Sun, 22 Nov 2026 09:42:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45633606A333;
+	Sun, 22 Nov 2026 09:42:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45633606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tsv-stahl-riesa.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tsv-stahl-riesa.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=V20elDSc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CA391F000C6;
-	Sun, 22 Nov 2026 09:42:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795340521;
-	bh=/P+JQaHCo/Br2LpfJL5PdETIpzHgzrdeE7jnOGhuAzE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=V20elDSc6jNjzxUGPiB75CJxOCyQBK/5/Y14nZ7ifvfllB7Zh50/EWkLl2S3/VuSM
-	 3JnoILLL/v/YEbGMtOnZOWGEQRFt2wV6ZOEwUqJzkrXwdWoga3kkTlQWNxVWpl5eep
-	 J5K+T0NP1SDfZNBjFqe7kg21mvTISjbuiVHXefgs=
-Date: Sun, 22 Nov 2026 10:41:58 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: =?iso-8859-1?Q?=D6mer?= Mete Kaya <omermetekaya0@gmail.com>
-Cc: rafael@kernel.org, dakr@kernel.org, akpm@linux-foundation.org,
-	edumazet@google.com, brauner@kernel.org,
-	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] kobject: fix use-after-free in tagged uevent broadcast
-Message-ID: <2026112237-delegate-neon-7b4c@gregkh>
-References: <20261122061751.178540-1-omermetekaya0@gmail.com>
+	dkim=pass (2048-bit key) header.d=tsv-stahl-riesa.de header.i=@tsv-stahl-riesa.de header.a=rsa-sha256 header.s=kas202608160020 header.b=ftWfv10p
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tsv-stahl-riesa.de;
+	s=kas202608160020; t=1795340555;
+	bh=7mXN9E5McDZalj6nJGIdEL3qJ/LKcow/He3TKSmJO6Q=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:From;
+	b=ftWfv10pYGTEnkUtUsL1NSP8CT6Bzi1DFxQs28jyEc0kD/e7MUZ+hcHMUjGt0BxjD
+	 Ti+pIup6YgKKC5f2XzyjYm7yxF905l+7D2mgDb0/LC+BfAvxLgPQhRCGhF8KNdm2kD
+	 ej8Cf9I7KvkSXy5PGKyLJ/S7XLdzwH2j6Il7doEnfLfKnqs938TMOPRcY/SWq3GnGB
+	 +pVZrMpPE67WM5aaBlp/kZ1Nzh6oT/Boc1N+tB+pc2X+97sJ1KnAJomRybAVO2I+1Q
+	 wZ6coKZdANCTWLFV58bLp46YOPT69SypEORWlJ+5xeoxOe03o+EtVfjG2czhI7/hVj
+	 Q6LOy46mRLZaA==
+X-KAS-Sym: v3:f51bdf72230551df:BHLVAvXUbecqCx65KAKRaRfSCRJ/RnepLulMBbwPWwteb
+	mripFIUpAml7cCtqERpaMGvp6Ak7OV3lE8iPMOqmpySjQJMXBc3GoUaNiOJ3JYVYJ6TKopF46jn
+	q4uVWX6C3Ji3T33tnuwTxe3Tg5o4SRtDYVASaC9EWX+SWjXVbz1MzhyHPUZKqWAoEsfJYQOCr3/
+	e8Hmx1pjaNOkVRlBEOwew3D70xuqqwYoYiiy7493mCJFAFA1pSDWWiaM9UqR8fM4BH7M4Lf2I7O
+	IPBxu8VLsAFMYOTxjDWwPLNwXk+ftVWkLUIsiPpytvLNorB9dwbxDD9FVg92DyAthgqKyJeg==:
+	iB+jSPSBoH54YX97hl+TQGE92aBQEwaqYZb0rqaIYqfkQV9roZkLFffVPd5I6sv3fEVuMWV9QVG
+	+xZI6YYD/z0D5LFmiXwX0Hv5+AlMnmr+JIawHFeqJGtAWowTyS0CPdTau+HXjzA12eG+rzQPOMo
+	Ti7abBvbGKcGRqrvZp9bx4nlbIuEuXbJHQ9DNRTtzFkCuJ+xGZfIt3Tz2ifmr2XSpG9ndVnEWFH
+	fhKOtwq7piWy3KZR8DUw5gQc0D/JhqwGbwjHvdjDxWcaCWSQAxulC/Yu4Ys6gLjM9XErkmBiFY5
+	NUzea3+RwJBppH+vYSOLewA7ZFvWqIbe3c8wVhNXkQQjifeEtQeeT+S6Swat+VBZBV/428g2JMA
+	/zMxvPZMrDvohRcFj13EH0OoToYzXDolfUWBjxtbQzcU3WMkxjMEB7qpOklFhpqm5LmH9SU+d6x
+	ofkytt/t42V/SZQu6t+8vTlSJUjletHebUcUXlz2UxgnV66LMD36yvDcbZtiOfij7WQj94SYr/0
+	nToVcstC8QKX9y1ZjzDsFbSACuNgerpbMDwqpbp27KX9GXICu4bO6MWfPJuuuzYCJlO7Wrnu8k2
+	YoAYvw9l
+Received: from [192.168.2.174] (dslb-188-098-197-218.188.098.pools.vodafone-ip.de [188.98.197.218])
+	by dd13108.kasserver.com (Postfix) with ESMTPSA id 0C79D78200C2;
+	Sun, 22 Nov 2026 10:42:35 +0100 (CET)
+Message-ID: <e3b302d3-979d-4b7e-9b51-dd5c8121c192@tsv-stahl-riesa.de>
+Date: Sun, 22 Nov 2026 10:42:34 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,29 +71,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261122061751.178540-1-omermetekaya0@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] serial: tegra: Fix 32-bit overflows in the clock rate
+ adjustment
+To: Laxman Dewangan <ldewangan@nvidia.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Thierry Reding
+ <thierry.reding@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>
+Cc: Shardar Shariff Md <smohammed@nvidia.com>,
+ Krishna Yarlagadda <kyarlagadda@nvidia.com>,
+ Svyatoslav Ryhel <clamor95@gmail.com>, linux-kernel@vger.kernel.org,
+ linux-serial@vger.kernel.org, linux-tegra@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20261025-upstream-serial-tegra-overflow-v1-0-267b5b7a79ee@tsv-stahl-riesa.de>
+Content-Language: en-US
+From: Patrick Fischer <admin@tsv-stahl-riesa.de>
+In-Reply-To: <20261025-upstream-serial-tegra-overflow-v1-0-267b5b7a79ee@tsv-stahl-riesa.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Spamd-Bar: -
 
-On Sun, Nov 22, 2026 at 09:17:46AM +0300, Ömer Mete Kaya wrote:
-> kobject_uevent_net_broadcast() accesses net->uevent_sock->sk without
-> protection in the tagged (namespace-aware) path. During network namespace
-> teardown, uevent_net_exit() frees the uevent_sock while a concurrent
-> kobject_uevent_env() call can still reference it, causing a
-> use-after-free.
-> 
-> Extend uevent_sock_mutex to cover the tagged broadcast path and the
-> netlink receive path, serializing them with teardown: in
-> uevent_net_exit(), set net->uevent_sock to NULL under the mutex before
-> releasing the socket. In the tagged broadcast path and in
-> uevent_net_rcv_skb(), check for NULL under the same mutex before
-> accessing the socket.
-> 
-> Discovered by Sashiko, not triggered, not runtime tested.
+Hi Greg,
 
-Please test and get a reproducer before attempting such a change.
+gentle ping on this series now that the merge window is over. Both
+patches have Tested-by and Reviewed-by from Svyatoslav and still apply
+cleanly to 7.4-rc3. Please let me know if anything needs to change.
 
-thanks,
-
-greg k-h
+Thanks,
+Patrick
