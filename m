@@ -1,54 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.79.113
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795358549;
-	b=TacnNIuuHtHXjSy35dm03Zm2kdFgIVlEuoCuOrdZzL+z48HOwthRuuxiZmolPAmSzsYC
-	 sxfKKtk5soRCcXGVOxfT9mgVVpqI9G+twB1BFOgH6y27Z4xmjwPX7mJQPSNQaDFV/BUqZ
-	 M3kcAqlRE54CDp8UyFYTTRA8FtI7bO716nj3RlBX7CZwlESe5yJQXFzjBJ3oyZhGT3x8O
-	 z1CR+q0nDrOiEbf6n86dv8C7CdnKJidhH8TCtqwUnr+0qpAtzu8sXnVs6VjNeukV+hDmJ
-	 XVhXGH8/2PPRhVl6udPtjkBALokJss2Q/VIKDjWhF7B/hKxQNP3g5LRCBiltysKDKiw==
+	t=1795358591;
+	b=XQXWwfwWLUceFjQ2z/ugxzZ/uS/lW9d0/r7IvGSXQb0iKlxndt0iHDsee+iI+h65x9qn
+	 7E3Kdieoe92BOSnFehX8+Z8Wupk0Kv9g3o4xQWhh7oJASiAw3ZTds/8ppt6EGIwXm2WM3
+	 Xw/PQnrPuzkfxCRId1nxYS07GPAS26xWWiPv3UVTxcwOCr0qUCJtDoCsNetSMu12lrhz5
+	 iE+fipCe1uN+RNThjHrP/S9Rh4/+WQI1zdpolMAVAKKLusmXF73UBUUFw0gxC+eSOPgXd
+	 p/dJbFbku92Chqh4brjCPQzO3JtlvLGDdFc6zejpa8JZAmhbpU+9bELj4zmMSATvecw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795358549;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:X-Developer-Signature:X-Developer-Key:
-	 Content-Transfer-Encoding;
-	bh=A9Zv9/kAKHCUlo9CcVpDmVuBqMvgg3njmRLSGR1Brgo=;
-	b=2+O6gkkm74bpBwZrMBUVQMNzNrepgfTOBH1r8pTswx9cnrq2c0YzIJ2ZVH5+oB7FgJZ9
-	 sycmbemw2+sTwetmCv6iX/bfQHkZVcrv4wAcLdnYidNcMyVzg27gCNZDhP9MnLkZ2uUnj
-	 XCohNyaR5hFDVQCqQ2fEpwIXR4ztHR4t7Ii/3ZlRtjbHp3/3a5zPnOVDmf+/ZcsWXycwx
-	 nxquZXnWmHqh+SI5GAXvOYQIt9FMrPzJdtPbEzurFQgi1HHf3XbLyIxaXhuHB2c2ieKhp
-	 NXCr+zYe9DrHQzyqFk6ZyVujM8SioKOpoZOh0j/A+tGXpYgUPsp+LhnmTyvc/on73dg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795358591;
+	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:
+	 mail-alias-created-date:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Info-Out:
+	 X-Proofpoint-ORIG-GUID:X-JNJ;
+	bh=PCwvu/7c8j6/O2ejlxj9OlUzPL9S8uniZszqbdRiRso=;
+	b=EDHu3r2Ai7v0CnboMeNMvv18nR5OFafT8+pF6imi/Ow7aD1l4MRw5CZNdiM1+GLkvSFx
+	 MpZMqZjYFNSL4kwXlWV8k1+GuY+GXp5C8a2MfRowYNeLWCmqzpCaQz6gh9OAQtkQ5h7IW
+	 TZBNIaqTCRNwOqoWpYUAuX01GF51wQn9MgIu61cUWzGfS9pUCXmWTWKV4IKbWV2CQnbsC
+	 3owGo8Kiou7uUGwxdLDK0Og+ifoHbwig/PM/K6gKiH7Dno2VbTXzI4PKJQqAV+b1CblEf
+	 JOE9+U6qWkmc9bPExJPeLK3sXDVgNyiKOnjYRTNltmGoN7R7Fx77O4Ymkc+KXZOwOIw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="YjX/aBFC";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=mennemann.net;
+	spf=pass smtp.mailfrom=mennemann.net;
+	dkim=pass header.d=mennemann.net header.i=@mennemann.net header.a=rsa-sha256 header.s=sig1 header.b=kbBay+Zf;
+	arc=none smtp.remote-ip=57.103.79.113
+Received: from outbound.st.icloud.com (st-2005i-snip4-11.eps.apple.com [57.103.79.113])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B38A4606A320;
-	Sun, 22 Nov 2026 14:42:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BE50606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 14:43:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4BE50606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mennemann.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mennemann.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YjX/aBFC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDB7E1F000CF;
-	Sun, 22 Nov 2026 14:42:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795358549;
-	bh=A9Zv9/kAKHCUlo9CcVpDmVuBqMvgg3njmRLSGR1Brgo=;
-	h=From:To:Cc:Subject:Date;
-	b=YjX/aBFCLTcPVlxSkksvyJOHUAfodAEh331vWXoHlUEuRD3kINsUaPS2nOvn/wXFm
-	 06wTxh7RFH8fDWSoruNrGw0TKsagL3T9aIyV37erAd5iIS8RH7vfSz3xC2DezvDRLa
-	 qkvgIcXE8sop21EtRcW13KUBeBMgPFN0VKH6hKBLSg8SQXm2FzQrRw/n44ZIqbeGCE
-	 gJgOs7KnAOwjj8FHWFQSF5xYrsKijeMOwvEydgzPuyQza1Y/NKu9QazdfOtsNgRFXY
-	 ZvNe43wv1mw+N1pJS3o0MCd08F0vjWJb92SIouEazdiSQH2fZpsW0v+O8y2yLt6rDo
-	 YFwXuubhX8xSQ==
-From: Christian Brauner <brauner@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Christian Brauner <brauner@kernel.org>,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL for v7.4] vfs fixes
-Date: Sun, 22 Nov 2026 15:41:36 +0100
-Message-ID: <20261122-vfs-7.4-rc4.fixes-0bcebc1aae75@brauner>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key, unprotected) header.d=mennemann.net header.i=@mennemann.net header.a=rsa-sha256 header.s=sig1 header.b=kbBay+Zf
+Received: from outbound.st.icloud.com (unknown [127.0.0.2])
+	by p00-icloudmta-asmtp-us-east-1a-100-percent-9 (Postfix) with ESMTPS id BEB821800104;
+	Sun, 22 Nov 2026 14:43:08 +0000 (UTC)
+X-ICL-RepId: 01a203b5-ff0d-7ec3-8ac3-87b8856142c4
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mennemann.net; s=sig1; t=1795358589; x=1826894589; bh=PCwvu/7c8j6/O2ejlxj9OlUzPL9S8uniZszqbdRiRso=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=kbBay+Zfm8P2CKOaDAdjtP9vjmUgt1Tq5Tj+B4OieVWU1LpNa1Kg9JLTI2Pk007LMVmRfo+0mGrHs87nurTnTbhF4UjZGYfdG9G8f4pOAFt5jIY+5PSzDZ+70I0WN5bLbcLnqmIiBJMIUuEj/QltdeLExZ8sjT9zgSRvBRItB5GZsiW2g4Zz3omoh7AUoaU/ScTNAFNwAhkLFTnXoHWQq2t01IjYJa5o/uvg1ooiRL/XrbXK3e9kwpUoeQM8aHFsgE6aLO2slyA+oAUSandRL1Kd31gsisR5a3Gc9xeY2LwoyifmcW9zetAPuSQ+3IYH1Q0pbvsSairVCfuUMT4bmA==
+mail-alias-created-date: 1719251376433
+Received: from archlinux.localdomain (unknown [17.156.216.30])
+	by p00-icloudmta-asmtp-us-east-1a-100-percent-9 (Postfix) with ESMTPSA id 32B741800116;
+	Sun, 22 Nov 2026 14:43:07 +0000 (UTC)
+From: Marcin Mennemann <marcin@mennemann.net>
+To: almaz.alexandrovich@paragon-software.com
+Cc: ntfs3@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	regressions@lists.linux.dev,
+	regressions@leemhuis.info,
+	senjin@hatchling.org
+Subject: Re: [PATCH] fs/ntfs3: fix SEEK_DATA/SEEK_HOLE for WOF compressed and dedup files
+Date: Sun, 22 Nov 2026 15:43:02 +0100
+Message-ID: <20261122144302.32486-1-marcin@mennemann.net>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261025122411.14550-1-marcin@mennemann.net>
+References: <20261025122411.14550-1-marcin@mennemann.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,342 +67,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=16153; i=brauner@kernel.org; h=from:subject:message-id; bh=Vh2t7QqbU+Kdwrj3MuWNopd+CuPBIrluq/btsqLmWIY=; b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWQz/Xc7Zspx6/8NpojZPxmt34fsTDIJ4FuRmp3/9dPZG IaIp1nXO0pZGMS4GGTFFFkc2k3C5ZbzVGw2ytSAmcPKBDKEgYtTACbyn5Xhf3D/4zdedx7Gb/XN /8398XPGrvWeuyMUd2vdEa409j/zazkjw3+HnVzL+857PDyn8+unpPq7hDWXftmkq/z5P3fK5sR mHQYA
-X-Developer-Key: i=brauner@kernel.org; a=openpgp; fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
 Content-Transfer-Encoding: 8bit
-
-Hey Linus,
-
-/* Summary */
-
-This contains fixes for the current development cycle.
-
-This contains the procfs fixes from the procfs rework I've been doing.
-I've mentioned this on the list. If you'd rather take the fixes during
-the merge window, let me know:
-
-  Fix a lot of old bugs in procfs and in /proc handlers all over the
-  tree. They turned up while reviewing just about every ->proc_read(),
-  ->proc_write() and ->proc_ioctl() for moving procfs to what kernfs
-  does.
-
-  * Resume readdir after the last name it returned instead of at a
-    counted position for both /proc and /proc/sys.
-
-    An entry that was added or removed between two getdents64() calls
-    made caused one entry to be repated or skipped. /proc/sys readdir
-    now also skips an entry that is being unregistered instead of
-    reporting end of the directory.
-
-  * Don't hold the sysctl table while read(), write() and getdents64()
-    of /proc/sys copy to or from userspace, and don't pin a /proc
-    symlink's entry while readlink() copies it out. A copy that faults
-    for as long as userspace wants held up unregister_sysctl_table() or
-    remove_proc_entry(), whose callers hold locks such as RTNL in
-    addrconf and snd_card_mutex in ALSA.
-
-  * Treat a non-directory like a missing directory when resolving a
-    name.
-
-  * make pktgen refuse device names with a '/' or that are taken
-
-  * make pktgen let go of a renamed device when it is unregistered
-    instead of leaving unregister_netdevice() waiting forever
-
-  * Queue the pollers of the sunrpc channel files on a single static
-    wait queue again to fix a uaf.
-
-  * Refuse to map procfs files on NOMMU.
-
-  * Bound the lengths of the esas2r HBA, SMP and firmware ioctls by the
-    struct they were copied into and stop copying kernel pointers out.
-
-  * Keep the position of the PCI and isapnp config space files in a
-    loff_t.
-
-  * Remove /proc/driver/rtc before taking ops_lock.
-
-  * Let proc_remove() remove the entry it was given instead of whatever
-    has its name now.
-
-  * Fix the /proc handlers of ALSA, powerpc, xtensa, scsi, PNP, s390,
-    sparc, um, zorro, toshiba_acpi, libipw, lockd, ntfs3, psi and
-    profiling. Several of them read past or in front of their buffers,
-    handed out uninitialized or freed memory, dropped the last byte of a
-    write, consumed only part of one or returned 0 from it.
-
-- fs: Stop resetting userspace_init_fs to nullfs when PID 1 stops
-  sharing it to fix an Android regression.
-
-- ns: mark internal mount namespaces from mount_subtree() so they're not
-  denied.
-
-- nfs: Reintroduce SB_I_MULTIROOT and raise it again on the superblocks
-  nfs may share between mounts of disjoint subtrees. The flag was lost
-  in the conversion to the new mount api in v5.6 and removed as unused
-  in v5.10. So ".." could walk out of an NFSv2/NFSv3 mount and out of a
-  chroot again once a directory was moved into the other mount's
-  subtree.
-
-- fhandle: Only warn in vfs_dentry_acceptable() when the walk up from a
-  decoded directory ends at a disconnected dentry.
-
-- cachefiles: Size the buffer in cachefiles_preset_object_xattr() with
-  max() instead of min().
-
-- ext4: Remember the file before submitting a direct read instead of
-  taking it from the kiocb afterwards.
-
-- signal: Walk the threads in complete_signal() with
-  list_next_entry_circular() instead of next_thread().
-
-- iomap: Cast the page index to loff_t before shifting it in
-  iomap_fill_dirty_folios().
-
-- xattr: Require the inode owner or CAP_FOWNER to write user.* xattrs on
-  sockets.
-
-- devpts: Create pty nodes with simple_start_creating() under the inode
-  lock of the devpts root, like mknod_ptmx() does.
-
-- kernfs: Clear i_nlink of a removed node's inodes before deactivating
-  the node. A lookup that killed the dentry in between still saw i_nlink
-  at 1, so inotify never sent IN_DELETE_SELF.
-
-- fork: Call copy_exec_state() right before copy_creds() again so it
-  can't fail before rt_mutex_init_task() reset the PI state copied from
-  the parent.
-
-- iov_iter: Check the alignment of what iov_iter_extract_bvecs()
-  actually extracts.
-
-- shmem: Let the remaining reservation instead of the current inode
-  limit decide whether shmem_initxattrs() consumes the space reserved
-  for an xattr.
-
-- bdev: Report the block size as st_blksize when it is larger than the
-  minimum I/O size.
-
-- fuse: Add IOP_SET_ACL_OWNER_CHECK so fuse_set_acl() can do the ACL
-  owner check itself and skip it without default_permissions.
-
-- stat: Reject unsupported flags such as AT_RECURSIVE in the
-  AT_EMPTY_PATH fast paths of fstatat() and statx().
-
-- exit: Read mm->owner with READ_ONCE() in mm_update_next_owner() to
-  match the WRITE_ONCE() on the other side.
-
-- pipe: Annotate the lockless checks of pipe->files in pipe_lock() and
-  pipe_unlock() for KCSAN.
-
-/* Conflicts */
-
-Merge conflicts with mainline
-=============================
-
-No known conflicts.
-
-Merge conflicts with other trees
-================================
-
-No known conflicts.
-
-The following changes since commit 7e1392a42ea288d70a266f6553fe06f57f8647ea:
-
-  Merge tag 'net-7.4-rc3' of git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net (2026-11-12 12:26:14 -0800)
-
-are available in the Git repository at:
-
-  git@gitolite.kernel.org:pub/scm/linux/kernel/git/vfs/vfs tags/vfs-7.4-rc4.fixes
-
-for you to fetch changes up to d5b84d3d7e902c44b05b106718c579f3d3834812:
-
-  ext4: don't use the kiocb after a direct read was queued (2026-11-22 11:24:12 +0100)
-
-----------------------------------------------------------------
-vfs-7.4-rc4.fixes
-
-Please consider pulling these changes from the signed vfs-7.4-rc4.fixes tag.
-
-Thanks!
-Christian
-
-----------------------------------------------------------------
-Andrew Morton (1):
-      shmem: consume the reserved xattr space despite remount
-
-Avi Weiss (1):
-      fs/stat: reject invalid flags for empty paths
-
-Christian Aurich Zanettini Martins (1):
-      fork: Don't let copy_exec_state() fail before rt_mutex_init_task()
-
-Christian Brauner (65):
-      scsi: esas2r: don't copy kernel pointers out in EXPRESS_IOCTL_GET_MOD_INFO
-      ALSA: cs46xx: hand the region to the region proc files
-      PNP: isapnp: don't go on when isapnp_cfg_begin() fails
-      xtensa: simdisk: remove the proc entry before the disk
-      powerpc/pseries: put the node that the ofdt property commands look up
-      lockd: don't hand out the terminator of nlm_end_grace
-      powerpc/pseries/lparcfg: don't drop the last byte of a write
-      profiling: report it when /proc/profile can't be created
-      zorro: size the proc files like what they serve
-      sparc: led: consume the whole write
-      powerpc/rtas: consume the whole write to /proc/powerpc/rtas/progress
-      sched/psi: don't drop the last byte of a trigger write
-      ALSA: info: keep what was written when a text entry's buffer grows
-      rtc: don't remove /proc/driver/rtc with ops_lock held
-      proc: sysctl: don't stop readdir at an entry that is being unregistered
-      PCI/proc: don't truncate the position of config space accesses
-      PNP: isapnp: don't read past the end of the buffer on a large pread()
-      s390/dasd: don't look in front of the buffer on an empty write
-      platform/x86: toshiba_acpi: reject malformed brightness and fan writes
-      xtensa: simdisk: don't read the file name without the lock
-      powerpc/rtas_flash: don't read past the validate message
-      powerpc/rtasd: zero the error log buffer
-      ALSA: info: don't write past the end of a data entry
-      scsi: BusLogic: don't return 0 from writes to the proc file
-      scsi: ips: don't return 0 from writes to the proc file
-      wifi: libipw: don't return 0 from writes to debug_level
-      scsi: core: NUL-terminate what is written to the host proc files
-      um: NUL-terminate what is written to /proc/exitcode
-      ntfs3: don't warn when a huge label is written
-      proc: don't walk through a non-directory when resolving a name
-      net: pktgen: reject device names with a '/'
-      net: pktgen: don't register a device file under a name that is taken
-      net: pktgen: let go of a renamed device when it is unregistered
-      proc: resume readdir after the last name it returned
-      selftests/proc: check a /proc listing while entries come and go
-      proc: let proc_remove() remove the entry it was given
-      proc: warn about entries left in /proc/net of a dying namespace
-      proc: don't let NOMMU map procfs files
-      proc/vmcore: don't let vmcore_cleanup() run twice at once
-      sunrpc: make queue_wait a global wait queue again
-      scsi: esas2r: bound the lengths of the HBA, SMP and firmware ioctls
-      powerpc/pseries: bound the lengths in the ofdt property parser
-      powerpc/pseries/lparcfg: return h_get_ppp()'s status as a long
-      proc: sysctl: resume readdir after the last name it returned
-      selftests/proc: check a sysctl listing while entries come and go
-      proc: sysctl: copy to and from userspace without holding the table
-      proc: sysctl: look at the table under sysctl_lock when creating an inode
-      proc: sysctl: don't hold the tables while readdir copies to userspace
-      selftests/proc: check that faulting sysctl accesses don't hold up removal
-      proc: don't pin a symlink's entry while readlink() copies it out
-      selftests/proc: check that a faulting readlink() doesn't hold up removal
-      Merge patch series "proc: fix a few old bugs in /proc handlers (Part 1/7)"
-      devpts: create pty nodes under the parent lock
-      cachefiles: fix buffer size in cachefiles_preset_object_xattr()
-      fs: reintroduce SB_I_MULTIROOT
-      fhandle: only warn about disconnected directories
-      Merge patch series "fs: reintroduce SB_I_MULTIROOT"
-      fs: let pivot_root() move userspace_init_fs when nobody shares it
-      fs: don't reset userspace_init_fs when PID 1 stops sharing it
-      Merge patch series "fs: don't reset userspace_init_fs when PID 1 stops sharing it"
-      mount: pass flags to alloc_mnt_ns()
-      ns: don't call the namespace LSM hooks for kernel-internal namespaces
-      Merge patch series "ns: don't call the namespace LSM hooks for kernel-internal namespaces"
-      kernfs: clear i_nlink before deactivating removed nodes
-      ext4: don't use the kiocb after a direct read was queued
-
-Daehyeon Ko (1):
-      iov_iter: validate extracted segment for bvec alignment
-
-Dominik Maier (1):
-      xattr: require inode owner or CAP_FOWNER to write user.* xattrs on sockets
-
-Hengyu Liang (1):
-      bdev: do not report a statx block size below the block size
-
-Hristos Nenkov (1):
-      fuse: preserve daemon-owned ACL permission decisions
-
-Mani Tofigh (1):
-      exit: use READ_ONCE() to read mm->owner
-
-Oleg Nesterov (1):
-      signal: fix lockup in complete_signal() racing with mt exec
-
-Shashank Mohan Jain (1):
-      iomap: fix offset truncation in iomap_fill_dirty_folios() on 32-bit
-
-Zhu Jun (1):
-      pipe: annotate lockless checks of the file count
-
- arch/powerpc/kernel/rtas-proc.c                    |   3 +-
- arch/powerpc/kernel/rtas_flash.c                   |   2 +-
- arch/powerpc/kernel/rtasd.c                        |   2 +-
- arch/powerpc/platforms/pseries/lparcfg.c           |   7 +-
- arch/powerpc/platforms/pseries/reconfig.c          |  24 +-
- arch/sparc/kernel/led.c                            |   3 +-
- arch/um/kernel/exitcode.c                          |   3 +-
- arch/xtensa/platforms/iss/simdisk.c                |  28 +-
- block/bdev.c                                       |   6 +-
- drivers/net/wireless/intel/ipw2x00/libipw_module.c |   2 +-
- drivers/pci/proc.c                                 |  22 +-
- drivers/platform/x86/toshiba_acpi.c                |   8 +-
- drivers/pnp/isapnp/core.c                          |  16 +-
- drivers/pnp/isapnp/proc.c                          |  11 +-
- drivers/rtc/class.c                                |   3 +-
- drivers/s390/block/dasd.c                          |   2 +-
- drivers/scsi/BusLogic.c                            |   2 +-
- drivers/scsi/esas2r/esas2r.h                       |   2 +-
- drivers/scsi/esas2r/esas2r_ioctl.c                 |  48 ++-
- drivers/scsi/esas2r/esas2r_main.c                  |   3 +-
- drivers/scsi/ips.c                                 |   2 +-
- drivers/scsi/scsi_proc.c                           |  16 +-
- drivers/zorro/proc.c                               |   2 +-
- fs/cachefiles/xattr.c                              |   2 +-
- fs/devpts/inode.c                                  |   8 +-
- fs/ext4/file.c                                     |   6 +-
- fs/fhandle.c                                       |   5 +-
- fs/fs_struct.c                                     |  72 ++--
- fs/fuse/acl.c                                      |   9 +
- fs/fuse/inode.c                                    |   6 +
- fs/iomap/buffered-io.c                             |   2 +-
- fs/kernfs/dir.c                                    |  12 +-
- fs/lockd/procfs.c                                  |   2 +-
- fs/namei.c                                         |   4 +-
- fs/namespace.c                                     |  31 +-
- fs/nfs/super.c                                     |   2 +
- fs/ntfs3/super.c                                   |  11 +-
- fs/pipe.c                                          |   4 +-
- fs/posix_acl.c                                     |   3 +-
- fs/proc/generic.c                                  | 164 +++++++--
- fs/proc/inode.c                                    |  38 +-
- fs/proc/internal.h                                 |   1 +
- fs/proc/proc_net.c                                 |  10 +
- fs/proc/proc_sysctl.c                              | 394 ++++++++++++++-------
- fs/proc/root.c                                     |   1 +
- fs/proc/vmcore.c                                   |   5 +
- fs/stat.c                                          |  11 +-
- fs/xattr.c                                         |  10 +-
- include/linux/fs.h                                 |   2 +
- include/linux/fs/super_types.h                     |   1 +
- include/linux/ns/ns_common_types.h                 |   2 +
- include/linux/ns_common.h                          |  20 +-
- include/linux/sunrpc/cache.h                       |   1 -
- kernel/exit.c                                      |   2 +-
- kernel/fork.c                                      |  10 +-
- kernel/nscommon.c                                  |   9 +-
- kernel/profile.c                                   |   8 +-
- kernel/sched/psi.c                                 |   4 +-
- kernel/signal.c                                    |   3 +-
- lib/iov_iter.c                                     |   9 +-
- mm/shmem.c                                         |   2 +-
- net/core/pktgen.c                                  | 115 ++++--
- net/sunrpc/cache.c                                 |  12 +-
- sound/core/info.c                                  |   5 +
- sound/isa/es18xx.c                                 |   6 +-
- sound/pci/cs46xx/cs46xx_lib.c                      |   2 +-
- tools/testing/selftests/proc/.gitignore            |   4 +
- tools/testing/selftests/proc/Makefile              |   4 +
- tools/testing/selftests/proc/config                |   9 +
- tools/testing/selftests/proc/proc-readdir-churn.c  | 333 +++++++++++++++++
- .../selftests/proc/proc-remove-slow-readlink.c     | 191 ++++++++++
- .../selftests/proc/proc-remove-slow-sysctl.c       | 215 +++++++++++
- .../selftests/proc/proc-sysctl-readdir-churn.c     | 152 ++++++++
- 73 files changed, 1740 insertions(+), 411 deletions(-)
- create mode 100644 tools/testing/selftests/proc/proc-readdir-churn.c
- create mode 100644 tools/testing/selftests/proc/proc-remove-slow-readlink.c
- create mode 100644 tools/testing/selftests/proc/proc-remove-slow-sysctl.c
- create mode 100644 tools/testing/selftests/proc/proc-sysctl-readdir-churn.c
+X-Proofpoint-GUID: crt81EapdHYEbURfAgJ9fan49_Imfp2m
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIyMDA1OCBTYWx0ZWRfX819zAjvEBf2+
+ D1XJzHs3bm9POCL1sIwUVAmw+tXsuakkQL0uVT5QrhjQmfHoj3cQ2aNTByy8YbGXL3KXvYQSdmE
+ ZjE9jLR7X3LoWfc5wKIeTdbsMk8n5zE=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIyMDA1OCBTYWx0ZWRfXxpIIfzGUmBQZ
+ Md6P1H/UwrhH7tVy8bd3DF3H+eFHINSygjSqjkMgUssSU2RFtkjl07ocpoeCf5F3W1egoKrgUXr
+ fF1rNScU7f+DmUvU2xzJuV+oQC6R68rxiyGqekWwpphWcYsb7qorXNgyVjmm9b0wG4tmWGsGYji
+ Y4051YKTzXBa9tG9hnTGALlXL3yM66fYURmyABCN3YcXPC39wT+ILoIRsAXMkg8IRMU+vcvDTAo
+ bG9TmrcpbYRCJaokcy6EB8xBmHd2chOhblX1+njSLMZtHB9pE7J2UTuzQ1lhv0Pd4v6n18WB/u7
+ GwiCgxGCQyjXePwazsBJxuWOY7kBg/n3nTnG4BwCOdrsxfzbkIU76i3PuPqXik=
+X-Authority-Info-Out: v=2.4 cv=CqIq4X4D c=1 sm=1 tr=0 ts=6b02ff7d
+ cx=c_apl:c_pps:t_out a=oyWFxbOnq+dmhQrAPgaJYA==:117
+ a=oyWFxbOnq+dmhQrAPgaJYA==:17 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=EYaFdmsEC1CjpenOt5ir:22 a=5dLkQmbtQYkJk1E8iZFh:22 a=VwQbUJbxAAAA:8
+ a=Y3k0dO8rAAAA:8 a=lAgNKBcoAAAA:8 a=kcNRxDtnd2coJggxobkA:9
+ a=Vsd_HAn_fMcgZoXZC4y2:22 a=drE6d5tx1tjNRBs8zHOc:22
+X-Proofpoint-ORIG-GUID: crt81EapdHYEbURfAgJ9fan49_Imfp2m
+X-JNJ: AAAAAAAB1EmmsLY5XstglhZZI6B3Jg2nMJCtt4Vq6zosA+6FzznV1VgiwvkyPVcfDctagn
+ 38TSs2VAX2M8DtuXpJlFUtPp094p7Pib4NppKrDSJOd4oV3K3wRW0aCsnnY0i3zTArF6zI
+ p1zH9pEy0YGu+iejC9nDXzsYN8PD9W0QNiauhq8lz9vIkL8s8REp8hhyEm1qJAyX7T2p/8
+ IKdpFovbbnSZMo8QbP4uCm4nDLVyUxBP252ttOtbbKsdVAXRir4N7zayknNNLApP3Oux9n
+ GG0kcj6jpjZfEW1zJbjEFfYPP1PpeTajnrx5osnTCCBX642HqhEC9XgmThoIs33dXgUbRo
+ /8a7x6I4HdBrR2uWA5jWAmxTMgNcJnLZ4sVq7GnErXbycBac1zrYEdo34fyBJF+U/E95Et
+ zJgGoN3sKZv/iYlodn0Yvy9n1YKvwxh42Mj2N/BvR+cRQOIWZG7dqemyZn/BtlX/+qtbdI
+ WhV+EaAFwN/SJ004ATS2pApnDrsKmlEBXZnBMMCDj2AALL/rt3NDRpVDjrnVg4EdKsAtH6
+ o2HMmC/lNBFRk+eRrBsK3a2T9rzO4fubz5+E1Pv9UlsSulMkfG3lWH6e34HbNqjTExYGcn
+ NPlFQVrTTqossUfEY9olpmpioqF2h8/qmu9u3lp2w0SwFpV0cd6jTbdOcDWmDnKkDF0VfB
+ yA9o7cRmPD1ekXmgunYzNFe30VQLKHDgMWD/Z8S7IHU/N0WTU2hRi62w8RYkG9whdR9hEj
+ IFaAJ1FUOoZjVDfwKFV6cf1qhnT+iHRj3AsEm7pIoiqOuOWxMcrJMMj3CKyfuoSWq4NHyS
+ r0QdisR2MHvjOvwqjCctELa+UtlAfS0Fgc8hlBHZSSmFIoS7o+OD2TBGD/pyXrcWLqz6Oz
+ EiHU5KRhvdzn3Q7cenHi9cXcsRaTuIqckBV9fb7lkvIjIJOvfTcE2ObrGZHpAlatNzClDY
+ 6RV0lYrJ8ya7abrjVxQea7OvwsxHlJ2D5K88FO4bM40c86ihTjr5akk4sXSJ2YpQm6BciS
+ MTjJv0zPVMYurjnzcbgw4Xmo6GBjInXPR8hDY9ODyLPxrrA2pUf9XKnfNA79W+0E0u4tp5
+ 3k+Cr0JvZY+j72hHe/eoHlqVtBweNhcEPs/7ElcfbIGlFv+Ig7ER3dbjjzf9T2dX9msLA4
+ EUkahhuSBeBCnm8jjL7CP32jqOr3V3fkfbIXcjoKdQQGncJRLDAISt0FAK75wNbYGiWmJY
+ 1FE/ETr6Dqg4VV2H4NM9Db8jSm4eEAc5DZK/9s9xVt+xsNRLA4aO7KAJXG5sq2JywRtSmQ
+ ==
+
+Hi Konstantin,
+
+Could one of the two fixes (mine or Senjin's [1]) go into your next
+fixes pull? It silently produces zero-filled copies of WOF compressed
+files, and Thorsten listed it as a stalled regression [2].
+
+[1] https://lore.kernel.org/ntfs3/6adc95fc26efdd1658b01fc5@mailersend.net/
+[2] https://lore.kernel.org/regressions/f03086b6-7fb1-4b52-859e-78cd52c9177d@leemhuis.info/
+
+Thanks,
+Marcin
