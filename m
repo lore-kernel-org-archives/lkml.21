@@ -1,56 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795360161;
-	b=5JfKXu6BiWc7Ms2ymVGZsrwrxxZO8WwNxfZBZSnAf4QUw/6AiKxoaOzIjvuRDDCidW6y
-	 XGB+p6++ZpHdrLP/YJnw9K9ljcOgXtEb9T8lWVaBNViJt4u2AzABAtJRHYYWtjPk6J/C8
-	 I9CPvpBAhmLbRg3m8OcZ9xA8neQA5Ioz+D6byRgZ2YYO0ULRoAON1P3CJ+oBW9UFHUtvm
-	 5sjRFbKAbnSTemwi1DyhEau4oiGGAwyQwY3lDtgvm0rT+4ljhqaHvW9qunkvTLaw4VUTr
-	 FnnKo5gFop3NXhTcqT8nsykft/uzsJfVLhQ+5mYiKgFTErYmdPyuNIBxKpDNGpsmj2w==
+	t=1795360199;
+	b=yuxqgxI61Pin12Pjat0ZGx2fiCM2Uy7S0Q6ys2X6azmKf/ISOq2GF8xBaUOBfdY+vMW7
+	 btT6arkHnF4TKuUOoCaK0DCqPsOFdk2DIfIRa5harbz+HATNXOc2885sfkg5C+NZMI6jO
+	 XgONN4QlSJlrTcAfdjfO6YlGrbZtLS3mrwzu85ajGPcLzI/l1K79OnyqHr4koSZ2h2JDX
+	 hrV0p4mON1Sm5EVj/z/ZLf80CaE2e/mojNI3t8mBoFF3EaboXVWe0mISnBrCazeDMAt3M
+	 tB8ppFs3oN8DDPC8m1MzPMhZMBX2AaQg11IjRm3R7DH8uPbO937o3JfTQ+lEQzIJ2+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795360161;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=fGRP4ZEA/eMYONMqdp0IkhxFYkY1qGTHoTvubr2aiNo=;
-	b=yyroXFvBtYVE5GSwguX1RS2K1NvNcZr8kQNKXQ4LIYDzTTOG6qc7omQwpa01UCe6joxs
-	 XDs1fCy8mASfIy+Ps5cRP3NSfUlknZ5DLJPfLf4U8KAxKzJkZViK+fyLTsYqLXkSExGfZ
-	 NUKirQLUT+l3o6gbVj8qm8u+4/gVqRNz64qorf3oGxIVHgvG5RMcasC713w3g8/Cum3Yk
-	 fHI3kpFIUXwNPkLYKueZ8KHEPGfeaP6sGcv4NBj1azgRTlb1Qf1jvNsKK35KpFpWuJtLp
-	 mp+hFde5UsM5sm3x1G7ADJDCcetjBP7bktzD83AlhtmoYxQa4RCbB1xoZrmGJQs53Zg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795360199;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=vZeJ151erQY6V166IfiHzHXqBCEL5A2S1Gcx7AJ03+s=;
+	b=qqEMh7pspxk/D3hHYoKSvdlcnDd9oFFdooj5Iz2slkLdNixk/9+9si1Wz5AP1QCdBSAT
+	 8CBC7IB5IC9oq4niOp6ZgjeNFmyNsIHhacIfvz4ByFOhTEezdxN4YmSfnVfJL6SgHQ/jG
+	 ITsebUghMQNQB3gjoU5R2PkpKlNn38tNY8qAcJ89WNEZB64TV4wAiirBNUKfxflK+JmzE
+	 XM0pNVxh3Csc/aLc80g2HLNC6XsWEwnrNqDu1PeQGjpH2/rBLaD/UhT8IRuXkP6RyWVGc
+	 iRadX+feqjUqMtyi4VDxPl19KSo2iDWE7c5+/WAAIWrnw78BX73g73lD4XfCax0+9Mw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="K09Hn/Yj";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=ideasonboard.com;
+	spf=pass smtp.mailfrom=ideasonboard.com;
+	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=dWk5wVF+;
+	arc=none smtp.remote-ip=213.167.242.64
+Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 361AD606A320;
-	Sun, 22 Nov 2026 15:09:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4983D606A320;
+	Sun, 22 Nov 2026 15:09:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4983D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K09Hn/Yj
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D354E1F000CA;
-	Sun, 22 Nov 2026 15:09:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795360160;
-	bh=fGRP4ZEA/eMYONMqdp0IkhxFYkY1qGTHoTvubr2aiNo=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=K09Hn/YjFtMdlXpCcvOb4HvgL8oX/6eq4SPRGvom64piUWUDll6poXRF9fyq1c6lM
-	 YUFoWrtxBVZPmFkmHZ1nZZ7KMh5EbX5ZvMOV2EVZUBNwlxTuz8WYpahTsYgoy5ymNa
-	 DBjoljrEHCg3QgnsiqByFXSmUDQW4JzOwMj5fJCBOY40jeRVinQax62Ox2IvajINje
-	 ZZR+GIrhmG3SfS2Due4xP35eqw8i5GsP49iiLoH1vQ1VFlbWqTLsg6gQeAFq+tMQaQ
-	 x3Qw3JVS/7Flym2EiZROzb1FfIUmYiQnp1LGm2M88E+m0RpgZ/jy4zl+GQT4iH+YMJ
-	 wU/I6w7ni7hpQ==
-From: Leon Romanovsky <leon@kernel.org>
-To: Zhu Yanjun <zyjzyj2000@gmail.com>, 
- Andrew Stellman <astellman@stellman-greene.com>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>, linux-rdma@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261119151327.95446-1-astellman@stellman-greene.com>
-References: <20261119151327.95446-1-astellman@stellman-greene.com>
-Subject: Re: [PATCH rdma-next] RDMA/rxe: Fix NULL dereference when
- invalidating an unbound MW
-Message-Id: <179536015761.284370.349418730536231669.b4-ty@kernel.org>
-Date: Sun, 22 Nov 2026 10:09:17 -0500
+	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=dWk5wVF+
+Received: from killaraus.ideasonboard.com (2001-14ba-7086-3000--a06.rev.dnainternet.fi [IPv6:2001:14ba:7086:3000::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4F6BF177;
+	Sun, 22 Nov 2026 16:07:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1795360038;
+	bh=IMRAy5bUasbpD/Tw7zcQxXeVbhBdEkFoZeMY9+96wKQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dWk5wVF+6fLHQBBzxh8b2SS8ij5qaN6OUs6mMgqr5B56aWY/s8wpt4WGX6K5RokYX
+	 YetOQSn/qU3V41NW6+zsFVBBquu+Wf2EV61tExw2fhKOBFkLcWcAUeoPycSmgCVhy7
+	 dM165WjS6P2F6oQMPZOEbbMXDZ5ydXwQnm5mmVkQ=
+Date: Sun, 22 Nov 2026 17:09:48 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Sandy Huang <hjc@rock-chips.com>,
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andyshrk@163.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Damon Ding <damon.ding@rock-chips.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Alexey Charkov <alchark@flipper.net>,
+	dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	kernel@collabora.com, linux-arm-kernel@lists.infradead.org,
+	Sashiko <sashiko-bot@kernel.org>,
+	Igor Paunovic <royalnet026@gmail.com>
+Subject: Re: [PATCH v12 06/23] drm/bridge: synopsys: dw-dp: Fix AUX transfer
+ timeout race condition
+Message-ID: <20261122150948.GA2881876@killaraus.ideasonboard.com>
+References: <20261114-synopsys-dw-dp-improvements-v12-0-d42d3dc5bdd4@collabora.com>
+ <20261114-synopsys-dw-dp-improvements-v12-6-d42d3dc5bdd4@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,27 +86,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-18f8f
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261114-synopsys-dw-dp-improvements-v12-6-d42d3dc5bdd4@collabora.com>
 
-
-On Thu, 19 Nov 2026 10:13:27 -0500, Andrew Stellman wrote:
-> A type 2 memory window has no QP or MR attached while it is in
-> RXE_MW_STATE_FREE, which is its state after it is allocated and again
-> after it is invalidated. rxe_check_invalidate_mw() rejects
-> RXE_MW_STATE_INVALID but not RXE_MW_STATE_FREE, so invalidating a FREE
-> window reaches rxe_do_invalidate_mw(), which dereferences the NULL
-> mw->qp and mw->mr.
+On Sat, Nov 14, 2026 at 06:00:39AM +0100, Sebastian Reichel wrote:
+> The DP AUX transfer method uses a completion triggered by an interrupt,
+> which can timeout. If the function runs into the timeout and the
+> interrupt fires afterwards, the following DP aux transfer completion
+> would trigger immediately without waiting for the interrupt. This in
+> turn means the next one would also be broken and so on.
 > 
-> [...]
+> Fix this potential issue by re-initializing the completion directly
+> before sending the AUX command.
+> 
+> As this is racy (the interrupt might arrive between the completion
+> re-init and the new command being programmed), also reset the AUX
+> controller on timeouts and synchronize pending interrupts to guarantee
+> that there are no pending AUX transfers when the dw_dp_aux_transfer()
+> returns.
+> 
+> Due to lack of a sink, which generates AUX timeouts, this change is
+> effectively untested.
+> 
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Fixes: 86eecc3a9c2e ("drm/bridge: synopsys: Add DW DPTX Controller support library")
+> Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5+
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+>  drivers/gpu/drm/bridge/synopsys/dw-dp.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+> index 7351b70bdac9..df0b98cbbaab 100644
+> --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+> +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+> @@ -1465,6 +1465,8 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,
+>  	if (WARN_ON(msg->size > 16))
+>  		return -E2BIG;
+>  
+> +	reinit_completion(&dp->complete);
+> +
+>  	switch (msg->request & ~DP_AUX_I2C_MOT) {
+>  	case DP_AUX_NATIVE_WRITE:
+>  	case DP_AUX_I2C_WRITE:
+> @@ -1491,6 +1493,12 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,
+>  	status = wait_for_completion_timeout(&dp->complete, timeout);
+>  	if (!status) {
+>  		dev_err(dp->dev, "timeout waiting for AUX reply\n");
+> +		regmap_update_bits(dp->regmap, DW_DP_SOFT_RESET_CTRL,
+> +				   AUX_RESET, FIELD_PREP(AUX_RESET, 1));
 
-Applied, thanks!
+As this is just one bit, I'd find
 
-[1/1] RDMA/rxe: Fix NULL dereference when invalidating an unbound MW
-      https://git.kernel.org/rdma/rdma/c/4075ceed67949f
+		regmap_update_bits(dp->regmap, DW_DP_SOFT_RESET_CTRL,
+				   AUX_RESET, AUX_RESET);
 
-Best regards,
+more readable. Same below with s/AUX_RESET);/);0/. Up to you.
+
+> +		usleep_range(10, 20);
+
+fsleep() uses udelay() for delays up to 10µs included. Is there a
+particular reason to sleep ?
+
+Please also document somewhere (the commit message is fine) where the
+value of the delay comes from.
+
+> +		regmap_update_bits(dp->regmap, DW_DP_SOFT_RESET_CTRL,
+> +				   AUX_RESET, FIELD_PREP(AUX_RESET, 0));
+> +		synchronize_irq(dp->irq);
+>  		return -ETIMEDOUT;
+>  	}
+>  
+
 -- 
-Leon Romanovsky <leon@kernel.org>
+Regards,
 
+Laurent Pinchart
