@@ -1,97 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795356637;
-	b=cuv82duCawUThWn83SjRlGGe3CKNp+xuApkHkr1r/5LBa0kq5KPfd9tTue3uyvFyeE7/
-	 gQTi0FW6KyUd5EvFqnyWQk41I5kD2RoWOZIt5rJGR2TUe0sweR4dKFCGAs3wcj1wzKCtN
-	 kdZb2RMx1n+BEksUVTexwS/hXYvr1MDy92006J7uLbmfGCO1q99k2oDdKycKRal97EHDX
-	 +S3QjP6Z4Fnd6Zpr4rWLC1+BLgQbV6SSzwZCQSH9d0YNfCO8ranS5ZzprSM8L++65t0MC
-	 QhrC3IcRCIa14tEd4XPGApDXIykdBjZgkXx2l4t3o2Ti+ibG6tj5+ZpJpdDeXC7Poww==
+	t=1795356686;
+	b=nb9v/o1c75/GEBQ7AYx4nCfce8/O4HNWIVufYf3+EIi4rKimLkQmL1/Tj8bmfgnl/uLr
+	 m1ZwPoUlUcDFnDCKApShH9KJxG79Cf2uIcTkrgqlcfF8R0B2b+NQxrvCX+14QHdjO42GD
+	 0JVRFae+tH2819FqHustB9yqGFeaSZEeollvPvt5oaqKTq2AJDe9y7lDDyDalrApNkMTj
+	 OVDWkVKmhdaAkP1mFKudFOus9KTemXd7zGzvfwrPZcFPLSWEVLDFDFspTdvjiO6V9NVNW
+	 +4eQ3acADG8M3uvjs+N55xZNQFCSTIgpo65Iv38tIJHcb76ZUarzfGv5k+WVDEAIJ7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795356637;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795356686;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=G2t3hxnV5uVy/7NIAyuXsI6XhgVjpyjdFNofy9ee7Uc=;
-	b=t+re/RfoaCTANZveHFEIomXrtMn9prqSM8kWUAk2O1n5ftNCC6Z8S+UA0mBGaiS2pHQH
-	 sdqFniscz7xvEhMGclsziwoS1Q7YBfFB7xbizq9QuUxH1EeU5VmsZxe/z/bPeb5uAbZkY
-	 DL8jg5v3Ids2ztqLnFW56DHHD448dFK7f7FquTaXMExurALa9FiJB5ZuShSfK5uVRHHXJ
-	 lybzDQZgv1nhq17WmV1a7GfxBJErjfF2CkcLnuBiB+WnyZ8rXgkxjzLvlvVF1Fos2NWp2
-	 WVpBtPAFNExrGgwT+TVt75YpdhbEHtxStGKtdqUtwQPF8wYvEXaMadI2Yr9Tsk6A/OA==
+	bh=BIj6cyIw7o0lExSO+WDhODX0VMmE4esj3iFVgOr+pe0=;
+	b=NKF5Ox/ikWHzo3T+1QHSYe38KCzDT5IYCjG280bT+AU4kjRNR2Y8QCpI8MKD2R4uqp+j
+	 651Cs2HwTOL1PLEX2XZTWWJLvDHtIpk//eR6Ao6aWoNds2aNEPogNHC4WqSn3rn4qqcvZ
+	 quPfatUgfUJKhoNdYLkorESEim/U/aPgBQRhqARvEOHL3R+YlKyD1NbxbTCC58fJfaKty
+	 jKyttg5FVnKqJtUZW3tiaJPj2bhOgXeOhRLtceOp6Zpng5W9drfTdOTQGCHikqpzLkpco
+	 ryYz8EC5Is07gOqa4feXGywPTF0c5RN7AXBPX6iRxkgnlgvbbwId5C5aJfqG46vAZRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fkk1t2V9;
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0jwGHOWZ;
+	arc=none smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EE3E606A330
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 14:10:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3EE3E606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C340606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 14:11:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C340606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fkk1t2V9
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-491846221ffso1986314f8f.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 06:10:37 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0jwGHOWZ
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a5177d78c7so22860655e9.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 06:11:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795356635; x=1795961435; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795356683; x=1795961483; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=G2t3hxnV5uVy/7NIAyuXsI6XhgVjpyjdFNofy9ee7Uc=;
-        b=fkk1t2V9Erpsz7v+sqd/JEeADrGC0TCv7P9P5QuI4HlobXL3O/Y789uxXBOSnAw+Xn
-         464D2fnMU782wbYC6AOR6cpMk5+9qsaPCMTBEZjofxgPJ42BJCbYY4oZBNW5AKZzvhKm
-         YqXs3MVYIpjutpTdCBhuGq+r9q9/H//RVDLjN5gzX1C6vRP0ErhaI/5JSRD70EMP844f
-         4cxMGZH0bueGw7vQnmH7CwHg9jQpvdiUL10NpH8YdbrMykgM7RSVqIBewGqGTRqsIunB
-         molkHf0PsOYJvLqLWnC3MAtoHXBYEdBdWxIUsIx7h+CBeKa1cJLYWfxSZvUBEc+UtV0k
-         PNbw==
+        bh=BIj6cyIw7o0lExSO+WDhODX0VMmE4esj3iFVgOr+pe0=;
+        b=0jwGHOWZzEH0X56ysrOq2ZRHO+PYe11rMwhSGBf1pIASjoH+nSlcg8ZP444CZ9NwOn
+         GyStv+ZRWbk1CJPl2sT85laMv45SqTG5H11tF3DQSDWLM+EYHhJL4NwhXuTQPe+H7pkP
+         k3K4FibB9lpXKKLaO5B/5UufmGOLaO9ZbcegBYvmdTNJnyyRMVChxj5ECuma34nvAq9S
+         3k7uNIMqmedlHHVFhHElk5Q00hlJN4YORg9XSaq/xb8UGRNlFr2/XAx/ULtxkS3QplkQ
+         kFOj8cGIwmWg2ImknTZOqILS3GuX69YR+diaX365X6j35JUBAhEAzR6Z0947BIkY/QrM
+         fXGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795356635; x=1795961435;
+        d=1e100.net; s=20260707; t=1795356683; x=1795961483;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=G2t3hxnV5uVy/7NIAyuXsI6XhgVjpyjdFNofy9ee7Uc=;
-        b=vzCOuV2gUwQ1gnfAHaYD4mBZiK1VQKSoxm7MWox1Jx8aPzQ57kzsn+DmA/ZBUAtwDc
-         a+Yjasl8hmH9OkaqKDMHMBAfYiwI8lXkXstm4yipUudiNqD2/ZBtyYP6ZuA+xiL6Fyog
-         L6m0nfLwgmpIv/tWgnVfqRsy737MLcrNWsIIQ9P7mlwoKUEwETaltFtyWkh5ftfWlTQL
-         ZOaCK/icj3AVueunWmPS2gfm0DbV4HHAtPojAP0SAn+Nf7XBqkXP8KWskoKwlibvAM57
-         0v54lKpfH63BFbXc64azej0rzCB+5gj1YUDHb2EZDVVCcj4KLYDvFA1C+JjbUHFAvZQp
-         BHbQ==
-X-Forwarded-Encrypted: i=1; AL+hErFyNeyNJoEZB8Omj+THeHo3uEX0yAtcUMXuXt3BvyBwF/LBqDZzDjZdLgQJ8zg6uu8MFtfB64WWxDfVZa0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8RQG0d7JXoVC/4TSa8mcZeCTrpHo2u529QuauZzwe2fPGL91Vb
-	ezthMokd2/RQn/4Dwc+o+U/yEhXjm0gzLPiU/0i8Hf1aEkfA4HYdo16eERnfCw==
-X-Gm-Gg: AZFdTZf2n0hQ3mQknMdqZ9YeFw+xn7Bat9zFjVtiJNzUAwrh4EUwaJTqtxSzlHRYPjS
-	SaoqIslhARZ+cw4ExkYhbR9ZUn6jnbxIJgjSptmLo7ibW+iRHwU5IZHsLCbD5tKprH8rnyvbiUK
-	dz2ybSwdSdFmEK71GUYgqhCrhVixexQFEsVaXi1hLZ/oQxDfLtSr9Op/++kAzBzcCtPQU5pGyAX
-	vurGrLTHyO6sgPGJDCyAFEs+bp5J4NIZvYfv877vEI43dpPaHs8pwR7WAEt5cFvdKkIsZJGkFR0
-	iGZiOGXah0/vBe6ADfVNuwdiqk8JRcNVEq0SeYpCs+FyPogyjO+Qkxwh6K6x6wE1bzSx28GsELF
-	eUAYOCVPOnlOG9gHZ4ZsjYxOxiJxkZtvf6HUCu+vTzmQd/64BxFtcTrNkGAzWZTDvhj9wu8HTj9
-	GNHH8z4qZvGT3K4QFqjUY2MHrhf2lvz61BoZNuKMmTAME0oFUnTfmACDxK+3c4F0a718SqXRmFe
-	qlKutjUuWor1/EuAY86OtSLC9UhHi5SHMyx7tc+4b05Od8wj4n6Xuie2cnMQ+CnCgcGauksUIJR
-	+JNw+7SCaDKyJFmLOawd5C5926wcYT5EHdbVF4DhOtxELMdwUuc/YtukImgIVmJmCXyfb2ZvIvI
-	aV19nB9pslGwNKWfDJTRceVicbRN7iLXOJ/m+OhiKNyTJkHrVuufMEFRpLf12VCcD8t+QzJQv8A
-	hVZ72BwispEphgUKWGODve+XCfYTm1Eeeql0HEd4/51uPzd8FxZ9vIGM8s7TyI+y//gL0hgXWRz
-	NLYaKye37xtngz7jA==
-X-Received: by 2002:a05:6000:1a8b:b0:48d:ed0a:e064 with SMTP id ffacd0b85a97d-4abb27274dcmr17739295f8f.24.1795356635492;
-        Sun, 22 Nov 2026 06:10:35 -0800 (PST)
+        bh=BIj6cyIw7o0lExSO+WDhODX0VMmE4esj3iFVgOr+pe0=;
+        b=e4JHP9YMeDJhdNlz232aFHYqp6395hyDz/cTFbHCuc8ZEEYylVPRKGByxUB4Q0cPks
+         2QJwwt3R3GBHJOU/Ok+uTlEHSzkrZTefo/jW7HkW/JMd3x3GqA3Q2/8tLWkrdcvospSo
+         VBv1BjxEqwwsmn82y/CMp6Do11O6wTYTngrktvay3/wZmqn9q8UGltOznQ+3afR/Hi55
+         PTMqM4aO0IJlxTido6bhyfhDLB5IS7yilvxVeibKxeD2+3hQiSlZnkehKhjL8z460ohn
+         yRT9ztvu9MP7DOyllXh570bAoL3H5EtitPbDusUX6R8E+X/alpn4RfT3ANZoda72l0cS
+         J+ZQ==
+X-Forwarded-Encrypted: i=1; AL+hErGraak97Pjy4dCisIIWTsbGyHPTaN0uWI8khUzk8GNc0XBEHT89bQ/xaXsBTlm9zA5ZZDNz/MQw1zPtl4Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Ay9j8xFXSv2cnv0yZLYT+vnhWZNqSLTf1w5jdGKWbQDDLqejK
+	TSL98IYpoggygItjNJWFggTN+lQixlGWzjvLZPkAx6+J2A7Soo5p7RNW
+X-Gm-Gg: AZFdTZePRSsV0IqGROln5WwUsdZqcL6paARZFGNxxFwYGTj3e47RizLM1WLpoOsbV1m
+	VIe/O1fuP64hFbtwmS75MS/kOTABNQKqShs5zg1K8KumtmbcJKlRR7teno5bTATcyzHJqhlCLQA
+	YevVVF3ciIwwcRfdt3ZIW1VPUx3tvcRhbOIn5JTlu9Kd55KFbpuS/QwgqayAV0YLYj/wcD5t7hI
+	c9dR/QHHTFRPv1YqKQUGJ9wl6x986Adggm6mWOPzGAvnW1qC6Fjmlt7eQVlhP7a9my5n71NcZxz
+	Bvod771uOUz7Eu2JxrJ2NSi+tcqv0PbUvxV5HxVybRsCdn/R2RIQNL1HEcOkN5yZbrCP8tJblrG
+	XQtHmbh53FExjE4X3xP3Lscwrvyk86ViypLTzcFiBKXHhIb/GDyGVso5yGxno8EWJWoN04X+t2q
+	R23+uafFqFJEkfNol8GJzJStETAFsiQX6+9iyxHIiASs+cvBvBpfRDQZ48ztR4NIffekcj6FQvs
+	q3ukhWXvHMSsbctVQF3wYF0iTP2x+JrmevRLFJ770/AzMDavM45x8WtRX6UAGY0BD9eUxMBYUqQ
+	7eKAPvvUYj0uWlUUMsJMB1hwO+5ucRcCZrqrEoigwxqQgiJ/6NGuyRTihvByrmpvGkqsZUhB6qt
+	EOl6mUGb/FV70GReCuj68Kw9e7d5xX4W0RUdNXGCbt81gF0ptb/ql/67ISoqrq6UVQPod+tEZbY
+	LVzxVIAuDcXXTkYFR4Fwvs3Y/7wzb4+RQ2ZKZPcSZvwqHVIcGO7KDwwlLZtWwOO1bjTl7gdnTSv
+	i229hiUJlUyJIOW6y4yjGHezP8soc41ZfPXtos=
+X-Received: by 2002:a05:600d:4:b0:4bb:8898:a591 with SMTP id 5b1f17b1804b1-4bb8898a596mr170586435e9.15.1795356683525;
+        Sun, 22 Nov 2026 06:11:23 -0800 (PST)
 Received: from longitude (2a02-8434-fda5-4201-2025-a95f-1d53-595d.rev.sfr.net. [2a02:8434:fda5:4201:2025:a95f:1d53:595d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa397asm17242835f8f.48.2026.11.22.06.10.34
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8d4f9aa8sm217481385e9.4.2026.11.22.06.11.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 06:10:35 -0800 (PST)
+        Sun, 22 Nov 2026 06:11:23 -0800 (PST)
 From: Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
 To: mhiramat@kernel.org
 Cc: rostedt@goodmis.org,
 	linux-trace-kernel@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] tools/bootconfig: Reset the tracing CPU mask with --init
-Date: Sun, 22 Nov 2026 15:10:24 +0100
-Message-ID: <71818e9f5a5925054b04bee1a58b63c43ff02361.1795356623.git.edumucelli@gmail.com>
+Subject: [PATCH v2] tools/bootconfig: Preserve arrays starting with an empty value
+Date: Sun, 22 Nov 2026 15:11:14 +0100
+Message-ID: <e716b73c17e214705729996a0aa3bc45035a1a01.1795356673.git.edumucelli@gmail.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <undine-1795340207193471810-f6280e0e64aa2f7f@undined.local>
-References: <undine-1795340207193471810-f6280e0e64aa2f7f@undined.local>
+In-Reply-To: <undine-1795312940919368991-3e5277c17e0a1400@undined.local>
+References: <undine-1795312940919368991-3e5277c17e0a1400@undined.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,87 +103,102 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-bconf2ftrace.sh --init resets tracing before replay but leaves the old
-CPU mask in place. Replaying a configuration without a cpumask can then
-keep CPUs excluded by an earlier session.
+bootconfig -l treats an empty first value as a key without a value.
+When the value is an array, this drops every subsequent entry from the
+output. For example, 'key = "", "value"' is printed as 'key = ""'.
+Reading the list output back loses the second entry.
 
-Read the initial mask from a temporary trace instance and restore it
-during initialization. The mask comes from the replay machine. An
-explicit cpumask in the configuration is applied after the reset.
+Check for a child value node instead of checking the contents of the
+first string. This lets xbc_show_value() print all the array entries
+and keeps the existing output for keys without a value.
 
-Fixes: 5675fd4ef51f ("tools/bootconfig: Add --init option for bconf2ftrace.sh")
+Add tests for direct arrays, appended values, nested keys, empty
+scalars and keys without values. Exercise list output from both a
+configuration file and a test initrd.
+
+Fixes: e4f70b7badb4 ("tools/bootconfig: Add list option")
 Signed-off-by: Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
 ---
 Hi Masami,
 
-Thanks for pointing out the portability issue. I moved the reset to
---init. It reads the default mask from a fresh trace instance, so the
-replay uses the CPU mask of the machine it runs on.
-
-I checked --init and --apply with a tracefs fixture, including a
-multiword mask and an explicit mask in the input config.
+Thanks for catching the test issue. The plain-file and initrd cases now
+use the same original input and compare against a separate expected
+output file. I reran the bootconfig test suite on my Ubuntu machine.
 
 Thanks,
 Eduardo
 
 Changes in v2
-- Reset the CPU mask in initialize_ftrace() and preserve exporter behavior.
-- Restore the replay machine's default before applying config values.
+- Keep the input file intact for the initrd case.
+- Rebase onto the current bootconfig/fixes.
 
- tools/bootconfig/scripts/bconf2ftrace.sh |  2 +-
- tools/bootconfig/scripts/ftrace.sh       | 15 ++++++++++++++-
- 2 files changed, 15 insertions(+), 2 deletions(-)
+ tools/bootconfig/main.c             |  2 +-
+ tools/bootconfig/test-bootconfig.sh | 27 ++++++++++++++++++++++++++-
+ 2 files changed, 27 insertions(+), 2 deletions(-)
 
-diff --git a/tools/bootconfig/scripts/bconf2ftrace.sh b/tools/bootconfig/scripts/bconf2ftrace.sh
-index 6a3535a2c..f105c7433 100755
---- a/tools/bootconfig/scripts/bconf2ftrace.sh
-+++ b/tools/bootconfig/scripts/bconf2ftrace.sh
-@@ -64,7 +64,7 @@ fi
+diff --git a/tools/bootconfig/main.c b/tools/bootconfig/main.c
+index c32fb1e2140cf..256d2ba7523c8 100644
+--- a/tools/bootconfig/main.c
++++ b/tools/bootconfig/main.c
+@@ -170,7 +170,7 @@ static void xbc_show_list(void)
+ 			break;
+ 		}
+ 		printf("%s = ", key);
+-		if (!val || val[0] == '\0') {
++		if (!val || !xbc_node_get_child(leaf)) {
+ 			printf("\"\"\n");
+ 			continue;
+ 		}
+diff --git a/tools/bootconfig/test-bootconfig.sh b/tools/bootconfig/test-bootconfig.sh
+index a93a40d11d278..1f41ccd9ed3b2 100755
+--- a/tools/bootconfig/test-bootconfig.sh
++++ b/tools/bootconfig/test-bootconfig.sh
+@@ -14,10 +14,11 @@ ALIGN=4
+ INITRD=`mktemp ${TESTDIR}/initrd-XXXX`
+ TEMPCONF=`mktemp ${TESTDIR}/temp-XXXX.bconf`
+ OUTFILE=`mktemp ${TESTDIR}/tempout-XXXX`
++EXPECTED=`mktemp ${TESTDIR}/expected-XXXX`
+ NG=0
  
- if [ x"$INIT" != x ]; then
- 	. `dirname $0`/ftrace.sh
--	(cd $TRACEFS; initialize_ftrace)
-+	(cd "$TRACEFS" && initialize_ftrace) || exit 1
- fi
- 
- . `dirname $0`/xbc.sh
-diff --git a/tools/bootconfig/scripts/ftrace.sh b/tools/bootconfig/scripts/ftrace.sh
-index c2b993f8e..cf3b5b72e 100644
---- a/tools/bootconfig/scripts/ftrace.sh
-+++ b/tools/bootconfig/scripts/ftrace.sh
-@@ -86,10 +86,19 @@ clear_synthetic_events() { # reset all current synthetic events
-     done
+ cleanup() {
+-  rm -f $INITRD $TEMPCONF $OUTFILE
++  rm -f $INITRD $TEMPCONF $OUTFILE $EXPECTED
+   exit $NG
  }
  
-+default_tracing_cpumask() (
-+    # A new trace instance starts with all CPUs enabled in its mask.
-+    instance=$(mktemp -d instances/bootconfig-XXXXXX) || exit 1
-+    trap 'rmdir "$instance" || exit 1' EXIT
-+    trap 'exit 1' HUP INT TERM
-+    cat "$instance/tracing_cpumask"
-+)
+@@ -169,6 +170,30 @@ $BOOTCONF $INITRD > $TEMPCONF
+ cat $TEMPCONF
+ xpass grep \'\"string\"\' $TEMPCONF
+ 
++echo "List output preserves arrays starting with an empty value"
++cat > $TEMPCONF << EOF
++flag
++empty = ""
++array = "", "value", ""
++append = ""
++append += "value"
++nested.array = "", "value"
++EOF
++$BOOTCONF -l $TEMPCONF > $OUTFILE
++cat > $EXPECTED << EOF
++flag = ""
++empty = ""
++array = "", "value", ""
++append = "", "value"
++nested.array = "", "value"
++EOF
++xpass diff -u $EXPECTED $OUTFILE
 +
- initialize_ftrace() { # Reset ftrace to initial-state
- # As the initial state, ftrace will be set to nop tracer,
- # no events, no triggers, no filters, no function filters,
--# no probes, and tracing on.
-+# no probes, all CPUs, and tracing on.
-+    default_mask=$(default_tracing_cpumask) || return 1
-     disable_tracing
-     reset_tracer
-     reset_trigger
-@@ -106,5 +115,9 @@ initialize_ftrace() { # Reset ftrace to initial-state
-     [ -f synthetic_events ] && echo > synthetic_events
-     [ -f snapshot ] && echo 0 > snapshot
-     clear_trace
-+    if ! printf '%s\n' "$default_mask" > tracing_cpumask; then
-+        enable_tracing
-+        return 1
-+    fi
-     enable_tracing
- }
++echo "List output preserves empty array values in an initrd"
++xpass $BOOTCONF -a $TEMPCONF $INITRD
++$BOOTCONF -l $INITRD > $OUTFILE
++xpass diff -u $EXPECTED $OUTFILE
++
+ echo "Repeat same-key tree"
+ cat > $TEMPCONF << EOF
+ foo
 
-base-commit: 0ad31c3252d4c626a93ae6251340ef86b18342d0
+base-commit: 51934668ca98f1b23c51ce4edea3c61018da342c
 -- 
 2.53.0
 
