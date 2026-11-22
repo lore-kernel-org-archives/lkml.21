@@ -1,54 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795312943;
-	b=zwpXxz1sEYNdiG2M8KRcDzv+F12pb2imotW5rFfZrR9euDm2KE/op3l0sD3gI2rcjcex
-	 2CpLiozR+/ipYrMSRgv478i6fw47Upz0W8iP6eC0Ec6SP3zpjvzI6SQ41Ux1icU9Agexs
-	 gYD+5ZwoZEVsPHocHEsl1cyj2DoO93MT5cpAdX81ZU5y4fdksbyb4ZYWKcqQ48Ye57aFG
-	 R0s9cA1tf7V2RF8rCV+diWIVEE73aBEm/VSsLeF8kG5VmSQYtABuN+5ZteKaI0dN90Yj3
-	 5bTPtgw3bb9VOQfb+eH2589qB5XFMij0Qwb+KsATKAkYw4WYTbmqkECEd7whIX53wUg==
+	t=1795313014;
+	b=5mNEp/OOwzZld6bWqR/D2oQuNWRSynubPCZ8cedwZYALA5+gNrwCxahZ+URuh0lRn4Pd
+	 SU0COrqhPNrBU/U/Jn2wHoiNRTcoRNhPCz+dLtKEKt7xeq4FDXz7f0cuAhM0NXWcnNS/v
+	 j3BMExlhCAfs7DiV2kA6uKQIQWH/LUADeyWDgEqr3eC7t60/Pjqb3eYHDRil2fbG6DQT8
+	 60TMp8g2/U0NbT7wSwqZeT3kZFTLOiW5CFTlwlHyra6Pb9K6Htlg9GHzMvOi96ZcRVLgW
+	 K4Wk3fXHvnPQ9iia+1czyeIuMAxQSkVBtM0YCe/Bvknb3ejo64M7/OhuzL93r3u33KA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795312943;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=ES3d8QpSXIy79RgEWQdaKOViAuvjlt/ga+4tQr4jfDY=;
-	b=E9KjnbIXje2g5/GTt25fbNnBmfjv6WR14g6BOwjO0MjtppyqIHuphOI7rNq6hOV1l+vF
-	 7+UdF9p2B2PABJWyUiI9rbmnx9N0lVwU8v7C/c2y4LzOfw86P2SIr2Jaz5FO7ggwSffYS
-	 fJnGRlEQfuA4DPPBdtGjDVsOWRA+2/1PajLIU7Zzgy7zOd6FIdMmqjCSExrAxuZE1lBiw
-	 jvdcOxpwlQyhsGiy1ei3/GJ+Plfqk4x8uPOQYGnY/6KYBSCstKQuph4heGIdPJUZomvN2
-	 US1oC0MBMAUD7HdYDScNizm6yiplvHLfVJ4njKe5whED2WQdsidSt++Pc4KJqFe/caw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795313014;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:To:Cc:
+	 X-Mailer;
+	bh=JmQdp4UGb+4XNZjBkF8MFhkAgJLRWXap7M+W5jPNqT8=;
+	b=xS2A83Y+i5M3iMv/EAkZg9tHWh23S4mOYD2ueZGrZkF/U0b9z087JFyVWyc6jibNtQiD
+	 gtCFleGbEKRqn5IcBrnfSWY12Fv5C4w1eYp5uE1J9EZ4+V8N54KycEYMuvbeZ0x1O06Ir
+	 eKEcZJWAQBWES/hmdSZpPL3C3BqlmZihDTNg4l7t2UqDb8uU+lI/IEnrCMA/4UyoEKxqC
+	 gcLkL0PN4k4mAreWIipvu6CFD6JWifDptWSIrqtRnyPGhxkTtVJzMvWdmj6DQ9G82USy1
+	 Sk9Yes36IDpwTZyJXCEG+WkeLZ1a4ro/qutzWeFAX9XKx1wNCQqJkRkk8N607Qjn+Bw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c2vsYAkB;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=RQ0ccTkP;
+	arc=none smtp.remote-ip=95.215.58.55
+Received: from mta1.migadu.com (out-55.mta1.migadu.com [95.215.58.55])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E396606A320;
-	Sun, 22 Nov 2026 02:02:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61365606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:03:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61365606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c2vsYAkB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56C5F1F000C0;
-	Sun, 22 Nov 2026 02:02:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795312943;
-	bh=ES3d8QpSXIy79RgEWQdaKOViAuvjlt/ga+4tQr4jfDY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=c2vsYAkBULqjcDJcmA/Il26ZsD6sVKAviZtGhIC8QPQdWKa0InpSnzXPd+Wa0aiEF
-	 dM1ew/gyO9gN1Q3H3iYlhkpywjRIdxbIdGD8eTtCyvl88vVV1fUZV+uKcYX6MP+ClJ
-	 TTSVcOp4YGgTZD9Pm5OefpnaWym1lD/VZafniUPff4V4TxvzADTCe8dvj4m5LNcE8g
-	 8O2ydBcKOCSYMzFPX/TlX8Nx0/I3Q96gJXlQboFvPVGBhWH0dtdkjw1YrBJ69jH3X0
-	 Stfb1vx14g8ArJR4RcnMQYoZJIjTQKgOXhEe3MlTGuK2/kWQISM/V1CVBgQ4ZaMxjZ
-	 gSkEdtDvmCDFw==
-From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-To: Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
-Cc: rostedt@goodmis.org, linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] tools/bootconfig: Preserve arrays starting with an empty value
-Date: Sun, 22 Nov 2026 11:02:20 +0900
-Message-ID: <undine-1795312940919368991-3e5277c17e0a1400@undined.local>
-X-Mailer: UndineD 0.1
-In-Reply-To: <e40c6adf42ba4b90cd16d9ca955f38c6c4783eb1.1794956874.git.edumucelli@gmail.com>
-References: <e40c6adf42ba4b90cd16d9ca955f38c6c4783eb1.1794956874.git.edumucelli@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=RQ0ccTkP
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=QHMV94eY1Lw126QXv9qve/RmD9iTfi2UbMdXPwF6mRY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795313011; v=1; x=1795917811;
+ b=RQ0ccTkPmPlzWaaDJexHzOjTps52REn53hrZn7YZ2FbgDinXIxkQFhzppU+BtsWf9nP8Y0J6
+ LyyYWtKTR3pnBLkOjIOLVnid550tY9j3Ll/D6wAaeXESMK6S+JpKM9LmBsPzymw7oYw570lHB7a
+ bF/NXk3kuQjerLgrNBB2v/7k=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 55510332c1b80ae4;
+	Sun, 22 Nov 2026 02:03:31 +0000
+X-Mizu-Trace-ID: 55510332c1b80ae4
+X-Migadu-Flow: FLOW_OUT
+From: Qiliang Yuan <qiliang.yuan@linux.dev>
+Date: Sat, 21 Nov 2026 21:03:24 -0500
+Subject: [PATCH] perf/core: Skip cgroup attach IPIs while perf_sched_events
+ is disabled
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,106 +60,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261121-feat-perf-cgroup-attach-ipi-v1-1-a0e6d3cce8d1@linux.dev>
+X-B4-Tracking: v=1; b=H4sIAGtNAmsC/x3MSwqEMAwA0KtI1gZs/M14FXFR2lSz0ZJ2BkG8u
+ 8Xl27wLEqtwgqm6QPkvSY69wNQVuM3uK6P4YqCGBmOowcA2Y2QN6FY9fhFtztZtKFGQPtS1Y+8
+ 7/22hDFE5yPnu83LfD5HJGQVtAAAA
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ James Clark <james.clark@linaro.org>
+Cc: Tejun Heo <tj@kernel.org>, cgroups@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Qiliang Yuan <qiliang.yuan@linux.dev>
+X-Mailer: b4 0.13.0
 
-On Wed, 18 Nov 2026 00:07:57 +0100, Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com> wrote:
-> bootconfig -l treats an empty first value as a key without a value.
-> When the value is an array, this drops every subsequent entry from the
-> output. For example, 'key = "", "value"' is printed as 'key = ""'.
-> Reading the list output back loses the second entry.
-> 
-> Check for a child value node instead of checking the contents of the
-> first string. This lets xbc_show_value() print all the array entries
-> and keeps the existing output for keys without a value.
-> 
-> Add tests for direct arrays, appended values, nested keys, empty
-> scalars and keys without values. Exercise list output from both a
-> configuration file and a test initrd.
-> 
-> Fixes: e4f70b7badb4 ("tools/bootconfig: Add list option")
-> Signed-off-by: Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
-> ---
-> Hi Masami,
-> 
-> Thanks again for reviewing the earlier bootconfig fixes.
-> 
-> I tested the list output on my Ubuntu machine using plain bootconfig
-> files and a temporary initrd image. The two new output comparisons fail
-> on the original tool and pass with this change. The full bootconfig
-> test suite also passes with the patch applied.
+The perf_event controller is implicitly enabled on cgroup v2, so moving
+tasks to another cgroup calls perf_cgroup_attach(). For every migrated
+thread, it calls task_function_call(), which sends a synchronous IPI to
+the CPU the thread last ran on, so that a CPU counting cgroup events
+switches to the new cgroup if the thread is running there.
 
-Thanks, the fix itself looks good to me. However your test case looks a bit
-wrong.
+Without cgroup events, no CPU tracks a cgroup and perf_cgroup_switch()
+returns right away, yet every thread still costs an IPI. Moving a
+process with hundreds of threads, such as an inference server, then
+takes milliseconds, all with cgroup_threadgroup_rwsem held for writing,
+which blocks fork() and exit() on the whole system.
 
-> 
-> Thanks,
-> Eduardo
-> 
->  tools/bootconfig/main.c             |  2 +-
->  tools/bootconfig/test-bootconfig.sh | 24 ++++++++++++++++++++++++
->  2 files changed, 25 insertions(+), 1 deletion(-)
-> 
-> diff --git a/tools/bootconfig/main.c b/tools/bootconfig/main.c
-> index d3f840c5adce..b189ca0935b9 100644
-> --- a/tools/bootconfig/main.c
-> +++ b/tools/bootconfig/main.c
-> @@ -170,7 +170,7 @@ static void xbc_show_list(void)
->  			break;
->  		}
->  		printf("%s = ", key);
-> -		if (!val || val[0] == '\0') {
-> +		if (!val || !xbc_node_get_child(leaf)) {
->  			printf("\"\"\n");
->  			continue;
->  		}
-> diff --git a/tools/bootconfig/test-bootconfig.sh b/tools/bootconfig/test-bootconfig.sh
-> index f584f7637e12..85d56b7e4ac7 100755
-> --- a/tools/bootconfig/test-bootconfig.sh
-> +++ b/tools/bootconfig/test-bootconfig.sh
-> @@ -156,6 +156,30 @@ $BOOTCONF $INITRD > $TEMPCONF
->  cat $TEMPCONF
->  xpass grep \'\"string\"\' $TEMPCONF
->  
-> +echo "List output preserves arrays starting with an empty value"
-> +cat > $TEMPCONF << EOF
-> +flag
-> +empty = ""
-> +array = "", "value", ""
-> +append = ""
-> +append += "value"
-> +nested.array = "", "value"
-> +EOF
-> +$BOOTCONF -l $TEMPCONF > $OUTFILE
-> +cat > $TEMPCONF << EOF
-> +flag = ""
-> +empty = ""
-> +array = "", "value", ""
-> +append = "", "value"
-> +nested.array = "", "value"
-> +EOF
-> +xpass diff -u $TEMPCONF $OUTFILE
-> +
-> +echo "List output preserves empty array values in an initrd"
-> +xpass $BOOTCONF -a $TEMPCONF $INITRD
-> +$BOOTCONF -l $INITRD > $OUTFILE
-> +xpass diff -u $TEMPCONF $OUTFILE
+Return early when perf_sched_events is disabled. A cgroup event enables
+it and waits for a grace period before it is installed. With a full
+barrier before the key check, the grace period orders the cgroup changes
+of the migrated tasks before the installation, so the event picks up the
+new cgroup of the task running on its CPU.
 
-This second case actually reuses the $TEMPCONF which
-already overwritten by canonicalized expected one.
+Moving a process with sleeping threads between two cgroups 100 times,
+20 ms apart, while another process forks and reaps children in a loop,
+base and patched kernels alternating over 2 rounds of 3 runs, median of
+the 6 runs and range in parentheses. Each move also waits about 7 ms for
+a grace period to take cgroup_threadgroup_rwsem. Median time per move:
 
-Thanks,
+  threads        before (ms)       after (ms)   change
+        1      7.8 (7.3-7.9)    7.9 (7.8-7.9)      +1%
+       16      8.8 (8.6-9.1)    7.9 (7.8-7.9)     -11%
+      128   14.0 (13.7-14.7)    7.9 (7.8-8.0)     -44%
+      512   25.1 (24.5-26.1)   9.9 (9.8-10.0)     -61%
 
-> +
->  echo "Repeat same-key tree"
->  cat > $TEMPCONF << EOF
->  foo
-> 
-> base-commit: 381b391bfaa3f10d52da4740529804b0b6b8160d
-> -- 
-> 2.53.0
-> 
->
+99th percentile of fork() and waitpid() in the other process:
 
+  threads        before (ms)      after (ms)   change
+        1      3.8 (3.5-5.3)   3.6 (3.5-3.7)      -5%
+       16      4.1 (3.8-5.0)   3.7 (3.6-3.8)     -11%
+      128     9.8 (9.5-10.1)   3.7 (3.6-3.8)     -63%
+      512   21.6 (20.8-22.7)   4.8 (4.7-4.9)     -78%
+
+Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
+---
+ kernel/events/core.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/kernel/events/core.c b/kernel/events/core.c
+index e870f12c3ad81..a5a9161bab31c 100644
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -15617,6 +15617,17 @@ static void perf_cgroup_attach(struct cgroup_taskset *tset)
+ 	struct task_struct *task;
+ 	struct cgroup_subsys_state *css;
+ 
++	/*
++	 * A cgroup event enables perf_sched_events and waits for a grace
++	 * period in account_event() before it is installed, so with the key
++	 * disabled no CPU tracks a cgroup yet. Order the cgroup changes of the
++	 * migrated tasks before the key check, pairing with that grace period,
++	 * so that the event picks up the new cgroup of the running task.
++	 */
++	smp_mb();
++	if (!static_branch_unlikely(&perf_sched_events))
++		return;
++
+ 	cgroup_taskset_for_each(task, css, tset)
+ 		task_function_call(task, __perf_cgroup_move, task);
+ }
+
+---
+base-commit: 5f22fb20497f4983094131f00a734362300d22d2
+change-id: 20261120-feat-perf-cgroup-attach-ipi-2824375d4d93
+
+Best regards,
 -- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Qiliang Yuan <qiliang.yuan@linux.dev>
+
