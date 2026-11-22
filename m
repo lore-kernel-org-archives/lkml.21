@@ -1,79 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795306717;
-	b=EGBS72y3/mmqIUgNKu95YIzXw8TMth07OJHyEYkUh8lLXUksE6ZjsMmmS7/n1zNnYSuJ
-	 2XERQtL2pyBZo8AQe0ezqtmMi44T0N5/tT81cG4T+1z2BUDvw+yT1zXZrzN/eWw+XuMPO
-	 PJnXYiBPFsIXdWN91yFOv80lUwz786jwJUC8YJ4kNxI+oxcQ2Z0oV6e3vCoaufyfOF9+e
-	 XLdAaF67qNaRgiCJy3yaxjr6v4cA0q0lc/v/dYJDEP3whisfXBVkRh9NRAkYj3nC19s2l
-	 rJXyTAI7n4q7JeQlQGLed0f8vnvi6AC0IFL4MWXWhcIzoJ1rdxj6Oo0G7xssN/HrrIw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795306717;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=J1ZGJnZQtQZbAjjyMmOw/z71RiFaPkMYBq3NUKY8jPc=;
-	b=SlbVMdc/aJVO4/GyK1omiVZnT7fGzOhBFaDJNvXDERYElhhVx2WEuZcdgTNDSr4rzIGX
-	 dufu+CLKLi/+XoU26p5O/qeQo6+B6NOTy3ilNMe7R5hyeeu69C4t4ux87om4T84UUn0nR
-	 5G0vFycbL+sq5/MekD+0LtfeKslGjjpslm7S1rZ/0BlQuvV994r7RMXb4OhXhYvGLt6pj
-	 6g4mlwdGGG9HjB2xyY4q3VvuVOiEG8a2Uxb3jNEF7XWztbFrBN9re4/dFJzxYNYFR1R0g
-	 8Dmwrn9w+bosyriim4X1He+YRB5hwhexOcc5KauNJgad0kbqZttWycEXsr6aFTJXt1g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AJJiHnZ7;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795306887;
+	b=fto0dgWy0YFfjXI0MVsKftUYc5gUogvH0E4ALMeIty/phV83XL2KoExrewhraIGPzfcT
+	 zdLS39nSKWUJu3ya/awRu4hwSPhD6KhrA3cwm/6v3jGzREonMXKWc0nuIelm0OBlYE1vQ
+	 JMYlwYWTClQ3+TlPf+yFYiK5u2SqMxKjIaPCi5PUiMtTahXLFCfFyYiI1qKh2zH7s0PP/
+	 eP9r5GrJe42qTMIJIK1O2qvhNRXysaUHBVrk72393/n3KaH1wjSvkvNdfLOEskmmWvOJL
+	 m3WvHyToJgqxi6+Ffq/i4wbMVj2449CIFh+pyDEdQWbRGv37iyF23GCDSzqLTkF0cRw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795306887;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=mdyQFBr0cd8KrOt79LiqhxwKESg2tS5qwCo7QjFMXeQ=;
+	b=W9QxVqNBQ3pHzft4QO13MMeaUU7QaNo+GsNWszF4SKFnTj8qDc0ldtl+vahn8DjNVprP
+	 NL2Teu+EjsDPtTzlOhtHymfsETw2/Kfon1DH0J5bcKLwzb1gV5DROE6Fgrkt5axICuSG4
+	 mSKc05ssBcZXy64Kd93BXzl+2lOZCm/58eGtXZSlxHL/yz07BcDFwFs9n+0knR3ZMmZuo
+	 cf080ro5fFliL8RDQoR1pkPpOIHMycT1+GkdZr5jXeKzWF58oDKU0qGWQWlxyKv0MezG4
+	 7T/Wb70xZbEZ9PDMCCUaquepULo00XDgvc3ZedulS4Vvz4giXm+F0g8fyfGBWOTzdtA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YuxB9wGC;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73FEE606A339;
-	Sun, 22 Nov 2026 00:18:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35C97606A320;
+	Sun, 22 Nov 2026 00:21:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AJJiHnZ7
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795306717;
-	b=tKll0OJrXGYv+xfu7b5xCiOhiSlU6HeOPGvf1fZfJftOJEmAeBziYXMbRdw8QW07HYlu
-	 IScHnfe/x+vKaCmOX02B2HahCm6SV4JDMGRh3pGjLxMCKu6EPH3icrdkuWRHueHtODIGh
-	 h3C4afc5yggrFP3mbUjrIKMKwHze2vIXbTKabHpBcmyrVaVPtunQJrQfVknF5dXZ6DNVP
-	 JHJbe14Tvb80NlMYikBO9QdVK+7uKzKT0IeFRQJrp00uHId+n1Q/viLJQwyAkrJPOvCF+
-	 ST4lH7J0XSq8SqLHFMa5gIUUPgTas4FzyluLm9LozKLPzjqdm6liJafuAuegR5igpaQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795306717;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=J1ZGJnZQtQZbAjjyMmOw/z71RiFaPkMYBq3NUKY8jPc=;
-	b=w0VdUknpyxmFNjFIp+aUwpHikxxj28WBsYRgsY6XnuzJ4j0NB25ARqO7nwk4D6vA3YPM
-	 A5/BztHA6K0m4KmulF+MDVfgN1OJE32lOGs4bH9hqlUwOs6MfTRGj2q/1wmEOwR82Td/W
-	 TwwX95u9aZhQla38YkJr/S6I4EWjqC/LomyV4gz/NfDOTA6IikwIdsxDp+p185AdqK0HL
-	 1mXMlVQc7Zwees7Fz5w857mrxJOltXsJzprqpRyltmYSNiauFgiYZZKyqnHVfNg4BDHRJ
-	 h8CV5A/6WWCQDR/wYZAlVKBO7lPikW3ycyIALuasJ5Jpr+fqDrhrpDrGWvoZ8SCG2jw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id C16361F000D1;
-	Sun, 22 Nov 2026 00:18:35 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YuxB9wGC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9072F1F000C0;
+	Sun, 22 Nov 2026 00:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795306717;
-	bh=J1ZGJnZQtQZbAjjyMmOw/z71RiFaPkMYBq3NUKY8jPc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=AJJiHnZ7EVp2XkZo3i/YAemvbaGfspPvFd4IEBmQ1ORop0xmlpqwOwDtqdUGUcOYa
-	 6H8PJt4GQq1kgum+OVwSSSDdsBQhw8yvDn8rZzZat+6YeogboFFcShFGGG0vKONYQJ
-	 9i9v4QknzzCQlt24LXQXds5YBHEE34ZKZ/13mc9GGQ9EU5mO62g4k3wrL0lK5LR5nm
-	 mnrSRviVflJ/wnDa4A1sD99frxSj8X6qLd2xF9wTXQN7EFoYDok3ELI5R1mhwi11+m
-	 O5md8UaNSvOvv/IWmPWI6xZEKklJKlhK9op4+BRthuut8g9jX433TgSjx3MHTu/qCi
-	 JGRp0eC8tunZg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 7D3774BE96;
-	Sun, 22 Nov 2026 00:18:34 +0000 (UTC)
-From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
-Date: Sun, 22 Nov 2026 00:18:26 +0000
-Subject: [PATCH v2 5/5] arm64: dts: apple: t6032: Add CPU frequency scaling
- and OPPs
+	s=k20260515; t=1795306886;
+	bh=mdyQFBr0cd8KrOt79LiqhxwKESg2tS5qwCo7QjFMXeQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=YuxB9wGCYlvNqFqXvYcai1G16+UyNN000DwiwUV1nFMyD+GwHsbx5MWtDSXqYgvdS
+	 1a5tvcuDRyQ1YaCWOpaWiCG6mt7/XchZocFKG+5yFFIcwNnyJFddghGeSrhOIsTlsY
+	 Y1/CyaPhtm+RHNMEJsBG5M3Dhb7Ts/F1fcifas++koidg6NCS9J9UUXQ21jK9hv3p7
+	 Dqa2R2MP4t9WeANcjq6K2joumBnmXJ72Ign2bzL3EjfxpHG2qaS3Z0IdS7huzuX0PR
+	 RuJg3nIxf0CzQ0TF5CqPuKVxosq21WGtZyYxvZXRfXSIpDw1cixbQjZNyBwrTuUBmH
+	 5bwZGNnPQOwcw==
+Date: Sun, 22 Nov 2026 00:21:18 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Abdelnasser Hussein <abdelnasserhussein11@gmail.com>,
+ linux-iio@vger.kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
+ andy@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev,
+ giorgitchankvetadze1997@gmail.com, amin.gattout@gmail.com,
+ antoniu.miclaus@analog.com, gregkh@linuxfoundation.org, mripard@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/3] iio: adc: at91_adc: fix NULL pointer dereference
+ on trigger remove
+Message-ID: <20261122002118.723b23b3@jic23-hlaptop>
+In-Reply-To: <avyEqQEL3A_YNcgg@ashevche-desk.local>
+References: <20261117140510.391907-1-abdelnasserhussein11@gmail.com>
+	<20261117140510.391907-2-abdelnasserhussein11@gmail.com>
+	<avyEb9La1tqS90Cp@ashevche-desk.local>
+	<avyEqQEL3A_YNcgg@ashevche-desk.local>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,262 +68,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261122-m3-cpufreq-opp-v2-5-3c19963f55ee@gmail.com>
-References: <20261122-m3-cpufreq-opp-v2-0-3c19963f55ee@gmail.com>
-In-Reply-To: <20261122-m3-cpufreq-opp-v2-0-3c19963f55ee@gmail.com>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, "Rafael J. Wysocki" <rafael@kernel.org>, 
- Viresh Kumar <viresh.kumar@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Michael Reeves <michael.reeves077@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795306712; l=7260;
- i=michael.reeves077@gmail.com; s=20261107; h=from:subject:message-id;
- bh=RP3Tl98EGSTZRq8axcgQ4fI3CuPhgZyAKwc+j8gARmE=;
- b=svqXsQ9xqKQ2cDML9fwZcFlM4sEp5BZ7n1lI8uJa5YfcewBelutV99aoPDkUvqFXERil2zByZ
- pN47QATtRGlA3AdBsj4IwqFCodmEtcTHZ9Jqkbzmi8p6oZ+fMlMO1Gr
-X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
- pk=ykwkLcuByJYb/cdLc2UuoYP03pIzwrscEZg30+4tJL8=
-X-Endpoint-Received: by B4 Relay for michael.reeves077@gmail.com/20261107
- with auth_id=1442
-X-Original-From: Michael Reeves <michael.reeves077@gmail.com>
-Reply-To: michael.reeves077@gmail.com
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 
-From: Michael Reeves <michael.reeves077@gmail.com>
+On Tue, 17 Nov 2026 18:45:29 +0200
+Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
 
-Add operating performance point references, performance domain bindings,
-and CPU capacity values for the second die's Sawtooth efficiency and
-Everest performance clusters on Apple T6032 (M3 Ultra).
+> On Tue, Nov 17, 2026 at 06:44:37PM +0200, Andy Shevchenko wrote:
+> > On Tue, Nov 17, 2026 at 04:05:08PM +0200, Abdelnasser Hussein wrote:  
+> 
+> ...
+> 
+> > >  	for (i = 0; i < st->caps->trigger_number; i++) {
+> > > +		if (!st->trig[i])
+> > > +			continue;
+> > >  		iio_trigger_unregister(st->trig[i]);
+> > >  		iio_trigger_free(st->trig[i]);
+> > >  	}  
+> > 
+> > Yes, but no. Please, rather fix the above mentioned IIO trigger APIs to be
+> > NULL-aware.  
+> 
+> Actually the iio_trigger_free() is already NULL-aware, so make it only for
+> iio_trigger_unregister().
 
-The die1 cores use the same OPP tables and capacity-dmips-mhz values as
-die0 (inherited from T6031), paired with the die1 cluster cpufreq
-controller nodes instantiated via t6031-dieX.dtsi.
+I'd rather we didn't.  Any code that is unregistering a trigger
+that it didn't register is probably really very very buggy.
+I'd like them to crash or at least guarantee that sashiko
+flags it.  We could add a warn if it is called on NULL I suppose
+but that is ugly.
 
-Suggested-by: Janne Grunau <j@jannau.net>
-Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
----
- arch/arm64/boot/dts/apple/t6032.dtsi | 48 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 48 insertions(+)
+I'd rather deal with this by fixing at source. That doesn't mean
+papering over it except as a potential easy to backport change
+which is the intent of this one.  It think the description should
+call that out though. Something like
 
-diff --git a/arch/arm64/boot/dts/apple/t6032.dtsi b/arch/arm64/boot/dts/apple/t6032.dtsi
-index 6115ab8db5ef..b5ddaa00a7e0 100644
---- a/arch/arm64/boot/dts/apple/t6032.dtsi
-+++ b/arch/arm64/boot/dts/apple/t6032.dtsi
-@@ -107,9 +107,12 @@ cpu_e10: cpu@800 {
- 			cpu-release-addr = <0 0>; /* to be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <870>;
- 			d-cache-size = <0x10000>;
- 			i-cache-size = <0x20000>;
- 			next-level-cache = <&l2_cache_3>;
-+			operating-points-v2 = <&sawtooth_opp>;
-+			performance-domains = <&cpufreq_e_die1>;
- 		};
- 
- 		cpu_e11: cpu@801 {
-@@ -119,9 +122,12 @@ cpu_e11: cpu@801 {
- 			cpu-release-addr = <0 0>; /* to be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <870>;
- 			d-cache-size = <0x10000>;
- 			i-cache-size = <0x20000>;
- 			next-level-cache = <&l2_cache_3>;
-+			operating-points-v2 = <&sawtooth_opp>;
-+			performance-domains = <&cpufreq_e_die1>;
- 		};
- 
- 		cpu_e12: cpu@802 {
-@@ -131,9 +137,12 @@ cpu_e12: cpu@802 {
- 			cpu-release-addr = <0 0>; /* to be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <870>;
- 			d-cache-size = <0x10000>;
- 			i-cache-size = <0x20000>;
- 			next-level-cache = <&l2_cache_3>;
-+			operating-points-v2 = <&sawtooth_opp>;
-+			performance-domains = <&cpufreq_e_die1>;
- 		};
- 
- 		cpu_e13: cpu@803 {
-@@ -143,9 +152,12 @@ cpu_e13: cpu@803 {
- 			cpu-release-addr = <0 0>; /* to be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <870>;
- 			d-cache-size = <0x10000>;
- 			i-cache-size = <0x20000>;
- 			next-level-cache = <&l2_cache_3>;
-+			operating-points-v2 = <&sawtooth_opp>;
-+			performance-domains = <&cpufreq_e_die1>;
- 		};
- 
- 		cpu_p20: cpu@10900 {
-@@ -155,9 +167,12 @@ cpu_p20: cpu@10900 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <1024>;
- 			d-cache-size = <0x20000>;
- 			i-cache-size = <0x30000>;
- 			next-level-cache = <&l2_cache_4>;
-+			operating-points-v2 = <&everest_opp>;
-+			performance-domains = <&cpufreq_p0_die1>;
- 		};
- 
- 		cpu_p21: cpu@10901 {
-@@ -167,9 +182,12 @@ cpu_p21: cpu@10901 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <1024>;
- 			d-cache-size = <0x20000>;
- 			i-cache-size = <0x30000>;
- 			next-level-cache = <&l2_cache_4>;
-+			operating-points-v2 = <&everest_opp>;
-+			performance-domains = <&cpufreq_p0_die1>;
- 		};
- 
- 		cpu_p22: cpu@10902 {
-@@ -179,9 +197,12 @@ cpu_p22: cpu@10902 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <1024>;
- 			d-cache-size = <0x20000>;
- 			i-cache-size = <0x30000>;
- 			next-level-cache = <&l2_cache_4>;
-+			operating-points-v2 = <&everest_opp>;
-+			performance-domains = <&cpufreq_p0_die1>;
- 		};
- 
- 		cpu_p23: cpu@10903 {
-@@ -191,9 +212,12 @@ cpu_p23: cpu@10903 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <1024>;
- 			d-cache-size = <0x20000>;
- 			i-cache-size = <0x30000>;
- 			next-level-cache = <&l2_cache_4>;
-+			operating-points-v2 = <&everest_opp>;
-+			performance-domains = <&cpufreq_p0_die1>;
- 		};
- 
- 		cpu_p24: cpu@10904 {
-@@ -203,9 +227,12 @@ cpu_p24: cpu@10904 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <1024>;
- 			d-cache-size = <0x20000>;
- 			i-cache-size = <0x30000>;
- 			next-level-cache = <&l2_cache_4>;
-+			operating-points-v2 = <&everest_opp>;
-+			performance-domains = <&cpufreq_p0_die1>;
- 		};
- 
- 		cpu_p25: cpu@10905 {
-@@ -215,9 +242,12 @@ cpu_p25: cpu@10905 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <1024>;
- 			d-cache-size = <0x20000>;
- 			i-cache-size = <0x30000>;
- 			next-level-cache = <&l2_cache_4>;
-+			operating-points-v2 = <&everest_opp>;
-+			performance-domains = <&cpufreq_p0_die1>;
- 		};
- 
- 		cpu_p30: cpu@10a00 {
-@@ -227,9 +257,12 @@ cpu_p30: cpu@10a00 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <1024>;
- 			d-cache-size = <0x20000>;
- 			i-cache-size = <0x30000>;
- 			next-level-cache = <&l2_cache_5>;
-+			operating-points-v2 = <&everest_opp>;
-+			performance-domains = <&cpufreq_p1_die1>;
- 		};
- 
- 		cpu_p31: cpu@10a01 {
-@@ -239,9 +272,12 @@ cpu_p31: cpu@10a01 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <1024>;
- 			d-cache-size = <0x20000>;
- 			i-cache-size = <0x30000>;
- 			next-level-cache = <&l2_cache_5>;
-+			operating-points-v2 = <&everest_opp>;
-+			performance-domains = <&cpufreq_p1_die1>;
- 		};
- 
- 		cpu_p32: cpu@10a02 {
-@@ -251,9 +287,12 @@ cpu_p32: cpu@10a02 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <1024>;
- 			d-cache-size = <0x20000>;
- 			i-cache-size = <0x30000>;
- 			next-level-cache = <&l2_cache_5>;
-+			operating-points-v2 = <&everest_opp>;
-+			performance-domains = <&cpufreq_p1_die1>;
- 		};
- 
- 		cpu_p33: cpu@10a03 {
-@@ -263,9 +302,12 @@ cpu_p33: cpu@10a03 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <1024>;
- 			d-cache-size = <0x20000>;
- 			i-cache-size = <0x30000>;
- 			next-level-cache = <&l2_cache_5>;
-+			operating-points-v2 = <&everest_opp>;
-+			performance-domains = <&cpufreq_p1_die1>;
- 		};
- 
- 		cpu_p34: cpu@10a04 {
-@@ -275,9 +317,12 @@ cpu_p34: cpu@10a04 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <1024>;
- 			d-cache-size = <0x20000>;
- 			i-cache-size = <0x30000>;
- 			next-level-cache = <&l2_cache_5>;
-+			operating-points-v2 = <&everest_opp>;
-+			performance-domains = <&cpufreq_p1_die1>;
- 		};
- 
- 		cpu_p35: cpu@10a05 {
-@@ -287,9 +332,12 @@ cpu_p35: cpu@10a05 {
- 			cpu-release-addr = <0 0>; /* To be filled by loader */
- 			enable-method = "spin-table";
- 
-+			capacity-dmips-mhz = <1024>;
- 			d-cache-size = <0x20000>;
- 			i-cache-size = <0x30000>;
- 			next-level-cache = <&l2_cache_5>;
-+			operating-points-v2 = <&everest_opp>;
-+			performance-domains = <&cpufreq_p1_die1>;
- 		};
- 
- 		l2_cache_3: l2-cache-3 {
+"Make a minimal fix to simplify backporting.  Moving over to
+ device managed cleanup will shortly remove this code."
 
--- 
-2.56.0
+Jonathan
 
+> 
+> 
 
