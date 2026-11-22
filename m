@@ -1,65 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.54.127.149
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795385771;
-	b=QnwR/74tVH5PfPTpg93DMdCLEwvgbm3OG9BXimActxhUw8iwWRI0tmuh0SUlLdadMsB+
-	 Ujn+gAUwkWSzodLh3jRhKZAcLx3cyJsGZgL2ff4js5EmF+hIgMK9lJZiPpJD8yWu4snQW
-	 cQPjKGmJU0LMrYawmYoWKbpoJwH81mzbViefufV9c8xwbNFg14TVPfuL6/Kbpb5bqcAz1
-	 X9iucB3sI90487dslMdB+2TC+3UgcuF4QYnC5ManuR8tzf/G+nXTuCBTLaN/7ANL2pzIr
-	 vHRFosrXGRQF4R2WUfVLdPEdSNRDP0w1wv3JhIEZ2YXV+I+ZVIxGN1TiDByFTjGqT2w==
+	t=1795385922;
+	b=A5tCH+0vzREebEsQSGvQ0op9Z6zqS2/nNxOeSDC0B4swIwzfE6+u5OsRggHuNe/EG7pK
+	 BAQmAxf0fn917lhB3HgcX+/avkaC3ycxqbVVxwJKhf8uAVzZQZyAjjrh18RkA2gzy70s0
+	 N9P6CL7QvuFgP12eIK8AvfkCpzz918iUNdbnTn0TpHFAC1JnAbMgiw11wo3yLWUBa5OPi
+	 D5UvsmGUH1I24u6C0cnElw+6h36R7L6CkntmRkUp+Ba6m4Bglv5JtFGxWbEBd2H+VLiJ2
+	 +RDmLXQvxhdQAX3MxRQyE0o23IAWX4QB/EMVP96owxXPpCGHBYaTapTlv1XXpZvBozw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795385771;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spam-Status:X-Spam-Checker-Version;
-	bh=mGwepXW7KYcugk4KqQl//W14cGi7/Nr85LEGwhqP424=;
-	b=xTs2VzkC2nM/WU/P6f/J/wOQJ67xFDrnBdCgfYDOrnRakhQMwD/i6dN3IWE0Hlbye4ID
-	 yPChqzjjDC5TIEJu3JPUEhsVCuXK8Es0ho2RjVD+EZ2hCHY9biZYlvpsYQFrm97JSkSdQ
-	 U+LyAYRY+oOqFcJUAVNExxCQ6jJCVsgUIung51YXLCHA7kCWi4v5nZugqNQxvbfV7QITn
-	 j3bHTuJDgsVQvOVDz3txpf4kHp9v0SR225SCreex250JaNo2co503L05G+m3yabFaTTTp
-	 T0zH7/bULyz3OZ5Cict+MDHi7zLV9n8NuwC8vF/YlJJcMTmIU+Js+PiFUE7sl0byY8A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795385922;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Envelope-From;
+	bh=2K0hOPSzFGlyM04CdMKPAxpodJ/pAGufjNXPansEHxM=;
+	b=cSR7k+aMKVOCOg+kzfGhmCOQlJUlmJ3e2XT0xMMTTgaD/eCTO2M+3RU7Hrp8ThQ/neLm
+	 WPiB7FUdBFqE5V9C+28fRO/YYbaLtx0aRsdMew/CGS3WGzA5Pdgd1+pJEmRmekbd8yJ1e
+	 RX2nHH7kFzitjI1gKMABdYGsJGQ2tM69id8C9K7rXaJnbU+eL1nXev0nSKdmJSEslUUDa
+	 G0vTD2eNDVFDQuuFmno+baVY/33WhbXzZ/eC0CNbVv0b5S0nkOeDFuhGydk0K32ou6wUM
+	 oU80/jwpo3qhrgoKb1/Ug4BF1AYTFG/Mi8m2WJXTNAxIUitVi9fewCSmFVkfifyjijQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=netfilter.org;
-	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=H9n1IhWH;
-	arc=none smtp.remote-ip=217.70.190.124
-Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
+	dmarc=pass header.from=chrispinetinega.com;
+	spf=pass smtp.mailfrom=chrispinetinega.com;
+	dkim=pass header.d=chrispinetinega.com header.i=@chrispinetinega.com header.a=rsa-sha256 header.s=default header.b=N1QzcWBm;
+	arc=none smtp.remote-ip=198.54.127.149
+Received: from out-2z4y-a149.jellyfish.systems (out-2z4y-a149.jellyfish.systems [198.54.127.149])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id E7DF9606A31D;
-	Sun, 22 Nov 2026 22:16:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7DF9606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FC47606A327
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:18:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FC47606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chrispinetinega.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chrispinetinega.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=H9n1IhWH
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1795385766;
-	bh=mGwepXW7KYcugk4KqQl//W14cGi7/Nr85LEGwhqP424=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=H9n1IhWHv1woomfQ4RYoN0aTrHZKsx66x92zf49O4WXZTDPfZR5uRcOmj9b1u7nPS
-	 SzVxBfv/9KfIUXGTkoe3CIrX8izXn5N2R6liLtCxn+GwqD4ooemjTXnbuXgaT0v6VG
-	 ZKqkSYfjj58Wiq/T4K10EpWIPoO8bM9/nwBcxPtnkTQDH8aSEC4Fp7ghKui38SetBc
-	 ppo3TttVJaBEgWeE/QPYjbL0vPkKumMUd9pqsk0lU5fW+Qi9KpxR90HjTo6R6bpFoZ
-	 B3HfShERHX7nZzn6Ba96/5if5Nah8/OU0hocxVEL11e96qS4aAOmoY5+swze3qbh3y
-	 vFobbihZY1r1w==
-Received: from netfilter.org (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with UTF8SMTPSA id ACE4F60056;
-	Sun, 22 Nov 2026 23:16:06 +0100 (CET)
-Date: Sun, 22 Nov 2026 23:16:03 +0100
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: netdev-bot+sashiko@kernel.org
-Cc: florian.fainelli@broadcom.com, netdev@vger.kernel.org, fw@strlen.de,
-	phil@nwl.cc, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
-	shuah@kernel.org, toshiaki.makita1@gmail.com,
-	linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net 1/4] netfilter: flowtable: do not queue offload work
- after DESTROY
-Message-ID: <awNpo-FYuOlgfP5a@chamomile>
-References: <20261118201250.2075007-2-florian.fainelli@broadcom.com>
- <179538224441.3135.6950839726802616846@kernel.org>
+	dkim=pass (2048-bit key) header.d=chrispinetinega.com header.i=@chrispinetinega.com header.a=rsa-sha256 header.s=default header.b=N1QzcWBm
+Received: from mail.privateemail.com (unknown [62.8.90.37])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.privateemail.com (Postfix) with ESMTPSA id 4jXk3q6Cltz2x9G;
+	Sun, 22 Nov 2026 22:18:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chrispinetinega.com;
+	s=default; t=1795385899;
+	bh=2K0hOPSzFGlyM04CdMKPAxpodJ/pAGufjNXPansEHxM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=N1QzcWBmzPyWOGjluk39AQR/WEOuRkUfhZVtVspzTJhc+AjfJ5S1Mzo6mnchsEl8M
+	 tyRk3CdRNYmd520eqNSYf+i0E8LhgNo9pdWoVrUwcaZUtDfFLU3tFLtVhWHb18tBpU
+	 By+xMSrjz1uEURNpIP+oxZAYEIK9xQ8cE6IQzHlEN0hK5z94fN+DmPLMsJrb0kcJyh
+	 EmbwRKccXZ9Z8vNI5CbFQXM79qW2wLfSAyVeCUtNSJDOPrkDgXYHKPxMo1A3tpSFHR
+	 pjsvnVCAH1v9XksEEfZfRDej0ZyvSu9Mnz53Qj4IK5VEZkjRvQaE8q774CgJMcDx1Y
+	 PZYJmi793DZXg==
+From: Chrispine Tinega <dev@chrispinetinega.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: linux-remoteproc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Francesco Valla <francesco@valla.it>,
+	Chrispine Tinega <dev@chrispinetinega.com>
+Subject: [PATCH v3 0/2] remoteproc: k3: Recover a crashed remote core
+Date: Mon, 23 Nov 2026 01:17:52 +0300
+Message-ID: <20261122221755.88160-1-dev@chrispinetinega.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,28 +69,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <179538224441.3135.6950839726802616846@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-Envelope-From: dev@chrispinetinega.com
 
-On Sun, Nov 22, 2026 at 09:17:24PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> The creating CPU then carries on:
-> 
-> CPU1 (creator)                       CPU2 (GC)
-> flow_offload_add()
->   rhashtable_insert_fast(REPLY)
->   rhashtable_insert_fast(ORIGINAL)
->                                      nf_flow_offload_gc_step()
->                                        teardown, NF_FLOW_HW clear
->                                        flow_offload_del()
->                                          flow_offload_free()
->                                            call_rcu()
->   nf_flow_offload_add()
->     set_bit(NF_FLOW_HW)
->     nf_flow_offload_refresh()
->       nf_flow_offload_work_alloc()
->         test_and_set_bit(NF_FLOW_PENDING) succeeds
->         NF_FLOW_HW_DYING clear, new check passes
->       queue FLOW_CLS_REPLACE
+A K3 remote core can tell Linux it has crashed by sending RP_MBOX_CRASH,
+but the K3 drivers only log it. Nothing reaches the remoteproc core, so
+the crash is not counted and recovery never runs. The core stays halted
+until the next boot, with its rpmsg channels dead.
 
-Yes, PENDING needs to be held from flow_offload_add() path for this.
+Patch 1 reports the crash with rproc_report_crash() when the core is
+RPROC_RUNNING, and keeps logging it otherwise. This applies to every K3
+remote that uses the common mailbox callback, while leaving IPC-only
+cores and the probe window untouched.
+
+Patch 2 enables recovery on the M4F when Linux booted it. Its stop is a
+plain reset, so recovery does not need the crashed core to answer. In
+IPC-only mode recovery stays disabled, because it would boot the
+firmware Linux has, which need not be the one started before Linux.
+The R5F and DSP drivers keep recovery disabled. A crashed core there
+moves to RPROC_CRASHED, and can be stopped and started again through
+sysfs. On the R5F, recovery itself would not restart the core yet: the
+reset it needs is applied in unprepare(), which recovery does not call.
+
+Tested on an AM625 board (BLIIoT BL350) running TI's 6.12 kernel with
+the equivalent change. The M4F runs Zephyr, whose fatal-error handler
+sends RP_MBOX_CRASH. After a forced fault, recovery reset and rebooted
+the M4F in 71 ms, and Linux kept running. Mainline's M4F stop is the
+same plain reset that this test used for a crashed core. The Zephyr
+side is https://github.com/zephyrproject-rtos/zephyr/pull/125770.
+
+Changes in v3:
+- Patch 1: report the crash only when rproc->state == RPROC_RUNNING, and
+  keep logging it otherwise, so IPC-only cores can still detach cleanly
+  and a crash queued during probe cannot outlive a failed probe.
+  (Sashiko review, pointed out by Francesco)
+- Patch 2: unchanged.
+- Rebased onto rproc-next.
+
+Changes in v2:
+- Patch 1: drop the duplicate crash print, and note the R5F limit in
+  the commit message. (Francesco)
+- Patch 2: keep recovery disabled in IPC-only mode. (Francesco)
+- Rebased onto rproc-next.
+
+v2: https://lore.kernel.org/all/20261116184146.1897281-1-dev@chrispinetinega.com/
+v1: https://lore.kernel.org/all/20261109054830.42715-1-dev@chrispinetinega.com/
+
+Chrispine Tinega (2):
+  remoteproc: k3: Report a remote crash to the remoteproc core
+  remoteproc: k3-m4: Enable crash recovery for a core Linux booted
+
+ drivers/remoteproc/ti_k3_common.c        | 12 +++++++++---
+ drivers/remoteproc/ti_k3_m4_remoteproc.c |  6 +++++-
+ 2 files changed, 14 insertions(+), 4 deletions(-)
+
+
+base-commit: f39ba58941efa63e6c7d10d53d183d6077524bdb
+-- 
+2.53.0
+
