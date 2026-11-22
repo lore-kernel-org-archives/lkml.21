@@ -1,101 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=106.10.241.210
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795375751;
-	b=2DRf5vIBFIiTvPusABOHrXKqCAohgaA12XJMLwBq7l8JmgfN6D8BU6fDF7agCHQ2iG42
-	 ZE+Foe090QkpPRpUyW6gywqNQi6QL0dFXpBIChNv5JNY3gLpJFzpCR42Pr3BBnqzkShXY
-	 BVK/o/MHTTKAAaijzZLMn+xPUz9J215rt9iKfGvRCq/zWKBydQyuLOt1gYEcIts9WKcWu
-	 lWbcyLF8Rg3HNzwPsve05stza4td3zcckjpHYbZ1BQ/c0S47GmnzTelg1fR2Rj0PvoqBV
-	 QS5OIhxKhiREaWZguUmcaKEXg04tnC4pYpQw7NF5cvsLGsvUxvg2QzwxotW1usngRjQ==
+	t=1795375924;
+	b=0R4j8BiAGyMiZqmVI594grzKSZeeStDyQ60xEdyku39XfKHsO+xGRxY/uUpAgCHyvtBV
+	 6vnHtE3Pi4K5ajRJgUXktkj30a2minLOVZju+6boTs5zRbEetzLeimEiOkpc6jq4THDhU
+	 LRbnniS5LHzIowCzBaJJzgj08Q/9nJj3AEH1DcIXOxRsRthaq8OAe4doKoP2wHad5cCrh
+	 hzCLMRt6wImNOjOnuf/W79NG6WaWHtt/0FUSuvKRg4oU7XanvFxiQ5n0AAUHZGa8EYWpO
+	 0GMqkABTSiwxyjTO2RlAvHpMFmoXOya1Kh+aYRgcng2HJ8fgmwJAyaS3EdsMu1YoG8A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795375751;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795375924;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=9bKfAWcfi3fcLmMSzFA32EaHtSL2wjxQDRuqCwiDgvU=;
-	b=ks6RphZtQFe3EVJ/WaGXOXUn7nELv+pS2cd/5x0LBhumYLNxbg1aVllCGNQdCIR6AWmP
-	 8F1ROw4p8PDNFX3oLhvUDe8+pPvRKn8IUXT431MH/HDE1XcmdltypeB9DLPoQyMobjF8y
-	 DHwAgNFeIx29fhvioKbNy+YyKfuollxevx9LjEUoc+rzwN3nsauiQlCRVyyH1hehgVY8l
-	 j7dJsBKHn+VjWJl/NmlPvopW3ns/lxZm7w2ozt4NhYyu/rI3e5nTkJrVRs0doxk4FF63+
-	 /WPHMeq81iZeT23EiqrJ7D9JJTnoqEV3UWJPnvARNAaEnirDDPrjc0Ex5mD0OmTUnxQ==
+	bh=mokG44W0CBr5Ra9LA6hA3Hh4JvCiiLYWzJGSDXH6PmQ=;
+	b=fkY3N0UeN4R9bT5kaiBUFLuuoa7lyfpw4LYPyr9nrtSL8IFXW7WpDf6T0k9ZCYV/Z/sW
+	 OITvKg60TYo2tfj5Qygm8CUoL8jihfm84vnJI1rfDx7RbV4X857npPayhbqhRS7V/462R
+	 gwlbAKBuYlDYztHYJyu1jGJRZBDZa9vnpVv3cka128gFERQbAxuIn1a8ByCmC9o8WVB3J
+	 05aBzFaAb3kyT7Iyr9kiehm0npNW7VMSlkER86K5WJUbYv6ELNoenO2FA82ibDlknuR0t
+	 DyZrCn20V144nekmMrbSsgyY/BKLLRMlMQeUKypqXwlL80KfmneejMw1LgEgpBZNUzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.com;
-	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=d+xMg5xX;
-	arc=none smtp.remote-ip=106.10.241.210
-Received: from sonic308-20.consmr.mail.sg3.yahoo.com (sonic308-20.consmr.mail.sg3.yahoo.com [106.10.241.210])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Cw4DHW23;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 868EB606A31A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:29:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 868EB606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 981BB606A31A;
+	Sun, 22 Nov 2026 19:32:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=d+xMg5xX
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795375748; bh=9bKfAWcfi3fcLmMSzFA32EaHtSL2wjxQDRuqCwiDgvU=; h=From:To:Cc:Subject:Date:In-Reply-To:References:Content-Type:From:Subject:Reply-To:Content-Type; b=d+xMg5xXDzLDoq+fv27ILki/YiEyWVydKhtXm+LLTkqkH7JDk8NNEQ+poM5fkaM9H3+twAAe05muE07GDRoVFM+cfuHaLzyavq0FGv5R6XK+QrwDLjdbMXTRzHm6tP3BsYM2LX+XJNv2UawHmuQ5RXT7/wpyPhv5Bnd4j100foaqsndjZbMP0Rsln8JoM64d/64qCZpA9+o8NKSctSkL6LdHBhDb5pN33QJOzS07SVOv4gmPnLjSTWGdqAX2OTmKu53rXmy39es6SvtDevrXobau5qgN0AKxEGGeTbHVff/GBF7Re5CckH0ULn2lVzLmPQ1J5Sp19ykh954iy/3sDw==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795375748; bh=UaeeY3MR4qc3m3TxuZr+/a+X7doxDgYuVi2OQ7/39qj=; h=X-Sonic-MF:From:To:Subject:Date:From:Subject; b=jmTQjBRfDXGgnTNfaXAoNh3NG80/M3M+Tv3++a3fipUhTZE8luIVOj2CkblOLtJBT9/7H5geiZDqVl7gzwq71L6vc7dWrxjSSQo1Fwbshp1ku4oYiBxkaZeSXhXav3j8k3ftNyCyWwN0jZL3nOPQKvPOE6iluNFcTQ4OkO7D8nEq61hBXZs2QOdTHv+B7SVFuRxv6wnHbiC22kekEuu5eqVlxNhOD8r847K6IWXYJYyVjcrxigLOq7MMmIh3wflsMZQjSqvUogxcgqV1BLrC02S9I198k2AaiwRMMWmjoKeRqCWo6VkvandukQf2LspzCoP9T0yARjuRpTDpJR9keQ==
-X-YMail-OSG: LH1xPCkVM1nPiCXt2DJAijST0SFJBjFnbsUAcUEU_5ODiBRmzkZ7FajlS1kZFe3
- 6QQvwKTnAcs0rWVLEk9JL6Y1ufu_vYYpxPVLwX1IMnf8c_KgItOYZsyTDFOBNsTC3deOXJLQC6A_
- ja5GZP5yaNxuoiS3IV4GzHOfUITI67GCNpkP9s7YGNg_NBlaiXWkQCCe3whk_fObgePHDptZWQ1x
- IfNEXH_P3KKSdEO7c0ZMTYiQjsfNdW0yEZdt8Cyn9NOBHYyyCKr7EkG1WIoizKaFBvDkYuGaHQDa
- FrIR4jOrwFF.IXmZrMU3qXsfeThFAoPxWwWOVLeVKGup7qsE1F8yhQ1J2U1_zwmLiElnSrvGJwbu
- 97rt0sKoeCPutviQQJ7S1YCmkLc7lZceOIB8conYQJNC1y6BNFQWkT0HX7gj_fHuMxOvTkv01LN5
- rUNeA3sZN.P0dTfcRhK6SszWwRjYI5tCeS_FEeVevcq9RW89an_iBkVuefnpYc.VWS7RzkV8scCQ
- MOkLLco_hHPn9rJmgHSOjUEgQjsZhcqChDqUPHMMdL3EwcfvG1bDcbTVthFx7fnKp5.a.BGg4lFu
- 3WdXGQbys.MimfbkcjgSdbLY6ZFTimk4JH3EwNafwFkhqmLYFaSvcO2BvKqGmcO5CWIUHtublhmD
- vdxS78F6mqwwCI79S3augQzgf3mYmSsKGx6xrfszaLRnCnR9jj_9pTl.xveaRu26uO08kVWw1DBe
- 56Ygc1ZFqFbOavbpocagwtknVMK2pScL3d5mtaZKj0zs6_JBw7gWkKJmch.56JoCtdKiS5Opx.jJ
- c8zfZgOvDQQvR8wrvuTJsIJ4l6Fob1twv2dLexv0VdjaKB2xCDgWzMUyxb2nEOXDN59eKEnmn6hU
- 60pqv61F_3L5JZJyJxVTg.QhtbLpnP9v6tgQqHLDb2XIm7Xkxz4ju2afnhBOibqIQhkhdod3O6Jh
- nYtXffzIhQQxZpN9s7OqcdfT.DgoGXOTIrUsdhni.vAK8xXf4RUrIkX7UsQUhf7_kyLotKfM6f6R
- SmVu9PPZzBLAUxggByugZdML5dH9D6yqIT1C_ll19y6p42ZBy_rYUOm1UjSgsxKTLvllJCwbifOQ
- hEuItP69WJsiaEuXsEFnZXX3jk.QokBRiInWLG6PHdboktuVbU_nUJFAx2prruoVxajZNQrDYNV.
- VMuxy3kxqWSh9bU81B6aNeTPyNVJ7pkZ8ITNWzVjVxHy8lUhKZSJ9duaZ0k_v5jLR7cwJFSKzy6Z
- sWO8uCtZxLMhuEgOcXPyelFn1dxLZyuryu3njBCS3Xi2b1wQL5hRYqwSKX.Di0.1JzPzYBLfaMFs
- 2A2L7Y8PdvU_BoSX5ZlPL6CMkkIkbFXASf9Q8D8UB0kGwmZk_G8Ek2orxVghVx_zYKmNnS0.LUQN
- TgLTTkJ0MlHzU9Qrf6mnuWJ6nn1RUVQsTFkwd6E2bMH2.5_2rqTbqzSuGVhHQXeEvJCDEUQWUGd9
- fH_LsQqMpSrgIuQgxU5DqoHZh8Q5_wM2CTv3esotBYn5Rgz7Hd.G2NRHSA0YeoQ9PV6zu9yLDjaw
- 1E4My78IHFj4gKUBgrirhz6kSydaWfsgyRJxroKHF48Ab0Hz.TfjPX30IHdeZ7bSjjAIKJIDhcQB
- XinUQObpW4ocCuFyIiDnrLUS7Rl1rCoOP8PzVwkjvXnQBTRLxnuyY0a9r0LAAonxRizvAguAImaL
- .4PwttmUM0dkGhId_Syf9H5DY_osdC6C.pmEuLYWZ71XO6PSF2s0KTm6lHfGbyl5vFP0AxZC4lu5
- tGTTS9c58dn7MnJbBNyvDBcNsV57yi.mr2_5ryYh.otJ3Tlv7Ca1aNdIcEpZHgW01mbiCBvXulUC
- wUMPP2qJn5.flJWFz3nuu1ebdKgA6zrilMunyPc6bXo.ENmT_SIe4IVGeT_EP7NYRWIaO8y0N82O
- 7o6Yxny3ezEF3gefj48Z_Wm6dsr1o7Hw6eTSdg5ag19PESXGIo6YAqWxr3NPsBum0HoOU3YR7VyD
- pJuu2XlKRafULrSOlKNp7VL28h69CTDi8ACp_mbf_8m7veIFSdg0nHWefuqC0kt_QyT760Km4JnM
- .GbRaZVmw1DRkNh1AlwVi2RVmLpx75lP3hsND6E_UCoDxEV.CP_5sUOjVbc3oKd.uVQJq6TkkM6t
- 8Oy8B9ctfTh1I7UHX4SNs9Iec1sWqdcNHE4U5OvwvmHVNddUiZgph1obM1ykwKRKjAyV1go9kSXD
- d5LAIPl6SQij2BHWHS.MRgJe92TA3x5G4VlSjqEwsNrJp51Ri
-X-Sonic-MF: <venkat.yadlapati@yahoo.com>
-X-Sonic-ID: 3bb82e72-e795-4ecd-b31e-ab47782c8089
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic308.consmr.mail.sg3.yahoo.com with HTTP; Sun, 22 Nov 2026 19:29:08 +0000
-Received: by hermes--production-sg3-5ff9d6888d-8v9g8 (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 0054f2a6f4ae764e46fce762305b29ff;
-          Sun, 22 Nov 2026 19:29:06 +0000 (UTC)
-From: Venkat Yadlapati <venkat.yadlapati@yahoo.com>
-To: dmitry.baryshkov@oss.qualcomm.com
-Cc: Rob Clark <robin.clark@oss.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Sean Paul <sean@poorly.run>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Jonathan Marek <jonathan@marek.ca>,
-	Val Packett <val@packett.cool>,
-	Bjorn Andersson <andersson@kernel.org>,
-	linux-arm-msm@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	freedreno@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	Luca Weiss <luca.weiss@fairphone.com>
-Subject: Re: [PATCH] drm/msm/dsi/phy: power up the digital top before starting the 7nm PLL
-Date: Mon, 23 Nov 2026 00:58:58 +0530
-Message-ID: <20261122192858.3550896-1-venkat.yadlapati@yahoo.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20260924-dsi-7nm-pll-digtop-v1-1-c2b24c8e218d@oss.qualcomm.com>
-References: <20260924-dsi-7nm-pll-digtop-v1-1-c2b24c8e218d@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Cw4DHW23
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DED41F000C6;
+	Sun, 22 Nov 2026 19:31:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795375923;
+	bh=mokG44W0CBr5Ra9LA6hA3Hh4JvCiiLYWzJGSDXH6PmQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Cw4DHW23CHeYjkLVjk09LEca6R9H5iafVD7rtfV9HTACBsKGMaJpiVnufw1jNsgX3
+	 f5z1zzkpWIudhU28Qdye/CVdBBxvFWQe2fWj+p+bDXH+7OXq1SWPfv9AqHbxuwZbXl
+	 MwVOT/FbYUJv4NHS8rKUuD144SEeHgsgfwFyr0BiuooThX/lE+vTmK20lTPV8JZkUT
+	 sbIYOeXcuM4rAw7Os7HD+C4lTGbQjxgrSJdclVJFY9cQPn/3nOpDvaVg378nyBcsxV
+	 opRMDF7FpM++hHk8Vay/0Nip6xmtP+F30zj7vXns+jfyw0UmgGJU8rPp/omlNJtT7p
+	 tnnq3eevBcMJw==
+Date: Sun, 22 Nov 2026 19:31:55 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Akhilesh Patil <akhilesh.patil@linux.dev>
+Cc: andy@kernel.org, krzk+dt@kernel.org, robh@kernel.org,
+ dlechner@baylibre.com, nuno.sa@analog.com, conor+dt@kernel.org,
+ joshua.crofts1@gmail.com, maxwell@maxwelld.cc,
+ u.kleine-koenig@baylibre.com, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ akhileshpatilvnit@gmail.com, akhilesh@ee.iitb.ac.in
+Subject: Re: [PATCH 2/2] iio: chemical: acd10: Add driver for ACD10 CO2
+ sensor
+Message-ID: <20261122192823.6a3430e6@jic23-hlaptop>
+In-Reply-To: <07fe3a575ad86493076d5061ed71c15e7b837a10.1795326744.git.akhilesh.patil@linux.dev>
+References: <cover.1795326744.git.akhilesh.patil@linux.dev>
+	<07fe3a575ad86493076d5061ed71c15e7b837a10.1795326744.git.akhilesh.patil@linux.dev>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,39 +65,353 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Thu, Sep 24, 2026 at 03:51:03AM +0300, Dmitry Baryshkov wrote:
-> dsi_pll_7nm_vco_prepare() de-asserts PLL_SHUTDOWNB and starts the PLL,
-> but leaves the PHY digital top powered down; only dsi_7nm_phy_enable()
-> sets DIGTOP_PWRDN_B.  The PLL cannot lock in that state.
+On Sun, 22 Nov 2026 06:32:46 +0000
+Akhilesh Patil <akhilesh.patil@linux.dev> wrote:
 
-The same lock failure shows up on Molokai (SM8845, derived from
-Kaanapali) in the Motorola Signature, whose panel is on DSI1, but there
-it is reached through a different path than of_clk_set_defaults():
-msm_mdss resets MDSS at probe, which leaves the DSI1 PHY powered down,
-while the dispcc byte1/pclk1 source muxes (not reset) still select the
-DSI1 PLL. They are orphans until the PHY registers its clocks;
-clk_core_reparent_orphans() then reparents them, and since the
-Kaanapali dispcc driver, which Molokai uses, marks them
-CLK_OPS_PARENT_ENABLE, __clk_set_parent_before() prepares and enables
-the unpowered PLL:
+> Add driver for Aosong ASAIR ACD10 carbon dioxide sensor.
+> Use serdev interface to communicate with sensor over UART.
+> Implement read co2, get software revision, get instrument number
+> commands.
+> 
+> Tested on TI am62x sk board on UART5 with 1200 baud rate.
+> 
+> Signed-off-by: Akhilesh Patil <akhilesh.patil@linux.dev>
 
-  DSI PLL(1) lock failed, status=0x00000000
-  PLL(1) lock failed
-  dsi1_phy_pll_out_dsiclk already disabled
-  WARNING: drivers/clk/clk.c:1259 at clk_core_disable+0xb8/0x220
-  dsi1_phy_pll_out_dsiclk already unprepared
-  WARNING: drivers/clk/clk.c:1119 at clk_core_unprepare+0xe4/0x254
-   ...
-   dsi_phy_driver_probe+0x334/0x364
+A few things from sashiko. I didn't look at whether they were correct or not
+https://sashiko.dev/#/patchset/cover.1795326744.git.akhilesh.patil%40linux.dev
 
-On next-20261113 without clk_ignore_unused that is 12 lock failures and
-12 WARNs per boot. With this patch applied there are none, on three
-boots. The panel (DSC command mode) comes up as before, and the
-brightness, a blank/unblank cycle and Phosh all keep working.
+Some other comments below.  Given this is a new driver, give it about a week
+before sending v2 to allow others time to review.
 
-Tested-by: Venkat Yadlapati <venkat.yadlapati@yahoo.com> # Motorola Signature (Molokai, SM8845)
+Thanks,
 
-I have no HDMI output to check the SM8350 HDK regression you mentioned.
+Jonathan
+
+> diff --git a/drivers/iio/chemical/acd10.c b/drivers/iio/chemical/acd10.c
+> new file mode 100644
+> index 000000000000..b92f01e7bf4a
+> --- /dev/null
+> +++ b/drivers/iio/chemical/acd10.c
+> @@ -0,0 +1,365 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * ACD10 CO2 gas sensor driver
+> + *
+> + * Copyright (c) 2026 Akhilesh Patil <akhilesh.patil@linux.dev>
+> + *
+> + * Datasheet:
+> + * https://www.es.co.th/Schemetic/PDF/ACD10.PDF
+> + *
+> + * TODO additional features:
+> + *	1) single-point calibration feature.
+> + *	2) Sensor preheat wait feature.
+> + */
+> +
+> +#include <linux/array_size.h>
+> +#include <linux/bits.h>
+> +#include <linux/cleanup.h>
+> +#include <linux/completion.h>
+> +#include <linux/dev_printk.h>
+> +#include <linux/device.h>
+
+I haven't checked for things actually in device.h but make
+sure this shouldn't be replaced with more specific headers.
+
+> +#include <linux/errno.h>
+> +#include <linux/iio/iio.h>
+> +#include <linux/iio/types.h>
+> +#include <linux/jiffies.h>
+> +#include <linux/mod_devicetable.h>
+
+Not needed any more unless something is wrong in the serdev
+header. These are now assumed to always come from the bus header.
+
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/serdev.h>
+> +#include <linux/string.h>
+> +#include <linux/types.h>
+> +#include <linux/unaligned.h>
+
+> +
+> +enum acd10_cmds {
+> +	ACD10_CMD_READ_CO2 = 0,
+
+Where they line up with values on the datasheet, I would always
+specify them all. Doesn't matter so much when there are only 4
+but for large lists it saves on a lot of counting!
+
+> +	ACD10_CMD_CAL,
+> +	ACD10_CMD_READ_SWREV,
+> +	ACD10_CMD_READ_INS_NUM,
+> +};
+> +
+> +struct acd10_cmd_info {
+> +	u8 cmd_code;
+> +	u8 tx_frame_len;
+> +	u8 tx_data_len;
+> +	u8 rx_frame_len;
+> +};
+
+
+> +
+> +/*
+> + * Do transfer based on command and fill drv_state->buf with received data.
+> + * Caller of this function should use mutex drv_state->lock.
+
+__must_hold() markings can change that documentation to something enforced
+but the static analysis tools.
+
+> + */
+> +static int acd10_serdev_transfer(struct iio_dev *indio_dev, enum acd10_cmds cmd)
+> +{
+> +	struct acd10_state *drv_state = iio_priv(indio_dev);
+> +	struct serdev_device *serdev = drv_state->serdev;
+> +	struct device *dev = &indio_dev->dev;
+> +	int ret;
+> +
+> +	/* Prepare transmit buffer along with checksum */
+> +	drv_state->buf[0] = ACD10_FRAME_START;
+> +	drv_state->buf[1] = ACD10_FRAME_FIXED_CODE;
+> +	drv_state->buf[ACD10_FRAME_DATA_LEN_IDX] = cmd_info[cmd].tx_data_len;
+
+Why do these two get IDX defines whils previous do not?
+
+> +	drv_state->buf[ACD10_FRAME_CMD_CODE_IDX] = cmd_info[cmd].cmd_code;
+> +	drv_state->buf[cmd_info[cmd].tx_frame_len - 1] =
+> +		acd10_get_checksum(drv_state->buf, cmd_info[cmd].tx_frame_len);
+
+Are there even any entries between this and the previous?  I would kind of
+expect to see some zeroing of those prior to CRC given the code here.
+If there aren't what is tx_frame_len for?
+
+
+> +	drv_state->buf_idx = 0;
+> +	drv_state->rx_expected_len = cmd_info[cmd].rx_frame_len;
+> +	reinit_completion(&drv_state->buf_ready);
+> +
+> +	/* Transmit the buffer over serdev */
+> +	ret = serdev_device_write(serdev, drv_state->buf, cmd_info[cmd].tx_frame_len,
+> +				  ACD10_SERDEV_TIMEOUT);
+> +	if (ret < 0)
+> +		return ret;
+> +	if (ret != cmd_info[cmd].tx_frame_len)
+> +		return -EIO;
+> +
+> +	/* Read the received bytes in buffer */
+> +	ret = wait_for_completion_interruptible_timeout(&drv_state->buf_ready,
+> +							ACD10_SERDEV_TIMEOUT);
+> +	if (ret < 0)
+> +		return ret;
+> +	if (!ret)
+> +		return -ETIMEDOUT;
+> +
+> +	/* validate frame header */
+> +	if (drv_state->buf[0] != ACD10_FRAME_START ||
+> +	    drv_state->buf[1] != ACD10_FRAME_FIXED_CODE) {
+> +		dev_err(dev, "RX frame invalid\n");
+> +		return -EIO;
+> +	}
+> +
+> +	/* Maximum data len can be max 11 */
+> +	if (drv_state->buf[ACD10_FRAME_DATA_LEN_IDX] > ACD10_FRAME_DATA_LEN_MAX)
+> +		return -EIO;
+> +
+> +	/* Validate command echo */
+> +	if (drv_state->buf[ACD10_FRAME_CMD_CODE_IDX] != cmd_info[cmd].cmd_code)
+> +		return -EIO;
+> +
+> +	/* Validate checksum */
+
+That's fairly obvious from the code.  Keep comment for where they add
+value over what can be seen without.  Same applies to at least some of the ones above.
+
+> +	if (drv_state->buf[cmd_info[cmd].rx_frame_len - 1] !=
+> +	    acd10_get_checksum(drv_state->buf, cmd_info[cmd].rx_frame_len)) {
+> +		dev_err(dev, "Checksum error\n");
+> +		return -EIO;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int acd10_get_sw_rev(struct iio_dev *indio_dev)
+> +{
+> +	struct acd10_state *drv_state = iio_priv(indio_dev);
+> +	struct device *dev = &indio_dev->dev;
+> +	int ret;
+> +
+> +	ret = acd10_serdev_transfer(indio_dev, ACD10_CMD_READ_SWREV);
+> +	if (ret)
+> +		return ret;
+> +
+> +	memcpy(drv_state->sw_rev, &drv_state->buf[ACD10_FRAME_DATA_START], 10);
+> +	drv_state->sw_rev[10] = '\0';
+> +
+> +	dev_info(dev, "Software revision: %s\n", drv_state->sw_rev);
+
+dev_dbg() probably.  
+
+We tend to not print this stuff by default as it leads to ever more bloated
+kernel logs.
+
+> +
+> +	return 0;
+> +}
+> +
+> +static int acd10_get_instrument_num(struct iio_dev *indio_dev)
+> +{
+> +	struct acd10_state *drv_state = iio_priv(indio_dev);
+> +	struct device *dev = &indio_dev->dev;
+> +	int ret;
+> +
+> +	ret = acd10_serdev_transfer(indio_dev, ACD10_CMD_READ_INS_NUM);
+> +	if (ret)
+> +		return ret;
+> +
+> +	memcpy(drv_state->inst_num, &drv_state->buf[ACD10_FRAME_DATA_START], 10);
+> +	drv_state->inst_num[10] = '\0';
+> +
+> +	dev_info(dev, "Instrument number: %s\n", drv_state->inst_num);
+
+Noisy.  I'm not sure what this is. Can it map to serial_number which is
+standard ABI?
+
+> +
+> +	return 0;
+> +}
+
+> +static int acd10_read_raw(struct iio_dev *indio_dev,
+> +			  struct iio_chan_spec const *chan,
+> +			  int *val, int *val2, long mask)
+> +{
+> +	struct acd10_state *drv_state = iio_priv(indio_dev);
+> +	int ret;
+> +
+> +	switch (mask) {
+> +	case IIO_CHAN_INFO_RAW:
+> +
+> +		/* Read CO2 sensor value*/
+> +		scoped_guard(mutex, &drv_state->lock) {
+Preference where it is applicable is to use scope definition for case blocks that
+need a guard.
+	case IIO_CHAN_INFO_RAW: {
+		int ret;
+
+		guard(mutex)(&drv_state->lock);
+
+		ret = acd10_serdev_transfer(indio_dev, ACD10_CMD_READ_CO2);
+		if (ret)
+			return ret;
+
+		*val = get_unaligned_be16(&drv_state->buf[ACD10_FRAME_DATA_START]);
+
+		return IIO_VAL_INT;
+	}
+
+Mostly because it remove unnecessary indent.
+ 
+> +			ret = acd10_serdev_transfer(indio_dev, ACD10_CMD_READ_CO2);
+> +			if (ret)
+> +				return ret;
+> +
+> +			*val = get_unaligned_be16(&drv_state->buf[ACD10_FRAME_DATA_START]);
+> +		}
+> +
+> +		return IIO_VAL_INT;
+> +
+> +	case IIO_CHAN_INFO_SCALE:
+> +		*val = 0;
+> +		*val2 = 100;
+> +		return IIO_VAL_INT_PLUS_MICRO;
+> +
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+
+> +
+> +static int acd10_probe(struct serdev_device *serdev)
+> +{
+> +	int ret;
+
+Where ordering isn't required due to dependencies mild preference for
+reverse xmas tree.
+
+> +	struct device *dev = &serdev->dev;
+> +	struct iio_dev *indio_dev;
+> +	struct acd10_state *drv_state;
+> +	unsigned int baudrate;
+> +
+> +	indio_dev = devm_iio_device_alloc(dev, sizeof(struct acd10_state));
+
+sizeof(*drv_state)
+
+> +	if (!indio_dev)
+> +		return -ENOMEM;
+> +
+> +	indio_dev->name = "acd10";
+> +	indio_dev->channels = acd10_channels;
+> +	indio_dev->num_channels = ARRAY_SIZE(acd10_channels);
+> +	indio_dev->info = &acd10_info;
+> +
+> +	serdev_device_set_drvdata(serdev, indio_dev);
+> +
+> +	drv_state = iio_priv(indio_dev);
+> +	drv_state->serdev = serdev;
+> +
+> +	init_completion(&drv_state->buf_ready);
+> +	ret = devm_mutex_init(dev, &drv_state->lock);
+> +	if (ret)
+> +		return ret;
+> +
+> +	serdev_device_set_client_ops(serdev, &acd10_ser_ops);
+> +	ret = devm_serdev_device_open(dev, serdev);
+> +	if (ret) {
+> +		dev_err(dev, "ACD10: serial device open failed\n");
+> +		return ret;
+		return dev_err_probe(dev, ret, ...
+
+It's both shorter and saves any effort by reviewer to figure
+out if deferral is possible on a given call.  Use this for every
+error print in probe + any in functions only called from probe.
+
+> +	}
+> +
+> +	baudrate = serdev_device_set_baudrate(serdev, ACD10_SERIAL_BAUDRATE);
+> +	dev_info(dev, "baud rate set to: %u\n", baudrate);
+
+Too noisy for a production driver.  dev_dbg() or drop it entirely.
+
+> +	if (baudrate != ACD10_SERIAL_BAUDRATE) {
+> +		dev_err(dev, "baud rate expected: %u, got: %u\n",
+> +			ACD10_SERIAL_BAUDRATE, baudrate);
+> +		return -EIO;
+> +	}
+> +	serdev_device_set_flow_control(serdev, false);
+> +	ret = serdev_device_set_parity(serdev, SERDEV_PARITY_NONE);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = acd10_get_sw_rev(indio_dev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = acd10_get_instrument_num(indio_dev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = devm_iio_device_register(dev, indio_dev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return 0;
+
+	return devm_iio_device_register();
+
+> +}
+
+
