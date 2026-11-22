@@ -1,84 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795323308;
-	b=VrDnsgvfWRoetGa6g9hl10gk9UVy2+5/0UT/1pjeE4aSEL9juTtju/md4NXnWW6DMogp
-	 cEY9Edi7dXqQz2vFRulelGA8TkYQ7rn2BBRPWuMVhMS9N4+mW/kWTqMripSJp7Hp4pnr0
-	 qPJBlj+wohjMziJrLH7xvMAxWOlDEgc2XJgyqC6KjMlQ9RcfTWK8+YOtfmBotwdJZ9OAV
-	 u5iQWbn+6PBXCArszf1HkFM2Ppq43sDvXPJcCHNd20h2zpgoNJfyW3aCX2uo23yP72Sni
-	 u8y0kyOPPZk77hijphi3uE/GqqgYm3saFS3OBNWHpN7Yq2bFv1AjVQ8Bfth+d9Z9tjA==
+	t=1795323320;
+	b=rCQ+ajSWN7MGvumdza0d5aKQRCLhJY8FR8VHjasO8N46nFc1HHs7fq1jxUgl86KTVB4V
+	 eazy/1RdemoY6EhBNEPnv63owXxyj2cLH6jKVaCvCYQqw1i+jscNioV2Leb9PcsQb3LxM
+	 urls+u4n4K6o1t+Dr80JR6HiSX+m8eDfkUGrEqFetc80JpRbhysJHn0+xwYX3SPg3zSoX
+	 nib/nWAyyUUUrUFygvouXB+/Yx4eDEmDofiEZWDhOeopXMSLf2jBQZya4YLKJPq5stCbw
+	 kgdynf5V0fWc6w6x6eswwtNhA0xuh+vX6MdWn7n695eUihewHWXfRTrCkBrORzefqkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795323308;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
-	bh=zo5hV3nq2vAzOrfwjLwLFQ7iNUuGgnQAdTEhOY7Nk04=;
-	b=flakbcLizISIH6wEFclW85HTTeSRF7DLj7juHetedw84w7raWy1EinSVPu78OtoqnyHN
-	 Y/I2/ayxyLVGnXH/5JCar5W8iPwWGwg/D17xaTzJ3nAapClYWtlj9UPaGmiiOP5odqOgn
-	 NC2MoQj38a1UaARNtvo2EX76R1m4ZiS4/Oezrvth29LQ00v2eePkLP7/d29DlIiPlcqO8
-	 a5sZLdYg6KYCuurKDii6UhOcRfg8036Oo4Rb50aXvAcbnv86qE2S5rwDPcDJvsdeX2usV
-	 fsi/0/dl8vtp5x2Su9YHYr/Dllimf3T6DQ0nTpiXmfupDvYguCuyRvxir8WWtRMDqEw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795323320;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:From:To:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=EK0jv9/FYi6mnSSoEXq7VhsZ5ab2p1zC6SEtkNO32y4=;
+	b=YXsZvN99OLa+ehy1QPSbym5K8MwZOm0NFUxAsMK2Wct33QGib3nJnv4rj1pEZPw0yF84
+	 QGOQvy6vMEqRlWZ4kQHCHv0QLZF57RRpy0SW5wbyx2rLodmjzxX9SSBBKpODXHS95gNnz
+	 SE87bJfm/Rs5xGEMiUfS2EEUua9j3o6Oxaiu5MLheojWkCI7W6/4qR8fsIqxhzJsufFPr
+	 dQD+JK00Q3V6sawVdFCspLXtWffvwG/PioNQlLMw7Xp70krSas6qhT+j84Q9uAIJb1wew
+	 YhHRfK2nJSZM3Z7geDMBMulhHRYeJm98lT47eQxnWIGHKMJWbeF7CK6Lq5E1PL8xqWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OTGCWyKF;
-	arc=none smtp.remote-ip=74.125.82.169
-Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=rz3SNs+e;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 347E5606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:55:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 347E5606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15EC4606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:55:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15EC4606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OTGCWyKF
-Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-3282db206d3so6623531eec.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:55:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795323307; x=1795928107; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=zo5hV3nq2vAzOrfwjLwLFQ7iNUuGgnQAdTEhOY7Nk04=;
-        b=OTGCWyKFZuWdrwICzH5qhVzKeOyJZX3Tp/aufBzZVXieQiqgUo5wteOFtFPdjtlKok
-         WtDXfQ0iE+Qn9vpdtYbTMD4dgNj21yFzDR/XE/Qz8ECFPcEDtZIQBClS4VIw5O7kIxMq
-         Fnk1zdSl3DtWUqMLXE0RhM3+OCObFnUUWdAtwOEsFK1vVZn8Niho68PM2rBjXId+Mx05
-         RkdBhm+QMYkUNzC+dUElcjwUtvb9BNAE+QSNkWBbO4Pe5f76LBoSj9rztyGFHKQjT7EP
-         mYR7TrfjKAosJwhZGqn4k8JwtrqibMZJuSrLILemOh0b+LCjInJC/lWJ7Mh7Xjc0BJaJ
-         M17A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795323307; x=1795928107;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zo5hV3nq2vAzOrfwjLwLFQ7iNUuGgnQAdTEhOY7Nk04=;
-        b=NF0SdLicpeKT6m07eknZRKbTpviqvS1lmQ2IQdQIGN/cKWq4VQowRwdPQFMyleI+4l
-         TGx00JXKodl4Xd1l4izDV5+pCYOVq6VsFNRYuf4KM6IOQLLS0OrjkasmSzVby/HtQC+5
-         hxJKfH7HyzwRJTy3t7NRO1Wsz5OoioTPNbPZKjWulk6aeTEPyIOA75jKMVCQlAURvK0h
-         304kX+KVE5egmZnKRhbqsAAWK4XZaeU1h0//Hmq/oVDjIiFaSPjBrCUrL4+fbILknZjn
-         Ms2eTbLgHsUjT0VBpunAalSHdF1nSCPCZ6MhrnS25Y9/9NA8Qytj4qhAehilaNh/AMDR
-         ooug==
-X-Forwarded-Encrypted: i=1; AL+hErESK4JIeFuCmw/RYlNLzdpGZuNmgbJrvKVkXcBKssoBQOppopJl6XEQ5cBXvcgKSrE8tDeHSL+u50MmXPs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z87ZGrOhXab/VjGDXKjcYOXQg8GKlmjQ6Z6UBzKeyzW5/lOEChx
-	WWWdk7yFoWsL5Q3MnjNvLamOAC5Ewxp9pzNSORCDSr2cUhxkIo5kbXRY
-X-Gm-Gg: AZFdTZc3GYOfS/IbkF/FIugOrmAfXnPsO9NyDXF85NXB+0baNY0GGt4kOKEW4Li/Ddc
-	PeDNIrCmxFr5XBXvwgULdmaruCtmzIGaiCl5HDAyxxreFWf21OXRV3qrhUM8r7DI0jsyjYEZwz4
-	bdoHTYtomUmy1kMIQ3dUY3wn/iiF69vxgomqzYXbvxDEcb576tB9YsxlJWfDtBvEa84xIP7kt5u
-	OLQCC4AaAdQLJ7W6MttL4QxzBNQjan66fAfUDRcJQ2TJh7h+2U90rf4QH6fPMOn35Gv9nX54pz5
-	9TPDxl1JpQJ0WKnDDSibE0p1czPtEEgUYPIldziBQnyLrpDHnLeEpjyS7cflTkz1mKXPePRLoMq
-	pw3KPT0mgtnMYLpYNAxksXPZxP4KPmZHg5MPTGNHJktjFTactvOddcPZrHy+vZViM1ZfCa9InEC
-	nyiNnuO1+LxrBmcLlqriM2Cnsn8OsueRCzWUGiqvTGJG+Yd2rmei40wNmQkd0wdW8/e7wt47S6x
-	gCy2eT5o2q4bky46pArgQCg7eWFcRWlpZpYFpmbsvHRqNEIagJWsZjpG56vfrTACJjRoLH1sJfd
-	NpR1hfMk6EJF8NhixQ0WTtx9l0fFtZpKPN3yJ2S2SwaLNyXV8y16gkAdaGGhcpg5EYwGCeM=
-X-Received: by 2002:a05:7300:d090:b0:386:8bd2:da2c with SMTP id 5a478bee46e88-3868bd2db9amr5813273eec.2.1795323307243;
-        Sat, 21 Nov 2026 20:55:07 -0800 (PST)
-Received: from localhost (61-245-143-184.3df58f.per.nbn.aussiebb.net. [61.245.143.184])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3866f299d0bsm15989477eec.19.2026.11.21.20.54.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 21 Nov 2026 20:55:06 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=rz3SNs+e
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AM44h5O3736652;
+	Sun, 22 Nov 2026 04:55:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=
+	content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=EK0jv9
+	/FYi6mnSSoEXq7VhsZ5ab2p1zC6SEtkNO32y4=; b=rz3SNs+e2PeE0QwllPHDRz
+	saeomMCQZXCHQW20X/VAo1PDe5G3n6J9TH30qK+KjAIVpb0tUjrLsE9gieHJXJ4x
+	XMon22BfN8b5TFqEDazpdEFTcJ7yNm0g7rJVNWrpHRd9L6+evkwiJuadqgjGy+nX
+	ULOwCD948NkhpsURcJb2FSha4ivwicqXPBQ9yX958R7PYHR+R1TWugp9rwInjtee
+	YGZhRxyB9FKHDrmNao2OUVIsm64392szlBu8rrt1HoIfqucTXCkgFmUV8FMedLDI
+	0JzQNVEsWwbYij/IIeEauGKouFZUDOuYhMJyMYJWc3EkSeTEPxo7bAURzTs6bxIQ
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g0vuq0-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Sun, 22 Nov 2026 04:55:09 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AM3nNNZ2767042;
+	Sun, 22 Nov 2026 04:55:09 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j3qufgedf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 22 Nov 2026 04:55:09 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AM4t7u347055206
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 22 Nov 2026 04:55:07 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 551A22004B;
+	Sun, 22 Nov 2026 04:55:07 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2FC1220043;
+	Sun, 22 Nov 2026 04:55:05 +0000 (GMT)
+Received: from Linuxdev.ibmuc.com (unknown [9.43.90.96])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Sun, 22 Nov 2026 04:55:04 +0000 (GMT)
+From: Madhavan Srinivasan <maddy@linux.ibm.com>
+To: linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+        Linux Kernel <linux-kernel@vger.kernel.org>,
+        Andrew Donnellan <andrew+kernel@donnellan.id.au>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Mahesh Salgaonkar <mahesh@linux.ibm.com>
+Subject: Re: [PATCH] MAINTAINERS: Update OCXL maintainer details
+Date: Sun, 22 Nov 2026 10:25:04 +0530
+Message-ID: <179532322361.92012.16012080655704451145.b4-ty@linux.ibm.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261028041217.499673-1-mahesh@linux.ibm.com>
+References: <20261028041217.499673-1-mahesh@linux.ibm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,46 +94,50 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sun, 22 Nov 2026 12:54:55 +0800
-Message-Id: <DN1GZS7LQ7BN.34S0SPYOQLG1M@gmail.com>
-Cc: <rust-for-linux@vger.kernel.org>, <linux-leds@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>
-Subject: Re: [PATCH v28 0/4] rust: leds: Add led classdev abstractions
-From: "Nick Dowsett" <nick42d@gmail.com>
-To: "Markus Probst" <markus.probst@posteo.de>, "Lee Jones" <lee@kernel.org>,
- "Pavel Machek" <pavel@kernel.org>, "Greg Kroah-Hartman"
- <gregkh@linuxfoundation.org>, "Dave Ertman" <david.m.ertman@intel.com>,
- "Leon Romanovsky" <leon@kernel.org>, "Miguel Ojeda" <ojeda@kernel.org>,
- "Alex Gaynor" <alex.gaynor@gmail.com>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Alice
- Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>, "Danilo
- Krummrich" <dakr@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- "Bjorn Helgaas" <bhelgaas@google.com>,
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, "Boqun
- Feng" <boqun@kernel.org>, "Daniel Almeida" <daniel.almeida@collabora.com>,
- "Tamir Duberstein" <tamird@kernel.org>, "Alexandre Courbot"
- <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- "Ira Weiny" <iweiny@kernel.org>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261113-rust_leds-v28-0-b8cf2f74fa57@posteo.de>
-In-Reply-To: <20261113-rust_leds-v28-0-b8cf2f74fa57@posteo.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: xlGOsnSWayZGvlx1u2pT0uBgSu53Tp-8
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIyMDAxOCBTYWx0ZWRfX1FP2MQQc9Hnd
+ ObzkcVk/2WQJaE0DUYp9nMC5IlwzHzKZUCHDVFETIf8hMkVNsTMllGs7EUfh6H5c1JBFcYMgFRf
+ X556XYrqYD5Tzrg+oH0DQHBzHlCw+80=
+X-Proofpoint-GUID: xlGOsnSWayZGvlx1u2pT0uBgSu53Tp-8
+X-Authority-Analysis: v=2.4 cv=c8M+0h9l c=1 sm=1 tr=0 ts=6b0275ad cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VwQbUJbxAAAA:8
+ a=MCxz1IDTg708q_snVY0A:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIyMDAxOCBTYWx0ZWRfXwkw2pdSRa2aJ
+ stpk84Ih9cOMln7bssLEQmfV/ckxBYm0cfgtkDl6CIa8Y5npMUq76E1+mcxSq2H7FhQLLTBgj0i
+ AxYWaehOQk7m5clRl/RGRWmzdT75/MDf/psNCahK66w8Qib7nJ5TsQQrX+T3/4vJ5dVVLBu0/jX
+ z+DBGsEFajmdOmiMXx4Z1m1XvJIg8+1s2WbrLhBpimiccJCoJmkNcGWxseIdZPE3iJ0eH3w/I6R
+ yqUBL8bpfYugb+B1TTpI/gC03nYBjWni/jznhzQmLH5F8bEigYdheEITCW2t2stqilm5jfuAlM4
+ 6CPpEKTY8ObfQnZjOrtsoqjHRErYbW8ClW0HsvDgXerlW5x062VkibiS1VEHBdJNMgErU2kNjp7
+ 2UOceVLgyzIomDqpXI90DTj2O24WbpzSFrsUkxI4lqaPVkeWr2BeSqxRAsAsuxY4WJzTAGh/nXC
+ 3Aa8gsibK9acUCNKI/Q==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-22_01,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 clxscore=1011 malwarescore=0 suspectscore=0 bulkscore=0
+ priorityscore=1501 phishscore=0 adultscore=0 spamscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611220018
 
-Hi Markus,
+On Wed, 28 Oct 2026 09:42:17 +0530, Mahesh Salgaonkar wrote:
+> I no longer have the bandwidth to maintain OCXL. The powerpc maintainer,
+> Madhavan Srinivasan, has kindly agreed to take over.
+> 
+> - Add Madhavan Srinivasan as the OCXL maintainer
+> - Remove myself from the OCXL maintainer role
+> 
+> 
+> [...]
 
-Thanks for these abstrations - I'm using `led::Normal` / `LedOps` in a
-new Rust platform driver (`clevo-laptop`) for Clevo laptop keyboard
-backlight, just submitted here:
+Applied to powerpc/fixes.
 
-https://lore.kernel.org/all/20261122-clevo-laptop-v1-0-881debf4d4b0@gmail.c=
-om/
+[1/1] MAINTAINERS: Update OCXL maintainer details
+      https://git.kernel.org/powerpc/c/d836398542f1e11a8b5191f9e50c0e4ee9b0b13b
 
-Verified on a Clevo/Metabox NL57AU laptop.
-
-Tested-by: Nick Dowsett <nick42d@gmail.com>
-
-Kind regards,
-Nick
+cheers
