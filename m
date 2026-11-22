@@ -1,83 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795370116;
-	b=cC86tIkgMIK1+WAHdA5koAGKBButiowo3t7Uh8It13ZiYDZi2ykAHHVbw4VvUofyBBVw
-	 pTafH5/+pXeRjS3FaohVJ2GTfFMnIqMivMrgiuOmFkckM2fpD8bnv2Xo1ruuEEmy6x8jX
-	 ODQSzVOkX8nqewUXxQeu5/3tvn8eeO5uIUGiWoAIFHdZS3e5ET3RsZF39iACv74WuCDej
-	 m2uHTI8eod4VswOsN3KGb54s4zeHi8/oL4CvH3uCVMJih74iB6JaR0AbY2bpJbBCZ+kpk
-	 WT9IJCPK3GkeEV17/qczRTpVW5AZjpmSGs78xPswGFYr1oSfea1IEeS9gBtTs6shNSw==
+	t=1795370131;
+	b=f1mhZxJGlHFKh64Xx4ONzmEQjPxkxMZv88+JxJneg4/McD3jkGXcZf3RlYcWiBj5QK4g
+	 CMcYyz1OLuN13HtE8mv7s5fV82hUIMHnMaQI/M4AuN9ualgE2hmT8xd6qxn2Gc2zeLfWX
+	 eS1wZI03fqtxabEg2gXJe/hMBQayn/MVrJFu0JLRqxeVNXeVp6dGo9jBgeGlYc+DKvWCz
+	 a0yPGpqqsydFC5PIx/bcbVmbOX7uWUVeQ1NTPoI63XoS21OEEQ3f4r1z4oUyD21boZ/Lu
+	 C+HcqT/v/sj+jF4omk5uj/oyDxgE6YGNNDbS6CLVXcN+tOwTwZb8W4p7jw9KkqimeGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795370116;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 To:Subject:From:X-Mailer:References:In-Reply-To;
-	bh=1yMVaQOiv9B9KFhOF3+nr4ODmkWDhOk1vIMDXuWTipE=;
-	b=y2uB6As8q8RDS8l8O3pGJVI7hOy+JYHbFr1ezEH3acMxMB5NoYubwPnQ3Iq3HExt9eod
-	 vQe70/1LixdU2miAlUo1YUdS1SM+N6A1iWi2gBEnjThAotjW6W7asbhJt1CIGVenrUt4P
-	 +1KneOLNeJhTmCb5pZIQi7NSFU14o12NmBNDb7VOg8TN2FEFqhrDmuK7mOZZGMIVMeBJO
-	 pgjxy/4fgAwdEfKLzUcDcabq7JaPxOTPrfsmB/Nenx+v/gdBiAigySvctFuvcrUv419si
-	 8cuCHjB0654u+FD0pPL1JAUeQsSZoWztzmu3GXKW6qChE3chAqSHFU98tkCSoztzvXA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795370131;
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=h/5Vl306LS0GA0rcZKJVnl2ctvPVB3+FArNa0w73Yro=;
+	b=TZzQjTEqSouL4tFKBtJmD3g7IvY6ICiOLbgBfQ13i2jdh3BbDApgPntxP05cfcfAH0IR
+	 Q+1pDEO8gocJZoqCk+P+j/6kv/SJUQmpe9IfL2EqjEWZfLuO9JcSNtx18HUjEtqKZ4Am4
+	 LYnhnQXUcVXuxeRaRd7ucRspbKEFo/l1jDVshpmM7nOVT6UBz6K4o28kSOsQNZ9OoS9xk
+	 5uO+8JWh0yXQs5prYDzVHnvvpp626+Hc9WFkTLw+ZyApn5biCoNCCgPUlaQiYxzzpFNzZ
+	 cIp6FIyGMybHO+cJ8imnTPG40Jr1etH9euSceneUw7u3xA9r46YNAtojF6+iOF1zbSQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="F8aupT1/";
-	arc=none smtp.remote-ip=209.85.218.52
-Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=duxKByMB;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BA9F606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:55:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7BA9F606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06E59606A320;
+	Sun, 22 Nov 2026 17:55:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=F8aupT1/
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c4d5b2db4bbso565440766b.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:55:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795370115; x=1795974915; darn=vger.kernel.org;
-        h=in-reply-to:references:from:subject:to:message-id:date:content-type
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1yMVaQOiv9B9KFhOF3+nr4ODmkWDhOk1vIMDXuWTipE=;
-        b=F8aupT1/AXXLqFRYnFG9Wa4oKDTm+nQiKVJJpHAjGD/m8srnDYHjHTuG7VJUL6jgTU
-         0LshakNGtPggj2pbNgWhkM6Bv3c+6fydnUaJ8nqhmnpdvE7ZKJtQxTy4zukzH4aBsjc8
-         cS9lkJBW8SapYNQ0UdfwaqI18nSj0t0fkfsqW8rIUt4aQh7cRwRn4F4+bFYhBjwcwK1Z
-         y12l7sKn7AfbwbnERzZ4fsWTbscrrEIr7IUW4+j2Mg6oPYWF8POyv4tPa+yqONcKI8nW
-         W34hZbcsp6T/oRvaNKsVtTPv88SzVAxAOlNJaZ6UOMQ7mS6DpM9Yjw6iQmFvlB2kyO1U
-         p6wA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795370115; x=1795974915;
-        h=in-reply-to:references:from:subject:to:message-id:date:content-type
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1yMVaQOiv9B9KFhOF3+nr4ODmkWDhOk1vIMDXuWTipE=;
-        b=Erx/W4tYjgS/S/O1yjJplcBEwXzvMsUCNb9YKm4UVtgRGfdNIhHubSKAetMefsIAxQ
-         x41XohWWWxtEfCSt4rnf9nYx54sMslqgApqh7LXNJnmSshmjuXr9PwI9OEsxZZgJSo+f
-         7NBPiklyoU2PtjetmZSyO14wiWiKS+f0GCKebN5nRQYjT+DfpQZa3JMEZschgw80GjZn
-         Fv8hLMfeBfpCEZ15kFmtoesqMryPabqFkZc2jsIvGdt8Nwmtgn80MFc8kEK4mdg9lxpk
-         sXWUNdP9W6sTcmILUBFG6oEkUq65yVMFK9aMtT6oIjn4eOqtaYEre5dEtYA+JZ2OLAeN
-         UWqQ==
-X-Forwarded-Encrypted: i=1; AL+hErEyy9GAcxVJZme9Z3cjs3mx0m2fYA65yNi6Snx4COqTQJYflb+e1t0/wqlOZ+hajU01RptPSbk+AIYH18Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8/uNV7EoXTOuBo81rgT/eB+HLsWpOLMY4rR66mf/4GTF4S15oJ
-	7+VH70Ah5X85hu1CRM5/VXD+Iya5KR6l4vBLdEecaDqAVRlH2WVJlPjU
-X-Gm-Gg: AZFdTZe1+8Lp8zY+g55RlFU0nLP5Zckpv+EUWGHKLNXfGCtk4NPmyNliF8QkQN1PpmN
-	9pX0AbdPBL/+5v2zn9sadu+BRWbB1FvTj3drCDNjSvQ8UMtL9pVUci5ryPJGF3huAd82RDB13Xg
-	PtDZfuD+0WaIDTuf+929JmtMGMoxtiQhW1/G0hBKxIgY3/YB31RURaSPT5BHZvGJa6I10hMBuFu
-	jVvhhT0QLvyNjjCdE48Idrlnd1Re9o3seOqdJJJzmf8N6UblJ+qNLd3tXdBRdoqRqhP/XwjSkLE
-	ToG1KPxRSqpxhjAP4w9yA5+YBbRoU5yr21ExG7vn2Obn7T9LthjbZWejKNZWrCtwBYQoPJJfII7
-	HoIXFhWkdIiDu0DCcug6gOkypeiig9A0csgg9vZ1+lz0Nn5ylSTSLSEkmF116kkToXkclwiT6JO
-	T7FB9GG7yow23TcHZi40cGKEDvb/ANHhXIBZt3kszQou07Ec5kEVKCbGDbxWfNM7lyGCc5jd4dz
-	jlHBRozsGxwyrkdxlMja1iqCYeNq/0Hs5GwNltvAQICnBlr0rFcLAZRb9rdIPVlyayQRjMCw62s
-	NBl0J2+AQQxTNBn7ufBh5n2w27HE
-X-Received: by 2002:a17:907:3dac:b0:c51:249f:7215 with SMTP id a640c23a62f3a-c51317e3341mr933233966b.7.1795370114732;
-        Sun, 22 Nov 2026 09:55:14 -0800 (PST)
-Received: from localhost ([2001:1b81:1b55:aa00:48b3:8eff:fe5b:7d15])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae6841asm340920566b.24.2026.11.22.09.55.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Nov 2026 09:55:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=duxKByMB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB00D1F000C0;
+	Sun, 22 Nov 2026 17:55:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795370130;
+	bh=h/5Vl306LS0GA0rcZKJVnl2ctvPVB3+FArNa0w73Yro=;
+	h=From:Subject:Date:To:Cc;
+	b=duxKByMBP2+mJiLV3lYRrKPgtiowdBAgsPJIOTGZnzS3p58QFIkq1X5nGMYdJsfNM
+	 evxhcz1FhYwz1khpDyo/kjMElsksWA2DAYZQuW8yjfOdJAxaqT0kTk/dgJJ3L1YxVs
+	 b6bYv0n/0CSza4S099LFxlPG+mjLC99FtaqxP3vqrBOe/KvmCEPggXwrzwtj46PdmL
+	 zH6u2jCXro9fXxatJHgHkzEGA/pN1yUrjpGfmhjk4zzw2xpr1FXG85n8DZwRqVtmMo
+	 V+B3/ylL49xlmJ3nEPH164nYwknJC3q/uMxMWHQy9Ay2j4bmQ9J6Pw8r1EqMWgOcjr
+	 75F1hXUdF5+Pg==
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: [PATCH v2 0/4] mm,drm/i915,powerpc/spufs: vm_ops->access related
+ fixes
+Date: Sun, 22 Nov 2026 18:55:17 +0100
+Message-Id: <20261122-access_shite-v2-0-808d8d2aa700@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,29 +53,90 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sun, 22 Nov 2026 18:55:12 +0100
-Message-Id: <DN1XL7HI1QUD.GQ4SZXCBUK3V@gmail.com>
-To: "Oleh Kuzhylnyi" <kuzhylol@gmail.com>, "Daniel Golle"
- <daniel@makrotopia.org>, "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- <linux-input@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 4/5] Input: hynitron-cst816x: time out gesture key
- release
-From: "Oleh Kuzhylnyi" <kuzhylol@gmail.com>
-X-Mailer: aerc 0.17.0
-References: <cover.1791233147.git.daniel@makrotopia.org>
- <d73d26d8c9d75fa230e3dd64058acb65f45da64d.1791233147.git.daniel@makrotopia.org> <DM339BDR8JE2.1FJ5827JZIBWD@gmail.com>
-In-Reply-To: <DM339BDR8JE2.1FJ5827JZIBWD@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/3XNQQ6CMBCF4as0s6aGNtSWrryHIaaUEUZNMR0kG
+ sLdDbh2+ZI/31uAMRMyeLFAxpmYxgRe6EJAHELqUVIHXoAu9VEppWWIEZkvPNCEsnOhssbUxmq
+ EQsAz45XeO3dufptf7Q3jtBlbMRBPY/7sf7Pauj/0rGQpa+eCiZUtu1af7pgTPg5j7qFZ1/ULK
+ L5wnLsAAAA=
+X-Change-ID: 20261112-access_shite-d8a47559572e
+To: Lorenzo Stoakes <ljs@kernel.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Andrew Morton <akpm@linux-foundation.org>, 
+ Willy Tarreau <w@1wt.eu>, Jani Nikula <jani.nikula@linux.intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Chris Wilson <chris@chris-wilson.co.uk>, 
+ Matthew Auld <matthew.auld@intel.com>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
+ Shrikanth Hegde <sshegde@linux.ibm.com>, Rik van Riel <riel@redhat.com>, 
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+ linuxppc-dev@lists.ozlabs.org, "David Hildenbrand (Arm)" <david@kernel.org>, 
+ Chris Mason <mason@kernel.org>, stable@vger.kernel.org, 
+ Felix Kuehling <Felix.Kuehling@amd.com>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ Felix Kuehling <felix.kuehling@amd.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1784; i=david@kernel.org;
+ h=from:subject:message-id; bh=uurjwnOfWQkMhoYI4DMjJoIthu1xPIvQvDdbePa+8Rc=;
+ b=owGbwMvMwCF2/OVpCdfQ3ZWMp9WSGLKZdTqylvaopj9aMl99cWW602yfrivn5ySohf55fPZ2/
+ JqtOX7rO0pZGMQ4GGTFFFmCgu8bvHy5rrbajY8ZZg4rE8gQBi5OAZhIaSvDXynr1g/nX69XZbd6
+ ZcFsH2J4UpZD8tdum/4+6S3KwvFF1xkZbodO7b9SyfMl4R/TSwnD7cnx3999jJ+ippmflWjJ++8
+ BIwA=
+X-Developer-Key: i=david@kernel.org; a=openpgp;
+ fpr=1BD9CAAD735C4C3A460DFCCA4DDE10F700FF835A
 
-Looks good to me.
+While working on vm_ops->access related fixes in core code for FOLL_ANON
+and VMA access permission + size handling, I stumbled over two driver
+issues.
 
-Reviewed-by: Oleh Kuzhylnyi <kuzhylol@gmail.com>
+Fixing it all in this series, because it's all intertwined. Only allow
+FOLL_FORCE to bypass VMA permissions, similar to what GUP does for other
+VMAs.
+
+In patch #4 we break a debugging use case for older ROCm versions, and
+forced writes to mappings of read-only files (e.g., DMA-bufs). Current
+ROCm no longer relies on it, but old setups (e.g., MI100 with old
+userspace) might break when updating the kernel.
+
+Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+---
+Changes in v2:
+- Drop "drm/i915/selftests: request read access for mmap access tests"
+- "mm: check permissions and bounds for vm_ops->access"
+ - Allow reads of write-only mappings, as we historically did
+ - Combine the permission check comments into one
+ - Mention breaking forced writes to read-only files
+ - Extend patch description
+- Pick up tags
+- Link to v1: https://patch.msgid.link/20261112-access_shite-v1-0-988a5c470db2@kernel.org
+
+---
+Chris Mason (1):
+      mm: do not call vm_ops->access with FOLL_ANON
+
+David Hildenbrand (Arm) (3):
+      drm/i915: consider vm_pgoff in vm_access()
+      powerpc/spufs: consider vm_pgoff in spufs_mem_mmap_access()
+      mm: check permissions and bounds for vm_ops->access
+
+ arch/powerpc/platforms/cell/spufs/file.c |  3 ++-
+ drivers/gpu/drm/i915/gem/i915_gem_mman.c |  4 +++-
+ mm/memory.c                              | 29 +++++++++++++++++++++++++++--
+ 3 files changed, 32 insertions(+), 4 deletions(-)
+---
+base-commit: 76d96c9641d0c1c0d0e92013a30bd887f8d2dbfe
+change-id: 20261112-access_shite-d8a47559572e
 
 Best regards,
-Oleh Kuzhylnyi
+--  
+David Hildenbrand (Arm) <david@kernel.org>
+
