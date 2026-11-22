@@ -1,49 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.112
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795360643;
-	b=rcKtQrimqSDSCO2KjQdONSOMoYAQ+SPTCRbNlA+S6rElcqvpQXC/nYth0NZ0YdyqvHxO
-	 7yfaN3w7KrOioTHUA+C5yivu4K2jclwSpwsQlRZeuN+lTlnmZrN+kpZ0zbax/MCk8nik4
-	 CzYNHyb5Gu3WEaKrjQZtVQ2h0pLb5udTypJCMfH0aZaHyBr3LwhUJBYAUp0U358f6H6L/
-	 rrcXuVBLV7tUnpgJUyBH8tNpv52aT+PC2p1z7/cmdKB/EsqZ+E7zYfsvUmxwUoFyWnuy3
-	 luVbh8jfH/YEEdxC5nwdErUbb/dxUD7v0Jz1A4iXqoiio+ei3mMCZVi+4fLuCCDHePA==
+	t=1795360670;
+	b=rTCVqYMFyYiWulNrvbEkTopjRTrR8QwnOtpJnEiMzXHT8PmsZa7kyzo5b1u0LlgfMT0Y
+	 EOIWq338wppjKVPGzJT3HcYxqdrlOCObSADTCYLJueIoxp3wmEpsBx7sl5XvB1pAvr2SV
+	 53sQ3mdcgj2cxsEn6DmMIh3I/JEFCl8SZ87w5yfO0cZ+KPgFi+23TlCGKCmOOMBrWpWcj
+	 +G3j5vi4dg6pKpHRy97PPwn+ZUyb+Qus+7rQZCceUwq5N2ZEL7ZIIllylEtOuZrPAKuXh
+	 hvFRnyi34WMRMFZzL47qt7O/0UmXA2uuGHvJ76dW5U83aAzhHYX7PPv93hJvzIxKWRA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795360643;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=fX9h706B7/+t7/LH/7aJa998HS7DuS5ua8wjwXfrMCA=;
-	b=umwCjUw9ZtA/BatN8vKoQ6WiQ+EHgiJNFor2eDhQFbUxUIUf9Unr7yUVR8BY7syLdQfY
-	 6uKLe8Vzs9jrelNvgj9R+w0Y51d6qjwdI+irXhvrgxYku2XMmYWNk5EfRVDQwm6nKP3SB
-	 MCsksEYFDT2PZVPd89C6BblbF3Z5c6woWxodrw37w4U9S11FRXfUTB7yrzeFdM4SdPubh
-	 jkppYYe7xDoHeLJ0wBOcfrqwBbpIJMqQptfiZjyFnuuR4MZMW87OCIuwBsVjCovdTMqlY
-	 7SCv0CXUbFDSodbNGMjeNJCLPc+fv9j1pmJOdSRldAnGZgSG3uXCSSc0A0VpCymJxvA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795360670;
+	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
+	 In-Reply-To:References:Subject:From:To:Cc:Date;
+	bh=gIIbVkTXPuo9374QlWA8aMkGpR0GRxfRcvXlcVd/Gk8=;
+	b=GB6WX0VoDgZvh2LcI1R4J6j0jG0TmIUHQP+elGnFsPoXxhZ8O4vaxFEQFQeUxeg4Qmev
+	 I5ZHjEipmqPHwI28+LN6YkRfNeidUmgOVjHLRJpJL78LhtbCypOd/uN+myeczMNqQhCoN
+	 j/X0SPCcYXCOKFwPUIGbdOlan/+4cigwvs91McojdzXLtCidZfK936YMw6fj8h18og1RR
+	 q8U5q0msf3fZd/qWyDymHHEEzEdFrwz+dRUIM0aXqwAVWpuPmIpfCmGV4O9TEKxk4FjnO
+	 L9ghLvtwSLB44LI3S4nmsnWcECu4fr60AWI8pbJrDblNFI6Xwel25d7L85jSXCP8txQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=aQP4KMvw;
-	arc=none smtp.remote-ip=115.124.30.112
-Received: from out30-112.freemail.mail.aliyun.com (out30-112.freemail.mail.aliyun.com [115.124.30.112])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gqKoDkku;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 328D8606A338;
-	Sun, 22 Nov 2026 15:17:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 328D8606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1348D606A330;
+	Sun, 22 Nov 2026 15:17:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=aQP4KMvw
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795360633; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=fX9h706B7/+t7/LH/7aJa998HS7DuS5ua8wjwXfrMCA=;
-	b=aQP4KMvwj5Hn0D9spgkGKjQGG9aQxhk/PCtv1JM9UV6NqV3/NV9IkrTTJTwuDUHl4YUgNAeMi7WPVRcZJGuBERcnVhiqnugTF4Eq9PCPMT9SL2fIXNGBeAXcF3GAkiHTwW9dmxmlELNtCLGLGXmLSUlo9bY3NHNb8TuVmHdR6y4=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R181e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=joseph.qi@linux.alibaba.com;NM=1;PH=DS;RN=10;SR=0;TI=SMTPD_---0XFB6iLJ_1795360631;
-Received: from 30.180.33.101(mailfrom:joseph.qi@linux.alibaba.com fp:SMTPD_---0XFB6iLJ_1795360631 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Sun, 22 Nov 2026 23:17:12 +0800
-Message-ID: <86f614dd-c9ee-4bf2-acb8-0ea8b3b5cb45@linux.alibaba.com>
-Date: Sun, 22 Nov 2026 23:17:10 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gqKoDkku
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 447811F000CA;
+	Sun, 22 Nov 2026 15:17:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795360669;
+	bh=gIIbVkTXPuo9374QlWA8aMkGpR0GRxfRcvXlcVd/Gk8=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=gqKoDkkuGHuGAZIVjdL2Kd/UApNG3xKQ48GRQsT+Y1h2nRX3QP3mH0Qv34EAy5Rv5
+	 3U0GKu4nXtSdR0wmtxfDlEpoJBBYJZSexaKzPu6uhs/D3pSJ+h01bh/EVP/DOCP/eq
+	 QnMR4hEUM99MMpCbmeeiJ5z6S43rXnZBUuriIGCHMcs9DaLrLUpvgE6WCtf6YAl0t3
+	 1N8qDbynsDXbUEBLNF8T9wrOnqIvKCea2FTUu66UAK96cRJHD7ElLHtpiRgArWb0Qu
+	 MptbYXKIzMX8ZffidWUwIgjSZbvqyOEPhsN32JFooNiO2KvFOY4epNRR1RpWUdiT3c
+	 vtYdIs8eZR5VQ==
+Content-Type: multipart/mixed; boundary="===============4519172269265903290=="
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,106 +49,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] ocfs2: drain fs_state readers before journal teardown
-To: Cen Zhang <zzzccc427@gmail.com>, Andrew Morton <akpm@linux-foundation.org>
-Cc: mark@fasheh.com, jlbec@evilplan.org, heming.zhao@suse.com,
- ocfs2-devel@lists.linux.dev, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, baijiaju1990@gmail.com, jjzuming@gmail.com
-References: <pm-ocfs2-objects-candidate-0003-v8-8fb510a5c52b337960c9@gmail.com>
-From: Joseph Qi <joseph.qi@linux.alibaba.com>
-In-Reply-To: <pm-ocfs2-objects-candidate-0003-v8-8fb510a5c52b337960c9@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Message-Id: <9b699575619446beb43aac4209af0de5b6a87be1613b734ce3f009c36a551bae@mail.kernel.org>
+In-Reply-To: <20261122143815.330528-2-abhishekkhade69@gmail.com>
+References: <20261122143815.330528-2-abhishekkhade69@gmail.com>
+Subject: Re: [PATCH bpf-next v3 1/2] bpf: Add bpf_memmem and bpf_dynptr_memmem kfuncs
+From: bot+bpf-ci@kernel.org
+To: abhishekkhade69@gmail.com,bpf@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,abhishekkhade69@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Sun, 22 Nov 2026 15:17:48 +0000 (UTC)
+
+--===============4519172269265903290==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
 
+> bpf: Add bpf_memmem and bpf_dynptr_memmem kfuncs
 
+TL;DR: bpf_dynptr_memmem() may return -EINVAL for skb/xdp packets with
+non-linear (frag) data, so packet searches can fail even when the needle is
+present; the error is also ambiguous.
 
-On 11/21/26 3:51 PM, Cen Zhang wrote:
-> The fs_state debugfs open callback builds a snapshot from mount state,
-> including the journal and cluster connection. The file is published
-> before ocfs2_mount_volume() and removed after journal and DLM shutdown,
-> so an open can overlap teardown on unmount or mount failure.
-> 
-> Publish fs_state at the successful end of ocfs2_fill_super(), after the
-> last fallible mount step. Remove it in ocfs2_put_super() before calling
-> ocfs2_dismount_volume(). Debugfs removal excludes new opens and drains
-> active callbacks. The release callback only frees the per-open snapshot.
-> 
-> KASAN reported:
-> 
->     BUG: KASAN: slab-use-after-free in ocfs2_osb_debug_open+0x967/0x15e0
->     Read of size 4 at addr ffff888116a56028 by task cat/502
->     ...
->     Freed by task 504:
->      kfree+0x308/0x580
->      ocfs2_journal_shutdown+0x10a/0xc20
->      ocfs2_dismount_volume+0x315/0x940
-> 
-> Fixes: da5e7c87827e ("ocfs2: cleanup journal init and shutdown")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Cen Zhang <zzzccc427@gmail.com>
+> diff --git a/kernel/bpf/helpers.c b/kernel/bpf/helpers.c
+> --- a/kernel/bpf/helpers.c
+> +++ b/kernel/bpf/helpers.c
 
-Looks fine.
-Reviewed-by: Joseph Qi <joseph.qi@linux.alibaba.com>
+[ ... ]
 
-> ---
-> Changes in v3:
-> - Create fs_state at the successful end of ocfs2_fill_super() so failed
->   mounts never publish it.
-> - Remove fs_state in ocfs2_put_super() before volume teardown so creation
->   and removal are paired at the superblock level (Joseph Qi).
-> 
-> Changes in v2:
-> - Address the osb dereference before BUG_ON(!osb) raised by Sashiko:
->   https://sashiko.dev/#/patchset/98583
-> - Remove fs_state after BUG_ON(!osb) in ocfs2_dismount_volume().
-> - Trim the KASAN report.
-> 
-> Link to v1: https://lore.kernel.org/r/pm-ocfs2-objects-candidate-0003-v6-2f69dbb7417fcd537be6@gmail.com
-> Link to v2: https://lore.kernel.org/r/pm-ocfs2-objects-candidate-0003-v7-1522d068e5b943786c3e@gmail.com
-> 
-> This patch was written with assistance from Codex (OpenAI).
-> 
->  fs/ocfs2/super.c | 12 +++++++++---
->  1 file changed, 9 insertions(+), 3 deletions(-)
-> 
-> diff --git a/fs/ocfs2/super.c b/fs/ocfs2/super.c
-> index 0af2245ae303..2a58d3cd9690 100644
-> --- a/fs/ocfs2/super.c
-> +++ b/fs/ocfs2/super.c
-> @@ -1072,9 +1072,6 @@ static int ocfs2_fill_super(struct super_block *sb, struct fs_context *fc)
->  	osb->osb_debug_root = debugfs_create_dir(osb->uuid_str,
->  						 ocfs2_debugfs_root);
->  
-> -	debugfs_create_file("fs_state", S_IFREG|S_IRUSR, osb->osb_debug_root,
-> -			    osb, &ocfs2_osb_debug_fops);
-> -
->  	if (ocfs2_meta_ecc(osb)) {
->  		ocfs2_initialize_journal_triggers(sb, osb->s_journal_triggers);
->  		ocfs2_blockcheck_stats_debugfs_install( &osb->osb_ecc_stats,
-> @@ -1158,6 +1155,10 @@ static int ocfs2_fill_super(struct super_block *sb, struct fs_context *fc)
->  	/* Start this when the mount is almost sure of being successful */
->  	ocfs2_orphan_scan_start(osb);
->  
-> +	/* Publish fs_state only after all fallible mount steps. */
-> +	debugfs_create_file("fs_state", 0400, osb->osb_debug_root,
-> +			    osb, &ocfs2_osb_debug_fops);
+> +__bpf_kfunc long bpf_dynptr_memmem(const struct bpf_dynptr *haystack,
+> +				   const void *needle, u32 needle__sz,
+> +				   u64 flags)
+> +{
+
+[ ... ]
+
+> +	size = __bpf_dynptr_size(ptr);
+> +	if (size > BPF_MEMMEM_MAX_LEN)
+> +		return -E2BIG;
+> +	if (size == 0 || needle__sz > size)
+> +		return -EINVAL;
 > +
->  	return status;
->  
->  out_dismount:
-> @@ -1555,8 +1556,13 @@ static void __exit ocfs2_exit(void)
->  
->  static void ocfs2_put_super(struct super_block *sb)
->  {
-> +	struct ocfs2_super *osb = OCFS2_SB(sb);
-> +
->  	trace_ocfs2_put_super(sb);
->  
-> +	/* Drain fs_state opens before releasing their backing state. */
-> +	debugfs_lookup_and_remove("fs_state", osb->osb_debug_root);
-> +
->  	ocfs2_sync_blockdev(sb);
->  	ocfs2_dismount_volume(sb, 0);
->  }
+> +	data = __bpf_dynptr_data(ptr, size);
+> +	if (!data)
+> +		return -EINVAL;
 
+Can this return -EINVAL for the packet inspection cases the commit message
+describes?
+
+__bpf_dynptr_data(ptr, size) is bpf_dynptr_slice(p, 0, NULL, size) with no
+bounce buffer.  For BPF_DYNPTR_TYPE_SKB that ends up in
+skb_pointer_if_linear(), which returns NULL whenever size > skb_headlen(skb).
+
+For BPF_DYNPTR_TYPE_XDP, bpf_xdp_pointer() returns NULL or an ERR_PTR when
+the range crosses into frags or is larger than 0xffff.  For
+BPF_DYNPTR_TYPE_FILE, bpf_file_fetch_bytes() returns -EINVAL for a NULL
+buffer, so it always fails.
+
+A TC program calling bpf_dynptr_from_skb(skb, 0, &d) gets a dynptr covering
+skb->len, and received skbs commonly keep most of their payload in page
+frags.  For a typical packet larger than the linear head, such as a TLS
+ClientHello, the call fails even though the needle is present.
+
+The neighbouring dynptr kfuncs handle non-linear data explicitly.
+bpf_dynptr_memset() falls back to __bpf_dynptr_write() in chunks, and
+bpf_dynptr_copy() falls back to __bpf_dynptr_read()/__bpf_dynptr_write().
+
+The kernel-doc lists "non-linear buffer" under -EINVAL, but that code is
+shared with invalid flags and invalid parameters (including needle__sz >
+size).  A program cannot tell "call bpf_skb_pull_data() and retry" from a
+real argument error, nor from a packet that is simply shorter than the
+needle, which arguably should be -ENOENT (bpf_strnstr() returns -ENOENT in
+that case).
+
+Should bpf_dynptr_memmem() search non-linear skb/xdp data, for example by
+scanning slices with a needle_sz - 1 overlap, or at least return a distinct
+error for the non-linear case?  Should the commit message say that TC packet
+payloads usually have to be linearized first?
+
+> +
+> +	match = __bpf_memmem(data, size, needle, needle__sz);
+> +	if (!match)
+> +		return -ENOENT;
+
+[ ... ]
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45034767598
+--===============4519172269265903290==--
