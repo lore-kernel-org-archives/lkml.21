@@ -1,64 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795332607;
-	b=SCCaF6Rt5+jNAgbGHn6PVWW6SpSGJN3POKr1pulSTHvKVaJxX5IO/aANVqU5/ly1CU9x
-	 HiC4zD8GWpnKWXW1P8Nyrz10PlZnt5torDlRmqNJV4bGtQEWCa/VGoYMSEBxRuYOQH7dD
-	 s4Z71ArOLhnmd+WXiXw8HP/lZLdhwGriCpRdr/oB80BvUhtu28BR2W8whjf/2Bp74oO21
-	 6lZjHOHtvCapC62RGaeLO9aoyliULv01spCI2xlwsjW81mVyvelr4GZy9kAeEHgf4m4Qg
-	 AYOYEsbv3Kag7rRgAnTsCwV+mTNs1isFJDTRYggC5dAFbMBAR+wnr5aBg5rIr3DOU3g==
+	t=1795332642;
+	b=wIjjzd0kGdZtqB6gktZkjCj7manSkxkVE437a5PSYLwEyaOq68fqUsnjXmXLdUAzDvjo
+	 czYOwXa2YJD4ng5UhxQ1nNpgj+Ow/W27BuljI8be6T2DpvuCNiKxHBp1lD3ULCKX1bYlD
+	 0tj923dfXwsqCe/o+90njAmiyXnbst97LVilWGyiG7PNOQuvuMEI+8RoNmtiGtc3v6Mmc
+	 WnQ8AYe+f+ScoiyUXSnRKEdwiW9Fr72Am6k9kKWd4AYR2tfjckpDotP+EzG7kT2et9k+b
+	 3w4dmC2bWMimUMYa1tADf/AdaoZxQZsEHQ9jM4Vv5hAoJoZcJmNxvZkWZ6yBJ4rjlTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795332607;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-Id:
-	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795332642;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=uXWNYjPxX6wVtAP9DzJE75Av2qUwSEdpN8RkrP8QOpw=;
-	b=gwyhaLuro8KD7oI7z5bLIVJzE+q7+nvFeyaZCFYvryTspVVnjkwegGlr4DDYTNRXm3cc
-	 ikLgl56SEJAOIL30TL1PV9UkgOLOOkv/ourDYdFw8BL2esDIkfAng5CDNQ1tufCWtSp/H
-	 QY35pTQ+XupdJo6J3ZM3rKZfkbJLyfI23pz7ui5trJKiQCCMW5KzP/ti0GeF94vg8COY4
-	 0wJOhEyTKttb/lU6rrcIX8cEsWWLoJv+Kr+MUenJwVgALER+pYAoQ0UNbHR9BOzAwOo4W
-	 QJa0Mvr0HrhL4ZMB8qcqea/A7jlsYO+vjdRTbN6uN8v/E+tcXLckv1Iv5O7nds/veJg==
+	bh=H02gl3A8lED/orev+VVlUTCHLPwpp1eOdDDA4V8ytIA=;
+	b=NneBmTZWGijGQh63fUidG48MFfthrL34KGdf4jhRG9YaMoxEumO1N2fsAhEHVz7fIFkB
+	 kUbR40ODi7Y4tkSSP1VvHbDY75CCicNfvfh0rrExTy4YISetbgcW7g/oLNWsbB2Zzv7K+
+	 3+P3yLWb7pCHOESWQMVdEdJ8yHmWa65btAMh6HOqEiPbeX4wQ0Z1PZJIYAeuF3QybZGD/
+	 82lCcOhSxfwSvqZV4B3oAOOgaz3NL2dXPnj9xDJR5anrNr/C95qllI3YzwqeD0zyEpVXg
+	 seA+X5kg/mIq+CsdogqIH2qyb2axf5qkgaFTePZn2xMVtU5a1hEbmL5O+hZvZi9vbGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=BTAmTlEP;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=M8jygr5a;
+	arc=none smtp.remote-ip=91.218.175.200
+Received: from mta0.migadu.com (out-200.mta0.migadu.com [91.218.175.200])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE4E3606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 07:30:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 999C9606A332
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 07:30:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 999C9606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=BTAmTlEP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABB921F000C4;
-	Sun, 22 Nov 2026 07:30:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1795332607;
-	bh=uXWNYjPxX6wVtAP9DzJE75Av2qUwSEdpN8RkrP8QOpw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=BTAmTlEPmIlgFRIx7pww1JhEV/sRwv8Ng2+2iKg4j6PzgRMqGv8JHOaw42mKXj1PQ
-	 sM7+AGtDcm8o9O7CfamNPvuyk5C5YNACkYV+YjlZkzN0zYEwAYTR+9zcTmLWp3Dv7L
-	 s+bN1UUxXk1Y7l9a/bXUa2cijblzhbqciIoFoE7s=
-Date: Sat, 21 Nov 2026 23:30:06 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Shivank Garg <shivankg@amd.com>
-Cc: David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka
- <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan
- <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Borislav Petkov
- <bp@alien8.de>, Ankur Arora <ankur.a.arora@oracle.com>, Dave Hansen
- <dave.hansen@linux.intel.com>, "Thomas Gleixner" <tglx@kernel.org>, Bharata
- B Rao <bharata@amd.com>, "Hrushikesh Salunke" <hsalunke@amd.com>, Ingo
- Molnar <mingo@redhat.com>, "H . Peter Anvin" <hpa@zytor.com>, David Laight
- <david.laight.linux@gmail.com>, David Rientjes <rientjes@google.com>, Linus
- Torvalds <torvalds@linuxfoundation.org>, "Teja Vojjala"
- <tejavojjala@google.com>, Huan Nguyen <nhuhuan@google.com>, "Pedro Falcato"
- <pfalcato@suse.de>, Peter Zijlstra <peterz@infradead.org>,
- <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>, <x86@kernel.org>
-Subject: Re: [PATCH v3] mm: introduce copy_mc_highpages() and batch copy in
- folio_mc_copy()
-Message-Id: <20261121233006.bc03ca9b7889c93a482791aa@linux-foundation.org>
-In-Reply-To: <20261113-batpagecopy-v3-1-297f5b2fd28e@amd.com>
-References: <20261113-batpagecopy-v3-1-297f5b2fd28e@amd.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=M8jygr5a
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=NLC7oANZwCfL7depjHfIzJ4jloTo6BAzdIgGpvntEFI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795332639; v=1; x=1795937439;
+ b=M8jygr5aBCWN7dK64eSo5G8nBVNnH0PVvZJGbiNzj+/iqwBKnRyiMpIwEeajBT8v9Zwurfdb
+ 4WVj/0p+Z8kpL94Zyzs+pjbbbZTWMJqOsf4W2KJXbOfLfrnI7egNG+fFRkVEV1nxoKF3B1VtJq1
+ 8pUyTesQeNgTH7mUVdlBe9BM=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id b98bde626d255cef;
+	Sun, 22 Nov 2026 07:30:38 +0000
+X-Mizu-Trace-ID: b98bde626d255cef
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <3af03366-784b-48bb-a807-9ccea92e39ca@linux.dev>
+Date: Sun, 22 Nov 2026 15:30:25 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,61 +57,84 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 04/17] mm/memcg: add folio-based lruvec live helper
+To: kasong@tencent.com, linux-mm@kvack.org
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>,
+ Ying Huang <ying.huang@linux.alibaba.com>, Chris Li <chrisl@kernel.org>,
+ Baoquan He <baoquan.he@linux.dev>, Nico Pache <nico.pache@linux.dev>,
+ Usama Arif <usama.arif@linux.dev>, Michal Hocko <mhocko@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>,
+ Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+ Vlastimil Babka <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Nhat Pham <nphamcs@gmail.com>, Youngjun Park <youngjun.park@lge.com>,
+ Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>,
+ SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>,
+ Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>,
+ Zicheng Wang <wangzicheng@honor.com>, Chen Ridong <chenridong@xiaomi.com>,
+ Tal Zussman <tz2294@columbia.edu>, Kairui Song <ryncsn@gmail.com>,
+ Xiang Liu <liuxiang.277@bytedance.com>, Ehab Ababneh
+ <ehab.ababneh@intel.com>, Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>,
+ Lian Wang <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>,
+ Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>,
+ linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
+ damon@lists.linux.dev, linux-doc@vger.kernel.org
+References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
+ <20261119-mglru-fg-v5-4-9eee2fe97a2d@tencent.com>
+From: Qi Zheng <qi.zheng@linux.dev>
+In-Reply-To: <20261119-mglru-fg-v5-4-9eee2fe97a2d@tencent.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-On Fri, 13 Nov 2026 17:09:21 +0000 Shivank Garg <shivankg@amd.com> wrote:
 
-> folio_mc_copy() copies a folio one page at a time with copy_mc_highpage(),
-> so a 2MB folio makes 512 separate copy_mc_to_kernel() calls. Each page
-> pays the startup cost of the string instruction ("REP; MOVSB" on x86
-> CPUs with ERMS) plus a cond_resched().
-> 
-> Introduce copy_mc_highpages(), the page range variant of
-> copy_mc_highpage(). When copy_mc_to_kernel() is available and the pages
-> are in the linear map, copy the whole range with a single
-> copy_mc_to_kernel() call, so the CPU can optimize for the larger extent.
-> Otherwise, fall back to copy_mc_highpage() one page at a time.
-> 
-> On a machine check, queue the poisoned source page for memory_failure(),
-> as copy_mc_highpage() does, and return -EHWPOISON, as folio_mc_copy()
-> does today.
-> 
-> copy_mc_to_kernel() cannot reschedule, so only take the single-call path
-> when CONFIG_PREEMPTION is set and the copy can be preempted. Since commit
-> 7dadeaa6e851 ("sched: Further restrict the preemption modes"), x86 and
-> powerpc, the only architectures that select ARCH_HAS_COPY_MC, only offer
-> the full, lazy and RT preemption models, also with PREEMPT_DYNAMIC, so
-> they always take this path. The per-page fallback calls cond_resched()
-> before each page, as clear_contig_highpages() does. Other architectures
-> keep copying one page at a time.
-> 
-> Switch folio_mc_copy() to copy the whole folio with copy_mc_highpages().
 
-OK.
+On 11/19/26 5:03 AM, Kairui Song via B4 Relay wrote:
+> From: Kairui Song <kasong@tencent.com>
+> 
+> Add a helper that resolves a live lruvec for a folio under RCU
+> without taking the lruvec lock.  It takes a folio directly so the
+> lruvec lookup happens inside the RCU read-side critical section,
+> which a lruvec-based interface cannot guarantee.  The first user is
+> the lockless folio_inc_lru_refs() path later in the series.
+> 
+> Factor the ancestor walk out of lruvec_live_lock_irq() into
+> __lruvec_get_live(), so that both entry points share it, and spell
+> out why the walk is enough while only the RCU read lock is held:
+> reparenting of a memcg that starts dying waits for a grace period,
+> so it cannot race with the caller until the lock is released.
 
+Right, that's the ordering: CSS_DYING is set before the reparenting in
+the RCU work, so testing for a dying memcg under `rcu_read_lock()` fully
+covers the race.
+
+> 
+> Move memcg_is_dying() up in memcontrol.h, next to the other memcg state
+> predicates, and use it for the walk rather than repeating the open coded
+> css_is_dying() test a few definitions away from where it is explained.
+> 
+> No functional change for existing callers.
+> 
+> Tested-by: Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>
+> Signed-off-by: Kairui Song <kasong@tencent.com>
 > ---
-> On a Zen 6 system with CXL memory, move_pages() gets ~1.4x faster for
-> 2MB THPs and up to ~2.8x faster for 1GB hugetlb pages (numbers below).
-> When demoting to CXL, kswapd uses ~31% less CPU per GB demoted.
+>   include/linux/memcontrol.h | 71 ++++++++++++++++++++++++++++++++++++----------
+>   1 file changed, 56 insertions(+), 15 deletions(-)
+> 
 
-But that's the most important part!  It's the whole point of the patch!
-Yet here it is below the ---, which means "throw this away".  It
-should be the first paragraph, in all caps.
+LGTM, so:
 
-<edit edit fixed>
+Reviewed-by: Qi Zheng <qi.zheng@linux.dev>
 
-OK, thanks, queued,
+Thanks,
+Qi
 
-nit: does it really need cond_resched()?  That's not appropriate for
-current mainline kernels.  I guess "yes", because this patch looks like
-something which downstream people will eagerly backport into older
-kernels, even though we didn't cc:stable.
-
-And we care about downstream people.  Globally: "Roughly 60% are on 6.x
-and 30% are on 5.x (with the remaining ~10% split between 7.x and 4.x
-or older)".
-
-I'll take a look at that Sashiko thing.
 
