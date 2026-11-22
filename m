@@ -1,47 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795374106;
-	b=HyOsJ5lnN1a92pigTOfd/28kBwpZAK4PjWUSkh1w4MBj9d3dFkefdzT4InW6gVMshHju
-	 pWCts7BLpMeqBDfqaI4N5jJ9W3PmebifSPJjYAjinb/OddUsDnz19KG/M8GW+lY4HzRqG
-	 3/B0/HvsLs88MZCtmMY2QoZzZdwHRsImQCuJjsplLowtKGMduSruq2zmkw/ULLy91GXs0
-	 mfyljmtnkyh2bWzo4cD+R6wtuTab0GuZG3nsF+H8k5JIhishNkXS+gkPA07wY+m8EfZt/
-	 1eoctleX4zWKfltODCiEzCtHSs9qH66TRs0i4WXDA28pMg+8QSy7+qvJ5WkEG31xbrA==
+	t=1795374157;
+	b=c715FgtlzMwlAXQIPw0uyUtVc4n5RUELdze56VSDWQ1dQo46E1Zy+c3tESfDOHv4QaSL
+	 CREJtHLUQ4f5KOy+4Z2xRSXML9cRoXGaJFusSzDghw7wQ//zzoo78p8rlXIGXY5AfYUWz
+	 BGgY75jGQbOF6DMUY9jakRkPIpkZevgkOpHC1aYtYrFS9aKUNyi1ZNetmoWxq/SsIi4DC
+	 fP6Pr165Uaf+bx3KI4eiyJY7J5OqCXVQMcm8O2xbSrPMtviL08aHvL/k+YqBgnOX7qmhH
+	 GAzc28bL0b9ZLXCJ97zbWAZ1NziZMta2kt1q3BmOpIETCWnCGqGNPFU+605VgmLeuig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795374106;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=B6mwbGEwXXyN/dQg6IT9GL9GhF/RQ4pE1okmkcy0H1E=;
-	b=DgVlShmnqBi8y45Df43xkD3Ja6w/hvKasIQoCXLoEjww385YEOf02fclZyH38YsyVGEP
-	 bXAw+VgbM0MKZzskOLUP7Nfy4NG4y2KdbciK1q8mDaP7fV3GGhncX0T2AXRWu1fQpOJJe
-	 l/wGA8sGIPGSGXjox4f0JKhre8CcPk3o7qMOeewjGjafi8DdpFStYXA/f6sJI3euVd9aW
-	 7BxDX5WO7Ug1Z7XxPzXg6mOiN95n+dtdBNCx7pyQU8W0hEcphCrOVfZzZroinSXq2TgoV
-	 j45fjlDLe/i4RAM5ZhiAmOrXek2hEntd3gYMKBjape9bL1fN2JRua6hbZ5QaaHDfb9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795374157;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
+	bh=Lp0osgtiZVKWMvtaLvxNrKUfcz8WxeL6pbk5OTyZtio=;
+	b=XAloYtoaGfDz82z5xqcmB3gar+m0ildRhirD3X6LUU8JZIad9j+EUwXQWzuhYLwWZbO/
+	 oCPrINkY2Nr67RElgbBJDjJfTUDULH95YpDl+22zslLv2aCeG8KQoAsYwwptN3kGMrIdg
+	 /b66KloPvynDTEBbeF+cO0n07rlyA3q6XXmKvhOLivyMZ9O4PtcyOySw9W8hTBTDhjIys
+	 +Ya2YiSzDL61YQuoJF+ujAGh+ORcpGhRHT+Ty+esWnLFjI9leV4sepEIGMD7PbSAdDSTE
+	 3STqXRiUOYUCNRzAKfR6EZWA8xvbM6CynipDAAiVtphBcGh399oXpIUSaO1C68RQrCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Aw57fiLl;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=gourry.net;
+	spf=pass smtp.mailfrom=gourry.net;
+	dkim=pass header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=uQFeWFLZ;
+	arc=none smtp.remote-ip=209.85.222.179
+Received: from mail-qk1-f179.google.com (mail-qk1-f179.google.com [209.85.222.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41DCE606A330
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:01:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8958C606A331
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:02:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8958C606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=gourry.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gourry.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Aw57fiLl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A14DC1F000C6;
-	Sun, 22 Nov 2026 19:01:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795374105;
-	bh=B6mwbGEwXXyN/dQg6IT9GL9GhF/RQ4pE1okmkcy0H1E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Aw57fiLlOdjsVTYIZFMlxwDLh70RitKlffVInmvxcubv4LFp1DgMKx88dfL4Oz5s7
-	 EuArjJV8DAOZaDwiRyCg5bdtw+mmL3w2rmGAqQxDlZtXzoWgyxOCscF5MwhjKKvoJd
-	 ODi5/RwHTZL+oelPnNFkLmAc1y/3/F96sYbkDOaQ1EeepyY6uDGIPSDrCYIiE3ZEae
-	 bPcWD4VDrpXN3mPhnr2qlAGjXEc1wphq4jh809GmyZT9rHBfZPzXsSEkGsuK7sxT72
-	 o7GLifC78Evnwc/neJnK69Bj0oVPlhU80m6PPGAgldGylk5quxc3SJX3NDDARXI9Jo
-	 9xhUxFfSJ+fBQ==
-Message-ID: <c7a2b0d5-352f-4106-bb86-f1629bf2a264@kernel.org>
-Date: Sun, 22 Nov 2026 20:01:40 +0100
+	dkim=pass (2048-bit key) header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=uQFeWFLZ
+Received: by mail-qk1-f179.google.com with SMTP id af79cd13be357-949b0d32315so236445285a.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:02:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gourry.net; s=google; t=1795374156; x=1795978956; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Lp0osgtiZVKWMvtaLvxNrKUfcz8WxeL6pbk5OTyZtio=;
+        b=uQFeWFLZsxcxcM3Y5PRguhI2N3sC44abIIYqvAJ5480AJO17aLrxmv/Mrc1sQy/1Ab
+         e/GKhbYXMeYyweITHXj6HCJ5gXaNgtkOfrWlaaL2ktZHbIG6vePBtVvSQorfGijae/dp
+         HG4fydroZks/uH9axcRNOtC70y4ETiD0cGLFyv69QD5/lMjRMg2fKsg7QTLJK8jM/qTJ
+         xnKeI6VcXjHi+oOkz55ieTVlqga4f6mnk5x7VYtdcWZMCVgnDd3ZsKJTb5g5Hl/CZIzv
+         kA+8BnsxL/pxPlzjn+2FoD/PXx7Y5Ub/demE8XrMa8TEZOOXCxxI7CUMEutpIaJPR//1
+         M7Qw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795374156; x=1795978956;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Lp0osgtiZVKWMvtaLvxNrKUfcz8WxeL6pbk5OTyZtio=;
+        b=RzKXfB/RkIn7yTharpCXIpzn2ZXHvYH+/cq1K1mc/fwBJaoczn+F2DMjOo02+Ljs63
+         7OQcv3TKfEEzQi6wQ8S2t3Us3l6Jn4IKZ5a9rRO244E9N4WfOXP0aNSx5wHJhG4rUU/F
+         dMe/AMUGsqP2OgRtAWmdv7FpECTlS+h7hNsnnaWVunchJ1Cts5jIg/i3eMy268LyM+ky
+         h26BOAv8I82svPsM3Fq5wP21nb24nSK6H4KS6W/uHCUfECWiUtwh8tpjMKLQsNLR3xt5
+         vI98wbmU3WwehsGLnOQU49DNKxlUgsABz/XFMDDRFoHqzcCU8lt96k1VOx8k/xLhhoNW
+         bAzA==
+X-Forwarded-Encrypted: i=1; AL+hErGfOV/PlYKbvGXAdsXFTRiiLf2VrTE0uPSsfNoyg1LdB4C/Wie9gUtDpKMm7dNf7ot5uu1VlUJHWkQv96M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9004dNMGMVjvoC1oYYKjhJUoyCuo67hb8i5hft0cRGmZXReUAG
+	3rac0GSiQ4C2lXHxuKVs/mK9El3qPe2GsS5WfT6DmipNsvVAFuPtm+ELsigf5Au4ubY=
+X-Gm-Gg: AZFdTZeppZqDvgLNfAuz39uLHZCVup0Ipk7Ow+aNq7i18bshDm71tCpEVnOgKZOHt98
+	jDpBWFslYi9FPGQCFbEhC26KswJpmJoMLznGXWkoMp+t4vWPKNUzhChCYDFNz7D5bpb3rKDsJB5
+	u+ZGdXuXazL9mYPTcT6mKIyOfLJEnFGDw+Nfi8PwRQPhIHMe+OZQ0E0ND79F98A3Qr38PJXlcSJ
+	4dUcsrByDokeZ18bFyHn1M2BSfDabcTDDDzsWH2ZKigDnbnY1aAwDny8yPqfJOM3i+GkC6/+G21
+	68ioDxavW1mxtL4p8vjIbHc+Jgy/aAO+4aKnzMeRp95KcJQlxZBsOpVFbiAulgjSRZ6C2szaaG8
+	TMbwopxt8z+jHwdWHfljyz1J7jeoH6Lv/UdYwgX2YXjawyi2nsW+Ce+6ttwQidlOwUNOzcdobBy
+	hsezTQTgw8+kEWUdqTpAFnf0wgc3jOzJrNztonhycjpgvxYDKrvWXij6hmk4Fuj9UBswxEsUzS3
+	j4AWsCmQsEcUsfLpVGjUSGuaxBJ1QhcKKdHIadL7Ud0nykPb/Vyz6JM1yjN03sDzR1+cR7XTA2p
+	TCKUlBtqpv3QByxzBjQ4twpKti+Bq0Y1XYJN72wqTEkh5Tqy9bn5/wPcloEQHKUKUhK6/gC2Uwi
+	LVPxSebl89K3WbSseY4zLe0yqcC/Z
+X-Received: by 2002:a05:620a:a403:20b0:949:c967:eb68 with SMTP id af79cd13be357-949c967ee7fmr803688985a.1.1795374156268;
+        Sun, 22 Nov 2026 11:02:36 -0800 (PST)
+Received: from [192.168.50.231] (pool-71-191-145-202.washdc.fios.verizon.net. [71.191.145.202])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb4219c4sm651293585a.41.2026.11.22.11.02.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 11:02:35 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,86 +89,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [patch 0/2] mm: kunit: complete the 2009 mm test suite trifecta
-To: David Rientjes <rientjes@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Christoph Lameter <cl@gentwo.org>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Sarthak Sharma <sarthak.sharma@arm.com>, Johannes Weiner
- <hannes@cmpxchg.org>, Suren Baghdasaryan <surenb@google.com>,
- Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>,
- Harry Yoo <harry@kernel.org>, Hao Li <hao.li@linux.dev>,
- Roman Gushchin <roman.gushchin@linux.dev>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <0cf294b9-0ce1-dc6f-7cac-b589c9060271@google.com>
-From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=vbabka@kernel.org; keydata=
- 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
-In-Reply-To: <0cf294b9-0ce1-dc6f-7cac-b589c9060271@google.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 2/2] mm/migrate: allocate destination folios before
+ locking a batch
+From: "Gregory Price (Meta)" <gourry@gourry.net>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>, 
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+ Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+ Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+ William Kucharski <william.kucharski@oracle.com>, 
+ Heiko Carstens <hca@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+ Johannes Weiner <hannes@cmpxchg.org>, 
+ "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, 
+ Matthew Brost <matthew.brost@intel.com>, 
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
+ Gregory Price <gourry@gourry.net>, 
+ Ying Huang <ying.huang@linux.alibaba.com>, 
+ Alistair Popple <apopple@nvidia.com>, 
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+ Miklos Szeredi <miklos@szeredi.hu>, Joanne Koong <joannelkoong@gmail.com>, 
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ linux-fsdevel@vger.kernel.org, stable@vger.kernel.org, 
+ Chris Mason <mason@kernel.org>
+In-Reply-To: <20261122-migrate_reclaim_deadlock-v1-2-83c56185b0fb@kernel.org>
+References: <20261122-migrate_reclaim_deadlock-v1-0-83c56185b0fb@kernel.org>
+ <20261122-migrate_reclaim_deadlock-v1-2-83c56185b0fb@kernel.org>
+Date: Sun, 22 Nov 2026 14:02:34 -0500
+Message-Id: <179537415429.412063.2442586940573913371.b4-reply@b4>
+X-Mailer: b4 0.17-dev
 
-On 11/22/26 01:08, David Rientjes wrote:
-> Follow-up to "mm: vmstat_kunit: add synthetic benchmark for mm stats"
-> staged in mm-unstable.
+On 2026-11-22 13:42 +0100, David Hildenbrand (Arm) wrote:
+> Migration locks folios without holding a reference on their inode.
+> migrate_pages_batch() keeps a whole batch locked while allocating the
+> destinations of the next folios. If such an allocation ends up in direct
+> reclaim with __GFP_FS, reclaim can evict an inode through the dcache
+> shrinker, and wait in truncate_inode_pages_final() for a folio that we
+> hold locked:
 > 
-> These are two additional tests from 2009 that we've been carrying
-> internally since then.  They were converted to use KUnit just like the
-> vmstat variant.
+>     migrate_pages_batch()
+>       migrate_folio_unmap(A)
+>         folio_trylock(A)
+>       migrate_folio_unmap(B)
+>         get_new_folio()
+>           try_to_free_pages()
+>             super_cache_scan()
+>               prune_dcache_sb()
+>                 iput_final()
+>                   evict()
+>                     truncate_inode_pages_final()
+>                       folio_lock(A)
+> 
+> This requires that nothing else holds a reference on the inode, and can
+> be triggered most easily with FUSE, which evicts inodes on the last
+> reference.
+> 
+> Consequently, allocations under the folio lock are dangerous if we
+> cannot prevent that scenario through an inode reference; and we want to
+> avoid grabbing inode references, because we might then drop the last
+> one, and would have to evict the inode from migration context, ideally
+> without holding any folio locks.
+> 
+> Allocating in a NOFS scope would be one option, but it would have rather
+> bad side effects, such as direct compaction not migrating file folios
+> and the OOM killer not being invoked.
+> 
+> So let's fix it by allocating all destination folios of a batch before
+> locking any source folio. Now, we no longer allocate destination folios
+> while holding folio locks, which also avoids holding these locks during
+> direct reclaim or compaction for these allocations: an improvement on
+> its own.
+> 
+> We keep the destination folio of a folio that we have to retry, instead
+> of freeing it and allocating a new one. If we would have to allocate
+> while already holding folio locks, which can happen when retrying a
+> failed split for longterm pinning, we leave the folio to the synchronous
+> fallback in migrate_pages_sync() instead, which migrates folios one by
+> one.
+> 
+> Note that nfs_migrate_folio() still writes back the folio while holding
+> its lock in MIGRATE_SYNC mode, which allocates memory. As NFS only
+> evicts stale or unlinked inodes on the last reference, this is unlikely
+> to deadlock; this must be sorted out in NFS code independently.
+> 
+> This has medium urgency.
+> 
+> Fixes: 5dfab109d519 ("migrate_pages: batch _unmap and _move")
+> Cc: stable@vger.kernel.org
+> Reported-by: Chris Mason <mason@kernel.org>
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 
-Please send series in a way that patches have in-reply-to the cover letter
-(git, b4 does it).
+I was able to reproduce the issue and validate that this
+change fixes it. I used FUSE to do multiple allocations and
+migrations while triggering the shrinkers to reclaim dentries /
+cause FUSE to reclaim the inodes.
 
-Is the slab one current? Christoph indicated in [1] he might have an evolved
-version?
+In the base we end up deadlocked, with patch 1 and 2, the
+migrations succeed but the reclaimed folios will just end up
+freed at the end of it all anyway.  Some migration work gets
+wasted either way, but that's fine.
 
-[1] https://lore.kernel.org/all/2e88a1d0-3a36-cfd5-3e4b-79cf4c8aae0b@gentwo.org/
+I agree this is better than the NOFS option. 
 
-> ---
->  MAINTAINERS                 |    2 
->  mm/Kconfig                  |   26 ++++++
->  mm/Makefile                 |    2 
->  mm/tests/page_alloc_kunit.c |  490 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
->  mm/tests/slab_kunit.c       |  614 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
->  5 files changed, 1134 insertions(+)
+Tested-by: Gregory Price (Meta) <gourry@gourry.net>
+Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
+
+-- 
+~Gregory
 
