@@ -1,55 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795346344;
-	b=YNsjakOgwIOawZcrv8mE/haraF8GQOsRuVa1vRzSpz9PmeFhCcqU1tgzwTHtPtzMOnUw
-	 NjHkB688EFfgcdN9MA8CbCpwv6d4RXy1XLaCxp1YddogdwaD1y56FUai7vbbzlDyaFtnc
-	 NQXN0dcNZd47z4Xi7haj3JWB/K0YbRKIR4M7BcQYJl9oeze4Vr7e5m0Ae30+7ZIlGENNE
-	 3DEoIPvpdraHx2vOJFWmJs2GDXStiuhjJiQT6Z8RIGJxJLVxmM7NXkeYtlRMCxFmMkqCZ
-	 zXUVAZty1QxdkEoL7s6liPjM4yVueV1xC8TO5tFpyhIFVNcaxI9aSDtxOlwRcrnWetA==
+	t=1795346369;
+	b=i8JnRaj2iT/aVs6Y8VRl1qT6UZ3yoxaadW/PjAp5qTCl4hk6HcN6rGvp6d1b5TNNo/8e
+	 3VokYqf2jsFMgDW+tftK4ZmRrpM3CzXP/f2zqF5uEtJg+9IP50Zlv01GmJJgcFTOUUMV1
+	 kIhqucDZ2tf2ef7DSdaWIj9u2h0mokr66sUMrKLO+w/+DZkUeMJ7XxwIHGfFiMv0hEyMg
+	 0XZd2ee2/drZf8ObtcefDxNISdvOkr37SIHwX8Mw1UjXS6fCvDd2kkCJXbubntoJZg9re
+	 jvQq4s63ih0vD93/mu4Wixzh+3mc2ocLDD3FyAHI62GGjK08svhif4sUrMpx0P8W+Sg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795346344;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=hyHy++0zL/3iZJh4EWGXxPjXDqs+oXNpItpwmf74lkQ=;
-	b=rqufuFfjSvj4lfO4aIztldrj8DbJk5aqmqvUdBD3/n4T+e/mc+IRVDqfkBCxeq7UR4ON
-	 LQ6nq8WVQVld7OKJzH8WMJM8DrVGX/3nNtvmtQHOBFtD0uUUnpNnN6t3WBH7cBIwckX4l
-	 1DaSscUi8rELrD/3R30RYBbiBbzgisYiIPSkyTx9xghsbuVWcBfCCG/kVaCytQjapLh8h
-	 KncAdo6OTpCjTt4bdw3ECva7KiMvI344lh8S9ul/sf5a1IEe/XuOkILrM1yoUSStoornl
-	 jH6P6LqxHrTR5kQGU/inJFXcr1bg4A6OwZaauX281MOSympZkC+akFjwZyjwqlqxdQw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795346369;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=wmEfjb76yd/TSGCZLz92u0+6OA2ZZuajooWK2psOUzY=;
+	b=FebZDA7+CBQbjIPOMbwLsTR4iDiPYQv0HutpjSAee22Jsndph20dSarF8tx3xEO6Pavz
+	 CUyQSJWnoRWpb79e3hZAzAct/66CXEGVjMYlH7wsxZE01Om46tfGeYq058NlppIjDxPqr
+	 xT1icLInuQ3A6oRukNgomvQlxz3EkvoS1UoP0ax8HkxkdjHceco8r2dMoZPKUHPknOnWQ
+	 YWMmtsd5h1l07YNmM0Z7AwfgMmqeyrDkcFN3fRy6mG8MC9faVT7pWSVAQJTEzpOVzdRzC
+	 YXBOH5XIfOpNbjjWgSAz5zmcVDfB2+pHanTQbHo+M3gvG8cIoytY/7cSJy4oX+mjjtQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OelbFzPT;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=proton.me;
+	spf=pass smtp.mailfrom=proton.me;
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=rvaJU7QT;
+	arc=none smtp.remote-ip=79.135.106.101
+Received: from mail-106101.protonmail.ch (mail-106101.protonmail.ch [79.135.106.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43E63606A32A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:19:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B274606A32A;
+	Sun, 22 Nov 2026 11:19:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B274606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OelbFzPT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD9831F000D2
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:19:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795346343;
-	bh=hyHy++0zL/3iZJh4EWGXxPjXDqs+oXNpItpwmf74lkQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=OelbFzPTbuEPZOvFP8JotWpHR2OBndlgv47AO+EhpAp7bI+5vQXKp7APS97YXDmoC
-	 9kDIkzZtFEJIYXNf8unOU8/Yr03fRVbZq3VjHC2BVWlEIA5YG1wrhZczuCfcshaj5f
-	 r2a2kSIzUG4qpX4u54yzbbPUV7G/8uMattnpOJMnklFZtxTiZysgJiUHStKypoomzC
-	 VZMoDCrqGhfNcIpnE6H/rupBj4DOS8+RR6ZOFALlzhSVX+XmhaFHCKvlHfMaqG/9hj
-	 5dYYOg5Hk3KlG74k5yn+OSyiRqhEz/oT/LBOlZH+uI31JCPH/0B9AImpYu7mnXUK9e
-	 UTbVy7pdT+56Q==
-Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c516a574bffso52621466b.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 03:19:03 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGafvq9db7UDIDE8dl2uFwVbzqNmR9wkjIHH0FqKByKGkro8Gs6SGcnlfHgnlN5ZApN/9/whNq7nJf7J0E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z89937cW8+qcyZdSZe4cuAj98B2LrnfQd1VouayOKMimh+DXYOA
-	y/uDn40ZrmGE7rEck0MgBEWm7IOPVOzqH26w0phrhUC7pI6hb2au4bdlGa/VK4XixCc7ICxHyOM
-	ETq4NRAhzc1FUAeR2W560lh4K5vcKVSg=
-X-Received: by 2002:a05:6402:1ed6:b0:6ba:8541:e530 with SMTP id
- 4fb4d7f45d1cf-6ba8541e8ccmr1801725a12.45.1795346342461; Sun, 22 Nov 2026
- 03:19:02 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=rvaJU7QT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1795346365; x=1795605565;
+	bh=wmEfjb76yd/TSGCZLz92u0+6OA2ZZuajooWK2psOUzY=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=rvaJU7QT664WsoT3v6BUAUHjNOdlqFvnpHyLfXDC01ej6sVmESMKpwzfbgfzTfNvP
+	 LTR9D+1Z35xYVOkiGLANBHSjKv5qqg8DFuhfiewpRKeoFOm9G6luzCh/hOjrujKlgo
+	 cYHgTx0af7sun3wDwP1iOdhOWx1tcXWYqUDr4O9OZ8qXkhllvaZSiZjJbOGPYBywNt
+	 cHVytfFkhjhJ6Vs8yV0KCx9AbMCH0huQMJixwdbVd362Ph9jB13R98eaQfjG9o35VX
+	 Mku+b0J6NkM5f7IFG5W649BuoC/Gxc9RRhV23LTQMpMK5wUs8K/stMFkCs1CRD7dOK
+	 UqqzctuWvo9oA==
+Date: Sun, 22 Nov 2026 11:19:22 +0000
+To: "pkshih@realtek.com" <pkshih@realtek.com>
+From: Falconet3 <Falconet3@proton.me>
+Cc: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 2/2] wifi: rtw89: fix u32 overflow in board element offset check
+Message-ID: <WrRgwJx2dXia7pNpMhIgkzLmU0qL0NL86gs8wJGUREAeBHLnve-pqqCBMGNrD7oU_ElRtAtJhKTChXP8CtCaSbV_sgHDuIX7c3zEyvvfs5I=@proton.me>
+Feedback-ID: 48740069:user:proton
+X-Pm-Message-ID: 6896c383e152805856e186435d23d07fda1804ec
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,34 +61,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118090701.1858849-1-wangxuewen_ky@163.com> <20261118090701.1858849-10-wangxuewen_ky@163.com>
-In-Reply-To: <20261118090701.1858849-10-wangxuewen_ky@163.com>
-From: Namjae Jeon <linkinjeon@kernel.org>
-Date: Sun, 22 Nov 2026 20:18:49 +0900
-X-Gmail-Original-Message-ID: <CAKYAXd9YHOVPzk771JSBfMcsva0EeHn-gmJguPQFMcCtm7QXgQ@mail.gmail.com>
-X-Gm-Features: Aa3M54oYX_UHhy0oWnxJo8zFfoutjullRupWp8711P36a39MDXckKM0fkGi6Uyo
-Message-ID: <CAKYAXd9YHOVPzk771JSBfMcsva0EeHn-gmJguPQFMcCtm7QXgQ@mail.gmail.com>
-Subject: Re: [PATCH v6 09/37] ntfs: serialize export parent reconstruction
-To: Xuewen Wang <wangxuewen_ky@163.com>
-Cc: hyc.lee@gmail.com, liubaolin12138@163.com, ntfs@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Xuewen Wang <wangxuewen@kylinos.cn>, 
-	Baolin Liu <liubaolin@kylinos.cn>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 18, 2026 at 6:08=E2=80=AFPM Xuewen Wang <wangxuewen_ky@163.com>=
- wrote:
->
-> From: Xuewen Wang <wangxuewen@kylinos.cn>
->
-> Exportfs calls ntfs_get_parent() without holding the child's inode lock.
-> FILE_NAME lookup and parent loading can therefore race with rename or
-> rmdir, despite the function's existing locking comment.
->
-> Hold the child's mrec_lock across the lookup and parent load. Release it
-> on every error path and before d_obtain_alias().
->
-> Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
-> Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
-Applied it to #ntfs-next.
-Thanks!
+rtw89_board_elm_seek() validates the selected entry against the board
+element file with
+
+=09if (unlikely(board_elm->size < ofst + size))
+
+where ofst and size are u32 values read from the file. The addition
+wraps in u32, so a crafted file with, for example,
+ofst =3D 0xffffff00 and size =3D 0x200 passes the check and
+pseudo_fw->data is set to board_elm->data + 0xffffff00 with
+pseudo_fw->size =3D 0x200. The element walk then dereferences that
+pointer and reads out of bounds.
+
+Use remainder arithmetic against board_elm->size, which cannot wrap on
+any architecture. The helper is new in v7.4-rc1, so only the current
+cycle is affected.
+
+Fixes: af5905e22a43 ("wifi: rtw89: support variants of FW elements")
+Assisted-by: LLM Mistral Vibe
+Signed-off-by: Falconet3 <Falconet3@proton.me>
+---
+v3: resend of the series with the correct subjects and version label; no
+    code change since v2.
+v2: new. Found while fixing the element walk bounds check; split out as
+    an independent caller. Compile- and sparse-tested on x86_64; no
+    reproducer available.
+
+ drivers/net/wireless/realtek/rtw89/fw.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/wireless/realtek/rtw89/fw.c b/drivers/net/wireless=
+/realtek/rtw89/fw.c
+index 0000000..0000000 100644
+--- a/drivers/net/wireless/realtek/rtw89/fw.c
++++ b/drivers/net/wireless/realtek/rtw89/fw.c
+@@ -1734,12 +1734,13 @@ static int rtw89_board_elm_seek(const struct firmwa=
+re *board_elm,
+ =09if (num <=3D board_id)
+ =09=09return -ENOENT;
+
+ =09ent =3D &hdr->ents[board_id];
+
+ =09ofst =3D le32_to_cpu(ent->ofst);
+ =09size =3D le32_to_cpu(ent->size);
+
+-=09if (unlikely(board_elm->size < ofst + size))
++=09if (unlikely(ofst > board_elm->size ||
++=09=09     size > board_elm->size - ofst))
+ =09=09return -EFAULT;
+
+ =09memset(pseudo_fw, 0, sizeof(*pseudo_fw));
+--
+2.53.0
