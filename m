@@ -1,45 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795384942;
-	b=pBEACgA36xFSDDxXG+1RQfD522q8s3R/vqcG1WpafCscgR4wsKojkM91+EearyjAlLpN
-	 udKJMpbydgO+5NkAPmhk+pQEYepZvWd0NMdFuRBAdiHmttCwxYF1JO0NRNgQBng4BznUC
-	 SO+oFFLm98opsX+QMraPG7YcuZOfK3Vle/+Pduacu1gzoSGz5hIp3h/vyPhyD3iGcGv3o
-	 RbLOeAZinykQ+Dlf/BcHUICvuC52CXFlaOoO2xI6Ev3ElIaRmZ6waBGRnZM4SQGmHWHDe
-	 DMOuO5kvASvd5ZHFy+Z1hpP34IJFyOD7xOfv/vP2gO4/syNVJdYwnVas5cXsRK78C0g==
+	t=1795384948;
+	b=U31z3i1u+9EeSMIFqa94Ej1x3iZtrPTjyDqnO874CYTlfNIE4PGPMsgLpyU/3HDnCOcP
+	 7w79WPjuX9tHpI9bZaIzeT2Phb19WKwNVn936q71wC+K3MfZQUk2DVm6h62HZwZDx2Hm8
+	 hJdizv0d4ZKWcUes3zAXs7p26/jhsnqyY/Zv4qJxWUCcDMAXOgbSKYB7aauiKXRxVSJ11
+	 tkqN4qjgFg08dT4RNdb2Qn/s9Tqgs5VDYbtu2nz9sesaJsu73RfKaU1TsVWrMoE9aVQqF
+	 AnAjwwIiaQq9o3Y1KJBkg8Kfj6S23t7ZYm7FQunU+wEJ/LHdArt8iCJgWClp+9sjM9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795384942;
-	h=Received:DKIM-Signature:Mime-Version:Content-Transfer-Encoding:
-	 Content-Type:Date:Message-Id:Subject:Cc:To:From:References:
-	 In-Reply-To;
-	bh=sTtlSSaGTpDBtcMHiOircAIvmiTH+Ctop/XsFzGC1x4=;
-	b=YrgCw7fc82efjOJR6aqKPcSwalSW3k8vQUHIYDJVI37d9CBiToehWm/1ktwwymQWL6Au
-	 svoB7yp+0z1su71Hd0PFrG5Nz0ensrulMD/zKBsuvTb4eZkW4szYQKpqve8SdVqOhaNC9
-	 rpXHgTRZ0G5Hg9lObkmlBU8Tx36zXCsAu90qa2oSdJ1RpKVfZn2VTpdKMJellxju98pBd
-	 lQ7x4g3dBPSLJkeB4pX7VQTWEnhJIBU8fqJl3690tWQtBED2+6yS5r5cH/ivr2aZa7umF
-	 oaG5QKUfA4/qFx5fhDpAyRJVmhYyRytxOTiVWaI8Cmn0IGGlcCD4X9b3p1tq8Kfh2TA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795384948;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=4UxiOydDwa3I67Iaoew4LDFIsocWQ9uqy+MKnlF8rqM=;
+	b=Fu9XfQ5i2xNpMFLlT713ERWrRKLgZPlGT/xx9tU2a6pNOmsBPTHtdMlhSjoT6/FP77Ud
+	 MW09jDs5fe9EF+t99umEoH5dDjq0qnhKeUhYHrH9sT/VuLYow9VxHNexDbWmKUnZGw2dK
+	 AeBLSm7mTotYn3WwsmaJ23UHtAVaAGmcYxdZY594OFw5Ih22oM3rwYnP6pkK7h8h2w50b
+	 rg4+EIa9pN6MZfv5nC3y899rLZVdSunwReyjLLKUHqWNcD5u6XmeDlAlUo49PHX31h1Ht
+	 NH3ii4xOacqsdWDbMjSHFoHfVkWwSm9QYeQovwnOK4wwybc7CNFzvZ5z1t8Fci4Cvwg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k2Hc6xFR;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nzzwumsk;
+	arc=none smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92C7D606A31A;
-	Sun, 22 Nov 2026 22:02:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E88EB606A331
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:02:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E88EB606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k2Hc6xFR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26DB11F000C6;
-	Sun, 22 Nov 2026 22:02:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795384942;
-	bh=sTtlSSaGTpDBtcMHiOircAIvmiTH+Ctop/XsFzGC1x4=;
-	h=Date:Subject:Cc:To:From:References:In-Reply-To;
-	b=k2Hc6xFRtkicPKFvuKT7zGdEMFSb//oYzAC6yGi4WET4vMctzGLV95ptNtrt42XPr
-	 WQXnncoUOn8vCWB5V+5BOCSO1YRgvEGvWFlC6kSpFwx64JgBjdDeDjN8t0GAWjAHIl
-	 OTUhOZXnH51x9+wu6dE5+5xRqac3uNPyE7pzVVKvZEWUvPhn37jeV+RfXXnvGy2n+o
-	 5fpjybhz8GWsaKNEldr/b1vfp4LchA2oilYAZk48pyxh0hZg4h3t2J1QwAu6uVH9h7
-	 a22sYJ2GBWGWAOsKWbURM4twq7Z2FvgS7RP2m5XNLf/srWoFugU+HT+1vi7WOYs8uY
-	 PaUfPtPCWI/6w==
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nzzwumsk
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4a5b2be99a8so22537635e9.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 14:02:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795384946; x=1795989746; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=4UxiOydDwa3I67Iaoew4LDFIsocWQ9uqy+MKnlF8rqM=;
+        b=nzzwumskbK3DA1kPojxI22aHsM2COpjXjLFnBJuYrFk/0c63YJwNaGpbrKmcnE74pT
+         eAEJ/umE5HL/9r9XOiZen2xUSPR/A3boXva0K9D04xfZwoM4hPEBWzodL1yiKvgDV23H
+         AlBRos+7VDWwK07OAvBHmlj8OlbUhF2uHl5hNmKOBf370uXiMhxyV6WiIS30kw3SeT9d
+         n3VL2jNJlxmEXhs8XAE9M63xj+iJOX4uCWCMlXhpuhJA8Ssjvqqy8GT/HSlecQ+oEMRN
+         UliV0idfmxBlSPPG2nkh0fPO2DvFq568oCdQZKyO5mNPQgJ2v5PwYThsuSHy0p69jSqb
+         46mw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795384946; x=1795989746;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4UxiOydDwa3I67Iaoew4LDFIsocWQ9uqy+MKnlF8rqM=;
+        b=FVEwCXTzhsQBWJynaTqHtdqivvWT7k/3N6Y//5XSVci4gEuFzTa1gv68wE/4yX/anX
+         BlLxVeQRQIl3bGHljiP/fNYlG+/DmDVdxyCnfMFW0iDS1Pnm/K2WuHwfoa4qvULralKQ
+         r0tcG4gBljRZcMWQtODZKGikt4ZS33NaEG/tX2404Mjp8wgwEWjbrkpqLchpJFfq2yEA
+         909c/Imqx8U2TG+x4OnAYKlv5twwOGweR0D6zJ1gWjN/UD7v5yYRGZn1O+hb98QyWGTA
+         Nb1D1DDulWBbHgPx6Xfp23m1Env4HGdEwVtW38rGrg4bETfoyM1wqFAKZlhgMO05X/RT
+         +W/Q==
+X-Forwarded-Encrypted: i=1; AL+hErG2ccaps3ZypQLMkK+v6XCS8ZI/ejxCZitzQjW6mX5KVqWZ+cPwtu3dpBCcSwLhC8zSjarfEJq9zaVKYpE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z91zJNjGsUIjPnBQKxiE9vw6LxGYMZHCEuWhgjCfqCciylZQsMu
+	h9dG8OelszgD+qZHBmt9Z7m2jYerJdGFnWSoZGtKVVSE6Dqi+o7GctIw
+X-Gm-Gg: AZFdTZezR4RjoGbSxNKfvKrkdr+UxC2H43VyQ3Q+FiSr7Ti6K15Yth4xU0tY+OiCVOI
+	tzkAKkAwnGLZQ2td0vDIzjjWpvAA6WQrg4dGZbbwXPr+oxJvraGHS+IKj933fcrdnOwnZGJKnPj
+	U8SeMz4YsOwZPI0376Og1EiA6pFW3/O/KdFsjxglrdx8xjK0VETEG+28mIIs4wG0w5qIsIlb68Y
+	ltbEsGLXEUVaglyuzgVrJfo2LEj9vg/IQxsivPyMy/vWX4sZA49ctOW6kH6TBC3Y9r9apfuYTjL
+	juYF4LnsMSq1843C6YXf6I1fowGsLJUywVURs17AY50tK2M7oM4iwVprhm34Zue7xnW1y2feMMv
+	XMdzv046Oks+44wnXU9vRlwbLwAEcE22xGOQQ/cozupTXrybX4+KN48ftTqkA4N7DSODAqT3n3Q
+	9iSv5L+WxoTSzeD72lumXkPkbvkW6eQH/iYpmiTnEcBvWDpG3nokIGNGzuirMTnhBLGeYnpsNf9
+	WDRK2M2M/H8jHqYV3/GztrsA3mv1NQ88w5nkmOO/RrWGU77rz/Shjz1wh1dmh1qzWPJBZf2luVk
+	3dZwRlE6PSIxi+EhxMcS0IrhBEFX9K4SxZCZunMT
+X-Received: by 2002:a05:600c:1c1c:b0:4a2:1364:252b with SMTP id 5b1f17b1804b1-4bb8892ac4amr217905975e9.35.1795384946093;
+        Sun, 22 Nov 2026 14:02:26 -0800 (PST)
+Received: from foxbook (bfh118.neoplus.adsl.tpnet.pl. [83.28.45.118])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf61e8sm19676778f8f.11.2026.11.22.14.02.25
+        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
+        Sun, 22 Nov 2026 14:02:25 -0800 (PST)
+Date: Sun, 22 Nov 2026 23:02:29 +0100
+From: Michal Pecio <michal.pecio@gmail.com>
+To: Erik =?UTF-8?B?SMOla2Fuc3Nvbg==?= <erikhakan@gmail.com>
+Cc: bentiss@kernel.org, jikos@kernel.org, linux-input@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] HID: steelseries: Add support for Arctis 7 (2018)
+Message-ID: <20261122230229.1bdc3bd0.michal.pecio@gmail.com>
+In-Reply-To: <Rv7nePC3RfOSidIKv_K-KQ@gmail.com>
+References: <20261121121129.2a1d3013.michal.pecio@gmail.com>
+	<Rv7nePC3RfOSidIKv_K-KQ@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -48,104 +97,39 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-Date: Sun, 22 Nov 2026 23:02:06 +0100
-Message-Id: <DN22U90WCTGB.1REAOP1PQUMIQ@kernel.org>
-Subject: Re: [PATCH v4 0/9] Add __must_init and require explicit
- kobj_type::release
-Cc: "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, "Kees Cook"
- <kees@kernel.org>, "Miguel Ojeda" <ojeda@kernel.org>, "Rafael J . Wysocki"
- <rafael@kernel.org>, "Madhavan Srinivasan" <maddy@linux.ibm.com>, "Srish
- Srinivasan" <ssrish@linux.ibm.com>, "Michael Ellerman"
- <mpe@ellerman.id.au>, "Nicholas Piggin" <npiggin@gmail.com>, "Christophe
- Leroy" <chleroy@kernel.org>, "Nayna Jain" <nayna@linux.ibm.com>, "Mimi
- Zohar" <zohar@linux.ibm.com>, "Yoshinori Sato"
- <ysato@users.sourceforge.jp>, "Rich Felker" <dalias@libc.org>, "John Paul
- Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>, "Juergen Gross"
- <jgross@suse.com>, "Stefano Stabellini" <sstabellini@kernel.org>,
- "Oleksandr Tyshchenko" <oleksandr_tyshchenko@epam.com>, "Nathan Chancellor"
- <nathan@kernel.org>, "Nick Desaulniers" <ndesaulniers@google.com>, "Viresh
- Kumar" <viresh.kumar@linaro.org>, "Zhongqiu Han"
- <zhongqiu.han@oss.qualcomm.com>, "Alexander Aring" <aahringo@redhat.com>,
- "Felix Kuehling" <felix.kuehling@amd.com>, =?utf-8?q?Christian_K=C3=B6nig?=
- <christian.koenig@amd.com>, "Zhihao Cheng" <chengzhihao1@huawei.com>,
- "Sumanth Korikkar" <sumanthk@linux.ibm.com>, "Bill Wendling"
- <morbo@google.com>, "Justin Stitt" <justinstitt@google.com>,
- <driver-core@lists.linux.dev>, <llvm@lists.linux.dev>,
- <linux-hardening@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
- <linux-doc@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
- <linux-pm@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
- <linux-sh@vger.kernel.org>, <linux-s390@vger.kernel.org>,
- <gfs2@lists.linux.dev>, <xen-devel@lists.xenproject.org>,
- <linux-mtd@lists.infradead.org>, <amd-gfx@lists.freedesktop.org>,
- <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
- <agordeev@linux.ibm.com>, <airlied@gmail.com>, <alexander.deucher@amd.com>,
- <catalin.marinas@arm.com>, <chao@kernel.org>, <deller@gmx.de>,
- <dennis.dalessandro@cornelisnetworks.com>, <dmaengine@vger.kernel.org>,
- <gor@linux.ibm.com>, <hca@linux.ibm.com>, <jaegeuk@kernel.org>,
- <James.Bottomley@HansenPartnership.com>, <jgg@ziepe.ca>,
- <jlbec@evilplan.org>, <johan@kernel.org>, <joseph.qi@linux.alibaba.com>,
- <leon@kernel.org>, <lihuisong@huawei.com>, <linusw@kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-erofs@lists.ozlabs.org>,
- <linux-f2fs-devel@lists.sourceforge.net>, <linux-fbdev@vger.kernel.org>,
- <linux-omap@vger.kernel.org>, <linux-parisc@vger.kernel.org>,
- <linux-rdma@vger.kernel.org>, <mark@fasheh.com>, <neescoba@cisco.com>,
- <ocfs2-devel@lists.linux.dev>, <satishkh@cisco.com>, <simona@ffwll.ch>,
- <sre@kernel.org>, <vkoul@kernel.org>, <will@kernel.org>, <xiang@kernel.org>
-To: "Ian Rogers" <irogers@google.com>
-From: "Danilo Krummrich" <dakr@kernel.org>
-References: <20261119192520.1983406-1-irogers@google.com>
- <20261122215639.1178566-1-dakr@kernel.org>
-In-Reply-To: <20261122215639.1178566-1-dakr@kernel.org>
+Content-Transfer-Encoding: quoted-printable
 
-(Cc: more people previously Cc'd on v2)
+On Sun, 22 Nov 2026 19:32:53 +0100, Erik H=C3=A5kansson wrote:
+> > URB status -75 is -EOVERFLOW: URB buffer too small for data returned
+> > by the device or the device babbled (exceeded wMaxPacketSize). =20
+>=20
+> I can't reproduce this locally, neither with or without USB hub.
+>=20
+> But it seems someone else is reporting the same on Bazzite:
+> https://github.com/ublue-os/bazzite/issues/6344
+>=20
+> It seems the hub itself reports that the port is disabled, both in
+> this report and in the bazzite report:
+>=20
+> "Nov 19 20:47:58 [REDACTED HOSTNAME] kernel: usb 4-1-port4: disabled
+> by hub (EMI?), re-enabling..."
+>=20
+> "Nov 15 16:05:59 [REDACTED HOSTNAME] kernel: usb usb1-port2: disabled
+> by hub (EMI?), re-enabling..."
 
-On Sun Nov 22, 2026 at 10:56 PM CET, Danilo Krummrich wrote:
-> On Thu, 19 Nov 2026 11:25:11 -0800, Ian Rogers wrote:
->> [PATCH v4 0/9] Add __must_init and require explicit kobj_type::release
->
-> Applied, thanks!
->
->   Branch: driver-core-testing
->   Tree:   git://git.kernel.org/pub/scm/linux/kernel/git/driver-core/drive=
-r-core.git
->
-> [1/9] Compiler Attributes: Add __must_init macro
->       commit: b8a53320a885
-> [2/9] powerpc/secvar: Add missing kobject release callback to secvar_ktyp=
-e
->       commit: 4d5d4dd2a2e2
-> [3/9] sh: sq: Add missing kobject release callback to ktype_percpu_entry
->       commit: d19384f2f3c7
-> [4/9] cpufreq: governor: Initialize kobj_type release callback statically
->       commit: 009365942c15
-> [5/9] dlm: Wait for kobject release before freeing dlm_ls
->       commit: 48ae948f4285
-> [6/9] xen/sys-hypervisor: Add release callback to hyp_sysfs_kobj_type
->       commit: ecaf88d385c1
-> [7/9] ubifs: sysfs: Use kset_create_and_add() for ubifs_kset
->       commit: 25d952902dee
-> [8/9] drm/amdkfd: Free queue in procfs_queue_type kobject release callbac=
-k
->       commit: 6d4ff4a020cf
-> [9/9] kobject: Require explicit initialization of struct kobj_type::relea=
-se
->       commit: 45eeed1f8094
->
-> The patches will appear in the next linux-next integration (typically wit=
-hin 24
-> hours on weekdays).
->
-> The patches are in the driver-core-testing branch and will be promoted to
-> driver-core-next after validation.
+Per USB2 8.7.4 and 11.2.5, hubs are supposed to disable downstream
+ports which are still receiving packet near the end of frame. So it
+might be that the device (at some point) never terminates a packet
+at all, or its packets are too long and occasionally reach EOF.
 
-I've now picked this up; I will keep this series in driver-core-testing for=
- a
-few more days before moving it to driver-core-next. Please let me know if t=
-here
-are any concerns with the series, particularly the comments in patch 9.
+I suppose the latter could happen because the host schedules the
+transfer near EOF believing that it will be shorter and complete
+sooner. Scheduling may depend on host controller type and on other
+periodic traffic to low/full-speed devices behind the same hub.
 
-Thanks,
-Danilo
+Or maybe you are missing some other detail. Just guessing.
+
+Regards,
+Michal
