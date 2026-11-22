@@ -1,57 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795345386;
-	b=vbqyiMDsbadz1ecJiu4Z01DoDLRxrE++XbksOD/L9vvOvcHz5THR5a0NEBmNSF/XrQq4
-	 QLa/FKsqz0qGISSyUyyaarzTAleEnh0i0k0aqzfAqjOxFoUNb5Iie+IU1wFFBuqtNrmsJ
-	 MEcjow6kOuBbtJlSGw4c0Vkj5zHTWWPy5tSCVaaasA1z9fEXj9tkl4rPZWhK71lHXIhcP
-	 8F0IYVrG9Xsa3LA/2B05JXcGF0HyMJ3bvtM4VWxeozggC9jzyBoP61ChlTAH7E55NhZj5
-	 q0kn58BCLWhY3SwDTSgf0wBNQaqPuNlQw5bJGYRT9QVMe4q6/Gg4BfQTqLba6X5B+Cg==
+	t=1795345438;
+	b=dftQ2Rr8Thyk0RaCUFkNp1ONWimwYSb3ZVlsTbxghkhc9pKZYA0iK+7r7+IJaCUFutnU
+	 O/CHAnRTkTa36HSL0mY19eftrL+rBZ4B+sJq8QiHchBULsabdVXri02cxZ81yfNYC1RIO
+	 NVniw2aT0sgY4iGwV5vx0WrIwGG+73bAnsNUTSYie74Pk1yOfe/H3RAHejqICB5PHySBP
+	 Jii15ihpBsgmmQLI1m7AbRs1Q736HPjxwlhaxfyAyiNDCrVMWj/eAZTNjJSmpvwrBjub/
+	 LEHzzThNes0HD5nYmz/rcbIsjDIqdI8GmNnRbG0zqfr0cWoWraoWxzypxMTW1dWeW4Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795345386;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=/R61nVuigPlV5/7Nputf93i2b6M43PwhsuF4+XKXE40=;
-	b=XLw0gGd2QkpQ2L99+Rbai2K67OSzbpJ0OS/pwzRGbt9TSmvUIrkyh7rzgWvZwfiG6Xmv
-	 kNhd1hfGmh8Sna7LMKM0A8XrU58hTqwxQHmBJ6gf6Nt7A2ku4KLKlrJF7NlW6jfhPRsvW
-	 1CBg6LtkuaLyBszwsdTQm8B1Lphu3uj7xAgG1mHRVGINrbyLeBYt5GyaJbtInYuXLeAac
-	 V3O5jhkfZz5exU6QewXPatj8uOAHuqQdvlsTQo2xJ3Xmk9ktHldYfqolECC/8H/mtXzqq
-	 SixA5mnGSmO5m6xlVUQJ1FrTidZ/Vin0x7aQy7LQAYspQR6UoKFRRowQKbNQyCT3LQw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795345438;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=zlL5tiXLL4jgQNgfM7bff8pxYMFjionRbtAB8mOGuHc=;
+	b=wMS60rzG0yfeuP/wZty1esdxurIBIpLEx485Qf5G/HiHOru/mgoLa/jeejPRnfAZ7Ve2
+	 HwsBCgXs9kUIUKOTWJlDsrSfmPLgsGPEdKbGZJmkxJ+1Z78HnYtT5LugFh3AuWVQLJqdx
+	 yH7nUC+6shHqOrl5f9q5nx0LMInwahYbG6as+/OdB09BxQodZsOKAKZyWkL4fj14AR4s2
+	 NBGZi/YPwmWnZiAHafzYs+PENj0G8FO5SJQqRNu8kHhaQRfF5wLDUu1TnVCOR569Qd9vs
+	 uwz2Z9Y3LtSVMjrjBr/y36aMiXpAxIdRCJh71vcEVhmVIQ2Nnn8Uz68oRVZaz6wU1Tg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=Nh6sxdry;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CR7MnOVp;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02B42606A320;
-	Sun, 22 Nov 2026 11:03:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C9A9606A320;
+	Sun, 22 Nov 2026 11:03:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=Nh6sxdry
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04EA21F000C4;
-	Sun, 22 Nov 2026 11:03:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795345385;
-	bh=/R61nVuigPlV5/7Nputf93i2b6M43PwhsuF4+XKXE40=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Nh6sxdryFwJh3rlhR3PyPt+PWQUa4BmEcFsi6un62bL8r6DrDZctiXS7fnAmm3Hwm
-	 LyaR3MDlJAnUUvCJPTQsVTUI2lGWfNMpK/DEjgx0pepZV25FHX76GdXXBlzfXN+rl0
-	 jrRsIoOMRIZmewQOuhJMP5CqR1BX2TjXuDNnLbKM=
-Date: Sun, 22 Nov 2026 12:03:01 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Patrick Fischer <admin@tsv-stahl-riesa.de>
-Cc: Shardar Shariff Md <smohammed@nvidia.com>,
-	Krishna Yarlagadda <kyarlagadda@nvidia.com>,
-	Svyatoslav Ryhel <clamor95@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-tegra@vger.kernel.org,
-	stable@vger.kernel.org, Jiri Slaby <jirislaby@kernel.org>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Laxman Dewangan <ldewangan@nvidia.com>
-Subject: Re: [PATCH 0/2] serial: tegra: Fix 32-bit overflows in the clock
- rate adjustment
-Message-ID: <2026112206-bluish-washed-05da@gregkh>
-References: <20261025-upstream-serial-tegra-overflow-v1-0-267b5b7a79ee@tsv-stahl-riesa.de>
- <dc9e1dff-a8f0-4b2d-b4f2-52248196800a@tsv-stahl-riesa.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CR7MnOVp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1906E1F000C0;
+	Sun, 22 Nov 2026 11:03:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795345437;
+	bh=zlL5tiXLL4jgQNgfM7bff8pxYMFjionRbtAB8mOGuHc=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=CR7MnOVpKnc0SWYSnG7yiGEba8tE9Dnyb/HqVXow/SnFD+7iqx3nd4DTYR96+6kPF
+	 dtKBmOf514bc+gQgkmXBcqE4zlXeeKHHn9XVB2dYGeEbaS2Rbq/2HW+fx3O/G0pqTp
+	 kMn7fuFi9pZrokVUfcT4lNQoSM6oWmGejvltrMIl7eHzSiItqDzw0EUF0bbTA8BW/g
+	 8fUYl2+9gy+v79usD8Z/BTo/4cQhm/ssWCuuie4+vdWa9fT//kcn0MsQ/5E+pWYB5s
+	 8No2ty3hV7XRk2gOcTluBT5IlCnzJAdaTb9plJdQP4c7/qI2/SOGeJk6oMViS8kFfC
+	 2osjLtn/ebjbw==
+Subject: Re: [PATCH net-next v3 2/4] net: dsa: qca8k: drop MIB autocast frames
+ once the request is over
+From: netdev-bot+sashiko@kernel.org
+To: kuncy7@gmail.com
+Cc: ansuelsmth@gmail.com, andrew@lunn.ch, olteanv@gmail.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ yongzhao.derek@gmail.com, luixo-public@luixo.me, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Sun, 22 Nov 2026 11:03:56 +0000
+Message-ID: <179534543662.3135.202577949827301799@kernel.org>
+In-Reply-To: <20261118104104.26684-3-kuncy7@gmail.com>
+References: <20261118104104.26684-3-kuncy7@gmail.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,72 +64,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <dc9e1dff-a8f0-4b2d-b4f2-52248196800a@tsv-stahl-riesa.de>
 
-On Sun, Nov 22, 2026 at 11:13:23AM +0100, Patrick Fischer wrote:
-> Am 25.10.26 um 23:50 schrieb Patrick Fischer via B4 Relay:
-> > On 32-bit ARM, both the clock rate adjustment from
-> > "nvidia,adjust-baud-rates" and the check of the resulting rate overflow
-> > a 32-bit long at the high baud rates the adjustment is meant for. On
-> > the Tegra Note 7 (Tegra114), Bluetooth at 3 Mbaud therefore ran with a
-> > UART clock 5.6 % too low, and the check computed -0.18 % and let it
-> > pass.
-> > 
-> > UART clock at 3 Mbaud with a tolerance of 136 for 1 to 4 Mbaud
-> > (pll_p 408 MHz):
-> > 
-> >                     requested    configured   check
-> >   without patches   47.79 MHz    45.33 MHz    -0.18 %
-> >   with patches      48.65 MHz    48.00 MHz     0.00 %
-> > 
-> > With both patches and the unchanged tolerance of 136, Bluetooth on the
-> > Tegra Note 7 works at 3 Mbaud: the UART clock is 48.00 MHz, and the
-> > WL1801 scans and connects to a paired device without HCI errors.
-> > 
-> > With a deliberately wrong tolerance of -500, which gives 45.33 MHz at
-> > 3 Mbaud, the check now reports the deviation (out of range by -555,
-> > i.e. -5.55 %) instead of letting it pass.
-> > 
-> > Both bugs date back to v5.4. 64-bit platforms are not affected.
-> > 
-> > Tool use (see Documentation/process/generated-content.rst): both
-> > patches, their changelogs and this cover letter were prepared with an
-> > LLM coding assistant (Claude Code), which traced the wrong clock rates
-> > I measured on the device to the overflows, wrote the fixes and drafted
-> > the texts. It also recalculated the old and new arithmetic for the
-> > affected rates in a small userspace program; the results match the
-> > rates measured on the device. I reviewed the changes and ran the tests
-> > on the device.
-> > 
-> > ---
-> > Patrick Fischer (2):
-> >       serial: tegra: Fix overflow in tegra_get_tolerance_rate()
-> >       serial: tegra: Fix overflow in tegra_check_rate_in_range()
-> > 
-> >  drivers/tty/serial/serial-tegra.c | 9 +++++----
-> >  1 file changed, 5 insertions(+), 4 deletions(-)
-> > ---
-> > base-commit: 734bef548a96e8774d6eef5dfa2026c6edc4e80b
-> > change-id: 20261023-upstream-serial-tegra-overflow-48d3d0f7afd9
-> > 
-> > Best regards,
-> > --  
-> > Patrick Fischer <admin@tsv-stahl-riesa.de>
-> 
-> Hi Greg,
-> 
-> sorry, I am still new to upstreaming and sent my earlier ping without
-> any context. This is the series quoted above: it fixes two 32-bit
-> overflows in serial-tegra.c that leave the UART clock 5.6 % too low at
-> 3 Mbaud on Tegra114, so Bluetooth fails there. Both patches have
-> Tested-by and Reviewed-by from Svyatoslav and still apply cleanly to
-> 7.4-rc3. Please let me know if anything needs to change.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-It's in my review queue, which is huge at the moment.  You can help out
-to reduce that load by reviewing pending patches on the list.
+Low priority / nit picks for your consideration:
 
-thanks,
+- [Low] In qca8k_get_ethtool_stats_eth()
+  (drivers/net/dsa/qca/qca8k-8xxx.c), the patch now calls…
 
-greg k-h
+--
+
+net: dsa: qca8k: drop MIB autocast frames once the request is over
+
+This patch adds a spinlock shared by qca8k_get_ethtool_stats_eth() and the
+rx handler to protect the MIB autocast request. The request is retired
+(data set to NULL) on exit or once every port has reported, so late frames
+no longer write into the freed ethtool buffer. It also replaces the
+port_parsed refcount with a ports_seen bitmap, and waits for MIB_BUSY to
+clear before sending a new autocast request.
+
+> diff --git a/drivers/net/dsa/qca/qca8k-8xxx.c b/drivers/net/dsa/qca/qca8k-8xxx.c
+> index 3c8044a4d1fa1..4de7da9c8ecbe 100644
+> --- a/drivers/net/dsa/qca/qca8k-8xxx.c
+> +++ b/drivers/net/dsa/qca/qca8k-8xxx.c
+
+[ ... ]
+
+> @@ -1721,13 +1737,25 @@ qca8k_get_ethtool_stats_eth(struct dsa_switch *ds, int port, u64 *data)
+>  
+>  	mutex_lock(&mib_eth_data->mutex);
+>  
+> +	mutex_lock(&priv->reg_mutex);
+> +
+> +	/* A request that timed out may have left the switch still sending
+> +	 * its autocast. Let it finish before asking for another one, so
+> +	 * that as few of its frames as possible are taken for ours.
+> +	 */
+> +	ret = qca8k_busy_wait(priv, QCA8K_REG_MIB, QCA8K_MIB_BUSY);
+> +	if (ret) {
+> +		mutex_unlock(&priv->reg_mutex);
+> +		goto out;
+> +	}
+
+[Severity: Low]
+Is it known when the switch clears MIB_BUSY for the QCA8K_MIB_CAST
+function?
+
+The commit message says:
+
+  Wait for MIB_BUSY to clear before asking for the next
+  autocast, as qca8k_mib_init() does after a flush, so that at most the
+  frames already on their way to the host can be taken for the new
+  request
+
+That is only true if BUSY stays set until the switch has sent every
+autocast frame. The only other user, qca8k_mib_init(), waits on BUSY
+after QCA8K_MIB_FLUSH, and a flush sends no frames. Neither the driver
+nor commit 5c957c7ca78c says how BUSY behaves for CAST.
+
+Suppose BUSY clears as soon as the counters are captured. Could all seven
+frames of a timed-out autocast then arrive after the new request is
+published, and fill ports_seen on their own?
+
+There is also a cost when BUSY never clears, for example if the MIB engine
+is wedged or the CPU port cannot transmit. qca8k_busy_wait() polls with
+sleep_us = 0 and a QCA8K_BUSY_WAIT_TIMEOUT of 2000 ms:
+
+    return regmap_read_poll_timeout(priv->regmap, reg, val, !(val & mask), 0,
+                                    QCA8K_BUSY_WAIT_TIMEOUT * USEC_PER_MSEC);
+
+Here it runs with both mib_eth_data->mutex and priv->reg_mutex held.
+Would each ETHTOOL_GSTATS call then poll back to back for up to 2 s
+before falling back to register reads? Other reg_mutex users would be
+blocked for that time. Before this patch, the same case cost one 5 ms
+completion timeout per call.
+
+>  
+>  	reinit_completion(&mib_eth_data->rw_done);
+>  
+> +	spin_lock_bh(&mib_eth_data->lock);
+>  	mib_eth_data->req_port = dp->index;
+>  	mib_eth_data->data = data;
+> -	refcount_set(&mib_eth_data->port_parsed, QCA8K_NUM_PORTS);
+> -
+> -	mutex_lock(&priv->reg_mutex);
+> +	mib_eth_data->ports_seen = 0;
+> +	spin_unlock_bh(&mib_eth_data->lock);
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118104104.26684-1-kuncy7%40gmail.com
