@@ -1,72 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795321568;
-	b=HVTGG2gfLEK0uN8pO9R6GXvUZY9qg+kDXcCY9m+vQkPexA5Mru4nJvmjTDRK8S13wA8l
-	 xnqoiJWneg4iBkfZ4GMHyZ8TdoaMbShViBjVdjMAOJZnV4T/HUaAxdjIEY4aIDxyCrxa8
-	 taJImyqEnv+3xEARKu1U3gJLtnq+RtMQte7LeWCxBpJDeVhCRqWdzEODBA5FEy0ihJw6H
-	 5lxRgmqRecnrUDQUSzqOPtWklkVTqWimYpO7KHjjjfUtj2TDv/4+fusTQxVIBzYPE4oOS
-	 nhRJyrgJkmIDnPGzMEvQ6nrZWuzFU4kg5Y5xS1Tgq+WDwz4v+08H9w3m10ulw63QfRA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795321568;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=0jg4qq9XadgtOFwiQ/w6ym8+ZsypQY27mB/+0Ay1dt0=;
-	b=XDwYWL94nEo0r5VzY8Xg9yV7umtSW4P8rGWdIYy+tJEApG3ghm9Sr94/6MHKdlwUBnrO
-	 /asUAe9TMVu1PEIDySorKBUV8lz9bNqKn/Vyim2BeUmyj5NVyqWKz74MtD8IUKKg2mEGv
-	 xC9w7Tuuy6rpTfQQGCmzbL4JSBOU/QChiNj4+Ub4E5Zuk7bQUO1GSWneHrKHv8rDik1cj
-	 sScpPcWdeMgPFqX0Kh9C6+naEaRwwvkzhlv8TGQWFFEv3+q9Hb1k9sl8z35ezeyHPOy0O
-	 VFak2ftXMCiVw7gUkTDPWR1rAhgISlgfRiPjjh2ReQkZ3Au/iGUXBITVeO0T47frLwA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=HFlVdpNQ;
-	arc=none smtp.remote-ip=74.125.82.200
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795321705;
+	b=sS40gd/NMyab/571fW0nCIecqIX2y17Twdg+lUNSeX2DI6obogpZCu1+00LeVOHKB9qO
+	 K6T/9TMtqV9VpXqQ20SMdEMNabaafbyRRhocTVl4dlJaL1x3OfolpPQHbaXLGAHxdijTc
+	 ZvjUY1AYs4wAYuoBWmPDLTlYsVbyaYkxr47Av/Px4Kq5gm3UKr+A3aDmc5OXOzKAGlE1Z
+	 tZ/+ZAH855Q3DFf369ZbTJqC4FovWsy4k8aVpJJd+LArBsQl4xhqXjtquZO5jt56oe0N2
+	 Ti42BJvWYIn3yY/CPsSEe9hwt5E5yoMvfUMGT8orgGd+DomAQZTSa9fOnyMvsiiYbfg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795321705;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=qIENcXcsXDQ9ZgrTaWKLrjR+qyFqEiW4ZYJCFWa3s6c=;
+	b=XUfdRyYvkR2nnMJfjTY/Y/5m/ToGusCr2mOTxx7wf7xVCOFv01kNqoXHEOofnxWfGd0s
+	 cKUnrcMZhWje8uKLbhnFAv5GDEK9l0Nkn2acU/0ZceCR9oH8JiKO8FLqL17xaU1lvrOmg
+	 9UYQjBCBLow0+5RrUa+2FvGbgfnMfnJFrisnrUWz1+cZtSSuQ5D25NbqKFaKSdZEoFKz2
+	 0auvASrZs1kLV5CCHY60Zfeavu3IJtvtoiPUK+Tkfl3E/CgcbIjlaS40/OAxE22F2e2B6
+	 WG09Xk1qKU/0+oDKnWfB40TdC6DroUwVuTxmHOgfw4MC0idQDPyk9IAnod6yRjiJc1g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="lhr/wpa1";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54AEC606A32A;
+	Sun, 22 Nov 2026 04:28:25 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lhr/wpa1
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795321704;
+	b=pX3Sy7M95oyPtZySXzBKi+iHnXcYKVNH7GOkoMXZZC9oxCNKRog4fszx4ThaHJ5js0wC
+	 vBn19epApXMO06GG9b52TwH+0a2v4dUVT5/zM8T0ZJXWR8G7R+RWWDeOnu965JPEq1Ogz
+	 m/Pj9oK8dn+nMfm3A7TJI7OfPfaWF6RCeWk7hWAVy9aZIxhoIN7XZbIfCj5X/4pLjlGub
+	 FiDQHdpcVRAkdIa+pGjbXaOS3wyQHyu8IktHyMrCbN9BXpQbgLyBE6vF94C+2kqGyVV+O
+	 szKkB0qL4ueJVd560oZfMXvVFlDC4xVRTTHGVqhVP531gLuzE1PthIchNjz8SO20KUQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795321704;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=qIENcXcsXDQ9ZgrTaWKLrjR+qyFqEiW4ZYJCFWa3s6c=;
+	b=nXTXCSEwwVs9MDSphN6xlle+uDyVDvz2j013ZXIJD3lhnqYdN12Pph0C2Q066Sd9W4pT
+	 /7U9zOkr6QexRy812jutDWW6s6klYRJVxcgL+Vvbo2Q2lzf1PFR/S/zdwU3GrIuiMK+We
+	 xKMWmuj8BRlOsJ/oAcd7vsEJflJrR/CRsrbYb6eUWRmmpiDO7KU6HMRd4tEsmp0Y0A2jv
+	 0ESHq9evSJNWn0+YeLt31ITAxOjE3deYUpRbX1hZmfhWrmTL+xc9jx9wUoewPOXGJ9xG8
+	 10AsUgSitt6L7FTZ/xsO9x6nF5SBExrfrljLhNg6IogJRL/5uV11jL1NE96SFNKx/0A==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 304A3606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:26:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 304A3606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=HFlVdpNQ
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-341eff9e381so3747835eec.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:26:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795321566; x=1795926366; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0jg4qq9XadgtOFwiQ/w6ym8+ZsypQY27mB/+0Ay1dt0=;
-        b=HFlVdpNQmEKqA+4aoJbOiyCqaGnXTtJ9F1Wz4GaQxCjprp1+XKaRD4ecvr6FbxVS9L
-         Cwd8AHyw4+x7ZAuk/4QQEH/KzIzWCxKub4ZOiSsV0sKq1uhbm6lLP0ihLeS6gAzL1PfD
-         2aD43hvvQO0E7LuRe9lTeZJk9q/toypEhfFWn6fkHwItMEj75x1EhduAmHIGCVZDAR+O
-         KnZyS2MvwWYOBrmaaqswq9OUP4yLozCsHVwaIWzrPaXTzf7dE9uz8/xB8e5y6IMf+BOX
-         OM4Yi33KQGtbCBSkuyQWpDu8AqIhvoFd+QVS+J72L341WDTFEyPKgIr+hLnGTT9Fu1Ej
-         m2XQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795321566; x=1795926366;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0jg4qq9XadgtOFwiQ/w6ym8+ZsypQY27mB/+0Ay1dt0=;
-        b=xTrEBl6fOkdOi5JCEQZQeAZdTH2og+jU+cgPvuUGtc657SNrzPzL+sRToYGUlsBhHC
-         tMIpbMk81AHHbmXff+TtHqWX/v397pUqcjGQ+0Q/4zikBfxlnn7lksH1WekSQUWNitmP
-         lnDW+u7OgI7nvZK2PCJ/1J2giJInV1mPBBg1h/KWDQU77eCX42HeZU4wbr4uRimdK6rg
-         D00ESPA1qwXTbwXC/xnCpaLg3WoP1rfsjO4wIxIDK+G2yGyw41POJ7vAjpLjwUoHHQzC
-         x5qaqwKm8m9bNjOtzGcSi60ytTCOJszagvpNPVi9P1cQ12LLyk5K6Pf2HxXSRK7z3jQE
-         6CIQ==
-X-Forwarded-Encrypted: i=1; AL+hErEeSzHl12tSQOyjWogHt0wpT4r0OwBeqz3GRf/TdzKRgExgIGsLPfzpuSPjQH+03qqvkCGZjG97lPz2AbE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8GqA8NQ9LWngGmkyfaV5jp6dLMJbe5LmaHJNfTyDMS0JQbSRXx
-	5HJPj3ESN2fqHqXrorxCdTBE5ygngbrvc3ih9v9+jaxZ1mC7bhbF8EnYGkevK+KzglSGaXLdBrk
-	aGTUt28h1rY8Lsn/V9A==
-X-Received: from dlbsj2-n1.prod.google.com ([2002:a05:7022:f902:10b0:17d:5c89:d119])
- (user=penghuang job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:701b:4281:20b0:14d:c7ae:85dd with SMTP id a92af1059eb24-1b55686523bmr8270361c88.7.1795321565734;
- Sat, 21 Nov 2026 20:26:05 -0800 (PST)
-Date: Sat, 21 Nov 2026 20:26:05 -0800
+	by smtp.kernel.org (Postfix) with ESMTPS id 127821F000D0;
+	Sun, 22 Nov 2026 04:28:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795321704;
+	bh=qIENcXcsXDQ9ZgrTaWKLrjR+qyFqEiW4ZYJCFWa3s6c=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=lhr/wpa1/VWDbK2vhk65OU/XHsTdUqOlVxi+Qny6FKIVigqUe0NqkR2sVXShka9Ey
+	 kfOJG7pJi3qMKHBiigOs08/EI0dgEVARDmsu2VoRw1CP72VtXTo9OB4BVVW4S7e6zc
+	 2cQbyIojpJhSq5GNt0XYwzEFP3gk71wRMQbUchPFheORlS0iFdG38NJ+bjx3EOvPRO
+	 JJS/yNO5eEaBU52kLWgiRffkk7lpwbMVEj/+k0V0ugEVIrGPZD7IFYaDWgDuX+PEDE
+	 DJ/YUrLxVzUiqExnF02bI/HsIzzxT5nWD0nu+LLfiIoNv00FjTF+0oCQYORTdHFdxH
+	 NCE+EYsERnffQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 96CA54BEF2;
+	Sun, 22 Nov 2026 04:28:22 +0000 (UTC)
+From: Nick Dowsett via B4 Relay <devnull+nick42d.gmail.com@kernel.org>
+Date: Sun, 22 Nov 2026 12:28:17 +0800
+Subject: [PATCH 4/4] rust: wmi: add Buffer and Device::invoke_method()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,115 +81,185 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261122042605.2996910-1-penghuang@google.com>
-Subject: [PATCH] sched_ext: Block donor on rt_mutex_setprio() switch to SCX
-From: Peng Huang <penghuang@google.com>
-To: Tejun Heo <tj@kernel.org>, Andrea Righi <arighi@nvidia.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, sched-ext@lists.linux.dev
-Cc: David Vernet <void@manifault.com>, Changwoo Min <changwoo@igalia.com>, 
-	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
-	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
-	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
-	John Stultz <jstultz@google.com>, linux-kernel@vger.kernel.org, penghuang@google.com
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261122-rust-wmi-v1-4-63111d9e824c@gmail.com>
+References: <20261122-rust-wmi-v1-0-63111d9e824c@gmail.com>
+In-Reply-To: <20261122-rust-wmi-v1-0-63111d9e824c@gmail.com>
+To: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+ Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Danilo Krummrich <dakr@kernel.org>, 
+ Daniel Almeida <daniel.almeida@collabora.com>, 
+ Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+ Armin Wolf <W_Armin@gmx.de>
+Cc: =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+ platform-driver-x86@vger.kernel.org, Nick Dowsett <nick42d@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795321700; l=5545;
+ i=nick42d@gmail.com; h=from:subject:message-id;
+ bh=VW4iRI5cDRDRluz4CYZ2xuelFH93Nr8DBnHhhhSeFjE=;
+ b=bqfy+MYcO5ooFuXfwQE7sB0dvrGN1BN/VE0CjFx1xy5WtFBl1ZncUb6DzRL9wFhBcAItpIGXx
+ g+PCl93MbP8CBlMo+aWVGVBPOnpQwWvowCbB8NiKblKPbRNCdM47wil
+X-Developer-Key: i=nick42d@gmail.com; a=ed25519;
+ pk=1uIkNexEofzEXNN3Y3QW5z8IrgjWaP0yH6Es51jxWOg=
+X-Endpoint-Received: by B4 Relay for nick42d@gmail.com/default with
+ auth_id=1596
+X-Original-From: Nick Dowsett <nick42d@gmail.com>
+Reply-To: nick42d@gmail.com
+Content-Transfer-Encoding: 7bit
 
-scx_prepare_setscheduler() and scx_root_enable_workfn() block any
-retained proxy donor before entering sched_ext so a blocked task is not
-carried across scheduling classes without sched_ext admission.
-rt_mutex_setprio() misses this cleanup when PI deboost returns a
-blocked RT or DL donor back to ext_sched_class.
+From: Nick Dowsett <nick42d@gmail.com>
 
-Expose scx_block_proxy_donor() via scx_prepare_class_switch() in ext.h
-and invoke it in rt_mutex_setprio() before sched_change when
-transitioning a task into ext_sched_class. Because rt_mutex_setprio()
-has already updated rq->clock, calling scx_block_proxy_donor() directly
-matches scx_prepare_setscheduler() and avoids double clock updates.
+- Adds safe \`wmi::Buffer\` RAII abstraction wrapping an owned
 
-Fixes: be8be8acb268 ("sched_ext: Block proxy donors before taking control")
-Signed-off-by: Peng Huang <penghuang@google.com>
+  \`struct wmi_buffer\`.
+
+- Implement \`Device::invoke_method()\` - safe abstraction for
+
+  \`wmidev_invoke_method\`.
+
+- Also implement \`Sync\` for \`Device<device::Bound>\`.
+
+Signed-off-by: Nick Dowsett <nick42d@gmail.com>
 ---
- kernel/sched/core.c    |  4 +++-
- kernel/sched/ext/ext.c |  8 ++++++--
- kernel/sched/ext/ext.h | 12 ++++++++++++
- 3 files changed, 21 insertions(+), 3 deletions(-)
+ rust/kernel/wmi.rs | 98 +++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 97 insertions(+), 1 deletion(-)
 
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 5ed660f099a5..1a2a317f1194 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -7814,8 +7814,10 @@ void rt_mutex_setprio(struct task_struct *p, struct task_struct *pi_task)
- 	prev_class = p->sched_class;
- 	next_class = __setscheduler_class(p->policy, prio);
+diff --git a/rust/kernel/wmi.rs b/rust/kernel/wmi.rs
+index 09712cbc1c93..d97c8cb7cbf7 100644
+--- a/rust/kernel/wmi.rs
++++ b/rust/kernel/wmi.rs
+@@ -17,7 +17,9 @@
+ };
+ use core::{
+     marker::PhantomData,
+-    ptr::NonNull, //
++    ops::Deref,
++    ptr::NonNull,
++    slice, //
+ };
  
--	if (prev_class != next_class)
-+	if (prev_class != next_class) {
-+		scx_prepare_class_switch(rq, p, next_class);
- 		queue_flag |= DEQUEUE_CLASS;
-+	}
+ /// Type alias for [`driver::Registration<Adapter<T>>`], the registration of
+@@ -222,6 +224,11 @@ unsafe impl Send for Device<device::Normal> {}
+ // - All methods on `&device::Device<Normal>` are thread safe.
+ unsafe impl Sync for Device<device::Normal> {}
  
- 	scoped_guard (sched_change, p, queue_flag) {
- 		/*
-diff --git a/kernel/sched/ext/ext.c b/kernel/sched/ext/ext.c
-index 10de6bd865e8..4914da605519 100644
---- a/kernel/sched/ext/ext.c
-+++ b/kernel/sched/ext/ext.c
-@@ -26,10 +26,14 @@ DEFINE_RAW_SPINLOCK(scx_sched_lock);
- 
- /*
-  * Block a retained proxy donor, telling put_prev_task_scx() that the donor is
-- * about to be dequeued and must not be reenqueued.
-+ * about to be dequeued and must not be reenqueued. Caller holds @p->pi_lock
-+ * and @rq's lock and has already updated @rq's clock.
-  */
--static void scx_block_proxy_donor(struct rq *rq, struct task_struct *p)
-+void scx_block_proxy_donor(struct rq *rq, struct task_struct *p)
- {
-+	lockdep_assert_held(&p->pi_lock);
-+	lockdep_assert_rq_held(rq);
++// SAFETY:
++// - As per `&Device<Normal>`, but `&Device<Bound>` also has the method `invoke_method()`,
++//   which wraps the internally synchronised `bindings::wmidev_invoke_method()`.
++unsafe impl Sync for Device<device::Bound> {}
 +
- 	rq->scx.flags |= SCX_RQ_PROXY_BLOCKING;
- 	sched_proxy_block_task(rq, p);
- 	rq->scx.flags &= ~SCX_RQ_PROXY_BLOCKING;
-diff --git a/kernel/sched/ext/ext.h b/kernel/sched/ext/ext.h
-index d32bc01071b0..d2e0e7a23639 100644
---- a/kernel/sched/ext/ext.h
-+++ b/kernel/sched/ext/ext.h
-@@ -19,6 +19,7 @@ void scx_rq_activate(struct rq *rq);
- void scx_rq_deactivate(struct rq *rq);
- int scx_check_setscheduler(struct task_struct *p, int policy);
- void scx_prepare_setscheduler(struct task_struct *p, int policy);
-+void scx_block_proxy_donor(struct rq *rq, struct task_struct *p);
- bool task_should_scx(int policy);
- bool scx_allow_ttwu_queue(const struct task_struct *p);
- bool __scx_allow_proxy_exec(const struct task_struct *p);
-@@ -54,6 +55,14 @@ static inline bool task_on_scx(const struct task_struct *p)
- 	return scx_enabled() && p->sched_class == &ext_sched_class;
+ // SAFETY:
+ // - By the type invariant, all instances of `Device` are reference-counted.
+ // - Increments to the reference count keep the object alive in memory at least
+@@ -248,6 +255,70 @@ fn as_raw(&self) -> *mut bindings::wmi_device {
+     }
  }
  
-+static inline void
-+scx_prepare_class_switch(struct rq *rq, struct task_struct *p,
-+			 const struct sched_class *next_class)
-+{
-+	if (scx_enabled() && next_class == &ext_sched_class)
-+		scx_block_proxy_donor(rq, p);
-+}
++impl Device<device::Bound> {
++    /// Calls `wmidev_invoke_method`.
++    ///
++    /// # Examples
++    ///
++    /// ```
++    /// # use kernel::{device::Bound, prelude::*, wmi};
++    /// const METHOD_ID: u32 = 0xB105;
++    /// const METHOD_ARGS: [u8; 1] = [0];
++    /// fn method_returning_u32(wdev: &wmi::Device<Bound>) -> Result<u32> {
++    ///     let output: wmi::Buffer = wdev
++    ///         .invoke_method(0, METHOD_ID, &METHOD_ARGS, size_of::<u32>())?;
++    ///     let output_as_bytes: [u8; 4] = output
++    ///         .get(..size_of::<u32>())
++    ///         .and_then(|buf| buf.try_into().ok())
++    ///         .ok_or(ENODATA)?;
++    ///     let output_u32 = u32::from_le_bytes(output_as_bytes);
++    ///     dev_dbg!(wdev.as_ref(), "WMI output: {}\n", output_u32);
++    ///     Ok(output_u32)
++    /// }
++    /// ```
++    pub fn invoke_method(
++        &self,
++        instance: u8,
++        method_id: u32,
++        input: &[u8],
++        min_output_size: usize,
++    ) -> Result<Buffer> {
++        let mut out_buf = bindings::wmi_buffer::default();
++        let in_buf = bindings::wmi_buffer {
++            length: input.len(),
++            // NOTE1: Even if the input slice is empty, this will create a dangling pointer
++            // rather than a null pointer as Rust references are always non-null.
++            // NOTE2: The input parameter to wmidev_invoke_method is expected to be read-only,
++            // however, we cast to a mutable pointer here purely to meet the type definition of
++            // `wmi_buffer`.
++            data: input.as_ptr().cast_mut().cast::<c_void>(),
++        };
++        // SAFETY:
++        // - By type invariants, `self.as_raw()` points to a valid, live `wmi_device`.
++        // - `out_buf` and `in_buf` are pointers to valid, live `wmi_buffer`s.
++        // - `in_buf` contains a pointer to an allocation behind a Rust reference (which therefore
++        //   lives as long as this method call) with length less than or equal to the allocation
++        //   size, or contains a dangling pointer with length 0.
++        // - The allocation in `in_buf` will not be mutated - the C implementation declares the in
++        //   parameter as const.
++        let status = unsafe {
++            bindings::wmidev_invoke_method(
++                self.as_raw(),
++                instance,
++                method_id,
++                &raw const in_buf,
++                &raw mut out_buf,
++                min_output_size,
++            )
++        };
++        error::to_result(status)?;
 +
- #ifdef CONFIG_SCHED_CORE
- bool scx_prio_less(const struct task_struct *a, const struct task_struct *b,
- 		   bool in_fi);
-@@ -73,6 +82,9 @@ static inline void scx_rq_deactivate(struct rq *rq) {}
- static inline int scx_check_setscheduler(struct task_struct *p, int policy) { return 0; }
- static inline void scx_prepare_setscheduler(struct task_struct *p, int policy) {}
- static inline bool task_on_scx(const struct task_struct *p) { return false; }
-+static inline void
-+scx_prepare_class_switch(struct rq *rq, struct task_struct *p,
-+			 const struct sched_class *next_class) {}
- static inline bool scx_allow_ttwu_queue(const struct task_struct *p) { return true; }
- static inline bool scx_allow_proxy_exec(const struct task_struct *p) { return true; }
- static inline void scx_proxy_donor_start(struct rq *rq) {}
++        // On success, `wmidev_invoke_method` returns a `wmi_buffer`
++        // satisfying `Buffer`'s invariants, which we hand to the caller as the
++        // new owner.
++        Ok(Buffer(out_buf))
++    }
++}
+ impl<Ctx: device::DeviceContext> AsRef<device::Device<Ctx>> for Device<Ctx> {
+     fn as_ref(&self) -> &device::Device<Ctx> {
+         // SAFETY:
+@@ -263,3 +334,28 @@ fn as_ref(&self) -> &device::Device<Ctx> {
+         unsafe { device::Device::from_raw(&raw mut (*self.as_raw()).dev) }
+     }
+ }
++
++/// An owned, 8-byte aligned output buffer.
++///
++/// # Invariants
++/// - `self.0.data` is a pointer to an 8-byte aligned owned buffer of length
++///   at least `self.0.length` and freeable with `kfree()`.
++pub struct Buffer(bindings::wmi_buffer);
++impl Deref for Buffer {
++    type Target = [u8];
++    fn deref(&self) -> &[u8] {
++        if self.0.length == 0 {
++            return &[];
++        }
++        // SAFETY: By the type invariant, `self.0.length != 0` guarantees `self.0.data`
++        // points to an owned buffer of length at least `self.0.length`.
++        unsafe { slice::from_raw_parts(self.0.data.cast::<u8>(), self.0.length) }
++    }
++}
++impl Drop for Buffer {
++    fn drop(&mut self) {
++        // SAFETY: By the type invariant, `self.0.data` is exclusively owned and
++        // freeable with `kfree()`.
++        unsafe { bindings::kfree(self.0.data) };
++    }
++}
+
 -- 
-2.56.1.750.gf70dc682cf-goog
+2.56.1
+
 
