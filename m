@@ -1,60 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.167
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795371699;
-	b=DxzKD+GTLgfjQjWKkgtyAa1Vxl94uRaZoStBk+AQcX3zvxkfp3jA/IDgEVSZsSGKd6yK
-	 xzh8sBeTfhMambe96RfIdgf95Oi4Wwnp8drGODsFPxjSJGY5qvgXACwaqhZSbbJy1vm0o
-	 7/BzQEImp/LFR/V4M1v1FY/fLMTdV7tyzwHVBSMjMZxPIpS9PtM1NruUgyZfIPxWMhd6e
-	 P/xPZtJkKRPmUtlLalnOP4Q14yQ3ytD6WssC0KReE8ZKkc5ZDQdSljjhg0iRsy+q2cIR8
-	 F3eOAQqRwXnGK899GGZMhXlStHbMGO4lkVM4cbNkNu/rztFEhk1nB+gdi6X7gsXuX8Q==
+	t=1795371715;
+	b=QpjYBFTaVofCP3lr/R65mMmEMK/Pm5WMn5JBqae3YdYnqW2YfJ68YK+6bnCcVWzEw+HL
+	 dmp3NMXlLKpMTxvBVrC28rLqDrCROnPzUNwTWhWLitcvfoRVkiF+YJFmY/pvFnO+CmK0b
+	 5oxkPaOJ49uZWyu8bKxjghNIQ0AzTEo9PhJkVhy0UK9qwIe00FVgaswidnSp6/FWbvu2N
+	 qfcoajHCYg628E+Cc/dirWMPjYr9hs6kh5ybPsBnaEuG2P5mRP1qGuK+sUPx51LYJsm9f
+	 G3BnbYyg9YKHt5upahSWI415nWO5AUzutJk65DG7Ip2GEpCMyroETOlEbxJX8RcO4qQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795371699;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795371715;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=3z8LmMvyTb7V927J5J/vEzJ5VN1Hy4oZMJgZJYtszZA=;
-	b=qJ1Rd/A88EcdQn/zQRRAkmsTRxgnaFmL/mP4sb/bpkZ8FK42xlFu7dQ3lRe4E7Gbt8qc
-	 exYgEF5DegBJe9iW+hd9pw/6BstUcGwdc+BSykBYcw437yp+rnZpL+qeu2SzxohBk58Bj
-	 tEtXc7xRIbDTcf+K1+wDfrXyZY/QNPW9Q2zBCOzfzFv9U4mdYAUOZy0Xkf+SRYNCaFo+N
-	 llPKGuQeWkLK4Cyhs58wzYLHYR430lfnsleGwq3l46MwU9M4CZj4Q+4maYMXioTxraGVk
-	 hDTsSpzqw595SSlspaenx+R23RbXWvnKWYHo97KW47iRiFKOyrtRRKm0NCG0/zPz6ng==
+	bh=i8vP/MF3oELz3V2/x3tvrxIeCKjNLm5UtpQqetXgg0s=;
+	b=xe1Bj7Ce9uL2gFsGToRzbfDHLfV0W5cUDLetAf7T5wEeXbQ48tRx8kkDUzh3ErbgZp7c
+	 mG3kzMTSWBtGFy6dwUC4Ezyzvno+7Jq8nThO4so52nRj+jxTS0G6ZvR0NATjwYMBR2rmC
+	 cvzEvEwnI6WxP3spyUz4CKDPLXE0mbDIW4hyLZzobo7qhHI9rt6cYvXzFpHKMj6gr9NP8
+	 nX8i1vCo05sJ81Td1gF36mp95en48RU70YOZOFfj3jKyItNO3Tt+1fN7TnHgsmV4duS93
+	 EKm5UdlUH+yJ53Fw7B4+KZNj3CVhGXrpfgzvOdMd+ikaXgxcubZFxFgs2zRPS3Zrthg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=proton.me;
-	spf=pass smtp.mailfrom=proton.me;
-	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=ftyjk5u2rjdkzee2k64x2fjvp4.protonmail2 header.b=W4PAgOHz;
-	arc=none smtp.remote-ip=185.70.43.167
-Received: from mail-43167.protonmail.ch (mail-43167.protonmail.ch [185.70.43.167])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nKgwhf5n;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2797B606A330
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:21:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2797B606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33A5F606A320;
+	Sun, 22 Nov 2026 18:21:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=ftyjk5u2rjdkzee2k64x2fjvp4.protonmail2 header.b=W4PAgOHz
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=ftyjk5u2rjdkzee2k64x2fjvp4.protonmail2; t=1795371695;
-	x=1795630895; bh=3z8LmMvyTb7V927J5J/vEzJ5VN1Hy4oZMJgZJYtszZA=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=W4PAgOHzBr7V5/mwaJ8hbnTpM93a6txVNSujmJ6Sf9d/DHMrwOVBGr+tugWj5JP/A
-	 vusjRQ8WxrbFvTOmlUuFc4ch7bIgtt8+BusPcsVhgXzwIrVkQ/Ec56hSmtRuyyIg+C
-	 q/b/lB/sHU1eKGxIGScOSeofh6eq1sCMeYi8xdT8kXpYJjmQRaam2rLQUA2VvjOpdS
-	 cyftgos1Ql798byQ9sdJ3ZEN5YgCEjnQ1yZNmfMzdGYe0A8jrxSWla9MrBvgr5kqGn
-	 uGX5BlMTUAVGKdlmDZd+CbLIQfdWHGMDdDPZAbSsDE4O2VwbPgACzjWx4t//8E6IV7
-	 4hZwgZ9E57+DA==
-Date: Sun, 22 Nov 2026 18:21:27 +0000
-To: Zhan Xusheng <zhanxusheng1024@gmail.com>
-From: Ernest Borowski <ernest.borowski.git@proton.me>
-Cc: linkinjeon@kernel.org, hyc.lee@gmail.com, liubaolin12138@163.com, ntfs@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org, zhanxusheng@xiaomi.com
-Subject: Re: [PATCH v8] ntfs: trim the sizes after a short write
-Message-ID: <179537167473.2649834.14001007738076272792.b4-reply@b4>
-In-Reply-To: <20261120023504.4134966-1-zhanxusheng1024@gmail.com>
-References: <20261120023504.4134966-1-zhanxusheng1024@gmail.com>
-Feedback-ID: 236360163:user:proton
-X-Pm-Message-ID: 5d499b5daac2baa6fe99a4f0b3ba1d1cadc0a334
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nKgwhf5n
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D3071F000CA;
+	Sun, 22 Nov 2026 18:21:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795371714;
+	bh=i8vP/MF3oELz3V2/x3tvrxIeCKjNLm5UtpQqetXgg0s=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=nKgwhf5ncCO7LABJzHme8c0tP9v4/5NJ26ATjF3etXPFXNITYo+RVCqcxGRj5sQkj
+	 tdiAY/B+iHorLCF19L775lSwGNSBjoBTlnzM61XoRvpC6ew+Tuxt4jTdW5kAK4o3K0
+	 8ZWZWdkxBU5mZm9b/B53Xy2XomU3v1h9bec4IT8p8Ma3t/SDe5UcNbxx1NZUts3Olp
+	 MWZOSZ2WakxTzd6UgCVGpk9MMqCJ+L8hktQcByY8YLWS5ERmSZeZhEVOWRV7LpDwL9
+	 XSVwGD1t7oIHv/BuxgLB9HtypPeG9EBXijexUeZ6rTVffwkU1uvwBVxv//SZhW/lCO
+	 kmVvUdAAmvu1g==
+Message-ID: <45997a78-95bd-4e50-b433-f64237f9ec1a@kernel.org>
+Date: Sun, 22 Nov 2026 19:21:43 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,192 +51,157 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 04/15] mm/hugetlb: account temporary folios separately
+To: Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>,
+ Naoya Horiguchi <nao.horiguchi@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Mel Gorman <mgorman@suse.de>,
+ Andy Whitcroft <apw@canonical.com>, Miaohe Lin <linmiaohe@huawei.com>,
+ Michal Hocko <mhocko@suse.com>, Rik van Riel <riel@surriel.com>,
+ Hugh Dickins <hughd@google.com>, Baolin Wang
+ <baolin.wang@linux.alibaba.com>, Vivek Kasireddy
+ <vivek.kasireddy@intel.com>, Dave Airlie <airlied@redhat.com>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Randy Dunlap <rdunlap@infradead.org>, Peter Xu <peterx@redhat.com>,
+ Breno Leitao <leitao@debian.org>, Will Deacon <will@kernel.org>,
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin
+ <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Gerd Hoffmann <kraxel@redhat.com>, linux-doc@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-s390@vger.kernel.org, stable@kernel.org,
+ Josef Bacik <josef@toxicpanda.com>
+References: <20261116-fixes_hugetlb-v2-0-4dd9e94ea9ac@kernel.org>
+ <20261116-fixes_hugetlb-v2-4-4dd9e94ea9ac@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261116-fixes_hugetlb-v2-4-4dd9e94ea9ac@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hi Zhan,
+On 11/16/26 19:29, David Hildenbrand (Arm) wrote:
+> Hugetlb migration might have to allocate a temporary folio through
+> alloc_migrate_hugetlb_folio(). Such folios are currently accounted in
+> "nr_huge_pages" but not in "surplus_huge_pages". persistent_huge_pages()
+> can mistake them as persistent huge pages, as it merely calculates the
+> difference.
+> 
+> If set_max_huge_pages() shrinks the pool at the wrong time, it will turn
+> hugetlb folios into surplus folios until persistent_huge_pages() returns
+> the desired number.
+> 
+> After the migration (successful or unsuccessful) either the new (temporary)
+> folio or the old folio gets freed: this will reduce "nr_huge_pages" but
+> not "surplus_huge_pages", to undo what was done when allocating a
+> temporary folio.
+> 
+> This can result in having more surplus folios than actually allocated
+> folios:
+> 
+>   HugePages_Total:       0
+>   HugePages_Surp:        1
+> 
+> From then on persistent_huge_pages() returns garbage.
+> 
+> To fix it, add internal temporary counters and subtract them when
+> calculating persistent pool sizes. Update persistent_huge_pages() and add
+> persistent_huge_pages_node() to make the code easier to read.
+> 
+> Count migration targets and rejected surplus allocations as temporary.
+> Transfer the per-node temporary count along with the temporary flag on
+> migration, such that folio freeing will always do the right thing.
+> 
+> Take care of calling account_new_hugetlb_folio() only after setting the
+> folios to be temporary.
+> 
+> For now, keep temporary folios in nr_huge_pages, so HugePages_Total and
+> Hugetlb continue to include them and overcommit accounting remains
+> unchanged. The new temporary counters are internal for now and are not
+> exported to userspace.
+> 
+> Fixes: ab5ac90aecf5 ("mm, hugetlb: do not rely on overcommit limit during migration")
+> Cc: stable@kernel.org
+> Reported-by: Josef Bacik <josef@toxicpanda.com>
+> Acked-by: Muchun Song <muchun.song@linux.dev>
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> ---
 
-I tested v8 on ntfs-next (f674e4b6c315) in QEMU, on a kernel with KASAN,
-lockdep and UBSAN, at 512 B, 4 KiB, 16 KiB and 64 KiB clusters. It fixes
-the file size after an ENOSPC short write, keeps FALLOC_FL_KEEP_SIZE
-space, and fixes a short copy into allocated clusters past the initialized
-size, which on ntfs-next leaves the uncopied part of the write reading the
-old contents of those clusters.
+In combination with
 
-One case loses data. It needs a writer killed during its copy, and a
-shared writable mapping created while the write is stalled:
+	mm/hugetlb: preserve persistent flags when returning folios to the pool
 
-> +=09=09=09if (zend > zstart) {
-> +=09=09=09=09err =3D iomap_zero_range(vi, zstart,
-> +=09=09=09=09=09=09zend - zstart, NULL,
-> +=09=09=09=09=09=09ntfs_seek_iomap_next,
-> +=09=09=09=09=09=09&ntfs_iomap_folio_ops, NULL);
+This results in an issue during boot.
 
-iomap_write_begin() returns -EINTR at once when fatal_signal_pending(), so
-for a writer that got SIGKILL this zeroing always fails, and the fallback
-then does
+I think the following is required:
 
-> +=09=09=09=09new_init_size =3D min3(ni->initialized_size,
-> +=09=09=09=09=09=09     zstart, new_data_size);
+diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+index bfc88d42ef0d..aa6ad8d93266 100644
+--- a/mm/hugetlb.c
++++ b/mm/hugetlb.c
+@@ -1804,8 +1804,8 @@ void free_huge_folio(struct folio *folio)
+                h->resv_huge_pages++;
 
-followed by truncate_pagecache_range(vi, new_init_size, ...) up to i_size.
-Meanwhile ntfs_file_mmap_prepare() can have extended initialized_size to
-i_size for a MAP_SHARED, PROT_WRITE mapping (it does not take the inode
-lock, so it does not wait for the stalled writer), and the mapping can
-have dirtied a page far past the write. That page is dropped from the
-page cache and the initialized size is moved below it, so it reads back
-as zeroes, also after fsync.
+        if (folio_test_hugetlb_temporary(folio)) {
+-               folio_clear_hugetlb_temporary(folio);
+                remove_hugetlb_folio(h, folio, false);
++               folio_clear_hugetlb_temporary(folio);
+                spin_unlock_irqrestore(&hugetlb_lock, flags);
+                update_and_free_hugetlb_folio(h, folio, true);
+        } else if (h->surplus_huge_pages_node[nid] &&
 
-Reproducer: a file with old data in allocated clusters past its
-initialized size (as Windows leaves it after SetFileValidData(); the test
-sets the field on the image), pwrite() at offset 0 whose copy blocks on a
-userfaultfd page after 16 KiB, mmap() of the file and a store at
-i_size / 2, then SIGKILL to the writer. With v8 the 4 KiB page written
-through the mapping is lost at every cluster size; without v8 the
-mapping keeps its data but [16 KiB, 64 KiB) shows the old contents.
+I'll test real quick whether that resolves CI issues ...
 
-Zeroing from a worker when the caller has a fatal signal pending fixes
-it. Something like this on top of v8:
+-- 
+Cheers,
 
-diff --git a/fs/ntfs/file.c b/fs/ntfs/file.c
-index 25034735d2..a65892bb08 100644
---- a/fs/ntfs/file.c
-+++ b/fs/ntfs/file.c
-@@ -22,6 +22,7 @@
- #include <linux/overflow.h>
- #include <linux/security.h>
- #include <linux/slab.h>
-+#include <linux/workqueue.h>
- #include <uapi/linux/ntfs.h>
-=20
- #include "lcnalloc.h"
-@@ -871,6 +872,52 @@ static loff_t ntfs_allocated_end_on_disk(struct ntfs_i=
-node *ni)
- =09return end;
- }
-=20
-+struct ntfs_zero_work {
-+=09struct work_struct work;
-+=09struct inode *inode;
-+=09loff_t pos;
-+=09loff_t len;
-+=09int err;
-+};
-+
-+static void ntfs_zero_workfn(struct work_struct *work)
-+{
-+=09struct ntfs_zero_work *zw =3D container_of(work, struct ntfs_zero_work,
-+=09=09=09=09=09=09 work);
-+
-+=09zw->err =3D iomap_zero_range(zw->inode, zw->pos, zw->len, NULL,
-+=09=09=09=09   ntfs_seek_iomap_next, &ntfs_iomap_folio_ops,
-+=09=09=09=09   NULL);
-+}
-+
-+/*
-+ * iomap_zero_range() gives up with -EINTR when the caller has a fatal sig=
-nal
-+ * pending, and a writer killed during its copy is one whose short write m=
-ust
-+ * still be zeroed: zero from a worker then, which has no signal to see.  =
-The
-+ * caller holds the invalidate lock, which keeps page faults out meanwhile=
-.
-+ */
-+static int ntfs_zero_range_unkillable(struct inode *inode, loff_t pos,
-+=09=09=09=09      loff_t len)
-+{
-+=09struct ntfs_zero_work zw =3D { .inode =3D inode, .pos =3D pos, .len =3D=
- len };
-+=09int err;
-+
-+=09if (!fatal_signal_pending(current)) {
-+=09=09err =3D iomap_zero_range(inode, pos, len, NULL,
-+=09=09=09=09       ntfs_seek_iomap_next,
-+=09=09=09=09       &ntfs_iomap_folio_ops, NULL);
-+=09=09/* the signal may also come while it zeroes */
-+=09=09if (err !=3D -EINTR || !fatal_signal_pending(current))
-+=09=09=09return err;
-+=09}
-+
-+=09INIT_WORK_ONSTACK(&zw.work, ntfs_zero_workfn);
-+=09queue_work(system_unbound_wq, &zw.work);
-+=09flush_work(&zw.work);
-+=09destroy_work_on_stack(&zw.work);
-+=09return zw.err;
-+}
-+
- ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
- {
- =09struct file *file =3D iocb->ki_filp;
-@@ -1000,10 +1047,8 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, str=
-uct iov_iter *from)
-=20
- =09=09=09zend =3D min(zend, new_data_size);
- =09=09=09if (zend > zstart) {
--=09=09=09=09err =3D iomap_zero_range(vi, zstart,
--=09=09=09=09=09=09zend - zstart, NULL,
--=09=09=09=09=09=09ntfs_seek_iomap_next,
--=09=09=09=09=09=09&ntfs_iomap_folio_ops, NULL);
-+=09=09=09=09err =3D ntfs_zero_range_unkillable(vi, zstart,
-+=09=09=09=09=09=09=09=09 zend - zstart);
- =09=09=09=09/* A direct read must not see the old blocks. */
- =09=09=09=09if (!err && iocb->ki_flags & IOCB_DIRECT)
- =09=09=09=09=09err =3D filemap_write_and_wait_range(
-
-With it the test passes at all four cluster sizes, and the tests for the
-ENOSPC short write size, FALLOC_FL_KEEP_SIZE and a writer killed inside
-a cluster that was a hole still pass. The same five tests on the same
-ntfs-next commit, each run on Ubuntu 26.04 and on Arch Linux:
-
-  ntfs-next:                 https://github.com/xerrni/linux-ntfs/actions/r=
-uns/45025520955
-  ntfs-next + v8:            https://github.com/xerrni/linux-ntfs/actions/r=
-uns/45025527902
-  ntfs-next + v8 + the diff: https://github.com/xerrni/linux-ntfs/actions/r=
-uns/45025534974
-
-                          ntfs-next   + v8   + v8 + diff
-  killed_write_mmap       FAIL        FAIL   pass
-  short_write_size        FAIL        pass   pass
-  keep_size_short_write   FAIL        pass   pass
-  killed_short_write      pass        pass   pass
-  short_copy_stale        FAIL        FAIL   FAIL
-
-short_copy_stale fails at 4 KiB clusters in all three: a short copy into
-a hole still shows old data there, with or without v8. That is a
-separate bug; patch 7 of the series I just posted [1] fixes it. With v8,
-the diff above and that series, all five tests pass:
-
-  https://github.com/xerrni/linux-ntfs/actions/runs/45029305849
-
-Patch 7 has the same kind of helper in fs/ntfs/iomap.c, so whichever
-lands second can share one copy.
-
-To run the test on your own tree, locally (needs KVM, QEMU, what a kernel
-build needs, gcc with a static libc, mkntfs from ntfs-3g and python3, but
-not root; the README lists the packages):
-
-  git clone https://github.com/xerrni/linux-ntfs && cd linux-ntfs
-  vm/build_kernel.sh /path/to/linux ../build
-  tests/run_reproducers.sh ../build ../work killed_write_mmap.sh
-
-It prints one line per test with the PASS and FAIL counts and the first
-FAIL line; the guest logs are in ../work/killed_write_mmap/. Or with
-nothing installed: fork the repository, enable Actions in the fork and
-run its test-kernel workflow, which takes a kernel repository and branch,
-patches (lore links work, b4 fetches them) and the tests to run, e.g.
-
-  gh workflow run test-kernel.yml -R <you>/linux-ntfs \
-    -f repo=3D<your tree> -f ref=3D<branch> -f tests=3Dkilled_write_mmap
-
-The diff above is patches/v8-zero-for-a-killed-writer.diff in that
-repository. If v8 is already queued, I can send it as a separate patch
-on top instead.
-
-Thanks,
-Ernest
-
-[1] https://lore.kernel.org/all/20261122-b4-ntfs-delalloc-fixes-v1-0-0726f0=
-dce403@proton.me/
-
+David
