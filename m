@@ -1,59 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.100
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795316814;
-	b=KdRU4PlPPivCUaPEiCyKaXEt0crI5MI3ywBQykwLEVNGZ7iJqQmTPsR4qqprr+mhAtPs
-	 k5Z8L3ktY1zkbr0NcT9GqDkRU05ZeVjvQgdM9xWX4MdbvwZN/JpVq8Fv8R3lsYuYG88tQ
-	 rtpPh+ff8VFP8ST2N5Xj5G2QUMraf9Xh+TTqVWq0uPmetqaQI76xwhl93B5VUd8CRxU6n
-	 i5IziFrNWJpbEbKU2haKh34HzOelm42ltioxKnceXODac9zTqhgDIdCQzCzeb5aH5v1wg
-	 YpUep9LUce2yYLOShMpoBGKRS2lVvlUeKOOJv3bjVvUCw4JeLXlLzTffESDSag3dLHQ==
+	t=1795316870;
+	b=yjPh31JemW4A44Hx1uR+VAQ3v6LQv6MVvr2Q2PMduVxTv5waZYhc4N7KoMRw/4ZK5UXq
+	 XkzD3ySyd1t9+YhePHkSsaC8OkBidd4w6G3/4bPHZpK5ML5oT6T8JxvkU0V6x23HcqwWP
+	 nle+4pfGQ6TaoRyuyoOsjYsI6QywhnKLQoFBx696a+6EVP1P37Zod5hQS+h3Rme2od+ET
+	 25JZgAqJK/q6GkbdjsW7ZHbT6N/fOv5sMDkr50BR4fXo+vWdgw4JA5IBHoIaF7LmB2DPo
+	 6Ouk2Fy/EWP7Uf5GO9Y5WfST+uAOc3lyujyi1aAncL30V2PX+tAB1Npbe65yJx2yKuw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795316814;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=NKy+gTpYb5dVg5urGlblN/UMLSLttA2GEJW42xYuEaE=;
-	b=C+/R1bHoXz0jsi6f2MgqA/yhpD6NodE1by2R8+ZRJLiVHVPboTZlyQuFQaEJrF0/HU8U
-	 HQUArzzfrfs5nbSeMk8A46YBwBr5E2yai2gE+L8eS1+KzHOMhYSVIdb1cVAQ+lu45e8S6
-	 NPggNB20WlOegJguSXEfbX4fz7WfDWQDHk772OFt0qTixMjGxgFtRNmnDbpuio2kf4v1K
-	 WWPa5HJHcZfUxH70hBrHUjFEWPnNmG0bXBJMiOAQW1Vi6XtzU78kn3+GAs+cAffWyLyAN
-	 kxa0g9prHSLG2YqQTGykuzNYVXqEkabsEoXcpegs2gfpUhPW6bIQBZY6tJwKEgQEi+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795316870;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type;
+	bh=bwNd8sLw6hbTvYHt2WvzdcBYIoTOOkkWoTy5JkcEDe4=;
+	b=p4DihFPSZa7PkP2yQYIiiVXmqsGsCHYmXWyMwF2N26VW7lY+3DBWIMiaML6gFr0MiYlM
+	 GuRU/UwwWJDnX+UL37hX+5X7b1iLHYsvfYXoYB8PItCcdBDCUp/c6AgyKWdS9bTaZjRCp
+	 VRCtWIGWB6OCHd24AILukN7Cd2D8lK28MT0GgCaz+nF/ezYVk5cYkguCgAvmJl916RT2B
+	 45o8Fx0PxOVzUMPY7kRAeHok01RMwV1XQgGGlO5kQu1tTGxxqazfjpfUpxfLcZXozCEF9
+	 sGjbS0oZ6iQhR17OC3/apeYiA2176kImfEUQgimwY5dptfUII/JsVnx5YkwDlmXA6XQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OjjS0lXp;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=pm.me;
+	spf=pass smtp.mailfrom=pm.me;
+	dkim=pass header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=O1OiLEeP;
+	arc=none smtp.remote-ip=185.70.43.100
+Received: from mail-43100.protonmail.ch (mail-43100.protonmail.ch [185.70.43.100])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 183A1606A320;
-	Sun, 22 Nov 2026 03:06:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 254EC606A320;
+	Sun, 22 Nov 2026 03:07:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 254EC606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pm.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pm.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OjjS0lXp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E6EA1F000C0;
-	Sun, 22 Nov 2026 03:06:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795316813;
-	bh=NKy+gTpYb5dVg5urGlblN/UMLSLttA2GEJW42xYuEaE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=OjjS0lXppcVQbNVDoKmqORgWXRFhw+ZRgFJgtavVDDjrYgo66S+qNzgKH+jdSYq6i
-	 6zeVj8qIP5Bh1KqIEB+PO2+enQ3r2DVTREWs9TV9E98pwR6FW2V7qfU96JnPGyXEnd
-	 X+jX+YeodeVnUFO4WcN+rRDUwoxTxi5rO0Cgdno34OBzUtidkTrg6i1j6hKmq36VXB
-	 6PQkmOVvizdwYLl0v2pG+8Yq9KWYAhpaR3asW9ZaH0zDD2+RPyyBZ6v/iMsqI13DtM
-	 nnnTzNdcyqSLi67Hm5pLtqAW4YtpKLGckKJ9goBgvFihYTy0975keXX79K2g/njnI1
-	 GUzbXb5TT4E5g==
-Date: Sun, 22 Nov 2026 03:06:47 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Chi-Wen Weng <cwweng.linux@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- chernyakin.victor.j@outlook.com, cwweng@nuvoton.com
-Subject: Re: [PATCH v5 3/3] iio: adc: Add Nuvoton MA35D1 EADC driver
-Message-ID: <20261122030647.70b41b61@jic23-hlaptop>
-In-Reply-To: <20261117082832.1551574-4-cwweng.linux@gmail.com>
-References: <20261117082832.1551574-1-cwweng.linux@gmail.com>
-	<20261117082832.1551574-4-cwweng.linux@gmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=O1OiLEeP
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
+	s=protonmail3; t=1795316866; x=1795576066;
+	bh=bwNd8sLw6hbTvYHt2WvzdcBYIoTOOkkWoTy5JkcEDe4=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=O1OiLEePNn4iDA7PsrfhjOqYPcVbTdj+2K5cdrcV1yS1rECRGiHFn8kNl2Qyankcn
+	 fu/OaRGf0VFQhuEMsujFik7y+8EFzAqxC+FUM0Mh6H8a+Js2jh+VKfXI/t6r0RIGlN
+	 VNkpH6V9ILDzLx/ReHSrSUS4XS0BCYVKAZHTv+YB/3pzZbCU2ZLbpSpsxq5nlXo/8m
+	 TFScUDdgKQ1s58fpGl3zAo7D9RvyR+KWVoYcJos6Li+AEIYhkWZk1Fi/lAgNqLeoLm
+	 Z8SxagMjW619bNY1D8dqJaSDrhOjjOg3/h2mwpjUbOUzNLwmaOBNVsypffhyB79QmQ
+	 xuOydqkD07rSw==
+Date: Sun, 22 Nov 2026 03:07:39 +0000
+To: Jamal Hadi Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>, "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+From: YanXin Li <fadouse@pm.me>
+Cc: Simon Horman <horms@kernel.org>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: [PATCH net] net/sched: act_ife: return -EAGAIN after dropping rtnl_lock in load_metaops_and_vet()
+Message-ID: <20261122030728.9368-1-fadouse@pm.me>
+Feedback-ID: 173252840:user:proton
+X-Pm-Message-ID: f9bcd3e369aefbc9e9addbe820e4d1c933c2307d
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,282 +60,155 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; protocol="application/pgp-signature"; micalg=pgp-sha256; boundary="------d159e4b825aa838e8590dceeb959d38559e35183190b62bd9fff304cae4ec4b2"; charset=utf-8
 
-On Tue, 17 Nov 2026 16:28:32 +0800
-Chi-Wen Weng <cwweng.linux@gmail.com> wrote:
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------d159e4b825aa838e8590dceeb959d38559e35183190b62bd9fff304cae4ec4b2
+Content-Type: multipart/mixed;
+ boundary=5cd39aaa97b76814b30d443ffd146401da0d18142b359a8b0ace30e5a18f
+From: YanXin Li <fadouse@pm.me>
+To: Jamal Hadi Salim <jhs@mojatatu.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH net] net/sched: act_ife: return -EAGAIN after dropping rtnl_lock in load_metaops_and_vet()
+Date: Sun, 22 Nov 2026 11:07:28 +0800
+Message-ID: <20261122030728.9368-1-fadouse@pm.me>
+X-Mailer: git-send-email 2.54.0
+MIME-Version: 1.0
 
-> From: Chi-Wen Weng <cwweng@nuvoton.com>
-> 
-> Add an IIO driver for the Enhanced Analog-to-Digital Converter found on
-> Nuvoton MA35D1 SoCs.
-> 
-> Support single-ended and fixed differential inputs, direct conversion,
-> and triggered buffered capture. This initial implementation uses sample
-> module 0 and therefore supports one active voltage channel per buffered
-> scan.
-> 
-> Signed-off-by: Chi-Wen Weng <cwweng@nuvoton.com>
-Various comments inline to add to Andy's.
+--5cd39aaa97b76814b30d443ffd146401da0d18142b359a8b0ace30e5a18f
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Thanks,
+load_metaops_and_vet() unlocks rtnl_lock() to invoke request_module()
+when an IFE metadata provider module (such as act_meta_mark) is not
+yet loaded, re-acquires rtnl_lock(), validates the metadata attribute,
+and returns 0.
 
-Jonathan
+Returning 0 after dropping rtnl_lock() violates the serialization
+contract of RTNL-locked classifiers (cls_basic, cls_flow, cls_fw,
+cls_route, and cls_u32), which hold an unrefcounted filter pointer
+(fold) across tcf_exts_validate() -> tcf_ife_init().  A concurrent
+RTM_DELTFILTER can delete and RCU-free fold during the unlocked
+request_module() window, after which basic_change() executes
+list_replace_rcu(&fold->link, &fnew->link) and queues a second
+deletion on the freed filter.  Generic KASAN reports:
 
-> diff --git a/drivers/iio/adc/ma35d1_eadc.c b/drivers/iio/adc/ma35d1_eadc.c
-> new file mode 100644
-> index 000000000000..d9a715efcc6b
-> --- /dev/null
-> +++ b/drivers/iio/adc/ma35d1_eadc.c
-...
+  BUG: KASAN: slab-use-after-free in basic_change+0xf4c/0x1220
+  Read of size 8 at addr ffff88800e043c58 by task test_act_ife_rt/101
+  ...
+  Allocated by task 101:
+   basic_change+0x1e0/0x1220
+  Freed by task 57:
+   ...
+  Oops: general protectio
+n fault, probably for non-canonical address
+  KASAN: maybe wild-memory-access in range [0xdead000000000120-0xdead000000000127]
 
-> +
-> +/*
-> + * Keep the register map uncached because status and conversion data are
-> + * updated by hardware, and some status bits use write-one-to-clear semantics.
+Every other TC module autoloader that drops rtnl_lock() during filter
+updates (tc_action_load_ops(), tcf_em_validate(), and em_text_change())
+returns -EAGAIN so tc_new_tfilter() and tcf_action_add() unwind and
+replay under a fresh RTNL critical section.
 
-That's a reason to set volatile and precious but not general one to say
-don't cache anything.
+Manipulating TC filters requires CAP_NET_ADMIN in the target network
+namespace, which is reachable by an unprivileged local user inside a
+user and network namespace when CONFIG_USER_NS=y, CONFIG_MODULES=y,
+CONFIG_NET_ACT_IFE is enabled, and an IFE metadata module is not yet
+loaded.
 
-> + */
-> +static const struct regmap_config ma35d1_adc_regmap_config = {
-> +	.reg_bits = 32,
-> +	.val_bits = 32,
-> +	.reg_stride = 4,
-> +	.max_register = MA35D1_EADC_REFADJCTL,
-> +	.rd_table = &ma35d1_adc_readable_table,
-> +	.wr_table = &ma35d1_adc_writable_table,
-> +	.precious_table = &ma35d1_adc_precious_table,
-> +};
+When load_metaops_and_vet() drops rtnl_lock() and loads the requested
+metadata module, drop the module reference and return -EAGAIN so the
+caller replays the request with fresh lookups.  With this change, the
+same concurrent RTM_NEWTFILTER and RTM_DELTFILTER sequence cleanly
+loads act_meta_mark, replays without to
+uching the deleted filter, and
+completes with rc=0 and no KASAN or lockdep reports.  Exhaustive
+state-space interleaving checking confirms zero use-after-free,
+double-free, or deadlock paths remain.  A test case and full
+validation logs are available on request.
 
+The vulnerable code is present in upstream mainline v7.4-rc3.
+Runtime verification and fix validation were performed in an x86-64
+QEMU/KVM guest running v7.4-rc3 with Generic KASAN, UBSAN, and
+lockdep.
 
+Fixes: ef6980b6becb ("introduce IFE action")
+Cc: stable@vger.kernel.org
+Signed-off-by: YanXin Li <fadouse@pm.me>
+---
+ net/sched/act_ife.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-> +
-> +static void ma35d1_adc_trigger_capture(struct iio_poll_func *pf)
-> +{
-> +	struct iio_dev *indio_dev = pf->indio_dev;
-> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
-> +	struct {
-> +		u16 channel;
-> +		aligned_s64 timestamp;
-> +	} scan = { };
-> +	int ret;
-> +
-> +	guard(mutex)(&adc->lock);
-> +
-> +	if (adc->suspended || !adc->scan_chan)
-> +		return;
-> +
-> +	ret = ma35d1_adc_read_conversion(adc, adc->scan_chan,
-> +					 &scan.channel);
-
-Check line wraps. That one fits under 80 chars.
-
-> +	if (ret)
-> +		return;
-> +
-> +	iio_push_to_buffers_with_ts(indio_dev, &scan, sizeof(scan), pf->timestamp);
-> +}
-
-> +
-> +static int ma35d1_adc_parse_channels(struct iio_dev *indio_dev,
-> +				     struct device *dev)
-> +{
-> +	DECLARE_BITMAP(used_single_inputs, MA35D1_EADC_MAX_EXT_CHANNELS) = { };
-> +	DECLARE_BITMAP(used_diff_pairs, MA35D1_EADC_NUM_DIFF_PAIRS) = { };
-> +	DECLARE_BITMAP(used_regs, MA35D1_EADC_MAX_EXT_CHANNELS) = { };
-> +	struct iio_chan_spec *channels;
-> +	unsigned int scan_index = 0;
-> +	int num_channels;
-> +	int ret;
-> +
-> +	num_channels = device_get_child_node_count(dev);
-> +	if (!num_channels)
-> +		return dev_err_probe(dev, -ENOENT, "no ADC channels configured\n");
-> +
-> +	if (num_channels > MA35D1_EADC_MAX_EXT_CHANNELS)
-> +		return dev_err_probe(dev, -ENOSPC, "too many ADC channels\n");
-> +
-> +	channels = devm_kcalloc(dev, size_add(num_channels, 1),
-> +				sizeof(*channels), GFP_KERNEL);
-
-You can now use devm_kzalloc_objs()
-A patch to apply that across the kernel went in during last week
-and the code is there since rc1.
-
-I don't mind either way as there will inevitably be a second round
-of conversions next cycle.
-
-
-> +	if (!channels)
-> +		return -ENOMEM;
-> +
-> +	device_for_each_child_node_scoped(dev, child) {
-> +		bool has_diff, has_single;
-> +		u32 reg;
-> +
-> +		ret = fwnode_property_read_u32(child, "reg", &reg);
-> +		if (ret)
-> +			return dev_err_probe(dev, ret,
-> +					     "missing channel reg property\n");
-> +
-> +		if (reg >= MA35D1_EADC_MAX_EXT_CHANNELS)
-> +			return dev_err_probe(dev, -ENOSPC,
-> +					     "invalid ADC channel index %u\n", reg);
-> +
-> +		if (test_and_set_bit(reg, used_regs))
-> +			return dev_err_probe(dev, -EEXIST,
-> +					     "duplicate ADC channel index %u\n", reg);
-> +
-> +		has_single = fwnode_property_present(child, "single-channel");
-> +		has_diff = fwnode_property_present(child, "diff-channels");
-> +		if (has_single && has_diff)
-> +			return dev_err_probe(dev, -EINVAL,
-> +					     "channel %u has conflicting input properties\n",
-> +					     reg);
-> +
-> +		if (has_diff)
-> +			ret = ma35d1_adc_parse_diff_channel(dev, child,
-> +							    &channels[scan_index],
-> +							    used_diff_pairs, reg,
-> +							    scan_index);
-> +		else
-> +			ret = ma35d1_adc_parse_single_channel(dev, child,
-> +							      &channels[scan_index],
-> +							      used_single_inputs,
-> +							      has_single, reg,
-> +							      scan_index);
-> +		if (ret)
-> +			return ret;
-> +
-> +		scan_index++;
-> +	}
-> +
-> +	channels[scan_index] = IIO_CHAN_SOFT_TIMESTAMP(scan_index);
-> +	indio_dev->channels = channels;
-> +	indio_dev->num_channels = scan_index + 1;
-> +
-> +	return 0;
-> +}
-> +
-> +static int ma35d1_adc_init_vref(struct ma35d1_adc *adc, struct device *dev)
-> +{
-> +	int ret;
-> +
-> +	ret = devm_regulator_get_enable_read_voltage(dev, "vref");
-> +	if (ret == -ENODEV) {
-> +		adc->vref_mV = MA35D1_EADC_INTERNAL_VREF_mV;
-> +	} else if (ret < 0) {
-> +		return dev_err_probe(dev, ret, "failed to get VREF supply\n");
-> +	} else if (ret > 0) {
-> +		adc->external_vref = true;
-> +		adc->vref_mV = ret / (MICRO / MILLI);
-> +	} else {
-> +		return dev_err_probe(dev, -EINVAL, "invalid VREF voltage\n");
-
-This is just 0. The calc for real values above will end up with 0 in vref_mv if
-there is less than 1 mV so not sure handling this separately brings much value.
-you have to assume vref_mv might be zero anyway.
+diff --git a/net/sched/act_ife.c b/net/sched/act_ife.c
+index 5a527da0056..5d6ca124e00 100644
+--- a/net/sched/act_ife.c
++++ b/net/sched/act_ife.c
+@@ -275,6 +275,14 @@ static int load_metaops_and_vet(u32 metaid, void *val, int len, bool rtnl_held)
+ 		if (rtnl_held)
+ 			rtnl_lock();
+ 		ops = find_ife_oplist(metaid);
++		if (
+ops && rtnl_held) {
++			/* We dropped the RTNL mutex in order to perform the
++			 * module load. Tell the caller to replay the request
++			 * under a fresh RTNL critical section.
++			 */
++			module_put(ops->owner);
++			return -EAGAIN;
++		}
+ #endif
+ 	}
+ 
+-- 
+2.43.0
 
 
-> +	}
-> +
-> +	return 0;
-> +}
+--5cd39aaa97b76814b30d443ffd146401da0d18142b359a8b0ace30e5a18f
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="publickey - fadouse@pm.me -
+ 0x99485AA3.asc"; name="publickey - fadouse@pm.me - 0x99485AA3.asc"
+Content-Type: application/pgp-keys; filename="publickey - fadouse@pm.me -
+ 0x99485AA3.asc"; name="publickey - fadouse@pm.me - 0x99485AA3.asc"
 
-> +
-> +static int ma35d1_adc_suspend(struct device *dev)
-> +{
-> +	struct iio_dev *indio_dev = dev_get_drvdata(dev);
-> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
-> +	bool buffer_enabled;
-> +	int ret;
-> +
-> +	/* A failed resume leaves the device and its triggering suspended. */
-> +	scoped_guard(mutex, &adc->lock) {
-> +		if (adc->suspended)
-> +			return 0;
-> +	}
-> +
-> +	/*
-> +	 * pollfunc->irq is not initialized until the pollfunc is first
-> +	 * attached to a trigger, so only suspend and resume triggering
-> +	 * while the buffer is enabled.
+LS0tLS1CRUdJTiBQR1AgUFVCTElDIEtFWSBCTE9DSy0tLS0tCkNvbW1lbnQ6IGh0dHBzOi8vZ29w
+ZW5wZ3Aub3JnClZlcnNpb246IEdvcGVuUEdQIDIuMTAuMAoKeGpNRWFVdU9NUllKS3dZQkJBSGFS
+dzhCQVFkQXRuWWxTekhUTEhBMkl6dU5FMUF5OEpyS1VDeDZoUCsvdGM0TApEWENucmV6TkhXWmha
+RzkxYzJWQWNHMHViV1VnUEdaaFpHOTFjMlZBY0cwdWJXVSt3c0FSQkJNV0NnQ0RCWUpwClM0NHhB
+d3NKQndrUXVaMWd0K1htMlhSRkZBQUFBQUFBSEFBZ2MyRnNkRUJ1YjNSaGRHbHZibk11YjNCbGJu
+Qm4KY0dwekxtOXlaem0wQnAzZUVYUldrbklnQ2xXd3ZkeFptbzFYblZiNkZrYWpYVFZNMUIvakF4
+VUtDQVFXQUFJQgpBaGtCQXBzREFoNEJGaUVFbVVoYW8zWi9BbkJJNExCWXVaMWd0K1htMlhRQUFM
+cTJBUUQ3OEs2cGVkU1gzbGROCnlxZDNPSDF1TWpPM3Y3TFlNaE8rbDdjblNMV3JFQUQrT0NTcTEx
+U2VhS29ic1ZHckxlalRNc21Nc1BCOGpueGYKaWQzaENOK3Bld1RPT0FScFM0NHhFZ29yQmdFRUFa
+ZFZBUVVCQVFkQXdYZHpWSXFFSC94OEhaalIvUE90MkFpRgpiRW02WXFYWDJqMnYyaUtEc1FNREFR
+Z0h3cjRFR0JZS0FIQUZnbWxMampFSkVMbWRZTGZsNXRsMFJSUUFBQUFBCkFCd0FJSE5oYkhSQWJt
+OTBZWFJwYjI1ekxtOXdaVzV3WjNCcWN5NXZjbWRkS05RWURGV2NFVmQzeE9IZVFwNnMKeW43OU5G
+cE5xa0h6K2l6cElMQm5VZ0tiREJZaEJKbElXcU4yZndKd1NPQ3dXTG1kWUxmbDV0bDBBQUR6UWdE
+LwpjSUowODlKa25vZ1RzNnZ2UVorSjNMUklEYUk5K1FtK1Q1cU9tTms0eVhFQkFMUElsSkNTOGFo
+NWRCWVphOUwrCkhxamJEbWVTZ0RvNTh1U3graVd3KzZVTAo9TXVzVAotLS0tLUVORCBQR1AgUFVC
+TElDIEtFWSBCTE9DSy0tLS0t
+--5cd39aaa97b76814b30d443ffd146401da0d18142b359a8b0ace30e5a18f--
 
-True enough but isn't it also guarded by if indio_dev->pollfunc
-inside the iio_device_suspend_triggering()?
+--------d159e4b825aa838e8590dceeb959d38559e35183190b62bd9fff304cae4ec4b2
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="signature.asc"
 
-I think in the case you are avoiding it is a noop anyway.
+-----BEGIN PGP SIGNATURE-----
 
-disable_irq() nests fine so it shouldn't even matter if anyone turned
-it on yet.
+wqsEARYIAF0FgmsCXHoJELmdYLfl5tl0NRQAAAAAABwAEHNhbHRAbm90YXRp
+b25zLm9wZW5wZ3Bqcy5vcmdJtaO558TQB98gEUUdYl0HFiEEmUhao3Z/AnBI
+4LBYuZ1gt+Xm2XQAAPBcAP9n1GXXp54EijQOjLaKgb7pOoaUjk7H/lGvqsPp
+1icC6gEAxXdOqzK4n/vow5pdf86mAPQMfvWwQ8WFdf2E9RR6Qw4=
+=VfXo
+-----END PGP SIGNATURE-----
 
 
-> +	 */
-> +	buffer_enabled = iio_buffer_enabled(indio_dev);
-> +	if (buffer_enabled) {
-> +		ret = iio_device_suspend_triggering(indio_dev);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	ret = ma35d1_adc_suspend_hw(adc);
-> +	if (ret && buffer_enabled)
-> +		iio_device_resume_triggering(indio_dev);
-> +
-> +	return ret;
-> +}
-> +
-> +static int ma35d1_adc_resume(struct device *dev)
-> +{
-> +	struct iio_dev *indio_dev = dev_get_drvdata(dev);
-> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
-> +	int ret;
-> +
-> +	scoped_guard(mutex, &adc->lock) {
-> +		if (!adc->suspended)
-> +			return 0;
-> +	}
-> +
-> +	ret = ma35d1_adc_resume_hw(adc);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (!iio_buffer_enabled(indio_dev))
-> +		return 0;
-
-As above, I'm missing why we need to protect the call
-to resume_triggering.  The pollfunc can't change between
-suspend and resume so there is either one there or not
-in both cases and the guards inside that call should take care
-of the rest.  If I'm missing something we should look to
-fix it in those calls!
-
-> +
-> +	return iio_device_resume_triggering(indio_dev);
-> +}
-> +
-> +static DEFINE_SIMPLE_DEV_PM_OPS(ma35d1_adc_pm_ops,
-> +				ma35d1_adc_suspend, ma35d1_adc_resume);
-> +
-> +static const struct of_device_id ma35d1_adc_of_match[] = {
-> +	{ .compatible = "nuvoton,ma35d1-eadc" },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, ma35d1_adc_of_match);
-> +
-> +static struct platform_driver ma35d1_adc_driver = {
-> +	.probe = ma35d1_adc_probe,
-> +	.driver = {
-> +		.name = "ma35d1-eadc",
-> +		.of_match_table = ma35d1_adc_of_match,
-> +		.pm = pm_sleep_ptr(&ma35d1_adc_pm_ops),
-> +	},
-> +};
-> +module_platform_driver(ma35d1_adc_driver);
-> +
-> +MODULE_AUTHOR("Chi-Wen Weng <cwweng@nuvoton.com>");
-> +MODULE_DESCRIPTION("Nuvoton MA35D1 EADC driver");
-> +MODULE_LICENSE("GPL");
+--------d159e4b825aa838e8590dceeb959d38559e35183190b62bd9fff304cae4ec4b2--
 
