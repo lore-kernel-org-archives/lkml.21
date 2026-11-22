@@ -1,88 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795348290;
-	b=r5hovLIGTINzTwHf0uWX3KU9b1gsVs8pGIkhaHrJB94LrWU1Q5kEeZJtPFbBk3DVt/J7
-	 7pB0eTflwJ5JbuW+G0fJ6eqsg/txqk0wkqhkFY+0Zqmbi0WifKPvsRehD/RMYAjr5tya6
-	 XNQvfW/79w5/gRvvhZxRMtjNnEpr+pT9a4LcCM0Y7qmxHO2W9/hkw6Ij08SJVvOF7g1Xy
-	 H8WWJtJMJRBcn3c9FmibT8zDVwRKgcE0d+R64kFVHpi+Nz6fUO+Dhk4nxlQMuppl0XAwm
-	 xCtLN5MbljwwJYTtmOTdPLD1o+qfEV8HUN3UiTQCiNHqG8Et1boRDjHw44LwcEsGm/A==
+	t=1795348502;
+	b=BJE0eRoeTGHOok+e5W63E4vQnuLX6SQ7YnB35NzZLN5ppBreqhU373B6Md2S7xCBmB8e
+	 mKIsbhcQNcPRe4NmTfvYIsRD1uSm/2vuCZcWTBUoxc8zNGpvro3NmQTz7Ny0iUb7NVqv2
+	 e6lTNj8rbUea5lSVbTUDLMqjYx/eyQi7irWVzTA+xBiYwmo1G1yFeAizPQ2a+jL/DT2Ek
+	 k5xe3ueIIGyeVdpGpaLzKoEHSNa6AJNj8tS82PQeUlaK3BLC6WHLLuyGoPunP+1Gs/poG
+	 xuyWWJMh6dwJis/Cg98f0rXQinYrl/1uwesjIoF0U7nzXDmbAb9qIGa6dvU1jvwotcA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795348290;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=SdLr6yRqTSIXIq9q/8cXAbS05lzrBdYrcWskButSjtc=;
-	b=ZkZdLz8jiHJ+t0tEA2Ejuk2Traw18SXul4LP2b6lZsHyZGlSusVAjP7f+yNJ+QvByplY
-	 opJXub1w7NvFlYkhVCuMS5+owzsA5/obusbMeKH/abkatMEiRemRdsBc+MyfriMJFbUUP
-	 CAYkMEj9s5v3ACfrPAhUXPId2ogHfDRqJnO0MtLaFN5DpOIgScYNkxn2mPImIq0Vm4J8/
-	 t76dqX82VWfCrteHVS9Sa3jqLnTatU3qRz35Ws0vokKhyGtpJfkuG/JEdREmVDex6Lpgu
-	 evK3JOWGFe/8KPHYZVVAyAHr210FhaLQfg8I5NAzsaMmMpB3KhbRvQC0JxSR5mOmz1Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795348502;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=8c6qVyqNZ0SqHcZpSnANumyjBAiFjdYDHk+HUxi2Enk=;
+	b=fvatBbkjRit14N7ifoCYqOnzBsEsRopwQS6n9OdFTdjU1tn7b6d2UcnTuIXThbEnIzjU
+	 /1NjPjD7gtbbXOcs4qc9u/jg9d69NFssoMk4kV6sp4UYDLac/8HhK0GTVzZUS8o0FfKMe
+	 JWdEQiOPSgP6W+iDa9exSdwzfus8K1rPqrbFJCGPlLNm8gEdVReZZ9F4Ak2PI9HL6JeTq
+	 kCh755BEfttwfuXEesx1riYrSaa8uAuZTLJxpRsKrJNmgBYizqQIEioSbGAhQqbmwLJUU
+	 N6c1IVVa+gO74imAKaw9utcZCmKdTd3J3jGuvDfAnKqw0X24sD54/lEUQ2EoljMTK2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=STCTzFZv;
-	arc=none smtp.remote-ip=192.198.163.13
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Zdk7RKsm;
+	arc=none smtp.remote-ip=209.85.221.49
+Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 952E0606A32C;
-	Sun, 22 Nov 2026 11:51:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 952E0606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8640606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:55:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8640606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=STCTzFZv
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795348290; x=1826884290;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=o8bfGSGMC+XTLsw+DBGSIpRTxrHzS+tPO1ZCb6rISAA=;
-  b=STCTzFZvNFSXH/2jGMmlOZm4kGSwrAkgIdEcZvARGeiHWF9+1WtXYvXs
-   pDaUvURXksxbJzESjSSyGIUKJ9hjNtFAvh3jmwNHjrZAe2/Q4FzXnUTUd
-   M01mtpwoRKwsZpfwo0kO32nne3efL8q7Ta5IenonLoJ2qP6eFIlrbQHMi
-   22ykZUHaclUT8iPw5jyH2Eobay7tDnWt4ACDRO0/fc6pRlpLs3Hqyj8PC
-   fYeWgxaAkQMpx0L5iuLAvOkaaYJa4gtMF88U47Vl+7Ln47msBCpQ67RRe
-   AhVd8IdPtycgmFsaCyYGk4a9LIwLEj0N+tRxFwRKMNm9idy333J759NbZ
-   g==;
-X-CSE-ConnectionGUID: SZV0q7kSRNCHWrO5iKMNbg==
-X-CSE-MsgGUID: ZVIV1o53ROChoYIPox+7rA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11973"; a="4153944"
-X-IronPort-AV: E=Sophos;i="6.27,226,1787036400"; 
-   d="scan'208";a="4153944"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 03:51:29 -0800
-X-CSE-ConnectionGUID: xYeKisuzT2KLsMkMzHwYOg==
-X-CSE-MsgGUID: v+D3S8fRQDmlWO0gMXE05g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,226,1787036400"; 
-   d="scan'208";a="11012790"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 22 Nov 2026 03:51:26 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xV66N-00000001LTS-1lxt;
-	Sun, 22 Nov 2026 11:51:23 +0000
-Date: Sun, 22 Nov 2026 19:50:47 +0800
-From: kernel test robot <lkp@intel.com>
-To: Fredric Cover <fredric.cover.lkernel@gmail.com>,
-	Paulo Alcantara <pc@manguebit.org>,
-	Namjae Jeon <linkinjeon@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev,
-	ChenXiaoSong <chenxiaosong@chenxiaosong.com>,
-	Tom Talpey <tom@talpey.com>,
-	Ronnie Sahlberg <ronniesahlberg@gmail.com>,
-	Shyam Prasad N <sprasad@microsoft.com>,
-	Bharath SM <bharathsm@microsoft.com>, linux-cifs@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Fredric Cover <fredric.cover.lkernel@gmail.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] smb: client: convert DFS target node name from cache
- charset on mount
-Message-ID: <202611221905.fQpuvetd-lkp@intel.com>
-References: <20261122045841.99012-1-fredric.cover.lkernel@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Zdk7RKsm
+Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-498f5fa5103so1318569f8f.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 03:55:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795348500; x=1795953300; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=8c6qVyqNZ0SqHcZpSnANumyjBAiFjdYDHk+HUxi2Enk=;
+        b=Zdk7RKsmohrx5k/Al/SkovQbicu1EKXI37wI5NynMo18Bejrr9QqTge3LQUQFo4NaJ
+         QShG2NRTlhn/pNf25M0pWVJck94Kex/RP6CnG8t+3Kzl7yc2Jo89ONSbSqPw/K2XgINc
+         kyGcGB48KSKmJjUd+3HnNauJKhZJtQscJM2p+uPICSuBOQscn0vA3DS2YqdDXgnCIlXf
+         eD3TL9LlSjCG1+MPO/RUF8otTJL1Dq7lCfFelnFxSHd9+ijeDWBdCouZxwAD/Wbqp7cD
+         35PLtNOXBbDyWokVwrcgFG7sYlGWvNZtD9Hj7BblPU1I7FakYLUJ1YuJ52qDUVZUY7ha
+         YMrg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795348500; x=1795953300;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8c6qVyqNZ0SqHcZpSnANumyjBAiFjdYDHk+HUxi2Enk=;
+        b=Nw/y4K8BR/YM/ZiqcgN6RCYiy7rKfgjCYfjV459zt9AAwql18MmcD49CnTW050uNZr
+         xzehD5PebyBfyNqA9PEo90Qr/kFHBjQdnsRJqHsgJVvDnIrm/SfqlrRa6eUqnF2Qh5SP
+         0jVuROg1rRb7AB+MAoxsQq0ZZN8qDFrFZL8ph5nhBrZTPX7iHhJAXnu8/m3bYO2RT2jE
+         HGW28MioBrMbDxd7ww84cxLYdToz7KtCEpGKoqqzaYO8bGW2QuT5HfueKNw5YpnelTgB
+         nqbWdjJ+ec84MpA6LkUyKVBUYwHldSU7Uk19rPxpsbsA8tvOc+atppjD4VB1+NHVGZeC
+         Kb6A==
+X-Forwarded-Encrypted: i=1; AL+hErESpPd3OuIhCta6ydXJQqRWwVfuxBJJq7kKsVV/4bXD8linaPW/Wei0kWcaM6jjJ0oTfzKXcaF4TyPPMpI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8z0G6BzAvSBeiVF1JSyIYghJ2wqTFjBsVEWG7ZvF8Nep+y792S
+	zckTdkdaQ7lE+OsnM5QEFzLf2rypLL/lUXCBqCACTE+RLpJURTE3b8MU
+X-Gm-Gg: AZFdTZfdc20Bu+XYSZLP0HMlzTNXUwK9LTR+N7BHGX1YAqUgM4YyoG/BxNRYkRSlIOY
+	o8kMkzdaS3yORVYIw/jFyemQVlI7HM/F7wHfDZbht0whBeDQeNNmEW3FFbwS5pG4fnCAP7IIR/R
+	qxgyzMMoQLnNMZxbFNg3w5G8B1wjuA2jTkGX3WJuLm9VPdAEdkUP0BpvpN4EKVGCGJUlpJ1VoP6
+	kjY7fatLVHhUMaLO9aGo4C25PWOw2rwxeoe0EyVeoWcs6nsVAbj6g1BHM4PEEQJe9GNWAbOVmWU
+	sDSDiiTiAHpUZZXTfBY2wKbti9CVVXWB5OIxY3rHtTtVupqP2bInr6ImPEQ2W53JTwyDdH6RVgJ
+	OonPOd2p9x4iJ5jlDwc4o2vp4at3dzHx/MBRmUHpGyDCD87MTNiqP8fd0KbaCHfeHbBDQqtnkCR
+	pSebQmvDlJkc/z+nIj2E/3SwOEs8ezRhIdPmIcJaRrfQXYD+aESYFrHOezBQpAJAaRdGm8cAUu9
+	MqRTcFfLqgjTzwiz188ko0LkpqeI9BvRGWBvbQbIMmyTryRPdTiYXXo5F4vehjCn13pObR/iF6T
+	pqEtlusD4i70V68v4zcXw7a2yF3PvP5nVqQ2vl+wFsp+2x6PEjkFLaK/I7d5QQJ6bQ==
+X-Received: by 2002:a05:600c:6092:b0:4a1:d537:1c8d with SMTP id 5b1f17b1804b1-4bb8892bb67mr166647795e9.19.1795348500044;
+        Sun, 22 Nov 2026 03:55:00 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm168516455e9.2.2026.11.22.03.54.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 03:54:59 -0800 (PST)
+Date: Sun, 22 Nov 2026 11:54:58 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Jim Cromie via B4 Relay <devnull+jim.cromie.gmail.com@kernel.org>
+Cc: jim.cromie@gmail.com, Arnd Bergmann <arnd@arndb.de>, Jason Baron
+ <jbaron@akamai.com>, Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu
+ <petr.pavlu@suse.com>, Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen
+ <samitolvanen@google.com>, Aaron Tomlin <atomlin@atomlin.com>, Andrew
+ Morton <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-modules@vger.kernel.org
+Subject: Re: [PATCH 2/6] vmlinux.lds.h: drop unused HEADERED_SECTION* macros
+Message-ID: <20261122115458.1da4b8e9@pumpkin>
+In-Reply-To: <20261121-vmlinux-lds-v1-2-49818f3f5cc0@gmail.com>
+References: <20261121-vmlinux-lds-v1-0-49818f3f5cc0@gmail.com>
+	<20261121-vmlinux-lds-v1-2-49818f3f5cc0@gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,99 +103,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261122045841.99012-1-fredric.cover.lkernel@gmail.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Hi Fredric,
+On Sat, 21 Nov 2026 15:49:20 -0700
+Jim Cromie via B4 Relay <devnull+jim.cromie.gmail.com@kernel.org> wrote:
 
-kernel test robot noticed the following build errors:
+> From: Jim Cromie <jim.cromie@gmail.com>
+> 
+> These macros are unused, no point in carrying them any more.
+> 
+> NB: these macros were just moved to bounded_sections.lds.h, from
+> vmlinux.lds.h, which is the known entity, and therefore more
+> meaningful in the 1-line summary, so thats what I used as the topic.
 
-[auto build test ERROR on manguebit/cifs-next]
-[also build test ERROR on manguebit/cifs-fixes linus/master v7.4-rc3 next-20261120]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Maybe remove them first?
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Fredric-Cover/smb-client-convert-DFS-target-node-name-from-cache-charset-on-mount/20261122-045840
-base:   https://git.manguebit.org/linux.git cifs-next
-patch link:    https://lore.kernel.org/r/20261122045841.99012-1-fredric.cover.lkernel%40gmail.com
-patch subject: [PATCH] smb: client: convert DFS target node name from cache charset on mount
-config: x86_64-rhel-9.4 (https://download.01.org/0day-ci/archive/20261122/202611221905.fQpuvetd-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261122/202611221905.fQpuvetd-lkp@intel.com/reproduce)
+David
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611221905.fQpuvetd-lkp@intel.com/
+> 
+> Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
+> ---
+>  include/asm-generic/bounded_sections.lds.h | 15 ---------------
+>  1 file changed, 15 deletions(-)
+> 
+> diff --git a/include/asm-generic/bounded_sections.lds.h b/include/asm-generic/bounded_sections.lds.h
+> index 8c29293ca7fb..268cdc34389b 100644
+> --- a/include/asm-generic/bounded_sections.lds.h
+> +++ b/include/asm-generic/bounded_sections.lds.h
+> @@ -18,19 +18,4 @@
+>  
+>  #define BOUNDED_SECTION(_sec)	 BOUNDED_SECTION_BY(_sec, _sec)
+>  
+> -#define HEADERED_SECTION_PRE_LABEL(_sec_, _label_, _BEGIN_, _END_, _HDR_) \
+> -	_HDR_##_label_	= .;						\
+> -	KEEP(*(.gnu.linkonce.##_sec_))					\
+> -	BOUNDED_SECTION_PRE_LABEL(_sec_, _label_, _BEGIN_, _END_)
+> -
+> -#define HEADERED_SECTION_POST_LABEL(_sec_, _label_, _BEGIN_, _END_, _HDR_) \
+> -	_label_##_HDR_ = .;						\
+> -	KEEP(*(.gnu.linkonce.##_sec_))					\
+> -	BOUNDED_SECTION_POST_LABEL(_sec_, _label_, _BEGIN_, _END_)
+> -
+> -#define HEADERED_SECTION_BY(_sec_, _label_)				\
+> -	HEADERED_SECTION_PRE_LABEL(_sec_, _label_, __start, __stop)
+> -
+> -#define HEADERED_SECTION(_sec)	 HEADERED_SECTION_BY(_sec, _sec)
+> -
+>  #endif /* _ASM_GENERIC_BOUNDED_SECTIONS_H */
+> 
 
-All errors (new ones prefixed by >>):
-
-   fs/smb/client/dfs.c: In function 'dfs_parse_target_referral':
->> fs/smb/client/dfs.c:44:21: error: implicit declaration of function 'dfs_cache_local_path'; did you mean 'dfs_cache_canonical_path'? [-Wimplicit-function-declaration]
-      44 |         node_name = dfs_cache_local_path(ref->node_name, ctx->local_nls);
-         |                     ^~~~~~~~~~~~~~~~~~~~
-         |                     dfs_cache_canonical_path
->> fs/smb/client/dfs.c:44:19: error: assignment to 'char *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-      44 |         node_name = dfs_cache_local_path(ref->node_name, ctx->local_nls);
-         |                   ^
-
-
-vim +44 fs/smb/client/dfs.c
-
-    13	
-    14	/**
-    15	 * dfs_parse_target_referral - set fs context for dfs target referral
-    16	 *
-    17	 * @full_path: full path in UNC format.
-    18	 * @ref: dfs referral pointer.
-    19	 * @ctx: smb3 fs context pointer.
-    20	 *
-    21	 * Return zero if dfs referral was parsed correctly, otherwise non-zero.
-    22	 */
-    23	int dfs_parse_target_referral(const char *full_path, const struct dfs_info3_param *ref,
-    24				      struct smb3_fs_context *ctx)
-    25	{
-    26		int rc;
-    27		const char *prepath = NULL;
-    28		char *node_name = NULL;
-    29		char *path;
-    30	
-    31		if (!full_path || !*full_path || !ref || !ctx)
-    32			return -EINVAL;
-    33	
-    34		if (WARN_ON_ONCE(!ref->node_name || ref->path_consumed < 0))
-    35			return -EINVAL;
-    36	
-    37		if ((size_t)ref->path_consumed < strlen(full_path)) {
-    38			prepath = full_path + ref->path_consumed;
-    39			/* skip initial delimiter */
-    40			if (*prepath == '/' || *prepath == '\\')
-    41				prepath++;
-    42		}
-    43	
-  > 44		node_name = dfs_cache_local_path(ref->node_name, ctx->local_nls);
-    45		if (IS_ERR(node_name))
-    46			return PTR_ERR(node_name);
-    47	
-    48		path = cifs_build_devname(node_name, prepath);
-    49		kfree(node_name);
-    50		if (IS_ERR(path))
-    51			return PTR_ERR(path);
-    52	
-    53		rc = smb3_parse_devname(path, ctx);
-    54		if (rc)
-    55			goto out;
-    56	
-    57		rc = dns_resolve_unc(DFS_DOM(ctx), path,
-    58				     (struct sockaddr *)&ctx->dstaddr);
-    59	out:
-    60		kfree(path);
-    61		return rc;
-    62	}
-    63	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
