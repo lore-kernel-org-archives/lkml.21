@@ -1,96 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795349366;
-	b=hmJo4oy4j05TCkx5nXIbAmXkbtjnrdYxzYLo14J8tmqgar/NrO+xsyexa/Sy2jAxX1w6
-	 Cq3M7JorijxY4Y38X0QP34gc/HhqxD8g9/uPoRG/CEFf0xDD6IOMJlXL2uCDoHWE8HRxE
-	 cEtuL/Qm5nOb6UoVP3XC/xPWMg9w8AdThtvnZTlb7YOs2JQLUQrUZ3FmQ2JeBhiJjWmzr
-	 fgUpa0+FCBIioDZqm44/gmL4wDNO0irBEKjNb3wBJgdO0WdO/gCiZYOaMvFGKnzfGWT9f
-	 udFdHrzFwtRYYzg3SsdA/nm12rcNQF6clL51Cbou4H4GX/qYItjhkuaxNGTGs43vxoA==
+	t=1795349452;
+	b=YekKSTnpIftAj3O4GZxetA2AetxnDqHzSkTP9AmDThGBbT+BABieX1DCTCn0LsbLUU2j
+	 5xGKLJvmYcEWZUJFNleKVi8k5uAi4o34/fJzm9MbMxQowW3iNh9wRzQ1obN7LX9HWKDPe
+	 ZeAtv94csqRpE7Dg59U1Y8EH7sG1nP5gRNRvy3XLMf68XYdO2FFIXSJ336oMTdrx8ijxV
+	 fY74nKfmK1WKayuI3pN4BGjgJa/N/RtcTDo4Pd5BgPFYzoA7V/6CSYZGaKFFVsUi8R50k
+	 x5D9+pw3AZj7z6Xp/stdjd6eFp4eOTNX1qeEtPHKQOPVE983ozXdppacIOf0+qWtkug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795349366;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Vo8KO2KJ+xe5NqcgWpWn5sRi3V4otNrp6pD7wdiaeIg=;
-	b=mNFA7lXUhMZQQCFz/rvfqHkvnKJzGs3dykPS/dJNYXI6ayRkj82Kytf+rMzVp6Bje7bG
-	 AMAQG7D7ynZdnu9Qb/GZIez6d8vvaEN68voB3ZmR7JHXAeFlu4DpOtbTcH5uw6lYWXDup
-	 EXikFZBwRzLIZ4AnnCFgFsy3dmut7yDaO2HoZ86uqyOoEKlg6oqz3Nck99ULvxBhljZsG
-	 I/J1kUgrtjEZxWYW2xThV/NpLN2UbOeejJmm+Vxu8bjNs2W/XY6znAyAsOKuczfDi6DV7
-	 BtO5hv7PLw4q1HeXIAimSKES2VwxBp5Cmu1lzpqTUDkiVp577RAEADBkUN8axFE9ooQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795349452;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=LWOiQEZX415zH0dHnkJ/TmM4Hrd10FxwQy/FS8wvlWk=;
+	b=s8wcP+U0smT6Bxg3pbCOMwlIxvihTo638JzrIhrZhqUlREZvsoVhETKxaxP8yX/CGAe3
+	 UQl3gDQ4ZQCb3PL4TCqL/Gtys8t18trXLMYU/Xpc2PqLil27BM9t8z/peTTl0jxzobjZ+
+	 8B5OBMLScBXBcH4sDI5jk0Xdqdw24o/CWi5v/lNwYiz+PDMep79KrQWlsIhh3c1cgFh34
+	 j4ibH6H1TBJB4KE0uyzPhAqWotSNeuBO245SYtUG5baPpTQlywUo7e5r/6u7Yj1yfyJIw
+	 sD0TmfyJWucFZGR1fmwSDFD5y8MK9AL01dgnLkn7l3KqfAPwqyTakFU1k/i5FAxIgjw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cs.unc.edu;
-	spf=pass smtp.mailfrom=cs.unc.edu;
-	dkim=pass header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=Iv2edekw;
-	arc=none smtp.remote-ip=74.125.224.41
-Received: from mail-yx1-f41.google.com (mail-yx1-f41.google.com [74.125.224.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WIQB1ODh;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92DD2606A330
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:09:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92DD2606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cs.unc.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cs.unc.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4357606A32A;
+	Sun, 22 Nov 2026 12:10:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=Iv2edekw
-Received: by mail-yx1-f41.google.com with SMTP id 956f58d0204a3-67c24619b19so1810470d50.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:09:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cs.unc.edu; s=google; t=1795349364; x=1795954164; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Vo8KO2KJ+xe5NqcgWpWn5sRi3V4otNrp6pD7wdiaeIg=;
-        b=Iv2edekwCcVIQp9JIMsfLhk6KtoiV0WhRuD1FoDIRhUZsxLA2kgzsksYDDlnY5NdLj
-         QTmbmISW8g0su/g5+BFFz+65uDTd6p7xZ4n5+iHa21Cf9mBL/0iwxOGqjUi2dR2vr9+O
-         UyN8+2lSQ4KEgbwZTJIMOzO7HpzYQW1qneGMuVKZHYveD1XscsYYGBp1JauYkNyuMvpb
-         DQ7lS29jTR8iypzv1awMBPRFuN0pyyKlUiDxvXF8n04RhcYHVGPSRlpXAdX1TW/U8O78
-         8HbEkFnVxM2h4kREUrWn+N5bIMsV6ge5D3B59Kkdro3yg6DDF/VJptuL1Q4Aj+GXRvTl
-         WGNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795349364; x=1795954164;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Vo8KO2KJ+xe5NqcgWpWn5sRi3V4otNrp6pD7wdiaeIg=;
-        b=SA/0aw3WTHoC8NZ+KaY7RypHFw0Hiyic01kDndEa0DP5Xs6MBCa88MEGaWpcAaQmQr
-         gRFZI/9tOJKfm7HNZJlxqQI4BikjMd0YiX8yVMCkeu9vUvos/HGeM801iwjmsae4P4cD
-         Yy00CfwHdDFO9DpSUtkvFR7Ijc2Kr1YtK9Bf0CaAtODKaUaw4F0QWcuVmlXZI91HYmWt
-         J5Pw8KOuSMJG1ymURYuPIkKhnajFQXcQTTlx8TTo7cK5swUG0IWB7fcWbFHPfpuh9QgP
-         +sbdlu28zO1HblP5HFuTGLfymgKWRLzwPQAH/IeV4Itu78YMlzweMTKwT2yhc+1fPpC1
-         oNJQ==
-X-Forwarded-Encrypted: i=1; AL+hErGvtDUuCSAXvl1yS56HrDQ2AR0qdQXIqf+3BrJ9xouQQIp+/usV8T7pPN+haHTydYRl1k4qlNeX+XlItnI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+yQQ5SgyjMY/L13bn1092UYIGqfHUJhppGIQHINvMHXvhkIHoF
-	JwqCsp03LP44xqNONzxjzApHGvSyZUDmQbLuJmNfLVGdMJgXOh0a7gyLFxKfoTKdUg==
-X-Gm-Gg: AZFdTZe6kpaD/S1vnKBI3ZrTPL0pYfq6HKiUVteYfuhNkEJmFKBfbLyl426eWiOnWyV
-	QyLSFbXLYLsz3Xp5cH5QmIMJhw16i/N7jyr9is/ZDzWXmZrcYGjV++8UN+2jaHTKpwqGbcdnnVH
-	ata65VfP0q5lxnBy2i/+QLzJXhWukYt0TeMUe9d92WYHgnXry14ELzfOSORaIQck7QytMqdTz2z
-	orZqq+MjxR66X8mW73qJtUND2tLGF6je1L7peLvQOWZ7aGu+HKcQxm0rqICN190AXvgHWo3EVL5
-	GQvmKhRWHA/hGT8/V1RqAxlrTtAtm+eXBWUU8lF6sQTOK9xRYMZKERjQ2wJHkOU/TbvOSOnJjLH
-	DuarFEHjBtgLIXj3Ihu3b5rEY8Vx17C6TH07DOiRJ5pBgCVXY6ug5lY84jooMjVodX4UwRDommf
-	7oWd/nP46RQxyFJI2VYxq1b1yzyxI6hmWOP3feilgAxcCoa+R6JDllihpOSrdDvT2jw7L2RVyux
-	o09iJ59p48laldvSSgdGy89N3yBTBjkEZ63U5fMHIVfyE1RZDlWNfiw9ApM38mV5DjmG4ZA5yDI
-	lf2SQ43zpg6XKlTXBNtGAVJ4o91/ZaCYJGrtZp/EksAXKFBdZvYg
-X-Received: by 2002:a05:690c:6088:b0:8b4:d26a:aa7d with SMTP id 00721157ae682-8b5204ff21bmr37330077b3.56.1795349364614;
-        Sun, 22 Nov 2026 04:09:24 -0800 (PST)
-Received: from cobra01.cs.unc.edu (cobra01.cs.unc.edu. [152.2.130.143])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5201ba5absm34801557b3.4.2026.11.22.04.09.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 04:09:24 -0800 (PST)
-From: Hengyu Liang <hengyul@cs.unc.edu>
-To: "Michael S. Tsirkin" <mst@redhat.com>
-Cc: Jason Wang <jasowangio@gmail.com>,
-	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	kvm@vger.kernel.org,
-	virtualization@lists.linux.dev,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH] vhost/net: bound the count of VHOST_SET_FEATURES_ARRAY
-Date: Sun, 22 Nov 2026 07:09:19 -0500
-Message-ID: <20261122120919.1718445-1-hengyul@cs.unc.edu>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WIQB1ODh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A20891F000C6;
+	Sun, 22 Nov 2026 12:10:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795349452;
+	bh=LWOiQEZX415zH0dHnkJ/TmM4Hrd10FxwQy/FS8wvlWk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=WIQB1ODhD18O8TJIptE3MxXKgdiO9iLC7MPn8Cz0UwPviqgx/OsymDtOulqwccEaE
+	 Dy/jhHne5LWPMnCtULBWKq+SOu1tAe2VOaJ/Tbx16VLjCF/A/vlHnR50shdnLkYsHs
+	 tK38V8jTO3Z2EuzkncCxXStmoVKGmL7xp/xyViXCY1+z+LBzmMkER0B093/zVUHVfs
+	 1GKMcS1/rwzJpBeATYkM1LBMdGLBLGhIYEQG8g+uWu/edsTz3FXJxvAFo/DD/cX0zC
+	 n+9I6HWuHqwv+4OU6pqZ7u6amY3+G9m5PA+dwVfMA8XBtWSlEK5sDGHlUvBW7gE7jR
+	 sNJxyv+Dju9iQ==
+Subject:
+ Re: [PATCH net v2] tap: clamp zero-copy copylen to remaining payload length
+From: netdev-bot+sashiko@kernel.org
+To: graypanda.inzag@gmail.com
+Cc: willemdebruijn.kernel@gmail.com, jasowangio@gmail.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, gwanhyunlee@gmail.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Sun, 22 Nov 2026 12:10:51 +0000
+Message-ID: <179534945117.3135.10312990191242874707@kernel.org>
+In-Reply-To: <20261118120102.3717000-1-graypanda.inzag@gmail.com>
+References: <20261118120102.3717000-1-graypanda.inzag@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,64 +64,178 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Commit 333c515d1896 ("vhost-net: allow configuring extended features")
-added VHOST_SET_FEATURES_ARRAY. The ioctl reads the number of feature
-words from user space and checks that every word above the supported
-ones is zero, one word at a time in a loop.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-However, the loop has no upper bound and no scheduling point. As of now,
-a caller can pass a count of U64_MAX and a pointer into a large
-zero-filled mapping. The ioctl then stays in the kernel for as long as
-the mapping is readable, and a fatal signal is not handled until it
-ends. On a v6.18 debug kernel booted with preempt=none, two such calls
-from a non-root user, each on a 4 GiB mapping, froze a 2-CPU VM for
-56 s with soft lockup reports.
+Critical: 0 · High: 1 (1) · Medium: 0 · Low: 1
 
-Interfaces that take an extensible structure from user space limit it
-to one page (openat2, clone3, sched_setattr).
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-On a KASAN kernel with a 1 GiB mapping: before commit 333c515d1896
-("vhost-net: allow configuring extended features"), the ioctl does not
-exist and the call fails with EPERM at once. After that commit, it
-fails with EFAULT after 26.0 s. With this patch, it fails with E2BIG at
-once. A reproducer is available on request.
+- [High] Incomplete fix: tun.c has the same stale-heap leak and the patch
+  leaves it alone.
+- [Low] The commit message understates the impact.
 
-This patch will reject counts above one page of words (512 on a 4 KiB
-page, or 32768 feature bits; 128 are defined today) before the walk
-starts.
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the `if
+  (!tap)` branch of tap_get_user() (drivers/net/tap.c:646-650) leaks the…
 
-Fixes: 333c515d1896 ("vhost-net: allow configuring extended features")
-Cc: stable@vger.kernel.org # v6.17+
-Signed-off-by: Hengyu Liang <hengyul@cs.unc.edu>
----
-I found this while comparing the behavior of different kernel versions.
-I used an LLM to analyze the problem and to draft the patch and this
-message, and I analyzed the result myself.
+--
 
-Tested on the vhost tree at 44293796526f with KASAN and lockdep: counts
-of 0, 2, 3 and 512 words still succeed, a nonzero word above the
-supported ones still gives EOPNOTSUPP, and VHOST_GET_FEATURES_ARRAY is
-unchanged.
- drivers/vhost/net.c | 2 ++
- 1 file changed, 2 insertions(+)
+tap: clamp zero-copy copylen to remaining payload length
 
-diff --git a/drivers/vhost/net.c b/drivers/vhost/net.c
-index 631855064b3d..22e06b44d2ed 100644
---- a/drivers/vhost/net.c
-+++ b/drivers/vhost/net.c
-@@ -1795,6 +1795,8 @@ static long vhost_net_ioctl(struct file *f, unsigned int ioctl,
- 	case VHOST_SET_FEATURES_ARRAY:
- 		if (copy_from_user(&count, featurep, sizeof(count)))
- 			return -EFAULT;
-+		if (count > PAGE_SIZE / sizeof(u64))
-+			return -E2BIG;
- 
- 		virtio_features_zero(all_features);
- 		argp += sizeof(u64);
+This patch clamps the zero-copy copylen in tap_get_user() to the payload
+left after the virtio header. Without the clamp, tap_alloc_skb() sizes the
+linear area from hdr_len or GOODCOPY_LEN. zerocopy_sg_from_iter() only
+fills the payload bytes that exist, so stale heap contents can be
+transmitted.
 
-base-commit: 44293796526f4343639f87b2acc53811c78b5d54
+> For example, a 246-byte padded virtio header and a 14-byte Ethernet
+> frame leave only 14 payload bytes, but a zero hdr_len makes copylen 128.
+> With a 512-byte virtio header, a guest-supplied hdr_len of 256 also
+> passes __tun_vnet_hdr_get(): it checks hdr_len before skipping the
+> padding. That makes copylen 256 for the same 14-byte frame.
+> Larger padded headers can raise copylen as far as good_linear.
+
+[Severity: Low]
+Does this description understate the exposure? Both examples use padded
+vnet headers set up by the host. That reads as if an unusual vnet_hdr_sz
+is needed.
+
+tap_get_user() calls tun_vnet_hdr_get() with features=0, so parsed_size is
+sizeof(struct virtio_net_hdr), which is 10. __tun_vnet_hdr_get() then does:
+
+drivers/net/tun_vnet.h:__tun_vnet_hdr_get() {
+    ...
+	if (hdr_len > iov_iter_count(from))
+		return -EINVAL;
+
+	iov_iter_advance(from, sz - parsed_size);
+    ...
+}
+
+At that check, the count still includes the sz - 10 padding bytes. With the
+common 12-byte header (VERSION_1 / MRG_RXBUF), a guest can set
+hdr_len = payload + 2. Before this patch that made copylen = payload + 2,
+so 2 uninitialized bytes went out with each packet. With the 20-byte hash
+header the overshoot is 10 bytes.
+
+The new min_t() already handles these cases, so the code is fine. Could the
+commit message say that the default header sizes are affected too? Stable
+and security triage will rely on it.
+
+> diff --git a/drivers/net/tap.c b/drivers/net/tap.c
+> index 2f19fb07bb2d4..f25c58d6e986b 100644
+> --- a/drivers/net/tap.c
+> +++ b/drivers/net/tap.c
+> @@ -608,6 +608,8 @@ static ssize_t tap_get_user(struct tap_queue *q, void *msg_control,
+>  		struct iov_iter i;
+>  
+>  		copylen = clamp(hdr_len ?: GOODCOPY_LEN, ETH_HLEN, good_linear);
+> +		/* The remaining payload may be shorter than copylen. */
+> +		copylen = min_t(unsigned long, copylen, len);
+
+[Severity: High]
+Does tun_get_user() in drivers/net/tun.c need the same clamp? Its
+zero-copy branch computes copylen the same way, and nothing bounds it by
+len:
+
+drivers/net/tun.c:tun_get_user() {
+    ...
+	if (msg_control) {
+		struct iov_iter i = *from;
+        ...
+		copylen = min(hdr_len ? hdr_len : GOODCOPY_LEN, good_linear);
+		linear = copylen;
+		iov_iter_advance(&i, copylen);
+		if (iov_iter_npages(&i, INT_MAX) <= MAX_SKB_FRAGS)
+			zerocopy = true;
+	}
+    ...
+}
+
+When zerocopy is set, tun_can_build_skb() returns false and copylen is not
+reset to len. From there the path matches tap:
+
+tun_get_user()
+  tun_alloc_skb(tfile, align, copylen, linear, noblock)
+    skb_put(skb, linear)
+  zerocopy_sg_from_iter()
+    copy = min_t(int, skb_headlen(skb), iov_iter_count(from))
+
+Nothing writes the tail of the linear head, and it goes out through the
+host stack and any bridged link.
+
+tun_get_user() also calls __tun_vnet_hdr_get(), which the commit message
+blames for case B. A tun device with IFF_VNET_HDR always has SOCK_ZEROCOPY
+set. With experimental_zcopytx=1, vhost_net uses zero-copy for guest TX of
+256 bytes or more. Either of these looks like it reaches the leak:
+
+  vnet_hdr_sz >= 242, hdr_len = 0 and a short frame (copylen = 128)
+  any vnet_hdr_sz > parsed_size, hdr_len = payload + (sz - parsed_size)
+
+Would it make sense to fix this in __tun_vnet_hdr_get(), or in both
+callers? Otherwise the tun path stays exposed after a stable backport of
+this patch.
+
+>  		linear = copylen;
+>  		i = *from;
+>  		iov_iter_advance(&i, copylen);
+
+[Severity: High]
+This isn't a bug introduced by this patch, but tap_get_user() returns early
+further down when q->tap is NULL:
+
+drivers/net/tap.c:tap_get_user() {
+    ...
+	rcu_read_lock();
+	tap = rcu_dereference(q->tap);
+	if (!tap) {
+		kfree_skb(skb);
+		rcu_read_unlock();
+		return total_len;
+	}
+    ...
+}
+
+This return comes before skb_zcopy_init(skb, msg_control) and before
+uarg->ops->complete(). Can this leak the vhost zerocopy ubuf_info?
+
+By this point, handle_tx_zerocopy() in drivers/vhost/net.c has already
+marked the head as in progress and taken a reference on ubufs:
+
+	vq->heads[nvq->upend_idx].len = VHOST_DMA_IN_PROGRESS;
+	...
+	atomic_inc(&ubufs->refcount);
+
+Because sendmsg returned success, vhost waits for vhost_zerocopy_complete()
+to finish the job, and that callback never runs. The heads[] slot stays
+VHOST_DMA_IN_PROGRESS, which blocks vhost_zerocopy_signal_used(). The
+ubufs refcount never reaches zero.
+
+Later, vhost_net_flush() (from release, set_backend or reset_owner) waits
+with no timeout:
+
+drivers/vhost/net.c:vhost_net_ubuf_put_and_wait() {
+	vhost_net_ubuf_put(ubufs);
+	wait_event(ubufs->wait, !atomic_read(&ubufs->refcount));
+}
+
+q->tap becomes NULL in tap_del_queues() when the macvtap/ipvtap link is
+deleted while the queue fd is still attached to vhost-net:
+
+	RCU_INIT_POINTER(q->tap, NULL);
+
+>From then on, every zero-copy guest TX takes this path. The process
+releasing /dev/vhost-net can then hang in D state. tun does not have this
+problem because tun_sendmsg() returns -EBADFD once the device is gone.
+
+This looks like it dates back to commit 4f61f133f354 ("net: tap: NULL
+pointer derefence in dev_parse_header_protocol when skb->dev is null").
+
 -- 
-2.53.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118120102.3717000-1-graypanda.inzag%40gmail.com
