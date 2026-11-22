@@ -1,64 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.251.234.58
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.149
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795328707;
-	b=odpEgh/JdeiADn99pqJ8IsPiiHGbAzZy+i1jEUoSHnA7lMf32glYkXigGG0/cTlHjwQB
-	 A7MglcrPLK6JcsvgcBP1cPbPlFuUEzle4LIM9GlHjb2DQKA/kJsWCninzBNl2iNpTDHmt
-	 QSNeGmFQlz7d0ncEo8DPrCnahTFrtZolkMbIWEvgjsabgVmkCbeTk1Ah/xdvWKThrOebj
-	 9RmPEW8TcSTAYqPlR3P139l1xKP35bUsPMUwPeCjFGZyzzNZFXAPqZ96dxwMGpPgb2LQG
-	 1JljuFg2QBkMRxKmu1aMONgVXAplgpkT5chISrsIwPGulgQXwf0QifdLssXouAQDhcg==
+	t=1795329053;
+	b=pRWgbr4fw4CXvzuvLOjJ9HMmrdrNgtR7oZ0G8MXPzGKJrA/egyJfhdI92IO6fQQIypaL
+	 GcEmw7lk1h3j10/czixvG3STVj+8BjbLi3v8fI8CVGhjZAvhpRTnCuPC/5NpFJ3aUjd1I
+	 UQaLcd2v7HiZ3yZn62mp8HdxdlX9M0TiYP6Zj+210xrmmHdjqxykex1g2qdXhGU2fzEHZ
+	 RANGyBu1OKvGyLT7pICMJC/RwrLXLfWpYQUFAO4qYP117R1pEPoyTJb6T5VXhSJ2ZVYxe
+	 PaKzSo0CMz16iU/kdSO2Jke4W01/QsdwhNdS8Wo9mDtUfWQIMR/op0h3GVY5D/VzVBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795328707;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:X-Mailer:From:To:Cc:
-	 Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:
-	 Content-Type:Feedback-ID:X-SES-Outgoing;
-	bh=egq/YthXEw7uEdj++tS8ft/aOA52KcHZKMomtFFnycY=;
-	b=t9qyXxclD3J0Aa6jTaJY4CDiH9pqe8hU7HGfSetH9MCXgl26SGTKU6f9fFAnA8YyX5ym
-	 tFujugb9fQWS1g6LI/NDeKTO9rTFiXPE26iZsijVqGJOId2f/qduHacJss+K6O2Ikimdp
-	 pCDb+bOqxa+ZvqlAU7vYM6g3kR+hy6+AnQBEFXTDT1/XG7Gm5Jq0VsB1qAFISxY6CzTtv
-	 zq/5MvL7uGhTMcQPFwc1oUytejjniUDL/6xUHzqMtr+lHmpxjzjWErKbImzSj8aHEMYj1
-	 q6g1HnvcTiPZJXUG+TZp3NebIC3yz1OKmyHN2CQogMJQls5LA12ZSyOmA+c8GiYKv8A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795329053;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=9SNgwiEjpXpdL0MUMhS19ZFeEP4o8lMFcQpCLGPkxOs=;
+	b=GE7zPGBDaUJ5UL755Fgy2GHjPR+0JPqOEJ9YnNb9ReJrQNSkaNB2WkIHrpSgm9vxh7ZA
+	 XdLszRZbXeZVYbB2omm+c+4ITzuzsY6KNoxyxE2gt39GUgYQpeoE78l30KnTXbM2E0jHh
+	 Hykity+S89FNMgtcSwhDbqAEJrOFJwsyI7eSSROOxGbW166b/LaZvmej/tysH2ZoF78Cj
+	 1sacr/BDYmivDg1ZmsVaZY1vcC5foq0JeA37naw6PQ3Kl/vpJrAdsHQHp5+j/VLNLkKpb
+	 H3yRsQUSGp9qktyOf566Ps+W1GFOYV1hujZXYiiIIV7KdRPbKHvRCatbzwPmHpgALkQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fqwqf.xyz;
-	spf=pass smtp.mailfrom=send.fqwqf.xyz;
-	dkim=pass header.d=fqwqf.xyz header.i=@fqwqf.xyz header.a=rsa-sha256 header.s=resend header.b=j6u1dtUl;
-	dkim=pass header.d=amazonses.com header.i=@amazonses.com header.a=rsa-sha256 header.s=zh4gjftm6etwoq6afzugpky45synznly header.b=BdNE+dOO;
-	arc=none smtp.remote-ip=23.251.234.58
-Received: from e234-58.smtp-out.ap-northeast-1.amazonses.com (e234-58.smtp-out.ap-northeast-1.amazonses.com [23.251.234.58])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=YhNzZrpQ;
+	arc=none smtp.remote-ip=91.218.175.149
+Received: from mta0.migadu.com (out-149.mta0.migadu.com [91.218.175.149])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77C2A606A320;
-	Sun, 22 Nov 2026 06:25:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77C2A606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fqwqf.xyz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=send.fqwqf.xyz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8B68606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 06:30:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8B68606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=fqwqf.xyz header.i=@fqwqf.xyz header.a=rsa-sha256 header.s=resend header.b=j6u1dtUl;
-	dkim=pass (1024-bit key, unprotected) header.d=amazonses.com header.i=@amazonses.com header.a=rsa-sha256 header.s=zh4gjftm6etwoq6afzugpky45synznly header.b=BdNE+dOO
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=resend;
-	d=fqwqf.xyz; t=1795328705;
-	h=From:To:Cc:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type;
-	bh=l0KYrP/RgtTi86VFjNDoRqnX8Rm+Q+YVM8M6VT6IgDQ=;
-	b=j6u1dtUl7dvMULXBBc51gB9uQLOzDPS9UjvjZPxZIWwiBJNB09YxzZbvkMtUvrVg
-	gj/mizKmWF9D7m54y+KD7ho44VOD9JA0CJjlAX2Wbnj34/4G9xlCWuViiV1uQ9moogm
-	h4oThvb0Oh9tll9OPxtaDLgQUqp1a+pEz1zrZK+g=
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
-	s=zh4gjftm6etwoq6afzugpky45synznly; d=amazonses.com; t=1795328705;
-	h=From:To:Cc:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type:Feedback-ID;
-	bh=l0KYrP/RgtTi86VFjNDoRqnX8Rm+Q+YVM8M6VT6IgDQ=;
-	b=BdNE+dOOStIIr557WomAQuWYopx9YNiklq/DKFXaH1w5ayFoCpv5Fw8NqO5tIZWr
-	sLaqZBVmDNjQQ9zLoN36vH61df+1DBv4XQVTPWnHsob+9kyoyMeOwryCiE98ZhiJX5x
-	k/Y8VjwRwKp8JrOPmtpgrfTuj/LUvlFe7UUxVALY=
-X-Mailer: git-send-email 2.53.0
-From: Jizhou Tong <fqwqf@fqwqf.xyz>
-To: Mark Brown <broonie@kernel.org>
-Cc: srini@kernel.org, lgirdwood@gmail.com, tiwai@suse.com, perex@perex.cz, 
-	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ASoC: codecs: wcd-common: bound interrupt status retries
-Message-ID: <010601a201ee018c-30715d0f-712e-4181-9dea-d1b82b234831-000000@ap-northeast-1.amazonses.com>
-Content-Transfer-Encoding: quoted-printable
-Date: Sun, 22 Nov 2026 06:25:04 +0000
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=YhNzZrpQ
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=rEm/n/NoaYAE0zuiKeGG2cf85FeHzG8S1ai+3/IdKPU=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795329049; v=1; x=1795933849;
+ b=YhNzZrpQNTOrBdGOSOGgMTiERFBKAYXKjW3545SyiQCNsvZXxwrwa1v5xKMcwRxBwEXAx1Pe
+ /kx98GQZdtJ4Qy2YQ9GajTzvRtaCK2UJjWCfRsMf/EU5wM3tb7f8hcdtqFBPDZ/NxlNpdYoiLPR
+ KTTtsqk16dUzkJhQqhKhMNpY=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 583ca260f1c69be2;
+	Sun, 22 Nov 2026 06:30:48 +0000
+X-Mizu-Trace-ID: 583ca260f1c69be2
+X-Migadu-Flow: FLOW_OUT
+Date: Sun, 22 Nov 2026 06:30:43 +0000
+From: Akhilesh Patil <akhilesh.patil@linux.dev>
+To: jic23@kernel.org, andy@kernel.org, krzk+dt@kernel.org, robh@kernel.org,
+	dlechner@baylibre.com, nuno.sa@analog.com, conor+dt@kernel.org,
+	joshua.crofts1@gmail.com, maxwell@maxwelld.cc,
+	u.kleine-koenig@baylibre.com
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, akhileshpatilvnit@gmail.com,
+	akhilesh@ee.iitb.ac.in
+Subject: [PATCH 0/2] iio: chemical: Add driver and bindings for acd10
+Message-ID: <cover.1795326744.git.akhilesh.patil@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,88 +66,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Feedback-ID: :1.ap-northeast-1.6BGMgStFQE7EJYq5syaCRzdneEHVt/+DAaGDrqUmDs9QLO4/SllUBZ3fHvnZ8rcAX/3IjUyTRgi5JFZsWrikFHwlPJqCkqEMlxDFM4JXh+ycxH/J5Tudg5bGdz6h4331g1L1EFsGR8kuYNfGLsrxz4Nym4YXoPcZxeVkrHry4Zx21n8vEVLEjc7s+OCM8PU9:1.ap-northeast-1.DTXDV/V9GPBWozcllKo8innbNB2qs2O/3F8XZSzd9ZM=:AmazonSES
-X-SES-Outgoing: 2026.11.22-23.251.234.58
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-wcd_interrupt_callback() reads three status registers after dispatching
-the codec interrupt. It ignores read errors, so the loop condition can
-use an uninitialized value or a value from the previous pass. A status
-bit that stays set can also keep the callback looping while SoundWire
-holds sdw_dev_lock.
+This patch series adds support for Aosong ASAIR acd10 CO2 (Carbon
+dioxide) sensor driver in IIO subsystem. 
 
-Return on the first failed read. Allow up to ten =
-dispatches for status
-to clear, matching the SoundWire alert handler's =
-retry budget. If a bit
-remains set, log a rate-limited error and return =
--ETIMEDOUT.
+Patch 1: Adds bindings for this hardware
+Patch 2: Adds driver code for acd10 under drivers/iio/chemical
 
-Signed-off-by: Jizhou Tong <fqwqf@fqwqf.xyz>
----
-Built wcd-common.o with ARCH=3Darm64 W=3D1 on the base below. A userspace
-test of the callback covered injected regmap read errors, status
-clearing on the final pass, and each register remaining pending.
+Quick overview of acd10: 
+- This is CO2 sensor based on NDIR technology.
+- Can measure CO2 concentration up to 5000ppm
+- Supports serial interface over UART with 1200 baud rate. 
 
- sound/soc/codecs/wcd-common.c | 25 +++++++++++++++++++------
- 1 file changed, 19 insertions(+), 6 deletions(-)
+Datasheet: https://www.es.co.th/Schemetic/PDF/ACD10.PDF
 
-diff --git =
-a/sound/soc/codecs/wcd-common.c b/sound/soc/codecs/wcd-common.c
-index 9016e97458..7c2d96ace0 100644
---- a/sound/soc/codecs/wcd-common.c
-+++ b/sound/soc/codecs/wcd-common.c
-@@ -15,6 +15,8 @@
-=20
- #include "wcd-common.h"
-=20
-+#define WCD_IRQ_MAX_RETRIES	10
-+
- #define WCD_MIN_MICBIAS_MV	1000
- #define WCD_DEF_MICBIAS_MV	1800
- #define WCD_MAX_MICBIAS_MV	2850
-@@ -127,16 +129,27 @@ int =
-wcd_interrupt_callback(struct sdw_slave *slave, struct irq_domain =
-*slave_irq
- {
- 	struct regmap *regmap =3D dev_get_regmap(&slave->dev, =
-NULL);
- 	u32 sts1, sts2, sts3;
-+	int ret, i;
-=20
--	do {
-+	/* A failed read or a stuck status must not hold sdw_dev_lock forever. */
-+	for (i =3D 0; i < WCD_IRQ_MAX_RETRIES; i++) {
- 		handle_nested_irq(irq_fi=
-nd_mapping(slave_irq, 0));
--		regmap_read(regmap, wcd_intr_status0, &sts1);
--		regmap_read(regmap, wcd_intr_status1, &sts2);
--		regmap_read(regmap, =
-wcd_intr_status2, &sts3);
-+		ret =3D regmap_read(regmap, wcd_intr_status0, =
-&sts1);
-+		if (ret)
-+			return ret;
-+		ret =3D regmap_read(regmap, =
-wcd_intr_status1, &sts2);
-+		if (ret)
-+			return ret;
-+		ret =3D regmap_read(regmap, wcd_intr_status2, &sts3);
-+		if (ret)
-+			return ret;
-=20
--	} while (sts1 || sts2 || sts3);
-+		if (!(sts1 || sts2 || sts3))
-+			return IRQ_HANDLED;
-+	}
-=20
--	return IRQ_HANDLED;
-+	dev_err_ratelimited(&slave->dev, "interrupt status =
-did not clear\n");
-+	return -ETIMEDOUT;
- }
- EXPORT_SYMBOL_GPL(wcd_interrupt=
-_callback);
-=20
+Protocol: 
+acd10 defines 4 types of UART frames - read co2, get software version,
+get instrument number and set single point calibration.
+Frame format: fixed header, length of data, command code, Actual data,
+checksum. Response from the sensor follows same format. 
+Total length of each tx and rx frame for 4 commands is fixed and defined in
+the datasheet. Driver uses this information to write and read from
+sensor for each command over serdev interface.
 
-base-commit: 7884221ca9857a317bf4bd81ac3bf5528f266feb
+Testing: 
+Driver is tested on Texas Instruments am62x sk board with sensor
+connected on UART5 on 40pin IO expander. Additional 3.3 to 5v
+bidirectional logic translator is used to interface with 3.3v IOs of
+am62x. Values are read using iio sysfs interface. Also I have blown into
+the sensor to observe sensor output increase due to CO2 in my exhale.
+Waveforms for read co2, get sw rev and get ins num commands are
+validated on logic analyzer. 
+
+Slight deviation from datasheet: 
+For command get software version, datasheet mentions frame length of 16
+bytes including D11 reserved, however it is observed that sensor sends
+15 bytes with length field 0xb (11 bytes of data), but actual data is 10
+bytes. Hence, this is handled in the driver.
+
+Driver supports reading co2, getting sw version and instrument number.
+Single point calibration and preheat implementation is left for
+future contributions.
+
+Akhilesh Patil (2):
+  dt-bindings: iio: chemical: Add aosong acd10
+  iio: chemical: acd10: Add driver for ACD10 CO2 sensor
+
+ .../bindings/iio/chemical/aosong,acd10.yaml   |  34 ++
+ MAINTAINERS                                   |   7 +
+ drivers/iio/chemical/Kconfig                  |  10 +
+ drivers/iio/chemical/Makefile                 |   1 +
+ drivers/iio/chemical/acd10.c                  | 365 ++++++++++++++++++
+ 5 files changed, 417 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/iio/chemical/aosong,acd10.yaml
+ create mode 100644 drivers/iio/chemical/acd10.c
+
+-- 
+2.47.3
+
