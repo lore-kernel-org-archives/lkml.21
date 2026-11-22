@@ -1,72 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795380696;
-	b=MYPxZgFy3DxcZX84gudCJq9RZdbCjg45JlqgfpqGaOv0kKtCh+He8Ij0Cp3JFv0w00jX
-	 D2uhwfFnDD2ZE/a0nl3I11G+L5aM3wxCypmlYqNOGT9sxkbD0VVQ83pEQXzUodHhkHqKa
-	 a1yNm+D3Z63t9jrzeYp0pkZtgyShoCu2oqLwUW+ni5A86CBPVPXe+LXymkm99UJQ3a5DF
-	 X4LglmptmBb4vSfaP5oJd/oufwWZpyodmnt/oTDFmszs5GZI8b/sCQzneDhQ59R99D0SF
-	 dW2Bd+RrfCk2JcLXkFHUG7o+o42MjNaLlmMte6Vsp2diDfjSFbrzNjJfVj7jrHRiF3Q==
+	t=1795380706;
+	b=vQXKdRv+E+QAQ6bnDeCqwt/gLe5YlYMJb4eFC2pbPdMlAbspBRPDIyEUBKAR0w40T3r/
+	 3idNmUu3Azk5ai3iHQ0WXMlfQRRMVe02YRow/6KG8PMEA5gm8DYeSV7c981xPatoqgRny
+	 Ws5yq80rPKiSs2w3tfU9G6TB0agbpTZBltK5Uh/Z9QgP1XpOna88WOGcm4neezBrxmvNf
+	 rFQJMyhJ467oBNyF1O6I4mcKf7mBb+4n9OtGNCMuufL4F5HDTsx/G8/5hu2kPT7w68Er0
+	 2D3pB6/iM908zGlOcHr5A+1KGFiVGMX73DToDn+Ryy1ZUlB6BUCYPn2mccFfwkfT5EA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795380696;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
-	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
-	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
-	bh=ti6yGnOH5tg9+I9TFYkbc862Q5VopXd4FS+rL58VF5U=;
-	b=kXy3KM1TdUPymXfZ9T99/P/UOdEG01MBt5wlq2YHyvNYjHwM5+1MmPuZ1R+KB2Rew7Dj
-	 oNFjcaWphpAHhIC8S4VfOY9BFNcn/EsxqiGVq5FnP4bTMHfrXoF9vyrJ/pjtggYQnbe4U
-	 /H8ztrMo//Qg/zPp65pe5OAw381wUZiLLhKTnDrjQ79CMR81GV5eBmJFJ6I09dqG7ZEV/
-	 gmA37kit2rb8ai1fzq9EmymBxq0fSHT0krYuz80GKzy1wIuUq0wKggPr0ZBWRd9sBIu0f
-	 LxiZY7+JlpEBoLJaGWmK8WTRCQYcfmIV8Gv9NxQQ/9A1uIHnGIkNC3ze7UBl+60I/VA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795380706;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=GCgci+wnkegUNNmVPyTdmFkRnQkKXTGlvVX8R+FAXAw=;
+	b=4dSFcJLPVP0qxKFD0s4UyMo5pyPlbQFWTrWA76So6IYYGaVwzRMcSW2PsL0KTmIaE6b9
+	 WPcrqrv1BqPJgymu1TAXAC9bJx12eoVM+zz+sX0VHQy8cI+Cer7vLPx+He0/2HcVhQr3T
+	 psYksbiOCrBA2xTJALp0S5xFo1jCC4PYwlPVUH7EE3S2v5Bv/o6c1I7HGQ7Bo3ZozpL9D
+	 Qg+VHYDK595oeSek6lNtMB/nGf7FEkIkf/LVef7xY6ncIOnRntWtM6WBabvfGIOZ1HqLt
+	 2znJYq7CPkT4BHEdQkS9sifebOPorzLXkBRI35V4zavj2mSFhYkFmtGnZKf1sTSxFDA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=roeck-us.net;
-	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=rUO58+aB;
-	arc=none smtp.remote-ip=35.89.44.33
-Received: from omta34.uswest2.a.cloudfilter.net (omta34.uswest2.a.cloudfilter.net [35.89.44.33])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="HnUix/va";
+	arc=none smtp.remote-ip=209.85.128.41
+Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B4A4606A31A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:51:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B4A4606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56F00606A687
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:51:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56F00606A687
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=rUO58+aB
-Received: from eig-obgw-5002b.ext.cloudfilter.net ([10.0.29.226])
-	by cmsmtp with ESMTPS
-	id V86txQ0OUAR1iVEX9xSbau; Sun, 22 Nov 2026 20:51:35 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id VEX8xWdy8b2qJVEX8xvj6P; Sun, 22 Nov 2026 20:51:34 +0000
-X-Authority-Analysis: v=2.4 cv=A7tsP7WG c=1 sm=1 tr=0 ts=6b0355d6
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=pGLkceISAAAA:8
- a=_jlGtV7tAAAA:8 a=Qibk6pR6aqbyheTQBO0A:9 a=QEXdDO2ut3YA:10
- a=nlm17XC03S6CtCLSeiRr:22 a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
-	List-Archive; bh=ti6yGnOH5tg9+I9TFYkbc862Q5VopXd4FS+rL58VF5U=; b=rUO58+aB9+yJ
-	w5m1uxWeUUYYmmVKb/XOCXMeNd4py18ycVsNTKPxLWk4A4U44AuAF3lY0tuuP0ky+//DFpa8vhXzw
-	8mAAUDF80zKfp0K/Mbze9GoxK+stOjhgE5yhGK6L2Cx3fK2uNhr3MWi+EIT8SbH7+3mxbjgHGWoFN
-	912vtj/4VUbt/Jzwc0QL9F4Sz/GOZ4ZtdBIzxkkKZV4wbPdWvqT3c5BPkyOhhI8yHiLvm2j4x/VWt
-	ZNwsraJHJOgaiV6QE3OHlWUDy9bXXNxN/bnYVlldvw2Rxv/YbyZ4xLhb5ghorTpQ1PUXnHyQuwoKF
-	Y+ajo0LuBeQsuuC4lm9Khw==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:32802)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xVEX6-000000001Za-0Q4Z;
-	Mon, 23 Nov 2026 02:21:32 +0530
-Message-ID: <93ffac09-f995-4ea7-8aa7-4fb7ed3ff4d6@roeck-us.net>
-Date: Sun, 22 Nov 2026 12:51:28 -0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HnUix/va
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4a1fbd52ab6so17946145e9.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:51:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795380704; x=1795985504; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=GCgci+wnkegUNNmVPyTdmFkRnQkKXTGlvVX8R+FAXAw=;
+        b=HnUix/vahPIIPPg94n21bSwADW5XJ2R4f/ruRTqMmI6tIIzR4e6LqXv4evpos0RRK5
+         jXSmRZPACpd13OmIbBBkA67aYZALiuR1jyZ4kUvB0LS6LE8iRytOClCFlxIsaTg3920e
+         Rw9GTqEof3NzSz/Z4Z2idg99g9IjDNxpYjKPObuZiQRCrInfmYQrX3/kNeNCUClCO9sD
+         fvxY0ryVj1AFagtDNCWJhhYPVxbjXZskrqC0m/B5UZDNknzg6jvLDsZQ8+ovJxZT+g0H
+         ZzT4Xlq055C2HJ7sFdqBfFzUx3GR8ZoIbt86FZXE+BI94qdBhF9ShibmX9JSsRIYbh39
+         g0mA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795380704; x=1795985504;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=GCgci+wnkegUNNmVPyTdmFkRnQkKXTGlvVX8R+FAXAw=;
+        b=YeRyhGX2J4WScGFGIhtfuTDdVYR9E6m4SdWGLvcoVM6dQuOXo/V/7vta6txzYuwkCE
+         v0KmJVoRYt/MbQZlKldr7gAx5K61XgZ8LJf78yqwfyN7Oi+HNpUN58ywCtzX9JQ/K1sx
+         XQqY9T/Bh6ig9ffMPkfzl+DLZF37WGCm5DGpfx86dQ53xeeVEXUorphoye5EFS+lPHJq
+         /uLyiNZXAuPiyu8LmQapYek6jjwd4b6M0FkfbqmYSZywWSkrtuakQjHWf7SM6Csw583a
+         k/ydUCO4BW7tuMhUuDW9ZTI1jA/JuYeust5wXUjgm2uZKqrmfI7TM6OeE44QcfKRNL/J
+         l6zg==
+X-Forwarded-Encrypted: i=1; AL+hErGxzI5R5Z0DREUsJFIHlZNBqa01YDfSnFPzkcJ9pfc4uLxOOa2lR8s4W230k80rE39YHBI0CAC9n2iMT84=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/yuwaxPI3JhsDnj9lEBGSPIal/Wauv3h8MABApzIgy/Y14lSk5
+	8MFrY2VTwvPwJFuik4WRmIeSZvdOKYe7SSfo4pSXUF7XumdCN6YPKwRB
+X-Gm-Gg: AZFdTZcJHtxy1lVB+dIObdICb/K/bXAlAJjT0Wg87WvOjKL1IxBHDYrAVxqVUBdvthQ
+	o5w0q5Ilu8Nw1Z+bg2Uy451lSBneB+BUHXnGQmy3G0E9d8M6QKLOSrBT49biSnIWF52XtFjc/81
+	jfWMB8CAjUEJV35V9rVJdtPfnu0UVcU4MtsyA2WgS322kUibkYS0/nFsayYEG4/Z3nzbcK0jbCX
+	l1jAkQn8fkwNXbOT7jw8oG2DvXPGWwVQ9x3G3cHc/ND8iDR6FHZDJJZdOLgRwXiDziXMTjEPh5O
+	llT86qbmEK3GwyU5WEMqSArjTBMJfRVkMoHEJIa0VDKUe+BnXZqi0AYwTOVXlKxVlCDY6ukwHE7
+	qDpAEtXeOjsVvQ3IPkL8YphYmOPKLu9K1kmH+cfTAZbD88hfes3CXaU0tBJ4KJWla0OthXmqkAv
+	jaIKFsscrrbuFuFxIfQJYB93KMWk+paznXAl7VGhRXbCMXDjjl4zn41cKWQg9NsHbvCXDCz+xf6
+	pS2Cri1asWYWSGV4TLwiKgxXNZPOSMlT8Sz7XHxSHGj77aof4Sm1aZ8wbRIiBlFTD+inZHGzL50
+	TwIy0Nu1k7ZGgUF72Ei6iEwH20zZwm3ZmF+U8waaIQv4MfnRjO1wSOqE
+X-Received: by 2002:a05:600c:154c:b0:4a2:729:f7ce with SMTP id 5b1f17b1804b1-4bb8881c378mr209100495e9.8.1795380703662;
+        Sun, 22 Nov 2026 12:51:43 -0800 (PST)
+Received: from DESKTOP-V28CTA4.localdomain ([103.125.177.105])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85399e2esm338371075e9.7.2026.11.22.12.51.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 12:51:43 -0800 (PST)
+From: Arbab Haider <arbabhaider649@gmail.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Arbab Haider <arbabhaider649@gmail.com>
+Subject: [PATCH 1/2] media: em28xx: defer media_device cleanup and free to em28xx_free_device()
+Date: Mon, 23 Nov 2026 01:50:27 +0500
+Message-ID: <20261122205028.41222-2-arbabhaider649@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,119 +96,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/2] hwmon: add Raspberry Pi PMIC driver
-To: Sander Speetjens <sander.speetjens@gmail.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-hwmon@vger.kernel.org,
- linux-doc@vger.kernel.org, Peter Robinson <pbrobinson@gmail.com>
-References: <20261119-hwmon-da9091-v4-0-0d6e345c3666@gmail.com>
- <20261119-hwmon-da9091-v4-1-0d6e345c3666@gmail.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20261119-hwmon-da9091-v4-1-0d6e345c3666@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xVEX6-000000001Za-0Q4Z
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net [108.223.40.66]:32802
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 10
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfALjvViVtZCedgPQxd0l3xw0GrRG4z+QMaMUItaZYN3EwAdj05v01xrV0J3Joq8l1V9rp4hXbsYQDCb3Vc4n+hUuwzrxs50Xv9HpLSkB3f4AJ0EQ3p2j
- vKJrjsEe1YeqYwPymo3O0kkfIZxIDTUyJrM3R3/H6fUfSDWg6UC9NbXiqVdm7L9I5knLoI1iXI5MUWOTkCQ3Dej7BBcP3DVb5fwvYtPdS74kLjD4gsfUWf35
+Content-Transfer-Encoding: 8bit
 
-On 11/19/26 11:55, Sander Speetjens wrote:
-> Add a hwmon driver for the PMIC found on the Raspberry Pi 5.
-> The PMIC exposes voltages, currents and temperatures exclusively
-> through the VideoCore firmware mailbox interface (property
-> 0x0003009f).
-> 
-> Requires a sufficiently recent Raspberry Pi firmware that
-> implements the structured PMIC ADC property.
-> 
-> The driver:
-> - is instantiated at runtime by the raspberrypi-firmware driver
->    (same pattern as the Pi 5 RTC driver)
-> - reads all channels in a single batch mailbox call
-> - uses a short refresh-on-read cache
-> - exposes the sensors via the standard hwmon sysfs interface
-> 
-> Signed-off-by: Sander Speetjens <sander.speetjens@gmail.com>
-> ---
->   Documentation/hwmon/index.rst                  |   1 +
->   Documentation/hwmon/raspberrypi-pmic-hwmon.rst |  49 ++++
->   drivers/hwmon/Kconfig                          |  11 +
->   drivers/hwmon/Makefile                         |   1 +
->   drivers/hwmon/raspberrypi-pmic-hwmon.c         | 296 +++++++++++++++++++++++++
->   include/soc/bcm2835/raspberrypi-firmware.h     |   1 +
+When a USB em28xx device is disconnected while a V4L2 device node
+(e.g. /dev/video0) is still open, em28xx_usb_disconnect() calls
+em28xx_release_resources() -> em28xx_unregister_media_device(), which
+calls media_device_cleanup() and kfree(dev->media_dev) immediately.
 
-This patch is making changes in a non-hwmon include file, so I can
-not apply it, or at least not without an Acked-by: from a maintainer.
+However, struct em28xx_v4l2 remains alive until the last open file
+handle is closed, and v4l2->v4l2_dev.mdev still points to the freed
+media_device.  When userspace subsequently closes /dev/video0,
+v4l2_release() calls v4l2_device_supports_requests(vdev->v4l2_dev),
+dereferencing vdev->v4l2_dev->mdev->ops and triggering a KASAN
+slab-use-after-free:
 
-Assuming it will be applied through some other tree,
+  BUG: KASAN: slab-use-after-free in v4l2_release+0x325/0x380
+  Read of size 8 at addr ffff88800787a260 by task test_em28xx_uaf/53
+  ...
+  Freed by task 30:
+   kfree+0x162/0x410
+   em28xx_unregister_media_device+0xa4/0xe0
+   em28xx_release_resources+0x70/0x170
+   em28xx_usb_disconnect.cold+0x107/0x2a3
 
-Acked-by: Guenter Roeck <linux@roeck-us.net>
+Split em28xx_unregister_media_device() so it only calls
+media_device_unregister(dev->media_dev) on disconnect, and move
+media_device_cleanup() and kfree(dev->media_dev) into a new
+em28xx_cleanup_media_device() helper called from em28xx_free_device()
+(once the last dev->ref reference, including em28xx_free_v4l2(), has
+been dropped) and from em28xx_init_dev()'s error path.
 
-Guenter
+Tested locally in QEMU (x86_64, KASAN+UBSAN) using dummy_hcd and
+raw-gadget emulating an EM2820 device across open->disconnect->close,
+repeated disconnect, dual-fd open->disconnect->close, and normal
+open->close->disconnect scenarios (4/4 passed, 0 KASAN reports).
+
+Cc: stable@vger.kernel.org
+Signed-off-by: Arbab Haider <arbabhaider649@gmail.com>
+---
+ drivers/media/usb/em28xx/em28xx-cards.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/media/usb/em28xx/em28xx-cards.c b/drivers/media/usb/em28xx/em28xx-cards.c
+index 1d4f30cba..d8f2e40b7 100644
+--- a/drivers/media/usb/em28xx/em28xx-cards.c
++++ b/drivers/media/usb/em28xx/em28xx-cards.c
+@@ -3773,8 +3773,15 @@ static int em28xx_media_device_init(struct em28xx *dev,
+ static void em28xx_unregister_media_device(struct em28xx *dev)
+ {
+ #ifdef CONFIG_MEDIA_CONTROLLER
+-	if (dev->media_dev) {
++	if (dev->media_dev)
+ 		media_device_unregister(dev->media_dev);
++#endif
++}
++
++static void em28xx_cleanup_media_device(struct em28xx *dev)
++{
++#ifdef CONFIG_MEDIA_CONTROLLER
++	if (dev->media_dev) {
+ 		media_device_cleanup(dev->media_dev);
+ 		kfree(dev->media_dev);
+ 		dev->media_dev = NULL;
+@@ -3826,6 +3833,8 @@ void em28xx_free_device(struct kref *ref)
+ 	if (!dev->disconnected)
+ 		em28xx_release_resources(dev);
+ 
++	em28xx_cleanup_media_device(dev);
++
+ 	if (dev->ts == PRIMARY_TS)
+ 		kfree(dev->alt_max_pkt_size_isoc);
+ 
+@@ -3997,6 +4006,7 @@ static int em28xx_init_dev(struct em28xx *dev, struct usb_device *udev,
+ 	em28xx_i2c_unregister(dev, 0);
+ err_deinit_media:
+ 	em28xx_unregister_media_device(dev);
++	em28xx_cleanup_media_device(dev);
+ 	return retval;
+ }
+ 
+-- 
+2.53.0
 
