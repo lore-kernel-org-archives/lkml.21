@@ -1,100 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795370383;
-	b=5a+TB+It/kso8/oX2y2TCE8fr2jwcivHl0O4y9+JZI1PhltB/tt7FnxwaB/LDVuJQEB/
-	 v54WJHibz+kvh5hWUO9e7rhcpX1RdkXEJAdQloWcmEcGwPEjYVlmPRj5BwQwsiY5gxjSL
-	 WhwKLiCvmTQpEE9MzL+PE3gTbBLd7+MkNM9ujkgorIxjB4XrRFOWtfcTyT0jR+QHWGagA
-	 9PclXk4/kGdUoOvrC3+6hM0HWekrSUCWfmvB4TTneXaHlXW8jir+LSx6B49g6u3jV3kVH
-	 e9yVjwKpHpaomxEEfk3Hq51ZNU6nKHtMOWahcw0ehkiYSjBmtHOWv075m82sFQVNTaQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795370383;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=ff4jSj/cKfylzuF7GrEwDeEsXTeM/Jo8CpbIJyNJYCo=;
-	b=yHSlUZb8uqeY22SGuKJqrjOkLW0ZdTZErH5CsFW8mQ1+ZdagAVPrFbPsSceigeVHNrYf
-	 A/l1frbMCAf82Om2dV/LHgqPt41/2yD7+dHw7A2LYnRCiwoHmEcskhDislsA1Sc6K1s8K
-	 cnmM4MPWDSkSgCD9Sk3djSv5JtYF/Dhnrn3CLwFooEQfiFjix9l0q4ym4Fg05BDDNWys7
-	 ynEfe6xBzITofdRtM50C2ngmx8mdgDhZ3lsLiFevJQb6QUZ3bI79qkOuHofNqeVIqjxLz
-	 6OOE6JYEnWFSb/dKnjx5Jd4aBBUxpqf3TqazqfkIIUvOJT3VQ7sYUTC+JMqMjNT/t3g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Aeiniqvk;
-	arc=none smtp.remote-ip=209.85.221.45
-Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795370707;
+	b=yrSb5zP+x1MaEc7iBahMBeNXovewsZta/qASyOPAlMt1lkkCFgTUJunUJjwEdklZcT7y
+	 6WtC6GyK2tr44cZFkQLv69fvaIgLW/xH6iASfLjyR2QDR6cFuEcZg0yFK97CH1W1zWREB
+	 heSEHUZ7v3E7mPNAlJSZyaNQKU+YYSVRKDq2xXVOwXKVz8LoXj0pl86UxU2EiwK8NOGxg
+	 +li0Rv9x2b4JILdIkvEAf+GoFThQAIu5OzlaR9ehQ46sfM/U0GzTx5N6jPHQhhAyr+Oaj
+	 tGc8oq1j0obeDxIyunwtHs10BYgF8GMFBKidsOg+s2L8O4DXWisnpQq3n6Eb3ZdWyRg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795370707;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=5IC0wtyklb4BpJ6EaZGBZO0mWv0eBKLD9k5du0ATYzM=;
+	b=dtwCBVPERyldJqa7lxWZ/JXtWj3ccSGPpjJ3dX9rM9+Nx55dtXzWwwiKkzSOQkQa1cS8
+	 zCOzBUEtuuzzdhctDWgQY2UpaR0i+zrShR+6Mka+NlPu1RLnus2+VBTQ2+U+G0+nJ0YuK
+	 9qf+RGRRkFBanJ4tA+FIm5hNio4bpsthW3aauYbml7hEKkFb0oci7Nxwki3MA8qPrFKpe
+	 f6ccRkZbUjjViWWl4Knoso8/7c+YS9oIewB9TxeLILt1mjhdkY7HcfL9/fmYgCQdWJ5wy
+	 cKw1qeMex0kr8VG79w0V8oLR7JUFGXOjO0pQIe3qdxDw9m2UAUIbJMNNb90W6VN7FEA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FQ8srfgI;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B7F4606A32A;
+	Sun, 22 Nov 2026 18:05:07 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FQ8srfgI
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795370706;
+	b=O0nh7mgrtISeSKrk10ojV4BadMMzLuSz9Tz9olXMF422o99UzCAX1xf6ylAqfJmy+ui7
+	 S8e9fANK8nVm7nLzUU4DTSgakdSjwSxjyk926Aorzb6+vw+4Nm7DRNwBVDTd7hIftzAbI
+	 AUguwHow9ee2MNjtPjch5SOwRHOYyemyS15bjqAXM5zK9RojahtRTi7Ca1eqQen4NvOi8
+	 wGAOWnY0KDiLhgYtbbWMjzgDkYHfketp4mCP34XHT9alNQ3+bMNKBJqExTYnwheeDBEHc
+	 xokl8dg2sDQzfN9Q8S12hIj7Tne5itDpv1q4899ejxu54X5vXdupxoNRo1NdY6OUEtg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795370706;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=5IC0wtyklb4BpJ6EaZGBZO0mWv0eBKLD9k5du0ATYzM=;
+	b=T6eEOT5K/Di+08gNRwWDCejVNiVVP9px8FgZ54yAmVaHKfe1WkLo/y6w4RQ02UmlUeyz
+	 jWme43sprDFXU9c3hUezcPyutxCmiM3scTczQcE+uJDl7R8MkI/AefcF37Nr0yS8yGNwC
+	 jhcp4V/xfjr3W8QnCetjmL/7YPCh2B9hgOFU+hWDykdRm/TiqdxBHC+6/kP28lF2dVFBk
+	 4gS8tvx6O/BSbssFlMlFJ6JSO2sEVwx1HP2liBjfxfPjBk+CDvpep5iTw90aJ0BhBmIL5
+	 csLQTe7cNOJsApkl17bZAotQjM66somEkj4DtCenBfIxeDrKqRGRtnElc3ekEbzFB8w==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B761606A33A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:59:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B761606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Aeiniqvk
-Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-48e46e449e8so1643250f8f.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:59:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795370381; x=1795975181; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ff4jSj/cKfylzuF7GrEwDeEsXTeM/Jo8CpbIJyNJYCo=;
-        b=AeiniqvkKWpAB1kr0/DQMkGYNw3mSNQTHLJN7Nmmnw22EpV8DjXlHk78Ro+gc6X+7y
-         bEyu5oIdU7dUS+fES7gIzEEN6ZJZF6JBRg56z38NNpose9TpXxQdI7chH2eFpd6diarg
-         QiKGWPzCTn9db8KVTamosYxJbANj6u5w1st0I2V07KAHZrabhXrGFidbJKqQmp6tiwuM
-         4TdSeD2pwGkDRvD4D5n1g5zJ0c4jwTj1TbWDExzlsu3FERwRdmm9BRNpdodH1OSO2+7h
-         P/Cns9UV69qvUotDqPTlooPiDGppd312bOvhOiy6VqbPjogz+/01Vpi5QZHE5jZyUuc7
-         nwsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795370381; x=1795975181;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ff4jSj/cKfylzuF7GrEwDeEsXTeM/Jo8CpbIJyNJYCo=;
-        b=yhX/TenYLiHFpJtu2Xzob9o8RTuFBpakAG69QOstA/BUq/sNUU+zl25LunwoQydSyg
-         ik+UAvYvmpeUW4NUlkyeY0idnh/8avQnaQ/BLAOCj7OdoMAs78OrylhQ2R5AX4dSOPB4
-         yysj+yluKcKn/sJ44SQy7qc59fEdj910XPhn49lq/SDLd0yr/tfSVUfV18cafRZ23K9R
-         quocf8Lt9PxMH4W85ezn486ZovC84n1DZs2LZ12iDbH9qan0YyZN98xby2384hykZPEG
-         4kTQBh0C/kZNxxRpw3ye6z1FRP+vzEBQyUHXH6OmJA97aeK/905aZwzpI3cf6WxRAWaU
-         Fchw==
-X-Forwarded-Encrypted: i=1; AL+hErFxIT8TUfL1YUOmujpJLja/6+lbqc74/LHjjsavqoP0UgiEOpTRhbV5300PkJbQ7KZP7oQXV05gDcHRzpY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+zt0qyGru1HnknmM6cgYpMx0xMIHLPM7l2Eu4Bwbqi8v9pvws9
-	sDbBQGFX0CTvhJjezeh8KrSYWQCQQbnIoDnhdQewRlQV8/FrfTYobRLR
-X-Gm-Gg: AZFdTZf610F6YOwm5yy1sDe5Y0NWl7JFnmo5LH+2uO56zN5rIVLQ2cJEoIF8rq4GfEy
-	6KjCZWFrH5axn3AUymLhk+OaMopdS6tUs3cu5niDS8d+cHU7b+CR1rQczW9oC1BLBMc0kB8meeN
-	cH9zkV0djSaAqxAXveCzb5HxxYWyyPIkxXr+9NwPPfjOelOZ6JsOyvHdoUbmCCH8mKHLz2NS/MJ
-	1+h1fvQVe8wwazB+JBLh2s1KcHgFU3iap1Jko46NAmxcRfXV0/l1tc9ECWH5t3NtmLN+m5qfsOB
-	BeEtP6Wv/4ty/fzIfgpg44RvAfpnx6yW+YEANhIu9bWdApwZSrhAUmnmoi8gDtykmZxslyJ6K+I
-	zc1kTqRH6i1Ga3IrUp4qh71oz6OvNitH2QaXFx669pxOVUdSdyYoyaj4l5XU94/KZSccfhmumhX
-	xa6jqEMIq82iul0fgQAeIRev8tVWmjYHWNHDuytb/PZx7US3KATUZMx0AfCP6P/0q5QvfHN/Ro8
-	OE4fEC6N5fvF6QFcBzGSqDOADK3ckGCl0HoAs9LHcU09qHVx62sDk1WC0+dvghhDGYwUwE8D9wi
-	eBnYBAV+ihNFKoUrzhOSSAYjsiYHQW6fdiVvdq0j1oEZ6r6DHHfp2d7p9guz2PaQhY4X/ZokPXi
-	kUQ==
-X-Received: by 2002:a05:6000:26ca:b0:492:3176:3d64 with SMTP id ffacd0b85a97d-4abad5ac748mr18217584f8f.8.1795370381218;
-        Sun, 22 Nov 2026 09:59:41 -0800 (PST)
-Received: from DESKTOP-V28CTA4.localdomain ([103.125.177.105])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6ae2dcf9sm17464646f8f.32.2026.11.22.09.59.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 09:59:40 -0800 (PST)
-From: Arbab Haider <arbabhaider649@gmail.com>
-To: Alan Stern <stern@rowland.harvard.edu>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shichao Lai <shichaorai@gmail.com>,
-	linux-usb@vger.kernel.org,
-	usb-storage@lists.one-eyed-alien.net,
-	linux-kernel@vger.kernel.org,
-	syzbot+dc208a8cf8d37cf3e5ac@syzkaller.appspotmail.com,
-	stable@vger.kernel.org,
-	Arbab Haider <arbabhaider649@gmail.com>
-Subject: Re: [usb-storage] Re: [PATCH] usb-storage: alauda: track media_initialized per port
-Date: Sun, 22 Nov 2026 22:58:05 +0500
-Message-ID: <20261122175805.2955-2-arbabhaider649@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <ac19e630-f96a-4144-88dc-e3f22091c7bb@rowland.harvard.edu>
-References: <ac19e630-f96a-4144-88dc-e3f22091c7bb@rowland.harvard.edu>
+	by smtp.kernel.org (Postfix) with ESMTPS id 339451F000CA;
+	Sun, 22 Nov 2026 18:04:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795370706;
+	bh=5IC0wtyklb4BpJ6EaZGBZO0mWv0eBKLD9k5du0ATYzM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=FQ8srfgIqCiw6cKrs2mvO4/DLyeGXE26y6WvUAiP8DC9/cAW+SL+OPZOpcsM1aLd7
+	 F/GYeNMm4TOun+6SY5RHkkfX1Wuqsr+a6Lchi9i8KFnuNmzVpQCZzbTZpBTCTPNo4z
+	 wMqikj9bFG3RXnzf+LcUd+QNNhHzy966wZZK29TtNnEZAJQc9V/vpx/LEv2ROW0J+m
+	 x+AcF3TyuIkOdj3+PLZtNyQFhszq1DfDmhmHrCN3q1TlBiebE51w2OiTeqHPz004po
+	 UTMx/kH0WzsM1KUe3SQo5K5P1VKj0GKKGAHoGKJMQRKbB8s9OEcAGeFUVcEtbCuMNp
+	 rBO/GOsZr8/Bg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id AEF9C4C168;
+	Sun, 22 Nov 2026 18:04:57 +0000 (UTC)
+From: Hang Zhengyang via B4 Relay <devnull+hang.zhengyang1010.gmail.com@kernel.org>
+Date: Mon, 23 Nov 2026 02:04:54 +0800
+Subject: [PATCH sched_ext/for-7.4-fixes 1/2] sched_ext: Attach fair_server
+ before tasks fall back to fair on disable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,25 +83,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261123-scx-dlsrv-v1-1-87c342d8246e@gmail.com>
+References: <20261123-scx-dlsrv-v1-0-87c342d8246e@gmail.com>
+In-Reply-To: <20261123-scx-dlsrv-v1-0-87c342d8246e@gmail.com>
+To: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>, 
+ Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>, 
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Juri Lelli <juri.lelli@redhat.com>, 
+ Vincent Guittot <vincent.guittot@linaro.org>, 
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, 
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, 
+ K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Joel Fernandes <joelagnelf@nvidia.com>, sched-ext@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ Hang Zhengyang <hang.zhengyang1010@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795370696; l=3219;
+ i=hang.zhengyang1010@gmail.com; s=20261008; h=from:subject:message-id;
+ bh=nZIUfbuOGTYsYcOP54zg7VH1iW7P5BzO0zfHVPDdacg=;
+ b=7CgecdzBpDWmPQ+JV4LPQHJrvsL1ONJxu379+NJXAPNuMCNvriXWfwRcK17nY+MFZqjKpgDXt
+ 46jlWcEQPI/DB1jd/NwyIKYhksNo0Qiz3wPBRIFzQWfYIPednQV7g+U
+X-Developer-Key: i=hang.zhengyang1010@gmail.com; a=ed25519;
+ pk=5drRny3PqRPLhKVB0YIQXN5YyD8miKCpXWhnEPvafAI=
+X-Endpoint-Received: by B4 Relay for hang.zhengyang1010@gmail.com/20261008
+ with auth_id=1133
+X-Original-From: Hang Zhengyang <hang.zhengyang1010@gmail.com>
+Reply-To: hang.zhengyang1010@gmail.com
+Content-Transfer-Encoding: 7bit
 
-On Sun, Nov 22, 2026 at 09:53:25AM -0500, Alan Stern wrote:
-> I asked because when syzbot tests a patch successfully, it provides a
-> Tested-by: tag and asks to have the tag included in the final patch
-> submission -- but you didn't do this.  Did you run the reproducer
-> locally, without using the bot?
+From: Hang Zhengyang <hang.zhengyang1010@gmail.com>
 
-Yes, I ran the syzbot C reproducer locally in QEMU without using syzbot.
-I also just tried sending "#syz test" to syzbot, and it replied that
-patch testing via "#syz test" is currently disabled:
+In full mode, the enable path detaches fair_server, since no task runs
+in the fair class. scx_root_disable() attaches it again only at the end,
+in the dl_server_swap_bw() loop. But tasks fall back to fair well before
+that. New forks and sched_setscheduler() calls do so once
+scx_switching_all is cleared, and the switch loop moves all other tasks.
+Until the swap, fair_server can't start, so an RT task that keeps a CPU
+starves the fair tasks there.
 
-  Patch testing via #syz test is temporarily disabled.
-  See https://github.com/google/syzkaller/issues/8122 for details.
+Meanwhile, the disable path waits for RCU grace periods in
+percpu_down_write() of scx_fork_rwsem and scx_cgroup_ops_rwsem. A grace
+period can wait for a starved task, so the disable doesn't finish until
+the RT task stops. The starved task can be a reader preempted under
+PREEMPT_RCU, or the grace-period kthread itself. While the disable waits
+in the scx_cgroup_lock() after the switch loop, scx_fork_rwsem and
+cgroup_mutex are held, so forks wait too.
 
-Also, while checking lore.kernel.org, I noticed that syzbot previously
-posted a similar AI-generated patch from Aleksandr Nogikh on 2026-08-28
-that never received a reply. Please let me know if you prefer taking
-that earlier patch instead, or if this submission looks good to you.
+To reproduce, load scx_simple, pin SCHED_NORMAL tasks (/proc walkers,
+stress-ng --fork) and a SCHED_FIFO spinner to CPU 1, and unload the
+scheduler 50 ms after the spinner starts. The disable can then get
+stuck in:
 
-Regards,
-Arbab
+  synchronize_rcu_normal+0x1da/0x1f0
+  rcu_sync_enter+0x56/0x140
+  scx_root_disable+0x230/0x420
+  kthread_worker_fn+0xf0/0x270
+
+until the spinner stops.
+
+Attach fair_server before tasks start to fall back, the same way the
+enable path attaches ext_server before tasks switch to it. If the root
+domain can't fit both servers, the swap attaches fair_server as before.
+
+Fixes: e7b63427fdb4 ("sched_ext: Auto-register/unregister dl_server reservations")
+Cc: stable@vger.kernel.org # v7.2+
+Signed-off-by: Hang Zhengyang <hang.zhengyang1010@gmail.com>
+---
+ kernel/sched/ext/ext.c | 19 +++++++++++++++++--
+ 1 file changed, 17 insertions(+), 2 deletions(-)
+
+diff --git a/kernel/sched/ext/ext.c b/kernel/sched/ext/ext.c
+index e8c30a21e03e..23294897dd6e 100644
+--- a/kernel/sched/ext/ext.c
++++ b/kernel/sched/ext/ext.c
+@@ -7576,6 +7576,21 @@ static void scx_root_disable(struct scx_sched *sch)
+ 
+ 	was_switched_all = scx_switched_all();
+ 
++	/*
++	 * Tasks fall back to fair from here on. Attach fair_server now, or an
++	 * RT task can starve them while we wait for RCU grace periods below.
++	 * If its bandwidth doesn't fit, the swap at the end attaches it.
++	 */
++	if (was_switched_all) {
++		for_each_possible_cpu(cpu) {
++			struct rq *rq = cpu_rq(cpu);
++
++			guard(rq_lock_irqsave)(rq);
++			update_rq_clock(rq);
++			dl_server_attach_bw(&rq->fair_server);
++		}
++	}
++
+ 	static_branch_disable(&__scx_switched_all);
+ 	WRITE_ONCE(scx_switching_all, false);
+ 	WRITE_ONCE(scx_task_switch_enabled, false);
+@@ -7626,8 +7641,8 @@ static void scx_root_disable(struct scx_sched *sch)
+ 
+ 	/*
+ 	 * Re-balance the dl_server bandwidth reservations: detach ext_server
+-	 * (no more sched_ext tasks) and reinstate fair_server if it was
+-	 * previously detached because we were running in full mode.
++	 * (no more sched_ext tasks) and attach fair_server if the attach
++	 * above failed.
+ 	 *
+ 	 * Unlike the enable path, this runs on a recovery path that cannot
+ 	 * fail, so we use dl_server_swap_bw() to atomically free ext_server's
+
+-- 
+2.53.0
+
+
