@@ -1,61 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795305639;
-	b=mRFz9WtCxjlQb2q8GnBB6CEM2Pcedcv9iFaKmly6CYD/hMZWkoj+ZW9vGr3pMkkYyRyy
-	 +ss7nvYMK3EeUc3Ri8NC+15u/Crb9PZvSFdT56ljDBV4MFKa1p9xB7kzKYBSVZ307qdM7
-	 /rmhQlZ48FJxJBL4qw/7RkRpA8pNEQwbPQD/739DHRq7KP72+mHm/7dT91SBrB/Ls7mf5
-	 eJnAzXGXKOoadfEoAiHAVPPs11i794OtB8rhQ+CNRIDZxreIgO/zV8cRb5tTK0VKpDc1A
-	 tktru4314HzgCRiEsyuI4U16jBVsY1+mZf9Ka2KeBxPtK77m9e1MofveTT6D3LurGew==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795305639;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-Id:
-	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=04EqnkPwf0WubK8I3U0HutElecdyfT91xsPRhXdRrm8=;
-	b=y+xKI55+TuDXrpn3l7fHPN3Cms8SqpFX9kimazQtGtEvLp+RgVKcv/nK54Bf4fkCkc7l
-	 9wjgTmgxXTzC91p9eoVP9GfHDAPuN7pFDpv9IQhgBA6bafNNzVeTyy0uPdkC6JkAPJ8wX
-	 pMcH4w6Eo6o338IToBFRUOGkoTCtFFF0W9gzkPxdYpqDBROMnjqE88zxBbHyd0/xGuEIP
-	 FsnDYU+A3vIdcljMnliKNshWo2MOYkQdVUF+xOseZvd8hdeSj+fAJSUQ/sGeLW/xIEKvK
-	 UHxsqiOrDrYxQ/rr23oGDeBkQtydLFsWrSyx3OQ4QBW0HxEQubMQTfrZW9YqZwRd3FA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=L2aQbeKX;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795305680;
+	b=4nxKB9EzklXgFLS0FpziWQDv701XTXYILvZVBhpWa+ZYlFlo/q1FxYk5NrTfixdkf71A
+	 Xu5zHasskjlNj5QZRA0nC4xRMp6/SBCslBOFIZ6i3R6o4aVZXfZu/Sh8M3Ok8Qx4VDy+5
+	 cV1MR2rRwjybuECIJA4J2qbIo/sr54dqtV0u7xPjASYFeiDd/yLH1wDevo44YpauKSTig
+	 +x+QCfzegngA3WLFIOZAM+IDznahGHinNVJrwIynC5WrnO1vYm7yxnBsXBbQH39czZcQl
+	 hU/aVXhhLey1NTQMz8VltFqIIJXPdK9zibh2dnIf7CZiGHCwtoEvBzI6/yYeAFOnDZQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795305680;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=V62/55dvE34zJUWa2mPj9O73mKBGhOTAaj9gydbUDSU=;
+	b=a+iKlU9Xw6adQEUbtvptuZMnaOOn8cuS6ktgTw2Cja+12QgoctN1aphG04+uyvdfGewF
+	 Ka5LOGNYv59/owihwmIwhy/29JSQcZS8sDxBj9xStskO+t/PQtK9vax/1hpvpFeddZefT
+	 r4NHqu7knaUlKOHw0SjN8I4CYUdSZ5A1ukWZWMlW8btBVegIJ7ICBbuIxp0FgBZmKfElX
+	 U4M3nvFR1yAdcgNpMPGmmKpZRLyYCtVmdZYDs2b74qi3Bg7WKhuhkaHRz04mRsiTTQ4r2
+	 vhHEMrsUz7kd/yCex5Pu5gFe5q3Dz7aWKt7ulrzVT6z3LhPKisF7hxsgCtaiGeG2P8g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GvDr0wUP;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4428606A320;
-	Sun, 22 Nov 2026 00:00:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7CA2606A320;
+	Sun, 22 Nov 2026 00:01:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=L2aQbeKX
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3F7A1F000C4;
-	Sun, 22 Nov 2026 00:00:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1795305638;
-	bh=04EqnkPwf0WubK8I3U0HutElecdyfT91xsPRhXdRrm8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=L2aQbeKX/CTPckpuCxg/75CkYq7VgqRjjwXERlHfP3ef/xH4jzlR1llKSlU5CeM8e
-	 gUoqibFABjeIaklQZ6WRqldqwgKZ5YTZ1h3Bi7puox1t9KLDvG/77rmYY7BqGwgQDR
-	 LhWKY3luEuf/ybIxy+nQvMG6VZ1ez9KdmhG98Da8=
-Date: Sat, 21 Nov 2026 16:00:37 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Aveline Noir <jm5905938@gmail.com>
-Cc: jgg@nvidia.com, leonro@nvidia.com, airlied@gmail.com,
- apopple@nvidia.com, balbirs@nvidia.com, christian.koenig@amd.com,
- dri-devel@lists.freedesktop.org, Francois Dugast
- <francois.dugast@intel.com>, intel-xe@lists.freedesktop.org, jgg@ziepe.ca,
- leon@kernel.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, Lorenzo
- Stoakes <lorenzo.stoakes@oracle.com>, Matthew Brost
- <matthew.brost@intel.com>, mm-commits@vger.kernel.org, mpenttil@redhat.com,
- Patchwork <patchwork@emeril.freedesktop.org>, SeongJae Park
- <sj@kernel.org>, thomas.hellstrom@linux.intel.com, Vlastimil Babka
- <vbabka@suse.cz>, ziy@nvidia.com
-Subject: Re: [PATCH] mm/hmm: account for subpage offsets in device-private
- PMDs
-Message-Id: <20261121160037.1a479f3c8b4e860bc23c106d@linux-foundation.org>
-In-Reply-To: <179342234355.4.16705453209886955762@gmail.com>
-References: <179342234355.4.16705453209886955762@gmail.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GvDr0wUP
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795305680;
+	b=MWiro8qW9UAA49h3/GModyQMz/zl3R6jjV84/lQWQHxZYEMkaRrSy+3FeTl0GydhOKsW
+	 rapmUlgR/ZqhR+C2yqH2kF0FsaLYDeaYObMVeqLNSjHj0RC507fwjL/3ZbUQiBpkpHSrs
+	 tWVlqa519w4PMs5NeE1Rgtqn1KbmHdUf839T/felTDkjPr7jcRSy+ZrRU6YcnA9nx+qpa
+	 PlEDWIyphBok7KQ6mC6gg6nkqQ4rSDzTYm0Lb0kGAqOPZ6OUnAYBZ6gwoPd93sntcOr+N
+	 GNpbryGfSPCdXrODWyiW5HNBdaAB/s8kxE9MJv9rVk0QGseFb2RF8fz3ZCn9Y2nw/8A==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795305680;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=V62/55dvE34zJUWa2mPj9O73mKBGhOTAaj9gydbUDSU=;
+	b=o1VdLKQEBLIjfjslORuG9c5/U7B+68h/SD027zYR7y+wdxQrv1hccvXqxoYzCVvgAUFv
+	 yYFfv8rislhPqF24iC2llLkAoYou0ea1J48SIstX2+M6myJr+DXLbn5ZzKQcvKM3kstyA
+	 cEl/Np8eaieHZf+tPwmY0PtmEwfVqA43SXwC7/RfeBmmf7c+xwWebizweXsxheZAQcVvo
+	 WfgecdS4P3CnVyJ2yZ3g6fKaHf7tuCZlyk50mOXpCC4uewgU3R47V/WEQ30CCzQkfYM2z
+	 bUy0Xfwll4zpaZKDnEc79hdCugMcfpuZ4IE3ySM5U1x32IEi8jzmrXPzasA3rPXHMwA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 970E31F000C0;
+	Sun, 22 Nov 2026 00:01:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795305680;
+	bh=V62/55dvE34zJUWa2mPj9O73mKBGhOTAaj9gydbUDSU=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=GvDr0wUPt3Riys2w/Zs0U3H4aKzjbri7WKaZrQU3KqdirSdPHNiMiGygv5Y1d+WU7
+	 3L8BJk2VvsktYgyNuT6NU/Iub4IsUxCYqYTeFmXspbe2/dACS5qg2qfr7UMVYBvQ/Z
+	 UvlxwTEyt4D0KSkF9Ev4nR2ogJ8N+ZVOIvPP8vGMzt+8I/Gt91ibXiWLt3PTjKZyQw
+	 aauFVrS2pgoWcbi74YND52M0M6jsElc4WLvSQY4ODzMeLYLAxDPqSkkdgOvlOtSDnu
+	 MoUwK4djwecTXJ88QWZ/REnr2OtqND2Dj8cMgLmH2wS+vpBLfkcRDhZSF+5EBjmA1x
+	 w2uxuX4CGQwKw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id F14374BE7E;
+	Sun, 22 Nov 2026 00:01:18 +0000 (UTC)
+From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
+Date: Sun, 22 Nov 2026 01:01:14 +0100
+Subject: [PATCH] arm64: dts: qcom: sdm845-shift-axolotl: Enable sound
+ subsystem
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,135 +82,366 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain; charset=ISO-8859-1
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261122-axolotl-misc-v1-1-27211eded948@ixit.cz>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDI0Nz3cSK/Jz8khzd3MziZF3DFGNjA3PjJONkI2MloJaCotS0zAqwcdG
+ xtbUAYdgdL14AAAA=
+X-Change-ID: 20251217-axolotl-misc-1d33073b3c23
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Casey Connolly <casey.connolly@linaro.org>, Abel Vesa <abelvesa@kernel.org>
+Cc: Alexander Martinz <amartinz@shiftphones.com>, 
+ linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, phone-devel@vger.kernel.org, 
+ Dylan Van Assche <me@dylanvanassche.be>, David Heidelberg <david@ixit.cz>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7055; i=david@ixit.cz;
+ h=from:subject:message-id;
+ bh=YTj0uYzd+DRdhyLqXRtWaLi9sUqjVAzyoVLYvS8B748=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBrAjDOWX+eQFGOoHfDcXBQG04Gx3dw4ZlrP4W6q
+ dhJmTXx7n2JAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCawIwzgAKCRBgAj/E00kg
+ ckObD/oDrzVErBTGKzbhkfZHeuo4ZFtGqjQ/qVLGkMr6kOPJ0+Psci1+fOtoDvm5o78TrcA71YQ
+ C3wTFQrT2GrmqFuTHckczHV0s/hbtRCUbfE2QSac6TzV9NgAAiwh2djNdhiJWU3NBAIJs7k/L3F
+ kRhUta4EVmmpsEFcyvi/tHgJFSQaLkaiRje4tAoMkntSEzDgdZTwi3f1XW5enoNgpZu1PKjU7jv
+ 6I8Cm4Cx9tmFLvAra8yGoDA7h1EZKcGphBWpY/3QyV0Qp21QJaMcq+B4NZKN2RIkqoNPh7c2vuC
+ TXXaj7cz+cUvkN5OFhCBjYgtIAsQvifOAE2VHDPxGIUY+gSC+RT9rdZAynApHoUkuKph8hiUIFq
+ 05zpi3G+vUCiEW5S3EDtu3TrtY/uJg9pLG7MxkPwNZ4DZpJJyHSmx6hzl7sWplrhNqjJY40JB32
+ rtSYannshNMfJePdH8MssUjZcyrlL79xaL5GFfdKtRmcAxXONtSf/75rioGWexR7o6gwywH/YJr
+ UYe54RS6vOI8LPLIIZyqXL5bHUXl/79LuNHak2cEtXI5dlNN1wGDlllIv1vaUw1p0M8nMozK6Ms
+ tat9YPZg3p9MPTaLvG84yzGR/Y8YHvmdB4o6fyo8uPneDzFti2OzbAbxRVTSrBioHZuGXlUdIMC
+ fe4EYu2Ewcd7+ZQ==
+X-Developer-Key: i=david@ixit.cz; a=openpgp;
+ fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
+X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
+X-Original-From: David Heidelberg <david@ixit.cz>
+Reply-To: david@ixit.cz
+Content-Transfer-Encoding: 7bit
 
-On Sat, 31 Oct 2026 15:07:58 +1100 Aveline Noir <jm5905938@gmail.com> wrote:
+From: David Heidelberg <david@ixit.cz>
 
-> When a query starts inside a device-private PMD owned by
-> range->dev_private_owner, hmm_vma_handle_absent_pmd() still fills the PFN
-> array from the folio's first page. The returned PFNs therefore refer to
-> earlier pages rather than the requested subrange.
->=20
-> Add the query's PMD-relative page offset to the initial PFN, as the
-> present PMD path already does.
->=20
-> Fixes: 10b9feee2d0d ("mm/hmm: populate PFNs from PMD swap entry")
-> Signed-off-by: Aveline Noir <jm5905938@gmail.com>
->=20
-> ---
-> Found during a synthetic test_hmm check of device-private THP handling.
-> Tested PMD-aligned and non-aligned subranges, PMD boundaries, split
-> PTEs and fake-device data accesses with test_hmm in QEMU TCG; all
-> executed tests passed with the fix. No real GPU testing was performed.
+Introduce support for audio speakers and microphones on the SHIFT6mq.
 
-Thanks.  It appears that the changelog somewhat understates the
-seriousness of this so I came up with a more assertive one, below.=20
-Please check that.
+The SHIFT6mq uses the WCD9340 codec over SLIMbus for the earpiece,
+headset jack, and three microphones (internal bottom, internal back, and
+headset), together with an NXP TFA9890 amplifier over Quaternary MI2S
+for the main speaker. Enable MultiMedia1-6 frontend DAIs and wire up the
+corresponding SLIMbus and speaker backend DAI links.
 
-I fed this through LLM-driven QEMU-based runtime testing and it looks
-like it pretty much replicated your testing:
+Co-developed-by: Alexander Martinz <amartinz@shiftphones.com>
+Signed-off-by: Alexander Martinz <amartinz@shiftphones.com>
+Co-developed-by: Dylan Van Assche <me@dylanvanassche.be>
+Signed-off-by: Dylan Van Assche <me@dylanvanassche.be>
+Signed-off-by: David Heidelberg <david@ixit.cz>
+---
+Front speaker and earpiece works.
+All three microphones receiving signal.
+---
+ arch/arm64/boot/dts/qcom/sdm845-shift-axolotl.dts | 199 +++++++++++++++++++++-
+ 1 file changed, 198 insertions(+), 1 deletion(-)
 
-: I tested "mm/hmm: account for subpage offsets in device-private
-: PMDs" on matched x86-64 guest kernels. An unprivileged process
-: (UID 65534) migrated an anonymous 2 MiB THP to the test_hmm
-: device. A second open of the device read pages inside the PMD
-: while the first remained open. A snapshot confirmed a
-: device-private PMD, and temporary kernel log messages confirmed
-: that the reads reached hmm_vma_handle_absent_pmd().
-:=20
-: Without the patch, requests for pages 1, 7, 255 and 511 returned
-: page 0. A request for pages 31-33 returned pages 0-2. With the
-: patch, all seven pages returned the requested contents. Page 0
-: read correctly on both kernels. Thus an unprivileged device user
-: can receive data from the wrong pages.
-:
-: The fake device needed an identical temporary backing-page
-: correction on both kernels to make this read path work. That
-: change was removed after testing. This exercises the HMM path
-: through test_hmm; I did not test GPU hardware.
+diff --git a/arch/arm64/boot/dts/qcom/sdm845-shift-axolotl.dts b/arch/arm64/boot/dts/qcom/sdm845-shift-axolotl.dts
+index 1b0eaeafbd517..e02e5ca868c8f 100644
+--- a/arch/arm64/boot/dts/qcom/sdm845-shift-axolotl.dts
++++ b/arch/arm64/boot/dts/qcom/sdm845-shift-axolotl.dts
+@@ -6,17 +6,21 @@
+  */
+ 
+ /dts-v1/;
+ 
+ #include <dt-bindings/arm/qcom,ids.h>
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/leds/common.h>
+ #include <dt-bindings/regulator/qcom,rpmh-regulator.h>
++#include <dt-bindings/sound/qcom,q6afe.h>
++#include <dt-bindings/sound/qcom,q6asm.h>
++#include <dt-bindings/sound/qcom,wcd934x.h>
+ #include "sdm845.dtsi"
++#include "sdm845-wcd9340.dtsi"
+ #include "pm8998.dtsi"
+ #include "pmi8998.dtsi"
+ 
+ / {
+ 	model = "SHIFT SHIFT6mq";
+ 	compatible = "shift,axolotl", "qcom,sdm845";
+ 	chassis-type = "handset";
+ 	qcom,msm-id = <QCOM_ID_SDM845 0x20001>;
+@@ -516,20 +520,21 @@ &i2c10 {
+ 	/* SMB1355@0x0C */
+ };
+ 
+ &i2c11 {
+ 	clock-frequency = <400000>;
+ 
+ 	status = "okay";
+ 
+-	audio-codec@34 {
++	tfa9890_codec: audio-codec@34 {
+ 		compatible = "nxp,tfa9890";
+ 		reg = <0x34>;
+ 		vddd-supply = <&vreg_s4a_1p8>;
++		sound-name-prefix = "Speaker";
+ 		#sound-dai-cells = <0>;
+ 	};
+ };
+ 
+ &ipa {
+ 	firmware-name = "qcom/sdm845/SHIFT/axolotl/ipa_fws.mbn";
+ 
+ 	status = "okay";
+@@ -654,16 +659,49 @@ led-1 {
+ 		color = <LED_COLOR_ID_YELLOW>;
+ 		led-sources = <2>;
+ 		led-max-microamp = <100000>;
+ 		flash-max-microamp = <1100000>;
+ 		flash-max-timeout-us = <1280000>;
+ 	};
+ };
+ 
++&q6afedai {
++	dai@22 {
++		reg = <QUATERNARY_MI2S_RX>;
++		qcom,sd-lines = <0>;
++	};
++};
++
++&q6asmdai {
++	dai@0 {
++		reg = <MSM_FRONTEND_DAI_MULTIMEDIA1>;
++	};
++
++	dai@1 {
++		reg = <MSM_FRONTEND_DAI_MULTIMEDIA2>;
++	};
++
++	dai@2 {
++		reg = <MSM_FRONTEND_DAI_MULTIMEDIA3>;
++	};
++
++	dai@3 {
++		reg = <MSM_FRONTEND_DAI_MULTIMEDIA4>;
++	};
++
++	dai@4 {
++		reg = <MSM_FRONTEND_DAI_MULTIMEDIA5>;
++	};
++
++	dai@5 {
++		reg = <MSM_FRONTEND_DAI_MULTIMEDIA6>;
++	};
++};
++
+ &qup_uart9_rx {
+ 	drive-strength = <2>;
+ 	bias-pull-up;
+ };
+ 
+ &qup_uart9_tx {
+ 	drive-strength = <2>;
+ 	bias-disable;
+@@ -696,16 +734,161 @@ &sdhc_2 {
+ };
+ 
+ &slpi_pas {
+ 	firmware-name = "qcom/sdm845/SHIFT/axolotl/slpi.mbn";
+ 
+ 	status = "okay";
+ };
+ 
++&sound {
++	model = "SHIFT6mq";
++	compatible = "qcom,sdm845-sndcard";
++	pinctrl-0 = <&quat_mi2s_active &quat_mi2s_sd0_active>;
++	pinctrl-names = "default";
++
++	audio-routing = "RX_BIAS", "MCLK",
++			"AMIC1", "MIC BIAS1",
++			"AMIC2", "MIC BIAS2",
++			"AMIC3", "MIC BIAS3";
++
++	/* mm[0-9]-dai-link nodes must be positioned first regardless of sorting */
++	mm1-dai-link {
++		link-name = "MultiMedia1";
++		cpu {
++			sound-dai = <&q6asmdai MSM_FRONTEND_DAI_MULTIMEDIA1>;
++		};
++	};
++
++	mm2-dai-link {
++		link-name = "MultiMedia2";
++		cpu {
++			sound-dai = <&q6asmdai MSM_FRONTEND_DAI_MULTIMEDIA2>;
++		};
++	};
++
++	mm3-dai-link {
++		link-name = "MultiMedia3";
++		cpu {
++			sound-dai = <&q6asmdai MSM_FRONTEND_DAI_MULTIMEDIA3>;
++		};
++	};
++
++	mm4-dai-link {
++		link-name = "MultiMedia4";
++		cpu {
++			sound-dai = <&q6asmdai MSM_FRONTEND_DAI_MULTIMEDIA4>;
++		};
++	};
++
++	mm5-dai-link {
++		link-name = "MultiMedia5";
++		cpu {
++			sound-dai = <&q6asmdai MSM_FRONTEND_DAI_MULTIMEDIA5>;
++		};
++	};
++
++	mm6-dai-link {
++		link-name = "MultiMedia6";
++		cpu {
++			sound-dai = <&q6asmdai MSM_FRONTEND_DAI_MULTIMEDIA6>;
++		};
++	};
++
++	speaker-dai-link {
++		link-name = "Speaker Playback";
++		codec {
++			sound-dai = <&tfa9890_codec>;
++		};
++
++		cpu {
++			sound-dai = <&q6afedai QUATERNARY_MI2S_RX>;
++		};
++
++		platform {
++			sound-dai = <&q6routing>;
++		};
++	};
++
++	slimcap-wcd-dai-link {
++		link-name = "SLIM WCD Capture 1";
++		codec {
++			sound-dai = <&wcd9340 AIF1_CAP>;
++		};
++
++		cpu {
++			sound-dai = <&q6afedai SLIMBUS_1_TX>;
++		};
++
++		platform {
++			sound-dai = <&q6routing>;
++		};
++	};
++
++	slim-dai-link {
++		link-name = "SLIM WCD Playback 1";
++		codec {
++			sound-dai = <&wcd9340 AIF1_PB>;
++		};
++
++		cpu {
++			sound-dai = <&q6afedai SLIMBUS_0_RX>;
++		};
++
++		platform {
++			sound-dai = <&q6routing>;
++		};
++	};
++
++	slimcap-dai-link {
++		link-name = "SLIM WCD Capture 2";
++		codec {
++			sound-dai = <&wcd9340 AIF2_CAP>;
++		};
++
++		cpu {
++			sound-dai = <&q6afedai SLIMBUS_0_TX>;
++		};
++
++		platform {
++			sound-dai = <&q6routing>;
++		};
++	};
++
++	slim-wcd-dai-link {
++		link-name = "SLIM WCD Playback 2";
++		codec {
++			sound-dai = <&wcd9340 AIF2_PB>;
++		};
++
++		cpu {
++			sound-dai = <&q6afedai SLIMBUS_1_RX>;
++		};
++
++		platform {
++			sound-dai = <&q6routing>;
++		};
++	};
++
++	slimcap2-wcd-dai-link {
++		link-name = "SLIM WCD Capture 3";
++		codec {
++			sound-dai = <&wcd9340 AIF3_CAP>;
++		};
++
++		cpu {
++			sound-dai = <&q6afedai SLIMBUS_2_TX>;
++		};
++
++		platform {
++			sound-dai = <&q6routing>;
++		};
++	};
++};
++
+ &tlmm {
+ 	gpio-reserved-ranges = <0 4>, <81 4>;
+ 
+ 	sdc2_default_state: sdc2-default-state {
+ 		clk-pins {
+ 			pins = "sdc2_clk";
+ 			drive-strength = <16>;
+ 			bias-disable;
+@@ -879,16 +1062,30 @@ &usb_1_qmpphy {
+ };
+ 
+ &venus {
+ 	firmware-name = "qcom/sdm845/SHIFT/axolotl/venus.mbn";
+ 
+ 	status = "okay";
+ };
+ 
++&wcd9340 {
++	reset-gpios = <&tlmm 64 GPIO_ACTIVE_HIGH>;
++	vdd-buck-supply = <&vreg_s4a_1p8>;
++	vdd-buck-sido-supply = <&vreg_s4a_1p8>;
++	vdd-tx-supply = <&vreg_s4a_1p8>;
++	vdd-rx-supply = <&vreg_s4a_1p8>;
++	vdd-io-supply = <&vreg_s4a_1p8>;
++
++	qcom,micbias1-microvolt = <2700000>;
++	qcom,micbias2-microvolt = <2700000>;
++	qcom,micbias3-microvolt = <2700000>;
++	qcom,micbias4-microvolt = <2700000>;
++};
++
+ &wifi {
+ 	vdd-0.8-cx-mx-supply = <&vreg_l5a_0p8>;
+ 	vdd-1.8-xo-supply = <&vreg_pmu_xo>;
+ 	vdd-1.3-rfa-supply = <&vreg_pmu_rf>;
+ 	vdd-3.3-ch0-supply = <&vreg_pmu_ch0>;
+ 	vdd-3.3-ch1-supply = <&vreg_pmu_ch1>;
+ 
+ 	qcom,calibration-variant = "shift_axolotl";
 
-So it accidentally found a bug in lib/test_hmm.c on the way.  "The QEMU
-run exposed a real test_hmm bug: a second open of /dev/hmm_dmirror0 can
-put a device-private page into its page table, then dmirror_do_read()
-tries to copy from that non-CPU-accessible page and oopses".  I'll prep
-a fix for that separately.
+---
+base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
+change-id: 20251217-axolotl-misc-1d33073b3c23
 
+Best regards,
+--  
+David Heidelberg <david@ixit.cz>
 
-
-I'll queue the below in mm.git's mm-hotfixes queue and shall await
-maintainer input (please).
-
-
-From: Aveline Noir <jm5905938@gmail.com>
-Subject: mm/hmm: account for subpage offsets in device-private PMDs
-Date: Sat, 31 Oct 2026 15:07:58 +1100
-
-When a query starts inside a device-private PMD owned by
-range->dev_private_owner, hmm_vma_handle_absent_pmd() still fills the PFN
-array from the folio's first page.  The returned PFNs therefore refer to
-earlier pages rather than the requested subrange.
-
-Nouveau's GPU fault path can query one page of a device-private PMD at a
-time.  Xe's SVM fault, prefetch and userptr mapping paths can also query
-subranges of their own device-private PMDs.  An unprivileged process with
-access to the GPU render node can reach these paths on hardware supporting
-device-private THP migration.  Xe can read the wrong application data or
-silently overwrite earlier pages of the same process's device-private
-folio.
-
-Nouveau aligns a one-page GPU fault to the PMD head by subtracting the
-fault offset from the returned page.  The faulty HMM PFN already refers to
-the head, so this subtraction can select a page before the folio.  If the
-preceding page belongs to another allocation, GPU access can expose or
-overwrite unrelated userspace data; an invalid page can also fault the
-kernel during its address conversion.  This worst case follows from the
-source, but has not been demonstrated on a real GPU.
-
-Add the query's PMD-relative page offset to the initial PFN, as the
-present PMD path already does.
-
-The device-private PMD migration machinery first shipped in 6.19.=20
-Backport this fix to the maintained 7.3.y stable series; the HMM path
-exists in 6.18.y but cannot be reached through an in-tree PMD-producing
-device-private migration path there.
-
-Link: https://patch.msgid.link/179342234355.4.16705453209886955762@gmail.com
-Fixes: 10b9feee2d0d ("mm/hmm: populate PFNs from PMD swap entry")
-Signed-off-by: Aveline Noir <jm5905938@gmail.com>
-Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Leon Romanovsky <leon@kernel.org>
-Cc: Francois Dugast <francois.dugast@intel.com>
-Cc: Lorenzo Stoakes <ljs@kernel.org>
-Cc: Matthew Brost <matthew.brost@intel.com>
-Cc: Patchwork <patchwork@emeril.freedesktop.org>
-Cc: SJ Park <sj@kernel.org>
-Cc: Vlastimil Babka <vbabka@kernel.org>
-Cc: David Airlie <airlied@gmail.com>
-Cc: Alistair Popple <apopple@nvidia.com>
-Cc: Balbir Singh <balbirs@nvidia.com>
-Cc: Christian K=F6nig <christian.koenig@amd.com>
-Cc: Mika Penttil=E4 <mpenttil@redhat.com>
-Cc: Thomas Hellstr=F6m <thomas.hellstrom@linux.intel.com>
-Cc: Zi Yan <ziy@nvidia.com>
-Cc: <stable@vger.kernel.org>
-
- mm/hmm.c |    3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
---- a/mm/hmm.c~mm-hmm-account-for-subpage-offsets-in-device-private-pmds
-+++ a/mm/hmm.c
-@@ -355,7 +355,8 @@ static int hmm_vma_handle_absent_pmd(str
- 	    range->dev_private_owner) {
- 		unsigned long cpu_flags =3D HMM_PFN_VALID |
- 			hmm_pfn_flags_order(PMD_SHIFT - PAGE_SHIFT);
--		unsigned long pfn =3D softleaf_to_pfn(entry);
-+		unsigned long pfn =3D softleaf_to_pfn(entry) +
-+			((start & ~PMD_MASK) >> PAGE_SHIFT);
- 		unsigned long i;
-=20
- 		if (softleaf_is_device_private_write(entry))
-_
 
