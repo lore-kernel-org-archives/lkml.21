@@ -1,84 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795378471;
-	b=AkGy2YTmnqO+aP467w6GPm+rl/cpJk7fCR0L+i/ShBoFHiXoPlg9+3Nraq8L5ii5zXvl
-	 N9wmwF83/sH81Cj1B/wCkf10Esxt8BaQi+GgLp2fNeQOJggxL9tQbLHz+0JrYj78HBk45
-	 EfA33R1dhOFKb0soz73uMF+IHDpa0vgboHsWyXdl/gX8bL6AGoLg9Q3s0+k4OEvuHpFds
-	 f9K9MCRmaqhPc3cQInMzdZx1ghEtjq/I+rCdFLQJS1uf5ckBkuK0PSsYSqgVzlpes45Lq
-	 BAYToUof3ZCeQ+EWcXAPCEKed+0d8ajkr3vW2T+nekd7bvzZv5FFlPl8QU70d6IfAgQ==
+	t=1795378473;
+	b=39ige1heyuP2/+xnvyKct4YR6ExsOtJEOFgsG+GBLlGd3AWu94fQcBdlqdlJKZWi0Vb9
+	 lGYi8CfmwexRcZ0IlC7DORetSUoa6YhlDAmRR4r/H5DwKM9yzqn4U4c6JbkQ0OGChCUi5
+	 N13/53E6qiHIFr2+xGySZpg3Al9s9AuOfpYGfkd0TGD4yM1Rnkl5NXRiedHtyKMQG2DRq
+	 5axrxYG9vdhc53cBmCH9xuYeZePiCqxYnLII0LthqmbxeRyQHmIZPM7W2JFjnpqLpQHJj
+	 NnGK1SNdmRs3gy4PTOhD3JGyYoiuy4fsiydflG5P/utg5Jw3XEXThy0auj9iGdRsX5w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795378471;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795378473;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=7xLuQMY9AhHS5phvMKiL1Kg7irbD6BPlpn70hXvxYR4=;
-	b=kkpop7RK4A3SsYdX+0ER26lQXCfjx3rO8nNzObgNt6rDDVrLV0iSW9aMrSCxH04rXzG7
-	 mbWg/0pZXet/gLaravDqFW6JmnEs+5gT5WC6TfB+5ysxk8yyqYqz8cKC7Pz+o7vs2yfZn
-	 hY6YHl3+b3h6+S+IpFf2ccuHmOpILbo1bOkqkmGsrdW8AiLjHBNkZcL6iM9Cm72Qd4x+X
-	 bWgNAZj1pRPfo3zrJCHL/Gfh6EI+xRcEQ7IMMkKzN/nb2Aa4bJVu65VZMVw5JrhHejzAM
-	 8Fo/rnKWo/St3NrajtYFq56oH1TuTVY5JlJiUvhHWZ4zX+EdVDpYdNNVfHMe/rGywug==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=M7Ox/HWcDEqTDXqAyvemUYyn9XHfrtj/jPusHQ98loU=;
+	b=alCG2VEq2g7TwsE5bbAggX0r8E7XOfbIBGSagcXK+BR0L0z6Un5wKv0dcwo+ckKKzzux
+	 0G2RJ8rZ22H2Vnair/Nxm2fg6pbD5IjF9KHJbw1EpKNnODU/0J70puy3IKs/1WaLiyjry
+	 8xDX21Q5pXolEQ0GTFu0/iCMZrTECmUhuSBphq5N0bRqAlBdm/3zXIOYHcJ6RvwHFGHfV
+	 PZx61130MuvF9x5MTyKaAFyDi09u0yiikabfckhMpHCuNJn5zLz4cuiLORdVrPulDxC8M
+	 VqebB8Hi0GfwMMLj9Hs9XWVPOFHZDbweERQ0C0CnnRTH8wcqHfNSvT79gMMDblklPpQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aUgCUsXH;
-	arc=none smtp.remote-ip=209.85.208.54
-Received: from mail-ed1-f54.google.com (mail-ed1-f54.google.com [209.85.208.54])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pDgThwnl;
+	arc=none smtp.remote-ip=209.85.208.42
+Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com [209.85.208.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DD8F606A31D
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:14:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5DD8F606A31D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4CBF606A333
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:14:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4CBF606A333
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aUgCUsXH
-Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-6b596afb4c5so2799233a12.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:14:30 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pDgThwnl
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6b88b74e54eso3042631a12.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:14:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795378469; x=1795983269; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7xLuQMY9AhHS5phvMKiL1Kg7irbD6BPlpn70hXvxYR4=;
-        b=aUgCUsXHYw3KaELR4kFag3t5wB9TMdvlrPOCMERQdBo6tE9XrKcTfz2uG8UIsGa2BM
-         njA6POWPRJA3ichnU0xFmq9hKVOYjVx3NCMAHHlQEODE2reX+M5wYjKoxgrlTnM6WMk0
-         gy0xblA1L5zSG7+RBF+sV2Bq0S9jS56bcVppIwTO7xDiFFFzEq1Tc3zgyaC2XwMyazSP
-         FZumSKEduASM4h1ETwbJe72L2CiBxGfUkZyHsoKbxiMMl/GE+XCQl2yHyY+NNLRtL48n
-         28ErKSMtnVdEQ3p4FOAXYrI2bVD30h6Dfl6n1fz6Ua7XKaPN46zsuIONXiApnGof/Afc
-         MhIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795378469; x=1795983269;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1795378471; x=1795983271; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=7xLuQMY9AhHS5phvMKiL1Kg7irbD6BPlpn70hXvxYR4=;
-        b=B/Sramd735HEIs4h29iybMXEH3wfU7RbkjqfOz2nuLS3/782TWkBNexSRPqJQUC5H0
-         9cvMCPf0Px21XKuaRRb9Duz6Syx/UkjttR0Dxw4nAM3n7RPd8FxmwjEUelArHLzgMAzF
-         gsL5m5s7oF1KQc4TB8V3VqpGfHH9c7ZdUHU/60oOeIGhW0HInDqEBNGY1DB8yk7s/hpE
-         CxyaQ52TsG011+dr2weTzCpBfbRn5V02gW8VSY+ZpvNGZEdjrIOguxoVrGNDVtPDNwrT
-         WI5HeqKKHLLNZwqLCuGGG7G5PfRXKax65inEkqzZqTIycFPBrCKCR+FkqPJxhyxT5+i7
-         b4Lw==
-X-Forwarded-Encrypted: i=1; AL+hErH1y1hdAi3yBfQW3aKbTadVbRXs5Ih74uFww5wtVnkouJuVOl+jvumDlfcpRPCXzTyAbk54JVGw+IUlqj8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+WymTdUg3DyWu6T2ZUgbqhml83HJJFnqbc8wmpQEe5VIr5CwA2
-	ihzaJt0nGc+cl635cwSeI+9dCI5gTvA6pzfZnxa+KvdNpqYxt+r+Xu7D
-X-Gm-Gg: AZFdTZc1CO2RAalDCIMbOAe7SuxTCW5cCfxcyBb8hho7BpIj+HXJO4hCZec1Q7C53DR
-	EWLRvTYMRdX5lViQ2WoujFZLkNFQAITgEGPFcBiF2VO+oXkNXGunt/rGRIN0h13x4RgrP85Zyx6
-	bh4/wUHhM8X2eAOeSzSTFEK2jGK2zwvkGwvtmhw/bjfqoXCYdKJoNP+gyWvQelMYF8bl8WFcs4m
-	0ynP9TpB8Z4cJNNh4MVN6np56RCUcFBH6rplO2p/qEuIr+rJwNDwyg7snd/elDTBmBk5LE+HkER
-	4rhXhAt3NSMo8v6rn+GVvGfzrLyx9LQrKaaYzOKy6daA2F1F4zcN3zHAnnZvftVADSY4/O/7Vi2
-	sIsKeUAPSjfhbbcLD+rAhkXImk7XhfMz7eNbVLIROuFHpS5bvRG/DgTkMAYWO8qcKCwEAzfA9Xq
-	jXvTAT9xCTccFaKjf2hyv5aWfh5/FU4DPPCFCb1ZHya66e2ZRJ8HVmQjhgP4KfhFICV51Xxadkx
-	HP87RmD0IS9jkVOcibjjPDhQuoIrw26JkH/TvOM9/g3EYbIpKWtCb6V81x+dySbSoWKfBzljay5
-	1/CqMyp9l6BmCHI0tYlkaUTANPzrrgSCtOadhpxNEqRDsRiUGLiiRbND802H8bu1bBHvgmMZK2D
-	au/lGHP8LJg==
-X-Received: by 2002:a05:6402:501c:b0:6b8:afbd:64e6 with SMTP id 4fb4d7f45d1cf-6ba37edaf1cmr6652717a12.42.1795378468547;
-        Sun, 22 Nov 2026 12:14:28 -0800 (PST)
+        bh=M7Ox/HWcDEqTDXqAyvemUYyn9XHfrtj/jPusHQ98loU=;
+        b=pDgThwnlWfNp0X+IZJlpY9eY/oosSNsnD3BDUH3Ybk5y1roHWZirM1XA5N710J07zR
+         LQFfSexCEO5f8nPezjvJ4kGHNB69Ge3PvLeb4Hh+jrWY92+Ir7rWwLGbBTkp+rfdKiwi
+         UfiorIfpm3dEMY4t35Dj/Z+EaJdkQec5WxwBQXYwu6y0X5MPwNwBua2sCCiKrT32ftWt
+         y7mYElmVxyP5CNb2Vus1Ydr6YBD1HtTJOfuE7QbMx0qwaLCRA7ic+MTp07lDERQLdkcs
+         SXHJx3lcmJqgr+DylvvcqV3pDY553xlZ7v2QLHFsVuSRWAvhHApKPEI+VV0ClJpbCwTc
+         Q1Uw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795378471; x=1795983271;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=M7Ox/HWcDEqTDXqAyvemUYyn9XHfrtj/jPusHQ98loU=;
+        b=oRZ5ApbJJ/LOaX52Jn2uks0yuj2UJZpL7F0cGp6tFGTlSBxjBHOhm1G4TjFpMK0g6I
+         X17/g9ePXkE/ann5P1D01qdP9f9DXHumJszSi7UUKxizrx8b43tUrUPHRA2+yfpo3Cov
+         KG5gU96kdUAMjP80F0SfPzIAagqK1OUjEjnRkCyUBF0I+10GZghcVXgBXpdp+gDm1wIN
+         fMSFyLsgCaITLFvPv0e702b5ts6RkRSVMEzmoqW+O/dGF1hCWGnXUF5b5SSb4Ttr2YWh
+         otovtJZUsd0TZ+m4INS86sFjE/aXqZPBI897iBEeeohPSFCbxrtEBqemveXxmsntlPPj
+         omIg==
+X-Forwarded-Encrypted: i=1; AL+hErGNrEwESO6p8Txr9A7LJUJ5H+3UwPUYSI8rWBlsTYB+IbdqGVjP7+2Rer+7bnWKdQcHjhf92F8farnkBDc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Xx+wqlxH735fK3EItNrbWOOqubYtBwkdiV5YZJVDCVFTrUaAB
+	1a3ebn2aJsYs4vK8s34uvk2H8IwOYaEwvJ8AIORRsQtM7sYC8zlFyefA
+X-Gm-Gg: AZFdTZd0JxBfMze4rwUA6G25Sxh1m+XRN/aRnEsl2IdSnATOLwv15ll+3E7ZDMfaiUO
+	McPmQ7IETYgxk2NaJV/4UNVlqaNbBkP9poYyEYqlBPoKgC3WXeJAOOCic35jizAC1MdB3YC3TXe
+	V3PV28fn/Ajt1pd5h1eBIyHp3Oa89UxwYgGXdAICmKjKmZq5up6NGRMN/+s0o8xuinw85WS2RiR
+	bQMzGybuHP1wneeerKx8mBYW51I1yl0wzfNbmSw9DYSx0jMTO0Xt+oSm7uFGGUsapXc/gL/eHGD
+	/tPmS+PND0DwvNHmhk+Bizq2cPZIFQkv77oGmEx5x7uvJezAKnLlSaAa9lwbH+mxLWuKMbitR+X
+	cG4FVZHnG2ZRsZk5fDyPMVAYjQnk1ERUBAy6Esw1axwg2P9hSVQWQlZaT5XH1IbaJAJo5h1xDBx
+	4k840FpNJIiQPP4Zop0nQXzxwDJYNg4pqHgwWCsuXOQM3Zi5LGZ9YCxYQtycOLgp/CN9ps7gXSv
+	yhDZEDjoOFQQk6QBrpTixEl0AEaFKEqy109Vuv98ocpZQzo+2PEjk3wFPiMz8TowqcQJn+8BSIK
+	tASOekaYHsOnUy+onvU2RWT/bmd3tBIR4+Ypt8vs7b6sEr1KklM8Vt7hzHgg1Af7QqwAnepUrYP
+	GAGG4QN69/A==
+X-Received: by 2002:a05:6402:400d:b0:6b8:5b54:bb9d with SMTP id 4fb4d7f45d1cf-6ba37d62876mr6316804a12.10.1795378470876;
+        Sun, 22 Nov 2026 12:14:30 -0800 (PST)
 Received: from xeon ([188.163.112.54])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fa8basm4424074a12.20.2026.11.22.12.14.26
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fa8basm4424074a12.20.2026.11.22.12.14.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 12:14:26 -0800 (PST)
+        Sun, 22 Nov 2026 12:14:29 -0800 (PST)
 From: Svyatoslav Ryhel <clamor95@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -90,10 +91,12 @@ To: Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org,
 	linux-tegra@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 00/18] [WIP] ARM: tegra: Update Tegra Note 7 configuration
-Date: Sun, 22 Nov 2026 22:13:49 +0200
-Message-ID: <20261122201407.23742-1-clamor95@gmail.com>
+Subject: [PATCH v1 01/18] dt-bindings: ARM: tegra: Document Tegra Note 7 variants
+Date: Sun, 22 Nov 2026 22:13:50 +0200
+Message-ID: <20261122201407.23742-2-clamor95@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261122201407.23742-1-clamor95@gmail.com>
+References: <20261122201407.23742-1-clamor95@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,46 +109,34 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-This patch set is more a placeholder and is not meant to be merged just yet,
-I am still working on it and comments are welcome. I am sending it to be sure
-that my work is not stolen or overwritten by some AI slopper with a trial
-subsciption to a fancy new LLM. Thank you for understanding.
+The Tegra Note 7 has at least three known versions, two of which are
+production (E1569 and P1640, along with P1988 — all classified as
+"tegratab" by downstream sources), plus an LTE-supporting version
+("tegranote7c", which has a separate board and tree downstream).
 
-Svyatoslav Ryhel (18):
-  dt-bindings: ARM: tegra: Document Tegra Note 7 variants
-  ARM: tegra: Diverge Tegra Note 7 device tree to support its common
-    versions
-  ARM: tegra: tegratab: Upgrade powerlines configuration
-  ARM: tegra: tegratab: Add pinmux node
-  ARM: tegra: tegratab: Bind VDE device
-  ARM: tegra: tegratab: Configure USB and power supply
-  ARM: tegra: tegratab: Configure MMC devices
-  ARM: tegra: tegratab: Configure wireless devices
-  ARM: tegra: tegratab: Add thermal configuration
-  ARM: tegra: tegratab: Configure HDMI
-  ARM: tegra: tegratab: Add audio codec and sound card configuration
-  ARM: tegra: tegratab: Add common sensor nodes
-  ARM: tegra: tegratab: Add MC and EMC timing nodes
-  ARM: tegra: tegratab: Add CPU DFLL clock node
-  ARM: tegra: tegratab: Update GPIO keys and switches
-  ARM: tegra: tegratab: Update aliases, chosen and memory nodes
-  ARM: tegra: tegratab: Add video input configuration
-  ARM: tegra: tegratab: Add panel rotation
+Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/tegra.yaml | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
- .../devicetree/bindings/arm/tegra.yaml        |    7 +-
- arch/arm/boot/dts/nvidia/Makefile             |    6 +-
- .../nvidia/tegra114-nvidia-tegranote7c.dts    |   14 +
- .../tegra114-nvidia-tegratab-common.dtsi      | 2759 +++++++++++++++++
- .../nvidia/tegra114-nvidia-tegratab-p1640.dts |  603 ++++
- .../nvidia/tegra114-nvidia-tegratab-p1988.dts | 1405 +++++++++
- arch/arm/boot/dts/nvidia/tegra114-tn7.dts     |  341 --
- 7 files changed, 4791 insertions(+), 344 deletions(-)
- create mode 100644 arch/arm/boot/dts/nvidia/tegra114-nvidia-tegranote7c.dts
- create mode 100644 arch/arm/boot/dts/nvidia/tegra114-nvidia-tegratab-common.dtsi
- create mode 100644 arch/arm/boot/dts/nvidia/tegra114-nvidia-tegratab-p1640.dts
- create mode 100644 arch/arm/boot/dts/nvidia/tegra114-nvidia-tegratab-p1988.dts
- delete mode 100644 arch/arm/boot/dts/nvidia/tegra114-tn7.dts
-
+diff --git a/Documentation/devicetree/bindings/arm/tegra.yaml b/Documentation/devicetree/bindings/arm/tegra.yaml
+index e7545c8c2911a..dd123b0ab8ed7 100644
+--- a/Documentation/devicetree/bindings/arm/tegra.yaml
++++ b/Documentation/devicetree/bindings/arm/tegra.yaml
+@@ -120,7 +120,12 @@ properties:
+               - asus,tf701t
+               - nvidia,dalmore
+               - nvidia,roth
+-              - nvidia,tn7
++          - const: nvidia,tegra114
++      - description: Nvidia Tegratab based Device family
++        items:
++          - enum:
++              - nvidia,tegratab
++              - nvidia,tegranote7c
+           - const: nvidia,tegra114
+       - items:
+           - enum:
 -- 
 2.53.0
 
