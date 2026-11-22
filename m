@@ -1,78 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795379071;
-	b=WYcZR0pfu0wTt2C1TZY1tChnNlzCyOc00fjmA75Xtr6GVIYJ+6u7lT7+AIpPSLoL93nG
-	 EStM34eE6J7dNQUll/R/k3p5bc69GQtwfTEhma5VFcW2Qwuaf6KawcdqCGCk8/xJzKzUL
-	 hkfRwiuLXehVnaZ76Hsn3RgHS40HusbvviV53eNhYi0UO/VDZ0bUQMgTwRM5TjImcAAch
-	 KWOAW3asCErc76xqktgVZWCCpaQdd578z57K498PjGq0+lAdDXrsZfdDjht+2xvRoQGSY
-	 QblBrTvdfIYOzc0w8cknHPc77j5z3KkVlwmGgUXp37oBjbhmEdOMUjeOQ3enBt64AwA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795379071;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=QDtrPBIcyFXQMdfj4Utd9u/jKBuoe/6ug2mrTDf+LUQ=;
-	b=5sW/akKYTHYm1sBcdZ+O1/gPGDVQTL38Lf0wPvePXItun/xbFsClfou+gU8msOugUoVK
-	 wMCIVp6cAuPPQ9A5YxpbJalObGo6WlSFWOQyMsX79x72qHd7jfJbbHo0yZyCsWH4T+Kz8
-	 X4fN84qGs7GbTKCrMoWlKrriT7xaRfHcqTy9uMsENw1gHZzrZVj+R1bDVlPQD/jSLsXRN
-	 gcvgKxdJhTmwhoepJ+sVHxwgJX4lTEcvo/LEhVg/RJtot+Rl0Hin+aV2v4eTTCk6Wb2BV
-	 fmva8wnIlK3xTl8W4VFciZ/LTb5VSs/9LSqOwxGsSLuEJuih08ZUloBq5W9S7oLrJdQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KDjvrmLd;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.16
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795379070;
+	b=BR4wBO1nayqETK7JrP3hgxDjTGcWtS1ELZ6g+7dXxnLv1aN4uRwqe5wqJ0nL6F9LUNtJ
+	 g+s8aHmN6ztj4CkTvUrFb7azVXoLQ1ED/JDMvRh2VEe6SRrZrQdrhrP4rrVrk3sWLQLsw
+	 WNZzr0nQYWi2kFdJMj0SF/sqQGm1eyDsVh8oY1VXOHgGSVl8f8XTrRlvfn7P1+YMqNmNb
+	 NMM77FIcgovKh9/L1SpCxrxXTYMnj+5z5NwhCbekaLIRpJee/b+wzkvUL32RxdQ5a16jk
+	 9jGmJoh0Y4xqv5PnKrrbT4Gf3Xwav7u3+RFKNMYMfOgfaF0hA5INSaDNp3bl5XWS+1w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795379070;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=W0saEwQytD3uvCkQrs8M5XfLBUu7dlyain/D1tXVcKY=;
+	b=KDCAkQxXPu3NT1UQ06SARrYTwVaPJnO7Iwb8PNg+zh5jUtnnwc12px5ZTF+3PQZ0MMc4
+	 KJAVtrFf3/2f4+37gRcSyUswHwvr4ti0LLTPzDwO15HJIr6gSRZe7C7NHA68w72ezM34N
+	 9t9ZbwuZ92+mzWr3Ilq6RHCVhM2UaNAxkWDCIRPCNKkWAeMPzghFPzt0XZ0+xFJ2X11Ve
+	 2CFS1pOhr7evsoIik4KEKy2uLyY7cNXjTHw1ye6T4gOh5iBBF9YOp6qNbsL8qRe5JbuCv
+	 jnB6xaLO/1dI3O9oYEYo53P9rgnUiy04GUNL8rfSSdjc2DSJIVovI8JKmBf6apdjXCw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=UWemDwgg;
+	arc=none smtp.remote-ip=198.175.65.16
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.16])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA819606A334;
-	Sun, 22 Nov 2026 20:24:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5427F606A327;
+	Sun, 22 Nov 2026 20:24:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5427F606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KDjvrmLd
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795379071;
-	b=2OY9LNUGQSiPe3+gBKYwNLJdD7MUp3wn88Q4Q+x6wVtdorR5dEWUhQwL6BncOv/VBP76
-	 Jnf+ZMfknDhN9P73X6iGgwOh8Ow6x+44i1VcmhwldipWAC74G1H8EJAIuPKmdiUdxMI1W
-	 F0weXDo4CtfuRLzQCO6P7T8Tq9biqqBHWs7XZk+z32+vxWl32l14KvrxBnf9ugUZRyjuU
-	 ghWmzXBJUWm3sXfJlYCDBGZw/gIRZlvSo3GYOT9L/jL3xfnTq1NgPviXnnsnWLC0OgBUz
-	 vMewfJGcFUCisbDcjyP1GXa1gDN1piARUnMGczz4rTspEQ08/qQDcV6qPkk21Yf3P9g==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795379071;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=QDtrPBIcyFXQMdfj4Utd9u/jKBuoe/6ug2mrTDf+LUQ=;
-	b=T1pF4L0zH4abuIOpsgtuYWe20bA7BjB8rVbHDI5YK9bQbpTIUbzvCTw7lcd2HlEyDY6t
-	 UUFfWZ0J8Yz2xUB+nJe6KGWXS1Yvnp0LtXltwFRPDd7KIcXJd0drQ0trG+Yl1rYdQdWrW
-	 Oqob+lVHuN9JYM+2tPDMkCWlliM1DKhncP3ud4gjHlMTdPmAaMxWDddDPmtRMN0mCSByj
-	 7MHjfZikOWZfA2UZMNJFxmUCUmETibStG4U+pnubncsPxoDehczIngCETGhUblBvV2WdC
-	 bZuZxd9WfLNaE5JMk8gDKqNIVu2I4QLqMdJPWl06pJgpQRwjLdBLFCqREHM/tUhNT+Q==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 784251F000D0;
-	Sun, 22 Nov 2026 20:24:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795379071;
-	bh=QDtrPBIcyFXQMdfj4Utd9u/jKBuoe/6ug2mrTDf+LUQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=KDjvrmLd78L+muQkuNcBNdcsgrYOYuwYdU2bg3vL6dnyLDa7WG+IYOHV4tMExv1V6
-	 KNCUnoKGmLe0sFOxUlwn1sYOYc8J/pwng6Bn4x/Nqa/phU2ceRTASpm4Iw3wCOCLxv
-	 tlzxYd06CTZgFiKMfcL+8sdmKZnpJSs3/TrUexacQeBvZ5v+KQcb0lhKijs5KyYfgI
-	 o1YxwfhDgWqo0WLfvj5hiwM6D6o/JGICjvgxSslYhlbd6ajjp3/G0FOZP3Gyvvzbxx
-	 DF1/wrDGVX+w1SOCqGDIilQzadK7s8/0LhvYd4JOikJe9Jg6GmbYGDDft5EalZNRSy
-	 R4yoKClKIdl0A==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 0A4B44C1F6;
-	Sun, 22 Nov 2026 20:24:21 +0000 (UTC)
-From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Date: Sun, 22 Nov 2026 21:24:19 +0100
-Subject: [PATCH v2 2/2] rpmsg: char: Support waking up on endpoint rx
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=UWemDwgg
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795379068; x=1826915068;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=5rcgeMoxIEWePPJAz1f4GqmHb62WxQrALOVeHJzO0yU=;
+  b=UWemDwgg2t5L3NsMB9J+yl9lmu7VWpthlm2MsgNkktA6nPUkFc9t9NrC
+   fFRoCgfhp+e46/CuNwMGHWflhQ/OzMPEG3aJbD6coXrMOAG7dmuOZP9XT
+   eeEfQo9z9Iny4vX1vxBTh31adueY9VPjyn2AAFO+/pReyaHhnjm2S9V9b
+   7NDpaNhu0TE89gBkiyBOffG+4cPrxbw8ItU++ghR9b2V1f3G7bnylAfe7
+   MihALD3CZGXTItoH+Fu0w1kGJgL040o1WQYpt3+5ld45fg+tw9ElEt2A1
+   0ok+OtIg/X0+hypa4Q288znNxDNoIZf33AN6E5b+yYT+5eLMnso7fL5NH
+   Q==;
+X-CSE-ConnectionGUID: wWHTHwSHTWqRfXt6hTgNXA==
+X-CSE-MsgGUID: NO2FVFedQ+STaTMwn3yCqQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4185925"
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="4185925"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 12:24:28 -0800
+X-CSE-ConnectionGUID: yO1d1dXORbWAun2YOPiApQ==
+X-CSE-MsgGUID: olybKecSQRakBg0RJAb4vQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
+   d="scan'208";a="11392727"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa008.fm.intel.com with ESMTP; 22 Nov 2026 12:24:24 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xVE6n-00000001M34-0rot;
+	Sun, 22 Nov 2026 20:24:21 +0000
+Date: Mon, 23 Nov 2026 04:23:58 +0800
+From: kernel test robot <lkp@intel.com>
+To: Sasha Finkelstein <k@chaosmail.tech>, Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Sasha Finkelstein <k@chaosmail.tech>
+Subject: Re: [PATCH v2 5/5] phy: apple: atc: Split generation-specific code
+Message-ID: <202611230426.XGazeYTu-lkp@intel.com>
+References: <20261122-t8122-phy-v2-5-8d5c8fdf31ba@chaosmail.tech>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,97 +90,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261122-rpmsg-qcom-glink-v2-2-d60419793095@ixit.cz>
-References: <20261122-rpmsg-qcom-glink-v2-0-d60419793095@ixit.cz>
-In-Reply-To: <20261122-rpmsg-qcom-glink-v2-0-d60419793095@ixit.cz>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Dylan Van Assche <git@dylanvanassche.be>, 
- Casey Connolly <casey.connolly@linaro.org>, linux-arm-msm@vger.kernel.org, 
- linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- phone-devel@vger.kernel.org, David Heidelberg <david@ixit.cz>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1867; i=david@ixit.cz;
- h=from:subject:message-id;
- bh=eIZGJEV5bvpHjBlQtn566xL+dxDC7tO9ywu0q8X1cHQ=;
- b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBrA09ysuizp1NKtYdtgBIsteeqYI5UrgT3HaQue
- IP+ojKIP5CJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCawNPcgAKCRBgAj/E00kg
- crObD/9zET8uD6rfp8sfJFqtGbV3/CcevOxnetsfGUZo3RHF24I6lulXMol7gNp6GETdPj/7+uh
- RZ3yCeOIID5XCnyNRbc87mtmPiBf33AC4jQv339fKgq2j8BVeea6NlGvx7e5874tvkTfRUy/KXJ
- Lvv65lH3cFe8Ho7MOpPX2bokJKVaGq7N9DGkqGUMkQPx8E2zmZUxkkhA6L9hnf7dff8obGIX7SQ
- xHSRok0FD3Uf6sYu/vMAi47qdF8F+W+GFXj7vA1EUbJtSFTVvZr05O0/hhsLSYDHW2zwt7d4Mn3
- BVJfMuyGDHoyMXIrRdKg4zlJ68Ts8mi1yLcU5SQI9BNg6mR/TZ/y0FoLDE7wUcXHpfm4lwMd+nW
- Iw4OedRlqSdfhUpQvDNgtxYozC+unhBFF3GK096OsDygeaMvFKFTJmeo/DiGhQpTJIYjwQhqB90
- ahbXpEr5v2yLNRmAS9CsFZjdqLL7lGH+QD7cJ2cBP+zmuUUAb0yhVIEF5vzkhN50JU4QJCsIjWe
- OF+apRKxBDtWjkOM0vbio7g5DM1NDXW83j3Xbgai1LeXn/l/Axrc+AkXAKUpxCghjc0jR47IgiE
- abdJhMSUXej45fI+5AnbyiMS50tro9bfkdpRRhQOO9XmLH0iQOSTAtOu68++GPk/mLRWlS8GjgF
- VejIIXG768DhhFw==
-X-Developer-Key: i=david@ixit.cz; a=openpgp;
- fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
-X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
-X-Original-From: David Heidelberg <david@ixit.cz>
-Reply-To: david@ixit.cz
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261122-t8122-phy-v2-5-8d5c8fdf31ba@chaosmail.tech>
 
-From: David Heidelberg <david@ixit.cz>
+Hi Sasha,
 
-Configure rpmsg character endpoint devices (/dev/rpmsgX) as wakeup
-capable and report a wakeup event when a message is received in
-rpmsg_ept_cb().
+kernel test robot noticed the following build errors:
 
-This allows userspace to opt in to system wakeups per endpoint via
-sysfs (/sys/class/rpmsg/rpmsgX/power/wakeup), covering dynamically
-created endpoints opened through /dev/rpmsg_ctrlX across all rpmsg
-transports without enabling wakeup by default.
+[auto build test ERROR on 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4]
 
-Signed-off-by: David Heidelberg <david@ixit.cz>
----
- drivers/rpmsg/rpmsg_char.c | 2 ++
- 1 file changed, 2 insertions(+)
+url:    https://github.com/intel-lab-lkp/linux/commits/Sasha-Finkelstein/dt-bindings-phy-atcphy-Add-M3-series/20261122-132757
+base:   6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+patch link:    https://lore.kernel.org/r/20261122-t8122-phy-v2-5-8d5c8fdf31ba%40chaosmail.tech
+patch subject: [PATCH v2 5/5] phy: apple: atc: Split generation-specific code
+config: x86_64-buildonly-randconfig-1005-20261122 (https://download.01.org/0day-ci/archive/20261123/202611230426.XGazeYTu-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261123/202611230426.XGazeYTu-lkp@intel.com/reproduce)
 
-diff --git a/drivers/rpmsg/rpmsg_char.c b/drivers/rpmsg/rpmsg_char.c
-index d8868faacdc3a..94307d1e0338b 100644
---- a/drivers/rpmsg/rpmsg_char.c
-+++ b/drivers/rpmsg/rpmsg_char.c
-@@ -119,16 +119,17 @@ static int rpmsg_ept_cb(struct rpmsg_device *rpdev, void *buf, int len,
- 	skb_put_data(skb, buf, len);
- 
- 	spin_lock(&eptdev->queue_lock);
- 	skb_queue_tail(&eptdev->queue, skb);
- 	spin_unlock(&eptdev->queue_lock);
- 
- 	/* wake up any blocking processes, waiting for new data */
- 	wake_up_interruptible(&eptdev->readq);
-+	pm_wakeup_hard_event(&eptdev->dev);
- 
- 	return 0;
- }
- 
- static int rpmsg_ept_flow_cb(struct rpmsg_device *rpdev, void *priv, bool enable)
- {
- 	struct rpmsg_eptdev *eptdev = priv;
- 
-@@ -446,16 +447,17 @@ static struct rpmsg_eptdev *rpmsg_chrdev_eptdev_alloc(struct rpmsg_device *rpdev
- 	skb_queue_head_init(&eptdev->queue);
- 	init_waitqueue_head(&eptdev->readq);
- 
- 	device_initialize(dev);
- 	dev->class = &rpmsg_class;
- 	dev->parent = parent;
- 	dev->groups = rpmsg_eptdev_groups;
- 	dev_set_drvdata(dev, eptdev);
-+	device_set_wakeup_capable(dev, true);
- 
- 	cdev_init(&eptdev->cdev, &rpmsg_eptdev_fops);
- 	eptdev->cdev.owner = THIS_MODULE;
- 
- 	return eptdev;
- }
- 
- static int rpmsg_chrdev_eptdev_add(struct rpmsg_eptdev *eptdev, struct rpmsg_channel_info chinfo)
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611230426.XGazeYTu-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/phy/apple/atc-t8103.c: In function 'atcphy_configure_pipehandler_usb3_host_t8103':
+>> drivers/phy/apple/atc-t8103.c:33:21: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
+      33 |                     FIELD_PREP(ACIOPHY_TOP_BIST_PHY_CFG1_LN0_PWR_DOWN, 3));
+         |                     ^~~~~~~~~~
+--
+   drivers/phy/apple/atc-t8122.c: In function 'atcphy_configure_pipehandler_usb3_host_t8122':
+>> drivers/phy/apple/atc-t8122.c:78:16: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
+      78 |                FIELD_PREP(ACIOPHY_BIST_MAC_USBPHY_CFG_OV1_LN0_PWR_DOWN_OV, 2),
+         |                ^~~~~~~~~~
+
+
+vim +/FIELD_PREP +33 drivers/phy/apple/atc-t8103.c
+
+    11	
+    12	static void atcphy_configure_pipehandler_usb3_host_t8103(struct apple_atcphy *atcphy)
+    13	{
+    14		int ret;
+    15		u32 reg;
+    16	
+    17		core_set32(atcphy, ACIOPHY_TOP_BIST_PHY_CFG0,
+    18			   ACIOPHY_TOP_BIST_PHY_CFG0_LN0_RESET_N);
+    19		core_set32(atcphy, ACIOPHY_TOP_BIST_OV_CFG, ACIOPHY_TOP_BIST_OV_CFG_LN0_RESET_N_OV);
+    20		ret = readl_poll_timeout(atcphy->regs.core + ACIOPHY_TOP_PHY_STAT, reg,
+    21					 !(reg & ACIOPHY_TOP_PHY_STAT_LN0_UNK23), 10, 10000);
+    22		if (ret)
+    23			dev_warn(atcphy->dev,
+    24				 "Timed out waiting for ACIOPHY_TOP_PHY_STAT_LN0_UNK23\n");
+    25	
+    26		core_set32(atcphy, ACIOPHY_TOP_BIST_READ_CTRL,
+    27			   ACIOPHY_TOP_BIST_READ_CTRL_LN0_PHY_STATUS_RE);
+    28		core_clear32(atcphy, ACIOPHY_TOP_BIST_READ_CTRL,
+    29			     ACIOPHY_TOP_BIST_READ_CTRL_LN0_PHY_STATUS_RE);
+    30	
+    31		core_mask32(atcphy, ACIOPHY_TOP_BIST_PHY_CFG1,
+    32			    ACIOPHY_TOP_BIST_PHY_CFG1_LN0_PWR_DOWN,
+  > 33			    FIELD_PREP(ACIOPHY_TOP_BIST_PHY_CFG1_LN0_PWR_DOWN, 3));
+    34	
+    35		core_set32(atcphy, ACIOPHY_TOP_BIST_OV_CFG,
+    36			   ACIOPHY_TOP_BIST_OV_CFG_LN0_PWR_DOWN_OV);
+    37		core_set32(atcphy, ACIOPHY_TOP_BIST_CIOPHY_CFG1,
+    38			   ACIOPHY_TOP_BIST_CIOPHY_CFG1_CLK_EN);
+    39		core_set32(atcphy, ACIOPHY_TOP_BIST_CIOPHY_CFG1,
+    40			   ACIOPHY_TOP_BIST_CIOPHY_CFG1_BIST_EN);
+    41		writel(0, atcphy->regs.core + ACIOPHY_TOP_BIST_CIOPHY_CFG1);
+    42	
+    43		ret = readl_poll_timeout(atcphy->regs.core + ACIOPHY_TOP_PHY_STAT, reg,
+    44					 (reg & ACIOPHY_TOP_PHY_STAT_LN0_UNK0), 10, 10000);
+    45		if (ret)
+    46			dev_warn(atcphy->dev,
+    47				 "timed out waiting for ACIOPHY_TOP_PHY_STAT_LN0_UNK0\n");
+    48	
+    49		ret = readl_poll_timeout(atcphy->regs.core + ACIOPHY_TOP_PHY_STAT, reg,
+    50					 !(reg & ACIOPHY_TOP_PHY_STAT_LN0_UNK23), 10, 10000);
+    51		if (ret)
+    52			dev_warn(atcphy->dev,
+    53				 "timed out waiting for ACIOPHY_TOP_PHY_STAT_LN0_UNK23\n");
+    54	
+    55		atcphy_clear_nonselected_phy_reset(atcphy);
+    56	
+    57		/* More BIST stuff (?) */
+    58		writel(0, atcphy->regs.core + ACIOPHY_TOP_BIST_OV_CFG);
+    59		core_set32(atcphy, ACIOPHY_TOP_BIST_CIOPHY_CFG1,
+    60			   ACIOPHY_TOP_BIST_CIOPHY_CFG1_CLK_EN);
+    61		core_set32(atcphy, ACIOPHY_TOP_BIST_CIOPHY_CFG1,
+    62			   ACIOPHY_TOP_BIST_CIOPHY_CFG1_BIST_EN);
+    63	}
+    64	
 
 -- 
-2.55.0
-
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
