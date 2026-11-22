@@ -1,58 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795365596;
-	b=tUwsKUOTBjYgDNzxcP/RBBaWlq2HZMFlk4XkyRbjDvUuu9KImPUh+5hHnhZaIpL7pBQH
-	 3fASP8dur7O1D2ckgqNxfSs8Yb2Bi0gq7IWyDc40ZFCaQ728awOsmUwVJX9aCX5HO6+Bg
-	 frGWjNPjnPFLv0SjxJW0/FUQ/SYI42X0D6aPopRXbclOafdBPmIns07oc9DbRnOcw3N1D
-	 s5jqp2o4+mQzhpBlfKVOoGiJFPiEZcGrgtcKiAYa7qz8kvyGvzepenTDAn+761y4ArK3w
-	 sXYVzynIhxTlRs3+Ozv7yR+W1WNdg/8aWLFpWM6Tr+eKcnSn1D/1sDJMP1HrcpTWW2g==
+	t=1795365697;
+	b=TCz4Kaaygzeebr+rxL4aT/5xO6tI7oOXAjwr/3rrxy5HYwN9i0YIYBjfh5t8+lWta2ME
+	 HWdX+Qj915sF3HoX30a9DGzOvVMgHx24IklL9KYGW1wuxeT0f2o0eEQ0CfVG4SgHgpAUR
+	 zlQBibEbA/Emn8l0AkVQ4YMwLUO2a65x61JWWUIGuJhEMSldKXFd4JZWrNLgUvxrLAwZr
+	 w2XB3HRHF1+BdwvU+L052rYoo2FRukt0zf7f3FKnL1L41/1z2vH4weHB72a5F8pBck/fd
+	 nEudaeyt9KIsVG2eZ81FZJP/lCBVnvWUnv/D8F68Dhu/57Yk2LFQRSmwaaOjyVgKmyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795365596;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=OoKBRcmrTDIDRIbLA9s0zXdXJ1T41upq0j5GITw3Se4=;
-	b=kjjIiI3aU0TsZ1yOBJvANWEbpX9eRGD3Mc4mdHqt6FydVMv+Wds13fqcEDslRpG04U42
-	 yVEzyY43Q0JOZX9qcSii8B8lKdlRToxPk3COuHUIYFPV2Jx0hVgHxo44E40Rp32decwyo
-	 ZQAxln+J6JWpyBOJW7sRnzm9aBHfIHi7rDkYLHKXuBkv/txISFyTiPGqIytE3FIMM5Xql
-	 yJ874ahSRHN+AuMbudq7399/5EpsjWbRPrpAARoLl4lyjxaB9Wuxa5xWUt+JAb+8eFzAk
-	 njMtJu1uo755rnjvxFwskpyPBxxEXzs8frJZj8B+KYyT15AiBPIkPJt1DUxO196Rr9Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795365697;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=ANyoMJ4I/ZZXkIVeIux+/xReRYj7vye3ccs0ubJ3Xyw=;
+	b=0e9OYkHAru/Nf552l4dDnXYvAH4VAfnzYupY/he630Erzabgt3O3a6VqZLUgKXbXmk4e
+	 qetVY9H5OZAGgEx2zBz2XPAhAer+40XID1SMmz4uy5P6MrpZuNGfICWdq7KysQv6CRvPB
+	 HMKtRi2bEJWYwXjxni3JUAuFTa39uN7+aN32CMTgz1tMweMCh3rdK6phBg1IN2PnDsMTy
+	 Q1hD5SA/nwCfNZGwWz4OW+2HOJRY43dMSvpKKdXNvbFgaeoX9KobOjKXa+3mZYP2EBP8i
+	 GMAnYe4yiWIJWlnIkj/Rdt3l9bI7g/gqepmN/s2EZNikwIG5Oj7/zNDUNyN38jyYQBw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=SF3dONSk;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ERyyMm6A;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 955EF606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 16:39:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 955EF606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAD9E606A320;
+	Sun, 22 Nov 2026 16:41:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=SF3dONSk
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 13CA9C6223F;
-	Sun, 22 Nov 2026 16:40:00 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 39EC060512;
-	Sun, 22 Nov 2026 16:39:53 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D1BB111E624BF;
-	Sun, 22 Nov 2026 17:39:48 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795365592; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=OoKBRcmrTDIDRIbLA9s0zXdXJ1T41upq0j5GITw3Se4=;
-	b=SF3dONSkTk5Y0vNM5gm5TfPWc+ZbCt79W+USBvAJ/dr8O9klVo8/nVANu7b5aKENGSa1zc
-	ETwJu+KtLet8uAatVZ1erSu371CpbWEeuRY8i9Q2b5VL3k1LKytC2MK6uH1LmGU/g7TbOO
-	QN2tW15nb1pcEZFSaKDHHKmCiMvsDcMuludPaXVnKP5YIOCE4bP3LjvTcvVGoSymalLgeE
-	cAgSK42KPCgOsUdoMVMg+uLfYs4UTfHGrNFml7Iq6iZg3kUjSLSWqOerzRL4pVT5Y8ohqJ
-	VZmy9aWrGexT+6C1PUj7mQyrKxVQxbvpdYO7jZXwDswLlMnQ4FjcA6b/4EhTcw==
-Message-ID: <b5b6953e-6b17-4de3-b3b7-789a415e03ef@bootlin.com>
-Date: Sun, 22 Nov 2026 17:39:47 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ERyyMm6A
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 382051F000CA;
+	Sun, 22 Nov 2026 16:41:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795365697;
+	bh=ANyoMJ4I/ZZXkIVeIux+/xReRYj7vye3ccs0ubJ3Xyw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ERyyMm6AnaavY8k/uoU70c0I7e+zy5Jtz9KGcEokl7mSZ8bKpkKhwU6XvGPpIU841
+	 HcC6mpcSn4YpN423gWoR8vvCiC4O5i6UZksZIf7kQDGwNdBA1Zn0p6wwVI1j3EOgej
+	 p6Czj/jU0ur1qBXLvND05IbSwSgJkY3mgQrmnbtG0lBXxtc+H4nmctHxpcHRMxpp/j
+	 Cj1viyhdo6uLniYn523y5cjhZ5CcrutY0Zp3Hr0yCYi90HQ+RBqRMo2X0N7Bx4LR6z
+	 vHxLwmITxZ9NEsdRKKCLwHBKp1hG5Gp+Frpt/os6hCKfyEmbLg/wOwxCvT4GtZ33+F
+	 /xNgxa+sSWYhw==
+Date: Sun, 22 Nov 2026 17:41:33 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Wangao Wang <wangao.wang@oss.qualcomm.com>
+Cc: Bryan O'Donoghue <bod@kernel.org>, 
+	Vikash Garodia <vikash.garodia@oss.qualcomm.com>, Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Stanimir Varbanov <stanimir.k.varbanov@gmail.com>, Abhinav Kumar <abhinav.kumar@linux.dev>, 
+	Hans Verkuil <hverkuil+cisco@kernel.org>, Vishnu Reddy <busanna.reddy@oss.qualcomm.com>, 
+	linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/5] media: iris: add support for maili platform
+Message-ID: <20261122-mature-rare-saiga-c0d3c0@quoll>
+References: <20261119-add_iris_for_maili-v3-0-d47d047a3f7c@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,102 +63,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: stmmac: eic7700: Use
- syscon_regmap_lookup_by_phandle_args
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-References: <20261121170753.161170-2-krzysztof.kozlowski@oss.qualcomm.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261121170753.161170-2-krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20261119-add_iris_for_maili-v3-0-d47d047a3f7c@oss.qualcomm.com>
 
-On 11/21/26 18:07, Krzysztof Kozlowski wrote:
-> Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
-> syscon_regmap_lookup_by_phandle() combined with getting the syscon
-> argument.  Except simpler code this annotates within one line that given
-> phandle has arguments, so grepping for code would be easier.
-> 
-> There is also no real benefit in printing errors of missing individual
-> syscon arguments, because this is done just too late: runtime check on
-> static/build-time data.  Dtschema and Devicetree bindings offer the
-> static/build-time check for this already.  OTOH,
-> syscon_regmap_lookup_by_phandle_args() already handles error case if the
-> number of arguments is too low, thus switch is safe.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+On Thu, Nov 19, 2026 at 01:13:23PM +0800, Wangao Wang wrote:
+> This series enables the Iris video codec on Maili, allowing Maili to
+> use hardware=E2=80=91accelerated video encoding and decoding.
+>=20
+> Compared to the Iris3 generation, this block has
+> - separate power domains for stream and pixel processing hardware blocks
+>   (bse and vpp).
+> - different clocks and reset lines.
+>=20
+> fluster result:
+> H.264:
+> Ran 76/135 tests successfully
+>=20
+> H.265:
+> Ran 138/147 tests successfully
+>=20
+> VP9:
+> Ran 235/305 tests successfully
+>=20
+> Dependency:
+> Dependency:
+> https://lore.kernel.org/linux-arm-msm/20261103-vpu_iommu_iova_handling-v6=
+-0-e4b6ad864f8f@oss.qualcomm.com/
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+This cannot be applied, not mentioning that itself has dependencies. So
+you depend on patches which depend on patches and none of these can be
+applied due to conflicts or some other issues.
 
-Thank you,
+> https://lore.kernel.org/linux-arm-msm/20260917-glymur-v11-3-e0c8bc914742@=
+oss.qualcomm.com/
 
-Maxime
+Also cannot be applied.
 
-> ---
->  .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 30 +++++--------------
->  1 file changed, 8 insertions(+), 22 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> index c229275b11b3..287f717ab3ed 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> @@ -170,6 +170,7 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
->  	struct plat_stmmacenet_data *plat_dat;
->  	struct stmmac_resources stmmac_res;
->  	struct eic7700_qos_priv *dwc_priv;
-> +	unsigned int hsp_args[3];
->  	u32 delay_ps, val;
->  	int i, ret;
->  
-> @@ -254,33 +255,18 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
->  	}
->  
->  	dwc_priv->eic7700_hsp_regmap =
-> -			syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
-> -							"eswin,hsp-sp-csr");
-> +		syscon_regmap_lookup_by_phandle_args(pdev->dev.of_node,
-> +						     "eswin,hsp-sp-csr",
-> +						     ARRAY_SIZE(hsp_args),
-> +						     hsp_args);
->  	if (IS_ERR(dwc_priv->eic7700_hsp_regmap))
->  		return dev_err_probe(&pdev->dev,
->  				PTR_ERR(dwc_priv->eic7700_hsp_regmap),
->  				"Failed to get hsp-sp-csr regmap\n");
->  
-> -	ret = of_property_read_u32_index(pdev->dev.of_node,
-> -					 "eswin,hsp-sp-csr",
-> -					 1, &dwc_priv->eth_phy_ctrl_offset);
-> -	if (ret)
-> -		return dev_err_probe(&pdev->dev, ret,
-> -				     "can't get eth_phy_ctrl_offset\n");
-> -
-> -	ret = of_property_read_u32_index(pdev->dev.of_node,
-> -					 "eswin,hsp-sp-csr",
-> -					 2, &dwc_priv->eth_axi_lp_ctrl_offset);
-> -	if (ret)
-> -		return dev_err_probe(&pdev->dev, ret,
-> -				     "can't get eth_axi_lp_ctrl_offset\n");
-> -
-> -	ret = of_property_read_u32_index(pdev->dev.of_node,
-> -					 "eswin,hsp-sp-csr",
-> -					 3, &dwc_priv->eth_clk_offset);
-> -	if (ret)
-> -		return dev_err_probe(&pdev->dev, ret,
-> -				     "can't get eth_clk_offset\n");
-> +	dwc_priv->eth_phy_ctrl_offset = hsp_args[0];
-> +	dwc_priv->eth_axi_lp_ctrl_offset = hsp_args[1];
-> +	dwc_priv->eth_clk_offset = hsp_args[2];
->  
->  	ret = of_property_read_u32_index(pdev->dev.of_node,
->  					 "eswin,hsp-sp-csr",
+> The above patchset cannot apply cleanly; I have rebased it locally and=20
+> tested it. And only the third patch from glymur is needed.
+
+Dropping from DT patchwork. Combine with dependencies.
+
+Best regards,
+Krzysztof
 
