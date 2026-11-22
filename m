@@ -1,54 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795315659;
-	b=IFUdIzkD5OKKymyeCUyzKnRUUIWzeWGo2pwgNJPuQPws9bZbQeDfH/tllCQKzECbyaym
-	 F3YrMk4q0BU6cYX8uaciF9MN33sPZ5mUj6W6s8rryY8n9ODLwgnCWhRUOilaL1m9jah+v
-	 IolhNAn2zDmXpac0PpbhXj51bvtTrODo/uYJU/V3AZ9O8IeRjJyh4NZAfVyW2ALJjRBF/
-	 xFUCjVtj+SD5kRk4DT5YUYcsQDE/KhLf2FNZahnJyugCI+1JPSBdKTUInK402PDQaAO3r
-	 un4Ck4hJsxWmSJyEXF/68QmmdAWdAQiTXLRY/0G5INBgrKTYhquE2/T8YaxlxU6VmYw==
+	t=1795315673;
+	b=kk6qW8erMofu0tE/H+D8P/qx4PD95oiSMRU7ekB/cvhyOaqaFT8VnZk+QNTs01HBIRKN
+	 D0cwdKjppF4EtP5EDlVENVCFaZR5syQtlzy0HWLS+yFU7M1F6LrSAUeNWIAhG9NPNyry7
+	 ZT9+q1CMgEfwNeUB/D0sU26cjK/GXP7fBCYsrzaHCC3K0ijRo3UpuJms/TtCvTp3iYIKj
+	 G7WUPm+23TBX1xfgYdP13NBfLY7KmmozbI/FYYnUe9rVzP2TpYK/KfyY07/C7HlMkBusL
+	 1pP2gtkxrjyB9BKhHubDxFiVkGezdKeWohJspsiFEUR2fFzmmbAtyd0NCHUGkWoCwkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795315659;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=lL/THoILJiW6pgxs4ubqmloSb9umCQCZoio7Gq7Xgjs=;
-	b=JZ3fRQ1RWOa00adT2baG5gb1FNgoOQQa3KPuFYGVBV8Evbpc/qy5N6OKb68bM+1e8Sx/
-	 DHBh4yVUPy+KsuwJYoNT25APMs3V5GFqSV4IRPygFW724sFmVIGkaUDUmSoALkYg7EJvC
-	 +i9G7wahv6UHlaiHWYMVP/A6sCRHtqCWaPXB50tSQBpK4/uzohA1juhRZkkFONrl0Ga2I
-	 KKGsMLHHZB+KW9SZ+CtuNeS3XZCY6r8hCtjCsnJz2PpdKitin7GoopGIjvM4j4aYBLTKL
-	 3WVaeW0UZFpwQomgzph3A5vSkaoc9mHu59ZUeC/rsMqJ0BwZF0WHf/P+h/ibjXAk5Yg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795315673;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=bOrv+xLYUsaUyXaSe+BARibazXC+W+FOt8ErwK+aCss=;
+	b=w6hY4OU150S3JfPX2HdlPaH8Q9M0yw11YM6wRnnDxcSeCkHIGyRKPjLnzuYvY1AgUCBh
+	 YdIeMq9vwe+fqVkubCwIPINGAFdYccJUHJMtpd7UyR9ER6lahjck4l85bIlTv2urpKjPV
+	 6ZjLb15rJY8v5yRJdtkz0zxI2w7WpKNKH3Wb+utxR9nLtf+1ehflhlfYh9kYFXXiJdPEf
+	 C7YN7uqC7Jty77lAJbkssSW3r+LZ24Czl6+S8kq0io3Kvr3+1XidTB3uKtyptqI1uMhHK
+	 36yyVxRaQhmzYZYE2aVTmEs4ChyYwGt0wLdXvR2exwcv4hkDWZ3nJTR1TQ0fyJgMbWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.197
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GvsIzOyn;
+	arc=none smtp.remote-ip=91.218.175.178
+Received: from mta0.migadu.com (out-178.mta0.migadu.com [91.218.175.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6969A606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:47:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6969A606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-4dab94dc3e7so5353052b6e.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:47:39 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795315658; x=1795920458;
-        h=content-type:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=lL/THoILJiW6pgxs4ubqmloSb9umCQCZoio7Gq7Xgjs=;
-        b=0NUmVy593IvT9E1LczELJamDdjZN5FNWXcoJCJU82s9Jaja3xOk5bcdt4Y6ap5CCr8
-         e4P20zCxxp7O1ownIcld62+4K9MSOd0/EgniQYJtJadRZBlfJGn9vsImMYzV2aeAwHln
-         VhIMa+eCReDQWAJY7BZZy2r8Nn+M362RPqjiw2ZEc3Orykvul5MPDAoczMQHJsXy16ON
-         fLCODpE8bmbDBzOsUh920k9WNEzruUpyuPl8vCBuWQ/5s09dw9XBrnCQQdAXvUSSWkHD
-         OMA+BWPuI0HGTu6D61Mbixz+43wf4LTb6g5WfxqwSXoGF1L+aSZTSRhMFP80xfu4Oezk
-         oZrQ==
-X-Forwarded-Encrypted: i=1; AL+hErHv7EX8rXIqxpDmdhKBpOxq+GlymDgd4p+BWcsM6fCqQAmaXVxDjZgIxM/0bh2lmlITIDW65RiOsCy0YJE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8XJh/deY+uhdWgnYsLuKn6vp9HucKEFxDpZ+B6UtwbLXvGgfNS
-	8KdnXqK4TUna/PA8r3kZgqdFWZair5DpgMHK7HEste0148eb91d37RMZ9/aW6ugn11qTqNylGmE
-	gBzcmp0FE3H6x6VeRAv7WAbx4/vaYwzTY6q3n6+0fKmE8kwf3fVGWu00b/1g=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC1FC606A68E
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:47:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC1FC606A68E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GvsIzOyn
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=rzojMZvLtM9+3SwUWO3HxhYcavbGDeGlgbRtLOpYVG4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795315670; v=1; x=1795920470;
+ b=GvsIzOyniRqJWLrSd29NQaoEIkIBRxfPl1mYz3guSdKs+KeehSOg3M+BN50opEeuSqRggTiN
+ CrDymRoMXbaBZOcBSu1ZvDpQZo+XbrlbHRZH2prtGrrSy/q2pdLsCv2fj5vqqm0m0DMxFHjbCmv
+ Q1sqNC33JjQdqb18hpwpuG/8=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 313eb3f773ebefb2;
+	Sun, 22 Nov 2026 02:47:49 +0000
+X-Mizu-Trace-ID: 313eb3f773ebefb2
+X-Migadu-Flow: FLOW_OUT
+From: Shakeel Butt <shakeel.butt@linux.dev>
+To: Tejun Heo <tj@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>
+Cc: Johannes Weiner <hannes@cmpxchg.org>,
+	Michal Koutny <mkoutny@suse.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Michal Hocko <mhocko@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Muchun Song <muchun.song@linux.dev>,
+	Jan Kara <jack@suse.cz>,
+	Matthew Wilcox <willy@infradead.org>,
+	David Hildenbrand <david@kernel.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Zi Yan <ziy@nvidia.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Nico Pache <nico.pache@linux.dev>,
+	Usama Arif <usama.arif@linux.dev>,
+	Kiryl Shutsemau <kas@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Meta kernel team <kernel-team@meta.com>,
+	cgroups@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-btrfs@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH 0/7] memcg: effective high limit that avoids isolation issues
+Date: Sat, 21 Nov 2026 18:47:30 -0800
+Message-ID: <20261122024737.2741569-1-shakeel.butt@linux.dev>
+X-Mailer: git-send-email 2.53.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,217 +85,189 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:1711:b0:568:e5f:5dbe with SMTP id
- 5614622812f47-57a0d0ee5b6mr8092694b6e.61.1795315658438; Sat, 21 Nov 2026
- 18:47:38 -0800 (PST)
-Date: Sat, 21 Nov 2026 18:47:38 -0800
-In-Reply-To: <6b007186.91c4c7f9.2424d6.0003.GAE@google.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b0257ca.6ccd1e40.868ea.001a.GAE@google.com>
-Subject: Re: [syzbot] [ocfs2?] possible deadlock in shrinker_free
-From: syzbot <syzbot+38fdbb551940270021f1@syzkaller.appspotmail.com>
-To: akpm@linux-foundation.org, heming.zhao@suse.com, jlbec@evilplan.org, 
-	joseph.qi@linux.alibaba.com, linux-kernel@vger.kernel.org, mark@fasheh.com, 
-	ocfs2-devel@lists.linux.dev, syzkaller-bugs@googlegroups.com, 
-	zzzccc427@gmail.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-syzbot has found a reproducer for the following issue on:
+(My initial plan [1, 2] was to track kernel lock holders, let them
+bypass memcg limits and throttle them on unlock or on return to
+userspace. I was asked to look for alternative solutions, and this
+series is one.)
 
-HEAD commit:    f802b6558eb8 Merge tag 'xfs-fixes-7.4-rc4' of git://git.ke..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-console output: https://syzkaller.appspot.com/x/log.txt?x=141d98e9580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=3cc6a7ee2d24d208
-dashboard link: https://syzkaller.appspot.com/bug?extid=38fdbb551940270021f1
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=10918a03580000
+memcg limits can cause isolation problems. A task stuck in limit
+enforcement in the charge path keeps holding its locks, and tasks in
+other cgroups that need them wait for a limit that has nothing to do
+with them. btrfs, for example, charges its tree blocks to the root
+cgroup for this reason [3].
 
-The issue was bisected by AI to:
+We see this in Meta's fleet. Over 28 days, on several tens of
+thousands of unique hosts, a bpftrace script [4] recorded sleeping
+locks held in memcg reclaim while another task waited for them. Most
+belong to the reclaiming workload, like its mmap_lock (680,579
+times, up to 4.7s), but some are shared by the whole machine or a
+whole filesystem:
 
-commit f277230d002d03ed98b814b735f9d3d01b42020a
-Author: Cen Zhang <zzzccc427@gmail.com>
-Date:   Fri Oct 30 04:48:56 2026 +0000
+- cgroup_mutex, used by every cgroup change. mkdir charges the new
+  memcg to the parent while holding it, and reclaims if the parent is
+  at its limit: 350 times, up to 2.5s.
+- kernfs_rwsem, used by cgroupfs lookups. The kernfs notification
+  worker held it while queueing inotify events charged to the
+  watcher's cgroup: 2,324 times, up to 3.3s.
+- btrfs tree locks, used by every b-tree search and change. On kernels
+  with [3], the XArray nodes that index tree blocks are still charged
+  to the task, so tasks reclaimed with tree locks held 2,853 times,
+  850 of them with a root node locked, up to 2.6s.
 
-    ocfs2: serialize inode journal access with shutdown
+Hung-task reports show worse cases. A container's systemd created a
+cgroup while its own cgroup was over memory.high, and mkdir ran
+memory.high reclaim with cgroup_mutex and the parent directory's lock
+held for over 30 minutes. The host's systemd, tasks forking into
+cgroups, oomd and a monitoring agent all waited, so the userspace OOM
+killer could not even read the cgroup tree.
 
-AI reasoning:   https://syzkaller.appspot.com/ai_job?id=0e68af1a-9a2b-4aad-b8ed-125ab8c4ed0a
+memory.max is a hard limit, so this series does not change it.
+memory.high doesn't have to be enforced in the charge path: since
+commit b23afb93d317 ("memcg: punt high overage reclaim to
+return-to-userland path"), the charge only records the overage (usage
+above the limit), and the task reclaims and is throttled on return to
+userspace, where it holds no locks. Avoiding this priority inversion
+was one of the reasons for that commit.
 
-AI-generated root cause summary:
-ocfs2_journal_shutdown() holds down_write(&osb->journal_shutdown_sem) across
-jbd2_journal_destroy(), which invokes shrinker_free() and acquires
-shrinker_mutex, establishing &osb->journal_shutdown_sem -> shrinker_mutex.
-Meanwhile, shrinker_mutex is held across GFP_KERNEL allocations (e.g.,
-alloc_shrinker_info()), establishing shrinker_mutex -> fs_reclaim, and memory
-reclaim can reach ocfs2_evict_inode() / ocfs2_clear_inode() via
-super_cache_scan() and acquire down_read(&osb->journal_shutdown_sem),
-establishing fs_reclaim -> &osb->journal_shutdown_sem. Lockdep reports this
-3-lock cycle as a circular locking dependency because it does not track the
-mutual exclusion provided by sb->s_umount via super_trylock_shared().
+But return to userspace is too late when one system call charges a
+lot, like mlock() of a large range. So commit c9afe31ec443 ("memcg:
+synchronously enforce memory.high for large overcharges") handles the
+overage in the charge itself when the charge can block and more than
+a batch is pending. That brought the problem back: the task reclaims
+and sleeps, up to 2s per call, under whatever locks it holds. It also
+misses THP charges outside MADV_HUGEPAGE ranges, which can't block
+under the default defrag setting. RESULTS shows both problems.
 
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=38fdbb551940270021f1
+This series is a first step in rethinking the memcg high limit around
+isolation. It makes memory.high enforcement asynchronous (to
+allocation and charging) again and keeps it effective for large calls.
+The task handles the overage on return to userspace, and also inside
+the operations that can charge a lot in one call, where it holds no
+locks or only the locks of the file it works on:
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+38fdbb551940270021f1@syzkaller.appspotmail.com
+- Populating memory (mlock, mlockall, MAP_POPULATE, MAP_LOCKED,
+  MADV_POPULATE_*): 2M at a time, with mmap_lock dropped in between.
+- tmpfs fallocate, buffered writes (generic_perform_write(), iomap,
+  btrfs) and reads into user memory (filemap_read(), shmem): once per
+  folio or range.
+- MADV_COLLAPSE: after each collapse, with mmap_lock dropped.
 
-The cause commit was identified by AI and may be wrong.
-If you agree with it, please also add:
-Fixes: f277230d002d ("ocfs2: serialize inode journal access with shutdown")
+These points also throttle THP charges, which the synchronous step
+skips. A file's lock only blocks tasks using that file. Two cases hold
+more: splice() from a pipe also holds the pipe's lock, and gfs2 holds
+its allocation glocks in writes that allocate. The synchronous step
+sleeps with these locks today too.
 
-======================================================
-WARNING: possible circular locking dependency detected
-syzkaller #0 Not tainted
-------------------------------------------------------
-syz-executor875/5689 is trying to acquire lock:
-ffffffff902617a0 (shrinker_mutex){+.+.}-{4:4}, at: shrinker_free+0xdb/0x3b0 mm/shrinker.c:809
+Why not keep the synchronous step, with a higher threshold, without
+its sleep, or only outside these operations? It would still reclaim or
+sleep under locks, like mmap_lock in THP faults and invalidate_lock in
+readahead, and it would not close the THP gap.
 
-but task is already holding lock:
-ffff8880421282f8 (&osb->journal_shutdown_sem){++++}-{4:4}, at: ocfs2_journal_shutdown+0x4ec/0xb40 fs/ocfs2/journal.c:1122
+This also lets users drop memory.max, which still reclaims in the
+charge path and can stall lock holders as above. They can set only
+memory.high and let a userspace OOM killer like oomd [5], or a future
+BPF OOM policy [6], decide when to kill. Meta plans to do this.
 
-which lock already depends on the new lock.
+The last two patches remove the synchronous step, update the
+memory.high documentation and fix test_memcg_high_sync, which missed
+the THP gap.
+
+RESULTS
+
+Tests run in a VM with 4 CPUs and THP on for anonymous memory and
+shmem (enabled=always, shmem_enabled=always, tmpfs huge=always, the
+default defrag=madvise), in a cgroup with memory.high=64M. Reads go
+into an untouched buffer. "No hooks" is the base plus only the patch
+that removes the synchronous step. Usage 18s into a 512M operation,
+without swap:
+
+  test                                    base  series  no hooks
+  mlock, mlockall, MAP_POPULATE,      513-514M     84M  513-514M
+    MADV_POPULATE_WRITE
+  tmpfs fallocate and write           512-513M     84M  512-513M
+  reads of a tmpfs file                   513M  84-85M      513M
+  MADV_COLLAPSE of a sparse range          96M     98M      514M
+    (one VMA, or one VMA per PMD)
+  reads of /dev/zero or /dev/urandom      513M    513M      513M
+    (known gaps)
+
+Usage grows by one 2M folio per throttle, so it is 84-85M after 18s.
+On ext4, XFS and btrfs, 256M writes stay at 64-67M on both kernels
+(257-264M with no hooks), and reads with a cold page cache at 70-73M.
+Reads with a warm page cache, where only the buffer is charged, reach
+257M on base and stay at 84-85M with the series.
+
+With swap, the MAP_POPULATE, MADV_POPULATE_WRITE and tmpfs write tests
+finish in under 2s at 65-66M with the series (base: 157-169M, no hooks:
+513M). tmpfs fallocate is throttled with or without swap. With swap,
+base fails it with -ENOMEM for small pages.
+
+During mlock() of an 80M MADV_HUGEPAGE range, a task in another cgroup
+that reads the process's /proc/<pid>/cmdline every 10ms waits up to
+15.3s on base and under 1ms with the series. Populating 2G with no
+limit takes the same time on both kernels.
+
+All patches build with gcc and clang (W=1), with CONFIG_MEMCG=n and
+with btrfs as a module. A lockdep kernel showed no warnings. The
+memcontrol selftests pass, and the fixed test_memcg_high_sync fails on
+base.
+
+KNOWN GAPS
+
+Other paths that charge a lot in one call are now throttled only on
+return to userspace, and memory.max still limits them. Most can get a
+throttle point later, some after dropping a lock:
+
+- /dev/zero and /dev/urandom reads, getrandom(), sendfile() to a
+  socket, io_uring submissions, netfs and FUSE write-through writes
+- MADV_WILLNEED, UFFDIO_COPY, KSM unmerge, mprotect() of mlocked
+  mappings
+- FIDEDUPERANGE, FS_IOC_ENABLE_VERITY, KVM_PRE_FAULT_MEMORY,
+  guest_memfd fallocate, KVM page splitting
+
+Rarer ones, like sendmmsg(), btrfs send and FITRIM, can wait. Memory
+pinning (VFIO, iommufd, RDMA, io_uring buffers, direct I/O and
+others), fork() and single large allocations (BPF maps and others)
+hold a lock for the whole call or can't be split, so they stay as they
+are.
+
+[1] https://lore.kernel.org/20260924155025.949998-1-shakeel.butt@linux.dev/
+[2] https://lore.kernel.org/20260921192559.2619635-1-shakeel.butt@linux.dev/
+[3] commit cf1dec76ba8a ("mm/filemap: add AS_KERNEL_FILE")
+[4] https://github.com/bpftrace/user-tools/tree/master/reclaimlockmonitor
+[5] https://github.com/facebookincubator/oomd
+[6] https://lore.kernel.org/20260127024421.494929-1-roman.gushchin@linux.dev
+
+Based on mm-everything-2026-11-20-06-34.
+
+Shakeel Butt (7):
+  memcg: add helpers to handle memory.high overage in long operations
+  mm/gup: handle memory.high overage while populating
+  mm, fs: handle memory.high overage in buffered reads and writes
+  mm/shmem: handle memory.high overage in fallocate and reads
+  mm/khugepaged: handle memory.high overage in MADV_COLLAPSE
+  memcg: remove synchronous memory.high enforcement
+  selftests/cgroup: make test_memcg_high_sync check that throttling
+    holds
+
+ Documentation/admin-guide/cgroup-v2.rst       | 12 +++++-
+ fs/btrfs/file.c                               |  9 +++++
+ fs/iomap/buffered-io.c                        |  9 +++++
+ include/linux/memcontrol.h                    | 34 ++++++++++++++++
+ mm/filemap.c                                  | 31 +++++++++++++++
+ mm/gup.c                                      |  9 ++++-
+ mm/internal.h                                 | 27 +++++++++++++
+ mm/khugepaged.c                               |  8 ++++
+ mm/madvise.c                                  | 11 +++++-
+ mm/memcontrol.c                               | 21 ++++------
+ mm/shmem.c                                    | 37 ++++++++++++++++--
+ .../selftests/cgroup/test_memcontrol.c        | 39 +++++++++++++++----
+ 12 files changed, 217 insertions(+), 30 deletions(-)
 
 
-the existing dependency chain (in reverse order) is:
+base-commit: b298839c2f77b60eea645a68d2245aa088463955
+-- 
+2.53.1-Meta
 
--> #2 (&osb->journal_shutdown_sem){++++}-{4:4}:
-       down_read+0x45/0x320 kernel/locking/rwsem.c:1574
-       ocfs2_clear_inode fs/ocfs2/inode.c:1326 [inline]
-       ocfs2_evict_inode+0x2dd8/0x43c0 fs/ocfs2/inode.c:1343
-       evict+0x6bf/0xc20 fs/inode.c:829
-       ocfs2_dentry_iput+0x24d/0x390 fs/ocfs2/dcache.c:407
-       dentry_kill+0x1b9/0x910 fs/dcache.c:857
-       shrink_kill fs/dcache.c:1317 [inline]
-       shrink_dentry_list+0x209/0x310 fs/dcache.c:1334
-       prune_dcache_sb+0x119/0x180 fs/dcache.c:1416
-       super_cache_scan+0x362/0x4a0 fs/super.c:225
-       do_shrink_slab+0x6d0/0x10d0 mm/shrinker.c:452
-       shrink_slab_memcg mm/shrinker.c:569 [inline]
-       shrink_slab+0x838/0x1210 mm/shrinker.c:647
-       shrink_one+0x396/0x10f0 mm/vmscan.c:5320
-       shrink_many mm/vmscan.c:5381 [inline]
-       lru_gen_shrink_node mm/vmscan.c:5459 [inline]
-       shrink_node+0x631e/0x6c50 mm/vmscan.c:6465
-       __node_reclaim+0x2f4/0xa10 mm/vmscan.c:8012
-       user_proactive_reclaim+0x699/0x8d0 mm/vmscan.c:8202
-       reclaim_store+0x69/0xb0 mm/vmscan.c:8268
-       kernfs_fop_write_iter+0x3a4/0x540 fs/kernfs/file.c:345
-       new_sync_write fs/read_write.c:575 [inline]
-       vfs_write+0x612/0xba0 fs/read_write.c:667
-       ksys_write+0x150/0x270 fs/read_write.c:719
-       do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
-       do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
-       entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
--> #1 (fs_reclaim){+.+.}-{0:0}:
-       __fs_reclaim_acquire mm/page_alloc.c:4388 [inline]
-       fs_reclaim_acquire+0x71/0x100 mm/page_alloc.c:4402
-       might_alloc include/linux/sched/mm.h:316 [inline]
-       slab_pre_alloc_hook mm/slub.c:4673 [inline]
-       slab_alloc_node mm/slub.c:5011 [inline]
-       __do_kmalloc_node mm/slub.c:5530 [inline]
-       __kvmalloc_node_noprof+0x134/0x820 mm/slub.c:7143
-       alloc_shrinker_info+0xe9/0x400 mm/shrinker.c:101
-       mem_cgroup_css_online+0x84/0x7b0 mm/memcontrol.c:4396
-       online_css+0xbf/0x310 kernel/cgroup/cgroup.c:5903
-       css_create kernel/cgroup/cgroup.c:5983 [inline]
-       cgroup_apply_control_enable+0x9ed/0xda0 kernel/cgroup/cgroup.c:3474
-       cgroup_mkdir+0x1220/0x14b0 kernel/cgroup/cgroup.c:6188
-       kernfs_iop_mkdir+0x213/0x360 fs/kernfs/dir.c:1304
-       vfs_mkdir+0x411/0x660 fs/namei.c:5428
-       filename_mkdirat+0x284/0x550 fs/namei.c:5461
-       __do_sys_mkdirat fs/namei.c:5482 [inline]
-       __se_sys_mkdirat+0x35/0x150 fs/namei.c:5479
-       do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
-       do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
-       entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
--> #0 (shrinker_mutex){+.+.}-{4:4}:
-       check_prev_add kernel/locking/lockdep.c:3209 [inline]
-       check_prevs_add kernel/locking/lockdep.c:3328 [inline]
-       validate_chain kernel/locking/lockdep.c:3952 [inline]
-       __lock_acquire+0x164c/0x2de0 kernel/locking/lockdep.c:5288
-       lock_acquire+0x115/0x350 kernel/locking/lockdep.c:5942
-       __mutex_lock_common kernel/locking/mutex.c:646 [inline]
-       __mutex_lock+0x197/0x15a0 kernel/locking/mutex.c:821
-       shrinker_free+0xdb/0x3b0 mm/shrinker.c:809
-       jbd2_journal_destroy+0x606/0x7e0 fs/jbd2/journal.c:2178
-       ocfs2_journal_shutdown+0x517/0xb40 fs/ocfs2/journal.c:1125
-       ocfs2_dismount_volume+0x3c9/0x860 fs/ocfs2/super.c:1874
-       generic_shutdown_super+0x140/0x2d0 fs/super.c:723
-       kill_block_super+0x44/0xa0 fs/super.c:1852
-       deactivate_locked_super+0xbe/0x110 fs/super.c:558
-       cleanup_mnt+0x204/0x2a0 fs/namespace.c:1396
-       task_work_run+0x1d9/0x260 kernel/task_work.c:233
-       resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
-       __exit_to_user_mode_loop kernel/entry/common.c:70 [inline]
-       exit_to_user_mode_loop+0x204/0x770 kernel/entry/common.c:101
-       __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline]
-       syscall_exit_to_user_mode_prepare include/linux/irq-entry-common.h:230 [inline]
-       syscall_exit_to_user_mode include/linux/entry-common.h:343 [inline]
-       do_syscall_64+0x336/0x540 arch/x86/entry/syscall_64.c:107
-       entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
-other info that might help us debug this:
-
-Chain exists of:
-  shrinker_mutex --> fs_reclaim --> &osb->journal_shutdown_sem
-
- Possible unsafe locking scenario:
-
-       CPU0                    CPU1
-       ----                    ----
-  lock(&osb->journal_shutdown_sem);
-                               lock(fs_reclaim);
-                               lock(&osb->journal_shutdown_sem);
-  lock(shrinker_mutex);
-
- *** DEADLOCK ***
-
-locks held by syz-executor875/5689: 2, on CPU#0:
- #0: ffff88804f39a100 (&type->s_umount_key#56){++++}-{4:4}, at: __super_lock fs/super.c:60 [inline]
- #0: ffff88804f39a100 (&type->s_umount_key#56){++++}-{4:4}, at: __super_lock_excl fs/super.c:75 [inline]
- #0: ffff88804f39a100 (&type->s_umount_key#56){++++}-{4:4}, at: deactivate_super+0xac/0xe0 fs/super.c:585
- #1: ffff8880421282f8 (&osb->journal_shutdown_sem){++++}-{4:4}, at: ocfs2_journal_shutdown+0x4ec/0xb40 fs/ocfs2/journal.c:1122
-
-stack backtrace:
-CPU: 0 UID: 0 PID: 5689 Comm: syz-executor875 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-Call Trace:
- <TASK>
- dump_stack_lvl+0xe8/0x150 lib/dump_stack.c:120
- print_circular_bug+0x2e2/0x300 kernel/locking/lockdep.c:2087
- check_noncircular+0x12f/0x150 kernel/locking/lockdep.c:2219
- check_prev_add kernel/locking/lockdep.c:3209 [inline]
- check_prevs_add kernel/locking/lockdep.c:3328 [inline]
- validate_chain kernel/locking/lockdep.c:3952 [inline]
- __lock_acquire+0x164c/0x2de0 kernel/locking/lockdep.c:5288
- lock_acquire+0x115/0x350 kernel/locking/lockdep.c:5942
- __mutex_lock_common kernel/locking/mutex.c:646 [inline]
- __mutex_lock+0x197/0x15a0 kernel/locking/mutex.c:821
- shrinker_free+0xdb/0x3b0 mm/shrinker.c:809
- jbd2_journal_destroy+0x606/0x7e0 fs/jbd2/journal.c:2178
- ocfs2_journal_shutdown+0x517/0xb40 fs/ocfs2/journal.c:1125
- ocfs2_dismount_volume+0x3c9/0x860 fs/ocfs2/super.c:1874
- generic_shutdown_super+0x140/0x2d0 fs/super.c:723
- kill_block_super+0x44/0xa0 fs/super.c:1852
- deactivate_locked_super+0xbe/0x110 fs/super.c:558
- cleanup_mnt+0x204/0x2a0 fs/namespace.c:1396
- task_work_run+0x1d9/0x260 kernel/task_work.c:233
- resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
- __exit_to_user_mode_loop kernel/entry/common.c:70 [inline]
- exit_to_user_mode_loop+0x204/0x770 kernel/entry/common.c:101
- __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline]
- syscall_exit_to_user_mode_prepare include/linux/irq-entry-common.h:230 [inline]
- syscall_exit_to_user_mode include/linux/entry-common.h:343 [inline]
- do_syscall_64+0x336/0x540 arch/x86/entry/syscall_64.c:107
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7ff9dea5b657
-Code: a2 c7 05 24 da 09 00 00 00 00 00 eb 96 e8 51 09 00 00 90 31 f6 e9 09 00 00 00 66 0f 1f 84 00 00 00 00 00 b8 a6 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 01 c3 48 c7 c2 d8 ff ff ff f7 d8 64 89 02 b8
-RSP: 002b:00007fff91194d68 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
-RAX: 0000000000000000 RBX: 00007fff91195610 RCX: 00007ff9dea5b657
-RDX: 0000000000000000 RSI: 0000000000000000 RDI: 00007ff9deac527a
-RBP: 00007fff91195210 R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000246 R12: 000000000f1aea66
-R13: 00007ff9deac527a R14: 00007ff9deac52fe R15: 00005555828d9760
- </TASK>
-ocfs2: Unmounting device (7,0) on (node local)
