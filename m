@@ -1,53 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.160.73.65
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795367200;
-	b=qBv1fa78rSzmO7NTSlkRMqY3DocEJTN78W9KgPswPZkUzmqpBlRsAYzA/5tJtH/OHxPY
-	 HKRy0s4JAEp9Fgl/luC3EZkyX0JVFnfBvu9ova0XaTIh/lYxP5I/z1VBcMkBc/cXprucd
-	 La/o+YOIShLqfwmmSjW+tuAtmhtEdftpgbNNU+eirLt13La95ORqZt8x9n5yJo4LU0q30
-	 lfo/sntlG5fNxQFDveDPvD9c6C1/5dzu2HkDUPM2N2ZcUAF9fFaQ9mgTJ+1v39Slbfxe8
-	 tFni2ognc3k//covP34sd/m/i7s+zGD0cYrjNG4bay3/AMXuwCYQv2irgHyR0sYh0MQ==
+	t=1795367324;
+	b=qU1db8AB8GXEyzKeJAwUvYXr7e9tFdNNFJTT1giQhFGLlOn6h6yCA4A34VqjBGDMRXcE
+	 rVNrMvqdqeUHmXXO5kPMwVfBmGsl2OCJ9fs76k5EaXNwE2h9F2UbSahL6Cp2BUYl19fPR
+	 VL/7VVoIZzZmIu7O2yMyyHPMKATUnL1ku2Ua5N5EgldC95wGlzUv4V9fcU42i1whniZMT
+	 g/tTietZsE7MbtAA6+6LAInrgEfSHFRFDo7J4E4sXiili2XvcPF7d3pGoXP5ZgRvS8Dhf
+	 JLANTThJdTkUMwlE+qrfHVD74Sp0RLXJ9hDEd7eCpEViEJQAzRiCXK6oYqDtHBZedhA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795367200;
-	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=xKJU8r8LgWpb+YbX2NKqLQcLCQkJ8708QhgDAlQe+d8=;
-	b=cunmFwgY02Qf+UuJuB4kFPtx7n9Dgv6s4iV4XGMtBKVripO/MIUTKKOntLUN+SWWpr7x
-	 a3QAGltw1SApstOVeteHssPMkHNLnRKFuEk4/6IDfeH/gYtnII4JwkXizI9+UUWo8J8FI
-	 Q/SEcEliJmmaHY7h3DMXxs/XDlWmQJ+T0PFdI1vM3D8Egu5XFrhLgZI+uhst6RJgOSw0R
-	 EvODGhrSMKk70a2Rkeu2LWYFqJxpaxdKV3UJNm1CjnyHxiMM6c5e5ZO+5iUDVTLKOsJWa
-	 ZUI34zNake/m6NIm/Ck6tH6BzwKbpIO/tdiAO+TCeu05DOQuFBu3bLhuyNA+EfnfiCw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795367324;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=PNh8YN4lO0/xfHtYOrOb/Cy+IoC6FYA0GOT8T94Fmb0=;
+	b=xyJjl3BiCzQS8oecXxzD2o+bBiLpC5l7QUUdkbzM9rt30NEGeO9FlU3SpUG8rEJoOoX8
+	 SIfZMMWxI29Bx52emyYgAei2CuL2iRq1ewpCQ9RP+XYoFvqxTSlyFCqfWQ7eBn3KnaCH/
+	 VWbRN8D3ewxuoDM+n5w9l3ynPZOpMzXJPX/mZh7uHRUV7Ppw0cF0NbISlAvaJ+srEMOpV
+	 DuqHIKhy6pTKtKE7sDEd5lR+ZvfoDmjCiXvQy9AT3luqJivDNJ5RrDvDT8c4qj9g9AO1y
+	 BPrPbLGQzjJOHvh884YUGpDYRB+PJ0GQPhz5VMs6B1z8S6gmOwueXSOatAZUSKMw3qQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=blala.de;
-	spf=pass smtp.mailfrom=blala.de;
-	arc=none smtp.remote-ip=213.160.73.65
-Received: from vs81.iboxed.net (vs10.datenmanufaktur-hosting.net [213.160.73.65])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ihNWaeW2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C0A5606A680;
-	Sun, 22 Nov 2026 17:06:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C0A5606A680
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blala.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blala.de
-Received: from blala.de (localhost [127.0.0.1])
-	by vs81.iboxed.net (8.18.1/8.18.1/Debian-6) with ESMTP id 6AMH6I5V031738;
-	Sun, 22 Nov 2026 17:06:18 GMT
-Received: (from akurz@localhost)
-	by blala.de (8.18.1/8.18.1/Submit) id 6AMH6Iom031737;
-	Sun, 22 Nov 2026 17:06:18 GMT
-From: Alexander Kurz <akurz@blala.de>
-To: Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>,
-        Griffin Kroah-Hartman <griffin@kroah.com>
-Cc: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-        Bjorn Helgaas <bhelgaas@google.com>, linux-leds@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Alexander Kurz <akurz@blala.de>
-Subject: [PATCH v3 2/2] leds: leds-mc13783: enable driver for deferred probe
-Date: Sun, 22 Nov 2026 17:06:15 +0000
-Message-ID: <20261122170615.31710-3-akurz@blala.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261122170615.31710-1-akurz@blala.de>
-References: <20261122170615.31710-1-akurz@blala.de>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69CE2606A320;
+	Sun, 22 Nov 2026 17:08:44 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ihNWaeW2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E84D11F000C0;
+	Sun, 22 Nov 2026 17:08:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795367323;
+	bh=PNh8YN4lO0/xfHtYOrOb/Cy+IoC6FYA0GOT8T94Fmb0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ihNWaeW2Ry4FyKYjKi/lepkAgonGFOQE+zw06+ykkfcgEZAW3HbZEOzTHAWyN2FAq
+	 m8hbn6uW+BTMyvcCmIhdktJDtpR9FwM1L851EsytE7dblccgtsuWSte7lzz2ddBArX
+	 C83NEWu8lp2i3KIYiRQdXGxBEt2ZiLfAItaJkub36XiYFwd/9BLmE3nUiVrdiab3qi
+	 HUEfyRAfP1EkVSs/GUABxdNm/QsbGOTpep93x6RD2qHNm175AKNP1+Yyk+l981RlQ5
+	 QZ4TsbbirfRbpA6VlLloZXb6z62QFSchPGB5csJiNFX/iz4FDbm5wHMIQ2uQP3ynXV
+	 RsTSjB2BtHRxA==
+Date: Sun, 22 Nov 2026 18:08:40 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ben Levinsky <ben.levinsky@amd.com>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, michal.simek@amd.com, tanmay.shah@amd.com, 
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/4] dt-bindings: mailbox: Add AMD PL Mailbox IP
+Message-ID: <20261122-gainful-bloodhound-of-apotheosis-baf5f9@quoll>
+References: <20261119220405.2838553-1-ben.levinsky@amd.com>
+ <20261119220405.2838553-2-ben.levinsky@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,60 +61,131 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261119220405.2838553-2-ben.levinsky@amd.com>
 
-The probe order between mfd and leds has been changed with commit
-78efa53e715e ("leds: Init leds class earlier") so that mc13xxx-led
-driver was not registered any more due to the missing mfd instance.
-Use module_platform_driver() to replace module_platform_driver_probe().
-The former utilizes platform_driver_register(), which allows the driver
-to defer probing when it doesn't acquire the necessary resources from
-the mfd device due to probe order.
+On Thu, Nov 19, 2026 at 02:04:02PM -0800, Ben Levinsky wrote:
+> Add a binding for the AMD PL Mailbox, a soft IP used to exchange 32-bit
+> words between two processors through a pair of FIFOs.
+> 
+> The IP lives in programmable logic and isn't tied to a SoC, so the
+> compatible names the IP and its version.  The FIFO depth is set when the
+> design is synthesized and can't be read from the hardware, hence
+> property amd,pl-mailbox-depth.
+> 
+> Assisted-by: Claude:claude-opus-5.5
 
-Fixes: 78efa53e715e ("leds: Init leds class earlier")
-Signed-off-by: Alexander Kurz <akurz@blala.de>
----
- drivers/leds/leds-mc13783.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+Drop, wasn't even here before, so you must have added it.
+https://lore.kernel.org/all/20261014213426.2957480-6-ben.levinsky@amd.com/
 
-diff --git a/drivers/leds/leds-mc13783.c b/drivers/leds/leds-mc13783.c
-index 0882c7f6b649..538f5794410a 100644
---- a/drivers/leds/leds-mc13783.c
-+++ b/drivers/leds/leds-mc13783.c
-@@ -108,7 +108,7 @@ static int mc13xxx_led_set(struct led_classdev *led_cdev,
- 			value << shift);
- }
- 
--static struct mc13xxx_leds_platform_data __init *mc13xxx_led_probe_dt(
-+static struct mc13xxx_leds_platform_data *mc13xxx_led_probe_dt(
- 	struct platform_device *pdev)
- {
- 	struct mc13xxx_leds *leds = platform_get_drvdata(pdev);
-@@ -162,7 +162,7 @@ static struct mc13xxx_leds_platform_data __init *mc13xxx_led_probe_dt(
- 	return pdata;
- }
- 
--static int __init mc13xxx_led_probe(struct platform_device *pdev)
-+static int mc13xxx_led_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
- 	struct mc13xxx_leds_platform_data *pdata = dev_get_platdata(dev);
-@@ -288,13 +288,14 @@ static const struct platform_device_id mc13xxx_led_id_table[] = {
- MODULE_DEVICE_TABLE(platform, mc13xxx_led_id_table);
- 
- static struct platform_driver mc13xxx_led_driver = {
-+	.probe = mc13xxx_led_probe,
- 	.driver	= {
- 		.name	= "mc13xxx-led",
- 	},
- 	.remove		= mc13xxx_led_remove,
- 	.id_table	= mc13xxx_led_id_table,
- };
--module_platform_driver_probe(mc13xxx_led_driver, mc13xxx_led_probe);
-+module_platform_driver(mc13xxx_led_driver);
- 
- MODULE_DESCRIPTION("LEDs driver for Freescale MC13XXX PMIC");
- MODULE_AUTHOR("Philippe Retornaz <philippe.retornaz@epfl.ch>");
--- 
-2.39.5
+Please run scripts/checkpatch.pl on the patches and fix reported
+warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
+patches and (probably) fix more warnings. Some warnings can be ignored,
+especially from --strict run, but the code here looks like it needs a
+fix. Feel free to get in touch if the warning is not clear.
+
+> Signed-off-by: Ben Levinsky <ben.levinsky@amd.com>
+> ---
+>  .../bindings/mailbox/amd,pl-mailbox-2.1.yaml  | 71 +++++++++++++++++++
+>  MAINTAINERS                                   |  6 ++
+>  2 files changed, 77 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mailbox/amd,pl-mailbox-2.1.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/mailbox/amd,pl-mailbox-2.1.yaml b/Documentation/devicetree/bindings/mailbox/amd,pl-mailbox-2.1.yaml
+> new file mode 100644
+> index 000000000000..50ac14a4cbac
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mailbox/amd,pl-mailbox-2.1.yaml
+> @@ -0,0 +1,71 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mailbox/amd,pl-mailbox-2.1.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: AMD Programmable Logic Mailbox IP
+> +
+> +maintainers:
+> +  - Ben Levinsky <ben.levinsky@amd.com>
+> +
+> +description: |
+> +  The AMD Programmable Logic Mailbox IP passes messages between two
+> +  processors through a pair of FIFOs. Each side of the IP has its own
+> +  registers, interrupt and clock, and is described by its own node.
+> +  Channel 0 is used to transmit and channel 1 to receive.
+> +
+> +  The Mailbox is a soft IP core instantiated in programmable logic, not a
+> +  SoC block, so the compatible names the IP core and its version (2.1).
+> +  The "pl" part distinguishes it from the IPI hardware that can also be
+> +  used as a mailbox.
+> +
+> +properties:
+> +  compatible:
+> +    const: amd,pl-mailbox-2.1
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  amd,pl-mailbox-depth:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 16
+> +    maximum: 8192
+> +    default: 16
+> +    description:
+> +      Depth of the send and receive FIFOs in 32-bit words. The depth is the
+> +      C_MAILBOX_DEPTH parameter chosen for each IP instance when the design
+> +      is synthesized, so instances in one design can differ, and it cannot
+> +      be read from the registers. Must match the synthesized depth.
+> +
+> +  '#mbox-cells':
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - '#mbox-cells'
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    mailbox@b2060000 {
+> +        compatible = "amd,pl-mailbox-2.1";
+> +        reg = <0xb2060000 0x10000>;
+> +        interrupts = <GIC_SPI 106 IRQ_TYPE_LEVEL_HIGH>;
+> +        clocks = <&pl_clk>;
+> +        amd,pl-mailbox-depth = <16>;
+> +        #mbox-cells = <1>;
+> +    };
+> +...
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index ca1c59e1fc59..dc6a835f7bbc 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -1315,6 +1315,12 @@ S:	Supported
+>  T:	git https://gitlab.freedesktop.org/agd5f/linux.git
+>  F:	drivers/gpu/drm/amd/pm/
+>  
+> +AMD PROGRAMMABLE LOGIC MAILBOX DRIVER
+> +M:	Ben Levinsky <ben.levinsky@amd.com>
+> +L:	linux-kernel@vger.kernel.org
+
+Drop list, there is no point in mentioning lkml for every driver. lkml
+is standard list, catch all.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Best regards,
+Krzysztof
 
