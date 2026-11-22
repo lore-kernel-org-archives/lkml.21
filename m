@@ -1,99 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.119
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795317865;
-	b=2IAbiBNfjHFbj47f4Ks8ZYZPvKz6TPg3hpFJ1DnI26KLMSCvllnZsorg7jVu8S+wJBbF
-	 AModv6qcISAcM/mHkiZkVHpHmtud49/94XOxTBzpPrzbQdkX5b8+wh3ULwP6zxykLLGBr
-	 h7GDJ6D4j0Okr2PRkEMIdSAztbIKC0kvNTEWiekxWs5Wd4QIX8tvEQbFw/+rJPgGujyqP
-	 zQA99k/CQAn2z105L/uTVHXYGe6emVkCA4C9PPQTWPqTbAes06RHnODkpm1KaeisW7vOn
-	 G0sD/ETL5G89nNHUIO0MPGDmJx/lFb6MAn4tdGwSoR2UpXQZRECNAbqCkxrwHEYBRXA==
+	t=1795317885;
+	b=H/CO+JBbfdDPEEVraR28j7L7lod4SQlBLb8YMlixYFPw2DTxPELWrG51qM3wpJIFOx2A
+	 Hw65VGgZT9uTJ2nK6EucabM399KzuBMo5Vjrm9kaEkeRWP+aG48hme8vVm76baMNziSRI
+	 Lvb93xbRg/fxCrzCFvB2x6Bsc4tE7KbQUvp8wK9rOYy1NmKXDFxTWtSNwXrRT+fL6WeGM
+	 gl/8ZhAldrnbk3NkenArBvCNGPzlBUccEZlM5UfkiM6xLIZDJMkjIshnq20W/R09cQDHz
+	 FW3g9YI0mQ89LLh9U3ytwOSixaVRFBuQEF7ra8YS80gII4v/9yOKlsQ4EXjCIJvU9WA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795317865;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=aOEFqW5lAtaSkNAkzmdyW59DFMhZhiBwu6iv961rMbY=;
-	b=KQC2av8rZkrtdPP+e3nCpF0ByCHsqFfrhikU/rxFPvd4cg4iS0pBXPvKzAGhBVipdVKt
-	 n+KE7A7exhWiUzwNwzlEeutVX/VPw9vYaBCk6pbkcTzl7YxIT2vauonnRcUbgqOucoKGa
-	 7Zx1K4n+DmMaFG0agv745iBl5vGHwFPV24rFLv6jB3gV6LxP+TH8e9sZMwV7GEC/Gvh/p
-	 rbqVHnwd85mMbkZsUeNhpP/77rsUb7k5QU9poyDusZnzqP1f7EeONcp5hBZ6VSsARGv9i
-	 sszNrf/iZ6B5UbajD15Y2PdN8GslVTYpLx4LbTS7nlR5bzf6DGRjV+4k4uTGAjnxO/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795317885;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type;
+	bh=dVPt2U6iq7crTwonEXwCqHbgHcYHeuHZoEUItSAFDoI=;
+	b=1X8KZ+v6DbCVMalhKmmU/IANGlALxBrLGuzC/yDEpJ37F6JhtZTPtcJU++SGUoMoh2T/
+	 YjZ6Hr2E7w4FY2uW4Joc1c0v0zk2a5GhJD5oJvPX1iFVF6gwTBWOiL6mHEswF5H7iCsbH
+	 cHbIecCPmUl2ePNLcSJ+yXi5Auqc/krwQKhMyQOjrKSNeGR13TDLNu9uNvnIwXNb7wjBc
+	 vSvw9zK1LROtyaoZIISwHOpPhHKBGK+1DiaHo1e3zQO4saGlsVM2OwRoCFUFPDGwOGzYw
+	 MDfb237XkSCfznd6YN3DjaLUkEhNQZqJz39pH8l4rxVMYkIh6L/JFQ6u/5PZcUOMMiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dXDsO4qb;
-	arc=none smtp.remote-ip=74.125.82.174
-Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=pm.me;
+	spf=pass smtp.mailfrom=pm.me;
+	dkim=pass header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=l3vLn20x;
+	arc=none smtp.remote-ip=79.135.106.119
+Received: from mail-106119.protonmail.ch (mail-106119.protonmail.ch [79.135.106.119])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C00B606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 03:24:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C00B606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69DA7606A32A;
+	Sun, 22 Nov 2026 03:24:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69DA7606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pm.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pm.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dXDsO4qb
-Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-386ab9ab619so5670eec.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:24:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795317863; x=1795922663; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aOEFqW5lAtaSkNAkzmdyW59DFMhZhiBwu6iv961rMbY=;
-        b=dXDsO4qb0doDtTMPH3tLoq9v83nS7b29jfcyAu/fHLbG1yUJbLOtM4zTPtgZOhgdhR
-         xyUTRUoHjmXB93YQticpO+2B0ZudRoXzH7Pa1W/ErCR/2wT0ky97OhdCZP3nQiUy0mZZ
-         FGK/P/6ETNynPyEEZOEGBraKyCE/WXOFl9ykOIW39ySwK7KjhcGodOEN3eHjZfKmK4PA
-         FSmmTHazG5LH+n0LwdfeclARlcGr+pthC3oQMe4ude1jYjLwCCBkfy27poDq3Q4FQZS4
-         uL/aQhdfhy2Z4c7cVHMplBZ/yr0rTo8QqHqsVV6a1gdr+q0n/hN0MQNtWe2K4qgERlpr
-         cF0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795317863; x=1795922663;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=aOEFqW5lAtaSkNAkzmdyW59DFMhZhiBwu6iv961rMbY=;
-        b=2Ag3OlZswWPNzGqhV/d3L8i5Q3R4/2zHhQOMKCgFZjUXbyjlix+m4ui4WxDGl+QUj9
-         UZ29jXCJzxSB9JIwEpfakqMQu80E0VrlZYEIS7zWdemy61Y6wYQeDqfA0u5uzd00yV3U
-         a4Xjvk/9ARE6Hqm36K/CNNI7AtQLPySTwUi7KzrDHqdB0TAmYQMjLf7N20lZkq9JBDFw
-         7r5NVRS3qfZ8c95ErGR7utiCyPRzD2TqRork9jpn5xspQYs+phttQJcuv845MXqRMYxH
-         ZYS5bxn8CVtwijid9OQaVWOKy+yJIPBTHa65iNOyfxfG/FkzzdUEfXHT5wV15YLCRvFX
-         TrpQ==
-X-Forwarded-Encrypted: i=1; AL+hErHNlN1rE+JUD539iQxAUKa0KHj3teQdQhtdi/m+qRv05xOiTcGnC+C9uiGGxsnZ+x01trU2SjXsrwEa63U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9gcNlybcUNUW4YETi+q/MWvI61RER8vM5LsPVDWHOK5xEZumFT
-	Z6Utg/t8RrAnHTa8XokitFZ5q7GRBpi5KgEgJFqKe00Z9nuN0GHU1S1o
-X-Gm-Gg: AZFdTZfMUwBlK568+zkPHv3KNjxvr3jfnFXSMgBrkAIo6ulANFQwaefIQjZTRPraJP1
-	anrg5ReWqoO9VZg3XEBgC1xLazrwBz1+TgVkh5m8x6atnVeOvlDg9iY961bqqVJGINENL/07DeX
-	WqorwKs4ApuITCct8de7xEMdgUe7ZZ90zVYF5vOaM2mRNx4LIac2fsfFeuT6bDeWV5hakRlPc+r
-	ZwcZ6lKXWAyA2u3rEQDVtrlgPdNYfxqhZqICxnhXEj5Kge7Eryg3SQSPS4pytUvX1fSKRcMKJ2U
-	q7wtFQvhyGjxrXox60ByPI59rLlqEhsI4PRJzuTSRVaShxdYQMeSIUZqacAcRtM5K41XHEnvoCK
-	y3W5s8+eB2r7snEQHn+1YRQ0KevsHclJ9pXDUQKE9kuqSaTs8f+mFatIPAWINEcsZmAeJX82baP
-	dFNeD0U6VEYXSd5Yw4aPLfALAAhXKYjB4g9vVhtL+wtXABM+0vtEbm62bm4IWpZ0Dk0sjDIZSy9
-	oHcvfz4WPt64r667NLZax5FA9T1BxOuT+9XOtg5iFOQqsz1q35m6vSJvm98HbW1a4JRv+4Ywohb
-	MSKadKFjFiaLLT6RxC7gsH/v/GK7CdfndtjVa9FRYRUWlv9YKxqnViEiHfB/tsnCpu5/WXv8TG5
-	rXjDeh/KuYEPLGKkiYwFNMIf3eO6IpKXogPpj8pCSWPRwVBtXIaLGz4AwzQR5+GyLeh6uqFlsJD
-	If3BDvNA+rm+Bi11xuDiWxJCnKoD/haRIrv1G1SfjcWw==
-X-Received: by 2002:a05:7301:391c:b0:384:df31:69fd with SMTP id 5a478bee46e88-3856fb6a672mr9572437eec.14.1795317863249;
-        Sat, 21 Nov 2026 19:24:23 -0800 (PST)
-Received: from kapoor.iiserb.ac.in ([203.18.51.239])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385c6830815sm18931379eec.20.2026.11.21.19.24.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 19:24:22 -0800 (PST)
-From: Arnav Kapoor <kapoorarnav43@gmail.com>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Mudit Sharma <muditsharma.info@gmail.com>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Arnav Kapoor <kapoorarnav43@gmail.com>
-Subject: [PATCH v4] iio: light: bh1745: fix 16-bit register accesses
-Date: Sun, 22 Nov 2026 08:54:13 +0530
-Message-ID: <20261122032415.20042-1-kapoorarnav43@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=l3vLn20x
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
+	s=protonmail3; t=1795317881; x=1795577081;
+	bh=dVPt2U6iq7crTwonEXwCqHbgHcYHeuHZoEUItSAFDoI=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=l3vLn20xUFeu9jF/KRmvIQs86+V4SnG0LWZG+ArD/SUr2koNT21BoGiWjq//Xe2c4
+	 kuR/lYcAoEz4qD3ob9QhpexGQTdOZxqnowzHcj+sRXTZFC76bR7z0zhc6XaUrDvFU/
+	 Pqxu38EgR40jzPi9FzJZIPQvi7lFyTs/Vxanvdc/g+p/3LmTcyANSlhinC5BO2DpXj
+	 qTKcILTepan2kTHYmHTZqiqxto/ZjWwTMmBKDMuhShYoQCVdkeSJ0Is3a6ygdm4OL+
+	 fixxURlgdKDVme/+TW35vCrpBbgi08tsoYccM8nd9LUp5A6El9E6cIIcNx2tNKMr6y
+	 g0n9BCzRTSZGA==
+Date: Sun, 22 Nov 2026 03:24:34 +0000
+To: Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>
+From: YanXin Li <fadouse@pm.me>
+Cc: Robin Murphy <robin.murphy@arm.com>, Nicolin Chen <nicolinc@nvidia.com>, iommu@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: [PATCH] iommufd: reject mmap() of not-yet-finalized objects with iommufd_try_inc_users()
+Message-ID: <20261122032416.11746-1-fadouse@pm.me>
+Feedback-ID: 173252840:user:proton
+X-Pm-Message-ID: 2e3e86c516af680d0e6bb9a48ded81cbde7e0087
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,185 +60,160 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; protocol="application/pgp-signature"; micalg=pgp-sha256; boundary="------544810fc055904930d266b559413a1b51c21da378ff272b1e8f8d68ab6ef1309"; charset=utf-8
+
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------544810fc055904930d266b559413a1b51c21da378ff272b1e8f8d68ab6ef1309
+Content-Type: multipart/mixed;
+ boundary=df0427a46fb63a2262dbaa451da7ca2ddf67cc09a6ce11258ecae5e89ad2
+From: YanXin Li <fadouse@pm.me>
+To: Jason Gunthorpe <jgg@ziepe.ca>,
+	Kevin Tian <kevin.tian@intel.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] iommufd: reject mmap() of not-yet-finalized objects with iommufd_try_inc_users()
+Date: Sun, 22 Nov 2026 11:24:16 +0800
+Message-ID: <20261122032416.11746-1-fadouse@pm.me>
+X-Mailer: git-send-email 2.54.0
+MIME-Version: 1.0
+
+--df0427a46fb63a2262dbaa451da7ca2ddf67cc09a6ce11258ecae5e89ad2
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-The 16-bit colour data and threshold registers are little-endian
-LSB/MSB pairs, but the driver accesses them through regmap_bulk_read()
-and regmap_bulk_write() with an int or u16 buffer and no byte-order
-conversion:
+iommufd_fops_mmap() takes a users reference on the object that owns the
+mmapped region with refcount_inc_not_zero(&immap->owner->users).  The
+reference is meant to pin the owner across the lifetime of the VMA, but
+refcount_inc_not_zero() cannot tell an already-created object from an
+object that is still being constructed.
 
-- bh1745_read_raw() reads 2 bytes into an uninitialised int, so the
-  upper 16 bits returned to user space are stack contents.
-- bh1745_read_thresh() reads 2 bytes straight into *val, which the IIO
-  core leaves uninitialised, with the same result for the event
-  threshold attributes.
-- bh1745_write_thresh() writes the first 2 bytes of an int, which are
-  the upper (zero) bytes on big-endian.
-- bh1745_trigger_handler() pushes the raw register bytes, which are
-  little-endian, to a buffer whose scan type is IIO_CPU, so user space
-  gets the samples byte-swapped on big-endian.
+Objects with an MMIO region are published in ictx->mt_mmap by their
+creation ioctl before they are finalized: IOMMU_VIOMMU_ALLOC inserts
+the immap in mock_viommu_init() (or in a driver's viommu_init())
+through iommufd_viommu_alloc_mmap(), and at that point the viommu is
+reserved as XA_ZERO_ENTRY in ictx->objects and obj->users is still the
+initial 1.  A concurrent mmap() on the same /dev/iommu fd therefore
+succeeds in taking a users reference on the half-constructed object,
+because refcount_inc_not_zero() only fails once the refcount has
+dropped to zero.  When the ioctl later fails - for IOMMU_VIOMMU_ALLOC
+this is reachable by simply placing the ioctl 
+command buffer on a
+read-only page so that iommufd_ucmd_respond() faults - the error path
+runs iommufd_object_abort_and_destroy(), which calls the driver destroy
+op that erases the immap from mt_mmap and kfree()s it, and then
+iommufd_object_abort() WARNs because obj->users never returns to zero.
+The next munmap() (or fork/exit) reaches iommufd_fops_vma_close(), which
+dereferences the freed immap.  On v7.4-rc3 with CONFIG_IOMMUFD_TEST,
+racing a loop of mmap()/munmap() against aborted IOMMU_VIOMMU_ALLOC
+yields:
 
-Use an __le16 for the sysfs paths and convert with le16_to_cpu() /
-cpu_to_le16(). For the buffer, read straight into the scan and mark the
-channels IIO_LE, leaving the conversion to user space as usual.
+  WARNING: drivers/iommu/iommufd/main.c:126 at iommufd_object_abort+0x11d/0x1a0
+  BUG: KASAN: slab-use-after-free in iommufd_fops_vma_close+0x87/0x90
+  Read of size 8 at addr ffff888010f4a5c0 by task test_iommufd_mm
+  ...
+  Oops: 0002 [#1] SMP KASAN
 
-Fixes: eab35358aae7 ("iio: light: ROHM BH1745 colour sensor")
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-Reviewed-by: Matti Vaittinen <mazziesaccount@gmail.com>
-Signed-off-by: Arnav Kapoor <kapoorarnav43@gmail.com>
+The reproducer uses CONFIG_IOMMUFD_TEST and needs no hardware IOMMU.
+On production kernels, the bug requires a driver that publishes an
+mmap region before its creation ioctl can still fail, such as
+tegra241-cmdqv o
+n real hardware.
+
+The kernel already has the correct helper for this invariant: main.c
+documents that "the users refcount cannot be increased on an already
+created object unless the object is installed in the xarray, otherwise
+things are racing with a parallel destruction", and iommufd_try_inc_users()
+implements exactly that check under the xarray lock.  Use it in
+iommufd_fops_mmap() instead of refcount_inc_not_zero().  Before
+finalize, xa_load() returns XA_ZERO_ENTRY instead of the object, the
+helper returns -EBUSY, and the mmap() is rejected with -ENXIO while the
+ioctl is still constructing the object; after finalize it behaves like
+the open-coded version.  The mmap path now nests the objects xarray
+lock inside the mt_mmap lock.  Object teardown releases the xarray
+lock before the driver destroy op erases the mmap entry, so it does
+not acquire these locks in reverse order.
+
+With this change a successful (finalized) viommu can still be mmap()ed
+and unmapped normally, 
+while 3000 aborted allocations racing two
+mmap()/munmap() loops produced zero kernel splats, versus the use-
+after-free above on the unmodified kernel.  A test case and full
+validation logs are available on request.
+
+The vulnerable code is present in mainline commit c44104f3642d
+(post-v7.4-rc3).  Runtime verification and fix validation were
+performed in an x86-64 QEMU/KVM guest built from that baseline with
+Generic KASAN, UBSAN, lockdep, and DEBUG_OBJECTS.
+
+Fixes: 56e9a0d8e53f ("iommufd: Add mmap interface")
+Cc: stable@vger.kernel.org
+Signed-off-by: YanXin Li <fadouse@pm.me>
 ---
-Changes in v4:
-- Mark the channels IIO_LE and push the samples little-endian instead
-  of converting them in the trigger handler (Jonathan)
-- Read straight into scan.chans[] (Jonathan)
+ drivers/iommu/iommufd/main.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-v3: https://lore.kernel.org/all/20261118104534.159876-1-kapoorarnav43@gmail.com/
-v2: https://lore.kernel.org/all/20261117110327.198084-1-kapoorarnav43@gmail.com/
-v1: https://lore.kernel.org/all/20261116194214.45174-1-kapoorarnav43@gmail.com/
+diff --git a/drivers/iommu/iommufd/main.c b/drivers/iommu/iommufd/main.c
+index 9a921b15316..f0b4308fe34 100644
+--- a/drivers/iommu/iommufd/main.c
++++ b/drivers/iommu/iommufd/main.c
+@@ -601,7 +601,7 @@ static int iommufd_fops_mmap(struct file *filp, struct vm_area_struct *vma)
+ 	mtree_lock(&ictx->mt_mmap);
 
-Compile-tested only (W=1, checkpatch --strict clean); I don't have
-BH1745 hardware.
-
- drivers/iio/light/bh1745.c | 35 ++++++++++++++++++++++-------------
- 1 file changed, 22 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/iio/light/bh1745.c b/drivers/iio/light/bh1745.c
-index 2b8ff36071b8..68baf5cc14b5 100644
---- a/drivers/iio/light/bh1745.c
-+++ b/drivers/iio/light/bh1745.c
-@@ -16,6 +16,9 @@
- #include <linux/regmap.h>
- #include <linux/bits.h>
- #include <linux/bitfield.h>
-+#include <linux/types.h>
-+
-+#include <asm/byteorder.h>
- 
- #include <linux/iio/iio.h>
- #include <linux/iio/sysfs.h>
-@@ -210,7 +213,7 @@ static const struct iio_event_spec bh1745_event_spec[] = {
- 			.sign = 'u',                                    \
- 			.realbits = 16,                                 \
- 			.storagebits = 16,                              \
--			.endianness = IIO_CPU,                          \
-+			.endianness = IIO_LE,                           \
- 		},                                                      \
+ 	/* vma->vm_pgoff carries a page-shifted start position to an immap */
+ 	immap = mtree_load(&ictx->mt_mmap, vma->vm_pgoff << PAGE_SHIFT);
+-	if (!immap || !refcount_inc_not_zero(&immap->owner->users)) {
++	if (!immap || iommufd_try_inc_users(ictx, immap->owner)) {
+ 		mtree_unlock(&ictx->mt_mmap);
+ 		return -ENXIO;
  	}
- 
-@@ -421,19 +424,20 @@ static int bh1745_read_raw(struct iio_dev *indio_dev,
- 			   int *val, int *val2, long mask)
- {
- 	struct bh1745_data *data = iio_priv(indio_dev);
-+	__le16 value;
- 	int ret;
--	int value;
- 
- 	switch (mask) {
- 	case IIO_CHAN_INFO_RAW:
- 		if (!iio_device_claim_direct(indio_dev))
- 			return -EBUSY;
- 
--		ret = regmap_bulk_read(data->regmap, chan->address, &value, 2);
-+		ret = regmap_bulk_read(data->regmap, chan->address, &value,
-+				       sizeof(value));
- 		iio_device_release_direct(indio_dev);
- 		if (ret)
- 			return ret;
--		*val = value;
-+		*val = le16_to_cpu(value);
- 
- 		return IIO_VAL_INT;
- 
-@@ -503,6 +507,7 @@ static int bh1745_read_thresh(struct iio_dev *indio_dev,
- 			      enum iio_event_info info, int *val, int *val2)
- {
- 	struct bh1745_data *data = iio_priv(indio_dev);
-+	__le16 value;
- 	int ret;
- 
- 	switch (info) {
-@@ -510,18 +515,22 @@ static int bh1745_read_thresh(struct iio_dev *indio_dev,
- 		switch (dir) {
- 		case IIO_EV_DIR_RISING:
- 			ret = regmap_bulk_read(data->regmap, BH1745_TH_LSB,
--					       val, 2);
-+					       &value, sizeof(value));
- 			if (ret)
- 				return ret;
- 
-+			*val = le16_to_cpu(value);
-+
- 			return IIO_VAL_INT;
- 
- 		case IIO_EV_DIR_FALLING:
- 			ret = regmap_bulk_read(data->regmap, BH1745_TL_LSB,
--					       val, 2);
-+					       &value, sizeof(value));
- 			if (ret)
- 				return ret;
- 
-+			*val = le16_to_cpu(value);
-+
- 			return IIO_VAL_INT;
- 
- 		default:
-@@ -547,6 +556,7 @@ static int bh1745_write_thresh(struct iio_dev *indio_dev,
- 			       enum iio_event_info info, int val, int val2)
- {
- 	struct bh1745_data *data = iio_priv(indio_dev);
-+	__le16 value;
- 	int ret;
- 
- 	switch (info) {
-@@ -554,10 +564,12 @@ static int bh1745_write_thresh(struct iio_dev *indio_dev,
- 		if (val < 0x0 || val > 0xFFFF)
- 			return -EINVAL;
- 
-+		value = cpu_to_le16(val);
-+
- 		switch (dir) {
- 		case IIO_EV_DIR_RISING:
- 			ret = regmap_bulk_write(data->regmap, BH1745_TH_LSB,
--						&val, 2);
-+						&value, sizeof(value));
- 			if (ret)
- 				return ret;
- 
-@@ -565,7 +577,7 @@ static int bh1745_write_thresh(struct iio_dev *indio_dev,
- 
- 		case IIO_EV_DIR_FALLING:
- 			ret = regmap_bulk_write(data->regmap, BH1745_TL_LSB,
--						&val, 2);
-+						&value, sizeof(value));
- 			if (ret)
- 				return ret;
- 
-@@ -738,21 +750,18 @@ static irqreturn_t bh1745_trigger_handler(int interrupt, void *p)
- 	struct iio_dev *indio_dev = pf->indio_dev;
- 	struct bh1745_data *data = iio_priv(indio_dev);
- 	struct {
--		u16 chans[4];
-+		__le16 chans[4];
- 		aligned_s64 timestamp;
- 	} scan = { };
--	u16 value;
- 	int ret;
- 	int i;
- 	int j = 0;
- 
- 	iio_for_each_active_channel(indio_dev, i) {
- 		ret = regmap_bulk_read(data->regmap, BH1745_RED_LSB + 2 * i,
--				       &value, 2);
-+				       &scan.chans[j++], sizeof(scan.chans[0]));
- 		if (ret)
- 			goto err;
--
--		scan.chans[j++] = value;
- 	}
- 
- 	iio_push_to_buffers_with_ts(indio_dev, &scan, sizeof(scan),
-
-base-commit: 51b83d4cb0f5c1342868c7aa1edbf0c4867477aa
 -- 
-2.53.0
+2.43.0
+
+
+--df0427a46fb63a2262dbaa451da7ca2ddf67cc09a6ce11258ecae5e89ad2
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="publickey - fadouse@pm.me -
+ 0x99485AA3.asc"; name="publickey - fadouse@pm.me - 0x99485AA3.asc"
+Content-Type: application/pgp-keys; filename="publickey - fadouse@pm.me -
+ 0x99485AA3.asc"; name="publickey - fadouse@pm.me - 0x99485AA3.asc"
+
+LS0tLS1CRUdJTiBQR1AgUFVCTElDIEtFWSBCTE9DSy0tLS0tCkNvbW1lbnQ6IGh0dHBzOi8vZ29w
+ZW5wZ3Aub3JnClZlcnNpb246IEdvcGVuUEdQIDIuMTAuMAoKeGpNRWFVdU9NUllKS3dZQkJBSGFS
+dzhCQVFkQXRuWWxTekhUTEhBMkl6dU5FMUF5OEpyS1VDeDZoUCsvdGM0TApEWENucmV6TkhXWmha
+RzkxYzJWQWNHMHViV1VnUEdaaFpHOTFjMlZBY0cwdWJXVSt3c0FSQkJNV0NnQ0RCWUpwClM0NHhB
+d3NKQndrUXVaMWd0K1htMlhSRkZBQUFBQUFBSEFBZ2MyRnNkRUJ1YjNSaGRHbHZibk11YjNCbGJu
+Qm4KY0dwekxtOXlaem0wQnAzZUVYUldrbklnQ2xXd3ZkeFptbzFYblZiNkZrYWpYVFZNMUIvakF4
+VUtDQVFXQUFJQgpBaGtCQXBzREFoNEJGaUVFbVVoYW8zWi9BbkJJNExCWXVaMWd0K1htMlhRQUFM
+cTJBUUQ3OEs2cGVkU1gzbGROCnlxZDNPSDF1TWpPM3Y3TFlNaE8rbDdjblNMV3JFQUQrT0NTcTEx
+U2VhS29ic1ZHckxlalRNc21Nc1BCOGpueGYKaWQzaENOK3Bld1RPT0FScFM0NHhFZ29yQmdFRUFa
+ZFZBUVVCQVFkQXdYZHpWSXFFSC94OEhaalIvUE90MkFpRgpiRW02WXFYWDJqMnYyaUtEc1FNREFR
+Z0h3cjRFR0JZS0FIQUZnbWxMampFSkVMbWRZTGZsNXRsMFJSUUFBQUFBCkFCd0FJSE5oYkhSQWJt
+OTBZWFJwYjI1ekxtOXdaVzV3WjNCcWN5NXZjbWRkS05RWURGV2NFVmQzeE9IZVFwNnMKeW43OU5G
+cE5xa0h6K2l6cElMQm5VZ0tiREJZaEJKbElXcU4yZndKd1NPQ3dXTG1kWUxmbDV0bDBBQUR6UWdE
+LwpjSUowODlKa25vZ1RzNnZ2UVorSjNMUklEYUk5K1FtK1Q1cU9tTms0eVhFQkFMUElsSkNTOGFo
+NWRCWVphOUwrCkhxamJEbWVTZ0RvNTh1U3graVd3KzZVTAo9TXVzVAotLS0tLUVORCBQR1AgUFVC
+TElDIEtFWSBCTE9DSy0tLS0t
+--df0427a46fb63a2262dbaa451da7ca2ddf67cc09a6ce11258ecae5e89ad2--
+
+--------544810fc055904930d266b559413a1b51c21da378ff272b1e8f8d68ab6ef1309
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wqsEARYIAF0FgmsCYHAJELmdYLfl5tl0NRQAAAAAABwAEHNhbHRAbm90YXRp
+b25zLm9wZW5wZ3Bqcy5vcmfSSJlUeHcuM06T0RsZCl+sFiEEmUhao3Z/AnBI
+4LBYuZ1gt+Xm2XQAABCzAP4ufnszD5yfuzsWM4JOVWnBiRJN9HsUyKJ4hAhX
+KA1rxAD9HhV9XCyGFPT7vhWJb6Gbo3+9JFznDA49eqaMC5PtsAk=
+=O0WQ
+-----END PGP SIGNATURE-----
+
+
+--------544810fc055904930d266b559413a1b51c21da378ff272b1e8f8d68ab6ef1309--
 
