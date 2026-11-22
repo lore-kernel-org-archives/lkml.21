@@ -1,94 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795372557;
-	b=e23NYs7Y8KrC4iSt4N//1OMOq17Pr/b9SnoF/RTZE0uG9gQwdTaM0y9IVD7ESvXYuvNf
-	 FBWsKiHceowVh9LM2ZbTMToyZuEimnYKzsAGACyH1nehTQVJMDCYaoDO2WwtD/CuFP4x+
-	 WPxFN4qbQXM08SySZo6eSEGPrijtaUbGPeDSm469b1Xvf4vqUqmxPbBq88i3rzNuOHu8g
-	 JhHLEuJ6e8WEs8N2263sun/OB4VfrLcnLdnUJNasDeYqudaUnCE1/ETzBoFa9wXq4g+w3
-	 hpJdELQ7CSTEjruVJaZWJbrO3DtTban0mz4DD5hWIrnD4PEmsJSIE3hNCCjuwRRgNeA==
+	t=1795372687;
+	b=yFt0FhFfuTo+XyMsBHMQeQlgyuDZ0iaKA4FyqfgcgyaL4JvyDsiT1Fv61mC81xyycNhl
+	 e9MrjD8xjm4YxSNgNzMqJFwi00+eiKONYqZ7zWpz4n7vQOlOPCZDHLBhJXuL6bIZkMNwG
+	 1zjNFGMOtEFYGXgipF7Us/BvDhOspKLgNWAug/zoWoh+FWMjjEUAg0W28OibU4MS/g1ek
+	 fIICKJwuD3/mrft5sJac1t1uAiOmWsVZ6hVCG8j2E0QqFzxNogfX+6YQ1UOOfedGOnmOP
+	 ax4akURWgDavhLqRMKfVpIHu23Qo36P1p4aTd2TWLB+jIPx779cEeKlC7lelI6e617A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795372557;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=TA+pIVlFttShEJ4Is+NIc/o3+s05F2oLSxfZfJRE54M=;
-	b=JD9Oqab6pCk4CkFdfJwajacNkq1yGq2x/hh8AJXqeL/yfOF9W28orkQNvpAjQfiJ9Cah
-	 Q7m0QPoEo22dGMge7o6AOSWhzk6C+vd1VwvgVwBHre4h/wGp8LOdly4xQ6weI2UCvkPLU
-	 mzlO9QZyWuxheaunFiVyu3/3geGLQpf1u/mQiFjDeZcxWhxbfXVARruVeoFs7C/rbeai5
-	 EmuI+WZoGRJCTwEqlv14ltjaRCDB57W4pm1mZ4flV/22hXL+pC/DKGjImHvlsntOEufd2
-	 +Njf8H2LHvBEVQPBuPDnwb74IIar9y8oRC3bBgXu2RiJ/0ay9h1K+ypJfjPoRocdW7g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795372687;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=YTOa+gL7yOyzcm1jBXp+ydfq8961ZdK25RmBINDhpCY=;
+	b=0X5Hkq/yIuvbrtCOUlZ+SnVYWRRfm/ui3VyfqrtuWRMnAYIQB0P6+9LXvEHfdpNXd87R
+	 HaZPRRUWeUw6dyrtvquElJra7AWe90Iwx8latXvYIXs50EWdHvO362pykgVY0z4dqaihQ
+	 SARS718RZTykNdlCKipIpzfnm82l3bQyc/DCZ5fz6MlNoKBXUucTLj8QYtHlJjta/htnl
+	 HEbm3DXD9HD2zBDrZG9htKFg7KH53hHB3UyBrCAdF1yk571DvaHk4wLBXrriQCo1vJ4rd
+	 bqlpB1kMDAZCN7UjWXtRGz57QnhpwljGFkZDhthbiGGdGCD9RDW/ow2pMsEgQcDq0aQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nQIqYW9l;
-	arc=none smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lWPzreyz;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31133606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:35:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31133606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B0CC606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:38:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nQIqYW9l
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-3869f03af6aso1523024eec.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:35:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795372556; x=1795977356; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TA+pIVlFttShEJ4Is+NIc/o3+s05F2oLSxfZfJRE54M=;
-        b=nQIqYW9l5PUEwLkKjJDl9/mql44+XluwIKd2Fym5P7qo14TyxvAXbB6mz4n75vVdyP
-         VR3BZvnSUjpO5s79ngrBR6Iv/o69ITcfRHaNBaZKnSazJBXQiB1vjsWROftzTpIaBQJm
-         kHojgydqlu0UZQCEZrEBKHu2HvSIrxKph7V6aF01IQ48OU6ptDSXQSEQLfm3vND0yEfc
-         J42VpLA3KuhiEcQ4Ql72zicwMtIt+EgaR02A0wXbtK3d6xkdYJ20OMAP68CgJw7EW6dt
-         niJzAPBRFNJ//tW9SwAwCLBk36VjeZB1DJLICT+VRzlwJsrFNOP0esG8mD1viS4D79KG
-         hArw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795372556; x=1795977356;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TA+pIVlFttShEJ4Is+NIc/o3+s05F2oLSxfZfJRE54M=;
-        b=j1NQOkS3o6E4eHha6fSeGGd5RUrYidk5MEMRM2YPh7JQh+rJK3ZY+jQlkq/iGgOcR/
-         WJN3FXwpXQ/yR8Yk3phXeqCRuPdiOaB1zzz60oCMSnNoElxD27iSZgbkrn/IqjiwjNXj
-         YYzRFe0HOYGxPRkOAt6ftrpVMkQG8D7SaR2FV6abqm0WMKqOfCaZnUtDhSWC86mVElHH
-         Bz6+4Oo3ais1SZ4fx+mpaW3P3I6GQpadcYDxpwwc4Vuf+Ac1kr6tKi2bCE6CVRl3u62O
-         UCLzcsbYnQEo32E6IgmEFMgfPx4MiS3Xif/Qgu8EZruDJfbgKzJsPB4Uyuoq1dZucHYk
-         eBEw==
-X-Forwarded-Encrypted: i=1; AL+hErG9d9Iwrp3SDP4Oy+ZoszDYBJzcia8Y6g4zH44vqqNqYcPM5XlrnxzzOSqOSRoA37jAshDvkl/WbRNaL1c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/paYscBGxyGnJnYywXMVbmKYDgStlliDquBgTMIpd8t0dHhnFd
-	0nKRV7jWqzcN51ylHewntw+rX6WDZ20iF1YMA63aPROUuyBZFvn0NEwd
-X-Gm-Gg: AZFdTZcQLLCbQQ15mz49lkRje1sxu8P7TckZnjA7AaS4tWeyc/7td8v6Pz6f/zEiq89
-	K3/cwuwJIRzNeka73lQszWK1Vz2b4Q4Zk3MHrGATuTD1xRz2R4X5M34vox+DO0WkhjZe5sCHyfX
-	CdnbvbuOcX9yEhTsIv2Dzewi5NaduNIeEAUohhQPBNOntiG7SgGnzprszX4LWwCv7oqPiSyJTPI
-	FMGbSg+FmP+rIvwp0gunu3KYIYp8gmHVrLbtL7zkJWHbH5XTxnNaPKipDsywQNB0btXViCwPpyg
-	QjFNbC8bKsClgqiSGhmnyBUdp/DCsknuqMFJEWa4nm1b4A4ZVavCTyMkOrHpudfM5d86c4uGSnk
-	3lK+kfHFIP7uRk21CxcOHEk+9YEWb+fd9Aaef2sGYgFf5rWBUHzwnr3gcDWYSAVqo9LzONy8hh6
-	QXj3ttlN1P49yip9xT7P4i2TSeM6P/NXF7jmrIRLhp5Xyj4GYNCyouwi/wll3ofLewULgLUW6of
-	ihr8NTrOnbVGEEE8btgr0OJsUDdgDJhe2rfLhzbUa7CcRhaLf7/VZ7NXJEYOFOHsSUzelthNx4i
-	y2agkNRuXpCYGZw8Nvy+zxDj3oUlwi24GtjwJVy9+HJioX4N3X/Svw==
-X-Received: by 2002:a05:7301:a0b:b0:386:a416:6c91 with SMTP id 5a478bee46e88-386a4166fdemr3601095eec.20.1795372556143;
-        Sun, 22 Nov 2026 10:35:56 -0800 (PST)
-Received: from ubuntu24.lan ([2a10:8744:5c98:4c22:e925:ced2:1029:b0e0])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm30280810eec.6.2026.11.22.10.35.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 10:35:55 -0800 (PST)
-From: Yiyang Chen <cyyzero16@gmail.com>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Xin Zhao <jackzxcui1989@163.com>,
-	linux-rt-devel@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] softirq: Limit the BH count warning to RT BH lock users
-Date: Mon, 23 Nov 2026 02:35:47 +0800
-Message-ID: <d9554bee441d2c763ef8d61e966a7a471915bbee.1795372382.git.cyyzero16@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lWPzreyz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A95D1F000E6
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:38:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795372686;
+	bh=YTOa+gL7yOyzcm1jBXp+ydfq8961ZdK25RmBINDhpCY=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=lWPzreyzEpRLuX9uH4dizztpKSsv9S2x90lnQJtrlDNGtCbmTVGZCeRhuoJqNec+K
+	 2hr/E/9PGKOITUwJjNKXTIfYpxRei45F61Ye2dQx2rTTNfsxiHy8pzx/jywWiypyv/
+	 WEP8yaK2sWK2NZHUw8PLCB5ZJuuL+BgsbtJqrSX/H2gk/IZGv5dmouFqpCq9OdjVaQ
+	 eCxNChibYBC0fxXU7p11nz1QQ1Od43ZHfOPaoNvci3p533wruzr8vseFmCJAkJUsDv
+	 jPdJQac67bIissHzc1BnmGozCYIFMF+0fqiMklyTAq7yhC5+68oNntwfSf2qhWrpkE
+	 zHcTjG3jytjZg==
+Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-3ae417eb235so21358891fa.3
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:38:06 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErENERP2j9TzdK3m5DLd+VkcQM2ua2aAXleVXP/WtWJWwjW2KaRdJgvxFjco42V8B/Br5ALxvf4BquyXtkc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+14gTgF6NqLdc4EPXZt/4t4rMJUa0XKAY+6kGsUBqVELKw/A/9
+	cIoCddOC1kp/7HcO6nHtXSd9J0rSBPzr8WkgtVyOUXkvJKwfVWcWZ0WulHiyMAxMxFupG5uhd7p
+	lyinLL98NAoZqmzYZawWxZX+x8Tz9/jA=
+X-Received: by 2002:a05:651c:a1a3:b0:3ae:25c8:dc9a with SMTP id
+ 38308e7fff4ca-3ae7f9b2228mr29279941fa.5.1795372684952; Sun, 22 Nov 2026
+ 10:38:04 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,68 +59,319 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261115-sunxi-orangepi-3-lts-v4-0-7749b448a4dd@gmail.com>
+ <20261115-sunxi-orangepi-3-lts-v4-2-7749b448a4dd@gmail.com> <CAGb2v67uMTqVNQDab=R1emtapiYK=AT-5sdJqr8Goc0b-1sTWA@mail.gmail.com>
+In-Reply-To: <CAGb2v67uMTqVNQDab=R1emtapiYK=AT-5sdJqr8Goc0b-1sTWA@mail.gmail.com>
+Reply-To: wens@kernel.org
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Mon, 23 Nov 2026 02:37:50 +0800
+X-Gmail-Original-Message-ID: <CAGb2v6460dVmizgg1vjH+bLAUvYg7ct7GEQE88uBCGikwU_KNA@mail.gmail.com>
+X-Gm-Features: Aa3M54pVJ71YM_TrHyMHQA9Nxn9MV0xNpIRqtGxca4cMu10QpKzLP93yCptqHTw
+Message-ID: <CAGb2v6460dVmizgg1vjH+bLAUvYg7ct7GEQE88uBCGikwU_KNA@mail.gmail.com>
+Subject: Re: [PATCH v4 2/2] arm64: dts: allwinner: h6: Add Orange Pi 3 LTS
+To: filipescu.cristian@gmail.com
+Cc: linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Andre Przywara <andre.przywara@arm.com>, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-__local_bh_disable_ip() warns if a non-preemptible task first disables
-BHs while the per-CPU BH count is nonzero. Without the RT BH lock,
-this check can turn off lock debugging on a valid call sequence.
+Blah, I don't know why I was looking at an old version. Please ignore.
 
-With CONFIG_PREEMPT_RT_NEEDS_BH_LOCK=n, the following sequence is valid
-for two tasks on the same CPU.
-Both tasks call the BH helpers with IRQs enabled. The per-CPU BH count
-starts at zero.
-
-  Task A                          Task B
-  ------                          ------
-  local_bh_disable()
-    softirq_ctrl.cnt += SOFTIRQ_DISABLE_OFFSET
-    current->softirq_disable_cnt += SOFTIRQ_DISABLE_OFFSET
-  <preempted by B>
-                                  preempt_disable()
-                                  local_bh_disable()
-                                    B's softirq_disable_cnt is zero
-                                    preemptible() is false
-                                    WARN on nonzero softirq_ctrl.cnt
-                                    softirq_ctrl.cnt += SOFTIRQ_DISABLE_OFFSET
-                                    current->softirq_disable_cnt += SOFTIRQ_DISABLE_OFFSET
-                                  local_bh_enable()
-                                  preempt_enable()
-  <resumes>
-  local_bh_enable()
-
-The warning relies on the per-CPU BH lock serializing BH-disabled
-sections on the same CPU. With CONFIG_PREEMPT_RT_NEEDS_BH_LOCK=y, A
-still holds that lock when B runs. Since B is non-preemptible, it skips
-the lock acquisition. The nonzero count then exposes B entering the
-section while A holds the lock.
-
-With CONFIG_PREEMPT_RT_NEEDS_BH_LOCK=n, there is no BH lock for B to
-bypass. The same nonzero count simply records A's active BH-disabled
-section, which may legitimately overlap B's.
-
-Guard the warning with CONFIG_PREEMPT_RT_NEEDS_BH_LOCK for as long as
-the lock is optional. If the lock is removed, as discussed earlier,
-the check can go away with it.
-
-Link: https://lore.kernel.org/lkml/20260310115534.3477871-1-jackzxcui1989@163.com
-Signed-off-by: Yiyang Chen <cyyzero16@gmail.com>
----
- kernel/softirq.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/kernel/softirq.c b/kernel/softirq.c
-index 7fc2200392cd..f64f6b594951 100644
---- a/kernel/softirq.c
-+++ b/kernel/softirq.c
-@@ -195,7 +195,7 @@ void __local_bh_disable_ip(unsigned long ip, unsigned int cnt)
- 
- 			/* Required to meet the RCU bottomhalf requirements. */
- 			rcu_read_lock();
--		} else {
-+		} else if (IS_ENABLED(CONFIG_PREEMPT_RT_NEEDS_BH_LOCK)) {
- 			DEBUG_LOCKS_WARN_ON(this_cpu_read(softirq_ctrl.cnt));
- 		}
- 	}
--- 
-2.43.0
-
+On Mon, Nov 23, 2026 at 2:34=E2=80=AFAM Chen-Yu Tsai <wens@kernel.org> wrot=
+e:
+>
+> Minor issues,
+>
+> On Mon, Nov 16, 2026 at 7:50=E2=80=AFAM Cristian Filipescu via B4 Relay
+> <devnull+filipescu.cristian.gmail.com@kernel.org> wrote:
+> >
+> > From: Jernej Skrabec <jernej.skrabec@gmail.com>
+> >
+> > Add the board description for the Allwinner H6-based Orange Pi 3 LTS,
+> > using the common Orange Pi H6 description for shared hardware.
+> > Describe the LTS regulators, storage, Motorcomm YT8531C Ethernet PHY,
+> > wireless module supplies, LEDs and USB ports.
+> >
+> > Reset the sole Ethernet PHY at MDIO bus registration and keep reset
+> > outside interface detach so its configured 125 MHz output is retained.
+> > Use generic Clause 22 discovery and PHY-internal RGMII delays.
+> >
+> > Inherit the schematic LED roles and defaults: red power on and green
+> > status off. Select the weakest GPIO drive level for both LEDs, describe
+> > the shared CPU supply on all four cores, and enable 1.8 V eMMC DDR52 an=
+d
+> > HS200 modes while retaining the H6 maximum frequency of 150 MHz.
+> > Remove inherited USB ID detection for fixed host mode.
+> >
+> > Link: https://lore.kernel.org/linux-sunxi/20250413134318.66681-3-jernej=
+.skrabec@gmail.com/
+> > Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+> > Signed-off-by: Cristian Filipescu <filipescu.cristian@gmail.com>
+> > ---
+> >  arch/arm64/boot/dts/allwinner/Makefile             |   1 +
+> >  .../dts/allwinner/sun50i-h6-orangepi-3-lts.dts     | 188 +++++++++++++=
+++++++++
+> >  2 files changed, 189 insertions(+)
+> >
+> > diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/d=
+ts/allwinner/Makefile
+> > index aa21f58a4..7ea136380 100644
+> > --- a/arch/arm64/boot/dts/allwinner/Makefile
+> > +++ b/arch/arm64/boot/dts/allwinner/Makefile
+> > @@ -41,6 +41,7 @@ dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h5-orangepi-zero=
+-plus.dtb
+> >  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h5-orangepi-zero-plus2.dtb
+> >  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-beelink-gs1.dtb
+> >  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-orangepi-3.dtb
+> > +dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-orangepi-3-lts.dtb
+> >  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-orangepi-lite2.dtb
+> >  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-orangepi-one-plus.dtb
+> >  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-pine-h64.dtb
+> > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3-lts.dts=
+ b/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3-lts.dts
+> > new file mode 100644
+> > index 000000000..d3ea73e1d
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3-lts.dts
+> > @@ -0,0 +1,188 @@
+> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > +// Copyright (C) 2025 Jernej Skrabec <jernej.skrabec@gmail.com>
+> > +// Based on sun50i-h6-orangepi-3.dts, which is:
+> > +// Copyright (C) 2019 Ond=C5=99ej Jirman <megous@megous.com>
+> > +
+> > +#include "sun50i-h6-orangepi.dtsi"
+>
+> > +#include "sun50i-h6-cpu-opp.dtsi"
+> > +#include "sun50i-h6-gpu-opp.dtsi"
+>
+> These two are redundant.
+>
+> > +
+> > +/ {
+> > +       model =3D "OrangePi 3 LTS";
+> > +       compatible =3D "xunlong,orangepi-3-lts", "allwinner,sun50i-h6";
+> > +
+> > +       aliases {
+> > +               ethernet0 =3D &emac;
+> > +               ethernet1 =3D &aw859a;
+> > +       };
+>
+>
+> > +
+> > +       leds {
+> > +               led-0 {
+> > +                       pinctrl-names =3D "default";
+> > +                       pinctrl-0 =3D <&led_red_pin>;
+> > +               };
+> > +
+> > +               led-1 {
+> > +                       pinctrl-names =3D "default";
+> > +                       pinctrl-0 =3D <&led_green_pin>;
+> > +               };
+> > +       };
+>
+> I think the LED drive strength could be moved to the .dtsi file?
+>
+> > +
+> > +       reg_gmac_3v3: gmac-3v3 {
+>
+> Node name should be regulator-gmac-3v3. Node names should be generic
+> in most cases, or carry a generic type prefix for nodes that don't have
+> addresses.
+>
+> > +               compatible =3D "regulator-fixed";
+> > +               regulator-name =3D "gmac-3v3";
+> > +               vin-supply =3D <&reg_vcc5v>;
+> > +               regulator-min-microvolt =3D <3300000>;
+> > +               regulator-max-microvolt =3D <3300000>;
+> > +               startup-delay-us =3D <150000>;
+> > +               enable-active-high;
+> > +               gpio =3D <&pio 3 6 GPIO_ACTIVE_HIGH>; /* PD6 */
+> > +       };
+> > +
+> > +       reg_wifi_3v3: wifi-3v3 {
+>
+> Should be regulator-wifi-3v3.
+>
+> > +               /* 3.3V regulator for WiFi and BT */
+> > +               compatible =3D "regulator-fixed";
+> > +               regulator-name =3D "wifi-3v3";
+> > +               vin-supply =3D <&reg_vcc5v>;
+> > +               regulator-min-microvolt =3D <3300000>;
+> > +               regulator-max-microvolt =3D <3300000>;
+> > +               enable-active-high;
+> > +               gpio =3D <&pio 7 7 GPIO_ACTIVE_HIGH>; /* PH7 */
+> > +       };
+> > +
+> > +       wifi_pwrseq: wifi-pwrseq {
+> > +               compatible =3D "mmc-pwrseq-simple";
+> > +               clocks =3D <&rtc CLK_OSC32K_FANOUT>;
+> > +               clock-names =3D "ext_clock";
+> > +               reset-gpios =3D <&r_pio 1 3 GPIO_ACTIVE_LOW>; /* PM3 */
+> > +               post-power-on-delay-ms =3D <200>;
+> > +       };
+> > +};
+> > +
+> > +&axp805 {
+> > +       /* ALDO3 is shorted to CLDO1; both inherit regulator-always-on.=
+ */
+> > +       regulators {
+> > +               cldo2 {
+> > +                       /* unused */
+> > +                       /delete-property/ regulator-min-microvolt;
+> > +                       /delete-property/ regulator-max-microvolt;
+>
+> You should reference them by label, not by partial path. And perhaps
+> also delete the name, so it goes back to the default.
+>
+> > +               };
+> > +
+> > +               cldo3 {
+> > +                       /* unused */
+> > +                       /delete-property/ regulator-min-microvolt;
+> > +                       /delete-property/ regulator-max-microvolt;
+>
+> Same for this one.
+>
+> > +               };
+> > +
+> > +               /* DCDCB is polyphased with DCDCA. */
+> > +               dcdca {
+> > +                       regulator-min-microvolt =3D <800000>;
+> > +                       regulator-max-microvolt =3D <1160000>;
+> > +                       regulator-ramp-delay =3D <2500>;
+> > +               };
+>
+> Setting is almost identical to orangepi.dtsi. Lower min voltage probably
+> doesn't do anything since the lowest OPP is at 0.81V?
+>
+> > +
+> > +               dcdcc {
+> > +                       regulator-ramp-delay =3D <2500>;
+>
+> Same here. I think you can drop both of them.
+>
+> > +               };
+> > +       };
+> > +};
+> > +
+> > +&cpu0 {
+> > +       cpu-supply =3D <&reg_dcdca>;
+> > +};
+> > +
+> > +&cpu1 {
+> > +       cpu-supply =3D <&reg_dcdca>;
+> > +};
+> > +
+> > +&cpu2 {
+> > +       cpu-supply =3D <&reg_dcdca>;
+> > +};
+> > +
+> > +&cpu3 {
+> > +       cpu-supply =3D <&reg_dcdca>;
+> > +};
+>
+> These are redundant. The cpu0 supply is already inherited from the common
+> .dtsi file.
+>
+> If anything we should add cpu-supply properties to the other cores in the
+> .dtsi file. But that is another task, and one we should probably do for
+> all boards together.
+>
+>
+> Thanks
+> ChenYu
+>
+> > +
+> > +&dwc3 {
+> > +       status =3D "okay";
+> > +};
+> > +
+> > +&emac {
+> > +       pinctrl-names =3D "default";
+> > +       pinctrl-0 =3D <&ext_rgmii_pins>;
+> > +       phy-mode =3D "rgmii-id";
+> > +       phy-handle =3D <&ext_rgmii_phy>;
+> > +       phy-supply =3D <&reg_gmac_3v3>;
+> > +       allwinner,rx-delay-ps =3D <0>;
+> > +       allwinner,tx-delay-ps =3D <0>;
+> > +       status =3D "okay";
+> > +};
+> > +
+> > +&hdmi {
+> > +       hvcc-supply =3D <&reg_bldo2>;
+> > +};
+> > +
+> > +&mdio {
+> > +       reset-gpios =3D <&pio 3 14 GPIO_ACTIVE_LOW>; /* PD14 */
+> > +       reset-delay-us =3D <15000>;
+> > +       reset-post-delay-us =3D <100000>;
+> > +
+> > +       ext_rgmii_phy: ethernet-phy@1 {
+> > +               compatible =3D "ethernet-phy-ieee802.3-c22";
+> > +               reg =3D <1>;
+> > +
+> > +               motorcomm,clk-out-frequency-hz =3D <125000000>;
+> > +               rx-internal-delay-ps =3D <1950>;
+> > +               tx-internal-delay-ps =3D <1950>;
+> > +       };
+> > +};
+> > +
+> > +&mmc1 {
+> > +       vmmc-supply =3D <&reg_wifi_3v3>;
+> > +       vqmmc-supply =3D <&reg_bldo3>;
+> > +       mmc-pwrseq =3D <&wifi_pwrseq>;
+> > +       bus-width =3D <4>;
+> > +       non-removable;
+> > +       status =3D "okay";
+> > +
+> > +       aw859a: wifi@1 {
+> > +               reg =3D <1>;
+> > +       };
+> > +};
+> > +
+> > +&mmc2 {
+> > +       vmmc-supply =3D <&reg_cldo1>;
+> > +       vqmmc-supply =3D <&reg_bldo2>;
+> > +       mmc-ddr-1_8v;
+> > +       mmc-hs200-1_8v;
+> > +       cap-mmc-hw-reset;
+> > +       non-removable;
+> > +       bus-width =3D <8>;
+> > +       status =3D "okay";
+> > +};
+> > +
+> > +&pio {
+> > +       vcc-pg-supply =3D <&reg_bldo3>;
+> > +};
+> > +
+> > +&r_pio {
+> > +       led_green_pin: led-green-pin {
+> > +               pins =3D "PL7";
+> > +               function =3D "gpio_out";
+> > +               drive-strength =3D <10>;
+> > +       };
+> > +
+> > +       led_red_pin: led-red-pin {
+> > +               pins =3D "PL4";
+> > +               function =3D "gpio_out";
+> > +               drive-strength =3D <10>;
+> > +       };
+> > +};
+> > +
+> > +&usb2phy {
+> > +       /delete-property/ usb0_id_det-gpios;
+> > +};
+> > +
+> > +&usb3phy {
+> > +       status =3D "okay";
+> > +};
+> >
+> > --
+> > 2.47.3
+> >
+> >
