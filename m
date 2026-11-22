@@ -1,103 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795320368;
-	b=Q9PRdTYyMnkGMs8zuVVtyBworZFHUamEX2PZjtdD+9tFSL9DoU+80qmfL321xr1Ywhbb
-	 CU2SI+8zTmmXGr9tU888OPbE2YbLr7wQGm5WI3vByOkzTZqQXx+MSjl2S6IxLi+izIyt9
-	 AzxgZCNbkELHtIZ6JizCvBBtXgVvmxVswY32jbKYGvlX2EjaYujneGKdrGi9CN1mKFg4p
-	 QGGTBbPdB9rHZ+a7ZYauXKCHf6c62+rawGU/dtLMK+sRtZcR9RlfTG3wqSqvX0cQnFQYL
-	 Nv2h0VNN5IBZgv4PhsECqjPjmutBLUsdoyqqWhWoFGcqxEyrF+lSfyEya+DZHiWKFqw==
+	t=1795320512;
+	b=gnIhePOdemTKK2ROApEuYkWBwX9UkbWRUQe0I/opfM3mZGvgnlKs4UWXzuDVdXoRw9Fe
+	 QKF9Ci20PT107XPxtsa7VLOElj/Z3mJctvq9ijvuNPSfu6BErYFc7RzgjgKCtM23eQpR6
+	 2ijLU0uUHXoskX6n/fBkEdaUfGtfMip3Yt3Nagxu5+8DLx6mBrrQklLX6kBOwb+F93QsL
+	 bNdl4ZFelxytyHDt1Kcv6ztQu9iSxBk4zqPXpzXQfBmf7Hx9l1tuTuxJuCaHpvSlX6t4W
+	 1DLr0ImjbcRK6VttXcknNT2wHcRSN0Z5dv5DoEXXJI5HDd7fiieI8RNgH5/nnSQn9ew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795320368;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=9PuR6BxW1bsGd2uW0XkZ13RLiKGF+CwssnUyvB4C4G8=;
-	b=zQNi+p2f73xV7sX6R8nbULBpRN7OUerqfSuCCgn57CSJhUpjZI3xJUV85pUxPa7i03DS
-	 PhIhTeK0qaZWSVNEb6/cWUWs/DdMmvv+AZYGkeUXVWBsWzhHnqhpYT1dZ8fyCV3R6RNhB
-	 NSycG8a+SHdsrwliETUPje8lVQkJXc+c6xR8Zg/Q76vAW1JNKhDH4XjEiXQUVgLx/eztW
-	 ISerB2nHxS/jnwDnbtD8XSbLyVDcM+6ggsedJNQStiYoXzPF9pHke8Jsk+yN034UW337+
-	 g8/eFa/QrGr2zQVts3iyUG9jF4sRqx6OcJHeoynnEiFiN5iPCPYshNHH7u6c3HutTZg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795320512;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=Uv8h2L45V4jj5LVvESCeSMq451qPSPNLhaVFN3TApkA=;
+	b=rFyAY9aLHs5JYv+8jfx670rSx0k4hzF4VYTZXJDRnYLx8ePck+VxItZt5tyLEGyXOTmD
+	 HhH8Jn11LdIpElGp3KQwbs4fLS8ZMyRIgRzJmLWX9XAc96F0XYtyXxMHbv4NuFix37y6h
+	 OOqWjqiLg3CTE2Wg4g0KYkpdfwPd3WbXSstqn7UThmf4C93IyYD8kRb31KAtFCkoF0Qt1
+	 B8kJWKLQLmnwFjZsOjBPQG5Ntpzydj5z6l6V1TvKtKsaHvl0gsJYlMYGgXf6Pjxb+D4BR
+	 37df2JXrzvU3rSf4HfdD/FJBamM5iXHckCVjEsfB+uEKYidQIntMh8/Arab9+DzsyYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=evJm+oLs;
-	arc=none smtp.remote-ip=209.85.214.172
-Received: from mail-pl1-f172.google.com (mail-pl1-f172.google.com [209.85.214.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=fY1iywxG;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DBAF606A32A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:06:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5DBAF606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20799606A320;
+	Sun, 22 Nov 2026 04:08:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20799606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=evJm+oLs
-Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-2f04ad2c46dso10317635ad.2
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:06:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795320368; x=1795925168; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9PuR6BxW1bsGd2uW0XkZ13RLiKGF+CwssnUyvB4C4G8=;
-        b=evJm+oLsq+4kzc84VKAr4CtJzo3IfsCj/gVq3bR6b4/RunCaPdIAKKDRdB60FHOri/
-         kXkXUd0mdLQsZD09OcorgB7ZMX+ElbW8SGM/rhASv2H/S4TvQ/n74BdpSG623qt//u5z
-         j/uJNP4KhMU6uyWbwCttDb9FMO4E1+Q/ZvKCu+sot3am8SunnqGZPV5NgSDEKslxjHgm
-         wiUGdjewEbxDdTxs2y/9gUKe2RNXOeRrSAiMr5oJT+4Z0P/P8FvOXQOm2AGNtYLiI9N4
-         lSlvhzjKnZRdrISEPM0wO7qK2abATsVypk4L5e8RDNAkPgWRh158PSz+CsDiimAzaEyy
-         EXFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795320368; x=1795925168;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9PuR6BxW1bsGd2uW0XkZ13RLiKGF+CwssnUyvB4C4G8=;
-        b=TdXEZsxmw92+0AT2ff/luRLIGEqAQM0bAUf/mbrXc1zgZEwdMBV1tcdYUoZ2oBMPbK
-         6GmWJYJPTTlk9uKoU+JAEqCBYIjkbIq7TGSsDTj7e9/em9AfyJM2PJLzA7sBNX96Zne0
-         vUb03eX6P/rodduNOR8ZBDhdQ/WzHwcM7LpP19Vd0yI7RweNbL+e3MacFl7ZD1tpqJNi
-         gHRZ4ks80z/dLryjUBXix+yPSzIOi3ahEQHGF5MLzjYKDqjYKSSSkfwzw/kGrjOPsDMB
-         ozxClteZ1SwNPvmIvdj4i8ORrStUN2lTDhVT5o8jwcIrBMKUfOh6bo2LDi6ETx4nQE7Z
-         XbkQ==
-X-Forwarded-Encrypted: i=1; AL+hErHe+XFmNClg5bF5dEiv+esiUyQzXIHhQGPAkROm9sXfnlnQ5Eo68DtzXuv9vNz/+zR2Y/BJEOl5aT4BYN8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+pR9fqM61m41uTon0OA51kuInxJVlP2olhe0OMCQdxs6NxKhW2
-	e6k4n3/rWKIz0BnW6vO8+FwefVbBoeD7Jbya3GR4s1QT1nGPRN5AqpM1
-X-Gm-Gg: AZFdTZezJJOjJ3nC9r3q/mG9vhdFZAVO1+79yMs26EWQ3ufTVlEU4afEXEKnujcIkTr
-	KEB4aMnZtVMX2tEpqHiD0M5avdAgBua6W8LC8Y5RUD529Y3pffL2Q6eXdpv3sK0WEJ/ZMRduh+n
-	9FXk1zPj2/kR3+gCbRDcEgszwpIPhklwSpew1A7a9LKhF3n81YEQTHkXFpRK5fdAo9FkqaudpSo
-	yxOBIrslE/A8t/LFD4KcAx+qchz31qhPuvZSBGGWBz+CDN46zgC2m5wAP1S8eCj1UPaUvfBGV5a
-	6UfCwl5S9zECgpj5iDoD1zBPLemXmfCtKUjd8Vo5l9k3c0KzSp7sxzhIptj2Z02+AYsbpzMN7Bq
-	zx2b3TlCF5UCBaFhgtjcoNsPmYpr46O5MOcGiq61tEcxUGK747H9xYyNWeVKn8jW7eAEHMnwmpI
-	Ze/9OmxJSdc6ECVa7nzBfcjgwo5yozff324RjQTOOxGgwMlVkAT32DGDGymCzsDxBob8jTrN/St
-	qYPe3ytvpZS02InQKWa2LcuZmMeIkOEkC2Yf7jLJ/wFDl8YLizw6xGiy1D2wl73WALu75qauk2h
-	3DRHwxDHTfFFl84fptpIE5dXHEafEolTZA==
-X-Received: by 2002:a17:90b:3d92:b0:3b1:2237:3c93 with SMTP id 98e67ed59e1d1-3b41c8de8d7mr6039371a91.18.1795320367746;
-        Sat, 21 Nov 2026 20:06:07 -0800 (PST)
-Received: from arm-a100.. ([140.112.28.118])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad92c07sm10947018a91.13.2026.11.21.20.06.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 20:06:07 -0800 (PST)
-From: Tzu-Ching Yang <shingekinocore@gmail.com>
-To: "Maciej W. Rozycki" <macro@orcam.me.uk>
-Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	linux-mips@vger.kernel.org,
-	llvm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	kernel test robot <lkp@intel.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] MIPS: Fix genex.S build with LLVM before 21
-Date: Sun, 22 Nov 2026 12:05:59 +0800
-Message-Id: <20261122040559.1120594-1-shingekinocore@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <alpine.DEB.2.21.2611040746160.6502@angie.orcam.me.uk>
-References: <20261104030147.3117325-1-shingekinocore@gmail.com> <alpine.DEB.2.21.2611040746160.6502@angie.orcam.me.uk>
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=fY1iywxG
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AM44Wnv3724081;
+	Sun, 22 Nov 2026 04:08:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=
+	content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=Uv8h2L
+	45V4jj5LVvESCeSMq451qPSPNLhaVFN3TApkA=; b=fY1iywxGSjyaQuK2adLxRj
+	2CeiRAC5Q/x9YGowm2V3q+7wiQQrahExgsczFCn3nwUGPoF685L9931mDCjlnDLV
+	OsLwn189d2a238bwXYEtOFUG5R3PBqqb9+qtQ6DIY02h1QkMNbWflWWhLIRKe93O
+	wBl7hg9/F+XrgkFJuLbp6K9EBuV6TcjZ35IoPQ/9Bcin4qSh2Cqwzx0D0+7I6I71
+	43+RJf86/8+J0FZzLWH+QSR8TuV6u8Wc8XLMGhMIS9ITYTubjJVpB42kElL8kbiZ
+	30DHtzOuDyYmTlYGAOD37Im7iFA0tDIm6Es2vmu3D9lhyAUm7azG8K8zw/6Bnuxg
+	==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34fk4uqq-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Sun, 22 Nov 2026 04:08:25 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AM3nD751128197;
+	Sun, 22 Nov 2026 04:08:24 GMT
+Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3pmjrff0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 22 Nov 2026 04:08:24 +0000 (GMT)
+Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
+	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AM48NoS52953456
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 22 Nov 2026 04:08:24 GMT
+Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A336458055;
+	Sun, 22 Nov 2026 04:08:23 +0000 (GMT)
+Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0CD0F58043;
+	Sun, 22 Nov 2026 04:08:22 +0000 (GMT)
+Received: from [9.43.90.96] (unknown [9.43.90.96])
+	by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Sun, 22 Nov 2026 04:08:21 +0000 (GMT)
+Message-ID: <ac3d60d5-1bd3-4f60-9933-e03af7323162@linux.ibm.com>
+Date: Sun, 22 Nov 2026 09:38:20 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,43 +85,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: PPC: remove unnecessary #ifdef
+To: Paolo Bonzini <pbonzini@redhat.com>, linux-kernel@vger.kernel.org,
+        kvm@vger.kernel.org, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
+References: <20261120133413.475489-1-pbonzini@redhat.com>
+Content-Language: en-US
+From: Madhavan Srinivasan <maddy@linux.ibm.com>
+In-Reply-To: <20261120133413.475489-1-pbonzini@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIyMDAxNiBTYWx0ZWRfX+0QTWCPrwkhd
+ 2Ny+u/rYMMxR0z4ARAskb2kgvEiRP4WLBNGEhT/+bPCJYxVjCEfHQ3uU5vQ3jOQ7KR2Va8y5iu3
+ cYBk6biXug08Of/gBUaYqcoafEQAeKR7A/AbqhGym2zgxxWYviVFjtIW6jZcFIiPadbxTKNJ2O7
+ QaiY1tXrzJbInqmFNNmzUPTmLJaRxAc290HUL6el1KoeztHfzymLHdxMJONzANupLDnh9NLanT7
+ KIOFP6AGHgP1Kd6mDZX7ULUc4ky5PrPaEVCs1nMpcEw3QCkQ1XNODx3TE7d8fFDqdmsnRPvQG9h
+ 4dIUNJx9yPHWC1HMTTB1saT8l0Px31S4lAe/DX5EIflhTlO/sVXI8nbHSf/U+UXWGvrb5eL7Q9D
+ P9UQ63QB+qNhAZVBoW8kQOm3d5boK/IN73OwzPll+BAXjX+JHEP/l+Udf9KvcLV2RAoDs0YN6xn
+ Qs+vNVYkQ9LZYz1+yug==
+X-Proofpoint-ORIG-GUID: hCpujaJVqeKogjbmvqemIG1K_zYI_K0k
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIyMDAxNiBTYWx0ZWRfX4GWVfEmf1jds
+ a+TN+TbkXXod5hlOBO2b5yuiWXkelIyxC48jA8UG47OepvTrLoQviRF27TjM16JSywuG5UC+W4a
+ u6DFCnpM6euGe9cyyc+Kwk143IwtPjM=
+X-Authority-Analysis: v=2.4 cv=A9z5rKWG c=1 sm=1 tr=0 ts=6b026ab9 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=20KFwNOVAAAA:8
+ a=BE-TfwSVDWWdQ4Vu56kA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: hCpujaJVqeKogjbmvqemIG1K_zYI_K0k
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-22_01,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 adultscore=0 phishscore=0 priorityscore=1501 impostorscore=0
+ bulkscore=0 malwarescore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611220016
 
-Sorry for the late reply: your mail did not reach my mailbox, and I did
-not check the list archive until now.
+++linuxppc-dev
 
-On Wed, 4 Nov 2026, Maciej W. Rozycki wrote:
->  Shouldn't this use:
+On 11/20/26 7:04 PM, Paolo Bonzini wrote:
+> booke.o is only built as part of kvm-e500-objs (which is conditional
+> on $(CONFIG_KVM_E500V2)) or kvm-e500mc-objs (likewise conditional
+> on $(CONFIG_KVM_E500MC)).  Thus, the #ifdef in kvmppc_core_check_requests
+> is always true.  Remove it.
+yes kvmppc_core_flush_tlb() is defined in e500_mmu.c which is 
+unconditionally linked in
+both e500 config (kvm-e500mc-objs and kvm-e500-objs)
+Nice catch. Thanks for the patch
+
+Queued via PPC tree.
+
+Maddy
+
+
+> Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
+> ---
+>   arch/powerpc/kvm/booke.c | 2 --
+>   1 file changed, 2 deletions(-)
 >
-> Cc: <stable@vger.kernel.org> # 6.6.x: 56651128e2fb: MIPS: Fix idle VS timer enqueue
-> Cc: <stable@vger.kernel.org> # 6.6.x: 2b6d718c8dbe: MIPS: Fix whitespace damage in r4k_wait from VS timer fix
-> Cc: <stable@vger.kernel.org> # 6.6.x
->
-> then to get this all picked up?
-
-Yes, with one more prerequisite after 56651128e2fb: b713f27e32d8
-("MIPS: Move r4k_wait() to .cpuidle.text section"). I will send v2
-with it added to your tags.
-
-56651128e2fb adds a .previous after END(r4k_wait), and the .section
-that it pairs with only comes with b713f27e32d8. With only your three
-tags, on 6.12.118 and 6.6.162, all the code after r4k_wait in genex.S,
-handle_int and the other exception handlers included, is placed in
-.init.text, and a malta kernel hangs under QEMU about when the init
-memory is freed.
-
-With the four tags, the cherry-picks and this patch apply cleanly on
-both trees. For malta_defconfig, genex.o builds with GCC 8.1 and 16.2
-and with LLVM 13.0.1, 17.0.1 and 21.1.8 (on 6.6.162 also 11.1.0), and
-kernels built with GCC 16.2 and LLVM 17.0.1 boot under QEMU. On 6.1.y
-and older, 56651128e2fb conflicts in idle.c, so 6.6.x is as far back
-as the cherry-picks apply cleanly.
-
-> Or is it unsupported annotation syntax
-> where a prerequisite matches a Fixes: tag?
-
-It has worked before: the prerequisite named by 4409df5866b7 is
-its Fixes: target, and 6.1.76 and 6.6.15 took both.
-
-Thanks,
-Tzu-Ching
+> diff --git a/arch/powerpc/kvm/booke.c b/arch/powerpc/kvm/booke.c
+> index fd7f24a68b31..ba762ac1fb56 100644
+> --- a/arch/powerpc/kvm/booke.c
+> +++ b/arch/powerpc/kvm/booke.c
+> @@ -738,10 +738,8 @@ int kvmppc_core_check_requests(struct kvm_vcpu *vcpu)
+>   
+>   	if (kvm_check_request(KVM_REQ_PENDING_TIMER, vcpu))
+>   		update_timer_ints(vcpu);
+> -#if defined(CONFIG_KVM_E500V2) || defined(CONFIG_KVM_E500MC)
+>   	if (kvm_check_request(KVM_REQ_TLB_FLUSH, vcpu))
+>   		kvmppc_core_flush_tlb(vcpu);
+> -#endif
+>   
+>   	if (kvm_check_request(KVM_REQ_WATCHDOG, vcpu)) {
+>   		vcpu->run->exit_reason = KVM_EXIT_WATCHDOG;
