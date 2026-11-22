@@ -1,101 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795330691;
-	b=gbf/Q2JiENRBsEUVX960twOgQvsf7xJYgQ/ouYJZOYOo55L6bmnF3OEZkou+q32iv+vU
-	 NzX5X1ZsCYOEeP2e1RNyR0xNI7/ZPIn2mb1Bs7DilIlgRnAx2OLb+16a7dXany10fUm1n
-	 bX+UldVksWnlyllugawGfdFl+Q4uA9XjNw++ghvFUIpuFqafqn7lEuRg4anv75GH/Rlr1
-	 u1SZ7sfNa9fZEkqtT+mnBxPv1MTfwjaQj7oYLeFzIrDNoNYe/tMbAcOaaXFOsJVJzADHl
-	 6OFtgOw8IPEKgipFaIZ0Jen0otgvz5IReF6JvRI0eK8h7X+yoZ+IAfqf3vQBw4cIhVA==
+	t=1795330818;
+	b=14LvX0UeckBU57DhFWy3FhqMpzEKXOcFYUBjaZqemPFJEzMcRuCAk4Iwpifrz1oe/2Q5
+	 aXPO+70wiA0gWfM8nCA9ug2JW0hzOXfgu0qZLKcG3BRF0uYyqajgn/qQxms3h0/OQ03zO
+	 YqXgTdRjOZ3x+xLlHVWNMXLzj/dpDczQgqnsb7ipJxPA0SAQHltU/aDSa6Cgxx7fq4Ijc
+	 YoM69BeYyJTsF/AYb+P0hf/rDBNGorPMj0CC2zcEn94or6t5S+/DVC4T5TG6RGe5T1PzL
+	 uIn4/zoWYWDExAuOB99mVos2rindaD0vQJvPdn8EOmkzqg1A7Os9qgVRN16rRI4AZOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795330691;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=w+PnSLxKsJCEKZh3Ds403ivdl+AA4FlpjzNhhNO09oY=;
-	b=Qu2YBCXaHBYmC3kBNo7uJ9WG1Y3IsbLHlBHAJhSqaugOr0zrTmwbC17ecWYNwoas5qAx
-	 sogN3Qee5h5tb7mv43N2jL7sDl0hQFG81dH0Tkw/TrmkZulWQ+i27j9i3ttv9Fk3yBFb2
-	 Y2FKzMTPZp5euGp4m/WYDumL11q6JMEhpK/j7JUa015EHnDDUftVBxZ+djiNPG1f/8W4u
-	 tYMOJpIMzyNN05EJF9ET3T4fE7Jd0aldSgSPHAfjPwkLatL8RJiWanM/JLgtCZZTYWn2y
-	 sGarB7lSCDp/nKiTOaYu1qU7pdY2htgF5bwEGNXUSjrPXRBwx6LIhWPQlx3MXxEWW/Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795330818;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=nIYQf39JPVEE3EcOjZPlpobu516qhCSZcCXOowR13Ms=;
+	b=zbgCcQgbue8/decbUKU1amn7GYh/mteo7GQ1vVzIYpNWbyBEKrjKDvmPZKAYvYq9NTQw
+	 VYID3ZxV4xV8DLXl37L9oaeAKRH1GoG6FEP4SmSjbFupPrK73CS/D9YLH0dmo+sfG4B1k
+	 v8rRQHHEH5hzCgma4YISz7UE2Obhmt6tSf8/BI5HDxBBNeBEsawoLD31VI2Or6EcMRDlE
+	 Zup8AFA/drPW0+KzSXQJf9SLAj2JOwICPe2u7IWGdS5aleae+5ZZYDG/sv6SU3WoRE21Y
+	 uD5AixxHrvCubpDpRTNGbbIv6R347kSKyD3o2PphNaB55pBpLuENv5Tyr/5TJ1PLgUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oKY8UVpz;
-	arc=none smtp.remote-ip=209.85.214.178
-Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qj54I7x2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93146606A330
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 06:58:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93146606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 811EF606A320;
+	Sun, 22 Nov 2026 07:00:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oKY8UVpz
-Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2f04b676219so10782995ad.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 22:58:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795330691; x=1795935491; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=w+PnSLxKsJCEKZh3Ds403ivdl+AA4FlpjzNhhNO09oY=;
-        b=oKY8UVpzKhjVKafswLUERPYGhhuJRjrxLQQvx/ETBnU7BjQ2U1eW5Eec82p9yUZSQM
-         69uRrRN49rT5ki6eGLZdjWpK0iFa9hFcu4wc9nXn/Bp8SqlS5ABwSjJmy/8SKLjMcNSN
-         E45Kc9P9FXDD8FCZB3Mse459Ccr+1VPgxJPHu5mX2h+V5P9u7qGOFfTVZx8K/aAkuydZ
-         g3ubIm4r9b91xF+Qu40r4Ubh2J3pqSOdr9cABqN+bT+F6GnzohxpwXn/mB+bDsF4hX18
-         jSuFLH9ww06Mwg+e8v0l+jJ+6Vqdg5L2tEdLXp+P0a5oEa7Sq73XhcG8d2SVKjJI9B4u
-         vPGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795330691; x=1795935491;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=w+PnSLxKsJCEKZh3Ds403ivdl+AA4FlpjzNhhNO09oY=;
-        b=xxutK7ch2dQtM9ENQmmkX3bae4b5XAWz/tDoyItuDoOQqUCGKYyVsdclPxiI3xyYDQ
-         nzdZzJthWkX/z0fSyzkSVHDC8Sb//Nd9PpVCQrsHV7jGxV3bmqJ+lvwDo0yLaw2COqA5
-         FYxp0H9YbecSVddePfQTaJ84bn1GRv3ca/JYDNXCEAPi3vsgu8kp+b7FdweNvO2b6FiR
-         pXp9Xt1ANNFeE7Oki29IXWUYCaaBDhStji21vL4Zi3o/w7bOc1YsyXQ83XBm4RnQijOY
-         1IZBGmZC34E/OEtbedjvPHycB2aXX4Ykk7EsbKnfCfZ1t8vktE+1Z3adstZnzkM0JdE0
-         UPmw==
-X-Forwarded-Encrypted: i=1; AL+hErHm+lTwyW3FLxyr4UytgXP/1ILPT2QnqQSXEDQQRtoY7gphZgLGoNvuTuVuuluu0idKwQR1MXIBkrp++fA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z99dQTp0QCBXNUWHsPJE/ldSp0Jh3dAopK/ccmYcm4knDxz0MWv
-	+O166rUrmUAfYJACKf6Fm54qOUg1fdCt1jNiYzczDK1A88KcLzARCKhH
-X-Gm-Gg: AZFdTZdzC2xmprhcQDHEz50Za2pr4jAT2VZfV1+0AiaJzMucvidkTCRjumZludXS+ab
-	YrTB9PUgo8Gw6WISQY8um3R64GPmnb0a1H/VXp9OiXkJx0mqMtoyVgEpKCmnTvfQ9tUw3IcHAcd
-	SJlehxjHQVPm/JxnN5ijoJjZeuQ0sCxdBZvsrJUkg3YN7ZdH9a2eWY6/FMiVjk6E9lu29oCp7ba
-	jv7ijbNMBp2fi+fNNUKACPWZBPQcfL3l67w+hklTgUT3ti+ZinvknROtm+TMNdggZi2gZEI3cm4
-	abimBg+RafcYSeozYhh2oe+xHSc4oRanEo5mWgwe0BR277D8BHlp3PigdGy1E08r1gIjCk9jrJR
-	/3ZUpehfuD6HH2DS/+xyFXOleJvM0IJms71ii9WRjuqfgwGnxVtDnG9RCSrud2VuQSRdhD21XDQ
-	tUV31lxpnZCfjZ/LwzGNmhGYqzhNwuUF6qeLFwxTXeIPntaKh4xuWqdYWtOQi7TDDo4P+O9HDNs
-	aWbNROQ3dVBC8Ra5JtmH8xRqplR0sdE0s9pFugsFm1gtaUtVdGoXaMCcuDT/T78be8jbt/oR8Sb
-	RLsJ0wA1PiSb+gVn1+DJUN1PrSmlsaBPKm78oJwY0qDqkiiACxBC
-X-Received: by 2002:a17:903:240c:b0:2f0:3382:cf52 with SMTP id d9443c01a7336-2f03f156ddemr67246795ad.15.1795330690792;
-        Sat, 21 Nov 2026 22:58:10 -0800 (PST)
-Received: from d.home.yangfl.dn42 ([2a09:bac5:6213:28::4:379])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120016sm34287345ad.58.2026.11.21.22.58.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 22:58:10 -0800 (PST)
-From: David Yang <mmyangfl@gmail.com>
-To: linux-watchdog@vger.kernel.org
-Cc: David Yang <mmyangfl@gmail.com>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Wei Xu <xuwei5@hisilicon.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 4/4] MAINTAINERS: Add HiSilicon STB drivers entry
-Date: Sun, 22 Nov 2026 14:55:23 +0800
-Message-ID: <20261122065549.3265519-5-mmyangfl@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261122065549.3265519-1-mmyangfl@gmail.com>
-References: <20261122065549.3265519-1-mmyangfl@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qj54I7x2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96C7B1F000C0;
+	Sun, 22 Nov 2026 07:00:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795330818;
+	bh=nIYQf39JPVEE3EcOjZPlpobu516qhCSZcCXOowR13Ms=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Qj54I7x25az/X3a05tHbr17Aed4I5kPScv1MIGn4qMCi2HfG5SGo185OVvQSa9j31
+	 X1x2q9cz8MyNDaq/jGZdDfs1apiCT60O+tKGcp+dzShTNmCQERvthAiV9jPq0RsGpJ
+	 JCw1/Vq91JIaRNaf6KootMZ67sdwjek27YsnWxSc2NLkPd8AkC3ySjWXzU0latwdlu
+	 +nEoCj1b6r/ZT4sdfmT6YK15q9y7Rzv9271bhi3iiQaCOxZ3Vkd+CCGhDhfPuGj//n
+	 pY2PDDhfRyTpf8MMW1ghy7d5n+DrRnwvOKrHCYCgdMQVqnpLWbvTogKWjG41wcOtJO
+	 Oxd3m8IE016Jg==
+Date: Sat, 21 Nov 2026 23:00:16 -0800
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Song Liu <song@kernel.org>
+Cc: live-patching@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	jikos@kernel.org, mbenes@suse.cz, pmladek@suse.com, joe.lawrence@redhat.com, 
+	shuah@kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] klp-build: Reuse the target kernel randstruct seed
+Message-ID: <awKS7r98LjmecdIM@jpoimboe>
+References: <20261020212341.706367-1-song@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,35 +57,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261020212341.706367-1-song@kernel.org>
 
-Add a MAINTAINERS entry for the HiSilicon STB platform drivers, covering
-the histb-wdt watchdog driver and the existing histb-rng hardware RNG
-driver.
+On Tue, Oct 20, 2026 at 02:23:41PM -0700, Song Liu wrote:
+> CONFIG_RANDSTRUCT randomizes struct layouts based on a seed which kbuild
+> generates from /dev/urandom.  A livepatch has to observe the same layouts
+> as the kernel it is loaded into, but klp-build runs 'make clean', after
+> which kbuild generates a new seed, and the resulting module can't be
+> loaded:
+> 
+>   module livepatch_foo: .gnu.linkonce.this_module
+>   section size must match the kernel's built struct module size at run time
+> 
+> struct module had grown 64 bytes of padding relative to the running
+> kernel (0x540 vs 0x500).  Every other randomized struct the patch touches
+> would be read at the wrong offsets too, so this is not just a loader nit.
+> 
+> Reuse the seed of the kernel being patched, taken from --randstruct-seed
+> or from scripts/basic/randstruct.seed in the tree, and refuse to build
+> when CONFIG_RANDSTRUCT is on and no valid seed is available.  A wrong
+> module is worse than no module.
+> 
+> Pin scripts/gen-randstruct-seed.sh rather than the generated seed file:
+> clean_kernel() removes scripts/basic/.randstruct.seed.cmd, so kbuild's
+> if_changed finds no saved command and regenerates the seed no matter what
+> the file already holds.  The generator is stashed, so it is restored on
+> exit like scripts/setlocalversion.
+> 
+> Read the seed before set_kernelversion(), but pin the generator after it.
+> set_kernelversion() runs 'make listnewconfig' and 'make syncconfig', which
+> build scripts/basic as well, so after a 'make clean' they would replace
+> the seed before the default seed file is read.  But if the generator is
+> already modified when 'make kernelrelease' runs, setlocalversion appends
+> "-dirty" to the kernel release and the module's vermagic no longer
+> matches the target kernel.
+> 
+> The Clang and GCC plugin implementations both derive their layouts only
+> from scripts/basic/randstruct.seed, so pinning the seed covers
+> CONFIG_GCC_PLUGIN_RANDSTRUCT too.  Drop the check that rejected it.  The
+> plugin requires a 64 character seed, which is what gen-randstruct-seed.sh
+> writes, so validate exactly that format.
+> 
+> An explicit option is needed rather than deriving the path from
+> uname -r, because the build host is usually not running the kernel being
+> patched.
+> 
+> Signed-off-by: Song Liu <song@kernel.org>
 
-Signed-off-by: David Yang <mmyangfl@gmail.com>
----
- MAINTAINERS | 7 +++++++
- 1 file changed, 7 insertions(+)
+Seems fine, can you address the Sashiko comments?
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 2ac5128b756e..f248a04b925c 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -12187,6 +12187,13 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/mfd/hisilicon,hi6421-spmi-pmic.yaml
- F:	drivers/mfd/hi6421-spmi-pmic.c
- 
-+HISILICON STB DRIVERS
-+M:	David Yang <mmyangfl@gmail.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/watchdog/hisilicon,histb-wdt.yaml
-+F:	drivers/char/hw_random/histb-rng.c
-+F:	drivers/watchdog/histb_wdt.c
-+
- HISILICON TRUE RANDOM NUMBER GENERATOR V2 SUPPORT
- M:	Weili Qian <qianweili@huawei.com>
- S:	Maintained
 -- 
-2.53.0
-
+Josh
