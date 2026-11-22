@@ -1,78 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795347308;
-	b=IF/C0Q9/ZQk4bWxnynJMQoVzrBBkTfwP3vKotFxCmgSx28NDCf5S7wdsB0yMkTIJJ+V3
-	 pimpMBrv8iim/lIhFAM+Eq42EAUfXU8isundoEy7TDj0B5YVYW1AyU11KT0LcoOWuTv+G
-	 D2gaxmu1ySQihgCSiQ1IfXgKNlYmJMD7WA776N+2JOovAsL4btqxDuChmov5QEI6dB7pi
-	 mkl8L5iVhLbFZLTMBELAE/6c0fjfuYtC+Ug7jgdEPnGjCv55oVVyZ86ZDQdOPdN35W+B9
-	 CBslGjWnLDUPns3sOIuSebjmnw+GZGlX/nkG3o7q230EEdMQRXrIsTY14X7B3ZRO1dA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795347308;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=kblLbfcAqOgdw53tmrqkehBtGoJXhzL1fp0l0rk+2NY=;
-	b=qPB4WW02BeTZ9zwhgx1/NNwvCzrjsW9zOfn+xnoBPhuP78410+Ti4PGbYXwC+YLWwomy
-	 rbLnz1/JwRZsKu3K/6olXpRk7tLSsedT1GPQKPX+xn2M4HNbCpX5AQTc+IUTTq4KNe4fN
-	 f8C6sHoODm9nVEH7TCdsQIY07ok81fvS3ujNr9/P9kSkNxfvjJ1Crn7rQgLz7k1IR2QiY
-	 IOBj7dErMT6biR006mE5wZTcOLpQZTK/pQgRCryzLi2l3kEHAVPDLLu48thDj0iCsWgMC
-	 i9BK3HyBvfmCleG88UyzLGUwWmV77UQaob2urkH0bpq2r3z3a8LHJGIBbanvBnR4NLg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Spv9Fpw8;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 636C2606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:35:08 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.75.44.102
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795347353;
+	b=UOsNSoRFNY5XzhD4chD3uEWUKojvECApu0FzvSunr42fl5q3E1+H3ahPzA2iRiIHFQQj
+	 EycTULdDZ3hKOOnxxiNa3hynlxVjsjoIKDFRa7e7yQclw6C1hHyvvO0Co8wqOuUbCZPmg
+	 9pykhVZ7VGH9jLG5h5KX9gfRNapY2f7T8Qb80CdrDzQoPLP01y3E41EM6rDuDzuvlkbzq
+	 hr2UFefgf7hCT2O2bktF9wZsD+VOtnE/qdZeFRRChTByThnaq2mn3Dw8gMXxnUjOEqrmq
+	 eSXLCo77g2l++KE0c4hsiEVkmCuKpyCinuXWi/suQy7u6no6lOu+ux3KuolpliEch6Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795347353;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=KhH3/ntoyorUoRnbCabrr5P7SSAKGYQSV0N3Qci+I/k=;
+	b=FCjnv1U9xLBJIj1s9Y/Y31prhgpBbgMYrtdtUnJ/IkHMlqCC+j8k4zN9DFGSMRIqlQDh
+	 pNXLPvyYxKUSgv7Wfv2NtEKbRipbuoh062FF/8/YVYq2UQYNB1ggydOltikbuxfDy5cKd
+	 2D+V+BJGAGuzjPAtffTnYphdLvT3y+JGdDMME2JlimcDwpy+VNYn9JkmHzuknuzgzBrwM
+	 rl2+ld7gL9X+4HgrGCcVq9a8/ZQfF7QCqCD+l401KIY8NWv5aO5IQS5KVh0nGDYPF2EO5
+	 fPcZZmAFjmY2/89O2R/H91H//DzYpT64TTCprEC12vBFBY7tcwXrpPiRjjhaKgagEsA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=mail.zgclab.edu.cn;
+	spf=pass smtp.mailfrom=mail.zgclab.edu.cn;
+	dkim=pass header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=g62POGcG;
+	arc=none smtp.remote-ip=13.75.44.102
+Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [13.75.44.102])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id AD725606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:35:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD725606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.zgclab.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.zgclab.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Spv9Fpw8
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795347308;
-	b=E9hA068WRKTK6kJwtZNANdScdk2WOKSiRTl7CxBISXcYn1FKjHLvizPl6OpwFdzSSNe3
-	 hYPFpLmZILpX6OBmlwWGXNUiOXvXg3M+9dZnnup5Pw+X7LY7/kpMUsbX5BtEBOCLBOutl
-	 J6/9bNMTCK4j0R9ZQ4jV/5S7jPX1VLb953a5HNLfckzrwyk59SThLq2rYmnEBakLTsj4y
-	 MyvhcKwir1AIsPUUJgwEagj/vorYO7Fu/oyeME9l915a3you3ISS1Y4ncjqLMMJidnvjY
-	 v3yA2rwBb8mxwtLK4rtZrliQd5bY0ijnt/Kpj8wz3CQL4XpaEkXTmsXXgDDq8f8MEqw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795347308;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=kblLbfcAqOgdw53tmrqkehBtGoJXhzL1fp0l0rk+2NY=;
-	b=Dlorw5lhF2f1SJo6Vvi26z4TZB2cHe1JLt46FlpH5u9MKkyHhWgloDI6tu0eXYUzZrUY
-	 jGI0mbv8cOVqZspBqDzmvy9d3NPMx/IJJdcDZ5f0YyBcO4sxfEZ/sy/iYKJia6haJNYXL
-	 Vh5n9iJMN6a6SJn6D/i/pbAIf2WUQJ0H6zxykwq4+xezNP7vz3q3wL9F7NUx4OprIAsYM
-	 6kM0YXgq0FdfQHFj96yq3xiCG5eCImqA+SJZZ4uiwcCC0e3248ptGsL2CdkKbTKM+ILGr
-	 DsUuxLx+y6ikm/aiOEDZ7fW06QGFeU0dXohwhiwgpKsRu3CaPGODlbCWv5M9HF2H1jQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 74CD61F000C4;
-	Sun, 22 Nov 2026 11:35:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795347308;
-	bh=kblLbfcAqOgdw53tmrqkehBtGoJXhzL1fp0l0rk+2NY=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=Spv9Fpw8BFmTNX31wP4SHakBuSegWYtb1/R9tCdqFCZVekGCEnk1ArR2iQ6DcUElQ
-	 gl0aerfg5Ifs3OJ7sCW8zTXVKIuCpCWU+Sf8ttm1GPzvHw6w/DEUnIJlxakY1fCaTP
-	 EfwFDBeH16ye623/dzA4u5c6Kujbx+tju/QmoSbVY9i0yAl1MBYreSzVK44Vs3RDJP
-	 eWjhUUC63gkmzQOzaL9lbMAtdyGMfAxcgEdwXiTQYibyAwmBr+p5DPIiscpD+oz+bh
-	 pjmbiRZqgafYzYBNXVtmUNrs0y9cvWfOn0f9oUKg5pww9K8nG04QU6PW0LLsdrUyE6
-	 NKEoFVnajenAg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id E89054C001;
-	Sun, 22 Nov 2026 11:35:06 +0000 (UTC)
-From: Anthony Ruhier via B4 Relay <devnull+aruhier.mailbox.org@kernel.org>
-Date: Sun, 22 Nov 2026 12:34:25 +0100
-Subject: [PATCH RFC] clocksource/arm_arch_timer: park stopped timers
+	dkim=pass (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=g62POGcG
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=mail.zgclab.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=KhH3/ntoyorUoRnbCabrr5P7SSAKGYQSV0N3Qci+I/k=; b=g62POGcGOfhGN
+	Hf3KQvZxTxe1WhEuupyeUHzQ/reQBRdgqWayQ9Nz1mUT9EMsVgc8kFs7OFK6rMWp
+	xYFdbTZ5h6nw7aq1eMFE9ZwXrybMeiwYRYsZoqLZdUc1rvv36fwUsMIvn6Da6Y+c
+	lBGl0wy4Kg7jUQlqdxva1I8ib2gl90=
+Received: from stmpe_v2_send.eml (unknown [58.206.202.11])
+	by web1 (Coremail) with SMTP id yAQGZQDXRjeM0wJr_JCqAg--.53142S2;
+	Sun, 22 Nov 2026 19:35:40 +0800 (CST)
+From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+To: Lee Jones <lee@kernel.org>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, mfd@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v2] mfd: stmpe: Disable regulators on probe failure
+Date: Sun, 22 Nov 2026 19:35:30 +0800
+Message-ID: <179534733065.15652.3659794654405986240@mail.zgclab.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,114 +55,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261122-x1e-arch-timer-park-v1-1-c26dc527c71f@mailbox.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMQQuCQBBG/4p85wacDWTrGvQDukqHbR1zikxmV
- QTxv7fV8T14b0USU0k4FitMZk367jPwrkDsQn8X0iYzXOkqZudoYaFgsaNRX2I0BHtSU7Z+f5D
- AlffI5WDS6vK71ricT7j+ZZpuD4nj94dt+wCadHu1fAAAAA==
-X-Change-ID: 20261122-x1e-arch-timer-park-d0f839ea1688
-To: Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Anthony Ruhier <aruhier@mailbox.org>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3127;
- i=aruhier@mailbox.org; s=2026; h=from:subject:message-id;
- bh=OlttGN71nDchITfUTGgkO4dnaqxjbFjLuTe80BMQ2p4=;
- b=owGbwMvMwCV2okp4cvOBsLOMp9WSGLKZLmd9S585bWfZ9Pjg3JqyLVI/9reU9lx79yV1b4mPo
- aaPYemTjoksDGJcDJZiiiwXLAseP74VPbm7zqYLZg4rE8gQaZEGBiBgYeDLTcwrNdIx0jPVNtQz
- BDJ0jBi4OAVgqtffYPif3fXF7J/z2fe3OT5fa9BZNl3gh2uk4Hz1jBf2pn/nXd3xiZFhX9B9t9k
- 9kW3r2/9J8XQt/Drvo/QF92lT4u76TJ1f1ujLDQA=
-X-Developer-Key: i=aruhier@mailbox.org; a=openpgp;
- fpr=F4A378DD8D494AE48EBA554CB00FBC7D08D231D9
-X-Endpoint-Received: by B4 Relay for aruhier@mailbox.org/2026 with
- auth_id=1292
-X-Original-From: Anthony Ruhier <aruhier@mailbox.org>
-Reply-To: aruhier@mailbox.org
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:yAQGZQDXRjeM0wJr_JCqAg--.53142S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxGw1rGF1kGFyDZr47Zw4kCrg_yoW5Ww1kpF
+	WDXFyFkr4UWFW09r4DAr47Xrn3WrW8trWxGrykW343Xr1jvF9FqFykCr1Yv3Z5Xrn7JanI
+	yF9rXr18uF17XFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Fb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x2
+	0xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18Mc
+	Ij6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7Cj
+	xVAaw2AFwI0_JF0_Jw1lc2xSY4AK67AK6r4kMxAIw28IcxkI7VAKI48JMxC20s026xCaFV
+	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
+	x4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r
+	1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_
+	JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcS
+	sGvfC2KfnxnUUI43ZEXa7IU5GztUUUUUU==
+X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAQYTD2sCG5iHcQAAsH
 
-From: Anthony Ruhier <aruhier@mailbox.org>
+The VCC and VIO supplies are enabled in stmpe_probe() but were never
+disabled if probing failed later, leaking the enabled regulators.
 
-When a clockevent is shut down, the timer is disabled and its CVAL is
-left at the last programmed deadline, which is in the past.
+Register a devm action to disable the supplies, and track whether each
+supply was enabled in dedicated flags instead of consulting
+regulator_is_enabled(), which reports the hardware state rather than
+whether this consumer enabled it.  Drop the manual regulator_disable()
+calls from stmpe_remove() so the supplies are disabled exactly once via
+the devres action.
 
-On Qualcomm X1E (Hamoa), when Linux runs at EL2 and uses the physical
-timer (CNTP_*_EL0, i.e. CNTHP_*_EL2 under VHE), the firmware seems to
-expect a non disabled timer and uses its CVAL to compute the wake-up
-deadline for system power collapse. In s2idle the stale CVAL makes PSCI
-CPU_SUSPEND return immediately, so the SoC never reaches DDR LPM or CX
-collapse.
-
-Instead of disabling the timer on shutdown, leave it enabled but masked,
-with CVAL set to BIT(width - 1) - 1. The firmware seems to treat CVAL as
-a signed value, so this is the largest value it accepts. Anything higher
-is rejected and ends up in the same immediate wake-up loop.
-
-Tested on a Lenovo Yoga Slim 7x (X1E80100): s2idle now reaches DDR LPM,
-CXSD and AOSD for 99.9% of the suspend.
-
-Initially found by
-https://github.com/justririll/x1e-sleep/blob/main/modules/el1tmr/el1tmr.c.
-
-Signed-off-by: Anthony Ruhier <aruhier@mailbox.org>
+Fixes: 9c9e321455fb ("mfd: stmpe: add optional regulators")
+Signed-off-by: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
 ---
-Hi,
+ drivers/mfd/stmpe.c       | 24 +++++++++++++++++++-----
+ include/linux/mfd/stmpe.h |  2 ++
+ 2 files changed, 21 insertions(+), 5 deletions(-)
 
-This patch is needed on Qualcomm X1E laptops (Hamoa) when Linux runs at
-EL2 to reach the lower states in s2idle. I am aware that changing the
-shutdown behavior of the physical timer unconditionally on every
-platforms would not be acceptable.
-Marc (maz@) recommended me to send an email here to discuss how this
-should be handled upstream.
-
-On my Yoga Slim 7x laptop, PSCI CPU_SUSPEND for the system state
-returned within ~5 us, thousands of times per second, and the SoC never
-reached DDR LPM or CX collapse. With this patch (added to an ADSP fix,
-unreleated to this bug), it reaches DDR LPM, CXSD and AOSD for 99.9% of
-the suspend. This makes s2idle using 0.7W before, to 0.18W now.
-
-I guess this should be implemented as a quirk for Hamoa.
-
-For the Qualcomm folks: is this firmware behaviour known, and does it
-also apply to other Qualcomm WoA laptops (X1P, Glymor, etc.)?
-
-Thanks,
-Anthony
----
- drivers/clocksource/arm_arch_timer.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
-index cc9a8b399004..6f03670119f6 100644
---- a/drivers/clocksource/arm_arch_timer.c
-+++ b/drivers/clocksource/arm_arch_timer.c
-@@ -590,11 +590,10 @@ static irqreturn_t arch_timer_handler_phys(int irq, void *dev_id)
- static __always_inline int arch_timer_shutdown(const int access,
- 					       struct clock_event_device *clk)
- {
--	unsigned long ctrl;
--
--	ctrl = arch_timer_reg_read_cp15(access, ARCH_TIMER_REG_CTRL);
--	ctrl &= ~ARCH_TIMER_CTRL_ENABLE;
--	arch_timer_reg_write_cp15(access, ARCH_TIMER_REG_CTRL, ctrl);
-+	arch_timer_reg_write_cp15(access, ARCH_TIMER_REG_CTRL,
-+				  ARCH_TIMER_CTRL_ENABLE | ARCH_TIMER_CTRL_IT_MASK);
-+	arch_timer_reg_write_cp15(access, ARCH_TIMER_REG_CVAL,
-+				  BIT(arch_counter_get_width() - 1) - 1);
- 
- 	return 0;
+diff --git a/drivers/mfd/stmpe.c b/drivers/mfd/stmpe.c
+index fd51ba74275c..fb30b8a4fbac 100644
+--- a/drivers/mfd/stmpe.c
++++ b/drivers/mfd/stmpe.c
+@@ -1362,6 +1362,16 @@ static void stmpe_of_probe(struct stmpe_platform_data *pdata,
+ 	}
  }
-
----
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-change-id: 20261122-x1e-arch-timer-park-d0f839ea1688
-
-Best regards,
---  
-Anthony Ruhier <aruhier@mailbox.org>
-
+ 
++static void stmpe_disable_regulators(void *data)
++{
++	struct stmpe *stmpe = data;
++
++	if (stmpe->vio_enabled)
++		regulator_disable(stmpe->vio);
++	if (stmpe->vcc_enabled)
++		regulator_disable(stmpe->vcc);
++}
++
+ /* Called from client specific probe routines */
+ int stmpe_probe(struct stmpe_client_info *ci, enum stmpe_partnum partnum)
+ {
+@@ -1410,13 +1420,22 @@ int stmpe_probe(struct stmpe_client_info *ci, enum stmpe_partnum partnum)
+ 		ret = regulator_enable(stmpe->vcc);
+ 		if (ret)
+ 			dev_warn(ci->dev, "failed to enable VCC supply\n");
++		else
++			stmpe->vcc_enabled = true;
+ 	}
+ 	stmpe->vio = devm_regulator_get_optional(ci->dev, "vio");
+ 	if (!IS_ERR(stmpe->vio)) {
+ 		ret = regulator_enable(stmpe->vio);
+ 		if (ret)
+ 			dev_warn(ci->dev, "failed to enable VIO supply\n");
++		else
++			stmpe->vio_enabled = true;
+ 	}
++
++	ret = devm_add_action_or_reset(ci->dev, stmpe_disable_regulators, stmpe);
++	if (ret)
++		return ret;
++
+ 	dev_set_drvdata(stmpe->dev, stmpe);
+ 
+ 	if (ci->init)
+@@ -1489,11 +1508,6 @@ void stmpe_remove(struct stmpe *stmpe)
+ 	if (stmpe->domain)
+ 		irq_domain_remove(stmpe->domain);
+ 
+-	if (!IS_ERR(stmpe->vio) && regulator_is_enabled(stmpe->vio))
+-		regulator_disable(stmpe->vio);
+-	if (!IS_ERR(stmpe->vcc) && regulator_is_enabled(stmpe->vcc))
+-		regulator_disable(stmpe->vcc);
+-
+ 	__stmpe_disable(stmpe, STMPE_BLOCK_ADC);
+ 
+ 	mfd_remove_devices(stmpe->dev);
+diff --git a/include/linux/mfd/stmpe.h b/include/linux/mfd/stmpe.h
+index 87e29d561e22..eec5fc795014 100644
+--- a/include/linux/mfd/stmpe.h
++++ b/include/linux/mfd/stmpe.h
+@@ -122,6 +122,8 @@ struct stmpe_platform_data;
+ struct stmpe {
+ 	struct regulator *vcc;
+ 	struct regulator *vio;
++	bool vcc_enabled;
++	bool vio_enabled;
+ 	struct mutex lock;
+ 	struct mutex irq_lock;
+ 	struct device *dev;
 
