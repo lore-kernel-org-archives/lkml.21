@@ -1,65 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795371895;
-	b=KK2kxrIkkNFRzou7OUotRXTX9uaG2yh84lHhcAryCGBbqLBFj1MrF05K023zjbQw5ljW
-	 AcPkEblgm9mhfu92AsQVlKzBLSXV/El0MbqNr5jhI3Bd+Ig6x9wMplehG+3ULRlKAT7Lg
-	 2WJd8lT7rEIB5Wlaa6yl0LKvU5+wUuM1baS6P0xhrhTrcsBi21lJ64I5x2viBsyRxKl4g
-	 h8ttIUJg2Px3iT4aD6ZbTAPxWyQa44AbvUjUsNVBJWGqC0AxEstqG3jDIiy+WMX25YJIW
-	 +loMphrjIktqnAV6Aq13jJCcAdOfQBCR0cBVL6MZJObSQ2Ku5VNeWt04xE+HycAyzOQ==
+	t=1795371917;
+	b=LdbY6bUkDHzSa10QVaFkGrHMSd+sbrwiVkmNbE1XPxNrapzk8i98fVgR1RdoRAHVMx9Z
+	 6ZQi5EZYlyUSVCgS+Tbv4kd4WcRXXRczJMAsP8MIVTS/dF9fbw/UIuKEz5F7wA2/DZqNW
+	 /JMD1up0IP6e5WgS43gar0WOwOQCxt+jgXPey+AxC6aNqvis71UDdPvGpD/PnfVO0bi7N
+	 p9aHJaOc1oFQrZ3tChWUdzbZGFx9lWnYMmIHm2L/5fpVoZ7zeAEpsNaBP5c7/7nVsR8JN
+	 EvgRCW5JOYRywjhFVXacb1ZSkQbwLfphK53UJs5AYj2jdHazJLT7dG3SrzZj+TtVcmQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795371895;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=I8O79LLuixI7Ncv80qos0WzCUNLLnHjxMOr/9odIaMc=;
-	b=DWnL+MLS/NFdl4huDxJX3Uc6utVCWj+tBB+Dnfj/D2d5XcMcmSVtrgAklbQL93fq2A9M
-	 wbHCBPI3gfZzoqP8v8Ws676aFsRiUPgIo054A5MCPguwSRimOzZDYyuWoh4mfONwwRPxr
-	 srNHqt9LcjgMBEkeFGjhv2A5yjiau6/J0+onMUH4VRTh9f8uKMHMfm13h3m3dbVQAPn/N
-	 NAg5vu6Qk3YrpPbNB+C4TVeQQtFl8fRz80I6o/9k7KA4dZWPJHM4iN1NZu8fSNMun21wc
-	 wGvf7L4pq6zGSNPKevtPTcJ0IybBJL43p5FUSRMDA5mTbgeAlRf79COtDE3HjCLsJkw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795371917;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=1lgSvXfM1NpguQppsGiqChdK8jo6yWYjCTv/SuCYsSU=;
+	b=t1DwleRWSZTgGVal/4EzLtwIWGYDI/fl3wN5TAfvuW9HXql2x3skQr4GX5dWNANrZ01F
+	 2TAxnKxatRfflHVfnx/PWnf9ED3MR9YtS7at2RfTTFvaiCT+JAMXTU4Qdr+5chREGq7f/
+	 pdvZbP+5XwAB8VsWcDS54Ob1pdX1ToJ5/iv86EbIMGOGwViI3I3ObzsMxbbzSYGn5NB/M
+	 iNMtB4hbnunaa2J84VN6oS1Bry96OeebotXXnhRCILqAQ4lsGC1aNJigwZc9edPAV6Zkx
+	 btfM43OYybWSoDeR/Eb5vl7g15RjtzHp/kXof0D44FvdAy7OXsuk6yM0OSBXC0+wN1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=BsPCX8dr;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EQqwl5KL;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25BE6606A32A;
-	Sun, 22 Nov 2026 18:24:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25BE6606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F138606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:25:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=BsPCX8dr
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=I8O79LLuixI7Ncv80qos0WzCUNLLnHjxMOr/9odIaMc=; b=BsPCX8drszWkyXNyHqAHkJDoyN
-	6Z5KhKiCoIFTdy5cIoJRNHjbVJSqC9oMjYIAlfVpdYwfhjWGcmhpamxw35+z16Bq+xaF5I65ALA1N
-	kq8G/V3/CzkaBkYCaW0PsYmWhIuTSOmHcVHPHyvbMjlb27hsmcQU+uqElL4N0GcRwNPk=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xVCEs-000bMR-9t; Sun, 22 Nov 2026 19:24:34 +0100
-Date: Sun, 22 Nov 2026 19:24:34 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH v2 2/8] ARM: dts: rockchip: Add support for RK3506
-Message-ID: <cacdc706-3fef-491b-bb3a-96728347a17e@lunn.ch>
-References: <20261122060114.773624-1-jonas@kwiboo.se>
- <20261122060114.773624-3-jonas@kwiboo.se>
- <86007bdd-6c10-46ba-aac6-197939934c73@lunn.ch>
- <5cf52e28-110a-4fc2-acfb-eb264e8c31e2@kwiboo.se>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EQqwl5KL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D38B1F000D2
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:25:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795371916;
+	bh=1lgSvXfM1NpguQppsGiqChdK8jo6yWYjCTv/SuCYsSU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=EQqwl5KLh9FgRgQqiZx1o9UPuVtiNY8FZnvmw/+tZVSFTK37mS04CnXsS9fAmXWuB
+	 7It1be4gsmVswbDkShAfAJV8e2zCcfiiQPP2Tk+bLn0rXeUcv2TJEZcRTHGAGA2nQy
+	 ZUnIpzPIzZEIVvwP4gFFE5gntn/gXfy3Vhl9nLOYL/FLzt2QwKmsmugVwVDIp1M5sO
+	 Hm5KxLw2E+e6baRWkfcJ3+DQKDZLC3+/RXLXMX5aTRW3jQ9cZrQGQCXSSDLeXHopyw
+	 ZIHq8mxHQCPmlk2C2T5Szd4UZUZbGO6jRRAssA2O/ZErO+IgeU3mIQiwDQWl1g5N0Z
+	 r9VU2Qe/AHHRA==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5c07c7306e1so2451243e87.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:25:16 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHQeN6MhGlkMdIG8dc6Pov/afg/lBBOgQdipxTbTIe6OwLE7GkN4mqa6ivwwnBqQt66/ef8tFehOjKXk2c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+UI0CZqCkH81K8zH5YL38YT/m5jqPy2Io9O1+Hxpd96+BhNfyS
+	5J5pht6IB4A4XIq1pGC87mx2S+76q8uWr8EI+gE5Q0i44KolieOBLwcMjkrtCWEBcZGAx8+veth
+	PafPWlt9WqFkkEXQmbLlE6fGHZVJXMT4=
+X-Received: by 2002:a05:6512:32d5:b0:5bf:ce24:242d with SMTP id
+ 2adb3069b0e04-5c1bc806edcmr2509874e87.35.1795371915162; Sun, 22 Nov 2026
+ 10:25:15 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,56 +59,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5cf52e28-110a-4fc2-acfb-eb264e8c31e2@kwiboo.se>
+References: <20261119-cs75xx-gpio-v5-0-8d14f2bb614b@gmail.com> <20261119-cs75xx-gpio-v5-1-8d14f2bb614b@gmail.com>
+In-Reply-To: <20261119-cs75xx-gpio-v5-1-8d14f2bb614b@gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Sun, 22 Nov 2026 19:25:00 +0100
+X-Gmail-Original-Message-ID: <CAD++jLkLX_d9cFLOvnXs84_9j5JvwU-ab8mpKt98x2CjTBnb=w@mail.gmail.com>
+X-Gm-Features: Aa3M54oX6RtYUEXPEftHEAaE8uR74PWqSa96JlgekCMpzJ1oVnJWKeD0gq7KO7I
+Message-ID: <CAD++jLkLX_d9cFLOvnXs84_9j5JvwU-ab8mpKt98x2CjTBnb=w@mail.gmail.com>
+Subject: Re: [PATCH v5 1/2] dt-bindings: gpio: Add Cortina Systems CS7542 GPIO controller
+To: filipp.dunsky@gmail.com
+Cc: Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Sun, Nov 22, 2026 at 05:01:08PM +0100, Jonas Karlman wrote:
-> Hi Andrew,
-> 
-> On 11/22/2026 4:46 PM, Andrew Lunn wrote:
-> >> diff --git a/arch/arm/boot/dts/rockchip/rk3506.dtsi b/arch/arm/boot/dts/rockchip/rk3506.dtsi
-> > 
-> >> +		gmac0: ethernet@ff4c8000 {
-> >> +			compatible = "rockchip,rk3506-gmac", "snps,dwmac-4.20a";
-> >> +			reg = <0xff4c8000 0x2000>;
-> >> +			clocks = <&cru CLK_MAC0>, <&cru CLK_MAC0_PTP>,
-> >> +				 <&cru PCLK_MAC0>, <&cru ACLK_MAC0>;
-> >> +			clock-names = "stmmaceth", "ptp_ref",
-> >> +				      "pclk_mac", "aclk_mac";
-> >> +			interrupts = <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
-> >> +				     <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
-> >> +			interrupt-names = "macirq", "eth_wake_irq";
-> >> +			phy-mode = "rmii";
-> > 
-> > Sorry, missed this on the first pass of the patchset.
-> > 
-> > phy-mode is generally a board/PCB property, not a SoC property. It
-> > would only be a SoC property when the SoC cannot do anything other
-> > than RMII. But given this is snps,dwmac, i expect it can do other phy
-> > modes.
-> 
-> This SoC only support RMII mode, so I put the phy-mode at SoC level.
-> 
-> Datasheet for this SoC lists following:
-> 
->   RMII 10/100 Ethernet Controller
->   - Support two Ethernet Controllers
->   - Supports 10/100-Mbps data transfer rates with the RMII interfaces
->   - Supports both full-duplex and half-duplex operation
-> 
-> The Technical Reference Manual also only mention RMII:
-> 
->   38.2 Block Diagram
->   ...
->   The MAC only supports the PHY interfaces of reduced MII (RMII).
->   ...
->   MAC Supports 10/100-Mbps data transfer rates with the RMII interfaces.
+On Thu, Nov 19, 2026 at 12:03=E2=80=AFPM Fil Dunsky via B4 Relay
+<devnull+filipp.dunsky.gmail.com@kernel.org> wrote:
 
-That is unusual, but O.K.
+> From: Fil Dunsky <filipp.dunsky@gmail.com>
+>
+> The Cortina Systems CS75xx SoCs have five banks of 32 GPIO lines. Each
+> pin is shared between a GPIO line and a peripheral function; the pin
+> mux lives in the global control block and is not described here.
+>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
 
-For the Ethernet node only:
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-
-    Andrew
+Yours,
+Linus Walleij
