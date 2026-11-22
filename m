@@ -1,105 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795368956;
-	b=e2bCdqLc8Uh/JY+t/7CsybvmrcqlVfldwZfo8moAhGSDrwt542p2+PuPLcNpC/LyTGpu
-	 QTmPqloNn18baboQA+WjVBOA/C1rW30NjopEbw0e++C5YhIFUUIjsFK0i/VAumfPn1I8Q
-	 D/DjT4JMLcNckCLKQt5w02leyikWvENKpTAmclDF8BgZ3keRcsB4JI9TqPmvcV4Y1YG7K
-	 ImvfQy5bFDYBdh57Ka+hMa8FigbnzjTduqHXn8EiMnfoYRg0pcmDnVtoEkVKjyEuUx7Yw
-	 fjs1rxpXOoSE6H4tWlXrx3sdmklcoCIowIwjF/KjXX3wwHkvzLp9amNHJxt3fmSHIng==
+	t=1795368958;
+	b=n7yhmOj6PSR3427GQeDdTVdn4RVMDlxicH95lMilUKbNzWQdV3em0qpw/Q/DBF+CoyrU
+	 XnZpvru66eJpw4RAhZVe0sCXTGHpOq+g+5mqD55bi7kl5tw6GJLdLJymZvPOKiUQBckvh
+	 e7XKH8h64vYga/UgPl6bvYelS3OxgLdEukISeff43qYPdoIix0gSrzRFmTIIy7izfXDPP
+	 aEfuXoisLI7fP7YClkebmqEHExtewB1HHAoauoftNNO0kjG2MCk9+7+zBKPkKvxZXnCJT
+	 GhRcTmpf1yP5ZNObILBAqsKUeJWA2OyVyWUl4Da5Fupx5KXCXj5AJdIe5N8Z34rVy9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795368956;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=t+GouGnPJfECXmIJYX78k/uwgPhvZezU2VNMojKprrM=;
-	b=j4CYkOolg0fuMn1gtmvJzQdUWJr/YRVBfZKxI2Vdb50D2kp7XRcmGqfG4Muhd/eAGzAJ
-	 uEp+2IBpbQq2MNz7YcwirCaYYfOLKfdLYJbRM9zpKE8o8daSL1ap4m9jW4UbCdXN3U25s
-	 h61wFZt3xKZqKVrJbVnqpx7gQa4gZhpjhblh/oEsV75h42nbVd7S8cVG8UeIbO/CIwl0X
-	 tw3jf99Mu24/tZHQmLZjwBTKvxt/hHDM7L8Vl+oZxr/+kG/lG3AGI4VLX18nEnK9pRAyw
-	 +OHVqOsgLtWr2qb68KhwZjCItznkXqJsa9w0KYTSDSQazzGgpfFFxr2z5A8wjRrJtzg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795368958;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=2vMjYyTFhWJCTrJmGUbixPZ6wCp7swb0ApFE0Hp03Lo=;
+	b=aJJD+7SU4NuGhsEFDqL8Kiw69+Si5jGWwB0S/sZRomiSo6nU2zUi8+JajQxGeGyCzvit
+	 O8Ef2Ng8fSVFkpPt1KWy/KAe241WMRrt+j4jD8M1i98tDGjByvM+JzA6Ktrvm2TGk+zSe
+	 lW78oUYuC2dl3CqSW4vPfoTvCMym9Tfw/TwWQ0XhpmVBspMQwAJWnsiAiwP8xQwGdMVVE
+	 QvA4ZB5+RNh2Kl8a2eFVR/k1maobut419mKR6j8uyv/J4ljI9og4smBgKvH3ioW1DzSKR
+	 U4gMu2tyUNEikfWdsUIRjcmUP/2/tuDGIcLHrVabcpbuCmDgGYmqKz6JH7kuq/NqYwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CCy30Koj;
-	arc=none smtp.remote-ip=74.125.82.45
-Received: from mail-dl1-f45.google.com (mail-dl1-f45.google.com [74.125.82.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=zNRmYkSv;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3691606A331
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:35:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3691606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDC8E606A339
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:35:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CDC8E606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CCy30Koj
-Received: by mail-dl1-f45.google.com with SMTP id a92af1059eb24-1a2af4c8d00so4562890c88.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:35:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795368955; x=1795973755; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=t+GouGnPJfECXmIJYX78k/uwgPhvZezU2VNMojKprrM=;
-        b=CCy30Koj3yGMktI7EOf5/TKNz7iYG67TRpkRh4+WyGd767qqOqi2odsV0Kj9RgzdpR
-         0MSArWOqWa+qgM+DG05fmhi9iCLdhsBgQjyWvfKvR6CvHw0Kw1swCXgJC/I/7YZCBFAx
-         RZsTHUXrF++DcIHmfu48ehUSD7lTQd/teBhoG7/svuDH6wVGUUZoRzezr2+ICHNgB+xA
-         7B5kvhbXX+rswGCJVvdZwKkoJksBx01YiTcQfMMqQbNarj8hGRVzKxYKOSZ4BfgjxYel
-         89B5N+j/zhAHZO5DrKcXigl4LPA6/fMZ8gt8HzA39nE2qNvNiOa8oD5wwUHgzPz4oTWv
-         z3xw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795368955; x=1795973755;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=t+GouGnPJfECXmIJYX78k/uwgPhvZezU2VNMojKprrM=;
-        b=VIRtCNWJISQi854t4uIKq2SRsTOip68jLn5zbPwwmR8v1G88ZIKMBhP8f82Huc2vig
-         CbgkqQvOT+Id+UnDJLLhRUTX9THonP8yoPD6anTK03HvUzJ75HJMNwcO722SEKoCGQb5
-         +5cUSohDk0/8Ir+2qm4shVnxFXdIjlLLfeGRqczRdlYDUY/3SenI9Qpd3Ojgqzf0SE7H
-         EGTfR9zbPC17aCk3gy++Ic5DND93DjIvg8cITjYdBfKGybFS32x2eWbdO3IXDSoA5A7R
-         Xx0gHOVatIkPkmtSkEQk6mKW4SbsOveoGPnWQJj6VNb5YNfdWYQOx8ms8MBh90OGyQX7
-         Xm3Q==
-X-Forwarded-Encrypted: i=1; AL+hErEHF4EigJsGsf2pnZVg+x7yxmrR3KzHyobvZhXwT8lAJVtLDtCAAQxrYhsn1KfTpeDnQRMNwrpRN9ESIlQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+EAKRzMN+cigMENuisrR2moDRMYr/TVuHs80A3LG2+8fU7kcMo
-	24OOa1xjZcB88tgQgtYNINGwwM1ta5KK4omdbDwKxdnmRG1t5t4Y6yi7
-X-Gm-Gg: AZFdTZfacYfBNxCUCNmM2WCs65h/MbUCNI6+V9w/2zXhfMqa0wPlDpq+bwLpSdKDsN6
-	wjPi0Hmca5noi3w043V+N193wREAa5yb3gvI71XjpSaB4kasIQ1pR0YjBb+jlfbb9jTjh6HQioX
-	nNsOVZWUEcn/x1VMfZuBJ/DsCmEf4dbPWJ0zQWnK5MkIHOAnbqv1iYz9lEjseVvOEEdgyIGQQcA
-	OzmjhjE7EWGAyZZ+4y3+8wX4ms2VjvHEPzENMtOG/eeJGFNn4/VP4Dj5UdwB3UlPYrI9Qhhyqw5
-	uncsPnmr+tmlGx/r01QbV1HO9Ul1/y9rRRIIsesOEgYfqsKDv90i2UAQZQQVpZ9HLqv5chPFD+b
-	YBFXtAS7ENRp6gj/ohhZBOmLDC29mR5q8EvdjFvI6/Ahz9kNVlGuRzbqwyRi48tpuuCNmzhprA7
-	HlMIqlCycedjsWeyanjEz08IW3Rww6eHXCZ1O5nxpAt2C365PjEFRKHpT5YR5HGYHj7jIUccBTz
-	DRVbuSG/TCsAcN38KGICFBP3VrefLuHJQf2YLAaidTRNeSZ2ynOWHOequnyFPdeih7ZEKuuSqiI
-	oFU7ioo0WgshAxkMHlbqU41v/aI1WGcCveqmNpmES67qKGOHBAKChc9s0E+3W/aCv/4e8q6scp8
-	KauXXgT1pgPpM9ZUv/lh5jg/cwxCQgvx4kE2p6suMxSE7oszvdaVmmkXFTYo1I4z7iykhv+RS/k
-	3XIPgVaSxjxeEMjzNvdo8DwIav6w==
-X-Received: by 2002:a05:701b:260e:b0:1a9:c52f:655c with SMTP id a92af1059eb24-1b556900476mr10503800c88.36.1795368954863;
-        Sun, 22 Nov 2026 09:35:54 -0800 (PST)
-Received: from suraj-HP-Laptop-15s-fq2xxx.tailee6f87.ts.net ([2402:a00:163:3509:b842:8324:ef7c:136d])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b56ef9fd16sm6419485c88.4.2026.11.22.09.35.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 09:35:54 -0800 (PST)
-From: Suraj Sonawane <surajsonawane0215@gmail.com>
-To: Bjorn Andersson <andersson@kernel.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-arm-msm@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Suraj Sonawane <surajsonawane0215@gmail.com>
-Subject: [PATCH v3 2/2] pinctrl: qcom: sc7280-lpass-lpi: add ext_mclk1_c function
-Date: Sun, 22 Nov 2026 23:04:50 +0530
-Message-Id: <20261122173449.21009-3-surajsonawane0215@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261122173449.21009-1-surajsonawane0215@gmail.com>
-References: <20261122173449.21009-1-surajsonawane0215@gmail.com>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=zNRmYkSv
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 7B01F1A0A7B;
+	Sun, 22 Nov 2026 17:35:56 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 4F51660512;
+	Sun, 22 Nov 2026 17:35:56 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 676F811E61B2A;
+	Sun, 22 Nov 2026 18:35:50 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795368954; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=2vMjYyTFhWJCTrJmGUbixPZ6wCp7swb0ApFE0Hp03Lo=;
+	b=zNRmYkSvMIH7cXgMV8K5iRg0WqNLOciUWQnXRteH17Ph7cI4kaEEXhnAAv8c3SlYcUS25j
+	ysfya2BRE20ESnevTSd1M9Zmgi+GoEpHeUoLaUn1tt63XoqdNtu2tGYYXbCgUfJVxX1VRQ
+	l5iSj0/4SXT2EQawrTX9KRuhJwmZ4GWQkKD8odVA5JRg2WKDWRfyu3sKWw8Zbtygt9HuOH
+	qt0SUatHmQ4isJ5Wfsy+/fvtkPxksnsYPfb5aO+EdKXZrxX9ts6jeUBCKrXldGmTMq8jKM
+	mr6s+r/BVWVBDRcbnRBluzBN6Zh+X42k4LPuJgUv08QXSOYv1G4U78Edpq1QNg==
+Message-ID: <abcc0261-ed4b-4b1f-9035-04d17d630d22@bootlin.com>
+Date: Sun, 22 Nov 2026 18:35:49 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,61 +62,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v4 4/5] net: stmmac: Add MDIO init and exit
+ platform hooks
+To: aiyengar1990@gmail.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
+ linux-kernel@vger.kernel.org
+References: <20261120-sun8i-emac-mux-uaf-v4-0-57eba8915f25@gmail.com>
+ <20261120-sun8i-emac-mux-uaf-v4-4-57eba8915f25@gmail.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20261120-sun8i-emac-mux-uaf-v4-4-57eba8915f25@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-LPASS LPI gpio5 can mux EXT_MCLK1_C, but that function slot is left
-unnamed, so a device tree cannot select it. SC8280XP already names the
-same slot ext_mclk1_c.
+Hi again,
 
-Name the slot on SC7280 and assign it to gpio5. The third slot stays
-empty; on SC8280XP it is qua_mi2s_data.
+On 11/20/26 11:45, Arun Iyengar via B4 Relay wrote:
+> From: Arun Iyengar <aiyengar1990@gmail.com>
+> 
+> A glue driver that adds devices on top of the stmmac MDIO bus, such as
+> an MDIO mux, can only do so after stmmac_dvr_probe() has registered the
+> netdev.
+> 
+> Add mdio_init(), called once the bus is registered, and mdio_exit(),
+> called before it is unregistered.
+> 
+> Suggested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 
-This file also provides the SM8350 LPASS LPI driver, which uses the
-same pin table, so the function becomes available on SM8350 as well.
+Manually tested on H2+,
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Suraj Sonawane <surajsonawane0215@gmail.com>
----
- drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-diff --git a/drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c b/drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c
-index a61df10d4..278d5fac8 100644
---- a/drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c
-+++ b/drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c
-@@ -34,6 +34,7 @@ enum lpass_lpi_functions {
- 	LPI_MUX_swr_tx_data,
- 	LPI_MUX_wsa_swr_clk,
- 	LPI_MUX_wsa_swr_data,
-+	LPI_MUX_ext_mclk1_c,
- 	LPI_MUX_gpio,
- 	LPI_MUX__,
- };
-@@ -77,6 +78,7 @@ static const char * const i2s1_data_groups[] = { "gpio8", "gpio9" };
- static const char * const wsa_swr_clk_groups[] = { "gpio10" };
- static const char * const wsa_swr_data_groups[] = { "gpio11" };
- static const char * const i2s2_data_groups[] = { "gpio12", "gpio13" };
-+static const char * const ext_mclk1_c_groups[] = { "gpio5" };
- 
- static const struct lpi_pingroup sc7280_groups[] = {
- 	LPI_PINGROUP(0, 0, swr_tx_clk, qua_mi2s_sclk, _, _),
-@@ -84,7 +86,7 @@ static const struct lpi_pingroup sc7280_groups[] = {
- 	LPI_PINGROUP(2, 4, swr_tx_data, qua_mi2s_data, _, _),
- 	LPI_PINGROUP(3, 8, swr_rx_clk, qua_mi2s_data, _, _),
- 	LPI_PINGROUP(4, 10, swr_rx_data, qua_mi2s_data, _, _),
--	LPI_PINGROUP(5, 12, swr_rx_data, _, _, _),
-+	LPI_PINGROUP(5, 12, swr_rx_data, ext_mclk1_c, _, _),
- 	LPI_PINGROUP(6, LPI_NO_SLEW, dmic1_clk, i2s1_clk, _,  _),
- 	LPI_PINGROUP(7, LPI_NO_SLEW, dmic1_data, i2s1_ws, _, _),
- 	LPI_PINGROUP(8, LPI_NO_SLEW, dmic2_clk, i2s1_data, _, _),
-@@ -118,6 +120,7 @@ static const struct lpi_function sc7280_functions[] = {
- 	LPI_FUNCTION(swr_tx_data),
- 	LPI_FUNCTION(wsa_swr_clk),
- 	LPI_FUNCTION(wsa_swr_data),
-+	LPI_FUNCTION(ext_mclk1_c),
- };
- 
- static const struct lpi_pinctrl_variant_data sc7280_lpi_data = {
--- 
-2.34.1
+Maxime
+
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c | 11 +++++++++++
+>  include/linux/stmmac.h                            |  2 ++
+>  2 files changed, 13 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> index 7396b68899c6..fb1f7b1a5323 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> @@ -682,8 +682,16 @@ int stmmac_mdio_register(struct net_device *ndev)
+>  bus_register_done:
+>  	priv->mii = new_bus;
+>  
+> +	if (priv->plat->mdio_init) {
+> +		err = priv->plat->mdio_init(priv);
+> +		if (err)
+> +			goto mdio_init_fail;
+> +	}
+> +
+>  	return 0;
+>  
+> +mdio_init_fail:
+> +	priv->mii = NULL;
+>  no_phy_found:
+>  	mdiobus_unregister(new_bus);
+>  bus_register_fail:
+> @@ -703,6 +711,9 @@ int stmmac_mdio_unregister(struct net_device *ndev)
+>  	if (!priv->mii)
+>  		return 0;
+>  
+> +	if (priv->plat->mdio_exit)
+> +		priv->plat->mdio_exit(priv);
+> +
+>  	mdiobus_unregister(priv->mii);
+>  	priv->mii->priv = NULL;
+>  	mdiobus_free(priv->mii);
+> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+> index 00be2df63d22..e94f9cab973d 100644
+> --- a/include/linux/stmmac.h
+> +++ b/include/linux/stmmac.h
+> @@ -296,6 +296,8 @@ struct plat_stmmacenet_data {
+>  	int (*crosststamp)(ktime_t *device, struct system_counterval_t *system,
+>  			   void *ctx);
+>  	void (*dump_debug_regs)(void *priv);
+> +	int (*mdio_init)(struct stmmac_priv *priv);
+> +	void (*mdio_exit)(struct stmmac_priv *priv);
+>  	int (*pcs_init)(struct stmmac_priv *priv);
+>  	void (*pcs_exit)(struct stmmac_priv *priv);
+>  	struct phylink_pcs *(*select_pcs)(struct stmmac_priv *priv,
+> 
 
