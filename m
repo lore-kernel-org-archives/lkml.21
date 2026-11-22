@@ -1,101 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795323666;
-	b=bYTbhhZZXTmx0/CybLpuvCnzK7X02hZLS6YKl68y3eYzz7GtMLnMakUICtDSEPUUuKQ/
-	 O6O8Ln+BDsM60drV6SZGSWt1VvsGKJmjjRDtORAIcyyMcGtJstSGLhaHt9WFRMVkhGEKO
-	 eGAtHtqvO6+yLzyJL7E1uIdIYBJpFUwwbiJLAYcRKILirTMlzisQOnI02qT6RfoxomGBQ
-	 BarRGhe1GZfQa7wZKfMAdsdSoB/gtj0BJisQy7xyv1rKQt6CH5PzZc1zgugfprJd7HBAv
-	 nOKyOIMhcD3BJE75YWrNfK6KDFgfPi4xgTwgJmkWCcOLrgy+6kwaD1AyuhNCpTuR7ww==
+	t=1795323850;
+	b=I/ujyXtBaSd/GdQTu7xII2ft9dYSf02xJBgOvcwoisqfPQaLxgtit/TCg7l2FUf8ELws
+	 vX0BHM8ULJ4MJWSk0TMD/zKntJ6iyX5yVfyE6isogZ1gJldLuiDsCfrU5BMJ2Vn4AODEn
+	 bkxTreLj99aUPVlT/rQh2dFf+8kPKkbA/h8zu2eX0EzP3/7lwIZf+E+rOD3joJ6eK7djY
+	 u3K0k1pJGoJGXENX22O3verHEfDBXd/vTU86YczxQk8INEJcbDB/j+1pb3GhgOwSk47Lq
+	 1pPn6ER3lu8QOSuQzQbBRIrrRf78LCYV9z5OCBuJpK3AstHpw87gVGNyQxyMDad6ewA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795323666;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795323850;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=8sO5baWR5ydBEJ8ZbvTGeWnxXFHzKoOvclS5abJHCLc=;
-	b=fVHstzi2VIBpydmuq6eccg0Z6cOsSlu5W7mmY9iy7u63pCQiOnSGewNdpbW3mm/Z0UM4
-	 JIui9s00fiTYFiNBLx4rS50XBksTJLjKLHv2zFt7kszlN9iruFNQHccua+UKGeRbD5OGD
-	 q39MqvfPVuwS7T2OFj6l8kkMB0ah9jiHfu658LNL+2wZOjaubvvvX2W1d04Ari0NiVAQU
-	 Sz951pITV8hmN6bVv77Af+7+YiCJP1sHPVFS43HFvY3NEELCPjmPmieUAYpYuo+ERK3hW
-	 8BGfqx4+uOJVz5V/c2RjH058+ktWB+FiwxqSI/mTu66//sz+r9T6nMNGFj6MLgH8ydQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=wuvPmWr4AEKl08pK8e1x1u+FbpYScm2GERj+bj9eXh4=;
+	b=cWsU8WUQnDmtp7XlhdxyEJieDbXCXCivNpuIkXS05PMwBZMFa5Tu/tiEoQ1y50Zzo9Yk
+	 9/AuHOFyeuY+PR7Vc2bmzELPzHGbzjQBjtiGnrovDSzpRcadBtCTSJo0+JlBBeYsHjRdN
+	 v5IdamzyuwAZh9OLg2lT1JkcLxb610ALtxIeQROVBSqgxdKmq26jhBarlr9K9nWJgZHrr
+	 LgSbXXxoGYUZK2Kgr1532ZhbQDyZEqg3Z8BAJQORCL9WG85hi8T0wiU55WFi1lpUgJZsr
+	 IAqBxeOQJ+GkhiWBpUzJWv5Lqqqvcd+CxttPTpzIO/OV4WoLEmIAoa9fr1mReBthJ+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ICGUHgEz;
-	arc=none smtp.remote-ip=209.85.215.182
-Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DczOD1LT;
+	arc=none smtp.remote-ip=209.85.216.70
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1C91606A332
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 05:01:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1C91606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B43C606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 05:04:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B43C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ICGUHgEz
-Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-cc147d86bebso1167820a12.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:01:05 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DczOD1LT
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b3fc6a0083so2221984a91.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 21:04:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795323665; x=1795928465; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8sO5baWR5ydBEJ8ZbvTGeWnxXFHzKoOvclS5abJHCLc=;
-        b=ICGUHgEzmNAkS+6+rKhYTvE6UimbSj2StJZBaerKMoDxcmxCubWLSfIHmmxQl1g4DO
-         xxjxxGyvi4Eb87Uhm5z1rVC/3+Lu8Ug41jt/l9KYP/xhG/u5LwceuCJXjo3z5Wcb/HKO
-         Wg0c2fa9Qm7MlGug/l+rjLLBmKeEHwEyiPYMdi6E6IYzPU13+4L/+iYbAxD7ZOc0o0Xm
-         fCE3/fSBEPDY2zHarYLaKuJD8PKdBr/TTI7gHmoX0AzNX2Ne6jBd9lcMstA7Z+b1egmD
-         Ua1DI4I2pkXHdxccbdJ74lAnTgG9nerswqE7ekxTGTgAsUgnXNjJhAbWqRuQNxNsNnlr
-         TQhg==
+        d=google.com; s=20260707; t=1795323849; x=1795928649; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wuvPmWr4AEKl08pK8e1x1u+FbpYScm2GERj+bj9eXh4=;
+        b=DczOD1LTP14fxTWPHlzgVdSVg3W74r2U6pcXXfPKHG/tOSdafmYkWhRwYcBE4TVHQF
+         ccN1YjievMBJGXN/R2TEwXMAPvamgDw/i8/hF1v2uTh2UcJ89tdq84epYfG9CfD1eHit
+         UJHNeJJFfprsgHCYJ+ls9U8/vuBVHCbemeEBJgNHnMwXq6fUbqqFlawYRVru+J4bnpzL
+         AOSGcs0W4WHALGv3c/5F0OcWUZYoduE02VxDvUSD8SSUgSSFyMwMlLA/KOTe31Z5WRVh
+         lM8eZJ7i2GEPbSmwHHysk4NUoVM4fbZYOtfPvDHS1n4vZmYUUpUlGGnCLhkMT587XQNs
+         TzgQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795323665; x=1795928465;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8sO5baWR5ydBEJ8ZbvTGeWnxXFHzKoOvclS5abJHCLc=;
-        b=pdeeX3xdvfwrLjOhOa42YqaITyAJy+jAGZ8/SzOyGFCLTWwA3i3mDKM/Lt3VxMX9xn
-         7iSN5Gfm4sYL6Bstih4sPvCwb2MrheR4pKRgHcq5kLb874gGSPW8m2clqUHc0JrdF8NJ
-         ues4VvwkOYwbAtIO4SyBGCKfLX3fjyLapzhhRx8HbwPX12+ofAkspBocNdzhlaA7Zfpp
-         7rUPNyu286Vw4s7/+l3phCopZg3QK9aJ6ofwIP9uPkYQmm3hnp/LA3fg0nCJXxCYCC2Y
-         6NJnrZBWffSblYfuWXllJkqKmlSGh5QlXy/3MMCLh4idSCfp3kgOZCwUMXrw1BjlStgf
-         d9FA==
-X-Forwarded-Encrypted: i=1; AL+hErFrOJZGww2wmJqDRfelAMir6P28WahZ76k+WLkbkcqBW23xj0RtArvIiUcdCEcJg/ndTCKbZVsJWwsb/P8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9zlbJUhF/dF+HcV7T4DtC4Z0Qvc26/LDr0MwmTImw3Yi6CcBnM
-	/vxCpOvzs/oNvawfeMBDwNIJVzMGJpxLHXi/ZBGzzaqhxlAkfXAi1AL/
-X-Gm-Gg: AZFdTZc6Ww53RC1daywW+l9m3O4SxT2DQJWavbqsfIUqfkSZ1nfL1GQLolRao3ROokT
-	Au/i16RiYWykkd4uT3UbcrklY2JIr9D/DDaksf0ilGicB5nZIYfz3aTLUWt78zJg59/bN1vWG20
-	lUydfwFg87HctrkGd4w/1EGwr+RAN9pu7y6Gk4M3dVbvhsEJKO8bpoAMGAfZbMtQRBfEqqm6GqP
-	mTS9ZqPE03XtqZ2rHI08RgOYN8Jw2H8w7gnbh4msAfxRYQUimxx1HgycSrVe9p8WtiZ0HZRzKh6
-	19Ve1cNqpeZ9xMputVVs+g5bRr3E44GN4imVlX4AUsKFPatUQl13gd5OuHHA83ucug3eSa3pm8C
-	T9dRpWEBLHvgXRoeqZhxWqP/4L9WofJoKdtdtX8DvOfwBJZ3NaFS6aRoUYJmoU+WcuK6XxlNgaS
-	LKogaZ33jCcqZYUK0oh3lIWUIRPO9t9CYomNqv9pqP59lSH8qFky6yzWPrG6JaEGzIcxwCEdHpc
-	WMrsaaGbLxhztOhppx2qYMPZE1xoA/V4QH+qbnrWW9l5vABfVrKCxwdU3QPlmdiPUH38wBM9+7H
-	Lp0VFJ7lvje6OQw3eBo2xYVWwoMpvyRY4kBIztw=
-X-Received: by 2002:a17:90a:c10e:b0:3a7:a3c8:8f4a with SMTP id 98e67ed59e1d1-3b41c9080c5mr5222821a91.18.1795323664828;
-        Sat, 21 Nov 2026 21:01:04 -0800 (PST)
-Received: from x1.hs.local ([2601:600:a482:7d70::4d5e])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b82e624sm3431606a91.4.2026.11.21.21.01.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 21:01:04 -0800 (PST)
-From: David Westen <davidlwesten@gmail.com>
-To: netdev@vger.kernel.org
-Cc: loic.poulain@oss.qualcomm.com,
-	ryazanov.s.a@gmail.com,
-	johannes@sipsolutions.net,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	m.chetan.kumar@linux.intel.com,
-	mail@maciej.szmigiero.name,
-	linux-kernel@vger.kernel.org,
-	David Westen <davidlwesten@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH net] net: wwan: iosm: always send the host sleep message on suspend
-Date: Sat, 21 Nov 2026 21:00:39 -0800
-Message-ID: <20261122050039.861287-1-davidlwesten@gmail.com>
-X-Mailer: git-send-email 2.56.0
+        d=1e100.net; s=20260707; t=1795323849; x=1795928649;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wuvPmWr4AEKl08pK8e1x1u+FbpYScm2GERj+bj9eXh4=;
+        b=IUzr1qK/RYR1GPtZQf4wPoZ1KabUX1EzIb0ctjsVThZbHEE338ZFh2WErk7VT8tcFv
+         GL4WJge+3WatRFczOTlkop9iyiUa7eMusXg91OuAMHdGB7WU/e2jfJb8Q9jQYOd3c1kJ
+         UAxHbSrVSYn34HsZz45SVmYEbqX5k5dm+Fm9AGItWQMTs6/XyNMhK9pBL8dMMAGoWjBK
+         1urDsa2RhaEi0y4noZJNaaK4X4d9Z3oR2pUNXMr+8tlEPy53qsujHVPpCjBWpGJffhd1
+         tLHwUljYPPpBEd25hEHLNfgV6kMzXS3Euof5d1SS4f6hM2eZ5hKJMyEWr4QuzHSsq+ZA
+         jqeA==
+X-Forwarded-Encrypted: i=1; AL+hErHCaSWfws6zrb+bHUOp+FaxIX5PXYaH8oYswJMGBDwDNhJ6SI//tOqGV5w26pmLd4iE45bvHvE9kHPdVc8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ZX9xFlMqX10filhTlGxojiPoTemoJMLXVOnbGMJD2E/DzEtrG
+	jxMSwhilUqnwUgrdrfrMhq5Dq12YBYN9z7v5eyf41DJitgCNIlfSI1iPAb7xwHo7eeFHy6zpaKx
+	nNRSrLUTRIA==
+X-Received: from pjtd16.prod.google.com ([2002:a17:90b:50:b0:3b1:cd53:86de])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4d0a:b0:3ac:ea3b:f28b
+ with SMTP id 98e67ed59e1d1-3b41c9cd21fmr6671416a91.24.1795323849106; Sat, 21
+ Nov 2026 21:04:09 -0800 (PST)
+Date: Sat, 21 Nov 2026 21:03:55 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,113 +75,199 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261122050405.80335-1-irogers@google.com>
+Subject: [PATCH v8 00/10] perf symbol: Sorted arrays, DSO-owned lifetimes, and
+ memory shrinking
+From: Ian Rogers <irogers@google.com>
+To: Namhyung Kim <namhyung@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+	Alireza Haghdoost <haghdoost@uber.com>, Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Unless the BIOS reports D3L2 for the WWAN slot, the suspend callback
-only rings the FORCE_SLEEP doorbell, and resume the FORCE_ACTIVE one.
-Neither waits for the modem. The driver doesn't keep the device in
-D0, so the PCI core then puts it into D3hot anyway. An XMM7360 in a
-ThinkPad X1 Carbon 6th gen doesn't survive that: after
-suspend-to-idle its execution stage already reads CD_READY when the
-resume callback runs, and the first port open fails:
+When profiling large binaries or long-running workloads with many DSOs and
+threads, symbol and DSO tables frequently dominate perf's memory footprint
+and startup latency. Currently `struct symbol` still has several structural
+limitations:
 
-  iosm 0000:03:00.0: PORT open refused, phase A-CD_READY
+1. Every `struct symbol` embeds a 24-byte `struct rb_node` for the
+   `dso->symbols` address rbtree, scattering lookups across non-contiguous
+   heap nodes.
+2. `dso__symbols()` has no internal synchronization against concurrent
+   readers/writers, and unreferenced DSOs and auxiliary symbol/debuginfo
+   buffers cannot yet be reclaimed under memory pressure.
+3. Sorting `dso->symbols` with `qsort()` does not take advantage of
+   pre-ordered ascending runs in ELF symbol tables, and `first_ending_after()`
+   in `struct maps` runs a full binary search even for ascending
+   `/proc/pid/maps` synthesis.
 
-The modem then stays unusable until an ACPI reset.
+Thirteen preparatory fixes, benchmarks, `dso_symbol` lifetime conversions,
+`symbol_conf.priv_size` removal, and ELF header caching patches from v4-v6
+have landed in `perf-tools-next`. The remaining 10 patches convert symbol
+iteration to callbacks, replace the `dso->symbols` rbtree with a sorted
+pointer array, stage natural-run merge sort and incremental symbol
+insertion, and add memory shrinking APIs and unit tests:
 
-Send the ENTER_SLEEP and EXIT_SLEEP host sleep messages on every
-system suspend, as the D3L2 path already does, so the modem knows it
-is going to D3 before it gets there.
+- **Preparatory fix, `maps` tail fast-path, and symbol iteration (Patches 1-4)**:
+  - Patch 1 fixes an `alloc_func_regex` leak on error returns in
+    `builtin-kmem.c`'s `build_alloc_func_list()`.
+  - Patch 2 adds an O(1) tail fast-path check in `first_ending_after()` for
+    ascending map insertions.
+  - Patch 3 converts `symbols__for_each_entry()`, `dso__for_each_symbol()`,
+    and `map__for_each_symbol()` to callback-based iteration and updates
+    existing callers.
+  - Patch 4 converts open-coded `dso__first_symbol()` / `dso__next_symbol()`,
+    `rb_first_cached()`, and `dso__symbol_names()` loops to callback
+    helpers and removes `dso__{first,last,next}_symbol()`.
+- **Sorted symbol arrays and staged sorting optimizations (Patches 5-7)**:
+  - Patch 5 replaces `dso->symbols` (`rb_root_cached`) and
+    `dso->symbol_names` with a `rw_semaphore`-protected `struct symbols`
+    container backed by sorted pointer arrays, removing `struct rb_node`
+    from `struct symbol` (shrinking `sizeof(struct symbol)` from 48 to 24
+    bytes, or 16 bytes net per symbol after accounting for the array
+    pointer).
+  - Patch 6 replaces `qsort()` on `struct symbols` with a stable
+    natural-run merge sort.
+  - Patch 7 optimizes incremental dynamic symbol insertions
+    (`dso__insert_symbol()`) and small appends using `@sorted_cnt` and a
+    sorted tail buffer with amortized `sqrt(N)` merge.
+- **Memory shrinking APIs and unit tests (Patches 8-10)**:
+  - Patch 8 adds `symbols__shrink()`, `dso__shrink()`, `dsos__shrink()`,
+    `machine__shrink()`, `machines__shrink()`, and `perf_session__shrink()`
+    to reclaim `symbols_by_name`, excess array capacity, cached DSO file
+    descriptors/data/DWARF state, and unreferenced user DSOs (`refcnt == 1`
+    with no annotated symbols), with transparent on-demand reload via
+    `dso__load()`.
+  - Patch 9 adds `dso__session()` and `perf_session__malloc()` /
+    `zalloc()` / `calloc()` / `realloc()` / `strdup()` wrappers (leaving
+    production caller wiring for follow-up once lazy symbol loading is
+    evaluated).
+  - Patch 10 adds unit tests in `perf test symbols` covering sorted symbol
+    insertion, equal-start aliases, symbol/DSO shrinking, `dso_symbol`
+    lifetime pinning, inline frame/srcline cleanup ordering,
+    `symbols_by_name` on-demand rebuild, transparent DSO reload, and session
+    allocation wrappers.
 
-This ignores the BIOS RTD3 setting for system suspend. The setting
-only selects the sleep protocol; the PCI core chooses the power state
-without it, and here chooses D3hot, which the doorbell protocol
-doesn't survive. Honoring D0L12 literally would mean keeping the
-device in D0, as commit f4dd5174e273 ("net: wwan: iosm: Keep device
-at D0 for s2idle case") did. That was reverted, D3 being the expected
-state.
+Changes in v8:
+- Rebase onto `tmp.perf-tools-next` (`eb79d2fbc230`), adopting
+  `<linux/compiler-context-analysis.h>` annotations (`__guarded_by(&lock)`,
+  `__acquires_shared(&symbols->lock)`, `__must_hold(&symbols->lock)`,
+  `__context_unsafe()`) on `struct symbols` and `dso` / `tests/symbols.c`
+  and adapting `dso__shrink()` / `dso__try_evict()` to `dso__data_open_lock`
+  and `close_dso()`.
+- Pass `first_unsorted` (`m = symbols->sorted_cnt`) to
+  `symbols__insertion_sort_range()` in `symbols__sort_locked()` (`Patch 7`)
+  so the `k <= 8` small-append fast path and allocation-failure fallbacks
+  skip scanning the already-sorted prefix `[0 .. m)` (Sashiko).
 
-With this change the modem stays in RUN through 2 and 10 minute
-suspend-to-idle cycles, and its data session keeps working. Platforms
-that do well with the doorbells now use the messages too.
+Changes in v7:
+- Rebase onto `perf-tools-next` (`bb27ddbaee56`), dropping the 3 patches
+  from v6 that have been applied upstream.
+- Drop `nr_addr_sorted` and `nr_name_sorted` incremental partial-sort state
+  from `struct maps`, keeping only the `first_ending_after()` tail
+  fast-path check (`Patch 2`) (Namhyung Kim).
+- Split out the `alloc_func_regex` leak fix in `builtin-kmem.c` (`Patch 1`),
+  the `map__for_each_symbol()` callback conversion (`Patch 3`), and the
+  conversion of open-coded symbol loops (`Patch 4`) ahead of the `rbtree`
+  to `struct symbols` array conversion (`Patch 5`) (Namhyung Kim).
+- Split symbol sorting optimization into a simple natural-run merge sort
+  patch without galloping (`Patch 6`) followed by incremental dynamic
+  symbol insertion with a sorted tail (`Patch 7`) (Namhyung Kim).
 
-Fixes: be8c936e540f ("net: iosm: power management")
-Cc: stable@vger.kernel.org
-Signed-off-by: David Westen <davidlwesten@gmail.com>
----
+Changes in v6:
+- Fix `symbols__find()` when `sorted_cnt < cnt` so that if the slice
+  (sorted prefix or unmerged sorted tail) with the higher `start <= ip`
+  group ends before `ip`, `symbols__find()` returns `NULL` rather than
+  falling back to an earlier outer symbol in the other slice, matching
+  post-merge behavior, and add unmerged-vs-merged prefix/tail overlap and
+  equal-start alias unit tests (Sashiko).
+- Use positive `ENOMEM` rather than `-ENOMEM` on `symbol__annotation()`
+  failure in `symbol__annotate()`, `symbol__annotate2()`, and
+  `__hist_entry__tui_annotate()` to match `symbol__strerror_disassemble()`,
+  check `symbol__annotate() != 0` in `hist_entry__get_data_type()`, and
+  guard against `NULL` `notes` / `notes->src` in `find_disasm_line()`
+  (Sashiko).
 
-Notes:
-    This is independent of my S3 series ("net: wwan: iosm: fix S3 resume by
-    re-binding the driver around it"), which leaves suspend-to-idle to these
-    callbacks; it applies with or without it.
-    
-    Maciej suggested forcing the D3L2 path for suspend-to-idle earlier and it
-    helped another XMM7360 user with the same CD_READY symptom:
-    https://gitlab.freedesktop.org/mobile-broadband/ModemManager/-/work_items/992#note_2938256
-    
-    Tested on an XMM7360 (ThinkPad X1 Carbon 6th gen, BIOS reports D0L12)
-    with 7.2.15 and a debug build that forces the D3L2 path, which is what
-    this patch does, logging the execution stage and the PCI power state.
-    Starting from a fresh ACPI reset, the doorbells left the modem in
-    CD_READY by the resume callback after 2 minutes of suspend-to-idle.
-    With the host sleep messages it stayed in RUN through four cycles of 2
-    and 10 minutes, two of them right after a fresh reset, and ping over
-    wwan0 still worked afterwards. The modem and its root port went to
-    D3hot in both cases. This patch itself, backported to 7.2.15 on top of
-    my S3 series, then passed a 2 and a 10 minute suspend-to-idle cycle with
-    ping working after each, and S3 with my series still works. Built with
-    W=1 on net/main. Not tested on the XMM7560 or on a platform where the
-    doorbells work.
-    
-    The investigation and the patch were done with an AI coding assistant
-    (Claude Opus 5.5). It read the driver and the earlier discussion, and
-    added temporary debug logging to record the execution stage, the PCI
-    power state and the messages around suspend and resume. We wrote the
-    change and the changelog together, and I ran the tests.
+v7: https://lore.kernel.org/linux-perf-users/20261121071651.67118-1-irogers@google.com/
+v6: https://lore.kernel.org/linux-perf-users/20261117185305.108003-1-irogers@google.com/
+v5: https://lore.kernel.org/linux-perf-users/20261116063435.2817923-1-irogers@google.com/
+v4: https://lore.kernel.org/linux-perf-users/20261113171734.2188066-1-irogers@google.com/
+v3: https://lore.kernel.org/linux-perf-users/20261110220803.2503416-1-irogers@google.com/
+v2: https://lore.kernel.org/linux-perf-users/20261027231513.816148-1-irogers@google.com/
+v1: https://lore.kernel.org/lkml/20260928075237.3055101-1-irogers@google.com/
 
- drivers/net/wwan/iosm/iosm_ipc_pcie.c | 21 +++++----------------
- 1 file changed, 5 insertions(+), 16 deletions(-)
+AI Assistance Disclosure (per Documentation/process/coding-assistants.rst
+and Documentation/process/generated-content.rst):
+- Tools used: Google Antigravity / Jetski coding assistant and Sashiko
+  automated patch review (sashiko.dev and internal Sashiko).
+- Summary of prompts and assistance: Interactive pair-programming session to
+  replace per-symbol refcounting with `struct dso_symbol` DSO-borrowed
+  lifetimes, split symbol callback iteration and staged natural-run merge
+  sort / incremental insertion patches, rebase onto `tmp.perf-tools-next`
+  context-analysis annotations, and address LKML reviewer and Sashiko
+  feedback across `kmem`, `dso`, `map`, `maps`, `symbol`, and
+  `tests/symbols.c`.
+- Testing performed: Built each commit (`[1/10]` through `[10/10]`) with
+  Clang (`-DWARN_CONTEXT_ANALYSIS -Wthread-safety -Wthread-safety-pointer
+  -Wthread-safety-beta`), AddressSanitizer, LeakSanitizer, and `DEBUG=1`
+  (`REFCNT_CHECKING=1`); ran `perf test` (including `Symbols`, `Maps`, `DSO
+  data`, `hists`, `thread`, and `annotate` suites), `perf bench internals`
+  (`symbols` and `maps`), and `scripts/checkpatch.pl`.
 
-diff --git a/drivers/net/wwan/iosm/iosm_ipc_pcie.c b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-index 49052eb511ba..dd7cfe3747ef 100644
---- a/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-+++ b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-@@ -406,14 +406,10 @@ static int __maybe_unused ipc_pcie_suspend_cb(struct device *dev)
- 
- 	ipc_pcie = pci_get_drvdata(pdev);
- 
--	switch (ipc_pcie->d3l2_support) {
--	case IPC_PCIE_D0L12:
--		ipc_pcie_suspend_s2idle(ipc_pcie);
--		break;
--	case IPC_PCIE_D3L2:
--		ipc_pcie_suspend(ipc_pcie);
--		break;
--	}
-+	/* The PCI core puts the device into D3 whatever the BIOS RTD3 setting
-+	 * says, so the modem has to be told with the host sleep message.
-+	 */
-+	ipc_pcie_suspend(ipc_pcie);
- 
- 	return 0;
- }
-@@ -427,14 +423,7 @@ static int __maybe_unused ipc_pcie_resume_cb(struct device *dev)
- 
- 	ipc_pcie = pci_get_drvdata(pdev);
- 
--	switch (ipc_pcie->d3l2_support) {
--	case IPC_PCIE_D0L12:
--		ipc_pcie_resume_s2idle(ipc_pcie);
--		break;
--	case IPC_PCIE_D3L2:
--		ipc_pcie_resume(ipc_pcie);
--		break;
--	}
-+	ipc_pcie_resume(ipc_pcie);
- 
- 	return 0;
- }
+Ian Rogers (10):
+  perf kmem: Fix alloc_func_regex leak on error in
+    build_alloc_func_list()
+  perf maps: Add tail fast-path check in first_ending_after()
+  perf symbol: Convert map__for_each_symbol() to callback-based
+    iteration
+  perf symbol: Use callback iteration instead of open-coded symbol loops
+  perf symbol: Switch backing storage from rbtree to struct symbols
+    array
+  perf symbol: Replace qsort() with natural-run merge sort
+  perf symbol: Optimize incremental symbol insertion with sorted tail
+  perf symbol: Add memory shrinking for symbols, DSOs, and machines
+  perf session: Add dso__session() and session-scoped allocation
+    wrappers
+  perf test symbols: Add tests for symbol shrinking and session alloc
+    wrappers
+
+ tools/perf/arch/powerpc/util/sym-handling.c |   34 +-
+ tools/perf/builtin-annotate.c               |   11 -
+ tools/perf/builtin-kmem.c                   |   51 +-
+ tools/perf/tests/hists_common.c             |    5 +-
+ tools/perf/tests/maps.c                     |   46 +
+ tools/perf/tests/symbols.c                  |  851 ++++++++++++++-
+ tools/perf/tests/vmlinux-kallsyms.c         |  181 ++--
+ tools/perf/ui/browser.c                     |    3 +
+ tools/perf/ui/browsers/hists.c              |    3 +-
+ tools/perf/ui/browsers/map.c                |   62 +-
+ tools/perf/util/auxtrace.c                  |  109 +-
+ tools/perf/util/db-export.c                 |    4 +-
+ tools/perf/util/dso.c                       |  324 +++++-
+ tools/perf/util/dso.h                       |   90 +-
+ tools/perf/util/dsos.c                      |   51 +
+ tools/perf/util/dsos.h                      |    3 +
+ tools/perf/util/intel-pt.c                  |   74 +-
+ tools/perf/util/libbfd.c                    |    3 +-
+ tools/perf/util/machine.c                   |   60 +-
+ tools/perf/util/machine.h                   |    8 +
+ tools/perf/util/map.c                       |   36 +-
+ tools/perf/util/map.h                       |    8 +-
+ tools/perf/util/maps.c                      |    4 +
+ tools/perf/util/probe-event.c               |   98 +-
+ tools/perf/util/session.c                   |   78 ++
+ tools/perf/util/session.h                   |    8 +
+ tools/perf/util/symbol-elf.c                |   12 +-
+ tools/perf/util/symbol.c                    | 1042 +++++++++++++++----
+ tools/perf/util/symbol.h                    |   84 +-
+ tools/perf/util/symbol_fprintf.c            |   25 +-
+ 30 files changed, 2706 insertions(+), 662 deletions(-)
+
+
+base-commit: eb79d2fbc230d41b009e49f20671303c6efbd946
 -- 
-2.56.0
+2.56.1.750.gf70dc682cf-goog
 
