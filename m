@@ -1,59 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795385059;
-	b=Vx2xRRap/ZHYA62aVdmAdEJuH5Hbptnv9PKWaJj1JBqUdO8zdUkmtbwQIgmkmdOcdKu0
-	 5xvakqde75hz1RaMiFAXDFi2Knb9Ha2oEdaB+PRn5Ujn/Apt5bZ2+IHUvW+GIbfXID8f/
-	 3E4cEkCeDTkwExBwA6asoeO8q+pTAA4GjGTu4jDoTj/mlZU/tL+dkJxPRyOoyLFv56WZ3
-	 j4Q5fggiEhtn2TmxLJSdwYJxWQUYP7VFvj1tMFFPcPKXPVyMJgBRwQ+JEQHSbpkUSr67D
-	 DX5NOsRbmXot4Odo+Ml84eZOaJZ9ApuubKHpyL90zh3epxTsRXGOArLEiMcKWScwV8w==
+	t=1795385175;
+	b=YI8D5yr75SqskY/knVYVXz3UCLd0Qj4LUFklisGCg2HYYBAb9YWD6k+WMswiU2p88wUJ
+	 jeQt0MorTsA4eDav5muyTnu0zDQtoaWZs1n0NMz7gAGp1OgJ92QPR9Tw5ceIpWs8gW1Uz
+	 zMVOFUkAiT027+o5PTrZ7y3uVoyen13OyKc2wWb+SlnuMmP/91J5jTqkyRVvdJaqImiQ4
+	 Qtyf2E5l+ahBMI35GN/YBd3TWdixaOLhz99Y8NjucyO8y4lfE3sU3Rq6iWhtvQx/ZWSa6
+	 uY63VFtbBM7z/a+Nho2VuUZh7kcCNYuLRqXonds+/ihXoWqY4oMdsqpn5BsV9ljij2A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795385059;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=GbeTwenuttvynFN6dIKsGFbhGCaFfBzEnbn45qh8jYo=;
-	b=pF7KPLpvXs4uMe7YHwmWdUpAgCj9yGyaU17MaijuYFRoW4lReNz3iIEohHP4jJ67aFal
-	 Gzv1WJ8cJQtVeETVrObMg6g/hrV9uSrBAu4DATlLpLVFw/tEahgAlXGjYI2iWR0vRSL/u
-	 F30+jPnZCmtiyhTSK4I25ExD75JX9oahhOtuIVuo2GWFj3vCXmt1muDCyogqPSE5Z+iVv
-	 vhxcIpE8COTtxjVc4xdF0cxst3XoRq+YmIZvJKmld7wdr9FC932icPPuNfqBMcEnSm2D2
-	 SyfOGRTBF1WK18Rp237/Cc05ONGx766Rfs1pqH2pRhTvAf+XLm5rRPPSPtDp6+pjFVg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795385175;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=T5ZgfcjP6PpiW+oPtLSGPRYDPLG9qZ4FCz1XwMujgc4=;
+	b=wvndUgEX6id4Dcv5hF9zhyaYhJyIWM1Zi8n8ctxY1XYHDE5WwzyOLMNotupAi7QviNd7
+	 XBtq24oz5rVThBcytnKVZsiShQCxiBSYC7Qd3nPTeBSF21+smYliv08NqbvWJ8dEGaFB3
+	 b66XxPfNu9pk8S9aYLcTLz0Iqie5n83gaswfpsmqvDGBFG0+w3MeOlKjnfAqgof+jBFVo
+	 +6CclS4QBFw/7e3xkz0pgoyDq0Owy4+Al8WQhEIEFN9INLa22R5vjQQfvpcCfKFnlrBLE
+	 Rz7C5Zpwy9gyhaKqKXiCx8/YXsGAPD15HxXE1Y5vJW3MPxEyU9Hc9Mg6a+fsVGJOnqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OticfQ3W;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0LtPUTen;
+	arc=none smtp.remote-ip=209.85.221.49
+Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CB1E606A681
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:04:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87632606A31A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:06:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87632606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OticfQ3W
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2117E1F000E0;
-	Sun, 22 Nov 2026 22:04:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795385058;
-	bh=GbeTwenuttvynFN6dIKsGFbhGCaFfBzEnbn45qh8jYo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OticfQ3WrhflN58urUGGr588Ngpq1tfbexq/+BqJVmrHz7lFbOMmT4Cbf8s1Lu1jV
-	 nezu6/SmB0U+mHxI6nigFf/AvLrNIP2vENjDQ3sP5zWM7MdG+22RAZCf/Wx4eXUDIH
-	 xgUMJtdXHfqzlU+yG0ZtJQlEWf9t+2z1LJj4bhD7QeL0jw+q+DSkGoVeLyeb21n5Ki
-	 SGGedxpRPcUMSd/bj+2LgLduGcFoXwn4mhIOI1bvOG42UvXrX1377cdXaL3CWIHiTc
-	 yh4jE9UxioOXs0lBklO4ks/WbGhmGdHbdzletENSQOpnkoo/tQMjLuwU9pYKnSRrnX
-	 LHQUklM3e8uDg==
-Date: Sun, 22 Nov 2026 15:04:13 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	linux-kernel@vger.kernel.org, kernel@pengutronix.de
-Subject: Re: [BUG] topology.c fails to build with clang-24
-Message-ID: <20261122220413.GA1454934@ax162>
-References: <20261121-lively-delectable-duck-f7c503-mkl@pengutronix.de>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0LtPUTen
+Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-4a9be758734so1571827f8f.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 14:06:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795385174; x=1795989974; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=T5ZgfcjP6PpiW+oPtLSGPRYDPLG9qZ4FCz1XwMujgc4=;
+        b=0LtPUTenhOU5RuJ+DxTVK1oJnrg/VSBukWWBPwQ+UlAg4J6RUi8TzkriEONa3wdcBP
+         pbBmeat0uq1MDQJkmpDDE7w2rVbgFhgSGo8SDY9jA+UlqfzlvXDUmxwU9dJLgiXM9s4Z
+         WMh1x8wP3ctmgnihihNY4qvfmmvkm2cweNcfJR/AuBq5jt6duHMrpJo+yVH2SMOB9Zv6
+         kxtKQN+go7kE4ywB1Ef3LX1sFpnRPrC9ehgyJ8LAguwHllJNX/y0GwUQd70+bMAsM0uY
+         Mna8md83DcxDtOKnDzUanki2ARt4zEwKLst2mADVHwnNnCTuqxJU5mXzXQRS129Arrsy
+         CUNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795385174; x=1795989974;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=T5ZgfcjP6PpiW+oPtLSGPRYDPLG9qZ4FCz1XwMujgc4=;
+        b=NimGnpa3CVgGftWzYdU3aE7SO7ir0VSC9a7/oPVPgUYYP12I/sxSmaRSa53AJZcF3V
+         hByEAV3ACUJWgDVZV3nlUiQJeoOu8qFkwumChm9jaJRyVdzW4INosNRafOmX/ll3Hl7j
+         GormxbjpbaqihDrmjmNKkcE7TxToQq8lGUW+yVsgMT2rSNOEVT9hlRyTmPv+pgiCvinm
+         ppqDhRKrgM8uaGSum+re4iPmt66UbZ7ZgeIYCreJsHZnZ6k60vcNJb7WMIj2IhMWW90/
+         mWnnWTDP60BrIYbYk45ioRQXOo7UXCiLoXuLFtvftMqgBkLbYKGbI5KAwa0BdsxrtrAk
+         MhLw==
+X-Forwarded-Encrypted: i=1; AL+hErFPFsnPZQ0ObTtUVUdn1b6srKLoAOTyPB2ZblieQMciNVSZsfht70e579LgZ/ohe8YWSdJAzPjYdDhuoIk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8E8/AUsqStjUCmx4+q9+A8MvSpIh9CDuOu7tS7IPpIZomotJQ7
+	B3WuJHngNdTcZfuUOUjAUP7qCbO87wgv8xqxipLv+6v01PjOM47ShSLG
+X-Gm-Gg: AZFdTZeRjeu+dq48nmuSi4EODn7juomQ+jm//Tw9Nvy4ZBK27MckAMQyVjLzg3hsjI4
+	v+f+u9W+DjQBPnPvMK+tmaqpxiZakUnWm+uZ+FjDcf420OD0LU+E4jvdcG+bUJP9BF6/gZctJnF
+	tYN6Bsh6D0l93K3XYu0PIgAOlzk3FWESnHWFXe1HT6B2rm7mSqumOVplnkRtJn13WCiX0dMPnm6
+	W2FNvyYOMyQ39G8kF5dBz8iP+3u9nkunQRjIEyMoM1iy8CJodS1IhxYr8A5DGNaaycT3ycPSPqx
+	0b4dOIlhPb9pdhy/3js1jSbW+dMrvnzyffDJ2E65tkAz1a0jj/WeCaQ7C4gcoH10dSxPRysOeJC
+	mBjs/kwSpLKd7DkJpCumdtzjNr3jxRcUJ0yQ6XDSI9piXYJU/q3GQvLjPbHquovH48w5+5pqvwy
+	lyK2xABqf+lWDuysLELpU1m6aAx7QQvE4V4Ai/08Tw13MKC8LJMMOi33bYIZ8uGOaRoe86IUhs9
+	B9hHJB6XguicYU0hOeepLOvACDfUVXr3nitpJneME7t+NMhqBtLPy1L9RdczMO4CnS41j7KHj0g
+	BA3ckaFlJBhIzfF63qxcz8r5mEHUtDSh9MCFs5hU5D3U4/JSgYBz6O8X
+X-Received: by 2002:a5d:5f88:0:b0:4a9:b6e8:7c6 with SMTP id ffacd0b85a97d-4abab02c3bfmr18963687f8f.8.1795385173636;
+        Sun, 22 Nov 2026 14:06:13 -0800 (PST)
+Received: from localhost.localdomain ([188.190.249.216])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf6804sm17962376f8f.10.2026.11.22.14.06.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 14:06:13 -0800 (PST)
+From: Vladyslav Tymoshchuk <tvlad744@gmail.com>
+To: Marco Giunta <marco_giunta@outlook.it>
+Cc: Mark Brown <broonie@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/5] ASoC: aw88261: fix sign bit check in aw88261_dev_get_vcalk()
+Date: Mon, 23 Nov 2026 00:06:03 +0200
+Message-ID: <20261122220603.39282-1-tvlad744@gmail.com>
+X-Mailer: git-send-email 2.45.1.windows.1
+In-Reply-To: <SN6PR19MB2303E8188DC58BDC07645705FC792@SN6PR19MB2303.namprd19.prod.outlook.com>
+References: <SN6PR19MB2303E8188DC58BDC07645705FC792@SN6PR19MB2303.namprd19.prod.outlook.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,49 +101,15 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261121-lively-delectable-duck-f7c503-mkl@pengutronix.de>
+Content-Transfer-Encoding: 8bit
 
-On Sat, Nov 21, 2026 at 07:41:20PM +0100, Marc Kleine-Budde wrote:
-> Hello,
-> 
-> current Linus master commit c44104f3642d ("Merge tag
-> 'drm-fixes-2026-11-21' of https://gitlab.freedesktop.org/drm/kernel")
-> fails to build with Debian's clang-24 from experimental:
-> 
-> | $ clang-24 --version
-> | Debian clang version 24.0.0 (++20261119065354+16721c9d8e82-1~exp1)
-> | Target: x86_64-pc-linux-gnu
-> | Thread model: posix
-> | InstalledDir: /usr/lib/llvm-24/bin
-> 
-> Standard x86-64 defconfig compilation, with LLVM=-24.
-> 
-> | In file included from kernel/sched/build_utility.c:86:
-> | kernel/sched/topology.c:2008:29: error: unsequenced accesses to volatile qualified 'jiffies' [-Werror,-Wunsequenced-volatile]
-> |  1998 |                 .last_balance           = jiffies,
-> |       |                                           ~~~~~~~
-> |  1999 |                 .balance_interval       = sd_weight,
-> |  2000 |
-> |  2001 |                 /* 50% success rate */
-> |  2002 |                 .newidle_call           = 512,
-> |  2003 |                 .newidle_success        = 256,
-> |  2004 |                 .newidle_ratio          = 512,
-> |  2005 |                 .newidle_stamp          = now,
-> |  2006 |
-> |  2007 |                 .max_newidle_lb_cost    = 0,
-> |  2008 |                 .last_decay_max_lb_cost = jiffies,
-> |       |                                           ^
-> | 1 error generated.
+On Thu, Nov 19, 2026 at 05:30:12PM +0100, Marco Giunta wrote:
+> -	if (reg_vcalk & AW88261_EF_VSN_GESLP_SIGN_MASK)
+> +	if (reg_vcalk & (~AW88261_EF_VSN_GESLP_SIGN_MASK))
 
-I sent
+I have been carrying the same one-line change in my tree for the
+OnePlus Pad 3 (SM8750, two AW88261) since October, and the speakers
+have been in daily use with it since then.
 
-  https://lore.kernel.org/20261116-topology-wunsequenced-v2-1-54611119172b@kernel.org/
-
-for this but I am still waiting for it to be picked up (or told how to
-make it acceptable if it is truly rejected).
-
--- 
-Cheers,
-Nathan
+Reviewed-by: Vladyslav Tymoshchuk <tvlad744@gmail.com>
+Tested-by: Vladyslav Tymoshchuk <tvlad744@gmail.com> # OnePlus Pad 3
