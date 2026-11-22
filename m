@@ -1,60 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=92.243.27.206
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.39
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795380363;
-	b=fWwxqDHR2UfCWMZuBC66XINPF8FH7kztUwzwQyNPwe2T6HeGaJBPCTvCkqFS7eQjTvlu
-	 7G1yjk1jvkdFYfk+Q9Fw0z8t3bKDTBKHpqj2GMGtTURnbFnZiSCvBcYGoL59ywXoFodV6
-	 /AczN7MBhInO+6fjdfT711VnphhP5xTJgkbUSfq/vLwKB+hU6PsbA1lezM9AvBh2CzQLZ
-	 KT95nfOIeXk/WC8x0nakhbuklCgAZhIWU9z62uCPgaxAelkRR6FNzSexg6A83DMpA4ACj
-	 ZwqPis4l+8A6R6fISzpnDp5X5wARUNGH74+yQ0e8eAqgTUdolYfA4cB+uRgaPleGMOg==
+	t=1795380406;
+	b=d/BwR4e53w/aJX6vWcB4oPmEMAB2uZXpKUuXP8n76ncdYcLi3HYLU4vFX+FmapbRjkYP
+	 3/MTHA4egg/KqyxpoQ7jDTsl9L5wBt4ahSOAa6xkRrRalFmTJMOj9RDyutXsJ37BO2qQk
+	 ubDasEPQB7WXOEFTlN/Y7r1nnXd/DEg8H+ggY2+5o7me1MI/FXWLFzbNPlM9rURwj2ucx
+	 ZgdouyrY93lC5t/MQasMgavu7eAcVT0fUVkejW7GfiUA7a/QbRawqgxeQLO+/UiiVtwAK
+	 l1ysJLV/Liz70Yes9G4w1yM3ugWB7iTBkcTSfjkXcNhlcyMmCdlD17i3F0oM6KyYMLQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795380363;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=r0pq03pbZTXIuJBoHRgYc0ck8lyzjEHfUvyP9RtMNj4=;
-	b=kZQAmGa7xVe6HJDVa+ad9dodrGM8S1osX4w6rwpT+HBX88cTta+ttuaqziq2221Um+lx
-	 xzyW1OaMf+Bi8ElFhbIx+VRspQbnZzCnYmI3umf6aRbYOeDXL1B2M+f1B8AQLwnRPXh3c
-	 zlDv13xJYwc+yVOeFIZJOZntyBaD2sYiPcJExT2y/shwYNfBEfY5BaP5lOz1SN5IKWLzD
-	 AeFEoRPkQVN8Ruuz7e+F+I907j3d+d8+o2sGNSlTO9yCDDzKk5W8Z91SdHpDh9oXUUeKR
-	 QTjfvusH9Z9TbUg18f5BiP5Cwkw6/MOuWi7Rsz02EwpgZONcXvMt8pBTqIPm+zMX0Dg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795380406;
+	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:X-Source:
+	 X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
+	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
+	bh=LSD5gbGGgGHR9hhcem3MZ2q3tssD5SSjeWRvzutmFFI=;
+	b=RO87ri+UrAQ1B8nYXSgH98WUjoB7WJhSCYcKqmqXH3ptwjAamWjT8l2FSlAB/648zivO
+	 RROmuV9nIET8yU2jJy36H2xr8w1LDLVTN2hTomVZm7LpmifZWraAOUELOVoINHMZOlFOv
+	 tAaCdsYCbjzLr8oRQvoEuo7JjJNewSHthB/HcXFwHgUX6Wsx6+BhkGxJgZj5AbZ91f5Lx
+	 mx+DW+yGXUe8zkhhZdKgqMOM+w2bkrn3OkRVR67ypMz3Ukp8o7GxzaA9Y3+E/SyqhUe/E
+	 d8V9CBV6SJeHMF24h6aO6WPhhuHISxPZ2eI9s/WSbMPZ+QYilBFVwYCV736sjy10GXw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mess.org;
-	spf=pass smtp.mailfrom=mess.org;
-	dkim=pass header.d=mess.org header.i=@mess.org header.a=rsa-sha256 header.s=2020 header.b=IRveC386;
-	arc=none smtp.remote-ip=92.243.27.206
-Received: from extorris.mess.org (extorris.mess.org [92.243.27.206])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=roeck-us.net;
+	spf=fail smtp.mailfrom=roeck-us.net;
+	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=mGUh6841;
+	arc=none smtp.remote-ip=35.89.44.39
+Received: from omta40.uswest2.a.cloudfilter.net (omta40.uswest2.a.cloudfilter.net [35.89.44.39])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72F54606A31D;
-	Sun, 22 Nov 2026 20:46:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72F54606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mess.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mess.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75351606A31A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:46:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75351606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mess.org header.i=@mess.org header.a=rsa-sha256 header.s=2020 header.b=IRveC386
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mess.org; s=2020;
-	t=1795380360; bh=Dqafq+lPIh7TL8+bt692my7vJhcK4oDNzgXGaeDpzNM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IRveC386cYXHh2DtYqESsr53zNa3sQi42NtNWdBG85RFQPytWkovqjttmNPlR5Spi
-	 SCLKWXf8Me1xr9rzPxJCTQUbNaCCVStvSOAWrljPFIcwM3SHxiQIt0s2pPMPIe+Fba
-	 XN+0jwL1dz0PT6t9XcE/il+FbCRvD3Mw2WqLppzjrArbpWF4Hsz1QS/Z496zwp+YYF
-	 t3wuRfCklp67jpz6sEkK+KPnALpvA6WNqS2FGdLymRsBsLYsYv41veF9uhnkhXeggC
-	 fh4DR5erefYcM9G3uso+LEQ+3+WKY1yIlEKv5Y63p0H5WmZt7yd6k4wviHYI1XJIHY
-	 5ZudeV6vBvnyQ==
-Received: by extorris.mess.org (Postfix, from userid 1001)
-	id 8066C41828; Sun, 22 Nov 2026 20:46:00 +0000 (GMT)
-Date: Sun, 22 Nov 2026 20:46:00 +0000
-From: Sean Young <sean@mess.org>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: mchehab@kernel.org, linux-media@vger.kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Fabio Estevam <festevam@nabladev.com>
-Subject: Re: [PATCH v3 2/2] media: rc: Add keymap for Ruwido Z3 RC-34 remote
-Message-ID: <awNUiFvhjdaz9BXl@extorris.mess.org>
-References: <20261004121931.6746-1-festevam@gmail.com>
- <20261004121931.6746-2-festevam@gmail.com>
- <CAOMZO5DFgk66C=+eNepzWwrNHa-t8KQ47wstPZRGW+tf548rOQ@mail.gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=mGUh6841
+Received: from eig-obgw-5005b.ext.cloudfilter.net ([10.0.29.189])
+	by cmsmtp with ESMTPS
+	id Uvw3xF35eyb4YVESSxkes9; Sun, 22 Nov 2026 20:46:45 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id VESRxbKJyYskhVESSxhZAm; Sun, 22 Nov 2026 20:46:44 +0000
+X-Authority-Analysis: v=2.4 cv=CKMqXQrD c=1 sm=1 tr=0 ts=6b0354b4
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=8nJEP1OIZ-IA:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=JtdX1pvmAAAA:8
+ a=VwQbUJbxAAAA:8 a=tI0p-kfHP82b7JzrScQA:9 a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
+ a=c0toiO28_D8leWPcdVQN:22 a=KPbNTLLc3YvdawN95zVk:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=roeck-us.net; s=default; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
+	List-Archive; bh=LSD5gbGGgGHR9hhcem3MZ2q3tssD5SSjeWRvzutmFFI=; b=mGUh6841l/Rq
+	mHCjTP9lDhFZH1axHpr7h98VsAtQjmITqrd/kobcmpT1D7hYvxI189C9naTJKLgC3cwvR0rF2PYlH
+	WJXO4VHZz+OWvaEOMuT348mYxyuTgmaQydYYrdkD+bcZNezwqNbbS2I9i+zb57bwIDWR3atjMN9aU
+	eB7j7+sNTku11ljRiPSSyeuoqmN1jr1eGuPf4kvw23L07iw6pNwvFHk+GOSQymaARQv0gUrqP6gfv
+	NZs+rCMRr+abC9/jgucOUBSM6fiRylJgdfDobym1/Sd/ODNh2pKm96EPLsHCQSjHtkWYUUovdccfs
+	DsmBxMYQGIgIC6P2dong/w==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:33312 helo=server.roeck-us.net)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xVESR-0000000007M-0aq4;
+	Mon, 23 Nov 2026 02:16:43 +0530
+Date: Sun, 22 Nov 2026 12:46:41 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Ivan Popovych <ivan@ipvych.com>
+Cc: linux-kernel@vger.kernel.org, pali@kernel.org,
+	linux-hwmon@vger.kernel.org
+Subject: Re: [PATCH v2] hwmon: (dell-smm) Add Dell XPS 15 9550 to fan control
+ whitelist
+Message-ID: <27ffe277-f1d1-4e85-8bd4-bea8f2962f05@roeck-us.net>
+References: <e4e133c6-db41-4776-a73e-e8e051eadec4@gmx.de>
+ <20261121230738.4970-1-ivan@ipvych.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,155 +84,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAOMZO5DFgk66C=+eNepzWwrNHa-t8KQ47wstPZRGW+tf548rOQ@mail.gmail.com>
+In-Reply-To: <20261121230738.4970-1-ivan@ipvych.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xVESR-0000000007M-0aq4
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:33312
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 3
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfAG9poKzcpCqja2eBBBVMZmrpIvlWK2AXF7dof/TzJXaduKQ+1OSOD7yDBsYnabh51tpm/zggIcsDEXvMd23UTMYcOhUN95lNd5OuWbdgMjRx0HgKvz0
+ sFUTol3T/YNbf5EsSFqvP4na7/vLRNtKl3S952RWkz3vA4rQdZQN8bKtYR3m3MNgBpbyEbhQG5+JeoMrCRI2P3nv6NhXRCVrj2ZDIVz5EkTm1W7+4NXNiQYx
 
-On Fri, Nov 20, 2026 at 06:16:12PM -0300, Fabio Estevam wrote:
-> Hi Sean,
+On Sun, Nov 22, 2026 at 01:07:38AM +0200, Ivan Popovych wrote:
+> Confirmed on my own Dell XPS 15 9550 running BIOS version 1.14.0
+> running "echo 1 > pwm1_enable" disables automatic fan control and
+> "echo 2 > pwm1_enable" enables it back.
 > 
-> On Sun, Oct 4, 2026 at 9:19â€¯AM Fabio Estevam <festevam@gmail.com> wrote:
-> >
-> > From: Fabio Estevam <festevam@nabladev.com>
-> >
-> > Add keymap for the Ruwido Z3 RC-34 remote control.
-> >
-> > Signed-off-by: Fabio Estevam <festevam@nabladev.com>
-> > ---
-> > Changes since v2:
-> > - None.
+> Both 30a3/31a3 and 34a3/35a3 commands work on this laptop, using
+> 30a3/31a3 as these are the commands used by the official Dell
+> software.
 > 
-> A gentle ping.
+> Signed-off-by: Ivan Popovych <ivan@ipvych.com>
+> Acked-by: Pali Rohár <pali@kernel.org>
 
-Sorry about the delay. It's now been merged into media-committers/next
+Applied.
 
-Thanks
-
-Sean
-
-> 
-> >
-> > Changes since v1:
-> > - Use RC_PROTO_NECX. (Sean)
-> > - Use media prefix in the Subject.
-> >
-> >  drivers/media/rc/keymaps/Makefile             |  1 +
-> >  .../media/rc/keymaps/rc-nec-ruwido-z3-rc34.c  | 80 +++++++++++++++++++
-> >  include/media/rc-map.h                        |  1 +
-> >  3 files changed, 82 insertions(+)
-> >  create mode 100644 drivers/media/rc/keymaps/rc-nec-ruwido-z3-rc34.c
-> >
-> > diff --git a/drivers/media/rc/keymaps/Makefile b/drivers/media/rc/keymaps/Makefile
-> > index 38b84e34b225..525d203c0a94 100644
-> > --- a/drivers/media/rc/keymaps/Makefile
-> > +++ b/drivers/media/rc/keymaps/Makefile
-> > @@ -86,6 +86,7 @@ obj-$(CONFIG_RC_MAP) += \
-> >                         rc-msi-tvanywhere-plus.o \
-> >                         rc-mygica-utv3.o \
-> >                         rc-nebula.o \
-> > +                       rc-nec-ruwido-z3-rc34.o \
-> >                         rc-nec-terratec-cinergy-xs.o \
-> >                         rc-norwood.o \
-> >                         rc-npgtech.o \
-> > diff --git a/drivers/media/rc/keymaps/rc-nec-ruwido-z3-rc34.c b/drivers/media/rc/keymaps/rc-nec-ruwido-z3-rc34.c
-> > new file mode 100644
-> > index 000000000000..8a090772446d
-> > --- /dev/null
-> > +++ b/drivers/media/rc/keymaps/rc-nec-ruwido-z3-rc34.c
-> > @@ -0,0 +1,80 @@
-> > +// SPDX-License-Identifier: GPL-2.0-or-later
-> > +//
-> > +// Keytable for the Ruwido Z3 RC-34 remote
-> > +
-> > +#include <media/rc-map.h>
-> > +#include <linux/module.h>
-> > +
-> > +static struct rc_map_table nec_ruwido_z3_rc34[] = {
-> > +       /* Ruwido Z3 RC-34, NECX address 0xe310 */
-> > +       { 0xe3100f, KEY_POWER },
-> > +       { 0xe31016, KEY_MENU },
-> > +       { 0xe3100a, KEY_UP },
-> > +       { 0xe3100b, KEY_DOWN },
-> > +       { 0xe3100d, KEY_LEFT },
-> > +       { 0xe3100c, KEY_RIGHT },
-> > +       { 0xe31019, KEY_OK },
-> > +       { 0xe3106a, KEY_BACK },
-> > +       { 0xe31033, KEY_INFO },
-> > +       { 0xe31066, KEY_DISPLAYTOGGLE },
-> > +       { 0xe3101a, KEY_VOLUMEUP },
-> > +       { 0xe31010, KEY_VOLUMEDOWN },
-> > +       { 0xe31013, KEY_MUTE },
-> > +       { 0xe31032, KEY_CHANNELUP },
-> > +       { 0xe31031, KEY_CHANNELDOWN },
-> > +       { 0xe31069, KEY_HP },
-> > +       { 0xe31000, KEY_NUMERIC_1 },
-> > +       { 0xe31001, KEY_NUMERIC_2 },
-> > +       { 0xe31002, KEY_NUMERIC_3 },
-> > +       { 0xe31003, KEY_NUMERIC_4 },
-> > +       { 0xe31004, KEY_NUMERIC_5 },
-> > +       { 0xe31005, KEY_NUMERIC_6 },
-> > +       { 0xe31006, KEY_NUMERIC_7 },
-> > +       { 0xe31007, KEY_NUMERIC_8 },
-> > +       { 0xe31008, KEY_NUMERIC_9 },
-> > +       { 0xe31030, KEY_NUMERIC_0 },
-> > +       { 0xe31065, KEY_RED },
-> > +       { 0xe31063, KEY_GREEN },
-> > +       { 0xe31064, KEY_YELLOW },
-> > +       { 0xe3106b, KEY_OPTION },
-> > +       { 0xe31050, KEY_PLAY },
-> > +       { 0xe31057, KEY_REWIND },
-> > +       { 0xe31058, KEY_FASTFORWARD },
-> > +       { 0xe31060, KEY_PROG1 },
-> > +       { 0xe31061, KEY_PROG2 },
-> > +       { 0xe31062, KEY_PROG3 },
-> > +
-> > +       /* RC-34 remote volume keys */
-> > +       { 0x3506, KEY_VOLUMEUP },
-> > +       { 0x3507, KEY_VOLUMEDOWN },
-> > +
-> > +       /* McIntosh HR070 remote volume keys */
-> > +       { 0xca5542, KEY_VOLUMEUP },
-> > +       { 0xca5543, KEY_VOLUMEDOWN },
-> > +};
-> > +
-> > +static struct rc_map_list nec_ruwido_z3_rc34_map = {
-> > +       .map = {
-> > +               .scan     = nec_ruwido_z3_rc34,
-> > +               .size     = ARRAY_SIZE(nec_ruwido_z3_rc34),
-> > +               .rc_proto = RC_PROTO_NECX,
-> > +               .name     = RC_MAP_NEC_RUWIDO_Z3_RC34,
-> > +       }
-> > +};
-> > +
-> > +static int __init init_rc_map_nec_ruwido_z3_rc34(void)
-> > +{
-> > +       return rc_map_register(&nec_ruwido_z3_rc34_map);
-> > +}
-> > +
-> > +static void __exit exit_rc_map_nec_ruwido_z3_rc34(void)
-> > +{
-> > +       rc_map_unregister(&nec_ruwido_z3_rc34_map);
-> > +}
-> > +
-> > +module_init(init_rc_map_nec_ruwido_z3_rc34)
-> > +module_exit(exit_rc_map_nec_ruwido_z3_rc34)
-> > +
-> > +MODULE_LICENSE("GPL");
-> > +MODULE_AUTHOR("Fabio Estevam <festevam@gmail.com>");
-> > +MODULE_DESCRIPTION("Ruwido Z3 RC-34 remote keytable");
-> > diff --git a/include/media/rc-map.h b/include/media/rc-map.h
-> > index f167c37179c8..290919a7247e 100644
-> > --- a/include/media/rc-map.h
-> > +++ b/include/media/rc-map.h
-> > @@ -289,6 +289,7 @@ struct rc_map *rc_map_get(const char *name);
-> >  #define RC_MAP_MSI_TVANYWHERE_PLUS       "rc-msi-tvanywhere-plus"
-> >  #define RC_MAP_MYGICA_UTV3               "rc-mygica-utv3"
-> >  #define RC_MAP_NEBULA                    "rc-nebula"
-> > +#define RC_MAP_NEC_RUWIDO_Z3_RC34        "rc-nec-ruwido-z3-rc34"
-> >  #define RC_MAP_NEC_TERRATEC_CINERGY_XS   "rc-nec-terratec-cinergy-xs"
-> >  #define RC_MAP_NORWOOD                   "rc-norwood"
-> >  #define RC_MAP_NPGTECH                   "rc-npgtech"
-> > --
-> > 2.43.0
-> >
+Thanks,
+Guenter
