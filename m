@@ -1,99 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795339013;
-	b=wmZiwpdI8bLmMPda3YeqfFygY3jb5TrlZ15FYKkn7IFtr8RaTwpuRuFzIBNIQEpmqCUC
-	 jvd3t+X0WuDpsrNOr1cHIX0ef0YrPmea+k2M690wmGUVxA+4V9Ki8+8FrHJyrj23fcpsu
-	 CPOCSe/Mk3BoqRYOYpyAumMMeUuHQOwtRGbUI/Zb6QbXeeb//833emYu1ow3o2uv30AhN
-	 y4yKwvNQTIOED0DZqp10ShTrrZ7aGgrgXisPHKgjBiBLfzvMC7TncEcN3RJ8PST5p9dEZ
-	 A9P0nT2PIkg6J/4x3ua7Kob0e9xp8e/RFd7+xTV3x9wNJX0UTq0pMax9ww7GVJz+UZw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795339013;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=jlk4MoliGvZW1IkxqxKZvX+OlKzVs5YdkLc7yt4n2p4=;
-	b=Z5GS8bQSNSNK8o8Jtov8At4JQHJ5bWKqYaKpIbS/n0z10fO3VYb7RSfTVxoludmI62sP
-	 uYBD18V3dAAqi6cJl54EeEgxdDgLYKtAYEv8MqhyqN7cC6mRJ4XcBgOnLNImON5k3PMRE
-	 KQQverwg+KA30nKHe+EKwIWqpnvEl5MO2IQowEJTvDI236wIZnCHhpfuXrgJFN6Hp1Dze
-	 kPuMZmJfdgXJdZeo+dufXNJf+7d4u5hvJa7v+lUrNgHBjcPKPU2WH7bEG5jia9RYSFZdV
-	 3q2RB/MUQlYHASpqiYqwayEPNRJFBEXZthyCFq+RWT7w3vNykQshRApWnRzK0FEy1Fw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rSQajXk4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.52
-Received: from mail-lf1-f52.google.com (mail-lf1-f52.google.com [209.85.167.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795339177;
+	b=qWgq5nmR45HCN0MVI05Ycq36O4DpiFNWQvZ+bO7ikbRwgrxMJntoj5D6QxMmlruj4BZw
+	 ujHpNAMewguBlNLN78glJ1SaIIT+vjy35sk90jSQvKtAlHx/MD/g8oO4aS8c3++1fYGYg
+	 uPfiRz20p+E0nSo/IP08NJTItnWGW2lrdzm30v4avEKL6HN52o7DqAU7a4OdnnYNBlpHr
+	 3ZB5rD1Mw3F+nU1jGe6e0vIggSI2KwuQhrx6MVQZPyyLF4VZydIUQMy9Auwyl7UDnob8s
+	 zl+d5FPLR4CthKRFrM/YKsjXHaavWGrlTzNQdh9pULXPC9zZEAxgLh1d5Etexv7gj3Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795339177;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=BzQISL5lSMrXxR4Vn+nWmVJdpxxTtSXQ7y9eFl2L6oI=;
+	b=kSGBuUPlV1D6F3dnrNZkIcrohuARRzOFgASUpW7FY1zwRhuljtDHaWFz+FzsxOW9sznn
+	 P4TY4B9TeQwzxKFvVJZ/+6t85rcyVMby9TEhZX6FIsBlAKaNIcmv7xjq6p6N+ckvGqyRN
+	 lvbVjBbGoBx4qYLoO4s21mbrD3UEXeklmMl+nG6vUwrP0PawyqSox7hl44hvjC9u8iQJG
+	 L7I554ecJ9UyORPoYaX2CnVnc6nCePeiFPpziggTI9IHMUIpzKL1fR1ousuYJSq0Dcuoz
+	 W3OiVwWyUbV6/ZiE97S1X59s950AhFVxiXZDv9pqIIqrrUm8wCBsK+buxcZOdrMfAhw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k6BShycF;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD906606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:16:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD906606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C9AF606A320;
+	Sun, 22 Nov 2026 09:19:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rSQajXk4
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5c00c727a26so177396e87.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 01:16:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795339011; cv=none;
-        d=google.com; s=arc-20260327;
-        b=hDCGZA2q66VSqMcwzVX6c3JXdzWcnkg+viDB3Vgf7hoOZQYLaj8vaQlj8mcvEZOXsY
-         NpquVIEllXnB2Y7e0pyYhb7nxmV+sNearxgDpzERq8xCRNVZ6CDj89GbCC6/Jb0cXF9C
-         E5P6LNQ+myPM2S7tNj7CzVHbV6v2abCicLu2MuyPqhaaPIIZ4Pu+soRQEjD0jXYngHtL
-         i4idQOQ/BwyHorG7Y/4JPK4eU/61JFP5M5aGf9BDddfK7F2FldJkJ6xW+NQvCVQftLe2
-         F2jalIaL7jvQjrqFx1e9GoYzjouCcIQWroCM8A2Qx72EZSEK0d3q6ZvwNbZFgbRkDvck
-         Te2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=jlk4MoliGvZW1IkxqxKZvX+OlKzVs5YdkLc7yt4n2p4=;
-        fh=ndWSQkSjHZgDqcSbIwIRCw50BtCDuChn16zKJYVns1E=;
-        b=U+JFcy/piqOByWuLfhkHjiF0OwCz8nnjU6PaFmsafTBVIUZeqKjFApbCVROT2TlMLm
-         rlnBYTOBopTCPvOUW16pfO+51Wu1+K9nPgZAAFJeANnzcsNPoP1cVQIf1JqnY9kPTfM5
-         bkmjT3uvtAUJj58458xDvYevCONULSwwBJs3jQLCaf9ODIjR5/+MrjpN0XRnoaIgDxv1
-         hXoG9cmaFs4LT+MPwlbxYlTDz0bFvY9nctD8e0pfWZ0+W+bx22rm/WgnuazGaLfIb1lE
-         C/UTaPEogNwOh9amg1mTcKHFpkLh0ZJMcWSxY9qNuQdSS/FqhGRg3kxlk0wjZAiBeqy0
-         dHHQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795339011; x=1795943811; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jlk4MoliGvZW1IkxqxKZvX+OlKzVs5YdkLc7yt4n2p4=;
-        b=rSQajXk4yyxPvW6GnUHoTRPWJWDnM+/qTW6hZKO/1BwoSTNW6ekQ2+73Bi/VdKu3mk
-         fAwYKpm8YWpXT8EgQ14v0X/aettSCXoyBDG1T9L5ggPnpKXILi4Y+6U4OKb3B59py9l4
-         CeNo83RhqEU0GX2vYbM1ANJryPiTSTftVj+KdBOqJ7GPhvHUtvOoDp6h3xc5ecQatPyr
-         WQu0rzcI2lbKPCifVkkvoVwKLyi2YMpRgZR1e9l9u+FAzbl/b2+gRji2LRLBwmU66+GY
-         LnPiwS/j0iAX/qQTOol7ft2W43LMXHtVpihoVFnSax3j78bDQYBmP0i8udGrMF2RuZQe
-         sdwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795339011; x=1795943811;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=jlk4MoliGvZW1IkxqxKZvX+OlKzVs5YdkLc7yt4n2p4=;
-        b=DiPvJAiqRbIRdqiJnOeb8A1CF/PmKtSF/3EyZyl44oZF8pLblOpe2mSjGJ8tTrN8Zs
-         Sh13vv2skiL9xPXgIEqnZo9/cImfGnXBu6cDV/vvTmN82g0blQvbUrpe4xorK4IGdWtR
-         kY3oFEyQuYNyffgALLDOY6wf+839VTOSQIJQQifEf1rDE0+RVblw0Pf0fg7PX0dk1vAN
-         NFJTUHxwM3dpkBueH4lln0ROGt+PWScAn7YDd59L808hfqj/s0+pe+541nQfx17p7+2f
-         N1aokNTmaHprUtjaXBXE0mSK8KgL8n6d9wJkoHRG73DpuvrBzqzZYrn3ZRj9s2EgvwFr
-         e8aA==
-X-Forwarded-Encrypted: i=1; AL+hErGtem7HRFCQhPlMBrnDGdl28aDqNTDKRcpTGN+xHMPUJx7OjUmhYfx2bzMZ8WTZCpiEDjwqhCIcKNisPNo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+vNELjjFj2fz4xxZVX/bGdd0LKBukIUSjDbj1kTYjWFpNgAjX0
-	AWKySv+iIru3+pn1YY8qFy54iG5CPADfJWs2okKwo/kWDvg+0wB3N4Ml6YZW/Gor+/I2E4mwSRz
-	Yac3hydC++eBB4e15SRZwbFpokPlKo6Q=
-X-Gm-Gg: AZFdTZckxJj7pWDFvHrBdOHvDvtPFli770bqHdtqSPQpixd4R2dDG6ApkZ8tnQs4dOy
-	lZr6PCt9w083bMJBrldCOTe346ZtzLajPc4kM6pFgzRXDBIhaGwhUPiZX81syuZVYO1MSlRpBFV
-	Abci0ByVABbNLAdQ9rp7eUdpRce0UsaXNc/gqhmp/IFOWGGbYjbl/Z6eWCtUo1d8QmN0qGE6S0Z
-	18S6E5aStpun/RXIkNSqssqsEEKPjqnaQUiheU8HXK2mTeVblXJbVJRt+H3yYspYVz/cHj5WlwC
-	44DqStkV2bstOn43uZZZTp6U5sAESKoQ3PH98ufMQUs/99yBjiBAfH/kMaz6v/zzp3LIwdWnCMq
-	906E072t+mEUhxHxamVPmkJUNPyGB+CmMTV8KhEwf+nYiF7a5aqkX04WJuz932izfqIa4N1o=
-X-Received: by 2002:a05:6512:6719:b0:5bf:ba43:fa67 with SMTP id
- 2adb3069b0e04-5c1bc935c91mr2187197e87.6.1795339010786; Sun, 22 Nov 2026
- 01:16:50 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k6BShycF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1288E1F000C0;
+	Sun, 22 Nov 2026 09:19:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795339177;
+	bh=BzQISL5lSMrXxR4Vn+nWmVJdpxxTtSXQ7y9eFl2L6oI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=k6BShycFQ7Et7Ajt8PiMo9vbr3rvYz5QOtnCooR1aE7EFb+3YI59uEcKudTxmqHB+
+	 zKgQnGRmjvJPRRBW+PmV06QmfMBYoHQ9jBJFozoguS9jQ5BjcHAzcM2xEo4wH04CM4
+	 b7PtNbMoDT4gVDjw59JgaIkqlixRUbENRxp369RfnlWCDLXLZZExFQMEse5PvtuuZY
+	 P5mkZ14b1rGZ+Z2NAW4XtKjlDV0zdEczliwYdn6dhaxBVwRpWXGneFrHEd0SYa76wC
+	 5TTnfdivPyHRviIudf7dkHwpvO6zZNdAYeiV9T3/cHbS1TBk3U3XWHqrZTLZWY6xp1
+	 zXi0wo3Rjd/Sw==
+Subject: Re: [PATCH net 1/4] net: skbuff: limit folio refcount when copying
+ skb frag references
+From: netdev-bot+sashiko@kernel.org
+To: david@kernel.org
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, akpm@linux-foundation.org,
+ kas@kernel.org, songliubraving@fb.com, hannes@cmpxchg.org, riel@surriel.com,
+ willy@infradead.org, ncardwell@google.com, kuniyu@google.com,
+ pfalcato@suse.de, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, stable@vger.kernel.org
+Date: Sun, 22 Nov 2026 09:19:35 +0000
+Message-ID: <179533917558.3135.17684828734142496084@kernel.org>
+In-Reply-To: <20261118-skb_refcount_overflow-v1-1-5551b4954c3f@kernel.org>
+References: <20261118-skb_refcount_overflow-v1-1-5551b4954c3f@kernel.org>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,29 +66,180 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119-b4-cedrus-mpeg1-v1-0-aa5ba1192822@gmail.com>
- <20261119-b4-cedrus-mpeg1-v1-2-aa5ba1192822@gmail.com> <1a1f912f033.2efff015191157.7190884739957848478@collabora.com>
-In-Reply-To: <1a1f912f033.2efff015191157.7190884739957848478@collabora.com>
-From: Arun Iyengar <aiyengar1990@gmail.com>
-Date: Sun, 22 Nov 2026 01:16:39 -0800
-X-Gm-Features: Aa3M54oE-VNyvNZaxxRREWe_L_ECyiIpVpQf2rmUEBWZs2-DphbG3Q0KscfmLqc
-Message-ID: <CAEy9hNVXZvfbW6U=Y7aiONidPKee7npGWpWuR2yQOeUu4aOVfg@mail.gmail.com>
-Subject: =?UTF-8?Q?Re=3A_=C2=A0=5BPATCH_RFC_2=2F2=5D_media=3A_cedrus=3A_mpeg2=3A_decode_M?=
-	=?UTF-8?Q?PEG=2D1_as_V4L2=5FPIX=5FFMT=5FMPEG1=5FSLICE?=
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: hverkuil@kernel.org, mchehab@kernel.org, benjamin.gaignard@collabora.com, 
-	p.zabel@pengutronix.de, mripard@kernel.org, paulk@sys-base.io, 
-	gregkh@linuxfoundation.org, wens@kernel.org, jernej.skrabec@gmail.com, 
-	samuel@sholland.org, jonas@kwiboo.se, linux-media@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, ckoever@outlook.de
-Content-Type: text/plain; charset="UTF-8"
 
-On Fri, 20 Nov 2026 08:08:50 -0500, Nicolas Dufresne wrote:
-> MPEG2 requires MPEG1 support. The new format simply add noise, you can
-> fix cedrus with V4L2_MPEG2_SEQ_FLAG_MPEG1 alone.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Thanks, done in v2: the format is gone and cedrus selects MPEG-1 from
-V4L2_MPEG2_SEQ_FLAG_MPEG1.
-https://lore.kernel.org/r/20261121-b4-cedrus-mpeg1-v2-0-95e4decf03fa@gmail.com
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] skb_frag_try_ref() (include/linux/skbuff_ref.h) sends every frag
+  page that is neither page_pool nor net_iov through try_get_page() ->…
+- [Low] The patch is tagged Cc: stable with Fixes tags going back to v4.8
+  (800d8c63b2e9).
+
+--
+
+net: skbuff: limit folio refcount when copying skb frag references
+
+This patch adds skb_frag_try_ref() and skb_frags_try_ref(). They take
+non-page_pool frag page references through try_get_page(), so the folio
+refcount limit is enforced. pskb_expand_head(), __pskb_copy_fclone(),
+skb_zerocopy() and pskb_carve_inside_*() now use them and fail when a
+reference is refused.
+
+> diff --git a/include/linux/skbuff_ref.h b/include/linux/skbuff_ref.h
+> index b6f6da556ee90..560ddc863bbec 100644
+> --- a/include/linux/skbuff_ref.h
+> +++ b/include/linux/skbuff_ref.h
+> @@ -44,6 +44,33 @@ static __always_inline void skb_frag_ref(struct sk_buff *skb, int f)
+>  		       skb->pp_recycle);
+>  }
+>  
+> +/**
+> + * skb_frag_try_ref - try to acquire a reference on a paged fragment of an skb
+> + * @skb: the buffer
+> + * @f: the fragment offset
+> + *
+> + * Like skb_frag_ref(), but acquires non-page_pool page references using
+> + * try_get_page(), refusing additional references to a page whose refcount is
+> + * at its limit.
+
+[Severity: Low]
+This isn't a bug in mainline, but the refusal described here only works
+because try_get_page() enforces the refcount limit. That check was added
+by commit c6c9a4c1c9a1 ("mm: limit pagecache folio refcount when splicing
+into pipes"), which builds on 26b8f029ce52 ("mm: limit pagecache folio
+refcount when mapping pages").
+
+Before those commits, try_get_page() had no upper bound:
+
+	page = compound_head(page);
+	if (WARN_ON_ONCE(page_ref_count(page) <= 0))
+		return false;
+	page_ref_inc(page);
+	return true;
+
+This patch has Cc: stable and Fixes tags back to 800d8c63b2e9. A backport
+to a tree without the prerequisites would still compile. There,
+skb_frag_try_ref() would never refuse a reference and would only warn
+after the refcount has wrapped.
+
+Could the commit message state this dependency, for example with a
+"# depends on" note on the stable tag?
+
+> + *
+> + * Return: True if a reference was acquired, otherwise false.
+> + */
+> +static __always_inline __must_check bool skb_frag_try_ref(struct sk_buff *skb,
+> +							  int f)
+> +{
+> +	netmem_ref netmem = skb_frag_netmem(&skb_shinfo(skb)->frags[f]);
+> +
+> +#ifdef CONFIG_PAGE_POOL
+> +	if (skb->pp_recycle && napi_pp_get_page(netmem))
+> +		return true;
+> +#endif
+> +	if (netmem_is_net_iov(netmem)) {
+> +		net_iov_inc_ref(netmem_to_net_iov(netmem));
+> +		return true;
+> +	}
+> +	return try_get_page(netmem_to_page(netmem));
+
+[Severity: High]
+Can this make the converted paths fail on every packet for drivers that
+deliberately keep RX page refcounts near INT_MAX?
+
+Every frag that is neither page_pool nor net_iov now goes through
+try_get_page()->folio_get_checked()->__folio_ref_count_over_limit(). That
+check applies to any folio, not just pagecache folios.
+
+The gve driver uses GQI RDA/QPL and DQO-QPL, and none of these use
+page_pool. It biases its RX pages up to INT_MAX:
+
+drivers/net/ethernet/google/gve/gve_rx.c:gve_setup_rx_buffer() {
+    ...
+	/* The page already has 1 ref */
+	page_ref_add(page, INT_MAX - 1);
+	page_info->pagecnt_bias = INT_MAX;
+}
+
+The qpl_copy_pool setup in gve_rx.c and gve_alloc_qpl_page_dqo() do the
+same thing.
+
+Handing a frag to the stack only decrements the private bias. When the
+bias runs out, the page count is raised back to INT_MAX:
+
+drivers/net/ethernet/google/gve/gve_utils.c:gve_dec_pagecnt_bias() {
+	page_info->pagecnt_bias--;
+	if (page_info->pagecnt_bias == 0) {
+		int pagecount = page_count(page_info->page);
+		...
+		page_ref_add(page_info->page, INT_MAX - pagecount);
+	}
+}
+
+So for roughly the first 33M frees of each ring page, page_count() stays
+at or above FOLIO_REF_COUNT_ADMIN_LIMIT. For roughly the first 67M it
+stays at or above FOLIO_REF_COUNT_LIMIT.
+
+In that range folio_ref_count_over_limit_slowpath() refuses the reference:
+
+	if (ref_count >= FOLIO_REF_COUNT_ADMIN_LIMIT)
+		goto over_limit;
+	...
+	if (!in_task())
+		goto over_limit;
+
+It refuses unconditionally above the admin limit, and always in softirq.
+Each refusal also prints the ratelimited "reached refcount limit" warning.
+
+If that's right, these paths would fail every time for gve RX skbs that
+carry page frags, i.e. packets larger than rx_copybreak:
+
+  nfqnl_build_packet_message()->skb_zerocopy()
+    (NFQUEUE copy-packet mode, the packet is dropped)
+  queue_userspace_packet()->skb_zerocopy()
+    (OVS upcall fails)
+  ___pskb_trim()->pskb_expand_head() on a cloned skb
+    (AF_PACKET with snaplen < len)
+  skb_unclone()/skb_cow()->pskb_expand_head() after a tap cloned the skb
+  __pskb_copy_fclone()
+    (pskb_copy users such as nft dup)
+  pskb_carve_inside_header()/pskb_carve_inside_nonlinear()
+
+Before this patch these paths only failed when a GFP_ATOMIC allocation
+failed, because get_page() kept incrementing without a check.
+
+Later patches in the series apply the same check to skb_segment(),
+skb_try_coalesce(), skb_shift(), tcp_clone_payload() and spd_fill_page().
+That would also affect software GSO of forwarded GRO packets. splice()
+from TCP and AF_UNIX sockets would return -EFAULT on gve-received data.
+
+The kernel-doc for __folio_ref_count_over_limit() in include/linux/mm.h
+says "Checking other folios does no harm.". That doesn't seem to hold for
+drivers that bias refcounts this way.
+
+There is also a more speculative issue. folio_get_checked() has an
+unconditional WARN_ON_ONCE(ref_count <= 0). If any remaining unchecked
+get_page() wraps such a page to INT_MIN, a later skb_frag_try_ref() on it
+would fire a real WARN. One example is iptfs_skb_add_frags() in
+xfrm_iptfs on RX outer-packet frags. Under panic_on_warn, a remote sender
+could trigger that WARN.
+
+Since this is Cc: stable, would it be better to restrict the check to
+pagecache folios in these net paths? Alternatively, gve could stop biasing
+to INT_MAX, with that change backported as a prerequisite.
+
+> +}
+> +
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118-skb_refcount_overflow-v1-0-5551b4954c3f%40kernel.org
