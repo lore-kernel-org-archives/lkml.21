@@ -1,49 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795363064;
-	b=0WHK0qARVM2ygF3uEPbP3IOWurW0Vcg3OqSfUalr1oSZXLlyHG74K/t/3BkSjQY8kfRB
-	 RJ+xyGTNP2P/XxwqEvnPunb+cakbo9KYhwdlXjx5us0e6yR3mfZXI+BMEIfgVb+EF1Ivq
-	 Si7iv/jpSgnoICojZZw7vx8SXw9twesFWCKeVUYK0gauP1ea8zpG9bzrV6QbMgoy6CkDP
-	 79+PLUd5xWFzPS6TxJIO+1HEcIQiT3Jrrp1wf5zOteR3yIUy5Gfh585BEQbVmbG9GGnez
-	 Rmt4AwmJRF+gD8vmnQqx7Xm3wX6GLWHRs61VVIQkse3GpG1Ovoivg7Dec5rAGmJ8JYg==
+	t=1795363094;
+	b=H/qts5GsmAB7WQ0o1skohoRrKvLFXwDphzJyxZCtz+46Qaj8DTZv/znuDffXvANEleRk
+	 d1gH9nJJ/WSSQ51ok9SLfhFfhEhWXfFtAfRuRjcIDCrusuZGMyPaARRBH+i1yYjaEkXFX
+	 vnipZwKd7LPWBAt0Q7Uki8YgKXLhG0eQw1qA5kKB0xd7SFv60/SSHbH/xwPu8siJ9oSJj
+	 5PT7RXME3cPkLCSlQMguNjelUdHb3uUh37oMq0UHwpGNOw6Y9E6EL4AGL9HBHR6Ux0bPC
+	 hlZdc0V6KPkWlE/9Pq1sflTim+5r1oZsx3qY2iALkKt6Z72vU1OiHHMChn02qwqrZLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795363064;
-	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
-	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=8XFKXyx1GOfO5xGIHtXdRmS/LrQDe1E2/0CLeb0IQjQ=;
-	b=m8mspJuNQrqJdMp5Njw8fkUh8GMpfGW5tO3jETYMLCdkbMODk04mmkUW6cUAz+veLPZo
-	 fgjrVcIFfJzdKlAEdojRnE7Xiw05twSxgCDpr7ZjA5NPAydawJFKHK2LPAQMHO8xtFNHZ
-	 CVs5CZXDoKanTiKurotJP5UzM0lbz7CqMtEVp40/hcqnsFV4YinpbzUBCwSov/yaTDj5r
-	 H/KLptnB5VhVFgHQKJZ+7GURs15XLpLIH6VUWz0nyJ+Qzg0oTHwOQAsYwx49cQuolRcDj
-	 Uf2S5gmd5e5vi8Dp/+cNvy660PVccfUAeVXBtbU4FVe+HqVR+B4L1niyfv6zI7ffWhw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795363094;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=sm03WQikhvK+Zqgly8SDqrTCCiqA0P1yxoVTgDGTg7M=;
+	b=xoEzNmpIM9pLclo09jqKMPI+W+kX32DMaIzt2hvL9nKOpci2jr/qbnCBKW2JVGuHchjo
+	 aNt5hLA/Bjj365fn9vHoEAGjYK4nCkvUY+hq++zyA5D00IT7ZvmVghnKpP1A4tAjruAWZ
+	 SJugaspVEWkVK3dz8SIH1zDlQKSP/ATThbIdvhTRIW2abbqInjJZgkjQhcaUdLKnQZ4BZ
+	 B1AdSIHUN6qSnr+P2Z6aMe3m7Hrqama9IE4Vd/YaPtan7jryRRNhVE5tW0Tigktm0GjZY
+	 xZ5J6FoKF5+jrp8xfSdvWpvxsf1rX9VQ2RyvmFZ8h2+ncH0grHwT6cfbM7RL/N5qXuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tipi-net.de;
-	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=QMoncX0k;
-	arc=none smtp.remote-ip=194.13.80.246
-Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qr1B7euW;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D54C606A320;
-	Sun, 22 Nov 2026 15:57:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D54C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B43D606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 15:58:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=QMoncX0k
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3B944A023C;
-	Sun, 22 Nov 2026 16:57:40 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795363061; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=8XFKXyx1GOfO5xGIHtXdRmS/LrQDe1E2/0CLeb0IQjQ=;
-	b=QMoncX0kbUNktHVsqC7SkFlEI0N7Fs7OwtUaYespsF20PTXAK/En3B9Grn0PPamfmiPJdU
-	fyiTim553wM3e/omRjM8egf24MnL+jqrsVGGvR5cr0dfxM6tim/TvsWykJBV4xJUpyLWyu
-	0Q4ACmWEPc0y/JvPdF1dSCXcDpsxIFjV9MlJ4ICjGykwIZC0QffHaWXo2HD/kV+fcU4RvF
-	Xo5rx7fQ54OI1barIla3Nh8HUxzf+QasyJGERXkSf/J8sFm/XU2xARWNxRbZuXtVo7MW+Y
-	uIbWXBkgFhGa/FO8xrS1koyBjqqY+Srk2amcMal6qoJaK1LipUr6mJ9/RDk2yQ==
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qr1B7euW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5174A1F000CA;
+	Sun, 22 Nov 2026 15:58:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795363093;
+	bh=sm03WQikhvK+Zqgly8SDqrTCCiqA0P1yxoVTgDGTg7M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Qr1B7euWqPUFHMbNA2RGINnDHZZs9atNDV/hwqTAqCRzIxZhrZAVcvoyfq0+WYRto
+	 u7ShkdF93gyBHEz/fhmLDPqpH+qnygEAkCyMlwph/q7uokg2BRlQM8vdKQWbbk6iuh
+	 cYO+V8Eb4GdBfigef3AfKhlB41gR+PupLZsBC/dZkWAE7ZSwixTb3RpsmaRW/hhniB
+	 P/9Zsyb4bgMhp9jbfKAT8r68zNBSG0uJCiNdcs7A/16K09hksVNCRh8xTBQ+/YebBI
+	 Q5S4uejNa7nVIAxRoq0RngeS88z6/mJTcT1xfzj68oA/M80zK5prdB4iNyMUnquP40
+	 z0RriQ60M+5qg==
+Message-ID: <687b4ef4-651d-4c13-8fb7-e2c600941e91@kernel.org>
+Date: Sun, 22 Nov 2026 16:58:09 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,61 +51,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Sun, 22 Nov 2026 16:57:40 +0100
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Willem de Bruijn
- <willemb@google.com>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Russell King <linux@armlinux.org.uk>,
- Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
- thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
- <alexis.lothore@bootlin.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH net-next 2/3] net: stmmac: dwmac-sun8i: emit pause frames
- when the RX FIFO fills
-In-Reply-To: <20261122144926.284857-3-maxime.chevallier@bootlin.com>
-References: <20261122144926.284857-1-maxime.chevallier@bootlin.com>
- <20261122144926.284857-3-maxime.chevallier@bootlin.com>
-Message-ID: <5eb47dcb49898e948968a54bfa992e72@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: mm/hugetlb: a min_size-only hugetlbfs subpool is kfree()d before
+ its last pinned page is released, so free_huge_folio() takes a spinlock on
+ freed memory (UAF)
+To: =?UTF-8?B?5b6Q5pmX57+U?= <xuhx@hust.edu.cn>, muchun.song@linux.dev,
+ osalvador@suse.de, akpm@linux-foundation.org
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org
+References: <4c7f9772.192e1.1a17d5c2ed5.Coremail.xuhx@hust.edu.cn>
+ <2026102727-data-sequel-ce41@gregkh>
+ <566ddeb4.2ad04.1a202302fe1.Coremail.xuhx@hust.edu.cn>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <566ddeb4.2ad04.1a202302fe1.Coremail.xuhx@hust.edu.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On 22.11.2026 15:49, Maxime Chevallier wrote:
-> The TX flow control mechanism needs multiple things setup to actually
-> work:
+On 11/22/26 08:37, 徐晗翔 wrote:
+> A hugetlbfs mount that sets only min_size= (no size=) leaves
+> hugepage_subpool::used_hpages unmaintained and clamps ::rsv_hpages to
+> min_hpages, so subpool_is_free() can report "free" while folios that
+> still carry the subpool pointer are in flight.  The destroy decision is
+> taken under spool->lock but the field reads, hugetlb_acct_memory() and
+> kfree() happen after the unlock, and only superblock handles are counted
+> (spool->count), not folios.  A page that a user pinned with vmsplice()
+> outlives evict_inodes() and put_super(); when the pin is finally released,
+> free_huge_folio() calls hugepage_subpool_put_pages() on the freed object:
+> it spin_lock_irqsave()s the freed slab and dereferences spool->hstate /
+> spool->min_hpages.  KASAN reports slab-use-after-free at the lock
+> acquisition; on a kernel without KASAN/quarantine the same path reaches a
+> second kfree(spool) and hugetlb_acct_memory(h, -min_hpages), i.e. a
+> double free plus an unsigned underflow of hstate.resv_huge_pages.  The
+> whole PoC-A sequence is single-threaded and deterministic - no race
+> window needs to be widened - and three variants reproduce on 7.3.
 > 
->  - The TX_FLOW_CTL_EN bit needs to be set in the TC_FLOW_CTL register,
+> The detailed description:
 
-nit: finger off by one :) TC_FLOW_CTL -> TX_FLOW_CTL
+Thanks for the report!
 
->    this is already done
-> 
->  - The RX fifo thresholds needs to be set, to indicate when the MAC 
-> needs
->    to start sending pause frames based on the RX fifo occupancy, and
->    when it should stop.
-> 
-> Let's configure the threshold the following way:
-> 
->  - Send pause frames when there's less than 2K left in the RX fifo
->  - Stop sending them when there's more than 4K left in the RX fifo.
-> 
-> This was tested in Allwinner H2+ using the ethtool -t "flow control"
-> selftest. On that SoC, the RX fifo is 16K.
-> 
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+I have an AI generated report+fix for this problem pending for rework already.
+... but I'm focusing on non-hugetlb first, I will get back to hugetlb soon (or
+delegate :) ).
 
-> [...]
+-- 
+Cheers,
 
-Reviewed-by: Nicolai Buchwitz <nbb@tipi-net.de>
-
-Thanks,
-Nicolai
+David
