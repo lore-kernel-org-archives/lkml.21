@@ -1,55 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.68
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795305560;
-	b=xswS9BJRX3CU5bwx6OAFh/uiwARzjJiv+F5ppSeoIdsSkLK0Zlsb7ELn2wwUHiajjusM
-	 hWjhp5ZuV6EWpX1+db5BKIfkjS7oAgYAdP87m38sRwP8vnIO8Kwu6dlIHFwO47euK4n9v
-	 9QYbF+vwTlJkAIP1Coow3fEzYQGx3VoNRkBsVvVvq2vwQu1HrvSLqjfJHe0EaYvJvp8GP
-	 XtppA3ZjMwy48nyMuKcKf3giGYjBAPNS+x0Pr/Bz2T/TlAth+SabAIuf3FpK+keLU10xf
-	 By53392ufgkikW+qibdMyc70qSrip3Ysd/C4NQNhRc9lmV6H9UbeaFHn0SmB++9iaSA==
+	t=1795305639;
+	b=mRFz9WtCxjlQb2q8GnBB6CEM2Pcedcv9iFaKmly6CYD/hMZWkoj+ZW9vGr3pMkkYyRyy
+	 +ss7nvYMK3EeUc3Ri8NC+15u/Crb9PZvSFdT56ljDBV4MFKa1p9xB7kzKYBSVZ307qdM7
+	 /rmhQlZ48FJxJBL4qw/7RkRpA8pNEQwbPQD/739DHRq7KP72+mHm/7dT91SBrB/Ls7mf5
+	 eJnAzXGXKOoadfEoAiHAVPPs11i794OtB8rhQ+CNRIDZxreIgO/zV8cRb5tTK0VKpDc1A
+	 tktru4314HzgCRiEsyuI4U16jBVsY1+mZf9Ka2KeBxPtK77m9e1MofveTT6D3LurGew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795305560;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:To:Cc:
-	 X-Mailer;
-	bh=hWMMGDMEcHmP+O8ljgCncTt88F2zN1z7Yd+qZiQbOEI=;
-	b=aCggtDeeUEBu5Go6tvKdLr0Wj2M552F82+N5av7LXfa7CDqqdF8mengOyqKRfVpuIzXg
-	 lolNkS9hFuIQrTZwCYb3ErrVR59dSY2JfpVvaBCjyln7JH7AosuObiMKnjwNk3lq8jToq
-	 sb3XrrnHBZqTspWEIHRN6PfRf4D/Td0oSGknVNkfS4Rq4vQ/cfG9qn3ZOfCIeoYEOPEXY
-	 Pc6QwWoCtDYNUoS4y7RP7SXOWgmBufSMCRGU4ZFKazaGznKCb0WzUrIdaBLKHGIjFjbco
-	 Cfp2PKKbQppuTZibQGR/lGoB/0pRCrdnDLhqgG8R7FtvVoc0tS/VIL1OXk1rcXp7PGw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795305639;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-Id:
+	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=04EqnkPwf0WubK8I3U0HutElecdyfT91xsPRhXdRrm8=;
+	b=y+xKI55+TuDXrpn3l7fHPN3Cms8SqpFX9kimazQtGtEvLp+RgVKcv/nK54Bf4fkCkc7l
+	 9wjgTmgxXTzC91p9eoVP9GfHDAPuN7pFDpv9IQhgBA6bafNNzVeTyy0uPdkC6JkAPJ8wX
+	 pMcH4w6Eo6o338IToBFRUOGkoTCtFFF0W9gzkPxdYpqDBROMnjqE88zxBbHyd0/xGuEIP
+	 FsnDYU+A3vIdcljMnliKNshWo2MOYkQdVUF+xOseZvd8hdeSj+fAJSUQ/sGeLW/xIEKvK
+	 UHxsqiOrDrYxQ/rr23oGDeBkQtydLFsWrSyx3OQ4QBW0HxEQubMQTfrZW9YqZwRd3FA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=SiHtd5D1;
-	arc=none smtp.remote-ip=95.215.58.68
-Received: from mta1.migadu.com (out-68.mta1.migadu.com [95.215.58.68])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=L2aQbeKX;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BF5D606A320
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 23:59:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6BF5D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4428606A320;
+	Sun, 22 Nov 2026 00:00:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=SiHtd5D1
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=wb3yKAZP201dKIVNXQv1qH2np8Sr8oJDK91ju/2KPwA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795305557; v=1; x=1795910357;
- b=SiHtd5D1+KMRgvtukMmjdBlFw8blzki2Scg640WwWvYVmTzN/oHqTecifkN8A7v1G0RmoVCW
- inabtPmDQhcaM6Ldk7Z0D9PFfF78cQ9EgvZJ+788VexTnmyWsGIsD8GTjSsAKlDk4ElFFliifnD
- ReOiUU8Ht9tpwsKfPytcbDXM=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 083799db444f5b63;
-	Sat, 21 Nov 2026 23:59:17 +0000
-X-Mizu-Trace-ID: 083799db444f5b63
-X-Migadu-Flow: FLOW_OUT
-From: Qiliang Yuan <qiliang.yuan@linux.dev>
-Date: Sat, 21 Nov 2026 18:59:13 -0500
-Subject: [PATCH] md: wait for a single grace period when stopping an array
+	dkim=pass (1024-bit key, unprotected) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=L2aQbeKX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3F7A1F000C4;
+	Sun, 22 Nov 2026 00:00:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux-foundation.org; s=korg; t=1795305638;
+	bh=04EqnkPwf0WubK8I3U0HutElecdyfT91xsPRhXdRrm8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=L2aQbeKX/CTPckpuCxg/75CkYq7VgqRjjwXERlHfP3ef/xH4jzlR1llKSlU5CeM8e
+	 gUoqibFABjeIaklQZ6WRqldqwgKZ5YTZ1h3Bi7puox1t9KLDvG/77rmYY7BqGwgQDR
+	 LhWKY3luEuf/ybIxy+nQvMG6VZ1ez9KdmhG98Da8=
+Date: Sat, 21 Nov 2026 16:00:37 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Aveline Noir <jm5905938@gmail.com>
+Cc: jgg@nvidia.com, leonro@nvidia.com, airlied@gmail.com,
+ apopple@nvidia.com, balbirs@nvidia.com, christian.koenig@amd.com,
+ dri-devel@lists.freedesktop.org, Francois Dugast
+ <francois.dugast@intel.com>, intel-xe@lists.freedesktop.org, jgg@ziepe.ca,
+ leon@kernel.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, Lorenzo
+ Stoakes <lorenzo.stoakes@oracle.com>, Matthew Brost
+ <matthew.brost@intel.com>, mm-commits@vger.kernel.org, mpenttil@redhat.com,
+ Patchwork <patchwork@emeril.freedesktop.org>, SeongJae Park
+ <sj@kernel.org>, thomas.hellstrom@linux.intel.com, Vlastimil Babka
+ <vbabka@suse.cz>, ziy@nvidia.com
+Subject: Re: [PATCH] mm/hmm: account for subpage offsets in device-private
+ PMDs
+Message-Id: <20261121160037.1a479f3c8b4e860bc23c106d@linux-foundation.org>
+In-Reply-To: <179342234355.4.16705453209886955762@gmail.com>
+References: <179342234355.4.16705453209886955762@gmail.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,124 +64,135 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261121-feat-md-export-array-gp-v1-1-b1925100be19@linux.dev>
-X-B4-Tracking: v=1; b=H4sIAFAwAmsC/x3MMQqAMAxA0atIZgNN1SJeRRyKRs2gllSkIt7d4
- viG/x+IrMIRuuIB5UuiHHsGlQWMq98XRpmywRrriKzBmf2J24ScwqEnelV/4xKQqpbqxhlneYR
- cB+VZ0n/uh/f9ABKZ2gdpAAAA
-To: Song Liu <song@kernel.org>, Yu Kuai <yukuai@fygo.io>, 
- Li Nan <magiclinan@didiglobal.com>, Xiao Ni <xiao@kernel.org>
-Cc: linux-raid@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Qiliang Yuan <qiliang.yuan@linux.dev>
-X-Mailer: b4 0.13.0
+Mime-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
 
-When an array is stopped, export_array() takes the members off
-mddev->disks one by one with md_kick_rdev_from_array(), which unlinks a
-member with list_del_rcu() and calls synchronize_rcu() before handing it
-to mddev_unlock() for kobject_del().
+On Sat, 31 Oct 2026 15:07:58 +1100 Aveline Noir <jm5905938@gmail.com> wrote:
 
-Each member thus waits for a full grace period of its own, so stopping
-an array takes one grace period per member, about 6 ms each in a guest,
-with reconfig_mutex held.
+> When a query starts inside a device-private PMD owned by
+> range->dev_private_owner, hmm_vma_handle_absent_pmd() still fills the PFN
+> array from the folio's first page. The returned PFNs therefore refer to
+> earlier pages rather than the requested subrange.
+>=20
+> Add the query's PMD-relative page offset to the initial PFN, as the
+> present PMD path already does.
+>=20
+> Fixes: 10b9feee2d0d ("mm/hmm: populate PFNs from PMD swap entry")
+> Signed-off-by: Aveline Noir <jm5905938@gmail.com>
+>=20
+> ---
+> Found during a synthetic test_hmm check of device-private THP handling.
+> Tested PMD-aligned and non-aligned subranges, PMD boundaries, split
+> PTEs and fake-device data accesses with test_hmm in QEMU TCG; all
+> executed tests passed with the fix. No real GPU testing was performed.
 
-Release the serialization resources of all members first, while
-mddev_destroy_serial_pool() still sees the members that need the pool,
-then unlink all members at once with list_splice_init_rcu() and a single
-synchronize_rcu(). Clear rdev->mddev and the sysfs references only after
-the grace period, so a reader walking mddev->disks never finds a member
-that has already been detached.
+Thanks.  It appears that the changelog somewhat understates the
+seriousness of this so I came up with a more assertive one, below.=20
+Please check that.
 
-Stopping an array made of null_blk devices in a guest with 32 vCPUs,
-base and patched kernels alternating over 2 rounds of 3 runs, median of
-the 6 runs and range in parentheses:
+I fed this through LLM-driven QEMU-based runtime testing and it looks
+like it pretty much replicated your testing:
 
-  level, disks           before (ms)         after (ms)   change
-  raid0, 16      132.4 (126.3-147.5)   37.7 (34.5-41.4)     -72%
-  raid1, 8         88.5 (86.3-103.1)   43.7 (40.7-45.4)     -51%
-  raid5, 8         98.8 (97.6-107.3)   57.7 (55.0-59.1)     -42%
-  raid10, 8         87.4 (85.0-89.8)   41.7 (37.8-43.9)     -52%
+: I tested "mm/hmm: account for subpage offsets in device-private
+: PMDs" on matched x86-64 guest kernels. An unprivileged process
+: (UID 65534) migrated an anonymous 2 MiB THP to the test_hmm
+: device. A second open of the device read pages inside the PMD
+: while the first remained open. A snapshot confirmed a
+: device-private PMD, and temporary kernel log messages confirmed
+: that the reads reached hmm_vma_handle_absent_pmd().
+:=20
+: Without the patch, requests for pages 1, 7, 255 and 511 returned
+: page 0. A request for pages 31-33 returned pages 0-2. With the
+: patch, all seven pages returned the requested contents. Page 0
+: read correctly on both kernels. Thus an unprivileged device user
+: can receive data from the wrong pages.
+:
+: The fake device needed an identical temporary backing-page
+: correction on both kernels to make this read path work. That
+: change was removed after testing. This exercises the HMM path
+: through test_hmm; I did not test GPU hardware.
 
-Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
----
- drivers/md/md.c | 39 +++++++++++++++++++++++++++++----------
- 1 file changed, 29 insertions(+), 10 deletions(-)
+So it accidentally found a bug in lib/test_hmm.c on the way.  "The QEMU
+run exposed a real test_hmm bug: a second open of /dev/hmm_dmirror0 can
+put a device-private page into its page table, then dmirror_do_read()
+tries to copy from that non-CPU-accessible page and oopses".  I'll prep
+a fix for that separately.
 
-diff --git a/drivers/md/md.c b/drivers/md/md.c
-index 03e35386a8028..11fa541bce32e 100644
---- a/drivers/md/md.c
-+++ b/drivers/md/md.c
-@@ -2676,14 +2676,9 @@ static void export_rdev(struct md_rdev *rdev)
- 	kobject_put(&rdev->kobj);
- }
- 
--static void md_kick_rdev_from_array(struct md_rdev *rdev)
-+static void md_unbind_rdev(struct md_rdev *rdev)
- {
--	struct mddev *mddev = rdev->mddev;
--
--	bd_unlink_disk_holder(rdev->bdev, rdev->mddev->gendisk);
--	list_del_rcu(&rdev->same_set);
- 	pr_debug("md: unbind<%pg>\n", rdev->bdev);
--	mddev_destroy_serial_pool(rdev->mddev, rdev);
- 	WRITE_ONCE(rdev->mddev, NULL);
- 	sysfs_remove_link(&rdev->kobj, "block");
- 	sysfs_put(rdev->sysfs_state);
-@@ -2693,6 +2688,16 @@ static void md_kick_rdev_from_array(struct md_rdev *rdev)
- 	rdev->sysfs_unack_badblocks = NULL;
- 	rdev->sysfs_badblocks = NULL;
- 	rdev->badblocks.count = 0;
-+}
-+
-+static void md_kick_rdev_from_array(struct md_rdev *rdev)
-+{
-+	struct mddev *mddev = rdev->mddev;
-+
-+	bd_unlink_disk_holder(rdev->bdev, mddev->gendisk);
-+	list_del_rcu(&rdev->same_set);
-+	mddev_destroy_serial_pool(mddev, rdev);
-+	md_unbind_rdev(rdev);
- 
- 	synchronize_rcu();
- 
-@@ -2707,12 +2712,26 @@ static void md_kick_rdev_from_array(struct md_rdev *rdev)
- static void export_array(struct mddev *mddev)
- {
- 	struct md_rdev *rdev;
-+	LIST_HEAD(kicked);
- 
--	while (!list_empty(&mddev->disks)) {
--		rdev = list_first_entry(&mddev->disks, struct md_rdev,
--					same_set);
--		md_kick_rdev_from_array(rdev);
-+	/*
-+	 * Release the serialization resources while every member is still on
-+	 * the list, as mddev_destroy_serial_pool() counts the members that
-+	 * still need the pool.
-+	 */
-+	rdev_for_each(rdev, mddev) {
-+		bd_unlink_disk_holder(rdev->bdev, mddev->gendisk);
-+		mddev_destroy_serial_pool(mddev, rdev);
- 	}
-+
-+	/* Unlink all members at once to wait for a single grace period */
-+	list_splice_init_rcu(&mddev->disks, &kicked, synchronize_rcu);
-+
-+	list_for_each_entry(rdev, &kicked, same_set)
-+		md_unbind_rdev(rdev);
-+
-+	/* Leave kobject_del() to mddev_unlock() */
-+	list_splice(&kicked, &mddev->deleting);
- 	mddev->raid_disks = 0;
- 	mddev->major_version = 0;
- }
 
----
-base-commit: 5f22fb20497f4983094131f00a734362300d22d2
-change-id: 20261120-feat-md-export-array-gp-1381456062ec
 
-Best regards,
--- 
-Qiliang Yuan <qiliang.yuan@linux.dev>
+I'll queue the below in mm.git's mm-hotfixes queue and shall await
+maintainer input (please).
+
+
+From: Aveline Noir <jm5905938@gmail.com>
+Subject: mm/hmm: account for subpage offsets in device-private PMDs
+Date: Sat, 31 Oct 2026 15:07:58 +1100
+
+When a query starts inside a device-private PMD owned by
+range->dev_private_owner, hmm_vma_handle_absent_pmd() still fills the PFN
+array from the folio's first page.  The returned PFNs therefore refer to
+earlier pages rather than the requested subrange.
+
+Nouveau's GPU fault path can query one page of a device-private PMD at a
+time.  Xe's SVM fault, prefetch and userptr mapping paths can also query
+subranges of their own device-private PMDs.  An unprivileged process with
+access to the GPU render node can reach these paths on hardware supporting
+device-private THP migration.  Xe can read the wrong application data or
+silently overwrite earlier pages of the same process's device-private
+folio.
+
+Nouveau aligns a one-page GPU fault to the PMD head by subtracting the
+fault offset from the returned page.  The faulty HMM PFN already refers to
+the head, so this subtraction can select a page before the folio.  If the
+preceding page belongs to another allocation, GPU access can expose or
+overwrite unrelated userspace data; an invalid page can also fault the
+kernel during its address conversion.  This worst case follows from the
+source, but has not been demonstrated on a real GPU.
+
+Add the query's PMD-relative page offset to the initial PFN, as the
+present PMD path already does.
+
+The device-private PMD migration machinery first shipped in 6.19.=20
+Backport this fix to the maintained 7.3.y stable series; the HMM path
+exists in 6.18.y but cannot be reached through an in-tree PMD-producing
+device-private migration path there.
+
+Link: https://patch.msgid.link/179342234355.4.16705453209886955762@gmail.com
+Fixes: 10b9feee2d0d ("mm/hmm: populate PFNs from PMD swap entry")
+Signed-off-by: Aveline Noir <jm5905938@gmail.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Leon Romanovsky <leon@kernel.org>
+Cc: Francois Dugast <francois.dugast@intel.com>
+Cc: Lorenzo Stoakes <ljs@kernel.org>
+Cc: Matthew Brost <matthew.brost@intel.com>
+Cc: Patchwork <patchwork@emeril.freedesktop.org>
+Cc: SJ Park <sj@kernel.org>
+Cc: Vlastimil Babka <vbabka@kernel.org>
+Cc: David Airlie <airlied@gmail.com>
+Cc: Alistair Popple <apopple@nvidia.com>
+Cc: Balbir Singh <balbirs@nvidia.com>
+Cc: Christian K=F6nig <christian.koenig@amd.com>
+Cc: Mika Penttil=E4 <mpenttil@redhat.com>
+Cc: Thomas Hellstr=F6m <thomas.hellstrom@linux.intel.com>
+Cc: Zi Yan <ziy@nvidia.com>
+Cc: <stable@vger.kernel.org>
+
+ mm/hmm.c |    3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+--- a/mm/hmm.c~mm-hmm-account-for-subpage-offsets-in-device-private-pmds
++++ a/mm/hmm.c
+@@ -355,7 +355,8 @@ static int hmm_vma_handle_absent_pmd(str
+ 	    range->dev_private_owner) {
+ 		unsigned long cpu_flags =3D HMM_PFN_VALID |
+ 			hmm_pfn_flags_order(PMD_SHIFT - PAGE_SHIFT);
+-		unsigned long pfn =3D softleaf_to_pfn(entry);
++		unsigned long pfn =3D softleaf_to_pfn(entry) +
++			((start & ~PMD_MASK) >> PAGE_SHIFT);
+ 		unsigned long i;
+=20
+ 		if (softleaf_is_device_private_write(entry))
+_
 
