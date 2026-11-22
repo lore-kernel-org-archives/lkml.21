@@ -1,95 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.25
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795343568;
-	b=uH15V+jLLhmu1lazhC2aS8GjN3YSs1Fd0jrVWrSdwtt1QTx5VTSN9B9AQ6n1Mru5euNt
-	 XQQImPr+d2e8CtFaoAsrvToq9QoEsqsfxdPSMuflAmke5SUQm+alJ8aUjlnbCdEkAWYB3
-	 I4m9OMkMhQMwHzvfJhKmKM1zvePNInGyrw53toTeY3bcSWzEkhbNs1sRbws+YobXQNxir
-	 kIB+UOTkOSIZ9xkXTxk7RFtCW5cuoQHIdQE2Ilg6+Hpjw5H2Z2BFLlTyCymknYWmZ4fjQ
-	 pa+Xm9v0qoweKZF5huIc4+VR0oe+uPcg9nF9mC1nglVWPR0pfiyLn3tQGr+QQUhBGTg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795343568;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=hR3BFBLSOtA9cDEJe8Z1c+gNUkfqMfMsIj5vyBJQJTI=;
-	b=XsjhGnj0vp1AthJLa6ARGkLhWfkQRV4RbPvD9JgaMrFC6kOdq49nHXzKCPyuHkCWsa8A
-	 5aERF9zhg0A/WfLuI2mGtzTLZcpqVow1LEkJqzByF6WYn4nxjd968NZAd2LxnlNdWBUcK
-	 onP3ssGV0xKrc1WDN6bAC6pWuBgskFAMYBCWNKfZd6paptx4SnHqCA1fkQE+AMxygJxTr
-	 FNb5klT0pUeNbz4aKEa7bbUOSiadQKc/RtML+dP7b8cetSjjalumTF0dKpWcJUQcKGqOE
-	 SAJxAIfqOx5+TBNWfODH4gymB9aajvBI+JxMRkFzQJWmcHeuMD0YdL64JzPS2pk1ndA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=HoUmxypT;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.25
-Received: from BN1PR04CU002.outbound.protection.outlook.com (mail-eastus2azon11010025.outbound.protection.outlook.com [52.101.56.25])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795343779;
+	b=wpoZ9nnrfaHEEbA4e19BsOn1kxqeqbTn6NNNSbFM/zlG0VXoZOhHmbe0M8OI44nMY+yD
+	 9FGBHt6zUSmvnd0LviPkIjOCgl0tSZmiDOtoIh6W5ycOwn7UWY0ikULkC4F/24UILQPQB
+	 uXdL+cKMdPYd73So0ldV3bHFJ7iC0aUJPOfhBZBtpNYiK9cT380hCpHkT0ep8JbKtJKZB
+	 Tbb0rQsrEMjjQlXVlcSvepp2yaYgUUwIhuddTp8OZgqXzgJI04abGs0NxeodpXe1G82WO
+	 nZ0dwYLgAatSrKvRjPF+3G+ytc9krlxOPIhDhFg2au1NGV2KPEJwMfLq3F7xGmLRBHg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795343779;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=0lnyrvg2AxLIGfrYkGZJCyPnrsYHo+Bp6WoUstIMnvA=;
+	b=IFYqjqoXJl0U2tk0H6DMuoOf7HD3ttnHrnq7BBblVxfKS9ym5JOLheWSDWUvR7kc602X
+	 mlAb/9JLj11W+2LSxbjyp5lqccx4sZblDKZnV/xv7/s7Ntnln2tzhf/GSzFgTaZa88G+U
+	 4cFV91dvVe/XsvXhoiaRsaqQ/tglXrDOL1t3osFrTbTX+qTX4HVx+A3IkmlUXVFCUZxki
+	 QwbeVzizTAt0dmOE3UpfsJHKqouAOuG4S29FzgPbq/rXEQPHlQ5vdK+ZoE4ho3c2Hv82s
+	 7R4y1ya2Fi+KFrcyv9zrO5BBix890xmNMNv0UdC2OuPM5xR9lasRzVa26ebTnHQdLyg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="NHbP/zuj";
+	arc=none smtp.remote-ip=74.125.82.176
+Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E39BF606A320;
-	Sun, 22 Nov 2026 10:32:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E39BF606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 975AE606A331
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:36:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 975AE606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=HoUmxypT
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nXaZ+BMJLWu8ywnBLEEcmlAa81LnPrHNOZDqycuMcKh86o8zwHv+CSeFSnNMA14JKvygyiCWI87qU2lctC2PwKxrxhkOS5wNa9dakq4x5k4JNYQjWsTw63P3ZxSnSExi51kWnopgtd9oIeyXzS1Mrj/TGGfJkbDI7Wvx6RPTObHdnWIZ8vJoVf3DwZp4TlbVEDh7b4vdrfLcFEnCVugPR6XLEwvLdrh9k5yRuZ/luT9OoFC0PyXcncZp+fJ6tWiJwWun+6CQnJ+ohSU7yQ9kerDQZb0loCXsOFeS/cfZUkhwkK2cDsNKxBLEPMNV11R0zwdpBn7GUioWFgDP3740+Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hR3BFBLSOtA9cDEJe8Z1c+gNUkfqMfMsIj5vyBJQJTI=;
- b=hFKnct1un4hrweMawioggQh0tK+rT2Pe2DcIM/33Z+yuB+5mbIrye47exKnJQtfq6BSMcqlazcIiwLgdQ0NIA7j4LRUToDHsRwqdNODzj1dVFm56/W9e7xqgTkf4bRziP/CHLk9m02fbMsAUtaORnnoorRRo9mTateHOJjN4BWkYJ4daqGJJzc3sNghrza95lzJ2AzVqixOHom2zx6tte9qNn0juYe6gviuR+7UaFMpch2x2WK/9jD6LvqiLDS5PlMrdgWfbr/MWTOylca66YD722Ge07rRrXBv5sP+I/xNcAcMAwr+Q6jr4h1B/7avjmfkEDA/JfhZFmdxL4FGlVw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hR3BFBLSOtA9cDEJe8Z1c+gNUkfqMfMsIj5vyBJQJTI=;
- b=HoUmxypT3yTkJ7y+dVLD9ROGsmeobXu74kzsyRkIpuAj6zC5YTCbNwONbRycPpi56tKnrs2B0vtbGZuV/m8rnpNSus/ObVnk8z0uA7eZirKeQoB+80y5eH0Ym8RExfhhN0A7/vdbaNnMi2aRiDiACjIi0wFNrBAujDBmdwcbZL/zjjA3ae6bH0AKMTNr1OKhveoqjgDG1DGDBBw2BDOoBakIv9IHzpOAHVNwfaCa+3Taxe18B6sDENo5aU4OCmv2jrJgHVyyN9pYuZ/t+FlHjdQSpdRSJwIcTmsio683ylV3v0qItUSTIkDlRq2dbSpAnMMX89p49v9pdpz/fvz6JQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BL3PR12MB6473.namprd12.prod.outlook.com (2603:10b6:208:3b9::16)
- by SA3PR12MB7832.namprd12.prod.outlook.com (2603:10b6:806:31f::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Sun, 22 Nov
- 2026 10:32:43 +0000
-Received: from BL3PR12MB6473.namprd12.prod.outlook.com
- ([fe80::778:72e1:e792:df81]) by BL3PR12MB6473.namprd12.prod.outlook.com
- ([fe80::778:72e1:e792:df81%6]) with mapi id 15.21.0639.012; Sun, 22 Nov 2026
- 10:32:42 +0000
-Message-ID: <0caf9acf-2640-40b5-b638-7d54db90f577@nvidia.com>
-Date: Sun, 22 Nov 2026 12:32:38 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH rdma-next 00/11] RDMA/mlx5: Preparation for SD support
-To: Leon Romanovsky <leon@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
- Sabrina Dubroca <sd@queasysnail.net>
-Cc: linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, Akiva Goldberger <agoldberger@nvidia.com>,
- Michael Gur <michaelgur@nvidia.com>
-References: <20261117-mlx5-sd-prep-v1-0-8efd124c7895@nvidia.com>
-Content-Language: en-US
-From: Edward Srouji <edwards@nvidia.com>
-In-Reply-To: <20261117-mlx5-sd-prep-v1-0-8efd124c7895@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TL2P290CA0030.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:3::16) To BL3PR12MB6473.namprd12.prod.outlook.com
- (2603:10b6:208:3b9::16)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NHbP/zuj
+Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-3863db981d4so2943514eec.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:36:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795343778; x=1795948578; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0lnyrvg2AxLIGfrYkGZJCyPnrsYHo+Bp6WoUstIMnvA=;
+        b=NHbP/zujJOpVBIV0m8IFi6zdapbIMuZEKUzKc1Mcw/QTHVdtTDlj+CNCR/eMMP7PDK
+         dTSb3zc450m9kpRmzdWCMUY/VKxgf12GZJiZ38U8P2EqmfaswaB3NL7Cp+p6jv3CouTc
+         29+0y7Qa7/qoPRzQYX1GTfiIu5zbfVrLldBe1OvM0RJCzK+fteJf6EAeWz0+6n38Vo9L
+         79wVgpInJM1iT5lj1iZ6xLHOyRxLShUoGF39CedT2uDUqL5d8f2yIPEndFOk6PvFQZrV
+         G5Ry87DCGUU5/7aYTrWHo7oAS9dPmPL8e86GrKgNZuwp3hRVrWqEpmTAS/hZXGM8U1B7
+         7Zbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795343778; x=1795948578;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0lnyrvg2AxLIGfrYkGZJCyPnrsYHo+Bp6WoUstIMnvA=;
+        b=ydQLjgImrgybjk6ovyoHfYRAmklsF1IBK1Ysg6sy3K2kBbzPHj5DF3soIimi29qRS4
+         6YSxrqxzm+Gm5FY9+NALrV///N0gWjRBJDN6CysOb1hRqZp8UUJToaQQM8B3E+a+jpSm
+         JtY1AfUABtZpyzz/E6Fraj8OjYU9kNwX3vXafyp47Mx6UZ7gIFFZ7uSuMMJkuC4K2kek
+         GFOsPArlhQRGp7fdldTv00zjRAPKAW2L7sLGPfwDREjlAKJIKNS6VEGy/uPglFbhVcCI
+         77wt3utQu71bHejrgjmkZ9e7KcvLboyJNrmr5wuic69IMNXr4SCHTxP1Zd11M5Cap2bG
+         i7PQ==
+X-Forwarded-Encrypted: i=1; AL+hErEdzBYllKfgiyESs3HGaxiMpPJgVuv/T5S3EMzNsx4QN2oavVw3cEBEc7uHpjeA5X/IqYN04WiC1M80tFE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ZdIn6WEz2sfKJvN2qVNgk6GsNe0KxSF3RDLPZd7DReRPdXvlZ
+	v1027CDdrD2QsJA6XsQC4jIPig6xUaBZna7nRmgMNNuMTBYjY11Fh94d
+X-Gm-Gg: AZFdTZfyPhdttx9cgu2EGBDrsdUKpO1HDKlBpA4cu5G90P+Ineqms7xNdvsPr2L0Odm
+	Rh4UMhj4OUY2kj26g49PrZB4GSiUa8LqbX5oZEhuBhRLBznAjpuJX87sU2ormmXa3qgy3HEwB+m
+	o1Wpxxp2+odo36sbbW1fIQWZ5aYvtA288MsvPybHForCu0gN0I8gcJp2gFYWzcZ2XIX9/Ppr2cW
+	KWhmUlaYO3tE5HB7CkwzoVRzmfreSYNYZtRsISUInW8MyNsSjRr1WQIDimrmHNRAzXfNXvNuNGY
+	3rC3GfKd2r3YVPdrGkQ00CVJGpFsn5ATMvKOXhCHTwZCVRpluol124JGSyvgN0O4sjtYfJfrY3u
+	S2kqMSQZ3ZRoJZ1rwlgsIkV5RMaAb/UIuc1ntM3e/BWIQQ9uwknBLHVHVrgYMf8t3QaY5EfHeFa
+	QzR7Flw3JKeWgWT9kButUsfrD5CpTukkGh+R+kmP7RwVpaInvP2mLuc2JvsY72oHzLHuqgJ4FsN
+	LCC8rL708bSgp9JD9r6HijlWtiKE+oVcUbryht18txBllU2+7DedKHLV/i5S7PmRg77aETtHuWG
+	eD+DT4VrTYEAPtSdWn2Hhh+k7/hwI1/Dm1LBAxI8MF7u3M8hJJz9VsBcaHQE2cBevhVuog4YmKH
+	gseSJjqwSX6HT05lHusy59WhpIL4MJH+2cFa89HTZ6/w=
+X-Received: by 2002:a05:7301:2222:b0:384:2662:a7fe with SMTP id 5a478bee46e88-3856c9a1180mr7697616eec.1.1795343777651;
+        Sun, 22 Nov 2026 02:36:17 -0800 (PST)
+Received: from nugod-NUC15CRHU5.tail9f095a.ts.net ([218.237.104.87])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385667decc2sm26176803eec.9.2026.11.22.02.36.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 02:36:17 -0800 (PST)
+From: HyeongJun An <sammiee5311@gmail.com>
+To: Takashi Iwai <tiwai@suse.com>
+Cc: Jaroslav Kysela <perex@perex.cz>,
+	Mark Brown <broonie@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-sound@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	HyeongJun An <sammiee5311@gmail.com>
+Subject: [PATCH 0/2] ALSA: seq: ump: Convert MIDI 2.0 RPN and NRPN for MIDI 1.0 clients
+Date: Sun, 22 Nov 2026 19:36:09 +0900
+Message-ID: <20261122103611.3264343-1-sammiee5311@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,111 +100,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL3PR12MB6473:EE_|SA3PR12MB7832:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0cfe0274-6e23-48f3-b00c-08df4883f0c2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|261021135927099003|261021123027099003|56012099006|11063799006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	yUjupytVKiXx2k0voc6bLdvhx+3IPmhfkfQWZPCt0IXHPKZwitVVm7p+ZnSTlzki/VjHweSlXlqvDg66YsEsQJgxdazS2DuWNllfAl/oZUjwQ/qUcirHcwAxpbOClMMj6WN8ofWlSEYoL65gmNfl1e8df96CMrpuZgt+9Hn2Y7gC8yu7eWzsefQcmA/yNqBa3j1+Yd63iIglq8H2Qo4kKs+8dl62w9zQPnAI1UKdfaGjZHUg6H6aNDVhvsXUVqWmJWcdhIsh7UGifS0V0IXTfT2EVKeV43hPzSA6wq1g1xvoHYOTloChe0i9/y/ssqwrnu37OY3miuJNv93GLz714N/VtBvXYnlQl06DhcAKko6gZo5DeB8VYvJJRgjmAPPFN60KGpMxVefXZlahdnbP4wciGn6Ev7M/NIldNDi3UiLowils40UEoKU2lXIyOsBTogNjtqngeFh/n//Qt3M46hOPgZuGpGE3EkFLRvRujagLuaKpcHBcpEl7HlwARtFr6gBD19JAtiQiAeKt0uq82Jy2Hw5ZTswV7NA4AwpUvo7zDQHyRN49ZsW4BBuiT8FAJh7+ZgQmOi+9RE64WxINCUFq2UU89m0kAU2rCcv5erCvUzGIxDQGf8/0T+zzB22iLTu4+FQ70YIQ4Lx5e4o3qm86CAO7FVXhNVYIRCfagqc=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL3PR12MB6473.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(261021135927099003)(261021123027099003)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?R1pzeFpJZ0lmbEp5cTRxbnRyRXpGSlJ6ZmFacTJiL3E1a3NNQnZpTGlwM2V5?=
- =?utf-8?B?WDRESDJqSEx4ZnBBdjNJMWNBMm5sZVVsR3NCZVJIUmdMMFVNdUZTbk5QZHkv?=
- =?utf-8?B?WmhpeVFCeWlmTDBWa3lLWlY0VTl4NG5nMXJJQlhucktYZ0V2QmdZWUtBL25N?=
- =?utf-8?B?eUxYWjVYMWMzWUY5UloxVUg1WitnaEdmcWNXTVB5bUdPOWNTL3FVd2hRSnRG?=
- =?utf-8?B?aW1FcEtIRWs2bUZCaGpxZ0NRbndiTEdQRDVveEEzTjdZVDN4YVVaZm1nc1cw?=
- =?utf-8?B?cjFTdkZiOXRsV0xhcFpiSFR1aGJyYkoxTXRjS2w1Q2l1cTdlQ1NhUEd1emtL?=
- =?utf-8?B?OVJlU0dhQTJvc0xwVzRkNytaaUZULzlIbGZ0NWpQV2JZSHRJcDFDbkEwb1dq?=
- =?utf-8?B?SEFWWmQwbStRSnZNT0FlRlRKZ2c0ZS9yMWFjZlJmOEg1c1NNSU80TTgvNXQw?=
- =?utf-8?B?bDlUVTNKaG0rS3AvRVFMSDluOEcxejQyMTZ2WWNZTGJIU1c4Zm5rT3RqU1d5?=
- =?utf-8?B?ZDdib2FOajR3eUY0OHEvRXZlcExBQkZqQ2R3N0xyQnZ1Wm1pVzBUcnIvaGxq?=
- =?utf-8?B?Yjg0MUV6cXp0SjFTYzRzN01tb094UEdjUGtaTHhVdGV6NUxHY3hkTDM2Zmxy?=
- =?utf-8?B?aC9JZXJBL0tGY1BnaXY5SlNMK05hYmY0dkRKbEJZWkR0YXhheUYvS1IxOFhQ?=
- =?utf-8?B?N05oeFMreUQ1VzJDakdwdE0zc2ZLQWpzbm5GbUpKaWlNVmsrUHBTN2VXek9Y?=
- =?utf-8?B?MG91N2VtUkdFNmtYTDM2ZmgwMXc3dGdSOG1EeHQyNytjZXpGVURqaEw4VlNw?=
- =?utf-8?B?c3hndkNzVG9UOSt0bTVaU0pjendoZVRvSUd3SUlheHEzMzVyUEtJa3lwaUlv?=
- =?utf-8?B?dkticWNCM0tZL2ZzSlhRaDJsMkJmbm9pVDE0OGdKdGt2d3M1bGZrWWJjWDM2?=
- =?utf-8?B?SDFjOUtGWDc2N2R5YlRsaUw1YTJUZUFjWEEybnJ4Qll6Znc5RHY0USttdklP?=
- =?utf-8?B?TXBzSTdLdHEyZWlxNGdjQTNUdWYwQkYrcS93ZURNUkZhMjBRTzBKQ3c0ZFlT?=
- =?utf-8?B?ZDJMaUQ4SGtpYWdrK0tVV25YbnordjQ1ZWgvSTduQThMcldXakNQTFlWQTRQ?=
- =?utf-8?B?SjQwV0VNcy9SVTAzS0gvQ3JKVk5BWHhaZ28xSGVXQ3BKaC93bllncmxDQ3dU?=
- =?utf-8?B?NWxVZjZxS1gvK25qMjZSTy94bUNDK0h4M2dpdXJCVi9adlRGeWxKaERvTkFk?=
- =?utf-8?B?NmRheUlTTHpuOVI2dG8yMTV6a1c1L1F3cmlGQWlFdFRWUmdoYkhGejBMMGk0?=
- =?utf-8?B?NlJ5ODZSbGh5dUI4SGdPeGUraWgyVWtrQzl5Nk9za0NJUmswTjI4dnBzamp2?=
- =?utf-8?B?Qmh0VFY0VEhpa1RhY1kwNXVRZFE2TC9nQkxOTWVDbUNBcHNGVXkxZE90YThG?=
- =?utf-8?B?N0o4OXlTK2pkaG9RdExRUVZld0l6OVY4MWN1NWl1bzVzWjFKKzlHalFVakJa?=
- =?utf-8?B?cnZBclRSenFiOEtEd1hnUWdnQVZXMDk3TXcxSXB3VjhFWmQ3RHJ4SDdWbitu?=
- =?utf-8?B?WDIzWXpFTHlrMFVPaHE2aS9SRnE5RDFYcVJQQ2hFQ0h1a1FnV2xsZm9zV2Y2?=
- =?utf-8?B?d0t4ZU9NUUxWT2Q5endBZjZGZDJ0d3MyT1RpbWg5b2ZuY29kZ3Fxc0hXYXpx?=
- =?utf-8?B?RThtWjh5K0pkZU50VXNYTURZZUtBbWsya3h2bnVOTW1FUG1sYUpkTDRzU3pq?=
- =?utf-8?B?OU1GL00yb2hiZzVZd1lDak1OejZSN3NWR04xNkgvUE90blZDUFJ5YzNHN1BV?=
- =?utf-8?B?NjA2Y3JnK0VEbG9tSk1BWXBwblZxMm9aUW12aUdLeHZlZWo2WldqSjJ6QW15?=
- =?utf-8?B?Q0EwNVNUalplOXZlcG03N0swMkNKUy9IVElnYU1NYVgvN3loRS9iTlFXdmpG?=
- =?utf-8?B?WlMvdTBKQ3BMUlluVVNPUlpRbFJMNVdGRS9zQlFNb2h3UmFseDlNc1RsOGpn?=
- =?utf-8?B?RHBTUFNkWWxINENsZ0pvRFI5WG96Z2laeEZCUnVJT0RoM3IxU2dYZjdaVUpV?=
- =?utf-8?B?ZEE5RFl6bjZWR1pMQktZRXBJM2dleG9JaHZUZUlEbTNPcXowUVJYWko3a2dC?=
- =?utf-8?B?dHZuZmxNdjVRaUFxOFEwcUlZQ0hmYjdtaW0vVU92QnVOQWl5anlZRGRPSnRh?=
- =?utf-8?B?WEx6VjhyT3VVREt5aG1odytHSkxrNUNCOGtlRTM2RGpSRjQyRDZweTU5Z1hZ?=
- =?utf-8?B?eUc2dUM2MEQ3SXJDR0l4SDBrWVluV0ZhZlh4WEtyNHFRSWV6Tll4elVqbk9K?=
- =?utf-8?B?MkhEeVRTR055alRJZlpjYnlPMy9HelJiU3NqeXhjLzZsUStLQzdsdz09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0cfe0274-6e23-48f3-b00c-08df4883f0c2
-X-MS-Exchange-CrossTenant-AuthSource: BL3PR12MB6473.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2026 10:32:42.8536
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 42A8Njnz6Gi3AypRSEcz4fXpEHsG9tAjrVUA5+hSRsvB5ACZHFqen5PGbXUXj2hLHsORIk27Ypgrh1+xxMvMiw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7832
+Content-Transfer-Encoding: 8bit
 
+A UMP MIDI 1.0 client gets nothing when a UMP MIDI 2.0 client sends an
+RPN or NRPN. Patch 1 converts them to CCs the way the core converter
+does, and patch 2 adds a test.
 
+A related question. In the other direction, CC 101, 100, 6 and 38 from
+a UMP MIDI 1.0 client reach a MIDI 2.0 client as four MIDI 2.0 CC
+messages. The same CCs from a legacy client are combined into one RPN
+message by cc_ev_to_ump_midi2(). Should cvt_ump_midi1_to_midi2() do
+that too? I can send it if you want it.
 
-On 11/17/2026 4:01 PM, Edward Srouji wrote:
-> This series prepares mlx5_ib for Socket Direct (SD), where one IB device
-> spans several core devices, one per PCIe function. Today the driver
-> assumes a single core device per IB device and reaches it through
-> dev->mdev all over the code.
-> 
-> Instead, each call site now finds its core device through the resource
-> it works on: QPs, SRQs, AHs and MWs through their PD, and DEVX objects,
-> UARs and mmaps through their ucontext. A CQ and an MR store the core
-> device they were created on, since they cannot always reach their owner
-> when they need it. The SD series can then change where a resource lives
-> in the resolvers, without touching the call sites.
-> 
-> The resolvers follow one naming scheme: <resource>_to_mdev() returns a
-> core device and <resource>_to_dev() an IB device. Where several resource
-> types are accepted, a _Generic() dispatches to per-type helpers, which
-> are prefixed with '__' and are not meant to be called directly.
-> 
-> State kept once per IB device, such as the ODP page-fault EQ, delay drop
-> and local loopback, stays on dev->mdev. The SD series decides how each
-> of them works across core devices.
-> 
-> This series only changes how each call site finds its core device. With
-> one core device per IB device every resolver returns dev->mdev, so the
-> behaviour is unchanged. Pre-existing issues in the touched code are
-> intentionally left alone so that each patch stays a mechanical
-> conversion.
-> 
-> Patches 1-2:  name device pointers consistently, dev for the IB device
->                and mdev for the core device.
-> Patches 3-7:  resolve the core device through the PD.
-> Patches 8-11: resolve the core device through the ucontext, and keep it
->                on the CQ.
-> 
-> Signed-off-by: Edward Srouji <edwards@nvidia.com>
-Since this preparation series touches many files as part of a renaming 
-process and some minor field changes, it is expected from Sashiko to 
-flood us with many pre-existing issues.
-I'll keep fixes for such issues out of this series and send them as 
-separate patches with proper Fixes tags.
-I'll reply briefly on each patch to note which findings we confirmed 
-(and will fix separately) and which we believe can't happen.
+Tested in QEMU (x86_64) on sound/for-next 1afd6b7547b2. seq-ump-test
+passes 28 of 29 without patch 1, where the new test gets no packets,
+and 29 of 29 with it.
+
+Prepared with Claude Code (Claude Opus 5.5).
+
+HyeongJun An (2):
+  ALSA: seq: ump: Don't drop MIDI 2.0 RPN and NRPN for MIDI 1.0 clients
+  selftests/alsa: Test the sequencer UMP MIDI 2.0 RPN conversion
+
+ sound/core/seq/seq_ump_convert.c            | 36 +++++++++++++++++++++
+ tools/testing/selftests/alsa/seq-ump-test.c | 20 ++++++++++++
+ 2 files changed, 56 insertions(+)
+
+-- 
+2.43.0
+
