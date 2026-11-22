@@ -1,98 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.228.135
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795348610;
-	b=HQrAWiLmd7SFQCrRT1t64ZpeNzgNsg4Kkv5o++EQFFvUYPgYVhW2WjraLkw//pICM+YU
-	 D5WGTw2+X/eYeyZMCh7eHN3qEpm83XKKjIM661mUgC42dZpiZFoIjMTIKn++/LcZ882WB
-	 3E+OxN4Mvoei3ssLIu2vOgmzNM3rnKQX23VfIsoY7ShVIInl9dAt2xcDDy8oU17o76akY
-	 3SOtAws1W2VGT/c/7IzD0ouac9vILGS7p5EF4wLzD09ccLlmR4MjZ230SwWqJkGajVvES
-	 Bx8ckLd61M2Ow7WVGyfkoFd1flfhJHwHvRIY1ozp4OI27pPzNHv3vwZ3HWZMxLcujKg==
+	t=1795348629;
+	b=y9aX+810V8HXVOsKYBG6TsrB472KAsuDlzEqbjeD1HUeI4x20tjtNcRUbsWJqpfvBPMZ
+	 Ux0OzozItcKX0pkIsXv03p8pYIRk2e25JvTOS7UDMRP29ootUpwIufLN2n2uODj946HVb
+	 DpftoK3Lu5T00TGaFKPs8frBqTC79GstPjfbSBr+rGSaP2vChzNmtR9rSnnSgFRzpXe3W
+	 h9FqDLL9tTsg1kvXYe5bE95v+T5k8nUSOdcctHlpwGmZqK8xGtgYO/GJt9mSd/00l6rfB
+	 fTce3hMF97Clk4xKs1IxKlt5aZhl7VU/joN3M0sr6p+Yf8SY9vPAbx8g1gYXPViV3Ig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795348610;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=KD9ED2MqTv4/+phnYY6+icCa/NG3RCXJ1b2cfyWY1jo=;
-	b=HWAMYb9Rcbh665pUq61XSrh+LuWZdGBufAlAvt8ftROVZmXDpxNHusiYl7UDs113SM+B
-	 N/b2DYRyLccznnAKzE2GyfYXq/s9pkpcvM46xOpxfwSBH/nj4BUD8e6Q81f+m3ehK8bdH
-	 yJIaDZkkJg5DLOgkhuRvoFKA98H0I5bKdvRO3n17phQ8XpJEoHbitFaMhSLXUkUSCLCOM
-	 oA05aQSHiyCLJ/2irVn6xbIBLLUNAZeHMv0n+KDxIN9ru/o7s0ARh8vRJfRG8zcy7s9xf
-	 0TZHURFdJ6tE7am8jKwWEXTdyig++gEd1XgBXKVUIRI7G7pWy1T/C8uY7sb1kdyakxw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795348629;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:User-Agent;
+	bh=YPCAfZkl/VqU6hRR+iJpGXoDbiuH3r0An+aBhqpsDF8=;
+	b=BjsFyXFlcCXN7aX0YZjJJrZw1+8Hzs0T5YLO0fnxDGqr109aW1H2L5mFL8G/85qnzi1h
+	 SwjpLZuWafGMfLLxrx3gzwThpJjU84Y5r/sLeSEvwYTZYko0dRq69WX15bvcB0QO7hdgB
+	 TnBwaUkRNFsj0gOJfwzQUWhHKfqAQHF8svP4GlRNOHWnFtljG4Yv/FKrMa3r4EkmiFp3F
+	 J+IMRPRenkTMDXa0aYf/dyaFlnSrbAXT7CknEmgbjXKW54c2UWPebwBjsk/K2c8C48Knv
+	 2wN7ej7rLY33jGoRjvsJT8sChI0d3DBy9o05q/3a6++3Xn8rJjokPLyfMu34buS2Ozw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LVZYJPUy;
-	arc=none smtp.remote-ip=74.125.228.135
-Received: from mail-ej2-f7.google.com (mail-ej2-f7.google.com [74.125.228.135])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=C102VK84;
+	arc=none smtp.remote-ip=198.175.65.20
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC92C606A330
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:56:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC92C606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76ADF606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:57:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76ADF606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LVZYJPUy
-Received: by mail-ej2-f7.google.com with SMTP id a640c23a62f3a-c516a1622b7so50646866b.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 03:56:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795348608; x=1795953408; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=KD9ED2MqTv4/+phnYY6+icCa/NG3RCXJ1b2cfyWY1jo=;
-        b=LVZYJPUyG66DPQyzdEv+7OKR8xiAXQqwH14IETsmnMqd6e/C4uASMjQeJInqJhn5XG
-         q/e6YUjWlf+7hgHSUZehItWpgyUyZS+p4KPndeFw3aGaDW8WO5gWERrxInbsLqLI534b
-         HMd+TfWM7AJ0Z6bNhGUII4audziihOGylEaTHct9/HOcJciuHtB4rE9YoVip4wN78604
-         0rO9Wj9GzxmnQM/QBmP4gHB8IUAtAnwWOjM7g4aMRUGeYkSO21P8LQd3XV0ORYivpx6M
-         SXv9uHMJnlIF/zsYrbx5AdVdA/+37T90H9En3meR/o4gb63QVp2cZqwCLCgn2+gZ9eZS
-         Jkbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795348608; x=1795953408;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=KD9ED2MqTv4/+phnYY6+icCa/NG3RCXJ1b2cfyWY1jo=;
-        b=zSoWR3sJlAxjo/0nidRWI8z+QSLdVBoCtAyiAkhOt5sK2ivYQQ4+wUrKpyYYPoHbK2
-         7zLS7W9M+HxIM0oZiLyXdSpd4P9/fxRiY5tv+CaOcaWGKTxSWKfYKkmWELf6r7ggQCyL
-         Myp7LKv6MeCY8QJqGp9xKF7egCIM2RYQMd/vCD0GGPFbYyj+clNIHYe7IPOc8EOwG8pT
-         XQk2AmZsTHafEGd3ELV5uq7C81FXbU2LLFdHY2DZ/xqfVB0PDpjpbZ7edcPwV5BT36ec
-         EPo4jc/4VVOVTNhnJ0GXza4SmwfcfQOrrF3YWRi2079s4elypVXipeJsEjcNiOH3dFk9
-         AP/Q==
-X-Forwarded-Encrypted: i=1; AL+hErGXgxO9Wsxd3bHRZNPe9mrLCcoG/ZiPonBIl0KHCISTYPOEBMP4p63uop3bwvvmAXOxYEqoHkITbEG7few=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/OMXek+b3nTOjX4grAvumXyqp6uocitHXInhUkUTwY6eA1DO/l
-	2yUXCvbkvYKxdh95+fuf4ZpB4NGBcqGRnGqd6d5kJMLZtfPz8z8dFSs=
-X-Gm-Gg: AZFdTZd8Il4rfnmtiLHF/fo/cNuR6OzsDusn1zz7dcVCzkSmle/gTZ3sUwjGW/++PFs
-	Uh9P0W8ho8dgCy7RwUxGrn6pfOHpzMBAaEhvmnd3NNuGG56T1bri5p6HWyLGwGAQcb78mii+TrG
-	yOwvWQNL9f30l8Sy+DcbShMOm9VRki2SYULeHXVz61oJguV6SrzxoHNuL/ueXjKGzgAnWgr72vq
-	RG+GZwGGvNkL5GB3apvM3K9UWc1l58iPNmFbZuQcK/E0AZCMkAyca1noPxA3aNLB0y33UZhASEK
-	tjiawDWqZE7if/G0hL6vfeeTn/cUmXLh7UKfq+211xIQKzKTpEFJe2cVaN/I8pT2Byqib2Ey7Y2
-	ITmJp/KFB9Qnz+/GSjI/ynqVKXJwMMzsdU+tDk9qBgGNpeui0vxI5hqapsdRVS1uWkXyeZLoQZW
-	KpGLXDpP859q73kozEEsmd2Xyyme9D6ZiqLtxhQ6iyMADegV0EwfZfJDbLTdoDQfOji1bHRW/ld
-	fnbREzNeNxQNdhzaZnylIPoAXnsqJ3aUYaqoBnDHdag2Htl9O8qLhWhWCz7OMApysZ0e33cThHk
-	Yv7+yUONGtoyI45XZ2ejjmaiWKngJDUG9ES6LUg2j2+P
-X-Received: by 2002:aa7:c148:0:b0:6b7:8444:a44e with SMTP id 4fb4d7f45d1cf-6ba37cc0b7cmr4214881a12.4.1795348608196;
-        Sun, 22 Nov 2026 03:56:48 -0800 (PST)
-Received: from llm-01.drunkbatya.int ([80.251.127.126])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba36e362bdsm3932556a12.5.2026.11.22.03.56.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 03:56:47 -0800 (PST)
-From: Max Andreev <drunkbatya.js@gmail.com>
-To: Badhri Jagan Sridharan <badhri@google.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kyle Tso <kyletso@google.com>
-Cc: Max Andreev <drunkbatya.js@gmail.com>,
-	stable@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] usb: typec: tcpm: fix missed frs_sourcing_vbus() call during FRS
-Date: Sun, 22 Nov 2026 11:56:38 +0000
-Message-ID: <20261122115639.2912666-1-drunkbatya.js@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <2026112206-lapped-unvalued-8696@gregkh>
-References: <2026112206-lapped-unvalued-8696@gregkh>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=C102VK84
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795348629; x=1826884629;
+  h=date:from:to:cc:subject:message-id;
+  bh=o3O/KsOG+UIEshke3Si7D9+gwU4DTYejRXg7r0bbisw=;
+  b=C102VK84XmQG1YWj1gxFhjHgkzJi4S23YgmAbijS+pp/jvzystznv3Y8
+   v5rk1FdmC6yDA7z93prLrPvys+EkZwQfCpDY5/ivd+p2DxlAPYNrLZAku
+   9P2txALbc04zAO8o22mzeD3G0wdjWiSyLyQ2PBq9skDww5J/GVqwgc4Ef
+   VnEgfzDXEKB20sBqCT5GnmPY/BAmi0SZhxFtoQ3Gs8DC88Gax+lA0ltOL
+   y99efpSgkwqvtabqWUagq3cC8MZV+ux95URUsqVryKJA5Eue2Q/kjTKcv
+   iCELNUcbWef1GM472Y62MHkvcoSq1SFLzJh4OgjUE6cce9aStnHXMVf1T
+   A==;
+X-CSE-ConnectionGUID: TUmXDWh9RDmvxmEAryUP+g==
+X-CSE-MsgGUID: ShMPn1fUQ1O+/5zMIYp2yQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11973"; a="4213155"
+X-IronPort-AV: E=Sophos;i="6.27,226,1787036400"; 
+   d="scan'208";a="4213155"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 03:57:08 -0800
+X-CSE-ConnectionGUID: To+Sy5S2TvaFQ6iiUSGWHw==
+X-CSE-MsgGUID: 3J9S7/buSiS8O/iAML/vCA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,226,1787036400"; 
+   d="scan'208";a="12891424"
+Received: from igk-lkp-server01.igk.intel.com (HELO 1073a420ae3a) ([10.211.93.152])
+  by fmviesa011.fm.intel.com with ESMTP; 22 Nov 2026 03:57:06 -0800
+Received: from kbuild by 1073a420ae3a with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xV6Br-000000004YH-2obF;
+	Sun, 22 Nov 2026 11:57:03 +0000
+Date: Sun, 22 Nov 2026 12:56:19 +0100
+From: kernel test robot <lkp@intel.com>
+To: Dmitry Antipov <dmantipov@yandex.ru>
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Linux Memory Management List <linux-mm@kvack.org>,
+ Andy Shevchenko <andriy.shevchenko@intel.com>
+Subject: __efistub_cmdline.c:undefined reference to
+ `__efistub___ashldi3'
+Message-ID: <20261122125352.gAcg5yLx-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,52 +82,31 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Since commit 0908c5aca31e ("usb: typec: tcpm: AMS and Collision
-Avoidance") the TCPC reports sourcing vbus while the port is still in
-AMS_START with FR_SWAP_SEND as the upcoming state. Because of
-_tcpm_pd_vbus_on() ignores this state, frs_sourcing_vbus() is never called
-during FRS.
+Hi Dmitry,
 
-On Pixel 11 Pro XL after an FRS from sink to source the phone keeps
-showing the charging indicator, and about 20 seconds later VBUS drops
-and the attached device reboots.
+FYI, the error/warning still remains.
 
-Call frs_sourcing_vbus() from AMS_START when the upcoming state is
-FR_SWAP_SEND.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+head:   4843f6873f7c4835e62f2c73ba0fd538e57a2f22
+commit: 9a4580db6e9f83428813f671a79486469684069f lib: fix memparse() to handle overflow
+date:   6 months ago
+config: loongarch-randconfig-r2100-20261122 (https://download.01.org/0day-ci/archive/20261122/20261122125352.gAcg5yLx-lkp@intel.com/config)
+compiler: loongarch64-linux-gcc (GCC) 16.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261122/20261122125352.gAcg5yLx-lkp@intel.com/reproduce)
 
-Fixes: 0908c5aca31e ("usb: typec: tcpm: AMS and Collision Avoidance")
-Cc: stable@vger.kernel.org
-Signed-off-by: Max Andreev <drunkbatya.js@gmail.com>
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Fixes: 9a4580db6e9f ("lib: fix memparse() to handle overflow")
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/20261122125352.gAcg5yLx-lkp@intel.com/
 
----
-v2: moved the trailers above the --- line
+All errors (new ones prefixed by >>):
 
-I'm not test theese changes on mainline, but tested on Pixel 11 Pro XL
-vendor kernel 6.1 with the same _tcpm_pd_vbus_on() code, as i see
-mainline tcpm.c is identical in this area.
+   loongarch64-linux-ld: ./drivers/firmware/efi/libstub/lib-cmdline.stub.o: in function `__efistub_.L47':
+>> __efistub_cmdline.c:(.init.text+0x258): undefined reference to `__efistub___ashldi3'
+>> loongarch64-linux-ld: __efistub_cmdline.c:(.init.text+0x268): undefined reference to `__efistub___lshrdi3'
 
- drivers/usb/typec/tcpm/tcpm.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
-index 51e5c72799f2..5caa649a92f1 100644
---- a/drivers/usb/typec/tcpm/tcpm.c
-+++ b/drivers/usb/typec/tcpm/tcpm.c
-@@ -6889,6 +6889,11 @@ static void _tcpm_pd_vbus_on(struct tcpm_port *port)
- 			port->tcpc->frs_sourcing_vbus(port->tcpc);
- 		tcpm_set_state(port, FR_SWAP_SNK_SRC_SOURCE_VBUS_APPLIED, 0);
- 		break;
-+	case AMS_START:
-+		if (port->upcoming_state == FR_SWAP_SEND &&
-+		    port->tcpc->frs_sourcing_vbus)
-+			port->tcpc->frs_sourcing_vbus(port->tcpc);
-+		break;
- 
- 	case PORT_RESET:
- 	case PORT_RESET_WAIT_OFF:
 -- 
-2.47.3
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
