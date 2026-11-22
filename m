@@ -1,94 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795371876;
-	b=KBswsN83UZovZdNH2ZtQycz3EvXGO79f2D5ANdAJ3ZH6wxkd4ROfR27yNyNbWCnjPyRC
-	 oeNcnhtXZnO/iBqkYYp0pWeigT6kzDbS5sfkACTrbG7TcrIFMQAs1EvOf4//T+1SUxkFT
-	 TP2lk7fF40v60Pm/4e0RcZ//BnEiIuYznuR2PPiOzP4r4u2Y85pDKIEPGZuf8UXr1MznE
-	 Lcs5oqPo9VU1462OuqzVJ8nxikx1Tv0wbpigahyAbd0uIIdfL4mHCN+zz6mTk+payxOtd
-	 mZfKw48JxdmNPaVyDPLkTNNS2DGWLAynYSY/JZosG7XAtpfhoCO69gFCWr7KnEsC9vw==
+	t=1795371895;
+	b=KK2kxrIkkNFRzou7OUotRXTX9uaG2yh84lHhcAryCGBbqLBFj1MrF05K023zjbQw5ljW
+	 AcPkEblgm9mhfu92AsQVlKzBLSXV/El0MbqNr5jhI3Bd+Ig6x9wMplehG+3ULRlKAT7Lg
+	 2WJd8lT7rEIB5Wlaa6yl0LKvU5+wUuM1baS6P0xhrhTrcsBi21lJ64I5x2viBsyRxKl4g
+	 h8ttIUJg2Px3iT4aD6ZbTAPxWyQa44AbvUjUsNVBJWGqC0AxEstqG3jDIiy+WMX25YJIW
+	 +loMphrjIktqnAV6Aq13jJCcAdOfQBCR0cBVL6MZJObSQ2Ku5VNeWt04xE+HycAyzOQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795371876;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=76A4WPudZsZy4CJtPE5LMtql++Tj2dohb2B1StvtAx0=;
-	b=RRhrZ0djiU3vsM64wSWdCXmviGHNVwiMhNjoVtqnp2XrAxx0nZzpBlrMC9klmH7UlDxK
-	 uDCksXE5rcUbqtJF1ZYrrzePBZVGsswJV72P+ykyD2vmYFeTyp3btE7Hts0WhBVAS2wxG
-	 runx0uA/nULtCErLDCoa+WEVqTfJEQosQNoANIMj69X33h51I+PI/11ocjKupMt9ydfs/
-	 11aXxkU0r4/MLK3Y3nJhi+8fGFe8tKIN7D8FgxNkUwerGTVmS723ljEU9AiFE91Rqe/ye
-	 risdeo/NlFNvcoPenP3LwE5xArqSXT6itA/7hGPZIXHYbDs6EVT+3PZZHfdPm2HJP5w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795371895;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=I8O79LLuixI7Ncv80qos0WzCUNLLnHjxMOr/9odIaMc=;
+	b=DWnL+MLS/NFdl4huDxJX3Uc6utVCWj+tBB+Dnfj/D2d5XcMcmSVtrgAklbQL93fq2A9M
+	 wbHCBPI3gfZzoqP8v8Ws676aFsRiUPgIo054A5MCPguwSRimOzZDYyuWoh4mfONwwRPxr
+	 srNHqt9LcjgMBEkeFGjhv2A5yjiau6/J0+onMUH4VRTh9f8uKMHMfm13h3m3dbVQAPn/N
+	 NAg5vu6Qk3YrpPbNB+C4TVeQQtFl8fRz80I6o/9k7KA4dZWPJHM4iN1NZu8fSNMun21wc
+	 wGvf7L4pq6zGSNPKevtPTcJ0IybBJL43p5FUSRMDA5mTbgeAlRf79COtDE3HjCLsJkw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aDml5vAB;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=BsPCX8dr;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3815606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:24:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3815606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25BE6606A32A;
+	Sun, 22 Nov 2026 18:24:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25BE6606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aDml5vAB
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a2153c8525so19135925e9.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:24:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795371874; x=1795976674; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=76A4WPudZsZy4CJtPE5LMtql++Tj2dohb2B1StvtAx0=;
-        b=aDml5vABEDkKy8vsbL8COyzwkkoQ65IJ/EAggkdXqeEmF24s9kd24MeYsbiaxzwR0W
-         Cw3o2WQcaja8UqOGtGtCT561ukMh7lAg6gLEqaOYI3LKQxSergdTZCvR7yEbM1fmcZel
-         ghDhF62n0JAq/SmNfVwRF7lVKklbAKmY4ZFtyojZmn3Xud2A5fK+ndU9kyYD7kCPqLUH
-         yOyQ45G6TPLx3G+EsReFD6vLfhe+kvNLWbbe5NJcIHAdZjlX9Jo/yvZ6LY1w0IlyrpD8
-         RTAXzloYIEBO081PQjjcraJE9wilm6GBqDtHCqDCzPXHnA21vymOwXgQh3kFs5Gi1qwJ
-         qhUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795371874; x=1795976674;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=76A4WPudZsZy4CJtPE5LMtql++Tj2dohb2B1StvtAx0=;
-        b=VRkFzVTCNAe1yn/QOvi0IBT8i0UaWNlF9ziwN/Y0fxbN5yi0n2qZhBxyx17DHFJEj1
-         uMLpP3Ls048FaFdEOkiY26ZxusXLddNjrxpaYG4iF2/vKtXZrUziW1rZcqTr/3fMryxU
-         LEZwe/wrrWnFRb/oJCXTL6McTJTJ9Qwg4C+yJ++J8IoKEUZ3V6XkmRhsS5ON1w7WRS4P
-         kdgeeeie4ZgE/t2SyEKtEiBZOMQ06DQBdV0xfihTmc68pAVRpPkXHGqwU51IVN+GKjY5
-         DshEhERWwsK5YUPD1Yktw4HJvWTUJsJXUX6nebwvvDLY+hfluuIUbecrwDQP4KCwG2pR
-         aXzA==
-X-Forwarded-Encrypted: i=1; AL+hErHDvEsOkzyB7LmA65jizhPrulJYDM64ELXW995Ai2O8jEqQPi7M9rKucUGhPLNy9kkE+r2Bxthv9v8zswI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+fZSZlA2kMDs3S1IPDlwAegkMBp3+LGMjVj37Jt0T+Tay2iNhn
-	0kbhnsSL5s+m18vgVo2BG0Zwj4Q4sa0dRJmp1h9wJY7Wy73eecheKk+i
-X-Gm-Gg: AZFdTZdOG+Jg91D22h8FTysY60yJh9e/Q5I55AZTdoexJXkAA3rLuIC1GGA8GrKwWJO
-	+Z7VbqNvkAg+mVWqG44Cm/TVl8w6sv+fwRg8+d2lnHR4AzgzFbHQURu19W6Rpl10UumfqtAGU/6
-	VRP49i9e/lfBiffxgnMirQvGLRTLUXiQ+vBIA0lWGuVWJ6Vae7juTiqcb1KQ7cZQzNfzk0ZY6em
-	TfMLadPyct4IfQGIPB4avr5Q6GGqh/8RFx926rLzCDU/R83KCCRppidxNpL22jqdJ8hTPY9mum5
-	RA4eo44tqr0Ip5muVOD6fZgO5/WiQterVhl/OgCVNl+yak6sfVxxME2py4LvBp5BMlHaJMfn2AA
-	J5qWytHZmm6heRTkYuF1ct78nlXMPm7rcTQ9XEzjm2YNRU7fu8L3ZK5pgp0N+VBvDXuUB1u90jD
-	U29hWby3+zAoelEWwUM91hOBjCkoMXps0FA9A+EdPIFRLF7p694qQtVN/cvbVoFauNCTGbdD3nJ
-	mIfLCAMzqRUqfXEGB36RaPQG5HCxYXmj7pRq/R1TWWUPBripf6XWnnDyGCQIDGUpuzKYOfzi1zw
-	WRFWBg0bXxu0Qvn2BjP1ixt86ClsQxAewrnn7NYsFpqCL+X/QLuRGw3D
-X-Received: by 2002:a05:600c:1549:b0:4bb:741d:ea8 with SMTP id 5b1f17b1804b1-4bb8880ad4amr190688825e9.7.1795371874103;
-        Sun, 22 Nov 2026 10:24:34 -0800 (PST)
-Received: from DESKTOP-V28CTA4.localdomain ([103.125.177.105])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb905f0f1csm112711375e9.0.2026.11.22.10.24.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 10:24:33 -0800 (PST)
-From: Arbab Haider <arbabhaider649@gmail.com>
-To: Jan Kara <jack@suse.cz>
-Cc: Eric Sandeen <sandeen@redhat.com>,
-	linux-ext4@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	syzbot+1d23ad199a3bfd6f9149@syzkaller.appspotmail.com,
-	stable@vger.kernel.org,
-	Arbab Haider <arbabhaider649@gmail.com>
-Subject: [PATCH] ext2: handle NULL fc->source in ext2_msg_fc()
-Date: Sun, 22 Nov 2026 23:23:31 +0500
-Message-ID: <20261122182331.13740-2-arbabhaider649@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=BsPCX8dr
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=I8O79LLuixI7Ncv80qos0WzCUNLLnHjxMOr/9odIaMc=; b=BsPCX8drszWkyXNyHqAHkJDoyN
+	6Z5KhKiCoIFTdy5cIoJRNHjbVJSqC9oMjYIAlfVpdYwfhjWGcmhpamxw35+z16Bq+xaF5I65ALA1N
+	kq8G/V3/CzkaBkYCaW0PsYmWhIuTSOmHcVHPHyvbMjlb27hsmcQU+uqElL4N0GcRwNPk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xVCEs-000bMR-9t; Sun, 22 Nov 2026 19:24:34 +0100
+Date: Sun, 22 Nov 2026 19:24:34 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH v2 2/8] ARM: dts: rockchip: Add support for RK3506
+Message-ID: <cacdc706-3fef-491b-bb3a-96728347a17e@lunn.ch>
+References: <20261122060114.773624-1-jonas@kwiboo.se>
+ <20261122060114.773624-3-jonas@kwiboo.se>
+ <86007bdd-6c10-46ba-aac6-197939934c73@lunn.ch>
+ <5cf52e28-110a-4fc2-acfb-eb264e8c31e2@kwiboo.se>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,68 +69,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5cf52e28-110a-4fc2-acfb-eb264e8c31e2@kwiboo.se>
 
-With the new mount API (fsopen()/fsconfig()), userspace can pass mount
-options such as "nobh", "dax", or "reservation" before setting the
-"source" parameter, leaving fc->source as NULL during option parsing.
+On Sun, Nov 22, 2026 at 05:01:08PM +0100, Jonas Karlman wrote:
+> Hi Andrew,
+> 
+> On 11/22/2026 4:46 PM, Andrew Lunn wrote:
+> >> diff --git a/arch/arm/boot/dts/rockchip/rk3506.dtsi b/arch/arm/boot/dts/rockchip/rk3506.dtsi
+> > 
+> >> +		gmac0: ethernet@ff4c8000 {
+> >> +			compatible = "rockchip,rk3506-gmac", "snps,dwmac-4.20a";
+> >> +			reg = <0xff4c8000 0x2000>;
+> >> +			clocks = <&cru CLK_MAC0>, <&cru CLK_MAC0_PTP>,
+> >> +				 <&cru PCLK_MAC0>, <&cru ACLK_MAC0>;
+> >> +			clock-names = "stmmaceth", "ptp_ref",
+> >> +				      "pclk_mac", "aclk_mac";
+> >> +			interrupts = <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
+> >> +				     <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
+> >> +			interrupt-names = "macirq", "eth_wake_irq";
+> >> +			phy-mode = "rmii";
+> > 
+> > Sorry, missed this on the first pass of the patchset.
+> > 
+> > phy-mode is generally a board/PCB property, not a SoC property. It
+> > would only be a SoC property when the SoC cannot do anything other
+> > than RMII. But given this is snps,dwmac, i expect it can do other phy
+> > modes.
+> 
+> This SoC only support RMII mode, so I put the phy-mode at SoC level.
+> 
+> Datasheet for this SoC lists following:
+> 
+>   RMII 10/100 Ethernet Controller
+>   - Support two Ethernet Controllers
+>   - Supports 10/100-Mbps data transfer rates with the RMII interfaces
+>   - Supports both full-duplex and half-duplex operation
+> 
+> The Technical Reference Manual also only mention RMII:
+> 
+>   38.2 Block Diagram
+>   ...
+>   The MAC only supports the PHY interfaces of reduced MII (RMII).
+>   ...
+>   MAC Supports 10/100-Mbps data transfer rates with the RMII interfaces.
 
-In ext2_msg_fc(), when fc->purpose != FS_CONTEXT_FOR_RECONFIGURE,
-strrchr(fc->source, '/') is called unconditionally without checking if
-fc->source is non-NULL, causing a kernel NULL pointer dereference:
+That is unusual, but O.K.
 
-  KASAN: null-ptr-deref in range [0x0000000000000000-0x0000000000000007]
-  RIP: 0010:strrchr+0x24/0x80
-  ext2_msg_fc+0x157/0x1e3
+For the Ethernet node only:
 
-Check fc->source before calling strrchr(), and omit the "(%s)" device
-prefix when s_id is NULL or empty (e.g., when source is unset, empty,
-or ends with '/').
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Tested locally in QEMU (x86_64, KASAN+UBSAN) using fsopen()/fsconfig()
-with NULL, empty, trailing-slash, relative, and full-path sources.
-
-Reported-by: syzbot+1d23ad199a3bfd6f9149@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=1d23ad199a3bfd6f9149
-Fixes: 98f18c76c2c3 ("ext2: create ext2_msg_fc for use during parsing")
-Cc: stable@vger.kernel.org
-Signed-off-by: Arbab Haider <arbabhaider649@gmail.com>
----
- fs/ext2/super.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
-
-diff --git a/fs/ext2/super.c b/fs/ext2/super.c
-index 54a6c26d0..c99367652 100644
---- a/fs/ext2/super.c
-+++ b/fs/ext2/super.c
-@@ -89,20 +89,25 @@ static void ext2_msg_fc(struct fs_context *fc, const char *prefix,
- 
- 	if (fc->purpose == FS_CONTEXT_FOR_RECONFIGURE) {
- 		s_id = fc->root->d_sb->s_id;
--	} else {
-+	} else if (fc->source) {
- 		/* get last path component of source */
- 		s_id = strrchr(fc->source, '/');
- 		if (s_id)
- 			s_id++;
- 		else
- 			s_id = fc->source;
-+	} else {
-+		s_id = NULL;
- 	}
- 	va_start(args, fmt);
- 
- 	vaf.fmt = fmt;
- 	vaf.va = &args;
- 
--	printk("%sEXT2-fs (%s): %pV\n", prefix, s_id, &vaf);
-+	if (s_id && *s_id)
-+		printk("%sEXT2-fs (%s): %pV\n", prefix, s_id, &vaf);
-+	else
-+		printk("%sEXT2-fs: %pV\n", prefix, &vaf);
- 
- 	va_end(args);
- }
--- 
-2.53.0
-
+    Andrew
