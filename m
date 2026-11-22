@@ -1,95 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795380813;
-	b=r26zwewHdaZ/adk9T+sig2fOS1NTWrqgg+Sh28Lr9nSwJIxFK6PO3HuSpmuqmL+ZxoyK
-	 sXo/wWY3AR3BcanHKiuCkIXimyFsVoTtl6R3MjqI5SEzFcVaJCa6VcdRBrF4WDpKlBNes
-	 Ponsi/XKqsKuZAAO0H5zUpZ8v3YWNwP7viMjAQKZvnVfaROjkdkK2yzukcTifsj9YRqC+
-	 sDtSfX+R/Kzm2TzwEZNDfuUqqXjls7dIe2X+Fy5vrn+FFxNdo7Kg43hs85b0evxedRpFa
-	 k3r0WKMKLrlmrhg6H7dn7QcsYq8d7DjDvA6dlrl0L+JBanRj9SxsZ/SVUpS1bTWf9+g==
+	t=1795381015;
+	b=f9acBtNDPnEe7Ll/ClM2owxyi6d1cNGfG18dwmmPiGlV8Pas7aLTT/KIIEzrNoKQR+WN
+	 g9veIUtbDt6DC7mH8N75T9m31w/F4LHCaLdVnV5a8RjCajyZ2bIk3LYw/YtLJfTGcqSeM
+	 g0vvz1iQ+bX2YiAC58Ui3xZhICVFZItMmKTuWDzq69HFBr5vR4W8K7SinXgQ6awv+K3C9
+	 3f9cfkbsQsD4D1Iygh6l4Z7tg6fDUx58nLwSl3oektyv/KsAQvAM71sHwjcHbw+9WOdo9
+	 hptTxChSgNumcNNrBHmx2dNrKKjWpjnLfF7Cabe7DKaZWfyAADPZa8ORNV+2vaF10Rg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795380813;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=jCkKjGFl/FESlc4vs2SRng6oOInHAgHTvIB3dJ89NUk=;
-	b=zgePczFx7bTDPgVJCSQatiTySsg0RR6YUjOZkThaBu2ZEGGv/yqCjfKxZC3hjzmrVeJa
-	 XATsU4yaT1GC10CIhIMfBfnRKTxPJiydzdX8J4bcVFiZbZAtE0HjhthA8XruThxAPGUJl
-	 eyjZKAvr6E615Xops0U1w+sv/ooxAy6ETDvMXpt3/PVZ/bFbWK3PKTUL87nXOsON3pSaX
-	 Wm9hEXY5hB+UCshIrfSYgBK1uA/mV3Q4o5gffpd260r8nTgBCinKFiF9z0++KU+RfdRdK
-	 jCYLwM1RXR8zSGvMKMS02aHZuhINs2PUCcSXG5ozZlPaZf/iahbqakfNkeTxegz/xKg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795381015;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=DMRTLh9QWHOBTrKkxFKvDAuRmtTkhznpxAQUhX+xPS0=;
+	b=Hb2/OfwLk4B8XKHjuaZybDXg+muwy175oo10LEwnRAuPfzhS28ineor8hMEcynO7a6Rz
+	 zvDUdRJLjbA6DxOIDcAsX5wvsKRDOBkL2H8PtFTd9taax+0Zx7Rp4v7r6qDmPXjUAVL6R
+	 9FcfQIdC7jFPKaY0vxM4tONlIRDW3n1bm5QvB0R2SJERkT2vinuA7gOo8ihhoyVQG1awB
+	 MvBpZnTF3n8QEvzc+uputp/4ko4OgE+Weqi9vBmotNJbwyLzla/YE2DWhGVC/a6Kn7VLJ
+	 TsERwwNEUYORskcet1Rb3ajrRmKOq+KN1xvwIbpQvAD6MmOs/RDrxkR+Zx81qDMnTlw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R6GzwmoP;
-	arc=none smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iRIkpwCS;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A497D606A31D
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:53:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A497D606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B9E2606A31A;
+	Sun, 22 Nov 2026 20:56:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R6GzwmoP
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4a35ac4475dso19178315e9.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:53:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795380811; x=1795985611; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=jCkKjGFl/FESlc4vs2SRng6oOInHAgHTvIB3dJ89NUk=;
-        b=R6GzwmoPbZ8PGALr9DSfhHfc85bDo/sOdAuzBt0z+ZCv+J7FlYUabjiK4MCSj4gAaD
-         0DXWS4MA7hLUC+Pd2c/9LzQNkyTTrnpawv/ct5UjVxUeR8NSGXDdNqVZvEVFRMdqw6Fg
-         Ks3EGKtOFzOipgT1nxgyXfjFZXi3jXKjUjA8a6hFFaPHVyVzccaef6hjGvAclbzF5nTW
-         KTajbyT7KBEWxRWIeT8mYe9tkAZSFyo/p4BF2QOARmSftJHE4YBccBJQ1yu/hvb48V5f
-         BUGZsm0SrbOnIGAqAzWkoKQzhxBpG4qCjyyVepBcGciGA1ff5utkMVV6XVXu9l4z1xY5
-         lSdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795380811; x=1795985611;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jCkKjGFl/FESlc4vs2SRng6oOInHAgHTvIB3dJ89NUk=;
-        b=hOvq72/2eup+q2IxjaX4f/t9YRsc1hE9jCHfBgW9CJR4EQPzudEGc1VInBQZUrewIv
-         491l2ZOUav0ciRMKZY+2/ZB8Ss9708InF3uzvxe/eWEQLv9n5UiEuNDAC0R4/lNtSnDu
-         tfQmxmd+srocxWUamarELG20YpFXFM8kga9mPnzzMjJ5r4EIYlFqs0Jbh3BYVXeDFn8c
-         HsLua7R2+WeiKRMZc8VlA43i/Ny98bZjHwlr0Q+u0aJbD7eIRCvw2gm6+yfRmrURXHUs
-         sbEXgEaPITZZUgLb843VFtoqEnUppI+BXNQgLoBmql8NPeuU0iAFjMqk2ekvq/fRX3Q6
-         Co2A==
-X-Forwarded-Encrypted: i=1; AL+hErGvvLjadtYyZN8xtCPQfIGCwX/e1FS8aDcmN90ID4sCQGSp8b6DCm2ly0maPu1YrnUDz49YuTzAhohN15c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/2K3E7M3XwnNkRE+nSpHXeSgh8JYPxsJudiUm2+CCvEX7maRrw
-	JAVTPH8MlHsebC7Dg6WPNTvScR3CsiQT6CUIlehcrq+Kdk/YD0GuQw47JXGbmuDR
-X-Gm-Gg: AZFdTZfJIhb+aXmtEO/vc+aSEb3+W4ZZGO4gJt0RvYgvoBuCoOUrVngoxBRXaE0s97/
-	3Dlq5D9bbbWm9kdBFkkWyW6ba5Fm1lZfVFP81ABiWqQ8knWLMsATPmmq4Il8K56SUjv8AgU7DHd
-	5Yz83f3ErOlNBFwI8Wjjlvrdc5uMck1m3KCRhklPeX/YEznyH/dnvVwPoMLf5r0toTf2JrMPxTG
-	I0a2ZoBi5ilYThPrmc3B6z6QPYuWtluQzzbR+cP+3fTqrRsdl8GtqX6ffK/OL/7ltPjQPCRUTuA
-	OjcLe20/j4Yh1c0topYRE7PCdthMM4PF9SMPRiFuSIkkve1PbAdJ/1+GcvZVfsAZKDL9Sie67p+
-	MueNZ4LhfoWK1sZ1XXgULv5mg0b7c08GDP48eijpjeoS/2vTI8wVfdMQqALPlrzjK0GQKE6YTcd
-	6JV1kZUHEJUQhymgY/txg99Dm/yPwPbc/WSyqCcVK50Ar+4lTEJ5DY+QGJNHtBk3tfGKRyTK+zU
-	PNzIcCSntE9Mvdm2PmmzdPKQZmzR7YR8OYjSNC/dnn8ognLHTm9IPVF71dZmZyVt37+odCbX+kP
-	7VjgjN5woNW2SR5/Gu+cdD/v6gLSOVvCAfLaBOoSWOUaEqBVjdprr7uv
-X-Received: by 2002:a05:600c:c8c:b0:4b7:6942:39bd with SMTP id 5b1f17b1804b1-4bb88820e06mr193076305e9.26.1795380810868;
-        Sun, 22 Nov 2026 12:53:30 -0800 (PST)
-Received: from DESKTOP-V28CTA4.localdomain ([103.125.177.105])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85399e2esm338371075e9.7.2026.11.22.12.53.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 12:53:30 -0800 (PST)
-From: Arbab Haider <arbabhaider649@gmail.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Arbab Haider <arbabhaider649@gmail.com>
-Subject: [PATCH 2/2] media: em28xx: avoid dereferencing dev->intf after disconnect in em28xx_v4l2_close()
-Date: Mon, 23 Nov 2026 01:50:29 +0500
-Message-ID: <20261122205028.41222-4-arbabhaider649@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261122205028.41222-2-arbabhaider649@gmail.com>
-References: <20261122205028.41222-2-arbabhaider649@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iRIkpwCS
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAE8C1F000CA;
+	Sun, 22 Nov 2026 20:56:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795381014;
+	bh=DMRTLh9QWHOBTrKkxFKvDAuRmtTkhznpxAQUhX+xPS0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=iRIkpwCSESegoxpoYoH22GhlNBh6pu1HUkR3zRg3z/dpekm0FlsVCt+z1jrtM3pWf
+	 dX07ANSeCqaY2DbSB+ROulmH1tET2YGKmk/f43ZCP0Mz5Up6Er+CbPdMxquawk9lts
+	 yGLG5DIOQTiSX6+D11w7GzVzwAK7mNISSWJqYa9CqXlsVnqmt+XpDwd1YznMui2P6l
+	 JnuAj5+QG6wV1UOfGZLQMEOGd0HVx2TYO7XoDvegC8RiIxnioJEP4B0NgiQBeRSI9a
+	 yBjmjkmJgjv09o7nq9rJglVu+eKlFMrLBdAdDQoCma6JFSxkgQNFgFO+lrngft/Znf
+	 cmondaoHE69vg==
+Date: Sun, 22 Nov 2026 20:56:48 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Daniel Balint <dbalint@google.com>
+Cc: Guenter Roeck <linux@roeck-us.net>, linux-hwmon@vger.kernel.org, Benson
+ Leung <bleung@chromium.org>, Lee Jones <lee@kernel.org>, Tzung-Bi Shih
+ <tzungbi@kernel.org>, linux-iio@vger.kernel.org,
+ chrome-platform@lists.linux.dev, mfd@lists.linux.dev,
+ linux-kernel@vger.kernel.org, mwojtas@google.com
+Subject: Re: [PATCH v1 0/3] Introduce cros_ec power monitoring
+Message-ID: <20261122205648.73f3cf17@jic23-hlaptop>
+In-Reply-To: <20261120091022.1459658-1-dbalint@google.com>
+References: <20261106193129.43493-1-dbalint@google.com>
+	<20261107010356.39d9eddf@jic23-hlaptop>
+	<20261118204532.257423-1-dbalint@google.com>
+	<11a821f4-aef6-425a-8626-1d8641e9f83d@roeck-us.net>
+	<20261118220033.70425495@jic23-hlaptop>
+	<20261120091022.1459658-1-dbalint@google.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,71 +67,92 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-em28xx_v4l2_close() unconditionally evaluates
-interface_to_usbdev(dev->intf) at function entry, before acquiring
-dev->lock and checking dev->disconnected.
+On Fri, 20 Nov 2026 09:10:22 +0000
+Daniel Balint <dbalint@google.com> wrote:
 
-If the USB device was disconnected while /dev/video0 was still open,
-struct usb_interface (dev->intf) has already been freed by
-usb_disable_device() -> device_release(), so closing the file handle
-triggers a KASAN slab-use-after-free:
+> On Wed, 18 Nov 2026 22:00:33 +0000
+> Jonathan Cameron <jic23@kernel.org> wrote:
+> 
+> > Do you need that coherent snapshot to get to userspace in one go? 
+> > 
+> > For accumulator channels the way they are normally done to sysfs
+> > style reads is to snapshot on each read, update an internal store
+> > of accumulation since enable then provide whichever one was requested.
+> > That way no data is lost - but you don't get an aligned snapshot.
+> > So it depends on what maths you are going to do with them, whether
+> > it can be done in kernel and if not how much interchannel skid
+> > matters.
+> > 
+> > So tell us more on why you need that coherent snapshot to userspace.  
+> 
+> Sure, I can provide more context. Usecases are broad, but an example
+> would be that we calculate per-rail drain contributions over short 
+> time windows for comparative analysis between device states (device state 
+> transitions like screen on/off trigger snapshot), or for debugging and
+> power profiling purposes we correlate fine-grained ODPM data frames
+> (~1s intervals) with other timestamped system diagnostics in our tracing
+> tools (e.g. perform per-process-per-rail energy attribution), so math
+> happens server side, and the relative energy deltas between channels
+> within a frame are just as important to us as their absolute values.
+> In general, data from a single channel makes sense in the context of
+> other channels, there wouldn't be a client that requests only one
+> channel.
+> 
+> At higher userspace sampling frequencies, e.g. ~1s trigger intervals,
+> which can happen in both abovementioned cases, interchannel skid becomes
+> an issue if we read individually.
+> Because the latching and data delivery (up to 64 MKBP events)
+> roundtrip between EC and kernel takes non-trivial bus time that's in the
+> ~10 ms range, latching per sysfs read across 64 files spreads channels
+> across a hundreds of ms long interval, which would compromise coherency
+> and render the data minimally useful. It would also make the EC
+> unnecessarily busy with redundant work, so latching per channel read
+> isn't really an option.
+> But to Guenter's point, this could be solved by driver-side caching.
+> 
+> 
+> On Wed, 18 Nov 2026 15:00:20 -0800
+> Guenter Roeck <linux@roeck-us.net> wrote:
+> 
+> > You could accomplish that the same way many hwmon drivers are doing it:
+> > Read all attributes in one go from the hardware, then cache it for a period
+> > of time.  
+> 
+> I should have mentioned the importance of timekeeping earlier. As we're
+> correlating the snapshots with other diagnostic time-series data,
+> userspace needs to know when accumulators were latched as accurately as
+> possible.
+> In contrast to IIO, in hwmon:
+> (1) There is no timestamp ABI to propagate latch times, so userspace has
+>     to rely on its own timestamp when initiating a read.
+> (2) There is no trigger ABI to force a fresh latch on demand (e.g. on a
+>     device state transition), so a userspace timestamp only marks the
+>     start of a sysfs read sweep rather than the actual hardware latch.
+> 
+> So, unless I missed something, with a timeout-based cache in hwmon, a
+> reader has no visibility into whether it's hitting newly latched or
+> cached data or when the cache was actually latched (skewing time-series
+> alignment) or whether the cache has expired mid-sweep across 64 sysfs
+> reads.
+> 
+> We could probably tune a short enough cache timeout where time skew
+> would be negligible and mid-sweep expiries would still be infrequent,
+> then it's a trade-off between accuracy and more mid-sweep expirations
+> (more EC roundtrips). It could work, although we still would do 64
+> sysfs reads instead of 1 on each trigger.
+> So I guess it's not a must to send the coherent snapshot in one go, and
+> I cannot provide any data to claim that hwmon would be a suboptimal
+> solution to IIO, but our technical judgement is that IIO's explicit
+> trigger, latch timestamp and single buffer read is a cleaner fit for
+> power monitoring via the ChromeOS EC.
 
-  BUG: KASAN: slab-use-after-free in em28xx_v4l2_close+0x37c/0x3a0
-  Read of size 8 at addr ffff888007245890 by task test_em28xx_uaf/71
-  ...
-  Freed by task 10:
-   kfree+0x162/0x410
-   device_release+0xca/0x250
-   kobject_put+0x152/0x2f0
-   usb_disable_device+0x324/0x570
-   usb_disconnect+0x271/0x950
+This is all good information.  Capture a short version of it in cover
+letter for v2 and include a link back to here for anyone wanting
+the full gory details!
 
-Move the interface_to_usbdev(dev->intf) lookup after the
-dev->disconnected check under dev->lock, right before its only user
-usb_set_interface().
+Jonathan
 
-Tested locally in QEMU (x86_64, KASAN+UBSAN) using dummy_hcd and
-raw-gadget emulating an EM2820 device across open->disconnect->close,
-repeated disconnect, dual-fd open->disconnect->close, and normal
-open->close->disconnect scenarios (4/4 passed, 0 KASAN reports).
-
-Cc: stable@vger.kernel.org
-Signed-off-by: Arbab Haider <arbabhaider649@gmail.com>
----
- drivers/media/usb/em28xx/em28xx-video.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/media/usb/em28xx/em28xx-video.c b/drivers/media/usb/em28xx/em28xx-video.c
-index 84424284d..854fcc897 100644
---- a/drivers/media/usb/em28xx/em28xx-video.c
-+++ b/drivers/media/usb/em28xx/em28xx-video.c
-@@ -2503,7 +2503,6 @@ static int em28xx_v4l2_close(struct file *filp)
- 	struct video_device   *vdev = video_devdata(filp);
- 	struct em28xx         *dev  = video_drvdata(filp);
- 	struct em28xx_v4l2    *v4l2 = dev->v4l2;
--	struct usb_device *udev = interface_to_usbdev(dev->intf);
- 	int              err;
- 	bool last_user;
- 
-@@ -2512,6 +2511,8 @@ static int em28xx_v4l2_close(struct file *filp)
- 	_vb2_fop_release(filp, vdev->queue->lock);
- 
- 	if (last_user) {
-+		struct usb_device *udev;
-+
- 		/* No sense to try to write to the device */
- 		if (dev->disconnected)
- 			goto exit;
-@@ -2525,6 +2526,7 @@ static int em28xx_v4l2_close(struct file *filp)
- 		/* set alternate 0 */
- 		dev->alt = 0;
- 		em28xx_videodbg("setting alternate 0\n");
-+		udev = interface_to_usbdev(dev->intf);
- 		err = usb_set_interface(udev, 0, 0);
- 		if (err < 0) {
- 			dev_err(&dev->intf->dev,
--- 
-2.53.0
 
