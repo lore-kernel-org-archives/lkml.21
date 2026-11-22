@@ -1,89 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795319450;
-	b=2u5Rnym9ot5BKPJuU9VvNCd/scjOKEWAC2gVK9SYZmU9qh7AGGmcFFhJDL4Rhc3nfpdQ
-	 CIfe7dZMmenYI0hFo9//yemCMB/QkmyymPNdxooz5qisJGSsVX7xXcxP/lFYz+L7X17Tp
-	 fQSKBknwqy/cl9g6a7KhH6YdKEWrgwH0uaf6LpC/SWaCTfR+DQ0iTr6OLi15ZxRx43Rb/
-	 WnuVuh4/pnu1nU18UF2g5PFHfoZdaY2miv0cJ1RvvIAItwMaIl6+ZlDbwAyLUNVQctNc5
-	 +WzdSCSp9xYTslUtBfrg3Qgo6svgyQuIaHWv6u4xCvuW2JhjQabjSdUkh6itPNVslcA==
+	t=1795319576;
+	b=kJlV213lezQidLG4z2JvouhKeb6aTbAmm14fZyq8jAhOw3Z10zU5l8aj/3guzVlATHGx
+	 DtX6/Pmqu+/HuL+mcgSYDy8ZbQI2yRm/eG6KZe5DWd0uM90VHEmlf8nvSLAUZXhkGvVxC
+	 ZsygHFirysAWsYhTbGitnPOrNpR5W2xWRFN75k6Qt3rn2bga+0kkLiZCjN7Lm51kZL09y
+	 DrTA2tKaLtpefjJgO38JhfbVV7BwmGphI2Imo4uygCeMxl9nJYFmPQcNXC31imtnpbKEq
+	 zTW99p6j+O+BJyO/QTGQUJ2YpeyajFkB3+8UBVCq8xQ6MXEzN1wOU/Yz7SkzO1OE+Vg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795319450;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Message-ID:
-	 Subject:From:To:Cc:Date:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=K5EnhnRA88GWc7NKadVmxiNMdMbACdMfjR5tfrqsDQQ=;
-	b=mCfwO3i7ZlYKBasjr2xeqjGTZkJwXQMU+DYO6raCE9xEag9S3e7flxWGSMi5p4SNLNxN
-	 x1BjUVt6/ZZKag65RZMXdi+atOs6p7SBy4xoUbgtd3YvOPCd/rFzHg/1Fs2FC/UIK/i2Z
-	 CqVDzBPvdOrJx/RLi9wC6u1tt8qe/oZdXQlE0654YD+K7ILJsEthgJUYEXLQPGX07l911
-	 9TNM/DaATYkvzQlQApuRFPu++uISBjeNZbW+FfOJ+linl/AuIGYDfVH9f0eisW6Zg1H3u
-	 p6/7ePDqeOlRv64dEX4j5dYRwLKpCsxfRvJeQGBcpimabU3Z6TAT5cPurLaL2bzQD8g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795319576;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=b+r6XPfaUdJuFlB5RmbvVvkEeNjRjm4uTzzQBZy+VHg=;
+	b=jI3hC2Cca6NfYVNugDL/pLNTnmIb/t1ifBphDlOho9g/XAJKf3Z1J2SHNTLfSnpOwv/c
+	 xJjc4pgirTu9884SxaKxHxA/Rm0b5/Nq4hP5uwrUgVXP8l15LNMiCwh7DpaOWzgWQjV1x
+	 BMRG1ksxPgD0EvtS1VJQfy/j+tv2BRzm83wRhG47cQynyqo/+ste3klvvAYpK4COVXTAe
+	 sVjkuqYa9N+Q4nLxBdfuYNmFC8Sc3KWICSLW2Q4w4M9gZPRzKYY/x4ugJRU3NzEZWgeJG
+	 y1RLj/tJc+rOhi1qOwgyl4QrK6l+ws5gw9i5UFqlBpWJwRKfjBp10p4lfIRvFEOmFCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="E6QjLs/j";
-	arc=none smtp.remote-ip=198.175.65.17
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=PVXEtaWN;
+	arc=none smtp.remote-ip=74.125.82.197
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CC0B606A331;
-	Sun, 22 Nov 2026 03:50:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CC0B606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68B87606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 03:52:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68B87606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=E6QjLs/j
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795319450; x=1826855450;
-  h=message-id:subject:from:to:cc:date:in-reply-to:
-   references:content-transfer-encoding:mime-version;
-  bh=WSnI0fuzlcLmBWsud4Ap/Cbc62vFF+a3GpsYW9jGD5c=;
-  b=E6QjLs/jlAnDZtWGmGGQsKH23U1e8uojSpxwrqGduc/HU9CwRIFylMXF
-   nFtmYlDamPbTVsNY1J/GtGayFYXcmkI9jRTCsOvrt6oLi7V2MGuJJOZXi
-   CnqU8mir54DwMAI9rWQ821i5PcMj/0Oui382uEfufV2KAuq+b8nK2Ev5b
-   7JSWe3PCIu+WVfqm1eE6z5TvMZiy3mmFU9rlicGsUNglG7NGJ7fXHpwAD
-   6USWU9sERd5RaXSLVC4BFRuGdT/H8Ud6C8we1kGpXvw6FRW8hQPxY/unl
-   57wSKHkJVN/GdgqJFMrw2+0+MnE1rqRuAWktouurUYweBDK6RBYtGi8JL
-   Q==;
-X-CSE-ConnectionGUID: dzMNtqf1TXSM6XPXJBM4hA==
-X-CSE-MsgGUID: 0uFKxfrdQ/6UtLfQ5aRvAg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11973"; a="4164707"
-X-IronPort-AV: E=Sophos;i="6.27,226,1787036400"; 
-   d="scan'208";a="4164707"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2026 19:50:49 -0800
-X-CSE-ConnectionGUID: scw4q4upThOpWvTqI5ZpuQ==
-X-CSE-MsgGUID: mPvYgkQNSf+766xbxS+mQQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,226,1787036400"; 
-   d="scan'208";a="11096971"
-Received: from linux.intel.com ([10.54.29.200])
-  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2026 19:50:49 -0800
-Received: from [10.245.244.140] (abityuts-desk1.ger.corp.intel.com [10.245.244.140])
-	by linux.intel.com (Postfix) with ESMTP id 375EC20B8CD1;
-	Sat, 21 Nov 2026 19:50:42 -0800 (PST)
-Message-ID: <d012c58931efa38a782ac3484ea930d05a6407a9.camel@linux.intel.com>
-Subject: Re: [PATCH v5 2/6] x86/virt/tdx: Configure add-on features on TDX
- module init
-From: Artem Bityutskiy <artem.bityutskiy@linux.intel.com>
-To: Xu Yilun <yilun.xu@linux.intel.com>, x86@kernel.org, 
-	linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org
-Cc: Kiryl Shutsemau <kas@kernel.org>, Rick Edgecombe	
- <rick.p.edgecombe@intel.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	dave.hansen@intel.com, kvm@vger.kernel.org, yilun.xu@intel.com, 
-	xiaoyao.li@intel.com, sohil.mehta@intel.com, adrian.hunter@intel.com, 
-	kishen.maloor@intel.com, tony.lindgren@linux.intel.com,
- peter.fang@intel.com, 	baolu.lu@linux.intel.com, zhenzhong.duan@intel.com,
- chao.gao@intel.com, 	nik.borisov@suse.com
-Date: Sun, 22 Nov 2026 05:50:41 +0200
-In-Reply-To: <20261111-tdx-module-ext-v5-2-c74f764abc3d@linux.intel.com>
-References: <20261111-tdx-module-ext-v5-0-c74f764abc3d@linux.intel.com>
-	 <20261111-tdx-module-ext-v5-2-c74f764abc3d@linux.intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=PVXEtaWN
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-3846d5f54c1so2871892eec.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:52:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795319576; x=1795924376; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=b+r6XPfaUdJuFlB5RmbvVvkEeNjRjm4uTzzQBZy+VHg=;
+        b=PVXEtaWNAobpNBKrYAnGPsfINoEQ8arEHOITk/55CQev26mX6WjYKUhLNpYN8ORHpQ
+         4+bOoIqYKv6aembKZFkZE/VAcv8QJGfZRgEQf97ymqlrsVdWty2j+COBYAsxo7+iaoBX
+         ZSDUNobrqGzdChl8EAFEvsrk/rB3gVJ4PO5RwZ8Xqg3FBuFF1powXwFjXFZHx/zRNFYY
+         TfkayL+GlVPDHmdS6wngUbuqVYO5522Yb+nZ2f+4pQRCvCRI6YwTV3Psntif0XSrcjrs
+         WmiQSsGmC/8gKKULxvgdNMy3NuAF35jSlvD6Re2eZt65UTC9p9xenGTbdEwWrGZ6vGiu
+         wNhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795319576; x=1795924376;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=b+r6XPfaUdJuFlB5RmbvVvkEeNjRjm4uTzzQBZy+VHg=;
+        b=spogU2pptxjr8uJrHw3VKosQZ5YfzjZ62znRE81ewLt/MAWBSPLCJDJtaz0vFgRFSc
+         Rek730XzfIBPmDucUN4eIpCMSI988vusL/jpMt2RoIXF6iOy+FHfmkHfQlKmC089fMnf
+         e2kYlN5+TevxnX1KgZod7nW1usFBydif8guMIoBSz5dr+RR/6CLbqA248fAYaFmEKnJh
+         xCNT6Wwq0/UL5STFkGQtg3KCdx0zbR8UQJWtKgOjSu/iqqXANRGXW018Hpp6wYiIX6cr
+         /qScXDQEm2pJ/JmXULvaVmJky/JAOw/RVIoHPKm9F10iO/Ji4PJ/uPi8RC2haYFet9PX
+         QUQQ==
+X-Forwarded-Encrypted: i=1; AL+hErGYkr2/gDHnsJbnYyLojT/SrFly63ftV03SJknIBiDFt5qeWWZjIEEbpqFNTZ2KRpgmpeWOUoch2kv/XQQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+euKmdzfjeo4iuuEYoVIoV7PgsNR2TOxPlAHvwQxOxY3ZBa2Wm
+	sNN8iPNFfR+E6IaINSlceNbZn48AI4OqLN+dGqdH3VYc9QvSSDoWrcKmAFn6QHLceoSfZQJKqhu
+	9mBPAyr3AT7+Xhq4lEQ==
+X-Received: from dyev10.prod.google.com ([2002:a05:7300:430a:b0:343:520f:7a80])
+ (user=penghuang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:693c:8807:20b0:380:c3e7:7814 with SMTP id 5a478bee46e88-3856f65e4aamr7582380eec.7.1795319574972;
+ Sat, 21 Nov 2026 19:52:54 -0800 (PST)
+Date: Sat, 21 Nov 2026 19:52:54 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,86 +75,147 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261122035254.2891197-1-penghuang@google.com>
+Subject: [PATCH] sched/proxy, sched_ext: Skip proxy-exec on SCX owner with holding_cpu
+From: Peng Huang <penghuang@google.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Tejun Heo <tj@kernel.org>, 
+	Andrea Righi <arighi@nvidia.com>, sched-ext@lists.linux.dev
+Cc: David Vernet <void@manifault.com>, Changwoo Min <changwoo@igalia.com>, 
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	John Stultz <jstultz@google.com>, linux-kernel@vger.kernel.org, penghuang@google.com
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Yilun,
+During remote DSQ consumption or dispatch_to_local_dsq(), another CPU
+claims @p->scx.holding_cpu and drops the DSQ lock while switching to
+@p's source rq lock. Because commit 13ae184e4b82 ("sched_ext: Handle
+proxy-exec races in remote DSQ transfers") made proxy execution
+compatible with sched_ext, find_proxy_task() on the source CPU can pick
+such an owner while holding source rq->lock, forcing the transferring CPU
+to abort the placement and bounce the task to reject_dsq once it acquires
+source rq->lock.
 
-The patch looks good, but its framing can be improved.
+Like task_on_rq_migrating(), an SCX task with holding_cpu >= 0 is in an
+in-flight cross-rq lock handoff. Expose scx_task_held() in ext.h, have
+find_proxy_task() yield to rq->idle via resched_idle when an SCX owner
+is held so the transfer can complete, and pair the lockless READ_ONCE()
+with WRITE_ONCE()/READ_ONCE() on holding_cpu updates.
 
-Remove references to enabling all add-ons to improve it. This patch adds
-plumbing, it should not dictate/discuss whether all or only some add-ons
-should be enabled. See comments below.
+Signed-off-by: Peng Huang <penghuang@google.com>
+---
+ kernel/sched/core.c    |  9 +++++++++
+ kernel/sched/ext/ext.c | 14 +++++++-------
+ kernel/sched/ext/ext.h |  6 ++++++
+ 3 files changed, 22 insertions(+), 7 deletions(-)
 
-On Wed, 2026-11-11 at 11:48 +0800, Xu Yilun wrote:
-> The TDX architecture identifies some features that are off by default.
-> They are classified as add-on features because enabling them affects
-> existing TDX systems: they may change existing feature behavior, or
-> reserve more memory.
->=20
-> However, the impact of the first add-on features will be low enough to
-> pursue a simple approach - the kernel just enables them when supported.
-> If a feature with a very high overhead appears in the future, this can
-> be revisited.
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 5ed660f099a5..8aa309d86a6c 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -7108,6 +7108,15 @@ find_proxy_task(struct rq *rq, struct task_struct *donor, struct rq_flags *rf)
+ 		if (!task_on_rq_queued(owner) || task_cpu(owner) != this_cpu)
+ 			return NULL;
+ 
++		/*
++		 * Do not proxy-execute a sched_ext owner while another CPU has
++		 * claimed holding_cpu to transfer it off a DSQ before locking
++		 * this rq; yield the rq lock so the transfer can finish
++		 * without bouncing the owner into reject_dsq.
++		 */
++		if (unlikely(scx_task_held(owner)))
++			goto resched_idle;
++
+ 		if (owner == p) {
+ 			/*
+ 			 * It's possible we interleave with mutex_unlock like:
+diff --git a/kernel/sched/ext/ext.c b/kernel/sched/ext/ext.c
+index e29c9c18e1ab..5202f750a3b5 100644
+--- a/kernel/sched/ext/ext.c
++++ b/kernel/sched/ext/ext.c
+@@ -2043,8 +2043,8 @@ void scx_dispatch_dequeue(struct rq *rq, struct task_struct *p)
+ 		 * but @p->scx.holding_cpu may be set. Clearing holding_cpu
+ 		 * tells dispatch_to_local_dsq() that it lost to a dequeue.
+ 		 */
+-		if (p->scx.holding_cpu >= 0)
+-			p->scx.holding_cpu = -1;
++		if (READ_ONCE(p->scx.holding_cpu) >= 0)
++			WRITE_ONCE(p->scx.holding_cpu, -1);
+ 
+ 		return;
+ 	}
+@@ -2067,7 +2067,7 @@ void scx_dispatch_dequeue(struct rq *rq, struct task_struct *p)
+ 		 * unlink_dsq_and_switch_rq_lock() that it lost the race.
+ 		 */
+ 		WARN_ON_ONCE(!list_empty(&p->scx.dsq_list.node));
+-		p->scx.holding_cpu = -1;
++		WRITE_ONCE(p->scx.holding_cpu, -1);
+ 	}
+ 	p->scx.dsq = NULL;
+ 
+@@ -2978,7 +2978,7 @@ static bool unlink_dsq_and_switch_rq_lock(struct task_struct *p,
+ 
+ 	WARN_ON_ONCE(p->scx.holding_cpu >= 0);
+ 	scx_task_unlink_from_dsq(p, dsq);
+-	p->scx.holding_cpu = cpu;
++	WRITE_ONCE(p->scx.holding_cpu, cpu);
+ 
+ 	raw_spin_unlock(&dsq->lock);
+ 	switch_rq_lock(locked_rq, src_rq);
+@@ -2993,7 +2993,7 @@ static bool unlink_dsq_and_switch_rq_lock(struct task_struct *p,
+ 		 * holding_cpu with it so that no caller has to.
+ 		 */
+ 		p->scx.dsq = NULL;
+-		p->scx.holding_cpu = -1;
++		WRITE_ONCE(p->scx.holding_cpu, -1);
+ 		scx_wait_dispatching(p);
+ 		return true;
+ 	}
+@@ -3213,7 +3213,7 @@ static void dispatch_to_local_dsq(struct scx_sched *sch, struct rq *rq,
+ 	 * under transfer with holding_cpu, release DISPATCHING and then follow
+ 	 * the same protocol. See unlink_dsq_and_switch_rq_lock().
+ 	 */
+-	p->scx.holding_cpu = raw_smp_processor_id();
++	WRITE_ONCE(p->scx.holding_cpu, raw_smp_processor_id());
+ 
+ 	/* store_release ensures that dequeue sees the above */
+ 	atomic_long_set_release(&p->scx.ops_state, SCX_OPSS_NONE);
+@@ -3230,7 +3230,7 @@ static void dispatch_to_local_dsq(struct scx_sched *sch, struct rq *rq,
+ 		bool fallback = false;
+ 
+ 		/* the handshake is over, see unlink_dsq_and_switch_rq_lock() */
+-		p->scx.holding_cpu = -1;
++		WRITE_ONCE(p->scx.holding_cpu, -1);
+ 
+ 		/*
+ 		 * If @p is staying on the same rq, there's no need to go
+diff --git a/kernel/sched/ext/ext.h b/kernel/sched/ext/ext.h
+index d32bc01071b0..f936300b5aea 100644
+--- a/kernel/sched/ext/ext.h
++++ b/kernel/sched/ext/ext.h
+@@ -54,6 +54,11 @@ static inline bool task_on_scx(const struct task_struct *p)
+ 	return scx_enabled() && p->sched_class == &ext_sched_class;
+ }
+ 
++static inline bool scx_task_held(const struct task_struct *p)
++{
++	return task_on_scx(p) && READ_ONCE(p->scx.holding_cpu) >= 0;
++}
++
+ #ifdef CONFIG_SCHED_CORE
+ bool scx_prio_less(const struct task_struct *a, const struct task_struct *b,
+ 		   bool in_fi);
+@@ -75,6 +80,7 @@ static inline void scx_prepare_setscheduler(struct task_struct *p, int policy) {
+ static inline bool task_on_scx(const struct task_struct *p) { return false; }
+ static inline bool scx_allow_ttwu_queue(const struct task_struct *p) { return true; }
+ static inline bool scx_allow_proxy_exec(const struct task_struct *p) { return true; }
++static inline bool scx_task_held(const struct task_struct *p) { return false; }
+ static inline void scx_proxy_donor_start(struct rq *rq) {}
+ static inline void scx_proxy_reenqueue_retry(struct rq *rq,
+ 					     struct task_struct *next) {}
+-- 
+2.56.1.750.gf70dc682cf-goog
 
-This sounds like all supported add-ons will be enabled for simplicity.
-
-The reviewer keeps this in mind now.
-
-... snip ...
-
-> Pass the bitmap of features that are supported by both kernel & TDX
-> module to TDH.SYS.CONFIG. Initially, the bitmap is 0. It will be updated
-> to contain specific feature bits as full kernel support lands.
-
-But this says that it enables no add-ons. Now reviewer needs to spend
-brain cycles to process the contradiction, unnecessarily.
-
-... snip ...
-
->  arch/x86/virt/vmx/tdx/tdx.c | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
->=20
-> diff --git a/arch/x86/virt/vmx/tdx/tdx.c b/arch/x86/virt/vmx/tdx/tdx.c
-> index c7bd0b01786d..3bfe78b4b538 100644
-> --- a/arch/x86/virt/vmx/tdx/tdx.c
-> +++ b/arch/x86/virt/vmx/tdx/tdx.c
-> @@ -1033,9 +1033,19 @@ static __init int construct_tdmrs(struct list_head=
- *tmb_list,
-> =20
->  #define TDX_SYS_CONFIG_DYNAMIC_PAMT	BIT(16)
-> =20
-> +/* List all kernel-supported add-on features0 bits here */
-> +#define TDX_KERNEL_SUPPORTED_ADDON_FEATURES0	(0)
-
-Suggested comment:
-
-/* Specify add-on feature bits to enable=E2=80=9D instead */
-
-I think that this patch should not dictate "all" vs "some", no need.
-
-... snip ...
-
-> +	/*
-> +	 * Use SEAMCALL version 1 that supports add-on features if any are
-> +	 * requested. Otherwise use version 0 for backward compatibility.
-> +	 */
-> +	if (addon_features0) {
-> +		args.r9 =3D addon_features0;
-> +		args.version =3D 1;
-> +	}
-
-Separate nitpick for the comment.
-
-Suggested comment:
-
-/*
- * Avoid unnecessarily requiring version 1 when no add-on features to
- * request.
- */
-
-I was confused by "for backward compatibility=E2=80=9D, which sounds like t=
-he
-kernel or the seamcall falls back to version 0 if version 1 is not
-supported.
-
-Thanks, Artem.
