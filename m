@@ -1,55 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795306696;
-	b=KdQLdEWbuCcarRvQP4OyRNuT9XsU2o447GDVLQNfamJEX2G4K8onsvC9FYP1NsBFUSWq
-	 4gvy/gYvvYMGYlrQH1/2VETIJJuKKlrUYKzMOKY53koSKpjwSg28QLb15H01ANZRtodnO
-	 mVjzddNkvSAmW+XousCwo22JWX+Px2jSY5Can3qlG1UV/iZexQVUNxUyD1hdodcKzwDan
-	 4DoMkOzgxt5goqq55z4lmgFb9H2VzsnAMZxB5LY6PxIl6RR3H67kdXdYr/nj4q66lQmT7
-	 sMQ75/TQXGyAEbmhkmRaCMIsF7QVZS+EPaMvbiJ7OHb4UeZO7GPJTW6N1hCCXCUn8ig==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795306696;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=n3n064Qsk3rdX1FqPH4kxS8Bgm27CPleORQhLo802h4=;
-	b=PvBVzNiSeAs+Z3HiuHp4LyCjWCgAd3mfHkC9+yeK4eBvFIQO72LyPTPyXrOUfrQSbGO+
-	 B3xADeGszRkXo55hPZ38VnYyXq1TIZXSu6/hzHxyu04HTPMcGR3Xwiimajl4qlVmSgr0N
-	 yl/lIcPgIsGFMc0MVwEq7RBNjvgaGJ0CqRn2VIUVxHovrmL9kWPE8f2/46eokaGKKDyNv
-	 AHmNhMrI+T3BqxbX4GFJ1iINgSIVp6dZMMqypymTwZn+K8mGwDiulJml2ERHlfUy1jeAe
-	 q7Y2jZohw1mM2ARDWgPbafk/9m1ZHb30kDKTFNSccbCdynI9dByX/TXZHCMWRbphLQA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eohuO05q;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795306715;
+	b=x1n5yMQtN7Roc7gmoFKJl9GLp2kwidDWVODdvIfxnlEGxsiMV/F+2mKXYg6hFy33vw2l
+	 PN+MdoG1U22jekOeb87oid0cqIwjm+XSIVysTiFf+eHHQLHf6srYTmOpFFdcnLBhD2fpQ
+	 +j1CPEooh4WGasd7S6/w3OaMH/C8HvXl7BJzIleA+Ew2VAMDV45Rgd8Q8QdwEN1BifYS/
+	 lRp/0VSCO3w+/QOEdQXruReDD1Gqbxe0XWqK1TEPCAvjvN7ldSdnu+hPYRhQ+YCmt0y8e
+	 gffsWYSnYaagARw5GF7o5o3l4DKpGj+oDxxnTGJj5tIRxW1Qhuo1f7nezYzbiIWaLBA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795306715;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=z4JW42X5iD/lJnTftpanyIMbBetfqY4zpOSQ2Qgitb0=;
+	b=boH4gWf3wz8svQ3yPzgvrk+iwhVKrGpb0db8JcWu+N/zP2+pjsQcePeeAIi0yHvzxlsB
+	 JgLDJyyMQX/8oOxh5giok0ZmjX2JLmk6yc297Tff60JyTbT1e33B2vvBk3rHJUQfRksst
+	 HvlYXD8fuqBAIISH5PjCnuHvl/P0eimiOD8IpD1FWqNaHWPEQQWrX/FswIGbVmUtG2iyM
+	 m571ckB8nAk6K2LSg4ztoOBlxt7QIApSw66BS7aIkuZaHkX8kTF2D00tae+EdWmFhnLew
+	 ybBR1y/rfrATtjQ+WIDltxM2NvHMo6ugBiDk4YLq1JMUtoR511Bbx5Doewo7Qu5rnMg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X86+OiFx;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C13F606A338
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 00:18:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3F46606A333;
+	Sun, 22 Nov 2026 00:18:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eohuO05q
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 209A71F000D0
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 00:18:16 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X86+OiFx
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795306715;
+	b=d3ZQ+ipZIN4EcF8oSztDtYSTN7AIYEHp1pbmEt2pw6lyOdIZQPH4jkznP14f9pfs/Z0x
+	 aFgPnG0mgZa09CkSvYluRLbMxU5CYjjNQIyPuYCA3CaWxIZ+BFM/Jl+NmQA8BJ9V+dG0s
+	 AnrwXEMHWFHCaANH3gTtbY09hVwIjLAGqfokUHQ/zFK+UmANqug9zY3mCoJazp1CZ4VlQ
+	 E7d9POyRC3W+3r5iR9qz8FngwBop0L1E3qBaIo/QFCxGdZMBkc7WnEYACk+BPG/6L/Hfq
+	 p08TUqvsjW0QCSeuVLRvGD+v7DzOu6HBv3BlzkkUTCs9rejrXT/eOZpSzg2TjltjnEA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795306715;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=z4JW42X5iD/lJnTftpanyIMbBetfqY4zpOSQ2Qgitb0=;
+	b=0hNb3D3O9tKRBPX9PFRZQ4K6URV9/hTmej/9dzGvL7miWFhBUwkkHWDhM7yk9iGLRmxB
+	 kE5lxlYYLtS69ODpyb3f9dRu936Aeq0R4CCiXaCmlvccKziDpUa4GXaJlwzIwDwIGtkT7
+	 CV5qodEDBYMkqkjYGSpk+9I55+5PHaGiGNQiexWlAMRq2HBt0/n65dJl17k6TsB0jZXnX
+	 SRDD9KQnqZnSN+iFUWXm4pIPqK2SizmW/ZMFQEZb3N7VvHKy34lPuGNwzUxdN63natvV0
+	 10EB7n2q/LoAyt5xsttVfqyBHkHTE5LiOFGh5hL0TwLk/j0xMZ5Lz0jUmGb+aRWGXCA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 9351A1F000C4;
+	Sun, 22 Nov 2026 00:18:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795306696;
-	bh=n3n064Qsk3rdX1FqPH4kxS8Bgm27CPleORQhLo802h4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=eohuO05q1IHKD2z24EmnbHK6EZjlYRSfGlTuLjhQlM8YfpqjrSuilbC0yg15Rpg4r
-	 +Ap5+FWwomY68WPOoCjXyNbnbL07D0Pr9Yic6d1uI2+SqGy+mfHn3z/FmOUmFO9vQU
-	 dkd7Mla4Ccq1qd+e6EtyEUiyT0+HW08x+E2R4ALePJIN95H9EEdsALz5VmGJlgHxlu
-	 FbB8M1EHHe5wU6ELCvxscDsFON8mOC26s5UxjpTxxfecI5KVI4VQb5KTP7Dvq3CVSN
-	 zV+5NnK5eh1SyFMERHXAVu6VlAyV+Slfulp+K3X8dDa4T1DDrUD/+Phn8obyJmGJji
-	 4ZVJHxyoOWriA==
-Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6b88d143160so2478082a12.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:18:16 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEvaIHgE3RXBsnQRYEQehh3Qv2Yz1tv/jcLMWLaLn7oiEvDPPy41oOMpByW9oNE8olXD+sKGvg0DVedZvM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Rcn20WBdS9PTu4oC9S4pLS5gkPxS/zn7H2WFOa6QNHO11U5YS
-	PmyvwgC8YFvd0RT9tDK7R4hRdWEa3k1DGR4+fdk7ZVSJxwVcnENq+fffWWPrnzSvQzqdm+UiPUn
-	7tj479mjbfjO3kvrnFCwvwU6NQrUO8XY=
-X-Received: by 2002:a17:906:b2d0:b0:c4d:2f6b:435 with SMTP id
- a640c23a62f3a-c513a9ae264mr488487966b.18.1795306694724; Sat, 21 Nov 2026
- 16:18:14 -0800 (PST)
+	s=k20260515; t=1795306715;
+	bh=z4JW42X5iD/lJnTftpanyIMbBetfqY4zpOSQ2Qgitb0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=X86+OiFxsRqmE4RajiujrKicCC2iLiCwcH6cV/KDtYDVe9lkOlWRts91MfSyEz3uX
+	 FdPfc4V6mFOvr4w31u2KvWyHT+ceGALjKmQJfgrMo70MwDSOgopfx41GZcgv1ik97l
+	 Jh7Ww6Cr8fOlgS+lUxMzngUFBPOHMMade4eRp0eAHqoLuNtEh1itjNX9cgwHk7edCn
+	 WlrHTKrr7Eq8syjB3N3SJS2t2gcTJYWYA3nFYCa8k75VUDrnoynS7pLhQJevA/qaKw
+	 UaabVH5AXFgiq5rtigjjAP4rD0wYxemE1UrykHkepbLVu3l0/vakzTbW49Lrny+MR6
+	 l8PpVJBpLFthQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 1520B4BE84;
+	Sun, 22 Nov 2026 00:18:34 +0000 (UTC)
+From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
+Date: Sun, 22 Nov 2026 00:18:22 +0000
+Subject: [PATCH v2 1/5] dt-bindings: cpufreq: apple,cluster-cpufreq: Add M3
+ family compatibles
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,99 +83,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261121174315.500249-1-shaopei_1012@163.com>
-In-Reply-To: <20261121174315.500249-1-shaopei_1012@163.com>
-From: Namjae Jeon <linkinjeon@kernel.org>
-Date: Sun, 22 Nov 2026 09:18:02 +0900
-X-Gmail-Original-Message-ID: <CAKYAXd8uKrOU=tyJ1yqme=3HBwyLu4-Hg9cw03+VZ+P4k0-B9g@mail.gmail.com>
-X-Gm-Features: Aa3M54ovn0x5mU7utYfTW_4kD8G5XRkVPTYp1VL9xIHSa_8ooIpRyn09CO-AvZ0
-Message-ID: <CAKYAXd8uKrOU=tyJ1yqme=3HBwyLu4-Hg9cw03+VZ+P4k0-B9g@mail.gmail.com>
-Subject: Re: [PATCH] exfat: add EXFAT_IOC_COMBINE to append a file's clusters
- to another
-To: Shaopei Zhu <shaopei_1012@163.com>
-Cc: sj1557.seo@samsung.com, yuezhang.mo@sony.com, exfat@lists.linux.dev, 
-	linux-fsdevel@vger.kernel.org, linux-api@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261122-m3-cpufreq-opp-v2-1-3c19963f55ee@gmail.com>
+References: <20261122-m3-cpufreq-opp-v2-0-3c19963f55ee@gmail.com>
+In-Reply-To: <20261122-m3-cpufreq-opp-v2-0-3c19963f55ee@gmail.com>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Michael Reeves <michael.reeves077@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795306712; l=1356;
+ i=michael.reeves077@gmail.com; s=20261107; h=from:subject:message-id;
+ bh=+HvmgCEavFBOajIqGH23VOYZLXgPd/UuvSVcHqeHPKw=;
+ b=z7zddloP5EtRFMXyJY5E/A9JMBGgVglJHOLM/RajrTCnZGnaUnELqAyKW6QCNFMSGGsSeOZgc
+ NnaUlAcaOpdA31VcpHe18Zo1yn03btSsZQKUSUQTAf3j0IXXXcTkCNf
+X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
+ pk=ykwkLcuByJYb/cdLc2UuoYP03pIzwrscEZg30+4tJL8=
+X-Endpoint-Received: by B4 Relay for michael.reeves077@gmail.com/20261107
+ with auth_id=1442
+X-Original-From: Michael Reeves <michael.reeves077@gmail.com>
+Reply-To: michael.reeves077@gmail.com
+Content-Transfer-Encoding: 7bit
 
-On Sun, Nov 22, 2026 at 2:43=E2=80=AFAM Shaopei Zhu <shaopei_1012@163.com> =
-wrote:
->
-> Cameras and dashcams recording to exFAT SD cards often write the video
-> stream and auxiliary data (e.g. IMU samples) to separate files and merge
-> them when recording stops.  Doing that with read()/write() or
-> copy_file_range() rewrites the whole payload, which is slow on such
-> media, wears the flash and needs free space for a second copy.
->
-> Filesystems supporting reflink can already avoid the copy by cloning
-> the source to the end of the destination with FICLONERANGE and then
-> unlinking it.  exFAT cannot share clusters between files, so it needs
-> an operation that moves them instead.  Its semantics follow from the
-> exFAT on-disk format (cluster granularity, a single valid_size per
-> file), so it is added as an exfat ioctl rather than a VFS interface;
-> fallocate() does not fit either, as it only takes a single file.
->
-> Add an ioctl that moves the cluster chain of a source file to the end
-> of a destination file and then unlinks the source, so that only
-> metadata changes: the FAT, the stream extension entry of the
-> destination and the entry set of the source:
->
->         struct exfat_combine_args args =3D { .src_fd =3D src_fd };
->         ioctl(dst_fd, EXFAT_IOC_COMBINE, &args);
->
-> The source is unlinked the way btrfs_ioctl_snap_destroy() removes a
-> subvolume: start_removing_dentry() revalidates the dentry of the open
-> file and locks its parent, may_delete_dentry() checks the permission as
-> unlink(2) does, the entry set is deleted by the same code as
-> exfat_unlink(), and d_delete_notify() updates the dcache and notifies
-> watchers, without re-entering exfat through vfs_unlink().  Since the
-> in-memory inode no longer owns the clusters, evicting it frees nothing.
-> The permission is checked before anything is changed, and an already
-> unlinked source is accepted.
->
-> As with EXT4_IOC_MOVE_EXT and F2FS_IOC_MOVE_RANGE, the source must be
-> open for reading and writing, the destination for writing, and both
-> must be regular files on the same mount.
->
-> exFAT has a single size and valid_size per file, so clusters can only
-> be appended at a cluster boundary of a fully initialized file.  The
-> destination is therefore first zero-filled up to the end of its last
-> cluster with exfat_extend_valid_size(), leaving a zero-filled gap
-> between the original and the appended data when its size is not
-> cluster aligned.  This is documented in the uapi header, and keeps
-> stale on-disk data out of the file.
->
-> exFAT has no journal, so the data and the FAT, then the destination
-> entry, then the deletion of the source entry set are written and
-> flushed to the device in that order, as recommended by section 8.1 of
-> the exFAT specification; the allocation bitmap is not touched.  A
-> crash at any point leaves all data reachable from at least one entry.
-> In the worst case both entries share the appended clusters; fsck.exfat
-> keeps them in the file it checks first and truncates the other one, so
-> either the combine has completed or the source still holds its data.
-> If the call fails before the clusters are moved, the zero padding is
-> removed again.  s_lock is only held while updating the FAT and the
-> entries, not while waiting for the device, so that writers to other
-> files on the volume are not stalled.
->
-> No file data is copied, so the cost depends on the number of clusters
-> (when a FAT chain has to be built for a contiguous file) rather than on
-> the amount of data.
->
-> The ioctl number is taken from the 'r' range next to the FAT ioctls.
-> A user space tool for exfatprogs (exfatcombine) and a test for fstests
-> (exfat/002) are posted separately.
->
-> This patch was written with the help of an AI coding assistant
-> (Claude Code, Opus 5.5); I have reviewed and tested the result.
->
-> Signed-off-by: Shaopei Zhu <shaopei_1012@163.com>
-First, Please check Sashiko's review comments.
+From: Michael Reeves <michael.reeves077@gmail.com>
 
-https://sashiko.dev/#/patchset/20261121174315.500249-1-shaopei_1012%40163.c=
-om
+Add compatible strings for the Apple M3 family cluster cpufreq
+controllers:
 
-And please send exfatcombine's PR to exfatprogs.
+- apple,t8122-cluster-cpufreq (M3)
+- apple,t6030-cluster-cpufreq (M3 Pro)
+- apple,t6031-cluster-cpufreq (M3 Max / M3 Ultra)
 
-Thanks.
+All three are compatible with the M2 (T8112) cluster cpufreq controller
+and fall back to "apple,t8112-cluster-cpufreq".
+
+Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
+---
+ .../devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml          | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml b/Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
+index b51913a81791..516216cb6ad6 100644
+--- a/Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
++++ b/Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
+@@ -36,7 +36,11 @@ properties:
+           - const: apple,s5l8960x-cluster-cpufreq
+       - const: apple,s5l8960x-cluster-cpufreq
+       - items:
+-          - const: apple,t6020-cluster-cpufreq
++          - enum:
++              - apple,t6020-cluster-cpufreq
++              - apple,t6030-cluster-cpufreq
++              - apple,t6031-cluster-cpufreq
++              - apple,t8122-cluster-cpufreq
+           - const: apple,t8112-cluster-cpufreq
+ 
+   reg:
+
+-- 
+2.56.0
+
+
