@@ -1,54 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795358985;
-	b=EUdeszetR5IIlpyf1qSJ/Rs7bPxjWusarwkC8xj/fRTZ0tFBpihdPPN+eedR8xstuZSZ
-	 XNzItVKWTIivH1tK7nXfFVofNGEKygXrt0xVW9gtv5uEH0T90LRkGBSX6vy7doQy2spyw
-	 7Pgt9QTONbRhdWuyYSt1ivEsGlgSTqt0YEi6QxgOtiBysDu0y2OBz4WMl3V7hVfb7Z0ls
-	 W4/zTkprROXecVpmwxqELruK22WqIAwX10gG5DrezeqqTKXgSEF7gi1j0PgHbN5jZ9te1
-	 T1HEqB8C6w+RbkkTKtCtvzXxbLTUtbD4ye/NN0dGr3VL8WLM+HrmHda1yrCCHjKMNEg==
+	t=1795358991;
+	b=wloIpDz5NeuPd6bp9cO0wHSdHok5lXQJXlojZ4wUs5ShvKok6ce+250YxbgySI0mhYho
+	 5J9m4LwrUgdJFz2VUJxFQjbu+rBFdVj1zCt/RcCu2nr6fgdwbM+H4gyjp/pJtAu1FLGXf
+	 aLQ6OYbyMPNJIRGFb1cTQLAHavMK8k89pzKC7lAapaOb9oDhUO6W9Qzh/oyTn3aScd4Xj
+	 OAMZ6iNKQHpr/sc4yz+7MUyJuCNnZiicu2uiP5Rr8btXhPipdyKJGhmPIaepyF+kcWa0K
+	 pObY/AtbKvHc5QK0d2ah7AmVu9JEsYOBak/YmXVyB0l4yLgS4Odk2nOI16W2YfH9bbQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795358985;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795358991;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=UT6ps64F668nova2kLKPiXUITTrjy6DxQnfrymQobSo=;
-	b=JQzi1B3z6sShYIWT0jZrBhchh1RDO2O+vrLGV64jcGP2VLWCqe0jMNmJVgSj2lL7d3zZ
-	 +j5Zlt2dADBNAl1b7/X2g4iRFxyq26o9i090Qgp7Z9AToBwKePRTAY/SRNyNDt8tJVbOD
-	 Tb5mDjQDb2Ov9kSsMadIo+gJNV9vCdNtl/hTALX/TrEsTjPCdKPOIDB/UcI+W48m6IisE
-	 zvMmA7SVriOyjQ+d77t//gH/MlIZG8rocyXdF8yrvRx58skuPstpVIrDTuykvY/3xYDBy
-	 1c5LB3wOe1d0GhPq0qrb3iVN3zPhwK+YeMAk30Bc1SqJCZT2v9GVclh5gyM+OQdR4Gw==
+	bh=D7IyEM1xmU0ttRjHhZmbac+rxu8OBN35sVrm+mJoCRk=;
+	b=NClmxcXO8r57yLSQulsKvijLnYWgnZgZl889LI/TxZPDuDNWy4bGVeDDxuLZc7RV3a3Y
+	 EnbiB56KioRtZSyxBAbBZtKbZTlk3x72gbYnsLA4h/9R5IbbNH9u09MfYoqLxKv6rPM4s
+	 5J7rPTqFzB7hnm2QtgReL0HHqu+X0rcfytW5GmojY9YhbZjNjFltvuO/6OxU/X7pFdZOk
+	 WJxtedbdSd9j2yh+1DM3L61PnOe5f/T29OeNdfIrYJEXv7H8i5cuxoWYtEvxjAsinoRf6
+	 1O7iGRPzg9GMvvuocLezebT9tRqWgtetxjNVepTMUTCzZHMriTmGE+RjviOIfDjZMkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=N66DNJa8;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=GpGtKWCC;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B6C5606A32A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 14:49:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B6C5606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E10D5606A681;
+	Sun, 22 Nov 2026 14:49:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E10D5606A681
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=N66DNJa8
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=GpGtKWCC
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 9EEA31A1709;
-	Sun, 22 Nov 2026 14:49:40 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 8F2744E416E5;
+	Sun, 22 Nov 2026 14:49:49 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6B10D60512;
-	Sun, 22 Nov 2026 14:49:40 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2790711E60230;
-	Sun, 22 Nov 2026 15:49:28 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 5E1D460512;
+	Sun, 22 Nov 2026 14:49:49 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C139A11E60230;
+	Sun, 22 Nov 2026 15:49:45 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795358978; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=UT6ps64F668nova2kLKPiXUITTrjy6DxQnfrymQobSo=;
-	b=N66DNJa8YjNzKnWHnzM692QDi5itNkxnx6Ayb++iXjPUDAcogJMw+rMrENYvBOWTlFBbom
-	mTGXMFnyfNjZzPZSpCZ9BRLDj/vwGTBAsEjw3+M+m0C8MgwD1KQSxrMhgsQsQvBAyCYblY
-	P5/96JdenISrIOSaThFIZmtkt08J1BlT9/Drbqd8rA6YHNh5Jp8rfh4JrL2cn0kPUJzov5
-	5dIqnVzbbHCwzdGIjAsvUuyzm4v7LomRT5Vw7XoROt3MEDB43GesDqX0O5ybkXMHyKY3tw
-	+95lW2RqUXKwLe+eEfIrFCN0/EMgknyHpCFl1qbfn80sxNR0ethuhWhqjal7tA==
+	t=1795358987; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=D7IyEM1xmU0ttRjHhZmbac+rxu8OBN35sVrm+mJoCRk=;
+	b=GpGtKWCCC3MKNfOoI9bnaurUaYqwDrMC0Zhaje4JhlVDcuunKO+frhiuzRN6tbh1rv51QB
+	N3cRNRiHcqOzw9JQHYjXb3DFyuZTgKiO2nHJDLD9SuhMH0U0DqDgL0O798PTLbhv5mPiWV
+	jxhTtAzYrlDl7Mhuyccnpac5QjlNLP2fyT+r06zaRDRrXga4giDTeLBuuWzGUakrodJpBP
+	fj1wUaU5XcRiBFU3oJiDIzptPkQIe9xBnia5O0k7let9FxVAu+fZJAS1uDeKvfO5Gi+20j
+	2dmChr5IAJip0AAjdvv0XlTMct7YQSh6+jcoetQjzb3XLj1ltzAMgvkK7uxF5Q==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	Jakub Kicinski <kuba@kernel.org>,
@@ -72,10 +73,12 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev
-Subject: [PATCH net-next 0/3] net: stmmac: dwmac-sun8i: enable Flow Control
-Date: Sun, 22 Nov 2026 15:49:22 +0100
-Message-ID: <20261122144926.284857-1-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next 3/3] net: stmmac: dwmac-sun8i: configure the pause time for TX flow control
+Date: Sun, 22 Nov 2026 15:49:25 +0100
+Message-ID: <20261122144926.284857-4-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261122144926.284857-1-maxime.chevallier@bootlin.com>
+References: <20261122144926.284857-1-maxime.chevallier@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,48 +91,48 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 
-While running the "ethtool -t" selftests on H2+ (orangepi zero), the
-Flow Control selftests consistently fails.
+When sending pause frames for flow control, we need to indicate the
+number of quantums the peer should wait before sending more frames.
 
-I originally blamed that on the fact that the board was connected to a
-peer that didn't support Pause and that we didn't negotiate Pause at all.
+This is maintained in stmmac's "pause_time" global variable (it's a
+module param).
 
-The ethtool selftest are sensitive to what the Peer advertises even
-though this is a full loopback test, but it is what it is :(
+Let's program the pause time value, and also allow sending the
+zero-quanta pause frame when the peer can resume sending traffic.
 
-Since then, the orangepi zero I'm testing dwmac-sun8i on has been wired to
-a proper peer, and the selftest still fails. This selftest sends tons of
-frames in loopback and checks that Pause frames are generated, and
-failing it means no pause frames were sent by the MAC.
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-Turns out, multiple things were missing in the dwmac-sun8i
-implementation to get Flow Control to work.
-
-Patch 1 allows independently setting RX/TX FC
-
-Patch 2 is the one making FC actually work, by configuring the fifo
-thresholds
-
-Patch 3 sets the quanta values in the frames.
-
-This seems to have never worked, so since it's not fixing a regression
-I'm targetting net-next here.
-
-This was tested only on H2+.
-
-Thanks,
-
-Maxime
-
-Maxime Chevallier (3):
-  net: stmmac: dwmac-sun8i: allow controlling TX and RX flow control
-    separately
-  net: stmmac: dwmac-sun8i: emit pause frames when the RX FIFO fills
-  net: stmmac: dwmac-sun8i: configure the pause time for TX flow control
-
- .../net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 30 +++++++++++++++----
- 1 file changed, 25 insertions(+), 5 deletions(-)
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+index 75c743dfe348..613199da57c1 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+@@ -232,6 +232,8 @@ static const struct emac_variant emac_variant_h616_emac1 = {
+ 
+ /* Used in EMAC_TX_FLOW_CTL */
+ #define EMAC_TX_FLOW_CTL_EN             BIT(0)
++#define EMAC_TX_FLOW_CTL_ZQP_FRM_EN	BIT(1)
++#define EMAC_TX_FLOW_CTL_PAUSE_TIME	GENMASK(19, 4)
+ 
+ /* Used in EMAC_INT_STA */
+ #define EMAC_TX_INT             BIT(0)
+@@ -784,10 +786,11 @@ static void sun8i_dwmac_flow_ctrl(struct mac_device_info *hw,
+ 	writel(v, ioaddr + EMAC_RX_CTL1);
+ 
+ 	v = readl(ioaddr + EMAC_TX_FLOW_CTL);
++	v &= ~(EMAC_TX_FLOW_CTL_EN | EMAC_TX_FLOW_CTL_ZQP_FRM_EN |
++	       EMAC_TX_FLOW_CTL_PAUSE_TIME);
+ 	if (fc & FLOW_TX)
+-		v |= EMAC_TX_FLOW_CTL_EN;
+-	else
+-		v &= ~EMAC_TX_FLOW_CTL_EN;
++		v |= EMAC_TX_FLOW_CTL_EN | EMAC_TX_FLOW_CTL_ZQP_FRM_EN |
++		     FIELD_PREP(EMAC_TX_FLOW_CTL_PAUSE_TIME, pause_time);
+ 	writel(v, ioaddr + EMAC_TX_FLOW_CTL);
+ }
+ 
 -- 
 2.56.1
 
