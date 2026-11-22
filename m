@@ -1,55 +1,122 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.148
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795353301;
-	b=X6uE03p7Py2PdJMYORV2F7vW87yzpiS09mT4DfOjJdrO167LFHFAecam1ACnV6W9Av0E
-	 H3OZfmimxchbQ4ETZbolpHcqIQMU7buHOU7aBd2ZyHjc377vDCqVQF/3L583BUE+GV/qx
-	 55eGHqgR2yLZzHKE3RcM3G1QraF0ARdaUkxY9kyZbSeW48wN5QvGpEFZT5BRRadbFzz01
-	 WqdWScX7XGl4SDcBYuZIyn6OipD7PENzP1Xf0IRw4CfyGEuq8Shr/yiu+EH0M0bFKjlTI
-	 h/ROjropzKOU2Z8BZCjDlyl0V85O6U1VIOA4mJEhS9uMpNTf4WwfO5gyAeqG3yftYvg==
+	t=1795353477;
+	b=KSXB6ohDU4tw7u9uOuaa6vPy8ffzn1gy4oAlLsAhJzSghVubxsYJKshHd0jEUcqiPlUh
+	 5GAfcPtVzc1mGls54LSQpLJM7mt7MnpRw6N9TnUMCbPp3Xmx3g5P9u719fNjw3E2EyTV/
+	 tLxHqkUN9qDoSSDOFTNHA6b7imGO2EMh9y5b+SofesLPon+SOMFx/LD2iAbWUWU+zRzcm
+	 V41vNOohZhsolOS27UzOumgl2qhC+cyJ45p1ZKerCooHNxyvnmeRi7rUeFg7rfN3tBR5h
+	 h1PtN8NHfnIJLfDFenvaWikpLf32nIEAj+LynQIJ5eWrmk2LfLtoLUJtYpmtMYtBzIA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795353301;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795353477;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=SISesY1O9y/+oZcxuShwuyNoIlQSRIfQ8qcTbcJSWow=;
-	b=n+9y0IBmJ/YdY+Dn59y8p34bvuSEbL7uBv6zUIlDuwnm7j/4u/87S8kLo3SNCML4xg/m
-	 y/LXuDPSWJvfqnXfmjYa7rrBc1rI1jOwdHoXKHQ7C10idz4RTEC0xBOTvn7BDKsAbm1kK
-	 8yE5urBrzknbRSml8ybSRm6127Ah0lV/kZHlHWEpzUiXmTO7QCPLAcdPFxCl5E6eW+wzw
-	 d8wDoSAdNuMNqtBDTqlGUI3Yi/5r7yewczmmgoc8dlJXad7qa9Qf3jyI7CQNUpoHhqV7W
-	 q0kKrh3N+nk4jK8wHeLV5PJqa0TpeJ54M9OtzKJbWv+oKcm0dcqHflrKWohLYVlNH7w==
+	bh=fvlZSAhLg8bGLT8RqiJpA4DYdMhQ5TtKUqm0SgXDsp0=;
+	b=WQSmJueWMGM9Y0UBbWTfkfq/8QCtLvfqjwmtXUR2sz3PBaFkjnT7qmjcxRJld8YWpAHs
+	 Ee7h5pegX3cYgi9gAs/p9dnCxCpSlasKjJ4BQqZGvQ1Tvnbq+4rVilJObG+SBJbD6IuVC
+	 rAGVp+3ugwozPrQD9lEnkE2KQzKJ5THZovxAElAtUve/fzQDlRIT6YRX1Uc3kAh4GqwQ1
+	 DdimEQNLZ21/BCSrF1R/fAC3CnRXZSf2RhiKc5ZBjoSCNrhrFR2DDG3wFuCGHLrd8AkqO
+	 eYgaSZR/eL7jA/M2rVPWydLLzD12G5Mhh3NTtvAldo1b69dFXSwT9ZBclDiwzoVEzUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b0PiI5oI;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=sakamocchi.jp;
+	spf=pass smtp.mailfrom=sakamocchi.jp;
+	dkim=pass header.d=sakamocchi.jp header.i=@sakamocchi.jp header.a=rsa-sha256 header.s=fm3 header.b=f+xuSQ1c;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=t1R0q+Sn;
+	arc=none smtp.remote-ip=202.12.124.148
+Received: from fout-b5-smtp.messagingengine.com (fout-b5-smtp.messagingengine.com [202.12.124.148])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC194606A336;
-	Sun, 22 Nov 2026 13:15:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4232E606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:17:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4232E606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=sakamocchi.jp
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sakamocchi.jp
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b0PiI5oI
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 763F71F000EF;
-	Sun, 22 Nov 2026 13:15:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795353301;
-	bh=SISesY1O9y/+oZcxuShwuyNoIlQSRIfQ8qcTbcJSWow=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=b0PiI5oIRQetGol/ALHQSzVkFRfMQEmTfMFOds1H02ufmYoHq0C26efs5ATLgf22W
-	 PGjm6plGLsA+WYobOgEe6QOksAN4BzuZG/Zfojdu1UCHQCiaZt8RDozHgeGEROYhOH
-	 ygVBm0Dc3yFFUFPVesrInuc41K55Wo7naghRUoyHCwLerRzOV8U+VF2CHzf/vWo3Ra
-	 JNe6lrB9dxU34QiDmtj/zJfV1WymVW9KLleOilQbHPhaZeBFeuGwSiWvHOrKqaRTGO
-	 5/yy0H6y9rfDSLYecGe1bWQHDDX9scAsMbOdsKhlQLfQLBeV6DHDXPxcjD9+8808YF
-	 M4jm71hVpQ/Fw==
-Date: Sun, 22 Nov 2026 15:14:56 +0200
-From: Leon Romanovsky <leon@kernel.org>
-To: "Nikhil P. Rao" <nikhil.rao@amd.com>
-Cc: Abhijit Gangurde <abhijit.gangurde@amd.com>,
-	Allen Hubbe <allen.hubbe@amd.com>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Andrew Boyer <andrew.boyer@amd.com>, linux-rdma@vger.kernel.org,
+	dkim=pass (2048-bit key, unprotected) header.d=sakamocchi.jp header.i=@sakamocchi.jp header.a=rsa-sha256 header.s=fm3 header.b=f+xuSQ1c;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=t1R0q+Sn
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id 989401D0053E
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 08:17:56 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-04.internal (MEProxy); Sun, 22 Nov 2026 08:17:56 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sakamocchi.jp;
+	 h=cc:cc:content-type:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm3; t=1795353475; x=
+	1795439875; bh=fvlZSAhLg8bGLT8RqiJpA4DYdMhQ5TtKUqm0SgXDsp0=; b=f
+	+xuSQ1c/zfJNpkM2PsJBR96mc5ccqZghivv6GW/B+3dBoVevAWmiXWFbf09cOuHN
+	Q1AL2vMW7gh46AE+nYuv5h7l8cenmGYndBmHpg/VRblFNCsvRUhCXTol2vfhu2zS
+	JVi5k0Mpb1vOVg/wZbUrnoMWF7EJaAKr0gaN5wtL7Zqooa4wbzFbueUz8Ae4j6Jf
+	/YsYO1kr9u2GYWN0LgVBdgkoZr8Da7Qpxktd5xclALh7FR4diNOWzJMVvb9TDhUo
+	0aGQ5XEn/xtGUg6kLQ+1BHqgixeZFkMA+Gd3hHn8M0gfG7h029qcl3ZAGKXJrYA3
+	97LTUvu9w2yx/9Rpen/2Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795353475; x=1795439875; bh=fvlZSAhLg8bGLT8RqiJpA4DYdMhQ5TtKUqm
+	0SgXDsp0=; b=t1R0q+SnMqTsR9ADrKfBQLIkaY1+am9wLODutoKOM6DZYtRY2YE
+	7MTLPrKzwXPruLcUEamcK86VbzwvIJOqeLgDVTIoNARoDYIDcgsGZTZ3jCMjvL3a
+	84MbmTYk/gC+P6ZJwaoVEJ+YSwvuSLhZDS+WxqL36mRh1P+8aG7W8naGMWG22aHG
+	6/smWNNJthK+JjEHuUtjGSKbwTbdfBzRuM140pkzDKIPWvMhD0zR90AkqDTOjkk4
+	zRzgLHMQBEISimLz6/t69G2/r6g7RwJsfpIZm+8ZgVTbJoQDcTT/gMahsNjgP5Nz
+	+H37Mmsm5wsS6Hu5iKFkH+5xeX/UmXX3CUg==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=sakamocchi.jp a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795353475; d=sakamocchi.jp;
+	mf=PG8tdGFrYXNoaUBzYWthbW9jY2hpLmpwPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:a+vo1BIuOKnE5ATwxIRbo3C0fUDQvciPgLxnxHR//jRZmjL
+	q7Kqg4vetxVlDmriKQgvD3TDIfKZh/p0bN5BSEv4uisT9KSXv7ji/qy34NBO6Gqz
+	MpwZZs9n5iBkPm6fWphUbaRL8ZZuy1yw7N0dknHr+ZVDFIw7PG/1o1mK5/DM6SoV
+	Hgwk58gzFVbxtCeGaR5+bVOAnz9upKWe2mNE8C6qerpEyWkhJPx5uMuhKfRsPYIy
+	4sYywZDTEzzHC81WkOO6+z4MUbWdpTZx8Cg60xedMwb+Rp/sh7hyTE2WRWhbi21v
+	9n278Ar/vasLeGG8hXVR61VATZrylW+nt2o05BA==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-disposition,content-type,date,feedback-id,from,
+	in-reply-to,mail-followup-to,message-id,mime-version,references,
+	subject,to;
+Message-Instance: m=1; h=sha256:s6utCHA9jdJTqLDk2uXgtAer2yH44WFHm6vSz7F+G3I=:VS/nq5N4SzRG3f/8cSJVJJ+NZhA6DMRsT9d+DC4wnWQ=;
+X-ME-Sender: <xms:g-sCaxwAQ0CdU_e4mHZEsiGE2u10xsqHgCBzfV0oUqHf-yDICKTGCg>
+    <xme:g-sCayxeEXY1AYMX2_O-g3D0ek8Qb32P7r3XTpOLQ-MS8JiDTCltyltxYEuAKWFhY
+    JIO2ZOTWElKeqFK8gk5VNCDRfGoK32IPabOksxcKgr_thbtjSX3y1dn>
+X-ME-Received: <xmr:g-sCa7Zdpg1avQ6fAoapLhtALW9t2uSky6OR_dAdwZRepV1jBGix7ByH--AHhBvdNzWpMETniOhN4hp-6MFUOECXU6N95w>
+X-ME-Proxy-Cause: dmFkZTEYqN9yFjYv3FbVdjdtpM1yDm6I1a/l6r5fmpFrY3iRgh54NkgL1+D8AATMbs0sBn
+    tyYqSI2bp04DFSAx5ZZWVEqdM299z/7tcfDZJB/WX+tuMC42GQKkPw7IO/yjAXZ5WqX3rd
+    AOx+gq3iblDX1cVfV2AQzHHVUlhUOZHVh12fHPZLs9IPmdBZbA+2qM7VPW2Ab/7QeFrXDo
+    HRoLYinXvqeHxPqpoKAbAHWiHShtALGNPC0QyMIZTQd1LXeHeCBC2T3lqbPTKUT09EWt0A
+    Inf24KSfwsh7bvT2jXS5q4TlnE85+AnTcZlj20+es06FmrI4uLzrKY0Gb1brNeFaSFsjVP
+    aMyQeeGChO64xumarrSEY9/lZqE/2kfprBn87wGlg/P2zvKB1/yTyXhXPlAzrTxEji+Ogv
+    OouKoL9x/ItqsrzaynALrrpzCaWKDFF9o16McCrHJpL1QiGcBdXeDqHV0nTjFlo2hMJcEo
+    OzuK5RAjaej8n6UwRoqS2Q2xei91Xo1RwieYh+lFWktwUMv/96XIQZgKObteSZF5+ZAY7C
+    4fg0mh8dm3MAk/ewHNUODo+sxGM1iAqgJAKdNIhlfXOwwgIOtu5plPDB2yGtW9YUzvxa8U
+    SgFswWdwR03zGsjdmyKq4ZZFJmMXnFfHnpOc62XmvbnrIJtSco3B76MHcgsA
+X-ME-Proxy: <xmx:g-sCazXEy4NLSF15r4-ncUzfNFaiY4NRZVVox_6o6VnryEE6Rzyu1w>
+    <xmx:g-sCa5hwH12NFfREvURR32VSjpSkbDtC_frvmIudbCZXou9U7O9PLQ>
+    <xmx:g-sCaxvCHHmN4or9LX_SSNKJ6FZUSTjYrX26b4rzBuseqHf2TEqDlw>
+    <xmx:g-sCay5CSgsxo5HU3gHUnbn53GTU2ASSK4DILdplRl9IewNlUYQf-A>
+    <xmx:g-sCa_CyIt1aOyG0Qpz-vAf6tYy0p8kIauYUIXClU4S5Boz4ULGM_24b>
+Feedback-ID: ie8e14432:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 22 Nov 2026 08:17:54 -0500 (EST)
+Date: Sun, 22 Nov 2026 22:17:51 +0900
+From: Takashi Sakamoto <o-takashi@sakamocchi.jp>
+To: shyckless@gmail.com
+Cc: tiwai@suse.com, linux-sound@vger.kernel.org, perex@perex.cz,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH rdma-rc] RDMA/ionic: Wait the device command timeout for
- admin queue commands
-Message-ID: <20261122131456.GE14811@unreal>
-References: <20261118-b4-ionic-rdma-admin-timeout-v1-1-39536999a3e4@amd.com>
+Subject: Re: [PATCH 0/2] ALSA: firewire: Don't loop forever after a bus reset
+Message-ID: <20261122131751.GA503983@sakamocchi.jp>
+Mail-Followup-To: Takashi Sakamoto <o-takashi@sakamocchi.jp>,
+	shyckless@gmail.com, tiwai@suse.com, linux-sound@vger.kernel.org,
+	perex@perex.cz, linux-kernel@vger.kernel.org
+References: <20261120-firewire-busreset-v1-0-8bb9079a2984@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,47 +128,61 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261118-b4-ionic-rdma-admin-timeout-v1-1-39536999a3e4@amd.com>
+In-Reply-To: <20261120-firewire-busreset-v1-0-8bb9079a2984@gmail.com>
 
-On Wed, Nov 18, 2026 at 09:57:52PM +0000, Nikhil P. Rao wrote:
-> Commit ec8ee714736e ("ionic: stretch heartbeat detection") notes that
-> firmware can take more than 2 seconds to service a device or admin
-> queue request, and is only expected to complete it within the ionic
-> command timeout of 5 seconds. The RDMA admin queue watchdog gives up
-> after 2 seconds, and a timeout resets the RDMA LIF, after which every
-> verb fails with -ENODEV. Wait 5 seconds, as ionic does for its own
-> admin queue.
+Hi,
 
-Is this a real, user-visible bug, or merely a nice-to-have improvement?
+Thanks for the patch.
+
+On Fri, Nov 20, 2026 at 05:38:04AM +0000, Suyuan Wang via B4 Relay wrote:
+> fcp_avc_transaction() and snd_efw_transaction_run() resend their
+> command after a bus reset but never move the transaction back to
+> STATE_PENDING. The response to the resent command is then ignored and
+> the wait returns immediately, so both loops keep resending the command
+> after each ERROR_DELAY_MS pause, without a retry limit, until sending
+> fails.
+> 
+> Each patch sets the state back to STATE_PENDING before resending.
+> 
+> Found with a static analysis tool and checked by hand. Compile tested
+> only (x86_64, W=1); I don't have FireWire audio hardware.
+> 
+> ---
+> Suyuan Wang (2):
+>       ALSA: firewire-lib: Rearm the FCP transaction after a bus reset
+>       ALSA: fireworks: Rearm the transaction after a bus reset
+> 
+>  sound/firewire/fcp.c                             | 2 ++
+>  sound/firewire/fireworks/fireworks_transaction.c | 2 ++
+>  2 files changed, 4 insertions(+)
+
+I had a look at IEC 61883-1, but it does not specify any particular
+requirements for handling bus resets during an FCP transaction.
+
+However, I found the following statement in `AV/C Digital Interface
+Command Set General Specification Version 4.2 (1394 Trading Association,
+2004. Document number 200406)`:
+
+ * If the target detects a Serial Bus reset, it shall reset its state to
+   be able to accept AV/C command frames. In this case, any in progress
+   AV/C transactions shall be discarded without the return of a response
+   frame.
+
+Although the function that issues fcp_avc_transaction() acts as a peer of
+the target, I think it would be safer to abort any pending transactions
+as well when a bus reset is detected. Since the bus reset would initialize
+the part of device state, the initiator should also restart the entire
+transaction sequence.
+
+I would expect Echo Audio's Fireworks transactions to follow the behavior
+described in the above specification, since Fireworks also supports some
+AV/C commands
+
+Could you revise the patch to abort any pending transactions when a bus
+reset is detected? Returning -EAGAIN to the callers would be reasonable
+in this case.
+
 
 Thanks
 
-> 
-> Fixes: f3bdbd42702c ("RDMA/ionic: Create device queues to support admin operations")
-> Signed-off-by: Nikhil P. Rao <nikhil.rao@amd.com>
-> ---
->  drivers/infiniband/hw/ionic/ionic_admin.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/infiniband/hw/ionic/ionic_admin.c b/drivers/infiniband/hw/ionic/ionic_admin.c
-> index 0ccd869ad8e6..859893568538 100644
-> --- a/drivers/infiniband/hw/ionic/ionic_admin.c
-> +++ b/drivers/infiniband/hw/ionic/ionic_admin.c
-> @@ -19,7 +19,7 @@
->  #define IONIC_ADMIN_BUSY_RETRY_MS	1
->  
->  /* admin queue will be considered failed if a command takes longer */
-> -#define IONIC_ADMIN_TIMEOUT	(HZ * 2)
-> +#define IONIC_ADMIN_TIMEOUT	(HZ * 5)
->  #define IONIC_ADMIN_WARN	(HZ / 8)
->  
->  /* will poll for admin cq to tolerate and report from missed event */
-> 
-> ---
-> base-commit: e7732ec135b501e87ab060d992b3b5f2ec4396c9
-> change-id: 20261118-b4-ionic-rdma-admin-timeout-3cc9f4afe247
-> 
-> Best regards,
-> --  
-> Nikhil P. Rao <nikhil.rao@amd.com>
-> 
+Takashi Sakamoto
