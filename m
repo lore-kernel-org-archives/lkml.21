@@ -1,103 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795316692;
-	b=X8f+aP//xnM9JSgP4WqA8tkeWy1DxnDX6OX2gz1RZ4xubIAfX42PpvQXeAohS8XAzsbX
-	 2/dSfuDSSaNyMjw24jQFJve+tIPN52KkXecl3vZ64YmvME3rCeEgtXJFoo8vPtVuy2hH/
-	 ENP4e8QjNkvVxvjHUVjpuWCTCmUs84TZnItwUo3Tc9mTb8HQLZvuZBjYWJ9gpADfD89eN
-	 DGV8Zwu+pneYoDAj44o8FXkWpDPrTkFskQfFdXfDZQ/Y0H9wUalrqfzYOsBGt5gETyhPS
-	 YYJBxjZMWcgL1HpM+QTjpcWp+PXZnXr9dbxXNBTxr0mV4NGLfjLBcQZthAX3oHDr3WA==
+	t=1795316814;
+	b=KdRU4PlPPivCUaPEiCyKaXEt0crI5MI3ywBQykwLEVNGZ7iJqQmTPsR4qqprr+mhAtPs
+	 k5Z8L3ktY1zkbr0NcT9GqDkRU05ZeVjvQgdM9xWX4MdbvwZN/JpVq8Fv8R3lsYuYG88tQ
+	 rtpPh+ff8VFP8ST2N5Xj5G2QUMraf9Xh+TTqVWq0uPmetqaQI76xwhl93B5VUd8CRxU6n
+	 i5IziFrNWJpbEbKU2haKh34HzOelm42ltioxKnceXODac9zTqhgDIdCQzCzeb5aH5v1wg
+	 YpUep9LUce2yYLOShMpoBGKRS2lVvlUeKOOJv3bjVvUCw4JeLXlLzTffESDSag3dLHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795316692;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:In-Reply-To:Date:Message-ID:References:
-	 MIME-Version:Content-Type;
-	bh=NieCLCvG+gDw8VjVQsEmj+Xb3Nuvde1xSdj6TYYBmIA=;
-	b=wLYegFmoVqm7k4X6iwzodvTIZXPfBAUHi64Gprt2iSiFZaQ7KI9ByfxB8PVihZGVWCRO
-	 74A0LhePw4wuxOkTEn2JqYI9FQ/mwx5a1yBWM8mcv/pwFvy3DwiGikDvyRz5r2nL916G/
-	 huuPyL8s0TT+Y5voKuAd849PVZ9AlvmxwV0sHwxMR4csYIfE+qvnAY+r+gJSIXcGtnNu3
-	 g2Q07pyt2y8whCtgWrYa9YWKTKmLL1XmdOH4jB/UXOtxLJG0Z9Uoz7XWS+KKiZzPCNpDk
-	 ZQTiRiwDPdUy2+vxQWxalstJFECckuO4ghA978Z2xkPWDgBwnuGoGtBWjM86KRTUvbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795316814;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=NKy+gTpYb5dVg5urGlblN/UMLSLttA2GEJW42xYuEaE=;
+	b=C+/R1bHoXz0jsi6f2MgqA/yhpD6NodE1by2R8+ZRJLiVHVPboTZlyQuFQaEJrF0/HU8U
+	 HQUArzzfrfs5nbSeMk8A46YBwBr5E2yai2gE+L8eS1+KzHOMhYSVIdb1cVAQ+lu45e8S6
+	 NPggNB20WlOegJguSXEfbX4fz7WfDWQDHk772OFt0qTixMjGxgFtRNmnDbpuio2kf4v1K
+	 WWPa5HJHcZfUxH70hBrHUjFEWPnNmG0bXBJMiOAQW1Vi6XtzU78kn3+GAs+cAffWyLyAN
+	 kxa0g9prHSLG2YqQTGykuzNYVXqEkabsEoXcpegs2gfpUhPW6bIQBZY6tJwKEgQEi+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lQMapLMR;
-	arc=none smtp.remote-ip=74.125.82.179
-Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OjjS0lXp;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BD01606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 03:04:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7BD01606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 183A1606A320;
+	Sun, 22 Nov 2026 03:06:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lQMapLMR
-Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-380c28f9e35so3166915eec.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:04:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795316691; x=1795921491; darn=vger.kernel.org;
-        h=content-type:mime-version:references:message-id:date:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NieCLCvG+gDw8VjVQsEmj+Xb3Nuvde1xSdj6TYYBmIA=;
-        b=lQMapLMRecxhRuMkTSymbForunIxX0OPXsGQ1CXe025r/577yULQNYi3TNrBG53/Qv
-         zYU80ixAjK16x1kduXUqa1QZW9W/3ti9d/2xwfANhvwcppx94XY1wfu52uKp1wNIi+xo
-         0BbROgPXyu0B62JpFc4+zEJIoiLBcGXeP+W6/munvXDcClY8J5U7eqCSCyRjBp3WeH4+
-         q1p1SE27fCRmjWxB4WY3p9l7b9yn5x1FejoLmUjB8Y+BhmVh9oZGKVtoBu6VvuhXecB+
-         kqHQVq97TpxJ2ylXI5iv8vW2n/kYW3PMkK+9IBmWOkrDx9AQECQxv8quTTJlItW+6/Cb
-         tThQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795316691; x=1795921491;
-        h=content-type:mime-version:references:message-id:date:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=NieCLCvG+gDw8VjVQsEmj+Xb3Nuvde1xSdj6TYYBmIA=;
-        b=n5ncg2/9stmFF/LXSMAlTw3kgYhXqOiPYMgZlubcg9iZ8ZuaXf12hbmDUYSCT+bD4N
-         ipOPa73LK2zAmrDwcAcMeYQwGA9CAu0F+AX/qooJY2yEqap2JZJs0KoQ18NEgNDuMlS3
-         cmRskdxxM4c1cF2BH5fzejDZJEsA4EQIex9/+XDWhf+x1Bqh1zmZy52ROMFNxjjsqwKu
-         JESdR7MaNM/bYzMue6XYs/sbV1K3VkXiKD9tiTkxKh3ghkMq4nRZMXMIrGFxpWbGbfOJ
-         phdre6tawb40c3cyyRAPxt2/uLePaDdEBctdKBNomHBft0V/wNOcuu34BM7TEG0YyzaY
-         lThg==
-X-Forwarded-Encrypted: i=1; AL+hErFCZ/brOHkc05hegLVwNpU343AxbIKeDx6OwldPBh7vQrw32iW6zWys+vnvbP/mT62hMMRnQoELfc7yzdk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+/dVrpAVIb7Hml2i1tCLrwK6Hqaj+QfGbGVvmlElxSDXiRjSfB
-	w6e6NM4Hzo+mEHaImFpr7X8Uj2vty95QvSYU/3HjDXIr951nQHMiZOYp
-X-Gm-Gg: AZFdTZerNfb1QsEq5aNVwl7a83v9Wi4zOMjPvWtDGS8rXJscxiP7wMNs7/pi28FBAIX
-	WMQ+M6ntIz8dODVtdbAnN+16wY29yIsbCVv6alSkU8zbWz0UAlD5WajHVtK1ogs/nP6MYRDQF9o
-	go0sJvCndXkblKKFhgybGjObhyp4tqf7ZrvpyIWsHv9UWHD3Wysj2HRiYaHu2xrTa2z1QIaVQeI
-	juRNnKvZYKJ1Np29vx3uc2vlWesKjlrn+SC3GgciiMkO0o8xaQLKvIws8NCEI0/LLIQQHnv1q7L
-	mro9LtlScNNq9URdwMcHhLglI3C4PfRqJp7IjNMelVqyR8ACxlxyi6EbN9vr76HH28dqYEhzecP
-	rPUq4dXhwK+clNZAQ3K2l+25xGdP99X+C5mzKzL099BleCJHyyMOx+heU2kUrsfaNNaAVK7PpMv
-	EhSMDZXU7eLEsRJxO0OMP/CX8p6diPLr9+Jk+Pz1MCV5KUcwq0+bhCD7pZr2+j392nDHEH51Vov
-	l3khDPGhonrN03QfIXWREKWJqgsgZ/ZAZ0rO9vtftzxA/qeZAL6TstKvIslDjsYpRZQkYNWTgCu
-	IpBh12YOsoKLno5r4MT8I9/n7DGNvyt95YvcYzbmVo5fazlA
-X-Received: by 2002:a05:7300:50fa:b0:383:9f52:e54d with SMTP id 5a478bee46e88-3856ff52e83mr8869235eec.8.1795316691531;
-        Sat, 21 Nov 2026 19:04:51 -0800 (PST)
-Received: from pve-server ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567da4f85sm24302948eec.27.2026.11.21.19.04.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 19:04:50 -0800 (PST)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Baoquan He <baoquan.he@linux.dev>, Borislav Petkov <bp@alien8.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, 
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
-	Paul Walmsley <pjw@kernel.org>, Pratyush Yadav <pratyush@kernel.org>, Rich Felker <dalias@libc.org>, 
-	Russell King <linux@armlinux.org.uk>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Thomas Gleixner <tglx@kernel.org>, Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>, 
-	Yoshinori Sato <ysato@users.sourceforge.jp>, x86@kernel.org
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Christian Borntraeger <borntraeger@linux.ibm.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Cong Wang <cwang@multikernel.io>, Mark Rutland <mark.rutland@arm.com>, Michael Ellerman <mpe@ellerman.id.au>, Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>, "H. Peter Anvin" <hpa@zytor.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>, kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev
-Subject: Re: [PATCH 2/2] arch, kexec: declare kexec and crash capabilities in Kconfig.kexec
-In-Reply-To: <20261119-arch-kconfig-v1-2-37c276fe4d26@kernel.org>
-Date: Sun, 22 Nov 2026 08:33:10 +0530
-Message-ID: <wlq5k1ox.ritesh.list@gmail.com>
-References: <20261119-arch-kconfig-v1-0-37c276fe4d26@kernel.org> <20261119-arch-kconfig-v1-2-37c276fe4d26@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OjjS0lXp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E6EA1F000C0;
+	Sun, 22 Nov 2026 03:06:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795316813;
+	bh=NKy+gTpYb5dVg5urGlblN/UMLSLttA2GEJW42xYuEaE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=OjjS0lXppcVQbNVDoKmqORgWXRFhw+ZRgFJgtavVDDjrYgo66S+qNzgKH+jdSYq6i
+	 6zeVj8qIP5Bh1KqIEB+PO2+enQ3r2DVTREWs9TV9E98pwR6FW2V7qfU96JnPGyXEnd
+	 X+jX+YeodeVnUFO4WcN+rRDUwoxTxi5rO0Cgdno34OBzUtidkTrg6i1j6hKmq36VXB
+	 6PQkmOVvizdwYLl0v2pG+8Yq9KWYAhpaR3asW9ZaH0zDD2+RPyyBZ6v/iMsqI13DtM
+	 nnnTzNdcyqSLi67Hm5pLtqAW4YtpKLGckKJ9goBgvFihYTy0975keXX79K2g/njnI1
+	 GUzbXb5TT4E5g==
+Date: Sun, 22 Nov 2026 03:06:47 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Chi-Wen Weng <cwweng.linux@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ chernyakin.victor.j@outlook.com, cwweng@nuvoton.com
+Subject: Re: [PATCH v5 3/3] iio: adc: Add Nuvoton MA35D1 EADC driver
+Message-ID: <20261122030647.70b41b61@jic23-hlaptop>
+In-Reply-To: <20261117082832.1551574-4-cwweng.linux@gmail.com>
+References: <20261117082832.1551574-1-cwweng.linux@gmail.com>
+	<20261117082832.1551574-4-cwweng.linux@gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,26 +63,282 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-"Mike Rapoport (Microsoft)" <rppt@kernel.org> writes:
+On Tue, 17 Nov 2026 16:28:32 +0800
+Chi-Wen Weng <cwweng.linux@gmail.com> wrote:
 
-> The options that let an architecture opt in to kexec and crash dump
-> features, like ARCH_SUPPORTS_KEXEC or ARCH_SUPPORTS_CRASH_DUMP, are
-> defined in each architecture's Kconfig as def_bool, and most of them are
-> copied over several architectures.
->
-> Declare these options once in kernel/Kconfig.kexec next to the options
-> that depend on them, similarly to how mm/Kconfig does it, and make the
-> architectures select them instead.
->
-> Selection conditions are preserved, so there is no functional change.
->
-> Acked-by: Baoquan He <baoquan.he@linux.dev>
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> From: Chi-Wen Weng <cwweng@nuvoton.com>
+> 
+> Add an IIO driver for the Enhanced Analog-to-Digital Converter found on
+> Nuvoton MA35D1 SoCs.
+> 
+> Support single-ended and fixed differential inputs, direct conversion,
+> and triggered buffered capture. This initial implementation uses sample
+> module 0 and therefore supports one active voltage channel per buffered
+> scan.
+> 
+> Signed-off-by: Chi-Wen Weng <cwweng@nuvoton.com>
+Various comments inline to add to Andy's.
 
-No function change observed in this patch (as described in the commit msg).
+Thanks,
 
-LGTM, feel free to add:
-Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com> #powerpc
+Jonathan
+
+> diff --git a/drivers/iio/adc/ma35d1_eadc.c b/drivers/iio/adc/ma35d1_eadc.c
+> new file mode 100644
+> index 000000000000..d9a715efcc6b
+> --- /dev/null
+> +++ b/drivers/iio/adc/ma35d1_eadc.c
+...
+
+> +
+> +/*
+> + * Keep the register map uncached because status and conversion data are
+> + * updated by hardware, and some status bits use write-one-to-clear semantics.
+
+That's a reason to set volatile and precious but not general one to say
+don't cache anything.
+
+> + */
+> +static const struct regmap_config ma35d1_adc_regmap_config = {
+> +	.reg_bits = 32,
+> +	.val_bits = 32,
+> +	.reg_stride = 4,
+> +	.max_register = MA35D1_EADC_REFADJCTL,
+> +	.rd_table = &ma35d1_adc_readable_table,
+> +	.wr_table = &ma35d1_adc_writable_table,
+> +	.precious_table = &ma35d1_adc_precious_table,
+> +};
+
+
+
+> +
+> +static void ma35d1_adc_trigger_capture(struct iio_poll_func *pf)
+> +{
+> +	struct iio_dev *indio_dev = pf->indio_dev;
+> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
+> +	struct {
+> +		u16 channel;
+> +		aligned_s64 timestamp;
+> +	} scan = { };
+> +	int ret;
+> +
+> +	guard(mutex)(&adc->lock);
+> +
+> +	if (adc->suspended || !adc->scan_chan)
+> +		return;
+> +
+> +	ret = ma35d1_adc_read_conversion(adc, adc->scan_chan,
+> +					 &scan.channel);
+
+Check line wraps. That one fits under 80 chars.
+
+> +	if (ret)
+> +		return;
+> +
+> +	iio_push_to_buffers_with_ts(indio_dev, &scan, sizeof(scan), pf->timestamp);
+> +}
+
+> +
+> +static int ma35d1_adc_parse_channels(struct iio_dev *indio_dev,
+> +				     struct device *dev)
+> +{
+> +	DECLARE_BITMAP(used_single_inputs, MA35D1_EADC_MAX_EXT_CHANNELS) = { };
+> +	DECLARE_BITMAP(used_diff_pairs, MA35D1_EADC_NUM_DIFF_PAIRS) = { };
+> +	DECLARE_BITMAP(used_regs, MA35D1_EADC_MAX_EXT_CHANNELS) = { };
+> +	struct iio_chan_spec *channels;
+> +	unsigned int scan_index = 0;
+> +	int num_channels;
+> +	int ret;
+> +
+> +	num_channels = device_get_child_node_count(dev);
+> +	if (!num_channels)
+> +		return dev_err_probe(dev, -ENOENT, "no ADC channels configured\n");
+> +
+> +	if (num_channels > MA35D1_EADC_MAX_EXT_CHANNELS)
+> +		return dev_err_probe(dev, -ENOSPC, "too many ADC channels\n");
+> +
+> +	channels = devm_kcalloc(dev, size_add(num_channels, 1),
+> +				sizeof(*channels), GFP_KERNEL);
+
+You can now use devm_kzalloc_objs()
+A patch to apply that across the kernel went in during last week
+and the code is there since rc1.
+
+I don't mind either way as there will inevitably be a second round
+of conversions next cycle.
+
+
+> +	if (!channels)
+> +		return -ENOMEM;
+> +
+> +	device_for_each_child_node_scoped(dev, child) {
+> +		bool has_diff, has_single;
+> +		u32 reg;
+> +
+> +		ret = fwnode_property_read_u32(child, "reg", &reg);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret,
+> +					     "missing channel reg property\n");
+> +
+> +		if (reg >= MA35D1_EADC_MAX_EXT_CHANNELS)
+> +			return dev_err_probe(dev, -ENOSPC,
+> +					     "invalid ADC channel index %u\n", reg);
+> +
+> +		if (test_and_set_bit(reg, used_regs))
+> +			return dev_err_probe(dev, -EEXIST,
+> +					     "duplicate ADC channel index %u\n", reg);
+> +
+> +		has_single = fwnode_property_present(child, "single-channel");
+> +		has_diff = fwnode_property_present(child, "diff-channels");
+> +		if (has_single && has_diff)
+> +			return dev_err_probe(dev, -EINVAL,
+> +					     "channel %u has conflicting input properties\n",
+> +					     reg);
+> +
+> +		if (has_diff)
+> +			ret = ma35d1_adc_parse_diff_channel(dev, child,
+> +							    &channels[scan_index],
+> +							    used_diff_pairs, reg,
+> +							    scan_index);
+> +		else
+> +			ret = ma35d1_adc_parse_single_channel(dev, child,
+> +							      &channels[scan_index],
+> +							      used_single_inputs,
+> +							      has_single, reg,
+> +							      scan_index);
+> +		if (ret)
+> +			return ret;
+> +
+> +		scan_index++;
+> +	}
+> +
+> +	channels[scan_index] = IIO_CHAN_SOFT_TIMESTAMP(scan_index);
+> +	indio_dev->channels = channels;
+> +	indio_dev->num_channels = scan_index + 1;
+> +
+> +	return 0;
+> +}
+> +
+> +static int ma35d1_adc_init_vref(struct ma35d1_adc *adc, struct device *dev)
+> +{
+> +	int ret;
+> +
+> +	ret = devm_regulator_get_enable_read_voltage(dev, "vref");
+> +	if (ret == -ENODEV) {
+> +		adc->vref_mV = MA35D1_EADC_INTERNAL_VREF_mV;
+> +	} else if (ret < 0) {
+> +		return dev_err_probe(dev, ret, "failed to get VREF supply\n");
+> +	} else if (ret > 0) {
+> +		adc->external_vref = true;
+> +		adc->vref_mV = ret / (MICRO / MILLI);
+> +	} else {
+> +		return dev_err_probe(dev, -EINVAL, "invalid VREF voltage\n");
+
+This is just 0. The calc for real values above will end up with 0 in vref_mv if
+there is less than 1 mV so not sure handling this separately brings much value.
+you have to assume vref_mv might be zero anyway.
+
+
+> +	}
+> +
+> +	return 0;
+> +}
+
+> +
+> +static int ma35d1_adc_suspend(struct device *dev)
+> +{
+> +	struct iio_dev *indio_dev = dev_get_drvdata(dev);
+> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
+> +	bool buffer_enabled;
+> +	int ret;
+> +
+> +	/* A failed resume leaves the device and its triggering suspended. */
+> +	scoped_guard(mutex, &adc->lock) {
+> +		if (adc->suspended)
+> +			return 0;
+> +	}
+> +
+> +	/*
+> +	 * pollfunc->irq is not initialized until the pollfunc is first
+> +	 * attached to a trigger, so only suspend and resume triggering
+> +	 * while the buffer is enabled.
+
+True enough but isn't it also guarded by if indio_dev->pollfunc
+inside the iio_device_suspend_triggering()?
+
+I think in the case you are avoiding it is a noop anyway.
+
+disable_irq() nests fine so it shouldn't even matter if anyone turned
+it on yet.
+
+
+> +	 */
+> +	buffer_enabled = iio_buffer_enabled(indio_dev);
+> +	if (buffer_enabled) {
+> +		ret = iio_device_suspend_triggering(indio_dev);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	ret = ma35d1_adc_suspend_hw(adc);
+> +	if (ret && buffer_enabled)
+> +		iio_device_resume_triggering(indio_dev);
+> +
+> +	return ret;
+> +}
+> +
+> +static int ma35d1_adc_resume(struct device *dev)
+> +{
+> +	struct iio_dev *indio_dev = dev_get_drvdata(dev);
+> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
+> +	int ret;
+> +
+> +	scoped_guard(mutex, &adc->lock) {
+> +		if (!adc->suspended)
+> +			return 0;
+> +	}
+> +
+> +	ret = ma35d1_adc_resume_hw(adc);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (!iio_buffer_enabled(indio_dev))
+> +		return 0;
+
+As above, I'm missing why we need to protect the call
+to resume_triggering.  The pollfunc can't change between
+suspend and resume so there is either one there or not
+in both cases and the guards inside that call should take care
+of the rest.  If I'm missing something we should look to
+fix it in those calls!
+
+> +
+> +	return iio_device_resume_triggering(indio_dev);
+> +}
+> +
+> +static DEFINE_SIMPLE_DEV_PM_OPS(ma35d1_adc_pm_ops,
+> +				ma35d1_adc_suspend, ma35d1_adc_resume);
+> +
+> +static const struct of_device_id ma35d1_adc_of_match[] = {
+> +	{ .compatible = "nuvoton,ma35d1-eadc" },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, ma35d1_adc_of_match);
+> +
+> +static struct platform_driver ma35d1_adc_driver = {
+> +	.probe = ma35d1_adc_probe,
+> +	.driver = {
+> +		.name = "ma35d1-eadc",
+> +		.of_match_table = ma35d1_adc_of_match,
+> +		.pm = pm_sleep_ptr(&ma35d1_adc_pm_ops),
+> +	},
+> +};
+> +module_platform_driver(ma35d1_adc_driver);
+> +
+> +MODULE_AUTHOR("Chi-Wen Weng <cwweng@nuvoton.com>");
+> +MODULE_DESCRIPTION("Nuvoton MA35D1 EADC driver");
+> +MODULE_LICENSE("GPL");
 
