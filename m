@@ -1,54 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795378436;
-	b=TPdLEWgGuK9reNkdXB6josPs6heDnG5dmVC+6AGNLPdVJmOa1gA40pijL9uYRMmAfluW
-	 ENpbHbujlAzo3794Jo6BxLwEIV3TlgloljZo3a7fbqyt1ukPV664OYBNs3VEW1D7HZWvt
-	 pX05NhQuzdC72wHQeZaj/3BgdRwz5JniQ/6cdfEXjGH48ETwSpRpo6C4Z4A90Lxhdot4I
-	 uklCxh6KVEu6u5DWRCUg4qwco1FI2AMCGt4QnjQqKebCk0gVqBU9HtMybABrdXBwJQzdd
-	 rF0xZvcK53ZL9hsyIvNx0MI9SeM4Bik1XMAN4hfTj4mX158pcGF/oMOksLkkiRUe3wQ==
+	t=1795378471;
+	b=AkGy2YTmnqO+aP467w6GPm+rl/cpJk7fCR0L+i/ShBoFHiXoPlg9+3Nraq8L5ii5zXvl
+	 N9wmwF83/sH81Cj1B/wCkf10Esxt8BaQi+GgLp2fNeQOJggxL9tQbLHz+0JrYj78HBk45
+	 EfA33R1dhOFKb0soz73uMF+IHDpa0vgboHsWyXdl/gX8bL6AGoLg9Q3s0+k4OEvuHpFds
+	 f9K9MCRmaqhPc3cQInMzdZx1ghEtjq/I+rCdFLQJS1uf5ckBkuK0PSsYSqgVzlpes45Lq
+	 BAYToUof3ZCeQ+EWcXAPCEKed+0d8ajkr3vW2T+nekd7bvzZv5FFlPl8QU70d6IfAgQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795378436;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795378471;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=oLb+sRBsUmJZ0ub26dmjfhCx6gHWcjexrC94H2ha824=;
-	b=gO/EHcwnEAjpPxHM5T/fmjpZ5o3fzIOm1NJZRa0WkqNNbfc+1o6veq/S3xSlKHK6GcHy
-	 3AscBqpCE8aWfm87RNAQPJJjOXks+pxej/4gWaX44Y1+e3kHgtgPvUWnVag6VuzURqCZ+
-	 pBJqLHPTFfucxnPrSBtGrhWzb2tuCV3d2zGukj+L/ZMdzjIbUKD68+eddNfe7wl2y1jk3
-	 iSKuaNwW0dNUHgx6LaxvEBXvPMR8NalzZ09W0w1n0RU7/a2K9QreE9oP6fHKApjxX9pO9
-	 /Qi/JmZkZemiOW1LEaBKSQMiGSrp/5nrouxTRHl7+AZ+X4j9IpJkF2JBYa/hmDJORZA==
+	bh=7xLuQMY9AhHS5phvMKiL1Kg7irbD6BPlpn70hXvxYR4=;
+	b=kkpop7RK4A3SsYdX+0ER26lQXCfjx3rO8nNzObgNt6rDDVrLV0iSW9aMrSCxH04rXzG7
+	 mbWg/0pZXet/gLaravDqFW6JmnEs+5gT5WC6TfB+5ysxk8yyqYqz8cKC7Pz+o7vs2yfZn
+	 hY6YHl3+b3h6+S+IpFf2ccuHmOpILbo1bOkqkmGsrdW8AiLjHBNkZcL6iM9Cm72Qd4x+X
+	 bWgNAZj1pRPfo3zrJCHL/Gfh6EI+xRcEQ7IMMkKzN/nb2Aa4bJVu65VZMVw5JrhHejzAM
+	 8Fo/rnKWo/St3NrajtYFq56oH1TuTVY5JlJiUvhHWZ4zX+EdVDpYdNNVfHMe/rGywug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=U559L2WM;
-	arc=none smtp.remote-ip=95.215.58.48
-Received: from mta1.migadu.com (out-48.mta1.migadu.com [95.215.58.48])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aUgCUsXH;
+	arc=none smtp.remote-ip=209.85.208.54
+Received: from mail-ed1-f54.google.com (mail-ed1-f54.google.com [209.85.208.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F539606A32A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:13:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F539606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DD8F606A31D
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:14:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5DD8F606A31D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=U559L2WM
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=F3FJIIGT02GWJjaS97Rbsj9mORFOTwt6kljT2i5zMUY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795378433; v=1; x=1795983233;
- b=U559L2WM3Zv+9ZnlFSg0Gnmz1VbGM0csPVFGRoQvoUIcNZT2AgURwyf1dSN4hrsMrfYVGnfb
- gK0OdCoi8E1CasT91k35vF4fiUotYfcjXUSZRmsiPDPZfJK+WFMk8bqzsaTfkGumjvR/trTlhaW
- YGF5+LvNTpHbz74M4r72qzUs=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id b2cfa3f829e81822;
-	Sun, 22 Nov 2026 20:13:53 +0000
-X-Mizu-Trace-ID: b2cfa3f829e81822
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <9ce6bd33-f3a8-43dc-b238-d9f936ec5c54@linux.dev>
-Date: Sun, 22 Nov 2026 12:13:46 -0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aUgCUsXH
+Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-6b596afb4c5so2799233a12.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:14:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795378469; x=1795983269; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7xLuQMY9AhHS5phvMKiL1Kg7irbD6BPlpn70hXvxYR4=;
+        b=aUgCUsXHYw3KaELR4kFag3t5wB9TMdvlrPOCMERQdBo6tE9XrKcTfz2uG8UIsGa2BM
+         njA6POWPRJA3ichnU0xFmq9hKVOYjVx3NCMAHHlQEODE2reX+M5wYjKoxgrlTnM6WMk0
+         gy0xblA1L5zSG7+RBF+sV2Bq0S9jS56bcVppIwTO7xDiFFFzEq1Tc3zgyaC2XwMyazSP
+         FZumSKEduASM4h1ETwbJe72L2CiBxGfUkZyHsoKbxiMMl/GE+XCQl2yHyY+NNLRtL48n
+         28ErKSMtnVdEQ3p4FOAXYrI2bVD30h6Dfl6n1fz6Ua7XKaPN46zsuIONXiApnGof/Afc
+         MhIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795378469; x=1795983269;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=7xLuQMY9AhHS5phvMKiL1Kg7irbD6BPlpn70hXvxYR4=;
+        b=B/Sramd735HEIs4h29iybMXEH3wfU7RbkjqfOz2nuLS3/782TWkBNexSRPqJQUC5H0
+         9cvMCPf0Px21XKuaRRb9Duz6Syx/UkjttR0Dxw4nAM3n7RPd8FxmwjEUelArHLzgMAzF
+         gsL5m5s7oF1KQc4TB8V3VqpGfHH9c7ZdUHU/60oOeIGhW0HInDqEBNGY1DB8yk7s/hpE
+         CxyaQ52TsG011+dr2weTzCpBfbRn5V02gW8VSY+ZpvNGZEdjrIOguxoVrGNDVtPDNwrT
+         WI5HeqKKHLLNZwqLCuGGG7G5PfRXKax65inEkqzZqTIycFPBrCKCR+FkqPJxhyxT5+i7
+         b4Lw==
+X-Forwarded-Encrypted: i=1; AL+hErH1y1hdAi3yBfQW3aKbTadVbRXs5Ih74uFww5wtVnkouJuVOl+jvumDlfcpRPCXzTyAbk54JVGw+IUlqj8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+WymTdUg3DyWu6T2ZUgbqhml83HJJFnqbc8wmpQEe5VIr5CwA2
+	ihzaJt0nGc+cl635cwSeI+9dCI5gTvA6pzfZnxa+KvdNpqYxt+r+Xu7D
+X-Gm-Gg: AZFdTZc1CO2RAalDCIMbOAe7SuxTCW5cCfxcyBb8hho7BpIj+HXJO4hCZec1Q7C53DR
+	EWLRvTYMRdX5lViQ2WoujFZLkNFQAITgEGPFcBiF2VO+oXkNXGunt/rGRIN0h13x4RgrP85Zyx6
+	bh4/wUHhM8X2eAOeSzSTFEK2jGK2zwvkGwvtmhw/bjfqoXCYdKJoNP+gyWvQelMYF8bl8WFcs4m
+	0ynP9TpB8Z4cJNNh4MVN6np56RCUcFBH6rplO2p/qEuIr+rJwNDwyg7snd/elDTBmBk5LE+HkER
+	4rhXhAt3NSMo8v6rn+GVvGfzrLyx9LQrKaaYzOKy6daA2F1F4zcN3zHAnnZvftVADSY4/O/7Vi2
+	sIsKeUAPSjfhbbcLD+rAhkXImk7XhfMz7eNbVLIROuFHpS5bvRG/DgTkMAYWO8qcKCwEAzfA9Xq
+	jXvTAT9xCTccFaKjf2hyv5aWfh5/FU4DPPCFCb1ZHya66e2ZRJ8HVmQjhgP4KfhFICV51Xxadkx
+	HP87RmD0IS9jkVOcibjjPDhQuoIrw26JkH/TvOM9/g3EYbIpKWtCb6V81x+dySbSoWKfBzljay5
+	1/CqMyp9l6BmCHI0tYlkaUTANPzrrgSCtOadhpxNEqRDsRiUGLiiRbND802H8bu1bBHvgmMZK2D
+	au/lGHP8LJg==
+X-Received: by 2002:a05:6402:501c:b0:6b8:afbd:64e6 with SMTP id 4fb4d7f45d1cf-6ba37edaf1cmr6652717a12.42.1795378468547;
+        Sun, 22 Nov 2026 12:14:28 -0800 (PST)
+Received: from xeon ([188.163.112.54])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fa8basm4424074a12.20.2026.11.22.12.14.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 12:14:26 -0800 (PST)
+From: Svyatoslav Ryhel <clamor95@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Svyatoslav Ryhel <clamor95@gmail.com>,
+	Mikko Perttunen <mperttunen@nvidia.com>
+Cc: devicetree@vger.kernel.org,
+	linux-tegra@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 00/18] [WIP] ARM: tegra: Update Tegra Note 7 configuration
+Date: Sun, 22 Nov 2026 22:13:49 +0200
+Message-ID: <20261122201407.23742-1-clamor95@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,267 +103,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH rdma-next v2] RDMA/rxe: Require a responder resource for
- FLUSH
-To: Andrew Stellman <astellman@stellman-greene.com>,
- "yanjun.zhu@linux.dev" <yanjun.zhu@linux.dev>
-Cc: Zhu Yanjun <zyjzyj2000@gmail.com>, Jason Gunthorpe <jgg@ziepe.ca>,
- Leon Romanovsky <leon@kernel.org>, linux-rdma@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261122170551.19582-1-astellman@stellman-greene.com>
- <59e93766-fb4f-43de-a721-4ad544264730@linux.dev>
- <CAChPuV9vPzV8k4SR-nn4O6N3Ld4g0uxA4qdahDUhJxZWnzNn7Q@mail.gmail.com>
-From: Zhu Yanjun <yanjun.zhu@linux.dev>
-In-Reply-To: <CAChPuV9vPzV8k4SR-nn4O6N3Ld4g0uxA4qdahDUhJxZWnzNn7Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
+This patch set is more a placeholder and is not meant to be merged just yet,
+I am still working on it and comments are welcome. I am sending it to be sure
+that my work is not stolen or overwritten by some AI slopper with a trial
+subsciption to a fancy new LLM. Thank you for understanding.
 
-在 2026/11/22 11:51, Andrew Stellman 写道:
-> Hi Zhu,
->
-> Thanks for looking at it.
->
->> (1) RXE_FLUSH_MASK takes the same error/NAK path here without later
->> responder states assuming a valid qp->resp.res or non-ZERO_SIZE_PTR
->> qp->resp.resources, and
-> Yes. With the change, check_resource() returns
-> RESPST_ERR_TOO_MANY_RDMA_ATM_REQ for a FLUSH, the same state READ and
-> ATOMIC use. That state calls do_class_ac_error() and moves to
-> RESPST_COMPLETE and then acknowledge(), which sends the NAK because
-> aeth_syndrome is set. None of those read qp->resp.res or
-> qp->resp.resources, and process_flush() and rxe_prepare_res() are not
-> reached. A retransmitted FLUSH goes to duplicate_request(), where
-> find_resource() loops over max_dest_rd_atomic entries, so with 0 it
-> returns NULL and the packet is dropped without touching the array.
->
-> In the QEMU test with the fix, the requester's FLUSH completed with
-> status 9 (IB_WC_REM_INV_REQ_ERR), and the test program then exited
-> normally (closing its QPs) with no oops or warning. Without the fix,
-> closing the QP hit the __rxe_cleanup() timeout warning and hung.
->
->> (2) no other RXE_READ_OR_ATOMIC_MASK / RXE_ATOMIC_WRITE_MASK checks in
->> rxe_resp.c for max_dest_rd_atomic or responder resources missed
->> RXE_FLUSH_MASK.
-> check_resource() is the only place in rxe_resp.c that checks those
-> masks against max_dest_rd_atomic. The other places that test them
-> (check_op_valid(), rxe_resp_check_length(), execute() and
-> acknowledge()) already handle RXE_FLUSH_MASK, and the only users of
-> qp->resp.resources are rxe_prepare_res() and find_resource().
+Svyatoslav Ryhel (18):
+  dt-bindings: ARM: tegra: Document Tegra Note 7 variants
+  ARM: tegra: Diverge Tegra Note 7 device tree to support its common
+    versions
+  ARM: tegra: tegratab: Upgrade powerlines configuration
+  ARM: tegra: tegratab: Add pinmux node
+  ARM: tegra: tegratab: Bind VDE device
+  ARM: tegra: tegratab: Configure USB and power supply
+  ARM: tegra: tegratab: Configure MMC devices
+  ARM: tegra: tegratab: Configure wireless devices
+  ARM: tegra: tegratab: Add thermal configuration
+  ARM: tegra: tegratab: Configure HDMI
+  ARM: tegra: tegratab: Add audio codec and sound card configuration
+  ARM: tegra: tegratab: Add common sensor nodes
+  ARM: tegra: tegratab: Add MC and EMC timing nodes
+  ARM: tegra: tegratab: Add CPU DFLL clock node
+  ARM: tegra: tegratab: Update GPIO keys and switches
+  ARM: tegra: tegratab: Update aliases, chosen and memory nodes
+  ARM: tegra: tegratab: Add video input configuration
+  ARM: tegra: tegratab: Add panel rotation
 
-Thanks a lot for your quick reply. The above explanations answer my 
-questions.
-
-I am fine with this commit.
-
-Reviewed-by: Zhu Yanjun <yanjun.zhu@linux.dev>
-
-Zhu Yanjun
-
->
-> Andrew
->
->
-> On Sun, Nov 22, 2026 at 2:42 PM Zhu Yanjun <yanjun.zhu@linux.dev> wrote:
->> 在 2026/11/22 9:05, Andrew Stellman 写道:
->>> process_flush() keeps its state in a responder resource from
->>> rxe_prepare_res(), as READ and ATOMIC requests do. check_resource()
->>> refuses those requests when max_dest_rd_atomic is 0, but it does not
->>> check FLUSH. With max_dest_rd_atomic 0, qp->resp.resources is
->>> ZERO_SIZE_PTR, and rxe_prepare_res() writes through it in
->>> free_rd_atomic_resource().
->>>
->>> A FLUSH sent to an RC QP with max_dest_rd_atomic 0 oopses the
->>> responder:
->>>
->>>     Oops: general protection fault, probably for non-canonical address 0xdffffc0000000002: 0000 [#1] SMP KASAN NOPTI
->>>     KASAN: null-ptr-deref in range [0x0000000000000010-0x0000000000000017]
->>>     CPU: 0 UID: 0 PID: 13 Comm: kworker/u8:0 Not tainted 7.4.0-rc3-gaebb72744764 #1 PREEMPT(lazy)
->>>     Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
->>>     Workqueue: rxe_wq do_work
->>>     RIP: 0010:free_rd_atomic_resource+0x15/0x50
->>>     Code: 00 00 00 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 0f 1f 40 d6 48 b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 <0f> b6 04 02 84 c0 74 04 3c 03 7e 0b c7 07 00 00 00 00 c3 cc cc cc
->>>     RSP: 0018:ff110000013479f8 EFLAGS: 00000202
->>>     RAX: dffffc0000000000 RBX: 0000000000000010 RCX: ff110000059f9760
->>>     RDX: 0000000000000002 RSI: 0000000000000000 RDI: 0000000000000010
->>>     RBP: 0000000000000001 R08: ff110000024a2180 R09: ffe21c0000268f2c
->>>     R10: 0000000000000003 R11: ff110000059f9298 R12: ff1100000592dc00
->>>     R13: 0000000000000040 R14: ff110000059f9000 R15: ff110000024a2168
->>>     FS:  0000000000000000(0000) GS:ff110000e18da000(0000) knlGS:0000000000000000
->>>     CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->>>     CR2: dffffc0000000002 CR3: 00000000052ca000 CR4: 0000000000751ef0
->>>     PKRU: 55555554
->>>     Call Trace:
->>>      <TASK>
->>>      rxe_receiver+0x5f6e/0x9a20
->>>      ? flush_workqueue_prep_pwqs+0x1a4/0xe80
->>>      ? kthread+0x2b0/0x3b0
->>>      ? __pfx_rxe_receiver+0x10/0x10
->>>      ? update_cfs_rq_load_avg+0x5a/0x560
->>>      ? pick_task_fair+0x468/0x1a60
->>>      ? __pfx_rxe_receiver+0x10/0x10
->>>      ? _raw_spin_lock_irqsave+0x86/0xe0
->>>      ? __pfx_rxe_receiver+0x10/0x10
->>>      do_work+0x144/0x470
->>>      process_one_work+0x6fc/0x1180
->>>      ? __pfx___schedule+0x10/0x10
->>>      ? __pfx_process_one_work+0x10/0x10
->>>      ? _raw_spin_lock_irq+0x81/0xe0
->>>      ? __pfx_do_work+0x10/0x10
->>>      ? assign_work+0x11d/0x410
->>>      worker_thread+0x45b/0xd10
->>>      ? __pfx_worker_thread+0x10/0x10
->>>      kthread+0x2c8/0x3b0
->>>      ? recalc_sigpending+0x15c/0x1e0
->>>      ? __pfx_kthread+0x10/0x10
->>>      ret_from_fork+0x36e/0x5a0
->>>      ? __pfx_ret_from_fork+0x10/0x10
->>>      ? __switch_to+0x572/0xdc0
->>>      ? __switch_to_asm+0x33/0x70
->>>      ? __pfx_kthread+0x10/0x10
->>>      ret_from_fork_asm+0x1a/0x30
->>>      </TASK>
->>>     Modules linked in:
->>>     ---[ end trace 0000000000000000 ]---
->>>     RIP: 0010:free_rd_atomic_resource+0x15/0x50
->>>     Code: 00 00 00 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 0f 1f 40 d6 48 b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 <0f> b6 04 02 84 c0 74 04 3c 03 7e 0b c7 07 00 00 00 00 c3 cc cc cc
->>>     RSP: 0018:ff110000013479f8 EFLAGS: 00000202
->>>     RAX: dffffc0000000000 RBX: 0000000000000010 RCX: ff110000059f9760
->>>     RDX: 0000000000000002 RSI: 0000000000000000 RDI: 0000000000000010
->>>     RBP: 0000000000000001 R08: ff110000024a2180 R09: ffe21c0000268f2c
->>>     R10: 0000000000000003 R11: ff110000059f9298 R12: ff1100000592dc00
->>>     R13: 0000000000000040 R14: ff110000059f9000 R15: ff110000024a2168
->>>     FS:  0000000000000000(0000) GS:ff110000e18da000(0000) knlGS:0000000000000000
->>>     CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->>>     CR2: dffffc0000000002 CR3: 00000000052ca000 CR4: 0000000000751ef0
->>>     PKRU: 55555554
->>>
->>>     ------------[ cut here ]------------
->>>     WARNING: drivers/infiniband/sw/rxe/rxe_pool.c:212 at __rxe_cleanup+0x21b/0x290, CPU#0: t028/87
->>>     Modules linked in:
->>>     CPU: 0 UID: 0 PID: 87 Comm: t028 Tainted: G      D             7.4.0-rc3-gaebb72744764 #1 PREEMPT(lazy)
->>>     Tainted: [D]=DIE
->>>     Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
->>>     RIP: 0010:__rxe_cleanup+0x21b/0x290
->>>     Code: f7 fe ff ff 4c 89 e7 e8 43 99 ad fd 84 c0 0f 85 6f ff ff ff be 50 c3 00 00 4c 89 e7 e8 9e 22 f3 00 85 c0 0f 85 5a ff ff ff 90 <0f> 0b 90 eb 04 90 0f 0b 90 bd 92 ff ff ff e9 48 ff ff ff 90 0f 0b
->>>     RSP: 0018:ff110000053f78f8 EFLAGS: 00000246
->>>     RAX: 0000000000000000 RBX: ff110000059f9160 RCX: ffe21c0000a7ef08
->>>     RDX: 0000000000000000 RSI: ff110000053f7860 RDI: ff110000059f9190
->>>     RBP: 0000000000000001 R08: 0000000000000001 R09: ffe21c0000a7eef5
->>>     R10: 0000000000000003 R11: ffffffff89c14700 R12: ff110000059f9188
->>>     R13: ff110000059f9170 R14: ff11000004794ea0 R15: 1fe2200000a7ef1f
->>>     FS:  0000000000000000(0000) GS:ff110000e18da000(0000) knlGS:0000000000000000
->>>     CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->>>     CR2: dffffc0000000002 CR3: 000000001b872000 CR4: 0000000000751ef0
->>>     PKRU: 55555554
->>>     Call Trace:
->>>      <TASK>
->>>      ? __pfx___rxe_cleanup+0x10/0x10
->>>      ? rxe_qp_chk_destroy+0x61/0xc0
->>>      rxe_destroy_qp+0x2f/0x180
->>>      ib_destroy_qp_user+0x30f/0x4f0
->>>      ? __pfx_ib_destroy_qp_user+0x10/0x10
->>>      ? stack_trace_save+0x8e/0xc0
->>>      uverbs_free_qp+0x7c/0x150
->>>      ? put_files_struct+0x181/0x310
->>>      destroy_hw_idr_uobject+0x7e/0x130
->>>      ? entry_SYSCALL_64_after_hwframe+0x77/0x7f
->>>      uverbs_destroy_uobject+0xdf/0x770
->>>      __uverbs_cleanup_ufile+0x18b/0x390
->>>      ? __pfx___uverbs_cleanup_ufile+0x10/0x10
->>>      ? __pfx_down_write+0x10/0x10
->>>      uverbs_destroy_ufile_hw+0x6d/0x260
->>>      ib_uverbs_close+0x46/0x270
->>>      __fput+0x2f8/0x9e0
->>>      fput_close_sync+0xe2/0x190
->>>      ? __pfx_fput_close_sync+0x10/0x10
->>>      filp_close_sync+0x18/0x30
->>>      put_files_struct+0x181/0x310
->>>      do_exit+0x6ab/0x25f0
->>>      ? __pfx_do_exit+0x10/0x10
->>>      ? zap_other_threads+0xb9/0x300
->>>      ? __pfx_zap_other_threads+0x10/0x10
->>>      ? handle_mm_fault+0x13d/0x420
->>>      do_group_exit+0xab/0x220
->>>      __x64_sys_exit_group+0x39/0x40
->>>      x64_sys_call+0x1962/0x1970
->>>      do_syscall_64+0xdf/0x4c0
->>>      entry_SYSCALL_64_after_hwframe+0x77/0x7f
->>>     RIP: 0033:0x7f34f928a21d
->>>     Code: Unable to access opcode bytes at 0x7f34f928a1f3.
->>>     RSP: 002b:00007ffeed584088 EFLAGS: 00000202 ORIG_RAX: 00000000000000e7
->>>     RAX: ffffffffffffffda RBX: 00007f34f93a0fa8 RCX: 00007f34f928a21d
->>>     RDX: 00000000000000e7 RSI: ffffffffffffff88 RDI: 0000000000000000
->>>     RBP: 00007ffeed5840e0 R08: 00007ffeed584030 R09: 0000000000000000
->>>     R10: 000055d8b71c93e0 R11: 0000000000000202 R12: 0000000000000001
->>>     R13: 0000000000000000 R14: 0000000000000000 R15: 00007f34f93a0fc0
->>>      </TASK>
->>>     ---[ end trace 0000000000000000 ]---
->>>
->>> The responder task dies, and when the test exits, destroying the QP
->>> warns on a timeout in __rxe_cleanup() (the WARNING above) and then
->>> hangs.
->>>
->>> Add RXE_FLUSH_MASK to the check, so a FLUSH gets the same Invalid
->>> Request NAK a READ would, and the requester sees IB_WC_REM_INV_REQ_ERR.
->>>
->>> The issue was found by Claude Opus 5.5 running Quality Playbook, an
->>> LLM-driven code review tool:
->>> https://github.com/andrewstellman/quality-playbook
->>> The fix and this changelog were drafted with Claude Opus 5.5 and
->>> reviewed by me.
->>>
->>> Fixes: ea1bb00ee9a5 ("RDMA/rxe: Implement flush execution in responder side")
->>> Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
->>> ---
->>>
->>> v2: the full kernel log of the oops and the later WARNING, as Leon
->>> asked (timestamps removed). The code change is the same as v1.
->>> v1: https://lore.kernel.org/r/20261119151332.95466-1-astellman@stellman-greene.com
->>>
->>> Tested in QEMU with KASAN on v7.4-rc3, and on v7.4-rc3 with the RDMA
->>> code from rdma for-next (7404c82cbf12). The reproducer is a short
->>> libibverbs program; I can send it off-list.
->>>
->>>    drivers/infiniband/sw/rxe/rxe_resp.c | 3 ++-
->>>    1 file changed, 2 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/drivers/infiniband/sw/rxe/rxe_resp.c b/drivers/infiniband/sw/rxe/rxe_resp.c
->>> index 1b7f31737225..38b5b0c2abe3 100644
->>> --- a/drivers/infiniband/sw/rxe/rxe_resp.c
->>> +++ b/drivers/infiniband/sw/rxe/rxe_resp.c
->>> @@ -340,7 +340,8 @@ static enum resp_states check_resource(struct rxe_qp *qp,
->>>    {
->>>        struct rxe_srq *srq = qp->srq;
->>>
->>> -     if (pkt->mask & (RXE_READ_OR_ATOMIC_MASK | RXE_ATOMIC_WRITE_MASK)) {
->>> +     if (pkt->mask & (RXE_READ_OR_ATOMIC_MASK | RXE_ATOMIC_WRITE_MASK |
->>> +                      RXE_FLUSH_MASK)) {
->> This looks sensible to me—adding RXE_FLUSH_MASK here avoids
->> rxe_prepare_res() / free_rd_atomic_resource() touching ZERO_SIZE_PTR
->> when max_dest_rd_atomic == 0 and returns the expected Invalid Request NAK.
->>
->> Just worth confirming:
->> (1) RXE_FLUSH_MASK takes the same error/NAK path here without later
->> responder states assuming a valid qp->resp.res or non-ZERO_SIZE_PTR
->> qp->resp.resources, and
->>
->> (2) no other RXE_READ_OR_ATOMIC_MASK / RXE_ATOMIC_WRITE_MASK checks in
->> rxe_resp.c for max_dest_rd_atomic or responder resources missed
->> RXE_FLUSH_MASK.
->>
->> Thanks a lot.
->>
->> Zhu Yanjun
->>
->>>                /* it is the requesters job to not send
->>>                 * too many read/atomic ops, we just
->>>                 * recycle the responder resource queue
->>>
->>> base-commit: 7404c82cbf1246e0e84e2ec21834d23c26f9a8ed
+ .../devicetree/bindings/arm/tegra.yaml        |    7 +-
+ arch/arm/boot/dts/nvidia/Makefile             |    6 +-
+ .../nvidia/tegra114-nvidia-tegranote7c.dts    |   14 +
+ .../tegra114-nvidia-tegratab-common.dtsi      | 2759 +++++++++++++++++
+ .../nvidia/tegra114-nvidia-tegratab-p1640.dts |  603 ++++
+ .../nvidia/tegra114-nvidia-tegratab-p1988.dts | 1405 +++++++++
+ arch/arm/boot/dts/nvidia/tegra114-tn7.dts     |  341 --
+ 7 files changed, 4791 insertions(+), 344 deletions(-)
+ create mode 100644 arch/arm/boot/dts/nvidia/tegra114-nvidia-tegranote7c.dts
+ create mode 100644 arch/arm/boot/dts/nvidia/tegra114-nvidia-tegratab-common.dtsi
+ create mode 100644 arch/arm/boot/dts/nvidia/tegra114-nvidia-tegratab-p1640.dts
+ create mode 100644 arch/arm/boot/dts/nvidia/tegra114-nvidia-tegratab-p1988.dts
+ delete mode 100644 arch/arm/boot/dts/nvidia/tegra114-tn7.dts
 
 -- 
-Best Regards,
-Yanjun.Zhu
+2.53.0
 
