@@ -1,58 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795361340;
-	b=l0bEsolV5+ZnQ6RpTfRfjiRmsdjANlDsI2RtEXHcLk4tWxCEq9mM0AbSna1VvgilZLlr
-	 HTolDLFhW4RF5cU23gEXQ10lc0km+KIeYXiEeGrvlfNbX8pfdRireNAMO90ypiWpSsJEJ
-	 cyMwimzU6UFo65THB8OGR9M93jx5h8V25yW3DKUcwXWArlzoaoTFgLXkBxMWf5iQh+wMe
-	 UjacWmsBZPTPgVy9UlXFuCQOxcxftlhkuFNnTqbzQNsyyKHa9LDYd8eWjlpv+Um50v236
-	 KLQiJApE8hs8mCEPL5mnyM91KF0Mk7gDAvnebYbyvb/LynZSzZC7sQz/w8kRNV9vm4w==
+	t=1795361342;
+	b=wLzG7iRQ3yiIzhVFy21kBR/YYc3BPss/l4U/HfwQ0aLl9Sy1TUbeak1rtcwWUKo14o8W
+	 /6OuXcgGG281cv9/Hu2v9hPLHegIqr0+I/YUNVhiTz/lXIJ2pc4ccFhls5xuGJRZiP6vV
+	 Gq6WZQJEtzH03rFtkETv6NUfzXTT/lL1O0DgZ3KrOHyJHcRlFGn4Ly5dXAteCvPcpBGPd
+	 8R9bsqEu72t4LZTINGYU7QwU2XgbFWbVTGF7cUbjtFd+ldxfDQm2dHsTpJOX7wo7zbbgP
+	 MRquOIj9dcP9krFsezWQaTsL/4yDjc/ES7kjhoC3beipipNvaWWja9nUdsDrcnjvHVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795361340;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795361342;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=ZF89tkqws706RTsLm88jnbpkVWFxEn2BIz922AiAkF4=;
-	b=hwchPk+E+e9/2/vxHHTCoNEbqOpogeiWFS8jV+Q72RgrP3fkrQ7h61Talp8eSyFFWnZz
-	 79vds4PB0Yxw6Hs7tb+ZxEGvz71Qoipo5ILTAU+HwR5SsnucK+2vRRzkPvHow2M1B8HjA
-	 PdSqelBkMv7ic30QFpFCjgD/3+TtEA52cu9lqfuFGSsgf7zNbPKLa9QaEfzSnbfHhDp9K
-	 2CMWd/wmrySn2cdmb9b0WgztcW/1AyDGuBWWyDHRHJDLux46teMGuM8HlthKGwrxA7EYm
-	 fSfaqtY2HicskEg3FgU35/Xbqsq3MiCzX2MRPrg7p5R+yySAO4JRnaPWb7G14vXYCag==
+	bh=9nQxnYz6UO1nf9mlNBh/7UX1qcC/Uwn0p+mA44C2aF0=;
+	b=q0BFeEnxigbTDNFf7OnRu+9YOmnfZ1eqUL73x1g5l41JrAWCPnaE31YWn3ggOxNzhXkF
+	 3fbkGiKAzdwrYDMYJoT9f1K9BhF0AjM+3mXu9ISeFCrbXpmUFe2tqbWCEHCxRj6jEWoxM
+	 pnk0ntsdxgbK3xDkO5d/+4V1ahkYvia6XMR5+p83zGrDZcFNlrGpviaA2JL9k38XdZGW0
+	 ARdT928fB0CxfusruMAwP7W6wvT6nt5kfE0bhCe20H08TkiABOwYtbe87o+ipADaFKjZ9
+	 69h9oR5KHTGiE8r6nuoDl5FcK1JeQSMW4Sb1AdMIGrncZL72fpIsCdLS17m9C5f830g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kvffzmlB;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NMPu4rp8;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 480F7606A32C;
-	Sun, 22 Nov 2026 15:29:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79778606A684;
+	Sun, 22 Nov 2026 15:29:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kvffzmlB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B27011F000E1;
-	Sun, 22 Nov 2026 15:28:58 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NMPu4rp8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32D231F000EC;
+	Sun, 22 Nov 2026 15:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795361339;
-	bh=ZF89tkqws706RTsLm88jnbpkVWFxEn2BIz922AiAkF4=;
+	s=k20260515; t=1795361342;
+	bh=9nQxnYz6UO1nf9mlNBh/7UX1qcC/Uwn0p+mA44C2aF0=;
 	h=From:To:Cc:Subject:Date;
-	b=kvffzmlBM3UnFqMdU+V0YvxsvAAcjV+vNtBt4DlEb0BbLC0XXLOAyXXQhB6Nbg6Zm
-	 52pwZ1PDRBHrjb665HPFeLgEqMfaBtaxnuwVvHY24+5y9oTLyYFT+uqkHsn7qihcxF
-	 ndrYF59gcd+lSJhIQiR+7kIpDIl9rtFhBnRCrKOSE3t4wHFjB81vd/gG8QyTVkXvGj
-	 KOpyq+C4nvObZtbmUW8SNPJHLBxdGsoKirb34zuZGPxbKGVvFo2chkq0/+WYO7MGjp
-	 VjuXWZjHUscnT+2s4g0YlAz+x/dvyKEI5/JH4TCiv6G2KjqDZhE+5h/TIsWpkCFwBQ
-	 KatUbQfk+c+5Q==
+	b=NMPu4rp8zjewDlvkpylD75SJ9oDVhEKn1UTPVjZqujtU5Z6dAg30GKLvJ4PIaYq93
+	 uzDp8WTcNGkG+m/Xk4DqLWYEY3ebBZhPf/s1rhDDYrUuMuBSbQQ+nefqb6DH2HRtSm
+	 jvCSPA3ndKtq+dIXqcVHVGvka63J9BOuQYoRR2H3d2l6oer0Lqu+nC0TfyBvA8KzqU
+	 d/ZLZFA75MOY9j5cd2EJPZUCymlBYdDmy6ghTGh7OyIbToBR6wBnhyEt4qNi6WsjS9
+	 MH9+mDV4PWcihzPUvwqzii4Qni6HdCeModUux7Dc7xylCoC0SDhAEwylbD5rHK39IE
+	 T7feX07qPm3sA==
 From: Sasha Levin <sashal@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	linux-arm-msm@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-usb@vger.kernel.org,
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Ard Biesheuvel <ardb@kernel.org>,
+	Shreesh Adiga <16567adigashreesh@gmail.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	linux-crypto@vger.kernel.org,
+	llvm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] phy: qcom: uniphy-pcie-28lp: Rename the PHY type enum values
-Date: Sun, 22 Nov 2026 10:28:57 -0500
-Message-ID: <20261122152857.1113943-1-sashal@kernel.org>
+Subject: [PATCH] lib/crc: Use uint64_t for the new NEON crc64 fold constants
+Date: Sun, 22 Nov 2026 10:29:00 -0500
+Message-ID: <20261122152900.1113961-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -65,64 +62,56 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Commit b28eecc89399 ("include: linux: phy: Add phy attribute "type" and
-associated helpers") makes <linux/phy/phy.h> include <dt-bindings/phy/phy.h>,
-which defines PHY_TYPE_PCIE. That clashes with the driver's own enum, and the
-build fails:
+Commit ff049836f05f ("lib/crc: Don't include <linux/types.h> in NEON intrinsics
+code") in mainline switched the arrays passed to vld1q_u64() to uint64_t, since
+u64 and the uint64_t that vld1q_u64() takes are different types on arm64 once
+<linux/types.h> is gone. The two arrays added by commit ef4102757fdd ("lib/crc:
+Add 4-way folding in NEON crc64_nvme implementation") still use u64, so the
+combination fails to build with clang:
 
-  include/dt-bindings/phy/phy.h:15:33: error: expected identifier before numeric constant
-  drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c:127:27: error: 'PHY_TYPE_PCIE_GEN2' undeclared here (not in a function); did you mean 'PHY_TYPE_PCIE'?
-  drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c:135:27: error: 'PHY_TYPE_PCIE_GEN3' undeclared here (not in a function); did you mean 'PHY_TYPE_PCIE'?
+  lib/crc/crc64-neon.c:66:40: error: incompatible pointer types assigning
+  to 'const unsigned long *' from 'const u64 *' (aka 'const unsigned long
+  long *') [-Werror,-Wincompatible-pointer-types]
 
-Give the enum values a QCOM_UNIPHY_ prefix.
+Use uint64_t for them too. This builds with and without ff049836f05f.
 
-Fixes: b28eecc89399 ("include: linux: phy: Add phy attribute "type" and associated helpers")
+Fixes: ef4102757fdd ("lib/crc: Add 4-way folding in NEON crc64_nvme implementation")
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
-Against usb-next. The driver needs ARCH_QCOM and is not in arm64
-defconfig.
+crc-next is based on v7.4-rc2 and ff049836f05f went into mainline after
+rc3, so linux-next will hit this once it merges the two. all-next hit
+it already.
 
- drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+Tested on arm64: lib/crc/crc64-neon.o builds with clang and gcc on
+crc-next, and with clang on crc-next merged with mainline 4843f6873f7c.
+Without this patch the merged tree fails as above.
 
-diff --git a/drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c b/drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c
-index ef8709ff0e16b..4243de46a1e07 100644
---- a/drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c
-+++ b/drivers/phy/qualcomm/phy-qcom-uniphy-pcie-28lp.c
-@@ -44,9 +44,9 @@
- #define PHY_CFG_GEN3_ALIGN_HOLDOFF_TIME		0x3e8
- 
- enum qcom_uniphy_pcie_type {
--	PHY_TYPE_PCIE = 1,
--	PHY_TYPE_PCIE_GEN2,
--	PHY_TYPE_PCIE_GEN3,
-+	QCOM_UNIPHY_PCIE = 1,
-+	QCOM_UNIPHY_PCIE_GEN2,
-+	QCOM_UNIPHY_PCIE_GEN3,
- };
- 
- struct qcom_uniphy_pcie_regs {
-@@ -124,7 +124,7 @@ static const struct qcom_uniphy_pcie_regs ipq5332_regs[] = {
- 
- static const struct qcom_uniphy_pcie_data ipq5018_data = {
- 	.lane_offset	= 0x800,
--	.phy_type	= PHY_TYPE_PCIE_GEN2,
-+	.phy_type	= QCOM_UNIPHY_PCIE_GEN2,
- 	.init_seq	= ipq5018_regs,
- 	.init_seq_num	= ARRAY_SIZE(ipq5018_regs),
- 	.pipe_clk_rate	= 125 * MEGA,
-@@ -132,7 +132,7 @@ static const struct qcom_uniphy_pcie_data ipq5018_data = {
- 
- static const struct qcom_uniphy_pcie_data ipq5332_data = {
- 	.lane_offset	= 0x800,
--	.phy_type	= PHY_TYPE_PCIE_GEN3,
-+	.phy_type	= QCOM_UNIPHY_PCIE_GEN3,
- 	.init_seq	= ipq5332_regs,
- 	.init_seq_num	= ARRAY_SIZE(ipq5332_regs),
- 	.pipe_clk_rate	= 250 * MEGA,
+ lib/crc/crc64-neon.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-base-commit: 8e31dedb9ad496ea7dd7064d77d6f7d459c1c90f
+diff --git a/lib/crc/crc64-neon.c b/lib/crc/crc64-neon.c
+index 03b46d0abcc41..f36389789fe65 100644
+--- a/lib/crc/crc64-neon.c
++++ b/lib/crc/crc64-neon.c
+@@ -11,11 +11,11 @@
+ u64 crc64_nvme_neon(u64 crc, const u8 *p, size_t len);
+ 
+ /* x^575 mod G, x^511 mod G */
+-static const u64 fold_consts_4x_val[2] = { 0x0c32cdb31e18a84aULL,
+-					   0x62242240ace5045aULL };
++static const uint64_t fold_consts_4x_val[2] = { 0x0c32cdb31e18a84aULL,
++						0x62242240ace5045aULL };
+ /* x^319 mod G, x^255 mod G */
+-static const u64 fold_consts_2x_val[2] = { 0xb0bc2e589204f500ULL,
+-					   0xe1e0bb9d45d7a44cULL };
++static const uint64_t fold_consts_2x_val[2] = { 0xb0bc2e589204f500ULL,
++						0xe1e0bb9d45d7a44cULL };
+ /* x^191 mod G, x^127 mod G */
+ static const u64 fold_consts_val[2] = { 0xeadc41fd2ba3d420ULL,
+ 					0x21e9761e252621acULL };
+
+base-commit: ef4102757fdd84b0b6189260780ac5faf132edc7
 -- 
 2.53.0
 
