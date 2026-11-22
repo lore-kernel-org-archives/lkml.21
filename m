@@ -1,70 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.194.8.81
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=37.205.8.231
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795367989;
-	b=lycY7aEQ6Et/47bhxb1RqNV/NcibLs1sKxo7rGDbmaI7JCxjCsx1M230zIj5DgVGeYqt
-	 y4ZsLV5kmLgUlhvEj8JWxSGVn5GYhnJ0jDaSDSIHWONt82e1WkKkOzqENrbv0oOqYxZ+A
-	 RFsN7prJ+OEF47RaNs3kGvBDlpzbWCL7pau+8zVriA6SxNLfLQa7x9pXb8q5UB2gVE/6A
-	 xZ8GfsAnbhEddYcKUmsTIjqnxPSDWNlogpn3Ykt9pNrvdTnD4uRZlFGP/jMUIZ0dIJy7P
-	 L+sW9eJc3xBZZGt90rSF9A7Pi9uQdky5Tbs/WOHJ3XJqYjjkJSfr7LP+ucedrUga2ig==
+	t=1795368060;
+	b=LHsesIgJ5AKDo3G9J1xyBEIIH8jow1FHb/4kccyJ9Ecy/cecXmYatVNWeTKuCphhoOp5
+	 f8Kyit1GLxgBrwxzTnB57MRfOFSY7ZdIMYvesDFBqPwuKzQY5X67iK4vIGj9EtpOA7gc8
+	 3tJq8b3b7vbJMT3XnaKeloAt1cQvZyKSTw8lKLCf1MKe/pay4eWRUj8njRGZ2gSDPbeqe
+	 h+wRxD7eCDuA/wmpDODyajPcDVNwNu9oa0RLCwzUjLQhhTO4qRp4fidm5lFpura68JsvU
+	 5GiG9VBcVQhcA8CZdi3C+2PCLpGDfzng4t0cSvRjgLiHKDWU6joKT+JP872pimnqO4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795367989;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=QHSm4db2SlPaNtSU+7xYvDAThcu6VcPl6213mSjo+4Q=;
-	b=oxVsfiFJktdcVaBNpA/tk9Y2OG8HanV8Xh5EJ4b2GwYf9rLv1L4lEhx8a+tRZsqUpNeh
-	 dOtx3pE9eFxMKKgePn9WqHeUngvUvxF0bO+6oQ0tR9dxq4r5BmrvLrzv/WEmr+5qCXDfv
-	 mLR/hxKTZvE5FQs7AeAIchCQJt/I/X/jG9ZJP0CsZjJNEj0hfKVmLfymEiviyLzLERsV/
-	 O/Ze/ng7yylivV35kQUHe5pwnuJk2vy9u+EABeUjnEyLzz1FduI9GOi89NP7DU+HMmUnd
-	 cFxi13fVoahyO0utmn866HoJE+BfdldcFrr4ftj/8UtMQ5hOd1QDtQVLckfVNcoSIXQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795368060;
+	h=DMARC-Filter:DKIM-Signature:Received:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:To:
+	 From:References:In-Reply-To;
+	bh=xMAMvMSuemtr/dlGWGZZg9TqU0c+ENYkoUNgtIidgTI=;
+	b=WpX73jhyNZ2rtQivwRTcs1dP0kccZGd/Mom2MjrmMgW4HqEY4qPZfRr4rsAOSVYkQgmu
+	 0M8OH/GRiokqrXW94U6OvDYCMcw+O/I787aQs9d5Ig3RF6JtP/XpS/d3/4CmBlPe7lTTv
+	 ua8WuP2gU5sigz77kP1aKskCwlfVSZfeyUSMPvnd4kI1ebcLcHDi+Y7FhtYOaR2ku/dLJ
+	 YlH4yBWCV8Fs8n6BboQ+DjYyaSMuwAFmsUCzNObFPBBqaLymn/RJgmMYoVfvLYkiWKXL9
+	 meUXQhiDkaSwILNj32XS3NlWCJ0Ml9J2a1k3gi3WhfOUFoUq6xbz80NcXgGiRSkEakA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=dolcini.it;
-	spf=pass smtp.mailfrom=dolcini.it;
-	dkim=pass header.d=dolcini.it header.i=@dolcini.it header.a=rsa-sha256 header.s=default header.b=lmjnV4vT;
-	arc=none smtp.remote-ip=217.194.8.81
-Received: from mail11.truemail.it (mail11.truemail.it [217.194.8.81])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=matfyz.cz;
+	spf=pass smtp.mailfrom=vinatta.cz;
+	dkim=pass header.d=vinatta.cz header.i=@vinatta.cz header.a=rsa-sha256 header.s=default header.b=oT1CQ8nR;
+	arc=none smtp.remote-ip=37.205.8.231
+Received: from vinatta.cz (vinatta.cz [37.205.8.231])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB5E6606A332;
-	Sun, 22 Nov 2026 17:19:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB5E6606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dolcini.it
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dolcini.it
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BF90606A681;
+	Sun, 22 Nov 2026 17:20:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8BF90606A681
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=matfyz.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=vinatta.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=dolcini.it header.i=@dolcini.it header.a=rsa-sha256 header.s=default header.b=lmjnV4vT
-Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 033A6270BC;
-	Sun, 22 Nov 2026 18:19:39 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1795367980;
-	bh=QHSm4db2SlPaNtSU+7xYvDAThcu6VcPl6213mSjo+4Q=; h=From:To:Subject;
-	b=lmjnV4vTqfuqYvJWlYIRfcMM2+htrhFRHSqErruwLNPxFM3IgAoRHRA9zfimm4GSt
-	 JDzt8pOMiF+qzLuuw48YswIaHnKJftXt3X0MKm4M24+NlHJYOhzk55UsvKqSAgWuwl
-	 0eW39aS3PNl7CRuaBobmX8n4ZXWs8LXNfII8vqZODOQ5GZBR5G+LktrzyxLnxz9L5s
-	 eiatNmqpPwJH9oBIIAhDGNaqIrOKmtUhsrVpfU+RqvPbrpdHNe8Qua4tJScqd6rDb0
-	 k1AdCuQh5lHop0+9PY1SoIoYqaw7HF9y5xvTN6MWRhFS1NP/Y6q3VlsXQQReRvhDt4
-	 FxvMjMNTM8MFw==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: linux-bsp@toradex.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 2/2] arm64: dts: freescale: imx95-toradex-osm-dev: Fix SDIO_B definition
-Date: Sun, 22 Nov 2026 18:19:29 +0100
-Message-ID: <20261122171931.295307-3-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261122171931.295307-1-francesco@dolcini.it>
-References: <20261122171931.295307-1-francesco@dolcini.it>
+	dkim=pass (2048-bit key, unprotected) header.d=vinatta.cz header.i=@vinatta.cz header.a=rsa-sha256 header.s=default header.b=oT1CQ8nR
+DKIM-Signature: a=rsa-sha256; bh=xMAMvMSuemtr/dlGWGZZg9TqU0c+ENYkoUNgtIidgTI=;
+ c=relaxed/relaxed; d=vinatta.cz;
+ h=Subject:Subject:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Openpgp;
+ i=@vinatta.cz; s=default; t=1795368011; v=1; x=1795800011;
+ b=oT1CQ8nR7khqT7IAnsfEfPfFZmLRzxBzw3BRr3KDj8njwtc36UDqCvlwkgiVV7DK7xi+VUnI
+ f11f733vgEG08UJmp4PhxoEBn4cDoPwYiyUToX1f9TZnUYXCQBKWEpDFnQaSJOyqwjXFUiqza4K
+ GfeQ3BZGY1zjP1R+sq+NafYPLr8dhZSWpC+OB9AvQF0qL7iagoHFBDKcd+c7UQ4aFu4zRPRlzA4
+ Ax/IjgAhfQ2ycv8NgOnSt6OOxT/mLQlXFj3q4C/xwWzpaWUEC9yaxWGZ+xZAiwyrT62SBELTDcL
+ gOyv9MG7QQW9wftp73prIAygBuFFx5HVU6eaOrERfWqeg==
+Received: by vinatta.cz (envelope-sender <karel@vinatta.cz>) with ESMTPS id
+ 3a5e5229; Sun, 22 Nov 2026 18:20:11 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,53 +52,58 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sun, 22 Nov 2026 18:20:10 +0100
+Message-Id: <DN1WUDUNU9U2.351W1X92P0BJF@matfyz.cz>
+Cc: "Brian Norris" <briannorris@chromium.org>, "Johannes Berg"
+ <johannes@sipsolutions.net>, "Johannes Berg" <johannes.berg@intel.com>,
+ "Francesco Dolcini" <francesco@dolcini.it>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, =?utf-8?q?Duje_Mihanovi=C4=87?=
+ <duje@dujemihanovic.xyz>, "Gregory Clement" <gregory.clement@bootlin.com>,
+ "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>, "Ulf Hansson"
+ <ulf.hansson@linaro.org>, "Frank Li" <Frank.Li@nxp.com>,
+ <linux-wireless@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-mmc@vger.kernel.org>, <~postmarketos/upstreaming@lists.sr.ht>,
+ <phone-devel@vger.kernel.org>, "Jeff Chen" <jeff.chen_1@nxp.com>, "Peng
+ Fan" <peng.fan@nxp.com>, "David Heidelberg" <david@ixit.cz>
+Subject: Re: [DONOTAPPLY RFC PATCH v2 0/4] WiFi support for
+ samsung,coreprimevelte
+To: "Andrew Lunn" <andrew@lunn.ch>
+From: "Karel Balej" <balejk@matfyz.cz>
+References: <20251026182602.26464-1-balejk@matfyz.cz>
+ <DEJL1ATTQMVE.120JV9YW59I27@matfyz.cz>
+ <aSnWYS2g5slVFaSk@gaggiata.pivistrello.it>
+ <DI5L100Q1RKO.1A68EJIPWYSRC@matfyz.cz> <afI8y70U7wFT_07h@google.com>
+ <DLQ9LXDE2P29.248MPYCJMT0DL@matfyz.cz>
+ <787950f1-ff2f-4b49-b164-61da3c9971c6@ixit.cz>
+ <20374af8-2f50-4637-b92a-4fa5c5192c20@lunn.ch>
+In-Reply-To: <20374af8-2f50-4637-b92a-4fa5c5192c20@lunn.ch>
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+Andrew Lunn, 2026-11-20T20:55:49+01:00:
+> Why even bother, if it has no users?
 
-On the OSM Development Board, SDIO_B goes to the M.2 Key E slot for a
-Wi-Fi/Bluetooth module. The slot has no card detect signal and M.2
-modules are not hot-pluggable. The slot supply is not software
-controlled, so the module stays powered in suspend. The SDIO_B signals
-are fixed at 1.8V, supplied by the on-module +V1.8 rail.
+I and a few others working on the phone/SoC use it and I'm sure that
+others who have the hardware lying around would appreciate being able to
+use it with a mainline kernel too.
 
-Describe the slot as non-removable, keep the module powered in suspend,
-and add the fixed 1.8V I/O supply. Without this, the empty slot is
-polled every second.
+> We have to look at it from the perspective of Maintenance. If it gets
+> merged, you have to expect a hoard of LLM script kids descending on it
+> and submitting patch after patch fixing theoretical problems. Is
+> reviewing and merging such patches a good use of time for a driver
+> with no mainstream users?
 
-Fixes: 39be5a7e3ecc ("arm64: dts: freescale: Add Toradex OSM iMX95")
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
- arch/arm64/boot/dts/freescale/imx95-toradex-osm-dev.dts | 3 +++
- arch/arm64/boot/dts/freescale/imx95-toradex-osm.dtsi    | 1 +
- 2 files changed, 4 insertions(+)
+I don't see why this change should trigger any such patch avalanche =E2=80=
+=93
+the driver is already in-tree, all I want to do right now is to enable
+it for an additional chip ID.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-toradex-osm-dev.dts b/arch/arm64/boot/dts/freescale/imx95-toradex-osm-dev.dts
-index 24cc6d4d917a..bbb2010eecfe 100644
---- a/arch/arm64/boot/dts/freescale/imx95-toradex-osm-dev.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-toradex-osm-dev.dts
-@@ -401,5 +401,8 @@ &usdhc2 {
- 
- /* OSM SDIO_B */
- &usdhc3 {
-+	keep-power-in-suspend;
-+	non-removable;
-+
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/freescale/imx95-toradex-osm.dtsi b/arch/arm64/boot/dts/freescale/imx95-toradex-osm.dtsi
-index dc2ef7035246..ff44e8c71bf6 100644
---- a/arch/arm64/boot/dts/freescale/imx95-toradex-osm.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95-toradex-osm.dtsi
-@@ -669,6 +669,7 @@ &usdhc3 {
- 	pinctrl-1 = <&pinctrl_sdio_b>;
- 	pinctrl-2 = <&pinctrl_sdio_b_200mhz>;
- 	disable-wp;
-+	vqmmc-supply = <&reg_1p8v>;
- };
- 
- &wdog3 {
--- 
-2.47.3
+> Does openwrt support it?
 
+Not that I was able to find.
+
+Thank you for having a look,
+Karel
