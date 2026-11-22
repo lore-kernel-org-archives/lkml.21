@@ -1,61 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795317295;
-	b=zHQV7RGzMOms2jWhe+lMtdhizLlQPnIQb5BFa7YufWt1FvnC11fF4am+PRGAkpCxjrxE
-	 cPiuSuMzRRd9cR7ZSLQkas9VHr12dn6kDAMu1frdLGENst3xT09vnNa3g6Pdu8x1sCI4D
-	 1bDxUNNsMIxjgbwQ9kUnjT7aQ8CO7IuXvzwzGB/EVuehDPV9RpXZZxkOnnZcrzeG+B1TA
-	 /DBniFyetu8OmeTEITrYNykBvUSo/J+ygPcaRT74NATYSlJrX69kQMwtq7SEyHy0STbzR
-	 1dz/cMt+r65FjNxYnqikEZ7lnezpIykPxrN9U5elJybqtl1s332RrCM0rOIlhbP9/pA==
+	t=1795317811;
+	b=4SzXOwaR7k0KYVijTNoNxIkuk6ChTSNygDY5n5T++xS3dSud+jG4bMMZGEVzCJAXgZjf
+	 yO28iwr76mOYWyi7cM4MCpSUA8/lTRV7jFYU+H1u/asDV4mtyA7VrOQq+DOm6EYVuE5qH
+	 pl2XueTLOMlJMjZ0DM3P/ZWN0Vn4fzROHaMIruuSirgjjHvZpZ4rh0UhYBmSzjK1ep9FV
+	 2JTOH5+kaHzYgMDqmbbcyz03bc+zX/BRE1IHwrPXeoNi0lz1TXuzh4tcLJsYzI7CdyUAH
+	 CdajUcF/ZI+BEv4w4TntFIX2J+2XorCmN8LCdQnk7AE+9BruN9BSMxWAePdo+O9FwwQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795317295;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=9W0NNmAIC85pBbgvVkKJlHSnGqyeu1JrSOvZCsAnKGg=;
-	b=CgkRcga09BPlLfvihz/+d8pUO4UaBuHc6wUSqNPrm3gjJ+AI54Y9qrdGtreZJdmv5z5h
-	 nd1leC80J6xTt2vSvQAOmgJ+prx7l4/oj4Cii539x9GgjhyFsDdzpGKLF8bWSb+TwsuLd
-	 FdL53ovHJkEyPnb1rDFMCHiJ/UvdXKTd7HN1QjN+hzc5JNgI7KOW5yLYB95pvmMDIJo65
-	 skGuc3kd4WEGV2TPNpcDwqc3taT2qNbl1GTCUE7jklH1w8ggd0NsXt4FYwj60zReC4pEv
-	 KrBqLTzrRIXEHMM2JRjq97egj9D9wHXBauhbnhe5M0KRBTdD+3bOqk5vzocb+W250KQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795317811;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=gtec66fsF0TLS6Ds0VK7TI51eLHnkFXUQHJA1Jg7LEE=;
+	b=0JwqwhcbxRJh3uqyPpG4d+HdS+iT3o/CmImyrjijSAEeP0xxwcJ6ODdeVTFlp68MzFkw
+	 e9p32/VVfHXYaaYEHiRHQTHVxD1w6shQyBYH3PTIoldP3pOv3p+qTZ7rgIyQIpy0Xiup4
+	 ZDhbOZscqz+75eXU+AqeZhZ6p+8tNy2E4gW6EQResc8qteffO6p6vD/1hK+VEDVKp8IGz
+	 ADGJdskryhO61wX4mgG/q1jmjMvYc8ljfoTnkd/9mg3fOTjN1WzJihmNtgnNkQ+R8K379
+	 VU7qHEZ3TUN+FrB0blXiZNK5GnTai0R2/EtZeZnYJx5tJanqgnCSKTuiImhzKhnXdCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dN8+zKwu;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Ebm/Pf+w";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59E2C606A320;
-	Sun, 22 Nov 2026 03:14:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B11B0606A320;
+	Sun, 22 Nov 2026 03:23:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dN8+zKwu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE74E1F000C4;
-	Sun, 22 Nov 2026 03:14:52 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ebm/Pf+w
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5D511F000C0;
+	Sun, 22 Nov 2026 03:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795317295;
-	bh=9W0NNmAIC85pBbgvVkKJlHSnGqyeu1JrSOvZCsAnKGg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=dN8+zKwu7/BYTP4nrX6ScAMHOdJlFMgr9nWJKYd9ydhQ6Lqg4UZoniBM6qGvVbcuD
-	 /9cnRjfMMs69PRUYpkAbodi3fUVnLWJkvJaykLVLTfd2XFaLdHjZD7DK0E7+u2Iwkh
-	 tQ92R4LX7/mzfWhGLjrRPZwpjfcGVZD+PmsMiPEbgIgS9g6S8GeMTfKnpSjv9GJlEm
-	 LYJsXrr0dXvbhDKxwHfCTNpigQSt9KD7GRcPREvOyxH0q+AtHoHmRCRx9Ft14HE0ed
-	 RNZOBZfATnz35IPsZ9xlH2Rp8CiichG/Bqdk4NBvLvqCwOePnf3VjxR2Gxd4wzIkqL
-	 4QkOPJIoXYt+w==
-Date: Sun, 22 Nov 2026 03:14:48 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Kyle Hsieh <kylehsieh1995@gmail.com>
-Cc: Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Michael Hennerich
- <Michael.Hennerich@analog.com>, David Lechner <dlechner@baylibre.com>, Andy
- Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Liam
- Beguin <liambeguin@gmail.com>, linux@analog.com, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Krzysztof
- Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v2] dt-bindings: iio: adc: lltc,ltc2497: Make
- vref-supply optional for LTC2305/LTC2309
-Message-ID: <20261122031448.153e0f16@jic23-hlaptop>
-In-Reply-To: <20261117-ltc2497-vref-optional-v2-1-62e9d1ac7400@gmail.com>
-References: <20261117-ltc2497-vref-optional-v2-1-62e9d1ac7400@gmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1795317811;
+	bh=gtec66fsF0TLS6Ds0VK7TI51eLHnkFXUQHJA1Jg7LEE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Ebm/Pf+w/fQsfhV4M8glYVmM6FL6SmdzwulCSZjbD+Kz+0hIofhX7Y2hzrQUu20cz
+	 uerl1iXELJUtJS/uLeQPbplaqq5zBSBCvOqlX30pe+pjAsw5c6w/zBSoMxQypf1mLH
+	 Xt1DsbWdjI1SnsUiEJVUzqu6R6m3Wtej4zmMh2maPiXj2k0wNgZXeqILLfsoiEhJGo
+	 Mwb5qZdOWUxWM8K1dH1lH09E3PxBzvdamUMtcLq9VjRmkiiZDc75KA3yPPH5cjsuop
+	 6T1yVbLpZsA6Sj1hCzRdXJKgETuUz0UXEK+anIEft9K7JFCGe2Eub+ZyyT58lkM6cf
+	 zDWP4LNeoMESw==
+Subject:
+ Re: [PATCH net-next] net: sfp: add 2500base-X quirk for ODI DFP-34X-2C3
+From: netdev-bot+sashiko@kernel.org
+To: github@bumblecito.com
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux@armlinux.org.uk, andrew@lunn.ch, hkallweit1@gmail.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com
+Date: Sun, 22 Nov 2026 03:23:30 +0000
+Message-ID: <179531781023.3135.12920801285160298531@kernel.org>
+In-Reply-To: <20261118025602.171615-1-github@bumblecito.com>
+References: <20261118025602.171615-1-github@bumblecito.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,23 +63,135 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
 
-On Tue, 17 Nov 2026 14:04:38 +0800
-Kyle Hsieh <kylehsieh1995@gmail.com> wrote:
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-> The LTC2305 and LTC2309 have an internal 4.096V reference, so their REF
-> pin does not need to be driven by an external supply. The LTC2493,
-> LTC2497 and LTC2499 have no internal reference and require one.
-> 
-> Only require vref-supply for the LTC2493, LTC2497 and LTC2499, so boards
-> using the internal reference can be described without a dummy regulator.
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
-Applied to the testing branch of iio.git.
+Critical: 0 · High: 0 · Medium: 2 · Low: 2
 
-Thanks,
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Jonathan
+- [Medium] The new quirk SFP_QUIRK_S("ODI", "DFP-34X-2C3",
+  sfp_quirk_2500basex) in the sfp_quirks[] table…
+- [Medium] The ODI DFP-34X-2C3 is added with SFP_QUIRK_S (fixup = NULL),
+  so its TX_FAULT and LOS signals are used as-is.
+- [Low] The commit message and the new comment ('// ODI DFP-34X-2C3 XPON
+  stick can operate at 2500base-X') do not say what the module's EEPROM…
+- [Low] The new 'ODI' entry in sfp_quirks[]
+  (drivers/net/phy/sfp.c:609-610) sits between the 'HSGQ' and 'Lantech'…
+
+--
+
+net: sfp: add 2500base-X quirk for ODI DFP-34X-2C3
+
+This adds an entry to sfp_quirks[] for the ODI DFP-34X-2C3 XPON SFP module.
+The entry uses sfp_quirk_2500basex to enable 2500base-X. The commit message
+says it was tested on a Horaco ZX-SWTGW2C8F switch with speed and duplex
+forced and autonegotiation disabled.
+
+> diff --git a/drivers/net/phy/sfp.c b/drivers/net/phy/sfp.c
+> index 915156743701b..666e515d27623 100644
+> --- a/drivers/net/phy/sfp.c
+> +++ b/drivers/net/phy/sfp.c
+> @@ -606,6 +606,9 @@ static const struct sfp_quirk sfp_quirks[] = {
+>  	SFP_QUIRK("HSGQ", "HSGQ-XPON-Stick", sfp_quirk_2500basex,
+>  		  sfp_fixup_ignore_tx_fault_and_los),
+>  
+> +	// ODI DFP-34X-2C3 XPON stick can operate at 2500base-X
+
+[Severity: Low]
+What does this module's EEPROM report? Each neighbouring 2500base-X entry
+names the EEPROM defect, for example:
+
+	// HSGQ HSGQ-XPON-Stick can operate at 2500base-X, but reports
+	// 1000BASE-LX / 1300MBd in its EEPROM
+
+sfp_module_parse_support() in drivers/net/phy/sfp-bus.c can already set
+2500base-X from the bitrate fields:
+
+	if (linkmode_empty(modes) && br_nom) {
+		...
+		if (br_min <= 3200 && br_max >= 2500) {
+			phylink_set(modes, 2500baseX_Full);
+
+Could the comment and the commit message give the reported bitrate and
+compliance codes? That would show why the generic parsing doesn't already
+enable 2500base-X for this module.
+
+> +	SFP_QUIRK_S("ODI", "DFP-34X-2C3", sfp_quirk_2500basex),
+
+[Severity: Medium]
+Will the link come up with default settings? The commit message only
+describes this test:
+
+  "A 2500 Mb/s link was established with speed and duplex forced and
+  autonegotiation disabled."
+
+sfp_quirk_2500basex() adds 2500baseX_Full and PHY_INTERFACE_MODE_2500BASEX.
+It does not clear Autoneg, and sfp_module_parse_support() always sets it:
+
+	phylink_set(modes, Autoneg);
+
+In phylink, phylink_get_inband_type() treats 2500base-X as INBAND_BASEX.
+As a result, phylink_sfp_config_optical() keeps Autoneg in the advertising
+mask, and a PCS that supports in-band AN at 2500base-X will try in-band
+negotiation by default.
+
+If the module doesn't answer in-band AN at 2500base-X, would the default
+link stay down until someone runs ethtool by hand?
+
+The driver already has sfp_quirk_disable_autoneg(), and
+sfp_quirk_oem_2_5g() combines it with a 2.5G mode:
+
+	__set_bit(PHY_INTERFACE_MODE_2500BASEX, caps->interfaces);
+	sfp_quirk_disable_autoneg(id, caps);
+
+Does this module need the same treatment? If not, has the default
+AN-enabled configuration been tested?
+
+[Severity: Medium]
+SFP_QUIRK_S leaves the fixup NULL, so this module's TX_FAULT and LOS
+signals are used as-is. Is that intended for an XPON stick?
+
+The HSGQ XPON stick just above, and the Hisense GPON sticks, all use:
+
+	sfp_fixup_ignore_tx_fault_and_los
+
+Commit 95aca8602ef70f ("net: sfp: add quirks for Hisense and HSGQ GPON ONT
+SFP modules") says these RTL960x-based sticks assert TX_FAULT while their
+Linux image boots, which takes about 40 seconds.
+
+Commit 0fd5dfa99cfc75 ("net: sfp: ignore LOS also on Hisense GPON
+modules") masked LOS so the stick can be configured with no fiber
+connected.
+
+If the ODI stick behaves the same way, a TX_FAULT held that long would use
+up the N_FAULT_INIT retries in sfp_sm_fault():
+
+	if (sfp->sm_fault_retries && !--sfp->sm_fault_retries) {
+		dev_err(sfp->dev,
+			"module persistently indicates fault, disabling\n");
+		sfp_sm_next(sfp, SFP_S_TX_DISABLE, 0);
+
+LOS asserted without fiber would also keep the host link down.
+
+The commit message reports no TX_FAULT or LOS behaviour from the test
+board. Does the Horaco ZX-SWTGW2C8F cage wire these signals? If it doesn't,
+this path would not have been exercised.
+
+[Severity: Low]
+This isn't a bug, but this part of sfp_quirks[] is sorted by vendor name
+(... HSGQ, Lantech, UBNT, Walsun, YV). Should the ODI entry go after the
+Lantech entries and before UBNT?
+
+> +
+>  	// Lantech 8330-262D-E and 8330-265D can operate at 2500base-X, but
+>  	// incorrectly report 2500MBd NRZ in their EEPROM.
+>  	// Some 8330-265D modules have inverted LOS, while all of them report
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118025602.171615-1-github%40bumblecito.com
