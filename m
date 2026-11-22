@@ -1,75 +1,76 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795387769;
-	b=OMVq0AOlkIIkUNXdGXXKizit2Y7uCcplYGxejKdSOkfGhnRPOXFe2QQDjzq87FurE7C0
-	 g9+0AvpMs4NYNGlysM3CM5ETIKRePmuM9rxCZiosVodEiuWrFNMRYRyzs28abA2I0qYt5
-	 H/AdqiRFhRn5e5RQMrQFPua7i6N7hxGQ/X1matyBt1miaPc5523z4KNaZZG88iiIgh4S8
-	 8awO6HCTMxck0BsTulqveYg4X5W/uhewI13mByPG8TbQiBXfBUY5SHpNcuYkBuyyz7YUb
-	 e5qkgREHyWWiycLVuXODGSGFuJpPbTBE9fk8+U/gam1s5+RKyvPkFvxmQkafUlsrmYw==
+	t=1795387773;
+	b=R82LWaS1Oe0P4vAA4IDQhBa1UkEvqbc04vNvE8u/ZPr+1FmdH3aiKrUNsPm3bw0nvgE+
+	 2bOw0rt3qdO8qG6vhKNW9H1FpXJHv2owrZu5LmDeHBEbI9l4HlGkQf9GaZ7qbwduhaS8Z
+	 iANvO+Ggak4MZzhuo0oTAkqjl7MZl4U1H1n4x8t5CzLNMbXYuZqZE0hZvtlM2Dw1RdP43
+	 xlKN6C6PhEbHh08D3fVWFqgUiPInjjwcUugoG7QnX1oj3bRC89UljadpftQDXPfIStPdZ
+	 nA3TfAGNVBMt2qwBGtLpWFqGUaJqWWGepulXkwMhluH0kUquCpAdEBuxkLNVEm0Iqiw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795387769;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795387773;
 	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
 	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
 	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=xHnm7IOWMKHsjATj4b0K0+OXUZflJdNkq4wxtEpUTcM=;
-	b=Ft88o/XtS4UbTPqh9TGC6hFeMWgIq+YINNQxJbv0jrsZ61fZRlc5af8Vcy/fcGOhI67h
-	 QZ/wJBs6dA7bFOIuls9eUi4zzdgBtUCoDtUXo2dEz8eCKk+Z6pfHgvUW20oxwHyZSWElI
-	 ODWFpWbUD72PNU7RXfuFqn6u6+IrbPQcOmtlOtVdWtSm00a6t5eb6gXGwQq04P58Jt+xb
-	 0Bcw7guIWd+jgPB2xj1Zit549uQ9rCqWX182YSUxhZdAoBGF4ShjXCg19lnkW3wpzthLH
-	 EU+9OKJTGdZgKNC0AeiCGX79MBlBRWCcJlImUU4w3/Oyd4FP9n1cks88/RtRIp5xKxg==
+	bh=ozFtuDjINya6iXaJIvrK0Dm+5kjrG7WksVuphTiWMoE=;
+	b=Ri+R9N1/5SFekq77wMgYgj36UYsQSlzOQieWnEBA2EFCAR1JGSTseaUfUdOzt+35Go03
+	 Lwmh7b15PK/O46/pYtLiSPEv5cLyJSJA6zOQebARpK46iFbW5vWMMGTpW4RzUMrOO/NxG
+	 yhtJWAfcQ1Cf9jIP1CAI4K/SgDVUjb9FHMzvNSYIk9qBKVm6a4NK9zCGd+DgB3rUICeq+
+	 8OqnVarEDse0W1T5MMkqp+QdIsuQcP5ynfhspO/0SaNDpCDKRnqduU1PlBNPqQRlKIe7K
+	 uv4rswd3McShpUrXLzi09S6WMor+nPE4GCgYJ9laFJDX+9KJE8a4glpctKC03mgFOpA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linutronix.de;
 	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=tCSr353h;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=8TcE+rQk;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=IWcGWZIW;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=9ZFzyTF5;
 	arc=none smtp.remote-ip=193.142.43.55
 Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E05A3606A6B4;
-	Sun, 22 Nov 2026 22:49:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E05A3606A6B4
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7BA7606A32E;
+	Sun, 22 Nov 2026 22:49:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7BA7606A32E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=tCSr353h;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=8TcE+rQk
-Date: Sun, 22 Nov 2026 22:49:25 -0000
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=IWcGWZIW;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=9ZFzyTF5
+Date: Sun, 22 Nov 2026 22:49:29 -0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795387767;
+	s=2020; t=1795387771;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=xHnm7IOWMKHsjATj4b0K0+OXUZflJdNkq4wxtEpUTcM=;
-	b=tCSr353hkkho4EdmKpsqHy1HlIvGKsVvwXXNsR4q4G8fLG1VGNKwg2GjeESi6k107p+jXx
-	5/IUBtD5Nk/T5J+g3xvOhlp1p5dSSb0ftnXOHU2nXbKOU+u2QVXO+Z2RJKbLmEAIKgXmVw
-	MWkx+u/5T3w6Vo67rC2nX72yKcXxiRBgctGR6PF0oZ7En+3v6SHJYkoj2udBH490ymnMbr
-	OzHLFxRHHm+dO9cuY1IlKJ/oK5/T/la4DTO7KOCATC3Xbasj82mRIugg/uWYnFEhM9Z4U4
-	uLnUhA7DwLuSYA7lrcHbIHJW0Gp2VKXw8JXO9j8lR00Grz7xoj6Yh3eJxdbG9g==
+	bh=ozFtuDjINya6iXaJIvrK0Dm+5kjrG7WksVuphTiWMoE=;
+	b=IWcGWZIWxos7uOI/wYSr2/XMuDrYCokDuF7oqJKJqMKmT8ZKw8qfymK80Rr+suAna9aSkD
+	+UZn+exYBZGyp5n7I7TeWCForxqiTnx9HhqNcJlG8t0zO/8xAwo+mcM/Tknjt9rAHvkVp6
+	y8k9rqHPYzG4TPTxVlUZQCHbqPNwpo2R847LL4O5wBOzPZo0rYGS5f8x+Qlnc1GnUT5v4M
+	SHFDcgBISYM6W75YIOZhRU433MEQtpP567OTiw9archPPqHXGCxmLFDZz6/OqR6K51nhOJ
+	j4DInf1n3p7pDj3u0QibeLpgMQrHIMnslynRNS8bTW7snlXdtRjEbod6AjJlWA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795387767;
+	s=2020e; t=1795387771;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=xHnm7IOWMKHsjATj4b0K0+OXUZflJdNkq4wxtEpUTcM=;
-	b=8TcE+rQk3oGRV9Ct/SUKr1jxU/o40LllAjX6dao6vCLDPMSiUkULk06myOOiaZIKUch7Y2
-	mf+YIJYZfRJ0sPCA==
+	bh=ozFtuDjINya6iXaJIvrK0Dm+5kjrG7WksVuphTiWMoE=;
+	b=9ZFzyTF5+SEdzk5e2uH+0MweujQXv34I6ZHVNCxcxh5lprU2d/obEkN+zFvu2ehW6Mm0fd
+	WcOvB/llLRvZQqBw==
 From: "tip-bot2 for Fernand Sieber" <tip-bot2@linutronix.de>
 Sender: tip-bot2@linutronix.de
 Reply-to: linux-kernel@vger.kernel.org
 To: linux-tip-commits@vger.kernel.org
-Subject: [tip: sched/urgent] selftests/sched: Add a core-sched forced-idle DL
- server test
+Subject: [tip: sched/urgent] sched/deadline: Clear stale rq->dl_server when
+ core-sched replaces a pick
 Cc: Fernand Sieber <sieberf@amazon.com>,
  "Peter Zijlstra (Intel)" <peterz@infradead.org>,
- Ingo Molnar <mingo@kernel.org>, x86@kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261112161548.78189-6-sieberf@amazon.com>
-References: <20261112161548.78189-6-sieberf@amazon.com>
+ Ingo Molnar <mingo@kernel.org>,  <stable@vger.kernel.org>, x86@kernel.org,
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261112161548.78189-2-sieberf@amazon.com>
+References: <20261112161548.78189-2-sieberf@amazon.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,7 +80,7 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <179538776573.92412.6375274230600382710.tip-bot2@tip-bot2>
+Message-ID: <179538776931.92412.14044843169789564901.tip-bot2@tip-bot2>
 Robot-ID: <tip-bot2@linutronix.de>
 Robot-Unsubscribe:
  Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
@@ -89,494 +90,103 @@ Content-Transfer-Encoding: quoted-printable
 
 The following commit has been merged into the sched/urgent branch of tip:
 
-Commit-ID:     70f43730a814fcf4198960dcff5fadb2fc8b795d
-Gitweb:        https://git.kernel.org/tip/70f43730a814fcf4198960dcff5fadb2fc8=
-b795d
+Commit-ID:     5b65edb7f582803cda84552990779610ca22581c
+Gitweb:        https://git.kernel.org/tip/5b65edb7f582803cda84552990779610ca2=
+2581c
 Author:        Fernand Sieber <sieberf@amazon.com>
-AuthorDate:    Thu, 12 Nov 2026 18:15:48 +02:00
+AuthorDate:    Thu, 12 Nov 2026 18:15:44 +02:00
 Committer:     Ingo Molnar <mingo@kernel.org>
-CommitterDate: Sun, 22 Nov 2026 16:16:44 +01:00
+CommitterDate: Sun, 22 Nov 2026 16:16:27 +01:00
 
-selftests/sched: Add a core-sched forced-idle DL server test
+sched/deadline: Clear stale rq->dl_server when core-sched replaces a pick
 
-Nothing in selftests notices a deferred DL server that is charged for
-core-sched forced idle and so never activates: the fair server keeps its
-reservation in debugfs while the CFS tasks it reserves for get a few
-hundredths of a percent of a CPU.
+With core scheduling and the fair server, the forced-idle accounting
+warns from an idle core:
 
-Add cs_dl_server_test. It pins a SCHED_FIFO 50 spinner with its own core
-cookie to one SMT sibling and an uncookied CFS spinner to the other, so
-the second sibling is forced idle whenever the FIFO task runs, then
-checks the CFS task's share of that CPU over five seconds against the
-fair server's reservation under /sys/kernel/debug/sched/. The floor is
-half the reservation, 2.5% by default, since every slice the server gets
-costs a forced-idle hand-over. It skips without SMT, without core
-scheduling, or without the debugfs reservation.
+  WARNING: kernel/sched/core_sched.c:263 at __sched_core_account_forceidle+0x=
+1d6/0x1f0, CPU#0: swapper/0/0
 
-At 2 cores x 2 threads the share measures 4.0-5.2% once both this idle
-charge and the core-wide DL server pick are fixed, and 0.0% with either
-missing, so it passes only with both.
+The core is in forced idle with no sibling running a task. The reason
+is a stale rq->dl_server causing the idle task to incorrectly be
+considered as carried by the deadline server. The idle task then wins
+over a runnable sibling task and the whole core is idle despite having
+runnable tasks.
 
+The timeline below describes the issue:
+
+  Setup. CPU0 and CPU1 are SMT siblings.
+  - CPU1 runs R, a SCHED_FIFO task with cookie X.
+  - CPU0 has C, a CFS task with no cookie, which has been starved.
+    So CPU0's fair server is due to step in.
+
+  t0, CPU0 picks for the core.
+  - pick_task(rq0) goes through the deadline class, which picks the
+    fair server, which picks C. As a side effect it sets
+    rq0->dl_server =3D &rq0->fair_server.
+  - pick_task(rq1) picks R.
+
+  t1, ranking. C->dl_server is only set once C is switched in, so C
+  ranks as CFS. R (RT) beats C (CFS), so the core cookie becomes X.
+
+  t2, matching. CPU0's pick C has cookie 0, not X, so it is replaced.
+  There is no cookie-X task on CPU0, so the replacement is idle, and
+  CPU0 is forced idle.
+  - The code sets rq0->core_pick =3D idle and rq0->core_dl_server =3D NULL.
+  - The bug: it leaves rq0->dl_server pointing at CPU0's fair server,
+    even though idle didn't come through any server.
+
+  t3, CPU0 switches. CPU0 is the selecting CPU, so next =3D idle, and
+  put_prev_set_next_task() hands the stale rq0->dl_server to it. Now
+  idle->dl_server is CPU0's fair server.
+
+  t4, C leaves. Load balancing moves C to another core, so CPU0 has
+  nothing runnable. The stale link stays on idle.
+
+  t5, the next core-wide selection (when CPU1 reschedules, say on a
+  wakeup).
+  - CPU0's pick is idle, and the ranking sees idle->dl_server set, so
+    it ranks idle as a deadline task.
+  - idle now beats R, and the core cookie becomes idle's cookie, 0.
+  - CPU1's R has cookie X, not 0, so CPU1 is forced idle.
+
+  t6, result. The whole core is idle. R is runnable but can't run, and
+  nothing runs on either CPU. That's the WARN in
+  __sched_core_account_forceidle(): forced idle with no sibling running
+  a task. It lasts until CPU0 goes through a full schedule that resets
+  its server link.
+
+With this patch, step t2 also does rq0->dl_server =3D NULL. At t3 idle
+gets no server, and at t5 it ranks as plain idle, so R wins and keeps
+running on CPU1.
+
+Fixes: bd9bbc96e835 ("sched: Rework dl_server")
 Signed-off-by: Fernand Sieber <sieberf@amazon.com>
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 Signed-off-by: Ingo Molnar <mingo@kernel.org>
-Link: https://patch.msgid.link/20261112161548.78189-6-sieberf@amazon.com
+Cc: <stable@vger.kernel.org>
+Link: https://patch.msgid.link/20261112161548.78189-2-sieberf@amazon.com
 ---
- tools/testing/selftests/sched/.gitignore          |   1 +-
- tools/testing/selftests/sched/Makefile            |   4 +-
- tools/testing/selftests/sched/config              |   4 +-
- tools/testing/selftests/sched/cs_dl_server_test.c | 402 +++++++++++++-
- 4 files changed, 408 insertions(+), 3 deletions(-)
- create mode 100644 tools/testing/selftests/sched/cs_dl_server_test.c
+ kernel/sched/core.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/sched/.gitignore b/tools/testing/selftes=
-ts/sched/.gitignore
-index 6996d46..4e3a025 100644
---- a/tools/testing/selftests/sched/.gitignore
-+++ b/tools/testing/selftests/sched/.gitignore
-@@ -1 +1,2 @@
- cs_prctl_test
-+cs_dl_server_test
-diff --git a/tools/testing/selftests/sched/Makefile b/tools/testing/selftests=
-/sched/Makefile
-index 099ee92..fa50d13 100644
---- a/tools/testing/selftests/sched/Makefile
-+++ b/tools/testing/selftests/sched/Makefile
-@@ -8,7 +8,7 @@ CFLAGS +=3D -O2 -Wall -g -I./ $(KHDR_INCLUDES) -Wl,-rpath=3D.=
-/ \
- 	  $(CLANG_FLAGS)
- LDLIBS +=3D -lpthread
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 515b9d0..42b99be 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -6453,10 +6453,15 @@ restart:
+ 				p =3D sched_core_find(rq_i, cookie);
+ 			if (!p)
+ 				p =3D idle_sched_class.pick_task(rq_i, rf);
++
++			/*
++			 * Neither a core tree pick nor idle comes through a
++			 * DL server; drop the one the replaced pick left.
++			 */
++			rq_i->core_dl_server =3D rq_i->dl_server =3D NULL;
+ 		}
 =20
--TEST_GEN_FILES :=3D cs_prctl_test
--TEST_PROGS :=3D cs_prctl_test
-+TEST_GEN_FILES :=3D cs_prctl_test cs_dl_server_test
-+TEST_PROGS :=3D cs_prctl_test cs_dl_server_test
+ 		rq_i->core_pick =3D p;
+-		rq_i->core_dl_server =3D NULL;
 =20
- include ../lib.mk
-diff --git a/tools/testing/selftests/sched/config b/tools/testing/selftests/s=
-ched/config
-index 1bb8bf6..57b2439 100644
---- a/tools/testing/selftests/sched/config
-+++ b/tools/testing/selftests/sched/config
-@@ -1 +1,3 @@
--# empty
-+CONFIG_SCHED_CORE=3Dy
-+CONFIG_SCHED_SMT=3Dy
-+CONFIG_DEBUG_FS=3Dy
-diff --git a/tools/testing/selftests/sched/cs_dl_server_test.c b/tools/testin=
-g/selftests/sched/cs_dl_server_test.c
-new file mode 100644
-index 0000000..38aa005
---- /dev/null
-+++ b/tools/testing/selftests/sched/cs_dl_server_test.c
-@@ -0,0 +1,402 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Verify that core-scheduling forced idle does not starve the fair deadline
-+ * server.
-+ *
-+ * A CPU is forced idle when it has runnable tasks of its own but its SMT
-+ * sibling runs a task with an incompatible core-sched cookie. If that time =
-is
-+ * charged to the rq's deferred DL servers, the fair server's runtime drains
-+ * while it is throttled, its activation is pushed out every period, and the
-+ * CFS tasks it reserves bandwidth for get next to nothing.
-+ *
-+ * The test pins a cookied SCHED_FIFO spinner to one SMT sibling and an
-+ * uncookied CFS spinner to the other, so the second sibling is forced idle
-+ * whenever the FIFO task runs, and checks that the CFS task still gets a
-+ * sensible fraction of the fair server's reservation.
-+ *
-+ * Copyright (c) 2026 Amazon.com, Inc. or its affiliates.
-+ */
-+#define _GNU_SOURCE
-+#include <errno.h>
-+#include <limits.h>
-+#include <sched.h>
-+#include <signal.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <sys/prctl.h>
-+#include <sys/types.h>
-+#include <sys/wait.h>
-+#include <time.h>
-+#include <unistd.h>
-+
-+#include "../kselftest.h"
-+
-+#ifndef PR_SCHED_CORE
-+#define PR_SCHED_CORE			62
-+#define PR_SCHED_CORE_GET		0
-+#define PR_SCHED_CORE_CREATE		1 /* create unique core_sched cookie */
-+#define PR_SCHED_CORE_SHARE_TO		2 /* push core_sched cookie to pid */
-+#define PR_SCHED_CORE_SHARE_FROM	3 /* pull core_sched cookie to pid */
-+#define PR_SCHED_CORE_MAX		4
-+#endif
-+
-+enum pid_type {PIDTYPE_PID =3D 0, PIDTYPE_TGID, PIDTYPE_PGID};
-+
-+#define SIBLINGS_LIST	"/sys/devices/system/cpu/cpu0/topology/thread_siblings=
-_list"
-+#define FAIR_SERVER	"/sys/kernel/debug/sched/fair_server"
-+
-+#define RUN_TIME	5	/* measurement window, in seconds */
-+#define FIFO_PRIO	50
-+
-+/*
-+ * The reservation is only approached, not reached: every slice the fair ser=
-ver
-+ * gets costs the sibling a forced-idle hand-over, and the core-wide pick ru=
-ns
-+ * at tick granularity. Ask for half of it, which is far above the few hundr=
-edths
-+ * of a percent a starved server leaves.
-+ */
-+#define MIN_SHARE_OF_RESERVATION	0.5
-+
-+/* Status a spinner child reports to the parent over its readiness pipe. */
-+#define CHILD_READY	'R'
-+#define CHILD_EPERM	'P'
-+#define CHILD_ERROR	'E'
-+
-+/* Tell the parent how setup went; it decides whether to run or to skip. */
-+static void signal_status(int fd, char status)
-+{
-+	if (write(fd, &status, 1) !=3D 1) {
-+		ksft_perror("write to readiness pipe");
-+		exit(1);
-+	}
-+	if (status !=3D CHILD_READY)
-+		exit(1);
-+}
-+
-+/*
-+ * Burn CPU until killed. A constant controlling expression keeps the compil=
-er
-+ * from removing the loop, so no volatile is needed to hold it in place.
-+ */
-+static void spin_forever(void)
-+{
-+	while (1)
-+		;
-+}
-+
-+static int set_affinity(int cpu)
-+{
-+	cpu_set_t mask;
-+
-+	CPU_ZERO(&mask);
-+	CPU_SET(cpu, &mask);
-+
-+	return sched_setaffinity(0, sizeof(mask), &mask);
-+}
-+
-+/*
-+ * Read the first two distinct CPU ids out of a cpu list such as "0-1", "0,4"
-+ * or "0,4-5". Returns 0 on success, -1 if the list holds fewer than two ids.
-+ */
-+static int parse_sibling_pair(const char *list, int *sib0, int *sib1)
-+{
-+	int found =3D 0, sib[2] =3D { -1, -1 };
-+	const char *p =3D list;
-+
-+	while (*p && found < 2) {
-+		int first, last, n =3D 0;
-+
-+		if (sscanf(p, "%d-%d%n", &first, &last, &n) !=3D 2) {
-+			if (sscanf(p, "%d%n", &first, &n) !=3D 1)
-+				return -1;
-+			last =3D first;
-+		}
-+		for (; first <=3D last && found < 2; first++)
-+			sib[found++] =3D first;
-+		p +=3D n;
-+		if (*p !=3D ',')
-+			break;
-+		p++;
-+	}
-+
-+	if (found < 2)
-+		return -1;
-+
-+	*sib0 =3D sib[0];
-+	*sib1 =3D sib[1];
-+
-+	return 0;
-+}
-+
-+static int read_sibling_pair(int *sib0, int *sib1)
-+{
-+	char list[256];
-+	FILE *f;
-+	char *s;
-+
-+	f =3D fopen(SIBLINGS_LIST, "r");
-+	if (!f)
-+		return -1;
-+	s =3D fgets(list, sizeof(list), f);
-+	fclose(f);
-+	if (!s)
-+		return -1;
-+
-+	return parse_sibling_pair(list, sib0, sib1);
-+}
-+
-+static int read_u64_file(const char *path, unsigned long long *val)
-+{
-+	FILE *f;
-+	int ret;
-+
-+	f =3D fopen(path, "r");
-+	if (!f)
-+		return -1;
-+	ret =3D fscanf(f, "%llu", val);
-+	fclose(f);
-+
-+	return ret =3D=3D 1 ? 0 : -1;
-+}
-+
-+/* Read the fair server reservation of @cpu, in nanoseconds. */
-+static int read_fair_server(int cpu, unsigned long long *runtime,
-+			    unsigned long long *period)
-+{
-+	char path[PATH_MAX];
-+
-+	snprintf(path, sizeof(path), FAIR_SERVER "/cpu%d/runtime", cpu);
-+	if (read_u64_file(path, runtime))
-+		return -1;
-+
-+	snprintf(path, sizeof(path), FAIR_SERVER "/cpu%d/period", cpu);
-+	if (read_u64_file(path, period))
-+		return -1;
-+
-+	return 0;
-+}
-+
-+/* CPU time consumed by @pid so far, in seconds, from /proc/<pid>/stat. */
-+static double process_runtime(pid_t pid)
-+{
-+	char path[PATH_MAX];
-+	unsigned long utime, stime;
-+	FILE *f;
-+	int fields;
-+
-+	snprintf(path, sizeof(path), "/proc/%d/stat", pid);
-+	f =3D fopen(path, "r");
-+	if (!f)
-+		return -1;
-+
-+	/* Skip the first 13 fields and read the 14th and 15th. */
-+	fields =3D fscanf(f, "%*d %*s %*c %*d %*d %*d %*d %*d %*u %*u %*u %*u %*u %=
-lu %lu",
-+			&utime, &stime);
-+	fclose(f);
-+	if (fields !=3D 2)
-+		return -1;
-+
-+	return (double)(utime + stime) / sysconf(_SC_CLK_TCK);
-+}
-+
-+static double monotonic_now(void)
-+{
-+	struct timespec ts;
-+
-+	if (clock_gettime(CLOCK_MONOTONIC, &ts))
-+		return -1;
-+
-+	return ts.tv_sec + ts.tv_nsec / 1000000000.0;
-+}
-+
-+/*
-+ * Diagnostic only: how long the FIFO task's CPU was forced idle. Needs
-+ * CONFIG_SCHEDSTATS and schedstats enabled, so it must not gate the result.
-+ */
-+static void print_forced_idle(pid_t pid)
-+{
-+	char path[PATH_MAX], line[256];
-+	FILE *f;
-+
-+	snprintf(path, sizeof(path), "/proc/%d/sched", pid);
-+	f =3D fopen(path, "r");
-+	if (!f)
-+		return;
-+
-+	while (fgets(line, sizeof(line), f)) {
-+		if (strstr(line, "core_forceidle_sum")) {
-+			line[strcspn(line, "\n")] =3D '\0';
-+			ksft_print_msg("FIFO task %s\n", line);
-+			break;
-+		}
-+	}
-+	fclose(f);
-+}
-+
-+/* Cookied SCHED_FIFO spinner. Only this task gets a cookie. */
-+static void fifo_child(int cpu, int ready_fd)
-+{
-+	struct sched_param param =3D { .sched_priority =3D FIFO_PRIO };
-+
-+	if (set_affinity(cpu)) {
-+		ksft_perror("FIFO child sched_setaffinity");
-+		signal_status(ready_fd, CHILD_ERROR);
-+	}
-+	if (prctl(PR_SCHED_CORE, PR_SCHED_CORE_CREATE, 0, PIDTYPE_PID, 0)) {
-+		ksft_perror("FIFO child PR_SCHED_CORE_CREATE");
-+		signal_status(ready_fd, CHILD_ERROR);
-+	}
-+	if (sched_setscheduler(0, SCHED_FIFO, &param)) {
-+		if (errno =3D=3D EPERM)
-+			signal_status(ready_fd, CHILD_EPERM);
-+		ksft_perror("FIFO child sched_setscheduler");
-+		signal_status(ready_fd, CHILD_ERROR);
-+	}
-+	signal_status(ready_fd, CHILD_READY);
-+	spin_forever();
-+}
-+
-+/* Uncookied CFS spinner on the FIFO task's SMT sibling. */
-+static void cfs_child(int cpu, int ready_fd)
-+{
-+	if (set_affinity(cpu)) {
-+		ksft_perror("CFS child sched_setaffinity");
-+		signal_status(ready_fd, CHILD_ERROR);
-+	}
-+	signal_status(ready_fd, CHILD_READY);
-+	spin_forever();
-+}
-+
-+static char wait_ready(int fd)
-+{
-+	char status;
-+
-+	if (read(fd, &status, 1) !=3D 1) {
-+		ksft_perror("read from readiness pipe");
-+		return CHILD_ERROR;
-+	}
-+
-+	return status;
-+}
-+
-+static void kill_child(pid_t *pid)
-+{
-+	if (*pid <=3D 0)
-+		return;
-+	kill(*pid, SIGKILL);
-+	waitpid(*pid, NULL, 0);
-+	*pid =3D -1;
-+}
-+
-+int main(void)
-+{
-+	double fifo_runtime, cfs_start, cfs_end, t_start, t_end, share, want;
-+	unsigned long long runtime, period;
-+	pid_t fifo_pid =3D -1, cfs_pid =3D -1;
-+	int fifo_ready[2], cfs_ready[2];
-+	unsigned long long cookie;
-+	int sib0, sib1;
-+	char status;
-+
-+	ksft_print_header();
-+	ksft_set_plan(1);
-+
-+	if (read_sibling_pair(&sib0, &sib1)) {
-+		ksft_test_result_skip("CPU0 has no SMT sibling\n");
-+		ksft_finished();
-+	}
-+	ksft_print_msg("SMT siblings: CPU%d (FIFO) and CPU%d (CFS)\n", sib0, sib1);
-+
-+	if (prctl(PR_SCHED_CORE, PR_SCHED_CORE_GET, 0, PIDTYPE_PID,
-+		  (unsigned long)&cookie)) {
-+		ksft_test_result_skip("core scheduling unavailable: %s\n",
-+				      strerror(errno));
-+		ksft_finished();
-+	}
-+
-+	if (read_fair_server(sib1, &runtime, &period)) {
-+		ksft_test_result_skip("cannot read " FAIR_SERVER "/cpu%d, debugfs not moun=
-ted?\n",
-+				      sib1);
-+		ksft_finished();
-+	}
-+	if (!runtime || !period) {
-+		ksft_test_result_skip("fair server on CPU%d is disabled (%llu/%llu)\n",
-+				      sib1, runtime, period);
-+		ksft_finished();
-+	}
-+	ksft_print_msg("CPU%d fair server reservation: %llu/%llu ns =3D %.3f%%\n",
-+		       sib1, runtime, period, 100.0 * runtime / period);
-+
-+	if (pipe(fifo_ready) || pipe(cfs_ready))
-+		ksft_exit_fail_perror("pipe");
-+
-+	fifo_pid =3D fork();
-+	if (!fifo_pid) {
-+		close(fifo_ready[0]);
-+		close(cfs_ready[0]);
-+		close(cfs_ready[1]);
-+		fifo_child(sib0, fifo_ready[1]);
-+	} else if (fifo_pid < 0) {
-+		ksft_exit_fail_perror("fork FIFO child");
-+	}
-+	close(fifo_ready[1]);
-+
-+	status =3D wait_ready(fifo_ready[0]);
-+	close(fifo_ready[0]);
-+	if (status !=3D CHILD_READY) {
-+		kill_child(&fifo_pid);
-+		close(cfs_ready[0]);
-+		close(cfs_ready[1]);
-+		if (status =3D=3D CHILD_EPERM) {
-+			ksft_test_result_skip("need privileges for SCHED_FIFO\n");
-+			ksft_finished();
-+		}
-+		ksft_exit_fail_msg("FIFO child setup failed\n");
-+	}
-+
-+	cfs_pid =3D fork();
-+	if (!cfs_pid) {
-+		close(cfs_ready[0]);
-+		cfs_child(sib1, cfs_ready[1]);
-+	} else if (cfs_pid < 0) {
-+		kill_child(&fifo_pid);
-+		ksft_exit_fail_perror("fork CFS child");
-+	}
-+	close(cfs_ready[1]);
-+
-+	status =3D wait_ready(cfs_ready[0]);
-+	close(cfs_ready[0]);
-+	if (status !=3D CHILD_READY) {
-+		kill_child(&cfs_pid);
-+		kill_child(&fifo_pid);
-+		ksft_exit_fail_msg("CFS child setup failed\n");
-+	}
-+
-+	cfs_start =3D process_runtime(cfs_pid);
-+	t_start =3D monotonic_now();
-+	sleep(RUN_TIME);
-+	t_end =3D monotonic_now();
-+	cfs_end =3D process_runtime(cfs_pid);
-+	fifo_runtime =3D process_runtime(fifo_pid);
-+
-+	print_forced_idle(fifo_pid);
-+	kill_child(&cfs_pid);
-+	kill_child(&fifo_pid);
-+
-+	if (cfs_start < 0 || cfs_end < 0 || fifo_runtime < 0)
-+		ksft_exit_fail_msg("cannot read /proc/<pid>/stat\n");
-+	if (t_start < 0 || t_end <=3D t_start)
-+		ksft_exit_fail_msg("cannot read CLOCK_MONOTONIC\n");
-+
-+	share =3D (cfs_end - cfs_start) / (t_end - t_start);
-+	want =3D MIN_SHARE_OF_RESERVATION * runtime / period;
-+
-+	ksft_print_msg("FIFO task ran %.3fs, CFS task ran %.3fs over %.3fs\n",
-+		       fifo_runtime, cfs_end - cfs_start, t_end - t_start);
-+	ksft_print_msg("CFS share of CPU%d: %.3f%%, need %.3f%%\n",
-+		       sib1, share * 100, want * 100);
-+
-+	ksft_test_result(share >=3D want,
-+			 "CFS task gets the fair server reservation while forced idle\n");
-+
-+	ksft_finished();
-+}
+ 		if (p =3D=3D rq_i->idle) {
+ 			if (rq_i->nr_running) {
