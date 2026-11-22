@@ -1,142 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795347541;
-	b=eSJT/y+HjV14ebl26Fo9RZowlSOqusIsic2UmDMVgIsa6u1TC2PJP8UHPyBMAiO2d+WY
-	 Uzoga5pryvrJ0lo426Uo/Ik0kiQU0gjNb2zBPH6zbe4fDuDo5j/CG78FppbAGuv90to8J
-	 ChZ1/AFWBwOJFdnHGpHqKtTlQVXRpbyqDPLcg6dVxRQTXH5Y2yMOAfXJuB8jV3bSeZopv
-	 FjgXA3uNMaiRe8tgsvpEorBV1EK20Tgm5kihO8iFaWOXzGaT/T0BomvI8C7jEU27GF1kH
-	 kXHIaDEEHaR5cz1/S/UPS2jOFUMNMb+mXSYZyjGzpN/OlqLsxmcfrgk0l4lp5Bb1wDw==
+	t=1795347579;
+	b=BkI+WSb5lcv4znf5C0c1qdfOZJCWTbV0oVxYvGoIKAU5Wuqi3Q+cZXh9sza5rQD6yCYl
+	 k+pDyK7cG7+k7cFvm2UnaOCJs5heZRrSDf1x1zRLkyBrli2qbHIRiQR3CNauImPLgJYVG
+	 APhxT7xANq4ejYF7N4RnPJggDM2mnXGrKhvp5WpqEtb68oMQinFtTq7pSGY24nRy9Vg0I
+	 6C+hGxqT8/pqq5GVrbCmrhngNc8rnNWJ6HmNE56enk/PFaa+3nzUJoedhs1D0G/w+EB7N
+	 /WDJx5F5grcp4Yy+9hV/gPd5UvArYlSYq7VahPGo2Jj2L+oV3KD19fWx2KTgxHxXQFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795347541;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795347579;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=9SL2nw3BljIJfL2BNxy4TtTwunpxe4OhPHoB+8Eji+8=;
-	b=io+g8yp8pH0E6uTWK9wG9MYj5+OK8X0oa2Jb8Q5byOc2yZ3Im0st0be4iZIYDtOZE4wq
-	 yv8JPjNGUeySCkglo2TQMb3F4nn4VfDtq2+YnBm2T5BsVDIo5gLHKco71sTltfYGKR8rA
-	 3Ein06zj4dpNW3ryvjmhJISkAtT8T90rgocT5IuBoa3YSVuyvFrKheyHTqVQQqoDTQRa4
-	 ikzLCud0a694LhHlHubV+fqjiTb+/lMA8zvkjAzcs8sFKfDV720PlFL9rbkq1Qi8rGGMf
-	 P+8RAFuS2Q7vsBxoGeEQyaQL9JlA9/HT48cpq3YIFbHG5RJHloLHWzXC6h/Ab4BzBfw==
+	bh=WT4yKkDAmncDHMj/7AEWMzPC9QUnbfloQV8RtbZ7Cvs=;
+	b=4UiIty8DV+7CEHJ+6n0bwWcleYpUQBVCd78Bz6AVec8NbRTesz6PW8+AkFD7KHI1x9Sv
+	 ZZsBGdtuvLX6L7lOUfw9F8zAL+WTlmWtShvESQTAXQTjPgCZJzrTFw5QeKEZotZN1OSlv
+	 oHgOCriBQq3oQeD6B9YdhnB+QLa5865BQXvRBNnw+0MxGJ2FrVofwOYAJbeIpyiaumpe8
+	 zSujnO191hZhYdBuHe/+uQ9lI7CEZQZsABFSjZolT3JnEOltZxDcqk7jQH28UcOTM8Jdy
+	 v8OT+vecjF1vi7yMXeAwyJXQFvgOR58cga/CzO7EX2A2SYJbYWH6uAxn6r7gyKLgi0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xWH39Jbp;
-	arc=none smtp.remote-ip=74.125.82.54
-Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SJGi5kR5;
+	arc=none smtp.remote-ip=209.85.128.47
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5008606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:39:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5008606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9B58606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:39:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9B58606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xWH39Jbp
-Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-1a2af4c8d00so4262807c88.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 03:39:00 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SJGi5kR5
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4ac95761c85so17096915e9.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 03:39:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795347540; x=1795952340; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795347577; x=1795952377; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=9SL2nw3BljIJfL2BNxy4TtTwunpxe4OhPHoB+8Eji+8=;
-        b=xWH39JbpK+tCheqveo2u87AQgq0TnNUTvJnMZWpxRBFIlKxzsEJJc0OCsjeXDFd/Rt
-         8r2t45ifgCg8vHXxBmEn6LGP+C7AcPS13+4mRxdWPaBivAKml0DlftZOdDlin+l9bTCi
-         +SDVrJ5UL6FBmF0XE+CLbRFyWoYG7wFwdoIiNaxldrUJl5F0VzDOkTW8aInFIK0tjurH
-         dy77usrjTK1GFy1mCLsmeN2cOt2dLUoIQfbDibM6pAZ0jM/GyNTMRl9YBtHUBR0bqiSl
-         RnYS3kHMqPY4+j/rYH/gtt6AFODiGfwRIzD/ZBd/dX2PrbrHI0PO+IC/073wauJTK+zh
-         QLPA==
+        bh=WT4yKkDAmncDHMj/7AEWMzPC9QUnbfloQV8RtbZ7Cvs=;
+        b=SJGi5kR5gOJlMddQg0H8jvHUJ/YDmXSJyBAoUsvGf9ERLCMk1DZbJoxZgo7MeuCryb
+         U2c/xKvKUONOenSzX8QGJzGEogXU1iF4tqINWM1WjbOLY5jrZ4KlvzEzrKTWxSbwkcyF
+         /WzbqToCYgtDVE9YYoldCE70ojo4AcNG9ZruXDWZO+TQNEWj+GmwkSMcrfYJx89SvMBt
+         YT77CBL9lJWHnsT+kZAlYqyplQaqMi5gjvY2Y1ycNF0fiXkLEjQRs6uBU59XKt9TZMB0
+         dj5ILAlpFM1eKfjzn8E+8LKGTQASc46B95Ov07/YttpSqn5jiSosV444TNQb+BvU5ZDl
+         Y4SQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795347540; x=1795952340;
+        d=1e100.net; s=20260707; t=1795347577; x=1795952377;
         h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=9SL2nw3BljIJfL2BNxy4TtTwunpxe4OhPHoB+8Eji+8=;
-        b=087wwVMVrxEsOBIv5GEL6nb4kLy51jMZV4Q3Eq4y+nb5TwCJrbu0VxxsQbh09wmcHe
-         jCZ2CtE0zoFOJd2HF59oZKvTg+sLpbyFlZcIjlFBMR8mmJF+91RgqYZuSPXAN/uCEqfu
-         KDOqyh/shQy8Vhq6zS4q7jKKG/FqSQqjZn5T8c6jTmeB9MxlIDQG/qEvTXuIunQOBs2H
-         ZYFP29L6d/zJtLSJrVzn/ckCQKMmnLEtJfCDs1dKHmYRIVmeJ8s8JbnMgBmoFhsdkezy
-         +umZGxuHncs+LiXJpvmlL+PzyK71b5YLMEfyCTcNm31XsUFsL/j48g1xQw9+8QagllZ4
-         qbpw==
-X-Forwarded-Encrypted: i=1; AL+hErGMDimhY8+usS3h/EPa4LpT1cSmUKm33cAeD+ZbFPU2YZKtdCVzDz6/5OS1AeFLjSjfyqX1QPtsfdC+YbQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ntBTZ930BDUb8pOcJxn2aeLldqlEu1vw7sgZ5IaLRoHSovHJN
-	lIZqxoeQgPa/rHDlDuxsyMiUvwVo++gIgxvQ7vUcqERbV6+RJwIkZbaw
-X-Gm-Gg: AZFdTZfRRoO8ZLmcGIQkH7jFuHPF8//LnOGyRtkGhLm9v9d+3rqYMTEm++Mr/PC4ds4
-	73JAwk4zaGhbBUORcZwhEO2hZJgc6VBntJm1W+oYBdqOuMMFGDL7hGRhXs3SBsaCLNaQajLsZO2
-	VD2wQcoekTiN8rnJqSLOR0csLzVTthOfo2W6u2x7FZUB+1tG8kfdFrDOr4uWvQhqxyGCv+tgUI/
-	XlVak1mucz60+Dn0b8FodQ45xB2Rc/MyMtKnoVGE7enpmy4RsIbtxNL4uuvFflO/7LOnTmawYoR
-	8Ok3RAL+Gyd+xHvI6yne+Kwl6gE6bONyBDOzhsO4hIsJmFz6FRyPRnDmErnaXlGRwubRTGgr4MV
-	TFxGCunHbLNpxrg7zrllj6373O+x+sxNRrqPwUGxky659+wez9cyLAJZ1bb2EwvbKzPjPv2sALl
-	YGki1U39ExUtjnP2INXkpcu2Wwq6uU+xc2ImYAEmgdTHC6A0hwW8FfU1ewUtefbtNGg6lOm9NUU
-	XfgfXa/iJN8q2c69RALDjS+16HYDPP3SAhABREpV9hyjhXlqQqAy1WGeHVqikcDm/ltGRxERTlh
-	I2mqusRIMm4cnAdHWCHiq18Ef257OVs2lMeV8KIYyOHN68iAUq9N8mKaXoajVvnhLryI
-X-Received: by 2002:a05:7022:f509:b0:1b3:ad88:b9c5 with SMTP id a92af1059eb24-1b5568b7e07mr8368775c88.24.1795347539687;
-        Sun, 22 Nov 2026 03:38:59 -0800 (PST)
-Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aaae4960sm3717851eec.18.2026.11.22.03.38.45
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 22 Nov 2026 03:38:59 -0800 (PST)
-From: Lian Wang <lianux.mm@gmail.com>
-To: Kairui Song <kasong@tencent.com>
-Cc: wang =?utf-8?q?lian=EF=BC=88ByteDance=EF=BC=89?= <lianux.mm@gmail.com>,
-	linux-mm@kvack.org,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	Qi Zheng <qi.zheng@linux.dev>,
-	Ying Huang <ying.huang@linux.alibaba.com>,
-	Chris Li <chrisl@kernel.org>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Nico Pache <nico.pache@linux.dev>,
-	Usama Arif <usama.arif@linux.dev>,
-	Michal Hocko <mhocko@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Barry Song <baohua@kernel.org>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Yuanchu Xie <yuanchu@google.com>,
-	Wei Xu <weixugc@google.com>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Nhat Pham <nphamcs@gmail.com>,
-	Youngjun Park <youngjun.park@lge.com>,
-	Zi Yan <ziy@nvidia.com>,
-	Gregory Price <gourry@gourry.net>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Dev Jain <dev.jain@arm.com>,
-	Lance Yang <lance.yang@linux.dev>,
-	Hugh Dickins <hughd@google.com>,
-	SJ Park <sj@kernel.org>,
-	David Rientjes <rientjes@google.com>,
-	Yu Zhao <yuzhao@google.com>,
-	Vernon Yang <vernon2gm@gmail.com>,
-	Zicheng Wang <wangzicheng@honor.com>,
-	Chen Ridong <chenridong@xiaomi.com>,
-	Tal Zussman <tz2294@columbia.edu>,
-	Kairui Song <ryncsn@gmail.com>,
-	Xiang Liu <liuxiang.277@bytedance.com>,
-	Ehab Ababneh <ehab.ababneh@intel.com>,
-	Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>,
-	Joanne Koong <joannelkoong@gmail.com>,
-	Kunwu Chan <kunwu.chan@gmail.com>,
-	Hui Zhu <hui.zhu@linux.dev>,
-	linux-kernel@vger.kernel.org,
-	cgroups@vger.kernel.org,
-	damon@lists.linux.dev,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v5 00/17] mm/mglru: frequency guided promotion (MGLRU-FG) and flag cleanup
-Date: Sun, 22 Nov 2026 19:38:17 +0800
-Message-ID: <20261122113833.62817-1-lianux.mm@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
-References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
+        bh=WT4yKkDAmncDHMj/7AEWMzPC9QUnbfloQV8RtbZ7Cvs=;
+        b=H/bBR5U5jCxGDHaxMgvJ+ZD/7xGYBYSiru3G9qT2Y209qdX5nlmP4QtoW584uvrlLU
+         +GNX+V1OfSFolsd7jLEPJSeJMXWKVd05u0AJJTK3cA6tSW107YX7HIGTYjUuo61xnfsG
+         Bg3RbbOZz7ceeg1rg4TPQTtbTAZ5j7qT18+6EnV8xnKvVak0ypy1bsNL8ecRpMwfK28V
+         KTilP5l8gUZJx11bDl0xKManBgTzuIGNB2dspI+MznYwn/JITQ7lbfcoABOJRIyWWTK/
+         q30Nyddt5DsO0CJbQHG685mfmBmHfyepMQlnkqX64fFEXytGERUoXubOS3F36HygQJsn
+         4BPA==
+X-Forwarded-Encrypted: i=1; AL+hErEYK9rNijdYN9PjknQTeIuCJN6dXwxCs7AVvYCWphaYMtLenEw3Zmr9IsYewtLzUg9doeRt8EKn4HCbhs8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8LDQsS3htet6iwO1c9c6YiDPqEsipcExvSsWCu5VHfOfhnbtmc
+	cmilXUJ17lLG5doVZykc826YjNVIZqCv6ci40UMZdboKVeapdvBSo4JY
+X-Gm-Gg: AZFdTZe8HrGpwWh1+yIoR0dFYV32wObkQmDC5Td3qHNELYlZOImMHhwghJezod6+KEe
+	zWoSijW4FnP6I9mU6qrNwHP65ZMs6v2D1LtDWqvnDDxZgfY/KyLoxWjPN1Je99UsU/g0L3mgDk6
+	1QF3RiUlvQOEvmrJUHGJ6xtzdwYB7Lx6bYwKFFDq5UCbGpblRIs0516UjJQSVIGM0VYmo3FT9Bb
+	UeTYT+Vs14+u7MvRElo5StrVOTRvuBZDpBmnclgFa8wufvKAk/cyQrFYmlMVca8aMzEjEpPfLXg
+	HrjRQAWQ3K1LPTZ/xpHH/MaLv7MCi25my99qWq3jxUfXse2PzSwuroxUQGpBLSer6um3yxvJSXV
+	4Hkfd+BZD8T8CLXm2Dq8HKNnIPIFJGBueli13MaVewFtsaMFL2NMhDZIJZ1bSrupszvUGvRFvTh
+	qkBhgHEfOGfMdf1Ylqumtcm7auWTc+h9AtGgj3tIc82WLqdwBAB/JfDTJ6dg5XzF2p6lryQO+ot
+	Av25KmFkVe61eYm2GN7ApNw5EbMSaHaJ4IER00/T1txA+4Vbn5oocoQq2sPslhtHEhkV9JMItIT
+	Cijr6qfAoSyprg+7FBevcT4G1ewk8tAeomvN0t5jOGiZNJFdiovwHSMdpJ958mTAkw==
+X-Received: by 2002:a05:600c:8b11:b0:4a1:dda8:eb73 with SMTP id 5b1f17b1804b1-4bb8881c630mr191892155e9.27.1795347576774;
+        Sun, 22 Nov 2026 03:39:36 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853c9170sm310397175e9.14.2026.11.22.03.39.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 03:39:36 -0800 (PST)
+Date: Sun, 22 Nov 2026 11:39:34 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, "Jason A
+ . Donenfeld" <Jason@zx2c4.com>, Herbert Xu <herbert@gondor.apana.org.au>,
+ x86@kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] lib/crypto: x86/sha2: Drop one-off implementations for
+ Sandy/Ivy Bridge
+Message-ID: <20261122113934.48a9ac42@pumpkin>
+In-Reply-To: <20261115080900.216434-1-ebiggers@kernel.org>
+References: <20261115080900.216434-1-ebiggers@kernel.org>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -146,22 +100,91 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-From: wang lian（ByteDance） <lianux.mm@gmail.com>
+On Sun, 15 Nov 2026 00:09:00 -0800
+Eric Biggers <ebiggers@kernel.org> wrote:
 
-Hi Kairui,
+> [ This is proposed to supersede my patch
+>   "lib/crypto: x86/sha512: Partially roll up sha512_transform_avx()"
+>   which was starting to clean up one of the files being dropped. ]
+>=20
+> Currently, the kernel has SSSE3, AVX, and AVX2 implementations of each
+> of SHA-256 and SHA-512.
+>=20
+> The AVX implementations of SHA-256 and SHA-512 run only on CPUs that
+> have AVX but do *not* have AVX2.  These are all the ones I could find:
+>=20
+>     - Intel Sandy Bridge and Ivy Bridge
+>     - AMD Bulldozer, Piledriver, Steamroller, Jaguar, and Puma
+>     - Zhaoxin KX-5000 and KX-6000 (possibly SHA-512 only, as these CPUs
+>       might be able to run the PHE optimized SHA-256 code)
+>     - Maybe some oddly configured VMs
+>=20
+> Oddly enough, this "AVX" code doesn't actually have much to do with AVX.
+> The only AVX capability it uses is support for 3-operand VEX-coded
+> instructions, which is unlikely to make a huge difference.
 
-On Thu, 19 Nov 2026 05:03:32 +0800 Kairui Song <kasong@tencent.com> wrote:
-> - Rebased onto current mm-new.
+Especially if they are the only VEX encoded instructions.
+Switching back and forth is horribly expensive and the change isn't
+'sticky' on some later Intel cpu and you get the 'hit' for every
+instruction.
+(kernel_fpu_begin() might need a vzeroupper to migitage this.)
 
-The v5 build checks on x86_64 passed without issues.
-I'll continue to report results from additional tests and workloads.
+>=20
+> Its actual purpose is mostly unrelated to AVX: it replaces the 'ror'
+> instruction with 'shld'.  This is entirely to work around a quirk
+> specific to Sandy Bridge and Ivy Bridge where the 'ror' instruction was
+> very slow for microarchitectural reasons, and 'shld' worked better.
+>=20
+> This is documented in the contemporaneous paper "Speeding up SHA-1,
+> SHA-256 and SHA-512 on the 2nd Generation Intel Core Processors"
+> (https://ieeexplore.ieee.org/document/6209073).  There, the 'shld'
+> workaround was claimed to speed up SHA-256 and SHA-512 by about 20% on
+> Sandy Bridge.
+>=20
+> However, that was a one-off quirk.  And even the paper itself warns
+> about using the 'shld' approach on other microarchitectures.
+>=20
+> On AMD CPUs, and on Intel CPUs after Sandy and Ivy Bridge, the exact
+> opposite applies: ror is a fast single-cycle and single =C2=B5op instruct=
+ion,
+> while shld is either a slow microcoded or multi-=C2=B5op instruction.
+>=20
+> From what I can find, this is true even on the older AMD CPUs mentioned
+> above that run this code.  Thus this code has likely always been harmful
+> on AMD.  (I don't have such a CPU available to test, but for what it's
+> worth, on Zen 5 the AVX SHA-512 code is 58% as fast as the SSSE3 code.
+> Clearly, the 'shld' hack can be quite slow on CPUs it wasn't meant for.)
 
-So feel free to add:
+I've got a bulldozer (or similar) I can run a test on.
+I might just to a quick one for shld v ror.
+I've rewritten my 'rep movs/stos' benchmark and plan to run it on the
+older cpu I have.
+(I need to get something newer than an i7-7 and older than a zen5.)
 
-Tested-by: wang lian（ByteDance） <lianux.mm@gmail.com>
+> We generally shouldn't be carrying asm files that are one-offs for
+> single microarchitectures, as it's just not worth it.  This is
+> especially true when the code has been mistakenly targeted to other CPUs
+> on which it is likely harmful, and when it has other issues that would
+> require maintenance, such as excessive loop unrolling and spilling the
+> entire 640-byte SHA-512 message schedule to the stack.  (The SSSE3 code
+> has the same issues, but it's easier to fix it in one place.)
+>=20
+> Therefore, let's drop sha256-avx-asm.S and sha512-avx-asm.S.
+>=20
+> The CPUs that could have run this code will instead run
+> sha256-ssse3-asm.S and sha512-ssse3-asm.S.  SHA-256 and SHA-512 may get
+> around 20% slower on Sandy and Ivy Bridge, but they likely get
+> significantly faster on AMD CPUs from around the same time (2011-2014).
+>=20
+> Everything with AVX2 continues to run the newer code and is entirely
+> unaffected by this cleanup.
+>=20
+> Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 
-Thanks,
-Lian
+Seems reasonable to me.
+I doubt anyone really cares - apart from benchmark data points.
+
+David
