@@ -1,52 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795345830;
-	b=nNZk40OfQFmryyQWYDh9LQtESnj0eEtFZ6DX2DcAB6r3u0aTJnxtBshOagZP9ZT/J1iO
-	 pMHzIdrwdeSUEG5Ewn8lsl7qmYnnNbbcFEXHbq+oT13Oj6kkRjzcZW50RcwbOKXPJS+wq
-	 X7CspnE3UE+GLE0LW+J+kxT4FS5vepGOCa1E9NOjD5p0klWyeONl655ywwZat4qzEMcXc
-	 eRvfhr5E0x81mrM1j7tptTVMVx+zC+RJpOwGYXQZvFZAjlddZqN3nu7ffV6zdDA1zi9zN
-	 MTellYw/oIx2EwtlCOgF0oyplR4baUyxkz8jEhCjfsmICMIt3cLEccPmQQmBhT2270g==
+	t=1795345996;
+	b=szbW+FlEC/KSDcu6RMyWAdnR+U5qRGUoKZKkKfSfBKCOKkYMDDJg11DiKU+FOG7YUE0V
+	 wwtC0KjDN5iCq+g85eWQk+1qEeFtYydXo/SRO8g+Zom8frxwdO4MyQpLqjCwlAn4bJyOb
+	 oqOj2YtO0CgBbDcNIvhFLxSirpg6zvnl5wU0A8PAm//zX2DF4t6fEQVDkzE//w1NvhYrQ
+	 fjHkSexTOyFsF9qBsyrRgtrj0PosUQd7dxBQZ2kYAX83RPQ4rmjkYhtHW7W4xFMZAmfwe
+	 Ikgn/AwkCHra7eQvZcWrlLs8p0haJLrSf/7D+uifqP+aHt036Y3pyJQze5vN5SFIWSw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795345830;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=vUgERwTTP/XfoDhdfAsoYffuI3Fvxe6jO15E0So2V70=;
-	b=LpEAvB1qOG2heUheX5QXVHvQqj7T2RS2ydp8q0Tf9MF3DLyZuPwVVrkzYMYL/wl5QS+M
-	 AAw6DSYr0uzvTYsruEGGBgGm7BaSw08zw8TKTKCDHzV6kSEKARnXjE0sCGMB3SBt9CBLh
-	 w+QRzqwiNrD9E0nspAJGASjljyi8FzGE/w4ypZp3XdoxnreKiiwThVpTHxm8nocCqmEh2
-	 WaqJX5MBPTDKZp7fql5PlFOqVbmeARSHOV3i23SIyStyjZLJ5LTBfY/om71vtdhZKjvjQ
-	 Kuw39ZIc6L6KWHIe9d87UgdG3L4YIAns/sZ609Du/q3vV9IJ5kuk5pQYS1hXD8PzN6w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795345996;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
+	b=fxyk4OWVQQiKEfE4hefRBv7yxsE5oh/elZp9tg0/SejD1KS38+zRCJfZhwV1+2ZKXakJ
+	 j1gXGd5mtVKj0+wZZRL5cpbmUsSDCwxPj4gQz09Yte9JSXSnYMcB7Oz1zutqxVgHtNv9/
+	 9/fhU8OjrLCpT4XtLcP1cQ+LUUd/qgHEt4iKtPXlgWQU0BxKSiKjzXcW9M6qBE9KlsDLP
+	 zgWmdQGNEzE3qQyf/tCZQkcGoQ2TbGt/bvdFAxl2D5ty3JtEaC2VG7qYou82v9d+LprIH
+	 x7XpGEaDHua+BE6SdpnMzsQuBbBW7ZFppRr52voNubTaw8xh8UeI11Q2VihEd3y+kwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M7iGQx2s;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="C16RvE/L";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D97A0606A331
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:10:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1460D606A320;
+	Sun, 22 Nov 2026 11:13:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M7iGQx2s
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 216E01F000C4;
-	Sun, 22 Nov 2026 11:10:28 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C16RvE/L
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 341181F000C0;
+	Sun, 22 Nov 2026 11:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795345830;
-	bh=vUgERwTTP/XfoDhdfAsoYffuI3Fvxe6jO15E0So2V70=;
-	h=Date:From:To:Cc:Subject;
-	b=M7iGQx2sxD+WgNbE0xZu1n56rd/3jaGNqB5b6Htaf2cmsZXYm0tITSgxFIBqXd5QY
-	 Q+9BktyduWSu+W/zSw+6ByPiwfdiE0+PH37k9McmcrG53EYWVqQKAXlUmSXj9ENJkB
-	 7w+pOXz/nU4gh7p6QQ+2sjyPNe1+UAxyqaSoi70CMPtYtPXdjy7M32LWSw2xhYlpIe
-	 RHrPScRKjrWU5chsL26WJM2t3dnNDFbGH6FYhBrVr0RSmPT8P+mXjxCEHeCX98xNws
-	 i41m7qxbUCssLMc/jvjilrEqZZeRYh7TAahebuc/B7qYp1NAjF1Hc9thafZmjy0NFW
-	 dUHO7m6ClL/aQ==
-Date: Sun, 22 Nov 2026 12:10:26 +0100
-From: Ingo Molnar <mingo@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, the arch/x86 maintainers <x86@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"H. Peter Anvin" <hpa@zytor.com>
-Subject: [GIT PULL] x86 fixes
-Message-ID: <awLNohm4diw4fYCs@gmail.com>
+	s=k20260515; t=1795345995;
+	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=C16RvE/LYheAFMDhoExIcOil2CXN9t0ylm0uvgTteJRE+Haj1xOX4vsx1Vj8L1xp5
+	 Qs+0zX71luIdiEoe1G1AvamS8pyjQYsOL0GCp4SxLeAG/gdmN1O5z7eJRKjxaVkQzy
+	 ifVieyMd4Mhavu4nRmWqMl7kFnag1rVaE41RTzzLVrBu/QU7GxfZhbrowslJeI3iA3
+	 xDhXT/dkEe3Uqh1KI1QsGOMAyC3DKWZl8VMBCDRoZGzgVxGAMhDVAuE/LvoF70XL/d
+	 YAtRYdGJMOKK3gTurAku5a9BvjLSitQyIC9HHpXoN4FZeI6ztd6SmF2dEK8EnzLFpl
+	 m72dPMTewDgNQ==
+From: netdev-bot+sinfo@kernel.org
+To: Birger Koblitz <mail@birger-koblitz.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>,
+ linux-usb@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2] aqc111: Fix rx/tx_fixup issues
+Date: Sun, 22 Nov 2026 11:13:14 +0000
+Message-ID: <179534599473.3294.5226906063494646334@kernel.org>
+In-Reply-To: <20261122-aqc111-v2-1-52d5ddb17a37@birger-koblitz.de>
+References: <20261122-aqc111-v2-1-52d5ddb17a37@birger-koblitz.de>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,54 +64,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 
-Linus,
+Hi!
 
-Please pull the latest x86/urgent Git tree from:
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-   git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git x86-urgent-2026-11-22
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
-for you to fetch changes up to ae3398a7da224e1cb14a04ce8e9da66fc2948121:
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-x86 fixes:
-
- - Add Intel Coral Rapids and Razor Lake CPU models (Tony Luck)
-
- - Update the table of Intel SNC capable CPU models with
-   Granite Rapids "D" CPUs (Tony Luck)
-
- - Fix MSI interrupt affinity configuration (Weitao Wang)
-
- - Do not treat cache hierarchy MCE errors as memory errors,
-   to fix false offlining of healthy RAM pages (Adrian Schlegel)
-
- - Enable ROX also when CONFIG_STRICT_KERNEL_RWX is present
-   (Richard Weinberger)
-
- Thanks,
-
-	Ingo
-
------------------->
-Adrian Schlegel (1):
-      x86/mce: Do not treat cache hierarchy errors as memory errors
-
-Richard Weinberger (1):
-      x86/Kconfig: Enable ROX also when STRICT_KERNEL_RWX is present
-
-Tony Luck (2):
-      x86/cpu: Add Intel Coral Rapids and Razor Lake CPU models
-      x86/resctrl: Add SNC support for Granite Rapids "D" CPU
-
-WeitaoWang-oc (1):
-      x86/apic/msi: Fix MSI interrupt affinity configuration
-
-
- arch/x86/Kconfig                      |  2 +-
- arch/x86/include/asm/intel-family.h   |  7 +++++++
- arch/x86/kernel/apic/msi.c            |  2 +-
- arch/x86/kernel/cpu/mce/core.c        | 18 +++++-------------
- arch/x86/kernel/cpu/resctrl/monitor.c |  1 +
- 5 files changed, 15 insertions(+), 15 deletions(-)
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
