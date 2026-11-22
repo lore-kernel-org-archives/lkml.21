@@ -1,102 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.179
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795346487;
-	b=eMtwmNx34Q2q2abqBMrw+eRfM8UjsGobBUEyHN2obkROzHMGWhm9zNtTCy8IYgxtqoJE
-	 4GO/m7B4qP60dOX69uReWnUjW0mE+ITjJBPaE0onYL7ZltQIoYVRNtc1Crv4H5Ag12gyY
-	 hYMEPcvq7suxma7S9zP1b8gIBg7wqdyilalqbcutghtNtEOLfzkdlwM1xed5mWuzFcGGF
-	 /QpB2SdKX4qgHTHhLQu3kVRH7kX3vrxZc3d3ibCNUtMrM/Q5bZhnGwDINIR2OlHKKa62I
-	 inhWRpPITckZqQohCzO8p0hroKtINMyhhJKsKwRk/vgd1feDkuwOFsTjB7w7t2SGyOQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795346487;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=BCdFGEAGi1FkXvjngBIPRRqSI+mSTpjGWxSdX4AZ69g=;
-	b=VvblPE8c9JWu5zHlZxNgtLhpaw6kkQEq2d7i9dq9DPui0f68xBaDteP9SURodTA1696S
-	 R8eqWCp2htKxnx/FuXvm+qsw5XC5fQDpAG4rpz28WrANVXU+FQJQbhIprvH/kXBX11MUK
-	 dF84CaXQpyxCgRukvxzgMAl5T9Hatd0qIgUmaOkKHubRrDfOrfKMOCV/DGd2pDdnjca78
-	 kgOwbHGNiqmuxeS3g31wdcq9XU9J8FJynE6tMDYe+t+NFIWZjIFqxp1MXqAOch6TxakOo
-	 BkUZX+e8J2grg00ABMgmXUK7fD9SxcafhSX01gosuB2dmRSoLF49nUzfH7LCHoTuiug==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Zf056G/Y";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.179
-Received: from mail-lj1-f179.google.com (mail-lj1-f179.google.com [209.85.208.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.29
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795346522;
+	b=ce1IqGTsnE6GtAdJCTJoneZ+Ls5a+CQtnhq5KbHu00YUKr2ME1ursIAhU3moG2vnwETH
+	 Aiv8XsZ6NCMGPlipRkmkT7S+QNjYieT4gTZjCRDs3lyNsMqLgwGvsKVpJPsNhT8m6Nc/k
+	 36N1nj1gg9B7CUwB6fxfq8U0SqwgjY+mXDfmeNwRwBMN11MyzMS/3cX+hSYAoKONdGN0M
+	 dQCP/gat8OxDTBrybLvZWeCsowb+0e4NLMtmxzB1lFdT8VCQaooFzcRgIGslqBDFmb5wo
+	 Z42914Hl1KteLgqBB5t8RXNGNrrccROMRiHS+mmNQheR1RyGNnuSkO+XMTaQhWmIG2g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795346522;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=utBTjs+dqc3oDE0m/ffB35QBFM5MmJvgCEGqgp52YS8=;
+	b=3yNhdCrIrqs832hQ3SIPec+Je+c433YadXSP3iHmTwKxYZBK2tIFwkmRPX8nZkq/vU2i
+	 vJ+/1eACE/ZUvlbzRFRSnGP3zdgPidsEgMsuNdVYS7sqvL0CoCkObTjpMhunQ9HeOp8zx
+	 L+BsCbHAoOInC5DVhnF/1mi4IyUwOvKG4ulCUI0CqGWEd7Hidi4AHZ6BPQUKmvFS5lpjk
+	 jK+jjkT9ELCnE2ZmYMcmxkzcY7cm3N2jLmWn/UIVHdGfTOkKkCxhG+TOuRfZepz/Gc2NR
+	 tGfq/GJllCSysb2bfEFkbm2RArZ+VKbphwe0YgVZhazxDV/qCKpUfQatCCpBZf5XtnQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=proton.me;
+	spf=pass smtp.mailfrom=proton.me;
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=k5YPQypB;
+	arc=none smtp.remote-ip=109.224.244.29
+Received: from mail-24429.protonmail.ch (mail-24429.protonmail.ch [109.224.244.29])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20BFF606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:21:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20BFF606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72867606A330
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:22:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72867606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Zf056G/Y
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-3ab3cb83f54so1722831fa.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 03:21:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795346485; cv=none;
-        d=google.com; s=arc-20260327;
-        b=P+eO/Mc0Lw2PkbiD5b0UaG0hUfrJGekfrid1LwQ9kINS4T8KlPO0CHohj0NJOELOkM
-         dSTtmIsdW+PRwl45borywEfB4YttudbVuqYGiqmkSOIGXV67XQGespJJaC2Q4oq3o1Mj
-         eO2x1zWgxG/jCc8xjnDUE6/Ln5o21dRm8gGv63c9vvJnYIXYpX5XHIJ21LBkcmpdFXm+
-         8zEgj44XVVH4alrE1uNocDAUcNTLJ3ldvwxPyq6IkovvLTLij3JW1uA8UWOdNTf1+3bv
-         011/ZSNOg8AHfJsnF6MKPs3g0/Uy+J4FDtGjT+xKdXMXKCEl1KMd06qoLCMP5HVuLzQ/
-         smBw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=BCdFGEAGi1FkXvjngBIPRRqSI+mSTpjGWxSdX4AZ69g=;
-        fh=Nxm5Elvafs0Ak4DS/ufI/2WKQPXt/n2/KVbWzfbfQZg=;
-        b=P2b+c/s11HQ2eNSBEIkivSSYh/FG6cjK3vz4XSmafSo+iyaXR0FhM3pStpYI3gSFH1
-         rrjahVJ6WSm/IC5uRKAsJsy3seku9udebTImhq9XI4T/AL0ojLQW5JyTlEjTILC02+vE
-         34aizklT85HdEA9LZwSOxcMCuxF/fKOcFIGBCAoSzkipflQTBvcsTXwGRekpMVuXHvRk
-         RKkwyEgHodGC46gVJIkkCHp6RlcwI5eRz0TM7PqwxTP+c0n8MuF7z5AQHy0xLtfRvdoL
-         wLkHQ3oLUNnysmk1lsyWVphrx2E5cjGKc5OKP6B0stibkuxrIpThKM2l2tJRdg7RwEAd
-         9lPg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795346485; x=1795951285; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=BCdFGEAGi1FkXvjngBIPRRqSI+mSTpjGWxSdX4AZ69g=;
-        b=Zf056G/Y+GwGxQXeae6ea0V5lpqHLMoxwIERhMIGNmrPdDZ6cZUEoHU4hrCFI+XQPu
-         DtuuDApe9j2ugyBnKJw8BnIVnu1bY+6E2hAi6GCbeElPeWazvmsDNRdPdzhAF6ch+tB0
-         sDMwQCeoHX/9pKFb9x74e6mnkglRTIN4TILmvm/kkwXU8Fs8C8MyMJgN/jx11Uj9kbTL
-         ado1hj028EW6qS1Am1bSc/OrESnmIvOG2jEH27iyYoz+NJlcYcQMNgVrTjfy1leizNdH
-         NV5DOBaeMdvTr8c7lXA7NsOkseNQGf9CBYJNmJSQWgoHi1iEwAVOSZDfiJbiqFvj4F/t
-         jeCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795346485; x=1795951285;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BCdFGEAGi1FkXvjngBIPRRqSI+mSTpjGWxSdX4AZ69g=;
-        b=UjuLVElIzdDQGppANMk0uHNChsef45pQR7AdsMkSdhY0NRWZQHx9vfNYCX8Kvn3Jgr
-         p5VSre4doa+22yG2rzxlX2H+Jl4hXk8d556IzBRFTXcO8c9wO20uKy37o9ELbS3muh4e
-         R55/qstX9sqsMxJIvKQoL/2w86SwCKWEPUqtShZBCfIUQ3qtz8J347pmt/zHE4qizxR9
-         cV9YmRnccaDPoEcWFxPPyRndZ2Lwvnrn3O4A0QECdCgj7x+qPVkM4OktuiEzTFEs/rs8
-         8PGpLaz+2u1On+Mvd66MY5mRl1Synv5WIWCfsVowkEUqSwNMp0WBOlI8nqiZZBrRcXyM
-         QLrA==
-X-Forwarded-Encrypted: i=1; AL+hErGIJrTs8WDu5FhWncf6IQJ6FaUCtAWdMEWoAL38V91CSjoAvIJxuaIjb4Q0SG3ikxp9HD0J6DC82Qx0wl0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Gvus8xUkHMEPF33WoCFjtmOXX8DRHZihuyX2tfvlkSNceP8zK
-	lNDmISkGMNdzIv5CGSjYT1jr6QXJi1axli0ynosMTLqqlQDkbYWruO71MyTYcL2xwOUiVCrRxWq
-	tF0m6zzvSXF4up8CLig80d0XY4HgNibY=
-X-Gm-Gg: AZFdTZcF/hmuxF9ZNkMJKhHgzDSpruujvlXBensDyBvcXbCnzrMhhaTunmMHSjqiHvw
-	57O+DAcb2xzO9OlgTifVrhoPfByq8T+L9RaTTICXdpnx2i4T9EFEcLsqRT9bw7TiXZ2AtcXafAF
-	UnHGU8ETOjnSCki3eZOms07GaIT/SN4lkzp7D4xnFDs37M6qnF1o0NR58Ir4rzWVZAHG4+nvwNK
-	jWl2YVM1puL/JFAZC1/cJM0OiNGgQK9c+QbsmtWbnzjiCN1XReY4g+zR3mUt86tq0DWGsuo847o
-	nJVLp/0r2PmCsu4wg2PX7pGIXdRFkLvyAhkcKRmB0+6mGiCQXMPGBNNdPkJOxiS7Y+sDZiILJb1
-	3dCPmorSXqZVI+xyni7nnbL9gAvGpmHQzhaz8KZrnOQMlVaCHTBxpqEzJlJx9z9P6zoXW/SVz1v
-	3Nyux4EuUNcB/MT6GzXU2xP8bWgWVMtvqPbpgTNyIZiHRjDiVdqvCm5T8MM/qYoDXUsN+pgRufs
-	dsd2Z+qsJWw7WXT4ng+FRLwgNFinXrCRODzNPXuJLRZhDRm6zQMICDIuUXbkW4bxOqrGJy5
-X-Received: by 2002:a05:6512:31c3:b0:5bf:e6a1:3115 with SMTP id
- 2adb3069b0e04-5c1bc76a33fmr3359356e87.2.1795346484987; Sun, 22 Nov 2026
- 03:21:24 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=k5YPQypB
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1795346519; x=1795605719;
+	bh=utBTjs+dqc3oDE0m/ffB35QBFM5MmJvgCEGqgp52YS8=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=k5YPQypBNzc5Oow1KvXojXzDSMwlvFZFzGMZuRULKlgAkJviwXQGDEk0JSu7IIco1
+	 ZI2jVpd1vmsK/Z8YsG6JaBOFp2QqL3uZ94RdEW77sCjN+RCq5Yw5d4ZVzLhU9aUVG0
+	 lGqg7pWgFH/YixKL0uDWmauZlQeRVdX/XIK1ZUUWF3OFjLanJgp+Rf8KQQv/GpOnmu
+	 w11whRdKWcFjnD5jeLY4olkkCGDqTu6EptmvGtQH5jxtByg2YHp0f+FArWGfHU/s7S
+	 cFmRJJ8rKUebmvNJsrRs1NiUqcGUpidKDTr+q1/XHHVwkoAebSaig2ArhG0scF1ybC
+	 24YntQAPQBjnA==
+Date: Sun, 22 Nov 2026 11:21:54 +0000
+To: "pkshih@realtek.com" <pkshih@realtek.com>
+From: Falconet3 <Falconet3@proton.me>
+Cc: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 2/2] wifi: rtw89: fix u32 overflow in board element offset check
+Message-ID: <wQyrWhpyvBNzuZwnQTESLUjeEbdLHi5t3xdQUf2qlOjublpo9nBpuikHh7cpfpTRjtuXRza3-Q2ZAgcwr7O98Xqs6lFOaNsc3T-D7E4B1S8=@proton.me>
+In-Reply-To: <p7rw-XuXkRXg0R2mJ5S-HUUy3IwDD0iXcY11AzTDIvfIj3ofQsJ5exatm_1V-mlBCzsd_s0xhJSBvZz4zWCYaso5-ylUw9JMV3AoiPUZZ3o=@proton.me>
+References: <p7rw-XuXkRXg0R2mJ5S-HUUy3IwDD0iXcY11AzTDIvfIj3ofQsJ5exatm_1V-mlBCzsd_s0xhJSBvZz4zWCYaso5-ylUw9JMV3AoiPUZZ3o=@proton.me>
+Feedback-ID: 48740069:user:proton
+X-Pm-Message-ID: 45c052aaa64b2835661aa3b15561a13f0c0bcffc
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,64 +64,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261020-b4-dev_query_fixes-v4-0-df66b4c98bc6@collabora.com> <20261121141830.171033-1-aliceryhl@google.com>
-In-Reply-To: <20261121141830.171033-1-aliceryhl@google.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Sun, 22 Nov 2026 12:21:12 +0100
-X-Gm-Features: Aa3M54oNJa8cPl_YiVnZHC_82X9FGjy0ARvybs1hSE8ttDDvbfY_eIi5LF9yt98
-Message-ID: <CANiq72n4CLJZ0aZwHJYSnnc58haG05si6+ocibzd07HLgFbAkg@mail.gmail.com>
-Subject: Re: [PATCH v4 0/3] drm/tyr: allow mismatched buffers for dev_query
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Deborah Brouwer <deborah.brouwer@collabora.com>, 
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
-	Alexandre Courbot <acourbot@nvidia.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, rust-for-linux@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
-On Sat, Nov 21, 2026 at 3:18=E2=80=AFPM Alice Ryhl <aliceryhl@google.com> w=
-rote:
->
-> Miguel, are you ok with me taking these uaccess changes through drm-rust-=
-next?
+Note: 2/2 was posted as a standalone message ("[PATCH v3 2/2] wifi: rtw89:
+fix u32 overflow in board element offset check") because my webmail client
+does not preserve the In-Reply-To header when the subject is edited. Both
+patches are independent and apply on top of v7.4-rc3.
 
-Sure:
+Sorry for the confusion,
+Falconet3
 
-Acked-by: Miguel Ojeda <ojeda@kernel.org>
 
-A couple notes:
 
-  - rust: uaccess: add UserSliceWriter::clear(): Newline before `//
-SAFETY` comment? I am actually not sure why the newlines are placed
-like that -- if one wants to compress the code, then I would place the
-early exit `if`s adjacent to the variables they check, saving 2 lines:
+Enviado com um e-mail seguro do Proton Mail.
 
-      let len =3D self.length;
-      if len =3D=3D 0 {
-          return Ok(());
-      }
+Em domingo, 22 de novembro de 2026 =C3=A0s 11:07, Falconet3 <Falconet3@prot=
+on.me> escreveu:
 
-      // SAFETY: `clear_user` checks the userspace address and range and ha=
-ndles
-      // faults when accessing userspace memory
-      let res =3D unsafe { bindings::clear_user(self.ptr.as_mut_ptr(), len)=
- };
-      if res !=3D 0 {
-          return Err(EFAULT);
-      }
-
-  - rust: uaccess: add method to get UserPtr from u64: Intra-doc link
-on `UserPtr`, and span and intra-doc link on `u64`.
-
-  - drm/tyr: allow userspace buffers to be mismatched: `set_uobj` has
-a bunch of comments, should they be documentation even if private?
-
-Thanks!
-
-Cheers,
-Miguel
+> rtw89_board_elm_seek() validates the selected entry against the board
+> element file with
+>=20
+> =09if (unlikely(board_elm->size < ofst + size))
+>=20
+> where ofst and size are u32 values read from the file. The addition
+> wraps in u32, so a crafted file with, for example,
+> ofst =3D 0xffffff00 and size =3D 0x200 passes the check and
+> pseudo_fw->data is set to board_elm->data + 0xffffff00 with
+> pseudo_fw->size =3D 0x200. The element walk then dereferences that
+> pointer and reads out of bounds.
+>=20
+> Use remainder arithmetic against board_elm->size, which cannot wrap on
+> any architecture. The helper is new in v7.4-rc1, so only the current
+> cycle is affected.
+>=20
+> Fixes: af5905e22a43 ("wifi: rtw89: support variants of FW elements")
+> Assisted-by: LLM Mistral Vibe
+> Signed-off-by: Falconet3 <Falconet3@proton.me>
+> ---
+> v3: resend of the series with the correct subjects and version label; no
+>     code change since v2.
+> v2: new. Found while fixing the element walk bounds check; split out as
+>     an independent caller. Compile- and sparse-tested on x86_64; no
+>     reproducer available.
+>=20
+>  drivers/net/wireless/realtek/rtw89/fw.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/net/wireless/realtek/rtw89/fw.c b/drivers/net/wirele=
+ss/realtek/rtw89/fw.c
+> index 0000000..0000000 100644
+> --- a/drivers/net/wireless/realtek/rtw89/fw.c
+> +++ b/drivers/net/wireless/realtek/rtw89/fw.c
+> @@ -1734,12 +1734,13 @@ static int rtw89_board_elm_seek(const struct firm=
+ware *board_elm,
+>  =09if (num <=3D board_id)
+>  =09=09return -ENOENT;
+>=20
+>  =09ent =3D &hdr->ents[board_id];
+>=20
+>  =09ofst =3D le32_to_cpu(ent->ofst);
+>  =09size =3D le32_to_cpu(ent->size);
+>=20
+> -=09if (unlikely(board_elm->size < ofst + size))
+> +=09if (unlikely(ofst > board_elm->size ||
+> +=09=09     size > board_elm->size - ofst))
+>  =09=09return -EFAULT;
+>=20
+>  =09memset(pseudo_fw, 0, sizeof(*pseudo_fw));
+> --
+> 2.53.0
