@@ -1,78 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795309215;
-	b=Sa16TlAGq3qz689TdMkJlMtQzv8B6sKJkpB5bH/R9APPF7Lqd1duJGCgjNL9XknO1vmS
-	 xbFiAx/6sYBlpd+sSl16q6RyjMEzshuGTylbYyvnSGL0v6wkSECALABkESVLIzAqZSuhQ
-	 6TDXxzCQco+mowK40RQkFT1BysFEqkoUpZkTcHo2MHPHt0Bhbw1m8gfGCqkhOpWZZqfvx
-	 YXEVCbswJJovwIth+2j4cv98po23sjTZgF2RJ3I0TRAuue9An74kjgeu1cRjhAFX6SvIJ
-	 VsqIDkY7p3qkuwkglX0jQbZ3+AUklS4wc7X2a2DQbtZ+c9qaYOJia2h8VDMDu3QyNgQ==
+	t=1795309287;
+	b=a4i6xr7J9aF80yRY2n8CshexqvWp4Fl+mr37upnmvXPTmtppS8xsW6M1AcnOlbhD63/o
+	 v5yjQy3t/jmLEoQRSL+M38rI2DYrJub3oAgcH7PBAiyDYujoWey5ZruiLHOQarw/N+sVm
+	 8SlqskMMaL2atyyl1PvdxoHud2AcVXG/mNvRN3dyhEbfE3uTgEgVwWyHmTBrPpNSdBoGO
+	 rvekzRVVqqtc8dfI3Vm8F+ElkfVhNh81Y2J6U6V/1LFejueVc5ns/LBBVk6ByjvsNNokg
+	 LOBq4EqLEaeUOxCb6Nw9Mx6MrcZGVYWAmd6cmBV95XphvJ8tb9iG2e4hUvoIKnsFQ7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795309215;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spam-Status:X-Spam-Checker-Version;
-	bh=yiOSm1bkyAMQFGBb+Y0A4VMMiKXTGYYH6qcBe1qvEcQ=;
-	b=3JyVqxXhvD7cbJo/NndODm/98ICvQs+K5oEtSKuqlsOYM0hAtEzoHTbjX2wBcMight7b
-	 y3d1tuzU+6Opc3FXkvc03P/rkEoBR8Q0NU0Uvw6pc1slm5woneWNgvCPhE5zRlkvhTE49
-	 MNXc5OvCTVpTTOfsz9kwD298btYQyaUxSOBpIdfuDs3F+3p/HmAsPynmTGveeJink0UOW
-	 8w6y+ciOuQZ282fYXkviOmpsiAbSnw3ndsJrWKgStjUL2GuUpVDmwV3161SwTeDa0ZQ7x
-	 PCYLNjiB+hv4nCB27EiMLoogBm4XaospFSJRfPN8PnHPHIvZV794YEHa6pNDHUq8QdQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795309287;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 User-Agent:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=s5HP2F5BLo9a2Hz9pzFFEwWqo1HnIu7Du6LYcxBpVfo=;
+	b=t0vatbS0OOeVhoJNukVHAsotDUxhiCisyMkxUbvWSOGmH8xGG/vpWNGx4v6vNBCurnrh
+	 BUe5omXiYMU5eHx8HpzAUyYK1dfAeDVt8l/6ctMW3aBXckog92PQ2VFSoYRgrvllYjjWU
+	 KdOHFARg84JtRqCk5tD/6goy+FPS8SC+W0Lq/5Sin5IU1dxxUfZXevtU4LuupIRPtLCjw
+	 QFrQ8OndAudLvZnlotPJHvPZ0EYTvMdb7o5N6cgJTMkvTaLoVnhVA7NxxFr9YYoGPAVfp
+	 w41B/DillzgbcN6vABPJcJqWXbvDuahg+/tDVBOllf4g6YSJoxcVuuCfBTUFnvgeLBw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=netfilter.org;
-	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=idLo7FDd;
-	arc=none smtp.remote-ip=217.70.190.124
-Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m6hczndX;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id F053F606A32A;
-	Sun, 22 Nov 2026 01:00:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F053F606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 005BF606A320;
+	Sun, 22 Nov 2026 01:01:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=idLo7FDd
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1795309212;
-	bh=yiOSm1bkyAMQFGBb+Y0A4VMMiKXTGYYH6qcBe1qvEcQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=idLo7FDdCW2WIP2s6cJFayiTrWkOe0sP+zL5IHZnpWk1cVN7hsAEhxuxXuB7b3TGC
-	 F6+4HON7HbgtUFSuFl4xIzAmTfaDdMR1SEyzTQHES28vx8mUkCnKHUGqNGYvkKpoeK
-	 eT9/B6DGS1mApyF7xppRNJFbCXD/RhGkRzbjQ+6zAIlAnmRGcp09ez6cHlCfN+iyxR
-	 SwHd6v3NW9oqPDmiZNPJQdXAXrOxI4wm3dgAbzam9FIzJ4p9x3ZHlv9Z74mx+OhLJU
-	 e+5fbAtCqI7WRLfbr+P/pKOxdktk2BSrxh5lyqfpMU0jbppHw+pfZdGC7DTilQMzgT
-	 WuTn/oRkQ6+0Q==
-Received: from netfilter.org (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with UTF8SMTPSA id 7883A6005B;
-	Sun, 22 Nov 2026 02:00:12 +0100 (CET)
-Date: Sun, 22 Nov 2026 02:00:10 +0100
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: netdev@vger.kernel.org,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Jonas Gorski <jonas.gorski@gmail.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
-	"open list:NETFILTER" <netfilter-devel@vger.kernel.org>,
-	"open list:NETFILTER" <coreteam@netfilter.org>
-Subject: Re: [PATCH net-next 6/9] net: flow_offload: allow drivers to
- validate and invalidate cached paths
-Message-ID: <awI-mtwn3ohPw-fF@chamomile>
-References: <20261116222519.1416501-1-florian.fainelli@broadcom.com>
- <20261116222519.1416501-7-florian.fainelli@broadcom.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m6hczndX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8075C1F000E1;
+	Sun, 22 Nov 2026 01:01:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795309286;
+	bh=s5HP2F5BLo9a2Hz9pzFFEwWqo1HnIu7Du6LYcxBpVfo=;
+	h=From:To:Cc:Subject:Date;
+	b=m6hczndXWrg0oa4u9Vy2d+QLTQVQLIHtbw1Lq4D9y9qpkg9hu3MCW2icjSfsEMBke
+	 knEY/btA0gCASU5hVniIjqOmqSiGbc6C9dqxrcwU8NT/NLNW89SI5nB8bH5agiZjWb
+	 Svernse8ETCbh8bIS/dTrnHfnj5yJDKKUnow8jCmjp/sc4qb+jR2ahCG3oN90pt3aL
+	 wZEzEpdc9GHZM0WzoWlM9CmIKV50yvwS1D7+wPMJT5mXmuhXa33Tv6jxcEKP+cYY54
+	 dxqGD1Z7TxucpbWqDxpZriveE/qNG/l0+8j0jWredLEQH5Jul3qsACC9vmKsV3Fykq
+	 JbkocCxwMDgRw==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Masami Hiramatsu <mhiramat@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org
+Subject: [PATCH 0/4] bootconfig: Fix tree verification, key composition, and cmdline rendering bugs
+Date: Sun, 22 Nov 2026 10:01:23 +0900
+Message-ID: <179530928294.109991.3079999508446852151.stgit@devnote2>
+X-Mailer: git-send-email 2.43.0
+User-Agent: StGit/0.19
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,51 +59,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261116222519.1416501-7-florian.fainelli@broadcom.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 16, 2026 at 02:25:16PM -0800, Florian Fainelli wrote:
-[...]
-> +static int nf_flow_offload_validate(unsigned long cookie)
-> +{
-> +	struct flow_offload *flow = nf_flow_offload_cookie_flow(cookie);
-> +	unsigned int dir;
-> +
-> +	for (dir = 0; dir < FLOW_OFFLOAD_DIR_MAX; dir++) {
-> +		struct flow_offload_tuple *tuple = &flow->tuplehash[dir].tuple;
-> +		struct flow_offload_tuple *other = &flow->tuplehash[!dir].tuple;
-> +		struct dst_entry *dst = tuple->dst_cache;
-> +		struct neighbour *neigh;
-> +		u8 mac[ETH_ALEN];
-> +		bool valid;
-> +
-> +		if (!dst)
-> +			return -EOPNOTSUPP;
-> +		/* This is the actual route selected with the packet's policy
-> +		 * context, including mark, DSCP and the reverse lookup's oif.
-> +		 */
-> +		if (!dst_check(dst, tuple->dst_cookie))
-> +			return -ESTALE;
-> +		if (tuple->xmit_type != FLOW_OFFLOAD_XMIT_DIRECT)
-> +			continue;
-> +		/* A stacked path may have a different final Ethernet neighbour.
-> +		 * Do not mistake that unsupported context for a stale owner.
-> +		 */
-> +		if (dst->dev->ifindex != tuple->out.ifidx)
-> +			return -EOPNOTSUPP;
-> +		neigh = dst_neigh_lookup(dst, &other->src_v4);
-> +		if (!neigh)
-> +			return -ESTALE;
-> +		neigh_ha_snapshot(mac, neigh, dst->dev);
-> +		valid = (READ_ONCE(neigh->nud_state) & NUD_VALID) &&
-> +			ether_addr_equal(mac, tuple->out.h_dest);
-> +		neigh_release(neigh);
-> +		if (!valid)
-> +			return -ESTALE;
-> +	}
-> +	return 0;
+Hi,
 
-This validation to catch for stale entries looks very similar to what
-I'm working on. I guess there is a chance to consolidate all this in
-common infrastructure for both software and hardware modes.
+This series fixes bugs in the Extra Boot Config (bootconfig) parser and
+tree query/rendering API (`lib/bootconfig.c`), and adds regression tests
+to `tools/bootconfig/test-bootconfig.sh`. These issues were found while
+formally modeling and verifying the bootconfig parser in Lean 4.
+
+Summary of changes:
+
+1. Fix `xbc_verify_tree()` to use `xbc_node_get_subkey()` instead of
+   `xbc_node_get_child()` when descending the key tree. Previously, if a
+   key node had both a value and subkeys, its first child was the value
+   node, causing `xbc_verify_tree()` to skip all subkeys under it and
+   bypass both `XBC_DEPTH_MAX` (16) and `XBC_KEYLEN_MAX` (256) checks.
+
+2. Fix `xbc_node_compose_key_after()` for value nodes: climb all parent
+   value nodes in a loop (`while (node && xbc_node_is_value(node))`) so
+   that 2nd+ array value nodes resolve to their owning key node, and
+   perform `if (!node || node == root)` after climbing so that passing a
+   value node belonging to the subtree `@root` key node itself (e.g.
+   `foo = "val"` with `@root = xbc_find_node("foo")`) returns `-EINVAL`
+   rather than `0` with an untouched buffer.
+
+3. Fix `xbc_snprint_cmdline_filter()` to pass
+   `buf && len < size ? buf + len : NULL` to `snprintf()`, avoiding
+   out-of-bounds pointer arithmetic (`buf + len` with `len > size`) when
+   `@buf` is non-NULL and the rendered output exceeds `@size`.
+
+4. Add regression tests to `tools/bootconfig/test-bootconfig.sh` for
+   unclosed brace error position reporting and mixed value+subkey
+   depth/length limit enforcement.
+
+Thank you,
+
+---
+
+Masami Hiramatsu (Google) (4):
+      bootconfig: Fix xbc_verify_tree() to check subkeys of valued keys
+      bootconfig: Fix xbc_node_compose_key_after() for value nodes
+      bootconfig: Avoid out-of-bounds pointer arithmetic in xbc_snprint_cmdline_filter()
+      tools/bootconfig: Add tests for unclosed brace position and mixed-kv limits
+
+
+ lib/bootconfig.c                    |   17 +++++++++--------
+ tools/bootconfig/test-bootconfig.sh |   33 +++++++++++++++++++++++++++++++++
+ 2 files changed, 42 insertions(+), 8 deletions(-)
+
+--
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
