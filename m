@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795324386;
-	b=qUQChPpexv7+Vo0pjwOcKfT+1Bh0gL0EG3PsuwL7ElxPI+vIfa3y6aMCOS6exAREy2sF
-	 B5vlRD5D4tu53c6Is+4qy2hLrq8VIq1aZ5eTHJxLO8v8DkoI1a9+KSwgEHHwqcRJCHZmt
-	 V0YNVtDXQEUBjH7uL1QfSHIe2UrW2fKs0P83tDHlprNkTp6YLGe928KNUhzyOzM6IUs2+
-	 gMbZIClOfQ2FqdaMufPUXjdtXhzEFjTBGJrVrxmn8umgoDrhvBgduJlwAkyFPriEyqdKl
-	 bDH0ytRCL7BsgYS7VwtEDEvmq6vXYal8Ls/lpvTyEsU90ujVOYaTWvGDKfvG/aYIOHw==
+	t=1795324391;
+	b=CNQdNMgSUe2nYZz70AJlMV9PXePOuGSGiezlhfq9XnzMRnaQE4rR7cV+mXZe+mQOYIOX
+	 q26rVSEdXf8rScjlqR+Mq1OlQl4++VToS64CgoyRZ5rsCvWb2s+OGFu/Zz9iW4aAxDR0a
+	 /N3PvwFXb+RjiA62jbQdmqhto3nATBUCFO4woO07kOq8FSkbNHQnCFZrHGWz6C50zGk6F
+	 Aj+1PbucNmY9+zL+2uVW7x5Xl3QF0zAJTazPDCzh82nYNra/SsGowhYg8lrLRH4Siz0cK
+	 6tSb975XVPRxFoq3dnvDZN3F7ebGkaYV8pNp+iNnoCh14T6FIH6S4f3rwRI0DnHJaJg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795324386;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795324391;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=BNmjm7j+QCSdIyjhvl8UOXsiskGAvLed6P75UbxH5/k=;
-	b=4rg9k0syWa2lFsYa9Ord0+tduLAzRBbZAAlfbkN5sbwgY18up/HC2J/0MGQw3WEyeQuw
-	 5phgBXedQv1LCia7nsVl1g90Oj2bmY9BTfpYtoTzXXcgwQz3dUOpz9etx3lHBReAUZFPn
-	 o/P9uEEjr5VnzHJ2YRhQC7FNtUw9wArwOR0Ecd6l1qwzqE09RYya9oNePXhhHxFCXilyc
-	 /3aHL7AVSU8DfhqFH5O1h9FYJdUd+RGj9o/gb9Wx5v4/H9wrrIIM5nQdTeG5tGsmRFRhE
-	 4xN015SjXvZICHVnEFdDgz6TKdn2PNveLEaY1aPKX4McUhTjPYbKTj4KfOv0ToF/8LA==
+	bh=LbDS9IpPDex0TvN3no8LP70sHsZV1X+KNwV54iyF28Y=;
+	b=w6JUoiza++k8oakpbYpgWALXyvVC+lFSCZJyEqvRTTuublbiGTm68TnO4kN2axcRa2H7
+	 tGumOHlo9IEfG/Gd0PgJIVUKT3eh+VuUu7UdLNTLdFC9d7Be4zu56UU+WKolWMEi3rnSG
+	 KgVX+uWNYtd67whidp3vG2qG2jaWNDMHROgdRIR8/NDUCp9sgFT3c49OvtMOE9EnGXNQU
+	 QnvSjZP5kAT2C40mn3msBgm4G6P5iS8gWp5c1DbpjDWk0VkzeLy6HdJk3pkLnlS5QvvQK
+	 BhhFN+N5FKrvb8jBeyCPwLB2tFqJVbxSIKUHCJ9ypE/tgHlbHSQGtDnawFxch3rpBsg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mKJQ15Ty;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H1ji8abm;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06020606A338;
-	Sun, 22 Nov 2026 05:13:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 906B2606A320;
+	Sun, 22 Nov 2026 05:13:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mKJQ15Ty
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H1ji8abm
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795324385;
-	b=zJE4tYKjqUTWpOor7bnu8NKnecxbGw9vY7bd8KegvVT6/Ubz1I1SRLhIFlokSRKnLxAr
-	 8NubQAkgXaEQNM4zS6BVbDiRpVrZ6ywT8CmtwY3pOZsn935vOmBIdiof275pJ67QEXbXV
-	 zHwzAhlkJblWjthaylFQnUbNHEVgNayAhVE2n7HkLdR1VGTmyCU6nWaJqzEoHs6SVANgG
-	 CHGvVmkrGI/oCbrswdLqLNW6UneLbNKMG1aA+YUq4q+4n1KfTyQ4yA0u+hHbaPyFUvuLC
-	 08NkvEXsu9x+DU/6Fkvxo/FTG0XHGDeOSLDhoBI06YiyXmrq08c39v8Ee3LnyD06GUQ==
+	t=1795324391;
+	b=ssIYXaeQHbusE+b24miVo468CUN5OXyzB/mCHm0EinmI2LRkT8ob2f2eB4VuEyXs+ErM
+	 0R5GNOOUb7OKZal38taOsKkgOSwEPtFUbrn2hNZpjIkr2j6re//MOp/TTaKMwpJaXSyu8
+	 IWF/eQs1Zd5+kybZ5UOBFXV72ejEhxy1D9TPHzo2ySIoHrr1e2soJ8LpdHeVTAEV1Siwi
+	 jB06Or8ngmOJRBvR93Q8yYgIhwnK8cUk/bb1E1gDgxayVhtLG0XcjcYizRAJ+4derpapz
+	 TG+RRbHIMB1XujNc+dLl0jQdTltekksRb5Ny00wFfF6QQNOor43H24kJiNnv9Cav+jQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795324385;
+	c=relaxed/relaxed; t=1795324391;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=BNmjm7j+QCSdIyjhvl8UOXsiskGAvLed6P75UbxH5/k=;
-	b=17cZuFGP0/hcjIRSY3QYjE+TWYuB9iDKkhHE8NnGzTsVR7iIFHcFdM0G8T0j1zHNEwvR
-	 UpCt3auBzefAsAnj6bDANf5EucdjM1Vo2bOsMhWfsWAq72aPGCUST8zQY0KpdiamHlUPn
-	 /DLTqaKbU35DFsoEeC2o2ueRLSCagteUmV1+GpSXgbNNWyrmZvDlwAd5C4uxGDboEiUXU
-	 d1q31HKl9ALpIgkenuuXr52HpQruIT6nZz1sskw0HhgcE4PL0EtH4V/9Eh9J3pYhOpInA
-	 Zczh5uiYMtBG6CX43z7GQQ5FrAiGEFGMFaq9MXvkVqgkZIMQZQ/Aook9J8MCc+yzGlA==
+	bh=LbDS9IpPDex0TvN3no8LP70sHsZV1X+KNwV54iyF28Y=;
+	b=vguuNmERrGsdsaGd2nGxjs+mNWYAwrZvnIidJp5OCfA3tDVufQ9pWLXVCv4uap5UcNnx
+	 xF0RdSsqb754FZ49GurF7tQzrbiYWdSUFy2xClatdxMvQi5xM8W9blIilhkcMvXf5JAaz
+	 oL2dAlX/0HeAbcnNYobeMYv++Wx+muN0FW0MclboAvvKZOMbG3JOdypnboqBdhnBiOVoj
+	 7uVbOJLf4pD8CsnFKignYxYVqTq9wnIYpBNdAULI0B1FcK7ezQNDiFMIxuHFQ1lIdG/39
+	 GMEW70AxbRWpkemjk6KcU94RBT8xhS66pinkJQsgMuBw26SIbiquMuAvBU2EHkjDXUQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 99AED1F000C0;
-	Sun, 22 Nov 2026 05:13:04 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 93E601F000CF;
+	Sun, 22 Nov 2026 05:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795324385;
-	bh=BNmjm7j+QCSdIyjhvl8UOXsiskGAvLed6P75UbxH5/k=;
+	s=k20260515; t=1795324391;
+	bh=LbDS9IpPDex0TvN3no8LP70sHsZV1X+KNwV54iyF28Y=;
 	h=From:Date:Subject:To:Cc:Reply-To;
-	b=mKJQ15Ty33/DZUmYlZ23JYAEWpYcjfcrU+mp4zPDV0OMJZYVH7KjydwHkq2/I/qUd
-	 vRejzisGHvrgJ5uv4yfplzqEyyWQ6ydcYACnWMRmsfJCUGNRP/hX3BEwb3aY0Kvte7
-	 aXqUBsEFIJLLb3SoM3cGRbUHoBNjm/7UqCPQ9nKaUfJSUeX9vkgUHPTWam3j/IVZDi
-	 AxUZbpi9mNh+5FWqDF+pwBH4MGOyhor81yusWhwHB8Ox38E+QtVdMcjGdXj4iQBNnV
-	 eSZ3tRnE+DxltY0g91Vq7JcikOtVM1tYIVZk9PCzEbPcYC8J5LIlyvKa/uW9xBX/RB
-	 zflmGk5KMT1/w==
+	b=H1ji8abm6wwp4PxYUSXc7FvlwA1qyfkFGNZZDHzRbYcFxScuk9BzR+W4c5CHxvD5S
+	 Hm3UH6PJegl+Ek17vZyMeHyjFnf5l5oTrl1DiMTxHWzolFaWLT5xS5uXkg9Rqt7MT1
+	 mzOE8PctUXGwhJbAOB9wZu9VjCIv/xRdLi+3NELZAQRt1uCGFnJTEajuKDDxG4R3LL
+	 /dWITcP1I0s9orBurPJuDJkp1GDL5K893x/sGsPu45hADaHXL/tgX36hDrMJS9J5m+
+	 lxpp1tMdj2RGFVgIfBb5MrHS4OJi1cN5FoU8sXnXE9Y64kn9m6FD6iaf+gDMQrfxyE
+	 jxJIhYF2T8PRw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 2AAD94BEEE;
-	Sun, 22 Nov 2026 05:13:04 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 24B2B4BF2E;
+	Sun, 22 Nov 2026 05:13:10 +0000 (UTC)
 From: EMCP333 via B4 Relay <devnull+emcp.enser.io@kernel.org>
-Date: Sun, 22 Nov 2026 05:13:02 +0000
-Subject: [PATCH] nfc: nxp-nci: i2c: Do not keep a fault taken in reset
- across power-up
+Date: Sun, 22 Nov 2026 05:13:07 +0000
+Subject: [PATCH] arm64: dts: qcom: sdm845-oneplus-fajita: Route the
+ microphones to MCLK
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,21 +84,26 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261122-b4-nxp-nci-cold-fault-v1-1-fad784c73cfe@enser.io>
-X-B4-Tracking: v=1; b=H4sIAN15AmsC/yXMwQ6CMBAE0F8he3bVNoSqv2I8tMtW1pBCWiAkh
- H+nxeObzMwGiaNwgle1QeRFkgwhQ10qoM6GL6O02aDvulFKa3Q1hnXEQII09C16O/cTmof3/DT
- GONtA3o6Rvazn7/vzd5rdj2kqZ6XhbGJ00QbqSlR4W8y1xkga9v0ANA+UVpkAAAA=
-X-Change-ID: 20261122-b4-nxp-nci-cold-fault-78ffe9777ba6
-To: David Heidelberg <david@ixit.cz>
-Cc: oe-linux-nfc@lists.linux.dev, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Cl=C3=A9ment_Perrochaud?= <clement.perrochaud@nxp.com>, 
- Samuel Ortiz <sameo@linux.intel.com>, EMCP333 <emcp@enser.io>
+Message-Id: <20261122-b4-fajita-codec-mclk-v1-1-ee4bca21d8ba@enser.io>
+X-B4-Tracking: v=1; b=H4sIAOJ5AmsC/yXMwQ6CMBAE0F8he3aV1orRXzEetstWFrWYFokJ4
+ d+lenyTmZkhS1LJcK5mSDJp1iGuMJsKuKN4E9R2NdjaNsZYi95hoF5HQh5aYXzy445mbwK5kw9
+ NfYB1+koS9PO7vVz/zm/fC4/lqzQ8ZUGfKHJXosLddNw6TGxhWb5cZyAomAAAAA==
+X-Change-ID: 20261122-b4-fajita-codec-mclk-131fa49bf605
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Casey Connolly <casey.connolly@linaro.org>, 
+ Dylan Van Assche <me@dylanvanassche.be>, linux-arm-msm@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ EMCP333 <emcp@enser.io>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795324382; l=3002;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795324388; l=2514;
  i=emcp@enser.io; s=ultron; h=from:subject:message-id;
- bh=mB+rrVjlXf4RV4trPETUOgk0Sb3i1GXtUlZZsMRZRbk=;
- b=yyOeSlKhkgcaNvBbh6HL4cj3paoE+S1FtJkg8tZbr3E5Bg8XymaEKA2rbuZea+1JDEKmrn000
- WSA1891ZlwWCINpxN810Luw5YQYkfUJTJEeOt+i6U65+jaN4bI72+vt
+ bh=DGyS7iiSyD0F0W5165hIjMOEexnA6ODF4zyy8Qhxe84=;
+ b=MPSGHzz05h1QrnlkAVXZ9JRXshJXFKZpSpb6sX3os1zzdzqFHl1RSXes0z96fFYozLT4XnMsl
+ BEs3Zsx4KpLA2HsUkADPwgt7hB2Zvcor24BKNgGVeghlUjx9UfbIszz
 X-Developer-Key: i=emcp@enser.io; a=ed25519;
  pk=5sG48Lul+Vn7OzXu3VZrCWk5uvEFPYMXYnAV0TZR/tY=
 X-Endpoint-Received: by B4 Relay for emcp@enser.io/ultron with auth_id=1598
@@ -108,82 +113,67 @@ Content-Transfer-Encoding: 7bit
 
 From: EMCP333 <emcp@enser.io>
 
-On a OnePlus 6T (PN553), the controller powers up once after boot and
-never again. Each power-down logs a read error, and every later
-power-up times out:
+The WCD934x system clock is a DAPM supply widget, "MCLK", and the codec
+driver routes nothing into it, so each board has to. fajita connects it
+only to RX_BIAS, which only the playback paths use. A capture-only
+stream therefore powers the microphone input, ADC, decimator and SLIMbus
+TX path, but not the clock they run from, and records digital silence
+until something has started playback.
 
-  nxp-nci_i2c 3-0028: NFC: Read failed with error -121
-  nci: __nci_request: wait_for_completion_interruptible_timeout failed 0
-
-nxp_nci_close() holds info_lock while it drops EN and sets the mode to
-COLD, and the IRQ thread takes the same lock. An interrupt raised as
-the controller goes into reset is therefore handled after close() has
-finished, in COLD mode, where the IRQ thread treats it as -EREMOTEIO and
-records it in hard_fault. set_mode() clears hard_fault only on entry to
-COLD, which has already happened, so the fault survives into the next
-power-up: nxp_nci_i2c_write() returns it for CORE_RESET without touching
-the bus, and the request times out.
-
-Do not count an interrupt taken while the controller is held in reset
-as a fault, and clear hard_fault on every mode change, since each one
-drives EN/FW and so resets the controller.
+Route each analog microphone input to MCLK, as other WCD934x boards do
+for their microphones (sdm845-samsung-starqltechn,
+sdm850-huawei-matebook-e-2019).
 
 Tested on a OnePlus 6T with this change on the postmarketOS sdm845
-kernel (6.18): five power-up/power-down cycles through the NFC netlink
-interface all succeed, 0.03-0.04 s each, with no read errors. Without
-it, every power-up after the first times out.
+kernel (6.18). With no playback stream open, a recording from the
+bottom microphone powers MCLK while RX_BIAS stays off, and captures real
+signal (peak 22307 over 6 s). Without it, the same recording is
+constant zero. On v7.4-rc2, dtbs_check gives the same output before and
+after.
+
+The OnePlus 6 (enchilada) has the same routing and probably the same
+problem. It is left alone here because I cannot test it.
 
 The code and this changelog were prepared with the help of an AI coding
 assistant. The submitter has reviewed both and takes responsibility for
 them.
 
-Fixes: 6be88670fc59 ("NFC: nxp-nci_i2c: Add I2C support to NXP NCI driver")
+Fixes: b7b734286856 ("arm64: dts: qcom: sdm845-oneplus-*: add audio devices")
 Signed-off-by: EMCP333 <emcp@enser.io>
 ---
-Also ran on v7.4-rc3 on the same phone, as this exact commit: 5 of 5
-NFC_CMD_DEV_UP/DEV_DOWN cycles over netlink, 0.03-0.04 s each, no -121
-(EREMOTEIO).
+Also ran on v7.4-rc3 on the same phone, as this exact commit: with no
+playback open, DAPM MCLK is On and RX_BIAS Off, and the bottom mic
+records (956 distinct sample values, peak 654, in a quiet room; the
+failure is a constant zero).
 ---
- drivers/nfc/nxp-nci/i2c.c | 15 +++++++++++----
- 1 file changed, 11 insertions(+), 4 deletions(-)
+ arch/arm64/boot/dts/qcom/sdm845-oneplus-fajita.dts | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/nfc/nxp-nci/i2c.c b/drivers/nfc/nxp-nci/i2c.c
-index 9eec67c109..1ff8b5a2bb 100644
---- a/drivers/nfc/nxp-nci/i2c.c
-+++ b/drivers/nfc/nxp-nci/i2c.c
-@@ -52,8 +52,11 @@ static int nxp_nci_i2c_set_mode(void *phy_id,
- 	gpiod_set_value_cansleep(phy->gpiod_en, (mode != NXP_NCI_MODE_COLD) ? 1 : 0);
- 	usleep_range(10000, 15000);
+diff --git a/arch/arm64/boot/dts/qcom/sdm845-oneplus-fajita.dts b/arch/arm64/boot/dts/qcom/sdm845-oneplus-fajita.dts
+index e9d1a1c6ac..a03c1ea8fe 100644
+--- a/arch/arm64/boot/dts/qcom/sdm845-oneplus-fajita.dts
++++ b/arch/arm64/boot/dts/qcom/sdm845-oneplus-fajita.dts
+@@ -51,10 +51,15 @@ &sound {
+ 	model = "OnePlus 6T";
+ 	audio-routing = "RX_BIAS", "MCLK",
+ 			"AMIC1", "MIC BIAS3",
++			"AMIC1", "MCLK",
+ 			"AMIC2", "MIC BIAS2",
++			"AMIC2", "MCLK",
+ 			"AMIC3", "MIC BIAS4",
++			"AMIC3", "MCLK",
+ 			"AMIC4", "MIC BIAS1",
+-			"AMIC5", "MIC BIAS3";
++			"AMIC4", "MCLK",
++			"AMIC5", "MIC BIAS3",
++			"AMIC5", "MCLK";
+ };
  
--	if (mode == NXP_NCI_MODE_COLD)
--		phy->hard_fault = 0;
-+	/*
-+	 * Each mode change drives EN/FW and resets the controller, so a fault
-+	 * recorded before it no longer applies.
-+	 */
-+	phy->hard_fault = 0;
- 
- 	return 0;
- }
-@@ -222,8 +225,12 @@ static irqreturn_t nxp_nci_i2c_irq_thread_fn(int irq, void *phy_id)
- 		r = nxp_nci_i2c_fw_read(phy, &skb);
- 		break;
- 	case NXP_NCI_MODE_COLD:
--		r = -EREMOTEIO;
--		break;
-+		/*
-+		 * The controller is held in reset, so there is nothing to read.
-+		 * The interrupt can arrive just after EN drops; it is not a bus
-+		 * fault.
-+		 */
-+		goto exit_irq_handled;
- 	}
- 
- 	if (r == -EREMOTEIO) {
+ &pmi8998_charger {
 
 ---
 base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
-change-id: 20261122-b4-nxp-nci-cold-fault-78ffe9777ba6
+change-id: 20261122-b4-fajita-codec-mclk-131fa49bf605
 
 Best regards,
 --  
