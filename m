@@ -1,67 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=85.13.135.14
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795343480;
-	b=AbNQENtSbo4A3lg58Z7nMcAgmbtKkz8qsPVa9AJBpLVnee7ae4Adk3Nu4ryeBuYtiXH1
-	 bazJq/pglayJ1oEgvf5FHmzR/oNjpKDo3iJYBYcDNVBvCPDgol0hVQzK+TpBP5A0W1QPS
-	 J5gK+1zCC/i+ZT5U5XOPDyET4rtpVWZLaP23NzR4bieT5/u+1pDa1SKBs+bx6JDGCsiTM
-	 cYuWv8X3y6WR/MoCXeZxRL+TJjsvCVFJjEcEU9JGlwuPn82zTlev6gaLD7UJ/F3T2yjcY
-	 w7ZEHN6A4xxv3TBmNYRU+qubMaDF+vymj4rewKTwDoipDvIChBVbe+PM/+Jt11zMpXQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795343480;
-	h=DMARC-Filter:DKIM-Signature:X-KAS-Sym:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spamd-Bar;
-	bh=TVkADfHPDb8fnatWdNHa/qcNYZPeSgj3KMCf+wk+eQ4=;
-	b=VtY/xmau5mc2UetIrMORJSBCfGN7JClgUwZgKF5045I7qSVA5tbVubZuGth5fPPbik2E
-	 nl2meB0uagkIn0UBxc8/346xWhFIBL237OMnUxeVnvk0f0ncGuWAlA1MGPJ9IS89ukkOG
-	 4X3nxF2uFoQowewkOhlpCuK7gaJ8N0nqzQCfaeExX46uoTu9GSEu3IE7atlTpDk6rb9uA
-	 YRYw3LBOWgudpMTNMFes6J+R4DPaCp8rvBb+38PhSu65W5eblEyCNVw31mV1DWAkSbF0Z
-	 hZ9SugyH4sTz8Oh4hxPHCNpsebpqPBIcHiOS+ZuaABUk7SGdMbjCzZyjyhMzxMZ9Krw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tsv-stahl-riesa.de;
-	spf=pass smtp.mailfrom=tsv-stahl-riesa.de;
-	dkim=pass header.d=tsv-stahl-riesa.de header.i=@tsv-stahl-riesa.de header.a=rsa-sha256 header.s=kas202608160020 header.b=JrlpsY+K;
-	arc=none smtp.remote-ip=85.13.135.14
-Received: from dd13108.kasserver.com (dd13108.kasserver.com [85.13.135.14])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.25
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795343568;
+	b=uH15V+jLLhmu1lazhC2aS8GjN3YSs1Fd0jrVWrSdwtt1QTx5VTSN9B9AQ6n1Mru5euNt
+	 XQQImPr+d2e8CtFaoAsrvToq9QoEsqsfxdPSMuflAmke5SUQm+alJ8aUjlnbCdEkAWYB3
+	 I4m9OMkMhQMwHzvfJhKmKM1zvePNInGyrw53toTeY3bcSWzEkhbNs1sRbws+YobXQNxir
+	 kIB+UOTkOSIZ9xkXTxk7RFtCW5cuoQHIdQE2Ilg6+Hpjw5H2Z2BFLlTyCymknYWmZ4fjQ
+	 pa+Xm9v0qoweKZF5huIc4+VR0oe+uPcg9nF9mC1nglVWPR0pfiyLn3tQGr+QQUhBGTg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795343568;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=hR3BFBLSOtA9cDEJe8Z1c+gNUkfqMfMsIj5vyBJQJTI=;
+	b=XsjhGnj0vp1AthJLa6ARGkLhWfkQRV4RbPvD9JgaMrFC6kOdq49nHXzKCPyuHkCWsa8A
+	 5aERF9zhg0A/WfLuI2mGtzTLZcpqVow1LEkJqzByF6WYn4nxjd968NZAd2LxnlNdWBUcK
+	 onP3ssGV0xKrc1WDN6bAC6pWuBgskFAMYBCWNKfZd6paptx4SnHqCA1fkQE+AMxygJxTr
+	 FNb5klT0pUeNbz4aKEa7bbUOSiadQKc/RtML+dP7b8cetSjjalumTF0dKpWcJUQcKGqOE
+	 SAJxAIfqOx5+TBNWfODH4gymB9aajvBI+JxMRkFzQJWmcHeuMD0YdL64JzPS2pk1ndA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=HoUmxypT;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.25
+Received: from BN1PR04CU002.outbound.protection.outlook.com (mail-eastus2azon11010025.outbound.protection.outlook.com [52.101.56.25])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35C79606A320;
-	Sun, 22 Nov 2026 10:31:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35C79606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tsv-stahl-riesa.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tsv-stahl-riesa.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E39BF606A320;
+	Sun, 22 Nov 2026 10:32:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E39BF606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tsv-stahl-riesa.de header.i=@tsv-stahl-riesa.de header.a=rsa-sha256 header.s=kas202608160020 header.b=JrlpsY+K
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tsv-stahl-riesa.de;
-	s=kas202608160020; t=1795343478;
-	bh=TVkADfHPDb8fnatWdNHa/qcNYZPeSgj3KMCf+wk+eQ4=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:From;
-	b=JrlpsY+KmQG061qviW2503HQFOjUQL+zGCrOFJ6rvCVMSsGvEHo8AogW9lZppTZ49
-	 gHi453hvFNphyZvc74D/eX4OuBgcBgUZ7HxUbeEWHgEdQCDCKXUrqZg8qMvruQVS7C
-	 LFEMRrQk4oXWVwkTY8Lq/NaobCniDpgwDwlAJ8T8VjSdXiSfSHvVcQPlT8TwEHwvCh
-	 FFsP41QKphrNqmNYkx4LzW8P5RCj8GFl/ykuJU2VmrmFPs4JBVXG68XzaL/WSBxJ2t
-	 dS7FSmx+XPQUd8GGBrQkIsul6Il5j83ncSlEYtxUOcaS/GkoXi7CKqnOo81HqnGWYU
-	 xNRIr2Nj21+5w==
-X-KAS-Sym: v3:f51bdf72230551df:qJ5uOu2tDOwck04l6ZZT5ZgS9yYs6RwmRLkVQ2e11W2Qg
-	xi4Fjh2AYzKKX2gAyElm3p0uCqidYfZPAU5b1CzV46YKHzkqvcvF9ccxgCloMJKvslloO6MCVfr
-	6QdObSfYmUNWJ/0ucr8ReMwDqZqTusb+gYriedhqiF3fS0N72iVo5FfV8U+j8sjgdQrvg+UEGp/
-	pMFOz7n2SOuS/Di7sMFu5a52da6xM7KbRWb1W+CP2vGKw25C/j+ejlSDMMtN0jrrQDY3+AOavU4
-	QcErcPgCm854wBnsoLaG1yVxs1QYz+HjGQnrwyrtb2YfxTOOrtB2rQBg75sAG60ujUMzYTiA==:
-	LIsP67MWPJ6MktH5KhJU48vefOjvSstBjfJY1H6nciXf4jJp1vxhSecL1fYV0HM7ibACVFde9Zu
-	PlE9k85to59F+lACpg/1k8DUXHzql4rY51YeGezHNMXjMR9/aJmOSei5eALdtMRElAWwetkLxiF
-	8jEbT7kHCVl4VIjz00GvP3kwPSW3eInjBWKaHKpS3G/nyXvezCWFcOgyCUwaAE8Z8jX1aC0SIGf
-	Hs05ehj7v8HywB61UFrg6OgEthVTe5EbGPYasumH1YRPG1g0QPRqDyo6thIF6vk7jH3sQWlSsv1
-	mQsflKHl6FFhEhXe0jloZTlnEyxxPSsHAUOZDt5kQbUNKM7d36mggTu5YMgrAvt0i13wg/7cIrq
-	8udI8DPo4xM4OKBYxqTCKFxi4DlDGofQuZtfIKQ9fMeJsEXbcVsn5vLtwToUico7vl1xlvTAR0H
-	FmhFsv5wzX2QB6plCSY+mw5RGBAcTdQzG6zH8Rac6lI0ckapql6hg/grWUwth+P4P9hfRV4RZMM
-	UcAxToDtR87z+KJxU4dvUdlVTp20ZNnpfjTddU54iJ2uXYPXAZesZlQ/mLEqFf0eqH5+lE7gOTv
-	Y6J5M8pCv9Ssth0hL80/fQt9LA==
-Received: from [192.168.2.174] (dslb-188-098-197-218.188.098.pools.vodafone-ip.de [188.98.197.218])
-	by dd13108.kasserver.com (Postfix) with ESMTPSA id 824837821A5B;
-	Sun, 22 Nov 2026 11:31:17 +0100 (CET)
-Message-ID: <2b111b7d-7d1e-4872-a0b1-8f07b58492de@tsv-stahl-riesa.de>
-Date: Sun, 22 Nov 2026 11:31:17 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=HoUmxypT
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nXaZ+BMJLWu8ywnBLEEcmlAa81LnPrHNOZDqycuMcKh86o8zwHv+CSeFSnNMA14JKvygyiCWI87qU2lctC2PwKxrxhkOS5wNa9dakq4x5k4JNYQjWsTw63P3ZxSnSExi51kWnopgtd9oIeyXzS1Mrj/TGGfJkbDI7Wvx6RPTObHdnWIZ8vJoVf3DwZp4TlbVEDh7b4vdrfLcFEnCVugPR6XLEwvLdrh9k5yRuZ/luT9OoFC0PyXcncZp+fJ6tWiJwWun+6CQnJ+ohSU7yQ9kerDQZb0loCXsOFeS/cfZUkhwkK2cDsNKxBLEPMNV11R0zwdpBn7GUioWFgDP3740+Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hR3BFBLSOtA9cDEJe8Z1c+gNUkfqMfMsIj5vyBJQJTI=;
+ b=hFKnct1un4hrweMawioggQh0tK+rT2Pe2DcIM/33Z+yuB+5mbIrye47exKnJQtfq6BSMcqlazcIiwLgdQ0NIA7j4LRUToDHsRwqdNODzj1dVFm56/W9e7xqgTkf4bRziP/CHLk9m02fbMsAUtaORnnoorRRo9mTateHOJjN4BWkYJ4daqGJJzc3sNghrza95lzJ2AzVqixOHom2zx6tte9qNn0juYe6gviuR+7UaFMpch2x2WK/9jD6LvqiLDS5PlMrdgWfbr/MWTOylca66YD722Ge07rRrXBv5sP+I/xNcAcMAwr+Q6jr4h1B/7avjmfkEDA/JfhZFmdxL4FGlVw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hR3BFBLSOtA9cDEJe8Z1c+gNUkfqMfMsIj5vyBJQJTI=;
+ b=HoUmxypT3yTkJ7y+dVLD9ROGsmeobXu74kzsyRkIpuAj6zC5YTCbNwONbRycPpi56tKnrs2B0vtbGZuV/m8rnpNSus/ObVnk8z0uA7eZirKeQoB+80y5eH0Ym8RExfhhN0A7/vdbaNnMi2aRiDiACjIi0wFNrBAujDBmdwcbZL/zjjA3ae6bH0AKMTNr1OKhveoqjgDG1DGDBBw2BDOoBakIv9IHzpOAHVNwfaCa+3Taxe18B6sDENo5aU4OCmv2jrJgHVyyN9pYuZ/t+FlHjdQSpdRSJwIcTmsio683ylV3v0qItUSTIkDlRq2dbSpAnMMX89p49v9pdpz/fvz6JQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BL3PR12MB6473.namprd12.prod.outlook.com (2603:10b6:208:3b9::16)
+ by SA3PR12MB7832.namprd12.prod.outlook.com (2603:10b6:806:31f::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Sun, 22 Nov
+ 2026 10:32:43 +0000
+Received: from BL3PR12MB6473.namprd12.prod.outlook.com
+ ([fe80::778:72e1:e792:df81]) by BL3PR12MB6473.namprd12.prod.outlook.com
+ ([fe80::778:72e1:e792:df81%6]) with mapi id 15.21.0639.012; Sun, 22 Nov 2026
+ 10:32:42 +0000
+Message-ID: <0caf9acf-2640-40b5-b638-7d54db90f577@nvidia.com>
+Date: Sun, 22 Nov 2026 12:32:38 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH rdma-next 00/11] RDMA/mlx5: Preparation for SD support
+To: Leon Romanovsky <leon@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
+ Sabrina Dubroca <sd@queasysnail.net>
+Cc: linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, Akiva Goldberger <agoldberger@nvidia.com>,
+ Michael Gur <michaelgur@nvidia.com>
+References: <20261117-mlx5-sd-prep-v1-0-8efd124c7895@nvidia.com>
+Content-Language: en-US
+From: Edward Srouji <edwards@nvidia.com>
+In-Reply-To: <20261117-mlx5-sd-prep-v1-0-8efd124c7895@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TL2P290CA0030.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:3::16) To BL3PR12MB6473.namprd12.prod.outlook.com
+ (2603:10b6:208:3b9::16)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,70 +99,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/6] memory: tegra114-emc: Fix bus width and pad
- auto-calibration
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Thierry Reding <thierry.reding@kernel.org>,
- Jonathan Hunter <jonathanh@nvidia.com>, Svyatoslav Ryhel
- <clamor95@gmail.com>, Mikko Perttunen <mperttunen@nvidia.com>,
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org,
- linux-tegra@vger.kernel.org, Thierry Reding <thierry.reding@gmail.com>,
- devicetree@vger.kernel.org, stable@vger.kernel.org
-References: <20261111-upstream-emc-t114-v1-0-54d9e1bceb6a@tsv-stahl-riesa.de>
- <179518240415.10624.13757193124982371025.b4-review@b4>
-Content-Language: en-US
-From: Patrick Fischer <admin@tsv-stahl-riesa.de>
-In-Reply-To: <179518240415.10624.13757193124982371025.b4-review@b4>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Spamd-Bar: /
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL3PR12MB6473:EE_|SA3PR12MB7832:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0cfe0274-6e23-48f3-b00c-08df4883f0c2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|261021135927099003|261021123027099003|56012099006|11063799006|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	yUjupytVKiXx2k0voc6bLdvhx+3IPmhfkfQWZPCt0IXHPKZwitVVm7p+ZnSTlzki/VjHweSlXlqvDg66YsEsQJgxdazS2DuWNllfAl/oZUjwQ/qUcirHcwAxpbOClMMj6WN8ofWlSEYoL65gmNfl1e8df96CMrpuZgt+9Hn2Y7gC8yu7eWzsefQcmA/yNqBa3j1+Yd63iIglq8H2Qo4kKs+8dl62w9zQPnAI1UKdfaGjZHUg6H6aNDVhvsXUVqWmJWcdhIsh7UGifS0V0IXTfT2EVKeV43hPzSA6wq1g1xvoHYOTloChe0i9/y/ssqwrnu37OY3miuJNv93GLz714N/VtBvXYnlQl06DhcAKko6gZo5DeB8VYvJJRgjmAPPFN60KGpMxVefXZlahdnbP4wciGn6Ev7M/NIldNDi3UiLowils40UEoKU2lXIyOsBTogNjtqngeFh/n//Qt3M46hOPgZuGpGE3EkFLRvRujagLuaKpcHBcpEl7HlwARtFr6gBD19JAtiQiAeKt0uq82Jy2Hw5ZTswV7NA4AwpUvo7zDQHyRN49ZsW4BBuiT8FAJh7+ZgQmOi+9RE64WxINCUFq2UU89m0kAU2rCcv5erCvUzGIxDQGf8/0T+zzB22iLTu4+FQ70YIQ4Lx5e4o3qm86CAO7FVXhNVYIRCfagqc=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL3PR12MB6473.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(261021135927099003)(261021123027099003)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?R1pzeFpJZ0lmbEp5cTRxbnRyRXpGSlJ6ZmFacTJiL3E1a3NNQnZpTGlwM2V5?=
+ =?utf-8?B?WDRESDJqSEx4ZnBBdjNJMWNBMm5sZVVsR3NCZVJIUmdMMFVNdUZTbk5QZHkv?=
+ =?utf-8?B?WmhpeVFCeWlmTDBWa3lLWlY0VTl4NG5nMXJJQlhucktYZ0V2QmdZWUtBL25N?=
+ =?utf-8?B?eUxYWjVYMWMzWUY5UloxVUg1WitnaEdmcWNXTVB5bUdPOWNTL3FVd2hRSnRG?=
+ =?utf-8?B?aW1FcEtIRWs2bUZCaGpxZ0NRbndiTEdQRDVveEEzTjdZVDN4YVVaZm1nc1cw?=
+ =?utf-8?B?cjFTdkZiOXRsV0xhcFpiSFR1aGJyYkoxTXRjS2w1Q2l1cTdlQ1NhUEd1emtL?=
+ =?utf-8?B?OVJlU0dhQTJvc0xwVzRkNytaaUZULzlIbGZ0NWpQV2JZSHRJcDFDbkEwb1dq?=
+ =?utf-8?B?SEFWWmQwbStRSnZNT0FlRlRKZ2c0ZS9yMWFjZlJmOEg1c1NNSU80TTgvNXQw?=
+ =?utf-8?B?bDlUVTNKaG0rS3AvRVFMSDluOEcxejQyMTZ2WWNZTGJIU1c4Zm5rT3RqU1d5?=
+ =?utf-8?B?ZDdib2FOajR3eUY0OHEvRXZlcExBQkZqQ2R3N0xyQnZ1Wm1pVzBUcnIvaGxq?=
+ =?utf-8?B?Yjg0MUV6cXp0SjFTYzRzN01tb094UEdjUGtaTHhVdGV6NUxHY3hkTDM2Zmxy?=
+ =?utf-8?B?aC9JZXJBL0tGY1BnaXY5SlNMK05hYmY0dkRKbEJZWkR0YXhheUYvS1IxOFhQ?=
+ =?utf-8?B?N05oeFMreUQ1VzJDakdwdE0zc2ZLQWpzbm5GbUpKaWlNVmsrUHBTN2VXek9Y?=
+ =?utf-8?B?MG91N2VtUkdFNmtYTDM2ZmgwMXc3dGdSOG1EeHQyNytjZXpGVURqaEw4VlNw?=
+ =?utf-8?B?c3hndkNzVG9UOSt0bTVaU0pjendoZVRvSUd3SUlheHEzMzVyUEtJa3lwaUlv?=
+ =?utf-8?B?dkticWNCM0tZL2ZzSlhRaDJsMkJmbm9pVDE0OGdKdGt2d3M1bGZrWWJjWDM2?=
+ =?utf-8?B?SDFjOUtGWDc2N2R5YlRsaUw1YTJUZUFjWEEybnJ4Qll6Znc5RHY0USttdklP?=
+ =?utf-8?B?TXBzSTdLdHEyZWlxNGdjQTNUdWYwQkYrcS93ZURNUkZhMjBRTzBKQ3c0ZFlT?=
+ =?utf-8?B?ZDJMaUQ4SGtpYWdrK0tVV25YbnordjQ1ZWgvSTduQThMcldXakNQTFlWQTRQ?=
+ =?utf-8?B?SjQwV0VNcy9SVTAzS0gvQ3JKVk5BWHhaZ28xSGVXQ3BKaC93bllncmxDQ3dU?=
+ =?utf-8?B?NWxVZjZxS1gvK25qMjZSTy94bUNDK0h4M2dpdXJCVi9adlRGeWxKaERvTkFk?=
+ =?utf-8?B?NmRheUlTTHpuOVI2dG8yMTV6a1c1L1F3cmlGQWlFdFRWUmdoYkhGejBMMGk0?=
+ =?utf-8?B?NlJ5ODZSbGh5dUI4SGdPeGUraWgyVWtrQzl5Nk9za0NJUmswTjI4dnBzamp2?=
+ =?utf-8?B?Qmh0VFY0VEhpa1RhY1kwNXVRZFE2TC9nQkxOTWVDbUNBcHNGVXkxZE90YThG?=
+ =?utf-8?B?N0o4OXlTK2pkaG9RdExRUVZld0l6OVY4MWN1NWl1bzVzWjFKKzlHalFVakJa?=
+ =?utf-8?B?cnZBclRSenFiOEtEd1hnUWdnQVZXMDk3TXcxSXB3VjhFWmQ3RHJ4SDdWbitu?=
+ =?utf-8?B?WDIzWXpFTHlrMFVPaHE2aS9SRnE5RDFYcVJQQ2hFQ0h1a1FnV2xsZm9zV2Y2?=
+ =?utf-8?B?d0t4ZU9NUUxWT2Q5endBZjZGZDJ0d3MyT1RpbWg5b2ZuY29kZ3Fxc0hXYXpx?=
+ =?utf-8?B?RThtWjh5K0pkZU50VXNYTURZZUtBbWsya3h2bnVOTW1FUG1sYUpkTDRzU3pq?=
+ =?utf-8?B?OU1GL00yb2hiZzVZd1lDak1OejZSN3NWR04xNkgvUE90blZDUFJ5YzNHN1BV?=
+ =?utf-8?B?NjA2Y3JnK0VEbG9tSk1BWXBwblZxMm9aUW12aUdLeHZlZWo2WldqSjJ6QW15?=
+ =?utf-8?B?Q0EwNVNUalplOXZlcG03N0swMkNKUy9IVElnYU1NYVgvN3loRS9iTlFXdmpG?=
+ =?utf-8?B?WlMvdTBKQ3BMUlluVVNPUlpRbFJMNVdGRS9zQlFNb2h3UmFseDlNc1RsOGpn?=
+ =?utf-8?B?RHBTUFNkWWxINENsZ0pvRFI5WG96Z2laeEZCUnVJT0RoM3IxU2dYZjdaVUpV?=
+ =?utf-8?B?ZEE5RFl6bjZWR1pMQktZRXBJM2dleG9JaHZUZUlEbTNPcXowUVJYWko3a2dC?=
+ =?utf-8?B?dHZuZmxNdjVRaUFxOFEwcUlZQ0hmYjdtaW0vVU92QnVOQWl5anlZRGRPSnRh?=
+ =?utf-8?B?WEx6VjhyT3VVREt5aG1odytHSkxrNUNCOGtlRTM2RGpSRjQyRDZweTU5Z1hZ?=
+ =?utf-8?B?eUc2dUM2MEQ3SXJDR0l4SDBrWVluV0ZhZlh4WEtyNHFRSWV6Tll4elVqbk9K?=
+ =?utf-8?B?MkhEeVRTR055alRJZlpjYnlPMy9HelJiU3NqeXhjLzZsUStLQzdsdz09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0cfe0274-6e23-48f3-b00c-08df4883f0c2
+X-MS-Exchange-CrossTenant-AuthSource: BL3PR12MB6473.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2026 10:32:42.8536
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 42A8Njnz6Gi3AypRSEcz4fXpEHsG9tAjrVUA5+hSRsvB5ACZHFqen5PGbXUXj2hLHsORIk27Ypgrh1+xxMvMiw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7832
 
-Am 20.11.26 um 14:46 schrieb Krzysztof Kozlowski:
->> On a Tegra Note 7 (Tegra114, P1640) I had kernel panics, bit errors and
->> WLAN firmware hangs under load, and two kernel panics on EMC rate
->> changes from pll_p to 624 MHz on pll_c. Looking at the EMC I
->> found three problems in the Tegra114 EMC driver:
->>
->> 1. EMC_AUTO_CAL_CONFIG is masked down to the self-clearing start bit
->>    before it is written, which clears AUTO_CAL_ENABLE on the first rate
->>    change. The bootloader leaves calibration enabled, with channel 0 as
->>    master and channel 1 as slave. Patch 1 stops clearing the register.
->>    Programming the table values needs the channel registers, which
->>    patches 4 to 6 describe and use.
->> 2. emc_icc_set() assumes a 32-bit DRAM bus, but Tegra114 has two 32-bit
->>    channels. Every interconnect request asks for twice the EMC rate, so
->>    actmon at 312 MHz moves the EMC to 624 MHz (patch 2).
->> 3. Pad auto-calibration is disabled for every clock change, but the
->>    interval is only restored if EMC_CTT_TERM_CTRL changes, so it stays
->>    off after the first change (patch 3).
->>
->> Patches 1 to 3 are small, do not depend on the device tree change and
->> are marked for stable. Patch 1 comes first on purpose: patch 2 and the
->> clk patch mentioned below make the EMC run at a real 624 MHz on pll_c
->> more often, and both panics I saw on a change to that rate were with
->> the calibration cleared. Patches 4 to 6 are not marked: they need the
->> binding and the device tree. Patches 1 to 5 are for the memory
->> controller tree, patch 6 for the Tegra tree. The driver has been there
->> since v7.2, but the first in-tree Tegra114 device tree with EMC timings
->> (TF701T) came with v7.4-rc1, so the stable tags matter for v7.4 and for
->> out-of-tree device trees.
-> 
-> A bit confusing. This clearly suggests dependency on DTS, thus ABI
-> break, but code does not look like that.
-> 
-> Best regards,
-> Krzysztof
-> 
 
-Sorry, my wording was unclear. There is no ABI break: with an older
-device tree that only has the broadcast reg entry, the driver probes
-as before and leaves EMC_AUTO_CAL_CONFIG as the bootloader set it up,
-which is what patch 1 is about. Only programming the per-channel
-calibration values from the timing tables needs the two channel reg
-entries added in patch 6, and the binding accepts either one or three
-entries.
 
-Thanks for applying patches 1-5,
-Patrick
+On 11/17/2026 4:01 PM, Edward Srouji wrote:
+> This series prepares mlx5_ib for Socket Direct (SD), where one IB device
+> spans several core devices, one per PCIe function. Today the driver
+> assumes a single core device per IB device and reaches it through
+> dev->mdev all over the code.
+> 
+> Instead, each call site now finds its core device through the resource
+> it works on: QPs, SRQs, AHs and MWs through their PD, and DEVX objects,
+> UARs and mmaps through their ucontext. A CQ and an MR store the core
+> device they were created on, since they cannot always reach their owner
+> when they need it. The SD series can then change where a resource lives
+> in the resolvers, without touching the call sites.
+> 
+> The resolvers follow one naming scheme: <resource>_to_mdev() returns a
+> core device and <resource>_to_dev() an IB device. Where several resource
+> types are accepted, a _Generic() dispatches to per-type helpers, which
+> are prefixed with '__' and are not meant to be called directly.
+> 
+> State kept once per IB device, such as the ODP page-fault EQ, delay drop
+> and local loopback, stays on dev->mdev. The SD series decides how each
+> of them works across core devices.
+> 
+> This series only changes how each call site finds its core device. With
+> one core device per IB device every resolver returns dev->mdev, so the
+> behaviour is unchanged. Pre-existing issues in the touched code are
+> intentionally left alone so that each patch stays a mechanical
+> conversion.
+> 
+> Patches 1-2:  name device pointers consistently, dev for the IB device
+>                and mdev for the core device.
+> Patches 3-7:  resolve the core device through the PD.
+> Patches 8-11: resolve the core device through the ucontext, and keep it
+>                on the CQ.
+> 
+> Signed-off-by: Edward Srouji <edwards@nvidia.com>
+Since this preparation series touches many files as part of a renaming 
+process and some minor field changes, it is expected from Sashiko to 
+flood us with many pre-existing issues.
+I'll keep fixes for such issues out of this series and send them as 
+separate patches with proper Fixes tags.
+I'll reply briefly on each patch to note which findings we confirmed 
+(and will fix separately) and which we believe can't happen.
