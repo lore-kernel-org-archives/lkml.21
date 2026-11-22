@@ -1,84 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795376645;
-	b=CiHnPXH9Up3W/gkd0/K/Y8HS8tEwOdMtahkbkdPh6yefNvyChAt8MSJlqQkCz4DoTsSp
-	 oYeSSBmuONQWQhrpnxmP280wgZsYgqiDjceIKPFn1ETBKS+3QiF1Zu25uVZuQL7SyXOUY
-	 QzOhrJmNYtHbUi1g3FIUwnI7KnqP2uPJBMAWj1xdw/secvfp1mIosIhfw5T05RidOu4GS
-	 sbrEENHF6eb029pVkjdUPxqu/1Rbi+DvTKihC8/4eBzxOumxuQT54aiv9ZRhvTYgXvXSp
-	 9Rv5A7GT8D9uL2C9L7w5NHaa1MlOZSooIxtiMKqoINb6SsDyRGOHIwgKBY+IviTSl1A==
+	t=1795376740;
+	b=HLjT92RR2j3gLXoliWdukA5kFAmq0GzPpiLQK0wF6RvwubJjPqANpDQ+NM0iAOUwoMcZ
+	 DFOB8HAqlkj4lOqpK9DSVTUueJqzGANVBa3MamWu0M/xjmn4/B4d2Teu75yA1RXrCHY96
+	 V+TeJxecuYcjdA5k99avYm9PcYwH6L+iVThXH5JpJ7lSrfzpFF6JY06dYKq4RyKK1d+k2
+	 /CqosulPuC02eijIYwyNqWBJZr9l+uH/peIUJoAqGWtGWqf7bpYQGTRzCzCCu7bYemo+2
+	 3VMvN1Px4C0PScqIhDfLMMgaQBWto/ROPtg/zXQVNPHftM54UCHs6XFydQHxlfcyLjA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795376645;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Scanned-By;
-	bh=z02xL6rhzWs1+mp5ZR35iPApHnvpXIYD37Zbf7HihCk=;
-	b=XuAZv4CNGXp1zWuhNvnkJfVzqsOcxAM5V4Vz8oAv29+rr5w+R6qzYbeA72h0HGiO6vu8
-	 bus0u1uPOyG0xEzJ3VbzJ8FOFGXBL4GdSg/BaSsiR8/qKlUJzSc7kAoQIS1lE0EaOPHkq
-	 zUpqCTaVwRvshHXZbzFAXb/C033nkntmMGIBJd8sgAj3vQ8qvvgsxvmp3mXY8xLWrqVar
-	 5QfVnt0nACQXS/Jkntor/m7qKJP0nzyyA/FDv7DRfp5FrA7VdcqdRqHF3bukAjm1h+zC4
-	 sRnOD/T+KubEQ8hmrQBnqDsZEVQqrrR6GnlRpXfDbywRhcbOC+UU7fvZEKybRQ/aPOg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795376740;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=iysj/fYIz1BFtLOM851aEV818YFpOLyMJgjQRbv6eCA=;
+	b=MIOLVBH3jO9gycuQcHEm8pM/jlHNXR/KLaupRhsqc0DaUvWcrnTXH/DK7V5xzvmkyQGW
+	 EUYveD9/UZbLQj/yAZvVUY5geizN6s7f8RKpkYBGoJa4Gb+X+npgkl0w5Xv+U6U7waFsO
+	 DwAmAU7jWlz13OjjIhOO5HHkAY6HaDJrpI8OsMa9BNY9OlTeT385KU6+bp+H+yn4kqqJC
+	 tneP5cZNan3A9jlmHoUGFlmjc41Mnq5sf3iLA9tTRZRtRnYHbOChnMSBibxAuz969X/4B
+	 NoL5wB/CvJsvObJf9aoCsWVQfaBQWJevmrf+H0fFK9OB3Cy0Ibvz6HeedCCkg+w3v9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dPsD8zaz;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DGYyxyqI;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A76E3606A31D
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:44:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A76E3606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3ECE606A320;
+	Sun, 22 Nov 2026 19:45:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dPsD8zaz
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795376643;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z02xL6rhzWs1+mp5ZR35iPApHnvpXIYD37Zbf7HihCk=;
-	b=dPsD8zazn/ZhhiwS5KqmSx7Loc8otjoiRoJBB+lV2u42nbhSj4x9i5ni38KWK2AeNfLxxT
-	lR3Uvjw0al7PruC5pYWgfJwwRVH6lvTLDjA0m5h5MflNK4hKB0C9jK5e8uF9F6lznL5W7h
-	bPeZtzZPrPfO60ODHau3nXHja/j6EBc=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-26-17unz2fnOhWuvboYSM5Fww-1; Sun,
- 22 Nov 2026 19:43:59 +0000
-X-MC-Unique: 17unz2fnOhWuvboYSM5Fww-1
-X-Mimecast-MFC-AGG-ID: 17unz2fnOhWuvboYSM5Fww_1795376637
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DEAF81956064;
-	Sun, 22 Nov 2026 19:43:56 +0000 (UTC)
-Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (bmarzins-01.fast.eng.rdu2.dc.redhat.com [10.6.23.12])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 480711800550;
-	Sun, 22 Nov 2026 19:43:55 +0000 (UTC)
-Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (localhost [127.0.0.1])
-	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.17.1) with ESMTPS id 6AMJhs8G2805339
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sun, 22 Nov 2026 14:43:54 -0500
-Received: (from bmarzins@localhost)
-	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.18.1/Submit) id 6AMJhrRd2805338;
-	Sun, 22 Nov 2026 14:43:53 -0500
-Date: Sun, 22 Nov 2026 14:43:53 -0500
-From: Benjamin Marzinski <bmarzins@redhat.com>
-To: Christoph Hellwig <hch@lst.de>
-Cc: Jens Axboe <axboe@kernel.dk>, Hannes Reinecke <hare@suse.de>,
-        Keith Busch <kbusch@kernel.org>,
-        "Martin K . Petersen" <mkp@kernel.org>, linux-block@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] block: stack max_user_discard_sectors
-Message-ID: <awNF-dV2TacxpUqf@redhat.com>
-References: <20261109193927.595104-1-bmarzins@redhat.com>
- <20261120154040.GB28611@lst.de>
- <awCi_9_Xykc_Mmk-@redhat.com>
- <20261121001334.GA13058@lst.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DGYyxyqI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D1D21F000C6;
+	Sun, 22 Nov 2026 19:45:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795376740;
+	bh=iysj/fYIz1BFtLOM851aEV818YFpOLyMJgjQRbv6eCA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=DGYyxyqIlVZPU6H4DfMVqxaMRBFmvhzDYbe9/SJU7y9w42Rr23ZH1ZWGe6lk198pH
+	 el1aHBN88dA2FxnogC6gzHohbjyyCK0qlvYt3yx0g7araISh8CDuOknRrozxufLlmC
+	 Tc2ux7lTDKQ4mQVBZJOzb3C3aZKuMsHoe2wNQa6ue4Y09Ib41YD8BueEVzDtScXs6j
+	 WcoSdqIUQ1O9HQtKQh9py95RN4JGkP743lUktzPAgDl/mDWUMfufYm4T37wDNfzRT7
+	 CiIBZRcBo0+ni6hIpgO32T12uuh6yx4tHukXzncW/YKBCcojqNC/9viCXNGbLx6CyA
+	 S3oa8WQP8ok+Q==
+Date: Sun, 22 Nov 2026 19:45:31 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: linux-iio@vger.kernel.org, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Martin Tuma
+ <martin.tuma@digiteqautomotive.com>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>, linux-media@vger.kernel.org, Gustavo Silva
+ <gustavograzs@gmail.com>, Marcelo Schmitt <marcelo.schmitt@analog.com>,
+ Antoniu Miclaus <antoniu.miclaus@analog.com>, Michael Hennerich
+ <Michael.Hennerich@analog.com>, Ramona Alexandra Nechita
+ <ramona.nechita@analog.com>, Tomislav Denis <tomislav.denis@avl.com>, Jorge
+ Marques <jorge.marques@analog.com>, Petre Rodan
+ <petre.rodan@subdimension.ro>, Dan Robertson <dan@dlrobertson.com>,
+ Jianping Shen <Jianping.Shen@de.bosch.com>, Gwendal Grignou
+ <gwendal@chromium.org>, Maxwell Doose <maxwell@maxwelld.cc>, Tomasz
+ Duszynski <tduszyns@gmail.com>, Esben Haabendal <esben@geanix.com>, Narcisa
+ Ana Maria Vasile <narcisaanamaria12@gmail.com>, Jiri Kosina
+ <jikos@kernel.org>, Srinivas Pandruvada
+ <srinivas.pandruvada@linux.intel.com>, Vasileios Amoiridis
+ <vassilisamir@gmail.com>, Abhash Jha <abhashkumarjha123@gmail.com>,
+ Puranjay Mohan <puranjay@kernel.org>, Nishant Malpani
+ <nish.malpani25@gmail.com>, Oleksij Rempel <o.rempel@pengutronix.de>, Linus
+ Walleij <linusw@kernel.org>
+Subject: Re: [PATCH 00/35] iio: closing default trigger handling leaks
+Message-ID: <20261122194531.790f279b@jic23-hlaptop>
+In-Reply-To: <20261116014823.3132576-1-jic23@kernel.org>
+References: <20261116014823.3132576-1-jic23@kernel.org>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,61 +77,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261121001334.GA13058@lst.de>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 21, 2026 at 01:13:34AM +0100, Christoph Hellwig wrote:
-> On Fri, Nov 20, 2026 at 02:43:59PM -0500, Benjamin Marzinski wrote:
-> > > I don't think we should take the underlying max_user_discard_sectors
-> > > into account here, just max_discard_sectors.
-> > 
-> > Is that to handle devices that call blk_queue_disable_discard()? I
-> > didn't think about that. Makes sense.
+On Mon, 16 Nov 2026 01:47:48 +0000
+Jonathan Cameron <jic23@kernel.org> wrote:
+
+> From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 > 
-> That too.  But also because user limits on lower devices shouldn't
-> really affect upper devices for consistency, as new updates on the
-> lower device after the upper one was created don't get picked up
-> either.
+> Note this is compile tested only!  I definitely want a few people
+> to test that I didn't break everything.
 
-Um... Now it doesn't make sense again. 
+As this is mostly mechanical and we've had some good review coverage
+of the approach, I'm going to queue it up now.  However it is only
+on the testing branch of iio.git for at least the next few days
+so more feedback is welcome if anyone has time to take a look.
 
-If I do something like:
+Thanks,
 
-t->max_user_discard_sectors = min(t->max_user_discard_sectors,
-                                  b->max_discard_sectors);
-
-That mean that changes to underlying device user limits can effect upper
-device user limits (since adjusting max_user_discard_sectors
-via sysfs automatically adjusts max_discard_sectors).
-
-Also, while this does make blk_stack_limits() disable discards on upper
-devices that have a lower device that dissabled discards with
-blk_queue_disable_discard(), it doesn't disable discards on upper
-devices that have lower devices that have discards disabled normally
-(since blk_validate_limits() sets discard_granularity to 0 for devices
-that set max_discard_sectors to 0, and this part of blk_stack_limits()
-only runs if the bottom device has discard_granularity != 0). That
-seems wrong. So perhaps handling blk_queue_disable_discard() isn't the
-right answer. Alternatively, blk_stack_limits() could disable discards
-on upper device is any of the lower device has max_discard_sectors. But
-I assume there's a good reason why it currently doesn't.
-
-Additionally, if we use max_user_discard_sectors to clamp the upper
-device's max_discard_sectors to the lower device's. It allows users to
-just override it by changing max_user_discard_sectors to something that
-doesn't work with the underlying device. That also seems wrong.
-
-So what do you think about doing this instead:
-
-t->max_hw_discard_sectors = min(t->max_hw_discard_sectors,
-                                b->max_discard_sectors);
-
-This doesn't handle blk_queue_disable_discard(), but like I said, the
-other patch didn't handle it well either. It also keep users from being
-able to send too large discards by setting max_user_discard_sectors too
-high on stacked devices. I'll send a v2 that does this.
-
--Ben
-
+Jonathan
