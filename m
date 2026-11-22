@@ -1,56 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.132
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.186.147
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795341041;
-	b=eXUlZAfyyoUDMC5nnsARFXGsqyVFauRL5darPHlzAgEE5d5azv1FQSfqAMy7nmTurvWJ
-	 43CUgVkeD7UrDLbyHJh1fXkwlw4ngKcO9aZBN6P8g6Hb1/YB9NRKoYfwNJq1mVbtjPOTh
-	 RLbAZQTlKcvxqW0ziHoYIOroCG5UDi7PJ1nGZ7Nc8adyKl6TpxAgXi1fEScgEPG4+rVUw
-	 TtuN8N2Zx5DlcH+DcEwC559UCQ8KPfDdp4SKY33OvtGZh/bvADfko6XXvLljT8u73zfeX
-	 gNC/XJX56/snyixoXlRUJHEJB446H+1UHoF9K6JEBQaGE4v+5lTFE5VXh7ju03Q1J1w==
+	t=1795341047;
+	b=DbkQoKoU/GswJuvw9U3TPlQH75Ma9AMhQ/0tI/Iy2p4QbNk04CeLKy0j01BgrlGT446g
+	 5sFxT2yaR+RLkyEizRTP4JfS+P/umjmDCl7n4OIB9XxAjeHTq1AZDjV+K7TUyO9vhCjsO
+	 6isnVYR/L65+v+th7/22DieAPaUxyWwa+2syDob//EI5XWikaclmVaZoj46HpXhAa98/1
+	 xMPPcGOKIv03d4fZJirR4LRGeAG5NHK1UcuJaN469mCk+8LIzFcQKkbfNvvl9blmXfNsa
+	 sBzQKgr7WY4c+Rq+JahrzQkz4djLj7Cf/Q1NRNZdily/lvCutzb+kIsuN4diFGzW4gA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795341041;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=ufr71PY4qGevTHv4/Xt0Aoe+LguNLXQIUPKTi4k0c3Y=;
-	b=2Rzxov+B0fmn8bcGsGXiLK3d5/vP22q4mAEw+bGpJ7zdkcyHKKEUu0NA69uAKqrSo+Af
-	 Ojab7nyFMuCROoTjToMsc8smeAxUxlnmVIdeRDiWTSu8paFE7dyDVSO7e8Ppbgl2qFzAV
-	 x6tLyLatqIcGOVHk9juk/RkmIaK9asY/Ibv6vg8iYVKa6sLZPBEJxpdc60YbI6Ow/lJ/5
-	 f8IblNjeV0jntfnVYvmXFgDlkN+/iSz+7GYGBgJbsKgawE603b1v4LEhUbS7Rr25fc4q6
-	 lYSquHy4zjD1RMteh1QSqdZ9a/tXK1Cusmw6QsVnlecOBF8MnUsExzTK9Q9g6ra0cww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795341047;
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Mailer;
+	bh=Gox4wAF1MK4uz4XlmyL6TfUAXIYUtDxzSuTQBpysJIs=;
+	b=18LGjapQpSTZ9bxExoNMFguoz1Afp07ORbtV717Hepagw4wTCnN6ku4c8ZCfHh9KqEx8
+	 kFq+SQEhT78wwbexIPNna+Ha0NT/pc2frOrTriqv30hn5X7gjxEi5Dc1h9lKybg5BhJcf
+	 0pCulT4Z8ZuGezGMeqYu68+ZM8Q/0w72CetvZK5j078KEURXH4DAM4+gvUlyZLodzDRaM
+	 G0ApZ8w1eIL4+wqfMUlt40GPUUTQ1mIT4oF2LcMPyZOy4muFdhACZGu1vhZoaD4vM4IsP
+	 DXpLAwFLaQRd/NdNOkMca38EXsacwKVJshZElEEaEnwq59xfH4J0bOQXGJHPjN8Vh1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=ajb5VSKx;
-	arc=none smtp.remote-ip=115.124.30.132
-Received: from out30-132.freemail.mail.aliyun.com (out30-132.freemail.mail.aliyun.com [115.124.30.132])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=yahoo.com;
+	spf=pass smtp.mailfrom=yahoo.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=kJ+PygFm;
+	arc=none smtp.remote-ip=66.163.186.147
+Received: from sonic302-21.consmr.mail.ne1.yahoo.com (sonic302-21.consmr.mail.ne1.yahoo.com [66.163.186.147])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDBD7606A320;
-	Sun, 22 Nov 2026 09:50:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDBD7606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7E8D606A330
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:50:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7E8D606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=ajb5VSKx
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795341032; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=ufr71PY4qGevTHv4/Xt0Aoe+LguNLXQIUPKTi4k0c3Y=;
-	b=ajb5VSKxgRmURiP2zwcNwk8x8em7oGv1SE5tpbjvzOOi2ECCv1Xqr7bE0q6PSoGOuM4C7mnkofKkgG+N6Tv7KTPfXF13D2ibtAWCSzzupTbNhX5SHS0Ew9+tIEl5rZkUi9lfSSqYZNZiu0iQCWS0cV4hGF6KGfd0mlteOPkN6Tg=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=shijing.wuqi@linux.alibaba.com;NM=1;PH=DS;RN=4;SR=0;TI=SMTPD_---0XFAcuiG_1795341018;
-Received: from localhost.localdomain(mailfrom:shijing.wuqi@linux.alibaba.com fp:SMTPD_---0XFAcuiG_1795341018 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Sun, 22 Nov 2026 17:50:32 +0800
-From: Qi Wu <shijing.wuqi@linux.alibaba.com>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	kvm@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Subject: [PATCH] KVM: irqfd: Publish the resampler after adding its first member
-Date: Sun, 22 Nov 2026 17:50:10 +0800
-Message-ID: <20261122095010.444794-1-shijing.wuqi@linux.alibaba.com>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=kJ+PygFm
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795341046; bh=Gox4wAF1MK4uz4XlmyL6TfUAXIYUtDxzSuTQBpysJIs=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=kJ+PygFmVgVqffpV5WS8QKdMTDHUNAhixkMjdB08vh2+Ybmu0h4hsSeo9iI27KQarZ6MRYssE3XgEplo8P3byh2RMBij/fpHiv4Qkz4Bc0e0nc/02/ljqZakINh9iJaY7d6YW9ZVRl2IuLj5A3AmkhpWa6ec0af6H77oeWOToX6DrQOdx1eUHEsruPNnYwymmniFkqIeFQieaSPe3DQBUkx3iYxRNR4vUcl/43Tf9CIyJQR3Wda2hg0V+j5hcVOL8cExEQhC52KH4ia3JK4WxgyQCe8tXqXkD1uGlTqgdORzJXcvKMsXUpunAjKXBQ345fy6njv0KjA6s7hheN9Lyg==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795341046; bh=rWCmTEgyytACMa+AFaIfOUcSM7/iIiIFOR3x5ETyW4H=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=lFCGoWuEeg9aR7iP4sp9d2oFdlzvIyn9g5EpfQEWSZC+CCQnAaG8DAUKk27XYKVGbDTIiuVw8/BE1R8JZbqPwWsowa3v3FM9WE/paZrLIFOxZKYSDEm+pdCrG3DThffVcTOekxatvTFatiTqPkGlKdH4d9/yUQRiHtIpnyw7yeVpYOxHlzXcF8HmCIIBrG2HOr7LSNekWN257d2a8xb0ZQNLFJ03OUKHPROnn+FoT6P2NRmwM9lmZSlqg+26AapTj7fiZ5Ynzaci0yff+zzrwvD/lW19h6/0cAi8qYr2KnqMBOH9X3i71Xx7ZEfYCBQVp3fNtLdguMbJ+RHjhOx8Jg==
+X-YMail-OSG: YJdpVA4VM1mFudB07_N..8tH7b1t8DVyM8107d_nenVmRu3CkVjrj34Xgdf5cXu
+ li31H8NBgqjmPkcpotsQ6zY6AJb_.vfRh_OQnycyQgZRVFOhTj22Oa95aqfH369W1Fc8MxI8uFTL
+ GaRTfZkP5zD1QDYHJ6on7EsTMJA6m3yNGDBmG50JqyIXvaXpyYhyUNPWw87dFW5veZgvciu7ZOW3
+ 9bHnpSMmOoFGO98os_q8en4QfqheLIfPJYP6zAhGiPXio00cZ4yj1.a8iet6.rcOovjW7SCGqOKw
+ kpsOfi4BI7JG4.21ET4eo4jT7GRf_HHKnR7pI7aPiFwJnpRYAQhCvHcjRunG6SVyZOCY2BgzppRH
+ pZC4M2l8Gm9Lya00FMHNIPwRDM9b0L7L.KhLxoxu5Y.XgUsEFjc0EU_X2QjOGY6ajnJX87OB5dly
+ DnDf1M4r9cK1LlQ8bmoTKhP4TcyqcF26NzslCSJSZGhx6qD7kF_HJ0mDk5h.aiJ_aUwnZVWa9zfn
+ DEFvShd932liASDOGMcZ0ayweWxY2jlo4.gWcN7bJgZKVsQjPlCK4s_kCAXstHHeNgbM8iK7s1I0
+ f5wXnBQo5GgR9WS.jXl813hjUM68Ohk0tUaPCkZfGn6Fq4FW.EFX.QTPkgu___4Y0mTUYgqos7Hu
+ 74.0m4cCwjeQfw7rsHKnMqjE4MIKXeUNhiLw8fcnLoeua1u4OqAd8EymAeNoJ6N1MlcEPK5vO4cI
+ dcOUlDtD8S2iIBe7v_loTYjy9OdHo1OxLfs_QtLUHjh6kvddcaAjFM_sS8D_pxOctMj1iTbMm_fJ
+ Fis7sLglxlrwKDqmOpWUQ2Gfv_eehAmQDZuGssEs6h0fG5okqDiUf6c08aogt36skEvfhQgqmazp
+ e8K.R8CZHU0zJx.xcpDtgVF2VzsAhGYLWI29OiX5mjZf3Gou3iIa7NtoADHxh.GoTe.QZydU5B6x
+ NrIJzmLwczE9nea0f8q9dPdkY5i7BA0Lw.oVEHybhKf189KnzmdNMCZ4dNOAcM7aeFb5FKdUwKVd
+ QakkhUsJdJzzdD7tcZnA6TWYSKMUynvqFo7hDSbdndsY5nZT.udfsSM5nqTIJd9Duf0ygWl_DZtT
+ db6M2vOTeo4TEFtNr9NHXkn0De9qqTXKqqO8.lE73YI.AAz9ndQEJhWiakDNh0BgpLqhXDL59vTz
+ .wtgp1q5DcZcH6b8lu8l4yQpOhIU8kKJ1aGs_AKLO5Wxp.kyfMy5kQcj__Dn4IZDDQqRYBejlpFQ
+ 9gk36QNgUVYddy2XVcIhhVox70qOg3_JVejR1.3jtnOryAivk2oVAqRtfZOIcQToNn_6WQcGQ37i
+ MefHgXar4wccxrV_MBXKCXow04RRXuGO0HokiE0eO7KAoWMYdu5al5rfCXXrwwvQ54pzEd1RwUng
+ x4h4YrdQGf8qt0DK_D1e1p02DXU1yW6CnI1PuOt9gA_l00Ue9xKgbr6z8bbxLFrI1Hnd6dbPTw2S
+ kthCfPvm6N7YBASEzEgwL33OmuxoJeORLNajOU3kgc8ZyUJFJZaZEgo_ZVWq9rrW1oTMKhd3je2A
+ LaYmLLBtpXkcT8EXsfvFNcsaHIS0bs9_m1fcDT.JH_YoeFnu.fUNbw3vUXduJIiMBKqsdnI.2iZL
+ by0H7FWyHRGuYWeEbndZBNMtkswPnBoEEDDWWH8nrIzchHaJ1kXojGv5ugqRI84Hv30qWogQXA4B
+ kJlYjEQiwe7b68in4Cp1RDNYDBzbEgCZgsv8XagvbpyvG5KKjyMB3ZESvve4PYfcTYHuNTpzTsE.
+ tCQ.o8K7uk6v6gXpbLCzsd34bOpLNeoqrmh6bT8FJjaC2My4ZNPHUk2ytqCSJDtbs3Or71dH.BQk
+ W1eQ1PacRaC2VUd0.OlibLl6mbeU_NRrtqHPxpWbcmE9H3voWYYAJuLdqvY4klRye43QGZSsGPP4
+ FYjzbSzmCMTZxfNwYy3OjbXxA5Zh6Hss6DAKToBQ5SMcxGKqRqJbWpGjbecN.t64qclEiZ5vYoI8
+ qpCpWnYOv5NiWXcO.PhNf604.LSG49q22UBc6R8DLr3U3oefO30BaZOYHqlBGTYh6FjkoQkTHljl
+ QvIYLVbpm7Zk7M_5Q7ZU7yigDT_aiOkeGaQ4VkA129rAjmiy0p_DZeHfI8Y5b6EcEZM1k.1EkbiE
+ elJ8a8AXSKVrv5wvcQrVnQPKqx1_ikCG6poIk0ghoLqmVdS1f0VqsDd2La.6PAQfkjPsEK4L.Ch6
+ 0UpPQYfU.kMnTpTS712KZZV4DDLl43Pr_JgKr_FndZC_1g.FGZO2nNwW.xeuX8kUhrHFzRmsDL53
+ 7JlHWbYFdvn3Zx_dUqtqGDIWhx.HCW3qrn9OMf8fmaXD_AZVf
+X-Sonic-MF: <namiltd@yahoo.com>
+X-Sonic-ID: b5f741b7-c9bb-441a-9fb3-37dc64448ac4
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic302.consmr.mail.ne1.yahoo.com with HTTP; Sun, 22 Nov 2026 09:50:46 +0000
+Received: by hermes--production-ir2-7c4859dc89-v5pln (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID c0aabf2277c48e51a79f27283484abc0;
+          Sun, 22 Nov 2026 09:50:41 +0000 (UTC)
+Message-ID: <2ec7a146-d353-4eb0-b0ac-a53d6a0a2838@yahoo.com>
+Date: Sun, 22 Nov 2026 10:50:38 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,72 +84,191 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: [PATCH net-next v13 14/14] net: dsa: realtek: rtl8365mb: add support
+ for RTL8367S-VB
+From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
+ fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
+References: <3f1826f8-3096-40dd-a278-c70fce4852c8@yahoo.com>
+Content-Language: pl
+In-Reply-To: <3f1826f8-3096-40dd-a278-c70fce4852c8@yahoo.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-kvm_irqfd_assign() publishes a new resampler before adding its first
-member and then calls synchronize_srcu_expedited() to drain readers that
-may have seen an empty member list.  This per-new-resampler grace period
-runs under resampler_lock and adds to VM creation / snapshot restore
-latency.
+Add the RTL8367S-VB (chip ID 0x6642, version 0x0010) to the chip table.
+It is the first chip of family D, whose handling was added in the
+preceding patches, so this is the patch that makes it reachable.
 
-Add the first member while the resampler is private, then publish it to
-both global entries.  RCU list insertion guarantees any reader that finds
-the resampler also sees its first member, so the empty-list state is never
-visible and the first member needs no grace period; later members still
-synchronize.  This also prevents kvm_notify_irqfd_resampler() from finding
-an empty resampler and dropping a pending interrupt on IOAPIC unmask.
+The SGMII/HSGMII SerDes of this chip sits on port 6 and the
+MII/TMII/RMII/RGMII interface on port 7, as on family C, but the external
+interface indices are one lower (EXT0 and EXT1 instead of EXT1 and EXT2).
+The chip reuses the existing initialization jam table, taken as is from
+the RTL8367C code; it has not been compared with the vendor RTL8367D
+initialization. It was used on the tested hardware (see below).
 
-synchronize_srcu() calls per path (regression check; only the first row
-changes):
+The chip has 8 ports (0-4, 6 and 7), which is described by port_mask in
+its chip info, as for the other chips. rtl8365mb_family_d selects the
+family D implementations added in the preceding patches: the force-mode
+configuration, the VLAN 4k accessors, the PVID handling and the L2 entry
+(de)serializers.
 
-  path                              before  after
-  new resampler, first member         1       0
-  existing resampler, next member     1       1
-  non-resample irqfd assign           0       0
-  irqfd_shutdown (UAF fix)            1       1
-  deassign, non-last member           1       1
-  deassign, last member               1       1
+The L2 learning limit is the same as on family C (2112 entries), as
+given by the Realtek rtl8367 common API (rtl8367_common V1.4.2), so
+RTL8365MB_LEARN_LIMIT_MAX needs no per-family handling; only its
+comment is updated.
 
-Build-tested with gcc/clang and KASAN+PROVE_RCU+PROVE_LOCKING / KCSAN
-(KVM subsystem and selftests compile); checkpatch --strict clean.
+Tested on a TP-Link Archer AX55 v1 (RTL8367S-VB, CPU port over HSGMII
+(2500base-x) to an IPQ5018) with bridge VLAN filtering and per-port
+PVIDs, and on a TP-Link EX511 v2 (RTL8367S-VB, CPU port over 1G SGMII
+to an IPQ5018). RGMII mode has not been tested. See the cover letter for
+details.
 
-This patch was prepared with AI assistance; the author reviewed and owns
-the change.
-
-Signed-off-by: Qi Wu <shijing.wuqi@linux.alibaba.com>
+Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
+Tested-by: Oleg Gavrilov <gabonpivovich@gmail.com>
+Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 ---
- virt/kvm/eventfd.c | 16 ++++++++++------
- 1 file changed, 10 insertions(+), 6 deletions(-)
+ drivers/net/dsa/realtek/Kconfig          |  3 +-
+ drivers/net/dsa/realtek/rtl8365mb.h      |  4 --
+ drivers/net/dsa/realtek/rtl8365mb_main.c | 55 +++++++++++++++++++++---
+ 3 files changed, 51 insertions(+), 11 deletions(-)
 
-diff --git a/virt/kvm/eventfd.c b/virt/kvm/eventfd.c
-index f43b8b25bc85..74851accd881 100644
---- a/virt/kvm/eventfd.c
-+++ b/virt/kvm/eventfd.c
-@@ -444,14 +444,18 @@ kvm_irqfd_assign(struct kvm *kvm, struct kvm_irqfd *args)
- 			resampler->notifier.irq_acked = irqfd_resampler_ack;
- 			INIT_LIST_HEAD(&resampler->link);
+diff --git a/drivers/net/dsa/realtek/Kconfig b/drivers/net/dsa/realtek/Kconfig
+index f1530ba..e366632 100644
+--- a/drivers/net/dsa/realtek/Kconfig
++++ b/drivers/net/dsa/realtek/Kconfig
+@@ -35,7 +35,8 @@ config NET_DSA_REALTEK_RTL8365MB
+ 	depends on NET_DSA_REALTEK_SMI || NET_DSA_REALTEK_MDIO
+ 	select NET_DSA_TAG_RTL8_4
+ 	help
+-	  Select to enable support for Realtek RTL8365MB-VC and RTL8367S.
++	  Select to enable support for Realtek RTL8365MB-VC, RTL8367S and
++	  RTL8367S-VB.
  
--			list_add_rcu(&resampler->link, &kvm->irqfds.resampler_list);
--			kvm_register_irq_ack_notifier(kvm,
--						      &resampler->notifier);
- 			irqfd->resampler = resampler;
--		}
+ config NET_DSA_REALTEK_RTL8366RB
+ 	tristate "Realtek RTL8366RB switch driver"
+diff --git a/drivers/net/dsa/realtek/rtl8365mb.h b/drivers/net/dsa/realtek/rtl8365mb.h
+index 9a69e85..c280e62 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb.h
++++ b/drivers/net/dsa/realtek/rtl8365mb.h
+@@ -43,10 +43,6 @@ struct rtl8365mb_family_info {
+ const struct rtl8365mb_family_info *
+ rtl8365mb_get_family_info(struct realtek_priv *priv);
  
--		list_add_rcu(&irqfd->resampler_link, &irqfd->resampler->list);
--		synchronize_srcu_expedited(&kvm->irq_srcu);
-+			/*
-+			 * Publish last so no reader sees an empty member list.
-+			 */
-+			list_add_rcu(&irqfd->resampler_link, &resampler->list);
-+			list_add_rcu(&resampler->link, &kvm->irqfds.resampler_list);
-+			kvm_register_irq_ack_notifier(kvm, &resampler->notifier);
-+		} else {
-+			list_add_rcu(&irqfd->resampler_link, &irqfd->resampler->list);
-+			synchronize_srcu_expedited(&kvm->irq_srcu);
-+		}
+-int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
+-				     bool link, int speed, int duplex,
+-				     bool tx_pause, bool rx_pause);
+-
+ static inline bool rtl8365mb_is_d(struct realtek_priv *priv)
+ {
+ 	return rtl8365mb_get_family_info(priv)->family == RTL8365MB_FAMILY_D;
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
+index 75d9c61..7356324 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_main.c
++++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
+@@ -89,6 +89,14 @@
+  * things will work out-of-the-box for other chips, and a careful review of the
+  * vendor driver may be needed to expand support. The RTL8365MB-VC seems to be
+  * one of the simpler chips.
++ *
++ * The RTL8367S-VB (chip ID 0x6642) is not part of the family listed above. It
++ * belongs to a newer generation, which this driver calls family D. Its
++ * registers differ in the VLAN table, the external interface speed and RGMII
++ * configuration, the SerDes, the L2 lookup table (FDB/MDB entry layout, no
++ * EFID, LUT configuration registers) and the table access control register,
++ * so the code paths specific to it are selected with rtl8365mb_is_d() or
++ * through struct rtl8365mb_family_info.
+  */
  
- 		mutex_unlock(&kvm->irqfds.resampler_lock);
- 	}
+ #include <linux/bitfield.h>
+@@ -119,9 +127,9 @@
+ #define RTL8365MB_NUM_PHYREGS		32
+ #define RTL8365MB_PHYREGMAX		(RTL8365MB_NUM_PHYREGS - 1)
+ #define RTL8365MB_MAX_NUM_PORTS		11
+-/* Valid for the whole family except RTL8370B, which has 4160 entries.
+- * RTL8370B is mentioned in vendor code but it might not even belong
+- * to the same RTL8367C family.
++/* Valid for the whole RTL8367C family (and for family D, RTL8367S-VB)
++ * except RTL8370B, which has 4160 entries. RTL8370B is mentioned in
++ * vendor code but it might not even belong to the same RTL8367C family.
+  */
+ #define RTL8365MB_LEARN_LIMIT_MAX	2112
+ #define RTL8365MB_MAX_NUM_EXTINTS	3
+@@ -814,6 +822,10 @@ static int rtl8365mb_c_ext_config_forcemode(struct realtek_priv *priv, int port,
+ 					    bool link, int speed, int duplex,
+ 					    bool tx_pause, bool rx_pause);
+ 
++static int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
++					    bool link, int speed, int duplex,
++					    bool tx_pause, bool rx_pause);
++
+ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
+ 	.family = RTL8365MB_FAMILY_C,
+ 	.jam_table = rtl8365mb_init_jam_8365mb_vc,
+@@ -832,6 +844,24 @@ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
+ 	.l2_mc_to_data = rtl8365mb_c_l2_mc_to_data,
+ };
+ 
++static const struct rtl8365mb_family_info rtl8365mb_family_d = {
++	.family = RTL8365MB_FAMILY_D,
++	.jam_table = rtl8365mb_init_jam_8365mb_vc,
++	.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
++	.ext_config_forcemode = rtl8365mb_d_ext_config_forcemode,
++	.vlan_4k_read = rtl8365mb_d_vlan_4k_read,
++	.vlan_4k_write = rtl8365mb_d_vlan_4k_write,
++	.vlan_port_get_pvid = rtl8365mb_d_vlan_port_get_pvid,
++	.vlan_port_reset_pvid = rtl8365mb_d_vlan_port_reset_pvid,
++	.vlan_pvid_port_set = rtl8365mb_d_vlan_pvid_port_set,
++	.vlan_pvid_port_clear = rtl8365mb_d_vlan_pvid_port_clear,
++	.l2_entry_size = RTL8365MB_D_L2_ENTRY_SIZE,
++	.l2_data_to_uc = rtl8365mb_d_l2_data_to_uc,
++	.l2_uc_to_data = rtl8365mb_d_l2_uc_to_data,
++	.l2_data_to_mc = rtl8365mb_d_l2_data_to_mc,
++	.l2_mc_to_data = rtl8365mb_d_l2_mc_to_data,
++};
++
+ /**
+  * struct rtl8365mb_chip_info - static chip-specific info
+  * @name: human-readable chip name
+@@ -922,6 +952,19 @@ static const struct rtl8365mb_chip_info rtl8365mb_chip_infos[] = {
+ 		},
+ 		.num_tx_queues = 8,
+ 	},
++	{
++		.name = "RTL8367S-VB",
++		.chip_id = 0x6642,
++		.chip_ver = 0x0010,
++		.family_info = &rtl8365mb_family_d,
++		.port_mask = PORT_MASK(GENMASK(4, 0) | BIT(6) | BIT(7)),
++		.extints = {
++			{ 6, 0, PHY_INTF(SGMII) | PHY_INTF(HSGMII) },
++			{ 7, 1, PHY_INTF(MII) | PHY_INTF(TMII) |
++				PHY_INTF(RMII) | PHY_INTF(RGMII) },
++		},
++		.num_tx_queues = 8,
++	},
+ };
+ 
+ enum rtl8365mb_stp_state {
+@@ -1974,9 +2017,9 @@ static int rtl8365mb_c_ext_config_forcemode(struct realtek_priv *priv, int port,
+ 	return 0;
+ }
+ 
+-int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
+-				     bool link, int speed, int duplex,
+-				     bool tx_pause, bool rx_pause)
++static int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
++					    bool link, int speed, int duplex,
++					    bool tx_pause, bool rx_pause)
+ {
+ 	const struct rtl8365mb_extint *extint =
+ 		rtl8365mb_get_port_extint(priv, port);
 -- 
-2.47.3
+2.53.0
 
