@@ -1,49 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=160.30.148.35
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795357898;
-	b=TPRUY+B9V2rN+01AX+4vUrqQejFkRxDnJPVUc3rrKZNNkV03GJjoGwNyon9Wjx1QNfje
-	 Z+2WHV8a8q94cOQVsOov1+IXKrl0NUBE1uJQCyv9Efzkl9fRtMItRnMQPIDVep11ELxYP
-	 b6xwDzdE8viH6vymWEf9yqsGvcHfQ3ifjd4RpSTvtUWJESdy+K0DOlCUlEE0LM6Aj20qI
-	 JJcb0vZUQPVvztzcTJQ6ibceIJECVWNyAeBFF+Ps8p52qFsp+Valk1cs/BzC3hhE4zWXm
-	 D04CPpGsdqIFyA8XqJoNJPjO1sPr31RQok+R7ampJgEXEiIB377GlAaiLBjPMAGwYtA==
+	t=1795357912;
+	b=Yhy/EqGHMFkxOYv2cT0GB2b89Py8N5M/smhuIvuvZqiJ7JpHovb0LlF1JGWhqPj1KxL/
+	 hG9FP1apZBhJb1eca2lRx8r5Q245e6MqWwplDVWEL5wJnmK9NhTV7aSEDCiR9YxUptyuT
+	 OD46dYFRg+vKQO0Y9aYoyAcGV3D5tBWpSodWCJJ4ViPF2nibiYFZ7f2wHpk1BJ6No5jyd
+	 6TbgdH+Z3X9Bh8LIoqseCXFj1oZp2CSEihT0Lt/z1cqzRTUoiDo16mYr7ZoJu+saio9ws
+	 UWDSSpqf0Wz5w+fPAhPgQTp8q8HgAxtiRcFPEXNWQNH86HlT8pUcd5RY+34YKfi3fbw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795357898;
-	h=Received:From:To:Cc:In-Reply-To:References:Subject:Message-Id:Date:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer;
-	bh=kEuos/49BxvXn+7tiGluJ0Y8O79w6clF6lg/iuCdxnc=;
-	b=fUEFF2Q/pnjqApCRuPSbYzv+f2G6VPSD3/meKE00/ltEAVUuHc6VSy7TXTQeKvEJvn1K
-	 6JVuW5rgnUpdvmkNgKjpFZ1ClRbgubtiFHRcqKt/doCq/2VcMLAT4OOhYLTsrixa5hzuo
-	 UVANeY+H6ZDb79/ej4eES0d7PSEtljSr5D6HoHIBTSbyOP3R6UWUU4On7/Ao+Tfu+Ahel
-	 pQbHgXquLIc4nk6IBJVLWdoxIV6DyC8eGZOVDWLA0y/eOcJe6NtisK76ul/at+6a9yDfL
-	 9iZkMHJwAKuhsLmEjtDbBzAJ94YUTixo2Fd/os+DuWxepsvEfC+2qgOH9YXbH5P6EKg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795357912;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 X-Zmail-TransId:X-Mailer:Message-ID:In-Reply-To:References:Date:
+	 Mime-Version:From:To:Cc:Subject:Content-Type:X-MAIL:X-TLS:
+	 X-ENVELOPE-SENDER:X-SOURCE-IP:X-CLEAN:X-Fangmail-Anti-Spam-Filtered:
+	 X-Fangmail-MID-QID;
+	bh=v0jrcO95QNbjtMp9ii5JuvvBFQFujvmXY7TE0yaao8c=;
+	b=if/hAvrBc/dO7OElAHPOaQUEX49GH3mvi2FrlwPUqUBvfN7rfq8R3MXdCmTB+pSjTqNd
+	 GzALBAaMv5Ftu0iGfRRGs1aKqmzDZQr/g5qWsVGhKyBLAejd4pTaYNkRtYFfCT1halC7H
+	 JQWELfSBq8uqqeCJDCgcLqajrPnGYXdW6HYvy14RxXL1GJZ+KwqDBhIqnnLnC0goula4L
+	 7VC7YBfl1Ivupdme2cO/C/etzv36fh7ApVD8elEGtUxEHhsebFJ9etMt1G9jyzG+MrNx1
+	 pjLefPFTl1i9mS8/WBWMfFlJOnOZ6GCjFtK8ckkrbMOLUekyrNfG4PCQhR655AUIo2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=zte.com.cn;
+	spf=pass smtp.mailfrom=zte.com.cn;
+	dkim=pass header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b=K+ByQQKu;
+	arc=none smtp.remote-ip=160.30.148.35
+Received: from mxhk.zte.com.cn (mxhk.zte.com.cn [160.30.148.35])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A787606A32A;
-	Sun, 22 Nov 2026 14:31:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C72311F000C0;
-	Sun, 22 Nov 2026 14:31:34 +0000 (UTC)
-From: Gary Guo <gary@garyguo.net>
-To: Benno Lossin <lossin@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
- Boqun Feng <boqun@kernel.org>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
- Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Gary Guo <gary@kernel.org>
-Cc: rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261118-dev-project-vis-v1-0-2a5f433bb516@garyguo.net>
-References: <20261118-dev-project-vis-v1-0-2a5f433bb516@garyguo.net>
-Subject: Re: [PATCH 0/3] rust: pin-init: reduce visibility of projection
- methods to declutter rustdoc
-Message-Id: <179535789457.2426615.15352202505890903314.b4-ty@b4>
-Date: Sun, 22 Nov 2026 14:31:34 +0000
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2FC4606A320;
+	Sun, 22 Nov 2026 14:31:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2FC4606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=zte.com.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zte.com.cn
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b=K+ByQQKu
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4jXWjd73c9z8XrrM;
+	Sun, 22 Nov 2026 22:31:49 +0800 (CST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=zte.com.cn;
+	s=z202610; t=1795357910;
+	bh=u6c4MZjb9s2wR6f+AUHlY3U/e89ELkEpH1d6TgPWLME=;
+	h=In-Reply-To:References:Date:From:To:Cc:Subject;
+	b=K+ByQQKukJ4XEQhMbWHN191LDxGNIDikQYPKMOumIanTCkpB6AlEdnAW58NBrfBAS
+	 UOXsEcCQFU0Z9ikOf/I81UBTKo+Hl/kOWIhGKsaqwQNl8cgm0bT3O/k3Q141vICNva
+	 37DwuEzKN9tM++lA3DjbOMxAdfsNQTetW7oKDRa3qUtxllQiwM+BgwSC/igRaQP1Yk
+	 ut0ggeOA9KcsrPS/Wc0D9wMtNNTLjCwpeCyDBLciIpPRtipcAltIzjNzoJhYxYOuzM
+	 TUqf97+odKgfenSTdxiZ6xdiJ8szG4udNAHSpF5C4lHmD0khADPZxqiwkRBH8iSvYp
+	 SZdUPMEYUzZqA==
+Received: from xaxapp01.zte.com.cn ([10.88.99.176])
+	by mse-fl1.zte.com.cn with SMTP id 6AMEVhj9024113;
+	Sun, 22 Nov 2026 22:31:43 +0800 (+08)
+	(envelope-from shao.mingyin@zte.com.cn)
+Received: from mapi (xaxapp04[null])
+	by mapi (Zmail) with MAPI id mid32;
+	Sun, 22 Nov 2026 22:31:45 +0800 (CST)
+X-Zmail-TransId: 2afb6b02fcd1e43-44a03
+X-Mailer: Zmail v1.0
+Message-ID: <202611222231458938QkRVDJ6-CnPlY9C-NaNY@zte.com.cn>
+In-Reply-To: <CADUfDZppuZYzPyOeAc8GfW=KjpGQj5wK0T0D-UXBHokG67Zxbg@mail.gmail.com>
+References: 202611150127512368BGQ07ZNIRAIwClkam-8u@zte.com.cn,20261115012754244CUh01sEOwZp4S8maAbDDM@zte.com.cn,CADUfDZppuZYzPyOeAc8GfW=KjpGQj5wK0T0D-UXBHokG67Zxbg@mail.gmail.com
+Date: Sun, 22 Nov 2026 22:31:45 +0800 (CST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,34 +72,48 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15.2
+Mime-Version: 1.0
+From: <shao.mingyin@zte.com.cn>
+To: <csander@purestorage.com>
+Cc: <kbusch@kernel.org>, <axboe@kernel.dk>, <hch@lst.de>, <sagi@grimberg.me>,
+        <linux-nvme@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <stable@vger.kernel.org>
+Subject: =?UTF-8?B?UmU6IFtQQVRDSCAyLzVdIG52bWU6IG1hcCBwYXNzdGhyb3VnaCBkYXRhIHdoZW4gdGhlIGxlbmd0aCBpcyBub256ZXJv?=
+Content-Type: text/plain;
+	charset="UTF-8"
+X-MAIL:mse-fl1.zte.com.cn 6AMEVhj9024113
+X-TLS: YES
+X-ENVELOPE-SENDER: shao.mingyin@zte.com.cn
+X-SOURCE-IP: 10.5.228.132 unknown Sun, 22 Nov 2026 22:31:50 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6B02FCD5.000/4jXWjd73c9z8XrrM
 
+Hi Caleb,
 
-On Wed, 18 Nov 2026 14:31:19 +0000, Gary Guo wrote:
-> Currently all types that use `#[pin_data]` will have projection method
-> generated and visible in rustdoc. But for many types, all fields are
-> private and thus these projection methods are not useful as public APIs.
-> 
-> Thus, compute a least upper bound (LUB) of field visibility and use that as
-> visibility for projection methods instead. This means that if none of the
-> fields are accessible publicly, the projection methods won't be as well and
-> thus will be hidden from rustdoc.
-> 
-> [...]
+Thanks for pointing out the no-data command case. I tested it on
+next-20261120 with a file-backed namespace over nvme-loop. I issued a
+Read with a valid 4096-byte buffer, then reused the same ioctl command
+structure for Flush. I reset the command fields for Flush and cleared
+addr, leaving data_len at 4096.
 
-Applied, thanks!
+                               Baseline       Proposed change
+Read, valid addr, data_len=4096   success        success
+Flush, addr=0, data_len=4096       success        EFAULT
+Flush, addr=0, data_len=0          success        success
 
-[1/3] rust: pin-init: internal: allow `clippy::large_unopt_stack_frames`
-      commit: 5a2024c03eb697463e738bb216b3d321aa278877
-[2/3] rust: pin-init: internal: use visibility of the most visible field for projection
-      commit: ac4e562262056c02851e33163b19fab9feea6d60
-[3/3] rust: pin-init: internal: hide `HasPinData` impl
-      commit: 5eb5b404e6e7631a986333f00e7b3b18aafcfaa8
+The earlier Read and Write tests only exercised commands that expect a
+payload. With Flush, the old mapping check leaves the request without a
+payload, and the command completes normally. The proposed check tries
+to map the stale length and fails before submitting Flush. I haven't
+identified a deployed application that relies on this pattern.
 
-Best regards,
--- 
-Gary Guo <gary@garyguo.net>
+The case covered by 99fde895ff56 involves an offset into a registered
+kernel bvec buffer, and zero is its starting offset.
 
+I'll drop this version from the series. If the missing buffer case needs
+a fix, I'll evaluate NVME_IOCTL_SUBMIT_IO separately, where the allowed
+operations all require data.
+
+Thanks,
+Shao
