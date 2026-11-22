@@ -1,60 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795337527;
-	b=mO4mvx/cYUc15Hgi8mKnmI1WvJsm5pnkFF+0BoEjzS1Z2W3oIqg4xaXsQ6BFsnpH8oQw
-	 dGu565QtaBz49Zd4qEwqU4atcIRbS3uKVoEDw6xmqNZLus2Qt+9Zou9YsNzZbZ3/tMtfY
-	 gt/rU2yZmosIuwqqled85nYVNMAwSc3CgClFTdV4//hcsGE+GgVqhg+1c3dQHOLuFQ2JB
-	 1Wg8s1uJ1WrJAvJhVbNaxQA6o03csFtBv2U+7scT4jWnvkqefLkyWzLh+paQ/6IPLPey5
-	 dPEeb3G9YqH0ZIj7+iczNR071/H3m1wato+8nveg5Lfxaek/6eT6FuoNuqs8ckHlF9Q==
+	t=1795337923;
+	b=nIaGtUwB1iDA8htT8LEGxonkfzIN5CJdsFspVYoTRIwMudn5qkNDcYNUIUpf7MdnN0+b
+	 xVRMdOGVJoe39kqWc6x2LhSu8vldV1iRiJNkQm7nioSaT18TN36TVx85eaHEM+8hpfwjG
+	 371uLGJwe0bQkm0WTMWQIX2Resq2SC6WKyjFxwLf9+wytCiIbdWcRk82NDbxtMPzar3tD
+	 ELVhI7WOjOemLrqCUxUJ8KcMYRH+skI1La8STx3FFY19jTLSYGqZadyYUoeBoXbM3M+Mc
+	 zSbt+8qme8R5E8ZQv94XEyOyn+hit5hZGMbJzkL9Vi9Edqj52UdIn7GwOhq2PnupQPA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795337527;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=vQ1as1hC0osgBBN+KjF/Z20TmN/rtQEdZKFnWt6gL+A=;
-	b=blkVFsX35/BJRRFm8T8jR00YBQS585UYDcBvC+r+PVCiqUnJ3/YqASDPaAFtxmBko3zy
-	 j4urfiyNWYyxnmyRJodGUDbEaSyKpNRWLAncK91wNFuI/EKx/jYq/9Uvdw+typUu2fr2j
-	 RLbmLueTR8wCrf7N1PzKBoNqLAI8UvPiIUP/GZbP+wL5Nb/yQVQ3ZRl8ibACGnUSK/jeL
-	 zH58pBoIW7hL0ZsTWSbLBLIZwrUN8Sg4BR1qAzWAWMQOSBfJ0IEOJW1Fo1cMhWG0K3qA3
-	 5P2sSgEY+m9kCKbu4qCtBsJWjtzDM6ku7iHhR9cPvLdXbA2EhagVk4SPwjlsuNGMZdg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795337923;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=gKa/gdamMUlaWDKNkrOUJ1SInjLPj8wlXGgQUUSMb74=;
+	b=MVF6SuPGfoZKSoSDrFDpeFzZGn8H/ZjbWT5gju/M/IXjtCIBpaiSeKiqlynklu1m8och
+	 f/YpZNVv/s8fiS/iD3YDMFyITyzVKiM+FPF/lxUaK1CNSIJpDnCQPobpMIFXoqka6pjJU
+	 bbhe/JYP8VGc5VY2y7BrdvNmRCA9aN/k9JcrK0pnn6Zkee9A0K5sZdWP6v94IIX0V5OZS
+	 31VH9dcTmqvhvRqd5MRYa66zkhMaMfIzG213bnGn668qA7tCxYlC2ibNEqmk+SiCvNwW2
+	 rZzlBRXTTYf3EUHFrJRh7bwj+jEgDox741QFpUk8u/GV+hKbQ1iJh3znpDwZH+/sa0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dDaDNHji;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E732C606A32A;
-	Sun, 22 Nov 2026 08:52:06 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=r65Rlnhf;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2867C606A320;
+	Sun, 22 Nov 2026 08:58:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2867C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dDaDNHji
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C598E1F000C0;
-	Sun, 22 Nov 2026 08:52:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795337526;
-	bh=vQ1as1hC0osgBBN+KjF/Z20TmN/rtQEdZKFnWt6gL+A=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=dDaDNHji0peunfhp+cMM9xc6K+qMeuoeQl4+IMuYTR9Ijx0uKair+8IltQluP2PXe
-	 HqfYzE6vRikROmZNg23cIKwlYS/Yj+/bzgQEV27aiv3nbzk1mAGFZwOM6CgHPi1Y6G
-	 d4zMwYxOHY1DQquX+AxaWoyCW4MkE5QQc9Bx67rkiZ8xtSKRtVtsk/JyoMHnWzSMxX
-	 fKfFEQPoQH5jTgNvv8Z0eXSBF7Z1uTvOxbmLAzrUVZWmnBXr87pzdK+b4rk45P9mxi
-	 BLpY+AsUnki3YLS8bNmdeArKyVMss5OIPUwl12CEnQyIVVnlE5vczzSudMfXSt+lJd
-	 AyT88RenkOU3A==
-Subject: Re: [PATCH net-next] net: openvswitch: avoid hashing the network
- namespace pointer
-From: netdev-bot+sashiko@kernel.org
-To: zcliangcn@gmail.com
-Cc: aconole@redhat.com, echaudro@redhat.com, i.maximets@ovn.org,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, pshelar@nicira.com, jesse@nicira.com,
- netdev@vger.kernel.org, dev@openvswitch.org, linux-kernel@vger.kernel.org
-Date: Sun, 22 Nov 2026 08:52:05 +0000
-Message-ID: <179533752531.3135.16631437077733586224@kernel.org>
-In-Reply-To: <4e124b37fc972925a825881c50f95eb6b3c2e231.1794989369.git.zcliangcn@gmail.com>
-References: <4e124b37fc972925a825881c50f95eb6b3c2e231.1794989369.git.zcliangcn@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=r65Rlnhf
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 627501575;
+	Sun, 22 Nov 2026 00:58:38 -0800 (PST)
+Received: from [10.57.93.187] (unknown [10.57.93.187])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1F0E63F882;
+	Sun, 22 Nov 2026 00:58:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795337921; bh=bCKwLVxRq7BP98z/sJOreaPLixuU4Iox1OmuawUOOQI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=r65RlnhftwPn2uAKmfrTFqTgXtr7b9iN2qr1OKnyriE/PPtviiFEhdREmC8i4dQEo
+	 UYLAxo66d4ZWduKiTokPXsHpW+LSygjPY8BvyL2aTCvnHz5sdH5TLfn2HNOeAt+7E8
+	 rMdmMC8J3RQWw7PAzC0ZTevjIBGcgP6l8MilWQyU=
+Message-ID: <a6cda8a2-992f-41f9-a814-ee78363c3a69@arm.com>
+Date: Sun, 22 Nov 2026 08:58:37 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,112 +53,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] arm64: Mitigate Spectre v1 in the BPF interpreter
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Daniel Borkmann <daniel@iogearbox.net>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ bpf@vger.kernel.org, stable@vger.kernel.org
+References: <20261117172341.3152407-1-ryan.roberts@arm.com>
+ <DMYSI3BOQWOC.2P2FZB0H872DR@gmail.com> <awAay4FFj1_wQtaL@arm.com>
+ <DN07ZMOAD4GP.37PG3XUPBG4CM@gmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+Content-Language: en-GB
+In-Reply-To: <DN07ZMOAD4GP.37PG3XUPBG4CM@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On 20/11/2026 17:38, Alexei Starovoitov wrote:
+> On Fri Nov 20, 2026 at 10:02 AM UTC, Catalin Marinas wrote:
+>> On Thu, Nov 19, 2026 at 01:18:03AM +0000, Alexei Starovoitov wrote:
+>>> On Tue, Nov 17, 2026 at 09:23 AM Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>>> The arm64 JIT implements BPF_NOSPEC with a speculation barrier, but the
+>>>> interpreter calls barrier_nospec(), which falls back to a no-op on
+>>>> arm64. Programs executed by the interpreter therefore lack the
+>>>> Spectre-v1 barriers assumed by the verifier. Contrary to the code
+>>>> comment, kernel-wide SSBD does not provide this protection, since it
+>>>> mitigates Spectre v4 rather than Spectre v1.
+>>>
+>>> Nack.
+>>> In bpf-next arm64 has no interpreter when the JIT is built.
+>>
+>> And what about current mainline/stable or when one disables BPF_JIT
+>> explicitly? Should we force BPF_JIT=y as well when ALWAYS_ON=y?
+> 
+> Anyone who didn't have BPF_JIT_ALWAYS_ON=y were exposed to speculation
+> attacks forever. The security hole was wide open. We've been saying it
+> forever. At the next merge window we will say
+> "you cannot make wrong choice anymore".
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+I view this patch as a fix to arm64, not as a fix to BPF. I haven't changed any
+BPF code - I've only removed an out of date comment in BPF code, which assumed
+the code path was for Spectre v4 only. But that's not true since Commit
+dff883d9e93a ("bpf, arm64, powerpc: Change nospec to include v1 barrier").
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+arm64 was previously nop'ing barrier_nospec() despite seemingly needing it in
+the same situation as x86. I think this is orthogonal to whether or not the BPF
+interpreter permits speculation attacks in other places?
 
-- [Medium] The patch replaces the pointer-derived seed in hash_bucket()
-  (net/openvswitch/vport.c) with a seed computed only from…
+Looking at bpf-next, it is still possible to deselect BPF_JIT when building. If
+this is such a security issue, shouldn't we disallow that on arm64, or at the
+every least make it an EXPERT option?
 
---
+Thanks,
+Ryan
 
-net: openvswitch: avoid hashing the network namespace pointer
-
-This patch changes the seed for the Open vSwitch vport name hash. It
-used the struct net pointer and now uses a jhash_2words() of the
-namespace cookie. The goal is to stop a timing side channel on vport
-lookups from leaking the init_net pointer and the KASLR base.
-
-> diff --git a/net/openvswitch/vport.c b/net/openvswitch/vport.c
-> index 083f7a8d9d4e4..6689c8370ec13 100644
-> --- a/net/openvswitch/vport.c
-> +++ b/net/openvswitch/vport.c
-> @@ -53,7 +53,10 @@ void ovs_vport_exit(void)
->  
->  static struct hlist_head *hash_bucket(const struct net *net, const char *name)
->  {
-> -	unsigned int hash = jhash(name, strlen(name), (unsigned long) net);
-> +	u32 seed = jhash_2words(lower_32_bits(net->net_cookie),
-> +				upper_32_bits(net->net_cookie), 0);
-> +	unsigned int hash = jhash(name, strlen(name), seed);
-
-[Severity: Medium]
-
-This fixes the pointer leak. Does it also make bucket placement in the
-global dev_table fully predictable?
-
-In setup_net() the cookie is just the namespace id:
-
-net/core/net_namespace.c:setup_net() {
-    ...
-	net->net_cookie = to_ns_common(net)->ns_id;
-    ...
-}
-
-For init_net, that id is the uAPI constant NET_NS_INIT_ID (7) from
-include/uapi/linux/nsfs.h. For every other namespace,
-__ns_tree_gen_id() hands out the next value of a global counter:
-
-	ns->ns_id = atomic64_inc_return(&namespace_cookie);
-
-Userspace can read its own cookie with getsockopt(SO_NETNS_COOKIE). It
-can find other ids through nsfs (NS_GET_ID) or listns.
-
-That makes the init_net seed jhash_2words(7, 0, 0) on every system. The
-bucket for any (netns, name) pair can then be computed offline.
-
-The lookup oracle described in the commit message is still there.
-ovs_vport_locate() walks a bucket chain that all namespaces share:
-
-	hlist_for_each_entry_rcu(vport, bucket, hash_node,
-				 lockdep_ovsl_is_held())
-		if (!strcmp(name, ovs_vport_name(vport)) &&
-		    net_eq(ovs_dp_get_net(vport->dp), net))
-
-OVS_VPORT_CMD_GET and OVS_DP_CMD_GET both have .flags = 0, so
-unprivileged users can reach this lookup.
-
-With a public seed, could an unprivileged user in a container learn
-whether a vport or datapath name exists in init_net? The steps would be:
-
-  - pick a missing name in its own namespace that lands in the same
-    bucket as the candidate name
-  - time a GET request on the missing name
-
-Before this patch, that attack needed the kernel pointer of the victim
-namespace.
-
-A second case: OVS_VPORT_CMD_NEW and OVS_DP_CMD_NEW only need
-GENL_UNS_ADMIN_PERM, which a user has inside its own user namespace.
-Could an attacker create vports with names chosen to land in the
-buckets that hold another namespace's vports? Name lookups for those
-vports would then walk long strcmp chains. Only control-plane name
-lookups would be affected, since the datapath fast path looks ports up
-by port_no in dp->ports.
-
-A secret per-netns random value already exists:
-
-net/core/net_namespace.c:preinit_net() {
-    ...
-	net->hash_mix = get_random_u32();
-    ...
-}
-
-Would using net_hash_mix(net) as the seed, or mixing the cookie with a
-get_random_once() key, close the KASLR leak while keeping bucket
-placement secret?
-
-> +
->  	return &dev_table[hash & (VPORT_HASH_BUCKETS - 1)];
->  }
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/4e124b37fc972925a825881c50f95eb6b3c2e231.1794989369.git.zcliangcn%40gmail.com
