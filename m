@@ -1,60 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795314478;
-	b=VpGiOc+TryVR8KKsGSvZbgCDFWMQFKbhmfDURo1FksMFR7YIIw9/docIqYfWuy7yYRc8
-	 wuw1ZfhbzR4UkqT62uHUbTpMbSLLNq3+rQbH1fgvdqPvDflbSoE8r8Cbo4sNawsqzKbeA
-	 lYfU1XzpZFOLzTE9qVeTlMTE0GxkByIeJkVtqs0fZB3Kel8JhMC0yKsUd7pWajuLKoJZ+
-	 Q5TbtutSPDDApNicbkIK/RE4mVmIIq7tjFkxDLn5aPOjSeA893DpD7MzEkcXTfM6/NARb
-	 PRz6fpPz/jfabSYoEnhRLtzCxxho6kl/HgYulrNW6oxX3F4MGZg1rhtwVV+i7O1T59g==
+	t=1795315208;
+	b=PoGOjE2tOiidpgggtEdaTXmufoSzheH9NdBsfwpUOlnGZth8QGTE3q9+/xvGgntggi9J
+	 IUgIdCXW1U1rwkUlAytkDM5Yg/giUjGkiwffTZ0ruu2wiW2rSCulmcoyNjvvJ0xQz8j/I
+	 jEvjVNnwT9nHr6K2nfQDBWJ1Et/1OL086AvkZ8nS3v99qYJCxkMApT2LPC4XPqK4WIJ4h
+	 x9VfH8xpYIc4M35OtEVU+0ScxlMbb7A9oHVYAB2T6SlOGRSJkFtFiVJLV3rG9aYBgYMqB
+	 DmUlYTuMMa0twws40D1LD7dCX+tYTCnwcDlN2NMqbIjRsZ6pj53BHCho/mOoRyAxRyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795314478;
-	h=DMARC-Filter:Received:Received:Message-ID:Subject:From:To:Cc:Date:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version:X-Rspamd-Server:X-Rspamd-Queue-Id:
-	 X-Stat-Signature:X-Spam-Status:X-Session-Marker:X-Session-ID:X-HE-Tag:
-	 X-HE-Meta;
-	bh=4D2SPdXvFzhHtU/rKx2XeIymvmhTCDRiJ+HnEGRijwk=;
-	b=A/wAYii1xhyfKiB4w76P+K9rGjI1/j+q3bzWJjDXFod9KrgT0U30entMeTpzqpEgDYUR
-	 h4FkfBUInP5APBxUW6xe1+N++G1hAAypQA8UemvQB+Mjpg0nxTJOCQgRjw7dVxYkcu2nL
-	 4W6tfyjDlJdl5wCEcbs/jSHNSVxnwS6GvcqE+v3UDAV0b1YvPcLIn1MoM67GhUXfiMQ/X
-	 2o4gL/kOD1xIkl1y7TqXaNUmRSbmoTk3/v5e1dEcyyKonXpDKi55OJPzDKAQniOaRQoSy
-	 OkviplfonBa2WVFCBJXRpqBX6xFJeIlgXn50N6npdYT93aRQ9X9zcqzg/MW0JvYZ2jQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795315208;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=PKya3YxXvPxdPz7Z0C1z6SRKNYNaf8lxnWH3lx3F6Ek=;
+	b=Uw3hKH4Ut4Ppwm057fGZk80WR3UxGpOOtl2Sejdby+7Zh9C/IJLq3lnhS18tk9Pueeav
+	 G+Rjq8xuNNQ1NHpvQXQIKHxh9X8bj3TLDyi/noJkFGCcQV24KbjxWiNMocENNJ7ZreItV
+	 br+hgY0x5c5A0Lu63hC7HigaPK+JaJrMs4ZXjhUllCILTC6lFBenonfO6Eds0F1nHFVUi
+	 vFPc/TAUPu/dXNpHBB8WMTrYTcY3Rihw0JXvQFkbFAWAqsyf4E4SYA0ZQTYk+hmdbXkKa
+	 qbYDE6ul7d51k7Z0INM88hXhgiPAtQ9Nh765Xw9dJGX5JEjxe8h0SHZtJ8gako/AN2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=perches.com;
-	spf=pass smtp.mailfrom=perches.com;
-	arc=none smtp.remote-ip=216.40.44.15
-Received: from relay.hostedemail.com (smtprelay0015.hostedemail.com [216.40.44.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=fail header.from=mswin.me;
+	spf=none smtp.mailfrom=mswin.me;
+	dkim=pass header.d=mswin-me.20260707.gappssmtp.com header.i=@mswin-me.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=nMNK5Ugl;
+	arc=none smtp.remote-ip=209.85.218.46
+Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com [209.85.218.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7513606A320;
-	Sun, 22 Nov 2026 02:27:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7513606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=perches.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=perches.com
-Received: from omf10.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay09.hostedemail.com (Postfix) with ESMTP id 667CE80616;
-	Sun, 22 Nov 2026 02:27:49 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by omf10.hostedemail.com (Postfix) with ESMTPA id 26EE035;
-	Sun, 22 Nov 2026 02:27:46 +0000 (UTC)
-Message-ID: <a6fdcd6d4bce5ace3b4e34d1393f5cfe58e17c0d.camel@perches.com>
-Subject: Re: [PATCH 6/6] checkpatch.pl: generalize linker script macro
- exceptions
-From: Joe Perches <joe@perches.com>
-To: jim.cromie@gmail.com, Arnd Bergmann <arnd@arndb.de>, Jason Baron	
- <jbaron@akamai.com>, Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu	
- <petr.pavlu@suse.com>, Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen	
- <samitolvanen@google.com>, Aaron Tomlin <atomlin@atomlin.com>, Andrew
- Morton	 <akpm@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-modules@vger.kernel.org
-Date: Sat, 21 Nov 2026 18:27:45 -0800
-In-Reply-To: <20261121-vmlinux-lds-v1-6-49818f3f5cc0@gmail.com>
-References: <20261121-vmlinux-lds-v1-0-49818f3f5cc0@gmail.com>
-	 <20261121-vmlinux-lds-v1-6-49818f3f5cc0@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 452CD606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:40:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 452CD606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=mswin.me
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mswin.me
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=mswin-me.20260707.gappssmtp.com header.i=@mswin-me.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=nMNK5Ugl
+Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-c247f6687dcso327015266b.2
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:40:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=mswin-me.20260707.gappssmtp.com; s=20260707; t=1795315205; x=1795920005; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=PKya3YxXvPxdPz7Z0C1z6SRKNYNaf8lxnWH3lx3F6Ek=;
+        b=nMNK5Uglm3oSjscVzrRVwYpVzwUcFeqH+R9VCWRiY03isTCMYcCfLyfN6aoOLdTq3z
+         rpOUbiiz/Y6TIT4y5YnwKh/6iJd3DJP0FfCWAAZPwbvx8j7HikkKC7e9DRegNFuYeDwY
+         /JV2B1O1YcXy6xxMmQIlcsHxgXrP5pavTdPcLJEukIYO10xfHtBb7t6UimVQ24i0izuC
+         cCROVhvbNXk5NLVPgnZUSxZL3dEb+nxktf8aDfiYuBR5qxF0RP8+O2jdrz02vjllVHMP
+         hTjRloH4GbNOB19H7RL5gusClYBLQ6tNGTatl59RZBCG0RvpzhbBnixNQuiEEY1KWdu6
+         Y3kQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795315205; x=1795920005;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PKya3YxXvPxdPz7Z0C1z6SRKNYNaf8lxnWH3lx3F6Ek=;
+        b=wCa+rk/sXvWoxfyzvLHCScFOJh8RYC3q9OVTfuRnC5QL6/8lTpFid1qHJJJVBrJ85b
+         y04YJqyv/FzVVH/atDpplrNOrW5D0iXqYOyAOmQ7FPjsg9wS83h/izo50rqOr9HF7f62
+         lv3u4GovQ/aBcYQu50HWsVJeoxLKLztuHrQtaZ3wWlOLWqTNZvVKY8daZ5c6RqAX+D5E
+         2Fm3iK9Uut8q7UJQGq4hYA94oJeGatkb/AwlybseyxneUAvT2OqD4pG98+ZazOm4Duvi
+         dD9FSA7keDmEvR7/fkvwmPPVBUeoWtYgN9OVTZhtWUA1XMoc5kiSXtPXb4rIUIO6Vvgr
+         R93Q==
+X-Forwarded-Encrypted: i=1; AL+hErHv07dDEjHGtbHfrVDzwUo+BamEFMvUQ/cpVHG9Wxy8Y3NBbtZVpglMeG5XIeZHC5kldPojxE2YvPVJgso=@vger.kernel.org
+X-Gm-Message-State: APuU4Z87RYKVzqj9Se6t7U7xzlfas1A5v0NFEnL8sg9B3A6cTxXFrz3j
+	Y0BYlMJm/Pzndcb3VK541yKUaybuBxqOrnH61Ge1b9yZzcJ287uQli876sboQglseMc=
+X-Gm-Gg: AZFdTZeWnVCHZvWS7g709OD6OCwiW+hOpHvzcGe+Wl4ZkOKwuuwEuhLeMe8UDGKajSV
+	YYLTvscf/CPjhfkBQhAzExZ3KpGYtCbB0/fQHFxXndoa3HiyzpA5/OmgEZ3rU6qysqDpqabNUeT
+	KwQP3SjJNkE1JCJwMQ+0ZABQqPUF3gKNrGE2dplBxXYYbDp6+Ad5GGHuWB1aNcY9v3gXpQ5EWmC
+	b//t2f1n9XKkH2pPAmynmtqHHIRS5J/FqrJOvM4eWXiDya767UxoDNNpFg3+85yQaBEIsY+9Jq0
+	gJd9vNbSch6CyI3sKkHosxHQuSwlnzYswlzN/7Zy54Ps/yYBzlhie088Uj9oZ6AVgqLkyjk3GBT
+	+VRddrDRKzPpHmfQ3O++xWGme63U9Bc7TeosBU6Lg1ICCK4CV81wKXVXtcT2c2hSAaWMJd2drUX
+	8LOVCWDXTqvwxtQm909cKPZGi9qUOCQ9IxesPAp8nx0KnP7eKlLPU+5UqYjHn1jveY0oZ4Afkn0
+	5fiMeA9eJsTZkfZZ7O/4jDr4X90vGutgcg37QofunnyB6r1GgECC3ZVZJBqrqSHMGG+/jXdAIvG
+	e1qGFPv6RTOPriF+o5dD0Xx3n9kpm+lBbbPR
+X-Received: by 2002:a17:907:a890:b0:c41:55b4:d88b with SMTP id a640c23a62f3a-c513ab14402mr690249566b.43.1795315205485;
+        Sat, 21 Nov 2026 18:40:05 -0800 (PST)
+Received: from zephyr.int.serkovo.ru ([95.135.208.171])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae68788sm258432866b.29.2026.11.21.18.40.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 18:40:04 -0800 (PST)
+From: Roman Linev <admin@mswin.me>
+To: Bjorn Andersson <andersson@kernel.org>
+Cc: Abel Vesa <abelvesa@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	linux-arm-msm@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] clk: qcom: dispcc-sm8250: Don't park mdp_clk_src at registration
+Date: Sun, 22 Nov 2026 05:40:01 +0300
+Message-ID: <20261122024001.375239-1-admin@mswin.me>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,67 +99,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Rspamd-Server: rspamout01
-X-Rspamd-Queue-Id: 26EE035
-X-Stat-Signature: w9zuxpnagi9dspiupreitz8xoeruuc7b
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Session-ID: U2FsdGVkX19bfFqUuKiZmAtCFwr4IryfXNqQgCZjjIc=
-X-HE-Tag: 1795314466-571539
-X-HE-Meta: U2FsdGVkX1+TL4uTOyKpyV6pwBJ0urHG1vnQh3W3saL5ZFCEvzZASaRQhBGSEQeqk8C0XM4A3iHQc9oWMr4YTV3YtX4M7Vdj7l3eBxXIsWKok+ChOVdfvJ8xPEndkoJd7Py6oFVluYn1kKbak+nV5lsSwG+VZPHOQVGyB+FTL4bKCFTOmi93HdmalaQlMctudFb3neaIfTFg1RLsAnNUtf+MZZI9T493SUGB3fx2BnNLgcLwb8fJ9feZa0ONoaYPSlzWuVzrzFCiRR1EN9ZhaGhZ9xT6g81SU4MsQZgBC8m+xNSS2TuVWPAw5trzOU4/jfc7B3x8bzfUfdUQXx+Tojyt2BCtCWuC
+Content-Transfer-Encoding: 8bit
 
-On Sat, 2026-11-21 at 15:49 -0700, Jim Cromie via B4 Relay wrote:
-> From: Jim Cromie <jim.cromie@gmail.com>
->=20
-> checkpatch skips macro-rule checks in linker scripts; 3 of them
-> explicitly check for vmlinux.lds.h, and 1 (the 1st) skips on any
-> *.lds.h.  Generalize the 3 to match the 1st, including the escapes on
-> the dots, so they're literal checks for '.'
+Parking disp_cc_mdss_mdp_clk_src at registration time breaks the EFI
+GOP framebuffer on the HUAWEI MateBook E Go 2022 (gaokun2, SC8180X):
+the panel goes dark as soon as dispcc-sm8250 probes and stays dark,
+while simpledrm keeps rendering into the framebuffer.
 
-Please remember to email the checkpatch maintainer too.
+Use clk_rcg2_shared_no_init_park_ops for disp_cc_mdss_mdp_clk_src, as
+was done for sc8280xp and x1e80100, so registering the clock no longer
+reconfigures it. The firmware framebuffer then keeps working until the
+display driver takes over, as long as its other resources (MDSS_GDSC,
+the MDP branch and the display PLL) stay enabled.
 
->=20
-> Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
-> ---
->  scripts/checkpatch.pl | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
->=20
-> diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
-> index b8b64f720191..318e1f2577fd 100755
-> --- a/scripts/checkpatch.pl
-> +++ b/scripts/checkpatch.pl
-> @@ -6016,7 +6016,7 @@ sub process {
->  # Usually multi-statement macros should be enclosed in a do {} while
->  # (0) loop.  Grab the first statement and ensure its the whole macro
->  # if its not enclosed in a known good container
-> -		if ($realfile !~ m@/vmlinux.lds.h$@ &&
-> +		if ($realfile !~ m@/\.lds\.h$@ &&
+Tested on gaokun2 with an out-of-tree DT whose simple-framebuffer node
+holds MDSS_GDSC, dispcc-sm8250 built as a module, and clk_ignore_unused
+pd_ignore_unused on the command line. With the patch the panel stays
+lit; without the patch the panel goes dark (v7.4-rc3 and v7.3-rc2
+based kernels). Built-in dispcc-sm8250 and the unused-clock sweep were
+not tested. This driver also serves sm8150, sm8250 and sm8350; only
+sc8180x was tested.
 
-Probably better to have something like
-my $is_linker_file =3D '\.lds\.h$';
-or maybe
-my $is_linker_file =3D '\Q.lds.h\E$';
+The cause was localized and the change tested with the help of an AI
+coding assistant (Anthropic Claude).
 
-and use that everywhere
+Fixes: 01a0a6cc8cfd ("clk: qcom: Park shared RCGs upon registration")
+Signed-off-by: Roman Linev <admin@mswin.me>
+---
 
-> @@ -6175,7 +6175,7 @@ sub process {
-> =20
->  # check for line continuations outside of #defines, preprocessor #, and =
-asm
-> =20
-> -		} elsif ($realfile =3D~ m@/vmlinux.lds.h$@) {
-> +		} elsif ($realfile =3D~ m@/\.lds\.h$@) {
+Notes:
+    Testing (HUAWEI MateBook E Go 2022 LTE, SC8180X, booted from USB via GRUB
+    with an out-of-tree gaokun2 DT; Ubuntu userspace, GNOME on simpledrm):
+    
+    The DT describes the EFI GOP framebuffer as a simple-framebuffer in
+    /chosen with power-domains = <&dispcc MDSS_GDSC>; without that holder
+    MDSS_GDSC is powered off at dispcc's genpd sync_state, which also
+    blanks the panel independently of this patch. With the holder in place
+    and dispcc-sm8250 loaded as a module (deferred_probe_timeout=30 so
+    simpledrm binds after it; clk_ignore_unused pd_ignore_unused on every
+    boot, so the unused-clock sweep never ran), each pair differs only in
+    this one line:
+    
+      kernel                   stock dispcc-sm8250    with this patch
+      v7.4-rc3                 panel black            desktop visible
+      Ubuntu 7.3.0-15 (rc2)    panel black            desktop visible
+    
+    In both black cases the kernel log shows simpledrm bound to the DT
+    framebuffer, MDSS_GDSC on and GNOME rendering (KMS readback of the
+    framebuffer shows the desktop), but the physical panel stays dark from
+    the moment dispcc-sm8250 probes. Only the sc8180x path was tested.
+    
+    Prior art: Val Packett's downstream linux-qclaptops tree carries the
+    same one-line change for the Surface Pro X (commit 88aee348d602, "mostly
+    for sc8180x"); I came across it while researching the issue, next to
+    the merged sc8280xp/x1e80100 fixes it mirrors, and did not find it
+    posted to linux-clk. This report is from a different device, the HUAWEI
+    MateBook E Go 2022 (gaokun2), where the failure looks different:
+    MDSS_GDSC is held on by a simple-framebuffer node and scanout still
+    stops. The tests above isolate the parking as the cause on two kernels.
+    
+    Tool use: an AI coding assistant (Anthropic Claude) was used to
+    compare this driver with the sc8280xp/x1e80100 fixes, build the test
+    kernels/modules and analyse the boot logs; the change itself is the
+    one-line ops swap from those fixes. All hardware observations were made
+    by me on the device.
 
->  		    $line =3D~ s/(\w+)/$maybe_linker_symbol{$1}++/ge;
->  		    #print "REAL: $realfile\nln: $line\nkeys:", sort keys %maybe_linke=
-r_symbol;
->  		} else {
-> @@ -6192,7 +6192,7 @@ sub process {
->  # single-statement macros do not need to be enclosed in do while (0) loo=
-p,
->  # macro should not end with a semicolon
->  		if ($perl_version_ok &&
-> -		    $realfile !~ m@/vmlinux.lds.h$@ &&
-> +		    $realfile !~ m@/\.lds\.h$@ &&
->  		    $line =3D~ /^.\s*\#\s*define\s+$Ident(\()?/) {
->  			my $ln =3D $linenr;
->  			my $cnt =3D $realcnt;
+ drivers/clk/qcom/dispcc-sm8250.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/clk/qcom/dispcc-sm8250.c b/drivers/clk/qcom/dispcc-sm8250.c
+index dc62eb18de..4a94b4c5a9 100644
+--- a/drivers/clk/qcom/dispcc-sm8250.c
++++ b/drivers/clk/qcom/dispcc-sm8250.c
+@@ -564,7 +564,7 @@ static struct clk_rcg2 disp_cc_mdss_mdp_clk_src = {
+ 		.parent_data = disp_cc_parent_data_5,
+ 		.num_parents = ARRAY_SIZE(disp_cc_parent_data_5),
+ 		.flags = CLK_SET_RATE_PARENT,
+-		.ops = &clk_rcg2_shared_ops,
++		.ops = &clk_rcg2_shared_no_init_park_ops,
+ 	},
+ };
+ 
+
+base-commit: fbfe0c4beecfbd0e2958d91e5c95ff189bc489a0
+-- 
+2.56.1
+
