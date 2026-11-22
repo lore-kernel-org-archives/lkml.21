@@ -1,81 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.37
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795342091;
-	b=cjjMKcQ9qKtawpcNKHtQ2TAGsISLcN+nDC806PwGM/ZGFOFa+K16LMTfaz+9ueKvMxlU
-	 +iwYB4kNJIXYRw/kteSNhBBpOf4sFMgD1B9yISkpPC95rW9Tii6nTGjBpq0SjYPdOCDc+
-	 YXlb4/IoUgKcaqaorSJ0r5DzzVoQDypbjd6ExWmQarM7gDukFd0KyL8VY06vKhFvwlhMZ
-	 XHeLUF/XpR0xu7kWu6HLET1v1S/OTx7QsuDR4N5nGvryappdrUi4bqDIAd8mh7O1XPRFh
-	 l0W6gYThpoE+0RG4NXOtlWlpjwMpCKlC9dkijvve/QV+lB6qzwIJcyBgGJ8/uwf2mBw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795342091;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:
-	 X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
-	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
-	 X-Local-Domain:X-CMAE-Envelope;
-	bh=egF/b0XrxAn1ts7Isj8Iu+j0r+ysO1k1OHUcpzWFCjo=;
-	b=wxoVpENFwWJsTzMEc8tqzwNm0LpBenpd3Pvr9tYSUV5awXhzyOFR70NBAgPN3nvZm/8K
-	 tc52x+IqkpX4PTJ0gmK+7yB4HHtnyPshYd6WUBOeR/cYky81ZBauG1U03j4+1uRjso1d5
-	 YNBXDV9+uEXe/wVJGbi4Wun7BB4jbWc+PvyuFvQkIZkGgUiwLxT+qrGrTDFezRmnRb4W/
-	 0JPXqnvsTpnanN9TJxl36tOSQPpL6j6qLOaU0ocBC3CEcpLe9agXv++GlKzmErtBwfMpR
-	 XO8SZK9hj8ND1S1MmrHLMmSQBrB04TF4Lvti+AnymxqiCKT7avKjjt4UrGiJre57G6A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=roeck-us.net;
-	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=NjlZu8y2;
-	arc=none smtp.remote-ip=44.202.169.37
-Received: from omta038.useast.a.cloudfilter.net (omta038.useast.a.cloudfilter.net [44.202.169.37])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795342098;
+	b=azXV5lNSO6WxikOp6x8HJfUj7b3XeVcqNrYlRpy897xJp7vWgD4s3Km14XDG2mDdKDBg
+	 Ty2OKvRy64noDUU0NnPgXj3KoHtPvqZyUwnbh4PRJqPzaGdyMqG0w1uv0Yne8OiKNy58L
+	 n2gLFnkKMJdG33zctKbdklpRfuIcD2cEcNB5KZoE3ORMoBnq6VbUnBLI+9FLdtkCRR2M/
+	 Ud2+r7pPSORcEfuSLL+HcGF+ug5A82NDN+36gulCTxTeE9CHDtK7BTSCHCYzocinFv7Ih
+	 /KC//+zfWG67TqjbcrhQodN9EDMNu6g2+pUQbYOdkzfka5mIy1AlYFPXzGFHe/a/qVQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795342098;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=FdZ6rQI5nliZJsDEu5BYAq3God7Btn9oqAYkY1qyoYQ=;
+	b=LabvGJwUQzShYVPHiFw9FxnJcwjfxDCWiP/lYtRkxQlmAjyho/qkQxjVzw86B25hkyty
+	 66TA9AT/Am/j7YK5S5Pa4tA83k2dg+tCd0yO6A0bRe2NdWl9r7cbCYoJbIsxtwcHEfB23
+	 AXwi1VXUUZTpa4uMCdmkHPj6cCVbu2LZkXy86ZS/WHgizNO8w5AD/YlvVWP3PpgUFNue9
+	 MOlFUXpnsea1Y1ynGSmIGYmldeGeJW+EpVrpOKcswzJND7J5X8Ai+YlQqCzY5e352ZAn7
+	 jFdhsvAjl4l6tcEq1YFciALIKEtymZuzIouZKkLBSEDnxtykKGvTEJfZ0P7FRwmAqDA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZF756+RW;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5F73606A32A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:08:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5F73606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87C58606A680;
+	Sun, 22 Nov 2026 10:08:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=NjlZu8y2
-Received: from eig-obgw-5007b.ext.cloudfilter.net ([10.0.29.167])
-	by cmsmtp with ESMTPS
-	id UzgKxpCSbV16IV4UTxh9U5; Sun, 22 Nov 2026 10:08:09 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id V4USxWzL6xqjjV4UTxyaKJ; Sun, 22 Nov 2026 10:08:09 +0000
-X-Authority-Analysis: v=2.4 cv=bZxrUPPB c=1 sm=1 tr=0 ts=6b02bf09
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=pGLkceISAAAA:8
- a=PFCYaXOscNU-RV6WzkIA:9 a=CjuIK1q_8ugA:10 a=7RSCp7fvD1wA:10
- a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
-	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
-	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=egF/b0XrxAn1ts7Isj8Iu+j0r+ysO1k1OHUcpzWFCjo=; b=NjlZu8y2feg8bE2w8v5NEWYFQx
-	xvETgBJi0NT8F8pndiPDvAo1ZG6ucvXK5+Nge+NBmh40YoxlqI6DZ4wy1o0ngvKkP3AK4/PBm3o85
-	b6HxdOl8pKd3XMkVxd0sJHJ0hglDYLUHb1Z98qTmtapgKdCYVbkRNffThgjhhoxRi+4XS97D08dVT
-	Yb/BUqsBY8ZMBOimoRQk6Pp/igHVnFUbNIPcfEqWi7maNRQWSiswlZHNt5xcnGXn5+Q19P6WO+7Jz
-	DbWKa08qtcMdoBYEJoGEg400zQ3iIdhDmiCiJnvA9L5tuZAZiFKzDGyMVhLStu2P5Gxo63PYlm2+R
-	jtxHAoJA==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:36998 helo=server.roeck-us.net)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xV4US-00000004BEP-2btM;
-	Sun, 22 Nov 2026 15:38:08 +0530
-Date: Sun, 22 Nov 2026 02:08:07 -0800
-From: Guenter Roeck <linux@roeck-us.net>
-To: Artem Novak <artem122novak@gmail.com>
-Cc: wim@linux-watchdog.org, florian.fainelli@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-watchdog@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] watchdog: bcm2835: add newline to dev_info message
-Message-ID: <7ec5f7ac-0ede-49e3-8f2e-4ac5a04ec806@roeck-us.net>
-References: <20261122082943.173681-1-artem122novak@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZF756+RW
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795342098;
+	b=HqzW4FL3f8/BCmvhPLCas7gzAuy+N0QBcQ3SGoU30TSxdJYyUMf6Arn2pNUm/YTbL0lT
+	 wQNfZXHTNJb7J+wkhMIBlQRUOoR6tOLAmZbF7be1HBPYIZoiYMKC5w2M6oq3ghZ7qgcai
+	 QhpksgDgaoDuY98fdQ+AFgjFi0ZokH+wI3RAycIMpXxo5eEyxJp3yM+O+8UG6/2QNOCK2
+	 TnJ5i59DWWiqnP1QQguNRq4AmIRlCxqdVXG/LFwWegjgzI+kKIKLD3eEW9QlOXMwDjrKP
+	 uLVBPJCM+V9u0l+ZslvapJFrwLoo4GCEpjZxZZN4014HuMn5t5cPlWHF8Qp90AsE2wQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795342098;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=FdZ6rQI5nliZJsDEu5BYAq3God7Btn9oqAYkY1qyoYQ=;
+	b=V4HYaxbuPudnLQlE1FdcS0WuiLNUloQgahXVEIidIdVSehKCng3vJmFyerdAdAWIejC2
+	 dW92O33AzA1J0nSxItDksigdp8uYonTLqfVx9VSy4RPrbB0CU10S0rB8hi4oBm8FygFN5
+	 GeFKqAjEANi0WwRPejMU7PzoylpzlaoSMC8CLnV5URUbqKxl8Omh+pio3WSZZqFOuN2vb
+	 NbhMTFl350ib3jH0UBYz95ARsUGlu90FFaKvLanw//Z1CNvYtp1QoewKLMkRfzHUTsYdC
+	 u5fN/wWxTWHZ26boV8dtI8kLpBaKOK+PMw2nTyr0KbYHr704oTpMx58Vx0CBgpPeZnw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 8E99B1F000C0;
+	Sun, 22 Nov 2026 10:08:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795342098;
+	bh=FdZ6rQI5nliZJsDEu5BYAq3God7Btn9oqAYkY1qyoYQ=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=ZF756+RW67yhhJfZCkIBYQ2RM0ptCHAeuWRb7GyrnlRuTLvd722R2QZD3aOBUpg+m
+	 D7wubwwL4DATjZTLgGhnBo+ePt9RX6dVK43pU5eHsYaswNxhu4PAu5vIIqOkI1DWVg
+	 opwpUdlQ3NO4a3aa05gp425qKMJ2weZm+i3Y2t6/PwvoLwcfpAPomq0B1BVNHKIQ2O
+	 HQXZeJ9czMVg+fbVKstv0gxhWgBgff32H+4oA0y28PciVgE0iye/ij8yAkS/KbpM2j
+	 ddGlf7dvI6MzQDQvOI2JOdAW5mKGzUmfq4Mv1ZmuDXuZnkHWI3Ho6+0qNoGGcRceXB
+	 edDT7gPSaOB9Q==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id E50FD4BFE5;
+	Sun, 22 Nov 2026 10:08:16 +0000 (UTC)
+From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Date: Sun, 22 Nov 2026 10:08:16 +0000
+Subject: [PATCH] ALSA: sis7019: Don't shift the voice IRQ status by 32
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,35 +82,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261122082943.173681-1-artem122novak@gmail.com>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xV4US-00000004BEP-2btM
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:36998
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 10
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfBSi7+X8nPTTj+VMz9oVRu5g9Fg4qeO0cqYctOkXQLgXEF9WpujuZzCP7t2ZlrL+4vOCPB7mI1cZyoVFXZOkYKoUSpW5EAA2G9so9i8XITot7/fc9Tob
- 157ZU9ZfmL8gionBgl8tQOaqMdpiAOXSW+Ebm9Dc+w4Nrfvam4y8FlXtVF4koulKLSD774q0z29y9moG23njYcT8/J5fRWX1NRkTzX2ml5wSWkfNRs9cS+sA
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261122-sis7019-voice-irq-v1-1-fa5d0cbecf62@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAA+/AmsC/yXMyw5AMBCF4VeRWWuiI0i9ilhQU8bCpYNIxLsrl
+ l9Ozn+BkGcSKKMLPB0sPE8BOo7ADs3Uk+IuGDDBXGtEJSxFoo06ZrZh9Ksig5hnrk2NSyH8Fk+
+ Oz69Z1b9lb0ey2xuC+34A7CfNPHUAAAA=
+X-Change-ID: 20261122-sis7019-voice-irq-e92265fb39f3
+To: perex@perex.cz, tiwai@suse.com
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795342095; l=2053;
+ i=shyckless@gmail.com; s=default; h=from:subject:message-id;
+ bh=huKzTa2eQDkgURxI5UqFkDNM3LidKvXVuHpanoNFwvI=;
+ b=OLwzOqLLF7VtxbmUbAt4oriLbFnkIetFuSf13BKww5X9N0/3KAgYPO8/hew7/wv3lfG/+rvQ2
+ E9cR7P7CvTZDSBQWQGwH5xeOF5gprTMqZAbxdu7VvgP/pVEYRHOe2r1
+X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
+ pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
+X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
+ auth_id=1498
+X-Original-From: Suyuan Wang <shyckless@gmail.com>
+Reply-To: shyckless@gmail.com
 
-On Sun, Nov 22, 2026 at 02:29:43AM -0600, Artem Novak wrote:
-> Signed-off-by: Artem Novak <artem122novak@gmail.com>
+From: Suyuan Wang <stevewong@hust.edu.cn>
 
-Checkpatch says:
+sis_voice_irq() walks the set bits of a PISR_A or PISR_B status word:
 
-WARNING: Missing commit description - Add an appropriate one
+	bit = __ffs(status);
+	status >>= bit + 1;
 
-Guenter
+When voice 31 or 63 interrupts, bit is 31 and status is shifted by 32,
+which is undefined for a u32. On x86 the shift count is masked to 0, so
+status does not change, the loop never ends, and voice keeps moving 32
+entries forward on every pass, past the end of sis->voices[], with
+sis_update_voice() called on whatever is there. All of this runs in the
+hard IRQ handler. Voices are handed out from 0 up, so voice 31 is in use
+once enough playback streams are open.
+
+Walk the bits with for_each_set_bit() and index the voice by bit number
+instead. The voices are still updated in the same order.
+
+Found with a static analysis tool and checked by hand.
+
+Fixes: 175859bf1602 ("[ALSA] sis7019: support the SiS 7019 Audio Accelerator")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
+---
+Compile tested (i386, W=1). I don't have a SiS 7019, so I ran the old
+and new loop in userspace on the same status words: with 0x80000000 the
+old loop trips UBSan's shift check, and without it ASan reports a read
+past the 64-entry voice array; the new loop updates voice 31 (or 63)
+and stops.
+---
+ sound/pci/sis7019.c | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
+
+diff --git a/sound/pci/sis7019.c b/sound/pci/sis7019.c
+index fe5bda5af6a5..f31e62068ee3 100644
+--- a/sound/pci/sis7019.c
++++ b/sound/pci/sis7019.c
+@@ -278,15 +278,11 @@ static void sis_update_voice(struct voice *voice)
+ 
+ static void sis_voice_irq(u32 status, struct voice *voice)
+ {
++	unsigned long bits = status;
+ 	int bit;
+ 
+-	while (status) {
+-		bit = __ffs(status);
+-		status >>= bit + 1;
+-		voice += bit;
+-		sis_update_voice(voice);
+-		voice++;
+-	}
++	for_each_set_bit(bit, &bits, 32)
++		sis_update_voice(&voice[bit]);
+ }
+ 
+ static irqreturn_t sis_interrupt(int irq, void *dev)
+
+
+
+
