@@ -1,82 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795343053;
-	b=seHUcGMwoWU3GEl4C90bX60+t4C8yTNoYUShXDmfK/feUBSJSSR8gBci3TlCB3lVI8qy
-	 QL0AZ19FCeuQia1fxI9qWGhsh8iBlWVOSpp3YiY3muWhLdmX3kmH4eRE7jr8mpDnmr6oo
-	 Zni+4JGMkChWDYjglrs0FyR2sMbrcEZ8byn2J/s4ssbzt11GeTadBc2GXpnDhHWO0aKrM
-	 p6kD9Wb66hv9zw2KU5MIFWC57wxS+RCNEki1+iOPM5Li/eEiwlsZHlix2hXqgc90tefV7
-	 eu0yP1cUhTTJ2/ubyqXmFZHA4CsT8+pTuvbFLUoWeGoNTWe8dZLOvp1ijkVc+UU5Slw==
+	t=1795343056;
+	b=EsqT5I5HcsrSo/QKj885+yUZEKDhAwq5gcZfGqL/LcSfH+cdxatuj3gfCQSOuCQ2UrZK
+	 Ucw2Tl0tbkGkx03WjzBn72VrkV2s/K/ZMbglyCiDxUt1yhNQz79+HUBzWSVIrj46FD//h
+	 BU+9lL9dbpLLlhVYJsGMR7uta0LbQPTBn4dEp7N0hPGjXkCTpnWuWtS8vJC1WqHXklaYu
+	 eVjsK/FY5hnsT4N/T17HbaoYAw62J0tApNPieTzo270IZQR4y++IcJA7Tur9PqVulPAmc
+	 iJCxvhmFs3UHgY1sNQczsJPvqqGF8EBkAKnaNH27XJZR8ec9tc18Ea3IqWk2dB4hI6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795343053;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795343056;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=reglDfAhKiwuYAIh/SV2FcRa1BwWNxgt4nMLKMTfz3c=;
-	b=B+cpHhqy8dQH39ttQefurJblJurTvxluzSeBmo+xwPHmfOgxpBs1FZZ5t8ryRH73tHPU
-	 lGkaTtr+QRmht+kPLl18eiTgP+Htx7FAfwRd11oIvNZnDg1cgswLKwEtwS9yvH0LV/lpn
-	 JaTGxbx5jb43HEZOMDGuwE3uY6rJJ7Bmt1Mq9LgYbm3tVtnWfJIhlEjcbVRezF/JxyoQr
-	 SJVt38tSm4WCNStHutpJAFcE7mxszvwtcpYiH2XCvwHgDZZb4Uv2PdfkqQ9hxo05Onxq8
-	 YCb9tI+/HWqnhUVTECBBYYbl9iMD+Mm6zbWwjsEimZKSCLwFkiRTZc5dSFNVClKNU3A==
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=CURJOIW8YVhRngaiR7g8++OMuLl8NziGeTmfa7BjCfk=;
+	b=ABtNT9tIshocckCT8Sy1fgVZenO3UFZmtdWP3cluXBEdTrpjaNOKpnZNZgnEQ7ZGirx1
+	 uHNDF3wL4gdu07ykjiTsZ5YOlb1jxIlij5ig56NGFyzfnvS9YUQPdCRBOt0KSVAGjoiVu
+	 XIwDu47cmbYYZSAckXj8KFZNTJKlGiabe2qA2csdD80DN+mWXsvOGq+lMVcODG7+NL3cU
+	 tov7/ZW6OiZl8FmG7/ge+Ljw0Cl/GtRZ2Fh6eRZY0RQOfXXn0rUFX8pKHISOxF51Wnpr+
+	 VWv+Fevk19YRvKOUW0E6WZV71IrwdYj1DSEocM2dqdFkTePIKpl7wgkDQx2JlOnEpIg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZJ7coL3g;
-	arc=none smtp.remote-ip=209.85.210.173
-Received: from mail-pf1-f173.google.com (mail-pf1-f173.google.com [209.85.210.173])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Y5t5Iv+G;
+	arc=none smtp.remote-ip=209.85.210.180
+Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E65E606A32A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:24:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E65E606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF352606A335
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:24:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF352606A335
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZJ7coL3g
-Received: by mail-pf1-f173.google.com with SMTP id d2e1a72fcca58-8c4cc85a315so1792646b3a.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:24:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Y5t5Iv+G
+Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8a05b210703so1047228b3a.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:24:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795343052; x=1795947852; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=reglDfAhKiwuYAIh/SV2FcRa1BwWNxgt4nMLKMTfz3c=;
-        b=ZJ7coL3gEISJl1PLlqY821FIpesNyJPZ9oZy8hSoA+OWxvgoggA01SeZsnpXWEw2ii
-         BFYB6oXqgYny6UHivRXVrZKQItcGULyRPqk4+TYm0rfdbv3JnwNZoU6+bxBC3dItO5Z1
-         asM/9muWf1EM+0ids3eOdYhVvAzVNIOgH2eXtFq5i5E6sOzJBRC26IKSuIrGPyqqaq+9
-         EuDPQTYq//irCGiWokrunYABuDiWXGFyUrnufK5GUK+D6jxE5KoMcPS1rV7b/inpi5bj
-         xgyuJX7CIwsOAIZtCtaWg5fagTJt4U5/3uXxmSCGMl1QO8WbMeI4e65ovcfeKR/5WzW1
-         oAvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795343052; x=1795947852;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795343055; x=1795947855; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=reglDfAhKiwuYAIh/SV2FcRa1BwWNxgt4nMLKMTfz3c=;
-        b=qQoPHViibBp5GGpsX7WK7/JstVe0fc9CHMbll1vbGoZnTRK4Cp935Pm9IoAIFFXFbL
-         V/ZcZO1hHP+R0RReHxI6GGKoFcU5GzxembAjZgZpoXd9JZfvs1Hunq/4gXbUK2ziUgln
-         qmzv9Oam0C5gYsGsEqzv5J6deG2OBPS08e/5nWkJeRCZb3EtFgxPumBB/6H2bGVlAKQm
-         sH7iZF3hGmWoRr8BKpv5+Vl9/ePbPPCiQVQZsCOurIseeRzkcH+6LDt12r4I7BnE3IZy
-         y6QlOoeyTo90VdnXrjePXRWRnvwJ13JjpbQC2wkWSZmTN9VrBdn4R/7g0hU6RzcSZ2+q
-         pW7A==
-X-Forwarded-Encrypted: i=1; AL+hErH7yA49QcDSjigT7vXLaucxTNULKADCHM33+xAU0J2/ZtemO0zTKkJX62OIOQh7U85DGb5FIYlgCDz5/14=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/g0tiVBbm9QuED6GePQu8TDj0t5cu9VfuzI3WRPBdPV4C3E5nP
-	CVOvjcPcfa2pm7uY7WTGyH13RlzzTJRK2Dkr8jKHZywsQmoQ4vlzNJF3
-X-Gm-Gg: AZFdTZc/Sbff6HIi3hwAHUExI5IlN3uLkBfMpzyNzOEOXehX0z507CqzOs+T6U8Ky1O
-	rMqXKv/P4WJ+B88qfbkiitw1HJjmvV0GNK+4EhWmggtTXFP3lH2Qz5HYjS2qPFiixPuvl5AcF1I
-	zo7IlKVYVdZxUVF92VPzf5psPCLVWBZ94CfucUxmQELYTnMUZe6ddL9LGbeYlzEMTQ4edg+cOO7
-	lf2S2fU3tpfAzzA5XhdoY0+ofyW/23nzgMwBgw2hgbPACduO13D1PELs9taSxhznuNyRk+lUO4Y
-	z2BtKNCfaBJCvqe8rV577RkmggP4A1gl8zmAyG1OzWYkHUU2p3kGn9+IsyAB3SFh8XFQYzW1LOb
-	runn16TTHhOsKRmsy/RWDiPRKDRIe2igNGcwca/w1LN4/uqV5+whxOQXxj/15Vjg28zwdkpz47h
-	+b2YD08zaI6ROrcJrKyewtFi5GdYkBVgx2cSwNi4/2fsQvmk9I+LipYAIQe4K3IHdnt6Aw/ZZgv
-	oDiGukkImpTGHwAwo7DwGZuys+cxt1Vneb4OkIJqxn/6iKOpVBX7+iiQvj9mzwkGIGmIphc+YWZ
-	cb+Wr6mEnnH0l6IFIWdbSxgkxhPR0hLENnx2BvsKXTcxrp5+Oc9dDZpMh2CElV8FKyE=
-X-Received: by 2002:a05:6a00:2389:b0:89d:7f51:6492 with SMTP id d2e1a72fcca58-8c87c38b44bmr7939461b3a.32.1795343052585;
-        Sun, 22 Nov 2026 02:24:12 -0800 (PST)
+        bh=CURJOIW8YVhRngaiR7g8++OMuLl8NziGeTmfa7BjCfk=;
+        b=Y5t5Iv+GxHIVRNL1hLMtJTy9/LL0TrrHPci4ClCUB3ON6bWZf0BKwNKmVhRtHY6rtK
+         oaRLDzJCuChOaHdbRHchOk6WMH++YIgoXQjAN8pe2AG5yVoD91wRVqGVL2xLdjSks/4R
+         7QQQrlngy9WwxzcBKZRakEMG4x8VhBxlarpfkXDL+Ow+5IykNNQx4dcdiTRYIDW1Btma
+         K+pZLL6rfliv2dHbgaQXhe79NIE4SdUGenZV3r0KX8TRE6ZIvRIW484ccwaIgsIfAOjc
+         lmI4CmkJNqGyNMTuATUjrRYsWhXY4S92omZgMdLxn8TIoPXgH2Z7NYrbTa4LZq5XMYIk
+         MD5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795343055; x=1795947855;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CURJOIW8YVhRngaiR7g8++OMuLl8NziGeTmfa7BjCfk=;
+        b=U4fw9+Yx7uG6dklHMauVzkVtUKFlqPK4OuA9Qr3C9E/SBVY3i9ljJB6GpyfGwM1hJU
+         tHn+cCllmwEzChV3jSM/AG3ETp3llxu1I0ZJOcicVJpIJvn6UiDE8yDETnRdnQxfwfZG
+         0UkVDjysP306SbxHcnV3CloRYETkXk+u3B9kkY4E/9pmmpR4B9Bxvnw9oOBvLIoCYBwJ
+         dBuB2xRxoVZuJHtxOfI4O4ZN7MxwPcRjQ5WtFYxVQv5wY/qprrUVtKx7p5Co3WbS1Chj
+         i2lKjadr7ymbRzIi9/Olp2Gy+ukalW2otHM+GpZTsT5q5/VMxhI3RkMFDsDpLw9r9MZ+
+         iHQQ==
+X-Forwarded-Encrypted: i=1; AL+hErGRhoTl+0QD4nt+F/r62niDV5i5mQZn7K7cwNQgmbp0wmeX/ZHtdoYX2w3SNJuUelRQixzK84w18+4J/gI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+HsgZZUToxxtSfS4bd6Bk8lkR8mBnFfHr/X7Kse4ekL1p6cDlN
+	s3S40W0gxAdi2qLzEuH98llk6eU9jo+sMhA330KxoyGoy0RrK1QM2/8z
+X-Gm-Gg: AZFdTZfIph6oi97CkHlBOZz9907T4I24G0RUwL2kOh4bUXB4Zc5i+U+Y/S9R6eljr9U
+	/sp9LhcmHZgK5CjY0Bx0CvZrZ2jdNC1HOZV/IzU7kcb1hA14uLXI5rIlpNlwRhVaz2By8ChkPs5
+	QRjLJSr9pwfKbEXngP3cpRG8PtoJXNo2a11a7R/rr/5g8pfzsF7AyjeIP2B853u4v9/+Lr+L7gp
+	REVyQL2boVVWKzHqCikWcuLYye4dQoy33xSXkl2dij/wlgk9rmpsNihdqvVLX19ibvixWQkrS0Z
+	lFUR9S0fnQ7wcIz5vYb3adYALUk4azYZze1uguPmVFz5+utJViZzqMhJqhSwkGElmxhgi1wPRn5
+	AkLkmYNOvFwlHUFcWnLCygnEJd67vQpXW7E/NVKJOyX/iSJcBF1mdVvwygYuWUiFeLLBSyetSof
+	uSQXtCk5Jb/yUwYNmclT/cwkZ+dbYLHioCeLmja1Mnk3wm5vipOL7V4f21i19zVDwbtmjSiwURa
+	fKJC8R4Hey2s3UgAkrNn8upH0z8FTHAkqOblKETAIlV/mKd9HS58NGpVHnXwsJYxKwIk4Z7Y2l6
+	8ycYiGmLFHUsOpoq63vxR1hrAq9k5BMhLk6kA4Tdb8I4TDUqmL9HLzp5BTwMZasJJCY=
+X-Received: by 2002:a05:6a21:4cc7:b0:3dd:85aa:4524 with SMTP id adf61e73a8af0-4014b56547dmr8506160637.31.1795343055176;
+        Sun, 22 Nov 2026 02:24:15 -0800 (PST)
 Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f726sm3968398b3a.36.2026.11.22.02.24.10
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f726sm3968398b3a.36.2026.11.22.02.24.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 02:24:12 -0800 (PST)
+        Sun, 22 Nov 2026 02:24:14 -0800 (PST)
 From: Kyuwon Cho <kyuwoncho18@gmail.com>
 To: David Ahern <dsahern@kernel.org>,
 	Ido Schimmel <idosch@nvidia.com>
@@ -89,9 +90,11 @@ Cc: "David S. Miller" <davem@davemloft.net>,
 	David Howells <dhowells@redhat.com>,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net 0/1] ipv6: fix MSG_SPLICE_PAGES with a dst trailer in __ip6_append_data()
-Date: Sun, 22 Nov 2026 19:24:06 +0900
-Message-ID: <179534083350.2499182.16169984227830330896@gmail.com>
+Subject: [PATCH net 1/1] ipv6: fix MSG_SPLICE_PAGES with a dst trailer in __ip6_append_data()
+Date: Sun, 22 Nov 2026 19:24:07 +0900
+Message-ID: <179534083350.2499182.16621119046570934510@gmail.com>
+In-Reply-To: <179534083350.2499182.16169984227830330896@gmail.com>
+References: <179534083350.2499182.16169984227830330896@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,25 +106,61 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-sendfile() of a UDPv6 datagram that needs fragmentation over an xfrm
-tunnel hits a WARN_ON_ONCE() in __ip6_append_data() and fails with EIO.
-The patch removes the MSG_SPLICE_PAGES branch that causes it, as
-proposed in the report; Ido asked for it to be sent as a patch.
+When __ip6_append_data() starts a new skb for a fragment that is not
+the last one, it adds the dst's trailer_len to datalen. On the paged
+path pagedlen was computed before that, so with an xfrm dst
 
-Report: https://lore.kernel.org/netdev/179497871649.630760.14878797494884573363@gmail.com/
+	copy = datalen - transhdrlen - fraggap - pagedlen;
 
-The issue was found by an LLM-guided test generator that we are
-developing as a research prototype; the report has the reproducer. The
-patch was written with LLM assistance; we reviewed and tested it. With
-it, the reproducer runs clean and all its sendfile() calls succeed,
-where they all fail with EIO before.
+is trailer_len instead of 0. getfrag() copies those bytes from the
+message iterator, but the MSG_SPLICE_PAGES branch right after it also
+runs when getfrag() succeeds and resets copy to 0, so length is not
+reduced by the bytes just copied. On the next pass the splice branch
+finds copy larger than what is left in the iterator, warns and returns
+-EIO, so sendfile() of a UDPv6 datagram that needs fragmentation over
+an xfrm tunnel fails:
 
-Kyuwon Cho (1):
-  ipv6: fix MSG_SPLICE_PAGES with a dst trailer in __ip6_append_data()
+  WARNING: net/ipv6/ip6_output.c:1796 at __ip6_append_data+0x17ed/0x4b70
+  RIP: 0010:__ip6_append_data (net/ipv6/ip6_output.c:1796)
+  Call Trace:
+   <TASK>
+   ip6_make_skb (net/ipv6/ip6_output.c:2097)
+   udpv6_sendmsg (net/ipv6/udp.c:1717)
+   sock_sendmsg (net/socket.c:841)
+   splice_to_socket (fs/splice.c:811)
+   direct_splice_actor (fs/splice.c:863 fs/splice.c:1114)
+   splice_direct_to_actor (fs/splice.c:1023)
+   do_splice_direct (fs/splice.c:1157 fs/splice.c:1183)
+   do_sendfile (fs/read_write.c:1351)
 
+IPv4 is not affected: __ip_append_data() does not add trailer_len to
+datalen.
+
+The branch was added by commit ce650a166335 ("udp6: Fix
+__ip6_append_data()'s handling of MSG_SPLICE_PAGES"), when copy could
+be negative on this path. Since commit 736b380e28d0 ("ipv6: account for
+fraggap on the paged allocation path") a negative copy returns -EINVAL
+before this point, so remove the branch.
+
+Fixes: ce650a166335 ("udp6: Fix __ip6_append_data()'s handling of MSG_SPLICE_PAGES")
+Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+---
  net/ipv6/ip6_output.c | 2 --
  1 file changed, 2 deletions(-)
 
+diff --git a/net/ipv6/ip6_output.c b/net/ipv6/ip6_output.c
+index cb648c839431..5887e537f662 100644
+--- a/net/ipv6/ip6_output.c
++++ b/net/ipv6/ip6_output.c
+@@ -1742,8 +1742,6 @@ static int __ip6_append_data(struct sock *sk,
+ 				err = -EFAULT;
+ 				kfree_skb(skb);
+ 				goto error;
+-			} else if (flags & MSG_SPLICE_PAGES) {
+-				copy = 0;
+ 			}
+ 
+ 			offset += copy;
 -- 
 2.43.0
 
