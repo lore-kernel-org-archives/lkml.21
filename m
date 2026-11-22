@@ -1,54 +1,142 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795353177;
-	b=CeVsD6N1GuJmZoNN99+FP9Pb3tkAHNE+vi9BBMwCkV4cZooXBifk10Y7U/EHtLvPptXN
-	 ZAAFYte4TEW5D8r6jPIHWWTNpcfVsMnz2YKv97fvFDd8ebTG6ZmIS2us5I/KemRY+l57r
-	 uAjz0GqobYc/1BXGDpDR4RlfB8A+j5nFmP/LAF1sPBtK/H0yfqjLQ7VPe70CSBCceoGxd
-	 p2Tv6YYADA465RpV94KC44kacYxx4oXyCOpFAG1cX7Ebxz3hgSF6oVcgpdxFheH5Js850
-	 msGaGZJkAL5DQYJxqW0T8XRg7JMRalN4Xf0QvkxCk7BhzP1AmK3pGOyD1buypbyX+SQ==
+	t=1795353297;
+	b=S0oUbplCy6o7V2rEXvKu/Vcf6i9UkXzTchOyNgafCeupVAw9NQON72p9ekLz3KAXFqiE
+	 yaa2BNneppxhF7MlIYAKNk0Mcm4dB6xdBJKYDizvRicHvW83Ds5KbzQEYUphkitit+Z0j
+	 jeqmaxFgn1HSAStqM846W8EU8j/ttn7alGKLJCMV8Tl0HZmlnLFaDAz95NjDhRmsh3Fl/
+	 0knTQNVUOlUHXsoO6o0ANLqEySd+YaaQ9lezJWFh1Of/9f6O+j/3wOfVx3peEVl89MfNk
+	 fOFP2q5eYUgwkIVi861RFGSYASjCppZeNSetjnPTgxyH2ibb/MgD3qru/7WEr129njg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795353177;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=nXqNVUPzypUOj6/Sw0WdN1Fosk+w9QLs84lkAIpwUVo=;
-	b=h0NeWXtWNfruhwweRVbq0Kic2mVdpYNW+qW0HEtxoOze8j37xbAfS87MFfpGKf2DqQc3
-	 238/6rJJnKUIzoRvxkNYG11Ds5hHr2Rsq9I0FZ+KpcgGiahGJwHgVGM7rl0LwEHp/nxH9
-	 q1bBwjmLVDsVPg8GhLwqZWdJqtqmU0UCikwROcbhi9AcByxwuuqtXKkzTwRWbsGltkp1h
-	 TAXl/hEtWo1idNAyqJo4SP9RwmZ77JUJ1+kcZ4udynfYAlLT4aEYVcJjwf3tjRx1/QlaX
-	 XCR872YBW6wyPw0LC9lxAp+KAoiJR3+iBMHEWXrgBrMOIPnUVupNG75Fi+sj2m3fzAA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795353297;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 Content-Type:MIME-Version:Content-Transfer-Encoding;
+	bh=8hD87ixJaXl21lUSGIciEwnoJt3nWlHx7X6q/vGOsOE=;
+	b=cle1AkjORi7T0x/YiWRrIL92n0Yv3agRgGVedKl2O3rZwjULBHcqsQxwNC0wCX0kOZT+
+	 uxt3tAPfYLUiE9/evzB+posGIr6k7aur+XCm0wTMuopTyc1IZKREqEYGmlf8WpUzAhxqj
+	 /Cymg6uGB6O2SV6udeyGN0ehJskzETF2YR5VLAihwPOXghdDfCSTg0SFYt8PMvRuH4ecz
+	 0yvqvnEvZQc0xWBmqbxJR4K7Y5BgyPNWNGcOcDV7/+3JSp5nR/aT7jKoQcQOX8WNZekeH
+	 3vw482M0FLjzZNSVXcAprL222CRMCKNmQ64k8atMT35q0YysQ/Ph1IQIzES8E9Mf+cA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=AYfhU4ET;
-	arc=none smtp.remote-ip=91.218.175.5
-Received: from mta0.migadu.com (out-5.mta0.migadu.com [91.218.175.5])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="dNi8/X4g";
+	arc=none smtp.remote-ip=74.125.82.48
+Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41443606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:12:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41443606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 306B9606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:14:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 306B9606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=AYfhU4ET
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=gyd9U5oFJdgRoHwbbh231r2ofTOvPYqIIEXaLmQ+v5o=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795353174; v=1; x=1795957974;
- b=AYfhU4ETlRrt4AdkOZnSkYoreUjEtvjc8B7AyNDvxgWLVGqWBW48vIXJubGbgUEMKr0oZGoz
- i6nyWJZni+K3TmNuvQp/g99hjdWBYSfcwhQOacTK5zU22ygpxYhXLB+Y2R53M7UZdbui1uInodU
- Es4Ocu8tDG7oasE/oOyvWCeA=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 4f329c19d9a8448a;
-	Sun, 22 Nov 2026 13:12:54 +0000
-X-Mizu-Trace-ID: 4f329c19d9a8448a
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <cc9e0dc7-1f24-48d9-9c8a-30ccde334f07@linux.dev>
-Date: Sun, 22 Nov 2026 14:12:48 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dNi8/X4g
+Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-1b244fb7fffso2283407c88.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 05:14:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795353295; x=1795958095; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=8hD87ixJaXl21lUSGIciEwnoJt3nWlHx7X6q/vGOsOE=;
+        b=dNi8/X4glj8za8CHUyUTtNzOlgHGHp6QMd10zTC/TQr7AJjZerl6rqDTwp102Lewup
+         1ittEsw7RgVIgBsb6DZbCBvqPrbP5YJmX2/qbh82cibbbdWMRNzmYbGy4kpHz9mLdno9
+         q8/1br+pv9KTFDXwytSa4WMYQNsbFDN1S6OQCFA2oUgrZS+XuGDF+2uv4kg1KaVLvojN
+         8hvHwbnsgHffAHWp8ZPzoZqqIa6lDM0aKKvgLF9n7EIZwdtKzrLa9QEJc8P7eZqhakHV
+         z1Aq/zCMe2Uz5NUyUYu79/IRakePzC5KTLXUBsl2yc3GG7faXgOKuYxOPWFab5XvOZMi
+         Npbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795353295; x=1795958095;
+        h=content-transfer-encoding:mime-version:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8hD87ixJaXl21lUSGIciEwnoJt3nWlHx7X6q/vGOsOE=;
+        b=vVMIDkyi/Eqi7RgHxB/fS1oHFfyfS02YQiOR5PtWts+NuMEDjDrLIVse8O23ZQ7ej5
+         8LvBQ0Ifmag4z19LYsHHTI5E5cNeLlAvq7/ZgJ140U8pZpcFS+hkTSJzrqhZEdyb446+
+         +/Ig0as0GEBt0VW6hR1gBGXPti8kNne5NqWKBuBGIMJXQ8GSxxmSE//m+Dk8Ueesy4FM
+         eTLqAevD7QXNr4Bj2TRYCJxxKl0ka3ld6hgNkHlAksurIQnEUyRoziqMZd6Z/7WIQMNr
+         hiAiVwYIAC7thurHIRVVCYUI5Dr3aC0kEXZYLPYBXdJ5Hcgk6tLPnKOoC2K+xnetXT31
+         GryA==
+X-Forwarded-Encrypted: i=1; AL+hErGFPWavWrTNfh10GvKaKrlVJRFC4WX4BHukiORyrWIeWE7dUI024Fznmx8S0th8S86rHi6F3mWaKjcGabw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9JbW+M1bOUbG1cLCJAJ0TVskMSazW2KQu/k721rQNR2JtPkTcn
+	DtK9sQlyxRhdgQ1jMDc9mhErQPY+zn7QOl3foeaU7jCt6I4R5YgakoxY
+X-Gm-Gg: AZFdTZdD2qicsFaRftrKa0cd0F6jVGK5Upc6T5TDSmyAiejNbkcEm8+VJ1TCCaeBGQP
+	TF5D1PXFOjlcSAy/kckPTCabGMHtFUbekPdLyVXsLVOiyvR5ZR0jf0OBW4H/J31NTSsIDr8TLYD
+	NVaDg2LPJOqxzhyflVjI3SGLu2j6SWSleg4o3bXa5XFa9ZpMQRB4QDaNZJjcf5oyqxdzZpTS6SU
+	pPbleXhMXo+NG7d0/zRjyYx7qjVQsm+P8mmrWBC8uyVaeawg/vNegKYHmS6CFJnVLXzxPGN9oC2
+	e/4dXdGV1KmYWLz+UTg3m/UnysXIWh9RoO2KufZ2Uyh4sA/AWQCwFd8WQfXTPZFm1VgLh9XWe4B
+	Gfj26FHN6S1FC9PD/85cz8RnksWVq4X6MyO8ZclPtPtKOGIS9OlEPG76F86LNPSmVbgKpog+z0n
+	Isd7WAkt1J2xtNgkGCPMWHvSbW1xqRHGePlp54pCZFQ5JkPvg4KL69ljuekCHUVLVockFVcYluf
+	sZqIXsquPxhLdNR+gqMlvNsZyrxFuFk/7gYiVadftyChv96gqq+3mevrm0yLwj839qVDsyUoyNy
+	DRSbYIAGjUvFb3M1XPIXlX1bYeqOFGswp6D2UZC0DpkuO3ZGk9b0WljLoRGyb5WnKv7e
+X-Received: by 2002:a05:701b:2215:b0:1b2:42db:8a54 with SMTP id a92af1059eb24-1b5568b3154mr8671867c88.23.1795353295194;
+        Sun, 22 Nov 2026 05:14:55 -0800 (PST)
+Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55681301asm20797941c88.8.2026.11.22.05.14.39
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 22 Nov 2026 05:14:54 -0800 (PST)
+From: Lian Wang <lianux.mm@gmail.com>
+To: Kairui Song <kasong@tencent.com>
+Cc: linux-mm@kvack.org,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Qi Zheng <qi.zheng@linux.dev>,
+	Ying Huang <ying.huang@linux.alibaba.com>,
+	Chris Li <chrisl@kernel.org>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Nico Pache <nico.pache@linux.dev>,
+	Usama Arif <usama.arif@linux.dev>,
+	Michal Hocko <mhocko@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Barry Song <baohua@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yuanchu Xie <yuanchu@google.com>,
+	Wei Xu <weixugc@google.com>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Nhat Pham <nphamcs@gmail.com>,
+	Youngjun Park <youngjun.park@lge.com>,
+	Zi Yan <ziy@nvidia.com>,
+	Gregory Price <gourry@gourry.net>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Dev Jain <dev.jain@arm.com>,
+	Lance Yang <lance.yang@linux.dev>,
+	Hugh Dickins <hughd@google.com>,
+	SJ Park <sj@kernel.org>,
+	David Rientjes <rientjes@google.com>,
+	Yu Zhao <yuzhao@google.com>,
+	Vernon Yang <vernon2gm@gmail.com>,
+	Zicheng Wang <wangzicheng@honor.com>,
+	Chen Ridong <chenridong@xiaomi.com>,
+	Tal Zussman <tz2294@columbia.edu>,
+	Kairui Song <ryncsn@gmail.com>,
+	Xiang Liu <liuxiang.277@bytedance.com>,
+	Ehab Ababneh <ehab.ababneh@intel.com>,
+	Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>,
+	Joanne Koong <joannelkoong@gmail.com>,
+	Kunwu Chan <kunwu.chan@gmail.com>,
+	Hui Zhu <hui.zhu@linux.dev>,
+	linux-kernel@vger.kernel.org,
+	cgroups@vger.kernel.org,
+	damon@lists.linux.dev,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v5 03/17] mm/mglru: make generation page counters atomic
+Date: Sun, 22 Nov 2026 21:14:27 +0800
+Message-ID: <20261122131433.72335-1-lianux.mm@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261119-mglru-fg-v5-3-9eee2fe97a2d@tencent.com>
+References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com> <20261119-mglru-fg-v5-3-9eee2fe97a2d@tencent.com>
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,221 +146,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH rdma-rc v2] RDMA/siw: Reject a zero length WRITE segment
- that announces more segments
-To: Andrew Stellman <astellman@stellman-greene.com>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>,
- linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261120140552.62784-1-astellman@stellman-greene.com>
-From: Bernard Metzler <bernard.metzler@linux.dev>
-In-Reply-To: <20261120140552.62784-1-astellman@stellman-greene.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 20.11.2026 15:05, Andrew Stellman wrote:
-> siw_proc_write() returns early for a zero length tagged segment, before
-> it looks up the sink STag. If that first segment has the L bit clear,
-> the next segment is handled as a continuation of the same message and
-> siw reads mem->stag through rx_mem, which was never set. A remote peer
-> on an established siw connection can trigger this, and it panics the
-> host:
-> 
->    Oops: general protection fault, probably for non-canonical address 0xdffffc0000000004: 0000 [#1] SMP KASAN NOPTI
->    KASAN: null-ptr-deref in range [0x0000000000000020-0x0000000000000027]
->    CPU: 1 UID: 65534 PID: 119 Comm: siw001peer Not tainted 7.4.0-rc3-gaebb72744764 #16 PREEMPT(lazy)
->    Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
->    RIP: 0010:siw_proc_write+0x175/0x9c0
->    Code: 48 c1 ea 03 80 3c 02 00 0f 85 c3 07 00 00 48 8b ab 80 04 00 00 48 b8 00 00 00 00 00 fc ff df 48 8d 7d 20 48 89 fa 48 c1 ea 03 <0f> b6 04 02 84 c0 74 08 3c 03 0f 8e 31 07 00 00 39 75 20 0f 85 4f
->    RSP: 0018:ff1100006cf08318 EFLAGS: 00000202
->    RAX: dffffc0000000000 RBX: ff11000005880000 RCX: 0000000000000000
->    RDX: 0000000000000004 RSI: 0000000000000000 RDI: 0000000000000020
->    RBP: 0000000000000000 R08: ff11000005880408 R09: ff1100000588039a
->    R10: 0000000000000010 R11: ff11000005880398 R12: 0000000000000010
->    R13: ff110000058803fc R14: 0000000000000000 R15: ff110000058803dc
->    FS:  00007f9054dd1740(0000) GS:ff110000da92e000(0000) knlGS:0000000000000000
->    CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->    CR2: dffffc0000000004 CR3: 0000000005703000 CR4: 0000000000751ef0
->    PKRU: 55555554
->    Call Trace:
->     <IRQ>
->     ? irqentry_exit+0x31b/0x6a0
->     siw_tcp_rx_data+0x20e/0x2040
->     ? __pfx_selinux_netlbl_sock_rcv_skb+0x10/0x10
->     __tcp_read_sock+0x1ab/0x810
->     ? __pfx_siw_tcp_rx_data+0x10/0x10
->     ? __pfx___tcp_read_sock+0x10/0x10
->     siw_qp_llp_data_ready+0x185/0x2e0
->     ? __pfx_siw_qp_llp_data_ready+0x10/0x10
->     ? tcp_try_rmem_schedule+0x17f/0x1390
->     ? tcp_event_data_recv+0x36a/0x7b0
->     tcp_data_queue+0x1f2d/0x4b70
->     ? __pfx___mod_timer+0x10/0x10
->     ? __pfx_tcp_data_queue+0x10/0x10
->     ? tcp_try_undo_loss+0x6d0/0x730
->     ? __pfx__raw_spin_lock_irqsave+0x10/0x10
->     tcp_rcv_established+0x8a8/0x3990
->     ? security_sock_rcv_skb+0x2b/0x40
->     ? sk_filter_trim_cap+0x400/0x980
->     ? __pfx_tcp_inbound_hash+0x10/0x10
->     ? __pfx_tcp_rcv_established+0x10/0x10
->     ? __pfx_sk_filter_trim_cap+0x10/0x10
->     ? _raw_spin_lock+0x80/0xe0
->     tcp_v4_do_rcv+0x45b/0x970
->     ? tcp_v4_fill_cb+0x26/0x400
->     tcp_v4_rcv+0x223d/0x3b90
->     ? __pfx_tcp_v4_rcv+0x10/0x10
->     ? __pfx_raw_local_deliver+0x10/0x10
->     ? stack_access_ok+0xd9/0x200
->     ip_protocol_deliver_rcu+0x61/0x2e0
->     ip_local_deliver_finish+0x329/0x4b0
->     ? __pfx__raw_spin_lock_irqsave+0x10/0x10
->     ip_local_deliver+0x18f/0x2d0
->     ? __pfx_ip_local_deliver+0x10/0x10
->     ? __pfx___netif_receive_skb_core.constprop.0+0x10/0x10
->     ? try_to_wake_up+0x239/0x17a0
->     ? __asan_memset+0x23/0x50
->     ? ip_rcv_core+0x4e9/0xce0
->     ip_rcv+0x21a/0x270
->     ? __pfx_ip_rcv+0x10/0x10
->     ? __pfx_call_function_single_prep_ipi+0x10/0x10
->     ? select_task_rq_fair+0xb29/0x4110
->     ? __pfx_ip_rcv+0x10/0x10
->     __netif_receive_skb_one_core+0x161/0x1b0
->     ? __pfx___netif_receive_skb_one_core+0x10/0x10
->     ? _raw_spin_lock_irq+0x81/0xe0
->     ? ttwu_queue_wakelist+0x2a5/0x390
->     process_backlog+0x1e5/0x5e0
->     __napi_poll+0x9c/0x520
->     net_rx_action+0x8d0/0xe70
->     ? __pfx_net_rx_action+0x10/0x10
->     ? rcu_core+0x250/0x1830
->     ? clockevents_program_event+0x2ba/0x860
->     handle_softirqs+0x1b3/0x600
->     ? __pfx_handle_softirqs+0x10/0x10
->     ? __hrtimer_rearm_deferred+0x156/0x450
->     do_softirq+0x3d/0x60
->     </IRQ>
->     <TASK>
->     __local_bh_enable_ip+0x6a/0x70
->     __dev_queue_xmit+0x89e/0x3170
->     ? __pfx___dev_queue_xmit+0x10/0x10
->     ? __pfx_selinux_ip_postroute_compat+0x10/0x10
->     ? __pfx_clockevents_program_event+0x10/0x10
->     ? _raw_spin_lock+0x80/0xe0
->     ? irqentry_exit+0x31b/0x6a0
->     ? selinux_ip_postroute+0x3e9/0x9d0
->     ip_finish_output2+0x765/0x1b80
->     ? __pfx_ip_finish_output2+0x10/0x10
->     __ip_finish_output.part.0+0x46e/0x950
->     ? selinux_ip_output+0x19/0x210
->     ? __pfx___ip_finish_output.part.0+0x10/0x10
->     ? nf_hook_slow+0xa7/0x1e0
->     ip_output+0x260/0x4c0
->     ? __pfx_ip_output+0x10/0x10
->     ? __pfx_ip_finish_output+0x10/0x10
->     __ip_queue_xmit+0x6f8/0x1dd0
->     __tcp_transmit_skb+0x2ec9/0x4720
->     ? __pfx___tcp_transmit_skb+0x10/0x10
->     ? kasan_save_track+0x14/0x30
->     ? __kasan_slab_alloc+0x6e/0x70
->     tcp_write_xmit+0x11c9/0x78d0
->     ? __pfx__copy_from_iter+0x10/0x10
->     ? skb_page_frag_refill+0x55/0x390
->     __tcp_push_pending_frames+0x8f/0x2f0
->     tcp_sendmsg_locked+0x1741/0x3fc0
->     ? __pfx_tcp_sendmsg_locked+0x10/0x10
->     ? up_read+0x1f/0x1c0
->     ? __pfx_lock_sock_nested+0x10/0x10
->     tcp_sendmsg+0x26/0x40
->     sock_write_iter+0x3ef/0x4c0
->     ? __pfx_sock_write_iter+0x10/0x10
->     vfs_write+0xa37/0xcd0
->     ? do_sys_openat2+0xd1/0x170
->     ? kmem_cache_free+0xba/0x3a0
->     ? __pfx_vfs_write+0x10/0x10
->     ? __pfx_do_sys_openat2+0x10/0x10
->     ? fdget_pos+0x53/0x4b0
->     ksys_write+0x17c/0x1c0
->     ? __pfx_ksys_write+0x10/0x10
->     do_syscall_64+0xdf/0x4c0
->     entry_SYSCALL_64_after_hwframe+0x77/0x7f
->    RIP: 0033:0x7f9054ef0574
->    Code: c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 f3 0f 1e fa 80 3d d5 ea 0e 00 00 74 13 b8 01 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 54 c3 0f 1f 00 55 48 89 e5 48 83 ec 20 48 89
->    RSP: 002b:00007fff4bb4ce88 EFLAGS: 00000202 ORIG_RAX: 0000000000000001
->    RAX: ffffffffffffffda RBX: 0000000000000024 RCX: 00007f9054ef0574
->    RDX: 0000000000000024 RSI: 00007fff4bb4cea0 RDI: 0000000000000003
->    RBP: 0000000000000010 R08: 0000000000000073 R09: 0000000000000000
->    R10: 0000000000000000 R11: 0000000000000202 R12: 0000000000000001
->    R13: 0000000000000000 R14: 0000000000000000 R15: 00007fff4bb4cea0
->     </TASK>
->    Modules linked in:
->    ---[ end trace 0000000000000000 ]---
->    RIP: 0010:siw_proc_write+0x175/0x9c0
->    Code: 48 c1 ea 03 80 3c 02 00 0f 85 c3 07 00 00 48 8b ab 80 04 00 00 48 b8 00 00 00 00 00 fc ff df 48 8d 7d 20 48 89 fa 48 c1 ea 03 <0f> b6 04 02 84 c0 74 08 3c 03 0f 8e 31 07 00 00 39 75 20 0f 85 4f
->    RSP: 0018:ff1100006cf08318 EFLAGS: 00000202
->    RAX: dffffc0000000000 RBX: ff11000005880000 RCX: 0000000000000000
->    RDX: 0000000000000004 RSI: 0000000000000000 RDI: 0000000000000020
->    RBP: 0000000000000000 R08: ff11000005880408 R09: ff1100000588039a
->    R10: 0000000000000010 R11: ff11000005880398 R12: 0000000000000010
->    R13: ff110000058803fc R14: 0000000000000000 R15: ff110000058803dc
->    FS:  00007f9054dd1740(0000) GS:ff110000da92e000(0000) knlGS:0000000000000000
->    CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->    CR2: dffffc0000000004 CR3: 0000000005703000 CR4: 0000000000751ef0
->    PKRU: 55555554
->    Kernel panic - not syncing: Fatal exception in interrupt
->    Kernel Offset: 0xb200000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
-> 
-> A zero length DDP message consists of exactly one segment (RFC 5041,
-> section 5.2), so terminate the connection with a tagged buffer error
-> when a zero length first segment announces more segments.
-> 
-> The issue was found by Claude Opus 5.5 running Quality Playbook, an
-> LLM-driven code review tool:
-> https://github.com/andrewstellman/quality-playbook
-> The fix and this changelog were drafted with the same tool and reviewed
-> by me.
-> 
-> Fixes: 8b6a361b8c48 ("rdma/siw: receive path")
-> Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
+On Thu, 19 Nov 2026 05:03:35 +0800 Kairui Song <kasong@tencent.com> wrote:
+> From: Kairui Song <kasong@tencent.com>
+>
+> No feature change, convert them to atomic so we can update them without
+> holding the LRU lock. A temporary underflow is fine: readers clamp a
+> negative value to zero, and the counters only need to be eventually
+> consistent.
+>
+> Tested-by: Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>
+> Signed-off-by: Kairui Song <kasong@tencent.com>
+
+LGTM,
+
+Reviewed-by: Lian Wang <lianux.mm@gmail.com>
+
 > ---
-> v2: Include the full dmesg trace, as Leon asked. No code change.
-> v1: https://lore.kernel.org/linux-rdma/20261120000829.64597-1-astellman@stellman-greene.com/
-> 
-> Tested in QEMU with KASAN on v7.4-rc3. The patch applies unchanged to
-> rdma for-rc. With this patch siw sends a TERMINATE and closes the
-> connection, a normal two segment WRITE is still placed, and rping over
-> siw works.
-> A reproducer is available on request.
-> 
->   drivers/infiniband/sw/siw/siw_qp_rx.c | 10 +++++++++-
->   1 file changed, 9 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/infiniband/sw/siw/siw_qp_rx.c b/drivers/infiniband/sw/siw/siw_qp_rx.c
-> index e5b641c8d694..9b7e52906764 100644
-> --- a/drivers/infiniband/sw/siw/siw_qp_rx.c
-> +++ b/drivers/infiniband/sw/siw/siw_qp_rx.c
-> @@ -550,8 +550,16 @@ int siw_proc_write(struct siw_qp *qp)
->   	int bytes, rv;
->   
->   	if (srx->state == SIW_GET_DATA_START) {
-> -		if (!srx->fpdu_part_rem) /* zero length WRITE */
-> +		if (!srx->fpdu_part_rem) { /* zero length WRITE */
-> +			/* A zero length DDP message is a single segment. */
-> +			if (unlikely(frx->first_ddp_seg && frx->more_ddp_segs)) {
-> +				siw_init_terminate(qp, TERM_ERROR_LAYER_DDP,
-> +						   DDP_ETYPE_TAGGED_BUF,
-> +						   DDP_ECODE_T_INVALID_STAG, 0);
-> +				return -EINVAL;
-> +			}
->   			return 0;
-> +		}
->   
->   		rv = siw_write_check_ntoh(srx, frx);
->   		if (unlikely(rv)) {
-> 
-> base-commit: e7732ec135b501e87ab060d992b3b5f2ec4396c9
-Thank you Andrew, you're reminding me of things I was once
-actively involved in specifying!
-
-Acked-by: Bernard Metzler <bernard.metzler@linux.dev>
+>  include/linux/mm_inline.h |  6 ++----
+>  include/linux/mmzone.h    |  2 +-
+>  mm/vmscan.c               | 26 +++++++++++++-------------
+>  mm/vmscan.h               |  2 +-
+>  4 files changed, 17 insertions(+), 19 deletions(-)
