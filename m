@@ -1,78 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795324322;
-	b=gM0UzIL2nyEqWJcWi2KSy8aHrH5lwrs2sRV+qvmJ5PtWFv1zqIr4MaDVjJlcsacDr5Rg
-	 D+DzyCED86x3WmcaPQHsMa9UhI3FcXrSN+EKPS3wW+lAcmV99oPfEXbwsomJSTUrR/IL9
-	 XJYYLN/k1PJqSWiTwxu2SOnJif0HXmyl58DWQ2BS4P9gg5G8RWBCvAXoM8c9I5hX1mVEg
-	 ZJ+wkrmen6lT38N+W6+68XgSYUAVrryYj0Ms7rSnN5+gOy+0lTWBO7kZMU0VT0CUUp4p6
-	 PZijnubTrTxt6BNz9UsiO7Tt9tn+jE3Nksx4+rJJVjrF/Ue7ZFT079MnJyPIvLE37yA==
+	t=1795324334;
+	b=RMN6rTDDIg3pah5MxVMgsmSNzCqS02WiuKFGCge8d5og6/ET6QJwRHVENMosG6ogvpR2
+	 l4GC04xqf52eA5GTU6HqCAgGvRePMlMAVAMKbg2mTVWL+Jc/j/pkcvwaah47NG/tlGGot
+	 /dUJUb+z87hB1KPFwkHGBwugH9xohm9/b4Z+tLsN3sCGijSJPJyzEO/7GCIy+4JkhpTk7
+	 TlBnGEk3aqGvOjqmiuNxJQNvIuDDW98R2zzKcQdxLrZZQcOpu0bfsbAAKw36jl2XAMM+d
+	 6Rbc8W+1MkX6gwr4ecfrfchL6rfwYsGLMB+OjqdIgx7qOIMKJ28/F21I+o2fy/AE6Pg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795324322;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795324334;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=h3aYzkwsAVHixWxdwIcvCBMP8oi7l5lLZeHXkqI9rO0=;
-	b=zmqUi3KWj1xbZgXHAAH50uxmkBjZq4SEUlcyRbnIMkFQhxfxvVtBiEiPOqo2UK7D46E9
-	 zYFI4JvZVcSZaUlz6eXSs/oI4/bMDADEChC3Gj3rvmbv1r13wZTyszAvTDjl2TbwUpZ4u
-	 3NhmdmW+H/fpX25yg5j98zUuvOaon67b6oC7/2fH0yNC7JJGyCy/hpFj0ar+ZYJ+P6kIt
-	 1buMYokFVUXggTwnqc2hPy1lgfBhVt+EeCf8i5OQjmKpTiMDlU7oo2Fu7xWLpXoEGq4zs
-	 cLfjr/Hx/ZHU5Hhl2kjHT7LyPE63WnQt5wjT2SabVOXiSpvn1QXedTxkYHa3CH65idw==
+	bh=qm0wfk24ya2agwvJUggvv63GyJmzYEfnNvFV0dNw0f4=;
+	b=CUdPBDzfC7uTB1wfWCGsQEqgOLf3Xn5C+Gm2m0y67/MjMnE9Rfd8g0UUJrfuBxWbz4X8
+	 KHbAcNyp1UGVXOpLIINZweaAsRCezOb56ey8gcEfO3faIwVZxyynICdl55LLwG06MwQ91
+	 OBwP0BWwXVKkGKSCMfCKANh4sofSV41NPDztVp0DUYEwyCBaU4ELQ9jTqp0ZoVuaKwNsF
+	 /nAjc3CNZAUMa79vGT5puOVewEXw8M67Vlmk0p3WAe2bBEzYvrE8XHfOLSXzDM3+92msw
+	 BhnlcEUjIDb4lWxO8Y5j8iZ146UzLagWs23yEtkLfoSSI0XUb++ZBrBo7/k9UBug7eA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VTmeRHw4;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IITDDZKq;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEB9A606A320;
-	Sun, 22 Nov 2026 05:12:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B46EE606A320;
+	Sun, 22 Nov 2026 05:12:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VTmeRHw4
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IITDDZKq
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795324322;
-	b=JmAfGXx6Ppu7VpoITvB9LjzmPfBKFOFUV4SMMIRNHiQ1uJsdQ0qKyE6MrbAyUzisDE39
-	 7khm1iGyxzitX4TbWFsfSshoorqVVCB/Qp+Zl87cwvVx6IQFH4cDEJ0FAhFSHdzSwvpUs
-	 G4NYoFkB34txKN4AUo+nmThPcHt/XjnBBTTT6hQoYTN9qwuRZU3VQl4/wNg1jgqdT1pWA
-	 eUKFFuwuxUqh6bXVt2iDB0LOJ4IiIRBJuq1QsHTfh2lgWqjzH0p1QBykFVyPhXjK1ebqc
-	 cqj4/hNJzXS1OMhJGFIwSizDmzwCQb/wzr60n1epvjlpET9ohP4xWIjkL8X2LocCcRw==
+	t=1795324334;
+	b=1Qvcx2hxDxNDHxq2jJbmli5rCVY/0VrZCx8Tq7mN6rI3WyMYrMJEOILTV2K5fTI4aYNZ
+	 sucdp5acNzoUQF2c063VP3jNmvLauXi7UYj7MCYwauTmY4oeKLyjYLe8tplRLs4vQNbPu
+	 gXnzTriFTn1c4pwHYR2nWxANJf6U8AwCkTM3kpIVar6ponw9eIOsyGeiUoSA70wG7r38z
+	 1i7ITSaxScIj1u7qZsHg2TMu3grfqVcQefZ5xiXTiK6RyhKqMezUrDWoxrkVfj65xbykl
+	 LG8KhdHn482XyGUFZ10XipNAIiCL7p9hXtjoEDIHECBBSDNwKx8LhpGtcoWiuvROEqw==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795324322;
+	c=relaxed/relaxed; t=1795324334;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=h3aYzkwsAVHixWxdwIcvCBMP8oi7l5lLZeHXkqI9rO0=;
-	b=cPx4ULf1kRAnlWQ4HLP5abbncy8ScaqkJLn27+kyrcOuJNqkO2mz/T9J1B2IJ0mlOlHb
-	 K4vkeQyyRReRKKv0arV9lAQ3NQL166Pe56Rp29HzwreoMiIq7R8ODDOKbYjpsdLkXSWJP
-	 OVKMSs8Ih1UbCHZinxAmxWMQgbgkduJc7+mkNjVSKXTXxBMMcVCJZUaINR/uop5hjhPgZ
-	 cFxdD/jLZcuowSkaDdBbfc3vwaAfZ57qiH62rUrALLpv2Gzd/UetHPfSDkDq8bxqv1qLB
-	 IVTpeBb8uXBZC7w7157OjT/dLVdsd3hcZCvYhy9UMzYGscmeJ6Dsy3YDoeUAe2ZpcLg==
+	bh=qm0wfk24ya2agwvJUggvv63GyJmzYEfnNvFV0dNw0f4=;
+	b=VGjnugoHNWVK9askPzDuyqQgZlmy9UKR23BUA7TjS18texnINf2Vpfngw0HnAzmFMW5r
+	 9KqmrKb6NTAsRZ9ARZE8oZOOt2YMtPjw2xx/20/AH7TLvqc7JYM5kJqlvIOxO0FY60Z/Z
+	 KeHHAUu0CywpigeQM5BlS0XopUk+BMDOhH+gkBTujL7hArX3+3d+5XHgknw2b3U/vrwaH
+	 2WY/YYqGE8ytQeKDCGDY/ArJYdT6hT7MWlEnoCt1o7x2Vj05hwyMnueJ0mI8qLHuczgBJ
+	 3lHf1Cir1XGfxWUT7EG87OhbfmymZ96XNlVea+2kZDcMxgAoGRgpg4kEYdri/WqSK8Q==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id A04531F000C4;
-	Sun, 22 Nov 2026 05:12:01 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id C6C3B1F000CA;
+	Sun, 22 Nov 2026 05:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795324322;
-	bh=h3aYzkwsAVHixWxdwIcvCBMP8oi7l5lLZeHXkqI9rO0=;
+	s=k20260515; t=1795324334;
+	bh=qm0wfk24ya2agwvJUggvv63GyJmzYEfnNvFV0dNw0f4=;
 	h=From:Date:Subject:To:Cc:Reply-To;
-	b=VTmeRHw42pTGl7pabUOoROQnmP6vI8MpZk/8K9WsR07gqf+h7iUvL2TkKC8xiXLsL
-	 WRnovDBv/33RrlGsJicn6pQXF3nkkDvB23yExtWzDovRJZNZXy7rSFTfIaXaG7k9mD
-	 40CqQx7vwM0zNqavkxf8elicQWpM+uGhZ60gfgPG3ATN+a41KJhQfGPkRFs3cbJBEz
-	 ZF1qeIuJ8ED72l6K20TFmo7y6lff5T9dEXMUJScCu9VPGSRFviBmTkqgLlP1iyIscb
-	 VKCAyhm0LG56B7O11alLJquZIiWA2imNVYs86mmwtYQJhIL4njn6qzEibkTPrHkr8o
-	 cQp787O0iJabQ==
+	b=IITDDZKqO0e3VwgtBu+xTaSow9ZE5GEvSYWySaT4BsM/2vlZ832cQaLGV1gOCZlwg
+	 cs0YP0Uj9mhCCGus329XpKalAD22aKIK+55Tqm9keBoCtVs6F9j3/+qD8kakDekW+I
+	 iKyeZOjwfBrFy8nidDguxrCabxpd1CRsmfRpUiFq63cChsZC9GBZ+cAhDfG5ETWyDM
+	 rltn0tj2Yn96/wSW/zLrt9IljdX6C5V8oP12EqnGhcNgCwtwKM8g3bwhwkxktrPMyv
+	 mQkPzA2pJDRlytEdzsJ1rw7k+r2lzXLuTs97IYbm/l5mZthqS/lYsYt44TA2LSs4iG
+	 VjDvTLZwjaseQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 019DB4BF16;
-	Sun, 22 Nov 2026 05:12:01 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 57C574BF13;
+	Sun, 22 Nov 2026 05:12:13 +0000 (UTC)
 From: EMCP333 via B4 Relay <devnull+emcp.enser.io@kernel.org>
-Date: Sun, 22 Nov 2026 05:11:23 +0000
-Subject: [PATCH] serial: tegra: do the baud tolerance math in 64 bits
+Date: Sun, 22 Nov 2026 05:12:05 +0000
+Subject: [PATCH] Bluetooth: hci_ll: download the init script at the
+ operating speed
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,25 +84,21 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261122-b4-serial-tegra-baud-tolerance-v1-1-39907382281f@enser.io>
-X-B4-Tracking: v=1; b=H4sIAHp5AmsC/yWNwQ6CMBBEf4Xs2VVam0r8FeNhuyxQQ4ppCzEh/
- LutHt9k3swOSaKXBPdmhyibT34JBdSpAZ4ojIK+Lwy61VYprdEZrArNmGWMhI7WHvMyS6TAggP
- ba9sRd2wNlJF3lMF/fgeP55/T6l7Cua7WhqMk6Ko91ajiZbudDUbWcBxfsOFZvqIAAAA=
-X-Change-ID: 20261122-b4-serial-tegra-baud-tolerance-fc6308ac8c64
-To: Laxman Dewangan <ldewangan@nvidia.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>
-Cc: Thierry Reding <thierry.reding@kernel.org>, 
- Jonathan Hunter <jonathanh@nvidia.com>, 
- Krishna Yarlagadda <kyarlagadda@nvidia.com>, linux-serial@vger.kernel.org, 
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
+Message-Id: <20261122-b4-hci-ll-oper-speed-v1-1-952a9c1edfde@enser.io>
+X-B4-Tracking: v=1; b=H4sIAKR5AmsC/yXMwQrCMBAE0F8pe3a1iSEFf0U8JOnGREpadmsRS
+ v/dRI9vmJkdhDiTwK3bgWnLkudSoU4dhOTKkzCP1aB7bZXSGr3BFDJOE84LMcpCNCL1V2P9YE2
+ MEep0YYr587u9P/6Wt39RWNtXa3gnhJ5dCalFjZdtOBvkoOE4vgwf0B+YAAAA
+X-Change-ID: 20261122-b4-hci-ll-oper-speed-e0346b764fff
+To: Marcel Holtmann <marcel@holtmann.org>, 
+ Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Cc: linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org, 
  EMCP333 <emcp@enser.io>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795324319; l=3906;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795324331; l=5332;
  i=emcp@enser.io; s=ultron; h=from:subject:message-id;
- bh=GXIk9AQVC2K8tTVlGwvFv8h3R35+N798W5Ucf2ARQvE=;
- b=G/EK8deCg7wtRnWgFOWfHw6ZHJdTUxTHk9IExb1Hv0blbsDDDpfAiqpVu6QkkfQKOSwAbdcP1
- S/HZNlh3NuCBcJO0Y/rrs+31xMe2Wi3Jftk2RnFdORd89ryHdXoeAi+
+ bh=+1av/CAD+P2ReCY2LEXf8jR55fRsbXtZBigW9sg6n4Y=;
+ b=omFo5tWcaF+GbD0ZUzRFYok1x5xHKCr3sFEc+Pu7YSGI4LCguUFJlwUI+Q+/H2Kb3Ck1dOWPt
+ XLo+nq3Mnn6A5jIepaAq/DYEIPQZGfL9GkcXQTiH3TOBs1iJnwg8TTR
 X-Developer-Key: i=emcp@enser.io; a=ed25519;
  pk=5sG48Lul+Vn7OzXu3VZrCWk5uvEFPYMXYnAV0TZR/tY=
 X-Endpoint-Received: by B4 Relay for emcp@enser.io/ultron with auth_id=1598
@@ -111,96 +108,162 @@ Content-Transfer-Encoding: 7bit
 
 From: EMCP333 <emcp@enser.io>
 
-On a 32-bit kernel both halves of the baud tolerance logic overflow
-`long`, so a Tegra20/30/114/124 board whose DT has an
-nvidia,adjust-baud-rates entry runs its fast UART rates at the wrong
-speed, and the range check then reports the wrong speed as fine.
+ll_setup() downloads the TI init script at the 115200 init speed and only
+then moves both ends to max-speed. TI's own user-mode init manager does
+it the other way round: HCI_VS_Update_UART_HCI_Baudrate first, then the
+script at speed. For a WL18xx script (TIInit_12.8.32.bts, 293 commands)
+that is the difference between ~6 s and under 1 s.
 
-tegra_get_tolerance_rate() returns rate + rate * tolerance / 10000, with
-rate = 16 x baud. For any baud above ~986 kbaud, rate * tolerance
-exceeds 2^31 and wraps, so the adjustment comes out negative and the
-clock divider rounds the request down a further half step. On a Tegra
-Note 7 (pll_p 408 MHz, nvidia,adjust-baud-rates = <1000000 4000000 136>),
-read back from clk_summary:
+The length of that window is not only a boot-time cost. On a Tegra Note 7
+(WL18xx on a Tegra 114 hsuart, max-speed 3000000) the 6 s download
+overlaps the WLAN core's bring-up on the same chip, and one script
+command -- 0xfd82, the first after the PHY post patch -- then gets no
+answer. Every cold boot logs
 
-    baud      wanted uartc   got uartc     actual baud   error
-    3000000   48652800       45333334      2833333       -5.56 %
-    1500000   24326400       23314286      1457143       -2.86 %
+    command 0xfd82 tx timeout
+    download firmware failed, retrying...
 
-Both "got" values follow exactly from the wrapped arithmetic. With 64-bit
-math the clock comes out at 48000000 and 24000000, i.e. 3000000 and
-1500000 baud exactly.
+and the retry, with WLAN up and idle, passes. Bluetooth is ready ~35 s
+after boot. With the WLAN driver blacklisted the same command answers
+first time in ~140 ms. With this change the script completes 0.86 s
+after hci_uart loads, with no retry, on two cold boots; the controller
+then runs at 3 Mbaud and scans, and WLAN is unaffected.
 
-tegra_check_rate_in_range() is meant to catch this, and cannot: it
-computes (long)(configured - required) * 10000, which wraps for any
-delta above ~215 kHz. The -5.56 % above reads as -0.18 % and passes the
-window, so "configured baud rate is out of range" is never printed.
+Send the speed change after every BT_EN toggle, because that resets the
+controller to its ROM default. If the speed change or a download at
+speed fails, the remaining attempts fall back to the previous order:
+script at the init speed, then the speed change. Setups whose max-speed
+equals the init speed are unchanged.
 
-Found through Bluetooth: hci_ll moves a WL18xx on uartc to 3 Mbaud after
-the firmware download, the host lands 5.56 % low, and the controller
-never answers the next command (HCI_Reset times out). With this change
-the controller comes up at 3 Mbaud and scans. Tested on that board with
-an otherwise unmodified driver on a next-20260422-based kernel; 64-bit
-kernels are unaffected, as long is 64 bits there.
-
-Use div_s64() for both expressions so the result does not depend on the
-width of long.
+Tested on the Tegra Note 7 on a next-20260422-based kernel. Not tested:
+the fallback path, and controllers other than WL18xx.
 
 The code and this changelog were prepared with the help of an AI coding
 assistant. The submitter has reviewed both and takes responsibility for
 them.
 
-Fixes: f04a3cc8d455 ("serial: tegra: add support to adjust baud rate")
-Fixes: d781ec21bae6 ("serial: tegra: report clk rate errors")
 Signed-off-by: EMCP333 <emcp@enser.io>
 ---
- drivers/tty/serial/serial-tegra.c | 12 ++++++++----
- 1 file changed, 8 insertions(+), 4 deletions(-)
+ drivers/bluetooth/hci_ll.c | 71 ++++++++++++++++++++++++++++++++--------------
+ 1 file changed, 50 insertions(+), 21 deletions(-)
 
-diff --git a/drivers/tty/serial/serial-tegra.c b/drivers/tty/serial/serial-tegra.c
-index e93873a1d1..b5973c0a95 100644
---- a/drivers/tty/serial/serial-tegra.c
-+++ b/drivers/tty/serial/serial-tegra.c
-@@ -18,6 +18,7 @@
- #include <linux/err.h>
- #include <linux/io.h>
- #include <linux/irq.h>
-+#include <linux/math64.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/pagemap.h>
-@@ -365,11 +366,13 @@ static long tegra_get_tolerance_rate(struct tegra_uart_port *tup,
+diff --git a/drivers/bluetooth/hci_ll.c b/drivers/bluetooth/hci_ll.c
+index 3c9d98eebc..8dffe5f219 100644
+--- a/drivers/bluetooth/hci_ll.c
++++ b/drivers/bluetooth/hci_ll.c
+@@ -608,11 +608,27 @@ static int ll_set_bdaddr(struct hci_dev *hdev, const bdaddr_t *bdaddr)
+ 	return PTR_ERR_OR_ZERO(skb);
+ }
+ 
++/* Ask the controller to move to @speed, then follow it on the host side. */
++static int ll_set_oper_speed(struct hci_uart *hu, u32 speed)
++{
++	__le32 speed_le = cpu_to_le32(speed);
++	struct sk_buff *skb;
++
++	skb = __hci_cmd_sync(hu->hdev, HCI_VS_UPDATE_UART_HCI_BAUDRATE,
++			     sizeof(speed_le), &speed_le, HCI_INIT_TIMEOUT);
++	if (IS_ERR(skb))
++		return PTR_ERR(skb);
++	kfree_skb(skb);
++	serdev_device_set_baudrate(hu->serdev, speed);
++	return 0;
++}
++
+ static int ll_setup(struct hci_uart *hu)
  {
- 	int i;
+ 	int err, retry = 3;
+ 	struct ll_device *lldev;
+ 	struct serdev_device *serdev = hu->serdev;
++	bool at_speed;
+ 	u32 speed;
  
-+	/* 64-bit: rate * tolerance overflows a 32-bit long */
- 	for (i = 0; i < tup->n_adjustable_baud_rates; ++i) {
- 		if (baud >= tup->baud_tolerance[i].lower_range_baud &&
- 		    baud <= tup->baud_tolerance[i].upper_range_baud)
--			return (rate + (rate *
--				tup->baud_tolerance[i].tolerance) / 10000);
-+			return rate + div_s64((s64)rate *
-+					      tup->baud_tolerance[i].tolerance,
-+					      10000);
- 	}
+ 	if (!serdev)
+@@ -624,6 +640,23 @@ static int ll_setup(struct hci_uart *hu)
  
- 	return rate;
-@@ -379,8 +382,9 @@ static int tegra_check_rate_in_range(struct tegra_uart_port *tup)
- {
- 	long diff;
+ 	serdev_device_set_flow_control(serdev, true);
  
--	diff = ((long)(tup->configured_rate - tup->required_rate) * 10000)
--		/ tup->required_rate;
-+	/* 64-bit: delta * 10000 overflows a 32-bit long above ~215 kHz */
-+	diff = div_s64((s64)(tup->configured_rate - tup->required_rate) * 10000,
-+		       tup->required_rate);
- 	if (diff < (tup->cdata->error_tolerance_low_range * 100) ||
- 	    diff > (tup->cdata->error_tolerance_high_range * 100)) {
- 		dev_err(tup->uport.dev,
++	/* Operational speed if any */
++	if (hu->oper_speed)
++		speed = hu->oper_speed;
++	else if (hu->proto->oper_speed)
++		speed = hu->proto->oper_speed;
++	else
++		speed = 0;
++
++	/*
++	 * Download the init script at the operating speed, as TI's own
++	 * user-mode init manager does. At the init speed a WL18xx script
++	 * takes ~6 s, long enough to overlap the WLAN core's bring-up on the
++	 * same chip. If anything fails at speed, the remaining attempts use
++	 * the init speed.
++	 */
++	at_speed = speed && speed != hu->init_speed;
++
+ 	do {
+ 		/* Reset the Bluetooth device */
+ 		gpiod_set_value_cansleep(lldev->enable_gpio, 0);
+@@ -636,12 +669,26 @@ static int ll_setup(struct hci_uart *hu)
+ 			return err;
+ 		}
+ 
++		/* BT_EN just reset the controller to its ROM default speed */
++		serdev_device_set_baudrate(serdev, hu->init_speed);
++		if (at_speed) {
++			err = ll_set_oper_speed(hu, speed);
++			if (err) {
++				bt_dev_warn(hu->hdev, "speed change before download failed (%d)",
++					    err);
++				at_speed = false;
++				serdev_device_set_baudrate(serdev, hu->init_speed);
++			}
++		}
++
+ 		err = download_firmware(lldev);
+ 		if (!err)
+ 			break;
+ 
+ 		/* Toggle BT_EN and retry */
+-		bt_dev_err(hu->hdev, "download firmware failed, retrying...");
++		bt_dev_err(hu->hdev, "download firmware failed%s, retrying...",
++			   at_speed ? " at operating speed" : "");
++		at_speed = false;
+ 	} while (retry--);
+ 
+ 	if (err)
+@@ -663,26 +710,8 @@ static int ll_setup(struct hci_uart *hu)
+ 		hci_set_quirk(hu->hdev,
+ 			      HCI_QUIRK_BROKEN_ENHANCED_SETUP_SYNC_CONN);
+ 
+-	/* Operational speed if any */
+-	if (hu->oper_speed)
+-		speed = hu->oper_speed;
+-	else if (hu->proto->oper_speed)
+-		speed = hu->proto->oper_speed;
+-	else
+-		speed = 0;
+-
+-	if (speed) {
+-		__le32 speed_le = cpu_to_le32(speed);
+-		struct sk_buff *skb;
+-
+-		skb = __hci_cmd_sync(hu->hdev, HCI_VS_UPDATE_UART_HCI_BAUDRATE,
+-				     sizeof(speed_le), &speed_le,
+-				     HCI_INIT_TIMEOUT);
+-		if (!IS_ERR(skb)) {
+-			kfree_skb(skb);
+-			serdev_device_set_baudrate(serdev, speed);
+-		}
+-	}
++	if (speed && !at_speed)
++		ll_set_oper_speed(hu, speed);
+ 
+ 	return 0;
+ }
 
 ---
 base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
-change-id: 20261122-b4-serial-tegra-baud-tolerance-fc6308ac8c64
+change-id: 20261122-b4-hci-ll-oper-speed-e0346b764fff
 
 Best regards,
 --  
