@@ -1,80 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.39
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795380406;
-	b=d/BwR4e53w/aJX6vWcB4oPmEMAB2uZXpKUuXP8n76ncdYcLi3HYLU4vFX+FmapbRjkYP
-	 3/MTHA4egg/KqyxpoQ7jDTsl9L5wBt4ahSOAa6xkRrRalFmTJMOj9RDyutXsJ37BO2qQk
-	 ubDasEPQB7WXOEFTlN/Y7r1nnXd/DEg8H+ggY2+5o7me1MI/FXWLFzbNPlM9rURwj2ucx
-	 ZgdouyrY93lC5t/MQasMgavu7eAcVT0fUVkejW7GfiUA7a/QbRawqgxeQLO+/UiiVtwAK
-	 l1ysJLV/Liz70Yes9G4w1yM3ugWB7iTBkcTSfjkXcNhlcyMmCdlD17i3F0oM6KyYMLQ==
+	t=1795380577;
+	b=TaNVlA5zFYI2dv2LNpPG8keFk53+wpPC+8uCx26HwOSJKb+WiPa9I3K4yfe6ytWY4nl+
+	 SkYoCr+IQutqAnJGVRHnnQW4d8m/h3bLhyP6phbzO1Kxzb0VQygK14SglAtcKdTou5OJq
+	 dToVBua8jyQs/Ye+z3XKe8s4Sc/pbFvq+B4N4UFsmHYIZ2vcXIrx2EzY3bA6D3QDmCRwm
+	 38QRPZcAKE/fHXfb0qZLFOmyqQ1maWgBkLD9hAwL2yap9kAwN3m0BIP4vhLYXlpFNfcW4
+	 SLvhHT5nF2aMT9y24JXKmTHFHRPygCLJJH9m9WrGPhvHNBxcjqj36auD5q1TK/nl4Lg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795380406;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:X-Source:
-	 X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
-	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
-	bh=LSD5gbGGgGHR9hhcem3MZ2q3tssD5SSjeWRvzutmFFI=;
-	b=RO87ri+UrAQ1B8nYXSgH98WUjoB7WJhSCYcKqmqXH3ptwjAamWjT8l2FSlAB/648zivO
-	 RROmuV9nIET8yU2jJy36H2xr8w1LDLVTN2hTomVZm7LpmifZWraAOUELOVoINHMZOlFOv
-	 tAaCdsYCbjzLr8oRQvoEuo7JjJNewSHthB/HcXFwHgUX6Wsx6+BhkGxJgZj5AbZ91f5Lx
-	 mx+DW+yGXUe8zkhhZdKgqMOM+w2bkrn3OkRVR67ypMz3Ukp8o7GxzaA9Y3+E/SyqhUe/E
-	 d8V9CBV6SJeHMF24h6aO6WPhhuHISxPZ2eI9s/WSbMPZ+QYilBFVwYCV736sjy10GXw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795380577;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=zdqMHZJu/xkr58nOw2kits8fBQn+bxgBmrmWFfh5cGM=;
+	b=wNzi5GBoNM0sDYIi1JiUtdQv+cQNX0QmQnhcPKK+l5zTk+uzdoZxbFFtPIeOXNy4g5Ou
+	 xLiVifiCe3Vz2B0TgWhBhyzbI2Q6b8Xyol2dXGyPg3ptUUh+Nd32Yne0Wd5kesme4IXol
+	 PgYrWQWlSa6Yo5rUMxn3kjpViSpNP/+IvehT4ovULPn4LVkmRQk1kEiH27a0Ce5ghfgi+
+	 LZY23nSvmf4UGrQModXWzqI4dQtHkKHE4GeuxwOPz5ZBoC99sH+P2+Z2a9BeK9zYPQsYI
+	 NBI6Yh96jaUy0eUGXsJUDGaclpRM0P9xBtHDqHvBl2yz+ZCCsfddVau1fmn3vyIbALw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=roeck-us.net;
-	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=mGUh6841;
-	arc=none smtp.remote-ip=35.89.44.39
-Received: from omta40.uswest2.a.cloudfilter.net (omta40.uswest2.a.cloudfilter.net [35.89.44.39])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iQxarP0b;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75351606A31A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:46:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75351606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A06C0606A31A;
+	Sun, 22 Nov 2026 20:49:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=mGUh6841
-Received: from eig-obgw-5005b.ext.cloudfilter.net ([10.0.29.189])
-	by cmsmtp with ESMTPS
-	id Uvw3xF35eyb4YVESSxkes9; Sun, 22 Nov 2026 20:46:45 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id VESRxbKJyYskhVESSxhZAm; Sun, 22 Nov 2026 20:46:44 +0000
-X-Authority-Analysis: v=2.4 cv=CKMqXQrD c=1 sm=1 tr=0 ts=6b0354b4
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=8nJEP1OIZ-IA:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=JtdX1pvmAAAA:8
- a=VwQbUJbxAAAA:8 a=tI0p-kfHP82b7JzrScQA:9 a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
- a=c0toiO28_D8leWPcdVQN:22 a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
-	List-Archive; bh=LSD5gbGGgGHR9hhcem3MZ2q3tssD5SSjeWRvzutmFFI=; b=mGUh6841l/Rq
-	mHCjTP9lDhFZH1axHpr7h98VsAtQjmITqrd/kobcmpT1D7hYvxI189C9naTJKLgC3cwvR0rF2PYlH
-	WJXO4VHZz+OWvaEOMuT348mYxyuTgmaQydYYrdkD+bcZNezwqNbbS2I9i+zb57bwIDWR3atjMN9aU
-	eB7j7+sNTku11ljRiPSSyeuoqmN1jr1eGuPf4kvw23L07iw6pNwvFHk+GOSQymaARQv0gUrqP6gfv
-	NZs+rCMRr+abC9/jgucOUBSM6fiRylJgdfDobym1/Sd/ODNh2pKm96EPLsHCQSjHtkWYUUovdccfs
-	DsmBxMYQGIgIC6P2dong/w==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:33312 helo=server.roeck-us.net)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xVESR-0000000007M-0aq4;
-	Mon, 23 Nov 2026 02:16:43 +0530
-Date: Sun, 22 Nov 2026 12:46:41 -0800
-From: Guenter Roeck <linux@roeck-us.net>
-To: Ivan Popovych <ivan@ipvych.com>
-Cc: linux-kernel@vger.kernel.org, pali@kernel.org,
-	linux-hwmon@vger.kernel.org
-Subject: Re: [PATCH v2] hwmon: (dell-smm) Add Dell XPS 15 9550 to fan control
- whitelist
-Message-ID: <27ffe277-f1d1-4e85-8bd4-bea8f2962f05@roeck-us.net>
-References: <e4e133c6-db41-4776-a73e-e8e051eadec4@gmx.de>
- <20261121230738.4970-1-ivan@ipvych.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iQxarP0b
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFEB31F000C4;
+	Sun, 22 Nov 2026 20:49:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795380576;
+	bh=zdqMHZJu/xkr58nOw2kits8fBQn+bxgBmrmWFfh5cGM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=iQxarP0btcWbQATk4TSl34vEyppel98cM1VTk1mM/wuF+Vgfy0hfbZBccINg/lJLG
+	 pT8JM/8QNAw771PapCeU2RWxnb6XxC6hQzAc+fMjW+HLFzP+1kI6ba0EhDLDXGQw4Q
+	 kJC7rSwwVtEQXGFnFxKcB+0n9/qbUYnVyTiQdQohCD/4yxEaXUJs2zozv726DMQHm9
+	 Skg2n36QGyjRCwyr867x9hvVytxltpRzOinBvJOGdDT/ABRYta0hUvXcMeWCReMAXU
+	 gfTQcCjsrLrEv3XLWG6nrwdKEpS2w3ZgZf0GeFfM7zkq2fcY5Le04yu7+kz8phrkj1
+	 8FOJHfs9a7e0w==
+Date: Sun, 22 Nov 2026 20:49:29 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Arnav Kapoor <kapoorarnav43@gmail.com>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Andy Shevchenko
+ <andriy.shevchenko@intel.com>, Gwendal Grignou <gwendal@chromium.org>,
+ Joshua Crofts <joshua.crofts1@gmail.com>, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 0/3] iio: proximity: sx93xx: keep the IRQ balanced
+ across suspend and resume
+Message-ID: <20261122204929.326a730a@jic23-hlaptop>
+In-Reply-To: <20261114073601.23404-1-kapoorarnav43@gmail.com>
+References: <20261114073601.23404-1-kapoorarnav43@gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,44 +63,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261121230738.4970-1-ivan@ipvych.com>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xVESR-0000000007M-0aq4
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:33312
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 3
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfAG9poKzcpCqja2eBBBVMZmrpIvlWK2AXF7dof/TzJXaduKQ+1OSOD7yDBsYnabh51tpm/zggIcsDEXvMd23UTMYcOhUN95lNd5OuWbdgMjRx0HgKvz0
- sFUTol3T/YNbf5EsSFqvP4na7/vLRNtKl3S952RWkz3vA4rQdZQN8bKtYR3m3MNgBpbyEbhQG5+JeoMrCRI2P3nv6NhXRCVrj2ZDIVz5EkTm1W7+4NXNiQYx
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Sun, Nov 22, 2026 at 01:07:38AM +0200, Ivan Popovych wrote:
-> Confirmed on my own Dell XPS 15 9550 running BIOS version 1.14.0
-> running "echo 1 > pwm1_enable" disables automatic fan control and
-> "echo 2 > pwm1_enable" enables it back.
+On Sat, 14 Nov 2026 13:05:54 +0530
+Arnav Kapoor <kapoorarnav43@gmail.com> wrote:
+
+> sx9310, sx9324 and sx9360 disable the interrupt in suspend before
+> anything that can fail, and don't enable it again when suspend or resume
+> fails. One patch per driver, as the Fixes tags differ.
+Applied to the testing branch of iio.git and marked for stable.
+
+Given we hope that failure in suspend and resume is incredibly rare
+and we are now someway into this cycle I'm not going to rush these in.
+
 > 
-> Both 30a3/31a3 and 34a3/35a3 commands work on this laptop, using
-> 30a3/31a3 as these are the commands used by the official Dell
-> software.
+> Changes in v5:
+> - Disable the interrupt with disable_irq() before taking the mutex,
+>   and enable it again if suspend fails. v4 called disable_irq_nosync()
+>   at the end of suspend, so a threaded handler woken during the
+>   register writes could run after suspend returned. Found by Sashiko.
+> - Move the register accesses into a *_sleep() helper per driver so the
+>   mutex is released before the interrupt is re-enabled on failure
+> - Rebase on fixes-togreg
+
 > 
-> Signed-off-by: Ivan Popovych <ivan@ipvych.com>
-> Acked-by: Pali Rohár <pali@kernel.org>
+> v4: https://lore.kernel.org/all/20261101102518.22757-1-kapoorarnav43@gmail.com/
+> v3: https://lore.kernel.org/all/20261028220444.70121-1-kapoorarnav43@gmail.com/
+> v2: https://lore.kernel.org/all/20261026112342.65917-1-kapoorarnav43@gmail.com/
+> v1:
+> https://lore.kernel.org/all/20261026100322.16720-1-kapoorarnav43@gmail.com/
+> https://lore.kernel.org/all/20261026100408.16874-1-kapoorarnav43@gmail.com/
+> https://lore.kernel.org/all/20261026100450.17023-1-kapoorarnav43@gmail.com/
+> 
+> Compile-tested only (W=1); I don't have the hardware and haven't
+> reproduced a failing suspend.
+> 
+> Arnav Kapoor (3):
+>   iio: proximity: sx9310: keep the IRQ balanced across suspend and
+>     resume
+>   iio: proximity: sx9324: keep the IRQ balanced across suspend and
+>     resume
+>   iio: proximity: sx9360: keep the IRQ balanced across suspend and
+>     resume
+> 
+>  drivers/iio/proximity/sx9310.c | 54 ++++++++++++++++++++++------------
+>  drivers/iio/proximity/sx9324.c | 43 ++++++++++++++++++---------
+>  drivers/iio/proximity/sx9360.c | 45 ++++++++++++++++++----------
+>  3 files changed, 94 insertions(+), 48 deletions(-)
+> 
+> 
+> base-commit: a6d9114f68c4b5507b2d945bd6d1e37415f913c5
 
-Applied.
-
-Thanks,
-Guenter
