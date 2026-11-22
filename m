@@ -1,70 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795355024;
-	b=yeMisynEol9MakHxAWL+hOwNZ+akl0rtKAXkykqG2omVfmsN8IjJI1YW3s+CpqGMCfey
-	 jsATBYDpW+ejrLEjJrKXaoi58s1pv0xHZPrSh1RMdAeyoQGRoUaNEy/G2TUx47Gju64Av
-	 Fm/ejObZx6VyVZMW0dDRSMdZnOqBQwYw405hf2IRWr/t0nQtHekqLJH7puXYnAr1q1RWv
-	 PSm3ADQMH85gXmrwIspiHZ0+t44ZVIi7PvWP4Z/trDN0EJzjRn5L/IorttV7WbbsNme9E
-	 PGoW8gtUQZ31IyVyifWKhf5IO1+XTaWYlGWn2ezwe3+Y5bw3zoam8kiSczM+K9r+Omw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795355024;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Date:Message-ID;
-	bh=YzFMYrIE2jIubdYzcRDkTvT/AcT2d82nJZex8ivmvyY=;
-	b=UK+i8dvZvLSosAZEPRt9Ekis4uHWnVtaG1AAt2bfYG8hp8GumjpEr+DQmas9LnVG/HHf
-	 Z6jG0MsxVJbP6XrYxfWFeILquGbe4glOQBEPPgYiWEMxS4Oj6pCVXQ80r7JWJH1paaN9S
-	 GGUG/8xH/eDb0EdbdMtTFZZcEc3J29UvQE/D7J5lEM5+Ge1fcbOnNZtYba2Atcw6b5dNW
-	 P9f0uRmVbhyIQgGj018wmwa/YhJS4boynP5M8JARsjrLBjeED8vkyVOPLQTeGRCZEmyjZ
-	 PCAwerP45gKeTC8m/rssda1XEP+LuGrnFrTj9PNQi8dwnAZDW1lMF+z2QcghV6G6Idw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=ge3dGHYI;
-	arc=none smtp.remote-ip=111.22.67.151
-Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id A0DEA606A320;
-	Sun, 22 Nov 2026 13:43:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0DEA606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795355194;
+	b=3uD5ka/6OKSbz6YF42DdJIkEXOcEoPRHTz0ybLS1WcutSYkj/RwvwnR+hJrcRPgnr1uO
+	 YcQqhPvBepLOIDPG6zqGGDC+lBD2SVqaETQL0AfaYkAzB6LLEcNowRC+9F+KJRWeLv0bh
+	 r8Sovllafh+EJiznDYGyTeyeDKIDeihq4EcTcK1KJm87HzWRLUPkdOUaRxqfjI3AFGTrl
+	 +2CAIIIMfNqJTkZ1WF69ssM+2JRGMzKYS9Y6Qi31XlQDCypTqh0YMlUlM+Wyx/4hTG5ou
+	 4bla9lRjl9t6TYJtTPU2Qxe+kltG/7sSDEgosXBCVES6ezS9MbVf8Ja9EOZpThgEfNg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795355194;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=gtyCzvN8AMjKD475BbMGxJHB7AJRr0EQgHC07KjEE5Y=;
+	b=eO4SrZiHDPaPlZpSuUlf6afFV2UFJQQZDTWmQMmofmZ/b2rVHzdNKtCqmgeV5Lwt6cpS
+	 gB+mMpIw2Fo7dXJ7mF8GofkarZwCzmOJPHCSJCdjLUbC79rTKsiJa/YX1Rmb79VCFEu2J
+	 ad/olfVKu9fKP+wh8qB5cUCZJV0HRPms1N+N5o6zRKvYtT/w//w80EvPjgdvqtrFk9L7s
+	 AGf9TG+ZbzMj77JvRXC+2Gk5CTpWleyfTWrpSgjwHisBF+M4h1udYJ5bRhUTBIzMpOUAk
+	 TcAb71BkgGWwfh6K8FlhHLmIKl2r8z6M3WOQXa29Zda20pivH2jSdOFWvNrkYZz+UoA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SehhOicX;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD841606A330;
+	Sun, 22 Nov 2026 13:46:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=ge3dGHYI
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=ge3dGHYIL7GODUvLT9luAKJ587yLQdeya4u3ZB1/G/iwmb7fI2iMyqe2OP0kjOgtIeNU5fVB1HtwW
-	 J+muNX5Hf9fPYtl0VTtObva+uE96ZPO7DxAi6I/ow3D8/fEKV3M/rISL8cG2HGOx6tZoZh+XWknNae
-	 gOVfIl74mx0zTcaY=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app06-12006 (RichMail) with SMTP id 2ee66b02f183258-00647;
-	Sun, 22 Nov 2026 21:43:31 +0800 (CST)
-X-RM-TRANSID:2ee66b02f183258-00647
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from [198.18.0.139] (unknown[112.23.105.246])
-	by rmsmtp-syy-appsvr09-12009 (RichMail) with SMTP id 2ee96b02f182818-70171;
-	Sun, 22 Nov 2026 21:43:31 +0800 (CST)
-X-RM-TRANSID:2ee96b02f182818-70171
-From: Xia Yan <yanxia@cmss.chinamobile.com>
-To: netdev@vger.kernel.org
-Cc: dsahern@kernel.org,
-    idosch@nvidia.com,
-    davem@davemloft.net,
-    edumazet@kernel.org,
-    kuba@kernel.org,
-    pabeni@redhat.com,
-    horms@kernel.org,
-    linux-kernel@vger.kernel.org,
-    kuniyu@google.com,
-    xeb@mail.ru,
-    yana06070@163.com,
-    netdev-bot+sashiko@kernel.org
-Subject: [PATCH net-next v5] ip6_gre: fix changelink conflict checks for L2 tunnels
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SehhOicX
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795355194;
+	b=dzK57ej53HiorDJRWd6gpDIQkxrCw+rve0o/kX3RPw31JZOIzkrWWaF5MEMkcPaDdikp
+	 1RVFkcY2oOrsGIFz++NLOknYhM7f6Z9x/zlnEfDBVD4I6prUNZRfAunfFplL3xERaikJ/
+	 BUkCeauxMaZfagKEAn6u8OqvN20cfznlwDb3OgTiFaZY045ZKd0xlTAP0G6uapUuv3ZRK
+	 rjiAZw9rbbFDQXbQVmZHx/0TZ0xiztgwG2MROCsp4lL6qrM44XbsNRg+FDD4e5eyq1cPi
+	 hrKHaLELHCY/n4pI/i/psqAKt7o3qAdSfgGqJZJG2LLjR+dm8yXjj/uhUnLdeWpf0Sg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795355194;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=gtyCzvN8AMjKD475BbMGxJHB7AJRr0EQgHC07KjEE5Y=;
+	b=BXb+ffZmOXT8k4mYQEXXTykD89VgX9/poJYKgSpvnIMyrjEGs2095STODbdHchmgjcTQ
+	 RZKY20jIEc1NnlnPHWCvnPm9DLS7ZaAMYPPBhKAQQG7nJEiqK8kuC3CjTBtCOKvYymoZR
+	 Ka6Qf1crorB2cLTmvKRW3i88z4QO4fVUpReOnx2i3M/1ZFZw/7vSlz2tVvc1N/2DsaOr3
+	 7SdZWia2QtaAOVVMrH5xa6vvwPW09IubA1+GiuYAiLSRnXytfI3NUfR3N5IxQU2sTPuIC
+	 Tis3cBLDWzhShQ83ear9Py3MbQpvb1diwEzmHFbFfuIy/WeftypT74l4lQ8g/6/jomQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 2B50C1F000C4;
+	Sun, 22 Nov 2026 13:46:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795355193;
+	bh=gtyCzvN8AMjKD475BbMGxJHB7AJRr0EQgHC07KjEE5Y=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=SehhOicXakQs0JiHLIp5z+HIafqSnsAMDN+s5znGDyzw74nyekxzofNTGp7O1IbJG
+	 PIqPzCZSEi671l5oKTfCygSMbezQEsQuUxJADkoWnOVvR2A4A8smYGZwYJw5R17jNK
+	 YOcP88sqSI5Xl2CnSRuzUd9Gs+vKVhaYrtT/cNx5iszZKU2nvXKOjuLioSknFQ0XJc
+	 AjVVBf7IU4ROQp7XZnlyviMXnUbe/lrmDVHtaWaLPyxaG+gFAMmzYWk3II2qMYkIZr
+	 6yDf3Hp05Z0DpgEIyJ9pmB8+WtlZFl/5eQbexU8wDka0Ubvo7anafKr8xdwDVZkXHE
+	 vTo5UszIvEHGA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id B4B884C0D4;
+	Sun, 22 Nov 2026 13:46:29 +0000 (UTC)
+From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Date: Sun, 22 Nov 2026 13:46:29 +0000
+Subject: [PATCH v2 1/2] ALSA: firewire-lib: Abort the FCP transaction on a
+ bus reset
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,78 +84,85 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Date: Sun, 22 Nov 2026 21:42:44 +0800
-Message-ID: <179535496489.1244648.10031965997557933761.ip6gre-v5@cmss.chinamobile.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261122-firewire-busreset-v2-1-e104d785c8a1@gmail.com>
+References: <20261122-firewire-busreset-v2-0-e104d785c8a1@gmail.com>
+In-Reply-To: <20261122-firewire-busreset-v2-0-e104d785c8a1@gmail.com>
+To: o-takashi@sakamocchi.jp, clemens@ladisch.de, tiwai@suse.com
+Cc: stefanr@s5r6.in-berlin.de, linux-sound@vger.kernel.org, perex@perex.cz, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795355188; l=2101;
+ i=shyckless@gmail.com; s=default; h=from:subject:message-id;
+ bh=6CqPPE3mEanKHilmp+S+EGLzRo0PnbexFfGZIxBreE4=;
+ b=Yj/RgLnO8Z/dSCfWK46K0CN3liyIYd0tkQMUJh9vZHV/VYjNizrTQ+hZtZvNPJK3QUlAw0jaE
+ aHWky6y0QI1DH6BBqNoQeCFKQNw9+SIXN76/86yDZ7iLoUCNIXIw3Dr
+X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
+ pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
+X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
+ auth_id=1498
+X-Original-From: Suyuan Wang <shyckless@gmail.com>
+Reply-To: shyckless@gmail.com
 
-ip6gre_changelink_common() calls ip6gre_tunnel_locate(), which only
-looks for ARPHRD_IP6GRE devices. The same helper also handles ip6gretap
-and ip6erspan devices.
+From: Suyuan Wang <stevewong@hust.edu.cn>
 
-An L2 tunnel can therefore change its parameters to match another L2
-tunnel, and incoming packets can be delivered to the wrong interface.
-An L3 tunnel with matching parameters can also make a valid L2 update
-fail with EEXIST.
+When fcp_bus_reset() marks a transaction as STATE_BUS_RESET,
+fcp_avc_transaction() sleeps and resends the command, but leaves the
+state as it is. The response to the resent command is then ignored, and
+the next wait returns at once, so the loop keeps resending the command
+without a retry limit until sending fails.
 
-Use ip6gre_tunnel_find() with dev->type, as the newlink paths do. This
-also matches the device-type check in IPv4 ip_tunnel_changelink().
+The AV/C Digital Interface Command Set General Specification 4.2 says
+that a target which detects a bus reset discards any AV/C transaction
+in progress without returning a response. So instead of resending, end
+the transaction on a bus reset and return -EAGAIN, so that the caller
+can start the sequence again. ERROR_DELAY_MS and <linux/delay.h> have no
+users left after this, so drop them.
 
-Found while comparing the duplicate checks in newlink and changelink.
-Reproduced under UML using existing netlink interfaces, without kernel
-instrumentation or fault injection. With an IPv6 underlay named under
-already configured:
+Found with a static analysis tool and checked by hand.
 
-  ip link add tap1 type ip6gretap local fd26:106::1 \
-      remote fd26:106::2 key 100 dev under
-  ip link add tap2 type ip6gretap local fd26:106::1 \
-      remote fd26:106::2 key 200 dev under
-  ip link set tap1 up
-  ip link set tap2 up
-  ip link set tap2 type ip6gretap key 100
-
-Before the fix, the last command succeeds and received frames move from
-tap1 to tap2. After the fix, it fails with EEXIST and tap2 is unchanged.
-
-Tested on net-next under UML with W=1 builds before and after the change.
-Standalone tests covered duplicate and valid updates for ip6gretap and
-ip6erspan, including receive-interface and payload checks, plus an L3 GRE
-control. Kernel selftests were not run.
-
-Signed-off-by: Xia Yan <yanxia@cmss.chinamobile.com>
+Suggested-by: Takashi Sakamoto <o-takashi@sakamocchi.jp>
+Fixes: 31ef9134eb52 ("ALSA: add LaCie FireWire Speakers/Griffin FireWave Surround driver")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
 ---
+ sound/firewire/fcp.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-Notes (ip6gre-v5-mail):
-    Changes in v5:
-    - Return to the minimal one-line v1 change, as requested by Ido Schimmel.
-    - Rebase onto current net-next.
-    
-    v4: https://lore.kernel.org/netdev/179491056935.741041.1816208847037703396.ip6gre-v4@cmss.chinamobile.com/
-    Review: https://lore.kernel.org/netdev/20261122123555.GA2812544@shredder/
-    
-    Current UML build and runtime baseline: eb6d6c80d35449c27471b1874f13066c09a8964d.
-    The v1 x86_64 W=1 allmodconfig- and allyesconfig-derived full builds used
-    net 7076f684d513. Those full builds were not repeated for this rebase.
-
- net/ipv6/ip6_gre.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/net/ipv6/ip6_gre.c b/net/ipv6/ip6_gre.c
-index 26c0e1c4de18f8b44ceb05d01673aaadfbcbd5ef..9f1e58f9326afd27d097431ffe62efb0aaaaf58a 100644
---- a/net/ipv6/ip6_gre.c
-+++ b/net/ipv6/ip6_gre.c
-@@ -2064,7 +2064,7 @@ ip6gre_changelink_common(struct net_device *dev, struct nlattr *tb[],
+diff --git a/sound/firewire/fcp.c b/sound/firewire/fcp.c
+index e60bfd0ee4ac..b8e7e2c90791 100644
+--- a/sound/firewire/fcp.c
++++ b/sound/firewire/fcp.c
+@@ -14,7 +14,6 @@
+ #include <linux/sched.h>
+ #include <linux/spinlock.h>
+ #include <linux/wait.h>
+-#include <linux/delay.h>
+ #include "fcp.h"
+ #include "lib.h"
+ #include "amdtp-stream.h"
+@@ -22,7 +21,6 @@
+ #define CTS_AVC 0x00
  
- 	ip6gre_netlink_parms(data, p_p);
+ #define ERROR_RETRIES	3
+-#define ERROR_DELAY_MS	5
+ #define FCP_TIMEOUT_MS	125
  
--	t = ip6gre_tunnel_locate(net, p_p, 0);
-+	t = ip6gre_tunnel_find(net, p_p, dev->type);
- 
- 	if (t) {
- 		if (t->dev != dev)
+ int avc_general_set_sig_fmt(struct fw_unit *unit, unsigned int rate,
+@@ -272,7 +270,8 @@ int fcp_avc_transaction(struct fw_unit *unit,
+ 			ret = t.response_size;
+ 			break;
+ 		} else if (t.state == STATE_BUS_RESET) {
+-			msleep(ERROR_DELAY_MS);
++			ret = -EAGAIN;
++			break;
+ 		} else if (++tries >= ERROR_RETRIES) {
+ 			dev_err(&t.unit->device, "FCP command timed out\n");
+ 			ret = -EIO;
 
-base-commit: eb6d6c80d35449c27471b1874f13066c09a8964d
 -- 
-2.43.0
-
+2.34.1
 
 
