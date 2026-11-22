@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795335552;
-	b=jJmphbVDP6MDWRgMmK1CC8DFxRr5OzKdcBHa2Mas+nbk+5eJMugw0wRxYW4kb1glQ9/F
-	 PTbZ67Y4Y9K3thDsQZJCliYrEywKwHHaTso1wdw7nqNGAhNGSManL6FU57x7MbLl6WZYk
-	 u4UV+Vlq4Vij3i5Wf3eYSFeLNKHt/7haQRJ5jJtaTTxeF1nGk8Rb3j8rv0LFKTtnL/wmP
-	 /m2ofl6J+ZmmJIP5OmlFchnTDdnN4LgGhVKecQvOctQmINdTraTFdnnJ7/KeZNhd5mXmP
-	 jaN6ZOokanmRu8Gg9+mMhH4YG3NIsaoc+3Tjh6XfeSeiizIS6D020hcriaQdQ7pguOg==
+	t=1795335555;
+	b=g/NQXjjmE+zjR3GFR60BN++RW7EmiaCJ0sKgqxO8fN1cKt4Bt5zsCU/JMUEL0d9s8egQ
+	 jrnSwosEnA/x6B4ITafG94WoBIOAnAga9zL8d1g6e33YTXL72i+eEFpCjPruIntmcSnKi
+	 H4YqgrHi5K3Alfcg5rpIlrboG4PXnm3JkHNKpgLU23W+GSeKwBC5FSY6effjXITzj7H3U
+	 I8muAHdg6EPgVgKlerwShrgWXvbvwOA4O/kSXEWciECqNTIHWSovv+rQWUDJAq4whVg4u
+	 NAFtuX2goE1NwtfKGnB9g8FWHmPxBLocLrO8/bvwM5+0ccySR4Iv9ttg4BUHXVClm3g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795335552;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795335555;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=3z6P0aYlufuvnlooWGHkbmG4E1HPBYeLov8HTyHzM/I=;
-	b=EWRUJDJBFXOWfIkT/08fRn1jcbYtYhm2a1mYN8y06P8RPYX5OySNy12hWLlxi1kYO0my
-	 M6JMM7vAz9GXVEjm2RvSPZ8jgXD5ISfA4HcPH8QEwKwqMWSOD/vSkQLTNHevbcXYGkAG/
-	 A3hJqMzfWBaijrlqSoLE+iLrACg+9mDMaJdwm2lqxEgrMQIBFy9x8saUO+Jquxqs5bDiE
-	 HtVDiBxgFUOhz0Tzapcy8rMX4xX5XDOX1os5RYtgI9ZdbXrZ3scWy6TFcceh9dPIvYe/H
-	 V3cof/CiQRmD0BzOC0aPURcsJcqP/YO3SY4l8QxRs2iiMlMqD/iXG06oAVHMkKDUbWQ==
+	bh=1z7RmYK1NjDMEO9+xJDI+w73bgLEkLKZ4jmIOyAvUDw=;
+	b=u+jn8o/DUCsWomMNNSJ02CPkhQBRm8QqB1qZn9RjhX81NwUW5+2JAxUfeGbmnWDC2DhZ
+	 KmSHrT17y9vhTX0gOi/0yFaTLkZkvIM29U9lCQ9z9bezbkG5MioWI0jmQhisOGDpGbqsV
+	 617twpiPtZC8dvwjd5fZGGb75SXKUG7Am7StUkwjiVXMxrXoWsA5OrmLR8iWYKBpM7tW7
+	 vztbLuoTYDLl9LmSD42+3bJSlOrYUsce7Pm02XCqgybcMJvEhgwAoq7oGUoI3prHzlQ6U
+	 e7BcZuBTv/5c1djSIO1rdCFU0IpZ5veSsVVntH0cBGq72LaC6Z4kqN+r92j1QGqSo0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nXgq32eS;
-	arc=none smtp.remote-ip=209.85.208.49
-Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com [209.85.208.49])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S6I0jWd4;
+	arc=none smtp.remote-ip=209.85.218.42
+Received: from mail-ej1-f42.google.com (mail-ej1-f42.google.com [209.85.218.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D06A606A33B
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 08:19:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D06A606A33B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76F46606A339
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 08:19:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76F46606A339
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nXgq32eS
-Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6baa6f27904so102495a12.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 00:19:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S6I0jWd4
+Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-c515369b627so176604066b.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 00:19:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795335550; x=1795940350; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795335554; x=1795940354; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=3z6P0aYlufuvnlooWGHkbmG4E1HPBYeLov8HTyHzM/I=;
-        b=nXgq32eSWi/S38LFKr3ad4V0ae7GGVX/f4p0sB3WrHLVWONLqYnLLe4BwtYRv8m/2i
-         DgTDUpvyrV39rrSYpz/zMuM86bLcEmIsxS7kvYWIV6TSbb9lunXQsmqJxlrm3ZJLoy3W
-         +xAQF7H/boKtDm86cjj6NnZHewJ4CLYZi7lUrNFKJNVbKZfODKoo+fZW5RX0E0DWDvRL
-         FmAnxiepSoB/P+Wx7YplAAjc0lPY6RZMBkH/q2PZ16rw3ysHQLy7GG0LJzJcZ7KzEk6n
-         4HzazObs1IgnQovd+jb3yoT2QXzwbRV79kPABU4WZtIb6sS1hJJ8vRFL6n7FnBLQoui+
-         Q16Q==
+        bh=1z7RmYK1NjDMEO9+xJDI+w73bgLEkLKZ4jmIOyAvUDw=;
+        b=S6I0jWd46JjblZGAlLs4RFsDKuFGeS94c9BZRRtzar8dwKM+p//r8lstUq4/YNmlwr
+         9lPnMQcLJO0UKcvMGbq8uv2TtdnPjflX2QXaq5BgdORQTlv0qzyY0T9l3ND/nIcMJKZy
+         qGYQ1m/qdGRKlMrAgCIm/zPTzsW2wxUwWJIDjnY/M6TOtpwgeiwoDoxx7NU8CfEvYKT0
+         WU9KY7Qd9u7Sb4q66kCmmkIAPXtjdKBGl0MObZYSTMZZeCBKHhXL5lQMq2wivfdYkvKZ
+         7Woaev+4t5Zo2IMK4uf4/dUonjt5ZdB9S77OY1/XEau2iuABQVddDxCTqxDAKG5zz609
+         63nQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795335550; x=1795940350;
+        d=1e100.net; s=20260707; t=1795335554; x=1795940354;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3z6P0aYlufuvnlooWGHkbmG4E1HPBYeLov8HTyHzM/I=;
-        b=ysRuA15dGpimo64V3eGZuWCF+Eqg85kTR9LH0Tg/HSDEWnk+spmesYF6lCel8Tf1VC
-         Ct85oy9qzS7lkGAu5LeXt69vYvJRmNV7RsZuX7jR15q1B1iqYH/MK0scX90zo8R7FGT6
-         7NfgMveSKs2KPgNxpp7d82KhIxQtUQQZtodty+EKSSdhPV3v4AfPvjoeN3qx0DrXXi1r
-         RbFJ/kQEmEyClUq5UkH6tfIpzgkRQzVFdWVYy8uhlJ0FIuZEWhwkbrZU7h3w+NAw5UTg
-         DPS+skX0At2WyNNeQPTmYL3Wj3jkeQ44eKJhlwMh7/YdsUW3mAVmTdaFXMdFoIIVYhde
-         66fA==
-X-Forwarded-Encrypted: i=1; AL+hErHsRyG3/3ySIkvPn9Zsz+uBccuzxbIBPfJ7v7rBk5PHSs+JKnpj2N4fBPWI+AHhqu7iuvcxgJk/qfVQT/w=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+sHsEhrMlaruS0W3V9EQrBwDYMf8MyY7wMxwtEUKufTwzBF/YH
-	KKrMHxHTmrMU+7RKkYgj4If8gLA+Dj+Vujxj2O6XeHh1EvQtdqPOpgHu
-X-Gm-Gg: AZFdTZfrgEs7L3n9VUW3Mv2EBbCZhVWEnyq19s+9FsYxDL6wVr5PyXC625FsMPB3Hl6
-	7dlxFIagWc/BtMadgZ2cMDgH59gKpyNsFH0KeTVThvNq0i+JGH/rj2aAOYyhLcwFkfJV2NM1D/d
-	My0/ZEFR95Ph9EnFbwFqjLl7pXOxR4Rd15YUtHfJrfAjn68JmzffB9QXnr+VgIpOib76TBfO4Sk
-	3iks5IYL+PWF4BLv1Ht3hZoFYAzU0Kk6S/FNuYYAtPRqTz4WKanIIQ05VnLdgX5oB1jMTeUV12i
-	JaFtQaJkwu2HfYvZ4PVl1IUflivRlVJLmKSo/zxU0wiVo50mLG32Y8M10uj2RQcckMSivlhoSaN
-	PuSYam1YZRyr/FM/+LSfnlZHGlqyHotMGJ8wW0rxzxHabBcC4bEs/FZbcxG2+Qn0N4fo0TtxcYL
-	c3vkSlNQ0rn/njhduP+XJNYiJWlebO0TBl4EJLR6P55F5Ycn6k1SPocgVFgSX8nxXHf+0js+Ltr
-	qC1wY9Z0c7xJDLSVCAW8N4R0lRVUbiIFmEkpVXDr4xJsE2whJ/yHE8gMaiBH0CZr3NzvNGdu/Do
-	kV/DQ0xqQs+t7kHMXp8sd8+xclcpoZCGe+KcLRkGSzixAOzgWjjQi0jnk8FDzVQ37t4gR0mburq
-	GjjjQOHsPvA==
-X-Received: by 2002:a05:6402:274d:b0:6ba:92c3:fef7 with SMTP id 4fb4d7f45d1cf-6ba92c4088cmr876330a12.19.1795335550008;
-        Sun, 22 Nov 2026 00:19:10 -0800 (PST)
+        bh=1z7RmYK1NjDMEO9+xJDI+w73bgLEkLKZ4jmIOyAvUDw=;
+        b=it619da2aK79VVAXavytB0nXIb7Pd/Br2UyNIVfAM4dgkYT+iKnW51AGht+elESQOw
+         5Z5Joq+dYx+9txsMOccpED4HQ0vKTO4hNkWxhDCWChFzliWQoPT5TAE9Pbj15Kua9ty3
+         asBijbBnnSQUEGWZfDGSW55w4SrEGgXyDZnkiL9upPv+sLHIHIkNWKgZ7zIr1BK0M0cA
+         YV7W+9b8tfAAWBKJtFwttXcVyKy7NXGLEFq0difXUzZW8u6r9iI2vHrgVD04iXHHk8au
+         CskkgvgzoqY3ysFbSuDE7y6ovsBpHsxvqBNTdVKdshYZPXbfVNJfAb9ex1Syr5BbGOsY
+         vb8Q==
+X-Forwarded-Encrypted: i=1; AL+hErH9X4Y4zZXLYxoEmzssX2x1ZIrIgYr3FxsuBZd/4DE5fKOmmAa2b9fGeUU7HYGQs2yxA73/bOg7RXvOa4E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/5+43GXbEpmdTghj0YyLUHd6onxF2HUmyBi0EekVVI9ObDHE27
+	JbhnkHU/mKfQKNsrjuoFO+REGSUaIIujm0F/JASRWzHDnB94pdUVG4lA
+X-Gm-Gg: AZFdTZcATM8U9UfMLjhSftPnEnlGivye4+A5ijCLqcRrKHdV3iP7W0UoVj6t4e2YFor
+	CFhVMwpti3VbgIed9/qBNcg3WtSCNDMYWMSGLoFk/b3ed5P6/bFt3t4M9DOl5zU2zV5dkGFIfsz
+	HCcqYAPNKv+QnnAZX7RPdhUE9cahuCyMLIVNaEVMXGhvagrytbibuEOjSEGBozThVOlYnQaEiBo
+	+czxg2hpfj+FCJLtg6l1j2WQB5VQocASQWBZwfwLyFSKmupOIbVskZ9GuLAvqHxQmGKiUB7jecW
+	s9n0zfawIaSzv7q2Fv90ex0255Icn0mWXTvUE3dsptMeIoBpCZokjwOROUkEquDS9u5HL1uyNDU
+	Vs9EY9ryiWFPJH4EzQye4Jc/zlR1tA/37vMUN++Q7N/IypHxDyVtID5NQ7X/U8WnpyfgPK2btlG
+	aTR17z7AkUSdvFyDr8R41xQeGJ9gQ2bpMUAWwYJ/XR9z6PKPGlo/8faG2TsZ4Ck9yvo7pXkQPP9
+	QQKsyh8u1TQQfR19bEA9nvAvyxHZozGeGGf0i9g8wwTCyHkwMYGeykxAqwrfn2Z2NlGlvN+EF/L
+	fx9Mo/LjnDa6LPf6kOYc8CrPSW/JVXH44UbUec0LEqsA2mFbmuaK58/kOA6z7DtgpaqQLGbG0TC
+	VcCHACOHkTxA=
+X-Received: by 2002:a05:6402:13cb:b0:6ba:4bf3:4a2 with SMTP id 4fb4d7f45d1cf-6ba4bf305c0mr4401281a12.17.1795335553806;
+        Sun, 22 Nov 2026 00:19:13 -0800 (PST)
 Received: from xeon ([188.163.112.62])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370e8ad0sm3617167a12.18.2026.11.22.00.19.07
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370e8ad0sm3617167a12.18.2026.11.22.00.19.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 00:19:08 -0800 (PST)
+        Sun, 22 Nov 2026 00:19:12 -0800 (PST)
 From: Svyatoslav Ryhel <clamor95@gmail.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
@@ -98,9 +98,9 @@ Cc: dri-devel@lists.freedesktop.org,
 	devicetree@vger.kernel.org,
 	linux-tegra@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v8 10/12] drm/tegra: rgb: Parameterize configuration based on bus flags
-Date: Sun, 22 Nov 2026 10:18:18 +0200
-Message-ID: <20261122081820.53199-11-clamor95@gmail.com>
+Subject: [PATCH v8 11/12] dt-bindings: display: tegra: Document 8-bit CPU parallel interface
+Date: Sun, 22 Nov 2026 10:18:19 +0200
+Message-ID: <20261122081820.53199-12-clamor95@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261122081820.53199-1-clamor95@gmail.com>
 References: <20261122081820.53199-1-clamor95@gmail.com>
@@ -115,93 +115,164 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Parameterize configuration based on bus flags passed from the bridge or
-panel. The list of supported flags includes now pixel clock polarity,
-display enable (DE) polarity, and data alignment.
+Document 8-bit CPU parallel MIPI DBI Type B interface provided by
+Tegra20/30 SoCs display controller.
 
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
 ---
- drivers/gpu/drm/tegra/rgb.c | 39 +++++++++++++++++++++++++++++++++----
- 1 file changed, 35 insertions(+), 4 deletions(-)
+ .../display/tegra/nvidia,tegra20-dbi.yaml     | 108 ++++++++++++++++++
+ .../display/tegra/nvidia,tegra20-dc.yaml      |  15 +++
+ 2 files changed, 123 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-dbi.yaml
 
-diff --git a/drivers/gpu/drm/tegra/rgb.c b/drivers/gpu/drm/tegra/rgb.c
-index d48d498068ac8..faecd6f94359f 100644
---- a/drivers/gpu/drm/tegra/rgb.c
-+++ b/drivers/gpu/drm/tegra/rgb.c
-@@ -5,6 +5,7 @@
-  */
- 
- #include <linux/clk.h>
-+#include <linux/media-bus-format.h>
- #include <linux/of.h>
- 
- #include <drm/drm_atomic_helper.h>
-@@ -106,6 +107,7 @@ static void tegra_rgb_encoder_enable(struct drm_encoder *encoder,
- 	struct tegra_output *output = encoder_to_output(encoder);
- 	struct tegra_rgb *rgb = to_rgb(output);
- 	struct drm_connector_state *conn_state;
-+	struct drm_bridge_state *bridge_state;
- 	struct drm_crtc_state *crtc_state;
- 	struct drm_connector *connector;
- 	struct drm_display_mode *mode;
-@@ -117,12 +119,21 @@ static void tegra_rgb_encoder_enable(struct drm_encoder *encoder,
- 	crtc_state = drm_atomic_get_new_crtc_state(state, conn_state->crtc);
- 	mode = &crtc_state->adjusted_mode;
- 
-+	/* Get but flags from the bridge state. */
-+	bridge_state = drm_atomic_get_new_bridge_state(state, output->bridge);
-+	if (bridge_state)
-+		bus_flags = bridge_state->input_bus_cfg.flags;
-+	else
-+		bus_flags = DRM_BUS_FLAG_PIXDATA_SAMPLE_NEGEDGE |
-+			    DRM_BUS_FLAG_DE_HIGH |
-+			    DRM_BUS_FLAG_DATA_MSB_TO_LSB;
+diff --git a/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-dbi.yaml b/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-dbi.yaml
+new file mode 100644
+index 0000000000000..6a34202f80765
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-dbi.yaml
+@@ -0,0 +1,108 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/tegra/nvidia,tegra20-dbi.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- 	tegra_dc_write_regs(rgb->dc, rgb_enable, ARRAY_SIZE(rgb_enable));
- 
- 	value = DE_SELECT_ACTIVE | DE_CONTROL_NORMAL;
- 	tegra_dc_writel(rgb->dc, value, DC_DISP_DATA_ENABLE_OPTIONS);
- 
--	/* configure H- and V-sync signal polarities */
-+	/* configure H- and V-sync and pixel clock signal polarities */
- 	value = tegra_dc_readl(rgb->dc, DC_COM_PIN_OUTPUT_POLARITY(1));
- 
- 	if (mode->flags & DRM_MODE_FLAG_NHSYNC)
-@@ -135,11 +146,31 @@ static void tegra_rgb_encoder_enable(struct drm_encoder *encoder,
- 	else
- 		value &= ~LVS_OUTPUT_POLARITY_LOW;
- 
-+	if (bus_flags & DRM_BUS_FLAG_PIXDATA_SAMPLE_POSEDGE)
-+		value &= ~BIT(PIN_LSC0);
-+	else
-+		value |= BIT(PIN_LSC0);
++title: Nvidia Tegra Display Controller based MIPI DBI Type B interface
 +
- 	tegra_dc_writel(rgb->dc, value, DC_COM_PIN_OUTPUT_POLARITY(1));
++maintainers:
++  - Svyatoslav Ryhel <clamor95@gmail.com>
++
++description: The display controller in Tegra20/30 SoCs features an
++  8-bit SPI interface that closely resembles the MIPI DBI Type B
++  protocol and is referred to as '8-bit CPU'. Each display controller
++  provides two such interfaces, which can be used to send MIPI DCS
++  commands to initialize and control the panel while image data is
++  transmitted via 16/18/24-line RGB.
++
++properties:
++  nvidia,interface:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      Number of DBI interface used, 0 - primary, 1 - secondary. If
++      property is not set, primary will be used.
++    enum: [ 0, 1 ]
++
++  panel:
++    type: object
++    description: Node of supported panel driven by the bridge.
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description: Video port for RGB input.
++
++        properties:
++          endpoint:
++            $ref: /schemas/graph.yaml#/$defs/endpoint-base
++            unevaluatedProperties: false
++
++            properties:
++              bus-width:
++                enum: [ 16, 18, 24 ]
++
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Video port for DBI output (panel or connector).
++
++    required:
++      - port@0
++      - port@1
++
++required:
++  - panel
++  - ports
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++
++    dbi {
++        nvidia,interface = <0>;
++
++        panel {
++            compatible = "hit,tx10d07vm0baa";
++
++            reset-gpios = <&gpio 175 GPIO_ACTIVE_LOW>;
++
++            avci-supply = <&vcc_2v8_lcd>;
++            iovcc-supply = <&iovcc_1v8_lcd>;
++
++            backlight = <&backlight>;
++
++            port {
++                panel_input: endpoint {
++                    remote-endpoint = <&bridge_output>;
++                };
++            };
++        };
++
++        ports {
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            port@0 {
++                reg = <0>;
++
++                bridge_input: endpoint {
++                    remote-endpoint = <&dpi_output>;
++                    bus-width = <24>;
++                };
++            };
++
++            port@1 {
++                reg = <1>;
++
++                bridge_output: endpoint {
++                    remote-endpoint = <&panel_input>;
++                };
++            };
++        };
++    };
+diff --git a/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-dc.yaml b/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-dc.yaml
+index 69be95afd5627..a014bf0dd508d 100644
+--- a/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-dc.yaml
++++ b/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-dc.yaml
+@@ -76,6 +76,9 @@ properties:
+     $ref: /schemas/types.yaml#/definitions/phandle-array
+     description: A list of phandles of outputs that this display controller can drive.
  
--	/* XXX: parameterize? */
--	value = DISP_DATA_FORMAT_DF1P1C | DISP_ALIGNMENT_MSB |
--		DISP_ORDER_RED_BLUE;
-+	/* configure DE signal polarities */
-+	value = tegra_dc_readl(rgb->dc, DC_COM_PIN_OUTPUT_POLARITY(3));
++  dbi:
++    $ref: /schemas/display/tegra/nvidia,tegra20-dbi.yaml#
 +
-+	if (bus_flags & DRM_BUS_FLAG_DE_LOW)
-+		value |= BIT(PIN_LSPI);
-+	else
-+		value &= ~BIT(PIN_LSPI);
-+
-+	tegra_dc_writel(rgb->dc, value, DC_COM_PIN_OUTPUT_POLARITY(3));
-+
-+	/* configure DATA order and alignment */
-+	value = DISP_DATA_FORMAT_DF1P1C | DISP_ORDER_RED_BLUE;
-+
-+	if (bus_flags & DRM_BUS_FLAG_DATA_LSB_TO_MSB)
-+		value |= DISP_ALIGNMENT_LSB;
-+	else
-+		value &= ~DISP_ALIGNMENT_LSB;
-+
- 	tegra_dc_writel(rgb->dc, value, DC_DISP_DISP_INTERFACE_CONTROL);
+   rgb:
+     type: object
  
- 	tegra_dc_commit(rgb->dc);
+@@ -155,6 +158,18 @@ allOf:
+             - const: wind
+             - const: wint
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - nvidia,tegra114-dc
++              - nvidia,tegra124-dc
++              - nvidia,tegra210-dc
++    then:
++      properties:
++        dbi: false
++
+ additionalProperties: false
+ 
+ required:
 -- 
 2.53.0
 
