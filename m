@@ -1,107 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795378869;
-	b=qVRza+E1khgKlW/sJ+QpmEA+ny6tUvRuFa6fAEnwE6qs2CfQrnVEi6dhzcOU3Hf1V4uK
-	 EmOm2sHkSMUAjWFtEOEcJFuCYmIQd7RGBfdA9B7YQSI0WTzb4mDh8DGJkuYWURIaBISnS
-	 R/xXQjXWLslb7UayuhL67k9kf5B7D6bzlOo6kQPnTJlIHr83aDNRWlbmGYTS+V36xekQp
-	 jKhL+pQu43HraC/p5P7JAVjHxmOIbfJ0VDhDIBuTdcHmTtip1/IxQidxbEngPyOHUAme3
-	 LhVMrbmkZ3CF9KN2Im/x7sZB7Hz6mrcP/6yRwvF7l6oO3pVxCQW5x7+OPXogu2qy1rg==
+	t=1795378990;
+	b=PlHl94VacOfWwm3CthMZXZy2jvxY0gEt43GEGpVjNK5pw4boqGcziIZ1V9AkWwZ+Q7Yl
+	 4rNq4LnLh7yda6L+H5g7xIPpcrNJetAhTJMNwVexXzAi+8wPFt0ll1PftTSScoot7H6p/
+	 t5ECEe4vpAIxtvY3kj/UXx73OIfY1I7dgk5GWKbbIZyV/ENUBLL7Ur0K/oHTDFQYNGl27
+	 +0Wp9dEnhc6x9p51h4P6LkYjDrq8gTdHcN5ETszX+75JfXVl5Ydmpm7qFWaICPVRullIl
+	 sh3vlOQBn/5wmMAIxkKnT1tYiO9NziPTkSsI0x/b1sGRq5q+8Jp57KSEFee4NaADimQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795378869;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=KoXhXnM3oUjZYemCskQWf/r+E20vle0w0i0hVE/eaXs=;
-	b=w8ejdl/x5oIoGJCZE07DAopQWj3ma11sRT01BD8rkCvJEJ/Fp1ONLneXQ5K+8Q7HVNPR
-	 w6KkMVomuu9kNWLScK4m0ecbv+1aCH0BVwxqHsUomMT5glc9r/VQeTNKp46McPE3JsHZN
-	 3SBkMJnSGjL+MuZWODYxJtD+pXHBIzMzqBFDJ1oUHargM1sQhK3glDzUzidbTaZE2BMX/
-	 dswrg4rRXyyXNKL2Pxihcios9ADgWZgcbuJ4/vtYnZSYZsFOYRhNZWiSxkO+SkfzBJy+s
-	 9pqXpgbd9zC0GS5l01avmd8uW6p0hLadUeFIs+i4yV6vSOv25xXfoaVLWMNeygFoQZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795378990;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=5ie3mh91Y4PxnFzZQ4NkpPcqbOA7zUvMeHhYs25z4a0=;
+	b=eItdjIvkM1rpQaxSvGLbJmkcAYmVgHDKRNVRO3Knv++rsHSa91DrmKnWy7QP0nXzeEfb
+	 cF7CuYLx5zyaaDyXq/qIIxurx94t/C30GvWEjWso7NfUapIbIlJsUBIeWJGBVkk2FOsMG
+	 TuXeWZkK42gPb9kMCRf7cbMD15dtWmgBqVueyACF9MWQb6Tmf+ciyQpIxOS71dw4JqzzM
+	 8AAiSe7/6XarJKN0xANsTAKCx+6l4/PUQw8lnZ/WkewW4DogmAvauKc5o9BAQzYDFB9e1
+	 AMiFey1ML9Gvc8tEcRUr0GLDaMljQ45Hwd4kR2/nF2OCtzMO3QLph+Oi+GGD/MyKEqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Aiko/QHp";
-	arc=none smtp.remote-ip=209.85.221.54
-Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aR5tLEBi;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 074A1606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:21:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 074A1606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AC76606A31A;
+	Sun, 22 Nov 2026 20:23:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Aiko/QHp
-Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-4aa5833c263so2463943f8f.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:21:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795378867; x=1795983667; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=KoXhXnM3oUjZYemCskQWf/r+E20vle0w0i0hVE/eaXs=;
-        b=Aiko/QHpxS4m+8HRxXBSv5+ixx06RuTCPhMu4FgAhsd94YdYr+nyapSE+UdjBEyQDX
-         aFhMRUB6psPuLOJcrI6+rwr7lOWuSVpFW3qDdkr/dzfmJ9imzuedEJ398ConmVuXFwVA
-         Z6WsFP2ooogDcTrARJ6/mGNpR746L/52C2OD8qmO7H8dW1fbp8oV6AdSmVXV3BYsomDU
-         vad0Lv8VSl9s6j1c8CLaJFyW7TC55nAIzu4wZphZhEsFL4YkzOh3EWywDQ1NaJUuIGEm
-         68MFJujoTgXIXv3zPKYfyqdgLaE+WnSn+G0+s2qnVFHHt92q34NMz3/nLB86jorPq5LC
-         32VA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795378867; x=1795983667;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KoXhXnM3oUjZYemCskQWf/r+E20vle0w0i0hVE/eaXs=;
-        b=j6pM9v+pPi53SkHJa1OIfIoLiR02P7iYfyT3i36E3XYNV1+c5MwqRHMIMSGBRiCtUj
-         DwMYvYMI8sO+d0RwTJ/4es5Z6X3M7Raru0+1ev0Lw2Xg6XFQQD05uaj+lTMvjPuSmIRJ
-         Lh/JCvCiZFDOSpDDrh+JI7YwotWmnsqkRKkQouyX8IaR86KRiSJtlm6Hi5D5+nv4H1v9
-         GqGiQRvWQzt1+OO2G14Y2UVPMaVjL+63xCa+pNMKc1wcMzPGgZ5Vd30PZrA+xrAUN1qc
-         RVygk20PLRYv4CfmVdL6sc6HVH5vdiEil0ciqEopRPrTOIHoQykQHLMaA2DGJACa1geG
-         YSwQ==
-X-Forwarded-Encrypted: i=1; AL+hErHMaaPyoBa18BV4Qi7BYacZV8pGIK+FxLSfNrRWnkJuRBc4bAAoyO6CO7Sdax/5eLtwguLhNn3CqObp9dE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+H/Y38zQGFqbaCksQSyVz6CePNWPLuP5E4moNAvjSTLNlt2IXp
-	92ndL+n197V0CKFR5fqP089NkyOUn8oMdt34dWXdARFnUG8dYLxP2oTD
-X-Gm-Gg: AZFdTZeh3C+BOckGtHjtKAzkQ8/fYADsdw4Sx/ofA8JNzCe1OccEdKcT9yNybUS95kg
-	ZCRl2Y7bkXqmatdHjMRmGxCupcr8ZZNa8jJNahBbF1i7vP6AfpyDRVyuFoEDvnIh6OO8Vfw7kdJ
-	4zHy7xNcKr+89IYhFXUAtv/3MkwxcWmeHNeHThY/gpVvhca4CVXjZY7CGg58pqG5TPzGb2hdyu7
-	QnOq3fgFEyrev567dG00E7/C3smMOlrWxeCXS3Ry8upokyBU/jIOUG2HQia1nuVLFbujcQ6h8E5
-	N4gt87NghQmjh4kMILZanCGOuH6nDgF7x30OyTcNetgM67M117wAZg7VYoscDHBqL9NaS1/tvpN
-	qotwLdHG9+xsTXjv9iAd3mCGlj/Inr7xtN2PevelCu0WhLIHI0Vacxlugfgny7rQgRiawz2Amsm
-	a0WsLPzwYPNaCzUiE4hbXjbk7cDGu9BQuGy40IBOGlZRYnwhLpzQTicgAuynWNjXPWhY7B0wX4J
-	fCNT9b9H1U8PYQlNrCdvQq64KoT6u/VvdKa6p95XGqzNYyeZephpTB0Vg4GJM0ubqG6vk0RNQKi
-	y48paVYkeZGKroOkEhIyamUt4PKlxHqfNEluVHo8YNEjvPTNXPhxYoWSLWVxFKJmNA8dAfiWhI8
-	xWssqIqEA3toITMHNX5j70sphChQE0By1zGorx1a45Llyz9tq3/n1h80vuayZUf6i2nAQCBGb/f
-	WEQrBh2WrCRbT9sdwdv9DzKScciKGQOA==
-X-Received: by 2002:a05:600c:4f07:b0:4bb:5dbf:af06 with SMTP id 5b1f17b1804b1-4bb88804d58mr235773315e9.9.1795378867083;
-        Sun, 22 Nov 2026 12:21:07 -0800 (PST)
-Received: from unknown748F3CBA5068 (dynamic-2a02-3100-a14a-2801-2d6d-9df0-1f3c-62cb.310.pool.telefonica.de. [2a02:3100:a14a:2801:2d6d:9df0:1f3c:62cb])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8526cbd0sm381533945e9.0.2026.11.22.12.21.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 12:21:06 -0800 (PST)
-Date: Sun, 22 Nov 2026 21:21:03 +0100
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Gabriele Monaco <gmonaco@redhat.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>, 
-	Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Thomas Gleixner <tglx@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-	Clark Williams <clrkwllms@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Andy Lutomirski <luto@kernel.org>, 
-	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
-	Dietmar Eggemann <dietmar.eggemann@arm.com>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
-	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Wen Yang <wen.yang@linux.dev>, 
-	linux-trace-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev, linux-doc@vger.kernel.org, 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aR5tLEBi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECDCE1F000C0;
+	Sun, 22 Nov 2026 20:23:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795378990;
+	bh=5ie3mh91Y4PxnFzZQ4NkpPcqbOA7zUvMeHhYs25z4a0=;
+	h=From:To:Cc:Subject:Date;
+	b=aR5tLEBiQQ9qYhBlbQ58FE48NPpxIOIUpGWIAD02M7RR45W6n5k+DccC9MWIJ2Nmx
+	 dwjYxAoyhRkFAtxbkIfUGEHmMdFDpqFgqdupeb/2hLSojI+rEaPKd/2/GoXtYEzVoX
+	 fo5PX1hSj4+/fb57vEVq9MsQ4TGdn+1sLTrfE0BIJrD1krSnQGLeYS+UTR987NuAiw
+	 r5tAQX8ugV+IFEAnPmLQeUfpe3UgpX8YcviU55XA7Gzms9R1qof+T7avoeYgVkd2M4
+	 QRLHHPo3R4VDTZiIOVCmAbgUkRmm9G8f6maAD62f7EmIGJ54ZP7SbheZa6ZAMMxq0J
+	 kzmZ2/LeGwH0A==
+From: SJ Park <sj@kernel.org>
+To: damon@lists.linux.dev
+Cc: SJ Park <sj@kernel.org>,
+	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 9/9] rv: Test IRQ-exit softirq provenance and
- handoff
-Message-ID: <awNNrVvXCFVPhgk_@gmail.com>
-References: <20261107171252.25090-1-kmehltretter@gmail.com>
- <20261107171252.25090-10-kmehltretter@gmail.com>
- <e8b9a9afb9587ed1f41c0fafd486ec9be82928db.camel@redhat.com>
+Subject: Wrong example command for auto-tuned DAMON-based proactive reclamation, and solution/workarounds
+Date: Sun, 22 Nov 2026 12:22:57 -0800
+Message-ID: <20261122202258.161562-1-sj@kernel.org>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,42 +57,142 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e8b9a9afb9587ed1f41c0fafd486ec9be82928db.camel@redhat.com>
+Content-Transfer-Encoding: 8bit
 
-On Sat, Nov 21, 2026 at 03:01:13PM +0100, Gabriele Monaco wrote:
-> On Sat, 2026-11-07 at 18:12 +0100, Karl Mehltretter wrote:
-> > On PREEMPT_RT, verify that worker events do not report hardirq provenance.
-> > Do not run the synthetic inline IRQ-exit cases there. IRQ exit defers
-> > softirqs to workers, and serving-softirq state is task-local rather than
-> > encoded solely in preempt_count().
-> > 
-> > Snapshot reaction counts inside synthetic IRQ-disabled and hardirq
-> > intervals, then evaluate the KUnit expectations after restoring normal task
-> > context.
-> > 
-> > Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> 
-> I still couldn't read the KUnit tests, but from what I get quickly scanning
-> these, it's massive. A total of almost 3k lines of KUnit tests for 2 simple
-> models is probably a bit much.
+Hello community,
 
-Agreed. I'll cut the KUnit tests down to a much smaller set focused on
-the monitor transitions.
 
-> 
-> Keep in mind you are testing your unit, which is an RV monitor, so you may want
-> to stress transitions, mess around with the environment as little as you can
-> (e.g. disable interrupts) and use mocks/stubs where you can. It isn't always
-> easy, but the fact you're touching softirq.c doesn't look right. Your
-> unit isn't the softirq machinery, you should interact with it as least as
-> possible.
+I suggested wrong way to utilize DAMON for auto-tuned proactive reclamation.
+Let me explain more details and correct way to do that.
 
-Makes sense. I'll drop the test hooks from softirq.c and simulate the
-events instead.
+Wrong Suggestion
+================
 
-I'll address your comments on the other patches as well.
+In OSSummit Europe'26 and a few offline discussions, I suggested [1,2,3] people
+to try DAMON-based auto-tuned based proactive reclamation using DAMON
+user-space tool (damo) [4] like below:
 
-Thanks,  
-Karl
+    $ sudo ./damo start --monitoring_intervals_autotune \
+            --damos_action pageout --damos_access_rate 0% 0% \
+            --damos_age 2m max \
+            --damos_quota_space 128M --damos_quota_interval 1s \
+            --damos_quota_goal some_mem_psi_us 5000
+
+I found [5] it will reclaim much less than expected amount of memory.  That's
+due to the mixed use of '--damos_age' and '--monitoring_intervals_autotune'.
+The intention is to reclaim regions that not accessed for two or more minutes,
+while auto-tuning DAMON internal for optimum access monitoring.  But, in this
+setup, the coldness threshold (2 minutes) can increase up to 4,000 minutes.
+Memory that unaccessed for 4,000 or more would be rare, even in real workloads.
+That's why it is expectd to reclaim less than expected amount of memory.
+Please read the issue finding [5] mail for more details.
+
+So sorry for the confusion.
+
+Corrected Suggestion
+====================
+
+A right approach to utilize DAMON for auto-tuned proactive reclamation would be
+using 'age_ms' DAMOS fitler [6] instead of the age threshold (--damos_age).  It
+could be done using DAMON user-sapce tool (damo), like below.
+
+    $ sudo ./damo start --monitoring_intervals_autotune \
+            --damos_action pageout --damos_access_rate 0% 0% \
+            --damos_filter allow age_ms age 2m max \
+            --damos_quota_space 128M --damos_quota_interval 1s \
+            --damos_quota_goal some_mem_psi_us 5000
+
+Note that age_ms DAMOS filter is not yet landed on the mainline Linux kernel.
+It is expected to be landed on Linux v7.5.  DAMON user-space tool (damo) also
+got the support of it starting from v3.4.4.
+
+Using the version of damo, you can also show if your kernel supports age_ms
+DAMOS filter or not, like below:
+
+    $ sudo ./damo report sysinfo --print_feature_name_only \
+            --print unavailable_features | grep "sysfs/damos_filter_age_ms"
+
+If the command shows nothing, your kernel supports age_ms DAMOS filter.
+
+If you want to try this by backporting the feature on your kernel and need
+help, please feel free to reach out.
+
+Workaround 1: Periodic age threshold update
+===========================================
+
+In some cases you might unable to use the age_ms DAMOS filter.  As I also
+shared on the problem sharing mail [4], you could work around by periodically
+refreshing the threshold.  Using damo, you could do that like below:
+
+    $ sudo ./damo start --monitoring_intervals_autotune \
+            --damos_action pageout --damos_access_rate 0% 0% \
+            --damos_age 2m max \
+            --damos_quota_space 128M --damos_quota_interval 1s \
+            --damos_quota_goal some_mem_psi_us 5000
+    $ while :; do \
+            sudo ./damo tune --monitoring_intervals_autotune \
+                    --damos_action pageout --damos_access_rate 0% 0% \
+                    --damos_age 2m max \
+                    --damos_quota_space 128M --damos_quota_interval 1s \
+                    --damos_quota_goal some_mem_psi_us 5000; \
+            sleep 300; \
+      done
+
+The first command starts the auto-tuned proactive reclamation.  The second
+command starts an infinite loop that adjust the effective coldness threshold
+for tuned intervals every 300 seconds.
+
+Note that DAMON user-space tool (damo) of v3.4.6 and earlier versions will not
+work as intended with the above example.  Those versions will reset the
+auto-tuned sampling and aggregation intervals back to the default values (5ms
+and 100ms).  Hence the coldness threshold is also not properly updated.  To use
+those versions, users should first see the tuned intervals and manually set
+those on periodic update command.
+
+Because that's too cumbersome, I made a change [7] that avoids such unnecessary
+reset.  With the change, the above example will work.  The change will be
+included to damo v3.4.7, which will be released tomorrow.
+
+Workaround 2: Small coldness threshold
+======================================
+
+The periodic updte might also not feasible for you.  In the case, the simplest
+workaround would be setting the coldness threshold to small value, like also
+mentioned in the issue finding mail [5].  For example, like below.
+
+    $ sudo ./damo start --monitoring_intervals_autotune \
+            --damos_action pageout --damos_access_rate 0% 0% \
+            --damos_filter allow age_ms age 300ms max \
+            --damos_quota_space 128M --damos_quota_interval 1s \
+            --damos_quota_goal some_mem_psi_us 5000
+
+The effective coldness threshold can still be increased, up to 600 seconds.  In
+usual real world workload, the aggregation interval would converge to 2-20
+seconds.  The effective coldness threshold in the above example becomes
+6-60 seconds.  It may look too small threshold.  But because it has memory
+pressure based coldness threshold auto-tuning, the auto-tuned threshold would
+be larger than 6-60 seconds.
+
+Wrapup
+======
+
+Do not try the example command for auto-tuned proactive reclamation that I
+suggested at OSSummit'26 and offline discussions.  Use age_ms DAMOS filter as
+explained abovely.  Feel free to request porting help if needed.  If age_ms
+DAMOS filter is not feasible, consider periodic threshold update and small
+threshold as workarounds.
+
+Again, sorry for the wrong example command.  And I hope the above solution and
+workarounds help.  Pleae feel free to reach out for any questions and issues.
+
+[1] OSSummit talk: https://sched.co/2RaXh
+[2] OSSummit talk video: https://youtu.be/GolUxZZrVsU?si=qdPFE1RZAaNZ0lsY
+[3] OSSummit talk slides: https://hosted-files.sched.co/osselceu2026/67/damon_howto.pdf?_gl=1*1dml5iu*_gcl_au*MTM5ODk2ODM5LjE3OTE1Mzg3NDA.*FPAU*MTM5ODk2ODM5LjE3OTE1Mzg3NDA.
+[4] https://github.com/damonitor/damo
+[5] https://lore.kernel.org/20261121015324.83753-1-sj@kernel.org
+[6] https://lore.kernel.org/20261106020559.98352-1-sj@kernel.org
+[7] https://github.com/damonitor/damo/commit/9f124c1b95684065128
+
+
+Thanks,
+SJ
