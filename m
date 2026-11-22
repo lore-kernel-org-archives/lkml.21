@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795350982;
-	b=csPT4eHNeK5l9yAim4XMpGLmT5xA8p6erTLbS7UMY7gSnzsWdE/LRDRR4xKn1EbLIJEG
-	 MnpsSgcPLsW0eDBMHAxUShhZROmcadSoOKMlIP76CbexteGl3CulUoYn31ggIN27AnL0f
-	 LwIIDEkZI3t5L3c0/ZENERdH+dDYx5NatuzvADXgKfwgyffsD4/fyVrwGnWvuiXQoEDer
-	 PelVC/CyuUKXN8s3bA3VLDX21YGXVGFyRLnVsdcIhmyLPs6NZE+xnqKbWc02djdrNrFDV
-	 PfaYhnb78IE5UgS/SgZ7fsAzh5fPGmdCOYT564s7RI25jX3uLn9n7mQIfM9JWTKivpA==
+	t=1795351046;
+	b=sj7lBgpYrBqFw/Jvz6zPVU4MXf9IxTPNDI+BkFChE1A3Oyb0aX2rn59CCguW9yIzZlNr
+	 02map+B2AvZgEo2cPb8Q3aBPhi5HKTL7LP+uK/WVejKXYQB/9UhO+vn086ZtXp0HAYo0D
+	 GHRjF36e7LPsAGZk5ZouZoa0OZK6vF5UhGU1O3F/9S26iN0Uj5Bc8qrh8YhDaSmTmB5u3
+	 Jzb5ESQgbrNpFI5/2T2yOiFhWsxkR/d5Dxark3ImDCOlMkP/HDTKUGTtiKXqas8BNZy44
+	 qFFcK4lfCJ5vjtq2R4IZAZT2Jd1FXkPEt4HWFIbWZhwoVLIs0Kl+GyFI72HvtxfDmNg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795350982;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795351046;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=FfDO0f0KQSC409TsDN1PUSGBpdCVQz7p/HXZoa5TnKk=;
-	b=wzZyCpcWdATPlQOY9zR2+HQj1bC8oxq3uXN/UNNresF+TjtzcUN4DPaku4BRyfSCIBXH
-	 hOULy7hxzV8McHljaXecmp7gQKndB1fO9eVUcCR7ixBT6fVR7NF021dWycbniSAjGpLuu
-	 n/C7tTe4vXHNfHRE6+tFeROuk6Jrtydt7y635dezp9gtBent3eguMGsj2ILotsj4M0e9+
-	 s3k5lIWgSTyihS+lAlCf1rUq1QMT8Gz3ZGqr8TVMzrWI6JwHGfKQxL/MCO7MQ3cXTkhzQ
-	 d2S5Ye/IRGmQHt/kb1IVNtXAL3BOwjKeHaWMNuTNJjnQxhh01vvZxlMDjN5651KPSxw==
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=nS1Wyq0+teU+0NPEh7FueTOvVWx377NaWwBlgjjiVaM=;
+	b=R3+PvxR177scqaN1r1mbhuLYwUiO2xFTkw+ZxMGhs6Xl7ox9JZf9mRPs5XsMFoObUqjo
+	 y22l+dQSE/vwKWeSXi1htmbJheuYB7wBaNCZ1nxwhmLs7jhYv0cx1z2t+D/FOX5ADtdQH
+	 ZDTjUCIGLfI6XWfJc985N6Xh4ff8nQMkosd8BuALlouGls8cNDMLkm4hcPPyKxVQrQ984
+	 ijPLjxFpwDisxXjAkfAR4RlULKPKFSqMg57CS2ILlSiBplCbJ4vNFP7vKqq5K2zMcIB7B
+	 xWUxG70NLhYfqossgC5b7nqMf9lllXTKkyvyLbeFMFmi7pcbRuvmZz1lPmRJgh2oE+w==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mWiCJGp4;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pl78x+Zb;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF7DC606A331;
-	Sun, 22 Nov 2026 12:36:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4014C606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:37:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mWiCJGp4
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pl78x+Zb
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795350982;
-	b=UdInRKuZy4DUluSrE1AtQVBuqfMH4qjUTQzmWegj4PbnHDhI4z9UEhZPpssWYeVNAwQy
-	 pCh8XAHEUfkmuOIGIbl30YFI01KplJJiIgUW2wy8pehYpOujgngLdxpmfLeJ1xgfNGpxW
-	 eezjPgUMyYzYaWnGso5it/eBcyt29MwYB7er1a2xCzUI9HpgC9hWNO9RsRrUJJe4zEVUo
-	 n6ypqio+aSe3VKtgNkSA1iBBoTP7oaHudEAiLBzz4AgLM9jkIy2f7UFraOdQzgzbCdxGN
-	 hd/2BAMrkUNAVn9ZMbiBla/hO6teIHUDes1IpLAguuPWNfosOCHFqZZ1cIQzEVCpIjw==
+	t=1795351045;
+	b=AUzRbPBd9jJZFrJv1WeJZC1I4/xGQj7pny4FOAF6KqckiJ52L5KdVwpEn4PolxdUKMyH
+	 Rwtq2TbpWNPfrG//vOe/DW3tzJRSGxjuTLfBgXM/F3C6wob6CB/ENKAHLKkWXOe+YLja1
+	 SHxM6WpLzwo6a10rVlvN5kJgntqfgoEZeW4/8E4VHNimuYRgfywOBEvVncTftjCbN649P
+	 qfBBSrvSVGiu/601HOPyPti2s/kHJto/tTxTfgFFOFLt4NoVh3MJC5zvzKtmTavSBWPuu
+	 cMXIBt6XakQSF5M3CZNcT1t5vCe5GjIi598KPDDOebWSizlxfurVfGkl1/QoWEziivA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795350982;
+	c=relaxed/relaxed; t=1795351045;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=FfDO0f0KQSC409TsDN1PUSGBpdCVQz7p/HXZoa5TnKk=;
-	b=nEe2aqcTAVjJr4Flam5TLFjezct/UB5n439LyED6g8ZxrD5cVNN+iA9JJeUtc+BqXwzq
-	 /BXtqOhydCUWxrnQf6g6gsyHnr73LrC0rTAyAakyngV4BWwHo7Wzi6JUnMQeG+54wwSuN
-	 3XItPhGbIPHquAXjod6abqW2JTJj3p/5iudk7gWI+MPJxXkjx3l3ng5OKg2dvPvMIwJf2
-	 FQwfxhg7NSlOb5zYeCGbfK6Uqx1Ox/DNwvNcFGNlmaw/qLHh99wck6cPQh1tOed4BTLT6
-	 N2FQnuvg4RsreX33XYwtkbuz+zl0v8ZzYHgnDqi+lKwOF8vXAIIRvOfV96dFJp/4sdQ==
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=nS1Wyq0+teU+0NPEh7FueTOvVWx377NaWwBlgjjiVaM=;
+	b=K7tCC1YGjI2rwWkDwKaRjZo27YHjM2Ljqk5iKGGMpeShoZjJlyxwUNItxU5Pw+M8fxfR
+	 ufO8vC8RglNqw0nnQe9IBCEWWJA0Kz3R17P/+hmmp6RVRpMYALCB+jhePr+084TcJJA8U
+	 gQDi6t5GO399OxaHy56q3tqZ0Aa6cnzFEuez6dzxV75Iyy2BShPfpfGiWqRZFfdbo/OEZ
+	 CK7BS1DAfI98svb84hIT88y7sWUprdRb8Mvhuz9u41LwENuu3fzLXl54noU6RvXW6sH1h
+	 2TmgIWkB7cUHUDEl6Idc6aHl8l73BhdxQIQ49x6EpvwpsL3lFO6Jp5rpkaPf0nin8CA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 9F1191F000CA;
-	Sun, 22 Nov 2026 12:36:12 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 0F8791F000C4;
+	Sun, 22 Nov 2026 12:37:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795350982;
-	bh=FfDO0f0KQSC409TsDN1PUSGBpdCVQz7p/HXZoa5TnKk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=mWiCJGp4ZRzmH3YDFJyOy/blOIV3y9S6ztuAoHfIzN1fDeoJdJWghGAmydNeHFPch
-	 6FLI9JwM5J6NuLMjV1efvPt9AOsgU6044R49mPkpj8r4D68STX6x/6Ym/ZSGjGy60o
-	 v5Mp3OYVM9Bd7g/bOwjjaPE8fLHW3t0nECQYomYmHaaMWS9zW4OnYvsVEHXWRaCrk9
-	 880F1fa3U5vsKO7O7nxVjZt+PESKC8XM6mEijnm1oklDfYRXar4cNT9uPlcDNZ8C6z
-	 eW+N2ghEC4YaZjQx2VWzkWxjf4i2kTRr5nwhzl44hgpoON++YGDEalRfdAUELjRsvi
-	 Dclffx3P7cyFQ==
+	s=k20260515; t=1795351045;
+	bh=nS1Wyq0+teU+0NPEh7FueTOvVWx377NaWwBlgjjiVaM=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=Pl78x+ZbHLXHOA1CeaR/tzviB4YaDS+6f87Lem7hbHRv0kr1bUGwZea5Ba+cxjuj7
+	 eBqE1KRv0UgRt1DX/ohPYjwtYVfODUd3hHirHgPLXo1XKu36G35kUfV8wAEufkqFcf
+	 DdXKbl/wo9RUD4tZ8ox7QfTCBKbSksWKHq98ZYk1ASHz6PjRwR0GMH4iPB0v8XRmUH
+	 XIiBiKQj93kMlxu7pkgAfIje0MaYxcEqzA3TFnqhbx8Wenx+xWYX04mgGzZflO4iOx
+	 ks1fLHKqrsmj/V2FtMqtlQ+I8dqOGi5srfm/B0RndVSrJro/FY3LDAIos95sfChP1K
+	 vpSumRDB7Dvjw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 27E474C039;
-	Sun, 22 Nov 2026 12:36:12 +0000 (UTC)
-From: YanXin Li via B4 Relay <devnull+fadouse.pm.me@kernel.org>
-Date: Sun, 22 Nov 2026 20:35:37 +0800
-Subject: [PATCH bpf v4 2/2] selftests/bpf: test arena allocation after a
- short mmap
+	by lkml.kernel.org (Postfix) with ESMTP id 90BDB4C02B;
+	Sun, 22 Nov 2026 12:37:14 +0000 (UTC)
+From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Date: Sun, 22 Nov 2026 12:37:14 +0000
+Subject: [PATCH] um: line: Free the read IRQ when the write IRQ request
+ fails
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,171 +84,71 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261122-b4-03-bpf-arena-vmalloc-oob-v4-8090cdc58ff8-v4-2-d542d1233623@pm.me>
-References: <20261122-b4-03-bpf-arena-vmalloc-oob-v4-8090cdc58ff8-v4-0-d542d1233623@pm.me>
-In-Reply-To: <20261122-b4-03-bpf-arena-vmalloc-oob-v4-8090cdc58ff8-v4-0-d542d1233623@pm.me>
-To: Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
- Eduard Zingerman <eddyz87@gmail.com>, 
- Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
- Emil Tsalapatis <emil@etsalapatis.com>, 
- Ihor Solodrai <ihor.solodrai@linux.dev>, bpf@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795350970; l=4531;
- i=fadouse@pm.me; s=b4-relay-20261122; h=from:subject:message-id;
- bh=12pf/DDajqKWIUwZFygjYQjcysYQ35Yyf+7SvH1neXs=;
- b=fVfGRrZf0kiKVP2LKGaSIX/uR/eyOguX6/Qmruahgzv2FWL+SHwDe4d7mI/D2Pf/18F5CgN/J
- G8bWfg5VzBsDTJzawjXmrA6TQfeTyYdeFbs5rhQYyFXRAxCyCH7uFj4
-X-Developer-Key: i=fadouse@pm.me; a=ed25519;
- pk=b4DyzHJDRd8853IHUSKPA5wwzChj8eF4MTnZuyPz1PQ=
-X-Endpoint-Received: by B4 Relay for fadouse@pm.me/b4-relay-20261122 with
- auth_id=1597
-X-Original-From: YanXin Li <fadouse@pm.me>
-Reply-To: fadouse@pm.me
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261122-uml-line-irq-v1-1-64b525cf8d2f@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAPnhAmsC/yXMyw5AMBCF4VeRWWui4+5VxMJlMELRIhLx7orld
+ 5LzX2BIMxnInAs0HWx4VhbSdaDuS9WR4MYa0MNISkSxT6MYWdldr8JPieIYkyCUCPayaGr5/HJ
+ 58dvs1UD19jbgvh/S+U5ncAAAAA==
+X-Change-ID: 20261122-uml-line-irq-39ee77284512
+To: johannes@sipsolutions.net, anton.ivanov@cambridgegreys.com, 
+ richard@nod.at
+Cc: linux-um@lists.infradead.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795351033; l=1580;
+ i=shyckless@gmail.com; s=default; h=from:subject:message-id;
+ bh=EbX7KODF5wd8UgFNPa78Kwlbo1tt/cnAoI1sKqIv8xo=;
+ b=aJAuyN16nWR2Vppc4QoXL1GhbRI+Pv7Eg/ats+Kvd4l/cImMnwPfjvpR06CzeWnvnPwoXf2QL
+ Y3JSi2SS7ULCUub3MVqA8RxPuGPJQ+hWe5hFPWJyFhlzGLh8hJmiyf9
+X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
+ pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
+X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
+ auth_id=1498
+X-Original-From: Suyuan Wang <shyckless@gmail.com>
+Reply-To: shyckless@gmail.com
 
-From: YanXin Li <fadouse@pm.me>
+From: Suyuan Wang <stevewong@hust.edu.cn>
 
-Without map_extra, the first mmap of an arena can be shorter than the
-map's max_entries. Automatic allocations must stay within that VMA.
+line_setup_irq() requests the read IRQ first and then the write IRQ.
+If the write IRQ request fails, it returns the error without freeing
+the read IRQ. Its caller, open_chan(), then calls close_chan(), but
+close_one_chan() only frees the IRQs of a channel that is enabled, and
+the channel was never marked enabled. So the read IRQ stays registered
+for an fd that close_one_chan() then closes.
 
-Create an eight-page arena and mmap only four pages before loading a BPF
-program. Reuse the map FD so libbpf does not mmap the full arena. The
-program occupies offset zero and allocates two more pages, leaving one
-page within the VMA. A two-page request must fail, and a final one-page
-request must succeed. Before the preceding fix, the two-page request
-succeeds outside the VMA.
+Free the read IRQ in line_setup_irq() before returning the error.
 
-When JIT is disabled, arena map creation can succeed while loading a
-program that uses the map returns -EOPNOTSUPP. Skip the subtest in that
-case.
+Found with a static analysis tool and checked by hand.
 
-Signed-off-by: YanXin Li <fadouse@pm.me>
+Fixes: d14ad81f800a ("uml: handle errors on opening host side of consoles")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
 ---
- .../testing/selftests/bpf/prog_tests/arena_mmap.c  | 53 ++++++++++++++++++++++
- .../testing/selftests/bpf/progs/arena_mmap_alloc.c | 33 ++++++++++++++
- 2 files changed, 86 insertions(+)
+Compile tested with ARCH=um (W=1, no new warnings); the failure path wasn't run.
+---
+ arch/um/drivers/line.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/arena_mmap.c b/tools/testing/selftests/bpf/prog_tests/arena_mmap.c
-index f55d950720f..ff1fe0a6f22 100644
---- a/tools/testing/selftests/bpf/prog_tests/arena_mmap.c
-+++ b/tools/testing/selftests/bpf/prog_tests/arena_mmap.c
-@@ -2,6 +2,7 @@
+diff --git a/arch/um/drivers/line.c b/arch/um/drivers/line.c
+index c851a592809c..5589fa68871e 100644
+--- a/arch/um/drivers/line.c
++++ b/arch/um/drivers/line.c
+@@ -273,8 +273,12 @@ int line_setup_irq(int fd, int input, int output, struct line *line, void *data)
+ 		err = um_request_irq(UM_IRQ_ALLOC, fd, IRQ_WRITE,
+ 				     line_write_interrupt, 0,
+ 				     driver->write_irq_name, data);
+-		if (err < 0)
++		if (err < 0) {
++			/* the caller won't free it, the channel isn't enabled */
++			if (input)
++				um_free_irq(line->read_irq, data);
+ 			return err;
++		}
  
- #include <test_progs.h>
- #include <sys/mman.h>
-+#include "arena_mmap_alloc.skel.h"
- 
- #define ARENA_PAGES 8
- 
-@@ -34,6 +35,56 @@ static void test_refused(__u64 map_extra, __u64 addr, int pages, int flags, int
- 	close(fd);
- }
- 
-+static void test_short_mmap_alloc(void)
-+{
-+	LIBBPF_OPTS(bpf_map_create_opts, map_opts, .map_flags = BPF_F_MMAPABLE);
-+	LIBBPF_OPTS(bpf_test_run_opts, run_opts);
-+	struct arena_mmap_alloc *skel = NULL;
-+	size_t size = 4 * getpagesize();
-+	void *area;
-+	int fd, err;
-+
-+	fd = bpf_map_create(BPF_MAP_TYPE_ARENA, "arena", 0, 0,
-+			    ARENA_PAGES, &map_opts);
-+	if (fd == -EOPNOTSUPP) {
-+		test__skip();
-+		return;
-+	}
-+	if (!ASSERT_GE(fd, 0, "bpf_map_create"))
-+		return;
-+
-+	/* The short mapping must be the first mmap() of this arena. */
-+	area = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
-+	if (!ASSERT_NEQ(area, MAP_FAILED, "short_mmap"))
-+		goto out_close;
-+
-+	/* Reuse the map so libbpf does not mmap all ARENA_PAGES on load. */
-+	skel = arena_mmap_alloc__open();
-+	if (!ASSERT_OK_PTR(skel, "arena_mmap_alloc__open"))
-+		goto out_unmap;
-+	err = bpf_map__reuse_fd(skel->maps.arena, fd);
-+	if (!ASSERT_OK(err, "reuse_arena_fd"))
-+		goto out_destroy;
-+	err = arena_mmap_alloc__load(skel);
-+	if (err == -EOPNOTSUPP) {
-+		test__skip();
-+		goto out_destroy;
-+	}
-+	if (!ASSERT_OK(err, "arena_mmap_alloc__load"))
-+		goto out_destroy;
-+	err = bpf_prog_test_run_opts(bpf_program__fd(skel->progs.alloc_beyond_vma),
-+				     &run_opts);
-+	if (ASSERT_OK(err, "alloc_beyond_vma"))
-+		ASSERT_OK(run_opts.retval, "alloc_beyond_vma_retval");
-+
-+out_destroy:
-+	arena_mmap_alloc__destroy(skel);
-+out_unmap:
-+	munmap(area, size);
-+out_close:
-+	close(fd);
-+}
-+
- void serial_test_arena_mmap(void)
- {
- 	__u64 page = getpagesize(), last = -(ARENA_PAGES * page);
-@@ -50,4 +101,6 @@ void serial_test_arena_mmap(void)
- 		test_refused(0, -page, ARENA_PAGES, MAP_FIXED, 0);
- 	if (test__start_subtest("map_extra_last_pages"))
- 		test_refused(last, last, ARENA_PAGES, MAP_FIXED, 0);
-+	if (test__start_subtest("short_mmap_alloc"))
-+		test_short_mmap_alloc();
- }
-diff --git a/tools/testing/selftests/bpf/progs/arena_mmap_alloc.c b/tools/testing/selftests/bpf/progs/arena_mmap_alloc.c
-new file mode 100644
-index 00000000000..9c46a393eae
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/arena_mmap_alloc.c
-@@ -0,0 +1,33 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#define BPF_NO_KFUNC_PROTOTYPES
-+#include <vmlinux.h>
-+#include <bpf/bpf_helpers.h>
-+#include "bpf_arena_common.h"
-+
-+struct {
-+	__uint(type, BPF_MAP_TYPE_ARENA);
-+	__uint(map_flags, BPF_F_MMAPABLE);
-+	__uint(max_entries, 8);
-+} arena SEC(".maps");
-+
-+SEC("syscall")
-+int alloc_beyond_vma(void *ctx)
-+{
-+	void __arena *page;
-+
-+	page = bpf_arena_alloc_pages(&arena, NULL, 1, NUMA_NO_NODE, 0);
-+	if (!page)
-+		return 4;
-+	page = bpf_arena_alloc_pages(&arena, NULL, 2, NUMA_NO_NODE, 0);
-+	if (!page)
-+		return 1;
-+	/* Only one of the four mmap()ed pages remains available. */
-+	page = bpf_arena_alloc_pages(&arena, NULL, 2, NUMA_NO_NODE, 0);
-+	if (page)
-+		return 2;
-+	page = bpf_arena_alloc_pages(&arena, NULL, 1, NUMA_NO_NODE, 0);
-+	return page ? 0 : 3;
-+}
-+
-+char _license[] SEC("license") = "GPL";
+ 		line->write_irq = err;
+ 	}
 
--- 
-Git-157)
+
 
 
