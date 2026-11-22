@@ -1,67 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=85.13.135.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795342881;
-	b=u4KE+NxoImcnVf4+Jm2jrIkSZaza2YgTGkE0nvKLjvWznA677gSBdURWit1Zw/UAJPqd
-	 KfnqWLtzZZG3FTmGQONTFJf9BfRIKJYDU+fYE4/Wx8hI7pwz6QpzXqAsTVoL+Mu2hSnn/
-	 W1x3EZ7SQKrRw9WPYak4n83KFhKKo9lSvgMvsOPgnEZQAi5mIO++vOLXZFUaX75COLK6t
-	 IFYAIGpan3qgyxHsPw4B6kRzYjZ07JII0e9QeGC9pp2ZEaKmG23YvuOOGseg3sYin7SB0
-	 H0iv7OF7Wrs+0Id3NAwEpiE3JcgDRnx07TDQJwLHBc4sZqYTqQAiKQePdgSsVinpigw==
+	t=1795343015;
+	b=2RH7CKzQA6XumhQFOZFTDAVbtfkYFSDnjZCciFHWLX1xmgkEVMQkWPGf8JxM+nGbuTgF
+	 1PO/1kA9l5JmmVUpBNOicBXaTVxsWs4nqbMVA3dk4UnZJphwINRMG+EH7nm493PuNpsda
+	 Kq73RddDc+/vjgsPQjquJ+PS1gngTUZOs3/Zj7kqZWj2xV6ncvN6yKfE2N0/aG/AeUnXj
+	 V5zD9kao770iVAywjrV2heVm6Wxsci09Zbjv8I9m5DHkrBkO/77ty70pToPylBl4Rj2fP
+	 DdhNvgDg7BggDHKKaTT0x2/N+aSKHn+NllULGBiluwTN09MzbvY01PTjdFyJK8v+UvQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795342881;
-	h=DMARC-Filter:DKIM-Signature:X-KAS-Sym:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spamd-Bar;
-	bh=MoMi+T5dU+9FbuOgiDkfYbZ8uJ+mlUtaemF5OVD/pgY=;
-	b=MWiydW3D/0GwDHUCxtpAvj6EfiYxoCbMYo+vklzctZNqM+te9MXcWZ2I9GucEye7pP8m
-	 K22CF1u8s/RrvQl9pyygG7B9dJCvd3ZHj2B3TYtuJUzUny7Le/91pH4DwkqZqmqMERpP0
-	 B7nXaquPn6WIhJZamppyBQzlE2ihaqB6WNAzYMJQaq3Idfz58VSWba8pRlhUgH5TY2ik+
-	 triGah2f6jO8/UyiInzM7rVJjEhmF4AJeUY7w3mQBKYz2+DUb7NQjeIzigRBVJ6p/zx/2
-	 dWv6glcEJ+CPcl/g2QwRgT2WSEBJNh7plzXNUpzHLBeKzQ7eJ+zcySsuU2Hw2FJeiZg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795343015;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=cSubAhLf2nToqdpyL5hNhVaoMwlhz2nCl7Gn87Xueqo=;
+	b=M08eFirZMDP7NNu8oYyZBHOxw9uQbyCtbZLZJm4sKhhIcX8k8OqTobsfUTF/n7dhUOoX
+	 zz60qD/tCJBv+vBdsTcBAJxvOQOY1VNxKWEJjIbCTTV+aID1imbBWXHBrjge6d4wQlTwV
+	 fmkNMHShLHSA3NaMRWDGqCo8I7vlT733I1lcUWwA7K6nJ17L+WQRF1ib1J5ykgOMeDdHn
+	 25UfGKERqqo33SZnPRFu8oMfDhinnx91GmSzirr9ZBqiUsyjQqPOymEZ5Enn9IYhQuGgJ
+	 RcfQTXlzFFwVjAOX1WJE5zdnHY89AaXKKkZtyGk/WIkYy7xO+xUUtqbT0xvX8Ec2akw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tsv-stahl-riesa.de;
-	spf=pass smtp.mailfrom=tsv-stahl-riesa.de;
-	dkim=pass header.d=tsv-stahl-riesa.de header.i=@tsv-stahl-riesa.de header.a=rsa-sha256 header.s=kas202608160020 header.b=FsqFkdQU;
-	arc=none smtp.remote-ip=85.13.135.14
-Received: from dd13108.kasserver.com (dd13108.kasserver.com [85.13.135.14])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UriH+rnc;
+	arc=none smtp.remote-ip=209.85.214.178
+Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE464606A32C;
-	Sun, 22 Nov 2026 10:21:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE464606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tsv-stahl-riesa.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tsv-stahl-riesa.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CD2A606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:23:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1CD2A606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tsv-stahl-riesa.de header.i=@tsv-stahl-riesa.de header.a=rsa-sha256 header.s=kas202608160020 header.b=FsqFkdQU
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tsv-stahl-riesa.de;
-	s=kas202608160020; t=1795342878;
-	bh=MoMi+T5dU+9FbuOgiDkfYbZ8uJ+mlUtaemF5OVD/pgY=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:From;
-	b=FsqFkdQU2MuGs4LfJXpH3oHSyVtZMaQNekaHNUjQupXYLWg47aBjsUlfXpZrneypJ
-	 c6mGX0w6UnAdLf2ReZ6VgAk+cB0Ga1GfZsqsxcN/0ZvInSxmDGwClPBkrNdIqUcVOr
-	 HIWnW9R3Bd1pApwIS2xKYRaZmq/OUxH3frl3YJCLm77dqGHhDhnOVBu/aqgYRfe4WR
-	 EtjEACD6laqjbYboDQDXyMDwTQXkk6ASl6ppA+C0kAe5+0m1ePtQiTam9Lijjzchj7
-	 vNqdYAhoBXu+7X4jpQ8rM3BMPNHrz1otmmK/ZrU+1MJ8vAJjjgNuTvZB98NnY83tkA
-	 HWLNM0wq7dZuA==
-X-KAS-Sym: v3:f51bdf72230551df:qJ5uOu2tDOwck04l6ZZT5ZgS9yYs6RwmRLkVQ2e11W2Qg
-	xi4Fjh2AYzKKX2gAyElm3p0uCqidYfZPAU5b1CzV46YKHzkqvcvF9ccxgCloMJKvslloO6MCVfr
-	6QdObSfYmUNWJ/0ucr8ReMwDqZqTusb+gYriedhqiF3fS0N72iVo5FfV8U+j8sjgdQrvg+UEGp/
-	pMFOz7n2SOuS/Di7sMFu5a52da6xM7KbRWb1W+CP2vGKw25C/j+ejlSDMMtN0jrrQDY3+AOavU4
-	QcErcPgCm854wBnsoLaG1yVxs1QYz+HjGQnrwyrtb2YfxTOOrtB2rQBg75sAG60ujUMzYTiA==:
-	MjVxFkVcOFUItxuneoAiSada4ZD+ZGOu5XniYzG+8WmY8bIEufFopQoXTUXK74DRDE0DOnNzCPZ
-	xp1npeJVtRp4U9ZVZ3cSKFjIsnPpGCz689q9ChBkoOG4KRZXaXoDGpxr/KXQCSQjD61ALCKu/V/
-	EQc5aoPvFJ0eWk0QgM3aPW8+hW7hZO++P2QmS6yhndW9/dryGr/4ya9T2vSIjGnPNaBpVwSv7P2
-	AFaKv01ixGz5hah6FNkL3Bgk8KlDrPfmI4BbclcVpU85Kc88bfg4X7Npb5ZWV9O+koFM+7MC7EO
-	BECU1Oz56/8/Obb7vHNQO5JklZGGnu0P7CgMUMGGWJe8Aq0Uq0GOoSEzQB2AhoaL60AxL2On24q
-	Sgdyo6N2NZVyOljscUn7yqbQIu+l+B3xFdFlzM4rtUYPShWlaXF9ToWmnZqwJQVa0qlEnoJIbgC
-	VjyRcX8qSE9XXhx3NRIDcrEV4GPhWa/nbcVADM9INGS3Ad5YMo+qCGHD1Rbs04M1yHN+OAMZSA+
-	2gxrenPllvnBaFZ/LRxOnSmkjNmEHpauHZxAb4YrQ9JXpMur7UCOu6fGdNK0YTfPEXfbRqmj1Oq
-	oZMsHcTC/hOANd6FY74=
-Received: from [192.168.2.174] (dslb-188-098-197-218.188.098.pools.vodafone-ip.de [188.98.197.218])
-	by dd13108.kasserver.com (Postfix) with ESMTPSA id 5F51178203EB;
-	Sun, 22 Nov 2026 11:21:18 +0100 (CET)
-Message-ID: <57a7461f-8c0f-43b1-83e2-e2867cb35e0e@tsv-stahl-riesa.de>
-Date: Sun, 22 Nov 2026 11:21:18 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UriH+rnc
+Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2f052ae3c86so9982445ad.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:23:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795343014; x=1795947814; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=cSubAhLf2nToqdpyL5hNhVaoMwlhz2nCl7Gn87Xueqo=;
+        b=UriH+rncW5dbSem2k/IMc9Kh+RX8VYHC4eywgNMHqwQRSEq6rZUOBfKq5ywV07S8wv
+         yImnubBBBgIiR3KHa6l558qnoyw9fUfwGg/QX0rLcHz1icT7w806qTQcJuo0zAmQ4sZd
+         EyWL8eTiFIGcmqExv2CklrPO3Q+CpX5vOC68jofIDNjIBD4SH6soHvTdTbHbwmiNkSmP
+         aQtxX0RG/62iqUVCG0jbq/m219Dg+A2fKenLBKHrBt7GAZ5F5frWQz2T/6Ecb3UcUkvf
+         /rnURGXNRiyy/ZdxKrPSmmfzlVQixOO3jGHj/iOc0lQr2p4dxae/7HPVnpzMWSCXdOYx
+         WQBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795343014; x=1795947814;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=cSubAhLf2nToqdpyL5hNhVaoMwlhz2nCl7Gn87Xueqo=;
+        b=i9SIvDIkSPB0I7l8LRMRrZzbLdg2USAWpgvycr5mGLeuaSWtzz9Gml30MxUq1TV0As
+         fQkbON2qBTymmpGrOWTJvOPbbteglowXJlNxwcB0TuqLP/ceso7i/Gobg4iAyQ1vnLUb
+         U5wbKaNIchKSKh/EJxlmwgZeaIsLdw3/P6G1OwTmQaCdA3PycLb2C2dbePOx+njw8c3Y
+         vfk74JRw64UEMiO6S0QvSEWjpA0B/7ZVfe0seTZP0BjHixb1LPEyhiyPeIs40o0cBQEa
+         OllUivfeHzzC9q3UzU1gxw+19hcgvNh9coDONjLQrqhD/2AaXCzSV7RxAq61VOMpBjaN
+         0hFg==
+X-Forwarded-Encrypted: i=1; AL+hErGFQRswRddbasgXvXK+p8SiAV3cBc2/m7ld+/Jl59BZc3XYtOBD/cIzXhB/bmyXT7QrgrasL1HNqoAC7Cc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+2hsBWJKyIWHM2A3wL0kwJqlxwngos5kMlOmckHqESW/CutDta
+	hePpRD/m/3CAUbNs/TX0LaMVOhclhka6rWjTqG85q95ItgIU7/gcVjcNd7t/T8klMx8=
+X-Gm-Gg: AZFdTZdY5WyF+exz84t8S1v2dr2+O3FTUlgBNILS0RwK8ionRobL9QgOyktwMozHskc
+	i6G1zeP04xFs+XFfVZd04TsTQhES8Y1jCBybmbyt4pkgIzGQi7NzSk9+O57ps3LJ59PoR47qjxA
+	lDa1Ok5ILRI2V06NaFTwGNG4vyjM/Gdx7l9RguIxiSSCKNLhaEtAmIZjslakgrrtojo+Vu82z/U
+	3xJyGuyR8lQXRQ2sKF+8Nn0khdS9/22d5bX8G0qjzN2SWweUCEXhkv11l8hw1Y8v+xplvjlz0SR
+	8UjcxILJTYwZfCFVSdwyPpC8fTVOf6eqKSTEd/gJc+RdY/tAqiQ+30PVaaYNOJRE1MT1jsdQPJY
+	E5ux1vBHMo6XMlienXSlv0zWLGApiFG6V0BfcklHSqWn9Jel80aBpMTfkQyKk7Q5eEqZXEixuir
+	Ghxgm2WWc7oF+zzwbvd2rlvzHAJz1YR0xnmuCIxoBG+kX5yZyy1LkRRFwC5NkFBZgh2b7JqmUdQ
+	lxCotMjkcTe38VzIEhkjJvY8SP2zR7N+B6epWvgauWttErKapvs0bXrKI/fmiAFCrys9FkdV6bj
+	OgSes6JqxNU8MxtFNw+K50/Zv6Yio+gG0/5ZN7wtZIow5e2CYvE=
+X-Received: by 2002:a17:90b:4a48:b0:3b3:b5b4:e4a9 with SMTP id 98e67ed59e1d1-3b41c7ac07amr7895999a91.3.1795343014416;
+        Sun, 22 Nov 2026 02:23:34 -0800 (PST)
+Received: from fedora.tailc1fb0a.ts.net ([134.82.71.171])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41aab4729sm12098095a91.0.2026.11.22.02.23.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 02:23:34 -0800 (PST)
+From: Artem Novak <artem122novak@gmail.com>
+To: linux@roeck-us.net
+Cc: artem122novak@gmail.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	florian.fainelli@broadcom.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-watchdog@vger.kernel.org,
+	wim@linux-watchdog.org
+Subject: [PATCH v2] watchdog: bcm2835: add newline to dev_info message
+Date: Sun, 22 Nov 2026 04:23:28 -0600
+Message-ID: <20261122102328.207524-1-artem122novak@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261122082943.173681-1-artem122novak@gmail.com>
+References: <20261122082943.173681-1-artem122novak@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,112 +103,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] thermal: tegra: Fix SOC_THERM temperatures on
- Tegra114
-To: Daniel Lezcano <daniel.lezcano@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Lukasz Luba
- <lukasz.luba@arm.com>, Jonathan Hunter <jonathanh@nvidia.com>,
- Thierry Reding <thierry.reding@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Svyatoslav Ryhel <clamor95@gmail.com>,
- Mikko Perttunen <mperttunen@nvidia.com>, linux-pm@vger.kernel.org,
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20261106-upstream-soctherm-t114-v1-0-c875d1921084@tsv-stahl-riesa.de>
-Content-Language: en-US
-From: Patrick Fischer <admin@tsv-stahl-riesa.de>
-In-Reply-To: <20261106-upstream-soctherm-t114-v1-0-c875d1921084@tsv-stahl-riesa.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Spamd-Bar: ----
+Content-Transfer-Encoding: 8bit
 
-Am 06.11.26 um 21:31 schrieb Patrick Fischer via B4 Relay:
-> On the NVIDIA Tegra Note 7 (Tegra114) all four SOC_THERM zones read 0 C
-> with mainline, in idle and under load, so throttling and thermtrip have
-> no effect on this SoC. There are two separate causes:
-> 
-> 1. tegra_calc_shared_calib() sign-extends the whole fuse word instead of
->    the SHIFT_CP field. On Tegra114, where SHIFT_CP is not in the low
->    bits, this distorts the calibration of every sensor.
-> 
-> 2. The hardware calculates THERMA * capture in 24 bits and discards the
->    result above 2^24 (TCALC_OVER set, TEMP_VALID cleared). With the
->    calibration in 0.5 C units a Tegra114 sensor is only valid for
->    T < (2048 + THERMB) / 2, which is far below the thermtrip
->    temperature. Patch 2 switches Tegra114 to 1 C units, as the
->    downstream driver does. The fuse calibration stays in 0.5 C units,
->    as discussed in the review of the Tegra114 series [1].
-> 
-> Patch 1 is Svyatoslav's fix, unchanged apart from the Fixes and stable
-> tags and a sentence on why the other SoCs are not affected. Without
-> patch 2 it gives three zones that work only up to about 45-53 C on this
-> device.
-> 
-> Zone temperatures on a Tegra Note 7 (P1640) in C, idle / after 60 s of
-> load on all four cores:
-> 
->                mainline   patch 1      patches 1+2
->   cpu           0 / 0     41.5 / 55.5*   43 / 63
->   gpu           0 / 0      0   / 0       39 / 55
->   pllx          0 / 0     44   / 52.5*   43 / 62
->   mem           0 / 0     39   / 50.5    39 / 53
->   thermistor      -       34   / 39      34 / 42
-> 
->   * the sensors behind the zone were already invalid, the zone stayed
->     below the real temperature
-> 
-> "thermistor" is the board thermistor on the PMIC GPADC, as a
-> reference. With both patches all eight sensors stay valid and thermtrip,
-> throttle and trip thresholds are programmed as 102, 100 and 90 C.
-> 
-> Tested with v7.3 on the Tegra Note 7 P1640 (me) and P1988 (Svyatoslav,
-> all four zones work; tags to follow from him on the list). The series
-> is unchanged on top of thermal/linux-next, but only build tested there.
-> Thermtrip and the hardware throttle were not provoked on purpose, the
-> highest temperature seen was 98 C. Suspend/resume was not tested.
-> 
-> The series is independent of "thermal/drivers/tegra/soctherm: Program
-> throttrip with hot trip temperature" [2], which is still pending; they
-> apply in either order.
-> 
-> Tool use (see Documentation/process/generated-content.rst): patch 2,
-> its changelog and this cover letter were prepared with an LLM coding
-> assistant (Claude Code). It evaluated the SOC_THERM register dumps from
-> the device, recalculated the calibration from the fuse values, wrote
-> the code change and drafted the texts from my measurements and
-> instructions. I reviewed the change and ran all tests on the device.
-> Patch 1 is Svyatoslav's own work.
-> 
-> [1] https://lore.kernel.org/all/22816196.EfDdHjke4D@senjougahara/
-> [2] https://lore.kernel.org/all/20261020-upstream-soctherm-throttrip-v1-1-c67f8a02ec3b@tsv-stahl-riesa.de/
-> 
-> ---
-> Patrick Fischer (1):
->       thermal/drivers/tegra: Avoid SOC_THERM calculation overflow on Tegra114
-> 
-> Svyatoslav Ryhel (1):
->       thermal: tegra: soctherm-fuse: Fix shifted_cp extension
-> 
->  drivers/thermal/tegra/soctherm-fuse.c     | 17 +++++++++++++----
->  drivers/thermal/tegra/soctherm.c          | 21 +++++++++++++--------
->  drivers/thermal/tegra/soctherm.h          |  6 ++++++
->  drivers/thermal/tegra/tegra114-soctherm.c |  4 +++-
->  4 files changed, 35 insertions(+), 13 deletions(-)
-> ---
-> base-commit: 32cb06b34701827db0ff34244d84fc74e40ca350
-> change-id: 20261023-upstream-soctherm-t114-9591c6b779d6
-> 
-> Best regards,
-> --  
-> Patrick Fischer <admin@tsv-stahl-riesa.de>
+Add a newline to the watchdog timer initialization message so that
+the message is properly terminated in the kernel log.
 
-Hi Daniel,
+Signed-off-by: Artem Novak <artem122novak@gmail.com>
+---
+ drivers/watchdog/bcm2835_wdt.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-gentle ping on this series. Without both patches the SOC_THERM
-sensors on Tegra114 read wrong or invalid values, so thermal
-throttling does not work there. Svyatoslav has tested it on two
-devices, and it still applies cleanly to 7.4-rc3. Please let me know
-if anything needs to change.
+diff --git a/drivers/watchdog/bcm2835_wdt.c b/drivers/watchdog/bcm2835_wdt.c
+index 755954cbadee..df08236d2689 100644
+--- a/drivers/watchdog/bcm2835_wdt.c
++++ b/drivers/watchdog/bcm2835_wdt.c
+@@ -213,7 +213,7 @@ static int bcm2835_wdt_probe(struct platform_device *pdev)
+ 					      SYS_OFF_PRIO_DEFAULT,
+ 					      bcm2835_power_off, wdt);
+ 
+-	dev_info(dev, "Broadcom BCM2835 watchdog timer");
++	dev_info(dev, "Broadcom BCM2835 watchdog timer\n");
+ 	return 0;
+ }
+ 
+-- 
+2.56.1
 
-Thanks,
-Patrick
