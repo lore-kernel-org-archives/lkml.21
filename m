@@ -1,101 +1,119 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.181
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795379168;
-	b=vw5wIYhqxL3e+Crg3NEgiML5+AhxJWEr+U6gL5C66BpiobmRPe5eiMsFifGQskmHbReC
-	 J0jl6ULsv4EMUnvba7MMA4YAInpThDaFOcg/BeVdMZwXtBO6piEpQictIEa1lAsTIENq2
-	 f43ho4g00GFsOR3okVY7Pnhk9KUBoQl7P2YCdZI1SiWs1FAMCdEjJwk1FcUs77DMPy3SH
-	 0dq7tyUQUkgYzivTzv+Fdt/+/Xhfuco9cPClgrRqRKx4FXlCYC54bDuMejreSULWRjeQG
-	 mJ12BUCuj2u94q8PRvWUiWa5NtE2Jc7gNn8XW9OD1wnvKkYEz+z12SUNCxfu8AezR5Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795379168;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795379245;
+	b=q5fdY9xTLpj7NeD2NuuKL0gAGLaBrpW3+4zpRPFGuPhaj69wSfAPrpviU/C3ZOBhonvy
+	 Zi6p2URQocwUsbnqMsR+FqiFtASgy9ai6Pi6wR1YHnTDiabbt/EXdYNLzjJM2uQATp6hf
+	 R7A8XEMrER7qSnWOBxdpteEw0Tnf7oUKsKeK3edBUA244ZRm5TERlxobHbgImOSyRqXlk
+	 pNJGWGtfybQkdUUwtJGpZTs4X2mdGSidVBgwPDOkwfz1ZMmkCSETktks0qi/MgXCZ/wcW
+	 b+sv9VFSrQaw0agcjQAaypHusovjYlpDizpU1RMuZo9Yy51d1lJu/z2bJB5Nemmb5Xw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795379245;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=jDO/H+Y4L9JRvwYDS18T8LLRtt6pdAf4wwDTNx1nY+0=;
-	b=tgqzwiHhROTh2S7nLVWgkct/NXdXqtfQT8FeqZcaV+IVqOpyw67962+ta88OZmueuKUb
-	 QHjpCccqqD9mUWlSJfrIh+gzlIyK0T7KQTfuNJFWeT0olBs6qJY33CXv2rNMOjMYRF2O/
-	 7qxIQoL2nG8iVAbLLgzMbFSj4eLgidon0EtDe6ZikHjDYhqAkdlAtlezQlpOve8LoAGo6
-	 dNj3OHpbw9aU/C9YRy3dSbN3qFY3mJzpFnoQhaU7kcy6NK7y3GKSCDvU16T/526KY+dXq
-	 eUn9lcy8i/uZTvH4CXvFZtAnfQkP7nUeREQZAaSC2rx6BhaRNiNDkmEv+j1gVUanLOg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bynar.io;
-	spf=pass smtp.mailfrom=bynar.io;
-	dkim=pass header.d=bynar.io header.i=@bynar.io header.a=rsa-sha256 header.s=google header.b=jlOBZv7y;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.181
-Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 X-Received:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=sQDVuZluf8hD6XSUePZUWArQRh9PmFlRuzSAFyE+NUg=;
+	b=TkrbTlDIsvX1nHapE8YMQeZKquStIXDjx3mwO3s3iGbzW70HQPLIkRQq3rsJckVXaO7P
+	 jONIiG5Mr4S+l1YvDtkGphMtWsggNXx5EK5RYHPqI0orhOQM7C7V2hfSubxMxDR9NL9No
+	 RsWVHdsWPItT17e9MxDZyo1Y99ZpnyBUYnTVq7SzLI2o/TJ7Fx0cZIfinVIrlOITg30dq
+	 cfzZ8XG3J7uLb4h/nYVC7OvTv3n33VSdsq5kjQZ0qrFTY1E6FHisoIzti/DtFDadf16oV
+	 o+or+8/SCxUAmun0Ek3LjCUjZNpg5Iyk8yYK0tCut4lc5XkK3NpJRlTGjmhzQtl431g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=YYDKzCWt;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="LRGcPHw/";
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A68A8606A327
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:26:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A68A8606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bynar.io
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bynar.io
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B853606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:27:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B853606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bynar.io header.i=@bynar.io header.a=rsa-sha256 header.s=google header.b=jlOBZv7y
-Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-380b40312e2so6294483eec.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:26:07 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795379167; cv=none;
-        d=google.com; s=arc-20260327;
-        b=AlSxFryDSU3SgBjYrc80IrW8BH8M3UNFerja3+jiDvGBiWvOg21Ffa4LNrbbwFhjgf
-         Y3advj5v1eZNLhL5tNptKhnUMaJAnhL02h+UHqyNNbEcliNoShs+QSV9fZoKwjQock9n
-         4xbiy38/saprTv+Y8S7C7raij3UQVRpu4HwW1WaXa9Q1Nw7go03jtXZJLh1Chmhmkuz0
-         bkIVkqD9W9ldCD2vW43U9hIKhXNUAHm1H32TIBec/dk70AbJUcFm+IllhPNZZ3ot7yZf
-         yb87IijhD5RUP7AY2bT0J3pKuxCo/qSrKXFppQTDKTGgueUFnqOBlyCo37YnOHGkkYu4
-         xjMQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=jDO/H+Y4L9JRvwYDS18T8LLRtt6pdAf4wwDTNx1nY+0=;
-        fh=F3Tvl/EUb4So6wFSa5Jxxw+pc0YPlsFTivDxvvCMGLs=;
-        b=PopLwM/5YzKiDW6QbykmcAsTmYnt807vIcy+u5Mml9Ab0gqYtisMdWj1ckssyNtEfD
-         zuq2FIQTKtDl6b5CMltpfaMIqq6i1lNdT8gpp9BTnr80DNK5LPo9b6jJ+lBoM1Ms7+WU
-         BkFBjmvzMWyQo8lsblBpXninZVg1fxxBgoiH96t5q9M3hhiduFVRLAI/7GbP/T4Uk5Xl
-         pCAUxP45jjFPCmLRquEYzLEJN0n3fb+3O4PBoZ5j+SHcfSb43/cZ3gBAO6P2VTft9UU2
-         Hnk6QDE+sCeKwEvfZAfPszUrbWpLeWBewQ/HqU5mhJAL+TB5yoBNIIb5MsWSPWO4uAGS
-         CvCQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=YYDKzCWt;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=LRGcPHw/
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795379244;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=sQDVuZluf8hD6XSUePZUWArQRh9PmFlRuzSAFyE+NUg=;
+	b=YYDKzCWtCuJ8q89nat5eQDhJYCYXkIxaa4bBj+kSFepP2eTd6dEhLqzyarD/5vmG3NWp8N
+	WXgw1HM3iduALpzl3y+Fl/M/P1EbrRs7nxh7sjDk7W1bmkJdjgswpAyIc74KBK3aY8KF5L
+	NsE3WQrYqIxZ87zPwiNujUWW4Na+S+I=
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
+ [209.85.218.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-208-bXvRKcvZOiSqYfH52OxopA-1; Sun, 22 Nov 2026 20:27:21 +0000
+X-MC-Unique: bXvRKcvZOiSqYfH52OxopA-1
+X-Mimecast-MFC-AGG-ID: bXvRKcvZOiSqYfH52OxopA_1795379240
+Received: by mail-ej1-f71.google.com with SMTP id a640c23a62f3a-c508bafaddfso199062766b.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:27:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bynar.io; s=google; t=1795379167; x=1795983967; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jDO/H+Y4L9JRvwYDS18T8LLRtt6pdAf4wwDTNx1nY+0=;
-        b=jlOBZv7yXjbS4PVGkY4TyPfVt1f6YxrHNWne5CMzIzfmeCwP+IS/yMNZ08waohPsvJ
-         czJo129OWBAi6RVO8jB6Es1EAsmhW+OlYPrulBmApcPPo7Kdlg2FnKOm/meIq5JJAmoL
-         1Aa8NGDlVGAnWvo8vbfTcPyQMLV7rSUcxLM+lqCc1VyoZBidorcEGA/zBvWmSI4wvzf+
-         qOVBNAMIiHx/oikBRrW8pBFcx4QgSvJKSpCCy11ZIsCF0J5Z75UAWsdugAGo70dnlxN4
-         Yj+Ig15621WeZQRPNm3n5R96uEKQB9wfKeRIrgWLtJp6kR0n/81vglzHjfWqHDP3Y1Z6
-         XY5Q==
+        d=redhat.com; s=google; t=1795379240; x=1795984040; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=sQDVuZluf8hD6XSUePZUWArQRh9PmFlRuzSAFyE+NUg=;
+        b=LRGcPHw/H4+m+odH3yKftlntTxHBu04oyLIpjZx/2Ho5eCVeNY5YZoMJAjCIkYr/53
+         KJtbsrzSc3mKURMiXc7JrtDFpyhzpqhKoVkmnoVdf/nrqMWNDhmidY9kRmDNlczYw8f/
+         Y829P8WUiNouvqkVr2ip6Tr0r6h+eGcBkEP/rdyNu9MFwYM20e6WwdlDOllE5vEhxBuY
+         gbJGpxNBvHBPuzKaMsTf5a8zWsqN1DDAn/7V4nBXFH5dSSVUYDw9vnW+pEgtlm2myjbT
+         GpkIJLXWDz8WGZAfz949octZuTgAR3PMZlWnJNhawSXZBKWDjHtKzLbpxzDtFW07Lxge
+         TELg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795379167; x=1795983967;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jDO/H+Y4L9JRvwYDS18T8LLRtt6pdAf4wwDTNx1nY+0=;
-        b=R10/CvVTIOS+HWnEDy0bM8FSSep+YVQqD6sTcPVt2gzB4Au3G8/7GpXLzlAMaWVyLh
-         iRMZizhDSU8Qsncp+JFQPK/73iufKHdBPkrB/fe3AqdhRAzAKONqwjsdjbnqo5QmwBwR
-         /WoW7gJxKpy28EB/HAbHXArqyuEmbSlI/Pb2sLvWfer8VCk6bnxlpIcBW79m/AymCQ/n
-         t2kbfYzmv7JcVtLvJXbRAEIBoUdn6GA7BhooGBh3H2KlXtyxz0ha+SGUdQPDnOrZEcB6
-         cHGQO8oX8BehXV8gn8atIXiziSk6OIaJwrXYd/9Z8au4/twSOK5vywmx6N7qVH6HYNdB
-         UvjA==
-X-Forwarded-Encrypted: i=1; AL+hErHw5tvdCj205T656n3sz0Je6wNhJwRNROZN0tbF6zITZSww/FQKEYhL12FFdI33cxXWnyMEcDt1WfjIFss=@vger.kernel.org
-X-Gm-Message-State: APuU4Z92OWpGduSoACE1tFyzyn26FP0V7S1MCqtlsgGmjcqeoHRyCPCO
-	ywZS+GcBMTAX0J/MsHD02aGsT2b9+d1XMvCEZZoaBASJZtTYUkEU0UT72pSdDih7x05XdcHGMmw
-	UAeHLArsZoz+3iT5U4CRT2Pb233rF7VfP24WIiKSE+YU=
-X-Gm-Gg: AZFdTZcNsyTvGbacFJ91AK96ob9Ieyn4CZd9AnNn5X0qlI3uquW9CCQkbXJcW593jch
-	s4CqhsBkpnIL387oPz914SZ6G8O4cKSH3zHEBGNpHAhyZajmuLVBAHRtnGwrel0V442fQC6pngk
-	ny0kTwBRpbTq0WnANssmHbtwlQpXgBZobeIwd0y60DZaOXWD5s2lUgpspkXekd3i+gOQCkl4Hn6
-	Ex4EeNLIYOHB221uOnYFmNfZlVBJGiQTsngNm+3rJSUWuHtyytY4piAWi/HIh3DY2E+/m9jg1hI
-	W4Yfydwwb+8DRxc5i44wPTEs3As3OUSzwmjx37mRIXmVYGcWt7QHreTs47mGdXx8Zcm5BDoBw/W
-	YUr06fvXqb6sGrFD1wENtG0WH8eZqSLwodq+FHVjbftOilSZ7z/DtxQKpJ3GA/IWBnCNdu/JSsv
-	RHw7aQtyWNrh9KY0jm
-X-Received: by 2002:a05:7300:f789:b0:386:abe8:32b0 with SMTP id
- 5a478bee46e88-386abe835b7mr2204957eec.8.1795379166697; Sun, 22 Nov 2026
- 12:26:06 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795379240; x=1795984040;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=sQDVuZluf8hD6XSUePZUWArQRh9PmFlRuzSAFyE+NUg=;
+        b=BvV4oXZQLjsqjxF6aHxjp2Jj4bVcuw3FXG5TzS45J1+9VRQ+1p43rnuN4Y/9BLe3K9
+         LKpCFHQTT0RFoovxvP0C6rrqPyf+h/RnTal1Y9ClxFVLWWH0f1UJEGhJyYXaW6w5HR7J
+         KaQ5TWBXSCMu9cGK4zvnIgC9CMLTPJ3WbIOyCPZSb/dICKFDahBmoQIcLRamxEOZULyj
+         DnfwwwusoP9inAtRr/xbJ50MvzvIAYPsJcpGD07ehvqF9PRJ6JfMyv5gFCoCodkPPiZg
+         ET8fQI3XZ0t2/Jms/Ay/GbmumPTO3j/dqh60GfeD5DbZmb8M92EQNdqyTglPECu286rW
+         T78w==
+X-Forwarded-Encrypted: i=1; AL+hErEdWiEHkUfETMKOZOhfLnEZIXxeFKhwE0VHI+/pk1atgeEl0tqaORdHbkOGONH/XWpL87A/fJkNhb5ts2M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Bktn5zcM9K7nr0Zssd8oExLLoFAfzaeYQvL7POQS5MBXZPjVO
+	sAnjHxUU1BwxK/IMVV+hK3SAsL2VbaIQZbw2mCz4c/xhcdhmalMTolsmO6ufXOu07x7AFuhXELQ
+	Wev9o2jlh9QGWrfr5usD7x+NQoSjQ0XneKDWwVy15e2QfUtd3bBa3eVIHGo1GcKPLIw==
+X-Gm-Gg: AZFdTZen0P063BWKHqXen35gdrDrQuJUcoIYzASLFrxUT5KXGqXHzGOtUDSSGsCNao9
+	zRZJQMNqb8P6KB9CeDi3dLWr8bgUjn11R183B5QrALLN7slil/3femmMib7xjBZur+0y8ulpc6y
+	qr5Ya41VVHvXNmhWgsu8m42NawgVcHDck6MtLXwk8oRgoo2K0CLG3/A860r+EVVKea/NN0gs57Y
+	2nIs7WLAVDEaIGyPQ1HfGZon0rEfvUShPt6BWQ/W8wbAciQpMKFX5P0U5hyEN9MRaRCLCJgwboI
+	u+FsbwK7rV73u+ImubbzVoSzMC3l+7g5Jq2VBWBRdSXX+cqDRDgUumnHDIL0ggh2OLNG4EA9l4w
+	OlQmqDtttOJ3mwRpQ5sBysaOS6PE/Hev03px51Vac27gGE6rmqKr0OsUYu+hWzEbqL/T1s2RgcC
+	3bI1vWyzwpeAbttzTZWqGNr8TEhdJ+4HyXum+NBccO7zQKDiioCEOZZHJphTGC6xS4TZs2Va9UH
+	NiHEI5wmbG5sDdGvDT1RXjBQpEfWVFuowCAjArLFPTl1kvLyyUL
+X-Received: by 2002:a17:906:3588:b0:c41:6de7:7dee with SMTP id a640c23a62f3a-c513a3ab1a7mr548910466b.7.1795379240276;
+        Sun, 22 Nov 2026 12:27:20 -0800 (PST)
+X-Received: by 2002:a17:906:3588:b0:c41:6de7:7dee with SMTP id a640c23a62f3a-c513a3ab1a7mr548909566b.7.1795379239939;
+        Sun, 22 Nov 2026 12:27:19 -0800 (PST)
+Received: from cluster.. (4f.55.790d.ip4.static.sl-reverse.com. [13.121.85.79])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae9f705sm342880666b.42.2026.11.22.12.27.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 12:27:19 -0800 (PST)
+From: Alex Markuze <amarkuze@redhat.com>
+To: Ionut Nechita <ionut.nechita@windriver.com>
+Cc: Ilya Dryomov <idryomov@gmail.com>,
+	Viacheslav Dubeyko <slava@dubeyko.com>,
+	Viacheslav Dubeyko <Slava.Dubeyko@ibm.com>,
+	Xiubo Li <xiubo.li@clyso.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	ceph-devel@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/7] ceph/libceph: bound sync waits and speed up recovery after network disruption
+Date: Sun, 22 Nov 2026 20:27:17 +0000
+Message-Id: <20261122202717.1341108-1-amarkuze@redhat.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261120073431.53636-1-ionut.nechita@windriver.com>
+References: <20261120073431.53636-1-ionut.nechita@windriver.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,76 +123,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20260921192157.102738-1-giulia@bynar.io>
-In-Reply-To: <20260921192157.102738-1-giulia@bynar.io>
-From: Giulia Aloia <giulia@bynar.io>
-Date: Sun, 22 Nov 2026 21:25:52 +0100
-X-Gm-Features: Aa3M54rOmMhwAvSgkjb5fv7qpYvYexK8dK-gFzayc0_5cgFNHRWVFllEYMSHLpo
-Message-ID: <CAJzojTgYzOMHfTxWbQe0raaeFsyjSd7W-qHUkFUd7bg3Ppksmw@mail.gmail.com>
-Subject: Re: [PATCH 0/4] fs/ntfs3: tighten restart-table offset validation
-To: almaz.alexandrovich@paragon-software.com, gregkh@linuxfoundation.org
-Cc: ntfs3@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	cenzhang@linux.microsoft.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Hi,
-Just a ping on this series.
-Would you have a chance to review these patches when you have some time?
-Thanks, Giulia
+Hi Ionut,
 
-On Mon, Sep 21, 2026 at 9:22=E2=80=AFPM Giulia Aloia <giulia@bynar.io> wrot=
-e:
->
-> This series makes NTFS3 journal replay safer when the on-disk restart
-> tables contain inconsistent offsets.
->
-> Patch 1 checks open attribute offsets in the dirty-page walk. Patch 2
-> checks transaction and attribute offsets in check_log_rec(), including
-> nonzero attribute offsets in records without LCNs, and validates
-> allocator offsets against the on-disk open-attribute table entry size.
-> Patch 3 rejects restart-table dumps without a complete header, rejects
-> short open-attribute entries, and requires the transaction-table entry
-> size to match TRANSACTION_ENTRY.
-> Patch 4 bounds the free-list walk used when allocating a specific
-> restart table entry.
->
-> Cen Zhang's earlier patch [1] checks target_attr at the redo and undo
-> lookups. This series adds checks in the dirty-page walk, in log record
-> validation, and in the restart table allocator. It can be applied
-> independently of [1], but [1] is still needed for the additional
-> validation at the redo and undo lookups.
->
-> Greg KH asked on that thread why this should be fixed in the kernel
-> rather than in userspace fsck. Checking and repairing a filesystem
-> before mounting it remains the administrator's responsibility. These
-> patches serve a narrower purpose: if journal replay encounters an
-> invalid offset, it should return an error instead of accessing invalid
-> memory. They do not repair the filesystem or replace fsck. I am
-> proposing them as robustness improvements, consistent with the kernel
-> threat model [2].
->
-> Each patch includes a KASAN trace captured using a crafted image before
-> the fix. With the series applied, those images were re-mounted on the
-> same x86-64 KASAN build with no reports. The series builds clean with
-> W=3D1 after each patch and passes checkpatch.pl --strict with
-> GIT_COMMIT_ID ignored for the KASAN addresses.
->
-> [1] https://lore.kernel.org/all/20260901174934.6275-1-cenzhang@linux.micr=
-osoft.com/
-> [2] https://docs.kernel.org/process/threat-model.html
->
-> Giulia Aloia (4):
->   fs/ntfs3: validate dirty page open attribute offsets
->   fs/ntfs3: validate restart table offsets in log records
->   fs/ntfs3: validate on-disk restart tables before use
->   fs/ntfs3: fix out-of-bounds access in alloc_rsttbl_from_idx()
->
->  fs/ntfs3/fslog.c | 110 +++++++++++++++++++++++++++++++++++--------------=
-------
->  1 file changed, 70 insertions(+), 40 deletions(-)
->
->
-> base-commit: 238650ef6c7c7cca08e032527329424c9fbd70e5
-> --
-> 2.55.0
+The timeouts in 2/7 and 3/7 can make ceph_sync_fs() return while
+requests are still outstanding. syncfs() can report the error, but
+global sync() ignores the sync_fs return value. It can therefore return
+normally while an unsafe metadata request is still waiting for its safe
+reply. Both paths call sync_fs with wait=1, so returning an error from
+that callback is not enough for global sync(). Please preserve global
+sync's completion guarantee when adding these timeouts.
+
+The default timeout in 5/7 also applies to the interrupt request for a
+blocking lock. On the v2 base, if the MDS has already granted the lock,
+the interrupt does not remove that grant. If the grant reply is delayed
+and the interrupt request times out, the syscall can return an error
+without installing the granted lock locally. The MDS can still hold the
+lock and block other clients. The underlying grant-versus-interrupt race
+predates this series; the default timeout adds another way to return
+before the replies arrive. Please exclude interrupt requests from the
+new default timeout.
+
+Thanks,
+Alex
+
