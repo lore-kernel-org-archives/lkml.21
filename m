@@ -1,121 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.147
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795350844;
-	b=O2hCb9//kpOAo1qtr0InUOIZE4hoNPCWt7S3XRzS4f6IaVvb0Qfu+TuR3m1qy0o3TolV
-	 SGGYDjbWYZhuGQKxvsmozBBiDDa3lx3Ef94PtmSUKf4wLkgBrAL0YreTljW0cPcckwzAJ
-	 lkaZP+oLGscFSFFCnQ6JQqkvvpKjX2+3oB6yCBvdMiQkzgLhjFmmp182FCcu28TC5UpH3
-	 sn13/VP72YMfGt22Dgad7+UILRTq6hKegDj8XO4CtZjVZDCspZszZZzKHNugZV3jhHTEh
-	 TN8GTRRrj2qpBDGeITOwiEBjrEVMBR30yF+bb3xBouYinqjdq+4T0y/DEqPN+46fG9g==
+	t=1795350882;
+	b=i7t3/Cqy+yIAHsoStBYAShMAlonB2XcB5YFagBaYPQiAX/7+ZrdkNKmfRuyQAqxg51wc
+	 adMWNFbQSEjcQqAqQnEQ66l45fTX8CgymVVwMrGvMAQyLK9nwxwvBQwFL0IfyTNRu9ECa
+	 2ZLOnfjjkEdO9w1vzNV3PanchgzoVFvvAY/CBc5Iun2B+2dmr6M0PvPQkxEEKWJAxdzm4
+	 8iRwPqcLlskQ8rtYCDnu5agAIwok/x+CJYhU90sc8yQLmYtmBBq25iCU/nEOAhlQJqji5
+	 6pfQMoKnVeXif6UUxr1Tx2Fey3MGQsHBbu0mX1c6vVGzt0adiaIkbFLIXdRA8F6gHhA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795350844;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=6yUr19shCKVUrcIp+vJdu1Q3d/+vurtj2XGFw6UpVD8=;
-	b=KnQl8NV7Z7isp2D1jYwC5P3D7J8jbiBkOvvHFy6obcDCfy3aRnENc8jeyB2bC0B6uhAj
-	 0hHGnXH79WvhW6CSqjWrG4SgheRNDfec2mN1qLTUNOaf2jfyYJpnAYk5SJhw0SN2mT1To
-	 pJPgEBFqa6c6w8bJFAaf5e1PZ7uSxBsipsGOdPuWEPL95pj/KRdwdJOCszXzHjS3aCceH
-	 Wf1CNmUTMx7O8O3/BU79gzRvwBjtzJnPJoL5LuPWa5WIskxACSvmNowOQES0GGYCmVTNz
-	 rZtOzq3ZiIasZP/ak0mspR3afgC3hY2YU2WRCZVA2bR9zMJxke8xg973KJ0+4X1mCAA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795350882;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=HwshFOaGVaZp5SLNtmKSxUjjmNjEApu6X0KHjtHf+i8=;
+	b=D1ZuHfo8w9XwbOr5nMjl8Azz7ZjUv/ttvw8cHP2w0EtL9o6SOhEKp5ATBLBge9oeo8MC
+	 I1Fl3WX8cR17IXX4TeGvL5Bo1y01Cn57284Q7sHnPw2ZEJYey98TAW7lBLWCVW0IKUTfI
+	 q57qsXTOVNb5Jf2IrXbwFYCVXqCTRyB8Rdz+WhD4bXRmJPYDmsKAXVerc2FhhLUjDUtNG
+	 C8TYyyOf76RnahZ86ITnLkZPqORomjIkb1WkGWvhY37YK+OJ6l86708/4vyaOyytAcDGK
+	 bcvEhetB9iQlzsok39uU1WLMWvjoQR7UMWKmg389dTODwcflHwU3jaJL9kfzha6rEtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=sakamocchi.jp;
-	spf=pass smtp.mailfrom=sakamocchi.jp;
-	dkim=pass header.d=sakamocchi.jp header.i=@sakamocchi.jp header.a=rsa-sha256 header.s=fm3 header.b=SNMV+FE0;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=mXmIt+Lx;
-	arc=none smtp.remote-ip=202.12.124.147
-Received: from fout-b4-smtp.messagingengine.com (fout-b4-smtp.messagingengine.com [202.12.124.147])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KbVSzsdN;
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C0C3606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:34:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C0C3606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=sakamocchi.jp
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sakamocchi.jp
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DDD6606A330
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:34:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6DDD6606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=sakamocchi.jp header.i=@sakamocchi.jp header.a=rsa-sha256 header.s=fm3 header.b=SNMV+FE0;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=mXmIt+Lx
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfout.stl.internal (Postfix) with ESMTP id 323C91D00504
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 07:34:02 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Sun, 22 Nov 2026 07:34:02 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sakamocchi.jp;
-	 h=cc:cc:content-type:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm3; t=1795350841; x=
-	1795437241; bh=6yUr19shCKVUrcIp+vJdu1Q3d/+vurtj2XGFw6UpVD8=; b=S
-	NMV+FE0WnMWklb2a4YFSd8fayobP0QZAz+yK+D+P6wRMia+M5BR4x45ml0JVkDbR
-	EnWiBRHnqrxrT4lfZvgbJdeWoQA+o6fSae+9UI5BGkxsDRTnWNput5uEe3zaDSY7
-	gWzlZMdiZ51RSjyNvP9oDvANcY7v8ihk+Asyr6J7ou94nChFJ7TMRONw9nLiOoBW
-	Ki3cInyN/VNPo5GiRZl3TWGJeDCjSWir93y3PJLBPwGWyHbqTCJPJ1QnBeV3o940
-	kZCNESpA+ZnPj+FvI+BDrP7tMABKNGXwnqoJQnfhfQzVqwqf+3nhXqBiRs6vqdPb
-	Pe8MA2dKxzrPBVk8IJ7KA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795350841; x=1795437241; bh=6yUr19shCKVUrcIp+vJdu1Q3d/+vurtj2XG
-	Fw6UpVD8=; b=mXmIt+Lx6FbMFBqRgVzC25FH2aqa7gWHuCest3PYr4DQS+G9mj0
-	dukomyeYTyyCnGtaXHZq8a4Xg/lkUPRtJGB+fDRDar4YxCFQnO8lKDnSFn8UiTu8
-	0b+PCtOws1RhWsFQaPF4nh8BJwTDq9RZw/JGwzXA6yE3+L9e0p9PhTzPBWKNb2It
-	f+NIPbOyCTuX9QURpBPc8gpwfsn632UzKWOc2Duj4SCZlbOCrPb8pWydYjZIVZ9B
-	/vEsKhXdo2Mr9HfRcp0sdYVwzPSnsG4mqTPKji4lRUYlaNbWZnS/l0liB4PF3gEV
-	7Lqpngvy+Vabu7IKLW+t68YBU01Rkoa9ROA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=sakamocchi.jp a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795350841; d=sakamocchi.jp;
-	mf=PG8tdGFrYXNoaUBzYWthbW9jY2hpLmpwPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:C5XeIwuVTkO+kjG+JUzo20CR4reHdT1EqN+qag2ZXrdLJq5
-	7E9D7J9AUIDeAzKrK3opozIKshr02MzeGQOuNUryajpIRv/TO0y0VzKeaXXaMcJM
-	rcYyvvWKp0+aXFVnq2kdXel+J2jKGtpuPt1lXryqv1pGtPEpMJuX1vo1cdK4J+HX
-	6gPhH8HuEbwOeWoQ5y3ZRsSbvMyT3B+lJTQp2AZ2svRF0j4CV5AEOizUpEVwckmY
-	DszAsAtgsskPAeoMGGahbm2pXuRleDti3LWjSl35HQfS2mDRNTYU2+fzobNQHqFA
-	sfc4RoqEjng/nnOwrEI0xRMFfXvV57/JNLnr/XQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=13;
-	hn=cc,content-disposition,content-type,date,feedback-id,from,
-	in-reply-to,mail-followup-to,message-id,mime-version,references,
-	subject,to;
-Message-Instance: m=1; h=sha256:Ms4JPe7+zLsQKZS409DKOuKITnc4A7gCrTBt9NjDqa4=:oGGvJDZCyOYkoa7I/viR8Ke8Kj7hG/YER0JGa4jXSQI=;
-X-ME-Sender: <xms:OeECa6IGWiMitsIW2BpXYuEsXX77ag3xJOWFZg29GJLi6mT7-4iWRA>
-    <xme:OeECa57ibHHDfUWJFqSShKm5zKYufatk_kDmHEs8Xr9vKfFOq5Dt_JnK2YesbKmiC
-    fuuH6ln_YKnSKoV915fUwQsJaGrdc7STGybLZNzSZEtMeUg_AWJmkAD>
-X-ME-Received: <xmr:OeECa9zs_3bf3BsItUvEkun9D7d0wKm4G5a3jZJJLFdTeOxVCRn6STiP81NT9oLeQc_hPypSodg-o6a2JwPoltaH4RV-Yg>
-X-ME-Proxy-Cause: dmFkZTGn86IvMXStrlVTUlT705FmD1/oY+OanFQWwewde3umHitFDEwaWXJsVVJOt6m0wg
-    /7vijdvSt4j70DDiqBHnUPRjnI5ZiMkoVo8PZpZ+xEttR1DD7e4UQmcVAQy3l4Xup5bCjs
-    cpjJTLpdw0R608Z0BlvJXuv35qE8JFhh/FXbQsBklTPbqLGgiyBBywSaLKJ1rPiB0AJbEo
-    JuvGML55uBd/bbN8ZeXGTjJ6fnAIbcIMyjFHG4qKskQhUPA/vKK5FRtYdLcZFAPt50XNel
-    g970ykSB/DL7pzbN7W0wyo8L/mXiXut9GdKpiCPCDmTBEgvx14dq9hXiZuO8/4M4W7PFoi
-    V+8NZYzfB/vNnttV0JD9nyYlRQduiJHBr2x12wg3LqzPMmj/Zf11B2IFva+n1GhC13sZA0
-    Ga6P5MX67XhP4xyAv1nXCo/oxnFgTGG/3ItfYltlRfmKnxMTqIZiLm2spDZeA+L0iph1r0
-    cCCryrY7ewEfa4uR6SiWRmYtO0Bs8r5JC3QapCFH993P6c5ywZIJN/tqh5Jlp3SXbdXOYZ
-    qL7vw2pnFdlsYKHo0QOzIJWXv6wPBkND1hcMCZmHEb6rKUCcGVDg9UYrJmuEtBeyVqu8XH
-    dWpV7QezHMUqB30kHSQ1grbfeGcqtVCHrhrNG66NmmEpHRbcSblKj32Zw+jg
-X-ME-Proxy: <xmx:OeECa9YCJ8fH5s-Nn3ZNHDx9j6OW-XogfG7SN93JR2182Z8hKH2j5g>
-    <xmx:OeECa_SCQ3dPFDp0OAVq8IB-OIAb0ZN27OBNNmkByq6VZ_SWIgG6aw>
-    <xmx:OeECa3y6hCPD01qOxB-r8svtuq95whwXxn9lMk_wSW6aFqVbnF5MaA>
-    <xmx:OeECa53cSD_EKMfknmvxqnspIpM1pzcd9tPj66v31j2J_TmwLlcw1A>
-    <xmx:OeECa1lIgxlx5dpelrv3s3b2WcpDURFJvOmynPqyU43P5S-Ihtv0Gghp>
-Feedback-ID: ie8e14432:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 22 Nov 2026 07:34:00 -0500 (EST)
-Date: Sun, 22 Nov 2026 21:33:58 +0900
-From: Takashi Sakamoto <o-takashi@sakamocchi.jp>
-To: Yaohan Li <shunsheng1218@gmail.com>
-Cc: linux1394-devel@lists.sourceforge.net, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH] firewire: keep the request alive while the event is
- queued
-Message-ID: <20261122123358.GA500423@sakamocchi.jp>
-Mail-Followup-To: Yaohan Li <shunsheng1218@gmail.com>,
-	linux1394-devel@lists.sourceforge.net, linux-kernel@vger.kernel.org
-References: <20261119083205.3437874-1-shunsheng1218@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KbVSzsdN
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-385c497bf94so163541eec.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:34:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795350880; x=1795955680; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=HwshFOaGVaZp5SLNtmKSxUjjmNjEApu6X0KHjtHf+i8=;
+        b=KbVSzsdNN2VC2lawaTwUtAamviG8DtIqGiiKGKzCK7ZTJovKt6nPxVVMVGA1W7d53C
+         kdD8g4Ft+hS0qWW5T26TsoKiOSpFgqEM0SfUwaE6R1F8TqA0JpNgQT5qQkCYnE+wO0E2
+         dQmd+xdJO8W8ixnAl5Ju7wNHMdUQZtoq+Pi2CqJ/Mq03tu8wemBaZ3S3PpiDsVYx5xwE
+         nGagZ1wAlbqdEzTVB+5SV6DHYyxBAg6P56zgWfevr2vBdrjDNkZpR9R1V1NnE76Bkyoe
+         h8FcHvGBxbZT6J6LA6obUqXZmOhW/orWsPFGo0Ji0wL/371wHdV+jeFQu6UUkCGZTLUy
+         wJyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795350880; x=1795955680;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HwshFOaGVaZp5SLNtmKSxUjjmNjEApu6X0KHjtHf+i8=;
+        b=vWBs26SpUoSzDAg9R74sDCuH52f7Y05CSkSVH1j4RKT5XZ2MJPhAQf4uEvZAfFqUu2
+         3C0Lm0uRgGIUe0n6NsXEHzuEyc0kJw4faW3aF6h4bQ+arrLPVMcDfUI4QHiv+jw1g1ab
+         SLMVFXmygBvbP0dSSgnTqhBJHSyxJvl/LrWqWaV8j2PRzezPzhDbf14ZzBXNaAY1Qltm
+         8j1gAjS3xcc6CNSnL8G152bdQdd6fa3w7DWKNoTTJDgDZR2JArDrNwCU/7kgOzeeSswG
+         JZfZpVX7m6onIBoYbGjf3iihBx/t4QD67egjoWu7xCua7uTONTgPV75CWvZ9vCng3Nf2
+         BsTw==
+X-Forwarded-Encrypted: i=1; AL+hErFQX8HNKu+z3NbQuew022CAzV8ebxLuyuwb+RtgZZmO08wNCMmG/KP9HQNrOkr2HMvEsMRpdMUEvdv5FWE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+xcteSFyEwQMvfO4yLK6mhMR2IMPQEjeLiT+miuqKbxb/Y0pJ8
+	Pca83J5/96S1o4Yo3maFZ8nGyJd/GkMkNAfq5Goquc1oMdpFt5ycb008
+X-Gm-Gg: AZFdTZcLicphG00kwuY75/gz7TSAbXOIlufbIqhA/nj1d80ux2x2IN6PqWjta5T6Az0
+	k9TTfh8cfx6ijJHWXO5+qtLqK+Q5ngvGOqPgnUN9egM2rK50Y4jLg1rBxCWH4kn0ZqHkPndA7HU
+	4hPAnp697Ewp5GQKBtrBByB42NNwE5h5gU04/XkLu5UcBL277YxO+euJ1WxtSDZKM+6yyBsq/mc
+	4AQQkGXkOOz9D/8PstZLgZwYyLmp/dd8UswYOrX7hseZNlf8AqSM1F1Qo3p2QZwkHSdLIm2pwTM
+	R+tMLX7/Ey3GDaRDVITJ8xQ03t8qRW8aht46LzGylDpOHWtKhZjsNXURR2JYm9s5IHTfdx8VPJM
+	b8vi9SYaqNfvrUFJGMszyg5M9BWkRhEZXciAVh+vd1TBL/JEZmkknKdBuDvVuKXkJ8Umzw98b8+
+	ahdnLTy/zR99x/Bj7kKMnFET2yfFKtQHle8Gln6kGXpp49arm8349GYI2ppxstbqwnAHa5n/hrg
+	0Qgg5AcZb+eyb4313Fighyjquhrz1wWLkLwWAVZGgGht5xmHKIpuu57TPL2VcQ/qwIugYPk6e5b
+	m9Z2fsWK4VkRChN98iwRZI4zwNVkLRfC8fSuu7G36iKrtD4wa99rBI9hSNZm7kMZWw==
+X-Received: by 2002:a05:7300:2209:b0:386:8d2:929b with SMTP id 5a478bee46e88-38608d2945emr11724068eec.23.1795350880245;
+        Sun, 22 Nov 2026 04:34:40 -0800 (PST)
+Received: from boogieman ([182.66.218.119])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm33372330eec.5.2026.11.22.04.34.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 04:34:39 -0800 (PST)
+From: Abhishek Khade <abhishekkhade69@gmail.com>
+To: bpf@vger.kernel.org
+Cc: ast@kernel.org,
+	daniel@iogearbox.net,
+	andrii@kernel.org,
+	memxor@gmail.com,
+	linux-kernel@vger.kernel.org,
+	Abhishek Khade <abhishekkhade69@gmail.com>
+Subject: [RFC PATCH bpf-next v2 1/2] bpf: Add bpf_memmem and bpf_dynptr_memmem kfuncs
+Date: Sun, 22 Nov 2026 18:04:26 +0530
+Message-ID: <20261122123427.287521-2-abhishekkhade69@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261122123427.287521-1-abhishekkhade69@gmail.com>
+References: <20261122123427.287521-1-abhishekkhade69@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -125,67 +102,185 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119083205.3437874-1-shunsheng1218@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Hi,
+With the introduction of bpf_strstr, bpf_strnstr, bpf_strcasestr, and
+bpf_strcasecmp in Linux 6.17–6.19, BPF programs gained solid support for
+floating-offset substring search in null-terminated C-strings.
 
-Thanks for the patch. However, I'm not convinced that I understand what
-problem it is intended to address.
+However, in network packet inspection (TC/XDP, TLS SNI tagging, binary
+protocol delimiters) and security monitoring (e.g. BPF LSM hooks
+inspecting raw memory or binary execution buffers), data buffers are
+frequently not null-terminated and often contain embedded '\0' bytes.
+For these use cases, existing string kfuncs terminate prematurely at the
+first null byte.
 
-On Thu, Nov 19, 2026 at 04:32:05PM +0800, Yaohan Li wrote:
-> handle_request() builds an event whose payload points into the
-> fw_request that carries the packet.  The reference that keeps that
-> request alive belongs to the client resource, which can be released
-> from another thread with FW_CDEV_IOC_SEND_RESPONSE as soon as the event
-> header, including the handle, has been copied to userspace.
-> 
-> dequeue_event() copies the header and the payload with two separate
-> copy_to_user() calls, so the request can be freed between them and the
-> payload copy then reads freed memory.  The same happens for an event
-> that is still on the client list when the request is released.
-> 
-> Let the event hold its own reference to the request and release it in
-> the event destructor, which the three paths that free an event now use.
-> The other event types are allocated with kzalloc_obj() so that the new
-> release hook is NULL for them.
-> 
-> Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
-> 
-> ---
-> (snip)
-> ---
->  drivers/firewire/core-cdev.c | 44 ++++++++++++++++++++++++++++--------
->  1 file changed, 35 insertions(+), 9 deletions(-)
+Currently, developers attempting to search variable-length binary
+payloads must choose between:
+1. Writing a loop using bpf_loop() or open-coded iterators: Even with
+   verifier inlining, this executes 1 subprogram call per byte and
+   cannot leverage 64-bit word-at-a-time SIMD scanning, making it
+   significantly slower than kernel-internal scanning.
+2. Streaming raw buffers to user space via BPF ring buffers: This
+   induces heavy memory copying and context-switch latency, often
+   leading to ring buffer drops under high-throughput workloads.
 
-In the UAPI design of this subsystem, FW_CDEV_IOC_SEND_RESPONSE works
-correctly as long as its argument, struct fw_cdev_send_response.handle,
-contains the correct handle for the target client resource.
+To address this gap, this RFC proposes two complementary kfuncs in
+kernel/bpf/helpers.c:
+- bpf_memmem(): Searches for a byte sequence within a flat memory slice.
+- bpf_dynptr_memmem(): Searches for a byte sequence within a dynamic
+  pointer (struct bpf_dynptr).
 
-The client resource is allocated in handle_request(), which queues a
-struct fw_cdev_event_request{,2,3} event containing the handle. Once a
-userspace application retrieves this event through read(2), it can proceed
-to issue the FW_CDEV_IOC_SEND_RESPONSE ioctl(2).
+Both functions wrap an internal allocation-free scanning routine based
+on the kernel's optimized memchr() followed by memcmp(), returning the
+matched byte offset or -ENOENT. Buffer sizes are capped at
+BPF_MEMMEM_MAX_LEN (2 MB) and needle patterns at BPF_MEMMEM_MAX_NEEDLE_SZ
+(4 KB). To prevent pathological quadratic O(N * M) RCU CPU stalls,
+cumulative byte comparisons across memcmp calls are strictly bounded by
+BPF_MEMMEM_MAX_LEN. Verifier bounds safety is enforced via the standard
+__sz naming convention and dynptr type tracking. Both kfuncs are
+registered in common_btf_ids to allow access across all program types.
 
-At first glance, I see little opportunity for a well-behaved application
-to issue FW_CDEV_IOC_SEND_RESPONSE between the two copy_to_user() calls.
+Signed-off-by: Abhishek Khade <abhishekkhade69@gmail.com>
+---
+ kernel/bpf/helpers.c | 116 +++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 116 insertions(+)
 
-However, I can imagine two ways to trigger this situation:
+diff --git a/kernel/bpf/helpers.c b/kernel/bpf/helpers.c
+index 6788489a2..1f27ad21a 100644
+--- a/kernel/bpf/helpers.c
++++ b/kernel/bpf/helpers.c
+@@ -3406,6 +3406,120 @@ __bpf_kfunc int bpf_dynptr_memset(const struct bpf_dynptr *p, u64 offset, u64 si
+ 	return 0;
+ }
+ 
++#define BPF_MEMMEM_MAX_LEN (2 * 1024 * 1024)
++#define BPF_MEMMEM_MAX_NEEDLE_SZ 4096
++
++/* In-kernel binary byte sequence search using memchr() and memcmp() */
++static void *__bpf_memmem(const void *haystack, size_t haystack_sz,
++			  const void *needle, size_t needle_sz)
++{
++	const char *h = haystack;
++	const char *n = needle;
++	const char *end;
++	size_t total_cmp = 0;
++
++	if (needle_sz == 0)
++		return (void *)haystack;
++	if (needle_sz > haystack_sz)
++		return NULL;
++	if (needle_sz == 1)
++		return memchr(haystack, n[0], haystack_sz);
++
++	end = h + haystack_sz - needle_sz + 1;
++	while ((h = memchr(h, n[0], end - h)) != NULL) {
++		total_cmp += needle_sz;
++		if (total_cmp > BPF_MEMMEM_MAX_LEN)
++			return NULL;
++		if (memcmp(h, n, needle_sz) == 0)
++			return (void *)h;
++		h++;
++	}
++
++	return NULL;
++}
++
++/**
++ * bpf_memmem - search for needle byte pattern in a flat memory buffer
++ * @haystack: pointer to haystack memory buffer
++ * @haystack__sz: size of haystack buffer in bytes
++ * @needle: pointer to byte pattern to search for
++ * @needle__sz: size of pattern in bytes
++ * @flags: reserved for future options (must be 0)
++ *
++ * Return:
++ * * >=0      - 0-based byte offset of match in haystack
++ * * %-ENOENT - needle was not found in haystack
++ * * %-EINVAL - invalid flags or parameters
++ * * %-E2BIG  - haystack exceeds 2 MB or needle exceeds 4 KB
++ */
++__bpf_kfunc long bpf_memmem(const void *haystack, u32 haystack__sz,
++			    const void *needle, u32 needle__sz,
++			    u64 flags)
++{
++	const void *match;
++
++	if (flags)
++		return -EINVAL;
++	if (!haystack || !needle || needle__sz == 0 || haystack__sz == 0)
++		return -EINVAL;
++	if (needle__sz > haystack__sz)
++		return -EINVAL;
++	if (haystack__sz > BPF_MEMMEM_MAX_LEN || needle__sz > BPF_MEMMEM_MAX_NEEDLE_SZ)
++		return -E2BIG;
++
++	match = __bpf_memmem(haystack, haystack__sz, needle, needle__sz);
++	if (!match)
++		return -ENOENT;
++
++	return (long)((const char *)match - (const char *)haystack);
++}
++
++/**
++ * bpf_dynptr_memmem - search for needle within a dynamic pointer
++ * @haystack: pointer to dynptr representing the search buffer
++ * @needle: pointer to pattern to search for
++ * @needle__sz: size of pattern in bytes
++ * @flags: reserved for future options (must be 0)
++ *
++ * Return:
++ * * >=0      - 0-based byte offset of match in dynptr buffer
++ * * %-ENOENT - needle was not found
++ * * %-EINVAL - invalid flags, non-linear buffer, or parameters
++ * * %-E2BIG  - dynptr buffer exceeds 2 MB or needle exceeds 4 KB
++ */
++__bpf_kfunc long bpf_dynptr_memmem(const struct bpf_dynptr *haystack,
++				   const void *needle, u32 needle__sz,
++				   u64 flags)
++{
++	struct bpf_dynptr_kern *ptr = (struct bpf_dynptr_kern *)haystack;
++	const void *data;
++	const void *match;
++	u64 size;
++
++	if (flags)
++		return -EINVAL;
++	if (!ptr || !needle || needle__sz == 0)
++		return -EINVAL;
++	if (needle__sz > BPF_MEMMEM_MAX_NEEDLE_SZ)
++		return -E2BIG;
++
++	size = __bpf_dynptr_size(ptr);
++	if (size == 0 || needle__sz > size)
++		return -EINVAL;
++	if (size > BPF_MEMMEM_MAX_LEN)
++		return -E2BIG;
++
++	data = __bpf_dynptr_data(ptr, size);
++	if (!data)
++		return -EINVAL;
++
++	match = __bpf_memmem(data, size, needle, needle__sz);
++	if (!match)
++		return -ENOENT;
++
++	return (long)((const char *)match - (const char *)data);
++}
++
+ __bpf_kfunc void *bpf_cast_to_kern_ctx(void *obj)
+ {
+ 	return obj;
+@@ -5214,6 +5328,8 @@ BTF_ID_FLAGS(func, bpf_dynptr_size)
+ BTF_ID_FLAGS(func, bpf_dynptr_clone)
+ BTF_ID_FLAGS(func, bpf_dynptr_copy)
+ BTF_ID_FLAGS(func, bpf_dynptr_memset)
++BTF_ID_FLAGS(func, bpf_memmem)
++BTF_ID_FLAGS(func, bpf_dynptr_memmem)
+ #ifdef CONFIG_NET
+ BTF_ID_FLAGS(func, bpf_modify_return_test_tp)
+ #endif
+-- 
+2.53.0
 
-* Busy-polling the memory region used by read(2) and immediately issuing the
-  ioctl when the event data becomes visible, before the second
-  copy_to_user() is executed.
-* Repeatedly issuing FW_CDEV_IOC_SEND_RESPONSE speculatively with
-  arbitrary handle values.
-
-In both cases, an address handler must be allocated in advance, and
-another node (or application) on the IEEE 1394 bus must send an
-asynchronous request to that address region.
-
-Is the patch intended to address this scenario?
-
-
-Thanks
-
-Takashi Sakamoto
