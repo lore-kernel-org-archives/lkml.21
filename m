@@ -1,103 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795361451;
-	b=JWkvSI+8WfW/LctETL9q8MO+ILkGfwwwBipLPQBG7dYLnfx5kRYHRHpkWQXgwgVVh5dZ
-	 z0g6r4gRqPIC5RK7XcDY/W4D3HWGsOAyJlOmSJfXVEapXImJuejjFc1jDLYr+dw8X5713
-	 toQYC2RTfIjL0Um+Gi831vDywxe7O3jRLsYrTMHRgG9KVzuA1eHRhBORn1f+FNjOxAF+U
-	 XvFeSNEeMSp7QXSfYwZN4cRfQV4rNigHG+8tsVUyUuPYcGJuDqvUwreXyPRCE1BO8td+q
-	 Sbk1bG52GqOr91iFWCcToYiLY0gpts+d9bHviq0jN6JnoBsvCa9NHKVANw+Ki+MxN+A==
+	t=1795361455;
+	b=yjF1N3Io0jBi96LYfP36F188mpdrqgOSBXRCpwQSjopQOpKi5+HrICv+m3KxzPQEMtiU
+	 mxtCkP7BmDsVYn4CBxJ3jeJHj8ErZ/PpkS+T1FUOzV/UV9RkIic6n3lH4K0kMpqjdUN5v
+	 YK5zS1OiD1jb08EsvDOFVq6P/G+jX55deYLvsHqGf7GH4xSIQnnzW0u5ya/hM9mjXRiMf
+	 OENbiMVs5Yi2INl3tHDMrLzXd1jgwYrjXmaKOTKrIfqM8fyHQ1sNNAfEJc4pJkyU/a3+a
+	 xVSClACGPjk7f9yLdFo12OOh8Mr4JTkGoJmbuNp1+Q1aoBbFt+B23Xp0LAcflQGltvg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795361451;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795361455;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=Ir0OKyo+y1SL2HEj72iu85DZejzl7//zFmRmBJel+xA=;
-	b=F+j1xBz64xVGZasNv4QQmNXc/FBwFoGG/FV1/oTUPdRcHPG1asWG+i7dtRgetRQrx2ch
-	 VUOYcEZ1ScLQWTrhuCQTzrdmSSftf0akFP4BkF0jcqd6945TNpN69daUJYmaZM11ssm+r
-	 dx9OlSvDG9KbcsZ6cV6JAdYfWFOmoQJjnga+ZMvkP2ebSxYZjanqRmn+PPf7o3+lyAWju
-	 GGAf+AjG8gkdgNuJFXQFTUawGUY3hupB67k0B4guykdfzneMdrbMdk2myZreByiLYa50W
-	 4OtTy3LMZAeb2M1u2s3a0AgaqX7Fvj2kw9vGuz2z8xJs4MI8tsh3ceZAdNo+wHcBKlA==
+	bh=GRF7RZylvqUysOgUrH3bq7GJBGa2AYrwd8X7S2pra/o=;
+	b=zZmiv+uiUaiQR3v9F3sP7rQ8dgJ3Cs3q+B0Mia+7O56fJNWcfPcBQIERCaJ6rXgbociZ
+	 hbxgx4UgNTYVzVleR2DcS58yfQwPJgnqajN6trqiBLmqIp58/8kyAhrIUr4QhsC3b7FtH
+	 pYbE6fhl6xti7YFiLm3E1li3jBgioze9FUpYextCrgUbivZxP7mCC9v9wB80d9+rrdIhq
+	 /NujNC3HyWtkL87c92qRVPDVC7yZfjwX9k2iWjtBgDzmkB0NZfXVABC8Guiao5r72Gg60
+	 9WOmhcO81Su01S0PPGU/D7r5syaHwYTryZTcX9V6gtZ+czvU3FFA6YN5Vj0zM2nUVNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=amarulasolutions.com;
 	spf=pass smtp.mailfrom=amarulasolutions.com;
-	dkim=pass header.d=amarulasolutions.com header.i=@amarulasolutions.com header.a=rsa-sha256 header.s=google header.b=U8XxT1VR;
-	arc=none smtp.remote-ip=209.85.128.41
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
+	dkim=pass header.d=amarulasolutions.com header.i=@amarulasolutions.com header.a=rsa-sha256 header.s=google header.b=X6MERMCz;
+	arc=none smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBA54606A337
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 15:30:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DBA54606A337
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6440C606A331
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 15:30:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6440C606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=amarulasolutions.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amarulasolutions.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=amarulasolutions.com header.i=@amarulasolutions.com header.a=rsa-sha256 header.s=google header.b=U8XxT1VR
-Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso29184715e9.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 07:30:50 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=amarulasolutions.com header.i=@amarulasolutions.com header.a=rsa-sha256 header.s=google header.b=X6MERMCz
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4b467581b98so22265095e9.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 07:30:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1795361449; x=1795966249; darn=vger.kernel.org;
+        d=amarulasolutions.com; s=google; t=1795361454; x=1795966254; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Ir0OKyo+y1SL2HEj72iu85DZejzl7//zFmRmBJel+xA=;
-        b=U8XxT1VRNWVijdROi/+gm7Pi/t9Wbvy7toufooMq+dDIvM+TYbwwsa5PEGb5iE5PAD
-         tZ5hgPEW9b2oI4Uzk9b/SeCqi7V9ZVPW/TPunjX+qAG0k1jJvO8RFIHtSv+Gs4eLTs6v
-         KOZS7elOHTEGMmH/huOJrtwR8VzcqoeqXPX5s=
+        bh=GRF7RZylvqUysOgUrH3bq7GJBGa2AYrwd8X7S2pra/o=;
+        b=X6MERMCzOK6feWg/ISV579uhgoB8gXTUupUMDskDHridkbSN9W4y2FfAk+XeGhv9Q+
+         9fGXkrriMWn5OglavPuUEqRspquJk4x30oXiWCpZvGZJydEIYFzTgQmSOP1hZ1uDEM/s
+         nxd5IyXC4YkU4nZwb6LD5iM3nykMriFAOwYHw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795361449; x=1795966249;
+        d=1e100.net; s=20260707; t=1795361454; x=1795966254;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Ir0OKyo+y1SL2HEj72iu85DZejzl7//zFmRmBJel+xA=;
-        b=Q3h+p9hisAk5l1eRrn3eI+MgHPBhUyUYhQ8+YC32Ro9H4x88esriaAxQIPY/4G14tX
-         CWV6SWUE9f3sdH6ogNd6zHbmvAjfhOOZ76v4xxx+JiuvJsEkKc+ftyg88HcZV8UtanFr
-         5ySShN6t46DfY23J7y/XtAT9Aj56hfXWkL1bHOnMJoIDaGd1OjcaAp7E4zzQl7lSn9CB
-         eINvOZt76A279tnHu89rTYqSCA3SM4co6egkN2W5R8fnV7K1avxK7DtEsAIq5uMJP7U6
-         NpZts9iv5kv3NAq3cAJS2ff3u7hahDYiIc7KDjMVUgJaGqi8JD4VUa++cDKMSIifXXmG
-         VVrw==
-X-Forwarded-Encrypted: i=1; AL+hErGr83tFZv88xRjpxM0juWTi9zGjkn1g0qgM0XFU1gnf6UZzOlGMp3dRs3Me4zUP7yJdrYiW5m2ETKYb1sc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9C7uBAqse+4s/bWWIESwVXPmbLRKLh++XYvAvaHXLOWAYSisHc
-	GoZsnYcgTfyj5+cPdKqXs67zYfdKZnhSmNPI8PlN3lLgylCS2g1ZY3xhz9sMIKTsX+A=
-X-Gm-Gg: AZFdTZeRFZ5IeAdA5Wtkrr78SF4ozg592krbLdDjVM4UII0n5JUNMiVjDgQPWOXL9+R
-	HnUhdi+Ru+srWSc6Pw+WX0v/UuRVzvf5l+vC+hmD8M21A3BT3zPCRUx+hHAp9KIMZ/6OsKgiAl/
-	AkO8m6IWlkoxK+tCGqPSHFuHRF9x68SEXmRwiM0kah0qYPfNMXuXND7MM4b14c+dmty161/H1sf
-	vtkjN4HXvaDy7XEM8QUO7zID/e7kFj7Ew+1zIrPrjd4YiS2tzbzCyQ/XoIxGkY+RNcR6qCDNUlJ
-	3o6hqg9lLVGuMk2tdF2T2fYrYm+o7xGAR8h6Si2cd0W7DUGn4ugr6K0/E6OdkoJCXW5et/vkE+l
-	MTO3ChnAIfj4YoiMwvIMPRTqpKan70NXTQnirXMYe+jA6ENrJ+IXWu6R+KZUwb2Y9aU2sTJaVD8
-	szCy3lu7c5zHkIPgEY2SRK6tjcwZoMEzv8lqvIlvkP/EndzUBv6jlR9D2PsKwo8Ck6ucJxe/C/l
-	OuAC5oTi75MqiJOzPTYG085HtezFuipQnFFGk+E49T146GaxpGbz17ir8lvMrX2uyMDMle/0VC1
-	ucSL2bIfAPZdjqL9Gu5wMNPWU6XGPd3NJ+COvEaazNgrJNOcmWPR4DqlA0hpCFJjnnQIKIxRnfY
-	mnoeJ9ImQAYKqX2rKMICVr+TYM3AgyNCL0QNksagtcFbQuV0JEUtR5e+OyjHthIsJlSLqrlSN5d
-	wYNsSN+93jSV/I2VePmbM4fMKinA==
-X-Received: by 2002:a05:600c:6219:b0:4a1:d087:f6ab with SMTP id 5b1f17b1804b1-4bb8880badfmr181373425e9.18.1795361449293;
-        Sun, 22 Nov 2026 07:30:49 -0800 (PST)
+        bh=GRF7RZylvqUysOgUrH3bq7GJBGa2AYrwd8X7S2pra/o=;
+        b=WTzsfZjOAbGQUpjPOF0yp777R6gX6yInob60zm8PpAtLSP8IU2bXPkprA5iJsSlB/Q
+         H3Lt6zZn3yphVVw42SWloHelTzMUn8JOFcB6qWwA4M0+5epWCPwiOqGAUpht6m4UO045
+         OKGC9gzthOumdDqSNhQUJQHAYqBKqahUJyey027lg8H5WKqsbjgve4wHcgtfqNfrt33V
+         Y34tAQgARDDeCrH9ToVFvz6o0r3J/RTtG+SGD7jPLiPZLRM0/9OXGDLQyrPQhMu5mGBq
+         iEtUpvRgjg6faA01VSm0mArlals/35vEcrIBUiC1MrIa09hkDfZXn9fewzlEDL4eBetl
+         E1bg==
+X-Forwarded-Encrypted: i=1; AL+hErHOsPeG794aFJUyFdyyoHbWSba1MWFJX5qa3eILf1U0a0bEDnBXpyBQQS+JlifLF0tChOg9oNvIbRiBGpA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/uUFLgOC2oOcV69to3RQFTPk7La19mSsSdK0B2z+Jn1Q+wa8g8
+	uA0Kbit0ehhQThrK0nVZCgbZve1kP29CplEtgbpICKbezag7S28ZPTPLd6Ck0Ok0f5o=
+X-Gm-Gg: AZFdTZe9yLfuoD4qKdPmuDYRDtVS+LKOyVnzBpkxIYiPKu/MPIoyIoQ/TIX5M8Q4CkR
+	KfvPPXxqziOJ5X9v1p3B9lV0gcGeLCq0A7bh1cML6nQUAM+m1niq2Wvqt2YyvxmWUybb4Byi6IH
+	qID8XX1JbeK3JkHTnYz3EJpRmV3lhanQW5QXGgRYIizBA0FbVfS92oYu++K/siwE3+Hs5qDi4lL
+	PSYMQnNQ6ZqJ51a22zI8jnZflW/U1p6RNfuWIazxEZSnlDsLw+QEKtOnWEjMmn+HM4kMMBXGMmu
+	vz0jddLGYLGNrVCDFSVB79n67cUefk+/MuXVEwJjVCQ9H3+QZjlZMGCIm7/5pK+GC9z/e0eNuEn
+	u9fwCzhLlTiwnknypX1T7gSuu4Vjlr3E+ac6sck3rz+Ui+TRjtkm6lfBKsVAnAy/tMS21sMV1QY
+	03KvpCVUiANtftLPl9USRQtoRKzbFaJ2/3UW2twhE4JQvEKx2fmk4wFykT4Useo7BSTzxLDVQab
+	IT/aiah5cFaBzvrGls4O7WfOHJ48yXmGlYvJvydZ0wdsvVJmpcenymZjzl+ziGjLaDhWRI8wqSs
+	OYn2x3pEnqCrfaln8qN9fQUq41thW7RPooI38r+2tZbKNA5bUJ2ZDLKwonbCD/NyvnHP5Bq2zHD
+	I/P2DJ4PFOc+cG1e1whPlFXBKY/PwtgdVgmp+LG5mdosibOQYVVUHbsrekeQntGMDHqYNlz3Ca4
+	s8/ZHjVPvWpxJy3iPuNMSSjQltXA==
+X-Received: by 2002:a05:600c:190d:b0:4ba:2bfc:c8b5 with SMTP id 5b1f17b1804b1-4bb888267aemr185114295e9.10.1795361453840;
+        Sun, 22 Nov 2026 07:30:53 -0800 (PST)
 Received: from dario-ThinkPad-P14s-Gen-5.homenet.telecomitalia.it (host-79-14-29-58.business.telecomitalia.it. [79.14.29.58])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a15absm237833815e9.9.2026.11.22.07.30.44
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a15absm237833815e9.9.2026.11.22.07.30.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 07:30:48 -0800 (PST)
+        Sun, 22 Nov 2026 07:30:53 -0800 (PST)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: Maxime Ripard <mripard@kernel.org>
 Cc: michael@amarulasolutions.com,
 	linux-amarula@amarulasolutions.com,
 	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
 	David Airlie <airlied@gmail.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
 	Simona Vetter <simona@ffwll.ch>,
 	Thomas Zimmermann <tzimmermann@suse.de>,
 	dri-devel@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 1/8] drm/bridge: Add atomic_sro_install_state hook
-Date: Sun, 22 Nov 2026 16:30:01 +0100
-Message-ID: <20261122153032.2782768-2-dario.binacchi@amarulasolutions.com>
+Subject: [RFC PATCH 2/8] drm/panel: Add sro_install hook
+Date: Sun, 22 Nov 2026 16:30:02 +0100
+Message-ID: <20261122153032.2782768-3-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261122153032.2782768-1-dario.binacchi@amarulasolutions.com>
 References: <20261122153032.2782768-1-dario.binacchi@amarulasolutions.com>
@@ -112,112 +107,78 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The CRTCs, planes, connectors and private objects can acquire the
-resources needed to keep the hardware state active when a state read
-out from the hardware is installed. Bridges can't, even though they
-usually hold a runtime PM reference and track their enable state
-while the pipeline is active.
+The panel bridge assumes the panel is enabled whenever its pipeline
+is read out as active, but the panel is left marked as unprepared and
+disabled. The following disable is then skipped, and the panel driver
+never gets the chance to acquire the resources it will release when
+unprepared.
 
-Add the atomic_sro_install_state hook to the bridge funcs. It is
-called only for the bridges of a pipeline that was read out as active.
+Add the sro_install hook, called when the state read out from the
+hardware is installed. On success the panel is marked as prepared and
+enabled.
 
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 ---
 
- drivers/gpu/drm/drm_bridge.c | 41 ++++++++++++++++++++++++++++++++++++
- include/drm/drm_bridge.h     | 20 ++++++++++++++++++
- 2 files changed, 61 insertions(+)
+ drivers/gpu/drm/drm_panel.c | 16 ++++++++++++++++
+ include/drm/drm_panel.h     | 10 ++++++++++
+ 2 files changed, 26 insertions(+)
 
-diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-index 81174015309f..f4b66a3b38fc 100644
---- a/drivers/gpu/drm/drm_bridge.c
-+++ b/drivers/gpu/drm/drm_bridge.c
-@@ -637,6 +637,46 @@ drm_bridge_atomic_readout_priv_state(struct drm_private_obj *obj,
+diff --git a/drivers/gpu/drm/drm_panel.c b/drivers/gpu/drm/drm_panel.c
+index bef0e6af73ba..daccf98e5513 100644
+--- a/drivers/gpu/drm/drm_panel.c
++++ b/drivers/gpu/drm/drm_panel.c
+@@ -346,6 +346,21 @@ panel_bridge_connector_readout(struct drm_bridge *bridge,
  	return 0;
  }
  
-+/* The connector and CRTC states are installed before the bridge ones */
-+static bool drm_bridge_sro_pipeline_is_active(struct drm_bridge *bridge)
++static void panel_bridge_install_state(struct drm_bridge *bridge,
++				       struct drm_bridge_state *bridge_state)
 +{
-+	struct drm_connector_list_iter conn_iter;
-+	struct drm_connector *connector;
-+	bool active = false;
++	struct drm_panel *panel = drm_bridge_to_panel(bridge);
 +
-+	drm_connector_list_iter_begin(bridge->dev, &conn_iter);
-+	drm_for_each_connector_iter(connector, &conn_iter) {
-+		struct drm_connector_state *conn_state = connector->state;
-+
-+		if (!conn_state || conn_state->best_encoder != bridge->encoder)
-+			continue;
-+
-+		if (conn_state->crtc && conn_state->crtc->state)
-+			active = conn_state->crtc->state->active;
-+
-+		break;
-+	}
-+	drm_connector_list_iter_end(&conn_iter);
-+
-+	return active;
-+}
-+
-+static void
-+drm_bridge_atomic_install_priv_state(struct drm_private_obj *obj,
-+				     struct drm_private_state *priv_state)
-+{
-+	struct drm_bridge *bridge = drm_priv_to_bridge(obj);
-+
-+	if (!bridge->funcs->atomic_sro_install_state)
++	if (!panel->funcs || !panel->funcs->sro_install)
 +		return;
 +
-+	if (!drm_bridge_sro_pipeline_is_active(bridge))
++	if (panel->funcs->sro_install(panel))
 +		return;
 +
-+	bridge->funcs->atomic_sro_install_state(bridge,
-+						drm_priv_to_bridge_state(priv_state));
++	panel->prepared = true;
++	panel->enabled = true;
 +}
 +
- static bool drm_bridge_atomic_compare_priv_state(struct drm_private_obj *obj,
- 						 struct drm_printer *p,
- 						 struct drm_private_state *a,
-@@ -682,6 +722,7 @@ static const struct drm_private_state_funcs drm_bridge_priv_state_funcs = {
- static const struct drm_private_state_funcs drm_bridge_priv_state_funcs_with_sro = {
- 	.atomic_sro_compare_state = drm_bridge_atomic_compare_priv_state,
- 	.atomic_sro_readout_state = drm_bridge_atomic_readout_priv_state,
-+	.atomic_sro_install_state = drm_bridge_atomic_install_priv_state,
- 	.atomic_create_state = drm_bridge_atomic_create_priv_state,
- 	.atomic_duplicate_state = drm_bridge_atomic_duplicate_priv_state,
- 	.atomic_destroy_state = drm_bridge_atomic_destroy_priv_state,
-diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
-index b73f3424ed62..eb65e1807410 100644
---- a/include/drm/drm_bridge.h
-+++ b/include/drm/drm_bridge.h
-@@ -341,6 +341,26 @@ struct drm_bridge_funcs {
- 					 struct drm_bridge_state *a,
- 					 struct drm_bridge_state *b);
- 
+ static const struct drm_bridge_funcs panel_bridge_bridge_funcs = {
+ 	.attach = panel_bridge_attach,
+ 	.detach = panel_bridge_detach,
+@@ -360,6 +375,7 @@ static const struct drm_bridge_funcs panel_bridge_bridge_funcs = {
+ 	.atomic_get_input_bus_fmts = drm_atomic_helper_bridge_propagate_bus_fmt,
+ 	.debugfs_init = panel_bridge_debugfs_init,
+ 	.atomic_sro_readout_state = panel_bridge_readout_state,
++	.atomic_sro_install_state = panel_bridge_install_state,
+ 	.atomic_sro_compare_state = drm_atomic_helper_bridge_compare_state,
+ 	.atomic_sro_connector_readout = panel_bridge_connector_readout,
+ };
+diff --git a/include/drm/drm_panel.h b/include/drm/drm_panel.h
+index 58113ea7d63a..66f9fc0828f1 100644
+--- a/include/drm/drm_panel.h
++++ b/include/drm/drm_panel.h
+@@ -148,6 +148,16 @@ struct drm_panel_funcs {
+ 	 * Allows panels to create panels-specific debugfs files.
+ 	 */
+ 	void (*debugfs_init)(struct drm_panel *panel, struct dentry *root);
++
 +	/**
-+	 * @atomic_sro_install_state:
++	 * @sro_install:
 +	 *
-+	 * This optional hook is called when a state read out from
-+	 * hardware is about to be installed as the bridge's current
-+	 * state, and the pipeline the bridge is part of was read out
-+	 * as active.
++	 * Acquire the resources of a panel found enabled when the hardware
++	 * state was read out, without touching the hardware.
 +	 *
-+	 * It allows drivers to acquire the resources needed to keep
-+	 * the current hardware state active, such as power domains,
-+	 * clocks, or interrupts, and to align their internal state
-+	 * with what a regular enable sequence would have left.
-+	 *
-+	 * This hook cannot fail. It is called during
-+	 * drm_atomic_sro_install_state(), which is part of the
-+	 * hardware state readout initialization sequence.
++	 * This function is optional.
 +	 */
-+	void (*atomic_sro_install_state)(struct drm_bridge *bridge,
-+					 struct drm_bridge_state *bridge_state);
-+
- 	/**
- 	 * @atomic_duplicate_state:
- 	 *
++	int (*sro_install)(struct drm_panel *panel);
+ };
+ 
+ struct drm_panel_follower_funcs {
 -- 
 2.43.0
 
