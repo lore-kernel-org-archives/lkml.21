@@ -1,45 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795313627;
-	b=PHlFnoGgMW5JPvgTag7Rdg7hTPjrtLSScH5Lo0mFgo5E4XIwmf82uJ+zWJYT/0VCBmQV
-	 Z4i9CNfg9ncwGKPAfpKPVHumRva9q1eQsntwZF11nAF26ptS0uMry/VRLa2MrDyX66oBY
-	 h0IfT2nusY7uNgerpRvd1yO7uS34cFk0ZtgNR8DTsosieV7Pefn36HhNjzig9RTZQ65Cl
-	 wy1Og5lb7YzFpuuimOvRhywX2E0nwJM1XKpv/M+arNBO9gtlpSMLimaJ48JEkBE+FSbIP
-	 45isIyJL6WooZag+IlV6Wz/avQ7/Q3aKrz4xzBwKi9vdBQlohUTt2Vn1mTWUMp4tpDA==
+	t=1795313644;
+	b=cSkP49XdB2DgTiXp3Tn2faHhl4t2ZHqxfI+JzUn/FE2TVw9hAzRqib7szXrFtjWhbafW
+	 TE/EixaN4VqKAuS4IyfvnDeOjlcUC0PZ50Q+XM9OYpeFHcgYBaHMlsj9wFpWLDjixnSVL
+	 NjXuSsAttQfkQAPHVosyZTveIQIsczVPDJwtpnfaTdLaifbvER3a6dJ/GL3GTqTqhwEN6
+	 UHdXJNQB5sJQOXuqqdzvY5iQeMnv2kH55yccTpBrGKYtTv6yGQhlNp6L7NYkCHqBKYZeQ
+	 SFTNJtly+e7F1PctLV/zlG3ZxXBdlCRoiuUCvXI/pOel+G7RPCGdvqkZqNQ/McL1gOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795313627;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795313644;
 	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
 	 In-Reply-To:References:Subject:From:To:Cc:Date;
-	bh=fZRJwAY0kLkmZpFTl11wk8j7FY+RcHR74PBO3B2HID8=;
-	b=U6ZojW06BivzkmdfSSHG/rWjPBNF5i+7S0F0sHK3MsXGh/MumShvBk0FnLAYOgpvogkE
-	 m7xvKyn9TZQmMCFh4mtKOlFEeHEfLX3Ff/L+Wzeu2hoaV3MCR1MAQYq/jJ9a3Sq998DZB
-	 D3X93rnM3kaN5adQpSwGEfYD5h+Ffnpmk1fqQZ1za0I4jA6+EWJ5xRinfzQF5j6Adwa3h
-	 tYLhdk4MXdael7yygolubPPKHokFFxcZZrFuquRufkAFlqSOonorSSavS9IUp+LZzWhLw
-	 Q9yZLqmy9aoEtSgVcWBb8/cYAgKKCWrdWHIEskAzAX/nJBM/2f8XrWhEI7+yQgdfdTQ==
+	bh=YDB1yuO+g70nypwHDdydP9Ie+9yV7h/g1apo66kxJw8=;
+	b=Nz9rvcUCdY3ZShCC1NRsvl+C0Q+QhCcgwUULaSkP2/q+KipXF0IToBs1L76XXW45/b4J
+	 DC8exbXqXOLeTXntEqJddIMcT3kvwWVeWi/eQV+EwyL19X0QZqdFU7nUG16SYXRQVvpJf
+	 9+sYOWtj4gRMB7jZ98EoaCo58cvPGZyvzMt035RznH/ZOAFvQHT8ytJOXf3qoX3rK+nm3
+	 3e/kGv2X5tJuiewqxgV7MObi4RZucpYvpUa/JxnrTBslhRNO3vtXpCHQlZfZhSU+TYAeO
+	 dcUH3XfwOaVsosjOuaZ+4CPC8pCt+OcKkjdyy0S+5FNQ6GenDZhROcqJL0FLvOU+aag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HuzYQ3+Z;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kjKtmid+;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF576606A33B;
-	Sun, 22 Nov 2026 02:13:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3708E606A331;
+	Sun, 22 Nov 2026 02:14:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HuzYQ3+Z
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB3081F000CA;
-	Sun, 22 Nov 2026 02:13:43 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kjKtmid+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33FAC1F000C6;
+	Sun, 22 Nov 2026 02:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795313627;
-	bh=fZRJwAY0kLkmZpFTl11wk8j7FY+RcHR74PBO3B2HID8=;
+	s=k20260515; t=1795313643;
+	bh=YDB1yuO+g70nypwHDdydP9Ie+9yV7h/g1apo66kxJw8=;
 	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=HuzYQ3+ZJ4kIQAFE0RRBLcAdMCPKIzlkXHrLV4idMRn0R4difRDbB9pQRXrJGFSut
-	 drbvK8Hxjyw0a7PVuHsUeBe8N4ajEJ3dwCOOa0P7S1hinBUW56jo2uIcrmCQwuWDR6
-	 I6XQiDO1LhCvaQF8w+GKOEYGmNoHAaQ+/nxIvG65kJiY9Isl1nJrjR2Tim1IdXxkWD
-	 LEqcqG5WovbXGTZ1ryNg/VsTYR6GAgWmx1XdPJzxoo6bZsZYsS8/c3q8JbKwvX3S4T
-	 oQNTD6qfb+ev+ZgDKyIAJDjVNHujT0e7Eyt3OqFOka9tlHd4GAFYSKWMbP5RrsD9lk
-	 E0xsl2WH3feww==
-Content-Type: multipart/mixed; boundary="===============6920277758331287056=="
+	b=kjKtmid+tgBBfQEZ5DMw+UnpV1e7mQ8R6y3MnkUVkjR/LrEQY+y0NkkYdYSM6D4k9
+	 uFKZk7MWvBM16LOMVi72HP3JZCuZTAUV4KhIaDeVYv6BbL1q1WmlSEm/iMO7wKzDDd
+	 rWdepeysG4QnnTjfkfF6yVoS7GOhL6+m2aWP12KNP3fpmk+FQekI/VY2eJDsp521ZN
+	 RzVka1oDb+iFY/TgEnrBU9aFG8Pqdpkg7WpCSosqMYsQJ7QBH3sKdZ4Vd3ZgX+muds
+	 fSrG3BbLpjmgMR8vBtAM+67/W7IkN33Ia23qrDyM9LwYue7dDnoFoGYPZFf9rypGHl
+	 m1+IuLrc4WC5Q==
+Content-Type: multipart/mixed; boundary="===============7190256002040251777=="
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,89 +49,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-Id: <1d998074e046fc55d51361a3f7d642ab1405b4ec87d9bcfe315f717fcf52e456@mail.kernel.org>
-In-Reply-To: <20261122011809.2667684-14-jarkko@kernel.org>
-References: <20261122011809.2667684-14-jarkko@kernel.org>
-Subject: Re: [RFC PATCH v6 13/26] userland: Add USERLAND_GET_NSFD ioctl
+Message-Id: <e49d1c291f255be48f078b39982b5f2f1b28ad1f0398715c157cff4846a4aa49@mail.kernel.org>
+In-Reply-To: <20261122011809.2667684-19-jarkko@kernel.org>
+References: <20261122011809.2667684-19-jarkko@kernel.org>
+Subject: Re: [RFC PATCH v6 18/26] fs: Support FSCONFIG_SET_USERLAND in fsconfig()
 From: bot+bpf-ci@kernel.org
 To: jarkko@kernel.org,linux-fsdevel@vger.kernel.org
 Cc: jarkko@kernel.org,bpf@vger.kernel.org,containers@lists.linux.dev,linux-api@vger.kernel.org,linux-arch@vger.kernel.org,linux-doc@vger.kernel.org,linux-kernel@vger.kernel.org,linux-kselftest@vger.kernel.org,linux-mm@kvack.org,linux-security-module@vger.kernel.org,aleksa@amutable.com,alex@amutable.com,viro@zeniv.linux.org.uk,luto@amacapital.net,arnd@arndb.de,brauner@kernel.org,dhowells@redhat.com,giuseppe@scrivano.org,hughd@google.com,jack@suse.cz,jlayton@kernel.org,corbet@lwn.net,josef@toxicpanda.com,kees@kernel.org,kpsingh@kernel.org,lennart@poettering.net,neal@gompa.dev,oleg@redhat.com,paul@paul-moore.com,ptikhomirov@virtuozzo.com,sergeh@kernel.org,skhan@linuxfoundation.org,zygmunt.krynicki@canonical.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Sun, 22 Nov 2026 02:13:43 +0000 (UTC)
+Date: Sun, 22 Nov 2026 02:13:59 +0000 (UTC)
 
---===============6920277758331287056==
+--===============7190256002040251777==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
 
-> userland: Add USERLAND_GET_NSFD ioctl
+> fs: Support FSCONFIG_SET_USERLAND in fsconfig()
 
-TL;DR: userland->lock is taken with irqs enabled but, once
-clone3(CLONE_INTO_USERLAND) lands later in the series, also under siglock; a
-possible deadlock lockdep would report. Latent at this commit.
+TL;DR:
+- fsmount() may call may_mount() needlessly for userland-bound contexts,
+  possibly causing spurious LSM denial logs and BPF-LSM hooks
+- mount_api.rst may need updating for ->set_userland()
 
-> diff --git a/kernel/userland.c b/kernel/userland.c
-> --- a/kernel/userland.c
-> +++ b/kernel/userland.c
-
-[ ... ]
-
-> +static long userland_get_nsfd(struct userland *userland, unsigned long nstype)
-> +{
+> diff --git a/fs/namespace.c b/fs/namespace.c
+> --- a/fs/namespace.c
+> +++ b/fs/namespace.c
 
 [ ... ]
 
-> +	scoped_guard(spinlock, &userland->lock) {
-> +		switch (nstype) {
-> +		case CLONE_NEWNS:
-> +			ns = from_mnt_ns(userland->ns->mnt_ns);
-> +			break;
+> @@ -4705,16 +4705,19 @@ SYSCALL_DEFINE3(fsmount, int, fs_fd, unsigned int, flags,
+>  	struct vfsmount *new_mnt;
+>  	struct mount *mnt;
+>  	unsigned int mnt_flags = 0;
+> +	bool priv;
+>  	long ret;
+>  
+>  	if ((flags & ~(FSMOUNT_CLOEXEC | FSMOUNT_NAMESPACE)) != 0)
+>  		return -EINVAL;
+>  
+> +	priv = may_mount();
+>  	if ((flags & FSMOUNT_NAMESPACE) &&
+>  	    !ns_capable(current_user_ns(), CAP_SYS_ADMIN))
+>  		return -EPERM;
+
+Previously may_mount() was only called when FSMOUNT_NAMESPACE was clear.
+Now it runs on every fsmount() call, but priv is only read later in:
+
+    } else if (!(flags & FSMOUNT_NAMESPACE) && !priv) {
+
+so the result is discarded for FSMOUNT_NAMESPACE callers and for every
+userland-bound context.
+
+may_mount() is an audited ns_capable() that goes through security_capable()
+and sets PF_SUPERPRIV on success.  Can an external manager under an LSM
+policy that denies capability sys_admin but allows the user namespace check
+now trigger an LSM denial log entry and BPF-LSM capable programs on each
+userland-bound fsmount(), for a privilege the call does not need?
+
+The other conditional callers in this file only evaluate it when the result
+matters:
+
+    if ((flags & OPEN_TREE_CLONE) && !may_mount())
+    if (!(flags & MOVE_MOUNT_T_MNTNS) && !may_mount())
+
+Could may_mount() be called only on the unbound, non-FSMOUNT_NAMESPACE path
+once fc->userland_bound is known?
 
 [ ... ]
 
-Can this lock be taken with hardirqs enabled?  Later in the series,
-commit 498ccb2ffbc4 ("fork: Support CLONE_INTO_USERLAND in clone3()")
-passes args->userland to userland_copy(), and copy_process() calls it
-while holding write_lock_irq(&tasklist_lock) and
-spin_lock(&current->sighand->siglock):
+> diff --git a/include/linux/fs_context.h b/include/linux/fs_context.h
+> --- a/include/linux/fs_context.h
+> +++ b/include/linux/fs_context.h
 
-copy_process()
-  write_lock_irq(&tasklist_lock)
-  spin_lock(&current->sighand->siglock)
-  userland_copy()
-    scoped_guard(spinlock, &c->lock)
+[ ... ]
 
-siglock is hardirq-safe, since it_real_fn() reaches it through
-kill_pid_info()->lock_task_sighand() from a hard hrtimer callback.  That
-gives siglock -> userland->lock, with userland->lock taken here with
-irqs enabled, which lockdep will report and which can deadlock:
+>  struct fs_context_operations {
+> @@ -117,6 +122,7 @@ struct fs_context_operations {
+>  	int (*dup)(struct fs_context *fc, struct fs_context *src_fc);
+>  	int (*parse_param)(struct fs_context *fc, struct fs_parameter *param);
+>  	int (*parse_monolithic)(struct fs_context *fc, void *data);
+> +	int (*set_userland)(struct fs_context *fc, struct userland *userland);
+>  	int (*get_tree)(struct fs_context *fc);
+>  	int (*reconfigure)(struct fs_context *fc);
+>  };
 
-CPU0
-ioctl(USERLAND_GET_NSFD, CLONE_NEWNET)
-  spin_lock(&userland->lock)        irqs still enabled
+Documentation/filesystems/mount_api.rst keeps its own copy of struct
+fs_context_operations and documents each method.  Should it be updated for
+->set_userland(), the new userland_bound and userland_mnt_id fields and the
+new fs_context_phase states?
 
-CPU1
-clone3(CLONE_INTO_USERLAND)
-  copy_process()
-    write_lock_irq(&tasklist_lock)
-    spin_lock(&parent->sighand->siglock)
-    userland_copy()
-      spins on userland->lock
+Filesystem implementers currently have to read fsconfig_set_userland() in
+fs/fsopen.c to learn the contract:
 
-CPU0
-hardirq: parent's ITIMER_REAL fires
-  it_real_fn()
-    lock_task_sighand(parent)       spins on siglock held by CPU1
-
-GET_NSFD has no state check for types other than CLONE_NEWPID, so it can
-run while the userland is in USERLAND_INIT or USERLAND_FORKING, at the
-same time as the bootstrapping clone.
-
-At this commit userland_copy() is still passed NULL, so this is latent
-until that later commit.  userland_release(), userland_exit() and the
-later userland_share_nsfd() take the lock the same way, and the series up
-to 942764a55437 still uses scoped_guard(spinlock, ...) at every site.
-Should these sites use spinlock_irq, or should the userland_copy()
-bookkeeping move out of the tasklist_lock/siglock section?
+- it is called after ->init_fs_context() has run with fc->user_ns,
+  fc->net_ns and fc->cred already rebound;
+- it may rebind fc->user_ns, but must leave it equal to the userland's user
+  namespace, or the bind fails with -EOPNOTSUPP;
+- the context moves to FS_CONTEXT_FAILED on error.
 
 
 ---
@@ -139,4 +152,4 @@ AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
 See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
 
 CI run summary: https://github.com/kernel-patches/bpf/actions/runs/44972669664
---===============6920277758331287056==--
+--===============7190256002040251777==--
