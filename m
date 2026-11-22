@@ -1,75 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795352495;
-	b=cy3TdC71A5g8L0NNE52C78Syejqjip9pIZGsCj8BJRid8WawoZP6henkP7Wq1KL8CI5U
-	 D6wOHwyIJUm33/JIKlRJftc8lm1rBlu4zs8QdxUA/CIB+g74Aaq8kcJAZW744sx/7GaRh
-	 w/O/jOlkvErI1NlMm3Xdmi5OFmAUD+NjWi4vAwJlvy/wh2K28nccxmMAJ9v9bFBMW0BPg
-	 4DIRCq8tBoFepnFXRQ9W2fqxw28WhNpyZ7QDeLz+YB/5SW6k2im+ncLOYWz9hmLHOOEWQ
-	 jrXYTvvurU0tYu2k678rbj1mVDx3hnAlG0UR1Gb9m6wikpPcfQQwPZxBPKWiLQGiQIA==
+	t=1795352555;
+	b=KUtncUXpu2pDRBPP5i6ng+ff0O917BkGnlcyCr1DSBWb3DzYdjXae+p+GXhBAi0Vl4Uf
+	 1bF43TTmm0nbXSY67WTnwl6jVHXUWf8LVpmQh3e3RaPoQOU8ACn1dIYQaJvRlb6x+w+01
+	 WTHarqEwwGVsfH0sxxaEFqZCOV2ZZE/GlCj+bwqnyAySgjBjgux88vAgwSkQlNlatdWPo
+	 cv4j+a4OODBGzSiMq5bLYjfPm+7qxgI31iXqDjZ+imse5cH7j97p5ZPGSP7rlyyUW79oD
+	 2AlHho9xOlQabZNvd+zpmiBDgmWlz48DC1Rw0hC+pxeWP516P9gPTj0NxV+hd8WjU8A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795352495;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=dgD6v1f8hqSyKP1pmrAiIRCKNp5vHibGV2DXdSb8jaU=;
-	b=C/ENuYrOvOYeCMGGfA0epBG78EkvpLkXAdB399WAXe/oIp9Vu5OfAqZjCC+8dkGaUnEr
-	 V7jwpo8k1NrA9w2onVl59/nNRUSLiNUV3pELrZCHRGgaXYUKLk0vCxrA38fWusj53M1OA
-	 vxftNjmGpvgHK0EVDudRxfINXAYULdgzpjewdn2EZCSH9sL+BGJcu1JYFe1zV34//u2oi
-	 nD2e3qzMd5ZEx5WrtJ4szZg44IOx6vlK8D+d57mYreNAhZTrjgAorUXyQtRLX2BjY1IX5
-	 cstS+kb+jThI2XBRU5SzLUuHHXBnvRIWcFi8S2Mm/z4OwOGrU2q+/5AwKQfKbfgvU5Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795352555;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Ab/ahYb+D8PHWWcmTQ2KYtkHbZbbfYycn1dhmK2jBrU=;
+	b=SRzyiSv1hzGwWI93x61H2C9AuRX4PLeV50T20blMZ9v9sWSQdWGrgRcTwhgmYF+83tTf
+	 hHoMmDzDRbso/tb7Tznfw+FjzCCYgjvnobEF1zBVGaSi+DVqiHTrES1N+q3//WwmE0UmY
+	 EF9gNN+yo/9COsfsjn9j1liRqvyLeDSpzTFm8HvgWHp4SviutkkjJkBxZBVrffsqyerP1
+	 69XeBe7ntkTc2HgYBwqovSS9Z9Kbif87n7irqrNKeB17S7zJ5AVHMEpsQtZvleLEYwONB
+	 0QfMRlucjvKdAwE6fp402Hb5/qLWs9EBPgo4LE8Mj2WSDNJAM7mjiDI9aKah5IuRynA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=iv56wC3d;
-	arc=none smtp.remote-ip=209.85.221.72
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com [209.85.221.72])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vqf5iMms;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81DF8606A330
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:01:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81DF8606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E989D606A320;
+	Sun, 22 Nov 2026 13:02:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=iv56wC3d
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-4aae099f5baso1060705f8f.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 05:01:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795352493; x=1795957293; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dgD6v1f8hqSyKP1pmrAiIRCKNp5vHibGV2DXdSb8jaU=;
-        b=iv56wC3dgWLzy/CUkTFg/rngzd0mZE1WGaSHNh4sVn4Khgz27rJXENPkXfj0YFWN7q
-         F+QtZpXvyVOEKenuC5kxKqz5/qBg3Bxh1A99159metzO5UTkwn+UvvmB1nc4zNNtagnA
-         TU0MWLVtYztOf+Wsfh8x3v7vIfFwa63ZJLh+Js+SSIVknlJj0vSkKoZt9pfcjwDGwEW2
-         eGbRl7dv1E6j+SXy3iTjFyci7oqA3ut8q8dWGnVlzD0NpBRqgxBcVZpMCEIHEdNKOi4T
-         FuIVi/cPemnemQkGPTTVgHpTOL/ECow56LvE7I91nz3RxEYEoJ1mDRzP6qBZRnua5SRl
-         n4lA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795352493; x=1795957293;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dgD6v1f8hqSyKP1pmrAiIRCKNp5vHibGV2DXdSb8jaU=;
-        b=dKELE0eT1i+wLykwSnOS7fmRQJo7ztEnx95R/NlFOnvE6eJjO2jv4VdAiZzaCVGIGH
-         3GisZLE5djCqWjgzq9m4g6EI1UYfPEOqXq4SotdrJWCSNaEitNEMlJvVdQgStEMkT6IY
-         9hGTCQDgwZP+uiiYx96Cwij6sxntLOIv3VKrRF1YrrMjY3i0wUf3AzZ2W3o8u9xPbnLp
-         CUyziKow0Rnd/maVooQqBlHAJ0U7JWdviI0SqETJgodKaMp0Dc/doQ3wv5/t2+8z982P
-         RGX+hWUWU24a4752Aaobftj2KKCWSbsEo2IyNvPYupD0EGjpi/hTmC19EkdC33LenXrr
-         C3tA==
-X-Forwarded-Encrypted: i=1; AL+hErGSbApouuFKiVvtmrviOJyu7Gm8QdGErNQDKVRJPmLV19lNeHZKCM+0s+HxyM6+UYeNs2hUxOjeNcKRcHo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+bb9ZytIwCNFQ7OPV/t1IxtzlXkCsmu34393wXFh9Gg2M9Zziu
-	PmtpXYTlVwJe0vHWyiJ7a+edyS/E6WcvzPayJJGqfS+wIwAQ7awFvZ9LOWFyi3RiLE5ns/2Nsrw
-	1sYnrEbl1/dP8O6rKFg==
-X-Received: from wrnv1.prod.google.com ([2002:adf:ebc1:0:b0:4a3:da3d:b9a6])
- (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:188a:b0:4a9:4dfa:c150 with SMTP id ffacd0b85a97d-4abb2910440mr16888311f8f.33.1795352492323;
- Sun, 22 Nov 2026 05:01:32 -0800 (PST)
-Date: Sun, 22 Nov 2026 13:01:31 +0000
-In-Reply-To: <20261020-b4-dev_query_fixes-v4-0-df66b4c98bc6@collabora.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vqf5iMms
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C34301F000C6;
+	Sun, 22 Nov 2026 13:02:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795352554;
+	bh=Ab/ahYb+D8PHWWcmTQ2KYtkHbZbbfYycn1dhmK2jBrU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Vqf5iMmsrMAYqIcpO8/6njH6L1Mq6oHdvgAL8i3VFDrsOkCsiwkeg/H4lCYumVRMC
+	 j951gLzLZxjZ+ZuR71ZL1ujFGBD8VlvMz1NNNP6V8IdMjhtDU7oO8iL6iKHEizWRdP
+	 hC7daoxexmuUC4IfoJLFdhIRwZ0B6R12q6blc3PHgMBmI5cPSy9eaTu4/owtv023gG
+	 ogxIioHA106J/5cCmLWCcfn2ZXFYIUasNpUpcdqamUGkY2xHlkcmUnRI7JCa9OGQvF
+	 mlX1jndjNm7Mq5iASNlEVS7UI7cE9Wd6Cl+sWw5TvhBXENquggwScusYcMUpJIc5TM
+	 1F7qMz0Ei5Q1Q==
+Subject: Re: [PATCH net] bonding: reject a non-Ethernet 802.3ad slave even
+ when the type matches
+From: netdev-bot+sashiko@kernel.org
+To: kyuwoncho18@gmail.com
+Cc: netdev@vger.kernel.org, jv@jvosburgh.net, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-kernel@vger.kernel.org
+Date: Sun, 22 Nov 2026 13:02:33 +0000
+Message-ID: <179535255333.3135.10581087211469618015@kernel.org>
+In-Reply-To: <179500849159.1877154.14715369660816392826@gmail.com>
+References: <179500849159.1877154.14715369660816392826@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,33 +62,114 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261020-b4-dev_query_fixes-v4-0-df66b4c98bc6@collabora.com>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261122130131.1394960-1-aliceryhl@google.com>
-Subject: Re: [PATCH v4 0/3] drm/tyr: allow mismatched buffers for dev_query
-From: Alice Ryhl <aliceryhl@google.com>
-To: Deborah Brouwer <deborah.brouwer@collabora.com>
-Cc: Alice Ryhl <aliceryhl@google.com>, Miguel Ojeda <ojeda@kernel.org>, 
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	"=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	"=?UTF-8?q?Onur=20=C3=96zkan?=" <work@onurozkan.dev>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
 
-On Tue, Oct 20, 2026 at 05:06:44PM -0700, Deborah Brouwer wrote:
-> Panthor UAPI for DRM_IOCTL_PANTHOR_DEV_QUERY allows userspace to provide
-> a smaller or larger buffer than the kernel needs. Revise Tyr's
-> implementation to match the expected UAPI behaviour.
-> 
-> Signed-off-by: Deborah Brouwer <deborah.brouwer@collabora.com>
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Applied to drm-rust-next. Thanks!
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
-I folded in Miguel's style and doc suggestions when applying.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Alice
+- [High] The fix is incomplete.
+
+--
+
+bonding: reject a non-Ethernet 802.3ad slave even when the type matches
+
+This moves the 802.3ad Ethernet-only check in bond_enslave() so that it
+runs for every first slave, not only when enslaving changes the bond's
+type. The goal is to stop the global out-of-bounds read of
+lacpdu_mcast_addr in bond_open() when a slave with a 16-byte addr_len ends
+up in an 802.3ad bond.
+
+> diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+> index 042d7c75548fa..f2e645f869b13 100644
+> --- a/drivers/net/bonding/bond_main.c
+> +++ b/drivers/net/bonding/bond_main.c
+> @@ -1959,13 +1959,13 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+>  	 * ether type (eg ARPHRD_ETHER and ARPHRD_INFINIBAND) share the same bond
+>  	 */
+>  	if (!bond_has_slaves(bond)) {
+> +		if (slave_dev->type != ARPHRD_ETHER &&
+> +		    BOND_MODE(bond) == BOND_MODE_8023AD) {
+> +			SLAVE_NL_ERR(bond_dev, slave_dev, extack,
+> +				     "8023AD mode requires Ethernet devices");
+> +			return -EINVAL;
+> +		}
+
+[Severity: High]
+Is this check enough to keep a non-Ethernet slave out of an 802.3ad bond?
+It only looks at the slave's type when the slave is enslaved. A slave that
+is itself a bond can still change type after that.
+
+Consider this sequence:
+
+  ip link add bondA type bond mode 802.3ad
+  ip link add bondB type bond mode active-backup
+  ip link set bondB master bondA     <- bondB is ARPHRD_ETHER, passes
+  ip link set ip6tnl0 master bondB   <- bondB has no slaves yet
+
+The second enslave goes through bond_enslave(bondB), which sends
+NETDEV_PRE_TYPE_CHANGE for bondB:
+
+	res = call_netdevice_notifiers(NETDEV_PRE_TYPE_CHANGE,
+				       bond_dev);
+
+bond_netdev_event() passes the event to bond_master_netdev_event() and
+bond_slave_netdev_event(). Neither one has a NETDEV_PRE_TYPE_CHANGE case,
+so both reach:
+
+	default:
+		break;
+	}
+
+	return NOTIFY_DONE;
+
+vlan_device_event() only refuses this when VLAN upper devices exist. So
+bond_setup_by_slave() goes ahead and sets bondB->type to ARPHRD_TUNNEL6
+and bondB->addr_len to 16, while bondB is still a slave of bondA.
+
+When bondA is brought up, bond_open() does:
+
+	bond_for_each_slave(bond, slave, iter)
+		dev_mc_add(slave->dev, lacpdu_mcast_addr);
+
+but lacpdu_mcast_addr in bond_3ad.c is only 8 bytes:
+
+	const u8 lacpdu_mcast_addr[ETH_ALEN + 2] __long_aligned = {
+
+Does this lead to the same global out-of-bounds read as the KASAN report
+in the commit message?
+
+If bondA is already up, a later release of bondB has the same problem.
+bond_hw_addr_flush() calls dev_mc_del(slave_dev, lacpdu_mcast_addr),
+which compares 16 bytes against the same 8-byte array.
+
+Changing the type of an enslaved bond seems to be supported behaviour.
+bond_test_enslave_type_change() in
+tools/testing/selftests/drivers/net/bonding/bond-eth-type-change.sh
+enslaves one bond to another, then enslaves a non-Ethernet device to the
+inner bond. In its successful variant, the test expects the type change
+to stick.
+
+For comparison, team_device_event() in drivers/net/team/team_core.c
+refuses this event for its ports:
+
+	case NETDEV_PRE_TYPE_CHANGE:
+		/* Forbid to change type of underlaying device */
+		return NOTIFY_BAD;
+
+Should bond_slave_netdev_event() also veto NETDEV_PRE_TYPE_CHANGE? That
+could apply only when the bond is in 802.3ad mode and the new type is not
+Ethernet, or, as team does, whenever the slave's type would no longer
+match bond_dev->type.
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/179500849159.1877154.14715369660816392826%40gmail.com
