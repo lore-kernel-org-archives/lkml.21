@@ -1,96 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795374691;
-	b=tNVM9Wldf/qIarZNHUMtMsySk3D2zdjWm+epnLemIQ2h+xMhzDNdFfGYRJmK2R+OnuHg
-	 PPs5eohCwCwqDYr0AUbCi8CSiXQxTKOtdc07gkbQa/9n/gKkJkAHKLlVjjtDhCQReZF+2
-	 7ItL/c4IIgXcqaHcPzyK8TA/u0T0UWf9IBH06kLCRAY6mqJsI2thJxkK/ArYu/3LyUfUg
-	 27weaO8TJIP6XAja/p0eB32cQkmQIquPNMTzC+KunAW0gU65GmJEvMKjNZrJrDW/LD0tr
-	 yoyH4nHDbI8lWhRbMwOoykECOEODqkrVIYSVXeJyS4iNfkasksB9DBsgdwfkSqDZzyw==
+	t=1795374696;
+	b=JDZYW6LpfjbgAb19w5uIraPb6p+W2jVkZV9siQTiwnieOoZQiKBiO731+X3jX5QDxGA4
+	 SjHIyTBvMsdVu7zqBPzmb7RguD40Oe0MKnMieaYuJhdgYg8fRKTH5Ocyu7bu7hAi4RgMe
+	 V7qvO21d7NJ84SH1m36fGof0h1EHbDQKtNHXXXMcm8i4pyeskr2fORBT+t2pDrH142mJr
+	 tblUi/jiXU5lOhGhipoyRLPWVGFgxDh3kXG22uwrVFmppkrcCxnv778g2eQJ2cnYXNqpG
+	 8YzyvBMkezMZCTyY9SSO6QXsXjuLx2oh0Vhm6qivNBjx8Yj6INtPilGZzc8McCN47iA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795374691;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795374696;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Sender:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=BLMOrirVdVfgpFu7VbhfP1f6o8xzMhqagEEBKwlrCTE=;
-	b=sddqRamZhQ+R8XGfnR/h7s1+lx0sihZJmzKi8fayuqy4SkRjx3ZBS3PMAvrM3m40Kdbt
-	 OcyWEunNBJs9uBcZpgn8TyhfIjWbUUkAAf4cT+z6QO7X/zvWIswGmoh2kgSsEPg/o/jtX
-	 dOsW50o2EmSeHOlxUjlwdLuEn+EHCelY9MTEQNHEZyVc0/3n93BcpH+QRZRI8BTHMLqsj
-	 tKnoZ0iNUyqtHXKOAW+AuF0dIbarqqYXF2xld2KIkfcMHjcWrJ5Hi0+BsyRXnC5MLU1Uw
-	 2Mu/mivzgmhbFt6yhIeg7m2fA3+Let3Ox8NaVR3H8ypes8VLbEkEb36XkCPeE4fgV1g==
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
+	bh=oGsMa7wmHQHTRJX2QekmD3Y6Ja6uGmq6iEm7evLlQd4=;
+	b=hVK0jRcOdFxWtVAOdwUny2auL9+cXmNsMCw1sKPEHJoOZLg9DS/w9vk/1LlH7PTwq6Gw
+	 23GYjv8vKc2f7w6/w4fBi4Cnvf9P+/hhK5HPTwgfZ16Jh1Aq6rFdv3CWYkj5/iretJxUZ
+	 1QPqtSfZkbfwrX98EL/8d6Snfk74P3MqRZoa+8jm+xB8j8JGcy/yUS877mgV5cactO/kV
+	 EjH2w+avdpGFDPjPm7J8w6tIivdV+s2nDGcKdrZKdpR6P4PAJSvA7OivVbrIEXtb+aMNg
+	 /Hficoj7C1oWB24w0h36GeTepFQhOm4AH/FjxiN/qm+UeqYd8pBS02AS+0hu2gsBOmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=stellman-greene.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Ec/zu+/2";
-	arc=none smtp.remote-ip=209.85.219.50
-Received: from mail-qv1-f50.google.com (mail-qv1-f50.google.com [209.85.219.50])
+	dmarc=none header.from=gourry.net;
+	spf=pass smtp.mailfrom=gourry.net;
+	dkim=pass header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=TPI3MTe1;
+	arc=none smtp.remote-ip=209.85.222.177
+Received: from mail-qk1-f177.google.com (mail-qk1-f177.google.com [209.85.222.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C8CA606A33D
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:11:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C8CA606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC5FA606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:11:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC5FA606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=gourry.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gourry.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ec/zu+/2
-Received: by mail-qv1-f50.google.com with SMTP id 6a1803df08f44-92134c4592dso25094406d6.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:11:31 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=TPI3MTe1
+Received: by mail-qk1-f177.google.com with SMTP id af79cd13be357-949680e6d82so320848385a.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:11:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795374690; x=1795979490; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BLMOrirVdVfgpFu7VbhfP1f6o8xzMhqagEEBKwlrCTE=;
-        b=Ec/zu+/28aNR+Jmkmpfi972q3/iefgyRWgW9fea3gSMpxOh3slLP+/s+70+4fq3Ley
-         aNGtw0FPJYguYbLCIR7S6iJG2EYyqdxlKSgaUpV3LaENN7Y7GXF+uS6jrl/CW0sloW9P
-         f+/nf+GPZLak6au/beTmRykoa3MEnDyg8mNuht4PM3lfKFgHLXVNCPLNyphjUs6CmoPd
-         VOmtk9hEXiUFgeT4ROM/n8mGbWdyx9DQ9wOsneLWNEpy6uQdK0Li7Zit6fttBNEx0dOT
-         rbGGG2ql/AqiV/+HZBj0jWJFdqAjGpxAVkIw+hVdzamMoscUASLagqgs9qJqIiV/nvWv
-         d2wg==
+        d=gourry.net; s=google; t=1795374695; x=1795979495; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=oGsMa7wmHQHTRJX2QekmD3Y6Ja6uGmq6iEm7evLlQd4=;
+        b=TPI3MTe1RlG4SmZzzoCpRdy2QVmmqnbO/w6aR5KNMokJV/Ej+uAFQG7yAYqk56hfkq
+         LZC9wKLhxk3NMVRMaR1VvWVuCxA6GsIEcwsr6le7u6bdoCGonrAZjK3eTkxOT3nRTyMs
+         kLr2KYSGk0Kdl3U1jn7zVe/GjwSTB8XynoaJu+1hSecxlfaiVnqBhg9qfE6UcOdBFpU7
+         K6+K542N8Cf/GVSasbtS0zq1zF4T0u1FTMwtPGg2hgdtwvyFLiHHyHTH+dkRxgJO3IEQ
+         VpIReU6i3uKk4uALa/TFB/P/g7vgcldffZQ51PdHza/mx09Vr+vtrjEp2lxRt4rjm1dE
+         cSLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795374690; x=1795979490;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BLMOrirVdVfgpFu7VbhfP1f6o8xzMhqagEEBKwlrCTE=;
-        b=dnRc32dN8ylRn3Rqoboa/X6iTuFOpBSPfoAOjvW9cJxZecXJZq0jcCgozfV4dHB5hf
-         grAMORwawYAdqyY/CYgI0OCq3568Psw+jxr0LOPwTPJOpix/WHqsrwIRJy0bHTO8oyKy
-         e+EEWnhMu+7DDCGvxfF4mXuw9FJq2E6+5EIv9TVG4Sv1x7kWPn6rd5OivtJ6I0Rp0OpH
-         orlL/CrNkXQpp429lqBeZ0P2eutgEIDFkF4iCpzzcTbeybBlqczOjZ0O/Z2Trg7AXMmQ
-         zRGuet3XEA5pDOsUTHRubI4DCCPAVMiP0FlsZlXUwJmLMq5hAHzJ9AizXXjq3Q9Ozzlp
-         R6rg==
-X-Forwarded-Encrypted: i=1; AL+hErHuMKczjeHSlyH1bwPE6DeU1Bnt3DNyrkoE/FlnciNXi2o2JfSCHhDjDtxdE74cKaKG7l4c+v2wBpQhOQQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/s4Xo8/OU40xuO1VBePzGV5KO0jetYatK6isdRC+aNS4iSeKfg
-	sjoJ3/HxeQcDvJRa2fiddmEqteEajL/CvYqCvKq+Xyx6pci+JwRlGHcq
-X-Gm-Gg: AZFdTZfM/v+jm17Zfkw6AIvXe7dtbYdUkES6JCr87LZILKhZAqZ9KbWiFIjMg9562mi
-	uw8mChC8hf/VkVN74L5NL662v7fIL4KAs5gEdOfLKB/RvxEk6wmgehFWtT6kflydo2KWh369/Lu
-	qkLzNQIOsW9/ajwSRC9wgycHuvMLnB2SXKKJt1CY04/IHTV4H11GxkwfWFns9UMqcEuJtBXH8V2
-	1jyEqqRoyPzOQDIAv43VgCuPR1+pYvXWsGZ8FBbypdUPUeyx7SFVDEs651O4i9VPRK0ydq7aBIu
-	Ozeb5q3gYpSmeA+Vs63MD/lWs9aJZTzYxlXWM+lpxxbVawYlcJ+fcR0Cl7t22J7H4vJcDz1GHUh
-	q8Sy/SvjA2yFFsIHewaBTp6lh7SBlhaMh9dKXA7FdcUPWzPQ8rqLiavBbrjYRbZ3SBlPgLs+Jb+
-	AzRg0U7afPTmcN8wSggHY3CapEAhtqecBLQAXhG//Ar33gelgVoXHHkGLb8fFxwG+DTDztCxnR/
-	D+eqiGiXrjUnzBvjqMxKIXU98n4oE96VCs9t6fTjkluaMMlJHzpIiRRnTylCQ4gAnUlZ5CeLIU/
-	dhru5G0pkzfzEIA9ffd7TuWdkyzEU9eh+QfY544MMta1ekLvU2m6k/NxlP9mUm2gc8wKfb3yAEy
-	6ZR2UsZMAeVVWCMiVCX8MCW920/muj6eY9vU4z57+dTx2zlzYZsIRYfrk888fHhw0oYSIw4jCEA
-	6sKoDmKVsRujNFVaaNlKB4B4Kh5BovyB6RMX3suxwAC60OHp8=
-X-Received: by 2002:a05:6214:dc7:b0:921:38d7:3aee with SMTP id 6a1803df08f44-92138d73c1cmr153157236d6.28.1795374690225;
-        Sun, 22 Nov 2026 11:11:30 -0800 (PST)
-Received: from Mac.mynetworksettings.com ([2600:4041:5c28:200:c8ee:a73:9097:862f])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349d0f6bsm85852186d6.21.2026.11.22.11.11.29
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 22 Nov 2026 11:11:29 -0800 (PST)
-Sender: Andrew Stellman <stellman@gmail.com>
-From: Andrew Stellman <astellman@stellman-greene.com>
-To: Bernard Metzler <bernard.metzler@linux.dev>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>,
-	Leon Romanovsky <leon@kernel.org>,
-	linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH rdma-rc] RDMA/siw: Honor the sg_offset in siw_map_mr_sg()
-Date: Sun, 22 Nov 2026 14:11:28 -0500
-Message-ID: <20261122191128.65369-1-astellman@stellman-greene.com>
-X-Mailer: git-send-email 2.53.0
+        d=1e100.net; s=20260707; t=1795374695; x=1795979495;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=oGsMa7wmHQHTRJX2QekmD3Y6Ja6uGmq6iEm7evLlQd4=;
+        b=EVm1ytyu3MwimjyD0krfZALPftYaqXQgVOqZRySCPDQohPc8X8/kvi/pnmNmq09asT
+         udNDH7ZRSMnefIWSOUfNLD+/fYvp0tymiS+JYLKbLg/OtQe4FOrs0NSB6whZrHlTWdgk
+         CyLKYxMUEbIPF8UfpmRjpL02R0WalHoyzx+tLXLGtCGCdHtgYxOL76Dy98gblwE1Phen
+         vbjAwddNQnxCH+2SHROZ2TN1LLfE0SemuGgkrW5HBD4CZBSRTI54qORi3WU3MLaVMwnM
+         lTGNJBMUR7or5EXl5GyiyPSz8YG997mrOu5P851qjPrZNYA1YcNL2wWCrjVWX3pxFg9/
+         UbYQ==
+X-Forwarded-Encrypted: i=1; AL+hErGGfB5sVH/Dvf9Hi8a7Kfodz8+ZuF14YWtkRCX/BSTio1NIfYJIlIMsiosZ2aueYLEQhIxuiRmi+gwpU1I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9r7liyeyfA60C9a8/PnQ7NyWP/tt2GqTHFt4w7NL8lrkeg+pgE
+	ABxGzYLUSWtP+7vKEPPGkvrV+AiagSXoTPi1pZrH8Hii8S64pN/1bZT8mC+D1AKGzn4=
+X-Gm-Gg: AZFdTZedxUh0sHfpxZStNkQrKkptGytx0fsrtWPPqOrAOnCFfuUhV1YbMbl2UMueV5Z
+	+T9XMnzPx6rIdQHHQHbv8aa/vFeyvFrXAHXrfP/6w9/FfQUBGoC2T7+LLM7LXRY81m9pnfPbiOf
+	+DNiTGxatjGUS5EEA2MgbyrxxYD78ZaCJEQZMMRYqYQeJ+wMIGh+o+L+2lC/0sDuA4bTosmvVlp
+	jXsIBbPVyqmK01NR+h4G4xb7NOwaLnFtxsB9ykvA85NMWoKxzyPvpiDC/zl59lSIcLVD87UTFz9
+	TWmqcbNFghAfQt9h6gl1xxTOupCWhvo3iDOcPlDLm+z+8vIDIp8tX7yITXtOTkdjwYLSREKny1L
+	4Zc+2z3cnHKQkfP4JIgUYI0rl7FTc7/UcZAlZ2VfeCgVcT/2b+i6Yd3YM3+iMRgiP2B7RoidY1H
+	lkLrA7TD2+h9JvdvRT4MvPNCXMQD+BvI2sDpC6wjMbp2mpH7dP2se1FyVBI+05zrD+NnMwhHAvl
+	BIXrdaSnKZ7DQOog3L0DAie+GlWQPR2OiMUGmPSYp+tyhl6m0z0625lsBooJIUAsLvAAUmg6abt
+	XX2aVU7gzw4rRafFt83tDakdTJyJELh2WbTtKaBjlbGDhQL54fIGZjygCjK01Mn2aoPx+wCFdeH
+	OGuR9ffM=
+X-Received: by 2002:a05:620a:4727:b0:949:326f:bd2b with SMTP id af79cd13be357-949ba9aa37amr1639379885a.43.1795374694656;
+        Sun, 22 Nov 2026 11:11:34 -0800 (PST)
+Received: from [192.168.50.231] (pool-71-191-145-202.washdc.fios.verizon.net. [71.191.145.202])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb38c903sm651828485a.19.2026.11.22.11.11.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 11:11:34 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,64 +89,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 00/60] Private NUMA nodes
+From: "Gregory Price (Meta)" <gourry@gourry.net>
+To: Yury Norov <ynorov@nvidia.com>
+Cc: gourry@gourry.net, Yury Norov <yury.norov@gmail.com>, 
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
+ David Hildenbrand <david@kernel.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Oscar Salvador <osalvador@suse.de>, Johannes Weiner <hannes@cmpxchg.org>, 
+ Suren Baghdasaryan <surenb@google.com>, 
+ Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Johan Hovold <johan@kernel.org>, Joshua Hahn <joshua.hahnjy@gmail.com>, 
+ Rakie Kim <rakie.kim@sk.com>, Ying Huang <ying.huang@linux.alibaba.com>, 
+ Matthew Brost <matthew.brost@intel.com>, Byungchul Park <byungchul@sk.com>, 
+ Alistair Popple <apopple@nvidia.com>, SJ Park <sj@kernel.org>, 
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Juri Lelli <juri.lelli@redhat.com>, 
+ Vincent Guittot <vincent.guittot@linaro.org>, 
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, 
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, 
+ K Prateek Nayak <kprateek.nayak@amd.com>, Kees Cook <kees@kernel.org>, 
+ Kairui Song <kasong@tencent.com>, Barry Song <baohua@kernel.org>, 
+ Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, 
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
+ Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Michal Hocko <mhocko@kernel.org>, David Rientjes <rientjes@google.com>, 
+ Pavel Machek <pavel@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
+ Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, 
+ Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
+ Xu Xin <xu.xin@linux.dev>, Chengming Zhou <chengming.zhou@linux.dev>, 
+ Lorenzo Stoakes <ljs@kernel.org>, Pedro Falcato <pfalcato@suse.de>, 
+ Jann Horn <jannh@google.com>, Chris Li <chrisl@kernel.org>, 
+ Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, 
+ Youngjun Park <youngjun.park@lge.com>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
+ Waiman Long <longman@redhat.com>, Ridong Chen <ridong.chen@linux.dev>, 
+ Tejun Heo <tj@kernel.org>, 
+ =?utf-8?q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>, 
+ Dan Williams <djbw@kernel.org>, Vishal Verma <vishal.l.verma@intel.com>, 
+ Dave Jiang <dave.jiang@intel.com>, 
+ Alison Schofield <alison.schofield@intel.com>, 
+ Shuah Khan <shuah@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-mm@kvack.org, linux-cxl@vger.kernel.org, linux-doc@vger.kernel.org, 
+ driver-core@lists.linux.dev, damon@lists.linux.dev, 
+ linux-pm@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ cgroups@vger.kernel.org, nvdimm@lists.linux.dev, 
+ linux-kselftest@vger.kernel.org
+In-Reply-To: <awMdeK8O-5mffg2m@yury>
+References: <20261120-private_nodes_v6-v1-0-74f5f9a115c2@gourry.net>
+ <awMdeK8O-5mffg2m@yury>
+Date: Sun, 22 Nov 2026 14:11:31 -0500
+Message-Id: <179537469194.412063.13456998694958645706.b4-reply@b4>
+X-Mailer: b4 0.17-dev
 
-siw_map_mr_sg() builds the first PBL entry from sg_dma_address() and
-sg_dma_len() of the first scatterlist entry and ignores *sg_off.
-ib_sg_to_pages() includes *sg_off in mr->iova, which siw stores as
-mem->va, so siw_pbl_get_buffer() resolves an address in the MR to a
-location *sg_off bytes before it. rdma_rw_ctx_init() passes its
-sg_offset to ib_map_mr_sg(), and isert can pass a nonzero offset.
+On 2026-11-22 11:51 -0500, Yury Norov wrote:
+> On Fri, Nov 20, 2026 at 01:08:51PM -0500, Gregory Price via B4 Relay wrote:
+> > This is v6 of the Private NUMA node series. The series falls into four
+> > parts, each building on the one before:
+> > 
+> >    1-18  mm: introduce N_MEMORY_COMMON
+> 
+> I walked through this part, mostly. It looks like you can substantially
+> decrease the patch count if you keep N_MEMORY meaning unchanged, and
+> add another type, like N_MEMORY_NOALLOC.
+> 
 
-A test module registered a one page buffer on siw with ib_map_mr_sg()
-and sg_offset 0x200, which gave mr->iova at page offset 0x200 and
-mr->length 3584. A user space client then wrote 16 bytes with an RDMA
-WRITE at mr->iova. The bytes landed at page offset 0x000 of the buffer
-instead of 0x200. With sg_offset 0 they landed at page offset 0x000,
-as expected.
+I don't see how this would reduce the patch count substatially, you
+still need to convert existing N_MEMORY users and need to differentiate
+between general purpose memory nodes and private memory nodes.
 
-Start the first PBL entry *sg_off bytes into the first scatterlist
-entry, and reject an offset past the end of that entry, as
-ib_sg_to_pages() does. With this change the bytes land at page offset
-0x200.
+And N_MEMORY_NOALLOC is not a good name.
 
-The issue was found by Claude Opus 5.5 running Quality Playbook, an
-LLM-driven code review tool:
-https://github.com/andrewstellman/quality-playbook
-The fix and this changelog were drafted with Claude Opus 5.5 and
-reviewed by me.
-
-Fixes: 303ae1cdfdf7 ("rdma/siw: application interface")
-Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
----
-Tested in QEMU on v7.4-rc3 with KASAN, with an in-kernel test module
-and a librdmacm client over siw. A reproducer is available on request.
-
- drivers/infiniband/sw/siw/siw_verbs.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/infiniband/sw/siw/siw_verbs.c b/drivers/infiniband/sw/siw/siw_verbs.c
-index 80ef4cb95fc..c5f67c8e7ce 100644
---- a/drivers/infiniband/sw/siw/siw_verbs.c
-+++ b/drivers/infiniband/sw/siw/siw_verbs.c
-@@ -1505,8 +1505,15 @@ int siw_map_mr_sg(struct ib_mr *base_mr, struct scatterlist *sl, int num_sle,
- 			return -EINVAL;
- 		}
- 		if (i == 0) {
--			pble->addr = sg_dma_address(slp);
--			pble->size = sg_dma_len(slp);
-+			unsigned int off = sg_off ? *sg_off : 0;
-+
-+			/* The MR starts *sg_off bytes into the first entry */
-+			if (off > sg_dma_len(slp)) {
-+				siw_dbg_mem(mem, "sg_off %u beyond first SGE\n", off);
-+				return -EINVAL;
-+			}
-+			pble->addr = sg_dma_address(slp) + off;
-+			pble->size = sg_dma_len(slp) - off;
- 			pble->pbl_off = 0;
- 			pbl_size = pble->size;
- 			pbl->num_buf = 1;
 -- 
-2.43.0
+~Gregory
 
