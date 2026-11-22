@@ -1,66 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795376063;
-	b=t6O2SCM30jDMMVK6EwH4AJUExF88H773ejfczt6I8ozhWopT2rOimc4vm0ouEg//u9x7
-	 NiBP4hPeO/Mxz7wcSVrPgSzdBwm8q2x3yCLDV1id8bvVknlrDDoxQPEJMbmOg4tnYMMk6
-	 fDa18rqrjdCaf/v3rq6p8bqluvQ6KwTE53eXpC5wgzzos85QVxzum7NydGKN5KqTRKIm7
-	 G9xDO4y4D6/bqTYcSCo3dnvpucsUFGQC5XeLJbQKHnAwbTSWrc+18OIqFXiY/e6o7mdq/
-	 YEFaRjHLJAfYOCIib0QEaeRQpSoakMN5miQBWsom0N4SC/LBQ2zkgL5c+7Cr68He+UA==
+	t=1795376059;
+	b=eqU4PdMbYjheNDdaRKQZICEMAFS+jH6sKVIkiSw489FWLDCTmndClMzV7wEHJcrv2DHD
+	 1YrHuKoH1iW3lvJjQcOwhIzXUbse2zfG1vWJW8OiGQCj6xeFLNecsT2hpNr/Z7ZjtUWNT
+	 JFxL1RYT43ngPT6qD5zALlOaOGxxJaQalk/ZG4lg7nduxlAbuVhPgGQnhfsPbj/Xf1uWh
+	 s/g/iUU7J41UR4eSZI0sz0puMi6I/Mk97HMYtb7Vv08BIBqE2s4ZrI4uJguFSIoFvieIo
+	 DiCnh4LnsDbXurWUVvTCliVRRhNqouIf0JRN0OJAL3CU1fDTdzl9J/neyO3Ki+51t2w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795376063;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795376059;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=ebxGRomDKancW4IdiZSc5iww/0mlTa9i37BIgRGP0Hk=;
-	b=gN14/Aqks9OzaAelVtwvAMHuwYBECcB4b3tpFUhYh/70QtaX8jSrT4/bOz0Y3/Er9zS8
-	 2lT4+2ESau81PczB/lRrOpqYHbA4RlY+XcZqXfq/VvcoIQ0I6jdIGE9yjiwe465L0K9k1
-	 rSZpxqKTeJTDc1mcZXqS4TN4/Zkq+2QXtASD/PCpB5dqJP4tCNQ+z5gO+ZG+q7WNL/TVy
-	 2c0iQ/HgOD+AQjr2l058otyriHaScLCuU5WMKzN2s5hgGbSRJvKUvLWj2wn22QbV9NLER
-	 HrARtupcl+OHHV1ezP7YBmyh0p4PbHpfJMg+EkNV+UA5d282J4UQe1YJHTTmJ46BEtA==
+	bh=qX+JO5jC90ne1w9GzA8sIhprGIiKji7c9YgmThPrmfk=;
+	b=SJPlMLOC8Fmb7EC4nQWK1R+mu8WbCn5VHRbE9nnmMnB2SJQWpPQqyk9GD4D5amf/fvkh
+	 PX3oxCn6fJHgH0MFrveURdZBeQ6ERJ1sdp4psLorwg0SHFm7wQnpmIkgy841WmLfEDpd9
+	 11bjMIBVAnibhE1ggxbFiPjC8fzcmlxBIdb2gNp4l1vriG/AXHnxKuaGZZtMjlaMO9JO0
+	 aOzUjvTJK5qdOq/jTQbNiUKeHQmaSLeFKlp4k82zQxjV6VeqDGZRRCXRodCKQI+Pd5CaI
+	 7ASBK+5AifaqD/WBrTGvWng3x4l7AsXVsgdRNn8AcqZMuMem0Ui5jEKLnlYmxXr6vGQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.intel.com;
 	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GiJ+eyeI;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gl1jsn4d;
 	arc=none smtp.remote-ip=192.198.163.18
 Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37AE0606A6A5;
-	Sun, 22 Nov 2026 19:34:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37AE0606A6A5
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A017D606A31D;
+	Sun, 22 Nov 2026 19:34:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A017D606A31D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GiJ+eyeI
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gl1jsn4d
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795376063; x=1826912063;
+  t=1795376058; x=1826912058;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=fi/Ij34JtIirolXUTTzqq59KMgnjgz4bYUi8kuxSMFo=;
-  b=GiJ+eyeI7vrL5jUIjyEHjtgAr/K4KA0Y3uFlf/Z7TPvQB/YzpCKzNFvg
-   FZoxYdANp4PYYEfcLcOAwxS59H0EDuWfH7HRFuQFNjmXkbL86f8JtB/LG
-   sZAbiMCjH6tLqJvkGAOqj2ilPnki/xVw4kJOogUSlFOQ7h0E+7MZO/3hc
-   lNSakJFHGlBEC8pj4cUhTKuKCMrdINHmncI8taD2KRBbgq7Rlg9IS1+q4
-   Q04L4f8rbRkJZssghlTUIFh2xesxZiav8SBkbmWVAR6JE1tjAO1MzDlzG
-   xIaCnLlPVLUiJ0+bkTOitn4QFrNwq8TYXtd2bY5uxBk+vTGZ8iUfxpl0C
+  bh=OcnOgggz80lchgDCsw/UJF5qzDMq15FfU00b6PbHsOA=;
+  b=gl1jsn4dp9bQ0YvUu+3Y60RR+ZnMYMBLH33+BmyZQBfFU3JGWA4h3d2T
+   PaLijjZ6IMKGYV+4d7WwpGJyUT5JFNModGK+9JwgOYKpVH4lYmCYTugI6
+   vcm+iQvt9BM20xQhD76HCdRV2B7ln0MTADB3jiRHLacgM+OXywZkFcdSx
+   3GsPK9tcSglfTDKjFZ9GJeumTQe49M1iSkBXwb+n/8sYyEdTNwF3yQbKs
+   kpXbBxZkeC2pjbm3wvuksomzIeFQYzKAGCPwHou46BZ1KMUe8oZ29Sqjy
+   +e7bZVRwicJZXwU4NVq1Rb8ymfb8lM5W5sCHIAxWfINaSY9DFN/hLaake
    Q==;
-X-CSE-ConnectionGUID: hNdtKHsbTKOrfp6A1Nh5mA==
-X-CSE-MsgGUID: W2W1fYgQQa6D7Echor8umA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4217524"
+X-CSE-ConnectionGUID: HJldRj4ISHmBopBI7zlipw==
+X-CSE-MsgGUID: +Sqd6I87SdqolVXeWHaHWQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4217503"
 X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4217524"
+   d="scan'208";a="4217503"
 Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 11:34:23 -0800
-X-CSE-ConnectionGUID: /rz/EzE+SWaX2EFOE85pZQ==
-X-CSE-MsgGUID: L8iqB5gkT6O1SK/amTIHDA==
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 11:34:17 -0800
+X-CSE-ConnectionGUID: gAq2B6slQ0+lEYWOW6A/mg==
+X-CSE-MsgGUID: I+HzzRtrS9+9rAWJCGKcEg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11109806"
+   d="scan'208";a="11109787"
 Received: from debox1-desk4.jf.intel.com (HELO localhost) ([10.54.77.98])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 11:34:23 -0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 11:34:18 -0800
 From: "David E. Box" <david.e.box@linux.intel.com>
 To: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
 	Hans de Goede <hansg@kernel.org>
@@ -68,9 +68,9 @@ Cc: "David E. Box" <david.e.box@linux.intel.com>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	platform-driver-x86@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 11/12] tools/arch/x86/pmtctl: Add man page
-Date: Sun, 22 Nov 2026 11:34:06 -0800
-Message-ID: <a5acc483018649a7fdd18dec50ab6fe875b12f85.1795374925.git.david.e.box@linux.intel.com>
+Subject: [PATCH v2 01/12] tools/arch/x86/pmtctl: Add pmtctl skeleton
+Date: Sun, 22 Nov 2026 11:33:56 -0800
+Message-ID: <bd7a852b721534fc09564587697d5b8727e7916a.1795374925.git.david.e.box@linux.intel.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1795374925.git.david.e.box@linux.intel.com>
 References: <cover.1795374925.git.david.e.box@linux.intel.com>
@@ -85,360 +85,268 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 
-Add the pmtctl(8) man page, which describes the global options, the
-'list' and 'stat' commands with their options and output, the metric
-definition files and the exit status. 'make install' installs it to
-$(MANDIR)/man8, /usr/share/man/man8 by default, and the README refers
-to it.
+Intel Platform Monitoring Technology (PMT) exposes hardware telemetry
+through the pmt_telemetry driver in sysfs. Each telemetry device
+provides a binary data file whose layout is described by
+platform-specific metric definitions that are published separately.
+
+Add the skeleton of pmtctl, a command-line tool for discovering PMT
+telemetry devices and sampling their metrics: the build, the logging
+helpers and the main entry point with global option handling. The
+commands are added in follow-up patches.
+
+The tool exits with 0 on success, 1 if the request is wrong (an invalid
+option or value, or nothing matches the selection) and 2 if carrying it
+out fails. Library code returns 0 or a negative errno, and each command
+maps errors to an exit status.
+
+Errors and warnings go to stderr as "pmtctl: <level>: <message>".
 
 Signed-off-by: David E. Box <david.e.box@linux.intel.com>
 ---
 V2 changes:
-  - Replaces v1 17, rewritten for v2. v1 wrongly said -e and --raw were
-    mutually exclusive.
-  - Installed by 'make install'.
+  - New patch: the Makefile, logging and main() from v1 03 and 12, so
+    the tool builds from the first patch.
+  - Logging is errors and warnings only; -q and --debug are dropped (v1
+    parsed them but never applied them).
+  - Library code returns 0 or -errno and never calls exit(); commands
+    map errors to the exit statuses 0/1/2.
+  - One plain Makefile, like the other tools in tools/arch/x86.
 
- tools/arch/x86/pmtctl/Makefile |   3 +
- tools/arch/x86/pmtctl/README   |   3 +
- tools/arch/x86/pmtctl/pmtctl.8 | 284 +++++++++++++++++++++++++++++++++
- 3 files changed, 290 insertions(+)
- create mode 100644 tools/arch/x86/pmtctl/pmtctl.8
+ tools/arch/x86/pmtctl/.gitignore           |  2 +
+ tools/arch/x86/pmtctl/Makefile             | 25 ++++++++
+ tools/arch/x86/pmtctl/include/lib/log.h    | 23 +++++++
+ tools/arch/x86/pmtctl/include/pmtctl_cli.h | 12 ++++
+ tools/arch/x86/pmtctl/lib/log.c            | 41 ++++++++++++
+ tools/arch/x86/pmtctl/src/main.c           | 72 ++++++++++++++++++++++
+ 6 files changed, 175 insertions(+)
+ create mode 100644 tools/arch/x86/pmtctl/.gitignore
+ create mode 100644 tools/arch/x86/pmtctl/Makefile
+ create mode 100644 tools/arch/x86/pmtctl/include/lib/log.h
+ create mode 100644 tools/arch/x86/pmtctl/include/pmtctl_cli.h
+ create mode 100644 tools/arch/x86/pmtctl/lib/log.c
+ create mode 100644 tools/arch/x86/pmtctl/src/main.c
 
-diff --git a/tools/arch/x86/pmtctl/Makefile b/tools/arch/x86/pmtctl/Makefile
-index 564931794086..5f07c3345b78 100644
---- a/tools/arch/x86/pmtctl/Makefile
-+++ b/tools/arch/x86/pmtctl/Makefile
-@@ -3,6 +3,7 @@
-=20
- BINDIR ?=3D /usr/sbin
- DEFSDIR ?=3D /usr/share/pmtctl
-+MANDIR ?=3D /usr/share/man
-=20
- CFLAGS =3D -Wextra
-=20
-@@ -96,6 +97,8 @@ clean:
- install: pmtctl
- 	install -d $(DESTDIR)$(BINDIR)
- 	install -m 755 -p pmtctl $(DESTDIR)$(BINDIR)/pmtctl
-+	install -d $(DESTDIR)$(MANDIR)/man8
-+	install -m 644 -p pmtctl.8 $(DESTDIR)$(MANDIR)/man8/pmtctl.8
- 	@# Metric definitions, if 'make defs-json-fetch' was run
- 	@if ls $(DEFS_DIR)/*.json >/dev/null 2>&1; then \
- 		install -d $(DESTDIR)$(DEFSDIR); \
-diff --git a/tools/arch/x86/pmtctl/README b/tools/arch/x86/pmtctl/README
-index 7d9a57cf3925..296dccba52ff 100644
---- a/tools/arch/x86/pmtctl/README
-+++ b/tools/arch/x86/pmtctl/README
-@@ -22,6 +22,8 @@ Debian and Ubuntu, jansson-devel on Fedora and RHEL).
- installs pmtctl to /usr/sbin, and the metric definitions, if they were
- fetched, to /usr/share/pmtctl. BINDIR and DEFSDIR change the locations,
- and DESTDIR is prefixed to both.
-+The pmtctl(8) man page is installed to /usr/share/man/man8, under
-+DESTDIR too, and MANDIR changes its location.
-=20
-=20
- Metric definitions
-@@ -84,6 +86,7 @@ The telemetry data files can only be read by root, so 'st=
-at' must run
- as root; 'list' doesn't need to.
-=20
- 'pmtctl --help' and 'pmtctl <command> --help' describe all options.
-+The pmtctl(8) man page describes them in more detail.
-=20
-=20
- Exit status
-diff --git a/tools/arch/x86/pmtctl/pmtctl.8 b/tools/arch/x86/pmtctl/pmtctl.8
+diff --git a/tools/arch/x86/pmtctl/.gitignore b/tools/arch/x86/pmtctl/.giti=
+gnore
 new file mode 100644
-index 000000000000..c547af73db1d
+index 000000000000..3bd0d7c1b61a
 --- /dev/null
-+++ b/tools/arch/x86/pmtctl/pmtctl.8
-@@ -0,0 +1,284 @@
-+.\" SPDX-License-Identifier: GPL-2.0-only
-+.TH PMTCTL 8 "November 2026" "Linux" "System Administration"
-+.SH NAME
-+pmtctl \- query Intel Platform Monitoring Technology (PMT) telemetry metri=
-cs
-+.SH SYNOPSIS
-+.B pmtctl
-+.RI [ "global options" ]
-+.B list
-+.RI [ options ]
-+.br
-+.B pmtctl
-+.RI [ "global options" ]
-+.B stat
-+.RI [ options ]
-+.BR \-e\ \fImetric\fR[,\fImetric\fR...]\ ...
-+.br
-+.B pmtctl
-+.RI [ "global options" ]
-+.B stat
-+.RI [ options ]
-+.BR \-\-raw\ id=3D \fIN\fR [,lsb=3D \fIN\fR ][,msb=3D \fIN\fR ]\ ...
-+.SH DESCRIPTION
-+.B pmtctl
-+is a command-line tool for inspecting and sampling Intel Platform
-+Monitoring Technology (PMT) telemetry exposed through the kernel
-+.B pmt_telemetry
-+auxiliary driver
-+.RB ( /sys/bus/auxiliary/drivers/pmt_telemetry ).
-+.PP
-+The driver registers a telemetry device,
-+.BI telem N\fR,
-+for each telemetry region of the platform. Its data is an array of
-+64-bit samples, and its GUID identifies the layout: which bits of
-+which sample hold which metric.
-+.B pmtctl
-+uses metric definitions, one JSON file per GUID, to name and decode
-+the data. The definitions are generated from the layouts published in
-+the Intel-PMT repository; see
-+.BR FILES .
-+.PP
-+The telemetry data files can only be read by
-+.BR root ,
-+so
-+.B stat
-+must run as root.
-+.B list
-+does not need to.
-+.SH GLOBAL OPTIONS
-+.TP
-+.BR \-h ", " \-\-help
-+Show help and exit.
-+.TP
-+.BR \-V ", " \-\-version
-+Show version and exit.
-+.TP
-+.BR \-J ", " "\-\-json\-file " \fIpath\fR
-+Load the metric definitions from
-+.IR path ,
-+a definition file or a directory of them. Without
-+.BR \-J ,
-+the definitions installed in
-+.I /usr/share/pmtctl
-+(set with DEFSDIR at build time) are used, if that directory exists.
-+.SH COMMANDS
-+.SS list
-+.B pmtctl list
-+.RI [ options ]
-+.PP
-+List the metrics of the telemetry devices on the system. The metrics
-+are grouped by GUID, each group with its platform, number of metrics
-+and description, and a GUID shared by several devices is listed once.
-+On a terminal, descriptions are wrapped to its width.
-+.TP
-+.BR \-h ", " \-\-help
-+Show help for
-+.B list
-+and exit.
-+.TP
-+.BI "\-\-guid " hex
-+Restrict the listing to the devices with this GUID.
-+.TP
-+.BI "\-\-device " name
-+Restrict the listing to one device, for example
-+.BR telem3 .
-+.TP
-+.B \-\-summary
-+List the GUIDs and their devices instead of the metrics. This works
-+without metric definitions.
-+.SS stat
-+.B pmtctl stat
-+.RI [ options ]
-+.B \-e
-+.IR metric [,\fImetric\fR...]
-+\&...
-+.br
-+.B pmtctl stat
-+.RI [ options ]
-+.BR \-\-raw\ id=3D \fIN\fR [,lsb=3D \fIN\fR ][,msb=3D \fIN\fR ]\ ...
-+.PP
-+Sample metrics, or raw sample values, of the telemetry devices at an
-+interval, in a manner similar to
-+.BR "perf stat" .
-+Samples are scheduled from the start time, so the interval doesn't
-+drift, and the time column shows when each sample was taken. A sample
-+that is due before the previous one finished is skipped. Sampling ends
-+after the given number of samples or on
-+.BR SIGINT ,
-+which takes effect immediately, even during a long interval.
-+.TP
-+.BR \-h ", " \-\-help
-+Show help for
-+.B stat
-+and exit.
-+.TP
-+.BR \-e ", " "\-\-event " \fIspec\fR
-+Metric name, or a comma-separated list of metric names. May be
-+repeated and combined with
-+.BR \-\-raw .
-+.TP
-+.B \-\-raw \fBid=3D\fIN\fR[\fB,lsb=3D\fIN\fR][\fB,msb=3D\fIN\fR]
-+Read bits
-+.B lsb
-+to
-+.B msb
-+of sample
-+.B id
-+of each device, without metric definitions. The items are separated by
-+commas, without spaces.
-+.B lsb
-+defaults to 0 and
-+.B msb
-+to 63, and 0 \(<=3D
-+.B lsb
-+\(<=3D
-+.B msb
-+\(<=3D 63. May be repeated and combined with
-+.BR \-e .
-+.TP
-+.BI "\-\-guid " hex
-+Restrict sampling to the devices with this GUID.
-+.TP
-+.BI "\-\-device " name
-+Restrict sampling to one device, for example
-+.BR telem3 .
-+.TP
-+.BR \-i ", " "\-\-interval " \fIms\fR
-+Sampling interval in milliseconds. Must be greater than 0. Default
-+is 1000 ms.
-+.TP
-+.BR \-c ", " "\-\-count " \fIN\fR
-+Number of samples to take. Must be greater than 0. Default is to
-+sample until interrupted.
-+.TP
-+.B \-\-no\-header
-+Don't print the header.
-+.TP
-+.B \-\-hex
-+Print sample values in hexadecimal.
-+.TP
-+.B \-\-vertical
-+One line per value per sample: the sample number, the time in ms, the
-+device, the metric and the value. Required when more than one value is
-+requested. The default layout has one line per device per sample.
-+.PP
-+Metric names are looked up in the definitions of each device's GUID, so
-+a metric is sampled on every selected device that has it, at that
-+device's location. A device that has none of the requested values is
-+left out. With
-+.BR \-\-vertical ,
-+a value that a device doesn't have is printed as
-+.BR \- ,
-+as is a
-+.B \-\-raw
-+sample outside the device's telemetry region. A metric or raw sample
-+that no selected device has is an error. A value that can't be read is
-+printed as
-+.BR NaN ;
-+.B stat
-+fails only if no value could be read at all.
-+.SH EXAMPLES
-+List the metrics, using the installed definitions:
-+.PP
-+.RS 4
-+.nf
-+pmtctl list
-+.fi
-+.RE
-+.PP
-+List the GUIDs and devices of the system, with definitions from
-+.IR defs/ :
-+.PP
-+.RS 4
-+.nf
-+pmtctl \-J defs list \-\-summary
-+.fi
-+.RE
-+.PP
-+Sample a metric every 500 ms until interrupted:
-+.PP
-+.RS 4
-+.nf
-+sudo pmtctl stat \-e package_energy \-\-interval 500
-+.fi
-+.RE
-+.PP
-+Take a single sample of a metric on the devices with one GUID:
-+.PP
-+.RS 4
-+.nf
-+sudo pmtctl stat \-e pch_temp \-\-guid 03086000 \-c 1
-+.fi
-+.RE
-+.PP
-+Sample two metrics five times (requires \fB\-\-vertical\fR):
-+.PP
-+.RS 4
-+.nf
-+sudo pmtctl stat \-e package_energy,pch_temp \-\-vertical \-c 5
-+.fi
-+.RE
-+.PP
-+Print a value in hexadecimal:
-+.PP
-+.RS 4
-+.nf
-+sudo pmtctl stat \-e firmware_version \-c 1 \-\-hex
-+.fi
-+.RE
-+.PP
-+Read raw sample values, slicing bit fields out of two samples:
-+.PP
-+.RS 4
-+.nf
-+sudo pmtctl stat \-\-vertical \-\-raw id=3D2,msb=3D7 \-\-raw id=3D3,lsb=3D=
-8,msb=3D15
-+.fi
-+.RE
-+.SH FILES
-+.TP
-+.B /sys/bus/auxiliary/drivers/pmt_telemetry
-+Sysfs entry point for the kernel
-+.B pmt_telemetry
-+auxiliary driver that
-+.B pmtctl
-+reads from.
-+.TP
-+.I /usr/share/pmtctl
-+The installed metric definitions,
-+.BI pmt_ guid .json
-+for each GUID. They are generated from the Intel-PMT repository with
-+.B make defs\-json\-fetch
-+in the
-+.B pmtctl
-+source directory and installed with
-+.BR "make install" .
-+.SH EXIT STATUS
-+.TP
-+.B 0
-+Success.
-+.TP
-+.B 1
-+The request is wrong: an invalid option or value, or nothing matches
-+the selection.
-+.TP
-+.B 2
-+Something failed while carrying out the request, such as reading the
-+devices or the metric definitions.
-+.SH SEE ALSO
-+.BR perf (1),
-+.BR turbostat (8)
-+.PP
-+Intel Platform Monitoring Technology XML metric definitions:
-+.UR https://github.com/intel/Intel-PMT
-+.UE .
-+.SH AUTHORS
-+.B pmtctl
-+was written by David E. Box <david.e.box@linux.intel.com>.
-+.SH REPORTING BUGS
-+Report bugs via the Linux kernel mailing lists; see the
-+.B MAINTAINERS
-+file in the kernel source tree for current maintainers of the
-+Intel PMT subsystem.
-+.SH COPYRIGHT
-+.B pmtctl
-+is licensed under GPL-2.0-only.
++++ b/tools/arch/x86/pmtctl/.gitignore
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0-only
++pmtctl
+diff --git a/tools/arch/x86/pmtctl/Makefile b/tools/arch/x86/pmtctl/Makefile
+new file mode 100644
+index 000000000000..0595d6617920
+--- /dev/null
++++ b/tools/arch/x86/pmtctl/Makefile
+@@ -0,0 +1,25 @@
++# SPDX-License-Identifier: GPL-2.0
++# Makefile for Intel Platform Monitoring Technology (PMT) tool
++
++BINDIR ?=3D /usr/sbin
++
++CFLAGS =3D -Wextra
++
++override CFLAGS +=3D -O2 -Wall -D_GNU_SOURCE -Iinclude -I../../../include
++
++OBJS :=3D \
++	lib/log.o \
++	src/main.o
++
++pmtctl: $(OBJS)
++	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LDLIBS)
++
++$(OBJS): $(wildcard include/*.h include/lib/*.h)
++
++.PHONY: clean install
++clean:
++	@rm -f pmtctl $(OBJS)
++
++install: pmtctl
++	install -d $(DESTDIR)$(BINDIR)
++	install -m 755 -p pmtctl $(DESTDIR)$(BINDIR)/pmtctl
+diff --git a/tools/arch/x86/pmtctl/include/lib/log.h b/tools/arch/x86/pmtct=
+l/include/lib/log.h
+new file mode 100644
+index 000000000000..2006b5b50637
+--- /dev/null
++++ b/tools/arch/x86/pmtctl/include/lib/log.h
+@@ -0,0 +1,23 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef PMTCTL_LOG_H
++#define PMTCTL_LOG_H
++
++#include <linux/compiler.h>
++
++enum pmtctl_log_level {
++	PMTCTL_LOG_ERROR,
++	PMTCTL_LOG_WARN,
++};
++
++void log_msg(enum pmtctl_log_level level, const char *fmt, ...) __printf(2=
+, 3);
++
++/*
++ * Log an error with the strerror() text of @ret appended and return @ret.
++ * @ret must be a negative errno value.
++ */
++int log_ret(int ret, const char *fmt, ...) __printf(2, 3);
++
++#define log_err(fmt, ...)	log_msg(PMTCTL_LOG_ERROR, fmt, ##__VA_ARGS__)
++#define log_warn(fmt, ...)	log_msg(PMTCTL_LOG_WARN, fmt, ##__VA_ARGS__)
++
++#endif
+diff --git a/tools/arch/x86/pmtctl/include/pmtctl_cli.h b/tools/arch/x86/pm=
+tctl/include/pmtctl_cli.h
+new file mode 100644
+index 000000000000..550a61b97aca
+--- /dev/null
++++ b/tools/arch/x86/pmtctl/include/pmtctl_cli.h
+@@ -0,0 +1,12 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef PMTCTL_CLI_H
++#define PMTCTL_CLI_H
++
++/* Process exit status, see EXIT STATUS in pmtctl(8) */
++enum pmtctl_exit {
++	PMTCTL_EXIT_OK,
++	PMTCTL_EXIT_USER,
++	PMTCTL_EXIT_SYSTEM,
++};
++
++#endif
+diff --git a/tools/arch/x86/pmtctl/lib/log.c b/tools/arch/x86/pmtctl/lib/lo=
+g.c
+new file mode 100644
+index 000000000000..87a24d076cb2
+--- /dev/null
++++ b/tools/arch/x86/pmtctl/lib/log.c
+@@ -0,0 +1,41 @@
++// SPDX-License-Identifier: GPL-2.0-only
++#include <stdarg.h>
++#include <stdio.h>
++#include <string.h>
++
++#include "lib/log.h"
++
++static const char * const log_tags[] =3D {
++	[PMTCTL_LOG_ERROR]	=3D "error",
++	[PMTCTL_LOG_WARN]	=3D "warning",
++};
++
++static __printf(3, 0)
++void log_vmsg(enum pmtctl_log_level level, int err, const char *fmt, va_li=
+st ap)
++{
++	fprintf(stderr, "pmtctl: %s: ", log_tags[level]);
++	vfprintf(stderr, fmt, ap);
++	if (err)
++		fprintf(stderr, ": %s", strerror(-err));
++	fputc('\n', stderr);
++}
++
++void log_msg(enum pmtctl_log_level level, const char *fmt, ...)
++{
++	va_list ap;
++
++	va_start(ap, fmt);
++	log_vmsg(level, 0, fmt, ap);
++	va_end(ap);
++}
++
++int log_ret(int ret, const char *fmt, ...)
++{
++	va_list ap;
++
++	va_start(ap, fmt);
++	log_vmsg(PMTCTL_LOG_ERROR, ret, fmt, ap);
++	va_end(ap);
++
++	return ret;
++}
+diff --git a/tools/arch/x86/pmtctl/src/main.c b/tools/arch/x86/pmtctl/src/m=
+ain.c
+new file mode 100644
+index 000000000000..25aedef59cf5
+--- /dev/null
++++ b/tools/arch/x86/pmtctl/src/main.c
+@@ -0,0 +1,72 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * pmtctl: query Intel Platform Monitoring Technology (PMT) telemetry
++ */
++#include <getopt.h>
++#include <stdio.h>
++#include <string.h>
++
++#include "lib/log.h"
++#include "pmtctl_cli.h"
++
++#define PMTCTL_VERSION	"2026.11.22"
++
++static void print_usage(FILE *out)
++{
++	fprintf(out,
++		"Usage: pmtctl [global options] <command> [command options] ...\n"
++		"\n"
++		"Query Intel Platform Monitoring Technology (PMT) metrics.\n"
++		"\n"
++		"Global options:\n"
++		"  -h, --help              Show this help and exit\n"
++		"  -V, --version           Show version and exit\n"
++		"\n"
++		"Run 'pmtctl <command> --help' for command-specific options.\n");
++}
++
++int main(int argc, char **argv)
++{
++	static const struct option long_opts[] =3D {
++		{ "help",	no_argument,	NULL, 'h' },
++		{ "version",	no_argument,	NULL, 'V' },
++		{}
++	};
++	const char *cmd;
++	int opt;
++
++	/* '+' stops at the first non-option: the command name */
++	while ((opt =3D getopt_long(argc, argv, "+hV", long_opts, NULL)) !=3D -1)=
+ {
++		switch (opt) {
++		case 'h':
++			print_usage(stdout);
++			return PMTCTL_EXIT_OK;
++		case 'V':
++			printf("pmtctl version %s - David E. Box <david.e.box@linux.intel.com>\=
+n",
++			       PMTCTL_VERSION);
++			return PMTCTL_EXIT_OK;
++		default:
++			/* getopt_long() already printed an error */
++			fprintf(stderr, "Try 'pmtctl --help' for usage.\n");
++			return PMTCTL_EXIT_USER;
++		}
++	}
++
++	if (optind >=3D argc) {
++		log_err("missing command");
++		print_usage(stderr);
++		return PMTCTL_EXIT_USER;
++	}
++
++	cmd =3D argv[optind];
++
++	if (!strcmp(cmd, "help")) {
++		print_usage(stdout);
++		return PMTCTL_EXIT_OK;
++	}
++
++	log_err("unknown command '%s'", cmd);
++	fprintf(stderr, "Run 'pmtctl --help' for a list of commands.\n");
++
++	return PMTCTL_EXIT_USER;
++}
 --=20
 2.53.0
 
