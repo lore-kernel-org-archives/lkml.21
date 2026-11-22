@@ -1,54 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795369463;
-	b=g2YE47APwvrkR4Qp5yQywR9G1D67vbp/I/u3f8Or7dW28K+wIzyv9xMZnTaFsmbfTGUy
-	 yybYkH9qX2i2xSSfb/UIAfCUo1yPwk62Kpn7vdjgaAtAhtRuwcYDhvQKYmnBVVZJ1tO6V
-	 wGj03CciYmgST5DyZ1Libq8RAnuSCFiJROIWvkIU5bHH0Yz66SvBdwVGYicWHvjeSgeqq
-	 kJtywh7TxxDwbMd6/6OL1gHz6shVqs/R3lX80/76j8CNpIvTI0JWv16EsaScfZng6l1FJ
-	 Uhd8FX1JwBdOU8DgjbL0fqsl/XOXgjxkuHc3jEFd8Ack9ZRgyoL5Ujp0RaUgxLwRFOw==
+	t=1795369473;
+	b=XHlAFEOHOU8dfBMVgJr1BvvFrnUCA9bLfkLywnRTkEA1gTWZqbH7h0yunLHJQQxeHl3q
+	 oW7mx/hUGdCqS36G84pSkxPdouGTVIFYlIsklyhwfbwJbjZzaeUA47hflY8CE59LFmOsr
+	 848pOa6dODTcS7dvX7LEusyhCWDst2FU0C0lwgwmXfq2G4+BOGIJUEv0I3LCSi01dfWsz
+	 LvJ8s06QzIFROk5lc7Q2qIGubXeqz7MyPDGtAjqedypdvC67YQZKvrfIcTVGK0Hdn5OsJ
+	 EahiFHvZAkBztWBVIeeRT7Gu3yC0+1TRacqD/Sl2S66VpgLVY9AR7tnXZbqps9Xit3g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795369463;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Cc:Content-Type;
-	bh=XDb7KfRP9TYLu9vE5S7fXj6v0XT0n+jmez9K+fH+2F0=;
-	b=kEDWpoiGH9WQbuGoRDitxR0honxpmi/P5BVsf0kBp2w7nKmK/sYbfucKBK1mERMjXQmS
-	 0u2RT7AGeRVEQXU+EKoiW3ilOQ5naO1xS1w/r8NVsdpIRU1RK9Ch4DZlOceFwZb1H9MMn
-	 4lN4/TZ53Ui100w/mgQio/dOBm0/y4xZQGslwqQdNWXry1xsJ3e3mU9BZMo1JJtOtLaGQ
-	 Ix5P3CMbfzV6JOl8Vn6qRwvB9MMsO5cP08EuVzIVJsQ7o8uDtW41f1ww2pvQvrmEUK5yx
-	 ZhAI/kUpteMfS4uRGgVa1JY7fD+FJ+TXmIR6kkp11xufD/tD2+AUma1AinuoGF53JHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795369473;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=4TIo8XI8rbm8m77QUuo4L5vnn8DDR2Hp5bySmwkQxQ8=;
+	b=ysLG4s4RiWn9Zj0lJ5PiPwi92jpJcbP/3/5kd/7tBF4Wj9v7rCvitWT0EAsR3WKiQP7r
+	 h3EzgEnQeoeP9vmX10oAZ4kyuCaaWbRy2zRp1/2RRynE5daXPy1DLIIpS80CboW0etSNy
+	 tMl10grpvhASZzTcYwCjBkRhPk3P+YF/AZVqpkRt+Pyng2J5cGVwo+Y6V2HB3OTURyUpx
+	 RoVAvbYxN8Ge2Jc4TaMpFJgLZ2LvYNIS4QHYlqtWv3KU4u9cucJ2NpXH8wyIQlHu8PZyq
+	 suV5sframjGGtP5ONvYrSbJzIsOZd7OHK32FEm/9fmsBRUnatUQLtePoVQLYyZRP2eA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.198
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rLeiBumj;
+	arc=none smtp.remote-ip=209.85.210.170
+Received: from mail-pf1-f170.google.com (mail-pf1-f170.google.com [209.85.210.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54296606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:44:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54296606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4cc89e86e9eso3253002b6e.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:44:23 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66A8F606A336
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:44:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66A8F606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rLeiBumj
+Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-8c700d6cc0bso1864888b3a.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:44:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795369472; x=1795974272; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4TIo8XI8rbm8m77QUuo4L5vnn8DDR2Hp5bySmwkQxQ8=;
+        b=rLeiBumjk8TQGxJxb12x1jOoBNcpTTZuMgD5FoSJfFUr1x8u3IcRvBDV2aKGQ+EWLj
+         CWgtnCaNl1IQzgFGpJEZ7w1GuGVfo/XjnJkSQgtGBwdSGwTvGx5PngJq4I8AohwPDdgQ
+         ZdLAJ3Wic+Yl3yqokWFgkZeYNK9Qyh2I1AQ9GMJHWn/KC/BFELg9DvZ1elIhDEdJTEhm
+         Bab8jDUt7R5Qtbk1LcHHuhzgnxIB7BDPwCH/ZYzkh/Xq1WZ38U2f/xBeqrcdrd+BhWta
+         30U6TAWHv6yfzN2NTLWK6vRrIwNt3Nm2ydXoTmPbMgpOvOo40VaErfViSOU/JMbmEqmh
+         N57A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795369462; x=1795974262;
-        h=content-type:cc:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=XDb7KfRP9TYLu9vE5S7fXj6v0XT0n+jmez9K+fH+2F0=;
-        b=BPNyUpYp1Ixle4wuOQoGxKG2oAZ+ZfbeKaoPTnRgE2fnEzUG+d1iAvrrtfgU2RV36R
-         pfRaZDSigZQ2ORVKsLVBe8/UcWWk2iAegD5yD0opib4VkI9ri+nvOMWMPvjglSPZMKnG
-         Sbs/gMDjn0EXVZA2rqSK6sKsSgf35lKGjJ25vzd1BKPK/Qci8GIXxorfhZt3jeNdu72o
-         3zhdmXAbEr/Ryaq1ZFS49yNNXVxdfbGxBdlCjFeHzgMbWCHUhdMIMQfIqaBi54wQPPUU
-         p0BRpI/wn7vVtAoINSLzcFMa7+BrUeRD7B3qXUJ7aUG+3aCtZOgvOOkXv3wkAQ5KpaL0
-         /lzg==
-X-Forwarded-Encrypted: i=1; AL+hErEBZxYdqX0J3R4lp0N/vnqe6Tnhvalm3FbLZ0fSnZfKDCgLFufJaGdA0zgwqK6ArTMy1OWssgLWdaPQtEY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8kCA7jnploZjNmfND3+xsHKzbBJxI9Nmqbu3cYJyaDiLTyyPyS
-	3AWYSz92S8qgE1Ejx1TYwdWaf20oBivv7ZLZFHPxNMOAhb6bTfQnXf67zo7Jgt43dtxPsv3XJM4
-	pQqJwmfu7IwEUpkbevfOwNaW0TInGbbv/fOKPuW9SJ2ZxBTiC8tuiQCv54hk=
+        d=1e100.net; s=20260707; t=1795369472; x=1795974272;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4TIo8XI8rbm8m77QUuo4L5vnn8DDR2Hp5bySmwkQxQ8=;
+        b=PSUGE0hcAaE7pTPCaBAI4iqkUeHw+XyFWtPnOdwUoc59VgdC7f0oEgqHp+AfaWMxw4
+         SeGsXWQIhFjg0yEDm2RmRe6Xo3hErzaPM8pA3mj1dfL0fduiCyOa5kJkEcxZPFfCaUIv
+         mUzG9RnfOS/syRZoNNalAz9lbYvGFDB1S6Y6f+4LEbS3ceQnxaT5fDpXEM1jjS2zdZjL
+         jeNIqdnI7hBmzlsKrxbV+i1YXoL8YNlJZhYX99z8PxPA7qY8XEPq6oyvDdU6E5ioHB/r
+         R9OeW26bVE30kGEH9CL61SmdI2A0sEyzBCu3CS5BnCLCBxIJloey5hNn99nzgvFDH6SB
+         z+Xw==
+X-Forwarded-Encrypted: i=1; AL+hErHnKOatKml+7uF6VWveiIma4SOCRl/Md3O0nGGnTIDVvYtRYnHkOMFa7TAY08lqqsSlapLtglmXbrbIm2s=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8XEKf0Xt6YzXa9cAQ5GT5DJsbMTiEMangrqJSDiIy9NWLkpXqi
+	y+B4Cg9waPx3gLHpR6Cg9TMA4atBGyG8dp9tldE7g7MvbxZ1sjXhJhvz
+X-Gm-Gg: AZFdTZfqVqnIRpQNJ9hC4Q3Fm0RAckk+pfq882RHzFEQ8Jbj/XP2i52Ibe1lMreuud8
+	LwZDXJYOtiYdCFw673PBayw1Rb0ihCDbyRE4e/OnkAFcg/T3HW8kZ9etlDp9iwsHVaNAlpt9E4m
+	MUOzOH159okA/WGm1HP1ZmPO078IL7/H5GqxOPxnNQGOe1KlP/0zUviQRGd+uExykvbxGUhY18U
+	8fY8J+TCEuWeqkw7qvZAbU8/PHws5B/xMQ3CV0tqrt0nsv7LrZihg2pQqNlpK96rq5v4a/cCQNL
+	Binl+NEKPhUewUILNcb0v0v0ehoImAlKAR9V18WK+42/hYxLfAsSZvocHCX0BQhQExpK3P4QMUw
+	EW6MmednTDQS3wpCfe4RaRwkF1H8lInjsayhrAWwk9BuWFzaa/VpMgAckCM9AWToVzTsvmQI9Ti
+	ATVntkK9RxkN7z0/88SftXHczMtQ4eIqfBle7V9jxZltOu1G6qzvlA2Hz4UkgVBerSy2Zbznaeh
+	j4C6tftZ3qgorS0tuLS63gKV38co/bglWPwGPax1k7T3sX0SksFiPuYOk8j5i/mw4BSKccITdPV
+	e5dlYXDSCR5vI4F4asgBYVI6mLJEUwve62sQ44mp87YafDSzwEQcCaVAWQgG7+Csl03rvhia
+X-Received: by 2002:a05:6a20:a106:b0:3fa:53f1:abf2 with SMTP id adf61e73a8af0-4014de5db77mr6772027637.29.1795369471685;
+        Sun, 22 Nov 2026 09:44:31 -0800 (PST)
+Received: from fedora.tailc1fb0a.ts.net ([134.82.71.171])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e4d7basm4060108b3a.21.2026.11.22.09.44.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 09:44:31 -0800 (PST)
+From: Artem Novak <artem122novak@gmail.com>
+To: geert+renesas@glider.be
+Cc: linusw@kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Artem Novak <artem122novak@gmail.com>
+Subject: [PATCH] pinctrl: renesas: fix typo in RZ/A1 driver description
+Date: Sun, 22 Nov 2026 11:44:27 -0600
+Message-ID: <20261122174427.276446-1-artem122novak@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,70 +97,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:c16a:b0:53f:4cb6:cda8 with SMTP id
- 5614622812f47-57a0a20ac09mr10364102b6e.23.1795369462306; Sun, 22 Nov 2026
- 09:44:22 -0800 (PST)
-Date: Sun, 22 Nov 2026 09:44:22 -0800
-In-Reply-To: <20261122174409.2818-1-arbabhaider649@gmail.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b0329f6.a481e175.27cf24.000f.GAE@google.com>
-Subject: Re: [syzbot] divide error in alauda_transport
-From: syzbot <syzbot+dc208a8cf8d37cf3e5ac@syzkaller.appspotmail.com>
-To: arbabhaider649@gmail.com
-Cc: arbabhaider649@gmail.com, syzkaller-bugs@googlegroups.com, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-> #syz test
+Correct the spelling of "Renesas" in the RZ/A1 pin
+controller driver's module description.
 
-Patch testing via #syz test is temporarily disabled.
-See https://github.com/google/syzkaller/issues/8122 for details.
+Signed-off-by: Artem Novak <artem122novak@gmail.com>
+---
+ drivers/pinctrl/renesas/pinctrl-rza1.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
->
-> diff --git a/drivers/usb/storage/alauda.c b/drivers/usb/storage/alauda.c
-> index 5e7f99ba8..5493f25a7 100644
-> --- a/drivers/usb/storage/alauda.c
-> +++ b/drivers/usb/storage/alauda.c
-> @@ -96,6 +96,8 @@ struct alauda_media_info {
->  
->  	u16 **lba_to_pba;		/* logical to physical block map */
->  	u16 **pba_to_lba;		/* physical to logical block map */
-> +
-> +	bool media_initialized;
->  };
->  
->  struct alauda_info {
-> @@ -105,8 +107,6 @@ struct alauda_info {
->  	unsigned char sense_key;
->  	unsigned long sense_asc;	/* additional sense code */
->  	unsigned long sense_ascq;	/* additional sense code qualifier */
-> -
-> -	bool media_initialized;
->  };
->  
->  #define short_pack(lsb,msb) ( ((u16)(lsb)) | ( ((u16)(msb))<<8 ) )
-> @@ -471,6 +471,7 @@ static int alauda_check_media(struct us_data *us)
->  		|| ((status[1] & 0x01) == 0)) {
->  		usb_stor_dbg(us, "No media, or door open\n");
->  		alauda_free_maps(&MEDIA_INFO(us));
-> +		MEDIA_INFO(us).media_initialized = false;
->  		info->sense_key = 0x02;
->  		info->sense_asc = 0x3A;
->  		info->sense_ascq = 0x00;
-> @@ -478,12 +479,13 @@ static int alauda_check_media(struct us_data *us)
->  	}
->  
->  	/* Check for media change */
-> -	if (status[0] & 0x08 || !info->media_initialized) {
-> +	if (status[0] & 0x08 || !MEDIA_INFO(us).media_initialized) {
->  		usb_stor_dbg(us, "Media change detected\n");
->  		alauda_free_maps(&MEDIA_INFO(us));
-> +		MEDIA_INFO(us).media_initialized = false;
->  		rc = alauda_init_media(us);
->  		if (rc == USB_STOR_TRANSPORT_GOOD)
-> -			info->media_initialized = true;
-> +			MEDIA_INFO(us).media_initialized = true;
->  		info->sense_key = UNIT_ATTENTION;
->  		info->sense_asc = 0x28;
->  		info->sense_ascq = 0x00;
+diff --git a/drivers/pinctrl/renesas/pinctrl-rza1.c b/drivers/pinctrl/renesas/pinctrl-rza1.c
+index 07afa4b3abae..7a2ea8add139 100644
+--- a/drivers/pinctrl/renesas/pinctrl-rza1.c
++++ b/drivers/pinctrl/renesas/pinctrl-rza1.c
+@@ -1401,4 +1401,4 @@ static int __init rza1_pinctrl_init(void)
+ core_initcall(rza1_pinctrl_init);
+ 
+ MODULE_AUTHOR("Jacopo Mondi <jacopo+renesas@jmondi.org");
+-MODULE_DESCRIPTION("Pin and gpio controller driver for Reneas RZ/A1 SoC");
++MODULE_DESCRIPTION("Pin and gpio controller driver for Renesas RZ/A1 SoC");
+-- 
+2.56.1
+
