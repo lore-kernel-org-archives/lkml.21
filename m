@@ -1,103 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795381689;
-	b=32IUamK/f8rz5osDBlLEKf9no0PTx+6kKMSfobaTMwK1K4AG7XabTtkR0cO/jUYJ0P3K
-	 IRGU256dJ6cdw6v8TKqUko2/4yjPbrbrsjSW4I2kvPLX9L8kUPxoCY7SbuHqaod4llh4F
-	 MEEvhQTlG+LZweHvBSN4taq6VGjJa9S3TK5hI94we7vmavdUFELik35kowDbSNSYBNrY4
-	 QwuNi+fbarMZgBro299V0UJiqwFEnDxTlqpCdmbK12WuQkogOIc/MsGJXe+h+B0jea1u/
-	 zsBgyuLnXbofjDEPpbFeK1b30pikWlnCOTEeyo4TDe1KpKmGj/wEqmZxJUJOO2z3NmA==
+	t=1795381841;
+	b=UwZWrqVbi1LvsgOjrdubi0mhjKZiVg7AH8yidSEaU4XXv8yptczsdmWO3NbjEfwHy8hd
+	 xG7wyyHzh/gHhEfL/nhriX1LJjUPcqFFm2B9+MTZSCgoBlkag6v+dBZSiOcScR05U+SbI
+	 iFevWpsGkXVzP6aQgSkRPY8gPyrc2iIVSeqKSA78KzOt83BLxgDjnGvZf8aUW8FIlDs60
+	 ubjTAVFsatItEZdPIbN/P7b3nATIE4sPCAvBS1eo6q6I994kR/AITVjXKoA4ugXEUTMzq
+	 mFP62ljz7RjdPY9iFHqD4ClzpihclYPOGYgFl0XndZU8d3nfBOBqX7CKvs0wXLsZtsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795381689;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=aflJJ38bjdZjg38SRGXSXCVpGppEVOtqLz1Kzz0bSiw=;
-	b=G4K2SHfWwwnttQDb6/1CAEUmkA/WkFnMPDctAsNMXDCIJP8ZJQazuevSLuPsROUTUvYk
-	 qonlmj4HuZCwZzuwA8AlRSqMaKyry/kVrbtLPnvxJGvcw1UwpdQLhvlD34KC+jsjofIsz
-	 kmXQggF0LJ2jN+1U4bo/DaagWOfwljzoXoBdeurmOAwGuebuS4YTR8ta5rudgbwGigv7g
-	 yKluhbGrrk5OflvhSMjFAPLUTZGZssx9URTUH28YEmOKW2XWt2DQ41/S5LXZh1RxP8nlq
-	 ovU3pw89NGtVjZg7p5B3lviEaJ5wFo4i0UHknRAY7nm5+WLGWieNHkgUVjwRDuTzXcQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795381841;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=ID03RBytNGBA9eNwf2RLKsvNI37IhknthtXHZZVwZtM=;
+	b=AA9V7N9l1EjH/+V519XKEq7PC/qe/xurV+s96RhLgQxIQw92U8GdG0xJQOvKv+oOCOVe
+	 CowbsmdAzLEn1h4jME7U44zL7Y+S+CaxSbzCK/CtQGThw1kal9BCE8um8ArBu2+efHGK6
+	 3WACCk2f9+IDj29vezLrxMcs7LEpKv5hYLb3zzrsuJ+uKhKg8BGUChpMCbVMOJt5MTo0H
+	 uZ9ghm7OoB2d1MAI3KZPzYO746ZLQH3yrWJUx2H07GwH1VEIfqtOvJCIzBPNWIHHYXJzw
+	 lSBTqyGaEiQv5Qq7NtYzd00qnWrAcEnblyOsuQ7i2GvS5zOHYD5biFtpBlmBbj/jP5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bairaktaris.de;
-	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=PIgVIzCK;
-	arc=none smtp.remote-ip=209.85.218.49
-Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.197
+Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8561D606A31A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:08:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8561D606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=PIgVIzCK
-Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c5154989984so266473966b.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:08:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795381688; x=1795986488; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aflJJ38bjdZjg38SRGXSXCVpGppEVOtqLz1Kzz0bSiw=;
-        b=PIgVIzCKE6SJkmg6efpInkthL3unvMpL2cFeRF2f1s6ildvJKUgFG0S91ZN7LziRlo
-         plLyGAWAuAMQmMSfaWD9i+vRJd9+5MLvSFEQGS8J2wcR2kjUpnIztPTbmgh1oXbHQtFi
-         BP0Dv4cbvuTElln7+pZIq/a2B6yfoM0jjygfw9BPZpXzAl0MxRjeAzljgRS1/i48gXJn
-         yHA+qUNDUgADSWwdcyZCKl14yNR5FoogL9vzUTq2NBVj1Tc2ZQzEKTUVIY/7ru8v/xUC
-         2Z3qKyUH21QP6CHwrVJADbXze5UJa4vGqmEIvaDuhLKq/CXSnKJIHx9xgWazA9iaU2Ez
-         F/9Q==
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00DB6606A31D
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:10:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00DB6606A31D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-4c7f887ac6bso5383969b6e.3
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:10:40 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795381688; x=1795986488;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=aflJJ38bjdZjg38SRGXSXCVpGppEVOtqLz1Kzz0bSiw=;
-        b=jXwDJ6Pbl2V685PXGxW0UVkn5XcSrP7gatAPwqQfSLbd/+6NKT/4o4w21R9FLGC5ry
-         oYtkGj460QzIn77v9J9a4nSh/aopRaoPxWaoBz+cLMem187WSM+mH8XFcCAhNa+eWAhD
-         NPO9/av97RdhpZwaAvC/fJNIOWryWOt5rXu7/42CrJ4V0WEh7gHXwRO8noq5DxQgiavD
-         PJLZTmSZ58NdYlUxTEHdN4Ds6FGQKTuXGblHDu4dEPvhV+KlX9EMP9BClaLClfbFNdYE
-         LEXOgI00YAgSj5IT5awRvx9Tj1crf6hzodQyacbkdcgPsKrn0omx7yNFLpvHXn3hMonN
-         rtTQ==
-X-Forwarded-Encrypted: i=1; AL+hErFHrdY+w8yxoowlknlAKv8V301GtnTs877ek0pCsCIYiMbakcs1bcT1N6sgfB8Myc7DQloP/jfKzNWSjLo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9LG6AgK0Dp6n0P3hE08bML+ImofIQoY7x8/qCslELOmUB0xH+c
-	N8R9fm2OFaOSPOV4dlvBuQFj7AJaJedc5lorJNqonsfiymRuWQPykpdCV9SGpEF8bw==
-X-Gm-Gg: AZFdTZel4MDp5IE3iNCQfp9cLtZS22+BKaVSkqKKs0R67fa6hTC/bRsEJ1to9bBITfG
-	OT8C6TcmpaUpAKY3F3MEyEWzBJM6CIOvdI+ZFjKyXb24F0qwh3GZxRAVVKI3DvDk98V+8DOCqQs
-	jx45+BQJ4Ch6rz29s7WWgbGXi0yyK44Wd0vb/Qly65GQfKnyTz+r4ivUxZiheF0unV+I+5grkR5
-	ir+piu3wPtT+nQqofUHtXxRLxrEeB8P2XLu2LzcEUbEvWouDZbFmzNSsJbDcyKT5N7JmA6JpO/R
-	yjcU/H7WqHghPiVwU/hnEoML9JcBdZDOid2bhm/0IKo5QmhB3FxfcXuJBh9Ia4zWY6Wu7u4zNc6
-	ptVpNQ6ECXFjLxLMCoen+iX59f+BMQwsJ8DPqscoRCMwMOfdHGOGidGOl7IKkaLpqcXdq7yXQ1W
-	IAngXahyD5TslWD1SKT2emtSbsAz2E8PAB7WitG8g1DTuIUT2tiKn3akvcyoPpHP0Kjz1X2jpMf
-	QFo4kxAKotLOb3Fem83NZinPlC9rSiJl01qc60pnATKSQ8CEtGuouBfo5TmmAQa4jPKwWL40MH9
-	h8jNuxLkECo1Fzqhn3dYkdEgS37QN17IU26EF2Xlu+mOmGxj5GW2JGy+lwrVe9T5ohk3dHQ/ZRZ
-	O5ZtvvB9km9bV2+/d2YkVYM8caduViQBh1qpIcEhFHnOMRetp2v8/37j5q5RFhASYw1nt9mRBc1
-	ZuMmJrdOMBJpsdH+sXjO/QLFFOncMxRhowHyiisCQPwvvv37RE5LRSN8ajbWK84jUlBUcPCXZRM
-	/byNZpIOX+ZqhZDs3D22Kv9AfDoGEHqijCxiNZnumdLkTY0VDTBXv2VUwXqAG99qMZxAw7RQk+i
-	rhA2/5YYSbiDuXTSs2cO4ZAeN7AOPQxVeV6dB4+OMcFoEcQfSvz0hH92O2VjtMkgRnadLMsbJiF
-	8l5qbLMVh7sXWUE4OArA=
-X-Received: by 2002:a17:906:b7d2:b0:c2e:52d6:1fb7 with SMTP id a640c23a62f3a-c513a82d478mr572934466b.22.1795381687920;
-        Sun, 22 Nov 2026 13:08:07 -0800 (PST)
-Received: from Desktop.tail070c67.ts.net (p200300f24713d50069697652bafd0866.dip0.t-ipconnect.de. [2003:f2:4713:d500:6969:7652:bafd:866])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae9f705sm345077966b.42.2026.11.22.13.08.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 13:08:07 -0800 (PST)
-From: Julius Bairaktaris <julius@bairaktaris.de>
-To: Jeff Johnson <jjohnson@kernel.org>
-Cc: linux-wireless@vger.kernel.org,
-	ath12k@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Rameshkumar Sundaram <rameshkumar.sundaram@oss.qualcomm.com>,
-	Baochen Qiang <baochen.qiang@oss.qualcomm.com>,
-	Carl Huang <quic_cjhuang@quicinc.com>,
-	Vasanthakumar Thiagarajan <vasanthakumar.thiagarajan@oss.qualcomm.com>,
-	Bhagavathi Perumal S <quic_bperumal@quicinc.com>,
-	Kalle Valo <kvalo@kernel.org>,
-	Pradeep Kumar Chitrapu <quic_pradeepc@quicinc.com>
-Subject: [PATCH ath-next] wifi: ath12k: drop decapped frames with a source other than the station
-Date: Sun, 22 Nov 2026 22:08:09 +0100
-Message-ID: <20261122210809.2087836-1-julius@bairaktaris.de>
-X-Mailer: git-send-email 2.53.0
+        d=1e100.net; s=20260707; t=1795381840; x=1795986640;
+        h=content-type:to:from:subject:message-id:in-reply-to:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=ID03RBytNGBA9eNwf2RLKsvNI37IhknthtXHZZVwZtM=;
+        b=TzVBbqAX3ZsUBxyJUFjkyqgzF+ds08mGDeO35w3/56DJnbgJYK2ScwYcVauIVpDS16
+         9id7ARPKbi1JWAr4WQmTqXnQO5OonQdmwG7u5k8pHbsVorJpyIoTN/BAbPymMCyal3dn
+         0qA/CzHky1yaqAMpqYKWqQ1gy7VzB6m/S1GQtashAuZIl78FOMBRW/GTrVe7GdpnZ+E6
+         /Guh2MiB7Qy7TROhWO6Nlc1zn82cecNLutUbwrVXieXEwTX3wJLoTuTNKkdm5Ux4XPNl
+         R/g4a9Fot+E3M1XXPtsIW6INu4v+pGvbeKyLYgQvYwWvLAWKoBP3BS+++BYf+Qw88Qnc
+         PUGg==
+X-Forwarded-Encrypted: i=1; AL+hErFHshyB1/iOf7Fkqvcp9WSrjNn0pj6f1fxlThHNCpI32f2bPa5lBUXaZBfX+cr6dgCaxMYRRHuVy5EEIkU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/gbfAy6VrNdbZy/mmHLlej00yGTRbTuhIthOr+p4yYe8pvIk6l
+	OSD8tdiyDujDUYhiTq4ADCDXGvY1LwtomLY3+6IqD/cy1nlD90kfDjLeSU00meB5rruKx1P92UO
+	DPihlbX1Bd8Bgc2GvebZnN2VwanZyl7O9B0+uvCtBvC8gBigN06+0fQHcLpo=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,100 +58,233 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Received: by 2002:a05:6808:1488:b0:568:1649:9c3a with SMTP id
+ 5614622812f47-57a0ac2705dmr11593376b6e.43.1795381839955; Sun, 22 Nov 2026
+ 13:10:39 -0800 (PST)
+Date: Sun, 22 Nov 2026 13:10:39 -0800
+In-Reply-To: <6b027461.6ccd1e40.868ea.001d.GAE@google.com>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b035a4f.6ccd1e40.868ea.0020.GAE@google.com>
+Subject: Re: [syzbot] [bluetooth?] KASAN: slab-use-after-free Write in rfcomm_dev_ioctl
+From: syzbot <syzbot+11542ff1d167fdffa1fc@syzkaller.appspotmail.com>
+To: 25031212117@stu.xidian.edu.cn, 26031212468@stu.xidian.edu.cn, 
+	byu@xidian.edu.cn, devnull@kernel.org, gianluca@sottospazio.it, 
+	gregkh@linuxfoundation.org, jirislaby@kernel.org, leicheng.dev@gmail.com, 
+	linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	luiz.dentz@gmail.com, marcel@holtmann.org, nicoyip.dev@gmail.com, 
+	peter@hurleysoftware.com, raghunathpalla.0209@gmail.com, 
+	stable@vger.kernel.org, syzkaller-bugs@googlegroups.com, tim.bird@sony.com
+Content-Type: text/plain; charset="UTF-8"
 
-With Ethernet decap, ath12k hands mac80211 an MSDU with the Ethernet
-source the hardware took from the frame, which for an A-MSDU subframe
-is whatever its subframe header carries, and mac80211's 802.3 receive
-path takes it as the station's address. When mac80211 deaggregates an
-A-MSDU itself, ieee80211_amsdu_to_8023s() drops a subframe whose source
-is not the station on an access point; the decap path has no such
-check.
+syzbot has found a reproducer for the following issue on:
 
-Drop such an MSDU on an AP for a station that does not use four
-addresses, as ath11k does. The address compared with is that of the
-ieee80211_sta, which for a multi-link station is its MLD address, the
-one mac80211 compares with too. A four-address MPDU from such a station
-passes: ath12k_dp_rx_h_undecap() hands it to mac80211 as an 802.11
-frame, from which mac80211 reports the station for dynamic WDS.
+HEAD commit:    4843f6873f7c Merge tag 'sysctl-7.04-fixes-rc4' of git://gi..
+git tree:       upstream
+console output: https://syzkaller.appspot.com/x/log.txt?x=115a24ff980000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=d16c0eae9c338e3c
+dashboard link: https://syzkaller.appspot.com/bug?extid=11542ff1d167fdffa1fc
+compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=122912bc580000
 
-Found by reading the code.
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/a0c3162f7b64/disk-4843f687.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/81f4f45b477c/vmlinux-4843f687.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/856bfc378a1f/bzImage-4843f687.xz
 
-Fixes: d889913205cf ("wifi: ath12k: driver for Qualcomm Wi-Fi 7 devices")
-Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
----
-Applies on top of "wifi: ath11k, ath12k: RX correctness fixes",
-which changes the same function:
-https://lore.kernel.org/all/20261122210525.2076058-1-julius@bairaktaris.de/
+The issue was bisected by AI to:
 
-I used Claude (Anthropic) to help write these patches.
+commit 5b899241874dcc1a2b932a668731c80a3a869575
+Author: Gianluca Anzolin <gianluca@sottospazio.it>
+Date:   Mon Jan 6 20:23:50 2014 +0000
 
- drivers/net/wireless/ath/ath12k/wifi7/dp_rx.c | 37 +++++++++++++++++++
- 1 file changed, 37 insertions(+)
+    Bluetooth: Release RFCOMM port when the last user closes the TTY
 
-diff --git a/drivers/net/wireless/ath/ath12k/wifi7/dp_rx.c b/drivers/net/wireless/ath/ath12k/wifi7/dp_rx.c
-index 1d52eab418a1..abc3b6d197f1 100644
---- a/drivers/net/wireless/ath/ath12k/wifi7/dp_rx.c
-+++ b/drivers/net/wireless/ath/ath12k/wifi7/dp_rx.c
-@@ -354,6 +354,40 @@ static void ath12k_wifi7_dp_rx_h_csum_offload(struct sk_buff *msdu,
- 			   CHECKSUM_NONE : CHECKSUM_UNNECESSARY;
- }
- 
-+/*
-+ * With Ethernet decap the hardware passes on the source address of the frame,
-+ * which the header of an A-MSDU subframe sets, and mac80211's 802.3 path takes
-+ * it as the address of the station. An access point takes no other source from
-+ * a station that does not use four addresses: mac80211 drops such a subframe
-+ * in ieee80211_amsdu_to_8023s() when it deaggregates the A-MSDU itself. The
-+ * address it compares with is the station's, its MLD address for a multi-link
-+ * station. A four-address frame from such a station is left alone:
-+ * ath12k_dp_rx_h_undecap() hands it to mac80211 as an 802.11 frame, from which
-+ * mac80211 reports the station for dynamic WDS.
-+ */
-+static bool ath12k_wifi7_dp_rx_h_eth_sa_valid(struct ath12k_dp_peer *peer,
-+					      struct hal_rx_desc_data *rx_info,
-+					      struct sk_buff *msdu)
-+{
-+	struct ath12k_sta *ahsta;
-+	struct ethhdr *eth;
-+
-+	if (rx_info->decap_type != DP_RX_DECAP_TYPE_ETHERNET2_DIX ||
-+	    !peer->sta || peer->use_4addr ||
-+	    (rx_info->is_from_ds && rx_info->is_to_ds))
-+		return true;
-+
-+	ahsta = ath12k_sta_to_ahsta(peer->sta);
-+	if (ahsta->ahvif->vdev_type != WMI_VDEV_TYPE_AP)
-+		return true;
-+
-+	if (msdu->len < ETH_HLEN)
-+		return false;
-+
-+	eth = (struct ethhdr *)msdu->data;
-+	return ether_addr_equal(eth->h_source, peer->sta->addr);
-+}
-+
- static int ath12k_wifi7_dp_rx_h_mpdu(struct ath12k_pdev_dp *dp_pdev,
- 				     struct sk_buff *msdu,
- 				     struct hal_rx_desc_data *rx_info)
-@@ -390,6 +424,9 @@ static int ath12k_wifi7_dp_rx_h_mpdu(struct ath12k_pdev_dp *dp_pdev,
- 				return -EINVAL;
- 		}
- 
-+		if (!ath12k_wifi7_dp_rx_h_eth_sa_valid(peer, rx_info, msdu))
-+			return -EINVAL;
-+
- 		/* resetting mcbc bit because mcbc packets are unicast
- 		 * packets only for AP as STA sends unicast packets.
- 		 */
+AI reasoning:   https://syzkaller.appspot.com/ai_job?id=0137c921-439f-477e-b601-4d5010191e08
 
-base-commit: 1983b40acfcb3c3464b291c85977290a785bcfdc
-prerequisite-patch-id: ed566369a9bbda0ac9a48357261e8cfe1cc0f1d1
-prerequisite-patch-id: 726d7737c833da0842192eccececad4a0dedb1a6
-prerequisite-patch-id: cf0b8ff1ac6cef681433247e4b937a3e23af78a3
-prerequisite-patch-id: 03c89df01745ac9a80653431261f9a003dbca7db
-prerequisite-patch-id: cb48c0eddbe0c2fe176e8edc94c6bc40be3c48a9
-prerequisite-patch-id: 1956ec85ad80b68868538070fc0e89c29603467a
--- 
-2.53.0
+AI-generated root cause summary:
+In net/bluetooth/rfcomm/tty.c, __rfcomm_dev_add() publishes a newly allocated
+struct rfcomm_dev in rfcomm_dev_list and releases rfcomm_dev_lock while holding
+only the initial port reference (refcount 1), without taking a reference for
+rfcomm_dev_add() to finish registration. When RFCOMM_RELEASE_ONHUP is set, a
+concurrent task can open and close the RFCOMM TTY device during or right after
+tty_port_register_device(), causing rfcomm_tty_install() to take ownership of
+that single reference and release_one_tty() -> rfcomm_tty_cleanup() ->
+tty_port_put() -> rfcomm_dev_destruct() to free dev. rfcomm_dev_add() then
+performs a slab-use-after-free write to dev->tty_dev (offset 992) and continues
+accessing the freed rfcomm_dev.
 
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=11542ff1d167fdffa1fc
+
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+11542ff1d167fdffa1fc@syzkaller.appspotmail.com
+
+The cause commit was identified by AI and may be wrong.
+If you agree with it, please also add:
+Fixes: 5b899241874d ("Bluetooth: Release RFCOMM port when the last user closes the TTY")
+
+==================================================================
+BUG: KASAN: slab-use-after-free in rfcomm_dev_add net/bluetooth/rfcomm/tty.c:335 [inline]
+BUG: KASAN: slab-use-after-free in __rfcomm_create_dev net/bluetooth/rfcomm/tty.c:421 [inline]
+BUG: KASAN: slab-use-after-free in rfcomm_create_dev net/bluetooth/rfcomm/tty.c:477 [inline]
+BUG: KASAN: slab-use-after-free in rfcomm_dev_ioctl+0x1bb1/0x21c0 net/bluetooth/rfcomm/tty.c:576
+Write of size 8 at addr f
+Write of size 8 at addr ffff88802d209488 by task syz.3.20/6147
+
+CPU: 1 UID: 0 PID: 6147 Comm: syz.3.20 Not tainted syzkaller #0 PREEMPT_{RT,(full)} 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0xe8/0x150 lib/dump_stack.c:120
+ print_address_description+0x55/0x1e0 mm/kasan/report.c:378
+ print_report+0x58/0x70 mm/kasan/report.c:482
+ kasan_report+0x117/0x150 mm/kasan/report.c:595
+ rfcomm_dev_add net/bluetooth/rfcomm/tty.c:335 [inline]
+ __rfcomm_create_dev net/bluetooth/rfcomm/tty.c:421 [inline]
+ rfcomm_create_dev net/bluetooth/rfcomm/tty.c:477 [inline]
+ rfcomm_dev_ioctl+0x1bb1/0x21c0 net/bluetooth/rfcomm/tty.c:576
+ sock_do_ioctl+0x101/0x320 net/socket.c:1328
+ sock_ioctl+0x57d/0x7f0 net/socket.c:1449
+ vfs_ioctl fs/ioctl.c:52 [inline]
+ __do_sys_ioctl fs/ioctl.c:598 [inline]
+ __se_sys_ioctl+0xff/0x170 fs/ioctl.c:584
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f95b4bd9559
+Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f95b422e028 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+RAX: ffffffffffffffda RBX: 00007f95b4e55fa0 RCX: 00007f95b4bd9559
+RDX: 0000200000000000 RSI: 00000000400452c8 RDI: 0000000000000006
+RBP: 00007f95b4c68136 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f95b4e56038 R14: 00007f95b4e55fa0 R15: 00007fff9fd86628
+ </TASK>
+
+Allocated by task 6147:
+ kasan_save_stack mm/kasan/common.c:57 [inline]
+ kasan_save_track+0x3f/0x90 mm/kasan/common.c:79
+ poison_kmalloc_redzone mm/kasan/common.c:412 [inline]
+ __kasan_kmalloc+0x93/0xb0 mm/kasan/common.c:429
+ kasan_kmalloc include/linux/kasan.h:267 [inline]
+ __kmalloc_cache_noprof+0x3d0/0x670 mm/slub.c:5680
+ _kmalloc_noprof include/linux/slab.h:991 [inline]
+ _kzalloc_noprof include/linux/slab.h:1312 [inline]
+ __rfcomm_dev_add net/bluetooth/rfcomm/tty.c:221 [inline]
+ rfcomm_dev_add net/bluetooth/rfcomm/tty.c:322 [inline]
+ __rfcomm_create_dev net/bluetooth/rfcomm/tty.c:421 [inline]
+ rfcomm_create_dev net/bluetooth/rfcomm/tty.c:477 [inline]
+ rfcomm_dev_ioctl+0xc11/0x21c0 net/bluetooth/rfcomm/tty.c:576
+ sock_do_ioctl+0x101/0x320 net/socket.c:1328
+ sock_ioctl+0x57d/0x7f0 net/socket.c:1449
+ vfs_ioctl fs/ioctl.c:52 [inline]
+ __do_sys_ioctl fs/ioctl.c:598 [inline]
+ __se_sys_ioctl+0xff/0x170 fs/ioctl.c:584
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Freed by task 11:
+ kasan_save_stack mm/kasan/common.c:57 [inline]
+ kasan_save_track+0x3f/0x90 mm/kasan/common.c:79
+ kasan_save_free_info+0x40/0x50 mm/kasan/generic.c:599
+ poison_slab_object mm/kasan/common.c:267 [inline]
+ __kasan_slab_free+0x70/0x90 mm/kasan/common.c:299
+ kasan_slab_free include/linux/kasan.h:239 [inline]
+ slab_free_hook mm/slub.c:2780 [inline]
+ slab_free mm/slub.c:6637 [inline]
+ kfree+0x1c7/0x6d0 mm/slub.c:6930
+ rfcomm_dev_destruct+0x25c/0x300 net/bluetooth/rfcomm/tty.c:99
+ release_one_tty+0xb4/0x280 drivers/tty/tty_io.c:1497
+ process_one_work kernel/workqueue.c:3495 [inline]
+ process_scheduled_works+0xc3d/0x1630 kernel/workqueue.c:3578
+ worker_thread+0xa47/0xfb0 kernel/workqueue.c:3659
+ kthread+0x38b/0x470 kernel/kthread.c:436
+ ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+
+The buggy address belongs to the object at ffff88802d209000
+ which belongs to the cache kmalloc-2k of size 2048
+The buggy address is located 1160 bytes inside of
+ freed 2048-byte region [ffff88802d209000, ffff88802d209800)
+
+The buggy address belongs to the physical page:
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x2d208
+head: order:3 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+flags: 0x80000000000040(head|node=0|zone=1)
+page_type: f5(slab)
+raw: 0080000000000040 ffff88813ff16000 dead000000000100 dead000000000122
+raw: 0000000000000000 0000000000080008 00000000f5000000 0000000000000000
+head: 0080000000000040 ffff88813ff16000 dead000000000100 dead000000000122
+head: 0000000000000000 0000000000080008 00000000f5000000 0000000000000000
+head: 0080000000000003 fffffffffffffe01 00000000ffffffff 00000000ffffffff
+head: 0000000000000000 0000000000000000 00000000ffffffff 0000000000000008
+page dumped because: kasan: bad access detected
+page_owner tracks the page as allocated
+page last allocated via order 3, migratetype Unmovable, gfp_mask 0xd2820(GFP_ATOMIC|__GFP_NOWARN|__GFP_NORETRY|__GFP_COMP|__GFP_NOMEMALLOC), pid 1247, tgid 1247 (kworker/0:2), ts 141949996549
+ set_page_owner include/linux/page_owner.h:33 [inline]
+ post_alloc_hook+0x1f9/0x250 mm/page_alloc.c:1873
+ prep_new_page+0x22/0xb0 mm/page_alloc.c:1881
+ get_page_from_freelist+0x280d/0x2850 mm/page_alloc.c:3963
+ __alloc_frozen_pages_noprof+0x230/0x470 mm/page_alloc.c:5505
+ alloc_slab_page mm/slub.c:3384 [inline]
+ allocate_slab+0x7d/0x5e0 mm/slub.c:3499
+ new_slab mm/slub.c:3550 [inline]
+ refill_objects+0x2d8/0x350 mm/slub.c:7546
+ refill_sheaf mm/slub.c:2917 [inline]
+ __pcs_replace_empty_main+0x339/0x690 mm/slub.c:4811
+ alloc_from_pcs mm/slub.c:4887 [inline]
+ slab_alloc_node mm/slub.c:5021 [inline]
+ __do_kmalloc_node mm/slub.c:5530 [inline]
+ __kmalloc_noprof+0x546/0x790 mm/slub.c:5556
+ _kmalloc_noprof include/linux/slab.h:995 [inline]
+ _kzalloc_noprof include/linux/slab.h:1312 [inline]
+ neigh_alloc net/core/neighbour.c:525 [inline]
+ ___neigh_create+0x719/0x22d0 net/core/neighbour.c:659
+ ip6_finish_output2+0x6e3/0x1480 net/ipv6/ip6_output.c:130
+ NF_HOOK_COND include/linux/netfilter.h:314 [inline]
+ ip6_output+0x337/0x540 net/ipv6/ip6_output.c:248
+ dst_output include/net/dst.h:472 [inline]
+ NF_HOOK+0x177/0x4f0 include/linux/netfilter.h:325
+ mld_sendpack+0x890/0xe10 net/ipv6/mcast.c:1890
+ mld_send_cr net/ipv6/mcast.c:2191 [inline]
+ mld_ifc_work+0x842/0xd60 net/ipv6/mcast.c:2739
+ process_one_work kernel/workqueue.c:3495 [inline]
+ process_scheduled_works+0xc3d/0x1630 kernel/workqueue.c:3578
+ worker_thread+0xa47/0xfb0 kernel/workqueue.c:3659
+page last free pid 4966 tgid 4966 ts 141932783724 stack trace:
+ reset_page_owner include/linux/page_owner.h:26 [inline]
+ __free_pages_prepare mm/page_alloc.c:1415 [inline]
+ __free_frozen_pages+0xfb6/0x1090 mm/page_alloc.c:2971
+ __slab_free+0x26e/0x2c0 mm/slub.c:5926
+ qlink_free mm/kasan/quarantine.c:163 [inline]
+ qlist_free_all+0x99/0x100 mm/kasan/quarantine.c:179
+ kasan_quarantine_reduce+0x148/0x160 mm/kasan/quarantine.c:286
+ __kasan_slab_alloc+0x22/0x80 mm/kasan/common.c:364
+ kasan_slab_alloc include/linux/kasan.h:257 [inline]
+ slab_post_alloc_hook mm/slub.c:4720 [inline]
+ slab_alloc_node mm/slub.c:5033 [inline]
+ kmem_cache_alloc_node_noprof+0x3f7/0x660 mm/slub.c:5105
+ __alloc_skb+0x1db/0x7a0 net/core/skbuff.c:705
+ alloc_skb include/linux/skbuff.h:1391 [inline]
+ alloc_skb_with_frags+0xc6/0x760 net/core/skbuff.c:6940
+ sock_alloc_send_pskb+0xc75/0xda0 net/core/sock.c:3093
+ unix_dgram_sendmsg+0x4ff/0x17e0 net/unix/af_unix.c:2160
+ sock_sendmsg_nosec+0x14e/0x190 net/socket.c:800
+ __sock_sendmsg net/socket.c:818 [inline]
+ __sys_sendto+0x41e/0x5d0 net/socket.c:2283
+ __do_sys_sendto net/socket.c:2290 [inline]
+ __se_sys_sendto net/socket.c:2286 [inline]
+ __x64_sys_sendto+0xde/0x100 net/socket.c:2286
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Memory state around the buggy address:
+ ffff88802d209380: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+ ffff88802d209400: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+>ffff88802d209480: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+                      ^
+ ffff88802d209500: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+ ffff88802d209580: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+==================================================================
