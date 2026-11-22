@@ -1,72 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795312652;
-	b=OJII8W8Qh9cH3mxpptknvKtiTYhmXyM5KqMu9LkxmWnauptA2AkB4yaItLqF4829/B/s
-	 lEvvZlGgT/tH8D4M8E3URQH3S9uYGBPH5wX0dxpjvtq8zXUYBt0Pn2BZw4kgXVKPksxiY
-	 6BtuETFiN+g/UIPw3S4FuKLcVn0o2sm+97XvRHMiLXLxzTU6b8+bmnwY0Zz7tsGkhFjpL
-	 5eNP289IhlEHu4X8P09PuRj7E5VQCSlmuOjF+8shcio8dfzh/bcHB+KwTDwrt/+vs0iKz
-	 Z3pLCgwF0jPa1WzKWWvoG+1CPmB2ycePg28ePzqQIm3h3WIrWN3p1jhLewGtSRM6MXA==
+	t=1795312726;
+	b=HGXGp2OxJx3oILS2vmO8vkm6eLnCwT1RBoelpTyUSMuqmbmikGbctvEu/jcQSJ++ph9J
+	 3IdY2McUMspp4gtAcH55E/tk8ienkVHb0Qz/lPdfOuaTNOOw4I3Vk0R1YKVDjQJOeW1e3
+	 iyL8HKFkKEMt/U0VYFy8gyLKAECwyzPnYD5mxLaetvTGg06RUPyvgl8Xfyj7svNVwVsjk
+	 eOTtP/2VGtc7CocN0VQgFDhSXq8BRZM66HVAZUjSr5Uxhzr+XtNT7b3VPqxsnhfQ6PScw
+	 tiU/OXcsUyGkYMoU0NIw+5UJ/kjPjGX2EdTpUunkdPXCVxypI/rMOV/equx5qsckjmw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795312652;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=BslzRReFXUd+tW3SQkN1QdM1be6GaD92Qfct44ghPbA=;
-	b=mm4nJ5VcWXfdRXDNfO/9SY//nS1n1H4sm0/zYGxmez6q4i11cVDl6rEl/4qsERbSj/qd
-	 KH5nlcddN9qH6SFQbxavJ5cU5f1Efrrrd6POfaXjWztf6kcSJWrXgDp6YVkWkG4Ucvodj
-	 Zsj2nmwK0nKfCdktD29mXEl0wPSIOd3xq3QLfYQ8pMbI38PhaY6OE16lMwbblClRECxa4
-	 S+H0pf3YuxS+w8jZEyBn+zbdJoxZ2PejaU59F6lRfzH1m+2R28gU1SVZ2dvTWliVAMgsn
-	 LeqiDKpt68lXuwOTE+rLJ4MqT63bxpUiKOzHf5NQwzNiXtJ86b4BczzLruYeTPIPNXA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795312726;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=my1JKAIGP65RNH2BdYIO2cHSch4Ja97YSaehc+euNFY=;
+	b=O6RaI2YhBmR9yPZUvaqBLpu1FMDVClMIy89jmXiDRLjIOfFQL+MI5k+Rk4faNPqwDsNe
+	 WxLgJb0Ii8tdi9/FQ7e2QlAG+aDI5iWdjAab8/MNpv08ysCJnfvqi1WDZAPWvZl1ugfUr
+	 14qJ0f3Bye6vlkgXR3bdxa+eCrwmPufsant/DPzc7QSwJN2ycF0QFM4XyHs0sDmUbVpbq
+	 uqJve+yjkjKe22UwfT9jWfFeVZRmiFh4WHn2P7Y9cguijpCs9E5UbTwfHlBSz6mIjUkbG
+	 b9fqlgRGiT17pJOGF/h3KK7RpgSLmS19C802u57iDubIkH65w8zjupRmMXWmX0aBo0g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=IrqSsEfn;
-	arc=none smtp.remote-ip=74.125.82.69
-Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QFaCXoo1;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCA0B606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 01:57:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BCA0B606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 3FD8B606A320;
+	Sun, 22 Nov 2026 01:58:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=IrqSsEfn
-Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-1b56c696405so1296348c88.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 17:57:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795312651; x=1795917451; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BslzRReFXUd+tW3SQkN1QdM1be6GaD92Qfct44ghPbA=;
-        b=IrqSsEfnmfXoFpshwVJGt5+kKTWm4IGzyYFibY2bmokQWKKRb2hgFxdV1T0BcFPu67
-         zBgLNA4wuAdlhZDlnFPRcbvDf/j4jQbSTiWwFPqyakxFaMoxfOwX8CfU7QV2xMv9kFSp
-         ehQMv+dnVdFyF1E5gvWzv97aI5InFNYMRjths6leW0UUNjzYTKQrrC084KkUj9XRxe7K
-         krbrxnSvQ0o6hXp5tzALQ4S7OEjnHQnNSNawCSc+sVWqbVpyi8D4UETO3s5Ajai1Wjos
-         x4Xz4hOlhkKmFTSqEDb6UEy6yhM1iV8dZbstxViPGoIchLKDzS50PrgCLdzmrHVMSA3U
-         htvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795312651; x=1795917451;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BslzRReFXUd+tW3SQkN1QdM1be6GaD92Qfct44ghPbA=;
-        b=wgy8aAYE1lMP/gdJB/vLOPbubLgHitn0RvJBTA3Z9JbkfX3P8dxvzV/+qCObiROvzk
-         khh+QtISWZGNHH+F/YSBE7feh1GfnVdqPR9j10DYq0vuvMV6GQgC2lX5ENhrJVnUehei
-         yYu1O0zD6kyIPCE8aum1HowjxguyaUa8Qo7S46KcFGx7uugPesxC8v6V0qD5YCY1y+Nb
-         dczCmtQuATsJVrXDRJ4tll1H8Dcw2Yn2ZdStwc7tjxwwPZr5iyMfXjbACogMgPtUKh0H
-         44PkAX3F42f5zuAQqlWTLhboW3pBRNwtmiCcZ5JoVZ2hD9z8ou4Rb8ZUe0NIUd+reTo0
-         xogg==
-X-Forwarded-Encrypted: i=1; AL+hErFmIj9u0P6DedbT11gRV/WGTDwdx2rq+f52nl1eldLUs9syKZBAAGaKqxNICl7V2tnepuDLMdHCJDieFJ0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+C4+3wQzdqR+Y+Iz9yj3uDdHbKIc/efDqVyXeG5fR1DPpEq0E8
-	JcVtm94sB832Fm4y4t0MkLcA22d/MP9f+tEvAXPbaGrxJutAmc2idEGtZz9GxkH+aPSqdqCFEyc
-	+AxIQTrjaV+J7KNBJgw==
-X-Received: from dldz10-n1.prod.google.com ([2002:a05:701b:418a:10b0:1b5:9ce:e6d5])
- (user=penghuang job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:7022:321:b0:145:287:ce91 with SMTP id a92af1059eb24-1b5568cb6b6mr11510102c88.14.1795312650111;
- Sat, 21 Nov 2026 17:57:30 -0800 (PST)
-Date: Sat, 21 Nov 2026 17:57:29 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QFaCXoo1
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 4C08B1F000C0;
+	Sun, 22 Nov 2026 01:58:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795312725;
+	bh=my1JKAIGP65RNH2BdYIO2cHSch4Ja97YSaehc+euNFY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QFaCXoo1RFl2e3MqcAATZcvWUBppaOK/u4W9/JRBcAkZTZdBf5NNHKDAP0XVFq2UB
+	 18NyeT4o7uDpW+GnmmzI+4F6b4waTXBsZLCb5Oc5D078Fi5KZpOmNE5DRLdoF99CyC
+	 fwmNjLEdakpaJ0FjhWNtTGhuldX628gpogHz2YrFO3V/F2JTjJYRYykIAz6ZKvEbdf
+	 Eq4Aa9/TFt/ibItvOY1ZqmLL6sInT0GslX+yZWal1rDzhJqeSDUudf9mp7kJ/4VXuy
+	 Yy1eAUnby1UT8qqZtlLSU/6Nmx51AhaQmuwK2mxrpWKp33SvdrM2vbo+hOz7jV/vBA
+	 SCSWiC32vxOXg==
+Date: Sun, 22 Nov 2026 03:58:41 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: bpf@vger.kernel.org, containers@lists.linux.dev,
+	linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org,
+	Aleksa Sarai <aleksa@amutable.com>,
+	Alexander Mikhalitsyn <alex@amutable.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Christian Brauner <brauner@kernel.org>,
+	David Howells <dhowells@redhat.com>,
+	Giuseppe Scrivano <giuseppe@scrivano.org>,
+	Hugh Dickins <hughd@google.com>, Jan Kara <jack@suse.cz>,
+	Jeff Layton <jlayton@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Josef Bacik <josef@toxicpanda.com>, Kees Cook <kees@kernel.org>,
+	KP Singh <kpsingh@kernel.org>,
+	Lennart Poettering <lennart@poettering.net>,
+	Neal Gompa <neal@gompa.dev>, Oleg Nesterov <oleg@redhat.com>,
+	Paul Moore <paul@paul-moore.com>,
+	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: Re: [RFC PATCH v6 00/26] userland: Userland containers
+Message-ID: <awJMUf_Upp_ilYPe@kernel.org>
+References: <20261122011809.2667684-1-jarkko@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,61 +77,36 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261122015729.2512645-1-penghuang@google.com>
-Subject: [PATCH] sched/pelt: Skip dormant cfs util_sum under scx_switched_all
-From: Peng Huang <penghuang@google.com>
-To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>
-Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
-	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, Tejun Heo <tj@kernel.org>, 
-	David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, 
-	Changwoo Min <changwoo@igalia.com>, linux-kernel@vger.kernel.org, 
-	sched-ext@lists.linux.dev, Peng Huang <penghuang@google.com>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261122011809.2667684-1-jarkko@kernel.org>
 
-When scx_switched_all() is enabled, all fair-class tasks move to
-sched_ext, scheduler_tick() skips sched_balance_trigger(), and fair_rq
-scheduling is bypassed. As a result, rq->cfs.avg.util_sum stops updating
-and retains whatever stale load was present prior to switching to SCX.
+On Sun, Nov 22, 2026 at 03:17:43AM +0200, Jarkko Sakkinen wrote:
+> Work on this feature started in 2025 from David Howells' container object
+> patch set [1], which I turned into a namespace for namespace roots and
+> rebuilt around that premise.
 
-When a CPU later goes idle, update_idle_rq_clock_pelt() still adds this
-dormant rq->cfs.avg.util_sum. If stale cfs.avg.util_sum plus active RT
-and DL util_sum reaches divider, update_idle_rq_clock_pelt() treats the
-rq as overutilized, continuously increments rq->lost_idle_time, and
-stalls rq_clock_pelt(), which in turn freezes RT and DL PELT updates.
+This text is out-of-date and need to be updated.
 
-Exclude rq->cfs.avg.util_sum in update_idle_rq_clock_pelt() while
-scx_switched_all() is active so dormant CFS load cannot stall idle
-rq_clock_pelt().
+To put short, this is a continuation of "Failed" and "Repeatedly" :-)
+[1]
 
-Fixes: f0e1a0643a59 ("sched_ext: Implement BPF extensible scheduler class")
-Cc: stable@vger.kernel.org
-Signed-off-by: Peng Huang <penghuang@google.com>
----
- kernel/sched/pelt.h | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+When I looked David's patches in 2025, I thought that while the
+packaging might be a bit unfinished the mechanics made sense to me, so
+since then I've occasionally worked on this problem (with long pauses
+in-between).
 
-diff --git a/kernel/sched/pelt.h b/kernel/sched/pelt.h
-index f921302dc40f..6d31e1fbd094 100644
---- a/kernel/sched/pelt.h
-+++ b/kernel/sched/pelt.h
-@@ -138,7 +138,12 @@ static inline void update_rq_clock_pelt(struct rq *rq, s64 delta)
- static inline void update_idle_rq_clock_pelt(struct rq *rq)
- {
- 	u32 divider = ((LOAD_AVG_MAX - 1024) << SCHED_CAPACITY_SHIFT) - LOAD_AVG_MAX;
--	u32 util_sum = rq->cfs.avg.util_sum;
-+	/*
-+	 * Under scx_switched_all(), CFS PELT is dormant and may stay stale;
-+	 * exclude it so idle CPUs do not trip lost_idle_time and freeze RT
-+	 * PELT.
-+	 */
-+	u32 util_sum = scx_switched_all() ? 0 : rq->cfs.avg.util_sum;
- 	util_sum += rq->avg_rt.util_sum;
- 	util_sum += rq->avg_dl.util_sum;
- 
--- 
-2.56.1.750.gf70dc682cf-goog
+The lack of embryonic state, a compact and policy-agnostic
+implementation,, the lack of weird parallel syscall API, clean
+allow-list security model (with LSM hooks) and the enablers for hotplug
+are I guess the main differentiators to the pre-existing science.
 
+I used a lot of same thinking in the life-cycle model as in SGX driver,
+which can be seen e.g., as in the staircase initialization i.e.,
+how ioctl's work and some other things. It was a reference of
+an isolated container I guess that pre-exist in mainline.
+
+[1] https://lwn.net/Articles/1102593/
+
+Br, Jarkko
