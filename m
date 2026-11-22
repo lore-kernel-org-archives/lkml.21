@@ -1,66 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795337427;
-	b=hlAkFhPSIFvFmebFa8WRZgvswX9ipJe7HteV3BfDp4QUsK2Fp3yxXmRadhNauKDt7DXj
-	 QcIO1kk40zZRK7fIazJIkGoZRQHrPxIOjBBu6ySWUkAZ1Fwewhk3UPsXQIs7jQY+exrGl
-	 0HlFyqUNwsQVcQoqLZ0dIgQpyib98+/3lTA+JCXLkxqoQwPR7P44BtaVdgJ0rrk5/HKo9
-	 w/zXMmwb4wjDTYyG+ogNnfRGmHZhzNfOFRf6G9QJUa6idrInU24NGkWmPjxdAYOb0p0yO
-	 GdDJcB69vY1b8z61iwnGc3xahtzNCjb2ai8NXYFFarz8IDDAEXo/dheAZj5QIHLMvUg==
+	t=1795337527;
+	b=mO4mvx/cYUc15Hgi8mKnmI1WvJsm5pnkFF+0BoEjzS1Z2W3oIqg4xaXsQ6BFsnpH8oQw
+	 dGu565QtaBz49Zd4qEwqU4atcIRbS3uKVoEDw6xmqNZLus2Qt+9Zou9YsNzZbZ3/tMtfY
+	 gt/rU2yZmosIuwqqled85nYVNMAwSc3CgClFTdV4//hcsGE+GgVqhg+1c3dQHOLuFQ2JB
+	 1Wg8s1uJ1WrJAvJhVbNaxQA6o03csFtBv2U+7scT4jWnvkqefLkyWzLh+paQ/6IPLPey5
+	 dPEeb3G9YqH0ZIj7+iczNR071/H3m1wato+8nveg5Lfxaek/6eT6FuoNuqs8ckHlF9Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795337427;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=1zCgrqGMERKRx3wFipmnFpOXfxQMJHLUrbXmxg8+a/4=;
-	b=zXQ4HlZLskY0A0TCMSsZLVQgjxWaMU9lUKXmwXg00tdnbWFHdx6PJcwDMK6iGpujY+aS
-	 m7G0dUkuKfQP6ugbGUa21C24d9ldFhrpD6l5N7oZuku6hWyWhDti48JE0HR07MYCWoCeQ
-	 evMlbLMUy7MNAI9E0scHHHbs9RzDgO+/OqLU6S+HbV7HDaEhhw2RJyjGNme8aMq8FZHeU
-	 yascraBzd4SZtgAGZBEcCBUS4z7A7qSbpyXAKEmnEeQCjOhrMm+YBcyXZB5yU63Oi+yRI
-	 iu4yZzYVZ3/q2GNnnmPrYK6h9WIolTe7CAXHBG4DSJEPUZtDAg210q4jy6iizVdaKhQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795337527;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=vQ1as1hC0osgBBN+KjF/Z20TmN/rtQEdZKFnWt6gL+A=;
+	b=blkVFsX35/BJRRFm8T8jR00YBQS585UYDcBvC+r+PVCiqUnJ3/YqASDPaAFtxmBko3zy
+	 j4urfiyNWYyxnmyRJodGUDbEaSyKpNRWLAncK91wNFuI/EKx/jYq/9Uvdw+typUu2fr2j
+	 RLbmLueTR8wCrf7N1PzKBoNqLAI8UvPiIUP/GZbP+wL5Nb/yQVQ3ZRl8ibACGnUSK/jeL
+	 zH58pBoIW7hL0ZsTWSbLBLIZwrUN8Sg4BR1qAzWAWMQOSBfJ0IEOJW1Fo1cMhWG0K3qA3
+	 5P2sSgEY+m9kCKbu4qCtBsJWjtzDM6ku7iHhR9cPvLdXbA2EhagVk4SPwjlsuNGMZdg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hUrRuN0V;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dDaDNHji;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C36B606A320;
-	Sun, 22 Nov 2026 08:50:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E732C606A32A;
+	Sun, 22 Nov 2026 08:52:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hUrRuN0V
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5CA41F000C0;
-	Sun, 22 Nov 2026 08:50:25 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dDaDNHji
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C598E1F000C0;
+	Sun, 22 Nov 2026 08:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795337426;
-	bh=1zCgrqGMERKRx3wFipmnFpOXfxQMJHLUrbXmxg8+a/4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hUrRuN0Vgu3NVUWZ+KNrsAQhIDrMKZ/Cxj5dALSNfLzFoDxr9TMJ+KBLpnRq5lYtB
-	 69BTFYJMx50ENAFgkTBwqCFDmNpY5U1uu6ZnA7c1W78SgZp55iZn87cKPWJ9rIBaGk
-	 ULqZELtG3TSXrfVJOJUQTFHABQhdIwNEI5vSpjwDgXqbAk7AnIDUqiUuGUh2X1sbth
-	 PYbdOazsQFqPilpNU99vsmiml76Fhf536otZjcmxC/r5LjMXVNv92XjIBJcwCGZsot
-	 6BLg6JoPKuF0OssV8Am1SfRg/hH1nGu6FYSfJ5FuyI029e65T9tR/lVcAbTQj9UmDt
-	 tZVoF50gcirdA==
-Date: Sun, 22 Nov 2026 10:50:22 +0200
-From: Leon Romanovsky <leon@kernel.org>
-To: Willy Tarreau <w@1wt.eu>
-Cc: Sasha Levin <sashal@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Theodore Ts'o <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] docs: submitting-patches: ask bug fixes for their
- user-visible impact
-Message-ID: <20261122085022.GB14811@unreal>
-References: <20261116200515.352387-1-sashal@kernel.org>
- <20261117092723.GA124972@unreal>
- <avxtxScVa9KvUH_K@laps>
- <20261117152721.GC162713@unreal>
- <av7s5eV7Ws9Io3cE@1wt.eu>
- <20261119125947.GK162713@unreal>
- <av7zGbqXizmXY4R-@1wt.eu>
+	s=k20260515; t=1795337526;
+	bh=vQ1as1hC0osgBBN+KjF/Z20TmN/rtQEdZKFnWt6gL+A=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=dDaDNHji0peunfhp+cMM9xc6K+qMeuoeQl4+IMuYTR9Ijx0uKair+8IltQluP2PXe
+	 HqfYzE6vRikROmZNg23cIKwlYS/Yj+/bzgQEV27aiv3nbzk1mAGFZwOM6CgHPi1Y6G
+	 d4zMwYxOHY1DQquX+AxaWoyCW4MkE5QQc9Bx67rkiZ8xtSKRtVtsk/JyoMHnWzSMxX
+	 fKfFEQPoQH5jTgNvv8Z0eXSBF7Z1uTvOxbmLAzrUVZWmnBXr87pzdK+b4rk45P9mxi
+	 BLpY+AsUnki3YLS8bNmdeArKyVMss5OIPUwl12CEnQyIVVnlE5vczzSudMfXSt+lJd
+	 AyT88RenkOU3A==
+Subject: Re: [PATCH net-next] net: openvswitch: avoid hashing the network
+ namespace pointer
+From: netdev-bot+sashiko@kernel.org
+To: zcliangcn@gmail.com
+Cc: aconole@redhat.com, echaudro@redhat.com, i.maximets@ovn.org,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, pshelar@nicira.com, jesse@nicira.com,
+ netdev@vger.kernel.org, dev@openvswitch.org, linux-kernel@vger.kernel.org
+Date: Sun, 22 Nov 2026 08:52:05 +0000
+Message-ID: <179533752531.3135.16631437077733586224@kernel.org>
+In-Reply-To: <4e124b37fc972925a825881c50f95eb6b3c2e231.1794989369.git.zcliangcn@gmail.com>
+References: <4e124b37fc972925a825881c50f95eb6b3c2e231.1794989369.git.zcliangcn@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,63 +64,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <av7zGbqXizmXY4R-@1wt.eu>
 
-On Thu, Nov 19, 2026 at 02:01:13PM +0100, Willy Tarreau wrote:
-> On Thu, Nov 19, 2026 at 02:59:47PM +0200, Leon Romanovsky wrote:
-> > On Thu, Nov 19, 2026 at 01:34:45PM +0100, Willy Tarreau wrote:
-> > > On Tue, Nov 17, 2026 at 05:27:21PM +0200, Leon Romanovsky wrote:
-> > > > > > Since you're already making changes in that area, could you add a sentence
-> > > > > > asking reporters to provide the full dmesg stack trace?
-> > > > > 
-> > > > > In this doc, we already ask them not to [1] :)
-> > > > 
-> > > > This is really bad. You assumed they would trim the logs correctly, and I,
-> > > > as the recipient was expected to trust that they were accurate. They are not.
-> > > > 
-> > > > They trim everything, which makes these logs useless to me. As I said, they
-> > > > include AI-generated reports, cases with reproductions that are impossible
-> > > > with upstream code, and reports for completely out-of-tree code. Everything
-> > > > like that was visible in original dump stack and it is lost now.
-> > > > 
-> > > > > 
-> > > > > > Many AI-generated patches reduce it to one or two lines, which gives no
-> > > > > > indication of whether the report is genuine or fabricated. Early in the AI
-> > > > > > era, I saw some completely fabricated stack traces.
-> > > > > 
-> > > > > Is it still an issue?
-> > > > 
-> > > > I don't know about faked, but useless yes, especially in the cases where
-> > > > in-kernel API is involved.
-> > > 
-> > > The situation completely changed over the last year. LLMs that would
-> > > hallucinate bugs and dmesg in single-turn conversations have been
-> > > replaced with agents/harnesses calling shell commands and able to
-> > > capture contents without inventing them. I agree that we should ask
-> > > them to capture such dmesg which nowadays have no reason to be faked
-> > > anymore.
-> > 
-> > The meaning of "faked" has shifted. As you said, it previously referred to a
-> > completely imaginary call stack, now it refers to a custom module that abuses
-> > the in-kernel API. The latter is still "faked" because it cannot be done with
-> > the current code and unlikely will be possible in the future.
-> 
-> Ah OK we were indeed not speaking about the same cases.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Over the weekend, I realized that after this wave of incorrect and deliberate
-misuse of kernel APIs, we’ll see the next level - misuse of internal driver
-APIs as well.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-I’m referring to the various EXPORT_SYMBOL()s in large, complex drivers
-such as mlx5, bnxt, and Intel’s drivers.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-The idea that “let’s trim the dmesg stack” is going to be a disaster for
-everyone involved.
+- [Medium] The patch replaces the pointer-derived seed in hash_bucket()
+  (net/openvswitch/vport.c) with a seed computed only from…
 
-Thanks
+--
 
-> 
-> Willy
+net: openvswitch: avoid hashing the network namespace pointer
+
+This patch changes the seed for the Open vSwitch vport name hash. It
+used the struct net pointer and now uses a jhash_2words() of the
+namespace cookie. The goal is to stop a timing side channel on vport
+lookups from leaking the init_net pointer and the KASLR base.
+
+> diff --git a/net/openvswitch/vport.c b/net/openvswitch/vport.c
+> index 083f7a8d9d4e4..6689c8370ec13 100644
+> --- a/net/openvswitch/vport.c
+> +++ b/net/openvswitch/vport.c
+> @@ -53,7 +53,10 @@ void ovs_vport_exit(void)
+>  
+>  static struct hlist_head *hash_bucket(const struct net *net, const char *name)
+>  {
+> -	unsigned int hash = jhash(name, strlen(name), (unsigned long) net);
+> +	u32 seed = jhash_2words(lower_32_bits(net->net_cookie),
+> +				upper_32_bits(net->net_cookie), 0);
+> +	unsigned int hash = jhash(name, strlen(name), seed);
+
+[Severity: Medium]
+
+This fixes the pointer leak. Does it also make bucket placement in the
+global dev_table fully predictable?
+
+In setup_net() the cookie is just the namespace id:
+
+net/core/net_namespace.c:setup_net() {
+    ...
+	net->net_cookie = to_ns_common(net)->ns_id;
+    ...
+}
+
+For init_net, that id is the uAPI constant NET_NS_INIT_ID (7) from
+include/uapi/linux/nsfs.h. For every other namespace,
+__ns_tree_gen_id() hands out the next value of a global counter:
+
+	ns->ns_id = atomic64_inc_return(&namespace_cookie);
+
+Userspace can read its own cookie with getsockopt(SO_NETNS_COOKIE). It
+can find other ids through nsfs (NS_GET_ID) or listns.
+
+That makes the init_net seed jhash_2words(7, 0, 0) on every system. The
+bucket for any (netns, name) pair can then be computed offline.
+
+The lookup oracle described in the commit message is still there.
+ovs_vport_locate() walks a bucket chain that all namespaces share:
+
+	hlist_for_each_entry_rcu(vport, bucket, hash_node,
+				 lockdep_ovsl_is_held())
+		if (!strcmp(name, ovs_vport_name(vport)) &&
+		    net_eq(ovs_dp_get_net(vport->dp), net))
+
+OVS_VPORT_CMD_GET and OVS_DP_CMD_GET both have .flags = 0, so
+unprivileged users can reach this lookup.
+
+With a public seed, could an unprivileged user in a container learn
+whether a vport or datapath name exists in init_net? The steps would be:
+
+  - pick a missing name in its own namespace that lands in the same
+    bucket as the candidate name
+  - time a GET request on the missing name
+
+Before this patch, that attack needed the kernel pointer of the victim
+namespace.
+
+A second case: OVS_VPORT_CMD_NEW and OVS_DP_CMD_NEW only need
+GENL_UNS_ADMIN_PERM, which a user has inside its own user namespace.
+Could an attacker create vports with names chosen to land in the
+buckets that hold another namespace's vports? Name lookups for those
+vports would then walk long strcmp chains. Only control-plane name
+lookups would be affected, since the datapath fast path looks ports up
+by port_no in dp->ports.
+
+A secret per-netns random value already exists:
+
+net/core/net_namespace.c:preinit_net() {
+    ...
+	net->hash_mix = get_random_u32();
+    ...
+}
+
+Would using net_hash_mix(net) as the seed, or mixing the cookie with a
+get_random_once() key, close the KASLR leak while keeping bucket
+placement secret?
+
+> +
+>  	return &dev_table[hash & (VPORT_HASH_BUCKETS - 1)];
+>  }
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/4e124b37fc972925a825881c50f95eb6b3c2e231.1794989369.git.zcliangcn%40gmail.com
