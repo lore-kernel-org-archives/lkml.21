@@ -1,106 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795333983;
-	b=HVc+rpz9iIxY22rK/5DFmd9x1K0MCm1gkP50Mhnpjci4ixXkNXQBbEb0Lvn3h3n6BrDX
-	 KfjcLHR8CTjFp1sX1t82TGBHnnaeTwfijadlF+d9l7UXYq3YCo7JidaR3nuFXXsh4ANBK
-	 DA9reH3ox/G5z7RsClJ3ydsVmIKh5gav4cUjpOCpy5UXU5iL8eGQO5Ztg+INto0rpsQNZ
-	 9jmwn0WMZmvZpQHGsUKQycN+Cvt5d3zJ95fbdWP8xaSCPQ+sz6ReU3Kg2MUdc7lABeSrT
-	 m7OxZ09PjTZODSEj+V0E4TpShoWfbhYsYtJvbyXQ0zUAHcFoNopOdqC9nQ0WTPuy39w==
+	t=1795333989;
+	b=FP1tyPcvkS5nbZHEhiozXTTXxivSY4aVsQZrxrV2OYQDVW2GlfpxsaRwOlPy51N52V85
+	 zzEZdaGTbVhPhk/x5AjAzua1NBZyAwn1tt/4zKxekn/+wku2MKnIZ5hUfkYUTTkORKiYL
+	 KHA9cjG4KVp4wOl+rPgfl3j+JnTqliTLzPlfQBjYoAZ1BqDblggkXPqqcc2UgsO3Q2aJb
+	 y7V5ZSUvMQq/DNiodYXmTBiVFT55qK+9ZeQgvpA9xDRIUDl8VhdRUebpPxYP+mHWYHDem
+	 BBpFACVfNqRrSAyfow0A+M9lvbM/vmgNAV3KVS+r2MUfoi8ylhUnC1DY88sa2Xp8m+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795333983;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795333989;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=YYjiTYJrCn6f2EJvoqo+mfdpJGY/gBVAph1UiZ3/0y0=;
-	b=cm+0PLpbRzwI1X6Wn//jUtYAOPFb+cjuZP1loey9YJYeHxI0tUeyTMoashcdWuMFtqcZ
-	 u4vQCfshSgdwwfEHaFed2nFNKzIUL4OqwykqEMxHZ5PzcDsaXQkuHRHW2prPyg+/r67DN
-	 w+YLHsQirGs4DvuI+/OBtOSC7zZYMNOlXZF+osM1PlAQKPqd76yIQ4rEFXp4X4PkWmkL3
-	 yWWS/lUnmao7vLNLlPjdwc1jQ+MWMFyv9AJzF/uhXJA7n8Rtd7zxXwwAPRyIFdq1WwiZC
-	 TLrqpn8pdkJSjalu3TUsYmY5LRfJb5Pac/IlZr5b1ZS1/IUy10mPeoD0psM685q1W7g==
+	bh=vPRV2FQJxiL/e86GXbUg3Okhimclyly/VhU1zcnJTrA=;
+	b=i/dILBzHtZK8H8O3+THaNm8GDZSu2nQCodPovtekegOtnFiCA1BEYO6M3xSDGIDQZzMO
+	 gu95pSgSbHzpuKEQGN47DVaNu1mrCar8VQEIS/EkgD38d1wCnGT4EOdUKiEJspzzvNDgr
+	 nCRz/IlEYrOZ5E7PfhInObzR3vI65fUXjqTJGSrQzB8So9oePFK3ONb5dz/TbWUN5Q1S2
+	 Jm2JD3tNUSRfIIYYSQcqsqUIbtxfQ2gfcpMcpldQLh608NrqI4revMZRLccyVPZjG3OFi
+	 r75znI25e+U6Y4RXtVT5x195lX40j+uLtiOijcJCBziH4ZwBRRWLrZgEBWoPBA94lGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h+PoNCJ0;
-	arc=none smtp.remote-ip=209.85.208.44
-Received: from mail-ed1-f44.google.com (mail-ed1-f44.google.com [209.85.208.44])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=esvp1aEn;
+	arc=none smtp.remote-ip=209.85.218.54
+Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com [209.85.218.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9ACF8606A330
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 07:53:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9ACF8606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63C99606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 07:53:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63C99606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h+PoNCJ0
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-6b408f2d936so3311032a12.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 23:53:03 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=esvp1aEn
+Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c516a194350so40461866b.3
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 23:53:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795333982; x=1795938782; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795333988; x=1795938788; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=YYjiTYJrCn6f2EJvoqo+mfdpJGY/gBVAph1UiZ3/0y0=;
-        b=h+PoNCJ0JWrepuHH8XR98IvmKBVK3jVik8a77/KXxcdI+xho07fAPKtyBE92aKj9tn
-         GWDIeT5DmnM1y4lTMxHD+riQmVoLL91OSnvno9BuwNERToIHSP9ucObNFPkySX4gtyWX
-         540MPWlRqpcsRxF1qwudcehjnTwQgvgqaRkrUHUvOSSMzBIEJ9rOTQW31zP7ES6QEZo0
-         gidNU5nhtmKgVnJViP2550SwqgkxpCkiW4lkxy40aAyfjyv1G2wiXJmaOk23ixEcWesd
-         gbcKP1zqZNoNIpp2MBP8o8kuvJXkcEtlpdjR4cxUcXjmWTY0O7R4zYzVFROqp56VcklG
-         elPw==
+        bh=vPRV2FQJxiL/e86GXbUg3Okhimclyly/VhU1zcnJTrA=;
+        b=esvp1aEna3X6U+1FOHzsfniSJuTJNvN6s4Dxaf87ORiv+92ZE2V0D/OOHzQ6sflk4i
+         rwYSGYOA87brBKhH+pjNqo8gYEGh/bBHr/daEJvWpWFIQxCyUxmOkEvdtiwR2HV+SCVh
+         xDTA8wF+eSsge9zTy788/YKxuwvc+I6XyAx2BFcNQj88dk/xojGgbNOtmkVYZjwmxh/H
+         b0yahv9FVYJffK5f0pHOJbzR6YyvYQ3wmzb5DCCs4MHjlnRbdUiUO72ZXCFPK56ZeiiF
+         4tJMwwR0jl+xpg1T9HcYgNdvMpdns18UGHMwXx9UJ+Vgsx/2NVTe56AMtDX1qSLygGNf
+         KDqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795333982; x=1795938782;
+        d=1e100.net; s=20260707; t=1795333988; x=1795938788;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=YYjiTYJrCn6f2EJvoqo+mfdpJGY/gBVAph1UiZ3/0y0=;
-        b=kYEde2TYlit0EAVQBvz4abbGSS87DmGAjA5oB077eicN+EkfdnZcQ8GWk7De1eUFC1
-         FHjUsdurD64Q6XA58TIe8UNytZS+rAJTtkjA/uuEJKSYHOgaAC4adZ///wyjYgEpKFUv
-         lBu7ZDP0s6P6NaZJl2Ixto0AfoBCt/xPOWQ7wq21etJIAQInX+iLFBBIVyUgQ5JJfF7c
-         McI88IDDmwjeuE1d1a71SCZXmXKvUk6pEjcJiwg4buTU2EDynZCS13vxKfxlQ3XJBsvp
-         BanaVOfzaiJihkS+MyDR+YGCs7XL7O9K18yp/a9+XmPYGRLJNAQqDb722zAScHH5FYbT
-         2PQw==
-X-Forwarded-Encrypted: i=1; AL+hErE6yP5hbmhY4P/gKziVZXmP5SHscwpg5jvla23wuOg4afPeCYsJHU2uU+QA2jMa82kp+KhMIm7M0DjTJbc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+lUypbzQsfQz+NWYoXwnHeiw5RQCoBR7LjNuA7u7IBQDMwuPbO
-	4rRCb05rsWS6pGWWjQsiH+PFO5HyQGQCj0jXKqdNeEUS6wD1rOgkBoc2
-X-Gm-Gg: AZFdTZfCrNBT4s7ca80KuF0+kuDPPT0TRkktp/Js4JlgGKQ8PD9F0kKu2H57pCnGbGX
-	Naz6Jz7IDNZanQpckQyg5itYEtE5/r4gvxSKRmDN+n0LCb0BcrScgE2FBGR7E9VgWQSlwtEG+Ma
-	iPUnc/1I8zbQlIxSqWDJmZH0J/XhxsnyprGrv80E+kFCJLYtCpvHTtn0zodA7rF2dYf3so7DYlX
-	ekgzx07INW0CKfPVgOILLv+9MiedVRXSvkl9xtMjz1uecVqDYvy02O5K5udUftekzjeoyK//DO5
-	x4NNGKzmnTZ8of18r5WePtS5xTI28nK6gYj/G5sttEt6f8ucU5FIm7xWXAcSIbLCZ5NG8QIiG+G
-	fjxLy9XLSMP+Rj9FH5AMVy2li9rpG9IqS7BrtSL92kZFZyrVLeoVliUhI0RFlR/gIBc4b5VbnwO
-	OkLALuZcy9+3qSKoku7yuBxS4TeSqzg5dzUlveMKty0KPRdEUscH5acHGTvyrB/WXZH1aZRD0Lt
-	rr9WcsBaKaboJFeA07ZHTUDxCvnauZBMkecoWOLbEduFtQ3C3Uk+nSGFRhtnQguU6lp7w86xphH
-	pwIgPa0Rli6ZfpxX9H5+GLDgiO8=
-X-Received: by 2002:a05:6402:1941:b0:6ba:7be9:ad85 with SMTP id 4fb4d7f45d1cf-6ba7be9aff6mr1735125a12.29.1795333981628;
-        Sat, 21 Nov 2026 23:53:01 -0800 (PST)
+        bh=vPRV2FQJxiL/e86GXbUg3Okhimclyly/VhU1zcnJTrA=;
+        b=G7m7CzvDUgBdjWFCwI1pWhH9vkPFGEpgm1I82OgM/XsdPOhH1ZdvQbwZVXpa0GjUvR
+         mnJnj2STbPNIyxeFqaM9qOtxYRvJnpa8A++qVzi2aDtTEl8luskmrQkG0AnqrKRKzNB5
+         wkHQUBuifq8t7GLEPglzbsbWcLo8NZuHgIKnTdN0OVso/M911gY8N3RafxgmvsNPbNmf
+         7khKaIabL3LoNCj79O7wHM4ddo9eUv0f572On9C2atFRzXNo0+QvjC/g2/cqg7Qmjwlc
+         z4hGGC446z66oDcF6zZzmrCU6oRdATvyk2hwFkB/qZ0a7YCAvjpESXD4B4rtL7L7Wkdt
+         2idw==
+X-Forwarded-Encrypted: i=1; AL+hErHNOqOVIJ5606GIiTrECkhpgrSWyFZ/eL7AqNc7A99WrTL6AkGm410EsHWb88hchHbkOSvGVVdFFRQkC0A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Mvt6yNJhC3mJ3ZGgZGRJQUC0WipeULvALaWJlfsLVkuZTlhE3
+	4vH1TRrC/MQ/4NeiVqtWrVdbwVO/YMS6q4WMsgNbBH52IEZMrgljlVep
+X-Gm-Gg: AZFdTZfcPXJ0y4a1en/d8s2RBxl5FYdTvAqhW+dljDBa9xIDdBy44Am8wnmfbLnZsCp
+	1nfOwSFlUURjcTh2ZUF9qcdwU56IcbQtlJNjLVJz1iawDYszemiruLFrOYnoRBhhWC8R39zCfQ+
+	Xd2JpgnjrA8J002G1rJENTTLDNVb9uxzsb7bnk2ytergfNnN3mUasjZfz0uXwVxQ8fibbqAC8EF
+	+r//bs6aUA4iww0LORZTb+SYD/6iKeyoUsjVFrrC7GkwEzbouQvNChjtQsUxUo2wfxjonrhQy5l
+	T7ECGAMXhP5Kt1FRSX/tfRiB/JHuvYTTVzKq3g7LqCY7fsNUOkp+c9aPLQOIZRQOf22fTwc2ttD
+	pUQyP3nQ4dbc7+GcbmxtCzdx0AEA+nuFXGBbbaZjt7uk/krEHb3i+EHw+EezMDEG2QHA06xjY7G
+	S4/vPo6ZQpLAKs+rz93HZc7K9PNayX70wxUeiNmPKdDF6bjFR7sDRKwrFGoiPiXjymJPkHsTuuA
+	5VMPc86V+wdGrXHyfuRE+sC/KOgtWOXORpT3AfY9ONZXNBakYVq4crxs6Zr8ax5k2MGciy2N+gd
+	RSwpOK72fPt3N/XWgkZVbSPF2KE=
+X-Received: by 2002:a17:906:4550:b0:c4c:e713:d296 with SMTP id a640c23a62f3a-c513a893bebmr534161766b.31.1795333987760;
+        Sat, 21 Nov 2026 23:53:07 -0800 (PST)
 Received: from dl360p ([195.155.168.55])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba36e362bdsm3668837a12.5.2026.11.21.23.52.59
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae679e3sm285332966b.22.2026.11.21.23.53.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 23:53:01 -0800 (PST)
+        Sat, 21 Nov 2026 23:53:07 -0800 (PST)
 From: =?UTF-8?q?Adil=20H=C3=BCsrev=20Tepe?= <tadilhusrev@gmail.com>
-To: Michael McAllister <me@michaelmcallister.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
+To: Joshua Crofts <crofts@kernel.org>
+Cc: Jonathan Cameron <jic23@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	dri-devel@lists.freedesktop.org,
+	David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	linux-iio@vger.kernel.org,
 	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	phone-devel@vger.kernel.org
-Subject: Re: [PATCH v3 0/2] drm/panel: add Novatek NT36525 (Samsung Galaxy XCover5)
-Date: Sun, 22 Nov 2026 10:52:58 +0300
-Message-ID: <20261122075258.2919999-1-tadilhusrev@gmail.com>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] iio: proximity: add Imagis ISG5320A SAR sensor driver
+Date: Sun, 22 Nov 2026 10:53:04 +0300
+Message-ID: <20261122075305.2920359-1-tadilhusrev@gmail.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <179501720308.74840.10845458526829767554.g10-nt36525-coordination@michaelmcallister.org>
-References: <20261117173319.1852638-1-tadilhusrev@gmail.com> <179501720308.74840.10845458526829767554.g10-nt36525-coordination@michaelmcallister.org>
+In-Reply-To: <20261118105339.00001bab@kernel.org>
+References: <20261116074013.355363-1-tadilhusrev@gmail.com> <20261117173333.1853986-1-tadilhusrev@gmail.com> <20261117173333.1853986-3-tadilhusrev@gmail.com> <20261118105339.00001bab@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,32 +109,22 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 18, 2026 at 03:53:23PM +0000, Michael McAllister wrote:
-> I've been working on the Moto G10, which uses a DJN NT36525B panel. I
-> have a local driver, but it'd be good to share yours where possible.
->
-> My panel is 720x1600 with four DSI lanes, a different init/reset
-> sequence, and DCS backlight control. Would you be happy with follow-up
-> patches adding panel-specific configuration and G10 support on top of
-> your series? I can prepare and test those.
+On Wed, 18 Nov 2026 10:53:39 +0100
+Joshua Crofts <crofts@kernel.org> wrote:
 
-Hi Michael,
+> Hi Adil, some comments inline.
 
-Sorry for the slow reply. I said in the v4 cover letter that I'd answer
-you separately, and then didn't.
+Hi Joshua,
 
-Yes, very happy to share the driver. Your panel is also relevant to
-Krzysztof's review of the v4 binding: he asked for the compatible to
-name the actual panel maker (ours is a CSOT panel), and whether this
-belongs in an existing Novatek binding. With two panels on the same
-controller, I'd rather structure v5 around per-panel data from the
-start: mode, lane count, init and reset sequence, and backlight source
-(external or DCS). The XCover5 CSOT panel would be the first entry, so
-the G10 can come in as a second one without reworking the core.
+Thanks for the review, and for the note on the cover letter about the
+threading and sending v3 the same day as v2. Both fair; v4 goes out as
+a new thread, not before the end of the week.
 
-If you can share your mode and init sequence, or a WIP branch, I'll
-check the per-panel struct against it before sending v5 and Cc you on
-it, so your G10 patch can go on top. v5 won't go out before Nov 27.
+I'll take all of these in v4: the include, the pahole layout,
+fsleep(), plain "return ret" instead of dev_err_probe() on each regmap
+call, the blank lines, PM_RUNTIME_ACQUIRE_AUTOSUSPEND(), dropping the
+pm_runtime_dont_use_autosuspend() call, and the duplicate error message
+after devm_request_threaded_irq().
 
 Thanks,
 Adil
