@@ -1,82 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795341152;
-	b=GJj1igER2jHJABP6IFB8pmCxMyU91vvzFC5S0gxezyfxWvSLCGkofpHHM2V7nGTi6bh4
-	 KSvAeDMD+9hTjeriX92EcprJfORWHHGzaO3f9AX2IPyn4OrSLZe4F6oqVtUm+YDp9vXMa
-	 Lr25VexneeIvf8oZAgv83Jo60DAcNkaeTBpsOBfYsSNdB8kIHClkYktQIT86nMyrL+/XL
-	 Rw3du2FuTWNDFANI14xO9ir2ymbvA+XNxoyii+ZL3JUIaDwQUDyivphGF9ilV68WvX5Su
-	 R/3z8vRxUzG1E6ae69OLTtLE15l7T2vfmi87j4BImuUGfcT1alR3/yc/8xKxmUEuf/w==
+	t=1795341155;
+	b=snIHwEwbKJJyPwXKVMTvDsFw4N641CHAMXcwnZzyFrGv856ru0/tYHpJ5wr+4lDjXR6u
+	 f2R5BsTiX0q+BDvs5UzAqXzOx4OasIuS/FVE48DTbIM/1VvjoqAYX1zmdS3By76mBzerl
+	 R1/g4OCDnql7bscXA2BS48uxJdj+KgiBrNhM/tPc3OrJSmRURTa7nuKkg/CuCICKSUVz4
+	 0wPhsY4rwxzgq5JQMsois1lXVyNsh0QltkT5YTtkyOZEoBzSmr3ikw1C7MrqSxGh4VbC0
+	 eN/wwUc3totDemILF/OTMXBED0FSW9i/qTn72h3Tz3YIkc+XOlh19iwrJza3Dt4/6tA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795341152;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795341155;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=0NWssteZPPVU+nMk7IUnyZcBf2kF3Y2sa8v4XCIsjDk=;
-	b=0AoUyAqHv9He8416zY/gS0vPFiw3LQ99xDQVRnmcESA4jgvmrnztTfHjy1czLF34www2
-	 sJUpYZDdh6EPp08NgoG6V5WJ09HVMJ3nF5itg7QyZsTpwHLEFd+K3kA+uZ41OjWmjdt/8
-	 Z/7+CCuXP85SCRRar4UOHccUabDcDyP76F+vnagUnTjqaFdp8APypq1rvLp//T3YzKnqc
-	 rp+pctxQpoERCU5w2Z2QYDe2yj32YMpILJgI/bhoVruuQaEoeMazWT9bLvoRUQzEOgS/Z
-	 A/t50Sl/CHQnreTYBHcLIA8yLvMvzA+NTW2byeoGnbqcSJ3l9XlzArFEzaRocIgNRdg==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=yUikuj1FyLUCHY3Zwx8GuKGSSsj8GL2KV6hgZCKg5AY=;
+	b=ugbo77mkPM0ZKeFSudc1eo5uEeS+R3lVTJhePLGpc/L23L3+C7dY01YPeIg94ghRvty0
+	 39bqEK5tOQI6lPDZT9ti0GsngQcO+PiVHI97hT5eKxJQMjG3+TzUv+lVNAmsXLATJyEjg
+	 62LxPOqPapj6bPfP4+euWmPcXdA+zWtbJvtdo5LdRz5NqT/JmJ+R4qjU2QJA9N7Pv2TGu
+	 +U/8MscNLfxLXc+/Pkg9vzvb5dFpia6+aEv56wuxlojYsQC/rVUj2MR1eilbVlV6/SKGZ
+	 s+E0iC9RcjqjCJNhQYJa1Qn3WXsL2H47HfAPjiZemIbDMErdv3gLUUwp1Cv2vgcUlIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p5s5r2ZO;
-	arc=none smtp.remote-ip=209.85.215.171
-Received: from mail-pg1-f171.google.com (mail-pg1-f171.google.com [209.85.215.171])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E8NwQ8Fi;
+	arc=none smtp.remote-ip=209.85.216.45
+Received: from mail-pj1-f45.google.com (mail-pj1-f45.google.com [209.85.216.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11811606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:52:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11811606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD4BE606A334
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:52:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD4BE606A334
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p5s5r2ZO
-Received: by mail-pg1-f171.google.com with SMTP id 41be03b00d2f7-cc4aa18f9afso872551a12.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 01:52:31 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E8NwQ8Fi
+Received: by mail-pj1-f45.google.com with SMTP id 98e67ed59e1d1-3b40470fdd8so1044730a91.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 01:52:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795341151; x=1795945951; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0NWssteZPPVU+nMk7IUnyZcBf2kF3Y2sa8v4XCIsjDk=;
-        b=p5s5r2ZOw7S2UK5YF2dVjoCiXwbvOZ211XbGS3nEH7tWVh+lgd9aL5CAKSCYTwNBJK
-         fZKuvblVH4mBSvqONI19trzwTMvJ1N7CZX7vw3IA38b7Dc5p3AHV5vHcKlP5PNO+sxD0
-         GMijWtMbZZmZV7+4wiUvzbu/2RmQIF9nsdbdcn9tK4l/gN54hQtKkKjUsqWKrikfBGBl
-         yUVoJzMrEFFRty/I20UzT1ik+WfjCPGn2eso3yBkJHv0G5bkO2u+V3VkKXjsE4+ZhTlP
-         iwSyyiqr/yJv7SPp+PefocR6NepFwFnuypqwBY+e+1TwSmLBb2jYruDg1RJrTy+UnxOP
-         ZIYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795341151; x=1795945951;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795341154; x=1795945954; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=0NWssteZPPVU+nMk7IUnyZcBf2kF3Y2sa8v4XCIsjDk=;
-        b=h429bg2FnRddbwG63B1lsJq1WS06MNdwZCiNDwZX7g4sQen13S2N7nTAqO9beb1oRp
-         xImN/1QjCPmTdAcCTQRT1d3yoT0iXKfF0iTnRnUuIjB4CJtfFAyRWNUlfLqjYheArvTJ
-         +SJ0a6M1QfqZq3BrChT6BTAffBM4JbeWti7tF4E6nvtD5wsKhrlC70IsPIeh6BoH9BcE
-         I0vqezN8aCof06UcDJwJxnD5yOF1btyXCd1zGf1+WVyCq5VqdnqTg0C4SfFtxhuB/Wkm
-         UtgiWiSTLtE0nKe+sWfjyYocsxYDfn7h/+mKWBcAY0eBsrQIUI5YWXFfa9WCCzDpHxO5
-         X8AQ==
-X-Forwarded-Encrypted: i=1; AL+hErFZmP10bM34oY9hb1Wmm8YC1ysnNPyNPCT/eKDqfn1Owi6K3hTPUIzVJIBbwMxCKk9J+Ysr8Z5aA4u1vls=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Z0+Nh0k951QJaZMIZOCX4B8G/9+6rhFfE9tzbh4JeQPUAVSD4
-	YQIxw+l4UAzyvSiZBidV+mbMAq9Uhyz67LAQNTpMW6xDr/FMWWizCjqjC74lgpw3+mAk2Q==
-X-Gm-Gg: AZFdTZeLvM1NPERc6O0oqQjbuOAMCApiU3cW70uH3Jc3ICsjOUjfDHPa/xY1kdOB9xO
-	Bif60w0U0qjWNUZdxsv799Qygw1vhJRQGMGDHkfuO1GceYIImO5tEUUjqSeeXl0dleQrv8PfIbt
-	e4zWGcqlEehgSgDseV1BZPgz5OR8mQx2uHzoz9L2YG6PW4hZCZ7fwhoLQXGRmeV3eElvxcsfQhW
-	sF+leXQYjlEg+goqGe68fdB64aRNnHINZhW6SMvE/v3Uv4bd2JgaLHRi8osXggD+CKQjMGWPAUb
-	VvcVgLB0bMwaXfWa+Qn6Z4SY864NDlneTzeaqm8KSFyXmPTOwI1vKaD26HbR8BazSoFvvMZ2PCs
-	1O7BOgDOqfGbOSoDEWUzwmB1Pf2OFs943CKQNchb164vEtxthw76j0FRNvUjOtC8SU9olEB15n6
-	SFIXED8sm9wb5ja1aYC9YOtpWCnPqCERaz3+N80k/GmwlUXjMtoKLEZl4+To0peGMZWhZ1Rs+Ma
-	C8176kQ2L4QTSX0b8A0LBExwv01/+sKGHI2aA55gK2raKBgSwQMWGzh+Rsfc7mF7I7hoN+z5wiK
-	X4exCykiZgCy6CWfJKCIq2Qo4vvQlL/bMi5lCUyPISl+fndOBMI=
-X-Received: by 2002:a05:6a20:ef0e:b0:3e2:84a4:8875 with SMTP id adf61e73a8af0-4014bc52bf0mr6906650637.53.1795341151175;
-        Sun, 22 Nov 2026 01:52:31 -0800 (PST)
+        bh=yUikuj1FyLUCHY3Zwx8GuKGSSsj8GL2KV6hgZCKg5AY=;
+        b=E8NwQ8Fi5brarFkGitZhc8iH7r45vLLYIwTM9DyYINAIo6knoOmb5W7E7hCtKZgnye
+         ZgFZ7wDHB+ka0F8XU+UwJgv/cMN0P9/JUEZf8c7waa88M4FSVVWgBC7HHC1pPv6bOu4F
+         BstKVbsOhOxl17ZQzEGWyskOhPzitNksUrqsV2hFdrfSPdfmPcDl+wVwZ19fLzzWh04t
+         WZ2Q3kD0+LsolWTwsxENjlw/So8C9loCw6PyQKkUsKl7o6/fDgT46TZgDwiMvIldzYcQ
+         THSfMqaxKytmAQ7tHtbiKMo9FQc2TjSWuTktBY3CbI4SGWRq8xkCli7hSi91vZQ1RGIY
+         HDeQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795341154; x=1795945954;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yUikuj1FyLUCHY3Zwx8GuKGSSsj8GL2KV6hgZCKg5AY=;
+        b=IksqyjLRFGGtbGqrHcxqAWUBJkIJCKvS4Km3nCDHbiBgOm9byhTbP5hEjy1CmVyf26
+         KLkWOzpPwmSHZYF+19ubeR/dlRzt++FWOJrV/le5vYH85JF73CayEws7bHp+ZdckeUFe
+         22VvTWQWCOiI3xOLWskBm//xOMFO2E85DfpwOF7TYh7efgtH83rgqWJsaPLxbSvExqTo
+         tLUWSuHolSBOEQYGesDeb1X+S11RDxOonji7qvfAfMgvq0+sP2hPG9dE/SU3wOe8WKnQ
+         3HJHNfLfmhngvnG/XWbEog5ogogotl6pV7R4UCv+lIJsueK3t8hGMTC4y7ED5FFDLttA
+         SBPQ==
+X-Forwarded-Encrypted: i=1; AL+hErF8TiP2ZqbNiYLP0g/WeUfbOSd89WzoQKJF3zdKIPZmxyIIKKDrA+HkrMvoPhVc6c0NZfBedt13Y0Q+niQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+e85gN21i4IjtxTYUg5XeHHXVhG8jHAUD5RytP6qP6oiifhlfX
+	9vp47KqEhcdQNYt9QQQWjIcNAYPhDD39vXA0b1UIUd9Ud9MKSiGP39BA
+X-Gm-Gg: AZFdTZehjoEUouBInFPNtvhhmhAyJnDHZ+cxsusDaZmasednmmTq1GN1jbrapqLIUD2
+	Pa8PIycyVSWdid3RpxWMg8IKGSMHlQflbaGMJI4MPQqL6ZIg/P60hw6rkU2AHM0UnYYl1WZJLDL
+	/kU5mzSv1WfQza7sdPQTQI2+TepY4QaeO2dwDiIA1vwRH9IA2tPRKPF03JMp6qw6jputqnINOmp
+	8lwqBau8E9c3ZtuwGgDcLrHqRuYWcZK+L93PvE61sx0Q2JlBbhBsVw4HIWrQ889/yOmekIw3vZ3
+	NHapk3tAryq2h9d8cTeRx7ExV7hcE5g0FQRfBXig0ebnmWt4DOUVpUKTdv8BrYSHeu+xFF/yYtJ
+	f9aIzImD6uGjMkiM9gItATZlH2pM1LJ6mLLSyYOIvxPYtZfL0G7KLcyhrk+tIdL3gzq9lqwBVyW
+	3b2+9tWW3UFU6IzPzcZTxESz21E59wMoOVbJ4AKWxv+y0Nwe9D9/wilDLXS6DbieXROswfAmXt2
+	53xkwSR5+UhS0+70+R/e5A8sooJIJremzHjeqjMGEvrk+rUOjucvnqHyG356gSZoVGpxJRjm1Jx
+	ylUgtACcxlMaQOmziSk85hz51omePLmmrIZ0YKPlPOB8BskTzDY=
+X-Received: by 2002:a17:90b:3e48:b0:3ac:adce:60ad with SMTP id 98e67ed59e1d1-3b41c98a343mr6261954a91.22.1795341153927;
+        Sun, 22 Nov 2026 01:52:33 -0800 (PST)
 Received: from fedora.tailc1fb0a.ts.net ([134.82.71.171])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d028a54sm3289722a12.18.2026.11.22.01.52.28
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d028a54sm3289722a12.18.2026.11.22.01.52.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 01:52:30 -0800 (PST)
+        Sun, 22 Nov 2026 01:52:33 -0800 (PST)
 From: Artem Novak <artem122novak@gmail.com>
 To: florian.fainelli@broadcom.com
 Cc: bcm-kernel-feedback-list@broadcom.com,
@@ -88,10 +89,12 @@ Cc: bcm-kernel-feedback-list@broadcom.com,
 	linux-rpi-kernel@lists.infradead.org,
 	robh@kernel.org,
 	Artem Novak <artem122novak@gmail.com>
-Subject: [PATCH 0/2] ARM: dts: bcm2835: replace deprecated LED fragment
-Date: Sun, 22 Nov 2026 03:52:23 -0600
-Message-ID: <20261122095225.200916-1-artem122novak@gmail.com>
+Subject: [PATCH 1/2] ARM: dts: bcm2835: replace deprecated LED fragment on Raspberry Pi Zero
+Date: Sun, 22 Nov 2026 03:52:24 -0600
+Message-ID: <20261122095225.200916-2-artem122novak@gmail.com>
 X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261122095225.200916-1-artem122novak@gmail.com>
+References: <20261122095225.200916-1-artem122novak@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,25 +106,46 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The Raspberry Pi Zero and Model B device trees include the deprecated
-bcm283x-rpi-led-deprecated.dtsi fragment to define their ACT LEDs.
+Replace the deprecated LED fragment with a board-local gpio-leds
+node, preserving the ACT LED GPIO assignment and configuration.
 
-Replace the fragment with board-local gpio-leds nodes, preserving the
-existing GPIO assignments, polarity, default state, and heartbeat
-trigger.
-
-The changes are split into separate patches for each board.
-
-Artem Novak (2):
-  ARM: dts: bcm2835: replace deprecated LED fragment on Raspberry Pi
-    Zero
-  ARM: dts: bcm2835: replace deprecated LED fragment on Raspberry Pi
-    Model B
-
- arch/arm/boot/dts/broadcom/bcm2835-rpi-b.dts    | 14 +++++++++++---
+Signed-off-by: Artem Novak <artem122novak@gmail.com>
+---
  arch/arm/boot/dts/broadcom/bcm2835-rpi-zero.dts | 14 +++++++++++---
- 2 files changed, 22 insertions(+), 6 deletions(-)
+ 1 file changed, 11 insertions(+), 3 deletions(-)
 
+diff --git a/arch/arm/boot/dts/broadcom/bcm2835-rpi-zero.dts b/arch/arm/boot/dts/broadcom/bcm2835-rpi-zero.dts
+index 539c19c10946..9364695055b4 100644
+--- a/arch/arm/boot/dts/broadcom/bcm2835-rpi-zero.dts
++++ b/arch/arm/boot/dts/broadcom/bcm2835-rpi-zero.dts
+@@ -7,7 +7,6 @@
+ #include "bcm2835.dtsi"
+ #include "bcm2835-rpi.dtsi"
+ #include "bcm2835-rpi-common.dtsi"
+-#include "bcm283x-rpi-led-deprecated.dtsi"
+ #include "bcm283x-rpi-usb-otg.dtsi"
+ 
+ / {
+@@ -101,8 +100,17 @@ &hdmi {
+ 	status = "okay";
+ };
+ 
+-&led_act {
+-	gpios = <&gpio 47 GPIO_ACTIVE_HIGH>;
++/ {
++	leds {
++		compatible = "gpio-leds";
++
++		led-act {
++			label = "ACT";
++			gpios = <&gpio 47 GPIO_ACTIVE_HIGH>;
++			default-state = "keep";
++			linux,default-trigger = "heartbeat";
++		};
++	};
+ };
+ 
+ &sdhost {
 -- 
 2.56.1
 
