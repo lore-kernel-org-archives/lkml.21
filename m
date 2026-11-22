@@ -1,79 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.226.251.81
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795329417;
-	b=4fqLKO02HKx0fhQHqhAjT4gqVNRELjPDK67UlkN37RTFNdqQ0Jw/5tqum2fnGYlmd8oI
-	 Bi/EzUfq7n6M3Z6B246chYJ9cGAhf0w83wU+wbJbc3UistrwqXc0A31Du4xqi9EaNJQ/I
-	 POzZgOOfhTpYRN3lI4ha78uLGdKsUf0qm0vwOZc3BH9Mw5gzGA37gvuPod0qx87go0z1j
-	 ObU438QEcI0KtmXhKRgJzsuK92qQDKTlyobhqOqRTc6WcZPJT760SzL+w1Zgoceq37UKj
-	 4cSIx4fiQ3yICvrjYlrZRpRImjqKtM1jvAHSer0PcTQ9tfRtrFccUg96GYF22RkXW9Q==
+	t=1795329752;
+	b=xYIHPEpIXDsJxPvMLu+oqtliHzRwsRSghU3SYaU+4s7VgoGL3adDSqVQjVnqv5gyOiG7
+	 /rvZmukg7BFtqrR0o+h7SA2Pxt1rnbJt3yycUk/TNqRC6Dce5D/dzeEBaoAWwnc1TgQHV
+	 s9V/BBwZ7Aee2l0rBWbkgfv+7BzX5f7seLzKYp9NvPd6qFh3KZ+s92WI3C3JR0pAQ798Z
+	 ncQLzR/CPbgsWh3ci/etpUsV01NHOT5RjPs7fLKcy2KsyHjk3OQ2+H3jNkWiBQhHECyoI
+	 rZL/x0+Adt1zSHyjTbe4+BszWWM46U7cCz5SBA8xsqNCOy9w9IBNtAp4qQT3xgssT0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795329417;
-	h=DMARC-Filter:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
-	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
-	 MIME-Version:X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:
-	 X-CM-SenderInfo;
-	bh=rcnHT8Ouj9aPKLbMZKYqkaRR8q6iYAvPvYte5WZ6Dpg=;
-	b=dc411mkKjmbIYm7A6EDSQAYGLv0oYzg5Ft1Jt/vVeKjQKeffUkZs0qouKO/1fZQvxMGC
-	 AJhonjDdKVkdoxnu1V+D6h9WQcHvEYFhkwY1rw4MpwjX0dvNADfdLUleSHeoW48ATpWas
-	 g3ZKeKDUOaESrgMF9svQRh22Rns+nuCIkvCgFhnH5T4gxKJFKWDR+yK9l6cBY2OSlNK2z
-	 C+5F9QpD4yOUzxFt75Na4RICHYnZWYrQUXSDc7L1c5dfCI91kUXq6mwdX2d//8x48UhSc
-	 co/NK8hu1wEsc1qaO2NvqUM9SCgRUGRsIYMi2diBGk4XKwLRXv8Y7dYUHFbOdo5AxoQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795329752;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=AVCB0HTxvq9FD9Zr9BvahtZR+AMCtDmJhUDjR2kvGM4=;
+	b=1WgCXvlWIpAa4dv3gLmt5IpWtWpYsxU/tdjVeZPYfiVND4/oqWwOcIYAM1SdJmzJxPlB
+	 Lgi9Vl/BTseClRhe6H45gAhFpntLssrrCdGmMRrhWik4WfFx+8UOdMTzyI8XG39rwI9sa
+	 fmgz96t4imlcRzkR6drTiu3a5Ew+VHByoUE0DkWO+9e5+fNK3xfGphvKIdsESgr29Fkbw
+	 OmDGKaQrw9PTRWfekL+TnH/IegsrmWXWykj99bhDcmRS7Dgen6VB8ISy1ugRh9cmCjGUt
+	 m0o+Q4/kYbkTIiOUJyVLNYbuOZ40VRvZosVBuGwdFuJeKyVQ7RNOG6eABgvEAMWrfgg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iscas.ac.cn;
-	spf=pass smtp.mailfrom=iscas.ac.cn;
-	arc=none smtp.remote-ip=159.226.251.81
-Received: from cstnet.cn (smtp81.cstnet.cn [159.226.251.81])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ywyM6oUy;
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68504606A32A;
-	Sun, 22 Nov 2026 06:36:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68504606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iscas.ac.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iscas.ac.cn
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.102.23])
-	by APP-03 (Coremail) with SMTP id rQCowADX4JFJjQJrB7yNAQ--.19133S2;
-	Sun, 22 Nov 2026 14:35:55 +0800 (CST)
-Message-ID: <06e509d9cbfa06179cf5327ff533ae7212e23985.camel@iscas.ac.cn>
-Subject: Re: [PATCH v7 06/19] dt-bindings: display: verisilicon: Add
- starfive,jh7110-dc8200
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Michal Wilczynski <m.wilczynski@samsung.com>, Neil Armstrong	
- <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski	 <krzk+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Robert Foss	 <rfoss@kernel.org>, Laurent Pinchart
- <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli	
- <luca.ceresoli@bootlin.com>, Maarten Lankhorst	
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, Philipp Zabel
- <p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>,  Hal Feng
- <hal.feng@starfivetech.com>, Heiko Stuebner <heiko@sntech.de>, Paul
- Walmsley <pjw@kernel.org>,  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,  Dominique
- Belhachemi	 <db@domibel.de>, Andy Yan <andyshrk@163.com>, David Airlie
- <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>, Yakir Yang
- <kuankuan.y@gmail.com>, Dmitry Baryshkov	
- <dmitry.baryshkov@oss.qualcomm.com>, Conor Dooley <conor@kernel.org>, 
- William Qiu <william.qiu@starfivetech.com>, Xingyu Wu
- <xingyu.wu@starfivetech.com>, Sandy Huang	 <hjc@rock-chips.com>, Manivannan
- Sadhasivam <mani@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
- Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
- <maud_spierings@murena.io>, Graham Markall	 <hello@big-grey.co.uk>, Chaoyi
- Chen <chaoyi.chen@rock-chips.com>, Joshua Peisach <jpeisach@ubuntu.com>,
- Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>, 
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Sun, 22 Nov 2026 14:35:53 +0800
-In-Reply-To: <20261106-jh7110-clean-send-v7-6-68f7ea9913db@samsung.com>
-References: <20261106-jh7110-clean-send-v7-0-68f7ea9913db@samsung.com>
-		<CGME20261106135900eucas1p17159021cc747335b62cad6b3326605be@eucas1p1.samsung.com>
-	 <20261106-jh7110-clean-send-v7-6-68f7ea9913db@samsung.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8318F606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 06:42:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8318F606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ywyM6oUy
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4bb68c197c7so26856115e9.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 22:42:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795329750; x=1795934550; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=AVCB0HTxvq9FD9Zr9BvahtZR+AMCtDmJhUDjR2kvGM4=;
+        b=ywyM6oUyz76x6mwkCve2+pHTwiP5a4/k+93GHzzUVrarrMdmOyzeNZGofKeGIbY0Sl
+         58QgHWIYtsHBUwKDM8S9/lHoJTYeIJyWGyXbH2FLgwbamPRP4pxNtDZYDFwZI773qYsM
+         NXqLotGHpcxIwIdqrt6nFIrTP+f9Mu4gFo6zPTZZOXcw+VXbs8Peco7twgSCsN+2izMa
+         CTfq1PRnq7etNRwgE9rQ0WuzgEX965SmCiChq9YgR0QsnmkdfOyxRQV7aC2smlyk6qHO
+         zOZVjtMKQ84ixZSr/QNsZeA8ogfLZXyWuIbHIyBZ3J4yaxBdpoPDns4CW7aHatWdbf1+
+         FCBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795329750; x=1795934550;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=AVCB0HTxvq9FD9Zr9BvahtZR+AMCtDmJhUDjR2kvGM4=;
+        b=KY+j5ufa7auV8Lm3rhM17CSCmpcT6RbV4mYfq0iaPq3+DmElHrQw0G8xQrPSHvYNk6
+         iPs8nVSd8MGzlIkiie9yTj/lhyYcMin0HOZzHC4uhRWse9gTlqmdvcU/ZNDze5uy92Qr
+         g3cKxJMfavm18ePDYm4CspIUY5nyN/k7c9FfSQH5Yl2IOObOrhLcmWyeazBon/hC4OF0
+         HrnE/W39txEtEOheVkke5fK14OEa41/UuyC6im8Ei1B2uDf6DaC5h5juMVOQ4hcdSYxA
+         OvXJW6jC4FvuOodbJgfdyiWtuI5WlEHa93n3KkQCjAGqYxY///kCXuoDgh2ZIuEkq6pq
+         607w==
+X-Forwarded-Encrypted: i=1; AL+hErFPV/qCjiwEWjR+C7yMysXS5dVor46FmtQ410kb7WV3d7vUCSym+Bk6BDjHyHh0uC1Zjy9YG/I4erOIv4g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+VxTM5oAa0A20RTTWWrzydo7xcsILXNEaFnvYhuibkW3JaeseA
+	+0EjsACjpV2ZjykE7R4JCQwTI9rgu6KTWQejMPUwik2aQ8WdXB4LC6cG
+X-Gm-Gg: AZFdTZemgJ5Ff9N9Gf8SkLfEXRiRqZibzMyF7QPB0keMpofTU5v0FhgdGUzY9yMpec6
+	KxNygF9817Gf+Py1drs8+Tbk1uRseUGCsYta46nzr6GjSGdt6ibW6f+j61FwV6eZq6xQJr7cHo0
+	BN37Eo7Dc1xYMUYKsn4c/Uz30pluxsLB16rQnKb4dqqy0AOH/UzFBks3pVtMxgGR33JUoU+ttvi
+	izyniygJBh4OlQ5bTksFhXsjVICMPu0fFXcpu9auGTx1+iuGKbUCLie8RS9TTGmiun5sw2JWBQ7
+	nPkhcUMqtEMCF+ox4D5VOgHsCa2srql02GbEFR4LWrFZFFzOEBYPXrwfPB7rlEpqiimJn2LVKyx
+	WuTpRNuUUfMBHOTD7K8soJBiVMfRoJd+O6Hcx2YeFtnx0rkdRqYpKD5CuDxwvQFhBQbDZ0ZiVlP
+	lGoDm9pQ4WvUbtWbIX6feq5T0Ar8yoYOpT68AB9I6lyUnRLqynGS3fiFVgpsg3t0Xcz8ST395Pa
+	0dpmrA4e5Q4cQX7hOH5/0Rx1+pA0iMPAKYYSQURj3w1KZQBXEe/GTAPEUpcNQt5ig0fUo0d+W22
+	9Nu/CpBq5LXiuHgkiiMygNk/q8IX/ZGZsYDIybHoUA==
+X-Received: by 2002:a05:600c:310f:b0:4b5:d95c:2378 with SMTP id 5b1f17b1804b1-4bb8881f9b7mr179283065e9.34.1795329750289;
+        Sat, 21 Nov 2026 22:42:30 -0800 (PST)
+Received: from localhost.localdomain ([102.187.134.136])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf61ddsm13745986f8f.12.2026.11.21.22.42.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 22:42:29 -0800 (PST)
+From: Mohamed Dawod <mhm.dawod@gmail.com>
+To: netdev@vger.kernel.org
+Cc: vinicius.gomes@intel.com,
+	jhs@mojatatu.com,
+	jiri@resnulli.us,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	ye.zh-yuan@socionext.com,
+	linux-kernel@vger.kernel.org,
+	Mohamed Dawod <mhm.dawod@gmail.com>
+Subject: [PATCH net v2] net/sched: cbs: fix 32-bit overflow in transmission time estimate
+Date: Sun, 22 Nov 2026 08:41:55 +0200
+Message-Id: <20261122064155.2094434-1-mhm.dawod@gmail.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,55 +103,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-CM-TRANSID:rQCowADX4JFJjQJrB7yNAQ--.19133S2
-X-Coremail-Antispam: 1UD129KBjvdXoWruFW7try5Zw1rGr17GrWDXFb_yoWkWwb_ua
-	yxC3WUAFs8JryFga1jkrn7KF1Fqa12yw4rC3Z8tF1rG348CrZ0gF93Jw1Yyw1UZr4I9r15
-	Crs3WryqgFsxCjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbVxYjsxI4VWxJwAYFVCjjxCrM7AC8VAFwI0_Wr0E3s1l1xkIjI8I
-	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
-	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0
-	cI8IcVCY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
-	C2z280aVCY1x0267AKxVWxJr0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
-	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
-	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xK
-	xwCY1x0262kKe7AKxVWrXVW3AwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
-	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
-	1VAFwI0_Wrv_Gr1UMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
-	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
-	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
-	73UjIFyTuYvjxU-eHqUUUUU
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+Content-Transfer-Encoding: 8bit
 
-=E5=9C=A8 2026-11-06=E4=BA=94=E7=9A=84 14:58 +0100=EF=BC=8CMichal Wilczynsk=
-i=E5=86=99=E9=81=93=EF=BC=9A
-> The JH7110 embeds a DC8200. The binding requires an SoC specific
-> compatible ahead of the generic one, so add the JH7110 to the enum.
->=20
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+cbs_dequeue_soft() estimates when the transmission of a packet completes:
 
-Applied this patch to drm-misc-next.
+	q->last = now + div64_s64(len * NSEC_PER_SEC, port_rate);
 
-Thanks,
-Icenowy
+len is an int and NSEC_PER_SEC is 1000000000L. On 32-bit architectures
+long is 32 bits wide, so the product is computed in 32 bits and wraps
+before it is widened for div64_s64(). For a 1242 byte frame the product
+is 1242000000000 mod 2^32 = 754451456, which gives a transmission time
+of about 60 ns at 100 Mbit/s instead of about 99 us.
 
-> ---
->  Documentation/devicetree/bindings/display/verisilicon,dc.yaml | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/display/verisilicon,dc.yam=
-l b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-> index 919a9001220120054cb62d1d01b7293367266f95..05a202633cd273fec358c095c=
-64584d959d96d90 100644
-> --- a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-> +++ b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-> @@ -16,6 +16,7 @@ properties:
->    compatible:
->      items:
->        - enum:
-> +          - starfive,jh7110-dc8200
->            - thead,th1520-dc8200
->        - const: verisilicon,dc # DC IPs have discoverable ID/revision reg=
-isters
-> =20
+As a result q->last stays almost equal to now and the packet sending
+time is ignored again, which is the problem 'commit 961d0e5b3294
+("net: cbs: Fix software cbs to consider packet sending time")'
+set out to fix. The throughput becomes
+
+	idleslope * port_rate / |sendslope|
+
+instead of idleslope.
+
+Measured on a BeagleBone Black (32-bit ARM, CPSW, 100 Mbit/s full
+duplex) with software CBS (offload 0), one UDP flow with a 1200 byte
+payload (1242 byte frames), sendslope = idleslope - 100000. The rate
+was read from the qdisc byte counters:
+
+	idleslope [kbit/s]   before [Mbit/s]   after [Mbit/s]
+	10000                11.1              10
+	20000                25.0              20
+	30000                42.9              30
+
+Cast len to s64 so the multiplication is done in 64 bits on all
+architectures.
+
+Fixes: 961d0e5b3294 ("net: cbs: Fix software cbs to consider packet sending time")
+Signed-off-by: Mohamed Dawod <mhm.dawod@gmail.com>
+Acked-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
+---
+ net/sched/sch_cbs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/net/sched/sch_cbs.c b/net/sched/sch_cbs.c
+index 1c93469c56e3..107c2b6e9da3 100644
+--- a/net/sched/sch_cbs.c
++++ b/net/sched/sch_cbs.c
+@@ -222,7 +222,7 @@ static struct sk_buff *cbs_dequeue_soft(struct Qdisc *sch)
+ 	if (unlikely(atomic64_read(&q->port_rate) == 0))
+ 		q->last = now;
+ 	else
+-		q->last = now + div64_s64(len * NSEC_PER_SEC,
++		q->last = now + div64_s64((s64)len * NSEC_PER_SEC,
+ 					  atomic64_read(&q->port_rate));
+ 
+ 	return skb;
+-- 
+2.25.1
 
