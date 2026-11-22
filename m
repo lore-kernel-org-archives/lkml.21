@@ -1,87 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795371110;
-	b=h0q3NpBoeyg8Y89FolK+bBljTVm4nV48gs7nCnGpLzdMo82t6TIIw/GELX1xrxzwcnr1
-	 sog1Cue08Xw+nYCQkHHhyEid+I003zQe2zn5CKxS71qL6rBCNF5/CJkQsjJ2HWRUFipsU
-	 00XRNVWiEn2lRwj4MbeXfL+FicFDmnr8CEFnruAgdM2kpecwqUncLaIUvxcSzeh7zC+Yx
-	 0TQgDQAJgOAyoxTFwo1QnBr4wGlGEJH0dto7dESU4ADVYVoaz+nKS/83VV5ksJgcfYi2r
-	 llm/siITMNeOL1BiSNXi6zhcHOLmaPgsCisEzCW+cUlBQ+nVlpsWkxzArG3Xi5KV1FA==
+	t=1795371111;
+	b=Ppo7k08vYd/m9ZiMqPZIESch8ye+EBCdLdh0w0ug/tZaz5C6WaLW1MPxFYlBdDk066C6
+	 yt6O5oLCf2rX4XcEjh+qaWdtWU5hw0q0TTPQuahHfcdTddagczHsRUugffL1C6NihAYQq
+	 mv3Tso9h3jNX5cb3KhSogVGlA7cYqjYmFwNVljZlAVQmurQI2fywEkuW7t+jC0St8zWzg
+	 caNTw09ju0enlRxtHdjC/KT3ZC5kqA61y8/ygkiVVW8FUSXcgG0I5sLW1uLdECo0q5dlz
+	 lmNG0DlZP5j8QD00L1aSf0r8X7xAGglBmCWcjaHkPr++N2hDR9yw/mOpRJezbWHIxlA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795371110;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795371111;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=tHmt/1DGc6z6bOlU+pcZZ2IuvF/j7mYPG2xCczPpUEo=;
-	b=lH4CQrprfw2b2zURJnYF2dBDUxuKI8V0HpuX7iispgN0hpV24D/n/0gKpyK12QRxH4O7
-	 tqmQHo9HfaDFYbJY6Pt3OoznU6SQcx9rFP9U1EIbox0SkiYD7c1prLL8o5Cnxnlws+RaU
-	 rHq9/v5nxmA2UCSsnTxQzmkhS+0chb3o7fv8W5gFKGBM+8es7cZf12kAyh/59x5GoXN7E
-	 uOrHA+GyqjFM+rugUjwNBq6z128yxwcSNr+Cx4JgFnMAycfWkYeaiX1SpVawUFNdpV8Cj
-	 nXrBDJ93EnM8wJPWq916B+77jL4PxI4fIbncO2W2xkrhmPg5BZhXCTlEzEgQVSzQYfQ==
+	bh=QPQ6Z0+Ejkb86/QqsMqCsz6Be6K0g3JHqbeFjXLeLac=;
+	b=bYt/0aGGzyoHPb+aPUVo0yrKR2b0Jm8xdu1vGcjs76cqdDQlAK61K3pRqyENlj1gCHEe
+	 Rk6ybS3NKMSKvbuo4b6ADy1Ity7h3RN7f+qo0iwxBg+coRn5AFMoacEere2LC3+ZVaLLB
+	 kSALQrgAMAIstkRCLU7WlkVM5/+soKMU2gteclP9ea78CmlM4027KCI0V9VxaQM1K/AKc
+	 EssTBoAQ00BJSCH1qhVWACt8M9clYXkn/hcVv6fBv+5JXADgimVut3E0PY2y8YHXN5qr8
+	 sZJ0VdnNYFq58r5ewbdBXch9tg6nxcgkyX7CCo0nq0xJxLJgGNBH7tXsk6nkdeSmLTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bairaktaris.de;
 	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=W3S7r0ZL;
-	arc=none smtp.remote-ip=209.85.218.44
-Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
+	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=P2BF8BbE;
+	arc=none smtp.remote-ip=209.85.218.46
+Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com [209.85.218.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EE03606A6BA
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:11:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6EE03606A6BA
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5282F60A2609
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:11:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5282F60A2609
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=W3S7r0ZL
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c50a4a2132cso355402966b.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:11:49 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=P2BF8BbE
+Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-c4d28f75d62so427849366b.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:11:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795371108; x=1795975908; darn=vger.kernel.org;
+        d=bairaktaris.de; s=google; t=1795371109; x=1795975909; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=tHmt/1DGc6z6bOlU+pcZZ2IuvF/j7mYPG2xCczPpUEo=;
-        b=W3S7r0ZL9dqoJ9GdxjtfUkgrLFyhI2d1ijPq4lFDYz7vE7lZTPG9E0eXWmbK0oBR7D
-         lt/KFbJRtDxGFk9IY3HKWdf+NVvro+4CK4ZOjjL0CHMzOI2vfHdpMV5kU/2U2lBcmY5t
-         /09rPEu84COQxAJh+JSzZUo9DHxtFZGPyFJcwASghsnA9wX7lOzcjhIAe2W83z81fZDM
-         ZsObyz5jhynHuNQFNQQKVK2ys46iNT+FHNcf5tdMHto4LYNPb48P2ArO/TMfrZSUSOEI
-         hDSnlBcudvMpGQOGQKHgrpKS5hGVB9dhTE3CRAypSre3Dq+BLAXhgnL3Yedsma4P0VYh
-         U21Q==
+        bh=QPQ6Z0+Ejkb86/QqsMqCsz6Be6K0g3JHqbeFjXLeLac=;
+        b=P2BF8BbEr4Fus4fFKk+CbC5C0+w4m9qkCX7anjEBqS9boBEmAE1ITiNiUqKA43igVC
+         4HMQ3Uny2BwhtSyZCqhz5um6WdbvZMbvzc+ZeFR6Zv2uLHcJhZn50FsR79OQrMzDUuv4
+         yQxovLO/dptSaN354PiEJQe6FUNBQeSA1eKUYpUAayh+tkZEgfS6TD8EZTCGwvhHyqI8
+         DBXzGX1dC0RI1P9Su8UnpAGIVRxvlQBvBiNckhHWWAo4SvGhFtIEHWSkupgQkCzkbxA2
+         HW9JWRcO+eWBzYaAe+W3msrknu0NF//S9jd4ZMCMifsrm/tb8wDZt1/JUb8unCjsq2/k
+         dhMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795371108; x=1795975908;
+        d=1e100.net; s=20260707; t=1795371109; x=1795975909;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tHmt/1DGc6z6bOlU+pcZZ2IuvF/j7mYPG2xCczPpUEo=;
-        b=o4xHOVywpClS1fPQOU5e9dbnotX1bSAlucfIp6Vrp2kqamIzQl7aXiG966Neg5gdxq
-         vtLYNui3Cq4pSNborLMys+FQOmWXTb1D8tjyDtIOTaMCIvS9JKmdPrR3P+NYp/cbUau4
-         cQ3uNSImzxXT3uMCT3PTWoiHWdoaZtGNw/MG1mlYmgmsIBGuwrmsgDT7+nWkaZOLKcvj
-         uzBhC7WsMyFHwG8iGPaXeZe7X8MPda38W2DskotveMMOcrA7TtMo59hxak7CN3VKnQYj
-         PS6xmq4dWg5kG43Ww5T3J/gAXPb6lE041t9tZiWv0ug8HUS/vrY6053rekyh3HlCEHmC
-         r4Ww==
-X-Forwarded-Encrypted: i=1; AL+hErEYmFBINUA7mEe6waTT/BUMTaImFDNHs84KmKY6q3ykbogiJBkGX+JGzZxciQ1gJQmP47/E14U0PriGuUg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Hb1uh1JGSv+A8gSwNWTVXM13/orHNXMim6cb3iTp+viJ6Get/
-	ycSQ1h3fS9aM6+neQ9EoURW1OKoiwrGWC/tEAJ7X1nD1w81SUeeohcs9AbGb+fR5Dg==
-X-Gm-Gg: AZFdTZcWMDERJsfbLD5WfqJDrZatHvfIz+vooKHST8RNqi8WI6PXntiwJgO8xUP9alL
-	XYS8kbSNCmlsoVs4f3LKn1fCbmkKyYE8oPLToLbUyCjHIYA1+KKvVDLa38g++sGm2Jsbmx+heXb
-	cDtf9wYnWmgxsAf3T8gZEsEZ1Nbcm7HRdqkEcBwzZu8V9DjJX1qFYeSP4oBb/Bby1DXgznpYEiB
-	s+v3TPy+1Bc5DvMVryyuFL384vgzhDF5lnxSBiQhpGiRorll6Gmrp301gbJ6s20KTUoRN+po/Qz
-	37+eQ+z68XN3WyYVY/zqSg2hN7JKEq/BCMEXsuM7Icsvjp6yJeKuIQIjpdsLW8VKfIFk15lC5aF
-	b1MaxM3yuBAYWJRIv5+8HXSP2A1L1xncACxaHI2TeOSCELoyvFP4Tc/eQk5VnD09hsuTiBEEgEr
-	K/kFv3c3BZozAeh9t83L4G/jkcl40Yi1ITN0kN/+RdDqtnhdkzlOnM/WxAa6Vuk7+Y9rPa2CaZD
-	UdwIK4YR0jnPzckjZLZvjnRzpDdV/I/8ZysVIiEcPpBNTaOVp7XvJEcBDKUvJCevtYTTe9P2Xp/
-	GRmGMdC9B5sXBUX4MzoAtno6WlDv0cpxrBIrut74Yh6ZiZe1crctvLeTmot9arzuWnQPC92Yf/p
-	NU8YS1I/AetIPZJkk0i8fOcq8/FlAFgJBDMQALsXREzvPyoQLD0HeQQvSydu2qBW7yikkA6SJV7
-	t5BdlHUgh3jjK7siYKQDY6r68lEi+29EwPcnPXvs+S3IjD1cWlVIGbcuYgav4IXgYByy6D6o13y
-	k7gLD1iy+xN4cf8PBc/CMJn8aaY1xybBwaoCO1CIpkiNecMzfI/qWStr/J6u6HxRaGnj8x2TyX5
-	Txc38bOnb4VibXT/MyPmA64z38m9YMLwW5IWszim7hg9v/XU4NrlgWzrnAZQ0H7Coccz1v7s
-X-Received: by 2002:a17:907:ea8e:b0:c49:a235:8e0c with SMTP id a640c23a62f3a-c513aadb22dmr721786766b.22.1795371107843;
-        Sun, 22 Nov 2026 10:11:47 -0800 (PST)
+        bh=QPQ6Z0+Ejkb86/QqsMqCsz6Be6K0g3JHqbeFjXLeLac=;
+        b=rMVp1Hl1Nu9wXhbj7hcwJqKGFx2C+HyFYJ96NepBnz8OYgOWjPPHJLCfSQYRvY39HP
+         rBNGQk8u9Vy4j2WwXCagKnbvJloRuXqJpdbvGIigX/v5VVLQ4u5r4t3HWo97JGxjb7pL
+         iTiyANsK0vqPqjJ5opdh4SjkATFQcUBGhmBnecqwySCVON+7vGUlCAZ+qdHQykQHmHdO
+         jxcceYf3rTGHQFGw7VGV/T77ko/K5C9PO5Grs40+PJg8vAqDerINZYw038KtFguib3YZ
+         656a+4RPVqb7a74pZD4rjvMUcTTOt7qDNlFPhutXije41eUmLJbvJuW7MOuiJvJ+p4xh
+         VOgw==
+X-Forwarded-Encrypted: i=1; AL+hErFq98uM6W6Qa8o3iPhTQLxEdbm5gaj6vUg92b73JaineLEJVeM8rpHjNA8ThcBob7b3Z8dYtMHkd7fkyPw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/wuMP9XcRaXaGdvvKpwNOxE87ha2yNXB1etJriJR4jBs3R92p7
+	pCXG8XWviVy87wgmpjEPEisR2Tea+er5FSR7pjkDfHDqDNZxeGLdmAgyn8YloZGyDg==
+X-Gm-Gg: AZFdTZfsfXTaUIkZ1wsxB0rkVe2fCwKTIMPjPQyxHXv4L4SJ+k+g7/QvAWu8r8k5Ucj
+	9nx6pMC6btzohUGsewMOqUP18iKSp9USm+fIf06zj2Oybn5FQ38Rup2hR8n5e/ISPdsqHKxjtcV
+	2QJ2MUCrlvY9owB0JYSPza5QMbgIdPadZWnRBSs+FHSj9V63btCNzduQ5Ul3tGaWKN2SHEpxToz
+	rW2ju8kVNIKkADOgX9jehEF394bjBNZOYY/bwVSNhEOrO+STXO/kD+QFsNRvQNj+8YVEWzgKK7t
+	/P07hzVgulc1xK6j5YeQuadrY2bqBT9zyq2HuBelF0zD6NShG114JkjqG+L3/uqf2WvH0M412uE
+	GRfXMwBqyTyE9Y8Li/BA6wc8i8pAGoDq8mU+rfF2EtybVlIAOK7+yZ/Mz8mjt0UEJfmfVkg+JgS
+	dLJKe951sXLtjOunxaqV7Le9Le4gyhvTahSHZ+xLuw93IbzQXiCU2K/09NtSY/zZ8oXu5791EOi
+	9NPm9YXpTr/Nw07A+NKp8z8XZVa81hRJVo73gG5HIJBd0Li/lXqIXl2VGKS0JJPMtUhE6Qs2xJd
+	izvUggxGQxCo2QT221MCffEiHwt6yK7B47FrGYv48O6ES5lSb9Ca52amyuZLY77x+OGzuu73ULt
+	OBgrSYB08telpDHF88T9FNAxtTvawNHRavvtwFQrJnPLsNULt8Oion6xHVy0lZTSFJSfX+WxY/N
+	PDAzIVsylfa67fL7NZdsEQNInJdWUU1f0gERrZa9JY82ueu+cxYMS8JDrVuhYE1nX6EaJAQKAOF
+	rdaUuyBIhUdmo7AoewY0hn98SJzC/2lXwk+YUZlDBH3fgy4H4h63hbC2oWK4GZlU1HwbPzEElkx
+	vuXXeB9uAd/aoV6zEjveheqOj/Zxb8P0M6wL7TNBdHlp4LZy3l3R2KOjF+ksFrZ5pLWLSESA
+X-Received: by 2002:a17:906:3814:b0:c41:cf68:bbcf with SMTP id a640c23a62f3a-c513ab497afmr548454966b.32.1795371108676;
+        Sun, 22 Nov 2026 10:11:48 -0800 (PST)
 Received: from Desktop.tail070c67.ts.net (p200300f24713a700f1770d5b08d979ed.dip0.t-ipconnect.de. [2003:f2:4713:a700:f177:d5b:8d9:79ed])
         by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae88143sm325931266b.32.2026.11.22.10.11.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 10:11:47 -0800 (PST)
+        Sun, 22 Nov 2026 10:11:48 -0800 (PST)
 From: Julius Bairaktaris <julius@bairaktaris.de>
 To: Jeff Johnson <jjohnson@kernel.org>
 Cc: linux-wireless@vger.kernel.org,
@@ -101,9 +101,9 @@ Cc: linux-wireless@vger.kernel.org,
 	toke@toke.dk,
 	Christopher Griffin <christophergriffin05@gmail.com>,
 	Julia Lawall <julia.lawall@lip6.fr>
-Subject: [PATCH ath-next v6 5/9] wifi: ath11k: schedule TXQs from the driver
-Date: Sun, 22 Nov 2026 19:11:41 +0100
-Message-ID: <20261122181145.1015729-6-julius@bairaktaris.de>
+Subject: [PATCH ath-next v6 6/9] wifi: ath11k: run the TXQ scheduler on tx completion
+Date: Sun, 22 Nov 2026 19:11:42 +0100
+Message-ID: <20261122181145.1015729-7-julius@bairaktaris.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261122181145.1015729-1-julius@bairaktaris.de>
 References: <20261122181145.1015729-1-julius@bairaktaris.de>
@@ -118,136 +118,175 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The wake_tx_queue handler serves only the txq mac80211 passes it, so
-there is no deficit round robin between stations. Run the round in the
-driver: walk the access category's active txqs with
-ieee80211_next_txq() and drain each through the TCL ring check until the
-airtime queue limit binds or the queue empties. A full ring ends the
-round, since all txqs of a round share it. Each round holds a
-per-category lock, as in ath10k, because mac80211 forbids concurrent
-rounds on one category and the next patch also starts rounds from tx
-completion. The design was proposed for ath11k in [1].
+A station at its airtime queue limit gets airtime back only when the
+hardware completes its frames, but ath11k starts a round only from
+wake_tx_queue, so the backlog waits for the next frame from the stack.
+Start a round for each access category, taken from the frame's queue
+mapping, that a reaped completion belonged to, whether the hardware or
+the firmware released the frame.
 
-Link: https://lore.kernel.org/all/20230501130725.7171-1-quic_tamizhr@quicinc.com/ [1]
+TCP download from a wired host to one 1x1 VHT80 station, BE
+aql_txq_limit 500/1000 us, 20 s, three interleaved runs per arm, sender
+RTT:
+
+                    Mbit/s              RTT mean ms   RTT max ms
+  with this patch   94.5, 94.4, 94.6    68, 62, 67    126, 135, 121
+  without           74.0, 78.5, 72.4    28, 27, 27     55,  40,  40
+
+Without it the link idles between arrivals, which also lowers its RTT.
+At the default limits both arms reach 88 to 95 Mbit/s.
 
 Tested-on: IPQ8074 hw2.0 AHB WLAN.HK.2.9.0.1-02146-QCAHKSWPL_SILICONZ-1
 
 Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
 ---
- drivers/net/wireless/ath/ath11k/core.h |  5 +++
- drivers/net/wireless/ath/ath11k/mac.c  | 44 +++++++++++++++++++++++---
- 2 files changed, 44 insertions(+), 5 deletions(-)
+ drivers/net/wireless/ath/ath11k/dp_tx.c | 33 +++++++++++++++++++------
+ drivers/net/wireless/ath/ath11k/mac.c   |  7 ++++++
+ drivers/net/wireless/ath/ath11k/mac.h   |  1 +
+ 3 files changed, 34 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/wireless/ath/ath11k/core.h b/drivers/net/wireless/ath/ath11k/core.h
-index a0d725923ef24..40895d276de5f 100644
---- a/drivers/net/wireless/ath/ath11k/core.h
-+++ b/drivers/net/wireless/ath/ath11k/core.h
-@@ -709,6 +709,11 @@ struct ath11k {
- 	 */
- 	spinlock_t data_lock;
+diff --git a/drivers/net/wireless/ath/ath11k/dp_tx.c b/drivers/net/wireless/ath/ath11k/dp_tx.c
+index 081e79d3759c5..0cdc0493f10d2 100644
+--- a/drivers/net/wireless/ath/ath11k/dp_tx.c
++++ b/drivers/net/wireless/ath/ath11k/dp_tx.c
+@@ -286,7 +286,8 @@ int ath11k_dp_tx(struct ath11k *ar, struct ath11k_vif *arvif,
  
-+	/* serialises one scheduling round per access category against the
-+	 * other contexts that drive it
-+	 */
-+	spinlock_t txq_lock[IEEE80211_NUM_ACS];
-+
- 	struct list_head arvifs;
- 	/* should never be NULL; needed for regular htt rx */
- 	struct ieee80211_channel *rx_channel;
-diff --git a/drivers/net/wireless/ath/ath11k/mac.c b/drivers/net/wireless/ath/ath11k/mac.c
-index eca16a151d068..226e1417ffe74 100644
---- a/drivers/net/wireless/ath/ath11k/mac.c
-+++ b/drivers/net/wireless/ath/ath11k/mac.c
-@@ -10078,13 +10078,12 @@ static int ath11k_mac_op_sta_state(struct ieee80211_hw *hw,
- 	return ret;
- }
- 
--static void ath11k_mac_op_wake_tx_queue(struct ieee80211_hw *hw,
--					struct ieee80211_txq *txq)
-+static int ath11k_mac_tx_push_txq(struct ath11k *ar, struct ieee80211_txq *txq)
+ static void ath11k_dp_tx_free_txbuf(struct ath11k_base *ab, u8 mac_id,
+ 				    int msdu_id,
+-				    struct dp_tx_ring *tx_ring)
++				    struct dp_tx_ring *tx_ring,
++				    unsigned long *push)
  {
- 	struct ieee80211_tx_control control = {
- 		.sta = txq->sta,
- 	};
--	struct ath11k *ar = hw->priv;
-+	struct ieee80211_hw *hw = ar->hw;
- 	struct dp_tx_ring *tx_ring;
- 	struct hal_srng *tcl_ring;
- 	struct sk_buff *skb;
-@@ -10097,6 +10096,10 @@ static void ath11k_mac_op_wake_tx_queue(struct ieee80211_hw *hw,
- 	tx_ring = &ar->ab->dp.tx_ring[ring_id];
- 	tcl_ring = &ar->ab->hal.srng_list[tx_ring->tcl_data_ring.ring_id];
+ 	struct ath11k *ar;
+ 	struct sk_buff *msdu;
+@@ -307,6 +308,8 @@ static void ath11k_dp_tx_free_txbuf(struct ath11k_base *ab, u8 mac_id,
+ 	dma_unmap_single(ab->dev, skb_cb->paddr, msdu->len, DMA_TO_DEVICE);
  
-+	/* ieee80211_tx_dequeue() applies the airtime queue limit, so a
-+	 * selection ends where that limit binds or the queue empties. A full
-+	 * TCL ring ends the whole round.
-+	 */
- 	while (1) {
- 		if (unlikely(test_bit(ATH11K_FLAG_CRASH_FLUSH,
- 				      &ar->ab->dev_flags)))
-@@ -10110,7 +10113,7 @@ static void ath11k_mac_op_wake_tx_queue(struct ieee80211_hw *hw,
+ 	ar = ab->pdevs[mac_id].ar;
++	__set_bit(mac_id * IEEE80211_NUM_ACS + skb_get_queue_mapping(msdu),
++		  push);
+ 	ieee80211_free_txskb(ar->hw, msdu);
  
- 		if (num_free == 0) {
- 			spin_unlock_bh(&tx_ring->wake_tx_lock);
--			break;
-+			return -ENOSPC;
+ 	if (atomic_dec_and_test(&ar->dp.num_tx_pending))
+@@ -352,7 +355,8 @@ void ath11k_dp_tx_free_pending(struct ath11k_base *ab)
+ static void
+ ath11k_dp_tx_htt_tx_complete_buf(struct ath11k_base *ab,
+ 				 struct dp_tx_ring *tx_ring,
+-				 struct ath11k_dp_htt_wbm_tx_status *ts)
++				 struct ath11k_dp_htt_wbm_tx_status *ts,
++				 unsigned long *push)
+ {
+ 	struct ieee80211_tx_status status = {};
+ 	struct sk_buff *msdu;
+@@ -375,6 +379,8 @@ ath11k_dp_tx_htt_tx_complete_buf(struct ath11k_base *ab,
+ 	info = IEEE80211_SKB_CB(msdu);
+ 
+ 	ar = skb_cb->ar;
++	__set_bit(ar->pdev_idx * IEEE80211_NUM_ACS +
++		  skb_get_queue_mapping(msdu), push);
+ 
+ 	if (atomic_dec_and_test(&ar->dp.num_tx_pending))
+ 		wake_up(&ar->dp.tx_empty_waitq);
+@@ -426,7 +432,8 @@ ath11k_dp_tx_htt_tx_complete_buf(struct ath11k_base *ab,
+ static void
+ ath11k_dp_tx_process_htt_tx_complete(struct ath11k_base *ab,
+ 				     void *desc, u8 mac_id,
+-				     u32 msdu_id, struct dp_tx_ring *tx_ring)
++				     u32 msdu_id, struct dp_tx_ring *tx_ring,
++				     unsigned long *push)
+ {
+ 	struct htt_tx_wbm_completion *status_desc;
+ 	struct ath11k_dp_htt_wbm_tx_status ts = {};
+@@ -451,12 +458,12 @@ ath11k_dp_tx_process_htt_tx_complete(struct ath11k_base *ab,
+ 		else
+ 			ts.peer_id = HTT_INVALID_PEER_ID;
+ 
+-		ath11k_dp_tx_htt_tx_complete_buf(ab, tx_ring, &ts);
++		ath11k_dp_tx_htt_tx_complete_buf(ab, tx_ring, &ts, push);
+ 
+ 		break;
+ 	case HAL_WBM_REL_HTT_TX_COMP_STATUS_REINJ:
+ 	case HAL_WBM_REL_HTT_TX_COMP_STATUS_INSPECT:
+-		ath11k_dp_tx_free_txbuf(ab, mac_id, msdu_id, tx_ring);
++		ath11k_dp_tx_free_txbuf(ab, mac_id, msdu_id, tx_ring, push);
+ 		break;
+ 	case HAL_WBM_REL_HTT_TX_COMP_STATUS_MEC_NOTIFY:
+ 		/* This event is to be handled only when the driver decides to
+@@ -736,9 +743,10 @@ void ath11k_dp_tx_completion_handler(struct ath11k_base *ab, int ring_id)
+ 	struct sk_buff *msdu;
+ 	struct hal_tx_status ts = {};
+ 	struct dp_tx_ring *tx_ring = &dp->tx_ring[ring_id];
++	unsigned long push = 0;
+ 	u32 *desc;
+ 	u32 msdu_id;
+-	u8 mac_id;
++	u8 mac_id, i;
+ 
+ 	spin_lock_bh(&status_ring->lock);
+ 
+@@ -782,7 +790,7 @@ void ath11k_dp_tx_completion_handler(struct ath11k_base *ab, int ring_id)
+ 			ath11k_dp_tx_process_htt_tx_complete(ab,
+ 							     (void *)tx_status,
+ 							     mac_id, msdu_id,
+-							     tx_ring);
++							     tx_ring, &push);
+ 			continue;
  		}
  
- 		skb = ieee80211_tx_dequeue(hw, txq);
-@@ -10123,6 +10126,34 @@ static void ath11k_mac_op_wake_tx_queue(struct ieee80211_hw *hw,
+@@ -798,12 +806,23 @@ void ath11k_dp_tx_completion_handler(struct ath11k_base *ab, int ring_id)
+ 		spin_unlock(&tx_ring->tx_idr_lock);
  
- 		spin_unlock_bh(&tx_ring->wake_tx_lock);
+ 		ar = ab->pdevs[mac_id].ar;
++		__set_bit(mac_id * IEEE80211_NUM_ACS + skb_get_queue_mapping(msdu),
++			  &push);
+ 
+ 		if (atomic_dec_and_test(&ar->dp.num_tx_pending))
+ 			wake_up(&ar->dp.tx_empty_waitq);
+ 
+ 		ath11k_dp_tx_complete_msdu(ar, msdu, &ts);
  	}
 +
-+	return 0;
-+}
-+
-+static void ath11k_mac_schedule_txq(struct ath11k *ar, u8 ac)
-+{
-+	struct ieee80211_hw *hw = ar->hw;
-+	struct ieee80211_txq *txq;
-+
-+	spin_lock_bh(&ar->txq_lock[ac]);
-+
-+	ieee80211_txq_schedule_start(hw, ac);
-+	while ((txq = ieee80211_next_txq(hw, ac))) {
-+		int ret = ath11k_mac_tx_push_txq(ar, txq);
-+
-+		ieee80211_return_txq(hw, txq, false);
-+		if (unlikely(ret))
-+			break;
-+	}
-+	ieee80211_txq_schedule_end(hw, ac);
-+
-+	spin_unlock_bh(&ar->txq_lock[ac]);
-+}
-+
-+static void ath11k_mac_op_wake_tx_queue(struct ieee80211_hw *hw,
-+					struct ieee80211_txq *txq)
-+{
-+	ath11k_mac_schedule_txq(hw->priv, txq->ac);
++	/* A completion returns the airtime the frame was charged, which is
++	 * what an airtime-limited station in that access category is waiting
++	 * on. The arrivals that would otherwise start a round are themselves
++	 * queued behind that limit.
++	 */
++	for_each_set_bit(i, &push, ab->num_radios * IEEE80211_NUM_ACS)
++		ath11k_mac_tx_push_pending(ab->pdevs[i / IEEE80211_NUM_ACS].ar,
++					   i % IEEE80211_NUM_ACS);
  }
  
- static const struct ieee80211_ops ath11k_ops = {
-@@ -10817,7 +10848,7 @@ int ath11k_mac_allocate(struct ath11k_base *ab)
- 	struct ath11k *ar;
- 	struct ath11k_pdev *pdev;
- 	int ret;
--	int i;
-+	int i, j;
+ int ath11k_dp_tx_send_reo_cmd(struct ath11k_base *ab, struct dp_rx_tid *rx_tid,
+diff --git a/drivers/net/wireless/ath/ath11k/mac.c b/drivers/net/wireless/ath/ath11k/mac.c
+index 226e1417ffe74..4527ab6977d04 100644
+--- a/drivers/net/wireless/ath/ath11k/mac.c
++++ b/drivers/net/wireless/ath/ath11k/mac.c
+@@ -10156,6 +10156,13 @@ static void ath11k_mac_op_wake_tx_queue(struct ieee80211_hw *hw,
+ 	ath11k_mac_schedule_txq(hw->priv, txq->ac);
+ }
  
- 	if (test_bit(ATH11K_FLAG_REGISTERED, &ab->dev_flags))
- 		return 0;
-@@ -10851,6 +10882,9 @@ int ath11k_mac_allocate(struct ath11k_base *ab)
- 
- 		pdev->ar = ar;
- 		spin_lock_init(&ar->data_lock);
++void ath11k_mac_tx_push_pending(struct ath11k *ar, u8 ac)
++{
++	rcu_read_lock();
++	ath11k_mac_schedule_txq(ar, ac);
++	rcu_read_unlock();
++}
 +
-+		for (j = 0; j < IEEE80211_NUM_ACS; j++)
-+			spin_lock_init(&ar->txq_lock[j]);
- 		INIT_LIST_HEAD(&ar->arvifs);
- 		INIT_LIST_HEAD(&ar->ppdu_stats_info);
- 		mutex_init(&ar->conf_mutex);
+ static const struct ieee80211_ops ath11k_ops = {
+ 	.tx				= ath11k_mac_op_tx,
+ 	.wake_tx_queue			= ath11k_mac_op_wake_tx_queue,
+diff --git a/drivers/net/wireless/ath/ath11k/mac.h b/drivers/net/wireless/ath/ath11k/mac.h
+index 127cb476b44b7..b78a357b5472e 100644
+--- a/drivers/net/wireless/ath/ath11k/mac.h
++++ b/drivers/net/wireless/ath/ath11k/mac.h
+@@ -161,6 +161,7 @@ struct ath11k *ath11k_mac_get_ar_by_vdev_id(struct ath11k_base *ab, u32 vdev_id)
+ struct ath11k *ath11k_mac_get_ar_by_pdev_id(struct ath11k_base *ab, u32 pdev_id);
+ 
+ void ath11k_mac_drain_tx(struct ath11k *ar);
++void ath11k_mac_tx_push_pending(struct ath11k *ar, u8 ac);
+ void ath11k_mac_peer_cleanup_all(struct ath11k *ar);
+ void ath11k_mac_tx_mgmt_pending_free(struct ath11k *ar);
+ u8 ath11k_mac_bw_to_mac80211_bw(u8 bw);
 -- 
 2.53.0
 
