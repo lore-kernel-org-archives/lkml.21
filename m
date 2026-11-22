@@ -1,49 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.161.220
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795355770;
-	b=G/XcS5O5CBYLk50i63QxBUHQYaALQ0LEeuTYAWva73crQfKJLIooxqTCEXwV0838HuwA
-	 HfZPegoJ5zViOXJB2BrGlWisub3Yhw4zUNAn9BOT5p2A9f4zhVJ5VAb/ilgsEvinUB8jz
-	 ZSLMhUjvVDQeURNLJD0fJRGlGgZGka5RDc7E58wzgdqUEsOQrkiO0OZlCW9tSYEngYQta
-	 mwEEQtEsPcOzFXoQoZf4tSHF7NehZMIegmC7huukmFNNFicCwxcHOQ98Vl2SaBr1AII8d
-	 w3zmSiOf655EbcqMUOsnoSRY/8FOFfY/MFbC7sBUZQdZPKWzQv4MvoUisJIzFE6wQWA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795355770;
-	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-CM-SenderInfo:X-CM-DELIVERINFO:X-Coremail-Antispam;
-	bh=1hVZoLQbpumNWQB/Db+U+qcRPvEbe/nKL4FLHJv3bQo=;
-	b=VlscKw9JZ6KpX8sTV8vSApVwaa5DiQxJSIp6p7ev9k4LpG/A+JV7z3urjPXIiFlEYjxf
-	 b1/R8NbwPEa8BcuCmJYWHg/AddNloRDCl1B+7XhtmEMUfSayeyDTf+p8YZKMN3/4+GaDz
-	 HGxg4JrHlorcJRyGMXpMGo3cstAGI1yfdqEzLhFxbZRNLhuMUjTkUmV/2Hj9qLvg+0IBh
-	 iOSPxEujSPBQZLlbGS9uJzkXMVoOcjgZAAY3AB3DbjdZPlrxAiPpcIJxb3Wd9wtAPK5tF
-	 sFdt4XgmgUfpQ/vCqruOZ05jvCa3Alqzj6/9defCjSoKLZ1MImUscjfBuLJUO3LOewQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=zju.edu.cn;
-	spf=pass smtp.mailfrom=zju.edu.cn;
-	arc=none smtp.remote-ip=162.243.161.220
-Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net (zg8tmtyylji0my4xnjeumjiw.icoremail.net [162.243.161.220])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4A663606A320;
-	Sun, 22 Nov 2026 13:56:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A663606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=zju.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zju.edu.cn
-Received: from zju.edu.cn (unknown [123.60.231.41])
-	by mtasvr (Coremail) with SMTP id _____wDnQX109AJravYrAg--.9476S3;
-	Sun, 22 Nov 2026 21:56:04 +0800 (CST)
-Received: from ubuntu2404-234226.. (unknown [123.60.231.41])
-	by mail-app4 (Coremail) with UTF8SMTPSA id zi_KCgCXZ5xy9AJrZy7rAA--.47434S4;
-	Sun, 22 Nov 2026 21:56:03 +0800 (CST)
-From: Lin Ma <linma@zju.edu.cn>
-To: David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>
-Cc: netdev@vger.kernel.org,
-	linux-afs@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Lin Ma <linma@zju.edu.cn>
-Subject: [PATCH net] rxrpc: Fix missing lower bound in rxrpc_resend_tlp()
-Date: Sun, 22 Nov 2026 21:55:15 +0800
-Message-ID: <20261122135515.3989708-1-linma@zju.edu.cn>
-X-Mailer: git-send-email 2.43.0
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.56.87.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795355839;
+	b=Uf7ECexuQoXbMthlhmenVA+6XS8AGTpCjTKuhvT00lRLKcJDDPZDoOeOoRjPaT5aP4Uw
+	 16HMaT/PMtx93+bu4R/Adv+DK6lgX9bef1qGg6bTrIf7nd8kPuzSqWXhNP6YcRZz8TBZi
+	 +EZT6LDg7Pi3DsxE2jklvuN9B+zBj06mVACnbN0fO9muojmNfvra4/sADRYbwI/580A2b
+	 RILjL/EUTUafyRYwFFsTO5FTv0/oXSxN92uZlnZbrYeUmhz9EjmgTIbBfhFzdE5dZVYr/
+	 6S9QgjvP6Kc+Sjqe9cWvc32lxvO/hSiv23AyqgSSFZ9mIQOjYZleF1fFE149UnIAB+A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795355839;
+	h=DMARC-Filter:DKIM-Signature:Received:DKIM-Signature:Received:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-Source:X-Source-Args:X-Source-Dir:
+	 X-SGantispam-id:X-AntiAbuse:AntiSpam-DLS:AntiSpam-DLSP:AntiSpam-DLSRS:
+	 AntiSpam-TS:CFBL-Address:CFBL-Feedback-ID;
+	bh=4fF2AdPLovlTgrv05trEI+vu3qJWwMCKLq0FCu8Va2U=;
+	b=baq5iHz9ejyG3FxwA/IFVHShEx+LUtwYd5QnwyilM0+ugx0IlNWIQ3K4yAjAdsABrM/a
+	 yRLhyNLhF7RzT32bjSACijLWEKe6GLM8th97U6wAoN1ZebpYV9av6wJZ2glBbIqFccw+Y
+	 X1Zq/7IkNoNmEJnRvaZVFcuikGecOHaNcRAcrDaY59E2hEjIEdyG2iKsv0MyxYDqA8Q3e
+	 Q2k5S3PrQ+u2UysH/c+1BIdp0X8+mUolZ1UWOkvQSyO0to4nVyTxYLdoKp59qoADkUvrC
+	 1s2coqX5ZotnepnayaLCxoWWQak/OSMg01q76XU/HDtrESWKo79EORyp/QL8I8KZMCA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=valla.it;
+	spf=pass smtp.mailfrom=valla.it;
+	dkim=pass header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=y2XebCiq;
+	dkim=pass header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=WMNkyZZH;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.56.87.11
+Received: from delivery.antispam.mailspamprotection.com (delivery.antispam.mailspamprotection.com [185.56.87.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C1FB606A32A;
+	Sun, 22 Nov 2026 13:57:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C1FB606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=valla.it
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=valla.it
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=y2XebCiq;
+	dkim=pass (1024-bit key, unprotected) header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=WMNkyZZH
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-lgmz.prod.antispam.mailspamprotection.com; s=arckey; t=1795355838;
+	 b=AmEItTvXS4+KrNMIOjISqmNlGG7hF+8yg6a/TRGqrPXQeRJc2UGvtncyHi0w9ilqB2i72J0qWa
+	  U6kob6OdBxKHfAOcd+LwbE71RJhkBcEG4iIyLfHHJ2/ZMyw6zh12x5YA2qFg+y3l5jzmkpfyur
+	  R5ZXfgpsZYXrG6RCqaERzibGL2fbfN28DbZWTmKpKYl7HEbPsv2a2/q07YmBRp4W/xgwKePdyw
+	  BHvJ+phU3HC+xdrwAuvtADbqO7+FUT8hpCpGOkE++HbLaSX29CqFWuUkYMY4iNZGrLYhyifXeR
+	  4jfpouJeohH/aW72+T+jTo9xaryuKRr8IFFFO/dBe/MKug==;
+ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-lgmz.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-lgmz.prod.antispam.mailspamprotection.com; s=arckey; t=1795355838;
+	bh=0tt+1GrW3Cr3vSd9mkATI6vv0PXUTsO59asYsLZbmig=;
+	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
+	  From:Date:DKIM-Signature:DKIM-Signature;
+	b=sXn3exswb/fUBSx55AeVx2L352+JeRk8sN+YAXWISAanzlCc7PE+p8421+VbDkUMhrzw2zZRAH
+	  PXDqetb5P38KTKhzSsiRoQN4qYi8BqTFuFIM2Ii9PGlyc3h8gRBXMz0hCyqd0IFiadEpkdtnOQ
+	  AmBxhP9Z0XCMpQA5XIKfGG47r9WyA/FfCVbQGHOubQ87t3yfoiip4eakorYpzijJR+oYJ0oMsE
+	  +KVPYuvZ4V59W9ylbE/5RUaG2WKb0UH9TO3pb6rHo4T0YePjZBDvvtgDkTFrOlAIserZag2vi8
+	  j/qiPEHHMP7vDIv6feqHZi2t3kDBcp5l7V4TbFXqT2j58w==;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
+	:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	List-Unsubscribe:Content-Transfer-Encoding;
+	bh=4fF2AdPLovlTgrv05trEI+vu3qJWwMCKLq0FCu8Va2U=; b=y2XebCiqjUwsMTth3h7VOWsSC0
+	nKkgH6fKLuU70pxFZq6d3gpHky2NbsaIgxSgdtXvaaKcNTl2D+7cCXVqwS6jsxVmUWRcpTYuBl9yA
+	UM83zQY+t8kPoL44Q6lrdJSb+f+h0uei3vdJSPVB7WmQa+IebexZijN92GkNRLYRSRG8=;
+Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
+	by instance-europe-west4-lgmz.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <francesco@valla.it>)
+	id 1xV846-00000003O8S-2pDi;
+	Sun, 22 Nov 2026 13:57:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
+	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
+	list-subscribe:list-post:list-owner:list-archive;
+	bh=4fF2AdPLovlTgrv05trEI+vu3qJWwMCKLq0FCu8Va2U=; b=WMNkyZZH9YrP14Drz/T+oZ78tY
+	ik2ECOgkZCWiIrZuZfdSCNDrLUGAEpLv8pY+wnlrsYRRBUBay6+DOXWrGdRzRJxcQ1VLjcbk70naH
+	CUtLKB89cMvfg/TJ+ciFW+a1ovu5aFX3tH5+rhFSgqh4VfckXaH3uBCUh5J4aX5kVqak=;
+Received: from [95.251.96.187] (port=62753 helo=bywater)
+	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <francesco@valla.it>)
+	id 1xV841-00000000HFI-3yXI;
+	Sun, 22 Nov 2026 13:57:06 +0000
+Date: Sun, 22 Nov 2026 14:57:04 +0100
+From: Francesco Valla <francesco@valla.it>
+To: Chrispine Tinega <dev@chrispinetinega.com>
+Cc: andersson@kernel.org, mathieu.poirier@linaro.org, 
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] remoteproc: k3: Report a remote crash to the
+ remoteproc core
+Message-ID: <awL0dXRy62aSnEEt@bywater>
+References: <20261116184146.1897281-1-dev@chrispinetinega.com>
+ <20261116184146.1897281-2-dev@chrispinetinega.com>
+ <av3YQ1tKSABEha9o@bywater>
+ <20261118194415.1757945-1-dev@chrispinetinega.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,59 +104,92 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:zi_KCgCXZ5xy9AJrZy7rAA--.47434S4
-X-CM-SenderInfo: qtrwiiyqvtljo62m3hxhgxhubq/1tbiAwAMEmryeh4flAAksO
-X-CM-DELIVERINFO: =?B?9lThCwXKKxbFmtjJiESix3B1w3tPqcowV1L23Bze5QtIr9Db75bEBiiEybVhThS0pI
-	APHnkvfpsecr7gZmVpD/pedGd92A4lLsgoh9d9G8k0bpHiXESS7/P/JOrwuG5vkaigPSf5
-	J9xy+UDTstPT+2Y2s+2sMKpJUmxLph7ArZOOW9k3qDOJcZRMuJQjBWDLCVot+w==
-X-Coremail-Antispam: 1Uk129KBj93XoW7uw4DXF4kGFyxCr4fZrWrJFc_yoW8Gw1xp3
-	95ArsxKF97Kr4ayFs2yws7Aw18Z3WrJryjqr18uwsak393G34I9FWxGayYgF1rCw48JrWY
-	yFWYya43A3yDJrgCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUvvb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
-	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI0UMc
-	02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAF
-	wI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0Y48IcxkI7V
-	AKI48G6xCjnVAKz4kxMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I
-	3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxV
-	WUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8I
-	cVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aV
-	AFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuY
-	vjxU72NtDUUUU
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118194415.1757945-1-dev@chrispinetinega.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - esm19.siteground.biz
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - valla.it
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-SGantispam-id: 0c955b43a78436a3441504e7b26b9c53
+X-AntiAbuse: ID - 0c955b43a78436a3441504e7b26b9c53
+AntiSpam-DLS: false
+AntiSpam-DLSP: 
+AntiSpam-DLSRS: 
+AntiSpam-TS: 1.0
+CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
+CFBL-Feedback-ID: 1xV846-00000003O8S-2pDi-feedback@antispam.mailspamprotection.com
+Authentication-Results: outgoing.instance-europe-west4-lgmz.prod.antispam.mailspamprotection.com;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
 
-The fast path in rxrpc_resend_tlp() checks that tx_transmitted is before
-the end of the tail Tx queue segment, but doesn't check that it is at or
-after the segment's base.  If it is below the base, the wrong slot can be
-selected and rxrpc_retransmit_data() may dereference a NULL txbuf.
+Hi Chrispine,
 
-This can happen when rxrpc_send_data_packet() fails to allocate its wire
-header after rxrpc_transmit_fresh_data() has advanced tx_qtail and tx_top
-but before tx_transmitted is updated.  A subsequent TLP probe can then
-enter rxrpc_resend_tlp() in that state.
+On Wed, Nov 18, 2026 at 10:44:03PM +0300, Chrispine Tinega wrote:
+> Hi Francesco,
+> 
+> On Wed, Nov 18, 2026 at 05:57:10PM +0100, Francesco Valla wrote:
+> > Did you have the chance to take a look at the review sashiko did?
+> > I think the points about the leaks in IPC mode make sense and are worth
+> > an investigation, both for the M4 and R5F cases.
+> 
+> I had not, thanks. Both of its points on patch 1 hold, and they have
+> one cause: v2 reports a crash for a core that Linux did not boot.
+> 
+> 1. IPC-only mode. Once a DETACHED or ATTACHED core is RPROC_CRASHED,
+>    rproc_detach() refuses it with -EINVAL. The DSP and R5F remove paths
+>    only detach an RPROC_ATTACHED core, so they skip it and leak its
+>    carveouts and subdevices. The R5F also has no start or stop ops in
+>    this mode. On the M4F and DSP, a shutdown would reset a core that
+>    Linux never started.
+> 
+> 2. Probe. All three drivers request the mailbox before
+>    devm_rproc_add(), so a crash queued during probe is never cancelled
+>    if probe then fails. In IPC-only mode the crash work can itself
+>    cause the failure, by setting RPROC_CRASHED before rproc_validate()
+>    runs. A crash the core sent before Linux probed is enough, since it
+>    waits in the mailbox until the channel is opened.
+> 
+> For v3 I report the crash only when the core is RPROC_RUNNING, and keep
+> the log line otherwise:
+> 
+> 	case RP_MBOX_CRASH:
+> 		if (rproc->state == RPROC_RUNNING)
+> 			rproc_report_crash(rproc, RPROC_FATAL_ERROR);
+> 		else
+> 			dev_err(dev, "K3 rproc %s crashed\n", rproc->name);
+> 		break;
+> 
+> An IPC-only core is never RPROC_RUNNING, and no core is before
+> devm_rproc_add(). A core that Linux booted takes the same path as in
+> v2, so your stress test still covers it. Patch 2 is unchanged.
+> 
+> Recovering an IPC-only core needs the core to handle a crashed attached
+> core, for instance as RPROC_FEAT_ATTACH_ON_RECOVERY does. I would leave
+> that for a separate series.
+> 
+> The review also points at an unbalanced put_device() in
+> k3_rproc_unprepare(). I think that one is older than this series:
+> stopping an attached M4F or DSP through sysfs reaches it with no crash
+> at all. I will check it on a board and send it separately.
+> 
+> v3 builds with W=1 and checkpatch is clean. I will post it once your
+> stress test is done, unless you would rather have it now.
+> 
 
-Add the missing lower-bound check, matching the slower queue walk.  The
-reporter triggered this at runtime.
+I'd prefer not to declare a Tested-by against a known buggy patch.
+Please send a V3, and I'll reply there.
 
-Fixes: 7c482665931b6 ("rxrpc: Implement RACK/TLP to deal with transmission stalls [RFC8985]")
-Signed-off-by: Lin Ma <linma@zju.edu.cn>
----
- net/rxrpc/call_event.c | 1 +
- 1 file changed, 1 insertion(+)
+> Regards,
+> Chrispine
+> 
 
-diff --git a/net/rxrpc/call_event.c b/net/rxrpc/call_event.c
-index fec59d9338b9..4fca790a007f 100644
---- a/net/rxrpc/call_event.c
-+++ b/net/rxrpc/call_event.c
-@@ -141,6 +141,7 @@ void rxrpc_resend_tlp(struct rxrpc_call *call)
- 	/* There's a chance it'll be on the tail segment of the queue. */
- 	req.tq = READ_ONCE(call->tx_qtail);
- 	if (req.tq &&
-+	    after_eq(call->tx_transmitted, req.tq->qbase) &&
- 	    before(call->tx_transmitted, req.tq->qbase + RXRPC_NR_TXQUEUE)) {
- 		rxrpc_retransmit_data(call, &req);
- 		return;
+Reagrds,
+Francesco
 
