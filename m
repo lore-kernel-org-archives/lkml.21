@@ -1,79 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795375229;
-	b=3Il9z5HgKji6Vv1yjHkOfULRDNQNP3MCLTZ8B50xFDWBVePmYIT8JWzA1Qx5PALjoEfq
-	 8LQckbACrzPHIocKw32a5E/dJmf1ieihQEqMSnIWuoKHl4jD97UITM8ASIq/7s8i4wS4Z
-	 VimC4Wc2ASLOTkkHN4iYNXJ7v4nIVDHoFxHoyWVpksQbUXNsQ6MJIf5048ACnTAo78Y7T
-	 PgRNYu4SjAYzfdsHAryicrSAkPAJVqnE0VYd9TbrVYgNfbDY9ZB9dZVdWlC+32LQIUeyc
-	 4cBMgP/uLV0d4B2e63ZxkiN87WneLWuHr5eZPsn71cX0NiX0ImUm17NOX4nFrD9evEA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795375229;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=kj+VAGoL2xvIZkBxW6WgEhnADQuyPv28PwMBUs/3KdM=;
-	b=iX9VnC0J2SI35SkZIUA1VB1gRAWsKhtvRwpn88xxDwO4GVo4/3RKmJCXuYpypEUFu1o2
-	 oRRHUTot+z4qZIEwqT6hFSzA6OItND27Ax3ebI5jWRa2Ngu2um/F6I1U1FzKraVRDSj9H
-	 8ZEzCgv/kcBSbMFz6Je2EbxzuLtU1QD2pVWho5r0PMGx4oGsOg/8wL1hmGaaQcmg93JYh
-	 GmxyQujyHc47qc/4haaiZoIrixgr5XguWvW2CcoGMkjIA7XidIPVTiL9PY0Bmw3cLbFnW
-	 vF2AcpjnPQc7iwhLrO0mGo6VXX0ySd0W+LW7NpFCA3TDkSoJISXOvHS218lHCcfyepw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hebLZs2G;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795375276;
+	b=skOjDDJV0R0I+3OSrraMzuhqpl1PKf3tonTV8kABvRaXW9iaqOrYwDiQb6gfSgHpSHWx
+	 no4jCWjAJOIzwyaLFSsNMmpeNC986VIdvakSVduMs5fUozKZTsieOuGZmJXYH6dQr7PhF
+	 Wv5ZrONplC/AU7m3ei3rsYdHhAYvNgpgRC4heumkmcYMjC8gJCkSCZODV3ddxnofzxqCj
+	 WX6dJSuMl7rzkKQxb7y0SmfrrQsS34AVr/6Q1E/2TZ4kglubMBKGAGxkjDbLh2vyxZRcq
+	 1O7F4582mHnOWv5/yZ9DqVcj9Z2pRH3U45MvBBmGK2SJs+M065dIj8DUq7HdUCDlZVw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795375276;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=QYZJqeQ4pRcd9d2661rjTa1putVbAUbEZa/xFm9oZWE=;
+	b=r9n02wMCDJ/gCIf7z5JmZFOSf28sHR4+HBKc0i40X1DxTGPEvG18zkSx0qYATBkIfI79
+	 F6AcOyNop0CfDxVX778xCiPAI27D4IVknLOk9JlZdfwmhbENjdcCKTGxfy8GZdSivZyof
+	 O2fRjfcwxjFakibHJsPudXtsVWNpjkAvPwBwKYEUEI2AeM966IylclM2Cnsg9bKcSUM+9
+	 6IPuMVzZPRt3jsgt2dLcjK7J5FlS4Dqfg29kqbP7FFBLkTf2lwPDtacJ9x8awatxEJlaq
+	 quTolSozjA2wOcwblGYWjF6w2bscC6I3BdMKA1jZ2oIjigZIBkTn1LTRm1MqJm8S0Bw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fivc88eL;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 278C5606A333;
-	Sun, 22 Nov 2026 19:20:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9860B606A320;
+	Sun, 22 Nov 2026 19:21:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hebLZs2G
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795375228;
-	b=tLLV4XmCMqEvmQacudwSFq7tiPSPWlrDECVOzJDZoqNjwt5oPZmztCrLyEXHSH/+7R6c
-	 W/gAtdDoPTcYT6xhca2FilQNxG3B1a3UQkPfrvrWtH1ZwSb33r4NSj3UjpFVo6K+cO2YZ
-	 DU5mqBnaNvROfKe4+AbcvZt2McsDt6uu/a8p2W3GRcPJ0qNFH9GmYEy63c/tmA4qFSCDh
-	 qCfHW0YpjA40rhswyi98n/gFQgOShuYv8SJGVpafJTTjQMQVqzojfXx7AFfL0nSxdF85P
-	 pzjqIKT9beymHBdZds/JokS8KCLuEy+XnQes2MAjKXvyGs088KBTpRgdtT5kOypnQrQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795375228;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=kj+VAGoL2xvIZkBxW6WgEhnADQuyPv28PwMBUs/3KdM=;
-	b=hziJdL751XCUXv6MlFE8orMN9ZoCQ6epVx6NHk8q+sJV930fsaAn8/IRq53J5aXICugT
-	 Wv3aWmQNVHEgQOYjcovAIbpX2qiLYPfpQ/up2OfTibvIj1pdcPWKjfYlTs46BHlXwIaPC
-	 RVx40drqodHoNYLZxPvsAZcOFjqGWY9D/KnP5vI0MINwfcff23FizxOgbuBTaI4YX7muI
-	 IzfsYqDVcYlYfaF9eNEMIbnkYVAbQKiTOKLueemkfn5nlb9tIwBd1D+f6UqA4NzL2eDdj
-	 P0xwqsULfr1IUnL8TpXQ4CGvi7p09lDVpppT1e3hu7DnvSMPYPw5cJzwjhmAY8o845A==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id E41921F000D0;
-	Sun, 22 Nov 2026 19:20:15 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fivc88eL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21B341F000CF;
+	Sun, 22 Nov 2026 19:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795375228;
-	bh=kj+VAGoL2xvIZkBxW6WgEhnADQuyPv28PwMBUs/3KdM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=hebLZs2GapuH90LUlqhGGJSzJQBF4w/lGY46G3uDTdzY0S/naLLb0Rc98he2EjdU9
-	 10RNNSGljWWiFzaNT6OZSc/dvA2oFk7r1XkHG8mr7IhvDjOxdxWR3y39egwbJBgXlP
-	 pCYhDWyc2DTd6spvDHwlW80DBYiS/4OTnRc8i2+RvTi31SZhwrG9814OJr8qJfqKya
-	 ZnVH7HndfMRo5DecAbUBYgk8mJnJb3NCcZlcVdAmaUGtKetZNTUhQWQikg3rtZbeTv
-	 1DoruB2z2p78Fqn6ox3s7Gg6Y2jNIE8gyB0YFqKnohpzR8SjOEKqWNaPxrxOMSImMg
-	 q0ICOCznwvx6A==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 74FA14C1DD;
-	Sun, 22 Nov 2026 19:20:15 +0000 (UTC)
-From: Venkat Yadlapati via B4 Relay <devnull+venkat.yadlapati.yahoo.com@kernel.org>
-Date: Mon, 23 Nov 2026 00:50:16 +0530
-Subject: [PATCH v2 2/2] power: supply: qcom_battmgr: Don't limit the input
- current of chargers
+	s=k20260515; t=1795375276;
+	bh=QYZJqeQ4pRcd9d2661rjTa1putVbAUbEZa/xFm9oZWE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Fivc88eLwbw0tj1SJWUCkk5xS1NvOM27bVfcC0xxeiY3pVwmymqUyWMyhBhfMhfzY
+	 SUoq4IRnGzg2RGN4EeNQuTehtTnr+a+2FgqhkXG4mGqxeJE9nCxrVBZ3QmpMS2+mH0
+	 oWT2/6ayNL04LSz1AmH/dSsRe/+Vssp+oL/TtF08xaiW1FTdby1BQQxVlhEVd+v6Nq
+	 78RhKK/kOst7S3rg3kFMIbiwpkrik4Ubxq13lBOsdw3EhbHbdvyB8HIz3ucal1c2Do
+	 WoubxLvB4KjTQrnQ1Ul9dAE3wOamcpfWnnFXtv+mRKtnr0QTnSM/9BRdxaxWa5kaGz
+	 oN5MLwQEsLQqA==
+Date: Sun, 22 Nov 2026 19:21:11 +0000
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Ashok Raj <ashok.raj@oss.qualcomm.com>
+Cc: Ahmed Azeem <ahmed.azeem@arm.com>, linux-arm-kernel@lists.infradead.org,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Divin Raj <divin.raj@arm.com>,
+	Bertrand Marquis <Bertrand.Marquis@arm.com>,
+	jithu.joseph@oss.qualcomm.com, Borislav Petkov <bp@alien8.de>,
+	Tony Luck <tony.luck@intel.com>,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Subject: Re: [PATCH RFC 1/4] uapi: firmware: arm: Add PFDI userspace ABI
+Message-ID: <20261122-camouflaged-arrogant-wren-38bda8@sudeepholla>
+References: <20261119-topics-ahmaze01-upstream-pfdi-rfc-v1-0-4772d18b9115@arm.com>
+ <20261119-topics-ahmaze01-upstream-pfdi-rfc-v1-1-4772d18b9115@arm.com>
+ <awEavIhFldTD2k46@hu-ashoraj-lv.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,71 +69,135 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-vantage-battmgr-v2-2-03a419078d0a@yahoo.com>
-References: <20261123-vantage-battmgr-v2-0-03a419078d0a@yahoo.com>
-In-Reply-To: <20261123-vantage-battmgr-v2-0-03a419078d0a@yahoo.com>
-To: Sebastian Reichel <sre@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Joonhoe Kim <26rote@gmail.com>, 
- phone-devel@vger.kernel.org, Venkat Yadlapati <venkat.yadlapati@yahoo.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795375214; l=1411;
- i=venkat.yadlapati@yahoo.com; s=20261023; h=from:subject:message-id;
- bh=D6CkSLFvs+RdQcscVKpLSyfkBgPa5oeQD51e9q+TG1A=;
- b=HyjNF2dtjBqfc9Ee4iDAPpNooLR6+P9ZUCD6obL1CYuN8Y6xPxkZwKW6MrNvVfT+8Rghzj7Ha
- Vm51iVQ488OCJ5g8bYuDAqpDq5E5+Wpn2sjhfiW3HVOcsXS1wn40Hmw
-X-Developer-Key: i=venkat.yadlapati@yahoo.com; a=ed25519;
- pk=e8KStCtEMvUP1Se/riB/KVnDAQFEVR2Dw2PcuA8/eME=
-X-Endpoint-Received: by B4 Relay for venkat.yadlapati@yahoo.com/20261023
- with auth_id=1303
-X-Original-From: Venkat Yadlapati <venkat.yadlapati@yahoo.com>
-Reply-To: venkat.yadlapati@yahoo.com
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awEavIhFldTD2k46@hu-ashoraj-lv.qualcomm.com>
 
-From: Venkat Yadlapati <venkat.yadlapati@yahoo.com>
+On Fri, Nov 20, 2026 at 08:14:52PM -0800, Ashok Raj wrote:
+> On Thu, Nov 19, 2026 at 03:36:03PM +0000, Ahmed Azeem wrote:
+> > From: Divin Raj <divin.raj@arm.com>
+> > 
+> > Define the userspace ABI for the Arm Platform Fault Detection
+> > Interface (PFDI).
+> > 
+> > Subsequent commits introduce a driver that exposes a per-CPU misc
+> > device. The ioctl definitions, data structures, and return codes
+> > must therefore be shared with userspace. Add these definitions to
+> > a UAPI header and document the ABI for /dev/cpu/<cpu>/pfdi.
+> > 
+> > Placing the interface under include/uapi ensures availability via
+> > headers_install and clearly identifies it as a userspace contract.
+> > 
+> > Link: https://developer.arm.com/documentation/110468/1-0alp0
+> > 
+> > Signed-off-by: Divin Raj <divin.raj@arm.com>
+> > Signed-off-by: Ahmed Azeem <ahmed.azeem@arm.com>
+> > ---
+> >  Documentation/ABI/testing/dev-cpu-pfdi             | 103 +++++++++++++++++++++
+> >  Documentation/userspace-api/ioctl/ioctl-number.rst |   1 +
+> >  MAINTAINERS                                        |   7 ++
+> >  include/uapi/linux/pfdi.h                          |  89 ++++++++++++++++++
+> >  4 files changed, 200 insertions(+)
+> > 
+> > diff --git a/Documentation/ABI/testing/dev-cpu-pfdi b/Documentation/ABI/testing/dev-cpu-pfdi
+> > new file mode 100644
+> > index 000000000000..e07ed6baa7f8
+> > --- /dev/null
+> > +++ b/Documentation/ABI/testing/dev-cpu-pfdi
+> > @@ -0,0 +1,103 @@
+> > +What:		/dev/cpu/<cpu>/pfdi
+> > +Date:		May 2026
+> > +KernelVersion:	6.18
+> > +Contact:	Linux ARM Kernel Mailing list <linux-arm-kernel@lists.infradead.org>
+> > +Reference:	Arm Platform Fault Detection Interface, document 110468,
+> > +		version 1.0 ALP0
+> > +Description:	Per-CPU Arm Platform Fault Detection Interface (PFDI) misc
+> > +		device nodes. Each node targets the CPU encoded in its
+> > +		path and exposes the PFDI service implemented by firmware.
+> > +		PFDI uses the Arm SMCCC SMC64 calling convention and is
+> > +		PE-local. Userspace is therefore expected to bind itself to
+> > +		the target CPU before opening or issuing ioctls on the
+> > +		matching device node. Each node is single-open: only one
+> > +		userspace owner at a time may hold /dev/cpu/<cpu>/pfdi for a
+> > +		given CPU. Additional open attempts fail with -EBUSY while the
+> > +		device is already open.
+> > +
+> > +		The ABI is defined in <linux/pfdi.h>. The following ioctls
+> > +		are supported:
+> > +
+> > +		* PFDI_IOCTL_VERSION
+> > +		  Read the PFDI version for the target CPU. On success the
+> > +		  ioctl returns 0 and copies a 32-bit version value to
+> > +		  userspace with the following layout:
+> > +		  Bits[30:16] PFDI major version
+> > +		  Bits[15:0] PFDI minor version
+> > +
+> > +		* PFDI_IOCTL_FEATURES
+> > +		  Query whether a PFDI function ID is supported on the
+> > +		  target CPU. Userspace passes a 32-bit PFDI function ID.
+> > +		  The ioctl returns 0 when the function is supported,
+> > +		  and -EOPNOTSUPP when it is not supported on the target
+> > +		  CPU, reserved by the specification, or otherwise not
+> > +		  recognized by firmware.
+> > +
+> > +		* PFDI_IOCTL_PE_TEST_ID
+> > +		  Read the test engine identifier for the target CPU.
+> > +		  On success the ioctl returns 0 and copies a 64-bit value to
+> > +		  userspace with the following layout:
+> > +		  Bits[63:32] reserved and zero
+> > +		  Bits[31:24] vendor ID
+> > +		  Bits[23:20] reserved and zero
+> > +		  Bits[19:16] vendor-defined implementation ID
+> > +		  Bits[15:8] major version
+> > +		  Bits[7:0] minor version
+> > +
+> > +		* PFDI_IOCTL_PE_TEST_PART_COUNT
+> > +		  Read the number of available test parts for the target
+> > +		  CPU. On success the ioctl returns 0 and copies a signed
+> > +		  64-bit count to userspace. The smallest schedulable unit is
+> > +		  a test part, and valid test part indices are in the range 0
+> > +		  to count - 1.
+> > +
+> > +		* PFDI_IOCTL_PE_TEST_RUN
+> > +		  Run a requested inclusive test part range on the target
+> > +		  CPU. struct pfdi_test_run.range.start and .end are signed
+> > +		  64-bit values.
+> > +		  Passing start = -1 and end = -1 requests execution of all
+> > +		  available test parts on the target CPU. Any mixed use of
+> > +		  -1, reversed ranges, out-of-range indices, or non-zero
+> > +		  reserved arguments is rejected with -EINVAL, either by the
+> > +		  kernel before the request is issued or by firmware.
+> > +		  If firmware reports PFDI_RET_FAULT_FOUND, the ioctl returns
+> > +		  -EFAULT and copies a signed 64-bit failing test part
+> > +		  identifier to struct pfdi_test_run.ft_id. If the failing
+> > +		  part cannot be identified, ft_id is set to
+> > +		  PFDI_RET_UNKNOWN.
+> 
+> Hi Ahmed, Divin,
+> 
+> + Tony, Boris, Jithu
+> 
+> A few UAPI/design comments below.
+> 
+> The range-based PFDI_PE_TEST_RUN operation has a reasonable case for a
+> structured interface: it takes an inclusive start/end range and can return a
+> failing test-part ID.  Encoding that in a sysfs write would establish a
+> permanent text grammar and still require a separate result-retrieval
+> mechanism.
+> 
+> However, it would be useful to explain why all of the interface is exposed
+> through per-CPU ioctls.  Intel IFS, for example, uses sysfs for simple
+> control and persistent status: run_test, status, details, image_version, and
+> current_batch.  That does not necessarily mean PFDI should copy IFS, but a
+> hybrid design may be worth considering:
+> 
 
-The input current limit of the USB power supply is meant for the current
-a USB host grants, e.g. after enumeration. Like the downstream driver,
-only apply it to SDP, CDP and USB PD ports, so that a dedicated charger
-is never throttled to what a USB controller reports.
-
-Signed-off-by: Venkat Yadlapati <venkat.yadlapati@yahoo.com>
----
- drivers/power/supply/qcom_battmgr.c | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
-
-diff --git a/drivers/power/supply/qcom_battmgr.c b/drivers/power/supply/qcom_battmgr.c
-index fde9704d0acd..db117cb64a17 100644
---- a/drivers/power/supply/qcom_battmgr.c
-+++ b/drivers/power/supply/qcom_battmgr.c
-@@ -1152,6 +1152,24 @@ static int qcom_battmgr_usb_set_icl(struct qcom_battmgr *battmgr, u32 icl)
- {
- 	int ret;
- 
-+	ret = qcom_battmgr_usb_sm8350_update(battmgr, POWER_SUPPLY_PROP_USB_TYPE);
-+	if (ret)
-+		return ret;
-+
-+	/*
-+	 * The limit is meant for the current a USB host grants, e.g. after
-+	 * enumeration, like the downstream driver don't let it throttle
-+	 * dedicated chargers.
-+	 */
-+	switch (battmgr->usb.usb_type) {
-+	case POWER_SUPPLY_USB_TYPE_SDP:
-+	case POWER_SUPPLY_USB_TYPE_CDP:
-+	case POWER_SUPPLY_USB_TYPE_PD:
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
- 	mutex_lock(&battmgr->lock);
- 	ret = qcom_battmgr_request_property(battmgr, BATTMGR_USB_PROPERTY_SET,
- 					    USB_INPUT_CURR_LIMIT, icl);
++1, agree that we need not copy from Intel IFS, but we need to understand
+why we need not align with similar interface. It may help the userspace
+tools to some extent. I am not against IOCTL based or asking to copy sysfs,
+we need what made to choose the current interface(background would be
+helpful).
 
 -- 
-2.56.1
-
-
+Regards,
+Sudeep
