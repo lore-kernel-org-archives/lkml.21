@@ -1,54 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795339581;
-	b=DoOcR31K6Osn4bQU/8IwvSkg9sF5Lrf7GNmBtGUssm1IF7IR230gDY8b3SGftOmts8km
-	 Z57No9mehfRsPrTvnWMEfe2GKOG6Y+yEzeGhsmmR7OSAB6PjKweUhtlQeSQdz2/ds4oe1
-	 o1hwKjULm/f0mgKCUjuyfA+kJHTydnKFoCwi5JOhbmGoCO2gjXcPTd0N7j6fS0AooRGr4
-	 ZJR+OJMRyCYox7qL3xl8XIBoqReC/QKGYsjDXNADKpoAnDnb34epttsfm8UHn20lQAv45
-	 8Wduht3Qf6YOnNj7x0/0NVh/mpcDS6px7aNl4i40vvCvC0DpAVbDk6BHx8nzzRWDGAA==
+	t=1795339656;
+	b=r5KJIfXz6Ka7UxQwoxVhqzP+9CiH4ylVs26cbGd0RZus+qFAoZiZfs2AxkHqezxK7Uw+
+	 ZyON7yFK1UICKvGZngF1gzWZjLUeVphKPwANG9d5gXkcTRARb2QO947mqbiO8kbHievUX
+	 C43p7YJNXzz+8/mZ7un784u4q+pzCJkfLbCajKnIPfJ+gQDEXS6nODWMrl2tIf6gnWAuq
+	 3VhNBxCm3SZ/+yFKFbo/JeSfGwDEJOefeY2u97avQuPyMlwjZsChnE8L+kmuy75Pnjj82
+	 Urla1RS0dgPsr0Q+pDiKhAQEnSFlN9L7w3oVgtVu0BWqlhiipdswkopCEXh8x+bZeWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795339581;
-	h=Received:DKIM-Signature:Received:X-Gm-Message-State:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=/wvawJ8wNc6NBpYFbJy9IZ7NlJE5h0W6cYFfyspH7rY=;
-	b=phglnH4OpM9yshH2/t5XKXMro9WuxL5kdbyv8n8dvYeo7Rbzei9Uk+8T/CFkwyMn/K3/
-	 /vdPmWRSGsqyIAVqtC0qmSUUx1nITnZnUp6TVCZczCpbPdp1dAXiie5p7Z6YtHjXJYmAE
-	 L1ZEPFA+bQ/FvS0j3EuMwB5Fq1a0Nq5Ao3ejn1ZSpE+xtxmEG4A4Z0JTsh2QSW9ehQnTP
-	 4rfUNU1Md8f0RYLbLKd61p9ier3cIOMtXzrSyVWv+Qwa8Rj3io7jUVVDKBL/+o8f33yqJ
-	 ZkEdmeU3Is+NTGML/gaoA9bzZfvIixaZzss/wrb9ZskiFkNSNfAJJfF0s+ZOdX+9R7A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795339656;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=iDAaZWIaq9xunca0g9vCV+8KK+wjL0upr7YilM2q358=;
+	b=mkDpv4wL/4KiYwWzpNuIL7OrMdLj47GSqPxFLmOYr0j49RZwFtVe0WkNjqec3uR7/+qq
+	 eZGMsseW2J/z2zpoQ+NTdJBhzanRQh6Q4I5CdXvuJt5vrktwTL6CrWvd2b8kbPj40Q0SE
+	 7s/1E15tM3mVl8AoHk9cUhX1ipbypyK/eJ+VW8Vh21NXWWtcqb+Vgi8mxIghf6fKEl4+Y
+	 kJ90fcJqf6N98zITImtOLPKghdQVpeQjTRl1tA4Iz4l1s1Vy9Qs+lYQ0NMj/tpwESDc97
+	 FMnUpacb+vlOOBG6/6k3etdRCuM8Jilz0U8f4K5u0cRzmGyfmYZSy+wZbK/7BuPKKsw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dsSq5Hsc;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GxQ7W32r;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49575606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:26:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF722606A320;
+	Sun, 22 Nov 2026 09:27:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dsSq5Hsc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAB381F000CA
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:26:20 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GxQ7W32r
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E23A11F000C6;
+	Sun, 22 Nov 2026 09:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795339580;
-	bh=/wvawJ8wNc6NBpYFbJy9IZ7NlJE5h0W6cYFfyspH7rY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=dsSq5HsczsDN+LrGIBNKTo3zf+TdG1bCtE87bfiqxU10NCujZkx2332l3VEy70zuQ
-	 BvZ3Pu/Q+cAYxkQfKKdbuZZjrfJEAo+4FqESpZA8bPNWNwlhyrnADDH9IK3Gxnb6fV
-	 BR7FKaflsbUEimx+u73iWo87wUXMuVMf7ELMGYxLck50n6//Z4dhmdaa818qVwnv6A
-	 xCD6GCy9eh4RRufq2ThtzJeWNpmXcZH5pjXr+KhgNNCLgNuJXDdq5wEs/Dr0YkLiQ5
-	 R924KjnCaO/qBL3wfYnhUqMzT2wm20YLsEUuA4zlPw4yd0WUtr/IRsYG6/7QzbBla0
-	 WT0SmOSma27ug==
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5be47aa555cso2805902e87.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 01:26:20 -0800 (PST)
-X-Gm-Message-State: APuU4Z8ZhcmSdXDiBF1w586AUYGmtY6Mkwd/g/J2t/tiQgLTc08aIB6P
-	IXqQqWmzc+LKaUtn28uFvZyN5rrWTq6b4Gtt8kQpMbsMxAVbD5WpQEJYr5DrhQxGYi5GSgau5HG
-	7Hux1/UPksQDn7mdmr0xS8wb6DMKyFpk=
-X-Received: by 2002:a05:6512:3ca9:b0:5c1:4f88:9af6 with SMTP id
- 2adb3069b0e04-5c1bc8198fcmr2613273e87.54.1795339579651; Sun, 22 Nov 2026
- 01:26:19 -0800 (PST)
+	s=k20260515; t=1795339656;
+	bh=iDAaZWIaq9xunca0g9vCV+8KK+wjL0upr7YilM2q358=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=GxQ7W32rXHPD1eyrruPEOiE+4cWz37zo6VYQvQvW06mUd1XhFhLlYo+3LqkCM1teT
+	 pydJHxSOor5sqTr9JBz3cmYMA3TstlolCwi9vVVc6RnkA/1DcqC7vYBCSan9FlOdQK
+	 MU8YRIWbvUhMmczVRtztOMGxWuOIerSKFFOGeB5ZhF7OeZwN571iu9Eo1sEj9Y9oNe
+	 QrnilwUhi5IxJt6u6S/Wwyrt/HP4SQXmtBQH7400OCQfiHMDBBch5/1JkAH3IEMO4L
+	 vDMgQ7+W6+nsbImLMUV7jOi7IGtsSk8121w93R9WTZ9lOsCc4TCRexZhbpDCsYg4AM
+	 Eg4y2XF19JxxQ==
+From: Leon Romanovsky <leon@kernel.org>
+To: jgg@ziepe.ca, Suyuan Wang <shyckless@gmail.com>
+Cc: linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261117-iwpm-perm-v1-1-11f1b87d6fb3@gmail.com>
+References: <20261117-iwpm-perm-v1-1-11f1b87d6fb3@gmail.com>
+Subject: Re: [PATCH] RDMA/iwcm: Require CAP_NET_ADMIN for iWARP port mapper
+ netlink messages
+Message-Id: <179533965363.282288.8028872314848162239.b4-ty@kernel.org>
+Date: Sun, 22 Nov 2026 04:27:33 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,38 +58,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116-ux500-timer-twd-binding-v1-1-58099a54a440@kernel.org>
-In-Reply-To: <20261116-ux500-timer-twd-binding-v1-1-58099a54a440@kernel.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Sun, 22 Nov 2026 10:26:06 +0100
-X-Gmail-Original-Message-ID: <CAD++jLma2AZstGAAmCHRFouwC7fNQB5d3=LTjx42fSQBKsHDOQ@mail.gmail.com>
-X-Gm-Features: Aa3M54oH6pauVybRm7ssp9GjVhjox8gdVjmBgukmIsJeJcWrZK2JGKkIS_nXdRQ
-Message-ID: <CAD++jLma2AZstGAAmCHRFouwC7fNQB5d3=LTjx42fSQBKsHDOQ@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: timer: arm,twd-timer: Allow power domains
-To: Rob Herring <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	Ulf Hansson <ulfh@kernel.org>, linux-pm@vger.kernel.org, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-18f8f
 
-Hi Rob,
 
-On Mon, Nov 16, 2026 at 10:48=E2=80=AFAM Linus Walleij <linusw@kernel.org> =
-wrote:
+On Tue, 17 Nov 2026 14:11:13 +0000, Suyuan Wang wrote:
+> The RDMA_NL_IWCM callbacks process replies and notifications from the
+> port mapper daemon, iwpmd, but none of them sets RDMA_NL_ADMIN_PERM:
+> 
+>     [RDMA_NL_IWPM_REG_PID] = {.dump = iwpm_register_pid_cb},
+>     [RDMA_NL_IWPM_ADD_MAPPING] = {.dump = iwpm_add_mapping_cb},
+>     ...
+> 
+> [...]
 
-> Allow TWD timer nodes to reference their power domain.
->
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Linus Walleij <linusw@kernel.org>
-> ---
-> Allow ARM TWD timer nodes to reference their power domain.
+Applied, thanks!
 
-Is this something you could take through the bindings tree?
+[1/1] RDMA/iwcm: Require CAP_NET_ADMIN for iWARP port mapper netlink messages
+      https://git.kernel.org/rdma/rdma/c/13fe248d139ace
 
-I don't think the timer people would mind. (Or else they can
-say so...)
+Best regards,
+-- 
+Leon Romanovsky <leon@kernel.org>
 
-Yours,
-Linus Walleij
