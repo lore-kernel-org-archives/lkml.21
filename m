@@ -1,80 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.184.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795340204;
-	b=Osrs7eFsFVBgKUhRx+EHEMM8uK/bZxM0mwhWl1gvTv5FcuJW+EFe87GUn3/BRnguJakq
-	 0aMNZCtfTxIGV8fZspx8lAB2xRfkEsWwobliabMSqb1cM7li7Yh03UbAQN8iEwtuHCzuQ
-	 vIVS4YmOkM8nzHmcRg6Bs0UfEXIsgFLCQRr36hKW005uogQE+UqicUzzh5Wup2269VP7O
-	 Md9cKhUFkYOL5tZieDPpYOEOoypFkbdd9GNcwRlLpTrHda/icOWIY/pepYbvpREWmR3sS
-	 ZFPSzbEHtWx57OALxNZ9rZrPQz6dvuzOXlXUtpXqy8P4XboCm+JBizHOpqhOaexomPA==
+	t=1795340210;
+	b=hOzS3CuZ0nfXC+fgBWpD9cyNUPDPHyZ0+AG3wgDNlUgtsY/uXXlYY1feFIuL56W2Fml8
+	 F2Ul1mNSX9Y4v2c9eHVZ8XiJP8PljkDL6jEMjEZy1xF3IEpxq5AtAv1FKRzQ+xNsf1KXK
+	 B4bV1PhvzilzznWJ+CjQG6pKqhX6kIeKRhSnIffI263LNyaPXEK5MDfqJm8vmONp2bAzk
+	 ANjlMStMLxovVtlXqc36nEBm4LM+j1AEZkpLTwocUAJe3mbITvEsbee87n2fcXdaBF2/+
+	 kDPbdSg5xi8WKQqas8Gbm91P3egMVTswk7vGqW+fOMI7vT1prdiyZtUVDT9l2NZ1RlQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795340204;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Mailer;
-	bh=HO43C3iEXRa6J85xNlHDELJDyLp/RMlGT8/nfr+lOp0=;
-	b=Pk87i6SUxnipti68iW0SwI/oc/HdOyKB49ELuHZnLcwggfx3Ag0up85mfTmBNqAtgQ5c
-	 SmYA2S/QBJ9jWbzDL8PM4UCzlr/z1ygkZShrFu7QFHN3cEJWevnEAzZ/PmUsEBm73Ceuw
-	 jpg7bTaq9l5WZKRMiTpIZ2t0XEFYyyekYkZrKoBdC2mhUG4UhYjdCX9TCxQK32pXvgVsI
-	 fi9mnKrttXmZECj81h/ajGUOMsl9sHnDO9sS4LTJW5hBhX+9/SwkUl0tpVPlt5seDdfsR
-	 ZqlG6Fn5HjbFX5tYiaJhs0pZwudGBgx1wnoGoHsz5YAk3o4w797/xHrD8w0XFIRkqpw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795340210;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=fKC0bj+1Q1nPj8KcJcBKIYkcIVTCOn46jbf4wjPf5W4=;
+	b=jTdmCHwhox930/CIx7MzKjsj0k7nMXXVIVWdEPVursTKaAwryIZegPfJWdJxXB8MbYPD
+	 I3uVCg9LbGcaeXzCwJGG00lzOphWX2ulU6uKOiqmnyX0SyYvBVNae8VLEE2szwAbUVcZe
+	 tddOqaw1CXIjpcYVuJFsr7Mj489cFHyUX0YPfTAuImqZcLkr5cHhvZKLrhClc+oIOrfQ8
+	 2eomTsngIX+KOUzv/QB7eHuNJAne4YZW1D27Psthjx7lQNgIi4dLta2C6+S0jOc1/ZZOS
+	 I/xeXZ80MN4unqv/BQF/L8PbasI80cnKuQW7FWNSm1GF2zG39zzy/8KtD6Mgu5Uo9Bw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.com;
-	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=qFI9auch;
-	arc=none smtp.remote-ip=66.163.184.45
-Received: from sonic317-34.consmr.mail.ne1.yahoo.com (sonic317-34.consmr.mail.ne1.yahoo.com [66.163.184.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Doe4gtlv;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B152606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:36:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B152606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26137606A32A;
+	Sun, 22 Nov 2026 09:36:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=qFI9auch
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795340202; bh=HO43C3iEXRa6J85xNlHDELJDyLp/RMlGT8/nfr+lOp0=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=qFI9auchQj9z0+wCQeDIayrG9QqJhba+XblOKPih7qxaGzqaZsxST/du3RJ1muktv2yG24LgcwMBjQz0xErxahftGq/kbHcc6Y/VX4AS9JlHOw+rwiwBR4YMCjXd+EPmmOVclrNON8f6VjT0a9Wd1u7tttt8C/aZnYOb04LexVNYt2Va3PsXTwrz0BeBYTmUaWxV4kHoFHeRmZUtL6wNANPHbvdqeyWnqlh9pXOMXusF1GRz8gr9DouX75wnFC9eyvt8ycBfrbaoHLn5jWBV02WLZviWmD2W+KweDuPSxF10jEaY+AQ1eBxNEoyWJBNWZfnBxD6sJnscN7wSIxW6ZQ==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795340202; bh=amFclWzzKXyqP1CV1drAjTlE2i4SfkMLwUPFRxsLt39=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=ZSxs2Nj0SkOpkuWq0zNnSCPLy22owz/WomsQzTHidH6fJPm9Iknxt+nRBJXTXAXRwpbaw7Zy9O3YkCrslPVBIp5Yz7eASPY5yJp3y6N/K2aZS3Ai7WOjsuZxGVrH5ntNuoPA5or9JI9uyKYmhFQEXEfQMMogsnP+idZuesNK/xb59AsZSFCGcwdjtIKY9M+S9HnEb+ejAuzktNfvJHsQlF0NfeNSZVZdILhOjBV8CAh7guGYHFWHcWxkVzD7Hn3UXsE97oi34foNXTmnYHeDfhIDGyexLW7IYqQ7gnC3o9RI9FC8R0jhhD1rHJ/slgqoQoRZyxWvcSns2t8byKR3PQ==
-X-YMail-OSG: U7xlffIVM1n9Xw7MbtgvNvJsurWscIeMYijce62Cj6xBIeK7YZUSwaEFkdhtFdV
- 4zqbnnByKITYSX3H.QapHL7xXtim3TEe79JyEbfmZv7jeiv4gwcuJVjYgRttvycLc8BDAzvohvqP
- nRwM0SE.sbvNOQX.P0iMdQDLA_GJHUh2DC2ApZa.lLVmAUwmYYirYBEb9cnPDkJXOxgCFLnbBvjl
- 6cew6DbTAB98jY7UJzBYAVYm7Jd2xK.kJrBiU2DzqS3VX5nhfAXP2jf0pUat5tClcD5VuiH3soVL
- T7vMt.WWtZJDtBtIkPo8aSfuLTrWmEWPunSVuQlDX3Ve0882LA_b7SCAOZZSBWTy_AWchFRL_Tgs
- rCvJEPv5wV8gHLe70pr3PYlicbRtKIl706DOIp76NrE4D0wFvyqj.kxwDVTTTJmoP3hk6cap8HsG
- nVs93_z2qpuXVR9zzBEBP36Btb5sBiILjqgcltuIk3.WBLbkTkHgUhsS6Ozp8l.aEX72CR.3lwXI
- wEh5qVKZ9K_o1f6iviSYKXTkReWxgB79kctFJY3WZFgkGo7.UFK3Us.5nEJpKRXbFOO93tjvlzav
- K7GqgqqQUhZPDmZoab0lS955R8.VoEVi1HhGfq5fAa_PHB2uNGg0QWMaFvZb_Z8XgrDh9u2BJ8iv
- tWtO5jys1gNQWixkpI7By2S4AF1SSJBRN4inAdaV0vnTazzUxAjeB7MbivW42Ri4yg.XutZvtnBT
- E_alXskkM7l8rKp3ahy_62uiUsfEWlSEhciUv6.3moFGwlDMmsaVrPXNUDHcaD0nYm7dLPQ1BPYw
- wU_nBZ.7BCi57tqPAqEAuMqwStty1UGXxD3iruUt1TpIFGrvz9F_aLIjdGpJ7hPiOCHbVavszzH3
- r3aINgNQ0S9PL5Y4KXrxPhPPXDnXIGJyFAd4bn1m9dpELxEm_8Zs34rc1iX_K9lKjM1bcf5g2tVQ
- 0qeQdmt7GNFiCISeygqtY2R2Ztj7J8hEsJoPBX5FW5gxC7BY8v8vShD._LMT27gSLj9__4tv1UbK
- j.RSvKMaBf5JNnuZkZfWM9ivk6.38Sy6Fw3zlTmpKLfYGZf6ZeuTQsQ9eV8g8np7EplNHYwBgXXK
- Pm90UqP5R87g48cKZpXe0RmQrBTyY1klljePZ2ChmcfdGMi6Hy5IN4jK_G_ERXsKIvlF4dHReWzi
- 1EgUJ8vRFKeeXGGgKeabY8o4M61z.FGJC48V4jSeRBqyR8VLa2un2INnZqkSOsxju4DJNz5Queuz
- N4mDCveJYczpWuDDyNf1JDNW.KWzovY35xvTqUZMysRq8nRszrrfChyw2EZ119MZoiChGHTpF39j
- Veg1Zi3jt6TItHnOWKPwTNhkcaHKYgmSPSpLhFHq4qu9TzLYblu_TO0Ziu7rcXDFA1yD5dJTwPBx
- uNaXwPJFGYCVw85iKAmI.edBls8Wjy3DkZk_Iu6.fgDJtOzPhiZKaqWa4NAdNlgLomWUZOk050zU
- fUTQfNTOX2ngr0PX_cUAJ7ANRp7QQVh51J1BEzeClaYF9Z41LJZSiWCeopYVO5hBpbs4BGzutTzc
- Zkpi.dPPTgf59GuPwk0NGp3Tc3AWB8XN58ngyKD55O3lWsKVVShg8YmucVzARnIZvFZvqCeXfko1
- kisswCCuLiD9xHxrJiRZoUkwQ5plgkjupg7w6Djbcaz9TiHWE58uohl16Jw9ss0KyQiNV0WRL.MJ
- GBHQwVY8UUlAMMRgPlR8FUzWo4_11tTOXEkBjGYS0.oCWO6VcISOBu09EwlvnkHSVpxGmcc4a3C7
- oJGAKjMQ01smVqGv6XOvVoBDDxUvDZ.jkQ._GacVu2UXhUUIW6f.ZbsRW9MGGBPJX_uQICpZ5J8O
- dcoNatcy9yY0CYAGHhXDeji2JDcSrl3_nk6BLXoMQAOgHErQYWd39fnv68.M2nQh105L6hraJS77
- 6ULGCHgCoUWHX7uYq8SjYqSOBr2aROhmo6nCucltj6S49M1_kjj7wNGQS4ONo1R5IlJVobdG90Bu
- dmreLvNjWbvGPQUcN4LRtfKdh0weV_3nDfx1lhEs9LvBpZ3P1MjQtyBI8CN024QjX_2O6DHA_cZ4
- ayxH6W6orYhga4MnqQwLyOO.m8DbcUsB8iFuM.zpE0iyXTMHproA30eYMKGibRLtG.Nb6d_tyMIR
- nK_8DXSn6h7SzfreqbNT6HcfCLPVrQnFGZA21X7N7s9p4p_TmOT3uULBzECXbx64IpOYfFBFuIr5
- JMuoHABna9MZJQvdzf.HxI_Qfj0SQOQ3aYGOsWz8K8saYj7BXXTZEHaN9CBgDj1dNoaow9GahrgB
- Ag0UVyE6VTJyqqYib08a2UD_8t0TGXec14JADtA--
-X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: 683f2aa3-7a9d-47d6-a89c-58eb8983171a
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic317.consmr.mail.ne1.yahoo.com with HTTP; Sun, 22 Nov 2026 09:36:42 +0000
-Received: by hermes--production-ir2-7c4859dc89-622bg (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 2a4ca4d27bd86477586decd0d6d230e8;
-          Sun, 22 Nov 2026 09:36:38 +0000 (UTC)
-Message-ID: <47733178-496b-4a0b-9e83-73ebe6919b54@yahoo.com>
-Date: Sun, 22 Nov 2026 10:36:36 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Doe4gtlv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEDC61F000CA;
+	Sun, 22 Nov 2026 09:36:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795340209;
+	bh=fKC0bj+1Q1nPj8KcJcBKIYkcIVTCOn46jbf4wjPf5W4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Doe4gtlvRNq4X9oXZFr6j5wZfDlyWloJCbyfOxmNlvk5FBg4in+iZG8crtzZPsCDJ
+	 VBTXfM8vJb2GJLdawu+60PF9MmXNTdMLmaMt1omrbHioYB6i0xgnHyEL+UmRhw4Tw6
+	 aMMhk/bdr3eKANfhGGoK24RR3xpEkFDw+EcpEThUVQMbJyyFTlG21Tmi76yXL9ASWn
+	 lIUA7/d0BMp1gT0oDFAENqBXvoKXjwAu1SR0d2SheONByRUueUGk8ikM/MEL8+6O/r
+	 7o3cY4M0Bgxe06cLCzLWka5o7DILvjY4XjLSMMpJ8XIgHCHbCChJMr3U1N/reJnGIn
+	 1GnvK3vyOJsEA==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
+Cc: rostedt@goodmis.org, linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] tools/bootconfig: Preserve all-f tracing CPU masks on export
+Date: Sun, 22 Nov 2026 18:36:47 +0900
+Message-ID: <undine-1795340207193471810-f6280e0e64aa2f7f@undined.local>
+X-Mailer: UndineD 0.1
+In-Reply-To: <80d300fad70b4168e2355e8aef73baaef68e49a5.1795307698.git.edumucelli@gmail.com>
+References: <cover.1795307698.git.edumucelli@gmail.com> <80d300fad70b4168e2355e8aef73baaef68e49a5.1795307698.git.edumucelli@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,48 +58,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: [PATCH net-next v13 01/14] dt-bindings: net: dsa: realtek: add
- RTL8367S-VB
-From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
- fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
-References: <3f1826f8-3096-40dd-a278-c70fce4852c8@yahoo.com>
-Content-Language: pl
-In-Reply-To: <3f1826f8-3096-40dd-a278-c70fce4852c8@yahoo.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-The RTL8367S-VB (chip ID 0x6642) is supported by the rtl8365mb driver
-with the changes that follow in this series. It is identified by its
-chip ID register, so it does not need a compatible string of its own.
-List it under realtek,rtl8365mb.
+Hi,
 
-Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Reviewed-by: Luiz Angelo Daros de Luca <luizluca@gmail.com>
----
- Documentation/devicetree/bindings/net/dsa/realtek.yaml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On Sun, 22 Nov 2026 01:34:59 +0100, Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com> wrote:
+> ftrace2bconf.sh skips tracing_cpumask values consisting only of f
+> digits. For example, on a four-CPU system this drops the mask f. If the
+> mask is subsequently narrowed to 3, replaying the export cannot restore
+> tracing on all four CPUs because the configuration has no cpumask entry.
+>
+> Always emit the observed mask as one quoted bootconfig value so a replay
 
-diff --git a/Documentation/devicetree/bindings/net/dsa/realtek.yaml b/Documentation/devicetree/bindings/net/dsa/realtek.yaml
-index 473facd..ca775f6 100644
---- a/Documentation/devicetree/bindings/net/dsa/realtek.yaml
-+++ b/Documentation/devicetree/bindings/net/dsa/realtek.yaml
-@@ -43,7 +43,7 @@ properties:
-       realtek,rtl8365mb:
-         Use with models RTL8363NB, RTL8363NB-VB, RTL8363SC, RTL8363SC-VB,
-         RTL8364NB, RTL8364NB-VB, RTL8365MB, RTL8366SC, RTL8367RB-VB, RTL8367S,
--        RTL8367SB, RTL8370MB, RTL8310SR
-+        RTL8367S-VB, RTL8367SB, RTL8370MB, RTL8310SR
-       realtek,rtl8366rb:
-         Use with models RTL8366RB, RTL8366S
- 
+ftrace2bconf.sh intentionally omits default ftrace settings (such as
+tracing_on=1, current_tracer=nop, trace_clock=local, max_graph_depth=0, and
+default trace_options) because bootconfig is primarily meant for boot-time
+tracing where ftrace starts in its default state. So I think the current
+implementation is good enough.
+
+For replaying an exported bootconfig onto a live system, bconf2ftrace.sh
+provides --init (which calls initialize_ftrace() in
+tools/bootconfig/scripts/ftrace.sh). Rather than emitting default values in
+ftrace2bconf.sh, shouldn't initialize_ftrace() in
+tools/bootconfig/scripts/ftrace.sh be updated to reset tracing_cpumask
+back to all CPUs? Without --init, none of the other omitted defaults (e.g.
+tracing_on=1, current_tracer=nop, trace_clock=local) are restored on replay
+either.
+
+
+> can restore it.
+>
+> Fixes: 2b86062a34a8 ("tools/bootconfig: Add a script to generates bootconfig from ftrace")
+> Signed-off-by: Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
+> ---
+>  tools/bootconfig/scripts/ftrace2bconf.sh | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+
+> diff --git a/tools/bootconfig/scripts/ftrace2bconf.sh b/tools/bootconfig/scripts/ftrace2bconf.sh
+> --- a/tools/bootconfig/scripts/ftrace2bconf.sh
+> +++ b/tools/bootconfig/scripts/ftrace2bconf.sh
+> @@ -278,9 +278,7 @@ instance_options() { # [instance-name]
+>  		emit_kv $PREFIX.alloc_snapshot
+>  	fi
+>  	val=`cat $INSTANCE/tracing_cpumask`
+> +	emit_kv $PREFIX.cpumask = "\"$val\""
+
+Unconditionally emitting `cpumask` here introduces a portability regression
+for boot-time tracing: if a user exports a bootconfig on a 4-CPU system
+with the default all-CPUs mask ("f"), this will now emit `ftrace.cpumask =
+"f"`. When that bootconfig is used to boot a machine with more CPUs (e.g.,
+8 or 16 CPUs), tracing will be silently restricted to CPUs 0-3 instead of
+tracing all CPUs.
+
+Skipping the default all-CPUs mask was intentional so exported bootconfigs
+remain portable across machines with different CPU counts. If the replay
+problem occurs with `bconf2ftrace.sh --init`, the right fix is to reset
+`tracing_cpumask` in
+`tools/bootconfig/scripts/ftrace.sh:initialize_ftrace()` rather than
+unconditionally emitting the default mask here.
+
+Thanks,
+
+> -		emit_kv $PREFIX.cpumask = "\"$val\""
+> -	fi
+>  	val=`cat $INSTANCE/tracing_on`
+
 -- 
-2.53.0
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
