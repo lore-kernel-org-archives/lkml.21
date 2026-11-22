@@ -1,47 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795365903;
-	b=xEGBsagS6CcdO+WhU9YMC0GzjusZD6PH5UqQRvoCMBOKBv4UB027/UGBoGAdaVtCGKeV
-	 4q0woFG6B0hs1ZvKMABOFpVR4qHIA1EvEgknyReMkruHE8g0VTN8xuGA0Yp0DlBzpLog2
-	 O/p29xjXjEWgQ4WJ4EyoeihIPcKDyuMn6GwY9FY80oRcJweRGzfRunjuA87okvvm6zGvd
-	 5NpEYSPKl/og8GbwKDExduVWL9lf+PEbPpnROb19J4asKsb1W6tG2DNnOVRWu/m1oi8sy
-	 dHM4jtC3N02Y0yNeQiHQ5dyVL6mH/s6pAPu4AztMS1E1Zx7kOPCBbp7j3JgNM4vINdg==
+	t=1795365916;
+	b=0hTWNGrt0G8jKCnn5mzDuAHHsshKwO94CZe3NxMFC4qOMbEHCGPTgodr7h2nq/1Z1jJR
+	 CPrF+r/c3zDOOKeqHDrCBVo/ikp3TvkWcdo7+/7lXwpBWJichK1FBJ1UUANiUzD5lzOp2
+	 E3ZOiOMEm6ewsh/JqofN42QHvD/otn7qg9cBWDPb+OTuS/ddhD5G/bmdiYLcXlkXqQrTN
+	 ZV1X33ojTbxyRrVI+CvWsEP2eFKUqac+b5qY2YPqmmM1RwAvnJkn3tAyPCCbsTtBhnrbR
+	 jkr2kKoEXfiULU+BI3oDJSbssdsZWBsPbIomAC3h38keQYtciwFVapkzWT8rzg9x/xA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795365903;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795365916;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=KaWb+s8zeKhF6AnCeqIf7E7Vx2X7tWNhfZmMdCpaUGM=;
-	b=oyPMFCpK5ZPox66jGK3PRRauKhJC8ZHm4SE+m8TL2VEvOO6Nfpty8q/qQLskGP3lrtm0
-	 88ARTGM8caucQhIXFx+rV32dTxSOoJLXU4XHWu9ATNGovE89Oo6cTCC09Aqh+zXJFIpbs
-	 hh1Wb0vixBp4AVI2Fm65ETfzT3t5mXwupb7C/ApGHzF6sbLY2Oes7ZNtBP0C9HKnOcFN0
-	 4prLaf+TqvzEAePYiMhL2NHNR/v6Clz/R1Ne4EMvLGAuPkU+5Gx9UDOEPIVuUdrfC8GhX
-	 foBQy03xMw7AMiJYtIBWpaq7K8XNMllr/vW3uZ6OFIHvMTO2ua1tFOIrMKrzlV86TcQ==
+	bh=CRz1D33QZ0Q/LTUTY1Fyb+WdD7iUmbFhD/VOw8KoS/Y=;
+	b=kbAD08e0Y2/2LIbu49ujez/E4QGEdhkrePnHU2VMnqIZ3oqOQMeb3zz6npn9ItJCREDZ
+	 iffqfoh0Op3FUif2YsitmziqppvtnZ37ASrU4QV/ko0tmyqhcY5mi6XIu+4vPu7SopFMh
+	 UiyV9cBxcrxr9CRa32W1LwVS/pDGb3bfePaiCksFXzXT67Y5T8Jd5j+G0K/M3tgjrKI+M
+	 +jXktTn5k8FRHM+9V3TA0NXnPp+oGHH06i7UYe2p6SYabHQ19VbZnm8ruLm+m08TUCc3e
+	 wEAOwOVfJX9DwWjFc4eEZKIskrKJsVUZqGAj6hfsgJLs51Y8xK8rV6Q2SnYrKMUMaGQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D28Dshub;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YssTh1rB;
+	arc=none smtp.remote-ip=198.137.202.133
+Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E17D606A330;
-	Sun, 22 Nov 2026 16:45:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5D00606A32C;
+	Sun, 22 Nov 2026 16:45:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5D00606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D28Dshub
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E31261F000C0;
-	Sun, 22 Nov 2026 16:44:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795365902;
-	bh=KaWb+s8zeKhF6AnCeqIf7E7Vx2X7tWNhfZmMdCpaUGM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=D28DshubZKDMkBzwpviztYrerD4E6ol3oEYrrdiVPaZa2+dpN2bHePhFa523xOEjS
-	 P1SGChtJYjqqQGZD2zkdtpgdYRa0/HNZ2kH6GTQebbVKLsSAL0gg+JYqxLlmytiYS5
-	 Ex+Q/i3balIADfHYMBT/5LHmS2G1PdFaQdI+lP6MdSDtTM8POMdy2nVFhfHqkjTzFt
-	 VAqP7rZnD0U6kEi2PEGaayOVN50eRaORis8lozJH94u8IIhs5NPEt6fZScZ2PH3LQa
-	 midpnrtMUVqUYfFER4rDCmJOVOxGcX3/jgg/5wwPmZ83fxuv0vniu2uXZmIF5M/xmU
-	 af6CVbJu8vTXQ==
-Message-ID: <cb535634-2d87-451f-be28-ba975281dde8@kernel.org>
-Date: Sun, 22 Nov 2026 17:44:54 +0100
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YssTh1rB
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Sender:Reply-To:Content-ID:Content-Description;
+	bh=CRz1D33QZ0Q/LTUTY1Fyb+WdD7iUmbFhD/VOw8KoS/Y=; b=YssTh1rB3mh8de/WKUwfb1gkJk
+	unJ+ieQbovW9LcQZB5PI+MZprDBkXr4p5hmNJEdZv08tAVDOXfn3HDp9f6sI4JuZe2/TM+uHSaxov
+	31MyrX+lkmVQtmSjWheadNtq0ZcraFHt2v3U1S8lggvhiMMv3lOsSKiT+7jtGdIxxMPtCM40czk1+
+	z+ui5JTjopdVojxOd05nhXmaFia97hlWvzuZsd8B3d6lg+xXM273hFaMeYqraD/pm4fci81ilGt/h
+	U8EMoeRUjsaURmlRHHZ6v0GAAjhR/Pm7u3L9APDAnNrwCqRPWiqlqB6/wTEQK8WeGN0Nf+aFiicS7
+	qcu4FE2w==;
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xVAgj-00000001NkY-16cZ;
+	Sun, 22 Nov 2026 16:45:13 +0000
+Message-ID: <326066b5-6198-402d-bd5f-e1dfb02b305e@infradead.org>
+Date: Sun, 22 Nov 2026 08:45:12 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,170 +59,61 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/4] selftests/mm: test fork of PMD-mapped shmem THPs
-To: Andrew Morton <akpm@linux-foundation.org>,
- Konstantin Khorenko <khorenko@virtuozzo.com>
-Cc: Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>,
- "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
- Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
- Peter Xu <peterx@redhat.com>, Alex Williamson <alex@shazbot.org>,
- kvm@vger.kernel.org, =?UTF-8?Q?Lo=C3=AFc_Molinari?=
- <loic.molinari@collabora.com>, Lorenzo Stoakes <ljs@kernel.org>,
- Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org,
- dri-devel@lists.freedesktop.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@ziepe.ca>,
- Yeoreum Yun <yeoreum.yun@arm.com>
-References: <20261119-b4-prep-vstor-149847-copy_huge_pmd-recheck-special-pmd-v6-0-efa7817a2bb3@virtuozzo.com>
- <20261119-b4-prep-vstor-149847-copy_huge_pmd-recheck-special-pmd-v6-4-efa7817a2bb3@virtuozzo.com>
- <20261119103210.24a7612ee26c3ffc3db49451@linux-foundation.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH v4] ASoC: doc: Fix bracket
+To: Manuel Ebner <manuelebnerli@mailbox.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>
+Cc: linux-sound@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261122090640.1475222-2-manuelebnerli@mailbox.org>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261119103210.24a7612ee26c3ffc3db49451@linux-foundation.org>
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20261122090640.1475222-2-manuelebnerli@mailbox.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 11/19/26 19:32, Andrew Morton wrote:
-> On Thu, 19 Nov 2026 14:44:05 +0100 Konstantin Khorenko <khorenko@virtuozzo.com> wrote:
-> 
->> Fork a process that maps shmem THPs with PMDs, in a VMA whose page
->> tables fork copies: a private mapping with an anon_vma, and a shared
->> one with a guard region. The child must find the PMDs before it
->> touches the mapping, and its exit must leave the parent's mapping and
->> the system-wide ShmemPmdMapped counter as they were.
->>
->> With folio_dup_file_rmap_pmd() adding PTE mappings, the child's exit
->> takes the parent's share off ShmemPmdMapped while the parent still maps
->> the folios. Unmapping them drops it once more, so every mapping stays
->> until exit, where the kernel reports "Bad page cache", or hits a
->> VM_BUG_ON with CONFIG_DEBUG_VM. A kernel that leaves file THPs to a
->> refault in the child skips the test.
->>
->> ShmemPmdMapped is system-wide, and reclaim or NUMA balancing can take a
->> PMD from the parent while the test runs. So the test makes up to three
->> attempts, each on a fresh file, and fails only if all of them see the
->> counter drop by exactly the parent's share: the bug does that on every
->> fork, other processes only by chance. It passes on the first clean
->> attempt and skips when none is clean.
->>
->> The test mounts a tmpfs with huge=always over /tmp in a private mount
->> namespace, so it leaves the THP settings and the host's mounts and
->> files alone.
->>
->> ...
->>
->> +static void test_fork(bool shared)
->> +{
->> +	const char *desc = shared ? "shared mapping with a guard region" :
->> +				    "private mapping with an anon_vma";
->> +	long before = 0, after = 0;
->> +	enum result res = NO_THP;
->> +	int i, drops = 0;
->> +	char *mem;
->> +
->> +	for (i = 0; i < ATTEMPTS; i++) {
->> +		mem = map_file(shared);
->> +		/* Make fork copy the page tables; the last PMD gets zapped. */
->> +		if (shared) {
->> +			if (madvise(mem + size - pagesize, pagesize,
->> +				    MADV_GUARD_INSTALL)) {
->> +				ksft_test_result_skip("%s: MADV_GUARD_INSTALL: %s\n",
->> +						      desc, strerror(errno));
->> +				return;
->> +			}
->> +		} else {
->> +			mem[size - pagesize] = 'p';
->> +		}
->> +
->> +		res = pmds_ok(mem) ? fork_once(mem, shared, &before, &after) :
->> +				     res == NO_THP ? NO_THP : LOST_PMDS;
->> +		/* Later children get only their own mapping. */
->> +		madvise(mem, size, MADV_DONTFORK);
-> 
-> autobot want the return value checked:
-> 
-> : If this fails, the next child inherits an earlier test mapping too. 
-> : Its exit can then change ShmemPmdMapped by more than the expected
-> : amount, causing the test to skip a real failure.
-> 
-> which seems ignorable - MADV_DONTFORK failures are super unlikely at present.
-> 
->>
->> ...
->>
->> +int main(void)
->> +{
->> +	ksft_print_header();
->> +	pagesize = getpagesize();
->> +	pmdsize = read_pmd_pagesize();
-> 
-> This is going to ruin Mark's day again, thanks to "kselftest: mm:
-> rename read_pmd_pagesize() to pmd_psize()".
-> 
-> I think I'll alter Yeoreum's above patch like this (presently untested):
-> 
-> --- a/tools/testing/selftests/mm/vm_util.h~kselftest-mm-rename-read_pmd_pagesize-to-pmd_psize-fix
-> +++ a/tools/testing/selftests/mm/vm_util.h
-> @@ -93,6 +93,8 @@ unsigned long pagemap_get_pfn(int fd, ch
->  void clear_softdirty(void);
->  bool check_for_pattern(FILE *fp, const char *pattern, char *buf, size_t len);
->  uint64_t pmd_psize(void);
-> +/* temporary cross-tree compatibility thing: */
-> +#define read_pmd_pagesize() pmd_psize()
 
-Thanks! Otherwise we could route selftest through a single tree.
 
-They would fail on the tree until the fix is in ... but that's rpecisely what
-selftests are for.
+On 11/22/26 1:06 AM, Manuel Ebner wrote:
+> Add missng  '};'.
+> 
+> Signed-off-by: Manuel Ebner <manuelebnerli@mailbox.org>
+
+Acked-by: Randy Dunlap <rdunlap@infradead.org>
+
+> ---
+> [v4]
+>  Instead of remove {, add };
+> 
+> [v3]
+>  https://lore.kernel.org/all/20260916113524.304863-2-manuelebnerli@mailbox.org/
+>  - removed the change of the placeholder
+> 
+> [v2]
+>  https://lore.kernel.org/all/20260904120737.758809-2-manuelebnerli@mailbox.org/
+>  - rearrange lines in diff
+>  - fix commit message
+> 
+> [v1]
+>  https://lore.kernel.org/all/20260902150510.706055-2-manuelebnerli@mailbox.org/
+> ---
+> ---
+>  Documentation/sound/soc/dpcm.rst | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/sound/soc/dpcm.rst b/Documentation/sound/soc/dpcm.rst
+> index 7b6aeab3c2..3b145e8ba1 100644
+> --- a/Documentation/sound/soc/dpcm.rst
+> +++ b/Documentation/sound/soc/dpcm.rst
+> @@ -370,6 +370,7 @@ The machine driver sets some additional parameters to the DAI link i.e.
+>  		.num_c2c_params = 1,
+>  	}
+>  	< ... more DAI links here ... >
+> +  };
+>  
+>  These parameters are used to configure the DAI hw_params() when DAPM detects a
+>  valid path and then calls the PCM operations to start the link. DAPM will also
 
 -- 
-Cheers,
-
-David
+~Randy
