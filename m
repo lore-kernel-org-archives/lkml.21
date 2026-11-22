@@ -1,143 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.188.98
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795373033;
-	b=Hy7rUzxuifX9P6J7O54ld2gt+siPJIARi3jnx5bVPpe0TFd02GQYjg5gKq9a0Ghd48aR
-	 h90TntwsIVHcXmHXkvFnXqlqyA0ZavlLWuGQh9z5mGTdArqFXDxFFjAGhW1Kjtr5BVK5L
-	 NfoXydKGU3RGEHjtQI2Oep/TCvLl6LJbXdiXBa5qwW+1pDMxSESyvzq1z3fjtFnic+mD4
-	 D8gM8DwVPD43RZTqokfW2u9L9E+lfZDjlizutUv7+YlF5ms+GXogb4e9v3LoJGok4P/i4
-	 z6gauAXKEfu4TGIz9Rn2ppgpPvNAA3yeN6c90GIO9eOYSluVu+xeuN73RAzcmVVj4nQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795373033;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:
-	 Authentication-Results-Original:Received:DKIM-Signature:
-	 Authentication-Results-Original:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam-Untrusted:
-	 X-Microsoft-Antispam-Message-Info-Original:
-	 X-Forefront-Antispam-Report-Untrusted:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
-	 X-EOPAttributedMessage:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStripped:
-	 X-MS-PublicTrafficType:X-MS-Office365-Filtering-Correlation-Id-Prvs:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=JBkxNZTUwI8mjUinCS2nZiCOMCBe5A8vkSsF38IQhnA=;
-	b=DuK6xWmUs104O+kPCvSnVE4WjBvt4lrUMcidCD+VKg1uUcIvVPcleiY3cPDjKzU8bJJ2
-	 8lmwgMl0vT85u4cE8rn50pZYNPpoTsyhzC1ABZmzFcRLMbG3dnNVxJWQFBZk1uIONh2w4
-	 fn68568vC83dFE9Co7Zfse/fuBNvR9Vcw4oy2FaLD5VlYqZdPi8NqN3X33CQs6BO0PBd4
-	 5BYuuFoomstm45pXfcIsdSurCXDwe4V93baWMIBEQ8EkY2b26sWrR8eqJYzyEI5lF+6+o
-	 dQf4BikHgDLn2ZozyhwbbnVE2a8w9aj+bAz4hceUNRBk1/CR8lO8J0RTQu7lulKYZdg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cern.ch;
-	spf=pass smtp.mailfrom=cern.ch;
-	dkim=pass header.d=cern.ch header.i=@cern.ch header.a=rsa-sha256 header.s=selector1 header.b=syDBGTZZ;
-	dkim=pass header.d=cern.ch header.i=@cern.ch header.a=rsa-sha256 header.s=selector1 header.b=syDBGTZZ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.188.98
-Received: from GVAP278CU002.outbound.protection.outlook.com (mail-switzerlandwestazon11020098.outbound.protection.outlook.com [52.101.188.98])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795373074;
+	b=PqtZM24BizSpV5DpAtkGOPLTC07nc1eqX6/rmrdc84rMwokY3iuu1osHoUFboQgj8m2i
+	 Jtqc+KYQlCKj7ymTaS/ouS0w+qGMgGuMbLyNvdgexidR+CQ+1INmNXHVrV0kLe6npdTPX
+	 9rYS8UjjHNKOYDQn86SDFq7Cwp1PYCmL6wW5ZhiyTksqnthXk6DEbXa7tECZHXvKfbSXa
+	 /amQAp1ZpnzR0cepcyUQKTD+X3Rm2DJgwPu6ynCngHuM831N8/ddiuN7NLuNVPzKX7VAC
+	 DtYeX27EPY+2qMa8yVfSvnHfRzBnYw8cx6UnVqC/XKG3Kw8Su2hDx2uzQ0SKcWCHElg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795373074;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=o5os1BY6EKnH92TRX8J0TIMZQ0IhbACk1WzDd1+ASqM=;
+	b=udHeMYU6rCv81G4UloUQnolbV0cki5AaJ8lacBaBtm5AiGKpKToOOVe1yIjvHMK2AnNh
+	 gOhP5jM2HJCXa0/8ftyQQ4rquP/ChxWQdfr8M3BJi1h1aQdxHyhabd86QoQVN1QpFCXN9
+	 /0hq5wDJ/Rj5A1R4JYgA3EJrYwmrZfqnYKKLgz91eHyJrDW3CSQkmFUx0TvIgpGjsF3vJ
+	 7ISenFAKDKv7zSjcj8dUp7QccHt6QBQuWUdpMPkB7TpgOlkK1OMy48nszfH7F3HDRotTS
+	 vkwpFV9HUjiKxclNOzYnITeOIAplplFDyXi1fO8BdURjmwkJcofXtCJbEz5UUWDdM5w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=KZKaRaL4;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=NHE9yu1c;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52128606A32A;
-	Sun, 22 Nov 2026 18:43:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52128606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cern.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cern.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D96BB606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:44:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D96BB606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cern.ch header.i=@cern.ch header.a=rsa-sha256 header.s=selector1 header.b=syDBGTZZ;
-	dkim=pass (1024-bit key) header.d=cern.ch header.i=@cern.ch header.a=rsa-sha256 header.s=selector1 header.b=syDBGTZZ
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=w06sI5RMQe62XNq/pds8nIbGJR/ydVqudOaShccmMZy2WPmOHG7I3ejMSw/mQbRTpNgwpoiLg3dJn224Ljj5eYwD1Ye+5gQa75TX7SvaOvDZSS5bWEVVvfek+XcJmpuuQSsfE4S7AU1M2PgyVVVVsAb1B3wXhR78dlzShLkpjG3vYMjaEV5fXwFpO8vYdUGp1MI5Hhc/6hnit4E01zzC+zJeTRMiOhL8RPxr2zmpMejiE0Yhv3VIfTNkw6CCSNDTWU0uDMRnIqZM9/unjpqk6y3XcnYkDAXTim1MBYXwejUi/WpX89ylRzsEMLXSoD7W8n2EbwXMPdM/R9RbGCkBFA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JBkxNZTUwI8mjUinCS2nZiCOMCBe5A8vkSsF38IQhnA=;
- b=cUiFu4O0aT6hYS5n4aklnMIYK10OUocHYIZ4mZ2ZOUMiZIKJbiJUkNOhK4uUyzdX+qMgBlSgzQ+p5gFaVfzkWLV1MrO4TN10Uc7u5elAkPnr73b4a7z3k5OepMDQr0g//OqDpLJSvQ3zAc+yuJLEYb7z3/fNec52iQlfSH/neiKU9BKY2MpqF1Xzh1w959L1CHPX2wQfoWsdiDxgEDrply4ONsFGvEVmjgHrFZR2xGOtAMq9+s1I31F0wcdpfeq+rO1kF3Noh71KVkkMLOcRdWfB0ALh94SH8OnTdi3pNw7OMG/5cBqZ2/eF5ttLegW3amSXZ46x5vjZS6uANudm7g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 20.208.138.155) smtp.rcpttodomain=antheas.dev smtp.mailfrom=cern.ch;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=cern.ch;
- dkim=pass (signature was verified) header.d=cern.ch; arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cern.ch; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JBkxNZTUwI8mjUinCS2nZiCOMCBe5A8vkSsF38IQhnA=;
- b=syDBGTZZhtBPVtfMBqJT97XM6VNsG+SVf0+11TDLzj1gnSx639B2Ey7BZh5quWjU8ERKctc6EbHUKhQRHc65RKp09PIr9ZQ2YiUqC7VbS5WwN5vSjyxMm3Kh4oueqG8D2TuWHG1wSh6Q/UyfRQcTGN+UePU3dYHUmFwSJZWbcU0=
-Received: from MI3PEPF00008BF9.ITAP293.PROD.OUTLOOK.COM (2603:10a6:298:1::475)
- by GV0P278MB1244.CHEP278.PROD.OUTLOOK.COM (2603:10a6:710:5a::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Sun, 22 Nov
- 2026 18:43:48 +0000
-Received: from MI3PEPF00008485.eurprd02.prod.outlook.com (2603:10a6:298:1::44)
- by MI3PEPF00008BF9.outlook.office365.com (2603:10a6:298:1::475) with
- Microsoft SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id
- 15.21.639.14 via Frontend Transport; Sun, 22 Nov 2026 18:43:47 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 20.208.138.155) smtp.mailfrom=cern.ch; dkim=pass (signature was verified)
- header.d=cern.ch;dmarc=pass action=none header.from=cern.ch;
-Received-SPF: Pass (protection.outlook.com: domain of cern.ch designates
- 20.208.138.155 as permitted sender) receiver=protection.outlook.com;
- client-ip=20.208.138.155; helo=mx3.crn.activeguard.cloud; pr=C
-Received: from mx3.crn.activeguard.cloud (20.208.138.155) by
- MI3PEPF00008485.mail.protection.outlook.com (10.167.240.132) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.5
- via Frontend Transport; Sun, 22 Nov 2026 18:43:47 +0000
-Authentication-Results-Original: auth.opendkim.xorlab.com;	dkim=pass (1024-bit
- key; unprotected) header.d=cern.ch header.i=@cern.ch header.a=rsa-sha256
- header.s=selector1 header.b=syDBGTZZ
-Received: from GVAP278CU002.outbound.protection.outlook.com (mail-switzerlandwestazlp17010004.outbound.protection.outlook.com [40.93.86.4])
-	by mx3.crn.activeguard.cloud (Postfix) with ESMTPS id 263AB80181;
-	Sun, 22 Nov 2026 19:43:46 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cern.ch; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JBkxNZTUwI8mjUinCS2nZiCOMCBe5A8vkSsF38IQhnA=;
- b=syDBGTZZhtBPVtfMBqJT97XM6VNsG+SVf0+11TDLzj1gnSx639B2Ey7BZh5quWjU8ERKctc6EbHUKhQRHc65RKp09PIr9ZQ2YiUqC7VbS5WwN5vSjyxMm3Kh4oueqG8D2TuWHG1wSh6Q/UyfRQcTGN+UePU3dYHUmFwSJZWbcU0=
-Authentication-Results-Original: mx.microsoft.com 1; dkim=none (message not
- signed) header.d=none;dmarc=none action=none header.from=cern.ch;
-Received: from GVAP278MB0007.CHEP278.PROD.OUTLOOK.COM (2603:10a6:710:22::8) by
- ZR3P278MB1324.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:74::12) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.13; Sun, 22 Nov 2026 18:43:45 +0000
-Received: from GVAP278MB0007.CHEP278.PROD.OUTLOOK.COM
- ([fe80::29de:97bf:5b0:49f8]) by GVAP278MB0007.CHEP278.PROD.OUTLOOK.COM
- ([fe80::29de:97bf:5b0:49f8%5]) with mapi id 15.21.0639.012; Sun, 22 Nov 2026
- 18:43:45 +0000
-From: Maxim Storetvedt <mstoretv@cern.ch>
-To: andersson@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: lkml@antheas.dev,
-	marcus@nazgul.ch,
-	marijn.suijten@somainline.org,
-	linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	abel.vesa@oss.qualcomm.com,
-	johan@kernel.org,
-	konradybcio@kernel.org,
-	kirill@korins.ky
-Subject: [PATCH v9 1/3] dt-bindings: arm: Add Samsung Galaxy Book4 Edge
-Date: Sun, 22 Nov 2026 19:43:18 +0100
-Message-ID: <20261122184337.6551-2-mstoretv@cern.ch>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261122184337.6551-1-mstoretv@cern.ch>
-References: <20261122184337.6551-1-mstoretv@cern.ch>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: FR4P281CA0370.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:f8::16) To GVAP278MB0007.CHEP278.PROD.OUTLOOK.COM
- (2603:10a6:710:22::8)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=KZKaRaL4;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=NHE9yu1c
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AMGUvBw3514914
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:44:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	o5os1BY6EKnH92TRX8J0TIMZQ0IhbACk1WzDd1+ASqM=; b=KZKaRaL4LFLbAI65
+	ZEX2ipuu6sVJT7wO7ZuO8vRrwLkk1ypbL0Rv2/U/5vy+QYBNJCZm9ytm1E32zgvh
+	S6QGEUQlxLUfS0L72jvf6Vi9HPa+tpikAj9/uBqglapNBheHrCK3RZgGS9FJIzGu
+	0vB0ojc3zRhprzezXyA63hHFD0calTwrvyPA3+8ljswcqUs9jIkds4gEqfZkuclY
+	7hEqiUJGYHKblx4sWqNjQCBwQl1tTNuhtToIW20mMsmcgITRuCAuL42cef41Y/q9
+	HT6cI29BjAAZnKRLBz/WbVF6kg2vHCxmXNt52S7rakBkCUnV6VNRaDLhriopkdEC
+	OH7TIQ==
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j33p7uycd-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:44:30 +0000 (GMT)
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-33c35f5ca6cso3663742eec.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:42:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795372933; x=1795977733; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=o5os1BY6EKnH92TRX8J0TIMZQ0IhbACk1WzDd1+ASqM=;
+        b=NHE9yu1cBCMHwgDDNSbPmX3plqtgaiNIpq6o9+Xbfdw08T29qpIE17MjJQi4qnH4xw
+         7n+RxKvMsAnMIQ/kb7WpICyWWv6eVfwgBZtP3PVptKZQYL7ixZ6b4v8Z8w3u3vjIVCAk
+         NsyvgBwYZNcAy1MVa9tiaS8lfb6IfA/jgiZk+C+kWnVS1DV3aOKC7tPDnchvjUdBF7bK
+         bnJWZhzcZcXDZhQ4+YClu/gR+0+qOVvFF0kGThfk4uHF6QCkMz5PqdIWzG0fCmzaScAP
+         aDaylumGrX1S6gj3YEdVlKcxrLGvwLLG/BPYZ0l1WwM+g1zIA+9rwgkp7IT/Sk5GD/Ft
+         MOsQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795372933; x=1795977733;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=o5os1BY6EKnH92TRX8J0TIMZQ0IhbACk1WzDd1+ASqM=;
+        b=FRPhrLDEbSrn0E3OFd9EVGUxnDHmZapbs9isk+nS+oaygtQLow8+lgrWjv7052V0ok
+         q6iuxxLcl4pU0+BXGgd0G4JFw+yKPSVOflqLBkEXIGf75XgYnUZ3jasC9gfH4D5h47xu
+         elyB22e3rTvBj+uo7uCPOZB/M93NsPWf3LLk7FaDANSUs3FlbQKtc63lNIhmMKowvjsp
+         KGPlI8D4N4xgTgUfLWW/MdkQC92XLyH6jRuBLKjvOzXVpSLdPesy9BDMduZARl0BIbPQ
+         iwRtARgsOk34TwUM5h99+RLEY+8EicLvZCp+coFfA0OsXm7q8E6a3IXHBfGcC87Oh74Y
+         Qnng==
+X-Forwarded-Encrypted: i=1; AL+hErHTTx3lN0GwAqMPrTvy97mI7tRLmZysYF0pGRQUFoQsS28KADfXoNyuZgKJV1leLevKX7c6XCl8EVKU/dQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8sedbEw1qJFKg9HYt8WT2pEPOKnQPbdQMvtqvdH1LzzSb/W4cg
+	Lm/FiISszYwekknFs7Rs1xl4o/r1xIbEjlDOSBcW7DQvDO0Dgr8WW2TDXuTIC674G9CM+tblDX/
+	v4cr2wUEtlb7ChMLmF7vx1iMBwh4Vb3CwQoq7kmRsVn/5ebxweejAdx9lno+S97f/WEU=
+X-Gm-Gg: AZFdTZd5BnoOXbLFc+Fzh4i9QQTW1gZKtFJDnOEWfBHu+gt2LjWtxk8NzZ2lQ94YGTN
+	uJEIbihTRuGG6V//zTzCITAF2b9pdVh1RNkhfk4wvVejtAS9EDR9LYZql7qSDrkEeFiizgYd2vC
+	3oqxbDccSa9wkdBYMHpRWHg96BWUEk+eECHWAr+aqFwNn8gqOttqM/UcF1OjLH/QpbjpNJCMMcQ
+	+e7Hl04ol1CS1kfxchOY3/vwEXAsJM0X+HGyO0hvTxqqT1jvF/7Oa8i/3SMh01jfwKoMip6ipvB
+	QcH17vRdbQtbKhyAv1LNHOtF5n5H1r4wr8IRrQMxlvqmKcT76rYyX2imAIDHG89SAdAoDOfxf3X
+	UXAerwNmfEp9yAxDT/6etetARIeQPT4W4/SZlGsu79XRCSscMElfcAskrSg4kY3x7ZF7wcngki8
+	RCX/ry8KXhRw==
+X-Received: by 2002:a05:693c:864b:10b0:377:1ad4:1947 with SMTP id 5a478bee46e88-3856f14d3c8mr11496349eec.6.1795372932326;
+        Sun, 22 Nov 2026 10:42:12 -0800 (PST)
+X-Received: by 2002:a05:693c:864b:10b0:377:1ad4:1947 with SMTP id 5a478bee46e88-3856f14d3c8mr11496320eec.6.1795372931717;
+        Sun, 22 Nov 2026 10:42:11 -0800 (PST)
+Received: from hu-mohs-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm48497465eec.3.2026.11.22.10.42.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 10:42:11 -0800 (PST)
+From: Mohammad Rafi Shaik <mohammad.rafi.shaik@oss.qualcomm.com>
+Date: Mon, 23 Nov 2026 00:11:34 +0530
+Subject: [PATCH v7 4/9] ASoC: qcom: lpass-va-macro: Add shikra compatible
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -147,80 +116,478 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic:
-	GVAP278MB0007:EE_|ZR3P278MB1324:EE_|MI3PEPF00008485:EE_|GV0P278MB1244:EE_
-X-MS-Office365-Filtering-Correlation-Id: bb66386f-7a92-48e5-2710-08df48c88b34
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted:
- BCL:0;ARA:13230040|19092799006|23010399003|1800799024|786006|366016|376014|7416014|261026121527099003|261021121427099003|261102123227099003|11063799006|56012099006|10067099003|261009223027099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info-Original:
- yARlN6+lTAfbwG0E4qu+84s+VYSamN8Mx68HM4vicMyhIVjaSAXJTKZVceKOS/ljTcm9bxCbrQhgVXR7p9rxSPIqWfzi3dyQrsOTnaWqwygpZdZhqvl3nnvwnIQU8ie36sk8hCnAhBIpPBuQzB4cvlZJ7/RPBea8GWesMXo2/ykN+FfyKzXmAPv2lSkqqEMyI0gCcfXNYSXdxOyWWpXdwtklMBNxjyYkWSBDG2BnlS5188Wyhs/ZIhruor1RzctI6z1u5TzzSL0afDquQYQ2KJzmUUFJKDEaFkJwuvNRyaQfpRtn5aHsoyjrd/vtbSKrZ9zEVCjrUf1OsD4RBSiqYH3+bsIkH472OR2YyKvFbJVys0IrYO/cjxRDgncvJHuiGQSm4CtDKmN+AxE24Jcep8UaQZiPZOn8wwNyF+5B/hwWNLtnhmEnlviNF4j5oRBvm70seUCok6KVIusa9oLxkKo+6zY4kdO+fqKqMGl7PCsRXxDNsvRhRiVllHrZqaS6/R5NdP0HvvRsOx27MewQySmg/OPCnpOqAcq0OCmuHK3ZzMnIIEvmwjo8HeXvgP1c91Vy0VOgnI21SGGF2GaaCAdHSAnhSWMrCwHAhKe6cbGieG/m4YZJkVKyRlO180/oF5RXu0C6wg9Xi4sEkf0fdcjlY36iN6Hlx2zpXDBechQ=
-X-Forefront-Antispam-Report-Untrusted:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVAP278MB0007.CHEP278.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(1800799024)(786006)(366016)(376014)(7416014)(261026121527099003)(261021121427099003)(261102123227099003)(11063799006)(56012099006)(10067099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-Exchange-RoutingPolicyChecked:
- NqP7PwqnrSXN6+K7j+wCORrLV6CxDmBI8K+GFzJFSBMHt2pFGeNEZ4pAJ9Vucbc0jxsZO/d++T9+g5CQK3jnUc/3f6bmmRMhElV4OI7oYhlc1ICqxNMg4PITXRIUc0vQ5BvayQWR0fqDbJWPnMDfRTDoMuozRUTBp6dR2BGD95EO14f7CqmAhS4PulMRpMthgeE6nyiqRH6o9En5n5pOeyTYmiTNvJ0Mb3UpKav9F2Sg59k4WY/Je9w3JQ1baEFuZ0YN0NnJyfkmYaOMC/cpEPQ6d8BGkE5fINQqU0416nDs71hHxkU6NuHudefWdu6fAynyIsmZzbZ6Gg5ntzKkaA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR3P278MB1324
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped:
- MI3PEPF00008485.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs:
-	52516045-0ce7-4714-5be3-08df48c8898b
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|786006|35042699022|36860700016|23010399003|14060799003|30052699003|1800799024|82310400026|19092799006|7416014|376014|10067099003|56012099006|11063799006|261026121527099003|261021121427099003|261102123227099003|261009223027099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	NBLQ9OZXQ+o9KhU0iewHVtAqLBUI0fQDNOn8JAsF9AVJPj1tFxf86w37g7Gv2upWIDdhFs4423YC3HZr0WI9K/1xUp7Pc3I56i+tA5oi1iokLJMUA7dU8jfzWDK1MdjwPzsjyz5CHz6TEblx2PJJT8dAnesNXR2eiYL/+gr6/iGtd+Qe8Pxg9xp+ajWjNds+VHuqYzK4KjyIyP5pxqs5ojO5WvwFVZiQJHy9NI3TDKeQpmpYp5PrrIwPnkjb0raK0hSIKLUHAa8TSMLb7QCKVaQ5UiZhc+eLTTI87SCzvBYa7JhWZVhW755O9tAelxO2eDm3GyG+W2aoVz9YMyTZAWLKqgYifkxSWJbeW0HDjk6KyOOZTw0EH4ekzqn86ipAiMAZqWBis44IR1MgPF5Dufa/YPNM2ck8ZFtqXCieitbRRDxVdpbICvwMu+4vVqmK001GT5f5Skw0b2FLdUAAQjnzRlko/ZCt8ADFZrcXn8h1Qh6p7vDLveWozmO8dihwfRpEh1NCSENT3OXs9CYwpRQsTt78zmUS4tjWnlzPZ4cDDAsCJD/tVeulFwXdBRlBYjiBpihGwGFp+4ulNZ/sNRsPectZGUww0z7Ds9+yierkuNuU5iZeOZPMlzfqjqILU0v1KGhJfakSwDpsov5qFIOg3ECCmeuYx7cnyEjqhUxoOGF6NKbdj/HznSEkuQrbLfcziEhrzzLgqsxNS35ang==
-X-Forefront-Antispam-Report:
-	CIP:20.208.138.155;CTRY:CH;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:mx3.crn.activeguard.cloud;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(786006)(35042699022)(36860700016)(23010399003)(14060799003)(30052699003)(1800799024)(82310400026)(19092799006)(7416014)(376014)(10067099003)(56012099006)(11063799006)(261026121527099003)(261021121427099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	gp2sGznHjQ+P+kDnfo5yhc8C0TnEF4w9ZbtBf4x2/rRtkvT6bilaP9IvvKj7zePYnPeNsjvyXRGB4TXSDEt89e7H//ag6TvpFhd0Gp3q7GLJ+ivWyBnyDju6sQQ4XttMhU0AA58jgcsVcgb6q+y/Qg9Ifmmr9qOYuuM8U4U9EIxDF9JTp67rxRh2uNdodxauLgdjSFqOWjkN+E8twDZ1zzKlzG6n2JPXuqNqrGlyQGrtjUraqq8BguLkm08mF/tPfectqvBpMqD/WBhM4EDWpx5DJD8IpXcF9GMBAXltHe9ff2WyPuNcLFZu0zMvP5r4Xumq6peNQqB0B0k9UU0ktVZeVJyHgjie1Ko8lvDJBaapNOQPkirCrI87gGQuEn/TTNpStAFX+Cg2cUEKD2HIl6iRlf11pKDrjAOD5D5v7L8cAs32rhbKsao8SbArE+AB
-X-OriginatorOrg: cern.ch
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2026 18:43:47.5427
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: bb66386f-7a92-48e5-2710-08df48c88b34
-X-MS-Exchange-CrossTenant-Id: c80d3499-4a40-4a8c-986e-abce017d6b19
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=c80d3499-4a40-4a8c-986e-abce017d6b19;Ip=[20.208.138.155];Helo=[mx3.crn.activeguard.cloud]
-X-MS-Exchange-CrossTenant-AuthSource:
-	MI3PEPF00008485.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV0P278MB1244
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-add_shikra_support-v7-4-7bf3aa089fc6@oss.qualcomm.com>
+References: <20261123-add_shikra_support-v7-0-7bf3aa089fc6@oss.qualcomm.com>
+In-Reply-To: <20261123-add_shikra_support-v7-0-7bf3aa089fc6@oss.qualcomm.com>
+To: Srinivas Kandagatla <srini@kernel.org>,
+        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+        Takashi Iwai <tiwai@suse.com>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Mohammad Rafi Shaik <mohammad.rafi.shaik@oss.qualcomm.com>,
+        linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795372903; l=15954;
+ i=mohammad.rafi.shaik@oss.qualcomm.com; s=20260424;
+ h=from:subject:message-id; bh=5T/ShTsdj6zwic+0/OnC1evuFpad5Q7qhnSd2x6Cw+E=;
+ b=m83nnlZwCybmZuhVKsyqhDR20I1w6ieM7ZDZ5YTKV0M+BEQi9/hL9Ct+kswQBQVVDDVoctUb0
+ pkM3aKIrWsiDjBW5H279sJv12QNcBxlwY1rsTRidm+N7Cq04UVBaERB
+X-Developer-Key: i=mohammad.rafi.shaik@oss.qualcomm.com; a=ed25519;
+ pk=KZedmYgMGYOzuTpLGv56tdrL+pTLDP8pdmfQ91xemiA=
+X-Authority-Analysis: v=2.4 cv=OrHaWC/t c=1 sm=1 tr=0 ts=6b03380e cx=c_pps
+ a=cFYjgdjTJScbgFmBucgdfQ==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=EUspDBNiAAAA:8 a=h1ge19E7uGdfSa27wvMA:9 a=QEXdDO2ut3YA:10
+ a=scEy_gLbYbu1JhEsrz4S:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIyMDA3NCBTYWx0ZWRfX/utvvlOit5nj
+ v7p8g8N8KfzHgC9zHQb+fFcZ3VogFoGWIFUcZS6rroBoEItafclugQqxI8rhl9ORwTR0uBv/wet
+ jj7jEthQ9vffWlvM0dnW9qsL9I5NjH4=
+X-Proofpoint-GUID: 2DVexSNG1EBtyQZ073FcHZ0M8pez-xoq
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIyMDA3NCBTYWx0ZWRfX1YlhMurbatis
+ tGy9ZZmkCo2F7LE0h7yGzApT6cS6PTxIcwsOXO0ItzqQap26GvinVTjNezfRURlwjWJAk3URsrs
+ dUlhXjQwAx8UomhUlnTrctMiNEMDZNH6XjSAAJ8q7bfgo8Lt7folzxYoSP+abNR/fsatRGGCWxb
+ yEDyhyUScB5WQ3q2j6xoIqr5mx2UbegOuzDVCK9sz3J73qcsckmAfWzEh5aHSN90LneoTvDRWgH
+ g6WunMDpEhJ0RmTZuDqPoT0d/Q4TKJiIQGHzfJgU2vuCT6+vEZrxmea0M27+AYoCRVgoLk3RTij
+ xoBuvP+22Kyj6TLbxx61QBdHulOcHBHKBH+xDJHToSY7oSnlmuNaQSCM38S06uizhCkx4FSmj0Z
+ I/vlCHolUo6gK+90GAl3X2EK3tMz5zAeGLpMiWvYEFKuW1KM+Okz0fJWrKqKNe8Tq4jXMhHztvo
+ Vbg+1CC8TxSOOidc/Jg==
+X-Proofpoint-ORIG-GUID: 2DVexSNG1EBtyQZ073FcHZ0M8pez-xoq
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-22_04,2026-11-22_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 spamscore=0 clxscore=1015 phishscore=0 lowpriorityscore=0
+ suspectscore=0 priorityscore=1501 malwarescore=0 impostorscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611220074
 
-Add the Samsung Galaxy Book4 Edge compatibility bindings.
+Add shikra specific VA macro data and register programming needed by
+the LPASS codec v4.0 implementation.
 
-These were previously a single entry, but split to accommodate for the
-two common 14- and 16-inch SKUs, which differ in several areas.
+LPASS codec v4.0 extends the VA macro with four adaptive filter (ADPT)
+blocks at 0x0800..0x09a4 and for shikra FS counter to be bypassed
+before it is enabled.
 
-Signed-off-by: Maxim Storetvedt <mstoretv@cern.ch>
+Add the new registers as a separate reg_default array, used by a v4.0
+specific regmap config.
+
+The register layout has to be chosen before the regmap exists, i.e.
+before CDC_VA_TOP_CSR_CORE_ID_* can be read, so it comes from match data;
+probe then cross checks it against the version reported by the hardware.
+
+Signed-off-by: Mohammad Rafi Shaik <mohammad.rafi.shaik@oss.qualcomm.com>
 ---
-Changed in v7: the single compat binding became the two 14/16inch
-entries below, one for each of the two common SKUs. Re-review
-requested, as the tag received by Marcus was for the
-previous single-entry version.
+ sound/soc/codecs/lpass-va-macro.c | 276 +++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 270 insertions(+), 6 deletions(-)
 
- Documentation/devicetree/bindings/arm/qcom.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/arm/qcom.yaml b/Documentation/devicetree/bindings/arm/qcom.yaml
-index 7ffa4f699..41c9cecb5 100644
---- a/Documentation/devicetree/bindings/arm/qcom.yaml
-+++ b/Documentation/devicetree/bindings/arm/qcom.yaml
-@@ -1312,6 +1312,13 @@ properties:
-               - qcom,x1e80100-qcp
-           - const: qcom,x1e80100
+diff --git a/sound/soc/codecs/lpass-va-macro.c b/sound/soc/codecs/lpass-va-macro.c
+index af8308eacb0b..240100638744 100644
+--- a/sound/soc/codecs/lpass-va-macro.c
++++ b/sound/soc/codecs/lpass-va-macro.c
+@@ -25,6 +25,7 @@
+ #define CDC_VA_CLK_RST_CTRL_FS_CNT_CONTROL	(0x0004)
+ #define CDC_VA_FS_CONTROL_EN			BIT(0)
+ #define CDC_VA_FS_COUNTER_CLR			BIT(1)
++#define CDC_VA_FS_CNT_BYPASS			BIT(7)
+ #define CDC_VA_CLK_RST_CTRL_SWR_CONTROL		(0x0008)
+ #define CDC_VA_SWR_RESET_MASK		BIT(1)
+ #define CDC_VA_SWR_RESET_ENABLE		BIT(1)
+@@ -155,7 +156,54 @@
+ #define CDC_VA_TX3_TX_PATH_SEC5			(0x05A4)
+ #define CDC_VA_TX3_TX_PATH_SEC6			(0x05A8)
  
-+      - items:
-+          - enum:
-+              - samsung,galaxy-book4-edge-14
-+              - samsung,galaxy-book4-edge-16
-+          - const: samsung,galaxy-book4-edge
-+          - const: qcom,x1e80100
++/* LPASS codec v4.0 adaptive filter (ADPT) blocks */
++#define CDC_VA_CDC_ADPT0_ADPT_CTRL		0x0800
++#define CDC_VA_ADPT_CTRL_EN_MASK		GENMASK(6, 0)
++#define CDC_VA_CDC_ADPT0_ADPT_GAIN_0		0x0804
++#define CDC_VA_CDC_ADPT0_ADPT_GAIN_1		0x0808
++#define CDC_VA_CDC_ADPT0_DH_FSM_CTRL		0x080c
++#define CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_0	0x0810
++#define CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_1	0x0814
++#define CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_2	0x0818
++#define CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_3	0x081c
++#define CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_4	0x0820
++#define CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_5	0x0824
 +
-       - items:
-           - enum:
-               - qcom,hamoa-iot-evk
++#define CDC_VA_CDC_ADPT1_ADPT_CTRL		0x0880
++#define CDC_VA_CDC_ADPT1_ADPT_GAIN_0		0x0884
++#define CDC_VA_CDC_ADPT1_ADPT_GAIN_1		0x0888
++#define CDC_VA_CDC_ADPT1_DH_FSM_CTRL		0x088c
++#define CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_0	0x0890
++#define CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_1	0x0894
++#define CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_2	0x0898
++#define CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_3	0x089c
++#define CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_4	0x08a0
++#define CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_5	0x08a4
++
++#define CDC_VA_CDC_ADPT2_ADPT_CTRL		0x0900
++#define CDC_VA_CDC_ADPT2_ADPT_GAIN_0		0x0904
++#define CDC_VA_CDC_ADPT2_ADPT_GAIN_1		0x0908
++#define CDC_VA_CDC_ADPT2_DH_FSM_CTRL		0x090c
++#define CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_0	0x0910
++#define CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_1	0x0914
++#define CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_2	0x0918
++#define CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_3	0x091c
++#define CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_4	0x0920
++#define CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_5	0x0924
++
++#define CDC_VA_CDC_ADPT3_ADPT_CTRL		0x0980
++#define CDC_VA_CDC_ADPT3_ADPT_GAIN_0		0x0984
++#define CDC_VA_CDC_ADPT3_ADPT_GAIN_1		0x0988
++#define CDC_VA_CDC_ADPT3_DH_FSM_CTRL		0x098c
++#define CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_0	0x0990
++#define CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_1	0x0994
++#define CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_2	0x0998
++#define CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_3	0x099c
++#define CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_4	0x09a0
++#define CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_5	0x09a4
++
+ #define VA_MAX_OFFSET				(0x07A8)
++#define VA_4_0_MAX_OFFSET			0x09a4
+ 
+ #define VA_MACRO_NUM_DECIMATORS 4
+ #define VA_MACRO_RATES (SNDRV_PCM_RATE_8000 | SNDRV_PCM_RATE_16000 |\
+@@ -209,7 +257,8 @@ struct va_macro {
+ 	u16 dmic_clk_div;
+ 	bool has_swr_master;
+ 	bool has_npl_clk;
+-
++	bool fs_cnt_bypass;
++	bool has_adpt;
+ 	int dec_mode[VA_MACRO_NUM_DECIMATORS];
+ 	struct regmap *regmap;
+ 	struct clk *mclk;
+@@ -235,7 +284,10 @@ struct va_macro {
+ struct va_macro_data {
+ 	bool has_swr_master;
+ 	bool has_npl_clk;
++	bool fs_cnt_bypass;
++	bool has_adpt;
+ 	int version;
++	const struct regmap_config *regmap_config;
+ };
+ 
+ static const struct va_macro_data sm8250_va_data = {
+@@ -396,6 +448,127 @@ static const struct reg_default va_defaults[] = {
+ 	{ CDC_VA_TX3_TX_PATH_SEC6, 0x00},
+ };
+ 
++static const struct reg_default va_4_0_defaults[] = {
++	/* VA macro */
++	{ CDC_VA_CLK_RST_CTRL_MCLK_CONTROL, 0x00},
++	{ CDC_VA_CLK_RST_CTRL_FS_CNT_CONTROL, 0x00},
++	{ CDC_VA_CLK_RST_CTRL_SWR_CONTROL, 0x00},
++	{ CDC_VA_TOP_CSR_TOP_CFG0, 0x00},
++	{ CDC_VA_TOP_CSR_DMIC0_CTL, 0x00},
++	{ CDC_VA_TOP_CSR_DMIC1_CTL, 0x00},
++	{ CDC_VA_TOP_CSR_DMIC2_CTL, 0x00},
++	{ CDC_VA_TOP_CSR_DMIC3_CTL, 0x00},
++	{ CDC_VA_TOP_CSR_DMIC_CFG, 0x80},
++	{ CDC_VA_TOP_CSR_DEBUG_BUS, 0x00},
++	{ CDC_VA_TOP_CSR_DEBUG_EN, 0x00},
++	{ CDC_VA_TOP_CSR_TX_I2S_CTL, 0x0C},
++	{ CDC_VA_TOP_CSR_I2S_CLK, 0x00},
++	{ CDC_VA_TOP_CSR_I2S_RESET, 0x00},
++	{ CDC_VA_TOP_CSR_CORE_ID_0, 0x00},
++	{ CDC_VA_TOP_CSR_CORE_ID_1, 0x00},
++	{ CDC_VA_TOP_CSR_CORE_ID_2, 0x00},
++	{ CDC_VA_TOP_CSR_CORE_ID_3, 0x00},
++	{ CDC_VA_TOP_CSR_SWR_MIC_CTL0, 0xEE},
++	{ CDC_VA_TOP_CSR_SWR_MIC_CTL1, 0xEE},
++	{ CDC_VA_TOP_CSR_SWR_MIC_CTL2, 0xEE},
++	{ CDC_VA_TOP_CSR_SWR_CTRL, 0x06},
++	/* VA core */
++	{ CDC_VA_INP_MUX_ADC_MUX0_CFG0, 0x00},
++	{ CDC_VA_INP_MUX_ADC_MUX0_CFG1, 0x00},
++	{ CDC_VA_INP_MUX_ADC_MUX1_CFG0, 0x00},
++	{ CDC_VA_INP_MUX_ADC_MUX1_CFG1, 0x00},
++	{ CDC_VA_INP_MUX_ADC_MUX2_CFG0, 0x00},
++	{ CDC_VA_INP_MUX_ADC_MUX2_CFG1, 0x00},
++	{ CDC_VA_INP_MUX_ADC_MUX3_CFG0, 0x00},
++	{ CDC_VA_INP_MUX_ADC_MUX3_CFG1, 0x00},
++	{ CDC_VA_TX0_TX_PATH_CTL, 0x04},
++	{ CDC_VA_TX0_TX_PATH_CFG0, 0x10},
++	{ CDC_VA_TX0_TX_PATH_CFG1, 0x0B},
++	{ CDC_VA_TX0_TX_VOL_CTL, 0x00},
++	{ CDC_VA_TX0_TX_PATH_SEC0, 0x00},
++	{ CDC_VA_TX0_TX_PATH_SEC1, 0x00},
++	{ CDC_VA_TX0_TX_PATH_SEC2, 0x01},
++	{ CDC_VA_TX0_TX_PATH_SEC3, 0x3C},
++	{ CDC_VA_TX0_TX_PATH_SEC4, 0x20},
++	{ CDC_VA_TX0_TX_PATH_SEC5, 0x00},
++	{ CDC_VA_TX0_TX_PATH_SEC6, 0x00},
++	{ CDC_VA_TX0_TX_PATH_SEC7, 0x25},
++	{ CDC_VA_TX1_TX_PATH_CTL, 0x04},
++	{ CDC_VA_TX1_TX_PATH_CFG0, 0x10},
++	{ CDC_VA_TX1_TX_PATH_CFG1, 0x0B},
++	{ CDC_VA_TX1_TX_VOL_CTL, 0x00},
++	{ CDC_VA_TX1_TX_PATH_SEC0, 0x00},
++	{ CDC_VA_TX1_TX_PATH_SEC1, 0x00},
++	{ CDC_VA_TX1_TX_PATH_SEC2, 0x01},
++	{ CDC_VA_TX1_TX_PATH_SEC3, 0x3C},
++	{ CDC_VA_TX1_TX_PATH_SEC4, 0x20},
++	{ CDC_VA_TX1_TX_PATH_SEC5, 0x00},
++	{ CDC_VA_TX1_TX_PATH_SEC6, 0x00},
++	{ CDC_VA_TX2_TX_PATH_CTL, 0x04},
++	{ CDC_VA_TX2_TX_PATH_CFG0, 0x10},
++	{ CDC_VA_TX2_TX_PATH_CFG1, 0x0B},
++	{ CDC_VA_TX2_TX_VOL_CTL, 0x00},
++	{ CDC_VA_TX2_TX_PATH_SEC0, 0x00},
++	{ CDC_VA_TX2_TX_PATH_SEC1, 0x00},
++	{ CDC_VA_TX2_TX_PATH_SEC2, 0x01},
++	{ CDC_VA_TX2_TX_PATH_SEC3, 0x3C},
++	{ CDC_VA_TX2_TX_PATH_SEC4, 0x20},
++	{ CDC_VA_TX2_TX_PATH_SEC5, 0x00},
++	{ CDC_VA_TX2_TX_PATH_SEC6, 0x00},
++	{ CDC_VA_TX3_TX_PATH_CTL, 0x04},
++	{ CDC_VA_TX3_TX_PATH_CFG0, 0x10},
++	{ CDC_VA_TX3_TX_PATH_CFG1, 0x0B},
++	{ CDC_VA_TX3_TX_VOL_CTL, 0x00},
++	{ CDC_VA_TX3_TX_PATH_SEC0, 0x00},
++	{ CDC_VA_TX3_TX_PATH_SEC1, 0x00},
++	{ CDC_VA_TX3_TX_PATH_SEC2, 0x01},
++	{ CDC_VA_TX3_TX_PATH_SEC3, 0x3C},
++	{ CDC_VA_TX3_TX_PATH_SEC4, 0x20},
++	{ CDC_VA_TX3_TX_PATH_SEC5, 0x00},
++	{ CDC_VA_TX3_TX_PATH_SEC6, 0x00},
++	/* ADPT blocks */
++	{ CDC_VA_CDC_ADPT0_ADPT_CTRL, 0x51},
++	{ CDC_VA_CDC_ADPT0_ADPT_GAIN_0, 0x11},
++	{ CDC_VA_CDC_ADPT0_ADPT_GAIN_1, 0x01},
++	{ CDC_VA_CDC_ADPT0_DH_FSM_CTRL, 0x02},
++	{ CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_0, 0x77},
++	{ CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_1, 0x64},
++	{ CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_2, 0x00},
++	{ CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_3, 0x41},
++	{ CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_4, 0x04},
++	{ CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_5, 0x01},
++	{ CDC_VA_CDC_ADPT1_ADPT_CTRL, 0x51},
++	{ CDC_VA_CDC_ADPT1_ADPT_GAIN_0, 0x11},
++	{ CDC_VA_CDC_ADPT1_ADPT_GAIN_1, 0x01},
++	{ CDC_VA_CDC_ADPT1_DH_FSM_CTRL, 0x02},
++	{ CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_0, 0x77},
++	{ CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_1, 0x64},
++	{ CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_2, 0x00},
++	{ CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_3, 0x41},
++	{ CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_4, 0x04},
++	{ CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_5, 0x01},
++	{ CDC_VA_CDC_ADPT2_ADPT_CTRL, 0x51},
++	{ CDC_VA_CDC_ADPT2_ADPT_GAIN_0, 0x11},
++	{ CDC_VA_CDC_ADPT2_ADPT_GAIN_1, 0x01},
++	{ CDC_VA_CDC_ADPT2_DH_FSM_CTRL, 0x02},
++	{ CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_0, 0x77},
++	{ CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_1, 0x64},
++	{ CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_2, 0x00},
++	{ CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_3, 0x41},
++	{ CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_4, 0x04},
++	{ CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_5, 0x01},
++	{ CDC_VA_CDC_ADPT3_ADPT_CTRL, 0x51},
++	{ CDC_VA_CDC_ADPT3_ADPT_GAIN_0, 0x11},
++	{ CDC_VA_CDC_ADPT3_ADPT_GAIN_1, 0x01},
++	{ CDC_VA_CDC_ADPT3_DH_FSM_CTRL, 0x02},
++	{ CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_0, 0x77},
++	{ CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_1, 0x64},
++	{ CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_2, 0x00},
++	{ CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_3, 0x41},
++	{ CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_4, 0x04},
++	{ CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_5, 0x01},
++};
++
+ static bool va_is_rw_register(struct device *dev, unsigned int reg)
+ {
+ 	switch (reg) {
+@@ -469,6 +642,46 @@ static bool va_is_rw_register(struct device *dev, unsigned int reg)
+ 	case CDC_VA_TX3_TX_PATH_SEC4:
+ 	case CDC_VA_TX3_TX_PATH_SEC5:
+ 	case CDC_VA_TX3_TX_PATH_SEC6:
++	case CDC_VA_CDC_ADPT0_ADPT_CTRL:
++	case CDC_VA_CDC_ADPT0_ADPT_GAIN_0:
++	case CDC_VA_CDC_ADPT0_ADPT_GAIN_1:
++	case CDC_VA_CDC_ADPT0_DH_FSM_CTRL:
++	case CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_0:
++	case CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_1:
++	case CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_2:
++	case CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_3:
++	case CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_4:
++	case CDC_VA_CDC_ADPT0_CUTOFF_FSM_CTRL_5:
++	case CDC_VA_CDC_ADPT1_ADPT_CTRL:
++	case CDC_VA_CDC_ADPT1_ADPT_GAIN_0:
++	case CDC_VA_CDC_ADPT1_ADPT_GAIN_1:
++	case CDC_VA_CDC_ADPT1_DH_FSM_CTRL:
++	case CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_0:
++	case CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_1:
++	case CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_2:
++	case CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_3:
++	case CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_4:
++	case CDC_VA_CDC_ADPT1_CUTOFF_FSM_CTRL_5:
++	case CDC_VA_CDC_ADPT2_ADPT_CTRL:
++	case CDC_VA_CDC_ADPT2_ADPT_GAIN_0:
++	case CDC_VA_CDC_ADPT2_ADPT_GAIN_1:
++	case CDC_VA_CDC_ADPT2_DH_FSM_CTRL:
++	case CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_0:
++	case CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_1:
++	case CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_2:
++	case CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_3:
++	case CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_4:
++	case CDC_VA_CDC_ADPT2_CUTOFF_FSM_CTRL_5:
++	case CDC_VA_CDC_ADPT3_ADPT_CTRL:
++	case CDC_VA_CDC_ADPT3_ADPT_GAIN_0:
++	case CDC_VA_CDC_ADPT3_ADPT_GAIN_1:
++	case CDC_VA_CDC_ADPT3_DH_FSM_CTRL:
++	case CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_0:
++	case CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_1:
++	case CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_2:
++	case CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_3:
++	case CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_4:
++	case CDC_VA_CDC_ADPT3_CUTOFF_FSM_CTRL_5:
+ 		return true;
+ 	}
+ 
+@@ -502,6 +715,28 @@ static const struct regmap_config va_regmap_config = {
+ 	.writeable_reg = va_is_rw_register,
+ };
+ 
++static const struct regmap_config va_4_0_regmap_config = {
++	.name = "va_macro",
++	.reg_bits = 32,
++	.val_bits = 32,
++	.reg_stride = 4,
++	.cache_type = REGCACHE_MAPLE,
++	.reg_defaults = va_4_0_defaults,
++	.num_reg_defaults = ARRAY_SIZE(va_4_0_defaults),
++	.max_register = VA_4_0_MAX_OFFSET,
++	.volatile_reg = va_is_volatile_register,
++	.readable_reg = va_is_readable_register,
++	.writeable_reg = va_is_rw_register,
++};
++
++static const struct va_macro_data shikra_va_data = {
++	.has_swr_master = true,
++	.has_npl_clk = true,
++	.fs_cnt_bypass = true,
++	.has_adpt = true,
++	.regmap_config = &va_4_0_regmap_config,
++};
++
+ static int va_clk_rsc_fs_gen_request(struct va_macro *va, bool enable)
+ {
+ 	struct regmap *regmap = va->regmap;
+@@ -514,6 +749,11 @@ static int va_clk_rsc_fs_gen_request(struct va_macro *va, bool enable)
+ 		regmap_update_bits(regmap, CDC_VA_CLK_RST_CTRL_FS_CNT_CONTROL,
+ 				   CDC_VA_FS_CONTROL_EN | CDC_VA_FS_COUNTER_CLR,
+ 				   CDC_VA_FS_CONTROL_EN | CDC_VA_FS_COUNTER_CLR);
++
++		if (va->fs_cnt_bypass)
++			regmap_set_bits(regmap, CDC_VA_CLK_RST_CTRL_FS_CNT_CONTROL,
++					CDC_VA_FS_CNT_BYPASS);
++
+ 		regmap_update_bits(regmap, CDC_VA_CLK_RST_CTRL_FS_CNT_CONTROL,
+ 				   CDC_VA_FS_CONTROL_EN | CDC_VA_FS_COUNTER_CLR,
+ 				   CDC_VA_FS_CONTROL_EN);
+@@ -542,7 +782,13 @@ static int va_macro_mclk_enable(struct va_macro *va, bool mclk_enable)
+ 	if (mclk_enable) {
+ 		va_clk_rsc_fs_gen_request(va, true);
+ 		regcache_mark_dirty(regmap);
+-		regcache_sync_region(regmap, 0x0, VA_MAX_OFFSET);
++		regcache_sync_region(regmap, 0x0, regmap_get_max_register(regmap));
++		/*
++		 * Sync the decimator input muxes again to restore registers
++		 * skipped by no_sync_defaults when they hold reset values.
++		 */
++		regcache_sync_region(regmap, CDC_VA_INP_MUX_ADC_MUX0_CFG0,
++				     CDC_VA_INP_MUX_ADC_MUX3_CFG1);
+ 	} else {
+ 		va_clk_rsc_fs_gen_request(va, false);
+ 	}
+@@ -788,6 +1034,7 @@ static int va_macro_enable_dec(struct snd_soc_dapm_widget *w,
+ 	unsigned int decimator;
+ 	u16 tx_vol_ctl_reg, dec_cfg_reg, hpf_gate_reg;
+ 	u16 tx_gain_ctl_reg;
++	u16 adpt_ctrl_reg;
+ 	u8 hpf_cut_off_freq;
+ 
+ 	struct va_macro *va = snd_soc_component_get_drvdata(comp);
+@@ -802,6 +1049,7 @@ static int va_macro_enable_dec(struct snd_soc_dapm_widget *w,
+ 				VA_MACRO_TX_PATH_OFFSET * decimator;
+ 	tx_gain_ctl_reg = CDC_VA_TX0_TX_VOL_CTL +
+ 				VA_MACRO_TX_PATH_OFFSET * decimator;
++	adpt_ctrl_reg = CDC_VA_CDC_ADPT0_ADPT_CTRL + decimator * VA_MACRO_TX_PATH_OFFSET;
+ 
+ 	switch (event) {
+ 	case SND_SOC_DAPM_PRE_PMU:
+@@ -811,6 +1059,10 @@ static int va_macro_enable_dec(struct snd_soc_dapm_widget *w,
+ 		/* Enable TX PGA Mute */
+ 		break;
+ 	case SND_SOC_DAPM_POST_PMU:
++		if (va->has_adpt)
++			snd_soc_component_update_bits(comp, adpt_ctrl_reg,
++						      CDC_VA_ADPT_CTRL_EN_MASK, 0x00);
++
+ 		/* Enable TX CLK */
+ 		snd_soc_component_update_bits(comp, tx_vol_ctl_reg,
+ 					      CDC_VA_TX_PATH_CLK_EN_MASK,
+@@ -1565,6 +1817,14 @@ static int va_macro_set_lpass_codec_version(struct va_macro *va)
+ 		default:
+ 			break;
+ 		}
++	} else if (maj == 4) {
++		switch (min) {
++		case 0:
++			version = LPASS_CODEC_VERSION_4_0;
++			break;
++		default:
++			break;
++		}
+ 	}
+ 
+ 	if (version == LPASS_CODEC_VERSION_UNKNOWN) {
+@@ -1595,6 +1855,7 @@ static int va_macro_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
+ 
+ 	va->dev = dev;
++	data = of_device_get_match_data(dev);
+ 
+ 	va->macro = devm_clk_get_optional(dev, "macro");
+ 	if (IS_ERR(va->macro))
+@@ -1631,17 +1892,19 @@ static int va_macro_probe(struct platform_device *pdev)
+ 		goto err;
+ 	}
+ 
+-	va->regmap = devm_regmap_init_mmio(dev, base,  &va_regmap_config);
++	dev_set_drvdata(dev, va);
++
++	va->regmap = devm_regmap_init_mmio(dev, base,
++					   data->regmap_config ?: &va_regmap_config);
+ 	if (IS_ERR(va->regmap)) {
+ 		ret = -EINVAL;
+ 		goto err;
+ 	}
+ 
+-	dev_set_drvdata(dev, va);
+-
+-	data = of_device_get_match_data(dev);
+ 	va->has_swr_master = data->has_swr_master;
+ 	va->has_npl_clk = data->has_npl_clk;
++	va->fs_cnt_bypass = data->fs_cnt_bypass;
++	va->has_adpt = data->has_adpt;
+ 
+ 	/* mclk rate */
+ 	ret = clk_set_rate(va->mclk, 2 * VA_MACRO_MCLK_FREQ);
+@@ -1793,6 +2056,7 @@ static const struct of_device_id va_macro_dt_match[] = {
+ 	{ .compatible = "qcom,sm8450-lpass-va-macro", .data = &sm8450_va_data },
+ 	{ .compatible = "qcom,sm8550-lpass-va-macro", .data = &sm8550_va_data },
+ 	{ .compatible = "qcom,sc8280xp-lpass-va-macro", .data = &sm8450_va_data },
++	{ .compatible = "qcom,shikra-lpass-va-macro", .data = &shikra_va_data },
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(of, va_macro_dt_match);
+
 -- 
-2.43.0
+2.34.1
 
