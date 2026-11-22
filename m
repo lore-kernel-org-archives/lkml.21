@@ -1,54 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795340399;
-	b=bCiH/fEyzmvbfBneFqN9C1kvO4gA/Km30+lztEed9hKXnKMNALKk6oLtBT7WibGTNSCn
-	 tl+T4JOTCd+RbyZ16km1jiaom3hdOhFd9uquCphQG8MWNYuC29CLrUW8IuQ9fM8yQN1T2
-	 nhe//Or98piAy7Q9zS6viVOCN44+I2qDBwSJHSFfCwT6ib+m8pai449+NrhmwfBXo4BQ+
-	 CxW+Gc8uWU078jlk1LQ5YLPN449lCpHIvb1eKQ4MOAsWuFa4ddrDtn9t2oHZhEqyEJ9LA
-	 61IqCyQqoNIfTVkj4oGtBPh+xJg7ndtu2t4OhxYmGT1OX6HOWQ8dhupoXqgFNDhEfMA==
+	t=1795340456;
+	b=f8kcIh+yQ+1KqX7GLt9DADvPd015BvSMvHHRXUCcpY/h47pg8WRjEawEoCIuOLLahYrF
+	 e7FgX09F9CVN06mVjZWd3VoZNvaRPTJgn1H5QzXzn1utTyBpYfmRr4V8urowotqoPdJ4q
+	 6AJMRhQ16u+0GWr9P0zN9eXSEKxA/zvSOsZtfZELFdAN52/Yb8rXtlDEWZJgpE1jV6obR
+	 yniacehyS4/cSZpvW8rBHeiDWsby3oRW7jxpI7SDHwkk0YgG722oKTcLSYA7G0hxKYQEt
+	 3+JEP4u6c1vOy3hpPCUrxgrJfY5B3RY2GqhKbYbe1wKlrQE/+WHKAdDug8pwj8KHPsQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795340399;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=mSaw5zdS1mtlO86FGGVxC95UV//gWZDw3sHxp1UvTno=;
-	b=uOiO2KnIzBdukpmztUQrc/7aoAHYOTQv3caIKqVQ7NQdY3Ronwo2Z4sILFLl9MIswno7
-	 eiio0pn3LJMFKSSLMwRSIkZD62ph6MnAR5JhqYehG8mfGfdDofa7PSQbjxrYX8MuGyiqA
-	 v5jDJ2Sl5EGRIfBiwSdtTUXFJLYzetRxbT/6YU8K2zVqmwNLzcIruUL9SQT1z88VjbN/l
-	 j/9F0oS43UQ6m6SqFOUpR4OwqmOKQwg6vZgWJJbHx7JgPKPWSbwh+aMRncIWCJErpvLKb
-	 Mtr8z8Vz6Tjsu59gcnrenMosXxZydPZPR6kYgTnN24PRPyjPPAI/L9o+ghElP0K1meg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795340456;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=IkIbePbwpiJw2XaAzSr+/25S6QYyRwR70kd3c2KH4wM=;
+	b=TjEDffaKzM708LbC1yLoPain1GHo5+ZdjhsuvCZMPcqrdPlQLFGG3OAS8Pr7eBSOkOV+
+	 tvLzY0e8UrI5hhTCrAP0eyFcm3IeqrsYTXTo9KE2nKNfjsP9CPaj02jv4FCzC66tTGDw7
+	 nbOU1lfUdYAtybHBDXT7DWThBITsp9NVadNp+pQjX/CX0MRfPgWNEgknNsopBKya24TiZ
+	 QlRgVFvuWwNhP8ygM5fvmSO8m7dHHJ+ss7qFfueWD7n/WBSg7gNFKP8LGMIXcomx3XiZP
+	 oIICzPm08/dpgbD5GLSXObJyAAtkIDXeKLkAxwZ634/dWMGuL/0axpw3Edd4mJQLoCg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PqfSf4RI;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=ideasonboard.com;
+	spf=pass smtp.mailfrom=ideasonboard.com;
+	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=GL0q54Lr;
+	arc=none smtp.remote-ip=213.167.242.64
+Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74130606A32A;
-	Sun, 22 Nov 2026 09:39:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3497A606A320;
+	Sun, 22 Nov 2026 09:40:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3497A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PqfSf4RI
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 513FD1F000C6;
-	Sun, 22 Nov 2026 09:39:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795340399;
-	bh=mSaw5zdS1mtlO86FGGVxC95UV//gWZDw3sHxp1UvTno=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=PqfSf4RILDatlHNMd9zBmY1nEOLIriB7QjldZUWMt5PT2UT4+zp+/9X0JD5iTI1Xk
-	 jw0xOyd9ukNRqh2wLIquOXtu8AqInWiLs7VROvP0whhj+loLyEJAx37fPHFo5xWL+A
-	 C3e4BxM+jtwct7XVge0M1kxsOxvAQGktY6lrmypyqO9L32oUiisdjgbgj2SSlAYikq
-	 wDEwxbaouSWPJYy6NjD8RcEIG6PC7OWPEkaVGhV8QG6diGDCuXhPA5i/osydazg8Wk
-	 jquc0IO28n4AIcnIiM5qjn05lNbBDSXyWvmIjNJtrHm0xvRDBhH8UJAPXW1NNefMIW
-	 dQtV8fiq5R7lA==
-From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-Cc: Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>, rostedt@goodmis.org, mathieu.desnoyers@efficios.com, corbet@lwn.net, linux-doc@vger.kernel.org, linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] tools/bootconfig: Use the registered global tracing parameter names
-Date: Sun, 22 Nov 2026 18:39:55 +0900
-Message-ID: <undine-1795340395802979275-8df591c357ed0841@undined.local>
-X-Mailer: UndineD 0.1
-In-Reply-To: <undine-1795340240141573056-b3b8376c0d49c0eb@undined.local>
-References: <cover.1795307698.git.edumucelli@gmail.com> <fecf6e33d4f7e2ddf031526e7a1abef27e28f754.1795307698.git.edumucelli@gmail.com> <undine-1795340240141573056-b3b8376c0d49c0eb@undined.local>
+	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=GL0q54Lr
+Received: from killaraus.ideasonboard.com (2001-14ba-7086-3000--a06.rev.dnainternet.fi [IPv6:2001:14ba:7086:3000::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id EDD82ABF;
+	Sun, 22 Nov 2026 10:38:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1795340301;
+	bh=yTMMp7PT3K2LyuvelR0MmDh6s2VsGr4kgwTbxEVPAwE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GL0q54LrHkSn2pAjjFMO58LLdrGwbsOPFXG57oU5XxCd+1cPoP2nCvPVBSf7C9dxv
+	 TwU3KgbXpSkLaiHRp58caVX9suZEC3zznR0xZJI3ZJmN/2t9/W96BG8p9UYKDAh5Bh
+	 89KCH1L23XRTnHsOCB1YCLTR2uu+yfQ3WGQNisZ0=
+Date: Sun, 22 Nov 2026 11:40:50 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Arun Iyengar <aiyengar1990@gmail.com>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Andy Yan <andyshrk@163.com>,
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Damon Ding <damon.ding@rock-chips.com>,
+	Alexey Charkov <alchark@flipper.net>,
+	Igor Paunovic <royalnet026@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel@collabora.com
+Subject: Re: [PATCH v12 06/23] drm/bridge: synopsys: dw-dp: Fix AUX transfer
+ timeout race condition
+Message-ID: <20261122094050.GB2739410@killaraus.ideasonboard.com>
+References: <20261114-synopsys-dw-dp-improvements-v12-6-d42d3dc5bdd4@collabora.com>
+ <179533990370.107225.5765165679182115805@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,53 +88,44 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 8bit
+Content-Disposition: inline
+In-Reply-To: <179533990370.107225.5765165679182115805@gmail.com>
 
-On Sun, 22 Nov 2026 18:37:20 +0900, Masami Hiramatsu (Google) <mhiramat@kernel.org> wrote:
-> On Sun, 22 Nov 2026 01:34:58 +0100, Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com> wrote:
-> > The boot-time tracing guide lists four kernel.* keys that do not match
-> > the parameters registered by the tracing code. For example,
-> > ftrace2bconf.sh emits kernel.fgraph_max_depth, which bootconfig passes
-> > as fgraph_max_depth on the kernel command line. The function-graph
-> > tracer registers ftrace_graph_max_depth.
-> >
-> > Use the registered names in the guide and the exporter. Teach
-> > bconf2ftrace.sh to read those names, with the previous script keys as
-> > fallbacks so existing replay configurations still work.
-> >
-> > Fixes: 47781947947a ("Documentation: tracing: Add boot-time tracing document")
+On Sun, Nov 22, 2026 at 09:31:43AM -0000, Arun Iyengar wrote:
+> On Sat, Nov 14, 2026 at 06:00:39AM +0100, Sebastian Reichel wrote:
+> > @@ -1491,6 +1493,12 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,
+> >  	status = wait_for_completion_timeout(&dp->complete, timeout);
+> >  	if (!status) {
+> >  		dev_err(dp->dev, "timeout waiting for AUX reply\n");
 > 
-> Since this patch also fixes the key names in bconf2ftrace.sh and
-> ftrace2bconf.sh (which were added later than the documentation), consider
-> adding the corresponding Fixes tags as well:
+> This still drops a reply the sink did send when the IRQ thread runs
+> more than 10 ms late. On RK3588 (7.3, KASAN on, v11 of this series:
+> same 06/23), with a SCHED_FIFO hog at the IRQ thread's priority on its
+> CPU (busy 40 ms of every 200 ms), 1410 DPCD reads gave 183 timeouts.
+> Checking for the reply once more before giving up gave 0 timeouts,
+> with 127 late replies taken:
 > 
-> Fixes: 7e66ef0046cc ("tools/bootconfig: Add a script to generate ftrace
-> shell-command from bootconfig")
-> Fixes: 2b86062a34a8 ("tools/bootconfig: Add a script to generates
-> bootconfig from ftrace")
+> --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+> +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+> @@ -1493,2 +1493,6 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,
+>  	status = wait_for_completion_timeout(&dp->complete, timeout);
+> +	if (!status) {
+> +		synchronize_irq(dp->irq);
+> +		status = try_wait_for_completion(&dp->complete);
+> +	}
+>  	if (!status) {
+> 
+> Feel free to fold it in.
+> 
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+> 
+> Claude (Anthropic) wrote this change; I reviewed and tested it.
 
-BTW, I will update the Fixes tag and pick this patch in the series
-to bootconfig/fixes because it is obvious a buggy description.
-
-So you can only update 2/2.
-
-Thank you,
-
-> 
-> Thanks,
-> 
-> > Signed-off-by: Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
-> > ---
-> >  Documentation/trace/boottime-trace.rst   |  8 ++++----
-> >  tools/bootconfig/scripts/bconf2ftrace.sh | 21 ++++++++++++++++-----
-> >  tools/bootconfig/scripts/ftrace2bconf.sh |  5 +++--
-> >  3 files changed, 23 insertions(+), 11 deletions(-)
-> 
-> -- 
-> Masami Hiramatsu (Google) <mhiramat@kernel.org>
-> 
-> 
->
+There's something missing here. You may have reviewed (whatever that
+means) and tested it (probably), it doesn't seem you've understood it.
+All of this screams of a big hack.
 
 -- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Regards,
+
+Laurent Pinchart
