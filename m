@@ -1,101 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795351341;
-	b=dpWMAhNXHvJdywLfVWXIbOBLsDUV1Hh5AwsmQorcGd/ev55aTsSS9qXBwZItAu0qgERT
-	 nGBML19DvHxd37nPxR1B7ggLjOISUIbmdoKF3zwDgubETRDq+Gqe7Z7uYZnKs/GgIz1Ym
-	 BchPXSWQDVF+BU87T9/8sPeNzNqRElsWO3APW/n3aWXPw0Zsz0bQ5FaQqZewXQGcg+jzt
-	 dwvj0mXpgBL461wkD2+/g3wLycppN8VtUni0/Uo9MqT8FrrAk8Fj2DCNWEZU8SHL1DVDU
-	 MDCJ/8QPvZx3jPslRFS1hkOCRTb3Ef1NBDd6Nsv23BWolqB1m7FPTDiPuDA1CgmzqZg==
+	t=1795351359;
+	b=rONarDplDYfpUA9GtGhug8FF0HdSO7x8Rc2I6LqS4f6jKoi+icHPJf5zHnDhdsxXhcQg
+	 sq/1E/MaSw8RfhV5iGK1vitoYT1NLEp2bv4L+KoL/HvJCcnlo12tj2B3t39zBWsw96CG0
+	 wK39s1p2AUMOu5eRbsLMAMCdMgrRW23K6ZXmc8pXlq6unZf+ARWu6PKpVFYqiv8uaFdMn
+	 dsM9Ketf6C+Gw0O16G26UhUDDoGKvdXEhefkNLFTzbH1W4HvxAuh8exMRc7r4nMStvgSR
+	 hiQ02JZxQHXlVJ67zrkxK3fi+ojOfFN2mwBp4C6EfWKlxiHqaAh5Xxg0/gpStAa2ulw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795351341;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=NjLyddmhAPXtNb3QKE/8D0uZ863VQXkt9WgAWFpo7lM=;
-	b=yqbvgCryHRETx4z8DdALjWb3PJ4e/VrviM864RNiKgsXOessY+ltc7wrr4m+g5uA8xaR
-	 iHMdide5U0ZN91TxG4py2Gqk/majtgdFBIbf1SXzZGbWaI2OrXa0lanNswkPS9hLiEMly
-	 HVMZ5slhjsNIc9tzlcPxJbRzb9x4LctvgKUKAi26eDmFVuKd8bb65aJezpGzx3xlTOHfA
-	 qXcRIgqX6rcBN+mQ7kfjhyex217asA1XXsJTNjMybVGEccdpL82BBKiWt7jt2zwxxkPB/
-	 Y7gl1wQbKNM55Ezut/ON2EAfEqAEJ8j0gmAelJFfLWE9gKr4LsdnaB0zD93G6mnO+vQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795351359;
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=VocNkS/2cBGTqC/iQ+yEVdcXEbMXCrY7zeEC95RbIoU=;
+	b=ibFL9gxeVDUdvoDnN0mrVIkHeyhi4+2/3A1NzYLYTIpAhNqr6o9l0HCzVhUTGfuoyh69
+	 H99cz0hb1ytrHQ7RiUI7lj18q7kqXsOp+DuG4afcPmy8KHB+tmfJleMWj99JEcIUs/lv4
+	 0rEXG8HUBuKvN0Jd5tpe0I3+/w7hovDzkldodAOuu78LmVFGTOorVEIg7LQ5mZ+Q4h66G
+	 MSWyhduVfkwOR/5uuFnlAHS/TCoHXIeQ5INFBQWMYHIUzZA6lWILBD8j6gb1rKdrWFS2z
+	 dEKIH91o65PF/rUFRBqTzPW/0xB5kPjE9X3WJK4RirANTS0Ks8RThQPFcg5VFXou9wQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mgcrea.io;
-	spf=pass smtp.mailfrom=mg-crea.com;
-	dkim=pass header.d=mgcrea.io header.i=@mgcrea.io header.a=rsa-sha256 header.s=google header.b=iWfDGmTC;
-	arc=none smtp.remote-ip=209.85.221.50
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ui1TIecL;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D071606A331
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:42:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D071606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mgcrea.io
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mg-crea.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CF02606A320;
+	Sun, 22 Nov 2026 12:42:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mgcrea.io header.i=@mgcrea.io header.a=rsa-sha256 header.s=google header.b=iWfDGmTC
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-491971ac844so2164518f8f.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:42:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mgcrea.io; s=google; t=1795351339; x=1795956139; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NjLyddmhAPXtNb3QKE/8D0uZ863VQXkt9WgAWFpo7lM=;
-        b=iWfDGmTCde2bt+wepq4PgJNyha1vow8HgShJhgAqgwEb4VqiIG1qAiKLIKiWaGRuxd
-         f8R6vPe1+sThZNdOoA0Mq356EC2okYJ243uZQdz5uLx7ZsNjaqfeymrnBu2nUSX3KkFt
-         YgB7/fupJe1qhGJlFwKWug3Ng1ZX/n1BdxOf5Jjvnk70H94tQnTcRAB1K9VrdyKhjJko
-         LnW8pJK3Oe1kytqRL+BYgKvMiCn9vuCirhPSy6vw+PNkvaNOsUsgwZlsKRHzqWW2qvcS
-         WcUTjr5KMnUfMGamPt2r79Go/SYQtMvprdmDjIHkSPDd674WlwFczVf+G/FHc1QPveKO
-         xVdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795351339; x=1795956139;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NjLyddmhAPXtNb3QKE/8D0uZ863VQXkt9WgAWFpo7lM=;
-        b=nIMY13CUs30YKTE6B1qbTWvcnHX+hc+fItOxz8mrU1wrJvk5yDSUga9zCC5WAJy46p
-         10kEi7rWB7Ez3DK3OL6/lKWoUjNhwzQUXaJKLzwNKXK4Jc16vf6+1XqcaJRbhVuroQ+6
-         yOj5tpyMQYJeyd6YHBqwKjTvH8fo7NrY2hKZFI2e4s5uzpc6KO6f9V51x42iBsBd8a75
-         BeC8QPanMd4AW9LN7VUO5EVG1lhOYSfYQx96+/rn2GbSQyNbEPtidd+wlnQHEBnzxTsV
-         YhcC7YRGe3OzHbWrWlWmHqQGZj9m7kJj2/cxtsUdMZ/gQvkSy5QI6sM734xtviFJ0Fjl
-         9MLA==
-X-Forwarded-Encrypted: i=1; AL+hErFFtyxP/QgyU89Ga9ZN2jK2PPBmxQ4MIRWyfiRHdAp2YH/DucS4qlX5JOID/cbpqgaLyMOxjj8sA8X88Kc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+A9hOvlDk6YzqI8jf8Kr7eHRZ54lsyNhjqXR7MN32HU7UBZPQN
-	rJCFs4pXTi7g2/PPre2m9ziRjV/OKjQmN4bcXUefJu3gpMOxNQO3F0Mw/epaLziWE+A=
-X-Gm-Gg: AZFdTZfiiH9uyhPHpqpEdJeQIc4qlTxNkqpZu/mgB3i1el+jI77RzjLQnbc+msWyUog
-	rc40pOVpYoTiw8EvSm4iWH7NLEGqeg14I2IK+tXZ7B4yRZnHvb7E71q6EI/9WTWpm/RZXruBaqf
-	OnWQqTlKGYKc8UJVymn9bTIDJDH4XFu6WKCczkrlj+D+BG+p3YklP6TY5tY0QaAk8OyH18gYFCe
-	NKy9APPEDY12kZ3BYQirRfd8yag9n9ulo+ughgo+AuZniqUfIsnb5UtOnoEXZ30z0I2mLlwQS60
-	fJxNXhQ8R0nK7X8y/W9Wph/ZWHqyOFyRlbx/B8kyCpMw7+/uiLImzPic5KP24RXRLq4oyrb6WT1
-	Limn3MHoxDiN+54ITfq9NWpHALJ/RgFPQhyPmrFwRYJW25ulfhdLsJ+p91PFJV6yJB6NmXguY2W
-	cvL5ycRE0NoAkj8G7z70dFw6nCnM/EyWJsGgALvnU0RLAjA0MuoPOjsfIWpaPunsm705wPpM3hp
-	/+qj+cAV4Pem9mbtRlcTYR1ejOZRr2gRQ4ZEn03aq1HXf66kTxxXcyz/RFtsixHmntuEQhns0eI
-	zt5ot7h5IRKpx7eUGGGHK8Z9vM/BYE/xl3jn4Z0A3OTzl8MUjm9LjF+fPYaevw==
-X-Received: by 2002:a5d:5d0a:0:b0:4a8:eed3:760 with SMTP id ffacd0b85a97d-4abb225faa7mr18135404f8f.31.1795351339007;
-        Sun, 22 Nov 2026 04:42:19 -0800 (PST)
-Received: from localhost.localdomain ([2a01:e0a:9d2:5a71:a5ac:a6f0:7687:6596])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c4353d6sm16091531f8f.56.2026.11.22.04.42.18
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 22 Nov 2026 04:42:18 -0800 (PST)
-From: Olivier Louvignes <olivier@mgcrea.io>
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: "H. Nikolaus Schaller" <hns@goldelico.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] dt-bindings: i2c: ingenic,i2c: Add the X1600
-Date: Sun, 22 Nov 2026 13:42:17 +0100
-Message-ID: <20261122124217.9668-1-olivier@mgcrea.io>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <C17AD04D-6EE7-4CF8-8DB1-FED4A16C66AB@goldelico.com>
-References: <20261024212520.91401-1-olivier@mgcrea.io> <20261024212520.91401-3-olivier@mgcrea.io> <33b5ee36-e293-4356-9906-54e99ba3557e@kernel.org> <at8jCGfp9dKjieoo@zenone.zhora.eu> <20261109190345.61480-1-olivier@mgcrea.io> <384F58FF-41C4-46AC-8B2A-1B6ABCDA6981@goldelico.com> <C17AD04D-6EE7-4CF8-8DB1-FED4A16C66AB@goldelico.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ui1TIecL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E61DB1F000D4;
+	Sun, 22 Nov 2026 12:42:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795351359;
+	bh=VocNkS/2cBGTqC/iQ+yEVdcXEbMXCrY7zeEC95RbIoU=;
+	h=From:Subject:Date:To:Cc;
+	b=Ui1TIecLzRfZvfuZEq3oVQVO168omOXqtg/+Obb8kscYYVhga71dOJoyd3yF5d8tD
+	 VIhPRl9yFR2eNKo+S2XB0VQ3BBm9aLMfZPW2oMutfD8gBOPs+ghhND5zvUFO/BAAxZ
+	 p+tkDyFjnj6eEyiTQY+bqTvBgcFpDqakl3Q5nr9PkZOrYZSQ9zSPLEl2XwA9r9/JG7
+	 W/7uLVrdAWW6Kvn//5faO9dCi1pB6qYvqTP1KShYslpZr09ApQEZ1GOYcjqePDcKwD
+	 RxivDXDqZCANZXw/JrGYZjxmapcGYZepAw3e4sV9L83JbcoTnQ3LqbdJWL8G6yG8XR
+	 XWaDBLuuN+tZQ==
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: [PATCH 0/2] mm: fix deadlock on the folio lock due to inode
+ eviction
+Date: Sun, 22 Nov 2026 13:42:16 +0100
+Message-Id: <20261122-migrate_reclaim_deadlock-v1-0-83c56185b0fb@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,18 +54,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/yXMTQrCMBAG0KsMs27ADKVoriJS0uSzjvZHJq0Ip
+ XcXdfk2b+MCUxQOtLHhpUXniQP5ijjd4tTDaeZALAdpvBfvRu0tLmgNaYg6thkxD3N6uLqGHCH
+ SdKfMFfHTcNX3rz5f/i5rd0davh/v+weun7c5fAAAAA==
+X-Change-ID: 20261121-migrate_reclaim_deadlock-44e28e226b9d
+To: Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>, 
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+ Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+ Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+ William Kucharski <william.kucharski@oracle.com>, 
+ Heiko Carstens <hca@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+ Johannes Weiner <hannes@cmpxchg.org>, 
+ "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, 
+ Matthew Brost <matthew.brost@intel.com>, 
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
+ Gregory Price <gourry@gourry.net>, 
+ Ying Huang <ying.huang@linux.alibaba.com>, 
+ Alistair Popple <apopple@nvidia.com>, 
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+ Miklos Szeredi <miklos@szeredi.hu>, Joanne Koong <joannelkoong@gmail.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ linux-fsdevel@vger.kernel.org, "David Hildenbrand (Arm)" <david@kernel.org>, 
+ stable@vger.kernel.org, Chris Mason <mason@kernel.org>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2395; i=david@kernel.org;
+ h=from:subject:message-id; bh=EVf3IUvbYA/h7bHadHrnyZL6o9BArIID6FP5pA54HGY=;
+ b=owGbwMvMwCF2/OVpCdfQ3ZWMp9WSGLKZHuu89Sg1TAtgl6hLsJKeGJF87WPwHr493CfKH8bti
+ dmyIdGso5SFQYyDQVZMkSUo+L7By5fraqvd+Jhh5rAygQxh4OIUgIkcyGBkuJryZkPgurlvTi44
+ 3K1j35XTk3fuc+BFNv6gE4p6lTK/NzMy3Dlz2TvkyJPPE78FT5XMl6vkkzdTPnbbwbM45u267G8
+ HmAE=
+X-Developer-Key: i=david@kernel.org; a=openpgp;
+ fpr=1BD9CAAD735C4C3A460DFCCA4DDE10F700FF835A
 
-Hi Andi,
+Whenever we allocate memory with folio locks held and trigger direct
+reclaim, we might end up trying to evict an unused inode. Evicting
+inodes with a populated page cache takes folio locks, and if we happen
+to need one of the folio locks we already hold, we'll deadlock.
 
-On Thu, Nov 12, 2026 at 11:06:39AM +0100, H. Nikolaus Schaller wrote:
-> So at the moment I have no device using I2C at high speed to do real tests.
->
-> Please go ahead and if I find something we can write updates later on.
+This can, in general, not happen if we also pin the folio's inode: for
+example, through a VMA that cannot go away concurrently. However, we
+have some scenarios where we hold folio locks without pinning inodes.
+Examples include page migration and some folio split users.
 
-Nikolaus can't test it for now and is fine with it going in. Could you
-take v2 as it is, with the two patches swapped as you offered? It still
-applies on i2c/i2c-next.
+FUSE makes this easier to trigger, because it evicts inodes on the last
+reference. A similar deadlock with FUSE was recently fixed in FUSE [1].
 
-Thanks,
-Olivier
+Let's handle folio splitting by simply running in NOFS context. We only
+perform small allocations, so it doesn't really make a difference.
+Interestingly, this also fixes one of a handful of possible memcg v1
+deadlocks.
+
+For page migration, change the code to allocate destination folios
+without holding folio locks, which is in any case the right thing to do
+to reduce folio lock holding times.
+
+Some of this might also be fixable using Jan's work on deferred inode
+reclaim [2]. However, that is not stable material, and not allocating
+folios while holding other folio locks is an improvement on its own.
+
+Unprivileged users can trigger this deadlock with FUSE and
+mbind()/migrate_pages(), however, it requires multiple NUMA nodes and
+quite some luck.
+
+I reproduced the original deadlocks with FUSE and made sure they can no
+longer be triggered with these fixes. Further, I ran the usual migration
+and folio splitting selftests.
+
+[1] https://lore.kernel.org/all/20250925224404.2058035-1-joannelkoong@gmail.com/
+[2] https://lore.kernel.org/all/20261009133253.20102-1-jack@suse.cz/
+
+Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+---
+David Hildenbrand (Arm) (2):
+      mm/huge_memory: use NOFS when allocating while splitting folios
+      mm/migrate: allocate destination folios before locking a batch
+
+ mm/huge_memory.c |  10 +++++
+ mm/migrate.c     | 134 ++++++++++++++++++++++++++++++++++++++++---------------
+ 2 files changed, 107 insertions(+), 37 deletions(-)
+---
+base-commit: eb01811cc3713af1f78dfe18fa89c5270ebfc767
+change-id: 20261121-migrate_reclaim_deadlock-44e28e226b9d
+
+Best regards,
+--  
+David Hildenbrand (Arm) <david@kernel.org>
+
