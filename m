@@ -1,47 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795365547;
-	b=mT9sSASz/C2SVKCThSNDIu1fvcJdVQsR4oXXR/imjfb4HDe86JCHutyDnC+554V1yCWK
-	 +W4ecADEaf9P38d7eB+VEZMfe8bLTQb6nr+/bEVmcL/aw3Q6XTZzu8YfXRM01dRP3ikz9
-	 14aCnvOenZLF4aS0ZU+vTaU+apSuUwyWgYdK5u6l3LOFSU8F4ReD84I7pEZEIxwR52bHS
-	 lYhclJhbnxssj13pXf27PITv9BPeEUmKRyOrFAXFVEGXrwYm9uIQp8vOPYZzvJCtjfSGW
-	 5RJhGivbYtqJ9MUBj8Az8jARu0MOuT7LU56dweIj0uA8iE42exWr22YKz9vROqRVT8g==
+	t=1795365596;
+	b=tUwsKUOTBjYgDNzxcP/RBBaWlq2HZMFlk4XkyRbjDvUuu9KImPUh+5hHnhZaIpL7pBQH
+	 3fASP8dur7O1D2ckgqNxfSs8Yb2Bi0gq7IWyDc40ZFCaQ728awOsmUwVJX9aCX5HO6+Bg
+	 frGWjNPjnPFLv0SjxJW0/FUQ/SYI42X0D6aPopRXbclOafdBPmIns07oc9DbRnOcw3N1D
+	 s5jqp2o4+mQzhpBlfKVOoGiJFPiEZcGrgtcKiAYa7qz8kvyGvzepenTDAn+761y4ArK3w
+	 sXYVzynIhxTlRs3+Ozv7yR+W1WNdg/8aWLFpWM6Tr+eKcnSn1D/1sDJMP1HrcpTWW2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795365547;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=9z9YNC3S7P3k9nmw4kE1f70zUErr4DC5KffY6HobqDE=;
-	b=tHBUQ+XWjHE0woDTrOI9MDnw1O9NsYo+rbmmq7Mv7jj6dJCfXaliACH94l2Od+NcWvSe
-	 FC/KEda5mQdbMkBwQx1uQiXajUnDja2QkzTaeCtth/mfCyv8C+eDbsY4gwV0oE8PGQSVb
-	 CD4UXxetfhVDei3buC+R7+bTcZCHHVk1agCb2JuwhgF7VpUucc+q4CH1MqCqG0e9Vxj3h
-	 PU4iL6/uZd8H0vx2UjbqQ6mWGvFsDacqvHjS14LArcLJ2r5GpDiO1Isy9J1BIhRmUTHiA
-	 PCWCL/YoXUjcHpfs9ziHUZwF7ejaf2+7LXvbIoUGkwAOmxWfX3y8fBI4M8yPl1+Q2pA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795365596;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=OoKBRcmrTDIDRIbLA9s0zXdXJ1T41upq0j5GITw3Se4=;
+	b=kjjIiI3aU0TsZ1yOBJvANWEbpX9eRGD3Mc4mdHqt6FydVMv+Wds13fqcEDslRpG04U42
+	 yVEzyY43Q0JOZX9qcSii8B8lKdlRToxPk3COuHUIYFPV2Jx0hVgHxo44E40Rp32decwyo
+	 ZQAxln+J6JWpyBOJW7sRnzm9aBHfIHi7rDkYLHKXuBkv/txISFyTiPGqIytE3FIMM5Xql
+	 yJ874ahSRHN+AuMbudq7399/5EpsjWbRPrpAARoLl4lyjxaB9Wuxa5xWUt+JAb+8eFzAk
+	 njMtJu1uo755rnjvxFwskpyPBxxEXzs8frJZj8B+KYyT15AiBPIkPJt1DUxO196Rr9Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WvtFRTlu;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=SF3dONSk;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3EC6606A330;
-	Sun, 22 Nov 2026 16:39:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 955EF606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 16:39:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 955EF606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WvtFRTlu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A4511F000C6;
-	Sun, 22 Nov 2026 16:39:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795365547;
-	bh=9z9YNC3S7P3k9nmw4kE1f70zUErr4DC5KffY6HobqDE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=WvtFRTluWYnIGZohs5S/7EcqAZ+PiyH5rkX9M/wKqV0r6hRKweQWi7IrAuv+OkKhu
-	 YycXPJZt/gQPSTgikiDkoB4w8/sn6a8qatZr+8UogpHdC6LJVHd1pSqQZW0f59lphq
-	 fDls7ND7UZ9HRAtNewuO+RZTz/nsxaRGzyKsEDu41tRIVtaYPRdcW65zuwO0a5Q7fT
-	 1od6U5F2gcy+4qpLEmHCicd6runxYZ5vMsvwqZ6iHu0CCrhWezC5cfhzgIJyHoq/i1
-	 tRNXwiWfcWl4wRPDXigptB6mt7mqY8tgxV5J5hnC5R93IGyAYI/1ewXC5b8zzimXqA
-	 mfvaGS4zde2zA==
-Message-ID: <7941cfea-9555-4b26-8f1c-f3fb2b410bf1@kernel.org>
-Date: Sun, 22 Nov 2026 17:38:57 +0100
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=SF3dONSk
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 13CA9C6223F;
+	Sun, 22 Nov 2026 16:40:00 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 39EC060512;
+	Sun, 22 Nov 2026 16:39:53 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D1BB111E624BF;
+	Sun, 22 Nov 2026 17:39:48 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795365592; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=OoKBRcmrTDIDRIbLA9s0zXdXJ1T41upq0j5GITw3Se4=;
+	b=SF3dONSkTk5Y0vNM5gm5TfPWc+ZbCt79W+USBvAJ/dr8O9klVo8/nVANu7b5aKENGSa1zc
+	ETwJu+KtLet8uAatVZ1erSu371CpbWEeuRY8i9Q2b5VL3k1LKytC2MK6uH1LmGU/g7TbOO
+	QN2tW15nb1pcEZFSaKDHHKmCiMvsDcMuludPaXVnKP5YIOCE4bP3LjvTcvVGoSymalLgeE
+	cAgSK42KPCgOsUdoMVMg+uLfYs4UTfHGrNFml7Iq6iZg3kUjSLSWqOerzRL4pVT5Y8ohqJ
+	VZmy9aWrGexT+6C1PUj7mQyrKxVQxbvpdYO7jZXwDswLlMnQ4FjcA6b/4EhTcw==
+Message-ID: <b5b6953e-6b17-4de3-b3b7-789a415e03ef@bootlin.com>
+Date: Sun, 22 Nov 2026 17:39:47 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,127 +63,101 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/4] mm/huge_memory: copy file THPs at fork like
- copy_present_ptes() does
-To: Konstantin Khorenko <khorenko@virtuozzo.com>,
- Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
- Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
- Peter Xu <peterx@redhat.com>
-Cc: Alex Williamson <alex@shazbot.org>, kvm@vger.kernel.org,
- =?UTF-8?Q?Lo=C3=AFc_Molinari?= <loic.molinari@collabora.com>,
- Lorenzo Stoakes <ljs@kernel.org>, Shuah Khan <shuah@kernel.org>,
- linux-kselftest@vger.kernel.org, dri-devel@lists.freedesktop.org,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@ziepe.ca>,
- stable@vger.kernel.org, "Jose A. Perez de Azpillaga" <azpijr@gmail.com>
-References: <20261119-b4-prep-vstor-149847-copy_huge_pmd-recheck-special-pmd-v6-0-efa7817a2bb3@virtuozzo.com>
- <20261119-b4-prep-vstor-149847-copy_huge_pmd-recheck-special-pmd-v6-2-efa7817a2bb3@virtuozzo.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH net-next] net: stmmac: eic7700: Use
+ syscon_regmap_lookup_by_phandle_args
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+References: <20261121170753.161170-2-krzysztof.kozlowski@oss.qualcomm.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261119-b4-prep-vstor-149847-copy_huge_pmd-recheck-special-pmd-v6-2-efa7817a2bb3@virtuozzo.com>
+In-Reply-To: <20261121170753.161170-2-krzysztof.kozlowski@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On 11/19/26 14:44, Konstantin Khorenko wrote:
-> This fixes no bug: it makes fork copy a PMD the way copy_present_ptes()
-> copies a PTE. Until now copy_huge_pmd() skipped every folio PMD of a
-> non-anonymous VMA and left the child to fault them in again, while the
-> PTEs of the same VMA are copied.
+On 11/21/26 18:07, Krzysztof Kozlowski wrote:
+> Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
+> syscon_regmap_lookup_by_phandle() combined with getting the syscon
+> argument.  Except simpler code this annotates within one line that given
+> phandle has arguments, so grepping for code would be easier.
 > 
-> Treat file folios as the PTE path does: take a reference, duplicate the
-> rmap and account them. fork then pays a reference and an rmap update
-> per PMD, and saves the child a fault per PMD it touches. The next patch
-> sends PFN mappings through the same tail.
+> There is also no real benefit in printing errors of missing individual
+> syscon arguments, because this is done just too late: runtime check on
+> static/build-time data.  Dtschema and Devicetree bindings offer the
+> static/build-time check for this already.  OTOH,
+> syscon_regmap_lookup_by_phandle_args() already handles error case if the
+> number of arguments is too low, thus switch is safe.
 > 
-> That covers the VMAs vma_needs_copy() sends here:
-> 
-> - private file mappings with an anon_vma;
-> - VM_COPY_ON_FORK ones: uffd-wp and uffd-rwp, VM_MIXEDMAP, and
->   VM_MAYBE_GUARD, which shared shmem, file and DAX mappings get from a
->   guard region.
-> 
-> A folio over the page cache refcount limit is not copied, as in
-> copy_present_ptes(): the child faults it in, and fork() fails with
-> -ENOMEM only in a VM_MIXEDMAP VMA, which may have no fault handler.
-> Unlike a skipped PTE, the PMD needs no uffd marker: a file PMD never
-> carries the uffd bit, as protecting it splits it.
-> 
-> The DAX huge zero PMD is copied too, with a reference taken by
-> mm_get_huge_zero_folio() as for anonymous VMAs. A migration entry of a
-> file folio is copied and accounted like copy_nonpresent_pte() does, and
-> made read-only in both processes only in a CoW mapping. A device
-> private entry gets the same CoW check, as in copy_nonpresent_pte().
-> 
-> The copy then gets the same tail as __copy_present_ptes(): write
-> protect both sides in a CoW mapping, mark the child's copy clean in a
-> shared one, and drop the uffd-wp bit where the child is not armed. An
-> anonymous THP is now write protected only when its PMD is writable, as
-> a PTE is.
-> 
-> A page table is deposited under the copy where the fault paths deposit
-> one: in anonymous VMAs, and wherever the architecture needs one.
-> 
-> Cc: stable@vger.kernel.org # needed by the next patch
-> Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
-> Reviewed-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-> Reviewed-by: Zi Yan <ziy@nvidia.com>
-> Reviewed-by: Jose A. Perez de Azpillaga <azpijr@gmail.com>
-> Signed-off-by: Konstantin Khorenko <khorenko@virtuozzo.com>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+Thank you,
+
+Maxime
+
 > ---
+>  .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 30 +++++--------------
+>  1 file changed, 8 insertions(+), 22 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> index c229275b11b3..287f717ab3ed 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> @@ -170,6 +170,7 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
+>  	struct plat_stmmacenet_data *plat_dat;
+>  	struct stmmac_resources stmmac_res;
+>  	struct eic7700_qos_priv *dwc_priv;
+> +	unsigned int hsp_args[3];
+>  	u32 delay_ps, val;
+>  	int i, ret;
+>  
+> @@ -254,33 +255,18 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
+>  	}
+>  
+>  	dwc_priv->eic7700_hsp_regmap =
+> -			syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
+> -							"eswin,hsp-sp-csr");
+> +		syscon_regmap_lookup_by_phandle_args(pdev->dev.of_node,
+> +						     "eswin,hsp-sp-csr",
+> +						     ARRAY_SIZE(hsp_args),
+> +						     hsp_args);
+>  	if (IS_ERR(dwc_priv->eic7700_hsp_regmap))
+>  		return dev_err_probe(&pdev->dev,
+>  				PTR_ERR(dwc_priv->eic7700_hsp_regmap),
+>  				"Failed to get hsp-sp-csr regmap\n");
+>  
+> -	ret = of_property_read_u32_index(pdev->dev.of_node,
+> -					 "eswin,hsp-sp-csr",
+> -					 1, &dwc_priv->eth_phy_ctrl_offset);
+> -	if (ret)
+> -		return dev_err_probe(&pdev->dev, ret,
+> -				     "can't get eth_phy_ctrl_offset\n");
+> -
+> -	ret = of_property_read_u32_index(pdev->dev.of_node,
+> -					 "eswin,hsp-sp-csr",
+> -					 2, &dwc_priv->eth_axi_lp_ctrl_offset);
+> -	if (ret)
+> -		return dev_err_probe(&pdev->dev, ret,
+> -				     "can't get eth_axi_lp_ctrl_offset\n");
+> -
+> -	ret = of_property_read_u32_index(pdev->dev.of_node,
+> -					 "eswin,hsp-sp-csr",
+> -					 3, &dwc_priv->eth_clk_offset);
+> -	if (ret)
+> -		return dev_err_probe(&pdev->dev, ret,
+> -				     "can't get eth_clk_offset\n");
+> +	dwc_priv->eth_phy_ctrl_offset = hsp_args[0];
+> +	dwc_priv->eth_axi_lp_ctrl_offset = hsp_args[1];
+> +	dwc_priv->eth_clk_offset = hsp_args[2];
+>  
+>  	ret = of_property_read_u32_index(pdev->dev.of_node,
+>  					 "eswin,hsp-sp-csr",
 
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
-
--- 
-Cheers,
-
-David
