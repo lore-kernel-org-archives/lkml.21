@@ -1,87 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795368930;
-	b=EDzL/HNFRWhMrbSHnRmrdMAAiwLel/sCElQ1yiNY3bxr+Gsp+kRHjR8ZATGNgBs5Thns
-	 2X2fD6i7XEyk3aZgVaYCX/vroUpLqFxuA5w6m+wpX5LK4k6ff86Q05DbrIx8JMhk9wJFV
-	 IVz4GovhMZQ9fg8iaOml6hbvobdLnNjOPX7C90KfVsEVKBMJRqK6xTTK0IbqbOvfWrVH9
-	 2VZ8d6BjVrG3uuLk77DcoxZrGOV8Gyn2wXp998TR1IriiwxU0Sv6wNSSmk04IthgTmkJs
-	 0Mgr0Ao12WK9qgJJHW6zmx8x3IX6qxOkQQkyCDeK9JCM1y+oR4J9fITugAtimrrm3ew==
+	t=1795368949;
+	b=fFmdkf2yy3b5MJogfAk8yUnRZLnNB0KqT7JadNDf4B+Lm43oDw3JFPVYm49SrK2KO1OE
+	 tb4JIRQczD0eP+4Qboqc8EvZT0h+Bhjg8nxro0I7y2xK9RcPBGA23YoDam7Fsi1eRCyi8
+	 xrbhLY6l8rxcRcOq3eWsLAg07enN/hkBaZVAmML81EAqog+s2+/h/bIvuT0yEv+TkVs6j
+	 K0wnoeOl5bT/1olOp2Bf2KtxJq5HPt0OdUnUkM0u/q+kFE6XBjrH5Ubndia7UNEgFme7s
+	 F7ax0+Sw0BoN+mkuvZPHkgzo9bDLiJRNhN80rGoxLyLm4OIx89mgSIMYvwiuFxDHpXg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795368930;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 X-Scanned-By;
-	bh=sJM5U0UMt7klljmQpHi8pFYazE6ZZS3AuyiLULRE4vg=;
-	b=yC/mm19PDNNuUJemLpj+EtQiNq5m6aqM2X8uMWW+hXjRAPr6P1DwR6KaWIvs14kDRDLm
-	 m96hoQdR7Q1h7rp0tLctS3gDRLOEEunO+Jn1vmYt3aaiX4bZpSSbx6Ln/YKfLQUr40iyM
-	 0zXRtdI4zGQIDpxd/6tazPFxrSGySmQnYtELHZhUdxrVF1NlSxd9+rsiiEqqHFDfqCKt1
-	 wPDvAjJ908WCgjiau/FDKjcU+s98rdRIlB8VPtXO+Tr5MbxrMqd15D5D17c/mPMoRu/4W
-	 mBnwbwQ4htfHYRL0p9IerFK77e2x4/ZIl9V6W7fpTNFvUFQk4b/1kRHSYiYFT2kueLw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795368949;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=akBEH5Mu5RKcJOqX+P3AWfnGfbksoU5XtkoXP6m3PJU=;
+	b=YzliEliCGXlap4Cnv7olYaJiy5lnf/eOlgGFH/YpiPmjSqw6m2xPUL6zj/HjQYq5o44o
+	 XPQUOkSYJlMuHsam3hrsQ1myEQjTjwzN1ogCB4QkETMnZnISRi9Knr2JDmtpFysxysiUc
+	 zep845QFWtH3vG4bG1kPPYEV29cwW6FDaASNmv2pUz5XhxupvC/SfSfZ6ObIWH4bxyId8
+	 mBFhd3eBY7m/i3r9A1nWKrPrSyBNQKbJOiYiMimWCb1UyCGkzFyav1QYPBvNphhYynrzx
+	 AREaL/sJuRebnW5xvVTYhk1mwjb21KzCLxxSfE8KZIs25NWA/L6L1T5D+FnW+7pFiiw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=GheMNpjb;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RUAGvOS4;
+	arc=none smtp.remote-ip=74.125.82.51
+Received: from mail-dl1-f51.google.com (mail-dl1-f51.google.com [74.125.82.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 020B7606A68C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:35:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 020B7606A68C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0ED4F606A331
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:35:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0ED4F606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=GheMNpjb
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795368929;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sJM5U0UMt7klljmQpHi8pFYazE6ZZS3AuyiLULRE4vg=;
-	b=GheMNpjbvgYEAUGc1qH4uwxrTZh2m80zKLqWJ1yfC8RvmtT1JmcmB51CtPDpegGKVZWARW
-	Gvip1ZwPo2LjljwPhkSVeJTQ1wiLNHjXT5EmSrmQ2edXqiMtwOD+8DDIE8/wpmfZpc+xTQ
-	vHj9A4IIzdSY6Ma+qKHbm8/JL1SeUJI=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-637-49qdmpqANlG9np73tUhOVQ-1; Sun,
- 22 Nov 2026 17:35:22 +0000
-X-MC-Unique: 49qdmpqANlG9np73tUhOVQ-1
-X-Mimecast-MFC-AGG-ID: 49qdmpqANlG9np73tUhOVQ_1795368920
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0E3CC180047B;
-	Sun, 22 Nov 2026 17:35:19 +0000 (UTC)
-Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 0C54F41F;
-	Sun, 22 Nov 2026 17:35:13 +0000 (UTC)
-Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
-	oleg@redhat.com; Sun, 22 Nov 2026 18:35:18 +0100 (CET)
-Date: Sun, 22 Nov 2026 18:35:12 +0100
-From: Oleg Nesterov <oleg@redhat.com>
-To: =?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>
-Cc: Christian Brauner <brauner@kernel.org>,
-	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
-	Tejun Heo <tj@kernel.org>, Bart Van Assche <bvanassche@acm.org>,
-	Cen Zhang <blbllhy@gmail.com>, James Morris <jmorris@namei.org>,
-	Lee Seong Hyeon <ihopenre@gmail.com>,
-	Marco Elver <elver@google.com>, NeilBrown <neil@brown.name>,
-	Nickolai Zeldovich <nickolai@csail.mit.edu>,
-	Paul Moore <paul@paul-moore.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Serge E . Hallyn" <serge@hallyn.com>,
-	Yihan Ding <dingyihan@uniontech.com>, linux-kernel@vger.kernel.org,
-	linux-security-module@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] landlock: Do not hold exec_update_lock across the TSYNC
- wait
-Message-ID: <awMn0L7RaQO_6qUc@redhat.com>
-References: <20261120151554.2651743-1-mic@digikod.net>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RUAGvOS4
+Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-1a2761c69fbso547795c88.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:35:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795368948; x=1795973748; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=akBEH5Mu5RKcJOqX+P3AWfnGfbksoU5XtkoXP6m3PJU=;
+        b=RUAGvOS424fngzXVXGnBDW25yR6ASDwqNP4nBG6P0RkE9ctSrz2XI5dWkla9yQdNRU
+         8bc+GZlnNJmIL+GnPOD5i/FJh16cvhqcLYZIkG5s/IkqkrVNbUlWzbaclMWsw5QGc6Qd
+         yT2/i3zW+d70nhhLwUMIP11m73mOojUYl0aXoDYXwtqEmJhKXxzb7ppUZSOP1TCZoMUa
+         zFpsiJE8TN7BQ5GCwoYiz1+ILN3lGf1t4zBTybBd0aFdLHXrkrS6miH8A9n+WXnX9q1t
+         tx+eDUcBs7EJU9tDABYma36Kjm9TPSCLgU1cAeRSx/G9t3CuwamMijnomdFYbGBUmUWH
+         H6+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795368948; x=1795973748;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=akBEH5Mu5RKcJOqX+P3AWfnGfbksoU5XtkoXP6m3PJU=;
+        b=1V+o8K5cbHHAmJHVr2xHKvFghpyIWyV1SoWyEvcVp96G5utnWNU402F5qXVBcAe7ul
+         Tit2HJd2h8qKgOK7gFb2JoYVynLY+FhmPa9nL1f0+n6ITCxIbAMFBIW01qKn/BYVnFJD
+         YyGHyA0O3SS5mPsb1uGDVeEwE0mFIH7aw4e06H+iL8U3Ln8jq0t/x+cJ17+rD5QuKzAq
+         fUGaSOCjQmNUHii5f6MJUhqWwkI9OkywOYzk0YOebB4n1u+MT4+MUxGd7CdDi5cbEJ2x
+         ztRzEx+bR16amqaTuO1GwKI5V98Qe3478UaYcCglLfVfkDEPXxGYJOnvIHbISNnZky8r
+         GLQg==
+X-Forwarded-Encrypted: i=1; AL+hErEIEcW+GC+oWDK4dhw3MT1yz9kyQnYQ1R/NItK6ayUzVyGBxIbVU+TsPnvrZDwDS+DlUluNfPWllmDpR1Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/K5RVm8NVAzSLS3FiYw5cYjVISV2aZsrjA2fXxOZiAX5GZMZNL
+	wgAHeRSKy8SOtWLcx+MkOX63E1MMIPSPwUOTYl1UY9oEjNxOton5+dTTnXb2jft3G6Y=
+X-Gm-Gg: AZFdTZeEcNl9wHn9lWBFFpp5vSKN6QyJahZ3R3tYc5dE2c/Hc/TYqmavn3pcouTvLV7
+	2b6LEcgkUgHNmZM3Xuij6fRneURRIDiLYdLDRHlOD61eruagQp6vtaLielk0fDEMe+eAnM0Qxqc
+	EKyA2/3bvBKz1P8afyB7EzksJ06cWI8MUk9/nXqlG/nVLp9WQGzwk0ati39GVTYgrxugpF7gmar
+	/SgpD7bkVtAmg+ykcBY9NOboqsPc+GmQCVpWbcHkOPPjttXj5K49cwyuYSiHSlA+UHwTkhKn1Pq
+	DVbtds+ciFGAvYkXjg43T47Y75AqCXC3on7Xt8/DfwnROgfArW9GxmrQ6kWEZGpWYsABWmORJ60
+	gEL+iL7eQHgXy0gjAD5uYmeQYeDbO9DE/ChR2SdwWpwkBYTmkBbeMTCBH8xGz4XYDECCa8DbfNR
+	HcWyo3EK1F3EaPNoBLD29ZdNyQUXtErXPvSWJkdja2STMdjPwIT5nWoUpKsrnkO8Kf8o+DFatbG
+	oPzXE0DaDdwM3CKhFqG85LcSLeHh/KaqkkJM8PSF8AMgXngFPJGQXc5ZPWatDfU/R+ZJLzUgU71
+	FV96+Ic0TtBokmBOE9jl/OmyFnGOl458llZo9SSXVbyS+n9Gh1jFZBqy/4dUWqz053kwL86UmlR
+	J3mtHJtBK77UNZWIXe38n1IYg1FsT5mrDlKohFggEk429TXrrsad0Lk2fJ/0sgsxUgMACP/w9fQ
+	1o7bPrbRWToB63eZeajFA3Gwtl4g==
+X-Received: by 2002:a05:7022:ed02:b0:167:d73a:e994 with SMTP id a92af1059eb24-1b5568f335cmr9548851c88.24.1795368948100;
+        Sun, 22 Nov 2026 09:35:48 -0800 (PST)
+Received: from suraj-HP-Laptop-15s-fq2xxx.tailee6f87.ts.net ([2402:a00:163:3509:b842:8324:ef7c:136d])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b56ef9fd16sm6419485c88.4.2026.11.22.09.35.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 09:35:47 -0800 (PST)
+From: Suraj Sonawane <surajsonawane0215@gmail.com>
+To: Bjorn Andersson <andersson@kernel.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-arm-msm@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Suraj Sonawane <surajsonawane0215@gmail.com>
+Subject: [PATCH v3 1/2] dt-bindings: pinctrl: qcom,sc7280-lpass-lpi: add ext_mclk1_c
+Date: Sun, 22 Nov 2026 23:04:49 +0530
+Message-Id: <20261122173449.21009-2-surajsonawane0215@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261122173449.21009-1-surajsonawane0215@gmail.com>
+References: <20261122173449.21009-1-surajsonawane0215@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,96 +109,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261120151554.2651743-1-mic@digikod.net>
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
 
-On 11/20, Mickaël Salaün wrote:
->
-> @@ -492,6 +533,19 @@ int landlock_restrict_sibling_threads(const struct cred *old_cred,
->  	size_t newly_discovered_threads;
->  	bool found_more_threads;
->  
-> +	/*
-> +	 * Serialize concurrent TSYNC operations to prevent deadlocks when
-> +	 * multiple threads call landlock_restrict_self() simultaneously.  If
-> +	 * another operation got there first, gracefully yield by restarting the
-> +	 * syscall.  This allows the current thread to process pending
-> +	 * task_works before retrying.
-> +	 *
-> +	 * sighand->siglock protects only the marker, not the wait below.
-> +	 */
-> +	CLASS(current_tsync_marker, marker)();
-> +	if (!marker)
-> +		return restart_syscall();
-> +
->  	atomic_set(&shared_ctx.preparation_error, 0);
->  	init_completion(&shared_ctx.all_prepared);
->  	init_completion(&shared_ctx.ready_to_commit);
-> @@ -503,16 +557,6 @@ int landlock_restrict_sibling_threads(const struct cred *old_cred,
->  		(restrict_flags & LANDLOCK_RESTRICT_SELF_NO_NEW_PRIVS) ||
->  		task_no_new_privs(current);
->  
-> -	/*
-> -	 * Serialize concurrent TSYNC operations to prevent deadlocks when
-> -	 * multiple threads call landlock_restrict_self() simultaneously.
-> -	 * If the lock is already held, we gracefully yield by restarting the
-> -	 * syscall. This allows the current thread to process pending
-> -	 * task_works before retrying.
-> -	 */
-> -	if (!down_write_trylock(&current->signal->exec_update_lock))
-> -		return restart_syscall();
+LPASS LPI gpio5 can mux EXT_MCLK1_C. Allow function = "ext_mclk1_c"
+in the SC7280 LPASS LPI pinctrl binding so DT can select that mux
+once the driver exposes it.
 
-Just in case, the patch looks obviously correct, so feel free to add
+Signed-off-by: Suraj Sonawane <surajsonawane0215@gmail.com>
+---
+ .../bindings/pinctrl/qcom,sc7280-lpass-lpi-pinctrl.yaml         | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Reviewed-by: Oleg Nesterov <oleg@redhat.com>
-
--------------------------------------------------------------------------------
-But when I look at this code...
-
-Well, if we change landlock_restrict_sibling_threads() to rely on ->siglock,
-it seems that it can be greatly simplified? I mean, it can roughly do:
-
-	...
-
-	for (nt nr_threads = 0;; tsync_works_grow_by(&works, nr_threads))
-	{
-		guard(spinlock_irq)(&current->sighand->siglock);
-
-		if (!nr_threads) {
-			if (signal->flags & SIGNAL_LANDLOCK_TSYNC || ...)
-				return restart_syscall();
-			else
-				signal->flags |= SIGNAL_LANDLOCK_TSYNC;
-		}
-
-		if (nr_threads < get_nr_threads(current)) {
-			nr_threads = get_nr_threads(current));
-			continue;
-		}
-
-		for_other_threads(current, thread) {
-			if (thread->flags & PF_EXITING)	// stable under siglock
-				continue;
-
-			ctx = tsync_works_provide(...); // can't fail
-
-			...
-
-			task_work_add(thread, &ctx->work, TWA_SIGNAL); // can't fail
-		}
-
-		break;
-	}
-
-	complete_all(&shared_ctx.ready_to_commit);
-	...
-
-We can kill tsync_works_trim/tsync_works_contains_task/count_additional_threads/etc.
-
-Sure, this needs another change even if I am right.
-
-Oleg.
+diff --git a/Documentation/devicetree/bindings/pinctrl/qcom,sc7280-lpass-lpi-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/qcom,sc7280-lpass-lpi-pinctrl.yaml
+index bc7b8dda8..5f7870fa6 100644
+--- a/Documentation/devicetree/bindings/pinctrl/qcom,sc7280-lpass-lpi-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/qcom,sc7280-lpass-lpi-pinctrl.yaml
+@@ -64,7 +64,7 @@ $defs:
+                 qua_mi2s_data, swr_rx_clk, swr_rx_data, dmic1_clk, i2s1_clk,
+                 dmic1_data, i2s1_ws, dmic2_clk, dmic2_data, i2s1_data,
+                 i2s2_clk, wsa_swr_clk, i2s2_ws, wsa_swr_data, dmic3_clk,
+-                dmic3_data, i2s2_data ]
++                dmic3_data, i2s2_data, ext_mclk1_c ]
+         description:
+           Specify the alternative function to be configured for the specified
+           pins.
+-- 
+2.34.1
 
