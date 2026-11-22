@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795313950;
-	b=W2ZcMbzLpb34GmGnR2kLmFArGKIG80SNlvcq9vVWucEecem7yCz7cN38iPivz0xpieil
-	 dM7TaPlwqDLhWPF1TuyQzmBjFJlaFXU7jq3y78g/73gZUnnF2R97POYXN6FtMoIyjuG1o
-	 ZsUVpOvDz7ukq+gXMROfzTl3jHaJnuSTui2U1zKEvtT5Wc4uJyJWf07nW6TGktro5kZhp
-	 /wzDK0u/gwAkc2joRMf3ZEYZ9Tj3kKZp+kitClM6KUIDC4mB3nP4SJl++0LkFGCdaaglt
-	 e+J9Ug8rJu8PblAqib7IYcNywuWHBaKVjG1k0NFARQ+17Ivd2wSql9fkxeb3K5++IJw==
+	t=1795313947;
+	b=2+TdBUtRYeIRh6yvkBWXJSqgrRIDmDTJry7mkfPEk+L+we5DABSfzyyqAPmzwzNs0Gfx
+	 fhdjXToJ6iEi/1ksulRtXfx10s7caOvdmvChMNvBZG8QNegTQkDH81Ggt0/9oA8vynPQv
+	 3j/f30AS0mMGpJ+gOufRzGe7ch1R8ORRfgZFPVjqB9e0RFaqoRFg6XdnHrc6tPeCK1N6F
+	 mq8NCxrUxiGRmasucv8wZsEsKDFzD/vNsmYUYekb6W8H5NZVvr8vyx+CiZ8Q/jxRETFDT
+	 CMTXj07LBvqPfMWiMuXhYbhIgAtR9hCAPgVjCeF62yemr4DiMzm1Fv+kYF7pax8bEOA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795313950;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795313947;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=KiP+OTRJPudAUwIBIpa5N6jphqoVE+9PqMrXl6vGjYg=;
-	b=1Ulg0tdixl59NZ1oTUTxB/ZgzXuIYPdurrTCwYLVp0vkyts9coZPdcBnUGtsGnO5BiQO
-	 +wuG6/D0tN6ZD/MjFJ6JrC+04ROWbN6ZCbExkr1IbbuKSbI1w1P2zRHPvttHc0kem9gUt
-	 fMBeiLravKH1GETHdKUbpMaOTbboxZnDoJ/wexiySoDj4/rFng0fWGzbpDRwbVDFTcCT3
-	 QfqlvriLhJ7mWQmTtmogXpSDIBVOQSt72MhDfYaH890LsV5CiZdIxBoPVx/O5GJiZlBwk
-	 L6+rMfQ+iIImrhtYHHTnAA92RPHUGfNlYRCEQzTXro5LUPUrQ+TBw59NtljpP6TvNow==
+	bh=W5hYZ7whYlTpHKF5+1MJLhFDglAYMTmdbiCCoq4FKNs=;
+	b=cawo+obyCq3NhWLgm3EizA2TZPLFaeUvfATcton3EdHwK7xmKLBihoQea3J0TA5CNK3n
+	 6XtZQmRv7Dwzg0/8IUiOhRldX0MnVhg2ysxXP6OofU3J+Au0Um0gwwFL/mcA6BTTZSw0J
+	 TsqwECBHPydJqCWhDMN8qwRfxbclXtpaPf4wBZwugLizUdVRV7m9TlEjxSHQaAC9Wlq+o
+	 eA+pf05PwDB8/PNzu5pEXg5oF/07aRBGc0Dt904eJEipEqZu45qR3wyo6JIug7L/4zC2J
+	 P60MBxO+CGiv9E/pjdvAvfCGyW5egMULdzszGbVyulEsFckbWqc6hvs/91T6rKlIaPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=c5FFTyIn;
-	arc=none smtp.remote-ip=95.215.58.56
-Received: from mta1.migadu.com (out-56.mta1.migadu.com [95.215.58.56])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=c0t7dMZ1;
+	arc=none smtp.remote-ip=95.215.58.37
+Received: from mta1.migadu.com (out-37.mta1.migadu.com [95.215.58.37])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 536B1606A330
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:19:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 536B1606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A15C0606A6A9
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:19:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A15C0606A6A9
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=c5FFTyIn
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=c0t7dMZ1
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=ZmX3cKZm2z6tPbP0CeF9QDlOdxVeZ4lIk3XUQdG8VQA=;
+DKIM-Signature: a=rsa-sha256; bh=+ibD8ncnuTGYXJmpHdmm8BVR5yX19rIcElJiXlcEyTU=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795313947; v=1; x=1795918747;
- b=c5FFTyInSaFB/Lx/jmxFzEKFPwmNMuLQYAaS1kVVgLD5kqxJQ0Ggi6k2lNiqeqnxy+8gjWxn
- clN+8BmPbjWOSi0sAjQ3figt+8Xl/liAFNuaDWeVqH5ncI+nYQOZ7rTiR85qOFtcaH3cD0E0E7x
- TGqkjL4qpVjU9HfH6Bno+ScA=
+ t=1795313945; v=1; x=1795918745;
+ b=c0t7dMZ1cyRpKfYoUG9FghoobZdvzpkIAsLYoqDJLpSr0bPXJUeB6gYnDpnNL+RSqutxRwdR
+ 9rkjpkU3dK62S2qANW9RHbVsQmEtBrayPKdn7hdeShHPYuJRZ0eRMPI5X87hQg2HLlqjX942/MH
+ etAi30OOfIL6nLOl2ZPHR5DY=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 5204aaf14030e47e;
-	Sun, 22 Nov 2026 02:19:07 +0000
-X-Mizu-Trace-ID: 5204aaf14030e47e
+Received: by smtp.migadu.com with ESMTPS id 03b55c010a345916;
+	Sun, 22 Nov 2026 02:19:04 +0000
+X-Mizu-Trace-ID: 03b55c010a345916
 X-Migadu-Flow: FLOW_OUT
 From: Denis Benato <denis.benato@linux.dev>
 To: linux-kernel@vger.kernel.org
@@ -68,9 +68,9 @@ Cc: platform-driver-x86@vger.kernel.org,
 	"Hans de Goede" <hansg@kernel.org>,
 	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
 	Denis Benato <denis.benato@linux.dev>
-Subject: [PATCH v16 09/19] HID: asus: add support for response curve
-Date: Sun, 22 Nov 2026 02:18:38 +0000
-Message-ID: <20261122021849.57863-10-denis.benato@linux.dev>
+Subject: [PATCH v16 07/19] HID: asus: add triggers inner and outer range configuration
+Date: Sun, 22 Nov 2026 02:18:36 +0000
+Message-ID: <20261122021849.57863-8-denis.benato@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261122021849.57863-1-denis.benato@linux.dev>
 References: <20261122021849.57863-1-denis.benato@linux.dev>
@@ -85,338 +85,279 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-ROG ally devices allows configuring the response curve of both joysticks,
-therefore add the ability of userspace to modify the response curve by
-exposing relevant sysfs attributes.
+ROG Ally devices allows configuring inner and outer ranges for triggers
+buttons on the back: allow userspace to configure the sensitivity by
+exposing sysfs attributes.
 
 Signed-off-by: Denis Benato <denis.benato@linux.dev>
 Co-developed-by: Luke Jones <luke@ljones.dev>
 Signed-off-by: Luke Jones <luke@ljones.dev>
 ---
- drivers/hid/hid-asus.c | 266 +++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 266 insertions(+)
+ drivers/hid/hid-asus.c | 225 +++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 225 insertions(+)
 
 diff --git a/drivers/hid/hid-asus.c b/drivers/hid/hid-asus.c
-index 35f4cdbf78e7..69023305f1e4 100644
+index fc6f0e81fd8a..cc915ab543db 100644
 --- a/drivers/hid/hid-asus.c
 +++ b/drivers/hid/hid-asus.c
-@@ -24,6 +24,7 @@
- #include <linux/cleanup.h>
- #include <linux/compiler_attributes.h>
- #include <linux/container_of.h>
-+#include <linux/ctype.h>
- #include <linux/dmi.h>
- #include <linux/err.h>
- #include <linux/hid.h>
-@@ -834,6 +835,18 @@ static int ally_get_endpoint_address(struct hid_device *hdev)
- 	return ep->desc.bEndpointAddress;
- }
+@@ -108,6 +108,11 @@ MODULE_DESCRIPTION("Asus HID Keyboard and TouchPad");
+ #define ASUS_ALLY_INNER_THRESHOLD_MIN 0
+ #define ASUS_ALLY_INNER_THRESHOLD_MAX 50
  
-+struct ally_joystick_resp_curve_param {
-+	u8 move;
-+	u8 resp;
-+} __packed;
++#define ASUS_ALLY_TRIGGER_RANGE_LOWER_MIN 0
++#define ASUS_ALLY_TRIGGER_RANGE_LOWER_MAX 50
++#define ASUS_ALLY_TRIGGER_RANGE_UPPER_MIN 70
++#define ASUS_ALLY_TRIGGER_RANGE_UPPER_MAX 100
 +
-+struct ally_joystick_resp_curve {
-+	struct ally_joystick_resp_curve_param entry_1;
-+	struct ally_joystick_resp_curve_param entry_2;
-+	struct ally_joystick_resp_curve_param entry_3;
-+	struct ally_joystick_resp_curve_param entry_4;
-+} __packed;
+ /* Spurious HID codes sent by QUIRK_ROG_NKEY_KEYBOARD devices */
+ #define ASUS_SPURIOUS_CODE_0XEA 0xea
+ #define ASUS_SPURIOUS_CODE_0XEC 0xec
+@@ -862,6 +867,11 @@ static struct ally_prefs {
+ 	u8 left_outer_threshold;
+ 	u8 right_deadzone;
+ 	u8 right_outer_threshold;
 +
- /*
-  * Settings that must survive the controller powering off and coming back.
-  * No device or input pointers live here: every transfer uses the interface
-@@ -878,6 +891,9 @@ static struct ally_prefs {
- 
- 	u8 left_anti_deadzone;
- 	u8 right_anti_deadzone;
-+
-+	struct ally_joystick_resp_curve left_curve;
-+	struct ally_joystick_resp_curve right_curve;
++	u8 left_trigger_min;
++	u8 left_trigger_max;
++	u8 right_trigger_min;
++	u8 right_trigger_max;
  } ally_prefs = {
  	.lock = __MUTEX_INITIALIZER(ally_prefs.lock),
  };
-@@ -1501,6 +1517,234 @@ static struct device_attribute dev_attr_right_joystick_anti_deadzone =
- static struct device_attribute dev_attr_right_joystick_anti_deadzone_range =
- 	__ATTR(anti_deadzone_range, 0444, right_joystick_anti_deadzone_range_show, NULL);
+@@ -1375,9 +1385,213 @@ static const struct attribute_group ally_right_joystick_axis_group = {
+ 	.attrs = right_joystick_axis_attrs,
+ };
  
-+enum ally_joystick_side {
-+	JOYSTICK_LEFT = 0,
-+	JOYSTICK_RIGHT,
-+};
-+
 +/**
-+ * ally_set_joystick_resp_curve() - Set a joystick response curve
++ * ally_set_trigger_ranges() - Set the gamepad trigger travel ranges
 + * @hdev: HID device the command packet is sent on
-+ * @side: joystick to program, %JOYSTICK_LEFT or %JOYSTICK_RIGHT
-+ * @curve: response curve to apply
++ * @left_min: left trigger minimum (start of travel)
++ * @left_max: left trigger maximum (end of travel)
++ * @right_min: right trigger minimum (start of travel)
++ * @right_max: right trigger maximum (end of travel)
 + *
 + * Context: Caller holds ally_prefs.lock.
-+ * Return: 0 on success, negative errno on failure.
++ * Return: 0 on success, -ENOMEM if the command buffer cannot be allocated,
++ * or a negative errno if sending the packet fails.
 + */
-+static int ally_set_joystick_resp_curve(struct hid_device *hdev,
-+					enum ally_joystick_side side,
-+					struct ally_joystick_resp_curve *curve)
++static int ally_set_trigger_ranges(struct hid_device *hdev, u8 left_min, u8 left_max,
++				   u8 right_min, u8 right_max)
 +{
-+	const u8 payload[] = {
-+		side,
-+		curve->entry_1.move, curve->entry_1.resp,
-+		curve->entry_2.move, curve->entry_2.resp,
-+		curve->entry_3.move, curve->entry_3.resp,
-+		curve->entry_4.move, curve->entry_4.resp
-+	};
++	const u8 payload[] = { left_min, left_max, right_min, right_max };
 +	size_t buf_len;
 +	int ret;
 +
-+	u8 *buf __free(kfree) = ally_alloc_cmd(hdev, CMD_SET_RESP_CURVE, payload,
-+						sizeof(payload), &buf_len);
++	u8 *buf __free(kfree) = ally_alloc_cmd(hdev, CMD_SET_TRIGGER_RANGE,
++					       payload, sizeof(payload),
++					       &buf_len);
 +
 +	if (!buf)
 +		return -ENOMEM;
 +
 +	ret = ally_gamepad_send_packet(hdev, buf, buf_len);
++	if (ret < 0) {
++		hid_err(hdev, "Failed to set trigger ranges: %d\n", ret);
++		return ret;
++	}
 +
-+	/*
-+	 * Previous function returns the number of bytes sent, or a negative error code.
-+	 * From this function I only need either success or the failure.
-+	 */
-+	return ret < 0 ? ret : 0;
++	return 0;
 +}
 +
-+static bool ally_resp_curve_is_valid(const struct ally_joystick_resp_curve *curve)
-+{
-+	return curve->entry_1.move < curve->entry_2.move &&
-+		curve->entry_2.move < curve->entry_3.move &&
-+		curve->entry_3.move < curve->entry_4.move;
-+}
-+
-+/* Linear curve. */
-+static const struct ally_joystick_resp_curve ally_linear_curve = {
-+	.entry_1 = { .move = 0,   .resp = 0 },
-+	.entry_2 = { .move = 33,  .resp = 33 },
-+	.entry_3 = { .move = 66,  .resp = 66 },
-+	.entry_4 = { .move = 100, .resp = 100 },
-+};
-+
-+static void ally_curve_defaults(void)
++static void ally_trigger_defaults(void)
 +{
 +	guard(mutex)(&ally_prefs.lock);
 +
 +	if (ally_prefs.initialized)
 +		return;
 +
-+	ally_prefs.left_curve = ally_linear_curve;
-+	ally_prefs.right_curve = ally_linear_curve;
++	ally_prefs.left_trigger_min = ASUS_ALLY_TRIGGER_RANGE_LOWER_MIN;
++	ally_prefs.left_trigger_max = ASUS_ALLY_TRIGGER_RANGE_UPPER_MAX;
++	ally_prefs.right_trigger_min = ASUS_ALLY_TRIGGER_RANGE_LOWER_MIN;
++	ally_prefs.right_trigger_max = ASUS_ALLY_TRIGGER_RANGE_UPPER_MAX;
 +}
 +
-+/* Indexed by enum ally_joystick_side */
-+static struct ally_joystick_resp_curve * const ally_resp_curves[] = {
-+	[JOYSTICK_LEFT]  = &ally_prefs.left_curve,
-+	[JOYSTICK_RIGHT] = &ally_prefs.right_curve,
++/* Indices into ally_trigger_limits[] */
++enum ally_trigger_limit {
++	ALLY_LEFT_MIN,
++	ALLY_LEFT_MAX,
++	ALLY_RIGHT_MIN,
++	ALLY_RIGHT_MAX,
 +};
 +
-+static ssize_t response_curve_show(enum ally_joystick_side side, char *buf)
-+{
-+	const struct ally_joystick_resp_curve *curve = ally_resp_curves[side];
++static u8 * const ally_trigger_limits[] = {
++	[ALLY_LEFT_MIN]  = &ally_prefs.left_trigger_min,
++	[ALLY_LEFT_MAX]  = &ally_prefs.left_trigger_max,
++	[ALLY_RIGHT_MIN] = &ally_prefs.right_trigger_min,
++	[ALLY_RIGHT_MAX] = &ally_prefs.right_trigger_max,
++};
 +
++static ssize_t ally_trigger_limit_show(char *buf, enum ally_trigger_limit which)
++{
 +	guard(mutex)(&ally_prefs.lock);
 +
-+	if (!ally_prefs.resp_curve_support)
++	if (!ally_prefs.user_cal_support)
 +		return -EOPNOTSUPP;
 +
-+	return sysfs_emit(buf, "%u %u %u %u %u %u %u %u\n",
-+				curve->entry_1.move, curve->entry_1.resp,
-+				curve->entry_2.move, curve->entry_2.resp,
-+				curve->entry_3.move, curve->entry_3.resp,
-+				curve->entry_4.move, curve->entry_4.resp);
++	return sysfs_emit(buf, "%u\n", *ally_trigger_limits[which]);
 +}
 +
-+/**
-+ * ally_parse_u8_token() - Parse one decimal u8 from a sysfs write
-+ * @buf: write buffer
-+ * @count: number of bytes in @buf
-+ * @pos: offset in @buf to start scanning at; on success it is advanced to
-+ *       the first byte after the token
-+ * @val: where the parsed value is stored; only written on success
-+ *
-+ * Skips leading whitespace, then parses an optional '+' followed by one or
-+ * more decimal digits. The token, sign included, may be at most 15 characters
-+ * long and its value must fit in a u8.
-+ *
-+ * The scan is bounded by @count, not by a terminating NUL, so an embedded NUL
-+ * is a byte in the write, not the end of the buffer.
-+ *
-+ * Return: 0 on success, -%EINVAL if there is no number at @pos, the token is
-+ * too long, or the value does not fit in a u8. On failure @pos is left at an
-+ * unspecified offset.
-+ */
-+static int ally_parse_u8_token(const char *buf, size_t count, size_t *pos, u8 *val)
++static ssize_t ally_trigger_limit_store(struct device *dev, const char *buf,
++					size_t count,
++					enum ally_trigger_limit which,
++					int lo, int hi,
++					const char *group, const char *name)
 +{
-+	char token[16];
-+	size_t n = 0;
-+
-+	while (*pos < count && isspace((unsigned char)buf[*pos]))
-+		(*pos)++;
-+
-+	if (*pos < count && buf[*pos] == '+')
-+		token[n++] = buf[(*pos)++];
-+
-+	if (*pos >= count || !isdigit((unsigned char)buf[*pos]))
-+		return -EINVAL;
-+
-+	while (*pos < count && isdigit((unsigned char)buf[*pos])) {
-+		if (n >= sizeof(token) - 1)
-+			return -EINVAL;
-+		token[n++] = buf[(*pos)++];
-+	}
-+
-+	token[n] = '\0';
-+
-+	return kstrtou8(token, 10, val) ? -EINVAL : 0;
-+}
-+
-+static ssize_t response_curve_store(struct device *dev,
-+					enum ally_joystick_side side,
-+					const char *group, const char *buf,
-+					size_t count)
-+{
++	u8 value, v[ARRAY_SIZE(ally_trigger_limits)];
 +	struct hid_device *hdev = to_hid_device(dev);
-+	struct ally_joystick_resp_curve curve;
-+	size_t pos = 0;
-+	int ret, i;
-+	u8 v[8];
++	size_t i;
++	int ret;
 +
-+	/*
-+	 * Parse and validate the whole curve before taking the lock: a
-+	 * write is all-or-nothing and a rejected one must leave the
-+	 * recorded curve untouched.
-+	 */
-+	for (i = 0; i < ARRAY_SIZE(v); i++) {
-+		ret = ally_parse_u8_token(buf, count, &pos, &v[i]);
-+		if (ret || v[i] > 100)
-+			return -EINVAL;
-+	}
-+
-+	for (; pos < count; pos++)
-+		if (!isspace((unsigned char)buf[pos]))
-+			return -EINVAL;
-+
-+	curve = (struct ally_joystick_resp_curve) {
-+		.entry_1 = { .move = v[0], .resp = v[1] },
-+		.entry_2 = { .move = v[2], .resp = v[3] },
-+		.entry_3 = { .move = v[4], .resp = v[5] },
-+		.entry_4 = { .move = v[6], .resp = v[7] },
-+	};
-+
-+	if (!ally_resp_curve_is_valid(&curve))
++	ret = kstrtou8(buf, 10, &value);
++	if (ret || value < lo || value > hi)
 +		return -EINVAL;
 +
 +	scoped_guard(mutex, &ally_prefs.lock) {
-+		if (!ally_prefs.resp_curve_support)
++		if (!ally_prefs.user_cal_support)
 +			return -EOPNOTSUPP;
 +
-+		ret = ally_set_joystick_resp_curve(hdev, side, &curve);
-+		if (ret < 0) {
-+			hid_err(hdev, "Failed to set joystick response curve: %d\n",
-+				ret);
-+			return ret;
-+		}
++		for (i = 0; i < ARRAY_SIZE(v); i++)
++			v[i] = *ally_trigger_limits[i];
++		v[which] = value;
 +
-+		*ally_resp_curves[side] = curve;
++		ret = ally_set_trigger_ranges(hdev, v[ALLY_LEFT_MIN], v[ALLY_LEFT_MAX],
++					      v[ALLY_RIGHT_MIN], v[ALLY_RIGHT_MAX]);
++		if (ret)
++			return ret;
++
++		*ally_trigger_limits[which] = value;
 +	}
 +
-+	sysfs_notify(&dev->kobj, group, "response_curve");
++	sysfs_notify(&dev->kobj, group, name);
 +
 +	return count;
 +}
 +
-+/* Generates <side>_response_curve_{show,store}. */
-+#define ALLY_RESP_CURVE_FUNCS(side, SIDE)						\
-+static ssize_t side##_response_curve_show(struct device *dev,				\
-+						struct device_attribute *attr,		\
-+						char *buf)					\
-+{											\
-+	return response_curve_show(JOYSTICK_##SIDE, buf);				\
-+}											\
-+											\
-+static ssize_t side##_response_curve_store(struct device *dev,				\
-+						struct device_attribute *attr,		\
-+						const char *buf, size_t count)		\
-+{											\
-+	return response_curve_store(dev, JOYSTICK_##SIDE,				\
-+					#side "_joystick_axis", buf, count);		\
++/*
++ * Generates <side>_trigger_range_<limit>_limit_{show,store,range_show}.
++ * @lo is the lowest value the store accepts; it is 0 (no check) for the
++ * "lower" limits, matching the original code, which only checked the maximum.
++ */
++#define ALLY_TRIGGER_LIMIT_FUNCS(side, limit, LIMIT, which, lo)					\
++static ssize_t side##_trigger_range_##limit##_limit_show(struct device *dev,			\
++							 struct device_attribute *attr,		\
++							 char *buf)				\
++{												\
++	return ally_trigger_limit_show(buf, which);						\
++}												\
++												\
++static ssize_t side##_trigger_range_##limit##_limit_store(struct device *dev,			\
++							  struct device_attribute *attr,	\
++							  const char *buf,			\
++							  size_t count)				\
++{												\
++	return ally_trigger_limit_store(dev, buf, count, which, lo,				\
++					ASUS_ALLY_TRIGGER_RANGE_##LIMIT##_MAX,			\
++					#side "_trigger", "range_" #limit "_limit");		\
++}												\
++												\
++static ssize_t side##_trigger_range_##limit##_limit_range_show(struct device *dev,		\
++							       struct device_attribute *attr,	\
++							       char *buf)			\
++{												\
++	return sysfs_emit(buf, "%u %u\n", ASUS_ALLY_TRIGGER_RANGE_##LIMIT##_MIN,		\
++			  ASUS_ALLY_TRIGGER_RANGE_##LIMIT##_MAX);				\
 +}
 +
-+ALLY_RESP_CURVE_FUNCS(left, LEFT)
-+ALLY_RESP_CURVE_FUNCS(right, RIGHT)
++ALLY_TRIGGER_LIMIT_FUNCS(left,  lower, LOWER, ALLY_LEFT_MIN,  0)
++ALLY_TRIGGER_LIMIT_FUNCS(left,  upper, UPPER, ALLY_LEFT_MAX,  ASUS_ALLY_TRIGGER_RANGE_UPPER_MIN)
++ALLY_TRIGGER_LIMIT_FUNCS(right, lower, LOWER, ALLY_RIGHT_MIN, 0)
++ALLY_TRIGGER_LIMIT_FUNCS(right, upper, UPPER, ALLY_RIGHT_MAX, ASUS_ALLY_TRIGGER_RANGE_UPPER_MIN)
 +
-+static ssize_t response_curve_index_show(struct device *dev,
-+					 struct device_attribute *attr, char *buf)
-+{
-+	return sysfs_emit(buf,
-+			  "move_1 resp_1 move_2 resp_2 move_3 resp_3 move_4 resp_4\n");
-+}
++static struct device_attribute dev_attr_left_trigger_range_lower_limit =
++	__ATTR(range_lower_limit, 0644, left_trigger_range_lower_limit_show,
++	       left_trigger_range_lower_limit_store);
 +
-+static struct device_attribute dev_attr_left_response_curve =
-+	__ATTR(response_curve, 0644, left_response_curve_show,
-+	       left_response_curve_store);
-+static struct device_attribute dev_attr_right_response_curve =
-+	__ATTR(response_curve, 0644, right_response_curve_show,
-+	       right_response_curve_store);
-+static struct device_attribute dev_attr_left_response_curve_index =
-+	__ATTR(response_curve_index, 0444, response_curve_index_show, NULL);
-+static struct device_attribute dev_attr_right_response_curve_index =
-+	__ATTR(response_curve_index, 0444, response_curve_index_show, NULL);
++static struct device_attribute dev_attr_left_trigger_range_lower_limit_range =
++	__ATTR(range_lower_limit_range, 0444,
++	       left_trigger_range_lower_limit_range_show, NULL);
 +
- static struct attribute *left_joystick_axis_attrs[] = {
- 	&dev_attr_left_joystick_inner_threshold.attr,
- 	&dev_attr_left_joystick_outer_threshold.attr,
-@@ -1508,6 +1752,8 @@ static struct attribute *left_joystick_axis_attrs[] = {
- 	&dev_attr_left_joystick_outer_threshold_range.attr,
- 	&dev_attr_left_joystick_anti_deadzone.attr,
- 	&dev_attr_left_joystick_anti_deadzone_range.attr,
-+	&dev_attr_left_response_curve.attr,
-+	&dev_attr_left_response_curve_index.attr,
- 	NULL
++static struct device_attribute dev_attr_left_trigger_range_upper_limit =
++	__ATTR(range_upper_limit, 0644, left_trigger_range_upper_limit_show,
++	       left_trigger_range_upper_limit_store);
++
++static struct device_attribute dev_attr_left_trigger_range_upper_limit_range =
++	__ATTR(range_upper_limit_range, 0444,
++	       left_trigger_range_upper_limit_range_show, NULL);
++
++static struct device_attribute dev_attr_right_trigger_range_lower_limit =
++	__ATTR(range_lower_limit, 0644, right_trigger_range_lower_limit_show,
++	       right_trigger_range_lower_limit_store);
++
++static struct device_attribute dev_attr_right_trigger_range_lower_limit_range =
++	__ATTR(range_lower_limit_range, 0444,
++	       right_trigger_range_lower_limit_range_show, NULL);
++
++static struct device_attribute dev_attr_right_trigger_range_upper_limit =
++	__ATTR(range_upper_limit, 0644, right_trigger_range_upper_limit_show,
++	       right_trigger_range_upper_limit_store);
++
++static struct device_attribute dev_attr_right_trigger_range_upper_limit_range =
++	__ATTR(range_upper_limit_range, 0444,
++	       right_trigger_range_upper_limit_range_show, NULL);
++
++static struct attribute *left_trigger_attrs[] = {
++	&dev_attr_left_trigger_range_lower_limit.attr,
++	&dev_attr_left_trigger_range_upper_limit.attr,
++	&dev_attr_left_trigger_range_lower_limit_range.attr,
++	&dev_attr_left_trigger_range_upper_limit_range.attr,
++	NULL
++};
++
++static struct attribute *right_trigger_attrs[] = {
++	&dev_attr_right_trigger_range_lower_limit.attr,
++	&dev_attr_right_trigger_range_upper_limit.attr,
++	&dev_attr_right_trigger_range_lower_limit_range.attr,
++	&dev_attr_right_trigger_range_upper_limit_range.attr,
++	NULL
++};
++
++static const struct attribute_group ally_left_trigger_group = {
++	.name = "left_trigger",
++	.attrs = left_trigger_attrs,
++};
++
++static const struct attribute_group ally_right_trigger_group = {
++	.name = "right_trigger",
++	.attrs = right_trigger_attrs,
++};
+ static const struct attribute_group *const ally_cal_attr_groups[] = {
+ 	&ally_left_joystick_axis_group,
+ 	&ally_right_joystick_axis_group,
++	&ally_left_trigger_group,
++	&ally_right_trigger_group,
  };
  
-@@ -1518,6 +1764,8 @@ static struct attribute *right_joystick_axis_attrs[] = {
- 	&dev_attr_right_joystick_outer_threshold_range.attr,
- 	&dev_attr_right_joystick_anti_deadzone.attr,
- 	&dev_attr_right_joystick_anti_deadzone_range.attr,
-+	&dev_attr_right_response_curve.attr,
-+	&dev_attr_right_response_curve_index.attr,
- 	NULL
- };
+ static struct attribute *ally_config_attrs[] = {
+@@ -1412,6 +1626,7 @@ static int ally_prefs_setup(struct hid_device *hdev, struct ally_intf *intf)
  
-@@ -1777,6 +2025,7 @@ static int ally_prefs_setup(struct hid_device *hdev, struct ally_intf *intf)
  	ally_vibration_defaults();
  	ally_joystick_defaults();
- 	ally_trigger_defaults();
-+	ally_curve_defaults();
++	ally_trigger_defaults();
  
  	scoped_guard(mutex, &ally_prefs.lock) {
  		if (!ally_prefs.initialized) {
-@@ -2103,6 +2352,23 @@ static int hid_asus_ally_init(struct hid_device *hdev)
- 			hid_warn(hdev, "Failed to restore anti-deadzone: %d\n", ret);
+@@ -1721,6 +1936,16 @@ static int hid_asus_ally_init(struct hid_device *hdev)
+ 			hid_warn(hdev, "Failed to restore joystick thresholds: %d\n", ret);
  	}
  
-+	/*
-+	 * The MCU does not keep the response curve across a reset.
-+	 * A sysfs write validates the curve before it is recorded, so the
-+	 * cache always holds one the controller accepted.
-+	 */
-+	if (ally_prefs.initialized && ally_prefs.resp_curve_support) {
-+		ret = ally_set_joystick_resp_curve(hdev, JOYSTICK_LEFT,
-+						   &ally_prefs.left_curve);
++	if (ally_prefs.initialized && ally_prefs.user_cal_support) {
++		ret = ally_set_trigger_ranges(hdev,
++					      ally_prefs.left_trigger_min,
++					      ally_prefs.left_trigger_max,
++					      ally_prefs.right_trigger_min,
++					      ally_prefs.right_trigger_max);
 +		if (ret < 0)
-+			hid_warn(hdev, "Failed to restore left response curve: %d\n", ret);
-+
-+		ret = ally_set_joystick_resp_curve(hdev, JOYSTICK_RIGHT,
-+						   &ally_prefs.right_curve);
-+		if (ret < 0)
-+			hid_warn(hdev, "Failed to restore right response curve: %d\n", ret);
++			hid_warn(hdev, "Failed to restore trigger ranges: %d\n", ret);
 +	}
 +
  	return 0;
