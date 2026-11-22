@@ -1,54 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795320891;
-	b=ZA7ta41c+oTalgBfZYf/W095Qg6+x5atGK+LmW/X7i0D2N1ML277yFgcHZUf43BpeXFI
-	 8i0DnelO9F7K1mF0o3y0ArfmehotIJb7HhYal46AF5dJ3bKak5Syr2ZeKe8puHRpbC6xA
-	 NYJ2Y+T4llTWay8NZDoXWcD5Uhp+tZUECEOyTcfanQoHRTtezYYDSLiQWsBaVGQo79dMs
-	 aOPd2yG0Ws4cgsLtElXQ2JsBZgY7O7wyJxEHc1QinwvRRh0JPcE5Jctk/ObmFcxyMc2jE
-	 yRnkEbpu1ljWqBXTwGDIL282cO+01Sj6SdaE5vh/NXiDkjgc8ZCQtuSLNbnTVHvApGg==
+	t=1795320909;
+	b=pAW+vYK6CwU3piRvyqiGq2qs0Re+fk7JPDXIaRcw4hdWP2HH4+Qd9fLzeiXSSO7xjOqR
+	 YLxpA9gI5O5PTGx9Zrjr9u6mtpvdyEoM22J8uFvLjug+FxKU1F85aIxoDhzd5aQqcE6cX
+	 qM2tEyHa4I0Fph54nV5rLGCTVsBDj2OfIon31aFsM5l8s2P0N9y73vvokbE/VVqMGIaUe
+	 qpinY7IwrnAtyhDnBPfH7TZLxbmXyNT+FWATV8qWRH0yMNK/GcTqHgvrdzqxIOqE8o6sc
+	 sj//ObNIAJgh3wq3l1+NnsuZhVrDRrqKJobiAAoW75gGmBNVoKLsiRUkEgGTDfS14eg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795320891;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=5u1zw2xDfXlokUAYq4P7MlC9IU1TjOTlkmcuI5H9thc=;
-	b=sBXtXCDOq8jyik4a9cZ1IKGXBlb6diyjK/wD4zZNpVdtpDSCxrZwVDgDdXats78JixHj
-	 zFIpCo0P4+XjKW79aa22DjzqgWsQvb6y0sBDVdUGMTq8X/6302AUNHLmdsWjoZhU5CVsk
-	 qku0aGOiQemUJC8EWS4IUrUfyOE9MoQ5dw4ivAgGJNPUM3m5G7fY7lpVRQJVC7UCulqiM
-	 oedMt5B/yy1Icbbm2u+8fx2wD8hHQ3xcGt76J5Sg7vhrTShClx3T7vfLJOIAMMtycnv2X
-	 NNBZfgeLkAQg6PpE+V0E7XzldKbaH47GuRxh0qh08E0A/05qMabm3QUIdCpttVySUTw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795320909;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:Received:From:To:CC:Subject:In-Reply-To:References:
+	 Message-ID:Date:MIME-Version:Content-Type;
+	bh=xBb72HO1pvi/quYz7ygtDn+gbk+xkVVdd8it6HzzL6U=;
+	b=qGnvNSJGXt6FtQv6vVsaVR8tK6VmQWBVlQRKSF9/VmtR0R5ZfCsIDLVg8mMwhtfl1r79
+	 60rvkWgzlBQ5SovQ6J6U+eLnQvLy6LJk8TpBxh8G0nkdfPimzhU6D90snCfqzKUvxcSRl
+	 f5iOzzg+mAG7SqGrPkR27UPn+crbOuLW5rgBDkpIVE2tAGwRnUzJ8S/5B3Z5ThlIw4lgU
+	 Z/3bRG84W6o76tXVn6QjR7INT+e9OEcDk8iztZYheI+Q7kq0OMy3WikOeteImJNNJhduz
+	 onwS1PH6OPcbbpenTSjKT8JPnI98CSNhiF7vqOWKEWCsvWjDD4PAAjTiYTztBHB1oWQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.210.72
-Received: from mail-ot1-f72.google.com (mail-ot1-f72.google.com [209.85.210.72])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b="k/3YAR0Q";
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55D36606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:14:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55D36606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-ot1-f72.google.com with SMTP id 46e09a7af769-861598e3f88so2460325a34.3
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:14:51 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795320890; x=1795925690;
-        h=content-type:to:from:subject:message-id:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5u1zw2xDfXlokUAYq4P7MlC9IU1TjOTlkmcuI5H9thc=;
-        b=Fy4DQXycKQrc6awVULE0KGIefPPLF+XvQaFroLlttx+b8IynTX9pdHgxFiDZAooJSY
-         Ob2rtPNxKOtEmRG7gTzS51foHvlRLmi+i7CTnh9qDibjGhdTbC8/kIMaz3Pw2ID8koa+
-         uleSFj1DfqKbnL5AmZZGJDb/ojctbbqat+E0xLuST+xnlr8gVFReWA8rFPDqalrF4yX5
-         luNDbGZQgvap7S0wHMlI97j3r+/ZlCMh8tzG9eCFGV4jzoXapVel//6qrt0EJt5WX8no
-         mS44e3RX1PXHjIVNyEQ9uAJ0554OQ5lp15K0GkBTkfnPVQmU/+Aprn9l3kDVv6kmtLpx
-         12xA==
-X-Forwarded-Encrypted: i=1; AL+hErFB28H65A/vjwdQtq1ze80ov9AHFMWGca+PqOh2NVyiJcD4zZ4zLxOD7ETf1KQhoqWxRM+BNm0R7CVPcOI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/XZAmmwC+A4M0TzzhmN+Ikl9EGtMWvcOPns8wQ/qYjf/0oTh5K
-	1+8oY55X8L0JgnP/XRNq6+sajlcGOrjRocWc1tjatFgYwy4k08t+dQlTV7Y8Gqcf2YVJjCjTvYQ
-	XHUZRvNgGmHtzCjFgP/oBBZTTpGFq9bWtLYjqOv7do5zfRB9nPr6TffQwkGQ=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E4D5606A331;
+	Sun, 22 Nov 2026 04:15:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E4D5606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=k/3YAR0Q
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AM4ExKO2553871, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1795320899; bh=xBb72HO1pvi/quYz7ygtDn+gbk+xkVVdd8it6HzzL6U=;
+	h=From:To:CC:Subject:In-Reply-To:References:Message-ID:Date:
+	 MIME-Version:Content-Type;
+	b=k/3YAR0Qg/Zxm1b5TetAts1PRZY82B2iDWKgqYACc3/pkYu7lq1zm1a8JttUsY6Fk
+	 AJLHfQ5n3iDU/JinfHov3VfsZ2wA6jxrocM970W6dpSP7wo2xUuF/wngXsdHqpvpgu
+	 hYPGsIXEycZARcBG9ADvFYnf/QjeWDCmsg/+GJ+OJ8jGi+i1O7nUHj4UymzsneXoTf
+	 KP8xk782O/1SwPsUJLtHqRMJ/hd79lmXHiSVEp7tbnawi/+QcEw/Tizp+DaTZc7U7z
+	 +dQQzfuEfR1Buq83N9lJhf3tr4Yftk68pUYNVPsooP5+gW/d3t7d5lgULnVAhlfMQH
+	 C1DRexI66oEog==
+Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AM4ExKO2553871
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Sun, 22 Nov 2026 12:14:59 +0800
+Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
+ RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Sun, 22 Nov 2026 12:15:00 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Sun, 22 Nov 2026 12:14:59 +0800
+Received: from [127.0.1.1] (172.21.40.75) by RTKEXHMBS05.realtek.com.tw
+ (10.21.1.55) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56 via Frontend
+ Transport; Sun, 22 Nov 2026 12:14:59 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: Enver Ikromov <owner@ph4ntom-rev.uz>, Ping-Ke Shih <pkshih@realtek.com>,
+	Zong-Zhe Yang <kevin_yang@realtek.com>
+CC: <linux-wireless@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>
+Subject: Re: [PATCH rtw-next v8 1/5] wifi: rtw89: avoid NULL vif dereference in rtw89_ops_tx()
+In-Reply-To: <20261119080328.391-2-owner@ph4ntom-rev.uz>
+References: <20261119080328.391-1-owner@ph4ntom-rev.uz> <20261119080328.391-2-owner@ph4ntom-rev.uz>
+Message-ID: <63269466-8c67-461e-a29b-f64bb0d47f6a@RTKEXHMBS05.realtek.com.tw>
+Date: Sun, 22 Nov 2026 12:14:59 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,271 +79,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:30a3:b0:572:d0fb:ae5a with SMTP id
- 5614622812f47-57a09105d60mr9128801b6e.31.1795320890336; Sat, 21 Nov 2026
- 20:14:50 -0800 (PST)
-Date: Sat, 21 Nov 2026 20:14:50 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b026c3a.91c4c7f9.2424d6.000b.GAE@google.com>
-Subject: [syzbot] [usb?] [media?] KASAN: slab-use-after-free Read in __media_entity_remove_links
-From: syzbot <syzbot+fb0d2df09b56117605fc@syzkaller.appspotmail.com>
-To: hverkuil+cisco@kernel.org, laurent.pinchart@ideasonboard.com, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-usb@vger.kernel.org, mchehab+huawei@kernel.org, mchehab@kernel.org, 
-	sakari.ailus@linux.intel.com, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain
 
-Hello,
+Enver Ikromov <owner@ph4ntom-rev.uz> wrote:
 
-syzbot found the following issue on:
+> Injecting a raw frame on a passive monitor interface while a station or
+> AP interface is also up causes a kernel NULL pointer dereference,
+> because mac80211 has no virtual monitor vif in concurrent mode and
+> passes a NULL vif to the driver TX path.
+> 
+> Check the vif pointer with vif_to_rtwvif_safe() and drop frames without
+> a vif.
+> 
+> Fixes: e3ec7017f6a2 ("rtw89: add Realtek 802.11ax driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Enver Ikromov <owner@ph4ntom-rev.uz>
+> Acked-by: Ping-Ke Shih <pkshih@realtek.com>
 
-HEAD commit:    5f22fb20497f Merge tag 'fuse-fixes-7.4-rc4' of git://git.k..
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=1066c2bc580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=5c210800cfc8f61e
-dashboard link: https://syzkaller.appspot.com/bug?extid=fb0d2df09b56117605fc
-compiler:       gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44
-userspace arch: i386
-syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=171dbc03580000
+5 patch(es) applied to rtw-next branch of rtw.git, thanks.
 
-Downloadable assets:
-disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/98fce4d0b21b/non_bootable_disk-5f22fb20.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/3026db345225/vmlinux-5f22fb20.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/af47b7c72f38/bzImage-5f22fb20.xz
-
-The issue was bisected by AI to:
-
-commit 288254383674be25b26cf137bc12bfe38fefbad6
-Author: Hans Verkuil <hverkuil+cisco@kernel.org>
-Date:   Tue May 19 10:07:59 2026 +0000
-
-    media: em28xx: use v4l2_device release callback
-
-AI reasoning:   https://syzkaller.appspot.com/ai_job?id=60f8dabf-5027-4072-8efa-b74f756d8088
-
-AI-generated root cause summary:
-In `em28xx_v4l2_init()`, if initialization fails (e.g.,
-`v4l2_mc_create_media_graph()` returns `-EINVAL` when no decoder subdev is
-found) after `video_register_device()` has exposed the device node and userspace
-(such as `v4l_id`) has opened it, the `unregister_dev:` error path calls
-`v4l2_device_put(&v4l2->v4l2_dev)` to drop the initial `v4l2_device` reference.
-Because the open `video_device` still holds a reference to `v4l2_dev`, the
-refcount only drops from 2 to 1, so `em28xx_free_v4l2()` is not called and
-`dev->v4l2` remains non-NULL. On subsequent USB disconnect, `em28xx_v4l2_fini()`
-checks `if (!v4l2)`, sees `dev->v4l2` is still set, and calls
-`v4l2_device_put(&v4l2->v4l2_dev)` a second time for the initial reference,
-dropping the refcount to 0 and freeing `v4l2` (including `v4l2->vdev`) while
-userspace still holds an open file descriptor. When userspace later closes the
-fd, `v4l2_release()` -> `v4l2_device_release()` ->
-`media_device_unregister_entity()` -> `__media_entity_remove_links()` reads
-`&v4l2->vdev.entity.links` inside the freed `em28xx_v4l2` object, causing a
-slab-use-after-free.
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=fb0d2df09b56117605fc
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+fb0d2df09b56117605fc@syzkaller.appspotmail.com
-
-The cause commit was identified by AI and may be wrong.
-If you agree with it, please also add:
-Fixes: 288254383674 ("media: em28xx: use v4l2_device release callback")
-
-==================================================================
-BUG: KASAN: slab-use-after-free in __media_entity_remove_links+0x156/0x160 drivers/media/mc/mc-entity.c:1274
-Read of size 8 at addr ffff88806b0c8248 by task v4l_id/6472
-
-CPU: 1 UID: 0 PID: 6472 Comm: v4l_id Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-Call Trace:
- <TASK>
- __dump_stack lib/dump_stack.c:94 [inline]
- dump_stack_lvl+0x100/0x190 lib/dump_stack.c:120
- print_address_description mm/kasan/report.c:378 [inline]
- print_report+0x13d/0x4b0 mm/kasan/report.c:482
- kasan_report+0xdf/0x1c0 mm/kasan/report.c:595
- __media_entity_remove_links+0x156/0x160 drivers/media/mc/mc-entity.c:1274
- __media_device_unregister_entity+0x188/0x2f0 drivers/media/mc/mc-device.c:593
- media_device_unregister_entity+0x4b/0x70 drivers/media/mc/mc-device.c:677
- v4l2_device_release+0x363/0x480 drivers/media/v4l2-core/v4l2-dev.c:208
- device_release+0xd2/0x270 drivers/base/core.c:2640
- kobject_cleanup lib/kobject.c:689 [inline]
- kobject_release lib/kobject.c:720 [inline]
- kref_put include/linux/kref.h:65 [inline]
- kobject_put+0x1f7/0x640 lib/kobject.c:737
- put_device+0x1f/0x30 drivers/base/core.c:3886
- video_put drivers/media/v4l2-core/v4l2-dev.c:173 [inline]
- v4l2_release+0x2da/0x390 drivers/media/v4l2-core/v4l2-dev.c:480
- __fput+0x3fb/0xb50 fs/file_table.c:512
- fput_close_sync+0x118/0x250 fs/file_table.c:618
- filp_close_sync+0x75/0xa0 fs/open.c:1574
- __do_sys_close fs/open.c:1597 [inline]
- __se_sys_close fs/open.c:1584 [inline]
- __x64_sys_close+0x81/0x110 fs/open.c:1584
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x123/0x780 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7efe06ca7407
-Code: 48 89 fa 4c 89 df e8 38 aa 00 00 8b 93 08 03 00 00 59 5e 48 83 f8 fc 74 1a 5b c3 0f 1f 84 00 00 00 00 00 48 8b 44 24 10 0f 05 <5b> c3 0f 1f 80 00 00 00 00 83 e2 39 83 fa 08 75 de e8 23 ff ff ff
-RSP: 002b:00007ffeede16410 EFLAGS: 00000202 ORIG_RAX: 0000000000000003
-RAX: ffffffffffffffda RBX: 00007efe073fa880 RCX: 00007efe06ca7407
-RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000003
-RBP: 00007efe073fa6e8 R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000202 R12: 0000000000000013
-R13: 00007ffeede16640 R14: 00007efe07561000 R15: 000055de6e7e84d8
- </TASK>
-
-Allocated by task 5993:
- kasan_save_stack+0x30/0x50 mm/kasan/common.c:57
- kasan_save_track+0x14/0x40 mm/kasan/common.c:79
- poison_kmalloc_redzone mm/kasan/common.c:412 [inline]
- __kasan_kmalloc+0xaa/0xb0 mm/kasan/common.c:429
- kasan_kmalloc include/linux/kasan.h:267 [inline]
- __kmalloc_cache_noprof+0x2f8/0x6d0 mm/slub.c:5680
- _kmalloc_noprof include/linux/slab.h:991 [inline]
- _kzalloc_noprof include/linux/slab.h:1312 [inline]
- em28xx_v4l2_init.cold+0x94/0x3a7f drivers/media/usb/em28xx/em28xx-video.c:2751
- em28xx_init_extension+0x13a/0x200 drivers/media/usb/em28xx/em28xx-core.c:1245
- request_module_async+0x1e/0x30 drivers/media/usb/em28xx/em28xx-cards.c:3723
- process_one_work+0xac7/0x1b10 kernel/workqueue.c:3495
- process_scheduled_works kernel/workqueue.c:3578 [inline]
- worker_thread+0x5ef/0xe50 kernel/workqueue.c:3659
- kthread+0x373/0x450 kernel/kthread.c:436
- ret_from_fork+0x730/0xd60 arch/x86/kernel/process.c:158
- ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
-
-Freed by task 11:
- kasan_save_stack+0x30/0x50 mm/kasan/common.c:57
- kasan_save_track+0x14/0x40 mm/kasan/common.c:79
- kasan_save_free_info+0x3b/0x60 mm/kasan/generic.c:599
- poison_slab_object mm/kasan/common.c:267 [inline]
- __kasan_slab_free+0x73/0x90 mm/kasan/common.c:299
- kasan_slab_free include/linux/kasan.h:239 [inline]
- slab_free_hook mm/slub.c:2780 [inline]
- slab_free mm/slub.c:6637 [inline]
- kfree+0x22d/0x6d0 mm/slub.c:6930
- em28xx_free_v4l2+0x7b/0x110 drivers/media/usb/em28xx/em28xx-video.c:2337
- v4l2_device_release drivers/media/v4l2-core/v4l2-device.c:51 [inline]
- kref_put include/linux/kref.h:65 [inline]
- v4l2_device_put+0xa3/0xd0 drivers/media/v4l2-core/v4l2-device.c:56
- em28xx_v4l2_fini.cold+0x267/0x312 drivers/media/usb/em28xx/em28xx-video.c:2465
- em28xx_close_extension+0xd2/0x460 drivers/media/usb/em28xx/em28xx-core.c:1262
- em28xx_usb_disconnect.cold+0x13d/0x253 drivers/media/usb/em28xx/em28xx-cards.c:4488
- usb_unbind_interface+0x1dd/0x9b0 drivers/usb/core/driver.c:460
- device_remove drivers/base/dd.c:619 [inline]
- device_remove+0x12a/0x180 drivers/base/dd.c:611
- __device_release_driver drivers/base/dd.c:1357 [inline]
- device_release_driver_internal+0x441/0x610 drivers/base/dd.c:1380
- bus_remove_device+0x2bc/0x560 drivers/base/bus.c:678
- device_del+0x376/0x9b0 drivers/base/core.c:3967
- usb_disable_device+0x367/0x810 drivers/usb/core/message.c:1484
- usb_disconnect+0x2e2/0x9a0 drivers/usb/core/hub.c:2355
- hub_port_connect drivers/usb/core/hub.c:5425 [inline]
- hub_port_connect_change drivers/usb/core/hub.c:5725 [inline]
- port_event drivers/usb/core/hub.c:5889 [inline]
- hub_event+0x1bb1/0x4420 drivers/usb/core/hub.c:5971
- process_one_work+0xac7/0x1b10 kernel/workqueue.c:3495
- process_scheduled_works kernel/workqueue.c:3578 [inline]
- worker_thread+0x5ef/0xe50 kernel/workqueue.c:3659
- kthread+0x373/0x450 kernel/kthread.c:436
- ret_from_fork+0x730/0xd60 arch/x86/kernel/process.c:158
- ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
-
-The buggy address belongs to the object at ffff88806b0c8000
- which belongs to the cache kmalloc-8k of size 8192
-The buggy address is located 584 bytes inside of
- freed 8192-byte region [ffff88806b0c8000, ffff88806b0ca000)
-
-The buggy address belongs to the physical page:
-page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x6b0c8
-head: order:3 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
-flags: 0x4fff00000000040(head|node=1|zone=1|lastcpupid=0x7ff)
-page_type: f5(slab)
-raw: 04fff00000000040 ffff88801d443180 dead000000000122 0000000000000000
-raw: 0000000000000000 0000000000020002 00000000f5000000 0000000000000000
-head: 04fff00000000040 ffff88801d443180 dead000000000122 0000000000000000
-head: 0000000000000000 0000000000020002 00000000f5000000 0000000000000000
-head: 04fff00000000003 fffffffffffffe01 00000000ffffffff 00000000ffffffff
-head: ffffffffffffffff 0000000000000000 00000000ffffffff 0000000000000008
-page dumped because: kasan: bad access detected
-page_owner tracks the page as allocated
-page last allocated via order 3, migratetype Unmovable, gfp_mask 0xd20c0(__GFP_IO|__GFP_FS|__GFP_NOWARN|__GFP_NORETRY|__GFP_COMP|__GFP_NOMEMALLOC), pid 859, tgid 859 (kworker/0:2), ts 138895551242
- set_page_owner include/linux/page_owner.h:33 [inline]
- post_alloc_hook+0xfd/0x120 mm/page_alloc.c:1873
- prep_new_page mm/page_alloc.c:1881 [inline]
- get_page_from_freelist+0xdae/0x2c80 mm/page_alloc.c:3963
- __alloc_frozen_pages_noprof+0x2ad/0x31e0 mm/page_alloc.c:5505
- alloc_slab_page mm/slub.c:3384 [inline]
- allocate_slab mm/slub.c:3499 [inline]
- new_slab+0xb1/0x6d0 mm/slub.c:3550
- refill_objects+0xe3/0x410 mm/slub.c:7546
- refill_sheaf mm/slub.c:2917 [inline]
- __pcs_replace_empty_main+0x35e/0x650 mm/slub.c:4811
- alloc_from_pcs mm/slub.c:4887 [inline]
- slab_alloc_node mm/slub.c:5021 [inline]
- __kmalloc_cache_noprof+0x4ef/0x6d0 mm/slub.c:5676
- _kmalloc_noprof include/linux/slab.h:991 [inline]
- _kzalloc_noprof include/linux/slab.h:1312 [inline]
- em28xx_v4l2_init.cold+0x94/0x3a7f drivers/media/usb/em28xx/em28xx-video.c:2751
- em28xx_init_extension+0x13a/0x200 drivers/media/usb/em28xx/em28xx-core.c:1245
- request_module_async+0x1e/0x30 drivers/media/usb/em28xx/em28xx-cards.c:3723
- process_one_work+0xac7/0x1b10 kernel/workqueue.c:3495
- process_scheduled_works kernel/workqueue.c:3578 [inline]
- worker_thread+0x5ef/0xe50 kernel/workqueue.c:3659
- kthread+0x373/0x450 kernel/kthread.c:436
- ret_from_fork+0x730/0xd60 arch/x86/kernel/process.c:158
- ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
-page last free pid 6118 tgid 6118 ts 138113338887 stack trace:
- reset_page_owner include/linux/page_owner.h:26 [inline]
- __free_pages_prepare mm/page_alloc.c:1415 [inline]
- __free_frozen_pages+0x7b1/0x10f0 mm/page_alloc.c:2971
- kasan_depopulate_vmalloc_pte+0x5d/0x80 mm/kasan/shadow.c:484
- apply_to_pte_range mm/memory.c:3555 [inline]
- apply_to_pmd_range mm/memory.c:3599 [inline]
- apply_to_pud_range mm/memory.c:3635 [inline]
- apply_to_p4d_range mm/memory.c:3671 [inline]
- __apply_to_page_range+0xb1d/0x1520 mm/memory.c:3707
- __kasan_release_vmalloc+0xd7/0xe0 mm/kasan/shadow.c:602
- kasan_release_vmalloc include/linux/kasan.h:600 [inline]
- kasan_release_vmalloc_node mm/vmalloc.c:2312 [inline]
- purge_vmap_node+0x210/0xb40 mm/vmalloc.c:2334
- __purge_vmap_area_lazy+0x90a/0xc00 mm/vmalloc.c:2424
- drain_vmap_area_work+0x27/0x40 mm/vmalloc.c:2458
- process_one_work+0xac7/0x1b10 kernel/workqueue.c:3495
- process_scheduled_works kernel/workqueue.c:3578 [inline]
- worker_thread+0x5ef/0xe50 kernel/workqueue.c:3659
- kthread+0x373/0x450 kernel/kthread.c:436
- ret_from_fork+0x730/0xd60 arch/x86/kernel/process.c:158
- ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
-
-Memory state around the buggy address:
- ffff88806b0c8100: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
- ffff88806b0c8180: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
->ffff88806b0c8200: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
-                                              ^
- ffff88806b0c8280: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
- ffff88806b0c8300: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
-==================================================================
-
+0202cb50fe9f wifi: rtw89: avoid NULL vif dereference in rtw89_ops_tx()
+260247bfbc5b wifi: rtw89: handle negative rate index for injected frames
+e07c9af7bbc8 wifi: rtw89: restore channel when leaving idle on non-chanctx devices
+4175fc84dbe9 wifi: rtw89: avoid reading seq_ctrl on control frames
+92608bb5f14f wifi: rtw89: honor ASSIGN_SEQ, retries, and NO_ACK for injected frames
 
 ---
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
+https://github.com/pkshih/rtw.git
 
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-For information about AI bisection see: https://goo.gl/tpsmEJ#ai-bisection
-
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
