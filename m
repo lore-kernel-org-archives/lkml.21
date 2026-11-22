@@ -1,101 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795376540;
-	b=BsW5SsiPQI8QZgXhJbpU8MgrwVUHXXCBmT0vL59mPYtoN4x8emKwQIeKTEPiRWlfr+/O
-	 ASmWJ82Ls7yYyGh9X/at1Z2Vc3ozXcmPkkMs0ZCrBq6dmlfW/GCCaZeVJ+zfZwuGrhxWq
-	 uSHr1uL3Jmx1eVU/i7nyodxtbBeBVgRgBUlnOBI5DXQZJ1K0h/E1grCbYJmUW+/+fjLzU
-	 PQEevUJW7wiObKLKEysubv2YijBaegeW3mrOs11K+lLv3td7Ntar2lSBuOAGUdZ/pWHhA
-	 XIDmyZhkGdnEPnqFSTi7PPZqnyKTQLhFeNqtgOKf+5Wy+ZsiOBrnICeK8IwlA10VPKA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795376540;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=JaMj7DSQxOsWfySVjl+8FAo+oR/C5pxC4TqOkn9ph7U=;
-	b=nEvANdXwllALq5fHq+DyLa3UKGS9s2lPy8VUi8kB7C15BCqMwdC+9S3FajDYznfZB/kn
-	 VSKqe30EwhwUBfgCwJ+7FL0cHP+1kOjRB/TZfcRkpVIDYViIXu7vzoguY7YLBq5o2EMHX
-	 F/mXIP+10CTw4436SPNBYQlCm7uxCjvjz3YcjBPo/2l+ML0wpWQJCpw1Q9kBNwE5F1Q9S
-	 866xduMRq87XFq0rYoPYGAnEf8nRNiTCYOsfK+HIzKAhjZB0fIuy8B2furXzViGZepifz
-	 4weIdvNaF+OEfitYFtso1pBxQ+jqO1R7qCWu5LAAEQ/Jdj2IiS208ai3Z16FrDb1rsA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tdqj+PcI;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.52
-Received: from mail-yx1-f52.google.com (mail-yx1-f52.google.com [74.125.224.52])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.202
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795376554;
+	b=3mN64adPkdq0g87sBrqrlR1MlDHOlxxgrr3bRUkLOLIFVMRzjjoSN3LmjP7gnBNlx2bi
+	 xqHpANDXE34SyE5SxCao+8dETNvZWr5ifW+MF02dFZmBgJ5ZNWSBc67ZnDY6cYhZLuDwU
+	 nsEK0FCjlJQ1+1UjluXWtVtMoAQITVzzHFctl8beNd+gTKWkci+sMSdbVOpLvD+BujE9r
+	 CbURK1GsQbbFEa1RAFL1pVht/fI/lpR/BvpFeRPx7MUH6lLRA/X3efSV1UeZa66HPt+40
+	 BzLH3C6qbvESv1MyXx9gTSfKl7F40KhX5r6OKapcJcm15iZyXxyQ404D+PnBa+CkDzA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795376554;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=u7aJQPEkk1MXoO+1vj7a5E+2bixK8uiORNo00q/fjE8=;
+	b=0RSsmEpN6V8Mr3sxv9t+dQei3q3JgnJeyl3+qzguaOjHRwkx+FbM33cKQsjd98/X94Te
+	 ffrOGWgkvX7pXgAcUNNMfmbdHF1S1NSVcApHqWrdo6iWz05Ng2H8yKrPLKKmA7Dcx0H5J
+	 ia9ZhEwRipiXEFSc4bfsozunO9N2i5l72BScmk1+sLqqerpT/et7t3gO5EIdnGFOUS8AF
+	 Ir+hnKSlUIpaBVwoFsIJ3ueBM0kBJYwDKuZ+iq6RR0crLgbZCD0/tSzR1mfIsQ7PmJVC0
+	 4/Vb89aeKiYBggalqrhUSXDLuICgpovGtzcCJRZBuGL4JlfOQgJmZ7Zd71yUmCjcfmg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jTIuWHpt;
+	arc=none smtp.remote-ip=95.215.58.202
+Received: from mta1.migadu.com (out-202.mta1.migadu.com [95.215.58.202])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C216606A31A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:42:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C216606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F23DE606A31A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:42:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F23DE606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tdqj+PcI
-Received: by mail-yx1-f52.google.com with SMTP id 956f58d0204a3-675617e81f9so2829476d50.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:42:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795376539; cv=none;
-        d=google.com; s=arc-20260327;
-        b=NDIAjaHy7Ny7Dev6Cz7mTE8+Q2grVmkaxK3CxA4eUmt213UPgAqkvdGvSdd0cNI9DL
-         5FkoEPboW2Qz2KLh1xrfrij75u7H+HEdHIVILvcVBmeBxdfMfAz9nYgNE8EudRbtGr0/
-         Zzb2kjlq/iKaun+IAspqU0umYS2I7nQfY8qFuY5T8715zWze4xB88JhpY1myevxhld+Q
-         Py1AoYnIKaUYwUa97mt7s7lNK4r+ZDra81m0kKDEZeBdPNAxsT8tNzjWvvBpwltQioJI
-         p2fJnfq+M7dzp5uVP++mnj2bEhonND52waHb8NfsDq7PrOkVlhnHGE4Fv8+Efmn5eIcu
-         7itg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=JaMj7DSQxOsWfySVjl+8FAo+oR/C5pxC4TqOkn9ph7U=;
-        fh=fGOMygfFmjXzsryCa8IBavwFc9U3df3pvnMzIvd5Bok=;
-        b=Tx70mU+NMHJTDUAUkiV0CZO3a1njuRAKfjZyL5IrIQczDT60ERU7+VcmIfVCjnrFWY
-         O7LdYZJ/5fGKdFw7Kqzmp7XqCBJBjVz8qLTA3hkFcrmjOQSahkaFexzT1Eci0CS132Lk
-         lLND3MzJ/M8WwwhT3UIS2mXTz3TMJ+kso4lSHIjmdZ7HxfZmNM9WXuLMmJ7kI3dZEObf
-         3c0YF1RfwL3xzRc0S21OAlTcx5f3cN1V2fZig7z8tBZ/GtDOmUVo9rec1xosK97wdiyd
-         fF2lBFaZyjRyRBj182IFdsn95rXJydQqATR/sUbQEpZ76Xwu6/bINTwJWoNuvOZ3xER0
-         DoXw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795376539; x=1795981339; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JaMj7DSQxOsWfySVjl+8FAo+oR/C5pxC4TqOkn9ph7U=;
-        b=Tdqj+PcI+YzUkvnQGJmeejd4G5lpDPgIiG66Fuv0gauAWue3irjr8ZTLWRvp1q0CqD
-         XqK07IktDNEkDDpTdo1UYGkzoBTeAurOKsD3hoT5zny35c4RfYPRWITluH19wyHVGi53
-         1XQ9wpiBI8hmnPlmL1DLlJqjgOqVEPINc9wI+0gD8LfaQJTbPrpINHZejDM+AujiFxLN
-         gUnuyOIWAAqRicSV/F8eoif8xTo1SZH9mS2CHgfMRHRpKU0h2hDb+M+EDEn54k31XaAd
-         kBY9k4VPC9e6gOH1n6DuW5Bs4uUPwsPxSgyEe1814rtjmpngH39t93fUeKOJkjrTdFTf
-         /IBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795376539; x=1795981339;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=JaMj7DSQxOsWfySVjl+8FAo+oR/C5pxC4TqOkn9ph7U=;
-        b=IDfiqOFcvB9Yg4c6PiaPpRwve0Y7USzW9qWO8j1IY2aQICuv7kTVFM0bdJ0QBQj/cN
-         rgajeqPdzxQzBxHnAUAxZTs/fgWkk8HJn6CMd/D9h/JvvAK5rEX1vJDWnwtKn7BwiNh7
-         jR01605LIMebTGIZah/xrjvAwMrJmd/dbzSrruyGTVehFVoFLig1egwAlgwHi5aGOVWJ
-         D3b+aPUs9WBJZxVtUVe8COEUTGWHuiydsCZYp+wVdrce7BPAcXiRWkeQeF2pUMwNKFKI
-         qnxG3LSluQ4vkoCtQwxzHayBIskbG4ZC4BkWJv/RUaYUt5wRc269cvxFj0sDoIY1Uxxw
-         6KmQ==
-X-Forwarded-Encrypted: i=1; AL+hErGwB0uCsQWWwgag48zkOZhMCnBY762/iJx0A3Ltxq87J41TWvUMPonjHsOUYtvoZoB5rBSAmvDQhuhz+GY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+5fUUqu88JlPnM0opsF4Ck1yxnVIaiM4kbWIHfup8CbifWpEyl
-	8Vc3gLv58krm/WGMCHbvwWYNDEQdIKjBPxH+u3UNJzgNU4hc4Lno2Ne5FmnZlGIOzZPDFt1Yr3r
-	EjuyzawveTxWkNAzES7HHS0RioEKl+a4=
-X-Gm-Gg: AZFdTZcvz62CnHsxzvCUAIgevQTzPpPxnbgtiosnAWIsTA73mhP6Wy/e+u4TrvB7rI/
-	5ioldbOS7CdYVhbMV37cAD9rB1BhvEY1/B5Hso/7UZPWqIiWf4FZwqJff+WHLGPpT0l87/66i0n
-	pa265Mm11r4hb86e+BQYyhBlKZbrGfjdGW+qUrzstAOdOOTT5hbeDBdkqTz6aKGoAs54YLf3A1e
-	a8HxcSPDRYpDNItWOY9bRCGJ6CUFAT7DWZNTviWUG1WyuRqKG1kdmMbHqpl79nH+wqnorr18r1S
-	MYJ2PcDPc8TFVcvVBz/LyloX3Tr5sMBpF3VdNy2WoKr11UhmInOEcrbzJ8vHPcwckPoNLQMY/6Y
-	YhihwbUAYc8tcCmJScfBL51cP1WxazfCdi3xwVKZPgvzMTfxP37fHsOkconz+tNPnuiRu+OVuog
-	1LI9CAcJj42mNbsY3IMr0mlmG3u+0MIUcP6gpeOl3s+ho64KK0dVvdu/0ZH4pxlDt89uW4Crc8B
-	8OvV8M7tg==
-X-Received: by 2002:a05:690e:1508:b0:67d:a57b:aa93 with SMTP id
- 956f58d0204a3-67df448b47bmr3072488d50.97.1795376539312; Sun, 22 Nov 2026
- 11:42:19 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jTIuWHpt
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=A+Nq3QPurMldwnh5piZQ+zljAbZ0+xg1hBlzTGvD0cc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795376551; v=1; x=1795981351;
+ b=jTIuWHptalClz6NQJqnA+yBkDSw+UELgYqlzuG31X4ct7firXKO48NIneDWiQME16nG1m0LY
+ I/uD/TDlPEbb4bNbF7YJudnwMiVAwcQMtivVcROaEYihOK/lI9JTDXBAUiOEPP2ctGh8R4G8OK4
+ wP8ZoCXGtVjdrJGbs1xkJKcU=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id bc5ce082725462f8;
+	Sun, 22 Nov 2026 19:42:30 +0000
+X-Mizu-Trace-ID: bc5ce082725462f8
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <59e93766-fb4f-43de-a721-4ad544264730@linux.dev>
+Date: Sun, 22 Nov 2026 11:42:27 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,114 +58,215 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117222224.1465328-1-arnd@kernel.org> <20261117222224.1465328-2-arnd@kernel.org>
-In-Reply-To: <20261117222224.1465328-2-arnd@kernel.org>
-From: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
-Date: Sun, 22 Nov 2026 11:42:07 -0800
-X-Gm-Features: Aa3M54rGSfhmBnOjNHZCXlTHs3QWw1coAt53gmc8CIX_0C5jk10mHzHBcQ2m1ck
-Message-ID: <CAE5sdEgMSSAnZ+XM+03BfRS4_nZDxcp0hGMPJJWCa0PcGwNwDA@mail.gmail.com>
-Subject: Re: [PATCH 1/2] arm64: add HWCAP3_LS64_ACCDATA
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Yicong Yang <yangyicong@hisilicon.com>, Zhou Wang <wangzhou1@hisilicon.com>, 
-	Navneet Singh <navneetsingh@microsoft.com>, apais@microsoft.com, 
-	hargar@linux.microsoft.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH rdma-next v2] RDMA/rxe: Require a responder resource for
+ FLUSH
+To: Andrew Stellman <astellman@stellman-greene.com>,
+ Zhu Yanjun <zyjzyj2000@gmail.com>,
+ "yanjun.zhu@linux.dev" <yanjun.zhu@linux.dev>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>,
+ linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261122170551.19582-1-astellman@stellman-greene.com>
+From: Zhu Yanjun <yanjun.zhu@linux.dev>
+In-Reply-To: <20261122170551.19582-1-astellman@stellman-greene.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Tue, 17 Nov 2026 at 14:22, Arnd Bergmann <arnd@kernel.org> wrote:
->
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> LS64_ACCDATA extends the LS64 feature with the user-space ls64bv0 instruction
-> and the EL1 ACCDATA register. Like LS64, it was added with Armv8.7, and it
-> roughly corresponds to the 'enqcmd' feature for shared hardware workqueues
-> on x86 CPUs as described in the kernel's SVA documentation. [1]
-
-
-A few small notes on this patch (the first three were also highlighted by the
-Sashiko review [1]):
-
-- Nit: s/ls64bv0/st64bv0/ in the commit message.
-- Should this come as Patch 2/2 after enabling st64bv0 in the kernel so
-  HWCAP3_LS64_ACCDATA is not advertised to userspace at an intermediate
-  commit?
-
->
-> Userspace can check availability of HWCAP3_LS64_ACCDATA to see if the shared
-> hardware workqueue feature is possible on a given driver.
->
-> Link: https://www.kernel.org/doc/html/v7.3/arch/x86/sva.html#enqcmd [1]
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+在 2026/11/22 9:05, Andrew Stellman 写道:
+> process_flush() keeps its state in a responder resource from
+> rxe_prepare_res(), as READ and ATOMIC requests do. check_resource()
+> refuses those requests when max_dest_rd_atomic is 0, but it does not
+> check FLUSH. With max_dest_rd_atomic 0, qp->resp.resources is
+> ZERO_SIZE_PTR, and rxe_prepare_res() writes through it in
+> free_rd_atomic_resource().
+> 
+> A FLUSH sent to an RC QP with max_dest_rd_atomic 0 oopses the
+> responder:
+> 
+>    Oops: general protection fault, probably for non-canonical address 0xdffffc0000000002: 0000 [#1] SMP KASAN NOPTI
+>    KASAN: null-ptr-deref in range [0x0000000000000010-0x0000000000000017]
+>    CPU: 0 UID: 0 PID: 13 Comm: kworker/u8:0 Not tainted 7.4.0-rc3-gaebb72744764 #1 PREEMPT(lazy)
+>    Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
+>    Workqueue: rxe_wq do_work
+>    RIP: 0010:free_rd_atomic_resource+0x15/0x50
+>    Code: 00 00 00 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 0f 1f 40 d6 48 b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 <0f> b6 04 02 84 c0 74 04 3c 03 7e 0b c7 07 00 00 00 00 c3 cc cc cc
+>    RSP: 0018:ff110000013479f8 EFLAGS: 00000202
+>    RAX: dffffc0000000000 RBX: 0000000000000010 RCX: ff110000059f9760
+>    RDX: 0000000000000002 RSI: 0000000000000000 RDI: 0000000000000010
+>    RBP: 0000000000000001 R08: ff110000024a2180 R09: ffe21c0000268f2c
+>    R10: 0000000000000003 R11: ff110000059f9298 R12: ff1100000592dc00
+>    R13: 0000000000000040 R14: ff110000059f9000 R15: ff110000024a2168
+>    FS:  0000000000000000(0000) GS:ff110000e18da000(0000) knlGS:0000000000000000
+>    CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+>    CR2: dffffc0000000002 CR3: 00000000052ca000 CR4: 0000000000751ef0
+>    PKRU: 55555554
+>    Call Trace:
+>     <TASK>
+>     rxe_receiver+0x5f6e/0x9a20
+>     ? flush_workqueue_prep_pwqs+0x1a4/0xe80
+>     ? kthread+0x2b0/0x3b0
+>     ? __pfx_rxe_receiver+0x10/0x10
+>     ? update_cfs_rq_load_avg+0x5a/0x560
+>     ? pick_task_fair+0x468/0x1a60
+>     ? __pfx_rxe_receiver+0x10/0x10
+>     ? _raw_spin_lock_irqsave+0x86/0xe0
+>     ? __pfx_rxe_receiver+0x10/0x10
+>     do_work+0x144/0x470
+>     process_one_work+0x6fc/0x1180
+>     ? __pfx___schedule+0x10/0x10
+>     ? __pfx_process_one_work+0x10/0x10
+>     ? _raw_spin_lock_irq+0x81/0xe0
+>     ? __pfx_do_work+0x10/0x10
+>     ? assign_work+0x11d/0x410
+>     worker_thread+0x45b/0xd10
+>     ? __pfx_worker_thread+0x10/0x10
+>     kthread+0x2c8/0x3b0
+>     ? recalc_sigpending+0x15c/0x1e0
+>     ? __pfx_kthread+0x10/0x10
+>     ret_from_fork+0x36e/0x5a0
+>     ? __pfx_ret_from_fork+0x10/0x10
+>     ? __switch_to+0x572/0xdc0
+>     ? __switch_to_asm+0x33/0x70
+>     ? __pfx_kthread+0x10/0x10
+>     ret_from_fork_asm+0x1a/0x30
+>     </TASK>
+>    Modules linked in:
+>    ---[ end trace 0000000000000000 ]---
+>    RIP: 0010:free_rd_atomic_resource+0x15/0x50
+>    Code: 00 00 00 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 0f 1f 40 d6 48 b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 <0f> b6 04 02 84 c0 74 04 3c 03 7e 0b c7 07 00 00 00 00 c3 cc cc cc
+>    RSP: 0018:ff110000013479f8 EFLAGS: 00000202
+>    RAX: dffffc0000000000 RBX: 0000000000000010 RCX: ff110000059f9760
+>    RDX: 0000000000000002 RSI: 0000000000000000 RDI: 0000000000000010
+>    RBP: 0000000000000001 R08: ff110000024a2180 R09: ffe21c0000268f2c
+>    R10: 0000000000000003 R11: ff110000059f9298 R12: ff1100000592dc00
+>    R13: 0000000000000040 R14: ff110000059f9000 R15: ff110000024a2168
+>    FS:  0000000000000000(0000) GS:ff110000e18da000(0000) knlGS:0000000000000000
+>    CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+>    CR2: dffffc0000000002 CR3: 00000000052ca000 CR4: 0000000000751ef0
+>    PKRU: 55555554
+> 
+>    ------------[ cut here ]------------
+>    WARNING: drivers/infiniband/sw/rxe/rxe_pool.c:212 at __rxe_cleanup+0x21b/0x290, CPU#0: t028/87
+>    Modules linked in:
+>    CPU: 0 UID: 0 PID: 87 Comm: t028 Tainted: G      D             7.4.0-rc3-gaebb72744764 #1 PREEMPT(lazy)
+>    Tainted: [D]=DIE
+>    Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
+>    RIP: 0010:__rxe_cleanup+0x21b/0x290
+>    Code: f7 fe ff ff 4c 89 e7 e8 43 99 ad fd 84 c0 0f 85 6f ff ff ff be 50 c3 00 00 4c 89 e7 e8 9e 22 f3 00 85 c0 0f 85 5a ff ff ff 90 <0f> 0b 90 eb 04 90 0f 0b 90 bd 92 ff ff ff e9 48 ff ff ff 90 0f 0b
+>    RSP: 0018:ff110000053f78f8 EFLAGS: 00000246
+>    RAX: 0000000000000000 RBX: ff110000059f9160 RCX: ffe21c0000a7ef08
+>    RDX: 0000000000000000 RSI: ff110000053f7860 RDI: ff110000059f9190
+>    RBP: 0000000000000001 R08: 0000000000000001 R09: ffe21c0000a7eef5
+>    R10: 0000000000000003 R11: ffffffff89c14700 R12: ff110000059f9188
+>    R13: ff110000059f9170 R14: ff11000004794ea0 R15: 1fe2200000a7ef1f
+>    FS:  0000000000000000(0000) GS:ff110000e18da000(0000) knlGS:0000000000000000
+>    CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+>    CR2: dffffc0000000002 CR3: 000000001b872000 CR4: 0000000000751ef0
+>    PKRU: 55555554
+>    Call Trace:
+>     <TASK>
+>     ? __pfx___rxe_cleanup+0x10/0x10
+>     ? rxe_qp_chk_destroy+0x61/0xc0
+>     rxe_destroy_qp+0x2f/0x180
+>     ib_destroy_qp_user+0x30f/0x4f0
+>     ? __pfx_ib_destroy_qp_user+0x10/0x10
+>     ? stack_trace_save+0x8e/0xc0
+>     uverbs_free_qp+0x7c/0x150
+>     ? put_files_struct+0x181/0x310
+>     destroy_hw_idr_uobject+0x7e/0x130
+>     ? entry_SYSCALL_64_after_hwframe+0x77/0x7f
+>     uverbs_destroy_uobject+0xdf/0x770
+>     __uverbs_cleanup_ufile+0x18b/0x390
+>     ? __pfx___uverbs_cleanup_ufile+0x10/0x10
+>     ? __pfx_down_write+0x10/0x10
+>     uverbs_destroy_ufile_hw+0x6d/0x260
+>     ib_uverbs_close+0x46/0x270
+>     __fput+0x2f8/0x9e0
+>     fput_close_sync+0xe2/0x190
+>     ? __pfx_fput_close_sync+0x10/0x10
+>     filp_close_sync+0x18/0x30
+>     put_files_struct+0x181/0x310
+>     do_exit+0x6ab/0x25f0
+>     ? __pfx_do_exit+0x10/0x10
+>     ? zap_other_threads+0xb9/0x300
+>     ? __pfx_zap_other_threads+0x10/0x10
+>     ? handle_mm_fault+0x13d/0x420
+>     do_group_exit+0xab/0x220
+>     __x64_sys_exit_group+0x39/0x40
+>     x64_sys_call+0x1962/0x1970
+>     do_syscall_64+0xdf/0x4c0
+>     entry_SYSCALL_64_after_hwframe+0x77/0x7f
+>    RIP: 0033:0x7f34f928a21d
+>    Code: Unable to access opcode bytes at 0x7f34f928a1f3.
+>    RSP: 002b:00007ffeed584088 EFLAGS: 00000202 ORIG_RAX: 00000000000000e7
+>    RAX: ffffffffffffffda RBX: 00007f34f93a0fa8 RCX: 00007f34f928a21d
+>    RDX: 00000000000000e7 RSI: ffffffffffffff88 RDI: 0000000000000000
+>    RBP: 00007ffeed5840e0 R08: 00007ffeed584030 R09: 0000000000000000
+>    R10: 000055d8b71c93e0 R11: 0000000000000202 R12: 0000000000000001
+>    R13: 0000000000000000 R14: 0000000000000000 R15: 00007f34f93a0fc0
+>     </TASK>
+>    ---[ end trace 0000000000000000 ]---
+> 
+> The responder task dies, and when the test exits, destroying the QP
+> warns on a timeout in __rxe_cleanup() (the WARNING above) and then
+> hangs.
+> 
+> Add RXE_FLUSH_MASK to the check, so a FLUSH gets the same Invalid
+> Request NAK a READ would, and the requester sees IB_WC_REM_INV_REQ_ERR.
+> 
+> The issue was found by Claude Opus 5.5 running Quality Playbook, an
+> LLM-driven code review tool:
+> https://github.com/andrewstellman/quality-playbook
+> The fix and this changelog were drafted with Claude Opus 5.5 and
+> reviewed by me.
+> 
+> Fixes: ea1bb00ee9a5 ("RDMA/rxe: Implement flush execution in responder side")
+> Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
 > ---
->  Documentation/arch/arm64/elf_hwcaps.rst | 7 +++++++
->  arch/arm64/include/uapi/asm/hwcap.h     | 1 +
->  arch/arm64/kernel/cpufeature.c          | 1 +
->  arch/arm64/kernel/cpuinfo.c             | 1 +
->  4 files changed, 10 insertions(+)
->
-> diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
-> index f60ca5612daa..f63035696654 100644
-> --- a/Documentation/arch/arm64/elf_hwcaps.rst
-> +++ b/Documentation/arch/arm64/elf_hwcaps.rst
-> @@ -478,6 +478,13 @@ HWCAP3_SVE_LUT6
->      Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
->      ID_AA64ISAR2_EL1.LUT == 0b0010.
->
-> +HWCAP3_LS64_ACCDATA
-> +    Functionality implied by ID_AA64ISAR1_EL1.LS64 >= 0b0011. Note that
-> +    the function of instruction st64bv0 requires support by CPU, system
-> +    and target (device) memory location and HWCAP3_LS64_ACCDATA implies
-> +    the support of CPU. User should only use st64bv0 on supported target
-> +    (device) memory location, otherwise fallback to the non-atomic
-> +    alternatives.
->
->  4. Unused AT_HWCAP bits
->  -----------------------
-> diff --git a/arch/arm64/include/uapi/asm/hwcap.h b/arch/arm64/include/uapi/asm/hwcap.h
-> index 10272ddb4d6f..c85c445275f6 100644
-> --- a/arch/arm64/include/uapi/asm/hwcap.h
-> +++ b/arch/arm64/include/uapi/asm/hwcap.h
-> @@ -155,5 +155,6 @@
->  #define HWCAP3_F16F32DOT       (1UL << 9)
->  #define HWCAP3_F16F32MM                (1UL << 10)
->  #define HWCAP3_SVE_LUT6                (1UL << 11)
-> +#define HWCAP3_LS64_ACCDATA    (1UL << 12)
->
->  #endif /* _UAPI__ASM_HWCAP_H */
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 952f70a48190..bbd809c83a6c 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -3226,6 +3226,7 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
->         HWCAP_CAP(ID_AA64ISAR1_EL1, DGH, IMP, CAP_HWCAP, KERNEL_HWCAP_DGH),
->         HWCAP_CAP(ID_AA64ISAR1_EL1, I8MM, IMP, CAP_HWCAP, KERNEL_HWCAP_I8MM),
->         HWCAP_CAP(ID_AA64ISAR1_EL1, LS64, LS64, CAP_HWCAP, KERNEL_HWCAP_LS64),
-> +       HWCAP_CAP(ID_AA64ISAR1_EL1, LS64, LS64_ACCDATA, CAP_HWCAP, KERNEL_HWCAP_LS64_ACCDATA),
->         HWCAP_CAP(ID_AA64ISAR2_EL1, LUT, IMP, CAP_HWCAP, KERNEL_HWCAP_LUT),
->         HWCAP_CAP(ID_AA64ISAR3_EL1, FAMINMAX, IMP, CAP_HWCAP, KERNEL_HWCAP_FAMINMAX),
->         HWCAP_CAP(ID_AA64ISAR3_EL1, LSFE, IMP, CAP_HWCAP, KERNEL_HWCAP_LSFE),
-> diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-> index 94e6cd211d70..009de5255d2d 100644
-> --- a/arch/arm64/kernel/cpuinfo.c
-> +++ b/arch/arm64/kernel/cpuinfo.c
-> @@ -158,6 +158,7 @@ static const char *const hwcap_str[] = {
->         [KERNEL_HWCAP_F16F32DOT]        = "f16f32dot",
->         [KERNEL_HWCAP_F16F32MM]         = "f16f32mm",
->         [KERNEL_HWCAP_SVE_LUT6]         = "svelut6",
-> +       [KERNEL_HWCAP_LS64_ACCDATA]     = "ls64_accdata",
+> 
+> v2: the full kernel log of the oops and the later WARNING, as Leon
+> asked (timestamps removed). The code change is the same as v1.
+> v1: https://lore.kernel.org/r/20261119151332.95466-1-astellman@stellman-greene.com
+> 
+> Tested in QEMU with KASAN on v7.4-rc3, and on v7.4-rc3 with the RDMA
+> code from rdma for-next (7404c82cbf12). The reproducer is a short
+> libibverbs program; I can send it off-list.
+> 
+>   drivers/infiniband/sw/rxe/rxe_resp.c | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/infiniband/sw/rxe/rxe_resp.c b/drivers/infiniband/sw/rxe/rxe_resp.c
+> index 1b7f31737225..38b5b0c2abe3 100644
+> --- a/drivers/infiniband/sw/rxe/rxe_resp.c
+> +++ b/drivers/infiniband/sw/rxe/rxe_resp.c
+> @@ -340,7 +340,8 @@ static enum resp_states check_resource(struct rxe_qp *qp,
+>   {
+>   	struct rxe_srq *srq = qp->srq;
+>   
+> -	if (pkt->mask & (RXE_READ_OR_ATOMIC_MASK | RXE_ATOMIC_WRITE_MASK)) {
+> +	if (pkt->mask & (RXE_READ_OR_ATOMIC_MASK | RXE_ATOMIC_WRITE_MASK |
+> +			 RXE_FLUSH_MASK)) {
 
-should we drop underscore to maintain consistency?
+This looks sensible to me—adding RXE_FLUSH_MASK here avoids 
+rxe_prepare_res() / free_rd_atomic_resource() touching ZERO_SIZE_PTR 
+when max_dest_rd_atomic == 0 and returns the expected Invalid Request NAK.
 
->  };
->
->  #ifdef CONFIG_COMPAT
-> --
-> 2.53.0
->
+Just worth confirming:
+(1) RXE_FLUSH_MASK takes the same error/NAK path here without later 
+responder states assuming a valid qp->resp.res or non-ZERO_SIZE_PTR 
+qp->resp.resources, and
 
-[1] https://sashiko.dev/#/patchset/20261117222224.1465328-1-arnd%40kernel.org
+(2) no other RXE_READ_OR_ATOMIC_MASK / RXE_ATOMIC_WRITE_MASK checks in 
+rxe_resp.c for max_dest_rd_atomic or responder resources missed 
+RXE_FLUSH_MASK.
+
+Thanks a lot.
+
+Zhu Yanjun
+
+>   		/* it is the requesters job to not send
+>   		 * too many read/atomic ops, we just
+>   		 * recycle the responder resource queue
+> 
+> base-commit: 7404c82cbf1246e0e84e2ec21834d23c26f9a8ed
+
