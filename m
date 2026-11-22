@@ -1,54 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795322978;
-	b=uMzJ657hsYO0LliI/Tabez5egPDOY7W8xlcxuBNNOifn3VFsYTsw+C4ClRp11x9CsHWR
-	 VSDwOwKnc4Bm7ZjbAlspQqiIlAtiufTcIqB1Jobb91uqFmUZBb3UCLn/6HwktO+cP8axp
-	 lrewe/D6RCYwK4iixvB0fbTPAEK7IkCAxfxHJXlEeSH0K9gV7CHQMo/IkS/DTz5qMfWSe
-	 Hymd3D153c3R0lKWdhb2806A0B+uWYjV4iAC3eDt7QVxXgsEEHcPHXxUy3dEoCON53Bdf
-	 6+QABMRX2VyeC0I/OfsEn60826vzQaHgD/OBxGu0w8HnOfx6LXoaGSPqRtdjnYO9jgQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795322978;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=o8BTl0u5Z65NjasTby1WfYBPwX0u2iS9ELdyH+h0w+U=;
-	b=j2EQCMyEHKu+1GI+efgOaEV74M4tp4wx/wDKt6xqx1mdxmrco+JSLO++2aN4Zm9YZJEn
-	 WNyZpgP+1KNqsLjZhYeHYgue/+V/5Vdd9Q+nDCte9A7EnM6wO/syBrNY5rS1AzkMvaHOU
-	 VgBvUsZBLjRMSU7r5/+3CE2xixk994knN11QzHkn7mwPzmkcDFgpv7ZPatH+NrlVO/qq+
-	 ZRgIFugex61ON46nHwN0LQk75CCoAU9ktxG499chVo/z7597DrhlzPXBocbuFTd+iX/bm
-	 n7uwVcH3DzjlRzpwWT08odLP8TKWCOi/Jbt6zW/CQfXwweX1bp4Roit0chO3gkVO91g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.199
-Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.43.31
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795323141;
+	b=Bs0s+Um43911zIq2snK1xdz1OuXsTOU3Sxq8W1AJiXFEQc9YwI/roaj3wHzmlBrcHm62
+	 1hCVmrPWN32OiZx28Pxk8ThkgL84brbAPNAHWP2gMeCXKsmAjNKqQzuV7JuDp6W1fbvkM
+	 /T8Bu6563rgMnpYCgDRekHCrdSdw88jV3XdQefGOsQ4sQET5aLCJBYXDbCFF6lGkwP6YP
+	 gICKjrdd0VZk4vOx/lVrgDDk43CngcbAuCRfD7yup5/A+tghOtx41pTIr79dSkBIObZBa
+	 tQjA6eZSAK/LB+4MMcOJQQeUsdQsrYVaiCo4vEF5lm0DH7sYOLcFTj5FZA0gPijrbUw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795323141;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Subject:
+	 Message-ID:To:Cc:In-Reply-To:References:Date:Content-Type:
+	 Content-Transfer-Encoding:X-ClientProxiedBy:
+	 X-Microsoft-Original-Message-ID:MIME-Version:
+	 X-MS-Exchange-MessageSentRepresentingType:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=NspUs3nGW2o7d8+Igj6p0K9/WWnYNAbDC+bpU9eRVps=;
+	b=aTS3WrV+0aZqPkSUiG07Y+oBzAO+Xy6cZjKZ+tw4KGZBrmAbSIkVpk00NJlgV4B5B7qg
+	 zmoenSirxhAyb1vhpFFFB85hwFGtWBvtq+jAAfS39A3E8o+ByXpP9uo4bsg4s2xJKuX1y
+	 tBPleShOSpWIKDDrYRQNNdKyIJ2e47eOGwlR98Edlwt+hJBHuTlxfjmjo7W09wltrIAva
+	 gvz1eH15Ng+e7tZN9mBLEWilnRxIDGwGq0DVeStR+LzuoY0oZ16OYPjbQ4/pEWTLzXpa1
+	 B7idU/IRhwJPN280GbqM4WLSflb0/9ZzGIBFfoEYjhHBwH9wUYHxlOYajxVeZDe9haQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=hotmail.com;
+	spf=pass smtp.mailfrom=hotmail.com;
+	dkim=pass header.d=hotmail.com header.i=@hotmail.com header.a=rsa-sha256 header.s=selector1 header.b=pvUDLzTi;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.43.31
+Received: from TYVP286CU001.outbound.protection.outlook.com (mail-japaneastazolkn19011031.outbound.protection.outlook.com [52.103.43.31])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C00E606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:49:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C00E606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4c467e19391so3502595b6e.3
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:49:37 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795322977; x=1795927777;
-        h=content-type:to:from:subject:message-id:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=o8BTl0u5Z65NjasTby1WfYBPwX0u2iS9ELdyH+h0w+U=;
-        b=jS9iM3lGf4TRh1mvlVJKvPyUk5UzHduRbZ6YvY+dFJbvw89HTLiuDI0I9tXovGAFOZ
-         Jamz1HZftfg8leuEvYWbNbz1SN18ED2jkms/ENEuoc88tePPSlFGEM4l3E/ictfvnxIs
-         aYk4V8apnjpniAI9IU3Xb72epyjH+Fsw3Mv8IfLSFe+2voJ2HB8rF49X4Z+ilZkqoVrn
-         K3tlJ/jNTmMsU+sShLUse8PPGuBpG+gzAqtRBWnXN+Pg73FlSah4m6Ux2aRwBh9bnyIZ
-         9PGkltn2A6JF9c7j1urRgGwc9iygag4LcLcZOUgtXxhU+uRC+srxLHTX/7kM5EXZzjgj
-         u0Xg==
-X-Forwarded-Encrypted: i=1; AL+hErEjP+hOA+maiODHgyT1+4QSWxqyFPEY0i+d6cSGBTn5dfyRm23AgqtpDvOgN1qDTSKe+VL2n797VWRwDaU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Mw1OriQ516syOrS6rntIuqNwEGyozSjImpMPyz2w6PTnYewHG
-	6xynJj8NZmcJR2h2/5422FlhXgfaXSPg9QA8QWjpcXlh8v1TGMgIvuiqelL5dB4856z9EA3Oa09
-	LR5K5LK/GianGabuLsrigVgFiUitpTI6l+oXzvlgVUF21apaGK12qa9ZxTbc=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81618606A320;
+	Sun, 22 Nov 2026 04:52:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81618606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hotmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=hotmail.com header.i=@hotmail.com header.a=rsa-sha256 header.s=selector1 header.b=pvUDLzTi
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=c1WGr7gZGZ2jcSnFC1mT96/bRzjkifAqyO466E47RK5NKZ7T2U4Rf/T6bLuUbs/4k+4wq2XgLJmSepFYs8be4vwxev7+n/0PbYMqJYfVWOVt4p/DroAi4H/5bXgET3bZkpNvupA2s45GKbNDAIBA+VqGAoLN29y04IrK3d87uJlBrF8m49C9GvlJo6MuwiFj8cidUyQGxW/KA/59mIqTVtT8f/Or9d2owu3j4Hq9MdUh0BF+vdrWO6u6pbKB5a2TsXYYBJqPl+B+0tizthr95vGQ3zCoh5qn9oL65gg+8c2U+KV5Il3WFly3PdJoKcASJybPkC+72HHUCQqKMC6cTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NspUs3nGW2o7d8+Igj6p0K9/WWnYNAbDC+bpU9eRVps=;
+ b=wW3qAFhSanNvzfd3xQzm4AbmOTwtJaJmdCwFsAe2WxpmFyJg7fW7KB8nc1WBJfJfYo/1zZOgmBFK79kiVM/qoL23sdpfCz3B1NHQpIgtXvQzGvDDlAoHkX5ZEU2jJv1ppN+2UngEkKwZ3oEgOA4k6uMlpgdc+JJfmWC0snXnOvLdQ59c2BnPjhrWOS53bm4U/23ILImo7RM1UazGrazmEYlr/YiDoigQO47ZGIsZHRI/VBFibCAPdF2MvtyF4dLlRHkICi0aH31ezT0eqJHmp0wLjFOROJqfCmjpE1LQzZyQoZXMhyA2Ph7YXUvTDXwUvXsQWZhuZU7g24r5NgyWMg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NspUs3nGW2o7d8+Igj6p0K9/WWnYNAbDC+bpU9eRVps=;
+ b=pvUDLzTiaj7x99SFnerfu2M617ASLYZXdnR/77H49jvRJBWSDPdoID0vEtjnWEtbKoHzbvYS0RstDsvohH1XRfb+uHAQLBxgtRzrmMSu9gdmJEeTS1Ue4JPhVu+qZRp/u7W9U6dPkrsfWo99YT/1Oonh2KAswG7knQjdCUOH+PqNNcpwJgtHkKFYFQFwtrVS+AoZRI2RsK1WaPnQyAVQBVmFSXQmvvXOc4+jz13KVtydp+Y/5SW5coueDZZ/ISDvHHOIvNmyC2kxm7JAKtcz6YqdJ6WVAzQJgFADUm6OEs7WqOGCFVfqV4JKjxkCXeC/rIygqdGq4qmYg30H3B+cHw==
+Received: from OS3PR01MB10251.jpnprd01.prod.outlook.com (2603:1096:604:1e1::9)
+ by TY5PR01MB18121.jpnprd01.prod.outlook.com (2603:1096:405:3eb::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Sun, 22 Nov
+ 2026 04:52:15 +0000
+Received: from OS3PR01MB10251.jpnprd01.prod.outlook.com
+ ([fe80::7edc:2a40:7b8f:56f9]) by OS3PR01MB10251.jpnprd01.prod.outlook.com
+ ([fe80::7edc:2a40:7b8f:56f9%4]) with mapi id 15.21.0639.012; Sun, 22 Nov 2026
+ 04:52:15 +0000
+From: "Jiaming Fan" <fan.jiaming@hotmail.com>
+Subject: =?us-ascii?Q?Re:_[PATCH]_KVM:_x86/mmu:_Prevent_hugepage_recover?=
+	=?us-ascii?Q?y_on_non-guest=5Fmemfd_private_GFNs?=
+Message-ID:
+ <OS3PR01MB1025187BCC2CA35B063090CCFE7462@OS3PR01MB10251.jpnprd01.prod.outlook.com>
+To: "Ackerley Tng" <ackerleytng@google.com>
+Cc: "Sean Christopherson" <seanjc@google.com>, 
+	"Paolo Bonzini" <pbonzini@redhat.com>, "Thomas Gleixner" <tglx@kernel.org>, 
+	"Ingo Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, 
+	"Dave Hansen" <dave.hansen@linux.intel.com>, <x86@kernel.org>, 
+	"H. Peter Anvin" <hpa@zytor.com>, "Fuad Tabba" <fuad.tabba@linux.dev>, 
+	"David Hildenbrand" <david@kernel.org>, <kvm@vger.kernel.org>, 
+	<linux-kernel@vger.kernel.org>
+In-Reply-To: <20261120-gmem-fix-gmem-max-mapping-level-v1-1-108788914fe8@google.com>
+References: <20261120-gmem-fix-gmem-max-mapping-level-v1-1-108788914fe8@google.com>
+Date: Sun, 22 Nov 2026 04:52:06 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TPYP295CA0027.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:7d0:a::12) To OS3PR01MB10251.jpnprd01.prod.outlook.com
+ (2603:1096:604:1e1::9)
+X-Microsoft-Original-Message-ID:
+ <802a808f-87e7-4eac-bc62-969aa399d451@milk.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,226 +101,101 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:c3cb:b0:574:93c0:5ae7 with SMTP id
- 5614622812f47-57a09c11006mr8025631b6e.12.1795322977195; Sat, 21 Nov 2026
- 20:49:37 -0800 (PST)
-Date: Sat, 21 Nov 2026 20:49:37 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b027461.6ccd1e40.868ea.001d.GAE@google.com>
-Subject: [syzbot] [bluetooth?] KASAN: slab-use-after-free Write in rfcomm_dev_ioctl
-From: syzbot <syzbot+11542ff1d167fdffa1fc@syzkaller.appspotmail.com>
-To: gianluca@sottospazio.it, linux-bluetooth@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, luiz.dentz@gmail.com, marcel@holtmann.org, 
-	nicoyip.dev@gmail.com, syzkaller-bugs@googlegroups.com, tim.bird@sony.com
-Content-Type: text/plain; charset="UTF-8"
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OS3PR01MB10251:EE_|TY5PR01MB18121:EE_
+X-MS-Office365-Filtering-Correlation-Id: 63686a1c-88ce-4888-d10c-08df485460bf
+X-Microsoft-Antispam:
+	BCL:0;ARA:14566002|6090799003|19110799012|8060799015|25010399006|4140399003|15080799012|41001999006|16041099003|23021999003|22091999003|24121999003|25031999004|55001999006|5072599009|24021099003|40105399003|53005399003|440099028|3412199025;
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?UGhmdmtmWmdET3kyeVQrUG80a2tkbEg1cVZKZUI2RWVXdEtJMm54S2xZdi9H?=
+ =?utf-8?B?Z1FWcWdOU2ZJOTdQOTZMSE5SNTBRdnd4cWlzaWxnQURTMDN4WnZhUGkyYS9V?=
+ =?utf-8?B?cEEzOEMrL3ZKY1U2cU1RVnpoVklGRFp4dGM5N1pncnpqRlRaZGRRdnAwNmFO?=
+ =?utf-8?B?Wkpqa3djR1U5WFdRb2VKZzBtQTJjYnQyKy8vMjN5SmdHU1N4a1pFRDVhT1M0?=
+ =?utf-8?B?a3JLNnVhTGFFZmhwaTZTMnpNSThzamV3eXRpdllIN01ydFFKYzVhVFQ5d2Fl?=
+ =?utf-8?B?OGM5Rm9FOGFYVU13eFJ3dDFheXR3TXV0aHJQa2I1TVM1bDNMb3BmYVFFVGg2?=
+ =?utf-8?B?eWhsN3ZYeGgycjVwZ1lLU3ZWd084MDduRjh6cnF4RW5GSEMxTld1OHFiT2NL?=
+ =?utf-8?B?WG1EOGh4dFRyalVSV09oZHFqLzliSzAzaWgxdnl2R1ZMUDBmMm9xM29ZNURT?=
+ =?utf-8?B?dEJlcXJZMm1nQjhzR0ZpT1FyMHV2YzhsaFprUk9jMlpXamorMUtLTG43NEpG?=
+ =?utf-8?B?dHBvQnh1aVBTMFVrdWd5SU5aUDJUZ0JnOEl2K1k1Nm84czdhcmdHYld5YTQ3?=
+ =?utf-8?B?SUpycnFZTjN3RWNQVGE3Y3lvVjR0cHpPOU56UUtkT2pGbzU1QXVFS2RoWFZJ?=
+ =?utf-8?B?c21kU0V3akxrNEthcTRid0p0YnM2MG5BSURKY2FqK2FEbDhMbmJ4TXRxendt?=
+ =?utf-8?B?YzVzSUJWckNjRG5QeVJFRy9JOTNBS2FCMEVidW9DdG0wdktiT285Wko3anFm?=
+ =?utf-8?B?TWFZbEpwalo1eGtadnlWWklmZThpc2g5OG1MTCtwaXZTb2RhelREdlNqd3NM?=
+ =?utf-8?B?OGxHbWRpT285NTd3bHE4VldlQXBDRDZYTmNPdk1TeGNqVHpneGY5akZlSzJE?=
+ =?utf-8?B?V1JIMEQvYjdzYkFld0s4UE9XTzVncmcrSWF0a2JBTGI0bCtscEZwSlpMdTBk?=
+ =?utf-8?B?ZFQ0TmxXbCtIVkhVQnRwYlY3RG15YkJPcHJBWkd5ZTl6Y1BUc0hLMUNKZFI5?=
+ =?utf-8?B?eFVQTkhZdDVaWktQMjYxWS9iUDJ1Rk82bkdDU1hoeTh5TlcrMUQ4Q0NnN3lS?=
+ =?utf-8?B?bXkvUVN6TkxiZDN5QUNOcWRjUWFlQU94d2ppZExaaHhkUlI3Nno5UysvNk9p?=
+ =?utf-8?B?WW13V3lrZE53VjhBTXhFNnFkYmpEYStxbDNNc3Y1L3J2QXRla3BPZ0ExQUdw?=
+ =?utf-8?B?U202bXhqVkdVSU84bmprbSt3dzg1d0RZNFZzc0lBTkdFc1pwZzdPTFlLQitL?=
+ =?utf-8?B?TzBPM2t0aXJpc2NndzYvcWZCQmw5WnJaN21SejRvbW5pdDJvaHlZZWhsK1Fo?=
+ =?utf-8?B?VEZJU3Y4U0EzcVVMelFsTGI0L3AyRXJCbXdlVDZkOE0yYnlHZXljZXJHUlV5?=
+ =?utf-8?B?c2ZYSXdRZUtkYmEzdXFyalgrRHhxdGlTaDdqZWZWU2FMYm9pZ1hLOGdXRitY?=
+ =?utf-8?B?aHRmZ1BhdnMrUzZxMmFKSmI2by83MUEwbEpmMzZMcTFCbWJvdG0xZzVFTnJE?=
+ =?utf-8?B?RndSLzFoemViVERmMEJrY0dpUDlPS3ZaVnUxa25WRi9FT1RkUTB5TGxoa3Bi?=
+ =?utf-8?Q?40nRltJ5jJHXYoCnAlMq0siYw=3D?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?emZTLzNrbmVNNVg2ZGVTM0dwZTBUdnMzVFdWOWVNaFg1ZEN4dnVrUzdyaEFk?=
+ =?utf-8?B?c0kzZTh1WXVmcTNFUlhTTHhhRmgvcUp3N1JTM05GQzA2dC84Y3h6T3AxaTQz?=
+ =?utf-8?B?WWlKeFBWZEhkYTg3Sm5tMENMM1EwT05ZM1NIajZSWEVHQ0toMVlEeDBSSGZa?=
+ =?utf-8?B?ZloySVZlZC9MRmZFYWlieVppWGhLcUZPSWt4WnI0OEdlUGRnazMvMjlSS05Z?=
+ =?utf-8?B?dDRFSGlPZU45VldsdjFNU0FZeDFnL085Qm1sMmk5NlhCZ2V4Z0w1Yi9KL1hT?=
+ =?utf-8?B?MkliY3RQQkR6MHZOQXRmUTFOVVExRWNPcVp4R3FuTlZFY0xtdW9PYnh0WFhS?=
+ =?utf-8?B?YXJwVWZVdyt3L2s2d3ZrTHdOREdXSTYrekNiWlBlNFU0ckQzWVJ1OFhxS1FN?=
+ =?utf-8?B?RkQ0N3ZkeGFlcFdTaTlLaG9BN3JGa1FIWkJlVm4wWnd0QUVBQk0wc2pWRnIy?=
+ =?utf-8?B?QnAvZ2YrbVl6MGFjV0plY3FKSnIvajVURmdmTHQzRGJFVFMzaWJJdkZ0dUMz?=
+ =?utf-8?B?MTlpZEw4VEJzTE82ek5kd3ZwNC8yZVI4ODU5S1lYRnQ5SUkzUHRZQkdPcVdN?=
+ =?utf-8?B?NkhQVkdmVTJWVWxPWEhaRXFSc0h0TkE3Q2tMcE5HKzRzSlZzZTZiV0gwOElU?=
+ =?utf-8?B?UUdWVkRmMVRPanNHM2FCQ0t1U3l3VkFzaVRkYTJxbEllamdvdjh3akZjYkdU?=
+ =?utf-8?B?RWg5dU9TT2JYNkRqb1Z5Y0VqZlZ2YUpwZDBoSS9aclNNQTZSWWg0WmJ4cVc0?=
+ =?utf-8?B?SmRXei9lak1WRVNOMksxa2M1SGJwSk9pL0ZLRmdGd0RRYkV1MG1LdXV0UkZO?=
+ =?utf-8?B?dmt5NE16ek9ZUDdjSjFiVVVJSkc0T2k0Vk1OeW9wUFNoVVZiUndCR1gxRWpQ?=
+ =?utf-8?B?N2lXbzlzQVphMUZCK1dPMTU4cmZneWViemZ2MUtVL3MxamI0ZlhqclUyL1dh?=
+ =?utf-8?B?RzcyT2hpMTZqUUpwVDdFZzdtN3lxSytnUW11SUI0NmNsQ0xOTWozYm51YVQ1?=
+ =?utf-8?B?VmplTlg4WFh0ZWxWZmY4eVJId2tMQkd3bVIrSEZtRlpnVzUzYzdWSzdHdFg2?=
+ =?utf-8?B?TTJxem9YTU5Ncm9WUnVsSUVRU0NrUmFYUlB4OUpJMWJzcW95WklXajFPTDhB?=
+ =?utf-8?B?OTBFbFFWQm9aNzhBMzZxZVM3WFZsd05Qa2tyUjZnL2ozd1U5RVFXdFo2Z0Vy?=
+ =?utf-8?B?RHpoeXdJeXZ0b0dYVndUK2JzRDNHakkvMkE2YXBzU21aWTRCODZTUzBmTVBD?=
+ =?utf-8?B?cW10aEhXU2JUTzEwRkNXenpJMHNYY24wMm1lMk1wY3JsM1BOM0Y1YUNtNjdq?=
+ =?utf-8?B?eXRieUMzYUE1SWc1UkdZYzNjWExzNFdUUHA2TGN2N1BFa3NqTXVuZTBjVlc2?=
+ =?utf-8?B?amlFODkwZzRDbENuazM4M2dnZUM2c0ljZHFDOGNhZ2FNM3VsMkdSa3pOejFS?=
+ =?utf-8?B?WjNMcEJZc0duOEdUVDZ2ME8wazBUWUd2bkV6dXF4S0YrWnNCeUVWUjBHQlNQ?=
+ =?utf-8?B?bUxMMndNRHBoR203VURrWWJIdXZjeVMwNWxhUU1tdHFpLzJodW9CUXNmWFRs?=
+ =?utf-8?B?RDZlMUsxQ0pOZTl6UUxVSm05L1dMU05MUXR5d0EveWExWnE1dWM2c0MvTDVO?=
+ =?utf-8?B?ZVlJOGpvbU8xS1Q3eHRvK3F3a055UHh2TjNZUE5KV2ZYZG5lMXdZaHVNQ3RD?=
+ =?utf-8?B?VUZKMG1RTmNnc2R0eUwrWkhtcjBveG5GWkR3YWJUWDliWmJDd1lIcXFtd25C?=
+ =?utf-8?B?cTJLcVAxMmtkVy9adkg3RFBnLzhDT0g5Y3JGcUVUSVZtZXM3RmZJeHJvbGVt?=
+ =?utf-8?B?QzQwVmszTkhuc29zR2FSWVJOekFRVXVURWNFSysvZU0wa1NvNGVoUTB1YTRM?=
+ =?utf-8?B?RndFRWJ0bDNPS3FwdXJySTA2OTZvSFhIQ1RTL3ZPOEpEVlE9PQ==?=
+X-OriginatorOrg: sct-15-20-9412-3-msonline-outlook-b83fc.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: 63686a1c-88ce-4888-d10c-08df485460bf
+X-MS-Exchange-CrossTenant-AuthSource: OS3PR01MB10251.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2026 04:52:14.9465
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY5PR01MB18121
 
-Hello,
+On Fri, Nov 20, 2026, Ackerley Tng wrote:
+> +		/*
+> +		 * is_private (set in VM attributes) should never have been used
+> +		 * with a non-guest_memfd memslot. Return PG_LEVEL_4K to prevent
+> +		 * hugepage recovery.
+> +		 */
 
-syzbot found the following issue on:
+Hi Ackerley,
 
-HEAD commit:    909ef7a9a30f Add linux-next specific files for 20261120
-git tree:       linux-next
-console output: https://syzkaller.appspot.com/x/log.txt?x=14d2b363580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=b48986f5941b1488
-dashboard link: https://syzkaller.appspot.com/bug?extid=11542ff1d167fdffa1fc
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+This comment feels a bit odd to me. KVM does allow marking a GFN private
+when its memslot has no guest_memfd, since PRIVATE attributes are per VM,
+not per memslot.
 
-Unfortunately, I don't have any reproducer for this issue yet.
+I could reproduce the WARN with a KVM_X86_SW_PROTECTED_VM on AMD (nested,
+not TDX), and it's gone with this patch.
 
-Downloadable assets:
-disk image: https://storage.googleapis.com/syzbot-assets/bff3b272c5e1/disk-909ef7a9.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/6c6fffa0ba5f/vmlinux-909ef7a9.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/c4ad60d5f27d/bzImage-909ef7a9.xz
+Tested-by: Jiaming Fan <fan.jiaming@hotmail.com>
 
-The issue was bisected by AI to:
-
-commit 5b899241874dcc1a2b932a668731c80a3a869575
-Author: Gianluca Anzolin <gianluca@sottospazio.it>
-Date:   Mon Jan 6 20:23:50 2014 +0000
-
-    Bluetooth: Release RFCOMM port when the last user closes the TTY
-
-AI reasoning:   https://syzkaller.appspot.com/ai_job?id=0137c921-439f-477e-b601-4d5010191e08
-
-AI-generated root cause summary:
-In net/bluetooth/rfcomm/tty.c, __rfcomm_dev_add() publishes a newly allocated
-struct rfcomm_dev in rfcomm_dev_list and releases rfcomm_dev_lock while holding
-only the initial port reference (refcount 1), without taking a reference for
-rfcomm_dev_add() to finish registration. When RFCOMM_RELEASE_ONHUP is set, a
-concurrent task can open and close the RFCOMM TTY device during or right after
-tty_port_register_device(), causing rfcomm_tty_install() to take ownership of
-that single reference and release_one_tty() -> rfcomm_tty_cleanup() ->
-tty_port_put() -> rfcomm_dev_destruct() to free dev. rfcomm_dev_add() then
-performs a slab-use-after-free write to dev->tty_dev (offset 992) and continues
-accessing the freed rfcomm_dev.
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=11542ff1d167fdffa1fc
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+11542ff1d167fdffa1fc@syzkaller.appspotmail.com
-
-The cause commit was identified by AI and may be wrong.
-If you agree with it, please also add:
-Fixes: 5b899241874d ("Bluetooth: Release RFCOMM port when the last user closes the TTY")
-
-==================================================================
-BUG: KASAN: slab-use-after-free in rfcomm_dev_add net/bluetooth/rfcomm/tty.c:335 [inline]
-BUG: KASAN: slab-use-after-free in __rfcomm_create_dev net/bluetooth/rfcomm/tty.c:421 [inline]
-BUG: KASAN: slab-use-after-free in rfcomm_create_dev net/bluetooth/rfcomm/tty.c:477 [inline]
-BUG: KASAN: slab-use-after-free in rfcomm_dev_ioctl+0x1b9f/0x21b0 net/bluetooth/rfcomm/tty.c:576
-Write of size 8 at addr ffff888029b7c3e0 by task syz.8.3942/18018
-
-CPU: 0 UID: 0 PID: 18018 Comm: syz.8.3942 Tainted: G             L      syzkaller #0 PREEMPT(full) 
-Tainted: [L]=SOFTLOCKUP
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-Call Trace:
- <TASK>
- dump_stack_lvl+0xe8/0x150 lib/dump_stack.c:120
- print_address_description+0x55/0x1e0 mm/kasan/report.c:378
- print_report+0x58/0x70 mm/kasan/report.c:482
- kasan_report+0x117/0x150 mm/kasan/report.c:595
- rfcomm_dev_add net/bluetooth/rfcomm/tty.c:335 [inline]
- __rfcomm_create_dev net/bluetooth/rfcomm/tty.c:421 [inline]
- rfcomm_create_dev net/bluetooth/rfcomm/tty.c:477 [inline]
- rfcomm_dev_ioctl+0x1b9f/0x21b0 net/bluetooth/rfcomm/tty.c:576
- sock_do_ioctl+0x101/0x320 net/socket.c:1328
- sock_ioctl+0x57a/0x7e0 net/socket.c:1449
- vfs_ioctl fs/ioctl.c:52 [inline]
- __do_sys_ioctl fs/ioctl.c:604 [inline]
- __se_sys_ioctl+0xfc/0x170 fs/ioctl.c:590
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x00007f28193a9559
-Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
-RSP: 002b:00007f281a25d028 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
-RAX: ffffffffffffffda RBX: 00007f2819625fa0 RCX: 00007f28193a9559
-RDX: 0000200000000040 RSI: 00000000400452c8 RDI: 0000000000000004
-RBP: 00007f2819438136 R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
-R13: 00007f2819626038 R14: 00007f2819625fa0 R15: 00007ffd396b8528
- </TASK>
-
-Allocated by task 18018:
- kasan_save_stack mm/kasan/common.c:57 [inline]
- kasan_save_track+0x3f/0x90 mm/kasan/common.c:79
- poison_kmalloc_redzone mm/kasan/common.c:412 [inline]
- __kasan_kmalloc+0x93/0xb0 mm/kasan/common.c:429
- kasan_kmalloc include/linux/kasan.h:267 [inline]
- __kmalloc_cache_noprof+0x31c/0x610 mm/slub.c:5718
- _kmalloc_noprof include/linux/slab.h:984 [inline]
- _kzalloc_noprof include/linux/slab.h:1305 [inline]
- __rfcomm_dev_add net/bluetooth/rfcomm/tty.c:221 [inline]
- rfcomm_dev_add net/bluetooth/rfcomm/tty.c:322 [inline]
- __rfcomm_create_dev net/bluetooth/rfcomm/tty.c:421 [inline]
- rfcomm_create_dev net/bluetooth/rfcomm/tty.c:477 [inline]
- rfcomm_dev_ioctl+0xc11/0x21b0 net/bluetooth/rfcomm/tty.c:576
- sock_do_ioctl+0x101/0x320 net/socket.c:1328
- sock_ioctl+0x57a/0x7e0 net/socket.c:1449
- vfs_ioctl fs/ioctl.c:52 [inline]
- __do_sys_ioctl fs/ioctl.c:604 [inline]
- __se_sys_ioctl+0xfc/0x170 fs/ioctl.c:590
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
-Freed by task 11:
- kasan_save_stack mm/kasan/common.c:57 [inline]
- kasan_save_track+0x3f/0x90 mm/kasan/common.c:79
- kasan_save_free_info+0x40/0x50 mm/kasan/generic.c:599
- poison_slab_object mm/kasan/common.c:267 [inline]
- __kasan_slab_free+0x70/0x90 mm/kasan/common.c:299
- kasan_slab_free include/linux/kasan.h:239 [inline]
- slab_free_hook mm/slub.c:2807 [inline]
- slab_free mm/slub.c:6672 [inline]
- kfree+0x1c7/0x650 mm/slub.c:6982
- rfcomm_dev_destruct+0x25c/0x300 net/bluetooth/rfcomm/tty.c:99
- release_one_tty+0xb4/0x280 drivers/tty/tty_io.c:1497
- process_one_work kernel/workqueue.c:3511 [inline]
- process_scheduled_works+0xc3d/0x1630 kernel/workqueue.c:3594
- worker_thread+0xa47/0xfb0 kernel/workqueue.c:3675
- kthread+0x38b/0x480 kernel/kthread.c:436
- ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
- ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
-
-The buggy address belongs to the object at ffff888029b7c000
- which belongs to the cache kmalloc-2k of size 2048
-The buggy address is located 992 bytes inside of
- freed 2048-byte region [ffff888029b7c000, ffff888029b7c800)
-
-The buggy address belongs to the physical page:
-page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x29b78
-head: order:3 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
-flags: 0xfff00000000040(head|node=0|zone=1|lastcpupid=0x7ff)
-page_type: f5(slab)
-raw: 00fff00000000040 ffff88801c842000 dead000000000100 dead000000000122
-raw: 0000000000000000 0000000000080008 00000000f5000000 0000000000000000
-head: 00fff00000000040 ffff88801c842000 dead000000000100 dead000000000122
-head: 0000000000000000 0000000000080008 00000000f5000000 0000000000000000
-head: 00fff00000000003 fffffffffffffe01 00000000ffffffff 00000000ffffffff
-head: ffffffffffffffff 0000000000000000 00000000ffffffff 0000000000000008
-page dumped because: kasan: bad access detected
-page_owner tracks the page as allocated
-page last allocated via order 3, migratetype Unmovable, gfp_mask 0xd20c0(__GFP_IO|__GFP_FS|__GFP_NOWARN|__GFP_NORETRY|__GFP_COMP|__GFP_NOMEMALLOC), pid 150, tgid 150 (kworker/u8:6), ts 6692506745
- set_page_owner include/linux/page_owner.h:33 [inline]
- post_alloc_hook+0x1f9/0x250 mm/page_alloc.c:1872
- prep_new_page+0x22/0xb0 mm/page_alloc.c:1880
- get_page_from_freelist+0x2487/0x24f0 mm/page_alloc.c:3970
- __alloc_frozen_pages_noprof+0x211/0x450 mm/page_alloc.c:5512
- alloc_slab_page mm/slub.c:3423 [inline]
- allocate_slab+0x7d/0x5e0 mm/slub.c:3538
- new_slab mm/slub.c:3589 [inline]
- refill_objects+0x2d5/0x350 mm/slub.c:7578
- refill_sheaf mm/slub.c:2953 [inline]
- __pcs_replace_empty_main+0x2c8/0x6c0 mm/slub.c:4849
- alloc_from_pcs mm/slub.c:4925 [inline]
- slab_alloc_node mm/slub.c:5059 [inline]
- __do_kmalloc_node mm/slub.c:5568 [inline]
- __kmalloc_noprof+0x47e/0x720 mm/slub.c:5594
- _kmalloc_noprof include/linux/slab.h:988 [inline]
- _kzalloc_noprof include/linux/slab.h:1305 [inline]
- scsi_alloc_target+0x138/0xb70 drivers/scsi/scsi_scan.c:505
- __scsi_scan_target+0xff/0xd50 drivers/scsi/scsi_scan.c:1895
- scsi_scan_channel drivers/scsi/scsi_scan.c:2003 [inline]
- scsi_scan_host_selected+0x391/0x6c0 drivers/scsi/scsi_scan.c:2032
- do_scsi_scan_host drivers/scsi/scsi_scan.c:2165 [inline]
- do_scan_async+0x10e/0x660 drivers/scsi/scsi_scan.c:2175
- async_run_entry_fn+0x9d/0x450 kernel/async.c:123
- process_one_work kernel/workqueue.c:3511 [inline]
- process_scheduled_works+0xc3d/0x1630 kernel/workqueue.c:3594
- worker_thread+0xa47/0xfb0 kernel/workqueue.c:3675
- kthread+0x38b/0x480 kernel/kthread.c:436
-page_owner free stack trace missing
-
-Memory state around the buggy address:
- ffff888029b7c280: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
- ffff888029b7c300: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
->ffff888029b7c380: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
-                                                       ^
- ffff888029b7c400: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
- ffff888029b7c480: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
-==================================================================
-
-
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-For information about AI bisection see: https://goo.gl/tpsmEJ#ai-bisection
-
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
