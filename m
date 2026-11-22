@@ -1,64 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.113
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795319328;
-	b=P7VpRkfFFeboYBUgaYZSw0qs9/ejCbvkR0HVDRgegOflDJ6iywMtPR8rXGloTUtirWif
-	 tkzWXR49mzI+757UM/2727Mpjn9zdpZ89UQC62uhHreQQWCkVQu2upn+jBH2LYc0p8Fhm
-	 A6q+mk5WmVBMLOgbBtz4YKCnhG7fHgyhGq1q7OcUeJp9eU2F9NsQV02NDU9r0gSIBfXJb
-	 fX1CicwOyxHyi6/w+Q0jNmU1HqBIwPK7PZt6Aynqv5UGSbRAVr9k3FVivFBNfLOCLUzAj
-	 1+5TQqg3tvURe/PzUxxhSNBwZryP2Io8B+B4oCIDH0Qn9lnjundJAspU2GR05RFH00w==
+	t=1795319450;
+	b=2u5Rnym9ot5BKPJuU9VvNCd/scjOKEWAC2gVK9SYZmU9qh7AGGmcFFhJDL4Rhc3nfpdQ
+	 CIfe7dZMmenYI0hFo9//yemCMB/QkmyymPNdxooz5qisJGSsVX7xXcxP/lFYz+L7X17Tp
+	 fQSKBknwqy/cl9g6a7KhH6YdKEWrgwH0uaf6LpC/SWaCTfR+DQ0iTr6OLi15ZxRx43Rb/
+	 WnuVuh4/pnu1nU18UF2g5PFHfoZdaY2miv0cJ1RvvIAItwMaIl6+ZlDbwAyLUNVQctNc5
+	 +WzdSCSp9xYTslUtBfrg3Qgo6svgyQuIaHWv6u4xCvuW2JhjQabjSdUkh6itPNVslcA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795319328;
-	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=lGbP5kKIXDKBpBUKGK+uyvTbQIOm4zeQDAxLPA8UNNc=;
-	b=URYi7KjCnpre12E0Xu+aiiwOBRON7XGK+DBa7/LXDvt0tZ/D1QIieMjTVVWZ56ixI7fg
-	 kY+JWXjsQpWk8IGg5PmK+viHK3kKhDPUKCXXS5uv+G7oM20PtF70deH2+xRGCzEq21v73
-	 NcjDNq1DMMkIPSSFK7uKoXxkBq+IhZ0f0oE7ctANzzDysVqRzTW4nQW8b1gcZc0r2ngE7
-	 r4AytQmJgROZ847U+V51MB0mMstafZwZBdwACI33jzhJQuI+gTuZCNhjR3Um8mALZ3xBT
-	 5OOggCK+NFjmqQavkqaHyGCw2s1IoN/hADwXzzp4Hw4JU4XK6E16zlRY+ChcRR5MMTg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795319450;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Message-ID:
+	 Subject:From:To:Cc:Date:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=K5EnhnRA88GWc7NKadVmxiNMdMbACdMfjR5tfrqsDQQ=;
+	b=mCfwO3i7ZlYKBasjr2xeqjGTZkJwXQMU+DYO6raCE9xEag9S3e7flxWGSMi5p4SNLNxN
+	 x1BjUVt6/ZZKag65RZMXdi+atOs6p7SBy4xoUbgtd3YvOPCd/rFzHg/1Fs2FC/UIK/i2Z
+	 CqVDzBPvdOrJx/RLi9wC6u1tt8qe/oZdXQlE0654YD+K7ILJsEthgJUYEXLQPGX07l911
+	 9TNM/DaATYkvzQlQApuRFPu++uISBjeNZbW+FfOJ+linl/AuIGYDfVH9f0eisW6Zg1H3u
+	 p6/7ePDqeOlRv64dEX4j5dYRwLKpCsxfRvJeQGBcpimabU3Z6TAT5cPurLaL2bzQD8g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=raidlab.org;
-	spf=pass smtp.mailfrom=raidlab.org;
-	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=BwAEtmhm;
-	arc=none smtp.remote-ip=79.135.106.113
-Received: from mail-106113.protonmail.ch (mail-106113.protonmail.ch [79.135.106.113])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="E6QjLs/j";
+	arc=none smtp.remote-ip=198.175.65.17
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90779606A335
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 03:48:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90779606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=raidlab.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=raidlab.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CC0B606A331;
+	Sun, 22 Nov 2026 03:50:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CC0B606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=BwAEtmhm
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raidlab.org;
-	s=protonmail; t=1795319325; x=1795578525;
-	bh=lGbP5kKIXDKBpBUKGK+uyvTbQIOm4zeQDAxLPA8UNNc=;
-	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:From:To:
-	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=BwAEtmhmgOLNOD3uVgnK5sjS/HIYFcj6b1Ca1T1D8CwZ2YkSjVBhxxvCxvLpiGKx+
-	 S3SMOlRBRHcnyIM4gTj7ulCgCmAF1sPIKTtcTLxvVyF+I1b5ApAFMyFZm2MU1gVcpx
-	 82oCGH+QY5ISz5HFwFY8a78uTDaHW7CIiLmrIBFTTuFt4XOyabDbPCbH6GFlu86Z35
-	 5HpAVpiZdHLjADyVUFl7RevEdJ9dmNhoKAUVKCAedC3JRKjIXALffk1JbUdc3lO8+h
-	 rHtYFznAqpSB5qzDtlCKTD9/USMYDkwoYXEfynjTPXoL/rsIu3JacRYT0Ho8FHRpvy
-	 CopqHp7mmru8w==
-X-Pm-Submission-Id: 4jXFRb1wPNz1DDqy
-From: Miroslav Cimerman <mc@raidlab.org>
-To: linux-btrfs@vger.kernel.org
-Cc: David Sterba <dsterba@suse.com>,
-	Chris Mason <mason@kernel.org>,
-	Naohiro Aota <naohiro.aota@wdc.com>,
-	Johannes Thumshirn <johannes.thumshirn@wdc.com>,
-	Qu Wenruo <wqu@suse.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] btrfs: zoned: finish raid stripe tree zones once all data is written
-Date: Sun, 22 Nov 2026 03:48:25 +0000
-Message-ID: <20261122034826.2333981-3-mc@raidlab.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261122034826.2333981-1-mc@raidlab.org>
-References: <20261122034826.2333981-1-mc@raidlab.org>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=E6QjLs/j
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795319450; x=1826855450;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=WSnI0fuzlcLmBWsud4Ap/Cbc62vFF+a3GpsYW9jGD5c=;
+  b=E6QjLs/jlAnDZtWGmGGQsKH23U1e8uojSpxwrqGduc/HU9CwRIFylMXF
+   nFtmYlDamPbTVsNY1J/GtGayFYXcmkI9jRTCsOvrt6oLi7V2MGuJJOZXi
+   CnqU8mir54DwMAI9rWQ821i5PcMj/0Oui382uEfufV2KAuq+b8nK2Ev5b
+   7JSWe3PCIu+WVfqm1eE6z5TvMZiy3mmFU9rlicGsUNglG7NGJ7fXHpwAD
+   6USWU9sERd5RaXSLVC4BFRuGdT/H8Ud6C8we1kGpXvw6FRW8hQPxY/unl
+   57wSKHkJVN/GdgqJFMrw2+0+MnE1rqRuAWktouurUYweBDK6RBYtGi8JL
+   Q==;
+X-CSE-ConnectionGUID: dzMNtqf1TXSM6XPXJBM4hA==
+X-CSE-MsgGUID: 0uFKxfrdQ/6UtLfQ5aRvAg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11973"; a="4164707"
+X-IronPort-AV: E=Sophos;i="6.27,226,1787036400"; 
+   d="scan'208";a="4164707"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2026 19:50:49 -0800
+X-CSE-ConnectionGUID: scw4q4upThOpWvTqI5ZpuQ==
+X-CSE-MsgGUID: mPvYgkQNSf+766xbxS+mQQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,226,1787036400"; 
+   d="scan'208";a="11096971"
+Received: from linux.intel.com ([10.54.29.200])
+  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2026 19:50:49 -0800
+Received: from [10.245.244.140] (abityuts-desk1.ger.corp.intel.com [10.245.244.140])
+	by linux.intel.com (Postfix) with ESMTP id 375EC20B8CD1;
+	Sat, 21 Nov 2026 19:50:42 -0800 (PST)
+Message-ID: <d012c58931efa38a782ac3484ea930d05a6407a9.camel@linux.intel.com>
+Subject: Re: [PATCH v5 2/6] x86/virt/tdx: Configure add-on features on TDX
+ module init
+From: Artem Bityutskiy <artem.bityutskiy@linux.intel.com>
+To: Xu Yilun <yilun.xu@linux.intel.com>, x86@kernel.org, 
+	linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Kiryl Shutsemau <kas@kernel.org>, Rick Edgecombe	
+ <rick.p.edgecombe@intel.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	dave.hansen@intel.com, kvm@vger.kernel.org, yilun.xu@intel.com, 
+	xiaoyao.li@intel.com, sohil.mehta@intel.com, adrian.hunter@intel.com, 
+	kishen.maloor@intel.com, tony.lindgren@linux.intel.com,
+ peter.fang@intel.com, 	baolu.lu@linux.intel.com, zhenzhong.duan@intel.com,
+ chao.gao@intel.com, 	nik.borisov@suse.com
+Date: Sun, 22 Nov 2026 05:50:41 +0200
+In-Reply-To: <20261111-tdx-module-ext-v5-2-c74f764abc3d@linux.intel.com>
+References: <20261111-tdx-module-ext-v5-0-c74f764abc3d@linux.intel.com>
+	 <20261111-tdx-module-ext-v5-2-c74f764abc3d@linux.intel.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,137 +93,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-btrfs_zone_finish_endio() finishes the zones of a data block group when
-the ordered extent that ends at its capacity completes. It assumes that
-all other data of the block group is written by then. Without the raid
-stripe tree that holds: btrfs_finish_ordered_zoned() moves an extent to
-the address where zone append wrote it, so the extent at the end of the
-block group is the last one the device wrote.
+Hi Yilun,
 
-With the raid stripe tree, an extent keeps its allocated address, and
-the stripe tree records where each copy was written. The extent at the
-end can then complete while zone append writes of other extents are
-still queued. They reach a finished zone and fail:
+The patch looks good, but its framing can be improved.
 
-  C allocated at 14M, D at 15M, the capacity is 16M
-  D completes, btrfs_zone_finish_endio() finishes the zones
-  C's zone append writes reach the full zones and fail
+Remove references to enabling all add-ons to improve it. This patch adds
+plumbing, it should not dictate/discuss whether all or only some add-ons
+should be enabled. See comments below.
 
-Count the completed bytes of such a block group in zone_written. Finish
-its zones only when no more data can be allocated from it and all
-allocated data is written. A block group loaded at mount counts as
-written, and btrfs_reset_unused_block_groups() resets the counter with
-alloc_offset. Bytes of a failed ordered extent, or of an extent freed
-before its ordered extent was created, are not counted. Such a block
-group is not finished here. Before, this happened only when the failed
-extent was the last one. btrfs_zone_finish_one_bg() finishes it later
-when an active zone is needed.
+On Wed, 2026-11-11 at 11:48 +0800, Xu Yilun wrote:
+> The TDX architecture identifies some features that are off by default.
+> They are classified as add-on features because enabling them affects
+> existing TDX systems: they may change existing feature behavior, or
+> reserve more memory.
+>=20
+> However, the impact of the first add-on features will be low enough to
+> pursue a simple approach - the kernel just enables them when supported.
+> If a feature with a very high overhead appears in the future, this can
+> be revisited.
 
-Fixes: 568220fa9657 ("btrfs: zoned: support RAID0/1/10 on top of raid stripe tree")
-CC: stable@vger.kernel.org # 6.7+
-Signed-off-by: Miroslav Cimerman <mc@raidlab.org>
----
-The reset of zone_written in btrfs_reset_unused_block_groups() was not
-reached in my tests. Without it, a reused block group would be finished
-too early. The function already resets meta_write_pointer there for the
-same reason.
+This sounds like all supported add-ons will be enabled for simplicity.
 
- fs/btrfs/block-group.h |  6 ++++++
- fs/btrfs/zoned.c       | 33 +++++++++++++++++++++++++++++----
- 2 files changed, 35 insertions(+), 4 deletions(-)
+The reviewer keeps this in mind now.
 
-diff --git a/fs/btrfs/block-group.h b/fs/btrfs/block-group.h
-index d567ed822e55..1f88ecbc0b59 100644
---- a/fs/btrfs/block-group.h
-+++ b/fs/btrfs/block-group.h
-@@ -266,6 +266,12 @@ struct btrfs_block_group {
- 	u64 alloc_offset;
- 	u64 zone_unusable;
- 	u64 zone_capacity;
-+	/*
-+	 * Bytes of allocated data whose write has completed. Only used for
-+	 * data block groups with the raid stripe tree on a zoned filesystem.
-+	 * Protected by the spinlock 'lock'.
-+	 */
-+	u64 zone_written;
- 	u64 meta_write_pointer;
- 	struct btrfs_chunk_map *physical_map;
- 	struct list_head active_bg_list;
-diff --git a/fs/btrfs/zoned.c b/fs/btrfs/zoned.c
-index e6ce6f05ad75..02baf1ecc55e 100644
---- a/fs/btrfs/zoned.c
-+++ b/fs/btrfs/zoned.c
-@@ -18,6 +18,7 @@
- #include "bio.h"
- #include "transaction.h"
- #include "sysfs.h"
-+#include "raid-stripe-tree.h"
- 
- /* Maximum number of zones to report per blkdev_report_zones() call */
- #define BTRFS_REPORT_NR_ZONES   4096
-@@ -2015,6 +2016,8 @@ int btrfs_load_block_group_zone_info(struct btrfs_block_group *cache, bool new)
- 
- 	if (!ret) {
- 		cache->meta_write_pointer = cache->alloc_offset + cache->start;
-+		/* Everything allocated at load time is written. */
-+		cache->zone_written = cache->alloc_offset;
- 		if (test_bit(BLOCK_GROUP_FLAG_ZONE_IS_ACTIVE, &cache->runtime_flags)) {
- 			spin_lock(&fs_info->zone_active_bgs_lock);
- 			if (list_empty(&cache->active_bg_list)) {
-@@ -2594,7 +2597,9 @@ static int do_zone_finish(struct btrfs_block_group *block_group, bool fully_writ
- 	 * new allocation) and the IO for the last usable block is completed, we
- 	 * don't need to wait for the other IOs. This holds because we ensure
- 	 * the sequential IO submissions using the ZONE_APPEND command for data
--	 * and block_group->meta_write_pointer for metadata.
-+	 * and block_group->meta_write_pointer for metadata. With the raid
-+	 * stripe tree, btrfs_zone_finish_endio() calls this only once all
-+	 * allocated data is written.
- 	 */
- 	if (!fully_written) {
- 		if (test_bit(BLOCK_GROUP_FLAG_ZONED_DATA_RELOC, &block_group->runtime_flags)) {
-@@ -2798,10 +2803,29 @@ int btrfs_zone_finish_endio(struct btrfs_fs_info *fs_info, u64 logical, u64 leng
- 	else
- 		min_alloc_bytes = fs_info->nodesize;
- 
--	/* Bail out if we can allocate more data from this block group. */
--	if (logical + length + min_alloc_bytes <=
--	    block_group->start + block_group->zone_capacity)
-+	if (btrfs_need_stripe_tree_update(fs_info, block_group->flags)) {
-+		bool written;
-+
-+		/*
-+		 * With the raid stripe tree, an extent keeps the address it was
-+		 * allocated at, and zone append places its stripes wherever the
-+		 * device writes them. The extent at the end of the block group
-+		 * can complete before other extents of it are written, so only
-+		 * finish the zones once all allocated data is written.
-+		 */
-+		spin_lock(&block_group->lock);
-+		block_group->zone_written += length;
-+		written = (block_group->alloc_offset + min_alloc_bytes >
-+			   block_group->zone_capacity &&
-+			   block_group->zone_written >= block_group->alloc_offset);
-+		spin_unlock(&block_group->lock);
-+		if (!written)
-+			goto out;
-+	} else if (logical + length + min_alloc_bytes <=
-+		   block_group->start + block_group->zone_capacity) {
-+		/* Bail out if we can allocate more data from this block group. */
- 		goto out;
-+	}
- 
- 	ret = do_zone_finish(block_group, true);
- 
-@@ -3282,6 +3306,7 @@ int btrfs_reset_unused_block_groups(struct btrfs_space_info *space_info, u64 num
- 		reclaimed = bg->alloc_offset;
- 		bg->zone_unusable = bg->length - bg->zone_capacity;
- 		bg->alloc_offset = 0;
-+		bg->zone_written = 0;
- 		/*
- 		 * The zone was just reset to empty, so alloc_offset went back to
- 		 * the start of the zone. For metadata/system block groups the
--- 
-2.53.0
+... snip ...
 
+> Pass the bitmap of features that are supported by both kernel & TDX
+> module to TDH.SYS.CONFIG. Initially, the bitmap is 0. It will be updated
+> to contain specific feature bits as full kernel support lands.
+
+But this says that it enables no add-ons. Now reviewer needs to spend
+brain cycles to process the contradiction, unnecessarily.
+
+... snip ...
+
+>  arch/x86/virt/vmx/tdx/tdx.c | 19 +++++++++++++++++++
+>  1 file changed, 19 insertions(+)
+>=20
+> diff --git a/arch/x86/virt/vmx/tdx/tdx.c b/arch/x86/virt/vmx/tdx/tdx.c
+> index c7bd0b01786d..3bfe78b4b538 100644
+> --- a/arch/x86/virt/vmx/tdx/tdx.c
+> +++ b/arch/x86/virt/vmx/tdx/tdx.c
+> @@ -1033,9 +1033,19 @@ static __init int construct_tdmrs(struct list_head=
+ *tmb_list,
+> =20
+>  #define TDX_SYS_CONFIG_DYNAMIC_PAMT	BIT(16)
+> =20
+> +/* List all kernel-supported add-on features0 bits here */
+> +#define TDX_KERNEL_SUPPORTED_ADDON_FEATURES0	(0)
+
+Suggested comment:
+
+/* Specify add-on feature bits to enable=E2=80=9D instead */
+
+I think that this patch should not dictate "all" vs "some", no need.
+
+... snip ...
+
+> +	/*
+> +	 * Use SEAMCALL version 1 that supports add-on features if any are
+> +	 * requested. Otherwise use version 0 for backward compatibility.
+> +	 */
+> +	if (addon_features0) {
+> +		args.r9 =3D addon_features0;
+> +		args.version =3D 1;
+> +	}
+
+Separate nitpick for the comment.
+
+Suggested comment:
+
+/*
+ * Avoid unnecessarily requiring version 1 when no add-on features to
+ * request.
+ */
+
+I was confused by "for backward compatibility=E2=80=9D, which sounds like t=
+he
+kernel or the seamcall falls back to version 0 if version 1 is not
+supported.
+
+Thanks, Artem.
