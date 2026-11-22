@@ -1,124 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.45
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795377074;
-	b=t5YzEYHarGvTk2XnU9wRFhTLmlIpZo0hWExxFahgxWgUF8l/B0qOrSU5HWrAiJSmZyzt
-	 hS9ycWtWbXx1VaEdtXhaXLuIWmamyy23kxzbupZIpkyegSdpJk7tMY5mbqnP27VSGBgSc
-	 zVQtDd68zmkXNcmgkEpke+USKMFxBS9DjqZJeAPszmo/kFmODsVs7vL/AuI986gHMxj71
-	 j80QobFGYs9zRH0nVb355uf7BqSiZ6za3tXe6CpB2WHvOYfRq+MQxrUxsRA7ZZ6HNO1lA
-	 1etppreOqK9Ht4XkbsL8k1WmhqZ/13tQ1Ca23qNz39jte9/ok2U0JSPUzZetPLc6h2w==
+	t=1795377076;
+	b=RpMNEFPukY/D/kbMTBYp7uJXQp5MbEwdEDkLHKqr6Guxqx+SH13jCdDCTcDp2RWQVMZp
+	 wJDLaR4BwxRHrwUm0Q36sx47EJ4mxYI/R8dalm4vxV4JGRDh97rfD70oh0y4Xy48yOtus
+	 UL9eSc8vWJDaaHbDBVd41KF1TiYW7MhxcLFbcY9sLqMuZVzJHI0ghVSuS91MXF1EkSsN2
+	 lMvCh8zFv1rQ90334KuPwMyIyPOogPrbYk1edbsk5WDdp9dq00tJ3cM0Ldc12twV4852n
+	 2oS8hjzfuA02OHp+/I0Ul0XyClYnJMoGvW3kJEOif2/uqWDgvRNEC7neMqOiCQaEXzQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795377074;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
-	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
-	 Cc:Content-Type:Content-Transfer-Encoding:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=FfR2KZfb5vYyl5GgD/dMaDXtb5WXvXYxyg2TKNOauL0=;
-	b=WLDxf1vcY+nvgiy8L0U0kIqQP4NMM6UtOElFQLwPgUSomyY43kuesTGkjF74QZzLaWLC
-	 sEBC4HOl99PHALd2phKogTghavTuL6WIdN/1Pn/S1vh7fsAodEoQYCQFSFRIIYhGSxeqa
-	 ENW/xm6r34v/9waFhcEzwFomdrZZUFTXKnUzM1K1Im8VMuohbM3NdYdj4IV+dNnRr361V
-	 vbKE1PiazLlRFo8PdmGVzN/iQ9aRD2fxjJ41GuniiqyTvoW64WDenY+abZdxPviCIKgSU
-	 /1+8/+TclqQeVHP64vn89pfMMGI/qeBWjKa9HaMnM39xGMS8DijJkog4H+BdvFKmweQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795377076;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=dEbNC3pIasfz+1kUIBaS1REGH5134TVv5RUDhMq/bQs=;
+	b=LzT1MjE+ONpZjitAbJVPdswcPEc9XwqiJYpRZUEjSA7nXv/OJfWhTr68zDd7fgOEciZk
+	 9pPx1I2UCrK3ztmhfD7L26DPWiPs/C3wWlUS2V7ntGVw6ykBTIbZsO3LgIH7YupjFnIGA
+	 JXYmL4trx6kmmVD/+8cCsFI0I+jb9bjf3v9JGWPqvoI0RobsN6HWQkjSak1Oav0rUuUu9
+	 BOdVe+s5AxZFvzi1Zy+6GtBraGnB8+9944u1rcKij9uboROfRhAV3DhMJvJUJIzST4BWC
+	 DfzOhedSpqr8KWCdPX3F+yhjc8lye0S1SfPGMezw05htTEYPrtmYerp4aF+90VuJ0zQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Srm0FQ+0;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=G9aPCLiK;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yR2dHYCr;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.45
+Received: from mail-yx1-f45.google.com (mail-yx1-f45.google.com [74.125.224.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63A61606A31D
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:51:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63A61606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3406C606A33B
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:51:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3406C606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Srm0FQ+0;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=G9aPCLiK
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AMGVulg3629880
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:51:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	FfR2KZfb5vYyl5GgD/dMaDXtb5WXvXYxyg2TKNOauL0=; b=Srm0FQ+0E+Nhaa0M
-	JAoh3zURFwR3lGKK+ATSxpFXd7JTLC5faR//DYv1SpaUKl9r6qVGJLBC1me9N83j
-	6gOEsgrV65uqaJ5khG4bkmc0fSngDi6J4wHreLdz5siSwKelDV/OcANBLQTA/m4/
-	xZ3pJvF8isNJ/cLum2MkgRe+ktK2YhgMMrGHhqjQdp/3N1PIl1LXhOwH3PwbmpSj
-	iys6aZnW2Pum57lMjEj8o+d4reUPZzAhSCh0ZurXTgBZMGdKRAt5n7lhuswWUPyR
-	ebczyzbA/rqPugipC85qYx/THcSgDs5EKEvWnRnV26jrQKuJ73C8bh+0ystltrM4
-	nukBfA==
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j32mgc6ux-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:51:13 +0000 (GMT)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-9213e04641dso50701786d6.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:51:13 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795377073; cv=none;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yR2dHYCr
+Received: by mail-yx1-f45.google.com with SMTP id 956f58d0204a3-67db3a48dc6so2821835d50.3
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:51:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795377075; cv=none;
         d=google.com; s=arc-20260327;
-        b=ZLDN7TH7kJNddqr4DpkVIYLybvuC+Jsc61e92gMyUsM7fjmUA0vLKO7+6u0WVTEuWA
-         gxXGSC2/iGIJhgml/K7e9yUwnif4xu2zmaCpzXs44/5nN+7nT4k+ULTqMYDrDwhs0Toz
-         vBNTUTujiZmimdEi99xBLIRsomDdqM5aadmlFzLXZXHXBWEq4Mm2cBDgyst22f8P4izw
-         TSI0zlid9oBlmD8lyFXs7BP4a2YA1ur9POUqsKI9f6l+EQ1KdX3KRMd1XuwuYaICZPyU
-         Ckfr7v1IY2w9533D879ii1dB2Ma4SHg1GbFrapI7slRv82cXqzZcCIw/lH7MsosFwWC8
-         nZUA==
+        b=iPLJDp8aIkeuGexoq/sR5QvBeDcjOUpoQLbEAWZQWCLbkFCSzTOgpa1v3gR7pg0kxE
+         ZsqKf6SSJO1gMmRJbWSyPpsBW98DnUjdjeN7fszHapCSe+rOMFG/+ceKYWeAyg6WUXJK
+         4zjqWVVc/cxxIx4oMzL/7JSsClqqhtLHOHIvkVD3z/ty6oQIxavV4PsdSVWYDRilqM0Z
+         +el3IW1/JzzZj8h/bZ/GycXK0SbfGvJofbx5LCD6s4pTI96FV9AJjmEk+C1tK6AfKcdc
+         2W66URZT37qtQzHp8+SqYCTGfNVnOxqsYeogY+LAxKRo7G1U3yb/Ki5HbJKKzaqsK7qx
+         9c9w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=FfR2KZfb5vYyl5GgD/dMaDXtb5WXvXYxyg2TKNOauL0=;
-        fh=MMUMSLEkU1c8EojbpkjGwfjRV9IMC+Eo9NIvsOCAPUQ=;
-        b=YafXM/VkR2tKifxES3yz748pQXg//IGC3irVs0oHZFusssr+L21k76v6mbzIBDw3Qz
-         hMn/QE+v1KRyvw6HwfvprhBycq1bJ+z/sJdklPvvwkWT8LXIP9r2tBcFDuoxCAhvK6Hp
-         A9JVovwbxSd7b0aMrJ8r6IWHvdpE54FmSKlzRpdBogyVH3qS588IW5bq9ipnLPDB1Z5W
-         e804ds+7AF3oJGOhVv/j/pI20gZ8JEmkM4a8zxDSAymczJrMoD8XezCdTqja+c/ZiECJ
-         h3VpDLXAvD2AUN5CnpCU2U76Q0pSSpiLF0Qc2STP1Bywwou5NmyNY8kM/l2a0tFmulsQ
-         8RkA==;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=dEbNC3pIasfz+1kUIBaS1REGH5134TVv5RUDhMq/bQs=;
+        fh=VWDOa/6IM6UtJ/D1/ljmfZvFORjCyRa9mMEj6Ueud4o=;
+        b=hAf5DrjMuulS7rE3ZWn8V3vj8zFVeDQ/5eoPvom1XWrGSW69twI6/7WQnnSmXyC5kY
+         fStqRtmumGvrLNxWzBgGN7DQw5lEJNdmb7Ll3KZqgNaA35jwhefCN5cTQ7jxGf53TlYE
+         tV8pJvphZ6iajnLR0p5hlzoeFIpru55feqIK5o5ctY16WLg1sO2gKQ7snZs2J3hONAhQ
+         jusV/Cr+K4Tvl5elg8pROdXFyHkt8YHs2tzPldLXKmmSkEH7xFQ/E1qlQ/fDTmhBjU3i
+         2WGYEF6hBo3U89UEcpuCBhfhFN9QerGBteJ8syODUBnmtMasH3ZOAIDxv1+8dBrpSrBx
+         D7rA==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795377073; x=1795981873; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=FfR2KZfb5vYyl5GgD/dMaDXtb5WXvXYxyg2TKNOauL0=;
-        b=G9aPCLiK4n62QzbLjsEnsHi0Rv21CYYW1EGHbkKzAORwY33aWS3jEq4YCMKTgWrmJg
-         w2mWgKF1LZ1Fi/zMLuHEevtYdo5gX60ZOKa+j0PjYQMcrAN6r57cKF54NNphcNEAPrv8
-         1MeQHMbNws1hyvJh6Ay/IwCFIlR4Wno1/UW2nKELy5TiTtIGKTn+QJsu3HGOvfc+oosl
-         b/fYu0OU8Uty2/wIJhFvKdd+bmPA9Fu4TeP97t+1UJqqelBkc2KoKwJeBoYE9mi9Id7O
-         wSvRLSaPtpCbUD+7VdM7LA1PrNz2xg7HM80oWKIku/6B/DdFw9M8BP2J+l7M8SiRGOfc
-         q4lQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795377073; x=1795981873;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795377075; x=1795981875; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=FfR2KZfb5vYyl5GgD/dMaDXtb5WXvXYxyg2TKNOauL0=;
-        b=P56qZSOEJpjhBjhtAD9Id4zsEV1tAjB4YD+8bK7eTLjgTioShpRP1k4M+g5wZGBI9l
-         kaUZiAlYDE1IC5ZFNrkEdG5a67BUY3weQ9GY9oSMWon3MLSSfaA5Dff1FkkzmCJgLVNt
-         aKgsPh3K7+PhtHqS/j6UihjcdcC9MLF5CHvmMTfNzWez98owlxHQHotnr/gPqp6DXHKt
-         SqH9vd9ffZoXBYu0b/S24YkOx2MbnVFvBYflsiMkZQ0e1lkULBcPJbqa/uncPZTDmZV7
-         HTAlyXp6ZMbjlZfrSPMP2qxHNcAVDW2Jj/tJ/W/7kQfeqiuhM1P3rPKKCnbVLyti7DTK
-         f2Jg==
-X-Forwarded-Encrypted: i=1; AL+hErGu9pAFTg/8B0l3nntvtvN0g9TIba+vvGhz5MnKhqsqPhY6QB1DjQm6Eim/PKJPHSZvjHJ5qoPmf4iRE+o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9q2D30FFUS2Eh7PrkpiwfjGiJgZGyBDlvKc61nCSsbEKT6xbT5
-	IS6LEgug/baYUZGa9lgAovgJ4ZRe7gWgVVEz0MVZNdRjrj8wpAO/T1GUevHo1ZCitoGiZ0Sa3+P
-	/dPS2g1/502KOkjjpBhRPAzYWBnEb8efmpm9jI9uowwHZLRvPsU6HKVGFoh6p29LGTcJDUZc7/7
-	fTuH/hyy6WJuBKGOnCu8RLE2s/h039niGJHZBZ6WRptnzAg07G0Q==
-X-Gm-Gg: AZFdTZf+ZNI1DPosehk0IXTa6NiZCNE+qcgr/zLkap9Ma2rVFWn6ISKwNGRzF2hLHtt
-	P7aByJ+oKoPMmdanDHGh63irsBAVN8fqBpiqisMsQRKUq2f0H7qNOi9d39WAUye2bLbUijuZf8J
-	8e5dGCqFPBK+zZ/xCXRGzl/wm7kME0ArXA0P8ewyPL6DBbB5w4X4RcY/Rz+/Y6QaEiuF3ijHVRk
-	4el5Cdvvn52+BT5mU7dnDDU/ZIg5vmwdNPXSOMlDT/HdO029yKjnFrxztAPNX7rNtYBlEuWreHQ
-X-Received: by 2002:a05:620a:45a2:b0:949:721a:184e with SMTP id af79cd13be357-949ba9cd23bmr1618396485a.36.1795377072745;
-        Sun, 22 Nov 2026 11:51:12 -0800 (PST)
-X-Received: by 2002:a05:620a:45a2:b0:949:721a:184e with SMTP id
- af79cd13be357-949ba9cd23bmr1618394985a.36.1795377072330; Sun, 22 Nov 2026
- 11:51:12 -0800 (PST)
+        bh=dEbNC3pIasfz+1kUIBaS1REGH5134TVv5RUDhMq/bQs=;
+        b=yR2dHYCrxUFnSLp2JIQjIVcK1EAUojMT7oiKh4t+QSBbCFQZddYTdyXmrhyuGRoqOG
+         LH6r8A4VFgyu87+vF6M04fw4Izlc0HBTdebsYva2fGOlgmJfKuzzpQw0Ggvg3CedltVk
+         Q56akEtoTb7pGqKTwcnAWdlqAAAma0ytb+WcpiOhrpF5L5oYx7MzdtwXpkYBEewrfq7C
+         sUODzIxwYKf3NbO/S7PTUDCkq4PNE909ur4R5hNzWcARyViau+vYZOJrg+1tFFzxGc1c
+         LcEDX+W4QCRF4DXP1xqu+jbVc/MwYZ/BqCX0AldVAYjA1V5x/ECYrs2tYIRsO+onYrks
+         swXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795377075; x=1795981875;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=dEbNC3pIasfz+1kUIBaS1REGH5134TVv5RUDhMq/bQs=;
+        b=pcK+8azhEISUXfSHvrwTr1pB0zYiciM69vH9yzENQsn21Q/OSjX4g4UVp0eUImUtrf
+         0bzLuMgxEMZmn6ny/kgSrr5H72a+20DnLphhDoFNOJ4xVF+0P7My7pycfiE7I/K8X+b4
+         bL6gbD2LynxGfVwCTAPgrCS7tceWhW+rKqsJrP8ahhB5xGfXz+QGsySIRr71KEtqFBRi
+         KiOoMNIZ6ZLZBRRZ+hSq7k4/ODdyT4yith5qFH3yjB/9AeufCC2SWOptDuljN+DmPa2F
+         yvV0330q/57nFc+wuwH5A8P7MYFTxbrd7NgGaXgVMD43+3cbBEGryoc5fzsQ985UlCVT
+         Wz5w==
+X-Forwarded-Encrypted: i=1; AL+hErE+zkcarKcLWGSKUOux6KiEnt2vBFNHrFZP/0OiPmy1nRkLOJHO1+JejACeA4uGHhhC83z6Kt3IBCVqnnE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+IQ5vtdOQKkNmUFK155S15o5Oj7qo645rw1aPqYUzzTLi3wkVU
+	DQn43GlWynvndAhnC3JsA3MkDrRWmYu+L64QydYs+4ADIQKzpZPXgMg0V6vRJ/dnmzEE91+wfgx
+	+Jheus5suj+lJSBf47DUYvTauy3QHM28=
+X-Gm-Gg: AZFdTZeYE9vafqlMl6iN/QURsFryJPD60gTt6cQ0TPZ4wIRBBxbMARE5FXg39zSyPqZ
+	A/u8ZV3c2qfd7mIkoviVqOyJgWN1kB0xhuUcnMfwFSHdP9AgHHdfbZhOAfHfAtivGSww4Tk0GZ/
+	2O74Cm/ARNFDHzgm4ZQlvpWRSdFaVw1WkY4q53tXdPy6f0f9rgWyVrbhsedKflf45ZvHIn/i+Gi
+	Mle38o5zdePAqC7t9epKQ0DuHzSAeQgj1CBOBrKWSnET9mrvlhSc+bhACyOmgGvufP0FfxRew+L
+	OAAGcsbDUdU8CToCRmlep8IuCvL1uUfeK+erZfNIG3Os/zLijz4NUevpFNb2uSbRLA1V5Dd3Kj9
+	3FbjFQXE7di5V1d3grqRmJN/Ez/dTBIXf9z/ADDa4ytQwjLVS7VEex63/jlLKE8ZyHftMCVEoX3
+	ppgCS8lsqVnhwOIl22cpLHD1rZDKGPv5JB2Sba2aUxTYXYWiDmIIduRzD+yNDRMi9l6BztM7vLY
+	KxxYKw7xw==
+X-Received: by 2002:a05:690e:43ce:b0:679:be6b:42d5 with SMTP id
+ 956f58d0204a3-67df4456982mr1539736d50.98.1795377075124; Sun, 22 Nov 2026
+ 11:51:15 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,107 +105,326 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122-camss-routing-fixes-v1-0-0deeeaca2622@kernel.org> <20261122-camss-routing-fixes-v1-1-0deeeaca2622@kernel.org>
-In-Reply-To: <20261122-camss-routing-fixes-v1-1-0deeeaca2622@kernel.org>
-From: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Date: Sun, 22 Nov 2026 20:51:01 +0100
-X-Gm-Features: Aa3M54q8DVvj5BuTbWloIlkkU2isU41K7yHCwAzHNhHp_C9LxH-6l0mb3H_XQ2Y
-Message-ID: <CAFEp6-03ywJ2tow23woY4FkW2Np8r_Lja37zDH1dh3z4skYFZA@mail.gmail.com>
-Subject: Re: [PATCH 1/3] media: qcom: camss: x1e80100: Fix CSID2 routing to nowhere
-To: bryan.odonoghue@linaro.org
-Cc: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        "Bryan O'Donoghue" <bod@kernel.org>
+References: <20261117222224.1465328-1-arnd@kernel.org> <20261117222224.1465328-3-arnd@kernel.org>
+In-Reply-To: <20261117222224.1465328-3-arnd@kernel.org>
+From: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
+Date: Sun, 22 Nov 2026 11:51:04 -0800
+X-Gm-Features: Aa3M54qSKnHMfRte544j7n37UHVtncPq8-RbJK8w975X-Kp2Zw1xOI3CE7bOY5A
+Message-ID: <CAE5sdEim3Xz2SPwsb-xP+gp-+w5TOhDv4JtDf0ZbVZ2XSfK+jA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] arm64: dynamically enable st64bv0 for SVA
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Yicong Yang <yangyicong@hisilicon.com>, Zhou Wang <wangzhou1@hisilicon.com>, 
+	Navneet Singh <navneetsingh@microsoft.com>, apais@microsoft.com, 
+	hargar@linux.microsoft.com, Rachel Menge <rachelmenge@linux.microsoft.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIyMDA3OSBTYWx0ZWRfX5UDJoSpKV981
- ev6GGRa6yQs5fmsEA53my6KVicYUFCOotHWRGDVYMjtENWaLeAK9i+0FHe8Y7ls8dR7mN8BSuew
- b0bCOUO0eeGOaYaT1t4HDG2GhX6XCHrTDxENAI41k30aTr9+3YNQXkQwWZtWj9+MbUiSQNGoCYI
- rZIVhDkmnWna19duBGv8qG4R0DKUpM3J7evtNjXYu1hiWL3iD8E36JAiZ2PwAaXd+Q9oNZgQxMg
- ZqlrDlAfKJUYZ/BAI7uerPQx0EiQmwvA0EyebFj1S4twKtPsbv9YqDWX6Cz4HTOHtkp5v1mzoMz
- lqCBMPwFuJplAr5U9xqIRJAQYdpKivGxFCsP6dMNeinkhrDBpncztO9VrCEMZqghhPQV/xzrGTm
- 5pkRUmz0BvsNGtt6xMM/1zrbQES1beorukQ6hbjTf+MyMJd1ZQkJrl1A7tnIHpBZHAoYf7jJ1LK
- QNOjU/ghqPqzSGDVQRg==
-X-Authority-Analysis: v=2.4 cv=OM+yTiaB c=1 sm=1 tr=0 ts=6b0347b1 cx=c_pps
- a=wEM5vcRIz55oU/E2lInRtA==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=ZpdpYltYx_vBUK5n70dp:22 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8
- a=uV7-nGl-jdedDGloHnwA:9 a=QEXdDO2ut3YA:10 a=OIgjcC2v60KrkQgK7BGD:22
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIyMDA3OSBTYWx0ZWRfX1rhaHYSbIlCu
- Gw01TEqGDcPeRu26OXqCOYu/fJ/pfDNNRyii8hv1uqx6HcC6hRJi25tHL20szXsDAJRwK6lW19c
- sH5O+WO5e+xXMg1bb8t/XvRkFgIBuK8=
-X-Proofpoint-GUID: 4dGxflR9-ADkQLxMtxYcHZJELRGOGyS4
-X-Proofpoint-ORIG-GUID: 4dGxflR9-ADkQLxMtxYcHZJELRGOGyS4
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-22_04,2026-11-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 phishscore=0 adultscore=0 impostorscore=0 bulkscore=0
- priorityscore=1501 spamscore=0 lowpriorityscore=0 malwarescore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611220079
 
-On Sun, Nov 22, 2026 at 3:10=E2=80=AFAM <bryan.odonoghue@linaro.org> wrote:
+On Tue, 17 Nov 2026 at 14:22, Arnd Bergmann <arnd@kernel.org> wrote:
 >
-> From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> From: Arnd Bergmann <arnd@arndb.de>
 >
-> CSID2 doesn't actually have a corresponding VFE it can receive CSIPHY inp=
-ut
-> and raise an interrupt but it can't drive any VFE write-master. This is
-> basically useless and not worth coding around in the upstream driver. If =
-we
-> find a real use for this we can turn this back on. In the meantime drop t=
-he
-> definition, it only confuses things.
+> I/O devices that understand the st64bv0 instruction for doing shared
+> virtual access from userspace need to set the pasid value in the
+> accdata_el1 register, but in general we want this to be disabled unless
+> a driver actually hands an MMIO area to userspace that accepts these
+> commands and installs a pasid using iommu_sva_bind_device().
 >
-> Fixes: 1830cf0f56c3 ("media: qcom: camss: Add x1e80100 specific support")
-> Signed-off-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> Rather than trying to find all threads that use an mm_struct by the
+> time the pasid created, iommu_sva_bind_device() only stores the pasid in
+> 'struct iommu_mm_data' and sets up the iommu domain in the device. The
+> first attempt to use SVA from userspace traps into do_el0_other(),
+> which checks that this is indeed valid and then sets the configured
+> pasid before enabling SCTLR_EL1_EnAS0.
 
-Reviewed-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
+I've tested it on Cobalt h/w (ID_AA64ISAR1_EL1.LS64 = 0b0011, SMMUv3
+with PRI) on top of Fuad's FEAT_LS64_ACCDATA series and our Data
+Accelerator VF driver.\
 
+While testing multi-process isolation on hardware, we hit the SCTLR_EL1_EnAS0
+context-switch bug below, which Sashiko's review [1] also highlighted along
+with several of the other corners listed here (note that Sashiko's cpucaps and
+guest vcpu_sysreg warnings are false positives from applying against docs-next
+without Fuad's series):
+
+>
+> On machines running KVM guests, KVM already handles saving and restoring
+> ACCDATA now. If the same process uses SVA itself, the context is restored
+> upon guest access. This only really makes sense if the host device using
+> SVA is attached to the same SMMU using a single stage translation, and
+> another device is assigned to the guest VMID for stage2 so it can use
+> the stage1 translation inside of the guest using ACCDATA as PASID.
+>
+> This is pretty much a lifted from the x86 try_fixup_enqcmd_gp()
+> function.
+>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > ---
->  drivers/media/platform/qcom/camss/camss.c | 21 ---------------------
->  1 file changed, 21 deletions(-)
+>  arch/arm64/include/asm/cpufeature.h  |  5 +++
+>  arch/arm64/include/asm/exception.h   |  1 +
+>  arch/arm64/include/asm/mmu_context.h | 17 +++++++++
+>  arch/arm64/kernel/entry-common.c     | 11 ++++++
+>  arch/arm64/kernel/traps.c            | 52 ++++++++++++++++++++++++++++
+>  arch/arm64/tools/sysreg              |  5 +++
+>  6 files changed, 91 insertions(+)
 >
-> diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/pl=
-atform/qcom/camss/camss.c
-> index 26e3f2aa3ef24..aa6d01d8fcb2a 100644
-> --- a/drivers/media/platform/qcom/camss/camss.c
-> +++ b/drivers/media/platform/qcom/camss/camss.c
-> @@ -4515,27 +4515,6 @@ static const struct camss_subdev_resources csid_re=
-s_x1e80100[] =3D {
->                         .formats =3D &csid_formats_gen2
->                 },
->         },
-> -       /* CSID2 */
-> -       {
-> -               .regulators =3D {},
-> -               .clock =3D { "gcc_axi_hf", "gcc_axi_sf", "cpas_ahb",
-> -                          "cpas_fast_ahb", "csid", "csid_csiphy_rx" },
-> -               .clock_rate =3D { { 0 },
-> -                               { 0 },
-> -                               { 64000000, 80000000 },
-> -                               { 80000000,  100000000, 200000000,
-> -                                 300000000, 400000000 },
-> -                               { 300000000, 400000000, 480000000 },
-> -                               { 300000000, 400000000, 480000000 }, },
-> -               .reg =3D { "csid2" },
-> -               .interrupt =3D { "csid2" },
-> -               .csid =3D {
-> -                       .frame_sync_en =3D true,
-> -                       .hw_ops =3D &csid_ops_680,
-> -                       .parent_dev_ops =3D &vfe_parent_dev_ops,
-> -                       .formats =3D &csid_formats_gen2
-> -               },
-> -       },
->         /* CSID_LITE0 */
->         {
->                 .regulators =3D {},
+> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> index 7d7b8eb7f72f..e5367344e817 100644
+> --- a/arch/arm64/include/asm/cpufeature.h
+> +++ b/arch/arm64/include/asm/cpufeature.h
+> @@ -914,6 +914,11 @@ static inline bool system_supports_bbml3(void)
+>         return alternative_has_cap_unlikely(ARM64_HAS_BBML3);
+>  }
 >
-> --
-> 2.56.0
+> +static inline bool system_supports_ls64_accdata(void)
+> +{
+> +       return cpus_have_final_cap(ARM64_HAS_LS64_ACCDATA);
+> +}
+> +
+>  int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
+>  bool try_emulate_mrs(struct pt_regs *regs, u32 isn);
 >
+> diff --git a/arch/arm64/include/asm/exception.h b/arch/arm64/include/asm/exception.h
+> index a2da3cb21c24..7c61b50718d6 100644
+> --- a/arch/arm64/include/asm/exception.h
+> +++ b/arch/arm64/include/asm/exception.h
+> @@ -81,6 +81,7 @@ void do_el0_sys(unsigned long esr, struct pt_regs *regs);
+>  void do_sp_pc_abort(unsigned long addr, unsigned long esr, struct pt_regs *regs);
+>  void bad_el0_sync(struct pt_regs *regs, int reason, unsigned long esr);
+>  void do_el0_cp15(unsigned long esr, struct pt_regs *regs);
+> +void do_el0_other(struct pt_regs *regs, unsigned long esr);
+>  int do_compat_alignment_fixup(unsigned long addr, struct pt_regs *regs);
+>  void do_el0_svc(struct pt_regs *regs);
+>  void do_el0_svc_compat(struct pt_regs *regs);
+> diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
+> index 803b68758152..40c47ee003d5 100644
+> --- a/arch/arm64/include/asm/mmu_context.h
+> +++ b/arch/arm64/include/asm/mmu_context.h
+> @@ -16,6 +16,7 @@
+>  #include <linux/mm_types.h>
+>  #include <linux/pgtable.h>
+>  #include <linux/pkeys.h>
+> +#include <linux/iommu.h>
+>
+>  #include <asm/cacheflush.h>
+>  #include <asm/cpufeature.h>
+> @@ -247,6 +248,20 @@ static inline void __switch_mm(struct mm_struct *next)
+>         check_and_switch_context(next);
+>  }
+>
+> +/* switch to PASID if new task has enabled st64bv0 */
+> +static inline void switch_iommu_mm(struct mm_struct *mm, struct task_struct *tsk)
+> +{
+> +       u32 pasid;
+> +
+> +       if (!IS_ENABLED(CONFIG_IOMMU_SVA) ||
+> +           !(tsk->thread.sctlr_user & SCTLR_EL1_EnAS0))
+> +               return;
+> +
+> +       pasid = mm_get_enqcmd_pasid(mm);
+> +       if (pasid != IOMMU_PASID_INVALID)
+> +               write_sysreg(pasid, accdata_el1);
+> +}
+> +
+>  static inline void
+>  switch_mm(struct mm_struct *prev, struct mm_struct *next,
+>           struct task_struct *tsk)
+> @@ -254,6 +269,8 @@ switch_mm(struct mm_struct *prev, struct mm_struct *next,
+>         if (prev != next)
+>                 __switch_mm(next);
+>
+> +       switch_iommu_mm(next, tsk);
+> +
+>         /*
+>          * Update the saved TTBR0_EL1 of the scheduled-in task as the previous
+>          * value may have not been initialised yet (activate_mm caller) or the
+> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+> index beb56891fc4f..03ecc73c44a4 100644
+> --- a/arch/arm64/kernel/entry-common.c
+> +++ b/arch/arm64/kernel/entry-common.c
+> @@ -807,6 +807,14 @@ static void noinstr el0_fpac(struct pt_regs *regs, unsigned long esr)
+>         arm64_exit_to_user_mode(regs);
+>  }
+>
+> +static void noinstr el0_other(struct pt_regs *regs, unsigned long esr)
+> +{
+> +       arm64_enter_from_user_mode(regs);
+> +       local_daif_restore(DAIF_PROCCTX);
+> +       do_el0_other(regs, esr);
+> +       arm64_exit_to_user_mode(regs);
+> +}
+> +
+>  asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
+>  {
+>         unsigned long esr = read_sysreg(esr_el1);
+> @@ -870,6 +878,9 @@ asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
+>         case ESR_ELx_EC_FPAC:
+>                 el0_fpac(regs, esr);
+>                 break;
+> +       case ESR_ELx_EC_OTHER:
+> +               el0_other(regs, esr);
+> +               break;
+>         default:
+>                 el0_inv(regs, esr);
+>         }
+> diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+> index d6391ab20db3..a02dbee8c06d 100644
+> --- a/arch/arm64/kernel/traps.c
+> +++ b/arch/arm64/kernel/traps.c
+> @@ -13,6 +13,7 @@
+>  #include <linux/kprobes.h>
+>  #include <linux/spinlock.h>
+>  #include <linux/uaccess.h>
+> +#include <linux/iommu.h>
+>  #include <linux/hardirq.h>
+>  #include <linux/kdebug.h>
+>  #include <linux/module.h>
+> @@ -543,6 +544,56 @@ void do_el1_mops(struct pt_regs *regs, unsigned long esr)
+>         kernel_fastforward_single_step(regs);
+>  }
+>
+> +/*
+> + * PASID/ACCDATA is shared by the entire mm, while sctlr_el1
+> + * is maintained per thread. Keep things simple and enable
+> + * ACCDATA dynamically on first access if the feature is
+> + * available and a valid pasid is set.
+> + *
+> + * After exiting back to userspace, the st64bv0 instruction
+> + * should no longer trap.
+> + */
+> +static bool try_enable_st64bv0(struct pt_regs *regs, unsigned long esr)
+> +{
+> +       u32 pasid;
+> +       u64 sctlr;
+> +
+> +       if (!system_supports_ls64_accdata())
+> +               return false;
+> +
+> +       pasid = mm_get_enqcmd_pasid(current->mm);
+> +       if (pasid == IOMMU_PASID_INVALID)
+> +               return false;
+> +
+> +       preempt_disable();
+> +       write_sysreg(pasid, accdata_el1);
+> +       sctlr = current->thread.sctlr_user;
+> +       sctlr |= SCTLR_EL1_EnAS0;
+> +       current->thread.sctlr_user = sctlr;
+> +       update_sctlr_el1(sctlr);
+> +       preempt_enable();
+> +
+> +       return true;
+> +}
+> +
+
+1. SCTLR_EL1_EnAS0 is missing from SCTLR_USER_MASK (and fork/exec reset):
+
+update_sctlr_el1() clears only (SCTLR_USER_MASK & ~SCTLR_ELx_ENIA). Because
+SCTLR_EL1_EnAS0 is not in SCTLR_USER_MASK, once a task enables st64bv0 on a
+CPU, __switch_to() -> update_sctlr_el1() never clears SCTLR_EL1.EnAS0 when
+switching to another task, and switch_iommu_mm() returns early because the
+next task does not have SCTLR_EL1_EnAS0 set in thread.sctlr_user. On Cobalt
+200, an unprivileged process with no SVA binding scheduled onto that CPU
+executed st64bv0 without trapping while the previous task's PASID was still in
+ACCDATA_EL1.
+
+Similarly:
+- arch_dup_task_struct() copies thread.sctlr_user, so a fork() child inherits
+  SCTLR_EL1_EnAS0 with a fresh mm whose PASID is IOMMU_PASID_INVALID (leaving
+  the parent's PASID in ACCDATA_EL1 when switch_iommu_mm() skips the write).
+- flush_thread() does not clear SCTLR_EL1_EnAS0 across execve().
+- try_enable_st64bv0() can return false if SCTLR_EL1_EnAS0 is already set in
+  current->thread.sctlr_user (matching current->pasid_activated on x86).
+
+Folding in the diff below fixed all three cases (context switch to an unbound
+task on the same CPU, fork(), and execve() all trap with SIGILL again on
+Cobalt 200):
+
+
+diff --git a/arch/arm64/include/asm/processor.h
+b/arch/arm64/include/asm/processor.h
+index 2f368889aa3a..c7243bd4849a 100644
+--- a/arch/arm64/include/asm/processor.h
++++ b/arch/arm64/include/asm/processor.h
+@@ -264,7 +264,7 @@ static inline void task_set_sve_vl_onexec(struct
+task_struct *task,
+
+ #define SCTLR_USER_MASK
+         \
+  (SCTLR_ELx_ENIA | SCTLR_ELx_ENIB | SCTLR_ELx_ENDA | SCTLR_ELx_ENDB |   \
+- SCTLR_EL1_TCF0_MASK | SCTLR_EL1_TCSO0_MASK)
++ SCTLR_EL1_TCF0_MASK | SCTLR_EL1_TCSO0_MASK | SCTLR_EL1_EnAS0)
+
+ static inline void arch_thread_struct_whitelist(unsigned long *offset,
+  unsigned long *size)
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index b52d4f0cf5b4..6a1cfeb28bf2 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -350,6 +350,13 @@ void flush_thread(void)
+  flush_tagged_addr_state();
+  flush_poe();
+  flush_gcs();
++
++ if (current->thread.sctlr_user & SCTLR_EL1_EnAS0) {
++ preempt_disable();
++ current->thread.sctlr_user &= ~SCTLR_EL1_EnAS0;
++ update_sctlr_el1(current->thread.sctlr_user);
++ preempt_enable();
++ }
+ }
+
+ void exit_thread(struct task_struct *tsk)
+@@ -395,6 +402,7 @@ int arch_dup_task_struct(struct task_struct *dst,
+struct task_struct *src)
+
+  /* clear any pending asynchronous tag fault raised by the parent */
+  clear_tsk_thread_flag(dst, TIF_MTE_ASYNC_FAULT);
++ dst->thread.sctlr_user &= ~SCTLR_EL1_EnAS0;
+
+  return 0;
+ }
+diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+index a02dbee8c06d..be84e84c5fa1 100644
+--- a/arch/arm64/kernel/traps.c
++++ b/arch/arm64/kernel/traps.c
+@@ -558,7 +558,8 @@ static bool try_enable_st64bv0(struct pt_regs
+*regs, unsigned long esr)
+  u32 pasid;
+  u64 sctlr;
+
+- if (!system_supports_ls64_accdata())
++ if (!system_supports_ls64_accdata() ||
++    (current->thread.sctlr_user & SCTLR_EL1_EnAS0))
+  return false;
+
+  pasid = mm_get_enqcmd_pasid(current->mm);
+
+2. Other corners (first three also highlighted by Sashiko [1]):
+
+- EL2 -> EL1 boot setup (arch/arm64/include/asm/el2_setup.h): our bare-metal
+  host ran at EL2 with VHE, so HCRX_EL2 did not affect host EL2/EL0. For
+  kernels booting at EL2 and dropping to EL1 (e.g. CONFIG_KVM=n, nVHE/pKVM, or
+  guest VMs booting at EL2), __init_el2_hcrx and __init_el2_fgt do not yet set
+  HCRX_EL2_EnAS0 or HFGRTR_EL2_nACCDATA_EL1 / HFGWTR_EL2_nACCDATA_EL1, so EL1
+  ACCDATA_EL1 accesses and EL0 st64bv0 will trap to EL2.
+- KVM host ACCDATA_EL1 save/restore: regarding the commit message note about a
+  host process using both SVA and KVM, even with Fuad's series applied,
+  ctxt_has_accdata() in arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h returns
+  false when !ctxt_is_guest(ctxt), so KVM loads the guest's ACCDATA_EL1
+  without saving or restoring the host's ACCDATA_EL1 across vCPU run.
+- Assembler target: arch/arm64/Makefile caps -Wa,-march at armv8.5-a, which
+  breaks Clang IAS (LLVM=1) on write_sysreg(..., accdata_el1); using
+  write_sysreg_s(pasid, SYS_ACCDATA_EL1) avoids that (and the duplicate manual
+  #define SYS_ACCDATA_EL1 in arch/arm64/include/asm/sysreg.h can be dropped now
+  that tools/sysreg generates it).
+- CPU suspend: cpu_do_suspend / cpu_do_resume in arch/arm64/mm/proc.S
+  saves/restores sctlr_el1 across CPU powerdown idle states without
+  saving/restoring accdata_el1.
+
+[1] https://sashiko.dev/#/patchset/20261117222224.1465328-1-arnd%40kernel.org
+
+...
