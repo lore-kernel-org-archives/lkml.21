@@ -1,67 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.54.127.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795385922;
-	b=Ffr8HBynCnh4oGCRUG0ravaxWkeWRxODJtNcG03tn9M+J4QG4rk0+vKqq1BAb+BhIvDx
-	 HKTv2dSAtuCvadXJLSLZSPQ7kbnWrsT65glRzDOV2g4jjIvxNhGJhrQwYnCUxr+qJhBan
-	 PeFNIR97OjK62tH51dt8GBBTPJsGIA6GukbGvQdYRos9FoO27T7tq8sS1rjQpZGQoHKlS
-	 aQWHV6HviHhVJow23sPHj+CLlVTEqLVr1GF6nlSGdyOIFxcOiNUchYJjtrxv95Cz0sEim
-	 2DTIk5zJlHoK6RheFZBTHEseNbFnTC3PBbjkHIzl1YAWaiAz/G3gra6Vrn+IaO50yWw==
+	t=1795386007;
+	b=Xl01bUVKe/6WS7U89VkHeSRSZ0qjGVfGaLF3zz+UfEWhCs21N7FeXgGUfNzYH1J1gAhY
+	 r2Rc1Kegz05a2iDHv68qrUeb0fluAS6slgogJ1Nara4l2sMiRG0qp3SzeMBPJsQeABIvf
+	 ppoR2wBfiKqMNq+Bi0MZU58mOl5oX9VTFpy45EI2a6+cbfn+eTd1090x5kI6hrmXm1tKi
+	 C5dUvYFlMZhnmULsM24NKiOVthhST120dk1HuRehWAi6lN+EAximXogswDlfOmC67vY1H
+	 nIo6Qn9VbP8X2zkPX5RINFfmbf1JoU+dwcrfSzTw1unBJKCP38ZhoaW6UJE1fSWa+Kg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795385922;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Envelope-From;
-	bh=k5LjoGaNZQ67mdl0htfbMa2Xp93tcUEF/ZOF14J2AHE=;
-	b=23QgRSJr+zEyAtPYy6+Thu6F0rGkHsPEaToEx1veJXAVbnrN2E5Fd5uma7+R+Mzd9vA8
-	 5LtILVUdAdEblyzRTvLU+KSYLqmCWkQlWYsL2e8vfj7ZBGCvmhKR1VdsCSJxRpkuou9C0
-	 90r4pIkjtgRTAFG5MEL7FHbt9r5fCwgRaPk0mUugztxme2BzXYVjrx/TyQu+T4D0hWMSG
-	 2WioIKOO3V0/hFd4kkhT/cRZei8/oLid6ceWyersFFOR4IFhT/pdB/xTA96MFRVsrmRJO
-	 J/JhWCRfgc7JdZIsQvvim2Fan9wSBsNWoRzush1Rlq7jMnvgZbjT/S/NaLloR8DWB6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795386007;
+	h=Received:DKIM-Signature:Received:Subject:From:In-Reply-To:References:
+	 X-PR-Tracked-List-Id:X-PR-Tracked-Message-Id:X-PR-Tracked-Remote:
+	 X-PR-Tracked-Commit-Id:X-PR-Merge-Tree:X-PR-Merge-Refname:
+	 X-PR-Merge-Commit-Id:Message-Id:Date:To:Cc;
+	bh=31voirlrsAS43ODOjI1pLUmCgaQXFpHHLYo5ZOJd8Lw=;
+	b=HwhpGdfiia4eyeEZXOX7FqmvyU+nS6W7KEZ6syAk0J0Q3kLby3HfnEgCiARJVRupm0Nr
+	 3P0TxHJcjA8jKcjzKoMlqJBId0zrIdfyVf8WMSuh7n87USXYTgaCz7mgSda/3Sx3HlMdT
+	 b2AJJN2Y0S5lQYNn34cYeZUmO6lhEGKaQVcKB72S6olITGIYW1t6W+cHpz0IzPmiCLjPJ
+	 mLHpklf2mEUNe3VpBRJIYmcU2U0UR/mP/nQCQ/yNHnGXkWh/G4zTtyLrigEK1k3cNIYZt
+	 nf6aKoRgbAkewyLc98QSuqrpTj2h4tQ3U0KNZesyuxl00ENWsc/7REPZz33I4vd1tPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chrispinetinega.com;
-	spf=pass smtp.mailfrom=chrispinetinega.com;
-	dkim=pass header.d=chrispinetinega.com header.i=@chrispinetinega.com header.a=rsa-sha256 header.s=default header.b=kp8FJCxX;
-	arc=none smtp.remote-ip=198.54.127.151
-Received: from out-2z4y-a151.jellyfish.systems (out-2z4y-a151.jellyfish.systems [198.54.127.151])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k0GZZTFI;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D393606A31A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:18:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D393606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chrispinetinega.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chrispinetinega.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E43EC606A31A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:20:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=chrispinetinega.com header.i=@chrispinetinega.com header.a=rsa-sha256 header.s=default header.b=kp8FJCxX
-Received: from mail.privateemail.com (unknown [62.8.90.37])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.privateemail.com (Postfix) with ESMTPSA id 4jXk3v64ysz2x9G;
-	Sun, 22 Nov 2026 22:18:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chrispinetinega.com;
-	s=default; t=1795385904;
-	bh=k5LjoGaNZQ67mdl0htfbMa2Xp93tcUEF/ZOF14J2AHE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kp8FJCxXmz1yoFCDsNPizvZK9OvcBZfWo1xz7Ru4ipuRaPT8ErsHbXIrelfytJc/C
-	 akn5uCr9DHkF2IWJN8WZg132oslL8W88CwG+5bpDKNBg7/EVBUUh4HdHeUs4uVtbMe
-	 ub1ZZQqJ7bUtpSjOuE/mDWo/KdI8ohClIrz5dWp5G4e03L+J0hCCTqqBYaKB4bc1jf
-	 A+f75w4zbST0Dll3ZxQAsc6HLpdsZpSgAHSMBTaeus4k79rDdbIpG9oTkjEMMZ0va9
-	 sfLTm7KRo8GxdG0tSR+xu6I2U4dC/Ne81ukDLO5UL8hMizF3UYPO/hpTWpV2luoYS1
-	 tR5LY1rcaLnpg==
-From: Chrispine Tinega <dev@chrispinetinega.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: linux-remoteproc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Francesco Valla <francesco@valla.it>,
-	Chrispine Tinega <dev@chrispinetinega.com>
-Subject: [PATCH v3 1/2] remoteproc: k3: Report a remote crash to the remoteproc core
-Date: Mon, 23 Nov 2026 01:17:53 +0300
-Message-ID: <20261122221755.88160-2-dev@chrispinetinega.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261122221755.88160-1-dev@chrispinetinega.com>
-References: <20261122221755.88160-1-dev@chrispinetinega.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k0GZZTFI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C08031F000C4;
+	Sun, 22 Nov 2026 22:20:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795386006;
+	bh=31voirlrsAS43ODOjI1pLUmCgaQXFpHHLYo5ZOJd8Lw=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc;
+	b=k0GZZTFIdDav9sOaekMBgnd/dI0rlRHH+ZaCqlxPGNam2/LKzxvlZhfFarortk0qz
+	 hQRjxxKpwx5c7elJgPo1JxWrtZzmxeAT06baXqwuV7hxs/frBF3KQorhTgbIHr+432
+	 aDuaxr+jhtPQ8CTC2O3oTi2dR32oEnqszv+WSOLh9DagBVrL80xc1dr4I6d8A0t9ow
+	 jBc2S+U1uRlBBII9kYqxA5ScKGSNckUmT1JgkQCf5WplaxHi9LdZKM2jyyiSp4TN9g
+	 Qyol5f2IwOYdsC9kJoJYznnw4Jh+eWuWBzbvXwrsngyy4C0AXc6DZrABsLB+M+yKQi
+	 arSc8FPBD22Pg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4714392ED41;
+	Sun, 22 Nov 2026 22:20:06 +0000 (UTC)
+Subject: Re: [GIT PULL] regulator fixes for v7.4-rc3
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <20261121122938.B669F346436F@traversing.sirena.org.uk>
+References: <20261121122938.B669F346436F@traversing.sirena.org.uk>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <20261121122938.B669F346436F@traversing.sirena.org.uk>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git tags/regulator-fix-v7.4-rc3
+X-PR-Tracked-Commit-Id: b544ca82abb46f2f870d32b3d7cae6ff9d9d1311
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 7adedc3fb0e8a32a8fd7028b1c5547e8a92c512c
+Message-Id: <179538600537.1569645.8555340154917694163.pr-tracker-bot@kernel.org>
+Date: Sun, 22 Nov 2026 22:20:05 +0000
+To: Mark Brown <broonie@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Liam Girdwood <lgirdwood@gmail.com>, linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,78 +67,16 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Envelope-From: dev@chrispinetinega.com
 
-A K3 remote core that faults can send RP_MBOX_CRASH over the mailbox,
-but k3_rproc_mbox_callback() only logs it. The remoteproc core never
-learns of the crash, so its recovery never runs, the crash is not
-counted, and the core stays halted with every rpmsg channel to it dead.
+The pull request you sent on Sat, 21 Nov 2026 12:28:40 +0000:
 
-Call rproc_report_crash(), which may be called from atomic context, when
-the core is RPROC_RUNNING, that is when Linux booted it. The core then
-moves to RPROC_CRASHED and the crash is counted. Where the driver leaves
-recovery enabled, recovery stops the core and boots it again. Where
-recovery is disabled, the core can still be stopped and started again
-through sysfs.
+> https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git tags/regulator-fix-v7.4-rc3
 
-In any other state, keep only logging the crash:
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/7adedc3fb0e8a32a8fd7028b1c5547e8a92c512c
 
-- An IPC-only core, RPROC_DETACHED or RPROC_ATTACHED, was not booted
-  by Linux. Once marked crashed, rproc_detach() refuses it, and the
-  drivers' remove paths skip the detach and leak its resources. The R5F
-  has no start or stop ops in this mode at all.
-- Each K3 driver requests its mailbox before devm_rproc_add(). A crash
-  queued then would not be cancelled if probe failed, and the work
-  would run on a freed rproc. The state is never RPROC_RUNNING there.
+Thank you!
 
-Recovery on its own cannot yet restart an R5F: the reset the R5F needs
-before it starts again is applied in its unprepare() op, which sysfs
-stop calls and recovery does not. The R5F driver keeps recovery
-disabled, so this does not change what happens there.
-
-Signed-off-by: Chrispine Tinega <dev@chrispinetinega.com>
----
-Changes in v3:
-- Guard rproc_report_crash() with rproc->state == RPROC_RUNNING and keep
-  the dev_err() print in other states, so IPC-only cores do not lose
-  detach and a crash queued before devm_rproc_add() cannot run after a
-  failed probe. (Sashiko review, pointed out by Francesco)
-
-Changes in v2:
-- Drop the dev_err(). rproc_report_crash() already logs the crash
-  and names the core. (Francesco)
-- Say in the commit message that recovery cannot yet restart an R5F.
-  (Francesco)
-
- drivers/remoteproc/ti_k3_common.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/remoteproc/ti_k3_common.c b/drivers/remoteproc/ti_k3_common.c
-index 4b6da3363..29ca51861 100644
---- a/drivers/remoteproc/ti_k3_common.c
-+++ b/drivers/remoteproc/ti_k3_common.c
-@@ -61,10 +61,16 @@ void k3_rproc_mbox_callback(struct mbox_client *client, void *data)
- 	switch (msg) {
- 	case RP_MBOX_CRASH:
- 		/*
--		 * remoteproc detected an exception, but error recovery is not
--		 * supported. So, just log this for now
-+		 * Report only a crash of a core that Linux booted. Once the
-+		 * remoteproc core marks an IPC-only core crashed, it can no
-+		 * longer detach from it. The state is never RPROC_RUNNING
-+		 * before devm_rproc_add(), so a failed probe cannot leave
-+		 * crash work queued.
- 		 */
--		dev_err(dev, "K3 rproc %s crashed\n", rproc->name);
-+		if (rproc->state == RPROC_RUNNING)
-+			rproc_report_crash(rproc, RPROC_FATAL_ERROR);
-+		else
-+			dev_err(dev, "K3 rproc %s crashed\n", rproc->name);
- 		break;
- 	case RP_MBOX_ECHO_REPLY:
- 		dev_info(dev, "received echo reply from %s\n", rproc->name);
 -- 
-2.53.0
-
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
