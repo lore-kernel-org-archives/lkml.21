@@ -1,66 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795376060;
-	b=HO0DBT0KRQf+LbrudWA8UaYQ8PMhJtr6JMmic2C0p09LvkSJ578cQRorFacBFJUZD5Uu
-	 hsN5URaulRQTQkDP6CHUBmszcZzPCZNLc9vbTzU9rHidi0/YWpxDrEjDOTbDjF4LrOGs7
-	 RRTmk9Mp1S451cfszfzmS52w02UWw3mQSK4NnvukwYRL0hwGdfQeRIfUoKbjjvns9dMst
-	 2y4sLXa86a2Fy0tjENLoDpmQ/NwfBEr9PDuqXBxBKgtsB94iPfuXnGiBNZbFBWj723FZb
-	 enBdCE86NlP7SVpuP8kDTkb3EFUYpCzUbBEHGv2ZU1Zpg/QEKpfQjcwj+PtF+nHViwg==
+	t=1795376062;
+	b=F4RM6HszP06J/nEwQykQhifie1piR7MhwTz59G6XXjhmr/EkvH0KZ/Y22LyCcW0rKUte
+	 aBnEm4Y6hWJwUJ3NDtZUeO8nt0BZstrSZGz9aQBCWvn0iLfRjbzH2vkYruL2snTvSH17M
+	 GZ6LF7/xlqm2Ooq0k1q1dz/94ZpI1N78nG1niZ+OqTQqWjEGUXwy9K/ctD0LSfRIktLB/
+	 HvpZ/lrBI1YvL0v5LeAE1se5lg6EoKAIJzsFh5Ck+3QQ4r9/s9i1oqToG1X8wDy6mhqE2
+	 Uvm9R9UuJWDlHr78wy53u/itJ031YC9mVeyMCBYsFvwg1cT9PB5lwSsWL3wOwK70ZUw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795376060;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795376062;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=5P+7tBedBIdwQSGY2GkLGv3XTyNXbKGIOLqLjYKCNQ4=;
-	b=zGCetfEs3uk478LSDFRJp8ro0nCF+Ck0P9cyhDEAh/D+uUqF+MfAGfmA9TbkzChSFbVl
-	 KPji3urTkX+Wgk4MpSc03BClPJR7vbuE/SDZtXmc7aVCHCY7uQhZplfMwrOb7VLG82ySR
-	 uvxV/LOELLoNVsygetzhY5WOQ/KlkIncZKRrB6msxxAEBe/V5c3kWJvwGXo7+qBmadEbb
-	 6DUvObzdmcRT94Tdwurw3m/r9mForFVrZC3RpZ+IfAXK5iikXLN/HCdf/8gVcJ9s9jy9K
-	 3kkgX4uU2w2GTidKwW6DbuikZGG8egnYGZZzkECj8huSUEKrfvi72dV2axV8SOYbbyA==
+	bh=lS3tK9GbltiK8NPg/SK88lXpAQtYdZiM/ncR69mcFNk=;
+	b=A34LHToPyNi9AbZZijaUs90ShdMr0HSWkOmy/cwiW8TvAgC5+UnE1Hxn0pix22XefCg7
+	 jnWRIIX4dLutgEluyJ7ZnWaAnelyk1AOO3Lq9yIEABBRRdxpfx5Dofled5dr06qfqXbDu
+	 jIYQVjS8jpiRCCrK+qLy0fWR7DhDyQ7Q5KkudEdH7ub4cCGWOp/Q+E2ni1Cvb7piyaGiJ
+	 TBzElz0xoysMR0l81KXrEjJsgUdEqAdxP9x/FI556vnVJqMFTp6R8T+2tCe7dSj4bGTa6
+	 xwskUrcjoGvVr/1s1x7L4KdIGo+bvzumt2mAP3az/j8g0uFsExDfJ/uBtzSQng+2iyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.intel.com;
 	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=U8TzuuMw;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=StEVJEWU;
 	arc=none smtp.remote-ip=192.198.163.18
 Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C63E6606A33B;
-	Sun, 22 Nov 2026 19:34:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C63E6606A33B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21550606A68D;
+	Sun, 22 Nov 2026 19:34:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21550606A68D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=U8TzuuMw
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=StEVJEWU
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795376059; x=1826912059;
+  t=1795376061; x=1826912061;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=BG2gzCHnt9oFAjZiqbSwnEbVMvdnKd/0xby1+p5ZVl8=;
-  b=U8TzuuMwL1W44wryWwDEaDGfGdx85DS3Zsp+FrRdHjfp7NdslltAtbSZ
-   re+EOld744JgsNDa+ZHO0uaZulU4MVajUbeUVb/KufSqKYPMcfgCV0B4z
-   BIzD8QJ0H2pMNJnyBkx6nSOmVHEe9+qZKAkvDx1ZikiJLLFMAGB5UhE21
-   PNXMTGhsNp9NsKyrA59x0C7PJtGrHKf6FjENLlJDsP/oqQ2WnJWgjR4Wl
-   ZX/17xIfFShydD0vq6A7Q9blTfpyQsJUlHOzf7fqoVvazl149mwFhc1mA
-   uYMfwM3ODpTkNJ06lKEThQcsirG2zGv9x4YzfrxeCSSMx6VGsvvmNfYyS
-   g==;
-X-CSE-ConnectionGUID: 3nw2GBVeSzW8fHMlmKg+jg==
-X-CSE-MsgGUID: 0UKwMLYbQWmQFO3rIFmODQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4217510"
+  bh=mzXbDEnLI1QQzmEVf/XXyC7OqkvkyV24SJUCntmmni4=;
+  b=StEVJEWU34cx04m+xzAIrF1+lEH7NzejnY/yQrZ883t8/WwqaIa1E4E1
+   Jo6Nc6hSui4IwQDcq/vSmWi/WllP24LppEs61XW22RLCxPh9SOkPBcyS9
+   QN0MArMCr/rDduOT/iPVS+Ro/x+Uc2MG1A0W+KjIr+okzX7VvryPQlbun
+   1Jhr3uXfIvVFLdUIZ5MejgW6M18Sl5Yi0oNVAj6uWiNMAwmLNEzsjGiUF
+   zfZ5/SgihuErTN6qkxDGJKhJXz2+g7mS2R+gfV4vqnpmRNUciWD0NF3ax
+   eqGc1rkaI4WA1lUoBEjdBIMiSLGzMsr887jWSkiPHi+7exFMJUTjGTd7H
+   Q==;
+X-CSE-ConnectionGUID: LwC9MeOPS4u51IRNYz5E/w==
+X-CSE-MsgGUID: ybJy6JlYRR2wKXVB9gVKPw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4217516"
 X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4217510"
+   d="scan'208";a="4217516"
 Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 11:34:19 -0800
-X-CSE-ConnectionGUID: FHMOa7JITg2E18fpr20kKQ==
-X-CSE-MsgGUID: tl8NZPL7S86cPCEHTAS+OQ==
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 11:34:21 -0800
+X-CSE-ConnectionGUID: pu21JxZDTYaNtguDHW9PDA==
+X-CSE-MsgGUID: +/Etj6bzRNubrN6B+HTsLw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11109794"
+   d="scan'208";a="11109801"
 Received: from debox1-desk4.jf.intel.com (HELO localhost) ([10.54.77.98])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 11:34:19 -0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 11:34:21 -0800
 From: "David E. Box" <david.e.box@linux.intel.com>
 To: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
 	Hans de Goede <hansg@kernel.org>
@@ -68,9 +68,9 @@ Cc: "David E. Box" <david.e.box@linux.intel.com>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	platform-driver-x86@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 04/12] tools/arch/x86/pmtctl: Add JSON metric definition loading
-Date: Sun, 22 Nov 2026 11:33:59 -0800
-Message-ID: <57cd5d4e4774ba815decccdd3d62a4abacfad1ea.1795374925.git.david.e.box@linux.intel.com>
+Subject: [PATCH v2 07/12] tools/arch/x86/pmtctl: Add 'stat' command
+Date: Sun, 22 Nov 2026 11:34:02 -0800
+Message-ID: <2d4566e76b319e2ad0ccc55b59d023ba51473511.1795374925.git.david.e.box@linux.intel.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1795374925.git.david.e.box@linux.intel.com>
 References: <cover.1795374925.git.david.e.box@linux.intel.com>
@@ -85,655 +85,1004 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 
-The telemetry data of a PMT device is an array of 64-bit samples
-whose meaning, its telemetry semantic space (TSS), is identified by the
-device's GUID. pmtxml2json.py converts the published layouts into one
-JSON file per GUID, listing the metrics as bit ranges of samples.
+Add the 'stat' command, which samples metrics of the PMT telemetry
+devices at an interval, similar to 'perf stat'. Metrics are given by
+name with -e. The default layout has one row per device with the
+metric's value; --vertical has one row per device and metric, and is
+needed to view more than one metric. A device that has none of the
+requested metrics is left out; with --vertical, a metric a device
+doesn't have is shown as '-'. A value that can't be read is shown as
+NaN; stat only fails if no value could be read at all. --guid and
+--device restrict the devices, -i and -c set the interval and number of
+samples, and --no-header leaves out the header.
 
-Add loading of these files with libjansson. A path may name a single
-definition file or a directory of them. Each file becomes one entry of
-a TSS database in struct pmtctl_ctx, holding the GUID's platform,
-description and metrics, sorted by name, so the metrics of a device
-are found with a single lookup of its GUID. pmt_tss_db_load_json()
-loads the database, and pmtctl_ctx_free() frees it with the rest of the
-context.
+Samples are scheduled from the start time with CLOCK_MONOTONIC, so the
+interval doesn't drift, and the time column shows when each sample was
+taken. SIGINT (Ctrl-C) ends the sampling without waiting out the
+interval, whether it arrives during the wait or while values are being
+read. Before sampling, every requested sample is checked against the
+size of its telemetry region, and the data files are opened once, so a
+permission problem is reported up front.
 
-Definition files are validated: each must have a GUID not defined by
-another file, and each event a unique name, a 32-bit sample ID and a bit
-range within the 64-bit sample (lsb <=3D msb <=3D 63). Otherwise the file is
-rejected with a message naming the event. In a directory every file is
-checked and any bad file fails the load, so a partial set of definitions
-is never used.
-
-Building pmtctl now requires libjansson.
+Discovery also records the size of each device's telemetry region,
+from its size attribute, so that samples can be checked against it. A
+device whose size can't be read is skipped with a warning, like one
+whose GUID can't be read.
 
 Signed-off-by: David E. Box <david.e.box@linux.intel.com>
 ---
 V2 changes:
-  - Replaces v1 04 and 07.
-  - A TSS database with one entry per GUID, sorted and searched with
-    bsearch(), replaces the metric blocks, the flat-index accessors and
-    the GUID registry.
-  - No string pool, casts or realloc(+1) growth.
-  - Files are validated strictly. A bad file fails a directory load,
-    where v1's result depended on readdir order, and errors name the
-    file and event.
+  - Replaces v1 14, without --hex and --raw, which follow.
+  - -i and -c are parsed strictly; v1 accepted '10abc'.
+  - The time column is measured and sampling doesn't drift; v1 printed
+    sample x interval. SIGINT ends sampling without waiting out the
+    interval.
+  - Columns fit the names; v1 cut them at 20 or 28 characters.
+  - Samples are checked against the region size before sampling, and
+    the data files are opened once, up front.
+  - telem_read() rewritten.
+  - --once, --header and -d dropped in favor of -c 1, --no-header and
+    --guid/--device.
 
- tools/arch/x86/pmtctl/Makefile             |  13 +
- tools/arch/x86/pmtctl/include/lib/pmtctl.h |   2 +
- tools/arch/x86/pmtctl/include/lib/tss.h    |  43 +++
- tools/arch/x86/pmtctl/lib/pmtctl.c         |   2 +
- tools/arch/x86/pmtctl/lib/tss.c            |  45 +++
- tools/arch/x86/pmtctl/lib/tss_json.c       | 406 +++++++++++++++++++++
- 6 files changed, 511 insertions(+)
- create mode 100644 tools/arch/x86/pmtctl/include/lib/tss.h
- create mode 100644 tools/arch/x86/pmtctl/lib/tss.c
- create mode 100644 tools/arch/x86/pmtctl/lib/tss_json.c
+ tools/arch/x86/pmtctl/Makefile             |   1 +
+ tools/arch/x86/pmtctl/include/lib/device.h |   3 +
+ tools/arch/x86/pmtctl/include/pmtctl_cli.h |   1 +
+ tools/arch/x86/pmtctl/lib/device_telem.c   |  49 ++
+ tools/arch/x86/pmtctl/src/cmd_stat.c       | 753 +++++++++++++++++++++
+ tools/arch/x86/pmtctl/src/main.c           |   4 +
+ 6 files changed, 811 insertions(+)
+ create mode 100644 tools/arch/x86/pmtctl/src/cmd_stat.c
 
 diff --git a/tools/arch/x86/pmtctl/Makefile b/tools/arch/x86/pmtctl/Makefile
-index 2d66e4e036cc..8b723f96904b 100644
+index bb1a92e3dd6f..564931794086 100644
 --- a/tools/arch/x86/pmtctl/Makefile
 +++ b/tools/arch/x86/pmtctl/Makefile
-@@ -7,11 +7,24 @@ CFLAGS =3D -Wextra
-=20
- override CFLAGS +=3D -O2 -Wall -D_GNU_SOURCE -Iinclude -I../../../include
-=20
-+# The jansson check is skipped for targets that don't compile anything
-+ifneq ($(filter-out clean defs-json-fetch defs-json-pull defs-clean,$(or $=
-(MAKECMDGOALS),pmtctl)),)
-+JANSSON_CFLAGS :=3D $(shell pkg-config --cflags jansson 2>/dev/null)
-+JANSSON_LIBS :=3D $(shell pkg-config --libs jansson 2>/dev/null)
-+ifeq ($(JANSSON_LIBS),)
-+$(error jansson not found: install libjansson-dev (Debian/Ubuntu) or janss=
-on-devel (Fedora/RHEL))
-+endif
-+override CFLAGS +=3D $(JANSSON_CFLAGS)
-+LDLIBS +=3D $(JANSSON_LIBS)
-+endif
-+
- OBJS :=3D \
- 	lib/common.o \
- 	lib/device_telem.o \
- 	lib/log.o \
- 	lib/pmtctl.o \
-+	lib/tss.o \
-+	lib/tss_json.o \
+@@ -28,6 +28,7 @@ OBJS :=3D \
+ 	lib/tss.o \
+ 	lib/tss_json.o \
+ 	src/cmd_list.o \
++	src/cmd_stat.o \
  	src/main.o
 =20
  pmtctl: $(OBJS)
-diff --git a/tools/arch/x86/pmtctl/include/lib/pmtctl.h b/tools/arch/x86/pm=
-tctl/include/lib/pmtctl.h
-index e3a2c862bc78..9da9e1f221ca 100644
---- a/tools/arch/x86/pmtctl/include/lib/pmtctl.h
-+++ b/tools/arch/x86/pmtctl/include/lib/pmtctl.h
-@@ -5,11 +5,13 @@
- #include <stddef.h>
-=20
- #include "lib/device.h"
-+#include "lib/tss.h"
-=20
- /* State for one pmtctl command, owned by the command */
- struct pmtctl_ctx {
- 	struct pmt_device *devices;
- 	size_t num_devices;
-+	struct pmt_tss_db tss;
+diff --git a/tools/arch/x86/pmtctl/include/lib/device.h b/tools/arch/x86/pm=
+tctl/include/lib/device.h
+index 92d9603d695c..59a4e5b352e7 100644
+--- a/tools/arch/x86/pmtctl/include/lib/device.h
++++ b/tools/arch/x86/pmtctl/include/lib/device.h
+@@ -10,9 +10,12 @@ struct pmt_device {
+ 	uint32_t guid;
+ 	char *name;		/* e.g. "telem0" */
+ 	char *data_path;	/* telemetry data file */
++	uint32_t size;		/* telemetry region size in bytes */
  };
 =20
- int pmtctl_ctx_init(struct pmtctl_ctx *ctx);
-diff --git a/tools/arch/x86/pmtctl/include/lib/tss.h b/tools/arch/x86/pmtct=
-l/include/lib/tss.h
-new file mode 100644
-index 000000000000..3f5238540240
---- /dev/null
-+++ b/tools/arch/x86/pmtctl/include/lib/tss.h
-@@ -0,0 +1,43 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef PMTCTL_TSS_H
-+#define PMTCTL_TSS_H
+ int telem_scan(struct pmt_device **devices, size_t *num_devices);
+ void telem_free(struct pmt_device *devices, size_t num_devices);
++int telem_open(const struct pmt_device *dev);
++int telem_read(int fd, uint32_t sample_id, unsigned int lsb, unsigned int =
+msb, uint64_t *val);
+=20
+ #endif
+diff --git a/tools/arch/x86/pmtctl/include/pmtctl_cli.h b/tools/arch/x86/pm=
+tctl/include/pmtctl_cli.h
+index 9551c581cf1b..eb8537c794b4 100644
+--- a/tools/arch/x86/pmtctl/include/pmtctl_cli.h
++++ b/tools/arch/x86/pmtctl/include/pmtctl_cli.h
+@@ -14,5 +14,6 @@ struct pmt_global_opts {
+ };
+=20
+ int cmd_list(int argc, char **argv, const struct pmt_global_opts *gopts);
++int cmd_stat(int argc, char **argv, const struct pmt_global_opts *gopts);
+=20
+ #endif
+diff --git a/tools/arch/x86/pmtctl/lib/device_telem.c b/tools/arch/x86/pmtc=
+tl/lib/device_telem.c
+index 0e249f16a21a..2f728514abe5 100644
+--- a/tools/arch/x86/pmtctl/lib/device_telem.c
++++ b/tools/arch/x86/pmtctl/lib/device_telem.c
+@@ -11,6 +11,8 @@
+ #include <string.h>
+ #include <unistd.h>
+=20
++#include <linux/bits.h>
 +
-+#include <stddef.h>
-+#include <stdint.h>
-+
-+/* Every PMT telemetry sample is one 64-bit word */
-+#define PMT_SAMPLE_BITS		64
-+
-+/* A metric: bits [lsb, msb] of sample sample_id */
-+struct pmt_metric_def {
-+	char *name;
-+	char *description;	/* may be NULL */
-+	uint32_t sample_id;
-+	unsigned int lsb;
-+	unsigned int msb;
-+};
-+
-+/*
-+ * The telemetry semantic space (TSS) identified by a GUID: the meaning of
-+ * the samples in a telemetry region with that GUID.
-+ */
-+struct pmt_tss_info {
-+	uint32_t guid;
-+	char *platform;		/* may be NULL */
-+	char *description;	/* may be NULL */
-+	struct pmt_metric_def *metrics;	/* sorted by name */
-+	size_t num_metrics;
-+};
-+
-+/* The telemetry semantic spaces with known metric definitions */
-+struct pmt_tss_db {
-+	struct pmt_tss_info *tss_info;	/* sorted by GUID */
-+	size_t num_tss_info;
-+};
-+
-+int pmt_tss_db_load_json(const char *path, struct pmt_tss_db *db);
-+void pmt_tss_info_free(struct pmt_tss_info *info);
-+void pmt_tss_db_free(struct pmt_tss_db *db);
-+const struct pmt_tss_info *pmt_tss_db_lookup(const struct pmt_tss_db *db, =
-uint32_t guid);
-+
-+#endif
-diff --git a/tools/arch/x86/pmtctl/lib/pmtctl.c b/tools/arch/x86/pmtctl/lib=
-/pmtctl.c
-index 9a6fd2a303f4..b218bac15824 100644
---- a/tools/arch/x86/pmtctl/lib/pmtctl.c
-+++ b/tools/arch/x86/pmtctl/lib/pmtctl.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0-only
+ #include "lib/common.h"
  #include "lib/device.h"
- #include "lib/pmtctl.h"
-+#include "lib/tss.h"
+ #include "lib/log.h"
+@@ -90,6 +92,7 @@ static int telem_add_device(struct telem_scan *scan, cons=
+t char *devpath, const
+ 	char *data_path auto_free =3D NULL;
+ 	struct pmt_device *devices;
+ 	uint32_t guid;
++	uint32_t size;
+ 	int ret;
 =20
- /**
-  * pmtctl_ctx_init - discover PMT devices
-@@ -16,6 +17,7 @@ int pmtctl_ctx_init(struct pmtctl_ctx *ctx)
+ 	ret =3D read_attr_u32(devpath, "guid", 16, &guid);
+@@ -98,6 +101,12 @@ static int telem_add_device(struct telem_scan *scan, co=
+nst char *devpath, const
+ 		return 0;
+ 	}
 =20
- void pmtctl_ctx_free(struct pmtctl_ctx *ctx)
- {
-+	pmt_tss_db_free(&ctx->tss);
- 	telem_free(ctx->devices, ctx->num_devices);
- 	ctx->devices =3D NULL;
- 	ctx->num_devices =3D 0;
-diff --git a/tools/arch/x86/pmtctl/lib/tss.c b/tools/arch/x86/pmtctl/lib/ts=
-s.c
-new file mode 100644
-index 000000000000..7555b76c3ded
---- /dev/null
-+++ b/tools/arch/x86/pmtctl/lib/tss.c
-@@ -0,0 +1,45 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+#include <stdlib.h>
-+
-+#include "lib/tss.h"
-+
-+void pmt_tss_info_free(struct pmt_tss_info *info)
-+{
-+	for (size_t i =3D 0; i < info->num_metrics; i++) {
-+		free(info->metrics[i].name);
-+		free(info->metrics[i].description);
++	ret =3D read_attr_u32(devpath, "size", 10, &size);
++	if (ret) {
++		log_warn("skipping %s: unable to read size: %s", devpath, strerror(-ret)=
+);
++		return 0;
 +	}
-+	free(info->metrics);
-+	free(info->platform);
-+	free(info->description);
++
+ 	dev_name =3D strdup(name);
+ 	if (!dev_name)
+ 		return -ENOMEM;
+@@ -119,6 +128,7 @@ static int telem_add_device(struct telem_scan *scan, co=
+nst char *devpath, const
+ 		.guid =3D guid,
+ 		.name =3D no_free_ptr(dev_name),
+ 		.data_path =3D no_free_ptr(data_path),
++		.size =3D size,
+ 	};
+=20
+ 	return 0;
+@@ -246,3 +256,42 @@ void telem_free(struct pmt_device *devices, size_t num=
+_devices)
+ 	}
+ 	free(devices);
+ }
++
++/* Return: a file descriptor for reading the telemetry of @dev, or a negat=
+ive errno */
++int telem_open(const struct pmt_device *dev)
++{
++	int fd;
++
++	fd =3D open(dev->data_path, O_RDONLY);
++	if (fd < 0)
++		return -errno;
++
++	return fd;
 +}
 +
-+void pmt_tss_db_free(struct pmt_tss_db *db)
++/**
++ * telem_read - read a field of a telemetry sample
++ * @fd:        file descriptor from telem_open()
++ * @sample_id: index of the 64-bit sample in the telemetry region
++ * @lsb:       lowest bit of the field
++ * @msb:       highest bit of the field, at most 63
++ * @val:       returns the field, shifted down to bit 0
++ *
++ * Return: 0 on success, or a negative errno if the sample can't be read.
++ */
++int telem_read(int fd, uint32_t sample_id, unsigned int lsb, unsigned int =
+msb, uint64_t *val)
 +{
-+	for (size_t i =3D 0; i < db->num_tss_info; i++)
-+		pmt_tss_info_free(&db->tss_info[i]);
-+	free(db->tss_info);
++	uint64_t sample;
++	ssize_t n;
 +
-+	*db =3D (struct pmt_tss_db){};
-+}
++	n =3D pread(fd, &sample, sizeof(sample), sample_id * sizeof(sample));
++	if (n < 0)
++		return -errno;
 +
-+static int tss_info_guid_cmp(const void *key, const void *elem)
-+{
-+	const uint32_t *guid =3D key;
-+	const struct pmt_tss_info *info =3D elem;
++	if ((size_t)n !=3D sizeof(sample))
++		return -EIO;
 +
-+	if (*guid !=3D info->guid)
-+		return *guid < info->guid ? -1 : 1;
++	*val =3D (sample & GENMASK_ULL(msb, lsb)) >> lsb;
 +
 +	return 0;
 +}
-+
-+/* Return: the entry for @guid, or NULL if no definitions were loaded for =
-it */
-+const struct pmt_tss_info *pmt_tss_db_lookup(const struct pmt_tss_db *db, =
-uint32_t guid)
-+{
-+	if (!db->num_tss_info)
-+		return NULL;
-+
-+	return bsearch(&guid, db->tss_info, db->num_tss_info, sizeof(*db->tss_inf=
-o),
-+		       tss_info_guid_cmp);
-+}
-diff --git a/tools/arch/x86/pmtctl/lib/tss_json.c b/tools/arch/x86/pmtctl/l=
-ib/tss_json.c
+diff --git a/tools/arch/x86/pmtctl/src/cmd_stat.c b/tools/arch/x86/pmtctl/s=
+rc/cmd_stat.c
 new file mode 100644
-index 000000000000..32343f233aff
+index 000000000000..11a2ab1fa341
 --- /dev/null
-+++ b/tools/arch/x86/pmtctl/lib/tss_json.c
-@@ -0,0 +1,406 @@
++++ b/tools/arch/x86/pmtctl/src/cmd_stat.c
+@@ -0,0 +1,753 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * Load metric definitions from the JSON files written by
-+ * scripts/pmtxml2json.py: one pmt_<guid>.json per telemetry semantic
-+ * space, with the GUID's platform, description and events.
++ * pmtctl stat: sample metrics of the PMT telemetry devices over time
 + */
-+#include <dirent.h>
 +#include <errno.h>
-+#include <jansson.h>
++#include <getopt.h>
++#include <inttypes.h>
 +#include <limits.h>
++#include <signal.h>
 +#include <stdbool.h>
 +#include <stdint.h>
 +#include <stdio.h>
 +#include <stdlib.h>
 +#include <string.h>
-+#include <sys/stat.h>
++#include <time.h>
++#include <unistd.h>
++
++#include <linux/kernel.h>
++#include <linux/time64.h>
 +
 +#include "lib/common.h"
++#include "lib/device.h"
 +#include "lib/log.h"
++#include "lib/pmtctl.h"
 +#include "lib/tss.h"
++#include "pmtctl_cli.h"
 +
-+static bool is_regular_file(const char *path)
++#define STAT_DEFAULT_INTERVAL_MS	1000
++
++/* Printed instead of a value the device doesn't have, or that couldn't be=
+ read */
++#define STAT_VAL_ABSENT		"-"
++#define STAT_VAL_FAILED		"NaN"
++
++/* Room for any formatted value: the digits of UINT64_MAX, or a marker abo=
+ve */
++#define STAT_VALUE_LEN		20
++#define STAT_NUM_BUF		(STAT_VALUE_LEN + 1)
++
++/* Column titles; each column is at least as wide as its title */
++#define STAT_COL_SAMPLE		"sample"
++#define STAT_COL_TIME		"time_ms"
++#define STAT_COL_DEVICE		"device"
++#define STAT_COL_METRIC		"metric"
++#define STAT_COL_VALUE		"value"
++
++#define STAT_COL_GAP		"  "
++
++/* Values for long-only options, above any short option character */
++enum {
++	OPT_STAT_GUID =3D CHAR_MAX + 1,
++	OPT_STAT_DEVICE,
++	OPT_STAT_NO_HEADER,
++	OPT_STAT_VERTICAL,
++};
++
++/* A value to sample on each device */
++struct stat_request {
++	const char *name;	/* metric name */
++};
++
++struct stat_opts {
++	bool show_help;
++	struct stat_request *requests;
++	size_t num_requests;
++	size_t requests_cap;
++	struct pmt_device_filter filter;
++	uint32_t interval_ms;
++	uint32_t count;		/* number of samples, 0 until interrupted */
++	bool no_header;
++	bool vertical;
++};
++
++/* The value of one request on one device */
++struct stat_cell {
++	bool present;		/* the device has the requested value */
++	uint32_t sample_id;
++	unsigned int lsb;
++	unsigned int msb;
++	bool valid;		/* false if the last read failed */
++	bool reported;		/* a read failure has been reported */
++	uint64_t value;
++};
++
++/* A device and the cells of its requests */
++struct stat_row {
++	const struct pmt_device *dev;
++	int fd;
++	struct stat_cell *cells;
++};
++
++struct stat_run {
++	struct stat_opts opts;
++	struct pmtctl_ctx ctx;
++	struct stat_row *rows;
++	size_t num_rows;
++	struct stat_cell *cells;
++	size_t dev_width;	/* width of the device column */
++	size_t label_width;	/* width of the metric column in --vertical */
++};
++
++static void stat_run_free(struct stat_run *run)
 +{
-+	struct stat st;
-+
-+	if (stat(path, &st))
-+		return false;
-+
-+	return S_ISREG(st.st_mode);
++	for (size_t i =3D 0; i < run->num_rows; i++) {
++		if (run->rows[i].fd >=3D 0)
++			close(run->rows[i].fd);
++	}
++	free(run->rows);
++	free(run->cells);
++	free(run->opts.requests);
++	pmtctl_ctx_free(&run->ctx);
 +}
 +
-+static const char *obj_get_string(json_t *obj, const char *key)
++/* Free the run with stat_run_free() at scope exit */
++#define auto_stat_run __attribute__((cleanup(stat_run_free)))
++
++static void stat_usage_full(FILE *out)
 +{
-+	return json_string_value(json_object_get(obj, key));
++	fprintf(out,
++		"Usage: pmtctl stat [options] -e <metric>[,<metric>...] ...\n"
++		"\n"
++		"Collect metric values over time (similar to 'perf stat').\n"
++		"\n"
++		"Options:\n"
++		"  -h, --help              Show this help.\n"
++		"  -e, --event <spec>      Metric name or comma-separated list; may be r=
+epeated.\n"
++		"      --guid <hex>        Restrict to devices with this GUID.\n"
++		"      --device <name>     Restrict to one device, e.g. telem3.\n"
++		"  -i, --interval <ms>     Sampling interval (default 1000 ms).\n"
++		"  -c, --count <N>         Number of samples (default infinite).\n"
++		"      --no-header         Don't print the header.\n"
++		"      --vertical          One line per value per sample: sample time_ms=
+ device\n"
++		"                          metric value. Required for more than one valu=
+e.\n"
++		"\n"
++		"Devices without any requested value are left out. With --vertical, a\n"
++		"value a device doesn't have prints as -; one that can't be read, NaN.\n"
++		"\n"
++		"Examples:\n"
++		"  pmtctl stat -e package_energy\n"
++		"  pmtctl stat -e package_energy --interval 500\n"
++		"  pmtctl stat -e firmware_version -c 1\n"
++		"  pmtctl stat -e pch_temp --guid 03086000\n"
++		"  pmtctl stat --vertical -e package_energy,pch_temp\n"
++	);
 +}
 +
-+/* Read the integer @key of @obj into @val if it is in the range [0, @max]=
- */
-+static int obj_get_uint(json_t *obj, const char *key, uint32_t max, uint32=
-_t *val)
++static void stat_usage_short(FILE *out)
 +{
-+	json_t *v =3D json_object_get(obj, key);
-+	json_int_t n;
-+
-+	if (!json_is_integer(v))
-+		return -EINVAL;
-+
-+	n =3D json_integer_value(v);
-+	if (n < 0 || n > max)
-+		return -ERANGE;
-+
-+	*val =3D n;
-+
-+	return 0;
++	fprintf(out,
++		"Usage: pmtctl stat [options] -e <metric>[,<metric>...] ...\n"
++		"\n"
++		"Run 'pmtctl stat --help' for full help.\n"
++	);
 +}
 +
-+/* Duplicate @s into @dst, or set @dst to NULL if @s is NULL */
-+static int dup_optional(const char *s, char **dst)
++static int add_request(struct stat_opts *opts, const struct stat_request *=
+req)
 +{
-+	*dst =3D NULL;
-+	if (!s)
-+		return 0;
++	struct stat_request *requests;
 +
-+	*dst =3D strdup(s);
-+	if (!*dst)
++	requests =3D pmt_grow_array(opts->requests, &opts->requests_cap, opts->nu=
+m_requests + 1,
++				  sizeof(*requests));
++	if (!requests)
 +		return -ENOMEM;
 +
++	opts->requests =3D requests;
++	requests[opts->num_requests++] =3D *req;
++
 +	return 0;
 +}
 +
-+/* Read the sample and bit range of an event into @def */
-+static int parse_location(json_t *ev, struct pmt_metric_def *def)
++/* Add the metrics of an -e argument, which is split in place at the comma=
+s */
++static int add_metric_requests(struct stat_opts *opts, char *arg)
 +{
-+	uint32_t sample_id, lsb, msb;
++	char *saveptr;
++	char *name;
 +	int ret;
 +
-+	ret =3D obj_get_uint(ev, "sample_id", UINT32_MAX, &sample_id);
-+	if (ret)
-+		return ret;
-+
-+	ret =3D obj_get_uint(ev, "lsb", PMT_SAMPLE_BITS - 1, &lsb);
-+	if (ret)
-+		return ret;
-+
-+	ret =3D obj_get_uint(ev, "msb", PMT_SAMPLE_BITS - 1, &msb);
-+	if (ret)
-+		return ret;
-+
-+	if (lsb > msb)
-+		return -EINVAL;
-+
-+	def->sample_id =3D sample_id;
-+	def->lsb =3D lsb;
-+	def->msb =3D msb;
-+
-+	return 0;
-+}
-+
-+/* Fill @def from event @idx of @path. On failure @def may be partly fille=
-d. */
-+/*
-+ * Fill @def from event @ev. On failure @def may be partly filled; the
-+ * caller frees it with the rest of the metrics array.
-+ */
-+static int parse_event(json_t *ev, const char *path, size_t idx, struct pm=
-t_metric_def *def)
-+{
-+	const char *name;
-+	int ret;
-+
-+	name =3D obj_get_string(ev, "EventName");
-+	if (!name) {
-+		log_err("%s: event %zu: missing EventName", path, idx);
-+		return -EINVAL;
-+	}
-+
-+	ret =3D parse_location(ev, def);
-+	if (ret) {
-+		log_err("%s: event %zu (%s): missing or invalid sample_id, lsb or msb",
-+			path, idx, name);
-+		return ret;
-+	}
-+
-+	def->name =3D strdup(name);
-+	if (!def->name)
-+		return -ENOMEM;
-+
-+	return dup_optional(obj_get_string(ev, "description"), &def->description);
-+}
-+
-+static int metric_cmp(const void *a, const void *b)
-+{
-+	const struct pmt_metric_def *ma =3D a;
-+	const struct pmt_metric_def *mb =3D b;
-+
-+	return strcmp(ma->name, mb->name);
-+}
-+
-+/* Sort the metrics of @info by name and reject duplicate names */
-+static int sort_metrics(struct pmt_tss_info *info, const char *path)
-+{
-+	if (!info->num_metrics)
-+		return 0;
-+
-+	qsort(info->metrics, info->num_metrics, sizeof(*info->metrics), metric_cm=
-p);
-+
-+	for (size_t i =3D 1; i < info->num_metrics; i++) {
-+		if (!strcmp(info->metrics[i - 1].name, info->metrics[i].name)) {
-+			log_err("%s: event %s is defined more than once", path,
-+				info->metrics[i].name);
-+			return -EINVAL;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int parse_file_guid(json_t *root, const char *path, uint32_t *guid)
-+{
-+	const char *s;
-+
-+	s =3D obj_get_string(root, "guid");
-+	if (!s || parse_u32(s, 0, guid)) {
-+		log_err("%s: missing or invalid guid", path);
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+/*
-+ * Add the telemetry semantic space of @root. @db->tss_info has room for o=
-ne
-+ * more entry. On failure nothing is added.
-+ */
-+static int parse_file(struct pmt_tss_db *db, json_t *root, const char *pat=
-h)
-+{
-+	struct pmt_tss_info info =3D {};
-+	json_t *events;
-+	json_t *ev;
-+	size_t idx;
-+	int ret;
-+
-+	if (!json_is_object(root)) {
-+		log_err("%s: expected an object", path);
-+		return -EINVAL;
-+	}
-+
-+	ret =3D parse_file_guid(root, path, &info.guid);
-+	if (ret)
-+		return ret;
-+
-+	events =3D json_object_get(root, "events");
-+	if (!json_is_array(events)) {
-+		log_err("%s: missing events array", path);
-+		return -EINVAL;
-+	}
-+
-+	if (json_array_size(events)) {
-+		info.metrics =3D calloc(json_array_size(events), sizeof(*info.metrics));
-+		if (!info.metrics)
-+			return -ENOMEM;
-+
-+		/* Zeroed, so pmt_tss_info_free() can free a partly parsed array */
-+		info.num_metrics =3D json_array_size(events);
-+	}
-+
-+	ret =3D dup_optional(obj_get_string(root, "platform"), &info.platform);
-+	if (ret)
-+		goto err_free;
-+
-+	ret =3D dup_optional(obj_get_string(root, "description"), &info.descripti=
-on);
-+	if (ret)
-+		goto err_free;
-+
-+	json_array_foreach(events, idx, ev) {
-+		ret =3D parse_event(ev, path, idx, &info.metrics[idx]);
++	for (name =3D strtok_r(arg, ",", &saveptr); name; name =3D strtok_r(NULL,=
+ ",", &saveptr)) {
++		ret =3D add_request(opts, &(struct stat_request){ .name =3D name });
 +		if (ret)
-+			goto err_free;
++			return ret;
 +	}
 +
-+	ret =3D sort_metrics(&info, path);
-+	if (ret)
-+		goto err_free;
-+
-+	db->tss_info[db->num_tss_info++] =3D info;
-+
 +	return 0;
-+
-+err_free:
-+	pmt_tss_info_free(&info);
-+
-+	return ret;
 +}
 +
-+/* Read @path into *@root. fopen() rather than json_load_file() keeps its =
-errno. */
-+static int read_json_file(const char *path, json_t **root)
++/* Parse a positive number of option @opt */
++static int parse_positive(const char *arg, const char *opt, uint32_t *val)
 +{
-+	json_error_t error;
-+	FILE *fp;
-+
-+	fp =3D fopen(path, "r");
-+	if (!fp)
-+		return log_ret(-errno, "unable to open %s", path);
-+
-+	*root =3D json_loadf(fp, 0, &error);
-+	fclose(fp);
-+	if (!*root) {
-+		log_err("%s: line %d: %s", path, error.line, error.text);
++	if (parse_u32(arg, 10, val) || !*val) {
++		log_err("%s must be a positive number, not '%s'", opt, arg);
 +		return -EINVAL;
 +	}
 +
 +	return 0;
 +}
 +
-+static int load_file(struct pmt_tss_db *db, const char *path)
++static int stat_parse_options(struct stat_opts *opts, int argc, char **arg=
+v)
 +{
-+	json_t *root;
++	static const struct option long_opts[] =3D {
++		{ "help",	no_argument,		NULL, 'h' },
++		{ "event",	required_argument,	NULL, 'e' },
++		{ "guid",	required_argument,	NULL, OPT_STAT_GUID },
++		{ "device",	required_argument,	NULL, OPT_STAT_DEVICE },
++		{ "interval",	required_argument,	NULL, 'i' },
++		{ "count",	required_argument,	NULL, 'c' },
++		{ "no-header",	no_argument,		NULL, OPT_STAT_NO_HEADER },
++		{ "vertical",	no_argument,		NULL, OPT_STAT_VERTICAL },
++		{}
++	};
++	int opt;
 +	int ret;
 +
-+	ret =3D read_json_file(path, &root);
-+	if (ret)
-+		return ret;
++	optind =3D 1;
 +
-+	ret =3D parse_file(db, root, path);
-+	json_decref(root);
-+
-+	return ret;
-+}
-+
-+/* Select the definition files of a directory: *.json, except hidden files=
- */
-+static int is_definition_file(const struct dirent *de)
-+{
-+	const char *ext =3D strrchr(de->d_name, '.');
-+
-+	if (de->d_name[0] =3D=3D '.')
-+		return 0;
-+
-+	return ext && !strcmp(ext, ".json");
-+}
-+
-+static int load_dir_entry(struct pmt_tss_db *db, const char *dir, const ch=
-ar *name)
-+{
-+	char path[PATH_MAX];
-+	int ret;
-+
-+	ret =3D path_printf(path, sizeof(path), "%s/%s", dir, name);
-+	if (ret) {
-+		log_err("%s/%s: path too long", dir, name);
-+		return ret;
-+	}
-+
-+	if (!is_regular_file(path))
-+		return 0;
-+
-+	return load_file(db, path);
-+}
-+
-+/*
-+ * Load every definition file in @dir, in name order. A file that fails to
-+ * load is reported and the remaining files are still checked, but the load
-+ * as a whole fails.
-+ */
-+static int load_dir(struct pmt_tss_db *db, const char *dir)
-+{
-+	struct dirent **names;
-+	int ret =3D 0;
-+	int n;
-+
-+	n =3D scandir(dir, &names, is_definition_file, alphasort);
-+	if (n < 0)
-+		return log_ret(-errno, "unable to read %s", dir);
-+
-+	/* Each file adds at most one entry */
-+	if (n) {
-+		db->tss_info =3D calloc(n, sizeof(*db->tss_info));
-+		if (!db->tss_info) {
-+			ret =3D -ENOMEM;
-+			goto out_free_names;
-+		}
-+	}
-+
-+	for (int i =3D 0; i < n; i++) {
-+		int err;
-+
-+		err =3D load_dir_entry(db, dir, names[i]->d_name);
-+		if (err =3D=3D -ENOMEM) {
-+			ret =3D err;
++	while ((opt =3D getopt_long(argc, argv, "he:i:c:", long_opts, NULL)) !=3D=
+ -1) {
++		switch (opt) {
++		case 'h':
++			opts->show_help =3D true;
++			return 0;
++		case 'e':
++			ret =3D add_metric_requests(opts, optarg);
++			if (ret)
++				return log_ret(ret, "unable to add metrics");
 +			break;
-+		}
-+
-+		if (err)
-+			ret =3D err;
-+	}
-+
-+out_free_names:
-+	for (int i =3D 0; i < n; i++)
-+		free(names[i]);
-+	free(names);
-+
-+	return ret;
-+}
-+
-+static int tss_info_cmp(const void *a, const void *b)
-+{
-+	const struct pmt_tss_info *ia =3D a;
-+	const struct pmt_tss_info *ib =3D b;
-+
-+	if (ia->guid !=3D ib->guid)
-+		return ia->guid < ib->guid ? -1 : 1;
-+
-+	return 0;
-+}
-+
-+/* Check that no two files of directory @path define the same GUID; @db is=
- sorted */
-+static int check_unique_guids(const struct pmt_tss_db *db, const char *pat=
-h)
-+{
-+	for (size_t i =3D 1; i < db->num_tss_info; i++) {
-+		if (db->tss_info[i].guid =3D=3D db->tss_info[i - 1].guid) {
-+			log_err("guid 0x%08x is defined by more than one file in %s",
-+				db->tss_info[i].guid, path);
++		case OPT_STAT_GUID:
++			if (pmt_device_filter_set_guid(&opts->filter, optarg))
++				return -EINVAL;
++			break;
++		case OPT_STAT_DEVICE:
++			opts->filter.name =3D optarg;
++			break;
++		case 'i':
++			ret =3D parse_positive(optarg, "interval", &opts->interval_ms);
++			if (ret)
++				return ret;
++			break;
++		case 'c':
++			ret =3D parse_positive(optarg, "count", &opts->count);
++			if (ret)
++				return ret;
++			break;
++		case OPT_STAT_NO_HEADER:
++			opts->no_header =3D true;
++			break;
++		case OPT_STAT_VERTICAL:
++			opts->vertical =3D true;
++			break;
++		default:
 +			return -EINVAL;
 +		}
 +	}
 +
++	if (optind !=3D argc) {
++		log_err("unexpected extra arguments to 'stat'");
++		return -EINVAL;
++	}
++
++	if (!opts->num_requests) {
++		log_err("requires -e/--event");
++		return -EINVAL;
++	}
++
++	if (opts->num_requests > 1 && !opts->vertical) {
++		log_err("more than one value needs --vertical");
++		return -EINVAL;
++	}
++
 +	return 0;
 +}
 +
-+/**
-+ * pmt_tss_db_load_json - load metric definitions
-+ * @path: a definition file, or a directory of them
-+ * @db:   zero-initialized, filled on success
-+ *
-+ * Return: 0 on success, or a negative errno with @db left empty.
-+ */
-+int pmt_tss_db_load_json(const char *path, struct pmt_tss_db *db)
++static int metric_name_cmp(const void *key, const void *elem)
 +{
-+	struct stat st;
++	const struct pmt_metric_def *def =3D elem;
++
++	return strcmp(key, def->name);
++}
++
++/* Return: whether 64-bit sample @sample_id is inside the telemetry region=
+ of @dev */
++static bool sample_in_region(const struct pmt_device *dev, uint32_t sample=
+_id)
++{
++	return (sample_id + 1ULL) * sizeof(uint64_t) <=3D dev->size;
++}
++
++/* Find where the value of @req is in the telemetry of @dev */
++static void resolve_request(const struct pmtctl_ctx *ctx, const struct pmt=
+_device *dev,
++			    const struct stat_request *req, struct stat_cell *cell)
++{
++	const struct pmt_tss_info *info;
++	const struct pmt_metric_def *def;
++
++	*cell =3D (struct stat_cell){};
++
++	info =3D pmt_tss_db_lookup(&ctx->tss, dev->guid);
++	if (!info || !info->num_metrics)
++		return;
++
++	def =3D bsearch(req->name, info->metrics, info->num_metrics, sizeof(*info=
+->metrics),
++		      metric_name_cmp);
++	if (!def)
++		return;
++
++	cell->present =3D true;
++	cell->sample_id =3D def->sample_id;
++	cell->lsb =3D def->lsb;
++	cell->msb =3D def->msb;
++}
++
++/*
++ * Build a row for each of @devs that has at least one of the requested
++ * values. Every request must be present on some device. On success the
++ * rows are handed to @run.
++ */
++static int build_rows(struct stat_run *run, const struct pmt_device **devs=
+, size_t num_devs)
++{
++	struct stat_cell *cells auto_free =3D NULL;
++	struct stat_row *rows auto_free =3D NULL;
++	bool *found auto_free =3D NULL;
++	const size_t num_requests =3D run->opts.num_requests;
++	size_t num_rows =3D 0;
++
++	rows =3D calloc(num_devs, sizeof(*rows));
++	cells =3D calloc(num_devs * num_requests, sizeof(*cells));
++	found =3D calloc(num_requests, sizeof(*found));
++	if (!rows || !cells || !found)
++		return -ENOMEM;
++
++	for (size_t d =3D 0; d < num_devs; d++) {
++		/* A device without any requested value gives its slot to the next one */
++		struct stat_row *row =3D &rows[num_rows];
++		bool any =3D false;
++
++		row->dev =3D devs[d];
++		row->fd =3D -1;
++		row->cells =3D &cells[num_rows * num_requests];
++
++		for (size_t r =3D 0; r < num_requests; r++) {
++			resolve_request(&run->ctx, devs[d], &run->opts.requests[r], &row->cells=
+[r]);
++			if (row->cells[r].present) {
++				found[r] =3D true;
++				any =3D true;
++			}
++		}
++
++		if (any)
++			num_rows++;
++	}
++
++	for (size_t r =3D 0; r < num_requests; r++) {
++		if (!found[r]) {
++			log_err("no selected device has metric '%s'",
++				run->opts.requests[r].name);
++			return -ENOENT;
++		}
++	}
++
++	run->rows =3D no_free_ptr(rows);
++	run->cells =3D no_free_ptr(cells);
++	run->num_rows =3D num_rows;
++
++	return 0;
++}
++
++/* Check that every value to sample is inside the telemetry region of its =
+device */
++static int check_bounds(const struct stat_run *run)
++{
++	for (size_t d =3D 0; d < run->num_rows; d++) {
++		const struct stat_row *row =3D &run->rows[d];
++
++		for (size_t r =3D 0; r < run->opts.num_requests; r++) {
++			const struct stat_cell *cell =3D &row->cells[r];
++
++			if (!cell->present)
++				continue;
++
++			if (!sample_in_region(row->dev, cell->sample_id)) {
++				log_err("%s: sample %" PRIu32 " of '%s' is beyond the %" PRIu32
++					"-byte telemetry region", row->dev->name, cell->sample_id,
++					run->opts.requests[r].name, row->dev->size);
++				return -ERANGE;
++			}
++		}
++	}
++
++	return 0;
++}
++
++/*
++ * Open the telemetry file of each row's device, once for the whole run. T=
+he
++ * files are closed by stat_run_free().
++ */
++static int open_telem_files(struct stat_run *run)
++{
++	for (size_t d =3D 0; d < run->num_rows; d++) {
++		struct stat_row *row =3D &run->rows[d];
++
++		row->fd =3D telem_open(row->dev);
++		if (row->fd =3D=3D -EACCES || row->fd =3D=3D -EPERM) {
++			log_err("permission denied reading %s; reading telemetry requires root",
++				row->dev->data_path);
++			return row->fd;
++		}
++
++		if (row->fd < 0)
++			return log_ret(row->fd, "unable to open %s", row->dev->data_path);
++	}
++
++	return 0;
++}
++
++/* Print @s in a column of @width, aligned to the right if @right */
++static void print_column(const char *s, size_t width, bool right)
++{
++	size_t len =3D strlen(s);
++	size_t pad =3D len < width ? width - len : 0;
++
++	if (right)
++		print_chars(' ', pad);
++	fputs(s, stdout);
++	if (!right)
++		print_chars(' ', pad);
++}
++
++static const char *format_value(const struct stat_cell *cell, char *buf, s=
+ize_t len)
++{
++	if (!cell->present)
++		return STAT_VAL_ABSENT;
++
++	if (!cell->valid)
++		return STAT_VAL_FAILED;
++
++	snprintf(buf, len, "%" PRIu64, cell->value);
++
++	return buf;
++}
++
++/* In the horizontal layout the value column is headed by its one value's =
+label */
++static size_t value_width(const struct stat_run *run)
++{
++	size_t width =3D STAT_VALUE_LEN;
++	size_t len =3D strlen(run->opts.requests[0].name);
++
++	if (!run->opts.vertical && len > width)
++		width =3D len;
++
++	return width;
++}
++
++/* Print the start of a line: sample, time and device columns */
++static void print_line_start(const struct stat_run *run, const char *sampl=
+e, const char *time,
++			     const char *dev)
++{
++	print_column(sample, strlen(STAT_COL_SAMPLE), false);
++	fputs(STAT_COL_GAP, stdout);
++	print_column(time, strlen(STAT_COL_TIME), false);
++	fputs(STAT_COL_GAP, stdout);
++	print_column(dev, run->dev_width, false);
++	fputs(STAT_COL_GAP, stdout);
++}
++
++static void print_header_dashes(const struct stat_run *run)
++{
++	print_chars('-', strlen(STAT_COL_SAMPLE));
++	fputs(STAT_COL_GAP, stdout);
++	print_chars('-', strlen(STAT_COL_TIME));
++	fputs(STAT_COL_GAP, stdout);
++	print_chars('-', run->dev_width);
++	fputs(STAT_COL_GAP, stdout);
++}
++
++static void print_header(const struct stat_run *run)
++{
++	if (run->opts.no_header)
++		return;
++
++	print_line_start(run, STAT_COL_SAMPLE, STAT_COL_TIME, STAT_COL_DEVICE);
++	if (run->opts.vertical) {
++		print_column(STAT_COL_METRIC, run->label_width, false);
++		fputs(STAT_COL_GAP STAT_COL_VALUE "\n", stdout);
++	} else {
++		print_column(run->opts.requests[0].name, value_width(run), true);
++		putchar('\n');
++	}
++
++	print_header_dashes(run);
++	if (run->opts.vertical) {
++		print_chars('-', run->label_width);
++		fputs(STAT_COL_GAP, stdout);
++	}
++	print_chars('-', value_width(run));
++	putchar('\n');
++	fflush(stdout);
++}
++
++static void print_sample(const struct stat_run *run, uint64_t sample, uint=
+64_t time_ms)
++{
++	char sample_buf[STAT_NUM_BUF];
++	char time_buf[STAT_NUM_BUF];
++	char value_buf[STAT_NUM_BUF];
++
++	snprintf(sample_buf, sizeof(sample_buf), "%" PRIu64, sample);
++	snprintf(time_buf, sizeof(time_buf), "%" PRIu64, time_ms);
++
++	for (size_t d =3D 0; d < run->num_rows; d++) {
++		const struct stat_row *row =3D &run->rows[d];
++
++		for (size_t r =3D 0; r < run->opts.num_requests; r++) {
++			const char *value;
++
++			value =3D format_value(&row->cells[r], value_buf, sizeof(value_buf));
++
++			print_line_start(run, sample_buf, time_buf, row->dev->name);
++			if (run->opts.vertical) {
++				print_column(run->opts.requests[r].name, run->label_width, false);
++				fputs(STAT_COL_GAP, stdout);
++				fputs(value, stdout);
++			} else {
++				print_column(value, value_width(run), true);
++			}
++			putchar('\n');
++		}
++	}
++
++	fflush(stdout);
++}
++
++static void set_column_widths(struct stat_run *run)
++{
++	run->dev_width =3D strlen(STAT_COL_DEVICE);
++	for (size_t d =3D 0; d < run->num_rows; d++)
++		run->dev_width =3D max(run->dev_width, strlen(run->rows[d].dev->name));
++
++	run->label_width =3D strlen(STAT_COL_METRIC);
++	for (size_t r =3D 0; r < run->opts.num_requests; r++)
++		run->label_width =3D max(run->label_width, strlen(run->opts.requests[r].=
+name));
++}
++
++/* Read every present cell; return the last read error, or 0 */
++/* Read the present values of every row. Return: whether any value was rea=
+d */
++static bool read_cells(struct stat_run *run)
++{
++	bool any_read =3D false;
++
++	for (size_t d =3D 0; d < run->num_rows; d++) {
++		struct stat_row *row =3D &run->rows[d];
++
++		for (size_t r =3D 0; r < run->opts.num_requests; r++) {
++			struct stat_cell *cell =3D &row->cells[r];
++			int ret;
++
++			if (!cell->present)
++				continue;
++
++			ret =3D telem_read(row->fd, cell->sample_id, cell->lsb, cell->msb,
++					 &cell->value);
++			cell->valid =3D !ret;
++			if (!ret) {
++				any_read =3D true;
++				continue;
++			}
++
++			/* Report each failing value once, not on every sample */
++			if (!cell->reported) {
++				log_warn("%s: unable to read sample %" PRIu32 ": %s",
++					 row->dev->name, cell->sample_id, strerror(-ret));
++				cell->reported =3D true;
++			}
++		}
++	}
++
++	return any_read;
++}
++
++/* Return: @a - @b. @a must not be earlier than @b. */
++static struct timespec timespec_sub(const struct timespec *a, const struct=
+ timespec *b)
++{
++	struct timespec d =3D {
++		.tv_sec =3D a->tv_sec - b->tv_sec,
++		.tv_nsec =3D a->tv_nsec - b->tv_nsec,
++	};
++
++	if (d.tv_nsec < 0) {
++		d.tv_sec--;
++		d.tv_nsec +=3D NSEC_PER_SEC;
++	}
++
++	return d;
++}
++
++/*
++ * Return: the milliseconds from @start to @now. @now must not be earlier
++ * than @start, as with two readings of CLOCK_MONOTONIC.
++ */
++static uint64_t ms_between(const struct timespec *start, const struct time=
+spec *now)
++{
++	struct timespec d =3D timespec_sub(now, start);
++	uint64_t sec =3D d.tv_sec;
++
++	return sec * MSEC_PER_SEC + d.tv_nsec / NSEC_PER_MSEC;
++}
++
++static void timespec_add_ms(struct timespec *ts, uint32_t ms)
++{
++	ts->tv_sec +=3D ms / MSEC_PER_SEC;
++	ts->tv_nsec +=3D ms % MSEC_PER_SEC * NSEC_PER_MSEC;
++	if (ts->tv_nsec >=3D NSEC_PER_SEC) {
++		ts->tv_sec++;
++		ts->tv_nsec -=3D NSEC_PER_SEC;
++	}
++}
++
++static bool timespec_before(const struct timespec *a, const struct timespe=
+c *b)
++{
++	if (a->tv_sec !=3D b->tv_sec)
++		return a->tv_sec < b->tv_sec;
++
++	return a->tv_nsec < b->tv_nsec;
++}
++
++/*
++ * Wait until @deadline, with the signals of @sigint blocked.
++ * Return: true if SIGINT arrived first.
++ */
++static bool wait_until(const struct timespec *deadline, const sigset_t *si=
+gint)
++{
++	struct timespec now, timeout;
++
++	for (;;) {
++		clock_gettime(CLOCK_MONOTONIC, &now);
++		if (!timespec_before(&now, deadline))
++			return false;
++
++		timeout =3D timespec_sub(deadline, &now);
++		/* Otherwise timed out, or interrupted by a stop and continue */
++		if (sigtimedwait(sigint, NULL, &timeout) =3D=3D SIGINT)
++			return true;
++	}
++}
++
++/*
++ * Sample every interval until the count is reached or SIGINT. Samples are
++ * scheduled from the start time, so the interval doesn't drift; a sample
++ * that is due before the previous one finished is skipped. SIGINT is
++ * blocked while sampling, so one that arrives during a read is not lost
++ * but ends the wait for the next sample.
++ */
++static int stat_loop(struct stat_run *run)
++{
++	struct timespec start, next, now;
++	sigset_t sigint, old_mask;
++	bool any_read =3D false;
++
++	sigemptyset(&sigint);
++	sigaddset(&sigint, SIGINT);
++	sigprocmask(SIG_BLOCK, &sigint, &old_mask);
++
++	print_header(run);
++
++	clock_gettime(CLOCK_MONOTONIC, &start);
++	next =3D start;
++
++	for (uint64_t sample =3D 0; ; sample++) {
++		clock_gettime(CLOCK_MONOTONIC, &now);
++
++		if (read_cells(run))
++			any_read =3D true;
++
++		print_sample(run, sample, ms_between(&start, &now));
++
++		if (run->opts.count && sample + 1 =3D=3D run->opts.count)
++			break;
++
++		timespec_add_ms(&next, run->opts.interval_ms);
++		clock_gettime(CLOCK_MONOTONIC, &now);
++		while (timespec_before(&next, &now))
++			timespec_add_ms(&next, run->opts.interval_ms);
++
++		if (wait_until(&next, &sigint))
++			break;
++	}
++
++	sigprocmask(SIG_SETMASK, &old_mask, NULL);
++
++	/* Failed reads show as NaN and are each reported once; fail only if none=
+ succeeded */
++	if (!any_read) {
++		log_err("unable to read any telemetry");
++		return -EIO;
++	}
++
++	return 0;
++}
++
++int cmd_stat(int argc, char **argv, const struct pmt_global_opts *gopts)
++{
++	struct stat_run run auto_stat_run =3D {
++		.opts =3D { .interval_ms =3D STAT_DEFAULT_INTERVAL_MS },
++	};
++	const struct pmt_device **devs auto_free =3D NULL;
++	size_t num_devs;
 +	int ret;
 +
-+	if (stat(path, &st))
-+		return log_ret(-errno, "unable to access %s", path);
-+
-+	if (S_ISDIR(st.st_mode)) {
-+		ret =3D load_dir(db, path);
-+	} else if (S_ISREG(st.st_mode)) {
-+		db->tss_info =3D calloc(1, sizeof(*db->tss_info));
-+		if (db->tss_info)
-+			ret =3D load_file(db, path);
-+		else
-+			ret =3D -ENOMEM;
-+	} else {
-+		log_err("%s: not a file or directory", path);
-+		ret =3D -EINVAL;
-+	}
-+
-+	if (!ret && db->num_tss_info > 1) {
-+		qsort(db->tss_info, db->num_tss_info, sizeof(*db->tss_info), tss_info_cm=
-p);
-+		ret =3D check_unique_guids(db, path);
-+	}
-+
++	ret =3D stat_parse_options(&run.opts, argc, argv);
 +	if (ret) {
-+		pmt_tss_db_free(db);
-+		return log_ret(ret, "unable to load metric definitions from %s", path);
++		stat_usage_short(stderr);
++		return PMTCTL_EXIT_USER;
 +	}
 +
-+	if (!db->num_tss_info)
-+		log_warn("no metric definitions found in %s", path);
++	if (run.opts.show_help) {
++		stat_usage_full(stdout);
++		return PMTCTL_EXIT_OK;
++	}
 +
-+	return 0;
++	ret =3D pmtctl_ctx_init(&run.ctx);
++	if (ret)
++		return PMTCTL_EXIT_SYSTEM;
++
++	ret =3D pmtctl_ctx_load_tss(&run.ctx, gopts->json_path);
++	if (ret)
++		return PMTCTL_EXIT_SYSTEM;
++
++	ret =3D pmtctl_select_devices(&run.ctx, &run.opts.filter, &devs, &num_dev=
+s);
++	if (ret) {
++		log_ret(ret, "unable to select devices");
++		return PMTCTL_EXIT_SYSTEM;
++	}
++
++	if (!num_devs) {
++		log_err("no PMT telemetry device matches the filter");
++		return PMTCTL_EXIT_USER;
++	}
++
++	ret =3D build_rows(&run, devs, num_devs);
++	if (ret =3D=3D -ENOMEM) {
++		log_ret(ret, "unable to set up sampling");
++		return PMTCTL_EXIT_SYSTEM;
++	}
++	if (ret)
++		return PMTCTL_EXIT_USER;
++
++	ret =3D check_bounds(&run);
++	if (ret)
++		return PMTCTL_EXIT_USER;
++
++	ret =3D open_telem_files(&run);
++	if (ret)
++		return PMTCTL_EXIT_SYSTEM;
++
++	set_column_widths(&run);
++
++	ret =3D stat_loop(&run);
++	if (ret)
++		return PMTCTL_EXIT_SYSTEM;
++
++	return PMTCTL_EXIT_OK;
 +}
+diff --git a/tools/arch/x86/pmtctl/src/main.c b/tools/arch/x86/pmtctl/src/m=
+ain.c
+index 081c33aeb649..dff05c30c7d1 100644
+--- a/tools/arch/x86/pmtctl/src/main.c
++++ b/tools/arch/x86/pmtctl/src/main.c
+@@ -28,6 +28,7 @@ static void print_usage(FILE *out)
+ 		"\n"
+ 		"Commands:\n"
+ 		"  list      List available PMT devices and metrics\n"
++		"  stat      Sample metrics over time (perf stat-like)\n"
+ 		"\n"
+ 		"Run 'pmtctl <command> --help' for command-specific options.\n");
+ }
+@@ -75,6 +76,9 @@ int main(int argc, char **argv)
+ 	if (!strcmp(cmd, "list"))
+ 		return cmd_list(argc - optind, argv + optind, &gopts);
+=20
++	if (!strcmp(cmd, "stat"))
++		return cmd_stat(argc - optind, argv + optind, &gopts);
++
+ 	if (!strcmp(cmd, "help")) {
+ 		print_usage(stdout);
+ 		return PMTCTL_EXIT_OK;
 --=20
 2.53.0
 
