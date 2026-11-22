@@ -1,97 +1,147 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795321290;
-	b=uDMUmwc+pQAocbXZKPfdmvuC2hVj7yh4qip3+tDWj1JF/oqTmBCbTPDdR1fsb1m+XL/p
-	 3iR3Gw9Sr39+oz1tn41DLDPBbeJHqnWCA08MeQNPOrsHE54Fu52YWYt+sr4fXNhR/iuK8
-	 Gb6EAeBB/4OfVa1b+4O4u3/Ln3hUkbBxvvCq4WSjLhf4dHAp1oDUiuftD6Cl78IbSw/Dp
-	 zSebueuqw3CuuJ2ey90KRJbpIiR0yyhasCx9blgSssBIMzIs0ZM/87HxNd+u7Vzzu0PY+
-	 haMcwqsc14fjFeYJPQp2jU9PuP8XReg1kuWTOnn537TTRLc18xYr0x3ULgorlnoXvPg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795321290;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=HJWH9hxOjGLkWCyzc+2OYWRLFu1BzAPngPtrjIxuofY=;
-	b=pPILM14Nawp6BfGDjOplZsxBYDtCkZi8iF/cYG5abTxn0lj3VnB545DglLOkuRu1bLHj
-	 7U+jy/iZvn92Kluc0XJB5q8n/WQQ+hdOOw3h4tM6MDT1cF/Aiooh6buvFnxoDnunNnFwb
-	 5h7wNBQb0itNym/CXacT43+jc116SwfpXYAhfDGkOuj2tSXVLhw+kCbn+82DDYFsXK+Uw
-	 gUQ3wiL32AjW87gXtU5oOl2NW4udRHpF8t8qRgaLxJ7gabl8v7svtcU6vxtnfPkmqqatu
-	 i12tzozk910Ezd3fjGHencMTnB8eJV7sntFjFGqmQP6rsNNmJ5qXQxiTJQ08U3tV5Rw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=WDnYFfJo;
-	arc=none smtp.remote-ip=209.85.216.47
-Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.23.28
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795321502;
+	b=N4H6BcwNu7e3lCOqnTokK0b3ES++SXb3ukkyGbIkY/qVna6hf9SFp7p+ewCux12nAEf5
+	 lhPG+1vZm/x0aDkAeH1D590qMpG+xdGba2FO2YButRiCDIx5Z78Fy0ZbRfrA5F6G1rvl7
+	 CJqNKJ1zf1qx4C+qbP32uU6Kxj9LeuQd7h93qrwu1jHL0U5Eoop2gPckk4M71RiFc2n0O
+	 oFsK+gTFdpupvOldcriDlP6CFmulLP0CdahF+Z21uJmFMwsqenYzUX4WCzSurPRahjn0Y
+	 6u7jEEqza1oPUuyiaCntqgUXcIMVeqPWh3drMsxM6J0GEbi8+ZhNvaBjrnkob1oPxwA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795321502;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:
+	 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=Ot+1ML4xYQqq5sNemM0gQOyxLjw3qcFylCJhhhOt7zg=;
+	b=UQp6DD4FDnoXr7x5V87Clh+10QWCJOAK4bUXFkcU14FeH1HNLx39gEXs+Liz17xtGv3u
+	 qgywh7PgWCtBpTmVCKwDD0xIvADtHBXfzvy1GsjB1snEbQSY+2x2z9ib0Hp8gw0/z1Vgk
+	 in69td1ix917q5ll2Thc1PD9HU9Jx5Je5y/VHhYWt2a8Bs7wiKNxc08At0gXv11v23/qs
+	 BV06A9ySQcU8vDR5+feu5oI0RKRpmRftOjSQ5mLLoniY4VyYWmnMPiZ+1yLs1OyjX+NM4
+	 Q0XF640tWNVRWwfBn9/eRVhVa8zJ/OAy4YJjKrIjj+pl4+v3JUHSQ5ZomlEQ1H008Ew==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=outlook.com;
+	spf=pass smtp.mailfrom=outlook.com;
+	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=cv3BwsZZ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.23.28
+Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azolkn19010028.outbound.protection.outlook.com [52.103.23.28])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D1F4606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:21:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D1F4606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51A98606A320;
+	Sun, 22 Nov 2026 04:25:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51A98606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=WDnYFfJo
-Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3b40470fdd8so1010038a91.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:21:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1795321290; x=1795926090; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HJWH9hxOjGLkWCyzc+2OYWRLFu1BzAPngPtrjIxuofY=;
-        b=WDnYFfJomB/kWbXSv6O7VFw9HUzZQwf4GYzRkJ8Q9YIbj0PuamJ7grUC1Hoa81wWPM
-         XIq0wXvdKZM2q7s+Ld04jnBAz/Tc1+q47kS5jKgUepxD+auwbwcBXtMLwJLWz4QsZGlg
-         ZIUEIYGC1xdoaf+OFn1M/jfl/fNd2hc2tEayM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795321290; x=1795926090;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HJWH9hxOjGLkWCyzc+2OYWRLFu1BzAPngPtrjIxuofY=;
-        b=pTFdPwEXXZQQ/ZX2+dj8UonEgn9R7nYBzBVjw/ug/njpoXD2sYfxrClHd+l9NVSiEb
-         AjADtVVQ2gq4urmKRfuInPGOqTDiOVwLmgU18U6tyqJnz3AT2uuy7TPAJB/gnzpSREjW
-         r4EOsvtJPsFnQ36EWy0vQyyS3A59sPpgPu/vz1vnaYtHYg2+7qjf3CAMY8RfNZ9wvyHJ
-         NbIiCDL5BwBq2kb+YsSPiHmdsEJ/X9qMqGL9/XqF95saw8vJKW8qDh0/kdWJ+G3qTTol
-         74/Aqw8hEImI1zXvD0rgJ1fZRDa9BNZdvTaPwLrcma1sv1bwikLbDy/DmIX/G66AJ8Zk
-         Wm4g==
-X-Forwarded-Encrypted: i=1; AL+hErFmHoimhKKDFD4emh7C4GtWw0Vcu5F75bdTZOA/fngygZpb3TUjtThsbHwNfkpTnQQVQeznh89GJq6OLIQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+rn+NVw6PIManq0/pWOoDkWEZoMmWMUs5y6F92jbdADWd8UgvJ
-	BmOVeFiw++tb8x8QLYpfcj3SNr7Bybeb+pYdiMqqtlSUyADk0IgfoTMnimPV9BxmWew=
-X-Gm-Gg: AZFdTZfPXRUCxiHkwJN+ALnp4oTkAn6vWUKQg7VdOosBpbrzrF9wLzqfaCSrnfuKqmK
-	+OoI18GDUAebmFlFAHneNRWu183+89/70LEuuA/DNHewc2cMDOf9ldD3fcgsYEEFehOf+OjpAFD
-	Z1HYw5vxEluPvytkSrNnPuUMX1e2W5xDt7OfvqMHSQm+KVHcOh3kYB6BjW4ulMRIbStp/hLaWFl
-	bv3mMKuJ/PWRW82XITlOXUt787GzMWzSPDNTqLNI+4ArdP4bPFdZnTS74nfHIB+oXCIV1NKywPh
-	R4awntAnnFB65jq3N5ykXehYDOL9Hm88J8KJik3EHDMuPwT2S4cBCwqQH3cTPFaU9WexGVO2y5I
-	POWgX/lGfNLjryTEc885TtJI3kX2B/63M2SHahK+R4ken7WcBC15XKxDuZOy3b6jeAXJAQ1UnNS
-	NxtrzzDeeA4OvHX7jJ8R9qVm3xaY/3WuYt0eV3d3rrYuxvTVM/yLkFuCXI/E2aPvlBCqC+8Vs9d
-	+7Kd5xq3JSoMsymd60u7YDNgzB7vvtRMYL0aKhGs2cMO7cMZytT7wdrUPnqnFxpijPhU046DN6o
-	BT7ehjsY9ZMfMkL0OW6BxKl1g+8bcSdrlpx4dgLJbE1jX65BHlf6AxMGzv02PwQfYa56dDTH0a5
-	OzFzMWnIUWz0GH4bhdWLYJyfJ6SK/DPdoLmON2aaAAe5SV5rsrumEc0q7U5e78riH
-X-Received: by 2002:a17:90a:e705:b0:3ad:3e8:12 with SMTP id 98e67ed59e1d1-3b41cb056e2mr5675261a91.48.1795321289774;
-        Sat, 21 Nov 2026 20:21:29 -0800 (PST)
-Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecb486sm13775407a91.16.2026.11.21.20.21.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 20:21:29 -0800 (PST)
-From: Piyus Kedia <piyus@iiitd.ac.in>
-To: alibuda@linux.alibaba.com,
-	Dust Li <dust.li@linux.alibaba.com>,
-	Sidraya Jayagond <sidraya@linux.ibm.com>,
-	Mahanta Jambigi <mjambigi@linux.ibm.com>,
-	netdev@vger.kernel.org
-Cc: Tony Lu <tonylu@linux.alibaba.com>,
-	Wen Gu <guwen@linux.alibaba.com>,
-	linux-rdma@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Kapil Vaswani <kapil@presceralabs.ai>,
-	Piyus Kedia <piyus@iiitd.ac.in>
-Subject: [PATCH net v2] net/smc: validate the peer's CDC cursors against our own buffers
-Date: Sun, 22 Nov 2026 09:51:20 +0530
-Message-Id: <20261122042120.2430434-1-piyus@iiitd.ac.in>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=cv3BwsZZ
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xqxO+lhPFF4z16db2rF+As+Gz39ZNEHFbAZqqNFXnFrpCvECGJTfQafHpLkJTcCH81BFG4dFrog768S36GlOSnGvTTvRWQLFqOchYQKvbxhh0NlRjg3Qwk/pH9wHTGOcoQOQqroD9/izTQUT0tUclyd4TCCm7MFnen1WvmIidqyewMTGJje0anK3x8MgZOZYbL2fS0Bwpn7ejHXnyMN707RMsZs9YOS70SJ7TpT2pj3/OZjAouxxEUceEKi7FBDdGzp9dFbnARTRFIPP7rEZDQ8hWI/P8QFUPI0tBRO0Sdgm16+1pHqG8yR1qN6YbA3UKMgw1YnYFFWyFlOSHt+h6Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ot+1ML4xYQqq5sNemM0gQOyxLjw3qcFylCJhhhOt7zg=;
+ b=xV4GniuxNXkmQp5QBUTVr1kIoH3gLNI0M03OUyfbur3OKuFOUun+8tRAyzWSyJd7PLd25dr41b9IV4j8slQ7tSvYd5wgnl4+q2vnJI3WMAVhe0qhP/cTUB9vHBd9prR8Aj69A6nq19APdi8FhJ0nqqC0TnJyedKo+yeKKIlnX69b3qLDtp5cvxTaMZPBkmkgHvZz4/2GpwQ43fGlmuk1yH8rwIiH2B9gZVrtTlFKsiMZ3uG2bcl1STcI94Cy6NW04KC0yve3QL6IN8tjEsTOGTWHAIQPySpFf3HMoTurmgbTrMILxT1LLMjYDa29kmnOGS5rBQXkDlam3kfXGBRYCg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ot+1ML4xYQqq5sNemM0gQOyxLjw3qcFylCJhhhOt7zg=;
+ b=cv3BwsZZN8IS5FTKGDdo1q/O8znIpXloIJ+k6If3y8XzaZWXsttosfdIaQsMQDxLcCgyz9fvXPxyTT5CUBmurFZ2SH66O/+jTh6MNC1KnUg4qQp4ICRJbgxZEDuwUh/CIESTsVPGqGGzdZNIDr8xrQcMRbxmJdjIkFuY7PV0c/+B+KLOZoe+n8nGr7UIbpgSsC5Lge5/7786OFSr73ChWVwGA5ZEr2/pdhMwQkX+LUqUs3S+LpD46SlcYbWfqp11FrAhk5CQHf+WAvh40Fzd8APvd8ldlEjJsSrJTkroqaJY0Q5DIs+C6qcqlrbzWkw3fPoRpiuRY4sJFbebNnX04w==
+Received: from MN2PR02MB6863.namprd02.prod.outlook.com (2603:10b6:208:1d7::20)
+ by SAWPR02MB12044.namprd02.prod.outlook.com (2603:10b6:806:560::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Sun, 22 Nov
+ 2026 04:25:00 +0000
+Received: from MN2PR02MB6863.namprd02.prod.outlook.com
+ ([fe80::da67:fd0f:d96d:ac53]) by MN2PR02MB6863.namprd02.prod.outlook.com
+ ([fe80::da67:fd0f:d96d:ac53%4]) with mapi id 15.21.0639.012; Sun, 22 Nov 2026
+ 04:24:59 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Mukesh R <mrathor@linux.microsoft.com>, "linux-hyperv@vger.kernel.org"
+	<linux-hyperv@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+CC: "haiyangz@microsoft.com" <haiyangz@microsoft.com>, "wei.liu@kernel.org"
+	<wei.liu@kernel.org>, "decui@microsoft.com" <decui@microsoft.com>
+Subject: RE: [PATCH] mshv: Do pre-commit before mapping a guest VM GPA
+Thread-Topic: [PATCH] mshv: Do pre-commit before mapping a guest VM GPA
+Thread-Index: AQHdbmKE7xxxhaKqskqySaLCsuTBUbc5lhfQ
+Date: Sun, 22 Nov 2026 04:24:59 +0000
+Message-ID:
+ <MN2PR02MB6863E6A55A9C64B4C30CAA2CD4462@MN2PR02MB6863.namprd02.prod.outlook.com>
+References: <20261107024842.3929415-1-mrathor@linux.microsoft.com>
+In-Reply-To: <20261107024842.3929415-1-mrathor@linux.microsoft.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN2PR02MB6863:EE_|SAWPR02MB12044:EE_
+x-ms-office365-filtering-correlation-id: 34f5095d-d1da-4901-76bd-08df48509222
+x-microsoft-antispam:
+ BCL:0;ARA:14566002|15080799012|37011999003|31061999003|25010399006|51005399006|41001999006|8062599012|12121999013|8060799015|19110799012|13091999003|55001999006|24021099003|102099032|3412199025|440099028|12091999003|40105399003;
+x-microsoft-antispam-message-info:
+ =?us-ascii?Q?g0KX1KyKBBTUvt8cYFIIENjZtbzSuzAhoXUzdwX+Fg3Kz09YReL1AnTyh4d1?=
+ =?us-ascii?Q?gFvEtiP6bxbv4prfMR1H9uMKG+8W6XrqLYQ3ncbuBSNQ0eBKRREVlLzQi8Eh?=
+ =?us-ascii?Q?UvxPzv42p+qtZLodV4VBHGzsuTkO/UlSDnK1kmLEkgdpNtJQTiXtsQip8ksS?=
+ =?us-ascii?Q?BnPoDgVfIEX3HJPc9s+RD07LfVChBPS4+8zgEbwOaKUjWxtJzWbIDUWg+4TS?=
+ =?us-ascii?Q?LBzf3PC62Jdd4M8IEisxf2FZMYNnfxzhfGsDbF9t4PSf4cHkQbZTFWWqp8dU?=
+ =?us-ascii?Q?eGd2i1DeUcN3AgfAobRnKaxNSan5B2FHNoanZfy11MrYQyHewsVEYHYPDRvx?=
+ =?us-ascii?Q?cjtSGCVozX4Z7AzoNuvVmck8TWPih6cSzQUExf2QeAyXlDMlyqCRlxFb+/+W?=
+ =?us-ascii?Q?l2vOkW8KNnII9GMpQnx87h/bhm+wc5UH2tYgBPJ1J77gBckgBA/K1wj3Clzq?=
+ =?us-ascii?Q?ExzvcMsZ5AsYlQ5xEmGMrWfW3N2n8dH4809sToIMEyoQprA9WptK5ZDSS7I7?=
+ =?us-ascii?Q?q1rdYz0TjeVCRsAu/CBJK4t/dLko2HhMOP4brak0InESrmDbAoORjy0lvzt/?=
+ =?us-ascii?Q?IEUkgXAq6SbJxjmIqAv6eLL3dm/fKAh3lKPEP3UIfqKwaZmdjZlfYpCZIq5D?=
+ =?us-ascii?Q?utXweeyvDawkBK1USQ0W7CNNM5+J/zE9arAR5nIK0mrQWbh1jn7pQk9q2SSs?=
+ =?us-ascii?Q?6tzvF08Qj28ARIPSU6hRZ9mCu3D5KE4ca5MDYdFMLv2ke2v755vv01AAqtMY?=
+ =?us-ascii?Q?MLpcRtY7C/3mnaK5sArtuFsF1dRjay8imH1SgsRtyhg5PHSMCT/KMyVH/7jG?=
+ =?us-ascii?Q?0BBu6uVnrUA4qzZta2R/H8zDrPciN05qO9JJTYZA7dnaXn7K3EFs8eAtIDs2?=
+ =?us-ascii?Q?oqwzHgqXFqMzBQ1o8rLB8N3NhV2rNOKGlknXwzAGAH3epZfiwSVgM7IvTnb7?=
+ =?us-ascii?Q?lfOowxZoi2e51Fy9qkuqlYkBG8WPpFUuNKzF0URU0FhiGG4+3egboGglFTOO?=
+ =?us-ascii?Q?xBpVEz8KACzrtWi37G0UTGMZ7YE0wNp39+psMB9FY8up6gBxDkrK06cU/yYN?=
+ =?us-ascii?Q?+/6db2BysP2xcwg8s3FsIDiX8E6n2UETxGeUA6GNjRZrcNhslZZoHIsABrp+?=
+ =?us-ascii?Q?XhsKP7X/V1Sr?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?cWRVfHK7xegwxvwTAEKwpIlOwbtaSgEDf7DEJYx4jglVhRYoU+m+PCeWGxf9?=
+ =?us-ascii?Q?HeGcZ3SNkDl9BwSdSc6cVheftbsPaPoeRd+nUSbokwcvwj0BOtFisc2oUang?=
+ =?us-ascii?Q?g0eZyBT22w3Hv3K4QziHLiTva8gzuUiZjAfc7NiLI839zeC3bADU+WZXFlad?=
+ =?us-ascii?Q?EssmA6UzhA5GfaWScvVPzjEW7TVQJC07FkWifBZJlCzmlr8eMb0i0nV9hmlN?=
+ =?us-ascii?Q?AjkRZroRmmPvkNitl9L5CzwlzROQeklGxMFE7QuLQ4GmEglUolU6RnAoim+q?=
+ =?us-ascii?Q?RRgTKabFJDbYGa9qtDkKA6CQYvZx8Kt9xrLXiEzqTGT/AMGPKSKQSiiZkNwv?=
+ =?us-ascii?Q?qA4VdFiOJ3wlpdb61NLoWjp1V3fe9CBcOf3G+M+3SPTKJnQ9TTS0i8Fpo6Zj?=
+ =?us-ascii?Q?w55fAr8CXQ64lVAGOo5UR1kzI7SV8pwW0ToNiQBdM1gL55QcxSHSWjp/l8wF?=
+ =?us-ascii?Q?sit9/LKmnih5oNTDrBidLZZx+d2pOOQAL6pgvUEkQnABitZrgFQommMxi6dN?=
+ =?us-ascii?Q?nv9SL5ySFciKZLn8RWzb3ytfBYQwFX00F6RV4IjtMZnTAh0peu1WNsBKVgp4?=
+ =?us-ascii?Q?EPioHIqYOkpmJstl2womqpRdFcMHPxk9RcFnuKd5XavmTFim7iw7eNIIljAM?=
+ =?us-ascii?Q?NGAui6MJxiut2Wd30KjfrI+sDnyMZv1YdKWmjl1nlPu3v9vugHRtBXEVgJYD?=
+ =?us-ascii?Q?pdEhxm2Kox19HOHjLzj29Gg9tUSOO3HQO762ErY/qrt2/hDloWf9KDT4AtTj?=
+ =?us-ascii?Q?i4MZ7EntkqTQdwQDUr8/flWaD55lof5C6xt/9igPW0IH9377pb8hB26L2Vcz?=
+ =?us-ascii?Q?jUk3ao7dQU8WbSNb3mGGCp2cuX8SWgcpnfX8v4UhwTy4IElEvBvdUYE17STC?=
+ =?us-ascii?Q?72UxL74K1nh4c2POWMydr/bVTnYq95DqAvnUNgusi1TOopOtVT7l+fcpMfiQ?=
+ =?us-ascii?Q?6LKR16zGgeWLpwMXsAQZ4PQmlB2hw34m64pM9FSkx1TPL2XaudE17vkl+Zxm?=
+ =?us-ascii?Q?oYhFb+Z63z1OmVK4Puc+n4QIR958f12uiXrvfBUnzpINCFPJCMJhuORvEyao?=
+ =?us-ascii?Q?bAvu+/zlop7ns/b6iFfLMxK3JlE1msMF3pxqDLdrZiWo31L9GbZ7Jq7xOUiY?=
+ =?us-ascii?Q?UyFrjDKS9zMG/7qMblLhpiJM/QGiv/IQy3mTq6kFaCBSQD8Lmmq+Cnska2+o?=
+ =?us-ascii?Q?x+tRdOTKw/DMKwSwnoYYkmSGD/pXaHN+/bwMf0LlQbmgkiktfs/a6Vq6n+5i?=
+ =?us-ascii?Q?NObdC4jifPnLuHc8XluKpQNTrct5Gw+bpQVbKH0rp/7hotSO4UvkIoVU3NMD?=
+ =?us-ascii?Q?wusCBlQA8j0eT0t1uohqw+3q+/QHSnx1Y4BiDOyn7MwvXQpLqbR79HWkWUbE?=
+ =?us-ascii?Q?g64Jo2c=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,135 +151,172 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR02MB6863.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 34f5095d-d1da-4901-76bd-08df48509222
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Nov 2026 04:24:59.5874
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SAWPR02MB12044
 
-A peer's CDC message carries two cursors that are offsets into buffers
-described on this side: the producer cursor counts the bytes the peer has
-written into the RMB we published to it, and the consumer cursor the bytes
-it has taken from the RMB it published to us.  Neither is checked, on either
-transport.
+From: Mukesh R <mrathor@linux.microsoft.com> Sent: Friday, November 6, 2026=
+ 6:49 PM
+>=20
+> Pre commit reduces TLB flush overheads in the hypervisor. On systems
+> with large number of CPUs, there is signficant advantage to doing
+> this. Pre-commit allows the hypervisor to build all data structs needed
+> in anticipation of the map gpa hypercall, thus reducing or eliminating
+> deposit page returns from the map gpa hypercall, and as a result reducing
+> TLB flushes. In some performance benchmarks, it made the maps of large
+> ranges almost 30% faster.
+>=20
+> Signed-off-by: Mukesh R <mrathor@linux.microsoft.com>
+> ---
+>  drivers/hv/mshv_root_hv_call.c | 52 ++++++++++++++++++++++++++++++++++
+>  include/asm-generic/mshyperv.h |  3 ++
+>  include/hyperv/hvgdk_mini.h    |  1 +
+>  include/hyperv/hvhdk.h         |  7 +++++
+>  4 files changed, 63 insertions(+)
+>=20
+> diff --git a/drivers/hv/mshv_root_hv_call.c b/drivers/hv/mshv_root_hv_cal=
+l.c
+> index bf0f90515dad..5c44ba8f72b0 100644
+> --- a/drivers/hv/mshv_root_hv_call.c
+> +++ b/drivers/hv/mshv_root_hv_call.c
+> @@ -181,6 +181,54 @@ int hv_call_delete_partition(u64 partition_id)
+>  	return hv_result_to_errno(status);
+>  }
+>=20
+> +/*
+> + * Pre commit to reduce TLB flush overheads in the hypervisor. On system=
+s with
+> + * large CPUs, there is signficant advantage to doing this. Pre-commit a=
+llows
+> + * the hypervisor to build all data structs needed in anticipation of th=
+e map
+> + * gpa hypercall, thus reducing or eliminating deposit page returns from=
+ the
+> + * map gpa hypercall, and as a result reducing TLB flushes.
+> + */
+> +static int hv_pre_commit_gpa(u64 pt_id, u64 gfn, u64 num_pages)
+> +{
+> +	ulong irq_flags;
+> +	struct hv_input_precommit_gpa_pages *input_page;
+> +	int rc =3D 0;
+> +	u64 status, done =3D 0;
+> +
+> +	while (done < num_pages) {
+> +		u16 rep_count =3D min(num_pages - done, HV_REP_COUNT_MAX);
+> +
+> +		local_irq_save(irq_flags);
+> +		input_page =3D *this_cpu_ptr(hyperv_pcpu_input_arg);
+> +		memset(input_page, 0, sizeof(*input_page));
+> +
+> +		input_page->partition_id =3D pt_id;
+> +		input_page->target_gpa_base =3D gfn;
+> +
+> +		status =3D hv_do_rep_hypercall(HVCALL_PRECOMMIT_GPA_PAGES,
+> +					     rep_count, 0, input_page, NULL);
+> +		local_irq_restore(irq_flags);
+> +
+> +		done +=3D hv_repcomp(status);
+> +		gfn +=3D hv_repcomp(status);
+> +
+> +		if (hv_result_needs_memory(status)) {
+> +			rc =3D hv_deposit_memory(pt_id, status);
+> +			if (rc)
+> +				break;
+> +
+> +		} else if (!hv_result_success(status)) {
+> +			pr_err("%s: failed to pre commit for gfn %#llx done %llu/%llu, status=
+=3D%#llx (%s)\n",
+> +			       __func__, gfn, done, num_pages, status,
+> +			       hv_result_to_string(hv_result(status)));
+> +			rc =3D hv_result_to_errno(status);
+> +			break;
+> +		}
+> +	}
+> +
+> +	return rc;
+> +}
+> +
+>  /* Ask the hypervisor to map guest ram pages or the guest mmio space */
+>  static int hv_do_map_gpa_hcall(u64 partition_id, u64 gfn, u64 page_struc=
+t_count,
+>  			       u32 flags, struct page **pages, u64 mmio_spa)
+> @@ -205,6 +253,10 @@ static int hv_do_map_gpa_hcall(u64 partition_id, u64=
+ gfn, u64 page_struct_count,
+>  		page_count >>=3D large_shift;
+>  	}
+>=20
+> +	ret =3D hv_pre_commit_gpa(partition_id, gfn, page_struct_count);
+> +	if (ret)
+> +		return ret;
+> +
 
-smcr_cdc_msg_to_host() and smcd_cdc_msg_to_host() copy both into the
-connection as they arrive, and every later user treats them as trustworthy:
+The pre-commit call uses the original GFN and page struct count, so
+evidently the pre-commit functionality in the hypervisor does not need
+to know if the follow-on MAP_GPA_PAGES hypercall will be specifying
+large pages. I don't know anything about the pre-commit functionality,
+but my guess would have been that it is allocating page table pages, and
+that the large page flag would let it know that only PMD level is needed.
+Do you know those details?  Just curious ....
 
- - smc_cdc_msg_recv_action() adds the producer difference to
-   conn->bytes_to_rcv under a comment asserting
-   "guarantee 0 <= bytes_to_rcv <= rmb_desc->len", which nothing enforces;
- - smc_cdc_handle_urg_data_arrival() reads
-   *(base + conn->urg_curs.count - 1), an unbounded index into the RMB;
- - smc_rx_recvmsg() clamps only the first of its two ring chunks
-   (rmb_desc->len - cons.count) and uses the remainder unclamped for the
-   second, so bytes_to_rcv becomes a copy length;
- - smc_rx_splice() walks PAGE_ALIGN(len + offset) / PAGE_SIZE pages calling
-   vmalloc_to_page() without checking the result, and get_page() then
-   dereferences NULL once the walk passes the end of the RMB.
+>  	while (done < page_count) {
+>  		ulong i, completed, remain =3D page_count - done;
+>  		int rep_count =3D min(remain, HV_MAP_GPA_BATCH_SIZE);
+> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyper=
+v.h
+> index 4c9f3353074a..a3d497d99b0b 100644
+> --- a/include/asm-generic/mshyperv.h
+> +++ b/include/asm-generic/mshyperv.h
+> @@ -28,6 +28,9 @@
+>=20
+>  #define VTPM_BASE_ADDRESS 0xfed40000
+>=20
+> +#define HV_REP_COUNT_MAX        \
+> +	(HV_HYPERCALL_REP_COMP_MASK >> HV_HYPERCALL_REP_COMP_OFFSET)
+> +
+>  enum hv_partition_type {
+>  	HV_PARTITION_TYPE_GUEST,
+>  	HV_PARTITION_TYPE_ROOT,
+> diff --git a/include/hyperv/hvgdk_mini.h b/include/hyperv/hvgdk_mini.h
+> index 966945f0504f..16c41ee5079a 100644
+> --- a/include/hyperv/hvgdk_mini.h
+> +++ b/include/hyperv/hvgdk_mini.h
+> @@ -489,6 +489,7 @@ union hv_vp_assist_msr_contents {	 /*
+> HV_REGISTER_VP_ASSIST_PAGE */
+>  #define HVCALL_FLUSH_GUEST_PHYSICAL_ADDRESS_LIST	0x00b0
+>  #define HVCALL_CREATE_DEVICE_DOMAIN			0x00b1
+>  #define HVCALL_ATTACH_DEVICE_DOMAIN			0x00b2
+> +#define HVCALL_PRECOMMIT_GPA_PAGES			0x00be
+>  #define HVCALL_SIGNAL_EVENT_DIRECT			0x00c0
+>  #define HVCALL_POST_MESSAGE_DIRECT			0x00c1
+>  #define HVCALL_DISPATCH_VP				0x00c2
+> diff --git a/include/hyperv/hvhdk.h b/include/hyperv/hvhdk.h
+> index 0c89c62c9706..3944e51d0a2d 100644
+> --- a/include/hyperv/hvhdk.h
+> +++ b/include/hyperv/hvhdk.h
+> @@ -953,4 +953,11 @@ struct hv_input_modify_sparse_spa_page_host_access {
+>  #define HV_MODIFY_SPA_PAGE_HOST_ACCESS_LARGE_PAGE      0x4
+>  #define HV_MODIFY_SPA_PAGE_HOST_ACCESS_HUGE_PAGE       0x8
+>=20
+> +struct hv_input_precommit_gpa_pages {	/*
+> HV_INPUT_PRECOMMIT_GPA_PAGES */
+> +	u64 partition_id;
+> +	u32 flags;
+> +	u32 reserved;
+> +	u64 target_gpa_base;
+> +} __packed;
 
-A peer that reports a cursor larger than the buffer therefore makes the
-kernel read past it.  With a 64 KiB RMB and a forged cursor, KASAN on
-7.4.0-rc3 reports a 1-byte read in the urgent-data path and a 131072-byte
-read in the receive path, the latter via _copy_to_iter() - i.e. the
-out-of-bounds bytes are delivered to userspace by recvmsg() - and splice()
-oopses on the NULL page.
+Does Windows put this struct in hvhdk.h? Its close relative from
+a functional standpoint, struct hv_input_map_gpa_pages, is in
+hvhdk_mini.h, so that would seem to be a more natural place for
+this. But I never have understood the criteria for being in one vs.
+the other.
 
-Validate both cursors where each transport accepts the message, so that one
-test per transport covers every consumer.  Each cursor is bounded by the
-buffer its own arithmetic uses: the producer cursor by conn->rmb_desc->len
-as in smc_cdc_msg_recv_action(), the consumer cursor by
-conn->peer_rmbe_size as in the diff_cons calculation beside it.  A cursor
-equal to the buffer length is legitimate (a full ring), so only a larger one
-is rejected.  An out-of-range cursor cannot occur in a correct peer, and the
-malformed message is dropped like any other.
-
-The SMC-R check sits next to the existing length and sequence-number tests
-in smc_cdc_rx_handler().  SMC-D needs its own, because smcd_cdc_rx_tsklet()
-reads the cursors straight out of the DMB the peer writes into, in host
-byte order and with no validation of any kind on that path today.
-
-How this was found: by AI-driven fuzzing built on top of syzkaller.  Its
-analysis was then checked by hand against the code, and all three faults
-were reproduced on net.git main under KASAN, with the patched kernel clean
-on the same three reproducers and ordinary SMC-R and SMC-D traffic
-unaffected.
-
-Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
-Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
----
- net/smc/smc_cdc.c | 44 ++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 44 insertions(+)
-
-diff --git a/net/smc/smc_cdc.c b/net/smc/smc_cdc.c
-index 32d6d03df..8d24e0c83 100644
---- a/net/smc/smc_cdc.c
-+++ b/net/smc/smc_cdc.c
-@@ -433,6 +433,18 @@ static void smc_cdc_msg_recv(struct smc_sock *smc, struct smc_cdc_msg *cdc)
- 	sock_put(&smc->sk); /* no free sk in softirq-context */
- }
- 
-+static bool smcd_cdc_cursors_invalid(struct smc_connection *conn,
-+				     struct smcd_cdc_msg *cdc)
-+{
-+	if (!conn->rmb_desc)
-+		return true;
-+	if (cdc->prod.count > (u32)conn->rmb_desc->len)
-+		return true;
-+	if (cdc->cons.count > (u32)conn->peer_rmbe_size)
-+		return true;
-+	return false;
-+}
-+
- /* Schedule a tasklet for this connection. Triggered from the ISM device IRQ
-  * handler to indicate update in the DMBE.
-  *
-@@ -452,6 +464,15 @@ static void smcd_cdc_rx_tsklet(struct tasklet_struct *t)
- 	data_cdc = (struct smcd_cdc_msg *)conn->rmb_desc->cpu_addr;
- 	smcd_curs_copy(&cdc.prod, &data_cdc->prod, conn);
- 	smcd_curs_copy(&cdc.cons, &data_cdc->cons, conn);
-+	/* This CDC was written by the peer into the DMB we published to it, so
-+	 * both cursors are peer-supplied and index buffers described on this
-+	 * side.  Nothing else checks them, and smc_cdc_msg_recv_action() uses
-+	 * the producer cursor as a receive length and the consumer cursor to
-+	 * credit sndbuf_space - which under DMB-nocopy is the memory the peer
-+	 * itself owns.  Unlike the SMC-R path these values are host order.
-+	 */
-+	if (smcd_cdc_cursors_invalid(conn, &cdc))
-+		return;
- 	smc = container_of(conn, struct smc_sock, conn);
- 	smc_cdc_msg_recv(smc, (struct smc_cdc_msg *)&cdc);
- }
-@@ -466,6 +487,26 @@ void smcd_cdc_rx_init(struct smc_connection *conn)
- 
- /***************************** init, exit, misc ******************************/
- 
-+/* A peer's cursors are offsets into OUR buffers: the producer cursor counts the
-+ * bytes it has written into the RMB we gave it, the consumer cursor the bytes it
-+ * has taken from the RMB it published to us.  Nothing else checks them.  smcr_cdc_msg_to_host()
-+ * copies both into the connection, and from there smc_cdc_msg_recv_action() adds the
-+ * producer difference to conn->bytes_to_rcv and the receive path uses that as a
-+ * length - so a peer that reports more than the buffer holds makes the kernel read
-+ * past it.
-+ */
-+static bool smcr_cdc_cursors_invalid(struct smc_connection *conn,
-+				     struct smc_cdc_msg *cdc)
-+{
-+	if (!conn->rmb_desc)
-+		return true;
-+	if (ntohl(cdc->prod.count) > (u32)conn->rmb_desc->len)
-+		return true;
-+	if (ntohl(cdc->cons.count) > conn->peer_rmbe_size)
-+		return true;
-+	return false;
-+}
-+
- static void smc_cdc_rx_handler(struct ib_wc *wc, void *buf)
- {
- 	struct smc_link *link = (struct smc_link *)wc->qp->qp_context;
-@@ -499,6 +540,9 @@ static void smc_cdc_rx_handler(struct ib_wc *wc, void *buf)
- 			   conn->local_rx_ctrl.seqno))
- 		/* received seqno is old */
- 		goto out;
-+	if (smcr_cdc_cursors_invalid(conn, cdc))
-+		/* peer cursor outside the buffer it describes */
-+		goto out;
- 
- 	smc_cdc_msg_recv(smc, cdc);
- out:
+Michael
