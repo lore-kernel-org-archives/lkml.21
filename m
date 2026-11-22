@@ -1,55 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795363217;
-	b=s4wM+oh/v94LZRIr7lB9VCOXeATFuPR8/BzjsEdBCb751oDbeZWNE7LFe+qQPrRBhMaY
-	 01V5gA4mAjuf+wjRZBp+H6WGeRfxu4ClQJsUeapYnTBa0Brcrj1gtjyn4cs+Hu6ualMow
-	 coH+aJaDlLMCCYwj8+j2rz63nCIyeS51f1GZnQke3zT6HeSj9qcwSXOeJhgerx5vN8fij
-	 45el8eO/bmh/Rz/sYDoqG35bWDOc5Oaul0Z1V4iQM+rEQx2hRRGBeLgPaSziImT8V3ai3
-	 SG0NrCSjUkTebj8xdUBv4ESXZeHZKobQEbScgAIwnDfC04j3FCKIsN8ECTfbWXbJa8g==
+	t=1795363274;
+	b=2ufmykbf2ZHkBhZYozVI9vuu1asIjOo1/CvjB2Hd0aP4GRhDBHmLq/D+zWFVLxd+sLvD
+	 JmnUrrSBn8t13o+2Rqw7V5o9YqKbxrWt9F5MsrXJAc6Gk8Ods95gcY0YGuhXe45BRVGK7
+	 L4D2fLTwlMYZUDLH+HSU84lQdyjvsQgTcYgQ7H5Td7LQDRffzc1Rb9FrXBEXiNpppAiV2
+	 rudXifTAAuU5Q/74rz/Kx40ZhdcU7PFmVmdy/sxNg9jBqPTjna/oxUAeCNbmyT5aZJZ1h
+	 4Sscj/x+s3l1eNoBT07hcRhDdOBDq11dPYGDRFBnzw1wAqGsMFWVOd55rTvRLqhRKwQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795363217;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=2wXPPM/VhpiWJdobsdjxR6EX3sgqzr/Ver2rW6fKyKM=;
-	b=nKwW5q4xX21sFY8PAn5iscUmWZ6Am7uBRb0vk06G9NxWN/tjpT6uJh6Kb4sLtKAuocpk
-	 t1yA+Eeov4j4ZOaCeQM93+ZKqpby/h1nTB1fLPlXRk8em+EjaZ2wcDDHe+CnDbJPpxtC5
-	 mIbhV5wlcOL1wZjSQbC7+b+Fti6SCDz8MPlVLxf1/efdcClnhZSTA0HkQc6HEkjphCWe+
-	 bEhu5QVmjgoVTBpHLaOVlrkiEvwSdbGSvKVlW0jZeb6o9F2+HDgN0XJIS0snH6DoJoUQg
-	 re1ebWIyY+GlopkqjvpnbUeInbsGCmxlGNrJUwJ+Ct2tU/4/VM6smS9O76YpZ56z+ZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795363274;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=/izPWKlba6hwEZVlAponaP1r95LRqIjVUfRXZ0aBzfg=;
+	b=U9+NEk/Vv5bzElUBsLZIUZHxMZc10sO6Cgaqeyr8Cy/RHEXNOYYW9rOgsXpMTAr467uk
+	 rWdYFAZkwzb+Z09acve5aSJmTpZn003DKBSBHH9u6kM+iWyT9fxuuYQDWS1eiY/ffth62
+	 7wBqzAf+3lfI9otxJklzcdz7cbhAOZyN7SviaxVg49Iqbrfofww7E5LpgKOR9/qprB8PF
+	 QJB+gFFTn+oYWYwjf3s6j8A7vqjduwlVzOX51R6RYtWkE0eo8qcZkIF05q9m5uNhhkxMU
+	 bRnD8+yhADdJpZYAOVvvUD99NEQ0i0fhQIM9eikXLG1pX3vPP0TksIQIII5gh22PgjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ksa1nqbz;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LzfauxW3;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DEF3606A685;
-	Sun, 22 Nov 2026 16:00:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFD47606A330
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 16:01:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ksa1nqbz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A01EF1F000CA;
-	Sun, 22 Nov 2026 16:00:15 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LzfauxW3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D3721F000EE
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 16:01:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795363216;
-	bh=2wXPPM/VhpiWJdobsdjxR6EX3sgqzr/Ver2rW6fKyKM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ksa1nqbzeGyOyPhy2/y+ZCkHO9mZynIykj8CVVEb9P7GCZzFNEZAD3XArXlz3j7BF
-	 q/NVz8B784ETR66STnJDAEOr0jAwLLLY/YFMHoO6+c1qDV+CFJKl2Qom5bhhied2bp
-	 3qV7NOmK63bIbSQjhImv98PHCRhOst3Edv7myxbWtw1w9AKJrlx58qsEyNcdSrO1m8
-	 v4feVDMVNDvdopUH9w5up/HEEI4EafrxP6rACtRs7y/woXX/33CKpbf4VmSNTOzfor
-	 7UEOabrLr08F5mX/o2A00dtBBDRG/93JsAvjZQATyLJ++qlG6uTjDkmpOUb4OGFvT4
-	 Oo5fQ0noGsVHA==
-Date: Sun, 22 Nov 2026 17:00:13 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Rama devi Veggalam <rama.devi.veggalam@amd.com>
-Cc: bp@alien8.de, tony.luck@intel.com, michal.simek@amd.com, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	linux-kernel@vger.kernel.org, linux-edac@vger.kernel.org, devicetree@vger.kernel.org, 
-	james.morse@arm.com, mchehab@kernel.org, rric@kernel.org, git@amd.com
-Subject: Re: [PATCH v5 1/3] dt-bindings: edac: Add Xilinx XilSEM
-Message-ID: <20261122-devout-ant-of-tact-31896b@quoll>
-References: <1795313124-2138932-1-git-send-email-rama.devi.veggalam@amd.com>
- <1795313124-2138932-2-git-send-email-rama.devi.veggalam@amd.com>
+	s=k20260515; t=1795363274;
+	bh=/izPWKlba6hwEZVlAponaP1r95LRqIjVUfRXZ0aBzfg=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=LzfauxW3rEExAgmdG4kLoxGoYz/MCia8CKAMKl83GyTQO0VtPeGsltO2V+0WDIzWj
+	 5iECqnhnsj/kKrsaZZtZk0JF7iqOz3ahCt6gKFZoeCjvUuH4G+mPSe+xwT74u1jd3i
+	 QF9gztIjuvKpikuFo71r975dBEJ0kr1hGDuDYjo/O/TRz+k3VHSfQI/wli9qg4Ng+3
+	 dBPEhXy5EWxAy6sz9xdKD6tt4S48iLgaF+amu2RYe3stbbjXIWbs98fXr1HI5mxKlg
+	 KICpVYQ9w6f7Vj+VrtZPVQwSY+uwspIRjAXPj8v0O4PDsMoo3TwFFPD+0XpeTJTuHV
+	 dYP13IXmp+OrA==
+Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-3ab3b29a298so19659011fa.3
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 08:01:14 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHv13SPLRCeUNfdQenJe3rCZDD7+bnKsDNYJ1iBvBHVsUMujaa5E7ZL/E0hxhuoSuY2tbEbZMZvK683CGQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9ayY45XAuGdbNEopjjMO8Ao8Jtce9NyhLooydKKYoixoWCef7X
+	7kQ6jtizizbrT8uJVomvvR7TwGkubuCmnHHrlGg7fmZ3rWrHxIkLIzk9fGnQwghMz/QDAXidS+c
+	klYTpmksN7mMx1kO3PdrnOOXfM3Wnna8=
+X-Received: by 2002:a05:651c:1474:b0:3ab:f9b:974 with SMTP id
+ 38308e7fff4ca-3ae7fac2697mr24800931fa.29.1795363272768; Sun, 22 Nov 2026
+ 08:01:12 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,42 +59,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <1795313124-2138932-2-git-send-email-rama.devi.veggalam@amd.com>
+References: <20261122144926.284857-1-maxime.chevallier@bootlin.com> <20261122144926.284857-2-maxime.chevallier@bootlin.com>
+In-Reply-To: <20261122144926.284857-2-maxime.chevallier@bootlin.com>
+Reply-To: wens@kernel.org
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Mon, 23 Nov 2026 00:00:59 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65EZ3VP9HDyJps==0RcZ8fWTJuai2d-5ga0V4aEsrM8uw@mail.gmail.com>
+X-Gm-Features: Aa3M54qOwDNW1Yljk-lFISp4AdkVQZj8kdy4KwB-RgmQjeLm8Au5CMg40XaXguE
+Message-ID: <CAGb2v65EZ3VP9HDyJps==0RcZ8fWTJuai2d-5ga0V4aEsrM8uw@mail.gmail.com>
+Subject: Re: [PATCH net-next 1/3] net: stmmac: dwmac-sun8i: allow controlling
+ TX and RX flow control separately
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net, 
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Willem de Bruijn <willemb@google.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Russell King <linux@armlinux.org.uk>, 
+	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>, Nicolai Buchwitz <nb@tipi-net.de>, 
+	thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Sun, Nov 22, 2026 at 07:35:22AM +0530, Rama devi Veggalam wrote:
-> Add a devicetree binding for the Xilinx Soft Error Mitigation (XilSEM)
-> block on Versal and Versal NET devices.
-> 
-> XilSEM is part of the Platform Loader and Manager (PLM) that runs on
-> the Platform Management Controller (PMC). It detects, and optionally
-> corrects, soft errors in the Configuration RAM (CRAM) and the NoC
-> programming interface (NPI) registers. Errors are reported to Linux
-> through the firmware's event notification interface, so the node needs
-> no interrupt property. The only resource is the register region used to
-> read the CRAM and NPI scan status.
-> 
-> Only monolithic (single-SLR) devices are supported; multi-SLR devices
-> are not covered by this binding.
-> 
-> Use a single compatible, xlnx,xilsem, because XilSEM is common to Versal
-> and Versal NET devices.
-> 
-> Signed-off-by: Rama devi Veggalam <rama.devi.veggalam@amd.com>
-> ---
-> Changes in v5:
-> - Moved the XilSEM binding out of the Versal DDRMC EDAC yaml into a
->   separate xilsem yaml.
+On Sun, Nov 22, 2026 at 10:49=E2=80=AFPM Maxime Chevallier
+<maxime.chevallier@bootlin.com> wrote:
+>
+> Currently, the sun8i flow control setup only looks at FLOW_AUTO (which
+> is FLOW_RX | FLOW_TX), and enables RX/TX based on that.
+>
+> Allow enabling RX/TX flow control directions separately.
+>
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-Why different directory? So not a memory controller?
-
-
-> - Renamed the compatible to xlnx,xilsem, shared by Versal and Versal
->   NET.
-
-Odd, you need to explain the reasons for deviating from the rules.
-
-Best regards,
-Krzysztof
-
+Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
