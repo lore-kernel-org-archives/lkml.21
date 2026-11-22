@@ -1,60 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.29
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795346522;
-	b=ce1IqGTsnE6GtAdJCTJoneZ+Ls5a+CQtnhq5KbHu00YUKr2ME1ursIAhU3moG2vnwETH
-	 Aiv8XsZ6NCMGPlipRkmkT7S+QNjYieT4gTZjCRDs3lyNsMqLgwGvsKVpJPsNhT8m6Nc/k
-	 36N1nj1gg9B7CUwB6fxfq8U0SqwgjY+mXDfmeNwRwBMN11MyzMS/3cX+hSYAoKONdGN0M
-	 dQCP/gat8OxDTBrybLvZWeCsowb+0e4NLMtmxzB1lFdT8VCQaooFzcRgIGslqBDFmb5wo
-	 Z42914Hl1KteLgqBB5t8RXNGNrrccROMRiHS+mmNQheR1RyGNnuSkO+XMTaQhWmIG2g==
+	t=1795346770;
+	b=VvEhCX5TSzqW/OWZzknD1im2keMs9gRkVEg7hahWIpp8MgZgRrlrS/YKzPeSLi2xZVSd
+	 WUMq6LPs9sO1snMFT9xdENrDyAegCRpXXFts8U1vMCuPLr5oTQbbz9L9s0UDYqNBvx8Sz
+	 RF5ahXQf9nr21M3d2A1La4o6OBCEwvLueGsQ43ZvQOtGbdRkaP5hShK2mf2oTR7TW1yve
+	 xJA1s+A1n5H+pv6DF4w/0xkcSkeeyepZ7dKzhsImlV1h9R/t97hoDxCq8m3bhOrcGrzPm
+	 3FStrqy6o0Wmjj35rG1iqORsmuGx3ViPwA4Li+9nATmNxhTjOakb/yd1NV3JyLyrivA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795346522;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=utBTjs+dqc3oDE0m/ffB35QBFM5MmJvgCEGqgp52YS8=;
-	b=3yNhdCrIrqs832hQ3SIPec+Je+c433YadXSP3iHmTwKxYZBK2tIFwkmRPX8nZkq/vU2i
-	 vJ+/1eACE/ZUvlbzRFRSnGP3zdgPidsEgMsuNdVYS7sqvL0CoCkObTjpMhunQ9HeOp8zx
-	 L+BsCbHAoOInC5DVhnF/1mi4IyUwOvKG4ulCUI0CqGWEd7Hidi4AHZ6BPQUKmvFS5lpjk
-	 jK+jjkT9ELCnE2ZmYMcmxkzcY7cm3N2jLmWn/UIVHdGfTOkKkCxhG+TOuRfZepz/Gc2NR
-	 tGfq/GJllCSysb2bfEFkbm2RArZ+VKbphwe0YgVZhazxDV/qCKpUfQatCCpBZf5XtnQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795346770;
+	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
+	 In-Reply-To:References:Subject:From:To:Cc:Date;
+	bh=Yo4OyXgsbDZvOTNjPCohqryanR5Sy6EJCm3Q+WjnVhA=;
+	b=DcxRmnhID3cXaDbMas3F0/nBlgCjXIH6i8mLq7JRSY9AId6/amAw00WIWgAXuO8HepRV
+	 dPv5jeGyQnObnwCvvH1REZro8EW2nWzD5z3kn3gnGjVigc7J4DUEX1XuyX0Qg4tcrD2We
+	 G8UNxzldYhz+/eTi0+Uxw+ercoBsJe1F4X7Umwmlo0jCYhvlnSZNy1tRG9hcwTJqw/KkU
+	 SM52BQckQF7uzZN/+9b6fmbNZ/jUfFexYzwybeHTj6kGJSU/WslA1cYz1+6TUtWmBPNYw
+	 WRRI+nvpxrR4sgrruoYGVZYsaCCZ2H9vscetVGlaOhOqkYqAm9MmpJsLNImsfw65ltA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=proton.me;
-	spf=pass smtp.mailfrom=proton.me;
-	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=k5YPQypB;
-	arc=none smtp.remote-ip=109.224.244.29
-Received: from mail-24429.protonmail.ch (mail-24429.protonmail.ch [109.224.244.29])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NLBiCrNd;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72867606A330
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:22:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72867606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13F24606A320;
+	Sun, 22 Nov 2026 11:26:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=k5YPQypB
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail2; t=1795346519; x=1795605719;
-	bh=utBTjs+dqc3oDE0m/ffB35QBFM5MmJvgCEGqgp52YS8=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=k5YPQypBNzc5Oow1KvXojXzDSMwlvFZFzGMZuRULKlgAkJviwXQGDEk0JSu7IIco1
-	 ZI2jVpd1vmsK/Z8YsG6JaBOFp2QqL3uZ94RdEW77sCjN+RCq5Yw5d4ZVzLhU9aUVG0
-	 lGqg7pWgFH/YixKL0uDWmauZlQeRVdX/XIK1ZUUWF3OFjLanJgp+Rf8KQQv/GpOnmu
-	 w11whRdKWcFjnD5jeLY4olkkCGDqTu6EptmvGtQH5jxtByg2YHp0f+FArWGfHU/s7S
-	 cFmRJJ8rKUebmvNJsrRs1NiUqcGUpidKDTr+q1/XHHVwkoAebSaig2ArhG0scF1ybC
-	 24YntQAPQBjnA==
-Date: Sun, 22 Nov 2026 11:21:54 +0000
-To: "pkshih@realtek.com" <pkshih@realtek.com>
-From: Falconet3 <Falconet3@proton.me>
-Cc: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 2/2] wifi: rtw89: fix u32 overflow in board element offset check
-Message-ID: <wQyrWhpyvBNzuZwnQTESLUjeEbdLHi5t3xdQUf2qlOjublpo9nBpuikHh7cpfpTRjtuXRza3-Q2ZAgcwr7O98Xqs6lFOaNsc3T-D7E4B1S8=@proton.me>
-In-Reply-To: <p7rw-XuXkRXg0R2mJ5S-HUUy3IwDD0iXcY11AzTDIvfIj3ofQsJ5exatm_1V-mlBCzsd_s0xhJSBvZz4zWCYaso5-ylUw9JMV3AoiPUZZ3o=@proton.me>
-References: <p7rw-XuXkRXg0R2mJ5S-HUUy3IwDD0iXcY11AzTDIvfIj3ofQsJ5exatm_1V-mlBCzsd_s0xhJSBvZz4zWCYaso5-ylUw9JMV3AoiPUZZ3o=@proton.me>
-Feedback-ID: 48740069:user:proton
-X-Pm-Message-ID: 45c052aaa64b2835661aa3b15561a13f0c0bcffc
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NLBiCrNd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72FDF1F000C4;
+	Sun, 22 Nov 2026 11:26:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795346769;
+	bh=Yo4OyXgsbDZvOTNjPCohqryanR5Sy6EJCm3Q+WjnVhA=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=NLBiCrNdZcA2MVv8FiASBBH4kJiWgzyfk1BDTo9TKUNaBbLkWAND0nXJmgXt+vSyY
+	 EBnYOSx97b+FUNaouJBdgIYBibU3JMl/vNUayZ7XQSVW5Wh68yUwzrekcN7uH2gt/6
+	 DYTxREkjtpA8lHVFVf/dCUsThwDNHTRJ8YDz+nk4WSaxLcSINveLD/dyk7jzwocODu
+	 0nheYprry6AnOLosQp1sOcEXEK68fO1dcEFO5ONyFMUUAT5ZjmNemh8TpLdNfXV/TS
+	 SZxAkSfanDgOg31a7XDCeHs+XUhAbyzs8rjblti9grLdcexwK+yEwUw5OVQEJAoTJR
+	 QxihemA+CiYmw==
+Content-Type: multipart/mixed; boundary="===============1811446893963645883=="
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,73 +49,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Message-Id: <47fe648c11a1926326e2c6ac5fa1275b8eaab628d352c192811051516e36e54b@mail.kernel.org>
+In-Reply-To: <20261122103838.244974-3-abhishekkhade69@gmail.com>
+References: <20261122103838.244974-3-abhishekkhade69@gmail.com>
+Subject: Re: [RFC PATCH bpf-next 2/2] selftests/bpf: Add selftests for bpf_memmem and bpf_dynptr_memmem kfuncs
+From: bot+bpf-ci@kernel.org
+To: abhishekkhade69@gmail.com,bpf@vger.kernel.org
+Cc: ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,memxor@gmail.com,linux-kernel@vger.kernel.org,abhishekkhade69@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Sun, 22 Nov 2026 11:26:08 +0000 (UTC)
 
-Note: 2/2 was posted as a standalone message ("[PATCH v3 2/2] wifi: rtw89:
-fix u32 overflow in board element offset check") because my webmail client
-does not preserve the In-Reply-To header when the subject is edited. Both
-patches are independent and apply on top of v7.4-rc3.
+--===============1811446893963645883==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-Sorry for the confusion,
-Falconet3
+> selftests/bpf: Add selftests for bpf_memmem and bpf_dynptr_memmem kfuncs
+
+TL;DR: Nit only, in the memmem selftests: the (void *) casts in the
+bpf_dynptr_from_mem() calls may be unnecessary, since the arrays aren't const
+and other callers omit them.
+
+> diff --git a/tools/testing/selftests/bpf/progs/memmem_kfunc.c b/tools/testing/selftests/bpf/progs/memmem_kfunc.c
+> new file mode 100644
+> index 000000000000..8abd06e9758d
+> --- /dev/null
+> +++ b/tools/testing/selftests/bpf/progs/memmem_kfunc.c
+
+[ ... ]
+
+> +SEC("syscall")
+> +__success __retval(7)
+> +int test_dynptr_memmem_embedded_null(void *ctx)
+> +{
+> +	struct bpf_dynptr ptr;
+> +
+> +	bpf_dynptr_from_mem((void *)bin_data, sizeof(bin_data), 0, &ptr);
+> +	return bpf_dynptr_memmem(&ptr, needle_null, sizeof(needle_null), 0);
+> +}
+
+this isn't a bug, but are the (void *) casts needed in the
+bpf_dynptr_from_mem() calls?
+
+bin_data, needle_start and oversized_buf are not const, so they convert to
+void * implicitly.  The bpf_memmem() calls earlier in this file pass the
+same arrays without a cast, and dynptr_success.c passes map_val directly.
+
+Dropping the casts would match those callers.
 
 
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
 
-Enviado com um e-mail seguro do Proton Mail.
-
-Em domingo, 22 de novembro de 2026 =C3=A0s 11:07, Falconet3 <Falconet3@prot=
-on.me> escreveu:
-
-> rtw89_board_elm_seek() validates the selected entry against the board
-> element file with
->=20
-> =09if (unlikely(board_elm->size < ofst + size))
->=20
-> where ofst and size are u32 values read from the file. The addition
-> wraps in u32, so a crafted file with, for example,
-> ofst =3D 0xffffff00 and size =3D 0x200 passes the check and
-> pseudo_fw->data is set to board_elm->data + 0xffffff00 with
-> pseudo_fw->size =3D 0x200. The element walk then dereferences that
-> pointer and reads out of bounds.
->=20
-> Use remainder arithmetic against board_elm->size, which cannot wrap on
-> any architecture. The helper is new in v7.4-rc1, so only the current
-> cycle is affected.
->=20
-> Fixes: af5905e22a43 ("wifi: rtw89: support variants of FW elements")
-> Assisted-by: LLM Mistral Vibe
-> Signed-off-by: Falconet3 <Falconet3@proton.me>
-> ---
-> v3: resend of the series with the correct subjects and version label; no
->     code change since v2.
-> v2: new. Found while fixing the element walk bounds check; split out as
->     an independent caller. Compile- and sparse-tested on x86_64; no
->     reproducer available.
->=20
->  drivers/net/wireless/realtek/rtw89/fw.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/net/wireless/realtek/rtw89/fw.c b/drivers/net/wirele=
-ss/realtek/rtw89/fw.c
-> index 0000000..0000000 100644
-> --- a/drivers/net/wireless/realtek/rtw89/fw.c
-> +++ b/drivers/net/wireless/realtek/rtw89/fw.c
-> @@ -1734,12 +1734,13 @@ static int rtw89_board_elm_seek(const struct firm=
-ware *board_elm,
->  =09if (num <=3D board_id)
->  =09=09return -ENOENT;
->=20
->  =09ent =3D &hdr->ents[board_id];
->=20
->  =09ofst =3D le32_to_cpu(ent->ofst);
->  =09size =3D le32_to_cpu(ent->size);
->=20
-> -=09if (unlikely(board_elm->size < ofst + size))
-> +=09if (unlikely(ofst > board_elm->size ||
-> +=09=09     size > board_elm->size - ofst))
->  =09=09return -EFAULT;
->=20
->  =09memset(pseudo_fw, 0, sizeof(*pseudo_fw));
-> --
-> 2.53.0
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45015018001
+--===============1811446893963645883==--
