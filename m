@@ -1,79 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795353529;
-	b=ECDlpeNMuHF82pbq5ouInH/U6WjOvAGolCAmjrNi6BtluQmZniAyO0hGQtBqlTpja6fP
-	 G4mmV9iq8XfDZ1C0/056vHtNbjBW4a944n7r0NbSGYLGeqJORXTCPwLs3mDLzwwg+Majs
-	 EA+yeCN5T8vwgfUJD8Xgz86dRqpgHb7IoTsqKtgakx/p8hG8+KRtdG4bzC6y4A12ZoUtP
-	 gV3URCmfnmC/dtotXkishCQRyWbXPaFialDkP3LW+YBSVoEFpRS1oNw+jY+2bXSPnISr8
-	 OoU5l9d1ZS66CQ/Mdzz2IzZyMqyI0dHSa/6zNAOtGqzL53rYTn6b9OimueHken8QANw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795353529;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=RtffMgOxZLQ/JTkvXGecUIpw1wwHGGuG/3tZCv9f51I=;
-	b=5gPgjC191j3ljWyJSBIGzutHw5DDqGboq/IYJ7QjlOi4apDV1WueIANJfq9xxdJk9P5W
-	 ryFZGlOGy7aWWPZdpZN7vhTdItLQEDcD88rn9OZtecRKsK/iG5j719n69FfbL6ibtc6WV
-	 byhLD7/bcrdEOcXysGSiv9y1vFlnN8jvfr9B8+VkdJi2nqMR0HgCiy5ZA4gIQXhLIP+aF
-	 QInyj8mr1wtMjk5cSa4AJ8YYsuqC2VnK2NKTSAfR/F8f/QJx9pNoNeaBH4fWwY6nnTepf
-	 sphERjBWPnLbSIIqczI08Ur14KsuVAyJSwCGaZRXCrtB83vLKlchSRs8Y8Am/kGQVpg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="NAq/q/R6";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8A2F606A320;
-	Sun, 22 Nov 2026 13:18:48 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NAq/q/R6
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795353528;
-	b=xqU4gK+xLjvRYgpH3S8AN/F40tQaizlXODlZUFqe3DlF2pgKleBlkgDUaQWsWJSGse++
-	 MWVhHbxFpcgmKdHyaWGr+b+6h3gjxPazQE34DfOU1kZu3FVeRH0wif7nAYEaAZGBcF7eB
-	 D9ToPGf1/UBlxTTi30bd8Kihtw37HpKkCPLr+OgE0p/E6SiStBlmwbuvFg4WbYSXy/yPS
-	 ZxuEqPvPWvtwaz80psRJQx+OZCSK0nHngDLnNsRCMzW+1VCffKdVowlFPz/4xxJEd4mmM
-	 IR9znfwrVNP9yMpNedalA3gvTZwP0z8vvW8aE/aheqUhIkfbTeXYhMxkWBokBUNKEog==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795353528;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=RtffMgOxZLQ/JTkvXGecUIpw1wwHGGuG/3tZCv9f51I=;
-	b=BArQ1hQCVsZhEQFfVbtPkEdNGOsb5aw6TL32pikYgxoSeFWOmlXJr89kMWLYIoox5HSb
-	 DjI7E5Yi/Ans5oL2JfCiZi594xtJFN4pWUznIZ2SuRr/O92T6xI4cQxDR7hSgc8dRueOL
-	 hCW09qhd4/+XQT2A83txyRsJgoJbrLJ8mBoWafYRi6CRZgepbdq1AHHgKMFO9GLFfWpPS
-	 sYEUL0F0sqe44sZxrkWQl3GZZPck9nd6jsQhsIXfWP/5ShsAAKz/rWNhYZ2ZiJNC8Sby1
-	 5hnExVFlYVfcD35X3gDv9KCsaXemg9MkdDRZRJ559IoJDhUGPGhclVYMS+fYdSXFnCA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.47
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795353549;
+	b=x3RD9Ux14PMdhzSvp4G42yY2pE14KZjKPdqGdsQrtJBrJqwRQR/Y1NSt6bV1Xm+zwf/m
+	 tEA1exjSQB8u2+Fm8KROBvAOEn969oJCcTDTX5dQ8lxzw1GiZJSxbcZjjhS87x9ghYOKl
+	 7kuq3m+u2VbZBkZwcp/VUAOjoA4c8IFUheO4juG8cboEAmmehqbtCzi81Ppbj8DzrZ4sr
+	 /wSC38mJDwbDwyfeDPnEgKsl00MYDb9VMQGLRTY6Xpa+otwbYQCtyMVDBFznvnXi/5Zbz
+	 w86/A4F87CxYF0gHjuk4ZIAojI5a+wVqCpSpwzfy3QS/F1umz+S5O+wmW2SBDpO3jmg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795353549;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=wF/CdrmmiMioUkw+9dcdPExNxoPEV3MzGTSK6jiPZA8=;
+	b=sBWgOc+veEZHq02QA+17Masuo9r8ovd5rKdgiet8AMnWVB4b3R1PPwKtmcc0yEBnRR5m
+	 Dp1D/baV8anyevMISYLaYeaOq8evm3uZ2DEojUtYUVCMrO/fruc618FwrCYQirEzXgQsE
+	 yarISrxw9HNbOxNp0I0kewqmHHHv3cZaTWKK5E3vKA03npqJoIIkSd/TZtfiHuFWSL+dA
+	 L+HPxFX4zhJHgktm7ISepv/p+YN9DhYQELclpfx3nc6upPINhBbahPPq1Pd9Qe+H3oTmS
+	 ekyuQlMqAdAuRfjVEF8X1xngtqGRJZaWQyu3HNNyvAeG7ZD0ePDq6iqMLZ+azoTOMcQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xHbcg6i5;
+	arc=none smtp.remote-ip=209.85.167.47
+Received: from mail-lf1-f47.google.com (mail-lf1-f47.google.com [209.85.167.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id E3C0C1F000D1;
-	Sun, 22 Nov 2026 13:18:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795353528;
-	bh=RtffMgOxZLQ/JTkvXGecUIpw1wwHGGuG/3tZCv9f51I=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=NAq/q/R6twa+VpxvCUP64dd3tAz10Mffa9v1UtUirw0hkrbqLkkzRatXVuAExFdsu
-	 7Jj+c0giSQsjEnnjVSfHPvDOdSuNUIRB20tF3VgO4jR41TzM9CpNqRsUDVhaE/HYiE
-	 F8ahP5MpTsLlGrtCVYU0VL+9jgHrx/maPWK/c63H1+/Lk2pPC5zfPYqxOKqSz8ELZv
-	 qdOZ0QIBGfGBabb6w915ROX7ucp4uP4rq9V6mv0/+n6aHk7Fh7+vRN5hzsqaS5QOuN
-	 FvH9oMEHFsD620rqogtqm1TgPDMI4RECxowmlHQdbuKq+m7+u14GjqE3GeYSKO2oU+
-	 7T++UZ3yOFL7w==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 46C894C063;
-	Sun, 22 Nov 2026 13:18:38 +0000 (UTC)
-From: Oleg Antonyan via B4 Relay <devnull+oleg.b.antonyan.gmail.com@kernel.org>
-Date: Sun, 22 Nov 2026 14:18:37 +0100
-Subject: [PATCH] ALSA: hda/realtek: Fix headset mic on ASUS Zenbook S 13
- UX5304MA
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ABC0606A686
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:19:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1ABC0606A686
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xHbcg6i5
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5bfa65c8617so1456896e87.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 05:19:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795353547; x=1795958347; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wF/CdrmmiMioUkw+9dcdPExNxoPEV3MzGTSK6jiPZA8=;
+        b=xHbcg6i5DphML4jkCzhbweDh0VvOde0E98etF4ObufaDQjVTr5VMlRA/A3p7fH1jbW
+         gw8KgP+5ZIXvPqFxNivlV46WUQmVfM451XW+6KncGJzHE2bK2CleBZxAgKiTb14NKgnj
+         tiHH/UdgXZ9vBwACxSLj+P/kbYlcpTdsyBj4l0Xbn7PxletaQUiHbemw/k5lxltJqwLw
+         DMWYwr7FCNyjsUc4edtceV5XRjyGzswlwy/X8QK5sgotFJQlQI6zdJxMCJ/4oCNz/LJt
+         pWsNo+UXcx1x9VOOvV3oGc5HdnrGTP2fXhn4dGDZcx/aPg6W9F8Bshp2Zlp5qNHael2W
+         Rk8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795353547; x=1795958347;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wF/CdrmmiMioUkw+9dcdPExNxoPEV3MzGTSK6jiPZA8=;
+        b=0ArZEa70fIPa66njUi3U7EngtpCu8nXV0Cat+a8TGJWS8pTPXBbHyLCoU5vmghmdyG
+         JTGarklpTp4UNG4oPeGyURSUyYYnMj7vBT34uxzDdJyWBRhcjtjNRT86kPDnSi4obvnx
+         uBsshjyqH1Afe4mRsKEDNAWA3XLOjqB+rBbNKReZ7RlOioY5rhGrXSYrQ+m9lPiqHR2q
+         4OTV4ZfzrCErl+vXLMXYDRay7F0c9zkiljothBlVfsmE0VKeoc+Bg/Na5PAUfUcWgo86
+         MbYrIqY5HDIauQnNEDChFG7gRyy207KG6tPeAW8xKZBXmTFeihJkfS/E0pOE45k1GlK9
+         CJaQ==
+X-Forwarded-Encrypted: i=1; AL+hErG53oubwS6u7XaNttaI8Kb+Lj5DJGB9D7TOsLdxYFNKhz38YTrgqNCE/ZAj1FgzZJx6cPvKdLb9c9SlD8I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8usZ8MpBzbBJ71Fuyl2Z7G+WJ72g2f7FLsW5MbIvdPb4EqvOBL
+	f7LacOh/rabHS8YxtO/tK9CBPVrK8bsHStlxXdt6Id+csN8NDSXyUUjA
+X-Gm-Gg: AZFdTZeZ3VRvA3aeSoH77hgW6FpgQxxU4M0pUOIfWjUbtIFb6l8ob04TSS2BiTxi2m0
+	YiaUTrhQu893OAIq6vQ6jE2tzQQfjtfQhCXUf78hJ1mzf0C4WgDCdnskHo9eFN6uNve0dvE6VE9
+	AooFdXMKh1uL4U0j1PiAC54xmG9NDZydN4lJKq1f3ndulzCO1q87vSaSft5WW4cbnGW2YYocpXD
+	CB1lsJcZGDsNAgd4JJPQNL8l1llLjjslzeMmtJU9Tv0Tot+wFTHazDoVcq9LVL+1SiLnMAydcbQ
+	p1XzjwiOhK5lTbECzh7ICzvonVtl8SoVU/ZbJlDKx1k4K347MYlY3Zn+gZi2d74MYYAFfqLKpjj
+	0MxlYaPcvp8eJtWGOzDRzT3QoKnN6vZRQmp+rwSnFvj9fD265iJ/u5WXrveycsHPMgrIPLK13t7
+	HjOwtsqsHyMkxHFbfDGij7VFj64C4g5s42YBuf9v9glH1iDg+ay5MDC/WluSq1XYeOivOkrn0yP
+	6zCqOv7GsjVcNpsMB53D7kyhj7IyOd3HMddxoct0EzHhmrfS4Skdg7CBwqXEA9ZBmem66IUwWx2
+	FsvSYGjpkgPBWMJNfye/p2ucPI/CCA==
+X-Received: by 2002:a05:6512:1042:b0:5c1:606b:ae8f with SMTP id 2adb3069b0e04-5c1bc660882mr2748867e87.7.1795353547092;
+        Sun, 22 Nov 2026 05:19:07 -0800 (PST)
+Received: from NB-6746.. ([188.243.183.76])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae804ef17dsm26038141fa.12.2026.11.22.05.19.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 05:19:06 -0800 (PST)
+From: Artem Shimko <a.shimko.dev@gmail.com>
+To: andrew@lunn.ch,
+	hkallweit1@gmail.com,
+	linux@armlinux.org.uk,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	maxime.chevallier@bootlin.com,
+	pavel@ucw.cz
+Cc: Artem Shimko <a.shimko.dev@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-leds@vger.kernel.org,
+	netdev@vger.kernel.org,
+	andrew+netdev@lunn.ch
+Subject: [PATCH net-next v4 2/3] dt-bindings: net: dptel,dap8211r: add LED nodes
+Date: Sun, 22 Nov 2026 16:18:55 +0300
+Message-ID: <20261122131900.2951586-3-a.shimko.dev@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261122131900.2951586-1-a.shimko.dev@gmail.com>
+References: <20261122131900.2951586-1-a.shimko.dev@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,70 +112,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261122-ux5304ma-headset-mic-v1-1-80589ae749a8@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAKzrAmsC/yXMQQ6CMBBG4auQWTtJO2KDXsWwqOVHxgQ0HTAkh
- Ltbdfkt3tvIkBVGl2qjjLeaPqcCf6goDXG6g7UrJnESvBfhZT0dXT1GHhA7w8yjJoYATQh1484
- 9lfSV0ev6217bv225PZDm74v2/QPbQQspeAAAAA==
-X-Change-ID: 20261122-ux5304ma-headset-mic-e2ee8664809f
-To: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Stefan Binding <sbinding@opensource.cirrus.com>
-Cc: Takashi Iwai <tiwai@suse.de>, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- Oleg Antonyan <oleg.b.antonyan@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795353517; l=1835;
- i=oleg.b.antonyan@gmail.com; s=20261122; h=from:subject:message-id;
- bh=tTuD5gMzmbpXEeh4kAfA/ft27GJCym2dy3cdc5+lNNU=;
- b=4TrP/nP+pzlrxDU+GUMC/J/I3G+a3TzxaR7aweX53XAOAUEl3sgzRbSnzwe7cltGJu2X5FKw4
- CZxl6NTm/ZkDTdOUevh9EWvfhWv+T9HBSPAe+JwPj4PsWnEHc6Ks0my
-X-Developer-Key: i=oleg.b.antonyan@gmail.com; a=ed25519;
- pk=AA4/X8a4Pvsu+cn8cLNZ3XDbM6VmZZJ57ZuDUycpXD0=
-X-Endpoint-Received: by B4 Relay for oleg.b.antonyan@gmail.com/20261122
- with auth_id=1603
-X-Original-From: Oleg Antonyan <oleg.b.antonyan@gmail.com>
-Reply-To: oleg.b.antonyan@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Oleg Antonyan <oleg.b.antonyan@gmail.com>
+Document the optional "leds" node supported by the DAP8211R PHY.
 
-The ASUS Zenbook S 13 UX5304MA (1043:1c33) uses an ALC294 codec with
-CS35L41 amplifiers over SPI. Its BIOS leaves pin 0x19 unconfigured, so
-the headset mic on the combo jack does not work.
+The PHY exposes three configurable LED outputs, each of which can be
+assigned a color, a function and a default trigger.
 
-Use ALC294_FIXUP_ASUS_SPI_HEADSET_MIC like the UX3405MA and UX3402VA.
-It configures the headset mic pin and chains to
-ALC245_FIXUP_CS35L41_SPI_2 to keep the speakers working.
-
-Tested on a UX5304MA: headset mic, internal mic and speakers work.
-
-Fixes: 61cbc08fdb04 ("ALSA: hda/realtek: Add quirks for ASUS 2024 Zenbooks")
-Cc: stable@vger.kernel.org
-Signed-off-by: Oleg Antonyan <oleg.b.antonyan@gmail.com>
+Signed-off-by: Artem Shimko <a.shimko.dev@gmail.com>
 ---
- sound/hda/codecs/realtek/alc269.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../bindings/net/dptel,dap8211r.yaml          | 50 +++++++++++++++++++
+ 1 file changed, 50 insertions(+)
 
-diff --git a/sound/hda/codecs/realtek/alc269.c b/sound/hda/codecs/realtek/alc269.c
-index a6b5e8987294..50bbb5b4529c 100644
---- a/sound/hda/codecs/realtek/alc269.c
-+++ b/sound/hda/codecs/realtek/alc269.c
-@@ -8213,7 +8213,7 @@ static const struct hda_quirk alc269_fixup_tbl[] = {
- 	SND_PCI_QUIRK(0x1043, 0x1bbd, "ASUS Z550MA", ALC255_FIXUP_ASUS_MIC_NO_PRESENCE),
- 	SND_PCI_QUIRK(0x1043, 0x1c03, "ASUS UM3406HA", ALC294_FIXUP_ASUS_I2C_HEADSET_MIC),
- 	SND_PCI_QUIRK(0x1043, 0x1c23, "Asus X55U", ALC269_FIXUP_LIMIT_INT_MIC_BOOST),
--	SND_PCI_QUIRK(0x1043, 0x1c33, "ASUS UX5304MA", ALC245_FIXUP_CS35L41_SPI_2),
-+	SND_PCI_QUIRK(0x1043, 0x1c33, "ASUS UX5304MA", ALC294_FIXUP_ASUS_SPI_HEADSET_MIC),
- 	SND_PCI_QUIRK(0x1043, 0x1c43, "ASUS UX8406MA", ALC245_FIXUP_CS35L41_SPI_2),
- 	SND_PCI_QUIRK(0x1043, 0x1c62, "ASUS GU603", ALC289_FIXUP_ASUS_GA401),
- 	SND_PCI_QUIRK(0x1043, 0x1c63, "ASUS GU605M", ALC285_FIXUP_ASUS_GU605_SPI_SPEAKER2_TO_DAC1),
-
----
-base-commit: 0dfd513a15573ffa21710f77c2926c3cbb81a7ed
-change-id: 20261122-ux5304ma-headset-mic-e2ee8664809f
-
-Best regards,
---  
-Oleg Antonyan <oleg.b.antonyan@gmail.com>
-
+diff --git a/Documentation/devicetree/bindings/net/dptel,dap8211r.yaml b/Documentation/devicetree/bindings/net/dptel,dap8211r.yaml
+index 4cd0f9730d95..772329feda05 100644
+--- a/Documentation/devicetree/bindings/net/dptel,dap8211r.yaml
++++ b/Documentation/devicetree/bindings/net/dptel,dap8211r.yaml
+@@ -20,6 +20,7 @@ description: |
+     - IEEE 802.3az-2010 Energy Efficient Ethernet
+     - IEEE 1588 SyncE support
+     - Internal packet generator and checker for link diagnostics
++    - Three configurable LEDs (link, speed, duplex, TX/RX activity)
+ 
+ allOf:
+   - $ref: ethernet-phy.yaml#
+@@ -45,10 +46,40 @@ properties:
+     maximum: 2250
+     default: 1950
+ 
++  leds:
++    type: object
++
++    description:
++      Optional node describing the three configurable LEDs of the PHY.
++      Each LED can be assigned a color, function and default trigger
++      (e.g. "netdev" for link/activity indication).
++
++    properties:
++      '#address-cells':
++        const: 1
++      '#size-cells':
++        const: 0
++
++    patternProperties:
++      '^led@[0-2]$':
++        type: object
++
++        $ref: /schemas/leds/common.yaml#
++        unevaluatedProperties: false
++
++        properties:
++          reg:
++            items:
++              maximum: 2
++
++    additionalProperties: false
++
+ unevaluatedProperties: false
+ 
+ examples:
+   - |
++    #include <dt-bindings/leds/common.h>
++
+     mdio {
+         #address-cells = <1>;
+         #size-cells = <0>;
+@@ -58,5 +89,24 @@ examples:
+             reg = <1>;
+             rx-internal-delay-ps = <1950>;
+             tx-internal-delay-ps = <1950>;
++
++            leds {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                led@0 {
++                    reg = <0>;
++                    color = <LED_COLOR_ID_GREEN>;
++                    function = LED_FUNCTION_LAN;
++                    linux,default-trigger = "netdev";
++                };
++
++                led@1 {
++                    reg = <1>;
++                    color = <LED_COLOR_ID_AMBER>;
++                    function = LED_FUNCTION_LAN;
++                    linux,default-trigger = "netdev";
++                };
++            };
+         };
+     };
+-- 
+2.43.0
 
