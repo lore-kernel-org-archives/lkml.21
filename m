@@ -1,58 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795368928;
-	b=a21dbrmCCK97R14QduboRLfkqpKaDkueXciDelvYU5hk1gd1GHnLfkjENRjp70tekHuN
-	 9uXv6sge2x1wJWjslqb5GAXAtssWptCYFf5jX+TeJb6BsEvYxt2OV/B/nqCr3INMe3rnX
-	 dANPMS/mI9mmIaZyZwfBSfSjhJuwCb17OnR0yjNiS7lhl5qVtHpHEp8jS0iQQO2fr4OAG
-	 8PiNhFdjW8GsIQy2wh0b0+/tkMmR8TgEiC+1jp2tyuFJtNIZQPdYRElUiJYnIoCRl8byL
-	 GxhIblvScBqeBjmR8Qsmov1UYe0UxZxr3bfMoNksmDhh+YjqcTBuP0N0itJLtZvbdag==
+	t=1795368930;
+	b=EDzL/HNFRWhMrbSHnRmrdMAAiwLel/sCElQ1yiNY3bxr+Gsp+kRHjR8ZATGNgBs5Thns
+	 2X2fD6i7XEyk3aZgVaYCX/vroUpLqFxuA5w6m+wpX5LK4k6ff86Q05DbrIx8JMhk9wJFV
+	 IVz4GovhMZQ9fg8iaOml6hbvobdLnNjOPX7C90KfVsEVKBMJRqK6xTTK0IbqbOvfWrVH9
+	 2VZ8d6BjVrG3uuLk77DcoxZrGOV8Gyn2wXp998TR1IriiwxU0Sv6wNSSmk04IthgTmkJs
+	 0Mgr0Ao12WK9qgJJHW6zmx8x3IX6qxOkQQkyCDeK9JCM1y+oR4J9fITugAtimrrm3ew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795368928;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=LaFUW1FwoGNlZJgmSu4oNHIToLGpfe4LYC35AWNKoIc=;
-	b=gm7QaKgiNnjWLdMMoJcp2RtSGnXidTPl2yXzvP95H0k/ledPV0q2mlCEl+PWU6fSom5n
-	 39CyN9fNBkUzAOGF5ol32w+Pu8a8fnjquGKTaXyGm54NHiGe1cCKDK0adx06cJ6wabGnq
-	 2sMUKHAw2A2GRP/mnS37gTZ8tscY2Z/ez3aMUHCDKlObJwHWCnugCdPPR9IAuHiDbc7AQ
-	 v6pCPpLEx8SGwkepY/O3LuUw4l2FO9+WOnmviVit+9o3zSxF/Imojj2gpcjibv4ppW+QH
-	 n80YACckQv7FeHlico2nGp3GAB0q+SjdGAKTCt6TVpXWHnZqsvHG3oltHQIY/JDTwig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795368930;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 X-Scanned-By;
+	bh=sJM5U0UMt7klljmQpHi8pFYazE6ZZS3AuyiLULRE4vg=;
+	b=yC/mm19PDNNuUJemLpj+EtQiNq5m6aqM2X8uMWW+hXjRAPr6P1DwR6KaWIvs14kDRDLm
+	 m96hoQdR7Q1h7rp0tLctS3gDRLOEEunO+Jn1vmYt3aaiX4bZpSSbx6Ln/YKfLQUr40iyM
+	 0zXRtdI4zGQIDpxd/6tazPFxrSGySmQnYtELHZhUdxrVF1NlSxd9+rsiiEqqHFDfqCKt1
+	 wPDvAjJ908WCgjiau/FDKjcU+s98rdRIlB8VPtXO+Tr5MbxrMqd15D5D17c/mPMoRu/4W
+	 mBnwbwQ4htfHYRL0p9IerFK77e2x4/ZIl9V6W7fpTNFvUFQk4b/1kRHSYiYFT2kueLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=c0ZPCe7n;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=GheMNpjb;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E278F606A338;
-	Sun, 22 Nov 2026 17:35:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E278F606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 020B7606A68C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:35:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 020B7606A68C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=c0ZPCe7n
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 53A221A1786;
-	Sun, 22 Nov 2026 17:35:26 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1D03C60512;
-	Sun, 22 Nov 2026 17:35:26 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C2A4911E61B2A;
-	Sun, 22 Nov 2026 18:35:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795368924; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=LaFUW1FwoGNlZJgmSu4oNHIToLGpfe4LYC35AWNKoIc=;
-	b=c0ZPCe7nPcWduyfPg/JBixjwZW7G1+N+4DOYFmZDsSnGep8AQm9XDUKhtSbWOR88w/KS/L
-	WLGoDoQBsCYt2vypVckzcj/z+0Ton4ugvrL2NhVXfhN407c8GK1imgVVApTNuiYuL1nQgS
-	WwPOyYX+/ac2tr1FdPy7q4Jq8ipihAOW8l8vDav1aGOzkFhuFot2ZKIyfY3s9cP3nwVBDe
-	qyRjNg6wn+Z6feFPVaRhNgl+qSPo1+c9lA/kLv6icus/QhmXRkDEmwBmmISWzA3dwWkdyj
-	XUo90C442YG1j1LORXueQxeSfTxDnANLuoj4vFVuWghNNKyClde54Hzwz+TmVA==
-Message-ID: <7de5e572-dba5-4429-90fa-3cddb2e5cad8@bootlin.com>
-Date: Sun, 22 Nov 2026 18:35:11 +0100
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=GheMNpjb
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795368929;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=sJM5U0UMt7klljmQpHi8pFYazE6ZZS3AuyiLULRE4vg=;
+	b=GheMNpjbvgYEAUGc1qH4uwxrTZh2m80zKLqWJ1yfC8RvmtT1JmcmB51CtPDpegGKVZWARW
+	Gvip1ZwPo2LjljwPhkSVeJTQ1wiLNHjXT5EmSrmQ2edXqiMtwOD+8DDIE8/wpmfZpc+xTQ
+	vHj9A4IIzdSY6Ma+qKHbm8/JL1SeUJI=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-637-49qdmpqANlG9np73tUhOVQ-1; Sun,
+ 22 Nov 2026 17:35:22 +0000
+X-MC-Unique: 49qdmpqANlG9np73tUhOVQ-1
+X-Mimecast-MFC-AGG-ID: 49qdmpqANlG9np73tUhOVQ_1795368920
+Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0E3CC180047B;
+	Sun, 22 Nov 2026 17:35:19 +0000 (UTC)
+Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 0C54F41F;
+	Sun, 22 Nov 2026 17:35:13 +0000 (UTC)
+Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
+	oleg@redhat.com; Sun, 22 Nov 2026 18:35:18 +0100 (CET)
+Date: Sun, 22 Nov 2026 18:35:12 +0100
+From: Oleg Nesterov <oleg@redhat.com>
+To: =?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>
+Cc: Christian Brauner <brauner@kernel.org>,
+	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
+	Tejun Heo <tj@kernel.org>, Bart Van Assche <bvanassche@acm.org>,
+	Cen Zhang <blbllhy@gmail.com>, James Morris <jmorris@namei.org>,
+	Lee Seong Hyeon <ihopenre@gmail.com>,
+	Marco Elver <elver@google.com>, NeilBrown <neil@brown.name>,
+	Nickolai Zeldovich <nickolai@csail.mit.edu>,
+	Paul Moore <paul@paul-moore.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Serge E . Hallyn" <serge@hallyn.com>,
+	Yihan Ding <dingyihan@uniontech.com>, linux-kernel@vger.kernel.org,
+	linux-security-module@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] landlock: Do not hold exec_update_lock across the TSYNC
+ wait
+Message-ID: <awMn0L7RaQO_6qUc@redhat.com>
+References: <20261120151554.2651743-1-mic@digikod.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,146 +91,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v4 5/5] net: stmmac: dwmac-sun8i: Register the
- MDIO mux in the MDIO setup
-To: aiyengar1990@gmail.com, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Russell King <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
- linux-kernel@vger.kernel.org
-References: <20261120-sun8i-emac-mux-uaf-v4-0-57eba8915f25@gmail.com>
- <20261120-sun8i-emac-mux-uaf-v4-5-57eba8915f25@gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261120-sun8i-emac-mux-uaf-v4-5-57eba8915f25@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261120151554.2651743-1-mic@digikod.net>
+X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
 
-Hi,
-
-On 11/20/26 11:45, Arun Iyengar via B4 Relay wrote:
-> From: Arun Iyengar <aiyengar1990@gmail.com>
-> 
-> Both PHYs sit behind the mux, but the mux is registered only after
-> stmmac_pltfr_probe() has registered the netdev, so an early open does
-> not find the PHY. On remove, the mux goes away before
-> unregister_netdev(), and unbinding with the link up oopses in
-> phy_stop().
-> 
-> Register and unregister the mux through the new mdio_init() and
-> mdio_exit() hooks.
-> 
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
-
-Looks good, I tested that on Allwinner H2+, the mux probes fine. This
-has run on the stmmac netdevCI anyways and no breakage reported on
-other plaftorms.
-
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
-
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 41 ++++++-----------------
->  1 file changed, 10 insertions(+), 31 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> index 4acfda235394..0ec25ae0b77e 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> @@ -17,7 +17,6 @@
->  #include <linux/of_platform.h>
->  #include <linux/phy.h>
->  #include <linux/platform_device.h>
-> -#include <linux/pm_runtime.h>
->  #include <linux/regulator/consumer.h>
->  #include <linux/regmap.h>
->  #include <linux/stmmac.h>
-> @@ -941,6 +940,13 @@ static int sun8i_dwmac_register_mdio_mux(struct stmmac_priv *priv)
->  	return ret;
->  }
+On 11/20, Mickaël Salaün wrote:
+>
+> @@ -492,6 +533,19 @@ int landlock_restrict_sibling_threads(const struct cred *old_cred,
+>  	size_t newly_discovered_threads;
+>  	bool found_more_threads;
 >  
-> +static void sun8i_dwmac_unregister_mdio_mux(struct stmmac_priv *priv)
-> +{
-> +	struct sunxi_priv_data *gmac = priv->plat->bsp_priv;
+> +	/*
+> +	 * Serialize concurrent TSYNC operations to prevent deadlocks when
+> +	 * multiple threads call landlock_restrict_self() simultaneously.  If
+> +	 * another operation got there first, gracefully yield by restarting the
+> +	 * syscall.  This allows the current thread to process pending
+> +	 * task_works before retrying.
+> +	 *
+> +	 * sighand->siglock protects only the marker, not the wait below.
+> +	 */
+> +	CLASS(current_tsync_marker, marker)();
+> +	if (!marker)
+> +		return restart_syscall();
 > +
-> +	mdio_mux_uninit(gmac->mux_handle);
-> +}
-> +
->  static int sun8i_dwmac_set_syscon(struct device *dev,
->  				  struct plat_stmmacenet_data *plat)
->  {
-> @@ -1133,8 +1139,6 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
->  	struct stmmac_resources stmmac_res;
->  	struct sunxi_priv_data *gmac;
->  	struct device *dev = &pdev->dev;
-> -	struct stmmac_priv *priv;
-> -	struct net_device *ndev;
->  	struct regmap *regmap;
->  	int ret;
+>  	atomic_set(&shared_ctx.preparation_error, 0);
+>  	init_completion(&shared_ctx.all_prepared);
+>  	init_completion(&shared_ctx.ready_to_commit);
+> @@ -503,16 +557,6 @@ int landlock_restrict_sibling_threads(const struct cred *old_cred,
+>  		(restrict_flags & LANDLOCK_RESTRICT_SELF_NO_NEW_PRIVS) ||
+>  		task_no_new_privs(current);
 >  
-> @@ -1217,6 +1221,9 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
->  		ret = get_ephy_nodes(dev, gmac);
->  		if (ret)
->  			return ret;
-> +
-> +		plat_dat->mdio_init = sun8i_dwmac_register_mdio_mux;
-> +		plat_dat->mdio_exit = sun8i_dwmac_unregister_mdio_mux;
->  	}
->  
->  	ret = sun8i_dwmac_set_syscon(&pdev->dev, plat_dat);
-> @@ -1227,33 +1234,8 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
->  	if (ret)
->  		goto dwmac_syscon;
->  
-> -	ndev = dev_get_drvdata(&pdev->dev);
-> -	priv = netdev_priv(ndev);
-> -
-> -	/* the MAC is runtime suspended after stmmac_dvr_probe(), so we
-> -	 * need to ensure the MAC resume back before other operations such
-> -	 * as reset.
+> -	/*
+> -	 * Serialize concurrent TSYNC operations to prevent deadlocks when
+> -	 * multiple threads call landlock_restrict_self() simultaneously.
+> -	 * If the lock is already held, we gracefully yield by restarting the
+> -	 * syscall. This allows the current thread to process pending
+> -	 * task_works before retrying.
 > -	 */
-> -	pm_runtime_get_sync(&pdev->dev);
-> -
-> -	/* The mux must be registered after parent MDIO
-> -	 * so after stmmac_dvr_probe()
-> -	 */
-> -	if (gmac->variant->soc_has_internal_phy) {
-> -		ret = sun8i_dwmac_register_mdio_mux(priv);
-> -		if (ret) {
-> -			dev_err(&pdev->dev, "Failed to register mux\n");
-> -			goto dwmac_remove;
-> -		}
-> -	}
-> -
-> -	pm_runtime_put(&pdev->dev);
-> -
->  	return 0;
->  
-> -dwmac_remove:
-> -	pm_runtime_put_noidle(&pdev->dev);
-> -	stmmac_pltfr_remove(pdev);
->  dwmac_syscon:
->  	sun8i_dwmac_unset_syscon(gmac);
->  dwmac_ephy:
-> @@ -1269,9 +1251,6 @@ static void sun8i_dwmac_remove(struct platform_device *pdev)
->  	struct stmmac_priv *priv = netdev_priv(ndev);
->  	struct sunxi_priv_data *gmac = priv->plat->bsp_priv;
->  
-> -	if (gmac->variant->soc_has_internal_phy)
-> -		mdio_mux_uninit(gmac->mux_handle);
-> -
->  	stmmac_pltfr_remove(pdev);
->  	reset_control_put(gmac->rst_ephy);
->  	clk_put(gmac->ephy_clk);
-> 
+> -	if (!down_write_trylock(&current->signal->exec_update_lock))
+> -		return restart_syscall();
+
+Just in case, the patch looks obviously correct, so feel free to add
+
+Reviewed-by: Oleg Nesterov <oleg@redhat.com>
+
+-------------------------------------------------------------------------------
+But when I look at this code...
+
+Well, if we change landlock_restrict_sibling_threads() to rely on ->siglock,
+it seems that it can be greatly simplified? I mean, it can roughly do:
+
+	...
+
+	for (nt nr_threads = 0;; tsync_works_grow_by(&works, nr_threads))
+	{
+		guard(spinlock_irq)(&current->sighand->siglock);
+
+		if (!nr_threads) {
+			if (signal->flags & SIGNAL_LANDLOCK_TSYNC || ...)
+				return restart_syscall();
+			else
+				signal->flags |= SIGNAL_LANDLOCK_TSYNC;
+		}
+
+		if (nr_threads < get_nr_threads(current)) {
+			nr_threads = get_nr_threads(current));
+			continue;
+		}
+
+		for_other_threads(current, thread) {
+			if (thread->flags & PF_EXITING)	// stable under siglock
+				continue;
+
+			ctx = tsync_works_provide(...); // can't fail
+
+			...
+
+			task_work_add(thread, &ctx->work, TWA_SIGNAL); // can't fail
+		}
+
+		break;
+	}
+
+	complete_all(&shared_ctx.ready_to_commit);
+	...
+
+We can kill tsync_works_trim/tsync_works_contains_task/count_additional_threads/etc.
+
+Sure, this needs another change even if I am right.
+
+Oleg.
 
