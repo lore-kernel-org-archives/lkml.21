@@ -1,47 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795388187;
-	b=SU04pZ7PW96WmqAmAV2kZeS0WMy4BcKSZfpAiKhWn9UCN2EKLa5xOCgi/1p/vvFJCzvq
-	 2JyiL0lN681unW6xXlH1098/fQJppMLSiBJBFZ0dF8BqyxsqGVZMj0h62/xC+GiOXMM57
-	 a9QBxuJ7AK3Bl/APZlLQ9RtKvm0dFsYgAyP2i9coTUesCpSp/3mGu+5S8YzSvP5lRHUA8
-	 47kQ+WPFSVRDT+PZgR27ILpEdb7DC1/9DI217A0p+dAJBEv8Vu3COfCLEjypV5U2czal4
-	 W7p9lsCWdjmZVP97tEKj2dzSKvRnvWCn0jX+FPWE0xKbXT5geS1J+fjmt0bnCdh5pSQ==
+	t=1795388252;
+	b=IVJ/QZQ7HFplkelkbB8Z5HQN0YP2v+SoHEvc0ocsJw1eIexDmpLtuPxyj7EEdK/rxwL1
+	 IFTa7//AhfYh8MnvDE1PDf/4a6GLU0rGnd5vL9ws1TTaqpsHpKPQjaeY7tNDM1Q+SR9cR
+	 OVwREu7H/q7dPQQ9oasFk6p1GfH0iFlmWmoPtviO0OMtGWs9yGg1tRBz9FGKwbFg+h/rv
+	 uVizUV9Z31wB4OSGjTSC2rR/uf4zKtNQnd883PxzufGlxwJAaI5mnUznuFQ4k7rEWVEAc
+	 +lschKuGiYGsyX+DttalWLZxVHUOu9RUtrxi1A56mpzf2KDzTblxLAlkhEfVuE7nhTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795388187;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=KIinOygrsBNDkSujvqaAeAdUWcQOoEnFOlfev0JX91E=;
-	b=WyMbJM+YDBDin1bAh1C/nHeRY3zVmYvz8PyepRulQ4sRBxWOMB+gmqpmktzd00xBJIqE
-	 BjiBHyP5QkABTVX6Ln6hi654MipkP82VujEbRhrPkdJKGKg2xgd8/NFq9JiiE7KILPdFX
-	 kMak+8tzXls69hXKI82XlQs6MilFt5P9+31GXazmAxLNvMA/72xbIkP4n7RVLtswuCMkT
-	 uwIs4UZeR2nXmWD+tiD6ox9G3gR7xcotv7IA+a8oiGy7xmOu2IMfFK1YE/2fkEUmr9tVY
-	 khUAw7O4ttM17kBs5mJw1UPwIBjP//41Mdv0wRbYu36nzU0rUWtaDVzP5EiMdcwV7ag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795388252;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=jjXLYua8yEMOZG20v0014nN/5Rs2wlsBWV6M4sI7iCI=;
+	b=q92nW01ac5dJTU68iTHGvoMkwwYR+Qu76GB0nGZWenaFbdfxDf1JIbzOWKMSyZBYbSM8
+	 yt5tnaAvBoYM2HIS5ixnvjpxLNdDJt746wzBKE5VXOUaq/aidfZo4EtzT+kxyM1w8CdQ7
+	 0+pliNRo6JdsSV5z/dnjswdEP1Gk0pq8PizeOQdn4+3Y0LhH9VEqsgC7Lm0Bq9alko357
+	 NgN1XZh0fo+kt7ttLjPtDxFo0LHE+N29TSpOViGLVW8JydhGYlsamUznv5a+MP1tDfPiv
+	 Y4TzAVdbkeSjN/Ec5BCHX/AFmAH7DXr1WMEm4SYMldc9/f9eYmRDNXGite4x10DyTag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GWI1dkQJ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Di9MXQCe;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6A1C606A31A;
-	Sun, 22 Nov 2026 22:56:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B828606A31A;
+	Sun, 22 Nov 2026 22:57:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GWI1dkQJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BD0B1F000C4;
-	Sun, 22 Nov 2026 22:56:25 +0000 (UTC)
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Di9MXQCe
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 341581F000CA;
+	Sun, 22 Nov 2026 22:57:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795388187;
-	bh=KIinOygrsBNDkSujvqaAeAdUWcQOoEnFOlfev0JX91E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=GWI1dkQJj1xzkIrPk3feli0BlX0HTQwbpPWL7vTQwrt90JG99WcjDP3VgdI08ckNs
-	 DqUR0BRsHIF/B0JorclK5Ffkb+E6jrpNCrnjQnD83nv4fLWlKPvYIY2HnLnTwdoX+/
-	 6H5L/ED/hEmfiQ7IQ48F0998SoSLizvQynt5hhXx0uih6VIH/bBTbLLSnRkanrQwrm
-	 VpDJah4aVNyZE5PQ3Ab10aF/tq+clRZnDsdignidJ9pdvbaUfcNkOB45aQXZKZnNkq
-	 xKSuz1Acs4a1Dks4gBbCCcpHR2vF/NbtzPLMj3LI8IG1u+oBXZYHLkzDDT8xXCRMIC
-	 YZn8s3qK4ip3g==
-Message-ID: <a37ed6db-de5c-4566-9af7-68cd6cf3d77b@kernel.org>
-Date: Sun, 22 Nov 2026 22:56:23 +0000
+	s=k20260515; t=1795388251;
+	bh=jjXLYua8yEMOZG20v0014nN/5Rs2wlsBWV6M4sI7iCI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Di9MXQCen520rO1uRAE9Usc9ysRbdAnis6wFWyzbj7grcxIE1lvdZsu0oo6g+eHeN
+	 MzaLgjueWlINkBOPNZXSFW57nF/o40+mMB251dakPQRG46O1YdVlu/J3xL7zASzoF0
+	 6ZHJYAsl8045YyeKD2N6oSopo3k0Z+yMgsMeh9aFwY39gcM3Q1rTwU3TUINrqbTnyq
+	 BB92hm4LIIohgYfMPA0Vr+CtkR28wWR7QCfr1E94LrMNMQLwQsDzEGV5GNMnePPM1h
+	 4J653q7lDw+IaUtobD77gyBvdgqY5vSbEQe/+jhkW2qcaZoe9BhPuIlrRY8VTU4jfC
+	 iRTg8u/73nVLA==
+Subject: Re: [PATCH net v2] can: dev: reject unusable bit-timing constants
+From: netdev-bot+sashiko@kernel.org
+To: 25031212351@stu.xidian.edu.cn
+Cc: mkl@pengutronix.de, mailhol@kernel.org, socketcan@hartkopp.net,
+ linux-can@vger.kernel.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, byu@xidian.edu.cn, wencheng@xidian.edu.cn,
+ kuba@kernel.org
+Date: Sun, 22 Nov 2026 22:57:30 +0000
+Message-ID: <179538825072.3131.7118815518800235800@kernel.org>
+In-Reply-To: <20261121094534.5221-1-25031212351@stu.xidian.edu.cn>
+References: <20261121094534.5221-1-25031212351@stu.xidian.edu.cn>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,230 +63,191 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] media: venus: Signal end-of-stream with a mapped
- buffer
-To: emcp@enser.io, Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
- Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
- Hans Verkuil <hverkuil@kernel.org>,
- Stanimir Varbanov <stanimir.varbanov@linaro.org>,
- linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261122-b4-venus-eos-seek-v1-0-2e38912c7cf9@enser.io>
- <xvOqr6NGA_oI_3jbBAXrpmgzYNUJpfGsBxTbc8Bsqk7dUknmWC1YsnpqotHjGuXGoW1RJFRpSBbwplo-ZPWvxg==@protonmail.internalid>
- <20261122-b4-venus-eos-seek-v1-1-2e38912c7cf9@enser.io>
-From: Bryan O'Donoghue <bod@kernel.org>
-Content-Language: en-GB
-Autocrypt: addr=bod@kernel.org; keydata=
- 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
-In-Reply-To: <20261122-b4-venus-eos-seek-v1-1-2e38912c7cf9@enser.io>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-On 22/11/2026 05:13, EMCP333 via B4 Relay wrote:
-> From: EMCP333 <emcp@enser.io>
-> 
-> V4L2_ENC_CMD_STOP and V4L2_DEC_CMD_STOP signal end-of-stream by queueing
-> an empty input buffer at the made-up device address 0xdeadb000. The
-> SDM845 firmware on a OnePlus 6T (VIDEO.VE.5.2-00050-PROD-1) rejects it:
-> 
->    qcom-venus aa00000.video-codec: session error: event id:1001 (deadb000)
-> 
-> and the LAST buffer never comes back. An encoder session then goes on to
-> session error 1006 and a system error whose recovery fails ("recovery
-> failed to init HFI"), and the encoder is unusable until reboot. A decoder
-> leaves the client draining forever: ffmpeg and mpv with v4l2m2m decoded
-> 1188 of 1200 frames of a clip, then hung at end of file.
-> 
-> A zero-length buffer queued by userspace reaches the firmware with the
-> EOS flag at its real, mapped address, and is accepted. Do the same for
-> STOP: allocate one small buffer per instance the first time STOP is
-> issued, against the core device like the internal buffers, and free it
-> once the session has been destroyed at close. The IRIS2 branch for old
-> firmware, which needs address 0, is unchanged.
-> 
-> Tested on a OnePlus 6T with this change on the postmarketOS sdm845
-> kernel (6.18): three 640x480 H.264 encodes in one boot, each drained
-> with ENC_CMD_STOP, all reach end-of-stream with a valid stream; decoding
-> one of them returns all 90 frames and end-of-stream; no session or
-> system errors are logged.
-> 
-> The code and this changelog were prepared with the help of an AI coding
-> assistant. The submitter has reviewed both and takes responsibility for
-> them.
-> 
-> Fixes: e69b987a9759 ("media: venus: reimplement decoder stop command")
-> Fixes: 7493db46e4c4 ("venus: venc: add handling for VIDIOC_ENCODER_CMD")
-> Signed-off-by: EMCP333 <emcp@enser.io>
-> ---
->   drivers/media/platform/qcom/venus/core.h    |  4 ++++
->   drivers/media/platform/qcom/venus/helpers.c | 35 +++++++++++++++++++++++++++++
->   drivers/media/platform/qcom/venus/helpers.h |  3 +++
->   drivers/media/platform/qcom/venus/vdec.c    | 11 ++++++---
->   drivers/media/platform/qcom/venus/venc.c    |  7 +++++-
->   5 files changed, 56 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/media/platform/qcom/venus/core.h b/drivers/media/platform/qcom/venus/core.h
-> index 93fa77f058..f521bccfe3 100644
-> --- a/drivers/media/platform/qcom/venus/core.h
-> +++ b/drivers/media/platform/qcom/venus/core.h
-> @@ -463,6 +463,8 @@ enum venus_inst_modes {
->    * @drain_active:	Drain sequence is in progress
->    * @flags:	bitmask flags describing current instance mode
->    * @dpb_ids:	DPB buffer ID's
-> + * @eos_va:	CPU address of the empty buffer that carries end-of-stream
-> + * @eos_da:	device address of that buffer
->    */
->   struct venus_inst {
->   	struct list_head list;
-> @@ -534,6 +536,8 @@ struct venus_inst {
->   	bool drain_active;
->   	enum venus_inst_modes flags;
->   	struct ida dpb_ids;
-> +	void *eos_va;
-> +	dma_addr_t eos_da;
->   };
-> 
->   #define IS_V1(core)	((core)->res->hfi_version == HFI_VERSION_1XX)
-> diff --git a/drivers/media/platform/qcom/venus/helpers.c b/drivers/media/platform/qcom/venus/helpers.c
-> index 59eee3dd9e..e0bd2b0478 100644
-> --- a/drivers/media/platform/qcom/venus/helpers.c
-> +++ b/drivers/media/platform/qcom/venus/helpers.c
-> @@ -3,9 +3,11 @@
->    * Copyright (c) 2012-2016, The Linux Foundation. All rights reserved.
->    * Copyright (C) 2017 Linaro Ltd.
->    */
-> +#include <linux/dma-mapping.h>
->   #include <linux/idr.h>
->   #include <linux/list.h>
->   #include <linux/mutex.h>
-> +#include <linux/sizes.h>
->   #include <linux/slab.h>
->   #include <linux/kernel.h>
->   #include <media/videobuf2-dma-contig.h>
-> @@ -1541,6 +1543,39 @@ void venus_helper_buffers_done(struct venus_inst *inst, unsigned int type,
->   }
->   EXPORT_SYMBOL_GPL(venus_helper_buffers_done);
-> 
-> +#define VENUS_EOS_BUF_SIZE	SZ_4K
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
+
+Critical: 0 · High: 1 (1) · Medium: 1 · Low: 1
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] The fix is meant to make devices that hand out unusable timing
+  values fail to probe.
+- [Medium] register_candev() (drivers/net/can/dev/dev.c:670-672) passes
+  only priv->bittiming_const and priv->fd.data_bittiming_const to the…
+- [Low] can_bittiming_const_valid() rejects more constant sets than its
+  comments and the commit body justify.
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the patch
+  leaves the same divide-error oops reachable from user space, and the…
+
+--
+
+can: dev: reject unusable bit-timing constants
+
+This patch extends can_bittiming_const_valid(), which register_candev()
+calls. The function now rejects bit-timing constants with a zero brp_min
+or brp_inc, zero or inconsistent tseg minima, a bit time above 1024 tq,
+or a brp_max * bit time product that does not fit in 32 bits. The goal
+is that devices such as gs_usb that report unusable constants fail to
+probe instead of crashing can_calc_bittiming() later.
+
+> diff --git a/drivers/net/can/dev/dev.c b/drivers/net/can/dev/dev.c
+> index 769745e22a3c7..db541f935d102 100644
+> --- a/drivers/net/can/dev/dev.c
+> +++ b/drivers/net/can/dev/dev.c
+> @@ -595,15 +595,50 @@ static int can_get_termination(struct net_device *ndev)
+
+[ ... ]
+
+>  static bool
+>  can_bittiming_const_valid(const struct can_bittiming_const *btc)
+>  {
+
+[ ... ]
+
+> +	/* can_calc_bittiming() rounds the bit-rate prescaler to a multiple of
+> +	 * brp_inc and divides priv->clock.freq by brp. A zero brp_inc divides
+> +	 * by zero directly, a zero brp_min lets brp become zero.
+> +	 */
+> +	if (!btc->brp_min || btc->brp_min > btc->brp_max || !btc->brp_inc)
+> +		return false;
+
+[Severity: High]
+The commit message says a device that hands out unusable values should
+fail to probe. Should that also cover the clock frequency? gs_usb takes
+it from the same GS_USB_BREQ_BT_CONST response:
+
+drivers/net/can/usb/gs_usb.c:gs_make_candev() {
+    ...
+	dev->can.clock.freq = le32_to_cpu(bt_const.fclk_can);
+    ...
+}
+
+Neither gs_make_candev() nor register_candev() checks clock.freq. ucan
+does the same with device_info->freq.
+
+Take fclk_can = 0 and constants that pass the new checks (tseg1 1..16,
+tseg2 1..8, brp 1..1024, brp_inc 1). A bitrate of 0xFFFFFFFF then seems
+to get all the way through can_calc_bittiming():
+
+	brp = priv->clock.freq / (tsegall * bt->bitrate) + tseg % 2;
+	    -> 0 + 1 for odd tseg, passes the brp_min/brp_max check
+	bitrate = priv->clock.freq / (brp * tsegall);
+	    -> 0
+	bitrate_error = abs(bt->bitrate - bitrate);
+	    -> abs() works on a signed int here, so this is 1
+
+The relative error is then 1 * 10000 / 0xFFFFFFFF, clamped to 1. That
+is below CAN_CALC_MAX_ERROR, so the function goes on to:
+
+	v64 = (u64)best_brp * 1000 * 1000 * 1000;
+	do_div(v64, priv->clock.freq);
+
+Can this divide by zero with RTNL held, via
+can_changelink()->can_get_bittiming()->can_calc_bittiming()? Would a
+non-zero clock.freq check in register_candev() close it?
+
 > +
-> +/*
-> + * The STOP commands signal end-of-stream with an empty input buffer. Give it
-> + * a real, mapped address, as a zero-length buffer queued by userspace has:
-> + * SDM845 firmware rejects a made-up one (session error 1001), and the LAST
-> + * buffer then never comes back.
-> + */
-> +int venus_helper_eos_buf(struct venus_inst *inst, struct hfi_frame_data *fdata)
-> +{
-> +	if (!inst->eos_va) {
-> +		inst->eos_va = dma_alloc_attrs(inst->core->dev, VENUS_EOS_BUF_SIZE,
-> +					       &inst->eos_da, GFP_KERNEL, 0);
-> +		if (!inst->eos_va)
-> +			return -ENOMEM;
-> +	}
-> +	fdata->device_addr = inst->eos_da;
-> +	fdata->alloc_len = VENUS_EOS_BUF_SIZE;
-> +	fdata->filled_len = 0;
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(venus_helper_eos_buf);
+> +	/* The time segment loop counts down from the maxima to the minima.
+> +	 * Zero minima make the unsigned loop counter wrap around, a minimum
+> +	 * above its maximum makes the loop bounds inconsistent.
+> +	 */
+> +	if (!btc->tseg1_min || btc->tseg1_min > btc->tseg1_max)
+> +		return false;
+
+[Severity: Low]
+Is this comment accurate? The loop in can_calc_bittiming() is:
+
+	for (tseg = (btc->tseg1_max + btc->tseg2_max) * 2 + 1;
+	     tseg >= (btc->tseg1_min + btc->tseg2_min) * 2; tseg--) {
+
+Only a zero sum of tseg1_min + tseg2_min makes it wrap. With a single
+zero minimum the loop still terminates. A resulting phase segment of 0
+then makes can_sjw_check() return -EINVAL.
+
+The min > max checks for brp, tseg1 and tseg2 do not crash anything
+either. No candidate is found, and can_calc_bittiming() or
+can_fixup_bittiming() returns -EINVAL.
+
+The commit message says "brp_min and the time segment minima are just
+as fatal". The min > max checks are only mentioned in the v2 notes below
+the --- line, and those are dropped when the patch is applied.
+
+A gs_usb or ucan device that reports, for example, tseg2_min = 0 or
+brp_min > brp_max will now fail to probe. Could the comment and the
+commit message describe these checks as rejecting nonsensical values
+rather than as preventing crashes?
+
 > +
-> +void venus_helper_free_eos(struct venus_inst *inst)
-> +{
-> +	if (!inst->eos_va)
-> +		return;
-> +	dma_free_attrs(inst->core->dev, VENUS_EOS_BUF_SIZE, inst->eos_va,
-> +		       inst->eos_da, 0);
-> +	inst->eos_va = NULL;
-> +}
-> +EXPORT_SYMBOL_GPL(venus_helper_free_eos);
+> +	if (!btc->tseg2_min || btc->tseg2_min > btc->tseg2_max)
+> +		return false;
 > +
->   void venus_helper_vb2_stop_streaming(struct vb2_queue *q)
->   {
->   	struct venus_inst *inst = vb2_get_drv_priv(q);
-> diff --git a/drivers/media/platform/qcom/venus/helpers.h b/drivers/media/platform/qcom/venus/helpers.h
-> index 358e4f39c9..6acae43459 100644
-> --- a/drivers/media/platform/qcom/venus/helpers.h
-> +++ b/drivers/media/platform/qcom/venus/helpers.h
-> @@ -10,6 +10,7 @@
-> 
->   struct venus_inst;
->   struct venus_core;
-> +struct hfi_frame_data;
-> 
->   bool venus_helper_check_codec(struct venus_inst *inst, u32 v4l2_pixfmt);
->   struct vb2_v4l2_buffer *venus_helper_find_buf(struct venus_inst *inst,
-> @@ -71,4 +72,6 @@ int venus_helper_get_profile_level(struct venus_inst *inst, u32 *profile, u32 *l
->   int venus_helper_set_profile_level(struct venus_inst *inst, u32 profile, u32 level);
->   int venus_helper_set_stride(struct venus_inst *inst, unsigned int aligned_width,
->   			    unsigned int aligned_height);
-> +int venus_helper_eos_buf(struct venus_inst *inst, struct hfi_frame_data *fdata);
-> +void venus_helper_free_eos(struct venus_inst *inst);
->   #endif
-> diff --git a/drivers/media/platform/qcom/venus/vdec.c b/drivers/media/platform/qcom/venus/vdec.c
-> index 6a43ea191d..a49acef5db 100644
-> --- a/drivers/media/platform/qcom/venus/vdec.c
-> +++ b/drivers/media/platform/qcom/venus/vdec.c
-> @@ -574,10 +574,13 @@ vdec_decoder_cmd(struct file *file, void *fh, struct v4l2_decoder_cmd *cmd)
->   		 * avoids misapplying this quirk and breaking VP9 decode on SC7280.
->   		 */
-> 
-> -		if (IS_IRIS2(inst->core) && is_fw_rev_or_older(inst->core, 1, 0, 87))
-> +		if (IS_IRIS2(inst->core) && is_fw_rev_or_older(inst->core, 1, 0, 87)) {
->   			fdata.device_addr = 0;
-> -		else
-> -			fdata.device_addr = 0xdeadb000;
-> +		} else {
-> +			ret = venus_helper_eos_buf(inst, &fdata);
-> +			if (ret)
-> +				goto unlock;
-> +		}
+> +	bit_time = (u64)btc->tseg1_max + btc->tseg2_max + CAN_SYNC_SEG;
+> +	if (bit_time > CAN_MAX_BIT_TIME_TQ)
+> +		return false;
+> +
+> +	/* can_calc_bittiming() and can_fixup_bittiming() multiply the prescaler
+> +	 * by the bit time, keep the product inside 32 bits.
+> +	 */
+> +	if (bit_time * btc->brp_max > UINT_MAX)
+> +		return false;
 
-Duplicates: 
-https://patchwork.linuxtv.org/project/linux-media/patch/20260928-venus-vdec-eos-v1-1-6e9eb3ce9849@ixit.cz/
+[Severity: High]
+This is a pre-existing issue, not one introduced by this patch. The
+commit message calls the tsegall * bt->bitrate overflow a separate
+problem. Because of it, the divide error shown in the changelog can
+still be reached from user space on every device that has
+bittiming_const.
 
----
-bod
+can_changelink() copies struct can_bittiming from IFLA_CAN_BITTIMING.
+It calls can_get_bittiming() before the bitrate_max check, so
+bt.bitrate has no upper bound when it reaches can_calc_bittiming():
 
+	brp = priv->clock.freq / (tsegall * bt->bitrate) + tseg % 2;
+
+Take bitrate = 0x80000000 and tq = 0. For the first even tsegall, the
+32-bit product wraps to 0. The loop only exits early when bitrate_error
+is 0, which cannot happen here, so the loop always reaches an even
+tsegall.
+
+Can something like "ip link set canX type can bitrate 2147483648"
+trigger the divide error with RTNL held? The new bit_time and
+bit_time * brp_max limits only bound brp * tsegall.
+can_dbt_changelink() looks like it has the same problem for the FD and
+XL data bit timing.
+
+> +
+>  	return true;
+>  }
+
+[Severity: Medium]
+Should register_candev() also validate priv->xl.data_bittiming_const?
+It only does:
+
+	if (!can_bittiming_const_valid(priv->bittiming_const) ||
+	    !can_bittiming_const_valid(priv->fd.data_bittiming_const))
+		return -EINVAL;
+
+The XL data constants reach the same code. can_changelink() calls
+can_dbt_changelink(dev, data, false, extack), which sets
+dbt_params = &priv->xl and passes dbt_params->data_bittiming_const to
+can_get_bittiming(). can_calc_bittiming() then does the brp_inc
+division, the tseg loop and the freq / (brp * tsegall) computation with
+those constants.
+
+A CAN XL driver that registers bad XL data constants could still hit
+the divide by zero or the wrapping loop. xl.pwm_const is not checked
+either, and can_calc_pwm() divides by
+(pwm_const->pwms_min + pwm_const->pwml_min).
+
+Today only dummy_can sets xl.data_bittiming_const, and its static
+values are valid, so nothing in-tree triggers this yet.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121094534.5221-1-25031212351%40stu.xidian.edu.cn
