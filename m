@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795383654;
-	b=cr9N+rCYpojMpeoVs6nZhSLiWMHMuBiIDgfqNjEERInyyxhYau1YOQD1vd9+T3ibAIux
-	 M6WCzbHO1tM6TEusd/V9/4UuvliD7/Uvn7HVdvZtohDXcTxlP5HtoDp+QuDBrgMQk/ki4
-	 Yz+GKKZJhgHKqpXo3BTRL5vTcXMPe+7ZM1z0oCR/W4GH6cLdwPqBoYX8rSe0UTdzSBdQv
-	 70YDuwl//oknHJ9ULR5y2KiwX5OtP70fR0+0bl8F1VJXXvS7Ig+9dSMT5m+yQ3SDJpoas
-	 VLcZdvm73w7JfMTEnjHHy6uccZD7ndbL1c7PbOAWUug34r3/k9M2hHWzh1BV8U0hhGA==
+	t=1795383661;
+	b=gYY/YCS9WWTFayFcPqPfkdDwbzKEyVSNuTPS6emjimquWU67++DAVjq8Oqf7Zrew1fZp
+	 eOT2FAq9k5ClaOfzLU5wHVghCICse8JL5mLvjDpHlc5dT5Ro3/wRFpq6DI5mnDBlXM3eu
+	 8rhMs6aGgURBpX3hIQr4t0sVxhWkEseAaFL/qvk/eBx4prXcZeqPoTiNFkg6gG588U0mv
+	 07kxSa8bpWMSnsXblN9vm2k7YCDEy72B4V8xy9nLsF/jWQ3TzuVqzijqEKm9zaSeGeYa2
+	 EG/UVB69DnlIqXqU7ctVbqn3N9nAffNRqiQEvxu/u4wDdJehdrx51tE7d8DiN/R3xbQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795383654;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795383661;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=BuOQpxxnJrgdxoRaqUkxeQM/mke/RW5jA38iKyRzh9g=;
-	b=wEZbLZikF6kbk1zezVB06Kyin75jry65blgXIDlUqNqim6lHbekxI7t2R0sVVH3RQSDY
-	 r2NnUpxRtas/gS/eDscHQQGr3qvTpUYc7R1g009XgkgcyRetQIQdypgkKNuGufZMvAY6N
-	 PgUgQYjAsEcPJiLXEKKtdJonMvdpGlBV1oJEbO186qnNc/tJBisTR0booX1mLlLdECxSo
-	 lJwBePqiv7G00oDw1m3m3sjH701Lsx9N+BKoPxEdQetaIfCWYKYZQ4EvzyvybvdoZ3cYv
-	 fUqEqV1cXlfj6Ntft0DqZO0aJ0Hkiv7dD1t1u3DW59Le9D1nLqaaIOfTcFTgVGv31zw==
+	bh=TZB/b8pzJD7vPYgZzUJQHKvle5tjgI0BT6TzJx9JHE8=;
+	b=QDhRF/EVBlfu/5lXDzZACMaRLMaq6BbugR16zKI0LLrvukc5Cd+OuNYMiXXnV9482Fm3
+	 0+AMecDEo8ARgyR19g7A/6VYF+h/DVeIslKpjU0gtmJXuhys+1ifkflGvBSoosCm+J6Ud
+	 fevK3La2vNsLMfhKeV87WO65vg11EQigJ2FcF+OcXiB7ew9OQCZ3ymrgx6EzHC7egFc+t
+	 gvnoPvXcqJio50J+DTOamwabvGnWYs1KGaNRV3gBzmQW1zC1QNgZJl6Yd84EuaOKKRDQw
+	 IftjvMUerlPxc6qz0S/arwvnaqFZV4Qv9Dkx1FBg9WtcEoyjCnZKgeMCN1vE0Y3ujPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="RuHWYDs/";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MGrE+KN8;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C248C606A327;
-	Sun, 22 Nov 2026 21:40:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52390606A334;
+	Sun, 22 Nov 2026 21:41:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RuHWYDs/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA4D51F000C4;
-	Sun, 22 Nov 2026 21:40:51 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MGrE+KN8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D59D1F000C6;
+	Sun, 22 Nov 2026 21:40:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795383654;
-	bh=BuOQpxxnJrgdxoRaqUkxeQM/mke/RW5jA38iKyRzh9g=;
+	s=k20260515; t=1795383660;
+	bh=TZB/b8pzJD7vPYgZzUJQHKvle5tjgI0BT6TzJx9JHE8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=RuHWYDs/8fHTRnIMWCn+N53iW9jCoMp58ZyCPyiYBL7i68m+33pItCcef+ESUMOc9
-	 ixeiOKvFzTOWBgAtfRhP23xDW5xfb7JDwOASEikuX10jLDovUSeQ2st4lm0W7Vnvt3
-	 tQqjKjqNEnLcgxBhko/lo2Xg9O3rEGsBBLjLcYYbT8IHPphaWQY7XvonNKPmJyfFyL
-	 rT0D3pN1z3bwwRN4c9zmvqJl1vi681sS2VyQB5EaBzWn92v9iMAhqD0BJfNTaTRmgU
-	 OSfHTfddEzGBiQvvn+RslwmLQvz/Cij7pdXXujR7NXMUIqZWHWHgKeyqa0IJhK6Uh8
-	 C/BIhgZfZD7GQ==
+	b=MGrE+KN80QLCmnX5NOwY2D99v1Lpx7BM9nbBI4VJdMpfHc72QxMIMVvvkiaD6PEwh
+	 pYmHOayW6wdM2XIyNaLct2+EdkzJ+6vekCAG3htG8ZNJ/lw4U0TsDnMQSknnxTD9Nc
+	 2MjAcJTVUrnwGMCcafyPrTbKWXkrWjqCrTh0WHb5KROe5+B4oFd6R8dCP8nqqKnLAC
+	 qK4el8rxHV0Ef7s5nCAZuz+rpm6eUSsmPA2Oz2yg7rR/+Xzah/x2QjBKzU33eThMNN
+	 8rfrliaJvu7ey5EvYF/PIQ6jAWNzxjuC1ehQm9GQgbED8HpzQN31y4g0OjroUueBB3
+	 o+nshvpbTXe0A==
 From: Arnaldo Carvalho de Melo <acme@kernel.org>
 To: Namhyung Kim <namhyung@kernel.org>
 Cc: Ingo Molnar <mingo@kernel.org>,
@@ -51,9 +51,9 @@ Cc: Ingo Molnar <mingo@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-perf-users@vger.kernel.org,
 	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: [PATCH v11 06/19] perf annotate-x86: Parse movabs like a mov
-Date: Sun, 22 Nov 2026 18:40:12 -0300
-Message-ID: <20261122214025.16769-7-acme@kernel.org>
+Subject: [PATCH v11 08/19] perf test: Exercise the x86 operand parser
+Date: Sun, 22 Nov 2026 18:40:14 -0300
+Message-ID: <20261122214025.16769-9-acme@kernel.org>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261122214025.16769-1-acme@kernel.org>
 References: <20261122214025.16769-1-acme@kernel.org>
@@ -70,41 +70,235 @@ Content-Transfer-Encoding: 8bit
 
 From: Arnaldo Carvalho de Melo <acme@redhat.com>
 
-x86__instructions[] has no movabs: ins__find() strips the size suffix
-of "movabsq" and still finds nothing, so mov__parse() never runs and
-the source and target operands of the instruction are not split.  The
-data type tracking then sees nothing, where the same instruction as a
-plain mov sets the destination register.
-
-The clang allmodconfig build has plenty, 282558 in vmlinux, all with an
-immediate, the KASAN shadow offset:
-
-  ffffffff81271e2b:	movabsq	$-0x2000040000000000, %r15
-
-No movabs with a memory operand shows up in vmlinux or in any object of
-that build.
-
-Add it as a mov; with the previous patch recording the immediate in 64
-bits, both objdump spellings of the KASAN shadow offset track the same
-constant.
+Add a unit test for x86 operand parsing.  The 64-bit absolute disp32
+and movabs cases are from the allmodconfig clang build in the preceding
+changes.  Also check a 32-bit absolute address, an immediate, and
+values that should not become absolute addresses.  Both objdump
+spellings of the movabs instruction must yield the KASAN shadow offset.
 
 Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 ---
- tools/perf/util/annotate-arch/annotate-x86.c | 1 +
- 1 file changed, 1 insertion(+)
+ tools/perf/tests/Build          |   1 +
+ tools/perf/tests/annotate-ops.c | 172 ++++++++++++++++++++++++++++++++
+ tools/perf/tests/builtin-test.c |   1 +
+ tools/perf/tests/tests.h        |   1 +
+ 4 files changed, 175 insertions(+)
+ create mode 100644 tools/perf/tests/annotate-ops.c
 
-diff --git a/tools/perf/util/annotate-arch/annotate-x86.c b/tools/perf/util/annotate-arch/annotate-x86.c
-index 94c45806029ee670..0c74266cd4b99925 100644
---- a/tools/perf/util/annotate-arch/annotate-x86.c
-+++ b/tools/perf/util/annotate-arch/annotate-x86.c
-@@ -85,6 +85,7 @@ static const struct ins x86__instructions[] = {
- 	{ .name = "lea",	.ops = &mov_ops,  },
- 	{ .name = "lock",	.ops = &lock_ops, },
- 	{ .name = "mov",	.ops = &mov_ops,  },
-+	{ .name = "movabs",	.ops = &mov_ops,  },
- 	{ .name = "movapd",	.ops = &mov_ops,  },
- 	{ .name = "movaps",	.ops = &mov_ops,  },
- 	{ .name = "movdqa",	.ops = &mov_ops,  },
+diff --git a/tools/perf/tests/Build b/tools/perf/tests/Build
+index 5eebb2ec5ddefcfd..c7edd8569bbccb06 100644
+--- a/tools/perf/tests/Build
++++ b/tools/perf/tests/Build
+@@ -2,6 +2,7 @@
+ 
+ perf-test-y += builtin-test.o
+ perf-test-y += tests-scripts.o
++perf-test-y += annotate-ops.o
+ perf-test-y += parse-events.o
+ perf-test-y += uncore-event-sorting.o
+ perf-test-y += dso-data.o
+diff --git a/tools/perf/tests/annotate-ops.c b/tools/perf/tests/annotate-ops.c
+new file mode 100644
+index 0000000000000000..766126fc2e2f5e98
+--- /dev/null
++++ b/tools/perf/tests/annotate-ops.c
+@@ -0,0 +1,172 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * The x86 operand parser: what is a memory reference and where it points.
++ *
++ * The data type resolver follows absolute memory operands; an immediate
++ * is not a memory reference.
++ */
++#include <elf.h>
++#include <linux/compiler.h>
++#include <stdlib.h>
++#include <string.h>
++#include "annotate.h"
++#include "debug.h"
++#include "dso.h"
++#include "disasm.h"
++#include "tests.h"
++
++struct op_case {
++	const char		*insn;
++	const struct ins_ops	*ops;
++	const char		*operand;
++	bool			mem_ref;
++	int			offset;
++};
++
++static struct op_case op_cases[] = {
++	/* 32-bit absolute, and the 64-bit sign extended disp32 both ways */
++	{ "mov",    &mov_ops,  "0x8c73448",		true,  0x8c73448 },
++	{ "mov",    &mov_ops,  "0xffffffffff5fc300",	true,  -0xa03d00 },
++	{ "mov",    &mov_ops,  "-0xa03d00",		true,  -0xa03d00 },
++	/* An immediate is not a memory reference */
++	{ "mov",    &mov_ops,  "$0x10",			false, 0 },
++	/* Zero and values wider than a disp32 are not absolute addresses. */
++	{ "mov",    &mov_ops,  "0x0",			false, 0 },
++	{ "mov",    &mov_ops,  "0x100000000",		false, 0 },
++};
++
++static int check_operand(const struct arch *arch, const struct op_case *c,
++			 struct dso *dso64, struct dso *dso32, struct dso *dsorel)
++{
++	struct disasm_line dl = {
++		.ins = { .name = c->insn, .ops = c->ops },
++	};
++	struct annotated_insn_loc loc;
++	struct annotated_op_loc *op;
++	int ret = 0;
++
++	dl.ops.source.raw = (char *)c->operand;
++
++	if (annotate_get_insn_location(arch, &dl, &loc) < 0)
++		return TEST_FAIL;
++
++	op = &loc.ops[INSN_OP_SOURCE];
++	if (op->mem_ref != c->mem_ref) {
++		pr_debug("'%s %s': mem_ref %d, expected %d\n", c->insn,
++			 c->operand, op->mem_ref, c->mem_ref);
++		ret = TEST_FAIL;
++	}
++	if (op->mem_ref && op->offset != c->offset) {
++		pr_debug("'%s %s': offset %#x, expected %#x\n", c->insn,
++			 c->operand, op->offset, c->offset);
++		ret = TEST_FAIL;
++	}
++	if (c->mem_ref &&
++	    (!annotated_op_loc__is_abs(op, dso64) ||
++	     !annotated_op_loc__is_abs(op, dso32) ||
++	     annotated_op_loc__abs_addr(op, dso64) != (u64)(s64)c->offset ||
++	     annotated_op_loc__abs_addr(op, dso32) != (u32)c->offset)) {
++		pr_debug("'%s %s': wrong absolute address\n", c->insn, c->operand);
++		ret = TEST_FAIL;
++	}
++	/* The same operand in a relocatable object is an addend, not an address */
++	if (c->mem_ref && annotated_op_loc__is_abs(op, dsorel)) {
++		pr_debug("'%s %s': absolute address in a relocatable object\n",
++			 c->insn, c->operand);
++		ret = TEST_FAIL;
++	}
++
++	return ret;
++}
++
++struct movabs_case {
++	const char	*name;
++	const char	*operand;
++	s64		imm;
++};
++
++/* The KASAN shadow offset movabs, as both disassemblers print it */
++static const struct movabs_case movabs_cases[] = {
++	{ "movabsq", "$-0x2000040000000000, %r15 # imm = 0xDFFFFC0000000000",
++	  -0x2000040000000000LL },
++	{ "movabs",  "$0xdffffc0000000000,%r15", -0x2000040000000000LL },
++};
++
++static int check_movabs(const struct arch *arch, const struct movabs_case *c)
++{
++	struct disasm_line dl = { .ins = { .name = c->name } };
++	struct annotated_insn_loc loc;
++	int ret = TEST_FAIL;
++
++	dl.ops.raw = strdup(c->operand);
++	if (dl.ops.raw == NULL)
++		return TEST_FAIL;
++
++	dl.ins.ops = ins__find(arch, c->name, &dl);
++	if (dl.ins.ops != &mov_ops || dl.ins.ops->parse(arch, &dl.ops, NULL, &dl) < 0) {
++		pr_debug("'%s %s': not parsed as a mov\n", c->name, c->operand);
++		goto out;
++	}
++
++	/*
++	 * get_dwarf_regnum() is a stub returning -1 when perf is built
++	 * without libdw, the target register cannot be resolved then.
++	 */
++#ifdef HAVE_LIBDW_SUPPORT
++	if (annotate_get_insn_location(arch, &dl, &loc) == 0 &&
++	    !loc.ops[INSN_OP_SOURCE].mem_ref && loc.ops[INSN_OP_SOURCE].imm &&
++	    loc.ops[INSN_OP_SOURCE].imm_value == c->imm &&
++	    loc.ops[INSN_OP_TARGET].reg1 != -1)
++#else
++	if (annotate_get_insn_location(arch, &dl, &loc) == 0 &&
++	    !loc.ops[INSN_OP_SOURCE].mem_ref && loc.ops[INSN_OP_SOURCE].imm &&
++	    loc.ops[INSN_OP_SOURCE].imm_value == c->imm)
++#endif
++		ret = TEST_OK;
++	else
++		pr_debug("'%s %s': not an immediate to a register\n",
++			 c->name, c->operand);
++out:
++	free(dl.ops.source.raw);
++	free(dl.ops.target.raw);
++	free(dl.ops.raw);
++	return ret;
++}
++
++static int test__annotate_ops(struct test_suite *test __maybe_unused,
++			      int subtest __maybe_unused)
++{
++	struct e_machine_and_e_flags id = { .e_machine = EM_X86_64, };
++	const struct arch *arch = arch__new_x86(&id, NULL);
++	struct dso *dso64 = dso__new("annotate-ops-64");
++	struct dso *dso32 = dso__new("annotate-ops-32");
++	struct dso *dsorel = dso__new("annotate-ops-rel");
++	size_t i;
++	int ret = 0;
++
++	if (arch == NULL || dso64 == NULL || dso32 == NULL || dsorel == NULL) {
++		dso__put(dso64);
++		dso__put(dso32);
++		dso__put(dsorel);
++		free((void *)arch);
++		return TEST_FAIL;
++	}
++
++	dso__set_is_64_bit(dso64, true);
++	dso__set_is_64_bit(dso32, false);
++	dso__set_rel(dsorel, ET_REL);
++
++	for (i = 0; i < ARRAY_SIZE(op_cases); i++)
++		ret |= check_operand(arch, &op_cases[i], dso64, dso32, dsorel);
++
++	for (i = 0; i < ARRAY_SIZE(movabs_cases); i++)
++		ret |= check_movabs(arch, &movabs_cases[i]);
++
++	dso__put(dso64);
++	dso__put(dso32);
++	dso__put(dsorel);
++	free((void *)arch);
++	return ret;
++}
++
++DEFINE_SUITE("Annotate operand parsing", annotate_ops);
+diff --git a/tools/perf/tests/builtin-test.c b/tools/perf/tests/builtin-test.c
+index 01c78ef20b97dec9..a27baf3a819ccf36 100644
+--- a/tools/perf/tests/builtin-test.c
++++ b/tools/perf/tests/builtin-test.c
+@@ -117,6 +117,7 @@ static struct test_suite *generic_tests[] = {
+ 	&suite__openat_syscall_event_on_all_cpus,
+ 	&suite__basic_mmap,
+ 	&suite__mem,
++	&suite__annotate_ops,
+ 	&suite__parse_events,
+ 	&suite__uncore_event_sorting,
+ 	&suite__expr,
+diff --git a/tools/perf/tests/tests.h b/tools/perf/tests/tests.h
+index af822885890dda73..963cb34acd345153 100644
+--- a/tools/perf/tests/tests.h
++++ b/tools/perf/tests/tests.h
+@@ -153,6 +153,7 @@ DECLARE_SUITE(sample_parsing);
+ DECLARE_SUITE(keep_tracking);
+ DECLARE_SUITE(parse_no_sample_id_all);
+ DECLARE_SUITE(dwarf_unwind);
++DECLARE_SUITE(annotate_ops);
+ DECLARE_SUITE(expr);
+ DECLARE_SUITE(hists_filter);
+ DECLARE_SUITE(mmap_thread_lookup);
 -- 
 2.56.1
 
