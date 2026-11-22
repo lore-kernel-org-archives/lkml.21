@@ -1,61 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795380070;
-	b=S79Q6Qr0+RgpG2QQY7N7YVBDqw9UMf7KIfhEnQZqZXCLv1BGKsYeW1jCfelt7twD7inC
-	 FHj1nH28LpO0M+48qSew7o/XzkmlWklrk+4WEUorpaIQbfQgpaPAHWD2nK1uD79TyRMdW
-	 5uOqxnK/GfutAzHDuWH1JKxMSkMIayJOZB6rV91lAoKeG8+60nim7yw7YIG2xlf6sUvOK
-	 GYQP865HFxHq3OgoYMPaYc4XIdKdEVpZ9eNUiKl6LgzvXSOiqZcxVTKDIXIyQ0au/jllM
-	 DE+RmrVTgFoxTt68wenwN0WY9zzbsCp71axRKgGnfdpDi4qQPbltwtUhz6rxVTPI7Ig==
+	t=1795380294;
+	b=gAfeOXQuEM8PEmma1GafLxYDKOqQdJrNxcUFl1GzMR3s3585ypGlyO3tqUWlQX2d3vaD
+	 0G3hzKHpxlqi4fETX0jl/zhm+GFbEqitrtA4953kax08Xgjpb6d9MWGw+vD5qN+8SCoOF
+	 bvWUoSKK2TGtr7emw3Wfzqf0a5quE/L0tjaDDnYAAfJIKYcJ6DRW3/ptoy+yU2USwJeCF
+	 4OM9lHUybBJ2bM2jaW+PBpOHI1tpALH1Ch3jnXa+O5AagGU0ROBGGxiq3a5+ZHKk0qQeV
+	 hbje04XiCJwZhToEW+CvqmO0bvFPHLEhnBnC50vng9OEnY1iQFE0BY9EUPw7J8zEgUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795380070;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=R8LwHFk/EYoKJPpPeV8B12mFwSu3Wc9W6pgecicIHhc=;
-	b=09wb2Dm1KNkVB/CyWJ3Caz64sPZCb3pLbQCUstHqUoqJzDlPQZVq/ZzHWSItF/q3N600
-	 ATFHje3cdh4lfrQhg0WAWMMcU1rKmKXSik0gd1tdLJukIc9CrzDEBshuEQ329/cGn5kyh
-	 JPMeeeW+F4Zf2ylMHfaCIJHWrHOaj2guqxsy4zbLmq8KTkxqSvKFl0IE0QxEsjhIVjq+H
-	 JjDjh3U2u6Uu3qPjbESU45Uoj4S7szusn2XgUzSiohK1IwKw6mQWyt5Z/D0SDQpcZ7nvc
-	 l3KURVmSPjH7xMCIITFvlJ/OWOwJGQg3t4QXpEGBAbAyrLhWUsXWWySY9bh1WUbSTaw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795380294;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=OSEHCSqjPr65IMs6cW535Ttbt4448C9+CWlVhuqRLDM=;
+	b=PCjhigToDA1RkiEF0EgIOFG+vGkNn/Y2S/9nzPRFn3I4R4BL7Ratm9UyesEflj15TNha
+	 RHoEYimlWhDubO+oMCqCv1o15j8O4ah6PN0JY5LXWqz8HyU+0efQeA31dUUpzq1Zk4OzS
+	 hSiyVWTng1Hztwt18n01sAr0bRMKdpjq1ucDC3J8H+p1vC4MitVcdGGXVRo7OIv9rQtjU
+	 PHF9BHzclveAalTxC9PUE8nXvTYbbmSAylZ/j3cU4Qm0rowHYV47jqhj0bqTkEc9+02v5
+	 48QM0V772PLNcWVfLoNlgCG/MO0Fhk/EU/CVqHqR5sdR7XV1bhzxHrK6ZS7cpumjg7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=otqNSz1m;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gmtNJ42Y;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6553D606A334;
-	Sun, 22 Nov 2026 20:41:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 995FE606A31A;
+	Sun, 22 Nov 2026 20:44:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=otqNSz1m
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8613C1F000CA;
-	Sun, 22 Nov 2026 20:41:09 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gmtNJ42Y
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C09921F000D2;
+	Sun, 22 Nov 2026 20:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795380070;
-	bh=R8LwHFk/EYoKJPpPeV8B12mFwSu3Wc9W6pgecicIHhc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=otqNSz1m1tGLxeL4v3MSNtb/rziqsVQkgT7J9A7b0SuX2HZn70+E+NftHf+Joou5C
-	 v5ZVHgb8CIZnYItrDle4ftvawAaY1YAYtLAfwDxmVZibpSmgVmVFVvhrvvWWtp/tSN
-	 MB5KR0Z/fKcdArzLbbOsKjhbML3iZObrjRtS8+m2VRenVDJqakIitnHq4pZu0MTXCu
-	 FGVjWR//dUnPBns/Dbou7YDQgfDFyejkanx+A1et+sX3YzaRhp84M5o+y5W1gRt/xf
-	 9IS8ti/ehtARPiZ2FuaKY4g6/5Ax9XQ7vgCjFwQzVkspXU0vNogvOMPx4REbZM3Ndp
-	 fLCfXByXzDOIw==
-Subject: Re: [PATCH net 3/4] ptp: ocp: report disabled SMA inputs consistently
- over DPLL
-From: netdev-bot+sashiko@kernel.org
-To: ahmadexp@gmail.com
-Cc: netdev@vger.kernel.org, vadim.fedorenko@linux.dev,
- richardcochran@gmail.com, andrew+netdev@lunn.ch,
- arkadiusz.kubalewski@intel.com, davem@davemloft.net, edumazet@kernel.org,
- jiri@resnulli.us, kuba@kernel.org, linux-kernel@vger.kernel.org,
- pabeni@redhat.com
-Date: Sun, 22 Nov 2026 20:41:09 +0000
-Message-ID: <179538006912.3135.16971430532149423594@kernel.org>
-In-Reply-To: <20261118-timecard-common-301f823ddd-3-ahmadexp@gmail.com>
-References: <20261118-timecard-common-301f823ddd-3-ahmadexp@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795380293;
+	bh=OSEHCSqjPr65IMs6cW535Ttbt4448C9+CWlVhuqRLDM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=gmtNJ42YiPAAKGQ8Znzt2f71ltI15sHxfnt9u4r4KXqtB1E2+/Lzi6GXQPhAASckN
+	 9INJTpEmekblR7jdw1e+Yztl0+WlN6s3xdcjztMExCyCvSEDEQjExzxbcYx/2YVaVL
+	 k1Sri045XWQuZIiGrzooCBwPCUL2+8M/fkcHfVfcvYdxAjlY9NnKkIbFM4woWIkUmD
+	 3VF1J+0RNIfTWyP2mizxIbM+/gDxh86Ts9zpmY8sWTF2bxZlU43XcUyECZAowYSOC1
+	 FHDXkH9Sehp4uioxNwKCjfQ7HN5Agzbt40aSeA0fc2GT+DzvPPcR6mfgDEJL3Gfk4m
+	 x+qehOXMlMYlg==
+Date: Sun, 22 Nov 2026 20:44:47 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Rodrigo Alencar via B4 Relay
+ <devnull+rodrigo.alencar.analog.com@kernel.org>
+Cc: rodrigo.alencar@analog.com, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>, David
+ Lechner <dlechner@baylibre.com>, Andy Shevchenko <andy@kernel.org>
+Subject: Re: [PATCH v6 0/7] Add E notation support to kstrtodec64() and IIO
+ sysfs writes
+Message-ID: <20261122204447.56875aea@jic23-hlaptop>
+In-Reply-To: <20261114-e-notation-v6-0-205ca9a1438a@analog.com>
+References: <20261114-e-notation-v6-0-205ca9a1438a@analog.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,143 +62,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On Sat, 14 Nov 2026 14:09:52 +0000
+Rodrigo Alencar via B4 Relay <devnull+rodrigo.alencar.analog.com@kernel.org> wrote:
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+> This series lets kstrtoudec64() and kstrtodec64() accept numbers in E
+> notation (scientific notation), such as "2.7e9", "1.5E-3" or "1e+16".
+> It then moves the IIO core fixed-point parser over to kstrtodec64(), so
+> every IIO channel attribute written through iio_write_channel_info()
+> accepts that format as well.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Andy, no huge rush on this as we have a few weeks left in the cycle.
+However I'm relying on you for review of this one.
 
-- [Medium] The fix decides whether an input is disabled only from the
-  software flag sma->disabled.
-- [Low] The commit message has a testing/provenance paragraph that does
-  not describe this patch.
-- [Low] The commit message only describes the 10 MHz case: a disabled
-  input reads back as 10 MHz and the DPLL core skips the setter.
+FWIW looks fine to me and I like all the confidence the tests are bringing!
 
---
-
-ptp: ocp: report disabled SMA inputs consistently over DPLL
-
-This patch makes ptp_ocp_dpll_frequency_get() use SMA_DISABLE for SMA
-inputs flagged as disabled before it looks up the selector table. Before
-this, a disabled input read back as the 10 MHz selector. The DPLL core
-then skipped a later 10 MHz request as unchanged.
-
-Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
-
-> Disabling an SMA input clears its mux field. Zero is also the selector
-> for 10 MHz, so a DPLL read reports 10 MHz while sysfs reports None. The
-> DPLL core then treats a request to enable 10 MHz as unchanged and skips
-> the setter, leaving the input disabled.
-
-[Severity: Low]
-This covers the 10 MHz case. Was the old behaviour worse on adva_x1
-boards? ptp_ocp_adva_x1_sma_in[] has no entry with value 0x0000:
-
-static const struct ocp_selector ptp_ocp_adva_x1_sma_in[] = {
-	{ .name = "PPS1",	.value = 0x0001,      .frequency = 1 },
-	...
-	{ .name = "None",	.value = SMA_DISABLE, .frequency = 0 },
-	{ }
-};
-
-So after ptp_ocp_sma_store_val() wrote 0 for a disabled input,
-ptp_ocp_dpll_frequency_get() found no match and returned -EINVAL.
-
-dpll_msg_add_pin_freq() passed that error up, so DPLL_CMD_PIN_GET failed
-for the pin. dpll_nl_pin_get_dumpit() skips only -ENODEV, so the pin dump
-also stopped at that pin. dpll_pin_freq_set() failed with "unable to get
-old frequency value", so the input could not be re-enabled over DPLL.
-
-This patch fixes that as well, because SMA_DISABLE matches the x1 "None"
-entry. Should the changelog mention this case for stable backporters?
-
-> Reported by the netdev Sashiko AI review and confirmed by code
-> inspection. Source-derived C regression tests pass with ASan/UBSan;
-> restoring the faulty selector, mask, disabled-state or DCF value makes
-> the corresponding regression fail. Tests use stubbed MMIO, not hardware.
-
-[ ... ]
-
-> Codex prepared the fix, tests and changelog from the review and upstream
-> source, at the request to separate common-driver fixes from WiWi support
-> and validate removal ordering.
-
-[Severity: Low]
-Does this paragraph describe this patch? The same text appears word for
-word in all four patches of the series. This patch only adds the
-sma->disabled check in ptp_ocp_dpll_frequency_get().
-
-The selector and SMA_SELECT_MASK changes are in "ptp: ocp: use hardware
-selectors in DPLL frequency operations". The DCF value is in "ptp: ocp:
-correct the DCF output frequency". The removal ordering work is in "ptp:
-ocp: prevent timestamp rearming during detach".
-
-Could the paragraph be cut down to the testing that applies to this
-patch? Someone backporting only this commit could otherwise think it
-covers those other defects too.
-
-> diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-> index d449ed8ca2d8a..650047581fd41 100644
-> --- a/drivers/ptp/ptp_ocp.c
-> +++ b/drivers/ptp/ptp_ocp.c
-> @@ -5920,6 +5920,8 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
->  
->  	val = bp->sma_op->get(bp, sma_nr + 1);
->  	val &= SMA_SELECT_MASK;
-> +	if (sma->mode == SMA_MODE_IN && sma->disabled)
-> +		val = SMA_DISABLE;
-
-[Severity: Medium]
-Can this check give the wrong answer after the driver is unbound and
-rebound, or after a module reload? sma->disabled exists only in software,
-and ptp_ocp_sma_store_val() is the only code that sets it. The FPGA keeps
-the mux values that the previous driver instance wrote.
-
-ptp_ocp_sma_fb_init() reads the mux registers only to work out the
-direction. It never sets sma->disabled:
-
-	reg = ioread32(&bp->sma_map1->gpio1);
-	bp->sma[0].mode = reg & BIT(15) ? SMA_MODE_IN : SMA_MODE_OUT;
-	bp->sma[1].mode = reg & BIT(31) ? SMA_MODE_IN : SMA_MODE_OUT;
-
-	reg = ioread32(&bp->sma_map1->gpio2);
-	bp->sma[2].mode = reg & BIT(15) ? SMA_MODE_OUT : SMA_MODE_IN;
-	bp->sma[3].mode = reg & BIT(31) ? SMA_MODE_OUT : SMA_MODE_IN;
-
-Disabling a direction-changeable input writes 0 to its input field, which
-also clears SMA_ENABLE. In this function, val &= SMA_SELECT_MASK drops the
-enable bit before sma->disabled is checked.
-
-Take SMA3/SMA4 after a rebind: mode comes back as SMA_MODE_IN and
-disabled is false. The input field reads 0, which matches "10Mhz". A
-10 MHz request then hits this check in dpll_pin_freq_set():
-
-	if (freq == old_freq)
-		return 0;
-
-So it never reaches ptp_ocp_dpll_frequency_set(). Isn't that the case
-this patch sets out to fix?
-
-For SMA1/SMA2, BIT(15) or BIT(31) in gpio1 is clear for a disabled input.
-The pin therefore comes back as SMA_MODE_OUT, and DPLL reports its output
-field instead.
-
-Would it help to set sma->disabled in ptp_ocp_sma_fb_init() from the
-enable bits, or to test SMA_ENABLE before masking?
-
-All of this assumes the FPGA treats mux 0 without SMA_ENABLE as disabled
-rather than as the 10 MHz selection, which I could not confirm.
-
->  	tbl = bp->sma_op->tbl[sma->mode];
->  	for (i = 0; tbl[i].name; i++)
->  		if (val == tbl[i].value) {
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118-timecard-common-301f823ddd-0-ahmadexp%40gmail.com
+Jonathan
