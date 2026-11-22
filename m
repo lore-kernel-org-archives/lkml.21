@@ -1,80 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795310931;
-	b=1A/euZUZj7g1rfaYPLbg8QeWX/rAL20Dsx6aidrh7Qt5psfUQ6dpZjdomE/19FNt8xke
-	 d2czMF/M55n6uCmsZZ3c5n/yo/kYI4hU/sTPtF2+Upj2Yp50qvUkwClITkjyK7uWGyHFp
-	 G4mO+pwFjvtCpgXQO47yiRgmeWwAGE6ivZQxzlasWJftWcyGROC07dImBj3wCEYzUAbMj
-	 rpFBTxDstgzjJ5ZTn+K2PFNpsE690HeH3r8Bj2EhkHKGj2Dy9OvuHVBqWQ2271CeIJi9/
-	 i0nRh4vZPKeIANv1r6ekEiL0uVNv/8pOhu4tcitpLEriPyk5QD9nmy1sl5Z0/imgAoA==
+	t=1795311156;
+	b=3DgcSSuxVo7Zsoh69JeIr2aqoYOY/lW+WRn1kyxqzdIU2nHMlAZQQTFqC894WM8ts+sA
+	 eDIV0GHGCfdOxfdGZTGSRbhuefX6lJH407mdN9WyQp6Ru+7FnnVlFFizvhpr2G/dWYoMg
+	 CH9gn+mK5I/Uj3aZndBv1jQtN2/vVsEej3gg+/3gnzC7y4ug0+dpsBD9Z4ESc5jR2qLg/
+	 F+Tn8TVaEi8/2jIVxAwv9xzDz6m6Z8a5ZYfv0sA5xZKw4npWhe2jvWSszq/oIx/9UuG8X
+	 CyQzPgn5ENMaLBTqyUkJKq8GlcNVF9jNFYjGj3cxmcmB8wNm+W2f3zLY2g9A5GcFBBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795310931;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:
-	 X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
-	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
-	 X-Local-Domain:X-CMAE-Envelope;
-	bh=j7wV5xYsKk+AnKzewK6ED1DY0tL9Fq/vDgt6ZBEAmrk=;
-	b=VcgPOFRHlUHRSbjttUpoxCINhlzb22kuvKZOcn4M5JDnTydwqq2XqDqbbriANRXOQPOY
-	 KzKm1HL4Mcw3WI/oyrbfFwRAu92ZqcYyGFt/Lxi3c9NbZfZNsGtGF4eu6fBJ1MFmsm0SO
-	 gbDtQrNG5DaIIBvUQcMY3iSrFXIlaZv9T3CsMvqXkupYI0pTrqvk0ytj/vPW5dYpQ008m
-	 mA8WAOY93rjqfnz07tf4s7kHWh9n1CdtUEo09FoniVVK8Tjh5SH22Rncm0Cn+HFCQaUmC
-	 6krqG12jGXfmwUdQw4UckzfcOBRBdGOThTXfcnV+PLoI6Bma4CuVNemdIBNUnBwLxDw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795311156;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
+	 References:In-Reply-To:Accept-Language:Content-Language:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=/Z0T1Hd2+TRGHE+Zic7U5lTIBGVdF/kqBPjxdZibBZs=;
+	b=HhpaxNjBRaspajQCVRsrfazA+8NWQuL0dDpeXeRbAoOe9n0mOCokVGhApyUMD78UuHld
+	 lquzpx6XK6Uxm6/XyNpunWM7dsd3KEqYlT3+BcXnWoyDFLMOFEkVMc3xRyYrA9P+M3/6d
+	 8tJ3CuUihYFJlY18gsjLFRz9Q7Vwf+jmujAZYyX+AzahLbQQFsxRfA0ztE8Eml0djuy7l
+	 RyQNNgnsfXEP0QkH4eFu9VdHhcg/fniCIPGZDa/l2jFcMlh2UB+xCUP0WVs9ujl78kW/J
+	 fbJtLPU6pCwqRW4cFb2AuSMiGsI3K7URDmW5Pa/aB6/j7ramtIc185nZ/Fns80qOKSQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=roeck-us.net;
-	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=g229YHOB;
-	arc=none smtp.remote-ip=35.89.44.33
-Received: from omta34.uswest2.a.cloudfilter.net (omta34.uswest2.a.cloudfilter.net [35.89.44.33])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=E2qF4FD9;
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB39C606A32A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 01:28:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB39C606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47EFC606A320;
+	Sun, 22 Nov 2026 01:32:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47EFC606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=g229YHOB
-Received: from eig-obgw-5004b.ext.cloudfilter.net ([10.0.29.208])
-	by cmsmtp with ESMTPS
-	id UmZQxMxvpAR1iUwNuxOuZG; Sun, 22 Nov 2026 01:28:50 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id UwNtx9N8tuJrPUwNtxQlib; Sun, 22 Nov 2026 01:28:50 +0000
-X-Authority-Analysis: v=2.4 cv=WLZ/XmsR c=1 sm=1 tr=0 ts=6b024552
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=VwQbUJbxAAAA:8
- a=pGLkceISAAAA:8 a=1pp0S3YwmL9lSNfLDwgA:9 a=CjuIK1q_8ugA:10
- a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
-	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
-	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=j7wV5xYsKk+AnKzewK6ED1DY0tL9Fq/vDgt6ZBEAmrk=; b=g229YHOB7tCg4Z/SwqMpPNGxUW
-	q9a9a3lR9qOm0D75rmzC8VvgTIasiwDBGOxUuSbtvGsj4OkaQL3epxwaRaOEAeRzGodMaF2+Al4Xs
-	0GQ7DMM3G8KIUUtyS1VtVywo0GHyHJV45QCZUH1J4FQHvW8FEO2exYG4y8ooBWGJDNGpqGIX7n3KK
-	GujjwKUoTMEBxVdDw4UUmE5aruOzchol+1RMY3CAZa/iYJFD5wkAGxnNYb1qp1SunsLXNZjfeWP/d
-	kdjiLh6KQEtqUPQXCEhWydzOikLmY58+0AfL+pZHasEIlI5bNJUYcO6ovVga8GngYP7SWRAk/8K1S
-	y/XLCrLw==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:46818 helo=server.roeck-us.net)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xUwNt-00000000mlw-17XS;
-	Sun, 22 Nov 2026 06:58:49 +0530
-Date: Sat, 21 Nov 2026 17:28:48 -0800
-From: Guenter Roeck <linux@roeck-us.net>
-To: David Yang <mmyangfl@gmail.com>
-Cc: linux-watchdog@vger.kernel.org, stable@vger.kernel.org,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Jongsung Kim <neidhard.kim@lge.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] watchdog: sp805: re-enable the clock in the restart
- handler
-Message-ID: <e07b2b4a-514b-4697-b7e4-e2101130f8b2@roeck-us.net>
-References: <20261121204528.2435533-1-mmyangfl@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=E2qF4FD9
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AM1Vwx86510619, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1795311118; bh=/Z0T1Hd2+TRGHE+Zic7U5lTIBGVdF/kqBPjxdZibBZs=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=E2qF4FD9JvoSkxvKxpAIcQxfb+oubyzXuzmNSoR0IzUW9C9h+f0svRwpz1sEGxXO/
+	 mI3/ChyO08lp/rIpvnTNoUPdpMfDcsSl3UN9Bbpd+yLe+hvDCSzDzcvvuU7oxzQFAP
+	 /F8ZGsBwICCxpMZHD2x0zUFvcR/jh8WdLg/x5oC8Gpvg0E7MchKiZ1pyIRz5IcKgQL
+	 n4oLV2MAOwj2D8JDoEtdXbDhApN35ChbqjRd0LOFWhGE3/igcl7SEVIrJCWHIefQyl
+	 L6B1Hpc4PFu87zNEFEYutMYITXuusAhv80ZgAbsz9QPRZL63A0uQWj8YJiKrqout36
+	 dOyuF8E5JULRQ==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AM1Vwx86510619
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Sun, 22 Nov 2026 09:31:58 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Sun, 22 Nov 2026 09:31:58 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
+ 15.02.2562.056; Sun, 22 Nov 2026 09:31:58 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: Falconet3 <Falconet3@proton.me>
+CC: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] wifi: rtw89: fix OOB read past firmware buffer when
+ duplicating elements
+Thread-Topic: [PATCH] wifi: rtw89: fix OOB read past firmware buffer when
+ duplicating elements
+Thread-Index: AQHdehVXcLzR+iyou0WN4rlyYPdLbbc5ThaA
+Date: Sun, 22 Nov 2026 01:31:58 +0000
+Message-ID: <2fb081759df841aa9d22df3ce43430be@realtek.com>
+References: <ONBhkh_B7hyKoHNRpjYgxy7da68QOa8cWUqztT-I1nW-KukOKE30FIYFLkX1Tm_TrXlBjse5d-AFRwsyzfxBdMGKvyIEoVsjyZQqxzUkRQk=@proton.me>
+In-Reply-To: <ONBhkh_B7hyKoHNRpjYgxy7da68QOa8cWUqztT-I1nW-KukOKE30FIYFLkX1Tm_TrXlBjse5d-AFRwsyzfxBdMGKvyIEoVsjyZQqxzUkRQk=@proton.me>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,47 +82,10 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261121204528.2435533-1-mmyangfl@gmail.com>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xUwNt-00000000mlw-17XS
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:46818
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 7
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfBE5RLtbdWEIYhb9wRGN/7tz1ERYLcl18cXxIp7LCvipm1tJwK156goQryrXOszH9lAhF6iHxhfSSnEdLm1SC7OwhgH1yXY4cvDZqw3d0wsHjDL/ejCz
- JFmlpcKvDdk43hH5SaDAy6xtp2iGMTGlG5f/Ot+1B+nWuU9UBZmIiGb9+yXJI6mHJdmgRex1FHC9dhd96colD02N/kYGqwCEOwslytMQLTSl/Vdufyz3ZxZ4
 
-On Sun, Nov 22, 2026 at 04:45:25AM +0800, David Yang wrote:
-> wdt_restart() fail to reboot the system if the watchdog counter clock
-> was previously disabled: If userspace cleanly stops the watchdog, the
-> core calls wdt_disable() which disables wdt->clk. No reset comes.
-> 
-> Re-enable the clock in it as in npcm_wdt. The watchdog .restart()
-> callback runs in atomic context: get the clock with
-> devm_clk_get_optional_prepared() at probe time and keep it prepared for
-> the lifetime of the driver, so the restart handler only needs
-> clk_enable(), which is safe in atomic context.
-> 
-> Link: https://lore.kernel.org/r/20260911031916.A8E051F000FF@smtp.kernel.org
-> Fixes: 6c5c0d48b686 ("watchdog: sp805: add restart handler")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: David Yang <mmyangfl@gmail.com>
-
-Applied.
-
-Thanks,
-Guenter
+RmFsY29uZXQzIDxGYWxjb25ldDNAcHJvdG9uLm1lPiB3cm90ZToNCj4gRml4IGZvciBhbiBPT0Ig
+cmVhZCAodXAgdG8gMzEgYnl0ZXMgcGFzdCB0aGUgZmlybXdhcmUgYnVmZmVyKSBpbnRyb2R1Y2Vk
+IGluIHY3LjQtcmMxIGJ5IHRoZSBmdy1lbGVtZW50DQo+IGNvcHktb24tcGFyc2UgcmV3b3JrLiBQ
+YXRjaCBhdHRhY2hlZCwgYXBwbGllcyB0byB2Ny40LXJjMy4gVGhhbmtzIQ0KDQpQbGVhc2UgcmVw
+aHJhc2UgY29tbWl0IG1lc3NhZ2UgZ2VuZXJhdGVkIGJ5IExMTSBhbmQgc2VuZCBwYXRjaCBpbmxp
+bmUuIA0KDQotLS0NCnB3LWJvdDogY3INCg0K
