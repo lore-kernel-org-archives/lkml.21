@@ -1,13 +1,13 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795323345;
-	b=dC2mYvSVZ2oV1YJdgjUoJoEGIO0mejpjHQH4ZUR3GR6O2T2xB0w42gY/zC459rJQ692L
-	 N9d/o9sWPxyyAXvcTzIAvur6QI6TbHcxyHDxcQxWyk34PaHUilX7sWq7HrZyJSDWOY34D
-	 B429/sWlFVu/0+C4H9UirBiHUyqF9hwaDnEK2CsydSTo0Yxie4XHxrUS2k1hflqMHkWkE
-	 TGp3cFDamtTOLvC2Mpo3cDIA4bVc5AAPvf9AUVMFFfHx72R1aDrkiJPww4DgYqjWEoaH8
-	 gIUYeL/iUnr+PPSCuiWEOmzsYIAoIwubvCsGhi20A6azxDp374xNPM172g4OaF7GxmQ==
+	t=1795323350;
+	b=jo8PTpamcx7rJ+i9YesIEbivooysGP8smWEsIEwW5RDPPeDbP/5hKEFdXQBr13/f39RJ
+	 PkT3d3rAVjUQKSSt0a6X8De2QyLbzfS3Lg88RoPUP81ks7PBFzo9HP0qiuXCzW3SrF+oo
+	 BsuzChDsfjb6AMtD2xcgPtJBzhKXSQbqtmZNX0BBd6SBmPtv76f2HPh1LpatMEr/QelT9
+	 6Y8DC8102Dejs89hNoTwVpBaPZP2uh7Y0Fr7+52v5l+2pNKBuOnsIpgw7fVFIo2HQNWN2
+	 U/UqiFlLLz5nbkSegWEMlZLqIWycMZP3BsYDCrgQxMhBhlerUAG4wiaYhijFnab/bxQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795323345;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795323350;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
 	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
@@ -16,79 +16,77 @@ ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
 	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
 	 X-Proofpoint-Spam-Details;
-	bh=iRLqjygv2hDYSeqdM+xpW5LlsPFF+IyHh+AJw3x3SA8=;
-	b=z6BC6MfJBjHbVz4AaPHkk6FuECl5EM9o0fVmn49gi6uiN4HDaMuljiuUqkGuLC7GJ3iz
-	 4JOwFaolj+TFAd53G+buG8wKHHN4ls1r3yLY/bvMrraYfKmLPusyP93Xyl4rqpVmysqDK
-	 /n2Okuk3/s3k2xBxvok8MJzqvailjnq0Y8xuUwq5nXLf2F5Hgl/hUTfqLzudet1uzqSJF
-	 tUxHbQRe+OrU2PmBg2fsbbrd8oQ5VOFz7KkgEV4OUtObuPHXpYpVHov/UCsx0dGAK1cRl
-	 UsQry5mKxHOWj0kW64DP1t9IqvrEqsHz4valG7PWDPSRULOu7Kh9wdwjNko9p6iAb7Q==
+	bh=KewcbK56oZjNmCRF93X2jQ9HTPDY+IubXbrWyxoc+jw=;
+	b=FcoFmIAAdn1tW4DL/HKD37WCID+/kQeNoGNms6N4MZ2zxBatkxQrC+1hDcYhoW4hg4CN
+	 nQfFV47njs1ic6lXoj1et1W/Gq74ziHfxdfbar8l6Blg+ZphFLZFMQQWqG9Pkg0AIfwGg
+	 XlNLNgmWsp9RXrz1vnVKdMPr/lCLVFAD1dLkK5SBxBb9W5jkjcuuMDhd5K8U5/RL2qgYC
+	 TSYPhi2uvvF/Rs2aKp1SX1Cd8Gh2r9AQI8cRG6MIa8hUXy96cIZDX+CU+YSQHEZT6QByj
+	 uwSr8rcbX/zMVUqg4NMUX1JsvVVcWNCBmuFWHnbnqiaqBjiXIX2QKKHGDjrqhQODovQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.ibm.com;
 	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=hNx5Fwha;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=XwLamNMf;
 	arc=none smtp.remote-ip=148.163.158.5
 Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF081606A334
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:55:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF081606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BA7B606A320;
+	Sun, 22 Nov 2026 04:55:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BA7B606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=hNx5Fwha
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=XwLamNMf
 Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AM44rQf3673191;
-	Sun, 22 Nov 2026 04:55:30 GMT
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AM44oX63672982;
+	Sun, 22 Nov 2026 04:55:32 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=iRLqjy
-	gv2hDYSeqdM+xpW5LlsPFF+IyHh+AJw3x3SA8=; b=hNx5FwhaZDFklLzx9F1oAi
-	uwG5K+eQpBoFFL7Qn3kC5Ma48VCkRn1bkj4G8LL8COBDX7amRhp28DFR15/4x2vK
-	W/KWFgB5dBGTcq3/sH/mxH+7yADpOwpQ/zaMcdlur1BHKuAWm+7yJx0oXnZ0qAlB
-	r/YTMmuW70yL3SJL7WSQmy9qUYCDT5p1ju8Y6ndKJSRsZCPpO1pifMRO11Ugc+Z6
-	D7nRbQYKPw0UQeeVv2sJ5vVh7Y/zkIvYahADZud0ViPSl+PFePgL5kOwrH6wlXgd
-	Ih0UhfDEFxGuyvoHsy8JPHUCAwFqFr6IRNOhKFUMfzRxCS7oXPhFdhQliEsBuNXA
+	:message-id:mime-version:references:subject:to; s=pp1; bh=KewcbK
+	56oZjNmCRF93X2jQ9HTPDY+IubXbrWyxoc+jw=; b=XwLamNMf87+ta/lbVmPRAO
+	OKfQUc7gQF9SokjYt5kI7cdaZRPOpJaf6e3l4+gUi/dYzzidnia4CJOxTf1hnSXS
+	yYRaxVHHFui8sAEv0JPsbRSLIE0YbjqBTMqOl1j3d/5nOoGhcaaBgldazGR2A9ie
+	BuL7Vqf4FPdNux+TxxaurtoVOW+ZRoLS1+paW/qM9+JBFyNz+4Lo+Tl7HAMtXt4A
+	ALJ85afqBq8wt1TE21zyNEjC+MIDIavebeN7qKSOnzsmF5+gGL+fVBVuFCFgW8E8
+	gk0QRz6dMmtZo0mkxzqz62Qtq7QSkE1jVVKKsxBB4sT7+vDiMTKv52rHYO00P5gQ
 	==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34guvum2-1
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34guvumc-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sun, 22 Nov 2026 04:55:29 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AM3nVPu810566;
-	Sun, 22 Nov 2026 04:55:29 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3q4h0hn0-1
+	Sun, 22 Nov 2026 04:55:32 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AM3nJfv2766997;
+	Sun, 22 Nov 2026 04:55:31 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j3qufgegd-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 22 Nov 2026 04:55:29 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AM4tPuA28639744
+	Sun, 22 Nov 2026 04:55:31 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AM4tTx645613436
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 22 Nov 2026 04:55:25 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6539B20049;
-	Sun, 22 Nov 2026 04:55:25 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D3BBD20040;
-	Sun, 22 Nov 2026 04:55:20 +0000 (GMT)
+	Sun, 22 Nov 2026 04:55:29 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id BDE7020043;
+	Sun, 22 Nov 2026 04:55:29 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1B34920040;
+	Sun, 22 Nov 2026 04:55:27 +0000 (GMT)
 Received: from Linuxdev.ibmuc.com (unknown [9.43.90.96])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Sun, 22 Nov 2026 04:55:20 +0000 (GMT)
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Sun, 22 Nov 2026 04:55:26 +0000 (GMT)
 From: Madhavan Srinivasan <maddy@linux.ibm.com>
-To: linuxppc-dev@lists.ozlabs.org, chzigotzky@xenosoft.de,
-        Shrikanth Hegde <sshegde@linux.ibm.com>
-Cc: mpe@ellerman.id.au, npiggin@gmail.com, linux-kernel@vger.kernel.org,
-        msuchanek@suse.de, ritesh.list@gmail.com, harshpb@linux.ibm.com,
-        gautam@linux.ibm.com, amachhiw@linux.ibm.com, venkat88@linux.ibm.com,
-        nnmlinux@linux.ibm.com, mkchauras@gmail.com,
-        Christophe Leroy <chleroy@kernel.org>
-Subject: Re: [PATCH v5 0/3] KVM: PPC: BookE: Fix boot hang on preemptible kernels
-Date: Sun, 22 Nov 2026 10:25:19 +0530
-Message-ID: <179532322367.92012.16546400865161170455.b4-ty@linux.ibm.com>
+To: Michael Ellerman <mpe@ellerman.id.au>,
+        Gaurav Yadav <yadavgaurav386@gmail.com>
+Cc: Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>,
+        linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: PPC: BookE: Use vcpu_err() instead of printk() in kvmppc_dump_vcpu()
+Date: Sun, 22 Nov 2026 10:25:25 +0530
+Message-ID: <179532322375.92012.11986007993512084245.b4-ty@linux.ibm.com>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118051419.783878-1-sshegde@linux.ibm.com>
-References: <20261118051419.783878-1-sshegde@linux.ibm.com>
+In-Reply-To: <20260807084050.25216-1-yadavgaurav386@gmail.com>
+References: <20260807084050.25216-1-yadavgaurav386@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,24 +100,24 @@ Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=CYCdd7rl c=1 sm=1 tr=0 ts=6b0275c2 cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+X-Authority-Analysis: v=2.4 cv=CYCdd7rl c=1 sm=1 tr=0 ts=6b0275c4 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
  a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
  a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VwQbUJbxAAAA:8
- a=r65xZNbgYoIxgFmg-xoA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIyMDAxOCBTYWx0ZWRfX+FhUVAV33WQH
- Jme8MeEvt9aPXTkcsrbJxA9SbWWbkj2erpVtw1vusRy9JSwN8tFyPa8qVshmCVZ30fhVpwwguy5
- qOriA4QEI2KDyEWfG0yYM/N4jEyvpok=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIyMDAxOCBTYWx0ZWRfX/8T2QWjO/GlD
- XfcfUjqBctUuYf05qhgXLZXlZCPBJQBaqBZ6WuAN2N7T3fpdjlqwZC1P/Nszbjq15nAxMoj+iyf
- Kc9yCQONQ5MWQCIgn9NdQDNxKMp/M557YKkuxJc08A1zUHJgEQnkaYSjFMT6e6ka6//QvPvJhPO
- iRdqWZkC2R2XFzN4f355AxJPYx05OEexql5dXskfJ33RzJrUwpdB3UbaSnkQLAr9+fhImelQ0mr
- s8IN26zCNx/39tEWr8tyKbQx4noq02hhQcGICYlM8RsSRzqngbLKR2Bfjd8nQt8ZeghEr/hFrPm
- tIe209b8pP7EFnRH6y2nSf2ejRmuku/h6jINiYQd4FdIjqYHtLNKb1QC14ZeLuf2jH9tFc3zeyW
- id8wMIOjH+046GWBc/jVXW94sFjw8fKPttKWBoHYmtAvqMWH9YlRCExaRIQ4kWOv6TpNlEcmwcK
- dwZwyXDy0jcoja7nhgw==
-X-Proofpoint-ORIG-GUID: y1uGyVD0I8JUD1Z1q-A2cMojlKBJ_raR
-X-Proofpoint-GUID: dODFUbH4Wwny_1OwpgZBPJUEuS-C4MIx
+ a=MdpIrRKBePn9w66PKCMA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIyMDAxOCBTYWx0ZWRfXz/YxoQvCypfA
+ ceWttOwK0ZFOPx2R/Q+7pzuCBMA3yYhzTVQ3k2IpRZ5ZSASF+jJiooZYT9wFKlspFITe7KFU4Zo
+ 17zR3lhPQUlkRf8dVoFTvfunF2+WdKE=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIyMDAxOCBTYWx0ZWRfX9h7479ulO/dX
+ LHJx//TeCYVofoXUCaDxS37dnl/QR3qeIyimrW+Jp1pW0xa5RSHFk3q3VkS2N2fIcYu70RTwZuj
+ 071G/nFDbH35ejfezkQpVUF+E4XIkY39D+Pmufd4YE5AQso3w8V94lI6F1JF4zUitQlNcIyEdUX
+ 4whawB4NlL3ZEPRPqWXrl2XplO74v3j3CrGBFdcE7c8ZRpxpKXNy1KJhPJcQyMYN9GbSaAMydKk
+ Tstno5/3/Awk6/uSQ+/cNsJOGuxDUN0adwLAVdUBrFPx4bRY4MvW61kpnOXqdUKrDWPRWJNYWCy
+ w0nXoWq/3WRidDtMMEnBiLHKXa/1umXlk0/EuDBnx2paFNf0enbpyPJMtvr9yBWPyxzBuI9t047
+ U8xRdInKRiuwQzlFeYbUIl7RPx/sj5oufOtC4VJHykZtLIcwRJyQNJYzmGjsUdP7wjMQ6c4ho38
+ XowrPnrz+w8SNezBb3w==
+X-Proofpoint-ORIG-GUID: 8ayBAf8X8rEvDU0NCMa86urG__PzPvtf
+X-Proofpoint-GUID: N2uqNbXCFFjR_JRDdvaJ3IFDov1BhLGO
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-22_01,2026-11-19_01,2025-10-01_01
@@ -130,23 +128,19 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
  definitions=main-2611220018
 
-On Wed, 18 Nov 2026 10:44:16 +0530, Shrikanth Hegde wrote:
-> Christian Zigotzky had reported that preemptible kernels don't boot on
-> his FSL Cyrus+ board. The board freezes on running either full/lazy
-> preemption and has been an issue for a while now (years!).
+On Fri, 07 Aug 2026 14:10:50 +0530, Gaurav Yadav wrote:
+> Replace generic printk() calls in kvmppc_dump_vcpu() with vcpu_err()
+> and remove the corresponding TODO comment.
 > 
-> https://lore.kernel.org/all/b897b0fd-90f2-4215-bcd4-3714e497d773@xenosoft.de/#t
-> More details in cover-letter of v2[1]
+> Using vcpu_err() provides vCPU-aware logging context, making it easier
+> to associate register dumps with specific vCPU instances in logs.
+> 
 > 
 > [...]
 
 Applied to powerpc/fixes.
 
-[1/3] PPC32: Fix hard_irq_disable to follow tracing and lockdep state
-      https://git.kernel.org/powerpc/c/2672bdcc7857073722c4772831a24b14832ee88a
-[2/3] KVM: PPC: BookE: Load FP and Altivec before enabling the interrupts
-      https://git.kernel.org/powerpc/c/cf2e6ef0a39e0682d22292f1b9e9cd865482e86d
-[3/3] KVM: PPC: Hard disable interrupts before guest entry
-      https://git.kernel.org/powerpc/c/d0160f6470d1b8a4ce25d98bb8d1b0495a922d4f
+[1/1] KVM: PPC: BookE: Use vcpu_err() instead of printk() in kvmppc_dump_vcpu()
+      https://git.kernel.org/powerpc/c/54efc2e1e9af9e3a14264db5686330e4fd477286
 
 cheers
