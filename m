@@ -1,78 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795322828;
-	b=EDcVhJWgC0dQLiC/v4kA0+U+kNWkPtzchMp5pXQbzix5hAlbv5DLsFiiR4NECEnXSGYo
-	 1gJKqJKgl1EwZuxPBEuW69JfEnV1xzNAsuD2hozE0eJ1bNxNjItPSu291pDPWRYGjVhzm
-	 KezPDezbefLPM+YpQEHzD8wR0s5rIupjtlsL8tKz/57xl25caJPFBbkjnS8b4Nvp5zhW/
-	 NSfAygazfiGVpIpXBjA4CsaOj3qxrlD2RITHYzub8eunk8963QIHUyq8gKrQy5A7iJpG8
-	 78Gzy8a6w0V8ius2xJMtgXhMajW6kX8twkSiXf3D2WowvBl6jGxTB6wRqhDfy7hhwig==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795322828;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=hgNSXCilZSiGUlts21/2XhRMTu9t2frtIV3H6E36P4g=;
-	b=gwTMry96VTDPtNpLw/M8y9rJJehcwot/MbUGOA0g3eJw0XV74p7A6eyEuqK7QrYp8jHW
-	 Rmc+UK9wWdG2Vn8pI/1kIv7DjihKGQhZFZ5aiXD96Vjrb7+rSqLTO3r+737tSJNO6qros
-	 DW0yEoecxX0bprrgaZV6REM/XjsUZcc/xCDQx5OsR/J+DimKN0gMErGCmwp2eAe9b0v2W
-	 6xl9yUZhaZX1L9MlLdML02YyoRz7YN6AhadGkM7Gb6tSYqiS9QMavuU3oc04QbKF3KYOo
-	 SBEr7xeVQ7PUE66/03bjRuoTqrCqHvqoQ4VSmewLVBrXa7FkJau0jqRs6uXhELNM31g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="GT/mVnLE";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B0F0606A320;
-	Sun, 22 Nov 2026 04:47:08 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GT/mVnLE
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795322828;
-	b=BkSZMu8ijehu4FMPNLw1V5BW4XL20fcdKo931DTpFV9pggzPpQ0eKSVDYLiCXbMNShHI
-	 apfPIZxBIsEg6gYet20/JUDM1COpbUyN/pDtQSHVoQNkEC8plGt2hpG9I3M5QQq8ffkQs
-	 8+2LBgdq7eBhLl11e7MNrl31jMvBVPpTPE6mK+pswnVKIpGC2lFWGzsuZq29CY0tWLdVS
-	 yMvLBn/s39Hux+rjVoAVM5dCcS2lNH3p06Cq+5CNZdDaUY2PvIiQxUdaxR3Cr6q0pGvMB
-	 ArwNvksVmJT8Isq9jwFWH8/jo0fMHiJtVjGsdK3ecwrERfp0xXeBSMwM9ZUjxuaNVFg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795322828;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=hgNSXCilZSiGUlts21/2XhRMTu9t2frtIV3H6E36P4g=;
-	b=ZnpA5i15fgHZ3cPMziE/2HeFemR7a97WTlMcqw3uNav9+dHSKu/TAn4ep4H2s3Vc7/z1
-	 YywVSsV4zGuPBEw4+7u2X4zgu9hZ9DIoaQAG7K73X89W2kZewzkfsZ8fZzbAErOXgP/PR
-	 VsjBcpTR8HS+YBD618cqAGyVK1RjWfo0nVaTsgCdTBpZCxOl7/aWnq6wd0ouB37xq9dW2
-	 9+NBzY6kQ6KGGjzGSsmcI3EUtgeRkd00129qgLgv2U2HqS13cYS51lClIhFLfMLNoVneP
-	 O94Czp1+ESosL4SmPn9rUCfSxlLELlH/G3HaYr+NrtAzipGIsj8nIkOPCggUMy9Aomw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795322978;
+	b=uMzJ657hsYO0LliI/Tabez5egPDOY7W8xlcxuBNNOifn3VFsYTsw+C4ClRp11x9CsHWR
+	 VSDwOwKnc4Bm7ZjbAlspQqiIlAtiufTcIqB1Jobb91uqFmUZBb3UCLn/6HwktO+cP8axp
+	 lrewe/D6RCYwK4iixvB0fbTPAEK7IkCAxfxHJXlEeSH0K9gV7CHQMo/IkS/DTz5qMfWSe
+	 Hymd3D153c3R0lKWdhb2806A0B+uWYjV4iAC3eDt7QVxXgsEEHcPHXxUy3dEoCON53Bdf
+	 6+QABMRX2VyeC0I/OfsEn60826vzQaHgD/OBxGu0w8HnOfx6LXoaGSPqRtdjnYO9jgQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795322978;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=o8BTl0u5Z65NjasTby1WfYBPwX0u2iS9ELdyH+h0w+U=;
+	b=j2EQCMyEHKu+1GI+efgOaEV74M4tp4wx/wDKt6xqx1mdxmrco+JSLO++2aN4Zm9YZJEn
+	 WNyZpgP+1KNqsLjZhYeHYgue/+V/5Vdd9Q+nDCte9A7EnM6wO/syBrNY5rS1AzkMvaHOU
+	 VgBvUsZBLjRMSU7r5/+3CE2xixk994knN11QzHkn7mwPzmkcDFgpv7ZPatH+NrlVO/qq+
+	 ZRgIFugex61ON46nHwN0LQk75CCoAU9ktxG499chVo/z7597DrhlzPXBocbuFTd+iX/bm
+	 n7uwVcH3DzjlRzpwWT08odLP8TKWCOi/Jbt6zW/CQfXwweX1bp4Roit0chO3gkVO91g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.199
+Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 9B8631F000C0;
-	Sun, 22 Nov 2026 04:47:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795322828;
-	bh=hgNSXCilZSiGUlts21/2XhRMTu9t2frtIV3H6E36P4g=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=GT/mVnLEnmcfPSV/5lXja7olh/H32kS/WFoPwwb5ipskwLhVJZWFV60tg/XIfvP4o
-	 ea3pdg/eGVq67GiHy3yHLp3GUNCuwe4QUjSRjKgi+zFsz9OrVMyk09/oEWlI2mdvKF
-	 LQpBtnlzIgevQLmgsj7FN91T+O0HVY7bGZI6g2y51zZfCG2q5fi7wmxKLnmyavlU5V
-	 RQJJdxWcyNWP/07P7HiOjaJOR3xO5ffMcMfWLZaH/fA8Ka8XiJ+WpDL2kutG4epl9K
-	 hnnRShdP+53F21YgNG4y19WkKMecowRwhc21fAUmwHeGMN+QOjpZxKesesvq6sYRaI
-	 RVaTvlKIfRL9w==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 304124BEDC;
-	Sun, 22 Nov 2026 04:47:07 +0000 (UTC)
-From: YanXin Li via B4 Relay <devnull+fadouse.pm.me@kernel.org>
-Date: Sun, 22 Nov 2026 12:46:51 +0800
-Subject: [PATCH bpf v2] bpf: bound arena allocations to the user VMA
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C00E606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:49:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C00E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4c467e19391so3502595b6e.3
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:49:37 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795322977; x=1795927777;
+        h=content-type:to:from:subject:message-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=o8BTl0u5Z65NjasTby1WfYBPwX0u2iS9ELdyH+h0w+U=;
+        b=jS9iM3lGf4TRh1mvlVJKvPyUk5UzHduRbZ6YvY+dFJbvw89HTLiuDI0I9tXovGAFOZ
+         Jamz1HZftfg8leuEvYWbNbz1SN18ED2jkms/ENEuoc88tePPSlFGEM4l3E/ictfvnxIs
+         aYk4V8apnjpniAI9IU3Xb72epyjH+Fsw3Mv8IfLSFe+2voJ2HB8rF49X4Z+ilZkqoVrn
+         K3tlJ/jNTmMsU+sShLUse8PPGuBpG+gzAqtRBWnXN+Pg73FlSah4m6Ux2aRwBh9bnyIZ
+         9PGkltn2A6JF9c7j1urRgGwc9iygag4LcLcZOUgtXxhU+uRC+srxLHTX/7kM5EXZzjgj
+         u0Xg==
+X-Forwarded-Encrypted: i=1; AL+hErEjP+hOA+maiODHgyT1+4QSWxqyFPEY0i+d6cSGBTn5dfyRm23AgqtpDvOgN1qDTSKe+VL2n797VWRwDaU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Mw1OriQ516syOrS6rntIuqNwEGyozSjImpMPyz2w6PTnYewHG
+	6xynJj8NZmcJR2h2/5422FlhXgfaXSPg9QA8QWjpcXlh8v1TGMgIvuiqelL5dB4856z9EA3Oa09
+	LR5K5LK/GianGabuLsrigVgFiUitpTI6l+oXzvlgVUF21apaGK12qa9ZxTbc=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,208 +58,226 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261122-b4-03-bpf-arena-vmalloc-oob-v2-5f6209c1a20e-v2-1-b2a9906e9676@pm.me>
-X-B4-Tracking: v=1; b=H4sIALpzAmsC/yWN0W7CMAxFfwX5GQvH8ULhVyYenNSBoNJWyag2I
- f597fZ4j67OeUGzWqzBefeCaktpZRrXwfsdpJuOV8PSrxuYODjHjFGQPMY5o1YbFZeHDsOUcJo
- iLowfOTCdklMmQ8oU4il7UjFYjXO1XL7/ap+wKuDyD9sz3i19bZ3tFrUZxqpjum2o2qA/uMFDE
- nEk2QfhXo9MLggJB/YmnefOB7Xc953B+/0LMRrYLNoAAAA=
-X-Change-ID: 20261122-b4-03-bpf-arena-vmalloc-oob-v2-5f6209c1a20e-0f06b9f30a4e
-To: Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
- Eduard Zingerman <eddyz87@gmail.com>, 
- Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
- Emil Tsalapatis <emil@etsalapatis.com>, 
- Ihor Solodrai <ihor.solodrai@linux.dev>, bpf@vger.kernel.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795322826; l=7440;
- i=fadouse@pm.me; s=b4-relay-20261122; h=from:subject:message-id;
- bh=DPOtTXYJ4A1Nsdzdq03zG2Y5kDlcW+p1iolpXZYER2w=;
- b=DA4j9fo2bRLcEcu9pwke58tYN2uokIfmZv5IhsOq04QPUxGY+/ZKHUdhW5CZAj5aAJ3QUxoo/
- 6hySkBljCgLAkwQ1KLnhrUauSnQhllFZHf+su0Y5fIiZblytKkqtIH0
-X-Developer-Key: i=fadouse@pm.me; a=ed25519;
- pk=b4DyzHJDRd8853IHUSKPA5wwzChj8eF4MTnZuyPz1PQ=
-X-Endpoint-Received: by B4 Relay for fadouse@pm.me/b4-relay-20261122 with
- auth_id=1597
-X-Original-From: YanXin Li <fadouse@pm.me>
-Reply-To: fadouse@pm.me
-Content-Transfer-Encoding: 7bit
+X-Received: by 2002:a05:6808:c3cb:b0:574:93c0:5ae7 with SMTP id
+ 5614622812f47-57a09c11006mr8025631b6e.12.1795322977195; Sat, 21 Nov 2026
+ 20:49:37 -0800 (PST)
+Date: Sat, 21 Nov 2026 20:49:37 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b027461.6ccd1e40.868ea.001d.GAE@google.com>
+Subject: [syzbot] [bluetooth?] KASAN: slab-use-after-free Write in rfcomm_dev_ioctl
+From: syzbot <syzbot+11542ff1d167fdffa1fc@syzkaller.appspotmail.com>
+To: gianluca@sottospazio.it, linux-bluetooth@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, luiz.dentz@gmail.com, marcel@holtmann.org, 
+	nicoyip.dev@gmail.com, syzkaller-bugs@googlegroups.com, tim.bird@sony.com
+Content-Type: text/plain; charset="UTF-8"
 
-From: YanXin Li <fadouse@pm.me>
+Hello,
 
-bpf_arena_alloc_pages() hands out page ranges from the arena's range
-tree, which is initialized to max_entries pages, while the kernel
-mapping of those pages is built at kern_vm_start + (u32)user_addr.
-The fixed-address path and bpf_arena_free_pages() both assume that a
-returned range stays inside the user VMA, so that its lower 32 bits
-do not wrap past the end of the arena's 4 GiB kernel vm area:
+syzbot found the following issue on:
 
-    long page_cnt_max = (user_vm_end - user_vm_start) >> PAGE_SHIFT;
-    ...
-    if (uaddr) {
-            ...
-            if (pgoff > page_cnt_max - page_cnt)
-                    return 0;   /* bound only on the fixed-address path */
-    }
-    ret = arena_adjust_tree(arena, uaddr, page_cnt, &pgoff);
-    ...
-    uaddr32 = (u32)(user_vm_start + pgoff * PAGE_SIZE);
+HEAD commit:    909ef7a9a30f Add linux-next specific files for 20261120
+git tree:       linux-next
+console output: https://syzkaller.appspot.com/x/log.txt?x=14d2b363580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=b48986f5941b1488
+dashboard link: https://syzkaller.appspot.com/bug?extid=11542ff1d167fdffa1fc
+compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
 
-When map_extra is not given, arena_map_alloc() does not know the user
-address and accepts any mmap() length up to max_entries pages, and
-arena_get_unmapped_area() only requires that the mapping does not cross
-a 4 GiB boundary.  A process can therefore mmap() a VMA that ends
-exactly at a 4 GiB boundary while max_entries is much larger: for
-max_entries = 2^20 and a 288-page VMA at 0xffee0000, the range tree
-still holds free pages past the VMA, and arena_adjust_tree() hands
-them out on the uaddr == 0 path with no bound on pgoff + page_cnt
-against page_cnt_max.  A program that first allocates 287 pages and
-then asks for 288 more receives pgoff = 287, uaddr32 = 0xfffff000,
-and arena_alloc_pages() maps 288 pages at kern_vm_start + 0xfffff000:
-one page inside the VMA, then the arena's upper guard pages, and then
-258 pages into the vmalloc area past the end of the arena's own
-vmap area - installing PTEs into address space the arena does not own
-and returning a "success" pointer to the caller.
+Unfortunately, I don't have any reproducer for this issue yet.
 
-The damage cannot be undone: arena_free_pages() clips every free to
-the VMA, so the pages mapped past kern_vm_start + 4 GiB are never
-freed, arena_map_free() only walks the arena's own area, and the stale
-PTEs and leaked pages survive the destruction of the map.  A second
-arena whose kernel area happens to follow the first one receives
-PTEs for pages it does not own; its user-visible arena_vm_fault()
-finds them with vmalloc_to_page() and maps another map's pages into
-its own user VMA.  When the walk instead reaches an already-mapped
-foreign PTE, apply_range_set_cb() reports
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/bff3b272c5e1/disk-909ef7a9.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/6c6fffa0ba5f/vmlinux-909ef7a9.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/c4ad60d5f27d/bzImage-909ef7a9.xz
 
-    WARNING: kernel/bpf/arena.c:190 at apply_range_set_cb+0x4d9/0x830
+The issue was bisected by AI to:
 
-after failing to install into the neighbour's page.  Any program that
-may use an arena map (CAP_BPF, or an arena delegated through a BPF
-token from a user namespace) can reach this; no race is needed.
+commit 5b899241874dcc1a2b932a668731c80a3a869575
+Author: Gianluca Anzolin <gianluca@sottospazio.it>
+Date:   Mon Jan 6 20:23:50 2014 +0000
 
-Fix this on both sides.  On the first mmap() of a map created without
-map_extra, mark [vma_pages, max_entries) as allocated in the range
-tree, because nothing outside the VMA can ever be freed or mapped
-without wrapping; no program can allocate before user_vm_start is
-set, and the same mmap() path already serializes on arena->lock.  And
-reject pgoff ranges past the VMA in arena_adjust_tree() with -ERANGE,
-mirroring the existing page_cnt_max check of the fixed-address path,
-so that even a stale tree entry cannot hand out an unwrappable range.
+    Bluetooth: Release RFCOMM port when the last user closes the TTY
 
-This issue was found through LLM-assisted code audit and manual code
-inspection of kernel/bpf/arena.c, and then checked with a Z3 SMT model
-and reproduced locally with a custom BPF test program in an x86-64
-QEMU/KVM guest running v7.4-rc3 with KASAN, UBSAN, lockdep, and
-DEBUG_OBJECTS enabled.
+AI reasoning:   https://syzkaller.appspot.com/ai_job?id=0137c921-439f-477e-b601-4d5010191e08
 
-With a map created without map_extra and a 288-page VMA ending at a
-4 GiB boundary, calling bpf_arena_alloc_pages() reproduced both the
-out-of-VMA vmalloc mapping into an adjacent arena and the
-WARNING: kernel/bpf/arena.c:190 at apply_range_set_cb().  After
-applying the patch, the wrapped allocation returns NULL while in-VMA
-allocations continue to succeed with no kernel warnings.
+AI-generated root cause summary:
+In net/bluetooth/rfcomm/tty.c, __rfcomm_dev_add() publishes a newly allocated
+struct rfcomm_dev in rfcomm_dev_list and releases rfcomm_dev_lock while holding
+only the initial port reference (refcount 1), without taking a reference for
+rfcomm_dev_add() to finish registration. When RFCOMM_RELEASE_ONHUP is set, a
+concurrent task can open and close the RFCOMM TTY device during or right after
+tty_port_register_device(), causing rfcomm_tty_install() to take ownership of
+that single reference and release_one_tty() -> rfcomm_tty_cleanup() ->
+tty_port_put() -> rfcomm_dev_destruct() to free dev. rfcomm_dev_add() then
+performs a slab-use-after-free write to dev->tty_dev (offset 992) and continues
+accessing the freed rfcomm_dev.
 
-A test case and full validation logs are available on request.
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=11542ff1d167fdffa1fc
 
-Fixes: 317460317a02 ("bpf: Introduce bpf_arena.")
-Cc: stable@vger.kernel.org
-Signed-off-by: YanXin Li <fadouse@pm.me>
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+11542ff1d167fdffa1fc@syzkaller.appspotmail.com
+
+The cause commit was identified by AI and may be wrong.
+If you agree with it, please also add:
+Fixes: 5b899241874d ("Bluetooth: Release RFCOMM port when the last user closes the TTY")
+
+==================================================================
+BUG: KASAN: slab-use-after-free in rfcomm_dev_add net/bluetooth/rfcomm/tty.c:335 [inline]
+BUG: KASAN: slab-use-after-free in __rfcomm_create_dev net/bluetooth/rfcomm/tty.c:421 [inline]
+BUG: KASAN: slab-use-after-free in rfcomm_create_dev net/bluetooth/rfcomm/tty.c:477 [inline]
+BUG: KASAN: slab-use-after-free in rfcomm_dev_ioctl+0x1b9f/0x21b0 net/bluetooth/rfcomm/tty.c:576
+Write of size 8 at addr ffff888029b7c3e0 by task syz.8.3942/18018
+
+CPU: 0 UID: 0 PID: 18018 Comm: syz.8.3942 Tainted: G             L      syzkaller #0 PREEMPT(full) 
+Tainted: [L]=SOFTLOCKUP
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0xe8/0x150 lib/dump_stack.c:120
+ print_address_description+0x55/0x1e0 mm/kasan/report.c:378
+ print_report+0x58/0x70 mm/kasan/report.c:482
+ kasan_report+0x117/0x150 mm/kasan/report.c:595
+ rfcomm_dev_add net/bluetooth/rfcomm/tty.c:335 [inline]
+ __rfcomm_create_dev net/bluetooth/rfcomm/tty.c:421 [inline]
+ rfcomm_create_dev net/bluetooth/rfcomm/tty.c:477 [inline]
+ rfcomm_dev_ioctl+0x1b9f/0x21b0 net/bluetooth/rfcomm/tty.c:576
+ sock_do_ioctl+0x101/0x320 net/socket.c:1328
+ sock_ioctl+0x57a/0x7e0 net/socket.c:1449
+ vfs_ioctl fs/ioctl.c:52 [inline]
+ __do_sys_ioctl fs/ioctl.c:604 [inline]
+ __se_sys_ioctl+0xfc/0x170 fs/ioctl.c:590
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x00007f28193a9559
+Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f281a25d028 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+RAX: ffffffffffffffda RBX: 00007f2819625fa0 RCX: 00007f28193a9559
+RDX: 0000200000000040 RSI: 00000000400452c8 RDI: 0000000000000004
+RBP: 00007f2819438136 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f2819626038 R14: 00007f2819625fa0 R15: 00007ffd396b8528
+ </TASK>
+
+Allocated by task 18018:
+ kasan_save_stack mm/kasan/common.c:57 [inline]
+ kasan_save_track+0x3f/0x90 mm/kasan/common.c:79
+ poison_kmalloc_redzone mm/kasan/common.c:412 [inline]
+ __kasan_kmalloc+0x93/0xb0 mm/kasan/common.c:429
+ kasan_kmalloc include/linux/kasan.h:267 [inline]
+ __kmalloc_cache_noprof+0x31c/0x610 mm/slub.c:5718
+ _kmalloc_noprof include/linux/slab.h:984 [inline]
+ _kzalloc_noprof include/linux/slab.h:1305 [inline]
+ __rfcomm_dev_add net/bluetooth/rfcomm/tty.c:221 [inline]
+ rfcomm_dev_add net/bluetooth/rfcomm/tty.c:322 [inline]
+ __rfcomm_create_dev net/bluetooth/rfcomm/tty.c:421 [inline]
+ rfcomm_create_dev net/bluetooth/rfcomm/tty.c:477 [inline]
+ rfcomm_dev_ioctl+0xc11/0x21b0 net/bluetooth/rfcomm/tty.c:576
+ sock_do_ioctl+0x101/0x320 net/socket.c:1328
+ sock_ioctl+0x57a/0x7e0 net/socket.c:1449
+ vfs_ioctl fs/ioctl.c:52 [inline]
+ __do_sys_ioctl fs/ioctl.c:604 [inline]
+ __se_sys_ioctl+0xfc/0x170 fs/ioctl.c:590
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Freed by task 11:
+ kasan_save_stack mm/kasan/common.c:57 [inline]
+ kasan_save_track+0x3f/0x90 mm/kasan/common.c:79
+ kasan_save_free_info+0x40/0x50 mm/kasan/generic.c:599
+ poison_slab_object mm/kasan/common.c:267 [inline]
+ __kasan_slab_free+0x70/0x90 mm/kasan/common.c:299
+ kasan_slab_free include/linux/kasan.h:239 [inline]
+ slab_free_hook mm/slub.c:2807 [inline]
+ slab_free mm/slub.c:6672 [inline]
+ kfree+0x1c7/0x650 mm/slub.c:6982
+ rfcomm_dev_destruct+0x25c/0x300 net/bluetooth/rfcomm/tty.c:99
+ release_one_tty+0xb4/0x280 drivers/tty/tty_io.c:1497
+ process_one_work kernel/workqueue.c:3511 [inline]
+ process_scheduled_works+0xc3d/0x1630 kernel/workqueue.c:3594
+ worker_thread+0xa47/0xfb0 kernel/workqueue.c:3675
+ kthread+0x38b/0x480 kernel/kthread.c:436
+ ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+
+The buggy address belongs to the object at ffff888029b7c000
+ which belongs to the cache kmalloc-2k of size 2048
+The buggy address is located 992 bytes inside of
+ freed 2048-byte region [ffff888029b7c000, ffff888029b7c800)
+
+The buggy address belongs to the physical page:
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x29b78
+head: order:3 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+flags: 0xfff00000000040(head|node=0|zone=1|lastcpupid=0x7ff)
+page_type: f5(slab)
+raw: 00fff00000000040 ffff88801c842000 dead000000000100 dead000000000122
+raw: 0000000000000000 0000000000080008 00000000f5000000 0000000000000000
+head: 00fff00000000040 ffff88801c842000 dead000000000100 dead000000000122
+head: 0000000000000000 0000000000080008 00000000f5000000 0000000000000000
+head: 00fff00000000003 fffffffffffffe01 00000000ffffffff 00000000ffffffff
+head: ffffffffffffffff 0000000000000000 00000000ffffffff 0000000000000008
+page dumped because: kasan: bad access detected
+page_owner tracks the page as allocated
+page last allocated via order 3, migratetype Unmovable, gfp_mask 0xd20c0(__GFP_IO|__GFP_FS|__GFP_NOWARN|__GFP_NORETRY|__GFP_COMP|__GFP_NOMEMALLOC), pid 150, tgid 150 (kworker/u8:6), ts 6692506745
+ set_page_owner include/linux/page_owner.h:33 [inline]
+ post_alloc_hook+0x1f9/0x250 mm/page_alloc.c:1872
+ prep_new_page+0x22/0xb0 mm/page_alloc.c:1880
+ get_page_from_freelist+0x2487/0x24f0 mm/page_alloc.c:3970
+ __alloc_frozen_pages_noprof+0x211/0x450 mm/page_alloc.c:5512
+ alloc_slab_page mm/slub.c:3423 [inline]
+ allocate_slab+0x7d/0x5e0 mm/slub.c:3538
+ new_slab mm/slub.c:3589 [inline]
+ refill_objects+0x2d5/0x350 mm/slub.c:7578
+ refill_sheaf mm/slub.c:2953 [inline]
+ __pcs_replace_empty_main+0x2c8/0x6c0 mm/slub.c:4849
+ alloc_from_pcs mm/slub.c:4925 [inline]
+ slab_alloc_node mm/slub.c:5059 [inline]
+ __do_kmalloc_node mm/slub.c:5568 [inline]
+ __kmalloc_noprof+0x47e/0x720 mm/slub.c:5594
+ _kmalloc_noprof include/linux/slab.h:988 [inline]
+ _kzalloc_noprof include/linux/slab.h:1305 [inline]
+ scsi_alloc_target+0x138/0xb70 drivers/scsi/scsi_scan.c:505
+ __scsi_scan_target+0xff/0xd50 drivers/scsi/scsi_scan.c:1895
+ scsi_scan_channel drivers/scsi/scsi_scan.c:2003 [inline]
+ scsi_scan_host_selected+0x391/0x6c0 drivers/scsi/scsi_scan.c:2032
+ do_scsi_scan_host drivers/scsi/scsi_scan.c:2165 [inline]
+ do_scan_async+0x10e/0x660 drivers/scsi/scsi_scan.c:2175
+ async_run_entry_fn+0x9d/0x450 kernel/async.c:123
+ process_one_work kernel/workqueue.c:3511 [inline]
+ process_scheduled_works+0xc3d/0x1630 kernel/workqueue.c:3594
+ worker_thread+0xa47/0xfb0 kernel/workqueue.c:3675
+ kthread+0x38b/0x480 kernel/kthread.c:436
+page_owner free stack trace missing
+
+Memory state around the buggy address:
+ ffff888029b7c280: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+ ffff888029b7c300: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+>ffff888029b7c380: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+                                                       ^
+ ffff888029b7c400: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+ ffff888029b7c480: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+==================================================================
+
+
 ---
-Changes in v2:
-- Resend via B4 Relay because the original email gained extra blank lines.
-- Document how the issue was found and verified.
-- No code changes.
-- Link to v1: https://lore.kernel.org/r/20261122031025.9771-1-fadouse@pm.me
----
- kernel/bpf/arena.c | 44 ++++++++++++++++++++++++++++++++++++++++++--
- 1 file changed, 42 insertions(+), 2 deletions(-)
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
 
-diff --git a/kernel/bpf/arena.c b/kernel/bpf/arena.c
-index ec2bda1a6eb..8adc2d589c7 100644
---- a/kernel/bpf/arena.c
-+++ b/kernel/bpf/arena.c
-@@ -694,6 +694,34 @@ static int arena_map_mmap(struct bpf_map *map, struct vm_area_struct *vma)
- 	if (remember_vma(arena, vma))
- 		return -ENOMEM;
- 
-+	if (!arena->user_vm_start && vma_pages(vma) < map->max_entries) {
-+		/*
-+		 * The range tree spans max_entries pages, but the user VMA
-+		 * set below is smaller and its lower 32 bits do not wrap
-+		 * past the 32-bit boundary.  Mark the pages past the VMA as
-+		 * allocated so that bpf_arena_alloc_pages() can never hand
-+		 * out a range that would be mapped past the end of the
-+		 * arena's kernel vm area and could never be freed.
-+		 */
-+		unsigned long flags;
-+		int ret = -EBUSY;
-+
-+		if (!raw_res_spin_lock_irqsave(&arena->spinlock, flags)) {
-+			ret = range_tree_clear(&arena->rt, vma_pages(vma),
-+					       map->max_entries - vma_pages(vma));
-+			raw_res_spin_unlock_irqrestore(&arena->spinlock, flags);
-+			WARN_ON_ONCE(ret);
-+		}
-+		if (ret) {
-+			struct vma_list *vml = vma->vm_private_data;
-+
-+			list_del(&vml->head);
-+			vma->vm_private_data = NULL;
-+			kfree(vml);
-+			return ret;
-+		}
-+	}
-+
- 	arena->user_vm_start = vma->vm_start;
- 	arena->user_vm_end = vma->vm_end;
- 	/*
-@@ -743,7 +771,8 @@ static u64 clear_lo32(u64 val)
- 	return val & ~(u64)~0U;
- }
- 
--static int arena_adjust_tree(struct bpf_arena *arena, long uaddr, long page_cnt, long *pgoff)
-+static int arena_adjust_tree(struct bpf_arena *arena, long uaddr, long page_cnt,
-+			     long page_cnt_max, long *pgoff)
- {
- 	int ret;
- 
-@@ -759,6 +788,17 @@ static int arena_adjust_tree(struct bpf_arena *arena, long uaddr, long page_cnt,
- 	if (ret < 0)
- 		return ret;
- 
-+	/*
-+	 * The range tree spans max_entries pages, but when map_extra was
-+	 * not given at arena creation time the user VMA, and hence the
-+	 * range whose lower 32 bits do not wrap past the 32-bit boundary,
-+	 * can be smaller.  A pgoff past the VMA would wrap uaddr32 past
-+	 * the 32-bit boundary, be mapped past the end of the arena's
-+	 * kernel vm area, and could never be freed, so reject it.
-+	 */
-+	if (ret > page_cnt_max - page_cnt)
-+		return -ERANGE;
-+
- 	*pgoff = ret;
- 
- 	return range_tree_clear(&arena->rt, *pgoff, page_cnt);
-@@ -812,7 +852,7 @@ static long arena_alloc_pages(struct bpf_arena *arena, long uaddr, long page_cnt
- 	if (raw_res_spin_lock_irqsave(&arena->spinlock, flags))
- 		goto out_free_pages;
- 
--	ret = arena_adjust_tree(arena, uaddr, page_cnt, &pgoff);
-+	ret = arena_adjust_tree(arena, uaddr, page_cnt, page_cnt_max, &pgoff);
- 	if (ret) {
- 		raw_res_spin_unlock_irqrestore(&arena->spinlock, flags);
- 		goto out_free_pages;
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+For information about AI bisection see: https://goo.gl/tpsmEJ#ai-bisection
 
----
-base-commit: c44104f3642da720164042623e4832836aefdd8e
-change-id: 20261122-b4-03-bpf-arena-vmalloc-oob-v2-5f6209c1a20e-0f06b9f30a4e
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
 
-Best regards,
---  
-YanXin Li <fadouse@pm.me>
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
 
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
 
+If you want to undo deduplication, reply with:
+#syz undup
