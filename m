@@ -1,118 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.67.36.66
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.104
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795354456;
-	b=1sGGoIvRb0Dg8G5rIp3GVt6kw+B/LW593Xc1Cj5H4eTk4rpdFiFHL2zNF+S5JU2YGfin
-	 /kstttOoz1nPhkPgzd+EIfxpUeyt+8Ac8pSH4UIontGce9YNFqBxWHGRZWApXNb/0u1Uz
-	 NYW0454AtOoh05yOG1g5QM4FBUjiSiUj0EcxUtzFLcg3njwDWFQplBX4ALOqzIUducP48
-	 xOYE9p/4N0lnkjLwMoZTgiKXzHk7gkaSUWri3PhbGkA4b1Mg8Ptysz007zu+6Dq6+Bw+r
-	 nBbVUzt+5RPtzPzbyqojhjTGtceq1Yc2vZpu/KfKT/34l/8ZQv3Z3yuWpYglSojbX+A==
+	t=1795354458;
+	b=WC8Q4dz87T4WRCjIgttcpe4/6+HAibKbhdveDm56rvpVhsmyPAUkzoibzao9SfCJB+LJ
+	 Kce0CVEIPs2WXVr/HQjP/rZScO2R6yajnU3CVQDWUW3e5t+TGnldGhPaTEvC80NVw1jMl
+	 iClSmBmAqAXscJAAu/zMELR7w+iSk1zTgxL92w+HTCqPxLHTQQPNDrDEbGAXhrXIkdtj2
+	 0BIOuYW8TdbggjhvelzHlMxR4aIPnVl4bY+A2fsm5w7CL8SzwUnfRScO9hxj79oNISyqI
+	 zLJ0i7ILbs6SLTu2W+RE5T78MwG1q+guBUEd9v6eOS5LWP6Y9CIT01qPpdNN1heaCeQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795354456;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Message-ID:Subject:
-	 From:To:Cc:Date:In-Reply-To:References:Autocrypt:Content-Type:
-	 MIME-Version:OpenPGP;
-	bh=B2YpqatDPSUl5On3Scqr15nRXXPYDlBJfIeTj6Aa2VI=;
-	b=mzRBsBo922PVcxS0iy6hGp1HbOTtkxOr8GAL0E/f2dENybSuERWMLVxWbJSQ2/DvCjXa
-	 o7qHrJj3vUsBzRYqXYcoyda0saYspsOh4PBLKue24A6ddu6960C4+194DKTiIYdL+3030
-	 yVmXVmnB6icJ1Eys1RjOHZICFyMu6RXIaeQ1EwNmXn4vf2Lg1ts+mMZsFqNLBxcrnnP5t
-	 qgRTPkSBtCjKSTqrvTNXIddEbtgeG7iy9/nkS3An7z6usW3dCJ6KBL2jitFH+06m41njh
-	 2f4v5DtUnvhUBHNnllgVBGRyW1Mn3pK3vW3J4L8asZyhOdp9zzlI02QNei4cZWlNxXQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795354458;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Mime-Version:Content-Transfer-Encoding:
+	 Content-Type:Date:Message-Id:To:Cc:Subject:From:X-Mailer:References:
+	 In-Reply-To;
+	bh=HMMC0LB5IhYegJWToan1YqcEUtKAc3112EBRFHGcsc8=;
+	b=iYhPBZrGBVRnhu5Nn3f8IRc6CpLTFWJ/wov90hnk/zc2+kLH+oVGJX4lUUMBmBSh/27A
+	 z7WcCl+dyVfjLypQdDKWTRI/k78wh3rSyNVuZ2JRtzAoqxso3KAC1YLeIuxiFEjjIvyIj
+	 jKFD0PU7TmCHvFPMjrR6zZfyUoRe17+oY08on9xszCVx/+eLM4VcLNaZPEiQKtvbBOmPU
+	 id/EG6K1agYp5RNeoxlW09NS0Wlb1pDMk/G5JJgfYP7NEPcNf1QFB/6rqf+PTaUcxNb/X
+	 0QplwSPloonTBAlX+xJDpu+uV2G5VRT5Wd4h33LHzOpgIMIR+DnsX2gorV2E1IKC2nw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=posteo.de;
-	spf=pass smtp.mailfrom=posteo.de;
-	dkim=pass header.d=posteo.de header.i=@posteo.de header.a=rsa-sha256 header.s=1984.8680eb header.b=IY6ejkA5;
-	arc=none smtp.remote-ip=185.67.36.66
-Received: from mout02.posteo.de (mout02.posteo.de [185.67.36.66])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=cknow-tech.com;
+	spf=pass smtp.mailfrom=cknow-tech.com;
+	dkim=pass header.d=cknow-tech.com header.i=@cknow-tech.com header.a=rsa-sha256 header.s=key1 header.b="dM857/fu";
+	arc=none smtp.remote-ip=91.218.175.104
+Received: from mta0.migadu.com (out-104.mta0.migadu.com [91.218.175.104])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDA98606A334
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:34:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDA98606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=posteo.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=posteo.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D578C606A335
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:34:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D578C606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cknow-tech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cknow-tech.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=posteo.de header.i=@posteo.de header.a=rsa-sha256 header.s=1984.8680eb header.b=IY6ejkA5
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id D5827240103
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 14:34:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
-	s=1984.8680eb; t=1795354452;
-	bh=B2YpqatDPSUl5On3Scqr15nRXXPYDlBJfIeTj6Aa2VI=;
-	h=Message-ID:Subject:From:To:Cc:Date:Autocrypt:Content-Type:
-	 MIME-Version:OpenPGP:From;
-	b=IY6ejkA5/suChshwsOezv6OLtBzqsbA4luOXxAO2vmgPZGdauXSSQwBbnx/yDYg5N
-	 hcrfKUP35jZntLnF/v3SHN6Fn4zDss8E0SrSyrFFnZEiny9NZqd8al2DgfXuhgtk1T
-	 D3a8cHq48JlTfE5+IWep3JlRy5uD6m1AQ4m5wzFJv9m76cmYFzTKUrxzehbSD0gwlv
-	 mj3YPZHbIcsc5kaTKv+frHzEjjFTIkOpKYQO3PdKgxR2mkASQvfxu6XunRQEfkyWIm
-	 6C/OrOC64go6r73eqcVnTCexZKyG8+OCC2+AxMkysS8d2zssXOA5XdAfWvNf/wpUUz
-	 RDurpIJPGoe9w==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4jXVR60WKDz6v0W;
-	Sun, 22 Nov 2026 14:34:10 +0100 (CET)
-Message-ID: <947615fd284c416891ac6de5d16cdd00ec5267ab.camel@posteo.de>
-Subject: Re: [RFC PATCH v7 2/4] i2c: rust: implement SMBus access via
- IoBackend
-From: Markus Probst <markus.probst@posteo.de>
-To: Muchamad Coirul Anwar <muchamadcoirulanwar@gmail.com>, Jonathan Cameron
-	 <jic23@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, Igor Korotin
-	 <igor.korotin@linux.dev>, Danilo Krummrich <dakr@kernel.org>
-Cc: David Lechner <dlechner@baylibre.com>, Alice Ryhl
- <aliceryhl@google.com>,  Daniel Almeida <daniel.almeida@collabora.com>,
- Mark Brown <broonie@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,  Shuai
- Liu <847807867@qq.com>, linux-iio@vger.kernel.org,
- linux-i2c@vger.kernel.org, 	rust-for-linux@vger.kernel.org,
- driver-core@lists.linux.dev, 	linux-kernel@vger.kernel.org
-Date: Sun, 22 Nov 2026 13:34:12 +0000
-In-Reply-To: <20261109155743.83740-3-muchamadcoirulanwar@gmail.com>
-References: <20261109155743.83740-1-muchamadcoirulanwar@gmail.com>
-	 <20261109155743.83740-3-muchamadcoirulanwar@gmail.com>
-Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
- keydata=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
- jfGillcaQOqFZ3WwVqyzG1BUfTow==
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-LlgQf4RobFMqc/n5pj36"
+	dkim=pass (2048-bit key, unprotected) header.d=cknow-tech.com header.i=@cknow-tech.com header.a=rsa-sha256 header.s=key1 header.b=dM857/fu
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=hFEdDqcg2ZlHkL5dY5J1x4B25r/X63b0yKh+YIcEB7A=;
+ c=simple/simple; d=cknow-tech.com;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795354454; v=1; x=1795959254;
+ b=dM857/fuS3J9FM3yaYV3If+rrr3xntoEZlPeYVNoNZH6mji5DEIeqNPMvEcpwaNdRFbf1vxb
+ HyJWDPSCZsa0WfpVwiP/3muYzhaoq/kFSky8jwxba+SGW0bRkn8tgAHYgR2YyUu6LTG8iVsr7Zl
+ +9Zc2LPSCiCRcwPGQsM0XJ8+1mc7HrpYDGHu/rWTd54mV3+fk9DqYuZ4yQEGc3tiohYhT3rrbue
+ rgroDhkv1/XaKKbHxgWA2z+I7nIt3cn49yISUhkem+4z6kutvx7KnYdJ26o4YrjvcDfBRXgSBzS
+ on7SqQBV8Rx8VGpv5sVoRoLZhDA78FU48MPQtfOcmxa2w==
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 5d2907f0ba893942;
+	Sun, 22 Nov 2026 13:34:14 +0000
+X-Mizu-Trace-ID: 5d2907f0ba893942
+X-Migadu-Flow: FLOW_OUT
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -121,74 +57,52 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
-
-
---=-LlgQf4RobFMqc/n5pj36
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sun, 22 Nov 2026 14:34:12 +0100
+Message-Id: <DN1S1D7FIF6B.2WHLNV11LRJ6B@cknow-tech.com>
+To: "Diederik de Haas" <diederik@cknow-tech.com>, "Daniel Golle"
+ <daniel@makrotopia.org>, "Detlev Casanova" <detlev.casanova@collabora.com>,
+ "Ezequiel Garcia" <ezequiel@vanguardiasur.com.ar>, "Mauro Carvalho Chehab"
+ <mchehab@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Heiko Stuebner" <heiko@sntech.de>, "Shawn Lin" <shawn.lin@rock-chips.com>,
+ "Michael Riesch" <michael.riesch@collabora.com>, "David Heidelberg"
+ <david@ixit.cz>, "Christian Hewitt" <christianshewitt@gmail.com>, "Marc
+ Zyngier" <maz@kernel.org>, <linux-media@vger.kernel.org>,
+ <linux-rockchip@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Cc: "Nicolas Dufresne" <nicolas.dufresne@collabora.com>, "Hans Verkuil"
+ <hverkuil+cisco@kernel.org>, "Jonas Karlman" <jonas@kwiboo.se>, "Dang
+ Huynh" <dang.huynh@mainlining.org>, "Piotr Oniszczuk"
+ <piotr.oniszczuk@gmail.com>
+Subject: Re: [PATCH v5 0/5] media: rockchip: rkvdec: add support for the
+ VDPU346 variant
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+X-Mailer: aerc 0.22.0-31-g5c1c510d2b65
+References: <cover.1795191822.git.daniel@makrotopia.org>
+ <DN0BCGELZCSC.G0MWCPQU85UO@cknow-tech.com>
+In-Reply-To: <DN0BCGELZCSC.G0MWCPQU85UO@cknow-tech.com>
 
-On Mon, 2026-11-09 at 22:57 +0700, Muchamad Coirul Anwar wrote:
-> Implement fallible SMBus byte and word access for bound I2C clients
-> using the generic I/O backend infrastructure.
->=20
-> I2C transactions may fail due to NACK, arbitration loss, or timeout, so
-> use FallibleIoCapable rather than the infallible IoCapable interface.
-> Propagate errors returned by the I2C core to callers.
->=20
-> Provide smbus_io() for byte-addressed register access and standalone
-> word helpers for layouts not represented by the Region-based view.
-> Also provide smbus_read_word_swapped() for devices that transmit the
-> high byte of a multi-byte value first.
->=20
-> Restrict these operations to I2cClient<Bound> so bus I/O is only availabl=
-e
-> while the client remains bound.
->=20
-> Keep the raw SMBus FFI calls and errno conversion in safe bound-client
-> methods. Include a generic no_run example for the word-read helper.
->=20
-> Suggested-by: Shuai Liu <847807867@qq.com>
-> Link: https://lore.kernel.org/all/tencent_173B7731E90B9624F9F82613DC3031B=
-70907@qq.com/
-> Signed-off-by: Muchamad Coirul Anwar <muchamadcoirulanwar@gmail.com>
-Hi,
+On Fri Nov 20, 2026 at 9:16 PM CET, Diederik de Haas wrote:
+> On Fri Nov 20, 2026 at 6:36 PM CET, Daniel Golle wrote:
+>> This series adds the VDPU346 decoder of the RK3566 and RK3568 to the
+>> rkvdec driver, for H.264 and HEVC. It continues Christian Hewitt's v3
+>> ...
+>> Known limits, none of them introduced here:
+>>
+>> - FFmpeg's v4l2-request hwaccel does not set the HEVC EXT_SPS_ST_RPS
+>>   and EXT_SPS_LT_RPS controls, so HEVC through FFmpeg decodes wrongly
+>>   on this decoder as on the VDPU381 ("Long and short term RPS not
+>>   set"). The handling of these controls is also the subject of [6].
+>
+> FWIW and IIUC, Detlev has a patch for that here:
+> https://gitlab.collabora.com/detlev/ffmpeg/-/commits/v4l2-request-ext-sps=
+-rps-n8.1
 
-please add me to CC.
+FWIW, I submitted and made a minor update to that patch here:
+https://github.com/LibreELEC/LibreELEC.tv/pull/11686
 
-Could you make `I2cClient<device::Bound>` Sync in this patch?
-
-`I2cClient<device::Normal>` already implements Sync. Functions exposed
-only for `I2cClient<device::Bound>` should be thread safe.
-
-I will need this patch (including the change mentioned above) for a
-future driver.
-
-Thanks
-- Markus Probst
-
-
---=-LlgQf4RobFMqc/n5pj36
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IFAmsC70wbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJEDR2H/jnrUPS2xMQAKDLB02pKK6mopiQyUo4
-Rw9Re4Hxwma6eGa1pfpDoTjkft+qnAjAoaZHb6hnGHojepz2FdRyVNxTARZnByFA
-VHnddeyhZxrK19kmKRSD/RF79bW9V6QEqouu90CXUE9glh9KlfnjsyLrk+heqxN4
-5p0n2lDo3DFczV1lhZPgkJnp+Wb8Xrys9SWX4aCC9vE5MMeQjRzJVxzlnpiQxY3z
-5SOCMbxu1mXnOnWGI1yWmBxbK1HRNhydPhwo/PkAz2KIeXFdaB1brMME+eck9fKl
-NxK40cAzmKgO6JWK2yG4qFMhWp+ZYcZiv/n4BR3aEeRuG+Akp8A+eUKWXV8aSqm6
-HPbBkU7yaugyyYqcq6wJw55dbde7Klbd7XKBWWK+7ol7ut7nAkTsi5HSh/zeX5b7
-I2OB5H+YKPCMy5vB6DCPhIN2gYO+V2N8qwfbbPcFkbLUNumfdk44ABk+Wds1Thu5
-vwagzVEu/aXOt0XT+aUmH5zzutzvwDXZKyHEuGt4wstKXHAlPyIjydM9St32l6QF
-L0H1XRxUAWHpr6GnlhxWAUAzu/UebGviaVAtAl1WDgrZQIWAwG1tevLVXkkju/J5
-euYBaeJ3yvKDBY+sm7TkbWH9iOCikShqAeA2ZNuAs/fE5H9TVMhyZd4pQSU0ifuw
-UZStFoSLiv1XrJYCjL/baqXI
-=u56D
------END PGP SIGNATURE-----
-
---=-LlgQf4RobFMqc/n5pj36--
+which updates the comment that kernel 7.1+ is needed for those controls=20
+and added the EXT_SPS_ST_RPS and EXT_SPS_LT_RPS split with 64 and 32.
