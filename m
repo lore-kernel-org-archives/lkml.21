@@ -1,58 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795371962;
-	b=TrKcsdG66lVrtt8M8klS1XKDRUyGw0dK4unQ7j1nLlNgMbFWxFfxr5ulklRogIjsW5LI
-	 6I5unzmIn4iPRtVO66rBFsV/lIgMeDPWaKAgA4go8UdOIxvx8GbRagiD4zMVAmCAoBDln
-	 bm2v90rbpxSEnTL5Hv58vwS4HCTPEA7XITx0hTJ+JG4CrILsBeXwU/l3WBqLkwJCdZCpd
-	 teFuB7aEU7I31KbfLW410ir9j+BPtIdvh8EclWOe485+7ETsDoI/PmrYFtVOX90UuGZru
-	 wbWvIXE0pSwh3SFD5bbNYmYuVqT5+0JhF3gmAWcQ7uWAXbudW7/emQy/kkwx3Pk6lYA==
+	t=1795371986;
+	b=3jR68cz2adkW+XZtHtK1OXOC6FANmmYm6M79AjiRXoofzxDK1sRfxN8Oy97R38qnheQI
+	 k4+YgxN0Sb7eLyZ6tJWk6FcZUh+pTEHOTqdsvnyDzzpdUiTUj0qbdbyTotEs87bgNu1VJ
+	 R/T4W2bktU30TtxQX3Y+5J+g402oJX7Hp4ihNtpq865NRq23GbCJsuabCabAEFKcgzuMM
+	 t/QB1tXVXeqBxTeixuSUQ6OO6G1emNz6sFBqQmjvzAX7Zdn554TrPVqKQlQzB2lk4g7TD
+	 jPypliFhEtTA70uBKuZCJnzQ1mXnD8xbC+pAGkQTFibgWBPp974oEq9YpUMwcO9lufA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795371962;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=vKXplfw29klXWzsM/alOEy1eosFo21V/yDh9Ut4ySd4=;
-	b=ppewQ413caBKRz4xYx/xLydgK0ZGL4fkdPCURPLth6pocdJjluXrkKTS9oWLjEkvsXPD
-	 I2Fq9qh/dLKPbn//g8/+Lm20D4tkMQIgmW9qMpHGXINZGbxNESCaWa+s3k6RBvHjPBGFL
-	 IcM1fjp9bb05u6jzcWOXFe3l5T1NCQ2ygQmTQOgqIwSFk3ghFthRP62r4LO59SJRs8RrH
-	 MgXmR3mipjMfHf9L274iA1frbXSCEBnszzRzFPczhvbgq5b/ps/ZnnxQJVAsqdfsIDSGG
-	 OkZ0TuQkexaOCIEogT74XHELNDozTU+l7NBgjU98ldljKbQja9odK/VhCcK3ARlP5pA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795371986;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=4C6duPyG5vPlqV7p+o0/kxHKLFL7wRyqvG6Mw43QO1E=;
+	b=WDvvyvG6bAg+w8pPNDzBrsEDWL1xr2UliYtR5Yh+OO5gm2UeBd+VsXDOFVU7ofIprfMP
+	 tR+yy3PGZdG0qEqphlYbiW9bh+GWT7xCMK3erJZzQPtO20uq9TwpfKqlP5nPp0HNP4Ani
+	 zgjk/2TnKBwHWu3/KLXpkTT8OiNgCkoEPtSrRlRm6pXVjWM7cj67iS/Qmtj3L2nlBOwLF
+	 jYc/jz+B3T8rl4o/dSJsCwUnfOCNJrKAwE2aXpfy0IOC40KJJi1CpCvAUXV0oZJC4sBMG
+	 o8ZGIXD7YIjxW4rri1BLrKh0UTnNfqPlL7N6uZeht3Unq3mDvjG0Q/EEXs9NjTcJ49A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ideasonboard.com;
-	spf=pass smtp.mailfrom=ideasonboard.com;
-	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=vNDgyv2z;
-	arc=none smtp.remote-ip=213.167.242.64
-Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=linux-foundation.org;
+	spf=pass smtp.mailfrom=linuxfoundation.org;
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=VNww9GMZ;
+	arc=none smtp.remote-ip=209.85.218.50
+Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com [209.85.218.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30BF4606A332;
-	Sun, 22 Nov 2026 18:26:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30BF4606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B859D606A334
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:26:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B859D606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=vNDgyv2z
-Received: from ideasonboard.com (mob-5-92-38-150.net.vodafone.it [5.92.38.150])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C37D4177;
-	Sun, 22 Nov 2026 19:23:28 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1795371808;
-	bh=mofZKxThtOO31xRvXRSYb1bxNpLhtkX7vhP8gelB6rI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vNDgyv2zhF4AllMc3DtpOi0gVUd5M1ZVzeCFLpjjaMDEsbzoM6dpgVtYmSIto6y62
-	 b6gR4dvthRucpHQyLpjftoAhDiHwrOXBHs7y7ngW1zuMTJlLCI1AfH7INvdBuDLo5Y
-	 OZR9lXKyYQkqInw16KRPSs8knaO8Dpw7LCKY5H7o=
-Date: Sun, 22 Nov 2026 19:25:56 +0100
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
-Cc: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
-	linux-media@vger.kernel.org, linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] media: rcar-vin: Return unused buffers correctly
-Message-ID: <awMzb15zjEf3n3XU@zed>
-References: <20261121-vin-fix-vb2-v2-1-602a3d876853@ragnatech.se>
+	dkim=pass (1024-bit key, unprotected) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=VNww9GMZ
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-c50ac25cdd4so350144566b.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:26:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1795371984; x=1795976784; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4C6duPyG5vPlqV7p+o0/kxHKLFL7wRyqvG6Mw43QO1E=;
+        b=VNww9GMZot4OgfbhbLhbPpxx5e8cl1tDMZpJbMjMx8XqzQOApUCluYz2FUwvOvLy4l
+         qKvzd67uXh2hj+d8vV8dhqbt2uLvqKog3SCGIEQRBUuJ43JpFXDdse4ZrKCDpXvSFBYo
+         6uOr2M3S1El3ER96rJMixdt4/5U64+pW1RUww=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795371984; x=1795976784;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=4C6duPyG5vPlqV7p+o0/kxHKLFL7wRyqvG6Mw43QO1E=;
+        b=Eoq3KXSelyq27ilkNUAyJKWIgABUVHJo9PXhZK6iDExO4U5b07plecOs9sgxiGMY+8
+         WINpvhsgq36jy/BOwfJADgSdn/s+hQXkrErVxU0WFjmiQMEouOFF2HNeiKkCO1x9/YM7
+         YLwQvkXC3l5xO0RXwtP9E9fulCvc9eTchcKyCf8IFxFZo0E2b7i9lYnHM8o9j0fpPV9D
+         kJQCNMvsKCr8GXZ4MLPp31cM/m7Shf2aQnrZSupsr35aCAFgfz3OVK1YX/uDGuU7vlHr
+         GDKX9YKQ6qzAjgx9U2P/PrBNKC2VGnh8moAVfqP0eJXEeZfCy7+FP0jVBp7o85dI4YKI
+         qAnQ==
+X-Forwarded-Encrypted: i=1; AL+hErH6lvmDk0FDWMqz6P94rObOZclxkCi+791Osbi8CWfPdnsMyrN4TpSMn7OSHNrXKwpBUmH+KGuOCMfiVMU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9NV+wIhz+JHS79xTZZ6bDTbOMouxlUlFxQPQZqKNAJHpcgNpPe
+	uDoDPWVhhjJd4+15a+xyA+RmQiLWMU6Yi+Qnil5u2MdpAQClAkcHe/QOtxWsU0OLbZna3GAXehS
+	jsZGH6SY=
+X-Gm-Gg: AZFdTZeGT4N3hXh7IlhGRbr1l74jU0bf879qUdJk+Ii9l/IfonD9rw2dYt7OF6o4FfN
+	YAc5qKi6LbCaqCZFuSNCnrzpBkB/lvfMjyQQ+N0XFomoi9cubPVFy64uDq0nYfsbzz9elbkGsIQ
+	yg1M4QXj0nKIAJSy0wH9G9jvcUH+FF0laE/7gUuUFIG8SezhEJDB4V5/CvPPGaEAB4gAWiS9Uc5
+	GsJYaDw1kYp3oSJj88SNnXnnnIPR2iot4ptXyB68LMCY5pA8EN3DiYlchUrfB2ifI3zn6BJanlu
+	NBTR8fWc5a62xKemp25gl5CvpcdvMfMeUUzh65w+4fUy3FWsGCFyhxSJTJzJTa7UefOx91mOduD
+	MZle05/7aoNKyToylkVM4eA0EVdt5mmrPWTefzKvbWZeHuycr/fUXDaLlOlf+86sN7/kq3Slqfj
+	hJUQS15Vw3aVmmaBSkhg+2Lzsd2RE6WOEsExrqn8lRhKYZOlQzbmvn0U6jDHqpr1tMoT1IwbITk
+	Q2XMlVag4gqJFfMb6LHdQ8slHmx4OWz+kaAywc6J1OHCoL65oOBpThjLBErsqKkSXP6ibIuE7eo
+	Zvw+L9GoaAEKcIZNHCH0wlOfQyN2NPiIyUF9gPlrj6TzRZVcy+Skncg7wzbYhNI2r4q43G2EKq9
+	egK5/
+X-Received: by 2002:a17:906:c312:b0:c4d:31f7:28e6 with SMTP id a640c23a62f3a-c513a8805efmr622762266b.29.1795371984065;
+        Sun, 22 Nov 2026 10:26:24 -0800 (PST)
+Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com. [209.85.218.51])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae679e3sm335507866b.22.2026.11.22.10.26.23
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 22 Nov 2026 10:26:23 -0800 (PST)
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c4cdc606b47so437226766b.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:26:23 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGIgaYSZS/ztsXBXUXeMyk7c12eYa2dQMsQvbX0LH2OafJwzLZ7RMDTBzSSXIOyFY/+d97OywndjdX1IKU=@vger.kernel.org
+X-Received: by 2002:a17:906:15c6:b0:c40:231:6eab with SMTP id
+ a640c23a62f3a-c513a5eaa3emr601872966b.16.1795371983466; Sun, 22 Nov 2026
+ 10:26:23 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,63 +94,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261121-vin-fix-vb2-v2-1-602a3d876853@ragnatech.se>
+References: <20261122-vfs-7.4-rc4.fixes-0bcebc1aae75@brauner>
+In-Reply-To: <20261122-vfs-7.4-rc4.fixes-0bcebc1aae75@brauner>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Sun, 22 Nov 2026 10:26:06 -0800
+X-Gmail-Original-Message-ID: <CAHk-=wiNpMo-uM86NEEguFtBa5N7OLcQ6fYd=2gZGuxhJv0SMQ@mail.gmail.com>
+X-Gm-Features: Aa3M54qJFxDloCRjJVN16I8Xt2nbOI9mFuPP31QMki8fcNEx3MxbnOeXxz5hNVk
+Message-ID: <CAHk-=wiNpMo-uM86NEEguFtBa5N7OLcQ6fYd=2gZGuxhJv0SMQ@mail.gmail.com>
+Subject: Re: [GIT PULL for v7.4] vfs fixes
+To: Christian Brauner <brauner@kernel.org>
+Cc: linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Niklas
+On Sun, 22 Nov 2026 at 06:42, Christian Brauner <brauner@kernel.org> wrote:
+>
+> This contains the procfs fixes from the procfs rework I've been doing.
+> I've mentioned this on the list. If you'd rather take the fixes during
+> the merge window, let me know:
 
-On Sat, Nov 21, 2026 at 12:54:59PM +0100, Niklas Söderlund wrote:
-> Unused VB2 buffers should be returned with state DONE not ERROR when
-> stopping.
->
-> Signed-off-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+I think the changes are good, but none of these are remotely new
+issues, and I feel it's better left to the next merge window.
 
-Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Even the bugs / misfeatures tend to only really trigger under special
+situations like module unloading etc, afaik (eg the "sysctl unregister
+can be held up over user access" kinds of things) or actual active
+mis-configuration.
 
-I'll take it as you don't consider a Fixes required. This however
-count as a bug to me as it doesn't respect the expected API behaviour.
-Am I too concerned ?
-
-> ---
-> Changes in v2:
-> - Link to v1: https://patch.msgid.link/20260828-vin-fix-vb2-v1-1-97eb1f4f75c9@ragnatech.se
-> ---
-> * Changes since v1
-> - Fix unused buffers returned in rvin_stop_streaming() too.
-> ---
->  drivers/media/platform/renesas/rcar-vin/rcar-dma.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/media/platform/renesas/rcar-vin/rcar-dma.c b/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
-> index 5e515d16c164..d3d1af47f8b1 100644
-> --- a/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
-> +++ b/drivers/media/platform/renesas/rcar-vin/rcar-dma.c
-> @@ -1434,7 +1434,7 @@ void rvin_stop_streaming(struct rvin_dev *vin)
->  	for (unsigned int i = 0; i < HW_BUFFER_NUM; i++) {
->  		if (vin->buf_hw[i].buffer)
->  			vb2_buffer_done(&vin->buf_hw[i].buffer->vb2_buf,
-> -					VB2_BUF_STATE_ERROR);
-> +					VB2_BUF_STATE_DONE);
->  	}
->
->  }
-> @@ -1449,7 +1449,7 @@ static void rvin_stop_streaming_vq(struct vb2_queue *vq)
->  	dma_free_coherent(vin->dev, vin->format.sizeimage, vin->scratch,
->  			  vin->scratch_phys);
->
-> -	return_unused_buffers(vin, VB2_BUF_STATE_ERROR);
-> +	return_unused_buffers(vin, VB2_BUF_STATE_DONE);
->  }
->
->  static const struct vb2_ops rvin_qops = {
->
-> ---
-> base-commit: aa0f4c41d4870a18e65772a1817af16427200371
-> change-id: 20260828-vin-fix-vb2-28e1bb24a618
->
-> Best regards,
-> --
-> Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
->
+             Linus
