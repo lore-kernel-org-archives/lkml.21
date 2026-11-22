@@ -1,60 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795353574;
-	b=Bk/N+/O8nXmqcc52iswEogzCM1dBrRtakxFb4hbcBqCjHj5Jg6Brd6/k77SNEhDirNnG
-	 FK8yEEO3qLNhJlTnVGG/xkGYQJy+DJOox8IdS4ZkJ2X4/kGKAg1sw+HBcqkCwtDUdl6WW
-	 yfVStcTNS1/hdy6BDhvI+iFjXH1QXbV0ZyMCbFSQy44j9LDLP6QDzsO5N8BhOe1lyAc86
-	 /6HxD2dRvtR2LpJRSDKuyslFaqgDd9bz3eosR+JwG14AYlPxcbFXxy1H1tgPsl3z1Y8Cq
-	 awd7qpJIqrhJWqWNMGE18vuPp7EErKlDcIFg3zNRiga1kTc/jZb+rzwDEkbl/RzPdXQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795353574;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=HDvZmONCug0157g12f+0Zcf9P8MNQUPe122O8kSXMUE=;
-	b=oYZTHVQ6I53aax7dj30klDE5PRlJPhsdJNbeuRorcq6son06MMTflmZDk0fwK69fLaBv
-	 pPP7yDH9HqLSzZPhy+alegPoAXuSU5EoNuDlz8MZ/TwbsaWpaf+kgZNPCvtDB0lF1ql+j
-	 Np//Kk/gbSMuLrN2m4PKfTNQSnchtMuVtT2/uUDuftCCDbePcteTb/NZYZrqUEDmPIg0r
-	 x5yfvboJ6H/m2OiQLbu61WcExoi/zv1z/wR5NMAO98sqsGeOlIiGvAOEfGOJFlDnuf7V7
-	 PODOrLjwH4T9P+etcFq4Q/KBP1fCxX4fD8nrxjjv11e6h1NSKJB5ymUZDnvnwDovCeQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=stu.xidian.edu.cn;
-	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 41492606A320;
-	Sun, 22 Nov 2026 13:19:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41492606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=HDvZmONCug
-	0157g12f+0Zcf9P8MNQUPe122O8kSXMUE=; b=CMA7NDX5vL1p8VBwiOLfX8f/aq
-	Z0iHcMbxCi0pPuNgAtmcxTmGCyzgRioijHMhnUHv0pHHVR4b36enegCFbzzARvac
-	6dIo85Hd0qDWTTI5SmxzHKTtU50Erd9ah1t/fH6+M83Chx3TorSrau3Zrp7uq6ql
-	X8duqYQnk7gvUsrD4=
-Received: from LAPTOP-FRMFRHCN.localdomain (unknown [240e:454:8311:30f9:88d4:5e3b:b008:f171])
-	by hzbj-edu-front-3.icoremail.net (Coremail) with UTF8SMTPA id BbQMCkD2+fzM6wJr+1cQAg--.4331S2;
-	Sun, 22 Nov 2026 21:19:09 +0800 (CST)
-From: Haoli Zhang <26031212468@stu.xidian.edu.cn>
-To: marcel@holtmann.org,
-	luiz.dentz@gmail.com
-Cc: linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	nicoyip.dev@gmail.com,
-	tim.bird@sony.com,
-	raghunathpalla.0209@gmail.com,
-	peter@hurleysoftware.com,
-	gregkh@linuxfoundation.org,
-	jirislaby@kernel.org,
-	25031212117@stu.xidian.edu.cn,
-	byu@xidian.edu.cn,
-	syzbot+11542ff1d167fdffa1fc@syzkaller.appspotmail.com
-Subject: [PATCH] Bluetooth: RFCOMM: hold port reference during TTY registration
-Date: Sun, 22 Nov 2026 21:18:50 +0800
-Message-Id: <20261122131850.44042-1-26031212468@stu.xidian.edu.cn>
-X-Mailer: git-send-email 2.34.1
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795353590;
+	b=iut7d6NEdUAQy5K8SAH4gokSbC7uMhasdARu+kI/CQh7r+JlqO3OM5SG/ZpNsUZc2ZyW
+	 ZZKwmnNcPjLxC8om4lMIghOp8kLkLSsWH0zv1KrVSFR9DH+/sEdxrlTPqP2FI6HLSl5f9
+	 UZ20B+o2mGcYkLR1jKhz4o/Oyxb9plHuFq2bFUldiH8f7tnb5knnlT33dPfFZVvVR8sj9
+	 9sNBx/1h+xcaM4mFQYRL0a21KwLVa5JYoI8KtcaRwCqhzpFZE++NcEHiZcWZUjQpZpNez
+	 FbjPhQQRWgINPFeZ34Y/G6Sf597bsReCY7PY3Xs3rMtc9SGhcZ1z2gq/vai2qUI0Cmg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795353590;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=YzpLgUS63R59GVJgQ2irGnTERPliChXawhwVX069f0Y=;
+	b=jJGv4SNubzxTqbBYwvvxAvOSX0RAWv1Ixbpu0cp4eG4yKH5+88QZgTpJHJ4lF1ulnpPc
+	 7WwoIJsuU0SkTEsg/fk42AatKqiYJcmiNcGqb0GdRW1Mrte2llkTnuK5nZM0gHyrcUdOY
+	 Dnxibb2NDgKlUiVWlknR/VKHHWNM6fYD/RDWZIuIUMjfAvPil5+ViL1vzeUffAuYWI/77
+	 0hdeVldprm3CJopS1EGoCWqMP1EsKB/VZFPBfn8uG56tfatxzY9O3qk5/V6UO4xFTnnFL
+	 SVGMAjMBPg0BPzUXQBycIX+NuNsg10l/oSf6VqDhdWVX5Bp6UnDK5EpGtEWVdCS3pLQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fCwSgOM4;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EB6A606A320;
+	Sun, 22 Nov 2026 13:19:50 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fCwSgOM4
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795353589;
+	b=AqZGg3DBddTNZk/DQF74h0AxPeExsmbQZR/s4XXwB52x2Muf5d9DL5DlTlyPAj6xPVGL
+	 STJmIFDeAjZ2pQjwRA6+QrgR2Z7O/dJF2ezCMsze5f0Rwf9xE3/exhqQJ81DqoBPwOeDa
+	 kxsbe5mOYhqiNEbaG1sY2GTawkfQvAP/eV3VtsKhJvo0gcAKLHjuiSH3F35hnCBaZ44Yn
+	 LbdlNYoi+f0FDva1WqWi1a6o8rGRzM5mXqhHrnsHsFrMSTl3BLdPt8v4TH6/kAlJ5+Bpg
+	 uArl9W/fa6PFii07+sWMUpJJCNTK1c7z/DVrBE0fzWpqmUXohyzX7AnJwXDgRrE2eHQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795353589;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=YzpLgUS63R59GVJgQ2irGnTERPliChXawhwVX069f0Y=;
+	b=CUyWX6h0ITZK1gVLE57EiXVCOOfg9SoaG+r0ugNhVn5GvHECfSpEl9fRlZw2Oaz5iAEz
+	 TGxJylJgeOq7Efodc90y3Ctm+ZQE7XHC0oIadr91UpVX+4y+dyRz/HZnQOJI/nh/BOokx
+	 iV1DPMeVC8gpDPyetfxLm3Sjj/CNSbeqLa+8DCb1FIYLJUu1VRdcZKV/3lijEoqZIlJ+O
+	 EVwa2emb9YhEWtO+haJWdPqLMUYC6iu4JDCQ/adnoogAb3jeP/6//aJoAaOnhcWylhZO5
+	 rKOk4chgzXxZ27Rziigmiv0S80PZS/avyxfGSFjbJV9zf7azBNo8U9EmtiUbekOtevw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 7210A1F000CF;
+	Sun, 22 Nov 2026 13:19:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795353589;
+	bh=YzpLgUS63R59GVJgQ2irGnTERPliChXawhwVX069f0Y=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=fCwSgOM4j9qXS81kjewxgEOyprfe/ACKdpeKV4gu0tyEKPeG1RwmdK7btZx1NiBRL
+	 XW383ZmGxwbjeicsB1JNGdqgWBOOEdAcB2VQkMqRXLCecbl0qMGrNaztoxLG6j3Dvy
+	 HIUT67jLtrF3p8FWbZ8L+cvH06RdQnI4C5oEJ/clD+kX6USIssXqsub/bAakA9F3zg
+	 Jb9Z8u4N8rj6t0yJOxUVHWTDfcIbsS3c/j+UKRdAc+bK2f+043W+URi/W2HUZJ8D6w
+	 0XvSihVzJ/1h0SYPvtJtSfsVyVBz5kSzXD051vhd1QwqHhZYWyBvlv5aCWzmqm4l94
+	 ln5KHx5Vsma9w==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 042154C04C;
+	Sun, 22 Nov 2026 13:19:42 +0000 (UTC)
+From: YanXin Li via B4 Relay <devnull+fadouse.pm.me@kernel.org>
+Date: Sun, 22 Nov 2026 21:19:07 +0800
+Subject: [PATCH] vhost: mask the in-order used-ring log cursor
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,151 +82,130 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:BbQMCkD2+fzM6wJr+1cQAg--.4331S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWFWkGFykXFW7trWUuFyUKFg_yoWruF4Upa
-	y5XayrKFWqqr17Kr4fAF4DXa4F9rn7u3yxCry8Cw10krn5GrZ2yrWSg34jva1rArW8AFWj
-	qF4jvF48Wr9rurJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPj14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
-	1j6F4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
-	FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr
-	0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8v
-	x2IErcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4
-	vEI74l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AK
-	xVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrx
-	kI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v2
-	6r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8Jw
-	CI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRZNVgDUUU
-	U
-X-CM-SenderInfo: yswqjiasrskluy6v33wo0lvxldqovvfxof0/1tbiAgUDEWr-E0nOXwABsK
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261122-b4-06-vhost-in-order-log-oob-v1-35efdba8fbab-v1-1-fc1253d60351@pm.me>
+X-B4-Tracking: v=1; b=H4sIAMvrAmsC/yWNQQ7CIBBFr9KwdiIMIzZexbgYYLCYphiojcZ4d
+ 1tdvpef/96qSc3S1Kl7qypLbrlMK5hdp8LA01Ugx5UVanTGIIIn0A6WobQZ8gSlRqkwliuU4mE
+ xYA+Souc+efZA9miJo9FJs1ov71VSfv5y58uf28PfJMxbY1t4bgK+8hSGTVUZ+QWb3AcioylZR
+ xj5iNo40oQOrVBvsbeO13DsRX0+XwQsXgnWAAAA
+X-Change-ID: 20261122-b4-06-vhost-in-order-log-oob-v1-35efdba8fbab-43734ad10f0a
+To: "Michael S. Tsirkin" <mst@redhat.com>, 
+ Jason Wang <jasowangio@gmail.com>, 
+ =?utf-8?q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>
+Cc: Linfeng Sun <linfeng.sun.dev@gmail.com>, 
+ Fang Xieyan <fangxy@xiaopeng.com>, kvm@vger.kernel.org, 
+ virtualization@lists.linux.dev, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795353580; l=4082;
+ i=fadouse@pm.me; s=b4-relay-20261122; h=from:subject:message-id;
+ bh=b9KCl8TEKKfFvwWrPZOWWYYFr6aHOdYXisG6z2qF2xQ=;
+ b=rtGYSwT0f96cTkFcdpMJC+bA4UrATMjPWmfopHMa0rBlOaH2wrG5I0MbE+YBClP4375a69FHy
+ oFvkhR6y+yyBBISZAXu8+XeXvpCilWOKqBUPiOyInwVPBvKzjWURmbW
+X-Developer-Key: i=fadouse@pm.me; a=ed25519;
+ pk=b4DyzHJDRd8853IHUSKPA5wwzChj8eF4MTnZuyPz1PQ=
+X-Endpoint-Received: by B4 Relay for fadouse@pm.me/b4-relay-20261122 with
+ auth_id=1597
+X-Original-From: YanXin Li <fadouse@pm.me>
+Reply-To: fadouse@pm.me
+Content-Transfer-Encoding: 7bit
 
-rfcomm_dev_add() registers the TTY after __rfcomm_dev_add() has made
-the device visible through rfcomm_dev_list. A concurrent TTY open can
-acquire a reference to the newly listed device while registration is
-still in progress. For RFCOMM_RELEASE_ONHUP devices,
-rfcomm_tty_install() can drop the initial tty_port reference. A
-subsequent close can then free dev while rfcomm_dev_add() is still
-using it.
+From: YanXin Li <fadouse@pm.me>
 
-Hold an extra tty_port reference across TTY registration and the
-remaining initialization. If registration fails, drop the initial
-reference only if the TTY has not already taken it, then drop the
-registration reference. Save the device id before dropping the
-registration reference so the return path does not access dev after it
-may have been freed.
+vhost_add_used_n_in_order() plays the batch of used-ring writes back a
+second time for dirty logging.  Commit e244725e86be ("vhost: fix used
+ring index wrap in vhost_add_used_n_in_order") masked the index in the
+descriptor-publishing loop.  The dirty-logging loop introduced by
+bfcde6b64769 still uses the single-subtraction form
 
-The DLC state callback can run before tty_dev is published. Publish
-tty_dev with WRITE_ONCE() and use READ_ONCE() in the shutdown and
-reparent paths. Skip reparenting while tty_dev is unavailable;
-rfcomm_dev_add() calls the reparent helper again after publishing it.
+    next = start + nheads[i];
+    if (next >= vq->num)
+        next -= vq->num;
 
-Fixes: 5b899241874d ("Bluetooth: Release RFCOMM port when the last user closes the TTY")
-Reported-by: syzbot+11542ff1d167fdffa1fc@syzkaller.appspotmail.com
-Closes: https://syzbot.org/bug?extid=11542ff1d167fdffa1fc
-Co-developed-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
-Signed-off-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
-Co-developed-by: Bin Yu <byu@xidian.edu.cn>
-Signed-off-by: Bin Yu <byu@xidian.edu.cn>
-Signed-off-by: Haoli Zhang <26031212468@stu.xidian.edu.cn>
+If the guest refills the available ring while get_rx_bufs() collects
+one mergeable-RX packet, that packet can consume more heads than
+vq->num.  get_rx_bufs() permits up to UIO_MAXIOV = 1024 descriptor
+chains in one call, so a single subtraction is not enough.  For
+vq->num = 32, last_used_idx = 0 and nheads[0] = 64, next becomes
+64 - 32 = 32, which is still equal to vq->num and out of bounds.  The
+next iteration then logs
+
+    used = vq->used->ring + 32;
+    log_used(vq, 4 + 32 * 8, 8);
+
+which starts past the end of the 260-byte ring body (4 + 32 * 8).
+For a used ring placed inside page 7 at guest address 0x7ef8 (so the
+entire 262-byte ring occupies [0x7ef8, 0x7ffe) and
+vq_log_used_access_ok() validates only log_base[0]), log_used()
+marks [0x7ffc, 0x8004) as dirty.  log_write() then sets a bit in
+log_base[1] for page 8, past the single validated byte.  On a
+vhost-net RX queue configured with VIRTIO_F_IN_ORDER,
+VIRTIO_NET_F_MRG_RXBUF,
+VHOST_F_LOG_ALL, VHOST_VRING_F_LOG, vq->num = 32, and
+log_guest_addr = 0x7ef8, delivering one 8 KiB frame consuming 64
+mergeable buffers followed by one 1-buffer frame in the same
+count = 2 flush writes
+
+    log_base[1] = 0x01
+
+where log_base[0] = 0x80 is the only byte the kernel was entitled to
+touch.  A guest attached to a vhost-net backend with dirty-page
+logging enabled (for example during live migration) and a small RX
+ring can therefore corrupt dirty-log bitmap memory that the VMM owns
+outside the region registered for this ring.
+
+Wrap the logging loop index the same way the first loop does:
+
+    next = (start + nheads[i]) & (vq->num - 1);
+
+vhost_vring_set_num() already enforces that vq->num is a nonzero
+power of two, so this is well defined for every accepted ring size.
+The coalescing invariant is preserved: if a run is not flushed,
+next == start + 1.  When start == vq->num - 1, start + 1 == vq->num,
+whereas the masked next is always less than vq->num.  The run is
+therefore flushed before the cursor wraps.
+With this change the same vhost-net configuration publishes
+used->idx = 65 and confines the dirty log to log_base[0] = 0x80,
+leaving log_base[1] = 0x00.  The mask keeps next in [0, vq->num) for
+every accepted power-of-two ring size.  As a bounded cross-check of
+the index arithmetic, a Z3 model over ring sizes {1, 2, 4, 8, 16, 32}
+and buffer counts in [1, 64] finds an out-of-range result for the old
+subtraction (vq->num = 16, start = 15, nheads = 17) and none for the
+mask within those bounds.
+
+Runtime verification and fix validation were performed in an x86-64
+QEMU/KVM guest running mainline after v7.4-rc3, with Generic KASAN,
+UBSAN, lockdep, and DEBUG_OBJECTS.
+
+Fixes: bfcde6b64769 ("vhost: fix dirty logging for in-order used ring entries")
+Cc: stable@vger.kernel.org
+Signed-off-by: YanXin Li <fadouse@pm.me>
 ---
- net/bluetooth/rfcomm/tty.c | 42 ++++++++++++++++++++++++++++--------------
- 1 file changed, 28 insertions(+), 14 deletions(-)
-diff --git a/net/bluetooth/rfcomm/tty.c b/net/bluetooth/rfcomm/tty.c
---- a/net/bluetooth/rfcomm/tty.c
-+++ b/net/bluetooth/rfcomm/tty.c
-@@ -127,9 +127,10 @@
- static void rfcomm_dev_shutdown(struct tty_port *port)
- {
- 	struct rfcomm_dev *dev = container_of(port, struct rfcomm_dev, port);
--
--	if (dev->tty_dev && dev->tty_dev->parent)
--		device_move(dev->tty_dev, NULL, DPM_ORDER_DEV_LAST);
-+	struct device *tty_dev = READ_ONCE(dev->tty_dev);
-+
-+	if (tty_dev && tty_dev->parent)
-+		device_move(tty_dev, NULL, DPM_ORDER_DEV_LAST);
+ drivers/vhost/vhost.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/drivers/vhost/vhost.c b/drivers/vhost/vhost.c
+index dc973287567..80b887e1511 100644
+--- a/drivers/vhost/vhost.c
++++ b/drivers/vhost/vhost.c
+@@ -3206,9 +3206,7 @@ static int vhost_add_used_n_in_order(struct vhost_virtqueue *vq,
+ 				log_start = start;
+ 			log_count++;
  
- 	/* close the dlc */
- 	rfcomm_dlc_close(dev->dlc, 0);
-@@ -173,6 +174,11 @@
- {
- 	struct hci_dev *hdev;
- 	struct hci_conn *conn;
-+	struct device *tty_dev = READ_ONCE(dev->tty_dev);
-+
-+	/* The connection can become active before TTY registration completes. */
-+	if (!tty_dev)
-+		return;
- 
- 	hdev = hci_get_route(&dev->dst, &dev->src, BDADDR_BREDR);
- 	if (!hdev)
-@@ -188,7 +194,7 @@
- 	 * guarantee the sysfs device has been added ...
- 	 */
- 	if (conn && device_is_registered(&conn->dev))
--		device_move(dev->tty_dev, &conn->dev, DPM_ORDER_DEV_AFTER_PARENT);
-+		device_move(tty_dev, &conn->dev, DPM_ORDER_DEV_AFTER_PARENT);
- 
- 	hci_dev_unlock(hdev);
- 	hci_dev_put(hdev);
-@@ -267,6 +273,8 @@
- 		((1 << RFCOMM_RELEASE_ONHUP) | (1 << RFCOMM_REUSE_DLC));
- 
- 	tty_port_init(&dev->port);
-+	/* Keep a reference until rfcomm_dev_add() completes TTY registration. */
-+	tty_port_get(&dev->port);
- 	dev->port.ops = &rfcomm_port_ops;
- 
- 	skb_queue_head_init(&dev->pending);
-@@ -316,6 +324,7 @@
- {
- 	struct rfcomm_dev *dev;
- 	struct device *tty;
-+	int err, id;
- 
- 	BT_DBG("id %d channel %d", req->dev_id, req->channel);
- 
-@@ -325,24 +334,29 @@
- 		return PTR_ERR(dev);
- 	}
- 
-+	id = dev->id;
- 	tty = tty_port_register_device(&dev->port, rfcomm_tty_driver,
- 			dev->id, NULL);
- 	if (IS_ERR(tty)) {
--		tty_port_put(&dev->port);
--		return PTR_ERR(tty);
--	}
--
--	dev->tty_dev = tty;
-+		err = PTR_ERR(tty);
-+		if (!test_and_set_bit(RFCOMM_TTY_OWNED, &dev->status))
-+			tty_port_put(&dev->port); /* Drop the initial reference. */
-+		tty_port_put(&dev->port); /* Drop the registration reference. */
-+		return err;
-+	}
-+
-+	WRITE_ONCE(dev->tty_dev, tty);
- 	rfcomm_reparent_device(dev);
--	dev_set_drvdata(dev->tty_dev, dev);
--
--	if (device_create_file(dev->tty_dev, &dev_attr_address) < 0)
-+	dev_set_drvdata(tty, dev);
-+
-+	if (device_create_file(tty, &dev_attr_address) < 0)
- 		BT_ERR("Failed to create address attribute");
- 
--	if (device_create_file(dev->tty_dev, &dev_attr_channel) < 0)
-+	if (device_create_file(tty, &dev_attr_channel) < 0)
- 		BT_ERR("Failed to create channel attribute");
- 
--	return dev->id;
-+	tty_port_put(&dev->port); /* Drop the registration reference. */
-+	return id;
- }
- 
- /* ---- Send buffer ---- */
+-			next = start + nheads[i];
+-			if (next >= vq->num)
+-				next -= vq->num;
++			next = (start + nheads[i]) & (vq->num - 1);
+ 			if (i + 1 == count || next != start + 1) {
+ 				used = vq->used->ring + log_start;
+ 				log_used(vq,
+
+---
+base-commit: c44104f3642da720164042623e4832836aefdd8e
+change-id: 20261122-b4-06-vhost-in-order-log-oob-v1-35efdba8fbab-43734ad10f0a
+
+Best regards,
+--  
+YanXin Li <fadouse@pm.me>
+
 
