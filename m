@@ -1,101 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.225.138
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795384812;
-	b=Xc2dQBCDUpE9+wM+p6WSZAkJKvNLdlpagygZTnn/v3nBF9kL7UcvYbvdHkm7F978n1Ze
-	 vxpnERNSUB4U0KBbZfx6RljnSoaHXIbBg2LotBueL0IZMTW2GwhNecTMXVLAcvwXBbcAy
-	 ZkFXIEpY6Ot4CMarBYaMl+agXUXbBmsORU+4pEo+STCv98Tm2WCYOtPSNX24Q1MF1g5Bs
-	 LvPYAEA0+pPKWylVnzrUW4d6XDLWTyZjH6e8y3gFrQujCmIOYrBk18kvgj/VbihshxisU
-	 UOTwjt7akZkvVQJVkShfak6FIEFnOL0xAdiRK9R4dMS+mfSm3U4KBh/0hM78jTCPjDQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795384812;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=ObBx2wLZ1lWaJ7WR4wKxB7SLrTibQ+FBYE6OiDtedCw=;
-	b=B0s9gdIxlDsaj3mFV6cwHyYz2fwnp5BK32Wnf8brFPh4ZvU8LmuFYOrJJaBH14WkF2Uv
-	 A9eWjytLwtnC7vKU6LKuNFHL4MRQMIMK7351wdXyJVUdvGzgT6fuXQicoHjSBUn+S5kwH
-	 hV+jWfhNET+eFpqtnQGzx/IOEfG0QhPKdg2KJixwN3MgqfHCYg3+5P825KGvDdjxjXN2g
-	 9AyrfYs9RNP1IHtPFFi9g2YAdd09wue0MOJSsH5AAtubIRsfPOvCWFvXfMONnhJ2mnWjF
-	 2TVJwAj9GLIfZsitxWtU1eXM5Eno0alW7p1NJbbL8UXS1t33g1LWBCXvE+XQFJzj8Eg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UhqDne6S;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.225.138
-Received: from mail-wm2-f10.google.com (mail-wm2-f10.google.com [74.125.225.138])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795384942;
+	b=pBEACgA36xFSDDxXG+1RQfD522q8s3R/vqcG1WpafCscgR4wsKojkM91+EearyjAlLpN
+	 udKJMpbydgO+5NkAPmhk+pQEYepZvWd0NMdFuRBAdiHmttCwxYF1JO0NRNgQBng4BznUC
+	 SO+oFFLm98opsX+QMraPG7YcuZOfK3Vle/+Pduacu1gzoSGz5hIp3h/vyPhyD3iGcGv3o
+	 RbLOeAZinykQ+Dlf/BcHUICvuC52CXFlaOoO2xI6Ev3ElIaRmZ6waBGRnZM4SQGmHWHDe
+	 DMOuO5kvASvd5ZHFy+Z1hpP34IJFyOD7xOfv/vP2gO4/syNVJdYwnVas5cXsRK78C0g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795384942;
+	h=Received:DKIM-Signature:Mime-Version:Content-Transfer-Encoding:
+	 Content-Type:Date:Message-Id:Subject:Cc:To:From:References:
+	 In-Reply-To;
+	bh=sTtlSSaGTpDBtcMHiOircAIvmiTH+Ctop/XsFzGC1x4=;
+	b=YrgCw7fc82efjOJR6aqKPcSwalSW3k8vQUHIYDJVI37d9CBiToehWm/1ktwwymQWL6Au
+	 svoB7yp+0z1su71Hd0PFrG5Nz0ensrulMD/zKBsuvTb4eZkW4szYQKpqve8SdVqOhaNC9
+	 rpXHgTRZ0G5Hg9lObkmlBU8Tx36zXCsAu90qa2oSdJ1RpKVfZn2VTpdKMJellxju98pBd
+	 lQ7x4g3dBPSLJkeB4pX7VQTWEnhJIBU8fqJl3690tWQtBED2+6yS5r5cH/ivr2aZa7umF
+	 oaG5QKUfA4/qFx5fhDpAyRJVmhYyRytxOTiVWaI8Cmn0IGGlcCD4X9b3p1tq8Kfh2TA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k2Hc6xFR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65DA7606A31E
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:00:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65DA7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92C7D606A31A;
+	Sun, 22 Nov 2026 22:02:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UhqDne6S
-Received: by mail-wm2-f10.google.com with SMTP id 5b1f17b1804b1-4b76ade741cso5036865e9.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 14:00:12 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795384811; cv=none;
-        d=google.com; s=arc-20260327;
-        b=iDP1/v2u3LRWCmOiZ3/29+v/UM2adkMKyznoTtUBXMualhUUKKsqMElfSQolbL6Vyg
-         pX3DQSFp7EWbneVw8gSV25Ok9T1rg5pg9SYHlv4pJh9Dj5SnTFOBVX8J6aV/4oYZdwkd
-         /G/yYWrevappaQUqRO2Gcmy5+VmE5NSGvnqq7E7dUiJ7YVG08EigNXe4Ot9Q+iZZB+RM
-         1VUwo7cK///Gvt2w+E2v4xC3zdIwMCIp1UHBnTxq0ihrELL5ASurNRHQs31iiouMjuSq
-         o+gbIY3JAMrkUr3XtUtNayOcAtJ5SbV8ZGXgrHn7AwYmsJ3dRNZI62G/IwS1jGQiNM9x
-         KQ7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=ObBx2wLZ1lWaJ7WR4wKxB7SLrTibQ+FBYE6OiDtedCw=;
-        fh=CwND6x9tTPrtbRE3QG5G+rmrHMnKfvmf+yDqp/EpjRc=;
-        b=gEVFtGGxMsy6qYDThWHyrwVUo9+2LoyVXW6XZ2v4Qoa19/fen2iLV4C1su4snHPPwx
-         fhkSwCcXajeLfylnhOSMEulXbUMssA4sRoe4oONTrOqCqJ6nZKxqIZx1xcb3Ch7sIagP
-         lnpfEvAfBAn/9RKfRAoX4BXU4NAsCUZnMVZuz+HhNpiIvP4UBACt1CkPyweQVuKQi5le
-         oDVvm7+O7RU6wli5gpjUbS1ONjzdlVpmIG2bfIqR2b4eqk3yXWUW798C+6iD5UONNHBS
-         FuF2/n4fZtg4yxChmCxoLHrB71uVlnMU29z4YHtdWjYhgHSR7QXVITo9bPGs7K3ZuEu1
-         w4dA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795384811; x=1795989611; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ObBx2wLZ1lWaJ7WR4wKxB7SLrTibQ+FBYE6OiDtedCw=;
-        b=UhqDne6Sjsmz/gFJDlnpTGiRkCQk7BhFefRCnayt5PM04MlSS93kPtBgfQ2UCDmZi5
-         isOVkQBBPnKJ91kg0nJWpdhTZ8YIN0NDPkmjMeAadLTbF08E26JM2nWuflnhhz26pxBg
-         i2Ksvqa9V/9hcb0DX3Loi3pPBm/OekYrVixGrUO5cEvJv0OKvkCnVTBYpJW3xtTuQThN
-         VIH0fLy/7hAhmoviSLEE2nhwpQOdGtG0j2DRLwatgx6/DYBZlIyOPPJ03iKtmFbYe4Dm
-         QpKy+5BnlSHJDEhZ4BNBe8zBD/zrECWw/g6VA04eIftthBnPKcTGBlnOWomMPYDnO9sU
-         9V6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795384811; x=1795989611;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=ObBx2wLZ1lWaJ7WR4wKxB7SLrTibQ+FBYE6OiDtedCw=;
-        b=km859XLLcUScnpdeGl9d4MfgpuDAyW4aLG/i1DQq4WbRP1h3LBI28bGVqUkdcBlGfv
-         Tk4ftyg6glMRbBXM10AbX7lH8Js52zdigA2RYuPQjXSLmQrmGVCt7ra/IvbUBEPmaOwN
-         nu5f/zV0jAj3HoGrRQDe9XwzfXDmtwQ/J0wcqIL7eScS2w8ztB2n247+51Dav/a17KaG
-         G6PMVd9RxCNPIiljnyYa6HT/7hZ/FYU4NzePLQImPfnMrlJhgncKXaFxLADxBRq6Tic7
-         AWEYQY38bIRFl8hO8ql3snKbhWodQ4tSdB84svAEdUGM1Vw7upmKZjdI9PoIgShDZByT
-         kz+g==
-X-Forwarded-Encrypted: i=1; AL+hErE7ux8wJVVGaERcGxnmTp9OQfqzyE6zVGTDK/uHDigjQrlP1nrfni76E7l12sBjx5MoSGO/qKUR68EWPgM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z91oUuVXm6gmGbgpv2g1zCl4h6IAKxUWUwJVQjKV5YYVK1uPJfR
-	aOO4vpgTUJ/xxA57lsZwLgtWQSqzOcITligLyaKDJGwcGop+88JFzBq9EsEI9cldw5kX+l4HFKx
-	ISQ0Uzprr3/+S7DJ6/8v5wYIirXoVc8E=
-X-Gm-Gg: AZFdTZf3IFnBTzGlKbYjjNhIaxtN32T01JbpLUQvqnzvKWtI4Ul+PA/21DU4yV5hgwf
-	qrf/ZS+517GuchJfl/vlpNKUUik/Sj+uH7D74QUxn++B2luOS5TodW47yQ6393IOlmHo6kI6ZIH
-	YJCwpE0E7LOl6eLx+Q5A5h/+z2qEDuyD3ls5oNh7rzZi5os1nove7E5dggToje8jb99nowH77Q3
-	tgYXNdqHuhRPVrHGvgKseQd8TZ6UZOlgIII4lI3vZxgqdMVu2BZtsIcfzkkowjf0e69l+kriZCm
-	mKJC0sjQhzDW3FFDQBNmeh3yfA5kv3DSOKSq+xcNm3OHP7+y1kQM/gP9cAbIl2OmkLWpzXNw+Vp
-	pgAlGiuirSmiMYRyNFBARYekMgW/wLeXRnCdsU0ZD0j7BIqb9kryzS93nM5xyqeeEiv7HkPLzAW
-	dUWthtiFdLP5STow10qLZPvgkyrmOmFpODCbY807T9WfQPt1v81odb32alsm+nnVmeR8IFH6VgD
-	QELapMHGnbgwaaorpXaUFe8xe3P3C8PokWXZ8Y=
-X-Received: by 2002:a05:600c:8b11:b0:4a1:dda8:eb73 with SMTP id
- 5b1f17b1804b1-4bb8881c630mr214065435e9.27.1795384810518; Sun, 22 Nov 2026
- 14:00:10 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k2Hc6xFR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26DB11F000C6;
+	Sun, 22 Nov 2026 22:02:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795384942;
+	bh=sTtlSSaGTpDBtcMHiOircAIvmiTH+Ctop/XsFzGC1x4=;
+	h=Date:Subject:Cc:To:From:References:In-Reply-To;
+	b=k2Hc6xFRtkicPKFvuKT7zGdEMFSb//oYzAC6yGi4WET4vMctzGLV95ptNtrt42XPr
+	 WQXnncoUOn8vCWB5V+5BOCSO1YRgvEGvWFlC6kSpFwx64JgBjdDeDjN8t0GAWjAHIl
+	 OTUhOZXnH51x9+wu6dE5+5xRqac3uNPyE7pzVVKvZEWUvPhn37jeV+RfXXnvGy2n+o
+	 5fpjybhz8GWsaKNEldr/b1vfp4LchA2oilYAZk48pyxh0hZg4h3t2J1QwAu6uVH9h7
+	 a22sYJ2GBWGWAOsKWbURM4twq7Z2FvgS7RP2m5XNLf/srWoFugU+HT+1vi7WOYs8uY
+	 PaUfPtPCWI/6w==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,65 +48,104 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261009024925.3169077-1-memxor@gmail.com> <20261009024925.3169077-2-memxor@gmail.com>
- <20261009041346.GHashp-hYpLl-o-l3M@fat_crate.local> <DM0ESVBT9553.2S1RWK1W7M8WW@gmail.com>
- <20261122200848.GBawNL0FcQoK918YDI@fat_crate.local>
-In-Reply-To: <20261122200848.GBawNL0FcQoK918YDI@fat_crate.local>
-From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Date: Sun, 22 Nov 2026 22:59:33 +0100
-X-Gm-Features: Aa3M54qKKhsUFTei5EMS4AX7nLbtFO46YTvZfgyv2aoJQjyCxd2fcTrkMQbysJA
-Message-ID: <CAP01T746W=8FFiJJUM3H-Qv09uRO6-XEi9B-8pjSgtpAPBx4EA@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups for
- user address faults under SMAP
-To: Borislav Petkov <bp@alien8.de>
-Cc: bpf@vger.kernel.org, Puranjay Mohan <puranjay@kernel.org>, 
-	Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	kkd@meta.com, kernel-team@meta.com, x86@kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sun, 22 Nov 2026 23:02:06 +0100
+Message-Id: <DN22U90WCTGB.1REAOP1PQUMIQ@kernel.org>
+Subject: Re: [PATCH v4 0/9] Add __must_init and require explicit
+ kobj_type::release
+Cc: "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, "Kees Cook"
+ <kees@kernel.org>, "Miguel Ojeda" <ojeda@kernel.org>, "Rafael J . Wysocki"
+ <rafael@kernel.org>, "Madhavan Srinivasan" <maddy@linux.ibm.com>, "Srish
+ Srinivasan" <ssrish@linux.ibm.com>, "Michael Ellerman"
+ <mpe@ellerman.id.au>, "Nicholas Piggin" <npiggin@gmail.com>, "Christophe
+ Leroy" <chleroy@kernel.org>, "Nayna Jain" <nayna@linux.ibm.com>, "Mimi
+ Zohar" <zohar@linux.ibm.com>, "Yoshinori Sato"
+ <ysato@users.sourceforge.jp>, "Rich Felker" <dalias@libc.org>, "John Paul
+ Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>, "Juergen Gross"
+ <jgross@suse.com>, "Stefano Stabellini" <sstabellini@kernel.org>,
+ "Oleksandr Tyshchenko" <oleksandr_tyshchenko@epam.com>, "Nathan Chancellor"
+ <nathan@kernel.org>, "Nick Desaulniers" <ndesaulniers@google.com>, "Viresh
+ Kumar" <viresh.kumar@linaro.org>, "Zhongqiu Han"
+ <zhongqiu.han@oss.qualcomm.com>, "Alexander Aring" <aahringo@redhat.com>,
+ "Felix Kuehling" <felix.kuehling@amd.com>, =?utf-8?q?Christian_K=C3=B6nig?=
+ <christian.koenig@amd.com>, "Zhihao Cheng" <chengzhihao1@huawei.com>,
+ "Sumanth Korikkar" <sumanthk@linux.ibm.com>, "Bill Wendling"
+ <morbo@google.com>, "Justin Stitt" <justinstitt@google.com>,
+ <driver-core@lists.linux.dev>, <llvm@lists.linux.dev>,
+ <linux-hardening@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+ <linux-doc@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+ <linux-pm@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
+ <linux-sh@vger.kernel.org>, <linux-s390@vger.kernel.org>,
+ <gfs2@lists.linux.dev>, <xen-devel@lists.xenproject.org>,
+ <linux-mtd@lists.infradead.org>, <amd-gfx@lists.freedesktop.org>,
+ <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+ <agordeev@linux.ibm.com>, <airlied@gmail.com>, <alexander.deucher@amd.com>,
+ <catalin.marinas@arm.com>, <chao@kernel.org>, <deller@gmx.de>,
+ <dennis.dalessandro@cornelisnetworks.com>, <dmaengine@vger.kernel.org>,
+ <gor@linux.ibm.com>, <hca@linux.ibm.com>, <jaegeuk@kernel.org>,
+ <James.Bottomley@HansenPartnership.com>, <jgg@ziepe.ca>,
+ <jlbec@evilplan.org>, <johan@kernel.org>, <joseph.qi@linux.alibaba.com>,
+ <leon@kernel.org>, <lihuisong@huawei.com>, <linusw@kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-erofs@lists.ozlabs.org>,
+ <linux-f2fs-devel@lists.sourceforge.net>, <linux-fbdev@vger.kernel.org>,
+ <linux-omap@vger.kernel.org>, <linux-parisc@vger.kernel.org>,
+ <linux-rdma@vger.kernel.org>, <mark@fasheh.com>, <neescoba@cisco.com>,
+ <ocfs2-devel@lists.linux.dev>, <satishkh@cisco.com>, <simona@ffwll.ch>,
+ <sre@kernel.org>, <vkoul@kernel.org>, <will@kernel.org>, <xiang@kernel.org>
+To: "Ian Rogers" <irogers@google.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+References: <20261119192520.1983406-1-irogers@google.com>
+ <20261122215639.1178566-1-dakr@kernel.org>
+In-Reply-To: <20261122215639.1178566-1-dakr@kernel.org>
 
-Hello, Boris.
+(Cc: more people previously Cc'd on v2)
 
-On Sun, 22 Nov 2026 at 21:09, Borislav Petkov <bp@alien8.de> wrote:
+On Sun Nov 22, 2026 at 10:56 PM CET, Danilo Krummrich wrote:
+> On Thu, 19 Nov 2026 11:25:11 -0800, Ian Rogers wrote:
+>> [PATCH v4 0/9] Add __must_init and require explicit kobj_type::release
 >
-> On Fri, Oct 09, 2026 at 05:23:13PM +0200, Kumar Kartikeya Dwivedi wrote:
-> > The advantage is losing significant amount of code size in JITed programs and
-> > the associated runtime overhead (you can see the numbers in the cover letter).
-> >
-> > Do note that we can make it more generic, we can follow up and optimize
-> > copy_from_kernel_nofault() with cpu_feature_enabled(X86_FEATURE_SMAP) as well.
-> > But I didn't want to go there just yet. I am happy to work on a follow up if so
-> > desired.
+> Applied, thanks!
 >
-> So we basically disable SMAP around bpf programs when they are about to
-> accesss potentially stale memory and the only line of defense is for
-> is_bpf_text_address() to really DTRT.
+>   Branch: driver-core-testing
+>   Tree:   git://git.kernel.org/pub/scm/linux/kernel/git/driver-core/drive=
+r-core.git
 >
-> And once we open the floodgates here, I'm sure you bpf folks will find another
-> creative way to flip the kernel on its head.
+> [1/9] Compiler Attributes: Add __must_init macro
+>       commit: b8a53320a885
+> [2/9] powerpc/secvar: Add missing kobject release callback to secvar_ktyp=
+e
+>       commit: 4d5d4dd2a2e2
+> [3/9] sh: sq: Add missing kobject release callback to ktype_percpu_entry
+>       commit: d19384f2f3c7
+> [4/9] cpufreq: governor: Initialize kobj_type release callback statically
+>       commit: 009365942c15
+> [5/9] dlm: Wait for kobject release before freeing dlm_ls
+>       commit: 48ae948f4285
+> [6/9] xen/sys-hypervisor: Add release callback to hyp_sysfs_kobj_type
+>       commit: ecaf88d385c1
+> [7/9] ubifs: sysfs: Use kset_create_and_add() for ubifs_kset
+>       commit: 25d952902dee
+> [8/9] drm/amdkfd: Free queue in procfs_queue_type kobject release callbac=
+k
+>       commit: 6d4ff4a020cf
+> [9/9] kobject: Require explicit initialization of struct kobj_type::relea=
+se
+>       commit: 45eeed1f8094
 >
-> And all that just to save some bytes.
+> The patches will appear in the next linux-next integration (typically wit=
+hin 24
+> hours on weekdays).
 >
-> Sorry, this is simply not worth the risk from where I am standing.
+> The patches are in the driver-core-testing branch and will be promoted to
+> driver-core-next after validation.
 
-But wouldn't this be strictly contained to BPF programs? I am also
-fine putting this behavior behind a CONFIG_BPF_SYSCALL guard. The
-kernel will panic in this path otherwise. We just want it to handle
-the exception when the fault comes from BPF.
+I've now picked this up; I will keep this series in driver-core-testing for=
+ a
+few more days before moving it to driver-core-next. Please let me know if t=
+here
+are any concerns with the series, particularly the comments in patch 9.
 
-So I am not sure I see how this risks making things worse for anyone
-else. It's not about saving some bytes, if you look at the cover
-letter, we reduce significant amount of code and associated overhead
-from programs running in hot paths.
-
->
-> --
-> Regards/Gruss,
->     Boris.
->
-> https://people.kernel.org/tglx/notes-about-netiquette
+Thanks,
+Danilo
