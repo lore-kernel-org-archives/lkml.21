@@ -1,100 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.228.138
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795343056;
-	b=EsqT5I5HcsrSo/QKj885+yUZEKDhAwq5gcZfGqL/LcSfH+cdxatuj3gfCQSOuCQ2UrZK
-	 Ucw2Tl0tbkGkx03WjzBn72VrkV2s/K/ZMbglyCiDxUt1yhNQz79+HUBzWSVIrj46FD//h
-	 BU+9lL9dbpLLlhVYJsGMR7uta0LbQPTBn4dEp7N0hPGjXkCTpnWuWtS8vJC1WqHXklaYu
-	 eVjsK/FY5hnsT4N/T17HbaoYAw62J0tApNPieTzo270IZQR4y++IcJA7Tur9PqVulPAmc
-	 iJCxvhmFs3UHgY1sNQczsJPvqqGF8EBkAKnaNH27XJZR8ec9tc18Ea3IqWk2dB4hI6Q==
+	t=1795343337;
+	b=dif6gxPSGsbZcAxdWcJErFB0+wWje27s7myee5TE6C/klpX+q8z1zXtFJd6FaXSErY7q
+	 r9nJQaK1Ha/lUyZeRIckRhrQtVqGcgtDg09orfhaKHrjqXxrJrmD/7zTPXYrMeEPgJaqD
+	 84QO6w5LSuyUF2f/rvAd+5EHxl2b/7H3zossOTztDlHxysWoSw/9EqQJAX6FcZnrIgys6
+	 1i9kBb0P+CaISwW7OKulGJ0WoddiHyO2ucMrqUZ1Zr005jk/3OHuRcpXk8I7NjS/Zv+yx
+	 HTC2u1HbM3T123eu3I7SwaVgj2l6/INnD54Xu5LED/iJul3i9a8/sa+s4Jrmi5P48kg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795343056;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795343337;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=CURJOIW8YVhRngaiR7g8++OMuLl8NziGeTmfa7BjCfk=;
-	b=ABtNT9tIshocckCT8Sy1fgVZenO3UFZmtdWP3cluXBEdTrpjaNOKpnZNZgnEQ7ZGirx1
-	 uHNDF3wL4gdu07ykjiTsZ5YOlb1jxIlij5ig56NGFyzfnvS9YUQPdCRBOt0KSVAGjoiVu
-	 XIwDu47cmbYYZSAckXj8KFZNTJKlGiabe2qA2csdD80DN+mWXsvOGq+lMVcODG7+NL3cU
-	 tov7/ZW6OiZl8FmG7/ge+Ljw0Cl/GtRZ2Fh6eRZY0RQOfXXn0rUFX8pKHISOxF51Wnpr+
-	 VWv+Fevk19YRvKOUW0E6WZV71IrwdYj1DSEocM2dqdFkTePIKpl7wgkDQx2JlOnEpIg==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=RZ0O0POJrr0conSKv7mDqlSwmUjcS392Zlp+KvMCf14=;
+	b=z61SigK5U2jzwYVs26w0mhsgwVmaNiNnOp5T4P6NpsWYVoD/wEvjO4TE93tW9SvN0BtE
+	 DRy/ZnD6P+PV9g2w2Ujc1+lyhTxwmkU97QlObtEJSuDtjbD68IthlUGEmkyeuhKak7NWh
+	 4qov5kMWIRYNCvRnJggyqysDVeDDe0HerK1vh4GQUfuvHu3ojBhzc0UayyCG6utajImEo
+	 iYu5yCFyW30ntcozWsKWSXDwI31Drqm3fnACK9agWfMbfOVnnNOGgmpcNP0//PdqEvt5h
+	 IJAEqDwDE5iWQUnZQ+4dM7iLRxQ7Yrr7VtXNEHGjZrE/QdxS2VAc9GINi7duEcjP3gA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Y5t5Iv+G;
-	arc=none smtp.remote-ip=209.85.210.180
-Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=U5SErA4S;
+	arc=none smtp.remote-ip=74.125.228.138
+Received: from mail-ej2-f10.google.com (mail-ej2-f10.google.com [74.125.228.138])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF352606A335
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:24:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF352606A335
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A31C606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:28:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A31C606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Y5t5Iv+G
-Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8a05b210703so1047228b3a.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:24:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=U5SErA4S
+Received: by mail-ej2-f10.google.com with SMTP id a640c23a62f3a-c4077bca4a6so100807466b.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:28:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795343055; x=1795947855; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=CURJOIW8YVhRngaiR7g8++OMuLl8NziGeTmfa7BjCfk=;
-        b=Y5t5Iv+GxHIVRNL1hLMtJTy9/LL0TrrHPci4ClCUB3ON6bWZf0BKwNKmVhRtHY6rtK
-         oaRLDzJCuChOaHdbRHchOk6WMH++YIgoXQjAN8pe2AG5yVoD91wRVqGVL2xLdjSks/4R
-         7QQQrlngy9WwxzcBKZRakEMG4x8VhBxlarpfkXDL+Ow+5IykNNQx4dcdiTRYIDW1Btma
-         K+pZLL6rfliv2dHbgaQXhe79NIE4SdUGenZV3r0KX8TRE6ZIvRIW484ccwaIgsIfAOjc
-         lmI4CmkJNqGyNMTuATUjrRYsWhXY4S92omZgMdLxn8TIoPXgH2Z7NYrbTa4LZq5XMYIk
-         MD5A==
+        d=gmail.com; s=20260707; t=1795343335; x=1795948135; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=RZ0O0POJrr0conSKv7mDqlSwmUjcS392Zlp+KvMCf14=;
+        b=U5SErA4SKPMPlUUC8Hpj3tgK14H8t3haFRITvCal7hWmO1uQCJM23eL2NKSL+3abov
+         t3Ga8hZjRhzvVJ9cbw4Vb7N1YpXch3MGgNvwtd0JFW9deXQsvKqE0TwaJazOc4dRIvu1
+         A+bpYcoM/yNfmL4mNx+lNMVLOZqXuHsJKuyfndLRis90ncrcwXqJJTV/cR+xrjDTftiT
+         uwHZqkkDG46HnkkpVn7osItNtMa00RW43rY6JIT9X89ugjEeOZaSyccC/Q6GDKYy2Px0
+         USA7CviCcfLYoNdig0G51EYTgKP8yj4hbHGLxU06uv1f22bnjpU2zE7+sMkZ45gH9eUJ
+         5Fag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795343055; x=1795947855;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CURJOIW8YVhRngaiR7g8++OMuLl8NziGeTmfa7BjCfk=;
-        b=U4fw9+Yx7uG6dklHMauVzkVtUKFlqPK4OuA9Qr3C9E/SBVY3i9ljJB6GpyfGwM1hJU
-         tHn+cCllmwEzChV3jSM/AG3ETp3llxu1I0ZJOcicVJpIJvn6UiDE8yDETnRdnQxfwfZG
-         0UkVDjysP306SbxHcnV3CloRYETkXk+u3B9kkY4E/9pmmpR4B9Bxvnw9oOBvLIoCYBwJ
-         dBuB2xRxoVZuJHtxOfI4O4ZN7MxwPcRjQ5WtFYxVQv5wY/qprrUVtKx7p5Co3WbS1Chj
-         i2lKjadr7ymbRzIi9/Olp2Gy+ukalW2otHM+GpZTsT5q5/VMxhI3RkMFDsDpLw9r9MZ+
-         iHQQ==
-X-Forwarded-Encrypted: i=1; AL+hErGRhoTl+0QD4nt+F/r62niDV5i5mQZn7K7cwNQgmbp0wmeX/ZHtdoYX2w3SNJuUelRQixzK84w18+4J/gI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+HsgZZUToxxtSfS4bd6Bk8lkR8mBnFfHr/X7Kse4ekL1p6cDlN
-	s3S40W0gxAdi2qLzEuH98llk6eU9jo+sMhA330KxoyGoy0RrK1QM2/8z
-X-Gm-Gg: AZFdTZfIph6oi97CkHlBOZz9907T4I24G0RUwL2kOh4bUXB4Zc5i+U+Y/S9R6eljr9U
-	/sp9LhcmHZgK5CjY0Bx0CvZrZ2jdNC1HOZV/IzU7kcb1hA14uLXI5rIlpNlwRhVaz2By8ChkPs5
-	QRjLJSr9pwfKbEXngP3cpRG8PtoJXNo2a11a7R/rr/5g8pfzsF7AyjeIP2B853u4v9/+Lr+L7gp
-	REVyQL2boVVWKzHqCikWcuLYye4dQoy33xSXkl2dij/wlgk9rmpsNihdqvVLX19ibvixWQkrS0Z
-	lFUR9S0fnQ7wcIz5vYb3adYALUk4azYZze1uguPmVFz5+utJViZzqMhJqhSwkGElmxhgi1wPRn5
-	AkLkmYNOvFwlHUFcWnLCygnEJd67vQpXW7E/NVKJOyX/iSJcBF1mdVvwygYuWUiFeLLBSyetSof
-	uSQXtCk5Jb/yUwYNmclT/cwkZ+dbYLHioCeLmja1Mnk3wm5vipOL7V4f21i19zVDwbtmjSiwURa
-	fKJC8R4Hey2s3UgAkrNn8upH0z8FTHAkqOblKETAIlV/mKd9HS58NGpVHnXwsJYxKwIk4Z7Y2l6
-	8ycYiGmLFHUsOpoq63vxR1hrAq9k5BMhLk6kA4Tdb8I4TDUqmL9HLzp5BTwMZasJJCY=
-X-Received: by 2002:a05:6a21:4cc7:b0:3dd:85aa:4524 with SMTP id adf61e73a8af0-4014b56547dmr8506160637.31.1795343055176;
-        Sun, 22 Nov 2026 02:24:15 -0800 (PST)
-Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f726sm3968398b3a.36.2026.11.22.02.24.12
+        d=1e100.net; s=20260707; t=1795343335; x=1795948135;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=RZ0O0POJrr0conSKv7mDqlSwmUjcS392Zlp+KvMCf14=;
+        b=WcXjlmzkF+sRO/Z68bqXKva+M1rZByGFHXKyAKrLaeXi90UU4HW/pf1mtn1x1hNTAO
+         QfLlMfY27k24xu+pIrfRIZ1p/4u6Im8smxz6a/HT2w/tRNfYR6DBflA+AN0hO2Io+B6B
+         gEHB35CAVNbrW3fkckW2RnvhgWbFHwyMWgZSlrtDaw43gxD8geAQXAR5w4LgZnrykIUV
+         f6cV1pgqCklJpCEMxT2gXQqKpNVCZTvMQSuMPvU5giu2tEo7KHYvoQ9niXP0qkMvJnu5
+         5bV3phl6QvmxQoL4yimQkJyEs2nhtkWPDeUcrMSpANfGaRWv2E+rPNHdYQtrpB+CmjvV
+         r5jg==
+X-Forwarded-Encrypted: i=1; AL+hErGbBecLLPKEB/6+O59rbO9UcGGc/hb8wKuY7zYPb9tWH5VQmKABGx/2efGNFjCayQ3IPREDZcBHY3krXY4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/3e15JgcW4Vp6vA2TyB45i1LivkCD4lLj7r1tms/ieGsIJ5tgF
+	duezrzzSec5vrxYHeIMO/uFUIfPhB3iMUBeQYfw3qmshckKS5uEYKJg=
+X-Gm-Gg: AZFdTZfstegXovQOdD3WgR4q5QRQSv68DsKC85jAiHt/wB5Qo3QGDVNa9Q7uZ0GlC4a
+	DcsJcOnSa6PTqETexWzyfsuQsec6N/LNzI3mKBXT1DjeXSH/Ww80cL0YvnyLElg9LuhhKgTC80S
+	msBr2Y8NCxxUqd4lv2q+yCF2ZxJwbnq3ZSm0nvif7DQM1y8sUbd0ipgD9FDRvvYyr2bA1fDshRA
+	xeuuZtBQvjL8Eg808HWI64kwAPVaL3Eu64i1bOwhB6ofgrl+LUctVbpQYhnzymJTqF2wgQ+bIwa
+	B8HTsXbivc+sOrYapYbIdpghkPXhQ9lzyh7JlYnGY02RR1LlR1t36Y97JA4looP9WZZ9Wr+tcbe
+	KFQxZp8yBr2tBzExlGtL+payNjhuKQzANy1NfueWXJxGC7OyuwEGNHBEtBHgiRCbrtAB6Hogh8F
+	Dc0TKF2E4Y6idP7dytaqpSWFR7vRRh2LLPq5aDVnDK/Wi+ind+WsFoCRZLYS/vpxGjcaZgox9By
+	yrxhSCYdivlc3ufTWO0LM1tH7dnyQiLLbaCjDtVq6ZkctmwvmvPASVIYM2hKzQ7mDymyN2UzS81
+	i2Wtlza27krjhwv0JLeRNQH12Kh/Tdv63pKfT5wOgoUm
+X-Received: by 2002:a17:906:5ac5:b0:c46:b9b0:8e8f with SMTP id a640c23a62f3a-c513ab1303fmr511361966b.41.1795343334777;
+        Sun, 22 Nov 2026 02:28:54 -0800 (PST)
+Received: from llm-01.drunkbatya.int ([80.251.127.126])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513b022b2bsm295252466b.83.2026.11.22.02.28.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 02:24:14 -0800 (PST)
-From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	David Howells <dhowells@redhat.com>,
-	netdev@vger.kernel.org,
+        Sun, 22 Nov 2026 02:28:54 -0800 (PST)
+From: Max Andreev <drunkbatya.js@gmail.com>
+To: Badhri Jagan Sridharan <badhri@google.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Kyle Tso <kyletso@google.com>
+Cc: Max Andreev <drunkbatya.js@gmail.com>,
+	stable@vger.kernel.org,
+	linux-usb@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net 1/1] ipv6: fix MSG_SPLICE_PAGES with a dst trailer in __ip6_append_data()
-Date: Sun, 22 Nov 2026 19:24:07 +0900
-Message-ID: <179534083350.2499182.16621119046570934510@gmail.com>
-In-Reply-To: <179534083350.2499182.16169984227830330896@gmail.com>
-References: <179534083350.2499182.16169984227830330896@gmail.com>
+Subject: [PATCH] usb: typec: tcpm: fix missed frs_sourcing_vbus() call during FRS
+Date: Sun, 22 Nov 2026 10:28:38 +0000
+Message-ID: <20261122102839.2902079-1-drunkbatya.js@gmail.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,61 +101,47 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-When __ip6_append_data() starts a new skb for a fragment that is not
-the last one, it adds the dst's trailer_len to datalen. On the paged
-path pagedlen was computed before that, so with an xfrm dst
+Since commit 0908c5aca31e ("usb: typec: tcpm: AMS and Collision
+Avoidance") the TCPC reports sourcing vbus while the port is still in
+AMS_START with FR_SWAP_SEND as the upcoming state. Because of
+_tcpm_pd_vbus_on() ignores this state, frs_sourcing_vbus() is never called
+during FRS.
 
-	copy = datalen - transhdrlen - fraggap - pagedlen;
+On Pixel 11 Pro XL after an FRS from sink to source the phone keeps
+showing the charging indicator, and about 20 seconds later VBUS drops
+and the attached device reboots.
 
-is trailer_len instead of 0. getfrag() copies those bytes from the
-message iterator, but the MSG_SPLICE_PAGES branch right after it also
-runs when getfrag() succeeds and resets copy to 0, so length is not
-reduced by the bytes just copied. On the next pass the splice branch
-finds copy larger than what is left in the iterator, warns and returns
--EIO, so sendfile() of a UDPv6 datagram that needs fragmentation over
-an xfrm tunnel fails:
+Call frs_sourcing_vbus() from AMS_START when the upcoming state is
+FR_SWAP_SEND.
 
-  WARNING: net/ipv6/ip6_output.c:1796 at __ip6_append_data+0x17ed/0x4b70
-  RIP: 0010:__ip6_append_data (net/ipv6/ip6_output.c:1796)
-  Call Trace:
-   <TASK>
-   ip6_make_skb (net/ipv6/ip6_output.c:2097)
-   udpv6_sendmsg (net/ipv6/udp.c:1717)
-   sock_sendmsg (net/socket.c:841)
-   splice_to_socket (fs/splice.c:811)
-   direct_splice_actor (fs/splice.c:863 fs/splice.c:1114)
-   splice_direct_to_actor (fs/splice.c:1023)
-   do_splice_direct (fs/splice.c:1157 fs/splice.c:1183)
-   do_sendfile (fs/read_write.c:1351)
-
-IPv4 is not affected: __ip_append_data() does not add trailer_len to
-datalen.
-
-The branch was added by commit ce650a166335 ("udp6: Fix
-__ip6_append_data()'s handling of MSG_SPLICE_PAGES"), when copy could
-be negative on this path. Since commit 736b380e28d0 ("ipv6: account for
-fraggap on the paged allocation path") a negative copy returns -EINVAL
-before this point, so remove the branch.
-
-Fixes: ce650a166335 ("udp6: Fix __ip6_append_data()'s handling of MSG_SPLICE_PAGES")
-Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
 ---
- net/ipv6/ip6_output.c | 2 --
- 1 file changed, 2 deletions(-)
+I'm not test theese changes on mainline, but tested on Pixel 11 Pro XL
+vendor kernel 6.1 with the same _tcpm_pd_vbus_on() code, as i see
+mainline tcpm.c is identical in this area.
 
-diff --git a/net/ipv6/ip6_output.c b/net/ipv6/ip6_output.c
-index cb648c839431..5887e537f662 100644
---- a/net/ipv6/ip6_output.c
-+++ b/net/ipv6/ip6_output.c
-@@ -1742,8 +1742,6 @@ static int __ip6_append_data(struct sock *sk,
- 				err = -EFAULT;
- 				kfree_skb(skb);
- 				goto error;
--			} else if (flags & MSG_SPLICE_PAGES) {
--				copy = 0;
- 			}
+Fixes: 0908c5aca31e ("usb: typec: tcpm: AMS and Collision Avoidance")
+Cc: stable@vger.kernel.org
+Signed-off-by: Max Andreev <drunkbatya.js@gmail.com>
+---
+ drivers/usb/typec/tcpm/tcpm.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
+index 51e5c72799f2..5caa649a92f1 100644
+--- a/drivers/usb/typec/tcpm/tcpm.c
++++ b/drivers/usb/typec/tcpm/tcpm.c
+@@ -6889,6 +6889,11 @@ static void _tcpm_pd_vbus_on(struct tcpm_port *port)
+ 			port->tcpc->frs_sourcing_vbus(port->tcpc);
+ 		tcpm_set_state(port, FR_SWAP_SNK_SRC_SOURCE_VBUS_APPLIED, 0);
+ 		break;
++	case AMS_START:
++		if (port->upcoming_state == FR_SWAP_SEND &&
++		    port->tcpc->frs_sourcing_vbus)
++			port->tcpc->frs_sourcing_vbus(port->tcpc);
++		break;
  
- 			offset += copy;
+ 	case PORT_RESET:
+ 	case PORT_RESET_WAIT_OFF:
 -- 
-2.43.0
+2.47.3
 
