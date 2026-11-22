@@ -1,102 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.178
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795377099;
-	b=psSckq8opCFQ2vlEEFSVTLLfNdsjE2Zz55IH8b1FUb/Yso4NGOnnFq6wRrxoWJ0DBsng
-	 SlRBB4PXapKR59gwL+8mKKuex0Wj2SO1acUFQZebuwhJMFhLy2na+XZ+VkLNKHsc4hU3D
-	 v0obAha9gfQ4Uh0BXSJoW3jlWj+yMTkcj99APdsmTGhWOYnk7hUi9VOHke5kztCQtbUun
-	 NWBrMjA5ry/edW+9wvz7piWoznYs+nzDlyZ8KUli3ssdHWRjZm1mno6o8mepZnN2zmv/U
-	 EaC6uD5kxbtlN9G6a0PRyHw8hJHLk5OZ+R5AAPG77sG/E1PDjBWZFYCN3NQ7hfRpPeA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795377099;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=yzd8QCFAl0vOSBpuVvvQBboo6tfWr4C+v8GEnmxO4sQ=;
-	b=HZfutdnsjW2ZRzT29ninCsUqnawdjdCYFb/CAqydYuNXUPeYrZwc3qTCRCWQVhz6jpQ7
-	 Mek7qvXBH7upTjh4G8kygUaJTTTdprAab0TxUWjwQdUYMjK/uMincucYmRhrlH7oDGXFd
-	 CqU9qxLlH5NmOckour6HTK/jYSmVPX1ol+OLWuJiVfxQm40J0pcuSudinGX4ryQemcA0B
-	 tA9vBqKzaujSqlBN6WEWI7hWx2rRJoLiAhoxrH/xERJa+4TguPvVeQyZfy/d3a6ZasyBz
-	 gUFM/Qs2X6AWOQWpdlKiBd+bYPCpaGw4CP926kAvzTtIMY3uqS1wpvirVsaMoqxYZaQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=stellman-greene.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=pJS7QhlU;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.178
-Received: from mail-qt1-f178.google.com (mail-qt1-f178.google.com [209.85.160.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.72.192.78
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795377142;
+	b=kvLu/w+JwrHpyAXylGSG2q3Vyt6oU/ai8wn9jHq3Uu/3cIvhQxKsT9SC10AWNjqyPs4D
+	 tn3q4ip/8AXvnf1njcNh3kNIOFG7085h2LYHBDc23qJhZRRzyhrF6nB6IMC/GYLCOa7hm
+	 upetz2Z9SMLP565AQcbAD43FM554dhfQJpl04YoRKBBm606SbcaO6Jw6Hk5oCntNILQRs
+	 JFiZRf55+Kdn5IWf6uTXCzLc7ERPGWeSjSkAF/H60W3OeoQJFthEWNjkILg8ZtZJ+Lk2g
+	 3jC1nE/KbkMCHgbQ14a/WPkVP1/lKNaBoOTNQuLpScNn/W3s/BdGVRGMwlSJZvPdj9Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795377142;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:To:
+	 Content-Language:From:Subject:Cc:Content-Type:
+	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
+	bh=DxJ/XoENpsoa0BG0OwfPHHeMkEO45OcTsZupEqdYCwM=;
+	b=S9h8jw53+/O+6W3ow8j5YH6nYJ862REkZpXnURSyUGS0L62tcTQvok+kLOiN9PfkTKnN
+	 MWRJPkoLua26UQ38TfbNLXAIEtY8mT0ZxcDwU0BlGtceL0PsjzgHyq5e8rD2ddsCZll9t
+	 HO+DjaKHCsNqvJ7HMwE/iY3m/nupB85fcU/mlOvoLR2raLNSE++G+0rPUhwecqi2XfOZt
+	 VpJJeF54aeu1cmfVVJ0RgZ8lXhifzCsp6lP8hDGnzS9g9p8+7TM0v9LhZad9RSveElu0C
+	 iliHdQxT8dRkcDF38jY5dVVRH5glvTtK7qHll8C/T7wu1/dkDLxJWitdfuVYzrT6D+A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=web.de;
+	spf=pass smtp.mailfrom=web.de;
+	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=kvd2dt1o;
+	arc=none smtp.remote-ip=217.72.192.78
+Received: from mout.web.de (mout.web.de [217.72.192.78])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A877606A31A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:51:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A877606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 352A5606A31A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:52:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 352A5606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=pJS7QhlU
-Received: by mail-qt1-f178.google.com with SMTP id d75a77b69052e-5430f70c827so35746721cf.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:51:38 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795377097; cv=none;
-        d=google.com; s=arc-20260327;
-        b=eM0Ckj2aPfnDeFGWNcI5jkL9C6mTD+qw/qUHMwaABhnIXobBNuP0paKrw6BjJuZb04
-         ZYF5HpC5sa10VoR6ZJlony/+UpkvMGoNFodf+iB9gQVcX+w7r+DEjQlz5pCq1+yoQA3t
-         zgC8XLnLhJnQBGnIpL+q167QtLWGjYAZG6X9wFgIKD40jQ2va+vwXbnu83bjQnIlfsCC
-         J0kqvMhp+Ql9Cq6oGjoezwV21e050Z/au2wz7H/3WNKUCcpyFzgHw726LDKStyvBooxp
-         QCRrpMy3wEVAHNigiEKsBy5itza1RbICiQpruSbF99lES5LfKtuziM2xPiAW5vhSfxCj
-         l2EQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=yzd8QCFAl0vOSBpuVvvQBboo6tfWr4C+v8GEnmxO4sQ=;
-        fh=A1hzO7+bnzvnGrl8hlltBia5wD67Jr66sMWOJWEahoo=;
-        b=BVWsrufSwDMbpj311UvUh5A973OMPX2tqX31Byia78g7aiyRYBhUHRcqFQOhAGXNm6
-         eC/Ibq9u5GPtSuuwZeHiS4IwRg6uIEaJL+3jHx8ScWkl8ioy1eh4GzNZzEbx/XP5ZNKR
-         8Wqtx1EqrlVSfpaynMuQ2NnV1rd6AAI3CEZGGoZnE7AxV9T6EOHOmw1y7FV0HYIkBqiz
-         gtVXlLPL3SpxlzhunlEJmsbKV2/Usg1UE2nPyM8xQ8aJ41ZG8GXLaEqRGFgGOlIRHhX/
-         aBrHKVT6FzVlyfhDwJprjGNoUoUv737euhnxipuJN52oj73+hKwBvIm66f59WmM0pCzF
-         z9Eg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=stellman-greene-com.20260707.gappssmtp.com; s=20260707; t=1795377097; x=1795981897; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=yzd8QCFAl0vOSBpuVvvQBboo6tfWr4C+v8GEnmxO4sQ=;
-        b=pJS7QhlUOPxQ9mJA7nXLa+hJQfk0d8W1dIY8ZbQ6dAaXCJBHlNX8Qr+ugAPpkxL9s2
-         cYM7tAOrlwP2AvIfmR2v6FXRHgpZYc0jxmaTX3yJVebP59cts5ClN/nMH1wS7Dz52w4o
-         9S0Vi3cJZuptygscYNCwUNdjUqP85yb+1A0IXJCpIibFLXVoqwOfAlKCDvvnZfLk1f5b
-         d/CWfbmYnkhXExbSlNcp4ljVSUbkt3UuWsD7nSEFlG608h1ww2SC90TsK4jtMXW4BVGS
-         BRQW2GS9OdVx/wubdXtcpQ6LpKPK9nggPPyWg01WruLPdpgEl/ThduV/AXgtQdWjmivV
-         aiqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795377097; x=1795981897;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=yzd8QCFAl0vOSBpuVvvQBboo6tfWr4C+v8GEnmxO4sQ=;
-        b=1ZkklKhhSopF59amivoFL54jEOExQyI9KgI3yXdlY9Q4ImxVv1+ymaWmDLnbjhoslg
-         nWakOhyfAj0EInVK8GDuCVVc28yPru9pM3zB/2OT8oPwp916DpUSajUds/g4qIIYnDIp
-         nPbHudxbOVPJZPIwYjIWNWIDuaUWXAgsQjNWSM49LZznpSHiPk+f51HvCCsWWgnnAA9K
-         yBoRAdRUkTOFYWQoQV+rnvIi2e4G1duk0VYn6UjSnXN7PJeD8qCyt34hw4u/eYF8qAl7
-         ET65mtDe8VZIT71qIIU1svmC2pOfSrh1YVoCacQNTMxSxrcwFEaRpbPmhK4ivreuHk7V
-         17Dg==
-X-Forwarded-Encrypted: i=1; AL+hErHHe1dBcNxoZTgx2EMKuXFOO7SwbE29hvyqF2xOMxA6wJRAZm+TimOlV5/FnYj4xMLlEGipcVzsE1NtgdM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8hJDF9EVYN/4jAloY1dGIwQ/cGV4fIdNkx8NDKqRqvFj9BIwku
-	pVskLqwsvbVmZI4uYgdp2a60MVykjziZaNpCejmW0j83LbM0hD72nEkLg/LgRJ5/5cHAOw7dkzR
-	jMRjDMLa51Zpm+KKZtG8fvu+Y1FsZoDo=
-X-Gm-Gg: AZFdTZcqtQT8HKIE2Se1Xh6cA2gGrweYrNhtp9CqQ+wwFXjRj1NLu33u1WWodHhmnCj
-	p4VO6Bq4Mlr1gwvOmi3c99u8KWtiTIhf+Mlw+Ja9Ctk4IDRzOtjDROQ34y/M+3h6PLcBZRjf+uv
-	MbVqbvFIFMIZjVwz0cfHqb37xwAURMb0pZw3m3sRP7Pzf39RVDdOlx2/ny1Dp32/GoPDO5M9i5R
-	cXWGmzRSs3kYItWMrWSLXA19ve9fw54ykj6oXFfz2tlTBBc2KhKJ74PW+C7LtE+H0R9VKGYrYhX
-	wzC6jzUig9YBI8MKoyTAoQKZVichg300rZ+mqYztW/iqa49LlDXpNFrLyoC8pEc9AnJUq/tkH8d
-	AuPsp2xTJFDv30w2EEh4aHn39SqDTpFQQTzX6vVJO5R0wugGxxjxCwzYXNDdv+ZZOyLX6HoHTbC
-	avRFBOlqL7Moh36GZUtjDKDMnf22ziKG/2yOoHK4P2S2t1eRE+kFE6t2yEFLePzHBfCYS07FUym
-	6JzSzJcaBEJ0d0=
-X-Received: by 2002:a05:622a:1646:b0:536:5bb2:545d with SMTP id
- d75a77b69052e-55d76a5c656mr170900931cf.56.1795377097130; Sun, 22 Nov 2026
- 11:51:37 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=kvd2dt1o
+DKIM2-Signature:  i=1; m=1; t=1795377139;
+ mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=web.de;
+ s=s29768273:rsa-sha256:mtn/6u6gwHLqJCWkO8Gg+PFWDC8J
+   oCWZgiWVEJr8d6O1Z/IDEhyc8ElXHOky/tcTZCP9NAXw6sDvQFhxbegTi5i933fq8kBrwA9OCfy
+   VfPqkc9zTOGptFbI58+cGxWJOioKnA1YV2m5Ls1aty66TLtMlbsPeoGd28Cm7kzEootGYg/FvBx
+   dLSE1vM6m1c3i0X9UL4GKHPHO9uotzBTFJVsQT7R2UBgr0s6M2nkzIwkyOvn00YbwES2XNqsJNK
+   npnWK4L/y9IQ265cijePHwkPdaLGr43ewXD8RlIr2hro/oDlJ/QnsfL+gTxDrg2icwYoeQ/Tix3
+   hOdbqpVwrFiZMA==;
+Message-Instance:  m=1;
+ h=sha256:
+   D5rVt4ryQI01eaKGx4kHzJgI+HggMqtO760LFwVMQCA=:
+   +h0OQCegU2Uki9JfrK9GeQlM+mKOlw8oWpls3LIaLVM=,
+  sha512:
+   SM4bG8frD1m0dE0Anwbz0l1nmrQNS6QlrGi3yalY8kGwisZpEEZRj0BgeyGFMgHieJWDJcDYLQSTc1Pa0u5LZg==:
+   92CXVhttNj9bHRgYx789yN+d/DTFuGpnP2qIxb3jN7iY0GjVbe9meaKXNDbrYPQQYGlcGp8nckKOC8eKUh6CPQ==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1795377135; x=1795981935; i=markus.elfring@web.de;
+	bh=DxJ/XoENpsoa0BG0OwfPHHeMkEO45OcTsZupEqdYCwM=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:From:Subject:
+	 Cc:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=kvd2dt1o8YFP/2gAYgDEL4YlKDF+RHjm+CV5QRn6lw1uQQQ8UdFCVmpBDUNrpnze
+	 Bv6ch1J5PvBFnsq80MW95fAlLofrlSMzBnQEKOnhj/ogpcuRcihNgOM+s8x2trd7z
+	 AkPNZtUDBFSRgXL0D+WZpMzsCLiyoWIAr2bgikyfyhRC67aYmIjt8N8fpAdl9G7KG
+	 TtDVZE5pSV3m08i59FU/b5qlFOK8kfg/lEvh305rZmMpxtxx6h411usDvFeToQb8K
+	 bnlzgpVrSW8sVW7aj2Mf6KrhA11tqi0/7MqmlGwCJZ26e///0bYmYjsZfv+a7O+SK
+	 NeVUbVpHmTjlP6eeqQ==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MJnrX-1xogGU14cD-00KsoG; Sun, 22
+ Nov 2026 20:52:15 +0100
+Message-ID: <f691bbaa-ddb5-45bf-8f85-fcf354a6af03@web.de>
+Date: Sun, 22 Nov 2026 20:52:11 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,277 +79,211 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122170551.19582-1-astellman@stellman-greene.com> <59e93766-fb4f-43de-a721-4ad544264730@linux.dev>
-In-Reply-To: <59e93766-fb4f-43de-a721-4ad544264730@linux.dev>
-From: Andrew Stellman <astellman@stellman-greene.com>
-Date: Sun, 22 Nov 2026 14:51:26 -0500
-X-Gm-Features: Aa3M54pQc2CB7HhHmMEOt-TFLHlsf7C7CKHbgquXo_9zTp30T--7jRS6F5FN8MI
-Message-ID: <CAChPuV9vPzV8k4SR-nn4O6N3Ld4g0uxA4qdahDUhJxZWnzNn7Q@mail.gmail.com>
-Subject: Re: [PATCH rdma-next v2] RDMA/rxe: Require a responder resource for FLUSH
-To: Zhu Yanjun <yanjun.zhu@linux.dev>
-Cc: Zhu Yanjun <zyjzyj2000@gmail.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
-	Leon Romanovsky <leon@kernel.org>, linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+To: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Bharat Kumar Gogada <bharat.kumar.gogada@xilinx.com>,
+ Bjorn Helgaas <bhelgaas@google.com>, Hyun Kwon <hyun.kwon@xilinx.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Michal Simek
+ <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
+ Sean Anderson <sean.anderson@linux.dev>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+Subject: [PATCH] PCI: xilinx-nwl: Use devm_clk_get_enabled() in
+ nwl_pcie_probe()
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+ Florian Fainelli <f.fainelli@gmail.com>, Frank Li <Frank.Li@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:so1GHCFBbuTUuC6TUJEMAci0TR+yKBhHP6oWeOsI2tWY0AG5PaU
+ lPMJcaa7TxQvkzdVk/darvg+U6RS/y6ExjWVmVzLsr+VUiMm36xD0AeAvZmUIv5BwlAVTr3
+ 7m8lwEBUx+V8E6EazR7npXTjFEMCYXbhtDPWeT5sDvpciL1mg79qAFLaLazuOUm3KtCuMdb
+ 4eyaHQdAZpCdqD9SbhvTQ==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:POx5QCjNJB0=;8HGCU+pn6/uS4d9e+2ECQT5uil7
+ 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
+ Xf/X7CKrR2zwf6ULhdQc0zlsIgqMmilU=
 
-Hi Zhu,
+From: Markus Elfring <elfring@users.sourceforge.net>
+Date: Sun, 22 Nov 2026 20:35:35 +0100
 
-Thanks for looking at it.
+* Reuse existing functionality from devm_clk_get_enabled() instead of
+  keeping duplicate source code.
 
-> (1) RXE_FLUSH_MASK takes the same error/NAK path here without later
-> responder states assuming a valid qp->resp.res or non-ZERO_SIZE_PTR
-> qp->resp.resources, and
+* Omit a clk_disable_unprepare() call on an error handling path
+  and in the implementation of the function =E2=80=9Cnwl_pcie_remove=E2=80=
+=9D.
 
-Yes. With the change, check_resource() returns
-RESPST_ERR_TOO_MANY_RDMA_ATM_REQ for a FLUSH, the same state READ and
-ATOMIC use. That state calls do_class_ac_error() and moves to
-RESPST_COMPLETE and then acknowledge(), which sends the NAK because
-aeth_syndrome is set. None of those read qp->resp.res or
-qp->resp.resources, and process_flush() and rxe_prepare_res() are not
-reached. A retransmitted FLUSH goes to duplicate_request(), where
-find_resource() loops over max_dest_rd_atomic entries, so with 0 it
-returns NULL and the packet is dropped without touching the array.
+* Delete the label =E2=80=9Cerr_clk=E2=80=9D.
 
-In the QEMU test with the fix, the requester's FLUSH completed with
-status 9 (IB_WC_REM_INV_REQ_ERR), and the test program then exited
-normally (closing its QPs) with no oops or warning. Without the fix,
-closing the QP hit the __rxe_cleanup() timeout warning and hung.
+This issue was detected by using the Coccinelle software.
 
-> (2) no other RXE_READ_OR_ATOMIC_MASK / RXE_ATOMIC_WRITE_MASK checks in
-> rxe_resp.c for max_dest_rd_atomic or responder resources missed
-> RXE_FLUSH_MASK.
+Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+=2D--
+ drivers/pci/controller/pcie-xilinx-nwl.c | 13 ++-----------
+ 1 file changed, 2 insertions(+), 11 deletions(-)
 
-check_resource() is the only place in rxe_resp.c that checks those
-masks against max_dest_rd_atomic. The other places that test them
-(check_op_valid(), rxe_resp_check_length(), execute() and
-acknowledge()) already handle RXE_FLUSH_MASK, and the only users of
-qp->resp.resources are rxe_prepare_res() and find_resource().
+diff --git a/drivers/pci/controller/pcie-xilinx-nwl.c b/drivers/pci/contro=
+ller/pcie-xilinx-nwl.c
+index 0dee19fa24ca..fd134317e9c4 100644
+=2D-- a/drivers/pci/controller/pcie-xilinx-nwl.c
++++ b/drivers/pci/controller/pcie-xilinx-nwl.c
+@@ -844,20 +844,14 @@ static int nwl_pcie_probe(struct platform_device *pd=
+ev)
+ 		return err;
+ 	}
+=20
+-	pcie->clk =3D devm_clk_get(dev, NULL);
++	pcie->clk =3D devm_clk_get_enabled(dev, NULL);
+ 	if (IS_ERR(pcie->clk))
+ 		return PTR_ERR(pcie->clk);
+=20
+-	err =3D clk_prepare_enable(pcie->clk);
+-	if (err) {
+-		dev_err(dev, "can't enable PCIe ref clock\n");
+-		return err;
+-	}
+-
+ 	err =3D nwl_pcie_phy_enable(pcie);
+ 	if (err) {
+ 		dev_err(dev, "could not enable PHYs\n");
+-		goto err_clk;
++		return err;
+ 	}
+=20
+ 	err =3D nwl_pcie_bridge_init(pcie);
+@@ -889,8 +883,6 @@ static int nwl_pcie_probe(struct platform_device *pdev=
+)
+=20
+ err_phy:
+ 	nwl_pcie_phy_disable(pcie);
+-err_clk:
+-	clk_disable_unprepare(pcie->clk);
+ 	return err;
+ }
+=20
+@@ -899,7 +891,6 @@ static void nwl_pcie_remove(struct platform_device *pd=
+ev)
+ 	struct nwl_pcie *pcie =3D platform_get_drvdata(pdev);
+=20
+ 	nwl_pcie_phy_disable(pcie);
+-	clk_disable_unprepare(pcie->clk);
+ }
+=20
+ static struct platform_driver nwl_pcie_driver =3D {
+=2D-=20
+2.56.1
 
-Andrew
-
-
-On Sun, Nov 22, 2026 at 2:42=E2=80=AFPM Zhu Yanjun <yanjun.zhu@linux.dev> w=
-rote:
->
-> =E5=9C=A8 2026/11/22 9:05, Andrew Stellman =E5=86=99=E9=81=93:
-> > process_flush() keeps its state in a responder resource from
-> > rxe_prepare_res(), as READ and ATOMIC requests do. check_resource()
-> > refuses those requests when max_dest_rd_atomic is 0, but it does not
-> > check FLUSH. With max_dest_rd_atomic 0, qp->resp.resources is
-> > ZERO_SIZE_PTR, and rxe_prepare_res() writes through it in
-> > free_rd_atomic_resource().
-> >
-> > A FLUSH sent to an RC QP with max_dest_rd_atomic 0 oopses the
-> > responder:
-> >
-> >    Oops: general protection fault, probably for non-canonical address 0=
-xdffffc0000000002: 0000 [#1] SMP KASAN NOPTI
-> >    KASAN: null-ptr-deref in range [0x0000000000000010-0x000000000000001=
-7]
-> >    CPU: 0 UID: 0 PID: 13 Comm: kworker/u8:0 Not tainted 7.4.0-rc3-gaebb=
-72744764 #1 PREEMPT(lazy)
-> >    Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix=
-, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-> >    Workqueue: rxe_wq do_work
-> >    RIP: 0010:free_rd_atomic_resource+0x15/0x50
-> >    Code: 00 00 00 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90=
- 0f 1f 40 d6 48 b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 <0f> b6 04 =
-02 84 c0 74 04 3c 03 7e 0b c7 07 00 00 00 00 c3 cc cc cc
-> >    RSP: 0018:ff110000013479f8 EFLAGS: 00000202
-> >    RAX: dffffc0000000000 RBX: 0000000000000010 RCX: ff110000059f9760
-> >    RDX: 0000000000000002 RSI: 0000000000000000 RDI: 0000000000000010
-> >    RBP: 0000000000000001 R08: ff110000024a2180 R09: ffe21c0000268f2c
-> >    R10: 0000000000000003 R11: ff110000059f9298 R12: ff1100000592dc00
-> >    R13: 0000000000000040 R14: ff110000059f9000 R15: ff110000024a2168
-> >    FS:  0000000000000000(0000) GS:ff110000e18da000(0000) knlGS:00000000=
-00000000
-> >    CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-> >    CR2: dffffc0000000002 CR3: 00000000052ca000 CR4: 0000000000751ef0
-> >    PKRU: 55555554
-> >    Call Trace:
-> >     <TASK>
-> >     rxe_receiver+0x5f6e/0x9a20
-> >     ? flush_workqueue_prep_pwqs+0x1a4/0xe80
-> >     ? kthread+0x2b0/0x3b0
-> >     ? __pfx_rxe_receiver+0x10/0x10
-> >     ? update_cfs_rq_load_avg+0x5a/0x560
-> >     ? pick_task_fair+0x468/0x1a60
-> >     ? __pfx_rxe_receiver+0x10/0x10
-> >     ? _raw_spin_lock_irqsave+0x86/0xe0
-> >     ? __pfx_rxe_receiver+0x10/0x10
-> >     do_work+0x144/0x470
-> >     process_one_work+0x6fc/0x1180
-> >     ? __pfx___schedule+0x10/0x10
-> >     ? __pfx_process_one_work+0x10/0x10
-> >     ? _raw_spin_lock_irq+0x81/0xe0
-> >     ? __pfx_do_work+0x10/0x10
-> >     ? assign_work+0x11d/0x410
-> >     worker_thread+0x45b/0xd10
-> >     ? __pfx_worker_thread+0x10/0x10
-> >     kthread+0x2c8/0x3b0
-> >     ? recalc_sigpending+0x15c/0x1e0
-> >     ? __pfx_kthread+0x10/0x10
-> >     ret_from_fork+0x36e/0x5a0
-> >     ? __pfx_ret_from_fork+0x10/0x10
-> >     ? __switch_to+0x572/0xdc0
-> >     ? __switch_to_asm+0x33/0x70
-> >     ? __pfx_kthread+0x10/0x10
-> >     ret_from_fork_asm+0x1a/0x30
-> >     </TASK>
-> >    Modules linked in:
-> >    ---[ end trace 0000000000000000 ]---
-> >    RIP: 0010:free_rd_atomic_resource+0x15/0x50
-> >    Code: 00 00 00 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90=
- 0f 1f 40 d6 48 b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 <0f> b6 04 =
-02 84 c0 74 04 3c 03 7e 0b c7 07 00 00 00 00 c3 cc cc cc
-> >    RSP: 0018:ff110000013479f8 EFLAGS: 00000202
-> >    RAX: dffffc0000000000 RBX: 0000000000000010 RCX: ff110000059f9760
-> >    RDX: 0000000000000002 RSI: 0000000000000000 RDI: 0000000000000010
-> >    RBP: 0000000000000001 R08: ff110000024a2180 R09: ffe21c0000268f2c
-> >    R10: 0000000000000003 R11: ff110000059f9298 R12: ff1100000592dc00
-> >    R13: 0000000000000040 R14: ff110000059f9000 R15: ff110000024a2168
-> >    FS:  0000000000000000(0000) GS:ff110000e18da000(0000) knlGS:00000000=
-00000000
-> >    CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-> >    CR2: dffffc0000000002 CR3: 00000000052ca000 CR4: 0000000000751ef0
-> >    PKRU: 55555554
-> >
-> >    ------------[ cut here ]------------
-> >    WARNING: drivers/infiniband/sw/rxe/rxe_pool.c:212 at __rxe_cleanup+0=
-x21b/0x290, CPU#0: t028/87
-> >    Modules linked in:
-> >    CPU: 0 UID: 0 PID: 87 Comm: t028 Tainted: G      D             7.4.0=
--rc3-gaebb72744764 #1 PREEMPT(lazy)
-> >    Tainted: [D]=3DDIE
-> >    Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix=
-, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-> >    RIP: 0010:__rxe_cleanup+0x21b/0x290
-> >    Code: f7 fe ff ff 4c 89 e7 e8 43 99 ad fd 84 c0 0f 85 6f ff ff ff be=
- 50 c3 00 00 4c 89 e7 e8 9e 22 f3 00 85 c0 0f 85 5a ff ff ff 90 <0f> 0b 90 =
-eb 04 90 0f 0b 90 bd 92 ff ff ff e9 48 ff ff ff 90 0f 0b
-> >    RSP: 0018:ff110000053f78f8 EFLAGS: 00000246
-> >    RAX: 0000000000000000 RBX: ff110000059f9160 RCX: ffe21c0000a7ef08
-> >    RDX: 0000000000000000 RSI: ff110000053f7860 RDI: ff110000059f9190
-> >    RBP: 0000000000000001 R08: 0000000000000001 R09: ffe21c0000a7eef5
-> >    R10: 0000000000000003 R11: ffffffff89c14700 R12: ff110000059f9188
-> >    R13: ff110000059f9170 R14: ff11000004794ea0 R15: 1fe2200000a7ef1f
-> >    FS:  0000000000000000(0000) GS:ff110000e18da000(0000) knlGS:00000000=
-00000000
-> >    CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-> >    CR2: dffffc0000000002 CR3: 000000001b872000 CR4: 0000000000751ef0
-> >    PKRU: 55555554
-> >    Call Trace:
-> >     <TASK>
-> >     ? __pfx___rxe_cleanup+0x10/0x10
-> >     ? rxe_qp_chk_destroy+0x61/0xc0
-> >     rxe_destroy_qp+0x2f/0x180
-> >     ib_destroy_qp_user+0x30f/0x4f0
-> >     ? __pfx_ib_destroy_qp_user+0x10/0x10
-> >     ? stack_trace_save+0x8e/0xc0
-> >     uverbs_free_qp+0x7c/0x150
-> >     ? put_files_struct+0x181/0x310
-> >     destroy_hw_idr_uobject+0x7e/0x130
-> >     ? entry_SYSCALL_64_after_hwframe+0x77/0x7f
-> >     uverbs_destroy_uobject+0xdf/0x770
-> >     __uverbs_cleanup_ufile+0x18b/0x390
-> >     ? __pfx___uverbs_cleanup_ufile+0x10/0x10
-> >     ? __pfx_down_write+0x10/0x10
-> >     uverbs_destroy_ufile_hw+0x6d/0x260
-> >     ib_uverbs_close+0x46/0x270
-> >     __fput+0x2f8/0x9e0
-> >     fput_close_sync+0xe2/0x190
-> >     ? __pfx_fput_close_sync+0x10/0x10
-> >     filp_close_sync+0x18/0x30
-> >     put_files_struct+0x181/0x310
-> >     do_exit+0x6ab/0x25f0
-> >     ? __pfx_do_exit+0x10/0x10
-> >     ? zap_other_threads+0xb9/0x300
-> >     ? __pfx_zap_other_threads+0x10/0x10
-> >     ? handle_mm_fault+0x13d/0x420
-> >     do_group_exit+0xab/0x220
-> >     __x64_sys_exit_group+0x39/0x40
-> >     x64_sys_call+0x1962/0x1970
-> >     do_syscall_64+0xdf/0x4c0
-> >     entry_SYSCALL_64_after_hwframe+0x77/0x7f
-> >    RIP: 0033:0x7f34f928a21d
-> >    Code: Unable to access opcode bytes at 0x7f34f928a1f3.
-> >    RSP: 002b:00007ffeed584088 EFLAGS: 00000202 ORIG_RAX: 00000000000000=
-e7
-> >    RAX: ffffffffffffffda RBX: 00007f34f93a0fa8 RCX: 00007f34f928a21d
-> >    RDX: 00000000000000e7 RSI: ffffffffffffff88 RDI: 0000000000000000
-> >    RBP: 00007ffeed5840e0 R08: 00007ffeed584030 R09: 0000000000000000
-> >    R10: 000055d8b71c93e0 R11: 0000000000000202 R12: 0000000000000001
-> >    R13: 0000000000000000 R14: 0000000000000000 R15: 00007f34f93a0fc0
-> >     </TASK>
-> >    ---[ end trace 0000000000000000 ]---
-> >
-> > The responder task dies, and when the test exits, destroying the QP
-> > warns on a timeout in __rxe_cleanup() (the WARNING above) and then
-> > hangs.
-> >
-> > Add RXE_FLUSH_MASK to the check, so a FLUSH gets the same Invalid
-> > Request NAK a READ would, and the requester sees IB_WC_REM_INV_REQ_ERR.
-> >
-> > The issue was found by Claude Opus 5.5 running Quality Playbook, an
-> > LLM-driven code review tool:
-> > https://github.com/andrewstellman/quality-playbook
-> > The fix and this changelog were drafted with Claude Opus 5.5 and
-> > reviewed by me.
-> >
-> > Fixes: ea1bb00ee9a5 ("RDMA/rxe: Implement flush execution in responder =
-side")
-> > Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
-> > ---
-> >
-> > v2: the full kernel log of the oops and the later WARNING, as Leon
-> > asked (timestamps removed). The code change is the same as v1.
-> > v1: https://lore.kernel.org/r/20261119151332.95466-1-astellman@stellman=
--greene.com
-> >
-> > Tested in QEMU with KASAN on v7.4-rc3, and on v7.4-rc3 with the RDMA
-> > code from rdma for-next (7404c82cbf12). The reproducer is a short
-> > libibverbs program; I can send it off-list.
-> >
-> >   drivers/infiniband/sw/rxe/rxe_resp.c | 3 ++-
-> >   1 file changed, 2 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/infiniband/sw/rxe/rxe_resp.c b/drivers/infiniband/=
-sw/rxe/rxe_resp.c
-> > index 1b7f31737225..38b5b0c2abe3 100644
-> > --- a/drivers/infiniband/sw/rxe/rxe_resp.c
-> > +++ b/drivers/infiniband/sw/rxe/rxe_resp.c
-> > @@ -340,7 +340,8 @@ static enum resp_states check_resource(struct rxe_q=
-p *qp,
-> >   {
-> >       struct rxe_srq *srq =3D qp->srq;
-> >
-> > -     if (pkt->mask & (RXE_READ_OR_ATOMIC_MASK | RXE_ATOMIC_WRITE_MASK)=
-) {
-> > +     if (pkt->mask & (RXE_READ_OR_ATOMIC_MASK | RXE_ATOMIC_WRITE_MASK =
-|
-> > +                      RXE_FLUSH_MASK)) {
->
-> This looks sensible to me=E2=80=94adding RXE_FLUSH_MASK here avoids
-> rxe_prepare_res() / free_rd_atomic_resource() touching ZERO_SIZE_PTR
-> when max_dest_rd_atomic =3D=3D 0 and returns the expected Invalid Request=
- NAK.
->
-> Just worth confirming:
-> (1) RXE_FLUSH_MASK takes the same error/NAK path here without later
-> responder states assuming a valid qp->resp.res or non-ZERO_SIZE_PTR
-> qp->resp.resources, and
->
-> (2) no other RXE_READ_OR_ATOMIC_MASK / RXE_ATOMIC_WRITE_MASK checks in
-> rxe_resp.c for max_dest_rd_atomic or responder resources missed
-> RXE_FLUSH_MASK.
->
-> Thanks a lot.
->
-> Zhu Yanjun
->
-> >               /* it is the requesters job to not send
-> >                * too many read/atomic ops, we just
-> >                * recycle the responder resource queue
-> >
-> > base-commit: 7404c82cbf1246e0e84e2ec21834d23c26f9a8ed
->
