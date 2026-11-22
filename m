@@ -1,61 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795375014;
-	b=j2D8SLSRHB+ykrGNPwwdxyYP6z97JYAy4WlCEokilaaZJaLmJ0bD4y+Ij+ao5yRAajAH
-	 BbculGZopVD8bdhkprnCInroot4o4PxprvQnNiLArBZkgu3j+tq2A3P494KKg3mhi0MOC
-	 Qh+vYWxm6P9gCcx8sEOh8Ux1dh0kK/Fuu01HbxuOr7NR2aeCNbUIuJjOGJcF0A/d3xU0G
-	 KVA5O+pCEO8yXpL6TFavIZkAXd6STHeA/YdbwU2pG3/5m7aQqVU6hqq8P5iUJRwUZvr8z
-	 FdornpWbN/ixlx859nDxqmJEFTfkukOt0LJMz6urpvcAs3x9GcG44ogW+q9cT2HVwFA==
+	t=1795375126;
+	b=4s+B50TYNTH2DZs/6re4zPSpLbKmlPASoUR6rgQjUN9YvhZBIB66okdrNM7Rp4ToD+cR
+	 09mzhDJPeeHsvI0mhCWnyKfWEV4j2pFc/6gcppi3dkANgD3+emOMIlxrFiJGxDRDx3L0Y
+	 ZIiNXCUANoawDQtr7eAAywxWq9fg2ttAOOOu3YUiqOC3PP4BrKu9e8B7/Gi2GBrG35VoC
+	 SlZV2igM2fPqlwlcN6JvCjexrAnnNLRfrNI35QEspkZr6qItZrmGp5gtpkaQVoCHkwndE
+	 7kHTeSuxNICNeOCljhLKCfEw4v0MgukiCfSrPRLTbsLkuQYEnUkPHVBcOnegT3atsUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795375014;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=uSoTt+TxpepghCj1j5m2W66DMLP6FbjOrMJ/a3Zmg+E=;
-	b=zfc3HRYV6e7MKppkGz88YmVj7wrrJtcreyy5BUqayKnhyHpGFoYQCdMB8FTX8adebpms
-	 TAwe0jHE292dtQ8psx0k8X6gjNRegbum3NmL98TkTo7qO6AdLtoeYZSw+wMQslHgzbnmz
-	 TZz1NmdB+YgnEzYWEBtARADC/AQMCTeW21WQ6k+BD2KuPSiAoKf2BtnmLS/RQJyGnqu1B
-	 Z83uTvdlkN66O9O6rGZBUEOf8x6uOONwI0q00ekT2DlYFcBLOzQa8cVlkIMAV4lJB5zxP
-	 uPayG5mgT2b478uOfW6m9UiBzUBz5qkCTfETWHi5PvA1eKYPRYU0ZEGIvjtk8zJkmKw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795375126;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=+Uqhop9ybLEnfZjiktNvan2dFW98Stkgcu+CDpZ9vF0=;
+	b=wHiAJC9uLWk9iK5mszbyWHhFotBvnI+MtfGXHFzFLj929+paK7UFOybf8lfXewZUyAzY
+	 JE/45Y3BRfPOBc+kGmLb7rI7ihGAlbLth6kqSxhN/5E1jol5ODdsm6R0+FZoaUcjAuALS
+	 OVwfuRQJvmpKQlZXCT+UlFJWTGq8ifZlCgdPzwWe5Z2ruvl01nLq2oH6Ij7uAtMqF856E
+	 wmpQe2EAtmC4WzQZ698FlZBT4Gb3KGWn4Txr8br930R508+QKT3U82I1/szo2wepiAUvo
+	 QOayXD/mZamo5JVSIUB9E5gCqKuMBRZ7Qh5+8a5tEQ97OJKvPRHz/hS5Rdc1C8Rl/Dw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gFeQzdky;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kTMlfTU8;
+	arc=none smtp.remote-ip=209.85.128.50
+Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65DAB606A31D;
-	Sun, 22 Nov 2026 19:16:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20A1C606A31A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 19:18:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20A1C606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gFeQzdky
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A7DB1F000C6;
-	Sun, 22 Nov 2026 19:16:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795375014;
-	bh=uSoTt+TxpepghCj1j5m2W66DMLP6FbjOrMJ/a3Zmg+E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gFeQzdkyIDBbad15Fyeby3tqqxBufjvttYjpWQGh7H4AL9MU1Eo+zuoDPuD5L43WC
-	 7HrKta1V831kK1+REbSUvGZxVxnoMFleoij6NrH25cJvoRvein+aChotT/UP0rZHDe
-	 UbN+44Z+NlhLDbeSaD3f/EYB6DEu2TQ8IZAhMCLfItx+sz17xkh3Rak5L0PdoT0lRQ
-	 xjgE66AWNs5+2mkldFMWuEGjJTkI/uDNr8ss0WbNvyLciXUOu+ZjgQ52jYL0MxVlnx
-	 Pa7BdUjzHeNdoa6O1rYfVF8vL+hwBCMAThWYKgQp9+IP8OLwMRWIwYaNm94rEiR+eY
-	 p5QYdUeqgSyZA==
-Date: Sun, 22 Nov 2026 19:16:50 +0000
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Ahmed Azeem <ahmed.azeem@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Divin Raj <divin.raj@arm.com>,
-	Bertrand Marquis <Bertrand.Marquis@arm.com>
-Subject: Re: [PATCH RFC 0/4] firmware: arm: Add Platform Fault Detection
- Interface support
-Message-ID: <20261122-memorable-electric-sawfish-ac9f11@sudeepholla>
-References: <20261119-topics-ahmaze01-upstream-pfdi-rfc-v1-0-4772d18b9115@arm.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kTMlfTU8
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb606491faso14108045e9.3
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:18:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795375124; x=1795979924; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=+Uqhop9ybLEnfZjiktNvan2dFW98Stkgcu+CDpZ9vF0=;
+        b=kTMlfTU8geprJcn3SJfoU8Olz/H633H5rA98cCtRissMONe5M8J3YEH/E5oj67UV+I
+         fLcqmahmop+FsUy6WJEPQ2fHZm0tckySeUiMtBaEDjJ9lXKNqJ2/b2e/egAn6p4g7L2w
+         6N7+IMRqEKxPJaDCAnNHiWEBk2RuIc4THzlLdlbNNTmoX/RynpxEboaweYHUdfkbwC6O
+         vSUwArT6PYJsO1NFckFoyECFS/ynxv1H1yyQQ/EN2dgjq3Up43KmiFRnGLBBfzLvZnFU
+         kv6mO+lpVd/S1w06eivjWMTLr01IllIOwEKyOJ+hXmrvPJVEqj2Z+AlBzTnK9gTvuB/Y
+         Bprg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795375124; x=1795979924;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+Uqhop9ybLEnfZjiktNvan2dFW98Stkgcu+CDpZ9vF0=;
+        b=jWKztvMEWrlOLobdiH7H1FGj/c6TacfAmBuTwtHJqKXj8+zWev2RK0b3g/Bdb2+ZDx
+         DFTXlBls81oYLK1zu8gVGvEoRJ5tlnUfnP+x1FxXde6RM4XhseFiDa7EpOYwQOrUsotP
+         PtZnIep+QagnK/ZAblKGTJ87GKNmFlaoAoq8v8gfFTIR3+Jk3Usn9HhcbvVk5DA4o0ea
+         diLbkmrXDhg/F74fxl0eis587FNr/b1oYBFMhTRJUFkFEZLFZ3WofLuwK9szsLw6GLSx
+         vzlStKF8WH0Rj6GvJ7k9HcLcGNPYFoWRcE7UuG2mEJklxC01H/bDCT6S5WvqaTluhSvZ
+         wBYg==
+X-Forwarded-Encrypted: i=1; AL+hErGk1ZYfhoIMxUWq++ChgXs7L9xmjUq69bFvVuQIwwSU+ToaYtcqTtcwhXXR+/bncdtpoSvyU3rbMUhA33Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+1LFb/7w9a11nn1heZxI6pCsRaOv0v1WuShAwFWKPbId5x/VIg
+	KlfbJaCKb9DfxNTfy0g17SCPdCzCJPW+LNh0Bz7yEpT+2TVIreVo23ZU
+X-Gm-Gg: AZFdTZdPiaw9AQp7Q6EtUzSQYmDMybf99ZiSJ38SOEpnVYnqpeZ9Jx4dL8/v7H+J2GF
+	LXmrjzuE/EV63lybDJTsvfiP42dKQ17oFg5x6JuNKeT/I5g9Pw2jrpzV/3RRdL0LCsYjN5YqB1f
+	rFeqpf/Lq2kW5Ja8q93cnqeHarrfgzThPp6YhiNyw/2g+kDlo2Ja3Tp7hTPosIKLi8hLx6WELvg
+	tQkdlSJaUbANDZ8KzL+J0A/tJgEOXw7PPPcNMa04G1RUTs2yTuBMQHy+EqZLRp42BHDj5DhNd3H
+	CWimsSoKNBqz84wnqB/73cui5df9rzYv/b/4JiO5IOhbFm7I0d4HBSN7GOedl2C85qctca3YqT7
+	kM+phPmL5V1mRFnDknNWkzYYkC6XjD3PT0d23ozicwV5yHdPQq7NwdDAL9iO43kjvmngcLIEx/j
+	wEz1B9RSPmSm0McD8cRDGTkOo04PaLa7XCL3EPSjSYLQqXXGAiiEttowC9P0ddjAbAkKTaVoDJn
+	0tFsZaWQY3cRjfA8dqEFVkqeGvi3XEVBie0919Ik9QRu4JAb8AcvKchTFc4GjrvG1RMxh1G/50X
+	rbgUtG39DtlnGiyZho+MXmDL0hQiVd0LMaA9NSpWj22H
+X-Received: by 2002:a05:600c:4e0d:b0:4a5:e6fd:65e5 with SMTP id 5b1f17b1804b1-4bb88922a67mr196302675e9.31.1795375124413;
+        Sun, 22 Nov 2026 11:18:44 -0800 (PST)
+Received: from cachyos-x8664.aetlocal ([2001:bb6:e78e:9100:cdb3:c7ee:74a4:5189])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf62f7sm19437148f8f.13.2026.11.22.11.18.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 11:18:44 -0800 (PST)
+From: Mervyn Pretorius <mervynpretorius.oss@gmail.com>
+To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Min Lin <linmin@eswincomputing.com>,
+	Yulin Lu <luyulin@eswincomputing.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Darshan Prajapati <darshan.prajapati@einfochips.com>,
+	Pritesh Patel <pritesh.patel@einfochips.com>
+Subject: Re: [PATCH v5 0/7] riscv: eswin: eic7700: Add support for clocks, resets, pinctrl, HSP bus, I2C and watchdog
+Date: Sun, 22 Nov 2026 19:18:42 +0000
+Message-ID: <20261122191842.2183685-1-mervynpretorius.oss@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261015125454.1381941-1-pinkesh.vaghela@einfochips.com>
+References: <20261015125454.1381941-1-pinkesh.vaghela@einfochips.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,97 +114,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261119-topics-ahmaze01-upstream-pfdi-rfc-v1-0-4772d18b9115@arm.com>
 
-On Thu, Nov 19, 2026 at 03:36:02PM +0000, Ahmed Azeem wrote:
-> Hi all,
-> 
-> This series proposes an arm64 driver for the Arm Platform Fault
-> Detection
-> Interface (PFDI), providing a common Linux interface for privileged
-> userspace to discover and invoke firmware diagnostics.
->
+Hi,
 
-I reviewed the PFDI (Platform Fault Detection Interface) specification
-and found some issues that needs to be addressed. In general, this spec
-is not on par with other Arm SMCCC based firmware interface specifications.
-Many of these issues should have been identified as part of reviews before
-the beta release and should also been raised by the team that prototyped
-or wrote this driver. I threw my review comments at AI and got them
-refactored as below. Hope it helps.
+I tried this series on a DeepComputing DC-ROMA RISC-V Mainboard II
+(FML13V03). It uses an EIC7702X, i.e. two EIC7700X dies, with 32 GiB.
 
-1. State Preservation & Calling Conventions
- - Make state preservation a conformance rule:
-   Move the expectation that firmware saves and restores modified state
-   from descriptive usage text ($4.6.1) into a formal requirement ($4.6.3)
-   and cover it in compliance tests ($5.6).
- - In general the specification has mixed the terms platform and PE a lot.
-   It needs to define "system state" and failure behavior:
-   Specify exact architectural state (e.g., registers, SIMD/FP, SVE, SME)
-   covered by restoration, how it interacts/matches with SMCCC and PSCI
-   powerdown rules, and what happens when a test fails, encounters an
-   internal error, or triggers a system-level fault reaction.
- - Clarify calling conventions: Use "SMC/HVC" where both conduits apply
-   ($3.2), and explicitly mandate preserving x5–x17 within PFDI rather than
-   relying on unpinned SMCCC baseline versions. In one section HVC is allowed
-   while $3.2 just mentions SMC.
+Setup: v7.4-rc3 (4843f6873f7c) + this series + a minimal local board dts
+that includes eic7700.dtsi and eic7700-pinctrl.dtsi and describes die 0
+(4 of the 8 harts, uart0, the firmware reserved-memory regions). Boot
+chain: OpenSBI v1.3, U-Boot 2024.01, GRUB (EFI); the kernel takes its
+memory from the EFI memory map, so it also uses die 1's RAM. Initramfs
+only, no storage.
 
-2. Virtualisation, Isolation & PE Scope
+Config: defconfig + PINCTRL_EIC7700, DW_WATCHDOG and RISCV_SBI_V01 (the
+firmware's SBI is v1.0, so earlycon=sbi needs the legacy console call).
 
-- Tighten error-injection isolation:
-  Because PFDI_FORCE_ERROR leaves an error pending on a PE regardless
-  of software context, require hypervisors to prevent cross-VM or
-  cross-OS consumption during context switches or vCPU migration.
-  I don't fully understand that interface TBH.
-- Clarify guest PE identity: Reconcile the requirement for hypervisors
-  to forward an "originating PE ID" unmodified with the fact that PFDI
-  functions accept no PE ID parameter or clarify the requirement clearly.
-- Define PE vs. system scope per function: Clarify whether "PE" means
-  the executing CPU or a tested non-CPU resource, explain how drivers
-  target remote CPUs without a target-PE argument(assuming it needs to
-  run on that PE, and specify whether PFDI_FW_CHECK is PE-local or
-  platform-wide. In general, the term platform and PE are mixed in the
-  document which makes it hard to understand where the rules apply.
+With clk_ignore_unused, the non-I2C parts of this series probe cleanly:
+eic7700-clock, eic7700-reset, pinctrl-eic7700 (with a fixed 3.3 V vrgmii
+supply; no pinmux consumers yet), the four dw_wdt instances and the hsp
+simple-pm-bus. The console, interrupts, timer and SBI reboot work. I
+left the I2C controllers disabled, so patches 5/7 and 6/7 are only
+build-tested here, and for patch 3/7 none of the pinmux states in
+eic7700-pinctrl.dtsi were exercised. I'm therefore replying with
+Tested-by only to patches 1/7, 2/7, 4/7 and 7/7 rather than to this
+cover letter.
 
-3. Function IDs, Execution Timing & Indexing
+Without clk_ignore_unused, the board hangs during/after
+clk_disable_unused(). That looks like an issue in the already-merged
+drivers/clk/eswin/clk-eic7700.c rather than in this series (I don't
+have a single-die EIC7700X to see whether it is EIC7702X-specific), so
+I'm reporting it separately to linux-clk and the clock driver
+maintainers ("clk: eswin: eic7700: EIC7702X hangs when disabling unused
+D2D/PVT gates").
 
-- Correct SMCCC Function ID classification: Reclassify 0xC400_02D0 –
-  0xC400_02D7 from "vendor-defined" to the Standard Secure Service range
-  and confirm the assigned subrange. It was very confusing to read the
-  reference to vendor defined range.
-- Bound CPU occupancy time: Because PFDI uses synchronous SMCCC Fast
-  Calls without a timeout, cancellation mechanism, or runtime duration
-  query, define a maximum execution duration, permitted call contexts,
-  or a yielding/asynchronous mechanism so OS drivers (like Linux) can
-  be aware of CPU time doing this test.
- - Resolve test-part indexing and zero-count conflicts: Fix the off-by-one
-   discrepancy (0..test_count vs. test_count - 1), correct the
-   PFDI_PE_TEST_RESULT faulting index format (= 0 vs. general index),
-   and define behavior when test_count is zero (PFDI_RET_TEST_COUNT_ZERO
-   is currently unused).
+One build note on patch 6/7: eic7700.dtsi now references i2c0_pins ..
+i2c11_pins, which are defined in eic7700-pinctrl.dtsi. A board dts must
+therefore include eic7700-pinctrl.dtsi too (as the P550 dts does),
+otherwise dtc fails with:
 
-4. Error Injection Semantics, Compliance & Editorial Fixes
+  ERROR (phandle_references): /soc/i2c@50950000: Reference to non-existent node or label "i2c0_pins"
 
-- Align reset rules and restrict injected values: Add an explicit exception
-  allowing resets or firmware updates to clear pending injected errors
-  ($3.5 vs. $4.9), and restrict PFDI_FORCE_ERROR (x2) from accepting
-  zero or positive values alongside defining deployment/authorization
-  policies.
-- Resolve optionality contradictions: Clarify whether individual PEs
-  can implement a subset of PFDI functions ($3.4) or must implement
-  all mandatory functions ($5.1).
-- Missing"Security and Safety Considerations" chapter referenced in $1.5
+Is that intended, or should eic7700.dtsi include eic7700-pinctrl.dtsi
+itself (or the pinctrl-0 properties move to the board files) so that
+the SoC dtsi stays self-contained?
 
-> We are posting this series as an RFC to seek community feedback on both
-> the proposed Linux interface and the underlying firmware specification
-> before the specification is finalized. This series and its validation
-> use
-
-Specification needs more work IMO, so please get them addressed first.
-
--- 
-Regards,
-Sudeep
+Thanks,
+Mervyn Pretorius
