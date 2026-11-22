@@ -1,102 +1,142 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.43
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795347516;
-	b=S1xr8n5E7bp9lwDvUf+RZ+TpxNBPJxDAhcPrkwAzcF4uPP6hfDp9eNwFaFlr5CsvjpCg
-	 BM7P5LyVNmqhuxK2MbpwLF0dlSvvWl/jPSNxpep5SCBDrH8HSLHOWuxsyTP4SYSxTEI9H
-	 X+gjLbw8J+AN5gbvAb/5UYB24BTCJqGjkZUyBoC1n4l8HqxCJAfwYrfkEUDEYKg9zM+It
-	 1KRbyCjWOHUNJsHKntLoUSo4ce30Sv475mjgduGQvm3i423FjSfjb75VrDFHC1k5r0DMo
-	 KMSQDKUIcmdMIS7vdVuh6Y3Zp15IZoXPPKTKMvnKoGSD/QD6C7GyQA4pMwScBwzAteg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795347516;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.54
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795347541;
+	b=eSJT/y+HjV14ebl26Fo9RZowlSOqusIsic2UmDMVgIsa6u1TC2PJP8UHPyBMAiO2d+WY
+	 Uzoga5pryvrJ0lo426Uo/Ik0kiQU0gjNb2zBPH6zbe4fDuDo5j/CG78FppbAGuv90to8J
+	 ChZ1/AFWBwOJFdnHGpHqKtTlQVXRpbyqDPLcg6dVxRQTXH5Y2yMOAfXJuB8jV3bSeZopv
+	 FjgXA3uNMaiRe8tgsvpEorBV1EK20Tgm5kihO8iFaWOXzGaT/T0BomvI8C7jEU27GF1kH
+	 kXHIaDEEHaR5cz1/S/UPS2jOFUMNMb+mXSYZyjGzpN/OlqLsxmcfrgk0l4lp5Bb1wDw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795347541;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=YVm0atOhjR9nDOLlJ4gPFa6rcD+/4hLxU/xQnQlbIes=;
-	b=WkPuo/WnNAEZyMf4pQIpLCo1rjGlYEtqicYX+k59/efcljjyVGBqdURdXB2IKRDiB+Sp
-	 znvZ5cw0HdervbA3k5bMOyWhfP7FcZzU33+GORIaR++Xnxsrf9oQeSZHNJkChFFM8rSAK
-	 8RSXbU+pgPg/Csm5d27+3jWXccN0h3wZL2pI0XauDGqDDD5vXBsQIH6OEXjr0IsF6NOAF
-	 MPpOQuZQZ25XXF1U+CYXjmXiSLfIU7RAVcY8zmhs1GtbUhMwJyfDPCKsoxeb4NPtVykaY
-	 cyoVCjNJtkggONNlgOHo53S+HVSl5gWbKSsbq4aCxXJdlBz9Jpl4wIgQzFp+bm16abQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=9SL2nw3BljIJfL2BNxy4TtTwunpxe4OhPHoB+8Eji+8=;
+	b=io+g8yp8pH0E6uTWK9wG9MYj5+OK8X0oa2Jb8Q5byOc2yZ3Im0st0be4iZIYDtOZE4wq
+	 yv8JPjNGUeySCkglo2TQMb3F4nn4VfDtq2+YnBm2T5BsVDIo5gLHKco71sTltfYGKR8rA
+	 3Ein06zj4dpNW3ryvjmhJISkAtT8T90rgocT5IuBoa3YSVuyvFrKheyHTqVQQqoDTQRa4
+	 ikzLCud0a694LhHlHubV+fqjiTb+/lMA8zvkjAzcs8sFKfDV720PlFL9rbkq1Qi8rGGMf
+	 P+8RAFuS2Q7vsBxoGeEQyaQL9JlA9/HT48cpq3YIFbHG5RJHloLHWzXC6h/Ab4BzBfw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xHLwRXTv;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.43
-Received: from mail-lf1-f43.google.com (mail-lf1-f43.google.com [209.85.167.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xWH39Jbp;
+	arc=none smtp.remote-ip=74.125.82.54
+Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B1DE606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:38:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5B1DE606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5008606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:39:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5008606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xHLwRXTv
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5be3dd6f636so191242e87.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 03:38:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795347514; cv=none;
-        d=google.com; s=arc-20260327;
-        b=YAYSxJZEtfN7bWclzwBWaQARU+CSG4jLio34mlg9vqIRsAh8oek3pPHZ5i/zxp9+Ze
-         S0nLiK7+S2notr98D/Pgs9RzuNPmGnAeF8mXch/Vto/wAwbR3AniGWtylCv92nU/45pd
-         kEQIhR15HoE0HFBrJ2zLdrnyLGEu8qphZSILLvbNCGl4IAw1OJEyXaKb9pl3yNfOHs1E
-         EYGhYV/30bip8vGQbER2Phi1fpT45FH5jcpi9rZutQR5YZDk/melA/5oZwKTdp9pT14h
-         HfU4AVQo9e5y6C3pM5HJdPPqAzkkdOcQmGbIH01mbhm3SkATXU066nbFesbOC6nCmzOM
-         jCHQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=YVm0atOhjR9nDOLlJ4gPFa6rcD+/4hLxU/xQnQlbIes=;
-        fh=TzjZ2vYjDCFmljgEMA3SQox6xjop5eiG7Zml/ht4alo=;
-        b=qep0KnQzYh4qCc5yF+Ah4xQFeIGXfVRU1vGrO/BoQiJM96OFKSJ0J2O4nmGxazm9vl
-         xtWdsyxy2K0MsYykeS/0F2K/H+aViPNOsmzLkDBWF05NowinETdFQxJks4K4auQmMge5
-         XXyDXT8ngdZYphrcv1YG1bgwGHrRaL+tUvgJX9AKEQY5UB1BWIcqVgWKrgsfVVMX8S5U
-         vF/zyOOHkBoWDjdfq3U1kjchL4T5PX3tPPGislQdhM3kGdMKg9Cz2smhysWIxhjXvEft
-         Ietcf3zb8tGyJQgtPNSM5NK4PYyM1dqPfP7oRSDYVxjS9u1eO7tGfJ85V44sbKAi5jEF
-         Xwsw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xWH39Jbp
+Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-1a2af4c8d00so4262807c88.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 03:39:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795347514; x=1795952314; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1795347540; x=1795952340; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=YVm0atOhjR9nDOLlJ4gPFa6rcD+/4hLxU/xQnQlbIes=;
-        b=xHLwRXTvIHOPiGdyOWAJZFVHXZ2zx9COFpOESqj/4DrI4UR32A5Zd1mLYswGv75WZ4
-         nsZ4hYcHsCj4EfnxB3iaxLBSBkZ1VZBYmwH5S7Cq73q8HtBoCDQc1jiQvkYzTX+AGfRg
-         NnlAYleyKH3HGWTnph7hRYGbt5khCdOYTPo0kq+QI9jzCS1ACJlhjphZBlhukDCnVoRC
-         cWUTw77cC5R/+S9cvmguAITuS6HRxDofpAYoWWWoMr98EvtAAVSpiElztF5iOBmPdUGy
-         XpoQweGZXljH0GjAwvN4cg+iFcqOPrLJIKwcSUqSOUvci9zXjj562KDDIrdqwEQtrPKg
-         37Ng==
+        bh=9SL2nw3BljIJfL2BNxy4TtTwunpxe4OhPHoB+8Eji+8=;
+        b=xWH39JbpK+tCheqveo2u87AQgq0TnNUTvJnMZWpxRBFIlKxzsEJJc0OCsjeXDFd/Rt
+         8r2t45ifgCg8vHXxBmEn6LGP+C7AcPS13+4mRxdWPaBivAKml0DlftZOdDlin+l9bTCi
+         +SDVrJ5UL6FBmF0XE+CLbRFyWoYG7wFwdoIiNaxldrUJl5F0VzDOkTW8aInFIK0tjurH
+         dy77usrjTK1GFy1mCLsmeN2cOt2dLUoIQfbDibM6pAZ0jM/GyNTMRl9YBtHUBR0bqiSl
+         RnYS3kHMqPY4+j/rYH/gtt6AFODiGfwRIzD/ZBd/dX2PrbrHI0PO+IC/073wauJTK+zh
+         QLPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795347514; x=1795952314;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795347540; x=1795952340;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=YVm0atOhjR9nDOLlJ4gPFa6rcD+/4hLxU/xQnQlbIes=;
-        b=rp8pr8hOQcyEqtwbIWVi/wLy6pQ/+DTlUTCk5ndob7rbV9LQ7PARJtezPbyZowW3A+
-         oxIh8GcC3S9hJk5GiVq9AVpwWC0dMS9RLyN/eWn+qjHKjT8cUV4LkX66dgQUTq5hkf3b
-         mIKC98TuDMo0L4sBKjqn1d0cnXNtWIrTZR8qAaN/X70oCMljO3TErKupSqXjeaCHF3FA
-         xS95avOa4W/nT6vEBG9lBiHepy5qW6yEj5ERrLbGatbU1+/Eqv83jKqyxPiJoRIdSs8R
-         vsnyivv8qpWyFPuQWjDPeOIEf19T/49lSvOkEE8LarOyjQfwwUxzbvGiipIzVKez9LR0
-         uBzQ==
-X-Forwarded-Encrypted: i=1; AL+hErHhfomOr+a8cozDm95z4AiJ2HnqoogHu4ElCWcf6CwM6zPM68KOzM1HqLx1rSU1Eu32G7GXq8ilDfc9rU0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/UcY24ZY/v4tUnualLE5nlTcw5KmDJS+F8s1KwKcoJ5JPJbjM/
-	Z9IXT581iB+o3/ATEsw4n4cNnQX5tHLfHpJbaObJoiwn+tUKpU7BER+/SMZExaEustVjavlAkzU
-	fDi9AFmwnKdBWXE7qJyNnKNfGusq+H5g=
-X-Gm-Gg: AZFdTZfIEm9kWahX1PsbQq3a1OD8dV0J6kdjzGrSCu87CgAliPjEh/rDS/etJAu0niZ
-	mvLUtys/YGpbm3ShZQpIJYtznAv+L3LjbJMfEn2LmU0IV1IedNrG416PUFfFd9VFPkfzh7xpaim
-	Ij5TeRRkur4qch3AURMMhkiz4BO7/XNuTuyf2XVpqgSS4hO+Bb1gEIzFMo2rZI/XAcEJmlng3KR
-	UxP2Hns7+5qOtLXhjg2+5bzaJEYvU3eh1+hg6YBz74xEkc+Fe3gKriybFpeRH1PDH6+I4jlw6X7
-	2jDB9FZr00aSd5uE6u0ABtM4EN72YAezj1GTgQOM76HBgEhzoiQhjWQahKhp4D5nW447hnvoTGn
-	1tWOj2PXdgNE61v5H6fTAkvyh7TBXwmnbziYpW7G9acmIYtEqe1WiwmCD7Fjt9R4G6Eb8/d3wwl
-	vwiQ9BOUKCZY22N/ybocF8c1F6bxCPAgQi2mVgiYOISoH1tLBxmxGcwG9aojCgSmEnGBd6q0tPT
-	rUFcDNHWZfPj0PPc/c4VJIQ6QFqfJDK1XoOLkTTNuDML3dU55+HnYXMKoc+gp4UgBKwyusD
-X-Received: by 2002:a05:6512:31c3:b0:5bf:e6a1:3115 with SMTP id
- 2adb3069b0e04-5c1bc76a33fmr3371052e87.2.1795347514504; Sun, 22 Nov 2026
- 03:38:34 -0800 (PST)
+        bh=9SL2nw3BljIJfL2BNxy4TtTwunpxe4OhPHoB+8Eji+8=;
+        b=087wwVMVrxEsOBIv5GEL6nb4kLy51jMZV4Q3Eq4y+nb5TwCJrbu0VxxsQbh09wmcHe
+         jCZ2CtE0zoFOJd2HF59oZKvTg+sLpbyFlZcIjlFBMR8mmJF+91RgqYZuSPXAN/uCEqfu
+         KDOqyh/shQy8Vhq6zS4q7jKKG/FqSQqjZn5T8c6jTmeB9MxlIDQG/qEvTXuIunQOBs2H
+         ZYFP29L6d/zJtLSJrVzn/ckCQKMmnLEtJfCDs1dKHmYRIVmeJ8s8JbnMgBmoFhsdkezy
+         +umZGxuHncs+LiXJpvmlL+PzyK71b5YLMEfyCTcNm31XsUFsL/j48g1xQw9+8QagllZ4
+         qbpw==
+X-Forwarded-Encrypted: i=1; AL+hErGMDimhY8+usS3h/EPa4LpT1cSmUKm33cAeD+ZbFPU2YZKtdCVzDz6/5OS1AeFLjSjfyqX1QPtsfdC+YbQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ntBTZ930BDUb8pOcJxn2aeLldqlEu1vw7sgZ5IaLRoHSovHJN
+	lIZqxoeQgPa/rHDlDuxsyMiUvwVo++gIgxvQ7vUcqERbV6+RJwIkZbaw
+X-Gm-Gg: AZFdTZfRRoO8ZLmcGIQkH7jFuHPF8//LnOGyRtkGhLm9v9d+3rqYMTEm++Mr/PC4ds4
+	73JAwk4zaGhbBUORcZwhEO2hZJgc6VBntJm1W+oYBdqOuMMFGDL7hGRhXs3SBsaCLNaQajLsZO2
+	VD2wQcoekTiN8rnJqSLOR0csLzVTthOfo2W6u2x7FZUB+1tG8kfdFrDOr4uWvQhqxyGCv+tgUI/
+	XlVak1mucz60+Dn0b8FodQ45xB2Rc/MyMtKnoVGE7enpmy4RsIbtxNL4uuvFflO/7LOnTmawYoR
+	8Ok3RAL+Gyd+xHvI6yne+Kwl6gE6bONyBDOzhsO4hIsJmFz6FRyPRnDmErnaXlGRwubRTGgr4MV
+	TFxGCunHbLNpxrg7zrllj6373O+x+sxNRrqPwUGxky659+wez9cyLAJZ1bb2EwvbKzPjPv2sALl
+	YGki1U39ExUtjnP2INXkpcu2Wwq6uU+xc2ImYAEmgdTHC6A0hwW8FfU1ewUtefbtNGg6lOm9NUU
+	XfgfXa/iJN8q2c69RALDjS+16HYDPP3SAhABREpV9hyjhXlqQqAy1WGeHVqikcDm/ltGRxERTlh
+	I2mqusRIMm4cnAdHWCHiq18Ef257OVs2lMeV8KIYyOHN68iAUq9N8mKaXoajVvnhLryI
+X-Received: by 2002:a05:7022:f509:b0:1b3:ad88:b9c5 with SMTP id a92af1059eb24-1b5568b7e07mr8368775c88.24.1795347539687;
+        Sun, 22 Nov 2026 03:38:59 -0800 (PST)
+Received: from localhost.localdomain (vmi2317719.contaboserver.net. [84.247.152.64])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aaae4960sm3717851eec.18.2026.11.22.03.38.45
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 22 Nov 2026 03:38:59 -0800 (PST)
+From: Lian Wang <lianux.mm@gmail.com>
+To: Kairui Song <kasong@tencent.com>
+Cc: wang =?utf-8?q?lian=EF=BC=88ByteDance=EF=BC=89?= <lianux.mm@gmail.com>,
+	linux-mm@kvack.org,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Qi Zheng <qi.zheng@linux.dev>,
+	Ying Huang <ying.huang@linux.alibaba.com>,
+	Chris Li <chrisl@kernel.org>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Nico Pache <nico.pache@linux.dev>,
+	Usama Arif <usama.arif@linux.dev>,
+	Michal Hocko <mhocko@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Barry Song <baohua@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yuanchu Xie <yuanchu@google.com>,
+	Wei Xu <weixugc@google.com>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Nhat Pham <nphamcs@gmail.com>,
+	Youngjun Park <youngjun.park@lge.com>,
+	Zi Yan <ziy@nvidia.com>,
+	Gregory Price <gourry@gourry.net>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Dev Jain <dev.jain@arm.com>,
+	Lance Yang <lance.yang@linux.dev>,
+	Hugh Dickins <hughd@google.com>,
+	SJ Park <sj@kernel.org>,
+	David Rientjes <rientjes@google.com>,
+	Yu Zhao <yuzhao@google.com>,
+	Vernon Yang <vernon2gm@gmail.com>,
+	Zicheng Wang <wangzicheng@honor.com>,
+	Chen Ridong <chenridong@xiaomi.com>,
+	Tal Zussman <tz2294@columbia.edu>,
+	Kairui Song <ryncsn@gmail.com>,
+	Xiang Liu <liuxiang.277@bytedance.com>,
+	Ehab Ababneh <ehab.ababneh@intel.com>,
+	Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>,
+	Joanne Koong <joannelkoong@gmail.com>,
+	Kunwu Chan <kunwu.chan@gmail.com>,
+	Hui Zhu <hui.zhu@linux.dev>,
+	linux-kernel@vger.kernel.org,
+	cgroups@vger.kernel.org,
+	damon@lists.linux.dev,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v5 00/17] mm/mglru: frequency guided promotion (MGLRU-FG) and flag cleanup
+Date: Sun, 22 Nov 2026 19:38:17 +0800
+Message-ID: <20261122113833.62817-1-lianux.mm@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
+References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,46 +146,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120-rust-helper-namespace-v1-1-3b9a05553ff6@gmail.com>
- <CANiq72kWXzP1SWUvhOT2k-rNjopnySXeBkjwrx63V2QUaLpnGQ@mail.gmail.com> <nh-eaa5d67e-6d05-468f-9f19-273bc5b23ad0@google.com>
-In-Reply-To: <nh-eaa5d67e-6d05-468f-9f19-273bc5b23ad0@google.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Sun, 22 Nov 2026 12:38:22 +0100
-X-Gm-Features: Aa3M54ofQVSiRzi-fgoVKnLP0jYbT_Rm3zSkFfSi2xtBRiBz58W07aP7BMXi-VY
-Message-ID: <CANiq72mTs=_4wSHAjCJNdOcmODHzPf0ELY6t6vqCNt2E--XYaw@mail.gmail.com>
-Subject: Re: [PATCH] rust: put C helper exports in a dedicated namespace
-To: peder.bergan@gmail.com
-Cc: ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net, 
-	bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org, 
-	aliceryhl@google.com, tmgross@umich.edu, dakr@kernel.org, 
-	daniel.almeida@collabora.com, tamird@kernel.org, acourbot@nvidia.com, 
-	work@onurozkan.dev, mcgrof@kernel.org, petr.pavlu@suse.com, 
-	da.gomez@kernel.org, samitolvanen@google.com, atomlin@atomlin.com, 
-	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-modules@vger.kernel.org, wedsonaf@gmail.com, gprocida@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 
-On Sat, Nov 21, 2026 at 6:50=E2=80=AFPM <peder.bergan@gmail.com> wrote:
->
-> 1. Would you prefer I wait for Giuliano's series to land or send v3
->    with it listed as a prerequisite?
+From: wang lian（ByteDance） <lianux.mm@gmail.com>
 
-Either way is fine, i.e. in general you can send patches that are
-conditional to other patches (within reason, of course).
+Hi Kairui,
 
-> 2. Should I keep the KASAN import for v3 or move automatic imports
->    into modpost in this series?
-> 3. If you prefer modpost, should it add the import only when a module
->    contains a Rust object and references a RUST_HELPERS export?
+On Thu, 19 Nov 2026 05:03:32 +0800 Kairui Song <kasong@tencent.com> wrote:
+> - Rebased onto current mm-new.
 
-If the `modpost` approach (or similar) works, then I was thinking it
-may not need the manual imports, i.e. the idea is to avoid having to
-write those manual annotations if the automatic way can figure it out
-when to add it. But I didn't actually try it -- maybe I am missing
-something.
+The v5 build checks on x86_64 passed without issues.
+I'll continue to report results from additional tests and workloads.
 
-Thanks!
+So feel free to add:
 
-Cheers,
-Miguel
+Tested-by: wang lian（ByteDance） <lianux.mm@gmail.com>
+
+Thanks,
+Lian
