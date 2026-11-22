@@ -1,102 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795381892;
-	b=XvF4syfarw7A43BuPzfgTpZZ916sBmEwzVyR6shnLleBeH8oojYFKuce7GY5wGw3MVPi
-	 u6HjRfyPPYa2DaoO8MdiqntSAZFzd0SAShbqndG3EqQ+nVTuzug6TkHgBwBrls0aGD6WD
-	 wq/udW++Z7SBEj62S62pnC2SJV4E4ITCAkhAfHpCzj+vG2c7LjKFI9cJGhB+zkMKe7PM1
-	 zZi2mUra62UMO6FMf/Qth2UyM77no/xnl2tOrUdrt3bYqxbq8h0vhdtLE6e4lOMcO/ucv
-	 eeS6BQOpG3b/A2qKKaWf+VSQbL0A4fqdgP4AZaXI9ZlVfvtdoCE9OJLV69NeMATe81Q==
+	t=1795381900;
+	b=JCfsIJyvuwaxBspoRr7B7/yHoDKJafIr3m7rrJOY8bpPImDeQ8xnK0fGhQGl5RpTpvTr
+	 QBZFTpkwNsjk7qVr6D1trGGMgazbGDUq63Pe5yOSHxymtetH+xgGilkodySb5Djd6CPMO
+	 q36K1M6zxg6pHnXPoLOS5wtdz6B/LN1mNHbDucTc32cU9N87ROMH/qhIsh1Cus1ADy55O
+	 1NFhjPX+iK+8CPdU1nna77hW7ikpVPFIrbyqtQ8cBU0t/zFqQ3kXp6Ci77OMNBVamHys9
+	 o5ft8SE+YowSoB4KegW8dofqTYFOlUkaQICM3okmrmqU8SnJ6ln9AqbClIO1Y67lIkw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795381892;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795381900;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=ge4eiVUKj3nX4tuUYC5k9dPzCXTKzLAWVgrNn1CnYhg=;
-	b=mTKn1LQ7tz+U8rkeyxIMBKxQBbstQJd/18c82u7Xv7BGIp+ZomFHZHRGlpTTIjPDw8g6
-	 etql5CjqcKDHc/qVnmW9E8PYiYNIm1WThyrcG0lz9hnxzcjSMByWdgOoO0nB688OJMFkH
-	 FAr/8HTSyojWH0pVIxpi/PufHo8qCgQQdKrW4SoUSX6gA0qpPUFYZ99AsPq/uX59bOJX7
-	 uI5i9VQjKwBx2x6QxmsSFr94RYRbwCfOFzx8r9SofldfIDkgo5/WfiIvXm56svhlw5qz4
-	 ARlAwbII7uvV9UknxTJPzehh7A/zLhE0owNcUhptn7mNQXRqKi6gq6jknuwAdN3JQZg==
+	bh=7DGS+aSj3MfbwNJQG55DXM8DL4mRFc1N+IMzJ1ybSnU=;
+	b=dGNnEGwSU23SRxsl8nWXoVPcdZUM17/GGlAgK9lpLIfOZbzjR3+/EWdaPysSV7LTBWVJ
+	 XawGJ1qHcXaRgLnL5LZ4pcHvhJkmUyaqWbFPKfdyCuXhduaunz/y3eAzp4WUsUCTdJ9YE
+	 mKspBi0SoYHyfnMNYmZg9T+3/KyqxHDuLWDrM3amTSj03/byjzUN0QPhSst9Bqf4Znbsa
+	 PrsntGd4ZN6JYWTNR2fTCFkpbM4YrESRn3brg63kirfTZZ7RuNlvHrrtRkIA38oygii+p
+	 8mNQd4H0FKmCdLXfkJYJtYkxwgJqgHfS5Az6e0xSskQiPlxPo2K2kmbKyRZLguqj2Eg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=teslabs.com;
-	spf=fail smtp.mailfrom=teslabs.com;
-	dkim=pass header.d=teslabs-com.20260707.gappssmtp.com header.i=@teslabs-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=jFz4jAsb;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vw6zNiz5;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BC05606A327
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:11:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6BC05606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=teslabs.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=teslabs.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 169B6606A31D;
+	Sun, 22 Nov 2026 21:11:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=teslabs-com.20260707.gappssmtp.com header.i=@teslabs-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=jFz4jAsb
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb6adaf0f1so22562825e9.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:11:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=teslabs-com.20260707.gappssmtp.com; s=20260707; t=1795381891; x=1795986691; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ge4eiVUKj3nX4tuUYC5k9dPzCXTKzLAWVgrNn1CnYhg=;
-        b=jFz4jAsb0UInSseLDcDVLtsdUjFuIb2lcwvCt85BZQgR1AT6Fx7rZhyuuaVcztw7DI
-         SHZ0U/ohb/0XMsoxbT3U+cWFyWwo5LwSY79yKpzQ9cGwZZ1rPtClIS8lccyn0YbSHO8Q
-         /MbnqSeiwU3pJZcK2XqSv8Prdfql/n3LX6gHlHRTEsaqIK/O8NKYvVQTS65FbrWrUakf
-         ohgh4YXvxQue+l+JfIzOS12pYHL4A5CVRM4zQZQhe1nsW3yo5Wd9BAdBZ/ebu6iITp1O
-         cQ5rRqpwGZsqMLYRn8EO25QkPYSN8e64BTQt8kV9VFMArAkZslZyHa2vOjnruEv7VdVw
-         yIkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795381891; x=1795986691;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ge4eiVUKj3nX4tuUYC5k9dPzCXTKzLAWVgrNn1CnYhg=;
-        b=iWA6thk3S1jIVa4FFzD2nKjO3yfgSLgWLgXeurG/1bPatW9B/Q/+lws23Ky/WYt3up
-         NP/RvKJBGCgAny8K6t6OYdInkCq/8qDWTYoGtNLiuw1KBpIZr618BxfZoXQwMQFkTX3f
-         dkEVktuPwMHe/Of5Bh2fkd+KvPMnE5vrP8RWVLTcErJKJcwwNuKOxmp+iuf0QfXob+Os
-         L1vOxqlrW2ngw1w1e7wClVVZ20tydVhHVmIZOOAOvPrik64y6/mN3gLysRb7WGQBkuc/
-         tK3tC57Bax8iITW5PQLev3QS9s3qB4wVT0ypIcG2+dhd3SPP5RzmbLgmRoRE8aX2k8Zy
-         /DAA==
-X-Forwarded-Encrypted: i=1; AL+hErEidUGYcx/60085PXeSs9TUDea75Npoy4WbR1V0KSvRG+hawntG3GvR87I6Mhsgfz8b/M2UkAHwOt5iBio=@vger.kernel.org
-X-Gm-Message-State: APuU4Z95iQbYEqm51kKEmRTwjKHL5w5lWxYBiWbE6L85R33ssdmeRdMQ
-	Bzt8uuDac2Y7MmTPdm+SenOo4YwLH2TRwD6yWd8DCCCTDDgHS4qFpyVSiMgr1UXbpcY=
-X-Gm-Gg: AZFdTZfs2bmBjctdjKJQBmPkmsp67+2ZYaRKhkWMiU99EyaQhw0tO758weelV9P7EpE
-	X7jhYkvMt6yEuYxDUiYivBT5c6aoLH6JAMAoNvpX/+eOW4kv8Di1LKcHYihMtsPDyaiTkwYd4AP
-	om9eFlPPlRliZvqlOdpRKuouJWhob69VOlLUeu7v3j2eX0/GAKsjm+OQ+RL+ewaPzDuVAeeMTry
-	eTP5Vh86pxafwTprZvEVoydhnfKh6nKisOyXjxWlMQUGe3Js25l2ZlfWslEWX0YrmgJpZ24+dJW
-	N95u14a2/Eh+jtaXbCmFUbueQB5kfzZCYO4FzxnW8TDhHzb78rIvv6rzUVrgNFGLRVWNjhas6EU
-	EY+oU2+TUXY1n/Q4Asjil35P7M011AjYrGKsKJGMNlVHOt2ic0c0Oq7orXKH0XbDtFK89cbPmti
-	VHZFqferVkgKVlt8VSlRpHwWwEsNEVavRpslRC4T0+Mwe7Bz/T4xpSp7xzjQ5nN4at6z0ApWUTf
-	8A0nQrqDLYQCxbUCzoguSgEXNxhACNB4YARE79dSW22IDbDJoTmnG421lO8uQZ2W80d4uL4piwA
-	kW3Z+fiW2j5+lqK8g/G8sDllctiPGVmZUwKQNQ0hsi5+Hc+CxED/qoZif0ub/TQK11xvPohGAUT
-	eN8BeQ+v5ULM=
-X-Received: by 2002:a05:600c:3b88:b0:4a2:191f:7cbd with SMTP id 5b1f17b1804b1-4bb888078a8mr229132545e9.11.1795381890664;
-        Sun, 22 Nov 2026 13:11:30 -0800 (PST)
-Received: from localhost.localdomain ([139.47.121.129])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906640a2sm123545075e9.0.2026.11.22.13.11.29
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 22 Nov 2026 13:11:30 -0800 (PST)
-From: Gerard Marull-Paretas <gerard@teslabs.com>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Frank Li <Frank.li@nxp.com>,
-	linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] iio: magnetometer: mmc5633: Enable the VDD supply
-Date: Sun, 22 Nov 2026 22:11:28 +0100
-Message-ID: <20261122211128.14591-1-gerard@teslabs.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20261122205211.6c46f3cc@jic23-hlaptop>
-References: <20261122190836.66111-1-gerard@teslabs.com> <20261122190836.66111-3-gerard@teslabs.com> <20261122205211.6c46f3cc@jic23-hlaptop>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vw6zNiz5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCC091F000D4;
+	Sun, 22 Nov 2026 21:11:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795381899;
+	bh=7DGS+aSj3MfbwNJQG55DXM8DL4mRFc1N+IMzJ1ybSnU=;
+	h=From:To:Cc:Subject:Date;
+	b=Vw6zNiz5HuVYs+r57N6ZyQkwapSmkIYkCqgpvs/lIHpq4xgGRS43P916PkKbWWqdB
+	 ZLmcf7VbuEKrP/cW8/f+wavP+GwEOmfReb/tQRn2BEvPMFop+6Yheb0QMxCNdJitIL
+	 dw6eccYrPXsH9n6WO1rjF2KofU0gq730/0t9MdxuHKzuW+TkJ8oZ/Ba6AMGz9nitUE
+	 pGAJWHGIPORM0u9OBzonPiKJOA8VZBAheZyg4MKW71ZfVArNvXtnSfw9bHZp+R8Oxa
+	 e9rqjYZhOxgHP1tFwjtYI4XdFIKneiwmeJCXKvmNbwxiyWBNUx+6cpBcNj3oLrije6
+	 S6v4eGnGejNgg==
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Ingo Molnar <mingo@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Clark Williams <williams@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Dmitry Safonov <dima@arista.com>,
+	Gu Bin <gubin@cmss.chinamobile.com>,
+	Leo Yan <leo.yan@arm.com>,
+	Li RongQing <lirongqing@baidu.com>,
+	Paul Moses <p@1g4.org>,
+	TAKANO Mitsuhiro <takano32@gmail.com>,
+	Arnaldo Carvalho de Melo <acme@redhat.com>
+Subject: [GIT PULL] perf tools fixes for v7.4
+Date: Sun, 22 Nov 2026 18:11:28 -0300
+Message-ID: <20261122211128.12684-1-acme@kernel.org>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,19 +74,139 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On Sun, 22 Nov 2026 20:52:11 +0000
-Jonathan Cameron <jic23@kernel.org> wrote:
+Hi Linus,
 
-> >  #define MMC5633_WAIT_SET_RESET_US	(1 * USEC_PER_MSEC)
-> > +#define MMC5633_POWER_ON_US		(5 * USEC_PER_MSEC)
->
-> Obviously the line above isn't great on this, but is there a spec reference
-> we can make for this timing?
+	I signed this with a new key, that is already in the kernel.org
+pgpkeys git repo.
 
-Both datasheets list it in the "Operating Timing Diagram" table as tOp,
-"Time to operate device after VDD valid", 5 ms minimum. I'll add a comment
-referencing it in v3, and annotate the set/reset wait with tSR (1 ms
-minimum, same table) while at it.
+	Please consider pulling.
 
-Thanks,
-Gerard
+Best regards,
+
+- Arnaldo
+
+The following changes since commit 05441d697f7f9a927264f4058cbbc6a03dfcac9d:
+
+  Merge tag 'cocci-7.4-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/jlawall/linux (2026-11-03 08:36:32 -0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools.git tags/perf-tools-fixes-for-v7.4-1-2026-11-22
+
+for you to fetch changes up to 82838789646f9f5881dd1c8b3a3c960ee2a28772:
+
+  perf record: Skip affinity for per-thread mmap buffers (2026-11-09 18:19:20 -0300)
+
+----------------------------------------------------------------
+perf tools fixes for v7.4
+
+- perf record: skip affinity for per-thread mmap buffers and reject CPU
+  indices at the mask size, avoiding out-of-bounds bitmap accesses.
+
+- perf test: use software events for system-wide tests, mark the LBR test
+  exclusive, and fix probe_vfs_getname debuginfo detection via a dry run.
+
+- perf build: add -lzstd to the libbfd feature fallback for static
+  binutils, and pass OUTPUT explicitly when building internal libraries.
+
+- perf trace beauty: split the KVM ioctl table by direction so read and
+  write ioctls sharing a number no longer conflict at build time.
+
+- perf kvm: fix arm64 VM-exit duration accounting by pairing kvm_exit
+  with the following kvm_entry as the end event.
+
+- perf hist: use each branch's own cycle count for the sample weight
+  instead of the first branch's, fixing multi-entry branch stacks.
+
+- perf jevents: don't encode MSRs with no value, avoiding unset ldlat
+  values in the affected Intel latency events.
+
+- perf vendor events arm64 AmpereOneX: deprecate the old event name so
+  scripts using it keep working while the renamed event is listed.
+
+- perf intel-bts and intel-pt: free the old snapshot reference array when
+  it grows past sixteen mappings, avoiding a leak.
+
+- perf timechart and treport: initialize inherited attributes in their
+  constructors, avoiding pylint warnings without Textual.
+
+- perf tools: fix sync-headers generated commit messages to use longer
+  SHAs and drop hunk headers that checkpatch mistakes for diff content.
+
+- Sync the tools/ copies of gfp_types.h, gfp.h, KVM, sound/asound.h,
+  msr-index.h, cpufeatures.h and if_addr.h with the kernel sources.
+
+Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+
+----------------------------------------------------------------
+Arnaldo Carvalho de Melo (8):
+      tools headers UAPI: Sync linux/if_addr.h with the kernel sources
+      tools arch x86: Sync the cpufeatures.h copy with the kernel sources
+      tools arch x86: Sync the msr-index.h copy with the kernel sources
+      tools headers: Sync UAPI sound/asound.h with the kernel sources
+      perf trace beauty: Split the KVM ioctl table by direction
+      tools headers: Sync KVM headers with the kernel sources
+      tools headers: Sync linux/gfp_types.h with the kernel sources
+      perf tools: Fix the sync-headers generated commit messages
+
+Dmitry Safonov (1):
+      perf build: Override OUTPUT when building internal libraries
+
+Gu Bin (1):
+      perf hist: Fix branch_info index for sample weight
+
+Ian Rogers (3):
+      tools build: Add explicitly sequenced -lzstd to libbfd feature fallback
+      perf build: Add explicitly sequenced -lzstd to libbfd feature fallback
+      perf jevents: Don't encode MSRs with no value
+
+James Clark (2):
+      perf test probe_vfs_getname: Fix missing debuginfo detection
+      perf test: Don't starve per-process tests with system-wide events
+
+Leo Yan (2):
+      perf treport: Initialize the subtitle in the constructor
+      perf timechart: Initialize Textual attributes in constructors
+
+Li RongQing (3):
+      perf kvm: Fix arm64 VM-exit duration accounting
+      perf intel-pt: Free the old snapshot reference array after growing it
+      perf intel-bts: Free the old snapshot reference array after growing it
+
+Paul Moses (2):
+      perf record: Reject CPU indices equal to the mask size
+      perf record: Skip affinity for per-thread mmap buffers
+
+TAKANO Mitsuhiro (1):
+      perf vendor events arm64 AmpereOneX: Deprecate BPU_FLUSH_MEM_FAULT
+
+ tools/arch/x86/include/asm/cpufeatures.h              |  6 +++++-
+ tools/arch/x86/include/asm/msr-index.h                |  7 +++++++
+ tools/arch/x86/include/uapi/asm/svm.h                 |  2 ++
+ tools/build/Makefile.feature                          |  3 ++-
+ tools/build/feature/Makefile                          | 19 +++++++++++++------
+ tools/include/linux/gfp.h                             |  4 ----
+ tools/include/linux/gfp_types.h                       | 11 ++++++++---
+ tools/include/uapi/linux/if_addr.h                    |  1 +
+ tools/include/uapi/linux/kvm.h                        | 16 ++++++++++++++++
+ tools/perf/Makefile.config                            |  3 +++
+ tools/perf/Makefile.perf                              |  8 ++++----
+ tools/perf/arch/x86/util/intel-bts.c                  |  1 +
+ tools/perf/arch/x86/util/intel-pt.c                   |  1 +
+ tools/perf/builtin-record.c                           |  6 +++---
+ .../arch/arm64/ampere/ampereonex/memory.json          |  5 +++--
+ tools/perf/pmu-events/jevents.py                      |  2 +-
+ tools/perf/python/treport.py                          |  2 +-
+ tools/perf/python/ttimechart.py                       |  2 ++
+ tools/perf/scripts/sync-headers.sh                    | 18 +++++++++---------
+ tools/perf/tests/shell/lib/probe_vfs_getname.sh       |  7 ++++++-
+ tools/perf/tests/shell/record.sh                      |  6 +++---
+ tools/perf/tests/shell/record_lbr.sh                  |  2 +-
+ tools/perf/tests/shell/record_sideband.sh             |  4 ++--
+ tools/perf/trace/beauty/include/uapi/sound/asound.h   |  3 ++-
+ tools/perf/trace/beauty/ioctl.c                       |  6 ++++--
+ tools/perf/trace/beauty/kvm_ioctl.sh                  |  9 +++++++++
+ tools/perf/util/hist.c                                |  2 +-
+ tools/perf/util/kvm-stat-arch/kvm-stat-arm64.c        | 14 +++++++-------
+ tools/perf/util/mmap.c                                |  4 ++--
+ 29 files changed, 119 insertions(+), 55 deletions(-)
