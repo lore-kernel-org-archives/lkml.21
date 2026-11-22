@@ -1,58 +1,120 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795368958;
-	b=n7yhmOj6PSR3427GQeDdTVdn4RVMDlxicH95lMilUKbNzWQdV3em0qpw/Q/DBF+CoyrU
-	 XnZpvru66eJpw4RAhZVe0sCXTGHpOq+g+5mqD55bi7kl5tw6GJLdLJymZvPOKiUQBckvh
-	 e7XKH8h64vYga/UgPl6bvYelS3OxgLdEukISeff43qYPdoIix0gSrzRFmTIIy7izfXDPP
-	 aEfuXoisLI7fP7YClkebmqEHExtewB1HHAoauoftNNO0kjG2MCk9+7+zBKPkKvxZXnCJT
-	 GhRcTmpf1yP5ZNObILBAqsKUeJWA2OyVyWUl4Da5Fupx5KXCXj5AJdIe5N8Z34rVy9g==
+	t=1795369028;
+	b=rSEsGQJeTZ6rAQPZByrz9inhy2pabSjWqb7+d/eoTck5xOb+Q2ZGomcIZh25KsosLwOj
+	 DY4oi7B2rDU6XFYyTkhGieipjHzQjJaqtBwENhNNKrsgTMXgojcX17trhFmfyjP4sOG/F
+	 Y8We9wEVcUr9do6tgHQ0HbBTRQy8qEJkmdE9EYswcQ9sbKQGefKp0mB0SENMb5ciWOje1
+	 JxZiVM/RrKdtqXfY8kjpmn2geXcX03mwMAdvqr9z5eF7+H44KgD2yU3CIhsKsDLTc15jx
+	 B/uGNyJ6i9AK616qSPd3XLK+ypPD2g3mjcBuS/P+O3mISqh7nf4PMH5u3a5Q+iNXEXQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795368958;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=2vMjYyTFhWJCTrJmGUbixPZ6wCp7swb0ApFE0Hp03Lo=;
-	b=aJJD+7SU4NuGhsEFDqL8Kiw69+Si5jGWwB0S/sZRomiSo6nU2zUi8+JajQxGeGyCzvit
-	 O8Ef2Ng8fSVFkpPt1KWy/KAe241WMRrt+j4jD8M1i98tDGjByvM+JzA6Ktrvm2TGk+zSe
-	 lW78oUYuC2dl3CqSW4vPfoTvCMym9Tfw/TwWQ0XhpmVBspMQwAJWnsiAiwP8xQwGdMVVE
-	 QvA4ZB5+RNh2Kl8a2eFVR/k1maobut419mKR6j8uyv/J4ljI9og4smBgKvH3ioW1DzSKR
-	 U4gMu2tyUNEikfWdsUIRjcmUP/2/tuDGIcLHrVabcpbuCmDgGYmqKz6JH7kuq/NqYwA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795369028;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=BbGrtGAYBDXJ6BhsvPEeazwnrpM+UIvWRxiQpjaPFH0=;
+	b=ad6hXKkuI2HKOxevCXfd43wnQ62rhgy0ob/sjAvo+CbKkycg6qN8HsRDhDL5pYfPH1lo
+	 rOYMrifO1o+LoO2k3sO73acx4NTbUt6VWHH7iiguCmzgVo/x/hYWcfWRkKxWHkUjeQaSk
+	 z+HbxVxzVbNLkhs5ReyAiJn596cO/RcGuBYvjmVPJ4p+BaKGiaFIQIO2zUDmoi/On49P/
+	 XLiRFOAeqQQrSZr3X8zK7kqr87+hfgClWVSs5mZwpTFSdOAX3Bb1YU9JPFnkijQ65fpQO
+	 sqhXnq4osT/OMMsbpoZXmubKIwLJ2amTt4bZLcxyHf6NiYzCYWSX76VGOEuxC0fQwzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=zNRmYkSv;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=HSsR5n+e;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Zdx+hJeE;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDC8E606A339
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:35:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CDC8E606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4050606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:37:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4050606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=zNRmYkSv
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 7B01F1A0A7B;
-	Sun, 22 Nov 2026 17:35:56 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 4F51660512;
-	Sun, 22 Nov 2026 17:35:56 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 676F811E61B2A;
-	Sun, 22 Nov 2026 18:35:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795368954; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=2vMjYyTFhWJCTrJmGUbixPZ6wCp7swb0ApFE0Hp03Lo=;
-	b=zNRmYkSvMIH7cXgMV8K5iRg0WqNLOciUWQnXRteH17Ph7cI4kaEEXhnAAv8c3SlYcUS25j
-	ysfya2BRE20ESnevTSd1M9Zmgi+GoEpHeUoLaUn1tt63XoqdNtu2tGYYXbCgUfJVxX1VRQ
-	l5iSj0/4SXT2EQawrTX9KRuhJwmZ4GWQkKD8odVA5JRg2WKDWRfyu3sKWw8Zbtygt9HuOH
-	qt0SUatHmQ4isJ5Wfsy+/fvtkPxksnsYPfb5aO+EdKXZrxX9ts6jeUBCKrXldGmTMq8jKM
-	mr6s+r/BVWVBDRcbnRBluzBN6Zh+X42k4LPuJgUv08QXSOYv1G4U78Edpq1QNg==
-Message-ID: <abcc0261-ed4b-4b1f-9035-04d17d630d22@bootlin.com>
-Date: Sun, 22 Nov 2026 18:35:49 +0100
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=HSsR5n+e;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Zdx+hJeE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795369026;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BbGrtGAYBDXJ6BhsvPEeazwnrpM+UIvWRxiQpjaPFH0=;
+	b=HSsR5n+eMBgLIxK+s2vq2u7KgDqDTdXRv7M3rE5hjBJDUnCtmxldmAhb1I1OExlZyWcRZk
+	azajeQL625+E7sWmQgbrFDf8+V4Y6HTsPI6KZYqFJPMpJZmSXeZRqQM/lxZNsh0Z6/Zljr
+	2o280ifcGk+8j/wE1SjBWZzxtoIA/nY=
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com
+ [209.85.160.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-70-pQz7nM3LOtyyRlA8dvUlNg-1; Sun, 22 Nov 2026 17:37:04 +0000
+X-MC-Unique: pQz7nM3LOtyyRlA8dvUlNg-1
+X-Mimecast-MFC-AGG-ID: pQz7nM3LOtyyRlA8dvUlNg_1795369024
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-532f343a55bso47353751cf.3
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:37:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795369024; x=1795973824; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BbGrtGAYBDXJ6BhsvPEeazwnrpM+UIvWRxiQpjaPFH0=;
+        b=Zdx+hJeEh0MenRAqMOKWJk2CUx5CVTYwSVhnSyUaOiXIxCSUWbp4Na9pLorxmly6hO
+         mdrGBnD/yz7l82OVYHzDBOaBWRyQqXPfsYzNWareW2vOMCNWFbkm0qrfRbT97mh5U4aB
+         UyaIrmOxtoWqLZf6JjML8oRf1+d9CabovBFKTr1AxQcfDlrhU4QPI13j+mni4g4Dkm1M
+         wyI0RL+gqySNe39wKZJYHM9TWhdc/AkjdHTR2ywlKSJ9sbT9aaFaVJvF80aZtLyh41S1
+         NxS7F5doQYEyYXgV3SiIdzf4TlhtytprQy5GTMwkqgF5FhTouQUN5g34cd1aGukq7a/9
+         UB8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795369024; x=1795973824;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BbGrtGAYBDXJ6BhsvPEeazwnrpM+UIvWRxiQpjaPFH0=;
+        b=irD9RXzyStGIwR1CdH09M38yojDnV0hhfp4HH+Z8AEEnslALRT0cVIXWVMFq/r08gn
+         V74Dg9MPoYli7kuskHiE3Y9tQtBdpWecD8Yjyevjj2+hkfJrwAlQiCv6Ws61tSCmAIr4
+         8v6m+ihFrhGfTLNaDmjKsVSAO+Tfym1s9EaRq43fw3Ve1ZDTwKe0kuM5nKIWUMFDdGOv
+         9hZKppmcqGJDrGUlZNwP9boqYCF0AspU+DkxisKWvpQUJEnm3r2klKt8y3xrlucLoV+O
+         /TJ1YI17s8WWucRbZ+dJW+mrSlMeUwaPmeP7giGhMuawtQnx2vAsnhHV54VwFMmFakfZ
+         K0XA==
+X-Forwarded-Encrypted: i=1; AL+hErFL92AgcdzH1LLlcX3WRVu+a8Ni3dq/k9OOPYT/N3Xxbk/D8deak/4ApVgyACRHvOSsuz2xU8ltKfwAogI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8BnBQNHfJp7fCnr1vJypmhJjN9FmQsyS4pCkDBD/mMji9LgvyO
+	nks2/ip+M3+zST+aP8BMVMrhrTjQtOjraAUNMOSmoH3igE0utqX0VgqG6Qz3VpT24wg6EGx+uke
+	osI8pilnH43UUC2/vARhWTlNj+AuPQ+3KJylr0+1Y5yf1krk35l+Eyq3hPkMYtevVHvuOsw9jTl
+	D/
+X-Gm-Gg: AZFdTZc1n/k6Zdxw+N0xtNmcqgjpwKKbgZyYfESIJL22cm2YOQxpVx/87ZhdsaOHUtc
+	Lj3F0Wvxb94aLFPr2492RcW75ZN4ClMei2es8PRBpJ0kW+DBRn9zsX+t+B2kffpRAnlCGM+jrHd
+	NkxXoVXDDQbebETzOL++PH8DhKdNAGMemlxgI1ozSIeRUKKmPA5XeI44YxEj6ZybqIUNbMr7HyN
+	FxqVu1HMXLXsbR7FB4W5BZ5/79RWd32QtxLPYmyA8feTWvGpOwoTr6mrvBluFG0ADamsewNSZ9y
+	Xz2DbLjvQGiV8VGV7UNF7gHzaNARfeg7WCiC/TdWOlkJXHAxNBmHmDURKRz+5jEJLJ72Dbjv1GP
+	bR0gEaIqNws6/KNl7id9euA2bL+rcTYggEFLah30QyqsoqGVx848En5yAIzyuL1ukGFCUILJm7d
+	tJzhjQDOZerA25RBqdLbt21ta7RZLfNlJcYSlD+Dqm2gq/boa2KqK33cq5Soyv0H9tEC8H3LonP
+	INQZeEANHqXJuZrKsa7Hzv9ryq2JINXIty8245WGShh64eMYB+r
+X-Received: by 2002:a05:622a:308:b0:55b:f621:e7cb with SMTP id d75a77b69052e-55d76a6e9eemr177660911cf.21.1795369023886;
+        Sun, 22 Nov 2026 09:37:03 -0800 (PST)
+X-Received: by 2002:a05:622a:308:b0:55b:f621:e7cb with SMTP id d75a77b69052e-55d76a6e9eemr177660721cf.21.1795369023504;
+        Sun, 22 Nov 2026 09:37:03 -0800 (PST)
+Received: from cluster.. (4f.55.790d.ip4.static.sl-reverse.com. [13.121.85.79])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d7c654585sm71310051cf.5.2026.11.22.09.37.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 09:37:03 -0800 (PST)
+From: Alex Markuze <amarkuze@redhat.com>
+To: Daolong Zhang <dlzhangak@isoftstone.com>
+Cc: Ilya Dryomov <idryomov@gmail.com>,
+	Viacheslav Dubeyko <slava@dubeyko.com>,
+	ceph-devel@vger.kernel.org,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ceph: add compression_hint mount option
+Date: Sun, 22 Nov 2026 17:37:00 +0000
+Message-Id: <20261122173700.1281165-1-amarkuze@redhat.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <1795169573.6B001D21.006.4jWB3k0l79z3mds@fangwg01>
+References: <1795169573.6B001D21.006.4jWB3k0l79z3mds@fangwg01>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,98 +124,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v4 4/5] net: stmmac: Add MDIO init and exit
- platform hooks
-To: aiyengar1990@gmail.com, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Russell King <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
- linux-kernel@vger.kernel.org
-References: <20261120-sun8i-emac-mux-uaf-v4-0-57eba8915f25@gmail.com>
- <20261120-sun8i-emac-mux-uaf-v4-4-57eba8915f25@gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261120-sun8i-emac-mux-uaf-v4-4-57eba8915f25@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 
-Hi again,
+Hi Daolong,
 
-On 11/20/26 11:45, Arun Iyengar via B4 Relay wrote:
-> From: Arun Iyengar <aiyengar1990@gmail.com>
-> 
-> A glue driver that adds devices on top of the stmmac MDIO bus, such as
-> an MDIO mux, can only do so after stmmac_dvr_probe() has registered the
-> netdev.
-> 
-> Add mdio_init(), called once the bus is registered, and mdio_exit(),
-> called before it is unregistered.
-> 
-> Suggested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+If a mount starts with compression_hint=compressible and is later
+reconfigured without that option, ceph_init_fs_context() allocates a
+zeroed options structure and ceph_reconfigure_fc() unconditionally
+copies its alloc_hint_flags into the live mount. The reconfiguration
+therefore clears the selected hint, so later writes stop sending it even
+though the compression option was not changed.
 
-Manually tested on H2+,
+Could the existing value be preserved when the option is omitted, while
+still allowing compression_hint=none to clear it explicitly?
 
-Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Could you also check that the patch applies cleanly to the latest
+ceph-client testing branch?
 
-Maxime
-
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c | 11 +++++++++++
->  include/linux/stmmac.h                            |  2 ++
->  2 files changed, 13 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-> index 7396b68899c6..fb1f7b1a5323 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-> @@ -682,8 +682,16 @@ int stmmac_mdio_register(struct net_device *ndev)
->  bus_register_done:
->  	priv->mii = new_bus;
->  
-> +	if (priv->plat->mdio_init) {
-> +		err = priv->plat->mdio_init(priv);
-> +		if (err)
-> +			goto mdio_init_fail;
-> +	}
-> +
->  	return 0;
->  
-> +mdio_init_fail:
-> +	priv->mii = NULL;
->  no_phy_found:
->  	mdiobus_unregister(new_bus);
->  bus_register_fail:
-> @@ -703,6 +711,9 @@ int stmmac_mdio_unregister(struct net_device *ndev)
->  	if (!priv->mii)
->  		return 0;
->  
-> +	if (priv->plat->mdio_exit)
-> +		priv->plat->mdio_exit(priv);
-> +
->  	mdiobus_unregister(priv->mii);
->  	priv->mii->priv = NULL;
->  	mdiobus_free(priv->mii);
-> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-> index 00be2df63d22..e94f9cab973d 100644
-> --- a/include/linux/stmmac.h
-> +++ b/include/linux/stmmac.h
-> @@ -296,6 +296,8 @@ struct plat_stmmacenet_data {
->  	int (*crosststamp)(ktime_t *device, struct system_counterval_t *system,
->  			   void *ctx);
->  	void (*dump_debug_regs)(void *priv);
-> +	int (*mdio_init)(struct stmmac_priv *priv);
-> +	void (*mdio_exit)(struct stmmac_priv *priv);
->  	int (*pcs_init)(struct stmmac_priv *priv);
->  	void (*pcs_exit)(struct stmmac_priv *priv);
->  	struct phylink_pcs *(*select_pcs)(struct stmmac_priv *priv,
-> 
+Thanks,
+Alex
 
