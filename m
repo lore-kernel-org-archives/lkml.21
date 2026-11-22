@@ -1,61 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.132
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795341013;
-	b=HO9jaRZ4kFgUCChcv8jWa2BZXhqiyxqtNAVUAWTkif/d8FmGSqIRuwsLRVXrYjtHy0/X
-	 GSosKsMCz6BmESMVZyTSsbhT63YD0gxgGvx0FuY8blhsdycGArOoA2wQoNWS0A5T15dMY
-	 gVfWr2EH38LhDGgMvBQP4P3qXERq51BUTI60f3w1XdqfPcfqfhFFk4ETjsL+MvYT5/xq0
-	 OBHRi29vDaDHyMU8gZAbwl3Iw3m3Z5fWHMRarNqAjbb1JeVbCSdl4+BnM+6cpF6lOE0hF
-	 py7wzkyZUS5n2/mE5s2TWuTe5VIQuMYoBMUJbFv5170QDCazeVAeLNQYUi9JgDE2p4g==
+	t=1795341041;
+	b=eXUlZAfyyoUDMC5nnsARFXGsqyVFauRL5darPHlzAgEE5d5azv1FQSfqAMy7nmTurvWJ
+	 43CUgVkeD7UrDLbyHJh1fXkwlw4ngKcO9aZBN6P8g6Hb1/YB9NRKoYfwNJq1mVbtjPOTh
+	 RLbAZQTlKcvxqW0ziHoYIOroCG5UDi7PJ1nGZ7Nc8adyKl6TpxAgXi1fEScgEPG4+rVUw
+	 TtuN8N2Zx5DlcH+DcEwC559UCQ8KPfDdp4SKY33OvtGZh/bvADfko6XXvLljT8u73zfeX
+	 gNC/XJX56/snyixoXlRUJHEJB446H+1UHoF9K6JEBQaGE4v+5lTFE5VXh7ju03Q1J1w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795341013;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=xfzV/JbzjYiMDIWRSSaim/SwI1CIWk/grhSKbqdBMOc=;
-	b=TdMVkBLJlBg6l4QR1yCeFMfLnViHKxmNmiJQVgKG5folDCw2vRn1UWguAtcKlSgzlqhe
-	 Mf+vTsyKfFq5KptO+gGWlnBkCnd8GlX6xE1cutbS8jMrHWRo1rmnOOyEGOAEkxPKXHVIp
-	 8LTwRfysaVY+TO0Q67xv50YmKSqRtv5enThp4a2vGUf1awTeb44pfgH1OXJ2w9EWG9rwd
-	 2HJVd7dqleNkPdl9SNHn9BDBFGlx2GJszGvL870uxiQzlXWXyJq1+lt89Uw11e23AhJg9
-	 /hlrxsRzDJRo9Z5z3k8TM9MfiEGLI2ZAZr7NizWvPfPIv8IVtKkz1a2OxNd1D7hUdCQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795341041;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=ufr71PY4qGevTHv4/Xt0Aoe+LguNLXQIUPKTi4k0c3Y=;
+	b=2Rzxov+B0fmn8bcGsGXiLK3d5/vP22q4mAEw+bGpJ7zdkcyHKKEUu0NA69uAKqrSo+Af
+	 Ojab7nyFMuCROoTjToMsc8smeAxUxlnmVIdeRDiWTSu8paFE7dyDVSO7e8Ppbgl2qFzAV
+	 x6tLyLatqIcGOVHk9juk/RkmIaK9asY/Ibv6vg8iYVKa6sLZPBEJxpdc60YbI6Ow/lJ/5
+	 f8IblNjeV0jntfnVYvmXFgDlkN+/iSz+7GYGBgJbsKgawE603b1v4LEhUbS7Rr25fc4q6
+	 lYSquHy4zjD1RMteh1QSqdZ9a/tXK1Cusmw6QsVnlecOBF8MnUsExzTK9Q9g6ra0cww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Bwl65gyd;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=ajb5VSKx;
+	arc=none smtp.remote-ip=115.124.30.132
+Received: from out30-132.freemail.mail.aliyun.com (out30-132.freemail.mail.aliyun.com [115.124.30.132])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AB54606A320;
-	Sun, 22 Nov 2026 09:50:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDBD7606A320;
+	Sun, 22 Nov 2026 09:50:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDBD7606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Bwl65gyd
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18F471F000C4;
-	Sun, 22 Nov 2026 09:50:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795341012;
-	bh=xfzV/JbzjYiMDIWRSSaim/SwI1CIWk/grhSKbqdBMOc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Bwl65gydXAnqL+OkGowKb70TsIcZb6PFsMwxlflFq569a6orORLuf1U8kwEpVxIFl
-	 CRktWeaoAIQrK2nXpA2ZGIh49lUzVIEuf7LRg30DF8bc1nEWHQngJCcEhS6BLpc6OU
-	 q2ps7g9bj4HReoHY8X742irKfI8DYhcDyIo58at9xbHnqTROnBUR4d92L1/Up7WcY8
-	 hfQUkeSyjUq8AKUqhr7s/2ZFaZ29v8nY47HBhlV+VvC0KGJYDISwD1RDRi5xdSsOM3
-	 qryzhP/B4N5iVlwX0NMC2V/nAOLedrISAJWPyuELDXgJJyI6Z2lGfwFA/AIwZ2Fbkq
-	 SIEhMXVZQnYhg==
-Subject:
- Re: [PATCH net 1/2] ipv4: accept nexthop dump attributes in route deletes
-From: netdev-bot+sashiko@kernel.org
-To: zypulsecore@gmail.com
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- stephen@networkplumber.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, shuah@kernel.org,
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-api@vger.kernel.org
-Date: Sun, 22 Nov 2026 09:50:11 +0000
-Message-ID: <179534101163.3135.4888476897314424157@kernel.org>
-In-Reply-To: <20261118084510.332821-2-zypulsecore@gmail.com>
-References: <20261118084510.332821-2-zypulsecore@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=ajb5VSKx
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795341032; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=ufr71PY4qGevTHv4/Xt0Aoe+LguNLXQIUPKTi4k0c3Y=;
+	b=ajb5VSKxgRmURiP2zwcNwk8x8em7oGv1SE5tpbjvzOOi2ECCv1Xqr7bE0q6PSoGOuM4C7mnkofKkgG+N6Tv7KTPfXF13D2ibtAWCSzzupTbNhX5SHS0Ew9+tIEl5rZkUi9lfSSqYZNZiu0iQCWS0cV4hGF6KGfd0mlteOPkN6Tg=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=shijing.wuqi@linux.alibaba.com;NM=1;PH=DS;RN=4;SR=0;TI=SMTPD_---0XFAcuiG_1795341018;
+Received: from localhost.localdomain(mailfrom:shijing.wuqi@linux.alibaba.com fp:SMTPD_---0XFAcuiG_1795341018 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sun, 22 Nov 2026 17:50:32 +0800
+From: Qi Wu <shijing.wuqi@linux.alibaba.com>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	kvm@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Subject: [PATCH] KVM: irqfd: Publish the resampler after adding its first member
+Date: Sun, 22 Nov 2026 17:50:10 +0800
+Message-ID: <20261122095010.444794-1-shijing.wuqi@linux.alibaba.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,131 +60,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+kvm_irqfd_assign() publishes a new resampler before adding its first
+member and then calls synchronize_srcu_expedited() to drain readers that
+may have seen an empty member list.  This per-new-resampler grace period
+runs under resampler_lock and adds to VM creation / snapshot restore
+latency.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+Add the first member while the resampler is private, then publish it to
+both global entries.  RCU list insertion guarantees any reader that finds
+the resampler also sees its first member, so the empty-list state is never
+visible and the first member needs no grace period; later members still
+synchronize.  This also prevents kvm_notify_irqfd_resampler() from finding
+an empty resampler and dropping a pending interrupt on IOAPIC unmask.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+synchronize_srcu() calls per path (regression check; only the first row
+changes):
 
-- [High] The patch fixes `ip route flush` of nexthop-object routes for
-  IPv4 only.
-- [Low] The commit message says the failure occurs "with nexthop
-  compatibility mode enabled" and gives a reproducer "in a fresh network…
+  path                              before  after
+  new resampler, first member         1       0
+  existing resampler, next member     1       1
+  non-resample irqfd assign           0       0
+  irqfd_shutdown (UAF fix)            1       1
+  deassign, non-last member           1       1
+  deassign, last member               1       1
 
---
+Build-tested with gcc/clang and KASAN+PROVE_RCU+PROVE_LOCKING / KCSAN
+(KVM subsystem and selftests compile); checkpatch --strict clean.
 
-ipv4: accept nexthop dump attributes in route deletes
+This patch was prepared with AI assistance; the author reviewed and owns
+the change.
 
-This commit skips the check in rtm_to_fib_config() that makes RTA_NH_ID
-and the expanded nexthop attributes mutually exclusive, but only for
-RTM_DELROUTE requests. This lets ip route flush delete routes that use
-nexthop objects when the dump carries both. The check stays in place for
-RTM_NEWROUTE.
+Signed-off-by: Qi Wu <shijing.wuqi@linux.alibaba.com>
+---
+ virt/kvm/eventfd.c | 16 ++++++++++------
+ 1 file changed, 10 insertions(+), 6 deletions(-)
 
-Link: https://lists.openwall.net/netdev/2026/10/26/186
-
-> ip route flush reuses route dump messages as RTM_DELROUTE requests.
-> With nexthop compatibility mode enabled, the dump includes RTA_NH_ID
-> alongside expanded nexthop attributes. rtm_to_fib_config() rejects the
-> combination with -EINVAL, leaving the routes installed.
-
-[ ... ]
-
-> report below. An unmodified kernel and iproute2 reproduced it without
-> fault injection in a fresh network namespace with compatibility mode
-> enabled.
-
-[Severity: Low]
-This isn't a bug, but "with nexthop compatibility mode enabled" reads like
-an opt-in setting. Isn't compat mode already on by default in every network
-namespace?
-
-net/ipv4/af_inet.c:inet_init_net() {
-    ...
-	net->ipv4.sysctl_nexthop_compat_mode = 1;
-    ...
-}
-
-fib_dump_info() leaves out the expanded attributes only when compat mode
-has been set to 0, so default configurations hit this bug.
-
-Could the commit message say that default configurations are affected? That
-would help with stable triage.
-
-> diff --git a/net/ipv4/fib_frontend.c b/net/ipv4/fib_frontend.c
-> index 8c123b111b3d8..6b012c8c6ea30 100644
-> --- a/net/ipv4/fib_frontend.c
-> +++ b/net/ipv4/fib_frontend.c
-> @@ -868,7 +868,10 @@ static int rtm_to_fib_config(struct net *net, struct sk_buff *skb,
->  		goto errout;
->  	}
->  
-> -	if (cfg->fc_nh_id) {
-> +	/* Dumps can include both a nexthop ID and compatibility attributes.
-> +	 * On deletion, fib_nh_match() uses the ID to match the nexthop.
-> +	 */
-> +	if (cfg->fc_nh_id && nlh->nlmsg_type != RTM_DELROUTE) {
->  		if (cfg->fc_oif || cfg->fc_gw_family ||
->  		    cfg->fc_encap || cfg->fc_mp) {
->  			NL_SET_ERR_MSG(extack,
-
-[Severity: High]
-Does IPv6 need the same change? rtm_to_fib6_config() in net/ipv6/route.c
-still runs this check for every message type, including RTM_DELROUTE:
-
-net/ipv6/route.c:rtm_to_fib6_config() {
-    ...
-	if (tb[RTA_NH_ID]) {
-		if (tb[RTA_GATEWAY]   || tb[RTA_OIF] ||
-		    tb[RTA_MULTIPATH] || tb[RTA_ENCAP]) {
-			NL_SET_ERR_MSG(extack,
-				       "Nexthop specification and nexthop id are mutually exclusive");
-			goto errout;
-		}
-		cfg->fc_nh_id = nla_get_u32(tb[RTA_NH_ID]);
-	}
-    ...
-}
-
-err is already -EINVAL at this point.
-
-In compat mode, rt6_fill_node() adds RTA_NH_ID to the dump and then calls
-rt6_fill_node_nexthop(). For a group, that adds RTA_MULTIPATH. For a single
-nexthop, fib_nexthop_info() adds RTA_OIF, plus RTA_GATEWAY when there is a
-gateway. IPv6 nexthops always have a device, so RTA_OIF is always there.
-
-When iproute2 sends that message back as RTM_DELROUTE, won't ip -6 route
-flush on nhid routes fail with -EINVAL the same way, and leave the routes
-installed?
-
-ip6_route_del() already matches on the nexthop ID:
-
-	if (rt->nh && cfg->fc_nh_id &&
-	    rt->nh->id != cfg->fc_nh_id)
-		continue;
-
-It also skips routes without a nexthop object when fc_nh_id is set. That
-suggests the same RTM_DELROUTE exemption would be safe in
-rtm_to_fib6_config().
-
-The commit message also says:
-
-    The IPv4 group and IPv6 compatibility selftests also passed with the fix.
-
-This could be read as saying IPv6 is not affected. However, those selftests
-never run ip -6 route flush, and this patch leaves the IPv6 path unchanged.
-
-The later patch in the series ("selftests: net: test flushing IPv4 nexthop
-routes in compat mode") also covers only IPv4 and does not touch
-net/ipv6/route.c.
-
-Could the series be extended to cover the IPv6 parser too?
-
+diff --git a/virt/kvm/eventfd.c b/virt/kvm/eventfd.c
+index f43b8b25bc85..74851accd881 100644
+--- a/virt/kvm/eventfd.c
++++ b/virt/kvm/eventfd.c
+@@ -444,14 +444,18 @@ kvm_irqfd_assign(struct kvm *kvm, struct kvm_irqfd *args)
+ 			resampler->notifier.irq_acked = irqfd_resampler_ack;
+ 			INIT_LIST_HEAD(&resampler->link);
+ 
+-			list_add_rcu(&resampler->link, &kvm->irqfds.resampler_list);
+-			kvm_register_irq_ack_notifier(kvm,
+-						      &resampler->notifier);
+ 			irqfd->resampler = resampler;
+-		}
+ 
+-		list_add_rcu(&irqfd->resampler_link, &irqfd->resampler->list);
+-		synchronize_srcu_expedited(&kvm->irq_srcu);
++			/*
++			 * Publish last so no reader sees an empty member list.
++			 */
++			list_add_rcu(&irqfd->resampler_link, &resampler->list);
++			list_add_rcu(&resampler->link, &kvm->irqfds.resampler_list);
++			kvm_register_irq_ack_notifier(kvm, &resampler->notifier);
++		} else {
++			list_add_rcu(&irqfd->resampler_link, &irqfd->resampler->list);
++			synchronize_srcu_expedited(&kvm->irq_srcu);
++		}
+ 
+ 		mutex_unlock(&kvm->irqfds.resampler_lock);
+ 	}
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118084510.332821-1-zypulsecore%40gmail.com
+2.47.3
+
