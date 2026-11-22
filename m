@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795383651;
-	b=TnsaXlaFFOsaNVTjBZZ5s43hxONQO+ISVeXvNEItloVbkbNrrzCZoGZ523x6j6b14qxl
-	 36K8pYIRhnqPqSYVuZn3dH1OjOlf20B/FRcp2NYaAgoGjmt2DcU9h+D33gTDhUooKiOnG
-	 WxdVfX0cRMVogqIuNuvGdZFaHwSYdSephmoopxe6QWeQ8adQiwwscQrDJ+laN+4UlMR5a
-	 TjxMFZJAqKeenoz3zAmgfKU26NAXPekKX85Vo7QyeicRC3KaqfuuGhvG/ddgsWBVA14LN
-	 7pLzGpo+pUT8F2Aj2NFJRNlx4eg97DnmzA+NPQR3hYperbZVxxLaqoKm04rTiWmlV9Q==
+	t=1795383658;
+	b=HvR8D6pVWTThEwAZMRZjcXhv9O+RBJ7J46jejXH/OfrKeOVPbfQ/uPwusqXkPuJRXpz3
+	 lQCD7cyHHXpwW1uk21D/iDJXIRHcMme8RgfHok/HMZiGzSA2iSpp0+KXVe+AlNKry214G
+	 zXGjZ/p8v2H8p65nc4XIoopuqCV3vVtvS8RGNROeeVsIzcaK8n6kBqF6lqRPSMTOOCISL
+	 yQvKEQtKSC7VdqdzhQsdE2IeggLah1Upnqsl9CeEJoi98wfkmQzy3IRBggMJelAXeSDyY
+	 jui36X9/YL/b9IJ6K/avx7GHsBLUiPF8SSuSKl15ODHzRH2X+mdcAjNsPGb1ziBNuhA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795383651;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795383658;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=PKYLmHPn96TWds9ALdJsGGUruv58A496zNmgt2Inywo=;
-	b=xNfpR2aaanTLTmdalFK5UHULovhAV7DqYGb0Uj95KIA2I8xKGScvAkxJcJmOz8e+Njbt
-	 ZhFn3QcnBv2o41DjtxOWpLW3Sj2MY0aNkxnH0d+0TDniq6lizHuRW3zuM8S5+FsUiujdp
-	 0TmRczQg/ZcETkCDp0fL7ZgCXClFho+/h6DvX2kKD9vkQAMivafEys2PaKz5gqdU8aw+f
-	 F3Rf1o2ObChmsFxWJNAamtjZOoIg+eOqau06jX31+uPLMzU9tQZHaWe2586R5tBx/cNaa
-	 SafjTfTzpjGgNFUetK1D71zXenRupPW/gd1ecW+5OCKquWWaUBU5mCxoGjPPsnEemng==
+	bh=4fAdOMUgRAB0ZB+5HKmnhmlOselZ13l7uCltf1t4T78=;
+	b=2FZTQvjollw029MgTDc1xuhFgBMHheCmMi93TfPQ/xav0WSqtSPa2BiSKgjzZ6GOFbKw
+	 rNJ1naRw7kiUpfa16XsMEI7ftKTUva8OYg5fJWJBAR0bM8EgG3YpanUQu+cQC5iRGIzEQ
+	 Ky/1xLGLLJZbjthsGzKEB8nqT/sgplQlt8cJHV5kpUjfWQTqeoL60lERju5MiZNMx89mg
+	 KxiO2ly/Qdc2idq1/S5bzXIu7MInGHm1OiSkbssLBhHIBMvfZfFccBO9SCt84ecBDqh5T
+	 a3WycxgML270fAfuqkqfdjNqAPCn08R/dRoTX6Waj7qyNAQTllOOewq+N10faioZ+sw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DZH3U+Pn;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JmL5v2LP;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88907606A330;
-	Sun, 22 Nov 2026 21:40:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7F98606A31A;
+	Sun, 22 Nov 2026 21:40:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DZH3U+Pn
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DA871F000C4;
-	Sun, 22 Nov 2026 21:40:48 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JmL5v2LP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E78B71F000C0;
+	Sun, 22 Nov 2026 21:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795383651;
-	bh=PKYLmHPn96TWds9ALdJsGGUruv58A496zNmgt2Inywo=;
+	s=k20260515; t=1795383657;
+	bh=4fAdOMUgRAB0ZB+5HKmnhmlOselZ13l7uCltf1t4T78=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DZH3U+Pn9/oDH5xFif+XIqnni42OSgTnGE37XhugWSKX6DQYUM3vlifna2QQQAppP
-	 m5PMb03XC0jvXaG/qAqTSJf863CdKGs72+WEXAXP0eDbAm/U93el+ZEZO4H85l1pUz
-	 5pAISJIh7hYgkxXKeHdDl+pYQDwOIpKC6ROAfTHar25dKjmDliyNkAm0myFNm6UhWq
-	 StRjd9exlfaa+dYMQCWuOX7YCnx7p03KRBPeocvwqdgNEsl1pwmHLzVTlwEsdx3L71
-	 4K23rwrgF37peyLGl3lgZ7qeHoYqWeSltBUF+EAbw3CPKECZ1JDxNSCyVwppyHHOcp
-	 jKKtHMlG4dr0w==
+	b=JmL5v2LPlSOl3r+/hEs7Dw9Uwukm9WAqHL1O07nJb4560wwHMz59Ify8c+NEZGSrR
+	 7FMkBBUwn10TsL1AAiYxjvmTGFrYSwX5nW3nOJ7cjTqhiX5YmELCT1ekMN7rCRVGbP
+	 nCsweMOlBWu+DcOuvtnEDh3g1O/0A/EAXV/u3/TCdOkEM1Rr7Z1VERnABCwtp3b9wt
+	 Gg2kw7z3Zs6VaomhH88mYlAlc4Lu+2T4ZLhYj6M8Cff0Npfd52rp1OSXjq0dzSihuA
+	 omIKcLdoUAZwrJlRA9HWQsHQmYKxcJeu5QR7HLjctnzIQ32di92UAheNoQKR7OGuw/
+	 NJW2FLn4LHaUw==
 From: Arnaldo Carvalho de Melo <acme@kernel.org>
 To: Namhyung Kim <namhyung@kernel.org>
 Cc: Ingo Molnar <mingo@kernel.org>,
@@ -51,9 +51,9 @@ Cc: Ingo Molnar <mingo@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-perf-users@vger.kernel.org,
 	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: [PATCH v11 05/19] perf annotate-x86: Record immediates in a 64-bit field
-Date: Sun, 22 Nov 2026 18:40:11 -0300
-Message-ID: <20261122214025.16769-6-acme@kernel.org>
+Subject: [PATCH v11 07/19] perf annotate-data: Count flexible array accesses for the whole struct
+Date: Sun, 22 Nov 2026 18:40:13 -0300
+Message-ID: <20261122214025.16769-8-acme@kernel.org>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261122214025.16769-1-acme@kernel.org>
 References: <20261122214025.16769-1-acme@kernel.org>
@@ -70,95 +70,143 @@ Content-Transfer-Encoding: 8bit
 
 From: Arnaldo Carvalho de Melo <acme@redhat.com>
 
-An x86 immediate is parsed into the int offset shared with
-displacements, so a constant wider than 32 bits is truncated to garbage
-that the register tracking then records as its value.
+The per-member percentage sums the histogram entries in the member's
+own [offset, offset + size) range.  A flexible array member is resolved
+at or past the end of its struct, so the struct row only covered its
+declared size and showed 0.00% while the member row showed 100.00% and
+the header said N samples.
 
-Add a s64 imm_value to struct annotated_op_loc, fill it in
-extract_op_location_x86() with strtoull() and read it in the three
-places of update_insn_state_x86() that take an immediate as a constant.
-The displacement and the ARM64 and x86 %gs: immediates, which fit in
-32 bits, stay in offset, and pointer offset tracking is unchanged.
+Take a member's extent as the end of its furthest child as well, so the
+struct counts what was resolved past it.  Union members all start at
+offset 0, so a plain union keeps its size; a member that is itself a
+struct with a flexible array extends the union too.  The TUI browser
+accounts the members the same way, use the extent there as well.
 
+Fixes: aaca646915a1bb53 ("perf annotate-data: Adjust type offset for flex-array")
+Reviewed-by: Ian Rogers <irogers@google.com>
+Cc: Namhyung Kim <namhyung@kernel.org>
 Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 ---
- tools/perf/util/annotate-arch/annotate-x86.c | 13 ++++++++-----
- tools/perf/util/annotate.h                   |  6 ++++--
- 2 files changed, 12 insertions(+), 7 deletions(-)
+ tools/perf/ui/browsers/annotate-data.c |  7 +++----
+ tools/perf/util/annotate-data.c        | 27 +++++++++++++++++++++++---
+ tools/perf/util/annotate-data.h        |  8 ++++++++
+ 3 files changed, 35 insertions(+), 7 deletions(-)
 
-diff --git a/tools/perf/util/annotate-arch/annotate-x86.c b/tools/perf/util/annotate-arch/annotate-x86.c
-index a975c39c3d6ce008..94c45806029ee670 100644
---- a/tools/perf/util/annotate-arch/annotate-x86.c
-+++ b/tools/perf/util/annotate-arch/annotate-x86.c
-@@ -341,7 +341,7 @@ static void update_insn_state_x86(struct type_state *state,
- 		tsr->lifetime_end = 0;
+diff --git a/tools/perf/ui/browsers/annotate-data.c b/tools/perf/ui/browsers/annotate-data.c
+index 0f778788df4a934b..e4047e97e8a943a4 100644
+--- a/tools/perf/ui/browsers/annotate-data.c
++++ b/tools/perf/ui/browsers/annotate-data.c
+@@ -53,12 +53,11 @@ static int get_member_overhead(struct annotated_data_type *adt,
+ 			       struct evsel *leader)
+ {
+ 	struct annotated_member *member = entry->data;
+-	int i, k;
++	int i, k, end = annotated_member__extent(member);
  
- 		if (src->imm)
--			imm_value = src->offset;
-+			imm_value = src->imm_value;
- 		else if (has_reg_type(state, src->reg1) &&
- 			 state->regs[src->reg1].kind == TSR_KIND_CONST)
- 			imm_value = state->regs[src->reg1].imm_value;
-@@ -408,7 +408,7 @@ static void update_insn_state_x86(struct type_state *state,
- 		tsr->lifetime_end = 0;
+-	for (i = 0; i < member->size; i++) {
++	for (i = member->offset; i < end; i++) {
+ 		struct type_hist *h;
+ 		struct evsel *evsel;
+-		int offset = member->offset + i;
  
- 		if (src->imm)
--			imm_value = src->offset;
-+			imm_value = src->imm_value;
- 		else if (has_reg_type(state, src->reg1) &&
- 			 state->regs[src->reg1].kind == TSR_KIND_CONST)
- 			imm_value = state->regs[src->reg1].imm_value;
-@@ -589,7 +589,7 @@ static void update_insn_state_x86(struct type_state *state,
+ 		k = 0;
+ 		for_each_group_evsel(evsel, leader) {
+@@ -69,7 +68,7 @@ static int get_member_overhead(struct annotated_data_type *adt,
+ 				continue;
  
- 		if (src->imm) {
- 			tsr->kind = TSR_KIND_CONST;
--			tsr->imm_value = (s64)src->offset;
-+			tsr->imm_value = src->imm_value;
- 			tsr->offset = 0;
- 			tsr->ok = true;
+ 			h = &adt->histograms[evsel->core.idx];
+-			if (hashmap__find(&h->samples, offset, &hist))
++			if (hashmap__find(&h->samples, i, &hist))
+ 				update_hist_entry(&entry->hists[k], hist);
+ 			k++;
+ 		}
+diff --git a/tools/perf/util/annotate-data.c b/tools/perf/util/annotate-data.c
+index 2332d465f9751ef3..c22fec349c47c495 100644
+--- a/tools/perf/util/annotate-data.c
++++ b/tools/perf/util/annotate-data.c
+@@ -2011,7 +2011,7 @@ struct annotated_data_type *find_data_type(struct data_loc_info *dloc)
+ 	if (result == NULL)
+ 		return NULL;
  
-@@ -967,8 +967,11 @@ static void extract_op_location_x86(const struct arch *arch,
- 		if (*s == arch->objdump.register_char) {
- 			op_loc->reg1 = arch__dwarf_regnum(arch, s);
- 		} else if (*s == arch->objdump.imm_char) {
--			op_loc->offset = strtol(s + 1, &p, 0);
--			if (p && p != s + 1)
-+			const char *start = s + 1;
-+			u64 imm = strtoull(start, &p, 0);
+-	if (result->flex_array && dloc->type_offset > result->self.size) {
++	if (result->flex_array && dloc->type_offset >= result->self.size) {
+ 		struct annotated_member *flex_array = get_flex_array_member(result);
+ 
+ 		if (flex_array && flex_array->size > 0) {
+@@ -2208,6 +2208,26 @@ static void print_annotated_data_value(struct type_hist *h, u64 period, int nr_s
+ 		color_fprintf(stdout, color, " %7.2f", percent);
+ }
+ 
++/*
++ * A flexible array member is resolved past the end of its parent, so the
++ * parent's samples are not bounded by its size.  A GNU extension non-last
++ * member with a flexible array can overlap the next member and double-count.
++ */
++int annotated_member__extent(struct annotated_member *member)
++{
++	struct annotated_member *child;
++	int end = member->offset + member->size;
 +
-+			op_loc->imm_value = imm;
-+			if (p && p != start)
- 				op_loc->imm = true;
- 		} else if (*s == '-' || strstarts(s, "0x")) {
- 			u64 offset = strtoull(s, NULL, 0);
-diff --git a/tools/perf/util/annotate.h b/tools/perf/util/annotate.h
-index dc4fc8b1b320c1fb..2dc3fac81593a686 100644
---- a/tools/perf/util/annotate.h
-+++ b/tools/perf/util/annotate.h
-@@ -530,7 +530,8 @@ int arch__dwarf_regnum(const struct arch *arch, const char *str);
-  * struct annotated_op_loc - Location info of instruction operand
-  * @reg1: First register in the operand
-  * @reg2: Second register in the operand
-- * @offset: Memory access offset in the operand
-+ * @imm_value: Immediate value of an x86 operand
-+ * @offset: Memory access offset, or an ARM64 or x86 %gs: immediate
-  * @segment: Segment selector register
-  * @addr_mode: Addressing mode, only valid if @mem_ref is true
-  * @extend_type: Operand extension type (enum annotated_ext_type)
-@@ -538,11 +539,12 @@ int arch__dwarf_regnum(const struct arch *arch, const char *str);
-  * @amount: Number of bits to shift
-  * @mem_ref: Whether the operand accesses memory
-  * @multi_regs: Whether the second register is used
-- * @imm: Whether the operand is an immediate value (in offset)
-+ * @imm: Whether the operand is an immediate value
-  */
- struct annotated_op_loc {
- 	int reg1;
- 	int reg2;
-+	s64 imm_value;
- 	int offset;
- 	u8 segment;
- 	u8 addr_mode;
++	list_for_each_entry(child, &member->children, node) {
++		int child_end = annotated_member__extent(child);
++
++		if (child_end > end)
++			end = child_end;
++	}
++
++	return end;
++}
++
+ static void print_annotated_data_type(struct annotated_data_type *mem_type,
+ 				      struct annotated_member *member,
+ 				      struct evsel *evsel, int indent)
+@@ -2215,6 +2235,7 @@ static void print_annotated_data_type(struct annotated_data_type *mem_type,
+ 	struct annotated_member *child;
+ 	struct type_hist *h;
+ 	int i, nr_events = 0, samples = 0;
++	int end = annotated_member__extent(member);
+ 	u64 period = 0;
+ 	int width = symbol_conf.show_total_period ? 11 : 7;
+ 	struct evsel *pos;
+@@ -2228,10 +2249,10 @@ static void print_annotated_data_type(struct annotated_data_type *mem_type,
+ 
+ 		samples = 0;
+ 		period = 0;
+-		for (i = 0; i < member->size; i++) {
++		for (i = member->offset; i < end; i++) {
+ 			struct type_hist_entry *entry;
+ 
+-			if (!hashmap__find(&h->samples, member->offset + i, &entry))
++			if (!hashmap__find(&h->samples, i, &entry))
+ 				continue;
+ 
+ 			samples += entry->nr_samples;
+diff --git a/tools/perf/util/annotate-data.h b/tools/perf/util/annotate-data.h
+index 184262c7356213fa..6e0d410929651426 100644
+--- a/tools/perf/util/annotate-data.h
++++ b/tools/perf/util/annotate-data.h
+@@ -260,6 +260,9 @@ void global_var_type__tree_delete(struct rb_root *root);
+ /* Print data type annotation (including members) on stdout */
+ int hist_entry__annotate_data_tty(struct hist_entry *he, struct evsel *evsel);
+ 
++/* End offset of a member, including a flexible array's children */
++int annotated_member__extent(struct annotated_member *member);
++
+ /* Get name of member field at the given offset in the data type */
+ int annotated_data_type__get_member_name(struct annotated_data_type *adt,
+ 					 char *buf, size_t sz, int member_offset);
+@@ -316,6 +319,11 @@ static inline int hist_entry__annotate_data_tty(struct hist_entry *he __maybe_un
+ 	return -1;
+ }
+ 
++static inline int annotated_member__extent(struct annotated_member *member)
++{
++	return member->offset + member->size;
++}
++
+ static inline int annotated_data_type__get_member_name(struct annotated_data_type *adt __maybe_unused,
+ 						       char *buf __maybe_unused,
+ 						       size_t sz __maybe_unused,
 -- 
 2.56.1
 
