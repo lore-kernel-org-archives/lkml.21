@@ -1,79 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795321704;
-	b=XcDO+iaIS1LATFKWc4kuAGqBs3GgFOYQ1VirF69pi6HayX7SEC4RHOyM+ZSGbSKRJkQH
-	 NqyA5PWvJvR1ijojjKuT6OrsfAlJwbSPUK+kXHMu1tn/Mw5n97i/eCfeXgrOfiCTt84nY
-	 rV2JrqJ75luu26wPt7RynG6uOKWeMD+ML4ypmJAum8F9VEYh1d2XGgJiNt6uOmjVJ62kv
-	 UEhH1MRGWDMm7Yl8pCAVutLRAT8bz++Dd8CbOJa2fTkNEyI4XacaNC7rRgke6VeIGDK6O
-	 v02N7qfiyKKkgU1hem4U/PaweQzg+f2ZqcsJoB+jeLWn+5celIBQxYZhvegsH+yxfLA==
+	t=1795321727;
+	b=Rb72LwH+2wNUrpBu2PLmoLka5+664/jk6UjnxypIJACNYcJ22d/1MZ3yzZTzolNZD7Ha
+	 J9/aRWPsGUuaIeAorJw6ZKniXXS1ILfoQV19SAH1UO1WoqI6kp44yUf/DZZg74K+EVs1Z
+	 WDNDwdrHeje2iU21g8My+mc5rHQO4BevpJT1u5L3v8FlXM/fJHVvTfqOleGgaaLoXg60t
+	 aDh5zu6W8wfaoQvFGN9zKV01yZdUG9jIudIXwIcj7iIUqyDDeTL+QIX2AWV8eU0bHF+B/
+	 23JdGYPV1DvSqSLtx5DkYWoTEm+wTNjSXegS5kVZImk1Gpr2GLcJox2rnIfskkaflbw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795321704;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795321727;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=iOB3JE5qE0FUvOsGS7IC7g4sM218MK+UDdbKg/F5LWA=;
-	b=FSGCenX5ffkN4YQUdzXBd8ADRvySTrpTmO4sQQj1Vwpjo+9SPSoHZv77XyEkDS5Z/bzP
-	 V7lvzFL2yBV6n2JcOqGsK8iMoPZKT2Jr69hD8ctWp9/7O4BrlIF9uzSqV16kh4G0td8kI
-	 AaFUGvCAbi9te6uZ05A4A1LvYjWjCjMG9ZlF9e0xA/gkkDDJEmk4HjiMEtPaEdFLkDaWq
-	 zMAOZogxZEl41kjLkYTBxsOIVClr7e66Tg8NWfgwdSSv0znwFZCcsWscYb8T/68Ai9C8H
-	 i9zz/3Wvnwgp0ReLmvUbuqVbsc7VIEE10Qh9ibPb7YOYjEWujuwvEiHsBJlsxc0wkCw==
+	bh=y2qxE36zRL/+keonplCFJrbzI2/JvjqxX0EKnczf5J0=;
+	b=AgNtuptJLlOU3Iez50uWSfxjdLH33fcP+zTEiCbV15uIx0mZQVgEQWpkZBYigD56OuAw
+	 Sh++0guxghvKUvop2tAP7MmEF34IZ4m4FVhSUrWLVf7qSqdYEUj9a3HyD09ce02i5Dqdw
+	 TnkrwpmCeQcm4G52qjNMi6M/WUZvC0tGOMbzNw6Ic+eld/BFrLYG0kPcYB3htH4rE28it
+	 X45MY/KN5LcOeE3IhWF8k/zRBLp+KoNuQ9zx0/ROJJvKjwn45JTc5dk7ksK0Zeo7Ag57M
+	 LRZhVmBsNSRV67i2LfwjZnnqiHLTN6JPoTP4WvU94BFel6AQ6bsFKLQFvGwrs+O0BfA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eVEsVxEi;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cGXXVPgi;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3762606A687;
-	Sun, 22 Nov 2026 04:28:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44E80606A320;
+	Sun, 22 Nov 2026 04:28:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eVEsVxEi
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cGXXVPgi
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795321704;
-	b=jokUd89y+aDsrYHwkxFh0L4lqBcFh5xSwxTK47p/yskZYyL7Yo+syCrJR9meXg6TXUrB
-	 XYqwfdGSFMZaC7JRqsjNn1cp5kuY+VG+ShqK2zp2NYG0UjgiaFQY/Po6jOhznw+kQXlrf
-	 85GWyRVepuZ6+depXxDFlwBYjFY3Z8gsdVFtQDmNTKObw6YPBNM9P3x3qK3/mRbAXUH5U
-	 4ujxr+susiT56qZfDOTkk/E/bxRmyDhzbMcLHk0eSr7gQLI0W5w9Fk/xDDLuNviM1Th99
-	 FGn2Lp/Pq9lDzs5YeQ+3YT5eIs9GZxt+bsxLR29mYhYYNnvlKoM+zRh3L9nq0nxOUgQ==
+	t=1795321726;
+	b=GhTozJET0cHV5tzA1fYjX2GjB2THG+8/qp71b8hYnBC2Di+wvYNEC/7vrVSpebZGMhaD
+	 Mby/Bid6GGDUg1JBdmZyq/wjYWeg0Hb2rjiEdF4SxJM6Dfq/Qz6FHPb/yGIXP2picUcCg
+	 +v4bOaxZgUjieRsgn/Drba6srlREZB9WiSMTvqViU2+stl4Js5+KmDBtkY9ZRaUwJl2TL
+	 tbs3vn6NToCbOy9nRDhaD4j5j6aO7SD4Vc4SQyyK0fMCQqXbPwZweWm8T63NXg/mU6Vgf
+	 WKg/CeX+9kuNeCYJqDB+F4Fw9s9BNu/lHo+b24J8KgPx5Fibj/zfz4X+e92MjQcaKiw==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795321704;
+	c=relaxed/relaxed; t=1795321726;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=iOB3JE5qE0FUvOsGS7IC7g4sM218MK+UDdbKg/F5LWA=;
-	b=FwGJyrJkSzDISWj3UAsc9uI1I8wnl5vaP+3M13pFbsjcEyIQfwN6zaOP/8czO279daPJ
-	 xSyfbqIIUnUwqTQpa18ASs+48W5CN4EIamAALc8EPz5uYr1X5uqtG2KiTr4W9BqNrpDgx
-	 k5mnKR4DD59dJu08N+DjfJhDsSNEXN7GoDONFhnE2TJhGSFHd1Agi3AbmPmUZscBBsXcj
-	 in/YGdN+6PWnEEiRkA4zqZBFiAnmIGCun8++1T6SR+PZx2XdMHbuQhasAiLHDpMsUxzZz
-	 zBvDKY2dIKvxtpbzNEE3p2E7iySpJ/G4+g3XFB1VBKU4qmlRB3gsOX9uljlFUzT5g9g==
+	bh=y2qxE36zRL/+keonplCFJrbzI2/JvjqxX0EKnczf5J0=;
+	b=K4ZAmGOLpTZaHGGhlaX+0xrLKUSXUPQ3Nd4PbSHHXZT4NgTCjvv790603rRYlYePziDF
+	 ZMdCc7q5I3zoL3H6E9Myijkq9EQMNDEjX3X3iDBv0KJ1X+xxKejMGjfwU5n+m3ccpCmlK
+	 Wd8frxgjgirb0t5s2W7DzYeR2XOX91rWA1pTym7m1oduM4FdPVn/7IDQvS3ahIXf+nqah
+	 zDZQcA2XzblvK403hT5VUJlchXRGBW625LyrR6hgtMy/vlHiPkxZh5e+gEjNMLNXS9OtQ
+	 1jR1UvxNdUktUY7hKVJklMvxqa2UyAuI+MfNpB+gYkhBpB7OQlTPIK2jjHyUGYos9ag==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id E43AD1F000CA;
-	Sun, 22 Nov 2026 04:28:22 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 31DC31F000CA;
+	Sun, 22 Nov 2026 04:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795321704;
-	bh=iOB3JE5qE0FUvOsGS7IC7g4sM218MK+UDdbKg/F5LWA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=eVEsVxEiCRr2JBD/JfNNljqp+DsJ1dmdMIEeROaXUApcZgdPD/CsIm5eM5os51w6J
-	 YVzh2N9Sz5wHbknCsH3Di3wSyBDGpvGp/KmYaMM2KoMz2nee8jNCP03uXCUuWckS3a
-	 dCz9zF7VDb4oRRpkXTP+8jSEeu3vLYWO5QlBWptg1zucleV8vyRBQ48XcWpnpTzpjt
-	 9oLLdadCha+LIdg0dw/7kxaUoUQud25HctYliIUgs/U9AOZ3qhSNsqioF0Q2C5T9ew
-	 vOwhz3AahC5RJlf0OULya4PpE/claU/3zmM0TPEtE8FckYlLUifPmPw7J5K2jciSTa
-	 2xV4AmbYnYZuw==
+	s=k20260515; t=1795321726;
+	bh=y2qxE36zRL/+keonplCFJrbzI2/JvjqxX0EKnczf5J0=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=cGXXVPgiBqFN3DqSYiAuGc2A9MPIDTTnR24PDQ1kiwY8JyaBwatPblQQ8tw04OIv0
+	 jvIT4eZZIituy0MGlP90+xCi8LBeRyAmLdMfzJpiitW0p7RmQzEbb1yXUDlCQ6e2T6
+	 t5xQZICNMg/hUFY337pL8fQyMDKn9aboG47OeuI9auAaNcpT9yq2lYoqWyoN2jP+7H
+	 g4LJS1MO++xejGa9vTc47rdqqvF+A2bzOrQgdqiU+Q4kZ8h+NqfH66HeBo6Zl4yAp4
+	 mGC+/Mv2nY7SZyQnkIb6GTK5BD1rnyCmZgLjtFHd8INdRD2xFKZJOBrYTQS04cW4yj
+	 MloBJQN/oHTvg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 740B74BEEE;
-	Sun, 22 Nov 2026 04:28:22 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id BA75A4BEAC;
+	Sun, 22 Nov 2026 04:28:44 +0000 (UTC)
 From: Nick Dowsett via B4 Relay <devnull+nick42d.gmail.com@kernel.org>
-Date: Sun, 22 Nov 2026 12:28:16 +0800
-Subject: [PATCH 3/4] rust: wmi: add Driver trait, Adapter and implement
- RegistrationOps
+Date: Sun, 22 Nov 2026 12:28:37 +0800
+Subject: [PATCH] rust: dmi: add basic DMI matching abstraction
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,9 +83,11 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261122-rust-wmi-v1-3-63111d9e824c@gmail.com>
-References: <20261122-rust-wmi-v1-0-63111d9e824c@gmail.com>
-In-Reply-To: <20261122-rust-wmi-v1-0-63111d9e824c@gmail.com>
+Message-Id: <20261122-rust-dmi-v1-1-4ace9449f872@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXM3QpAQBCG4VvRHNsyk4hbkQN2B6P8tIOU3LvF4
+ VPv912g7IUVyugCz4eoLHMAxhHYoZl7NuKCgRLKEAmN33UzbhJj08JRkqLLmSDkq+dOzu+qqn/
+ r3o5st3cP9/0AnUtalWwAAAA=
+X-Change-ID: 20261121-rust-dmi-c49d2041d7e2
 To: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
  Gary Guo <gary@garyguo.net>, 
  =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
@@ -97,16 +98,15 @@ To: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
  Tamir Duberstein <tamird@kernel.org>, 
  Alexandre Courbot <acourbot@nvidia.com>, 
  =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Armin Wolf <W_Armin@gmx.de>
-Cc: =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
- platform-driver-x86@vger.kernel.org, Nick Dowsett <nick42d@gmail.com>
+ Jean Delvare <jdelvare@suse.com>
+Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+ Nick Dowsett <nick42d@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795321700; l=6297;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795321724; l=5742;
  i=nick42d@gmail.com; h=from:subject:message-id;
- bh=NBBpMJ2e+LoZ/1yJhSczt6U3XB3Ub4uia4ccHmG6ulI=;
- b=AADnUhHNgw1sRfdAG73isLFjmJjuIPtj7VRj86+EVDjShOpyZggn9JR4dTv9qzLSEbL7XqLxk
- XMBz3XJubp8A1QQ36mBWPHqzMCCkn9mJhDevn4XqRy2oalO3TvWd4Yr
+ bh=9G3/E9jT/UzLfTWZvVpYFROflcNVLqmMfVcVZgIE+t4=;
+ b=y7Th2tkxpzNZlf21IfTlLTq4qnP59QU26spqGBOPw0MAWYHz/D+kBJ4NKvrtAWKt35frxfM33
+ 4Daz5oQmO/KAHJrND5Z3UX1nQGhpy3ZQYD60ymYLfrrRdKkFgkuAtYM
 X-Developer-Key: i=nick42d@gmail.com; a=ed25519;
  pk=1uIkNexEofzEXNN3Y3QW5z8IrgjWaP0yH6Es51jxWOg=
 X-Endpoint-Received: by B4 Relay for nick42d@gmail.com/default with
@@ -117,167 +117,161 @@ Content-Transfer-Encoding: 7bit
 
 From: Nick Dowsett <nick42d@gmail.com>
 
-- Implements the `wmi::Driver` trait.
-- Adds adapter implementing `driver::DriverLayout` and
-  `driver::RegistrationOps` - `wmi::Adapter<T: Driver>`.
-- Adds `wmi::Registration<T>` type alias for convenience.
+Exposes `linux/dmi.h` to bindgen, adds MAINTAINERS entry and adds an MVP
+of `kernel::dmi` module.
 
 Signed-off-by: Nick Dowsett <nick42d@gmail.com>
 ---
- rust/kernel/wmi.rs | 123 ++++++++++++++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 121 insertions(+), 2 deletions(-)
+This patch adds an initial Rust abstraction for DMI, exposing
+`dmi::Field` and `get_system_info()`.
 
-diff --git a/rust/kernel/wmi.rs b/rust/kernel/wmi.rs
-index 494797fdbf68..09712cbc1c93 100644
---- a/rust/kernel/wmi.rs
-+++ b/rust/kernel/wmi.rs
-@@ -8,15 +8,134 @@
-     bindings,
-     device,
-     device_id::RawDeviceId,
-+    driver,
-+    error,
-     prelude::*,
-     sync::aref::AlwaysRefCounted,
--    types::Opaque, //
-+    types::Opaque,
-+    ThisModule, //
- };
- use core::{
-     marker::PhantomData,
-     ptr::NonNull, //
- };
+It is intended as a minimal prerequisite for the `clevo-laptop` Rust
+platform driver (submitted separately), which needs to check
+`dmi::Field::BoardName`.
+
+Review note for RFL reviewers:
+`dmi::get_system_info` is currently marked safe under the assumption that
+Rust code is always called after DMI is initialised. Would be keen to
+have this validated. Alternatively I think a minimal patch to C could
+actually make this safe earlier if required.
+---
+ MAINTAINERS                     |  1 +
+ rust/bindings/bindings_helper.h |  1 +
+ rust/kernel/dmi.rs              | 82 +++++++++++++++++++++++++++++++++++++++++
+ rust/kernel/lib.rs              |  1 +
+ 4 files changed, 85 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 44540a1eb2b8..92a227e2345e 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -7977,6 +7977,7 @@ F:	Documentation/ABI/testing/sysfs-firmware-dmi-tables
+ F:	drivers/firmware/dmi-id.c
+ F:	drivers/firmware/dmi_scan.c
+ F:	include/linux/dmi.h
++F:	rust/kernel/dmi.rs
  
-+/// Type alias for [`driver::Registration<Adapter<T>>`], the registration of
-+/// a WMI driver wrapping a [`struct wmi_driver`].
-+///
-+/// When this struct is dropped the driver will be unregistered.
-+///
-+/// [`struct wmi_driver`]: srctree/include/linux/wmi.h
-+pub type Registration<T> = driver::Registration<Adapter<T>>;
+ DOCUMENTATION
+ M:	Jonathan Corbet <corbet@lwn.net>
+diff --git a/rust/bindings/bindings_helper.h b/rust/bindings/bindings_helper.h
+index 3791af0aadc7..ed4ce2ca351d 100644
+--- a/rust/bindings/bindings_helper.h
++++ b/rust/bindings/bindings_helper.h
+@@ -56,6 +56,7 @@
+ #include <linux/dma-fence.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/dma-resv.h>
++#include <linux/dmi.h>
+ #include <linux/errname.h>
+ #include <linux/ethtool.h>
+ #include <linux/fdtable.h>
+diff --git a/rust/kernel/dmi.rs b/rust/kernel/dmi.rs
+new file mode 100644
+index 000000000000..410a1a84ce08
+--- /dev/null
++++ b/rust/kernel/dmi.rs
+@@ -0,0 +1,82 @@
++// SPDX-License-Identifier: GPL-2.0
 +
-+/// WMI driver trait.
++//! Abstractions for DMI (Desktop Management Interface).
++//!
++//! C header: [`include/linux/dmi.h`](srctree/include/linux/device-id/dmi.h)
++
++use crate::{
++    bindings,
++    prelude::*, //
++};
++
++/// Corresponds to each DMI identifier type from [`enum dmi_field`].
 +///
-+/// Drivers must implement this trait in order to register a WMI driver.
++/// # Invariant
++///
++/// Each variant must correspond to a valid [`enum dmi_field`] variant.
++///
++/// [`enum dmi_field`]: srctree/include/linux/device-id/dmi.h
++#[repr(u32)]
++#[derive(Clone, Copy, Debug, PartialEq, Eq)]
++#[expect(missing_docs, reason = "C version of these consts are undocumented")]
++pub enum Field {
++    None = bindings::dmi_field_DMI_NONE,
++    BiosVendor = bindings::dmi_field_DMI_BIOS_VENDOR,
++    BiosVersion = bindings::dmi_field_DMI_BIOS_VERSION,
++    BiosDate = bindings::dmi_field_DMI_BIOS_DATE,
++    BiosRelease = bindings::dmi_field_DMI_BIOS_RELEASE,
++    EcFirmwareRelease = bindings::dmi_field_DMI_EC_FIRMWARE_RELEASE,
++    SysVendor = bindings::dmi_field_DMI_SYS_VENDOR,
++    ProductName = bindings::dmi_field_DMI_PRODUCT_NAME,
++    ProductVersion = bindings::dmi_field_DMI_PRODUCT_VERSION,
++    ProductSerial = bindings::dmi_field_DMI_PRODUCT_SERIAL,
++    ProductUuid = bindings::dmi_field_DMI_PRODUCT_UUID,
++    ProductSku = bindings::dmi_field_DMI_PRODUCT_SKU,
++    ProductFamily = bindings::dmi_field_DMI_PRODUCT_FAMILY,
++    BoardVendor = bindings::dmi_field_DMI_BOARD_VENDOR,
++    BoardName = bindings::dmi_field_DMI_BOARD_NAME,
++    BoardVersion = bindings::dmi_field_DMI_BOARD_VERSION,
++    BoardSerial = bindings::dmi_field_DMI_BOARD_SERIAL,
++    BoardAssetTag = bindings::dmi_field_DMI_BOARD_ASSET_TAG,
++    ChassisVendor = bindings::dmi_field_DMI_CHASSIS_VENDOR,
++    ChassisType = bindings::dmi_field_DMI_CHASSIS_TYPE,
++    ChassisVersion = bindings::dmi_field_DMI_CHASSIS_VERSION,
++    ChassisSerial = bindings::dmi_field_DMI_CHASSIS_SERIAL,
++    ChassisAssetTag = bindings::dmi_field_DMI_CHASSIS_ASSET_TAG,
++    OemString = bindings::dmi_field_DMI_OEM_STRING,
++}
++
++/// Returns the DMI string for `field`, or [`None`] if unavailable or `CONFIG_DMI` is disabled.
 +///
 +/// # Examples
 +///
 +/// ```
-+/// # use kernel::{device::Core, prelude::*, wmi};
-+/// struct MyDriver;
-+///
-+/// kernel::wmi_device_table!(
-+///     MY_DRIVER_WMI_TABLE,
-+///     [wmi::DeviceId::new(c"00000000-0000-0000-0000-000000000000")]
-+/// );
-+///
-+/// impl wmi::Driver for MyDriver {
-+///     type Data<'bound> = Self;
-+///     const ID_TABLE: wmi::IdTable = &MY_DRIVER_WMI_TABLE;
-+///
-+///     fn probe<'bound>(
-+///         _dev: &'bound wmi::Device<Core<'_>>,
-+///     ) -> impl PinInit<Self::Data<'bound>, Error> + 'bound {
-+///         Err(ENODEV)
-+///     }
++/// # use kernel::dmi::{self, Field};
++/// if let Some(vendor) = dmi::get_system_info(Field::SysVendor) {
++///     pr_debug!("Vendor string is {vendor}");
 +/// }
 +/// ```
-+pub trait Driver {
-+    /// The type of the driver's bus device private data.
-+    type Data<'bound>: Send + 'bound;
-+    /// The table of WMI device IDs supported by the driver.
-+    const ID_TABLE: IdTable;
-+    /// The `probe` callback is called when the WMI driver is bound to a matching WMI device.
-+    /// Allocating driver-specific data structures and initializing interfaces to other kernel
-+    /// subsystems should normally be done in this function.
-+    fn probe<'bound>(
-+        dev: &'bound Device<device::Core<'_>>,
-+    ) -> impl PinInit<Self::Data<'bound>, Error> + 'bound;
-+}
-+
-+/// Adapter to allow [`Driver`] to be used with [`driver::Registration`].
-+pub struct Adapter<T: Driver>(T);
-+
-+// SAFETY:
-+// - `wmi_driver` is a C struct.
-+// - Since `T` is a driver, `T::Data` is by definition the type of its
-+//   device private data.
-+// - `wmi_driver` embeds a `device_driver` at offset `DEVICE_DRIVER_OFFSET`
-+//   as per `core::mem::offset_of!()`.
-+unsafe impl<T: Driver> driver::DriverLayout for Adapter<T> {
-+    type DriverType = bindings::wmi_driver;
-+    type DriverData<'bound> = T::Data<'bound>;
-+    const DEVICE_DRIVER_OFFSET: usize = core::mem::offset_of!(Self::DriverType, driver);
-+}
-+
-+// SAFETY: It's always valid to unregister a registered `wmi_driver`.
-+unsafe impl<T: Driver> driver::RegistrationOps for Adapter<T> {
-+    unsafe fn register(
-+        reg: &Opaque<Self::DriverType>,
-+        name: &'static CStr,
-+        module: &'static ThisModule,
-+    ) -> Result {
++pub fn get_system_info(field: Field) -> Option<&'static CStr> {
++    // NOTE: This can be upgraded to cfg-select post Rust 1.95.
++    #[cfg(CONFIG_DMI)]
++    {
 +        // SAFETY:
-+        // - It's safe to set the fields of `wmi_driver` on initialization.
-+        // - All set fields meet the invariants of `wmi_driver`.
-+        unsafe {
-+            (*reg.get()).driver.name = name.as_char_ptr();
-+            // SAFETY: This callback will only be called with a pointer to a `wmi_device`
-+            // valid for the lifetime of the callback.
-+            (*reg.get()).probe = Some(Self::probe_callback);
-+            (*reg.get()).id_table = T::ID_TABLE.as_ptr();
-+            (*reg.get()).no_singleton = true;
++        // - `field` is a valid variant of `enum dmi_field`.
++        // - `dmi_get_system_info` is safe to call after DMI has been set up during init.
++        //   This occurs during `setup_arch` on x86/loongarch/mips and `core_initcall`
++        //   on arm64/riscv - before any Rust code is run.
++        let ptr = unsafe { bindings::dmi_get_system_info(field as c_int) };
++        if ptr.is_null() {
++            return None;
 +        }
-+
-+        // SAFETY: `reg` is a valid `wmi_driver`.
-+        error::to_result(unsafe { bindings::__wmi_driver_register(reg.get(), module.as_ptr()) })
++        // SAFETY: If non-null, `dmi_get_system_info` returns a C string that
++        // lives for the life of the kernel.
++        Some(unsafe { CStr::from_char_ptr(ptr) })
 +    }
-+    unsafe fn unregister(wdrv: &Opaque<Self::DriverType>) {
-+        // SAFETY: `wdrv` is a valid `wmi_driver` previously registered with `register()`.
-+        unsafe { bindings::wmi_driver_unregister(wdrv.get()) };
-+    }
-+}
-+
-+impl<T: Driver> Adapter<T> {
-+    /// C wrapper for [`Driver::probe`] function to use it as a C function pointer.
-+    ///
-+    /// # Safety
-+    /// - The caller must ensure that `wdev` is a pointer to a `wmi_device` valid for
-+    ///   the lifetime of the callback.
-+    unsafe extern "C" fn probe_callback(
-+        wdev: *mut bindings::wmi_device,
-+        _context: *const c_void,
-+    ) -> c_int {
-+        // SAFETY:
-+        // - As per the safety requirement for the function, `wdev` is a pointer to a
-+        //   `struct wmi_device` valid for the lifetime of the callback.
-+        //   This is the definition of the Core and CoreInternal marker lifetime.
-+        // - `Device` is `#[repr(transparent)]` over `struct wmi_device`.
-+        let wdev = unsafe { &*wdev.cast::<Device<device::CoreInternal<'_>>>() };
-+        let data = T::probe(wdev);
-+        // As per the C driver subsystem documentation, the return type of a driver
-+        // probe callback is 0 on success or a kernel error code on failure.
-+        error::from_result(|| {
-+            wdev.as_ref().set_drvdata(data)?;
-+            Ok(0)
-+        })
++    #[cfg(not(CONFIG_DMI))]
++    {
++        // Squash `unused_variables` error.
++        let _ = field;
++        None
 +    }
 +}
-+
- /// IdTable type for WMI drivers.
- pub type IdTable = &'static dyn crate::device_id::IdTable<DeviceId, ()>;
- 
-@@ -133,7 +252,7 @@ impl<Ctx: device::DeviceContext> AsRef<device::Device<Ctx>> for Device<Ctx> {
-     fn as_ref(&self) -> &device::Device<Ctx> {
-         // SAFETY:
-         // - By the type invariant on `Device<Ctx>`, `self.as_raw()` is a valid pointer to
--        //   a `wmi_device which embeds a `device`.
-+        //   a `wmi_device` which embeds a `device`.
-         // - If you have a reference to a `Device<Ctx>`, then the reference count must be
-         //   non-zero.
-         // - If you have a reference to a `Device<Ctx>`, it is either:
+diff --git a/rust/kernel/lib.rs b/rust/kernel/lib.rs
+index 1ab41129d557..22f10c5d97e8 100644
+--- a/rust/kernel/lib.rs
++++ b/rust/kernel/lib.rs
+@@ -69,6 +69,7 @@
+ pub mod dma;
+ #[cfg(CONFIG_DMA_SHARED_BUFFER)]
+ pub mod dma_buf;
++pub mod dmi;
+ pub mod driver;
+ #[cfg(CONFIG_DRM = "y")]
+ pub mod drm;
 
--- 
-2.56.1
+---
+base-commit: 4843f6873f7c4835e62f2c73ba0fd538e57a2f22
+change-id: 20261121-rust-dmi-c49d2041d7e2
+
+Best regards,
+--  
+Nick Dowsett <nick42d@gmail.com>
 
 
