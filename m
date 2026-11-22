@@ -1,76 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795310358;
-	b=rlQbYIxL20MOKaYYpMValB2ZtUqFpQhvNdbJMpsAWLji0jiefzH/vGrJ7Svpt5NwpqBg
-	 FdzmjqVtff83SJSFgQDxAVGNQ7JTTMavJjhcdyV5btnw0sXxiy1BKZ8yTTS75Tcassoy8
-	 t1b3BzD/8o8aUy+ORruBDxs00iXYDi5GQ5nFbEcxfhE9WJF0eUcwAyhA2GZTPAuLOqmCW
-	 mB5U7vOgOif44WNJISrH//KU9w2s9ZiDzVM8UxlE9xxwcxONI6RFlKuZ8TmRyzqPw8Atm
-	 t7Om9YvegGRiVgO1QuHbi9nyBpqcpesBWL1oBi054H8xK9Miu9rqrN73O20wnQMwMgw==
+	t=1795310354;
+	b=BMSc4Ie4i7A2EXMqXDQhR0LHx1HHO19SVu+esP8Bl3it/I7GNbdVpDGZmLPwh+6Chf7n
+	 3Ao3Dtx08cLMW9G4t4QCVsWnzwZpsFtyBJWlmeYeyJrSgCoMaQ54mEYJNgoy3WHRTbbb6
+	 wUkDnRsAGxRJ7InwLZyaPqtoRbOASX5rAW8V6yo87M6C1rp4av8Tz2xTi6tThP7nmjAuV
+	 +KPJkew0wIQJAB/g8AsWJNxLUnmfl8ko3grK3H7JoX+BeyV/wjxxvMUT3JC/JZFBC5nKe
+	 Gb5QqpOBymIg2vOYpntAO3px2bwm8Dq0PbhbeGPumQxb2tBDJR658jlklJWPwJ8UCxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795310358;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:MIME-Version:Content-Transfer-Encoding:X-Scanned-By;
-	bh=anvLIQ/gAVabMUhFwRkaKGx6MGoQfQXTcBbd/iuWriU=;
-	b=swgcWunZAtY/0RGIx/8d51HBymFvQUQ+5J0zLAlg0vlrtprqNCLRchOuoZEneA0cmTQi
-	 9+NGEVyYj7rPEXRv7GtORXYs813uiZRlWuhylDaQfUWfPSbbbo0K1LgrZZlDLPxUo80ZK
-	 0dOLxY6VM5fFimgGjXWmpDVguW1ev2mXWOqplEMCMsyQ/Fk0q44fefIW4qQZaE3FQGBN9
-	 LlGhUFLdls7FiYdI85yHCeFXD/7zin+L8pcW6sXUgSAGhTlQmlJB9hc3s0DxEZp2WTT56
-	 lUFnzAIb8j5BN7f/iLH+2CoCJkkbsSbzS5yatuh2RwnSZcWkZXgxAR6cZi10r4ptYtw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795310354;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=qsah9M7foXNK9QvRUXT+CrvXBmg+yydBay4Gf38+YR0=;
+	b=2wdRcsH0CoKv8PCacN7yuYVx5asgUJI89iu4DksDInsbZ0+ynSwnuUmUNiY/PZx75HFU
+	 HAgyAgtzCPtr9/zoFHhN0Hy+dKzkdld2I/C8sc0XZsFsrXPB5Jtjlw9/oFtzDjmsZwQtT
+	 3VV0brXuOc0Es7HIT2pSuv3vi/99G7hXvNtoGs7T9elIQdjMBys/o6rYTTyxDa37778Mv
+	 /iEX2d0C8h3/LwRoY9r74FTU+Pz6duk0T/5sJVcT9g9rRoT+FkxcGez0DVUtEweqoMi1b
+	 +xRHmoaPy01uaJnY6Wl0fHn3ppIUb99lJTj0Ug61wo1OHmbUwEv7G9D2ue91sYdW1Dg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=RNZfx+Up;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="OKCYL9/h";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA361606A32A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 01:19:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA361606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 3BF0A606A33B;
+	Sun, 22 Nov 2026 01:19:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=RNZfx+Up
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795310356;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=anvLIQ/gAVabMUhFwRkaKGx6MGoQfQXTcBbd/iuWriU=;
-	b=RNZfx+UpVCXvVhdBPLHG70KQH4LAO0f4EkyZAjkHi7S6jc8c4LZlMRH8BxWJaAxXQrvmqM
-	mkeI6HF+50FEOg4kC/lm+1VFYtxf3oBFIskFHxi4GA9CQMx6yeRt1crcsEe9XUfp2yekr3
-	+b7bDBSXGpaZo8xzgJcztxf2ECGkR/E=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-220-5zWvLQCYMx-y__GcH6rhNg-1; Sun,
- 22 Nov 2026 01:19:12 +0000
-X-MC-Unique: 5zWvLQCYMx-y__GcH6rhNg-1
-X-Mimecast-MFC-AGG-ID: 5zWvLQCYMx-y__GcH6rhNg_1795310351
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 31602180035E;
-	Sun, 22 Nov 2026 01:19:10 +0000 (UTC)
-Received: from snishika-thinkpadp16vgen1.tokyo.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AFC0D3003E88;
-	Sun, 22 Nov 2026 01:19:05 +0000 (UTC)
-From: Seiji Nishikawa <snishika@redhat.com>
-To: Keith Busch <kbusch@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>
-Cc: Hannes Reinecke <hare@suse.de>,
-	Chris Leech <cleech@redhat.com>,
-	Seiji Nishikawa <snishika@redhat.com>,
-	linux-nvme@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 0/2] nvme-tcp: remove the direct send path
-Date: Sun, 22 Nov 2026 10:18:24 +0900
-Message-ID: <20261122011826.1959697-1-snishika@redhat.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OKCYL9/h
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 207481F000C4;
+	Sun, 22 Nov 2026 01:19:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795310353;
+	bh=qsah9M7foXNK9QvRUXT+CrvXBmg+yydBay4Gf38+YR0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=OKCYL9/hTzizf7XZIcDjFqE8r5O8mbskYQYtjjuu5GOLp14M71COOK3RHwALYj0zC
+	 2RcfvSObeAms8ncoscoqC2z3l/cX6+XCThwhswtfIakGCjHB9B/l4tOAbOJVSd/9Wy
+	 GmWvSV+SBiY2b0lnG/GquMH+L79c2Ix9ouvmPuWjh82MtuPSI5HuI79hiWAlfFS5aa
+	 YkPBvWYNwDT3bVKWsdM/Ne051P4jMdIUmIHa8yYxCP8FW6+KH9yHXwlOg9nnCJvuUo
+	 rMKtkpeWfKdn+0VoaIgnRNPBBMnZz9OkDB9y5s62sj29tnDZHgFB1XPzM8LWaEmcRu
+	 oChN4176hN/8Q==
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: Jarkko Sakkinen <jarkko@kernel.org>,
+	bpf@vger.kernel.org,
+	containers@lists.linux.dev,
+	linux-api@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org,
+	Aleksa Sarai <aleksa@amutable.com>,
+	Alexander Mikhalitsyn <alex@amutable.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Christian Brauner <brauner@kernel.org>,
+	David Howells <dhowells@redhat.com>,
+	Giuseppe Scrivano <giuseppe@scrivano.org>,
+	Hugh Dickins <hughd@google.com>,
+	Jan Kara <jack@suse.cz>,
+	Jeff Layton <jlayton@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Josef Bacik <josef@toxicpanda.com>,
+	Kees Cook <kees@kernel.org>,
+	KP Singh <kpsingh@kernel.org>,
+	Lennart Poettering <lennart@poettering.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Paul Moore <paul@paul-moore.com>,
+	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: [RFC PATCH v6 14/26] userland: Add USERLAND_SHARE_NSFD ioctl
+Date: Sun, 22 Nov 2026 03:17:57 +0200
+Message-ID: <20261122011809.2667684-15-jarkko@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261122011809.2667684-1-jarkko@kernel.org>
+References: <20261122011809.2667684-1-jarkko@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,64 +90,166 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 
-Hannes suggested removing the direct send path in
-nvme_tcp_queue_request() while reviewing commit 5db358f3a7f9 ("nvme-tcp:
-fix io_work priority inversion when send_mutex is held"). This series
-does that, on top of nvme-7.4.
+userland_open() isolates every namespace by default rather than relying
+on unshare() deny-listing, which prevents workloads such as
+host-networked sandboxes or sidecars sharing a network or IPC namespace
+from opting into specific existing namespaces.
 
-Patch 1 removes the direct send path, so io_work is the only sender.
-Patch 2 removes send_mutex, which has nothing left to protect after
-patch 1.
+Add the build-phase USERLAND_SHARE_NSFD ioctl to replace the userland's
+cgroup, IPC, UTS, network, or time namespace with a supplied nsfs file
+descriptor in-place under userland->lock while the userland is still in
+USERLAND_INIT, rejecting calls with -EBUSY once CLONE_INTO_USERLAND
+begins. Require CAP_SYS_ADMIN in the userland's user namespace, and
+require CAP_SYS_ADMIN in the target namespace's owning user namespace
+when the caller is not already a member of that namespace.
 
-The direct send path was added to cut latency when the queue is idle,
-so I measured it on two machines with 1Gb NICs. The target is nvmet-tcp
-backed by null_blk (irqmode=0). The host runs fio like this, 60 seconds
-per run and 3 runs per case:
+Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+---
+ include/uapi/linux/userland.h | 14 ++++++
+ kernel/userland.c             | 92 +++++++++++++++++++++++++++++++++++
+ 2 files changed, 106 insertions(+)
 
-  fio --name=qd1 --filename=/dev/nvme0n1 --direct=1 --ioengine=libaio \
-      --bs=4k --rw=randread --iodepth=1 --numjobs=1 --cpus_allowed=2 \
-      --time_based --runtime=60 --ramp_time=5
-
-Average of the 3 runs at queue depth 1, latency in usec, "patched" is
-this series:
-
-                      IOPS   slat   clat    lat  clat p99
-  randread   base     4153    7.1  232.3  239.3       277
-             patched  4154    4.7  234.7  239.4       280
-  randwrite  base     2472   24.5  375.6  400.1       553
-             patched  2460   14.3  387.6  402.0       570
-
-The send time moves from slat to clat. With the direct send path,
-io_submit() itself sends the command on the socket, so that time is
-counted in slat. Without it, io_submit() only queues the request and
-returns, and io_work sends it, so the same time is counted in clat. lat
-is the sum of the two, and it changes by 0.1 usec for randread and 1.9
-usec (+0.5%) for randwrite.
-
-At queue depth 32 with 4 jobs, both kernels reach the 1Gb link limit
-(28.2k IOPS), so there is no difference there.
-
-On the same two machines, I also ran 5 controller resets during a 120
-second randrw fio run on the patched kernel, and fio finished with no
-errors. Separately, blktests nvme over tcp on a VM with an nvmet tcp
-loopback target gives the same results with and without this series.
-
-On a 1Gb network one I/O takes about 240 us, so a difference of a few
-microseconds is easy to miss. Numbers from faster networks would show
-whether it matters there. I am posting this as RFC so the performance
-side can be discussed on the list.
-
-Seiji Nishikawa (2):
-  nvme-tcp: remove the direct send path
-  nvme-tcp: remove send_mutex
-
- drivers/nvme/host/tcp.c | 60 +++++++----------------------------------
- 1 file changed, 9 insertions(+), 51 deletions(-)
-
-
-base-commit: 68099cf27253a8c89d703a282d3d811446d9453b
+diff --git a/include/uapi/linux/userland.h b/include/uapi/linux/userland.h
+index e81a06d6e9eb..addb84e996f5 100644
+--- a/include/uapi/linux/userland.h
++++ b/include/uapi/linux/userland.h
+@@ -41,4 +41,18 @@ enum userland_flags {
+  */
+ #define USERLAND_GET_NSFD	_IO(USERLAND_IOCTL_MAGIC, 0x01)
+ 
++/**
++ * DOC: USERLAND_SHARE_NSFD
++ *
++ * ``ioctl(userland_fd, USERLAND_SHARE_NSFD, ns_fd)`` replaces the corresponding
++ * member namespace of ``userland_fd`` with ``ns_fd`` (``CLONE_NEWCGROUP``,
++ * ``CLONE_NEWIPC``, ``CLONE_NEWUTS``, ``CLONE_NEWNET``, or ``CLONE_NEWTIME``)
++ * while ``userland_fd`` is in ``USERLAND_INIT``.
++ *
++ * Requires ``CAP_SYS_ADMIN`` in the userland's user namespace, plus
++ * ``CAP_SYS_ADMIN`` in ``ns_fd``'s owning user namespace when the caller is
++ * not already a member of ``ns_fd``.
++ */
++#define USERLAND_SHARE_NSFD	_IO(USERLAND_IOCTL_MAGIC, 0x02)
++
+ #endif /* _UAPI_LINUX_USERLAND_H */
+diff --git a/kernel/userland.c b/kernel/userland.c
+index 7b44f400dc23..efac9e4f2fa5 100644
+--- a/kernel/userland.c
++++ b/kernel/userland.c
+@@ -24,6 +24,8 @@
+ #include <linux/nsfs.h>
+ #include <linux/pid.h>
+ #include <linux/pid_namespace.h>
++#include <linux/proc_fs.h>
++#include <linux/proc_ns.h>
+ #include <linux/time_namespace.h>
+ #include <linux/user_namespace.h>
+ #include <linux/uts_namespace.h>
+@@ -118,6 +120,94 @@ static long userland_get_nsfd(struct userland *userland, unsigned long nstype)
+ 	return open_namespace(ns);
+ }
+ 
++static long userland_share_nsfd(struct userland *c, unsigned long arg)
++{
++	struct ns_common *old_time_children = NULL;
++	struct ns_common *old_ns = NULL;
++	struct ns_common *ns;
++
++	if (arg > INT_MAX)
++		return -EBADF;
++
++	CLASS(fd, f)((int)arg);
++	if (fd_empty(f))
++		return -EBADF;
++	if (!proc_ns_file(fd_file(f)))
++		return -EINVAL;
++	if (unlikely(!current->nsproxy))
++		return -EOPNOTSUPP;
++
++	ns = get_proc_ns(file_inode(fd_file(f)));
++	switch (ns->ns_type) {
++	case CLONE_NEWCGROUP:
++	case CLONE_NEWIPC:
++	case CLONE_NEWUTS:
++	case CLONE_NEWNET:
++		break;
++	case CLONE_NEWTIME:
++		if (!IS_ENABLED(CONFIG_TIME_NS))
++			return -EOPNOTSUPP;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	if (!ns_capable(c->user_ns, CAP_SYS_ADMIN))
++		return -EPERM;
++	if (!is_current_namespace(ns) &&
++	    !ns_capable(ns->ops->owner(ns), CAP_SYS_ADMIN))
++		return -EPERM;
++
++	scoped_guard(spinlock, &c->lock) {
++		if (c->state != USERLAND_INIT)
++			return -EBUSY;
++
++		__ns_ref_inc(ns);
++		__ns_ref_active_get(ns);
++
++		switch (ns->ns_type) {
++		case CLONE_NEWCGROUP:
++			old_ns = to_ns_common(c->ns->cgroup_ns);
++			c->ns->cgroup_ns = to_cg_ns(ns);
++			break;
++		case CLONE_NEWIPC:
++			old_ns = to_ns_common(c->ns->ipc_ns);
++			c->ns->ipc_ns = to_ipc_ns(ns);
++			break;
++		case CLONE_NEWUTS:
++			old_ns = to_ns_common(c->ns->uts_ns);
++			c->ns->uts_ns = to_uts_ns(ns);
++			break;
++		case CLONE_NEWNET:
++			old_ns = to_ns_common(c->ns->net_ns);
++			c->ns->net_ns = to_net_ns(ns);
++			break;
++#ifdef CONFIG_TIME_NS
++		case CLONE_NEWTIME:
++			__ns_ref_inc(ns);
++			__ns_ref_active_get(ns);
++			old_ns = to_ns_common(c->ns->time_ns);
++			old_time_children =
++				to_ns_common(c->ns->time_ns_for_children);
++			c->ns->time_ns = to_time_ns(ns);
++			c->ns->time_ns_for_children = to_time_ns(ns);
++			break;
++#endif
++		default:
++			WARN_ON_ONCE(1);
++			break;
++		}
++	}
++
++	__ns_ref_active_put(old_ns);
++	old_ns->ops->put(old_ns);
++	if (old_time_children) {
++		__ns_ref_active_put(old_time_children);
++		old_time_children->ops->put(old_time_children);
++	}
++	return 0;
++}
++
+ static long userland_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+ {
+ 	struct userland *userland = file->private_data;
+@@ -125,6 +215,8 @@ static long userland_ioctl(struct file *file, unsigned int cmd, unsigned long ar
+ 	switch (cmd) {
+ 	case USERLAND_GET_NSFD:
+ 		return userland_get_nsfd(userland, arg);
++	case USERLAND_SHARE_NSFD:
++		return userland_share_nsfd(userland, arg);
+ 	default:
+ 		return -ENOIOCTLCMD;
+ 	}
 -- 
-2.56.1
+2.47.3
 
