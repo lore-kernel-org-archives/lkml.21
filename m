@@ -1,64 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.11.138.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795385038;
-	b=0VKc5PfE24nxYLThUptPxFc7EsvCpSjj+1o+o9hbNOUwFweDRQX4yW8JbmsuoWMv7hWR
-	 X9qIozvBMpjGUnbkIpoY/BjqwcHjLQVOH+rnn2EHkRfxCwI0lma5e2okCONI8RZFT8mpR
-	 42jmBL1HVqo//D8+THTKFlwTPPShWXdvE2n8TiBW48QWPa2VSUrmserYw77jvHck0QzQX
-	 1IP7vq0b73rhMysmV2woK7hi7Ko3mxkYYFbAdStABj3H32VcaDXwKtp8Gm50Nlx8oBNkL
-	 k0EFmJTDC9sVnUVXyhf47VWCnpMF8rN2ajt6U/FDfsYLTz50WjT5DL4xzw4htyH1KKQ==
+	t=1795385059;
+	b=Vx2xRRap/ZHYA62aVdmAdEJuH5Hbptnv9PKWaJj1JBqUdO8zdUkmtbwQIgmkmdOcdKu0
+	 5xvakqde75hz1RaMiFAXDFi2Knb9Ha2oEdaB+PRn5Ujn/Apt5bZ2+IHUvW+GIbfXID8f/
+	 3E4cEkCeDTkwExBwA6asoeO8q+pTAA4GjGTu4jDoTj/mlZU/tL+dkJxPRyOoyLFv56WZ3
+	 j4Q5fggiEhtn2TmxLJSdwYJxWQUYP7VFvj1tMFFPcPKXPVyMJgBRwQ+JEQHSbpkUSr67D
+	 DX5NOsRbmXot4Odo+Ml84eZOaJZ9ApuubKHpyL90zh3epxTsRXGOArLEiMcKWScwV8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795385038;
-	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type;
-	bh=wx3P+dKo4GM43A7D066wIsRvaq0/Fqq2FMKb809nRkY=;
-	b=YafFwZUXdXwUqiJRuGraXRYunRSpWk5AJpZBNcyRsRuhSjNuon8EsgbnW+Fo47ZUTlbh
-	 4Up82ccB0VRydHA1ALg4aLtrLQeZCX5erkPzaJrUrmppMBX7t2s6iCU0hjzQ1nt0QN4y+
-	 ZcRicYmtbukRFMjbzV3tCHiCKYCnglqKjXM/iXW8xyjX0obfIVNwWX/M1+oylTt3vYBhE
-	 93UlyGBUfsccQK0nqOsq4p41udKezk9vo5bMCQX4c+/2+sPX6zh5Xnb1Ptz03iWNCRo9X
-	 sX3A9gz9qVN36X8atfkByRFw7kIxLCwAr+uXSzJ2cVAmZ4JT6gCmOu28lApRVTbBpmQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795385059;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=GbeTwenuttvynFN6dIKsGFbhGCaFfBzEnbn45qh8jYo=;
+	b=pF7KPLpvXs4uMe7YHwmWdUpAgCj9yGyaU17MaijuYFRoW4lReNz3iIEohHP4jJ67aFal
+	 Gzv1WJ8cJQtVeETVrObMg6g/hrV9uSrBAu4DATlLpLVFw/tEahgAlXGjYI2iWR0vRSL/u
+	 F30+jPnZCmtiyhTSK4I25ExD75JX9oahhOtuIVuo2GWFj3vCXmt1muDCyogqPSE5Z+iVv
+	 vhxcIpE8COTtxjVc4xdF0cxst3XoRq+YmIZvJKmld7wdr9FC932icPPuNfqBMcEnSm2D2
+	 SyfOGRTBF1WK18Rp237/Cc05ONGx766Rfs1pqH2pRhTvAf+XLm5rRPPSPtDp6+pjFVg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=sntech.de;
-	spf=pass smtp.mailfrom=sntech.de;
-	dkim=pass header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=o8Aspt50;
-	arc=none smtp.remote-ip=185.11.138.130
-Received: from gloria.sntech.de (gloria.sntech.de [185.11.138.130])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OticfQ3W;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49E50606A31A;
-	Sun, 22 Nov 2026 22:03:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49E50606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=sntech.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sntech.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CB1E606A681
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:04:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=o8Aspt50
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=wx3P+dKo4GM43A7D066wIsRvaq0/Fqq2FMKb809nRkY=; b=o8Aspt50Btrcq59EN1EuJxGvAC
-	7/DZqL56mUJ8ZIML79qYWp+JQz1VwTTmWVUNzScFzs1lypU/JdXJbBPHxE4Lb7kidXyAYr1tiDlKv
-	VMZdeicvXQoQR8mVKYLdj2n1+rVF8mJkLh2+FmU4Ru70NyZC4ugsbA12XwPZYRziHSLpxYIW0HQKv
-	JJO4TIa1sBvgh9tEyOeXglZPCS4JZ8TiY8Kn7lycMfx3pHfc/eso/lvOMYmzcqj0X83wSijRqcTpg
-	/4xsHY46QzkbAqt58b2CDkln0RCTbsicY3RyIFxTbc8xJQJDUwSo9qHGzkvqBqgq4Fw1bd8OTYoz4
-	yL3WG0uA==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andyshrk@163.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Andy Yan <andy.yan@rock-chip.com>, dri-devel@lists.freedesktop.org,
- linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject:
- Re: [PATCH] dt-bindings: display: rockchip: Allow single 'port' node for DP
- input port
-Date: Sun, 22 Nov 2026 23:03:35 +0100
-Message-ID: <GHrf8KahSYaDLPGqb0rYhw@sntech.de>
-In-Reply-To: <20261109184759.467215-1-robh@kernel.org>
-References: <20261109184759.467215-1-robh@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OticfQ3W
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2117E1F000E0;
+	Sun, 22 Nov 2026 22:04:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795385058;
+	bh=GbeTwenuttvynFN6dIKsGFbhGCaFfBzEnbn45qh8jYo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OticfQ3WrhflN58urUGGr588Ngpq1tfbexq/+BqJVmrHz7lFbOMmT4Cbf8s1Lu1jV
+	 nezu6/SmB0U+mHxI6nigFf/AvLrNIP2vENjDQ3sP5zWM7MdG+22RAZCf/Wx4eXUDIH
+	 xgUMJtdXHfqzlU+yG0ZtJQlEWf9t+2z1LJj4bhD7QeL0jw+q+DSkGoVeLyeb21n5Ki
+	 SGGedxpRPcUMSd/bj+2LgLduGcFoXwn4mhIOI1bvOG42UvXrX1377cdXaL3CWIHiTc
+	 yh4jE9UxioOXs0lBklO4ks/WbGhmGdHbdzletENSQOpnkoo/tQMjLuwU9pYKnSRrnX
+	 LHQUklM3e8uDg==
+Date: Sun, 22 Nov 2026 15:04:13 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Marc Kleine-Budde <mkl@pengutronix.de>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	linux-kernel@vger.kernel.org, kernel@pengutronix.de
+Subject: Re: [BUG] topology.c fails to build with clang-24
+Message-ID: <20261122220413.GA1454934@ax162>
+References: <20261121-lively-delectable-duck-f7c503-mkl@pengutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,19 +63,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261121-lively-delectable-duck-f7c503-mkl@pengutronix.de>
 
-Am Montag, 9. November 2026, 19:47:58 Mitteleurop=C3=A4ische Normalzeit sch=
-rieb Rob Herring (Arm):
-> Existing RK3399 users have only a single 'port' node. This was common bef=
-ore
-> connector nodes were defined. Allow for this since there are already stab=
-le
-> users.
->=20
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+On Sat, Nov 21, 2026 at 07:41:20PM +0100, Marc Kleine-Budde wrote:
+> Hello,
+> 
+> current Linus master commit c44104f3642d ("Merge tag
+> 'drm-fixes-2026-11-21' of https://gitlab.freedesktop.org/drm/kernel")
+> fails to build with Debian's clang-24 from experimental:
+> 
+> | $ clang-24 --version
+> | Debian clang version 24.0.0 (++20261119065354+16721c9d8e82-1~exp1)
+> | Target: x86_64-pc-linux-gnu
+> | Thread model: posix
+> | InstalledDir: /usr/lib/llvm-24/bin
+> 
+> Standard x86-64 defconfig compilation, with LLVM=-24.
+> 
+> | In file included from kernel/sched/build_utility.c:86:
+> | kernel/sched/topology.c:2008:29: error: unsequenced accesses to volatile qualified 'jiffies' [-Werror,-Wunsequenced-volatile]
+> |  1998 |                 .last_balance           = jiffies,
+> |       |                                           ~~~~~~~
+> |  1999 |                 .balance_interval       = sd_weight,
+> |  2000 |
+> |  2001 |                 /* 50% success rate */
+> |  2002 |                 .newidle_call           = 512,
+> |  2003 |                 .newidle_success        = 256,
+> |  2004 |                 .newidle_ratio          = 512,
+> |  2005 |                 .newidle_stamp          = now,
+> |  2006 |
+> |  2007 |                 .max_newidle_lb_cost    = 0,
+> |  2008 |                 .last_decay_max_lb_cost = jiffies,
+> |       |                                           ^
+> | 1 error generated.
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+I sent
 
+  https://lore.kernel.org/20261116-topology-wunsequenced-v2-1-54611119172b@kernel.org/
 
+for this but I am still waiting for it to be picked up (or told how to
+make it acceptable if it is truly rejected).
+
+-- 
+Cheers,
+Nathan
