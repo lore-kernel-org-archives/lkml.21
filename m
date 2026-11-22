@@ -1,88 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795354952;
-	b=XTo8ucwN2TW2aRrhYDfKw6jDoeGwvFbOBPL/CGGY7vTmvH8cyDgOqOPyLcMAeeCxZjHe
-	 45sd24RjM7Rit3lWMxS13Gja9MiPJbbqeDsBMKdI/W4SoE5KCyJSTeGwBHqr31rpt8EMs
-	 mhpMfdjchtwMzO+8JL/eWHzPnBNQfYphdHJ6Nz1WSv/MKnEKtjaQMHHfZVez9xl9KNxG5
-	 ZC4Ys0lEzP7R3O0dPae9CjsS5XObqtL6CXMgHLpmGZ9ENVmjGezT2djVog3KbL0xrxeTo
-	 ySNuAumBhTESFHLaWUuOQLij+ZeqAmxZGo3/rhguGXdBJf0RDqU1rfVEAq4DK+4z8hw==
+	t=1795354953;
+	b=fj4tl9jrWld6k22KN0v32uGoOAQ/okChLAMhn61Oi3jYqECR+JbPDG62A5DzcrRx49Hv
+	 DfYs3K8oXyA7UPdDZO/ePOWK1EWeVsyqbV260K9uDXTlFx2N8Ze941q85c0nW3DNVSumF
+	 0wUk7WSVexiWj0K4Micvr+5uHqmJX1mDEzRXKZ/gh+orQZDDuWLu2vN0c6cRW+6QYWktk
+	 o3zrXUQHiR8+QZMtAnI+ykOxMu1AAQM1c2DjKdbRq4yigzfQIYPrRwr2EHHYB5EzGEqyf
+	 QVLKcE+q8/p+Ai4o8xqTiRmerD6TjQzCDdVG8Zw43avwxWu7ke3tLcLO2fcu46II/Ew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795354952;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795354953;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=q/EnDq0cYzj1Unoh1AP9SwyoUO1qaDu53CnMoUXDa1M=;
-	b=aWm+XERUYnqvgZdJkOST42pqOQruDjuHxo4/F23hsspyJuwTY/LarUQkpPztG44RQWz2
-	 TgUnUWlAoHYcI6hAWpWTrRM36OqEqYlQ8+2o41AY+Gh7BeCsLmnkoZmPoSfL0c1HgeEXc
-	 XMEfcRcS/ODtSfmq6TtqvHtPQNRIK+3gtRyf7m1vT5FLwnMy6xETADeweF6nJPPtX0ixv
-	 7IgTef9TeOrD3W0ACkSLa5c15u1ZWnTVnFyPIl5T/x/pAwD6kn2XJnZPJALXJJbGHwn87
-	 7uvhkvwUmKXg9heQ9AOWxA0eZpBsynWTApTdEEaLIgxp1q5jDatTJ2/75v2MtfgJINw==
+	bh=gsbux4xB1cx2A5qfbVry4VrITyTzzyacDp3E10MmRsQ=;
+	b=DRDYrBTe06wb5PLTAeM2Uj1VEvRidajVJHm/wpYMgd8fxWmYq6gM/kJZVe2CLLNbyC+O
+	 xeFNtQ+gBiUQ1eQM0qT2AWh8CpRLjW/BrIhTsbGDqS4lhA33Qe5LgcAUv9QdVydlbkiqk
+	 mF8RToUr9RBqunPupYWno3k63uXU9szrvfle/09NtxxyWyfRoyDNMrCniG3qRnaCQZcLq
+	 Aeu6HEwYs1Ubh5Fga/BNAuufYY3f3uxV3ffOu40NuvUsHDufOURKBlDI0OyyQyoN2VgAW
+	 9gqbGuDoKWK3CksvV9dFIFHwfUc6sMo5UMKXAesO4bUKl1+olqkowLn4JdJ5TvKCsUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bairaktaris.de;
 	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=XaTLOvXB;
-	arc=none smtp.remote-ip=209.85.218.41
-Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
+	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=xuoFMD0s;
+	arc=none smtp.remote-ip=209.85.208.44
+Received: from mail-ed1-f44.google.com (mail-ed1-f44.google.com [209.85.208.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 890E9606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:42:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 890E9606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55CCB606A682
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:42:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55CCB606A682
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=XaTLOvXB
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c4d427836e9so338219866b.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 05:42:32 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=xuoFMD0s
+Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-6b167ffd132so3653953a12.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 05:42:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1795354951; x=1795959751; darn=vger.kernel.org;
+        d=bairaktaris.de; s=google; t=1795354952; x=1795959752; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=q/EnDq0cYzj1Unoh1AP9SwyoUO1qaDu53CnMoUXDa1M=;
-        b=XaTLOvXBtGe1GTurJwUECWEVzZUrBl0CK75/PLgq1My59TyDTSJegqOOcVtsLZyr6s
-         MT76FLj81pxsfp1xp1oAdKCJjzg/AoFsqr/gQ8wdkIsAj7Tn0vNCwQ3KtPKDce2GnkZg
-         s745hSJ7NUxbifOxzQX8NA59mjgKdFjb0rO6OQJibtpr0vFVr72J7QwVuXDkSDJb7llx
-         MqDSlDldSwN+CPLi3nILDJeCtljKjomqq1XrnoiYT7aWZx6E8usrt61AfYFrkSASZp9q
-         nbRB3FnWLtvE/WGqz/znJ0Dk2hT8P59sd0doQdMHo+ez+SysRVAyr79/0UIT+FSit1cw
-         H5bA==
+        bh=gsbux4xB1cx2A5qfbVry4VrITyTzzyacDp3E10MmRsQ=;
+        b=xuoFMD0s6RPjtA3eyT71Zkm+IFUP8NLNBiQQLa4ZjpoNtg3uWI6JA1FUQtVH4xOnrH
+         o9SXWjXqg5xBKaDQ04/Kk0pDrSgkfPWrl7/wjpQneZ/L5YwtrX10kvRUHQd4wEo+0X/s
+         3PwxgvZjXch7Xv1MIIwxApBXoAGA/xcbTAr7bV0r9mxs7ZokeNilfVNCxcAPOxUJodz9
+         BGFDCm7bycovpS80QtDtrup9DZT9DBnLwHg9neiCbwmNn28vo+ya4F7WLk9YsO2dVZRY
+         NWh8IbW+2LDnRxS+RDaoCY2eN89E8Q0yiLDyfkGA7hqh5GoxyWCBjHOAGvpt+sEGSRoR
+         tAzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795354951; x=1795959751;
+        d=1e100.net; s=20260707; t=1795354952; x=1795959752;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=q/EnDq0cYzj1Unoh1AP9SwyoUO1qaDu53CnMoUXDa1M=;
-        b=zmOPocM2SFuqgEMb/miY5jKQ4Eo2LKPZZAOV/aZfCR4h5QUbPdqcIx3QkliicF7oNt
-         iQ/s2oNtBH/SFbbiXWirh6gpgWnINA+5hst0AmIlaYr4jPpWIM2UKx78ruCOoP5iRseG
-         JwBxDszA1dwCOPqQ1WGamuOHbASiwpsMOS15ih1rkSQZrDggX1/F2qkHxaeMa7P2ByMi
-         0a3B/uI2VelQ/XBTjn8crc4f46qGzsICUp7Y6X12KJtttNvXHzggjnEu+5Mc9bFC82rp
-         4ve58xRQudMq0yviguvfwpnvutNy8wLPvEZuyzM6XRjB4qZhbpnukzlxlukrrJN7E8tp
-         +W3A==
-X-Forwarded-Encrypted: i=1; AL+hErGxdY2NODzVAfp92ODn6KDA9CFgtLSn5Hi8QRICkUcEPg300eV24gQjidvWGYICSW2pQsIfUyeK22ZYJF8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8AgYhu17o3T4FnzS1VPhqitbgLKBs3wl9i09RrxCvaZJcIHOmy
-	q3Sk+uElCEMKABWFjSt6oU5bNAeZum+Lyopy4StiDA6MOwGOi3zbNshUthVUlI9h4bRsIBHf9/A
-	w7Q0pp2dU
-X-Gm-Gg: AZFdTZeJVTcPf/rVZhEJ3DNJfLCdW0P5xcCu4ILRGU1JCfSDk6IR8P+K66Yk9XLE4vn
-	CKM18JdLqk6zpwOYK8HzaWy/fLG8huQF059y11YEWbNpIssZ4S59xwbm+Zu56puFw0YEHDL1Vv9
-	4n/M1EybpCbbqxsaw6Eg0LjFEYB61EOXzRdxdI2UBlEosKIgEF/KJLvyFDJbAmG9/669galcrZ3
-	d1U9+Aclwl3rRWXLESniLQZd05I6OInzpOR8AjNsyWoJ5BAfG9vPhr+7d106pTXK2T3l9+sTubt
-	tdWzsH3Nd+9JKYbUur/CTOCddP74kXgKNgYQl3yU8KYhvyEIriCi8ugkoEYAIewKJ4u4sJB/41F
-	Cm8rgI3kp9kP2x8fHhGp5XLLQr7B1rZ8smntObp6JC+U749ky/9Z5AvZz0GmGm0sPSW4miT2cBh
-	nxpYQjtHbtphSYwqV6tmnY/a3qIOIvFmvCqW+TZbl9Lbgc0fWyUh7m+OIiI5Us2c4NbEEPxZKi9
-	ZIZs1OAZMCuVz+Fn6vsvXHzvLgEwJPX8E5aMuXYDkJo+V6pIrMmBeQ9dD2I23+GQ8iGDF5AX8BB
-	BEe2T7ujx5WU6N/jxd1XgXxiYl8pD6f9hhEBhAqgu7HL1cd6iTmXaRk8EXYdfcm579Lvch7ltIh
-	mc8iJbkY+9zEyjolwP9QaaBhCAEXNHn0t5vmaUuVfHY2Dye4frz1nEHQ9ddlduFFxLKR1CYOUYd
-	DvhVhNCwXQzGoRByJuYQkGTXwLx/0kf0R4gK+fNTFg3Ox4AWeXh6msNlbST5tno9bdK1TAROu/g
-	w3Mm6skXwT+UINb0JSvC58Yo2YSDoGQ5PYMV+3tm2kvAyW17QMK+TvTl8YeASO6Pkpkagoiv7XL
-	pFiZlhOhY32iuLvBkUrTCet2qEp7pwknq0RiW6s/v2+AVGSqjuhu1II=
-X-Received: by 2002:a17:907:3e1c:b0:c51:53bb:8d70 with SMTP id a640c23a62f3a-c5153bb8ed8mr418956066b.16.1795354950990;
-        Sun, 22 Nov 2026 05:42:30 -0800 (PST)
+        bh=gsbux4xB1cx2A5qfbVry4VrITyTzzyacDp3E10MmRsQ=;
+        b=IgCk/eF2GPkF9uZ4HcYljJTVqi5pk+jWdSJDhpqQHzTxeq3aiXHoxtzv4ntSwsUBnZ
+         OLQKV2eC5kJmXUoE/2jGc5R0+pdnOY0ORxjWc7qBnIKrLASt+QnPUqGZFq4lSclvx9lj
+         BW/wB0n/C1J8NwV68bFdijIOE8wDbV4aBzrujIODeYi5VHVWETJ2zwdpjeWS78ew0YHK
+         pzMmrsIOIblegO4VjYpvIfu4YkdX6FWpBTnmuuID6vgzZ7MdkN2m6ZymEHQ+bU0Ieuf5
+         g4gRHgkWF0GlROnAg968Tn7gfEhtqEQftBxLdMhyadntN8SCLWEYA7jwdqvgDo048qmr
+         Q8Tg==
+X-Forwarded-Encrypted: i=1; AL+hErHBeoVaAG9Vb1VHGV19szvixkU8xwecR3P0h/fkeT6O9T5r7z++PC99H2gHzK9TJCMFfgIshzoTvJiqFjM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/gdZVkvhC16zEaljvWxji7e8KaH29q8A2s2HIfUBf062Nc37yQ
+	ZWrC1fgr0MShO0qOOtPBHhgzh5fj5IlmgN+Am77d/JD0SWDMSYBUbWZFs2enbQxoJw==
+X-Gm-Gg: AZFdTZc/26cc3EEGs/oAwbUuPIf2Az8Eb3B+wLD9vMFizTuftTTwVi1h0pYj97QvWUa
+	48bRMtRn1s3/JEh58yozCSmN09IiMS4ybxnH06q8Ld34HJeKXP+rTr3J2IwUU40iOYQsmpmO3LW
+	6v2bFikdT3YMwKsKkqa9QJL4OkrHnAWEnunCUDiOrj/XJzTsT90SlDr8tANdhD+f6gH5llr0W18
+	MaJS+2Ko2C5NRNsEBVIWhIdcSynAzForYHJTPMAabSi/mUr2yjDe8bnT434cOHmPQbOMk3yCBG9
+	xjj+JHAL4kGsKxudRogtmz/rsyqdGDhKJavfS5uUxyy4iJCYE8Mx2h/NR2+xl51OT1IKqvBr9/c
+	yX6SLcyJM9lqUDzhue/n1K4HHlLL4psP7bqtZaDr63JB2glrc8Y7pJTBcykITGZYuvo9qBc1COK
+	V44uDXqB8kZgdHYc4dA8g195yc9/gGvz0LI461fACKf01RgbOimc5oaL5jV3RjsdgYP43xw0V7d
+	7y6JtjteK7imwPhwUSEHS0KjfBL2Gbs6Tk9+OBC8mNa4JLzUnn43XHsM/g6JK+LjSTUCKFDBNMg
+	wI4h7i7AsKCkafBUDbc0f+5MOAIl/3HDHS82WNNqY+XyUWQz2raopsNlGbr+Kj6STHo5vrNRroE
+	XjN6enbbKvXG4opgn2A8FWSK44w3lxfXp+QI/Qqc7kgd38qIOQ4sEWBj/sw2UJffijjuTCsrv/0
+	JppAp2CCUUfpFlcm2IMgIQS8t8q7EkBWfbWI5pBKiOAqzWV2V/CSJkwZoDdQA91CA5ByzDF635E
+	k/CqSRg4K2gwv9PIV5VnVjRQVIs5FEU9D/tRFEW6Qfkge1WYzwspkWMHAx4NnnUMRSFCQuxYMUO
+	OV61etzNkF56MrNAC0vyeh7rgenmBJMCNFhYEsdUT9DzQBKwBnUOHYQ=
+X-Received: by 2002:a05:6402:2745:b0:6ba:9d0c:cca4 with SMTP id 4fb4d7f45d1cf-6ba9d0cced2mr898964a12.33.1795354951690;
+        Sun, 22 Nov 2026 05:42:31 -0800 (PST)
 Received: from Desktop.tail070c67.ts.net (p200300f24712e3000000000000000a27.dip0.t-ipconnect.de. [2003:f2:4712:e300::a27])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ad010bcsm326020566b.1.2026.11.22.05.42.29
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ad010bcsm326020566b.1.2026.11.22.05.42.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 05:42:29 -0800 (PST)
+        Sun, 22 Nov 2026 05:42:31 -0800 (PST)
 From: Julius Bairaktaris <julius@bairaktaris.de>
 To: Johannes Berg <johannes@sipsolutions.net>
 Cc: linux-wireless@vger.kernel.org,
@@ -92,9 +91,9 @@ Cc: linux-wireless@vger.kernel.org,
 	ath11k@lists.infradead.org,
 	ath12k@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH wireless-next 3/4] wifi: ath11k: pass the TID of a received 802.3 frame to mac80211
-Date: Sun, 22 Nov 2026 14:42:27 +0100
-Message-ID: <20261122134228.956044-4-julius@bairaktaris.de>
+Subject: [PATCH wireless-next 4/4] wifi: ath12k: pass the TID of a received 802.3 frame to mac80211
+Date: Sun, 22 Nov 2026 14:42:28 +0100
+Message-ID: <20261122134228.956044-5-julius@bairaktaris.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261122134228.956044-1-julius@bairaktaris.de>
 References: <20261122134228.956044-1-julius@bairaktaris.de>
@@ -109,23 +108,20 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-ath11k_dp_rx_deliver_msdu() delivers frames with Ethernet decap as
+ath12k_dp_rx_deliver_msdu() delivers frames with Ethernet decap as
 RX_FLAG_8023, and mac80211 counted all of them on TID 0. Pass the TID
-the driver already took from the REO or MPDU start descriptor into
-rxcb->tid.
-
-Tested-on: IPQ8074 hw2.0 AHB WLAN.HK.2.12-01460-QCAHKSWPL_SILICONZ-1
+the driver already took from the receive descriptor into rxcb->tid.
 
 Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
 ---
- drivers/net/wireless/ath/ath11k/dp_rx.c | 1 +
+ drivers/net/wireless/ath/ath12k/dp_rx.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/wireless/ath/ath11k/dp_rx.c b/drivers/net/wireless/ath/ath11k/dp_rx.c
-index 6d95f7b343a5..7235399c5b39 100644
---- a/drivers/net/wireless/ath/ath11k/dp_rx.c
-+++ b/drivers/net/wireless/ath/ath11k/dp_rx.c
-@@ -2493,6 +2493,7 @@ static void ath11k_dp_rx_deliver_msdu(struct ath11k *ar, struct napi_struct *nap
+diff --git a/drivers/net/wireless/ath/ath12k/dp_rx.c b/drivers/net/wireless/ath/ath12k/dp_rx.c
+index 36be543b7c50..fc381945d163 100644
+--- a/drivers/net/wireless/ath/ath12k/dp_rx.c
++++ b/drivers/net/wireless/ath/ath12k/dp_rx.c
+@@ -1413,6 +1413,7 @@ void ath12k_dp_rx_deliver_msdu(struct ath12k_pdev_dp *dp_pdev, struct napi_struc
  
  	rx_status = IEEE80211_SKB_RXCB(msdu);
  	*rx_status = *status;
