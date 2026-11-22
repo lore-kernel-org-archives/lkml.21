@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795322144;
-	b=Pehot08C+e1hxaozXN9a4G6lT0GAqdYP9a7qgvyg4Kx3D9REflfZcxCubrG68va9UwV/
-	 AHXn9cyvIW70Ig2po+P8jngNPuoNBqOeV50R5souzsa6HjiLizoS96YHbCd9KM3ckS2uo
-	 dM6hCXsXDEksiV2IRXEqrnLvrCr424I5pbQLq7hvU7t3OO0E/0WCVtG8F1BbXrL9i3Zwf
-	 rwLsAHD3tPMytZUPLhfVnVmXI2XAYYBcjV04yRMG+ADEXJ7pf942Uhkp2ly55+d26DQ/v
-	 i4WG/BxA2Fxpp15a72hHTNI9vcwf1B4yC09BznRSjQcVkD66CtkMfyo2Cxc/obhHFnQ==
+	t=1795322143;
+	b=YNVxsnyQAPUWipX4huXnpxDRbpxzdgKOgPEtu8LHLqRShtj+KJXVOJm3SCVWuCuhF246
+	 D2imGkwTHNbCxIe5xZU6QVJy7Td6H6ynLNUIspy+gInKGWTbbHzG+ciWFjyBKmTkP0rne
+	 cUm0ngX2ocz0h96vn5DIBPo2hQ6icjid4kMGdyrGQKO9cL+BCTkwy0ZG/iRg//1dMw8bi
+	 bvekJDwHQxTLFsYXmeyHoMqpsSk/zU4ke/j4S6dtGT2XzasR20sahGAfr54iOx8v4241+
+	 xHDlCT26r8yakH6hBX6keAYKxICqOswwF+0cDkOSbJBRNpY/2RbHUl5oq+qxGjiM5IQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795322144;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795322143;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=6w1KSDkRJhlso48nKJo/NCKPKTEqmQ7kzzIZEMGYM1I=;
-	b=btO1DHpRC5Izm+nq5tE8iSLSN3vC98bpHqQtmqPgdeyWMKlSfwtCfaSZp1l0WPimwf/y
-	 DTtPvOJ7xdrV/N1x7ae8x1ri1OWgwtJUYpAoxlS0YMiiPFlhxPttsWbyyLAz2pgiWQY+9
-	 r8w3vgYDA5VoT/hms7kMZcFlbc3rZX8rFP4EukbsTf8NY/0NGVzZh6yZyBAsRqmj4OnVL
-	 M11gmzGPTFMnzM5pIpWh6svXhJsJoKeUNIY1F0SSdbHtw3V90U284D7M9bhH5ClutqLQ6
-	 +/SQ1TX/h+p8b6nfndQrEBYdoltgHHwumfB4l6Ttp0ImBT45d6PE72IGHQmKh3IQUtw==
+	bh=hDT/aECBwNbW2NyGACBkXyKf6xBKy+F1zx00muMQwYk=;
+	b=MZyvpAJpSFwuTbZTL9fFBdZjLZbMwKSd73QOLKKzmeKo0gPiYGAPH/eMTR+XfBDr7YuO
+	 4Yr/z7ZDe/GG23OOoiUNRIs3Upkv/zQIBPfUDWwiXSh9aITpSFsRUAucXldhFZA9RvF9+
+	 2os9g7NdmuFZawH1Kd47fd5H0p8RKjAwqj8xYS6HXixlbiulALgGljDTLdeqna4sYzyXf
+	 pPFuuUMhWm92MinHt2dQFuM1tYhTZoAnuWRttqez4ntJsa95DVi5hiFt/Wmf8QSGNyDvk
+	 FDj35kcogEGQljghMR+dhq8130a2PKWU7qU1BHYEzk2N4t191Sug1aI8ou9Abx8HcBw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JJ6J0RPC;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lyafLCx9;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5662606A695;
-	Sun, 22 Nov 2026 04:35:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C40D606A32A;
+	Sun, 22 Nov 2026 04:35:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JJ6J0RPC
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lyafLCx9
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795322144;
-	b=qRB3SnO976tTMBjGppYAD1V1i69UI5OO6FckXXGWg00+F+G+k7LxvKW1rKLmLCGw52h+
-	 JGUZKErhdNppT2Oo342dLRBGbqrvpnGdk8p9zpsJXQjVkyzWLS95bIzGOK3gHnVpeG8hE
-	 MgN0kiDJIEucPaH2k4L6jLbJTgmV0l9rtHZ445R4D85nioDiJRmOP3w/GwqwBw+0oMoIi
-	 9d+gMbsAi9sfKW6eGU7Vefd0OiBUDDc+mMc6FG786uewDiCpW3nPjtV0ANmGOhTtxM5hF
-	 Dk5JWReb5kWULE9a3C56GsWeiBli6awYW7bLAO5Ii7UGDYCMD2ukaePU6Pfrx/8iovw==
+	t=1795322143;
+	b=B4j4WMZIlOCuFk7fde5NWU8ou5jZFQJoaNlaD7JcfGyuBLohgVDg1SHpgTr5pXFAv5Ut
+	 6G2DHvI2SltWHSYDGpaJ9zQwJkWlfVC8nwzywk8oBBROrRS0cLUpn8KiHRCUkWJcRUSCy
+	 81HbLis0WiPAB6cegPv1n+qc56DFZjSi3RLev1E+0SRvGdqzifAjUNb11TNhJagehdk0v
+	 Vr/jLn+VpFDr0HI6u3uYZnKsTfRv8So6AtPhBlF3Kv01vclrjfI59qSBC8shISj37xe+y
+	 tv1HqriWxA6L3D/6vFrDtseEdq7tP9w7VFKdSP6KBNIyQdAWDdq1ZvyhUqcujU9jCFA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795322144;
+	c=relaxed/relaxed; t=1795322143;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=6w1KSDkRJhlso48nKJo/NCKPKTEqmQ7kzzIZEMGYM1I=;
-	b=kgdBZyquGKJQW6UsWOGl4QvSxQlmvkJBbimw71TeYeBb23ZsXH9lad0y2HDeXMek5rJb
-	 MujHqUtfklppES2Rhlz2AsPYz3N4WvhDEVKRgZwY2ei+vCrNUaYqZLEsaqm9Fj8bRPM2t
-	 YOuQkoRa0dkE3kG+jyGE0N27FhntbVUi52N2EXqQcXVu6PzH4nA48w+A+kteSkUvjjF3k
-	 YgLN1gWyPR/0sMMNlge34c3c2G9nkQT2unfjpazBSoFHcZK+9mSt1vxaqFPFi3xDE83ii
-	 75ZAwjxc/ZoQ8FtJwJXRN9Uqr2hcsJPH9781wBApNZfjyOdcC+UaIkkOYeqES+CvQ1A==
+	bh=hDT/aECBwNbW2NyGACBkXyKf6xBKy+F1zx00muMQwYk=;
+	b=EH4J8jK6o6I5Swfys09n7YnZHgSaeo9O4qFe3ZpFDFm4b0LVHO28lCuZgBe2fRmeI7dx
+	 lTPTCVzpb2qWmkGp6cwMr9p6j1sNH/bQ/iLUM5v57vTteWAqGOyj3Y6a+xcv8XhsvV9eW
+	 lo0l7DO6TrkZHyCzUJp31MfZWIoFJmenr2a5fTCgUv/TIUTPUXnrK2arFO04yVWUcxh2j
+	 t6aSN7Uxvx2pyR1l+Y1BHuHtnShtEXtuAZTZb265+r68XofD211zaKkTA4KmHXsZePBUo
+	 c/zrTggyX057rq/xnEwTisglrugt7rG4pHGDTaHoPRidAzwAWU/ZAbHeoy7scCdt59A==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id B96921F000C4;
+	by smtp.kernel.org (Postfix) with ESMTPS id 8CCA61F000C6;
 	Sun, 22 Nov 2026 04:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795322144;
-	bh=6w1KSDkRJhlso48nKJo/NCKPKTEqmQ7kzzIZEMGYM1I=;
+	s=k20260515; t=1795322143;
+	bh=hDT/aECBwNbW2NyGACBkXyKf6xBKy+F1zx00muMQwYk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=JJ6J0RPCNC89lA72ejLOujbNO+KkgnS7o8khwTH+3atP+nqBqqxKxPdCz0Mu5YZQO
-	 eAJ8VWJha1PyBfkMq1I4J3MdO12JNa8YlK8GZJipsoqxux6JMacR1MX5ZbwW+o5cQf
-	 qnNQeHty0R2aEf6OZ52muSLxKuY+q0oJ8Q0/Ulq3BNVru9CXfra4Bh/G8hyWw+vh/1
-	 ZGNud3btzo1Olfei5AkKUamkcQBq71FzHEAS37ialzFUnphez4wywITpWQba5OXrjH
-	 vNRxD88yR/xAUblSgswH6EriJZSLZ8l96RL2Sz24gulXJ/znTuPjQ8VgBFmpU/IXUC
-	 ggO88xGcK87gQ==
+	b=lyafLCx9VdmFPDGV06vNOjyFIG/zP2a04VGJTajolsDiXcFaxJxmvo6AjkfBUmleo
+	 TSeQPly3kbS8qw2q8RKo40bZvFH5j3SOQpysHm54RbdW3CyHsoORGUKsfNz6BwqvCS
+	 dELTPwGI6rktaYOK0/R+M282MizdVU10sdEe+zLpVhZqPzNEe1Tv/eLl66zqJLjq+n
+	 6cHk4ETeMZ4Bgp4zP+6MTQdre0d5w6zYnRekkpn4CcuzfKGNicKRemt9TlwCSHwqe+
+	 i3xFJzbe7JctHBwPUJB6qVHEGTvSJedCzpcQEyAWymyhsyb1/hwMpQoM11JOVvioKE
+	 Wj7CS3rnMB4VQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 471C84BF03;
+	by lkml.kernel.org (Postfix) with ESMTP id 0FD594BEEE;
 	Sun, 22 Nov 2026 04:35:42 +0000 (UTC)
 From: Nick Dowsett via B4 Relay <devnull+nick42d.gmail.com@kernel.org>
-Date: Sun, 22 Nov 2026 12:35:40 +0800
-Subject: [PATCH 3/4] platform/x86: clevo-laptop: probe keyboard backlight
- type and detect 5-step white backlight
+Date: Sun, 22 Nov 2026 12:35:38 +0800
+Subject: [PATCH 1/4] platform/x86: clevo-laptop: add minimal WMI driver
+ skeleton and Kbuild plumbing
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261122-clevo-laptop-v1-3-881debf4d4b0@gmail.com>
+Message-Id: <20261122-clevo-laptop-v1-1-881debf4d4b0@gmail.com>
 References: <20261122-clevo-laptop-v1-0-881debf4d4b0@gmail.com>
 In-Reply-To: <20261122-clevo-laptop-v1-0-881debf4d4b0@gmail.com>
 To: Hans de Goede <hansg@kernel.org>, 
@@ -103,11 +103,11 @@ Cc: Armin Wolf <W_Armin@gmx.de>, Werner Sembach <wse@tuxedocomputers.com>,
  linux-kernel@vger.kernel.org, platform-driver-x86@vger.kernel.org, 
  rust-for-linux@vger.kernel.org, Nick Dowsett <nick42d@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795322140; l=6319;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795322140; l=4849;
  i=nick42d@gmail.com; h=from:subject:message-id;
- bh=zhmmGSNR3OSLrzhCCRTFeuk7Hl8QAWk96pymxiIpueQ=;
- b=yvR0HYD40/ncdu8Rn5vvHwCpW32+HFnym+lcwVUt/kQXf8VZqAtjZ/zw+rWOd5Q9J8uHsgisK
- 23wRgPoV2+YDpdkCiVYPzx0Bzf6TkwdzJy0afKrKMCGMniDJIrPfdyd
+ bh=e9AdSz41EP3ywu8H4Pe835LANDmSykHvhG+wsu9VTm0=;
+ b=anPBWXAgeDelXVKsG1nyDfq5seJYrlBDPkqh3KwKnpA+NHh8NhWsZkOp8Ma8DT8s/zy84t9RA
+ rOGeCqw3QfpCihA5a8gVD9q+r1aJgvG9SSAbJGB4mhukqD3/VjtEWSA
 X-Developer-Key: i=nick42d@gmail.com; a=ed25519;
  pk=1uIkNexEofzEXNN3Y3QW5z8IrgjWaP0yH6Es51jxWOg=
 X-Endpoint-Received: by B4 Relay for nick42d@gmail.com/default with
@@ -118,193 +118,155 @@ Content-Transfer-Encoding: 7bit
 
 From: Nick Dowsett <nick42d@gmail.com>
 
-- Add `GetSpecs` and `GetBiosFeatures2` EC queries and `KbBacklightType`
-  detection (with retries and BIOS features fallback for older devices).
-- Restrict probe to the supported 5-step white keyboard backlight.
+- Add `drivers/platform/x86/clevo-laptop.rs` with module implementation,
+  DMI board check, and Driver registration.
+- Add Kconfig and MAINTAINERS entries and Makefile wiring.
 
 Signed-off-by: Nick Dowsett <nick42d@gmail.com>
 ---
- drivers/platform/x86/clevo-laptop.rs | 125 +++++++++++++++++++++++++++++++++++
- 1 file changed, 125 insertions(+)
+ MAINTAINERS                          |  6 +++
+ drivers/platform/x86/Kconfig         | 17 +++++++++
+ drivers/platform/x86/Makefile        |  3 ++
+ drivers/platform/x86/clevo-laptop.rs | 72 ++++++++++++++++++++++++++++++++++++
+ 4 files changed, 98 insertions(+)
 
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 44540a1eb2b8..1130c293e84d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -6566,6 +6566,12 @@ F:	scripts/Makefile.clang
+ F:	scripts/clang-tools/
+ K:	\b(?i:clang|llvm)\b
+ 
++CLEVO LAPTOP DRIVER
++M:	Nick Dowsett <nick42d@gmail.com>
++L:	platform-driver-x86@vger.kernel.org
++S:	Maintained
++F:	drivers/platform/x86/clevo-laptop.rs
++
+ CLK API
+ M:	Russell King <linux@armlinux.org.uk>
+ L:	linux-clk@vger.kernel.org
+diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
+index 9ce384e0475e..18aa4550c9f4 100644
+--- a/drivers/platform/x86/Kconfig
++++ b/drivers/platform/x86/Kconfig
+@@ -1059,6 +1059,23 @@ config OXP_EC
+ 
+ source "drivers/platform/x86/tuxedo/Kconfig"
+ 
++config CLEVO_LAPTOP
++	tristate "Clevo Laptop Platform Driver"
++	depends on RUST
++	depends on ACPI_WMI=y
++	depends on DMI
++	depends on LEDS_CLASS
++	help
++	  This driver provides platform support for Clevo barebones and
++	  rebranded laptops (Tuxedo, Metabox, Sager, XMG, etc.).
++	  Currently only Clevo NLx0AU boards (e.g. Metabox Edge NL57AU)
++	  with a 5-step white keyboard backlight are supported over WMI.
++	  It is intended to be extended with additional Clevo models and
++	  EC features over time.
++
++	  To compile this driver as a module, choose M here: the module
++	  will be called clevo-laptop.
++
+ endif # X86_PLATFORM_DEVICES
+ 
+ config P2SB
+diff --git a/drivers/platform/x86/Makefile b/drivers/platform/x86/Makefile
+index 229057234d00..070af05a2064 100644
+--- a/drivers/platform/x86/Makefile
++++ b/drivers/platform/x86/Makefile
+@@ -158,6 +158,9 @@ obj-$(CONFIG_SILICOM_PLATFORM)		+= silicom-platform.o
+ # TUXEDO
+ obj-y					+= tuxedo/
+ 
++# Clevo
++obj-$(CONFIG_CLEVO_LAPTOP)		+= clevo-laptop.o
++
+ # Winmate
+ obj-$(CONFIG_WINMATE_FM07_KEYS)		+= winmate-fm07-keys.o
+ 
 diff --git a/drivers/platform/x86/clevo-laptop.rs b/drivers/platform/x86/clevo-laptop.rs
-index 289b30c478ec..6f08bf295c07 100644
---- a/drivers/platform/x86/clevo-laptop.rs
+new file mode 100644
+index 000000000000..1d862c57b3fe
+--- /dev/null
 +++ b/drivers/platform/x86/clevo-laptop.rs
-@@ -13,6 +13,10 @@
-     device,
-     dmi,
-     prelude::*,
-+    time::{
-+        delay::fsleep,
-+        Delta, //
-+    },
-     wmi, //
- };
- 
-@@ -24,7 +28,12 @@
- /// DMI board name allowlist, restricted to tested boards since the WMI GUID is not
- /// unique.
- const SUPPORTED_BOARDS: &[&CStr] = &[c"NLx0AU"];
-+const CLEVO_EC_CMD_GET_SPECS: u8 = 0x0D;
- const CLEVO_EC_CMD_GET_BIOS_FEATURES_1: u8 = 0x52;
-+const CLEVO_EC_CMD_GET_BIOS_FEATURES_2: u8 = 0x7A;
-+const CLEVO_BIOS_FEATURE_CODE_WHITE_ONLY_KB: u32 = 0x4000_0000;
-+const CLEVO_BIOS_FEATURE_CODE_3_ZONE_RGB_KB: u32 = 0x0040_0000;
-+const CLEVO_BIOS_FEATURE_CODE_WHITE_ONLY_KB_MAX_5: u32 = 0x4000;
- const CLEVO_EC_WMI_INSTANCE: u8 = 0;
- 
- module! {
-@@ -89,6 +98,17 @@ fn probe<'bound>(
- 
-             backend.query(GetBiosFeatures1).map_err(|_| ENODEV)?;
- 
-+            // MVP: Only the NL57AU 5-step white backlight is supported.
-+            if backend.detect_backlight_type()? != Some(KbBacklightType::FixedColor) {
+@@ -0,0 +1,72 @@
++// SPDX-License-Identifier: GPL-2.0
++
++//! Clevo Laptop Driver.
++//!
++//! Currently supports only the 5-step white keyboard backlight on Clevo
++//! NLx0AU boards (e.g., Metabox Edge NL57AU).
++//!
++//! Copyright (C) 2026 Nick Dowsett <nick42d@gmail.com>.
++//!
++//! Inspired by Tuxedo Computers' drivers.
++
++use kernel::{
++    device,
++    dmi,
++    prelude::*,
++    wmi, //
++};
++
++/// # Note
++///
++/// This GUID is non-unique (shared by Uniwill for example) and cannot be trusted
++/// to uniquely identify a Clevo device.
++const CLEVO_WMI_METHOD_GUID: &CStr = c"ABBC0F6D-8EA1-11D1-00A0-C90629100000";
++/// DMI board name allowlist, restricted to tested boards since the WMI GUID is not
++/// unique.
++const SUPPORTED_BOARDS: &[&CStr] = &[c"NLx0AU"];
++
++module! {
++    type: ClevoLaptopModule,
++    name: "clevo-laptop",
++    authors: ["Nick Dowsett <nick42d@gmail.com>"],
++    description: "Clevo Laptop Driver (Keyboard Backlight)",
++    license: "GPL",
++}
++
++/// RAII guard for Clevo Laptop Module holding all subsystem drivers e.g WMI.
++#[pin_data]
++struct ClevoLaptopModule {
++    #[pin]
++    _wmi_driver: wmi::Registration<WmiDriver>,
++}
++
++impl kernel::InPlaceModule for ClevoLaptopModule {
++    fn init(module: &'static ThisModule) -> impl PinInit<Self, Error> {
++        pin_init::pin_init_scope(move || {
++            if dmi::get_system_info(dmi::Field::BoardName)
++                .is_none_or(|board| !SUPPORTED_BOARDS.contains(&board))
++            {
 +                return Err(ENODEV);
 +            }
-+            let has_white_5 = backend
-+                .query(GetBiosFeatures2)
-+                .is_ok_and(|feat2| feat2.has_white_only_kb_max_5());
-+            if !has_white_5 {
-+                return Err(ENODEV);
-+            }
-+
-             Ok(try_pin_init!(WmiDriver {}))
-         })
-     }
-@@ -127,6 +147,61 @@ fn query<Q>(&self, query: Q) -> Result<Q::Output>
-             }
-         }
-     }
-+    /// Detect backlight type e.g white.
-+    fn detect_backlight_type(&self) -> Result<Option<KbBacklightType>> {
-+        const MAX_RETRIES: usize = 3;
-+        const RETRY_SLEEP_DURATION: Delta = Delta::from_millis(50);
-+
-+        for attempt in 0..MAX_RETRIES {
-+            if attempt != 0 {
-+                pr_debug!(
-+                    "KbBacklightType::None probably wrong, retrying - attempt {} of {}\n",
-+                    attempt,
-+                    MAX_RETRIES - 1
-+                );
-+                fsleep(RETRY_SLEEP_DURATION);
-+            }
-+            if let Ok(specs) = self.query(GetSpecs) {
-+                let backlight_type = specs.kb_backlight_type();
-+                if backlight_type != Ok(None) {
-+                    return backlight_type.map_err(|_| ENODEV);
-+                }
-+            }
-+        }
-+
-+        // Check for devices <= Intel 8th gen (only white only, 3 zone RGB,
-+        // or no backlight on these devices)
-+        let feat1 = self.query(GetBiosFeatures1).map_err(|_| ENODEV)?;
-+        if feat1.has_3_zone_rgb_kb() {
-+            Ok(Some(KbBacklightType::ThreeZoneRgb))
-+        } else if feat1.has_white_only_kb() {
-+            Ok(Some(KbBacklightType::FixedColor))
-+        } else {
-+            Ok(None)
-+        }
++            Ok(try_pin_init!(Self {
++                _wmi_driver <- wmi::Registration::new(c"clevo-laptop", module),
++            }))
++        })
 +    }
 +}
 +
-+/// Keyboard backlight type - e.g Fixed Color
-+#[derive(PartialEq)]
-+#[repr(u8)]
-+enum KbBacklightType {
-+    FixedColor = 0x01,
-+    ThreeZoneRgb = 0x02,
-+    OneZoneRgb = 0x06,
-+    PerKeyRgb = 0xF3,
-+}
-+impl KbBacklightType {
-+    const fn from_raw(raw: u8) -> Result<Option<Self>, u8> {
-+        match raw {
-+            0x01 => Ok(Some(KbBacklightType::FixedColor)),
-+            0x02 => Ok(Some(KbBacklightType::ThreeZoneRgb)),
-+            0x06 => Ok(Some(KbBacklightType::OneZoneRgb)),
-+            0xF3 => Ok(Some(KbBacklightType::PerKeyRgb)),
-+            0x00 => Ok(None),
-+            other => Err(other),
-+        }
-+    }
- }
- 
- /// Args for a command sent to the EC.
-@@ -144,8 +219,12 @@ fn as_bytes(&self) -> &[u8] {
-     }
- }
- 
-+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-+struct GetSpecs;
- #[derive(Debug, Clone, Copy, PartialEq, Eq)]
- struct GetBiosFeatures1;
-+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-+struct GetBiosFeatures2;
- 
- impl EcQuery for GetBiosFeatures1 {
-     type Output = BiosFeatures1;
-@@ -163,10 +242,56 @@ fn deserialize_output(output: &[u8]) -> Result<Self::Output> {
-         Ok(feat)
-     }
- }
-+impl EcQuery for GetBiosFeatures2 {
-+    type Output = BiosFeatures2;
-+    fn cmd(&self) -> u8 {
-+        CLEVO_EC_CMD_GET_BIOS_FEATURES_2
-+    }
-+    fn args(&self) -> EcMethodArgs {
-+        EcMethodArgs::Scalar(0)
-+    }
-+    fn deserialize_output(output: &[u8]) -> Result<Self::Output> {
-+        let (feat, _) = BiosFeatures2::read_from_prefix(output).map_err(|_| ENODATA)?;
-+        Ok(feat)
++/// RAII guard for Clevo WMI driver holding all subsystem devices e.g LED device.
++#[pin_data]
++struct WmiDriver {}
++
++kernel::wmi_device_table!(WMI_TABLE, [wmi::DeviceId::new(CLEVO_WMI_METHOD_GUID)]);
++
++impl wmi::Driver for WmiDriver {
++    type Data<'bound> = WmiDriver;
++    const ID_TABLE: wmi::IdTable = &WMI_TABLE;
++    fn probe<'bound>(
++        _dev: &'bound wmi::Device<device::Core<'_>>,
++    ) -> impl PinInit<Self::Data<'bound>, Error> + 'bound {
++        try_pin_init!(WmiDriver {})
 +    }
 +}
-+impl EcQuery for GetSpecs {
-+    type Output = Specs;
-+    fn cmd(&self) -> u8 {
-+        CLEVO_EC_CMD_GET_SPECS
-+    }
-+    fn args(&self) -> EcMethodArgs {
-+        EcMethodArgs::Scalar(0)
-+    }
-+    fn deserialize_output(output: &[u8]) -> Result<Self::Output> {
-+        let (specs, _) = Specs::read_from_prefix(output).map_err(|_| ENODATA)?;
-+        Ok(specs)
-+    }
-+}
- 
- #[derive(Debug, Clone, Copy, PartialEq, Eq, FromBytes)]
- struct BiosFeatures1(u32);
-+#[derive(Debug, Clone, Copy, PartialEq, Eq, FromBytes)]
-+struct BiosFeatures2(u32);
-+#[derive(Debug, Clone, Copy, PartialEq, Eq, FromBytes)]
-+struct Specs([u8; 16]);
- 
- impl BiosFeatures1 {
-     const INVALID: Self = Self(0xFFFF_FFFF);
-+    const fn has_white_only_kb(self) -> bool {
-+        (self.0 & CLEVO_BIOS_FEATURE_CODE_WHITE_ONLY_KB) != 0
-+    }
-+    const fn has_3_zone_rgb_kb(self) -> bool {
-+        (self.0 & CLEVO_BIOS_FEATURE_CODE_3_ZONE_RGB_KB) != 0
-+    }
-+}
-+impl BiosFeatures2 {
-+    const fn has_white_only_kb_max_5(self) -> bool {
-+        (self.0 & CLEVO_BIOS_FEATURE_CODE_WHITE_ONLY_KB_MAX_5) != 0
-+    }
-+}
-+impl Specs {
-+    const fn kb_backlight_type(&self) -> Result<Option<KbBacklightType>, u8> {
-+        KbBacklightType::from_raw(self.0[0x0F])
-+    }
- }
 
 -- 
 2.56.1
