@@ -1,57 +1,86 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795376183;
-	b=nMMDRnbAsszyeQ2V/3KF5h1wPcMbp6NuOU3oRqEW5wOtFUKpCP8KV0UJz9oB/Il8IXaB
-	 aJkmrAYrqm10N+AdRXu1q1ZaWvQ5hqUQr8v2/Hnw71ZyTvrDmA2DMNkwa/n5aHdQuecJS
-	 TqnV2VssYDUmT9F/db1dKoa6d5LEA1S75YdStvPeRhDvuf4VMf9bs+uweaKfvNOdCd62T
-	 oe+ix4TEjm6t8AEXKoGWwoxuFsEFJlnRQ8IYyHobMB4uNMpdmkL6S63niZ9cOna8Erp4Z
-	 APPgXNJqGtYeT8+8kLHdAN8TPl/l21Ev1Yb2fx1uK0SJj3VL5bcCA2r3YTf78pQJpsg==
+	t=1795376178;
+	b=cfZ5VP5YrDl5rvD7i1OnKCmrAzK2ElSvta4uR8TkAlo74jFT736GBEJlMaDLtcIDSNe7
+	 V91GF+L6YCMu270p2qYWeSa02auv4W/gfBQ5oSgXWN1eWcCm5wA5mVkslaPY5WQNo19pZ
+	 8+sKG3NKkzCYo6YADFueMDZb5g7qBDnxB/YULTckAatXfSOge1mIoTEr9sVM2Ry50zqI2
+	 aLYXJADbPb4HHehMgo1LRWr742p0fE+QS3QJ8CPx4ZY1PFnNCC8RMHu6qXdgoEHg46CPU
+	 lgNa9TiK45eLxB92jbWM31rLSMf1lktqlgkc+RhJihxTsWZ+XJj/vPSOj6KuKe+DvJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795376183;
-	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:User-Agent;
-	bh=0tIgsMPaa6i9Oo7K90W8akAeNnb4ZgWkJss9muDKODY=;
-	b=uvC/TxK5EZFH/gwUJi6piiGVfeslLSnBAxYTgIj0iAiJwtELqqTPFu4DNfx0ftlE4CHI
-	 2O9U8eD4GrHtmwTZfeLfuuJRPDuZR+jFY72T+3dzKGDAINA8MzOuPc7VimBz/Xrx+b1bi
-	 x0749TUe08Yq2R9XAEqzjGflkW+jmoKy5uVh8WXaZtXhQs1Ym1QgQJrWCSRtmfGxWCcXg
-	 uSEtb3KWEq4qKg3ZcdWxVpcWMWcKi4s/5M0qGk6CVH1BdgkhTya4Wr49AlMp6wRLkQqiQ
-	 EBXoPfCehhDC46+iGYDLsJsKXL5niruEulOHad8Gi12rHqjuMIIcBQ3nd1xIUNHZyXg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795376178;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=l3BxF7eKc8H9WX2SeKI00rPkbSvVT1UJBee/DhqmTQQ=;
+	b=vmDTZwG+RhcSQKOw8TIXiezwWtR7qcjeWdVLqcFxx4IX6zHW/hUqiJJh/n09m7Ar1f0l
+	 LnZDwzfHiaS1O+t7KFXr6cInCHZ4Z7cfygy5202px2RvBmzobwFTCHTOTymK1M57RAxb2
+	 x8AIKO6kWvfrebzx4MR2Zfg6KmxMsr1kXpkqo//zVNykhSdK+NcamVjAisr3UjWf6tGZ6
+	 fLv1/WNyDhxhQmS8Tv3JOoF8Vrggp7sgOnLAmKxc0iB6ep0sIRW4BE/vNbpMU8tnRUFCD
+	 VeyhlvPYkiudhsTxSFKkCLXhVCP9v5scLSBN/nD3HQxTJQlvvd5MWfSy/3OapS2x9JA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="D/VeIyVR";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="T28tb/dn";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03E8E606A336;
-	Sun, 22 Nov 2026 19:36:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 2C522606A320;
+	Sun, 22 Nov 2026 19:36:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D/VeIyVR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE8A21F000C4;
-	Sun, 22 Nov 2026 19:36:21 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T28tb/dn
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 09FC71F000EB;
+	Sun, 22 Nov 2026 19:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795376182;
-	bh=0tIgsMPaa6i9Oo7K90W8akAeNnb4ZgWkJss9muDKODY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=D/VeIyVR0qQKVn0r3dFlix/qES6GAP80dBVh3RC+88Lkw9oeYWKIPJYHHjbvsZhyW
-	 6p434NnvC1G+l+SPnx1ppHUQNv1MNSGp60dFiqF/AVLsNW+wtrYIn7ThNQtzE2HaKB
-	 ZB5IvlMmvWGmoLMP8bZPdmQMmcV+Iejy94+nXh+6d2KX2OkVDNw/CCZ2Oes5Cwj+S7
-	 hT7mxAy6DLvKUHGTWYElVbXg+AE/cV/CjboLilG1+ghw6aX8hvEY8tNBGaUHxoGPia
-	 0PrDSqJ998JcjAENor3anox3sU3dCnOoY6y/Leh6f7JFxFpveUDvv1SNFDfPoHsrbg
-	 LXjlHp7hp35OQ==
-Received: by pali.im (Postfix)
-	id 9FC8D812; Sun, 22 Nov 2026 20:36:18 +0100 (CET)
-Date: Sun, 22 Nov 2026 20:36:18 +0100
-From: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
-To: Ivan Popovych <ivan@ipvych.com>
-Cc: linux-kernel@vger.kernel.org, linux@roeck-us.net,
-	linux-hwmon@vger.kernel.org
-Subject: Re: [PATCH v2] hwmon: (dell-smm) Add Dell XPS 15 9550 to fan control
- whitelist
-Message-ID: <20261122193618.vzk3hnhqngpi2gtc@pali>
-References: <e4e133c6-db41-4776-a73e-e8e051eadec4@gmx.de>
- <20261121230738.4970-1-ivan@ipvych.com>
+	s=k20260515; t=1795376177;
+	bh=l3BxF7eKc8H9WX2SeKI00rPkbSvVT1UJBee/DhqmTQQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=T28tb/dnYShrqpGI2ZILYjzh72RVEHrrezyrm54oR6Obd86v3PTs376d9kZmGiJB+
+	 MUaqau3YQxX+z/GWr+9RG0JDb6bK1vqUMm9l/H8m/RqGDXDxO5ShNJ6WPrcOKQFN72
+	 Lp2v8MzuVi6Nq52IkFkGidmWcugTYAZverSueVjAgR2lsfg4eHz5f+C9qJscWQmP91
+	 UvSv7pZiNTWpbNmSdj6YKT2dG8l982i7je4+oLgBuBdSEu85qs20Ob4lOnj9/OCG2z
+	 aSfS6cai0B+r+urHqmyerKvW0s6us7upbOBQhpzjuP6094eRFGxT0XybG4NqwQpfnw
+	 74hvHOnQ9kYMw==
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: Jarkko Sakkinen <jarkko@kernel.org>,
+	bpf@vger.kernel.org,
+	containers@lists.linux.dev,
+	linux-api@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org,
+	Aleksa Sarai <aleksa@amutable.com>,
+	Alexander Mikhalitsyn <alex@amutable.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Christian Brauner <brauner@kernel.org>,
+	David Howells <dhowells@redhat.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Giuseppe Scrivano <giuseppe@scrivano.org>,
+	Hugh Dickins <hughd@google.com>,
+	Jan Kara <jack@suse.cz>,
+	Jeff Layton <jlayton@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Josef Bacik <josef@toxicpanda.com>,
+	Kees Cook <kees@kernel.org>,
+	KP Singh <kpsingh@kernel.org>,
+	Lennart Poettering <lennart@poettering.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Paul Moore <paul@paul-moore.com>,
+	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: [RFC PATCH v7 05/26] mount: Enforce mount_too_revealing() for foreign mntns
+Date: Sun, 22 Nov 2026 21:35:18 +0200
+Message-ID: <20261122193539.3334213-6-jarkko@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261122193539.3334213-1-jarkko@kernel.org>
+References: <20261122193539.3334213-1-jarkko@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,48 +90,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261121230738.4970-1-ivan@ipvych.com>
-User-Agent: NeoMutt/20180716
 
-On Sunday 22 November 2026 01:07:38 Ivan Popovych wrote:
-> Confirmed on my own Dell XPS 15 9550 running BIOS version 1.14.0
-> running "echo 1 > pwm1_enable" disables automatic fan control and
-> "echo 2 > pwm1_enable" enables it back.
-> 
-> Both 30a3/31a3 and 34a3/35a3 commands work on this laptop, using
-> 30a3/31a3 as these are the commands used by the official Dell
-> software.
-> 
-> Signed-off-by: Ivan Popovych <ivan@ipvych.com>
+mount_too_revealing() skips visibility checks whenever
+current->nsproxy->mnt_ns belongs to init_user_ns, assuming the caller
+holds CAP_SYS_ADMIN in its current mount namespace. That assumption does
+not hold when an unprivileged caller creates mounts for a child user
+namespace while running in init_mnt_ns or another foreign mount
+namespace.
 
-Acked-by: Pali Rohár <pali@kernel.org>
+Require CAP_SYS_ADMIN in init_user_ns before bypassing
+mount_too_revealing() for init_mnt_ns, reject chrooted callers lacking
+CAP_SYS_ADMIN in their current mount namespace, and treat existing
+mounts and child overmounts in a foreign mount namespace as locked
+during mnt_already_visible() checks.
 
-> ---
->  drivers/hwmon/dell-smm-hwmon.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/drivers/hwmon/dell-smm-hwmon.c b/drivers/hwmon/dell-smm-hwmon.c
-> index 5963f908972f..3645157620fd 100644
-> --- a/drivers/hwmon/dell-smm-hwmon.c
-> +++ b/drivers/hwmon/dell-smm-hwmon.c
-> @@ -1640,6 +1640,14 @@ static const struct dmi_system_id i8k_whitelist_fan_control[] __initconst = {
->  		},
->  		.driver_data = (void *)&i8k_fan_control_data[I8K_FAN_30A3_31A3],
->  	},
-> +	{
-> +		.ident = "Dell XPS 15 9550",
-> +		.matches = {
-> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> +			DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "XPS 15 9550"),
-> +		},
-> +		.driver_data = (void *)&i8k_fan_control_data[I8K_FAN_30A3_31A3],
-> +	},
->  	{
->  		.ident = "Dell Optiplex 7000",
->  		.matches = {
-> -- 
-> 2.56.1
-> 
+Co-developed-by: David Howells <dhowells@redhat.com>
+Signed-off-by: David Howells <dhowells@redhat.com>
+Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+---
+ fs/namespace.c | 24 +++++++++++++++++-------
+ 1 file changed, 17 insertions(+), 7 deletions(-)
+
+diff --git a/fs/namespace.c b/fs/namespace.c
+index 781380945d78..1bb9f90a6523 100644
+--- a/fs/namespace.c
++++ b/fs/namespace.c
+@@ -6580,7 +6580,7 @@ bool current_chrooted(void)
+ 
+ static bool mnt_already_visible(struct mnt_namespace *ns,
+ 				const struct super_block *sb,
+-				int *new_mnt_flags)
++				int *new_mnt_flags, bool foreign_ns)
+ {
+ 	int new_flags = *new_mnt_flags;
+ 	struct mount *mnt;
+@@ -6606,11 +6606,16 @@ static bool mnt_already_visible(struct mnt_namespace *ns,
+ 			continue;
+ 
+ 		/* A local view of the mount flags */
+-		mnt_flags = mnt->mnt.mnt_flags;
++		mnt_flags = READ_ONCE(mnt->mnt.mnt_flags);
+ 
+ 		/* Don't miss readonly hidden in the superblock flags */
+ 		if (sb_rdonly(mnt->mnt.mnt_sb))
+ 			mnt_flags |= MNT_LOCK_READONLY;
++		if (foreign_ns) {
++			if (mnt_flags & MNT_READONLY)
++				mnt_flags |= MNT_LOCK_READONLY;
++			mnt_flags |= MNT_LOCK_ATIME;
++		}
+ 
+ 		/* Verify the mount flags are equal to or more permissive
+ 		 * than the proposed new mount.
+@@ -6629,7 +6634,7 @@ static bool mnt_already_visible(struct mnt_namespace *ns,
+ 		list_for_each_entry(child, &mnt->mnt_mounts, mnt_child) {
+ 			struct inode *inode = child->mnt_mountpoint->d_inode;
+ 			/* Only worry about locked mounts */
+-			if (!(child->mnt.mnt_flags & MNT_LOCKED))
++			if (!foreign_ns && !(READ_ONCE(child->mnt.mnt_flags) & MNT_LOCKED))
+ 				continue;
+ 			/* Is the directory permanently empty? */
+ 			if (!is_empty_dir_inode(inode))
+@@ -6649,14 +6654,19 @@ static bool mount_too_revealing(const struct super_block *sb, int *new_mnt_flags
+ 	const unsigned long required_iflags = SB_I_NOEXEC | SB_I_NODEV;
+ 	struct mnt_namespace *ns = current->nsproxy->mnt_ns;
+ 	unsigned long s_iflags;
+-
+-	if (ns->user_ns == &init_user_ns)
+-		return false;
++	bool foreign_ns;
+ 
+ 	/* Can this filesystem be too revealing? */
+ 	if (!(sb->s_type->fs_flags & FS_USERNS_MOUNT_RESTRICTED))
+ 		return false;
+ 
++	foreign_ns = !ns_capable_noaudit(ns->user_ns, CAP_SYS_ADMIN);
++	if (ns->user_ns == &init_user_ns && !foreign_ns)
++		return false;
++
++	if (foreign_ns && current_chrooted())
++		return true;
++
+ 	s_iflags = sb->s_iflags;
+ 	if ((s_iflags & required_iflags) != required_iflags) {
+ 		WARN_ONCE(1, "Expected s_iflags to contain 0x%lx\n",
+@@ -6671,7 +6681,7 @@ static bool mount_too_revealing(const struct super_block *sb, int *new_mnt_flags
+ 	if (s_iflags & SB_I_RESTRICTED_VARIANT)
+ 		return false;
+ 
+-	return !mnt_already_visible(ns, sb, new_mnt_flags);
++	return !mnt_already_visible(ns, sb, new_mnt_flags, foreign_ns);
+ }
+ 
+ bool mnt_may_suid(struct vfsmount *mnt)
+-- 
+2.47.3
+
