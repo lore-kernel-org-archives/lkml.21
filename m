@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795377764;
-	b=bf0fE/YQI/jXrk24RwGY4mFQWh9IYwQf5mRvci55hWz1fGM1BNKvupGo4/x3KAUHBJ4F
-	 g98sq1nFsQTb5gNWE+LSsx8DJLJRwILfLWLtVXbNb/zsUbEkIzWlNJSwkv/NOgnyXAHNi
-	 XoHRy0sP/S9q6BG4NvB43spE95vPJBe7pxlW2KBeHHrK09QEIGS1rRFMhbnWpCfa+L4LF
-	 lGI2FxPvRWyw6lyixq41bR1BOie3VwJ1sq6ATIcGAPICA0cWoJAYuIWCkL5DfkC+QVewx
-	 vvvdhuvlz4ce13dqkCLUCEFjH6uv/VSFvgjR9dL8XP0Z7h8x56XDx8D3D2KKRfeCAzw==
+	t=1795377783;
+	b=cdW5xfCgw+EIsNYBrMpilselaWGF7aDPYanp6Usdm5I2t4/24+JSzkZes1FaFQga9P9N
+	 RSw3fZdaiUXYZpDLrkmNCWpPsCIhq8Zl1Kklkr+XnE6cyV4Vh2yS691h6IAZArPDr73ah
+	 N9McvCMf4UtneQHqDPlo/5DiJ/yUIGNKY6EnZaBQ3lfYpza6UrVQUpx/AZfon28IZBLE8
+	 zD9LoCjTm8tJqMkNNHQKLrbi5Q0lXVa599SxQ6INVTiuQ47oFFUr462BNxuOlofh9Al0+
+	 q6ylQ/PrBnhj+x7ETF4r/wNPAm0d+AsisCsqQ+5JeB7ZGUCyS+279ykjjps113Z+27A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795377764;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795377783;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=pMkwsGeFmNym3OzbToToZ481ja3lbFgl1IDUYm8MblA=;
-	b=mHlw4tslzOFeWUgXxLHmv6KFAqdYC2Tcdtj0Per7+3tRknBdYMLyW3uo4ub87ZRNXTYu
-	 hM4vYa7WB8itwqbwQXCOHd1veFJcV5Efdml5TEruoUz5wB3C40Rasr4rXcAMAhclNp9Ki
-	 K+YPrupHr8vf6Z7Gxp3BQZMCnhLwFSVG5hGOBWjL2ELYIBLy/uezdFGBeNs+tcEPkYnm1
-	 cUpywkOC5bS9QERWIRPhuHXGs2IAn9tFY0EmGCtC08/zy/yUvk49Sv26xyP3Ivzm2PFht
-	 BKcQjuvX2Knw8sGYiFPlxMf8V+RBwAnaN/BbmdOcQG0LS7hKphClJVTV98UZNhCq2ew==
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=Dzt/jndt9xmik8tYb6MvTyuT1iTXCpduY31R4yi2Vtg=;
+	b=Rr0811C56FPumknGPFD15wPbwBmU7HdsjyfErEdotkZBJPOvcBPEL99x94BWAt8fXrT8
+	 6BIXz+Tv+FSFckR0aPv4TYGYp+AAez9d2mEJD8ULKAywvLqGn/Zbw+V8haApGVpTeOrzE
+	 gmKSJ3Fx3haxg5S4XLLm4Vm9XCjEwdygMiSXn8ao903+qvQz9OpXGb1Pv3bg7l7RiOjT5
+	 7UXBIq2YXOxWL9+bPHkY1QsVnOVs8r7PfEKUHo5yrREQhKBAjO7CFuW+zO0A5C6oTlHgW
+	 jz2QWGhLmayCmnGTIqzSADXyyTTGO7Y429mhxUf3K+Z3ufdYIDWoN+ZkCkp6ykobCnw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Zun7/Dpl";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IHTq8wpN;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83C13606A31A;
-	Sun, 22 Nov 2026 20:02:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B50E3606A31D;
+	Sun, 22 Nov 2026 20:03:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zun7/Dpl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C16A71F000C6;
-	Sun, 22 Nov 2026 20:02:41 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IHTq8wpN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0D241F000C4;
+	Sun, 22 Nov 2026 20:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795377764;
-	bh=pMkwsGeFmNym3OzbToToZ481ja3lbFgl1IDUYm8MblA=;
-	h=From:To:Cc:Subject:Date;
-	b=Zun7/DplCWSw5lqUOySkd3OYY0S9kspejLyppqLyiqnZjmlI9jjG3l6T6V8JUbvVZ
-	 +3bhtyWFJNYmVZ8Zy6zgDzxSL1WyJ2SSdfnZCgn7RKOxPa71gVeT6ri8FsLWuCqmkt
-	 80XxN/JTLOxcVzr5Mkn+gQtewEaaxIZoEaCgNP6bXYpKrhNeQAG3Y1EwnMxlq3xMBo
-	 9psWdnGQ+eui9Wp9HDUaiccxXGkfrw4WkSA866CEoEAY1rTtzYlMVb30ujsgClQDG7
-	 QNZE86tq782mZ1sf8slLdi7SZupZV4LLywjVJIKtxnBteJwodKQeyd8TxnnxwXYlZG
-	 JLb+jgP1+9kEA==
+	s=k20260515; t=1795377783;
+	bh=Dzt/jndt9xmik8tYb6MvTyuT1iTXCpduY31R4yi2Vtg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=IHTq8wpNk/k/21qlhZ/N43qyz6hwV/v1Xj+E6EJlNxy0piqOu5p5GgeteupJFRnTI
+	 tnr82ROPensnWuIdXQabD1iSJxZcd6HziJjNVyq/HqIXGWYeEBU1KHyuW8c/MOjM/8
+	 ytZDQRjlab12cd9KZ2q+60vHOr6pd6O+otVtXVzxKiTovDOoir4ap429PVdPQUIaDn
+	 HKL9iGye4wGtZZZw4KBjSDwSiL9CQFp+UgpDWMd4ZmENNKpCOSs9MKEhZJIfscHFy4
+	 AdjP5M+pE/8UfhcOMj7nZG+kWyk+go3ibFoURJwOGfdJp5p2GDib59BVpRyc3WjuX+
+	 GW9b5XSoaB2hQ==
 From: Jiri Olsa <jolsa@kernel.org>
 To: Masami Hiramatsu <mhiramat@kernel.org>,
 	Naveen N Rao <naveen@kernel.org>,
@@ -50,10 +50,12 @@ Cc: Peter Zijlstra <peterz@infradead.org>,
 	linux-trace-kernel@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	bpf@vger.kernel.org
-Subject: [PATCHv2 0/2] kprobes: Reduce registration lookup costs
-Date: Sun, 22 Nov 2026 21:02:37 +0100
-Message-ID: <20261122200239.1481088-1-jolsa@kernel.org>
+Subject: [PATCHv2 2/2] x86/kprobes: Use ftrace_location_range in __recover_probed_insn
+Date: Sun, 22 Nov 2026 21:02:39 +0100
+Message-ID: <20261122200239.1481088-3-jolsa@kernel.org>
 X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261122200239.1481088-1-jolsa@kernel.org>
+References: <20261122200239.1481088-1-jolsa@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,45 +67,70 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-hi,
-this is a smaller follow up to the v1 series [1]. This version does
-only partial fixes of what v1 addressed. Instead of the rbtree and
-iterators, it makes the existing per-address lookups cheaper:
+The __recover_probed_insn function is called for every instruction
+decoded on the way to the probed address and it uses ftrace_location
+to find out whether the instruction is the ftrace location.
 
-  - increase the kprobe hash table from 64 to 4096 buckets, so the
-    get_kprobe() calls done for every byte or decoded instruction
-    around the new probe walk short chains instead of 300+ entries
-    per bucket with 20000 probes
+When the address is not ftrace location, ftrace_location does also
+the symbol lookup to map the sym+0 address to its ftrace location.
+But __recover_probed_insn only checks if the returned location is
+the address itself, and that can't be the result of the mapping
+after the lookup of the address failed, so the symbol lookup is
+done for nothing for almost every decoded instruction.
 
-  - use ftrace_location_range() in x86 __recover_probed_insn(), so we
-    skip the symbol lookup ftrace_location() does for every decoded
-    instruction that is not an ftrace location
+Using ftrace_location_range for the address instead, which does
+just the lookup of the address.
 
-Registering kprobes with the kprobe_many_example sample module [2] from
-v1 in a KVM guest goes from 4.71s to 1.30s for 20000 probes and from
-29.99s to 3.64s for 50000 probes with the hash table change, and the
-ftrace change brings 20587 probes from 4.02s to 3.70s. Please check the
-changelogs for more details, the first patch has numbers for different
-hash table sizes.
+Adding the missing ftrace_location_range stub for the config
+without dynamic ftrace.
 
-v2 changes:
-  - dropped the static_call/jump_label indexes and the kprobe rbtree
-    and iterators [will be addressed later]
-  - added hash table size increase and the ftrace_location_range
-    change for __recover_probed_insn
+Registering 20587 kprobes (as disabled) with the kprobe_many_example
+sample module [1] in qemu with 8 CPUs goes from 4.02s to 3.70s.
 
-thanks,
-jirka
+The sample module was posted as the last patch of the kprobes
+lookup cost series [1] only to demonstrate the testing, it is not
+merged and is not going to be.
 
+[1] https://lore.kernel.org/bpf/20261109195827.1091410-1-jolsa@kernel.org/
 
-[1] https://lore.kernel.org/bpf/20261109194916.1089703-1-jolsa@kernel.org/                                                       
-[2] https://lore.kernel.org/bpf/20261109195827.1091410-1-jolsa@kernel.org/           
+Signed-off-by: Jiri Olsa <jolsa@kernel.org>
 ---
-Jiri Olsa (2):
-      kprobes: Increase the kprobe hash table size
-      x86/kprobes: Use ftrace_location_range in __recover_probed_insn
-
  arch/x86/kernel/kprobes/core.c | 6 +++++-
  include/linux/ftrace.h         | 4 ++++
- kernel/kprobes.c               | 2 +-
- 3 files changed, 10 insertions(+), 2 deletions(-)
+ 2 files changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/arch/x86/kernel/kprobes/core.c b/arch/x86/kernel/kprobes/core.c
+index 133ff20caccd..34d71907e6d1 100644
+--- a/arch/x86/kernel/kprobes/core.c
++++ b/arch/x86/kernel/kprobes/core.c
+@@ -207,7 +207,11 @@ __recover_probed_insn(kprobe_opcode_t *buf, unsigned long addr)
+ 	bool faddr;
+ 
+ 	kp = get_kprobe((void *)addr);
+-	faddr = ftrace_location(addr) == addr;
++	/*
++	 * Only the exact ftrace location matters, so skip the symbol
++	 * lookup ftrace_location() does to map sym+0 to its location.
++	 */
++	faddr = ftrace_location_range(addr, addr) == addr;
+ 	/*
+ 	 * Use the current code if it is not modified by Kprobe
+ 	 * and it cannot be modified by ftrace.
+diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
+index 1c2056a1a68b..255751899682 100644
+--- a/include/linux/ftrace.h
++++ b/include/linux/ftrace.h
+@@ -1075,6 +1075,10 @@ static inline unsigned long ftrace_location(unsigned long ip)
+ {
+ 	return 0;
+ }
++static inline unsigned long ftrace_location_range(unsigned long start, unsigned long end)
++{
++	return 0;
++}
+ 
+ /*
+  * Again users of functions that have ftrace_ops may not
+-- 
+2.56.1
+
