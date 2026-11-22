@@ -1,54 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.186.204
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795340655;
-	b=UpDGSTnMNQ7/c/FxHAPznd8eHPkLry6XspsVCMpmhnZrGX+PVk0Wl/q4oiNMOtHFFbP4
-	 v1h1xm6kEcz6AKHQ/kZcSK6v70V2XDDlWxWGARHlt/IY76qm0sz6+fFQaUC9PHA5obOMR
-	 4eGC3WWjDzK6ZL5B5WMiI4eVArCLK/ldNLnIHgDOgLcOLsn2MvdxeyMsuQrz4VnTKVlLA
-	 V0nSY1wVfrSxp4zotuuehL2zdmJ54/IAHf5u6Oroc3zVVyAYXk2V7iLsT6MY0vRF917M6
-	 8bDO7+O8j6iF3NVRkwCGp9mqssGPqLFsOxH45pN4y0+YkescbSJWA8iJukqXd75Gruw==
+	t=1795340673;
+	b=p6ug4sIMFeALU8SjEZ0FwzNUsy5yZbBfJqdbZlecY2uWkjZrinoxogdd5fmr/SqRQ6sg
+	 92sZxXuUqT+8Zq9nFYPKe0uDUZCJMFZgMushwCiuPoBH9TTto14iHjZXtXpRrOV+jx4FA
+	 S4XNN87rCw5PsJGmNRk1ov8y867hcZPI47GTrNdTn++OgZfqxU5U+8Qvp3ms8m0roYn7R
+	 l/XH+LOQqOqiDNwV8GxxyGZ+kb8CYEelTKKqgRy2CmjwQLDtCzItlC/e13lMxOBIfPw4b
+	 UZWjCAp1m5e3iuMQP0XoRXZo438Sl1Ry7FrXIAd3WcskutsPKykyurRj47lNDLXgcyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795340655;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=jG647zLaKDOa4ikcmyWqfAVgJu2lrwpR7ZtVwyZzKa4=;
-	b=ZYg3awKeJVIOgyPTvEfNwVvwbHIq0oquDZ5K/tzWQZindmCMNA7aDI/tNXs++qp0Kle9
-	 KFEIDToKbCQb7PZMNgdkGGTMb+fVGv2w/+yGwmz+QzN+2yngbDBbBOz13APftWyaLHse9
-	 Ym/RG8YDjYx6+BXZIHzJi1lJFPfjgk1+SdO09rJDMx2bSjP3WvG4o1QyCvOn4NeVm34xl
-	 WQevwYHudh3SofKtqdYYaqpvAeTpgwUDSoBOdWsTgORKR3vY/xbdYAjiF48W01f2aeCnU
-	 PiHfW2z+USIoJJ5ScAck6WJfhZUSNtF/ZD5fnF7EX8wXokhOYiOnhFHvtK84dFkPJZg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795340673;
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Mailer;
+	bh=aj+gIXgzMv4AObQT101jv74wXWuyJhb+y0Qwods1qKs=;
+	b=QsnMxS6UzTHfyazf+nvbxYEmQfd/TApTBFbinbs3HUAK/FWjKZY8DNIfwvVvg47TDMoh
+	 6apsI2UBaXIW/gRetzzUybbOvbVU+MT5EcFJIxcWrh50oKkGkZe0nE5Mqkdf1pd0QF5oO
+	 1aVhNuXjcJGrUeSJcOKaPqvCNQoSeHLpA+SMl2V5AkONT9giROdZNuXB0XHInjd60MvrW
+	 OGLbyw5XBSKBkJzqtIZIzCCHC+FputHjezOSCb2UiL94xtpIShp5i7jZ06YIlQmgUOZb/
+	 wml7+xKYK9kYzXwoYBi1OelufNpcGdisktiZKY4uhmgoCYtcPC3E5Pn3giYj9fCyuSw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mL8pnkIe;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=yahoo.com;
+	spf=pass smtp.mailfrom=yahoo.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=MC8hL9lE;
+	arc=none smtp.remote-ip=66.163.186.204
+Received: from sonic310-23.consmr.mail.ne1.yahoo.com (sonic310-23.consmr.mail.ne1.yahoo.com [66.163.186.204])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0416606A320;
-	Sun, 22 Nov 2026 09:44:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD317606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:44:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD317606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mL8pnkIe
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53B5D1F000C0;
-	Sun, 22 Nov 2026 09:44:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795340654;
-	bh=jG647zLaKDOa4ikcmyWqfAVgJu2lrwpR7ZtVwyZzKa4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=mL8pnkIe8Oj21MLgrwC+7bKOwfvrpfn8Qa7Wj+Xq/WsWv7iBtUecV1zPwKTEhic29
-	 VD3FQzU6FSn8G7AXdMq67n5e0ZZunbsWwGwARgkIq/xDBps6xEK4DTihOELNNrOJ8N
-	 WzwgfiKpr2xYfNAr2LvUIMBbLXqG+yYFxtVkzIYlEInHxYiqumSWDOIGg5+xKd8Fg4
-	 cpOT+7+coAi0WZx+lekoMoR8HUR9adeBmuHUgYWBD057ar08KtbqXhYkhg5k0avDyQ
-	 tKQ4Fq33FvDiYTxLr1TfMuhFB6TPrCgWsmhu4tp25jM3d0lsoG+VtNM9V2PKZKkQUC
-	 QU1PvgD4E68yQ==
-From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-To: Yifan Feng <evanfengff@gmail.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>, Mark Rutland <mark.rutland@arm.com>, linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] tracing/fprobe: Do not let KASAN check the $stackN read
-Date: Sun, 22 Nov 2026 18:44:11 +0900
-Message-ID: <undine-1795340651865886565-b6ba73d13d584735@undined.local>
-X-Mailer: UndineD 0.1
-In-Reply-To: <20261118003205.59804-1-evanfengff@gmail.com>
-References: <20261118003205.59804-1-evanfengff@gmail.com>
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=MC8hL9lE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795340671; bh=aj+gIXgzMv4AObQT101jv74wXWuyJhb+y0Qwods1qKs=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=MC8hL9lEV98KeZVZMQW1nh8VfRnSOUHbFPRp+ynT8Yay7C/FVqkOBMPu/T45ug10Zo/eshE6mqkVbM/VW/SxUL3FPWKT4wHKjdn3q5l0U9gEeUSf7Cu+FCS1pN1Z5zQY5p/RAC++oBCVzubCvMJU4/G6Fsj0yOgr+kwV50939zfzBmIspSdsMWoAqv95Qgq1fSHvHHx8tdVJyHi5rm0GsJjFfFcY7B7kYC1YxIhKIeIHJlbAKHyrmUcwt5tUbV/knl2MdkTemAV5HlySLcBm65abbXCmxb0nHP323quQ3+J/F76OZLGFuHDkr/dFT8KG2aLy2tJ3Bd8XnTK9pSfvgA==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795340671; bh=xxqEnwgUrL3t1BL4gZlsJ2rfjWHz8fnmU1/mY/PZ1cd=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=bou8l1D300W2mjNm/ZlmtZ4J8pexSxgjMAVwF5xKyLkXlYaqYgPIGifwi0INBAGMhrOWObLHhAFtVl5lq13kboMG2mV5rSHmIFqy9SSM1fhDYKhZP1E8Lrq9HWp3rs4H5bKogcHtRF5xtE1d4UnomoZuErrTLHpsk/SgjUKUBqApedoz0/j+tsjfLQz5vaE0cG8dE95PhmC0bfkx0OgJnM9VOexjqYl80mmqfVOpqJeACFPi/CUeiZSf5LDIS+uxLH5+9cDwiEreZv7deeLL8lt4+wNlH2LKoKUT7jzSK8vBV35m+Fhs/52m1aWv3gjLUIblbVIbZDC4AqQERbnwTw==
+X-YMail-OSG: 4bsm9akVM1kIT.WMXKvVWO.Dezbhu7aMelz3JS3ld4PyQxif37tCb8OkLAxeve4
+ 0mffnPJ7REVswphOo0e6Ro7sjRgU_tR1PMKSgukzn3dngHLbK9x7ZM.odRVdJPXInunCpKBCPx2A
+ iUrnaiwMJLs7Vv9S_5pd6m6RCYO.sXdAlueApfR9xIizlOrX9CBRfrbjQv4MyEUoRHJsrpf7D8jR
+ ojYCgnzf32QakQBN91_DJg71fCNkUX0kRcv7DG0vX59JDQ5O0gqoXHuNLQH9oetQwWQduHKDqCTi
+ HvvkFuKeP6frkigC_ySs1G9w4FycyLvr00wMFiU7GIemuDwGmbl5dgb24XqRt2swJARRm4oi.9aK
+ C6hj0CLzqYAm913S3CaFxoyzGUC3_O1MuLxcAhYrL0Au5sBZ6pfK1kA8s_SofoMiKoR4061nFkRY
+ 7jPklCI7fL3W.TZDogMqX8lXNZ4p7Zfo5.2kWoVYy8OCqwvJBeM2wEDAaiWNXlQA_Eu.Pq_6Z_jf
+ noYBP7iV2COw.YpvrxI_GF.8CU58K1R0Wjxyogk8TfdHex5AHFxqtQ9EgOyBEuetGZHluUqe4LXw
+ qD5VBSirb6OutSaGXIigzX7waahwH8vstWala_KBeQXwcuFTuMcipdsj2R6BvAbi8kw_YUaQMp5V
+ H37psAJjUCwH_rtyY.p.IC6mhrKPi3416AcX2wXuUw27.WcQ1IeZykkvJkZSm2rm_wUqzKo9gGxv
+ jcYnB791X69bbdDSuIzTa4d8A23_bRihdOjc4tK3fZKM8SuZs6d1IR3_Ez2laeqvK6qpk1Vnd6XL
+ hPY.r0MjT5cBzNm9R5huqWPU5zMoAZYuhgGKuS6Z_2avGTivYC6ijMkVEvXzuHYSdA13KFhz7wCh
+ IH7Q_reJJmPQilI2imeS6NOeRMCEQjqptt3H.b3TsubXXaC6wbDJtZC6sHpOg8.rUS_OkaMcwf3f
+ VfCeKpTe6Votm6yb9v05W4MZiAg8xZKSUz_jHjs_DSXW_6VMmZBTon0KjvA9OTt9ndaiuv9eENiM
+ QR42NOK91JLyC5augxh3PkLuIpdbp6yiyIjiGrxGhZaMmFqRFohZEAIvUoeGxMlVpAr1wNJvHZX2
+ ncfH5BlHpTsOyJP.Xh103NvG4wDT2khXUiMwy1nMqkm.WuTbmhax7xwmlSePy_P1Zh.2_z.0z8yb
+ lNI0Hhrv6ezTZBn6I75U2e01yBRdWOK_gTNzlyYZjM.3PLljYFE19rv3M8edQuwNPC.NqOOZLgcn
+ bBZJshKtSbcmanq8uiUsh7Yg9DmfYCf4CdAC_.n1I3A1RKW6OBxOE5LF4elBT39C1pb478dcZ.zX
+ 6nUv.uftF5Py3idE.FT94_3HGCblVssZ5cU9td7fTil30SbliVoYYRdyj4eQYnwqFe6rbvqsDBVx
+ IWf1kQ58kHycghqEw0SYfM6INzT.O.mQRXbg3cgqroAd5rm13C7vXakO4Hvr5c1G47WN8dBWEOEs
+ 0cK3PFhZkkjifmkVO6o0k10I0HAMfFbcw5QJUAJaHRofUziV7.Wmem6Az0v2cZZ7eyCfcPG95cUm
+ a7Eyb2nCzR8JNUrBpU_eBlGoeq5KTxyx_OLvBCGFRYQ38yuHEHPc6eJSFo9wlJFPuohpTS2o8CNE
+ q6xzBfcH0Sq.jwcSzqK0kTsRng2ezwzcTdVf0yDiK8XN09_yy6fffjbp05J828D49kBGnfKK.Cro
+ ZHMV2_vJoyVnqNbGp0cDcNTdeu8Hhtp_iMq9z.rHwL5iiJSTP8r97WkpsnesgEJwI3V567rDj.EF
+ CZB9f3CDsmHZpQEGYZ1OPvDYE7w.d0s2RhZNb3EkDxb4gDXl1TQw60YyjN8toXitmKi_1FTxC7KY
+ MIvloF0Zhw5qbUcARNRtfQ_HWhmzi8YDgPAW8G4N6nSAkSifQzcB1pSKGJLcK6Eiu9y0cG0jB97K
+ T.8.mQaKDmDs7UI3WiwHnzriW34QYPW3tlW2OxQeVv5A4mqqfFnKzXH_7MDztSCESzEG9Ftz6Cpv
+ uXi2yFWN0bdWb0yeYqOWTBnWVlniu9Pndy.gRCpHnO.xRXfTdgk65koKLLq5irAJbWFQutj8GBqi
+ _scYqagngLz04Mf98b0d8NPzA_owtv38UeCxYyG272XremUgutjylTz.J6zDUykqdzuKtaXW2rmB
+ 333AAcnujRT6wx7IaSyJGEDAwN3Nhw4HRq6xAtMdsNoeURZIGbOrkmrOKyEK_R46xzSEKm_EIG7o
+ SRwNh3Bur216AwvlxKxv3kHFaE6b4DFVmIAejRQ4x9FRxrm2Yg.Iv0d5dXxCRjVUHiJVhyf8fQdo
+ tnJJ7holbQJoyCISdO1yAxUepjID.zeFgVuPTUGTVZZQ-
+X-Sonic-MF: <namiltd@yahoo.com>
+X-Sonic-ID: 14d03a2d-dfe9-4d1a-82e1-d836b547f1be
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic310.consmr.mail.ne1.yahoo.com with HTTP; Sun, 22 Nov 2026 09:44:31 +0000
+Received: by hermes--production-bf1-8768df57c-zvbfp (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 43a1f7e1d0c18464bcccd418607a7c48;
+          Sun, 22 Nov 2026 09:44:29 +0000 (UTC)
+Message-ID: <a1bba585-c85e-42c9-84cf-93191bd53daf@yahoo.com>
+Date: Sun, 22 Nov 2026 10:44:25 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,55 +84,266 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: [PATCH net-next v13 08/14] net: dsa: realtek: rtl8365mb: refactor
+ PVID handling
+From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
+ fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
+References: <3f1826f8-3096-40dd-a278-c70fce4852c8@yahoo.com>
+Content-Language: pl
+In-Reply-To: <3f1826f8-3096-40dd-a278-c70fce4852c8@yahoo.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-On Tue, 17 Nov 2026 16:32:05 -0800, Yifan Feng <evanfengff@gmail.com> wrote:
-> ftrace_regs_get_kernel_stack_nth() reads the Nth entry of the kernel
-> stack for the $stackN argument of fprobe and tracepoint probe events.
-> That entry can be in the redzone of another stack frame, so with
-> CONFIG_KASAN_STACK every hit of such an event is reported:
-> 
->   # echo 'f:fp_read vfs_read $stack10' >> dynamic_events
->   # echo 1 > events/fprobes/fp_read/enable
->   BUG: KASAN: stack-out-of-bounds in process_fetch_insn+0xac9/0xcb0
-> 
-> Use READ_ONCE_NOCHECK(), as arm64 does in regs_get_kernel_stack_nth()
-> for kprobe events.
-> 
-> Fixes: 0566cefe73b9 ("tracing/fprobe: Enable fprobe events with CONFIG_DYNAMIC_FTRACE_WITH_ARGS")
-> Signed-off-by: Yifan Feng <evanfengff@gmail.com>
+The PVID helpers (rtl8365mb_vlan_port_get_pvid(),
+rtl8365mb_vlan_pvid_port_set() and rtl8365mb_vlan_pvid_port_clear())
+work on a VLAN MC table index, which only family C has. Family D stores
+a raw VID in a per-port register, so it needs its own implementation.
 
-Looks good to me. Let me pick this to fixes branch.
+Move the helpers behind struct rtl8365mb_family_info, as already done
+for the VLAN 4k accessors: the existing code becomes the family C
+implementation (rtl8365mb_c_vlan_port_get_pvid() and the like), and
+the three functions above only call it through the vlan_port_get_pvid,
+vlan_pvid_port_set and vlan_pvid_port_clear pointers in the family
+info. The callers are not changed. The following patch adds the family D
+implementation without any is_d() check in the shared code.
 
-Thanks!
+No functional change.
 
-> ---
-> Tested on v7.4-rc3 in QEMU with KASAN: 6 reports before, 0 after.
-> Found and written with the help of an AI coding assistant.
-> 
->  include/linux/ftrace.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
-> index 1c2056a1a68b..bdb6ee6bc3b9 100644
-> --- a/include/linux/ftrace.h
-> +++ b/include/linux/ftrace.h
-> @@ -270,7 +270,7 @@ ftrace_regs_get_kernel_stack_nth(struct ftrace_regs *fregs, unsigned int nth)
->  	stackp = (unsigned long *)ftrace_regs_get_stack_pointer(fregs);
->  	if (((unsigned long)(stackp + nth) & ~(THREAD_SIZE - 1)) ==
->  	    ((unsigned long)stackp & ~(THREAD_SIZE - 1)))
-> -		return *(stackp + nth);
-> +		return READ_ONCE_NOCHECK(*(stackp + nth));
->  
->  	return 0;
->  }
-> 
-> base-commit: 63fdb511c27afcebce797e3db580b3534ddfa639
-> -- 
-> 2.39.3 (Apple Git-146)
-> 
->
+The family C functions are not static because they are referenced from
+the family C info in rtl8365mb_main.c.
 
+Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
+Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+---
+ drivers/net/dsa/realtek/rtl8365mb.h      |   8 ++
+ drivers/net/dsa/realtek/rtl8365mb_main.c |   4 +
+ drivers/net/dsa/realtek/rtl8365mb_vlan.c | 101 +++++++++++++++++++++--
+ drivers/net/dsa/realtek/rtl8365mb_vlan.h |   6 ++
+ 4 files changed, 111 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/net/dsa/realtek/rtl8365mb.h b/drivers/net/dsa/realtek/rtl8365mb.h
+index be0f49e..c59e657 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb.h
++++ b/drivers/net/dsa/realtek/rtl8365mb.h
+@@ -9,6 +9,8 @@ enum rtl8365mb_family {
+ 	RTL8365MB_FAMILY_D,
+ };
+ 
++struct dsa_switch;
++struct netlink_ext_ack;
+ struct rtl8365mb_jam_tbl_entry;
+ struct rtl8365mb_vlan4k;
+ 
+@@ -23,6 +25,12 @@ struct rtl8365mb_family_info {
+ 			    struct rtl8365mb_vlan4k *vlan4k);
+ 	int (*vlan_4k_write)(struct realtek_priv *priv,
+ 			     const struct rtl8365mb_vlan4k *vlan4k);
++	int (*vlan_port_get_pvid)(struct realtek_priv *priv, int port,
++				  u16 *pvid);
++	int (*vlan_port_reset_pvid)(struct realtek_priv *priv, int port);
++	int (*vlan_pvid_port_set)(struct dsa_switch *ds, int port, u16 vid,
++				  struct netlink_ext_ack *extack);
++	int (*vlan_pvid_port_clear)(struct dsa_switch *ds, int port, u16 vid);
+ };
+ 
+ const struct rtl8365mb_family_info *
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
+index 2269ac9..bb3d7cd 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_main.c
++++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
+@@ -758,6 +758,10 @@ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
+ 	.ext_config_forcemode = rtl8365mb_c_ext_config_forcemode,
+ 	.vlan_4k_read = rtl8365mb_c_vlan_4k_read,
+ 	.vlan_4k_write = rtl8365mb_c_vlan_4k_write,
++	.vlan_port_get_pvid = rtl8365mb_c_vlan_port_get_pvid,
++	.vlan_port_reset_pvid = rtl8365mb_c_vlan_port_reset_pvid,
++	.vlan_pvid_port_set = rtl8365mb_c_vlan_pvid_port_set,
++	.vlan_pvid_port_clear = rtl8365mb_c_vlan_pvid_port_clear,
+ };
+ 
+ /**
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.c b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
+index b807835..2e4d8f9 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_vlan.c
++++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
+@@ -846,7 +846,7 @@ static int rtl8365mb_vlan_get_pvid_mc(struct realtek_priv *priv,
+ }
+ 
+ /*
+- * rtl8365mb_vlan_port_get_pvid - Retrieve the port PVID
++ * rtl8365mb_c_vlan_port_get_pvid - Retrieve the port PVID (family C)
+  * @priv: realtek switch private structure
+  * @port: port index
+  * @pvid: pointer to store the retrieved VLAN ID
+@@ -856,7 +856,8 @@ static int rtl8365mb_vlan_get_pvid_mc(struct realtek_priv *priv,
+  * Context: Can sleep. Takes and releases &priv->map_lock.
+  * Return: 0 on success or a negative error code on failure.
+  */
+-int rtl8365mb_vlan_port_get_pvid(struct realtek_priv *priv, int port, u16 *pvid)
++int rtl8365mb_c_vlan_port_get_pvid(struct realtek_priv *priv, int port,
++				   u16 *pvid)
+ {
+ 	struct rtl8365mb_vlanmc vlanmc;
+ 	u8 vlanmc_idx;
+@@ -870,6 +871,43 @@ int rtl8365mb_vlan_port_get_pvid(struct realtek_priv *priv, int port, u16 *pvid)
+ 	return 0;
+ }
+ 
++/*
++ * rtl8365mb_c_vlan_port_reset_pvid() - Put a port's PVID in its neutral state
++ * (family C)
++ * @priv: realtek_priv pointer
++ * @port: the port number
++ *
++ * Family C is left as it was before family D support: its PVID registers are
++ * not touched at setup, to preserve existing driver behavior.
++ *
++ * Return: 0.
++ */
++int rtl8365mb_c_vlan_port_reset_pvid(struct realtek_priv *priv, int port)
++{
++	return 0;
++}
++
++/*
++ * rtl8365mb_vlan_port_get_pvid() - Retrieve the port PVID
++ * @priv: realtek switch private structure
++ * @port: port index
++ * @pvid: pointer to store the retrieved VLAN ID
++ *
++ * Returns the port PVID if defined or 0 if not, as implemented by the chip
++ * family.
++ *
++ * Context: Can sleep. Takes and releases &priv->map_lock.
++ * Return: 0 on success or a negative error code on failure.
++ */
++int rtl8365mb_vlan_port_get_pvid(struct realtek_priv *priv, int port, u16 *pvid)
++{
++	const struct rtl8365mb_family_info *fi;
++
++	fi = rtl8365mb_get_family_info(priv);
++
++	return fi->vlan_port_get_pvid(priv, port, pvid);
++}
++
+ /*
+  * rtl8365mb_vlan_port_get_framefilter() - Get the ingress frame filtering mode
+  * for a port
+@@ -932,8 +970,8 @@ rtl8365mb_vlan_port_set_framefilter(struct realtek_priv *priv,
+ }
+ 
+ /*
+- * rtl8365mb_vlan_pvid_port_set() - Configure a port's PVID and associated
+- * VLANMC entry
++ * rtl8365mb_c_vlan_pvid_port_set() - Configure a port's PVID and associated
++ * VLANMC entry (family C)
+  * @ds: dsa switch instance
+  * @port: port index
+  * @vid: target VID
+@@ -947,8 +985,8 @@ rtl8365mb_vlan_port_set_framefilter(struct realtek_priv *priv,
+  * Takes and releases &priv->map_lock.
+  * Return: 0 on success, or a negative error code on failure.
+  */
+-int rtl8365mb_vlan_pvid_port_set(struct dsa_switch *ds, int port, u16 vid,
+-				 struct netlink_ext_ack *extack)
++int rtl8365mb_c_vlan_pvid_port_set(struct dsa_switch *ds, int port, u16 vid,
++				   struct netlink_ext_ack *extack)
+ {
+ 	enum rtl8365mb_frame_ingress accepted_frame, prev_accepted_frame;
+ 	struct realtek_priv *priv = ds->priv;
+@@ -1040,7 +1078,32 @@ undo_vlan_mc_port_set:
+ }
+ 
+ /*
+- * rtl8365mb_vlan_pvid_port_clear() - Remove a port's PVID configuration
++ * rtl8365mb_vlan_pvid_port_set() - Configure a port's PVID
++ * @ds: dsa switch instance
++ * @port: port index
++ * @vid: target VID
++ * @extack: netlink extended ACK for error reporting
++ *
++ * Configures the PVID as implemented by the chip family.
++ *
++ * Context: Can sleep. Must be called with &priv->vlan_lock held.
++ * Takes and releases &priv->map_lock.
++ * Return: 0 on success, or a negative error code on failure.
++ */
++int rtl8365mb_vlan_pvid_port_set(struct dsa_switch *ds, int port, u16 vid,
++				 struct netlink_ext_ack *extack)
++{
++	const struct rtl8365mb_family_info *fi;
++	struct realtek_priv *priv = ds->priv;
++
++	fi = rtl8365mb_get_family_info(priv);
++
++	return fi->vlan_pvid_port_set(ds, port, vid, extack);
++}
++
++/*
++ * rtl8365mb_c_vlan_pvid_port_clear() - Remove a port's PVID configuration
++ * (family C)
+  * @ds: dsa switch instance
+  * @port: port index
+  * @vid:  VLAN VID for PVID
+@@ -1052,7 +1115,7 @@ undo_vlan_mc_port_set:
+  * Takes and releases &priv->map_lock.
+  * Return: 0 on success, or a negative error code on failure.
+  */
+-int rtl8365mb_vlan_pvid_port_clear(struct dsa_switch *ds, int port, u16 vid)
++int rtl8365mb_c_vlan_pvid_port_clear(struct dsa_switch *ds, int port, u16 vid)
+ {
+ 	enum rtl8365mb_frame_ingress accepted_frame, prev_accepted_frame;
+ 	struct realtek_priv *priv = ds->priv;
+@@ -1125,3 +1188,25 @@ undo_set_framefilter:
+ 
+ 	return ret;
+ }
++
++/*
++ * rtl8365mb_vlan_pvid_port_clear() - Remove a port's PVID configuration
++ * @ds: dsa switch instance
++ * @port: port index
++ * @vid:  VLAN VID for PVID
++ *
++ * Removes the PVID as implemented by the chip family.
++ *
++ * Context: Can sleep. Must be called with &priv->vlan_lock held.
++ * Takes and releases &priv->map_lock.
++ * Return: 0 on success, or a negative error code on failure.
++ */
++int rtl8365mb_vlan_pvid_port_clear(struct dsa_switch *ds, int port, u16 vid)
++{
++	const struct rtl8365mb_family_info *fi;
++	struct realtek_priv *priv = ds->priv;
++
++	fi = rtl8365mb_get_family_info(priv);
++
++	return fi->vlan_pvid_port_clear(ds, port, vid);
++}
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.h b/drivers/net/dsa/realtek/rtl8365mb_vlan.h
+index f6230eb..b5b56ae 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_vlan.h
++++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.h
+@@ -28,6 +28,12 @@ int rtl8365mb_d_vlan_4k_read(struct realtek_priv *priv, u16 vid,
+ 			     struct rtl8365mb_vlan4k *vlan4k);
+ int rtl8365mb_d_vlan_4k_write(struct realtek_priv *priv,
+ 			      const struct rtl8365mb_vlan4k *vlan4k);
++int rtl8365mb_c_vlan_port_get_pvid(struct realtek_priv *priv, int port,
++				   u16 *pvid);
++int rtl8365mb_c_vlan_port_reset_pvid(struct realtek_priv *priv, int port);
++int rtl8365mb_c_vlan_pvid_port_set(struct dsa_switch *ds, int port, u16 vid,
++				   struct netlink_ext_ack *extack);
++int rtl8365mb_c_vlan_pvid_port_clear(struct dsa_switch *ds, int port, u16 vid);
+ 
+ int rtl8365mb_vlan_port_get_pvid(struct realtek_priv *priv, int port,
+ 				 u16 *pvid);
 -- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+2.53.0
+
