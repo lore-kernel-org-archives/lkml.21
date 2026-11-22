@@ -1,68 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795318188;
-	b=YdunML0d8gr0AVe5C14GPf/CAS0wrR1kRwWBIwrqQTmMnjmoGACDmONuIHpaNLktNyEC
-	 TDQst2+IeviY7kJSgckOoAq3+VFuOzqdlIlpVV5lUZGm1Xa5HfLktaigPbkXYzWFvyUL9
-	 KS4SUkXFa0kyIg4gqF1htw5ERIr4JkEh46bfo68/KgcBggmWj+yNSOmIgTPAakRAOw1eO
-	 T/Z4Uab4MtnNmhVubKbhRGGupP7uLhwjtPXlozqHTEA3hhqx3Ee3CB200gb18QGeFgPQl
-	 4VdKTuxMHkr3sfgc4ba0FgxvN2XcNQ/0OkBzGEZiqbuzr7CvtUDNrb+GlLJ6v644o6A==
+	t=1795318398;
+	b=c+hwiDz1/OUOvqdZvf+XfJ2QFjBcA6bSUW0bpvlPhbYuJ9BqcH6dF6yPPDgyGWNpN6Q0
+	 bOfy4lHvkHulx9xbk7/ohXfLRHv+hkt7QYbEshkkRQ2KKGsHbSiQTzPJkiIpk1/AOTeaO
+	 VtquLHcvmnFfxMVpSWJ81vXiTgQy+FPxrE1VfE7PeLGrwIs9G/HfRv5mrptDhbgI3fMu1
+	 3yhZ5eGRsSQbu9LEBWjSV3IN2CZDA7waPhusb/fImVjMXc2C3ccHYb5oGN4kaKMjObMIK
+	 fcPC3emQnpl1Qd5XrLlZmnXdbxXjgOAjEknCT9ZmFGMcl274j+Wv0U7vvsWPny/OS/w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795318188;
-	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=p3nqFkme7mg7H/fs+lYWoZopxp7iNJH2hxKNl8bsNRw=;
-	b=cCF3l1Mk3AqZtCe9J3x0oFEK5AH+spOZoGF06kbtz6kAidM9pDjQX/yPttJtC2fnOn67
-	 7/JVf1UfGDP0LCjmmOh709AS4O/Dz1UxQyifezHTE+ukUjrUPFfTkSBBBKqB03avdXHFP
-	 OGD0oGqG+gVmd9Vb/OlQ6xvAyzVu02OHPBT5iiGb1bbITBr1SV6i/poo4jSjDHS88xFKC
-	 Fb5pmpXMaSxZtRKzdNG0Vuu3ayRCCaW3/uqqmNCvI+TBD4uhG4OUGW4ETpvync9ryUm19
-	 hMjrDxExvooqpxZEQN2di7Pi6YQVYCP6YRwH43ZTuA5Sa5YMuNv/RfuzZ4hqRd1jaPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795318398;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=nEWTTmYbR5yEEt5N6be7z5Q5FBiYqT8Psorb4IsgBd8=;
+	b=KPM30++NKtOVJ6FyC8QIpGfgcX0tn18LWZ8YA8oLjSdISg/coDJYWxo+VJa8WBYfIKcb
+	 rgIooB5Q1Qo4AMHBcsPwqZX1a7Ei3xWTGLOZV2swKejyUO8TswgBddyzTA9eElbU4Cqex
+	 TdTDDzwdL2xwymJc36yEeUoMXXOWwgWpcReMd9LphtaSFJ6lwGToOotHzIUEVys9Oiaiu
+	 ryFT6gIBl1us/32pxT0B3oHPAL7JUSVXvry6oxTI/CNfB4HxF7Z55Eclg3B7s2rR6xgkS
+	 oqfYa6tVSEBbtVlieiX0rU0xRb7NqojeN5E83q1UH0RLRjEs3xFrS667lwdyVuax5KQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=raidlab.org;
-	spf=pass smtp.mailfrom=raidlab.org;
-	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=dyzICezC;
-	arc=none smtp.remote-ip=185.70.43.172
-Received: from mail-43172.protonmail.ch (mail-43172.protonmail.ch [185.70.43.172])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MVBebZk1;
+	arc=none smtp.remote-ip=74.125.82.70
+Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36179606A680;
-	Sun, 22 Nov 2026 03:29:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36179606A680
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=raidlab.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=raidlab.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14D39606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 03:33:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14D39606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=dyzICezC
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raidlab.org;
-	s=protonmail; t=1795318186; x=1795577386;
-	bh=p3nqFkme7mg7H/fs+lYWoZopxp7iNJH2hxKNl8bsNRw=;
-	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:From:To:
-	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=dyzICezCY9q2jMs2tJclU8lxNYEQDOcniniqe35bTIiW/D/Kz4oit/hiQT3uK3LYS
-	 0Uj8H5mbWFoHXzXxXwxqBBOYTdnMhr2w+6W2jk7QA20M+QN1Glpw6tCQheICUoLMrQ
-	 73cNZ73nf2gxaozcUTqWuccNINCvfdxrRHupSrmsQEn4a7/34fpUM6vHoJ16fQKsOT
-	 C04I9U4MIF6zer+VZ+B185yHs6p3MWorRZg8B/ECSw0/4UhQ1+o3VYfdk7mBA4ErdD
-	 hCjZ1ObuNNDvMfgcZz6asSSTlKL2QvygXblMkCKOw71z31IZfZiXThcy/V7LHc/NBK
-	 U0ZhiGpadmfmQ==
-X-Pm-Submission-Id: 4jXF1h447Rz1DDqy
-From: Miroslav Cimerman <mc@raidlab.org>
-To: Song Liu <song@kernel.org>,
-	Yu Kuai <yukuai@fygo.io>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: Li Nan <magiclinan@didiglobal.com>,
-	Xiao Ni <xiao@kernel.org>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Christoph Hellwig <hch@lst.de>,
-	David Laight <david.laight.linux@gmail.com>,
-	Markus Stockhausen <markus.stockhausen@collogia.de>,
-	linux-raid@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/3] raid6: remove the sfence from the x86 xor_syndrome functions
-Date: Sun, 22 Nov 2026 03:29:32 +0000
-Message-ID: <20261122032933.2306875-3-mc@raidlab.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261122032933.2306875-1-mc@raidlab.org>
-References: <20261122032933.2306875-1-mc@raidlab.org>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MVBebZk1
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1b29df78132so2100778c88.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 19:33:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795318397; x=1795923197; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=nEWTTmYbR5yEEt5N6be7z5Q5FBiYqT8Psorb4IsgBd8=;
+        b=MVBebZk1wxUXG9NIyQQS5/bv7z6bcLi5bM9Dt4HV+k1RPq2Ib25WFkHCp2mVBXJg/U
+         uG/VGjRfP73V1lcDk2bT27gG4z4xZKifF/YQTm0BU80PNi5YnLd4520B/UTRrBhO6VFu
+         1qTJ0o3gGWyMLNteXMV+iHPZJIYJNw9YeCDiw/na02ROJgphAyDw4mPYtTE9JM/Nz2om
+         EAu7PXn9mPF17pWtDsSX+PBA+iuwzpEi88bJEImzxrBzmosbqaU3t6VytdNRbT29iAFs
+         qyhn+l0nVeJqB+GXxfS67tzO8PTfyTuPkPkXlh0xfGztDoL2tDiJLXmiCZ4RxM53FMo4
+         LESg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795318397; x=1795923197;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nEWTTmYbR5yEEt5N6be7z5Q5FBiYqT8Psorb4IsgBd8=;
+        b=yKMXO3PRWq9oXnTr7OcSwPa77SWMgajXdOKIJ5f8fI7H30JTDV6Vnnsyy1afXEZv5I
+         BKsRtxINamgillyKqYy2YZDziIJECZCxxlV/yNkq+qAJQyxb8p8NyLMIppgkJTMSqkMa
+         dBiekJSy78hv/HYkHO+gVUhxrEa+IjOYRrFeOLKxi1Vd8tTduYGJpOJDEwyleO/ei2y2
+         1RkepvCqBn+IP1O8b4ciw/ZawaXUiOfFpuxcfiGKJm5TqqDGZokugOuzRFwUu1G/WWGN
+         LZZmp0plH68DzROn/EvyL44jVRlIbW5e9uPdWIE0LNzYUuz2eHFPI2gcstH5+GH4Vxv0
+         hoOA==
+X-Forwarded-Encrypted: i=1; AL+hErHd0LvyhPCp201KTaPJ3jizr+EL3lg4N9uSYuwbklS9N+NYVpIjneu48iruw1AQfKoWGc+At88WGgCatV0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/6eiF8/85D72I+eZnX8aAeBwkmHBq4hb3Urh/rwfnL0N/2NoUX
+	frVRfoTRBq9MuakGNWZW0tr3MmJwNXLIQ34nZc/phXGzBpBkh8MjtDM5jx9F4rBocjlfVXBBEzs
+	vuX1GO/5KgB8klhGs1w==
+X-Received: from dlgw5-n1.prod.google.com ([2002:a05:701a:cc85:10b0:15f:4035:64c7])
+ (user=penghuang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:7022:f516:b0:1b5:4aba:b087 with SMTP id a92af1059eb24-1b5567c0c01mr6774411c88.3.1795318396734;
+ Sat, 21 Nov 2026 19:33:16 -0800 (PST)
+Date: Sat, 21 Nov 2026 19:33:16 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,119 +75,100 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261122033316.2819845-1-penghuang@google.com>
+Subject: [PATCH] sched_ext: Update other_load_avgs on set_next_task_scx
+From: Peng Huang <penghuang@google.com>
+To: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, 
+	Changwoo Min <changwoo@igalia.com>, sched-ext@lists.linux.dev
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	Barret Rhoden <brho@google.com>, Josh Don <joshdon@google.com>, Hao Luo <haoluo@google.com>, 
+	linux-kernel@vger.kernel.org, penghuang@google.com
+Content-Type: text/plain; charset="UTF-8"
 
-The SSE2, AVX2 and AVX-512 xor_syndrome() functions end with an sfence.
-It orders non-temporal stores, but none of these functions uses them
-anymore. The x4 versions stopped with "raid6: use normal stores in the
-x86 x4 xor_syndrome functions", and the x1 and x2 versions never used
-them.
+When scx_switched_all() is enabled, scheduler_tick() skips
+sched_balance_trigger(), so __update_blocked_others() no longer runs to
+decay RT, DL, IRQ, and HW pressure load averages. Other-class load
+averages then depend on scx_tick() and SCX_RQ_CAN_STOP_TICK transitions
+in set_next_task_scx().
 
-Remove the sfence from all nine functions. The gen_syndrome() functions
-still write P and Q with non-temporal stores and keep their sfence.
+If SCX_RQ_CAN_STOP_TICK stays unchanged (e.g., remaining set across an
+idle or RT interval on tickless CPUs, or remaining clear on finite-slice
+switches before a tick fires or before going idle), stale RT/DL PELT
+values can remain elevated when consumers such as effective_cpu_util()
+or update_idle_rq_clock_pelt() read them.
 
-The asm of the AVX-512 functions relied on the "memory" clobber of the
-sfence. "raid6: declare the AVX-512 P/Q stores as asm outputs" declares
-their stores as outputs instead.
+Track load-average updates explicitly with @update_load_avgs in
+set_next_task_scx() and refresh update_other_load_avgs() on SNT_PICK as
+well as when SCX_RQ_CAN_STOP_TICK toggles.
 
-The memory operands are still declared as single bytes while the asm
-accesses 16 to 64 bytes. This is unchanged. No C code in these functions
-accesses the buffers.
-
-Suggested-by: Christoph Hellwig <hch@lst.de>
-Link: https://lore.kernel.org/linux-raid/avqegZd_W0kce0UA@infradead.org/
-Signed-off-by: Miroslav Cimerman <mc@raidlab.org>
+Fixes: 22a920209ab6 ("sched_ext: Implement tickless support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Peng Huang <penghuang@google.com>
 ---
- lib/raid/raid6/x86/avx2.c   | 3 ---
- lib/raid/raid6/x86/avx512.c | 3 ---
- lib/raid/raid6/x86/sse2.c   | 3 ---
- 3 files changed, 9 deletions(-)
+ kernel/sched/ext/ext.c | 19 ++++++++++++-------
+ 1 file changed, 12 insertions(+), 7 deletions(-)
 
-diff --git a/lib/raid/raid6/x86/avx2.c b/lib/raid/raid6/x86/avx2.c
-index a9e709ce2104..d3f488a9c1a5 100644
---- a/lib/raid/raid6/x86/avx2.c
-+++ b/lib/raid/raid6/x86/avx2.c
-@@ -115,7 +115,6 @@ static void raid6_avx21_xor_syndrome(int disks, int start, int stop,
- 		asm volatile("vmovdqa %%ymm2,%0" : "=m" (p[d]));
- 	}
+diff --git a/kernel/sched/ext/ext.c b/kernel/sched/ext/ext.c
+index 10de6bd865e8..e29c9c18e1ab 100644
+--- a/kernel/sched/ext/ext.c
++++ b/kernel/sched/ext/ext.c
+@@ -3553,6 +3553,7 @@ static void kick_sync_wait_bal_cb(struct rq *rq);
+ static void set_next_task_scx(struct rq *rq, struct task_struct *p, enum snt_e type)
+ {
+ 	bool first = type == SNT_PICK;
++	bool update_load_avgs = first;
+ 	bool can_stop_tick;
  
--	asm volatile("sfence" : : : "memory");
- 	asm volatile("vzeroupper");
- 	kernel_fpu_end();
- }
-@@ -245,7 +244,6 @@ static void raid6_avx22_xor_syndrome(int disks, int start, int stop,
- 		asm volatile("vmovdqa %%ymm3,%0" : "=m" (p[d+32]));
- 	}
+ 	/*
+@@ -3619,10 +3620,6 @@ static void set_next_task_scx(struct rq *rq, struct task_struct *p, enum snt_e t
+ 	 * @p is getting newly scheduled or got kicked after someone updated its
+ 	 * slice. Update SCX_RQ_CAN_STOP_TICK to reflect whether the tick can be
+ 	 * stopped. See scx_can_stop_tick().
+-	 *
+-	 * Moreover, refresh the load_avgs just when transitioning in and out of
+-	 * nohz. In the future, we might want to add a mechanism to update
+-	 * load_avgs periodically on tick-stopped CPUs.
+ 	 */
+ 	if (can_stop_tick) {
+ 		if (!(rq->scx.flags & SCX_RQ_CAN_STOP_TICK)) {
+@@ -3634,13 +3631,12 @@ static void set_next_task_scx(struct rq *rq, struct task_struct *p, enum snt_e t
+ 			 */
+ 			rq->scx.flags |= SCX_RQ_CAN_STOP_TICK;
+ 			sched_update_tick_dependency(rq);
+-
+-			update_other_load_avgs(rq);
++			update_load_avgs = true;
+ 		}
+ 	} else {
+ 		if (rq->scx.flags & SCX_RQ_CAN_STOP_TICK) {
+ 			rq->scx.flags &= ~SCX_RQ_CAN_STOP_TICK;
+-			update_other_load_avgs(rq);
++			update_load_avgs = true;
+ 		}
  
--	asm volatile("sfence" : : : "memory");
- 	asm volatile("vzeroupper");
- 	kernel_fpu_end();
- }
-@@ -448,7 +446,6 @@ static void raid6_avx24_xor_syndrome(int disks, int start, int stop,
- 		asm volatile("vmovdqa %%ymm12,%0" : "=m" (q[d+64]));
- 		asm volatile("vmovdqa %%ymm14,%0" : "=m" (q[d+96]));
+ 		/*
+@@ -3651,6 +3647,15 @@ static void set_next_task_scx(struct rq *rq, struct task_struct *p, enum snt_e t
+ 		if (tick_nohz_full_cpu(cpu_of(rq)))
+ 			tick_nohz_dep_set_cpu(cpu_of(rq), TICK_DEP_BIT_SCHED);
  	}
--	asm volatile("sfence" : : : "memory");
- 	asm volatile("vzeroupper");
- 	kernel_fpu_end();
- }
-diff --git a/lib/raid/raid6/x86/avx512.c b/lib/raid/raid6/x86/avx512.c
-index 7dc0a45cd2fb..33d7639da5b3 100644
---- a/lib/raid/raid6/x86/avx512.c
-+++ b/lib/raid/raid6/x86/avx512.c
-@@ -135,7 +135,6 @@ static void raid6_avx5121_xor_syndrome(int disks, int start, int stop,
- 			     : "+m" (q[d]), "=m" (p[d]));
- 	}
- 
--	asm volatile("sfence" : : : "memory");
- 	asm volatile("vzeroupper");
- 	kernel_fpu_end();
- }
-@@ -290,7 +289,6 @@ static void raid6_avx5122_xor_syndrome(int disks, int start, int stop,
- 			       "=m" (p[d+64]));
- 	}
- 
--	asm volatile("sfence" : : : "memory");
- 	asm volatile("vzeroupper");
- 	kernel_fpu_end();
- }
-@@ -527,7 +525,6 @@ static void raid6_avx5124_xor_syndrome(int disks, int start, int stop,
- 			       "=m" (p[d+192]), "+m" (q[d]), "+m" (q[d+64]),
- 			       "+m" (q[d+128]), "+m" (q[d+192]));
- 	}
--	asm volatile("sfence" : : : "memory");
- 	asm volatile("vzeroupper");
- 	kernel_fpu_end();
- }
-diff --git a/lib/raid/raid6/x86/sse2.c b/lib/raid/raid6/x86/sse2.c
-index 9e8bece51690..a0709916289c 100644
---- a/lib/raid/raid6/x86/sse2.c
-+++ b/lib/raid/raid6/x86/sse2.c
-@@ -113,7 +113,6 @@ static void raid6_sse21_xor_syndrome(int disks, int start, int stop,
- 		asm volatile("movdqa %%xmm2,%0" : "=m" (p[d]));
- 	}
- 
--	asm volatile("sfence" : : : "memory");
- 	kernel_fpu_end();
++
++	/*
++	 * Refresh other-class (RT/DL/IRQ/HW) load averages when picking a new
++	 * task or toggling nohz tick dependency while CFS PELT is dormant.
++	 * In the future, we might want to add a mechanism to update load_avgs
++	 * periodically on tick-stopped CPUs.
++	 */
++	if (update_load_avgs)
++		update_other_load_avgs(rq);
  }
  
-@@ -241,7 +240,6 @@ static void raid6_sse22_xor_syndrome(int disks, int start, int stop,
- 		asm volatile("movdqa %%xmm3,%0" : "=m" (p[d+16]));
- 	}
- 
--	asm volatile("sfence" : : : "memory");
- 	kernel_fpu_end();
- }
- 
-@@ -445,7 +443,6 @@ static void raid6_sse24_xor_syndrome(int disks, int start, int stop,
- 		asm volatile("movdqa %%xmm12,%0" : "=m" (q[d+32]));
- 		asm volatile("movdqa %%xmm14,%0" : "=m" (q[d+48]));
- 	}
--	asm volatile("sfence" : : : "memory");
- 	kernel_fpu_end();
- }
- 
+ void scx_proxy_donor_start(struct rq *rq)
 -- 
-2.53.0
+2.56.1.750.gf70dc682cf-goog
 
