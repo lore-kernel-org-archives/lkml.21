@@ -1,94 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.43.34
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795343458;
-	b=LA3biiQ/1mBQSCxxwEBKUgKQaaS1g67ZlZ8O+EfcPgC6HziOloUXpdNPhXeif9RgrKnn
-	 B1gvej45fuloEL7p/ZO76bqdNmFLTo45wkOa4iUp7+1IkVLk+sysLvi1rHAAA2SsQVVAh
-	 +FYvWj7XS+KcdKxgsiqDsjWj2MKbL+m4ITaUlsgB+W8L8spXO7vjd0C8PYuoH7Yab9rXf
-	 WEd76qBVHdRTKB6mMOrdwI/+rmJD/yNbcgLERVJwmW/kR5Pp7wiv8oaLpfzaFsm/5/8/s
-	 t2cDYmT+7IsTYslw7cc1NTl6y38QQcCNsvvJuQJim/RDY2TWxtksEZD01q75k18bB2Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795343458;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Subject:
-	 Message-ID:To:Cc:In-Reply-To:References:Date:Content-Type:
-	 Content-Transfer-Encoding:X-ClientProxiedBy:
-	 X-Microsoft-Original-Message-ID:MIME-Version:
-	 X-MS-Exchange-MessageSentRepresentingType:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=BA03dXwcACks+Vff8MzOsc4lFWIVLFH3EJ3qUX/RByo=;
-	b=T+N8T/NvIU3gdiZTu8PcSICsSLTmzRQVjBmrxNfd1cTwmur7S9uuCAaaTz05GzBZ4mv9
-	 ugXoqm6yduMx3odOAAZ3BggP49O9LfT3CdLsECqH3uys/sHFgsT+/3ltzPT9ui86CZqxv
-	 09yQJPNEg5xLiOduQSErMldFTrK0jsV5/G7tReq516+wGlWxNXfJmW+fYwKY74TQuAWam
-	 uoQQUwMPWx0zVp2aPDEGZk+zdwDeUVeVBr/gK6ajhtY/NEtmCmQY63oWP6Rae1SPQHFBz
-	 VuvGGYYaji+N+HAYiSdpW1JdDnkAYAbsOnOQT96Qp1ts1DOashhLuH1cVil+y3mrzyA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hotmail.com;
-	spf=pass smtp.mailfrom=hotmail.com;
-	dkim=pass header.d=hotmail.com header.i=@hotmail.com header.a=rsa-sha256 header.s=selector1 header.b=g2Rr13gj;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.43.34
-Received: from TYVP286CU001.outbound.protection.outlook.com (mail-japaneastazolkn19011034.outbound.protection.outlook.com [52.103.43.34])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=85.13.135.14
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795343480;
+	b=AbNQENtSbo4A3lg58Z7nMcAgmbtKkz8qsPVa9AJBpLVnee7ae4Adk3Nu4ryeBuYtiXH1
+	 bazJq/pglayJ1oEgvf5FHmzR/oNjpKDo3iJYBYcDNVBvCPDgol0hVQzK+TpBP5A0W1QPS
+	 J5gK+1zCC/i+ZT5U5XOPDyET4rtpVWZLaP23NzR4bieT5/u+1pDa1SKBs+bx6JDGCsiTM
+	 cYuWv8X3y6WR/MoCXeZxRL+TJjsvCVFJjEcEU9JGlwuPn82zTlev6gaLD7UJ/F3T2yjcY
+	 w7ZEHN6A4xxv3TBmNYRU+qubMaDF+vymj4rewKTwDoipDvIChBVbe+PM/+Jt11zMpXQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795343480;
+	h=DMARC-Filter:DKIM-Signature:X-KAS-Sym:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spamd-Bar;
+	bh=TVkADfHPDb8fnatWdNHa/qcNYZPeSgj3KMCf+wk+eQ4=;
+	b=VtY/xmau5mc2UetIrMORJSBCfGN7JClgUwZgKF5045I7qSVA5tbVubZuGth5fPPbik2E
+	 nl2meB0uagkIn0UBxc8/346xWhFIBL237OMnUxeVnvk0f0ncGuWAlA1MGPJ9IS89ukkOG
+	 4X3nxF2uFoQowewkOhlpCuK7gaJ8N0nqzQCfaeExX46uoTu9GSEu3IE7atlTpDk6rb9uA
+	 YRYw3LBOWgudpMTNMFes6J+R4DPaCp8rvBb+38PhSu65W5eblEyCNVw31mV1DWAkSbF0Z
+	 hZ9SugyH4sTz8Oh4hxPHCNpsebpqPBIcHiOS+ZuaABUk7SGdMbjCzZyjyhMzxMZ9Krw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=tsv-stahl-riesa.de;
+	spf=pass smtp.mailfrom=tsv-stahl-riesa.de;
+	dkim=pass header.d=tsv-stahl-riesa.de header.i=@tsv-stahl-riesa.de header.a=rsa-sha256 header.s=kas202608160020 header.b=JrlpsY+K;
+	arc=none smtp.remote-ip=85.13.135.14
+Received: from dd13108.kasserver.com (dd13108.kasserver.com [85.13.135.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5867606A32A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:30:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5867606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hotmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35C79606A320;
+	Sun, 22 Nov 2026 10:31:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35C79606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tsv-stahl-riesa.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tsv-stahl-riesa.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=hotmail.com header.i=@hotmail.com header.a=rsa-sha256 header.s=selector1 header.b=g2Rr13gj
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=q4HfORoSUA6NvR/Ols4m6U6atwfHxi81Xas/NDoScIlgPIS7csYvMzOcIt8V1uUSmv+3bDa/94FXXJwoNk1Ufh3PaucvlZGQH/bz2Tlsqmc9vbUC70+1iBE1BXt/UUUYF/7NDXHZXfNmMdLCFSUXnLA4YDq+Ft3VgiVRCbOKzP7YDivrI/ttZRdvLV6F9tJmdzD6pABxYkDR/nambIH41x+1hm/IZZLS5dYVmWbqgFU2UPJRhFUPedVM3R5ri7c3ybUo/y5wlMPknoPB1nS3+icWl2A2xuaf/4jiiEjLIHHJpJuvCJsX7CvS4fTtNJ5kX+5LXWbRIo1pGL1adKOeOA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BA03dXwcACks+Vff8MzOsc4lFWIVLFH3EJ3qUX/RByo=;
- b=dlHPAHy+DFXFLP26py1Em8+wTau7MmzBQe7Q88o5YLbnKZVhVg8oLs30RERpdDfXDWjmdq1jbm+bOfdLUFfIIj1hw7EYs5yh4vV5GMKRydNy5cgLSyTifVOUQEqtDdOTfzJCs5uFQn0lwn2sX3cJIC9pbrnxTV3mqPzwBQpt56haLAi9ZxvseT6UE1WIlZrOXBjeEm4juHWmMFkMnWxIwIrNHcBQWI3v5TSbZso5vMMPMo1UD6KG7FsOJyqiTHPqJVgzysiq2bsai0Lo0Vg9hPBXsEcZBDG31EnwjUxKecggZXa8OHVSfNzmocWKtZBCwkqhauop4m1391wIfyjh9A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BA03dXwcACks+Vff8MzOsc4lFWIVLFH3EJ3qUX/RByo=;
- b=g2Rr13gj3IzehYwb/IM1f40tUCYAlprLUFSYsKNgGLT4fRpmxBd5ALJzMafT1H7gefcGTrlW6+oRj3SuzA65RKV7c1Zs3TIhFNbNiRF2qjIskzjbFVjLRfEVEepnpWfIMf9BBaeEPSOmQ7Scyqq1mz3SjgXJSfwjBUHre0mp1RbyKKVH3zaVv8Yx9RypoqAWSwG9NFRSb6lDQikkiJMNfzugNKW9feEpElGmbpaQfTAVF4ddUATzyFTIuqjjy18xeIrKqja161OpZK+NOBERqitxO4JcnkTXjvrDHkA54Q2IUiK2AhXm6NrxucwKAqKvu201F6fZUSdyQlYlFZQ4dA==
-Received: from OS3PR01MB10251.jpnprd01.prod.outlook.com (2603:1096:604:1e1::9)
- by TY3PR01MB10336.jpnprd01.prod.outlook.com (2603:1096:400:250::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Sun, 22 Nov
- 2026 10:30:54 +0000
-Received: from OS3PR01MB10251.jpnprd01.prod.outlook.com
- ([fe80::7edc:2a40:7b8f:56f9]) by OS3PR01MB10251.jpnprd01.prod.outlook.com
- ([fe80::7edc:2a40:7b8f:56f9%4]) with mapi id 15.21.0639.012; Sun, 22 Nov 2026
- 10:30:54 +0000
-From: "Jiaming Fan" <fan.jiaming@hotmail.com>
-Subject: =?us-ascii?Q?[RFC_PATCH_2/2]_x86/apic:_Honor_noapictimer_on_SMP?=
-	=?us-ascii?Q?_with_the_TSC_deadline_timer?=
-Message-ID:
- <OS3PR01MB102516718F4CCEC2E3F43AF94E7462@OS3PR01MB10251.jpnprd01.prod.outlook.com>
-To: "Thomas Gleixner" <tglx@kernel.org>, 
-	"Ingo Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, 
-	"Dave Hansen" <dave.hansen@linux.intel.com>
-Cc: <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, 
-	<linux-kernel@vger.kernel.org>
-In-Reply-To: <OS3PR01MB10251F5C8A7346BFEE8448F14E7462@OS3PR01MB10251.jpnprd01.prod.outlook.com>
-References: <OS3PR01MB10251F5C8A7346BFEE8448F14E7462@OS3PR01MB10251.jpnprd01.prod.outlook.com>
-Date: Sun, 22 Nov 2026 10:30:50 +0000
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-ClientProxiedBy: TP0P295CA0042.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:910:4::10) To OS3PR01MB10251.jpnprd01.prod.outlook.com
- (2603:1096:604:1e1::9)
-X-Microsoft-Original-Message-ID:
- <a800738d-354e-4079-9ac9-8f33970becaa@milk.local>
+	dkim=pass (2048-bit key) header.d=tsv-stahl-riesa.de header.i=@tsv-stahl-riesa.de header.a=rsa-sha256 header.s=kas202608160020 header.b=JrlpsY+K
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tsv-stahl-riesa.de;
+	s=kas202608160020; t=1795343478;
+	bh=TVkADfHPDb8fnatWdNHa/qcNYZPeSgj3KMCf+wk+eQ4=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:From;
+	b=JrlpsY+KmQG061qviW2503HQFOjUQL+zGCrOFJ6rvCVMSsGvEHo8AogW9lZppTZ49
+	 gHi453hvFNphyZvc74D/eX4OuBgcBgUZ7HxUbeEWHgEdQCDCKXUrqZg8qMvruQVS7C
+	 LFEMRrQk4oXWVwkTY8Lq/NaobCniDpgwDwlAJ8T8VjSdXiSfSHvVcQPlT8TwEHwvCh
+	 FFsP41QKphrNqmNYkx4LzW8P5RCj8GFl/ykuJU2VmrmFPs4JBVXG68XzaL/WSBxJ2t
+	 dS7FSmx+XPQUd8GGBrQkIsul6Il5j83ncSlEYtxUOcaS/GkoXi7CKqnOo81HqnGWYU
+	 xNRIr2Nj21+5w==
+X-KAS-Sym: v3:f51bdf72230551df:qJ5uOu2tDOwck04l6ZZT5ZgS9yYs6RwmRLkVQ2e11W2Qg
+	xi4Fjh2AYzKKX2gAyElm3p0uCqidYfZPAU5b1CzV46YKHzkqvcvF9ccxgCloMJKvslloO6MCVfr
+	6QdObSfYmUNWJ/0ucr8ReMwDqZqTusb+gYriedhqiF3fS0N72iVo5FfV8U+j8sjgdQrvg+UEGp/
+	pMFOz7n2SOuS/Di7sMFu5a52da6xM7KbRWb1W+CP2vGKw25C/j+ejlSDMMtN0jrrQDY3+AOavU4
+	QcErcPgCm854wBnsoLaG1yVxs1QYz+HjGQnrwyrtb2YfxTOOrtB2rQBg75sAG60ujUMzYTiA==:
+	LIsP67MWPJ6MktH5KhJU48vefOjvSstBjfJY1H6nciXf4jJp1vxhSecL1fYV0HM7ibACVFde9Zu
+	PlE9k85to59F+lACpg/1k8DUXHzql4rY51YeGezHNMXjMR9/aJmOSei5eALdtMRElAWwetkLxiF
+	8jEbT7kHCVl4VIjz00GvP3kwPSW3eInjBWKaHKpS3G/nyXvezCWFcOgyCUwaAE8Z8jX1aC0SIGf
+	Hs05ehj7v8HywB61UFrg6OgEthVTe5EbGPYasumH1YRPG1g0QPRqDyo6thIF6vk7jH3sQWlSsv1
+	mQsflKHl6FFhEhXe0jloZTlnEyxxPSsHAUOZDt5kQbUNKM7d36mggTu5YMgrAvt0i13wg/7cIrq
+	8udI8DPo4xM4OKBYxqTCKFxi4DlDGofQuZtfIKQ9fMeJsEXbcVsn5vLtwToUico7vl1xlvTAR0H
+	FmhFsv5wzX2QB6plCSY+mw5RGBAcTdQzG6zH8Rac6lI0ckapql6hg/grWUwth+P4P9hfRV4RZMM
+	UcAxToDtR87z+KJxU4dvUdlVTp20ZNnpfjTddU54iJ2uXYPXAZesZlQ/mLEqFf0eqH5+lE7gOTv
+	Y6J5M8pCv9Ssth0hL80/fQt9LA==
+Received: from [192.168.2.174] (dslb-188-098-197-218.188.098.pools.vodafone-ip.de [188.98.197.218])
+	by dd13108.kasserver.com (Postfix) with ESMTPSA id 824837821A5B;
+	Sun, 22 Nov 2026 11:31:17 +0100 (CET)
+Message-ID: <2b111b7d-7d1e-4872-a0b1-8f07b58492de@tsv-stahl-riesa.de>
+Date: Sun, 22 Nov 2026 11:31:17 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,142 +71,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OS3PR01MB10251:EE_|TY3PR01MB10336:EE_
-X-MS-Office365-Filtering-Correlation-Id: 76167f02-4ecb-421b-0b1d-08df4883afdb
-X-Microsoft-Antispam:
-	BCL:0;ARA:14566002|24021099003|55001999006|12121999013|25010399006|51005399006|6090799003|23021999003|41001999006|15080799012|8060799015|19110799012|5072599009|25031999004|24121999003|22091999003|40105399003|440099028|3412199025;
-X-Microsoft-Antispam-Message-Info:
-	=?utf-8?B?d1JCbEFoMkp4QWlsZ0E2MnlmbW4yQUowTS9iZFFYK0dQeEZwNCs0WTdWVGN3?=
- =?utf-8?B?TDYrMUVtZUhhd1pTNForc2J5S0x6eVdGZGpOYjVPRDBlN2p5ZFNVOEFuVzlW?=
- =?utf-8?B?NkkraTZxbHdXdmIxK2toazZsem4yNzV5N1R5RTdLR2FyVVJuN21aekg4OWpX?=
- =?utf-8?B?a0Z2SG9jVVljT3RjUTBrUmpPMDU5OS9XTTl2cC96RWIrK1EwWVZBNHF5ZzYv?=
- =?utf-8?B?QjZaSXp3SC9mRnMzQ1RRSnpxYml4ZzJOTWt0TnhNZFZBUExoK2tZZmNZUitz?=
- =?utf-8?B?TkpyVWZsT0I4RHZndDdublFaeVZwV2hvVmg0bUo0emtyK05oaE9seHVKSzN1?=
- =?utf-8?B?Yjd6b3J4VlZrQ242SDJrUVcydW1JRDdlV1EvK3FuSkhvS0F4d2p4cnZCK203?=
- =?utf-8?B?S1ZnakJQQW1QNVNCbFBqN3JsSGQ1NHptT2hjM3cyOUt0cEllRG9pNEI2Q3Bp?=
- =?utf-8?B?VGMxeUExVHNJdlhBVHpEL2ZsU0srRmM3c0ZSWHozUFFXT2NScHJHRFJ5STMw?=
- =?utf-8?B?N0RFNHFLN2dFZXhJYVpsZ0NHSEdYbkV5bUFmbGtIc25JVWNUT3I3dy9zZU1z?=
- =?utf-8?B?WGozdjBqNHZIMnZ0U2NTczJUc1QvM2dUUUQ4SEZ0VzY1UG9lV3YwNGNKNk12?=
- =?utf-8?B?blR2aWFmOWRISjR2RVNWT3RLVlVyK3l6L1hkbGZoZ0pKWHRhSTZ6NDdUWkow?=
- =?utf-8?B?Kzd2TkQ2V0UzWHBieXQ5V25ES1lqTU1CWWh4NEtPTXNGT05kRTBaNFQycWxB?=
- =?utf-8?B?Z0orQWF6WHFWamFMcjhmMlhNNFJrZ3kvNDBzZ2VjMHFac1JwQnVsS3ZFVFBV?=
- =?utf-8?B?YjRNOEIvVTVJVENXNFRWQzN5YXhFMXRhbzhiQzhHYmxKU0d3bmo2Q3ZzR01h?=
- =?utf-8?B?TlU5SkQzNlYwZXkyZlk4M0hRR21KTlErTVE2NUl5ZVVRcWNCWlZKMCtqL2NM?=
- =?utf-8?B?Y25PajBRQzRSdGR1T3gzMGwxM1FOL05objdWTFVZS2g5VEkvclFqdUF6b0tp?=
- =?utf-8?B?WjI4MzZhQzU0Y0NsZEhBalA0cmV5b3U5RFJLdHZUNmNqeTBkb0hvUzBNekg0?=
- =?utf-8?B?WHZXN2h3Tkk4Nkd5R1pBemZJb2U3RFY5ZDFodEllN2ZlbEtkVnEzR3lDVFB6?=
- =?utf-8?B?ejI2RklIZGlqQnVkdXR1MEZtUTNaNkk0VmZsMVFlYzBSc09xWHhjRjFSTVdu?=
- =?utf-8?B?SlRoaXpyTnVhWkNKejlFSnJVajBPTkhETTZKK3l5UHBORE90L0xqVkRmVUJa?=
- =?utf-8?B?OHNZdFVmcUM2NmtrWDB6aDI1QWRTaWN1a0FVR2tuZnBpRDVqc3ZCamtMT1Uv?=
- =?utf-8?B?aHJoSUpsMlAyMFZ1c3Y0ajhWclFZRGMyTXJ6M3FlZCs3MS9hTUo4OG8vOEFR?=
- =?utf-8?B?b3RZeStwbU9aamlRQnlqU3N4MlBDTGd6YldOaXBSWVdEV2V3MC82RFJnTjdN?=
- =?utf-8?B?QmR4ZXVVNUF3a0RpeG1LVTZtWmVpbHNlZWJacnU0OWdWSGtvbHZwNTFzSGcv?=
- =?utf-8?B?QkMvRk9qczRwcTMrL0JPMDBCYzBNY3pnN253RDJrclpsREFKNmRxL3hmYVB2?=
- =?utf-8?Q?Wa8Ewb/0Mx7mOtwg7cxePiNk8=3D?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?OHlTVmNCY1hBcElwM05wTmFxWlQ2SzBYeXRKd0p6Z2NpV0RiSDdQMGo4Q3U5?=
- =?utf-8?B?UlNtRE5FOXRzZWZ5aDJROXljMXVTRUFkc282YXlmMTVCd2JybWdBb3c4bmR6?=
- =?utf-8?B?cjBDTjcxNUlaUmJncTRJUlNDZWxBRUZwYUcrQUx2R0RSQkRRMUhadkNSdGNG?=
- =?utf-8?B?UTVjQTJ1QzlSRGpFOC8xNy9VZWM2azBlZStSQ1IyNjVsQVpyN2lxa2gyNU5j?=
- =?utf-8?B?elZkeE5UOVRPd1F2QlZpN1ExcmROVlRTbDFaNmYyRG1pTWl0L0RUTXVBajhz?=
- =?utf-8?B?WU5ERHU5VTROM0pTS2ljSVpHZzlxQ0NJTkZDTllSZjBqWjJwWDlXYW5vYVRs?=
- =?utf-8?B?a1dzZXRmVmFJSVRIWTNOY0pEbFpPalZTanJQWENQUWlzdk5PbXRnUkxwWkNv?=
- =?utf-8?B?R1VVSkh4K3owZTNITmtmdkRhNnFFdTljR25BUWlSTk00Q0FFOG1lcVlpbWhV?=
- =?utf-8?B?YUt3ek1GbklPb25ZOU1LQklPMHdodXFRRWZJditGMXNpR28zaWtQSTcyMjBR?=
- =?utf-8?B?NVI2b0ZZNE1XZ3NxWHQ2THgwdHExRm9JcXZ1eWNDd2ZxRUtCbWZFc0k5bDRM?=
- =?utf-8?B?NThydjU4ajlhMVhuUnFVbVVyLzFLYU5kd3E3RzRLL0d2NHM1SzcvQjZjVC9s?=
- =?utf-8?B?VzBxcktoRG9NNTJGZGh2NHlGeG5FN013WGJETUIwbld3RGpJMy9KempFRHVu?=
- =?utf-8?B?UlJzUVBCUGNJQkNTV0hRUXBQeHQ1cEtxcE9Fd1JLdytDVmk3Y2JRTkczQjNl?=
- =?utf-8?B?MEZkT2JvdGgvRXplY1V1VDhXSnJEOEY5ZGtVaSs0OHFodWcwOW5HeTcvcWFF?=
- =?utf-8?B?a0wvUHFwME9leDZmd0xWTis3NFg2MmFPV1dyc0VFZGdvTUVCZURvQk1mN2lq?=
- =?utf-8?B?Z1BYd3FKTE54cXRhb0NHejBEUlFQTjByamxyVU1ibkxJenZqK0l2TnhVY2Ji?=
- =?utf-8?B?ZnJMRVNxQlBTOE5SNlVLeU4vTytrbEo5UXdva3llZVR1L1FwRTZDZXUrMHlQ?=
- =?utf-8?B?dENabXZZa2FGS1VmT1E1d0UrOXZYNnB3YzBWVmdlZkptNDQwckxxbCtRM0Iz?=
- =?utf-8?B?R3dTbG10SXFnWlhxRnJaTXNEWUFKQ0NHcXpnT0VmZlBWQmcrZVc2T0tneTZX?=
- =?utf-8?B?ckM2eVJxd285S2lFT3RlbWhvZyttQXd0SVdZRzVwWlZhN1p2WGw4UDc5L1JT?=
- =?utf-8?B?R2J6NjBpTDA2Y0F5c2J2MGdtdHIxb1JBU2oyWXphd3pHblVnQkcwckVmeExs?=
- =?utf-8?B?VW5HT3JENS92ejU1T2grWVpTUUlmUGpNTTVwVXovTWdDb3dGWUhLSThVNWlN?=
- =?utf-8?B?VHpVWG53VnRTTXdLRVYyc295WC9JY3FMajYwUFg3eHpzaUNrSngzRkc4THk4?=
- =?utf-8?B?STM0V24zNnQ1aDFYcHlUclJEQkRPOXZTa3hseEJFZTlwYTBIRnZERW4vVmJH?=
- =?utf-8?B?T1hhVk5qU1R4anZ6cEsvNzZoQnlOUDZka00yWXB1L0MvQ0VMdVNMeDUxNkpz?=
- =?utf-8?B?TUMwZFV2K1owNno0L1FXVG9adkdyQW9lanJ5M04zb3lOWUlWYXEvQ3lIaThm?=
- =?utf-8?B?L0hHdG1acDFhVTNMdWJEN01uc0htTWxaemNXLzZ3ZFhtNURyM3VLeXplV3p2?=
- =?utf-8?B?M0NyY1pwTjFwSThJU2FEOHFwamFSK3FXSmNGWUMvWUUxRTA0R1lUVjM0bUwz?=
- =?utf-8?B?UllaaUpkVGRNanpWZ3U1UGhXUjBJbVVWQjNSb3lDQXZXR0RQMWc1eFBkckpK?=
- =?utf-8?B?T0tpQjdkU09nVFVrRTdJZjNYTnV2c1lEeHJZZ1JHMFRaYnoreHptNzMycjg5?=
- =?utf-8?B?OG1NTUs0MC9odXp2c0xiZVp2MmZZTlBHTlZqTTVnME9QaFp1eUlzVFJSTzZi?=
- =?utf-8?B?UUdHSy9lWmpNd05obzBrZWwvazc1ZXRyV09uemdLc1hXT0E9PQ==?=
-X-OriginatorOrg: sct-15-20-9412-3-msonline-outlook-b83fc.templateTenant
-X-MS-Exchange-CrossTenant-Network-Message-Id: 76167f02-4ecb-421b-0b1d-08df4883afdb
-X-MS-Exchange-CrossTenant-AuthSource: OS3PR01MB10251.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2026 10:30:53.9825
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY3PR01MB10336
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/6] memory: tegra114-emc: Fix bus width and pad
+ auto-calibration
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Thierry Reding <thierry.reding@kernel.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Svyatoslav Ryhel
+ <clamor95@gmail.com>, Mikko Perttunen <mperttunen@nvidia.com>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-tegra@vger.kernel.org, Thierry Reding <thierry.reding@gmail.com>,
+ devicetree@vger.kernel.org, stable@vger.kernel.org
+References: <20261111-upstream-emc-t114-v1-0-54d9e1bceb6a@tsv-stahl-riesa.de>
+ <179518240415.10624.13757193124982371025.b4-review@b4>
+Content-Language: en-US
+From: Patrick Fischer <admin@tsv-stahl-riesa.de>
+In-Reply-To: <179518240415.10624.13757193124982371025.b4-review@b4>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Spamd-Bar: /
 
-On SMP with "noapictimer", setup_boot_APIC_clock() leaves
-CLOCK_EVT_FEAT_DUMMY set so that the local APIC clockevents become dummy
-devices driven by the broadcast device. But the TSC deadline branch of
-setup_APIC_timer() clears that flag unconditionally, so the option has no
-effect on TSC deadline CPUs.
+Am 20.11.26 um 14:46 schrieb Krzysztof Kozlowski:
+>> On a Tegra Note 7 (Tegra114, P1640) I had kernel panics, bit errors and
+>> WLAN firmware hangs under load, and two kernel panics on EMC rate
+>> changes from pll_p to 624 MHz on pll_c. Looking at the EMC I
+>> found three problems in the Tegra114 EMC driver:
+>>
+>> 1. EMC_AUTO_CAL_CONFIG is masked down to the self-clearing start bit
+>>    before it is written, which clears AUTO_CAL_ENABLE on the first rate
+>>    change. The bootloader leaves calibration enabled, with channel 0 as
+>>    master and channel 1 as slave. Patch 1 stops clearing the register.
+>>    Programming the table values needs the channel registers, which
+>>    patches 4 to 6 describe and use.
+>> 2. emc_icc_set() assumes a 32-bit DRAM bus, but Tegra114 has two 32-bit
+>>    channels. Every interconnect request asks for twice the EMC rate, so
+>>    actmon at 312 MHz moves the EMC to 624 MHz (patch 2).
+>> 3. Pad auto-calibration is disabled for every clock change, but the
+>>    interval is only restored if EMC_CTT_TERM_CTRL changes, so it stays
+>>    off after the first change (patch 3).
+>>
+>> Patches 1 to 3 are small, do not depend on the device tree change and
+>> are marked for stable. Patch 1 comes first on purpose: patch 2 and the
+>> clk patch mentioned below make the EMC run at a real 624 MHz on pll_c
+>> more often, and both panics I saw on a change to that rate were with
+>> the calibration cleared. Patches 4 to 6 are not marked: they need the
+>> binding and the device tree. Patches 1 to 5 are for the memory
+>> controller tree, patch 6 for the Tegra tree. The driver has been there
+>> since v7.2, but the first in-tree Tegra114 device tree with EMC timings
+>> (TF701T) came with v7.4-rc1, so the stable tags matter for v7.4 and for
+>> out-of-tree device trees.
+> 
+> A bit confusing. This clearly suggests dependency on DTS, thus ABI
+> break, but code does not look like that.
+> 
+> Best regards,
+> Krzysztof
+> 
 
-When the local APIC timer is in use and the boot CPU has the TSC deadline
-timer, setup_boot_APIC_clock() has already cleared the flag, so clearing
-it again there is redundant. Stop doing that, and ask for the PIT on SMP
-too so that it can provide the broadcast tick when available.
+Sorry, my wording was unclear. There is no ABI break: with an older
+device tree that only has the broadcast reg entry, the driver probes
+as before and leaves EMC_AUTO_CAL_CONFIG as the bootloader set it up,
+which is what patch 1 is about. Only programming the per-channel
+calibration values from the timing tables needs the two channel reg
+entries added in patch 6, and the binding accepts either one or three
+entries.
 
-This changes behaviour for SMP systems booted with "noapictimer": with a
-working HPET or PIT the tick moves there, but without one a boot that
-works today panics in check_timer() or hangs. Is that acceptable, or
-should the option keep being ignored here?
-
-Fixes: 279f1461432c ("x86: apic: Use tsc deadline for oneshot when availabl=
-e")
-Signed-off-by: Jiaming Fan <fan.jiaming@hotmail.com>
----
- arch/x86/kernel/apic/apic.c | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
-
-diff --git a/arch/x86/kernel/apic/apic.c b/arch/x86/kernel/apic/apic.c
-index 6b2e61ae7e240..b25353fe88892 100644
---- a/arch/x86/kernel/apic/apic.c
-+++ b/arch/x86/kernel/apic/apic.c
-@@ -592,7 +592,7 @@ static void setup_APIC_timer(void)
-=20
- 	if (this_cpu_has(X86_FEATURE_TSC_DEADLINE_TIMER)) {
- 		levt->name =3D "lapic-deadline";
--		levt->features &=3D ~(CLOCK_EVT_FEAT_PERIODIC | CLOCK_EVT_FEAT_DUMMY);
-+		levt->features &=3D ~CLOCK_EVT_FEAT_PERIODIC;
- 		levt->features |=3D CLOCK_EVT_FEAT_CLOCKSOURCE_COUPLED;
- 		levt->cs_id =3D CSID_X86_TSC;
- 		levt->set_next_event =3D lapic_next_deadline;
-@@ -782,16 +782,14 @@ bool __init apic_needs_pit(void)
- 	if (!boot_cpu_has(X86_FEATURE_ARAT))
- 		return true;
-=20
--	if (disable_apic_timer && num_possible_cpus() =3D=3D 1)
-+	/* APIC timer disabled? */
-+	if (disable_apic_timer)
- 		return true;
-=20
- 	/* Deadline timer is based on TSC so no further PIT action required */
- 	if (boot_cpu_has(X86_FEATURE_TSC_DEADLINE_TIMER))
- 		return false;
-=20
--	/* APIC timer disabled? */
--	if (disable_apic_timer)
--		return true;
- 	/*
- 	 * The APIC timer frequency is known already, no PIT calibration
- 	 * required. If unknown, let the PIT be initialized.
---=20
-2.56.1
-
-
+Thanks for applying patches 1-5,
+Patrick
