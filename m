@@ -1,54 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.35
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795365916;
-	b=0hTWNGrt0G8jKCnn5mzDuAHHsshKwO94CZe3NxMFC4qOMbEHCGPTgodr7h2nq/1Z1jJR
-	 CPrF+r/c3zDOOKeqHDrCBVo/ikp3TvkWcdo7+/7lXwpBWJichK1FBJ1UUANiUzD5lzOp2
-	 E3ZOiOMEm6ewsh/JqofN42QHvD/otn7qg9cBWDPb+OTuS/ddhD5G/bmdiYLcXlkXqQrTN
-	 ZV1X33ojTbxyRrVI+CvWsEP2eFKUqac+b5qY2YPqmmM1RwAvnJkn3tAyPCCbsTtBhnrbR
-	 jkr2kKoEXfiULU+BI3oDJSbssdsZWBsPbIomAC3h38keQYtciwFVapkzWT8rzg9x/xA==
+	t=1795366026;
+	b=0bL/NeeaaA/DUQ5IKHRNcLN1oNi/zV0yabqyubYiCjAPYImXrn+5qRQbFSOlCE6tXEx6
+	 xsP/f3yasEnimXJhlru4fJ2qWPqo/m2rYxIIOu9VS6IB7kIxV8WPalpbfIETCVZEfDBRv
+	 Tny3FWtBdYJVz0up1e4bpH48BEZiQOB+KKdQyzwRJgs8KAvO07GhKYoSRRoCxK2306Qkn
+	 R5aq66cXIkgMKQNBhVXNurc/0Z1770lGFRLVFmnP7wgP2XqNEcZqI0sWJNuBEazMpKxvY
+	 z5VAsN3d6HvZqUDrunoz4uhtxt+0f+gwWnHTnL4G7ka1gl+6AJmZQtGYeXYkSr7+ymA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795365916;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=CRz1D33QZ0Q/LTUTY1Fyb+WdD7iUmbFhD/VOw8KoS/Y=;
-	b=kbAD08e0Y2/2LIbu49ujez/E4QGEdhkrePnHU2VMnqIZ3oqOQMeb3zz6npn9ItJCREDZ
-	 iffqfoh0Op3FUif2YsitmziqppvtnZ37ASrU4QV/ko0tmyqhcY5mi6XIu+4vPu7SopFMh
-	 UiyV9cBxcrxr9CRa32W1LwVS/pDGb3bfePaiCksFXzXT67Y5T8Jd5j+G0K/M3tgjrKI+M
-	 +jXktTn5k8FRHM+9V3TA0NXnPp+oGHH06i7UYe2p6SYabHQ19VbZnm8ruLm+m08TUCc3e
-	 wEAOwOVfJX9DwWjFc4eEZKIskrKJsVUZqGAj6hfsgJLs51Y8xK8rV6Q2SnYrKMUMaGQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795366026;
+	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:
+	 X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
+	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
+	 X-Local-Domain:X-CMAE-Envelope;
+	bh=CcgUOigE4hpRX+rHA0yhwTQDEsteqQkBf6OiVwFSbwU=;
+	b=PLegcY9W/3FghLtSgsjFL/PJQEQpblE11Byj+O6tZnatg87fpm3LxPEBaAFDMfyfMNj7
+	 xHvPx1xP4nouo8szfiNHQzO72w0pYewmswJ075j8Z1lIiSpJaa4NU+QxzeJ2A3SIB2lrR
+	 dHwIcuwDubR1zAtp3BVBXRoH0mb5OOhF6UZrqjo959qxH7cq9zUW++6ZoAnqy6NYvI0sw
+	 z5iahuXfzLUyNhzgKffXSMgGPTebzu+rWivLfV9K1Bge+jnWhWTGa9R9kNEs9sKPMjmcX
+	 /96URBnVT3CftBSPmvCLoG8iRBYpKn3k98zqwA8n3MkKndiJgzDlTpbcrhKIiJ1ljiw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YssTh1rB;
-	arc=none smtp.remote-ip=198.137.202.133
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=roeck-us.net;
+	spf=fail smtp.mailfrom=roeck-us.net;
+	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b="e1sqG/4L";
+	arc=none smtp.remote-ip=44.202.169.35
+Received: from omta036.useast.a.cloudfilter.net (omta036.useast.a.cloudfilter.net [44.202.169.35])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5D00606A32C;
-	Sun, 22 Nov 2026 16:45:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5D00606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D65F606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 16:47:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D65F606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YssTh1rB
+	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=e1sqG/4L
+Received: from eig-obgw-5003b.ext.cloudfilter.net ([10.0.29.155])
+	by cmsmtp with ESMTPS
+	id V9jHxrhhb4vCDVAiWx3whN; Sun, 22 Nov 2026 16:47:04 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id VAiWxXsPDSgq1VAiWxWAed; Sun, 22 Nov 2026 16:47:04 +0000
+X-Authority-Analysis: v=2.4 cv=c8KrQQ9l c=1 sm=1 tr=0 ts=6b031c88
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=pGLkceISAAAA:8
+ a=dZ8iJ22SkCJ4RyOMX0oA:9 a=CjuIK1q_8ugA:10 a=Cz_zCYZHDdu2HsMO07vL:22
+ a=KPbNTLLc3YvdawN95zVk:22
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Sender:Reply-To:Content-ID:Content-Description;
-	bh=CRz1D33QZ0Q/LTUTY1Fyb+WdD7iUmbFhD/VOw8KoS/Y=; b=YssTh1rB3mh8de/WKUwfb1gkJk
-	unJ+ieQbovW9LcQZB5PI+MZprDBkXr4p5hmNJEdZv08tAVDOXfn3HDp9f6sI4JuZe2/TM+uHSaxov
-	31MyrX+lkmVQtmSjWheadNtq0ZcraFHt2v3U1S8lggvhiMMv3lOsSKiT+7jtGdIxxMPtCM40czk1+
-	z+ui5JTjopdVojxOd05nhXmaFia97hlWvzuZsd8B3d6lg+xXM273hFaMeYqraD/pm4fci81ilGt/h
-	U8EMoeRUjsaURmlRHHZ6v0GAAjhR/Pm7u3L9APDAnNrwCqRPWiqlqB6/wTEQK8WeGN0Nf+aFiicS7
-	qcu4FE2w==;
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVAgj-00000001NkY-16cZ;
-	Sun, 22 Nov 2026 16:45:13 +0000
-Message-ID: <326066b5-6198-402d-bd5f-e1dfb02b305e@infradead.org>
-Date: Sun, 22 Nov 2026 08:45:12 -0800
+	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
+	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
+	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=CcgUOigE4hpRX+rHA0yhwTQDEsteqQkBf6OiVwFSbwU=; b=e1sqG/4LlQZn8szLeqSqRIxL5A
+	DnqJ+kcIJV4mwG/ILFifJuhNeqRtPKNJ+WbsT9wIp4sOL2L5qp2KwEkbKlr47+pVC6mkmVNygHECO
+	WBNKGnRPoMr/JM0TVsJwb/vFhN4n5YgOXun8HvkF8bCU748/u6BqLO45+dWD6P4ladQh4smgz1mKO
+	vSY5rLR2tcTlusMAoBywB8U6nCTsRAcwtCxNYD9BwcrsWQivaKkjClASWZaLBtGQ4CQgNtHyGDzgH
+	Ec2ShhkskMW3WgoK772vjMy96YpzAj8e6GECBTsIPwrtHVc9E134GCIcB95I4O/7JnzjRa1GAYtXb
+	be/eTxyQ==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:55994 helo=server.roeck-us.net)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xVAiW-00000002mLu-0NUO;
+	Sun, 22 Nov 2026 22:17:04 +0530
+Date: Sun, 22 Nov 2026 08:47:03 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Navon John Lukose <navonjohnlukose@gmail.com>
+Cc: sergiomelas@gmail.com, linux-hwmon@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] hwmon: (yogafan) Fix fan paths for Yoga Pro 7 14IAH10
+Message-ID: <b672573a-f0ac-4ad8-9be8-6f3a554ddd98@roeck-us.net>
+References: <20260913214713.205208-1-navonjohnlukose@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,62 +82,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] ASoC: doc: Fix bracket
-To: Manuel Ebner <manuelebnerli@mailbox.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-sound@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261122090640.1475222-2-manuelebnerli@mailbox.org>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20261122090640.1475222-2-manuelebnerli@mailbox.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260913214713.205208-1-navonjohnlukose@gmail.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xVAiW-00000002mLu-0NUO
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:55994
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 13
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfPB6h6K2ME7vaadLCUQa+4d/uVw1LuWkclFjoYlviw1wzb3M/nq6ASgFBcmY57xrUCLVmdEzJW2/9q/qrRR8OiGTiUnplbCR6Gwy1iD4mnhvwAg9qgan
+ 1nocYLoDk5ePLxV/dK1pk+BN6C219xoW2QuhmfOhLPMEILnh1TcQnYohxtGL+TwbE1jwwN5Imv2P7hJkC24opK15RZxShoYRBK9SVwllsGb9vnQ15OZfgt9z
 
-
-
-On 11/22/26 1:06 AM, Manuel Ebner wrote:
-> Add missng  '};'.
+On Mon, Sep 14, 2026 at 03:17:13AM +0530, Navon John Lukose wrote:
+> The Yoga Pro 7 14IAH10 entry names \_SB.PC00.LPCB.EC0.FANS, which this
+> machine's DSDT does not have, so probe matches on DMI, fails to resolve the
+> path and returns -ENODEV. The EC exposes its two fan tachometers as FA1S
+> and FA2S, and loq_15iax9_8bit_dual_cfg already describes that layout. Point
+> the entry at it, and update the reference table row to match.
 > 
-> Signed-off-by: Manuel Ebner <manuelebnerli@mailbox.org>
-
-Acked-by: Randy Dunlap <rdunlap@infradead.org>
-
+> Fixes: 9c110a467686 ("hwmon: (yogafan) Add support for new Lenovo models")
+> Signed-off-by: Navon John Lukose <navonjohnlukose@gmail.com>
 > ---
-> [v4]
->  Instead of remove {, add };
+> Tested on a Lenovo Yoga Pro 7 14IAH10 (83KF), BIOS QGCN35WW. The EC field
+> block declares FA1S at offset 0x104 and FA2S at 0x137, both 8 bits, and
+> FANS does not appear anywhere in the table.
 > 
-> [v3]
->  https://lore.kernel.org/all/20260916113524.304863-2-manuelebnerli@mailbox.org/
->  - removed the change of the placeholder
+> Both fans report after the patch, 0 when stopped and 5600 RPM with the fans
+> driven to maximum through the vendor WMI method. The multiplier stays at
+> 100, and the AML agrees, reading the fields as (FA1S * 0x64) and
+> (FA2S * 0x64).
 > 
-> [v2]
->  https://lore.kernel.org/all/20260904120737.758809-2-manuelebnerli@mailbox.org/
->  - rearrange lines in diff
->  - fix commit message
+> The table also lists the XiaoXinPro 13ARE as machine type 83KF, which is
+> this machine's DMI product name. I left that row alone.
+
+I don't have a means to determine if the old entry was wrong, if there are
+different machines with the same DMI entry and different configurations,
+or if this patch is wrong. I have not heard back from Sergio. The patch has
+been pending for more then two months.
+
+I am going to apply this patch, to be released with my next pull request
+and thus with the 7.4 upstream kernel.
+
+If anyone has objections, please speak up now.
+
+Thanks,
+Guenter
+
 > 
-> [v1]
->  https://lore.kernel.org/all/20260902150510.706055-2-manuelebnerli@mailbox.org/
-> ---
-> ---
->  Documentation/sound/soc/dpcm.rst | 1 +
->  1 file changed, 1 insertion(+)
+>  Documentation/hwmon/yogafan.rst | 3 ++-
+>  drivers/hwmon/yogafan.c         | 8 +-------
+>  2 files changed, 3 insertions(+), 8 deletions(-)
 > 
-> diff --git a/Documentation/sound/soc/dpcm.rst b/Documentation/sound/soc/dpcm.rst
-> index 7b6aeab3c2..3b145e8ba1 100644
-> --- a/Documentation/sound/soc/dpcm.rst
-> +++ b/Documentation/sound/soc/dpcm.rst
-> @@ -370,6 +370,7 @@ The machine driver sets some additional parameters to the DAI link i.e.
->  		.num_c2c_params = 1,
->  	}
->  	< ... more DAI links here ... >
-> +  };
+> 
+> base-commit: 22098763a10d9c13
+> 
+> diff --git a/Documentation/hwmon/yogafan.rst b/Documentation/hwmon/yogafan.rst
+> index 6395c94..84c5d2a 100644
+> --- a/Documentation/hwmon/yogafan.rst
+> +++ b/Documentation/hwmon/yogafan.rst
+> @@ -102,7 +102,8 @@ immediately to ensure the user knows the fan has stopped.
+>   83KF           | XiaoXinPro 13ARE | 0x06/0xFE | \_SB.PCI0.LPC0.EC0.FANS/FA2S   |  8-bit | 100
+>   82KU           | IdeaPad 3 15ALC6 | 0x06      | \_SB.PCI0.LPC0.EC0.FAN0        |  8-bit | 100
+>   83RU           | Legion Pro 7 16  | 0x03/0x06 | \_SB.PCI0.LPC0.EC0.FANS/FA2S   |  8-bit | 100
+> - 83KF           | Yoga Pro 7 14IAH | 0x06      | \_SB.PC00.LPCB.EC0.FANS        |  8-bit | 100
+> + 83KF           | Yoga Pro 7 14IAH | 0x104     | \_SB.PC00.LPCB.EC0.FA1S (Fan1) |  8-bit | 100
+> + 83KF           | Yoga Pro 7 14IAH | 0x137     | \_SB.PC00.LPCB.EC0.FA2S (Fan2) |  8-bit | 100
+>   83BS           | Yoga 7 16ARP8    | 0x03/0x06 | \_SB.PCI0.LPC0.EC0.FANS/FA2S   |  8-bit | 100
+>   *Legacy*       | Pre-2020 Models  | 0x06      | \_SB.PCI0.LPC.EC.FAN0          |  8-bit | 100
+>   ----------------------------------------------------------------------------------------------------
+> diff --git a/drivers/hwmon/yogafan.c b/drivers/hwmon/yogafan.c
+> index 278cb08..3fcad00 100644
+> --- a/drivers/hwmon/yogafan.c
+> +++ b/drivers/hwmon/yogafan.c
+> @@ -84,12 +84,6 @@ static const struct yogafan_config xiaoxin_8bit_dual_cfg = {
+>  	.paths = { "\\_SB.PCI0.LPC0.EC0.FANS", "\\_SB.PCI0.LPC0.EC0.FA2S" }
+>  };
 >  
->  These parameters are used to configure the DAI hw_params() when DAPM detects a
->  valid path and then calls the PCM operations to start the link. DAPM will also
-
--- 
-~Randy
+> -static const struct yogafan_config yoga_pro_7_14iah10_cfg = {
+> -	.multiplier = 100,
+> -	.fan_count = 1,
+> -	.paths = { "\\_SB.PC00.LPCB.EC0.FANS", NULL }
+> -};
+> -
+>  static void apply_rllag_filter(struct yoga_fan_data *data, int idx, long raw_rpm)
+>  {
+>  	ktime_t now = ktime_get_boottime();
+> @@ -227,7 +221,7 @@ static const struct dmi_system_id yogafan_quirks[] = {
+>  			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
+>  			DMI_MATCH(DMI_PRODUCT_FAMILY, "Yoga Pro 7 14IAH10"),
+>  		},
+> -		.driver_data = (void *)&yoga_pro_7_14iah10_cfg,
+> +		.driver_data = (void *)&loq_15iax9_8bit_dual_cfg,
+>  	},
+>  	{
+>  		.ident = "Lenovo Yoga 7 16ARP8",
