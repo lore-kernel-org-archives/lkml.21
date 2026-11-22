@@ -1,60 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.97
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795313340;
-	b=a2qCaO0h9HAw4TaSoNqXV4nuSfzWDG++Y+ZEBOfPJsEC8oJfPPPaZf0LwZ0Eyfr1K9H4
-	 HY6ld7QJgWA6K3BLS2Cl7329TV5duNXsrt+Ps6CjslNSKJ1zNpzwQcMqQZQA0Z43rOeRT
-	 s5ay0RxIJt5yS2ZwupeFrqZulxyyUh9Obd2nKpfnqP+1YlLowAOqFjktzSr5pIKa903L5
-	 a3CqEQxaFqIMBaJrXsOJy37K25Unhb53o1tZB/Oje1LCw32iznWN6B5E/1ZsHWTpYd4W2
-	 Pt0BKLo8UhGfgm6qh6BGwR7Mn+zPUlcY9k9Q53eyRzA9UulbS8JxR3Pc5WA5Jfl8HtQ==
+	t=1795313455;
+	b=jKp+McF/hKbnkLxnN5tUIocX+BYpHeoeA50xyMDgpR1DFFmG6lPE9RxeS4X5FU0l4/qs
+	 XXHhmVQzouxpDr6mGyBRa8v51yfzzGmoBG5PrYlnxpPEmErHNhLhg2CIPvNhZWYXdU7OS
+	 bf6OFth8+mZrbHTLdyFUafdSOjbo3x4OqePKKSTeJrBPbV9oICC9pPZKCAVfk0XoL6jIv
+	 MKtldBtj9uUeJ0RygSjwnxgX9QePavJA6eobUhfoNYfLvSHxBPkEJ2xYhK7BxcvQ1gpj0
+	 V6a//3psxHcCWJkkVh6u9UrQt+7OXKf+mrJ5YIE6coli2DjdbnIAEZI+ao5N35sd0uQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795313340;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=QSOldkyDHE3yvTcYOBM7bHlgZUHM49mDL6VtgEY/wP4=;
-	b=Ke2cwXL1M2yk2C4XuTYQAuMlYgqQxrdqrskA5+Rnlnah0hBubb+g4uZAhacHMPlQbUNa
-	 +fVhiqTqiICpNXMvpgRBxjAur9Fn3kTXQxov43mdRectsDslHnzXJx/HM+L+lV4ufxnHg
-	 174NgCXYhuIc2AYSmrXZi5dTKrMWh+xlx72NGVGIw94Mtal0v9pFC2kuVmc2uus54WXLv
-	 Ky8a7yyvyB2gmj6gu+o92iLTAnm9MqHgAfXs0kQby8gDBxGGswje6Jdz3xi6nbiFsBXq6
-	 0lDzilrScYneGyMSgFkwXssVeJU0K1FBK2O7hyNN3VHi6mU2a1EkcXE0bU/Kv+5wRaw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795313455;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:X-Google-Original-From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=Rt7rwZgRCYcjZmCk9F8bbKx3wnJH8epK/AJCfQqcRoo=;
+	b=WLnpdlggDbloWGc50tPmWDFlOZNvk1R2x0Qpu8s3Ud0jyvi6nz6zELIB+xDnrRw1xDzE
+	 Z75m8QDby+58AeRHPbUMwXBSvD/fhN6egwS+bKRZ5HCWO2EfahFBO6VwsnlaIBf4iBN8l
+	 D8+85Uj21g8CBS+4JkW5mPW2IQumRLggAkg8+921iUDhoBVEz6QLshsP5XyR4SfRsCUMP
+	 gB1ykP6iWeOdk/sS9iPABrrBvZAKaGbJaO3cMWmR36PJRepV2Tn/TzCdEMmbgu23oC0Zw
+	 g3FF/wOiXfS8WfAOMD4HrWtyTSH1ikEGM4xMzbMx8uwlnrbNUhW3fJPLVJcgIR9ekEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=protonmail.com;
-	spf=pass smtp.mailfrom=protonmail.com;
-	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=iM8UOG+5;
-	arc=none smtp.remote-ip=79.135.106.97
-Received: from mail-10697.protonmail.ch (mail-10697.protonmail.ch [79.135.106.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=EMDgTpVl;
+	arc=none smtp.remote-ip=209.85.221.48
+Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85B8A606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:08:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85B8A606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3C50606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:10:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3C50606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=iM8UOG+5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1795313337; x=1795572537;
-	bh=QSOldkyDHE3yvTcYOBM7bHlgZUHM49mDL6VtgEY/wP4=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=iM8UOG+5q86LGv69yARR1d2gnI8ozdIm0sBATLpKTk5PtHE6eIDPGugKw8AvDltsC
-	 BdrxmxTMSvOq4x3T20ZNWLk/6OZU4efCiTZD8T1IUkhYC5Ok+6+izz/v45K/NmJxvv
-	 i/0RPFHyV7v+40ZUXld4J4elUYcj/KD9N7zoSCJn9RKUZzCKH+P67XpveWtsZZu7pB
-	 6QUCsjCLfVZZcoZP5F1R+B9FlzQjfnNMX2B8af2OReUW5vWnpS/RJ98oGhhs3dCbTn
-	 GqR1o+jNnq89v37hD7zq1BCqfdzIXWqz0aKh+fQBUWlZKSd5OrXmmRtMLtJ6pyQbf4
-	 +oOYXn18Rqp9Q==
-Date: Sun, 22 Nov 2026 02:08:51 +0000
-To: Alexey Charkov <alchark@flipper.net>
-From: Ryan Leung <untilscour@protonmail.com>
-Cc: Rob Herring <robh@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Michael Walle <michael@walle.cc>, Miquel Raynal <miquel.raynal@bootlin.com>, Finley Xiao <finley.xiao@rock-chips.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2 0/4] nvmem: Derive Rockchip MAC addresses from the OTP CPU ID
-Message-ID: <RWg2ZbGh-TJtEJMDWD9DGxBKsszG10BM07351ALdCUa9UL-IImPGxSYztcNF3kiRFVCA0x5cECwign-2lb56nPMGZQ5LVZhckY4-KTb5qpk=@protonmail.com>
-In-Reply-To: <AQpdyd6hRl9cLAxBK-fEdzq0dcZsWpHP63dbDpOxcNQWCdaNIc4D3Mfi9Ll86jBVsbEVhr5-9EZzFHbkF6efBDcRUT7nXx9TH5Aeffy5DyU=@protonmail.com>
-References: <20260902-rk3576-otp-cpuid-mac-v2-0-e4b7fe2ab13f@flipper.net> <CAKTNdwH9QAgreJ-6+t1j_P1di4VyoMBSsFkf_g=mCi_-M8g9Pw@mail.gmail.com> <20260917221857.GA4056431-robh@kernel.org> <CAKTNdwH6E5=9gZHB6tdianC2+1aDv4wnLmvL59kDW-dR3a12bg@mail.gmail.com> <AQpdyd6hRl9cLAxBK-fEdzq0dcZsWpHP63dbDpOxcNQWCdaNIc4D3Mfi9Ll86jBVsbEVhr5-9EZzFHbkF6efBDcRUT7nXx9TH5Aeffy5DyU=@protonmail.com>
-Feedback-ID: 184418679:user:proton
-X-Pm-Message-ID: 7c823cd84927e819292d16fce6b08949de0d11f8
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=EMDgTpVl
+Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-492fcbfaa88so1309069f8f.3
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 18:10:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795313453; x=1795918253; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Rt7rwZgRCYcjZmCk9F8bbKx3wnJH8epK/AJCfQqcRoo=;
+        b=EMDgTpVl19aJrdx1+76OBSOlyY6cUxXnVjMEuu+ZSf9r5G4sQboqFKGn5xVHzE46CC
+         O7Ja6d1OfDFZbzEWSi9UZja19fpPz9A+NKVwlIaxKvfd8Zt9kiuhLtoH+tYsjE77naP6
+         5YB+zDXFUAzjWmdAay3biZZZ6FnT30jNWfcyNXdF+l4lyuTt/1kFek93FsMjhn4DTF/6
+         RlT4cXA1ISj4q5Jp+G7VTCcyNpz8GhDG8uUoDrlfOurIEi0efbVWgxIyuUXcpENCeX6k
+         WxYa8lPHxpXTGc5Os+rR2bTKGA7UzcfC19bjU0v0l9kREGQdtDjdoO2exKoLCcrvD+5a
+         1i3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795313453; x=1795918253;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Rt7rwZgRCYcjZmCk9F8bbKx3wnJH8epK/AJCfQqcRoo=;
+        b=JNJGqFTBO69GwVoUOxa4EjXqm58xgsOVovYSuUJNNK3JcOA9SEWLSq6ZvwM6cJLkUw
+         7bND1Go1pNZ9MC0qObeRIGTl49o7qmTW9ID1QHkR85W+xT/5WpPR7UEezsyR3MLMA2TT
+         bvaYctAiQXY5g/+amkJJi+o1RfcsKcuowg9QVlonejXsq/FkrdmAovolXw9OTDvd/XOf
+         mMMARAaoBOqbODwFqhQiLsH6Df4+Jcs4pIgVpkpsdSmhJZnJUDfHDh5oQOiwXUYtapzB
+         vns1rhqqDMQ+D4v9NdPV2EnL1eGf+JvrIMp7Sh66Cm80l2bFcrqu6k/NwqHnzR1Q9RM9
+         ZBIw==
+X-Forwarded-Encrypted: i=1; AL+hErFeZKxmAOAGYez8iJN5lnv9XqoJuQyEmX2jfe5Lpq4owH+8/Ghwxoc5+WeoFMVXrUh4KhDwLnaFKLjwLps=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/AnpqNAnjBah8kwXkVF3zclLfxMElnaA3rkmzZbX/P/DVN+x2M
+	R5UPNCyloHEkjzQ3Q/p7CrbLDL7zU/LUcFYOFYiI4FGUyFsuy5BjKWErLbhFLfJGlEk=
+X-Gm-Gg: AZFdTZeqyySybWNJkX0vrmYGnGtmD28lTIvktBfNTC/6D2EYEspBWEtUNWbgfE3CUgj
+	DN7HcQWn1fEjSaF2i3opNuYVS5iB/TIkDmnO1fGrMWe32uz6ZJE4Fn8YnAcJi/Bh4jhhdYHTOkI
+	K5d/1KT+6HrCMUnpIXLNsZF2ITVFzM+4OYSBEVQrbfzeuhm2ox5QbRtKcVM81dG2byaFVBpZ4Vr
+	2zKX3HeFs0pPIya9DJ9Lc1D8v5oKnVfePIO89EXMvW0rq3ijbW2i3PlWKXJ8aGvzAObCIiihraA
+	WWL1Udyx6Y5niUo4gsA6Sqaan/57+NUpRv/0moLxCmYH5nI6hGZ85KD3If5aUMb7BxZTuQ9l/sX
+	mbUK73qF9RVav/8WCXr6gOfwUyqk57GcSwz6mDrAWUaiYlogSEp2CHKfgO5hxpSwgdn/3kzVolX
+	JssRzBuMCS1PRrLoVL/BiksoIAGx88LgjUFB7RANjUS6f4X2C3MBcK8SRkqgE2hg1lwGZ/EuSem
+	fOtdhJZ+Yg5sp3tPbYT/R41qKArVQuV7rNboFai/q6YoOsgYlKCu292HnG1dSQC/SmblHlzVKNT
+	yjRcFMenmgiwtrpGdaY/
+X-Received: by 2002:a05:6000:220a:b0:4a2:edb3:5d45 with SMTP id ffacd0b85a97d-4abb4b84c8amr16484182f8f.41.1795313453164;
+        Sat, 21 Nov 2026 18:10:53 -0800 (PST)
+Received: from [127.0.0.1] ([109.76.78.239])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2c8csm14822085f8f.2.2026.11.21.18.10.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2026 18:10:52 -0800 (PST)
+From: bryan.odonoghue@linaro.org
+X-Google-Original-From: bod@kernel.org
+Subject: [PATCH 0/3] media: qcom: camss: Two routing fixes and one tidy-up
+Date: Sun, 22 Nov 2026 02:10:47 +0000
+Message-Id: <20261122-camss-routing-fixes-v1-0-0deeeaca2622@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,144 +93,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBCF4avIrB0wg9jQqxQXJo7pFBpLxogg3
+ t1olx+P/+2gnIQVntUOiVdRmWOBqSvw7yEGRhmLgRrqjCFCP3xVMc15kRhwko0VnXlYNzrbTtR
+ AKX+J76GEr/5vze7Dfrmu4DhOeis2bncAAAA=
+X-Change-ID: 20261122-camss-routing-fixes-b178bdb84f20
+To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
+ Loic Poulain <loic.poulain@oss.qualcomm.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Bryan O'Donoghue <bod@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1985; i=bod@kernel.org;
+ h=from:subject:message-id; bh=cMnDYUL4opukNrol1StasRXxBSNWfB5Kp3VxUzSk2o0=;
+ b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBrAk8pUHcWbJEMMPNNAgqoCw7e5C83psmxbUfrO
+ A/UeBJcJcGJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCawJPKQAKCRAicTuzoY3I
+ OlHWEACqI5ipgKoL8Nr1752wgSPh6lAw0iZ7ldpZi36ARTP9Y6ldeiNCDTeXtAWVLOTXN3IYRhc
+ 8o+HL2AlC5KeOBB2nz6bCDau7V5mTgXIxs56ibkfBjSkQa7W5fVh2XzYx13vptsuTiqz8tAv3OM
+ 8SybuqXAY5Gz1UUbRBGSEzASlUBQzFKsbx9CE0vO9GP/7cPE8iYAFeOeLY8FTI3OmCAmQIp+gpI
+ q2ec76cDvcjncut6qMCa9QT15BsSx0/Nw461pfdSQEM4SFpwwsTwztY2pTa4SU10afE4ilY2Xwk
+ iQv8H03BtZDwEXmfm7ZS0yPeVZqCduGXWUBRHsUxpPKoSuZUuQrImbUw2tuP4edC871CZzoJDYT
+ Ytda8laTShdbqeAgEv1r0+niJHrm4ckAKX1hxS6dZ5GTYLP5AxYI5NgLhK0gQhnGwIiKnm9Gzhm
+ I0RgaUc8XcbR2lGWjiR6kCb8QTCcICaENgoqeWEb+w2zkwme/q0xV9sbgIr48M1vJU3OJQKA18c
+ ghYHOA8+ht2LTfqoTvof0Ttg1+TyIWnCEO5sPMC/fh2f0Hhq1peiPp3fBsW07/sZWLjwfxrMXpm
+ 0t74p9Jq6/E7uJcG525pL7aWhWL0G1uX1VYpCD6sYugaD9y8wdi1GAxxYD49g9AoTQirBM7HxP2
+ 1gzJ5dY/jCEN9iw==
+X-Developer-Key: i=bod@kernel.org; a=openpgp;
+ fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
 
-Hi Alexey,
+This series lands late-enough in the kernel cycle and applies against the
+camss-next branch staging to linux-media/next.
 
-On Wednesday, November 18th, 2026 at 10:51 PM, Ryan Leung <untilscour@proto=
-nmail.com> wrote:
+Link: https://gitlab.freedesktop.org/linux-media/users/bodonoghue/-/tree/camss-next
 
-> On Friday, September 18th, 2026 at 3:08 PM, Alexey Charkov <alchark@flipp=
-er.net> wrote:
->=20
-> > Hi Rob,
-> >
-> > On Fri, Sep 18, 2026 at 2:19=E2=80=AFAM Rob Herring <robh@kernel.org> w=
-rote:
-> > >
-> > > On Thu, Sep 10, 2026 at 06:48:33PM +0400, Alexey Charkov wrote:
-> > > > On Wed, Sep 2, 2026 at 5:08=E2=80=AFPM Alexey Charkov <alchark@flip=
-per.net> wrote:
-> > > > >
-> > > > > Rockchip SoCs are shipped with a unique CPU ID in their internal =
-OTP
-> > > > > memory, and Rockchip bootloaders use it to give boards which have=
- no
-> > > > > dedicated storage for a MAC address a stable one anyway: they has=
-h the CPU
-> > > > > ID and patch the resulting addresses into the device tree they ha=
-nd over.
-> > > > >
-> > > > > Kernels started without that fixup, e.g. straight from the SPL in=
- Falcon
-> > > > > mode or by any other loader which does not implement Rockchip's d=
-erivation,
-> > > > > fall back to random MAC addresses which change on every boot.
-> > > > >
-> > > > > Formalize the derivation in the DT binding and add a Linux kernel=
- driver
-> > > > > implementing it, so that a Linux image can use the same stable ad=
-dresses
-> > > > > regardless of the boot flow.
-> > > > >
-> > > > > Only RK3576 is wired up here, that being the SoC I can test on. O=
-ther
-> > > > > Rockchip SoCs keep the same CPU ID at a different OTP offset - 0x=
-7 rather
-> > > > > than 0xa on RK3588, for instance - which makes supporting them a =
-two-line
-> > > > > addition to the driver's match table plus the layout node.
-> > > > >
-> > > > > Patch 1 is a prerequisite fix. The OTP hardware has its own inter=
-nal state
-> > > > > machine which only works correctly with serial access, but the cu=
-rrent
-> > > > > driver serializes nothing, which results in timeouts and/or corru=
-pted
-> > > > > reads (e.g. returning splicing a TSADC trim value into the buffer=
- of a
-> > > > > caller asking for the CPU ID, or mixing up trim values of differe=
-nt TSADC
-> > > > > callers). Hence the Fixes: tag and Cc: stable.
-> > > > >
-> > > > > Cross-checked on an RK3576 board: the addresses fixed up into the=
- FDT by
-> > > > > U-Boot match the ones derived by the new driver, and the driver c=
-orrectly
-> > > > > assigns them to the network interfaces when the kernel is booted =
-without
-> > > > > U-Boot proper at all (via Falcon mode).
-> > > > >
-> > > > > Sashiko also rightly pointed out a use-after-free in the nvmem co=
-re when
-> > > > > a layout driver is unloaded leaving its sysfs nodes and the postp=
-rocessor
-> > > > > function pointer dangling. This is fixed separately in [1].
-> > > > >
-> > > > > [1] https://lore.kernel.org/all/20260902-nvmem-layout-unreg-v1-1-=
-2d16bebeb518@flipper.net/
-> > > > >
-> > > > > Signed-off-by: Alexey Charkov <alchark@flipper.net>
-> > > > > ---
-> > > > > Changes in v2:
-> > > > > - Switched from a scope-based guard to explicit lock/unlock calls=
- in the
-> > > > >   OTP driver to avoid mixing styles in a function using goto erro=
-r
-> > > > >   handling (Sashiko)
-> > > > > - Link to v1: https://patch.msgid.link/20260901-rk3576-otp-cpuid-=
-mac-v1-0-ea9135270fc2@flipper.net
-> > > > >
-> > > > > ---
-> > > > > Alexey Charkov (4):
-> > > > >       nvmem: rockchip-otp: Serialize reads
-> > > >
-> > > > Incidentally, patch 1 of this series also fixes CPU thermal throttl=
-ing
-> > > > on my RK3576 device: apparently, the mis-read OTP-programmed therma=
-l
-> > > > trim values broke the thermal governor logic, which now works
-> > > > correctly with properly serialized OTP reads. So it would be great =
-to
-> > > > have these merged.
-> > >
-> > > It would be great to have the sashiko comments analyzed and replied t=
-o
-> > > as well if you would like this to be reviewed.
-> >
-> > Of course. One code-related comment Sashiko raised has been addressed
-> > in a separate patch [1] which is still pending review. The
-> > binding-related comments will need to be revisited, as I'd like to
-> > first explore the idea Ryan proposed in the adjacent thread [2], as it
-> > will change the approach somewhat if it works out.
-> >
-> > Best regards,
-> > Alexey
-> >
-> > [1] https://lore.kernel.org/all/20260902-nvmem-layout-unreg-v1-1-2d16be=
-beb518@flipper.net/
-> > [2] https://lore.kernel.org/all/20260916123355.4507-1-untilscour@proton=
-mail.com/
->=20
-> Hi Alexey,
->=20
-> Have you had a chance to explore this? I have got a working proof of
-> concept [1] for the format I suggested, tested on RK3576 (NanoPi M5) and
-> RK3528 (NanoPi R28S).
->=20
-> Best regards,
-> Ryan
->=20
-> [1] https://github.com/untilscour/openwrt/commit/a622c1cf292f7a4bb7093521=
-e25436be324fc1a4
+First up a patch drops the declaration of CSID2 from x1e/Hamoa since this
+CSID doesn't have a corresponding VFE it is entirely useless and violates
+our 1:1 mapping between VFE and CSID. Since CSID2 routes nowhere there's no
+reason to keep it around.
 
-I've updated [1] the proof of concept slightly. Perhaps you are busy
-with other patches? As it's been more than 2 months, if you don't mind,
-I'd like to send it in as v3 of this series, with you as co-author.
+Second is a fix for a longstanding error in CAMSS which as stemmed from
+the original development of post ISPIF devices. These devices have a 1:1
+mapping between CSID and VFE so the mapping we have given to user-space
+which declares each CSID as connecting to each VFE is just plain wrong on
+these devices and has always been.
+
+So the second patch addresses that longstanding issue but, I've been
+holding off on fixing this for a while since I believed it might require
+extensive surgery, but in the end its quite simple to do.
+
+Finally the third patch is a tidy-up patch which inverts our current logic
+of continuously adding new elements to the src_pad_code switch for new SoCs
+filtering those SoCs down to a default: statement. In fact is is the old
+SoCs which are the exceptional case so, just do the switch for the old and
+the default for the new.
+
+Signed-off-by: Bryan O'Donoghue <bod@kernel.org>
+---
+Bryan O'Donoghue (3):
+      media: qcom: camss: x1e80100: Fix CSID2 routing to nowhere
+      media: qcom: camss: Fix CSID to VFE routing for non ISPIF platforms
+      media: qcom: camss: vfe: Eliminate ever expanding src_pad_code switch logic
+
+ drivers/media/platform/qcom/camss/camss-vfe.c | 20 +--------
+ drivers/media/platform/qcom/camss/camss.c     | 59 ++++++++++-----------------
+ 2 files changed, 23 insertions(+), 56 deletions(-)
+---
+base-commit: 2ad58ca589da80990b7afbcff018777851577f89
+change-id: 20261122-camss-routing-fixes-b178bdb84f20
 
 Best regards,
-Ryan
+--  
+---
+bod
 
-[1] https://github.com/untilscour/openwrt/commit/6686af2f6475f6cc9d1c1fb37c=
-d8855845f754db
