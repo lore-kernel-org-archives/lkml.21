@@ -1,98 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.194.8.81
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795367913;
-	b=MZQgJswmfxhReKnLsNgQrO2TwBgbc7GQV1+o4f/YRVcqq9mP0qRxzChx5jlvTdeWxTYv
-	 URV1tJvaMRmfOhTJm7AM3d7X5VqbVdfBX0UmdcFGYMiZ/4/WA8bp0ISbXAg/HiYiakfmp
-	 b1ZL0seAXBm9gJ3HfT1gNKHcqMWlJOBDgyZ5F7Mewoqe/Qhxep2WBC7K6wB78ExuUsqP1
-	 ZACTib8CrLvU+Fcw8VWb+17UFKeZi4AB5mcMLop+HgSXQO3k6ll9CyTIIk+9zR01vH0M2
-	 fNFeI6VVp1QVZbGP7A6oI5/VBsZKlmdw4Ve7EUNA6Jj+Ou12z9uYFZT4ImqPIt4fqLQ==
+	t=1795367989;
+	b=HfS2hJDvttFQNdYzURIMnw50kiGaZ9KxuZA7kBFXltYX6SYeGoc91tKAyBJYz50ogm/x
+	 zHna4jEHT+eBsWibfzEvmPAdMLrMX5bL6KBVuPDclq+OT1EqM0Kq1VcdaYgoIKPYtC4DY
+	 moVOEgQaqXHEo/gNsbO3Xl9CCCigyyHYqAsN7BaPl7JtxZT/hzUvG8GLjDNQ+RLdidAYd
+	 H1fOJr+hNJ7UdCy9uTFuN985rrwouezYpzb1LDKek2WDRlwh0qi3I+L9Olr3ZabBIcgxB
+	 RN5d10dX+HSK0571Qtsn4FAvoTzqRLlFhHmiICoIl7jYXkG1wPTgvN6sscbDqHUDj9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795367913;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=78iLp+ukyIH3Bqo6jdwjTQqg9ybQFd9VxizK2IPYkLQ=;
-	b=PujkYfBFof0qRfSzRov7bJRlWwgzxro9W6MU4hSXxJjvmCnKWUKBXqLeU042CgewE90T
-	 2c5zOam16tyY/P8KbZ10PXSusvqJ9dkmqO45yl0PFjqjS23sfIIJcnKysByIWLyoODMsS
-	 njIftmxfPFBZaJRvU4E+I0+2+oxzYwaXIsm+CZB08Lru2gNp2s2jpopFONml3XqTm3SbB
-	 Uu+r8fsljWX8bF0P1TDP5GE/YIaiUrK5UsPD33GE+1Ye9uuIVf5wOQdKIaL/21AghVGQu
-	 ugL5nt+j53X0THb35DYkoWkxVSPD7Y9f7s7cO12AtdTdA1LdDTsmV1Lzll9meX/VrEA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795367989;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=zdQCpGaqkRp6x/x58XyJ1tSRsHAfUx3qThyEUIIDCA8=;
+	b=DwRR1JDNIUWzHdialuu+FiccljDZGoEdiQ6xhRAalMmRatsuZQ/GHHoG2FkJukM9NyQ1
+	 /i1hMszkqRx+AqE3q87AlHfzWWrstJ3DkXYTX7bq6EelkOnmgMeQVBehRBM7EbtWrzNB/
+	 e/zveCbpmHUvJkuB3lVfrKYeuQY19C51WDfCpaI2tdHR7zORWukOnvfe7U+Gep1S2UmR+
+	 4OJyAD0+QbIYnM43KSiYYiG3EfQHuA+SiFMjyizu/cTbPirERZ8A21lo3T5d3TA7hdl3u
+	 zcdVFLIHCvXHhew/JEzblqkPQ/Il5WH5IZ1K/Rjg9FZeKpND6ySiriDGx764h3vWlKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=networkplumber.org;
-	spf=pass smtp.mailfrom=networkplumber.org;
-	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=MSEwHngh;
-	arc=none smtp.remote-ip=209.85.214.173
-Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com [209.85.214.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=dolcini.it;
+	spf=pass smtp.mailfrom=dolcini.it;
+	dkim=pass header.d=dolcini.it header.i=@dolcini.it header.a=rsa-sha256 header.s=default header.b="lV/STT9l";
+	arc=none smtp.remote-ip=217.194.8.81
+Received: from mail11.truemail.it (mail11.truemail.it [217.194.8.81])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50377606A32C
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:18:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50377606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=networkplumber.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=networkplumber.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E3CC606A320;
+	Sun, 22 Nov 2026 17:19:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E3CC606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dolcini.it
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dolcini.it
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=MSEwHngh
-Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2f03f3631b2so13484335ad.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:18:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1795367912; x=1795972712; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=78iLp+ukyIH3Bqo6jdwjTQqg9ybQFd9VxizK2IPYkLQ=;
-        b=MSEwHnghHFpvG/H9NvyBLNcSG8oKpaTq8hFGjcbk45OKxp7HM52R6ckrAw/Q/A7gGx
-         xHgWbgp6sLH23mTJmJwkBVHRXwgTJV95FigsUnpApXdZaqauZJfdZGt2cDkc3zpquCw+
-         bE74Mp/xYKn5jeOU0Os9Bx4CmTm2Az6CLgl915HHUkDpUpTPESCFkKVKLLU24bi29sr4
-         gnVxtBpSKoN8zR9F4EUzHSYofP3ITSLuXKPHFztugHXkr6sQe4jVhtxC19Pqpg2D87y9
-         XPrlZwJafq+RfLxT1uWctWAvNka/48LMeP/QkJVXiqK/sY3z+bJiSh05GF3CuxEhtayN
-         xC0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795367912; x=1795972712;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=78iLp+ukyIH3Bqo6jdwjTQqg9ybQFd9VxizK2IPYkLQ=;
-        b=inHGWi4/rANgBpetKFmIis24CAiSIFQUbJG6f1uTx+sf9autSwsMkYvjts8EKU1YYs
-         zdZpzKa3b+G+OxR6MzSam+SxHexL/n39SAmAbsZe98ntf/VgjZUJkcxpckWQ00Yre0SZ
-         7i/QnJAvmua/m+WGozD3NG+qff2j5wn6AFROvy7YDgXWxN0Zt+NyxxtdBvb/cBLnRyq0
-         Sy9ymON1BCCZ1wNFRflLYaX/PwBSnVImNKlwwiH733A/jcB20iXQ+SuaHhAuN861Tu2y
-         6gaxwgQkrF6kZAXT0QjJII/vZy/6HUIw38pRyPSbSSwDe2IuapDUOdzBofn3uSnU0TYQ
-         fPUg==
-X-Forwarded-Encrypted: i=1; AL+hErFwCEsTE/hYbLAgOFye73a81SjErBTjF4wEK1EicVqDpadPs7CtK8bAh1Yf0opBN7Vq3XonWvbI71SHsGc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/CbwPGKKLHKjPD0HSexXSn7IlHTFj0iLRDt/OelJlIp3kXeaSr
-	2oF7QkqNWAZBSU67GGycxOdpDa4Iy+kWt7veHVewn9qTG8ec+tO9zNsJsy8/3A60mpM=
-X-Gm-Gg: AZFdTZepjnOm4G1/52CvLeWIngqLEQ0ozgG4/e/bbUfoBNi7eDZAnlC5KKkLU3u37mn
-	2ZuM7QL7HdzpXXWeuQyOQrdMaTZqmzAYYpCriael1jX7NxeQj5hG1scny+uRO5tBQjDgc3bbwdG
-	DNHkPJFBrhKbuN9fn8Z6fMuurr9xv6+BH8PvPS9BccYAXbff8oL/pmy0z4Twp6t+qpYpxrqBC9R
-	8gWT4Pqh5qPHv6eWht+7insM0iBRYYUQ191Y5jzMa+o9e30kE2B7e8TBHQ76biudmQW9nW+WjDj
-	OjVyD3QM0XOJiMBGmkLEu9G3Ar+5jXWwGkvsFTJOrN2NCwpAXkALPLRmNrrhlimwYdJ45ExgmF4
-	UFWgVkkdiCwQ0i312gteXdVuJ2/tX3sqKsXIqSfKVGv5QymL8qcdgABC1/iIE7TX2csVQ7jI1/v
-	WDBK9SPGxYF5czCH1PSm7gmYdoHi6u7epX8iDXKKJ3FofROLz0EAPNbpArPh6nhh/LCAnelaspH
-	7/tjH1Pt4AmvYAwX+4F3/HeF2Hlc60zzwyD2nCqMQSnMxBQjxYlIIa468H3h8M3mN+wRcOQMHLe
-	fQgfuxxuPYi1i6b8c6SwnWjgGqtvyNkulFhXlVpGz57PDQRfGsGbwuBua7x4rZmNqIffC1o=
-X-Received: by 2002:a17:902:f603:b0:2e9:7dda:bfce with SMTP id d9443c01a7336-2f03f2760efmr88354605ad.74.1795367912601;
-        Sun, 22 Nov 2026 09:18:32 -0800 (PST)
-Received: from phoenix.local (204-195-112-43.wavecable.com. [204.195.112.43])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84364sm40712525ad.5.2026.11.22.09.18.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 09:18:32 -0800 (PST)
-Date: Sun, 22 Nov 2026 09:18:30 -0800
-From: Stephen Hemminger <stephen@networkplumber.org>
-To: YanXin Li via B4 Relay <devnull+fadouse.pm.me@kernel.org>
-Cc: fadouse@pm.me, Jamal Hadi Salim <jhs@mojatatu.com>, Jiri Pirko
- <jiri@resnulli.us>, "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Subject: Re: [PATCH net v2] net/sched: act_ife: return -EAGAIN after
- dropping rtnl_lock in load_metaops_and_vet()
-Message-ID: <20261122091830.3266fcd0@phoenix.local>
-In-Reply-To: <20261122-b4-02-act-ife-rtnl-uaf-v2-102eba468698-v2-1-67c413c45928@pm.me>
-References: <20261122-b4-02-act-ife-rtnl-uaf-v2-102eba468698-v2-1-67c413c45928@pm.me>
+	dkim=pass (2048-bit key, unprotected) header.d=dolcini.it header.i=@dolcini.it header.a=rsa-sha256 header.s=default header.b=lV/STT9l
+Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 95BE923508;
+	Sun, 22 Nov 2026 18:19:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1795367979;
+	bh=zdQCpGaqkRp6x/x58XyJ1tSRsHAfUx3qThyEUIIDCA8=; h=From:To:Subject;
+	b=lV/STT9lTgqGHaTrDFn+NryN+hq+GkUAAKri4PeWFaaq4jYsBnJnZqi0pD/QlMSim
+	 ZLc0F2rXjameysaoC9UjJps1vv8fVtZO582i6NFvjMETeQfEyo946NL/bm3DHBB2Rf
+	 Hf8JeF/EiqFOaKfba3+lNgezAIOxCmWHAqXnztVK9O1QPv1KFdX3vgERtcp3j+aKPW
+	 /m05SR//UkfnY47jjET3pxjFMiWJ13VQlSAmIGWmpNhD98m/81MJFp1zmURAaCR3Yt
+	 +5Z3FqPr5xC8L7R/60TqZVVgpZ3FL+1EmUQg5YsPos0Q5i/7sutU/5g7x97Q5Xlfem
+	 OtB/UF4dSVDaQ==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: linux-bsp@toradex.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/2] arm64: dts: freescale: imx9[135]-toradex-osm-dev: Fix SDIO_B interface
+Date: Sun, 22 Nov 2026 18:19:27 +0100
+Message-ID: <20261122171931.295307-1-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,20 +71,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On Sun, 22 Nov 2026 20:45:52 +0800
-YanXin Li via B4 Relay <devnull+fadouse.pm.me@kernel.org> wrote:
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-> +		if (ops && rtnl_held) {
-> +			/* We dropped the RTNL mutex in order to perform the
-> +			 * module load. Tell the caller to replay the request
-> +			 * under a fresh RTNL critical section.
-> +			 */
+On the OSM Development Board, OSM SDIO_B goes to the M.2 Key E slot for
+a Wi-Fi/Bluetooth module. The slot has no card detect signal, its supply
+is not software controlled, and the SDIO_B signals are fixed at 1.8V.
 
-I prefer that comments stay in "short and sweet" style.
-AI and new developers seem to like long comments.
-This comment has the classic /* add one to i */ style...
-In other words the comment doesn't tell human more than is already
-obvious from the code.
+This was noticed from an anomalous interrupt rate on an idle system:
+with the slot empty, mmc2 fired about 45 interrupts per second, because
+the empty slot was polled every second.
+
+Describe the slot as non-removable, keep the module powered in suspend,
+and add the fixed 1.8V I/O supply, on both the OSM iMX93/iMX91 and the
+OSM iMX95 variants of the board.
+
+Francesco Dolcini (2):
+  arm64: dts: freescale: imx93-imx91-toradex-osm-dev: Fix SDIO_B
+    definition
+  arm64: dts: freescale: imx95-toradex-osm-dev: Fix SDIO_B definition
+
+ .../boot/dts/freescale/imx93-imx91-toradex-osm-common.dtsi     | 1 +
+ .../boot/dts/freescale/imx93-imx91-toradex-osm-dev-common.dtsi | 3 +++
+ arch/arm64/boot/dts/freescale/imx95-toradex-osm-dev.dts        | 3 +++
+ arch/arm64/boot/dts/freescale/imx95-toradex-osm.dtsi           | 1 +
+ 4 files changed, 8 insertions(+)
+
+-- 
+2.47.3
+
