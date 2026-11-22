@@ -1,54 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.160.73.65
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795332642;
-	b=wIjjzd0kGdZtqB6gktZkjCj7manSkxkVE437a5PSYLwEyaOq68fqUsnjXmXLdUAzDvjo
-	 czYOwXa2YJD4ng5UhxQ1nNpgj+Ow/W27BuljI8be6T2DpvuCNiKxHBp1lD3ULCKX1bYlD
-	 0tj923dfXwsqCe/o+90njAmiyXnbst97LVilWGyiG7PNOQuvuMEI+8RoNmtiGtc3v6Mmc
-	 WnQ8AYe+f+ScoiyUXSnRKEdwiW9Fr72Am6k9kKWd4AYR2tfjckpDotP+EzG7kT2et9k+b
-	 3w4dmC2bWMimUMYa1tADf/AdaoZxQZsEHQ9jM4Vv5hAoJoZcJmNxvZkWZ6yBJ4rjlTg==
+	t=1795332766;
+	b=B7X8P0mIX4hqsWZRoRdAIJP2Ul7q9OfY9hPh3yv+4wCYO8sOI4lQeCw1V0gvkLsZlVfe
+	 rUTpuyNlrxlDlbeAqpS+O/Eah+ITzM2Syf/xQZ17kEm+/Fhj4y/TOyoBwdegVvye+Y2uX
+	 3TqipQT8wQrOPAIelT+RDSn/QslWK4jTz0oR2YhhKslXe87M3bVtrtw+DgvAnJlddIeCi
+	 Ym1E/ktYvSNOsqShgue5uDqAUXXKCmAAfJQhPOF9DuyY/HbXDmYIGm28uDzVqx1lVr4w3
+	 UgPDlfowknd+eidcaZDzAOR8moEWL3a2hxvGrYKlWmX19cG+GpVTkKP38Ih5lytTT/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795332642;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795332766;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=H02gl3A8lED/orev+VVlUTCHLPwpp1eOdDDA4V8ytIA=;
-	b=NneBmTZWGijGQh63fUidG48MFfthrL34KGdf4jhRG9YaMoxEumO1N2fsAhEHVz7fIFkB
-	 kUbR40ODi7Y4tkSSP1VvHbDY75CCicNfvfh0rrExTy4YISetbgcW7g/oLNWsbB2Zzv7K+
-	 3+P3yLWb7pCHOESWQMVdEdJ8yHmWa65btAMh6HOqEiPbeX4wQ0Z1PZJIYAeuF3QybZGD/
-	 82lCcOhSxfwSvqZV4B3oAOOgaz3NL2dXPnj9xDJR5anrNr/C95qllI3YzwqeD0zyEpVXg
-	 seA+X5kg/mIq+CsdogqIH2qyb2axf5qkgaFTePZn2xMVtU5a1hEbmL5O+hZvZi9vbGw==
+	bh=Z/itzPyaySuUqIwDB1VMmsM811i+UtgNl+TS4HUXl3Q=;
+	b=0NoyDZe/TfaWh3TB85fOe+4cii8tuN1ULz/j0a/dAKcKJKZvx0Tj3Q696/9LWBpFs8dJ
+	 rgF4pgW0Odz8SAiMFgeX1g6qrnV7v/tamfOPmWTOgBrq1dKlH/kEm8v3KtDZNYiI36V1E
+	 FdHbKa1mV/2c+O/XVgcGxGav7KXWc0qEJ+oSuSXWqDbLIrq5bMU6+BLSagmmIyX/JpTVY
+	 Vb43dHRAdgyu5pFgxN/cZQI12V6yV3CRX9om2ojpVhsk9xi6QnL86ZDQcsfYTBkD11qva
+	 sgvpoE/OZ9RjjC4B+Ly8vqhky5Gq1MI4etJEW+PdjEN833p0sR8JiEmi7M8WsE3UHSg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=M8jygr5a;
-	arc=none smtp.remote-ip=91.218.175.200
-Received: from mta0.migadu.com (out-200.mta0.migadu.com [91.218.175.200])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=blala.de;
+	spf=pass smtp.mailfrom=blala.de;
+	arc=none smtp.remote-ip=213.160.73.65
+Received: from vs81.iboxed.net (vs10.datenmanufaktur-hosting.net [213.160.73.65])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 999C9606A332
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 07:30:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 999C9606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=M8jygr5a
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=NLC7oANZwCfL7depjHfIzJ4jloTo6BAzdIgGpvntEFI=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795332639; v=1; x=1795937439;
- b=M8jygr5aBCWN7dK64eSo5G8nBVNnH0PVvZJGbiNzj+/iqwBKnRyiMpIwEeajBT8v9Zwurfdb
- 4WVj/0p+Z8kpL94Zyzs+pjbbbZTWMJqOsf4W2KJXbOfLfrnI7egNG+fFRkVEV1nxoKF3B1VtJq1
- 8pUyTesQeNgTH7mUVdlBe9BM=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id b98bde626d255cef;
-	Sun, 22 Nov 2026 07:30:38 +0000
-X-Mizu-Trace-ID: b98bde626d255cef
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <3af03366-784b-48bb-a807-9ccea92e39ca@linux.dev>
-Date: Sun, 22 Nov 2026 15:30:25 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4168B606A32C;
+	Sun, 22 Nov 2026 07:32:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4168B606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blala.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blala.de
+Received: from blala.de (localhost [127.0.0.1])
+	by vs81.iboxed.net (8.18.1/8.18.1/Debian-6) with ESMTP id 6AM7WdwT026727;
+	Sun, 22 Nov 2026 07:32:39 GMT
+Received: (from akurz@localhost)
+	by blala.de (8.18.1/8.18.1/Submit) id 6AM7WdSR026726;
+	Sun, 22 Nov 2026 07:32:39 GMT
+From: Alexander Kurz <akurz@blala.de>
+To: Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>,
+        Griffin Kroah-Hartman <griffin@kroah.com>
+Cc: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+        Bjorn Helgaas <bhelgaas@google.com>, linux-leds@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Alexander Kurz <akurz@blala.de>
+Subject: [PATCH v2 1/2] leds: leds-mc13783: use unified device property API
+Date: Sun, 22 Nov 2026 07:32:34 +0000
+Message-ID: <20261122073235.26707-2-akurz@blala.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261122073235.26707-1-akurz@blala.de>
+References: <20261122073235.26707-1-akurz@blala.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,83 +57,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 04/17] mm/memcg: add folio-based lruvec live helper
-To: kasong@tencent.com, linux-mm@kvack.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>,
- Ying Huang <ying.huang@linux.alibaba.com>, Chris Li <chrisl@kernel.org>,
- Baoquan He <baoquan.he@linux.dev>, Nico Pache <nico.pache@linux.dev>,
- Usama Arif <usama.arif@linux.dev>, Michal Hocko <mhocko@kernel.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
- Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>,
- Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
- Vlastimil Babka <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Nhat Pham <nphamcs@gmail.com>, Youngjun Park <youngjun.park@lge.com>,
- Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>,
- SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>,
- Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>,
- Zicheng Wang <wangzicheng@honor.com>, Chen Ridong <chenridong@xiaomi.com>,
- Tal Zussman <tz2294@columbia.edu>, Kairui Song <ryncsn@gmail.com>,
- Xiang Liu <liuxiang.277@bytedance.com>, Ehab Ababneh
- <ehab.ababneh@intel.com>, Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>,
- Lian Wang <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>,
- Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>,
- linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
- damon@lists.linux.dev, linux-doc@vger.kernel.org
-References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
- <20261119-mglru-fg-v5-4-9eee2fe97a2d@tencent.com>
-From: Qi Zheng <qi.zheng@linux.dev>
-In-Reply-To: <20261119-mglru-fg-v5-4-9eee2fe97a2d@tencent.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
+Replace OF-specific API calls with the unified device property variants.
 
+Signed-off-by: Alexander Kurz <akurz@blala.de>
+---
+ drivers/leds/leds-mc13783.c | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
-On 11/19/26 5:03 AM, Kairui Song via B4 Relay wrote:
-> From: Kairui Song <kasong@tencent.com>
-> 
-> Add a helper that resolves a live lruvec for a folio under RCU
-> without taking the lruvec lock.  It takes a folio directly so the
-> lruvec lookup happens inside the RCU read-side critical section,
-> which a lruvec-based interface cannot guarantee.  The first user is
-> the lockless folio_inc_lru_refs() path later in the series.
-> 
-> Factor the ancestor walk out of lruvec_live_lock_irq() into
-> __lruvec_get_live(), so that both entry points share it, and spell
-> out why the walk is enough while only the RCU read lock is held:
-> reparenting of a memcg that starts dying waits for a grace period,
-> so it cannot race with the caller until the lock is released.
-
-Right, that's the ordering: CSS_DYING is set before the reparenting in
-the RCU work, so testing for a dying memcg under `rcu_read_lock()` fully
-covers the race.
-
-> 
-> Move memcg_is_dying() up in memcontrol.h, next to the other memcg state
-> predicates, and use it for the walk rather than repeating the open coded
-> css_is_dying() test a few definitions away from where it is explained.
-> 
-> No functional change for existing callers.
-> 
-> Tested-by: Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>
-> Signed-off-by: Kairui Song <kasong@tencent.com>
-> ---
->   include/linux/memcontrol.h | 71 ++++++++++++++++++++++++++++++++++++----------
->   1 file changed, 56 insertions(+), 15 deletions(-)
-> 
-
-LGTM, so:
-
-Reviewed-by: Qi Zheng <qi.zheng@linux.dev>
-
-Thanks,
-Qi
-
+diff --git a/drivers/leds/leds-mc13783.c b/drivers/leds/leds-mc13783.c
+index 19c1b51475db..82b2062b2280 100644
+--- a/drivers/leds/leds-mc13783.c
++++ b/drivers/leds/leds-mc13783.c
+@@ -16,8 +16,8 @@
+ #include <linux/module.h>
+ #include <linux/kernel.h>
+ #include <linux/platform_device.h>
++#include <linux/property.h>
+ #include <linux/leds.h>
+-#include <linux/of.h>
+ #include <linux/mfd/mc13xxx.h>
+ 
+ struct mc13xxx_led_devtype {
+@@ -114,7 +114,7 @@ static struct mc13xxx_leds_platform_data __init *mc13xxx_led_probe_dt(
+ {
+ 	struct mc13xxx_leds *leds = platform_get_drvdata(pdev);
+ 	struct mc13xxx_leds_platform_data *pdata;
+-	struct device_node *child;
++	struct fwnode_handle *child;
+ 	struct device *dev = &pdev->dev;
+ 	int i = 0, ret = -ENODATA;
+ 
+@@ -122,34 +122,34 @@ static struct mc13xxx_leds_platform_data __init *mc13xxx_led_probe_dt(
+ 	if (!pdata)
+ 		return ERR_PTR(-ENOMEM);
+ 
+-	struct device_node *parent __free(device_node) =
+-		of_get_child_by_name(dev_of_node(dev->parent), "leds");
++	struct fwnode_handle *parent __free(fwnode_handle) =
++		device_get_named_child_node(dev->parent, "leds");
+ 	if (!parent)
+ 		return ERR_PTR(-ENODATA);
+ 
+-	ret = of_property_read_u32_array(parent, "led-control",
++	ret = fwnode_property_read_u32_array(parent, "led-control",
+ 					 pdata->led_control,
+ 					 leds->devtype->num_regs);
+ 	if (ret)
+ 		return ERR_PTR(ret);
+ 
+-	pdata->num_leds = of_get_available_child_count(parent);
++	pdata->num_leds = fwnode_get_child_node_count(parent);
+ 
+ 	pdata->led = devm_kzalloc_objs(dev, *pdata->led, pdata->num_leds);
+ 	if (!pdata->led)
+ 		return ERR_PTR(-ENOMEM);
+ 
+-	for_each_available_child_of_node(parent, child) {
++	fwnode_for_each_child_node(parent, child) {
+ 		const char *str;
+ 		u32 tmp;
+ 
+-		if (of_property_read_u32(child, "reg", &tmp))
++		if (fwnode_property_read_u32(child, "reg", &tmp))
+ 			continue;
+ 		pdata->led[i].id = leds->devtype->led_min + tmp;
+ 
+-		if (!of_property_read_string(child, "label", &str))
++		if (!fwnode_property_read_string(child, "label", &str))
+ 			pdata->led[i].name = str;
+-		if (!of_property_read_string(child, "linux,default-trigger",
++		if (!fwnode_property_read_string(child, "linux,default-trigger",
+ 					     &str))
+ 			pdata->led[i].default_trigger = str;
+ 
+-- 
+2.39.5
 
