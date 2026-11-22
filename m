@@ -1,86 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795369099;
-	b=IUAbojrnRHGP0kQJwwWjZyPw1XyFAsil9YMnk7/AlUCHDF08TW8jKzuFT5/yUIe2U4av
-	 xekCP6iKMpR+cqUrVajMyMr4FXov3P6gPt9iW/qjtWAeOnZdhr6iBn8EjpdIfuCRW6/p6
-	 ux+kS6ypBt7A9KQHq/c3bMhio9NSvs72KFKvcA6p332GeDxx0nFEYne71Blj4FBSWPNO7
-	 HHQc8iaFPVe8hA8kTgKzt3IyV4X6nCz/ht2wncQ3zS2rnOY6kcbb5zQDxxoyOl+jw0Py2
-	 ZQD3pxkRW4lbaDC7LkfY5YiliyZoQ95TIFaQkyIZTUKvXDqzI6u6Hik0rnSSydxSACw==
+	t=1795369120;
+	b=jF2iKwR1lDC9kQ17lUUKYa/DbNxkBIUX1YhJCuLhtUDuh5ZNv1ORwHevyyfhlCq5iXhd
+	 50eFSbL8jCsGPqPyISeBOnVZwN9jj60ZIY1/dzbz69nnuwH/yrexn5ykccLhQSif7fNNs
+	 o029dNqFoHxiKtRrrAkjzVitUMrNl2KhXmdWfuCNk0ebSH6z8ZjT2FT2irRZLSi/y11oJ
+	 tk3DkRKdf8s5b5CssGrkSR9eWuOMXQVN9OLg1m2A3MPFVmqzXP0hN4j1wYg5eDq6Obj9X
+	 UrjwQTDl5vQjJoyjmhxNP5sXMYRp9nmeSzGlW67odB6WnyxguulRUsgJcjHUuVxNkmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795369099;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795369120;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:Sender:
-	 Content-Type:MIME-Version:Content-Transfer-Encoding:Subject:From:To;
-	bh=mR0fTVLdZEKFf91Dji+/qWQ7IYZOv/q8IsE2009BXgY=;
-	b=y6CzqpwEXmZjo40dTkEDRRSKvoj/rQL/ORCE3B/XMHd5h8CdIzx1kIc9snelFqQkEaTK
-	 j25RU+De9tLqDR6U/2z2zWX7etNtiYhoQB7jNOgXUChWq0qhgkFHYgVfq5g74zcYBgE+U
-	 u5E0puTuv5VdA+94a46S7lRf4uEbtaR9KEjzzrzXkCc5WVna9EC7fbW9y9Zrly42Qymfv
-	 pa6YNUfCS7LDXsd8iuZbtomQ73QjC3dGIlZLyyalIZZns9snMW+OMhKhQIZ7+Ukeehb4l
-	 RkT6CmrTyDZZmslPGZWAEoNc1VtJKgZlmJf0Yi0RCis8d38F2nHlZt34EuZjALKRSoA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=0I/gkzCqyaCNd3bzstkk5KNSlHR8/A+NpuninLCCHoY=;
+	b=P6hMpudUBzBb0dHrUfCkJEkzOZ9bB45n3r+jepBmdshnVsx1E/Qs+LOBTeG+/39hLxbV
+	 PJHYapdC04GzANkx0//m6cbfuP/cTGwYsHcJHcIld0Aar9HyF6jfjfpZfdwgq+le8qbCi
+	 6Uhh68DPQAi3E8RSzludsezmZRgXHIjt/rSgCqK2uK+iD/kyT8kIsA5yCtNHdDygzzwiY
+	 P4xCVCFuD3XxuHvJQdr5NXAVhMaOsLY6Iqy+Ne/8masqYYsaTr9Hq9VQ8kTkLOanILmYF
+	 ulaa6xmeKwzJy603hPgVDqbR/9dyoinu9lh/h0UbLwTSi72IttKRmoU77KdX7oloCrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o75mlVba;
-	arc=none smtp.remote-ip=209.85.218.49
-Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uTMAQXaT;
+	arc=none smtp.remote-ip=74.125.82.171
+Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6149E606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:38:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6149E606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67941606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:38:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67941606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o75mlVba
-Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c5126505cb3so325479266b.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:38:19 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uTMAQXaT
+Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-3863db981d4so3273230eec.0
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:38:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795369098; x=1795973898; darn=vger.kernel.org;
-        h=to:from:subject:content-transfer-encoding:mime-version:content-type
-         :sender:date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mR0fTVLdZEKFf91Dji+/qWQ7IYZOv/q8IsE2009BXgY=;
-        b=o75mlVbaLQOAa0dpw+yxOzixvjbIqh6Om8W9uKRcF0cAbkIGBLS85rQMI132Ldb7FW
-         BQMOrE4lyve6uupls+grsKpoHAClxFPWPQNI7V6DzSCu+9vZE49SYvRFW5srMQtn3mPQ
-         +r7NiMFqSe41rTtbUdHccNiFLjOpada9Ssm7o6veBe1n5H6OiaJmW/3W9S6A0UFikfoA
-         Sr5lJUEjzucpYuzkh1GEsQeapFTvjf7kJcAPo4tE9Sxh6G/TpIZHoaftQ9kU6+1fXsbx
-         yXplGevgNOwo4rWECye0YDSfPcq5kVZ3+H7gYl7Q+FYsyCZpeXPPMw3HukPT3imu1K4C
-         ib5w==
+        d=gmail.com; s=20260707; t=1795369119; x=1795973919; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0I/gkzCqyaCNd3bzstkk5KNSlHR8/A+NpuninLCCHoY=;
+        b=uTMAQXaT040U5qUmYkbdA83OsJ/0S5t9wAC5tjeAWCn0h2wQisMy5QeDH3JXAr4Bit
+         VHjz5EbSlUprj4CXB3uxyNJeZsu79WgaX4QM5LzfUHbeGchJXBAwfuXMyh16hVY/Ra4f
+         azRRfe+uiZAsccUDkqJw1F8o+f/hhg7t65J+yj1JfY3MXgKdoMqqXLCB6EX0mbQwe+Cb
+         WFzQo0cstg5P0ZPRBWg8TLbrTNA7IZpDvS1VR42ZtT7h/a361ukZtSn619G0eMZOjxGv
+         21v0Lb56DfgHW4ncixWGXVhE1wkVT8S1fA+g9kzLPK5yli+d2inTNL7OfKTsNzBuGMGF
+         cJWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795369098; x=1795973898;
-        h=to:from:subject:content-transfer-encoding:mime-version:content-type
-         :sender:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=mR0fTVLdZEKFf91Dji+/qWQ7IYZOv/q8IsE2009BXgY=;
-        b=WZHJIKxgPnjPMqUlMBOZTp+5+IwAeWXgDgzZhyHfu7vaNo3m6ClmtYQ5S9JMfcGzni
-         +7O7sOQSh6mYPOmIm+wCh/2M2fqt+jIQWSy99Ii1nrR1a6ewGB26yNOXhoIO1uGNyVwN
-         +3P1udQSHdvGBc1xJtbETpVBSoFcXowMRPqNp0DC6VsvaaGNmzdtuhXNqKFHeufkeLTK
-         EO5keBj/NWM5Dw4jkG4YbhooEvb+8tEAj6iYWncuhwkyDdmPQSuYmJCrlVEoC9hh3eGY
-         EPfKDFq7Sz4gaVrpDURTxzuxu1w+h9Zjt8JCs/MWx/4PaSmAZUhKHAzYt4xMRRTKfYu6
-         qm+A==
-X-Gm-Message-State: APuU4Z8mvkX1b7dGf/eRUznqRAHEFMk3sSIvl+jqjR41Fln3SS+yTZGq
-	8Pj1HSAK9ylND3k4lVEUaw3s99kzFQtlR+MPpRG0dRIZuRqQ70V3wC9zlVvHkIHO
-X-Gm-Gg: AZFdTZe2seocJa7KtlvKMeroSo4uwV9vITMNDsel5e79G12xp/fOOlOSkIaeGm4i0aV
-	4uqZMD81kD1kXqiYB92/7NZVtIpCiNQjSG6zdUGPUly+P/5GzAH7LDneGdLjlfwhtRAnpMQDB9C
-	5S63J5JJzGC+gZhHqW7HoL/x4c2d54vB20Wny1V+gPdE4Sw5AAxoPZr8dWwmCcW6BTcBDupYWAD
-	jsVBTK6LHjyEDe6ekZGlCh226IEAlV9Ys7F632LyDu9b9qoZJPLzwlXlgYh2EI+n29BQZY0gl0E
-	bMEBO9CLHemYF/2oRXuC/2IqvWkuCeRUgwUv2jVTBzV2EoL+V43v2jyezrKkGNQWUXLtM1cJqzw
-	is3lr9TKdeZA2JHSnr2YoXmTFF0BWCRZo5cqsya9mR3nqOS+Fp5nD2FJ5xObEVUmXTTobX0GrjD
-	IL41z9RTs4HIVRIopSEntbo2zRaVr7C4BDfg6/vivk/m4tLAj/7U5bABqZwtNSIsuP4ziL5ipX0
-	Wlazda1QW/kSjOz+0jcLeUdCvac8adFPyPCLqfSal2lUTZudHUWWANQ//3zMLAFHPGIvevfwapj
-	usBqNLO7VO0afTlQ7qR4LOx2QpYmeuvsE1A5djWV
-X-Received: by 2002:a17:907:9903:b0:c49:cdc8:10cf with SMTP id a640c23a62f3a-c513ac754cbmr586097366b.40.1795369097762;
-        Sun, 22 Nov 2026 09:38:17 -0800 (PST)
-Received: from [192.168.100.18] (185-72-186-61.cgnat.inetia.pl. [185.72.186.61])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acff65bsm343043866b.4.2026.11.22.09.38.17
-        for <linux-kernel@vger.kernel.org>
+        d=1e100.net; s=20260707; t=1795369119; x=1795973919;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0I/gkzCqyaCNd3bzstkk5KNSlHR8/A+NpuninLCCHoY=;
+        b=mNY/u0MNKqFXYAeOqjNJk4TiWbVUArny2RJxK4NAePnF0+1M5Ho10j9ZOFmWg+U90g
+         Ak8wrduQHhjgoKk8fOod8NVc1iggAmb3G9aJFQdIUWqAnEkRqPHtRwAf+c90ggOKJJQB
+         D0QlfLC5mW6jgz6hnb0AJOl58TbSVIm31yy3zHDrLsW4pQwRstUMRYkBESUYmfA2htNA
+         hnPk80TxYIo4JQftvn/4hbWSrMAoi40iPE3RELDwAypmppONuSRc1ESyionoKdVRkpNY
+         KDZYTqjUfNu8UUm65/T9BlPoT8sMkZ7RWbZ83kDQRtwcfjpE3Qb2dzeTR/Yr7ixIWZMr
+         UViw==
+X-Forwarded-Encrypted: i=1; AL+hErFO70dCb3CKKeu9R8I3HlYPXha+uIimKhP/2sFdg4Cx6KmpE4M2IgOSvqy00GE00PXhWTPhoZ4IQLvawLw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+mLZMkoZKK7N6WywDnIpfmhfZTpMRj9iDQ4wwP0tbssNEGmmlj
+	XvBryg9Zqh0l5lMWLd5I1UjoZUyugYXEfWUlx5ib2wUw2SSr+vZkggeD
+X-Gm-Gg: AZFdTZcnDY/7m084RiYChbZLzeCzRQry/GIoc9qvUx+B9SQAF5vXc6Tv7nWcT/8DIUt
+	7oZAUHT6ihGGqHo1wLnf1eu/TJ6No54+u8y1hq/HDuyuHOaLQfEuQNC66nmNIOt3lTQyv4FoQ3T
+	3KcEY6IlTnRNS4CfZepGb3KAyLeRwVmEVoOdlihUSVBx93YnIqXqFDbK8k0iFahSq5CKFDY0p7K
+	ItHKDRmhwCm0fNc9Ivv/Vpyp4FOKFIUkagXAFFBApo73iO8VEoYwZe+MKkqRKOO8B6gOeFs7NX4
+	cwf5xWpU33m2/tUll0L8auSmhgMpIamnt2go+oSVZhVSaewTOadCU+JAqwaW/J9DLBVgEVdnLF2
+	V0muUzSEElJWIDzYDKL9JQL4W4QNsDsYhoapNIHkskRzCVoIvkR1JOQ038SlFDpgNS+rKNaDH2l
+	N+PtAPuAf2oz4nLbtHWkjyMqmKRDSQbDLJlIbsiHDVPhYlTyKTIy2fBmfimYJkmqOZpgdtlxXtX
+	7sSuHFh6RcENZQWhJGYwpgffW2y+JqIAiEM5vHgH/LSijPoxSa/td2MnSJEwP9flxe7TGi1wfrY
+	k3Aqemg1ho6ExWA4e7o8QI1v6Uc6Hsk4uUTy5WDleIg6s5kM/Q==
+X-Received: by 2002:a05:7300:430a:b0:379:7bb6:9c4b with SMTP id 5a478bee46e88-385717083eamr12238447eec.39.1795369119433;
+        Sun, 22 Nov 2026 09:38:39 -0800 (PST)
+Received: from duge-G3-3500.taila331c7.ts.net ([138.199.21.246])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd4efesm29097985eec.12.2026.11.22.09.38.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 09:38:17 -0800 (PST)
-Message-ID: <6b032889.37338684.23e1f6.5476@mx.google.com>
-Date: Sun, 22 Nov 2026 09:38:17 -0800 (PST)
-Sender: =?UTF-8?Q?Dominik_G=C3=B3rski?= <karolvlesksk@gmail.com>
-Content-Type: text/plain; charset="utf-8"
+        Sun, 22 Nov 2026 09:38:38 -0800 (PST)
+From: Jiayu Du <duge1256@gmail.com>
+To: srini@kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	dlan@kernel.org,
+	troy.mitchell@linux.spacemit.com,
+	me@ziyao.cc,
+	aurelien@aurel32.net,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	p.zabel@pengutronix.de,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Jiayu Du <duge1256@gmail.com>
+Subject: [PATCH v3 0/3] Add read-only SpacemiT K3 eFuse support
+Date: Mon, 23 Nov 2026 01:38:07 +0800
+Message-ID: <20261122173810.2409146-1-duge1256@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,24 +109,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Subject: =?utf-8?q?Wizyt=C3=B3wka_w_Google?=
-From: Dominik Gorski <dominik.gorski.671@gmail.com>
-To: linux-kernel@vger.kernel.org
+Content-Transfer-Encoding: 8bit
 
-RHppZcWEIGRvYnJ5LAoKUG9tYWdhbSBmaXJtb20gdyBidWRvd2FuaXUgc2lsbmVnbyB3aXplcnVu
-a3UgdyBHb29nbGUgcG9wcnpleiBwdWJsaWthY2rEmSBwb3p5dHl3bnljaCBvcGluaWkuIFdzenlz
-dGtpZSByZWNlbnpqZSB3cnp1Y2FteSB6IGFrdHl3bnljaCwgcG9sc2tpY2gga29udCDigJMga2HF
-vGRhIHogdW5pa2FsbmVnbyBJUCBvcmF6IG9zb2JuZWdvIHVyesSFZHplbmlhLgoKSmFrbyBiZXpw
-aWVjem55IHB1bmt0IHd5asWbY2lhIGRsYSBub3d5Y2gga2xpZW50w7N3IG9mZXJ1amVteSBzcHJh
-d2R6b255IHBha2lldCBtaWVzacSZY3pueTogMTAwIG9waW5paSB6IHRla3N0ZW0gZG9wYXNvd2Fu
-eW0gZG8gYnJhbsW8eSAoY2VuYTogMTAgesWCIG5ldHRvIC8gc3p0LiwgxYLEhWN6bmllIDEwMDAg
-esWCIG5ldHRvIC8gb2suIDEyMzAgesWCIGJydXR0bykuIENhxYJvxZvEhyByb3prxYJhZGFteSBy
-w7N3bm9taWVybmllIG5hIDMwIGRuaSwgY28gemFwZXduaWEgdyAxMDAlIG5hdHVyYWxueSBwcnp5
-cm9zdCB3IG9jemFjaCBhbGdvcnl0bXUgR29vZ2xlLiBUYWtpIGZvcm1hdCBwb3p3YWxhIHNvbGlk
-bmllIHByemV0ZXN0b3dhxIcgd3Nww7PFgnByYWPEmSBpIHJlYWxuZSBlZmVrdHkuCgpKYWsgdG8g
-ZHppYcWCYT8gUG9kc3nFgmFqxIUgUGHFhHN0d28gbGluayBkbyB3aXp5dMOzd2tpIG9yYXogTklQ
-IGZpcm15LCBhIG15IHd5c3Rhd2lhbXkgcHJvZm9ybcSZIHByemV6IFVzZW1lIChwZcWCbmEgRlYg
-MjMlKS4gUG8gb3DFgmFjZW5pdSBvZCByYXp1IHJ1c3phbXkgeiBoYXJtb25vZ3JhbWVtLgoKQ3p5
-IHByemVzxYJhxIcgcHJvZm9ybcSZIG5hIHRha2kgcGFraWV0IHN0YXJ0b3d5IGRsYSBQYcWEc3R3
-YSBmaXJteT8KClBvemRyYXdpYW0K
+This series adds read-only NVMEM access to bank 0 and bank 7 of the
+SpacemiT K3 eFuse controller. These banks contain temperature calibration
+parameters and other configuration data.
+
+Tested on a SpacemiT K3 COM260 Kit. Both banks returned the same data
+across repeated reads and five unbind/rebind cycles. Reads from the other
+banks returned zeros. With the separate K3 thermal series applied, all
+seven temperature channels resumed reporting after each rebind.
+
+Changes in v3:
+- Use an exclusive, managed reset and assert it on detach or a subsequent
+  probe failure.
+- Use a 512-byte NVMEM space with bank 0 at 0x000 and bank 7 at 0x0e0;
+  cover the other banks with keepouts.
+- Update the binding and DT calibration cell offsets to 0x1c and 0xea.
+- Clarify the shadow reload names and remove the incorrect reset comment.
+- Drop Conor's Acked-by from the binding patch after changing the NVMEM
+  address layout.
+
+v2: https://lore.kernel.org/all/20261116075423.1519438-1-duge1256@gmail.com/
+
+Changes in v2:
+- Trigger a shadow reload before polling FUSE_READY; fail probe on timeout.
+- Enable the clock only while accessing hardware and leave the shared
+  reset deasserted on teardown.
+- Explain why the root key and SSK registers are excluded.
+- Use an aligned __le32 cache instead of put_unaligned_le32().
+- Drop unnecessary Kconfig dependencies and the bootloader initialization
+  requirement.
+- Use devm_platform_ioremap_resource() and align the register definitions.
+- Enable the eFuse node by default in k3.dtsi.
+- Add Conor's Acked-by to the binding patch.
+
+v1: https://lore.kernel.org/all/20261106060525.346873-1-duge1256@gmail.com/
+
+Jiayu Du (3):
+  dt-bindings: nvmem: Add SpacemiT K3 eFuse controller
+  nvmem: Add read-only SpacemiT K3 eFuse support
+  riscv: dts: spacemit: Add K3 eFuse and temperature trim cells
+
+ .../bindings/nvmem/spacemit,k3-efuse.yaml     |  63 ++++++
+ MAINTAINERS                                   |   6 +
+ arch/riscv/boot/dts/spacemit/k3.dtsi          |  23 ++
+ drivers/nvmem/Kconfig                         |  11 +
+ drivers/nvmem/Makefile                        |   1 +
+ drivers/nvmem/spacemit-k3-efuse.c             | 205 ++++++++++++++++++
+ 6 files changed, 309 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/nvmem/spacemit,k3-efuse.yaml
+ create mode 100644 drivers/nvmem/spacemit-k3-efuse.c
+
+
+base-commit: d6bcfc94eb4da6e089c5473970cd96727292fd97
+-- 
+2.43.0
+
