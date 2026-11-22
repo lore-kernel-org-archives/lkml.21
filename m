@@ -1,95 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.12.121.168
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795327481;
-	b=lG+winnzc+7Xd0mEf10h/K4vPB4ruow3yqS1rzf8CXXhKHQ+93aP02U6r+CTmt2EM/W2
-	 rwL/ZbRb1KQ238DyMCtCLBht3sqMinQxwH7Kz4t2PCYQofAK+nit8D9iPmDXuwL12YhTV
-	 5NRt+nyyZHIASyhO2VKTTjLNRj4i/VHTuk+Yz9d3CTmcmP8uLGksT+iot4YqLS6yPbva5
-	 K6wHdUbRIeobqiiE44Jq5f87g0j0NLRu0Knyb0sOuOm2dulRNgKcot4MsMDRTH+Zz666P
-	 6XOLNCFdgPnawNlusDGK35uT349ILYe4/ocGzRoyVHfrqLFpSXDAs3rcPdcfMjvw0sA==
+	t=1795327719;
+	b=M/+KY5vGi2S+rSm+r09eR1gXbjoI+nMBARFjaFIwk5UfgEVAzj8J1XhSQCMPQ8xe3EWh
+	 H0ypMT2k664RjyLzJa2MOGnAgsIeWPVF60Lr1h6IrfXawR3hjoMO4Ca0Ti94Gh3YDOKFX
+	 sL2dNwUylJTncrHrc6583saIzlkOn2ptlqcBlGqlYXMQVhPg41yRkY+Y4tV+cDKG/D/6W
+	 opQS9GcSDEdkOlqqUIG1WZrIO2IoiAWCDWcbGvOewqkBnc9UdQpImvABombOT0bY6GAVe
+	 dgbkduE89puhKRPCSh7dEAy7qovsP3Mt+sduLMaAqfP0qZ9OZsU+rTdeBYzT6mL7Kww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795327481;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=5NFMG2PvhOk/v2cx9/EqWDkni1W5VrzeNCSaqAwEm/M=;
-	b=EfkIyDRwIfyy546Lae2jhQwBWJS2rOz6/piNgELeEkCiufSvEHyoPkc256rXMuiDmvnm
-	 1rpEK4/v+10ZGY+AxJdCAbeMTBJ3f5L0dGu08F0dIZ4JMVuIVxVUPGJACPkizo77/dKvn
-	 pme/NAEmfz5PzU/zKhk3ZKLRyGl92P73aGyANKuyqu/sb98rC3yyvCnLm/Ads82GZRwzj
-	 9Kz79eowCPu+iMks999rYS9DllyHn2aFq4lJ+yjif5TkE09IijH6gAwtRQ4UDCvuWE5ZQ
-	 413pBmM3kcVgNzirvJ3MtCiyYJ3j5+/+gcKkhJBKBcVK+63UzkWBrepx8ZMop08mYSA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795327719;
+	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:Date:
+	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=pVLVh+TGscVXqvwUZS9QseOaZ7BrydJwWL6vHpXLb+o=;
+	b=w1JGSpSDXTdRuleOtMejCOeiCI/k7uheeyOHpu2Yh8tSYSihEB2WgFNORSzkSMpsnQ4F
+	 toohVMqGXZcdrOfolLJFIdkJPM/gVgiojr4iYiEBj+RV0SWjfCw/ax92XDjCFcxjwqZbC
+	 gAmZbBuGcwcJKcc1Ix6P3z8VGC0i4xIS1O+3Unz9y315SsNaXpaDUygqY6lTTNCgBTlze
+	 7amlLb8bndBovODMuflyi7/PIXxhhBaJ1LDq72+QpdIYXvKKKKbV5lSJ2r7wK8nK9JDWc
+	 PT89Ew7QB8O8Gvh1fntoJ8znKyz2Yvrb3yIEeRuNXEyvzypkIkiP+a+oJ6p+nIbyaBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CPzlYQ+z;
-	arc=none smtp.remote-ip=74.125.82.52
-Received: from mail-dl1-f52.google.com (mail-dl1-f52.google.com [74.125.82.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=barrensea.org;
+	spf=pass smtp.mailfrom=barrensea.org;
+	dkim=pass header.d=barrensea.org header.i=@barrensea.org header.a=rsa-sha256 header.s=mail header.b=eFNizDrH;
+	arc=none smtp.remote-ip=198.12.121.168
+Received: from mail.barrensea.org (mail.barrensea.org [198.12.121.168])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2ACDE606A687
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 06:04:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2ACDE606A687
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A415606A320;
+	Sun, 22 Nov 2026 06:08:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A415606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=barrensea.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=barrensea.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CPzlYQ+z
-Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-1b3a05f8b5bso2805963c88.1
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 22:04:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795327480; x=1795932280; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5NFMG2PvhOk/v2cx9/EqWDkni1W5VrzeNCSaqAwEm/M=;
-        b=CPzlYQ+zjMF/MAKxHtYFa3yUeZe7LMbJ52gKhGTuEo0r2r46JjQcz4XgWGfgTx/Bql
-         ShN1ZeOt4V1fX4RrQD5PwFuJNwgzPYMCMMsr0f/2dw2YLTWGJ0gP5HDSwTd0b8FtMbil
-         zdUkbRCdZ1KuAFfWoCRwti8DWPnLIRAwb8Gqq9qVmW/So0JO0xNIigDLaVvLwY8nm2TH
-         gTtClanVbBIDRWWyERLxNJM41bmoNhbp8/07VTCYHupVsHsvNfXGTsxA3ZirggzC3m1e
-         zD6mUfb3NuuGRoULQh8tT0u9Of6UTFesq3A8qqUnlp5qjROYPcjWK/sc9B8l0cTcYX+o
-         hAyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795327480; x=1795932280;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5NFMG2PvhOk/v2cx9/EqWDkni1W5VrzeNCSaqAwEm/M=;
-        b=1//QSFv0GzBq2eA9u+ULMZo2Zj+x0qR+dI9oajlCAdvXxMv5YDh6ekyw9lBS1yeikT
-         /S74G6DUcYl9Gdv2lzE5W6SeAORlenE/IxX4tNHnSVAUR9izKuKJ8HaSqnhaJa7DJ3p/
-         5bItC5Hc4w9oExdvCn9zdmXqCuFNOOj16Nrb5e6SXSNHWIu0m+7ftYffcLBVEN1z/K9E
-         PxM8OhIauhdQen7yxqFtfKwAcVYWC3vBtfenHIWr2f8MBCEWTvJ/TfsYPPqv2Qgc1ovq
-         CbQ0pUdUaqczrKYBwXB43PYxKObXv+K62DRuK3nq0EyauKD5r6+A9qY/756UHYD2Vh7t
-         CN9A==
-X-Forwarded-Encrypted: i=1; AL+hErEV4ji6L92EP5qwq0pRWMwvowNwSgz3Idx6CpHSdJ3v1kZrYOTf6oQ9u4EEVwvOvawf5izoAu6VPwt/cCw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8yaxu5KNWaqGW2MA5u23RcgKgrOVGeaSfXgRnbFTwz54guFMKf
-	hehm30i05sJVA+RmeNIT0aW4xGhRvLqB6rdaCbcc4Z89iAFAh7mXVMFf
-X-Gm-Gg: AZFdTZcSE2fUXAGHnFI+VIyQo2pma7vga8K2wRkV0InyHf/tF/8wwT+3TZD7rfG93cH
-	xLf7Q86jwA6Y2WBn45o8NGzZqtniWKLPvGjhoRK2pvUiPOrWpniYUvEUi21KuJyYTjjirzjf68z
-	12nKKLEo1lJcl/FRmirJHZE6/Okc+HhQJQIz6QDkPUSz5qIj0oS3/BW35gSuUTN3Adqp95sdyi3
-	HKhB3sboeGX0KL3d/01rHhbXWoU5SifWRzHkXJdBPPhJqpaOdYj9cbGnHlseDTJXrwcfJYEuNEL
-	XZxWjGAcZQQ35ROm+6xALLQgbgQwAmrMfStzeeIQB68+d608HNMYamVlHe+QmyrKLCBrib2MD8Q
-	tfuq3tCjmWhoZISA3gyP/vS9wZXvxNDpNfqtc3wm8Kn2dqDXEop8wCZnd2q5/KFvJgOWsnJ/feX
-	ZeaQZd/qBFN3ow+Mxs9kqltU0p+Bj+fUPOUxqb49YhFrGrwcPL8nQrQkxE1N/Fs+z+aPflu5NYm
-	AUoJlRf92rYtQz4xLPHbcwFOfJ5tbn7vxrjxEHPbxRzgN2+unww+0mkwUA4S5rics4nMb12OmJU
-	a7sapcAVcFImCgaeOM02DvlD2jnrMt1xoIqJkyQZ7+KlS8d/HTRDbwFwwEwswBkPoQMr
-X-Received: by 2002:a05:701b:4552:10b0:1b5:31ed:e26c with SMTP id a92af1059eb24-1b55689b23dmr7435524c88.18.1795327480071;
-        Sat, 21 Nov 2026 22:04:40 -0800 (PST)
-Received: from hp-envy ([2407:7000:b098:4a00::6])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55684c85fsm26704718c88.14.2026.11.21.22.04.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 22:04:39 -0800 (PST)
-From: Parmjot Singh <parmjotsinghrobot@gmail.com>
-To: linux-media@vger.kernel.org
-Cc: laurent.pinchart@ideasonboard.com,
-	hansg@kernel.org,
-	mchehab@kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] media: uvcvideo: delay HP True Vision 5MP isochronous start
-Date: Sun, 22 Nov 2026 19:03:09 +1300
-Message-ID: <20261122060309.105714-3-parmjotsinghrobot@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261122060309.105714-1-parmjotsinghrobot@gmail.com>
-References: <20261122060309.105714-1-parmjotsinghrobot@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=barrensea.org header.i=@barrensea.org header.a=rsa-sha256 header.s=mail header.b=eFNizDrH
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=barrensea.org;
+	s=mail; t=1795327711;
+	bh=xzNeCi2m6cFwnHE3UxVXv5ZB1pxBCu55uK+vR0sAais=;
+	h=From:To:Cc:Subject:In-Reply-To;
+	b=eFNizDrHt7e+7NhPHppZqfCUoyb0E7dcqrP5j4s1Rx6CiRvfT8eziadc/49XWxPGD
+	 TkgmyxFtOuzBQcIUldHHvDQvSQNtojJAlsxEQUGfC+SOC1/tMuba1XlPtEm3gQhBYD
+	 wFGr1AdRJCQBVyemj940y5O+CPOY396YgpzZaaAadjxuYgz1Pj4uoOc7+wT4hdMPzU
+	 Zuk2XQddGKbhUnErbz6l5U9kWoO5eiZ6vEycBX4cetwui/uLybT/QAqr1HJ9JMeVaL
+	 s24ajcyc4F38Az/g+cvtn6cBlZBGkhgbtjm4yuKzL5IBkCTfOqERQYWSyl7uYG5+GC
+	 2AgMYKiVmhgJw==
+From: Yifei Yao <donplat@barrensea.org>
+To: W_Armin@gmx.de
+Cc: hansg@kernel.org,  ilpo.jarvinen@linux.intel.com,
+  platform-driver-x86@vger.kernel.org,
+  linux-kernel@vger.kernel.org,donplat@barrensea.org
+Subject: Re: [PATCH v5] uniwill: Add support for MECHREVO WUJIE Series 15 X Pro
+In-Reply-To: <878q3cc4im.fsf_-_@barrensea.org>
+Date: Sun, 22 Nov 2026 14:08:26 +0800
+Message-ID: <87mrr1iejp.fsf@barrensea.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,91 +60,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-The HP True Vision 5MP Camera (04f2:b767, revision 0.05) accepts
-COMMIT and SET_INTERFACE, then may disconnect shortly after starting
-isochronous transfers. A 350 ms pause between SET_INTERFACE and the
-first video URB allowed color streaming in MJPEG and YUYV modes.
+Hello Armin,
 
-Add a per-device isochronous startup delay and apply it to the color
-interface.
+A gentle ping on this patch.It has been about 20 days since I posted the
+rebased patch.  Could you please take a look when you have a chance?
 
-On Arch Linux 7.2.14, FFmpeg decoded 90 frames each in 720p MJPEG,
-640x480 YUYV and 2592x1944 MJPEG, plus 300 frames after a 720p
-restart. The infrared stream still disconnected during the delay
-experiment, before the first video URB was submitted.
+To avoid any confusion, I have included our previous correspondence
+below for reference, along with the rebased patch.
 
-OpenAI Codex (GPT-6.2 Sol) helped design and analyze the USB timing
-experiment and write the driver change.
+> > Am 11.10.26 um 10:14 schrieb Donjuanplatinum:
+> >
 
-Signed-off-by: Parmjot Singh <parmjotsinghrobot@gmail.com>
 
----
- drivers/media/usb/uvc/uvc_driver.c | 14 ++++++++++++++
- drivers/media/usb/uvc/uvc_video.c  |  4 ++++
- drivers/media/usb/uvc/uvcvideo.h   |  1 +
- 3 files changed, 19 insertions(+)
+> > Does the OEM control center for Windows support battery charging
+> > modes? If yes then you should also select
+> > UNIWILL_FEATURE_BATTERY_CHARGE_MODES.
+> >
+> > Other than that the patch looks fine to me, but i would be very happy
+> > if you could rebase it on the current for-next branch.
+> >
+> > Thanks, Armin Wolf
 
-diff --git a/drivers/media/usb/uvc/uvc_driver.c b/drivers/media/usb/uvc/uvc_driver.c
-index 99c28991b..cfc626a15 100644
---- a/drivers/media/usb/uvc/uvc_driver.c
-+++ b/drivers/media/usb/uvc/uvc_driver.c
-@@ -2754,6 +2754,20 @@ static const struct usb_device_id uvc_ids[] = {
- 	  .bInterfaceSubClass	= 1,
- 	  .bInterfaceProtocol	= 0,
- 	  .driver_info		= UVC_INFO_QUIRK(UVC_QUIRK_RESTRICT_FRAME_RATE) },
-+	/* HP True Vision 5MP Camera (color) */
-+	{ .match_flags		= USB_DEVICE_ID_MATCH_DEVICE
-+				| USB_DEVICE_ID_MATCH_INT_INFO
-+				| USB_DEVICE_ID_MATCH_INT_NUMBER,
-+	  .idVendor		= 0x04f2,
-+	  .idProduct		= 0xb767,
-+	  .bInterfaceClass	= USB_CLASS_VIDEO,
-+	  .bInterfaceSubClass	= 1,
-+	  .bInterfaceProtocol	= UVC_PC_PROTOCOL_15,
-+	  .bInterfaceNumber	= 0,
-+	  .driver_info		= (kernel_ulong_t)&(const struct uvc_device_info){
-+		.quirks = UVC_QUIRK_PROBE_DEF,
-+		.isoc_start_delay_ms = 350,
-+	  } },
- 	/* HP True Vision 5MP Camera */
- 	{ .match_flags		= USB_DEVICE_ID_MATCH_DEVICE
- 				| USB_DEVICE_ID_MATCH_INT_INFO,
-diff --git a/drivers/media/usb/uvc/uvc_video.c b/drivers/media/usb/uvc/uvc_video.c
-index a92a986ab..e20330998 100644
---- a/drivers/media/usb/uvc/uvc_video.c
-+++ b/drivers/media/usb/uvc/uvc_video.c
-@@ -6,6 +6,7 @@
-  *          Laurent Pinchart (laurent.pinchart@ideasonboard.com)
-  */
- 
-+#include <linux/delay.h>
- #include <linux/dma-mapping.h>
- #include <linux/highmem.h>
- #include <linux/kernel.h>
-@@ -2103,6 +2104,9 @@ static int uvc_video_start_transfer(struct uvc_streaming *stream,
- 		if (ret < 0)
- 			return ret;
- 
-+		if (stream->dev->info->isoc_start_delay_ms)
-+			msleep(stream->dev->info->isoc_start_delay_ms);
-+
- 		ret = uvc_init_video_isoc(stream, best_ep, gfp_flags);
- 	} else {
- 		/* Bulk endpoint, proceed to URB initialization. */
-diff --git a/drivers/media/usb/uvc/uvcvideo.h b/drivers/media/usb/uvc/uvcvideo.h
-index af8cef94f..eb949c6d8 100644
---- a/drivers/media/usb/uvc/uvcvideo.h
-+++ b/drivers/media/usb/uvc/uvcvideo.h
-@@ -545,6 +545,7 @@ struct uvc_device_info {
- 	u32	quirks;
- 	u32	meta_format;
- 	u16	uvc_version;
-+	u16	isoc_start_delay_ms;
- };
- 
- struct uvc_rect {
--- 
-2.56.0
+> Hi Armin, I think some of my previous replies may have been missed. I
+> have added and tested the battery charging mode:
 
+> > > Can you check if UNIWILL_FEATURE_BATTERY_CHARGE_MODES also works on
+> > > your device?  Please note that the embedded controller will still
+> > > report to charge the battery to 100%, so this is not a reliable
+> > > indicator. Do you know if the Windows OEM app provides such a
+> > > setting on this device?
+> > >
+> > > Thanks, Armin Wolf
+> > >
+
+> > I also checked the battery charge modes in the Windows OEM
+> > application. The OEM application provides this setting.
+
+> > Additionally, I used the interfaces exposed by the OEM's
+> > ACPIDriverDll.dll to test the three charge modes and confirmed that
+> > their behavior matches the current implementation in the Uniwill
+> > driver.
+
+
+
+> > Other than that the patch looks fine to me, but i would be very happy i=
+f you
+> > could rebase it on the current for-next branch.
+
+> I put the rebased patch here,it now base the for-next:
+
+> >From c45bac93447a52dd2e4a76395202a13c6d91763c Mon Sep 17 00:00:00 2001
+> From: Donjuanplatinum <donplat@barrensea.org>
+> Date: Mon, 2 Nov 2026 11:03:25 +0800
+> Subject: [PATCH] platform/x86: uniwill-laptop: Add support for MECHREVO W=
+UJIE
+>  Series 15 X Pro
+
+> Add support for the MECHREVO WUJIE Series 15 X Pro (WUJIE
+> Series-X5SP4NAG).
+
+> Signed-off-by: Yifei Yao <donplat@barrensea.org>
+> ---
+>  drivers/platform/x86/uniwill/uniwill-acpi.c | 22 +++++++++++++++++++++
+>  1 file changed, 22 insertions(+)
+
+> diff --git a/drivers/platform/x86/uniwill/uniwill-acpi.c b/drivers/platfo=
+rm/x86/uniwill/uniwill-acpi.c
+> index f62d59f29676..d49be1caea50 100644
+> --- a/drivers/platform/x86/uniwill/uniwill-acpi.c
+> +++ b/drivers/platform/x86/uniwill/uniwill-acpi.c
+> @@ -2715,6 +2715,20 @@ static struct platform_driver uniwill_driver =3D {
+>  	.shutdown =3D uniwill_shutdown,
+>  };
+> +static struct uniwill_device_descriptor series_x5sp4nag_descriptor __ini=
+tdata =3D {
+> +	.features =3D UNIWILL_FEATURE_FN_LOCK |
+> +		    UNIWILL_FEATURE_SUPER_KEY |
+> +		    UNIWILL_FEATURE_CPU_TEMP |
+> +		    UNIWILL_FEATURE_PRIMARY_FAN |
+> +		    UNIWILL_FEATURE_SECONDARY_FAN |
+> +                 UNIWILL_FEATURE_BATTERY_CHARGE_MODES |
+> +		    UNIWILL_FEATURE_KEYBOARD_BACKLIGHT |
+> +		    UNIWILL_FEATURE_AC_AUTO_BOOT |
+> +		    UNIWILL_FEATURE_USB_POWERSHARE,
+> +	.kbd_led_single_color =3D false,
+> +	.kbd_led_max_brightness =3D 4,
+> +};
+> +
+>  static struct uniwill_device_descriptor machenike_l16p_descriptor __init=
+data =3D {
+>  	.features =3D UNIWILL_FEATURE_FN_LOCK |
+>  		    UNIWILL_FEATURE_SUPER_KEY |
+> @@ -3075,6 +3089,14 @@ static const struct dmi_system_id uniwill_dmi_tabl=
+e[] __initconst =3D {
+>  		},
+>  		.driver_data =3D &x4sp4nal_descriptor,
+>  	},
+> +	{
+> +		.ident =3D "MECHREVO WUJIE Series 15 X Pro",
+> +		.matches =3D {
+> +			DMI_MATCH(DMI_SYS_VENDOR, "MECHREVO"),
+> +			DMI_EXACT_MATCH(DMI_BOARD_NAME, "WUJIE Series-X5SP4NAG"),
+> +		},
+> +		.driver_data =3D &series_x5sp4nag_descriptor,
+> +	},
+>  	{
+>  		.ident =3D "MACHENIKE L16 Pro",
+>  		.matches =3D {
+> --=20
+> 2.56.0
+
+
+--=20
+Donjuanplatinum, Yifei Yao <donplat@barrensea.org>
+GPG: 1C9E EEE5 4C8E D5A8 3039  1C87 A9F6 8632 D259 40E6
+=E6=BB=A1=E5=A0=82=E5=85=AE=E7=BE=8E=E4=BA=BA =E5=BF=BD=E7=8B=AC=E4=B8=8E=
+=E4=BD=99=E5=85=AE=E7=9B=AE=E6=88=90
