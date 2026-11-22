@@ -1,85 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795348255;
-	b=AUePIerTnquF7hW/DDMT7ePR1au4F15o0s4Vun4cn97asy3JKm5e6BxllMadkTPTuuFv
-	 De3gFQNxSn1S9hdZVzK1M8BCwxL3iaxyn1Pv2a/jIICbMEmmPni0/76BnExpMtNLgdVi7
-	 afIZBfLPPt4IT75EFd2ZdvqbcQljMIWId8PLOB0WbCMMmz2qS2FhOIkYrLY9L7BJYOxwG
-	 5Nm/SLCRP7Y1ttxn/vzfrAwibD43bDDNRRDC+DMzF5hoKM3IzIP7+sgG7DIdm8XC3C3DD
-	 iOe4+zvmumiVQkeSJIz5hhssytP4EEmdj8h/irJwZQobn5ym2WJ/4SxSzr1mFk5kpVg==
+	t=1795348290;
+	b=r5hovLIGTINzTwHf0uWX3KU9b1gsVs8pGIkhaHrJB94LrWU1Q5kEeZJtPFbBk3DVt/J7
+	 7pB0eTflwJ5JbuW+G0fJ6eqsg/txqk0wkqhkFY+0Zqmbi0WifKPvsRehD/RMYAjr5tya6
+	 XNQvfW/79w5/gRvvhZxRMtjNnEpr+pT9a4LcCM0Y7qmxHO2W9/hkw6Ij08SJVvOF7g1Xy
+	 H8WWJtJMJRBcn3c9FmibT8zDVwRKgcE0d+R64kFVHpi+Nz6fUO+Dhk4nxlQMuppl0XAwm
+	 xCtLN5MbljwwJYTtmOTdPLD1o+qfEV8HUN3UiTQCiNHqG8Et1boRDjHw44LwcEsGm/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795348255;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
-	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=cB68K9VszL8x8rzgkP/c3kcIxRgyD3G47ftVYkV0bxo=;
-	b=1UGy1H5EpxKLnLY8qXZbJslUGRaZfrOgH8OtTg11es3pD3++WYSx933jvyYkKIhEBdd+
-	 fXNwT5jzPQPaYYF6g4oUU6D0ILluZuSG3aDuOo7skqupRvu9iFlM0WiFI5R2F/jD8+v0I
-	 9NMunCdPjLIk/0BqLon1lN+IKQdcH/mr3zhGpHrJIldj/ytcR7bAwamF2+HdlyEa2qawC
-	 RwR3mHajsvUaQrch0SoNIT4rGz7lp9CtAJlgDTK6vjltO0igcfbEHpUHtrO+aZxCbLVHz
-	 GtVML1UxTB8EXYT6W8JnJG2Yhcgw+IeCqmGVq34KLcjpK1fLQt0PZ0yc0ce/1+xyn3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795348290;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=SdLr6yRqTSIXIq9q/8cXAbS05lzrBdYrcWskButSjtc=;
+	b=ZkZdLz8jiHJ+t0tEA2Ejuk2Traw18SXul4LP2b6lZsHyZGlSusVAjP7f+yNJ+QvByplY
+	 opJXub1w7NvFlYkhVCuMS5+owzsA5/obusbMeKH/abkatMEiRemRdsBc+MyfriMJFbUUP
+	 CAYkMEj9s5v3ACfrPAhUXPId2ogHfDRqJnO0MtLaFN5DpOIgScYNkxn2mPImIq0Vm4J8/
+	 t76dqX82VWfCrteHVS9Sa3jqLnTatU3qRz35Ws0vokKhyGtpJfkuG/JEdREmVDex6Lpgu
+	 evK3JOWGFe/8KPHYZVVAyAHr210FhaLQfg8I5NAzsaMmMpB3KhbRvQC0JxSR5mOmz1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=BXTr1Cpc;
-	arc=none smtp.remote-ip=209.85.221.47
-Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=STCTzFZv;
+	arc=none smtp.remote-ip=192.198.163.13
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 719CF606A331
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:50:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 719CF606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 952E0606A32C;
+	Sun, 22 Nov 2026 11:51:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 952E0606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=BXTr1Cpc
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-4a5024b3c28so2040364f8f.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 03:50:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795348253; x=1795953053; darn=vger.kernel.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=cB68K9VszL8x8rzgkP/c3kcIxRgyD3G47ftVYkV0bxo=;
-        b=BXTr1Cpcmy5ZiD6nkwYf1A1L9ZCyVYQHqcj/Y58abuAg0pgE+RhWyVUsieT75cDdvA
-         yXOVqq9c9hQTpcmTAl3ScYgP2+pzG94AUnd7Uu4iGgq3E3TMY3RPgcYFU8CIhyOXkAtQ
-         6QXhqoI2wKBNCHgXsMWP+XUqvnAlFEPs5i+BUSiOmf60BkH8bKtqwa8wsOG0qCTCUyKR
-         PxWNmxMZi9bt3P9i5qg5gwa1pMbvEjvVgMNHP4YDTedsiWQiXKi35IBNUoW+1g8DA+rM
-         3l+Y3vBncVdAEAdSfwwYN38uSr/9Qvu50bGdHuTrC4i2USUQZeZDuVTuAPEeaNczUs7c
-         a8Rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795348253; x=1795953053;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cB68K9VszL8x8rzgkP/c3kcIxRgyD3G47ftVYkV0bxo=;
-        b=iFmu2mmnry03kh7D6drgNgjaEKZsek4X4UNA6OB+EoTNe7iDBnrY4D/vd6zOF6gbh4
-         +mDVuUKK0JgpoXab4zfOtlqYsn2grP+cLHcpJd+IOIdYDO7lyHcBy0vUlKpNZeHzfMiE
-         32JutgNFBrirY1SY6Cjtp64CHVVI1zYb4sbQaN9lN8AzC5SvZ48hMGDHTIHOQZSe0K18
-         yrbIBQnNoshvTl5+jDDOGoigGpqFcv2K2KSJ8k9004L9u0rDGQooQdqQNyODRRuokgEb
-         yl4fShWoEl9uQhD5fKi5OhO8hewYq1ckPBe9WOHBxnfdUxvyea7kCe+/K2YP/fOXbGnJ
-         +pWw==
-X-Forwarded-Encrypted: i=1; AL+hErH71T1JXFDPXLt9EyBDyDf9kXlfVOMn0ltpeFpTm1q0M/M6EIbvfwg290AsxfOc2Ex41mcBsTifOl4LolI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+cQ6ILaJ8+fFnXfWVHW8nPXXCG8ZRn+amKGGrj+AO6UKUTNaPO
-	6ht0fESwWQGH1IjouZJZ09T3PIlilHq56ElIwHxTDdAs635Jub7z7OzjYJA1Bt1VjsU=
-X-Gm-Gg: AZFdTZcGwuva0qgAa2tMYML0lXVoTbce+aHQ2AnyvVFfQ5+TzHrKY5G6XYkDlh/sFgg
-	/rYBEFFZW6DflFsWae7iagHuSLSYBDu0LyuUp6sEMY5BtEPy0fdisDcngu7NvsLSYlOyoUbOIvk
-	BEeJAnfUKBPlL9CSxeptzI7gRX69BheOtqiFzTffFHlqfpTPoxeA8zmK4ei9ggIwqtn9CNwwyy4
-	wl46x04xLKneFUYzPrEL8mjrspLeaI5x18/0nKLjeWkX+zMfPSLVzIA6LTXx5fGytCKUVBZPZpf
-	8T9K/DMp0UoFaL51f9ehGK2b/aRVUsq6KWbxsslRV01yWuNE53T0mUoTspPzDhya9M6qkw/YqXP
-	zizXacyK9oHNdyh+wOHjJa5WQeH0m3dUKz+1ySz/SOQl6E2x/P01DMxHamU/o7qV/qhyq/DcATJ
-	A++pz4LKfh+kpeBPcK2B4Mmxx3bPn53CFf8zldzBZIMjW1THXFl81cbdahNRxOTVaou001zq+NY
-	qde5iQp7qYp205Jd8NyYL07hhMSsfxkHNZ/WDTzbLjYzxPmtSGscmvPZMpNDc6HeNajaMvU9n0O
-	hYr1toIyT05eGVBmrgn+fyou5M4QmB+p8vrXnGWIRgPo2/2P
-X-Received: by 2002:a05:600c:4f81:b0:4bb:5e8c:13bc with SMTP id 5b1f17b1804b1-4bb88805902mr173405365e9.7.1795348252406;
-        Sun, 22 Nov 2026 03:50:52 -0800 (PST)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b39b6sm224616505e9.12.2026.11.22.03.50.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 03:50:51 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=STCTzFZv
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795348290; x=1826884290;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=o8bfGSGMC+XTLsw+DBGSIpRTxrHzS+tPO1ZCb6rISAA=;
+  b=STCTzFZvNFSXH/2jGMmlOZm4kGSwrAkgIdEcZvARGeiHWF9+1WtXYvXs
+   pDaUvURXksxbJzESjSSyGIUKJ9hjNtFAvh3jmwNHjrZAe2/Q4FzXnUTUd
+   M01mtpwoRKwsZpfwo0kO32nne3efL8q7Ta5IenonLoJ2qP6eFIlrbQHMi
+   22ykZUHaclUT8iPw5jyH2Eobay7tDnWt4ACDRO0/fc6pRlpLs3Hqyj8PC
+   fYeWgxaAkQMpx0L5iuLAvOkaaYJa4gtMF88U47Vl+7Ln47msBCpQ67RRe
+   AhVd8IdPtycgmFsaCyYGk4a9LIwLEj0N+tRxFwRKMNm9idy333J759NbZ
+   g==;
+X-CSE-ConnectionGUID: SZV0q7kSRNCHWrO5iKMNbg==
+X-CSE-MsgGUID: ZVIV1o53ROChoYIPox+7rA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11973"; a="4153944"
+X-IronPort-AV: E=Sophos;i="6.27,226,1787036400"; 
+   d="scan'208";a="4153944"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2026 03:51:29 -0800
+X-CSE-ConnectionGUID: xYeKisuzT2KLsMkMzHwYOg==
+X-CSE-MsgGUID: v+D3S8fRQDmlWO0gMXE05g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,226,1787036400"; 
+   d="scan'208";a="11012790"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 22 Nov 2026 03:51:26 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xV66N-00000001LTS-1lxt;
+	Sun, 22 Nov 2026 11:51:23 +0000
+Date: Sun, 22 Nov 2026 19:50:47 +0800
+From: kernel test robot <lkp@intel.com>
+To: Fredric Cover <fredric.cover.lkernel@gmail.com>,
+	Paulo Alcantara <pc@manguebit.org>,
+	Namjae Jeon <linkinjeon@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev,
+	ChenXiaoSong <chenxiaosong@chenxiaosong.com>,
+	Tom Talpey <tom@talpey.com>,
+	Ronnie Sahlberg <ronniesahlberg@gmail.com>,
+	Shyam Prasad N <sprasad@microsoft.com>,
+	Bharath SM <bharathsm@microsoft.com>, linux-cifs@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Fredric Cover <fredric.cover.lkernel@gmail.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] smb: client: convert DFS target node name from cache
+ charset on mount
+Message-ID: <202611221905.fQpuvetd-lkp@intel.com>
+References: <20261122045841.99012-1-fredric.cover.lkernel@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,108 +92,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v2 2/2] clk: sophgo: Keep SG2042 gates listed in
- protected-clocks enabled
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: gaohan@iscas.ac.cn, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen Wang <chen.wang@linux.dev>, 
- Yao Zi <me@ziyao.cc>, Chen Wang <unicorn_wang@outlook.com>, 
- Han Gao <rabenda.cn@gmail.com>, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>
-In-Reply-To: <awIs42O_vJN3gB7l@inochi.infowork>
-References: <20261122-b4-sg2042-efi-rtc-v2-0-6d087e03e4e8@iscas.ac.cn>
- <20261122-b4-sg2042-efi-rtc-v2-2-6d087e03e4e8@iscas.ac.cn>
- <awIs42O_vJN3gB7l@inochi.infowork>
-Date: Sun, 22 Nov 2026 12:50:50 +0100
-Message-Id: <179534825090.2640804.3856644920774930042.b4-reply@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3068; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=IdvAZSlfVMHZbcbQ9G6YqRxqWmYmrg7EOTVCXlS1rG0=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNlM16Wzti9b2Wcj+sZr/8Q3E4TmvSufv1fHe5WQhkfj0
- X8WB/JlOkpZGMS4GGTFFFlquKvF30lqfZk1Xec2zBxWJpAhDFycAjCRHVMZ/sf6PNWvYa1VURFr
- F0ydaZ7j9G934ovvrXmKRy+Hcz3l+cfwP++79vPLcQoXdE3O1TXcuHF2/95D0RMVjNUXfO+d4nf
- BlwMA
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261122045841.99012-1-fredric.cover.lkernel@gmail.com>
 
-On 2026-11-22 07:48 +0800, Inochi Amaoto wrote:
-> On Sun, Nov 22, 2026 at 02:18:05AM +0800, Han Gao via B4 Relay wrote:
-> > From: Han Gao <gaohan@iscas.ac.cn>
-> > 
-> > On Milk-V Pioneer, EFI runtime services use I2C0 and the serial flash,
-> > while Linux drives other devices behind the same gates. When those
-> > devices runtime-suspend, the gates are turned off under the firmware.
-> > 
-> > Mark gates listed in protected-clocks as critical. Unlike qcom, still
-> > register them, since Linux devices use them too.
-> > 
-> > Suggested-by: Yao Zi <me@ziyao.cc>
-> > Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
-> > ---
-> >  drivers/clk/sophgo/clk-sg2042-clkgen.c | 16 ++++++++++++++--
-> >  1 file changed, 14 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/drivers/clk/sophgo/clk-sg2042-clkgen.c b/drivers/clk/sophgo/clk-sg2042-clkgen.c
-> > index 6abc2c973c49..65ab18f701e1 100644
-> > --- a/drivers/clk/sophgo/clk-sg2042-clkgen.c
-> > +++ b/drivers/clk/sophgo/clk-sg2042-clkgen.c
-> > @@ -840,6 +840,18 @@ static int sg2042_clk_register_divs(struct device *dev,
-> >  	return ret;
-> >  }
-> >  
-> > +static unsigned long sg2042_gate_flags(struct device *dev,
-> > +				       const struct sg2042_gate_clock *gate)
-> > +{
-> > +	u32 id;
-> > +
-> > +	of_property_for_each_u32(dev->of_node, "protected-clocks", id)
-> > +		if (id == gate->id)
+Hi Fredric,
 
-If you are going to do it this way, restricting to gates looks like a
-pitfall that would difficult to anticipate from the DT side.
+kernel test robot noticed the following build errors:
 
-> > +			return gate->hw.init->flags | CLK_IS_CRITICAL;
-> > +
-> > +	return gate->hw.init->flags;
-> > +}
-> > +
-> 
-> I have a question on this: since a procteded clock should not be touched
-> by a driver. Is this logic necessary? I guess this is a shared clock
-> topology between the kernel and the firmare?
-> 
-> Regards,
-> Inochi
+[auto build test ERROR on manguebit/cifs-next]
+[also build test ERROR on manguebit/cifs-fixes linus/master v7.4-rc3 next-20261120]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-It depends what the intent is with protected-clocks here. This apparently
-starte as a qcom specific flag and it might, unfortunately, be a bit
-confusing with CCF existing concept of clock protection.
+url:    https://github.com/intel-lab-lkp/linux/commits/Fredric-Cover/smb-client-convert-DFS-target-node-name-from-cache-charset-on-mount/20261122-045840
+base:   https://git.manguebit.org/linux.git cifs-next
+patch link:    https://lore.kernel.org/r/20261122045841.99012-1-fredric.cover.lkernel%40gmail.com
+patch subject: [PATCH] smb: client: convert DFS target node name from cache charset on mount
+config: x86_64-rhel-9.4 (https://download.01.org/0day-ci/archive/20261122/202611221905.fQpuvetd-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261122/202611221905.fQpuvetd-lkp@intel.com/reproduce)
 
-CCF concept of protected (or exlusive) clock is basically a clock that do not
-tolerate rate change or glitch, resulting from a direct rate change of the
-clock from another consumer or one of its parents. Essentially, all the tree
-leading to the related clock gets locked.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611221905.fQpuvetd-lkp@intel.com/
 
-This is accessed with the consumer API clk_rate_exclusive_get/put().
-CLK_IS_CRITICAL is special case where the clock is locked and protected by
-the provider, even in the absence of a consumer. Consumer can still get
-the clock, enable or disable it but it won't ever result in the HW actually
-turning the clock off. clk_set_rate() will error out if the request would
-result in a disallowed glitch.
+All errors (new ones prefixed by >>):
 
-Apparently Qcom use of the flag is to skip the registration of clock,
-presumably because they've got something else controlling the clock.
-An alternative to this is register the clock with RO ops and NO_CACHE,
-this way CCF still expose the clock but does not touch it and you can
-still get it in drivers if need be.
+   fs/smb/client/dfs.c: In function 'dfs_parse_target_referral':
+>> fs/smb/client/dfs.c:44:21: error: implicit declaration of function 'dfs_cache_local_path'; did you mean 'dfs_cache_canonical_path'? [-Wimplicit-function-declaration]
+      44 |         node_name = dfs_cache_local_path(ref->node_name, ctx->local_nls);
+         |                     ^~~~~~~~~~~~~~~~~~~~
+         |                     dfs_cache_canonical_path
+>> fs/smb/client/dfs.c:44:19: error: assignment to 'char *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+      44 |         node_name = dfs_cache_local_path(ref->node_name, ctx->local_nls);
+         |                   ^
+
+
+vim +44 fs/smb/client/dfs.c
+
+    13	
+    14	/**
+    15	 * dfs_parse_target_referral - set fs context for dfs target referral
+    16	 *
+    17	 * @full_path: full path in UNC format.
+    18	 * @ref: dfs referral pointer.
+    19	 * @ctx: smb3 fs context pointer.
+    20	 *
+    21	 * Return zero if dfs referral was parsed correctly, otherwise non-zero.
+    22	 */
+    23	int dfs_parse_target_referral(const char *full_path, const struct dfs_info3_param *ref,
+    24				      struct smb3_fs_context *ctx)
+    25	{
+    26		int rc;
+    27		const char *prepath = NULL;
+    28		char *node_name = NULL;
+    29		char *path;
+    30	
+    31		if (!full_path || !*full_path || !ref || !ctx)
+    32			return -EINVAL;
+    33	
+    34		if (WARN_ON_ONCE(!ref->node_name || ref->path_consumed < 0))
+    35			return -EINVAL;
+    36	
+    37		if ((size_t)ref->path_consumed < strlen(full_path)) {
+    38			prepath = full_path + ref->path_consumed;
+    39			/* skip initial delimiter */
+    40			if (*prepath == '/' || *prepath == '\\')
+    41				prepath++;
+    42		}
+    43	
+  > 44		node_name = dfs_cache_local_path(ref->node_name, ctx->local_nls);
+    45		if (IS_ERR(node_name))
+    46			return PTR_ERR(node_name);
+    47	
+    48		path = cifs_build_devname(node_name, prepath);
+    49		kfree(node_name);
+    50		if (IS_ERR(path))
+    51			return PTR_ERR(path);
+    52	
+    53		rc = smb3_parse_devname(path, ctx);
+    54		if (rc)
+    55			goto out;
+    56	
+    57		rc = dns_resolve_unc(DFS_DOM(ctx), path,
+    58				     (struct sockaddr *)&ctx->dstaddr);
+    59	out:
+    60		kfree(path);
+    61		return rc;
+    62	}
+    63	
 
 -- 
-Jerome
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
