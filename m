@@ -1,78 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795311156;
-	b=3DgcSSuxVo7Zsoh69JeIr2aqoYOY/lW+WRn1kyxqzdIU2nHMlAZQQTFqC894WM8ts+sA
-	 eDIV0GHGCfdOxfdGZTGSRbhuefX6lJH407mdN9WyQp6Ru+7FnnVlFFizvhpr2G/dWYoMg
-	 CH9gn+mK5I/Uj3aZndBv1jQtN2/vVsEej3gg+/3gnzC7y4ug0+dpsBD9Z4ESc5jR2qLg/
-	 F+Tn8TVaEi8/2jIVxAwv9xzDz6m6Z8a5ZYfv0sA5xZKw4npWhe2jvWSszq/oIx/9UuG8X
-	 CyQzPgn5ENMaLBTqyUkJKq8GlcNVF9jNFYjGj3cxmcmB8wNm+W2f3zLY2g9A5GcFBBw==
+	t=1795311166;
+	b=JlRYwHBQ8rnk9M1998hWr2eYyPDpRWwe9kZWwbBW2o5qN1d4HZdJGtcZQKpyVl9KMQx7
+	 5fU+spa2dncd2yoWer5MJSZ0YyhG3IUnA1MOFddWhO7MK80lsIxYm66B0HBJKOYQb7jUa
+	 vJhZSYLfE2L45+uwnKf6pCgQkkAAIzeoAB9RDYBvE3HP7FKooI5sgitM4+4QUjRUgFOHO
+	 4cFGv70KNzjJ0MLMMUedGO0rCc/cnikRb/4jlYoh8EOVoG57l1aG8QBXzflrxfN1bou1n
+	 6cD9XLuQLml8E9OyMHx2ArF7ZwHzrtvaZ/9k+VxSRewP8H+tC3TNC/PycqJwYUoA85A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795311156;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
-	 References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=/Z0T1Hd2+TRGHE+Zic7U5lTIBGVdF/kqBPjxdZibBZs=;
-	b=HhpaxNjBRaspajQCVRsrfazA+8NWQuL0dDpeXeRbAoOe9n0mOCokVGhApyUMD78UuHld
-	 lquzpx6XK6Uxm6/XyNpunWM7dsd3KEqYlT3+BcXnWoyDFLMOFEkVMc3xRyYrA9P+M3/6d
-	 8tJ3CuUihYFJlY18gsjLFRz9Q7Vwf+jmujAZYyX+AzahLbQQFsxRfA0ztE8Eml0djuy7l
-	 RyQNNgnsfXEP0QkH4eFu9VdHhcg/fniCIPGZDa/l2jFcMlh2UB+xCUP0WVs9ujl78kW/J
-	 fbJtLPU6pCwqRW4cFb2AuSMiGsI3K7URDmW5Pa/aB6/j7ramtIc185nZ/Fns80qOKSQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795311166;
+	h=Received:DKIM-Signature:Received:Subject:From:In-Reply-To:References:
+	 X-PR-Tracked-List-Id:X-PR-Tracked-Message-Id:X-PR-Tracked-Remote:
+	 X-PR-Tracked-Commit-Id:X-PR-Merge-Tree:X-PR-Merge-Refname:
+	 X-PR-Merge-Commit-Id:Message-Id:Date:To:Cc;
+	bh=Ju+19rSMyY1wyIZA0Wu8a/zFRoM/tsQK3p+Ff64WSNM=;
+	b=H9/ubkxyaHsynqc7Tbl3ch/HN4Nya2Z+Dp7xPZCMM3jIdxht6LO2z7cXHE2lTocA4v3e
+	 ZLznautHlzBY8k93uQ53hjnLSCD/U3qXi0zEb9pZoStp43731Ptr8sikGgtZWf8V8ujKS
+	 t5OmG2Vxe+4AGArQFKYSq2Q55Tg3JXXF8Yd5f4j2rA5wy7+s0mqJ0bKLwrSKj4JeaRPi+
+	 kjvrPSOhnVHeWxEF/PNqDIHtsW+z+vPAGy5MUA691IOsvgzA65Px5Rmmeo+j++4NTU1Lz
+	 kFI7JFFTrPAmKUQ5Umyp74QMw3rg1zBPaWFKdxuvQSYajAUgFs04f65LEnMLuarqDxg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=E2qF4FD9;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QHdcdHtG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47EFC606A320;
-	Sun, 22 Nov 2026 01:32:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47EFC606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E08E4606A32A;
+	Sun, 22 Nov 2026 01:32:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=E2qF4FD9
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AM1Vwx86510619, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795311118; bh=/Z0T1Hd2+TRGHE+Zic7U5lTIBGVdF/kqBPjxdZibBZs=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=E2qF4FD9JvoSkxvKxpAIcQxfb+oubyzXuzmNSoR0IzUW9C9h+f0svRwpz1sEGxXO/
-	 mI3/ChyO08lp/rIpvnTNoUPdpMfDcsSl3UN9Bbpd+yLe+hvDCSzDzcvvuU7oxzQFAP
-	 /F8ZGsBwICCxpMZHD2x0zUFvcR/jh8WdLg/x5oC8Gpvg0E7MchKiZ1pyIRz5IcKgQL
-	 n4oLV2MAOwj2D8JDoEtdXbDhApN35ChbqjRd0LOFWhGE3/igcl7SEVIrJCWHIefQyl
-	 L6B1Hpc4PFu87zNEFEYutMYITXuusAhv80ZgAbsz9QPRZL63A0uQWj8YJiKrqout36
-	 dOyuF8E5JULRQ==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AM1Vwx86510619
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sun, 22 Nov 2026 09:31:58 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Sun, 22 Nov 2026 09:31:58 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Sun, 22 Nov 2026 09:31:58 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Falconet3 <Falconet3@proton.me>
-CC: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH] wifi: rtw89: fix OOB read past firmware buffer when
- duplicating elements
-Thread-Topic: [PATCH] wifi: rtw89: fix OOB read past firmware buffer when
- duplicating elements
-Thread-Index: AQHdehVXcLzR+iyou0WN4rlyYPdLbbc5ThaA
-Date: Sun, 22 Nov 2026 01:31:58 +0000
-Message-ID: <2fb081759df841aa9d22df3ce43430be@realtek.com>
-References: <ONBhkh_B7hyKoHNRpjYgxy7da68QOa8cWUqztT-I1nW-KukOKE30FIYFLkX1Tm_TrXlBjse5d-AFRwsyzfxBdMGKvyIEoVsjyZQqxzUkRQk=@proton.me>
-In-Reply-To: <ONBhkh_B7hyKoHNRpjYgxy7da68QOa8cWUqztT-I1nW-KukOKE30FIYFLkX1Tm_TrXlBjse5d-AFRwsyzfxBdMGKvyIEoVsjyZQqxzUkRQk=@proton.me>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QHdcdHtG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FED11F000C4;
+	Sun, 22 Nov 2026 01:32:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795311165;
+	bh=Ju+19rSMyY1wyIZA0Wu8a/zFRoM/tsQK3p+Ff64WSNM=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc;
+	b=QHdcdHtGosg7hdemppLt32ZPgERB1XVpXN2UxOKMmkWTSLIEe6oTXFuVv9dBxknkW
+	 b4W++Z0eaEJLlaqyOV734c2/4sf7lP8Nyg/ZPpro0Dn6PTIQB+9WdR6g8Zd0HRcXeM
+	 DYsnRSe0l6C2bwA9phuUcaQhfNJeTPuvypnFB78hZjv4Zsr5Zu/sMOOMrHBGn0meou
+	 PfjrDYXpOmMRim2GUMyIR4WbU4lf5tGA8LbOeV8tpWolYDuPCi+tNBNBAuwzOpNbJO
+	 bvVpP7WHtVRY3Jg9x6MB4YEy0E/iIDMbE4YuIYGTQIkocUCNWJYI3xjA2ZSLh5iJA5
+	 emDy6Se4jUAhA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 774EB391B098;
+	Sun, 22 Nov 2026 01:32:45 +0000 (UTC)
+Subject: Re: Re: [GIT PULL] sysctl fixes for v7.4-rc4
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <awH4Fh-XofdwwRqZ@hobbes>
+References: <awH4Fh-XofdwwRqZ@hobbes>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <awH4Fh-XofdwwRqZ@hobbes>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/sysctl/sysctl.git/ tags/sysctl-7.04-fixes-rc4
+X-PR-Tracked-Commit-Id: 9fcdf40e0d7c58478d88d3e1ca69fec8badda0fd
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 4843f6873f7c4835e62f2c73ba0fd538e57a2f22
+Message-Id: <179531116414.1248683.10418563467755811748.pr-tracker-bot@kernel.org>
+Date: Sun, 22 Nov 2026 01:32:44 +0000
+To: Joel Granados <joel.granados@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Avi Weiss <thnkslprpt@gmail.com>, Kees Cook <kees@kernel.org>, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,11 +67,16 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
 
-RmFsY29uZXQzIDxGYWxjb25ldDNAcHJvdG9uLm1lPiB3cm90ZToNCj4gRml4IGZvciBhbiBPT0Ig
-cmVhZCAodXAgdG8gMzEgYnl0ZXMgcGFzdCB0aGUgZmlybXdhcmUgYnVmZmVyKSBpbnRyb2R1Y2Vk
-IGluIHY3LjQtcmMxIGJ5IHRoZSBmdy1lbGVtZW50DQo+IGNvcHktb24tcGFyc2UgcmV3b3JrLiBQ
-YXRjaCBhdHRhY2hlZCwgYXBwbGllcyB0byB2Ny40LXJjMy4gVGhhbmtzIQ0KDQpQbGVhc2UgcmVw
-aHJhc2UgY29tbWl0IG1lc3NhZ2UgZ2VuZXJhdGVkIGJ5IExMTSBhbmQgc2VuZCBwYXRjaCBpbmxp
-bmUuIA0KDQotLS0NCnB3LWJvdDogY3INCg0K
+The pull request you sent on Sat, 21 Nov 2026 21:05:06 +0100:
+
+> git://git.kernel.org/pub/scm/linux/kernel/git/sysctl/sysctl.git/ tags/sysctl-7.04-fixes-rc4
+
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/4843f6873f7c4835e62f2c73ba0fd538e57a2f22
+
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
