@@ -1,78 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.50
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795379074;
-	b=SCH+iAo0aehX11eyFHDU+huSlpeKsPf/gwvxVQt8vpsrMNJh77rf0SpJRNeyOYT6O1Gq
-	 lcGehlslHTJ4VhVOmVG2KlEgrY8aY8E0oaJrlTuOLYDH5/obPSyEKUoCFUqvZ1ToYghNn
-	 hKS2WxAXVKDNK/NJpMlpSgSJ/gFg7wGAcuvGoPEc0W52X0DjuHEfM27Dz6d4iHYggxQ1t
-	 fbDVz6LHbQqBuzMpa8Agwt8deM0vJULEDv8ORzZrLgBwfmydrf1OLY6p1nRw80H6ln+Yt
-	 Nsf4WC8UptVl5ZdipMVEd0BN+FdGMkjBQ/1CqLqDPc5572H4B+K3bICNOJzxeYz5EmA==
+	t=1795379108;
+	b=Mc/Wd8Yqaacvh2X19ieFSFEUoaaxZ3MnByOf6mBH1pXsQFgsaky9gtZ58nk+5RfKYT9S
+	 /y7eAZ4qYWoMtbKVCTWy7r7Wjoi3AVpslzlySn3Kv7h28ofkRlatGRqNpqHMSEg85XUAp
+	 ZnAzpQ5ehKNPPbc4x2BoRLa9WGNEtmCyHqR36jvXH7eyntNcfTuQvnA/tyq63jhxHZ56a
+	 BaU4fltyzy0EUpy20H4WrHmMH0nVBwNPbl+gpWuUWRxJL+LgS4MMR7wRPdKCyoq8jRZ/I
+	 Q28VE2pb+ImkmPlj29g2yinjkZhTcQiX0vbUDdRy/jZMD0AHKH1ofVPk7X1yRVvqL0g==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795379074;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=MOQ727e1ObZamn1nS+YgJdTdM8LCUKfEP9ISGZW7XLY=;
-	b=ZdHeD7koeJ6ROsJtbBhttfmLv9PF5L99Su3pEo35ebcfw/LqxcsaaumovgKaqDTu4GEd
-	 AsuF/VLG3RI8Jq5Wq5LZ6gZg0gvhZA/AJkjf+Ixq5yCktrEAfmPjMJYTEScOqmOjMyp5Q
-	 XFumsCtww553U/RhXjHGLyPDIEjFF127Z6ZfAnEQQLtiDS7Q3Rgj7fpRpj1WiYLowaLbI
-	 pAzMU9doVchc1ND1SsgEV/Lrlw+ZP8jHQTvIEkwQm1/tSp3QdR5gOdT6hiimYwx/7p3ve
-	 N6cOovV5OwMkqgfPXecP1IgDHSepf2JHzRaJ5FFfMqVsudtDIPayqZq4h0GAIwLSBGw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795379108;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=nFAKdjYLzPZL1wR3yHlBKoG/iUsv2YA1etEzXhJ+kaU=;
+	b=UMuJ04tp9k/AnFuE/PRaGAfG/lgWjqJClSVeKGgDbC2NrIhMslpC34j6w+wMml8QpF2b
+	 ey5hZzVIbbBlnkYxCm/h9dS6s7bTixkQ2uqKGUL+wo6YuY1KaDh+1oUewCenFUvWbcLrb
+	 4iDyyRTsFq0fSXqiNgbjEnQI6DoPWGIhkGpFrdMC+bDV5ndiQMwikax/DDuf8PZlSfB3d
+	 izD5vxDl9J8K+xN7Y9wMVwjbbZac3zxtsipYjU9/ncl2jaiC1QoaugM6zY7raShcL+KFx
+	 0lBtz/L13PvBfoeYQkwKC1ywdhCPY3VszXZOiN/yvjYjd2Yh7Ht6lrw1JniZss5lNqQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=diHnh2CZ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27136606A680;
-	Sun, 22 Nov 2026 20:24:33 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=diHnh2CZ
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795379073;
-	b=p+UAMJXujUgMNztPQoRcaf3Y3G86RWEAAJXyuamPRxWi55Ip3doTpu4EPLY7WCjeFyyR
-	 ixnKNeTZY8V49dZfXumybP+JehQlGK5YLWIQma2+nJQny6np7I9oOJ8O1rgUKPYscu7G9
-	 pn47s6+3gnxVP3b+bIayGNlStbpp3DO2E+mEctCgn8WjBwyTFyOCiv2R7vijzWSQ6RKNg
-	 MVCtiDA71HMKppglPqHLW4Dea4vPDuIKaBQGJTD1gi2lfPhwWQXtNF8dHXe4E7Us6XWLH
-	 sDkUURPSBJbsFq26XP/mZwxJ/lPTx8Um28G+FJC4nvF8jcg+jcRLnq8PfLr5pt5jhvg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795379073;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=MOQ727e1ObZamn1nS+YgJdTdM8LCUKfEP9ISGZW7XLY=;
-	b=UHcyEoVtIs0otPel3bFFlxrJEzRyMpJY/2ChkbvgEouDkmCWwao5PLmw70r/S6d9n6G/
-	 70kqaQJ6Kbe1DIkiMDP5Frjas+6uwuIgrJ1YDf9fnOj+z37Nb+ZhHsgCHfLFPB/X8h1Hh
-	 FjIAcrRIvl5oijQT/i001enYH+0iBe537PrCdhAZTvPljiXM4BCeAmAQNCbNOlKBb/PnH
-	 Ith3N/w8it/V6EH7NDfFahr5rLvYyxNuIm8gPAVtjY5lV4WBxCD8C1olZUrzXyJLcTa9c
-	 2A4DxkLGCDfAFdrxszZpLiGQiJUs4/0NZP+2LSYNpoXYN7bqHXXCXICSe83if+eatwQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=bynar.io;
+	spf=pass smtp.mailfrom=bynar.io;
+	dkim=pass header.d=bynar.io header.i=@bynar.io header.a=rsa-sha256 header.s=google header.b=PRtC5hJD;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.50
+Received: from mail-dl1-f50.google.com (mail-dl1-f50.google.com [74.125.82.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 5F1B91F000CF;
-	Sun, 22 Nov 2026 20:24:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795379073;
-	bh=MOQ727e1ObZamn1nS+YgJdTdM8LCUKfEP9ISGZW7XLY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=diHnh2CZ80PLB/f2Y6Bd6Te/aexDZ4f/jzAz0yePGGvwz844zztGdfedD8oscB12D
-	 MAlvuI2sslpgYRszONYByWdljJnJp+lt8PNS8tjkmjBZY7h0jnFshDjO2FOFTAusMq
-	 Stev1MraO6OSRPPBvyAPC7vOB5hjOChrmQA770zdAKPxiyXUS7uQkIQ4FRAaobujz4
-	 eH1OuMJjAR/JCXt1qUBMTy429sCj8HnzaPAUV6qU508DE2mdViC4YgN7eg60r+e4jf
-	 YEQFNkKDI096bhGvmsZNo0KBMgTKk6ljjXGmWlmNlQBrawIdCXUVDz4oaBj4xNBlDW
-	 DoZS2bPZMXp6w==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id E585A4C1EB;
-	Sun, 22 Nov 2026 20:24:20 +0000 (UTC)
-From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Date: Sun, 22 Nov 2026 21:24:18 +0100
-Subject: [PATCH v2 1/2] rpmsg: glink: Support waking up on channel rx
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22100606A31D
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:25:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22100606A31D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bynar.io
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bynar.io
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=bynar.io header.i=@bynar.io header.a=rsa-sha256 header.s=google header.b=PRtC5hJD
+Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1b3a05f8b5bso3280864c88.1
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:25:07 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795379107; cv=none;
+        d=google.com; s=arc-20260327;
+        b=G6YoGq1+PBEkBCI3Ok/Ls528QQNanvN4papKtgxeLaYfDEBLF50yHDPts+/S6U6ZOa
+         rABCrglPq6sLYjINyttupt26GpG6AjFZxu/2UwWzVs1JhBEjxDU73WZ6dgdgCV64mu80
+         r4nJesmDsLjZlpryQF7fw9KKWRQbP2uTOrrgMWk0lNco61f/kCFIi9vPhgeyPCX0If+W
+         Pjy4Jpl7idpSrHHWfmZ2nqJ9C/YzoYVpEqU2FCTAI/UZQs3olf2ybLso6blogmo4XxIY
+         PLfNl9KnqNHNieEH5HXC4tHE9gkJBf+Z+W95FPpbdL30LpK6F66BmtRlkNjm/iReWFoe
+         NWZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=nFAKdjYLzPZL1wR3yHlBKoG/iUsv2YA1etEzXhJ+kaU=;
+        fh=Nry10AM155BC3X0fRoQ1x4BxSr4W8rwockNZjOkagtk=;
+        b=afBdNW8IR6j4ta1RA0/VJxp2d3PyWVIIR0hAqi56mNRQN3mFc/wc6DW0KSDTpud4Db
+         taWarMfEa+ZMUSIKhdoT4tmLx2rqn0TNfhsho23PI9O8Yk3IJfsINGjKZGgSwxikbrh2
+         rEXy7vI3ji5CVtUmzxW3mYjTQf4VC+GY24meaFoht6w8HZieEVqJckdi7Kt+tqp2j5ka
+         li8WCrfB3cb+ADtKkjSp77KF+wmMbC1kg63yens48DJbCfy0WjyK5KRYbXCnKHvmYrOH
+         yfRQJ6Ih+XvdIUFtLeJdweokehD8Ko8hZiOH1xq/iFklS7GVPsUQjy7mWpllwV+UObpA
+         DF3w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bynar.io; s=google; t=1795379107; x=1795983907; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=nFAKdjYLzPZL1wR3yHlBKoG/iUsv2YA1etEzXhJ+kaU=;
+        b=PRtC5hJD4+mxpHItpoE8gyDCgRBc77h4S688AUHLjRmvZueTWTX16234ldaUSPvaes
+         VBEystPSTCGnXgZRPkxdaMvX06TTj61kCnq9XLkDm1qPYH3pQHTcuqctzFeQgWHDT4hu
+         px26owXBd6wZ30lyiylJXej1NgPMaeGEHC1mskE8Em1E4eeL5vAwzHaGBq/BQ9tppBED
+         t9lukJ6irTT45XjdLIYaqiLp9l+rE618jSaNr8t7IGuTdsdkS6c3VniMM/vTwe4Lcz2H
+         P0dulU3NrNqsuJWsjQ5bKsJgznXajahX9xn1lSp/RrnUEXSWl2UJ7lTZWblp5Nsj4XEH
+         bTjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795379107; x=1795983907;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nFAKdjYLzPZL1wR3yHlBKoG/iUsv2YA1etEzXhJ+kaU=;
+        b=SuYVDftb1Sb3oODQPFILV5acRlqCykbi1vB4UczRk6+A8eeDBxSb4Qev305JCnnaCY
+         PlIo+L3Ubeoou48eutSarsGFjvvEqCGU6z74z/5X/fw1+OhXsc7PUF4NBXWy7qw9dJoz
+         Ps9/u9kL75qZKR+qfInB+/lF3ee02wC2YTwKVm7LDnw2TkmyvGR3abM3IR8nnv3hQheg
+         P42J3nqSHTVnWw+5xD7E03APiVJnMsABeQKcmcQV04lk7cegqoBXPj5L8LY9tHjXh3e8
+         OG3yPf2C4N0Ff++hZFn3IoT74CDq06dAgFJRAkWP01D/JZI/jM+H8D18aBC8IKBaUWAa
+         yMRw==
+X-Forwarded-Encrypted: i=1; AL+hErG2pIANA9UJjWMvc80Gk+TSNOxxN7aJarQFk4MzKSYVnmRBQoc4s34rMmIT6LoYxouSiFxPBbQfm6UcRxs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9iaqAx6ATbV6lZ6rpl2y8sQ4tg4RgRBfW36yKGo5ty7/dyy6xr
+	I5hr5fcj7wDw1ATjG6MXBuTpECoqaXpzCOHmWD5wRhxe7vO7dA1sG69cwqrDmv7j1xIu9K3wRAz
+	RpBdl068wJgYeXzsSiR39vRa5hSDv+DRc0L0GvDzpPdE=
+X-Gm-Gg: AZFdTZdV1ODtEPbpZM8mvBm2tSJQwi9qml2/wDwnpYDqBa47hNze6sFDz/+KluO3u+5
+	xH/ZAJ/6kNCZ+/Buh4024CuwlKQ1dEVnBXELg6Zf0oxLhlYP+D1tji9JzFmxsM4RlQzzUqlbfNX
+	dB5o50w8tjyjxwf0e7SlKm14KwWyLDCoPZbK1wivvmWMcg97MvQvS4XR57h1a0SdIfCevsquoDf
+	3iwxUEMrin9Dh1hxw8wnoXNpoH6bi0dWeAbl9wNMDpCvK6BqZrkkxoBr+qcxe7W0upSIAR8BZBf
+	2Vm3Vw6W2Kr7srZQtfspREUla+pYUSqatBrgunUgs8dFbx7rvwDgkssvjf09s7DNLBaI4IpCvWf
+	rg8GvlRi+5yHnbZHfWUyGIC9E1Bvi9/fsMqJWjJFuyXxZw+Lmhy07hBGnso5qo+vSQGGvvEE=
+X-Received: by 2002:a05:7301:2222:b0:384:2662:a7fe with SMTP id
+ 5a478bee46e88-3856c9a1180mr8820556eec.1.1795379107164; Sun, 22 Nov 2026
+ 12:25:07 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,111 +104,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261122-rpmsg-qcom-glink-v2-1-d60419793095@ixit.cz>
-References: <20261122-rpmsg-qcom-glink-v2-0-d60419793095@ixit.cz>
-In-Reply-To: <20261122-rpmsg-qcom-glink-v2-0-d60419793095@ixit.cz>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Dylan Van Assche <git@dylanvanassche.be>, 
- Casey Connolly <casey.connolly@linaro.org>, linux-arm-msm@vger.kernel.org, 
- linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- phone-devel@vger.kernel.org, David Heidelberg <david@ixit.cz>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2360; i=david@ixit.cz;
- h=from:subject:message-id;
- bh=06ZIYAQUhWWSAAEUAnmn8k9bBrxIJztSjTuxD93oOH8=;
- b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBrA09yMdhKSwVswez+9ehBpuUYcJ29+8JxL+s+j
- d8AC6ovBrqJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCawNPcgAKCRBgAj/E00kg
- cniVEACOoyCgN1DP4Wo2KEoeOdBiZGDfBZbVTaTfeV8harG1bv9zwlQei7kr/sHnOyngIq+aw3P
- wcJp7O7LjErJaM46/1rBeMN/bdxaz2hlkgv6GKT3eOmyX5j6ymcdduSdovBWXe/UdXbNpaUwpkd
- jmUfvJvPbd9yjBRZvZFnE7Gf1rR0Mn1R8l75zSJJ+i6ocjU+9HhO76o04fcBDFGEapyXZhaGK6y
- u6T9hDFR1AKEXQ1KFZcg2ZntqMlCsZI/d1wrIgeL8xTGUKrGjMTKmEDCNElikFlgON94K6SBAZu
- xCgPXR1RP9abb1TUWSXuRTDpj1lYuACobxZ+WKwwliCkQITeCOFvg+q3G3AFCy5W+lqrrjQYRTV
- urgOc1X33Qh7ySML9ymvtZmXERLlykM2PxQGb+3mvhJfybUbCNNWLs8RpSgaRbKiFQ49Gf8Pcnt
- 6elPc1zvyPqDSTcxtIPXkkSIAvWEtDJV5noreDJFfS8NeESDpPkszvTZ0xwlCyAzhV1ZSzOxuAS
- vEJY2qG4us65Gm0Rq+YPCtUfPmzLEXyQp4BZlD5YxmqOw/ugckobS0KKgUXBxF4XgKq95Ye+95x
- EiKzAk8zu71ppVMKMrchPe7Tgrm6qS4HecrJYeLiAFwBxiOKlABtR5WH++woDn2nXGIoeIQGIKe
- rPwkGypTw7TaIUQ==
-X-Developer-Key: i=david@ixit.cz; a=openpgp;
- fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
-X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
-X-Original-From: David Heidelberg <david@ixit.cz>
-Reply-To: david@ixit.cz
+References: <20260925111619.68345-1-giulia@bynar.io>
+In-Reply-To: <20260925111619.68345-1-giulia@bynar.io>
+From: Giulia Aloia <giulia@bynar.io>
+Date: Sun, 22 Nov 2026 21:24:53 +0100
+X-Gm-Features: Aa3M54pI_9GiJNz0gNOZak90hOtzbU6MMzqGmmgKBjqtp6rYz4B2p_FhKCa8a98
+Message-ID: <CAJzojTiWdt+vbPSu0+pOTypgvyLbn6bvi1L1n=-D2Uv6_k7Wig@mail.gmail.com>
+Subject: Re: [PATCH 0/2] fs/ntfs3: fix log replay payload overreads
+To: almaz.alexandrovich@paragon-software.com, gregkh@linuxfoundation.org
+Cc: ntfs3@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Casey Connolly <casey.connolly@linaro.org>
-
-Configure all channels as wakeup capable and report a wakeup event
-when data is received.
-
-This allows userspace to "subscribe" to a particular channel where
-it is useful to wake up to process new data. The expected usecase
-is to allow for handling incoming SMS or phone calls where the only
-notification mechanism is via QRTR on the IPCRTR glink channel.
-
-As this behaviour is likely undesirable for most users, this patch
-doesn't enable a wakeup_source for any channels by default.
-
-Signed-off-by: Casey Connolly <casey.connolly@linaro.org>
-Co-developed-by: David Heidelberg <david@ixit.cz>
-Signed-off-by: David Heidelberg <david@ixit.cz>
----
- drivers/rpmsg/qcom_glink_native.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
-
-diff --git a/drivers/rpmsg/qcom_glink_native.c b/drivers/rpmsg/qcom_glink_native.c
-index f848ab46161d1..02ac790251303 100644
---- a/drivers/rpmsg/qcom_glink_native.c
-+++ b/drivers/rpmsg/qcom_glink_native.c
-@@ -993,16 +993,17 @@ static int qcom_glink_rx_data(struct qcom_glink *glink, size_t avail)
- 	if (!left_size) {
- 		spin_lock(&channel->recv_lock);
- 		if (channel->ept.cb) {
- 			channel->ept.cb(channel->ept.rpdev,
- 					intent->data,
- 					intent->offset,
- 					channel->ept.priv,
- 					RPMSG_ADDR_ANY);
-+			pm_wakeup_hard_event(&channel->ept.rpdev->dev);
- 		}
- 		spin_unlock(&channel->recv_lock);
- 
- 		intent->offset = 0;
- 		channel->buf = NULL;
- 
- 		qcom_glink_rx_done(glink, channel, intent);
- 	}
-@@ -1684,16 +1685,27 @@ static int qcom_glink_rx_open(struct qcom_glink *glink, unsigned int rcid,
- 		rpdev->dev.of_node = node;
- 		rpdev->dev.parent = glink->dev;
- 		rpdev->dev.release = qcom_glink_rpdev_release;
- 
- 		ret = rpmsg_register_device(rpdev);
- 		if (ret)
- 			goto rcid_remove;
- 
-+		/*
-+		 * Declare all channels as wakeup capable, but don't enable
-+		 * waking up by default.
-+		 *
-+		 * Userspace may wish to be woken up for incoming messages on a
-+		 * specific channel, for example to handle incoming calls or SMS
-+		 * messages on the IPCRTR channel. This can be done by enabling
-+		 * the wakeup source via sysfs.
-+		 */
-+		device_set_wakeup_capable(&rpdev->dev, true);
-+
- 		channel->rpdev = rpdev;
- 	}
- 
- 	return 0;
- 
- rcid_remove:
- 	spin_lock_irqsave(&glink->idr_lock, flags);
- 	idr_remove(&glink->rcids, channel->rcid);
-
--- 
-2.55.0
+Hi,
+Just a ping on this series.
+Would you have a chance to review these patches when you have some time?
+Thanks, Giulia
 
 
+On Fri, Sep 25, 2026 at 1:16=E2=80=AFPM Giulia Aloia <giulia@bynar.io> wrot=
+e:
+>
+> This series fixes two journal replay paths that can read past crafted
+> redo or undo payloads while mounting a dirty NTFS volume.
+>
+> Patch 1 validates that redo and undo payload ranges stay within the log
+> record before replay uses them, while preserving the compensation-log
+> record undo exception used by Windows. It also validates the fixed-size
+> OpenNonresidentAttribute redo entry and optional undo name before the
+> analysis pass copies them.
+>
+> Patch 2 validates the minimum payload length for SetNewAttributeSizes,
+> which always reads alloc_size, valid_size and data_size but previously
+> only checked whether the optional total_size field was present.
+>
+> The two checks are complementary. Patch 1 makes sure the selected
+> payload range is inside the log record when that range is expected to be
+> present. Patch 2 makes sure that the selected range is large enough for
+> the SetNewAttributeSizes operation that interprets it.
+>
+> Both issues are reachable while mounting crafted images. Each patch
+> contains the KASAN report observed before the fix. With these patches,
+> the same images are rejected during mount without sanitizer reports.
+>
+> Giulia Aloia (2):
+>   fs/ntfs3: fix out-of-bounds read of redo/undo data during log replay
+>   fs/ntfs3: validate SetNewAttributeSizes payload length
+>
+>  fs/ntfs3/fslog.c | 35 ++++++++++++++++++++++++++++++++++-
+>  1 file changed, 34 insertions(+), 1 deletion(-)
+>
+> --
+> 2.55.0
