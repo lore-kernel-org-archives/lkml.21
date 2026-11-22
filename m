@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.104
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.213
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795351713;
-	b=0JEsoiInaJ5x+aRgML/DvOjY5QxN8TCCxhuQaKYFffgH95RujJlC3bmgDu6xKaMIKfDl
-	 L9CbzecJbi0/w5yZeCkkD81b844DOD7eJbozHNUbJbigqpRJTeEEiTaablkvR2mcVCvPw
-	 LLxeCCbdtIycMetqXo+FJQYtHxEI9mTaE5X5ET8EzQTX3dUnXjICpjQZltWkOIWmuBm6j
-	 CM/DSrnciLZziQ9T20CnEBNj8hskBZJpoY03SnZG6LELywL/3M3b+E8jSp7rZwBkO2wfT
-	 QZlhbkrNK8HNOb8pmwNOkstfaUCnT071jjrv4rTN7Os0uYdBu+oitp6XGYKt5vtOjOA==
+	t=1795351719;
+	b=mOKmqykCO3vYJStXhc4cyy0Krva/tBFGd2CzEY66t/35bvW15nnVO+FKd0UxC427B9ow
+	 xsbExinWJDKjLhveEcx/Q4aegrIjjeB4OtYqeXVaabja6rqqlYIm1EjFfI3JTHu5Z0+G5
+	 GEUvw9a2uoP1rOXCWCjMTJ0URL4AdUobQHlfqw49R9l8zONwkNs+prJgWBOjF2u0LroF5
+	 h74e7l9wP/nxw08TiTF6kUuH2mLsAAaGWqHY1fcq6seHY1Lm2kerKB6iy1UEBNl1Efl2M
+	 cjD/7K4XhYUzfYKsSsu4lVt8wDDC8OUx2T4oEOnMi7LfLJCm87R9/rTivqWYsqSXJbw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795351713;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795351719;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:Content-type:
 	 Content-Transfer-Encoding;
-	bh=fWpHC929BGRiYzSAL7uFn6Yn75mqyH04ZOQRNnEh5E4=;
-	b=uNOWvq9KcUain99erzvurr62R7NhB60OBjNvcIMe+HdPcmJIbaLi9fJmmFtRVbrqpAnH
-	 fqql9E9Linv8xAskwIhTsSMhedTkjzLSth4a4NwMG3aP7+ZAhZwcDwtNnwM1yB1obTZtk
-	 GIDSi3T8tdAx8P290dInarv6xeuKKDvLOT8z6kcOT85IvAockMtM1R6zjP6LZD6fb+ACU
-	 k3TFYTVgGD9w/5EzawW6TD0AZ5YhOgnD6scpveWSn4MJvh5tZuILfxj97KTL3PLgdvM+t
-	 E6wns/ZyDYAGJdrZWaZB2Hvn9grG3rxtC7lWerSUG5toCgbgd99s7WjqMYBcMIPJnHg==
+	bh=F5mb4gMdHpZJzXBSqlC9XMwKzG9tss4cXHWRmV8y1PM=;
+	b=1J0LH8wHPjW05LiQwuS52eAcliUGl7euOy5kcUR3DF2dRmIksTpZItH8OfcH2I8pUL6u
+	 89U93GKp9ySHuc8zeATeFKXSi5rAEtOpez1X+tSHq2V5aDHRZhgw6Lv3tSXs7cNLU8tsX
+	 g26s4wSgYQANTsrTMagtJObhHKLqg7fG8BhSqlSq3I/4L2pEP0/s/HWQLblWN9xGQuWbO
+	 jeORLYWeJA1nsyx+Ad+ZHgFJHxAelVGn2Ib4j/K+wplXnAVOuaP/LdNdYa0/iZJIwI9vi
+	 7gOWATRm+uNIBGfD1I1FIngYnpYEUkWEFUP7hClxbkMv6j1ylRkg0m35rzhuBihu+bQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sqoBuSux;
-	arc=none smtp.remote-ip=91.218.175.104
-Received: from mta0.migadu.com (out-104.mta0.migadu.com [91.218.175.104])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wIv8JrBS;
+	arc=none smtp.remote-ip=95.215.58.213
+Received: from mta1.migadu.com (out-213.mta1.migadu.com [95.215.58.213])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CFF9606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:48:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CFF9606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76CDB606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:48:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76CDB606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sqoBuSux
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wIv8JrBS
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=6v8sTTf6pcb85Lo4OtoCE2QJ+satgIKb50EQR+2ySec=;
+DKIM-Signature: a=rsa-sha256; bh=YOz2z0C4QkUvUxcWScNP+zuGI/wOQjQ7nmeOF1TvXg4=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795351710; v=1; x=1795956510;
- b=sqoBuSux8Js1l1iFt02kPszQ1/xsLzn1M0RlCTmyNjqog8l3SdbUabO2IA2gfwQMZ0m8BNB1
- AI38qLrYfjZ/LYu9y+lDsia6A/F7/KhO4mC9h7WbDLdJGyFKvUGoYZR+cL/4UWYTW5gzoTHKDVv
- KPcp6MPlfGvMdihBLgH27uRk=
+ t=1795351715; v=1; x=1795956515;
+ b=wIv8JrBSzJbYyBqX16QI25gcj6x5fvvB4IF5tqqDY8a6ZPCh6K1z3aZmw6W+ZS4SduaN/ulf
+ oL5QJ4iKlUsiEBn3rK2DGOXRrIDEP3qlqAswVLC2QVM6WObAfN4oOesN8xGVSUfyTjALbTqKHWQ
+ e07Dg9LGlgDkbwMQcmhdOOLk=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id adc6a1e29aeff931;
-	Sun, 22 Nov 2026 12:48:30 +0000
-X-Mizu-Trace-ID: adc6a1e29aeff931
+Received: by mta12.migadu.com with ESMTPS id 6a9c451795a40c91;
+	Sun, 22 Nov 2026 12:48:34 +0000
+X-Mizu-Trace-ID: 6a9c451795a40c91
 X-Migadu-Flow: FLOW_OUT
 From: Baoquan He <baoquan.he@linux.dev>
 To: linux-mm@kvack.org
@@ -67,9 +67,9 @@ Cc: akpm@linux-foundation.org,
 	linux-kernel@vger.kernel.org,
 	baoquan.he@linux.dev,
 	Baoquan He <hebaoquan@kylinos.cn>
-Subject: [PATCH v6 11/14] mm, swap: add xswap grow trigger on cluster allocation
-Date: Sun, 22 Nov 2026 20:48:11 +0800
-Message-ID: <20261122124814.3489077-2-baoquan.he@linux.dev>
+Subject: [PATCH v6 12/14] mm, swap: add debugfs counters for xswap
+Date: Sun, 22 Nov 2026 20:48:12 +0800
+Message-ID: <20261122124814.3489077-3-baoquan.he@linux.dev>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20261122124814.3489077-1-baoquan.he@linux.dev>
 References: <20261122123918.3486916-1-baoquan.he@linux.dev>
@@ -88,215 +88,168 @@ Content-Transfer-Encoding: 8bit
 
 From: Baoquan He <hebaoquan@kylinos.cn>
 
-Grow the mapped xswap range before it runs out. When usage reaches 85%
-of the mapped range, map more clusters from cluster_alloc_swap_entry().
+The mapped range and the grow count are not visible from userspace.
+This makes it hard to check if the grow thresholds work: we cannot see
+how large the mapped range is, how much it grows, or how much free tail
+it keeps.
 
-Grow to about 65% usage. This leaves free space in the mapped range
-before the next grow at 85%, so one grow is not immediately followed by
-another.
+Put this information in debugfs. It is a debugging aid, not a stable
+interface, so it does not belong in sysfs or the ABI:
 
-Mapping pages can sleep. Grow before the allocation that needs them,
-not after it fails.
+  # cat /sys/kernel/debug/xswap/xswap.stats
+  type 0
+  clusters_max 2038783
+  clusters_mapped 255
+  usage_pages 91456
+  tail_free 16
+  grows 3
 
 Signed-off-by: Baoquan He <hebaoquan@kylinos.cn>
 ---
- include/linux/swap.h |   1 +
- mm/swapfile.c        | 124 ++++++++++++++++++++++++++++++++++++++++---
- 2 files changed, 118 insertions(+), 7 deletions(-)
+ include/linux/swap.h |  1 +
+ mm/swapfile.c        | 69 ++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 70 insertions(+)
 
 diff --git a/include/linux/swap.h b/include/linux/swap.h
-index 02c3861a336d..5d9e5b6f2bd6 100644
+index 5d9e5b6f2bd6..9daf0ac40c39 100644
 --- a/include/linux/swap.h
 +++ b/include/linux/swap.h
 @@ -246,6 +246,7 @@ struct swap_info_struct {
  	unsigned long		nr_clusters_max;/* total clusters in the xswap address space */
  	unsigned long		nr_clusters_mapped; /* currently mapped cluster count */
  	struct mutex		xswap_lock;	/* serialize map/unmap operations */
-+	atomic_long_t		xswap_grows;	/* grow operations so far */
++	struct dentry		*xswap_debugfs;	/* mapped range and counters */
+ 	atomic_long_t		xswap_grows;	/* grow operations so far */
  #endif
  	struct list_head free_clusters; /* free clusters list */
- 	struct list_head full_clusters; /* full clusters list */
 diff --git a/mm/swapfile.c b/mm/swapfile.c
-index 074c5114d129..213b66bb1d6d 100644
+index 213b66bb1d6d..462efeef887a 100644
 --- a/mm/swapfile.c
 +++ b/mm/swapfile.c
-@@ -68,6 +68,21 @@
- #define XSWAP_GROW_CLUSTERS \
- 	max_t(unsigned long, PAGE_SIZE / sizeof(struct swap_cluster_info), 16)
+@@ -43,12 +43,14 @@
+ #include <linux/suspend.h>
+ #include <linux/zswap.h>
+ #include <linux/plist.h>
++#include <linux/debugfs.h>
  
-+/*
-+ * Grow thresholds, as a percentage of the mapped range in use.  The target
-+ * sits below the next grow trigger, so a grow that follows a rise in usage
-+ * does not immediately trigger another one.
-+ */
-+#define XSWAP_GROW_UNTIL	65
-+#define XSWAP_GROW_WHEN		85
-+#define XSWAP_GROW_CHUNKS	4
+ #include <asm/tlbflush.h>
+ #include <linux/leafops.h>
+ #include "swap_table.h"
+ #include "internal.h"
+ #include "swap.h"
 +
-+static bool xswap_should_grow(struct swap_info_struct *si);
-+static unsigned long xswap_grow(struct swap_info_struct *si);
-+static int xswap_map_clusters(struct swap_info_struct *si,
-+			      unsigned long start_idx, unsigned long nr,
-+			      bool link_free);
-+
- static int xswap_create(int prio);
- static int xswap_create_by_name(const char *name, int swap_flags);
- static int xswap_destroy(void);
-@@ -1325,6 +1340,13 @@ static unsigned long cluster_alloc_swap_entry(struct swap_info_struct *si,
- 	if (order && !(si->flags & SWP_BLKDEV))
- 		return 0;
+ #define DEF_SWAP_PRIO  -1
  
-+#ifdef CONFIG_XSWAP
-+	/* Grow before allocating: mapping pages can sleep. */
-+	if ((si->flags & SWP_XSWAP) && (si->flags & SWP_WRITEOK) &&
-+	    xswap_should_grow(si))
-+		xswap_grow(si);
-+#endif
-+
- 	if (!(si->flags & SWP_SOLIDSTATE)) {
- 		/* Serialize HDD SWAP allocation for each device. */
- 		spin_lock(&si->global_cluster_lock);
-@@ -1397,6 +1419,12 @@ static unsigned long cluster_alloc_swap_entry(struct swap_info_struct *si,
- 		if (found)
- 			goto done;
- 	}
-+
-+#ifdef CONFIG_XSWAP
-+	/* A concurrent free or grow may have added clusters; retry once. */
-+	if (!found && (si->flags & SWP_XSWAP))
-+		found = alloc_swap_scan_list(si, &si->free_clusters, folio, false);
-+#endif
- done:
- 	if (!(si->flags & SWP_SOLIDSTATE))
- 		spin_unlock(&si->global_cluster_lock);
-@@ -3986,8 +4014,39 @@ static unsigned long read_swap_header(struct swap_info_struct *si,
- }
+ /*
+@@ -79,6 +81,7 @@
  
- #ifdef CONFIG_XSWAP
-+/*
-+ * Link the new clusters and publish the larger range in one si->lock
-+ * section: linking first makes a cluster visible to an allocator only
-+ * after it is on the free list.  @link_free is false for the first
-+ * chunk, whose free list is not initialized yet.
-+ */
-+static void xswap_publish_clusters(struct swap_info_struct *si,
-+				   unsigned long start_idx, unsigned long nr,
-+				   bool link_free)
-+{
-+	unsigned long i;
-+
-+	spin_lock(&si->lock);
-+	if (link_free) {
-+		for (i = start_idx; i < start_idx + nr; i++) {
-+			struct swap_cluster_info *ci = &si->cluster_info[i];
-+
-+			/* A concurrent grower cannot take these: xswap_lock. */
-+			if (ci->flags != CLUSTER_FLAG_NONE)
-+				continue;
-+			list_add_tail(&ci->list, &si->free_clusters);
-+			WRITE_ONCE(ci->flags, CLUSTER_FLAG_FREE);
-+			ci->order = 0;
-+		}
-+	}
-+	/* Pairs with the smp_load_acquire() in the readers of the range. */
-+	smp_store_release(&si->nr_clusters_mapped, start_idx + nr);
-+	spin_unlock(&si->lock);
-+}
-+
+ static bool xswap_should_grow(struct swap_info_struct *si);
+ static unsigned long xswap_grow(struct swap_info_struct *si);
++static void xswap_debugfs_del(struct swap_info_struct *si);
  static int xswap_map_clusters(struct swap_info_struct *si,
--			      unsigned long start_idx, unsigned long nr)
-+			      unsigned long start_idx, unsigned long nr,
-+			      bool link_free)
- {
- 	/* vm_area_grow_pages() takes an offset into the area, not an address. */
- 	unsigned long vm_end = PAGE_ALIGN((size_t)(start_idx + nr) *
-@@ -4023,14 +4082,62 @@ static int xswap_map_clusters(struct swap_info_struct *si,
- 	for (i = start_idx; i < start_idx + nr; i++)
- 		spin_lock_init(&si->cluster_info[i].lock);
- 
--	/*
--	 * Publish the new mappings and cluster lock initialization before
--	 * the count; walkers without xswap_lock use smp_load_acquire().
--	 */
--	smp_store_release(&si->nr_clusters_mapped, start_idx + nr);
-+	/* The mappings and the locks are in place; make them visible. */
-+	xswap_publish_clusters(si, start_idx, nr, link_free);
+ 			      unsigned long start_idx, unsigned long nr,
+ 			      bool link_free);
+@@ -3455,6 +3458,7 @@ static void free_swap_cluster_info(struct swap_info_struct *si)
+ 			}
+ 			spin_unlock(&ci->lock);
+ 		}
++		xswap_debugfs_del(si);
+ 		vfree(si->cluster_info);
+ 		si->cluster_vm = NULL;
+ 		si->cluster_info = NULL;
+@@ -4087,6 +4091,7 @@ static int xswap_map_clusters(struct swap_info_struct *si,
  	mutex_unlock(&si->xswap_lock);
  	return 0;
  }
-+static bool xswap_should_grow(struct swap_info_struct *si)
++
+ static bool xswap_should_grow(struct swap_info_struct *si)
+ {
+ 	unsigned long mapped = READ_ONCE(si->nr_clusters_mapped);
+@@ -4138,6 +4143,68 @@ static unsigned long xswap_grow(struct swap_info_struct *si)
+ 	return nr_new;
+ }
+ 
++static ssize_t xswap_debugfs_read(struct file *file, char __user *buf,
++				  size_t count, loff_t *ppos)
 +{
-+	unsigned long mapped = READ_ONCE(si->nr_clusters_mapped);
-+
-+	if (mapped >= READ_ONCE(si->nr_clusters_max))
-+		return false;
-+
-+	return swap_usage_in_pages(si) * 100 >=
-+	       mapped * SWAPFILE_CLUSTER * XSWAP_GROW_WHEN;
-+}
-+
-+/*
-+ * Map more of the cluster_info array, up to GROW_UNTIL in use.  The caller
-+ * holds percpu_swap_cluster.lock, which this drops while it sleeps.
-+ */
-+static unsigned long xswap_grow(struct swap_info_struct *si)
-+{
-+	unsigned long mapped = READ_ONCE(si->nr_clusters_mapped);
-+	unsigned long nr_new, want;
-+	int ret;
-+
-+	lockdep_assert_held(&this_cpu_ptr(&percpu_swap_cluster)->lock);
-+
-+	want = DIV_ROUND_UP(swap_usage_in_pages(si) * 100,
-+			    XSWAP_GROW_UNTIL * SWAPFILE_CLUSTER);
-+	if (want <= mapped)
-+		return 0;
-+
-+	nr_new = rounddown(want - mapped, XSWAP_GROW_CLUSTERS);
-+	if (!nr_new)
-+		nr_new = XSWAP_GROW_CLUSTERS;
-+	if (nr_new > XSWAP_GROW_CHUNKS * XSWAP_GROW_CLUSTERS)
-+		nr_new = XSWAP_GROW_CHUNKS * XSWAP_GROW_CLUSTERS;
-+	nr_new = min(nr_new, READ_ONCE(si->nr_clusters_max) - mapped);
-+	if (!nr_new)
-+		return 0;
++	struct swap_info_struct *si = file->private_data;
++	struct swap_cluster_info *ci;
++	unsigned long mapped, tail = 0;
++	char tmp[192];
++	int len;
 +
 +	/*
-+	 * Mapping pages can sleep.  The lock only guards the per-cpu
-+	 * cluster cache, which this path does not touch.
++	 * Count the free clusters at the end of the mapped range.  The
++	 * xswap_lock keeps the range from moving under the scan.
 +	 */
-+	local_unlock(&percpu_swap_cluster.lock);
-+	ret = xswap_map_clusters(si, mapped, nr_new, true);
-+	local_lock(&percpu_swap_cluster.lock);
-+	if (ret)
-+		return 0;
++	mutex_lock(&si->xswap_lock);
++	mapped = READ_ONCE(si->nr_clusters_mapped);
++	if (si->cluster_info) {
++		while (mapped - tail > 1) {
++			ci = &si->cluster_info[mapped - tail - 1];
++			if (READ_ONCE(ci->count) ||
++			    READ_ONCE(ci->flags) != CLUSTER_FLAG_FREE)
++				break;
++			tail++;
++		}
++	}
++	len = scnprintf(tmp, sizeof(tmp),
++			"type %d\nclusters_max %lu\nclusters_mapped %lu\nusage_pages %lu\ntail_free %lu\ngrows %lu\n",
++			si->type, READ_ONCE(si->nr_clusters_max), mapped,
++			swap_usage_in_pages(si), tail,
++			atomic_long_read(&si->xswap_grows));
++	mutex_unlock(&si->xswap_lock);
 +
-+	atomic_long_inc(&si->xswap_grows);
-+	return nr_new;
++	return simple_read_from_buffer(buf, count, ppos, tmp, len);
 +}
 +
++static const struct file_operations xswap_debugfs_fops = {
++	.read	= xswap_debugfs_read,
++	.open	= simple_open,
++	.llseek	= default_llseek,
++};
++
++static struct dentry *xswap_debugfs_root;
++
++static void xswap_debugfs_add(struct swap_info_struct *si)
++{
++	if (!xswap_debugfs_root)
++		xswap_debugfs_root = debugfs_create_dir("xswap", NULL);
++	if (IS_ERR_OR_NULL(xswap_debugfs_root))
++		return;
++
++	/* One device, so one file: /sys/kernel/debug/xswap/xswap.stats. */
++	si->xswap_debugfs = debugfs_create_file("xswap.stats", 0444,
++						xswap_debugfs_root, si,
++						&xswap_debugfs_fops);
++	if (IS_ERR(si->xswap_debugfs))
++		si->xswap_debugfs = NULL;
++}
++
++static void xswap_debugfs_del(struct swap_info_struct *si)
++{
++	debugfs_remove(si->xswap_debugfs);
++	si->xswap_debugfs = NULL;
++}
  #endif /* CONFIG_XSWAP */
  
  static int setup_swap_clusters_info(struct swap_info_struct *si,
-@@ -4060,7 +4167,8 @@ static int setup_swap_clusters_info(struct swap_info_struct *si,
- 		mutex_init(&si->xswap_lock);
- 
- 		err = xswap_map_clusters(si, 0, min_t(unsigned long,
--					XSWAP_GROW_CLUSTERS, nr_clusters));
-+					XSWAP_GROW_CLUSTERS, nr_clusters),
-+					false);
- 		if (err)
- 			goto err_free_vm;
- 
-@@ -4252,6 +4360,8 @@ static int xswap_create(int prio)
+@@ -4360,6 +4427,7 @@ static int xswap_create(int prio)
  	 */
  	si->ops = &swap_bdev_ops;
  
-+	atomic_long_set(&si->xswap_grows, 0);
-+
++	si->xswap_debugfs = NULL;
+ 	atomic_long_set(&si->xswap_grows, 0);
+ 
  	error = setup_swap_clusters_info(si, NULL, maxpages);
- 	if (error)
+@@ -4371,6 +4439,7 @@ static int xswap_create(int prio)
  		goto bad_swap;
+ 
+ 	mutex_lock(&swapon_mutex);
++	xswap_debugfs_add(si);
+ 	si->prio = prio;
+ 	si->list.prio = -si->prio;
+ 	si->avail_list.prio = -si->prio;
 -- 
 2.54.0
 
