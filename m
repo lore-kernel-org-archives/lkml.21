@@ -1,101 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.36.144.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795378509;
-	b=ZZz9DN8zfw1BIQLQOCMSeQs/TVEN9tDbbPBTMiahXEZig0tgs4jzcEwGWwD7cFDoqJbY
-	 s9Y5l1x90CnXkIIEmASpDgPtYixOGBt2lfvIoKelzRg/zSRqvT4AO5i2nZrtVBBDevs7H
-	 0yD3Q1KcCvBWdedm3hX+7xPJojLEhlb649hse/2AOdfjoZUPolNFV5FlXgH6xVuw06vHp
-	 R/w5SdnXfd/c33UXOQPnKa41Je1ZFw4EhvsiZH6qcCnCaDtsyU+Z/Hm5mMkBDiUlikyJk
-	 3fBxk0UdQdUVsWs7zaP/b8zfXPjGwpWTg4oazJwZsSGmrrC8LoBN5meqoIKUhFmNSOg==
+	t=1795378629;
+	b=J86cwPhlJRCtpdSfD+nsqnghl9J8Ioz/CvJ3Bspnhy9nETWwMNf+M8x/chT9wgUX2lF3
+	 Uk6XqqzsNJ7NKz/Lx8iEoeAB0Gl3obExsfIq9JbOmPGKXXrG1A9Z6E4BKVR5FiWvnDjL0
+	 3FmN7KYBbkK33zWmRoqsZFLweCi2ML7kisIjSw71Q54E9+I6v//lpEnyszXIhkXWO8GQo
+	 ZR5qEZB0DWbCJ3/6QcKjhzgxdndP5B9vjb1kPWbe3yUGS8epDI5aAwWTwbMvXKEZ3lDK7
+	 Qd3x4duUKDR/kWLfzQ5Kzo/9Vhdm0wbyLOohk3q+cg1mkTNgjwADUb/MVWcrKOiEHiA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795378509;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=rvwcsAdY5ApuuiEEk6N9gHD31QI/cBFOyY2T9vxVLpo=;
-	b=EoYtK95m9gTVKCjIPw5HSEdVunec3eilaQMnH4/K6/XH+nUpFXp4UfcsIA4je4ANjETg
-	 /ED2z1BBUpVaVT9dTTbfZWt65VgBUi5ZuH3gPdFpPGWpTFxPI7zCVnffmjIH0zwuB+EKk
-	 MmvVupe7Pu1Ibt+j6/F2bWSlT6gKWR1ZUNAp3jF94QNMUE/MrM4N/F+9AvYfog62yU0AW
-	 oEWZ2V9wqo3dLWuGGU9seGC5RBPk+ihtccx2nyCPAZxneiXC4CGrtvJTUyagXJjyiHzC3
-	 HIJeha3GvZylS5VTrkmhBZDPiJrQRoroxnGe+6u8s1choB1H6vDU+cJ82xXAEGnHcWQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795378629;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=MO97S+4fBQqNiCPsH+O1ZpkFaaKKwzktkQsIGEO0hr4=;
+	b=IbkOBqYZb90oUKnL95TjCii1pgc++9cFkHlcCSPNYnft4FdWQGxUlz9ScuohEU6zbhxw
+	 +CU+auOG8Qvqc4ebeTi65QDsV6ikIchCNEHEUH1ZLXPuLzkO1TxK1xGjNaQ4ltTs//5vh
+	 7s6c20XQm0ge1CPs4dQjuNtKSEhIVJd6ltCnMVKO3oGJdhSiFTMFn93AFaB6rIZTW3ktS
+	 SxMLyteJReMAXC06ZIFn4ucJHkNno4Pu7aBAuDd0VIkQtYCtBuTGGWxM5lN47b1L1oEVw
+	 98jVcexVSYNXgXBk4bb2E3RGnFB2FTCz0ItTsL+Cz+IoQy/lmLxax+EidnqxAB2R4fA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GYm3TeMk;
-	arc=none smtp.remote-ip=209.85.208.52
-Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com [209.85.208.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=yoxcu.de;
+	spf=pass smtp.mailfrom=yoxcu.de;
+	dkim=pass header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=fmsuWwfi;
+	arc=none smtp.remote-ip=194.36.144.171
+Received: from morty.yoxcu.de (morty.yoxcu.de [194.36.144.171])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9B9D606A680
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:15:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9B9D606A680
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A13BC606A31A;
+	Sun, 22 Nov 2026 20:17:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A13BC606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=yoxcu.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yoxcu.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GYm3TeMk
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6b876afbb86so3207707a12.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:15:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795378507; x=1795983307; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rvwcsAdY5ApuuiEEk6N9gHD31QI/cBFOyY2T9vxVLpo=;
-        b=GYm3TeMklN6dkS/HNb6FOP56f7UVPTedXjNJ04dD8uUgYgEKEZi7qmhLoQAVkFLdcn
-         2MZBbHzPtmeP5y7a4J59YU0ljoSBSfwfb/rXhWTOlOqEUt9avn+PNm2BTD2TUzaI3UyD
-         wM7bVoxZ4Wml/S1Dq09CSpgZUKkLrXe6VAfnroL5JvWmpp/9qxH9XhGUeQ5CMPCRb/ZU
-         8pV+VCfOju9Jonb59/QugN7jJOZIqBYsqKuReVj7UMnMGGzSE58/YFaPvTcOsB0D/59r
-         rPfgK0jF80stTzk9uPBg4/uiVjsQNTf0uqaXZ7J9svJ2fiUNADsVh8IVWVA7PtXanoYI
-         pt7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795378507; x=1795983307;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rvwcsAdY5ApuuiEEk6N9gHD31QI/cBFOyY2T9vxVLpo=;
-        b=gQPKNtpFY0KQBLsJXRIAtwl7BPtKFQKuMNDeghnnnClz8C2D2YgTOlA1PCyFekKOnd
-         6PMuBbtX1i2HhTx0lXC5M5gHDJYxoNFZTtCikM3NOoK+26AlDeOIzO7E5KGQzdteRHsD
-         0ahXUoEmVJcJSnk8ZjNqgK3pkoHk/MfAC7ulh69eFDd7lsJIPOdk3xud+0ZXuNg2sl+V
-         1gDUYY7kGw/7aqZ6Ariyyf54IU70OPMDii6N7+ap7oTHB91Ev5CDy4SIjkHaq7DUULFd
-         jAYo8GVxpZmkU9IEYLdFcZS/aLLoLpZaBpo7paaOv4wUAC5jD4C/aRDshw+ucOGesgSR
-         AANw==
-X-Forwarded-Encrypted: i=1; AL+hErFFMHgNIkCBBS56GdzEF538mDQLJ8Qny6gmAudeBrC2JAnaUmLltNdGOvnzCjYPeF91vXhEmfHDJPYssJM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9m0v3x/VBHBHFwz1Ntr04UO3RBdwlIVPhu4IssDzWemLTH2TYF
-	HofouQwBSvCfpqx5l5QQ1xH3j09kBTPEdNl2xhReJFj4bJj6MUIWdwmc
-X-Gm-Gg: AZFdTZeQR3orfdNItuRgxMlcqeVm/TbF79a4cHuitF1ztvY31m02iFvkQtgREGhboKh
-	E+1Sc/MMCWorClA5sBUNhOC1YoWaV7o4W9omSXz7fGoczjN/fEn5VYe48XO4IWiiVcFbCu5P9LH
-	8S6nqg4mz1KU6UOQtC5/7lg1NSUGCr7+BE4BhRm9SSNApB1Sxp7vwhxsP7Dx8pgI/MkIsZ66ek8
-	B54757+u/vHevNAvppCAdPnbB6G6IjUv/YqqjVjH/6KYC3E0p2SWmiIrEyKLgAN/V+xF+8zN5ql
-	z4WiPfbV3MCoVL4qUmlj5Q0uTpatcl/bq4RilBL75Zmf6ruxZPubuEeNH1Lwn4JgGr1pI9xlHox
-	s/tGVRYBNilYycuhgJErAvASi7VLKiLRMpmVNyJPFW8lbXjMqd4EIAbiFEKqMd0UPrs8qwOV1GQ
-	6YuATyetdmomcB7AYBlsqfozBzm0H1QYs3YIacBvgwFGudI7Kb4l/pQUQrFbXzDUdXJMDNlm4r+
-	IiCKWfXcjvNAk88tws729kmlYFYjwtxaImSZjELBs9v7HosFOyrTt0V7RevIXh7TjBC1X8m0YYd
-	GgnrfJAGkWWnzN1BLKNmCNgaSQ9qjW8NPXdrOiXY4WQZpUgpxpvi5z0fWcBxGyAGy65i9HIZsgu
-	+lYPIBq6fDg==
-X-Received: by 2002:a05:6402:280d:b0:6ba:b1fd:6e73 with SMTP id 4fb4d7f45d1cf-6bab1fd714dmr689422a12.40.1795378506948;
-        Sun, 22 Nov 2026 12:15:06 -0800 (PST)
-Received: from xeon ([188.163.112.54])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fa8basm4424074a12.20.2026.11.22.12.15.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 12:15:05 -0800 (PST)
-From: Svyatoslav Ryhel <clamor95@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Svyatoslav Ryhel <clamor95@gmail.com>,
-	Mikko Perttunen <mperttunen@nvidia.com>
-Cc: devicetree@vger.kernel.org,
-	linux-tegra@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=fmsuWwfi
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9C5291D86D6C;
+	Sun, 22 Nov 2026 21:17:00 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yoxcu.de; s=dkim;
+	t=1795378621; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=MO97S+4fBQqNiCPsH+O1ZpkFaaKKwzktkQsIGEO0hr4=;
+	b=fmsuWwfi/TRi7/1jG+i1LzgBalhAUMPIGrswpE0nlXWUhl+BWv8ngscAN+I+xwtUdDitQX
+	ezLV9SyeOBtKRXeTDs25PtvuEfQLnGaxTcfAWO+BGWp1DunM3RgWaEDl9fYvMrTJnmMtQH
+	Tg3hUTrq1E+2P2GyQ6q8PJLthdyhoZh86D2y2HnJ091IWJ/0jDi1+9oGDky96QJXFOdSfa
+	YpNc7G2r4d5FKrA95a/FIEn1Lfv4p3AJqP6A5AuFRHeU8VB9QPSrwyVyJY8Q9fn0+ZbkQT
+	Riucox8Gd2FhYjK5/GYq6OjD21otohvE+AHiIxKARfOrqoWbjO858/dheUqanw==
+From: Michael Auer <mick@yoxcu.de>
+To: =?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>
+Cc: Sebastian Reichel <sre@kernel.org>,
+	linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 18/18] ARM: tegra: tegratab: Add panel rotation
-Date: Sun, 22 Nov 2026 22:14:07 +0200
-Message-ID: <20261122201407.23742-19-clamor95@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261122201407.23742-1-clamor95@gmail.com>
-References: <20261122201407.23742-1-clamor95@gmail.com>
+Subject: Re: [PATCH 2/3] power: supply: bq27xxx: retry a failed register read once
+Date: Sun, 22 Nov 2026 21:16:46 +0100
+Message-ID: <20261122201650.1155371-1-mick@yoxcu.de>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261122120341.runjq4rjjgvob5y6@pali>
+References: <20261121204137.848173-1-mick@yoxcu.de> <20261121204137.848173-3-mick@yoxcu.de> <20261122120341.runjq4rjjgvob5y6@pali>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,28 +64,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-Add panel rotation property required for correct panel orientation, since
-it is mounted upside down.
+Hi Pali,
 
-Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
----
- arch/arm/boot/dts/nvidia/tegra114-nvidia-tegratab-common.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+On Sun, Nov 22, 2026 at 01:03:41PM +0100, Pali Rohár wrote:
+> So... should not be there rather a resume hook in the driver which waits
+> until the battery is ready (instead of adding retires on many places in
+> the driver)?
 
-diff --git a/arch/arm/boot/dts/nvidia/tegra114-nvidia-tegratab-common.dtsi b/arch/arm/boot/dts/nvidia/tegra114-nvidia-tegratab-common.dtsi
-index 99f0d1c345e63..35400af7c1c1b 100644
---- a/arch/arm/boot/dts/nvidia/tegra114-nvidia-tegratab-common.dtsi
-+++ b/arch/arm/boot/dts/nvidia/tegra114-nvidia-tegratab-common.dtsi
-@@ -175,6 +175,7 @@ panel@0 {
- 				vcc-supply = <&dvdd_lcd>;
- 
- 				backlight = <&backlight>;
-+				rotation = <180>;
- 			};
- 		};
- 	};
--- 
-2.53.0
+Thanks for looking at it.
 
+The read that fails is the first one after resume: the flags read of
+the update that bq27xxx_battery_resume() queues without a delay. The
+OnePlus vendor driver waits 1 s after resume before it reads the
+gauge, so a delay there would probably avoid it too.
+
+What I do not know is how long the gauge needs. It failed in about 1
+of 350 resumes, and the NAK is the only sign, so I could not measure
+it. A fixed delay would be a guess, the retry does not depend on one.
+The retry is in one place, bq27xxx_read(), which all register reads go
+through.
+
+For v2 I can either delay the update queued at resume (for example by
+1 s) instead of the retry, or do both. Which do you prefer? I will
+also log on the phone when the retry fires, which should show how long
+the gauge is not ready after resume.
+
+Michael
