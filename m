@@ -1,66 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795350015;
-	b=QZI6VG1f8U4hhRbOY+vPs4icNychovGbMMttvr+PybiwlAGtsgRCGwl7yTctiSYUtY6i
-	 Yt+HH0rmZLPI6EWTWgmqeWNOjBsiNplzmjnHH1OtFidEzXRe6R9aq1oqdeee7Q6rMjugY
-	 18JI9ZBm3rNT0frqX5lzD8NNlr1hDFgCzHkoCthYrVJZVWjqdA0s4Rs5ikHJw049rfh8J
-	 s3lMhutXZeb622z7HXCdqJdzNHEH8mPz58zk0rthJypdFpV2hz/Uk00VsaO7ljbez62c2
-	 N7rrnHJLiPrxSdMjd1KWynHc4sdymmWOAC6f0XbpFfvc7JxJopm1D0Y0N4wvu+1wz1w==
+	t=1795350022;
+	b=BvPRdWwkPq0QoLJicVFMMCBxpJoNxZwmsktmf8IDSVJhsmvMnB/ykq46hccWH5OjNqd6
+	 vevzg2Yq1fhuKV2u2IV8LpxT/FFEuefHkrzGX+sFr9fjmLeqbAQUf4rBTBAbLsgb6uhaK
+	 VNr7jhyhvU9OGTLTXa+PoBHJN+I+fDXOi515XGH2C/5eQwma3xlf5tgRfcLtmAUMufCMR
+	 6fnCiIeg13ihB9dUJXXT4ShV4XyiRXbLDFJYKMovvHMJQbGBOGV5ucT1qHEflD89hneyU
+	 f7z4bOzAXYjWNHxTwbUxTmLqav3aeJiFLOEukeDM7w+SurFTAxa+H72XkXTPqNY4E0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795350015;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=g97xjPrBawgweQA4k3zq7SvKC3g/KKuRIh07JI3c4ug=;
-	b=Qs2QNTLlQX/D697saZ5gtrsrSX82Lcs+ELXeebx5Fx/Oc0Uthk0Xwj2PPFD6lYgTffIG
-	 vsaWJXlqNAueyIHDtCdxNbtRFvHNSTTBcflVQ+9ajutclm1qAkJyV6ASJcTYtKaJFAw02
-	 /vpDaVRYX5fr1n0gTfYHz9b58uVhHc/VLyDT/j3nuqdDw3C0MrZ0pNCn925m0fxFmBKa+
-	 xQ7hFipje0Cqeb+KyyPA85Tr3+xfAMZ10hTdEjvebuIKMCWa+skLifbtO9mD1mSy+EWvP
-	 2YIQcWGJ7+C2XCP5XiTD4gr8oS+dcpa5tuHAIjFxNb6AG1UBkq6xnkwLBZsNxLERXjA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795350022;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=HBuf3DEB5ZqlJpvGsQMe7eJ7vutfXuN9J2TgjKjXyjY=;
+	b=fJjcyjitcBPLT6OqjVziY77ymdCuwQ2ebi+aDO/ava2XQuzGL76j3cudLWiIZlPwAXVM
+	 LZF1rRBnMoOeteo4ujO0bRCpuknA/vlxUowdAJVtcn1Qw5cJ/XdOv9nHnRVmrcmlLhAsz
+	 3mERw30eVS+aHN0/worN7glU7X9ufn0tcCkdPOBoHn9Q7W4ifpzx93X5YfPWiceobYcxm
+	 NybDR1V6/CixyBtYxzzrbZc4z5xoZrz3mK0ARlz3hDnzLDoWVxTX22UNtMGraDbYVJMDL
+	 ws8o9eK/oAOb3bAYbmPud/phl0/Uc6W6cP850opi16mFEMwg6/f1et5Vjxxs+y6D3jQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Gi10WioZ;
-	arc=none smtp.remote-ip=117.135.210.3
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uf90EpJA;
+	arc=none smtp.remote-ip=209.85.210.45
+Received: from mail-ot1-f45.google.com (mail-ot1-f45.google.com [209.85.210.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66573606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:20:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66573606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BEB3606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:20:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7BEB3606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Gi10WioZ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=g9
-	7xjPrBawgweQA4k3zq7SvKC3g/KKuRIh07JI3c4ug=; b=Gi10WioZ/q+F/4Xl9O
-	8j3BN6Ez8MdNUaMNFA242C8aCydFeEQkzugM9JcNGCv3JjaNhYFog2tZnzwTGVhM
-	RD4fGAgpRuih1sjZDmK5yw2DaqpYYcYzhFQG3FtauSEah76UZO4Gf55nVWhoMde7
-	xN8cXArAW68YVuIUKLdJ2DaDQ=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wD3n0iS3QJr8NQqJg--.46311S2;
-	Sun, 22 Nov 2026 20:18:27 +0800 (CST)
-From: albin_yang@163.com
-To: peterz@infradead.org,
-	mingo@redhat.com,
-	juri.lelli@redhat.com,
-	vincent.guittot@linaro.org
-Cc: dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	vschneid@redhat.com,
-	kprateek.nayak@amd.com,
-	kayracizmeci@gmail.com,
-	linux-kernel@vger.kernel.org,
-	albin_yang@163.com,
-	albinwyang@tencent.com
-Subject: [PATCH v3] sched/stats: Fix run_delay over-count for tasks parked on the runqueue while blocked
-Date: Sun, 22 Nov 2026 20:18:23 +0800
-Message-ID: <20261122121823.2572209-1-albin_yang@163.com>
-X-Mailer: git-send-email 2.43.7
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uf90EpJA
+Received: by mail-ot1-f45.google.com with SMTP id 46e09a7af769-8631e07b756so1166557a34.3
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:20:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795350021; x=1795954821; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=HBuf3DEB5ZqlJpvGsQMe7eJ7vutfXuN9J2TgjKjXyjY=;
+        b=uf90EpJAVSpFRpRE5y7+9rDwPqPb5Z0mfYHI5ulJumfzGF+f4CzcJBY/iKu29fmAYd
+         UzFmdgG09XFVXEf95GCeOBfPb3L3LXOBG1jN2s8uAnj9Oro4r+8fVUOV3LR5hy7uZVxW
+         0Bv1oR0Ahmv8AkBbOrsADBOKhYGSBC1TrH9WWIfc4cR1hSaj3iEqcfOYc5yfrvjZtRYI
+         1MDwWwn29HdCcWLOp0EgmJEFdRuAaVWD6gBaLdxN4dB7kNDtKL5aWxnVnFxEEItnahr+
+         liy1sgoP2IXMG8UEDXeFXHm5ONhZ29R+1D7P4vO4xzUcX1Y4uwCOyv255cOwXZmYGK0d
+         BW7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795350021; x=1795954821;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HBuf3DEB5ZqlJpvGsQMe7eJ7vutfXuN9J2TgjKjXyjY=;
+        b=i9CMaNfOmAMIucP1mpxzL3JbshxqtxAuI56cCDOj6Kt8IwYLbVCRk87q7y3Qb13Q0W
+         8PfByczQqJSUZcvWqpcXL/WfWr3VNCR8KPam+I4nLB+DPh6WmBxRu6N4Nb7TQjgwE9MV
+         Z6190ZIeHJeg4EYHSmNzGdIPZB6s4rDsoBHChedaXPjOMSQctZ5vLZsD3z4jqsOudEnl
+         Zttg2uLak3cBiEjOAzjDjL5vmwqJyAz4MVB7S+3d1lLnZXWc1Lufc5/dpC8aWNCzz3bo
+         XxRVIKmav2oiK8GdQV41nmXx8rIX/fiSJMtm4sOh2g4K67NLTp19KkV75C1jzaPzYGsi
+         53lQ==
+X-Gm-Message-State: APuU4Z+sgLbqMr1HUmnnNzMuqb0mySujx7BphOICpAW95HyTXAGRL0Ge
+	NW+bExf5PHEwzZHN96AUEAosvFbO/xVl3QlEBSvc80/0gOcMwbWHoXEm
+X-Gm-Gg: AZFdTZc5O+92W2HAAAsYlLw6FLNO9NXoWUCzP7XUgkcGdC7NPuX3RBptCOsxGK2Zmop
+	KUyUTZXBQY8sBp58rP2BxGVCL/L4ogJMzkIRBOgQqaVsJGYtc7KhTt6x5fbDo96OAKJGbnkUgG1
+	zMTCxNoRWTNW7ez4E0CoFHXSKBF1yOjGXde/LNPE0aWcu/V5fHdAeiSOhA2JSQIPJF8sPR8QiRi
+	so+wJOpdwd3IslJ/qgODff+/pdioK21Gke3Ot2dVr9dJ/00Kx+DvBsS5qAuI0B2JONZo1l25+o9
+	zWg65B3KMqcsuI1GIjf3cA6/ONs4kDlh9kkoN4axYwViVLtcJOtBnUqSd9iX27qD7AE8LZZm8zo
+	TjO4nkgxY9KdtnYuIoDwSXeut/QDvXQfUBZJpncosKJHdgEPkyswgRzIMaUAuR2JXcHezrJUF97
+	NX28yQrEgUM6ae43g5bY8FWo6Ki9CbK3Rxo7PvLGRMVi+VT6XHX09mtGY8h1Q2Op/uo8PgtQ8RN
+	XL5bRGaBecK163CmLoyjNFuBWj7nWO8eRcAdmn3SGXGXrJCYR8+A7TomyapSmEsmwlKdI2+6BaA
+	4XH7vPV/d3qe3XVPMRQqfZS4CbKpCauinwR2QHQ7Y9w=
+X-Received: by 2002:a05:6808:1305:b0:4c4:d8a0:2773 with SMTP id 5614622812f47-57a0a9142cfmr9672467b6e.32.1795350021271;
+        Sun, 22 Nov 2026 04:20:21 -0800 (PST)
+Received: from localhost.localdomain ([121.134.184.225])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a35655a5bsm6734024b6e.13.2026.11.22.04.20.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 04:20:20 -0800 (PST)
+From: Unsung Lee <unsung0317@gmail.com>
+To: linux-cxl@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Dave Jiang <dave.jiang@intel.com>,
+	Alison Schofield <alison.schofield@intel.com>,
+	Vishal Verma <vishal.l.verma@intel.com>,
+	Dan Williams <djbw@kernel.org>,
+	Ira Weiny <iweiny@kernel.org>,
+	Li Ming <ming.li@zohomail.com>
+Subject: [PATCH] cxl/port: Do not queue a memdev detach when the memdev unbinds itself
+Date: Sun, 22 Nov 2026 21:20:14 +0900
+Message-Id: <20261122122014.2194208-1-unsung0317@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,147 +100,144 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3n0iS3QJr8NQqJg--.46311S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3Gw1rZrW3tF43Ar1DXrWxCrg_yoW7tr48p3
-	ykW3y3Ga18Kr40ga9rZr4UGa4akwnrGw43tF97t34Fkr45Jw10vF1ktFW3XFsYkr9akFWS
-	vF4Yg39Fya1jyFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pieyIUUUUUU=
-X-CM-SenderInfo: pdoex0xb1d0wi6rwjhhfrp/xtbCzhT3mmsC3ZSBAgAA3U
 
-From: Wei Yang <albinwyang@tencent.com>
+Binding a memdev to cxl_mem right after unbinding it often fails: the
+probe returns -EBUSY, or the bind succeeds and the memdev is unbound
+again a few milliseconds later. In the second case the bind write
+returns success, so nothing tells userspace that the device ended up
+unbound.
 
-A task parked on the runqueue while blocked -- a proxy-exec donor
-migrated to its mutex owner's CPU, or a DELAY_DEQUEUE sleeper migrated
-across CPUs -- is re-attached via activate_task() without
-ENQUEUE_RESTORE. That arms sched_info.last_queued although the task is
-not waiting for a CPU, and the parked time is later charged as
-run-queue wait: by sched_info_dequeue() when proxy_needs_return()
-dequeues a donor on wakeup, or by sched_info_arrive() once the task
-runs.
+cxl_endpoint_port_probe() registers schedule_detach() as a devm action
+of the endpoint port, so that a memdev whose endpoint port, or a port
+above it, goes away is detached. Unbinding cxl_mem deletes the endpoint
+port itself (delete_endpoint()), which runs that action too and queues
+cxlmd->detach_work although the memdev is already going away.
+detach_memdev() later calls device_release_driver(&cxlmd->dev), which
+takes the device lock and releases whatever driver is bound at that
+point. A bind that runs before the work makes cxl_mem_probe() fail its
+work_pending(&cxlmd->detach_work) check with -EBUSY. A bind that is in
+progress when the work runs is released by it as soon as it completes:
 
-Use p->is_blocked as the primary indicator: sched_info_dequeue() drops
-last_queued without charging while blocked; sched_info_enqueue() refreshes
-it on every enqueue while blocked, so the stamp ends up at the real wakeup;
-ttwu_runnable() adds an explicit sched_info_enqueue() call under the
-existing !task_on_cpu() guard, for wakeups that have no enqueue of their
-own. Delayed sleepers also have is_blocked set, so both cases are covered.
+  bash     echo mem0 > unbind: cxl_mem removes endpoint2 and its decoders
+  kworker  detach_memdev(): device_release_driver(mem0) waits for the lock
+  bash     echo mem0 > bind: cxl_mem_probe() returns 0
+  kworker  releases mem0 again, endpoint2 and its decoders go away
 
-The p == current early return in try_to_wake_up() now documents why it
-needs no sched_info_enqueue() call.
+Mark the memdev while delete_endpoint() removes the endpoint port and
+skip the detach in schedule_detach() then, dropping the reference the
+work would have dropped. A memdev with ->attach still gets the detach,
+since there it releases the parent device, which depends on the
+memdev being attached. Losing the endpoint port or a port above it
+otherwise still detaches the memdev as before.
 
-Both over-counts disappear with this patch, and run_delay still grows
-normally for a runnable task contending for the CPU, so the counter is
-alive rather than switched off.
+The problem was found by an automated test harness driven by an LLM
+coding assistant. The analysis and the fix are my own.
 
-Fixes: b049b81bdff6 ("sched: Handle blocked-waiter migration (and return migration)")
-Suggested-by: K Prateek Nayak <kprateek.nayak@amd.com>
-Suggested-by: Kayra Cizmeci <kayracizmeci@gmail.com>
-Signed-off-by: Wei Yang <albinwyang@tencent.com>
+Fixes: 8dd2bc0f8e02 ("cxl/mem: Add the cxl_mem driver")
+Signed-off-by: Unsung Lee <unsung0317@gmail.com>
 ---
+Question: is the detach meant to be queued on a cxl_mem unbind too? For
+memdevs with ->attach the patch keeps it, as there it releases the
+parent; I have no such device to test.
 
-v3: restore Prateek's comments in sched_info_dequeue() and
-sched_info_enqueue(), dropped in v2 (Kayra). No code change.
+Reproducer, as root in a QEMU guest with one type3 device
+(-M q35,cxl=on,cxl-fmw.0.targets.0=cxl.1,cxl-fmw.0.size=8G
+ -object memory-backend-ram,id=vmem0,share=on,size=8G
+ -device pxb-cxl,bus_nr=12,bus=pcie.0,id=cxl.1
+ -device cxl-rp,port=0,bus=cxl.1,id=root_port13,chassis=0,slot=2
+ -device cxl-type3,bus=root_port13,volatile-memdev=vmem0,id=cxl-vmem0):
 
-v2: switch from the v1 !task_is_blocked() gate to the is_blocked based
-approach proposed by Prateek Nayak. Subject widened: v1 only mentioned
-proxy-migrated donors, while the same gating fixes both cases.
+  M=mem0; D=/sys/bus/cxl/drivers/cxl_mem
+  for i in $(seq 40); do
+          [ -e /sys/bus/cxl/devices/$M/driver ] || { echo $M > $D/bind; sleep 1; }
+          echo $M > $D/unbind
+          echo $M > $D/bind 2>/dev/null; rc=$?
+          sleep 1
+          [ -e /sys/bus/cxl/devices/$M/driver ] && s=bound || s=unbound
+          echo "bind rc=$rc $s"
+  done | sort | uniq -c
 
-Measured with two CPUs used (CPU0/CPU1); run_delay is field 2 of
-/proc/<tid>/schedstat:
+Without the patch 7/40 and 11/40 fail on cxl/next 32af781935 (2 of
+the 11 with the bind returning 0 and mem0 unbound after), 14/40 on
+v7.3.1.
 
-  proxy exec, donor migrated to the owner's CPU (~170 ms block)
-    unpatched       167.07 - 167.09 ms   5/5   migrated
-    patched           0.00 ms           20/20  migrated
-    same-cpu control  0.00 ms            0/5   not migrated
+With the patch on cxl/next (release and KASAN/lockdep builds) and on
+v7.3.1 (KASAN/lockdep): 120/120 stay bound on each kernel, unbinding
+the endpoint or host bridge port still unbinds the memdev, and 3
+minutes of racing memdev and port unbind/bind gave no warnings.
 
-  DELAY_DEQUEUE, sleeper migrated across CPUs (~150 ms sleep)
-    unpatched       147.94 - 147.99 ms   5/20
-    patched           0.00 ms            0/100
+Not tested: memdevs with ->attach, switches, real hardware. Regions were
+only checked on v7.3.1: cxl/next creates no root decoder for QEMU's
+CFMWS (restrictions 0x2f, "cannot have both HDM-H and HDM-DB").
 
-The DELAY_DEQUEUE reproducer self-checks (must reproduce unpatched) and
-shows ~40 ms of run_delay growth per round throughout.
+ drivers/cxl/core/port.c |  3 +++
+ drivers/cxl/cxlmem.h    |  2 ++
+ drivers/cxl/port.c      | 14 +++++++++++++-
+ 3 files changed, 18 insertions(+), 1 deletion(-)
 
-v2: https://lore.kernel.org/all/20261114092637.3206631-1-albin_yang@163.com/
-v1: https://lore.kernel.org/all/20261025130740.3324391-1-albin_yang@163.com/
-Full test results and the discussion of the split:
-https://lore.kernel.org/all/20261101143101.353033-1-albin_yang@163.com/
-
-p->is_blocked was added by 4c2a20413d7f ("sched: Add is_blocked task flag")
-and is only available from v7.2-rc1. The DELAY_DEQUEUE over-count goes back
-to v6.12 (152e11f6df29) and still needs the sched_delayed based variant on
-older stable trees; that is a separate, independent fix. A second Fixes:
-tag would make the stable backport machinery try this on v6.12.y, where
-is_blocked does not exist. Hence only one Fixes: tag above.
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 5ed660f099a5..b3af72ba948f 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -3962,6 +3962,8 @@ static int ttwu_runnable(struct task_struct *p, int wake_flags)
- 		 * it should preempt the task that is current now.
- 		 */
- 		wakeup_preempt(rq, p, wake_flags | WF_TTWU_RQ);
-+		/* Start accounting wait time. */
-+		sched_info_enqueue(rq, p);
+diff --git a/drivers/cxl/core/port.c b/drivers/cxl/core/port.c
+index fffcb9954d..4960a288a1 100644
+--- a/drivers/cxl/core/port.c
++++ b/drivers/cxl/core/port.c
+@@ -1514,9 +1514,12 @@ static void delete_endpoint(void *data)
+ 
+ 	scoped_guard(device, host) {
+ 		if (host->driver && !endpoint->dead) {
++			/* @cxlmd is going away, see schedule_detach() */
++			WRITE_ONCE(cxlmd->unbinding, true);
+ 			devm_release_action(host, cxl_unlink_parent_dport, endpoint);
+ 			devm_release_action(host, cxl_unlink_uport, endpoint);
+ 			devm_release_action(host, unregister_port, endpoint);
++			WRITE_ONCE(cxlmd->unbinding, false);
+ 		}
+ 		cxlmd->endpoint = NULL;
  	}
- 	ttwu_do_wakeup(p);
- 	return 1;
-@@ -4357,6 +4359,11 @@ int try_to_wake_up(struct task_struct *p, unsigned int state, int wake_flags)
- 		if (!ttwu_state_match(p, state, &success))
- 			goto out;
- 
-+		/*
-+		 * No sched_info_enqueue() here: current is running, not
-+		 * waiting for a CPU. If preempted, sched_info_switch() ->
-+		 * sched_info_depart() arms the wait clock instead.
-+		 */
- 		trace_sched_waking(p);
- 		ttwu_do_wakeup(p);
- 		goto out;
-diff --git a/kernel/sched/stats.h b/kernel/sched/stats.h
-index ebe0a7765f98..c4c624deb25b 100644
---- a/kernel/sched/stats.h
-+++ b/kernel/sched/stats.h
-@@ -239,6 +239,15 @@ static inline void psi_account_irqtime(struct rq *rq, struct task_struct *curr,
- static inline void sched_info_dequeue(struct rq *rq, struct task_struct *t)
- {
- 	unsigned long long delta = 0;
-+	/*
-+	 * If a task is blocked (blocked donor, delayed dequeue task),
-+	 * do not account the queued time as runnable. A task that is
-+	 * blocking would have already cleared the "last_queued"
-+	 * indicator from sched_info_arrive() when it got a chance to
-+	 * run on the CPU.
-+	 */
-+	if (t->is_blocked)
-+		t->sched_info.last_queued = 0;
- 
- 	if (!t->sched_info.last_queued)
- 		return;
-@@ -290,7 +299,23 @@ static void sched_info_arrive(struct rq *rq, struct task_struct *t)
+diff --git a/drivers/cxl/cxlmem.h b/drivers/cxl/cxlmem.h
+index 4cf8a0f6cf..0d566b8e32 100644
+--- a/drivers/cxl/cxlmem.h
++++ b/drivers/cxl/cxlmem.h
+@@ -41,6 +41,7 @@
+  * @cdev: char dev core object for ioctl operations
+  * @cxlds: The device state backing this device
+  * @detach_work: active memdev lost a port in its ancestry
++ * @unbinding: the endpoint goes away because this memdev is being unbound
+  * @cxl_nvb: coordinate removal of @cxl_nvd if present
+  * @cxl_nvd: optional bridge to an nvdimm if the device supports pmem
+  * @endpoint: connection to the CXL port topology for this memory device
+@@ -58,6 +59,7 @@ struct cxl_memdev {
+ 	struct cdev cdev;
+ 	struct cxl_dev_state *cxlds;
+ 	struct work_struct detach_work;
++	bool unbinding;
+ 	struct cxl_nvdimm_bridge *cxl_nvb;
+ 	struct cxl_nvdimm *cxl_nvd;
+ 	struct cxl_port *endpoint;
+diff --git a/drivers/cxl/port.c b/drivers/cxl/port.c
+index 96fade0299..092b138827 100644
+--- a/drivers/cxl/port.c
++++ b/drivers/cxl/port.c
+@@ -26,8 +26,20 @@
+  * PCIe topology.
   */
- static inline void sched_info_enqueue(struct rq *rq, struct task_struct *t)
+ 
+-static void schedule_detach(void *cxlmd)
++static void schedule_detach(void *data)
  {
--	if (!t->sched_info.last_queued)
++	struct cxl_memdev *cxlmd = data;
++
 +	/*
-+	 * "t->is_blocked" is only cleared after the enqueue is done and
-+	 * the task is woken up. If the task is blocked, update the
-+	 * "last_queued" timestamp to that of last enqueue - if the task
-+	 * is still blocked while it leaves the runqueue, this timestamp
-+	 * is ignored and is cleared at sched_info_dequeue().
-+	 *
-+	 * To transition a task back to blocked after wakeup, it has to
-+	 * run on the CPU and naturally reach a safe preemption point.
-+	 * sched_info_arrive() will do the correct wait time accounting
-+	 * based on the last "last_queued".
-+	 *
-+	 * Any movement of task after being marked not blocked will be
-+	 * correctly captured as queued time at enqueue + dequeue
-+	 * boundaries when "t->is_blocked" cleared.
++	 * A detach queued while @cxlmd unbinds itself would run after it
++	 * and could release the next binding instead. With ->attach the
++	 * detach releases the parent, which still has to happen. Read
++	 * without the host lock when the endpoint port is unbound directly.
 +	 */
-+	if (!t->sched_info.last_queued || t->is_blocked)
- 		t->sched_info.last_queued = rq_clock(rq);
++	if (READ_ONCE(cxlmd->unbinding) && !cxlmd->attach) {
++		put_device(&cxlmd->dev);
++		return;
++	}
+ 	schedule_cxl_memdev_detach(cxlmd);
  }
  
 -- 
-2.43.7
+2.34.1
 
