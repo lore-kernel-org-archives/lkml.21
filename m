@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795342688;
-	b=S7XBCUskQJaDrOgDR1HZ006iFd1h8tCqEKdOEGVdzNnH6BNuqroJBSR+EFXIHrJ3ilM4
-	 vH6w7idgG+ai20AvuWv5N+R+qFS3dmANyuuNFyq9XrD+sBl6H8a+2mc4aEG4KYpNlv/wY
-	 ZceFGOC4/fKkzRYRBZ1XnPMP3pwytQ3F5R8YGK25mrclNjE8NsAW8j/AQVOinFQiulATd
-	 XOtGDQDwXwIGh7Tg7pP9ZjV1Dib3/+IwHipe9ojR0mxwLJASLL2a9jc4bs9VvYpH8T8xC
-	 uwm6esthbSjyVTUAewVNxEAjdNdBl271LZhpCdBizrpUzQuu8itdm2lGZSp4M9doiMQ==
+	t=1795342691;
+	b=RFSAK7vRIlYvPkvdtHqtIw6vfgBzMy/znDxHyHbbVdJWuqAPoREve2tSCx1WvgohlNfa
+	 1BsFTcMAEMrlFbYxSMkDu0q3fBK4OOMzzv12Kc2zAa7vR6vUrv8Li407H77M7WEWpcH9N
+	 gu06rcrs8V10K3lcJHe40Qhq9PROMIFzCNXQVPs2h7hlAVMNF/KyakVaFfiP3aQRuLGjH
+	 pTm5uG7DXfQtwGGIbB9zBi12vYfKsleHYxzG5rt8cU0FuAB7CIL4RmnzmhDRxro5Hanwz
+	 JzLhNlMakOxIx41IsJye+uOy9L7uVqz/67cvCDZsKfzq/YX4qcaHCsjz0QVa46TpWCg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795342688;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795342691;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=ph2rx9fu8uegZW4FmXu9ACxG9GNyZ62Lgq4kaeRDI/o=;
-	b=PiqpL47ECfP7bHnYPC3EY5lxSpe7HeeWpsenZJp2P+AweWEKveb86fALN3BTd4AL+iTx
-	 eZ28ktNrJivja6wAkvRRgBONBh4jhAryW5Sakm/8Dju7khkJZO6DTFdlTFQBKjmUjjFmn
-	 KkyOjL+rENadBduA6uZsptsmq+Pnhf1t69hlE5FAelJzWyvWTpsBBlOzfYtYZXgmfH2zX
-	 7eOGiO+CTzmfGcAzlXjqj3GXDELL/zzyRBbN9ALBqpLT7yUaurPDC354O7jlXGFjSURj5
-	 xFjq8jeWW6MJ89YpjRipOxIeeScJsO0uu0I6j9/5j+EyWNLEcdHApNE4ceNU/McOhdw==
+	bh=oCpV49nOga8AoZMY7yHg06vfkscs7oJjLDcTlwIf7nA=;
+	b=ZvCyNpoVvN3VNeyfsQtI6c+RmCclsTc7o3B7aUN6/fkIoLYmbImlJKYilX5hilMhO63s
+	 tbZjfYdX0lvOkhIskEttXn11ux2wDG5WGm5q5MWni20asp3LTcd5pW7e50KP+2sLYbLl0
+	 hgjVs2eWtOp0Kn9nOJC3cMHPE+wF2MKcM2OqeDSbMIaVmH1humyzJ/3QJ13jOBMVj2ZOG
+	 MiiwzBrep2rIAR4263ds/NADnyysYkctdHuznaecFdWa+Jfx1MNxYI38PSbreNMbyUOzx
+	 o5N5NpTrLQo/xmLZTveRi2efkJjSxRLv6n7PXFPabci0v5l6tY/zKpDMu3H9C5oEcow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zMsJbyIZ;
-	arc=none smtp.remote-ip=209.85.216.48
-Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com [209.85.216.48])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g7G7xhn6;
+	arc=none smtp.remote-ip=209.85.215.182
+Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C601606A332
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:18:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C601606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2082B606A33B
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:18:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2082B606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zMsJbyIZ
-Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-3b155f50c24so1955348a91.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:18:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g7G7xhn6
+Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-ccca948203aso2400353a12.3
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:18:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795342688; x=1795947488; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795342690; x=1795947490; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ph2rx9fu8uegZW4FmXu9ACxG9GNyZ62Lgq4kaeRDI/o=;
-        b=zMsJbyIZCUHEcHpZAwVHTDluKJwKBGdzJPPBhb+QcTL86D45cSOV/YULbZSxUNOegU
-         Jnu5VtLmCfpHaJbhjwxWnBE6iJK1SVZbgwb7+e5lDNGw9QwiRVWRj/T9Uoe8Ngmcdbeu
-         PpFF0A11F3eA+UaDNNYdgAVOoW9Hi2BkLaAb9nQIs3IEDi44GmyAvwBD+eyC/m4SjuwT
-         K7Dkqkvqtey82M9j+qJxcZh7kh9EaK12L41EB/bBxlQGnteESbP/r993X/e10VgSJT/t
-         EXRPdq9dciXamJek6HMa4xK/AAMfulddQxfRh6kOw9oHXGjL5NdqNcvALMlX40PvAmXO
-         +L5Q==
+        bh=oCpV49nOga8AoZMY7yHg06vfkscs7oJjLDcTlwIf7nA=;
+        b=g7G7xhn6BKkNkLuaikWbY4K22jSt2/x180ZFzhvcAu/sv1xzTxeyrGpK3uy5TAcEz9
+         jo8tUHVY/xpcRGQmCDnDPmHTw5ECPKoRT92POP28b5TGwVooKlgruSWjKTTMZiin1dfE
+         x1JUFKigPR9z+HTPfW8SJkNnJJdvuWWF8RmHmzkKn9bperFFO+JzuzmIHmDD9SAO48t/
+         +kHUa4j+CTYyGm503MCTnVdRPAj8W06BluKIwYy7wct9gDf32xUtQx9xQgc0lTzYLRY2
+         /Vm2thBE5zOWl921kN4UHXSEiWENojKWKLKfVqS3qc845F5GY1djR4ASXZSC+Vhzgj3l
+         dbOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795342688; x=1795947488;
+        d=1e100.net; s=20260707; t=1795342690; x=1795947490;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ph2rx9fu8uegZW4FmXu9ACxG9GNyZ62Lgq4kaeRDI/o=;
-        b=1KkS3e8VFvAwSYfWQYudQ2brpEkEFmaD5GGnxKRG7hG3ydioTsuohyQk0RH2btWRFZ
-         xmorlEPJ15lfaGszrNoIzvCCRCO6JOZ0ctsoxPoYWOsG9PrKYY1Em9ENKtHjD80dnS0U
-         dvnefOXjiY/cB0/msEeVnm98sDXQLdtzf4nWc0QBJSBiZko6+XXFl3vBG1puzwmXkS6x
-         6puF14bS/mSXfrue6iaCgcAjbwvathNWznAc08IMyIW771R6mVx7Zw1fRA/Lw/z06+Uw
-         BX5ylaBaIH7UYQB0mP1NfPO2d2YJzMw4u23+RbCnJ/8S0oQnWTYuepBZrhG/mAdhHiWX
-         qvpw==
-X-Forwarded-Encrypted: i=1; AL+hErHh6HRerPNZDifiXxGdNdQD5ZXKbD+aFRKWls9oy9YGowicUR4BSLlsvl/IkIaY+HP7l0mzNcgb97pT6S0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8YBcgd5po0uHIEnU4FBgq4uO5KUtKrlN95Gs5IhdSeZO4tSsLH
-	i5xakOxV6e/1r5kagJbQv3KMw9mPY99fNtyG5roYZ8+TQHJqB3vk3r731M98YwEq4/PpIA==
-X-Gm-Gg: AZFdTZf7Wsmd8QyVq6tiv41owrSSAASKwfTZssVMTnq9kXRV3L/LdrOPXUD+kiZOUT2
-	uGwkLpKwptwGY6zTBVTMy7krbSiuPgPUAIL2cKbTvkzYHgUAVZ2wjnYuJhjOVNrywc7vA4whUrt
-	1VtzJTsJOPvQdHSXMHDQfAwtivqZT4xBfl63RhOMQ+XmPYITgUQVTr4CGZbVIzQf5TmBRBEDrBj
-	n1G/t2OlabU+UbYiCDmcs4ef8BSaIIOtnayvHg4RB8hypvPQF7D3z5cHUnTc42fTPVrbIg0Z6aC
-	EWuxmILfLL/V/+2vhs66GbxJ6C6w6g02W8DZdyxfG9ETt4Sk5AzJf+aWDz7vRM+xwi9thnjkNDh
-	TwPDHo6pZN++QTrAp+uavnYTSqxoXuYwIs7TK797l43+n1/zXY+2v2/4YwXtqiXXEhU7NnBKWN4
-	L1Pmb46Ngg+Ael3J0cQdaKPtnjsr2NfpFLYFvFNBgxwbv6kQCrdwsgO5hudo/edaNNJEln8YBKY
-	B9FIug0+6Ex4mDBF5FddWxof4ZwX83NHc/nJb/8xmFeL4BrFpbSosQjoGIFn4zpX7KUuydvcU5b
-	VQoiJntBF/j8mlumGXpBUi2sBph4qgfNBl9YF5RFGXzKlT9OzBY=
-X-Received: by 2002:a17:90b:3f43:b0:3b4:1621:ba74 with SMTP id 98e67ed59e1d1-3b41c8fe3a5mr8501493a91.17.1795342687728;
-        Sun, 22 Nov 2026 02:18:07 -0800 (PST)
+        bh=oCpV49nOga8AoZMY7yHg06vfkscs7oJjLDcTlwIf7nA=;
+        b=QfIAyG1Dz91r6RgmVmvrQ7pC1R+xqOnzEQ0oY33jHCmsiMQaG6Mp8ZluZcZEpYGhoF
+         5GAjnU1m5wEx6lWmM1eEV9TlR4Sunjs3f3rZ1peamAQiASlP4m2HR9RqDYeiqr2BWrmT
+         ZSd+NBRse5yqpmfdZ6MJSs/ithRq4Kb/UyVcuda9COcAApT+8idGeGWk+ug6cCPeUZ3C
+         LCgjhc63QM0ZuLDLq4DNsPc3HKYs3ssJnxLjLZZbQtefhgxN3vcKTs2ubj2AFzQRw5S1
+         C5lGUcw3aj2ZSrMXBz08C+s14NpL0yCqrIOkPUrPnT/URDJ0aMpItGRubks4sp5YIAcB
+         8qlA==
+X-Forwarded-Encrypted: i=1; AL+hErFPaVp8QC4q84iqBCU0sqLnD7sq3qoA/T6m6K/ML5srra56oHiJ9hAZ7D9DJ+hc4xKRGw2jX8jtQZAO6o0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9WHpi2tUwM9oAEk0XGOwBhlalMjgD/fw1LQNNiqikC64hCb/Lv
+	+aaZSjZwq8PZf0Vu/rCx3jAiSeum6/rwK4WSVDAAxjp4x4sMxSalF1wr
+X-Gm-Gg: AZFdTZdAU99T1UBlm/kk3OZzD/Y1mQLrfLCbtAD+gcC+pki5REf9y3mdX+/1Mt4hHwb
+	9ba26zILVO+BJE3x3Ajqy//Ni0iE2QgSOxeTJ6iZzAmUnf1g41tIgTIN7Zii6m3pIFN0D2ILTuT
+	04Pfh91bSXMoDvoMSI6vNRl0QwhRhAqXkDHJUpt5nc4AmmXrNEFOahk7cAInCDSqJsDLIZyyrSR
+	XPNpKXxI6VTSPxRFUzINJDxpUK4DsCoCSDQQu10a05Kz5naGwxJmzPAYSSqFp9UN0GvguBs5Enw
+	QH1ncyFVGLx7rrb1wbuAdlbfdkTQf9d33b9iNT0Yjw7F4XJBXXetstyN6GBPhEzinYScxL2oxmO
+	08XvfxjU1zqf2Ycl1p554UKODGV0zCAGi7tnEf/beAXiQyn04l73OakSKAQXhZ+PIM0zx7Rum31
+	MjTUHhTFInV9QqK7a1UMyjgBfIrVgxKgNPajEgYBmUdbwHOMriEre5+U72hIJ4zl4xa9eJ1rR2A
+	95zYTHRHUDTon/wPHkxdp95uPWmT7MLhxK1UD2FYG9JNsUtcJamW7UKQMUTBNDaXRghjmZ0hru6
+	eT6ovLJmVnRorpPUPy0n40VL79jogl/HFshsdz3uT3vr5OGjWHU=
+X-Received: by 2002:a17:90b:1fc4:b0:3ac:6e91:3f22 with SMTP id 98e67ed59e1d1-3b41c98a43amr7026493a91.52.1795342690497;
+        Sun, 22 Nov 2026 02:18:10 -0800 (PST)
 Received: from fedora.tailc1fb0a.ts.net ([134.82.71.171])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ffa98esm14953787a91.17.2026.11.22.02.18.05
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ffa98esm14953787a91.17.2026.11.22.02.18.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 02:18:06 -0800 (PST)
+        Sun, 22 Nov 2026 02:18:09 -0800 (PST)
 From: Artem Novak <artem122novak@gmail.com>
 To: florian.fainelli@broadcom.com
 Cc: bcm-kernel-feedback-list@broadcom.com,
@@ -89,9 +89,9 @@ Cc: bcm-kernel-feedback-list@broadcom.com,
 	linux-rpi-kernel@lists.infradead.org,
 	robh@kernel.org,
 	Artem Novak <artem122novak@gmail.com>
-Subject: [PATCH v2 1/2] ARM: dts: bcm2835: replace deprecated LED fragment on Raspberry Pi Zero
-Date: Sun, 22 Nov 2026 04:17:58 -0600
-Message-ID: <20261122101759.206056-2-artem122novak@gmail.com>
+Subject: [PATCH v2 2/2] ARM: dts: bcm2835: replace deprecated LED fragment on Raspberry Pi Model B
+Date: Sun, 22 Nov 2026 04:17:59 -0600
+Message-ID: <20261122101759.206056-3-artem122novak@gmail.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261122101759.206056-1-artem122novak@gmail.com>
 References: <20261122095225.200916-1-artem122novak@gmail.com>
@@ -115,41 +115,41 @@ by overlays.
 
 Signed-off-by: Artem Novak <artem122novak@gmail.com>
 ---
- arch/arm/boot/dts/broadcom/bcm2835-rpi-zero.dts | 14 +++++++++++---
+ arch/arm/boot/dts/broadcom/bcm2835-rpi-b.dts | 14 +++++++++++---
  1 file changed, 11 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm2835-rpi-zero.dts b/arch/arm/boot/dts/broadcom/bcm2835-rpi-zero.dts
-index 539c19c10946..e01f668cb9e0 100644
---- a/arch/arm/boot/dts/broadcom/bcm2835-rpi-zero.dts
-+++ b/arch/arm/boot/dts/broadcom/bcm2835-rpi-zero.dts
-@@ -7,7 +7,6 @@
+diff --git a/arch/arm/boot/dts/broadcom/bcm2835-rpi-b.dts b/arch/arm/boot/dts/broadcom/bcm2835-rpi-b.dts
+index 72764be75a79..660814ce851b 100644
+--- a/arch/arm/boot/dts/broadcom/bcm2835-rpi-b.dts
++++ b/arch/arm/boot/dts/broadcom/bcm2835-rpi-b.dts
+@@ -3,7 +3,6 @@
  #include "bcm2835.dtsi"
  #include "bcm2835-rpi.dtsi"
  #include "bcm2835-rpi-common.dtsi"
 -#include "bcm283x-rpi-led-deprecated.dtsi"
- #include "bcm283x-rpi-usb-otg.dtsi"
+ #include "bcm283x-rpi-smsc9512.dtsi"
+ #include "bcm283x-rpi-usb-host.dtsi"
  
- / {
-@@ -101,8 +100,17 @@ &hdmi {
+@@ -93,8 +92,17 @@ &hdmi {
  	status = "okay";
  };
  
 -&led_act {
--	gpios = <&gpio 47 GPIO_ACTIVE_HIGH>;
+-	gpios = <&gpio 16 GPIO_ACTIVE_LOW>;
 +/ {
 +	leds: leds {
 +		compatible = "gpio-leds";
 +
 +		led_act: led-act {
 +			label = "ACT";
-+			gpios = <&gpio 47 GPIO_ACTIVE_HIGH>;
++			gpios = <&gpio 16 GPIO_ACTIVE_LOW>;
 +			default-state = "keep";
 +			linux,default-trigger = "heartbeat";
 +		};
 +	};
  };
  
- &sdhost {
+ &pwm {
 -- 
 2.56.1
 
