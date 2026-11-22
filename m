@@ -1,78 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795348533;
-	b=FKZjCBXDgl0XSmRUB431GMNRw3gVJBdayA1i3HQtzcPDHed12KEWbbt3m0NT8lVrIaXD
-	 sbvvfTFBHMsJjWY0EtVMoQjiAaPFiLTg5snMpWj1/LeegvWaN8lBz+eqktj2v/96WHoyJ
-	 XhhbD6jLPynE9rDCH1Z9y0GIhz9BHUX++IU611XrM7Ywo8pDGcmhrVNUI1crwpq9Fy2/b
-	 RErQ5WyiNAUVhuk4z/vh07dRDYEZ1CbsM+5p33n0chk3cHOnrD9vpfklxbvFGnBDvVhsr
-	 kfSbvBmWR7z6DTwhKuc4KFvkI+Lobk7J3p3QRRrYYqANhFnpVM4/U3N+yrCsNvGCijg==
+	t=1795348538;
+	b=niKSKCgLAi90L6gxQbm6V2NTfPLjRd645mmMXg8H/rP2WCTgJ5G2mDWr7Ixd4amMqfnk
+	 8msPgu4A8HLKrFHgQappLjPXsCY6W74HyAY2apI+3SoBVG9C6bbujggfzQctuAPOE2Kw2
+	 iysrqncfGpnSfCYi2V+SxnN7d9QNx+qBl0LGNeIp0YATT3fxYxvm9Wi4dD/4YbPS5xnjL
+	 bn5NkWVlSVx83xleyEGhDZX17yY4xH7TLoDCCJ7PtrO1sFPO0haBvzgIq6XEA0Qm4+upU
+	 Kh7zMhgBVGGllkwwfmZtlMoE5tGEF3vn/iONXPJFkRuXo3pf2P18HMWCLCnCROdy5zw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795348533;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795348538;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
 	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
 	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=XsPczLgMwqRcGehK0Y36BZv739K0cQRsYfBty9hj0p0=;
-	b=Tl1Ii4Ll91+ZX45wFCUiB1ymuk03Gz1KGQ3zjur9vj3oQFChpH7ZSMNGygd+WBZkDLH4
-	 mxqic/E1ZYanKrLdNLfAO5QLiGw3qDzCBVG437h77zmdEgX3060HLmRIKVBTIICV4Xr39
-	 rgJ+vf6RqayvoiOBkIzkOPXPgCdSK3wtE7fpnUWMKHzXJjtfZ7oFPu+BbH65A443MbWJ1
-	 waG4hOJZHB4I48oOlZdvVudBKTHuGeNkdOYqzboXXpyD+SUSuVjlS+tlMp7tZzAN1TTkA
-	 4c9ZMMoEERAJqXezkxIWlgGoKFd4i71s/tP0FEmz97L6UsSf59cs6CcWu7MKIFllDmQ==
+	bh=xWLCRl31use0Fw2SVtV1S3RdawAt/eTZFqjV9KHlaWs=;
+	b=lq4n0xI8D+CXfVJpAzuAt4UWOaZkNda5IGYxNRY7Li6ODvcSNxGFOAp2hafQWaTmfvrl
+	 tOj8XmjMVOGTp7L5y1UhwLRyNsChmAnXITIaS5UZ+G469WVYzDWKiPOBfBcuk9HLTLr2l
+	 WvP26agzAiPXYyEEGGeTEH494lQYxvGYgAWT0nhs46aVntX6p2wIYOditymapiZ+xHRws
+	 b0hIa6lK7x8T/6yiaKP2uGkhsjX59mLIXkrBrGku3gbomiUQXOgcTOtVlRl1BNMbQgCOJ
+	 WcrLbBhGr/6kfOSYJj46ecfLjfMz2ouBNcfw2dllbKo2GizvCOK5BpDXWQLKK3o2mNQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jtml9c5E;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nyVhlKcq;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3C62606A338;
-	Sun, 22 Nov 2026 11:55:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9505D606A32A;
+	Sun, 22 Nov 2026 11:55:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jtml9c5E
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nyVhlKcq
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795348533;
-	b=I6QIRkZUPdPyTq3CvVfbcFXogDSwlZusGqmFDXJoDkDlns9bJjgJ/AT5L6GfTqixV2Kb
-	 ADGwuuY5Sf5GoRislouDijvai1+bK0ETS6K9x4jTYjjBAWPyVPA2gVd+ZmuSFfy0VCT4C
-	 2KLHz0I7uIUWrLrFMSPF3ElbcngkCLX9arXQIi+jDRta5D/pbkrD2ePv0mVM9BGjdjIE/
-	 SQGZe3OEwE8+fPxmWA4xRt6AIjhZLDtrC/r1FQrd4UIMjxFFQqnAZDGtu/+jhYxMON1vE
-	 mZu5aE6Yk5/Gb+7xV8PTXUSb0xNMpfd5igLi/SSjcuICsIOaKR2+Br1zVZmIv5PigVA==
+	t=1795348538;
+	b=eeSMl/6xo/MVuiGWHidHeJlDFLtg4AWkQvqHhXOj4Pvf4WeDiOcHhLRJiB4r8lXNkRy1
+	 FQObkAY7FU0hLg3Xh1gsI0Q33tU9rh6bYYKaL42KKYr+qe2yD64Q/OMGqfiYqC5VF3mSi
+	 BZsUvwSrmpKiDMzUA4gfNtrG6vpRA0RCyvYvylhr34kjIY+9pY2nTuvQWqBfN+TjdTVaH
+	 SSgVH2iXuyqb4i9s/1OXEFpxcuthaJ2NRPa/sEPil3ivkafY9PUxtPC2or1RQQQbtUeNZ
+	 KBsHNOHnPhH/+Lo2c+2iYXWhWXOOdNOh/CLewWyo16vvSuX6rIdtksCtTRKpZUUt3cw==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795348533;
+	c=relaxed/relaxed; t=1795348538;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To;
-	bh=XsPczLgMwqRcGehK0Y36BZv739K0cQRsYfBty9hj0p0=;
-	b=FfU2I3C1xF4MyuBXHaAdfUnM24vydTjlIjrZdwr/zZhfJIQLjE8CHQdF48qE8o047RCb
-	 rhE0EKDD6qLWsh4ykg2iyj9JXSNUe7g1BgCmBcjOFkVXI6FVMoelTTPeAtcJQVuVaSTAE
-	 ON4stS7jJjR9SgL8WUKdeWf2g22ggkm7v+bnWFy+RouwTB6t0vljsFZfiHR+wIHB4UnTV
-	 Mc3VaNBAKrG6gKRU0nRA+wzVtgAvUdNEvu1CPheiTc8auOXau3+tuUU95O3BAx1uyENeY
-	 YhKZf67NZGw+ADxsGEIOoGurlInxEYq1e6qoEwWUg0NE2Us/ciqBaMtrMZ7BCyUxMCg==
+	bh=xWLCRl31use0Fw2SVtV1S3RdawAt/eTZFqjV9KHlaWs=;
+	b=uPznE3LwzFWF4JNwkiN8RI+EXGvU9WsNJvufZ5EP6+may3nFmCEVSX44aeYbm3BMRwfr
+	 LloiZzTjZMawXWqPogaUhrekwGLwydpq7P0GiM8EQQyYU8SzSy6IbQWb3SPzhcDEUOyMK
+	 OE1XUpk38ZcOUZ9itA3IRNtvuZxvFAUTToGLhli2VM8CaVdt/VX/gqYRKED8BNfd0/UPa
+	 xjQeNHVDO0gihzvBuhbm6jozkZglDHa2SZdGfzh4eFSGNwsI1HKfz5Vays1LoyL7kIPqK
+	 ttPnRJR1E4iPQjdR+GTXxpjj2u3TLQ5oWdZp21zkvL56NbRQZGoXFIwCQZVx3stIRZA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 52C161F000D8;
+	by smtp.kernel.org (Postfix) with ESMTPS id 6F8A91F000E0;
 	Sun, 22 Nov 2026 11:55:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795348533;
-	bh=XsPczLgMwqRcGehK0Y36BZv739K0cQRsYfBty9hj0p0=;
+	s=k20260515; t=1795348538;
+	bh=xWLCRl31use0Fw2SVtV1S3RdawAt/eTZFqjV9KHlaWs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=jtml9c5ECFeQ+BGhVAkIvLpEWS6e8lklEYwrT5PTndBPMMOj1eyGSp6xAhDQzHviU
-	 umoGE/ME6HaHuqpfv200XsRjY9qzmVOuPJYILLBTIMN9nA2CpwlxqEpeJpQCDKgKgv
-	 0DL/TL7Q2xLfxumgQabfmQTbnZh4xr+Cs8fTECGTVVkuaWjqB/q4KU8mNWorhn5GG2
-	 zsorp153Mc1r7IcMHsYPZpxdeh2BEb3oH9PCJt72ksbUuenCnPfJg64oARXOrYIukQ
-	 ZdXQtXo1+Xzx5UTQK/IJMDhU4YoEJla6YSl7NwO8NJsL/gNDumUZob1uay0d05j938
-	 72X1RSVW45o+A==
+	b=nyVhlKcqa23VbZ3Q2TF00cL6oulYecYVBjjdmH3zJoPXo3+c53A2+CqTC0dtCbPSa
+	 5UPQGpZ/Zxu5azwYGqriREmv6zS+BTA0UpbVU3CSkioj+VfFj2fVg/SNtl7JmqpERh
+	 EFCQyz3YgeYRoLLMRpwfbuCmBtYrzQHeulmTQZPwzmb3F9JiWwuG6hF/Wmj+SLSgpW
+	 I8qAOMhrwt1X5e58se2vZbsK6F5+AgZXFmvxrYAJtbwqAFdRDbmGasOB60XuTEUOE/
+	 i6xbZ2Lhv8ne0VBxXaddzE8zH+wuZB1nW9NoP96Yy7bHJgW5wNyu/vUbF558PqpEgi
+	 gTWGoFz/v0Vcg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D00A34C01F;
+	by lkml.kernel.org (Postfix) with ESMTP id EC1214C023;
 	Sun, 22 Nov 2026 11:55:27 +0000 (UTC)
 From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
-Date: Sun, 22 Nov 2026 11:55:27 +0000
-Subject: [PATCH 2/3] cpufreq: kirkwood: Put clocks on error and in remove
+Date: Sun, 22 Nov 2026 11:55:28 +0000
+Subject: [PATCH 3/3] cpufreq: s5pv210: Fix resource leaks on probe error
+ paths
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +85,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261122-cpufreq-leaks-v1-2-96fc17ff7339@gmail.com>
+Message-Id: <20261122-cpufreq-leaks-v1-3-96fc17ff7339@gmail.com>
 References: <20261122-cpufreq-leaks-v1-0-96fc17ff7339@gmail.com>
 In-Reply-To: <20261122-cpufreq-leaks-v1-0-96fc17ff7339@gmail.com>
 To: rafael@kernel.org, viresh.kumar@linaro.org, krzk@kernel.org, 
@@ -93,11 +94,11 @@ Cc: linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-pm@vger.kernel.org, alim.akhtar@samsung.com, 
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795348526; l=2983;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795348526; l=2583;
  i=shyckless@gmail.com; s=default; h=from:subject:message-id;
- bh=skKpKTVz2FV0rjzQ/HU+MrfER9ugcIz07303IiHkuCA=;
- b=0efWSpMpBy+Kwg3RseZTMMzQXoPPCXFeJhXVmatgvsOBKi5JFwCEgzHwH8uKjbTB/HwfBHtQK
- C3De9J/sEVcA4JgERWuHneJbyfb1bPAC2aE2NUFMg2x9KdOHD6yrodU
+ bh=u26GdNff9h8VDqjlemiKXHAuftopncbeRgVHJ/CpuKU=;
+ b=CrzgHHiglo92NWgPpcnitjmDoIyGezX87Do2D12VT7kp6fyLOS0r3fq5gaaTll/JBZKRugRX3
+ f5B2+44sqakD6BU6xI6LbdUulZpWYly5wOr4asrOv6uJ/lgLavdA7fG
 X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
  pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
 X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
@@ -107,86 +108,75 @@ Reply-To: shyckless@gmail.com
 
 From: Suyuan Wang <stevewong@hust.edu.cn>
 
-kirkwood_cpufreq_probe() gets three clocks with of_clk_get_by_name():
-cpu_clk, ddrclk and powersave. None of them is ever released with
-clk_put(). The error paths only disable and unprepare the clocks, and
-kirkwood_cpufreq_remove() does the same. So the clock references leak
-when probe fails (for example on -EPROBE_DEFER) and on every unbind.
+s5pv210_cpufreq_probe() returns the result of cpufreq_register_driver()
+directly:
 
-Add the missing clk_put() calls to the error paths and to remove. The
-"Unable to prepare" paths now jump to new labels that only put the clock
-that failed to enable.
+	register_reboot_notifier(&s5pv210_cpufreq_reboot_notifier);
+
+	return cpufreq_register_driver(&s5pv210_driver);
+
+If the registration fails, for example because s5pv210_cpu_init()
+fails, the resources taken by the probe itself are leaked: the two
+regulators and the clock and DMC register mappings. The reboot notifier
+also stays registered. (s5pv210_cpu_init() releases its own clocks on
+its error paths, and the cpufreq core tears down its own state.)
+
+Also, when a DMC node has a bad alias, the code jumps to err_clk_base
+and skips unmapping DMC registers that were already mapped for an
+earlier node.
+
+Unregister the reboot notifier and go through the existing unwind code
+when cpufreq_register_driver() fails, and jump to err_dmc on the alias
+error. The err_clk_base label has no users after this, so drop it.
 
 Found with a static analysis tool and checked by hand.
 
-Fixes: 2a4bd9f0db24 ("cpufreq: kirkwood: Add a cpufreq driver for Marvell Kirkwood SoCs")
+Fixes: 6d4ed0f46af6 ("cpufreq: s5pv210: Make the driver multiplatform aware")
+Fixes: e0e5b2b4f427 ("cpufreq: s5pv210: Defer probe if getting regulators fail")
 Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
 Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
 Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
 ---
- drivers/cpufreq/kirkwood-cpufreq.c | 15 ++++++++++++---
- 1 file changed, 12 insertions(+), 3 deletions(-)
+ drivers/cpufreq/s5pv210-cpufreq.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/cpufreq/kirkwood-cpufreq.c b/drivers/cpufreq/kirkwood-cpufreq.c
-index 24b285cbeb8d..e85658081c07 100644
---- a/drivers/cpufreq/kirkwood-cpufreq.c
-+++ b/drivers/cpufreq/kirkwood-cpufreq.c
-@@ -125,7 +125,7 @@ static int kirkwood_cpufreq_probe(struct platform_device *pdev)
- 	err = clk_prepare_enable(priv.cpu_clk);
- 	if (err) {
- 		dev_err(priv.dev, "Unable to prepare cpuclk\n");
--		goto out_node;
-+		goto out_put_cpu;
- 	}
+diff --git a/drivers/cpufreq/s5pv210-cpufreq.c b/drivers/cpufreq/s5pv210-cpufreq.c
+index e64e84e1ee79..29b1c5d71a8b 100644
+--- a/drivers/cpufreq/s5pv210-cpufreq.c
++++ b/drivers/cpufreq/s5pv210-cpufreq.c
+@@ -634,7 +634,7 @@ static int s5pv210_cpufreq_probe(struct platform_device *pdev)
+ 		if (id < 0 || id >= ARRAY_SIZE(dmc_base)) {
+ 			dev_err(dev, "failed to get alias of dmc node '%pOFn'\n", dmc);
+ 			result = id;
+-			goto err_clk_base;
++			goto err_dmc;
+ 		}
  
- 	kirkwood_freq_table[0].frequency = clk_get_rate(priv.cpu_clk) / 1000;
-@@ -140,7 +140,7 @@ static int kirkwood_cpufreq_probe(struct platform_device *pdev)
- 	err = clk_prepare_enable(priv.ddr_clk);
- 	if (err) {
- 		dev_err(priv.dev, "Unable to prepare ddrclk\n");
--		goto out_cpu;
-+		goto out_put_ddr;
- 	}
- 	kirkwood_freq_table[1].frequency = clk_get_rate(priv.ddr_clk) / 1000;
+ 		dmc_base[id] = of_iomap(dmc, 0);
+@@ -655,7 +655,14 @@ static int s5pv210_cpufreq_probe(struct platform_device *pdev)
  
-@@ -153,7 +153,7 @@ static int kirkwood_cpufreq_probe(struct platform_device *pdev)
- 	err = clk_prepare_enable(priv.powersave_clk);
- 	if (err) {
- 		dev_err(priv.dev, "Unable to prepare powersave clk\n");
--		goto out_ddr;
-+		goto out_put_powersave;
- 	}
+ 	register_reboot_notifier(&s5pv210_cpufreq_reboot_notifier);
  
- 	err = cpufreq_register_driver(&kirkwood_cpufreq_driver);
-@@ -167,10 +167,16 @@ static int kirkwood_cpufreq_probe(struct platform_device *pdev)
+-	return cpufreq_register_driver(&s5pv210_driver);
++	result = cpufreq_register_driver(&s5pv210_driver);
++	if (result)
++		goto err_reboot_notifier;
++
++	return 0;
++
++err_reboot_notifier:
++	unregister_reboot_notifier(&s5pv210_cpufreq_reboot_notifier);
  
- out_powersave:
- 	clk_disable_unprepare(priv.powersave_clk);
-+out_put_powersave:
-+	clk_put(priv.powersave_clk);
- out_ddr:
- 	clk_disable_unprepare(priv.ddr_clk);
-+out_put_ddr:
-+	clk_put(priv.ddr_clk);
- out_cpu:
- 	clk_disable_unprepare(priv.cpu_clk);
-+out_put_cpu:
-+	clk_put(priv.cpu_clk);
- out_node:
- 	of_node_put(np);
+ err_dmc:
+ 	for (id = 0; id < ARRAY_SIZE(dmc_base); ++id)
+@@ -664,7 +671,6 @@ static int s5pv210_cpufreq_probe(struct platform_device *pdev)
+ 			dmc_base[id] = NULL;
+ 		}
  
-@@ -182,8 +188,11 @@ static void kirkwood_cpufreq_remove(struct platform_device *pdev)
- 	cpufreq_unregister_driver(&kirkwood_cpufreq_driver);
+-err_clk_base:
+ 	iounmap(clk_base);
  
- 	clk_disable_unprepare(priv.powersave_clk);
-+	clk_put(priv.powersave_clk);
- 	clk_disable_unprepare(priv.ddr_clk);
-+	clk_put(priv.ddr_clk);
- 	clk_disable_unprepare(priv.cpu_clk);
-+	clk_put(priv.cpu_clk);
- }
- 
- static struct platform_driver kirkwood_cpufreq_platform_driver = {
+ err_clock:
 
 -- 
 2.34.1
