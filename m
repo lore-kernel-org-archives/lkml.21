@@ -1,86 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795374937;
-	b=cyTAW888wX+lXHCOgJtDN023ztmRfny+61WQcXsb+//ENz71z8QzUzuWfbwWYNUO7WBF
-	 kgdO7b1ARRLBBLKmSUBcDlGB/rqC5f/9rszWGFto62AoKMMr0AoUFZXN6px1RPa1JnQOb
-	 CkD+cH4MTD2VbXmPn4E/+h4iehlIDt+TYCZLBYfAqM2Nfv4F97g7ZBF2B1SLJTOAu/voH
-	 /4wx9TBenxGA4sySyx1xmVtD2swpjB4sedVXJ/5DVmsTbppFq+wCkiU+2u4EeJzvIUn8F
-	 ufOwz6cXY3yEcH1DpX6JK86VvxW3kUUIetYD5LOYQnvhVnQ6zO+D4y/fwr5cttPbiug==
+	t=1795375014;
+	b=j2D8SLSRHB+ykrGNPwwdxyYP6z97JYAy4WlCEokilaaZJaLmJ0bD4y+Ij+ao5yRAajAH
+	 BbculGZopVD8bdhkprnCInroot4o4PxprvQnNiLArBZkgu3j+tq2A3P494KKg3mhi0MOC
+	 Qh+vYWxm6P9gCcx8sEOh8Ux1dh0kK/Fuu01HbxuOr7NR2aeCNbUIuJjOGJcF0A/d3xU0G
+	 KVA5O+pCEO8yXpL6TFavIZkAXd6STHeA/YdbwU2pG3/5m7aQqVU6hqq8P5iUJRwUZvr8z
+	 FdornpWbN/ixlx859nDxqmJEFTfkukOt0LJMz6urpvcAs3x9GcG44ogW+q9cT2HVwFA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795374937;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=s3JQ1PN2z01hyjHidBbqppesEqKekrIDRVgMibkj+Gc=;
-	b=iptCuMagaiJ4Zltyrx0ngONCWXiCCoAkeyHXNWbsDVRMbUWRx/giJciVgFQF3Nifc9Gw
-	 BQnu4CYsDnfXnwzXM1yapSNQAfy1kfc+aQUTNY78S645H1DlkobIBcqsGmthjI6CVgOJl
-	 IsCSOjvRdI0EJmyqrurIpeX/S5CYsvRhZfKGyeg+4PRIwSGydCxPUtU+X4BqAbL79YbTN
-	 9IMfNho03AZAIxI3Mbr7lgbYcpv/p1YhjvwAyiE9gyNaZ0xyuRBDp/0Ga/OGUCsdw34t8
-	 EfMva4oZEZdE3wu7UKt6FIKvHm6/OnrPJef5QI1HPVfmEQhFoSIGCuE1gfH42uQTeCw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795375014;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=uSoTt+TxpepghCj1j5m2W66DMLP6FbjOrMJ/a3Zmg+E=;
+	b=zfc3HRYV6e7MKppkGz88YmVj7wrrJtcreyy5BUqayKnhyHpGFoYQCdMB8FTX8adebpms
+	 TAwe0jHE292dtQ8psx0k8X6gjNRegbum3NmL98TkTo7qO6AdLtoeYZSw+wMQslHgzbnmz
+	 TZz1NmdB+YgnEzYWEBtARADC/AQMCTeW21WQ6k+BD2KuPSiAoKf2BtnmLS/RQJyGnqu1B
+	 Z83uTvdlkN66O9O6rGZBUEOf8x6uOONwI0q00ekT2DlYFcBLOzQa8cVlkIMAV4lJB5zxP
+	 uPayG5mgT2b478uOfW6m9UiBzUBz5qkCTfETWHi5PvA1eKYPRYU0ZEGIvjtk8zJkmKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=alien8.de;
-	spf=pass smtp.mailfrom=alien8.de;
-	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=kZUT+wyd;
-	arc=none smtp.remote-ip=65.109.113.108
-Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gFeQzdky;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1166606A31D;
-	Sun, 22 Nov 2026 19:15:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1166606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65DAB606A31D;
+	Sun, 22 Nov 2026 19:16:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key, unprotected) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=kZUT+wyd
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 6BAA840E00C2;
-	Sun, 22 Nov 2026 19:15:33 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id B6I9E6U9dvJZ; Sun, 22 Nov 2026 19:15:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1795374928; bh=s3JQ1PN2z01hyjHidBbqppesEqKekrIDRVgMibkj+Gc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kZUT+wydZnszj8d2WyOgTudBXbkef4VcEkgM+lF7Hxrc2vOcaXfhOwxHCEp+5h9K5
-	 XYro5vqyWOsAZyaRfcTRI7cqaTk9XEg/hIAUoebaK+vzaEhQEPR3a+blm4rY/TKEbK
-	 Y57ZIUupapPwiN7XQDt6+DZZHtOL93ehGFXViLPc7Xg3hcLwpVpqBywzn/QuNPiagM
-	 jMtbHy9b4tUMrFNdv1ZxoDjBPerah83pXxaHWmlHLYftjnRHFSoATZEIAkN7jcPNZ4
-	 VNlxNEJDx9/JDPe2ihc+hSjE6iJZBpMvxm3GG/CHLo5u9TFCpr/P2PskgyZAdQvJvI
-	 CVCu5dbH0oI9lLEcKI/BGS8B6D2iCncNjE72yIcQ0AuD/ZHvn9f7WTOCXjwotOp7/4
-	 SSUuSpYe1PN2pfDDWI8JULi33C3utb9IFfYBMymZgtUxkLxcdBidInVhoGmdHYraHO
-	 J9DOxJeWcmFz1WRbdCJp5is7R8+ryy3VGJN6QHXwqpyjF6Hm8laIRlj0bkhJajirtK
-	 k2VMttWogotg5rHXW3kri2QnPKMgKQst7KbgpHH/eyLCl3Q2pCc2B2XXYI9aBjsXE5
-	 /nTLwovhCY76lP0aFNmwwkXztwkw6/bgGlwL0EPFJ5czq0+aQjFlhrhospUyv1CS4n
-	 TiFdD5EgWuRyrUKJ93g4chlQ=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 2FF3040E015B;
-	Sun, 22 Nov 2026 19:15:15 +0000 (UTC)
-Date: Sun, 22 Nov 2026 11:15:12 -0800
-From: Borislav Petkov <bp@alien8.de>
-To: Thorsten Blum <blum@kernel.org>
-Cc: Dave Hansen <dave.hansen@intel.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Jesse Barnes <jbarnes@hobbes.lan>,
-	Lukas Wunner <lukas@wunner.de>, Ingo Molnar <mingo@elte.hu>,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND v2] x86/early-quirks: Scan all functions in
- early_pci_scan_bus()
-Message-ID: <20261122191512.GAawM_QHC5IxcZywvs@fat_crate.local>
-References: <20261106004343.457087-2-blum@kernel.org>
- <av3v7KY64vjxDCk1@kernel.org>
- <be480966-3b68-44f5-9afa-f88b3c203092@intel.com>
- <av4bS1QEZpniwlb3@kernel.org>
- <20261118222141.GBav4k9eZ5-QMjOem4@fat_crate.local>
- <awJLsDWI0OgdWhph@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gFeQzdky
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A7DB1F000C6;
+	Sun, 22 Nov 2026 19:16:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795375014;
+	bh=uSoTt+TxpepghCj1j5m2W66DMLP6FbjOrMJ/a3Zmg+E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gFeQzdkyIDBbad15Fyeby3tqqxBufjvttYjpWQGh7H4AL9MU1Eo+zuoDPuD5L43WC
+	 7HrKta1V831kK1+REbSUvGZxVxnoMFleoij6NrH25cJvoRvein+aChotT/UP0rZHDe
+	 UbN+44Z+NlhLDbeSaD3f/EYB6DEu2TQ8IZAhMCLfItx+sz17xkh3Rak5L0PdoT0lRQ
+	 xjgE66AWNs5+2mkldFMWuEGjJTkI/uDNr8ss0WbNvyLciXUOu+ZjgQ52jYL0MxVlnx
+	 Pa7BdUjzHeNdoa6O1rYfVF8vL+hwBCMAThWYKgQp9+IP8OLwMRWIwYaNm94rEiR+eY
+	 p5QYdUeqgSyZA==
+Date: Sun, 22 Nov 2026 19:16:50 +0000
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Ahmed Azeem <ahmed.azeem@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Divin Raj <divin.raj@arm.com>,
+	Bertrand Marquis <Bertrand.Marquis@arm.com>
+Subject: Re: [PATCH RFC 0/4] firmware: arm: Add Platform Fault Detection
+ Interface support
+Message-ID: <20261122-memorable-electric-sawfish-ac9f11@sudeepholla>
+References: <20261119-topics-ahmaze01-upstream-pfdi-rfc-v1-0-4772d18b9115@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,23 +67,95 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <awJLsDWI0OgdWhph@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261119-topics-ahmaze01-upstream-pfdi-rfc-v1-0-4772d18b9115@arm.com>
 
-On Sun, Nov 22, 2026 at 02:56:00AM +0100, Thorsten Blum wrote:
-> I never suggested the patch had to be taken immediately. And 3+ months
-> doesn't seem particularly immediate to me for a bug either.
+On Thu, Nov 19, 2026 at 03:36:02PM +0000, Ahmed Azeem wrote:
+> Hi all,
+> 
+> This series proposes an arm64 driver for the Arm Platform Fault
+> Detection
+> Interface (PFDI), providing a common Linux interface for privileged
+> userspace to discover and invoke firmware diagnostics.
+>
 
-Did you not read my mail?
+I reviewed the PFDI (Platform Fault Detection Interface) specification
+and found some issues that needs to be addressed. In general, this spec
+is not on par with other Arm SMCCC based firmware interface specifications.
+Many of these issues should have been identified as part of reviews before
+the beta release and should also been raised by the team that prototyped
+or wrote this driver. I threw my review comments at AI and got them
+refactored as below. Hope it helps.
 
-"So just from looking at the diff, that patch will definitely NOT go to stable
-but needs to stay in tip for at least a cycle so that it is tested as widely
-as possible.
+1. State Preservation & Calling Conventions
+ - Make state preservation a conformance rule:
+   Move the expectation that firmware saves and restores modified state
+   from descriptive usage text ($4.6.1) into a formal requirement ($4.6.3)
+   and cover it in compliance tests ($5.6).
+ - In general the specification has mixed the terms platform and PE a lot.
+   It needs to define "system state" and failure behavior:
+   Specify exact architectural state (e.g., registers, SIMD/FP, SVE, SME)
+   covered by restoration, how it interacts/matches with SMCCC and PSCI
+   powerdown rules, and what happens when a test fails, encounters an
+   internal error, or triggers a system-level fault reaction.
+ - Clarify calling conventions: Use "SMC/HVC" where both conduits apply
+   ($3.2), and explicitly mandate preserving x5–x17 within PFDI rather than
+   relying on unpinned SMCCC baseline versions. In one section HVC is allowed
+   while $3.2 just mentions SMC.
 
-Because if you break other systems with it, we will have to revert and fix up
-after you."
+2. Virtualisation, Isolation & PE Scope
+
+- Tighten error-injection isolation:
+  Because PFDI_FORCE_ERROR leaves an error pending on a PE regardless
+  of software context, require hypervisors to prevent cross-VM or
+  cross-OS consumption during context switches or vCPU migration.
+  I don't fully understand that interface TBH.
+- Clarify guest PE identity: Reconcile the requirement for hypervisors
+  to forward an "originating PE ID" unmodified with the fact that PFDI
+  functions accept no PE ID parameter or clarify the requirement clearly.
+- Define PE vs. system scope per function: Clarify whether "PE" means
+  the executing CPU or a tested non-CPU resource, explain how drivers
+  target remote CPUs without a target-PE argument(assuming it needs to
+  run on that PE, and specify whether PFDI_FW_CHECK is PE-local or
+  platform-wide. In general, the term platform and PE are mixed in the
+  document which makes it hard to understand where the rules apply.
+
+3. Function IDs, Execution Timing & Indexing
+
+- Correct SMCCC Function ID classification: Reclassify 0xC400_02D0 –
+  0xC400_02D7 from "vendor-defined" to the Standard Secure Service range
+  and confirm the assigned subrange. It was very confusing to read the
+  reference to vendor defined range.
+- Bound CPU occupancy time: Because PFDI uses synchronous SMCCC Fast
+  Calls without a timeout, cancellation mechanism, or runtime duration
+  query, define a maximum execution duration, permitted call contexts,
+  or a yielding/asynchronous mechanism so OS drivers (like Linux) can
+  be aware of CPU time doing this test.
+ - Resolve test-part indexing and zero-count conflicts: Fix the off-by-one
+   discrepancy (0..test_count vs. test_count - 1), correct the
+   PFDI_PE_TEST_RESULT faulting index format (= 0 vs. general index),
+   and define behavior when test_count is zero (PFDI_RET_TEST_COUNT_ZERO
+   is currently unused).
+
+4. Error Injection Semantics, Compliance & Editorial Fixes
+
+- Align reset rules and restrict injected values: Add an explicit exception
+  allowing resets or firmware updates to clear pending injected errors
+  ($3.5 vs. $4.9), and restrict PFDI_FORCE_ERROR (x2) from accepting
+  zero or positive values alongside defining deployment/authorization
+  policies.
+- Resolve optionality contradictions: Clarify whether individual PEs
+  can implement a subset of PFDI functions ($3.4) or must implement
+  all mandatory functions ($5.1).
+- Missing"Security and Safety Considerations" chapter referenced in $1.5
+
+> We are posting this series as an RFC to seek community feedback on both
+> the proposed Linux interface and the underlying firmware specification
+> before the specification is finalized. This series and its validation
+> use
+
+Specification needs more work IMO, so please get them addressed first.
 
 -- 
-Regards/Gruss,
-    Boris.
-
-https://people.kernel.org/tglx/notes-about-netiquette
+Regards,
+Sudeep
