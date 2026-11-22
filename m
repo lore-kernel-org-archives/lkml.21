@@ -1,59 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795377176;
-	b=VVpqbbyKK+aj8075b1272dtJha7d/Nq0hstDCawwYiLMspvJZKq5ZSv7VPhkWbQ5/KEx
-	 Td0egKdKodPS2smvykM+TdqFO+VVuKPzxNX//POEVvq1qD3FVVy4fkLsY8XaFacaUh4qu
-	 WFjJU+tCX4VwoJ69h8gcXom4Y+nS1BmTO+o7UnyP2v+vLch+y74aqzu1f/EU5zw07ZgJN
-	 HgYM0gotGlYXFvR/Q/UXhxpjA1kIoRnekKhIEUqG0EhZMg4ICG2rD8islvWxRzGo9xegN
-	 OejG9lH2u0luxWoyPs//ZRSi8QmyRL9nNZaR4fsoQcfZDOIXAPBkZ1kZADUyvEraYlA==
+	t=1795377353;
+	b=zheo1c3N18WZbeGhTWVNCdZtsTLpGnVxT0xn/BAm5EPJoeaELZi465TKTIm9JcsVV5SB
+	 IyEIlYwJwyByje6jlBi0Jze+G/egJAnHuElqs88nkIK2CaDzkRzzbB+LwD3MKE1b7W3D8
+	 36aw/Gq1P+Y12zoVB99A8AvGyFFfsIufqPyxVDxdOzeI2iGeU3B5eiCEKLet74jx5KQ4F
+	 ilrYmPRKwoIIe8E+tc0EnsSQMc1w+qbqYsOJj/mOc+8y0yv7pfrUor6hRSJpTu2Wahwcw
+	 UZR9YUODyabXg2R0lbrUZNJADgRPksrWvq2h6N9zFdMCOd3xuugAEmWMen5ylqorIQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795377176;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795377353;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=jB9LrMbhX//Yo0RRt1iibdPYWNJz5AcR3xAbcM9m9Vs=;
-	b=dUZkNvYOWL9wjejO+7obIJUQolRB0L+GCmXDGJ7LHy0RXqaFz0d8BmeS3Gb4pdBBtyLd
-	 QDHliIubKHpJsHMmPyIn/yBGHs4zxSS7suT79gyhPaLm1xs3W4H26CCuYHNRvepA/EpRR
-	 /oqXwMhYTxbJo8YbIGnvR0eBiTfR7DU9efJmyya/51T5gbTmCfU90XwCdcc2Tg3eyOZFX
-	 FsIS3jToHyhKWNJPv1MR2NduQpTU+keiMi5q+BBTbl3PtBnkFVGC9wTJxr6zsaMDtGHUq
-	 maiNZo0gO2QSfc++Vi34TWk0ry/Ds4GDBexE5T+7zYiIb12haSQ1AuWFnCScPgmK7Pw==
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=MPMQu4BCoUDykkFbNt6vtulnjN5wBroFJlnucc4H1vw=;
+	b=Xlbo16rUo9mKc4bUTSWkZ3UOR7EElqEe6aRaDVBBZ3DbDXLqgOBxSaESMrDRN9rZmWse
+	 tGj+J1oRgsu/bAM9AJR1Oqo+dCyPqMOVGVld91l0tpMCcGJYZvxuHWZrdOOQ6gOQRDHlJ
+	 aIVev1ktPW6neAn0U49MXNXty8oYJ1tSzvZDcKnfc5A2A7Jl4q0en9tr3Vbnn0HRuoC1Z
+	 7JQZZf+1iW4S/dXoY3zAk/ZbgSB+GEobrHp8I4yx1PLseLmU3mGxDVPUTo2mOcll6wAK8
+	 FW2+rGbYANrcA3+kcXC/FqmrLUZ9MNlKRHOqXp10jBMum07Bsici651DCRtiqo9JAdg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Yj1OpBgN;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jQvoOk4B;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E929A606A31A;
-	Sun, 22 Nov 2026 19:52:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A847606A31A;
+	Sun, 22 Nov 2026 19:55:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Yj1OpBgN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A921F1F000C4;
-	Sun, 22 Nov 2026 19:52:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jQvoOk4B
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 276B61F000CA;
+	Sun, 22 Nov 2026 19:55:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795377175;
-	bh=jB9LrMbhX//Yo0RRt1iibdPYWNJz5AcR3xAbcM9m9Vs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Yj1OpBgNsLEJbpywVeiPo15bArf2mleBqh8wvh9q2eIX7OHXj/XWcjHS4ZtqHX7HE
-	 ImuHID8gbd6v8TcCcbAIzUFp4bexxnAiruntt8+PgXrbLdzvRUIxY2ePa3D4Lg8jHG
-	 BSNb9O1Uk2NxUk8zMBOHzwmu/R84VzXosZZ69zyTguvTRKfKrV3CeSm2lGjDtQ/1kb
-	 eGZX0Ga6piktzbYyNJkAQ+6FjTki7I9fReVBKmsG6MzQdRrG4LsG1cmNG+c8hHbwVs
-	 UdsSghPPshOF+LQKp2MhyRK4i2fZr2+ffCPISQigOxMBpvgRLg1XJSPpCveaOg7c+H
-	 xWifZl8MdvKkw==
-Date: Sun, 22 Nov 2026 19:52:49 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: linux-iio@vger.kernel.org, David Lechner <dlechner@baylibre.com>, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- linux-kernel@vger.kernel.org, Jonathan Cameron
- <jonathan.cameron@oss.qualcomm.com>
-Subject: Re: [PATCH] iio: adc: max1027: complete the EOC wait when using an
- external trigger
-Message-ID: <20261122195249.13ee9686@jic23-hlaptop>
-In-Reply-To: <874idfn30h.fsf@bootlin.com>
-References: <20261115204551.2783884-1-jic23@kernel.org>
-	<874idfn30h.fsf@bootlin.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1795377353;
+	bh=MPMQu4BCoUDykkFbNt6vtulnjN5wBroFJlnucc4H1vw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=jQvoOk4BkS2tZqIzY5OR7rn4UiQNdm7FCXsXIy5M+Kc9W4ZwRSLUjUd0OQZ0UqZ61
+	 42IR6++t0oU4GrCEJlGp8q/5t9ApQkWFID01J36i4A7cMg41d0PayVAgE0aT2c5Rt6
+	 2nMc0u1MoP+v9GmoAUPl0Agjq4iltxGjWmun9WIEvJ+YuIr3WjzCZZcF/6DEJD+I6z
+	 VGL4/BB3lEMWnhf+oYZsIlMGy6CcmrCKq9gQSNXuWo3GQVvTSSBAfRLthcJWW66Yik
+	 coYrGFamHWteT9o0H8D6OAb8nTWqPtoDDBcmt3dJBnOfbHXg07Dzjacs8U/5b4k/aQ
+	 kAptKtb5eshjA==
+Date: Sun, 22 Nov 2026 11:55:51 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: David Laight <david.laight.linux@gmail.com>
+Cc: linux-crypto@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>, x86@kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] lib/crypto: x86/sha2: Drop one-off implementations for
+ Sandy/Ivy Bridge
+Message-ID: <20261122195551.GB2122@sol>
+References: <20261115080900.216434-1-ebiggers@kernel.org>
+ <20261122113934.48a9ac42@pumpkin>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,98 +61,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261122113934.48a9ac42@pumpkin>
 
-On Tue, 17 Nov 2026 11:52:46 +0100
-Miquel Raynal <miquel.raynal@bootlin.com> wrote:
+On Sun, Nov 22, 2026 at 11:39:34AM +0000, David Laight wrote:
+> On Sun, 15 Nov 2026 00:09:00 -0800
+> Eric Biggers <ebiggers@kernel.org> wrote:
+> 
+> > [ This is proposed to supersede my patch
+> >   "lib/crypto: x86/sha512: Partially roll up sha512_transform_avx()"
+> >   which was starting to clean up one of the files being dropped. ]
+> > 
+> > Currently, the kernel has SSSE3, AVX, and AVX2 implementations of each
+> > of SHA-256 and SHA-512.
+> > 
+> > The AVX implementations of SHA-256 and SHA-512 run only on CPUs that
+> > have AVX but do *not* have AVX2.  These are all the ones I could find:
+> > 
+> >     - Intel Sandy Bridge and Ivy Bridge
+> >     - AMD Bulldozer, Piledriver, Steamroller, Jaguar, and Puma
+> >     - Zhaoxin KX-5000 and KX-6000 (possibly SHA-512 only, as these CPUs
+> >       might be able to run the PHE optimized SHA-256 code)
+> >     - Maybe some oddly configured VMs
+> > 
+> > Oddly enough, this "AVX" code doesn't actually have much to do with AVX.
+> > The only AVX capability it uses is support for 3-operand VEX-coded
+> > instructions, which is unlikely to make a huge difference.
+> 
+> Especially if they are the only VEX encoded instructions.
+> Switching back and forth is horribly expensive and the change isn't
+> 'sticky' on some later Intel cpu and you get the 'hit' for every
+> instruction.
+> (kernel_fpu_begin() might need a vzeroupper to migitage this.)
+> 
+> > 
+> > Its actual purpose is mostly unrelated to AVX: it replaces the 'ror'
+> > instruction with 'shld'.  This is entirely to work around a quirk
+> > specific to Sandy Bridge and Ivy Bridge where the 'ror' instruction was
+> > very slow for microarchitectural reasons, and 'shld' worked better.
+> > 
+> > This is documented in the contemporaneous paper "Speeding up SHA-1,
+> > SHA-256 and SHA-512 on the 2nd Generation Intel Core Processors"
+> > (https://ieeexplore.ieee.org/document/6209073).  There, the 'shld'
+> > workaround was claimed to speed up SHA-256 and SHA-512 by about 20% on
+> > Sandy Bridge.
+> > 
+> > However, that was a one-off quirk.  And even the paper itself warns
+> > about using the 'shld' approach on other microarchitectures.
+> > 
+> > On AMD CPUs, and on Intel CPUs after Sandy and Ivy Bridge, the exact
+> > opposite applies: ror is a fast single-cycle and single µop instruction,
+> > while shld is either a slow microcoded or multi-µop instruction.
+> > 
+> > From what I can find, this is true even on the older AMD CPUs mentioned
+> > above that run this code.  Thus this code has likely always been harmful
+> > on AMD.  (I don't have such a CPU available to test, but for what it's
+> > worth, on Zen 5 the AVX SHA-512 code is 58% as fast as the SSSE3 code.
+> > Clearly, the 'shld' hack can be quite slow on CPUs it wasn't meant for.)
+> 
+> I've got a bulldozer (or similar) I can run a test on.
+> I might just to a quick one for shld v ror.
+> I've rewritten my 'rep movs/stos' benchmark and plan to run it on the
+> older cpu I have.
+> (I need to get something newer than an i7-7 and older than a zen5.)
 
-> Hi Jonathan,
->=20
-> On 15/11/2026 at 20:45:51 GMT, Jonathan Cameron <jic23@kernel.org> wrote:
->=20
-> > From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> >
-> > When an external trigger is in use, max1027_trigger_handler() starts the
-> > conversion and then waits in max1027_wait_eoc() for the end of conversi=
-on
-> > interrupt to complete(&st->complete). However max1027_handler() only
-> > completes it when the buffer is disabled. With the buffer enabled it
-> > instead polls the current trigger, which is the external trigger
-> > that is still being handled, so the poll does nothing,
-> > the wait times out and every sample fails with -ETIMEDOUT.
-> >
-> > Complete the wait when the buffer is enabled but the device's own
-> > trigger is not in use, as the comment above the check already
-> > describes.
-> >
-> > Fixes: 075d3280b4a1 ("iio: adc: max1027: Allow all kind of triggers to =
-be used")
-> > Signed-off-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> >
-> > ---
-> >
-> > The comment clearly states that we should just complete for
-> > triggers other than the one provided by this device, but the
-> > code doesn't do this. Ideal would be if someone has the part and
-> > can test this. =20
->=20
-> I no longer have an easy way to run that code, but looking at it 5 years
-> later, I agree with your description of the problem as well as your
-> solution.
->=20
-> > LLM spotted the issue whilst doing some other cleanup and
-> > prepared the patch.
-> >
-> > I think the reason this got past testing was that the code was
-> > fixed to actually return an error on timeout whereas a bug
-> > previously meant it always dropped through and carried on. =20
->=20
-> Ah, right, intersting, I guess you talk about
-> 2021ef060900 ("iio: adc: max1027: fix error code in max1027_wait_eoc()")
->=20
-> > ---
-> >  drivers/iio/adc/max1027.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/iio/adc/max1027.c b/drivers/iio/adc/max1027.c
-> > index d475cc91108d..65a0e85faca9 100644
-> > --- a/drivers/iio/adc/max1027.c
-> > +++ b/drivers/iio/adc/max1027.c
-> > @@ -478,7 +478,7 @@ static irqreturn_t max1027_handler(int irq, void *p=
-rivate)
-> >  	 * with another device. The core will then call the relevant handler =
-to
-> >  	 * perform the data processing step.
-> >  	 */
-> > -	if (!iio_buffer_enabled(indio_dev))
-> > +	if (!iio_buffer_enabled(indio_dev) || !iio_trigger_using_own(indio_de=
-v))
-> >  		complete(&st->complete);
-> >  	else
-> >  		iio_trigger_poll(st->trig); =20
->=20
-> In case you want to make it closer to what other drivers do, you may
-> invert the condition to simplify the reading:
->=20
-> 	if (iio_buffer_enabled(indio_dev) && iio_trigger_using_own(indio_dev))
->   		iio_trigger_poll(st->trig);
->   	else
->   		complete(&st->complete);
-That is indeed more natural so done what you suggest and applied.
-We are fairly late in the cycle so I'm not going to rush this in.
+Thanks.  If you do want to benchmark it, you can use sha512_kunit with
+CONFIG_CRYPTO_LIB_BENCHMARK=y enabled.
 
-Applied to the testing branch of iio.git, so targeting next merge window.
+After that, you could also check the performance with the
+sha512-ssse3-asm.S optimization patchset applied on top of it
+(https://lore.kernel.org/linux-crypto/20261122022030.296468-1-ebiggers@kernel.org/)
 
-Thanks,
+My prediction is that performance on Bulldozer goes up slightly when
+sha512-avx-asm.S is removed (due to sha512-ssse3-asm.S being faster),
+then up slightly more due to the sha512-ssse3-asm.S optimizations.
 
-Jonathan
+(Of course, even if the results are more mixed, both patches seem like
+the clear way to go anyway for other reasons: reducing the code size,
+deleting an entire asm file that we'll no longer have to maintain,
+eliminating the huge on-stack buffer that was never cleared, etc...)
 
->=20
-> Regardless of that change,
->=20
-> Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
->=20
-> Thanks,
-> Miqu=C3=A8l
-
+- Eric
