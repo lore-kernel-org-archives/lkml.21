@@ -1,93 +1,36 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795369473;
-	b=XHlAFEOHOU8dfBMVgJr1BvvFrnUCA9bLfkLywnRTkEA1gTWZqbH7h0yunLHJQQxeHl3q
-	 oW7mx/hUGdCqS36G84pSkxPdouGTVIFYlIsklyhwfbwJbjZzaeUA47hflY8CE59LFmOsr
-	 848pOa6dODTcS7dvX7LEusyhCWDst2FU0C0lwgwmXfq2G4+BOGIJUEv0I3LCSi01dfWsz
-	 LvJ8s06QzIFROk5lc7Q2qIGubXeqz7MyPDGtAjqedypdvC67YQZKvrfIcTVGK0Hdn5OsJ
-	 EahiFHvZAkBztWBVIeeRT7Gu3yC0+1TRacqD/Sl2S66VpgLVY9AR7tnXZbqps9Xit3g==
+	t=1795369589;
+	b=mTHOBWTAtqgAsgt8+kWpf6kSjznq60NH+TDYRK/9qpr2XeqbZWfqV97IAlZx1977jl6m
+	 8tQewTw5bFvNleMcJ3jvKHmQnam/WofHB+v8QO7OKpUzFMdzyd0Sq54tt5OO98fg9BWpg
+	 PzOuzxgCRfwG+os7cFshaMRMqTyXd205PmsvgZ1RpGWXe3vEAfOs7eTzUmp+ewBjH+Thr
+	 JQXqSdDo50cBKr0VIVlmFno9+ahtcfcztYW8uEJsePHk/BdHpIIUCxH2cvw0ZO98A+TeT
+	 6zoDq9LDfd/tfjki6w1T3EbyRW5mKdwUnZKPXKsTgbbK5bO1iGsB5LNTR0L9DvNk2yw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795369473;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=4TIo8XI8rbm8m77QUuo4L5vnn8DDR2Hp5bySmwkQxQ8=;
-	b=ysLG4s4RiWn9Zj0lJ5PiPwi92jpJcbP/3/5kd/7tBF4Wj9v7rCvitWT0EAsR3WKiQP7r
-	 h3EzgEnQeoeP9vmX10oAZ4kyuCaaWbRy2zRp1/2RRynE5daXPy1DLIIpS80CboW0etSNy
-	 tMl10grpvhASZzTcYwCjBkRhPk3P+YF/AZVqpkRt+Pyng2J5cGVwo+Y6V2HB3OTURyUpx
-	 RoVAvbYxN8Ge2Jc4TaMpFJgLZ2LvYNIS4QHYlqtWv3KU4u9cucJ2NpXH8wyIQlHu8PZyq
-	 suV5sframjGGtP5ONvYrSbJzIsOZd7OHK32FEm/9fmsBRUnatUQLtePoVQLYyZRP2eA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795369589;
+	h=Received:From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=y3ycCPGGbIo/EnpPrpSFCKuZkVql5TAl1Yl4QBkTIU4=;
+	b=wTazR3ruFdsbfjXYHlzH/iObu5c6sF1YqgVMch4ViPrQLI3Js9iXay+7n6VNuDj4Eta0
+	 VaFfUUA8vf79i7zXblUB1Uk6FCNR6o9kHB5odPhKWLScyJWv2nqkoSK0R0w3o0G3zYelO
+	 RtKLSiREO4L24rq7NORF7svOkO9Pu//uc/Qn8iFdA01v1D8B5lJNLLngxNjCXLfgOTrSR
+	 6LZv43D58PXcHkaAzbJTYGaZ3dX6jxqtbfW9wb4ImG/khrXe2QXhCCSOz7Lo6SRlxoaFt
+	 54rDk3TemO9u4a10MpHvfiZtGs502nC0oqFhQUvmjdgWmFNTCoF1I8Xv8w0OrhVhDCg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rLeiBumj;
-	arc=none smtp.remote-ip=209.85.210.170
-Received: from mail-pf1-f170.google.com (mail-pf1-f170.google.com [209.85.210.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66A8F606A336
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:44:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66A8F606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rLeiBumj
-Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-8c700d6cc0bso1864888b3a.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 09:44:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795369472; x=1795974272; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4TIo8XI8rbm8m77QUuo4L5vnn8DDR2Hp5bySmwkQxQ8=;
-        b=rLeiBumjk8TQGxJxb12x1jOoBNcpTTZuMgD5FoSJfFUr1x8u3IcRvBDV2aKGQ+EWLj
-         CWgtnCaNl1IQzgFGpJEZ7w1GuGVfo/XjnJkSQgtGBwdSGwTvGx5PngJq4I8AohwPDdgQ
-         ZdLAJ3Wic+Yl3yqokWFgkZeYNK9Qyh2I1AQ9GMJHWn/KC/BFELg9DvZ1elIhDEdJTEhm
-         Bab8jDUt7R5Qtbk1LcHHuhzgnxIB7BDPwCH/ZYzkh/Xq1WZ38U2f/xBeqrcdrd+BhWta
-         30U6TAWHv6yfzN2NTLWK6vRrIwNt3Nm2ydXoTmPbMgpOvOo40VaErfViSOU/JMbmEqmh
-         N57A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795369472; x=1795974272;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4TIo8XI8rbm8m77QUuo4L5vnn8DDR2Hp5bySmwkQxQ8=;
-        b=PSUGE0hcAaE7pTPCaBAI4iqkUeHw+XyFWtPnOdwUoc59VgdC7f0oEgqHp+AfaWMxw4
-         SeGsXWQIhFjg0yEDm2RmRe6Xo3hErzaPM8pA3mj1dfL0fduiCyOa5kJkEcxZPFfCaUIv
-         mUzG9RnfOS/syRZoNNalAz9lbYvGFDB1S6Y6f+4LEbS3ceQnxaT5fDpXEM1jjS2zdZjL
-         jeNIqdnI7hBmzlsKrxbV+i1YXoL8YNlJZhYX99z8PxPA7qY8XEPq6oyvDdU6E5ioHB/r
-         R9OeW26bVE30kGEH9CL61SmdI2A0sEyzBCu3CS5BnCLCBxIJloey5hNn99nzgvFDH6SB
-         z+Xw==
-X-Forwarded-Encrypted: i=1; AL+hErHnKOatKml+7uF6VWveiIma4SOCRl/Md3O0nGGnTIDVvYtRYnHkOMFa7TAY08lqqsSlapLtglmXbrbIm2s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8XEKf0Xt6YzXa9cAQ5GT5DJsbMTiEMangrqJSDiIy9NWLkpXqi
-	y+B4Cg9waPx3gLHpR6Cg9TMA4atBGyG8dp9tldE7g7MvbxZ1sjXhJhvz
-X-Gm-Gg: AZFdTZfqVqnIRpQNJ9hC4Q3Fm0RAckk+pfq882RHzFEQ8Jbj/XP2i52Ibe1lMreuud8
-	LwZDXJYOtiYdCFw673PBayw1Rb0ihCDbyRE4e/OnkAFcg/T3HW8kZ9etlDp9iwsHVaNAlpt9E4m
-	MUOzOH159okA/WGm1HP1ZmPO078IL7/H5GqxOPxnNQGOe1KlP/0zUviQRGd+uExykvbxGUhY18U
-	8fY8J+TCEuWeqkw7qvZAbU8/PHws5B/xMQ3CV0tqrt0nsv7LrZihg2pQqNlpK96rq5v4a/cCQNL
-	Binl+NEKPhUewUILNcb0v0v0ehoImAlKAR9V18WK+42/hYxLfAsSZvocHCX0BQhQExpK3P4QMUw
-	EW6MmednTDQS3wpCfe4RaRwkF1H8lInjsayhrAWwk9BuWFzaa/VpMgAckCM9AWToVzTsvmQI9Ti
-	ATVntkK9RxkN7z0/88SftXHczMtQ4eIqfBle7V9jxZltOu1G6qzvlA2Hz4UkgVBerSy2Zbznaeh
-	j4C6tftZ3qgorS0tuLS63gKV38co/bglWPwGPax1k7T3sX0SksFiPuYOk8j5i/mw4BSKccITdPV
-	e5dlYXDSCR5vI4F4asgBYVI6mLJEUwve62sQ44mp87YafDSzwEQcCaVAWQgG7+Csl03rvhia
-X-Received: by 2002:a05:6a20:a106:b0:3fa:53f1:abf2 with SMTP id adf61e73a8af0-4014de5db77mr6772027637.29.1795369471685;
-        Sun, 22 Nov 2026 09:44:31 -0800 (PST)
-Received: from fedora.tailc1fb0a.ts.net ([134.82.71.171])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e4d7basm4060108b3a.21.2026.11.22.09.44.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 09:44:31 -0800 (PST)
-From: Artem Novak <artem122novak@gmail.com>
-To: geert+renesas@glider.be
-Cc: linusw@kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Artem Novak <artem122novak@gmail.com>
-Subject: [PATCH] pinctrl: renesas: fix typo in RZ/A1 driver description
-Date: Sun, 22 Nov 2026 11:44:27 -0600
-Message-ID: <20261122174427.276446-1-artem122novak@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 540A3606A320;
+	Sun, 22 Nov 2026 17:46:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44D221F000C4;
+	Sun, 22 Nov 2026 17:46:28 +0000 (UTC)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH 0/2] soc: qcom: socinfo: Drop DT bindings with IDs
+Date: Sun, 22 Nov 2026 18:46:19 +0100
+Message-Id: <20261122-qcom-socinfo-id-dt-bindings-v1-0-eeee0ffa25da@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,26 +40,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0avIrB0wwYp4ldKFSSZ2Ck7ajC2Ce
+ HdTXT4+/A2UMpPCUG2Q6cfKSQpMXYF/jjIRcigG29jOGGvx49OMmjxLTKVhWNCxBJZJkbpIvbm
+ 5tu0bKId3psjreb8/LuvXvcgv/yXs+wG2wE6JfwAAAA==
+X-Change-ID: 20261122-qcom-socinfo-id-dt-bindings-e6fe815b4480
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Ilia Lin <ilia.lin@kernel.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-pm@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1053;
+ i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=WxhspYoNAR70bc12bimxTQE3QbsRIZkWd7XFqAcidbU=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBrAypugRRfyp240hp/kgiOqb8atSODnPIKYPmAo
+ UF1DgCegAWJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCawMqbgAKCRDBN2bmhouD
+ 1483D/9NFT8AtZlMxrWFvkG1ZcbantBMgjT27rPFR1dzhxniSSqx7WX66P7Oia2RzeLUqKCza+C
+ rYmiibo/pVhc+B8oKUwpb3I8bVuDmqkqxYZsyeyp/FJb1P0vQH0hFUhpDaiZNq88iTXXnikcOMS
+ TsxTbkg9FmbLxrTPJCUFw55HReYwAUmNNq05WiehpukzN8BGSeO5CJPBfJ8hHNLj6ZV8l0R6z9b
+ eRIwb6SKDUfdhKYoLHBWhYEeDhBCae1YoK9C0otLnQdGNAOO4cBuM+jWJrfLUgbYdlTH/q2Y+0h
+ qQV0aRMdqRv5Ph2PhtP6KkAMjPkTtMkzUNv/wieZjimXQZtZh+GZ/ojq9H7/P96BTBRNBqwZchx
+ 3L1F30n2PglOftE6Xw8IoXH9449nWssjqjxwczPT/wuzoMqq7OX1XulhSjiHguKSgdQeKZL5mwr
+ HwNscOei87BJQYnZjpVw4Jy2Dq+/KN2YC2Lbpk9Cx7ra1ngfYgJXojBhaW77RXrMtga7it77fA5
+ wpib+iO5LprKnUPMacU6Uo8e0OebjQa7vTDq7GegAJnck1N+dXrtf/vsZuwDrnFq2Yd3rA4MxxH
+ u1sXgb5R0+FLruMpyuvehsjuo1bFuNJOC1moWreD5otfqUow9vTl8ZdBbW7nlobejvLhDJS61cX
+ wL13iNQZsW6uXww==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 
-Correct the spelling of "Renesas" in the RZ/A1 pin
-controller driver's module description.
+It turns out that people add SoC IDs as Devicetree bindings, thus ABI,
+and then want to change them, for example because whatever
+renaming/marketing happened.  Well, that makes little sense - either
+this is ABI and cannot be changed, or is not an ABI and can be changed.
 
-Signed-off-by: Artem Novak <artem122novak@gmail.com>
+https://lore.kernel.org/all/9eda2209-d64a-4a1c-915d-4415ac47df45@kernel.org/
+
+Best regards,
+Krzysztof
+
 ---
- drivers/pinctrl/renesas/pinctrl-rza1.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Krzysztof Kozlowski (2):
+      soc: qcom: socinfo: Copy new SoC IDs from bindings
+      dt-bindings: qcom: qcom,ids: Remove unneeded ID constants
 
-diff --git a/drivers/pinctrl/renesas/pinctrl-rza1.c b/drivers/pinctrl/renesas/pinctrl-rza1.c
-index 07afa4b3abae..7a2ea8add139 100644
---- a/drivers/pinctrl/renesas/pinctrl-rza1.c
-+++ b/drivers/pinctrl/renesas/pinctrl-rza1.c
-@@ -1401,4 +1401,4 @@ static int __init rza1_pinctrl_init(void)
- core_initcall(rza1_pinctrl_init);
- 
- MODULE_AUTHOR("Jacopo Mondi <jacopo+renesas@jmondi.org");
--MODULE_DESCRIPTION("Pin and gpio controller driver for Reneas RZ/A1 SoC");
-+MODULE_DESCRIPTION("Pin and gpio controller driver for Renesas RZ/A1 SoC");
--- 
-2.56.1
+ drivers/clk/qcom/apss-ipq6018.c      |  2 +-
+ drivers/cpufreq/qcom-cpufreq-nvmem.c |  1 +
+ include/dt-bindings/arm/qcom,ids.h   | 93 +----------------------------------
+ include/linux/soc/qcom/socinfo.h     | 94 ++++++++++++++++++++++++++++++++++++
+ 4 files changed, 97 insertions(+), 93 deletions(-)
+---
+base-commit: 74ceacafec02465d922ad68dce9498c8f50e5f5d
+change-id: 20261122-qcom-socinfo-id-dt-bindings-e6fe815b4480
+
+Best regards,
+--  
+Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
