@@ -1,58 +1,157 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795366042;
-	b=fIvdZRIovaTrQkTEWQcp31rw199jDihZArXAvK/BgwEIs5CPo3yQlFFe/eDouL0gwaRm
-	 lWWIW70m7D+WyWUcb2kLy+UOO3hukpo/nnsy/UaEq7924UphF17+Q2fZIQelkpzUY7iDI
-	 cKK0xx8inTj9vk5pa+Yp9S6jjVOE3YLZuBMq6UrErnpj7h9Hr9lyd4O35e6GKw7Dw/grs
-	 0d13o7/WP2t4IOX6wMyMyAicYMsj1Zj4TQef3kf6tT+hlk0IWsUvTkyrxLjuvGyRzAgMa
-	 H0dtWp/GhiIFD7jOUT7mRZDz+Mdn3JlcN92t9Qj3MIlt11Ghgz3ZBTGaBxIbYV+Cs1w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795366042;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=j6ElqDaZMsgeILsrFsQEoNXzC/7MuQ/oW+AvP106PHQ=;
-	b=GwVP41crJKT35wk8svwRLRrmXnWn98t26ZxbDl3dzR4DNniQkP5ZftotsxipblyURRjc
-	 AO54fFFu0uPJXdM7Htscb4nuFuLacPAdAEPUgGZ6QUM6dSNxBCWLvJGi+P2munacWW1Tf
-	 3tOFWoQW7BXP9P9lm0CFVXmCFik1H5/ws4muhg0mQRHcj7ylDtL7fJ4QNUv7Ua1CqTrPf
-	 x7Dg0m8tgFe52CHWH68UzixM+pMYfCRhNO6mWTb/kC27R+odljNNrhssK69CFV+0mO6Dj
-	 tvKFhMsuouKlb2vsSYykdTNKYeYNl9R0DWgKehremsxEMxMwZjeM4oyjz1kNnsWh/Hw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=0TwXIxCZ;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795366075;
+	b=pcRMjP6zNlINLuZFqELhbvhWTJXCzjt9qzrp+3dDCTsYtAtXxd5jDJL8kzHnW/irmvtr
+	 ooS5N8sAAYvkDlwHhGeyG2V9XM/0yHfgYIC8jx7+mflMo2PUGdnzA/bWxMV7sjbipbnXG
+	 Abjt9QsYHwi2ejNnyFJuKY20eDQXYq4Z9+D5Omix6PbbUgoXpSaQlUAvBFhS3YYQMt6ca
+	 9H44a3pzFby1kTFfl9eM6NTojp/cqH7vjCX7L1QCuM1PWlxnM4C/RjDZbdyNjhzLjlmXT
+	 RIZ/65TPuZJFAeiXXIbQyo9Y0HQroNCa3j4ZLwHxtOFSV0CQxODOBzIffegzFGZXKNA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795366075;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=JATS/rNWdcvhmGzK9ANEDAbcukOMpu3tVj/EWIuICWo=;
+	b=HaQgyQ7FEyYGGPsOuo9fKZeksVPhpUnlIu9lYTCTGb1mc8A0MFqy4F3bM8Nvr6TjL9Hf
+	 tPE46YAa/QZ8wL96ZwPvPlkdRH58VMgvMZi1Fan7LULgioxTuZf5R9V6oUmU5W+DCpiAG
+	 iAV7mp17Q1Hu5S42dOi9ll3UdHbJI1abpnSYiBZRckOpW1hWaCz38bsQq7PSmDW7TA+dW
+	 ZdAmRY1zxUdJjoBf5LWbJnooFZMpu6ZUFlq5g7qlevBktOhYrcaGW8UyYsg/IcF9kKDQr
+	 u7q1cve5QQrwH/bgTGpBWNNgnyZ+K90TwZt8wCaizIZlBPHceK+VrpRU6Hzk0Ov0h0Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=NHvteN96;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.13
+Received: from SN4PR2101CU001.outbound.protection.outlook.com (mail-southcentralusazon11012013.outbound.protection.outlook.com [40.93.195.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B5D7606A32A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 16:47:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B5D7606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65590606A32A;
+	Sun, 22 Nov 2026 16:47:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65590606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=0TwXIxCZ
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id A50B11A1786;
-	Sun, 22 Nov 2026 16:47:19 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6834460512;
-	Sun, 22 Nov 2026 16:47:19 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8B72611E6257F;
-	Sun, 22 Nov 2026 17:47:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795366038; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=j6ElqDaZMsgeILsrFsQEoNXzC/7MuQ/oW+AvP106PHQ=;
-	b=0TwXIxCZpyJzluO4Otef5fhtskfek3eFZUrcY7zZkbxpkJlQOqLSIlU+bdnxEI4ZcE6k/Y
-	qV9im3CO5OK3zdgCZaEdt6NA5BtHerVgTVW5gjQtj3kH2ih4GDsARlOZWIEso0wAlhUYHI
-	lCGXvNiBOwG/9lyqpBWsMb55IJ4U6ZUeu5WMfrVztpNK9fs+7mEdPz6S0nHDvTIbKK9OnC
-	oCUDsyagmtk47GYt27K+/BsfgVufIElepIBh1zSTXybHhc1BeazZunRmnNR96DWPyGICk5
-	UeSBlPFaLHJRQyaHvAeGK4MxazJxBWLo9oBPJ3mblZRE1qUl9HKaTfbJ1BpWWA==
-Message-ID: <366c33c9-6747-424f-8df8-71f94320a857@bootlin.com>
-Date: Sun, 22 Nov 2026 17:47:11 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=NHvteN96
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XDeCJdITcEIKFadnzY9oI70AmgQ1O2qZTyxaDAtFx7xgYOn9oceyXGhqfJhqB06UuATtU1FZttoybrRYCTuHhx69U6SDQPlOtU3iXRD4DdA8VgLLwAQS1vEgpsuybuBvDiaz2uYp6I0leKj4TQNSV9r5zEMNLbVamoX5EWru4LrIGC6+2Hw3z8HJr2WExbs2W3gohwTyXuruWSrU9NiCP3N0noj6lXOA1KMWWxkAEPx+U96mwZA1md4yk7rLEPQDsNkEqxBjEE1InHBY9/H+wboKzzhi5zTa53wYZYYPrIVD4JhNW/9R85Q1mLNAkkSl5MDcFtNBBbBEaMI+Vh5AEQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JATS/rNWdcvhmGzK9ANEDAbcukOMpu3tVj/EWIuICWo=;
+ b=tCvPwZqVLOYcVZiSWEOpsr+LEAQ9XCtKPk10IL4gDgDDh6yEV7sG7LCj4CGpPPKk9MmlOpw+T60Es4acKzqjNWU4EQWQQ1RhiWlJ8f7iO3oFiJbVtOy2W2a2/oS2kpkjf4DUIomes2Ggstxg4nEpiBepbvwrYBMQsp1NandR9DOgVubYvgWk8UpHXyv91sfKpmbOqnCEyQx1el/LZnO3xFMdWEAlJynZc51Yw4JHgBknqFCev+XiGE5mZOgqqt4OKzzC8yyGUO78X6AqMkq239kvtI4hLG/M0UhqCcDFpQhJBuEdxfLdqoiybEcPppaYfHymagyOtIINwb5sSQln1A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JATS/rNWdcvhmGzK9ANEDAbcukOMpu3tVj/EWIuICWo=;
+ b=NHvteN96GqE4F5Jx69Kfk0JxoQx7aOJqTEjWKB+k7lipNrHQVgwa/mowVB2CE9nhz6j5Lzwz3v3m5NA8PHA1XSEoDxSAb74gI2ExYAwUp0a0R6EECu6tipxsf98kvSs/pj7rmfS1N7PwOJc5CAMKgMHRKm5MUoSh7yBrQvEiSMhCd2XsQCnhbezzupmtuC4QcL+JMKPKDWrjRf9qiLEAfi25veb5VudDnyLxvogM1HmpL0Ge+ZKKwNa475e3eZswPoRhwpbjQZm1su9WAd4wv8XeSfLxtZnx9DFHtRj1xqL2Q3yppsLJZ9TcCv0BXONroEp0SVzKRxiBTn5kaT8GDw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV3PR12MB9356.namprd12.prod.outlook.com (2603:10b6:408:20c::21)
+ by SJ5PPF6D27E3EA3.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::998) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.8; Sun, 22 Nov
+ 2026 16:47:47 +0000
+Received: from LV3PR12MB9356.namprd12.prod.outlook.com
+ ([fe80::1c36:31b4:c420:6286]) by LV3PR12MB9356.namprd12.prod.outlook.com
+ ([fe80::1c36:31b4:c420:6286%4]) with mapi id 15.21.0639.012; Sun, 22 Nov 2026
+ 16:47:47 +0000
+Date: Sun, 22 Nov 2026 11:47:45 -0500
+From: Yury Norov <ynorov@nvidia.com>
+To: gourry@gourry.net
+Cc: Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	David Hildenbrand <david@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Oscar Salvador <osalvador@suse.de>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Brendan Jackman <brendan.jackman@linux.dev>,
+	Zi Yan <ziy@nvidia.com>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>,
+	Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>,
+	Ying Huang <ying.huang@linux.alibaba.com>,
+	Matthew Brost <matthew.brost@intel.com>,
+	Byungchul Park <byungchul@sk.com>,
+	Alistair Popple <apopple@nvidia.com>, SJ Park <sj@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Kees Cook <kees@kernel.org>, Kairui Song <kasong@tencent.com>,
+	Barry Song <baohua@kernel.org>, Qi Zheng <qi.zheng@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Michal Hocko <mhocko@kernel.org>,
+	David Rientjes <rientjes@google.com>,
+	Pavel Machek <pavel@kernel.org>, Len Brown <lenb@kernel.org>,
+	Nico Pache <nico.pache@linux.dev>,
+	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+	Lance Yang <lance.yang@linux.dev>,
+	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
+	Xu Xin <xu.xin@linux.dev>,
+	Chengming Zhou <chengming.zhou@linux.dev>,
+	Lorenzo Stoakes <ljs@kernel.org>, Pedro Falcato <pfalcato@suse.de>,
+	Jann Horn <jannh@google.com>, Chris Li <chrisl@kernel.org>,
+	Kemeng Shi <shikemeng@huaweicloud.com>,
+	Nhat Pham <nphamcs@gmail.com>,
+	Youngjun Park <youngjun.park@lge.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Jan Kara <jack@suse.cz>, Waiman Long <longman@redhat.com>,
+	Ridong Chen <ridong.chen@linux.dev>, Tejun Heo <tj@kernel.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Dan Williams <djbw@kernel.org>,
+	Vishal Verma <vishal.l.verma@intel.com>,
+	Dave Jiang <dave.jiang@intel.com>,
+	Alison Schofield <alison.schofield@intel.com>,
+	Shuah Khan <shuah@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linux-cxl@vger.kernel.org,
+	linux-doc@vger.kernel.org, driver-core@lists.linux.dev,
+	damon@lists.linux.dev, linux-pm@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org, cgroups@vger.kernel.org,
+	nvdimm@lists.linux.dev, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 23/60] mm/damon: restrict DAMON-native folio operations
+ to common memory
+Message-ID: <awMcsTqyCgQ0dISw@yury>
+References: <20261120-private_nodes_v6-v1-0-74f5f9a115c2@gourry.net>
+ <20261120-private_nodes_v6-v1-23-74f5f9a115c2@gourry.net>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120-private_nodes_v6-v1-23-74f5f9a115c2@gourry.net>
+X-ClientProxiedBy: BN0PR03CA0048.namprd03.prod.outlook.com
+ (2603:10b6:408:e7::23) To LV3PR12MB9356.namprd12.prod.outlook.com
+ (2603:10b6:408:20c::21)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,99 +161,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v4 1/5] net: stmmac: dwmac-sun8i: Put the EPHY
- clock and reset after the MAC
-To: aiyengar1990@gmail.com, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Russell King <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
- linux-kernel@vger.kernel.org
-References: <20261120-sun8i-emac-mux-uaf-v4-0-57eba8915f25@gmail.com>
- <20261120-sun8i-emac-mux-uaf-v4-1-57eba8915f25@gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261120-sun8i-emac-mux-uaf-v4-1-57eba8915f25@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV3PR12MB9356:EE_|SJ5PPF6D27E3EA3:EE_
+X-MS-Office365-Filtering-Correlation-Id: c9d6c601-21aa-49bb-a9ae-08df48b85630
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|7416014|10070799003|4143699003|11063799006|56012099006|18002099003|22082099003|6133799003|10067099003|261021123027099003|261102123227099003|261009223027099003|261021121427099003;
+X-Microsoft-Antispam-Message-Info:
+	pttyvZrrYA7D4hAdv7PDsflu6Uh6VmXoU3y2OtFAJmFlM8cifYkMj3e7x9ST23KXiCyG1i8STL/Gc/miT2q7nN2BG3UI8qJz+zvGasSaducR77EwZtbjVCR9qW/4c6DillNCrSxYHFW1+amy6DNVWa+1W6mNXl+7iHyWzh4guW0+eu+ifeyFlERU3Vxisg1LiC7SOmNCUYyppvdX7gJZX3/KYSY/N0gGrq9B7U1AopPUjh0mbnwyZL/7w4fjOIQZG7KEMeseEVMQs209jZx34Orl2QUurwoxz1e/qHg/EgHF61TyldoSPEYQTQi2cmYkoN2oqVm9Nz0ZAjTX5Kia5yFwmNXVZPsJ8bKtTsCioBxdHggrUY8HgtHlYDKOEDfjL3s+8O8FU6NrtcLJ/ZjqhRpAEboiL1P+oIDIY/hDVYmXE5nNQ5D6vTm2QSFAMq4xo9ZBG/ZpH7E+n/vkBCYZe7DibUFAPNVJkKiyfssTr4lYNkVa0tMZvDKPUGE+UlYKXdkY5iSAnRglwaYhdB1lsDWtsRD3sva+l+VRS+3kR9xjxV46hLNqI0Pc8RHsX687nR2ebaJv0Q9Uli8xEu1s2Qi8gcp8wqCxu+N7rJhTHGkoo29el+JhMtfcHxk5y4iutfY4LAHnEiA+8Cp8zlXS+1G3ODe6wDtYr7ka2XLHWMs=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR12MB9356.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(7416014)(10070799003)(4143699003)(11063799006)(56012099006)(18002099003)(22082099003)(6133799003)(10067099003)(261021123027099003)(261102123227099003)(261009223027099003)(261021121427099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?QjdoUo1T00asCqtnXElVzkrVImSL9el03xviw6xq11+EwgfI/I2drFxWr2RT?=
+ =?us-ascii?Q?baxGGcGpWg3kLEBbOftTJ7VpuZSZGCo0sn99NGLO/B2dSdZMohm3zNtOvmTz?=
+ =?us-ascii?Q?G+Kqf9hCW/syX5jqGQL6rHiPCPyQkxpfWhCo/ErzNlHT63i+WKks7Q+ZYd+1?=
+ =?us-ascii?Q?V9sieSpd/4GS7vJuZYWGPaUVCNQK6FvWAouIfh5niJZoFB+ifHR3fvrsnRoq?=
+ =?us-ascii?Q?imqicWxBezT6XL8Y/QLsUeqWDjBk8soHB/dKGyRzuU9eU1B02MbKM2yTlYrd?=
+ =?us-ascii?Q?6yykvfEzHpMdO45UTiTMh28awrN2RYWbwvOlhNS8W8cCR7Ced4pn54w2co+i?=
+ =?us-ascii?Q?9tM6/NK6PDY5LhKec4EZeDrQRHIFn1cp9N7tetif61XLbeSJ9TP57AizrSGA?=
+ =?us-ascii?Q?i5LfpsCE62TrnioYJkjgPk7OxbXMO63dVqQJyfX8tmgYZ+G9GrzBPNJMQao5?=
+ =?us-ascii?Q?NZoQNeVxjcuUl42vU4nfzthMt+sIJV345LYKAjun5z+4af3kKCn9orydLQhg?=
+ =?us-ascii?Q?gZ9Kp3N19Gsw/EWJ9j1n+bnIDI8dz0QB7ch2fd/4Zqvj1BdzPWxQ8SNOcuMJ?=
+ =?us-ascii?Q?beRQoiGDOl2ZPa2n146+P8ghcOPyeT9xSuIBZO9ivwVF4zoTu44XxGNM82mH?=
+ =?us-ascii?Q?U1SjK67jwgFbAoao4SiZC90lMY2mI70n/JNzuZNYtCQitzM6uPf5ZHW7486j?=
+ =?us-ascii?Q?/M2n3CgDVKWfaBbYucBTxBNHZeaXmdePKl5w7wAZCn7FA/YyAMNFM6BP0/RV?=
+ =?us-ascii?Q?6JTNvL//UZzHVU2elYDvNv62Gt5iepMRH21sbygMOVPIcVwTDH+kXuayVugJ?=
+ =?us-ascii?Q?YJ++aifc8xoHje5tyXWliIV1qeZ/cWH/nMHxaEXBH/R82njpCeXHiuS312kW?=
+ =?us-ascii?Q?JUlVEXZbv8ZrQVuUunIx9y8FTfwTMrS3YcH+Xf04UvmTq6qRglN6qlM2a6xt?=
+ =?us-ascii?Q?TaR1KvfCS0xKdt0mgqvmg9sNXiJK9G3RVvPVH0sTm6OITzj7J/tkfoYs8RNw?=
+ =?us-ascii?Q?VeRPcd5dzT7IWifoxTECcVo6R/58PZmGskttf1irgqBPWJDXKlJLu7tYxE5G?=
+ =?us-ascii?Q?xwP4ynlysDFbIa4zFb2EsObzWf1nbIrSkvIOK8b6VZUc4GnaAcFyar/n00mT?=
+ =?us-ascii?Q?tao90rRFiquIK4DX02/A3O8mDCYejx1M/1SS0ZHm+ygnBBzNTlCcdSTAccRv?=
+ =?us-ascii?Q?m4w5nZ0FTbN1Sd/nyCIOnntSwTFdwOKyXIAJ/90/e4fmkR4et3VDMfd1ZJYR?=
+ =?us-ascii?Q?YBfrrgw9yor1KWwH2OZEdzisad0IxDvd1Y/G3h89yIZSUO/leWKW89Ax9Q1o?=
+ =?us-ascii?Q?vhejkCribBnP+ehHs5YWbvRVmQL7oTtqptLiYwHezsDrUm2WsJAGRytGCGN/?=
+ =?us-ascii?Q?AWxsL72oKQ8MD+yOR5+AcXLEJMT5qWAj57V/aSbVuSK095FLfHvgM0/N0pgH?=
+ =?us-ascii?Q?u6bqKwO8TgklAGGU5wwX3kBZEJ3lNlDwfI8KjouzYfI3iy8NFStOo9J3clfc?=
+ =?us-ascii?Q?S1F0UrFyEMepBSc+h0dW/nT/eRtLboGdw4V7cFW6HR89B3MbHT3MJq8R54C9?=
+ =?us-ascii?Q?YkynPk4QhWAL21OiUHB1Bcf172WaJb0PD4pXOPBcEJ5O+T7p0FyZE5QxsIlj?=
+ =?us-ascii?Q?GIqr2Z0iIp2bQz+zKPXzC7oSWc8DuSZyqf/GmLyONgm/OCWukRJzO5fCC+Ij?=
+ =?us-ascii?Q?8b67FI1um10g2xuoTblCPwcBOm1Hr92FXtb+F/MOFPikzPwAyAZ5exLsd3y4?=
+ =?us-ascii?Q?P5utbCJKhbvu777p+E0BOnCiLuHw2kO5mf3H2uisNshlY/BsHMQ+?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c9d6c601-21aa-49bb-a9ae-08df48b85630
+X-MS-Exchange-CrossTenant-AuthSource: LV3PR12MB9356.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2026 16:47:47.0757
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: f+1VWZU7dM6sKOJYqHO9c+hsyEoiWzlaDXATHgydhHUhlmlPbaVIckNCrUWY+l99eKJI1Qzvn/kkfDGvS5d4zw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPF6D27E3EA3
 
-Hi,
-
-On 11/20/26 11:45, Arun Iyengar via B4 Relay wrote:
-> From: Arun Iyengar <aiyengar1990@gmail.com>
+On Fri, Nov 20, 2026 at 01:09:14PM -0500, Gregory Price via B4 Relay wrote:
+> From: "Gregory Price (Meta)" <gourry@gourry.net>
 > 
-> sun8i_dwmac_exit() unpowers the internal PHY through ephy_clk and
-> rst_ephy, but the probe error path and sun8i_dwmac_remove() put both
-> before stmmac_pltfr_remove() calls it. If mdio_mux_init() fails after
-> the scan of the internal bus has powered the PHY, this is a
-> use-after-free.
+> DAMON acquires folios to age them, check their accesses, and apply LRU
+> operations and migration. Treat these as general-purpose MM services
+> and restrict them to N_MEMORY_COMMON.
 > 
-> Put them after stmmac_pltfr_remove(). The explicit unpower in remove()
-> is then redundant.
+> Memory outside N_MEMORY_COMMON can still hold ordinary LRU folios, so
+> it would pass the checks that keep ZONE_DEVICE memory out of these
+> operations.
 > 
-> Suggested-by: Chen-Yu Tsai <wens@kernel.org>
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
-
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
-
+> Treat these folios like ZONE_DEVICE memory.
+> 
+> DAMON cannot acquire such a folio, so it never ages one and virtual
+> address monitoring reports it as accessed, and DAMOS cannot isolate
+> one for migration.
+> 
+> Signed-off-by: Gregory Price (Meta) <gourry@gourry.net>
 > ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 15 ++++++---------
->  1 file changed, 6 insertions(+), 9 deletions(-)
+>  mm/damon/ops-common.c | 5 +++--
+>  mm/damon/vaddr.c      | 2 +-
+>  2 files changed, 4 insertions(+), 3 deletions(-)
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> index 2ece7ba9dd73..9fb398f7cf9e 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> @@ -1236,7 +1236,7 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
->  		ret = sun8i_dwmac_register_mdio_mux(priv);
->  		if (ret) {
->  			dev_err(&pdev->dev, "Failed to register mux\n");
-> -			goto dwmac_mux;
-> +			goto dwmac_remove;
->  		}
->  	}
+> diff --git a/mm/damon/ops-common.c b/mm/damon/ops-common.c
+> index 15cabc79613b..57201a0c5e3a 100644
+> --- a/mm/damon/ops-common.c
+> +++ b/mm/damon/ops-common.c
+> @@ -17,8 +17,9 @@
 >  
-> @@ -1244,12 +1244,11 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
->  
->  	return 0;
->  
-> -dwmac_mux:
-> -	reset_control_put(gmac->rst_ephy);
-> -	clk_put(gmac->ephy_clk);
->  dwmac_remove:
->  	pm_runtime_put_noidle(&pdev->dev);
->  	stmmac_pltfr_remove(pdev);
-> +	reset_control_put(gmac->rst_ephy);
-> +	clk_put(gmac->ephy_clk);
->  dwmac_syscon:
->  	sun8i_dwmac_unset_syscon(gmac);
->  
-> @@ -1262,14 +1261,12 @@ static void sun8i_dwmac_remove(struct platform_device *pdev)
->  	struct stmmac_priv *priv = netdev_priv(ndev);
->  	struct sunxi_priv_data *gmac = priv->plat->bsp_priv;
->  
-> -	if (gmac->variant->soc_has_internal_phy) {
-> +	if (gmac->variant->soc_has_internal_phy)
->  		mdio_mux_uninit(gmac->mux_handle);
-> -		sun8i_dwmac_unpower_internal_phy(gmac);
-> -		reset_control_put(gmac->rst_ephy);
-> -		clk_put(gmac->ephy_clk);
-> -	}
->  
->  	stmmac_pltfr_remove(pdev);
-> +	reset_control_put(gmac->rst_ephy);
-> +	clk_put(gmac->ephy_clk);
->  	sun8i_dwmac_unset_syscon(gmac);
+>  static bool damon_folio_acceptable(struct folio *folio, bool monitor)
+>  {
+> -	return folio_test_lru(folio) ||
+> -		(monitor && folio_test_hugetlb(folio));
+> +	return folio_is_common_memory(folio) &&
+> +		(folio_test_lru(folio) ||
+> +		 (monitor && folio_test_hugetlb(folio)));
+
+Can you minimize the diff? That would also improve on readability IMO:
+
+        if (!folio_is_common_memory())
+                return false;
+
+	return folio_test_lru(folio) ||
+		(monitor && folio_test_hugetlb(folio));
 >  }
 >  
+>  /*
+> diff --git a/mm/damon/vaddr.c b/mm/damon/vaddr.c
+> index 1e65e7651cd9..338876559140 100644
+> --- a/mm/damon/vaddr.c
+> +++ b/mm/damon/vaddr.c
+> @@ -830,7 +830,7 @@ static void damos_va_migrate_dests_add(struct folio *folio,
+>  	if (folio_nid(folio) == nid)
+>  		return;
+>  
+> -	if (!folio_isolate_lru(folio))
+> +	if (!folio_is_common_memory(folio) || !folio_isolate_lru(folio))
+>  		return;
+>  	node_stat_add_folio(folio, NR_ISOLATED_ANON +
+>  			folio_is_file_lru(folio));
 > 
-
+> -- 
+> 2.56.1
+> 
