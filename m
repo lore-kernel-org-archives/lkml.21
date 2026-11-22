@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795378501;
-	b=nPIyud9XrklZhULPbwexvT40IZq4DPvIq9TWJZJxY8Y8O4Cb/p7gf/w/HuKua6+jklSJ
-	 zA0Y9V/unAQBTxpoOsfjXDsTolc7A2vXKqMO+sao7ijg4i2RTM3sBWkUTJ8Efr76ts50Z
-	 aiqV1Fw+xdRZM0LcoDXiGjqKycrcXPyv9ZcxEa07LyS+p3AuKyU4AtKOLRjXETVNx3+ZK
-	 DuppmkWMK664a8kgnR2BoX/jMIW/w+d2mR+1iIJ70soJeF/HmKLueods0RYbl7JmITSpR
-	 rTWvjyfeVZL4dHyXRGfMXwr/HilKpd9XlLUNwCyp17/GIzvIlO4CTcsJpObYWPXdADQ==
+	t=1795378504;
+	b=eFrkDQAxaJSpT3Munjl9isHCcRGEbFoRxMeijjlJt3ZpcEWQWv2pfv3waYFfD+/dLH/7
+	 OQI0F0mB45EA4ltHSIgfpXNQ091kEYNVMEr+S2boXZceV6mOysjH0ycp7SiOH6W4TYuNQ
+	 DjtUPMXLfEsAfy8uHaWF1+OSmdvk1S73N8J8y+5MWp052F+4hVP9rL1lZNeuV3ib387GN
+	 QQP/6KD2fVasv4UKwtoCZHiXHBpufNyzpo9zTdqivkde1wn5tmFeIG9kGOUb0spHwAS/b
+	 IvDF3Zj+Du6TWPOEx0xS0RJ+lPWfW0EcXM4dzBMpvLT4dh5aW5o7Aw9KDrXqhXWyxow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795378501;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795378504;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=Y+TVwTlX7c3XctTEzScMeDWLIyBaOAtPHRcEpBS/ezk=;
-	b=aZ5NusM9dEM0x71XRwnqJNbi7NnrRQTurecEX490k7++LwB/7irNG5lhHRPjr4etFLER
-	 m9ppVUsk0gwmNgQ55dqSqvIPP6VM2n7f++Wd4hwIRIBTchgapew+IvAnNkwUBhvMhFKTa
-	 CjqLUWjCxORHWXkMsVdWXi7OdbKe0dEkEP48gJjSyjSTHaLRozhTUGIGM9+7iDOSmXG+h
-	 Wthu343Z001Ofm3RTcnCfYmy/yfinK13ZL4mfrtcrGnjT/H201prAOpfwuigNK5kofp3I
-	 MztqsIyAewZtdjca3uOGwE/OrisJSHVnOyJQXHeoVx6jj356AOqJOtVnVpiw1AjYgaQ==
+	bh=MaqYWImv02DJ+CpqgjmSJfLLPzjJ2VjogqkfcXMZh8E=;
+	b=VBp4RSABPAQmRlXHODT6XVzNQFBZ7gU1eRXlrELlg+4WP64T/tAkxu/lgUr+ZoLQxNrr
+	 hG1aaUUaTeuKrHmd268jZ2cRu7vXBoXyew8uaOx4vZuDZod21PVGazPCX2Jfm2m3edMab
+	 8ECvOu7lhNFfx4u9r/8VXiYFoQ0jfIVBFgYGe9IFIP14/3HOcivSFbCHFZ4kLXTER2Bw6
+	 16qRadeiZ+1Y1awpY1U0tcEzLr277KFAqEXHyo0y5+1KhQ2+E68tw7KgCF8BGuHQ1/X4Q
+	 JmEK7/R+3XPDR4t4Hr9E3iL8w3oRWPVqerdnxlDd/jiTNyYmQi0Nskk2HtFz3IOM0Cg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mV4S7s0F;
-	arc=none smtp.remote-ip=209.85.208.52
-Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com [209.85.208.52])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A+tBIyG6;
+	arc=none smtp.remote-ip=209.85.208.41
+Received: from mail-ed1-f41.google.com (mail-ed1-f41.google.com [209.85.208.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADFB7606A683
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:15:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ADFB7606A683
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17DF7606A68C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 20:15:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17DF7606A68C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mV4S7s0F
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6b4bd3d98bfso3143057a12.1
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:15:00 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A+tBIyG6
+Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-6b894a5ce3dso3408922a12.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 12:15:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795378499; x=1795983299; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795378501; x=1795983301; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Y+TVwTlX7c3XctTEzScMeDWLIyBaOAtPHRcEpBS/ezk=;
-        b=mV4S7s0FSBQ8EhKjdIitZA7eBN6Dv6QzdU0jpu0+5ZnD+DDNounbp+Lj7QZXks6ho/
-         CkkKf4eSnlEVxiOHTa+q/f7D2TYvG45nAJFDDBwKxskEDV7JXZHfdhg11gVqpd26xlET
-         aXP/QHgoZL5/6uRwJEqwDzmx1Or/iKhzJdpiaBR2sFldJlww/vtWzeCJ7KCHR/ahnGFj
-         5ETgU9nDYRb13y20bff1n0VbzUl2QXB9kWuXpyaE8HQI4Rtg9nHmROccUGs8s+z508dR
-         XTQOpLrMZHy95JZMvZjn4QndHdNWHlfd7z9UpZVS7GU4CHhflfL7sT7TZ9AIJ+ocNx9G
-         fI8g==
+        bh=MaqYWImv02DJ+CpqgjmSJfLLPzjJ2VjogqkfcXMZh8E=;
+        b=A+tBIyG6FwKA51lw2JK4ViwReDqsc56mbtfe7BW93tsdunhceN+ejkxD2D0u8vNYyU
+         PcO/HRW82JLP1rm439Aljgl4SuoKKPM/PnLDLOKtzRXRE9aHCilcoX/sgIICSyacpAtF
+         UNaoQeIdQav/KcsFDCZMe1gERTA65AFO2bS+KRdQi8ENsvTHTVGzaNxmnG2dsWvhBtHP
+         PT+UqCHw42m61ldaoGj70KTYsRtdgWPh68Q+4n6ChIz6/4a+xfrNyiAdZLNpB+Wzyr10
+         fau0+BG6bLu2DJfS69pAkUHon0HQQ9YL+sxGD5mqV1MVI2Ftuk48oqcu244aCxvaabX5
+         96fA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795378499; x=1795983299;
+        d=1e100.net; s=20260707; t=1795378501; x=1795983301;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Y+TVwTlX7c3XctTEzScMeDWLIyBaOAtPHRcEpBS/ezk=;
-        b=1UCPwytEWQzcFqLvJ3ZuRv1F1omWq31dXaDTVJCthzh4RJYQCKXr6n+uYTO5zFnwiD
-         WQS09ZFtvVIHRIaVE7scucINCq1dutDfG+KyEzragFd5s9BssMsr1dczFSew1nikvnk3
-         a7nVhjdjhXXvDFwzjSIfy9KqCvfO797MV9WfWZikgIgjTHsivacWdiGr7PtaVwUAdVW8
-         mEOAwLTsJEvdEluNOnR/GuXHA+kXF9tSwNX+Ua1eavaDTuvJGmBEQTj2g+5k/FEB+V34
-         QWyIL8b6VEDGJlx8Z3MK5qKaLQpjh6F9B2CuNIMk9lhPrK7oG7O9jMvU5L1t9Y+tGBFG
-         JLlg==
-X-Forwarded-Encrypted: i=1; AL+hErGUGVEL4otbPLLHCy0Y8K9oPtbswLrRAXanIVRIPdwsa6VpRSga0kN3G8ZUHlFnB51SsNJDbrBFdkIrzGY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/uACNl7ZZWmnKaHbM9MA3LlvnI8PsFppb2hwnuksVj0PDNuH2K
-	14bwG6B3hxoV+gtwu7lsnIb4mja8P2XErMNi83joSDvyUKCbkxUj/uZP
-X-Gm-Gg: AZFdTZdj8QO2cr46A1XGFDwCsNCdPWPCnHrVeHF6j47TmKWVFjuI53hT6IcL9He+3rI
-	lZlNndZAQNdJl+FFTzIGnTx6GZ0JJT8uHPNW/IQI2zRwAc0ym8b2h9+JaInoYtMZn9BrHL4K895
-	BuEqblXGp/kelQ5wbqY84UVy2Xv0uiuKCXc/jdRiEctU5kuVQtoEsS683EPGxtjOBkeW8xS0ECx
-	0jdqxxxA7fFOxmJEGSIDKn7DxvHl0M+RPyyeU2xXffPZMuqiLrRITyZhZEM58D8ZfkQ8FOeXYua
-	2pbsqBBccRoww6ycAdnNZMHsvij5YzVwt9satu6x/D+uOd4/wafjYVkk+Kq8HHiT798mVP9/y/R
-	NkTag1zHDLS9zfOgh6PG2h+umDU+pAfUSlnFzT2zEeaqOXu/9N1A2RzfwNnTYcxUJLONocRi6p1
-	sDMMk5+y/dfoM0iyoS79J2v3dBmCH3nfVAgh6qIozxsttIG5cdEwgR1osLn0791H5FDRrN8uYqS
-	qYwTOj/0T2L7YNtydikOVMgvwa7fS5qaaMUGOZP18df406+Holms/oNRivQorwJbtRjBq0osYu1
-	8IXRaWKOa5SvqcNSHQB27p6CchtiXYLJk2xvVSCOmoYc3eWfmXus934kiHOgusRmqcAMsAB7Y7x
-	N7rQ+3D92kA==
-X-Received: by 2002:a05:6402:1d4f:b0:6ba:95c2:750e with SMTP id 4fb4d7f45d1cf-6ba95c27ab5mr1629135a12.16.1795378499006;
-        Sun, 22 Nov 2026 12:14:59 -0800 (PST)
+        bh=MaqYWImv02DJ+CpqgjmSJfLLPzjJ2VjogqkfcXMZh8E=;
+        b=gN0yC4+Jne+5X6mh5If+VeAf3p7enA7hJdgXZAAauoIvGis5ZhOK4MWqq9yD14P6/Q
+         E3s2sEmV6Qsf/SCB2oY/7qwkV/kh2KQGXoyo64RqT71weCHGAtT5HmS5lSTFqSL1Zi5g
+         ZKJ3+dUGOR/W3xrajOgHTGcX76z/CfWQYag62B5LpF+nJFEkC0WsnKq7JlwroGfDGLhw
+         LwvIPWboairRrq4gucRgzsUyVUNECTlrDjTBlu0dVa5vNpCeNuKg/EHjsaiMsIxZIOwH
+         yjDLG6gDcdNp9hvtNDoy8s7VDk1iF8Lhppozh20IfZXF0uef97OtTLc3OhZbBiJBjmpt
+         F5+Q==
+X-Forwarded-Encrypted: i=1; AL+hErFGb03T6ms4HAL9/7YAc5nyoPkYW9jGHCHv600+rG2amGh+6b6qxNtTIeLl4xE8RBoH68AKrUZtYBv6H3k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8C0hVN1zoa86zDaJBnkPsa1o7YMUqY7Ze6o3F4ynZGDL68i1C3
+	qn3BMWwKWuGduxDiUSzTy/Jtu3V4lHqAnt0gwDTiJeYo84+/pj8OINzS
+X-Gm-Gg: AZFdTZddg81Sl6ZG0EJvsPRuj1H5FEOr7mzHaCZKH0ybIPzF/3id+WhlwPS7JVuP8Rq
+	MKSRxfRzTr41R6vJ9aByUOurEjJPq0XFguxKhAd9rVnmi93ilIOchz9tODbkC92RaEAijdKQHcp
+	Z4osTMbCWiLx5e6PDa46BhyI32vCdeSxPgo3Cya6Pnen0mVC+8SX+LGFVxfPrKyhTKPLYAdLu+A
+	lDS3lfI1A3oE2l3NmuTr9zegXw1+gUiUYnQwFcOB/RFPUcDqVNXkquVvuAiGyZaX7WO94uaOy1j
+	bI6cs5EhLcxWGEFI4ZqrLWKstZtulU99ZXtpWLS1LxzDbVA43CJeCeKi6jjRwxCCvA50LvLALN4
+	yW2u/iCKf/RBqniODW9c7L4TZMh68gVGKOraQEFQ+by4huyTJneytf69w1aNQvBbZEU2vNoshot
+	D+CKgfSFSlJ3OlHTqSHPnY6xv2bikvAZJYhjWpDxhNFQ2WZ698eQC6RWnLFkGSFgCsb3ARIe/zO
+	pt2sdPid8QYYzfOu26k/Thzq+Te4dt5l6HO3pacBODYfS8/nTwBM9wpSqv2Dtuj2UCAqPGvo7b6
+	S+uUDS0Hxb3erqoXSI/uK8mQHO/oVPVhHE4d+ycx9WWEdx3w/6N28/DyiO8rNauXIEQ3KmAIGfc
+	D1qa3ZadRSA==
+X-Received: by 2002:aa7:da08:0:b0:6ba:144f:ae49 with SMTP id 4fb4d7f45d1cf-6ba37e8b7cemr4884943a12.27.1795378501279;
+        Sun, 22 Nov 2026 12:15:01 -0800 (PST)
 Received: from xeon ([188.163.112.54])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fa8basm4424074a12.20.2026.11.22.12.14.57
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370fa8basm4424074a12.20.2026.11.22.12.14.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 12:14:58 -0800 (PST)
+        Sun, 22 Nov 2026 12:15:00 -0800 (PST)
 From: Svyatoslav Ryhel <clamor95@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -90,9 +90,9 @@ To: Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org,
 	linux-tegra@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 15/18] ARM: tegra: tegratab: Update GPIO keys and switches
-Date: Sun, 22 Nov 2026 22:14:04 +0200
-Message-ID: <20261122201407.23742-16-clamor95@gmail.com>
+Subject: [PATCH v1 16/18] ARM: tegra: tegratab: Update aliases, chosen and memory nodes
+Date: Sun, 22 Nov 2026 22:14:05 +0200
+Message-ID: <20261122201407.23742-17-clamor95@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261122201407.23742-1-clamor95@gmail.com>
 References: <20261122201407.23742-1-clamor95@gmail.com>
@@ -107,66 +107,87 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Update the debounce-interval for GPIO keys and add hall sensor and tablet
-mode switches.
+Add the chassis-type property. Add RTC aliases and place the aliases node
+first. Drop redundant configurations from the chosen node. Expose all
+available memory in the memory node, but add reserved memory regions to
+avoid touching TrustZone or bootloader firmware.
 
 Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
 ---
- .../tegra114-nvidia-tegratab-common.dtsi      | 21 +++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ .../tegra114-nvidia-tegratab-common.dtsi      | 44 ++++++++++++++-----
+ 1 file changed, 34 insertions(+), 10 deletions(-)
 
 diff --git a/arch/arm/boot/dts/nvidia/tegra114-nvidia-tegratab-common.dtsi b/arch/arm/boot/dts/nvidia/tegra114-nvidia-tegratab-common.dtsi
-index cf8cd037a732a..f6b167dc8d338 100644
+index f6b167dc8d338..1e9df07dadc98 100644
 --- a/arch/arm/boot/dts/nvidia/tegra114-nvidia-tegratab-common.dtsi
 +++ b/arch/arm/boot/dts/nvidia/tegra114-nvidia-tegratab-common.dtsi
-@@ -2295,6 +2295,24 @@ usb_connector_out: endpoint {
- 		};
+@@ -6,23 +6,24 @@
+ #include "tegra114.dtsi"
+ 
+ / {
+-	chosen {
+-		/* TN7's bootloader's arguments need to be overridden */
+-		bootargs = "console=ttyS0,115200n8 console=tty1 gpt fbcon=rotate:2";
+-		/* TN7's bootloader will place initrd at this address */
+-		linux,initrd-start = <0x82000000>;
+-		linux,initrd-end = <0x82800000>;
+-	};
++	chassis-type = "tablet";
+ 
+ 	aliases {
+ 		mmc0 = &sdmmc4; /* eMMC */
+ 		mmc1 = &sdmmc3; /* uSD slot */
+ 		mmc2 = &sdmmc1; /* WiFi */
+ 
+-		serial0 = &uartd;
++		rtc0 = &palmas;
++		rtc1 = "/rtc@7000e000";
++
++		serial0 = &uartd; /* Console */
+ 		serial1 = &uartc; /* Bluetooth */
  	};
  
-+	extcon-keys {
-+		compatible = "gpio-keys";
-+
-+		switch-hall-sensor {
-+			label = "Hall Sensor";
-+			gpios = <&gpio TEGRA_GPIO(C, 7) GPIO_ACTIVE_LOW>;
-+			linux,code = <SW_LID>;
-+			wakeup-source;
-+		};
-+
-+		switch-tablet-mode {
-+			label = "Tablet mode";
-+			gpios = <&gpio TEGRA_GPIO(O, 5) GPIO_ACTIVE_LOW>;
-+			linux,code = <SW_TABLET_MODE>;
-+			wakeup-source;
-+		};
++	chosen {
++		stdout-path = "serial0:115200n8";
 +	};
 +
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
-@@ -2302,6 +2320,7 @@ key-power {
- 			label = "Power";
- 			gpios = <&gpio TEGRA_GPIO(Q, 0) GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_POWER>;
-+			debounce-interval = <30>;
- 			wakeup-source;
- 		};
- 
-@@ -2309,12 +2328,14 @@ key-volume-down {
- 			label = "Volume Down";
- 			gpios = <&gpio TEGRA_GPIO(Q, 2) GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_VOLUMEDOWN>;
-+			debounce-interval = <30>;
- 		};
- 
- 		key-volume-up {
- 			label = "Volume Up";
- 			gpios = <&gpio TEGRA_GPIO(R, 2) GPIO_ACTIVE_LOW>;
- 			linux,code = <KEY_VOLUMEUP>;
-+			debounce-interval = <30>;
- 		};
+ 	firmware {
+ 		trusted-foundations {
+ 			compatible = "tlm,trusted-foundations";
+@@ -32,8 +33,31 @@ trusted-foundations {
  	};
  
+ 	memory@80000000 {
+-		/* memory >= 0x37e00000 is reserved for firmware usage */
+-		reg = <0x80000000 0x37e00000>;
++		reg = <0x80000000 0x40000000>;
++	};
++
++	reserved-memory {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges;
++
++		linux,cma@80000000 {
++			compatible = "shared-dma-pool";
++			alloc-ranges = <0x80000000 0x30000000>;
++			size = <0x10000000>;		/* 256MiB */
++			linux,cma-default;
++			reusable;
++		};
++
++		bootloader-firmware@b7e00000 {
++			reg = <0xb7e00000 0x8000000>;   /* 128MB */
++			no-map;
++		};
++
++		trustzone@bfe00000 {
++			reg = <0xbfe00000 0x200000>;	/* 2MB */
++			no-map;
++		};
+ 	};
+ 
+ 	host1x@50000000 {
 -- 
 2.53.0
 
