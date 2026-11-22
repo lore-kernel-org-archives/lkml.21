@@ -1,79 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795335448;
-	b=YzqE3HtluJ7Htwqz0IdCifgEGGg5Od6jvPhlqcW1kJgCjMmhW+pQX0ozue9L1oJq/oyW
-	 OFyVbaNvfYE2fF5Ui7u20A9hmn5Y0TP1b6bp+o2vBq4loHkx10Ad00i9M8qYIiyCvTeUW
-	 l+rH8++g8wFNZk7z9fzxoVGlWt5qZlGsbh9RcwWRKkXCp3qnV07p3JfG9YDEdZ6huRr0X
-	 9+/ed/wmpNw51dNnZmr2QjX4GrmgS5YOTh7svR7LbGHb8uI8hCAbuWL5vg1YQObBD/Pyf
-	 9vehsQofduuvbvZQyDyevIzp/MuWNS8OREkQVl/Ip4pyxWvrs9LdwJvVvl8Roythlqg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795335448;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=kzlLI3VmcU197xNNJ2LEd4Fj/tsv/XcZsjqi8t3VDdw=;
-	b=kX5JpjtGjB3NTgLUot3UiXYu/qx6J+3kR5Jfuot/tX5onVZgy6ZG/uB8V8yf+EX2hzbv
-	 UzKxlu6wgouhn79/ljPBFUPG3vP+edDW/bhrX3qaFaTzFq2jRDa+o605zl+L4B8XeluHe
-	 vLmJF556FhAxzZMpdM48r9qMb96H2Uhf+FAEntcpNgFaybAa3gpYTArB4GeSrMq4L7N66
-	 4iL0ONK2K+3MqIihAWVf0Rx9mdfFa92SyPYRbqLv2MPJNpj44djqlJIGAPtrhecLa9FyG
-	 r+8VAlWIjnSEF2rgVA0OK28ZdgsGuj4tRCa/n2l0GVL7l8mRZR0Bu0DsFLcYA5DbcUw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WIVTvBIq;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB594606A320;
-	Sun, 22 Nov 2026 08:17:28 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WIVTvBIq
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795335448;
-	b=pUA/1hCEwCoTxfGM7vu+PoWp9nQNm2E1bIoPnAEBvvmODdj90J8b40bun/+ZkbCfeBjD
-	 XbBB//stJ7dCEq4NjFPVvirmSZ7jvJ+f9rxi55/oGbplqRf3CbOQyjTGOi39PiKlsbVUK
-	 kdHdsxlsull9eK04ILwmMIh9zqIxXQQ6y2G+g8xlXabMU+XRnYLNot35XMEMA3VYbilQl
-	 T922FJjORcfibXSzGD0HxiJk+Q9opH+h67x3fRYgflE96v63bjPXbdJZ9FDnSZeikTbT3
-	 gta0/h1uqKqkt478LlPE9mMwTssBczjxbdZ2fdlGs0Jufa1rF5G9HkCDdheSeFy4Y8A==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795335448;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=kzlLI3VmcU197xNNJ2LEd4Fj/tsv/XcZsjqi8t3VDdw=;
-	b=GvVFWhvYtLZwpoNCeRsBZXAiePznUyE3HKoIoOGrn2prC7AT/nBV7Gyf6ngHPMtSjBon
-	 ztjzCr/87ZAI9R3i9a/lkmbyD8iFZUjA4y4CfFLiVustsA1jJXWaWCXvpk9XCPKr/hJv5
-	 rS6vxBEVJYcA7qDKEFuBpxMk9A3RbEvCnYdFNLVtvhlSkiX/j7L28pdvZxaCn0cjk8QaP
-	 jEYwI0PXdNuEZqsjGGtrPsi5UI6Hok2eVXr0YHyoMpz/gjhvHwlOiZLLE8tqhoyF6iSpY
-	 YF1HnTGHZsu0M8XfFEvNHb0qMu7WTGczNXR1WULiRTpxcQaXNZKY9h6EH70Hb5jpUgA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.48
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795335517;
+	b=PWLZnalHW4HWC/yvpSmoNYRMUebj6cBUvl4VNYKyzNVmeKC7uzcueO1HJudqK8FB52kq
+	 zPqKy9D3fRPK9Ijuz81ONPrtn1kl0032BDuJtHRJSFxrFmWEboFohHmksNXu0g4dyQfqA
+	 0CoyAQXUfMDIA7zeBUR+MSVY+f6k263niQeL5CeGX302uQvh8GiP7KraMPmlfaiZWzQxF
+	 iPbBHhnOzOU8wmfYhKRMhUTa05kTEGZjjgkeU+eZ0DUH0ExQM/ybCyz+KjGVLJXUA2PEg
+	 ecw5vnMSJgxInjiH+2e2HYVlMjBQcL/9SakZtbbDwvAfQk6Z9egbOFa+1XGS++pB9CQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795335517;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=VhDJi21DzValv8EWmq82eR8h6wo5YimPj433Xh99oIs=;
+	b=KG6oX+irINiv5rHwF+cTw8z6rxKtDynE+Q/icFSsfLl5SGGXxVSQyq1Y4gDarFqiLoUa
+	 mkfOF627Qi99v/p9phs7073g7gHxo0pioe0C8yFh4HcCrMNYkQndg5F/JJbRiF58Rj/Oj
+	 q+F0YItuyNn2Xasa++jPOlH3+g5rljIFXz0W9R3sHuZ/0JqmJHguGZ+JV4s5/Dk1d3I4T
+	 fj/fWQyYA8Qw3FMWPSvz4B72DoHG+UCAZf7an5H9ELn/kbxClfYfrtlZwahUhEkDsrTmX
+	 NjXSTzkQQz4IYiJpWHjSW1hYRUwOUjlIhGZb4Mp/BRf3h51BGlDoz/KkxwbZCbbCXaA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ang9tUEE;
+	arc=none smtp.remote-ip=209.85.218.48
+Received: from mail-ej1-f48.google.com (mail-ej1-f48.google.com [209.85.218.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id CA91C1F000C4;
-	Sun, 22 Nov 2026 08:17:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795335448;
-	bh=kzlLI3VmcU197xNNJ2LEd4Fj/tsv/XcZsjqi8t3VDdw=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=WIVTvBIq3kPFN64MjqKAqlX2L79x3czdTV9Y+MhMNcOg57b5nt+KLGSZr1D0MUIBr
-	 wExqqoIvdrZRGGWR7dJ0dvTvIdk1ldbvWFHI6jzEtvh5XqlKlSnvNB7Qao7XXuaLZi
-	 KKBGJwU+0qieMLF8tXZYyTLfyJw10TIp+L7JdRrz24EdPOcCcd5fVnYifg343DcYoe
-	 E2FFRdf+HQzZq8Qm/7UO5LLEEjgep4cQQav+ajXJhRebA/Rq3krRDPQyPPaUkaUpQq
-	 yzUNmMvJnzRXGRX9J+jBVeAP/ZSHljW9iMpVpWoT4J4u8ww6h7H9by9eowhucekKwT
-	 unPbWinuGI0vQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 317404BFAE;
-	Sun, 22 Nov 2026 08:17:27 +0000 (UTC)
-From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
-Date: Sun, 22 Nov 2026 08:17:26 +0000
-Subject: [PATCH net] net: reuseport: honour SO_LOCK_FILTER in
- SO_DETACH_REUSEPORT_BPF
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15488606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 08:18:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15488606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ang9tUEE
+Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c505b2e1cb9so427430366b.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 00:18:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795335515; x=1795940315; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=VhDJi21DzValv8EWmq82eR8h6wo5YimPj433Xh99oIs=;
+        b=Ang9tUEESE1Y7JdswRwqeJ4Shz9TBAytFI5i4fnoSffbFQEzUX+ptfv+xyXmMZ0H12
+         pXc28yEMIvoz7bFTmDMwyn2N87lhL+rBw5r2ypHLrIZLRTpmTWoqEYwvsVrVeKottLwq
+         zsPA8szwcQQo6N4tREjw5WxJWfGboQ4hx8UMioI2qDa3TFIoWTnUXbxe/nJkxU7s5trL
+         /KNqjgTUBAb3y2xCkOOiWlnE6D7U1gPr7XzhSIg6isaQX1RzqU8HCUf2b1wZpMazQ7MQ
+         gNMs/SVL2GXjcDpxeV0o/oy5hOeQyOTkArhHpI5AG2q+lXcQLeZVUCvBk0g40dyyaMx7
+         87nA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795335515; x=1795940315;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=VhDJi21DzValv8EWmq82eR8h6wo5YimPj433Xh99oIs=;
+        b=cD6qA3Rm+Sx7kn047VpCxCfLTPKCqGyHbkGLjdyG2T5717/eJZCuDMZu8gzX82wD6J
+         PoMRdLubaOz2o3OZ6kYQv5X87f/SbWudU+tgkQC2LFSXEQRcwSb2Yk/eIrsoM2e3XtEt
+         7L8ONOnxO9ivmZuTun4WTwvnuyDDRuJgxjQykcslJ4dSkjXzU7iG/3RvfHhXROBHjexw
+         NwJUGUYUp1Na0CCjJzyM/YOwJ91rphyu6TO/4NUYDInkNugBhVzFf+EN3DSv8/+tJKp/
+         nLonlOpAnjbbofHEALO7uuzR/bJrjATwhZMwF78gmJGInJAKqVpwky+WmgCxfb7zch+w
+         T8Ug==
+X-Forwarded-Encrypted: i=1; AL+hErERMmhO6n+6zg89eU2vMndqF6P78bgThKK/ScY5VHZ7MQ3vPRlgqsvp4hdSvJ1S9dZBqW8fYqBB7qsEeT4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+OhMAsWD0jFS6Z1M2mBuOrSqTsMsNIqJgQRuOWo4JZHjs1TkPf
+	7oS37Y2UtFUS5o+7g58ghpFj//Ujpo7EixcYHW+OA9IBdQZVc+/UJiZM
+X-Gm-Gg: AZFdTZcwaD5VGbvYB7GXakFEDJ5SBN2vUDBmdqWsjs4PB6h2/I+wLtLAdBa90PC1jiT
+	vwo+2Sqbb3PGNXpA0Omd8IFTwxNVQCdaLSSDkAUCJxeX8h/gBI1AYtqQxA2oDSGx7Rb45wDYmqq
+	ZFw7ehrVEgNhZ/MppE17fSkuElp61ephDbiK61QcYVlbDPCQzXOs46azAia1zgXFrS5EcECqH7L
+	MUyhXMDNI7yVhiq4YXoUcGdyYOXNRUzGuwskUX9bwslMVFogBtaSkaTgmxUPmq8YXcOV8uy7PHJ
+	mWFNitXuX7uSS9lTBHNqYH8YRgG28jq7kiZe4etIripwzx5BphHIFAZ6SOAl1EnqGpo9Pa5i0Qh
+	PIqu5NK+hwVKfwFSTG10WMLDQ/1R3T7dlLlE9UvB7/nU0/fsEbqoWooxZE+2wsj7A6Pv390/e2u
+	usDGn9UOGqvfDrJ8FTEpZtAFr1s120lp+CqlBalESUNd7AlSRmpYenBz8nZqfBM5A9RJnzze4rj
+	1dCgG5z5Pep44CVCjL4hHpwU7DMjv+1i64vF2RkePF56gXOPRl2WAi/hwbdNnXyJ10TxDvVw3lW
+	QXsDRbqs5jxatD4LzQ5A/pFsYKLeLdayWySFc/nrWQQh0vmTmLEQLMyk+t4LuLNP1OVZObgI+4Z
+	UjRsgSxhUHQ==
+X-Received: by 2002:aa7:cd65:0:b0:6b5:823f:3462 with SMTP id 4fb4d7f45d1cf-6ba37e83f29mr3868790a12.19.1795335515150;
+        Sun, 22 Nov 2026 00:18:35 -0800 (PST)
+Received: from xeon ([188.163.112.62])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370e8ad0sm3617167a12.18.2026.11.22.00.18.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 00:18:33 -0800 (PST)
+From: Svyatoslav Ryhel <clamor95@gmail.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	Mikko Perttunen <mperttunen@nvidia.com>,
+	Svyatoslav Ryhel <clamor95@gmail.com>
+Cc: dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-tegra@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v8 00/12] drm/tegra: Add support for Tegra20/Tegra30 8-bit CPU interface
+Date: Sun, 22 Nov 2026 10:18:08 +0200
+Message-ID: <20261122081820.53199-1-clamor95@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,82 +110,163 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261122-reuseport-lock-filter-v1-1-a3e5324c8d55@gmail.com>
-X-B4-Tracking: v=1; b=H4sIABWlAmsC/yWMQQrCMBBFr1Jm7UAzC0WvIi7a+KOjJSkzqQild
- zcq/M378N5KDlM4nbqVDC91LblB2HUU70O+gfXamKSXfQgibFgcc7HKU4lPTjpVGPfD8dAGSWO
- k5s6GpO9f90wZlS7/05fxgVi/Rdq2D9MIuAV+AAAA
-X-Change-ID: 20261122-reuseport-lock-filter-0a97a97e2fbc
-To: pabeni@redhat.com, edumazet@kernel.org, davem@davemloft.net, 
- kuba@kernel.org, kuniyu@google.com, willemb@google.com
-Cc: netdev@vger.kernel.org, bpf@vger.kernel.org, martin.lau@linux.dev, 
- linux-kernel@vger.kernel.org, horms@kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795335446; l=1823;
- i=shyckless@gmail.com; s=default; h=from:subject:message-id;
- bh=mUix/dSzrnbiMpxouGrm26+4a6yRQiNkofJT/Rp0r4M=;
- b=C1HoG1h2Yi2qB7Kdc+loDObrbf9S1VJqaIK5MIwN6f++LFKuMYPoKCW2ZkeSJiVs9NmNBGxi0
- mtivHQUnok/AMsBnjA4qQrkHfDt9B432CJehtFfaLM26ZDiEE7c7I55
-X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
- pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
-X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
- auth_id=1498
-X-Original-From: Suyuan Wang <shyckless@gmail.com>
-Reply-To: shyckless@gmail.com
+Content-Transfer-Encoding: 8bit
 
-From: Suyuan Wang <stevewong@hust.edu.cn>
+The display controller in Tegra20/30 SoCs features an 8-bit SPI interface
+that closely resembles the MIPI DBI Type B protocol and is referred to as
+'8-bit CPU'.
 
-SO_LOCK_FILTER lets a process lock the filters on a socket before
-handing it to a less privileged one. Once it is set, the existing attach
-and detach paths reject changes to the socket's BPF filters with -EPERM,
-but SO_DETACH_REUSEPORT_BPF does not check SOCK_FILTER_LOCKED. So an
-unprivileged process that receives a locked socket can still remove the
-reuseport program, which then changes how packets and connections are
-spread over the whole reuseport group.
+Add MIPI DBI bus support along with 2 DBI Type B panels used in
+LG Optimus 2X which work with the 8-bit CPU interface.
 
-Return -EPERM from reuseport_detach_prog() when the filter is locked,
-like sk_detach_filter() does.
+Convert rgb, dsi, hdmi and sor to use atomic versions of
+drm_encoder_helper_funcs needed for bridge state requesting.
+Refactor and expand DC header. Add DC parametrization options
+needed for fine tuning by bridges. Make panel parsing by
+tegra_output_probe() optional and document optional DSI port. 
+Add 8-bit CPU interface in form of a bridge linking to RGB port.
 
-Found with a static analysis tool and checked by hand.
-
-Fixes: 99f3a064bc2e ("bpf: net: Add SO_DETACH_REUSEPORT_BPF")
-Cc: stable@vger.kernel.org
-Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
 ---
-Tested in QEMU (x86_64): root binds a UDP socket with SO_REUSEPORT,
-attaches a reuseport cBPF program and sets SO_LOCK_FILTER, then a child
-running as nobody uses the inherited socket.
+Changes in v2:
+- convert enums in the dc header into definitions list
+- add check in RGB if bridge_state is not NULL, if yes, use default flags
+- inverted FLAG_PIXDATA_SAMPLE flag setup logic since default value is set to
+  be on NEGEDGE while v1 set default to be on POSEDGE
+- 8bit-cpu schema renamed to dbi, removed compaible and set as DC child
+- expanded list of required properties
+- 8bit-cpu bridge remodelled into dbi interface as DC child
+- improve gpio handling
+- rework attach to get drvdata from parent
+- add panel supplies description
+- split panel driver into per-panel drivers
+- get DBI interface from the patent directly
 
-Before:
-  SO_ATTACH_REUSEPORT_CBPF: EPERM
-  SO_DETACH_FILTER:         EPERM
-  SO_DETACH_REUSEPORT_BPF:  succeeds, the program is gone
+I have deliberately left GPIO parsing from device tree since it seems to
+be the most convenient and mainstream method of working with GPIOs.
 
-After:
+Changes in v3:
+- rgb: fix default bus_flags to match original behavior
+- dbi-schema: remove compatible from required props
+  remove dc@54200000 wrapper from example
+  restrict dbi nodes for tegra20/tegra30 only
+- dbi: remove unused idx from tegra_dbi_priv
+  wrap dbi registration in dc with devm_add_action_or_reset()
+  separate dbi into separate object
+  export tegra_dc_commit() and trace_dc_readl()/dc_readl()
 
-SO_DETACH_REUSEPORT_BPF: EPERM as well
+Changes in v4:
+- reorder patches to avoid errors on checking dbi schema
+- dbi schema renamed to nvidia,tegra20-dbi for consistency
+- fix DC_DISP_V_PULSE0_POSITION_* > DC_DISP_V_PULSE1_POSITION_*
+- add MODULE_ALIAS
+- swap width and height in panels
+- dropped use of init-sequence and gpios
+- dbi driver reworked to use only DC to operate pins
+
+Changes in v5:
+- added commit modelling DBI bus (suggested by Mikko Perttunen)
+- hitachi and lg panels converted to mipi_dbi_driver
+- dc header refactored and completed
+- added commit documenting DSI controller port
+- added commit which converts drm_encoder_helper_funcs to use atomic
+  enable/disable
+- added commit which makes panel parsing in tegra_output_probe() optional
+- dbi command/data converted to enum
+- dc com pins are now backed up into drivers private structure
+- magic numbers replaced with pin defines
+- dropped tegra_dc_readl() from tegra_dbi_pin_set
+- tegra_dbi_pin_set() accepts boolean third argument
+- tegra_dbi_write() second argument converted to use tegra_dbi_dc_signal enum
+- used field_get() to extract pin value
+- extended comment regarding init sequence
+- nvidia,index > generic reg property
+- adjusted tegra_dbi_atomic_enable() to properly handle shadowed registers
+- switched to use of_drm_get_bridge_by_endpoint() since panels are auto-wrapped
+  into bridge now
+- added support for mipi_dbi_host_ops
+- added resource managed helper to register DBI device and provided to DC via
+  header
+- dbi.o built with all other tegra drm files
+
+Changes in v6:
+- improved descriptions of new framework
+- mipi dbi bus commit authorship was changed with Mikko's permission
+- panel commits swapped with mipi dbi panel conversion commits
+- fixed tegra_output_probe() for hdmi
+- added CONFIG_DRM_MIPI_DBI select into CONFIG_DRM_TEGRA
+- devm_drm_bridge_add() moved into bridge probe to avoid possible issues with
+  deferred panel probing
+- setting LDC pin to V Pulse 1 moved before GPIO pin reconfiguration
+- DC_CMD_STATE_ACCESS is set to read and write in tegra_dbi_atomic_disable()
+- platform_driver_register() does not error out if driver is registered
+
+Changes in v7:
+- reduce changes in the panels when converting to mipi dbi
+- dropped of_node_get() in devm_mipi_dbi_device_register
+- remove enable()/disable() operations and add prep prev bridge flag
+- drop add DC header changes, add only strictly needed by the dbi
+- dropped tegra_dbi_iface and reg_entry enums
+- dropped reg from struct tegra_dbi_priv, com_pin_backup converted to u32
+- interface dropped from struct tegra_dbi_interface and init call added
+- BIT macro converted to PIN_UNMASK in the tegra_dbi_pin_set()
+- init functions and tegra_dbi_interface structure moved before probe
+- tegra_dbi_atomic_enable() split into pre_enable() and enable() phases
+  to squeeze interface into existing framework
+- DC_CMD_STATE_ACCESS and setting active true moved into init functions
+- reg reading moved before bridge allocation
+- reg renamed to nvidia,interface
+
+Changes in v8:
+- return of_node_get() in devm_mipi_dbi_device_register
+- add mipi_dbi_write_buffer_multi() and mipi_dbi_write_seq_multi()
+- remove return doc from void function
+- replace disable() removal in panel with mipi_dbi_write_seq_multi() conversion
+- removed of_node_get() in tegra_dc_dbi_probe() for dbi node
+- switch to drm_bridge_clear_and_put() in tegra_dbi_host_detach()
+- add check if DC is idle before reconfiguring pins
+- restored original tegra_dbi_atomic_disable() operation from v5
 ---
- net/core/sock_reuseport.c | 3 +++
- 1 file changed, 3 insertions(+)
 
-diff --git a/net/core/sock_reuseport.c b/net/core/sock_reuseport.c
-index b9e5648fa4c5..cdff61161a70 100644
---- a/net/core/sock_reuseport.c
-+++ b/net/core/sock_reuseport.c
-@@ -727,6 +727,9 @@ int reuseport_detach_prog(struct sock *sk)
- 	struct sock_reuseport *reuse;
- 	struct bpf_prog *old_prog;
- 
-+	if (sock_flag(sk, SOCK_FILTER_LOCKED))
-+		return -EPERM;
-+
- 	old_prog = NULL;
- 	spin_lock_bh(&reuseport_lock);
- 	reuse = rcu_dereference_protected(sk->sk_reuseport_cb,
+Svyatoslav Ryhel (12):
+  drm: Add MIPI DBI bus support for MIPI DBI Type A and B
+  drm/panel: panel-hitachi-tx10d07vm0baa: Convert to use MIPI DBI bus
+  drm/panel: panel-hitachi-tx10d07vm0baa: Convert to
+    mipi_dbi_write_seq_multi()
+  drm/panel: panel-lg-lh400wv3: Convert to use MIPI DBI bus
+  drm/panel: panel-lg-lh400wv3: Convert to mipi_dbi_write_seq_multi()
+  drm/tegra: dc: Add elements required by Tegra MIPI DBI
+  dt-bindings: display: tegra: Document Tegra20 DSI port
+  drm/tegra: output: Make panel parsing configurable
+  drm/tegra: Convert to use atomic versions of drm_encoder_helper_funcs
+  drm/tegra: rgb: Parameterize configuration based on bus flags
+  dt-bindings: display: tegra: Document 8-bit CPU parallel interface
+  drm/tegra: Add support for 8-bit CPU interface
 
+ .../display/tegra/nvidia,tegra20-dbi.yaml     | 108 ++++
+ .../display/tegra/nvidia,tegra20-dc.yaml      |  15 +
+ .../display/tegra/nvidia,tegra20-dsi.yaml     |   6 +
+ drivers/gpu/drm/Makefile                      |   2 +-
+ drivers/gpu/drm/drm_mipi_dbi_bus.c            | 287 +++++++++
+ .../drm/panel/panel-hitachi-tx10d07vm0baa.c   | 234 ++++---
+ drivers/gpu/drm/panel/panel-lg-lh400wv3.c     | 114 ++--
+ drivers/gpu/drm/tegra/Kconfig                 |   1 +
+ drivers/gpu/drm/tegra/Makefile                |   1 +
+ drivers/gpu/drm/tegra/dbi.c                   | 592 ++++++++++++++++++
+ drivers/gpu/drm/tegra/dc.c                    |   4 +
+ drivers/gpu/drm/tegra/dc.h                    | 197 +++++-
+ drivers/gpu/drm/tegra/drm.h                   |   2 +-
+ drivers/gpu/drm/tegra/dsi.c                   |  22 +-
+ drivers/gpu/drm/tegra/hdmi.c                  |  22 +-
+ drivers/gpu/drm/tegra/output.c                |  52 +-
+ drivers/gpu/drm/tegra/rgb.c                   |  64 +-
+ drivers/gpu/drm/tegra/sor.c                   |  20 +-
+ include/drm/drm_mipi_dbi_bus.h                | 148 +++++
+ 19 files changed, 1638 insertions(+), 253 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-dbi.yaml
+ create mode 100644 drivers/gpu/drm/drm_mipi_dbi_bus.c
+ create mode 100644 drivers/gpu/drm/tegra/dbi.c
+ create mode 100644 include/drm/drm_mipi_dbi_bus.h
 
-
+-- 
+2.53.0
 
