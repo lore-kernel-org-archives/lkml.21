@@ -1,105 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.121.94.185
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795382390;
-	b=fpI4SYYvCF/kNr07E3Rs7dmC4rIQ/bJf6CsY8UgyRDTehN7aFQY5hdgo8wBXTJspnIVj
-	 /OzUyZqejqUFyCY+40nTgfaVO87DdeiGeyHxrSajbiJ+EOS7b6Se0Y0IwJ6pjVehc+pPc
-	 0DkvppuRjmMElJM9+621/+qxdpdxPoJw81pqxCt+IFtKGV03CH9dKE5qhJ+Yh00yLAFTY
-	 npD7iW5J3z+zkXqIU+2mf921SgfhHM3HgxrJiP94o9/81fK1INQfxjTEELi0TtUtb75Zz
-	 uVnvxcrlXFx7dlH8J3j+n+GERoE/sdoL7zofSkHi2D871Pmjt+A5jhugB9bgd7nNjVw==
+	t=1795382435;
+	b=ZT4zMzGqjZHdwIzLIJK+E0SOXY+QvdsxJCjJslvjKqUzgCRCuvEUhNHayC3kQ4Gmzw+E
+	 0wHkw2jzSdiOLr0Yw17Cy3reDn3nUHJ9UEdXnQunVFHBQ5hejyAAr8lhLP1XIE9rX3QhS
+	 n2n244KspsR0bYpNObgnFlXwIQIM2DSiVIGsWTeuw7ugocGm6XehTz8OWWeW+WrDiMenG
+	 XZH9ku81eS91lZ2PWy1HpX9gpLWXTW6y8W1ZE9SPtPKYvjcIcBbTObKv53zVetJk5ZIhx
+	 4Mk16ZjDSTtLgP9F9sNe6WzWZqj0syVwFe4j7erwXsdi6hSfxlNy+tAXGGlzdBt8Ffg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795382390;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=jlHx3q8hlvOapQpFRbpBP1dZTmv+VTbbRyW9rgzkxFM=;
-	b=t+Cu7HxtKq1dWMF67Xe4hXORwAY0sONmqoqMkMEU9StOiA+g348h83GkkdxNFheahC53
-	 eS6307zX54xHWKq5iEFD6pfxK8ho/adQ0r0f1zhP9kls0vKvoa1h42U+NNMPVxtMeGGKM
-	 banNI7VUd1NdCXI28saQJzRnadSDEpeFGd9l5A4xUSR5xDfHtxGD/z6oTgzJk8lXYdVhi
-	 0N/xVTAkkeFfrRlM3wqgacbqsdFDg3cKYkxkvdipTJiZC6KDgdoknh33ZM7fUSNqhZZxH
-	 GPolZZYWpP5l8BmfQbQRRQL0K6siM9ixOEMVCsM+8Z2uXCN1Slo47i1SSZfjoXYG58A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795382435;
+	h=DMARC-Filter:X-KPN-MessageId:Received:Received:DKIM-Signature:
+	 X-KPN-MID:X-CMASSUN:X-KPN-VerifiedSender:Received:Date:From:To:Cc:
+	 Message-ID:In-Reply-To:References:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Priority:Importance:X-Originating-IP;
+	bh=SwQLJYeiZ7SR0jWPyxEYMPvW5myscvBbwRXUKhphf3k=;
+	b=GQD81fuAmOK+FMIccMcbLMn6cdbTb8fA7inEM4Y6z5ZFPXxk2s44+WDxHC1J6jufdKOO
+	 ZPTigFkrYReSxPsSYHvbeQmC5QEYWYu/DqCEOUTgwVS+yj/nriRGHfwBDTyT8JJBZyeH3
+	 L2vzXib9FPC41zyV01VoQ8J4npkhjFabaqaj/lv1q0LYLGDy0Mi39RGImi8HMSrHKeTxi
+	 v4cX/nH0QE8HmELbRa4aZmaA/Wjh3C+nENgBBWknWD4gtlzTPCzCtVvrIbgtI0yoi9WRk
+	 xWCsWOAl7lEQjTf41cip17/aTFZexAjuDB+rUl/CvcsOemGiZXX1wmPxt9RCBJFfPQQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Q6YuWc3T;
-	arc=none smtp.remote-ip=209.85.214.175
-Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=xs4all.nl;
+	spf=pass smtp.mailfrom=xs4all.nl;
+	dkim=pass header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=lRBUWF29;
+	arc=none smtp.remote-ip=195.121.94.185
+Received: from ewsoutbound.kpnmail.nl (ewsoutbound.kpnmail.nl [195.121.94.185])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB745606A31A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:19:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB745606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13A54606A32E
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 21:20:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13A54606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=xs4all.nl
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xs4all.nl
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Q6YuWc3T
-Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f048bc09d7so61435ad.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 13:19:49 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=lRBUWF29
+X-KPN-MessageId: 8748e461-e6ba-11f1-964c-005056999439
+Received: from mta.kpnmail.nl (unknown [10.31.161.191])
+	by ewsoutbound.so.kpn.org (Halon) with ESMTPS
+	id 8748e461-e6ba-11f1-964c-005056999439;
+	Sun, 22 Nov 2026 22:20:23 +0100 (CET)
+Received: from mtaoutbound.kpnmail.nl (unknown [10.128.135.189])
+	by mta.kpnmail.nl (Halon) with ESMTP
+	id 8747bf08-e6ba-11f1-b88c-00505699891e;
+	Sun, 22 Nov 2026 22:20:23 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795382389; x=1795987189; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jlHx3q8hlvOapQpFRbpBP1dZTmv+VTbbRyW9rgzkxFM=;
-        b=Q6YuWc3T3SalsZoSZ7nZACQHkeGNao4ybVKhTt0wRTBMWq/STNikHYxymoVlbxJKwt
-         ObO7f6LqOfkLa0ZWQsDUJxcoIFT1R7RX+ch+NcX9HjC1fUkz2lVXWap2Fhk6d1BNQ0/q
-         ou34OmAd2JjIq4liY6+XTlyVs7lAo8j7mMJNCn4UbXdO1PySd7WVB7CcG5aY5NFk6zeK
-         MTPQ2mPRuN0yBX2byMj04WfBHffJTGoEmJVbEpdFlNNAdwmn3w7R5fnIWHJ14+7KZJBj
-         9JP319l80gUmvzuJ9ttWm+kYAoDSsisjSAMPzJOAjU3H2qQMyoaLkA8b4AIwL0EJiVEx
-         8BtA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795382389; x=1795987189;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jlHx3q8hlvOapQpFRbpBP1dZTmv+VTbbRyW9rgzkxFM=;
-        b=ro1xnxmwy0PtD/AvKZfNx2uha27GqZh+xwfKNgNdMJgZLBFuzewDCjZTRO0DiRrvDL
-         ELYF1NMQDi1ibmGRttOyY6E6ada//1xJDZlMl4FMCW87hkMQcjWLA4WMsdcjahuoYR6w
-         UEgxsyWDdJmABuZWig12/DoAY1klUXh3AWqpGpKKhmvPw3Q6J6XsV7/q8Y8rWrSQu/Zj
-         ZUzY5HP+DFiHp5YQt5XQ+1Q8+xFgD97bEjYTHtp7g0s6rdf1fmw0Unh/EXzst1na4tXG
-         mfeX8qa3cY0y+UXg/sCK97m1tX53/79iLMdeo+Nd20w/wTmSFMATXO54EFPdxERROxRH
-         fqJQ==
-X-Forwarded-Encrypted: i=1; AL+hErGElr5l4q/90ZwmDcB96XPf9D8Qde6GTTQ9DKzGCWKnK5RfG5MKOxtFLXJsS5CkqUkgy4PmxVmoRH+odOk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9qbCpJ/kdBK+fAGpEWz6olDQ07YfJhn8Rb7oXve5zaj5f5q/k4
-	UPTnn79wTTkQYv5/E3PpzEyynL7DgdIB/jQEDyQKdyz6uplowkrBVeS+matszUmI5Q==
-X-Gm-Gg: AZFdTZc+0+E0T5HP3qLhqD2siQSmbnDwxaLmEDOyVq0vy2kW+M/G02JkRVHGVjA+6RS
-	pAv028p1EFvXngJBTZlWRPW67liz3tkkoufuYE/6pcwYngbtfRNZo/DNdphCfYZEUc2vpv2sl1J
-	MuED8sFnC+d2AYF1Y8UgmL2TPlBthQDvfNnSNfO6EvmV87gWv38UdSaKa2WIXtwzgi23rrzJaGg
-	uG+CYOWzNg/gL93C9e3tlxUKhGqhq5nlDEsJJ+zaRPRE7ZA8YM/x9ZYuNMoSqgdcyRu2A6HU5q/
-	9cpF+vs1QFw+Gq/N+cs8vccR2bJj8P1eRsiOZE41YNsaMbfz8pZPFxijRxG6SiekIx08GxXzIUh
-	Vg4r0fEhX5AmayC34wql/moP+79nYX/YdqjvapQJL/X2zSDEwplz6mPpGVgdmFZWGuOhW0ppZwD
-	ZnlZ/VpMkwq2MPcZeP1pT6RsTAn1WJWBB2AWLe4l0VaBMMF68dwfdKLob7DUOlCXAvNnRa9Rpc9
-	L3Hcx0J8DA6GOAtxPHChg9cWwVRpgw/utUROKZmwCFmePnp7ejemMETLP4VhLBxGNEZ8EShx/Fo
-	sQE/4U/21kGNoM+MhhQBRjLTzU7Fe+JKks0JkirPIFoTZEdH78VxBYuuf++mCT7io86YhGQClcx
-	yiP1Az+GZrelhMtuYjZSb7w==
-X-Received: by 2002:a17:903:19e3:b0:2d5:db38:8010 with SMTP id d9443c01a7336-2f066708a17mr4257845ad.15.1795382388397;
-        Sun, 22 Nov 2026 13:19:48 -0800 (PST)
-Received: from google.com (25.75.145.34.bc.googleusercontent.com. [34.145.75.25])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d63728sm18461423a91.8.2026.11.22.13.19.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 13:19:47 -0800 (PST)
-Date: Sun, 22 Nov 2026 21:19:42 +0000
-From: Samiullah Khawaja <skhawaja@google.com>
-To: Vipin Sharma <vipinsh@google.com>
-Cc: kexec@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org, kvm@vger.kernel.org, linux-mm@kvack.org, 
-	linux-kselftest@vger.kernel.org, linux-pci@vger.kernel.org, ajayachandra@nvidia.com, 
-	alex@shazbot.org, amastro@fb.com, ankita@nvidia.com, apopple@nvidia.com, 
-	bhelgaas@google.com, chrisl@kernel.org, christian.koenig@amd.com, corbet@lwn.net, 
-	dmatlack@google.com, graf@amazon.com, jacob.pan@linux.microsoft.com, jgg@nvidia.com, 
-	jgg@ziepe.ca, jrhilke@google.com, julianr@linux.ibm.com, kees@kernel.org, 
-	kevin.tian@intel.com, leon@kernel.org, leonro@nvidia.com, lukas@wunner.de, 
-	mattev@meta.com, michal.winiarski@intel.com, parav@nvidia.com, 
-	pasha.tatashin@soleen.com, praan@google.com, pratyush@kernel.org, rananta@google.com, 
-	rdunlap@infradead.org, rientjes@google.com, rodrigo.vivi@intel.com, rppt@kernel.org, 
-	saeedm@nvidia.com, schnelle@linux.ibm.com, skhan@linuxfoundation.org, 
-	vivek.kasireddy@intel.com, witu@nvidia.com, yanjun.zhu@linux.dev, yi.l.liu@intel.com
-Subject: Re: [PATCH v6 03/27] liveupdate: Export symbols needed by modules
-Message-ID: <awNVk3q6Q6sAHn6U@google.com>
-References: <20261102153656.1431701-1-vipinsh@google.com>
- <20261102153656.1431701-4-vipinsh@google.com>
+	d=xs4all.nl; s=xs4all01;
+	h=content-type:mime-version:subject:message-id:to:from:date;
+	bh=SwQLJYeiZ7SR0jWPyxEYMPvW5myscvBbwRXUKhphf3k=;
+	b=lRBUWF29svTDCffap4ikI5QpkCGKFSrkDPeON0qdfjDabq+W9m7zfxV0dCUfXDzOngDil5a2sipDY
+	 sI+/INW0XQTuIiph6dQn5h2NyL2mKhRwe/7J7ReB41tLSp3sZy8GrnfoVdicqIHHz4PaFu85NLDLwD
+	 3Yfxk3oIrNibzmrWo0h7cFqZtnuKgdScDSe4AeLocyMbU53cqcvmxo0VoZ4tKusa0eDfFBh3uSCyLP
+	 XjJcwmegpaVeQ2vhICWdjA5iJW0HXKtgPjLDEJuEUy7CM2VE26nBOBCnxm6CVsN1mAGCoplP4gjsXP
+	 T/eqq22IzHRIO0XSgE43aXHhKJSiJwA==
+X-KPN-MID: 33|Yh303iPwTCxJDbv+bWZQXK7DXknN+AYlqGs6xrKjPdXrgt1zyvgGXFI+0iyrH+J
+ UJXF160+5hZryfVbZZ8fkIg==
+X-CMASSUN: 33|RWNpzXoeI9x3UfQFsLzwHt/yGVJJKGRS5YyfKb4GKwpb7YK/itCDfAHao/a0s5Y
+ olYqowhsh6zl6AJtsAb6r3w==
+X-KPN-VerifiedSender: Yes
+Received: from cpxoxapps-mh01 (cpxoxapps-mh01.personalcloud.so.kpn.org [10.128.135.207])
+	by mtaoutbound.kpnmail.nl (Halon) with ESMTPSA
+	id 873c8071-e6ba-11f1-acfd-00505699eff2;
+	Sun, 22 Nov 2026 22:20:23 +0100 (CET)
+Date: Sun, 22 Nov 2026 22:20:23 +0100 (CET)
+From: Jori Koolstra <jkoolstra@xs4all.nl>
+To: Christian Brauner <brauner@kernel.org>
+Cc: viro@zeniv.linux.org.uk, jack@suse.cz, neil@brown.name,
+	cyphar@cyphar.com, jlayton@kernel.org, amir73il@gmail.com,
+	shakeel.butt@linux.dev, gregkh@linuxfoundation.org, tj@kernel.org,
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-ID: <637456056.2253868.1795382423235@kpc.webmail.kpnmail.nl>
+In-Reply-To: <20261118-moment-gehhilfe-gefangen-ce4618af6b54@brauner>
+References: <20261024213539.1307600-1-jkoolstra@xs4all.nl>
+ <20261118-moment-gehhilfe-gefangen-ce4618af6b54@brauner>
+Subject: Re: [PATCH v8 00/12] vfs: add O_CREAT|O_DIRECTORY to open*(2)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,50 +82,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20261102153656.1431701-4-vipinsh@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+Importance: Normal
 
-On Mon, Nov 02, 2026 at 07:36:32AM -0800, Vipin Sharma wrote:
->Export liveupdate_register_file_handler() and
->liveupdate_unregister_file_handler(). All of these will be used by
->vfio-pci in a subsequent commit, which can be built as a module.
->
->Reviewed-by: Samiullah Khawaja <skhawaja@google.com>
->Reviewed-by: Pranjal Shrivastava <praan@google.com>
->Signed-off-by: David Matlack <dmatlack@google.com>
->Signed-off-by: Vipin Sharma <vipinsh@google.com>
->---
-> kernel/liveupdate/luo_file.c | 2 ++
-> 1 file changed, 2 insertions(+)
->
->diff --git a/kernel/liveupdate/luo_file.c b/kernel/liveupdate/luo_file.c
->index dbae0715220b..6aaa9a531428 100644
->--- a/kernel/liveupdate/luo_file.c
->+++ b/kernel/liveupdate/luo_file.c
->@@ -916,6 +916,7 @@ int liveupdate_register_file_handler(struct liveupdate_file_handler *fh)
-> 	up_write(&luo_register_rwlock);
-> 	return err;
-> }
->+EXPORT_SYMBOL_GPL(liveupdate_register_file_handler);
->
-> /**
->  * liveupdate_unregister_file_handler - Unregister a liveupdate file handler
->@@ -933,6 +934,7 @@ void liveupdate_unregister_file_handler(struct liveupdate_file_handler *fh)
-> 	luo_flb_unregister_all(fh);
-> 	list_del(&ACCESS_PRIVATE(fh, list));
-> }
->+EXPORT_SYMBOL_GPL(liveupdate_unregister_file_handler);
->
-> /**
->  * liveupdate_get_token_outgoing - Get the token for a preserved file.
->-- 
->2.56.0.317.g454f8302e1-goog
->
+Hi Christian,
 
-Can you please send this separately, it can probably go in without rest
-of the vfio changes? This is required by iommufd and guest_memfd also I
-think.
+> Op 18-11-2026 11:30 EST schreef Christian Brauner <brauner@kernel.org>:
+> 
+>  
+> On Sat, Oct 24, 2026 at 11:35:27PM +0200, Jori Koolstra wrote:
+> > This series implements new semantics for the O_CREAT|O_DIRECTORY flag
+> > combination for open*(2): perform a mkdir and open the resulting
+> > directory; return a pinning fd (which mkdir does not).
+> 
+> I've applied this to vfs-7.5.directory and folded a bunch of fixes into
+> it. Each fixup is attached as a git note to the commit I folded it into
+> so you can see what I massaged:
+> 
+> git fetch https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git \
+>     +vfs-7.5.directory:refs/remotes/vfs/vfs-7.5.directory \
+>     +refs/notes/vfs-7.5.directory:refs/notes/vfs-7.5.directory
+> git log --notes=vfs-7.5.directory v7.4-rc1..vfs/vfs-7.5.directory
+> 
+> The biggest change is kernfs. kernfs_iop_mkdir() now just looks up the
+> new node by name so the kernfs_syscall_ops change is gone and cgroup and
+> resctrl aren't touched at all anymore.
+> 
+> The kernfs patches are in vfs-7.5.kernfs as "kernfs: instantiate the
+> dentry in kernfs_iop_mkdir()". I'll sent that out soon.
+> 
+> I split out of 09/12, your kernfs_iattr_rwsem fix and the kernfs part of
+> 11/12. vfs-7.5.directory is based on the first one.
+> 
+> I dropped "vfs: move ->create check in lookup_open() to before
+> try_break_deleg()". vfs_create_no_perm() does that check itself now.
+> 
+> Let me know if I messed something up.
 
-Thanks,
-Sami
+Thanks for pushing this along and taking a look.
+
+I am a bit confused with the order of some of the fixups, but it does
+not really matter since at the end it works out. But e.g. you first remove
+the dir->i_op->create check from vfs_create(), then add it again in another
+fixup, and then change the error code.
+
+Overall, I agree with the changes. It does make more sense to do the
+SB_I_NO_ATOMIC_MKDIR check in open_last_lookups() and that simplifies the
+logic. Also, I like how you've split "kernfs: instantiate the dentry in
+kernfs_iop_mkdir()" out. That is much better and allows Shakeel to continue
+his stuff easier. I should have done so and not be lazy.
+
+However, I am not sure that relying on holding the parent's i_rwsem is
+sufficient for the atomicity that we are trying to provide. Afaict nothing
+in the kernfs layer prevents you from removing a grandparent and a recursive
+kernfs_remove() of an ancestor never touches the immediate parent's i_rwsem.
+
+Also, returning -ESTALE, if you set LOOKUP_REVAL, can make open(O_CREAT|O_DIRECTORY)
+return -ENOENT. Not sure if that is what you want.
+
+I also see that "kernfs: hold kernfs_iattr_rwsem when initializing a new inode"
+went to the kernfs tree, so that is fine too.
+
+Best,
+Jori.
+
+PS. See you at FOSDEM...?
