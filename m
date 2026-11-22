@@ -1,94 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795384948;
-	b=U31z3i1u+9EeSMIFqa94Ej1x3iZtrPTjyDqnO874CYTlfNIE4PGPMsgLpyU/3HDnCOcP
-	 7w79WPjuX9tHpI9bZaIzeT2Phb19WKwNVn936q71wC+K3MfZQUk2DVm6h62HZwZDx2Hm8
-	 hJdizv0d4ZKWcUes3zAXs7p26/jhsnqyY/Zv4qJxWUCcDMAXOgbSKYB7aauiKXRxVSJ11
-	 tkqN4qjgFg08dT4RNdb2Qn/s9Tqgs5VDYbtu2nz9sesaJsu73RfKaU1TsVWrMoE9aVQqF
-	 AnAjwwIiaQq9o3Y1KJBkg8Kfj6S23t7ZYm7FQunU+wEJ/LHdArt8iCJgWClp+9sjM9g==
+	t=1795384983;
+	b=Z9lHdDTTbJVuK6BmlLqDqvJtMGV/8mhvLms7OovAirs8lVJX+rU/60QNdC+DQPDww6WT
+	 gbBbeTdcEkDH/mpSR13siNnFIu7p024cERemLVnsN671pAvi7rzeWleY71AxigdGM//MC
+	 vBXxBtEZJhkdHQzUDIabaQE+tN7guObQa32TTGda+47jT/FImRUzrwKNhR55Ess8A6hyU
+	 iIUrIf2vhhPe2a7lkckEm/vb9zOzeeNlIdDhJPy9PC3LXJ7v3RbwhYWhj1+lQ+c0P2Zpz
+	 e4mphsjCEDSBwQWLhAdGQFgDGjpH0LBFotaPeQzPMJvK0AkCTw1l20VATvc/u9ZCdzQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795384948;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=4UxiOydDwa3I67Iaoew4LDFIsocWQ9uqy+MKnlF8rqM=;
-	b=Fu9XfQ5i2xNpMFLlT713ERWrRKLgZPlGT/xx9tU2a6pNOmsBPTHtdMlhSjoT6/FP77Ud
-	 MW09jDs5fe9EF+t99umEoH5dDjq0qnhKeUhYHrH9sT/VuLYow9VxHNexDbWmKUnZGw2dK
-	 AeBLSm7mTotYn3WwsmaJ23UHtAVaAGmcYxdZY594OFw5Ih22oM3rwYnP6pkK7h8h2w50b
-	 rg4+EIa9pN6MZfv5nC3y899rLZVdSunwReyjLLKUHqWNcD5u6XmeDlAlUo49PHX31h1Ht
-	 NH3ii4xOacqsdWDbMjSHFoHfVkWwSm9QYeQovwnOK4wwybc7CNFzvZ5z1t8Fci4Cvwg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795384983;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Dd2jOoQYjx0SN+L+IeyhT47RMzYPHgA9OxlNT8tCwBI=;
+	b=fTXj/161e5DOOPNzH0WXbu+UDlFFEjbcV6rZgkmcfgQdJiQcFAY00ph1hA69Hq9yP9zI
+	 PB7YGYiEV9NDWwXxAUhNW/Q0ck95JkFPUmfDugRYB2xwIuTa0dARb8GcwLJxIKRi3rC7P
+	 8XkYjrVqMF2i7oXyB31N0ZuNqwcw72UMTD1jPR3jdMrtSUVlb6F4X1gGN6vUP82eDi6cp
+	 wLg6xUZ4RekPx4K/XCKMZebq1x9skEc1lqqwTwRDmPmGANy3vuIMCRj8fFwbjcOho5gRa
+	 eYzGyC0DWbpp6EG5ON/olU8t4iWeij5wAr82F1IBYEe5eli727ssFHzux2t2hJR5D1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nzzwumsk;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PDJuNO4C;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E88EB606A331
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 22:02:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E88EB606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49DDF606A31A;
+	Sun, 22 Nov 2026 22:03:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nzzwumsk
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4a5b2be99a8so22537635e9.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 14:02:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795384946; x=1795989746; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=4UxiOydDwa3I67Iaoew4LDFIsocWQ9uqy+MKnlF8rqM=;
-        b=nzzwumskbK3DA1kPojxI22aHsM2COpjXjLFnBJuYrFk/0c63YJwNaGpbrKmcnE74pT
-         eAEJ/umE5HL/9r9XOiZen2xUSPR/A3boXva0K9D04xfZwoM4hPEBWzodL1yiKvgDV23H
-         AlBRos+7VDWwK07OAvBHmlj8OlbUhF2uHl5hNmKOBf370uXiMhxyV6WiIS30kw3SeT9d
-         n3VL2jNJlxmEXhs8XAE9M63xj+iJOX4uCWCMlXhpuhJA8Ssjvqqy8GT/HSlecQ+oEMRN
-         UliV0idfmxBlSPPG2nkh0fPO2DvFq568oCdQZKyO5mNPQgJ2v5PwYThsuSHy0p69jSqb
-         46mw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795384946; x=1795989746;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4UxiOydDwa3I67Iaoew4LDFIsocWQ9uqy+MKnlF8rqM=;
-        b=FVEwCXTzhsQBWJynaTqHtdqivvWT7k/3N6Y//5XSVci4gEuFzTa1gv68wE/4yX/anX
-         BlLxVeQRQIl3bGHljiP/fNYlG+/DmDVdxyCnfMFW0iDS1Pnm/K2WuHwfoa4qvULralKQ
-         r0tcG4gBljRZcMWQtODZKGikt4ZS33NaEG/tX2404Mjp8wgwEWjbrkpqLchpJFfq2yEA
-         909c/Imqx8U2TG+x4OnAYKlv5twwOGweR0D6zJ1gWjN/UD7v5yYRGZn1O+hb98QyWGTA
-         Nb1D1DDulWBbHgPx6Xfp23m1Env4HGdEwVtW38rGrg4bETfoyM1wqFAKZlhgMO05X/RT
-         +W/Q==
-X-Forwarded-Encrypted: i=1; AL+hErG2ccaps3ZypQLMkK+v6XCS8ZI/ejxCZitzQjW6mX5KVqWZ+cPwtu3dpBCcSwLhC8zSjarfEJq9zaVKYpE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z91zJNjGsUIjPnBQKxiE9vw6LxGYMZHCEuWhgjCfqCciylZQsMu
-	h9dG8OelszgD+qZHBmt9Z7m2jYerJdGFnWSoZGtKVVSE6Dqi+o7GctIw
-X-Gm-Gg: AZFdTZezR4RjoGbSxNKfvKrkdr+UxC2H43VyQ3Q+FiSr7Ti6K15Yth4xU0tY+OiCVOI
-	tzkAKkAwnGLZQ2td0vDIzjjWpvAA6WQrg4dGZbbwXPr+oxJvraGHS+IKj933fcrdnOwnZGJKnPj
-	U8SeMz4YsOwZPI0376Og1EiA6pFW3/O/KdFsjxglrdx8xjK0VETEG+28mIIs4wG0w5qIsIlb68Y
-	ltbEsGLXEUVaglyuzgVrJfo2LEj9vg/IQxsivPyMy/vWX4sZA49ctOW6kH6TBC3Y9r9apfuYTjL
-	juYF4LnsMSq1843C6YXf6I1fowGsLJUywVURs17AY50tK2M7oM4iwVprhm34Zue7xnW1y2feMMv
-	XMdzv046Oks+44wnXU9vRlwbLwAEcE22xGOQQ/cozupTXrybX4+KN48ftTqkA4N7DSODAqT3n3Q
-	9iSv5L+WxoTSzeD72lumXkPkbvkW6eQH/iYpmiTnEcBvWDpG3nokIGNGzuirMTnhBLGeYnpsNf9
-	WDRK2M2M/H8jHqYV3/GztrsA3mv1NQ88w5nkmOO/RrWGU77rz/Shjz1wh1dmh1qzWPJBZf2luVk
-	3dZwRlE6PSIxi+EhxMcS0IrhBEFX9K4SxZCZunMT
-X-Received: by 2002:a05:600c:1c1c:b0:4a2:1364:252b with SMTP id 5b1f17b1804b1-4bb8892ac4amr217905975e9.35.1795384946093;
-        Sun, 22 Nov 2026 14:02:26 -0800 (PST)
-Received: from foxbook (bfh118.neoplus.adsl.tpnet.pl. [83.28.45.118])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf61e8sm19676778f8f.11.2026.11.22.14.02.25
-        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
-        Sun, 22 Nov 2026 14:02:25 -0800 (PST)
-Date: Sun, 22 Nov 2026 23:02:29 +0100
-From: Michal Pecio <michal.pecio@gmail.com>
-To: Erik =?UTF-8?B?SMOla2Fuc3Nvbg==?= <erikhakan@gmail.com>
-Cc: bentiss@kernel.org, jikos@kernel.org, linux-input@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PDJuNO4C
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CBA51F000C4;
+	Sun, 22 Nov 2026 22:03:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795384982;
+	bh=Dd2jOoQYjx0SN+L+IeyhT47RMzYPHgA9OxlNT8tCwBI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=PDJuNO4CUPLHuiqMlmLyFurxPur31NPXnmTjgHIlZFWhq3zd8T9DSQZx6oRH+/0c9
+	 3j2OBVZlXuzmKp4HyVvN2nsn2Ij9XaOCeMN3Jnqh/hcnx6FjEThs5yaWflzN1Kb1Ud
+	 u16mu/r23Byz+MCFpQpJ/S2Dyw9pKIItSU6EseMzMpggwPXLMIp8aLmbEBMI2ymecT
+	 lK3WDkn5KAs+Njpcu+tKc8QBtcHPlb5hI54r2j/og2LfsJ2vDfoDjDg/crXAgIQJ68
+	 07JCnmVTuAnxGwngZbPhqoOZe58GvUeul9QuTNWXZ4Ok6p2rTsrR6BwJf9x+Cbfj8I
+	 ShTxsQcMm9m4w==
+Subject: Re: [PATCH net-next v2] net: mlx5: Allow police as the last action of
+ a TC rule
+From: netdev-bot+sashiko@kernel.org
+To: mohsin.bashr@gmail.com
+Cc: netdev@vger.kernel.org, saeedm@nvidia.com, leon@kernel.org,
+ tariqt@nvidia.com, mbloch@nvidia.com, cjubran@nvidia.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, linux-rdma@vger.kernel.org,
  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] HID: steelseries: Add support for Arctis 7 (2018)
-Message-ID: <20261122230229.1bdc3bd0.michal.pecio@gmail.com>
-In-Reply-To: <Rv7nePC3RfOSidIKv_K-KQ@gmail.com>
-References: <20261121121129.2a1d3013.michal.pecio@gmail.com>
-	<Rv7nePC3RfOSidIKv_K-KQ@gmail.com>
+Date: Sun, 22 Nov 2026 22:03:01 +0000
+Message-ID: <179538498162.3135.15158973349412949279@kernel.org>
+In-Reply-To: <20261119040010.1405900-1-mohsin.bashr@gmail.com>
+References: <20261119040010.1405900-1-mohsin.bashr@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,38 +65,153 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
 
-On Sun, 22 Nov 2026 19:32:53 +0100, Erik H=C3=A5kansson wrote:
-> > URB status -75 is -EOVERFLOW: URB buffer too small for data returned
-> > by the device or the device babbled (exceeded wMaxPacketSize). =20
->=20
-> I can't reproduce this locally, neither with or without USB hub.
->=20
-> But it seems someone else is reporting the same on Bazzite:
-> https://github.com/ublue-os/bazzite/issues/6344
->=20
-> It seems the hub itself reports that the port is disabled, both in
-> this report and in the bazzite report:
->=20
-> "Nov 19 20:47:58 [REDACTED HOSTNAME] kernel: usb 4-1-port4: disabled
-> by hub (EMI?), re-enabling..."
->=20
-> "Nov 15 16:05:59 [REDACTED HOSTNAME] kernel: usb usb1-port2: disabled
-> by hub (EMI?), re-enabling..."
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Per USB2 8.7.4 and 11.2.5, hubs are supposed to disable downstream
-ports which are still receiving packet near the end of frame. So it
-might be that the device (at some point) never terminates a packet
-at all, or its packets are too long and occasionally reach EOF.
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
-I suppose the latter could happen because the host schedules the
-transfer near EOF believing that it will be shorter and complete
-sooner. Scheduling may depend on host controller type and on other
-periodic traffic to low/full-speed devices behind the same hub.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Or maybe you are missing some other detail. Just guessing.
+- [High] The patch rejects jump only when police is the last action, but
+  leaves the same mismatch in place for every other police position.
+- [Low] The patch fixes a user-visible bug but has no Fixes: tag, and the
+  fix is folded into a feature change.
 
-Regards,
-Michal
+--
+
+net: mlx5: Allow police as the last action of a TC rule
+
+This commit lets a police action be the last (or only) action of an
+offloaded mlx5 TC rule in switchdev mode. It sets the forward to the post
+meter table while parsing police, and sends an ok result (and a pipe
+result on the last police) to the end of the TC chains. It also rejects
+jump when police is the last action.
+
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+> index 1bd1c94fb9776..faa0822b1136f 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+> @@ -49,6 +49,14 @@ tc_act_can_offload_police(struct mlx5e_tc_act_parse_state *parse_state,
+>  	if (err)
+>  		return false;
+>  
+> +	if (flow_action_is_last_entry(parse_state->flow_action, act) &&
+> +	    (act->police.exceed.act_id == FLOW_ACTION_JUMP ||
+> +	     act->police.notexceed.act_id == FLOW_ACTION_JUMP)) {
+> +		NL_SET_ERR_MSG_MOD(parse_state->extack,
+> +				   "Jump on last police action is not supported");
+> +		return false;
+> +	}
+> +
+
+[Severity: High]
+The commit message explains the rejection this way:
+
+  "A jump counts from the start of the action list, so its target may be
+  an earlier action or police itself."
+
+That applies to a police at any action index k >= 1, not only to the
+last one. Should this check use act_index and the remaining action count
+rather than flow_action_is_last_entry()?
+
+In software, tcf_action_exec() restarts from actions[0] and skips N
+actions, so the target is the absolute index N:
+
+net/sched/act_api.c:tcf_action_exec() {
+    ...
+		if (TC_ACT_EXT_CMP(ret, TC_ACT_JUMP)) {
+			jmp_prgcnt = ret & TCA_ACT_MAX_PRIO_MASK;
+			if (!jmp_prgcnt || (jmp_prgcnt > nr_actions)) {
+				/* faulty opcode, stop pipeline */
+				return TC_ACT_OK;
+			} else {
+				jmp_ttl -= 1;
+				if (jmp_ttl > 0)
+					goto restart_act_graph;
+    ...
+}
+
+In mlx5, alloc_branch_attr() sets *jump_count = cond->extval, and
+dec_jump_count() counts down once for each TC action after the police.
+The hardware target ends up at k+N, measured from the police.
+
+Some rules that still pass the new check:
+
+  [pedit A, police drop/jump 1, B]
+    TC jumps back to police and runs it again. mlx5 goes to B.
+
+  [A, police drop/jump 2, B, C]
+    TC runs B. mlx5 skips B and goes to C.
+
+There is also the case of a jump that runs past the end of the list:
+
+  [police1 drop/jump 3, police2 drop/pipe]
+
+TC returns TC_ACT_OK here, because jmp_prgcnt > nr_actions. In mlx5,
+jump_state.jump_count never reaches 0, so no attr gets jumping_attr.
+police1->branch_true then keeps a plain post_act destination and reaches
+police2. parse_tc_actions() never checks for a jump count left over
+after the action loop.
+
+Won't all of these rules be accepted for offload and then run a different
+action sequence in hardware than TC runs in software?
+
+>  	return !!mlx5e_get_flow_meters(parse_state->flow->priv->mdev);
+>  }
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+> index 1d35c97aea0bc..7e7111e6d058b 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+
+[ ... ]
+
+> @@ -3891,11 +3891,17 @@ alloc_branch_attr(struct mlx5e_tc_flow *flow,
+>  	case FLOW_ACTION_DROP:
+>  		attr->action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
+>  		break;
+> -	case FLOW_ACTION_ACCEPT:
+>  	case FLOW_ACTION_PIPE:
+> -		err = set_branch_dest_ft(flow->priv, attr);
+> -		if (err)
+> -			goto out_err;
+> +		if (!last) {
+> +			err = set_branch_dest_ft(flow->priv, attr);
+> +			if (err)
+> +				goto out_err;
+> +			break;
+> +		}
+> +		fallthrough;
+> +	case FLOW_ACTION_ACCEPT:
+> +		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+> +		attr->flags |= MLX5_ATTR_FLAG_ACCEPT;
+>  		break;
+
+[Severity: Low]
+This isn't a bug, but the change to FLOW_ACTION_ACCEPT handling in
+alloc_branch_attr() fixes a user-visible mismatch with TC. Before, a
+police ok result ran the actions after police. TC accepts the packet and
+stops instead.
+
+The old "case FLOW_ACTION_ACCEPT: case FLOW_ACTION_PIPE:" handling comes
+from commit f86488cb4685 ("net/mlx5e: TC, initialize branch flow
+attributes").
+
+Could this fix be split from the police-only feature and given a Fixes:
+tag? It would also help to state whether it is meant for net/stable, so
+it can be routed on its own.
+
+>  	case FLOW_ACTION_JUMP:
+>  		if (*jump_count) {
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119040010.1405900-1-mohsin.bashr%40gmail.com
