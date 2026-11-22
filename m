@@ -1,54 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795356096;
-	b=vYUnV71VoxAnTMD59XoMRKQCcOsCW204wsTY++Fx5bmieLyNJTPuHDnDiDD0r6tmLrZ3
-	 idLF9uq/UX/ouaDo8oz7upTAFafHGkshZgrIbqMWSQp7u8m0ApDf1+Ub0mClFvel9ymBY
-	 CeGsg5+UZ0mDcmjYFNy1KQhphH1HzA9Cp/U4I94Dpr1ZrL8/HDvO4aFVicKUUEd2NBnrc
-	 O4IxKuQbtd4CtoMgdjORSsMxnSGuQx9/7J8JhVlkkuun0lYQys5TMrHxtrJoJsx52sGkJ
-	 e7qjR+qRCVabI53nejKlB+RwLhsAtk/0JlhXc5zhTmVD7sp+wBe/nYnv5sSjsJ//+zw==
+	t=1795356204;
+	b=hvneyGKiE4JuYW/KeXgn6aJW2K5WK1m2t+PYghkFB/U0HwrE/eUk4+2gIi0cKN4/Sxsw
+	 ZjRqDw3l/L/TTZh7KHO2xzg5O3aV6OBxXzn6lxHWnuvMsIZHCId2Jyl86kaRHiFzv9W7C
+	 ShpsZlKKDW6Xrfb96R9+WmCPEmnviab/0IdFMMBAoKyyrP8uIcz292KWixqkFAKK5vgRO
+	 XSKus7MFqBd7a7blw4PReISca6D3uHEu+EcHbqcGmavBaT0HDjsGe+lPv9R72QEQkrozs
+	 0W19O4Hq5kVooiaFSHcWewz6z9/stjms3KClQNBL2K5Rof81xdPJOEp6+HRYPgYg+mg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795356096;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=Ac5T75nKhAOEN8GsTBdgzFdlr60mex3YgfV6IsITSSw=;
-	b=bkqDLmtuHQd0k/FH4PFBTvnSyNucMiAUqgSTje/QwjsPVPQOuEMHxDwG/sWKuzIt2zcl
-	 pKpohGaalizMhU9d6ZRQI3jB3c/P/LGSCzF46ZOkVwqLK08hQ0yimpNopHsKakDoCdztL
-	 4xGsSeKvy1lWZ+xWAuMITHgKTVkGU3jLPkApgaCj1BbR0v5oQL1zRwgO9BBzDQ6tbV3ey
-	 Q502sLpDsIULqalKj6/qa8tYoHbH8cjTTmUaQnOLHmXZaXtlY+oSENNWq4Z6+z59tdM3t
-	 O+fNvZmdakk2cOPvBy/73NgH3XxYGKvK1ruWRHIZLEKGBTI8JqZLDTYAEMvl5a5u8Ig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795356204;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
+	b=tPkvPtTnZ7yUYFkhkKUHbsXEJ66aw2oQsHa7GwS9Kw5zolBma1dS/MPvTc6k+170u3Do
+	 xMXWRVDaDjcAjCfrNNO9/sMqBS0CuFqSPPY36ktcJmfwHIl6JSL3h99iN/jhUwnyzcnJU
+	 7ZG9LWa0MRaerW47PztICU2pVmQdgSvQkAUoC3nnUuCs7iB9WoUa0yHnRiCb3r5b/0nBm
+	 FMJ3ku+qputWmq6zfxPhsdYvc0/Tc+yYo8mID+0t2Ud/BxovaQMCoX2+F09RGoe3FUNDP
+	 Im6e+73R2g/sfNd5+L4knkV1QZFafJPfHfM/gnQo/1ETXtTzMiQRVQck4yYIbatk2Qw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.200
-Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EjhFeBKv;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F204606A331
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 14:01:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F204606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-4dc57e2a3f2so3444525b6e.0
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 06:01:35 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795356095; x=1795960895;
-        h=content-type:to:from:subject:message-id:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Ac5T75nKhAOEN8GsTBdgzFdlr60mex3YgfV6IsITSSw=;
-        b=OobHWGq4TGJApvlhyb8lcFfSiI+O94UgNjEB2uNH8lgSStioDWvFWw9Speiq5qglWs
-         I21lmVsyByx1iwCu/1Tdfum4rzOd/k9H9LqJ9i9Xt8XI0jIkDlTQK4bGTx8raPS/Q7hG
-         laZFPPBFNKIML7/3UMrOB0kxv9b2Lsxy4yqfBLN1CMdzJM2zTwZBqQvcpJK0gLfsR/Ze
-         uKohvyVmwTCkBOPRdn3q/CCRBglHtOtBo79d8G8zmB2cR2wCOta5s+S/sqpcRJnAhku0
-         JtFS8TQPbXIaEnHDtUY5ue2QqS8ClHMtUMrfivbekTTWlRsa4yCOLZ0aLcTtQUPGX4Oi
-         7kJg==
-X-Forwarded-Encrypted: i=1; AL+hErG/vBmOhxJkaGqWCELZ2cdaCbo++vg6VTzsKpMAHrFDOQS4YuiccDKx+wzr1sL5sfzXHMNVF3+7RFYdrqg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8aa7Por9yr2q8n8j9D0+u3YA3oNN/x66Oi74OGpvycPsd1grhR
-	FJabSuuwjPrwQrWr9tWjbANesrNZ4fBQ7HdAKoGxItn5oHIpIR7sHJKPJM5nLzisELK79TGCLyL
-	A1jgWIKZOy3EJoy6GgyxOARYORmiO87AUEAnGSdZgK+mgkRrm0k8pfbSi0c8=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0F5B606A320;
+	Sun, 22 Nov 2026 14:03:24 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EjhFeBKv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FC7D1F000C0;
+	Sun, 22 Nov 2026 14:03:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795356204;
+	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=EjhFeBKvtBcSHu4M/79q2RZ038akiLmMscbvr+LGjYVaMuAmGmum/4Ad9yX9zuCXs
+	 p1akSiCq2O1TrRY1C7Sw5EqMd9HLIUYEkrVfeHk9VBbDwryouSSJULPqghT21DPOr+
+	 sXUzfDonTVGIPE0HgPax7Z3450NIEYB6FCdZso8gx7bUsZmaa1JuC3CYLXFMRI6jcu
+	 MH4F3IPlgcqzWtmMvIa28GFJ6qswJvgVoaoNiWenrwCb49cAzwOOKyQWN7HVI8Sr4m
+	 GXEZw3Z84tX672CBVnoVe8xHBO6rV8tOt4v+DJZCTAOzTFEZgfdvCT4DDkHOwYeGNJ
+	 RDXS06MrU/7HA==
+From: netdev-bot+sinfo@kernel.org
+To: Lin Ma <linma@zju.edu.cn>
+Cc: David Howells <dhowells@redhat.com>,
+ Marc Dionne <marc.dionne@auristor.com>, netdev@vger.kernel.org,
+ linux-afs@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] rxrpc: Fix missing lower bound in rxrpc_resend_tlp()
+Date: Sun, 22 Nov 2026 14:03:23 +0000
+Message-ID: <179535620364.3294.15218868114054377349@kernel.org>
+In-Reply-To: <20261122135515.3989708-1-linma@zju.edu.cn>
+References: <20261122135515.3989708-1-linma@zju.edu.cn>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,144 +62,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:1483:b0:579:f664:6619 with SMTP id
- 5614622812f47-57a056c8503mr8925121b6e.1.1795356094997; Sun, 22 Nov 2026
- 06:01:34 -0800 (PST)
-Date: Sun, 22 Nov 2026 06:01:34 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b02f5be.71deaa98.2984e6.0004.GAE@google.com>
-Subject: [syzbot] [cifs?] WARNING in smbdirect_connect_rdma_event_handler
-From: syzbot <syzbot+a989758ffc6f93223eb6@syzkaller.appspotmail.com>
-To: linkinjeon@kernel.org, linux-cifs@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, metze@samba.org, pc@manguebit.org, 
-	samba-technical@lists.samba.org, stfrench@microsoft.com, 
-	syzkaller-bugs@googlegroups.com, tom@talpey.com
-Content-Type: text/plain; charset="UTF-8"
 
-Hello,
+Hi!
 
-syzbot found the following issue on:
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-HEAD commit:    d0f871bfb831 Merge tag 'arm64-fixes' of git://git.kernel.o..
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=107cbabd580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=d16c0eae9c338e3c
-dashboard link: https://syzkaller.appspot.com/bug?extid=a989758ffc6f93223eb6
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-Unfortunately, I don't have any reproducer for this issue yet.
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-Downloadable assets:
-disk image: https://storage.googleapis.com/syzbot-assets/14c5ba415020/disk-d0f871bf.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/90aa1edd6ee8/vmlinux-d0f871bf.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/45d67d635102/bzImage-d0f871bf.xz
-
-The issue was bisected by AI to:
-
-commit d1f187656797fc7434388c1795e05f8abe370d46
-Author: Stefan Metzmacher <metze@samba.org>
-Date:   Mon Sep 1 14:10:49 2025 +0000
-
-    smb: smbdirect: introduce smbdirect_connect[_sync]()
-
-AI reasoning:   https://syzkaller.appspot.com/ai_job?id=d29fe03c-f946-4e73-8c7d-eddda90b1783
-
-AI-generated root cause summary:
-smbdirect_connect_rdma_event_handler() accesses sc->first_error and sc->status
-without synchronization or READ_ONCE/barriers against concurrent teardown in
-smbdirect_connection_wait_for_connected(),
-__smbdirect_socket_schedule_cleanup(), and smbdirect_socket_destroy_sync(),
-which modify sc->first_error and sc->status (to SMBDIRECT_SOCKET_DISCONNECTED)
-before acquiring rdma_lock_handler(sc->rdma.cm_id). When the waiter is
-interrupted by a signal (-ERESTARTSYS), the cleanup/destroy path can advance
-sc->status to SMBDIRECT_SOCKET_DISCONNECTED and set sc->first_error =
--ERESTARTSYS between the handler's sc->first_error check and its sc->status
-check in SMBDIRECT_CHECK_STATUS_DISCONNECT(), triggering the WARN_ONCE at
-fs/smb/smbdirect/connect.c:307. Moreover, because smbdirect_socket_destroy()
-disables work items before taking rdma_lock_handler(), the same race allows
-smbdirect_connect_rdma_connect() to re-initialize and schedule
-sc->idle.timer_work after it was disabled, risking a use-after-free after sc is
-freed.
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=a989758ffc6f93223eb6
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+a989758ffc6f93223eb6@syzkaller.appspotmail.com
-
-The cause commit was identified by AI and may be wrong.
-If you agree with it, please also add:
-Fixes: d1f187656797 ("smb: smbdirect: introduce smbdirect_connect[_sync]()")
-
-------------[ cut here ]------------
-expected[RESOLVE_ADDR_RUNNING] != DISCONNECTED first_error=-ERESTARTSYS local=127.0.0.1:51036 remote=127.0.0.1:445
-WARNING: fs/smb/smbdirect/connect.c:307 at smbdirect_connect_rdma_event_handler+0x1e02/0x2820 fs/smb/smbdirect/connect.c:307, CPU#1: kworker/u8:7/198
-Modules linked in:
-CPU: 1 UID: 0 PID: 198 Comm: kworker/u8:7 Not tainted syzkaller #0 PREEMPT_{RT,(full)} 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-Workqueue: rdma_cm cma_work_handler
-RIP: 0010:smbdirect_connect_rdma_event_handler+0x2086/0x2820 fs/smb/smbdirect/connect.c:307
-Code: df 41 0f b6 04 06 84 c0 0f 85 67 06 00 00 49 63 8f 98 00 00 00 48 89 df 48 c7 c6 20 a8 be 8b 4c 89 ea 4d 89 e0 4c 8b 4c 24 08 <67> 48 0f b9 3a 4c 89 ff 48 c7 c6 60 97 be 8b 31 d2 48 c7 c1 6f 55
-RSP: 0018:ffffc90004257a08 EFLAGS: 00010246
-RAX: 0000000000000000 RBX: ffffffff90dcd1d0 RCX: fffffffffffffe00
-RDX: ffffffff8bbeab40 RSI: ffffffff8bbea820 RDI: ffffffff90dcd1d0
-RBP: ffff8880295a2098 R08: ffff888062fdc020 R09: ffff888062fdc0a0
-R10: 0000000000000100 R11: 0000000000000012 R12: ffff888062fdc020
-R13: ffffffff8bbeab40 R14: 1ffff110052b4413 R15: ffff8880295a2000
-FS:  0000000000000000(0000) GS:ffff888124804000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 00007f4a41662068 CR3: 00000000352ee000 CR4: 00000000003526f0
-Call Trace:
- <TASK>
- cma_cm_event_handler+0xac/0x2c0 drivers/infiniband/core/cma.c:2181
- cma_work_handler+0x265/0x520 drivers/infiniband/core/cma.c:3040
- process_one_work kernel/workqueue.c:3495 [inline]
- process_scheduled_works+0xc3d/0x1630 kernel/workqueue.c:3578
- worker_thread+0xa47/0xfb0 kernel/workqueue.c:3659
- kthread+0x38b/0x470 kernel/kthread.c:436
- ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
- ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
- </TASK>
-----------------
-Code disassembly (best guess), 1 bytes skipped:
-   0:	41 0f b6 04 06       	movzbl (%r14,%rax,1),%eax
-   5:	84 c0                	test   %al,%al
-   7:	0f 85 67 06 00 00    	jne    0x674
-   d:	49 63 8f 98 00 00 00 	movslq 0x98(%r15),%rcx
-  14:	48 89 df             	mov    %rbx,%rdi
-  17:	48 c7 c6 20 a8 be 8b 	mov    $0xffffffff8bbea820,%rsi
-  1e:	4c 89 ea             	mov    %r13,%rdx
-  21:	4d 89 e0             	mov    %r12,%r8
-  24:	4c 8b 4c 24 08       	mov    0x8(%rsp),%r9
-* 29:	67 48 0f b9 3a       	ud1    (%edx),%rdi <-- trapping instruction
-  2e:	4c 89 ff             	mov    %r15,%rdi
-  31:	48 c7 c6 60 97 be 8b 	mov    $0xffffffff8bbe9760,%rsi
-  38:	31 d2                	xor    %edx,%edx
-  3a:	48                   	rex.W
-  3b:	c7                   	.byte 0xc7
-  3c:	c1                   	.byte 0xc1
-  3d:	6f                   	outsl  %ds:(%rsi),(%dx)
-  3e:	55                   	push   %rbp
-
-
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-For information about AI bisection see: https://goo.gl/tpsmEJ#ai-bisection
-
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
