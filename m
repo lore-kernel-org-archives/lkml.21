@@ -1,53 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795360267;
-	b=f36PE5iT/Xxqcvx2fKcJtS08Exz5nH0qrYNrs7y44tewPY9B1VxMaRKb6TM25l/5VgbB
-	 +qs8xX8YcUslIWHxbXOgf/HvHBdG3UL+RwsIIqJiM/J7eMXaKkQf6iMB855RtOx3KxIYq
-	 8slLeO6ww2OKJ19eQZnyW2cPffEqpkVW8P4wOK/ezhZhO+ZWJEb59v5aIWCYSre81GkQT
-	 t3ZRiRbjKyFI01IKCLQV1dsOssUyvXFKfZjRZW95wC1P6rS1yM5q7AbSav3uMr9kbrrLq
-	 AzAYnM5SqWSEYyhQ9zgBsCvx1qzwjph3ttZ0K/bgi7R44KhpL1G3ID4HOBwX8svzXOw==
+	t=1795360316;
+	b=xhaDO/ZH5Niygmbx3nyy5xCKsoQUBI1Q4XtuK4bZGdXC9Um4MYDiJKg1qXSVFFS5pM5B
+	 g4P38UOxT8Xn/nD9P0zAAoNdAbhWCNsuNr+NjzX1Dh3Bhx6cBEjT1r4BSoQI8tX6xjka7
+	 H+fkVKswqk4+5+NrMaJIHe+gXOp3Xx1vCF1S6Oy4KOW617+/KL7nCBsd9SfEG5WUMLKIj
+	 sPsUpCbp66Db12gtOWX/Ah5LKW0+6SluTPt/oIyQfFCzQFmOaGsPA+FGcXOnuMiBHycSX
+	 7q5gXKxgQvra6/UP6cgb0ohR0jNjq5wjAtWhNSIIlbeOI2xaLjWmVgE68xcCHFcmJIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795360267;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=oOWBSdyd+P5qWrZDjnKbpdol/JRbqjn1lfFsp2nJQyY=;
-	b=DSehlpykBqXbK13ocKIUSlZTWRdReiqtcR3R8kukAavUEKcGAPC+Zc8f9joSQsC98aP4
-	 uWAC6pRQKhYm3YoPcYv3zgx49ieI/Kw1c+erGqeV4uoEzcOw7Ia5uwXn8hsWgYxQ8Ixs1
-	 2hqaZU7BAW0VY7EKVQuGgHxuveuJHMpi9/UBAe3/e9WFiaOlY57Q2+ZJCoA4sMznD3UiC
-	 insecOF4sWD3s30dLXZ6G9MaeHQyVvrBOzIjlUhKJjTEq6tXEmdJ60EU5k/fMlnS/PVS3
-	 9l3BUVqPVXtGYKS2bm6NKPYaaC9wFuy3aRUns4u0B18MlTYLxoMfLz06+z9IcLpteQQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795360316;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:In-Reply-To:References:Subject:Message-Id:Date:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer;
+	bh=5Z291C558lsUtUj4LPUhpkrr2FrLmzRC4TeFBwuiY8c=;
+	b=nnaPohUhg50VQM3mTNH8+8psIFwjYEgvy7jW+SxQiDg/nXB3vdEEhoJ4/rcvpo3F2uUf
+	 +Ww4UdMYAU7+mtGXtNJ2XlfUoL/BOxUqn35U3qSoN/i3f096wUGyxRzoSwLtwh0uGUBC/
+	 H4LxBAi87nd8XtYuvAeD5XepVjKuSWw6IqIZnRolFLOor0+9AaNwF+N0oSvgWUI5hgodb
+	 XbcNjvEqHpH0IBPoxXXWrpbfVXpyL/BZs/Rveth1+w2P1O/+mnsUmylcw+4DiXZNQOFXM
+	 fFeaE6ZO6UyttPiONcJ7kd1cXZiBmqOhyURkp5bMgoEwFb//+QwDcAM6VCJGJPMhWDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Odvu/MGQ";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=dtXtggfE;
+	arc=none smtp.remote-ip=209.85.128.47
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFADF606A331;
-	Sun, 22 Nov 2026 15:11:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D6CE606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 15:11:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D6CE606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Odvu/MGQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 983ED1F000C6;
-	Sun, 22 Nov 2026 15:11:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795360267;
-	bh=oOWBSdyd+P5qWrZDjnKbpdol/JRbqjn1lfFsp2nJQyY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Odvu/MGQXMbmVSh1r29XhHH1y8pi6g8thjfk0rqprRhwXKs2xjudDUTiOjguOYa10
-	 fu7a7ySnjw2aYPnOGP3RCMBYSxJjdsac19Y8dNz290/puAsI14XLeslJwmWaFNLU/d
-	 1D/mfJRcVxiyZBGy3a0amD8O48NX+W8hTP/B5My8MWUlsUNRCIHI2ndj7Z4HpACJbX
-	 uj0xVE0dtCFWLYBMRAREZu46R/1au24w+qn4NHG6q88ses2dAaEeZmPKuGKL4lUlCF
-	 6HmWjjAilEmZ/C/Lbi603stl3Ec+fEFF+rwZI5aq3K1WhzU6CEco+tDoXDf4ed18Wh
-	 t6+BSm2g2aLEQ==
-Date: Sun, 22 Nov 2026 17:11:03 +0200
-From: Leon Romanovsky <leon@kernel.org>
-To: Andrew Stellman <astellman@stellman-greene.com>
-Cc: Zhu Yanjun <zyjzyj2000@gmail.com>, Jason Gunthorpe <jgg@ziepe.ca>,
-	linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH rdma-next] RDMA/rxe: Require a responder resource for
- FLUSH
-Message-ID: <20261122151103.GG14811@unreal>
-References: <20261119151332.95466-1-astellman@stellman-greene.com>
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=dtXtggfE
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4a35d5d4a20so23467595e9.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 07:11:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795360314; x=1795965114; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:date:message-id
+         :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5Z291C558lsUtUj4LPUhpkrr2FrLmzRC4TeFBwuiY8c=;
+        b=dtXtggfElS/AHPYflC+EBM6ex68Vz4KSSe/5VUUMaopzAXpDT5crcrLRZxByLTfcXm
+         Pfu4oVG1dioy8Qzk2Ph4pceT+Uz3/GMd5oH+7hGGubpk0AIn3iv99XAP3zimU1m/cZ2d
+         /GQrGkAPq2deJbVwUAe8LHZttix9sp9PZ9BDFAw7TMEqxkGBFNG/oUbcmCw7W8Nq0Ntu
+         6fFZahSCUc3oYOov8DzGTvQzXAADUBNpVj17BaBbmcmCbh8VPHfsvnDOuAc2f8oiN/jd
+         olSdDnux5EQFbpLwefOeoqiFs3R9SLkzCQTvLy2sb0RSNdBE+FU6Q9rs9NET3MCa86O1
+         L4aQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795360314; x=1795965114;
+        h=content-transfer-encoding:content-type:mime-version:date:message-id
+         :subject:references:in-reply-to:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5Z291C558lsUtUj4LPUhpkrr2FrLmzRC4TeFBwuiY8c=;
+        b=rdGPWu+kuiN4CYne1sutswQseIR3D41zcyjA5S87lxzveA2YX0xXSYQzdZFY7fK4Qo
+         2WbnzUoA+k9aO2dzYAumngj/rZrNCB5E69KFJE5mTyuTjlcceKlW3+qfN8LGsQxKk+Js
+         hAa6XAtuwatAA2VXiO1ngct0sVzCMbb3+L6ysgLpUzdotGelaE2Rkg+V0KhR8qiTQP7B
+         wAseG/7BfHc/6ZTUO6W8LfmGonX8ewpbMXuBHAI9+DtxmOrEgJ5sBr/GX5z+UXPeE2el
+         NE9oZBDOfiZZdW3XBOt8NL1wEVpgeSMqJ3FXZH/Gk9LhAKDw2MwZhFAQl3lsmVtzK4ga
+         lH+A==
+X-Forwarded-Encrypted: i=1; AL+hErFP9SvHRCOfCPekNYsIxtfMhtS4rAmEOMTxpVmKsWbGuPySu9dKNj0Nt4IV2RuBGqijqx5gJjNuPhiQ65M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8yegQuP8rOkTksDq3OgtFzivvV3GiIuW0PSsN/hNp+q689Bsnw
+	eUPGh8NSHK01uXGZ0a64EhEgFm3p2PU9Rv6zukUH0cn/BR4feZZJGmPq9rpolo3ytJE=
+X-Gm-Gg: AZFdTZe/NqGF5gGdSAgbo4/Wwy/55Do/j/WkLXDL+Sbs6WtVKGPVyY87uoHbzgwD1hZ
+	+8RcwguXHCyWYGApr+YqIhleAOUU3v2f0EXT786rQkyh7VoVryZtpcVqRJ5RCjoxU8MmVWr1G+o
+	2DpRNVwmiVfKtoBdD64UPJ8f8cjfkc5baL4+oZBsCFnJ0NNJ6X4rELwV5P3EN5VGMM4HljWekDA
+	0xd18FAzsJ+Ibmp7sZAJr3qzTzJi2bWNZU7+g8SBXDGZDTt2Sgm2Z1MhwQyJS3JuBm1yfJMdNfE
+	KrD3tuN10VhaWbs5PYvUyM8yhmiBw1dnmW8+Y+3YbTr7AifLj4UiIubiguZTEaD7v4qKC614uK7
+	lS2mKx7a2HKeYOclG6R1r+K3U8kCFt7tyOzcU71b+x80J5V9sqj53/oJULmZGYGa9tO3OZNUtSo
+	A4wMnXDGTZS4VD2ysFEbeqnIyqk6ciDf64IvS5i+xE+2rJCBwGvNdEo7Y4dSK85U5FMrSlJeiH4
+	Haa73m1ETz4NTopRelgnHIgzcnX0j5VaMvhhO0m4bywneOlMg0B8y9wNUUcDmThNyN7sS3xLECd
+	QTTMaTytnLu+gWdUJtuY6TOkooiOx7hpJSKxxJ5CajL79j1Bt+s5GNdiBvIYoDp4PGtg7A==
+X-Received: by 2002:a05:600c:3484:b0:4a2:133:45e1 with SMTP id 5b1f17b1804b1-4bb88812f16mr189053065e9.24.1795360313921;
+        Sun, 22 Nov 2026 07:11:53 -0800 (PST)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b2050f1sm16789049f8f.38.2026.11.22.07.11.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 07:11:52 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Carlo Caione <ccaione@baylibre.com>
+Cc: Jian Hu <jian.hu@amlogic.com>, Chuan Liu <chuan.liu@amlogic.com>, 
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Conor Dooley <conor.dooley@microchip.com>
+In-Reply-To: <20261120-upstream-s7-clk-v2-0-856cece3b9f2@baylibre.com>
+References: <20261120-upstream-s7-clk-v2-0-856cece3b9f2@baylibre.com>
+Subject: Re: [PATCH v2 0/6] Add Amlogic S7 clock controllers
+Message-Id: <179536031124.2724645.9771781564056139591.b4-ty@b4>
+Date: Sun, 22 Nov 2026 16:11:51 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,73 +107,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119151332.95466-1-astellman@stellman-greene.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
 
-On Thu, Nov 19, 2026 at 10:13:32AM -0500, Andrew Stellman wrote:
-> process_flush() keeps its state in a responder resource from
-> rxe_prepare_res(), as READ and ATOMIC requests do. check_resource()
-> refuses those requests when max_dest_rd_atomic is 0, but it does not
-> check FLUSH. With max_dest_rd_atomic 0, qp->resp.resources is
-> ZERO_SIZE_PTR, and rxe_prepare_res() writes through it in
-> free_rd_atomic_resource().
-> 
-> A FLUSH sent to an RC QP with max_dest_rd_atomic 0 oopses the
-> responder:
-> 
->   KASAN: null-ptr-deref in range [0x0000000000000010-0x0000000000000017]
->   Workqueue: rxe_wq do_work
->   RIP: 0010:free_rd_atomic_resource+0x15/0x50
->   Call Trace:
->    rxe_receiver+0x5f6e/0x9a20
->    do_work+0x144/0x470
-> 
-> The responder task dies, and destroying the QP later warns on a timeout
-> in __rxe_cleanup() and then hangs.
+Applied to clk/linux.git (clk-amlogic), thanks!
 
-Please resend this patch with untrimmed dmesg stack trace.
+[1/6] clk: meson: pll: Support PLLs without a pre-divider
+      https://git.kernel.org/clk/linux/c/0068f78e25a4
+[2/6] clk: meson: pll: Support active-low resets
+      https://git.kernel.org/clk/linux/c/288015e923df
+[3/6] dt-bindings: clock: Add Amlogic S7 PLL clock controller
+      https://git.kernel.org/clk/linux/c/7230757fd4d1
+[4/6] clk: amlogic: Add S7 PLL clock controller driver
+      https://git.kernel.org/clk/linux/c/19206e1b1299
+[5/6] dt-bindings: clock: Add Amlogic S7 peripherals clock controller
+      https://git.kernel.org/clk/linux/c/ed4da9fe19c7
+[6/6] clk: amlogic: Add S7 peripherals clock controller driver
+      https://git.kernel.org/clk/linux/c/20c6003759a5
 
-Thanks
+Best regards,
+--
+Jerome
 
-> 
-> Add RXE_FLUSH_MASK to the check, so a FLUSH gets the same Invalid
-> Request NAK a READ would, and the requester sees IB_WC_REM_INV_REQ_ERR.
-> 
-> The issue was found by Claude Opus 5.5 running Quality Playbook, an
-> LLM-driven code review tool:
-> https://github.com/andrewstellman/quality-playbook
-> The fix and this changelog were drafted with the same tool and reviewed
-> by me.
-> 
-> Fixes: ea1bb00ee9a5 ("RDMA/rxe: Implement flush execution in responder side")
-> Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
-> ---
-> 
-> Tested in QEMU with KASAN on v7.4-rc3, and on v7.4-rc3 with the RDMA
-> code from rdma for-next (7404c82cbf12). The reproducer is a short
-> libibverbs program; I can send it off-list.
-> 
->  drivers/infiniband/sw/rxe/rxe_resp.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/infiniband/sw/rxe/rxe_resp.c b/drivers/infiniband/sw/rxe/rxe_resp.c
-> index 1b7f31737225..38b5b0c2abe3 100644
-> --- a/drivers/infiniband/sw/rxe/rxe_resp.c
-> +++ b/drivers/infiniband/sw/rxe/rxe_resp.c
-> @@ -340,7 +340,8 @@ static enum resp_states check_resource(struct rxe_qp *qp,
->  {
->  	struct rxe_srq *srq = qp->srq;
->  
-> -	if (pkt->mask & (RXE_READ_OR_ATOMIC_MASK | RXE_ATOMIC_WRITE_MASK)) {
-> +	if (pkt->mask & (RXE_READ_OR_ATOMIC_MASK | RXE_ATOMIC_WRITE_MASK |
-> +			 RXE_FLUSH_MASK)) {
->  		/* it is the requesters job to not send
->  		 * too many read/atomic ops, we just
->  		 * recycle the responder resource queue
-> 
-> base-commit: 7404c82cbf1246e0e84e2ec21834d23c26f9a8ed
-> -- 
-> 2.43.0
-> 
-> 
