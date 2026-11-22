@@ -1,72 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795323211;
-	b=mFWgzheD8OnF3B6sTz83v+VIPYpX/yVrtPx7qCU2XTKH748lvJoCIRbrnjiumBK5Bcz9
-	 5FkC+vBghfunxame+ZaxK9SgcFrOOCewsSA5Cer6B/HBOh0LyFjDrSluopWLUY6qm8Dnh
-	 /b+9mSeOdeGtokc7eoJrqt0Asp/ZEhWVNhCIxv2Qsbw2Hmfrz+Pz0QWcKcLNicV/dsplT
-	 bMc/FjRVHqtOKvMKDZtiRPDiFGUeBnovq5gwnvkNinsP53g03o3V0UyQQwEg4LV5SlBK4
-	 ugOSCSNmlQnOXLTgKPyv8wEsOlm4GLQGf/N89QtMewA3ViEOuG8admU90YU7PtkPZ3g==
+	t=1795323308;
+	b=VrDnsgvfWRoetGa6g9hl10gk9UVy2+5/0UT/1pjeE4aSEL9juTtju/md4NXnWW6DMogp
+	 cEY9Edi7dXqQz2vFRulelGA8TkYQ7rn2BBRPWuMVhMS9N4+mW/kWTqMripSJp7Hp4pnr0
+	 qPJBlj+wohjMziJrLH7xvMAxWOlDEgc2XJgyqC6KjMlQ9RcfTWK8+YOtfmBotwdJZ9OAV
+	 u5iQWbn+6PBXCArszf1HkFM2Ppq43sDvXPJcCHNd20h2zpgoNJfyW3aCX2uo23yP72Sni
+	 u8y0kyOPPZk77hijphi3uE/GqqgYm3saFS3OBNWHpN7Yq2bFv1AjVQ8Bfth+d9Z9tjA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795323211;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795323308;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=pDpU6PvkkR9T5YMpWrxr6Vm8fDQspCIPlW5JeeJkxnA=;
-	b=AsZWRFB+N5tEpNo4E5VaYL24uIrNp8MO/Bb+I+Ycw8FNTQAMEgB6ocmRhM+a8wAf7BuF
-	 o1/W2J1p2+axxsq5l9T7/7BOYEOJ2+iBVqJl5NlBoz1PZ5Y5l/RSnNAUcUBMXL+xTp0NF
-	 fdHiUL3UPwhIZeGmsvkrPi96QR8vHmMA15cnm/2nXsld0ijLmJf0X2UwF5hkPo6LcOE3e
-	 JtjjNd5BjgJM6MZWaiZGjAjJj9u9ScB/Unm+qFwr5nQOORsThg6VSoVYshGRGHndgPE5b
-	 rtPAux73rF+s8cudzrYcOzZNjlB7hAHWH73vWgyB9bB3hD6eTzo50kCFdjRLS1AGoDg==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=zo5hV3nq2vAzOrfwjLwLFQ7iNUuGgnQAdTEhOY7Nk04=;
+	b=flakbcLizISIH6wEFclW85HTTeSRF7DLj7juHetedw84w7raWy1EinSVPu78OtoqnyHN
+	 Y/I2/ayxyLVGnXH/5JCar5W8iPwWGwg/D17xaTzJ3nAapClYWtlj9UPaGmiiOP5odqOgn
+	 NC2MoQj38a1UaARNtvo2EX76R1m4ZiS4/Oezrvth29LQ00v2eePkLP7/d29DlIiPlcqO8
+	 a5sZLdYg6KYCuurKDii6UhOcRfg8036Oo4Rb50aXvAcbnv86qE2S5rwDPcDJvsdeX2usV
+	 fsi/0/dl8vtp5x2Su9YHYr/Dllimf3T6DQ0nTpiXmfupDvYguCuyRvxir8WWtRMDqEw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=RNqyiKh3;
-	arc=none smtp.remote-ip=74.125.82.199
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OTGCWyKF;
+	arc=none smtp.remote-ip=74.125.82.169
+Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 593EB606A338
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:53:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 593EB606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 347E5606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 04:55:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 347E5606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=RNqyiKh3
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-384c78aa0dbso3202513eec.0
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:53:31 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OTGCWyKF
+Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-3282db206d3so6623531eec.0
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 20:55:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795323210; x=1795928010; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pDpU6PvkkR9T5YMpWrxr6Vm8fDQspCIPlW5JeeJkxnA=;
-        b=RNqyiKh3LlN9xhq9jphMzBVO1T+UboaR0iWld1TeuvzSCSfci4yP1E8BCwOl7QtIy1
-         qRj9AibZlaL01lX3HvTncb+JCjAlfm1nggMgvK2XwW1+rfRKOqrDHYOKoSCXepACFk8I
-         kdcFYwow33B8QEhDb7MHuXyswa57cl1Kx8OEgorox1LiXBbKhTZySsi6KW0xWo1W0sc6
-         yAGRNvFMmDJv/kkbU9X1L4RtEurmf8Vouf6DX2QB1oJ22YEpcnONi2V1y8r1UkwovzVW
-         Le5bUxIeS3XNO/rr1VI0LYR9a11JMz416iKUK5fLZcdxql8TqqL2HocuFWPxxWoQBVFT
-         pROw==
+        d=gmail.com; s=20260707; t=1795323307; x=1795928107; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=zo5hV3nq2vAzOrfwjLwLFQ7iNUuGgnQAdTEhOY7Nk04=;
+        b=OTGCWyKFZuWdrwICzH5qhVzKeOyJZX3Tp/aufBzZVXieQiqgUo5wteOFtFPdjtlKok
+         WtDXfQ0iE+Qn9vpdtYbTMD4dgNj21yFzDR/XE/Qz8ECFPcEDtZIQBClS4VIw5O7kIxMq
+         Fnk1zdSl3DtWUqMLXE0RhM3+OCObFnUUWdAtwOEsFK1vVZn8Niho68PM2rBjXId+Mx05
+         RkdBhm+QMYkUNzC+dUElcjwUtvb9BNAE+QSNkWBbO4Pe5f76LBoSj9rztyGFHKQjT7EP
+         mYR7TrfjKAosJwhZGqn4k8JwtrqibMZJuSrLILemOh0b+LCjInJC/lWJ7Mh7Xjc0BJaJ
+         M17A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795323210; x=1795928010;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
+        d=1e100.net; s=20260707; t=1795323307; x=1795928107;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=pDpU6PvkkR9T5YMpWrxr6Vm8fDQspCIPlW5JeeJkxnA=;
-        b=KUZtk1x1Tg4FCFBJYuf8jMpZJKhoDpvzM3GjqUHy67/dSQBDwM2bIXwlK2NqSVNW+T
-         61uDhUcBOUpCpbu1W8KkakwpzcZoQ9LxSzealR+w2ivopGfzrvQT47Uma/i0dGfnYfh6
-         PdSY2RinT2MDzLyQSW81UzgXzD1SabdcrFp8Y82JgM1cDHBsjgvRvOjLZeDgwjt5mLnb
-         lxbaKqSF+xbN8OI1ozHFi5cApbOLaOuxntyhPkgL2DRcB8OUzn8zS/2iYoLJdjAAoIsF
-         NIS+jaD8IOsiCNMgXTLFrrjuTtaqQlVUqY6ZJqlR6xBx8aE4GlNPU/A9zTvivd7zzfGz
-         VqEA==
-X-Forwarded-Encrypted: i=1; AL+hErFmnbL6p/vJfTyz7xe+TabubKa0LpchjDTq7zlBDERIKT+vtlE0sNXLtv/8+sQX+Ep84/wHcB/j+NnlYtU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9+MoHZSszZNbltVVKkbvJo+tSfvjcq7XxRksYKEblS24vl2wew
-	BIT2Tu1XCBr/KN99SsFlcdtR835KesHSYDP03mA1l5wi6cvF2vNTkLxTOfz2EGe4XMYrjTOVlbr
-	j4odX2bq/sw==
-X-Received: from dlbtu1.prod.google.com ([2002:a05:7022:3c01:b0:197:f679:f62d])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:290:b0:1b5:dc3:209b
- with SMTP id a92af1059eb24-1b5568ac6b0mr7480933c88.22.1795323210085; Sat, 21
- Nov 2026 20:53:30 -0800 (PST)
-Date: Sat, 21 Nov 2026 20:53:26 -0800
+        bh=zo5hV3nq2vAzOrfwjLwLFQ7iNUuGgnQAdTEhOY7Nk04=;
+        b=NF0SdLicpeKT6m07eknZRKbTpviqvS1lmQ2IQdQIGN/cKWq4VQowRwdPQFMyleI+4l
+         TGx00JXKodl4Xd1l4izDV5+pCYOVq6VsFNRYuf4KM6IOQLLS0OrjkasmSzVby/HtQC+5
+         hxJKfH7HyzwRJTy3t7NRO1Wsz5OoioTPNbPZKjWulk6aeTEPyIOA75jKMVCQlAURvK0h
+         304kX+KVE5egmZnKRhbqsAAWK4XZaeU1h0//Hmq/oVDjIiFaSPjBrCUrL4+fbILknZjn
+         Ms2eTbLgHsUjT0VBpunAalSHdF1nSCPCZ6MhrnS25Y9/9NA8Qytj4qhAehilaNh/AMDR
+         ooug==
+X-Forwarded-Encrypted: i=1; AL+hErESK4JIeFuCmw/RYlNLzdpGZuNmgbJrvKVkXcBKssoBQOppopJl6XEQ5cBXvcgKSrE8tDeHSL+u50MmXPs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z87ZGrOhXab/VjGDXKjcYOXQg8GKlmjQ6Z6UBzKeyzW5/lOEChx
+	WWWdk7yFoWsL5Q3MnjNvLamOAC5Ewxp9pzNSORCDSr2cUhxkIo5kbXRY
+X-Gm-Gg: AZFdTZc3GYOfS/IbkF/FIugOrmAfXnPsO9NyDXF85NXB+0baNY0GGt4kOKEW4Li/Ddc
+	PeDNIrCmxFr5XBXvwgULdmaruCtmzIGaiCl5HDAyxxreFWf21OXRV3qrhUM8r7DI0jsyjYEZwz4
+	bdoHTYtomUmy1kMIQ3dUY3wn/iiF69vxgomqzYXbvxDEcb576tB9YsxlJWfDtBvEa84xIP7kt5u
+	OLQCC4AaAdQLJ7W6MttL4QxzBNQjan66fAfUDRcJQ2TJh7h+2U90rf4QH6fPMOn35Gv9nX54pz5
+	9TPDxl1JpQJ0WKnDDSibE0p1czPtEEgUYPIldziBQnyLrpDHnLeEpjyS7cflTkz1mKXPePRLoMq
+	pw3KPT0mgtnMYLpYNAxksXPZxP4KPmZHg5MPTGNHJktjFTactvOddcPZrHy+vZViM1ZfCa9InEC
+	nyiNnuO1+LxrBmcLlqriM2Cnsn8OsueRCzWUGiqvTGJG+Yd2rmei40wNmQkd0wdW8/e7wt47S6x
+	gCy2eT5o2q4bky46pArgQCg7eWFcRWlpZpYFpmbsvHRqNEIagJWsZjpG56vfrTACJjRoLH1sJfd
+	NpR1hfMk6EJF8NhixQ0WTtx9l0fFtZpKPN3yJ2S2SwaLNyXV8y16gkAdaGGhcpg5EYwGCeM=
+X-Received: by 2002:a05:7300:d090:b0:386:8bd2:da2c with SMTP id 5a478bee46e88-3868bd2db9amr5813273eec.2.1795323307243;
+        Sat, 21 Nov 2026 20:55:07 -0800 (PST)
+Received: from localhost (61-245-143-184.3df58f.per.nbn.aussiebb.net. [61.245.143.184])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3866f299d0bsm15989477eec.19.2026.11.21.20.54.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 21 Nov 2026 20:55:06 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,95 +88,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261122045326.19641-1-irogers@google.com>
-Subject: [PATCH net-next v2] tg3: Propagate PHY reset retry failures in tg3_phy_reset_5703_4_5()
-From: Ian Rogers <irogers@google.com>
-To: Pavan Chebbi <pavan.chebbi@broadcom.com>, Michael Chan <michael.chan@broadcom.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sun, 22 Nov 2026 12:54:55 +0800
+Message-Id: <DN1GZS7LQ7BN.34S0SPYOQLG1M@gmail.com>
+Cc: <rust-for-linux@vger.kernel.org>, <linux-leds@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>
+Subject: Re: [PATCH v28 0/4] rust: leds: Add led classdev abstractions
+From: "Nick Dowsett" <nick42d@gmail.com>
+To: "Markus Probst" <markus.probst@posteo.de>, "Lee Jones" <lee@kernel.org>,
+ "Pavel Machek" <pavel@kernel.org>, "Greg Kroah-Hartman"
+ <gregkh@linuxfoundation.org>, "Dave Ertman" <david.m.ertman@intel.com>,
+ "Leon Romanovsky" <leon@kernel.org>, "Miguel Ojeda" <ojeda@kernel.org>,
+ "Alex Gaynor" <alex.gaynor@gmail.com>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Alice
+ Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>, "Danilo
+ Krummrich" <dakr@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ "Bjorn Helgaas" <bhelgaas@google.com>,
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, "Boqun
+ Feng" <boqun@kernel.org>, "Daniel Almeida" <daniel.almeida@collabora.com>,
+ "Tamir Duberstein" <tamird@kernel.org>, "Alexandre Courbot"
+ <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
+ "Ira Weiny" <iweiny@kernel.org>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261113-rust_leds-v28-0-b8cf2f74fa57@posteo.de>
+In-Reply-To: <20261113-rust_leds-v28-0-b8cf2f74fa57@posteo.de>
 
-In tg3_phy_reset_5703_4_5(), the 10-iteration retry loop discards the
-return value of both tg3_readphy() calls on continue and never checks
-err after the loop terminates. If MDIO reads fail across all 10
-retries, phy9_orig is never initialized before being written back to
-MII_CTRL1000; if tg3_phy_write_and_check_testpat() fails across all 10
-retries, the function silently continues as if the PHY test pattern
-succeeded.
+Hi Markus,
 
-Record err on both tg3_readphy() calls and return err if the retry
-loop finishes with an error so dead MDIO hardware fails probe cleanly
-via tg3_phy_probe(), and zero-initialize phy9_orig since Clang's
-value-insensitive -Wconditional-uninitialized check does not correlate
-the earlier continue on err != 0 with the post-loop 'if (err)' check.
+Thanks for these abstrations - I'm using `led::Normal` / `LedOps` in a
+new Rust platform driver (`clevo-laptop`) for Clevo laptop keyboard
+backlight, just submitted here:
 
-Found via Clang -Wconditional-uninitialized on an x86_64 allyesconfig
-build with AI coding assistant help. Verified by building
-drivers/net/ethernet/broadcom/tg3.o with LLVM=1 W=1 (-Werror) and
--Wconditional-uninitialized; not runtime-tested on BCM5703/5704/5705
-hardware.
+https://lore.kernel.org/all/20261122-clevo-laptop-v1-0-881debf4d4b0@gmail.c=
+om/
 
-Signed-off-by: Ian Rogers <irogers@google.com>
----
+Verified on a Clevo/Metabox NL57AU laptop.
 
-Notes:
-    v2:
-      - Target net-next and drop the Fixes tag (Andrew Lunn).
-      - Also zero-initialize phy9_orig so Clang's value-insensitive
-        -Wconditional-uninitialized check sees no uninitialized CFG path across
-        the earlier 'continue'.
-    
-    v1: https://lore.kernel.org/r/20261119171021.1535172-1-irogers@google.com
+Tested-by: Nick Dowsett <nick42d@gmail.com>
 
- drivers/net/ethernet/broadcom/tg3.c | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/net/ethernet/broadcom/tg3.c b/drivers/net/ethernet/broadcom/tg3.c
-index 95827df4cf6a..4d375328621c 100644
---- a/drivers/net/ethernet/broadcom/tg3.c
-+++ b/drivers/net/ethernet/broadcom/tg3.c
-@@ -2544,7 +2544,7 @@ static int tg3_phy_reset_chanpat(struct tg3 *tp)
- 
- static int tg3_phy_reset_5703_4_5(struct tg3 *tp)
- {
--	u32 reg32, phy9_orig;
-+	u32 reg32, phy9_orig = 0;
- 	int retries, do_phy_reset, err;
- 
- 	retries = 10;
-@@ -2558,7 +2558,8 @@ static int tg3_phy_reset_5703_4_5(struct tg3 *tp)
- 		}
- 
- 		/* Disable transmitter and interrupt.  */
--		if (tg3_readphy(tp, MII_TG3_EXT_CTRL, &reg32))
-+		err = tg3_readphy(tp, MII_TG3_EXT_CTRL, &reg32);
-+		if (err)
- 			continue;
- 
- 		reg32 |= 0x3000;
-@@ -2569,7 +2570,8 @@ static int tg3_phy_reset_5703_4_5(struct tg3 *tp)
- 			     BMCR_FULLDPLX | BMCR_SPEED1000);
- 
- 		/* Set to master mode.  */
--		if (tg3_readphy(tp, MII_CTRL1000, &phy9_orig))
-+		err = tg3_readphy(tp, MII_CTRL1000, &phy9_orig);
-+		if (err)
- 			continue;
- 
- 		tg3_writephy(tp, MII_CTRL1000,
-@@ -2587,6 +2589,9 @@ static int tg3_phy_reset_5703_4_5(struct tg3 *tp)
- 			break;
- 	} while (--retries);
- 
-+	if (err)
-+		return err;
-+
- 	err = tg3_phy_reset_chanpat(tp);
- 	if (err)
- 		return err;
--- 
-2.56.1.750.gf70dc682cf-goog
-
+Kind regards,
+Nick
