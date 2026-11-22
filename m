@@ -1,60 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795345996;
-	b=szbW+FlEC/KSDcu6RMyWAdnR+U5qRGUoKZKkKfSfBKCOKkYMDDJg11DiKU+FOG7YUE0V
-	 wwtC0KjDN5iCq+g85eWQk+1qEeFtYydXo/SRO8g+Zom8frxwdO4MyQpLqjCwlAn4bJyOb
-	 oqOj2YtO0CgBbDcNIvhFLxSirpg6zvnl5wU0A8PAm//zX2DF4t6fEQVDkzE//w1NvhYrQ
-	 fjHkSexTOyFsF9qBsyrRgtrj0PosUQd7dxBQZ2kYAX83RPQ4rmjkYhtHW7W4xFMZAmfwe
-	 Ikgn/AwkCHra7eQvZcWrlLs8p0haJLrSf/7D+uifqP+aHt036Y3pyJQze5vN5SFIWSw==
+	t=1795346125;
+	b=H2hBFvNFsr5TU1Pald8IH6UeuzSXOkPGtL+5zOJmSISYm8tOTlBHgmvakncQJM87Bvse
+	 ma/lRqcDmfggi7w0OSfIVzQ12vRY9p6qsLdt6+FaPR79DIa9yMr+Jja7Kbg2NBsYoVzC3
+	 AQGfqM/p6VR29hNu2bHjvSw5Adkjyo6veYVCfQkPqGLX42sbt6S8vymAtolbp5Q4p4843
+	 LMDq1CqplLYX1NjHrQMgdHawxASZm92ILP5bRKGlyX5u7k0yZhTuJEMTIX4FUE7BmvGiA
+	 reUZqcDXL1kiuvmb+TZMEKMAztno/9FNfhbLBydOZF1ZpHc1FQwk8eTRLaCDDEUJUHA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795345996;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
-	b=fxyk4OWVQQiKEfE4hefRBv7yxsE5oh/elZp9tg0/SejD1KS38+zRCJfZhwV1+2ZKXakJ
-	 j1gXGd5mtVKj0+wZZRL5cpbmUsSDCwxPj4gQz09Yte9JSXSnYMcB7Oz1zutqxVgHtNv9/
-	 9/fhU8OjrLCpT4XtLcP1cQ+LUUd/qgHEt4iKtPXlgWQU0BxKSiKjzXcW9M6qBE9KlsDLP
-	 zgWmdQGNEzE3qQyf/tCZQkcGoQ2TbGt/bvdFAxl2D5ty3JtEaC2VG7qYou82v9d+LprIH
-	 x7XpGEaDHua+BE6SdpnMzsQuBbBW7ZFppRr52voNubTaw8xh8UeI11Q2VihEd3y+kwA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795346125;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=L9lFeo+4KqtRvkcLqx56rHhZdRkgS+HKMfKcTP1+GOQ=;
+	b=ivf5IcMwb8TSSMjG6sX4Q13b3YYO9Zb0uozVs8jVCFBxSly/CKH7URc9Qo0O2ZrTa3Nz
+	 btqEu2AXRfErQbYS/+w7uYH7MPvlAGRRzVaNepRCjzcbZVOeJtiqYoXA62jjiMgsoNyt8
+	 CCshxXd2fbdxLAJ+huHTmuB7tqfxGx7yMBv6SdFdPOnNJyYF+XngC8kfQjzedk2JBu/Ts
+	 AcLXGR8okCuaasB1ADHv7OZCUOp6e2dmjf6e2RRyofZ/pv97EFuMNwx9PGx4vAKUToICO
+	 fhZ9eRtfJ4Hylo//t238PCfMxcQs3ZUY+pPkVtU0J8vd2BQHgxCMWcGA5Ms5WaKj4DQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="C16RvE/L";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="MKe/qF6V";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1460D606A320;
-	Sun, 22 Nov 2026 11:13:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12B38606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 11:15:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C16RvE/L
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 341181F000C0;
-	Sun, 22 Nov 2026 11:13:15 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MKe/qF6V
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D60B1F000C0;
+	Sun, 22 Nov 2026 11:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795345995;
-	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=C16RvE/LYheAFMDhoExIcOil2CXN9t0ylm0uvgTteJRE+Haj1xOX4vsx1Vj8L1xp5
-	 Qs+0zX71luIdiEoe1G1AvamS8pyjQYsOL0GCp4SxLeAG/gdmN1O5z7eJRKjxaVkQzy
-	 ifVieyMd4Mhavu4nRmWqMl7kFnag1rVaE41RTzzLVrBu/QU7GxfZhbrowslJeI3iA3
-	 xDhXT/dkEe3Uqh1KI1QsGOMAyC3DKWZl8VMBCDRoZGzgVxGAMhDVAuE/LvoF70XL/d
-	 YAtRYdGJMOKK3gTurAku5a9BvjLSitQyIC9HHpXoN4FZeI6ztd6SmF2dEK8EnzLFpl
-	 m72dPMTewDgNQ==
-From: netdev-bot+sinfo@kernel.org
-To: Birger Koblitz <mail@birger-koblitz.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>,
- linux-usb@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2] aqc111: Fix rx/tx_fixup issues
-Date: Sun, 22 Nov 2026 11:13:14 +0000
-Message-ID: <179534599473.3294.5226906063494646334@kernel.org>
-In-Reply-To: <20261122-aqc111-v2-1-52d5ddb17a37@birger-koblitz.de>
-References: <20261122-aqc111-v2-1-52d5ddb17a37@birger-koblitz.de>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1795346124;
+	bh=L9lFeo+4KqtRvkcLqx56rHhZdRkgS+HKMfKcTP1+GOQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MKe/qF6VXp+rIzw15AyXHotbzqaQrc5mRu9ZbxgM3KRE7qxc1g1nPqOrwW8BmOFdL
+	 quCsiSnCX9S9/ihsiZnUOxdUFGH3LUeAhYdnEK8B5ofwTJgwQI5OCMUNgs7BNKxGAu
+	 Q639My7hU0tXjpNaVteVweemt6pxeagI7zSyZNfC0hBjj4WeONJ9vepHKPcFj5qylW
+	 6RiJ+D9QXGG7BRI2KOaMrwbNy9NpapXU2D920ZUIYPMPNJhYmQV3yJWTqQi1nZsMyH
+	 Ag+kql9PuRY/Y8KywZAzzeVk7lnOl9PyZd9qGVaIX2MwWPbvwNGDsR12lultkaMiX5
+	 qit9B2h4BC4Dw==
+Date: Sun, 22 Nov 2026 12:15:19 +0100
+From: Ingo Molnar <mingo@kernel.org>
+To: Juergen Gross <jgross@suse.com>
+Cc: linux-kernel@vger.kernel.org, x86@kernel.org,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Tony Luck <tony.luck@intel.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Ben Horgan <ben.horgan@arm.com>, Dave Martin <Dave.Martin@arm.com>,
+	James Morse <james.morse@arm.com>, Babu Moger <babu.moger@amd.com>,
+	Drew Fustini <fustini@kernel.org>
+Subject: Re: [PATCH v4 0/5] x86/msr: Drop 32-bit interfaces of native MSR
+ functions
+Message-ID: <awLOxw4B1fgdwsTN@gmail.com>
+References: <20261116160259.1579333-1-jgross@suse.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,22 +64,18 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116160259.1579333-1-jgross@suse.com>
 
-Hi!
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+* Juergen Gross <jgross@suse.com> wrote:
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+> Switch all users of the 32-bit native_*() MSR access functions to the
+> 64-bit ones and drop the 32-bit interfaces.
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+>  7 files changed, 15 insertions(+), 32 deletions(-)
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+Applied to tip:x86/msr, thank you Juergen!
+
+	Ingo
