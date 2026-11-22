@@ -1,62 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795309438;
-	b=OVTu+RYXfeIHcGoRCKoEZs1bxgbcp+t+gv/snA4MC7AqH4mgCNcwSYxrsJp8m+CLjsIx
-	 hCVqnoQZw1Up2a0HQnnXZ7zFghH5YhG9On3OU9dCe0fdJGnS4tXaKylzV9AHrxqV14H7p
-	 c7uPfLNa45YBw9C95yHwnbTOuXV+AqwUwazwPGK7HC36PK60pMGE31HvsuFEPGWTzVhoT
-	 kpZ+oCKwYevaEHXzz0dVHanrzqvOgr77hjfWqqnDVWGIm2Ka76iJOgVXBUZK/3SIVKPc0
-	 s6oonEjHx9aeSQorXi3VW3rQ7n+qtfXFOPE/GyVQgCAHurZuIYbUdTkJ0SHFHQXjHmw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795309438;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=PILEnaDBNzPkill2qm3jj+/BKJ1Q7LUkoPvGO+IJ4aY=;
-	b=BNoLZQBRhA2FTtR+YH2gr7IJkY8kflyXGmO8VNTsK8Vyk2MZC4CTEWCUSy0dm5Q+ubHt
-	 HE5/gZb+EVm3otcNPL+7zxwidRsgQAEYQ7wFJIH7fYXMmM3Zx6wv5OnLi5G4JmPeH/0q3
-	 4XxP4qpZ/qjEkqLvlwFVIKmVnOSf7i2LQm4zUWAmmdLdXGWn93AYxSo16BcqPdIeM/drv
-	 TKg/kbkrZhPXWF+qLk/UChzY6XvZOezx6QHkNKnYjdZ7/rfK2EgGRTZYotUGX22xnYe0l
-	 0pHRjif45jhmTqvIfCxZ/DPVMVO9HtFOg4N6jNpxKLACdBtdqgUdlfVWmnT1gBt1xqQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cYM5lkLf;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.54
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795309446;
+	b=lyw7RzXosGPwz49BYSHiKDZJ9tXNIF+p+IbJ6QEXbIx/WjDOb1sLCmKVKLfzOSJnN3lG
+	 Z5FpuWHnKTrjd9qlsapWrrD7P+Oo5jHajaRbzjxYS7T93aOSdkvkBQDXRKVNKRJMV30sS
+	 ZuF3qddXDSiBiAZx1r9vFuVauRR+90v6lJOwQlSFgB4I0uSvKWbPmGm87zuJHpsh11BKp
+	 w+DrR2dtwo6/ijMkH3Nc10a/ntLN4GzzQGfkBYdc9PmDPNlffYuq9hdtsyVYB6W4BfJhm
+	 wLxfD+T5rqh0tDK2MmklD5TuqdLipvPB/HPoXgF9CKFug25wsJMABbarnYIMAwZQFMw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795309446;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=XU9CTY7WoQNjWuyj0O1gIi3t0Gan/b1npHOP4LTTvJk=;
+	b=Yj7f4bgeUD1c6eJEkY80etk6p11DTryVDloYx3lC95sIBMOEtFM+TVqx9d9ZQ9UZrzXv
+	 73K5qi16Ima6LMVzI0GGZ80pSohM223d4UN+hekS5syfko6oKE/4i06terU2abLQEjEhu
+	 9zPj+oCxOhAlRqIvwps4uJ79KFU69cGfmHVOWyp8/Zb6Ng23i6jRieVA7gJtjjbByg4Kq
+	 5LjpmJ1R4egItmgbAQtgUvbysCiaggO0c0DcmJ7lqiiYe2OfZ2GsplKT3HUU0ryii4b2B
+	 aoYXJ1sxfPlqMxLcnPtknotKUdvIvnOEvcS2Bicxt8o20rqutyU4yA0MiwgUio07izg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=0x0f.com;
+	spf=pass smtp.mailfrom=0x0f.com;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.54
+Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1BD5606A320;
-	Sun, 22 Nov 2026 01:03:58 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cYM5lkLf
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAEB21F000C0;
-	Sun, 22 Nov 2026 01:03:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795309438;
-	bh=PILEnaDBNzPkill2qm3jj+/BKJ1Q7LUkoPvGO+IJ4aY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=cYM5lkLfxZQj+lCVglPjc4pVh+jXGBy8Yupym6eqWm7JkiWwD+JeqVrZgEcJYZUs4
-	 zhnVYL6UC9NBzYPEQ7nxTSzf7PttwEl3tlgejUDd9jKIfozed+xsmXmO8N6Bc6yuKA
-	 wdQJuWmpvkjs+69zRxKSnKUkOxvu+GeYn3A6Ui3UwNz3NmDGD2ScTzCmOy1UuzatTQ
-	 3tqKlRcQvEfvAswH9yoJWESHNqX221fBWGWYCCwlksZeZCAJAECEJYMikOOjhxfBR0
-	 e8JOlnmTp6S8nkVuIhaaR7jsVr5ytumHcDc89M8JvtZJveEM5nw22m+rl5Mc3C2SFb
-	 SeWgXuAKIlyxw==
-Subject: Re: [PATCH can-next v5 7/9] selftests: can: add J1939 TP/ETP
- multi-frame tests against CAN_RAW
-From: netdev-bot+sashiko@kernel.org
-To: o.rempel@pengutronix.de
-Cc: robin@protonic.nl, socketcan@hartkopp.net, mkl@pengutronix.de,
- shuah@kernel.org, kernel@pengutronix.de, linux-can@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- fmaurer@redhat.com, mailhol@kernel.org, alexander.hoelzl@gmx.net,
- quchaosheng000406@163.com, penguin-kernel@I-love.SAKURA.ne.jp,
- kuba@kernel.org
-Date: Sun, 22 Nov 2026 01:03:57 +0000
-Message-ID: <179530943723.3131.3874073778043295050@kernel.org>
-In-Reply-To: <20261120-j1939-selftests-v5-7-fdf4c242a37e@pengutronix.de>
-References: <20261120-j1939-selftests-v5-7-fdf4c242a37e@pengutronix.de>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 407E2606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 01:04:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 407E2606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=0x0f.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=0x0f.com
+Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-1b244fb7fffso2088294c88.1
+        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 17:04:00 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795309440; cv=none;
+        d=google.com; s=arc-20260327;
+        b=g0kK/DXGJ5QdswF5zR9IOEQ9gCTVm85lSDOcP+1uUi51e33iiMGkfK0idCrlKg7oLn
+         Z8Bk4AT2uf8SA3upefvaMGJ31bCUGGdT7zNU8HpHBswBaCZhJxp5Pd+hQHUbCD0rY3ac
+         QB5WcU/NLuy5npy8MYL15zt33CuKybm0O6X/3pboj/up8eroi2GamCsDQcXI/R+7KpnL
+         EKZtRUjT5fgElPFYIovyOjgJJsoMYUALBR0SGhPCiNJYm9iSezmp3PPf1yL6iO9b9kVZ
+         WSJs1ue2yX7zCw3VsaFJUSp1qF2wOs2/nX/Ia09ySy0L/L1vseduROU/4cNjyXFVznpx
+         yW4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=XU9CTY7WoQNjWuyj0O1gIi3t0Gan/b1npHOP4LTTvJk=;
+        fh=+Kj7Yg5fAXb4OY/9eZhJ8OBozmzYpMaBYnk+nQitOpU=;
+        b=IVoVVGiIWdWuk9Rkr2urEai6CygbRppvxp6Su91yFYbi4feAU1qzIZRokOjnEviBbi
+         UBig4RNVnY1jxd//53G7NbXLhSPdFcQM1HIapM6yQludD6caYZGvb4UaMsA3RpJCSVeX
+         KrVTdR2IHHdd6R09eWp8OA1ffYKaPCkdqfna9MHr2s4fPZFFZ5AImvat4fy+ZoX+Yz0R
+         RThHktK4TEUaVw+xm/lqlimqrg6ub61gnVCg2MaGR3hGbIbqQyWRtsIWIu6rYbnudRJE
+         6PNRcU/twi1zqFB53QSFXv+QPWAs+3KtqLTcrpCSSJD6+933tQs38NPo0rtn0193kLZX
+         n/+A==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=0x0f.com; s=google; t=1795309440; x=1795914240; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XU9CTY7WoQNjWuyj0O1gIi3t0Gan/b1npHOP4LTTvJk=;
+        b=Or7bJpmPMdcCFB3t5NhRjZTEydDqiebvD4Vbvu/y1ErSGc5OodZjxAAXsmyucEzzIe
+         yGTDt4VzIwVglh9B++JjOiylBzTux5Z4/W397y3+0i0832ysu2oMl79pVEC9Njnz7coS
+         cV6WLcGxMw8DZQO5Ur3W9ktlR5U+uIRVNKS5s=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795309440; x=1795914240;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=XU9CTY7WoQNjWuyj0O1gIi3t0Gan/b1npHOP4LTTvJk=;
+        b=iYkW438w4jZoSpd7297F4b++9HQtU27Mufd1dLXplZQCffN40OjD+b27nU+hYVfPdl
+         d3HvPnXhaHFaqkHHQvP7tc08k8WtOAq23TyignWacwTrPCGUbBeZRrqkTmhYz067o00n
+         22gGaWUjsT+yVyl2Ma0gsGVZsaePEjMFtJC9ol4b1/VllrtsWP6JQJNKl+mNT4v7grcg
+         nnyWgDa+r1Eu3hCP17/QQdZnqYtxQylLFjvdpdIUm60dQQ3lb0OETsDPBxzrCbYIWXcg
+         gf4kJtHadwlZcyMc5n18ZpaKdpwNTr0syi6oafoATop3cjWe81Lu5fwTTm670hK4j9ZZ
+         uzew==
+X-Forwarded-Encrypted: i=1; AL+hErGl9dhRLjvRcRRMh2evjw+NePPS9yY1+E5jEZpKX8jK66NohfRlnj0f7EAxgpqM90fSlzzJEWcVl7Oy7tU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+EuKcfwMH/DJkRdXKdFpitJse5eMCfFSj1ukHlwe5dX8epWVsp
+	9GPLRVhKOIBcoqSHTu7UDwV51+28Z8t3x5myh/F2h9GhFs8vx1G58ivIWGfIakJ3lzjK3YGTASP
+	K23+zrwWCmnTU30AXuUVxGSElIMKDaRBspySzJ+vDsQ==
+X-Gm-Gg: AZFdTZfxTyWevPt2xpKqZ5K8LueE0aiktHD8YhUp6dkSg5Lxp96QLouDCisSzxF/b2P
+	G4SjVRsv9WGk62Kaj3ykecXm7DNyFNa3nIvSbsy/VDP51pOevZrYTpyQs/i9/X+u6OTwPHcyDOE
+	lpHcSHfjC3pKEcRtMi8T/Z1z1n3xbPejJaP5JdIIC2aDjLcxQCHOZjOlOqappqRLPgALY8P5o4p
+	rsA5unOpmT1VDsYx68wxfD/o41yJKL0BOxUUUrCXz6rXZcGW22nnEpA6uIeE3vDaVijNcbkeEDO
+	sVGhpP+wUgFzsNPUplfJcFuhB4EqB/qRz0ipQl/JoLTINv7ey9qgk/2EamF1FuLgeYZ3OmAcqZv
+	GMYcCyjk4Re4+Tt8cs0qCyY1N12C6zuchuF5Bt3o=
+X-Received: by 2002:a05:701b:4587:b0:1b5:1a7a:2ebc with SMTP id
+ a92af1059eb24-1b56f87ab60mr41806c88.16.1795309440060; Sat, 21 Nov 2026
+ 17:04:00 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,142 +97,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261111163735.227286-1-p.pisati@gmail.com>
+In-Reply-To: <20261111163735.227286-1-p.pisati@gmail.com>
+From: Daniel Palmer <daniel@0x0f.com>
+Date: Sun, 22 Nov 2026 10:03:48 +0900
+X-Gm-Features: Aa3M54q1ImzjAY62LMRYJIQ2A3YvuU8mR98bZ0JQppFgLr97xa3DaAxEG-GBzXM
+Message-ID: <CAFr9PXm9+gn0Gz47TU+PG7LexCYWWrU915BLcLAHg8GSsEDDeg@mail.gmail.com>
+Subject: Re: [PATCH v1 0/7] zorro: add a CS-Lab Warp 1260 MFD
+To: Paolo Pisati <p.pisati@gmail.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Damien Le Moal <dlemoal@kernel.org>, 
+	Niklas Cassel <cassel@kernel.org>, linux-m68k@lists.linux-m68k.org, 
+	linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Hi Paolo
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+On Thu, 12 Nov 2026 at 01:41, Paolo Pisati <p.pisati@gmail.com> wrote:
+>
+> The CS-Lab Warp 1260 is an A1200 trapdoor multifunction accelerator: it
+> contains a 68060, an FPGA, an ARM co-processor and several sub-devices
+> hanging off them. The 68k drives the IDE interface and the RTG display
+> controller directly, through the FPGA; the ARM owns most of the rest -
+> USB, SD card, WiFi, audio, the Kickstart slots, the CPU clock, fan
+> control and the board telemetry - and the 68k reaches it through a
+> dual-port RAM mailbox.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+I can't test your patches (I wish I could but I only have a 060 + G3 +
+Radeon hd 2400 A4000 ;)).
+But since you have an 060 could you maybe test these for me:
+https://lore.kernel.org/linux-m68k/20261119123558.2108296-1-daniel@0x0f.com/T/#m42ec8c1fe97b64b22f9cfc8d7ce753937bdbab1a
 
-- [Medium] The new RX tests in
-  tools/testing/selftests/net/can/test_j1939_multi.c assume that…
+I also have a fix for a small performance issue in 060 only kernels
+which I'll send next if someone else can test.
 
---
+Thanks,
 
-selftests: can: add J1939 TP/ETP multi-frame tests against CAN_RAW
-
-This adds TP and ETP round-trip selftests in both directions. A CAN_RAW
-socket acts as the transport peer and by default sits on its own vcan
-behind the CAN gateway that j1939_lib.sh sets up. The tests check the
-control and DT frames the kernel sends and the order of the TX-completion
-ACK, and test_j1939_multi.sh is added to TEST_PROGS.
-
-> diff --git a/tools/testing/selftests/net/can/test_j1939_multi.c b/tools/testing/selftests/net/can/test_j1939_multi.c
-> new file mode 100644
-> index 0000000000000..6edce7493892b
-> --- /dev/null
-> +++ b/tools/testing/selftests/net/can/test_j1939_multi.c
-> @@ -0,0 +1,682 @@
-
-[ ... ]
-
-> +static bool send_dt_burst_ok(int raw, uint8_t prio, pgn_t dt_pgn, uint8_t da,
-> +			     uint8_t sa, unsigned int next, unsigned int count,
-> +			     const uint8_t *payload, size_t size,
-> +			     unsigned int first_seq)
-> +{
-> +	unsigned int i;
-> +
-> +	for (i = 0; i < count; i++) {
-> +		size_t abs_pkt = (next - 1) + i;
-> +		uint8_t seq = first_seq + i;
-> +
-> +		if (!send_dt_ok(raw, prio, dt_pgn, da, sa, seq, payload,
-> +				abs_pkt * J1939_DT_DATA_LEN, size))
-> +			return false;
-> +	}
-> +	return true;
-> +}
-
-[ ... ]
-
-> +static bool etp_rx_serve_cts_ok(int raw, const uint8_t *payload, size_t size)
-> +{
-
-[ ... ]
-
-> +		cm_dat_init(dat, ETP_CMD_DPO);
-> +		dat[ETP_DPO_PKTS_OFF] = cts_pkts;
-> +		put_le24(&dat[ETP_DPO_BASE_OFF], next - 1);
-> +		if (!peer_send_cm_ok(raw, ETP_CM, dat))
-> +			return false;
-> +
-> +		if (!send_dt_burst_ok(raw, PRIO, ETP_DT, SA_LOCAL, SA_PEER,
-> +				      next, cts_pkts, payload, size,
-> +				      TP_FIRST_PKT))
-> +			return false;
-
-[Severity: Medium]
-Can the DPO and the up to 255 DT frames after it reach the J1939 stack
-in a different order than they were sent?
-
-Each raw send() goes through can_send()->netif_rx()->netif_rx_internal().
-With RPS off, that queues the frame on the current CPU's backlog:
-
-net/core/dev.c:netif_rx_internal() {
-    ...
-	ret = enqueue_to_backlog(skb, smp_processor_id(), &qtail);
-    ...
-}
-
-The gateway then queues its copy for CANIF while that CPU processes its
-backlog. Frames stay in order only inside a single CPU's backlog.
-
-On PREEMPT_RT, use_backlog_threads() always returns true. So netif_rx()
-only wakes the per-CPU backlog_napi thread, and send() returns before
-the frame has been handled. On non-RT kernels the same thing happens
-with thread_backlog_napi, or when softirq work goes to ksoftirqd.
-
-The test thread has no CPU affinity. Suppose it moves to another CPU
-between two send() calls, for example after the backlog thread it just
-woke preempts it. Then the new CPU can process a later frame before the
-earlier frames still queued on the old CPU.
-
-An ETP DT that arrives before the DPO has been handled hits the default
-case in j1939_xtp_rx_dat_one() and cancels the session:
-
-net/can/j1939/transport.c:j1939_xtp_rx_dat_one() {
-    ...
-	case J1939_TP_CMD_CTS:
-		if (skcb->addr.type != J1939_ETP)
-			break;
-		fallthrough;
-	default:
-		...
-		goto out_session_cancel;
-    ...
-}
-
-The send_tp_dt_burst_ok() call in tp_serve_cts_ok() has the same
-pattern. A TP DT that arrives early fails this check:
-
-	if (packet == session->pkt.rx)
-		session->pkt.rx++;
-
-Then pkt.rx never reaches pkt.last, no EOMA is sent, and the session
-times out.
-
-The commit message says:
-
-    j1939_lib.sh also turns RPS off on that vcan, so
-    the peer gets each frame only after the stack has handled its echo
-
-That covers the order between the stack's echo and the peer. It doesn't
-cover the order of the peer's own consecutive frames. Nothing in
-j1939_lib.sh or in this directory uses taskset or sched_setaffinity, and
-that is still true at the end of the series.
-
-Could tp_rx_from_raw and etp_rx_from_raw then fail at random in the
-default kselftest run, especially on RT kernels or loaded VMs?
-
-Would pinning the test process to one CPU fix this? That could be
-sched_setaffinity() in j1939_test_main() or taskset in j1939_lib.sh.
-The per-CPU backlog FIFO would then keep the order.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-j1939-selftests-v5-0-fdf4c242a37e%40pengutronix.de
+Daniel
