@@ -1,102 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795333989;
-	b=FP1tyPcvkS5nbZHEhiozXTTXxivSY4aVsQZrxrV2OYQDVW2GlfpxsaRwOlPy51N52V85
-	 zzEZdaGTbVhPhk/x5AjAzua1NBZyAwn1tt/4zKxekn/+wku2MKnIZ5hUfkYUTTkORKiYL
-	 KHA9cjG4KVp4wOl+rPgfl3j+JnTqliTLzPlfQBjYoAZ1BqDblggkXPqqcc2UgsO3Q2aJb
-	 y7V5ZSUvMQq/DNiodYXmTBiVFT55qK+9ZeQgvpA9xDRIUDl8VhdRUebpPxYP+mHWYHDem
-	 BBpFACVfNqRrSAyfow0A+M9lvbM/vmgNAV3KVS+r2MUfoi8ylhUnC1DY88sa2Xp8m+Q==
+	t=1795334039;
+	b=YiME72Io3TYcdIB8KiYOWKZd4BAJcbvATHRvXcyOCOPrmWtLcotdXDbPQ1PSxdKOG51K
+	 kWkQVY3MIBJ9Xpkr8s+FJiC2J8JIbVzwtP+nKUsrzf0Zcj6cJNMxAQ2Jgv8dYzUYMwzqT
+	 hTlXxxuxRSG5Rm5U+446Djd8uMP1pMd/wTo5FAk2/ecNASoKX/n/IVEQ8Ugnq6CPKWXFD
+	 NfI54MLeWDnOjoRc+m+ME61EOP7u/wBkQlJ8QvmOkMIPL2eJxsAqqnPgsqNktzPGB/b5X
+	 44p8RmhIFB0GG7SpwbUiVVq/w3zyJZDQpQm+UJluCeaUduusdwSDNSgMUrmoQFSGR/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795333989;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=vPRV2FQJxiL/e86GXbUg3Okhimclyly/VhU1zcnJTrA=;
-	b=i/dILBzHtZK8H8O3+THaNm8GDZSu2nQCodPovtekegOtnFiCA1BEYO6M3xSDGIDQZzMO
-	 gu95pSgSbHzpuKEQGN47DVaNu1mrCar8VQEIS/EkgD38d1wCnGT4EOdUKiEJspzzvNDgr
-	 nCRz/IlEYrOZ5E7PfhInObzR3vI65fUXjqTJGSrQzB8So9oePFK3ONb5dz/TbWUN5Q1S2
-	 Jm2JD3tNUSRfIIYYSQcqsqUIbtxfQ2gfcpMcpldQLh608NrqI4revMZRLccyVPZjG3OFi
-	 r75znI25e+U6Y4RXtVT5x195lX40j+uLtiOijcJCBziH4ZwBRRWLrZgEBWoPBA94lGg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795334039;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=mOcmoHBzKwzqRhuvzie4cVIDXlVg/sxRWH6argNn2FA=;
+	b=VbOdHtNF5j2B3RssNOaEbumwf9r5jpYY+AxBOUws+Nr+Uqxy+XryBLNVHjAVmKBT3R7m
+	 H8EYBuXADd/xuQm3PIkYlSoETWbnHv46cLfZGFQ8xsOE7qBn3oT+vWc49iPz/bCXvDYPb
+	 BAG4mXSwinmFQmwFIV9Pg01CNIxBDUmPv4GiD4oyurxxMdh5Qs94EHu9XaEOOpwCm7g+4
+	 3BsL6nPP6DlMmXdLGX3D7qSlaaBPp3Y/N0kk8t0W0nX2U1zuFYmDSct6T0IM0jZuN1EhM
+	 G7DsKClqEOlfclG+b9ljLOr7E9NFsg2jUHiFFFcXhU+tR5zjgVFiyEXRSk/YZVRsYNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=esvp1aEn;
-	arc=none smtp.remote-ip=209.85.218.54
-Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com [209.85.218.54])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LHuP4vQ0;
+	arc=none smtp.remote-ip=95.215.58.52
+Received: from mta1.migadu.com (out-52.mta1.migadu.com [95.215.58.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63C99606A32A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 07:53:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63C99606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FC4F606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 07:53:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5FC4F606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=esvp1aEn
-Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c516a194350so40461866b.3
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 23:53:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795333988; x=1795938788; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=vPRV2FQJxiL/e86GXbUg3Okhimclyly/VhU1zcnJTrA=;
-        b=esvp1aEna3X6U+1FOHzsfniSJuTJNvN6s4Dxaf87ORiv+92ZE2V0D/OOHzQ6sflk4i
-         rwYSGYOA87brBKhH+pjNqo8gYEGh/bBHr/daEJvWpWFIQxCyUxmOkEvdtiwR2HV+SCVh
-         xDTA8wF+eSsge9zTy788/YKxuwvc+I6XyAx2BFcNQj88dk/xojGgbNOtmkVYZjwmxh/H
-         b0yahv9FVYJffK5f0pHOJbzR6YyvYQ3wmzb5DCCs4MHjlnRbdUiUO72ZXCFPK56ZeiiF
-         4tJMwwR0jl+xpg1T9HcYgNdvMpdns18UGHMwXx9UJ+Vgsx/2NVTe56AMtDX1qSLygGNf
-         KDqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795333988; x=1795938788;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vPRV2FQJxiL/e86GXbUg3Okhimclyly/VhU1zcnJTrA=;
-        b=G7m7CzvDUgBdjWFCwI1pWhH9vkPFGEpgm1I82OgM/XsdPOhH1ZdvQbwZVXpa0GjUvR
-         mnJnj2STbPNIyxeFqaM9qOtxYRvJnpa8A++qVzi2aDtTEl8luskmrQkG0AnqrKRKzNB5
-         wkHQUBuifq8t7GLEPglzbsbWcLo8NZuHgIKnTdN0OVso/M911gY8N3RafxgmvsNPbNmf
-         7khKaIabL3LoNCj79O7wHM4ddo9eUv0f572On9C2atFRzXNo0+QvjC/g2/cqg7Qmjwlc
-         z4hGGC446z66oDcF6zZzmrCU6oRdATvyk2hwFkB/qZ0a7YCAvjpESXD4B4rtL7L7Wkdt
-         2idw==
-X-Forwarded-Encrypted: i=1; AL+hErHNOqOVIJ5606GIiTrECkhpgrSWyFZ/eL7AqNc7A99WrTL6AkGm410EsHWb88hchHbkOSvGVVdFFRQkC0A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Mvt6yNJhC3mJ3ZGgZGRJQUC0WipeULvALaWJlfsLVkuZTlhE3
-	4vH1TRrC/MQ/4NeiVqtWrVdbwVO/YMS6q4WMsgNbBH52IEZMrgljlVep
-X-Gm-Gg: AZFdTZfcPXJ0y4a1en/d8s2RBxl5FYdTvAqhW+dljDBa9xIDdBy44Am8wnmfbLnZsCp
-	1nfOwSFlUURjcTh2ZUF9qcdwU56IcbQtlJNjLVJz1iawDYszemiruLFrOYnoRBhhWC8R39zCfQ+
-	Xd2JpgnjrA8J002G1rJENTTLDNVb9uxzsb7bnk2ytergfNnN3mUasjZfz0uXwVxQ8fibbqAC8EF
-	+r//bs6aUA4iww0LORZTb+SYD/6iKeyoUsjVFrrC7GkwEzbouQvNChjtQsUxUo2wfxjonrhQy5l
-	T7ECGAMXhP5Kt1FRSX/tfRiB/JHuvYTTVzKq3g7LqCY7fsNUOkp+c9aPLQOIZRQOf22fTwc2ttD
-	pUQyP3nQ4dbc7+GcbmxtCzdx0AEA+nuFXGBbbaZjt7uk/krEHb3i+EHw+EezMDEG2QHA06xjY7G
-	S4/vPo6ZQpLAKs+rz93HZc7K9PNayX70wxUeiNmPKdDF6bjFR7sDRKwrFGoiPiXjymJPkHsTuuA
-	5VMPc86V+wdGrXHyfuRE+sC/KOgtWOXORpT3AfY9ONZXNBakYVq4crxs6Zr8ax5k2MGciy2N+gd
-	RSwpOK72fPt3N/XWgkZVbSPF2KE=
-X-Received: by 2002:a17:906:4550:b0:c4c:e713:d296 with SMTP id a640c23a62f3a-c513a893bebmr534161766b.31.1795333987760;
-        Sat, 21 Nov 2026 23:53:07 -0800 (PST)
-Received: from dl360p ([195.155.168.55])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae679e3sm285332966b.22.2026.11.21.23.53.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 23:53:07 -0800 (PST)
-From: =?UTF-8?q?Adil=20H=C3=BCsrev=20Tepe?= <tadilhusrev@gmail.com>
-To: Joshua Crofts <crofts@kernel.org>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] iio: proximity: add Imagis ISG5320A SAR sensor driver
-Date: Sun, 22 Nov 2026 10:53:04 +0300
-Message-ID: <20261122075305.2920359-1-tadilhusrev@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261118105339.00001bab@kernel.org>
-References: <20261116074013.355363-1-tadilhusrev@gmail.com> <20261117173333.1853986-1-tadilhusrev@gmail.com> <20261117173333.1853986-3-tadilhusrev@gmail.com> <20261118105339.00001bab@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LHuP4vQ0
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=zkTOqn+rNjlOfmFIyhoF6rAk683YaTwi6c+aGGYoa60=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795334036; v=1; x=1795938836;
+ b=LHuP4vQ0LbfH0TkiIc7OPnMdIxBu3k1zCmUWVwzAtOnjVmf0a7rwmnpud7efP4ws1s4i4kHF
+ 1hxO0Ln+Tqt7z1JUMNar2v1E2mG9HikoNFNE88J416rT3vWkwiJ2+7S1dIDKNCSy/sr0MuM4ANQ
+ MzPpOjU+kVGOeQw/LXMgJJJo=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 862c2fb0d81c39f5;
+	Sun, 22 Nov 2026 07:53:56 +0000
+X-Mizu-Trace-ID: 862c2fb0d81c39f5
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <42207e26-ba7f-4df5-8c80-71fa1b84d26e@linux.dev>
+Date: Sun, 22 Nov 2026 15:53:44 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,25 +58,227 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 04/17] mm/memcg: add folio-based lruvec live helper
+To: kasong@tencent.com
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>,
+ Ying Huang <ying.huang@linux.alibaba.com>, Chris Li <chrisl@kernel.org>,
+ Baoquan He <baoquan.he@linux.dev>, Nico Pache <nico.pache@linux.dev>,
+ Usama Arif <usama.arif@linux.dev>, Michal Hocko <mhocko@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>,
+ Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+ Vlastimil Babka <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ linux-mm@kvack.org, Nhat Pham <nphamcs@gmail.com>,
+ Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>,
+ Gregory Price <gourry@gourry.net>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>,
+ SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>,
+ Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>,
+ Zicheng Wang <wangzicheng@honor.com>, Chen Ridong <chenridong@xiaomi.com>,
+ Tal Zussman <tz2294@columbia.edu>, Kairui Song <ryncsn@gmail.com>,
+ Xiang Liu <liuxiang.277@bytedance.com>, Ehab Ababneh
+ <ehab.ababneh@intel.com>, Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>,
+ Lian Wang <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>,
+ Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>,
+ linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
+ damon@lists.linux.dev, linux-doc@vger.kernel.org
+References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
+ <20261119-mglru-fg-v5-4-9eee2fe97a2d@tencent.com>
+Content-Language: en-US
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <20261119-mglru-fg-v5-4-9eee2fe97a2d@tencent.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Wed, 18 Nov 2026 10:53:39 +0100
-Joshua Crofts <crofts@kernel.org> wrote:
 
-> Hi Adil, some comments inline.
 
-Hi Joshua,
+On 2026/11/19 05:03, Kairui Song via B4 Relay wrote:
+> From: Kairui Song <kasong@tencent.com>
+>
+> Add a helper that resolves a live lruvec for a folio under RCU
+> without taking the lruvec lock.  It takes a folio directly so the
+> lruvec lookup happens inside the RCU read-side critical section,
+> which a lruvec-based interface cannot guarantee.  The first user is
+> the lockless folio_inc_lru_refs() path later in the series.
+>
+> Factor the ancestor walk out of lruvec_live_lock_irq() into
+> __lruvec_get_live(), so that both entry points share it, and spell
+> out why the walk is enough while only the RCU read lock is held:
+> reparenting of a memcg that starts dying waits for a grace period,
+> so it cannot race with the caller until the lock is released.
+>
+> Move memcg_is_dying() up in memcontrol.h, next to the other memcg state
+> predicates, and use it for the walk rather than repeating the open coded
+> css_is_dying() test a few definitions away from where it is explained.
+>
+> No functional change for existing callers.
+>
+> Tested-by: Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>
+> Signed-off-by: Kairui Song <kasong@tencent.com>
 
-Thanks for the review, and for the note on the cover letter about the
-threading and sending v3 the same day as v2. Both fair; v4 goes out as
-a new thread, not before the end of the week.
+Reviewed-by: Muchun Song (ByteDance) <muchun.song@linux.dev>
 
-I'll take all of these in v4: the include, the pahole layout,
-fsleep(), plain "return ret" instead of dev_err_probe() on each regmap
-call, the blank lines, PM_RUNTIME_ACQUIRE_AUTOSUSPEND(), dropping the
-pm_runtime_dont_use_autosuspend() call, and the duplicate error message
-after devm_request_threaded_irq().
+Some nits bellow:
+
+> ---
+>   include/linux/memcontrol.h | 71 ++++++++++++++++++++++++++++++++++++----------
+>   1 file changed, 56 insertions(+), 15 deletions(-)
+>
+> diff --git a/include/linux/memcontrol.h b/include/linux/memcontrol.h
+> index 980358bc6f49..441a5d57e723 100644
+> --- a/include/linux/memcontrol.h
+> +++ b/include/linux/memcontrol.h
+> @@ -571,6 +571,11 @@ static inline bool mem_cgroup_disabled(void)
+>   	return !cgroup_subsys_enabled(memory_cgrp_subsys);
+>   }
+>   
+> +static inline bool memcg_is_dying(struct mem_cgroup *memcg)
+
+Let's make it const for @memcg along the way.
+
+> +{
+> +	return memcg ? css_is_dying(&memcg->css) : false;
+> +}
+> +
+>   static inline void mem_cgroup_protection(const struct mem_cgroup *root,
+>   					 const struct mem_cgroup *memcg,
+>   					 unsigned long *min,
+> @@ -1349,6 +1354,11 @@ static inline bool mem_cgroup_online(struct mem_cgroup *memcg)
+>   	return true;
+>   }
+>   
+> +static inline bool memcg_is_dying(struct mem_cgroup *memcg)
+> +{
+> +	return false;
+> +}
+> +
+>   static inline
+>   unsigned long mem_cgroup_get_zone_lru_size(const struct lruvec *lruvec,
+>   		enum lru_list lru, int zone_idx)
+> @@ -1510,28 +1520,41 @@ static inline void lruvec_lock_irq(struct lruvec *lruvec)
+>   	spin_lock_irq(&lruvec->lru_lock);
+>   }
+>   
+> -static inline struct lruvec *lruvec_live_lock_irq(struct lruvec *lruvec)
+> +/*
+> + * Reparenting moves a dying memcg's LRU state to its parent at any time,
+> + * so anything added to that LRU afterwards would be lost.  This helper
+> + * walks up to the nearest live ancestor while the caller must hold the
+> + * RCU read lock: reparenting of a memcg that starts dying waits for a
+> + * grace period, so it cannot race with the caller until the lock is
+> + * released.
+> + */
+> +static inline struct lruvec *__lruvec_get_live(struct lruvec *lruvec)
+
+Cound @lruvec be const as well?
+
+>   {
+>   #ifdef CONFIG_MEMCG
+>   	struct pglist_data *pgdat = lruvec_pgdat(lruvec);
+>   	struct mem_cgroup *memcg = lruvec_memcg(lruvec);
+>   
+> -	rcu_read_lock();
+> -
+>   	/*
+>   	 * The memcg can be NULL when the memory controller is disabled.
+>   	 * Otherwise, the caller keeps the memcg owning @lruvec alive.
+>   	 */
+> -	while (unlikely(memcg && css_is_dying(&memcg->css))) {
+> +	while (unlikely(memcg_is_dying(memcg))) {
+>   		memcg = parent_mem_cgroup(memcg);
+>   		lruvec = mem_cgroup_lruvec(memcg, pgdat);
+>   	}
+> +#endif
+> +	return lruvec;
+> +}
+>   
+> +static inline struct lruvec *lruvec_live_lock_irq(struct lruvec *lruvec)
+> +{
+> +#ifdef CONFIG_MEMCG
+> +	rcu_read_lock();
+> +	lruvec = __lruvec_get_live(lruvec);
+>   	spin_lock_irq(&lruvec->lru_lock);
+>   #else
+>   	lruvec_lock_irq(lruvec);
+>   #endif
+> -
+>   	return lruvec;
+>   }
+>   
+> @@ -1561,6 +1584,34 @@ static inline bool folio_matches_lruvec(const struct folio *folio,
+>   	       lruvec_memcg(lruvec) == folio_memcg(folio);
+>   }
+>   
+> +/**
+> + * folio_lruvec_live_get - get a live lruvec for a folio under RCU
+> + * @folio: the folio
+> + *
+> + * Same as folio_lruvec(), except that a folio whose memcg is dying is
+> + * accounted to the nearest live ancestor, which is where reparenting
+> + * would put it anyway.
+> + *
+> + * Return: the live lruvec, with rcu_read_lock() held.  Pair it with
+> + * folio_lruvec_live_put().
+> + */
+> +static inline struct lruvec *folio_lruvec_live_get(struct folio *folio)
+
+const folio?
+
+> +{
+> +#ifdef CONFIG_MEMCG
+> +	rcu_read_lock();
+> +	return __lruvec_get_live(folio_lruvec(folio));
+> +#else
+> +	return folio_lruvec(folio);
+> +#endif
+> +}
+> +
+> +static inline void folio_lruvec_live_put(struct lruvec *lruvec)
+
+Ditto.
 
 Thanks,
-Adil
+Muchun
+
+> +{
+> +#ifdef CONFIG_MEMCG
+> +	rcu_read_unlock();
+> +#endif
+> +}
+> +
+>   /* Don't lock again iff page's lruvec locked */
+>   static inline struct lruvec *folio_lruvec_relock_irq(const struct folio *folio,
+>   		struct lruvec *locked_lruvec)
+> @@ -1826,11 +1877,6 @@ void mem_cgroup_node_filter_allowed(struct mem_cgroup *memcg, nodemask_t *mask);
+>   
+>   void mem_cgroup_show_protected_memory(struct mem_cgroup *memcg);
+>   
+> -static inline bool memcg_is_dying(struct mem_cgroup *memcg)
+> -{
+> -	return memcg ? css_is_dying(&memcg->css) : false;
+> -}
+> -
+>   #else
+>   static inline bool mem_cgroup_kmem_disabled(void)
+>   {
+> @@ -1901,11 +1947,6 @@ static inline void mem_cgroup_node_filter_allowed(struct mem_cgroup *memcg,
+>   static inline void mem_cgroup_show_protected_memory(struct mem_cgroup *memcg)
+>   {
+>   }
+> -
+> -static inline bool memcg_is_dying(struct mem_cgroup *memcg)
+> -{
+> -	return false;
+> -}
+>   #endif /* CONFIG_MEMCG */
+>   
+>   #if defined(CONFIG_MEMCG) && defined(CONFIG_LRU_GEN)
+>
+
