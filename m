@@ -1,55 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.27
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795344517;
-	b=sILJL7Au2anN3Xg9m81SsPdgK9/WFMiksX2L9l0KES0qTisp9Rom2PkUAie/Mcghlypx
-	 LgnPMxK8u+DrNi9Es/TipNdi6U1b/ryihxHBUOVmgnIHn00BOTs+pksWBDykcYrZcJqtF
-	 jzGcjI2B+2qNKxZ8raxMXat0rpD/UpzEldcWvsNHwG06p/Sidd3AFwHe7cumMEVhl27gT
-	 m+Y9qcfDejpwCrn2vdQFzX52zeU5TDcF7beeqwS9miiVYmqzvIVpLBqifuFnMnyvEoEJK
-	 0WGsVhfgftmEBS1bhW2egONN49HO3bAh32RqxyaHI6lw5zg4fuD6vHlOKMgsYotOTig==
+	t=1795344562;
+	b=IDXbFByn2b2zc9jJRCV04nyhfIr/FZ7SXpEAuBhFIsNfO3wKjlyC50/eF1mESA/4u0jf
+	 Tf8CQ6hWnLj0qGQB20ovJB+r3tWxJfU+Q6/aiVfBIKnnf4LXSYafmIuwav2FCZSL0DIr8
+	 yofDNqI301QwP7nZ1wBor8qGhni8V0C+so2kV2qSFVTZAaWd0vhuToK5IgqQaJRhU874c
+	 EjFm66LGPu94f9vYoK6DyqGDAZ63dc7eQ0FW0NouDCb9TZyfIvQlKOEIljS5N8WwzyR1M
+	 e2rduH7FLlb4c4tJkHpDMmb/GFMTJV9RiicmVY1X50usn/kmFc9ZAzo4qi68d008g8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795344517;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=3xwoGgBBU6yR/sgCOpMUSAnG5r+ndUZpjhA/RehvqNo=;
-	b=h0So3RWP48vpeQ+P+aYWOCOGGEa1B2ujg6KzNlsaJNAt/1cCoYLMrDx6keS8w7U6UAKL
-	 Ih46Vuw1UTlTfk70RsPdBFR3FbGujUVECfu0xSAwtrvxmwtLPOBu998cLKBClC1UWof2C
-	 5OYTq65vRmzrRSaGfsB8FdiB6cbzrCOjPxQJszGFau6j6O1p9EYPc61a0X3oNCOu6b9Vd
-	 duZ0bag09NOq73tzO5fWQfUSVTPk7iow3/7xDhaUyj8Xyyek5OWtH9IedO/cKEzj9py82
-	 vwsi0QA4aY5mrd0RM4rw7u6D5U19RRbkNqVKbVbRqhCMjVy7NdoY4nQaLC2A5oWrDiQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795344562;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=SdPhVrPD3FLfRdA9n5gci/RQLV/kspB0OdPKdxqs61g=;
+	b=0b+4o80suRwTSybYH1sRZnBe+xvMZ4AbVTE4BsY+JOlBMCY2I1zuZM7DaOclwVdW36Oe
+	 HoUyBjIlcoWcrKRWmDhqpY2Cx0FAJfNkUtAjRfknrZZUPJ3HBnuixzehF7uPydBSrVZc5
+	 fRY6ncodH8y4R3QdjGxokOyOHJJoXq3g46HpklvRVxCmXL4i3OZayE7idKmFzvnzDZWLL
+	 sBrmT4HuE5Exob2ngCcHdwy6jj2VgPvXQAoL/lpavxmv6ZXNRea2vKvlQ0gobbfEVOGXi
+	 M3SRTbjtZbzA8x32YWcLXPabfjTJKoBwoQKzregJpF/QODy2iD8Cvr5h95wO85LOHtw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P6g2SAjG;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=proton.me;
+	spf=pass smtp.mailfrom=proton.me;
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=njt6uaCY;
+	arc=none smtp.remote-ip=109.224.244.27
+Received: from mail-24427.protonmail.ch (mail-24427.protonmail.ch [109.224.244.27])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37B95606A32A
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:48:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8435F606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:49:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8435F606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P6g2SAjG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DADEC1F000CF
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:48:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795344516;
-	bh=3xwoGgBBU6yR/sgCOpMUSAnG5r+ndUZpjhA/RehvqNo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=P6g2SAjGXeYgYUX2hjuzvNJ9F5p0FOIXMM/ZEarehiOucAvZLEStqz49NhGb4Hm7Y
-	 b55I/vGcAZbHVJnvWj30p46c2BpddVTtflklqDA7GrTN152S3SHcxu0yGulRhQfLAA
-	 0RRhOUyvEE+1NxXgPyQAB3s5i3sRUxlHy0XL79gQnlk9dFI879fMv4atEbngOD/wtd
-	 bPsrHyXSrD/4bokyDyGJkqk2RkTocdIp6lU6s/YbutrD36SGWO7Up3ZntPeBDH1wxr
-	 F3Y8EbbPGWz2Ji2nAbf8iZr+nl97kQu3YOvMQZTvYJXlGVNhDIMjuIsOpp0UTK9cfU
-	 CrlNT012UkDbQ==
-Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6b8c60e0d39so2853372a12.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:48:36 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFkptes4Yh745yn1I7fuJRt85lxJR59p9z7b4H2P1ZPPq3A5S7tFjh9Gwn6ewqlcE3ds16/whpixATxNdk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+xNxed+jcN1lh0j3yqMeQD2aah8i+6dhfkM8anJqYbneEftIIk
-	1tDrHInRMMAAgUtGUyTX93fwGsvT8cuMP3JKz9tNsZo/AWWXtI8J56laqh41/g4rrK5PkppJHuo
-	d9x7KR3EJonpEUKyew0rDl/hCGgpH8Xg=
-X-Received: by 2002:a05:6402:3514:b0:6ba:144f:ae3b with SMTP id
- 4fb4d7f45d1cf-6ba37c76a3amr6162923a12.4.1795344515503; Sun, 22 Nov 2026
- 02:48:35 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=njt6uaCY
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1795344558; x=1795603758;
+	bh=SdPhVrPD3FLfRdA9n5gci/RQLV/kspB0OdPKdxqs61g=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=njt6uaCYTLwQ+imeLSN37A0zq9iaPO/++XP/P6IDtELLxW1Ih7KDeHkHWY+1rURw9
+	 IYVxLJXOe+Tx/vtNR16Y8RWottwqjOpJqBIaVFBwpI0rc9XmzZZ4xGb3ymbuji7pAZ
+	 2rEtl/4igA/WcGth1adLfgAWOXMUxn6MfnYs50RcjEreyNxW4ZzVtJ10Qwa1/wEHAB
+	 A99yCbjJAF5/QkhPjBcJ2OmU6PGOVO/afZyvWrivi0fxkCssDF5X+mL4ca8c4rMXVL
+	 lVFNLCS2kqPxf0rUfxFKjFpbEUcHd0YpQvzB38IEEqGbxQIthX1O3Yg3WD7j0z20yV
+	 EAzNCCQBKIzNw==
+Date: Sun, 22 Nov 2026 10:49:14 +0000
+To: "sumit.semwal@linaro.org" <sumit.semwal@linaro.org>, "christian.koenig@amd.com" <christian.koenig@amd.com>
+From: Falconet3 <Falconet3@proton.me>
+Cc: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>, "linaro-mm-sig@lists.linaro.org" <linaro-mm-sig@lists.linaro.org>, "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, "axboe@kernel.dk" <axboe@kernel.dk>, "io-uring@vger.kernel.org" <io-uring@vger.kernel.org>, "asml.silence@gmail.com" <asml.silence@gmail.com>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] dma-buf: fix leak of ctx and dmabuf reference in dma_buf_io_ctx_create() WARN path
+Message-ID: <tRqxbL7txMRAzNLKylzBLQURNLpU-D0Xx5CrngGwLoYrK7V7kREharagUfgQLGIfiYFyTALR0BwL93AL_PWmFXq_MoZPhvPfUojBsyCnilI=@proton.me>
+In-Reply-To: <htm5h9oaY-vk0g9JVYJmz5XCaKe_nPoWkUJYJqDulyNvv_sAWfzSMp0T6GWt5okc8R4SyvXXpJQ3VGhetKnjEa2KGem5uCYdxpmdzUFf6XA=@proton.me>
+References: <htm5h9oaY-vk0g9JVYJmz5XCaKe_nPoWkUJYJqDulyNvv_sAWfzSMp0T6GWt5okc8R4SyvXXpJQ3VGhetKnjEa2KGem5uCYdxpmdzUFf6XA=@proton.me>
+Feedback-ID: 48740069:user:proton
+X-Pm-Message-ID: 67157a7a4555990622919bb0247c6c6c6fb36fdd
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,37 +64,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261115132609.209957-1-liubaolin12138@163.com> <20261115132609.209957-5-liubaolin12138@163.com>
-In-Reply-To: <20261115132609.209957-5-liubaolin12138@163.com>
-From: Namjae Jeon <linkinjeon@kernel.org>
-Date: Sun, 22 Nov 2026 19:48:22 +0900
-X-Gmail-Original-Message-ID: <CAKYAXd965H1n0qTsStX9z=JDK2cNJs5OX2T2eHq9=_EHTqX2Jg@mail.gmail.com>
-X-Gm-Features: Aa3M54oU2r9EtNhaewOhR1YZm7SHWkPsgSNOHQXITu7MijHt6dFhD244mtn7s8Q
-Message-ID: <CAKYAXd965H1n0qTsStX9z=JDK2cNJs5OX2T2eHq9=_EHTqX2Jg@mail.gmail.com>
-Subject: Re: [PATCH v4 04/12] ntfs: remove remaining attribute lists on
- creation failure
-To: Baolin Liu <liubaolin12138@163.com>
-Cc: hyc.lee@gmail.com, ntfs@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Xuewen Wang <wangxuewen@kylinos.cn>, Baolin Liu <liubaolin@kylinos.cn>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
-On Sun, Nov 15, 2026 at 10:26=E2=80=AFPM Baolin Liu <liubaolin12138@163.com=
-> wrote:
->
-> From: Xuewen Wang <wangxuewen@kylinos.cn>
->
-> Creation rollback can leave an ATTRIBUTE_LIST inode cached after freeing
-> the base and extent MFT records. MFT reuse can find that stale inode;
-> dropping it under another inode's record lock can trigger a lockdep
-> warning.
->
-> Remove any remaining ATTRIBUTE_LIST before freeing extent records to
-> release its storage and invalidate the cached inode. Drop the returned
-> reference after releasing the record locks.
->
-> Fixes: af0db57d4293 ("ntfs: update inode operations")
-> Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
-> Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
-Applied it to #ntfs-next.
-Thanks.
+Withdrawing this patch. Apologies for the noise.
+
+The WARN_ON_ONCE() path in dma_buf_io_ctx_create() is not reachable with
+in-tree code: the only in-tree implementation, nvme_init_io_ctx_locked(),
+installs all of dev_ops (map/unmap/release) before it returns 0.
+
+And on the only path where it could ever fire =E2=80=94 an importer violati=
+ng the
+contract =E2=80=94 freeing ctx directly is not safe: init_dma_buf_io_ctx() =
+has
+already attached ctx to the dmabuf and linked it into the importer's
+tracking, so kfree() + dma_buf_put() leaves dangling pointers and turns an
+unreachable leak into a potential use-after-free. Since dev_ops->release
+may itself be one of the missing callbacks, the core has no safe generic
+cleanup on that path.
+
+
+Thanks,
+Falconet3
+
+
+
+
+Em domingo, 22 de novembro de 2026 =C3=A0s 00:05, Falconet3 <Falconet3@prot=
+on.me> escreveu:
+
+> (leak of ctx + dmabuf ref on the WARN_ON_ONCE path, new file in v7.4-rc1,=
+ patch attached)
