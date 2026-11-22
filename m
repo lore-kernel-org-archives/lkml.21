@@ -1,50 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.113
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795319326;
-	b=do0AtWbSmgsEbYh2xYuEm/751kb4pcAiIsjIqsObmms/4FbEJLg617dyVDOPDUv8hMdE
-	 71HoMVFyYNHrSVYgS/8dJ8dNDOcq0jpeUjdxrSh6TqE0XSLbasVbw9c8kFblLA9YflcCb
-	 iPpobjQTzmzQRE0ze5ni+hCdQg3UOb/oXXr5eLcCnmWrSMmmZJibtgMEqUwQHw61tyOzL
-	 04SDVO76r4GkMsozugqsmmyFhdS59/Xjehk/3a/Kwfq90TWF3SgRI9Wej3cCDONXOqTBK
-	 2birCnMicrRxoIEujmmulmzGPKsUFI2dJeA7VMaHlSEb32z0pQV0rYU5Aj/8mW8Nk5Q==
+	t=1795319328;
+	b=P7VpRkfFFeboYBUgaYZSw0qs9/ejCbvkR0HVDRgegOflDJ6iywMtPR8rXGloTUtirWif
+	 tkzWXR49mzI+757UM/2727Mpjn9zdpZ89UQC62uhHreQQWCkVQu2upn+jBH2LYc0p8Fhm
+	 A6q+mk5WmVBMLOgbBtz4YKCnhG7fHgyhGq1q7OcUeJp9eU2F9NsQV02NDU9r0gSIBfXJb
+	 fX1CicwOyxHyi6/w+Q0jNmU1HqBIwPK7PZt6Aynqv5UGSbRAVr9k3FVivFBNfLOCLUzAj
+	 1+5TQqg3tvURe/PzUxxhSNBwZryP2Io8B+B4oCIDH0Qn9lnjundJAspU2GR05RFH00w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795319326;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795319328;
 	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=iXA97T2iUMxZHGG58gqlxBN6lMsTXSCZuiggW9DAKCk=;
-	b=elmQjhcsMGDMlvKZ3yV4vu4+aGCyATUJ+NMnOcPVo673Y8RoDj2mXxDTn9dhTM+y0YTB
-	 Drym9qvWDfL7Q3g8+Lee5pcJJRkhDURO+0tImqW+XSyBm+K4S8JvkiqS6+b94Y47gtKMb
-	 1+Fk96RP1Z14IH6PEbY1a9y9jPlfJJjGXcX2koY8zLAOhN0R3esaveWYpnuKKoFvxCSwE
-	 cwD+djo4vTEPSP9WZjKmloq1wxHWeWYezWjhVuSH9fuMUKl8oHEsHFRd5E4gcZ1l5Lx7l
-	 g6t8OqALKMDL/CqcYvWyadj7y93DBVwlNcFJn/CSmQit5mJ61PuHZpYctu5zR3NxNFg==
+	bh=lGbP5kKIXDKBpBUKGK+uyvTbQIOm4zeQDAxLPA8UNNc=;
+	b=URYi7KjCnpre12E0Xu+aiiwOBRON7XGK+DBa7/LXDvt0tZ/D1QIieMjTVVWZ56ixI7fg
+	 kY+JWXjsQpWk8IGg5PmK+viHK3kKhDPUKCXXS5uv+G7oM20PtF70deH2+xRGCzEq21v73
+	 NcjDNq1DMMkIPSSFK7uKoXxkBq+IhZ0f0oE7ctANzzDysVqRzTW4nQW8b1gcZc0r2ngE7
+	 r4AytQmJgROZ847U+V51MB0mMstafZwZBdwACI33jzhJQuI+gTuZCNhjR3Um8mALZ3xBT
+	 5OOggCK+NFjmqQavkqaHyGCw2s1IoN/hADwXzzp4Hw4JU4XK6E16zlRY+ChcRR5MMTg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=raidlab.org;
 	spf=pass smtp.mailfrom=raidlab.org;
-	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=KfhiWg78;
-	arc=none smtp.remote-ip=185.70.43.171
-Received: from mail-43171.protonmail.ch (mail-43171.protonmail.ch [185.70.43.171])
+	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=BwAEtmhm;
+	arc=none smtp.remote-ip=79.135.106.113
+Received: from mail-106113.protonmail.ch (mail-106113.protonmail.ch [79.135.106.113])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 864D9606A33F
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 03:48:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 864D9606A33F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90779606A335
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 03:48:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90779606A335
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=raidlab.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=raidlab.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=KfhiWg78
+	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=BwAEtmhm
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raidlab.org;
-	s=protonmail; t=1795319323; x=1795578523;
-	bh=iXA97T2iUMxZHGG58gqlxBN6lMsTXSCZuiggW9DAKCk=;
+	s=protonmail; t=1795319325; x=1795578525;
+	bh=lGbP5kKIXDKBpBUKGK+uyvTbQIOm4zeQDAxLPA8UNNc=;
 	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:From:To:
 	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=KfhiWg782GpdOaOEogmZRsGHdZ6aoDuyXyMfSGN3iejluCK2hlFBRzDbpcJnUhKA6
-	 O7LFgujuFjbwC8z1A2Swm7izfQoaVyqjlJ+T+z9895wxC8zlImxW4eIDntSlslVvEa
-	 dLp6nkK8zpUGb833Eozms2wnosDLr9F7eDON32UGEkwXE9fnGmrPv9pNgK9wNxNLB3
-	 UciW+Qpl+s4EfIJ2odiZVGuxj53rmG7YLZb3Rat+EcS9USiQ3IuvVw0CqOn4ioK4Ld
-	 5ORf3224UufNICqop5HE86WX1zguBlGMAUTdJC8ehoNtfLNm0MGx8Mv1uR2DyrKAEk
-	 +HLHXzdr6WRXA==
-X-Pm-Submission-Id: 4jXFRX5T8sz1DDrZ
+	b=BwAEtmhmgOLNOD3uVgnK5sjS/HIYFcj6b1Ca1T1D8CwZ2YkSjVBhxxvCxvLpiGKx+
+	 S3SMOlRBRHcnyIM4gTj7ulCgCmAF1sPIKTtcTLxvVyF+I1b5ApAFMyFZm2MU1gVcpx
+	 82oCGH+QY5ISz5HFwFY8a78uTDaHW7CIiLmrIBFTTuFt4XOyabDbPCbH6GFlu86Z35
+	 5HpAVpiZdHLjADyVUFl7RevEdJ9dmNhoKAUVKCAedC3JRKjIXALffk1JbUdc3lO8+h
+	 rHtYFznAqpSB5qzDtlCKTD9/USMYDkwoYXEfynjTPXoL/rsIu3JacRYT0Ho8FHRpvy
+	 CopqHp7mmru8w==
+X-Pm-Submission-Id: 4jXFRb1wPNz1DDqy
 From: Miroslav Cimerman <mc@raidlab.org>
 To: linux-btrfs@vger.kernel.org
 Cc: David Sterba <dsterba@suse.com>,
@@ -53,9 +53,9 @@ Cc: David Sterba <dsterba@suse.com>,
 	Johannes Thumshirn <johannes.thumshirn@wdc.com>,
 	Qu Wenruo <wqu@suse.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] btrfs: zoned: use zone append for every copy of a mirrored write
-Date: Sun, 22 Nov 2026 03:48:24 +0000
-Message-ID: <20261122034826.2333981-2-mc@raidlab.org>
+Subject: [PATCH 2/2] btrfs: zoned: finish raid stripe tree zones once all data is written
+Date: Sun, 22 Nov 2026 03:48:25 +0000
+Message-ID: <20261122034826.2333981-3-mc@raidlab.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261122034826.2333981-1-mc@raidlab.org>
 References: <20261122034826.2333981-1-mc@raidlab.org>
@@ -70,57 +70,135 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Since commit b39b26e017c7 ("btrfs: zoned: don't zone append to
-conventional zone"), btrfs_submit_dev_bio() uses zone append only if
-can_use_append is set in the btrfs_bio. For a mirrored write,
-btrfs_submit_mirrored_bio() sends the original bio to the last stripe
-and a clone to every other stripe. The clone is set up with
-btrfs_bio_init(), which clears can_use_append. So on a zoned filesystem,
-every copy of a mirrored data write but the last is a regular write at
-the allocated address.
+btrfs_zone_finish_endio() finishes the zones of a data block group when
+the ordered extent that ends at its capacity completes. It assumes that
+all other data of the block group is written by then. Without the raid
+stripe tree that holds: btrfs_finish_ordered_zoned() moves an extent to
+the address where zone append wrote it, so the extent at the end of the
+block group is the last one the device wrote.
 
-A regular write to a sequential zone has to arrive at the zone's write
-pointer. Writes to one zone can arrive in a different order than they
-were allocated, for example from two writers. The copy that arrives too
-early then fails:
+With the raid stripe tree, an extent keeps its allocated address, and
+the stripe tree records where each copy was written. The extent at the
+end can then complete while zone append writes of other extents are
+still queued. They reach a finished zone and fail:
 
-  extent A at offset 0, extent B at offset 64K of one zone
-  last stripe (zone append):  B, then A: both written
-  stripe 0 (regular write):   B fails, the write pointer is still at 0
+  C allocated at 14M, D at 15M, the capacity is 16M
+  D completes, btrfs_zone_finish_endio() finishes the zones
+  C's zone append writes reach the full zones and fail
 
-A RAID1 write succeeds with one failed copy. A buffered write then
-completes with one copy less. At write time, only the device's write
-error counter and its "errs: wr" log line show it. The failed write also
-leaves a gap in that zone. Every regular write allocated behind the gap
-fails too.
+Count the completed bytes of such a block group in zone_written. Finish
+its zones only when no more data can be allocated from it and all
+allocated data is written. A block group loaded at mount counts as
+written, and btrfs_reset_unused_block_groups() resets the counter with
+alloc_offset. Bytes of a failed ordered extent, or of an extent freed
+before its ordered extent was created, are not counted. Such a block
+group is not finished here. Before, this happened only when the failed
+extent was the last one. btrfs_zone_finish_one_bg() finishes it later
+when an active zone is needed.
 
-Copy can_use_append to the clone, as commit c757edbef980 ("btrfs: fix
-copying the flags of btrfs_bio after split") does for split bios.
-
-Fixes: b39b26e017c7 ("btrfs: zoned: don't zone append to conventional zone")
-CC: stable@vger.kernel.org # 7.0+
+Fixes: 568220fa9657 ("btrfs: zoned: support RAID0/1/10 on top of raid stripe tree")
+CC: stable@vger.kernel.org # 6.7+
 Signed-off-by: Miroslav Cimerman <mc@raidlab.org>
 ---
-During a device replace, writes to block groups that were already copied
-are sent to the target through the same function. With this patch the
-source copy is a zone append write again, as before 7.0. I did not test
-a replace.
+The reset of zone_written in btrfs_reset_unused_block_groups() was not
+reached in my tests. Without it, a reused block group would be finished
+too early. The function already resets meta_write_pointer there for the
+same reason.
 
- fs/btrfs/bio.c | 1 +
- 1 file changed, 1 insertion(+)
+ fs/btrfs/block-group.h |  6 ++++++
+ fs/btrfs/zoned.c       | 33 +++++++++++++++++++++++++++++----
+ 2 files changed, 35 insertions(+), 4 deletions(-)
 
-diff --git a/fs/btrfs/bio.c b/fs/btrfs/bio.c
-index efbce4d549ff..8aac4afa30ee 100644
---- a/fs/btrfs/bio.c
-+++ b/fs/btrfs/bio.c
-@@ -519,6 +519,7 @@ static void btrfs_submit_mirrored_bio(struct btrfs_io_context *bioc, int dev_nr)
- 		bio_inc_remaining(orig_bio);
- 		btrfs_bio_init(btrfs_bio(bio), orig_bbio->inode,
- 			       orig_bbio->file_offset, NULL, NULL);
-+		btrfs_bio(bio)->can_use_append = orig_bbio->can_use_append;
- 		bio->bi_end_io = btrfs_clone_write_end_io;
- 	}
+diff --git a/fs/btrfs/block-group.h b/fs/btrfs/block-group.h
+index d567ed822e55..1f88ecbc0b59 100644
+--- a/fs/btrfs/block-group.h
++++ b/fs/btrfs/block-group.h
+@@ -266,6 +266,12 @@ struct btrfs_block_group {
+ 	u64 alloc_offset;
+ 	u64 zone_unusable;
+ 	u64 zone_capacity;
++	/*
++	 * Bytes of allocated data whose write has completed. Only used for
++	 * data block groups with the raid stripe tree on a zoned filesystem.
++	 * Protected by the spinlock 'lock'.
++	 */
++	u64 zone_written;
+ 	u64 meta_write_pointer;
+ 	struct btrfs_chunk_map *physical_map;
+ 	struct list_head active_bg_list;
+diff --git a/fs/btrfs/zoned.c b/fs/btrfs/zoned.c
+index e6ce6f05ad75..02baf1ecc55e 100644
+--- a/fs/btrfs/zoned.c
++++ b/fs/btrfs/zoned.c
+@@ -18,6 +18,7 @@
+ #include "bio.h"
+ #include "transaction.h"
+ #include "sysfs.h"
++#include "raid-stripe-tree.h"
  
+ /* Maximum number of zones to report per blkdev_report_zones() call */
+ #define BTRFS_REPORT_NR_ZONES   4096
+@@ -2015,6 +2016,8 @@ int btrfs_load_block_group_zone_info(struct btrfs_block_group *cache, bool new)
+ 
+ 	if (!ret) {
+ 		cache->meta_write_pointer = cache->alloc_offset + cache->start;
++		/* Everything allocated at load time is written. */
++		cache->zone_written = cache->alloc_offset;
+ 		if (test_bit(BLOCK_GROUP_FLAG_ZONE_IS_ACTIVE, &cache->runtime_flags)) {
+ 			spin_lock(&fs_info->zone_active_bgs_lock);
+ 			if (list_empty(&cache->active_bg_list)) {
+@@ -2594,7 +2597,9 @@ static int do_zone_finish(struct btrfs_block_group *block_group, bool fully_writ
+ 	 * new allocation) and the IO for the last usable block is completed, we
+ 	 * don't need to wait for the other IOs. This holds because we ensure
+ 	 * the sequential IO submissions using the ZONE_APPEND command for data
+-	 * and block_group->meta_write_pointer for metadata.
++	 * and block_group->meta_write_pointer for metadata. With the raid
++	 * stripe tree, btrfs_zone_finish_endio() calls this only once all
++	 * allocated data is written.
+ 	 */
+ 	if (!fully_written) {
+ 		if (test_bit(BLOCK_GROUP_FLAG_ZONED_DATA_RELOC, &block_group->runtime_flags)) {
+@@ -2798,10 +2803,29 @@ int btrfs_zone_finish_endio(struct btrfs_fs_info *fs_info, u64 logical, u64 leng
+ 	else
+ 		min_alloc_bytes = fs_info->nodesize;
+ 
+-	/* Bail out if we can allocate more data from this block group. */
+-	if (logical + length + min_alloc_bytes <=
+-	    block_group->start + block_group->zone_capacity)
++	if (btrfs_need_stripe_tree_update(fs_info, block_group->flags)) {
++		bool written;
++
++		/*
++		 * With the raid stripe tree, an extent keeps the address it was
++		 * allocated at, and zone append places its stripes wherever the
++		 * device writes them. The extent at the end of the block group
++		 * can complete before other extents of it are written, so only
++		 * finish the zones once all allocated data is written.
++		 */
++		spin_lock(&block_group->lock);
++		block_group->zone_written += length;
++		written = (block_group->alloc_offset + min_alloc_bytes >
++			   block_group->zone_capacity &&
++			   block_group->zone_written >= block_group->alloc_offset);
++		spin_unlock(&block_group->lock);
++		if (!written)
++			goto out;
++	} else if (logical + length + min_alloc_bytes <=
++		   block_group->start + block_group->zone_capacity) {
++		/* Bail out if we can allocate more data from this block group. */
+ 		goto out;
++	}
+ 
+ 	ret = do_zone_finish(block_group, true);
+ 
+@@ -3282,6 +3306,7 @@ int btrfs_reset_unused_block_groups(struct btrfs_space_info *space_info, u64 num
+ 		reclaimed = bg->alloc_offset;
+ 		bg->zone_unusable = bg->length - bg->zone_capacity;
+ 		bg->alloc_offset = 0;
++		bg->zone_written = 0;
+ 		/*
+ 		 * The zone was just reset to empty, so alloc_offset went back to
+ 		 * the start of the zone. For metadata/system block groups the
 -- 
 2.53.0
 
