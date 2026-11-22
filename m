@@ -1,55 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795358989;
-	b=Y/rsAC3m8aU/B50ClLtjSvn6+siBqhWuI/i8vg7Ic6Jw4mGRV0HsKyDMsVYltwZaDinF
-	 z4RdTa0sxMnK+4QDQlhRRQg1gaYxV67yj8DDucWSIXhigf7Vl80dWpEIebZKYArmL5Vvt
-	 pZMFH3uAy4zoJ6xKJpMhTj/69DR8+uMYLUeqSBjethvlhbgTB/8C+ebjZqNzFSdJgQlZs
-	 1zzh+NPgzAxSuUCyyFqhanHgvchLjaNy+iuXBZk7PHiQ3NPkjrzlSsnM/QD/0LGe5zqno
-	 zkmDp/JaQS4hjSoi13Pa0CW9nl9ZSbtSdZCjjafGP4IBy8JjyOwqcH+LPJhi5mUDS+w==
+	t=1795358985;
+	b=EUdeszetR5IIlpyf1qSJ/Rs7bPxjWusarwkC8xj/fRTZ0tFBpihdPPN+eedR8xstuZSZ
+	 XNzItVKWTIivH1tK7nXfFVofNGEKygXrt0xVW9gtv5uEH0T90LRkGBSX6vy7doQy2spyw
+	 7Pgt9QTONbRhdWuyYSt1ivEsGlgSTqt0YEi6QxgOtiBysDu0y2OBz4WMl3V7hVfb7Z0ls
+	 W4/zTkprROXecVpmwxqELruK22WqIAwX10gG5DrezeqqTKXgSEF7gi1j0PgHbN5jZ9te1
+	 T1HEqB8C6w+RbkkTKtCtvzXxbLTUtbD4ye/NN0dGr3VL8WLM+HrmHda1yrCCHjKMNEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795358989;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795358985;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=90uW9vPXKmWFpzCjI8Up2KnoezPG5Nbi1kLisqyflSw=;
-	b=1EfYVrWE/n2/sV7SRXSJq71pH7IE2keR1XuV5sJ6D2PSmtLX4Hu/YT023uAzAO9dVbAV
-	 XhMduQ+qjuY1igbyD52+vxKLTwecq5l1uyik0UMMLlLXbAv7GPe1AKS8cR2Lpl6O4+tQY
-	 HMb5uHjivPyncZ3RC4PIKcpJ39JK4TqC1g4IXM3oOh4xxu4fj5K6xpZZ2JL5gWzKRfI7z
-	 hVr3tqGQNTyS3EAACXgJ+sQWIfpbIOBpYjXHgMXQqWsed3dPb2tKtsUFCMEsKt9/nH2fT
-	 K6Vc6PKzV6gPpPv8DWZD4+2uG3lj5WBIc+zldH8Y+cKFsv0FXrZejdSvbSxkjdGOc3Q==
+	bh=UT6ps64F668nova2kLKPiXUITTrjy6DxQnfrymQobSo=;
+	b=JQzi1B3z6sShYIWT0jZrBhchh1RDO2O+vrLGV64jcGP2VLWCqe0jMNmJVgSj2lL7d3zZ
+	 +j5Zlt2dADBNAl1b7/X2g4iRFxyq26o9i090Qgp7Z9AToBwKePRTAY/SRNyNDt8tJVbOD
+	 Tb5mDjQDb2Ov9kSsMadIo+gJNV9vCdNtl/hTALX/TrEsTjPCdKPOIDB/UcI+W48m6IisE
+	 zvMmA7SVriOyjQ+d77t//gH/MlIZG8rocyXdF8yrvRx58skuPstpVIrDTuykvY/3xYDBy
+	 1c5LB3wOe1d0GhPq0qrb3iVN3zPhwK+YeMAk30Bc1SqJCZT2v9GVclh5gyM+OQdR4Gw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=b3pc9oae;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=N66DNJa8;
 	arc=none smtp.remote-ip=185.246.84.56
 Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D15C606A68E
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 14:49:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D15C606A68E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B6C5606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 14:49:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B6C5606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=b3pc9oae
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=N66DNJa8
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id C537D1A1709;
-	Sun, 22 Nov 2026 14:49:46 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 9EEA31A1709;
+	Sun, 22 Nov 2026 14:49:40 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 93B7D60512;
-	Sun, 22 Nov 2026 14:49:46 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EAD8111E62396;
-	Sun, 22 Nov 2026 15:49:42 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6B10D60512;
+	Sun, 22 Nov 2026 14:49:40 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2790711E60230;
+	Sun, 22 Nov 2026 15:49:28 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795358985; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=90uW9vPXKmWFpzCjI8Up2KnoezPG5Nbi1kLisqyflSw=;
-	b=b3pc9oaep+z/bJD4QxXY7ItQ9Mhm9vK4KSpxC1+FEcS76h22AnJdRuLoNc2vDv2VilJxFk
-	XB10alWQcDGW5eq/DgZ3BjLf0EqkZ5GLTejX3nEtxaOezKR01W/uW5k+u9wXaFSs+dboIo
-	pEo2LIdE1Zi4EZyGfElNeXUfsrrzZ9XSZRJqphfKOmNb5pUtqetPEu52IQfNs77C+A89Ew
-	FFCVUTg+XhoumzBDVsrCjP19/Rcn4T0G+TIX63yPiJ927z1sqUD8F+t+g/tcWrsQE387al
-	WBqva0f/+8krqadVlEp4T/1ZzzzHyE7mvP2VEoERJYKrrdLy4wWRKJTHbzp/1w==
+	t=1795358978; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=UT6ps64F668nova2kLKPiXUITTrjy6DxQnfrymQobSo=;
+	b=N66DNJa8YjNzKnWHnzM692QDi5itNkxnx6Ayb++iXjPUDAcogJMw+rMrENYvBOWTlFBbom
+	mTGXMFnyfNjZzPZSpCZ9BRLDj/vwGTBAsEjw3+M+m0C8MgwD1KQSxrMhgsQsQvBAyCYblY
+	P5/96JdenISrIOSaThFIZmtkt08J1BlT9/Drbqd8rA6YHNh5Jp8rfh4JrL2cn0kPUJzov5
+	5dIqnVzbbHCwzdGIjAsvUuyzm4v7LomRT5Vw7XoROt3MEDB43GesDqX0O5ybkXMHyKY3tw
+	+95lW2RqUXKwLe+eEfIrFCN0/EMgknyHpCFl1qbfn80sxNR0ethuhWhqjal7tA==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	Jakub Kicinski <kuba@kernel.org>,
@@ -73,12 +72,10 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev
-Subject: [PATCH net-next 2/3] net: stmmac: dwmac-sun8i: emit pause frames when the RX FIFO fills
-Date: Sun, 22 Nov 2026 15:49:24 +0100
-Message-ID: <20261122144926.284857-3-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next 0/3] net: stmmac: dwmac-sun8i: enable Flow Control
+Date: Sun, 22 Nov 2026 15:49:22 +0100
+Message-ID: <20261122144926.284857-1-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261122144926.284857-1-maxime.chevallier@bootlin.com>
-References: <20261122144926.284857-1-maxime.chevallier@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,71 +88,48 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 
-The TX flow control mechanism needs multiple things setup to actually
-work:
+While running the "ethtool -t" selftests on H2+ (orangepi zero), the
+Flow Control selftests consistently fails.
 
- - The TX_FLOW_CTL_EN bit needs to be set in the TC_FLOW_CTL register,
-   this is already done
+I originally blamed that on the fact that the board was connected to a
+peer that didn't support Pause and that we didn't negotiate Pause at all.
 
- - The RX fifo thresholds needs to be set, to indicate when the MAC needs
-   to start sending pause frames based on the RX fifo occupancy, and
-   when it should stop.
+The ethtool selftest are sensitive to what the Peer advertises even
+though this is a full loopback test, but it is what it is :(
 
-Let's configure the threshold the following way:
+Since then, the orangepi zero I'm testing dwmac-sun8i on has been wired to
+a proper peer, and the selftest still fails. This selftest sends tons of
+frames in loopback and checks that Pause frames are generated, and
+failing it means no pause frames were sent by the MAC.
 
- - Send pause frames when there's less than 2K left in the RX fifo
- - Stop sending them when there's more than 4K left in the RX fifo.
+Turns out, multiple things were missing in the dwmac-sun8i
+implementation to get Flow Control to work.
 
-This was tested in Allwinner H2+ using the ethtool -t "flow control"
-selftest. On that SoC, the RX fifo is 16K.
+Patch 1 allows independently setting RX/TX FC
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- .../net/ethernet/stmicro/stmmac/dwmac-sun8i.c   | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+Patch 2 is the one making FC actually work, by configuring the fifo
+thresholds
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-index c63f4d87de50..75c743dfe348 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-@@ -5,6 +5,7 @@
-  * Copyright (C) 2017 Corentin Labbe <clabbe.montjoie@gmail.com>
-  */
- 
-+#include <linux/bitfield.h>
- #include <linux/clk.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
-@@ -202,6 +203,11 @@ static const struct emac_variant emac_variant_h616_emac1 = {
- #define EMAC_RX_TH_64		(0x1 << 4)
- #define EMAC_RX_TH_96		(0x2 << 4)
- #define EMAC_RX_TH_128		(0x3 << 4)
-+#define EMAC_RX_FLOW_CTL_TH_ACT	GENMASK(21, 20)
-+#define EMAC_RX_FLOW_CTL_TH_DEACT	GENMASK(23, 22)
-+#define EMAC_RX_FLOW_CTL_TH_2K	0x1
-+#define EMAC_RX_FLOW_CTL_TH_4K	0x3
-+#define EMAC_RX_FIFO_FLOW_CTL	BIT(24)
- #define EMAC_RX_DMA_EN  BIT(30)
- #define EMAC_RX_DMA_START       BIT(31)
- 
-@@ -766,6 +772,17 @@ static void sun8i_dwmac_flow_ctrl(struct mac_device_info *hw,
- 		v &= ~EMAC_RX_FLOW_CTL_EN;
- 	writel(v, ioaddr + EMAC_RX_CTL0);
- 
-+	v = readl(ioaddr + EMAC_RX_CTL1);
-+	v &= ~(EMAC_RX_FIFO_FLOW_CTL | EMAC_RX_FLOW_CTL_TH_ACT |
-+	       EMAC_RX_FLOW_CTL_TH_DEACT);
-+	if (fc & FLOW_TX)
-+		v |= EMAC_RX_FIFO_FLOW_CTL |
-+		     FIELD_PREP(EMAC_RX_FLOW_CTL_TH_ACT,
-+				EMAC_RX_FLOW_CTL_TH_2K) |
-+		     FIELD_PREP(EMAC_RX_FLOW_CTL_TH_DEACT,
-+				EMAC_RX_FLOW_CTL_TH_4K);
-+	writel(v, ioaddr + EMAC_RX_CTL1);
-+
- 	v = readl(ioaddr + EMAC_TX_FLOW_CTL);
- 	if (fc & FLOW_TX)
- 		v |= EMAC_TX_FLOW_CTL_EN;
+Patch 3 sets the quanta values in the frames.
+
+This seems to have never worked, so since it's not fixing a regression
+I'm targetting net-next here.
+
+This was tested only on H2+.
+
+Thanks,
+
+Maxime
+
+Maxime Chevallier (3):
+  net: stmmac: dwmac-sun8i: allow controlling TX and RX flow control
+    separately
+  net: stmmac: dwmac-sun8i: emit pause frames when the RX FIFO fills
+  net: stmmac: dwmac-sun8i: configure the pause time for TX flow control
+
+ .../net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 30 +++++++++++++++----
+ 1 file changed, 25 insertions(+), 5 deletions(-)
+
 -- 
 2.56.1
 
