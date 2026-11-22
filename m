@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.37
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.66
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795313947;
-	b=2+TdBUtRYeIRh6yvkBWXJSqgrRIDmDTJry7mkfPEk+L+we5DABSfzyyqAPmzwzNs0Gfx
-	 fhdjXToJ6iEi/1ksulRtXfx10s7caOvdmvChMNvBZG8QNegTQkDH81Ggt0/9oA8vynPQv
-	 3j/f30AS0mMGpJ+gOufRzGe7ch1R8ORRfgZFPVjqB9e0RFaqoRFg6XdnHrc6tPeCK1N6F
-	 mq8NCxrUxiGRmasucv8wZsEsKDFzD/vNsmYUYekb6W8H5NZVvr8vyx+CiZ8Q/jxRETFDT
-	 CMTXj07LBvqPfMWiMuXhYbhIgAtR9hCAPgVjCeF62yemr4DiMzm1Fv+kYF7pax8bEOA==
+	t=1795313952;
+	b=af3dHXwW3S5zq3VJGFhiL5HO8SJ5m9jm+16gM9xYlml/kD9Md8D2tg4UY5cPeFh8XQFy
+	 0ZEciNUWZ+u4DNuif/NmdRqZHsuxsXz7GjtwwOG5nIcpj/qGDK6xgyQR5MunogCxfQ34O
+	 X8o0a2ede5LpUgEeULIX2Z/Qg1hIYciBoOLqi2Tg4/uRpnbVBMn1MFAZ7AGYIXKmaI41y
+	 dGM2Y8HCfH42UYA7eVkFjx3B8EMY3iEa60R5BHNOZZijLUZRnpYFWbTgc98MJiFmeVGpe
+	 Qwv0bwA9liU9OYKU2osleSVtJljeQRZIP0bsXS+JdirZhY30EKjy+VYZH1j9z0YbGVQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795313947;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795313952;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=W5hYZ7whYlTpHKF5+1MJLhFDglAYMTmdbiCCoq4FKNs=;
-	b=cawo+obyCq3NhWLgm3EizA2TZPLFaeUvfATcton3EdHwK7xmKLBihoQea3J0TA5CNK3n
-	 6XtZQmRv7Dwzg0/8IUiOhRldX0MnVhg2ysxXP6OofU3J+Au0Um0gwwFL/mcA6BTTZSw0J
-	 TsqwECBHPydJqCWhDMN8qwRfxbclXtpaPf4wBZwugLizUdVRV7m9TlEjxSHQaAC9Wlq+o
-	 eA+pf05PwDB8/PNzu5pEXg5oF/07aRBGc0Dt904eJEipEqZu45qR3wyo6JIug7L/4zC2J
-	 P60MBxO+CGiv9E/pjdvAvfCGyW5egMULdzszGbVyulEsFckbWqc6hvs/91T6rKlIaPg==
+	bh=6PJRUrXgnJamnOBYKEXHO+0uHHmUn6dvIOcTLFSJJuY=;
+	b=vxAVjk5ctlfTYentXiQA2afJJenJQD1UyCp6PBJWvR7x+xR4/4+t4ZY31qsBtmEemiUz
+	 DAxlXDWpqKl3JahpzzN/rb9wVxuikE6hXIJ6w0+M6wQCgidRkiDcp1ljaqCchLacImEpY
+	 nUUOZMpixaDXyFDCKq86AewmGmByK1OuAmqnxLJlZUKCqXMJrk9EdqbvcGx/dzaeqSzd1
+	 3u6EGlIDpyZYP0bA0vgN84b75peGzzv62c9lrGZYicGSf/+aHTh5z8V5zHnG/ytL6lNEr
+	 ll+kv9HQWt4PMAu7svRgLi7Zkc0TCZu1TQdjAYB4iNwkbHMmw+GV/2ug9dzWhwmQv4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=c0t7dMZ1;
-	arc=none smtp.remote-ip=95.215.58.37
-Received: from mta1.migadu.com (out-37.mta1.migadu.com [95.215.58.37])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=aeSx3uyD;
+	arc=none smtp.remote-ip=95.215.58.66
+Received: from mta1.migadu.com (out-66.mta1.migadu.com [95.215.58.66])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A15C0606A6A9
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:19:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A15C0606A6A9
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5BF3606A68F
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 02:19:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5BF3606A68F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=c0t7dMZ1
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=aeSx3uyD
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=+ibD8ncnuTGYXJmpHdmm8BVR5yX19rIcElJiXlcEyTU=;
+DKIM-Signature: a=rsa-sha256; bh=4zitrb5vx7vHhnBnS2UK8dgyX5foU0srRtOQHeNC5Oc=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795313945; v=1; x=1795918745;
- b=c0t7dMZ1cyRpKfYoUG9FghoobZdvzpkIAsLYoqDJLpSr0bPXJUeB6gYnDpnNL+RSqutxRwdR
- 9rkjpkU3dK62S2qANW9RHbVsQmEtBrayPKdn7hdeShHPYuJRZ0eRMPI5X87hQg2HLlqjX942/MH
- etAi30OOfIL6nLOl2ZPHR5DY=
+ t=1795313950; v=1; x=1795918750;
+ b=aeSx3uyDRT9Ig7oJiNLNUX1EesfSMkJUfXpAx3dayMFIh0WqWsLH1pvTySBUuoI1HS8xB7VX
+ if74yTDYcbFcVsFUl+Xdgds3QC4jkIKJHIV8RUa3uOw2KaX2tKP0Fk11blH8YkmZSQqSsLbZqaG
+ NovyuWbUseegihfB0jjtknBQ=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 03b55c010a345916;
-	Sun, 22 Nov 2026 02:19:04 +0000
-X-Mizu-Trace-ID: 03b55c010a345916
+Received: by smtp.migadu.com with ESMTPS id 4391b5f9e444ebf8;
+	Sun, 22 Nov 2026 02:19:09 +0000
+X-Mizu-Trace-ID: 4391b5f9e444ebf8
 X-Migadu-Flow: FLOW_OUT
 From: Denis Benato <denis.benato@linux.dev>
 To: linux-kernel@vger.kernel.org
@@ -68,9 +68,9 @@ Cc: platform-driver-x86@vger.kernel.org,
 	"Hans de Goede" <hansg@kernel.org>,
 	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
 	Denis Benato <denis.benato@linux.dev>
-Subject: [PATCH v16 07/19] HID: asus: add triggers inner and outer range configuration
-Date: Sun, 22 Nov 2026 02:18:36 +0000
-Message-ID: <20261122021849.57863-8-denis.benato@linux.dev>
+Subject: [PATCH v16 10/19] HID: asus: add support to force feedback
+Date: Sun, 22 Nov 2026 02:18:39 +0000
+Message-ID: <20261122021849.57863-11-denis.benato@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261122021849.57863-1-denis.benato@linux.dev>
 References: <20261122021849.57863-1-denis.benato@linux.dev>
@@ -85,283 +85,254 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-ROG Ally devices allows configuring inner and outer ranges for triggers
-buttons on the back: allow userspace to configure the sensitivity by
-exposing sysfs attributes.
+Unlike ROG ally the X version and following ones uses DInput protocol
+and the force feedback needs to be implemented as its protocol is
+vendor-specific, therefore add support for FF_RUMBLE with magnitude
+scaling on a work-queue based approach to avoid using possibly
+sleeping calls in atomic context.
 
 Signed-off-by: Denis Benato <denis.benato@linux.dev>
+Signed-off-by: Khamunetri Clark <khamunetriclark@gmail.com>
 Co-developed-by: Luke Jones <luke@ljones.dev>
 Signed-off-by: Luke Jones <luke@ljones.dev>
 ---
- drivers/hid/hid-asus.c | 225 +++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 225 insertions(+)
+ drivers/hid/Kconfig    |   1 +
+ drivers/hid/hid-asus.c | 142 +++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 143 insertions(+)
 
+diff --git a/drivers/hid/Kconfig b/drivers/hid/Kconfig
+index d17d960ab5e2..64733aef3806 100644
+--- a/drivers/hid/Kconfig
++++ b/drivers/hid/Kconfig
+@@ -189,6 +189,7 @@ config HID_ASUS
+ 	depends on USB_HID
+ 	depends on LEDS_CLASS
+ 	depends on ASUS_WMI || ASUS_WMI=n
++	select INPUT_FF_MEMLESS
+ 	select POWER_SUPPLY
+ 	help
+ 	Support for Asus notebook built-in keyboard and touchpad via i2c, and
 diff --git a/drivers/hid/hid-asus.c b/drivers/hid/hid-asus.c
-index fc6f0e81fd8a..cc915ab543db 100644
+index 69023305f1e4..35f93fe790b2 100644
 --- a/drivers/hid/hid-asus.c
 +++ b/drivers/hid/hid-asus.c
-@@ -108,6 +108,11 @@ MODULE_DESCRIPTION("Asus HID Keyboard and TouchPad");
- #define ASUS_ALLY_INNER_THRESHOLD_MIN 0
- #define ASUS_ALLY_INNER_THRESHOLD_MAX 50
+@@ -22,6 +22,7 @@
  
-+#define ASUS_ALLY_TRIGGER_RANGE_LOWER_MIN 0
-+#define ASUS_ALLY_TRIGGER_RANGE_LOWER_MAX 50
-+#define ASUS_ALLY_TRIGGER_RANGE_UPPER_MIN 70
-+#define ASUS_ALLY_TRIGGER_RANGE_UPPER_MAX 100
-+
- /* Spurious HID codes sent by QUIRK_ROG_NKEY_KEYBOARD devices */
- #define ASUS_SPURIOUS_CODE_0XEA 0xea
- #define ASUS_SPURIOUS_CODE_0XEC 0xec
-@@ -862,6 +867,11 @@ static struct ally_prefs {
- 	u8 left_outer_threshold;
- 	u8 right_deadzone;
- 	u8 right_outer_threshold;
-+
-+	u8 left_trigger_min;
-+	u8 left_trigger_max;
-+	u8 right_trigger_min;
-+	u8 right_trigger_max;
- } ally_prefs = {
- 	.lock = __MUTEX_INITIALIZER(ally_prefs.lock),
- };
-@@ -1375,9 +1385,213 @@ static const struct attribute_group ally_right_joystick_axis_group = {
- 	.attrs = right_joystick_axis_attrs,
+ #include <linux/acpi.h>
+ #include <linux/cleanup.h>
++#include <linux/compiler.h>
+ #include <linux/compiler_attributes.h>
+ #include <linux/container_of.h>
+ #include <linux/ctype.h>
+@@ -30,6 +31,7 @@
+ #include <linux/hid.h>
+ #include <linux/jiffies.h>
+ #include <linux/kstrtox.h>
++#include <linux/limits.h>
+ #include <linux/list.h>
+ #include <linux/module.h>
+ #include <linux/mutex.h>
+@@ -223,6 +225,23 @@ struct asus_touchpad_info {
+ 	int report_size;
  };
  
-+/**
-+ * ally_set_trigger_ranges() - Set the gamepad trigger travel ranges
-+ * @hdev: HID device the command packet is sent on
-+ * @left_min: left trigger minimum (start of travel)
-+ * @left_max: left trigger maximum (end of travel)
-+ * @right_min: right trigger minimum (start of travel)
-+ * @right_max: right trigger maximum (end of travel)
-+ *
-+ * Context: Caller holds ally_prefs.lock.
-+ * Return: 0 on success, -ENOMEM if the command buffer cannot be allocated,
-+ * or a negative errno if sending the packet fails.
-+ */
-+static int ally_set_trigger_ranges(struct hid_device *hdev, u8 left_min, u8 left_max,
-+				   u8 right_min, u8 right_max)
++/* Output report 0x0D on the gamepad interface. */
++struct ally_ff_data {
++	u8 enable;
++	u8 magnitude_left;
++	u8 magnitude_right;
++	u8 magnitude_strong;
++	u8 magnitude_weak;
++	u8 pulse_sustain_10ms;
++	u8 pulse_release_10ms;
++	u8 loop_count;
++} __packed;
++
++struct ally_ff_report {
++	u8 report_id;
++	struct ally_ff_data ff;
++} __packed;
++
+ struct ally_intf {
+ 	struct hid_device *hdev;
+ 	/* HID-core evdev of this interface. Reports for it land here. */
+@@ -239,6 +258,14 @@ struct ally_intf {
+ 	 */
+ 	bool sysfs_live;
+ 	bool cal_sysfs_live;
++	struct {
++		/* Guards live, update, and packet. */
++		spinlock_t lock;
++		bool live;
++		bool update;
++		struct ally_ff_report packet;
++		struct work_struct work;
++	} ff;
+ 	/* Deferred free through ally_free(): keeps the memory valid for RCU
+ 	 * readers that loaded drvdata->ally before the teardown unpublished
+ 	 * it (see hid_asus_ally_terminate()).
+@@ -466,10 +493,15 @@ enum ally_command_codes {
+ 	CMD_SET_ANTI_DEADZONE           = 0x18,
+ };
+ 
++/* Rumble magnitudes use the hardware's 0..100 intensity range. */
++#define ALLY_FF_MAX_INTENSITY 100
++
+ static const u8 ally_force_feedback_off[] = {
+ 	0x0D, 0x0F, 0x00, 0x00, 0x00, 0x00, 0xFF, 0x00, 0xEB
+ };
+ 
++static_assert(sizeof(struct ally_ff_report) == sizeof(ally_force_feedback_off));
++
+ /*
+  * Each Ally interface owns its own ally_intf. A report is delivered on the
+  * evdev of the interface that received it. Nothing here points at another
+@@ -2252,6 +2284,84 @@ static struct input_dev *ally_x_alloc_input_dev(struct hid_device *hdev,
+ 	return input_dev;
+ }
+ 
++static int ally_ff_output(struct hid_device *hdev, const void *buf, size_t len)
 +{
-+	const u8 payload[] = { left_min, left_max, right_min, right_max };
-+	size_t buf_len;
-+	int ret;
++	u8 *dmabuf __free(kfree) = kmemdup(buf, len, GFP_KERNEL);
 +
-+	u8 *buf __free(kfree) = ally_alloc_cmd(hdev, CMD_SET_TRIGGER_RANGE,
-+					       payload, sizeof(payload),
-+					       &buf_len);
-+
-+	if (!buf)
++	if (!dmabuf)
 +		return -ENOMEM;
 +
-+	ret = ally_gamepad_send_packet(hdev, buf, buf_len);
-+	if (ret < 0) {
-+		hid_err(hdev, "Failed to set trigger ranges: %d\n", ret);
-+		return ret;
++	return hid_hw_output_report(hdev, dmabuf, len);
++}
++
++static int ally_ff_off(struct hid_device *hdev)
++{
++	return ally_ff_output(hdev, ally_force_feedback_off,
++			      sizeof(ally_force_feedback_off));
++}
++
++static void ally_ff_work_fn(struct work_struct *work)
++{
++	struct ally_intf *intf = container_of(work, struct ally_intf, ff.work);
++	struct ally_ff_report report;
++	bool update = false;
++	int ret;
++
++	scoped_guard(spinlock_irqsave, &intf->ff.lock) {
++		if (!intf->ff.update)
++			break;
++
++		report = intf->ff.packet;
++		intf->ff.update = false;
++		update = true;
 +	}
 +
++	if (!update)
++		return;
++
++	ret = ally_ff_output(intf->hdev, &report, sizeof(report));
++	if (ret < 0)
++		hid_err(intf->hdev, "Failed to send force-feedback: %d\n", ret);
++}
++
++static int ally_ff_play(struct input_dev *idev, void *data, struct ff_effect *effect)
++{
++	struct ally_intf *intf = input_get_drvdata(idev);
++
++	if (effect->type != FF_RUMBLE)
++		return 0;
++
++	guard(spinlock_irqsave)(&intf->ff.lock);
++
++	if (!intf->ff.live)
++		return 0;
++
++	intf->ff.packet.ff.magnitude_strong =
++		effect->u.rumble.strong_magnitude * ALLY_FF_MAX_INTENSITY / U16_MAX;
++	intf->ff.packet.ff.magnitude_weak =
++		effect->u.rumble.weak_magnitude * ALLY_FF_MAX_INTENSITY / U16_MAX;
++	intf->ff.update = true;
++	schedule_work(&intf->ff.work);
 +	return 0;
 +}
 +
-+static void ally_trigger_defaults(void)
++static void ally_ff_quiesce(struct ally_intf *intf)
 +{
-+	guard(mutex)(&ally_prefs.lock);
-+
-+	if (ally_prefs.initialized)
-+		return;
-+
-+	ally_prefs.left_trigger_min = ASUS_ALLY_TRIGGER_RANGE_LOWER_MIN;
-+	ally_prefs.left_trigger_max = ASUS_ALLY_TRIGGER_RANGE_UPPER_MAX;
-+	ally_prefs.right_trigger_min = ASUS_ALLY_TRIGGER_RANGE_LOWER_MIN;
-+	ally_prefs.right_trigger_max = ASUS_ALLY_TRIGGER_RANGE_UPPER_MAX;
-+}
-+
-+/* Indices into ally_trigger_limits[] */
-+enum ally_trigger_limit {
-+	ALLY_LEFT_MIN,
-+	ALLY_LEFT_MAX,
-+	ALLY_RIGHT_MIN,
-+	ALLY_RIGHT_MAX,
-+};
-+
-+static u8 * const ally_trigger_limits[] = {
-+	[ALLY_LEFT_MIN]  = &ally_prefs.left_trigger_min,
-+	[ALLY_LEFT_MAX]  = &ally_prefs.left_trigger_max,
-+	[ALLY_RIGHT_MIN] = &ally_prefs.right_trigger_min,
-+	[ALLY_RIGHT_MAX] = &ally_prefs.right_trigger_max,
-+};
-+
-+static ssize_t ally_trigger_limit_show(char *buf, enum ally_trigger_limit which)
-+{
-+	guard(mutex)(&ally_prefs.lock);
-+
-+	if (!ally_prefs.user_cal_support)
-+		return -EOPNOTSUPP;
-+
-+	return sysfs_emit(buf, "%u\n", *ally_trigger_limits[which]);
-+}
-+
-+static ssize_t ally_trigger_limit_store(struct device *dev, const char *buf,
-+					size_t count,
-+					enum ally_trigger_limit which,
-+					int lo, int hi,
-+					const char *group, const char *name)
-+{
-+	u8 value, v[ARRAY_SIZE(ally_trigger_limits)];
-+	struct hid_device *hdev = to_hid_device(dev);
-+	size_t i;
 +	int ret;
 +
-+	ret = kstrtou8(buf, 10, &value);
-+	if (ret || value < lo || value > hi)
-+		return -EINVAL;
++	if (!intf || !intf->gamepad)
++		return;
 +
-+	scoped_guard(mutex, &ally_prefs.lock) {
-+		if (!ally_prefs.user_cal_support)
-+			return -EOPNOTSUPP;
++	scoped_guard(spinlock_irqsave, &intf->ff.lock)
++		intf->ff.live = false;
 +
-+		for (i = 0; i < ARRAY_SIZE(v); i++)
-+			v[i] = *ally_trigger_limits[i];
-+		v[which] = value;
++	cancel_work_sync(&intf->ff.work);
 +
-+		ret = ally_set_trigger_ranges(hdev, v[ALLY_LEFT_MIN], v[ALLY_LEFT_MAX],
-+					      v[ALLY_RIGHT_MIN], v[ALLY_RIGHT_MAX]);
-+		if (ret)
-+			return ret;
++	ret = ally_ff_off(intf->hdev);
++	if (ret < 0)
++		hid_warn(intf->hdev, "Failed to stop force-feedback\n");
++}
 +
-+		*ally_trigger_limits[which] = value;
+ static int ally_x_setup_input(struct hid_device *hdev, struct ally_intf *intf)
+ {
+ 	struct input_dev *input = ally_x_alloc_input_dev(hdev, intf);
+@@ -2280,8 +2390,24 @@ static int ally_x_setup_input(struct hid_device *hdev, struct ally_intf *intf)
+ 	input_set_capability(input, EV_KEY, BTN_THUMBL);
+ 	input_set_capability(input, EV_KEY, BTN_THUMBR);
+ 
++	spin_lock_init(&intf->ff.lock);
++	INIT_WORK(&intf->ff.work, ally_ff_work_fn);
++	memcpy(&intf->ff.packet, ally_force_feedback_off, sizeof(intf->ff.packet));
++	intf->ff.update = false;
++	intf->ff.live = false;
++
++	input_set_capability(input, EV_FF, FF_RUMBLE);
++	ret = input_ff_create_memless(input, NULL, ally_ff_play);
++	if (ret) {
++		hid_err(hdev, "Failed to create force-feedback: %d\n", ret);
++		input_free_device(input);
++		return ret;
 +	}
 +
-+	sysfs_notify(&dev->kobj, group, name);
++	intf->ff.live = true;
+ 	ret = input_register_device(input);
+ 	if (ret) {
++		intf->ff.live = false;
+ 		hid_err(hdev, "Failed to register Ally X gamepad device: %d\n", ret);
+ 		input_free_device(input);
+ 		return ret;
+@@ -2480,6 +2606,14 @@ static struct ally_intf *hid_asus_ally_probe(struct hid_device *hdev)
+ 			hid_err(hdev, "Failed to create Ally X gamepad device.\n");
+ 			return ERR_PTR(ret);
+ 		}
 +
-+	return count;
-+}
-+
-+/*
-+ * Generates <side>_trigger_range_<limit>_limit_{show,store,range_show}.
-+ * @lo is the lowest value the store accepts; it is 0 (no check) for the
-+ * "lower" limits, matching the original code, which only checked the maximum.
-+ */
-+#define ALLY_TRIGGER_LIMIT_FUNCS(side, limit, LIMIT, which, lo)					\
-+static ssize_t side##_trigger_range_##limit##_limit_show(struct device *dev,			\
-+							 struct device_attribute *attr,		\
-+							 char *buf)				\
-+{												\
-+	return ally_trigger_limit_show(buf, which);						\
-+}												\
-+												\
-+static ssize_t side##_trigger_range_##limit##_limit_store(struct device *dev,			\
-+							  struct device_attribute *attr,	\
-+							  const char *buf,			\
-+							  size_t count)				\
-+{												\
-+	return ally_trigger_limit_store(dev, buf, count, which, lo,				\
-+					ASUS_ALLY_TRIGGER_RANGE_##LIMIT##_MAX,			\
-+					#side "_trigger", "range_" #limit "_limit");		\
-+}												\
-+												\
-+static ssize_t side##_trigger_range_##limit##_limit_range_show(struct device *dev,		\
-+							       struct device_attribute *attr,	\
-+							       char *buf)			\
-+{												\
-+	return sysfs_emit(buf, "%u %u\n", ASUS_ALLY_TRIGGER_RANGE_##LIMIT##_MIN,		\
-+			  ASUS_ALLY_TRIGGER_RANGE_##LIMIT##_MAX);				\
-+}
-+
-+ALLY_TRIGGER_LIMIT_FUNCS(left,  lower, LOWER, ALLY_LEFT_MIN,  0)
-+ALLY_TRIGGER_LIMIT_FUNCS(left,  upper, UPPER, ALLY_LEFT_MAX,  ASUS_ALLY_TRIGGER_RANGE_UPPER_MIN)
-+ALLY_TRIGGER_LIMIT_FUNCS(right, lower, LOWER, ALLY_RIGHT_MIN, 0)
-+ALLY_TRIGGER_LIMIT_FUNCS(right, upper, UPPER, ALLY_RIGHT_MAX, ASUS_ALLY_TRIGGER_RANGE_UPPER_MIN)
-+
-+static struct device_attribute dev_attr_left_trigger_range_lower_limit =
-+	__ATTR(range_lower_limit, 0644, left_trigger_range_lower_limit_show,
-+	       left_trigger_range_lower_limit_store);
-+
-+static struct device_attribute dev_attr_left_trigger_range_lower_limit_range =
-+	__ATTR(range_lower_limit_range, 0444,
-+	       left_trigger_range_lower_limit_range_show, NULL);
-+
-+static struct device_attribute dev_attr_left_trigger_range_upper_limit =
-+	__ATTR(range_upper_limit, 0644, left_trigger_range_upper_limit_show,
-+	       left_trigger_range_upper_limit_store);
-+
-+static struct device_attribute dev_attr_left_trigger_range_upper_limit_range =
-+	__ATTR(range_upper_limit_range, 0444,
-+	       left_trigger_range_upper_limit_range_show, NULL);
-+
-+static struct device_attribute dev_attr_right_trigger_range_lower_limit =
-+	__ATTR(range_lower_limit, 0644, right_trigger_range_lower_limit_show,
-+	       right_trigger_range_lower_limit_store);
-+
-+static struct device_attribute dev_attr_right_trigger_range_lower_limit_range =
-+	__ATTR(range_lower_limit_range, 0444,
-+	       right_trigger_range_lower_limit_range_show, NULL);
-+
-+static struct device_attribute dev_attr_right_trigger_range_upper_limit =
-+	__ATTR(range_upper_limit, 0644, right_trigger_range_upper_limit_show,
-+	       right_trigger_range_upper_limit_store);
-+
-+static struct device_attribute dev_attr_right_trigger_range_upper_limit_range =
-+	__ATTR(range_upper_limit_range, 0444,
-+	       right_trigger_range_upper_limit_range_show, NULL);
-+
-+static struct attribute *left_trigger_attrs[] = {
-+	&dev_attr_left_trigger_range_lower_limit.attr,
-+	&dev_attr_left_trigger_range_upper_limit.attr,
-+	&dev_attr_left_trigger_range_lower_limit_range.attr,
-+	&dev_attr_left_trigger_range_upper_limit_range.attr,
-+	NULL
-+};
-+
-+static struct attribute *right_trigger_attrs[] = {
-+	&dev_attr_right_trigger_range_lower_limit.attr,
-+	&dev_attr_right_trigger_range_upper_limit.attr,
-+	&dev_attr_right_trigger_range_lower_limit_range.attr,
-+	&dev_attr_right_trigger_range_upper_limit_range.attr,
-+	NULL
-+};
-+
-+static const struct attribute_group ally_left_trigger_group = {
-+	.name = "left_trigger",
-+	.attrs = left_trigger_attrs,
-+};
-+
-+static const struct attribute_group ally_right_trigger_group = {
-+	.name = "right_trigger",
-+	.attrs = right_trigger_attrs,
-+};
- static const struct attribute_group *const ally_cal_attr_groups[] = {
- 	&ally_left_joystick_axis_group,
- 	&ally_right_joystick_axis_group,
-+	&ally_left_trigger_group,
-+	&ally_right_trigger_group,
- };
- 
- static struct attribute *ally_config_attrs[] = {
-@@ -1412,6 +1626,7 @@ static int ally_prefs_setup(struct hid_device *hdev, struct ally_intf *intf)
- 
- 	ally_vibration_defaults();
- 	ally_joystick_defaults();
-+	ally_trigger_defaults();
- 
- 	scoped_guard(mutex, &ally_prefs.lock) {
- 		if (!ally_prefs.initialized) {
-@@ -1721,6 +1936,16 @@ static int hid_asus_ally_init(struct hid_device *hdev)
- 			hid_warn(hdev, "Failed to restore joystick thresholds: %d\n", ret);
- 	}
- 
-+	if (ally_prefs.initialized && ally_prefs.user_cal_support) {
-+		ret = ally_set_trigger_ranges(hdev,
-+					      ally_prefs.left_trigger_min,
-+					      ally_prefs.left_trigger_max,
-+					      ally_prefs.right_trigger_min,
-+					      ally_prefs.right_trigger_max);
++		/*
++		 * This is the interface that owns the rumble output report.
++		 * Failure to silence it is not fatal.
++		 */
++		ret = ally_ff_off(hdev);
 +		if (ret < 0)
-+			hid_warn(hdev, "Failed to restore trigger ranges: %d\n", ret);
++			hid_warn(hdev, "Failed to disable force-feedback: %d\n", ret);
+ 		break;
+ 	case HID_ALLY_INTF_KEYBOARD_IN:
+ 		break;
+@@ -2502,6 +2636,13 @@ static int hid_asus_ally_reset_resume(struct hid_device *hdev, struct ally_intf
+ 		return 0;
+ 
+ 	ep = ally_get_endpoint_address(hdev);
++	if (ep == HID_ALLY_X_INTF_IN) {
++		ret = ally_ff_off(hdev);
++		if (ret < 0)
++			hid_warn(hdev, "Failed to disable force-feedback: %d\n", ret);
++		return 0;
 +	}
 +
- 	return 0;
- }
+ 	if (ep != HID_ALLY_INTF_CFG_IN)
+ 		return 0;
+ 
+@@ -2550,6 +2691,7 @@ static struct ally_intf *hid_asus_ally_terminate(struct asus_drvdata *drvdata)
+ 	rcu_assign_pointer(drvdata->ally, NULL);
+ 
+ 	ally_quiesce(ally);
++	ally_ff_quiesce(ally);
+ 	ally_unregister_gamepad(ally);
+ 	ally_sysfs_remove(drvdata->hdev, ally);
  
 -- 
 2.47.3
