@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795373112;
-	b=SOir3X54IJlrUDY4i8xULHJnex4mozb2kAtUspJq34WwiDlGdGElX2HjVXvsiVVJWawo
-	 rj+IWsExb86YnhXpOhtaBny9G+GQhLdK/F6yQ0TkyawWd6XL2ZMamPnq9stUr4v4co0UO
-	 mlQ9pxYqVZJaLfG1evnpV63ll9OJZbaOMA7eEFMd8LH2HhMsk2UUT52/XqQTtIllVYEX+
-	 A3b4jlS4Z8sEfTSkEvQbt90vobKHgKo4b9Gj8ZuSsgAv0TCj8HGhxgeW7NH8ilyYttqbT
-	 ieXwHi9AxXiMT+DK9WusJ1NNeipQaSSv4nI22GqSlh+VliNHrPDHvLJ4f1gT2sQqpYQ==
+	t=1795373114;
+	b=RvinUPBP4rAE7uQ76QbdNgtMIeOV/oIPWY8r83BtsDrgqFjmn/4lQV2MDxYDlhX2UzUM
+	 2xwu0SN/voLxPqLmgvINKEPUHFcmxflbljaN8pWkVGH8eSfsZpIbL5naKYSylR+47x79j
+	 /a/M/Dsmn66Ka4vfwZrZkB07O/u2nteFmB1T+hOebYLkIjCaUFvllxy/lvx+InFGe3tYU
+	 N/Ba+8RZy3LzJkiLJn9J+YDOjEjKFhLwMa7jZaITK4ea2B8nsJfB1s4KN3hVD6z7/ef8S
+	 qV34joGCcJ9EcPbxkBFvq5XekYnqYg69Gvs3GQbsj+GO+oUrVd2mprn+9XFJyR8GveQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795373112;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795373114;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=EQ0rA8yaqA1vSCBqSZZVZvjqdV+T4ndirWABYJGy5RI=;
-	b=Loyr1eUCfbkOSrtjMKOohDmg4l+Kkkw8wc2YbO+zioQjy9ykz81Mw1NdjjmO0VrEURGv
-	 JqInQatCm9RJamlYUmoEoqgz4ZEecLIPtWt3RBQ5JbvtsBJ+/OcrmZAlttLnk8HzlT4Bp
-	 cGhR4vURtLf5SId75LceJ+Wmdbm8MEWj3ZChjBmowkUNkPq7IDuJduwjSSdom17Q63l/C
-	 z/khZpBdW/c2F8ZXd2AQIbgW4Fu2QkBQbzUeBAoeosxa9ULcABHQ6AFSlx4geEh4fG5uO
-	 wWzOwuJ/6SA1hg9YVDjz1Z+VTcvNJoq2LpJUmTxFrq2niYRGyR3mhLIUgOJcQDn905w==
+	bh=TxPlxxAqJE3tW6UmldmaY6HGp5vlDJN47buBYWjQlQE=;
+	b=O1xUbUznwj4wYvw1kEKlnscJbx6lSRaXfzoPUhMDFK1NNL+ges/G2vvMxcMjdwGrUTP1
+	 9FoyNJMH6VORiN7JiiZ8M6zN3ACPi6aTaI+tkHWzhTCiMsQYIPvuCxkmsVSIvzs9zsDo+
+	 IfRkNgfEqIIPpgghBLfJ3ED4PEE7GQAMvQSyQp8XZluf2ECg5Bw1JitUiwI/Em/s9ZhPJ
+	 yy8MDuokHTSwkPIvc6rowMlc1Ll7cTweThXtNO1jWyuNTH5PcHtSRkesQ+KIb4mFGmbB4
+	 +RBeTpy4JJF5cUg1PQFVuCY5G9tVXs/EBdBhx6cn+F29vCRPGl/n51BSfGOGSuaIxbg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--jthoughton.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=fshMoL0U;
-	arc=none smtp.remote-ip=209.85.214.197
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=kXoWvg+j;
+	arc=none smtp.remote-ip=209.85.214.198
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5BAD60A2610
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:45:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5BAD60A2610
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EB24606A6AF
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 18:45:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4EB24606A6AF
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--jthoughton.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=fshMoL0U
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2f03a137f6aso22794665ad.3
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:45:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=kXoWvg+j
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2f045e399acso22286585ad.2
+        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 10:45:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795373111; x=1795977911; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795373113; x=1795977913; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=EQ0rA8yaqA1vSCBqSZZVZvjqdV+T4ndirWABYJGy5RI=;
-        b=fshMoL0UNBsQ53L64HA3z0FK87T6i2HIPWBCxuB6XZgTuvf3jxzmUAzhwDjrnfb/wG
-         whx7Mjhk6P/FMV9qqN34BHf01sJZRuIwUh0DeJAX6ez4ceLhbejLKD+EEMvSXK1Ob+GS
-         g489IzcrLPcObmMH4doYDiYgOkI8TCeLDuWCum/dbWo4MX/o3SmvbPUCsjqgG1G6vlIw
-         7feM70090/N2oyXpFlsPMyZEuHYz0EM5uCBmDLWGDnlfXE6gOYbc4nLhAMxt2Wpfn0m4
-         SdK1+HFrDisQb/VAZeMx+w8JDcuE3BIUJ7iY0p+skALNmhy52CDFY4IQnAWu5twYjwSl
-         M44A==
+        bh=TxPlxxAqJE3tW6UmldmaY6HGp5vlDJN47buBYWjQlQE=;
+        b=kXoWvg+jfFp93JvxWDq569dZoZ/fbWNVbHpr6T6z1HzlRVDGJhJZhWQ3ey2Eo764BM
+         Zq4kxCCKmXFcmGnCA579hHk0iOCSVRKBn3dqnhwP2bZS9NbaxAHwkC9dUfHAiTnFHj2W
+         4j+LnoBoMRZFPGWiZjGTcAU4Z0v26qIRvtiAocZztAPxMfCXg8RECnrIfohcEARL3Z5p
+         7FiVYJWz95f3r5sazZKOeqb/D+fQg3RV+6tUl5tLblu1TWB8X9sT7/xefLXXKhEeTxRU
+         EnfGGqbRV8VOS9oarrlFEkn97qr4FVBHgv5h2pJiIVMcyl9M9G0SVrSWyIaZ3DpY7Egk
+         mzDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795373111; x=1795977911;
+        d=1e100.net; s=20260707; t=1795373113; x=1795977913;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=EQ0rA8yaqA1vSCBqSZZVZvjqdV+T4ndirWABYJGy5RI=;
-        b=olflobmvpN26O7CqKIdH4NgWotiHK4ZxBHmM3amRGrwBQ7D6Huv55IcOI2gBudB1qj
-         MZnKOlagPliO2tIBO8zvQVnFMrEuAKjpSqgmGN0JcaDuNSB2OrrVWrWE75DIlKu32um1
-         DLPaxM3/IUoaK1OQtPlcukgwLHFSizKR8q8pCgt/8OEg2X/6d0KXG/podddImgYEducW
-         +RY/NjE1lhwRBwjIb5RZB01Agak63MqvM1MGEP185/pe2dEqsjl/ZKtEBeaA3zvHQABp
-         nn7zT/LmCndZu+lcOOKEGEgVRHzPwRfW8adb+2NjavPC0Ej0KTaEN40NMjBUUgfjo4LN
-         WOhQ==
-X-Forwarded-Encrypted: i=1; AL+hErEYz5vlV7cC+7T1ey5MtG82xIUw0c3Df8c0d10fA/UA7e/iHeK6H4NOqUBFI3VGh73U3UFHj1FFcpkeBRI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ZQf1KCaXHbhqdiRC1AbAA02FfF21p/YqmUSN0aA6YqI8bp9c7
-	vf5nwXqYFyksTCGt7IqinRRWC4yEjFnStZpzywo7f+kSNvD3LsrPQOEMEwYuvNpwYX+IG8DmEJR
-	wyu52jVxKz5R2fYmqVyf0KQ==
-X-Received: from plbmq8.prod.google.com ([2002:a17:902:fd48:b0:2f0:4f32:d57d])
+        bh=TxPlxxAqJE3tW6UmldmaY6HGp5vlDJN47buBYWjQlQE=;
+        b=Gn6XBaq5QXAqsPRlRu+QNw9+JqIt9324CVEL8GSCIkojjtw/GejWih4d6K2veURXrW
+         SMvsheaDP8vrgTXurEsbXjj+C24y8AVedxmQummvYwmvodPigwkCUELxQCS1K7dOoMac
+         Zewhu52+faDJ7KYNBHrbRN9aJ2YdsPybRPp7uhJqk0BqM0kGZsGvnzv2AOHMfpjcBPgm
+         wPcWFBlHFzOqbd+VtdqXMDAoyS82xOQWNx+POk0/5VvGqaTiYDimRHXtDAZ78OAs4uDE
+         DAWVwc5+2/oTgvNKSTUNcBEzPU0BwWSrmsCNgZLcziy99DJyLv0dKXFxZjEH7JHtNfNx
+         uEUA==
+X-Forwarded-Encrypted: i=1; AL+hErGTZnlasZnGE8sFS1lqXQf7HbX7fTCrTuKHbQWqCCyi69o9CKpBsiow9hEegEtg8lQ8fKjOREWF7NBXjN4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+f/W7N53YZL24bItQzPI8N7Pi7JzEjvBQ/TfcYJSFbXwhcBIPO
+	J9XzFdTFz/+ZGXTB6Jl2fSg2Y+963tmuAaVVfaWQLQ39eC7uOXz8IovBIGSpHCQjswT0IwmdZeh
+	OSV0V37RLVCW/M/i/2sV2mg==
+X-Received: from plfn5.prod.google.com ([2002:a17:902:e545:b0:2ef:d037:6013])
  (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:902:eccf:b0:2ef:e465:5049 with SMTP id d9443c01a7336-2f03f156193mr88468125ad.10.1795373110869;
- Sun, 22 Nov 2026 10:45:10 -0800 (PST)
-Date: Sun, 22 Nov 2026 18:44:46 +0000
+ 2002:a17:902:d2cf:b0:2f0:25ea:8fb3 with SMTP id d9443c01a7336-2f03efb1073mr100873735ad.1.1795373113358;
+ Sun, 22 Nov 2026 10:45:13 -0800 (PST)
+Date: Sun, 22 Nov 2026 18:44:47 +0000
 In-Reply-To: <20261122184453.2668189-1-jthoughton@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,9 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261122184453.2668189-1-jthoughton@google.com>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261122184453.2668189-13-jthoughton@google.com>
-Subject: [PATCH v3 12/19] arm64: Support hugetlb vmemmap optimization
+Message-ID: <20261122184453.2668189-14-jthoughton@google.com>
+Subject: [PATCH v3 13/19] hugetlb_vmemmap: Add fault injection for in-place
+ vmemmap PTE updates
 From: James Houghton <jthoughton@google.com>
 To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, 
@@ -96,98 +97,155 @@ Cc: Kefeng Wang <wangkefeng.wang@huawei.com>, Nikos Nikoleris <nikos.nikoleris@a
 	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
 Content-Type: text/plain; charset="UTF-8"
 
-Support HVO if HW AF and BBML3 are supported. These are the required
-features for the vmemmap to be modified in place.
+try_update_vmemmap_pte() may fail, e.g. on arm64 when the update keeps
+racing with hardware access flag updates. HVO handles such failures by
+rolling back the optimization, or by leaving folios partially optimized
+if the rollback or a later restore fails. These paths are rare to hit
+normally.
 
-On arm64 systems that do not have the required hardware features to
-support HVO, the HVO sysctl will not appear, and any attempts to enable
-HVO (either via the command line or via
-CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP_DEFAULT_ON=y) will have no effect.
+Add a fault-injection capability, fail_hugetlb_vmemmap_pte, under
+CONFIG_FAIL_HUGETLB_VMEMMAP. When a fault is injected, the PTE update
+fails with -EAGAIN without touching the page tables, as if the in-place
+update had given up.
 
-Because HVO support is only known after the vmemmap has been populated,
-disable the section-based vmemmap optimization in vmemmap_populate(), as
-LoongArch and powerpc do. Boot-time HugeTLB folios are then optimized
-when they are gathered.
+It can be configured through debugfs or through the
+fail_hugetlb_vmemmap_pte= boot option, the latter allowing failures to
+be injected when optimizing bootmem folios.
 
 Signed-off-by: James Houghton <jthoughton@google.com>
 ---
- arch/arm64/Kconfig               | 1 +
- arch/arm64/include/asm/pgtable.h | 6 ++++++
- arch/arm64/mm/mmu.c              | 9 +++++++++
- mm/hugetlb_vmemmap.c             | 4 ++++
- 4 files changed, 20 insertions(+)
+ .../admin-guide/kernel-parameters.txt         |  1 +
+ .../fault-injection/fault-injection.rst       |  6 +++
+ lib/Kconfig.debug                             |  9 +++++
+ mm/hugetlb_vmemmap.c                          | 38 ++++++++++++++++++-
+ 4 files changed, 52 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 4cce60c2de66..b13618f0ace5 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -95,6 +95,7 @@ config ARM64
- 	select ARCH_WANT_FRAME_POINTERS
- 	select ARCH_WANT_HUGE_PMD_SHARE if ARM64_4K_PAGES || (ARM64_16K_PAGES && !ARM64_VA_BITS_36)
- 	select ARCH_WANT_LD_ORPHAN_WARN
-+	select ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP if ARM64_HW_AFDBM
- 	select ARCH_WANTS_EXECMEM_LATE
- 	select ARCH_WANTS_NO_INSTR
- 	select ARCH_WANTS_THP_SWAP if ARM64_4K_PAGES
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 7421c0a048ff..5dadaac54bef 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -1931,6 +1931,12 @@ static inline void clear_young_dirty_ptes(struct vm_area_struct *vma,
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 176648941aec..b8a8771631c0 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -1694,6 +1694,7 @@ Kernel parameters
+ 	fail_usercopy=
+ 	fail_page_alloc=
+ 	fail_skb_realloc=
++	fail_hugetlb_vmemmap_pte=
+ 	fail_make_request=[KNL]
+ 			General fault injection mechanism.
+ 			Format: <interval>,<probability>,<space>,<times>
+diff --git a/Documentation/fault-injection/fault-injection.rst b/Documentation/fault-injection/fault-injection.rst
+index c2d3996b5b40..403206645fa4 100644
+--- a/Documentation/fault-injection/fault-injection.rst
++++ b/Documentation/fault-injection/fault-injection.rst
+@@ -16,6 +16,11 @@ Available fault injection capabilities
  
- #endif /* CONFIG_ARM64_CONTPTE */
+   injects page allocation failures. (alloc_pages(), get_free_pages(), ...)
  
-+#define arch_support_vmemmap_remap arch_support_vmemmap_remap
-+static inline bool arch_support_vmemmap_remap(void)
-+{
-+	return system_supports_bbm_through_af();
-+}
++- fail_hugetlb_vmemmap_pte
 +
- static inline int try_update_vmemmap_pte(unsigned long addr, pte_t *ptep,
- 					 const pte_t pte)
- {
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index a61464cf7367..bc3eea16004c 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -30,6 +30,7 @@
- #include <linux/mm_inline.h>
- #include <linux/pagewalk.h>
- #include <linux/stop_machine.h>
-+#include <linux/vmemmap-optimization.h>
- 
- #include <asm/barrier.h>
- #include <asm/cputype.h>
-@@ -1843,6 +1844,14 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
- 	/* [start, end] should be within one section */
- 	WARN_ON_ONCE(end - start > PAGES_PER_SECTION * sizeof(struct page));
- 
-+	/*
-+	 * Whether HVO is supported is only known once the system-wide CPU
-+	 * features have been finalized, which is after the vmemmap has been
-+	 * populated, so the section-based vmemmap optimization (pre-HVO) is
-+	 * not supported. Boot-time HugeTLB folios are optimized later instead.
-+	 */
-+	section_vmemmap_optimization_disable(start, end);
++  injects failures of the in-place vmemmap PTE remaps done by HugeTLB vmemmap
++  optimization. (try_update_vmemmap_pte())
 +
- 	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
- 	    (end - start < PAGES_PER_SECTION * sizeof(struct page)))
- 		return vmemmap_populate_basepages(start, end, node, altmap);
+ - fail_usercopy
+ 
+   injects failures in user memory access functions. (copy_from_user(), get_user(), ...)
+@@ -263,6 +268,7 @@ use the boot option::
+ 
+ 	failslab=
+ 	fail_page_alloc=
++	fail_hugetlb_vmemmap_pte=
+ 	fail_usercopy=
+ 	fail_make_request=
+ 	fail_futex=
+diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+index 2d22638ec13a..a6a9bc01a320 100644
+--- a/lib/Kconfig.debug
++++ b/lib/Kconfig.debug
+@@ -2098,6 +2098,15 @@ config FAIL_PAGE_ALLOC
+ 	help
+ 	  Provide fault-injection capability for alloc_pages().
+ 
++config FAIL_HUGETLB_VMEMMAP
++	bool "Fault-injection capability for HugeTLB vmemmap optimization"
++	depends on FAULT_INJECTION && HUGETLB_PAGE_OPTIMIZE_VMEMMAP
++	help
++	  Provide fault-injection capability for the in-place vmemmap page
++	  table updates done by HugeTLB vmemmap optimization (HVO), i.e.
++	  try_update_vmemmap_pte(). This exercises the rollback and
++	  partially-optimized folio paths.
++
+ config FAULT_INJECTION_USERCOPY
+ 	bool "Fault injection capability for usercopy functions"
+ 	depends on FAULT_INJECTION
 diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
-index fb6da64bd80d..a01377c37c96 100644
+index a01377c37c96..4cacd7aee719 100644
 --- a/mm/hugetlb_vmemmap.c
 +++ b/mm/hugetlb_vmemmap.c
-@@ -79,6 +79,10 @@ static int vmemmap_split_pmd(pmd_t *pmd, struct page *head, unsigned long start,
+@@ -17,6 +17,7 @@
+ #include <linux/pgalloc.h>
+ #include <linux/rwsem.h>
+ #include <linux/vmemmap-optimization.h>
++#include <linux/fault-inject.h>
  
- 		/* Make pte visible before pmd. See comment in pmd_install(). */
- 		smp_wmb();
-+		/*
-+		 * On arm64, this requires BBML3. Its support has already been
-+		 * checked.
-+		 */
- 		pmd_populate_kernel(&init_mm, pmd, pgtable);
- 		/*
- 		 * Modern MMUs allow overlapping TLB entries with different mapping
+ #include <asm/tlbflush.h>
+ #include "hugetlb_vmemmap.h"
+@@ -44,6 +45,39 @@ struct vmemmap_remap_walk {
+ 
+ DECLARE_RWSEM(vmemmap_remap_rwsem);
+ 
++#ifdef CONFIG_FAIL_HUGETLB_VMEMMAP
++static DECLARE_FAULT_ATTR(fail_hugetlb_vmemmap_pte);
++
++static int __init setup_fail_hugetlb_vmemmap_pte(char *str)
++{
++	return setup_fault_attr(&fail_hugetlb_vmemmap_pte, str);
++}
++__setup("fail_hugetlb_vmemmap_pte=", setup_fail_hugetlb_vmemmap_pte);
++
++#ifdef CONFIG_FAULT_INJECTION_DEBUG_FS
++static int __init fail_hugetlb_vmemmap_debugfs(void)
++{
++	fault_create_debugfs_attr("fail_hugetlb_vmemmap_pte", NULL,
++				  &fail_hugetlb_vmemmap_pte);
++	return 0;
++}
++late_initcall(fail_hugetlb_vmemmap_debugfs);
++#endif /* CONFIG_FAULT_INJECTION_DEBUG_FS */
++
++/*
++ * Inject failures as if the in-place update lost a race too many times
++ * (see the arm64 implementations), without touching the page tables.
++ */
++static int hvo_update_vmemmap_pte(unsigned long addr, pte_t *ptep, pte_t pte)
++{
++	if (should_fail(&fail_hugetlb_vmemmap_pte, PAGE_SIZE))
++		return -EAGAIN;
++	return try_update_vmemmap_pte(addr, ptep, pte);
++}
++#else
++#define hvo_update_vmemmap_pte		try_update_vmemmap_pte
++#endif /* CONFIG_FAIL_HUGETLB_VMEMMAP */
++
+ static int vmemmap_split_pmd(pmd_t *pmd, struct page *head, unsigned long start,
+ 			     struct vmemmap_remap_walk *walk)
+ {
+@@ -274,7 +308,7 @@ static int vmemmap_optimize_pte(pte_t *pte, unsigned long addr,
+ 	 * after it. The refcount is zero, so the cmpxchg fails and leaves the
+ 	 * page unchanged.
+ 	 */
+-	ret = try_update_vmemmap_pte(addr, pte, mk_pte(dst, PAGE_KERNEL));
++	ret = hvo_update_vmemmap_pte(addr, pte, mk_pte(dst, PAGE_KERNEL));
+ 	if (ret)
+ 		return ret;
+ 
+@@ -313,7 +347,7 @@ static int vmemmap_restore_pte(pte_t *pte, unsigned long addr,
+ 		return 0;
+ 
+ 	dst = vmemmap_dup_page_from_list(src, walk->vmemmap_pages);
+-	ret = try_update_vmemmap_pte(addr, pte, mk_pte(dst, PAGE_KERNEL));
++	ret = hvo_update_vmemmap_pte(addr, pte, mk_pte(dst, PAGE_KERNEL));
+ 	if (ret)
+ 		return ret;
+ 
 -- 
 2.56.1.809.ga0b61035b5-goog
 
