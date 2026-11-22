@@ -1,63 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795311715;
-	b=qnSksIQMwmZuG81lkt1FuFV1HmLSNj2R/2xQNB0S++9/LnBcybWIbN9hAZ2h8M8mMHHW
-	 8Ri9oUieo4Zl1PFe/W3zDTqvKagHwm3skgmd1iHC+pwuNLPeIM2G7n7RI9j1uBHaErcti
-	 fvQAGmnEoEPhF45j3vxHDcTfoku9UALxnIFGTCCVvNQc4V0seGjZ8T/xkZ8EnfwowoVMK
-	 fQikFvI85WU1WHfSoTuL/485yuU1ognZfb79KVUuUypjSMgUFWRugol+xmkwryhcb81Yj
-	 7VVY7kRbCnGTPsdKyhL7Uwjbns1TPht2nqXv2Ju9rwm3l3jPJRWGm2H6fLeq+CyUaRA==
+	t=1795312313;
+	b=BH40DRMWh+QykWtGIRWHS1Mlqu+zwyJapbE1+kIW1IRTzI+D82VtQhaMBVH3a4S3z5rQ
+	 wXU3WesJtxcgYHaMaEIJhkI733mXKCxQWvVtrZ+zOWx7++3CqmK3DmLLrv4PQKpaLOmqE
+	 3xDyYsPMPUu2GCHY7w23/g/0vQ0UCdLDOMc4j4PLRRkdphqadKOshlboXIb8DrFX1+GAx
+	 N0QikG25IdSoHkUoRZyL6K3Apk/GXItN0WBhvmvpgMeBi0WhAE6d7bw1GPTxPV9NQiegs
+	 7+y4BHpRrOnv2gY5EbP/WjboNs6hZw3iQnTznSzmCs0Li/FtDhRmw9WydzaMYItuQbw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795311715;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=EE51FGywmKNIyzivecG4EuPCn4Tr1SfguQFjQwLn8tg=;
-	b=nACcKvgl81Pt1hDmrD0UnReHMqBeW0+pClfEKkHPRuzK1trv4F4HlNCcd6vvZ9H+6o91
-	 0T4eztDAyESqyqW1XuOS23ZrzVr6jCckjZWHmh3m16YN41sO1dCwc9YCkAN49eqKY7jQW
-	 BASMv0TcWxrXJV3Uefrm0ctz3wl4ZO87FfLSJYHtUot7BrfsDxDOg8hWMKiHVLnnUV/hM
-	 MBVVWYcMw2BqI5u4OH1n/t1xEBPku4VvR2qwuxPo0wa8pnkwoNAmUYBLN28ap/f7GXpK0
-	 UhIslkLoLZjC1g7QWS8ppTDwDXi5kndB/uIg3GkfGECEcuf19IKsIf9/4BulMLIVfCA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795312313;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
+	 References:In-Reply-To:Accept-Language:Content-Language:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=z6w5Pt64hxUsrNGZLf6exPMYPi1xVW4QdYEWe63y3wg=;
+	b=tXidrngU1KRAyu52AED9wxtp5T5dhegtqgpu8lhf6T/gBcsuBvuB7Nz/mgdy0COeduhX
+	 N58+tbb4C1Bk7VNCsfmVBmetiRMMdmgSQ2zTjDiaCQo1EeAp2Yomxz3r/ZpbEVC1F0ua5
+	 womXHA265jUGVh0PE71lHtKpHrTZOcLURBNNpiN/+LhVyyRR1nAHufsJ0UzsjIBOXyLqZ
+	 VitgAR9/scUWwlrs9D77pENTjsbFG/UiJj1ldKdey09XRGxer+0nz0+43vN+ey5odpFy7
+	 uElAEL07LlSIb8bhvean5xUvXW8EXvIgyvQFR0LGmU7kA2VM7lusIQ9GP9hLLCTy5hA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OWAVZdKM;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=Brrl9TLo;
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65716606A320;
-	Sun, 22 Nov 2026 01:41:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AC6B606A32C;
+	Sun, 22 Nov 2026 01:51:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9AC6B606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OWAVZdKM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A76D31F000C0;
-	Sun, 22 Nov 2026 01:41:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795311715;
-	bh=EE51FGywmKNIyzivecG4EuPCn4Tr1SfguQFjQwLn8tg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=OWAVZdKM2lxiTzvEW0znVaOuVHINDawBnsoZ3R69vcG/SN98leDBxC2oddwq50KKA
-	 xwYybekufnPXNOICbSGEhGCu7PWaiZQJUMEsQGLtlfClkwoSX2afitjcR2HZpbrh3i
-	 8OgYP1IMImyY+Il5VtHVvtxVP59gdvZM5qwmsq0I3VJplFOXVWHrqMDMDPGSw+XytF
-	 yPAWTl+yK/Ivdx9SbRT++bG/lnn18Zr9dgunqzhW9mLRbnLhpZETB1lhYn6Y/pQlwg
-	 nOn15ZwXsIj2OeQyK7L7KunsiqyylxT5R1DL2JQCN4teZGgW2luKpnub2am58A5Gpm
-	 hPOtTfsny/23w==
-Date: Sun, 22 Nov 2026 01:41:45 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Jorijn van der Graaf <jorijnvdgraaf@catcrafts.net>
-Cc: linux-iio@vger.kernel.org, David Lechner <dlechner@baylibre.com>, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Eddie James <eajames@linux.ibm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Paulius Zaleckas
- <paulius.zaleckas@gmail.com>, Rupesh Majhi <zoone.rupert@gmail.com>, Joshua
- Crofts <crofts@kernel.org>, Luca Weiss <luca.weiss@fairphone.com>
-Subject: Re: [PATCH 3/3] iio: pressure: dps310: add Goermicro SPL07-003
- support
-Message-ID: <20261122014145.1bb27261@jic23-hlaptop>
-In-Reply-To: <20261117083954.335814-4-jorijnvdgraaf@catcrafts.net>
-References: <20261117083954.335814-1-jorijnvdgraaf@catcrafts.net>
-	<20261117083954.335814-4-jorijnvdgraaf@catcrafts.net>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=Brrl9TLo
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AM1pK7C1515643, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1795312280; bh=z6w5Pt64hxUsrNGZLf6exPMYPi1xVW4QdYEWe63y3wg=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=Brrl9TLo6m9Bjql1TGluzfGHcZvoS1E0KiySlFVI/kT+oPh4HXBk767hvnE9jN+D4
+	 RLf9iOX0Y5r3r/7gzWeNjB1OieRaeZeClrC224Ti2fNsgY8rOFvB8rKiu14DtFaL9h
+	 Y1qQ0Q5vHMaapNpFb70n/r8zs5xF84ZGTnPBDecy539U/NVeqMhpxRO5OCUt59i63x
+	 FvDBwjIdzXHvTNsPtierFwMrH2XvSO8J2IZpHG7xEp7/IhHdsPqV2lyyfzf08RwTjp
+	 dnxHvZ7jE/PwwJ5pVPuJlCyk7CK6e0fFZNyD7OCzBgDB5bt1/10W16zS3ivp8Vz3mo
+	 KG6hp93UvOYpA==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AM1pK7C1515643
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Sun, 22 Nov 2026 09:51:20 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Sun, 22 Nov 2026 09:51:19 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
+ 15.02.2562.056; Sun, 22 Nov 2026 09:51:19 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: "niko3x@proton.me" <niko3x@proton.me>, Jes Sorensen
+	<Jes.Sorensen@gmail.com>
+CC: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH rtw-next 1/3] wifi: rtl8xxxu: honour the rate of injected
+ frames on gen1 chips
+Thread-Topic: [PATCH rtw-next 1/3] wifi: rtl8xxxu: honour the rate of injected
+ frames on gen1 chips
+Thread-Index: AQHdeHKps1yrgoumFkma1jbt4yBvTLc5VVRw
+Date: Sun, 22 Nov 2026 01:51:19 +0000
+Message-ID: <990225d3544d4965b80a70d4645b3733@realtek.com>
+References: <20261120-b4-inject-v1-0-1e1693af0c6b@proton.me>
+ <20261120-b4-inject-v1-1-1e1693af0c6b@proton.me>
+In-Reply-To: <20261120-b4-inject-v1-1-1e1693af0c6b@proton.me>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,53 +84,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
 
-On Tue, 17 Nov 2026 09:39:54 +0100
-Jorijn van der Graaf <jorijnvdgraaf@catcrafts.net> wrote:
-
-> The Goermicro SPL07-003 needs what the ZTS8032 chip data already
-> describes: c31 and c40 in the pressure polynomial, and TMP_CFG bit 7, a
-> rate bit on this chip too, left clear. Its TMP_EXT is MEAS_CFG bit 3 and
-> stays at the reset value, the internal sensor the datasheet recommends.
-> 
-> Its c31 and c40 are 12 bit values packed into 0x22-0x24, where the
-> ZTS8032 has 16 bit values in 0x22-0x25, so the coefficient block is 21
-> bytes. Add a chip flag for that layout, the chip data and the I2C and OF
-> IDs.
-> 
-> Tested on a Fairphone (Gen. 6). The DPS310 temperature workaround skips
-> this unit: bit 1 of register 0x32 is set.
-> 
-> Datasheet: https://media.digikey.com/pdf/Data%20Sheets/Goertek%20Microelectronics%20PDFs/SPL07-003.pdf
-> Signed-off-by: Jorijn van der Graaf <jorijnvdgraaf@catcrafts.net>
-
-Applied with one minor tweak to the testing branch of iio.git. That means
-they are queued up for the next merge window.
-
-thanks,
-
-Jonathan
-
-> @@ -1495,12 +1517,14 @@ static int dps310_probe(struct i2c_client *client)
->  
->  static const struct i2c_device_id dps310_id[] = {
->  	{ .name = "dps310", .driver_data = (kernel_ulong_t)&dps310_chip_info },
-> +	{ .name = "spl07-003", .driver_data = (kernel_ulong_t)&spl07_chip_info },
-
-Only thing I tweaked was to swap the two above around so we are in the same order
-in both tables. The reasoning being that all sorts of bugs are a result
-of mismatched entrees and having them on same order makes that less likely.
-
->  	{ .name = "zts8032", .driver_data = (kernel_ulong_t)&zts8032_chip_info },
->  	{ }
->  };
->  MODULE_DEVICE_TABLE(i2c, dps310_id);
->  
->  static const struct of_device_id dps310_of_match[] = {
-> +	{ .compatible = "goermicro,spl07-003", .data = &spl07_chip_info },
->  	{ .compatible = "infineon,dps310", .data = &dps310_chip_info },
->  	{ .compatible = "zilltek,zts8032", .data = &zts8032_chip_info },
->  	{ }
-
+QWhtZXQgWmVyZW4gdmlhIEI0IFJlbGF5IDxkZXZudWxsK25pa28zeC5wcm90b24ubWVAa2VybmVs
+Lm9yZz4gd3JvdGU6DQo+IEZyb206IEFobWV0IFplcmVuIDxuaWtvM3hAcHJvdG9uLm1lPg0KPiAN
+Cj4gV2hlbiBhIGZyYW1lIGlzIGluamVjdGVkIHdpdGggYSByYXRlIGluIGl0cyByYWRpb3RhcCBo
+ZWFkZXIsIHRoZSBkcml2ZXINCj4gaWdub3JlcyBpdCBhbmQgbGVhdmVzIHRoZSBjaG9pY2UgdG8g
+dGhlIGZpcm13YXJlIHJhdGUgYWRhcHRhdGlvbi4gT24gYQ0KPiBSVEw4MTkyQ1UgZXZlcnkgaW5q
+ZWN0ZWQgZnJhbWUgd2VudCBvdXQgYXQgTUNTIDcsIHdoYXRldmVyIHdhcyBhc2tlZC4NCj4gDQo+
+IFVzZSB0aGUgaW5qZWN0ZWQgcmF0ZSBhbmQgZ3VhcmQgaW50ZXJ2YWwsIGFuZCBkaXNhYmxlIHJh
+dGUgZmFsbGJhY2sgc28NCj4gdGhlIGZyYW1lIGlzIHNlbnQgYXQgZXhhY3RseSB0aGF0IHJhdGUu
+DQo+IA0KPiBUZXN0ZWQgb24gUlRMODE5MkNVICgwYmRhOjgxNzgpIGluIG1vbml0b3IgbW9kZSBv
+biAyLjQgR0h6OiAxLCA1LjUsIDYNCj4gYW5kIDU0IE1icHMsIE1DUyAwLzcvOC8xNSB3aXRoIGxv
+bmcgYW5kIHNob3J0IEdJIHdlcmUgYWxsIHJlY2VpdmVkIGF0DQo+IHRoZSByZXF1ZXN0ZWQgcmF0
+ZS4gRnJhbWVzIHdpdGhvdXQgYSByYWRpb3RhcCByYXRlIGFyZSB1bmNoYW5nZWQuDQo+IA0KPiBT
+aWduZWQtb2ZmLWJ5OiBBaG1ldCBaZXJlbiA8bmlrbzN4QHByb3Rvbi5tZT4NCg0KVGhlIGNvbW1l
+bnQgaXMgbm90IHVubmVjZXNzYXJ5LiBPdGhlcndpc2UsIGxvb2tzIGdvb2QgdG8gbWU6DQoNClJl
+dmlld2VkLWJ5OiBQaW5nLUtlIFNoaWggPHBrc2hpaEByZWFsdGVrLmNvbT4NCg0KPiAtLS0NCj4g
+IGRyaXZlcnMvbmV0L3dpcmVsZXNzL3JlYWx0ZWsvcnRsOHh4eHUvY29yZS5jIHwgMjkgKysrKysr
+KysrKysrKysrKysrKysrKysrKysrKw0KPiAgMSBmaWxlIGNoYW5nZWQsIDI5IGluc2VydGlvbnMo
+KykNCj4gDQo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL25ldC93aXJlbGVzcy9yZWFsdGVrL3J0bDh4
+eHh1L2NvcmUuYw0KPiBiL2RyaXZlcnMvbmV0L3dpcmVsZXNzL3JlYWx0ZWsvcnRsOHh4eHUvY29y
+ZS5jDQo+IGluZGV4IDYwNGJiMWU1YjAuLjk2OTg3NWZkNTQgMTAwNjQ0DQo+IC0tLSBhL2RyaXZl
+cnMvbmV0L3dpcmVsZXNzL3JlYWx0ZWsvcnRsOHh4eHUvY29yZS5jDQo+ICsrKyBiL2RyaXZlcnMv
+bmV0L3dpcmVsZXNzL3JlYWx0ZWsvcnRsOHh4eHUvY29yZS5jDQo+IEBAIC01MjIzLDYgKzUyMjMs
+MjggQEAgc3RhdGljIHZvaWQgcnRsOHh4eHVfZHVtcF9hY3Rpb24oc3RydWN0IGRldmljZSAqZGV2
+LA0KPiAgICAgICAgIH0NCj4gIH0NCj4gDQo+ICsvKg0KPiArICogVXNlIHRoZSByYXRlIGZyb20g
+dGhlIHJhZGlvdGFwIGhlYWRlciBvZiBhbiBpbmplY3RlZCBmcmFtZSwgaWYgYW55Lg0KPiArICog
+bWFjODAyMTEgaGFzIGFscmVhZHkgY2hlY2tlZCBpdCBhZ2FpbnN0IHdoYXQgd2UgYWR2ZXJ0aXNl
+Lg0KPiArICovDQoNCk5vIG5lZWQgdGhlIGNvbW1lbnQuIFRoZSBjb2RlIGRvZXMgYXMgdGhlIGNv
+bW1lbnQuDQoNCj4gK3N0YXRpYyBib29sIHJ0bDh4eHh1X3R4X3JhdGVfaW5qZWN0KHN0cnVjdCBp
+ZWVlODAyMTFfdHhfaW5mbyAqdHhfaW5mbywNCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgdTMyICpyYXRlLCBib29sICpzZ2kpDQo+ICt7DQo+ICsgICAgICAgc3RydWN0IGll
+ZWU4MDIxMV90eF9yYXRlICp0eHJhdGUgPSAmdHhfaW5mby0+Y29udHJvbC5yYXRlc1swXTsNCj4g
+Kw0KPiArICAgICAgIGlmICghKHR4X2luZm8tPmNvbnRyb2wuZmxhZ3MgJiBJRUVFODAyMTFfVFhf
+Q1RSTF9SQVRFX0lOSkVDVCkpDQo+ICsgICAgICAgICAgICAgICByZXR1cm4gZmFsc2U7DQo+ICsN
+Cj4gKyAgICAgICBpZiAodHhyYXRlLT5mbGFncyAmIElFRUU4MDIxMV9UWF9SQ19NQ1MpDQo+ICsg
+ICAgICAgICAgICAgICAqcmF0ZSA9IERFU0NfUkFURV9NQ1MwICsgdHhyYXRlLT5pZHg7DQo+ICsg
+ICAgICAgZWxzZQ0KPiArICAgICAgICAgICAgICAgKnJhdGUgPSBydGw4eHh4dV9sZWdhY3lfcmF0
+ZXRhYmxlW3R4cmF0ZS0+aWR4XS5od192YWx1ZTsNCj4gKw0KPiArICAgICAgICpzZ2kgPSB0eHJh
+dGUtPmZsYWdzICYgSUVFRTgwMjExX1RYX1JDX1NIT1JUX0dJOw0KPiArDQo+ICsgICAgICAgcmV0
+dXJuIHRydWU7DQo+ICt9DQo+ICsNCg0KDQo=
