@@ -1,80 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795312313;
-	b=BH40DRMWh+QykWtGIRWHS1Mlqu+zwyJapbE1+kIW1IRTzI+D82VtQhaMBVH3a4S3z5rQ
-	 wXU3WesJtxcgYHaMaEIJhkI733mXKCxQWvVtrZ+zOWx7++3CqmK3DmLLrv4PQKpaLOmqE
-	 3xDyYsPMPUu2GCHY7w23/g/0vQ0UCdLDOMc4j4PLRRkdphqadKOshlboXIb8DrFX1+GAx
-	 N0QikG25IdSoHkUoRZyL6K3Apk/GXItN0WBhvmvpgMeBi0WhAE6d7bw1GPTxPV9NQiegs
-	 7+y4BHpRrOnv2gY5EbP/WjboNs6hZw3iQnTznSzmCs0Li/FtDhRmw9WydzaMYItuQbw==
+	t=1795312566;
+	b=tj2qtW7Mz/IreS/JI2gRUMrik5yHgM0l+EyRygwBrXlfwcquA42d3Dg+b8jjvvmbAcx1
+	 oF5XCbAUhGPxyBnxeXT/inDTvJEPLk5/jl2bcbkvVOztFWMH4mhwto+ioCA/JqS2LSs2W
+	 YzMW1kONiMmBseXyVtk0wgRDNvHNROweMeGikXiVpWkSMJXO2SnOWpvz+5x6OxsbiMJU0
+	 2Qr29klNw54PHg8VbuiZ3iBinZ0b4B+uFPe4CA6UwH6wXbFXd25WGzXQxHOGC7Jjo8RSA
+	 BZKCzb3JdOs5ewxDcwX7DS/+KfvQITPLq/ksZD8oLTSqW+hooA9OGAwzk/qhTk41t8Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795312313;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
-	 References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=z6w5Pt64hxUsrNGZLf6exPMYPi1xVW4QdYEWe63y3wg=;
-	b=tXidrngU1KRAyu52AED9wxtp5T5dhegtqgpu8lhf6T/gBcsuBvuB7Nz/mgdy0COeduhX
-	 N58+tbb4C1Bk7VNCsfmVBmetiRMMdmgSQ2zTjDiaCQo1EeAp2Yomxz3r/ZpbEVC1F0ua5
-	 womXHA265jUGVh0PE71lHtKpHrTZOcLURBNNpiN/+LhVyyRR1nAHufsJ0UzsjIBOXyLqZ
-	 VitgAR9/scUWwlrs9D77pENTjsbFG/UiJj1ldKdey09XRGxer+0nz0+43vN+ey5odpFy7
-	 uElAEL07LlSIb8bhvean5xUvXW8EXvIgyvQFR0LGmU7kA2VM7lusIQ9GP9hLLCTy5hA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795312566;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=PH02iIJ+INghaEueE0jl0/j0pLvZeA1CRO4AfSVm6as=;
+	b=3So+FE/nP7ouEPcG8RQNkyRm1hyyaSr5lwOPfcTFx8pyI66m2rkMOmUC3f2uHnOOvl4x
+	 GhsY/Ih5U69L4e+/3mYCqUH06wSXR7rniyMkIvlofB9vmAQqte6aNeIohPZw+dQZ7lRUo
+	 /BgJ0HThubII6/qW83bYFR785A5A04CiNiV4o1bOK8omxeip70Rzc47UPxDfUQ9VnNEbx
+	 eTqOVU365RUt7kmCUmszO7pz16VjzdQDWYB5RRnXq6i6Yb6vRvgUl9OTU43lwRnCR1J+z
+	 vmIbgDCVTAbWYrzK2asYzB4gJZ9YZgCNaFdNdW1nQgWka7g+PMSJNT8LJHGGiNBGB9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=Brrl9TLo;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k4mdXan3;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AC6B606A32C;
-	Sun, 22 Nov 2026 01:51:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9AC6B606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCF04606A32A;
+	Sun, 22 Nov 2026 01:56:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=Brrl9TLo
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AM1pK7C1515643, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795312280; bh=z6w5Pt64hxUsrNGZLf6exPMYPi1xVW4QdYEWe63y3wg=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=Brrl9TLo6m9Bjql1TGluzfGHcZvoS1E0KiySlFVI/kT+oPh4HXBk767hvnE9jN+D4
-	 RLf9iOX0Y5r3r/7gzWeNjB1OieRaeZeClrC224Ti2fNsgY8rOFvB8rKiu14DtFaL9h
-	 Y1qQ0Q5vHMaapNpFb70n/r8zs5xF84ZGTnPBDecy539U/NVeqMhpxRO5OCUt59i63x
-	 FvDBwjIdzXHvTNsPtierFwMrH2XvSO8J2IZpHG7xEp7/IhHdsPqV2lyyfzf08RwTjp
-	 dnxHvZ7jE/PwwJ5pVPuJlCyk7CK6e0fFZNyD7OCzBgDB5bt1/10W16zS3ivp8Vz3mo
-	 KG6hp93UvOYpA==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AM1pK7C1515643
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sun, 22 Nov 2026 09:51:20 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Sun, 22 Nov 2026 09:51:19 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Sun, 22 Nov 2026 09:51:19 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: "niko3x@proton.me" <niko3x@proton.me>, Jes Sorensen
-	<Jes.Sorensen@gmail.com>
-CC: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH rtw-next 1/3] wifi: rtl8xxxu: honour the rate of injected
- frames on gen1 chips
-Thread-Topic: [PATCH rtw-next 1/3] wifi: rtl8xxxu: honour the rate of injected
- frames on gen1 chips
-Thread-Index: AQHdeHKps1yrgoumFkma1jbt4yBvTLc5VVRw
-Date: Sun, 22 Nov 2026 01:51:19 +0000
-Message-ID: <990225d3544d4965b80a70d4645b3733@realtek.com>
-References: <20261120-b4-inject-v1-0-1e1693af0c6b@proton.me>
- <20261120-b4-inject-v1-1-1e1693af0c6b@proton.me>
-In-Reply-To: <20261120-b4-inject-v1-1-1e1693af0c6b@proton.me>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k4mdXan3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83C481F000C6;
+	Sun, 22 Nov 2026 01:56:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795312566;
+	bh=PH02iIJ+INghaEueE0jl0/j0pLvZeA1CRO4AfSVm6as=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=k4mdXan3eS5eT1tUZcDbLYgaXw1NMlFAF9pJwB8kuqzbPuzrzQ2fJKlHMKe0OUWMn
+	 ecvOP2vD376UOzi91lxHw2NwpvIs53lFGKBAv2F1D6/NfzZz8qVWAfxA8r8j8Tvo0S
+	 O8LEh8kFUkvy6ahb/QiS+DFXQTbFx+LMiSqskdnso8h8tSpY2MWnb5s2W5vQI+CHCn
+	 BTCea3SPQzrUdJDXQLN3XbvzGF9Uagq6Gw21RIAemVqGopJ3kRmerXrQMyRXAFaIvs
+	 YpqJNCSgXMLuFYQNmlXBQBkm3mLbZVMiSL8WJW6Z4qYQNZSAXE5/ryadz6wRrsNMWX
+	 hWNLnNZcLHhWw==
+Date: Sun, 22 Nov 2026 02:56:00 +0100
+From: Thorsten Blum <blum@kernel.org>
+To: Borislav Petkov <bp@alien8.de>
+Cc: Dave Hansen <dave.hansen@intel.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Jesse Barnes <jbarnes@hobbes.lan>,
+	Lukas Wunner <lukas@wunner.de>, Ingo Molnar <mingo@elte.hu>,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND v2] x86/early-quirks: Scan all functions in
+ early_pci_scan_bus()
+Message-ID: <awJLsDWI0OgdWhph@kernel.org>
+References: <20261106004343.457087-2-blum@kernel.org>
+ <av3v7KY64vjxDCk1@kernel.org>
+ <be480966-3b68-44f5-9afa-f88b3c203092@intel.com>
+ <av4bS1QEZpniwlb3@kernel.org>
+ <20261118222141.GBav4k9eZ5-QMjOem4@fat_crate.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,43 +66,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118222141.GBav4k9eZ5-QMjOem4@fat_crate.local>
 
-QWhtZXQgWmVyZW4gdmlhIEI0IFJlbGF5IDxkZXZudWxsK25pa28zeC5wcm90b24ubWVAa2VybmVs
-Lm9yZz4gd3JvdGU6DQo+IEZyb206IEFobWV0IFplcmVuIDxuaWtvM3hAcHJvdG9uLm1lPg0KPiAN
-Cj4gV2hlbiBhIGZyYW1lIGlzIGluamVjdGVkIHdpdGggYSByYXRlIGluIGl0cyByYWRpb3RhcCBo
-ZWFkZXIsIHRoZSBkcml2ZXINCj4gaWdub3JlcyBpdCBhbmQgbGVhdmVzIHRoZSBjaG9pY2UgdG8g
-dGhlIGZpcm13YXJlIHJhdGUgYWRhcHRhdGlvbi4gT24gYQ0KPiBSVEw4MTkyQ1UgZXZlcnkgaW5q
-ZWN0ZWQgZnJhbWUgd2VudCBvdXQgYXQgTUNTIDcsIHdoYXRldmVyIHdhcyBhc2tlZC4NCj4gDQo+
-IFVzZSB0aGUgaW5qZWN0ZWQgcmF0ZSBhbmQgZ3VhcmQgaW50ZXJ2YWwsIGFuZCBkaXNhYmxlIHJh
-dGUgZmFsbGJhY2sgc28NCj4gdGhlIGZyYW1lIGlzIHNlbnQgYXQgZXhhY3RseSB0aGF0IHJhdGUu
-DQo+IA0KPiBUZXN0ZWQgb24gUlRMODE5MkNVICgwYmRhOjgxNzgpIGluIG1vbml0b3IgbW9kZSBv
-biAyLjQgR0h6OiAxLCA1LjUsIDYNCj4gYW5kIDU0IE1icHMsIE1DUyAwLzcvOC8xNSB3aXRoIGxv
-bmcgYW5kIHNob3J0IEdJIHdlcmUgYWxsIHJlY2VpdmVkIGF0DQo+IHRoZSByZXF1ZXN0ZWQgcmF0
-ZS4gRnJhbWVzIHdpdGhvdXQgYSByYWRpb3RhcCByYXRlIGFyZSB1bmNoYW5nZWQuDQo+IA0KPiBT
-aWduZWQtb2ZmLWJ5OiBBaG1ldCBaZXJlbiA8bmlrbzN4QHByb3Rvbi5tZT4NCg0KVGhlIGNvbW1l
-bnQgaXMgbm90IHVubmVjZXNzYXJ5LiBPdGhlcndpc2UsIGxvb2tzIGdvb2QgdG8gbWU6DQoNClJl
-dmlld2VkLWJ5OiBQaW5nLUtlIFNoaWggPHBrc2hpaEByZWFsdGVrLmNvbT4NCg0KPiAtLS0NCj4g
-IGRyaXZlcnMvbmV0L3dpcmVsZXNzL3JlYWx0ZWsvcnRsOHh4eHUvY29yZS5jIHwgMjkgKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKw0KPiAgMSBmaWxlIGNoYW5nZWQsIDI5IGluc2VydGlvbnMo
-KykNCj4gDQo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL25ldC93aXJlbGVzcy9yZWFsdGVrL3J0bDh4
-eHh1L2NvcmUuYw0KPiBiL2RyaXZlcnMvbmV0L3dpcmVsZXNzL3JlYWx0ZWsvcnRsOHh4eHUvY29y
-ZS5jDQo+IGluZGV4IDYwNGJiMWU1YjAuLjk2OTg3NWZkNTQgMTAwNjQ0DQo+IC0tLSBhL2RyaXZl
-cnMvbmV0L3dpcmVsZXNzL3JlYWx0ZWsvcnRsOHh4eHUvY29yZS5jDQo+ICsrKyBiL2RyaXZlcnMv
-bmV0L3dpcmVsZXNzL3JlYWx0ZWsvcnRsOHh4eHUvY29yZS5jDQo+IEBAIC01MjIzLDYgKzUyMjMs
-MjggQEAgc3RhdGljIHZvaWQgcnRsOHh4eHVfZHVtcF9hY3Rpb24oc3RydWN0IGRldmljZSAqZGV2
-LA0KPiAgICAgICAgIH0NCj4gIH0NCj4gDQo+ICsvKg0KPiArICogVXNlIHRoZSByYXRlIGZyb20g
-dGhlIHJhZGlvdGFwIGhlYWRlciBvZiBhbiBpbmplY3RlZCBmcmFtZSwgaWYgYW55Lg0KPiArICog
-bWFjODAyMTEgaGFzIGFscmVhZHkgY2hlY2tlZCBpdCBhZ2FpbnN0IHdoYXQgd2UgYWR2ZXJ0aXNl
-Lg0KPiArICovDQoNCk5vIG5lZWQgdGhlIGNvbW1lbnQuIFRoZSBjb2RlIGRvZXMgYXMgdGhlIGNv
-bW1lbnQuDQoNCj4gK3N0YXRpYyBib29sIHJ0bDh4eHh1X3R4X3JhdGVfaW5qZWN0KHN0cnVjdCBp
-ZWVlODAyMTFfdHhfaW5mbyAqdHhfaW5mbywNCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgdTMyICpyYXRlLCBib29sICpzZ2kpDQo+ICt7DQo+ICsgICAgICAgc3RydWN0IGll
-ZWU4MDIxMV90eF9yYXRlICp0eHJhdGUgPSAmdHhfaW5mby0+Y29udHJvbC5yYXRlc1swXTsNCj4g
-Kw0KPiArICAgICAgIGlmICghKHR4X2luZm8tPmNvbnRyb2wuZmxhZ3MgJiBJRUVFODAyMTFfVFhf
-Q1RSTF9SQVRFX0lOSkVDVCkpDQo+ICsgICAgICAgICAgICAgICByZXR1cm4gZmFsc2U7DQo+ICsN
-Cj4gKyAgICAgICBpZiAodHhyYXRlLT5mbGFncyAmIElFRUU4MDIxMV9UWF9SQ19NQ1MpDQo+ICsg
-ICAgICAgICAgICAgICAqcmF0ZSA9IERFU0NfUkFURV9NQ1MwICsgdHhyYXRlLT5pZHg7DQo+ICsg
-ICAgICAgZWxzZQ0KPiArICAgICAgICAgICAgICAgKnJhdGUgPSBydGw4eHh4dV9sZWdhY3lfcmF0
-ZXRhYmxlW3R4cmF0ZS0+aWR4XS5od192YWx1ZTsNCj4gKw0KPiArICAgICAgICpzZ2kgPSB0eHJh
-dGUtPmZsYWdzICYgSUVFRTgwMjExX1RYX1JDX1NIT1JUX0dJOw0KPiArDQo+ICsgICAgICAgcmV0
-dXJuIHRydWU7DQo+ICt9DQo+ICsNCg0KDQo=
+On Wed, Nov 18, 2026 at 02:21:41PM -0800, Borislav Petkov wrote:
+> On Wed, Nov 18, 2026 at 10:40:27PM +0100, Thorsten Blum wrote:
+> > The patch has been reviewed and acked for quite some time. Bjorn offered
+> > to take it via the PCI tree at the end of October, pending an ack from
+> > one of the x86 maintainers, but there hasn't been any further feedback.
+> 
+> Why, because after sifting through all that gibberish in the commit message,
+> it is basically telling me that some mac laptops have trouble with Linux?
+
+v1 (submitted on August 7) didn't mention the iMacs as examples because
+this bug may also affect other early quirks.
+
+Lukas then asked for an example, which is why I added both iMacs to the
+commit message in v2 (submitted on August 16, with no code changes).
+
+> And because of this we need to stop the presses and take your patch
+> immediately?
+
+I never suggested the patch had to be taken immediately. And 3+ months
+doesn't seem particularly immediate to me for a bug either.
+
+I resent the patch twice (September 16 and November 6) and pinged once 
+(October 3), which should be well within the community guidelines:
+
+https://www.kernel.org/doc/html/latest/process/submitting-patches.html
