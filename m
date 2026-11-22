@@ -1,95 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=139.150.92.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795335787;
-	b=grhFaYR69JztIdYElb1TEd6zbwJebhUCRuzQbLPNZE21rJeReo5YXqdoBmvtsdYxiEgo
-	 g1WanSeEyk5Pty2BBoGGqGG1I8hj3z7PupbvVvlZP4yp2vqqiCG0yUAdz043OtEGR/W2I
-	 0abweX/Gk+ijclciJJX/SvWJnsYLLdgHyCFIBqRIvUFiyEBXibJFK8OMr11X86s796Bfa
-	 qri2aUMpHgqr27Nej3kbLj7sdHfwWYCMg6F0BLz1hjqhLf8+RBglxwQ/Lw1RGqxe3UG9F
-	 MxOPsQQHTrxsWeyClcYxdS5QWHH6UowB8b5/qN1amQAZddRDXYXBLwFAh1TkW8LySFA==
+	t=1795335896;
+	b=E0qfn3DvZdek5LP0dRnhFplkDz6nV4kPl1XLSAOESgySkt5NAzZrTzl7UDKEqdD61Pyx
+	 fG1rko5q/xvYFOuyZtTp328OMgvvUEqDC7dTuTgPgiGcEYjNikdgbBD4FMK3ZAL2E8ugb
+	 QKy+Nji4gCzGoU3iAsEZ+We+Os2McUCXCa3Mxpr07HU7+BOQQmnN7LtjRthaSFSnkTj/p
+	 XFrnHUEfm0kcPI/q87diG3CyDC6TSab47hd96fvIJPY5rAMOZXLVnpQnYlNSl2+zzDyUc
+	 arOWjzbxkvVkYGMzZVx6v4IMorJGq2XFAX6FaNdmMeUouXV0ppU29NCVMzDUFGc2yqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795335787;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=6akX7pzAHH0ivf8SsSGJ7CYw3qAkgFrjvzXEYBsaGuI=;
-	b=Iv2nf9/qxTfNpFuB1zLm05Q3KWmeYYsmEv5hXBGFA/srg98u88D5B1Ucl/hqpF+7wA16
-	 Ly0fiIxTE1HC2SJGMphzWrwQFVd2y0geq0qyJem/eyXQ9iYzdzxgOTQgCHRdU80bG8ibv
-	 l6N84jZjOv69kJH2+1r6JagTgvtDZmsniU/QvJXjnWSOMsoB00EUlV5cVqhNSLD9Qe0zE
-	 rqSm19j2Kyn3qw0Kr2KjBDLfcGJXZkjJudebo4WWEID/AAmmdc/w6Zb7vYGkNvh/pP8wH
-	 K1Usp9V7N2RDRV7dBzeqTIZyHsngp1cVYCBKk3UJ6C1hkNlndQQIhBlxapjBsLkmGcA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795335896;
+	h=DMARC-Filter:Received:Received:Received:Received:Date:From:Reply-To:
+	 To:Cc:Message-ID:Subject:MIME-Version:Content-Type:X-Priority:
+	 X-Authinfo;
+	bh=AQXMVq/bY9pwRN/7bAmT7U0vAZ3Y/kk/NV7eqWTjsoU=;
+	b=jEG2Ldr7XJqI3F5At7AVpfeTUJSDgsM36Z67uohUICH97zFrih8HUEGEmSykXMovn+Kf
+	 To1pvsqxoM34qCZ9wtV5jWAN5cZUuVPc0ujVf4dzttyD63qpLG2GZvtq2uQKlNG2dMtTq
+	 GpdJqnWlE7xc+r4uzxyLbThpZy1WF17NraRThMJgvTjB88dacRVUOOnmDfYyL9F/jX+yP
+	 BnmQLlMfEsChydi86BuCpC2CN7ULGZKsDTFlj1I4sZHzXq+nVtAunWaoDcSMsddxhgMOx
+	 CdiTQdOfpduHf45kFsxKOjo9Ts1jkiLh9f5fSGzr8atwcEMfWdsuGgDJZswhPiZwLBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Uy+MW7EX;
-	arc=none smtp.remote-ip=209.85.215.170
-Received: from mail-pg1-f170.google.com (mail-pg1-f170.google.com [209.85.215.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=nirvanahyj.com;
+	spf=pass smtp.mailfrom=nirvanahyj.com;
+	arc=none smtp.remote-ip=139.150.92.44
+Received: from smtp92-44.hiworks.co.kr (smtp92-44.hiworks.co.kr [139.150.92.44])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C5D1606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 08:23:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C5D1606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Uy+MW7EX
-Received: by mail-pg1-f170.google.com with SMTP id 41be03b00d2f7-cddc250d815so843150a12.2
-        for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 00:23:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795335786; x=1795940586; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6akX7pzAHH0ivf8SsSGJ7CYw3qAkgFrjvzXEYBsaGuI=;
-        b=Uy+MW7EXTLIpQBzhIhKP63fq5Q+zqrn/Jpb0imjgiKMDFrrt+OQ9nVUz/T/afveEGj
-         dt/5U+42E9umaWXPuya3mQYpWFCpaS0VvPDOU8HPqIR+df1ib6rmAyZ0TAgwNSTYJ+Sa
-         sWlhJTacjQqNDNrIu9oUMs6ub/2QNGLkb6cf2hHNWr+sP3+U3gst3F/IIgdyK6bOucc+
-         Kqsx+5olkVWetZ11Cr51mWE04jjGROljhZDU5OJoiKnq1LU/ew/IkZLxEvrX/Vs4P5Jx
-         K880+r1RSuaHP+GIVhRtRKgi6EIRdFfQz1PVixhcJxzUbQqEqkh2+KnpYfdp8y+tNT0r
-         zKeg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795335786; x=1795940586;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6akX7pzAHH0ivf8SsSGJ7CYw3qAkgFrjvzXEYBsaGuI=;
-        b=nweW2HZNdWcw6CeH4blP+nDQahYOKysa/rmWkwSoj0ASAaoesQGmOklvhEpzAEsqXg
-         YADndYhOCv/Pshc6CCRK6uBpch0wManmkNR/1Ks5wk66YqQ7XXjKtpDmLnzuUpQro7Pq
-         ZkbwwGthryJ7TJGYrlNp4dXLJkeW0OruCSdVsWjPtu7NBJ6T/CLsR4yqWuGa7aUs3RoF
-         bON8cJKbjqdo7wKJRdMX0EyQgG+mB0cjQfk+JIm+/QLSWLqKmOB+3+5Mff2kT4JL7s8F
-         64+E4aSlTxxwbW5G2tTpPu8P+0eNLM8KLJuBuEvEGV6YgaFO5j/HDuBISrx93h/gvmb8
-         WW4Q==
-X-Forwarded-Encrypted: i=1; AL+hErFF6J7l3p7PIKef5peV+h9sIUs17eniw50ZfryxX4nMvzHjurE3XBsdEmjFCpuK/AXDP+7/t/wA1v6SzN0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Jofvykglc7vnjCzTLqFQ58gVz1okURGUTN0BO++iExjmMvckc
-	DWE1UN7AbTo+VnZPfT/7lXQLbFofiNreHePyBYJ2mRtp2nsG6cuWPtX+
-X-Gm-Gg: AZFdTZcQdOQWA7EDf2R3BVqsiiJMxhQH5yzINV7cJI6TkyeL0FDSZl+ufXJvNWwJotS
-	Igsqet/GSkA0L8xd/H/w0hZWVrVki1dCgdbb0snS6tQwhFKWHoUuf2QGygdIsAkrvQI17c6CmhL
-	N2wGYtLt+9OucBBFSxxftApU6A+Kol89YGhuMBK7mM4inxFPAJN6/7rna9K8KYjvniaizmmosyQ
-	uAhgFZQEkQM3cHEm0eBzQE4RRc44vCaBMOgtdmLU0EofPVTgfAdNN7YOYBqknjDNFZoq6OkObG3
-	YgvIUnsihxC5MPPWCZeWKNUugJinhXRBUCDMo5ojhWwQzKYUd2LNtHlPfQe254XouKfaz2Eje1j
-	WXoTzkM15RB0QksfdsIKi0+czb972zDEv26jbYjDF6iOliR7AauM1OifWEae909duYS9TjApDLQ
-	WK/WXIrRk/3LDMHkhy8y8NeY2Jx1Iwv3tcEAGiY4SD4lL1s/9oa2Y8OOhK0PP+Dwjnk5tHtqM8j
-	+gvyslavLLBugZwALWWAT8RjMyIg2M+MLAjQ+4YBRD3TKlSxDJAc/mQ7RDu2wAtFQFXsW1o8EyV
-	cgHBzqwYo/KMjwUU107C8UPHpxPkOd+ex2+PHAUPDVQVZaYLYw==
-X-Received: by 2002:a17:90b:2f8c:b0:3b4:1997:3495 with SMTP id 98e67ed59e1d1-3b41c9613bbmr7277675a91.57.1795335785650;
-        Sun, 22 Nov 2026 00:23:05 -0800 (PST)
-Received: from fedora.tailc1fb0a.ts.net ([172.219.65.15])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0b2c4sm11723350a91.4.2026.11.22.00.23.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 00:23:05 -0800 (PST)
-From: Artem Novak <artem122novak@gmail.com>
-To: broonie@kernel.org
-Cc: florian.fainelli@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-spi@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Artem Novak <artem122novak@gmail.com>
-Subject: [PATCH] spi: bcm2835: clarify native chip-select fallback
-Date: Sun, 22 Nov 2026 02:23:02 -0600
-Message-ID: <20261122082302.170387-1-artem122novak@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E995D606A32C
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 08:24:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E995D606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=nirvanahyj.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nirvanahyj.com
+Received: from hi-smtp-node2 (unknown [172.18.0.3])
+	by smtp92-44.hiworks.co.kr (Postfix) with ESMTPS id 4jXMZ65Myyz6GwKl
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:24:46 +0900 (KST)
+Received: from hi-smtp-node2 (unknown [192.168.71.87])
+	by hi-smtp-node2 (Postfix) with ESMTP id 4jXMZ658Q1zQLN7T
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 17:24:46 +0900 (KST)
+Received: from split.smtp.hiworks.com (amphora-3294b420-308a-4b9e-8a1d-bf25580dae1f.openstack.gabia.io)
+ 	by hi-smtp-node2 with ESMTP id zhau7ts2lbcgb4py;
+ 	Sun, 22 Nov 2026 17:24:46 +0900 (KST)
+Received: from hiworks-k8s (EHLO mail-api-v2-prod-574865655-x4kvt) (10.251.248.0) 	by 0 (smtp-channel-split) with SMTP; 	Sun, 22 Nov 2026 17:24:46 +0900
+Date: Sun, 22 Nov 2026 17:24:46 +0900 (KST)
+From: Young-Jun Hong <nirvanah@nirvanahyj.com>
+Reply-To: Young-Jun Hong <young.j.hong@kaist.ac.kr>
+To: Henrik Grimler <henrik@grimler.se>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Message-ID: <gab995302678.0.1795335886363@nirvanahyj.com>
+Subject: RE: Re: [PATCH 2/4] clk: samsung: exynos5420: add VPLL rates for
+ 650, 700 and 750 MHz
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,47 +66,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_3387072_306714675.1795335886363"
+X-Priority: 3
+X-Authinfo: HIWORKS WEB authenticated <nirvanah@nirvanahyj.com|114.203.237.180>
 
-Document why the driver uses GPIO-controlled chip-select instead of
-the hardware-controlled native chip-select.
+------=_Part_3387072_306714675.1795335886363
+Content-Type: multipart/related; 
+	boundary="----=_Part_3387073_43970329.1795335886363"
 
-Also explain how the temporary GPIO lookup table is used when the
-device tree does not provide a CS GPIO descriptor, and document the
-fallback's limitation regarding the alternate GPIOs 36/35.
+------=_Part_3387073_43970329.1795335886363
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
 
-Signed-off-by: Artem Novak <artem122novak@gmail.com>
----
- drivers/spi/spi-bcm2835.c | 15 +++++++++------
- 1 file changed, 9 insertions(+), 6 deletions(-)
+SGkgSGVucmlrLAoKClRoYW5rcyBmb3IgdGhlIHJldmlldywgYW5kIHNvcnJ5IGZvciB0aGUgc2xv
+dyByZXBseS4KCk9uIEZyaSwgTm92IDA2LCAyMDI2IGF0IDAzOjQ1OjM2UE0gKzAxMDAsIEhlbnJp
+ayBHcmltbGVyIHdyb3RlOgo+IFdoYXQgeW91IG1lYW4gd2l0aCAidXNpbmcgdGhlIHNhbWUgUC9N
+L1Mgc3R5bGUgYXMgdGhlIEFQTEwgcm93cyI/CgpUaGF0IHdvcmRpbmcgaXMgdG9vIGxvb3NlLCBz
+b3JyeS4gTGV0IG1lIGV4cGxhaW4gaG93IHRoZSByb3dzIHdlcmUKY2hvc2VuLgoKV2h5IHRoZSBW
+UExMIG5lZWRzIG5ldyByb3dzIGF0IGFsbDogdGhlIEdQVSBjbG9jayBpcwpmb3V0X3ZwbGwgLT4g
+bW91dF9zY2xrX3ZwbGwgLT4gbW91dF9hY2xrX2czZCAtPiBkb3V0X2FjbGtfZzNkIChhIDMtYml0
+CmRpdmlkZXIsIENMS19TRVRfUkFURV9QQVJFTlQpIC0+IG1vdXRfc3cvdXNlcl9hY2xrX2czZCAt
+PiBnM2QuIFRoZQpkaXZpZGVyIGNhbiBvbmx5IGRpdmlkZSBkb3duLCBzbyBhIEczRCByYXRlIGFi
+b3ZlIDYwMCBNSHogbmVlZHMgYSBWUExMCnJvdyBmb3IgaXQ7IHdpdGhvdXQgb25lLCBjbGtfc2V0
+X3JhdGUoKSByb3VuZHMgdG8gdGhlIDYwMCBNSHogcm93LgoKVGhlIFZQTEwgaXMgYSBwbGxfMjU1
+MCAoUExMMzV4eC1zdHlsZSBpbnRlZ2VyIFBMTCksIHRoZSBzYW1lIHR5cGUgYXMgdGhlCkFQTEws
+IEtQTEwgYW5kIEJQTEwgaW4gdGhpcyBkcml2ZXI6CgrCoMKgRnJlZiA9IDI0IE1IeiAvIFAgwqAg
+wqAoUDogNiBiaXRzKcKgIMKgaW5wdXQgb2YgdGhlIHBoYXNlIGRldGVjdG9yCsKgwqBWQ08gwqA9
+IEZyZWYgKiBNIMKgIMKgIMKgKE06IDEwIGJpdHMpIMKgZmVlZGJhY2sgZGl2aWRlcgrCoMKgRm91
+dCA9IFZDTyAvIDJeU8KgIMKgIMKgKFM6IDMgYml0cynCoCDCoHBvc3QtZGl2aWRlciwgb3V0c2lk
+ZSB0aGUgbG9vcAoKU28gd2hhdCBkZWNpZGVzIHdoZXRoZXIgYSByb3cgaXMgcmVhc29uYWJsZSBp
+cyB0aGUgcGhhc2UgZGV0ZWN0b3IgaW5wdXQKKEZyZWYpIGFuZCB0aGUgVkNPIGZyZXF1ZW5jeTsg
+UyBvbmx5IGRpdmlkZXMgdGhlIFZDTyBvdXRwdXQuIEkgcGlja2VkCnJvd3Mgd2hvc2UgRnJlZiBh
+bmQgVkNPIGFyZSBib3RoIGFscmVhZHkgdXNlZCBieSBwbGxfMjU1MCByb3dzIGluCm1haW5saW5l
+OgoKwqDCoHJhdGUgwqBQIMKgTSDCoCDCoFMgwqBGcmVmIMKgIMKgVkNPwqAgwqAgwqAgwqBzYW1l
+IEZyZWYgLyBWQ08gYWxyZWFkeSB1c2VkCsKgwqA2NTDCoCDCoDYgwqAzMjUgwqAxIMKgNCBNSHrC
+oCDCoDEzMDAgTUh6IMKgQVBMTCAxMzAwIE1IeiByb3cgKDMyNSwgNiwgMCkKwqDCoDcwMMKgIMKg
+MyDCoDE3NSDCoDEgwqA4IE1IesKgIMKgMTQwMCBNSHogwqBBUExMIDcwMCBNSHogcm93ICgxNzUs
+IDMsIDEpOwrCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDC
+oCDCoCDCoFZQTEwgMzUwIE1IeiByb3cgKDE3NSwgMywgMikKwqDCoDc1MMKgIMKgMiDCoDEyNSDC
+oDEgwqAxMiBNSHogwqAxNTAwIE1IeiDCoEZyZWY6IFZQTEwgNjAwLzU0My80ODAvNDIwIHJvd3Ms
+CsKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKg
+QVBMTCAxMjAwLzkwMDsgVkNPOiBBUExMIDE1MDAKCldoeSBTID0gMSBhbmQgbm90IFMgPSAyIGxp
+a2UgdGhlIGV4aXN0aW5nIFZQTEwgcm93czogd2l0aCBTID0gMiwgNjUwIHRvCjc1MCBNSHogd291
+bGQgbmVlZCBhIFZDTyBvZiAyNjAwIHRvIDMwMDAgTUh6LCBhYm92ZSB0aGUgaGlnaGVzdCBWQ08g
+YW55CnBsbF8yNTUwIHRhYmxlIGluIG1haW5saW5lIHVzZXMgKDI0MDAgTUh6LCBlLmcuIHRoZSBW
+UExMIDYwMCBNSHogcm93CjIwMCwgMiwgMikuIFdpdGggUyA9IDEgdGhlIFZDTyBzdGF5cyBhdCAx
+MzAwIHRvIDE1MDAgTUh6LCB0aGUgc2FtZSByYW5nZQp0aGUgZXhpc3RpbmcgVlBMTCByb3dzIHJ1
+biBpbiAoMzUwIE1IeiByb3c6IDE0MDAgTUh6OyAxNzcgTUh6IHJvdzogMTQxNjsKMTAwIE1IeiBy
+b3c6IDE2MDApLiBUaGF0IGlzIHdoYXQgInRoZSBzYW1lIFAvTS9TIHN0eWxlIGFzIHRoZSBBUExM
+IHJvd3MiCndhcyBtZWFudCB0byBzYXk7IEkgd2lsbCBzcGVsbCBpdCBvdXQgbGlrZSB0aGlzIGlu
+IHYyLgoKPiBXYXMgaXQgdGVzdGVkIGJ5IGEgaHVtYW4/CgpZZXMuIFRoZSBjb2RlIHdhcyBnZW5l
+cmF0ZWQgYnkgQ2xhdWRlIENvZGUsIGJ1dCBJIHNldCB0aGUgZGlyZWN0aW9uIG9mCnRoZSBleHBl
+cmltZW50cywgbG9va2VkIGF0IHRoZSByZXN1bHRzIG15c2VsZiwgYW5kIHJlcGVhdGVkIHRoZSBy
+dW5zIG9uCm15IEFSVElLIDEwIGJvYXJkIHVudGlsIHRoZSByZXN1bHRzIGhlbGQgdXAuCgpTb21l
+IGJhY2tncm91bmQ6IEkgYW0gZXZhbHVhdGluZyB0aGUgQVJUSUsgMTAgKEV4eW5vcyA1NDIyKSBh
+cyBhCnNtYWxsIGNvbXB1dGUgYm9hcmQuIFN0YXJ0aW5nIGZyb20gaXRzIGZhY3RvcnkgRmVkb3Jh
+IGltYWdlLCBJIG1vdmVkCml0IHRvIERlYmlhbiBhbmQgdHVuZWQgaXQgZm9yIGJlbmNobWFya2lu
+Zywgd2l0aCBDbGF1ZGUgQ29kZSB3cml0aW5nCm1vc3Qgb2YgdGhlIHNjcmlwdHMgYW5kIGNvbmZp
+Z3VyYXRpb24gY2hhbmdlcy4gSSBkZWZpbmVkIHRoZQpleHBlcmltZW50cyBhbmQgaG93IHRvIHZh
+bGlkYXRlIHRoZW0sIGFuYWx5emVkIHRoZSByZXN1bHRzIG15c2VsZiwKYW5kIGFjY2VwdGVkIGEg
+Y2hhbmdlIG9ubHkgYWZ0ZXIgaXQgcmVwcm9kdWNlZCBhY3Jvc3MgcmVwZWF0ZWQgcnVucwpvbiB0
+aGUgYm9hcmQuIEZvciB0aGlzIHBhdGNoLCB0aGF0IG1lYW5zIHRoZSBjbGtfc3VtbWFyeSByZWFk
+aW5ncyBhbmQKdGhlIGZpeGVkLWNsb2NrIEdQVSBydW5zIGRlc2NyaWJlZCBiZWxvdy4KCj4gRG8g
+eW91IGhhdmUgYW55IHJlZmVyZW5jZXMsIGxpa2UgdmVuZG9yIGtlcm5lbCBzb3VyY2VzLCB0byBi
+YWNrIHVwCj4gdGhlc2UgY2hvaWNlcyBvZiBkaXZpZGVycyBhbmQgc2NhbGFyPwoKTm90IGZyb20g
+YSB2ZW5kb3Iga2VybmVsIGZvciB0aGlzIFNvQzogdGhlIG9uZXMgSSBmb3VuZCBmb3IgdGhlIEV4
+eW5vcwo1NDIyIChIYXJka2VybmVsJ3MgT0RST0lELVhVMy9YVTQgMy4xMCBhbmQgNi4xIHRyZWVz
+KSBhbHNvIHN0b3AgdGhlIFZQTEwKdGFibGUgYXQgNjAwIE1IeiwgYW5kIHRoZSBtYWlubGluZSBW
+UExMIHRhYmxlIChiOTI5ODFkZTkyY2IsIDIwMTkpIGRvZXMKbm90IHNheSB3aGVyZSBpdHMgdmFs
+dWVzIGNhbWUgZnJvbS4KClRoZSBjbG9zZXN0IHJlZmVyZW5jZSBpcyBpbiBtYWlubGluZS4gY2xr
+LWV4eW5vczUyNjAuYyAoZDM5ZTU1ZTA2MzcxLApTYW1zdW5nLCAyMDE0KSBoYXMgb25lIHRhYmxl
+IHRoYXQgaXQgYXBwbGllcyB0byBhbGwgcGxsXzI1NTAgUExMcyBvZgp0aGF0IFNvQywgaW5jbHVk
+aW5nIGl0cyBHM0RfUExMLiBJdCBjb250YWlucyA3MDAgTUh6ID0gMTc1LCAzLCAxICh0aGUKc2Ft
+ZSByb3cgYXMgaGVyZSksIFMgPSAxIHJvd3MgZnJvbSA2MzMgdG8gMTIwMCBNSHogKFZDTyAxMjY2
+IHRvIDI0MDAKTUh6KSwgYW5kIHRoZSAxMzAwIGFuZCAxNTAwIE1IeiByb3dzICgzMjUsIDYsIDAg
+YW5kIDI1MCwgNCwgMCkuIFNvIGEKU2Ftc3VuZy13cml0dGVuIEczRCBQTEwgdGFibGUgb24gdGhl
+IHNhbWUgUExMIHR5cGUgYWxyZWFkeSBydW5zIHRoZSBWQ08KYXQgMTMwMCB0byAxNTAwIE1IeiB3
+aXRoIFMgPSAxLiBUaGUgdmVuZG9yIDMuMTAgdHJlZSBmb3IgdGhlIDU0MjIgYWxzbwp1c2VzIFMg
+PSAxIG9uIG90aGVyIHBsbF8yNTUwIGluc3RhbmNlcyAoSVBMTCA2NjYgTUh6ID0gUCA0LCBNIDIy
+MiwKUyAxOyBTUExMIDgwMCBNSHogPSBQIDMsIE0gMjAwLCBTIDEpLiBJIGRvIG5vdCBoYXZlIHRo
+ZSB1c2VyIG1hbnVhbCwKc28gSSBoYXZlIG5vdCBjaGVja2VkIHRoZSByb3dzIGFnYWluc3QgaXRz
+IFBMTCBsaW1pdHMuCgpPbiB0aGUgYm9hcmQsIGNsa19zdW1tYXJ5IHJlcG9ydHMgZm91dF92cGxs
+IGF0IDY1MCwgNzAwIGFuZCA3NTAgTUh6LAphbmQgR1BVIHRocm91Z2hwdXQgZm9sbG93cyB0aGUg
+Y2xvY2s6IGJldHdlZW4gYSBmaXhlZCA2MDAgTUh6IGFuZCBhCmZpeGVkIDc1MCBNSHosIGFuIE9w
+ZW5DTCBtYWQ0IGxvb3AgZ29lcyBmcm9tIDMxLjEgdG8gMzguNyBHRkxPUFMgYW5kIGFuCmZwNjQg
+bG9vcCBmcm9tIDExLjIgdG8gMTMuOSBHRkxPUFMgKHJhdGlvIDEuMjQgZm9yIGJvdGg7IDEuMjUK
+ZXhwZWN0ZWQpLgoKSW4gdjIgSSB3aWxsIGNoYW5nZSB0aGUgNzUwIE1IeiByb3cgdG8gMjUwLCA0
+LCAxICh0aGUgTS9QIG9mIHRoZQoxNTAwIE1IeiByb3cgb2YgdGhlIHBsbF8yNTUwIHRhYmxlKTog
+c2FtZSBWQ08gYW5kIG91dHB1dCwgRnJlZiA2Cmluc3RlYWQgb2YgMTIgTUh6LCBzbyBhbGwgdGhy
+ZWUgcm93cyByZXVzZSBhbiBleGlzdGluZyBNL1AgcGFpci4gSSByYW4KdGhhdCByb3cgb24gdGhl
+IGJvYXJkOiBmb3V0X3ZwbGwgYW5kIHRoZSBHUFUgY2xvY2sgcmVhZCA3NTAgTUh6LCB0aGUKZml4
+ZWQgY2xvY2sgcmVzdWx0cyBtYXRjaCB0aGUgb2xkIHJvdyAoZnA2NCAxMy44LTE0LjAgR0ZMT1BT
+IGF0IDc1MApNSHosIDExLjEgYXQgNjAwIE1IeiksIGFuZCBhIGRldmZyZXEgcnVuIGJldHdlZW4g
+YWxsIE9QUHMgc2hvd2VkIG5vIEdQVQpmYXVsdHMuIFRoZSA2NTAgTUh6IHJvdyAoMzI1LCA2LCAx
+KSBwYXNzZWQgdGhlIHNhbWUgdGVzdCAoZnA2NCAxMi4wCkdGTE9QUykuIFRoZSB2MiBjaGFuZ2Vs
+b2cgYWxzbyBkZXNjcmliZXMgdGhlIGNsb2NrIHBhdGggYW5kIHdoZXJlIHRoZQp2YWx1ZXMgY29t
+ZSBmcm9tLgoKQmVzdCByZWdhcmRzLApZSgoKLS0gCllvdW5nLUp1biBIb25nIGZyb20gSGl3b3Jr
+cw==
+------=_Part_3387073_43970329.1795335886363--
 
-diff --git a/drivers/spi/spi-bcm2835.c b/drivers/spi/spi-bcm2835.c
-index cc5748973281..d4c938fa3a23 100644
---- a/drivers/spi/spi-bcm2835.c
-+++ b/drivers/spi/spi-bcm2835.c
-@@ -1310,13 +1310,16 @@ static int bcm2835_spi_setup(struct spi_device *spi)
- 		return 0;
- 
- 	/*
--	 * TODO: The code below is a slightly better alternative to the utter
--	 * abuse of the GPIO API that I found here before. It creates a
--	 * temporary lookup table, assigns it to the SPI device, gets the GPIO
--	 * descriptor and then releases the lookup table.
-+	 * The hardware-controlled native chip-select can produce short
-+	 * glitches during transfers, so use GPIO-controlled chip-select
-+	 * instead.
- 	 *
--	 * More on the problem that it addresses:
--	 *   https://www.spinics.net/lists/linux-gpio/msg36218.html
-+	 * If the device tree doesn't provide a CS GPIO descriptor, create a
-+	 * temporary lookup table to obtain the GPIO through the consumer API.
-+	 * This fallback assumes GPIOs 8/7 and doesn't detect whether the
-+	 * alternate GPIOs 36/35 are configured.
-+	 *
-+	 * See https://www.spinics.net/lists/linux-gpio/msg36218.html
- 	 */
- 	lookup = kzalloc_flex(*lookup, table, 2);
- 	if (!lookup) {
--- 
-2.56.1
-
+------=_Part_3387072_306714675.1795335886363--
