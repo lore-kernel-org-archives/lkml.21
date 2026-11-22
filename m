@@ -1,79 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795310899;
-	b=dduxYbcdcqL8PzS8IKCg2h1bHABRg7H06lrDD0msZYJjxZ/0WXRDJImfVtVzo0AUWwCS
-	 9rKyBq10XkvrnvyP64vfWWmFFX76B7+xzBVm0VOCWDRQ9ahKztYPqnbyaLPyW1rR5GjXQ
-	 K3EsZBC7ULWcZ7hcntOXr3M6GKfi04RNkHwXdCguNHfVkx8ReYbxm3mvuW2EIPYMdSXZL
-	 UkHKx3W/upMgKhatOUIAVCBXVJC1LkBemBtCMyyJq+QV8IBDsorLEK4XG+aONZKZCEbAH
-	 3mWsogMMSaFl6glueEuoEGxGy0A46rd+DhAHcbhedNxngmsT+l8eHwKp4vW4a9LTIFg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795310899;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=4qUOVGLfHGTdLP72SoQt9x1onQjawb60zHgKVe5je7s=;
-	b=t+/EFNnl+WtGuPQVUS1MMp01XNiQIj/7qufyUe3MVPNgsQZb1+UTIyljzhJYRgnpQyxY
-	 QmtqgR6MZU+uItH8mN6lHdKFpqyBvdHxhX5vo6ct0NN5iafZ+S6pAj6KjPfW9P1omL2V9
-	 k/tvj7PtgcsIxIZJatQsryvbJal73RDPF4dxraKhNh5RAOD77AtC+hNTLdHaDKiszzVcs
-	 bQeohhEm0e0oVuHMwcpxYXnB2qGqdu6DCSO+6rvdkr0xpc7YtinLrkLipDOE+upJxXb98
-	 PKS9BjzxvGa6BfwZflPA6+A0JaNx2qiDvnqUYffNSdpCxywwjLZ4IET0h8huFyKTB0w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jZOpHG8V;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.33
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795310931;
+	b=1A/euZUZj7g1rfaYPLbg8QeWX/rAL20Dsx6aidrh7Qt5psfUQ6dpZjdomE/19FNt8xke
+	 d2czMF/M55n6uCmsZZ3c5n/yo/kYI4hU/sTPtF2+Upj2Yp50qvUkwClITkjyK7uWGyHFp
+	 G4mO+pwFjvtCpgXQO47yiRgmeWwAGE6ivZQxzlasWJftWcyGROC07dImBj3wCEYzUAbMj
+	 rpFBTxDstgzjJ5ZTn+K2PFNpsE690HeH3r8Bj2EhkHKGj2Dy9OvuHVBqWQ2271CeIJi9/
+	 i0nRh4vZPKeIANv1r6ekEiL0uVNv/8pOhu4tcitpLEriPyk5QD9nmy1sl5Z0/imgAoA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795310931;
+	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:
+	 X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
+	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
+	 X-Local-Domain:X-CMAE-Envelope;
+	bh=j7wV5xYsKk+AnKzewK6ED1DY0tL9Fq/vDgt6ZBEAmrk=;
+	b=VcgPOFRHlUHRSbjttUpoxCINhlzb22kuvKZOcn4M5JDnTydwqq2XqDqbbriANRXOQPOY
+	 KzKm1HL4Mcw3WI/oyrbfFwRAu92ZqcYyGFt/Lxi3c9NbZfZNsGtGF4eu6fBJ1MFmsm0SO
+	 gbDtQrNG5DaIIBvUQcMY3iSrFXIlaZv9T3CsMvqXkupYI0pTrqvk0ytj/vPW5dYpQ008m
+	 mA8WAOY93rjqfnz07tf4s7kHWh9n1CdtUEo09FoniVVK8Tjh5SH22Rncm0Cn+HFCQaUmC
+	 6krqG12jGXfmwUdQw4UckzfcOBRBdGOThTXfcnV+PLoI6Bma4CuVNemdIBNUnBwLxDw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=roeck-us.net;
+	spf=fail smtp.mailfrom=roeck-us.net;
+	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=g229YHOB;
+	arc=none smtp.remote-ip=35.89.44.33
+Received: from omta34.uswest2.a.cloudfilter.net (omta34.uswest2.a.cloudfilter.net [35.89.44.33])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 776A6606A320
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 01:28:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB39C606A32A
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 01:28:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB39C606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jZOpHG8V
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795310899;
-	b=c5LPd7RS4VfTz3/iB09DOWTpru1dbVqLQr3FAbcPnt61TkJnr+pbSF5HUeSnA+eiVtcz
-	 7i49k4dmmlylJt4fNNOaFDMsiZ+3Oy/N8lSGiaM18SmArb21Vzk5o/ywbrSKDXzfHBh7+
-	 CE5DHmIyKlMug0Mh1Bag2G76FKBvnkz5fgiA/0j1grFVk9DUsiLtP9pqSI9VgaKzWe1Wt
-	 7urxhPmaL8jNCFEt3lRV7RCRrKZsXXNWFBDRQtj8UUTUYSWS1naWJEuTzR20T6sG/YVk4
-	 qr/lu1g7gh6Og9oAOp5HwOB/g4QTu4eb7V9ug4UZh7X6INGM7Cf7e+zSrU0I2jdMBJQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795310899;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
-	 Content-Transfer-Encoding;
-	bh=4qUOVGLfHGTdLP72SoQt9x1onQjawb60zHgKVe5je7s=;
-	b=aBS2N0Hxx9Ygn4hmNTFLhZswB7Y+lJ3kcqQtdK3npQ4I2oYiKHn5R0G+BSC66yjX8y6o
-	 VWEqsU1/4N3tpFUc47EDTW4eWlnbZRvAWMvh+0VsRqxcRGFj0Y+DHpBSBtqvXA+4SU27o
-	 wXANVX9DOs8qfXvAi8lf1AXmbSmVyM3avSmW1Ogb8IDdNIdEV7Th33Sxi4XXWrr3X0DzU
-	 pt7mlx8B/44ot5N1fICHRXQ5thU7BAaSIjlpi4IzC12fDd/I/dnL4pEgaOXng4GMuOraq
-	 0icJKA/C+CvH26Sds0nAOuI2pXqJRImXrydjWY2M1rCRmANfvm+dedCbjy603FGLJoQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id A4BFF1F000C0;
-	Sun, 22 Nov 2026 01:28:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795310899;
-	bh=4qUOVGLfHGTdLP72SoQt9x1onQjawb60zHgKVe5je7s=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=jZOpHG8Vtd6qKper50Sr5tlnB8/+ft/UDVgVlzsnbPiJdZHEJRlVyvtZ43licZfKr
-	 4v0zcDJmB9NiT+DNNJTvhA+dlqUiX5b0mTksLV9BZmqS2vJfRUOcXTPIM94myKr8WD
-	 IQw0g5lqaWwfSx2IL0kPZT/qODRticAUrjljHfeH7qrNIhFE9AVGruGKHx9F29tf3P
-	 chdVgj4hedCPpB8dtmvg3cBxAMkRLuawxoN2ZNYBaTpWhKoCx6SWz8GIsU6x/+MG5y
-	 n/OwZrM2TpSmuI/OMLjQuKuumhClWy9fBi0ve1J5WCz/lE/JxvawIbCyJR4AIIwVMv
-	 xXiGEGpzKRuSQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 08E504BEA2;
-	Sun, 22 Nov 2026 01:28:18 +0000 (UTC)
-From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Sun, 22 Nov 2026 03:28:04 +0200
-Subject: [PATCH v2] drm/panfrost: Gate the RK3399 GPU clock in runtime
- suspend
+	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=g229YHOB
+Received: from eig-obgw-5004b.ext.cloudfilter.net ([10.0.29.208])
+	by cmsmtp with ESMTPS
+	id UmZQxMxvpAR1iUwNuxOuZG; Sun, 22 Nov 2026 01:28:50 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id UwNtx9N8tuJrPUwNtxQlib; Sun, 22 Nov 2026 01:28:50 +0000
+X-Authority-Analysis: v=2.4 cv=WLZ/XmsR c=1 sm=1 tr=0 ts=6b024552
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=VwQbUJbxAAAA:8
+ a=pGLkceISAAAA:8 a=1pp0S3YwmL9lSNfLDwgA:9 a=CjuIK1q_8ugA:10
+ a=KPbNTLLc3YvdawN95zVk:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
+	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
+	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=j7wV5xYsKk+AnKzewK6ED1DY0tL9Fq/vDgt6ZBEAmrk=; b=g229YHOB7tCg4Z/SwqMpPNGxUW
+	q9a9a3lR9qOm0D75rmzC8VvgTIasiwDBGOxUuSbtvGsj4OkaQL3epxwaRaOEAeRzGodMaF2+Al4Xs
+	0GQ7DMM3G8KIUUtyS1VtVywo0GHyHJV45QCZUH1J4FQHvW8FEO2exYG4y8ooBWGJDNGpqGIX7n3KK
+	GujjwKUoTMEBxVdDw4UUmE5aruOzchol+1RMY3CAZa/iYJFD5wkAGxnNYb1qp1SunsLXNZjfeWP/d
+	kdjiLh6KQEtqUPQXCEhWydzOikLmY58+0AfL+pZHasEIlI5bNJUYcO6ovVga8GngYP7SWRAk/8K1S
+	y/XLCrLw==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:46818 helo=server.roeck-us.net)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xUwNt-00000000mlw-17XS;
+	Sun, 22 Nov 2026 06:58:49 +0530
+Date: Sat, 21 Nov 2026 17:28:48 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: David Yang <mmyangfl@gmail.com>
+Cc: linux-watchdog@vger.kernel.org, stable@vger.kernel.org,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Jongsung Kim <neidhard.kim@lge.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] watchdog: sp805: re-enable the clock in the restart
+ handler
+Message-ID: <e07b2b4a-514b-4697-b7e4-e2101130f8b2@roeck-us.net>
+References: <20261121204528.2435533-1-mmyangfl@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,92 +84,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261122-panfrost-rk3399-pm-rt-v2-1-40f1791aa1a8@iav.lv>
-X-B4-Tracking: v=1; b=H4sIACNFAmsC/4WNQQ6CMBBFr0Jm7ZiWomRceQ/DoilTmahApqTRE
- O5u5QIu30v++yskVuEEl2oF5SxJprFAfaggDH68M0pfGGpTn61xBmc/Rp3SgvpwjgjnF+qCgb2
- LwbZkeoKynZWjvPfurSs8SFom/ew32f7sv2K2aJGpaVxrT+Spv4rPx2eGbtu2L9QCNTu3AAAA
-To: Boris Brezillon <boris.brezillon@collabora.com>, 
- Rob Herring <robh@kernel.org>, Steven Price <steven.price@arm.com>, 
- =?utf-8?q?Adri=C3=A1n_Larumbe?= <adrian.larumbe@collabora.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Heiko Stuebner <heiko@sntech.de>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- Daniel Stone <daniel@fooishbar.org>, Igor Velkov <iav@iav.lv>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2536; i=iav@iav.lv;
- h=from:subject:message-id;
- bh=umYgCRkWKn6+vJ3cIJXDRixn24OfpDYOCpQZFsANalM=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDNlMroat6+Z90PcJ+3l1pcTdh/Frzuuo7PfaaDvV7GCc4
- HPTqiS5jlIWBjEuBlkxRZYJhzRuZSy5+tffw/wBzBxWJpAhDFycAjCRbE1Ghlu3NLbpc05mkjZo
- 8VFX/Jte8Un5/KfVS4J7Yy7dTi+O9mVkOHpv5s8/M3b1dwpsXvhv9y+2DypH1WYYBy5jytL6N4H
- xNRcA
-X-Developer-Key: i=iav@iav.lv; a=openpgp;
- fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
-X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
-X-Original-From: Igor Velkov <iav@iav.lv>
-Reply-To: iav@iav.lv
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261121204528.2435533-1-mmyangfl@gmail.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xUwNt-00000000mlw-17XS
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:46818
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 7
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfBE5RLtbdWEIYhb9wRGN/7tz1ERYLcl18cXxIp7LCvipm1tJwK156goQryrXOszH9lAhF6iHxhfSSnEdLm1SC7OwhgH1yXY4cvDZqw3d0wsHjDL/ejCz
+ JFmlpcKvDdk43hH5SaDAy6xtp2iGMTGlG5f/Ot+1B+nWuU9UBZmIiGb9+yXJI6mHJdmgRex1FHC9dhd96colD02N/kYGqwCEOwslytMQLTSl/Vdufyz3ZxZ4
 
-From: Igor Velkov <iav@iav.lv>
+On Sun, Nov 22, 2026 at 04:45:25AM +0800, David Yang wrote:
+> wdt_restart() fail to reboot the system if the watchdog counter clock
+> was previously disabled: If userspace cleanly stops the watchdog, the
+> core calls wdt_disable() which disables wdt->clk. No reset comes.
+> 
+> Re-enable the clock in it as in npcm_wdt. The watchdog .restart()
+> callback runs in atomic context: get the clock with
+> devm_clk_get_optional_prepared() at probe time and keep it prepared for
+> the lifetime of the driver, so the restart handler only needs
+> clk_enable(), which is safe in atomic context.
+> 
+> Link: https://lore.kernel.org/r/20260911031916.A8E051F000FF@smtp.kernel.org
+> Fixes: 6c5c0d48b686 ("watchdog: sp805: add restart handler")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: David Yang <mmyangfl@gmail.com>
 
-The RK3399 Mali-T860 matches arm,mali-t860 and gets default_data, so
-panfrost enables aclk_gpu at probe and keeps it enabled until unbind;
-runtime suspend powers the GPU off but leaves the clock on.
+Applied.
 
-On ROCK Pi 4A restore from hibernation hangs in genpd_restore_noirq()
-of the GPU when the hibernated kernel had panfrost bound and the
-kernel that loads the image does not. There clk_disable_unused()
-gates aclk_gpu, while the restored image still holds an enable count
-on it, so powering the GPU domain back on does not ungate the clock.
-With the clock gated in runtime suspend, as on the Allwinner H616 and
-the Renesas RZ/G3L and RZ/G3E, restore completes.
-
-Match rockchip,rk3399-mali to default_pm_rt_data.
-
-Signed-off-by: Igor Velkov <iav@iav.lv>
----
-Tested on ROCK Pi 4A, drm-misc-next c408466a4dfa with the rkvdec fix [1]
-applied: hibernation restores 9 of 9 with this patch (3 with an HDMI
-mode held, 3 right after glmark2-es2-drm, 3 idle), and the GPU renders
-after restore. With the GPU node left with arm,mali-t860 only, restore
-hangs 2 of 2, in genpd_restore_noirq() of the GPU.
-[1] fixes the same kind of hang in rkvdec, which otherwise hits first;
-this patch applies and builds without it.
-
-[1] https://lore.kernel.org/r/20261030-rkvdec-runtime-pm-clocks-v2-1-8ff510a231de@iav.lv
-
-Changes in v2:
-- Name the SoCs that already use default_pm_rt_data
-- Say why restore hangs
-- Rebase onto drm-misc-next
-- Link to v1: https://lore.kernel.org/r/20261030-panfrost-rk3399-pm-rt-v1-1-e94437159a9d@iav.lv
----
- drivers/gpu/drm/panfrost/panfrost_drv.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/gpu/drm/panfrost/panfrost_drv.c b/drivers/gpu/drm/panfrost/panfrost_drv.c
-index eeda113037fe..91acfa13ef42 100644
---- a/drivers/gpu/drm/panfrost/panfrost_drv.c
-+++ b/drivers/gpu/drm/panfrost/panfrost_drv.c
-@@ -983,6 +983,7 @@ static const struct of_device_id dt_match[] = {
- 	  .data = &amlogic_data, },
- 	{ .compatible = "renesas,r9a08g046-mali", .data = &default_pm_rt_data },
- 	{ .compatible = "renesas,r9a09g047-mali", .data = &default_pm_rt_data },
-+	{ .compatible = "rockchip,rk3399-mali", .data = &default_pm_rt_data },
- 	{ .compatible = "arm,mali-t604", .data = &default_data, },
- 	{ .compatible = "arm,mali-t624", .data = &default_data, },
- 	{ .compatible = "arm,mali-t628", .data = &default_data, },
-
----
-base-commit: c408466a4dfaee4b12587e926c5b85e68c8b3c40
-change-id: 20261030-panfrost-rk3399-pm-rt-cea3fc1790d9
-
-Best regards,
--- 
-Igor Velkov <iav@iav.lv>
-
-
+Thanks,
+Guenter
