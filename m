@@ -1,98 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.108.101.136
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795307074;
-	b=tDuPN0FCLHXrQCgXgFj4rlO4LLeg8e7j43ibq9o/WGvJ8M4mi/xTUP7VTWGucXG2Ehj+
-	 uViGBJ7CM8OJmVEBGqEv76OC8+xnzIvU605DRqdc1bmVffcY8tzktH7ve6pcl9qp2Q93n
-	 0Zan6E2a4x6gwa8aPPKaRB+tGqoINaQPUfEEDLfLIIkXiyresbWgLyUf3q56K9dKBhVqJ
-	 Pn7OSq89u6Uf+4riyrcI1of2s/s4levUUrMCcU1PaqGkaphcfDweDoYjjX+QDWUE4rNG9
-	 2KCEEBLwGiPVIM7dGFePUGt/trCvUBlA9zWWsurg+gQiy8LWjeaRnDvEuR3ORLufCJQ==
+	t=1795307209;
+	b=scKw2UzNDJj3a9/xB72ga+8OPW1f0cwWejBcbxU/0kxAzHieJlYPFgFxX1Y7oqGa3Lpb
+	 qUH4e2mDRTsTb820l1U+91iG1zHupXrMgGrGMLMPn41ywCZ+MfBJsLzq1iJl18zwkBSex
+	 N9K82pGrtgAFES1rWA8lEfY2w/fQidGH7sg60HjbT9lVMM8WlXYDTlrFo1YZGk/DYCgNJ
+	 sRbj2xPWIt1413mvhczsKmQ8nn0cSLaEcg3Pc+wyRIpXlojFAB7j6ea9GTOjH7gqNhIHD
+	 QhhNl57EUrd0lRp++rS+YCuS2SdPFn2wxHpePyKqEvOiiNxN80rnHYR/EMvex+x1E5A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795307074;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=7AutQAwdwwoaFEE4x44ILwTb8k/RmhAWlEsJY45jANo=;
-	b=A6nQkIifqhlend45hZVRvDA6DgEHV+abPy6zFqLnaDSa0y4P9Plr5IJsni4o6dCI9OmZ
-	 FFRRsxXMkcKv/Ljf8s4ZUEV6menPBR6vB4OYSC5v0tq3OXQAr/0eBzRyHllnjU2cSGWvx
-	 HAWPC15hBUeymMACzGklXQaxxhsRmf3ENBRFP7ewIOcSOzLwf21FaJuer6gVHPDev6xQp
-	 uFkrL626oS2X5rIKW5mgIY2j0CDm1ByqUGOmVmcp2IWSwDPsaO2d70HeztEmDK1/SUuSZ
-	 Tg6aUM7ElFjUhe3NSCz54DtEHYAKYyP8hIHdA5B8OzmXSjk3rR0Tc5/uSQpDn6TNzZg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795307209;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:Date:From:To:CC:Subject:
+	 In-Reply-To:References:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=FdMdr0OPoLSwNkPJr5yD1+5uK3Sil+tJIjrmqRVSmVo=;
+	b=ANBV8/J/G08R6R1OL4hDFKOL+3XNKRSJbzXT0X8Hh5K+ONtxuhiqfme0/7zZZyMrq+Oj
+	 0QI29qhPJuocOrqeCQ8bClb2X0oVDcP6X4jtng3Jg/HL1jg3zHUQ0E1lGK0SLitk6V0mo
+	 RgpDnadygFPYAvLmxCyAIxznnMfudmkGhF4Q7xKOfQYoDuxJ6BN/QITyMQAIufAorehKy
+	 MQItG8as1pJNXtzgavJNuNldwddQHDSkgMBsvU91Lr7/PyhpoweDoKtQSDkr/MvwyWE09
+	 3IrevXzHsIrYDR1M6EzRdSuwuOz87mvbalSsTrXwEH5J9USq2HzDY6Kg/k+G2hZJl5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mOU5fgAn;
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=vitkazik.cz;
+	spf=pass smtp.mailfrom=vitkazik.cz;
+	dkim=pass header.d=vitkazik.cz header.i=@vitkazik.cz header.a=ed25519-sha256 header.s=v1-ed25519-20261107 header.b="Ts8I+/ZS";
+	dkim=pass header.d=vitkazik.cz header.i=@vitkazik.cz header.a=rsa-sha256 header.s=v1-rsa-20261107 header.b=EMeJOWKo;
+	arc=none smtp.remote-ip=78.108.101.136
+Received: from mail.vitkazik.cz (unknown [78.108.101.136])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA45B606A330
-	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 00:24:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA45B606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D22A3606A320
+	for <linux-kernel@vger.kernel.org>; Sun, 22 Nov 2026 00:26:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D22A3606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=vitkazik.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=vitkazik.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mOU5fgAn
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-490c3ae81d3so1307984f8f.2
-        for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 16:24:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795307072; x=1795911872; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=7AutQAwdwwoaFEE4x44ILwTb8k/RmhAWlEsJY45jANo=;
-        b=mOU5fgAnuSK3v6vTsPnGm7cRPB+S0vG3TKjzKG99IKrsF/M3tHQwDCcIQ1ff4hPFQ7
-         894cJITJlGAEXaqJPsc3QGDEPHLPx+4DKzjyZRN7RXIdW5CW1loSBVqzDNnXN2zzKSeH
-         80rhQ8uSXOIBnHvXi3WkpJHd4Ltn1cIgId+xZkh/kjJqczMrfjPKxf/075a0HvqpaiNu
-         T8ETVbnl2l/5mcD7TeLdOPWx/KAC6z3uLlXXodmpubniji2RsVqKsxgDHqSfVX/yq/tl
-         cilGfjwMYjy3MIYWnSLk14jrws37jE7OVTRonVcATs7EIeS+JhX7Y32Et+XdsqUasq5L
-         TA4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795307072; x=1795911872;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7AutQAwdwwoaFEE4x44ILwTb8k/RmhAWlEsJY45jANo=;
-        b=UpVZSVkyJh5zNG1/c8stsfptpKRWqIfRprKPe43iMoNVEcLCiwLfWgvrmO9/4yhVmM
-         9tb/wdMil9I/T9k9b0JnpfoW+6FXT1hpH66U1rXIWMlvg+dkyfJRJZQMjSB5GqIbUEEA
-         G03/7Mrij52OPqyvBIgrTO9o6de9Wfdro5fPYSlT+BoW+Kgy73xPKu/8xwYai191wz27
-         6mf+oUJE8dFmBFAQvrUr+aCXQFXhfibEjEPkIkcgQMXhgwefAMSCfF8O/5Ol5+UmoACD
-         WvCiYI8svRLLLGEGHoKr6tfmjDYlkgWYksbJi7N2JiWyLw7vPE1PRLqUiUuJ8bUTGVsV
-         AZbQ==
-X-Forwarded-Encrypted: i=1; AL+hErGm+SVoY+kQaz01fmCieSyXZxUZWPLED1CwPNZDcAf8opuhputyQTE67denz5KGIOL9vCKGiguQv9zJYAg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/m/ks5LCH36WdRP1+EtQfHnt84BJUfE1UvHKHXJhEwOXzMj9PH
-	y5ZPi3hCLLC1mSOKCD8tf60SIp6isx6v3SJwYcs1U3HwvkHBMOpAwexz
-X-Gm-Gg: AZFdTZdoOvKv6Rndl+VqwIWFrNfqDJY1YP91PpRU5XkrTKb5iTNEWdA2tep4nstTCRg
-	6gq7gK1dMUF7CJSfqmuB3ikODC1fLLfe9ufxDNpfQyZaZT9O13uje8R+KF81HRHLcT1rtwh+Uqn
-	D+4hPPTl05j9+LSlefOFSv3Gtz7SGAaDIDGfM2VZ5qbO8Me9b1PobMWUnfLmcCjavepWTyeYDS0
-	xGDwZYq4NolbwXFD2yR97/CYoYLo9L6DbEvWxY3SSY7LGzMO3dr7TSLI8g2dmWxUJQ6pT4z86MU
-	Fv4X9Dt5GiBokD7XsCnGYZH7DwG3takL7P0fjnLwjKKhBl+dvAuW5cMV2t14Kb4CWWuA+V1i1Mc
-	APK/Alf9Lp2Hp5LLbtquwq3R2SB9hrBBGqv1S9usXgLcIhLtTbTs7Q1PlrOvsvKe070boGJwdUT
-	baOnikorXzAGOzvbx19WFlzyHUhqzuyQYuISOyjEEEmAq240uzcqBA+pxQgm1q2CdfDwKZfk1Ud
-	s15mM75qEeC6+VTnNc4tEHKKuhfrFvqZRLAWM/JZ5Sgmugn0s6wVDvx3P8PnBzQtgWvoyfmr673
-	0xog8htcMxK25unya1jiJ4mXbHK1C74tHXGcMto8UqNkLCWZNs1aEHi0DIlSyw8V4N7m4kWryZA
-	rjs4Q+dFdeOPJafnhlWCwQ7kv8BwuYYk64QDa6zG4vA52bWhDHg5+FY2BEjmIWpOrIFe6SUSZ33
-	YTIrSPJA==
-X-Received: by 2002:a05:600d:82d0:b0:4bb:818d:8d8f with SMTP id 5b1f17b1804b1-4bb88818955mr181628885e9.23.1795307071931;
-        Sat, 21 Nov 2026 16:24:31 -0800 (PST)
-Received: from eagle.home.marco.cx ([2a02:908:176:3bde:b462:7469:ce26:99ed])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9066e34esm88663715e9.3.2026.11.21.16.24.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2026 16:24:31 -0800 (PST)
-Date: Sun, 22 Nov 2026 01:24:30 +0100
-From: Marco Schirrmeister <mschirrmeister@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org, akpm@linux-foundation.org, 
-	linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org, 
-	lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com, 
-	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org, hargar@microsoft.com, 
-	broonie@kernel.org, achill@achill.org, sr@sladewatkins.com
-Subject: Re: [PATCH 6.18 0000/2144] 6.18.65-rc2 review
-Message-ID: <awI18u5yuXDv-6rT@eagle.home.marco.cx>
-References: <20261120055114.182757740@linuxfoundation.org>
+	dkim=pass header.d=vitkazik.cz header.i=@vitkazik.cz header.a=ed25519-sha256 header.s=v1-ed25519-20261107 header.b=Ts8I+/ZS;
+	dkim=pass (2048-bit key, unprotected) header.d=vitkazik.cz header.i=@vitkazik.cz header.a=rsa-sha256 header.s=v1-rsa-20261107 header.b=EMeJOWKo
+DKIM-Signature: v=1; a=ed25519-sha256; s=v1-ed25519-20261107; d=vitkazik.cz; c=relaxed/relaxed; r=y;
+	h=Message-ID:Subject:To:From:Date; t=1795307196; bh=FdMdr0OPoLSwNkPJr5yD1+5
+	uK3Sil+tJIjrmqRVSmVo=; b=Ts8I+/ZSlO6lfLVX0gBKNOTrDXwUEusdM7CQYroPAOKkGeL6fV
+	aWDuOVT6LtGmhhczOv0qtV8BUb8dDgSNQFCw==;
+DKIM-Signature: v=1; a=rsa-sha256; s=v1-rsa-20261107; d=vitkazik.cz; c=relaxed/relaxed; r=y;
+	h=Message-ID:Subject:To:From:Date; t=1795307196; bh=FdMdr0OPoLSwNkPJr5yD1+5
+	uK3Sil+tJIjrmqRVSmVo=; b=EMeJOWKoqNGNL1NCGCsS1FKDeVOY7qjgpJjB1bMaAU0zeRbBug
+	y2AsE8+3MiZJocMcjnkesX4nwkQyn+tUi8pQOoc98w236/ZnEKsszr+eP/CKhvAKQ2UdLzJeJAI
+	8MjiPqh0b+fQlsceGbc9NrCF5CwsllgukXWcPy91YYkBgB1Jo4qGjTJGVcbiAYc1xecSWU1RCV+
+	WdtUw3vgg/azOHn5KuD5UH685JVeFja88YTVQc0rEjdDek9LeB2iiJ+jKTUNg5bY4e05sxT39kW
+	GPDdas72S4QWMM86Ac55ZLd0ZK+DqUJp05n4R5v/qmGAAGgANWqwHSevz5JNq6e57uw==;
+Date: Sun, 22 Nov 2026 00:26:20 +0000
+From: =?ISO-8859-1?Q?V=EDt_Kaz=EDk?= <vitkazik@vitkazik.cz>
+To: miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com
+CC: tudor.ambarus@linaro.org, linux-mtd@lists.infradead.org,
+ linux-kernel@vger.kernel.org, m.felsch@pengutronix.de,
+ sshivamurthy@micron.com
+Subject: Re: [PATCH] mtd: spinand: micron: add support for MT29F1G01AAADD
+In-Reply-To: <20261121234125.16093-1-vitkazik@vitkazik.cz>
+References: <20261121234125.16093-1-vitkazik@vitkazik.cz>
+Message-ID: <DF6A2762-566D-4A13-892A-AA18B9F987F0@vitkazik.cz>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,26 +65,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120055114.182757740@linuxfoundation.org>
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, Nov 20, 2026 at 06:58:10AM +0100, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 6.18.65 release.
-> There are 2144 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+Hi,
+I found Marco Felsch's earlier submission for this chip (2019/2020)
+only after sending this patch, and have read that discussion now=2E My pat=
+ch was written independently from the datasheet, and it already uses
+4-bit/512-byte ECC as agreed there=2E
 
-Native arm64 build on Arch Linux ARM with 7.3 uapi headers and
-CONFIG_DEBUG_INFO_BTF=y works fine, without my local __u128
-patch.
+One difference is the free OOB area=2E I expose bytes 2-7 of each
+section, following Table 11, while Marco's version
+exposed bytes 4-7 so that the free area is always ECC-protected=2E I'm
+happy to switch to 4-7 if that is preferred=2E
 
-Booted on an Odroid HC4 (Amlogic S905X3), no regressions noticed.
+Marco, if you still plan to send an updated version, please say so and I w=
+ill happily step aside=2E
 
-Linux habicht 6.18.65-rc2-1-aarch64-msc-lts #1 SMP Fri Nov 20 23:02:16 CET 2026 aarch64 GNU/Linux
-
-The SPI NOR flash on the HC4 is now also detected,
-thanks to the HC4 DTS fix in this series.
-
-Tested-by: Marco Schirrmeister <mschirrmeister@gmail.com>
-
+Thanks,
+V=C3=ADt
